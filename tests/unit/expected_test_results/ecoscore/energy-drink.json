@@ -13,6 +13,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_food_code" : "18066",
          "id" : "en:water",
          "percent_estimate" : 75,
          "percent_max" : 100,
@@ -60,9 +61,14 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:caffeine"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 2,
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-2",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
@@ -96,5 +102,6 @@
          "shape" : "en:bottle-cap"
       }
    ],
+   "packagings_n" : 2,
    "unknown_ingredients_n" : 0
 }

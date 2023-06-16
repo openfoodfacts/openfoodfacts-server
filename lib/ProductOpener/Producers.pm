@@ -1804,6 +1804,7 @@ sub export_and_import_to_public_database ($args_ref) {
 	$args_ref->{csv_file} = $exported_file;
 	$args_ref->{export_id} = $export_id;
 	$args_ref->{comment} = "Import from producers platform";
+	$args_ref->{include_obsolete_products} = 1;
 	$args_ref->{include_images_paths} = 1;    # Export file paths to images
 	$args_ref->{exported_t} = $started_t;
 
@@ -2005,6 +2006,10 @@ sub update_export_status_for_csv_file_task ($job, $args_ref) {
 	$job->finish("done");
 
 	return;
+}
+
+sub queue_job {    ## no critic (Subroutines::RequireArgUnpacking)
+	return $minion->enqueue(@_);
 }
 
 1;

@@ -460,7 +460,8 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 			$response = $test_ua->delete(
 				$url,
 				Content => encode_utf8($test_ref->{body}),
-				"Content-Type" => "application/json; charset=utf-8" % $headers_in,
+				"Content-Type" => "application/json; charset=utf-8",
+				%$headers_in,
 			);
 		}
 		elsif ($method eq 'PATCH') {

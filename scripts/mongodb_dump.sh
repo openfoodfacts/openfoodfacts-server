@@ -46,5 +46,9 @@ ls -tp products_*.json.gz | grep -v '/$' | tail -n +14 | xargs -I {} rm -- {}
 echo $NEWTS > $TSFILE
 ls -tp products_*.json.gz > index.txt
 
+# Export recent changes collection
+# Export all fields but `ip` (contributor ip address)
+mongoexport --collection recent_changes --host $HOST --db $DB --fields=_id,comment,code,userid,rev,countries_tags,t,diffs | gzip -9 > "data/${PREFIX}_recent_changes.jsonl.gz"
+
 popd > /dev/null # data/delta
 popd > /dev/null # data

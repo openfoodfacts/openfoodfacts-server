@@ -109,13 +109,14 @@ Loads the AgriBalyse database.
 =cut
 
 sub load_agribalyse_data() {
-	my $agribalyse_details_by_step_csv_file = $data_root . "/ecoscore/agribalyse/AGRIBALYSE_vf.csv.2";
+	my $agribalyse_details_by_step_csv_file = $data_root . "/external-data/ecoscore/agribalyse/AGRIBALYSE_vf.csv.2";
 
 	my $rows_ref = [];
 
 	my $encoding = "UTF-8";
 
-	open(my $version_file, "<:encoding($encoding)", $data_root . '/ecoscore/agribalyse/AGRIBALYSE_version.txt')
+	open(my $version_file,
+		"<:encoding($encoding)", $data_root . '/external-data/ecoscore/agribalyse/AGRIBALYSE_version.txt')
 		or die($!);
 	chomp(my $agribalyse_version = <$version_file>);
 	close($version_file);
@@ -187,7 +188,7 @@ sub load_ecoscore_data_origins_of_ingredients_distances() {
 	my $csv = Text::CSV->new($csv_options_ref)
 		or die("Cannot use CSV: " . Text::CSV->error_diag());
 
-	my $csv_file = $data_root . "/ecoscore/data/distances.csv";
+	my $csv_file = $data_root . "/external-data/ecoscore/data/distances.csv";
 	my $encoding = "UTF-8";
 
 	$log->debug("opening ecoscore origins distances CSV file", {file => $csv_file}) if $log->is_debug();
@@ -287,7 +288,7 @@ sub load_ecoscore_data_origins_of_ingredients() {
 	my $csv = Text::CSV->new($csv_options_ref)
 		or die("Cannot use CSV: " . Text::CSV->error_diag());
 
-	my $csv_file = $data_root . "/ecoscore/data/fr_countries.csv";
+	my $csv_file = $data_root . "/external-data/ecoscore/data/fr_countries.csv";
 	my $encoding = "UTF-8";
 
 	$log->debug("opening ecoscore origins CSV file", {file => $csv_file}) if $log->is_debug();
@@ -381,8 +382,8 @@ sub load_ecoscore_data_packaging() {
 
 	# Eco_score_Calculateur.csv is not up to date anymore, instead use a copy of the table in
 	# https://docs.score-environnemental.com/methodologie/produit/emballages/score-par-materiaux
-	# my $csv_file = $data_root . "/ecoscore/data/Eco_score_Calculateur.csv.11";
-	my $csv_file = $data_root . "/ecoscore/data/fr_packaging_materials.csv";
+	# my $csv_file = $data_root . "/external-data/ecoscore/data/Eco_score_Calculateur.csv.11";
+	my $csv_file = $data_root . "/external-data/ecoscore/data/fr_packaging_materials.csv";
 	my $encoding = "UTF-8";
 
 	$ecoscore_data{packaging_materials} = {};
@@ -547,8 +548,8 @@ sub load_ecoscore_data_packaging() {
 
 	# Packaging shapes / formats
 
-	$csv_file = $data_root . "/ecoscore/data/Eco_score_Calculateur.csv.12";
-	$csv_file = $data_root . "/ecoscore/data/fr_packaging_shapes.csv";
+	$csv_file = $data_root . "/external-data/ecoscore/data/Eco_score_Calculateur.csv.12";
+	$csv_file = $data_root . "/external-data/ecoscore/data/fr_packaging_shapes.csv";
 	$encoding = "UTF-8";
 
 	$ecoscore_data{packaging_shapes} = {};

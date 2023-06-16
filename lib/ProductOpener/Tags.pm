@@ -59,6 +59,7 @@ BEGIN {
 		&get_property
 		&get_property_with_fallbacks
 		&get_inherited_property
+		&get_inherited_property_from_categories_tags
 		&get_inherited_properties
 		&get_tags_grouped_by_property
 
@@ -114,6 +115,7 @@ BEGIN {
 		&init_emb_codes
 
 		%tags_fields
+		%writable_tags_fields
 		%users_tags_fields
 		%taxonomy_fields
 		@drilldown_fields
@@ -232,6 +234,20 @@ To this initial list, taxonomized fields will be added by retrieve_tags_taxonomy
 	checkers => 1,
 	correctors => 1,
 	weighers => 1,
+);
+
+# Writable tags fields that can be written directly (e.g. categories, labels) and that are not derived from other fields (e.g. states)
+%writable_tags_fields = (
+	categories => 1,
+	labels => 1,
+	origins => 1,
+	manufacturing_places => 1,
+	emb_codes => 1,
+	allergens => 1,
+	traces => 1,
+	purchase_places => 1,
+	stores => 1,
+	countries => 1,
 );
 
 # Fields that are tags related to users
@@ -364,6 +380,36 @@ sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 		}
 	}
 	return;
+}
+
+=head2 get_inherited_property_from_categories_tags ($product_ref, $property) {
+
+Iterating from the most specific category, try to get a property for a tag by exploring the taxonomy (using parents).
+
+=head3 Parameters
+
+=head4 $product_ref - the product reference
+=head4 $property - the property - string
+
+=head3 Return
+
+The property if found.
+
+=cut
+
+sub get_inherited_property_from_categories_tags ($product_ref, $property) {
+	my $category_match;
+
+	if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
+
+		# Start with most specific category first
+		foreach my $category (reverse @{$product_ref->{categories_tags}}) {
+
+			$category_match = get_inherited_property("categories", $category, $property);
+			last if $category_match;
+		}
+	}
+	return $category_match;
 }
 
 =head2 get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fallback_lcs = ["xx", "en"]) {
@@ -919,6 +965,9 @@ sub get_from_cache ($tagtype, @files) {
 		$got_from_cache = get_file_from_cache("$cache_prefix.json", "$tag_www_root.json");
 	}
 	if ($got_from_cache) {
+		$got_from_cache = get_file_from_cache("$cache_prefix.full.json", "$tag_www_root.full.json");
+	}
+	if ($got_from_cache) {
 		print "obtained taxonomy for $tagtype from " . ('', 'local', 'GitHub')[$got_from_cache] . " cache.\n";
 		$cache_prefix = '';
 	}
@@ -965,6 +1014,7 @@ sub put_to_cache ($tagtype, $cache_prefix) {
 	my $tag_www_root = "$www_root/data/taxonomies/$tagtype";
 
 	put_file_to_cache("$tag_www_root.json", "$cache_prefix.json");
+	put_file_to_cache("$tag_www_root.full.json", "$cache_prefix.full.json");
 	put_file_to_cache("$tag_data_root.result.txt", "$cache_prefix.result.txt");
 	put_file_to_cache("$tag_data_root.result.sto", "$cache_prefix.result.sto");
 
@@ -1236,7 +1286,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 					# issue an error message and continue
 					my $msg
 						= "$lc:$lc_tagid already is associated to "
-						. $translations_from{$tagtype}{"$lc:$lc_tagid"}
+						. $translations_from{$tagtype}{"$lc:$lc_tagid"} . " ("
+						. $tagtype . ")"
 						. " - $lc:$lc_tagid cannot be mapped to entry $canon_tagid\n";
 					$errors .= "ERROR - " . $msg;
 					next;
@@ -1276,6 +1327,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 							. $synonyms{$tagtype}{$lc}{$tagid}
 							. " for entry "
 							. $translations_from{$tagtype}{$lc . ":" . $synonyms{$tagtype}{$lc}{$tagid}}
+							. " ($tagtype)"
 							. " - $lc:$tagid cannot be mapped to entry $canon_tagid / $lc:$lc_tagid\n";
 						$errors .= "ERROR - " . $msg;
 						next;
@@ -1301,10 +1353,8 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			# Disable die for the packaging taxonomy as some legit material and shape might have same name
-			# Temporarily (hopefully) disable die for the categories taxonomy, to give time to fix issues
 			unless (($tagtype eq "ingredients")
 				or ($tagtype eq "packaging")
-				or ($tagtype eq "categories")
 				or ($tagtype eq "packaging"))
 			{
 				die("Errors in the $tagtype taxonomy definition");
@@ -1938,9 +1988,7 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			print STDERR $errors;
 			# Disable die for the ingredients taxonomy that is merged with additives, minerals etc.
 			# Disable also for packaging taxonomy for some shapes and materials shares same names
-			# Also temporarily disable die for the categories taxonomy, to give use time to fix it.
-			# Tracking bug: https://github.com/openfoodfacts/openfoodfacts-server/issues/6382
-			unless (($tagtype eq "ingredients") or ($tagtype eq "packaging") or ($tagtype eq "categories")) {
+			unless (($tagtype eq "ingredients") or ($tagtype eq "packaging")) {
 				die("Errors in the $tagtype taxonomy definition");
 			}
 		}
@@ -3948,11 +3996,8 @@ sub canonicalize_tag_link ($tagtype, $tagid) {
 		die "ERROR: canonicalize_tag_link called for a taxonomy tagtype: $tagtype - tagid: $tagid - $!";
 	}
 
-	my $tag_lc = $lc;
-
 	if ($tagtype eq 'missions') {
 		if ($tagid =~ /\./) {
-			$tag_lc = $`;
 			$tagid = $';
 		}
 	}
@@ -3964,19 +4009,9 @@ sub canonicalize_tag_link ($tagtype, $tagid) {
 
 	my $link = "/$path/" . URI::Escape::XS::encodeURIComponent($tagid);
 
-	#if ($tag_lc ne $lc) {
-	#	my $test = '';
-	#	if ($data_root =~ /-test/) {
-	#		$test = "-test";
-	#	}
-	#	$link = "http://" . $tag_lc . $test . "." . $server_domain . $link;
-	#}
-
-	#print STDERR "tagtype: $tagtype - $lc: $lc - lang: $lang - link: $link\n";
 	$log->info("canonicalize_tag_link $tagtype $tagid $path $link") if $log->is_info();
 
 	return $link;
-
 }
 
 sub export_tags_hierarchy ($lc, $tagtype) {

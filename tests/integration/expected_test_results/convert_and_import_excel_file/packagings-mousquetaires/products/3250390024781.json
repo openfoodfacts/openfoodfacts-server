@@ -417,12 +417,12 @@
       "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-proteins",
       "en:nutrition-no-fiber",
-      "en:packagings-not-complete",
-      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-number-of-components-5",
+      "en:packagings-complete",
       "en:packagings-not-empty",
       "en:packagings-with-weights",
       "en:packagings-with-all-weights",
-      "en:packagings-with-all-weights-not-complete",
+      "en:packagings-with-all-weights-complete",
       "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-not-computed",
       "en:main-countries-new-product"
@@ -488,6 +488,8 @@
          "weight_specified" : 2.3
       }
    ],
+   "packagings_complete" : 1,
+   "packagings_n" : 5,
    "photographers_tags" : [],
    "pnns_groups_1" : "unknown",
    "pnns_groups_1_tags" : [

@@ -1,0 +1,118 @@
+{
+   "code" : "1234567890100",
+   "errors" : [
+      {
+         "field" : {
+            "id" : "stores"
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "invalid_type_must_be_array",
+            "lc_name" : "Invalid type: must be an array",
+            "name" : "Invalid type: must be an array"
+         }
+      }
+   ],
+   "product" : {
+      "categories" : "coffee",
+      "categories_hierarchy" : [
+         "en:plant-based-foods-and-beverages",
+         "en:plant-based-foods",
+         "en:coffees"
+      ],
+      "categories_tags" : [
+         "en:plant-based-foods-and-beverages",
+         "en:plant-based-foods",
+         "en:coffees"
+      ],
+      "categories_tags_en" : [
+         "Plant-based foods and beverages",
+         "Plant-based foods",
+         "Coffees"
+      ],
+      "labels" : "en:organic,fr:max havelaar,vegan,Something unrecognized",
+      "labels_hierarchy" : [
+         "en:organic",
+         "en:vegetarian",
+         "en:fair-trade",
+         "en:vegan",
+         "en:max-havelaar",
+         "en:Something unrecognized"
+      ],
+      "labels_tags" : [
+         "en:organic",
+         "en:vegetarian",
+         "en:fair-trade",
+         "en:vegan",
+         "en:max-havelaar",
+         "en:something-unrecognized"
+      ],
+      "labels_tags_en" : [
+         "Organic",
+         "Vegetarian",
+         "Fair trade",
+         "Vegan",
+         "Max Havelaar",
+         "Something-unrecognized"
+      ]
+   },
+   "status" : "success_with_errors",
+   "warnings" : [
+      {
+         "field" : {
+            "default_value" : "en",
+            "id" : "tags_lc"
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "brands_tags",
+            "value" : [
+               "Some brand"
+            ]
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "unrecognized_field",
+            "lc_name" : "Unrecognized field",
+            "name" : "Unrecognized field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "unknown_tags",
+            "value" : [
+               "some value"
+            ]
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "unrecognized_field",
+            "lc_name" : "Unrecognized field",
+            "name" : "Unrecognized field"
+         }
+      }
+   ]
+}
