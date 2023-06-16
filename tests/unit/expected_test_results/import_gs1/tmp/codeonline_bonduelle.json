@@ -1,0 +1,450 @@
+{
+   "tradeItem" : {
+      "brandOwner" : {
+         "gln" : "3010836800139",
+         "partyName" : "BONDUELLE SAS"
+      },
+      "gdsnTradeItemClassification" : {
+         "gpcCategoryCode" : "10000005"
+      },
+      "gtin" : "03083681054286",
+      "informationProviderOfTradeItem" : {
+         "gln" : "3010836800139",
+         "partyName" : "BONDUELLE EUROPE LONG LIFE"
+      },
+      "isTradeItemAConsumerUnit" : "true",
+      "targetMarket" : {
+         "targetMarketCountryCode" : "250"
+      },
+      "tradeItemContactInformation" : [
+         {
+            "contactAddress" : "Bonduelle Europe Long Life La Woestyne 59173 RENESCURE",
+            "contactName" : "Bonduelle Europe Long Life",
+            "contactTypeCode" : "BZL",
+            "structuredAddress" : {
+               "city" : "RENESCURE",
+               "postalCode" : "59173",
+               "streetAddress" : "La Woestyne"
+            }
+         },
+         {
+            "contactAddress" : "Service consommateurs Bonduelle BP 30173  Villeneuve d'Ascq",
+            "contactName" : "Service consommateurs Bonduelle",
+            "contactTypeCode" : "CXC",
+            "structuredAddress" : {
+               "city" : "Villeneuve d'Ascq",
+               "streetAddress" : "BP 30173"
+            }
+         }
+      ],
+      "tradeItemInformation" : {
+         "extension" : {
+            "allergen_information:allergenInformationModule" : {
+               "allergenRelatedInformation" : [
+                  []
+               ]
+            },
+            "consumer_instructions:consumerInstructionsModule" : {
+               "consumerInstructions" : {
+                  "consumerStorageInstructions" : {
+                     "#" : "Modes de conservation : Congélateur *** à -18°C : Plusieurs mois Dans le casier à glaçons de votre réfrigérateur : 3 jours Réfrigérateur domestique : 24 heures",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            },
+            "diet_information:dietInformationModule" : {
+               "dietInformation" : {
+                  "dietTypeInformation" : [
+                     {
+                        "dietTypeCode" : "VEGETARIAN"
+                     },
+                     {
+                        "dietTypeCode" : "VEGAN"
+                     }
+                  ]
+               }
+            },
+            "food_and_beverage_ingredient:foodAndBeverageIngredientModule" : {
+               "ingredientStatement" : {
+                  "#" : "Ingrédients: Champignons de Paris.",
+                  "@" : {
+                     "languageCode" : "fr"
+                  }
+               },
+               "isIngredientRelevantDataProvided" : "TRUE"
+            },
+            "nutritional_information:nutritionalInformationModule" : {
+               "isNutrientRelevantDataProvided" : "true",
+               "nutrientHeader" : [
+                  {
+                     "dailyValueIntakeReference" : {
+                        "#" : "2000",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "nutrientDetail" : [
+                        {
+                           "dailyValueIntakePercent" : "1",
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "APPROXIMATELY",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "ENER-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "25",
+                                 "@" : {
+                                    "measurementUnitCode" : "E14"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "APPROXIMATELY",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "ENER-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "103",
+                                 "@" : {
+                                    "measurementUnitCode" : "KJO"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "1",
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "APPROXIMATELY",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FASAT",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0.2",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "1",
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "APPROXIMATELY",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FAT",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0.7",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "0",
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "APPROXIMATELY",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FIBTG",
+                           "quantityContained" : [
+                              {
+                                 "#" : "2.4",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "5",
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "APPROXIMATELY",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "PRO-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "2.5",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "0",
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "APPROXIMATELY",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "CHOAVL",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0.9",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "0",
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "LESS_THAN",
+                           "measurementPrecisionCode" : "LESS_THAN",
+                           "nutrientTypeCode" : "SALTEQ",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0.01",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "0",
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "APPROXIMATELY",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "SUGAR-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0.2",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        }
+                     ],
+                     "preparationStateCode" : "UNPREPARED",
+                     "servingSize" : {
+                        "#" : "100",
+                        "@" : {
+                           "measurementUnitCode" : "GRM"
+                        }
+                     },
+                     "servingSizeDescription" : {
+                        "#" : "Pour 100g de produit",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     }
+                  },
+                  {
+                     "dailyValueIntakeReference" : {
+                        "#" : "2000",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "nutrientDetail" : [
+                        {
+                           "dailyValueIntakePercent" : "1",
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "APPROXIMATELY",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "CHOAVL",
+                           "quantityContained" : [
+                              {
+                                 "#" : "1.4",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "2",
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "APPROXIMATELY",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "ENER-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "38",
+                                 "@" : {
+                                    "measurementUnitCode" : "E14"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "APPROXIMATELY",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "ENER-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "158",
+                                 "@" : {
+                                    "measurementUnitCode" : "KJO"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "2",
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "APPROXIMATELY",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FASAT",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0.3",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "2",
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "APPROXIMATELY",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FAT",
+                           "quantityContained" : [
+                              {
+                                 "#" : "1.1",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "0",
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "APPROXIMATELY",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FIBTG",
+                           "quantityContained" : [
+                              {
+                                 "#" : "3.6",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "8",
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "APPROXIMATELY",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "PRO-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "3.8",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "0",
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "LESS_THAN",
+                           "measurementPrecisionCode" : "LESS_THAN",
+                           "nutrientTypeCode" : "SALTEQ",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0.01",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "0",
+                           "dailyValueIntakePercentMeasurementPrecisionCode" : "APPROXIMATELY",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "SUGAR-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0.3",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        }
+                     ],
+                     "preparationStateCode" : "UNPREPARED",
+                     "servingSize" : {
+                        "#" : "150",
+                        "@" : {
+                           "measurementUnitCode" : "GRM"
+                        }
+                     },
+                     "servingSizeDescription" : {
+                        "#" : "1 PORTION = 150 GR",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     }
+                  }
+               ]
+            },
+            "place_of_item_activity:placeOfItemActivityModule" : {
+               "placeOfProductActivity" : {
+                  "countryOfOrigin" : {
+                     "countryCode" : "250"
+                  }
+               }
+            },
+            "referenced_file_detail_information:referencedFileDetailInformationModule" : {
+               "referencedFileHeader" : [
+                  {
+                     "fileEffectiveEndDateTime" : "2050-10-09T00:00:00+00:00",
+                     "fileEffectiveStartDateTime" : "2019-10-09T00:00:00+00:00",
+                     "referencedFileTypeCode" : "PRODUCT_IMAGE",
+                     "uniformResourceIdentifier" : "https://mediacenter.bonduelle.com/cdn/201910/03083681054286_A1C1_s01.jpg"
+                  }
+               ]
+            },
+            "trade_item_description:tradeItemDescriptionModule" : {
+               "tradeItemDescriptionInformation" : {
+                  "brandNameInformation" : {
+                     "brandName" : "BONDUELLE"
+                  },
+                  "descriptionShort" : {
+                     "#" : "Champignons Emincés Epais 600g",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  },
+                  "regulatedProductName" : {
+                     "#" : "Champignons de Paris surgelés émincés épais",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  },
+                  "tradeItemDescription" : {
+                     "#" : "Le Champignon de Paris Emincé Epais",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  },
+                  "variantDescription" : {
+                     "#" : "SGP1_DMY015 / V0001",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            },
+            "trade_item_measurements:tradeItemMeasurementsModule" : {
+               "tradeItemMeasurements" : {
+                  "netContent" : {
+                     "#" : "600",
+                     "@" : {
+                        "measurementUnitCode" : "GRM"
+                     }
+                  },
+                  "netContentStatement" : {
+                     "#" : "600 GR",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "tradeItemSynchronisationDates" : {
+         "lastChangeDateTime" : "2020-09-15T14:11:32.613+02:00"
+      },
+      "tradeItemUnitDescriptorCode" : "BASE_UNIT_OR_EACH"
+   }
+}

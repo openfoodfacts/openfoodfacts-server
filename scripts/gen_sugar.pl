@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -52,31 +52,29 @@ use JSON::PP;
 # Generate a list of the top brands, categories, users, additives etc.
 
 my @fields = qw (
-brands
-categories
-packaging
-origins
-ingredients
-labels
-nutriments
-traces
-users
-photographers
-informers
-correctors
-checkers
-additives
-allergens
-emb_codes
-cities
-purchase_places
-stores
-ingredients_from_palm_oil
-ingredients_that_may_be_from_palm_oil
-states
+	brands
+	categories
+	packaging
+	origins
+	ingredients
+	labels
+	nutriments
+	traces
+	users
+	photographers
+	informers
+	correctors
+	checkers
+	additives
+	allergens
+	emb_codes
+	cities
+	purchase_places
+	stores
+	ingredients_from_palm_oil
+	ingredients_that_may_be_from_palm_oil
+	states
 );
-
-
 
 # foreach my $l (values %lang_lc) {
 
@@ -88,9 +86,7 @@ foreach my $l ('en') {
 	my $fields_ref = {code => 1, product_name => 1, brands => 1, quantity => 1, nutriments => 1};
 	my %tags = ();
 
-
-
-	my $query_ref = {lc=>$lc, states_tags=>'en:complete'};
+	my $query_ref = {lc => $lc, states_tags => 'en:complete'};
 	#$query_ref->{"nutriments.sugars_100g"}{ '$gte'}  = 0.01;
 	# -> does not seem to work for sugars, maybe some string values?!
 
@@ -99,7 +95,7 @@ foreach my $l ('en') {
 	my %codes = ();
 	my $html = '';
 
-			$html .= <<HTML
+	$html .= <<HTML
 <initjs>
     oTable = \$('#tagstable').DataTable({
 	language: {
@@ -117,13 +113,10 @@ foreach my $l ('en') {
 <link rel="stylesheet" href="/js/datatables.min.css" />
 </header>
 HTML
-;
+		;
 
-	$html .= '<table id="tagstable"><thead><tr><th>code</th><th>name</th><th>complete name</th><th>brands</th><th>quantity</th><th>g / cl</th><th>sucre g</th><th>cubes</th><th>sucres/100g|cl</th></tr></thead><tbody>';
-
-
-
-
+	$html
+		.= '<table id="tagstable"><thead><tr><th>code</th><th>name</th><th>complete name</th><th>brands</th><th>quantity</th><th>g / cl</th><th>sucre g</th><th>cubes</th><th>sucres/100g|cl</th></tr></thead><tbody>';
 
 	my @ids = ();
 
@@ -146,31 +139,31 @@ HTML
 
 		my $x = 1;
 		if ($q =~ /(mg)$/) {
-			$q  = $`;
+			$q = $`;
 			$x = 0.1;
 		}
 		if ($q =~ /(kg)$/) {
-			$q  = $`;
+			$q = $`;
 			$x = 1000;
 		}
 		if ($q =~ /(g)$/) {
-			$q  = $`;
+			$q = $`;
 			$x = 1;
 		}
 		if ($q =~ /(ml)$/) {
-			$q  = $`;
-			$x = 1
+			$q = $`;
+			$x = 1;
 		}
 		if ($q =~ /(cl)$/) {
-			$q  = $`;
+			$q = $`;
 			$x = 10;
 		}
 		if ($q =~ /(dl)$/) {
-			$q  = $`;
+			$q = $`;
 			$x = 100;
 		}
 		if ($q =~ /(l)$/) {
-			$q  = $`;
+			$q = $`;
 			$x = 1000;
 		}
 
@@ -189,68 +182,80 @@ HTML
 
 		my $code = $product_ref->{"code"};
 
+		if (    ($product_ref->{quantity} =~ /^\d+\s?(mg|g|kg|ml|dl|cl|l)\s*$/i)
+			and ($qx <= 2000)
+			and ($sc <= 75)
+			and ($sc > 1))
+		{
 
+			my $firstbrand = $product_ref->{brands};
+			$firstbrand =~ s/,.*//;
 
-		if (($product_ref->{quantity} =~ /^\d+\s?(mg|g|kg|ml|dl|cl|l)\s*$/i) and ($qx <= 2000) and ($sc <= 75) and ($sc > 1)) {
+			my $generic = '';
+			if ($product_ref->{generic_name} =~ /\w/) {
+				$generic = $product_ref->{generic_name} . "<br/>";
+			}
 
-		my $firstbrand = $product_ref->{brands};
-		$firstbrand =~ s/,.*//;
+			my $marques;
+			my $brands = $product_ref->{brands};
+			if ($brands =~ /,/) {
+				$marques = "Brands: <b>$brands</b>";
+				$marques =~ s/,/, /g;
+			}
+			else {
+				$marques = "Brand: <b>$brands</b>";
+			}
 
-		my $generic = '';
-		if ($product_ref->{generic_name} =~ /\w/) {
-			$generic = $product_ref->{generic_name} . "<br/>";
-		}
+			my $quantity = lc($product_ref->{quantity});
+			$quantity =~ s/(\d)([a-z])/$1 $2/i;
+			$quantity =~ s/l/L/;
 
-		my $marques;
-		my $brands = $product_ref->{brands};
-		if ($brands =~ /,/) {
-			$marques = "Brands: <b>$brands</b>";
-			$marques =~ s/,/, /g;
-		}
-		else {
-			$marques = "Brand: <b>$brands</b>";
-		}
+			my $name = $product_ref->{product_name};
+			$name =~ s/$firstbrand$//e;
+			$name =~ s/(\s|-|\/)+$//;
+			if ($name !~ /$firstbrand/) {
+				$name .= " " . $firstbrand;
+			}
 
-		my $quantity = lc($product_ref->{quantity});
-		$quantity =~ s/(\d)([a-z])/$1 $2/i;
-		$quantity =~ s/l/L/;
+			my $escapedname = uri_escape($name);
 
-		my $name = $product_ref->{product_name};
-		$name =~ s/$firstbrand$//e;
-		$name =~ s/(\s|-|\/)+$//;
-		if ($name !~ /$firstbrand/) {
-			$name .= " " . $firstbrand;
-		}
+			$name =~ s/"//g;
 
-		my $escapedname = uri_escape($name);
+			my $id = get_string_id_for_lang("no_language", $name);
 
-		$name =~ s/"//g;
+			$html
+				.= "<tr><td>"
+				. $product_ref->{code}
+				. "</td><td><a href=\"https://howmuchsugar.in/$id\">"
+				. $product_ref->{product_name}
+				. "</a></td><td>"
+				. $name
+				. "</td><td>"
+				. $product_ref->{brands}
+				. "</td><td>"
+				. $product_ref->{quantity}
+				. "</td><td>$q x $x = $qx</td><td>$s</td><td>$sc</td><td>"
+				. $product_ref->{"nutriments"}{"sugars_100g"}
+				. "</td></tr>\n";
 
-		my $id = get_string_id_for_lang("no_language", $name);
+			my $description
+				= "How much sugar is there in $name? Guess the equivalent amount of sugar cubes with this fun and educative game!";
 
-		$html .= "<tr><td>" . $product_ref->{code} . "</td><td><a href=\"https://howmuchsugar.in/$id\">" . $product_ref->{product_name} . "</a></td><td>" . $name . "</td><td>" . $product_ref->{brands} . "</td><td>" . $product_ref->{quantity}
-			. "</td><td>$q x $x = $qx</td><td>$s</td><td>$sc</td><td>" . $product_ref->{"nutriments"}{"sugars_100g"} . "</td></tr>\n";
+			$product_ref->{jqm} = 1;
+			my $img = display_image($product_ref, 'front', 200);
+			$img =~ s/src="\//src="https:\/\/world.openfoodfacts.org\//;
+			my $img_url = '';
+			my $zoom = '';
+			if ($img =~ /src="(.*?)"/) {
+				$img_url = $1;
+				$img_url =~ s/\.200/\.400/g;
+				$zoom = '<a href="' . $img_url . '" class="nivoZoom topRight">' . $img . '</a>';
+			}
+			else {
+				next;
+			}
 
-
-
-
-		my $description = "How much sugar is there in $name? Guess the equivalent amount of sugar cubes with this fun and educative game!";
-
-		$product_ref->{jqm} = 1;
-		my $img = display_image($product_ref, 'front', 200);
-		$img =~ s/src="\//src="https:\/\/world.openfoodfacts.org\//;
-		my $img_url = '';
-		my $zoom = '';
-		if ($img =~ /src="(.*?)"/) {
-			$img_url = $1;
-			$img_url =~ s/\.200/\.400/g;
-			$zoom = '<a href="' . $img_url . '" class="nivoZoom topRight">' . $img . '</a>';
-		}
-		else {
-			next;
-		}
-
-		my $page = <<HTML
+			my $page = <<HTML
 <!DOCTYPE html>
 <html>
 <head>
@@ -602,22 +607,21 @@ You can also correct it yourself on Open Food Facts.</p>
 </body>
 </html>
 HTML
-;
+				;
 
-		open (my $OUT, ">:encoding(UTF-8)", "/srv/sugar/html/$id.html");
-		print $OUT $page;
-		close $OUT;
+			open(my $OUT, ">:encoding(UTF-8)", "/srv/sugar/html/$id.html");
+			print $OUT $page;
+			close $OUT;
 
-		push @ids, $id;
+			push @ids, $id;
 
 		}
 
 	}
 
-
 	$html .= "</tbody></table>";
 
-	open (my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/sugar.html");
+	open(my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/sugar.html");
 	print $OUT $html;
 	close $OUT;
 

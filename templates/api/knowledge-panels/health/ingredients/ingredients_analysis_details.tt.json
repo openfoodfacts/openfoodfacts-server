@@ -1,0 +1,51 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "size": "small",
+    // We display an orange icon when we could not recognize all ingredients
+    // and a grey icon otherwise (no a green icon that could be interpreted as all ingredients being good)
+    [% IF panel.unknown_ingredients %]
+    "evaluation": "average",
+    [% ELSE %]
+    "evaluation": "unknown",
+    [% END %]
+    "title_element": {
+        "title":"[% lang("ingredients_analysis_details") %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/off-magnifying-glass.svg",
+        "icon_size": "small",
+        "icon_color_from_evaluation": true,        
+        [% IF panel.unknown_ingredients %]
+        "subtitle": "[% lang("we_need_your_help") %]",
+        [% END %]
+    },    
+    "elements": [
+        [% IF panel.unknown_ingredients %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "ingredients_analysis_help",
+            }
+        },     
+        [% END %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `[% panel.ingredients_text %]`,
+            }
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `[% panel.ingredients_list %]`,
+            }
+        },
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `[% panel.specific_ingredients %]`,
+            }
+        },                
+    ]
+}

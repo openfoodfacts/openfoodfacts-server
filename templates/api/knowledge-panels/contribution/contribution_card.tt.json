@@ -1,0 +1,22 @@
+[%# A panel with information useful to contributors %]
+{
+    "type": "card",
+    "expanded": true,
+    "topics": [
+        "contribution"
+    ],
+    "title_element": {
+        "title": "[% lang('contribution_panel_title') %]",
+    },
+    "elements": [
+        [%# Panels displaying data_quality errors / warnings / info %]
+        [% FOREACH panel_name IN panel.quality_panels %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "[% panel_name %]",
+            },
+        },
+        [% END %]
+    ],
+}

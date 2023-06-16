@@ -1,7 +1,7 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -41,23 +41,24 @@ These emails can be used to reply to user queries, submit feedback, or to reques
 
 package ProductOpener::Mail;
 
-use utf8;
-use Modern::Perl '2017';
-use Exporter    qw< import >;
+use ProductOpener::PerlStandards;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&send_email
 		&send_email_to_admin
 		&send_email_to_producers_admin
 
-		);    # symbols to export on request
+		$LOG_EMAIL_START
+		$LOG_EMAIL_END
+
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -65,7 +66,64 @@ use ProductOpener::Lang qw/:all/;
 use Email::Stuffer;
 use Log::Any qw($log);
 
+=head1 CONSTANTS
+
+=head2 LOG_EMAIL_START
+Text used before logging an email
+=cut
+
+$LOG_EMAIL_START = "---- EMAIL START ----\n";
+
+=head2 LOG_EMAIL_END
+Text used after logging an email
+=cut
+
+$LOG_EMAIL_END = "\n---- EMAIL END ----\n";
+
 =head1 FUNCTIONS
+
+=head2 _send_email($mail)
+
+Secure way to send an email (private method)
+
+Depending on $log_emails configuration it might just log the email instead of sending it.
+
+Errors are logged.
+
+=head3 Arguments
+
+=head4 Email::Stuffer object $mail
+
+The email should be ready to be send
+
+=cut
+
+sub _send_email ($mail) {
+	my $error;
+	if (!$log_emails) {
+		# really send email
+		local $@;
+		eval {$mail->send;};
+		$error = $@;
+	}
+	else {
+		# just log mail
+		my $text = $mail->as_string();
+		# replace \r\n by \n
+		$text =~ s/\r\n/\n/g;
+		$log->info("Email that would have been sent:\n\n$LOG_EMAIL_START$text$LOG_EMAIL_END");
+	}
+	if ($error) {
+		# log error, do not reveal email content
+		# /s is to threat \n as normal chars, and we evaluate in list context to get matched group
+		# not that mail use \r\n as line ending
+		my ($summary,) = ($mail->as_string() =~ /(From:.*\nSubject:[^\r\n]+)\r\n/s);
+		$summary =~ s/\r\n/ - /g;
+		$log->error("Error sending mail $summary: $error");
+	}
+
+	return $error ? 1 : 0;
+}
 
 =head2 send_email( USER_REF, SUBJECT, TEXT )
 
@@ -91,28 +149,15 @@ On the other hand, if there was no error, it returns 0 indicating that the email
 
 =cut
 
-sub send_email($$$)
-{
-	my $user_ref = shift;
-	my $subject = shift;
-	my $text = shift;
-	
+sub send_email ($user_ref, $subject, $text) {
+
 	my $email = $user_ref->{email};
 	my $name = $user_ref->{name};
-	
-	$text =~ s/<NAME>/$name/g;
- 
-	eval {
-		Email::Stuffer
-			->from( lang("site_name") . " <$contact_email>" )
-			->to( $name . " <$email>" )
-			->subject($subject)
-			->text_body($text)
-			->send;
-	};
 
-    return $@ ? 1 : 0;
-    
+	$text =~ s/<NAME>/$name/g;
+	my $mail = Email::Stuffer->from(lang("site_name") . " <$contact_email>")->to($name . " <$email>")->subject($subject)
+		->text_body($text);
+	return _send_email($mail);
 }
 
 =head1 FUNCTIONS
@@ -134,21 +179,11 @@ On the other hand, if there was no error, it returns 0 indicating that the email
 
 =cut
 
-sub send_email_to_admin($$)
-{
-	my $subject = shift;
-	my $text = shift;
+sub send_email_to_admin ($subject, $text) {
+	my $mail = Email::Stuffer->from(lang("site_name") . " <$contact_email>")->to(lang("site_name") . " <$admin_email>")
+		->subject($subject)->text_body($text);
 
-	eval {
-		Email::Stuffer
-			->from( lang("site_name") . " <$contact_email>" )
-			->to( lang("site_name") . " <$admin_email>" )
-			->subject($subject)
-			->text_body($text)
-			->send;
-	};
-
-    return $@ ? 1 : 0;
+	return _send_email($mail);
 }
 
 =head1 FUNCTIONS
@@ -170,25 +205,12 @@ On the other hand, if there was no error, it returns 1 indicating that email has
 
 =cut
 
-sub send_email_to_producers_admin($$)
-{
-	my $subject = shift;
-	my $text = shift;
+sub send_email_to_producers_admin ($subject, $text) {
+	my $mail
+		= Email::Stuffer->from(lang("site_name") . " <$contact_email>")->to(lang("site_name") . " <$producers_email>")
+		->subject($subject)->text_body($text)->html_body($text);
 
-	eval {
-		Email::Stuffer
-			->from( lang("site_name") . " <$contact_email>" )
-			->to( lang("site_name") . " <$producers_email>" )
-			->subject($subject)
-			->text_body($text)
-			->html_body($text)
-			->send;
-	};
-
-    return $@ ? 1 : 0;
+	return _send_email($mail);
 }
-
-
-
 
 1;

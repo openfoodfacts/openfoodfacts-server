@@ -1,0 +1,57 @@
+<!-- start templates/[% component.name %] -->
+
+[% IF server_options_private_products.defined && server_options_private_products %]
+
+    [% IF pro_moderator %]
+    [%# Form for moderators to switch org %]
+    <div class="row">
+        <div class="small-12 column v-space-short">
+            <div class="panel">
+                <h4> [% lang('producers_platform_moderation_title') %]</h4>
+                <p>
+                    [% IF user.pro_moderator_owner %]
+                        [% f_lang('f_pro_moderator_edit_owner_set', user.pro_moderator_owner) %]
+                    [% ELSE %]
+                        [% lang('pro_moderator_owner_not_set') %]
+                    [% END %]
+                </p>
+                <p>[% lang('pro_moderator_edit_owner_description') %]</p>
+                <form method="post" action="/cgi/user.pl">
+                    <input type="hidden" name="type" value="edit_owner">
+                    <input type="hidden" name="action" value="process">
+                    <input type="hidden" name="userid" value="[% user_id %]">
+                    <input type="text" name="pro_moderator_owner" value="" placeholder="[% lang('pro_moderator_edit_owner_placeholder') %]">
+                    <input type="submit" name=".submit" value="[% lang('pro_moderator_edit_owner') %]" class="button small">
+                </form>
+            </div>
+        </div>
+    </div>
+    [% END %]
+
+    [% IF !org_id.defined %]
+    <div class="row">
+        <div class="small-12 column v-space-short">
+            <div class="panel">
+                <p>[% lang('account_without_org') %]</p>
+            </div>
+        </div>
+    </div>        
+    [% END %]
+
+[% ELSE %]
+
+    [% IF org_id.defined %]
+    <div class="row">
+        <div class="small-12 column v-space-short">
+            <div class="panel">
+                <p>[% lang("you_are_on_the_public_database") %]<br>
+                    <a href="[% producers_platform_url %]">[% lang("manage_your_products_on_the_producers_platform") %]</a>
+                </p>
+            </div>
+        </div>
+    </div>        
+    [% END %]
+
+[% END %]
+
+<!-- end templates/[% component.name %] -->

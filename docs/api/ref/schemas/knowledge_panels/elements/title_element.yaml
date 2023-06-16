@@ -1,0 +1,30 @@
+title: title_element
+x-stoplight:
+  id: lox0wvl9bdgy2
+type: object
+description: The title of a panel.
+properties:
+  title:
+    type: string
+  grade:
+    type: string
+    description: Indicates that the panel corresponds to a A to E grade such as the Nutri-Score of the Eco-Score.
+    enum:
+      - a
+      - b
+      - c
+      - d
+      - e
+      - unknown
+  icon_url:
+    type: string
+  icon_color_from_evaluation:
+    type: string
+  icon_size:
+    type: string
+    description: |
+      If set to "small", the icon should be displayed at a small size.
+  type:
+    type: string
+    example: grade
+    description: 'Used to indicate a special type for the title, such as "grade" for Nutri-Score and Eco-Score.'
