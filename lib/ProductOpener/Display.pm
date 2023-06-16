@@ -3129,6 +3129,10 @@ sub display_tag ($request_ref) {
 	if (defined $tagtype) {
 
 		# check if there is a template to display additional fields from the taxonomy
+		# the template is set in the Config.pm file
+		# This feature was coded before the introduction of knowledge panels
+		# It is in maintenance mode, and should be reimplemented as facets knowledge panels
+		# (server side, or with client side facets knowledge panels)
 
 		if (exists $options{"display_tag_" . $tagtype}) {
 
@@ -3386,9 +3390,9 @@ HTML
 
 				if ((defined $propertyid{property}) or (defined $propertyid{abstract})) {
 
-					# abstract?
+					# wikipedia abstract?
 
-					if (defined $propertyid{abstract}) {
+					if ((defined $propertyid{abstract}) and ($fieldid eq "wikipedia")) {
 
 						my $site = $fieldid;
 
@@ -3588,6 +3592,14 @@ HTML
 							}
 							else {
 								$log->debug("display_tag - no date", {valueid => $valueid}) if $log->is_debug();
+							}
+
+							# abstract
+							if (exists $propertyid{abstract}) {
+								$display
+									.= "<blockquote>"
+									. $properties{$tagtype}{$canon_tagid}{$propertyid{abstract}}
+									. "</blockquote>";
 							}
 
 						}
@@ -3886,6 +3898,14 @@ HTML
 						$user_template_data_ref->{edit_profile} = 1;
 						$user_template_data_ref->{orgid} = $orgid;
 					}
+					if (defined $User{pro_moderator}) {
+						my @org_members;
+						foreach my $member_id (sort keys %{$user_or_org_ref->{members}}) {
+							my $member_user_ref = retrieve_user($member_id);
+							push @org_members, $member_user_ref;
+						}
+						$user_template_data_ref->{org_members} = \@org_members;
+					}
 
 					process_template('web/pages/org_profile/org_profile.tt.html',
 						$user_template_data_ref, \$profile_html)
@@ -3904,7 +3924,7 @@ HTML
 					$user_template_data_ref->{links} = [
 						{
 							text => sprintf(lang('contributors_products'), $products_title),
-							url => canonicalize_tag_link("contributors", get_string_id_for_lang("no_language", $tagid)),
+							url => canonicalize_tag_link("users", get_string_id_for_lang("no_language", $tagid)),
 						},
 						{
 							text => sprintf(lang('editors_products'), $products_title),

@@ -30,8 +30,12 @@ description:fr:La valeur de l'énergie en kJ doit être environ 4,2 fois plus gr
 en:Energy value in kcal greater than in kJ
 es:Valor energético en kcal mayor que en kJ
 fr:La valeur de l'énergie en kcal est plus grande qu'en kJ
-description:en:The energy value in kJ must be about 4.2 times greater than the value in kcal. The values could be inverted.
+description:en:The energy value in kJ must be about 4.2 times greater than the value in kcal. The values could be reversed.
 description:fr:La valeur de l'énergie en kJ doit être environ 4,2 fois plus grande que la valeur en kcal. Les valeurs sont peut être inversées.
+
+<en:Nutrition errors
+en:Energy value in kcal and kj are reversed
+description:en:The energy value in kJ must be about 4.2 times greater than the value in kcal. The values seems to be reversed.
 
 <en:Nutrition errors
 en:Energy value in kJ does not match value computed from other nutrients

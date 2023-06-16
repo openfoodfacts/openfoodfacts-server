@@ -37,10 +37,15 @@ ifneq (,$(wildcard ./${ENV_FILE}))
     export
 endif
 
+ifneq (${EXTRA_ENV_FILE},'')
+    -include ${EXTRA_ENV_FILE}
+    export
+endif
+
 
 HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
 # commands aliases
-DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
+DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # we run tests in a specific project name to be separated from dev instances
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner
@@ -350,10 +355,10 @@ rebuild_taxonomies: build_taxonomies
 create_external_volumes:
 	@echo "🥫 Creating external volumes (production only) …"
 # zfs clones hosted on Ovh3 as NFS
-	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw --opt device=:${NFS_VOLUMES_BASE_PATH}/users ${COMPOSE_PROJECT_NAME}_users
-	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw --opt device=:${NFS_VOLUMES_BASE_PATH}/products ${COMPOSE_PROJECT_NAME}_products
-	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw --opt device=:${NFS_VOLUMES_BASE_PATH}/images/products ${COMPOSE_PROJECT_NAME}_product_images
-	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw --opt device=:${NFS_VOLUMES_BASE_PATH}/orgs ${COMPOSE_PROJECT_NAME}_orgs
+	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/users ${COMPOSE_PROJECT_NAME}_users
+	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/products ${COMPOSE_PROJECT_NAME}_products
+	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/images/products ${COMPOSE_PROJECT_NAME}_product_images
+	docker volume create --driver=local --opt type=nfs --opt o=addr=${NFS_VOLUMES_ADDRESS},rw,nolock --opt device=:${NFS_VOLUMES_BASE_PATH}/orgs ${COMPOSE_PROJECT_NAME}_orgs
 # local data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/data ${COMPOSE_PROJECT_NAME}_html_data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata ${COMPOSE_PROJECT_NAME}_podata

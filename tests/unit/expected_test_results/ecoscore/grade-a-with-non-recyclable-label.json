@@ -428,6 +428,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "4003",
          "id" : "en:potato",
          "percent" : 39,
          "percent_estimate" : 39,
@@ -492,10 +493,8 @@
    "ingredients_with_specified_percent_sum" : 100,
    "ingredients_with_unspecified_percent_n" : 0,
    "ingredients_with_unspecified_percent_sum" : 0,
-   "ingredients_without_ciqual_codes" : [
-      "en:potato"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 8,
    "labels_tags" : [
       "en:eu-organic"
