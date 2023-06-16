@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -123,7 +123,8 @@ while (<STDIN>) {
 	$ip =~ s/\s.*//;
 	chomp($ip);
 
-	if ($line =~ /\/(\d+)\.json/) {
+	# Get the product code e.g. "GET /api/v0/product/4548022405787.json?fields=image_front_small_url,product_name HTTP/2.0"
+	if ($line =~ / \/api\/v(?:[^\/]+)\/product\/(\d+)/) {
 
 		$j++;
 		my $code = $1;

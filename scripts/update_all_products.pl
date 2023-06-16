@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -135,6 +135,7 @@ my $fix_nutrition_data = '';
 my $compute_main_countries = '';
 my $prefix_packaging_tags_with_language = '';
 my $fix_non_string_ids = '';
+my $assign_ciqual_codes = '';
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -188,6 +189,7 @@ GetOptions(
 	"fix-nutrition-data" => \$fix_nutrition_data,
 	"compute-main-countries" => \$compute_main_countries,
 	"prefix-packaging-tags-with-language" => \$prefix_packaging_tags_with_language,
+	"assign-ciqual-codes" => \$assign_ciqual_codes,
 ) or die("Error in command line arguments:\n\n$usage");
 
 use Data::Dumper;
@@ -208,8 +210,7 @@ my $unknown_fields = 0;
 
 foreach my $field (@fields_to_update) {
 	if (    (not defined $tags_fields{$field})
-		and (not defined $taxonomy_fields{$field})
-		and (not defined $hierarchy_fields{$field}))
+		and (not defined $taxonomy_fields{$field}))
 	{
 		print "Unknown field: $field\n";
 		$unknown_fields++;
@@ -259,7 +260,8 @@ if (    (not $process_ingredients)
 	and (scalar @fields_to_update == 0)
 	and (not $count)
 	and (not $just_print_codes)
-	and (not $prefix_packaging_tags_with_language))
+	and (not $prefix_packaging_tags_with_language)
+	and (not $assign_ciqual_codes))
 {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -350,7 +352,7 @@ use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
 my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
-my $products_collection = get_products_collection($socket_timeout_ms);
+my $products_collection = get_products_collection({timeout => $socket_timeout_ms});
 
 my $products_count = "";
 
@@ -1310,6 +1312,10 @@ while (my $product_ref = $cursor->next) {
 				$product_ref->{obsolete_since_date} = $mark_as_obsolete_since_date;
 				$product_values_changed = 1;
 			}
+		}
+
+		if ($assign_ciqual_codes) {
+			assign_ciqual_codes($product_ref);
 		}
 
 		if (not $pretend) {

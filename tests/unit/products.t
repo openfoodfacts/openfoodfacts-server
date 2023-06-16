@@ -234,4 +234,31 @@ foreach my $rem_field (@$fields_to_remove) {
 }
 is($product_ref->{name}, "test_prod");
 
+# Test that NOVA and estimated % of fruits and vegetables are ignored when determining if the nutrients are completed.
+$product_ref->{nutriments} = {
+	"fruits-vegetables-nuts-estimate-from-ingredients_100g" => 0,
+	"fruits-vegetables-nuts-estimate-from-ingredients_serving" => 0,
+	"nova-group" => 4,
+	"nova-group_100g" => 4,
+	"nova-group_serving" => 4
+};
+
+compute_completeness_and_missing_tags($product_ref, $product_ref, {});
+
+my $facts_to_be_completed_state_found = grep {/en:nutrition-facts-to-be-completed/} $product_ref->{states};
+my $facts_completed_state_found = grep {/en:nutrition-facts-completed/} $product_ref->{states};
+
+is($facts_completed_state_found, 0);
+is($facts_to_be_completed_state_found, 1);
+
+# Test preprocess_product_field
+is(preprocess_product_field('product_name', 'Test Product'), 'Test Product');
+is(preprocess_product_field('customer_service', 'abc@gmail.com'), 'abc@gmail.com');
+is(preprocess_product_field('categories', 'Beverages, email@example.com, Cola'), 'Beverages, , Cola');
+is(preprocess_product_field('ingredients', 'Water, Salt, abc@gmail.com'), 'Water, Salt, ');
+is(preprocess_product_field('origin', 'France'), 'France');
+is(preprocess_product_field('packaging', 'Aluminium, Can, abc@gmail.com'), 'Aluminium, Can, ');
+is(preprocess_product_field('labels', 'email@example.com, Green Dot'), ', Green Dot');
+is(preprocess_product_field('stores', 'Carrefour, abc@gmail.com'), 'Carrefour, ');
+
 done_testing();

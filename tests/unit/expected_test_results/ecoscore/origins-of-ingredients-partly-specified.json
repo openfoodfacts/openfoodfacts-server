@@ -420,6 +420,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "2028",
          "id" : "en:lemon-juice",
          "percent_estimate" : 10,
          "percent_max" : 10,
@@ -471,9 +472,15 @@
    "ingredients_with_specified_percent_sum" : 90,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 10,
+   "ingredients_without_ciqual_codes" : [
+      "en:apricot",
+      "en:cane-sugar"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 8,
    "lc" : "en",
    "misc_tags" : [
+      "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
@@ -489,6 +496,9 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 70
    },
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [],
    "packagings" : [],
    "unknown_ingredients_n" : 0
 }

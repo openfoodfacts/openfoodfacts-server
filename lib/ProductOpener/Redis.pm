@@ -26,7 +26,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use Log::Any qw/$log/;
-use ProductOpener::Config2 qw/$redis_url/;
+use ProductOpener::Config qw/$redis_url/;
 use Redis;
 
 =head2 $redis_client

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -158,8 +158,8 @@ $fields_ref->{ecoscore_extended_data} = 1;
 
 # 300 000 ms timeout so that we can export the whole database
 # 5mins is not enough, 50k docs were exported
-my $cursor = get_products_collection(3 * 60 * 60 * 1000)->query({'empty' => {"\$ne" => 1}, 'obsolete' => {"\$ne" => 1}})
-	->sort({created_t => 1})->fields($fields_ref);
+my $cursor = get_products_collection({timeout => 3 * 60 * 60 * 1000})
+	->query({'empty' => {"\$ne" => 1}, 'obsolete' => {"\$ne" => 1}})->sort({created_t => 1})->fields($fields_ref);
 
 $cursor->immortal(1);
 

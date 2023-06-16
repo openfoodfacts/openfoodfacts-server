@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -93,6 +93,11 @@ BEGIN {
 
 		&has_specific_ingredient_property
 
+		&init_origins_regexps
+		&match_ingredient_origin
+		&parse_origins_from_text
+
+		&assign_ciqual_codes
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -134,11 +139,23 @@ my $commas = qr/(?:\N{U+002C}|\N{U+FE50}|\N{U+FF0C}|\N{U+3001}|\N{U+FE51}|\N{U+F
 my $stops = qr/(?:\N{U+002E}|\N{U+FE52}|\N{U+FF0E}|\N{U+3002}|\N{U+FE61})/i;
 
 # '(' and other opening brackets ('Punctuation, Open' without QUOTEs)
+# U+201A "‚" (Single Low-9 Quotation Mark)
+# U+201E "„" (Double Low-9 Quotation Mark)
+# U+276E "❮" (Heavy Left-Pointing Angle Quotation Mark Ornament)
+# U+2E42 "⹂" (Double Low-Reversed-9 Quotation Mark)
+# U+301D "〝" (Reversed Double Prime Quotation Mark)
+# U+FF08 "（" (Fullwidth Left Parenthesis) used in some countries (Japan)
 my $obrackets = qr/(?![\N{U+201A}|\N{U+201E}|\N{U+276E}|\N{U+2E42}|\N{U+301D}|\N{U+FF08}])[\p{Ps}]/i;
+
 # ')' and other closing brackets ('Punctuation, Close' without QUOTEs)
+# U+276F "❯" (Heavy Right-Pointing Angle Quotation Mark Ornament )
+# U+301E "⹂" (Double Low-Reversed-9 Quotation Mark)
+# U+301F "〟" (Low Double Prime Quotation Mark)
+# U+FF09 "）" (Fullwidth Right Parenthesis) used in some countries (Japan)
 my $cbrackets = qr/(?![\N{U+276F}|\N{U+301E}|\N{U+301F}|\N{U+FF09}])[\p{Pe}]/i;
 
-my $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|( $dashes ))|(\/)/i
+# U+FF0F "／" (Fullwidth Solidus) used in some countries (Japan)
+my $separators_except_comma = qr/(;|:|$middle_dot|\[|\{|\(|\N{U+FF08}|( $dashes ))|(\/|\N{U+FF0F})/i
 	;    # separators include the dot . followed by a space, but we don't want to separate 1.4 etc.
 
 my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
@@ -150,7 +167,8 @@ my %may_contain_regexps = (
 	en =>
 		"it may contain traces of|possible traces|traces|may also contain|also may contain|may contain|may be present",
 	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
-	cs => "může obsahovat",
+	bs => "može da sadrži",
+	cs => "může obsahovat|může obsahovat stopy",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann enthalten|Kann Spuren|Spuren",
 	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
@@ -159,7 +177,7 @@ my %may_contain_regexps = (
 		"saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
 	fr =>
 		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
-	hr => "može sadržavati|može sadržati",
+	hr => "Mogući sadržaj|može sadržavati|može sadržavati tragove|može sadržati|proizvod može sadržavati|sadrži",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
@@ -306,6 +324,8 @@ my %abbreviations = (
 	fi => [["mikro.", "mikrobiologinen"], ["mm.", "muun muassa"], ["sis.", "sisältää"], ["n.", "noin"],],
 
 	fr => [["vit.", "Vitamine"], ["Mat. Gr.", "Matières Grasses"],],
+
+	hr => [["temp.", "temperaturi"],],
 
 	nb => [["bl. a.", "blant annet"], ["inkl.", "inklusive"], ["papr.", "paprika"],],
 
@@ -1011,6 +1031,38 @@ sub match_ingredient_origin ($product_lc, $text_ref, $matched_ingredient_ref) {
 
 		return 1;
 	}
+	# Try to match without a "from" marker (e.g. "Strawberry France")
+	elsif ($$text_ref
+		=~ /\s*([^,.;:]+)\s+((?:$origins_regexp)(?:(?:,|$and_or)(?:\s?)(?:$origins_regexp))*)\s*(?:,|;|\.| - |$)/i)
+	{
+		# Note: the regexp above does not currently match multiple origins with commas (e.g. "Origins of milk: UK, UE")
+		# in order to not overmatch something like "Origin of milk: UK, some other mention."
+		# In the future, we could try to be smarter and match more if we can recognize the next words exist in the origins taxonomy.
+
+		$matched_ingredient_ref->{ingredient} = $1;
+		$matched_ingredient_ref->{origins} = $2;
+		$matched_ingredient_ref->{matched_text} = $&;
+
+		# keep the matched ingredient only if it is a known ingredient in the taxonomy, in order to avoid false positives
+		# e.g. "something made in France" should not be turned into ingredient "something made in" + origin "France"
+		if (
+			not(
+				exists_taxonomy_tag(
+					"ingredients",
+					canonicalize_taxonomy_tag($product_lc, "ingredients", $matched_ingredient_ref->{ingredient})
+				)
+			)
+			)
+		{
+			$matched_ingredient_ref = {};
+		}
+		else {
+			# Remove the matched text
+			$$text_ref = $` . ' ' . $';
+
+			return 1;
+		}
+	}
 	return 0;
 }
 
@@ -1078,6 +1130,9 @@ Array of specific ingredients.
 sub parse_origins_from_text ($product_ref, $text) {
 
 	my $product_lc = $product_ref->{lc};
+
+	# Normalize single quotes
+	$text =~ s/’/'/g;
 
 	# Go through the ingredient lists multiple times
 	# as long as we have one match
@@ -1226,8 +1281,7 @@ sub parse_ingredients_text ($product_ref) {
 		my $processing = '';
 
 		$debug_ingredients and $log->debug("analyze_ingredients_function", {string => $s}) if $log->is_debug();
-
-		# find the first separator or ( or [ or :
+		# find the first separator or ( or [ or : etc.
 		if ($s =~ $separators) {
 
 			$before = $`;
@@ -1241,7 +1295,7 @@ sub parse_ingredients_text ($product_ref) {
 
 			# If the first separator is a column : or a start of parenthesis etc. we may have sub ingredients
 
-			if ($sep =~ /(:|\[|\{|\()/i) {
+			if ($sep =~ /(:|\[|\{|\(|\N{U+FF08})/i) {
 
 				# Single separators like commas and dashes
 				my $match = '.*?';    # non greedy match
@@ -1262,6 +1316,10 @@ sub parse_ingredients_text ($product_ref) {
 				}
 				elsif ($sep eq '{') {
 					$ending = '\}';
+				}
+				# brackets type used in some countries (Japan) "（" and "）"
+				elsif ($sep =~ '\N{U+FF08}') {
+					$ending = '\N{U+FF09}';
 				}
 
 				$ending = '(' . $ending . ')';
@@ -1726,25 +1784,33 @@ sub parse_ingredients_text ($product_ref) {
 									if $log->is_trace();
 
 								if (
-									# English, French etc. match before or after the ingredient, require a space
+									# match before or after the ingredient, require a space
 									(
 										#($product_lc =~ /^(en|es|it|fr)$/)
 										(
-											   ($product_lc eq 'en')
+											   ($product_lc eq 'bs')
+											or ($product_lc eq 'cs')
+											or ($product_lc eq 'en')
 											or ($product_lc eq 'es')
 											or ($product_lc eq 'fr')
+											or ($product_lc eq 'hr')
 											or ($product_lc eq 'it')
+											or ($product_lc eq 'mk')
+											or ($product_lc eq 'pl')
+											or ($product_lc eq 'sl')
+											or ($product_lc eq 'sr')
 										)
 										and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i)
 									)
 
-									#  match after, do not require a space
-									# currently no language
-									#or ( ($product_lc eq 'xx') and ($new_ingredient =~ /($regexp)$/i) )
-
-									#  Dutch: match before or after, do not require a space
+									#  match before or after the ingredient, does not require a space
 									or (    (($product_lc eq 'de') or ($product_lc eq 'nl') or ($product_lc eq 'hu'))
 										and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i))
+
+									# match after the ingredient, does not require a space
+									# match before the ingredient, require a space
+									or (    ($product_lc eq 'fi')
+										and ($new_ingredient =~ /(^($regexp)\b|($regexp)$)/i))
 									)
 								{
 									$new_ingredient = $` . $';
@@ -1884,6 +1950,9 @@ sub parse_ingredients_text ($product_ref) {
 
 						# Remove some sentences
 						my %ignore_regexps = (
+							'bs' => [
+								'u promjenljivom odnosu',    # in a variable ratio
+							],
 
 							'da' => [
 								'^Mælkechokoladen indeholder (?:også andre vegetabilske fedtstoffer end kakaosmør og )?mindst',
@@ -1967,6 +2036,14 @@ sub parse_ingredients_text ($product_ref) {
 								'^täysjyväsisältö',
 							],
 
+							'hr' => [
+								'^u tragovima$',    # in traces
+								'označene podebljano',    # marked in bold
+								'savjet kod alergije',    # allergy advice
+								'uključujući žitarice koje sadrže gluten',    # including grains containing gluten
+								'za alergene',    # for allergens
+							],
+
 							'it' => ['^in proporzion[ei] variabil[ei]$',],
 
 							'nb' => ['^Pakket i beskyttende atmosfære$',],
@@ -1983,6 +2060,11 @@ sub parse_ingredients_text ($product_ref) {
 								'^углеводы$', '^не менее$',
 								'^средние значения$', '^содержат$',
 								'^идентичный натуральному$', '^(g|ж|ул)$'
+							],
+
+							'sl' => [
+								'lahko vsebuje',
+								'lahko vsebuje sledi',    # may contain traces
 							],
 
 							'sv' => [
@@ -2291,6 +2373,9 @@ sub extract_ingredients_from_text ($product_ref) {
 		# Add properties like origins from specific ingredients extracted from labels or the end of the ingredients list
 		add_properties_from_specific_ingredients($product_ref);
 
+		# Obtain Ciqual codes ready for ingredients estimation from nutrients
+		assign_ciqual_codes($product_ref);
+
 		# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
 
 		if (compute_ingredients_percent_values(100, 100, $product_ref->{ingredients}) < 0) {
@@ -2325,6 +2410,34 @@ sub extract_ingredients_from_text ($product_ref) {
 	}
 
 	return;
+}
+
+sub assign_ciqual_codes ($product_ref) {
+	my @ingredients_without_ciqual_codes = uniq(sort(get_missing_ciqual_codes($product_ref->{ingredients})));
+	$product_ref->{ingredients_without_ciqual_codes} = \@ingredients_without_ciqual_codes;
+	$product_ref->{ingredients_without_ciqual_codes_n} = @ingredients_without_ciqual_codes + 0.0;
+	return;
+}
+
+sub get_missing_ciqual_codes ($ingredients_ref) {
+	my @ingredients_without_ciqual_codes = ();
+	foreach my $ingredient_ref (@{$ingredients_ref}) {
+		if (defined $ingredient_ref->{ingredients}) {
+			push(@ingredients_without_ciqual_codes, get_missing_ciqual_codes($ingredient_ref->{ingredients}));
+		}
+		else {
+			my $ciqual_food_code = get_inherited_property("ingredients", $ingredient_ref->{id}, "ciqual_food_code:en");
+			if (defined $ciqual_food_code) {
+				$ingredient_ref->{ciqual_food_code} = $ciqual_food_code;
+			}
+			else {
+				exists $ingredient_ref->{ciqual_food_code} and delete $ingredient_ref->{ciqual_food_code};
+				push(@ingredients_without_ciqual_codes, $ingredient_ref->{id});
+			}
+		}
+	}
+
+	return @ingredients_without_ciqual_codes;
 }
 
 =head2 delete_ingredients_percent_values ( ingredients_ref )
@@ -2481,14 +2594,28 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 	# if the sum of specified percents for the ingredients is greater than the percent max of the parent.
 
 	my $percent_sum = 0;
+	my $all_ingredients_have_a_set_percent = 1;
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{percent}) {
 			$percent_sum += $ingredient_ref->{percent};
+		}
+		else {
+			$all_ingredients_have_a_set_percent = 0;
 		}
 	}
 
 	if ($percent_sum > $total_max) {
 		$percent_mode = "relative";
+	}
+
+	# If the parent ingredient percent is known (total_min = total_max)
+	# and we have set percent for all ingredients, then the ingredients percent value
+	# may in fact be a quantity in grams, we will need to scale the quantities to get actual percent values
+	# This is the case in particular for recipes that can be specified in grams with a total greater than 100g
+	# So we start supposing it's grams (as if it's percent it will also work).
+
+	if (($total_min == $total_max) and $all_ingredients_have_a_set_percent) {
+		$percent_mode = "grams";
 	}
 
 	$log->debug(
@@ -2498,7 +2625,8 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 			ingredients_ref => $ingredients_ref,
 			total_min => $total_min,
 			total_max => $total_max,
-			percent_sum => $percent_sum
+			percent_sum => $percent_sum,
+			all_ingredients_have_a_set_percent => $all_ingredients_have_a_set_percent,
 		}
 	) if $log->is_debug();
 
@@ -2508,6 +2636,16 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 		if (defined $ingredient_ref->{percent}) {
 			# There is a specified percent for the ingredient.
 
+			if ($percent_mode eq "grams") {
+				# the specified percent of the ingredient is in fact in grams
+				# (when we parse the ingredients list, if we see a value in grams, we assign it to the percent field,
+				# as values are usually listed for 100g)
+				# we need to convert it to actual %
+				my $percent = $ingredient_ref->{percent} * $total_max / $percent_sum;
+				$ingredient_ref->{percent} = $percent;
+				$ingredient_ref->{percent_min} = $percent;
+				$ingredient_ref->{percent_max} = $percent;
+			}
 			if (($percent_mode eq "absolute") or ($total_min == $total_max)) {
 				# We can assign an absolute percent to the ingredient because
 				# 1. the percent mode is absolute
@@ -3392,7 +3530,8 @@ my %phrases_before_ingredients_list = (
 		'composition',
 	],
 
-	hr => ['Sastojci',],
+	hr =>
+		['HR BiH', 'HR/BIH', 'naziv', 'naziv proizvoda', 'popis sastojaka', 'sastav', 'sastojci', 'sastojci/sestavine'],
 
 	hu => ['(ö|ő|o)sszetev(ö|ő|o)k', 'összetétel',],
 
@@ -3682,7 +3821,28 @@ my %phrases_after_ingredients_list = (
 	],
 
 	hr => [
-		'Čuvati na (hladnom|suhom|temperaturi)',    # store in...
+		'bez konzervans',    # without preservatives
+		'Čuvati na (hladnom|sobnoj temperaturi|suhom|temperaturi)',    # store in...
+		'Čuvati zatvoreno na',
+		'Čuvati pri sobnoj temperaturi',
+		'izvor dijetalnih vlakana',    # source of proteins
+		'najbolje upotrijebiti do',    # best before
+		'nakon otvaranja',    # after opening
+		'pakirano u (kontroliranoj|zaštitnoj) atmosferi',    # packed in a ... atmosphere
+		'proizvod je termički obrađen-pasteriziran',    # pasteurized
+		'proizvođač',    # producer
+		'prosječn(a|e) (hranjiva|hranjive|nutritivne) (vrijednost|vrijednosti)',    # Average nutritional value
+		'protresti prije otvaranja',    # shake before opening
+		'upotrijebiti do datuma',    # valid until
+		'upozorenje',    # warning
+		'uputa',    # instructions
+		'uvjeti čuvanja',    # storage conditions
+		'uvoznik za',    # importer
+		'vakuumirana',    # Vacuumed
+		'vrijeme kuhanja',    # Cooking time
+		'zaštićena oznaka zemljopisnog podrijetla',    # ZOI/PDO
+		'zbog (mutan|prisutnosti)',    # Due to ...
+		'zemlja (porijekla|podrijetla|porekla)',    # country of origin
 	],
 
 	hu => [

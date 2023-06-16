@@ -354,6 +354,7 @@
          "en:nutriscore-missing-nutrition-data-sodium",
          "en:nutriscore-missing-nutrition-data-proteins",
          "en:nutrition-no-fiber",
+         "en:packagings-number-of-components-1",
          "en:packagings-not-complete",
          "en:packagings-not-empty-but-not-complete",
          "en:packagings-not-empty",
@@ -377,6 +378,13 @@
       "nutrition_score_beverage" : 0,
       "nutrition_score_debug" : "no score when the product does not have a category - missing energy - missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
       "nutrition_score_warning_no_fiber" : 1,
+      "packaging_materials_tags" : [
+         "en:plastic"
+      ],
+      "packaging_recycling_tags" : [],
+      "packaging_shapes_tags" : [
+         "en:bag"
+      ],
       "packagings" : [
          {
             "material" : {
@@ -390,6 +398,7 @@
             }
          }
       ],
+      "packagings_n" : 1,
       "photographers_tags" : [],
       "pnns_groups_1" : "unknown",
       "pnns_groups_1_tags" : [
@@ -442,7 +451,8 @@
       "traces_from_user" : "(en) ",
       "traces_hierarchy" : [],
       "traces_tags" : [],
-      "unknown_nutrients_tags" : []
+      "unknown_nutrients_tags" : [],
+      "weighers_tags" : []
    },
    "status" : "success_with_warnings",
    "warnings" : [
