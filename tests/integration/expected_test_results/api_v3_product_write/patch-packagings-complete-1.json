@@ -1,0 +1,66 @@
+{
+   "code" : "1234567890016",
+   "errors" : [],
+   "product" : {
+      "packagings" : [
+         {
+            "number_of_units" : 1,
+            "recycling" : {
+               "id" : "en:recycle",
+               "lc_name" : "Recycle"
+            },
+            "shape" : {
+               "id" : "en:bottle",
+               "lc_name" : "Bottle"
+            }
+         },
+         {
+            "number_of_units" : 1,
+            "recycling" : {
+               "id" : "en:recycle",
+               "lc_name" : "Recycle"
+            },
+            "shape" : {
+               "id" : "en:lid",
+               "lc_name" : "Lid"
+            }
+         }
+      ],
+      "packagings_complete" : 1
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "id" : "material",
+            "value" : null
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "material",
+            "value" : null
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      }
+   ]
+}

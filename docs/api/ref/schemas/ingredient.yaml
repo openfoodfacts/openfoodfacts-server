@@ -1,0 +1,26 @@
+type: array
+items:
+  type: object
+  properties:
+    id:
+      type: string
+    ingredients:
+      $ref: ./ingredient.yaml
+    percent:
+      type: integer
+    percent_estimate:
+      type:
+        - integer
+        - number
+    percent_max:
+      type:
+        - integer
+        - number
+    percent_min:
+      type: integer
+    text:
+      type: string
+    vegan:
+      type: string
+    vegetarian:
+      type: string

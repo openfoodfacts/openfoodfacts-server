@@ -34,7 +34,7 @@
         {
             "element_type": "text",
             "text_element": {
-                "text_type": "summary",
+                "type": "summary",
                 "html": `<p>Warning: this feature is experimental and under development.</p>
 
                 <p>Estimated impact for this product:</p>
@@ -46,7 +46,7 @@
                 <br>
 
                 [% IF panel.ecoscore_extended_data_for_category.defined %]
-                <p>Estimated impact for the category ([% display_taxonomy_tag("categories",panel.ecoscore_extended_data_for_category.category_id) %]):</p>
+                <p>Estimated impact for the category ([% display_taxonomy_tag_name("categories",panel.ecoscore_extended_data_for_category.category_id) %]):</p>
 
                 <ul>
                     <li>Climate change score average: [% panel.ecoscore_extended_data_for_category.climate_change %]</li>
@@ -79,7 +79,7 @@
                         "id": "[% step %]",
                         "values": [
                             {
-                                "text": "[% display_taxonomy_tag('ingredients', ingredient.id) %]"
+                                "text": "[% display_taxonomy_tag_name('ingredients', ingredient.id) %]"
                             },
                             {
                                 "text": "[% ingredient.quantity %]",

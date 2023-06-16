@@ -16,6 +16,15 @@
                 "type": "summary",
                 "html": "[% lang("ecoscore_unknown_call_to_help") %]"
             }
-        },       
+        },
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("actions_to_compute_ecoscore") %]`,
+                "actions": [
+                    "add_categories",
+                ]
+            }
+        },
     ]
 }

@@ -9,7 +9,7 @@ use Storable qw(lock_store lock_nstore lock_retrieve);
 sub retrieve {
 	my $file = shift @_;
 	# If the file does not exist, return undef.
-	if (! -e $file) {
+	if (!-e $file) {
 		return;
 	}
 	return lock_retrieve($file);

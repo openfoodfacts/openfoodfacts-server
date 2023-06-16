@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -36,15 +35,16 @@ use URI::Escape::XS;
 use Encode;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 # Redirect the left to right or right to left CSS based on the subdomain
 # This is useful for static HTML files (e.g. donation page translated by CrowdIn)
 
-my $redirect = $static_subdomain . "/css/dist/app-" . lang('text_direction') . ".css?v=" . $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
+my $redirect
+	= $static_subdomain
+	. "/css/dist/app-"
+	. lang('text_direction')
+	. ".css?v="
+	. $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
 
-
-my $r = Apache2::RequestUtil->request();
-$r->headers_out->set(Location => $redirect);
-$r->status(302);
-return 302;
+redirect_to_url($request_ref, 302, $redirect);

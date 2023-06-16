@@ -1,0 +1,45 @@
+{
+    "element_type": "panel_group",
+    "panel_group_element": {
+        "title": "[% lang('nutrition') %]",
+        "type": "subcard",
+        "panel_group_id": "nutrition",
+        [% IF panel.nutrition_image.defined %]
+        "image": [% encode_json(panel.nutrition_image) %],
+        [% END %]                
+        "panel_ids": [
+            [% IF panels.nutriscore.defined %]
+                "nutriscore",
+            [% END %]
+            [% IF panels.nutrient_level_fat.defined %]
+                "nutrient_level_fat",
+            [% END %] 
+            [% IF panels.${'nutrient_level_saturated-fat'}.defined %]
+                "nutrient_level_saturated-fat",
+            [% END %] 
+            [% IF panels.nutrient_level_sugars.defined %]
+                "nutrient_level_sugars",
+            [% END %] 
+            [% IF panels.nutrient_level_salt.defined %]
+                "nutrient_level_salt",
+            [% END %]                                                             
+        ],
+    },
+},
+{
+    "element_type": "panel_group",
+    "panel_group_element": {
+        "title": "",
+        "panel_ids": [
+            [% IF panels.physical_activities.defined %]
+                "physical_activities",
+            [% END %]                                                                              
+            [% IF panels.nutrition_facts_table.defined %]
+                "nutrition_facts_table",
+            [% END %]
+            [% IF panels.serving_size.defined %]
+                "serving_size",
+            [% END %]
+        ],
+    },
+},
