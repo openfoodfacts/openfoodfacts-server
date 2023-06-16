@@ -106,12 +106,7 @@ if ($action eq 'process') {
 
 	if ($type eq 'edit') {
 		if (single_param('delete') eq 'on') {
-			if ($admin) {
-				$type = 'delete';
-			}
-			else {
-				display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
-			}
+			$type = 'delete';
 		}
 	}
 

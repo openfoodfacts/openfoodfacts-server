@@ -134,6 +134,7 @@
          "text" : "acidifiant"
       },
       {
+         "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "percent_estimate" : 0.34375,
          "text" : "sel",
@@ -259,10 +260,9 @@
       "en:e475",
       "en:flour",
       "en:milk-proteins",
-      "en:salt",
       "en:sugar"
    ],
-   "ingredients_without_ciqual_codes_n" : 13,
+   "ingredients_without_ciqual_codes_n" : 12,
    "known_ingredients_n" : 24,
    "lc" : "fr",
    "nutriments" : {

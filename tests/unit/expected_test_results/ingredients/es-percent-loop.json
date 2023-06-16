@@ -86,6 +86,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "percent_estimate" : 1.4375,
          "percent_max" : 3,
@@ -201,10 +202,9 @@
    "ingredients_with_unspecified_percent_sum" : 68,
    "ingredients_without_ciqual_codes" : [
       "en:e330",
-      "en:salt",
       "en:sugar"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 22,
    "lc" : "es",
    "nutriments" : {
