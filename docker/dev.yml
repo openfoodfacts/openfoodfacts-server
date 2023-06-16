@@ -62,7 +62,7 @@ services:
       - ./html:/opt/product-opener/html
       - ./icons:/opt/product-opener/icons
       - ./scss:/opt/product-opener/scss
-      - ./gulpfile.js:/opt/product-opener/gulpfile.js
+      - ./gulpfile.ts:/opt/product-opener/gulpfile.ts
   frontend:
     image: openfoodfacts-server/frontend:dev
     build:
@@ -75,7 +75,7 @@ services:
       - ./html:/opt/product-opener/html/
       - ./icons:/opt/product-opener/icons
       - ./scss:/opt/product-opener/scss
-      - ./gulpfile.js:/opt/product-opener/
+      - ./gulpfile.ts:/opt/product-opener/
       - ./snyk:/opt/product-opener/
     networks:
         default:

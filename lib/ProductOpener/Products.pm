@@ -104,6 +104,7 @@ BEGIN {
 		&add_back_field_values_removed_by_user
 
 		&process_product_edit_rules
+		&preprocess_product_field
 		&product_data_is_protected
 
 		&make_sure_numbers_are_stored_as_numbers
@@ -151,6 +152,7 @@ use ProductOpener::DataQuality qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
+use JSON;
 use Log::Any qw($log);
 use Data::DeepAccess qw(deep_get);
 
@@ -753,14 +755,41 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 	return $product_ref;
 }
 
-# Notify robotoff when products are updated
+=head2 send_notification_for_product_change ( $user_id, $product_ref, $action, $comment, $diffs )
 
-sub send_notification_for_product_change ($product_ref, $action) {
+Notify Robotoff when products are updated or deleted.
+
+=head3 Parameters
+
+=head4 $user_id
+
+ID of the user that triggered the update/deletion (String, may be undefined)
+
+=head4 $product_ref
+
+Reference to the updated/deleted product.
+
+=head4 $action
+
+The action performed, either `deleted` or `updated` (String).
+
+=head4 $comment
+
+The update comment (String)
+
+=head4 $diffs
+
+The `diffs` of the update (Hash)
+
+=cut
+
+sub send_notification_for_product_change ($user_id, $product_ref, $action, $comment, $diffs) {
 
 	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
 		my $ua = LWP::UserAgent->new();
 		my $endpoint = "$robotoff_url/api/v1/webhook/product";
 		$ua->timeout(2);
+		my $diffs_json_text = encode_json($diffs);
 
 		$log->debug(
 			"send_notif_robotoff_product_update",
@@ -768,7 +797,10 @@ sub send_notification_for_product_change ($product_ref, $action) {
 				endpoint => $endpoint,
 				barcode => $product_ref->{code},
 				action => $action,
-				server_domain => "api." . $server_domain
+				server_domain => "api." . $server_domain,
+				user_id => $user_id,
+				comment => $comment,
+				diffs => $diffs_json_text
 			}
 		) if $log->is_debug();
 		my $response = $ua->post(
@@ -776,7 +808,10 @@ sub send_notification_for_product_change ($product_ref, $action) {
 			{
 				'barcode' => $product_ref->{code},
 				'action' => $action,
-				'server_domain' => "api." . $server_domain
+				'server_domain' => "api." . $server_domain,
+				'user_id' => $user_id,
+				'comment' => $comment,
+				'diffs' => $diffs_json_text
 			}
 		);
 		$log->debug(
@@ -1340,7 +1375,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	# Notify Robotoff
 	my $update_type = $product_ref->{deleted} ? "deleted" : "updated";
-	send_notification_for_product_change($product_ref, $update_type);
+	send_notification_for_product_change($user_id, $product_ref, $update_type, $comment, $diffs);
 
 	return 1;
 }
@@ -1810,7 +1845,7 @@ we can rename it to a generic user account like openfoodfacts-contributors.
 # Fields that contain usernames
 my @users_fields = qw(editors_tags photographers_tags informers_tags correctors_tags checkers_tags weighers_tags);
 
-sub replace_user_id_in_product ($product_id, $user_id, $new_user_id) {
+sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_collection) {
 
 	my $path = product_path_from_id($product_id);
 
@@ -1818,7 +1853,8 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id) {
 
 	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
 	if (not defined $changes_ref) {
-		$changes_ref = [];
+		$log->warn("replace_user_id_in_products - no changes file found for " . $product_id);
+		return;
 	}
 
 	my $most_recent_product_ref;
@@ -1891,7 +1927,6 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id) {
 	}
 
 	if ((defined $most_recent_product_ref) and (not $most_recent_product_ref->{deleted})) {
-		my $products_collection = get_products_collection();
 		$products_collection->replace_one({"_id" => $most_recent_product_ref->{_id}},
 			$most_recent_product_ref, {upsert => 1});
 	}
@@ -1930,33 +1965,26 @@ sub find_and_replace_user_id_in_products ($user_id, $new_user_id) {
 
 	my $query_ref = {'$or' => $or};
 
-	my $products_collection = get_products_collection();
+	my $count = 0;
+	for (my $obsolete = 0; $obsolete <= 1; $obsolete++) {
+		my $products_collection = get_products_collection({obsolete => $obsolete, timeout => 60 * 60 * 1000});
+		my $cursor = $products_collection->query($query_ref)->fields({_id => 1, code => 1, owner => 1});
+		$cursor->immortal(1);
 
-	my $count = $products_collection->count_documents($query_ref);
+		while (my $product_ref = $cursor->next) {
 
-	$log->info(
-		"find_and_replace_user_id_in_products - matching products",
-		{user_id => $user_id, new_user_id => $new_user_id, count => $count}
-	) if $log->is_info();
+			my $product_id = $product_ref->{_id};
 
-	# wait to give time to display the product count
-	sleep(2) if $log->is_debug();
+			# Ignore bogus product that might have been saved in the database
+			next if (not defined $product_id) or ($product_id eq "");
 
-	my $cursor = $products_collection->query($query_ref)->fields({_id => 1, code => 1, owner => 1});
-	$cursor->immortal(1);
+			$log->info("find_and_replace_user_id_in_products - product_id",
+				{user_id => $user_id, new_user_id => $new_user_id, product_id => $product_id})
+				if $log->is_info();
 
-	while (my $product_ref = $cursor->next) {
-
-		my $product_id = $product_ref->{_id};
-
-		# Ignore bogus product that might have been saved in the database
-		next if (not defined $product_id) or ($product_id eq "");
-
-		$log->info("find_and_replace_user_id_in_products - product_id",
-			{user_id => $user_id, new_user_id => $product_id, product_id => $product_id})
-			if $log->is_info();
-
-		replace_user_id_in_product($product_id, $user_id, $new_user_id);
+			replace_user_id_in_product($product_id, $user_id, $new_user_id, $products_collection);
+			$count++;
+		}
 	}
 
 	$log->info("find_and_replace_user_id_in_products - done",
@@ -2919,6 +2947,15 @@ or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post t
 =end text
 
 =cut
+
+sub preprocess_product_field ($field, $value) {
+
+	$value = remove_tags_and_quote($value);
+	if ($field ne 'customer_service' && $field ne 'other_information') {
+		$value = remove_email($value);
+	}
+	return $value;
+}
 
 sub process_product_edit_rules ($product_ref) {
 

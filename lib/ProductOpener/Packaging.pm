@@ -791,6 +791,15 @@ sub set_packaging_misc_tags ($product_ref) {
 	my $number_of_packaging_components
 		= (defined $product_ref->{packagings} ? scalar @{$product_ref->{packagings}} : 0);
 
+	# Remove previous misc tag for the number of components
+	foreach my $tag ($product_ref->{misc_tags}) {
+		if ($tag =~ /^en:packagings-number-of-components-/) {
+			remove_tag($product_ref, "misc", $tag);
+		}
+	}
+	# Add the tag for the new number of components
+	add_tag($product_ref, "misc", "en:packagings-number-of-components-" . $number_of_packaging_components);
+
 	if ($product_ref->{packagings_complete}) {
 		add_tag($product_ref, "misc", "en:packagings-complete");
 		add_tag($product_ref, "misc", "en:packagings-not-empty");
@@ -938,8 +947,16 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 		initialize_packagings_structure_with_data_from_packaging_text($product_ref, $response_ref);
 	}
 
-	# Set misc fields to indicate if the packaging data is complete
+	# Set the packagings_n field to record the number of packaging components
+	my $packagings_n = scalar @{$product_ref->{packagings}};
+	if ($packagings_n > 0) {
+		$product_ref->{packagings_n} = $packagings_n;
+	}
+	else {
+		delete $product_ref->{packagings_n};
+	}
 
+	# Set misc fields to indicate if the packaging data is complete
 	set_packaging_misc_tags($product_ref);
 
 	# Set packaging facets tags for shape, material and recycling

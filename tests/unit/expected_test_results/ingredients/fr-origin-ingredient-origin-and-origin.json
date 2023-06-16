@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : "4003",
          "id" : "en:potato",
          "origins" : "en:france",
          "percent" : 46.8874700718276,
@@ -28,6 +29,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "19402",
          "id" : "en:single-cream",
          "origins" : "en:france",
          "percent" : 5.48683160415004,
@@ -37,6 +39,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "18066",
          "id" : "en:water",
          "origins" : "en:france",
          "percent" : 5.48683160415004,
@@ -65,6 +68,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "19402",
          "id" : "en:cream",
          "origins" : "en:france",
          "percent" : 2.69353551476456,
@@ -84,6 +88,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "31008",
          "id" : "en:flower-honey",
          "origins" : "en:france",
          "percent" : 2.69353551476456,
@@ -110,6 +115,7 @@
          "text" : "bouillon"
       },
       {
+         "ciqual_food_code" : "11058",
          "id" : "en:finegrained-salt",
          "origins" : "en:france",
          "percent" : 0.139664804469274,
@@ -219,6 +225,13 @@
    "ingredients_with_specified_percent_sum" : 94.0642458100559,
    "ingredients_with_unspecified_percent_n" : 0,
    "ingredients_with_unspecified_percent_sum" : 0,
+   "ingredients_without_ciqual_codes" : [
+      "en:butter",
+      "en:pork",
+      "en:semi-skimmed-milk",
+      "en:spice"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
    "known_ingredients_n" : 23,
    "lc" : "fr",
    "nutriments" : {

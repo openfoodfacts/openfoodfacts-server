@@ -3,6 +3,7 @@
 Taxonomies have a significant impact on OFF processing and automated test results so need to be rebuilt before running any tests. However, this process takes some time, so the built taxonomy files are cached in a GitHub repository so that they only need to be rebuilt when there is a genuine change.
 
 # How it works
+
 A hash is calculated for all of the source files used to build a particular taxonomy and GitHub is then checked to see if a cache already exists for that hash.
 
 If no cached build is found then the taxonomy is rebuilt and cached locally.
@@ -15,7 +16,7 @@ The GITHUB_TOKEN is a personal access token, created here: https://github.com/se
 
 # Considerations
 
-In maintianing this code be aware of the following complications...
+In maintaining this code be aware of the following complications...
 
 ## Circular Dependencies
 
@@ -26,5 +27,3 @@ This is currently resolved by building the taxonomy on the fly if it is requeste
 ## Taxonomy Dependencies
 
 Some taxonomies perform lookups on others, e.g. additives_classes are referenced by additives, so the referenced taxonomy needs to be built first. The build order is determined in the Config_off.pm file.
-
-

@@ -16,7 +16,7 @@
                 "type": "summary",
                 "html": `
                     <p>[% lang('categories_s') FILTER ucfirst %][% sep %]: 
-                    <a href=\"https://agribalyse.ademe.fr/app/aliments/[% product.ecoscore_data.agribalyse.code %]\">[% panel.agribalyse_category_name %]</a>
+                    <a href="https://agribalyse.ademe.fr/app/aliments/[% product.ecoscore_data.agribalyse.code %]">[% panel.agribalyse_category_name %]</a>
                     </p>
                     <ul>
                         <li>
