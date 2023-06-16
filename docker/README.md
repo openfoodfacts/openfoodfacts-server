@@ -9,7 +9,7 @@ See also [Docker best practice at Open Food Facts](https://openfoodfacts.github.
 The docker/ directory contains `docker-compose` overrides for running Product Opener on [Docker](https://docker.com).
 The main docker-compose file [`docker-compose.yml`](../docker-compose.yml) is located in the root of the repository.
 
-The step-by-step guide to setup the Product Opener using Docker is available on [dev environment quick start guide](./docs/dev/how-to-quick-start-guide.md).
+The step-by-step guide to setup the Product Opener using Docker is available on [dev environment quick start guide](../docs/dev/how-to-quick-start-guide.md).
 
 ## Makefile targets
 

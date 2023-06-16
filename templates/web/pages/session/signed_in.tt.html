@@ -3,24 +3,16 @@
 <p>[% lang('hello')%] [% user_name %]!</p>
 
 [% IF !server_options_producers_platform %]
-    <h3>[% lang('you_can_also_help_us') %]</h3>
-    <p>[% lang('bottom_content') %]</p>
+    [% IF lc == "en" or lc == "fr" %]
+        <h3>[% lang('you_can_also_help_us') %]</h3>
+        <p>[% lang('bottom_content') %]</p>
+    [% END %]
 [% ELSE %]
 
     <h3>[% lang("resources") %]</h3>
 
-    <ul>				
-        <li>
-            <a href="[% IF lc == "fr" %]https://blog.openfoodfacts.org/wp-content/uploads/2023/02/2022-11-FR-Guide-dutilisation-Plateforme-Pro.pdf[% ELSE %]https://blog.openfoodfacts.org/wp-content/uploads/2023/02/2022-11-EN-Pro-Plateform-User-Guide.pdf[% END %]">
-                [% lang('pro_platform_user_guide') %]
-            </a>
-        </li>
-        <li>
-            <a href="[% IF lc == "fr" %]https://support.openfoodfacts.org/help/fr-fr/3-producers[% ELSE %]https://support.openfoodfacts.org/help/en-gb/3-producers[% END %]">
-                [% lang('faq_for_producers') %]
-            </a>
-        </li>
-
+    <ul>
+        [% INCLUDE 'web/common/producers_resources_list.tt.html' %]
     </ul>
 
 [% END %]

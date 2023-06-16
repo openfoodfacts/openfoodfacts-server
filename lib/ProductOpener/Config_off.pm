@@ -42,6 +42,7 @@ BEGIN {
 		$producers_email
 
 		$google_cloud_vision_api_key
+		$google_cloud_vision_api_url
 
 		$crowdin_project_identifier
 		$crowdin_project_key
@@ -172,6 +173,7 @@ use ProductOpener::Config2;
 	hangy
 	manoncorneille
 	raphael0202
+	sarazine-ouattara
 	stephane
 	tacinte
 	teolemon
@@ -343,6 +345,7 @@ $conf_root = $ProductOpener::Config2::conf_root;
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
+$google_cloud_vision_api_url = $ProductOpener::Config2::google_cloud_vision_api_url;
 
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
 $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
@@ -1005,7 +1008,7 @@ $options{redirect_texts} = {
 $options{display_tag_additives} = [
 	'@additives_classes',
 	'wikipedia',
-	'title:efsa_evaluation_overexposure_risk_title',
+	#'title:efsa_evaluation_overexposure_risk_title',
 	'efsa_evaluation',
 	'efsa_evaluation_overexposure_risk',
 	'efsa_evaluation_exposure_table',

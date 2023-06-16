@@ -6,8 +6,8 @@
 PIP_INSTALL=$(mktemp)
 cat >$PIP_INSTALL <<EOF
 #!/bin/sh
-echo "installing mdx_truly_sane_lists"
-pip3 install mdx_truly_sane_lists
+echo "installing mdx_truly_sane_lists and mdx-breakless-lists"
+pip3 install mdx_truly_sane_lists mdx-breakless-lists
 EOF
 # get group id to use it in the docker
 GID=$(id -g)

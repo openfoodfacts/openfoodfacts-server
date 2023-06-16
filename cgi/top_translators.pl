@@ -100,4 +100,5 @@ $html .= "<p>" . $tt->error() . "</p>";
 
 $request_ref->{title} = lang('translators_title');
 $request_ref->{content_ref} = \$html;
+$request_ref->{canon_url} = '/cgi/top_translators.pl';
 display_page($request_ref);

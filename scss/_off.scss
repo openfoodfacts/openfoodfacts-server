@@ -392,12 +392,12 @@ nav.tab-bar > div {
   font-size: 0.8em;
 }
 
-.note {
+.note ,.asterisk {
   font-size: 0.8em;
 }
 
 .example,
-.note {
+.note,.asterisk {
   margin: 4px 0 0 4px;
 }
 
@@ -836,6 +836,12 @@ html[dir="rtl"] {
 
 .f-dropdown {
   max-width: 300px;
+}
+
+/* smaller text for descriptions */
+.panel_text .description {
+  color: #555;
+  font-size: .8em;
 }
 
 .ecoscore_panel {

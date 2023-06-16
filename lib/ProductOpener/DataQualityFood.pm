@@ -591,22 +591,30 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 				$computed_energy += $grams * $energy_per_gram;
 			}
 
-			# Compare to specified energy value with a tolerance of 30% + an additiontal tolerance of 5
-			if (   ($computed_energy < ($specified_energy * 0.7 - 5))
-				or ($computed_energy > ($specified_energy * 1.3 + 5)))
-			{
-				# we have a quality problem
-				push @{$product_ref->{data_quality_errors_tags}},
-					"en:energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
-			}
+			# following error/warning should be ignored for some categories
+			# for example, lemon juices containing organic acid, it is forbidden to display organic acid in nutrition tables but
+			# organic acid contributes to the total energy calculation
+			my $ignore_energy_calculated_error
+				= get_inherited_property_from_categories_tags($product_ref, "ignore_energy_calculated_error:en");
 
-			# Compare to specified energy value with a tolerance of 15% + an additiontal tolerance of 5
-			if (   ($computed_energy < ($specified_energy * 0.85 - 5))
-				or ($computed_energy > ($specified_energy * 1.15 + 5)))
-			{
-				# we have a quality warning
-				push @{$product_ref->{data_quality_warnings_tags}},
-					"en:energy-value-in-$unit-may-not-match-value-computed-from-other-nutrients";
+			if (not((defined $ignore_energy_calculated_error) and ($ignore_energy_calculated_error eq 'yes'))) {
+				# Compare to specified energy value with a tolerance of 30% + an additiontal tolerance of 5
+				if (   ($computed_energy < ($specified_energy * 0.7 - 5))
+					or ($computed_energy > ($specified_energy * 1.3 + 5)))
+				{
+					# we have a quality problem
+					push @{$product_ref->{data_quality_errors_tags}},
+						"en:energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
+				}
+
+				# Compare to specified energy value with a tolerance of 15% + an additiontal tolerance of 5
+				if (   ($computed_energy < ($specified_energy * 0.85 - 5))
+					or ($computed_energy > ($specified_energy * 1.15 + 5)))
+				{
+					# we have a quality warning
+					push @{$product_ref->{data_quality_warnings_tags}},
+						"en:energy-value-in-$unit-may-not-match-value-computed-from-other-nutrients";
+				}
 			}
 
 			$nutriments_ref->{"energy-${unit}_value_computed"} = $computed_energy;
@@ -701,12 +709,24 @@ sub check_nutrition_data ($product_ref) {
 			# energy in kcal greater than in kj
 			if ($product_ref->{nutriments}{"energy-kcal_value"} > $product_ref->{nutriments}{"energy-kj_value"}) {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-greater-than-in-kj";
+
+				# additionally check if kcal value and kj value are reversed. Exact opposite condition as next error below
+				if (
+					(
+						$product_ref->{nutriments}{"energy-kcal_value"}
+						> 3.7 * $product_ref->{nutriments}{"energy-kj_value"} - 2
+					)
+					and ($product_ref->{nutriments}{"energy-kcal_value"}
+						< 4.7 * $product_ref->{nutriments}{"energy-kj_value"} + 2)
+					)
+				{
+					push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-and-kj-are-reversed";
+				}
 			}
 
 			# check energy in kcal is ~ 4.2 (+/- 0.5) energy in kj
 			#   +/- 2 to avoid false positives due to rounded values below 2 Kcal.
 			#   Eg. 1.49 Kcal -> 6.26 KJ in reality, can be rounded by the producer to 1 Kcal -> 6 KJ.
-			# TODO: add tests in /tests/unit/dataqualityfood.t
 			if (
 				(
 					$product_ref->{nutriments}{"energy-kj_value"}
@@ -758,7 +778,9 @@ sub check_nutrition_data ($product_ref) {
 
 			$nid_n++;
 
-			if (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')) {
+			if (    (defined $product_ref->{nutriments}{$nid . "_100g"})
+				and (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')))
+			{
 				$total += $product_ref->{nutriments}{$nid . "_100g"};
 			}
 
@@ -1203,12 +1225,18 @@ Checks related to the quantity and serving quantity.
 
 =cut
 
+# Check quantity values. See https://en.wiki.openfoodfacts.org/Products_quantities
 sub check_quantity ($product_ref) {
 
 	# quantity contains "e" - might be an indicator that the user might have wanted to use "℮" \N{U+212E}
-	if (    (defined $product_ref->{quantity})
-		and ($product_ref->{quantity} =~ /(?:.*e$)|(?:[0-9]+\s*[kmc]?[gl]?\s*e)/i)
-		and (not($product_ref->{quantity} =~ /\N{U+212E}/i)))
+	# example: 650 g e
+	if (
+		(defined $product_ref->{quantity})
+		# contains "kg e", or "g e", or "cl e", etc.
+		and ($product_ref->{quantity} =~ /(?:[0-9]+\s*[kmc]?[gl]\s*e)/i)
+		# contains the "℮" symbol
+		and (not($product_ref->{quantity} =~ /\N{U+212E}/i))
+		)
 	{
 		push @{$product_ref->{data_quality_info_tags}}, "en:quantity-contains-e";
 	}

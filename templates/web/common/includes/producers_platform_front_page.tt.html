@@ -30,19 +30,31 @@
             <a class="button" style="display:none"></a>
         </div>
 
-        [% IF products_to_be_exported.defined %]
-            <p>
-                [% lang("some_product_updates_have_not_been_published_on_the_public_database") %]
-                <br>
-                [% products_to_be_exported %]
-            </p>
+        [% IF count_to_be_exported + count_obsolete_to_be_exported > 0 %]
+            <p>[% lang("some_product_updates_have_not_been_published_on_the_public_database") %]</p>
+
+            <ul>
+                <li>[% lang('number_of_products_with_changes_since_last_export') %][% sep %]:
+                    [% IF count_to_be_exported %]
+                        <a href="/state/en:to-be-exported">[% count_to_be_exported %]</a>
+                    [% ELSE %]
+                        [% count_to_be_exported %]
+                    [% END %]
+                </li>
+                <li>[% lang('number_of_products_withdrawn_from_the_market_since_last_export') %][% sep %]:
+                    [% IF count_obsolete_to_be_exported %]
+                        <a href="/state/en:to-be-exported?obsolete=1">[% count_obsolete_to_be_exported %]</a>
+                    [% ELSE %]
+                        [% count_obsolete_to_be_exported %]
+                    [% END %]
+                </li>
+            </ul>            
 
             <div class="flex-grid direction-row">
                 <a class="button small round" href="/cgi/export_products.pl" role="button" style="display:flex;margin-right:1rem;">
                     <span class="material-icons size-20">publish</span>&nbsp;<span>[% lang("export_product_data_photos") %]</span>
                 </a>
             </div>                
-
         [% ELSE %]
             <p>[% lang("no_products_to_export") %]</p>
         [% END %]

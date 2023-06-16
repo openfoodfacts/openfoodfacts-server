@@ -13,6 +13,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_food_code" : "18066",
          "id" : "en:water",
          "percent_estimate" : 75,
          "percent_max" : 100,
@@ -60,9 +61,14 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:caffeine"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 2,
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-2",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
@@ -74,18 +80,28 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
+   "packaging_materials_tags" : [
+      "en:hdpe-2-high-density-polyethylene",
+      "en:pet-1-polyethylene-terephthalate"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:bottle",
+      "en:bottle-cap"
+   ],
    "packaging_text" : "1 bouteille en plastique PET, 1 bouchon PEHD",
    "packagings" : [
       {
-         "material" : "en:pet-polyethylene-terephthalate",
+         "material" : "en:pet-1-polyethylene-terephthalate",
          "number_of_units" : 1,
          "shape" : "en:bottle"
       },
       {
-         "material" : "en:hdpe-high-density-polyethylene",
+         "material" : "en:hdpe-2-high-density-polyethylene",
          "number_of_units" : 1,
          "shape" : "en:bottle-cap"
       }
    ],
+   "packagings_n" : 2,
    "unknown_ingredients_n" : 0
 }

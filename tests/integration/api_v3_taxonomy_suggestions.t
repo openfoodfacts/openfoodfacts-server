@@ -99,7 +99,7 @@ my $tests_ref = [
 	{
 		test_case => 'packaging-shapes-string-fr-po',
 		method => 'GET',
-		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_shapes&string=po',
+		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_shapes&string=po&lc=fr',
 		expected_status_code => 200,
 	},
 	# Packaging shape suggestions can be specific to a country and categories, and shape
@@ -111,9 +111,9 @@ my $tests_ref = [
 	},
 	# categories can contain a comma separated list of taxonomy entry ids, entry name or synonym in the lc language
 	{
-		test_case => 'packaging-shapes-categories-mango-juice-beverages',
+		test_case => 'packaging-shapes-categories-mango-nectars-beverages',
 		method => 'GET',
-		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_shapes&categories=mango%20juice,beverages',
+		path => '/api/v3/taxonomy_suggestions?tagtype=packaging_shapes&categories=mango%20nectars,beverages',
 		expected_status_code => 200,
 	},
 	{

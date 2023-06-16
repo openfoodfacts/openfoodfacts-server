@@ -63,6 +63,7 @@ BEGIN {
 		&is_admin_user
 		&create_password_hash
 		&check_password_hash
+		&retrieve_user
 
 		&check_session
 
@@ -78,7 +79,6 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Cache qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -86,12 +86,14 @@ use ProductOpener::Text qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
+use JSON::PP;
 
 use Email::Valid;
 use Crypt::PasswdMD5 qw(unix_md5_crypt);
 use Math::Random::Secure qw(irand);
 use Crypt::ScryptKDF qw(scrypt_hash scrypt_hash_verify);
 use Log::Any qw($log);
+use MIME::Base32 qw(encode_base32);
 
 my @user_groups = qw(producer database app bot moderator pro_moderator);
 
@@ -180,10 +182,9 @@ sub check_password_hash ($password, $hash) {
 
 # we use user_init() now and not create_user()
 
-=head2 delete_user ($password, $hash)
+=head2 delete_user ($user_ref)
 
-C<delete_user()> This function is used for deleting a user and uses the user_ref as a parameter. 
-This function removes the user files, the email and re-assigns product edits to openfoodfacts-contributors-[random number]
+C<delete_user()> Creates a background job to delete the user
 
 =head3 Arguments
 
@@ -192,9 +193,43 @@ Takes in the $user_ref of the user to be deleted
 =cut
 
 sub delete_user ($user_ref) {
+	my $args_ref = {
+		userid => get_string_id_for_lang("no_language", $user_ref->{userid}),
+		email => $user_ref->{email},
+	};
 
-	my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
-	my $new_userid = "openfoodfacts-contributors";
+	require ProductOpener::Producers;
+	ProductOpener::Producers::queue_job(delete_user => [$args_ref] => {queue => $server_options{minion_local_queue}});
+
+	return;
+}
+
+=head2 delete_user_task ($job, $args_ref)
+
+C<delete_user_task()> Background task that deletes a user. 
+This function removes the user files, the email and re-assigns product edits to openfoodfacts-contributors-[random number]
+
+=head3 Arguments
+
+Minion job arguments. $args_ref contains the userid and email
+
+=cut
+
+sub delete_user_task ($job, $args_ref) {
+	return if not defined $job;
+
+	my $job_id = $job->{id};
+
+	my $log_message = "delete_user_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
+	open(my $minion_log, ">>", "$data_root/logs/minion.log");
+	print $minion_log $log_message;
+	close($minion_log);
+
+	print STDERR $log_message;
+
+	my $userid = $args_ref->{userid};
+	# Suffix is a combination of seconds since epoch plus a 16 bit random number
+	my $new_userid = "anonymous-" . lc(encode_base32(pack('LS', time(), rand(65536))));
 
 	$log->info("delete_user", {userid => $userid, new_userid => $new_userid}) if $log->is_info();
 
@@ -203,7 +238,7 @@ sub delete_user ($user_ref) {
 
 	# Remove the e-mail
 	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
-	my $email = $user_ref->{email};
+	my $email = $args_ref->{email};
 
 	if ((defined $email) and ($email =~ /\@/)) {
 
@@ -213,8 +248,11 @@ sub delete_user ($user_ref) {
 		}
 	}
 
-	#  re-assign product edits to openfoodfacts-contributors-[random number]
+	#  re-assign product edits to anonymous-[random number]
 	find_and_replace_user_id_in_products($userid, $new_userid);
+
+	$job->finish("done");
+
 	return;
 }
 
@@ -882,6 +920,15 @@ sub open_user_session ($user_ref, $request_ref) {
 	$request_ref->{cookie} = generate_session_cookie($user_id, $user_session);
 
 	return;
+}
+
+sub retrieve_user ($user_id) {
+	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+	my $user_ref;
+	if (-e $user_file) {
+		$user_ref = retrieve($user_file);
+	}
+	return $user_ref;
 }
 
 sub init_user ($request_ref) {

@@ -175,6 +175,36 @@ paths:
         - $ref: '#/components/parameters/angle'
       tags:
         - Write Requests
+  /cgi/product_image_unselect.pl:
+    post:
+      summary: Unselect A Photo
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: ./requestBodies/unselect_a_photo.yaml
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status of the unselect operation
+                    example: status ok
+                  status_code:
+                    type: number
+                    description: status code of the operation
+                    example: 0
+                  imagefield:
+                    type: string
+                    example: front_fr
+                    description: image field that was unselected
+
+
   /cgi/product_jqm2.pl:
     post:
       summary: Add or Edit A Product

@@ -172,7 +172,7 @@ function displayFolksonomyPropertyValues() {
         '<td>' +
         '<input id="fe_form_new_property" name="property" class="text tagify-me" value="" lang="en" placeholder="Enter a property" ></input>' +
             '<small id="fe_prop_eg" >Example: color</small>' +
-            '<small id="fe_prop_err" style="visibility: hidden;"><br>Can countain only minus letters, numbers, "_", and ":"</small>' +
+            '<small id="fe_prop_err" style="visibility: hidden;"><br>Can contain only lower case letters, numbers, "-", "_", and ":"</small>' +
         '</td>' +
         '<td>' +
         '<input id="fe_form_new_value" name="value" placeholder="value" ></input>' +
@@ -208,7 +208,7 @@ function displayFolksonomyPropertyValues() {
 
     // Control new property entry
     $("#fe_form_new_property").on("keyup", function() {
-        const kControl = /^[a-z0-9_]+(\\:[a-z0-9_]+)*$/; // a property is made of minus letters + numbers + _ and :
+        const kControl = /^[a-z0-9_-]+(\\:[a-z0-9_-]+)*$/; // a property is made of lower case letters + numbers + - + _ and :
         if ($("#fe_form_new_property").val() && kControl.test($("#fe_form_new_property").val()) === false) {
             console.log("k syntax is bad!");
             $("#fe_prop_err").css("visibility", "visible");

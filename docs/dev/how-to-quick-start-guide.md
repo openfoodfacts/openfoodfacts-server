@@ -15,6 +15,8 @@ First setup time estimate is `~10min` with the following specs:
 
 Docker provides an isolated environment, very close to a Virtual Machine. This environment contains everything required to launch the Open Food Facts server. There is **no need to install** Perl, Perl modules, Nginx, nor Apache separately.
 
+> **_NOTE:_**  New to Perl? Check [how to learn perl](how-to-learn-perl.md)!
+
 **Installation steps:**
 - [Install Docker CE](https://docs.docker.com/install/#supported-platforms)
 > If you run e.g. Debian, don't forget to add your user to the `docker` group!
