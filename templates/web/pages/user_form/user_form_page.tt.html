@@ -45,7 +45,9 @@
 
     <!-- Start form -->
 
-    <form method="post" action="/cgi/user.pl" enctype="multipart/form-data" id="user_form">
+<div class="donation-banner__content">
+    <div class="form-container" style="width: 80%;margin-right: 20px;">
+      <form method="post" action="/cgi/user.pl" enctype="multipart/form-data" id="user_form">
 		[% FOREACH section IN sections %]
 
             [% IF section.name %]
@@ -97,6 +99,17 @@
                 [% END %]
 
             [% END %]
+        </form>
+    </div>
+    <!-- show video about account creation in Pro Platform -->
+    [% IF section.id != "professional" AND section.id != "contributor_settings" %]
+    <div class="video-container" style="width:70%">
+       
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/RXKxDuuKYV0" title="Tutorial about Account Creation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="margin-top: 20px; max-width: 100%;"></iframe>
+  
+    </div>
+    [% END %]
+</div>
 
 			[% IF section.id == "professional" %]
             <div class="pro_org_display">
@@ -143,7 +156,6 @@
         [% ELSE %]
             <input type="submit" name=".submit" class="button" value="[% lang("add_user") %]" />
         [% END %]
-    </form>
 
     <!-- End form -->
 
