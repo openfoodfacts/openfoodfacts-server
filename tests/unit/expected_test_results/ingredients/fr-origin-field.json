@@ -38,7 +38,7 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_food_code" : "1014",
+         "ciqual_food_code" : "5214",
          "id" : "en:red-wine",
          "origins" : "en:italy",
          "percent_estimate" : 2.84090909090909,
@@ -49,7 +49,7 @@
          "vegetarian" : "yes"
       },
       {
-         "ciqual_food_code" : "1014",
+         "ciqual_food_code" : "5216",
          "id" : "en:rose-wine",
          "origins" : "en:spain",
          "percent_estimate" : 1.42045454545455,
@@ -60,6 +60,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "19402",
          "id" : "en:uht-cream",
          "percent_estimate" : 0.710227272727273,
          "percent_max" : 14.2857142857143,
@@ -91,6 +92,7 @@
          "vegetarian" : "maybe"
       },
       {
+         "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "percent_estimate" : 0.0887784090909065,
          "percent_max" : 10,
@@ -199,12 +201,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:pepper",
-      "en:salt",
-      "en:uht-cream",
       "fr:coquillettes",
       "fr:jambon-superieur"
    ],
-   "ingredients_without_ciqual_codes_n" : 5,
+   "ingredients_without_ciqual_codes_n" : 3,
    "known_ingredients_n" : 15,
    "lc" : "fr",
    "nutriments" : {

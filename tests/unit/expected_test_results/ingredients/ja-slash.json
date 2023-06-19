@@ -87,6 +87,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "percent_estimate" : 0.0911458333333286,
          "percent_max" : 10,
@@ -261,7 +262,6 @@
       "en:flavouring",
       "en:modified-starch",
       "en:raising-agent",
-      "en:salt",
       "en:sugar",
       "en:vegetable-oil-and-fat",
       "en:wheat-flour",
@@ -269,7 +269,7 @@
       "ja:大豆由来",
       "ja:小麦胚芽"
    ],
-   "ingredients_without_ciqual_codes_n" : 12,
+   "ingredients_without_ciqual_codes_n" : 11,
    "known_ingredients_n" : 26,
    "lc" : "ja",
    "nutriments" : {
