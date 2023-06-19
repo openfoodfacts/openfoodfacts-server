@@ -61,6 +61,7 @@ use Log::Any qw($log);
 
 use Storable qw(dclone);
 use Text::Fuzzy;
+use Data::DeepAccess qw(deep_exists);
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
@@ -519,6 +520,15 @@ sub set_field_value (
 			$product_ref->{$field} = "";
 			delete $product_ref->{$field . "_tags"};
 		}
+
+		# If we are on the producers platform, replace existing values by producer supplied values for allergens and traces
+		if (deep_exists(\%options, "replace_existing_values_when_importing_those_tags_fields", $field)) {
+			if ($imported_product_ref->{$field} ne "") {
+				$product_ref->{$field} = "";
+				delete $product_ref->{$field . "_tags"};
+			}
+		}
+
 		# existing is the list of already existing tags
 		# that will be completed with more values
 		my %existing = ();
