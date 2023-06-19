@@ -492,6 +492,21 @@ sub check_user_form($$$) {
 		}
 	}
 
+        # Check for spam
+        # e.g. name with "Lydia want to meet you! Click here:" + an url
+
+        foreach my $bad_string ('click here', 'wants to meet you', '://') {
+                if ($user_ref->{name} =~ /$bad_string/i) {
+                        # log the ip
+                        open(my $log, ">>", "$data_root/logs/user_spam.log");
+                        print $log remote_addr() . "\t" . time() . "\t" . $user_ref->{name} . "\n";
+                        close($log);
+                        # bail out, return 200 status code
+			push @{$errors_ref}, "";
+                        display_error("", 200);
+                }
+        }
+
 	# Check input parameters, redisplay if necessary
 
 	if (length($user_ref->{name}) < 2) {
