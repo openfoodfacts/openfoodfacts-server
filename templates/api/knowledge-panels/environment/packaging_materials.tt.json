@@ -13,15 +13,15 @@
             "table_element": {
                 "id": "packaging_materials",
                 "title": "[% lang('packaging_materials') %]",
-                "columns": [
-                    { 
-                        "text": "%",
-                        "type": "text",
-                    },                    
+                "columns": [                
                     { 
                         "text": "[% lang('packaging_material') %]",
                         "type": "text",
                     },
+                    { 
+                        "text": "%",
+                        "type": "text",
+                    },                        
                     { 
                         "text": "[% lang('packaging_weight_total') %]",
                         "type": "text",
@@ -48,15 +48,15 @@
                                     [% END %]
                                     "values": [
                                         {
-                                            "text": "[% IF parent_material_data.weight_percent %][% round(parent_material_data.weight_percent) %]%[% END %]",
-                                        },
-                                        {
                                             [% IF parent_material == 'all' %]
                                             "text": "[% lang('total') %]",
                                             [% ELSE %]
                                             "text": "[% display_taxonomy_tag_name('packaging_materials',parent_material) %]"
                                             [% END %]
                                         },
+                                        {
+                                            "text": "[% IF parent_material_data.weight_percent %][% round(parent_material_data.weight_percent) %]%[% END %]",
+                                        },                                        
                                         {
                                             "text": "[% IF parent_material_data.weight %][% parent_material_data.weight %] g[% END %]"
                                         },
