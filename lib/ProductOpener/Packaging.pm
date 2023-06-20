@@ -49,6 +49,7 @@ BEGIN {
 		&parse_packaging_component_data_from_text_phrase
 		&guess_language_of_packaging_text
 		&apply_rules_to_augment_packaging_component_data
+		&aggregate_packaging_by_parent_materials
 
 		%packaging_taxonomies
 	);    # symbols to export on request
@@ -65,6 +66,8 @@ use ProductOpener::API qw/:all/;
 use ProductOpener::Numbers qw/:all/;
 use ProductOpener::Units qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
+
+use Data::DeepAccess qw(deep_get deep_val);
 
 =head1 FUNCTIONS
 
@@ -776,27 +779,29 @@ Set some tags in the /misc/ facet so that we can track the products that have
 
 sub set_packaging_misc_tags ($product_ref) {
 
-	remove_tag($product_ref, "misc", "en:packagings-complete");
-	remove_tag($product_ref, "misc", "en:packagings-not-complete");
-	remove_tag($product_ref, "misc", "en:packagings-empty");
-	remove_tag($product_ref, "misc", "en:packagings-not-empty");
-	remove_tag($product_ref, "misc", "en:packagings-not-empty-but-not-complete");
-	remove_tag($product_ref, "misc", "en:packagings-with-weights");
-	remove_tag($product_ref, "misc", "en:packagings-with-all-weights");
-	remove_tag($product_ref, "misc", "en:packagings-with-all-weights-complete");
-	remove_tag($product_ref, "misc", "en:packagings-with-all-weights-not-complete");
-	remove_tag($product_ref, "misc", "en:packagings-with-some-but-not-all-weights");
+	if (defined $product_ref->{misc_tags}) {
+		remove_tag($product_ref, "misc", "en:packagings-complete");
+		remove_tag($product_ref, "misc", "en:packagings-not-complete");
+		remove_tag($product_ref, "misc", "en:packagings-empty");
+		remove_tag($product_ref, "misc", "en:packagings-not-empty");
+		remove_tag($product_ref, "misc", "en:packagings-not-empty-but-not-complete");
+		remove_tag($product_ref, "misc", "en:packagings-with-weights");
+		remove_tag($product_ref, "misc", "en:packagings-with-all-weights");
+		remove_tag($product_ref, "misc", "en:packagings-with-all-weights-complete");
+		remove_tag($product_ref, "misc", "en:packagings-with-all-weights-not-complete");
+		remove_tag($product_ref, "misc", "en:packagings-with-some-but-not-all-weights");
+
+		# Remove previous misc tag for the number of components
+		foreach my $tag ($product_ref->{misc_tags}) {
+			if ($tag =~ /^en:packagings-number-of-components-/) {
+				remove_tag($product_ref, "misc", $tag);
+			}
+		}
+	}
 
 	# Number of packaging components
 	my $number_of_packaging_components
 		= (defined $product_ref->{packagings} ? scalar @{$product_ref->{packagings}} : 0);
-
-	# Remove previous misc tag for the number of components
-	foreach my $tag ($product_ref->{misc_tags}) {
-		if ($tag =~ /^en:packagings-number-of-components-/) {
-			remove_tag($product_ref, "misc", $tag);
-		}
-	}
 	# Add the tag for the new number of components
 	add_tag($product_ref, "misc", "en:packagings-number-of-components-" . $number_of_packaging_components);
 
@@ -842,6 +847,71 @@ sub set_packaging_misc_tags ($product_ref) {
 			}
 		}
 	}
+
+	return;
+}
+
+=head2 aggregate_packaging_by_parent_materials ($product_ref)
+
+Aggregate the weights of each packaging component by parent material (glass, plastics, metal, paper or cardboard)
+
+=cut
+
+sub aggregate_packaging_by_parent_materials ($product_ref) {
+
+	my $packagings_materials_ref = {"en:all" => {}};
+
+	if (defined $product_ref->{packagings}) {
+
+		# Iterate over each packaging component
+		foreach my $packaging_ref (@{$product_ref->{packagings}}) {
+
+			# Determine what is the parent material for the component
+			my $material = $packaging_ref->{material};
+			my $parent_material = "en:unknown";
+			if (defined $material) {
+				foreach my $parent ("en:paper-or-cardboard", "en:plastic", "en:glass", "en:metal") {
+					if (is_a("packaging_materials", $material, $parent)) {
+						$parent_material = $parent;
+						last;
+					}
+				}
+			}
+
+			# Initialize the entry for the parent material if needed (even if we have no weight,
+			# it is useful to know that there is some parent material used)
+			if (not defined $packagings_materials_ref->{$parent_material}) {
+				$packagings_materials_ref->{$parent_material} = {};
+			}
+
+			# Weight per unit
+			my $weight = $packaging_ref->{weight_specified} || $packaging_ref->{weight_measured};
+			if (defined $weight) {
+				# Assume we have 1 unit if not specified
+				my $total_weight = ($packaging_ref->{number_of_units} || 1) * $weight;
+
+				# Add the weight to the parent material, and to a special "all" entry for all materials
+				deep_val($packagings_materials_ref, $parent_material, "weight") += $total_weight;
+				deep_val($packagings_materials_ref, "all", "weight") += $total_weight;
+			}
+		}
+
+		# Iterate over each parent material to compute weight statistics
+		my $total_weight = deep_get($packagings_materials_ref, "all", "weight");
+		foreach my $parent_material_ref (values %$packagings_materials_ref) {
+			if (defined $parent_material_ref->{weight}) {
+				if ($total_weight) {
+					$parent_material_ref->{weight_percent} = $parent_material_ref->{weight} / $total_weight * 100;
+				}
+				if ($product_ref->{product_quantity}) {
+					$parent_material_ref->{weight_100g}
+						= $parent_material_ref->{weight} / $product_ref->{product_quantity} * 100;
+				}
+			}
+		}
+	}
+
+	$product_ref->{packagings_materials} = $packagings_materials_ref;
 
 	return;
 }
@@ -961,6 +1031,9 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 
 	# Set packaging facets tags for shape, material and recycling
 	set_packaging_facets_tags($product_ref);
+
+	# Aggregate data per parent material
+	aggregate_packaging_by_parent_materials($product_ref);
 
 	$log->debug("analyze_and_combine_packaging_data - done",
 		{packagings => $product_ref->{packagings}, response => $response_ref})
