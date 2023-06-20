@@ -801,6 +801,7 @@
    "owners_tags" : "org-test-org",
    "packaging" : "carton",
    "packaging_hierarchy" : [
+      "en:paper-or-cardboard",
       "en:cardboard"
    ],
    "packaging_imported" : "carton",
@@ -815,6 +816,7 @@
       "en:box"
    ],
    "packaging_tags" : [
+      "en:paper-or-cardboard",
       "en:cardboard"
    ],
    "packaging_text" : "boite carton à recycler",
@@ -827,6 +829,10 @@
          "shape" : "en:box"
       }
    ],
+   "packagings_materials" : {
+      "en:all" : {},
+      "en:paper-or-cardboard" : {}
+   },
    "packagings_n" : 1,
    "periods_after_opening" : "48 mois",
    "periods_after_opening_hierarchy" : [
