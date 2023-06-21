@@ -3912,7 +3912,7 @@ my %phrases_after_ingredients_list = (
 		'przechowywać w chlodnym i ciemnym miejscu',    #keep in a dry and dark place
 		'n(a|o)jlepiej spożyć przed',    #Best before
 		'Przechowywanie',
-		'pakowan(o|y|e) w atmosferze ochronnej', # Packaged in protective environment
+		'pakowan(o|y|e) w atmosferze ochronnej',    # Packaged in protective environment
 	],
 
 	pt => [
@@ -4430,12 +4430,16 @@ my %ingredients_categories_and_types = (
 	],
 
 	pl => [
-		# oils
+		# oils and fats
 		[
 			# categories
 			["olej", "olej roślinny", "oleje", "oleje roślinne", "tłuszcze", "tłuszcze roślinne",],
 			# types
-			["rzepakowy", "z oliwek", "palmowy", "słonecznikowy", "kokosowy", "sojowy",],
+			[
+				"rzepakowy", "z oliwek", "palmowy", "słonecznikowy",
+				"kokosowy", "sojowy", "shea", "palmowy utwardzony",
+				"palmowy nieutwardzony"
+			],
 		],
 	],
 
@@ -4873,6 +4877,12 @@ sub preparse_ingredients_text ($product_lc, $text) {
 
 		$text =~ s/dient\(s\)/dients/ig;
 		$text =~ s/\bissu(\(e\))?(\(s\))?/issu/ig;
+	}
+	elsif ($product_lc eq 'pl') {
+
+		# remove stopwords
+		$text =~ s/w? zmiennych? proporcjach?//i;
+
 	}
 
 	$text = develop_ingredients_categories_and_types($product_lc, $text);
