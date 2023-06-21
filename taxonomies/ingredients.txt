@@ -48,7 +48,7 @@ stopwords:lv:no
 stopwords:nb:av, fra, bl a, blant annet, tilsatt
 stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier, waaraan toegevoegd, aangezuurd, cacaobestanddelen, o.a
 stopwords:nn:av
-stopwords:pl:w tym, zawiera, z, zawierają, łącznie z
+stopwords:pl:w tym, zawiera, z, zawierają, łącznie z, jadalna, jadalne
 stopwords:pt:de, da, do, das, dos, com, e, ou, em, do qual, dos quais, contém, produzido com, mínimo, máximo, min., mín., máx., max., incluindo, variedade, cultivo, de cultivo, 
 stopwords:sk:obsahuje
 stopwords:sl:vsebuje, sestavine
@@ -11322,11 +11322,13 @@ fi:Lampaansuoli
 fr:boyau de mouton
 hu:juhbél, birkabél
 it:budello di pecore, budello di sale
+pl:jelito baranie
 # ingredient/fr:boyau-de-mouton has 80 products in 4 languages @2019-02-12
 
 <en:sheeps casing
 en:natural sheep casing
 fr:boyau naturel de mouton
+pl:naturalne jelito baranie
 # ingredient/fr:boyau-naturel-de-mouton has 285 products in 3 languages @2019-02-12
 
 <en:meat
@@ -13066,6 +13068,7 @@ fr:enveloppe
 hr:omotač, omotaču
 it:involucro
 nl:vel
+pl:osłonka
 
 # description:en:COLLAGEN is the main structural protein in the extracellular space in the various connective tissues in the body.  It is widely used in the form of collagen casings for sausages, which are also used in the manufacture of musical strings.
 
@@ -13150,6 +13153,7 @@ de:Naturdarm
 fi:luonnonsuoli
 fr:boyau naturel
 nl:natuurlijk omhulsel, eetbare natuurdarm
+pl:osłonka naturalna
 ro:Membrana naturala comestibila
 sv:naturtarm
 # ingredient/fr:boyau-naturel has 176 products in 2 languages @2019-02-12
@@ -13168,7 +13172,7 @@ fr:boyau de bœuf, boyau de boeuf, collagène de boeuf
 hu:marhabél
 it:budello di manzo
 nl:rundercollageen
-pl:kolagen wołowy
+pl:jelito wołowe
 # ingredient/fr:boyau-de-boeuf has 24 products in 4 languages @2019-01-30
 # enveloppe:boyau de boeuf
 
@@ -13189,7 +13193,7 @@ fr:boyau de porc
 hu:sertésbél, disznóbél
 it:budello di maiale
 nl:varkenscollageen, varkencollageen
-pl:kolagen wieprzowy
+pl:jelito wieprzowe, jelita wieprzowe, kolagen wieprzowy
 # ingredient/fr:boyau-de-porc has 1085 products in 5 languages @2019-02-12
 
 <en:pork collagen
@@ -19686,6 +19690,7 @@ fr:préparation aromatisante, préparation aromatique
 hu:fűszerkészítmény
 it:preparazione di spezie
 nl:aromatiserende bereiding
+pl:preparat aromatyzujący, preparaty aromatyzujące
 pt:preparacao aromatizante
 ro:preparat aromatizant
 ru:вкусоароматические вещества и препараты
@@ -83316,6 +83321,7 @@ sv:chokladglasyr, kakaoglasyr
 # mainIngredient:en:cacao
 # <en:compound
 fr:décoration au cacao
+pl:polewa kakaowa
 # usage:fr:décoration au cacao (cacao, dextrose de maïs, amidon de maïs, sucre, beurre de cacao)
 
 # description:en:ASPIC is a dish in which ingredients are set into a gelatin made from a meat stock or consommé.

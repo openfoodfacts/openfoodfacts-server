@@ -2057,6 +2057,10 @@ sub parse_ingredients_text ($product_ref) {
 								'en',
 							],
 
+							'pl' => [
+								'^masa kakaowa minimum$',
+							],
+
 							'ru' => [
 								'^россия$', '^состав( продукта)?$',
 								'^энергетическая ценность$', '^калорийность$',
