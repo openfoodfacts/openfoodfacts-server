@@ -570,6 +570,11 @@ $options{categories_exempted_from_nutrient_levels} = [
 	)
 ];
 
+$options{replace_existing_values_when_importing_those_tags_fields} = {
+	"allergens" => 1,
+	"traces" => 1,
+};
+
 # fields for which we will load taxonomies
 # note: taxonomies that are used as properties of other taxonomies must be loaded first
 # (e.g. additives_classes are referenced in additives)
