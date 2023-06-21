@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : "18066",
          "id" : "en:water",
          "percent_estimate" : 62,
          "percent_max" : 62,
@@ -109,10 +110,9 @@
       "en:cane-sugar",
       "en:e330",
       "en:guava",
-      "en:some-unknown-ingredient",
-      "en:water"
+      "en:some-unknown-ingredient"
    ],
-   "ingredients_without_ciqual_codes_n" : 5,
+   "ingredients_without_ciqual_codes_n" : 4,
    "known_ingredients_n" : 8,
    "lc" : "en",
    "nutriments" : {
