@@ -50,6 +50,7 @@ BEGIN {
 		&guess_language_of_packaging_text
 		&apply_rules_to_augment_packaging_component_data
 		&aggregate_packaging_by_parent_materials
+		&load_categories_packagings_materials_stats
 
 		%packaging_taxonomies
 	);    # symbols to export on request
@@ -68,6 +69,30 @@ use ProductOpener::Units qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
 
 use Data::DeepAccess qw(deep_get deep_val);
+
+# We use a global variable in order to load the packaging stats only once
+my $categories_packagings_materials_stats_ref;
+
+sub load_categories_packagings_materials_stats() {
+	if (not defined $categories_packagings_materials_stats_ref) {
+		my $file = "$data_root/data/categories_stats/categories_packagings_materials_stats.all.popular.json";
+		# In dev environments, we provide a sample stats file in the data-default directory
+		# so that we can run tests with meaningful and unchanging data
+		if (!-e $file) {
+			my $default_file = "$data_root/data-default/categories_stats/categories_packagings_materials_stats.all.popular.json";
+			$log->debug("local packaging stats file does not exist, will use default",
+				{file => $file, default_file => $default_file})
+				if $log->is_debug();
+			$file = $default_file;
+		}
+		$log->debug("loading packagings materials stats", {file => $file}) if $log->is_debug();
+		$categories_packagings_materials_stats_ref = retrieve_json($file);
+		if (not defined $categories_packagings_materials_stats_ref) {
+			$log->debug("unable to load packagings materials stats", {file => $file}) if $log->is_debug();
+		}
+	}
+	return $categories_packagings_materials_stats_ref;
+}
 
 =head1 FUNCTIONS
 
