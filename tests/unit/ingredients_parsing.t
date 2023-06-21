@@ -569,6 +569,8 @@ my @lists = (
 	],
 
 	# Polish oils
+	["pl", "oleje roślinne (słonecznikowy)", "oleje roślinne słonecznikowy"],
+	["pl", "oleje roślinne: słonecznikowy", "oleje roślinne słonecznikowy"],
 	["pl", "oleje roślinne (słonecznikowy, rzepakowy)", "oleje roślinne słonecznikowy, oleje roślinne rzepakowy"],
 
 	# Russian oils (more tests needed)
