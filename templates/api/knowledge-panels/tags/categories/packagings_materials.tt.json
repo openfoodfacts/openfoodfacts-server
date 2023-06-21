@@ -1,0 +1,62 @@
+{
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+    "title_element": {
+        "title": "[% lang('packaging_materials') %]",           
+    },    
+    "expanded": true,
+    "elements": [
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "packaging_materials",
+                "title": "[% lang('packaging_materials') %]",
+                "columns": [                
+                    { 
+                        "text": "[% lang('packaging_material') %]",
+                        "type": "text",
+                    },
+                    { 
+                        "text": "%",
+                        "type": "text",
+                    },
+                    { 
+                        "text": "[% lang('packaging_weight_100g') %]",
+                        "type": "text",
+                    },
+                ],
+                "rows": [
+                    [% FOREACH material IN ["en:paper-or-cardboard", "en:plastic", "en:glass", "en:metal", "en:unknown", "all"] %]
+                        [% IF panel.materials.$material.defined %]
+                            
+                            [% SET material_data = panel.materials.$material %]
+                            {
+                                [% IF material == 'all' %]
+                                "style": "font-weight: bold",
+                                [% END %]
+                                "values": [
+                                    {
+                                        [% IF material == 'all' %]
+                                        "text": "[% lang('total') %]",
+                                        [% ELSE %]
+                                        "text": "[% display_taxonomy_tag_name('packaging_materials',material) %]"
+                                        [% END %]
+                                    },
+                                    {
+                                        "text": "[% IF material_data.weight_percent %][% round(material_data.weight_percent.mean) %]%[% END %]",
+                                    },                                        
+                                    {
+                                        "text": "[% IF material_data.weight_100g %][% round(material_data.weight_100g.mean) %] g[% END %]"
+                                    },
+                                ]
+                            },
+                            
+                        [% END %]
+                    [% END %]
+                ]
+            }
+        },
+    ]
+}

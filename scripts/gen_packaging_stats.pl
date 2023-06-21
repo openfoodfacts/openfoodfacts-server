@@ -416,13 +416,17 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 				# for at least one material (in which case it will be in the "all" material too)
 				# then we record values for all materials (with value 0 if we don't have the material
 				# or we don't have a value for the material)
-				foreach my $field ("weight_percent", "weight_100g") {
-					if (deep_get($product_ref, "packagings_materials", "all", $field)) {
-						# If we don't have a value for a material, assume it is 0
-						my $value = deep_get($product_ref, "packagings_materials", $material, $field) || 0;
-						deep_val($packagings_materials_stats_ref,
-							("countries", $country, "categories", $category, "materials", $material, $field, "values"))
-							.= $value . ",";
+				# In order to avoid mismatched weight_percent and weight_100g, we do it only when both are computed,
+				# (when the product quantity is known)
+				if ($product_ref->{product_quantity}) {
+					foreach my $field ("weight_percent", "weight_100g") {
+						if (deep_get($product_ref, "packagings_materials", "all", $field)) {
+							# If we don't have a value for a material, assume it is 0
+							my $value = deep_get($product_ref, "packagings_materials", $material, $field) || 0;
+							deep_val($packagings_materials_stats_ref,
+								("countries", $country, "categories", $category, "materials", $material, $field, "values"))
+								.= $value . ",";
+						}
 					}
 				}
 			}
@@ -486,6 +490,7 @@ sub generate_packaging_stats_for_query ($name, $query_ref) {
 		categories_tags => 1,
 		packagings => 1,
 		packagings_materials => 1,
+		product_quantity => 1,
 	};
 
 	my $socket_timeout_ms = 3 * 60 * 60 * 60000;    # 3 hours
