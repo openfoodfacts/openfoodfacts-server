@@ -48,7 +48,7 @@ stopwords:lv:no
 stopwords:nb:av, fra, bl a, blant annet, tilsatt
 stopwords:nl:bevat, met, waarvan, bevatten, van, vervaardigd met, behandeld papier, waaraan toegevoegd, aangezuurd, cacaobestanddelen, o.a
 stopwords:nn:av
-stopwords:pl:w tym, zawiera, z, zawierają
+stopwords:pl:w tym, zawiera, z, zawierają, łącznie z
 stopwords:pt:de, da, do, das, dos, com, e, ou, em, do qual, dos quais, contém, produzido com, mínimo, máximo, min., mín., máx., max., incluindo, variedade, cultivo, de cultivo, 
 stopwords:sk:obsahuje
 stopwords:sl:vsebuje, sestavine
@@ -2375,7 +2375,7 @@ nv:Abeʼ
 oc:Lach, lait, lèit
 or:କ୍ଷୀର
 pa:ਦੁੱਧ
-pl:Mleko
+pl:mleko, mleka, mleczny, mleczna
 ps:شيدې
 pt:Leite
 qu:Lichi, Pilli
@@ -13598,7 +13598,7 @@ ms:tepung jagung
 nb:maisstivelse, maisenna
 nl:maïszetmeel, maiszetmeel, maïzena
 no:maisstivelse
-pl:skrobia kukurydziana
+pl:skrobia kukurydziana, skrobia z kukurydzy
 pt:amido de milho
 ro:amidon de porumb
 ru:кукурузный крахмал, крахмал кукурузный
@@ -13638,6 +13638,7 @@ nl:kleefmaïszetmeel, waxy maiszetmeel, waxy maïszetmeel
 en:native corn starch
 de:native Maisstärke
 fr:amidon de maïs natif, amidon natif de maïs
+pl:niemodyfikowana skrobia kukurydziana, skrobia natywna
 
 <en:corn starch
 <en:modified starch
@@ -13659,7 +13660,7 @@ it:amido modificato di mais, amido di mais modificato
 lt:modifikuotas kukurūzų krakmolas
 nb:modifisert maisstivelse
 nl:gemodificeerd maïszetmeel, gemodificeerd maiszetmeel
-pl:modyfikowana skrobia kukurydziana, modyfikowana skrobia z kukurydzy
+pl:modyfikowana skrobia kukurydziana, modyfikowana skrobia z kukurydzy, skrobia kukurydziana modyfikowana
 pt:amido de milho modificado, amido modificado de milho
 ro:amidon modificat din porumb, amidon modificat de porumb
 ru:крахмал кукурузный модифицированный
@@ -13682,6 +13683,10 @@ fr:amidon modifié de maïs visqueux
 <en:modified corn starch
 <en:non-gmo corn starch
 fr:amidon transformé de mais sans OGM
+
+<en:starch
+en:mung bean starch
+pl:skrobia z fasoli mung
 
 # description:en:Potato starch is starch extracted from potatoes.
 
@@ -14993,7 +14998,7 @@ lt:palmių riebalai
 lv:palmu tauki
 nb:palmefett
 nl:palmvet
-pl:tłuszcz palmowy, tłuszcz roślinny palmowy
+pl:tłuszcz palmowy, tłuszcz roślinny palmowy, tłuszcze roślinne palmowy
 pt:gordura de palma, gordura vegetal de palma
 ro:grăsime de palmier, grăsime vegetală de palmier
 ru:Пальмовый жир
@@ -15026,7 +15031,7 @@ es:grasa de palma hidrogenada
 fi:kovetettu palmurasva
 fr:graisse de palme hydrogénée
 nl:Gehydrogeneerd palmvet
-pl:utwardzony tłuszcz palmowy, tłuszcz palmowy utwardzony
+pl:utwardzony tłuszcz palmowy, tłuszcz palmowy utwardzony, tłuszcze roślinne palmowy utwardzony,
 sv:hydrerad palmfett
 # ingredient/en:hydrogenated-palm-fat has 43 products in 4 languages @2020-06-08
 
@@ -15347,7 +15352,7 @@ it:grasso di cocco
 lt:kokoso riebalai
 lv:kokosriekstu tauki
 nl:kokosvet
-pl:tłuszcz kokosowy, tłuszcz roślinny kokosowy
+pl:tłuszcz kokosowy, tłuszcz roślinny kokosowy, tłuszcze roślinne kokosowy
 pt:Gordura de coco
 sv:kokosfett
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:matière-grasse-de-noix-de-coco
@@ -15672,7 +15677,6 @@ hu:kanolaolaj, canolaolaj, canola olaj, canola-olaj, kanola olaj, kanola-olaj
 it:Olio di canola
 ja:キャノーラ油
 nl:canola olie
-pl:Olej rzepakowy
 sv:rybsolja, rypsolja
 tr:kanola yağı
 wikipedia:en:https://en.wikipedia.org/wiki/Canola_oil
@@ -15704,7 +15708,6 @@ hu:Repceolaj
 it:olio di colza, olio vegetale di colza
 nb:rapsolje
 nl:koolzaadolie, plantaardige koolzaadolie
-pl:Olej rzepakowy
 pt:óleo de colza
 wikipedia:en:https://en.wikipedia.org/wiki/Colza_oil
 wikidata:en:Q697248
@@ -16312,7 +16315,7 @@ ko:시어 버터
 ms:Mentega syea
 nb:sheasmør, shea, sheafett
 nl:sheaboter, shea
-pl:masło shea, shea, tłuszcz shea
+pl:masło shea, shea, tłuszcz shea, tłuszcze shea, tłuszcze roślinne shea
 pt:ori,shea
 ro:unt de shea, shea
 ru:Масло дерева ши
@@ -21092,6 +21095,7 @@ de:Knoblauch-Aroma, Knoblaucharoma
 es:aroma de ajo
 fi:valkosipuliaromi
 fr:arôme d'ail
+pl:aromat czosnku, aromaty czosnku, sromat czosnkowy
 sv:vitlökarom, vitlöksarom
 # ingredient/fr:arome-d'ail has 21 products in 4 languages @2020-06-13
 
@@ -34575,7 +34579,7 @@ fi:mehu
 fr:jus
 it:succo
 nl:sap
-pl:Sok, soki
+pl:sok, soki, soku
 pt:Sumo
 ru:Сок
 # ingredient/fr:jus has 156 products in 4 languages @2019-02-02
@@ -46456,6 +46460,7 @@ fr:purée d'ail
 hu:fokhagymapüré
 it:Purè d'aglio
 nl:knoflookpuree
+pl:przecier z czosnku, przecier czosnkowy
 sv:vitlökspuré
 # In process de:Knoblauchpüree
 # en:garlic-puree has 775 products in 5 languages @2018-10-23
@@ -46468,6 +46473,7 @@ es:Pasta de ajo
 fi:valkosipulitahna
 fr:pâte d'ail, pulpe d'ail, ail en purée
 it:Impasto d'aglio
+pl:pasta czosnkowa
 # en:garlic-paste has 35 products in 2 languages @2018-10-23
 
 <en:garlic
@@ -46665,6 +46671,7 @@ de:Knoblauchextrakt
 fi:valkosipuliuute
 fr:extrait d'ail
 ja:ガーリックエキス
+pl:ekstrakt czosnku, ekstrakt z czosnku
 # fr:extrait-d'ail has 71 products in 4 languages @2018-10-22
 
 <en:garlic
@@ -47230,7 +47237,7 @@ it:barbabietola
 ja:ビーツ
 nl:biet, bieten
 no:rødbete
-pl:burak, buraki, buraka, buraków
+pl:burak, buraki, buraka, buraków, burak ćwikłowy, buraki ćwikłowe, buraka ćwikłowego, buraków ćwikłowych
 ru:Свёкла
 sk:cvikly
 sv:rödbeta, rödbetor, rödbets
@@ -47326,7 +47333,7 @@ fr:betterave rouge, betteraves rouges
 it:barbabietole rosse
 ja:赤ビーツ
 nl:rode biet
-pl:burak czerwony, buraki czerwone, buraków czerwonych, buraka czerwonego, czerwony burak , czerwone buraki , czerwonych buraków , czerwonego buraka
+pl:burak czerwony, buraki czerwone, buraków czerwonych, buraka czerwonego, czerwony burak, czerwone buraki, czerwonych buraków, czerwonego buraka
 pt:beterraba vermelha
 # fr:betterave-rouge has 298 products in 6 languages @2018-10-22
 ciqual_food_code:en:20091
@@ -48772,6 +48779,7 @@ en:celery stalk
 fr:céleri branche
 de:Stangensellerie
 nl:bleekselderij
+pl:seler naciowy, selera naciowego
 ciqual_food_code:en:20023
 ciqual_food_name:en:Celery stalk, raw
 ciqual_food_name:fr:Céleri branche, cru
@@ -48785,6 +48793,7 @@ es:apio hoja
 fr:feuilles de céleri
 it:foglie di sedano
 nl:selderblad, bladselderij
+pl:liść selera, liście selera
 # fr:feuilles-de-céleri has 39 products in 4 languages @2018-10-21
 
 <en:celery
@@ -48796,7 +48805,7 @@ en:celery puree
 de:Selleriepüree
 fi:selleripyree, sellerisose
 fr:purée de céleri
-pl:przecier z selera, przecier selerowy
+pl:przecier z selera, przecier selerowy, przeciery z selera
 # In process de:Selleriepüree
 
 <en:celery
@@ -48805,6 +48814,7 @@ de:Selleriesaft
 es:Jugo de apio
 fr:jus de céleri
 it:Succo di sedano
+pl:sok z selera
 
 <en:celery juice
 en:concentrated celery juice
@@ -48835,6 +48845,7 @@ fr:graines de céleri
 it:Semi di sedano
 ja:セロリシード
 nl:selderij zaad, selderijzaad
+pl:nasiona selera
 sv:sellerifrö
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-céleri
 # 66 products in 3 languages @2018-10-07
@@ -48879,7 +48890,7 @@ la:Apium graveolens var. rapaceum
 ms:Akar saderi
 nb:sellerirot
 nl:knolselderij
-pl:seler korzeń, korzeń selera
+pl:seler korzeń, korzeń selera, seler korzeniowy
 ro:rădăcină de țelină
 ru:корень сельдерея
 sr:koren celera
@@ -48961,7 +48972,7 @@ nl:Taro
 nn:Taro
 no:Taro
 pa:ਅਰਵੀ
-pl:Kolokazja jadalna
+pl:Kolokazja jadalna, taro, eddo, kolokazja, kleśnica, kleśniec jadalny
 pt:Taro
 rn:Amateke
 ru:Таро
@@ -49069,7 +49080,7 @@ nl:venkel
 nn:fennikel
 oc:fenolh
 or:ପାନମଧୁରୀ
-pl:fenkuł włoski
+pl:fenkuł włoski, fenkuł, koper włoski
 pt:funcho
 qu:inuhu
 ro:fenicul
@@ -49151,7 +49162,7 @@ jv:Pondhoh
 la:Cerebrum palmae
 lt:Palmės šerdis
 nl:Palmharten
-pl:Serce palmy
+pl:serce palmy, serca palmy
 pt:Palmito
 ru:Сердцевина пальмы
 sv:Palmhjärta
@@ -49393,7 +49404,7 @@ nl:prei
 nn:purre
 oc:pòrre
 os:зæнгджын хъæдындз
-pl:por
+pl:por, pora
 pt:alho-porro, alho francês
 ro:praz
 ru:лук-порей
@@ -49499,7 +49510,7 @@ nb:løk
 nl:ui, uien, ajuin
 no:løk
 nv:tłʼohchin
-pl:cebula
+pl:cebula, cebuli, cebulowy, cebulowa, cebulowe
 pt:cebola
 ro:ceapă, ceapa
 ru:лук, лук репчатый
@@ -49575,7 +49586,7 @@ ms:Daun bawang
 nl:lente-ui, bosui, Lenteuitjes, lenteui
 nn:vårlauk
 no:vårløk
-pl:cebulka zielona
+pl:cebulka zielona, zielona cebulka, zielonej cebulki
 pt:cebolinha
 ru:лук зелёный
 sk:jarná cibuľka
@@ -49610,7 +49621,7 @@ nn:vårløkspulver
 sv:vårlökspulver
 
 <en:spring onion
-pl:lyofilizowana cebulka zielona
+pl:liofilizowana cebulka zielona
 
 <en:onion
 en:onion sproute
@@ -49894,6 +49905,7 @@ de:perlzwiebel
 fi:pikkusipuli, pikkusipulit
 fr:oignons grelots
 is:perlulaukur
+pl:cebula perłowa, cebulka perłowa
 wikidata:en:Q508630
 wikipedia:en:https://en.wikipedia.org/wiki/Pearl_onion
 # ingredient/fr:oignons-grelots has 96 products in french @2018-11-06
@@ -49928,6 +49940,7 @@ it:Estratto di cipolla
 ja:玉ねぎエキス, オニオンエキス
 lt:svogūnų ekstraktas
 nl:uienextract
+pl:ekstrakt z cebuli, ekstrakty z cebuli, ekstrakt cebulowy
 pt:Extrato de cebolo
 sv:lökextrakt
 # ingredient/fr:extrait-d’oignon has 119 products in 3 languages @2018-12-06
@@ -49963,12 +49976,14 @@ fi:paahdettu sipuli
 fr:oignon grillé, oignons grillés
 it:cipolle grigliate
 nl:gebakken ui, gebakken uien
+pl:cebula pieczona, pieczona cebula
 pt:cebolas grelhadas
 sv:stekt lök
 # ingredient/fr:oignons-grillés has 111 products in 4 languages @2018-12-06
 
 <en:fried onion
 fr:oignon grillé en poudre
+pl:cebula smażona w proszku, smażona cebula w proszku
 
 # fr:oignon-frit is a compound ingredient, eg:gefrituurde uien ( uien, raapzaadolie, zonnebloemolie, zout)
 
@@ -49983,7 +49998,7 @@ de:frittierte Zwiebeln
 hu:Sült hagyma
 it:Cipolla fritta
 nl:gefrituurde ui, gefrituurde uien
-pl:cebula smażona
+pl:cebula smażona, smażona cebula
 pt:cebola frita, cebolas fritas
 # ingredient/fr:oignon-frit has 347 products @2018-12-6
 
@@ -51180,7 +51195,7 @@ mt:tapjoka
 nb:tapioka, tapiokastivelse
 nl:tapiocazetmeel, tapioca zetmeel, tapioca
 nn:tapioka
-pl:tapioka
+pl:tapioka, skrobia z tapioki, skrobia tapiokowa, skrobia z manioku
 pt:tapioca
 ru:тапиока
 sk:tapiokový škrob
@@ -54236,6 +54251,7 @@ ko:숙주나물
 ms:tauge halus, kecambah
 nl:taugé, mungboonscheut
 nn:mungbonnespirer
+pl:kiełki fasoli mung
 sv:mungbonskott
 th:ถั่วงอก
 tl:toge
@@ -56813,7 +56829,7 @@ it:noci
 ja:ナッツ
 nb:trenøtt, trenøtter
 nl:boomnoten
-pl:Migdały
+pl:Orzechy
 pt:Árvore de frutos secos
 allergens:en: en:nuts
 
@@ -60332,7 +60348,7 @@ ja:カラシナ,シロガラシ
 nb:sennepsfrø
 nl:mosterdzaad, mosterdzaden
 nn:sennepsfrø
-pl:ziarno gorczycy, ziarna gorczycy, gorczyca, gorczycy, gorczycę, nasiona gorczycy, gorczyce
+pl:ziarno gorczycy, ziarna gorczycy, gorczyca, gorczycy, gorczycę, nasiona gorczycy, gorczycę
 pt:Semente de mostarda
 ro:boabe de muștar
 ru:горчичное зерно
@@ -70456,6 +70472,7 @@ it:nasello
 la:Merluccius merluccius
 nl:gewone heek, Europese heek
 nn:lysing
+pl:morszczuk zwyczajny, morszczuk, morszczuka
 pt:pescada-do-atlântico, pescada-branca
 uk:Хек європейський
 wikidata:en:Q1289807
@@ -70941,7 +70958,7 @@ nb:sei
 nl:koolvis
 nn:sei
 pa:ਪੋਲਕ
-pl:Czarniak
+pl:Czarniak, dorsz czarny
 pt:escamudo
 ru:сайда
 se:Sáidi
