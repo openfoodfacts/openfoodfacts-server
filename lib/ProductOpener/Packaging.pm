@@ -859,7 +859,7 @@ Aggregate the weights of each packaging component by parent material (glass, pla
 
 sub aggregate_packaging_by_parent_materials ($product_ref) {
 
-	my $packagings_materials_ref = {"en:all" => {}};
+	my $packagings_materials_ref = {"all" => {}};
 
 	if (defined $product_ref->{packagings}) {
 

@@ -2119,11 +2119,11 @@
                   "table_element" : {
                      "columns" : [
                         {
-                           "text" : "%",
+                           "text" : "Material",
                            "type" : "text"
                         },
                         {
-                           "text" : "Material",
+                           "text" : "%",
                            "type" : "text"
                         },
                         {
@@ -2140,10 +2140,10 @@
                         {
                            "values" : [
                               {
-                                 "text" : ""
+                                 "text" : "Plastic"
                               },
                               {
-                                 "text" : "Plastic"
+                                 "text" : ""
                               },
                               {
                                  "text" : ""
@@ -2155,9 +2155,6 @@
                         },
                         {
                            "values" : [
-                              {
-                                 "text" : ""
-                              },
                               {
                                  "text" : "Glass"
                               },
@@ -2166,16 +2163,36 @@
                               },
                               {
                                  "text" : ""
+                              },
+                              {
+                                 "text" : ""
                               }
                            ]
                         },
                         {
                            "values" : [
                               {
+                                 "text" : "Metal"
+                              },
+                              {
                                  "text" : ""
                               },
                               {
-                                 "text" : "Metal"
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              }
+                           ]
+                        },
+                        {
+                           "style" : "font-weight: bold",
+                           "values" : [
+                              {
+                                 "text" : "Total"
+                              },
+                              {
+                                 "text" : ""
                               },
                               {
                                  "text" : ""
@@ -2448,7 +2465,7 @@
          }
       ],
       "packagings_materials" : {
-         "en:all" : {},
+         "all" : {},
          "en:glass" : {},
          "en:metal" : {},
          "en:plastic" : {},

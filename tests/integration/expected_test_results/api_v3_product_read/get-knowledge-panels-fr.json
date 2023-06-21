@@ -1111,11 +1111,11 @@
                   "table_element" : {
                      "columns" : [
                         {
-                           "text" : "%",
+                           "text" : "Matière",
                            "type" : "text"
                         },
                         {
-                           "text" : "Matière",
+                           "text" : "%",
                            "type" : "text"
                         },
                         {
@@ -1132,10 +1132,10 @@
                         {
                            "values" : [
                               {
-                                 "text" : ""
+                                 "text" : "Plastique"
                               },
                               {
-                                 "text" : "Plastique"
+                                 "text" : ""
                               },
                               {
                                  "text" : ""
@@ -1147,9 +1147,6 @@
                         },
                         {
                            "values" : [
-                              {
-                                 "text" : ""
-                              },
                               {
                                  "text" : "Verre"
                               },
@@ -1158,16 +1155,36 @@
                               },
                               {
                                  "text" : ""
+                              },
+                              {
+                                 "text" : ""
                               }
                            ]
                         },
                         {
                            "values" : [
                               {
+                                 "text" : "Métal"
+                              },
+                              {
                                  "text" : ""
                               },
                               {
-                                 "text" : "Métal"
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              }
+                           ]
+                        },
+                        {
+                           "style" : "font-weight: bold",
+                           "values" : [
+                              {
+                                 "text" : "Total"
+                              },
+                              {
+                                 "text" : ""
                               },
                               {
                                  "text" : ""
