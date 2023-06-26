@@ -19,11 +19,15 @@
                         "type": "text",
                     },
                     { 
-                        "text": "%",
+                        "text": "[% lang('packaging_material_products_percent') %]",
+                        "type": "text",
+                    },                    
+                    { 
+                        "text": "[% lang('packaging_weight_100g') %] (average weight for products that contain the material)",
                         "type": "text",
                     },
                     { 
-                        "text": "[% lang('packaging_weight_100g') %]",
+                        "text": "[% lang('packaging_weight_100g') %] (average weight across all products)",
                         "type": "text",
                     },
                 ],
@@ -45,7 +49,10 @@
                                         [% END %]
                                     },
                                     {
-                                        "text": "[% IF material_data.weight_percent %][% round(material_data.weight_percent.mean) %]%[% END %]",
+                                        "text": "[% IF material_data.products_percent %][% round(material_data.products_percent.mean) %]%[% END %]"
+                                    },                                      
+                                    {
+                                        "text": "[% IF material_data.weight_100g_material %][% round(material_data.weight_100g_material.mean) %] g[% END %]"
                                     },                                        
                                     {
                                         "text": "[% IF material_data.weight_100g %][% round(material_data.weight_100g.mean) %] g[% END %]"

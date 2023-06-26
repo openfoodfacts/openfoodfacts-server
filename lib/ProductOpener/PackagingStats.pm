@@ -1,5 +1,3 @@
-#!/usr/bin/perl -w
-
 # This file is part of Product Opener.
 #
 # Product Opener
@@ -18,13 +16,15 @@
 # GNU Affero General Public License for more details.
 #
 # You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 =head1 NAME
 
-gen_packaging_stats.pl - Generates aggregated data about the packaging components of products for a specific category in a specific country
+ProductOpener::PackagingStats 
 
 =head1 DESCRIPTION
+
+Generates aggregated data about the packaging components of products for a specific category in a specific country
 
 Aggregation counts are stored in a structure of the form:
 
@@ -57,6 +57,34 @@ Aggregation counts are stored in a structure of the form:
 
 =cut
 
+package ProductOpener::PackagingStats;
+
+use ProductOpener::PerlStandards;
+use Exporter qw< import >;
+
+use Log::Any qw($log);
+
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+	@EXPORT_OK = qw(
+
+		&generate_packaging_stats_for_query
+        &add_product_components_to_stats
+        &compute_stats_for_all_weights
+        &compute_stats_for_values
+        &remove_unpopular_categories_shapes_and_materials
+        &remove_packagings_materials_stats_for_unpopular_categories
+        &store_stats
+        &export_product_packaging_components_to_csv
+        &add_product_materials_to_stats
+        &compute_stats_for_all_materials
+
+	);    # symbols to export on request
+	%EXPORT_TAGS = (all => [@EXPORT_OK]);
+}
+
+use vars @EXPORT_OK;
+
 use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
@@ -69,13 +97,8 @@ use ProductOpener::Data qw/:all/;
 use File::Path qw(mkpath);
 use JSON::PP;
 use Data::DeepAccess qw(deep_exists deep_get deep_set deep_val);
-use Getopt::Long;
 use Text::CSV;
 
-my $quiet;
-
-GetOptions("quiet" => \$quiet)
-	or die("Error in command line arguments: use --quiet to silence progress messages");
 
 =head2 add_product_components_to_stats($name, $packagings_stats_ref, $product_ref)
 
@@ -418,26 +441,30 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 				# for at least one material (in which case it will be in the "all" material too)
 				# then we record values for all materials (with value 0 if we don't have the material
 				# or we don't have a value for the material)
-				# In order to avoid mismatched weight_percent and weight_100g, we do it only when both are computed,
-				# (when the product quantity is known)
 
 				if ($total_weight_100g) {
 
-					my $weight_100g = deep_get($product_ref, "packagings_materials", $material, "weight_100g") // 0;
+					my $weight_100g = deep_get($product_ref, "packagings_materials", $material, "weight_100g");
 					
-					my $relative_percent = $weight_100g / $total_weight_100g * 100;
+					# Record if the product has the material (100) or not (0)
+					deep_val($packagings_materials_stats_ref,
+							("countries", $country, "categories", $category, "materials", $material, "products_percent", "values"))
+							.= ($weight_100g ? 100 : 0) . ",";
 
+					# Record the weight per 100g of product, for all products, even if they don't contain the material
+					# Useful to say that on average a product of a specific category has X g of glass and Y g of metal
+					# even if most of them are either in glass, or in metal, but not both
 					deep_val($packagings_materials_stats_ref,
 							("countries", $country, "categories", $category, "materials", $material, "weight_100g", "values"))
-							.= $weight_100g . ",";
+							.= ($weight_100g // 0). ",";
 
-					deep_val($packagings_materials_stats_ref,
-							("countries", $country, "categories", $category, "materials", $material, "weight_percent", "values"))
-							.= $relative_percent . ",";
-
+					# Record the weight per 100g of product, for all products that contain the material
+					# Useful to compare products that do have the material
+					if (defined $weight_100g) {
 						deep_val($packagings_materials_stats_ref,
-							("countries", $country, "categories", $category, "materials", $material, "products_percent", "values"))
-							.= ($weight_100g ? 1 : 0) . ",";
+							("countries", $country, "categories", $category, "materials", $material, "weight_100g_material", "values"))
+							.= $weight_100g . ",";
+					}
 				}
 			}
 		}
@@ -452,17 +479,19 @@ Compute stats (means etc.) for packaging materials, aggregated at the countries,
 
 =cut
 
-sub compute_stats_for_all_materials ($packagings_materials_stats_ref) {
+sub compute_stats_for_all_materials ($packagings_materials_stats_ref, $delete_values = 1) {
 
 	foreach my $country_ref (values %{$packagings_materials_stats_ref->{countries}}) {
 		foreach my $category_ref (values %{$country_ref->{categories}}) {
 			foreach my $material_ref (values %{$category_ref->{materials}}) {
-				foreach my $field ("products_percent", "weight_percent", "weight_100g") {
+				foreach my $field ("products_percent", "weight_100g", "weight_100g_material") {
 					if (defined $material_ref->{$field}) {
 						# Compute stats
 						compute_stats_for_values($material_ref->{$field});
 						# Delete individual values
-						delete $material_ref->{$field}{values};
+						if ($delete_values) {
+							delete $material_ref->{$field}{values};
+						}
 					}
 				}
 			}
@@ -487,7 +516,7 @@ and in JSON format in $www_root/data/categories_stats/
 
 =cut
 
-sub generate_packaging_stats_for_query ($name, $query_ref) {
+sub generate_packaging_stats_for_query ($name, $query_ref, $quiet = 0) {
 
 	# we will filter out empty and obsolete products
 	$query_ref->{'empty'} = {"\$ne" => 1};
@@ -591,7 +620,5 @@ sub generate_packaging_stats_for_query ($name, $query_ref) {
 	return;
 }
 
-generate_packaging_stats_for_query("packagings-with-weights", {misc_tags => 'en:packagings-with-weights'});
-generate_packaging_stats_for_query("all", {});
+1;
 
-exit(0);
