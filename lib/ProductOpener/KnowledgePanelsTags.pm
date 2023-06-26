@@ -104,20 +104,19 @@ sub create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref,
 
 	my @panels = ();
 	if ($tagtype eq "categories") {
-		my $created = create_category_packagings_materials_panel($tag_ref, $target_lc, $target_cc, $options_ref, $tagid);
+		my $created
+			= create_category_packagings_materials_panel($tag_ref, $target_lc, $target_cc, $options_ref, $tagid);
 		push(@panels, $created) if $created;
 	}
 	if (@panels) {
 		my $panel_data_ref = {tags_panels => \@panels};
-        # Create the root panel that contains the panels we want to show directly on the tag page
-		create_panel_from_json_template("root",
-			"api/knowledge-panels/tags/root.tt.json",
+		# Create the root panel that contains the panels we want to show directly on the tag page
+		create_panel_from_json_template("root", "api/knowledge-panels/tags/root.tt.json",
 			$panel_data_ref, $tag_ref, $target_lc, $target_cc, $options_ref);
 	}
 
 	return !!@panels;
 }
-
 
 =head2 create_category_packagings_materials_panel ($category_id, $target_lc, $target_cc, $options_ref)
 
@@ -144,20 +143,22 @@ This parameter sets the desired language for the user facing strings.
 
 sub create_category_packagings_materials_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $category_id) {
 
-    my $created;
+	my $created;
 
-    my $categories_packagings_materials_stats_ref = load_categories_packagings_materials_stats();
-    my $country = canonicalize_taxonomy_tag("en", "countries", $target_cc);
-    my $categories_ref = deep_get($categories_packagings_materials_stats_ref, "countries", $country, "categories", $category_id);
-    if ($categories_ref) {
-        my $panel_data_ref = {
-            category_id => $category_id,
-            materials => $categories_ref->{materials},
-        };
-        create_panel_from_json_template("packagings_materials", "api/knowledge-panels/tags/categories/packagings_materials.tt.json",
-				$panel_data_ref, $tag_ref, $target_lc, $target_cc, $options_ref);
-        $created = "packagings_materials";
-    }
+	my $categories_packagings_materials_stats_ref = load_categories_packagings_materials_stats();
+	my $country = canonicalize_taxonomy_tag("en", "countries", $target_cc);
+	my $categories_ref
+		= deep_get($categories_packagings_materials_stats_ref, "countries", $country, "categories", $category_id);
+	if ($categories_ref) {
+		my $panel_data_ref = {
+			category_id => $category_id,
+			materials => $categories_ref->{materials},
+		};
+		create_panel_from_json_template("packagings_materials",
+			"api/knowledge-panels/tags/categories/packagings_materials.tt.json",
+			$panel_data_ref, $tag_ref, $target_lc, $target_cc, $options_ref);
+		$created = "packagings_materials";
+	}
 
 	return $created;
 }

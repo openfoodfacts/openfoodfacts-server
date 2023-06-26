@@ -393,6 +393,9 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 		$product_ref->{packagings_materials} = {};
 	}
 
+	my $has_weight_percent_and_weight_100g = deep_get($product_ref, "packagings_materials", "all", "weight_percent")
+		and deep_get($product_ref, "packagings_materials", "all", "weight_100g");
+
 	foreach my $material ("en:paper-or-cardboard", "en:plastic", "en:glass", "en:metal", "en:unknown", "all") {
 
 		my $material_ref = $product_ref->{packagings_materials}{$material};
@@ -418,15 +421,16 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 				# or we don't have a value for the material)
 				# In order to avoid mismatched weight_percent and weight_100g, we do it only when both are computed,
 				# (when the product quantity is known)
-				if ($product_ref->{product_quantity}) {
+
+				if ($has_weight_percent_and_weight_100g) {
 					foreach my $field ("weight_percent", "weight_100g") {
-						if (deep_get($product_ref, "packagings_materials", "all", $field)) {
-							# If we don't have a value for a material, assume it is 0
-							my $value = deep_get($product_ref, "packagings_materials", $material, $field) || 0;
-							deep_val($packagings_materials_stats_ref,
-								("countries", $country, "categories", $category, "materials", $material, $field, "values"))
-								.= $value . ",";
-						}
+
+						# If we don't have a value for a material, assume it is 0
+						my $value = deep_get($product_ref, "packagings_materials", $material, $field) || 0;
+						deep_val($packagings_materials_stats_ref,
+							("countries", $country, "categories", $category, "materials", $material, $field, "values"))
+							.= $value . ",";
+
 					}
 				}
 			}
