@@ -2,6 +2,8 @@ type: object
 description: |
   Select a photo and optionally crop/rotate it.
   The origin of the cropping coordinates is the top-left corner.
+  Note that rotation is applied *before* cropping, so the cropping bounding box
+  is relative to the rotated image.
 properties:
   code:
     type: string
