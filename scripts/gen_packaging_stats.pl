@@ -393,8 +393,7 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 		$product_ref->{packagings_materials} = {};
 	}
 
-	my $has_weight_percent_and_weight_100g = deep_get($product_ref, "packagings_materials", "all", "weight_percent")
-		and deep_get($product_ref, "packagings_materials", "all", "weight_100g");
+	my $total_weight_100g = deep_get($product_ref, "packagings_materials", "all", "weight_100g");
 
 	foreach my $material ("en:paper-or-cardboard", "en:plastic", "en:glass", "en:metal", "en:unknown", "all") {
 
@@ -422,16 +421,23 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 				# In order to avoid mismatched weight_percent and weight_100g, we do it only when both are computed,
 				# (when the product quantity is known)
 
-				if ($has_weight_percent_and_weight_100g) {
-					foreach my $field ("weight_percent", "weight_100g") {
+				if ($total_weight_100g) {
 
-						# If we don't have a value for a material, assume it is 0
-						my $value = deep_get($product_ref, "packagings_materials", $material, $field) || 0;
+					my $weight_100g = deep_get($product_ref, "packagings_materials", $material, "weight_100g") // 0;
+					
+					my $relative_percent = $weight_100g / $total_weight_100g * 100;
+
+					deep_val($packagings_materials_stats_ref,
+							("countries", $country, "categories", $category, "materials", $material, "weight_100g", "values"))
+							.= $weight_100g . ",";
+
+					deep_val($packagings_materials_stats_ref,
+							("countries", $country, "categories", $category, "materials", $material, "weight_percent", "values"))
+							.= $relative_percent . ",";
+
 						deep_val($packagings_materials_stats_ref,
-							("countries", $country, "categories", $category, "materials", $material, $field, "values"))
-							.= $value . ",";
-
-					}
+							("countries", $country, "categories", $category, "materials", $material, "products_percent", "values"))
+							.= ($weight_100g ? 1 : 0) . ",";
 				}
 			}
 		}
@@ -451,7 +457,7 @@ sub compute_stats_for_all_materials ($packagings_materials_stats_ref) {
 	foreach my $country_ref (values %{$packagings_materials_stats_ref->{countries}}) {
 		foreach my $category_ref (values %{$country_ref->{categories}}) {
 			foreach my $material_ref (values %{$category_ref->{materials}}) {
-				foreach my $field ("weight_percent", "weight_100g") {
+				foreach my $field ("products_percent", "weight_percent", "weight_100g") {
 					if (defined $material_ref->{$field}) {
 						# Compute stats
 						compute_stats_for_values($material_ref->{$field});
