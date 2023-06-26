@@ -91,7 +91,7 @@ foreach my $test_ref (@tests) {
 
 # Tests for analyze_and_combine_packaging_data()
 
-my @tests = (
+@tests = (
 
 	[
 		'packaging_text_en_glass_bottle',
@@ -678,6 +678,10 @@ $product_ref = {
 			weight_measured => 10,
 			number_of_units => 4,
 		},
+		{
+			material => 'some unknown material',
+			number_of_units => 2,
+		},
 	],
 };
 
@@ -702,7 +706,86 @@ is_deeply(
 			'weight_100g' => '5',
 			'weight_percent' => '1.81818181818182'
 		},
-		'en:plastic' => {}
+		'en:plastic' => {},
+		'en:unknown' => {}
+	}
+
+) or diag explain $product_ref->{packagings_materials};
+
+# No product_quantity
+
+$product_ref = {
+	lc => "en",
+	packagings => [
+		{
+			material => 'steel',
+			weight_measured => 100,
+			number_of_units => 5,
+		},
+	],
+};
+
+ProductOpener::Packaging::canonicalize_packaging_components_properties($product_ref);
+ProductOpener::Packaging::aggregate_packaging_by_parent_materials($product_ref);
+
+is_deeply(
+	$product_ref->{packagings_materials},
+	{
+		'all' => {
+			'weight' => 500,
+			'weight_percent' => 100
+		},
+		'en:metal' => {
+			'weight' => 500,
+			'weight_percent' => 100
+		}
+	}
+
+) or diag explain $product_ref->{packagings_materials};
+
+# 0 product_quantity
+
+$product_ref = {
+	lc => "en",
+	product_quantity => 0,
+	packagings => [
+		{
+			material => 'steel',
+			weight_measured => 100,
+			number_of_units => 5,
+		},
+	],
+};
+
+ProductOpener::Packaging::canonicalize_packaging_components_properties($product_ref);
+ProductOpener::Packaging::aggregate_packaging_by_parent_materials($product_ref);
+
+is_deeply(
+	$product_ref->{packagings_materials},
+	{
+		'all' => {
+			'weight' => 500,
+			'weight_percent' => 100
+		},
+		'en:metal' => {
+			'weight' => 500,
+			'weight_percent' => 100
+		}
+	}
+
+) or diag explain $product_ref->{packagings_materials};
+
+# Empty product hash
+
+$product_ref = {};
+
+ProductOpener::Packaging::canonicalize_packaging_components_properties($product_ref);
+ProductOpener::Packaging::aggregate_packaging_by_parent_materials($product_ref);
+
+is_deeply(
+	$product_ref->{packagings_materials},
+	{
+
 	}
 
 ) or diag explain $product_ref->{packagings_materials};

@@ -2,6 +2,7 @@
 [% SET recycling_types = {} %]
 [% SET unknown = "en:unknown" %]
 [% IF product.packagings %]
+    [%# Check which of recycling / discard / unknown packaging types we have to build each panel (one for each) %]
     [% FOREACH packaging IN product.packagings %]
         [% IF packaging.recycling.defined AND ((packaging.recycling == "en:discard") OR (packaging.recycling == "en:recycle")) %]
             [% SET recycling_types.${packaging.recycling} = 1 %]

@@ -69,6 +69,7 @@ use ProductOpener::Units qw/:all/;
 use ProductOpener::ImportConvert qw/:all/;
 
 use Data::DeepAccess qw(deep_get deep_val);
+use List::Util qw(first);
 
 # We use a global variable in order to load the packaging stats only once
 my $categories_packagings_materials_stats_ref;
@@ -885,9 +886,15 @@ Aggregate the weights of each packaging component by parent material (glass, pla
 
 sub aggregate_packaging_by_parent_materials ($product_ref) {
 
-	my $packagings_materials_ref = {"all" => {}};
+	delete $product_ref->{packagings_materials};
 
-	if (defined $product_ref->{packagings}) {
+	# We will return an empty hash if we have no packagings components
+	my $packagings_materials_ref = {};
+
+	if ((defined $product_ref->{packagings}) and (scalar @{$product_ref->{packagings}} > 0)) {
+
+		# If we have packaging components, we will also return a total entry for all materials
+		$packagings_materials_ref->{"all"} = {};
 
 		# Iterate over each packaging component
 		foreach my $packaging_ref (@{$product_ref->{packagings}}) {
@@ -896,12 +903,8 @@ sub aggregate_packaging_by_parent_materials ($product_ref) {
 			my $material = $packaging_ref->{material};
 			my $parent_material = "en:unknown";
 			if (defined $material) {
-				foreach my $parent ("en:paper-or-cardboard", "en:plastic", "en:glass", "en:metal") {
-					if (is_a("packaging_materials", $material, $parent)) {
-						$parent_material = $parent;
-						last;
-					}
-				}
+				$parent_material = (first {is_a("packaging_materials", $material, $_)}
+						("en:paper-or-cardboard", "en:plastic", "en:glass", "en:metal")) // "en:unknown";
 			}
 
 			# Initialize the entry for the parent material if needed (even if we have no weight,
@@ -911,7 +914,7 @@ sub aggregate_packaging_by_parent_materials ($product_ref) {
 			}
 
 			# Weight per unit
-			my $weight = $packaging_ref->{weight_specified} || $packaging_ref->{weight_measured};
+			my $weight = $packaging_ref->{weight_specified} // $packaging_ref->{weight_measured};
 			if (defined $weight) {
 				# Assume we have 1 unit if not specified
 				my $total_weight = ($packaging_ref->{number_of_units} || 1) * $weight;
