@@ -877,9 +877,8 @@ sub aggregate_packaging_by_parent_materials ($product_ref) {
 			my $material = $packaging_ref->{material};
 			my $parent_material = "en:unknown";
 			if (defined $material) {
-				$parent_material = (first {
-					is_a("packaging_materials", $material, $_)
-				} ("en:paper-or-cardboard", "en:plastic", "en:glass", "en:metal")) // "en:unknown";
+				$parent_material = (first {is_a("packaging_materials", $material, $_)}
+						("en:paper-or-cardboard", "en:plastic", "en:glass", "en:metal")) // "en:unknown";
 			}
 
 			# Initialize the entry for the parent material if needed (even if we have no weight,

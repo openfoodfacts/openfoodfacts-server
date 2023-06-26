@@ -681,7 +681,7 @@ $product_ref = {
 		{
 			material => 'some unknown material',
 			number_of_units => 2,
-		},		
+		},
 	],
 };
 
@@ -721,7 +721,7 @@ $product_ref = {
 			material => 'steel',
 			weight_measured => 100,
 			number_of_units => 5,
-		},	
+		},
 	],
 };
 
@@ -730,16 +730,16 @@ ProductOpener::Packaging::aggregate_packaging_by_parent_materials($product_ref);
 
 is_deeply(
 	$product_ref->{packagings_materials},
- {
-   'all' => {
-     'weight' => 500,
-     'weight_percent' => 100
-   },
-   'en:metal' => {
-     'weight' => 500,
-     'weight_percent' => 100
-   }
- }
+	{
+		'all' => {
+			'weight' => 500,
+			'weight_percent' => 100
+		},
+		'en:metal' => {
+			'weight' => 500,
+			'weight_percent' => 100
+		}
+	}
 
 ) or diag explain $product_ref->{packagings_materials};
 
@@ -753,7 +753,7 @@ $product_ref = {
 			material => 'steel',
 			weight_measured => 100,
 			number_of_units => 5,
-		},	
+		},
 	],
 };
 
@@ -762,23 +762,22 @@ ProductOpener::Packaging::aggregate_packaging_by_parent_materials($product_ref);
 
 is_deeply(
 	$product_ref->{packagings_materials},
- {
-   'all' => {
-     'weight' => 500,
-     'weight_percent' => 100
-   },
-   'en:metal' => {
-     'weight' => 500,
-     'weight_percent' => 100
-   }
- }
+	{
+		'all' => {
+			'weight' => 500,
+			'weight_percent' => 100
+		},
+		'en:metal' => {
+			'weight' => 500,
+			'weight_percent' => 100
+		}
+	}
 
 ) or diag explain $product_ref->{packagings_materials};
 
 # Empty product hash
 
-$product_ref = {
-};
+$product_ref = {};
 
 ProductOpener::Packaging::canonicalize_packaging_components_properties($product_ref);
 ProductOpener::Packaging::aggregate_packaging_by_parent_materials($product_ref);
