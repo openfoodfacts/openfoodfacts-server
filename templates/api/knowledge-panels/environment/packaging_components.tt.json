@@ -1,0 +1,65 @@
+// Create a structure so that we can display the packaging components for each recycling type
+[% SET recycling_types = {} %]
+[% SET unknown = "en:unknown" %]
+[% IF product.packagings %]
+    [%# Check which of recycling / discard / unknown packaging types we have to build each panel (one for each) %]
+    [% FOREACH packaging IN product.packagings %]
+        [% IF packaging.recycling.defined AND ((packaging.recycling == "en:discard") OR (packaging.recycling == "en:recycle")) %]
+            [% SET recycling_types.${packaging.recycling} = 1 %]
+        [% ELSE %]
+            [% SET recycling_types.$unknown = 1 %]
+        [% END %]
+    [% END %]
+[% END %]
+
+{
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+    "title_element": {
+        "title": "[% lang('packaging_parts') %]",           
+    },    
+    "expanded": true,
+    "elements": [
+        [% FOREACH recycling_type IN ["en:recycle", "en:discard", "en:unknown"] %]
+            [% IF recycling_types.$recycling_type.defined %]
+            {
+                "element_type": "text",
+                "text_element": {
+                    "type": "summary",
+                    "icon_color_from_evaluation": true,
+                    [% IF recycling_type == "en:recycle" %]
+                    "evaluation": "good",
+                    "icon_url": "[% static_subdomain %]/images/icons/dist/recycle-variant.svg",
+                    "icon_alt": "[% display_taxonomy_tag_name("packaging_recycling",recycling_type) %]",
+                    [% ELSIF recycling_type == "en:discard" %]
+                    "evaluation": "bad",
+                    "icon_url": "[% static_subdomain %]/images/icons/dist/delete.svg",
+                    "icon_alt": "[% display_taxonomy_tag_name("packaging_recycling",recycling_type) %]",
+                    [% ELSE %]
+                    "evaluation": "neutral",
+                    "icon_url": "[% static_subdomain %]/images/icons/dist/help.svg",
+                    "icon_alt": "[% lang('unknown') %]",
+                    [% END %]                
+                    "html": `
+                        [% FOREACH packaging IN product.packagings %]
+                            [% IF packaging.recycling == recycling_type OR (recycling_type == "en:unknown" AND ((NOT packaging.recycling.defined) OR ((packaging.recycling != "en:discard") AND (packaging.recycling != "en:recycle")))) %]
+                                [% IF packaging.number_of_units %][% packaging.number_of_units %] x [% END %]
+                                <strong>
+                                    [% display_taxonomy_tag_name('packaging_shapes',packaging.shape) %]
+                                    [% IF packaging.quantity_per_unit %][% packaging.quantity_per_unit %] [% END %]
+                                </strong>
+                                    [% IF packaging.material %]
+                                        ([% display_taxonomy_tag_name('packaging_materials',packaging.material) %][% IF packaging.weight_specified %][% sep %]: [% packaging.weight_specified %] g[% ELSIF packaging.weight_measured %][% sep %]: [% packaging.weight_measured %] g[% END %])
+                                    [% END %]
+                                    <br>
+                            [% END %]
+                        [% END %]
+                        `
+                }
+            },
+            [% END %]
+        [% END %]
+    ]
+}
