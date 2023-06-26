@@ -885,7 +885,7 @@ sub aggregate_packaging_by_parent_materials ($product_ref) {
 			}
 
 			# Weight per unit
-			my $weight = $packaging_ref->{weight_specified} || $packaging_ref->{weight_measured};
+			my $weight = $packaging_ref->{weight_specified} // $packaging_ref->{weight_measured};
 			if (defined $weight) {
 				# Assume we have 1 unit if not specified
 				my $total_weight = ($packaging_ref->{number_of_units} || 1) * $weight;
