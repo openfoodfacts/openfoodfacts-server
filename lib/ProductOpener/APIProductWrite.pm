@@ -38,6 +38,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&write_product_api
 		&skip_protected_field
+		&skip_protected_image
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -81,6 +82,38 @@ sub skip_protected_field ($product_ref, $field, $moderator = 0) {
 			}
 		) if $log->is_debug();
 		return 1;
+	}
+	return 0;
+}
+
+=head2 skip_protected_image($product_ref, $field, $moderator = 0)
+
+Return 1 if we should ignore an image selected by a user because we already have an image sent by the producer.
+
+=cut
+
+sub skip_protected_image ($product_ref, $field, $moderator = 0) {
+
+	 # Add image-specific checks here
+    if ($field =~ /_image$/) {
+        # If there is already a photo selected by the producer, and the modification is not made by a moderator,
+        # ignore the new image selection
+	if (    (not $server_options{producers_platform})
+		and (defined $product_ref->{owner_fields})
+		and (defined $product_ref->{owner_fields}{$field})
+		and (not $moderator))
+	{
+		$log->debug(
+			"Skipping image selection as there is already a photo selected by the producer",
+			{
+				code => $product_ref->{code},
+				field_name => $field,
+				existing_field_value => $product_ref->{$field},
+				new_field_value => remove_tags_and_quote(decode utf8 => single_param($field))
+			}
+		) if $log->is_debug();
+		return 1;
+	}
 	}
 	return 0;
 }
