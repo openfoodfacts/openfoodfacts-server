@@ -181,6 +181,7 @@ pt:cortado, cortada, cortados, cortadas
 en:thick cut
 es:cortada gruesa,cortado grueso, cortados gruesos,cortadas gruesas
 hu:vastagon vágott, vastag vágás
+ja:厚切り
 pt:corte crosso, cortado grosso, cortes grossos, cortados grossos
 
 # <en:cut
@@ -227,6 +228,7 @@ es:lamina,laminada,laminado, laminadas,laminados,rodajas
 fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lanières, en rondelles, tranches de, lamelles de, lanières de, rondelle de, rondelles de, tranches d', lamelles d', lanières d', rondelles d'
 hu:szeletelt, szelt, szeletelve
 it:a fette, in fette, affettato, affettata, affettati, affettate
+ja:スライス, 薄切り
 nl:schijfjesamande émondée
 pt:laminado, laminada, laminados, laminadas, em lâminas, em lâmina, em rodela, em rodelas, rodela de, rodelas de
 
@@ -241,6 +243,7 @@ fr:hâché, hâchée, hâchés, hâchées, haché, hachée, hachés, hachées
 hr:usitnjeni, usitnjena, sjeckani
 hu:apróra vágott, aprított, aprítva, apróra vágva
 is:hakkaðar
+ja:刻み
 nb:hakkede
 nl:gehakt, gehakte
 nn:hakkede
@@ -303,6 +306,7 @@ fi:raastettu, raastetut
 fr:râpé, râpée, râpés, râpées
 hu:reszelt, reszelve
 it:grattugiato, grattugiata, grattugiati, grattugiate
+ja:おろし
 nl:geraspt, geraspte
 pl:tarty, tarta, tarte
 pt:ralado, ralada, ralados, raladas
@@ -382,6 +386,7 @@ fr:en purée, purée de, purée d'
 hr:kaša, kaša od
 hu:püré, pürésített
 it:purea di
+ja:ピュレ, ピューレ, ピューレー
 mk:каша од
 nb:puré
 nl:puree
@@ -414,6 +419,7 @@ fr:entier, entière, entiers, entières
 hr:cijele
 hu:egész, egészben
 it:intero, intera, interi, intere
+ja:全
 pl:całe, w całości
 pt:inteiro, inteira, inteiros, inteiras
 sv:hel, hela
@@ -464,6 +470,7 @@ fi:hiutaleet, hiutale
 fr:flocons de, en flocons
 hr:pahuljice od
 it:fiocchi di, fiocchi d'
+ja:フレーク
 nl:vlokken
 pl:płatki, grys, wiórki
 pt:floco, flocos, em floco, em flocos, floco de, flocos de
@@ -476,7 +483,7 @@ es:copos de
 fi:lastu
 fr:chips de
 it:fettine di
-ja:チップス
+ja:チップス, チップ
 nl:chips
 pl:chipsy
 
@@ -518,7 +525,7 @@ id:Bubuk
 io:Polvo
 is:duft
 it:in polvere, en polvere, polvere di, polvere d'
-ja:パウダー
+ja:パウダー, 粉末, 末
 jv:Bubuk
 lt:milteliai
 lv:pulveris
@@ -568,7 +575,7 @@ he:קמח אורז
 hu:liszt
 is:mjöl
 it:farina di, farina d'
-ja:粉
+ja:粉, フラワー
 lt:miltai
 lv:milti
 nb:mel
@@ -713,6 +720,7 @@ gl:Polpa
 he:בקבוקון מיץ
 hu:bél, velő
 it:polpa, polpa di, polpa d'
+ja:パルプ
 nl:pulp, vruchtvlees
 #nl:false:met pulp
 pl:pulpa, pulpa z
@@ -751,6 +759,7 @@ es:desengrasado, desengrasada,desgrasado,desgrasada
 fr:dégraissé, dégraissée, dégraissés, dégraissées
 hu:zsírtalanított
 it:sgrassato, sgrassata
+ja:脱脂
 nl:ontvet, ontvette
 pl:odtłuszczone, o obniżonej zawartości tłuszczu
 pt:desengordurado, desengordurada
@@ -786,6 +795,7 @@ fr:jus de, jus d'
 hr:sok, sok od, voćni sok od, od soka
 hu:leve, lé
 it:succo, succo di, succo d', succhi, succhi di, succhi d'
+ja:ジュース, 果汁
 nb:juice
 nl:sap
 nn:juice
@@ -859,6 +869,7 @@ fr:concentré, concentrée, concentrés, concentrées, concentré de
 hr:koncentriran, koncentrirani, koncentrani, koncentrat, koncentrat za
 hu:sűrítmény, sűrített, koncentrátum
 it:concentrato, concentrato di, concentrato d', concentrati, concentrata, concentrate
+ja:濃縮
 ko:농축물
 mk:концентриран, концентрирана
 nl:concentraten, concentraat, geconcentreerd, geconcentreerde
@@ -896,6 +907,7 @@ de:200fach konzentriertes
 #fr:pâte de, pâte d'
 #hr:pasta od
 #it:pasta di, pasta d'
+#ja:ペースト
 #pl:pasta z
 #sv:pasta
 
@@ -915,6 +927,7 @@ fr:à base de concentré, à partir de concentré
 hr:koncentrirane, na koncentrat, od koncentriranog soka škrob, od koncentriranog soka, od koncentrirane kaše
 hu:sűrítményből, koncentrátumból, sűrítményekből, koncentrátumokból
 it:da concentrato
+ja:濃縮還元
 lt:iš koncentrąto
 nl:uit concentraat, van concentraat, op basis van concentraat
 pl:z koncentratu
@@ -939,7 +952,7 @@ he:מיובשים, מיובש
 hr:sušeni, sušena, sušeno, sušene, suha, suhe, suho, suhi
 hu:szárított
 it:secco, secca, secchi, secche, essiccato, essiccati, essiccata, essiccate
-ja:ドライ
+ja:ドライ, 乾燥
 lt:džiovinti
 lv:žāvēti
 nb:tørkede
@@ -1095,7 +1108,7 @@ fr:extrait de, extrait d'
 hr:ekstrakt
 hu:kivonat, kivonatból
 it:estratto di, estratti di, estratto d', estratti d'
-ja:エキス, 抽出
+ja:エキス, 抽出物
 #it:falsePositive:antiossidante estratto ricco di tocoferolo
 nb:ekstrakt, ekstrakter
 nl:extract
@@ -1300,6 +1313,7 @@ hr:kuhani
 hu:főtt, főzött
 id:rebus
 it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
+ja:ゆで, 茹で
 ms:rebus
 nl:gekookt, gekookte
 nn:kogte
@@ -1364,6 +1378,7 @@ fr:frit, frite, frits, frites
 hr:pržene
 hu:sült
 it:fritto, fritta, fritti, fritte
+ja:フライド
 pl:smażony, smażona, smażone
 pt:frito, frita, fritos, fritas
 sv:friterad, stekt
@@ -1380,6 +1395,7 @@ et:röstitud
 fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
 hu:pörkölt
 it:arrostito, arrostita, arrostiti, arrostite
+ja:ロースト
 nl:gebraden
 pt:assado, assada, assados, assadas
 sk:pražené
@@ -1558,6 +1574,7 @@ fr:sucré, sucrée, sucrés, sucrées, sucree, sucrees
 #better not add fr:sucre and fr:sucres
 hu:cukrozott
 it:zuccherato, zuccherati, zuccherata, zuccherate
+ja:加糖
 nl:gesuikerd, gesuikerde
 pt:açucarado, açucarada, açucarados, açucaradas
 sv:sockrad
@@ -1752,6 +1769,7 @@ fr:aromatisé, aromatisée, aromatisées
 # What to do with aromatisé au x and aromatisé de
 hu:ízesített
 it:aromatizzato, aromatizzata, aromatizzati, aromatizzate
+ja:調味
 nl:gearomatiseerd, gearomatiseerde
 pl:aromatyzowany, aromatyzowana, aromatyzowane, przyprawiony, przyprawiona, przyprawione
 pt:aromatizado, aromatizada, aromatizados, aromatizadas
