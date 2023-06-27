@@ -487,10 +487,6 @@ store:
 - lib/ProductOpener/Store.pm
 - tests/unit/store.t
 
-codeonline:
-- scripts/codeonline-import/split_gs1_codeonline_json.pl
-- scripts/codeonline-import/stats_gs1_codeonline_json.pl
-
 images:
 - lib/ProductOpener/Images.pm
 - cgi/product_image_crop.pl
