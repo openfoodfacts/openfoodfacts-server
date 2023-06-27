@@ -1022,7 +1022,7 @@
 <p>Fist, be sure to see our <a href="../">Introduction to the API</a>.</p>
 <h2 id="scan-a-product-to-get-nutri-score">Scan A Product To Get Nutri-score<a class="headerlink" href="#scan-a-product-to-get-nutri-score" title="Permanent link">#</a></h2>
 <p>This basic tutorial shows you can get the Nutri-score of a product, for instance, to display it in a mobile app after scanning the product barcode. Let's use <a href="https://world.openfoodfacts.net/product/3017624010701/nutella-nutella-ferrero">Nutella Ferrero</a> as the product example for this tutorial.</p>
-<p>To get a product nutriscore, send a request to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#get-/api/v2/product/-barcode-">Get A Product By Barcode</a> endpoint.</p>
+<p>To get a product nutriscore, send a request to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/product/-barcode-">Get A Product By Barcode</a> endpoint.</p>
 <h3 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h3>
 <p>Usually, no authentication is required to query Get A Product Nutri-score. However, there is a basic auth to avoid content indexation in the staging environment(which is used throughout this tutorial). For more details, visit the <a href="../#api-deployments">Open Food Facts API Environment</a>.</p>
 <h3 id="describing-the-get-request">Describing the Get Request<a class="headerlink" href="#describing-the-get-request" title="Permanent link">#</a></h3>
@@ -1093,7 +1093,7 @@
 <span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>For more details, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#get-/api/v2/product/-barcode-">Get A Product By Barcode</a>.</p>
+<p>For more details, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/product/-barcode-">Get A Product By Barcode</a>.</p>
 <!-- Probably have a conclusion that links to the next possible topic eg filter countries using lc and cc-->
 
 <h2 id="completing-products-to-get-the-nutri-score">Completing products to get the Nutri-Score<a class="headerlink" href="#completing-products-to-get-the-nutri-score" title="Permanent link">#</a></h2>
@@ -1129,7 +1129,7 @@ Let's look at the <a href="https://world.openfoodfacts.net/api/v2/product/018041
 <blockquote>
 <p>Sign up on the <a href="https://world.openfoodfacts.net/">Open Food Facts App</a> to get your<code>user_id</code> and <code>password</code>if you don't have one.</p>
 </blockquote>
-<p>To write data to a product, make a <code>POST</code> request to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#post-/cgi/product_jqm2.pl"><code>Add or Edit A Product</code></a> endpoint.</p>
+<p>To write data to a product, make a <code>POST</code> request to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl"><code>Add or Edit A Product</code></a> endpoint.</p>
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/cgi/product_jqm2.pl
 </code></pre></div>
 <p>Add your valid <code>user_id</code> and <code>password</code> as body parameters to your request for authentication. The <code>code</code> (barcode of the product to be added/edited), <code>user_id</code>, and <code>password</code> are required when adding or editing a product. Then, include other product data to be added in the request body.</p>
@@ -1215,12 +1215,12 @@ Let's look at the <a href="https://world.openfoodfacts.net/api/v2/product/018041
 <span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;product found&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>For more details, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#post-/cgi/product_jqm2.pl">Add or Edit A Product</a></p>
+<p>For more details, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl">Add or Edit A Product</a></p>
 <p>You can also check the reference cheatsheet to know how to add/edit other types of product data.</p>
 <!-- Include the link of the cheatsheet once it is published. -->
 
 <h2 id="search-for-a-product-by-nutri-score">Search for a Product by Nutri-score<a class="headerlink" href="#search-for-a-product-by-nutri-score" title="Permanent link">#</a></h2>
-<p>Using the Open Food Facts API, you can filter products based on different criteria.  To search for products in the Orange Juice category with a nutrition_grade of <code>c</code>, query the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#get-/api/v2/search">Search for Products endpoint</a>.</p>
+<p>Using the Open Food Facts API, you can filter products based on different criteria.  To search for products in the Orange Juice category with a nutrition_grade of <code>c</code>, query the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search">Search for Products endpoint</a>.</p>
 <h3 id="describing-the-search-request">Describing the Search Request<a class="headerlink" href="#describing-the-search-request" title="Permanent link">#</a></h3>
 <p>Make a <code>GET</code> request to the <code>Search for Products</code> endpoint.</p>
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.org/api/v2/search
@@ -1322,7 +1322,7 @@ Let's look at the <a href="https://world.openfoodfacts.net/api/v2/product/018041
 <span class="w">    </span><span class="nt">&quot;skip&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>To see other examples of sorting a search response, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#get-/api/v2/search">Search for Products</a>.</p>
+<p>To see other examples of sorting a search response, see the reference documentation for <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search">Search for Products</a>.</p>
 
 
 
