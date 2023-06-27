@@ -57,6 +57,8 @@ requires 'Text::Fuzzy';
 requires 'Spreadsheet::CSV'; # deps: libspreadsheet-parseexcel-perl
 requires 'File::chmod::Recursive'; # deps: libfile-chmod-perl
 requires 'Devel::Size'; # deps: libdevel-size-perl
+requires 'Apache::Bootstrap';
+requires 'Apache2::Connection::XForwardedFor';  # deps: libapache2-mod-perl2-dev
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
