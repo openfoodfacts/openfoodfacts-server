@@ -10708,6 +10708,9 @@ ciqual_food_name:fr:Cervelle, agneau, cuite
 <en:lamb
 en:lamb hearts
 fr:Coeurs d'agneau
+ciqual_food_code:en:40058
+ciqual_food_name:en:Heart, lamb, raw
+ciqual_food_name:fr:Coeur, agneau, cru
 
 <en:lamb hearts
 en:Cooked lamb hearts
@@ -18170,9 +18173,6 @@ wikidata:en:Q279034
 wikipedia:en:https://en.wikipedia.org/wiki/Kirsch
 # ingredient/fr:kirsch has 184 products in 5 languages @2018-12-29
 
-
-#description:en:TEQUILA is a regional distilled beverage and type of alcoholic drink made from the blue agave plant, primarily in the area surrounding the city of Tequila
-
 <en:alcohol
 en:tequila
 ar:تيكيلا
@@ -18234,6 +18234,7 @@ tr:Tekila
 uk:Текіла
 vi:Tequila
 zh:龍舌蘭酒
+description:en:TEQUILA is a regional distilled beverage and type of alcoholic drink made from the blue agave plant, primarily in the area surrounding the city of Tequila
 # arz:تيكيلا
 # ast:Tequila
 # be-tarask:Тэкіла
@@ -18263,9 +18264,6 @@ zh:龍舌蘭酒
 wikidata:en:Q122195
 wikipedia:en:https://en.wikipedia.org/wiki/Tequila
 # ingredient/tequila in 7 languages @2019-02-14
-
-
-#description:en:WINE is an alcoholic beverage made from fermented grapes.
 
 <en:alcohol
 en:wine, fruit wine
@@ -18366,6 +18364,7 @@ wa:Vén
 xh:Iveyn
 yi:וויין
 zh:葡萄酒
+description:en:WINE is an alcoholic beverage made from fermented grapes.
 # ang:Ƿīn
 # arc:ܚܡܪܐ
 # arz:نبيت
@@ -18523,9 +18522,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sparkling_wine
 fr:vin cremant de Loire aop
 
 
-
-#description:en:WHITE WINE is a wine whose colour can be straw-yellow, yellow-green, or yellow-gold.
-
 <en:wine
 en:white wine
 af:Witwyn
@@ -18564,6 +18560,7 @@ tr:Beyaz şarap
 uk:Біле вино
 vi:Rượu vang trắng
 zh:白葡萄酒
+description:en:WHITE WINE is a wine whose colour can be straw-yellow, yellow-green, or yellow-gold.
 # ast:Vinu blanco
 # en-gb:white wine
 # gsw:Wysswy
@@ -52241,6 +52238,9 @@ zh:辣椒粉
 # zh-hant:烟熏红椒
 wikidata:en:Q3127593
 wikipedia:en:https://en.wikipedia.org/wiki/Paprika
+ciqual_food_code:en:11049
+ciqual_food_name:en:Paprika
+ciqual_food_name:fr:Paprika
 # fr:paprika 2505 in 24 languages products @2018-10-14
 
 <en:paprika
@@ -55337,6 +55337,13 @@ de:Pardina Linsen
 es:lenteja pardina
 
 <en:lentils
+en:Dried lentils
+fr:Lentilles sèches
+ciqual_food_code:en:20504
+ciqual_food_name:en:Lentil, dried
+ciqual_food_name:fr:Lentille, sèche
+
+<en:lentils
 fr:lentilles réhydratées, lentilles sèches trempées
 fi:kuivattu linssi, kuivatut linssit
 # ingredient/fr:lentilles-réhydratées has 54 products @2019-06-02
@@ -55411,6 +55418,9 @@ ja:赤レンズ豆
 nl:rode linzen
 pl:soczewica czerwona, soczewicy czerwonej
 sv:röda linser
+ciqual_food_code:en:20535
+ciqual_food_name:en:Lentil, pink or red, dried
+ciqual_food_name:fr:Lentille corail, sèche
 # ingredient/fr:lentilles-rouges has 40 products in 3 languages @2019-06-02
 # ingredient/fr:lentilles-corail has 131 products in 6 languages @2019-06-02
 
@@ -65562,6 +65572,9 @@ zu:Itiye
 wikipedia:en:https://en.wikipedia.org/wiki/Tea
 carbon_footprint_fr_foodges_ingredient:fr:Thé
 carbon_footprint_fr_foodges_value:fr:30.5
+ciqual_food_code:en:18020
+ciqual_food_name:en:Tea, brewed, without sugar
+ciqual_food_name:fr:Thé infusé, non sucré
 # ingredient/tea has 217 products in 5 languages @2019-04-21
 
 <en:tea
@@ -65660,6 +65673,9 @@ zh:红茶
 # zh-tw:紅茶
 wikidata:en:Q203415
 wikipedia:en:https://en.wikipedia.org/wiki/Black_tea
+ciqual_food_code:en:18154
+ciqual_food_name:en:Black tea, brewed, without sugar
+ciqual_food_name:fr:Thé noir, infusé, non sucré
 # ingredient/black-tea has 751 products in 13 languages @2019-04-22
 
 <en:black tea
@@ -65782,6 +65798,9 @@ zh:綠茶
 # zh-hk:綠茶
 wikidata:en:Q484083
 wikipedia:en:https://en.wikipedia.org/wiki/Green_tea
+ciqual_food_code:en:18155
+ciqual_food_name:en:Green tea, brewed, without sugar
+ciqual_food_name:fr:Thé vert, infusé, non sucré
 # ingredient/green-tea has 902 products in 14 languages @2019-04-21
 
 <en:green tea
@@ -66503,9 +66522,6 @@ vegetarian:en:yes
 nutriscore_fruits_vegetables_nuts:en:yes
 # ingredient/algae has 135 products in 4 languages @2019-01-27
 
-
-#description:en:CHLORELLA is a genus of single-celled green algae belonging to the division Chlorophyta.
-
 <en:algae
 en:chlorella
 ar:كلوريلا
@@ -66546,6 +66562,7 @@ sw:Chlorella
 tr:Chlorella
 uk:Хлорела
 vi:Chlorella
+description:en:CHLORELLA is a genus of single-celled green algae belonging to the division Chlorophyta.
 # pt-br:Clorela
 wikidata:en:Q133017
 wikipedia:en:https://en.wikipedia.org/wiki/Chlorella
@@ -78242,7 +78259,6 @@ carbon_footprint_fr_foodges_value:fr:4.9
 ciqual_food_code:en:36004
 ciqual_food_name:fr:Poulet, cuisse, viande et peau, rôtie/cuite au four
 
-# description:en:Chicken Cutlet is a thin slice of meat from the leg or ribs of chicken.
 
 # <en:cutlet
 <en:chicken meat
@@ -78250,6 +78266,7 @@ en:chicken cutlet
 de:Hühnerschnitzel
 fi:kanaleike
 fr:Escalopes de poulet
+description:en:Chicken Cutlet is a thin slice of meat from the leg or ribs of chicken.
 # singular:en:chicken cutlet
 # plural:en:chicken cutlets
 # plural:fr:escalopes de poulet
@@ -78270,6 +78287,15 @@ ca:ala de pollastre, ales de pollastre
 es:ala de pollo, alas de pollo
 fr:aile de poulet
 pl:skrzydełko z kurczaka, skrzydełko kurczaka, skrzydełka z kurczaka, skrzydełka kurczaka
+ciqual_food_code:en:36023
+ciqual_food_name:en:Chicken, wing, meat and skin, raw
+ciqual_food_name:fr:Poulet, aile, viande et peau, cru
+
+en:Chicken wing meat and skin
+fr:aile de poulet et sa peau
+ciqual_food_code:en:36023
+ciqual_food_name:en:Chicken, wing, meat and skin, raw
+ciqual_food_name:fr:Poulet, aile, viande et peau, cru
 
 #for languages that do not differentiate
 <en:chicken protein
@@ -79301,8 +79327,6 @@ fr:Œuf liquide
 ja:液卵
 pl:masa jajowa, masa jajeczna
 
-# description:en:EGG WHITE is the clear liquid (also called the albumen or the glair/glaire) contained within an egg.
-
 <en:egg
 en:egg white, egg albumen, egg albumin
 ar:بياض البيض
@@ -79345,6 +79369,7 @@ th:ไข่ขาว
 tr:Yumurta beyazı, Yumurta akı
 uk:Яєчний білок
 zh:蛋白
+description:en:EGG WHITE is the clear liquid (also called the albumen or the glair/glaire) contained within an egg.
 # bar:Oagloa
 # eml:biuda
 # yue:蛋白
