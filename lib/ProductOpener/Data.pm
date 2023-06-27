@@ -116,7 +116,7 @@ sub execute_query ($sub) {
 	)->run();
 }
 
-=head2 get_products_collection( $options_ref )
+=head2 get_products_collection( $parameters_ref )
 
 C<get_products_collection()> establishes a connection to MongoDB and uses timeout as an argument. This then selects a collection
 from within the database.
@@ -155,34 +155,19 @@ Returns a mongoDB collection object.
 
 =cut
 
-sub get_products_collection ($options_ref = {}) {
-	my $database = $options_ref->{database} // $mongodb;
+sub get_products_collection ($parameters_ref = {}) {
+	my $database = $parameters_ref->{database} // $mongodb;
 	my $collection = 'products';
-	if ($options_ref->{obsolete}) {
+	if ($parameters_ref->{obsolete}) {
 		$collection .= '_obsolete';
 	}
 	# We don't have a products_obsolete_tags collection at this point
 	# if it changes, the following elsif should be changed to a if
-	elsif ($options_ref->{tags}) {
+	elsif ($parameters_ref->{tags}) {
 		$collection .= '_tags';
 	}
-	return get_collection($database, $collection, $options_ref->{timeout});
+	return get_collection($database, $collection, $parameters_ref->{timeout});
 }
-
-=head2 get_products_tags_collection()
-
-C<get_products_collection()> This selects the product tag collection from within the database.
-
-=head3 Arguments
-
-This method takes in arguments of integer type (user defined timeout in milliseconds).
-It is optional for this subroutine to have an argument.
-
-=head3 Return values
-
-Returns a mongoDB collection.
-
-=cut
 
 sub get_emb_codes_collection ($timeout = undef) {
 	return get_collection($mongodb, 'emb_codes', $timeout);

@@ -33957,7 +33957,7 @@ en:Doughnuts, Donuts
 bg:Понички
 de:Donuts, Donutringe
 es:Berlinas
-fi:donitsit
+fi:Munkit, Munkkirinkelit, Munkkirinkelät, Donitsit
 fr:Donuts
 it:Ciambelle donut, donut
 ja:ドーナツ, ドーナッツ
@@ -33971,6 +33971,7 @@ agribalyse_proxy_food_name:fr:Beignet rond moelleux, sans fourrage, saupoudré d
 
 <en:Doughnuts
 en:Plain doughnuts, Plain doughnut
+fi:Täytteettömät munkit, Munkit ilman täytettä
 fr:Donuts nature saupoudrés de sucre, Beignets ronds moelleux sans fourrage saupoudrés de sucre
 lt:Paprastos spurgos
 agribalyse_food_code:en:23880
@@ -33980,6 +33981,7 @@ ciqual_food_name:fr:Beignet rond moelleux, sans fourrage, saupoudré de sucre
 
 <en:Doughnuts
 en:Doughnuts filled with fruits
+fi:Hedelmämunkit, Hedelmätäytemunkit, Hedelmillä täytetyt munkit
 fr:Beignet fourré aux fruits
 lt:Spurgos su vaisių įdaru
 nl:Donuts gevuld met fruit
@@ -33990,6 +33992,7 @@ ciqual_food_name:fr:Beignet fourré aux fruits, préemballé
 
 <en:Doughnuts
 en:Jam doughnuts, Jelly doughnuts, Doughnuts filled with jam
+fi:Hillomunkit, Hillotäytemunkit, Hillolla täytetyt munkit
 fr:Beignets à la confiture, Donuts à la confiture
 lt:Spurgos su džemu
 nl:Donuts gevuld met jam
@@ -34000,6 +34003,7 @@ ciqual_food_name:fr:Beignet à la confiture
 
 <en:Doughnuts
 en:Doughnuts filled with chocolate
+fi:Suklaatäytemunkit, Suklaalla täytetyt munkit
 fr:Beignets fourrés au chocolat, Donuts au chocolat
 lt:Spurgos su šokoladiniu įdaru, Spurgos su šokoladu
 nl:Donuts gevuld met chocolade
@@ -34008,12 +34012,15 @@ ciqual_food_code:en:23885
 ciqual_food_name:en:Doughnut filled with chocolate, prepacked
 
 <en:Doughnuts filled with fruits
+en:Doughnuts filled with raspberries
+fi:Vadelmamunkit, Vadelmatäytemunkit, Vadelmalla täytetyt munkit
 fr:Beignets fourrés à la framboise
 nl:Donuts gevuld met framboos
 
 <en:Doughnuts
 en:Glazed doughnuts
 ja:グレーズドドーナツ
+fi:Kuorrutetut munkit, Kuorrutetut donitsit
 lt:Spurgos su glaistu, Glazūruotos spurgos
 nl:Geglazuurde donuts
 
@@ -38312,12 +38319,13 @@ de:Hirse
 es:Mijo
 fr:Millet
 it:Miglio
-nl:Gierstfamilie
+nl:Gierst (divers)
 wikidata:en:Q259438
 
 <en:Millet
 en:Whole millet
 fr:Mil entier
+nl:Gierst (volkoren), Volkoren griest
 agribalyse_food_code:en:9330
 ciqual_food_code:en:9330
 ciqual_food_name:en:Millet, whole
@@ -38342,12 +38350,27 @@ nl:Gierst
 wikidata:en:Q165196
 
 <en:Millet
+en:Foxtail millet
+
+<en:Millet
+en:Finger Millet, Ragi
+
+<en:Millet
+en:Barnyard millet
+
+<en:Millet
+en:Little millet
+
+<en:Millet
 en:Unsalted cooked millet
 fr:Mil cuit non salé
 agribalyse_food_code:en:9331
 ciqual_food_code:en:9331
 ciqual_food_name:en:Millet, cooked, unsalted
 ciqual_food_name:fr:Mil, cuit, non salé
+
+<en:Millet
+de:Goldhirse
 
 <en:Cereal grains
 en:Quinoa
@@ -38950,7 +38973,7 @@ de:Sorghumhirsen
 es:Sorgo
 fr:Sorgho, Sorgho entier
 it:Sorgo
-la:Sorghum
+la:Sorghum bicolor
 nl:Sorghum, Sorgho, Kafferkoren
 zh:高粱
 wikidata:en:Q12111
@@ -45018,6 +45041,20 @@ ciqual_food_code:en:19666
 ciqual_food_name:en:Petit-Suisse like fresh cream cheese, plain, around 9% fat
 ciqual_food_name:fr:Fromage frais type petit suisse, nature, 10% MG environ
 
+#this category is not made for vegan products but for dairy products used in replacement of cream
+<en:Dairies
+en:Compound dairy creams
+de:Sahne-Ersatz
+fr:Succédanés de la crème
+
+<en:Compound dairy creams
+en:Liquid light cream with 4 to 8% fat, Thick light cream with 4 to 8% fat
+fr:Spécialité à base de crème légère fluide à 8% de matières grasses, Spécialité à base de crème légère épaisse à 8% de matières grasses
+agribalyse_food_code:en:19433
+ciqual_food_code:en:19433
+ciqual_food_name:en:cream, light, 4 to 8% fat, liquid or thick
+ciqual_food_name:fr:Spécialité à base de crème légère 8% MG, fluide ou épaisse
+
 <en:Dairies
 en:Creams
 bg:Кремове
@@ -45244,14 +45281,6 @@ agribalyse_food_code:en:19431
 ciqual_food_code:en:19431
 ciqual_food_name:en:Thick cream, light, 15-20% fat, refrigerated
 ciqual_food_name:fr:Crème de lait, 15 à 20% MG, légère, épaisse, rayon frais
-
-<en:Creams
-en:Liquid light cream with 4 to 8% fat, Thick light cream with 4 to 8% fat
-fr:Spécialité à base de crème légère fluide à 8% de matières grasses, Spécialité à base de crème légère épaisse à 8% de matières grasses
-agribalyse_food_code:en:19433
-ciqual_food_code:en:19433
-ciqual_food_name:en:cream, light, 4 to 8% fat, liquid or thick
-ciqual_food_name:fr:Spécialité à base de crème légère 8% MG, fluide ou épaisse
 
 <en:Fermented creams
 en:Sour creams, Crèmes fraîches
@@ -56026,6 +56055,7 @@ ciqual_food_name:fr:Flocons d'avoine, bouillis/cuits à l'eau
 
 <en:Cereal flakes
 <en:Rolled flakes
+<en:Millet
 en:Millet flakes
 de:Hirseflocken
 es:Copos de mijo
@@ -56260,6 +56290,7 @@ lt:Pūsti grikiai
 nl:Gepofte boekweit
 
 <en:Puffed cereals
+<en:Millet
 en:Puffed millet
 es:Mijo inflado, Mijo hinchado
 fr:Millet soufflé
@@ -56596,6 +56627,7 @@ fr:Farines de méteil, Farines de blé et seigle, Mélanges de farines
 lt:Meslino miltai
 
 <en:Cereal flours
+<en:Millet
 en:Millet flours
 es:Harinas de mijo
 fr:Farines de millet
@@ -57403,6 +57435,7 @@ lt:Avižinės kruopos
 nl:Havergrutten
 
 <en:Groats
+<en:Millet
 en:Millet groats
 es:Grañones de mijo
 fr:Gruau de millet
@@ -73064,6 +73097,9 @@ ciqual_food_name:en:Vegetable, cooked (average)
 ciqual_food_name:fr:Légume cuit (aliment moyen)
 
 <en:Prepared vegetables
+en:Prepared carrots
+
+<en:Carrots
 en:Grated carrots
 de:Geriebene Karotten, geraspelte Karotten
 es:Zanahorias ralladas
@@ -73078,7 +73114,7 @@ tr:Rendelenmiş havuç
 wikidata:en:Q22708802
 agribalyse_food_code:en:26257
 
-<en:Grated carrots
+<en:Carrot salads
 en:Seasoned grated carrots, Seasoned shredded carrots
 de:Gewürzte geriebene Karotten
 fi:maustetut raastetut porkkanat
@@ -73090,6 +73126,10 @@ nl:Aangemaakte geraspte wortels
 en:Unseasoned grated carrots, Unseasoned shredded carrots
 fr:Carottes râpées non assaisonnées
 lt:Tarkuotos morkos be prieskonių
+
+<en:Prepared vegetables
+en:Carrot salads
+nl:Wortelsalades
 
 <en:Prepared vegetables
 en:Celeriac in remoulade sauce
