@@ -53,7 +53,7 @@ use ProductOpener::Packaging qw(:all);
 use Encode;
 use Data::DeepAccess qw(deep_get);
 
-=head2 create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref, $tagtype, $tagid)
+=head2 create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref, $tagtype, $canon_tagid)
 
 Create all knowledge panels for a product, with strings (descriptions, recommendations etc.)
 in a specific language, and return them in an array of panels.
@@ -84,7 +84,7 @@ Defines how some panels should be created (or not created)
 
 =head4 tag type $tagtype
 
-=head4 canonical tagid $tagid
+=head4 canonical tagid $canon_tagid
 
 =head3 Return values
 
@@ -93,9 +93,9 @@ passed as input.
 
 =cut
 
-sub create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref, $tagtype, $tagid) {
+sub create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref, $tagtype, $canon_tagid) {
 
-	$log->debug("create knowledge panels for tag", {tagtype => $tagtype, tagid => $tagid, target_lc => $target_lc})
+	$log->debug("create knowledge panels for tag", {tagtype => $tagtype, tagid => $canon_tagid, target_lc => $target_lc})
 		if $log->is_debug();
 
 	# Initialize panels
@@ -105,7 +105,7 @@ sub create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref,
 	my @panels = ();
 	if ($tagtype eq "categories") {
 		my $created
-			= create_category_packagings_materials_panel($tag_ref, $target_lc, $target_cc, $options_ref, $tagid);
+			= create_category_packagings_materials_panel($tag_ref, $target_lc, $target_cc, $options_ref, $canon_tagid);
 		push(@panels, $created) if $created;
 	}
 	if (@panels) {
@@ -147,6 +147,10 @@ sub create_category_packagings_materials_panel ($tag_ref, $target_lc, $target_cc
 
 	my $categories_packagings_materials_stats_ref = load_categories_packagings_materials_stats();
 	my $country = canonicalize_taxonomy_tag("en", "countries", $target_cc);
+
+    $log->debug("create_category_packagings_materials_panel - start", {target_lc => $target_lc, target_cc => $target_cc, country => $country, category_id => $category_id})
+		if $log->is_debug();
+
 	my $categories_ref
 		= deep_get($categories_packagings_materials_stats_ref, "countries", $country, "categories", $category_id);
 	if ($categories_ref) {
@@ -159,6 +163,9 @@ sub create_category_packagings_materials_panel ($tag_ref, $target_lc, $target_cc
 			$panel_data_ref, $tag_ref, $target_lc, $target_cc, $options_ref);
 		$created = "packagings_materials";
 	}
+
+    $log->debug("create_category_packagings_materials_panel - end", {created => $created})
+		if $log->is_debug();
 
 	return $created;
 }
