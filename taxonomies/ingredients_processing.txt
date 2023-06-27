@@ -13,6 +13,7 @@
 
 # be careful: raw in English can mean "unrefined" as in "raw cane sugar"
 # or uncooked "raw fish"
+
 # unrefined ingredients like "raw sugar", "raw milk", "raw honey" etc.
 # need to be kept in the taxonomy.
 # Same for things like "jambon cru", "lait cru" in French.
@@ -34,6 +35,7 @@ fi:raaka
 fr:cru, crue, crus, crues, brut, non raffiné
 hr:nerafinirani
 hu:nyers, nyersen
+ja:生
 nl:rauw, rauwe
 pl:surowy, surowa, surowe
 pt:cru, crus
@@ -110,7 +112,7 @@ fr:graine, graines
 hr:u zrnu, sjeme
 is:fræ
 it:semi, grani
-ja:の実
+ja:の実, の種
 jv:Wiji
 ko:양귀비 씨
 nb:frø
@@ -144,6 +146,7 @@ fr:feuille de, feuille d'
 hr:list
 hu:levél
 it:foglie, in foglie
+ja:の葉
 nl:blad, bladeren
 pl:natka, liść, liście, nać, liście z
 ro:frunze de
@@ -1093,7 +1096,7 @@ fr:extrait de, extrait d'
 hr:ekstrakt
 hu:kivonat, kivonatból
 it:estratto di, estratti di, estratto d', estratti d'
-ja:エキス
+ja:エキス, 抽出
 #it:falsePositive:antiossidante estratto ricco di tocoferolo
 nb:ekstrakt, ekstrakter
 nl:extract
@@ -1385,6 +1388,7 @@ sv:rostat, rostade
 
 #<en:roasted
 en:dry roasted
+ja:焙煎
 
 #comment:en:In the actual translations on products, there is not always a difference between toasted and roasted
 
@@ -1695,6 +1699,7 @@ es:fermentado
 hr:fermentirano
 hu:fermentált
 it:fermentato, fermentata, fermentati, fermentate
+ja:発酵
 pl:fermentowany, fermentowana, fermentowane, kiszony, kiszona, kiszone, kiszonych, kiszonego, kiszonej
 pt:fermentado, fermentada, fermentados, fermentadas
 wikidata:en:Q6950796
@@ -1767,6 +1772,7 @@ fr:fumé,fumés,fumée,fumées
 hr:dimljena, dimljeni
 hu:füstölt, füstölve
 it:affumicato, affumicata, affumicati, affumicate
+ja:燻製, 薫製, くん製, スモーク
 nl:gerookt, gerookte
 pl:wędzony, wędzona, wędzone, wędzonych, wędzonego, wędzonej
 pt:fumado, fumada, fumados, fumadas, defumado, defumada, defumados, defumadas
