@@ -69,15 +69,15 @@ BEGIN {
 	@EXPORT_OK = qw(
 
 		&generate_packaging_stats_for_query
-        &add_product_components_to_stats
-        &compute_stats_for_all_weights
-        &compute_stats_for_values
-        &remove_unpopular_categories_shapes_and_materials
-        &remove_packagings_materials_stats_for_unpopular_categories
-        &store_stats
-        &export_product_packaging_components_to_csv
-        &add_product_materials_to_stats
-        &compute_stats_for_all_materials
+		&add_product_components_to_stats
+		&compute_stats_for_all_weights
+		&compute_stats_for_values
+		&remove_unpopular_categories_shapes_and_materials
+		&remove_packagings_materials_stats_for_unpopular_categories
+		&store_stats
+		&export_product_packaging_components_to_csv
+		&add_product_materials_to_stats
+		&compute_stats_for_all_materials
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -93,12 +93,12 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::Packaging qw/:all/;
 
 use File::Path qw(mkpath);
 use JSON::PP;
 use Data::DeepAccess qw(deep_exists deep_get deep_set deep_val);
 use Text::CSV;
-
 
 =head2 add_product_components_to_stats($name, $packagings_stats_ref, $product_ref)
 
@@ -393,9 +393,9 @@ sub export_product_packaging_components_to_csv ($csv, $filehandle, $product_ref)
 				$product_ref->{code}, $countries_tags,
 				$categories_tags, $packaging_ref->{number_of_units},
 				$packaging_ref->{shape}, $packaging_ref->{material},
-				$packaging_ref->{recycling}, $packaging_ref->{weight},
-				$packaging_ref->{weight_measured}, $packaging_ref->{weight_specified},
-				$packaging_ref->{quantity_per_unit},
+				get_parent_material($packaging_ref->{material}), $packaging_ref->{recycling},
+				$packaging_ref->{weight}, $packaging_ref->{weight_measured},
+				$packaging_ref->{weight_specified}, $packaging_ref->{quantity_per_unit},
 			);
 
 			$csv->print($filehandle, \@values);
@@ -445,25 +445,37 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 				if ($total_weight_100g) {
 
 					my $weight_100g = deep_get($product_ref, "packagings_materials", $material, "weight_100g");
-					
+
 					# Record if the product has the material (100) or not (0)
-					deep_val($packagings_materials_stats_ref,
-							("countries", $country, "categories", $category, "materials", $material, "products_percent", "values"))
-							.= ($weight_100g ? 100 : 0) . ",";
+					deep_val(
+						$packagings_materials_stats_ref,
+						(
+							"countries", $country, "categories", $category,
+							"materials", $material, "products_percent", "values"
+						)
+					) .= ($weight_100g ? 100 : 0) . ",";
 
 					# Record the weight per 100g of product, for all products, even if they don't contain the material
 					# Useful to say that on average a product of a specific category has X g of glass and Y g of metal
 					# even if most of them are either in glass, or in metal, but not both
-					deep_val($packagings_materials_stats_ref,
-							("countries", $country, "categories", $category, "materials", $material, "weight_100g", "values"))
-							.= ($weight_100g // 0). ",";
+					deep_val(
+						$packagings_materials_stats_ref,
+						(
+							"countries", $country, "categories", $category,
+							"materials", $material, "weight_100g", "values"
+						)
+					) .= ($weight_100g // 0) . ",";
 
 					# Record the weight per 100g of product, for all products that contain the material
 					# Useful to compare products that do have the material
 					if (defined $weight_100g) {
-						deep_val($packagings_materials_stats_ref,
-							("countries", $country, "categories", $category, "materials", $material, "weight_100g_material", "values"))
-							.= $weight_100g . ",";
+						deep_val(
+							$packagings_materials_stats_ref,
+							(
+								"countries", $country, "categories", $category,
+								"materials", $material, "weight_100g_material", "values"
+							)
+						) .= $weight_100g . ",";
 					}
 				}
 			}
@@ -568,8 +580,8 @@ sub generate_packaging_stats_for_query ($name, $query_ref, $quiet = 0) {
 		$filehandle,
 		[
 			"code", "countries_tags", "categories_tags", "number_of_units",
-			"shape", "material", "recycling", "weight",
-			"weight_measured", "weight_specified", "quantity_per_unit"
+			"shape", "material", "parent_material", "recycling",
+			"weight", "weight_measured", "weight_specified", "quantity_per_unit"
 		]
 	);
 

@@ -95,7 +95,8 @@ passed as input.
 
 sub create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref, $tagtype, $canon_tagid) {
 
-	$log->debug("create knowledge panels for tag", {tagtype => $tagtype, tagid => $canon_tagid, target_lc => $target_lc})
+	$log->debug("create knowledge panels for tag",
+		{tagtype => $tagtype, tagid => $canon_tagid, target_lc => $target_lc})
 		if $log->is_debug();
 
 	# Initialize panels
@@ -148,7 +149,8 @@ sub create_category_packagings_materials_panel ($tag_ref, $target_lc, $target_cc
 	my $categories_packagings_materials_stats_ref = load_categories_packagings_materials_stats();
 	my $country = canonicalize_taxonomy_tag("en", "countries", $target_cc);
 
-    $log->debug("create_category_packagings_materials_panel - start", {target_lc => $target_lc, target_cc => $target_cc, country => $country, category_id => $category_id})
+	$log->debug("create_category_packagings_materials_panel - start",
+		{target_lc => $target_lc, target_cc => $target_cc, country => $country, category_id => $category_id})
 		if $log->is_debug();
 
 	my $categories_ref
@@ -164,7 +166,7 @@ sub create_category_packagings_materials_panel ($tag_ref, $target_lc, $target_cc
 		$created = "packagings_materials";
 	}
 
-    $log->debug("create_category_packagings_materials_panel - end", {created => $created})
+	$log->debug("create_category_packagings_materials_panel - end", {created => $created})
 		if $log->is_debug();
 
 	return $created;

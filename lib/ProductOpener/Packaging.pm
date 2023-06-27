@@ -51,6 +51,7 @@ BEGIN {
 		&apply_rules_to_augment_packaging_component_data
 		&aggregate_packaging_by_parent_materials
 		&load_categories_packagings_materials_stats
+		&get_parent_material
 
 		%packaging_taxonomies
 	);    # symbols to export on request
@@ -878,6 +879,35 @@ sub set_packaging_misc_tags ($product_ref) {
 	return;
 }
 
+=head2 get_parent_material ($material)
+
+Return the parent material (glass, plastics, metal, paper or cardboard) of a material.
+Return unknown if the material does not match one of the parents, or if not defined.
+
+=cut
+
+# Build a cache of parent materials to speed up lookups
+my %parent_materials = ();
+
+sub get_parent_material ($material) {
+
+	return "en:unknown" if not defined $material;
+
+	# Check if we already computed the parent material
+	my $parent_material = $parent_materials{$material};
+	if (defined $parent_material) {
+		return $parent_material;
+	}
+	else {
+		$parent_material = (first {is_a("packaging_materials", $material, $_)}
+				("en:paper-or-cardboard", "en:plastic", "en:glass", "en:metal")) // "en:unknown";
+
+		$parent_materials{$material} = $parent_material;
+
+		return $parent_material;
+	}
+}
+
 =head2 aggregate_packaging_by_parent_materials ($product_ref)
 
 Aggregate the weights of each packaging component by parent material (glass, plastics, metal, paper or cardboard)
@@ -900,12 +930,7 @@ sub aggregate_packaging_by_parent_materials ($product_ref) {
 		foreach my $packaging_ref (@{$product_ref->{packagings}}) {
 
 			# Determine what is the parent material for the component
-			my $material = $packaging_ref->{material};
-			my $parent_material = "en:unknown";
-			if (defined $material) {
-				$parent_material = (first {is_a("packaging_materials", $material, $_)}
-						("en:paper-or-cardboard", "en:plastic", "en:glass", "en:metal")) // "en:unknown";
-			}
+			my $parent_material = get_parent_material($packaging_ref->{material});
 
 			# Initialize the entry for the parent material if needed (even if we have no weight,
 			# it is useful to know that there is some parent material used)
