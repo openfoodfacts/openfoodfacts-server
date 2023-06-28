@@ -401,6 +401,8 @@ sub export_product_packaging_components_to_csv ($csv, $filehandle, $product_ref)
 			$csv->print($filehandle, \@values);
 		}
 	}
+
+	return;
 }
 
 =head2 add_product_materials_to_stats($name, $packagings_stats_ref, $product_ref)
