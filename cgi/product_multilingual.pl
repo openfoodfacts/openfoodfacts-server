@@ -558,8 +558,8 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 		if (defined single_param($field)) {
 
-			# Only moderators can update values for fields and images sent by the producer
-			if (skip_protected_field($product_ref, $field, $User{moderator})|| skip_protected_image($product_ref, $field, $User{moderator})) {
+			# Only moderators can update values for fields sent by the producer
+			if (skip_protected_field($product_ref, $field, $User{moderator})) {
 				next;
 			}
 

@@ -92,28 +92,28 @@ Return 1 if we should ignore an image selected by a user because we already have
 
 =cut
 
-sub skip_protected_image ($product_ref, $field, $moderator = 0) {
+sub skip_protected_image ($product_ref, $imagefield, $moderator = 0) {
 
-	 # Add image-specific checks here
-    if ($field =~ /_image$/) {
-        # If there is already a photo selected by the producer, and the modification is not made by a moderator,
-        # ignore the new image selection
-	if (    (not $server_options{producers_platform})
-		and (defined $product_ref->{owner_fields})
-		and (defined $product_ref->{owner_fields}{$field})
-		and (not $moderator))
-	{
-		$log->debug(
-			"Skipping image selection as there is already a photo selected by the producer",
-			{
-				code => $product_ref->{code},
-				field_name => $field,
-				existing_field_value => $product_ref->{$field},
-				new_field_value => remove_tags_and_quote(decode utf8 => single_param($field))
-			}
-		) if $log->is_debug();
-		return 1;
-	}
+	# Add image-specific checks here
+	if ($imagefield =~ /_image$/) {
+		# If there is already a photo selected by the producer, and the modification is not made by a moderator,
+		# ignore the new image selection
+		if (    (not $server_options{producers_platform})
+			and (defined $product_ref->{owner_fields})
+			and (defined $product_ref->{owner_fields}{$imagefield})
+			and (not $moderator))
+		{
+			$log->debug(
+				"Skipping image selection as there is already a photo selected by the producer",
+				{
+					code => $product_ref->{code},
+					field_name => $imagefield,
+					existing_field_value => $product_ref->{$imagefield},
+					new_field_value => single_param($imagefield)
+				}
+			) if $log->is_debug();
+			return 1;
+		}
 	}
 	return 0;
 }

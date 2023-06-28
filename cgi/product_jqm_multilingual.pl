@@ -389,8 +389,8 @@ else {
 				my $field_lc = $field . '_' . $param_lang;
 				if (defined single_param($field_lc)) {
 
-					# Only moderators can update values for fields and images sent by the producer
-					if (skip_protected_field($product_ref, $field_lc, $User{moderator})|| skip_protected_image($product_ref, $field_lc, $User{moderator})) {
+					# Only moderators can update values for fields sent by the producer
+					if (skip_protected_field($product_ref, $field_lc, $User{moderator})) {
 						next;
 					}
 
