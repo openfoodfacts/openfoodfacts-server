@@ -169,7 +169,9 @@ sub add_product_components_to_stats ($name, $packagings_stats_ref, $product_ref)
 									)
 								) += 1;
 								if (($name eq "packagings-with-weights") and (defined $weight)) {
-									push @{$packagings_stats_ref->{countries}{$country}{categories}{$category}{$shapes_or_shapes_parents}{$shape_value}{$materials_or_materials_parents}{$material_value}{weights}{values}}, $weight;
+									push @{$packagings_stats_ref->{countries}{$country}{categories}{$category}
+											{$shapes_or_shapes_parents}{$shape_value}{$materials_or_materials_parents}
+											{$material_value}{weights}{values}}, $weight;
 								}
 							}
 						}
@@ -272,7 +274,7 @@ sub remove_unpopular_categories_shapes_and_materials ($packagings_stats_ref, $mi
 				next;
 			}
 			my $category_ref = $country_ref->{categories}{$category};
-            # we don't want shapes_parents in popular file
+			# we don't want shapes_parents in popular file
 			delete $category_ref->{shapes_parents};
 			my $shapes_ref = $category_ref->{shapes};
 			foreach my $shape (keys %$shapes_ref) {
@@ -445,17 +447,20 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 					my $weight_100g = deep_get($product_ref, "packagings_materials", $material, "weight_100g");
 
 					# Record if the product has the material (100) or not (0)
-					push @{$packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}{$material}{products_percent}{values}}, ($weight_100g ? 100 : 0);
+					push @{$packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
+							{$material}{products_percent}{values}}, ($weight_100g ? 100 : 0);
 
 					# Record the weight per 100g of product, for all products, even if they don't contain the material
 					# Useful to say that on average a product of a specific category has X g of glass and Y g of metal
 					# even if most of them are either in glass, or in metal, but not both
-					push @{$packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}{$material}{weight_100g}{values}}, ($weight_100g // 0);
+					push @{$packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
+							{$material}{weight_100g}{values}}, ($weight_100g // 0);
 
 					# Record the weight per 100g of product, for all products that contain the material
 					# Useful to compare products that do have the material
 					if (defined $weight_100g) {
-						push @{$packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}{$material}{weight_100g_material}{values}}, $weight_100g ;
+						push @{$packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
+								{$material}{weight_100g_material}{values}}, $weight_100g;
 					}
 				}
 			}
