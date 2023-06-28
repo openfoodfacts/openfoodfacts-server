@@ -1804,8 +1804,15 @@ sub parse_ingredients_text ($product_ref) {
 									)
 
 									#  match before or after the ingredient, does not require a space
-									or (    (($product_lc eq 'de')  or ($product_lc eq 'hu') or ($product_lc eq 'ja') or ($product_lc eq 'nl'))
-										and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i))
+									or (
+										(
+											   ($product_lc eq 'de')
+											or ($product_lc eq 'hu')
+											or ($product_lc eq 'ja')
+											or ($product_lc eq 'nl')
+										)
+										and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i)
+									)
 
 									# match after the ingredient, does not require a space
 									# match before the ingredient, require a space
