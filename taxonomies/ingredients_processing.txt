@@ -375,6 +375,7 @@ hu:frissen őrölt
 
 en:mashed
 hu:pépesített
+pl:tłuczone
 
 en:pureed, purée, puréed, puree
 bg:пюре, на пюре, пюре от
@@ -390,7 +391,7 @@ it:purea di
 mk:каша од
 nb:puré
 nl:puree
-pl:przecier, przeciery, przecier z, przeciery z, piure z, przetarty, przetarta, przetarte
+pl:przecier, przeciery, przecier z, przeciery z, piure z, przetarty, przetarta, przetarte, puree, puree z
 pt:puré, em puré, puré de, puré da
 sk:pyré
 sv:puré
@@ -447,7 +448,7 @@ hr:komadići, komadići od, hrskavi komadići, hrskavi komadići od, komata
 hu:darabok, darabolt, darab, darabka
 it:pezzi, in pezzi, a pezzi, pezzi di, pezzi d'
 nl:stukjes
-pl:kawałki, kawałki z
+pl:kawałki, kawałki z, rozdrobniony, rozdrobnione, rozdrobniona
 pt:pedaço, pedaços
 sv:bitar, i bitar
 # de:false-positive:früchstück
@@ -483,7 +484,7 @@ fr:chips de
 it:fettine di
 ja:チップス
 nl:chips
-pl:chipsy
+pl:chipsy, płaty, płaty z, płaty z, chipsy z
 
 #de:comment:result of grating
 de:raspel, raspeln
@@ -532,7 +533,7 @@ mk:прав
 ms:serbuk
 nb:pulver, pulverisert
 nl:poeder, poeders, in poedervorm
-pl:w proszku, proszek, proszek z
+pl:w proszku, proszek, proszek z, sproszkowany, sproszkowane, sproszkowana, sproszkowanych, sproszkowanej
 pt:em pó, pó de, en polvo
 ro:praf, praf de, pudră, pudră de, Pulbere
 ru:сухие, порошок
@@ -671,7 +672,7 @@ hr:bez koštice, bez sjemenki
 hu:magozott, kimagozott, magtalanított
 it:denocciolato, denocciolati, denocciolata, denocciolate
 nl:ontpit, ontpitte
-pl:drylowany, drylowana, drylowane
+pl:drylowany, drylowana, drylowane, bez pestek
 #pt:sem caroço, sem caroco
 sv:urkärnad
 # en:wiktionary:pitted
@@ -766,7 +767,7 @@ en:partially defatted
 bg:частично обезмаслен, частично обезмаслено
 ca:parcialment desgreixat, parcialment desgreixada, parcialment desgreixats, parcialment desgreixades
 de:teilentfettet, teilentfettetes
-pl:częściowo odtłuszczone, częściowo odtłuszczony, częściowo odtłuszczona, częściowo odtłuszczonego
+pl:częściowo odtłuszczone, częściowo odtłuszczony, częściowo odtłuszczona, częściowo odtłuszczonego, półtłusty
 pt:parcialmente desengordurado, parcialmente desengordurada
 ro:demidegresat
 
@@ -846,7 +847,7 @@ fr:liquide
 hr:tekući, tekuća
 it:liquido
 nl:vloeibaar
-pl:płyn, płyn z, masa z, masa
+pl:płyn, płyn z, masa z, masa, w płynie, płynny, płynna
 
 # en:description:To increase the strength and diminish the bulk of, as of a liquid or an ore; to intensify, by getting rid of useless material.
 en:concentrated, concentrate, concentrates
@@ -868,7 +869,7 @@ it:concentrato, concentrato di, concentrato d', concentrati, concentrata, concen
 ko:농축물
 mk:концентриран, концентрирана
 nl:concentraten, concentraat, geconcentreerd, geconcentreerde
-pl:koncentrat, koncentraty, koncentrat z, skoncentrowany, skoncentrowana, skoncentrowane, zagęszczony, zagęszczone, zagęszczona, zagęszczonych, zagęszczonego, zagęszczonej
+pl:koncentrat, koncentraty, koncentrat z, skoncentrowany, skoncentrowana, skoncentrowane, zagęszczony, zagęszczone, zagęszczona, zagęszczonych, zagęszczonego, zagęszczonej, koncentraty z
 pt:concentrado, concentrada, concentrados, concentradas, concentrado de, concentrados de, concentratos
 ro:concentrat de
 ru:концентрированный
@@ -891,6 +892,7 @@ de:dreifach konzentriert
 de:200fach konzentriertes
 
 #en:not from concentrate
+#pl:NFC
 
 # there is a problem with en:cocoa paste
 #en:paste
@@ -923,7 +925,7 @@ hu:sűrítményből, koncentrátumból, sűrítményekből, koncentrátumokból
 it:da concentrato
 lt:iš koncentrąto
 nl:uit concentraat, van concentraat, op basis van concentraat
-pl:z koncentratu, z zagęszczonego, z zagęszczonych
+pl:z koncentratu, z zagęszczonego, z zagęszczonych, z koncentratu z
 pt:a partir de concentrado, à base de concentrado
 ro:din concentrat
 sk:z koncentrátu
@@ -951,7 +953,7 @@ lv:žāvēti
 nb:tørkede
 nl:gedroogd, gedroogde
 nn:tørket
-pl:suszony, suszona, suszone, suszonych, suszonej, suszonego, susz z, susz
+pl:suszony, suszona, suszone, suszonych, suszonej, suszonego, susz z, susz, suszu
 pt:seco, seca, secos, secas
 ro:uscate
 ru:сушеный, Сушеное, сушёная, сушёный
@@ -1062,11 +1064,13 @@ fr:réhydraté, réhydratée, réhydratés, réhydratées
 hr:rehidrirana, rehidrirani
 hu:rehidratált
 it:reidratato, reidratata, reidratati, reidratate
+pl:uwodnione, uwodniony, uwodniona
 pt:reidratado, reidratada, reidratados, reidratadas
 sv:rehydrerat, rehydrerad
 
 en:partially rehydrated
 fr:semi-réhydraté, semi-réhydratée, semi-réhydratés, semi-réhydratées, partiellement réhydraté, partiellement réhydratée, partiellement réhydratés, partiellement réhydratées
+pl:częściowo uwodnione, częściowo uwodniony, częściowo uwodniona
 
 en:hydrated
 bg:хидратирано, хидратирана, хидратиран, хидратирани
@@ -1487,7 +1491,7 @@ ca:cobertura
 pt:coberto, coberta, cobertos, cobertas, cobertura, coberturas, coberto com, coberta com, cobertos com, cobertas com, cobertura em, coberturas em
 
 #en:comment:Mix two similar ingredients, such as different cheese types
-en:mixture
+en:mixture, mixtures
 ca:barreja, barreja de
 es:mezcla, mezcla de
 hr:mješavina
@@ -1924,6 +1928,7 @@ sv:ohärdad
 #en:hydrolysed, hydrolized
 #fr:Hydrolisé, hydrolisée
 #nl:gehydrolyseerd, gehydrolyseerde
+#pl:hydrolizat, hydrolizowane
 
 en:hydrogenated
 bg:хидрогениран, хидрогенирано

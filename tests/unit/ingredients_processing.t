@@ -1642,6 +1642,43 @@ my @tests = (
 		]
 	],
 
+	# (200 g per 100g of product) etc.
+	[
+		{
+			lc => "pl",
+			ingredients_text => "koncentrat pomidorowy (126 g pomidorow na 100 g ketchupu),
+			pomidory (210 g pomidorów zużyto na 100 g produktu),
+			pomidory (100 g na 100 g produktu),
+			pomidory (126 g pomidorów na 100g produktu).
+			157 g mięsa użyto do wytworzenia 100 g produktu.
+			100 g produktu wyprodukowano ze 133 g mięsa wieprzowego.
+			Sporządzono z 40 g owoców na 100 g produktu.
+			Z 319 g mięsa wieprzowego wyprodukowano 100 g produktu."
+		},
+		[
+			{
+				'id' => 'en:tomato-concentrate',
+				'text' => 'koncentrat pomidorowy',
+				'ingredients' => [],
+			},
+			{
+				'id' => 'en:tomato',
+				'text' => 'pomidory',
+				'ingredients' => [],
+			},
+			{
+				'id' => 'en:tomato',
+				'text' => 'pomidory',
+				'ingredients' => [],
+			},
+			{
+				'id' => 'en:tomato',
+				'text' => 'pomidory',
+				'ingredients' => [],
+			},
+		]
+	],
+
 	# en:dried (with separate entry)
 	[
 		{
