@@ -286,6 +286,7 @@ sub remove_unpopular_categories_shapes_and_materials ($packagings_stats_ref, $mi
 				next;
 			}
 			my $category_ref = $country_ref->{categories}{$category};
+            # we don't want shapes_parents in popular file
 			delete $category_ref->{shapes_parents};
 			my $shapes_ref = $category_ref->{shapes};
 			foreach my $shape (keys %$shapes_ref) {
@@ -625,17 +626,21 @@ sub generate_packaging_stats_for_query ($name, $query_ref, $quiet = 0) {
 
 	if ($name eq "packagings-with-weights") {
 		# Compute stats for weights
+		$quiet or print STDERR "Computing stats for all weights";
 		compute_stats_for_all_weights($packagings_stats_ref);
 	}
 
 	# Compute stats for materials
+	$quiet or print STDERR "Computing stats for all materials";
 	compute_stats_for_all_materials($packagings_materials_stats_ref);
 
+	$quiet or print STDERR "Storing result";
 	store_stats($name, $packagings_stats_ref, $packagings_materials_stats_ref);
 
 	# Compute smaller stats where we keep only shapes and materials that are popular
 	# This data is used for autocomplete suggestions in ProductOpener::APITaxonomySuggestions
 
+	$quiet or print STDERR "Computing popular versions";
 	remove_unpopular_categories_shapes_and_materials($packagings_stats_ref, 5);
 	remove_packagings_materials_stats_for_unpopular_categories($packagings_materials_stats_ref, 5);
 	store_stats($name . ".popular", $packagings_stats_ref, $packagings_materials_stats_ref);

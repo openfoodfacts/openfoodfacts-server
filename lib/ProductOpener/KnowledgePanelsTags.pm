@@ -60,7 +60,7 @@ in a specific language, and return them in an array of panels.
 
 =head3 Arguments
 
-=head4 tag reference $product_ref
+=head4 tag reference $tag_ref
 
 Hash structure for the tag. Can be empty. Will be used to return the panels.
 
@@ -119,7 +119,7 @@ sub create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref,
 	return !!@panels;
 }
 
-=head2 create_category_packagings_materials_panel ($category_id, $target_lc, $target_cc, $options_ref)
+=head2 create_category_packagings_materials_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $category_idf)
 
 Creates a knowledge panel to show the packagings materials stats of a category
 
@@ -129,9 +129,9 @@ Creates a knowledge panel to show the packagings materials stats of a category
 
 Canonical category id.
 
-=head4 product reference $product_ref
+=head4 tag reference $tag_ref
 
-Loaded from the MongoDB database, Storable files, or the OFF API.
+Data about the tag, will store the knowledge panel.
 
 =head4 language code $target_lc
 

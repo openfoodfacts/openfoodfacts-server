@@ -899,8 +899,9 @@ sub get_parent_material ($material) {
 		return $parent_material;
 	}
 	else {
+        # take first matching, most harmful first
 		$parent_material = (first {is_a("packaging_materials", $material, $_)}
-				("en:paper-or-cardboard", "en:plastic", "en:glass", "en:metal")) // "en:unknown";
+				("en:plastic", "en:glass", "en:metal", "en:paper-or-cardboard")) // "en:unknown";
 
 		$parent_materials{$material} = $parent_material;
 
