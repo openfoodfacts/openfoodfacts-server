@@ -1,0 +1,160 @@
+{
+   "countries" : {
+      "en:world" : {
+         "categories" : {
+            "all" : {
+               "materials" : {
+                  "all" : {
+                     "n" : 2,
+                     "products_percent" : {
+                        "mean" : 100,
+                        "n" : 2,
+                        "sum" : 200,
+                        "values" : [
+                           "100",
+                           "100"
+                        ]
+                     },
+                     "weight_100g" : {
+                        "mean" : 550,
+                        "n" : 2,
+                        "sum" : 1100,
+                        "values" : [
+                           "1000",
+                           "100"
+                        ]
+                     },
+                     "weight_100g_material" : {
+                        "mean" : 550,
+                        "n" : 2,
+                        "sum" : 1100,
+                        "values" : [
+                           "1000",
+                           "100"
+                        ]
+                     }
+                  },
+                  "en:glass" : {
+                     "n" : 1,
+                     "products_percent" : {
+                        "mean" : 50,
+                        "n" : 2,
+                        "sum" : 100,
+                        "values" : [
+                           "100",
+                           "0"
+                        ]
+                     },
+                     "weight_100g" : {
+                        "mean" : 500,
+                        "n" : 2,
+                        "sum" : 1000,
+                        "values" : [
+                           "1000",
+                           "0"
+                        ]
+                     },
+                     "weight_100g_material" : {
+                        "mean" : 1000,
+                        "n" : 1,
+                        "sum" : 1000,
+                        "values" : [
+                           "1000"
+                        ]
+                     }
+                  },
+                  "en:metal" : {
+                     "products_percent" : {
+                        "mean" : 0,
+                        "n" : 2,
+                        "sum" : 0,
+                        "values" : [
+                           "0",
+                           "0"
+                        ]
+                     },
+                     "weight_100g" : {
+                        "mean" : 0,
+                        "n" : 2,
+                        "sum" : 0,
+                        "values" : [
+                           "0",
+                           "0"
+                        ]
+                     }
+                  },
+                  "en:paper-or-cardboard" : {
+                     "products_percent" : {
+                        "mean" : 0,
+                        "n" : 2,
+                        "sum" : 0,
+                        "values" : [
+                           "0",
+                           "0"
+                        ]
+                     },
+                     "weight_100g" : {
+                        "mean" : 0,
+                        "n" : 2,
+                        "sum" : 0,
+                        "values" : [
+                           "0",
+                           "0"
+                        ]
+                     }
+                  },
+                  "en:plastic" : {
+                     "n" : 1,
+                     "products_percent" : {
+                        "mean" : 50,
+                        "n" : 2,
+                        "sum" : 100,
+                        "values" : [
+                           "0",
+                           "100"
+                        ]
+                     },
+                     "weight_100g" : {
+                        "mean" : 50,
+                        "n" : 2,
+                        "sum" : 100,
+                        "values" : [
+                           "0",
+                           "100"
+                        ]
+                     },
+                     "weight_100g_material" : {
+                        "mean" : 100,
+                        "n" : 1,
+                        "sum" : 100,
+                        "values" : [
+                           "100"
+                        ]
+                     }
+                  },
+                  "en:unknown" : {
+                     "products_percent" : {
+                        "mean" : 0,
+                        "n" : 2,
+                        "sum" : 0,
+                        "values" : [
+                           "0",
+                           "0"
+                        ]
+                     },
+                     "weight_100g" : {
+                        "mean" : 0,
+                        "n" : 2,
+                        "sum" : 0,
+                        "values" : [
+                           "0",
+                           "0"
+                        ]
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+}

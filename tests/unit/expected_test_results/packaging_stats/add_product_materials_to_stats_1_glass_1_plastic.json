@@ -1,0 +1,72 @@
+{
+   "countries" : {
+      "en:world" : {
+         "categories" : {
+            "all" : {
+               "materials" : {
+                  "all" : {
+                     "n" : 2,
+                     "products_percent" : {
+                        "values" : "100,100,"
+                     },
+                     "weight_100g" : {
+                        "values" : "1000,100,"
+                     },
+                     "weight_100g_material" : {
+                        "values" : "1000,100,"
+                     }
+                  },
+                  "en:glass" : {
+                     "n" : 1,
+                     "products_percent" : {
+                        "values" : "100,0,"
+                     },
+                     "weight_100g" : {
+                        "values" : "1000,0,"
+                     },
+                     "weight_100g_material" : {
+                        "values" : "1000,"
+                     }
+                  },
+                  "en:metal" : {
+                     "products_percent" : {
+                        "values" : "0,0,"
+                     },
+                     "weight_100g" : {
+                        "values" : "0,0,"
+                     }
+                  },
+                  "en:paper-or-cardboard" : {
+                     "products_percent" : {
+                        "values" : "0,0,"
+                     },
+                     "weight_100g" : {
+                        "values" : "0,0,"
+                     }
+                  },
+                  "en:plastic" : {
+                     "n" : 1,
+                     "products_percent" : {
+                        "values" : "0,100,"
+                     },
+                     "weight_100g" : {
+                        "values" : "0,100,"
+                     },
+                     "weight_100g_material" : {
+                        "values" : "100,"
+                     }
+                  },
+                  "en:unknown" : {
+                     "products_percent" : {
+                        "values" : "0,0,"
+                     },
+                     "weight_100g" : {
+                        "values" : "0,0,"
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+}
