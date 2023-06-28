@@ -747,7 +747,6 @@ sub compute_ecoscore ($product_ref) {
 	compute_ecoscore_origins_of_ingredients_adjustment($product_ref);
 	compute_ecoscore_packaging_adjustment($product_ref);
 
-
 	if ($category_without_ecoscore) {
 		$product_ref->{ecoscore_data}{ecoscore_not_applicable_for_category} = $category_without_ecoscore;
 		$product_ref->{ecoscore_data}{status} = "unknown";
