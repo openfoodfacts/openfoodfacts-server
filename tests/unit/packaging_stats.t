@@ -20,55 +20,70 @@ my $packagings_materials_stats_ref = {};
 
 # Add 1 product with 100% glass
 
-add_product_materials_to_stats ("test", $packagings_materials_stats_ref,
-{
-    code => 12345678901,
-    countries_tags => ["en:world"],
-    categories_tags => ["all"],
-    packagings_materials => 
+add_product_materials_to_stats(
+	"test",
+	$packagings_materials_stats_ref,
 	{
-		'all' => {
-			'weight' => 500,
-            'weight_100g' => 1000,
-			'weight_percent' => 100
-		},
-		'en:glass' => {
-			'weight' => 500,
-            'weight_100g' => 1000,
-			'weight_percent' => 100
+		code => 12345678901,
+		countries_tags => ["en:world"],
+		categories_tags => ["all"],
+		packagings_materials => {
+			'all' => {
+				'weight' => 500,
+				'weight_100g' => 1000,
+				'weight_percent' => 100
+			},
+			'en:glass' => {
+				'weight' => 500,
+				'weight_100g' => 1000,
+				'weight_percent' => 100
+			}
 		}
 	}
-});
+);
 
-compare_to_expected_results($packagings_materials_stats_ref, "$expected_result_dir/add_product_materials_to_stats_1_glass.json", $update_expected_results);
+compare_to_expected_results(
+	$packagings_materials_stats_ref,
+	"$expected_result_dir/add_product_materials_to_stats_1_glass.json",
+	$update_expected_results
+);
 
 # Add 1 product with 100% plastic
 
-add_product_materials_to_stats ("test", $packagings_materials_stats_ref,
-{
-    code => 12345678902,
-    countries_tags => ["en:world"],
-    categories_tags => ["all"],
-    packagings_materials => 
+add_product_materials_to_stats(
+	"test",
+	$packagings_materials_stats_ref,
 	{
-		'all' => {
-			'weight' => 50,
-            'weight_100g' => 100,
-			'weight_percent' => 100
-		},
-		'en:plastic' => {
-			'weight' => 50,
-            'weight_100g' => 100,
-			'weight_percent' => 100
+		code => 12345678902,
+		countries_tags => ["en:world"],
+		categories_tags => ["all"],
+		packagings_materials => {
+			'all' => {
+				'weight' => 50,
+				'weight_100g' => 100,
+				'weight_percent' => 100
+			},
+			'en:plastic' => {
+				'weight' => 50,
+				'weight_100g' => 100,
+				'weight_percent' => 100
+			}
 		}
 	}
-});
+);
 
-compare_to_expected_results($packagings_materials_stats_ref, "$expected_result_dir/add_product_materials_to_stats_1_glass_1_plastic.json", $update_expected_results);
+compare_to_expected_results(
+	$packagings_materials_stats_ref,
+	"$expected_result_dir/add_product_materials_to_stats_1_glass_1_plastic.json",
+	$update_expected_results
+);
 
 compute_stats_for_all_materials($packagings_materials_stats_ref, 0);    # 0 = keep individual values to ease debugging
 
-compare_to_expected_results($packagings_materials_stats_ref, "$expected_result_dir/compute_stats_for_all_materials_1_glass_1_plastic.json", $update_expected_results);
-
+compare_to_expected_results(
+	$packagings_materials_stats_ref,
+	"$expected_result_dir/compute_stats_for_all_materials_1_glass_1_plastic.json",
+	$update_expected_results
+);
 
 done_testing();
