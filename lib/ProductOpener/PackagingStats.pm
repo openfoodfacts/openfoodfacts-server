@@ -226,6 +226,7 @@ sub compute_stats_for_all_weights ($packagings_stats_ref) {
 =head2 compute_stats_for_values ($values_ref)
 
 Compute stats for values (e.g. weights or percent) passed in $values_ref->{values} in comma delimited format
+The values are converted to an array.
 
 =cut
 
@@ -245,7 +246,15 @@ sub compute_stats_for_values ($values_ref) {
 	}
 
 	if ($values_ref->{n} > 0) {
+		# Compute the mean
 		$values_ref->{mean} = $values_ref->{sum} / $values_ref->{n};
+
+		# Compute the standard deviation
+		my $sum_of_square_differences = 0;
+		foreach my $value (@{$values_ref->{values}}) {
+			$sum_of_square_differences += ($value - $values_ref->{mean}) * ($value - $values_ref->{mean});
+		}
+		$values_ref->{std} = sqrt($sum_of_square_differences / (scalar @{$values_ref->{values}}));
 	}
 
 	return;
