@@ -7,57 +7,85 @@
                   "all" : {
                      "n" : 1,
                      "products_percent" : {
-                        "values" : "100,"
+                        "values" : [
+                           100
+                        ]
                      },
                      "weight_100g" : {
-                        "values" : "1000,"
+                        "values" : [
+                           1000
+                        ]
                      },
                      "weight_100g_material" : {
-                        "values" : "1000,"
+                        "values" : [
+                           1000
+                        ]
                      }
                   },
                   "en:glass" : {
                      "n" : 1,
                      "products_percent" : {
-                        "values" : "100,"
+                        "values" : [
+                           100
+                        ]
                      },
                      "weight_100g" : {
-                        "values" : "1000,"
+                        "values" : [
+                           1000
+                        ]
                      },
                      "weight_100g_material" : {
-                        "values" : "1000,"
+                        "values" : [
+                           1000
+                        ]
                      }
                   },
                   "en:metal" : {
                      "products_percent" : {
-                        "values" : "0,"
+                        "values" : [
+                           0
+                        ]
                      },
                      "weight_100g" : {
-                        "values" : "0,"
+                        "values" : [
+                           0
+                        ]
                      }
                   },
                   "en:paper-or-cardboard" : {
                      "products_percent" : {
-                        "values" : "0,"
+                        "values" : [
+                           0
+                        ]
                      },
                      "weight_100g" : {
-                        "values" : "0,"
+                        "values" : [
+                           0
+                        ]
                      }
                   },
                   "en:plastic" : {
                      "products_percent" : {
-                        "values" : "0,"
+                        "values" : [
+                           0
+                        ]
                      },
                      "weight_100g" : {
-                        "values" : "0,"
+                        "values" : [
+                           0
+                        ]
                      }
                   },
                   "en:unknown" : {
                      "products_percent" : {
-                        "values" : "0,"
+                        "values" : [
+                           0
+                        ]
                      },
                      "weight_100g" : {
-                        "values" : "0,"
+                        "values" : [
+                           0
+                        ]
                      }
                   }
                }
