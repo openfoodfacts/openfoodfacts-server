@@ -55,7 +55,7 @@ use Data::DeepAccess qw(deep_get);
 
 =head2 create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref, $tagtype, $canon_tagid)
 
-Create all knowledge panels for a product, with strings (descriptions, recommendations etc.)
+Create all knowledge panels for a tag, with strings (descriptions, recommendations etc.)
 in a specific language, and return them in an array of panels.
 
 =head3 Arguments
