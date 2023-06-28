@@ -91,6 +91,7 @@ services:
     command: mongod --wiredTigerCacheSizeGB ${MONGODB_CACHE_SIZE}
     volumes:
       - dbdata:/data/db
+      - ./html/data:/import
     ports:
       - "127.0.0.1:${MONGO_EXPOSE_PORT:-27017}:27017"
 volumes:
