@@ -362,6 +362,46 @@ sub store_stats ($name, $packagings_stats_ref, $packagings_materials_stats_ref) 
 	return;
 }
 
+=head2 init_products_packaging_components_csv($name)
+
+Open a file, initialize a Text::CSV object, and output the CSV header for packaging components.
+
+=head3 Return values
+
+=head4 $filehandle
+
+=head4 $csv
+
+=cut
+
+sub init_products_packaging_components_csv ($name) {
+
+	my $filehandle;
+	my $filename = "$www_root/data/$name.csv";
+	open($filehandle, ">:encoding(UTF-8)", $filename)
+		or die("Could not write " . $filename . " : $!\n");
+	my $csv = Text::CSV->new(
+		{
+			eol => "\n",
+			sep => "\t",
+			quote_space => 0,
+			binary => 1
+		}
+	) or die "Cannot use CSV: " . Text::CSV->error_diag();
+
+	# Print the header line with fields names
+	$csv->print(
+		$filehandle,
+		[
+			"code", "countries_tags", "categories_tags", "number_of_units",
+			"shape", "material", "parent_material", "recycling",
+			"weight", "weight_measured", "weight_specified", "quantity_per_unit"
+		]
+	);
+
+	return ($filehandle, $csv);
+}
+
 =head2 export_product_packaging_components_to_csv($csv, $filehandle, $product_ref)
 
 Export each packaging component of the product as one line in the CSV file.
@@ -547,28 +587,7 @@ sub generate_packaging_stats_for_query ($name, $query_ref, $quiet = 0) {
 	my $packagings_materials_stats_ref = {};    # Stats for parent materials, with input at the level of each product
 
 	# Export packaging components of all products to a CSV file
-	my $filehandle;
-	my $filename = "$www_root/data/$name.csv";
-	open($filehandle, ">:encoding(UTF-8)", $filename)
-		or die("Could not write " . $filename . " : $!\n");
-	my $csv = Text::CSV->new(
-		{
-			eol => "\n",
-			sep => "\t",
-			quote_space => 0,
-			binary => 1
-		}
-	) or die "Cannot use CSV: " . Text::CSV->error_diag();
-
-	# Print the header line with fields names
-	$csv->print(
-		$filehandle,
-		[
-			"code", "countries_tags", "categories_tags", "number_of_units",
-			"shape", "material", "parent_material", "recycling",
-			"weight", "weight_measured", "weight_specified", "quantity_per_unit"
-		]
-	);
+	my ($filehandle, $csv) = init_products_packaging_components_csv($name);
 
 	# Go through all products
 	while (my $product_ref = $cursor->next) {
