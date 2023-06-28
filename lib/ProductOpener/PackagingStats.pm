@@ -169,16 +169,7 @@ sub add_product_components_to_stats ($name, $packagings_stats_ref, $product_ref)
 									)
 								) += 1;
 								if (($name eq "packagings-with-weights") and (defined $weight)) {
-									deep_val(
-										$packagings_stats_ref,
-										(
-											"countries", $country,
-											"categories", $category,
-											$shapes_or_shapes_parents, $shape_value,
-											$materials_or_materials_parents, $material_value,
-											"weights", "values"
-										)
-									) .= $weight . ',';
+									push @{$packagings_stats_ref->{countries}{$country}{categories}{$category}{$shapes_or_shapes_parents}{$shape_value}{$materials_or_materials_parents}{$material_value}{weights}{values}}, $weight;
 								}
 							}
 						}
@@ -231,11 +222,6 @@ The values are converted to an array.
 =cut
 
 sub compute_stats_for_values ($values_ref) {
-
-	# Remove trailing comma
-	$values_ref->{values} =~ s/,$//;
-	# Turn to array
-	$values_ref->{values} = [split(/,/, $values_ref->{values})];
 
 	$values_ref->{n} = 0;
 	$values_ref->{sum} = 0;
@@ -404,7 +390,7 @@ sub export_product_packaging_components_to_csv ($csv, $filehandle, $product_ref)
 				$categories_tags, $packaging_ref->{number_of_units},
 				$packaging_ref->{shape}, $packaging_ref->{material},
 				get_parent_material($packaging_ref->{material}), $packaging_ref->{recycling},
-				$packaging_ref->{weight}, $packaging_ref->{weight_measured},
+				$weight, $packaging_ref->{weight_measured},
 				$packaging_ref->{weight_specified}, $packaging_ref->{quantity_per_unit},
 			);
 
@@ -459,35 +445,17 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 					my $weight_100g = deep_get($product_ref, "packagings_materials", $material, "weight_100g");
 
 					# Record if the product has the material (100) or not (0)
-					deep_val(
-						$packagings_materials_stats_ref,
-						(
-							"countries", $country, "categories", $category,
-							"materials", $material, "products_percent", "values"
-						)
-					) .= ($weight_100g ? 100 : 0) . ",";
+					push @{$packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}{$material}{products_percent}{values}}, ($weight_100g ? 100 : 0);
 
 					# Record the weight per 100g of product, for all products, even if they don't contain the material
 					# Useful to say that on average a product of a specific category has X g of glass and Y g of metal
 					# even if most of them are either in glass, or in metal, but not both
-					deep_val(
-						$packagings_materials_stats_ref,
-						(
-							"countries", $country, "categories", $category,
-							"materials", $material, "weight_100g", "values"
-						)
-					) .= ($weight_100g // 0) . ",";
+					push @{$packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}{$material}{weight_100g}{values}}, ($weight_100g // 0);
 
 					# Record the weight per 100g of product, for all products that contain the material
 					# Useful to compare products that do have the material
 					if (defined $weight_100g) {
-						deep_val(
-							$packagings_materials_stats_ref,
-							(
-								"countries", $country, "categories", $category,
-								"materials", $material, "weight_100g_material", "values"
-							)
-						) .= $weight_100g . ",";
+						push @{$packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}{$material}{weight_100g_material}{values}}, $weight_100g ;
 					}
 				}
 			}
@@ -626,21 +594,21 @@ sub generate_packaging_stats_for_query ($name, $query_ref, $quiet = 0) {
 
 	if ($name eq "packagings-with-weights") {
 		# Compute stats for weights
-		$quiet or print STDERR "Computing stats for all weights";
+		$quiet or print STDERR "Computing stats for all weights\n";
 		compute_stats_for_all_weights($packagings_stats_ref);
 	}
 
 	# Compute stats for materials
-	$quiet or print STDERR "Computing stats for all materials";
+	$quiet or print STDERR "Computing stats for all materials\n";
 	compute_stats_for_all_materials($packagings_materials_stats_ref);
 
-	$quiet or print STDERR "Storing result";
+	$quiet or print STDERR "Storing results\n";
 	store_stats($name, $packagings_stats_ref, $packagings_materials_stats_ref);
 
 	# Compute smaller stats where we keep only shapes and materials that are popular
 	# This data is used for autocomplete suggestions in ProductOpener::APITaxonomySuggestions
 
-	$quiet or print STDERR "Computing popular versions";
+	$quiet or print STDERR "Computing popular versions\n";
 	remove_unpopular_categories_shapes_and_materials($packagings_stats_ref, 5);
 	remove_packagings_materials_stats_for_unpopular_categories($packagings_materials_stats_ref, 5);
 	store_stats($name . ".popular", $packagings_stats_ref, $packagings_materials_stats_ref);
