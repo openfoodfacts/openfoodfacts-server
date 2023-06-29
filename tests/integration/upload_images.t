@@ -54,7 +54,7 @@ my $tests_ref = [
 		path => '/cgi/product_image_upload.pl',
 		form => {
 			code => "1234567890013",
-			imgupload_front_en => ["$sample_products_images_path/small-img.jpg", 'small-img.jpg'],
+			imgupload_front_en => ["$sample_products_images_path/300/000/000/0001/small-img.jpg", 'small-img.jpg'],
 		}
 	},
 	{
