@@ -26,22 +26,25 @@
   <li class='indexItem indexItem1'><a href='#NAME'>NAME</a>
   <li class='indexItem indexItem1'><a href='#SYNOPSIS'>SYNOPSIS</a>
   <ul   class='indexList indexList2'>
-    <li class='indexItem indexItem2'><a href='#create_contribution_card_panel_(_%24product_ref%2C_%24target_lc%2C_%24target_cc%2C_%24options_ref_)'>create_contribution_card_panel ( $product_ref, $target_lc, $target_cc, $options_ref )</a>
+    <li class='indexItem indexItem2'><a href='#create_tag_knowledge_panels_(%24tag_ref%2C_%24target_lc%2C_%24target_cc%2C_%24options_ref%2C_%24tagtype%2C_%24canon_tagid)'>create_tag_knowledge_panels ($tag_ref, $target_lc, $target_cc, $options_ref, $tagtype, $canon_tagid)</a>
     <ul   class='indexList indexList3'>
       <li class='indexItem indexItem3'><a href='#Arguments'>Arguments</a>
       <ul   class='indexList indexList4'>
-        <li class='indexItem indexItem4'><a href='#product_reference_%24product_ref'>product reference $product_ref</a>
-        <li class='indexItem indexItem4'><a href='#language_code_%24target_lc'>language code $target_lc</a>
+        <li class='indexItem indexItem4'><a href='#tag_reference_%24tag_ref'>tag reference $tag_ref</a>
+        <li class='indexItem indexItem4'><a href='#language_code_%24target_lc_(or_%22data%22)'>language code $target_lc (or &#34;data&#34;)</a>
         <li class='indexItem indexItem4'><a href='#country_code_%24target_cc'>country code $target_cc</a>
-        <li class='indexItem indexItem4'><a href='#options_reference_%24options_ref'>options reference $options_ref</a>
+        <li class='indexItem indexItem4'><a href='#options_%24options_ref'>options $options_ref</a>
+        <li class='indexItem indexItem4'><a href='#tag_type_%24tagtype'>tag type $tagtype</a>
+        <li class='indexItem indexItem4'><a href='#canonical_tagid_%24canon_tagid'>canonical tagid $canon_tagid</a>
       </ul>
+      <li class='indexItem indexItem3'><a href='#Return_values'>Return values</a>
     </ul>
-    <li class='indexItem indexItem2'><a href='#create_data_quality_panel_(_%24tags_type%2C_%24product_ref%2C_%24target_lc%2C_%24target_cc%2C_%24options_ref_)'>create_data_quality_panel ( $tags_type, $product_ref, $target_lc, $target_cc, $options_ref )</a>
+    <li class='indexItem indexItem2'><a href='#create_category_packagings_materials_panel_(%24tag_ref%2C_%24target_lc%2C_%24target_cc%2C_%24options_ref%2C_%24category_idf)'>create_category_packagings_materials_panel ($tag_ref, $target_lc, $target_cc, $options_ref, $category_idf)</a>
     <ul   class='indexList indexList3'>
       <li class='indexItem indexItem3'><a href='#Arguments'>Arguments</a>
       <ul   class='indexList indexList4'>
-        <li class='indexItem indexItem4'><a href='#%24tags_type_-_str'>$tags_type - str</a>
-        <li class='indexItem indexItem4'><a href='#product_reference_%24product_ref'>product reference $product_ref</a>
+        <li class='indexItem indexItem4'><a href='#category_id_%24category_id'>category id $category_id</a>
+        <li class='indexItem indexItem4'><a href='#tag_reference_%24tag_ref'>tag reference $tag_ref</a>
         <li class='indexItem indexItem4'><a href='#language_code_%24target_lc'>language code $target_lc</a>
         <li class='indexItem indexItem4'><a href='#country_code_%24target_cc'>country code $target_cc</a>
       </ul>
@@ -63,73 +66,95 @@ name="SYNOPSIS"
 <p>This is a subpart of Knowledge Panels where we concentrate around contribution information</p>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="create_contribution_card_panel_(_$product_ref,_$target_lc,_$target_cc,_$options_ref_)"
->create_contribution_card_panel ( $product_ref,
+name="create_tag_knowledge_panels_($tag_ref,_$target_lc,_$target_cc,_$options_ref,_$tagtype,_$canon_tagid)"
+>create_tag_knowledge_panels ($tag_ref,
 $target_lc,
 $target_cc,
-$options_ref )</a></h2>
+$options_ref,
+$tagtype,
+$canon_tagid)</a></h2>
 
-<p>Creates a knowledge panel card that contains all knowledge panels related to contribution</p>
+<p>Create all knowledge panels for a tag,
+with strings (descriptions,
+recommendations etc.) in a specific language,
+and return them in an array of panels.</p>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
 name="Arguments"
 >Arguments</a></h3>
 
 <h4><a class='u' href='#___top' title='click to go to top of document'
-name="product_reference_$product_ref"
->product reference $product_ref</a></h4>
+name="tag_reference_$tag_ref"
+>tag reference $tag_ref</a></h4>
 
-<p>Loaded from the MongoDB database,
-Storable files,
-or the OFF API.</p>
+<p>Hash structure for the tag.
+Can be empty.
+Will be used to return the panels.</p>
 
 <h4><a class='u' href='#___top' title='click to go to top of document'
-name="language_code_$target_lc"
->language code $target_lc</a></h4>
+name="language_code_$target_lc_(or_&#34;data&#34;)"
+>language code $target_lc (or &#34;data&#34;)</a></h4>
 
-<p>Returned attributes contain both data and strings intended to be displayed to users.
+<p>Returned panels contain both data and strings intended to be displayed to users.
 This parameter sets the desired language for the user facing strings.</p>
+
+<p>If $target_lc is equal to &#34;data&#34;,
+no strings are returned.</p>
 
 <h4><a class='u' href='#___top' title='click to go to top of document'
 name="country_code_$target_cc"
 >country code $target_cc</a></h4>
 
-<p>We may display country specific recommendations from health authorities,
-or country specific scores.</p>
+<p>Needed for some country specific panels like the Eco-Score.</p>
 
 <h4><a class='u' href='#___top' title='click to go to top of document'
-name="options_reference_$options_ref"
->options reference $options_ref</a></h4>
+name="options_$options_ref"
+>options $options_ref</a></h4>
+
+<p>Defines how some panels should be created (or not created)</p>
+
+<p>- deactivate_[panel_id] : do not create a default panel -- currently unimplemented - activate_[panel_id] : create an on demand panel -- currently only for physical_activities panel</p>
+
+<h4><a class='u' href='#___top' title='click to go to top of document'
+name="tag_type_$tagtype"
+>tag type $tagtype</a></h4>
+
+<h4><a class='u' href='#___top' title='click to go to top of document'
+name="canonical_tagid_$canon_tagid"
+>canonical tagid $canon_tagid</a></h4>
+
+<h3><a class='u' href='#___top' title='click to go to top of document'
+name="Return_values"
+>Return values</a></h3>
+
+<p>Panels are returned in the &#34;knowledge_panels_[$target_lc]&#34; hash of the tag reference passed as input.</p>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="create_data_quality_panel_(_$tags_type,_$product_ref,_$target_lc,_$target_cc,_$options_ref_)"
->create_data_quality_panel ( $tags_type,
-$product_ref,
+name="create_category_packagings_materials_panel_($tag_ref,_$target_lc,_$target_cc,_$options_ref,_$category_idf)"
+>create_category_packagings_materials_panel ($tag_ref,
 $target_lc,
 $target_cc,
-$options_ref )</a></h2>
+$options_ref,
+$category_idf)</a></h2>
 
-<p>Creates knowledge panels to describe quality issues and invite to contribute</p>
+<p>Creates a knowledge panel to show the packagings materials stats of a category</p>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
 name="Arguments"
 >Arguments</a></h3>
 
 <h4><a class='u' href='#___top' title='click to go to top of document'
-name="$tags_type_-_str"
->$tags_type - str</a></h4>
+name="category_id_$category_id"
+>category id $category_id</a></h4>
 
-<p>The type of tag.
-Eg.
-&#34;data_quality_errors&#34;</p>
+<p>Canonical category id.</p>
 
 <h4><a class='u' href='#___top' title='click to go to top of document'
-name="product_reference_$product_ref"
->product reference $product_ref</a></h4>
+name="tag_reference_$tag_ref"
+>tag reference $tag_ref</a></h4>
 
-<p>Loaded from the MongoDB database,
-Storable files,
-or the OFF API.</p>
+<p>Data about the tag,
+will store the knowledge panel.</p>
 
 <h4><a class='u' href='#___top' title='click to go to top of document'
 name="language_code_$target_lc"
