@@ -25,14 +25,14 @@ my $tests_ref = [
 		method => 'POST',
 		path => '/cgi/product_image_upload.pl',
 		form => {
-			code => "1234567890011",
-			imgupload_front_en => ["$sample_products_images_path/image.jpg", 'image.jpg'],
+			code => "nonexistent_product_code",
+			imgupload_front_en => ["$sample_products_images_path/1.jpg", '1.jpg'],
 		}
 	},
 	{
 		test_case => 'get-nonexistent-product-image',
 		method => 'GET',
-		path => '/api/v2/product/1234567890011',
+		path => '/api/v2/product/nonexistent_product_code',
 	},
 	{
 		test_case => 'post-existing-product-image',
@@ -54,7 +54,7 @@ my $tests_ref = [
 		path => '/cgi/product_image_upload.pl',
 		form => {
 			code => "1234567890013",
-			imgupload_front_en => ["$sample_products_images_path/front_en.3.100.jpg", 'front_en.3.100.jpg'],
+			imgupload_front_en => ["$sample_products_images_path/small-img.jpg", 'small-img.jpg'],
 		}
 	},
 	{
