@@ -453,7 +453,7 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 				if ($is_multipart) {
 					$response = $test_ua->post(
 						$url,
-						Content_Type => 'form-data',
+						"Content-Type" => "multipart/form-data",
 						Content => $form,
 						%$headers_in
 					);
