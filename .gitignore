@@ -13,6 +13,30 @@ ehthumbs.db
 Thumbs.db
 .vstags
 
+# local files
+build-cache
+debug
+deleted.images
+dist
+html/countries.html
+html/data
+html/data.old/
+html/images/misc/android-apk-40x135.svg
+html/images/products
+html/products_countries.html
+html/products_countries.js
+lib/ProductOpener/SiteQuality.pm
+log.conf
+logs
+new_images
+products
+scripts/lib
+tmp
+users
+index/
+lang/*/texts/products_stats*.html
+lang/opf
+
 # Logs
 Store.debug.txt
 *.log
