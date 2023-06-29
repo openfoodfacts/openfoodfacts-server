@@ -739,6 +739,14 @@ sub compute_ecoscore ($product_ref) {
 		}
 	}
 
+	# Always compute the bonuses and maluses, even for categories that don't have Eco-Score
+	# (e.g. sodas, spring water)
+
+	compute_ecoscore_production_system_adjustment($product_ref);
+	compute_ecoscore_threatened_species_adjustment($product_ref);
+	compute_ecoscore_origins_of_ingredients_adjustment($product_ref);
+	compute_ecoscore_packaging_adjustment($product_ref);
+
 	if ($category_without_ecoscore) {
 		$product_ref->{ecoscore_data}{ecoscore_not_applicable_for_category} = $category_without_ecoscore;
 		$product_ref->{ecoscore_data}{status} = "unknown";
@@ -752,13 +760,6 @@ sub compute_ecoscore ($product_ref) {
 		# Compute the LCA Eco-Score based on AgriBalyse
 
 		compute_ecoscore_agribalyse($product_ref);
-
-		# Compute the bonuses and maluses
-
-		compute_ecoscore_production_system_adjustment($product_ref);
-		compute_ecoscore_threatened_species_adjustment($product_ref);
-		compute_ecoscore_origins_of_ingredients_adjustment($product_ref);
-		compute_ecoscore_packaging_adjustment($product_ref);
 
 		# Compute the final Eco-Score and assign the A to E grade
 
