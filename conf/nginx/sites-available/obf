@@ -32,23 +32,6 @@ server {
 	access_log /var/log/nginx/obf-access.log proxied_requests;
         error_log /var/log/nginx/obf-error.log;
 
-		# Redirect GET requests to https. POST requests will be transformed
-		# to GET by most browsers when redirected, and it breaks apps that
-		# use the API through http.
-
-		if ($scheme = http) {
-			set $test "A";
-		}
-		if ($request_uri !~ "/api/") {
-			set $test "${test}B";
-		}
-		if ($request_method = GET) {
-			set $test "${test}C";
-		}
-		if ($test = ABC) {
-			return 301 https://$host$request_uri;
-		}
-
 	gzip on;
 	gzip_min_length 1000;
 
