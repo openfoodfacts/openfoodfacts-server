@@ -17,49 +17,67 @@ remove_all_products();
 
 wait_application_ready();
 
-my $ua = new_client();
-
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
-create_user($ua, \%create_user_args);
-
+my $sample_products_images_path = dirname(__FILE__) . "/inputs/sample-products-images";
 
 my $tests_ref = [
-    {
-        test_case => 'upload_image_nonexistent_product',
-        method => 'POST',
-        path => '/cgi/product_image_upload.pl',
-        form => {
-            code => 'nonexistent_product_code',
-            imgupload_front_en => ['/path/to/image.jpg', 'image.jpg']
-        }
-    },
-    {
-        test_case => 'upload_image_existing_product',
-        method => 'POST',
-        path => '/cgi/product_image_upload.pl',
-        form => {
-            code => 'existing_product_code',
-            imgupload_front_en => ['/path/to/image.jpg', 'image.jpg']
-        }
-    },
-    {
-        test_case => 'upload_image_too_small',
-        method => 'POST',
-        path => '/cgi/product_image_upload.pl',
-        form => {
-            code => 'existing_product_code',
-            imgupload_front_en => ['/path/to/small_image.jpg', 'small_image.jpg']
-        }
-    },
-    {
-        test_case => 'upload_same_image_twice',
-        method => 'POST',
-        path => '/cgi/product_image_upload.pl',
-        form => {
-            code => 'existing_product_code',
-            imgupload_front_en => ['/path/to/image.jpg', 'image.jpg']
-        }
-    }
+	{
+		test_case => 'post-nonexistent-product-image',
+		method => 'POST',
+		path => '/cgi/product_image_upload.pl',
+		form => {
+			code => "1234567890011",
+			imgupload_front_en => ["$sample_products_images_path/image.jpg", 'image.jpg'],
+		}
+	},
+	{
+		test_case => 'get-nonexistent-product-image',
+		method => 'GET',
+		path => '/api/v2/product/1234567890011',
+	},
+	{
+		test_case => 'post-existing-product-image',
+		method => 'POST',
+		path => '/cgi/product_image_upload.pl',
+		form => {
+			code => "1234567890012",
+			imgupload_front_en => ["$sample_products_images_path/front_en.3.full.jpg", 'front_en.3.full.jpg'],
+		}
+	},
+	{
+		test_case => 'get-existing-product-image',
+		method => 'GET',
+		path => '/api/v2/product/1234567890012',
+	},
+	{
+		test_case => 'post-image-too-small',
+		method => 'POST',
+		path => '/cgi/product_image_upload.pl',
+		form => {
+			code => "1234567890013",
+			imgupload_front_en => ["$sample_products_images_path/front_en.3.100.jpg", 'front_en.3.100.jpg'],
+		}
+	},
+	{
+		test_case => 'get-image-too-small',
+		method => 'GET',
+		path => '/api/v2/product/1234567890013',
+		expected_status_code => 404,
+	},
+	{
+		test_case => 'post-same-image-twice',
+		method => 'POST',
+		path => '/cgi/product_image_upload.pl',
+		form => {
+			code => "1234567890014",
+			imgupload_front_en => ["$sample_products_images_path/front_en.3.full.jpg", 'front_en.3.full.jpg'],
+		}
+	},
+	{
+		test_case => 'get-same-image-twice',
+		method => 'GET',
+		path => '/api/v2/product/1234567890014',
+		expected_status_code => 404,
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

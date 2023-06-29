@@ -442,15 +442,12 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 				);
 			}
 			elsif (defined $test_ref->{form}) {
-				if (defined $test_ref->{files}) {
-                    my $form = {
-                        map { $_ => [ $test_ref->{files}{$_}, $_ ] } keys %{ $test_ref->{files} }
-                    };
-                    $response = $test_ua->post($url, Content_Type => 'multipart/form-data', Content => $form, %$headers_in);
-                }
-				else{
-                  $response = $test_ua->post($url, Content => $test_ref->{form}, %$headers_in);
-				}
+				$response = $test_ua->post(
+					$url,
+					"Content-Type" => "multipart/form-data",
+					Content => $test_ref->{form},
+					%$headers_in
+				);
 			}
 			else {
 				$response = $test_ua->post($url, %$headers_in);
