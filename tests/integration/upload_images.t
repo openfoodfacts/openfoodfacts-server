@@ -26,7 +26,7 @@ my $tests_ref = [
 		path => '/cgi/product_image_upload.pl',
 		form => {
 			code => "nonexistent_product_code",
-			imgupload_front_en => ["$sample_products_images_path/1.jpg", '1.jpg'],
+			imgupload_front_en => ["$sample_products_images_path/300/000/000/0001/1.jpg", '1.jpg'],
 		}
 	},
 	{
@@ -40,7 +40,7 @@ my $tests_ref = [
 		path => '/cgi/product_image_upload.pl',
 		form => {
 			code => "1234567890012",
-			imgupload_front_en => ["$sample_products_images_path/front_en.3.full.jpg", 'front_en.3.full.jpg'],
+			imgupload_front_en => ["$sample_products_images_path/300/000/000/0001/front_en.3.full.jpg", 'front_en.3.full.jpg'],
 		}
 	},
 	{
@@ -69,7 +69,7 @@ my $tests_ref = [
 		path => '/cgi/product_image_upload.pl',
 		form => {
 			code => "1234567890014",
-			imgupload_front_en => ["$sample_products_images_path/front_en.3.full.jpg", 'front_en.3.full.jpg'],
+			imgupload_front_en => ["$sample_products_images_path/300/000/000/0001/front_en.3.full.jpg", 'front_en.3.full.jpg'],
 		}
 	},
 	{
