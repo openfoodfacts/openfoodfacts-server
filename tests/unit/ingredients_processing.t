@@ -7,6 +7,11 @@ use utf8;
 
 use Test::More;
 
+my $builder = Test::More->builder;
+binmode $builder->output, ":encoding(utf8)";
+binmode $builder->failure_output, ":encoding(utf8)";
+binmode $builder->todo_output, ":encoding(utf8)";
+
 #use Log::Any::Adapter 'TAP';
 use Log::Any::Adapter 'TAP', filter => 'trace';
 
@@ -1647,6 +1652,96 @@ my @tests = (
 		]
 	],
 
+	##################################################################
+	#
+	#                           JAPANESE ( JA )
+	#
+	##################################################################
+
+	[
+		{
+			lc => "ja",
+			ingredients_text =>
+				# sliced
+				"スライスアーモンド, "
+				#powder
+				. "酵母エキスパウダー, クリーミングパウダー, "
+				#powder
+				. "昆布粉末, 粉末醤油, 粉末酒, かつお節粉末, マカ粉末, 粉末しょうゆ, 発酵黒にんにく末, "
+				# roasted
+				. "ローストバターパウダー, ロースト-麦芽,"
+				# fried garlic powder
+				. "フライドガーリックパウダー, "
+				# pulp
+				. "りんごパルプ, "
+		},
+		[
+			{
+				'id' => 'en:flaked-almonds',
+				'text' => "\x{30b9}\x{30e9}\x{30a4}\x{30b9}\x{30a2}\x{30fc}\x{30e2}\x{30f3}\x{30c9}"
+			},
+			{
+				'id' => 'en:yeast-extract-powder',
+				'text' => "\x{9175}\x{6bcd}\x{30a8}\x{30ad}\x{30b9}\x{30d1}\x{30a6}\x{30c0}\x{30fc}"
+			},
+			{
+				'id' => "ja:\x{30af}\x{30ea}\x{30fc}\x{30df}\x{30f3}\x{30b0}\x{30d1}\x{30a6}\x{30c0}\x{30fc}",
+				'text' => "\x{30af}\x{30ea}\x{30fc}\x{30df}\x{30f3}\x{30b0}\x{30d1}\x{30a6}\x{30c0}\x{30fc}"
+			},
+			{
+				'id' => 'en:kombu',
+				'processing' => 'en:powder',
+				'text' => "\x{6606}\x{5e03}"
+			},
+			{
+				'id' => 'en:soy-sauce',
+				'processing' => 'en:powder',
+				'text' => "\x{91a4}\x{6cb9}"
+			},
+			{
+				'id' => "ja:\x{7c89}\x{672b}\x{9152}",
+				'text' => "\x{7c89}\x{672b}\x{9152}"
+			},
+			{
+				'id' => 'en:bonito-flakes',
+				'processing' => 'en:powder',
+				'text' => "\x{304b}\x{3064}\x{304a}\x{7bc0}"
+			},
+			{
+				'id' => "ja:\x{30de}\x{30ab}\x{7c89}\x{672b}",
+				'text' => "\x{30de}\x{30ab}\x{7c89}\x{672b}"
+			},
+			{
+				'id' => 'en:soy-sauce',
+				'processing' => 'en:powder',
+				'text' => "\x{3057}\x{3087}\x{3046}\x{3086}"
+			},
+			{
+				'id' => "ja:\x{767a}\x{9175}\x{9ed2}\x{306b}\x{3093}\x{306b}\x{304f}\x{672b}",
+				'text' => "\x{767a}\x{9175}\x{9ed2}\x{306b}\x{3093}\x{306b}\x{304f}\x{672b}"
+			},
+			{
+				'id' => 'en:butter',
+				'processing' => 'en:powder, en:roasted',
+				'text' => "\x{30d0}\x{30bf}\x{30fc}"
+			},
+			{
+				'id' => 'en:malt',
+				'processing' => 'en:roasted',
+				'text' => "\x{9ea6}\x{82bd}"
+			},
+			{
+				'id' => 'en:garlic',
+				'processing' => 'en:powder, en:fried',
+				'text' => "\x{30ac}\x{30fc}\x{30ea}\x{30c3}\x{30af}"
+			},
+			{
+				'id' => 'en:apple-pulp',
+				'text' => "\x{308a}\x{3093}\x{3054}\x{30d1}\x{30eb}\x{30d7}"
+			}
+		]
+
+	],
 );
 
 foreach my $test_ref (@tests) {

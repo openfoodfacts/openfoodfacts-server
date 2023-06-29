@@ -1,0 +1,71 @@
+{
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+    "title_element": {
+        "title": "[% lang('packaging_materials') %]",           
+    },    
+    "expanded": true,
+    "elements": [
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "packaging_materials",
+                "title": "[% lang('packaging_materials') %]",
+                "columns": [                
+                    { 
+                        "text": "[% lang('packaging_material') %]",
+                        "type": "text",
+                    },
+                    { 
+                        "text": "[% lang('packaging_material_products_percent') %]",
+                        "type": "text",
+                    },                    
+                    { 
+                        "text": "[% lang('packaging_weight_100g_mean') %] ([% lang('relative_to_products_containing_the_material') %])",
+                        "type": "text",
+                    },
+                    { 
+                        "text": "[% lang('packaging_weight_100g_mean') %] ([% lang('relative_to_all_products') %])",
+                        "type": "text",
+                    },
+                ],
+                "rows": [
+                    [% FOREACH material IN ["en:paper-or-cardboard", "en:plastic", "en:glass", "en:metal", "en:unknown", "all"] %]
+                        [% IF panel.materials.$material.defined %]
+                            
+                            [% SET material_data = panel.materials.$material %]
+                            {
+                                [% IF material == 'all' %]
+                                "style": "font-weight: bold",
+                                [% END %]
+                                "values": [
+                                    {
+                                        [% IF material == 'all' %]
+                                        "text": "[% lang('total') %]",
+                                        [% ELSE %]
+                                        "text": "[% display_taxonomy_tag_name('packaging_materials',material) %]"
+                                        [% END %]
+                                    },
+                                    {
+                                        "text": "[% IF material_data.products_percent %][% round(material_data.products_percent.mean) %]%[% END %]"
+                                    },                                      
+                                    {
+                                        // for the "all" material, the weight for products that contain the material is the same as the weight across all products
+                                        // and it's not a total of the column above, so we don't display it
+                                        "text": "[% IF material_data.weight_100g_material %][% IF material != 'all' %][% round(material_data.weight_100g_material.mean) %] g[% ELSE %]-[% END %][% END %]"
+                                    },                                        
+                                    {
+                                        "text": "[% IF material_data.weight_100g %][% round(material_data.weight_100g.mean) %] g[% END %]"
+                                    },
+                                ]
+                            },
+                            
+                        [% END %]
+                    [% END %]
+                ]
+            }
+        },
+    ]
+}
