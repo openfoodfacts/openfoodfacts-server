@@ -406,6 +406,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 50,
@@ -476,10 +477,9 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:e160b",
-      "en:milk",
-      "en:salt"
+      "en:milk"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 5,
    "lc" : "en",
    "misc_tags" : [
@@ -504,5 +504,6 @@
    "packaging_recycling_tags" : [],
    "packaging_shapes_tags" : [],
    "packagings" : [],
+   "packagings_materials" : {},
    "unknown_ingredients_n" : 0
 }

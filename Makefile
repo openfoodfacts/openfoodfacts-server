@@ -37,10 +37,15 @@ ifneq (,$(wildcard ./${ENV_FILE}))
     export
 endif
 
+ifneq (${EXTRA_ENV_FILE},'')
+    -include ${EXTRA_ENV_FILE}
+    export
+endif
+
 
 HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
 # commands aliases
-DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE}
+DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # we run tests in a specific project name to be separated from dev instances
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner
@@ -210,7 +215,7 @@ import_prod_data:
 	cd ./html/data && sha256sum --check gz-sha256sum
 	@echo "🥫 Restoring the MongoDB dump …"
 	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "cd /data/db && mongorestore --quiet --drop --gzip --archive=/import/openfoodfacts-mongodbdump.gz"
-	rm html/data/openfoodfacts-mongodbdump.tar.gz && rm html/data/gz-sha256sum
+	rm html/data/openfoodfacts-mongodbdump.gz && rm html/data/gz-sha256sum
 
 #--------#
 # Checks #
@@ -281,6 +286,8 @@ clean_tests:
 update_tests_results:
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
+	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
 	${DOCKER_COMPOSE_TEST} stop
 

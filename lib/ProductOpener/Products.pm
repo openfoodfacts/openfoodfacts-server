@@ -104,6 +104,7 @@ BEGIN {
 		&add_back_field_values_removed_by_user
 
 		&process_product_edit_rules
+		&preprocess_product_field
 		&product_data_is_protected
 
 		&make_sure_numbers_are_stored_as_numbers
@@ -2946,6 +2947,15 @@ or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post t
 =end text
 
 =cut
+
+sub preprocess_product_field ($field, $value) {
+
+	$value = remove_tags_and_quote($value);
+	if ($field ne 'customer_service' && $field ne 'other_information') {
+		$value = remove_email($value);
+	}
+	return $value;
+}
 
 sub process_product_edit_rules ($product_ref) {
 
