@@ -184,13 +184,13 @@ sub add_product_components_to_stats ($name, $packagings_stats_ref, $product_ref)
 	return;
 }
 
-=head2 compute_stats_for_all_weights ($packagings_stats_ref)
+=head2 compute_stats_for_all_weights ($packagings_stats_ref, $delete_values = 1)
 
 Compute stats (means etc.) for packaging components, aggregated at the countries, categories, shapes and materials levels
 
 =cut
 
-sub compute_stats_for_all_weights ($packagings_stats_ref) {
+sub compute_stats_for_all_weights ($packagings_stats_ref, $delete_values = 1) {
 
 	# Individual weights are stored in a nested hash with this structure:
 	# ("countries", $country, "categories", $category, $shapes_or_shapes_parents, $shape_value, $materials_or_materials_parents, $material_value, "weights", "values"))
@@ -204,7 +204,12 @@ sub compute_stats_for_all_weights ($packagings_stats_ref) {
 						my $materials_or_materials_parents_ref = $shape_ref->{$materials_or_materials_parents};
 						foreach my $material_ref (values %$materials_or_materials_parents_ref) {
 							if (defined $material_ref->{weights}) {
+								# Compute stats
 								compute_stats_for_values($material_ref->{weights});
+								# Delete individual values
+								if ($delete_values) {
+									delete $material_ref->{weights}{values};
+								}								
 							}
 						}
 					}
@@ -358,6 +363,10 @@ sub store_stats ($name, $packagings_stats_ref, $packagings_materials_stats_ref) 
 		"$www_root/data/categories_stats/categories_packagings_stats.fr.fermented-dairy-desserts.$name.json",
 		$packagings_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"}
 	);
+	store_json(
+		"$www_root/data/categories_stats/categories_packagings_materials_stats.fr.fermented-dairy-desserts.$name.json",
+		$packagings_materials_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"}
+	);	
 
 	return;
 }
