@@ -1315,6 +1315,9 @@
             "level" : "info",
             "title_element" : {
                "grade" : "b",
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/lca.svg",
                "subtitle" : "Category: Biscuit (cookie)",
                "title" : "Average impact of products of the same category: B (Score: 69/100)",
                "type" : "grade"
@@ -1509,6 +1512,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-c.svg",
                "subtitle" : "Product: Some product - 100 g",
                "title" : "Impact for this product: C (Score: 46/100)",
                "type" : "grade"
@@ -2070,7 +2074,7 @@
                "environment"
             ]
          },
-         "packaging_recycling" : {
+         "packaging_components" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -2103,6 +2107,134 @@
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
                      "type" : "summary"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Packaging parts"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging_materials" : {
+            "elements" : [
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Material",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "%",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Packaging weight",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Packaging weight per 100 g of product",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "packaging_materials",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Plastic"
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Glass"
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Metal"
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              }
+                           ]
+                        },
+                        {
+                           "style" : "font-weight: bold",
+                           "values" : [
+                              {
+                                 "text" : "Total"
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Packaging materials"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Packaging materials"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging_recycling" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_components"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_materials"
                   }
                }
             ],
@@ -2339,6 +2471,13 @@
             }
          }
       ],
+      "packagings_materials" : {
+         "all" : {},
+         "en:glass" : {},
+         "en:metal" : {},
+         "en:plastic" : {},
+         "en:unknown" : {}
+      },
       "packagings_n" : 4,
       "photographers_tags" : [],
       "pnns_groups_1" : "Sugary snacks",

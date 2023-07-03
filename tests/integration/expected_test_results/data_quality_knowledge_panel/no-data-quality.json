@@ -765,6 +765,55 @@
                "environment"
             ]
          },
+         "packaging_components" : {
+            "elements" : [],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Packaging parts"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging_materials" : {
+            "elements" : [
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Material",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "%",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Packaging weight",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Packaging weight per 100 g of product",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "packaging_materials",
+                     "rows" : [],
+                     "title" : "Packaging materials"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Packaging materials"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
          "packaging_recycling" : {
             "elements" : [
                {
