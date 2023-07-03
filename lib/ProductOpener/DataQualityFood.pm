@@ -944,7 +944,8 @@ sub check_nutrition_data ($product_ref) {
 			my $number_of_ingredients = (defined $product_ref->{ingredients}) ? @{$product_ref->{ingredients}} : 0;
 
 			if ($number_of_ingredients == 0) {
-				push @{$product_ref->{data_quality_warnings_tags}}, "en:ingredients-single-ingredient-from-category-missing";
+				push @{$product_ref->{data_quality_warnings_tags}},
+					"en:ingredients-single-ingredient-from-category-missing";
 			}
 			elsif (
 				# more than 1 ingredient
