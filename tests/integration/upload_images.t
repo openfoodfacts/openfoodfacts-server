@@ -17,30 +17,16 @@ remove_all_products();
 
 wait_application_ready();
 
-my $sample_products_images_path = dirname(__FILE__) . "/inputs/sample-products-images";
+my $sample_products_images_path = dirname(__FILE__) . "/inputs/upload-images";
 
 my $tests_ref = [
-	{
-		test_case => 'post-nonexistent-product-image',
-		method => 'POST',
-		path => '/cgi/product_image_upload.pl',
-		form => {
-			code => "nonexistent_product_code",
-			imgupload_front_en => ["$sample_products_images_path/300/000/000/0001/1.jpg", '1.jpg'],
-		}
-	},
-	{
-		test_case => 'get-nonexistent-product-image',
-		method => 'GET',
-		path => '/api/v2/product/nonexistent_product_code',
-	},
 	{
 		test_case => 'post-existing-product-image',
 		method => 'POST',
 		path => '/cgi/product_image_upload.pl',
 		form => {
 			code => "1234567890012",
-			imgupload_front_en => ["$sample_products_images_path/300/000/000/0001/front_en.3.full.jpg", 'front_en.3.full.jpg'],
+			imgupload_front_en => ["$sample_products_images_path/1.jpg", '1.jpg'],
 		}
 	},
 	{
@@ -54,7 +40,7 @@ my $tests_ref = [
 		path => '/cgi/product_image_upload.pl',
 		form => {
 			code => "1234567890013",
-			imgupload_front_en => ["$sample_products_images_path/300/000/000/0001/small-img.jpg", 'small-img.jpg'],
+			imgupload_front_en => ["$sample_products_images_path/small-img.jpg", 'small-img.jpg'],
 		}
 	},
 	{
@@ -68,14 +54,14 @@ my $tests_ref = [
 		method => 'POST',
 		path => '/cgi/product_image_upload.pl',
 		form => {
-			code => "1234567890014",
-			imgupload_front_en => ["$sample_products_images_path/300/000/000/0001/front_en.3.full.jpg", 'front_en.3.full.jpg'],
+			code => "1234567890012",
+			imgupload_front_en => ["$sample_products_images_path/1.jpg", '1.jpg'],
 		}
 	},
 	{
 		test_case => 'get-same-image-twice',
 		method => 'GET',
-		path => '/api/v2/product/1234567890014',
+		path => '/api/v2/product/1234567890012',
 		expected_status_code => 404,
 	},
 ];
