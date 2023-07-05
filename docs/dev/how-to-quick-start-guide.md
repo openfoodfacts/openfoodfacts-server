@@ -85,6 +85,7 @@ Before running the `docker-compose` deployment, you can review and configure
 Product Opener's environment (`.env` file).
 
 The `.env` file contains ProductOpener default settings:
+
 | Field | Description |
 | ----------------------------------------------------------------- | --- |
 | `PRODUCT_OPENER_DOMAIN`                                           | Can be set to different values based on which **OFF flavor** is run.|
@@ -147,7 +148,7 @@ The command will run 2 subcommands:
 
 * You might not immediately see the test products: create an account, login, and they should appear.
 
-* For a full description of available make targets, see [docker/README.md](../../docker/README.md#makefile-commands)
+* For a full description of available make targets, see [Docker / Makefile commands](ref-docker-commands.md)
 
 **Hosts file:**
 
