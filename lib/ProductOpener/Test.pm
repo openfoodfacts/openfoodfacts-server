@@ -646,7 +646,7 @@ sub normalize_product_for_test_comparison ($product_ref) {
 			qw(
 				last_modified_t created_t owner_fields
 				entry_dates_tags last_edit_dates_tags
-				sources.*.import_t
+				last_image_t sources.*.import_t
 			)
 		],
 		fields_sort => ["_keywords"],
