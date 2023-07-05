@@ -3891,7 +3891,7 @@ my %phrases_after_ingredients_list = (
 		'Bewaren bij kamertemperatuur',
 		'Cacao: ten minste ',
 		'Droog bewaren',
-		'E = door EU goedgekeurde hulpstof.',
+		'E = door EU goedgekeurde hulpstof',
 		'E door EU goedgekeurde hulpstoffen',
 		'"E"-nummers zijn door de EU goedgekeurde hulpstoffen',
 		'gemiddelde voedingswaarden',
