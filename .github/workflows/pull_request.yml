@@ -2,11 +2,13 @@ name: Pull Requests
 
 on:
   pull_request:
-    paths-ignore:
-      - "**.md"
-      - ".github/CODEOWNERS"
-      - ".github/PULL_REQUEST_TEMPLATE.md"
-      - ".editorconfig"
+    # we can't do that, because status are required
+    # see https://stackoverflow.com/questions/66751567/return-passing-status-on-github-workflow-when-using-paths-ignore
+    # paths-ignore:
+    #   - "**.md"
+    #   - ".github/CODEOWNERS"
+    #   - ".github/PULL_REQUEST_TEMPLATE.md"
+    #   - ".editorconfig"
   
 jobs:
 
