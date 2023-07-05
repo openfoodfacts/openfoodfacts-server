@@ -19,9 +19,13 @@
                         "type": "text",
                     },
                     { 
-                        "text": "[% lang('packaging_material_products_percent') %]",
+                        "text": "[% lang('packaging_material_products_percent_main') %]",
                         "type": "text",
                     },   
+                    { 
+                        "text": "[% lang('packaging_weight_100g_mean') %] ([% lang('relative_to_products_containing_mostly_the_material') %])",
+                        "type": "text",
+                    },                    
                     { 
                         "text": "[% lang('packaging_material_products_percent') %]",
                         "type": "text",
@@ -45,27 +49,45 @@
                                 "style": "font-weight: bold",
                                 [% END %]
                                 "values": [
+                                    [% IF material == 'all' %]
                                     {
-                                        [% IF material == 'all' %]
                                         "text": "[% lang('total') %]",
-                                        [% ELSE %]
+                                    },
+                                    {
+                                        "text": "-"
+                                    },                                     
+                                    {
+                                        "text": "-"
+                                    },   
+                                    {
+                                        "text": "-"
+                                    },                                                                          
+                                    {
+                                        "text": "-"
+                                    },                                        
+                                    {
+                                        "text": "[% IF material_data.weight_100g %][% round(material_data.weight_100g.mean) %] g[% END %]"
+                                    },                                    
+                                    [% ELSE %]
+                                    {
                                         "text": "[% display_taxonomy_tag_name('packaging_materials',material) %]"
-                                        [% END %]
                                     },
                                     {
                                         "text": "[% IF material_data.main.defined %][% round(material_data.main.mean * 100 * 10) / 10 %]%[% END %]"
-                                    },                                     
+                                    },  
                                     {
-                                        "text": "[% material_data.main.mean %] -- [% IF material != 'all' %][% IF material_data.contain.defined %][% round(material_data.contain.mean * 100 * 10) / 10 %]%[% END %][% ELSE %]-[% END %]"
+                                        "text": "[% IF material_data.weight_100g_main %][% round(material_data.weight_100g_main.mean * 10) / 10 %] g[% END %]"
+                                    },                                                                         
+                                    {
+                                        "text": "[% IF material_data.contain.defined %][% round(material_data.contain.mean * 100 * 10) / 10 %]%[% END %]"
                                     },                                      
                                     {
-                                        // for the "all" material, the weight for products that contain the material is the same as the weight across all products
-                                        // and it's not a total of the column above, so we don't display it
-                                        "text": "[% IF material_data.weight_100g_contain %][% IF material != 'all' %][% round(material_data.weight_100g_contain.mean * 10) / 10 %] g[% ELSE %]-[% END %][% END %]"
+                                        "text": "[% IF material_data.weight_100g_contain %][% round(material_data.weight_100g_contain.mean * 10) / 10 %] g[% END %]"
                                     },                                        
                                     {
                                         "text": "[% IF material_data.weight_100g %][% round(material_data.weight_100g.mean) %] g[% END %]"
                                     },
+                                    [% END %]
                                 ]
                             },
                             
