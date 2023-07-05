@@ -703,9 +703,15 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
 
-	# Create panel for packaging recycling
+	# Create panel for packaging components, and packaging materials
 	create_panel_from_json_template("packaging_recycling",
 		"api/knowledge-panels/environment/packaging_recycling.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	create_panel_from_json_template("packaging_materials",
+		"api/knowledge-panels/environment/packaging_materials.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	create_panel_from_json_template("packaging_components",
+		"api/knowledge-panels/environment/packaging_components.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 
 	# Create panel for manufacturing place

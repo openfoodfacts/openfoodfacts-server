@@ -10738,6 +10738,7 @@ fr:Coeurs d'agneau
 pl:serca cielęce
 ciqual_food_code:en:40058
 ciqual_food_name:en:Heart, lamb, raw
+ciqual_food_name:fr:Coeur, agneau, cru
 
 <en:lamb hearts
 en:Cooked lamb hearts
@@ -16594,7 +16595,7 @@ en:sunflower oil, sunflower seed oil, sunflower vegetable oil
 ar:زيت زهرة الشمس
 az:Günəbaxan yağı
 be:Сланечнікавы алей
-bg:Слънчогледово олио, слънчогледово масло, масло слънчогледово, растително слънчогледово масло, слънчоглед
+bg:Слънчогледово олио, слънчогледово масло, масло слънчогледово, растително слънчогледово масло, слънчоглед, слънчогледово
 ca:oli de gira-sol, oli vegetal de gira-sol, oli de girasol, oli vegetal de girasol
 cs:Slunečnicový olej
 da:solsikkeolie
@@ -16734,7 +16735,7 @@ ru:масло подсолнечное высокоолеиновое рафин
 
 <en:sunflower oil
 en:cold pressed sunflower oil
-bg:студено пресовано слънчогледово масло, нерафинирано студено пресовано слънчогледово масло
+bg:студено пресовано слънчогледово масло, нерафинирано студено пресовано слънчогледово масло, нерафинирано слънчогледово масло
 de:kaltgepresstes Sonnenblumenöl
 es:aceite de girasol prensado en frio
 fi:kylmäpuristettu auringonkukkaöljy
@@ -18277,9 +18278,6 @@ wikidata:en:Q279034
 wikipedia:en:https://en.wikipedia.org/wiki/Kirsch
 # ingredient/fr:kirsch has 184 products in 5 languages @2018-12-29
 
-
-#description:en:TEQUILA is a regional distilled beverage and type of alcoholic drink made from the blue agave plant, primarily in the area surrounding the city of Tequila
-
 <en:alcohol
 en:tequila
 ar:تيكيلا
@@ -18341,6 +18339,7 @@ tr:Tekila
 uk:Текіла
 vi:Tequila
 zh:龍舌蘭酒
+description:en:TEQUILA is a regional distilled beverage and type of alcoholic drink made from the blue agave plant, primarily in the area surrounding the city of Tequila
 # arz:تيكيلا
 # ast:Tequila
 # be-tarask:Тэкіла
@@ -18370,9 +18369,6 @@ zh:龍舌蘭酒
 wikidata:en:Q122195
 wikipedia:en:https://en.wikipedia.org/wiki/Tequila
 # ingredient/tequila in 7 languages @2019-02-14
-
-
-#description:en:WINE is an alcoholic beverage made from fermented grapes.
 
 <en:alcohol
 en:wine, fruit wine
@@ -18473,6 +18469,7 @@ wa:Vén
 xh:Iveyn
 yi:וויין
 zh:葡萄酒
+description:en:WINE is an alcoholic beverage made from fermented grapes.
 # ang:Ƿīn
 # arc:ܚܡܪܐ
 # arz:نبيت
@@ -18630,9 +18627,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sparkling_wine
 fr:vin cremant de Loire aop
 
 
-
-#description:en:WHITE WINE is a wine whose colour can be straw-yellow, yellow-green, or yellow-gold.
-
 <en:wine
 en:white wine
 af:Witwyn
@@ -18671,6 +18665,7 @@ tr:Beyaz şarap
 uk:Біле вино
 vi:Rượu vang trắng
 zh:白葡萄酒
+description:en:WHITE WINE is a wine whose colour can be straw-yellow, yellow-green, or yellow-gold.
 # ast:Vinu blanco
 # en-gb:white wine
 # gsw:Wysswy
@@ -20743,6 +20738,7 @@ sv:rökarom
 
 <en:natural flavouring
 en:natural smoke flavouring, natural smoked flavouring
+bg:естествен пушек
 de:natürliches Raucharoma
 es:Saborizante de humo natural
 fr:arôme naturel de fumée, arôme de fumée naturel
@@ -21640,16 +21636,13 @@ es:sorgo
 fr:sorgho
 hu:cirok
 it:sorgo
-nl:kafferkoren
+nl:kafferkoren, sorghum, sorgum
 pl:sorgo
 sk:cirok
 wikipedia:en:https://en.wikipedia.org/wiki/Sorghum
 ciqual_food_code:en:9360
 ciqual_food_name:en:Sorghum, whole, raw
 ciqual_food_name:fr:Sorgho entier, cru
-
-<en:sorghum
-de:Goldhirse, geschälte Hirse
 
 <en:cereal flour
 <en:sorghum
@@ -23661,6 +23654,25 @@ fr:graines de millet
 nl:gierstkorrels, gierst zaden, gierstzaden, gierstzaad
 sv:hirsfrö
 # 331 in 6 @2101-10-14
+
+<en:millet
+de:Goldhirse, geschälte Hirse
+fr:millet décortiqué
+
+<en:millet
+en:foxtail millet
+
+<en:millet
+en:finger millet
+
+<en:millet
+en:kodo millet
+
+<en:millet
+en:little millet
+
+<en:millet
+en:barnyard millet
 
 #comment:en:be careful with the species Amaranthus, contains often the wrong translation.
 <en:cereal
@@ -30465,7 +30477,7 @@ vegetarian:en:no
 <en:animal protein
 # <en:dairy
 en:milk proteins
-bg:млечни протеини, млечен протеин
+bg:млечни протеини, млечен протеин, млечен белтък
 bs:mliječne bjelančevina
 ca:Proteina de la llet,proteines de la llet,proteïnes làcties
 cs:mléčnou bílkovinu
@@ -32560,7 +32572,7 @@ mt:soybeans
 nb:Soyabønne
 nl:Sojaboon, sojabonen
 nn:Soyabønne
-pl:Soja warzywna, ziarna soi, ziaren soi, ziarno soi, nasiona soi, soi, sojowe, sojowy, sojowa, soję, soją, sojowego, sojowej
+pl:Soja warzywna, ziarna soi, ziaren soi, ziarno soi, nasiona soi
 pt:grão de soja, grãos de soja
 ru:соевые бобы
 sk:Sója fazuľová, sójové bôby
@@ -43033,7 +43045,7 @@ pl:dżem truskawkowy
 
 <en:strawberry
 en:strawberry filling
-bg:ягодов пълнеж
+bg:ягодов пълнеж, пълнеж от ягоди
 de:Erdbeerfüllung
 fi:mansikkatäyte
 fr:nappage à la fraise
@@ -43070,6 +43082,7 @@ pl:koncentrat soku truskawkowego, zagęszczony sok z truskawki
 
 <en:strawberry juice concentrate
 en:strawberry juice from concentrate
+bg:сок от ягода от концентрат
 de:Erdbeersaft aus Konzentrat, erdbeersaft aus erdbeersaftkonzentrat
 fr:jus de fraise à base de concentré
 fi:mansikkamehu tiivisteestä, tiivisteestä valmistettu mansikkatäysmehu
@@ -45673,7 +45686,7 @@ ru:сушеные овощи и зелень, сушеные овощи
 
 <en:vegetable
 en:vegetable juice
-da:Grøntsagsjuice, grøntsagssaft
+da:grøntsagsjuice, grøntsagssaft
 de:Gemüsesaft
 es:Zumo vegetal, caldo vegetal, jugo vegetal
 fi:kasvismehu
@@ -46091,6 +46104,7 @@ ciqual_food_name:fr:Avocat, pulpe, cru
 en:endive, Endives
 ca:endívia
 cy:Endif
+da:endivie
 de:Endivien, Endivie
 eo:endivio
 es:escarola, escarolas, endibia, endibias
@@ -46160,7 +46174,7 @@ ciqual_food_name:fr:Salade ou chicorée frisée, crue
 
 <en:endive
 en:broad-leaved endive, Batavian endive, escarole, flat endive
-da:bredbladet endivie
+da:bredbladet endivie, escarole, escarolesalat
 de:glatte Endivie, Eskariol, Winterendivie, Endivie-Eskariol, Eskariol Endivie, Breitblättrige Endivie, Ganzblättrige Endivie
 el:αντίδι πλατύφυλλο
 es:escarola lisa
@@ -46183,7 +46197,7 @@ description:en:Escarole, or broad-leaved endive (var latifolia), has broad, pale
 <en:vegetable
 en:Belgian endive
 cs:čekanka
-da:Julesalat
+da:julesalat
 de:Chicorée
 es:endivia Belga
 fi:salaattisikuri
@@ -46207,7 +46221,7 @@ en:radicchio
 ar:الهندباء
 bg:червена цикория, радичио
 ca:radicchio
-da:radicchio
+da:radicchio, radicchiosalat
 de:roter Chicorée, Radicchio
 eo:salatcikorio
 es:radicchio
@@ -46415,6 +46429,7 @@ bs:Blitva
 ca:bleda
 co:Geia
 cs:Mangold
+da:bladbede, sølvbede, mangold
 de:Mangold
 el:Σέσκουλο
 eo:Folibeto
@@ -46500,7 +46515,7 @@ be:валер’янэла малая
 ca:canonges, herba dels canonges
 cs:polníček, kozlíček polní
 cy:gwylaeth yr oen
-da:vårsalat
+da:vårsalat, feldsalat
 de:Feldsalat, Rapunzel, Rapunzelsalat, Nüsslisalat
 el:λυκοτρίβολο
 es:milamores, canonigos
@@ -46600,7 +46615,7 @@ id:Bawang putih
 io:Alio
 is:Hvítlaukur
 it:aglio
-ja:ニンニク, にんにく
+ja:ニンニク, にんにく, ガーリック
 jv:Bawang
 ka:ნიორი
 kk:Сарымсақ
@@ -46731,6 +46746,7 @@ ciqual_food_name:fr:Ail, cru
 
 <en:garlic
 en:tender garlic
+da:hvidløgsskud
 de:Knoblauchsprossen, Knoblauch-Sprossen
 es:ajo tierno,ajete
 
@@ -46738,6 +46754,7 @@ es:ajo tierno,ajete
 <en:garlic
 en:garlic puree
 bg:чесново пюре
+da:hvidløgspuré, hvidløgspure
 de:Knoblauchpüree
 es:puré de ajo
 fi:valkosipulipyree, valkosipulisose
@@ -46898,7 +46915,7 @@ en:dried garlic
 bg:сушен чесън
 fr:ail séché, ail déshydraté
 cs:Sušený česnek
-da:tørret hvitløg
+da:tørret hvidløg
 de:getrockneter Knoblauch, Knoblauch getrocknet
 es:ajo deshidratado
 fi:kuivattu valkosipuli
@@ -46986,7 +47003,7 @@ bs:Aloe vera
 ca:àloe vera
 co:Aloe vera
 cs:aloe pravá
-da:Læge-Aloe
+da:Læge-Aloe, aloe vera
 de:Aloe vera, Echte Aloe
 el:Αλόη η γνησία
 eo:Aloo vera
@@ -47067,6 +47084,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Aloe_vera
 <en:aloe vera
 en:Aloe vera juice
 bg:сок от алое вера
+da:aloe vera-saft, aloe vera juice
 de:Aloe-vera-Saft
 es:zumo de aloe vera, jugo de aloe vera
 fi:Aloe vera -mehu
@@ -47243,6 +47261,7 @@ ciqual_food_name:en:Eggplant, raw
 
 <en:aubergine
 en:grilled aubergines
+da:grillet aubergine, grillede auberginer
 de:gegrillte Auberginen, grillierte Auberginen
 fi:grillatut munakoisot
 fr:aubergine grillée, aubergines grillées
@@ -47513,7 +47532,7 @@ en:beetroot, beet
 af:Beet
 bg:цвекло
 ca:remolatxa
-da:Rødbede, rødbeder
+da:rødbede, rødbeder
 de:Rüben, Randen, Rote-Bete
 es:remolacha, betarraga
 fi:punajuuri
@@ -47812,7 +47831,7 @@ ciqual_food_name:fr:Chou romanesco ou brocoli à pomme, cru
 <en:vegetable
 en:cauliflower
 bg:карфиол
-da:Blomkål
+da:blomkål
 de:Blumenkohl
 es:coliflor
 fi:kukkakaali
@@ -48134,6 +48153,7 @@ ar:ملفوف صيني
 bo:ཚལ་དཀར་ཆེ་བ།
 ca:pak choi, bleda xinesa
 cs:bok čoj, pak čoj zelí, čínské
+da:bok choi, pak choi, kinesisk kål
 de:Pak Choi, Chinesischer Senfkohl
 el:mποκ τσόι
 es:bok choy, pak choi
@@ -48603,7 +48623,7 @@ ca:pastanaga
 co:rundonu
 cs:mrkev, karotka
 cy:moronen
-da:gulerødder, Have-Gulerod
+da:gulerod, gulerødder, Have-Gulerod
 de:Karotten, Karotte, Möhre, Möhren, Möhrchen
 dv:ކެރެޓް
 el:καρότο
@@ -48751,6 +48771,9 @@ ciqual_food_name:en:Carrot, raw
 ciqual_food_name:fr:Carotte, crue
 
 <en:carrot
+es:Zanahorias de la variedad Nantesa
+
+<en:carrot
 en:dried carrot
 de:getrocknete Möhre
 fr:carotte séchée, carottes séchées
@@ -48878,7 +48901,6 @@ sv:gul morot, gula morötter
 
 <en:carrot
 en:orange carrot
-da:gulerod
 de:orange Möhre, orange Karotte
 fi:oranssi porkkana
 fr:carottes oranges
@@ -48949,7 +48971,7 @@ sv:svart morotskoncentrat
 en:carrot juice
 az:Yerkökü şirəsi
 bg:сок от моркови
-da:Gulerodsjuice
+da:gulerodsjuice, gulerodssaft
 de:Karottensaft
 el:χυμός καρότου
 eo:karota suko
@@ -48985,7 +49007,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Carrot_juice
 
 <en:carrot juice
 en:concentrated carrot juice
-da:gulerodsjuice fra koncentrat
+da:koncentreret gulerodsjuice, koncentreret gulerodssaft
 de:Karottensaftkonzentrat, konzentrierter Karottensaft
 es:jugo de zanahoria concentrado
 fi:porkkanamehutiiviste
@@ -49000,6 +49022,7 @@ sv:morotjuicekoncentrat
 #This is not the same as concentrate carrot juice, this one has been reconstructed with water
 <en:carrot juice
 en:carrot juice from concentrate
+da:gulerodsjuice fra koncentrat, gulerodssaft fra koncentrat
 de:Karottensaft aus Karottensaftkonzentrat
 es:zumo de zanahoria a partir de concentrado
 fr:jus de carotte à base de concentré, jus de carottes à base de concentré
@@ -49022,7 +49045,7 @@ bs:Celer
 ca:Api
 cs:Miřík celer, celer
 cy:Seleri
-da:selleri, sellerie
+da:selleri
 de:Sellerie, Staudensellerie
 el:Σέλινο
 eo:celerio
@@ -49206,7 +49229,7 @@ ar:الكرفس اللفتي
 bg:корен целина
 ca:Api-rave
 cs:celer bulvový
-da:Knoldselleri
+da:knoldselleri
 de:Knollensellerie
 eo:tubercelerio
 es:Apio nabo,raiz de apio
@@ -49605,7 +49628,7 @@ ca:nyàmera
 cs:slunečnice topinambur
 cv:Топинамбур
 cy:Blodyn-yr-haul oddfog
-da:Jordskok
+da:jordskok, jordskokker
 de:Topinambur
 eo:Terpiro
 es:tupinambo
@@ -49900,7 +49923,7 @@ ar:البصل الاخضر
 bg:преснен лук, зелен лук
 ca:ceba tendra, cebeta, ceballot
 cs:jarní cibulka
-da:forårs-løg
+da:forårsløg
 de:Frühlingszwiebel
 el:φρέσκο κρεμμυδακι
 eo:askolonio
@@ -50452,7 +50475,7 @@ ca:rave
 co:Radichju
 cs:ředkvička
 cy:Rhuddygl y gerddi
-da:Radise, ræeddike
+da:radise, ræddike
 de:rettich, Radieschen
 el:Ρεπάνι
 eo:rafano
@@ -50703,7 +50726,7 @@ nl:rabarbersap
 
 <en:vegetable
 en:salad, leafy greens, salad greens
-da:Salat
+da:salat
 de:Salat
 es:Ensalada
 fi:salaatti, salaatit
@@ -50739,7 +50762,7 @@ bn:রকেট সালাদ
 br:roketez
 co:rutulella
 cs:roketa setá
-da:rucola, salatsennep
+da:rucola, rucolasalat, salatsennep
 de:Rucola, Garten-Senfrauke
 el:ρόκα
 eo:kultiva eruko
@@ -52110,7 +52133,7 @@ sv:röd och gul paprika
 en:chili pepper, chilli pepper, chilli, chillies, chile, chile pepper
 ar:فلفل حار
 be:чырвоны перац
-bg:Люта чушка, люти пиперки, лютиви пиперки, чили
+bg:Люта чушка, люти пиперки, лютиви пиперки, чили, люти чушлета
 br:pimant
 bs:Čili
 ca:bitxo
@@ -52613,6 +52636,9 @@ zh:辣椒粉
 # zh-hant:烟熏红椒
 wikidata:en:Q3127593
 wikipedia:en:https://en.wikipedia.org/wiki/Paprika
+ciqual_food_code:en:11049
+ciqual_food_name:en:Paprika
+ciqual_food_name:fr:Paprika
 # fr:paprika 2505 in 24 languages products @2018-10-14
 
 <en:paprika
@@ -53216,6 +53242,7 @@ carbon_footprint_fr_foodges_value:fr:1.4
 
 <en:tomato juice
 fr:jus de tomate à partir de concentré, jus de tomates à base de concentré, jus de tomates reconstitué
+bg:Доматен сок от концентриран сок
 de:Tomatensaft aus Konzentrat
 fi:tomaattimehu tiivisteestä
 it:succo di pomodoro ricavato da concentrato
@@ -53939,7 +53966,7 @@ pl:suszona cukinia
 
 <en:root vegetable
 en:Rapeseed, rape, oilseed rape, rape seed
-bg:рапична, рапица
+bg:рапична, рапица, рапично
 bs:repičino
 ca:Colza, Llavor de colza, Llavors de colza
 da:raps
@@ -55337,6 +55364,7 @@ fr:pois chiches précuits
 #processing:en: en:cooked
 <en:chickpea
 en:cooked chickpeas, boiled chickpeas
+bg:варен нахут
 cs:vařená cizrna
 da:kogte kikærter
 de:gekochte Kichererbsen, Kichererbsen gekocht
@@ -55726,6 +55754,13 @@ de:Pardina Linsen
 es:lenteja pardina
 
 <en:lentils
+en:Dried lentils
+fr:Lentilles sèches
+ciqual_food_code:en:20504
+ciqual_food_name:en:Lentil, dried
+ciqual_food_name:fr:Lentille, sèche
+
+<en:lentils
 fr:lentilles réhydratées, lentilles sèches trempées
 fi:kuivattu linssi, kuivatut linssit
 # ingredient/fr:lentilles-réhydratées has 54 products @2019-06-02
@@ -55800,6 +55835,9 @@ ja:赤レンズ豆
 nl:rode linzen
 pl:soczewica czerwona, soczewicy czerwonej
 sv:röda linser
+ciqual_food_code:en:20535
+ciqual_food_name:en:Lentil, pink or red, dried
+ciqual_food_name:fr:Lentille corail, sèche
 # ingredient/fr:lentilles-rouges has 40 products in 3 languages @2019-06-02
 # ingredient/fr:lentilles-corail has 131 products in 6 languages @2019-06-02
 
@@ -64337,7 +64375,7 @@ ciqual_food_name:fr:Laitue romaine, crue
 en:iceberg lettuce
 bg:салата айсберг
 ca:enciam iceberg
-da:issalat, iceberg-salat
+da:icebergsalat, iceberg-salat
 de:Eisbergsalat
 eo:glacilaktuko
 es:lechuga iceberg, iceberg
@@ -65997,6 +66035,9 @@ zu:Itiye
 wikipedia:en:https://en.wikipedia.org/wiki/Tea
 carbon_footprint_fr_foodges_ingredient:fr:Thé
 carbon_footprint_fr_foodges_value:fr:30.5
+ciqual_food_code:en:18020
+ciqual_food_name:en:Tea, brewed, without sugar
+ciqual_food_name:fr:Thé infusé, non sucré
 # ingredient/tea has 217 products in 5 languages @2019-04-21
 
 <en:tea
@@ -66095,6 +66136,9 @@ zh:红茶
 # zh-tw:紅茶
 wikidata:en:Q203415
 wikipedia:en:https://en.wikipedia.org/wiki/Black_tea
+ciqual_food_code:en:18154
+ciqual_food_name:en:Black tea, brewed, without sugar
+ciqual_food_name:fr:Thé noir, infusé, non sucré
 # ingredient/black-tea has 751 products in 13 languages @2019-04-22
 
 <en:black tea
@@ -66217,6 +66261,9 @@ zh:綠茶
 # zh-hk:綠茶
 wikidata:en:Q484083
 wikipedia:en:https://en.wikipedia.org/wiki/Green_tea
+ciqual_food_code:en:18155
+ciqual_food_name:en:Green tea, brewed, without sugar
+ciqual_food_name:fr:Thé vert, infusé, non sucré
 # ingredient/green-tea has 902 products in 14 languages @2019-04-21
 
 <en:green tea
@@ -66959,9 +67006,6 @@ vegetarian:en:yes
 nutriscore_fruits_vegetables_nuts:en:yes
 # ingredient/algae has 135 products in 4 languages @2019-01-27
 
-
-#description:en:CHLORELLA is a genus of single-celled green algae belonging to the division Chlorophyta.
-
 <en:algae
 en:chlorella
 ar:كلوريلا
@@ -67002,6 +67046,7 @@ sw:Chlorella
 tr:Chlorella
 uk:Хлорела
 vi:Chlorella
+description:en:CHLORELLA is a genus of single-celled green algae belonging to the division Chlorophyta.
 # pt-br:Clorela
 wikidata:en:Q133017
 wikipedia:en:https://en.wikipedia.org/wiki/Chlorella
@@ -78856,7 +78901,6 @@ carbon_footprint_fr_foodges_value:fr:4.9
 ciqual_food_code:en:36004
 ciqual_food_name:fr:Poulet, cuisse, viande et peau, rôtie/cuite au four
 
-# description:en:Chicken Cutlet is a thin slice of meat from the leg or ribs of chicken.
 
 # <en:cutlet
 <en:chicken meat
@@ -78864,6 +78908,7 @@ en:chicken cutlet
 de:Hühnerschnitzel
 fi:kanaleike
 fr:Escalopes de poulet
+description:en:Chicken Cutlet is a thin slice of meat from the leg or ribs of chicken.
 # singular:en:chicken cutlet
 # plural:en:chicken cutlets
 # plural:fr:escalopes de poulet
@@ -78884,6 +78929,15 @@ ca:ala de pollastre, ales de pollastre
 es:ala de pollo, alas de pollo
 fr:aile de poulet
 pl:skrzydełko z kurczaka, skrzydełko kurczaka, skrzydełka z kurczaka, skrzydełka kurczaka
+ciqual_food_code:en:36023
+ciqual_food_name:en:Chicken, wing, meat and skin, raw
+ciqual_food_name:fr:Poulet, aile, viande et peau, cru
+
+en:Chicken wing meat and skin
+fr:aile de poulet et sa peau
+ciqual_food_code:en:36023
+ciqual_food_name:en:Chicken, wing, meat and skin, raw
+ciqual_food_name:fr:Poulet, aile, viande et peau, cru
 
 #for languages that do not differentiate
 <en:chicken protein
@@ -79921,8 +79975,6 @@ fr:Œuf liquide
 ja:液卵
 pl:masa jajowa, masa jajeczna
 
-# description:en:EGG WHITE is the clear liquid (also called the albumen or the glair/glaire) contained within an egg.
-
 <en:egg
 en:egg white, egg albumen, egg albumin
 ar:بياض البيض
@@ -79965,6 +80017,7 @@ th:ไข่ขาว
 tr:Yumurta beyazı, Yumurta akı
 uk:Яєчний білок
 zh:蛋白
+description:en:EGG WHITE is the clear liquid (also called the albumen or the glair/glaire) contained within an egg.
 # bar:Oagloa
 # eml:biuda
 # yue:蛋白

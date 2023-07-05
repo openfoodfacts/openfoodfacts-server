@@ -462,14 +462,30 @@ producers platform:
 - scripts/remove_all_private_products_for_owner.pl
 - scripts/gen_pro_users_emails_list.pl
 - cgi/import_products_categories_from_public_database.pl
+- scripts/agena3000/run_agena3000_import.sh
+- scripts/bayard-import/run_bayard_import.sh
+- scripts/codeonline-import/run_codeonline_import.sh
+- scripts/codeonline-import/split_gs1_codeonline_json.pl
+- scripts/codeonline-import/stats_gs1_codeonline_json.pl
+- scripts/equadis-import/run_equadis_import.sh
+
+agena3000:
+- scripts/agena3000/run_agena3000_import.sh
+
+bayard:
+- scripts/bayard-import/run_bayard_import.sh
+
+codeonline:
+- scripts/codeonline-import/run_codeonline_import.sh
+- scripts/codeonline-import/split_gs1_codeonline_json.pl
+- scripts/codeonline-import/stats_gs1_codeonline_json.pl
+
+equadis:
+- scripts/equadis-import/run_equadis_import.sh
 
 store:
 - lib/ProductOpener/Store.pm
 - tests/unit/store.t
-
-codeonline:
-- scripts/codeonline-import/split_gs1_codeonline_json.pl
-- scripts/codeonline-import/stats_gs1_codeonline_json.pl
 
 images:
 - lib/ProductOpener/Images.pm
