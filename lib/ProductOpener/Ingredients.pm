@@ -4455,18 +4455,23 @@ my %ingredients_categories_and_types = (
 			[
 				"rzepakowy", "z oliwek", "palmowy", "słonecznikowy",
 				"kokosowy", "sojowy", "shea", "palmowy utwardzony",
-				"palmowy nieutwardzony"
+				"palmowy nieutwardzony",
 			],
 		],
 		# concentrates
 		[
 			# categories
-			["koncentraty", "koncentraty roślinne", "soki z zagęszczonych soków z", "soki owocowe", "przeciery"],
+			[
+				"koncentraty",
+				"koncentraty roślinne",
+				"soki z zagęszczonych soków z",
+				"soki owocowe", "przeciery", "przeciery z", "soki owocowe z zagęszczonych soków owocowych",
+			],
 			# types
 			[
-				"rzepakowy", "z oliwek", "palmowy", "słonecznikowy",
-				"kokosowy", "sojowy", "shea", "palmowy utwardzony",
-				"palmowy nieutwardzony"
+				"jabłek", "pomarańczy", "marchwi", "bananów", "brzoskwiń", "gujawy",
+				"papai", "ananasów", "mango", "marakui", "liczi", "kiwi",
+				"limonek",
 			],
 		],
 		# flours
@@ -4475,20 +4480,18 @@ my %ingredients_categories_and_types = (
 			["mąki", "mąka"],
 			# types
 			[
-				"rzepakowy", "z oliwek", "palmowy", "słonecznikowy",
-				"kokosowy", "sojowy", "shea", "palmowy utwardzony",
-				"palmowy nieutwardzony"
+				"pszenna", "kukurydziana", "ryżowa", "pszenna pełnoziarnista",
+				"orkiszowa", "żytnia", "jęczmienna", "owsiana",
+				"jaglana", "gryczana",
 			],
 		],
 		#meat
 		[
 			# categories
-			["mięso",],
+			["mięso", "mięsa"],
 			# types
 			[
-				"rzepakowy", "z oliwek", "palmowy", "słonecznikowy",
-				"kokosowy", "sojowy", "shea", "palmowy utwardzony",
-				"palmowy nieutwardzony"
+				"wieprzowe", "wołowe", "drobiowe", "z kurczaka", "z indyka", "cielęce"
 			],
 		],
 	],
