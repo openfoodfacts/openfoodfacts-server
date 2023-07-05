@@ -313,7 +313,8 @@ sub remove_packagings_materials_stats_for_unpopular_categories ($packagings_mate
 
 	foreach my $country_ref (values %{$packagings_materials_stats_ref->{countries}}) {
 		foreach my $category (keys %{$country_ref->{categories}}) {
-			if ((deep_get($country_ref, "categories", $category, "materials", "all", "contain_n") || 0) < $min_products) {
+			if ((deep_get($country_ref, "categories", $category, "materials", "all", "contain_n") || 0) < $min_products)
+			{
 				delete $country_ref->{categories}{$category};
 			}
 		}
@@ -361,7 +362,7 @@ sub store_stats ($name, $packagings_stats_ref, $packagings_materials_stats_ref) 
 	store_json(
 		"$www_root/data/categories_stats/categories_packagings_materials_stats.fr.fermented-dairy-desserts.$name.json",
 		$packagings_materials_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"}
-	);	
+	);
 
 	return;
 }
@@ -532,7 +533,6 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 							push @{$packagings_materials_stats_ref->{countries}{$country}{categories}{$category}
 									{materials}{$material}{weight_100g_main}{values}}, $weight_100g;
 						}
-
 					}
 				}
 			}
@@ -598,6 +598,7 @@ sub generate_packaging_stats_for_query ($name, $query_ref, $quiet = 0) {
 		categories_tags => 1,
 		packagings => 1,
 		packagings_materials => 1,
+		packagings_materials_main => 1,
 		product_quantity => 1,
 	};
 

@@ -53,10 +53,10 @@
                                         [% END %]
                                     },
                                     {
-                                        "text": "[% IF material_data.main %][% round(material_data.main.mean * 100 * 10) / 10 %]%[% END %]"
+                                        "text": "[% IF material_data.main.defined %][% round(material_data.main.mean * 100 * 10) / 10 %]%[% END %]"
                                     },                                     
                                     {
-                                        "text": "[% IF material_data.contain %][% round(material_data.contain.mean * 100 * 10) / 10 %]%[% END %]"
+                                        "text": "[% material_data.main.mean %] -- [% IF material != 'all' %][% IF material_data.contain.defined %][% round(material_data.contain.mean * 100 * 10) / 10 %]%[% END %][% ELSE %]-[% END %]"
                                     },                                      
                                     {
                                         // for the "all" material, the weight for products that contain the material is the same as the weight across all products
