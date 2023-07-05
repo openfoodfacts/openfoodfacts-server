@@ -1137,20 +1137,61 @@ or
 </blockquote>
 <p>Before running the <code>docker-compose</code> deployment, you can review and configure
 Product Opener's environment (<code>.env</code> file).</p>
-<p>The <code>.env</code> file contains ProductOpener default settings:
-| Field | Description |
-| ----------------------------------------------------------------- | --- |
-| <code>PRODUCT_OPENER_DOMAIN</code>                                           | Can be set to different values based on which <strong>OFF flavor</strong> is run.|
-| <code>PRODUCT_OPENER_PORT</code>                                             | can be modified to run NGINX on a different port. Useful when running <strong>multiple OFF flavors</strong> on different ports on the same host. <br> Default port: <code>80</code>.|
-| <code>PRODUCT_OPENER_FLAVOR</code>                                           | Can be modified to run different flavors of OpenFoodFacts, amongst <code>openfoodfacts</code> (default), <code>openbeautyfacts</code>, <code>openpetfoodfacts</code>, <code>openproductsfacts</code>.|
-| <code>PRODUCT_OPENER_FLAVOR_SHORT</code>                                     | can be modified to run different flavors of OpenFoodFacts, amongst <code>off</code> (default), <code>obf</code>, <code>oppf</code>, <code>opf</code>.|
-| <code>PRODUCERS_PLATFORM</code>                                              | can be set to <code>1</code> to build / run the <strong>producer platform</strong>.|
-| <code>ROBOTOFF_URL</code>                                                    | can be set to <strong>connect with a Robotoff instance</strong>.|
-| <code>REDIS_URL</code> | can be set to <strong>connect with a Redis instance for populating the search index</strong>.|
-| <code>GOOGLE_CLOUD_VISION_API_KEY</code>                                     | can be set to <strong>enable OCR using Google Cloud Vision</strong>.|
-| <code>CROWDIN_PROJECT_IDENTIFIER</code> and <code>CROWDIN_PROJECT_KEY</code>            | can be set to <strong>run translations</strong>.|
-| <code>GEOLITE2_PATH</code>, <code>GEOLITE2_ACCOUNT_ID</code> and <code>GEOLITE2_LICENSE_KEY</code> | can be set to <strong>enable Geolite2</strong>.|
-| <code>TAG</code>                                                             | Is set to <code>latest</code> by default, but you can specify any Docker Hub tag for the <code>frontend</code> / <code>backend</code> images. <br> Note that this is useful only if you use pre-built images from the Docker Hub (<code>docker/prod.yml</code> override); the default dev setup (<code>docker/dev.yml</code>) builds images locally|</p>
+<p>The <code>.env</code> file contains ProductOpener default settings:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PRODUCT_OPENER_DOMAIN</code></td>
+<td>Can be set to different values based on which <strong>OFF flavor</strong> is run.</td>
+</tr>
+<tr>
+<td><code>PRODUCT_OPENER_PORT</code></td>
+<td>can be modified to run NGINX on a different port. Useful when running <strong>multiple OFF flavors</strong> on different ports on the same host. <br> Default port: <code>80</code>.</td>
+</tr>
+<tr>
+<td><code>PRODUCT_OPENER_FLAVOR</code></td>
+<td>Can be modified to run different flavors of OpenFoodFacts, amongst <code>openfoodfacts</code> (default), <code>openbeautyfacts</code>, <code>openpetfoodfacts</code>, <code>openproductsfacts</code>.</td>
+</tr>
+<tr>
+<td><code>PRODUCT_OPENER_FLAVOR_SHORT</code></td>
+<td>can be modified to run different flavors of OpenFoodFacts, amongst <code>off</code> (default), <code>obf</code>, <code>oppf</code>, <code>opf</code>.</td>
+</tr>
+<tr>
+<td><code>PRODUCERS_PLATFORM</code></td>
+<td>can be set to <code>1</code> to build / run the <strong>producer platform</strong>.</td>
+</tr>
+<tr>
+<td><code>ROBOTOFF_URL</code></td>
+<td>can be set to <strong>connect with a Robotoff instance</strong>.</td>
+</tr>
+<tr>
+<td><code>REDIS_URL</code></td>
+<td>can be set to <strong>connect with a Redis instance for populating the search index</strong>.</td>
+</tr>
+<tr>
+<td><code>GOOGLE_CLOUD_VISION_API_KEY</code></td>
+<td>can be set to <strong>enable OCR using Google Cloud Vision</strong>.</td>
+</tr>
+<tr>
+<td><code>CROWDIN_PROJECT_IDENTIFIER</code> and <code>CROWDIN_PROJECT_KEY</code></td>
+<td>can be set to <strong>run translations</strong>.</td>
+</tr>
+<tr>
+<td><code>GEOLITE2_PATH</code>, <code>GEOLITE2_ACCOUNT_ID</code> and <code>GEOLITE2_LICENSE_KEY</code></td>
+<td>can be set to <strong>enable Geolite2</strong>.</td>
+</tr>
+<tr>
+<td><code>TAG</code></td>
+<td>Is set to <code>latest</code> by default, but you can specify any Docker Hub tag for the <code>frontend</code> / <code>backend</code> images. <br> Note that this is useful only if you use pre-built images from the Docker Hub (<code>docker/prod.yml</code> override); the default dev setup (<code>docker/dev.yml</code>) builds images locally</td>
+</tr>
+</tbody>
+</table>
 <p>The <code>.env</code> file also contains some useful Docker Compose variables:</p>
 <ul>
 <li><code>COMPOSE_PROJECT_NAME</code> is the compose project name that sets the <strong>prefix to every container name</strong>. Do not update this unless you know what you're doing.</li>
@@ -1199,7 +1240,7 @@ It can be solved by adding <code>{"base": "172.80.0.0/16","size": 24}, {"base": 
 <li>You might not immediately see the test products: create an account, login, and they should appear.</li>
 </ul>
 <ul>
-<li>For a full description of available make targets, see <a href="../../docker/README.md#makefile-commands">docker/README.md</a></li>
+<li>For a full description of available make targets, see <a href="../ref-docker-commands/">Docker / Makefile commands</a></li>
 </ul>
 <p><strong>Hosts file:</strong></p>
 <p>Since the default <code>PRODUCT_OPENER_DOMAIN</code> in the <code>.env</code> file is set to <code>openfoodfacts.localhost</code>, add the following to your hosts file (Windows: <code>C:\Windows\System32\drivers\etc\hosts</code>; Linux/MacOSX: <code>/etc/hosts</code>):</p>
