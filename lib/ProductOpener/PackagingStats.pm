@@ -447,6 +447,13 @@ sub export_product_packaging_components_to_csv ($csv, $filehandle, $product_ref)
 
 Add aggregated (by parent materials) data for all packagings of a product to stats for all its countries and categories combinations.
 
+For each material, we record values for those fields:
+- contain: the product contains the material
+- main: the product has the material as its main material
+- weight: weight of the material, even if the product does not contain it (0 otherwise)
+- weight_contain: weight of the material, if the product contains it
+- weight_main: weight of the material, if the product has it as its main material
+
 =cut
 
 sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $product_ref) {
@@ -473,7 +480,7 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 				# Increment the number of products that have the parent material
 				if (defined $material_ref) {
 					deep_val($packagings_materials_stats_ref,
-						("countries", $country, "categories", $category, "materials", $material, "n"))
+						("countries", $country, "categories", $category, "materials", $material, "contain_n"))
 						+= 1;
 				}
 
@@ -486,9 +493,9 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 
 					my $weight_100g = deep_get($product_ref, "packagings_materials", $material, "weight_100g");
 
-					# Record if the product has the material (100) or not (0)
+					# Record if the product has the material (1) or not (0): useful to compute percent
 					push @{$packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
-							{$material}{products_percent}{values}}, ($weight_100g ? 100 : 0);
+							{$material}{contain}{values}}, ($weight_100g ? 1 : 0);
 
 					# Record the weight per 100g of product, for all products, even if they don't contain the material
 					# Useful to say that on average a product of a specific category has X g of glass and Y g of metal
@@ -500,7 +507,28 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 					# Useful to compare products that do have the material
 					if (defined $weight_100g) {
 						push @{$packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
-								{$material}{weight_100g_material}{values}}, $weight_100g;
+								{$material}{weight_100g_contain}{values}}, $weight_100g;
+					}
+
+					# Record if it is the main material of the product
+					if (defined $product_ref->{packagings_materials_main}) {
+
+						# Increment the number of products that have the material as their main material
+						deep_val($packagings_materials_stats_ref,
+							("countries", $country, "categories", $category, "materials", $material, "main_n"))
+							+= 1;
+
+						# Record if the product has the material (1) or not (0): useful to compute percent
+						push @{$packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
+								{$material}{main}{values}},
+							(($product_ref->{packagings_materials_main} eq $material) ? 1 : 0);
+
+						# Record the weight per 100g of product, for all products that have the material as their main material
+						if (defined $weight_100g) {
+							push @{$packagings_materials_stats_ref->{countries}{$country}{categories}{$category}
+									{materials}{$material}{weight_100g_main}{values}}, $weight_100g;
+						}
+
 					}
 				}
 			}
@@ -521,7 +549,7 @@ sub compute_stats_for_all_materials ($packagings_materials_stats_ref, $delete_va
 	foreach my $country_ref (values %{$packagings_materials_stats_ref->{countries}}) {
 		foreach my $category_ref (values %{$country_ref->{categories}}) {
 			foreach my $material_ref (values %{$category_ref->{materials}}) {
-				foreach my $field ("products_percent", "weight_100g", "weight_100g_material") {
+				foreach my $field ("contain", "main", "weight_100g", "weight_100g_contain", "weight_100g_main") {
 					if (defined $material_ref->{$field}) {
 						# Compute stats
 						compute_stats_for_values($material_ref->{$field});

@@ -922,6 +922,10 @@ sub aggregate_packaging_by_parent_materials ($product_ref) {
 	# We will return an empty hash if we have no packagings components
 	my $packagings_materials_ref = {};
 
+	# We will determine which packaging material has the greatest weight
+	my $packagings_materials_main;
+	my $packagings_materials_main_weight = 0;
+
 	if ((defined $product_ref->{packagings}) and (scalar @{$product_ref->{packagings}} > 0)) {
 
 		# If we have packaging components, we will also return a total entry for all materials
@@ -953,7 +957,7 @@ sub aggregate_packaging_by_parent_materials ($product_ref) {
 
 		# Iterate over each parent material to compute weight statistics
 		my $total_weight = deep_get($packagings_materials_ref, "all", "weight");
-		foreach my $parent_material_ref (values %$packagings_materials_ref) {
+		while (my ($parent_material_id, $parent_material_ref) = each %$packagings_materials_ref) {
 			if (defined $parent_material_ref->{weight}) {
 				if ($total_weight) {
 					$parent_material_ref->{weight_percent} = $parent_material_ref->{weight} / $total_weight * 100;
@@ -962,11 +966,25 @@ sub aggregate_packaging_by_parent_materials ($product_ref) {
 					$parent_material_ref->{weight_100g}
 						= $parent_material_ref->{weight} / $product_ref->{product_quantity} * 100;
 				}
+				if (    ($parent_material_id ne "all")
+					and ($parent_material_ref->{weight} > $packagings_materials_main_weight))
+				{
+					$packagings_materials_main = $parent_material_id;
+					$packagings_materials_main_weight = $parent_material_ref->{weight};
+				}
 			}
 		}
 	}
 
 	$product_ref->{packagings_materials} = $packagings_materials_ref;
+
+	# Record the main packaging material
+	if (defined $packagings_materials_main) {
+		$product_ref->{packagings_materials_main} = $packagings_materials_main;
+	}
+	else {
+		delete $product_ref->{packagings_materials_main};
+	}
 
 	return;
 }

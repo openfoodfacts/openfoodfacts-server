@@ -743,6 +743,8 @@ is_deeply(
 
 ) or diag explain $product_ref->{packagings_materials};
 
+is($product_ref->{packagings_materials_main}, "en:metal");
+
 # 0 product_quantity
 
 $product_ref = {
