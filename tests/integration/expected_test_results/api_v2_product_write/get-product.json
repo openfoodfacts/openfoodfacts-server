@@ -83,9 +83,7 @@
       "created_t" : "--ignore--",
       "creator" : "openfoodfacts-contributors",
       "data_quality_bugs_tags" : [],
-      "data_quality_errors_tags" : [
-         "en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients"
-      ],
+      "data_quality_errors_tags" : [],
       "data_quality_info_tags" : [
          "en:no-packaging-data",
          "en:ingredients-percent-analysis-ok",
@@ -104,8 +102,7 @@
          "en:nutrition-value-under-0-1-g-salt",
          "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:ecoscore-packaging-packaging-data-missing",
-         "en:ecoscore-production-system-no-label",
-         "en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients"
+         "en:ecoscore-production-system-no-label"
       ],
       "data_quality_warnings_tags" : [
          "en:nutrition-value-under-0-1-g-salt",
