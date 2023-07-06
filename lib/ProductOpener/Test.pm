@@ -565,12 +565,19 @@ sub _sub_items ($item_ref, $subfields_ref) {
 		# get first level
 		my @result = ();
 		my @key = split(/\./, shift(@$subfields_ref));
+		
 		if (deep_exists($item_ref, @key)) {
 			# only support array for now
 			my @sub_items = deep_get($item_ref, @key);
 			for my $sub_item (@sub_items) {
 				# recurse
-				push @result, @{_sub_items($sub_item, $subfields_ref)};
+				my $sub_items_ref = _sub_items($sub_item, $subfields_ref);
+				if (ref($sub_items_ref) eq 'ARRAY') {
+					push @result, @$sub_items_ref;
+				}
+				else {
+					push @result, values %$sub_items_ref;
+				}
 			}
 		}
 		return @result;
@@ -646,7 +653,7 @@ sub normalize_product_for_test_comparison ($product_ref) {
 			qw(
 				last_modified_t created_t owner_fields
 				entry_dates_tags last_edit_dates_tags
-				last_image_t sources.*.import_t
+				last_image_t last_image_dates_tags images.*.uploaded_t sources.*.import_t
 			)
 		],
 		fields_sort => ["_keywords"],
