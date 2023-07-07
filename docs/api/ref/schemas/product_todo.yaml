@@ -1,0 +1,662 @@
+type: object
+properties:
+  no_nutrition_data:
+    type: string
+    description: |
+      When a product does not have nutrition data displayed on the
+      packaging, the user can check the field "Nutrition facts are
+      not specified on the product".
+      By doing so, the no_nutrition_data field takes the value "on".
+      This case is frequent (thousands of products).
+    example: "on"
+  no_nutrition_data_imported:
+    type: string
+  nova_group:
+    type: integer
+  nova_groups:
+    type: string
+  nova_groups_markers:
+    type: object
+    properties:
+      "3":
+        type: array
+        items:
+          type: string
+      "4":
+        type: array
+        items:
+          type: string
+  nova_groups_tags:
+    type: array
+    items:
+      type: string
+  nucleotides_prev_tags:
+    type: array
+    items:
+      type: object
+  nucleotides_tags:
+    type: array
+    items:
+      type: object
+  nutrient_levels:
+    type: object
+    properties:
+      fat:
+        type: string
+      salt:
+        type: string
+      saturated-fat:
+        type: string
+      sugars:
+        type: string
+  nutrient_levels_tags:
+    type: array
+    items:
+      type: string
+  nutriments:
+    type: object
+    properties:
+      alcohol:
+        type: integer
+      alcohol_100g:
+        type: integer
+      alcohol_serving:
+        type: integer
+      alcohol_unit:
+        type: string
+      alcohol_value:
+        type: integer
+      carbohydrates:
+        type: number
+      carbohydrates_100g:
+        type: number
+      carbohydrates_serving:
+        type: number
+      carbohydrates_unit:
+        type: string
+      carbohydrates_value:
+        type: number
+      carbon-footprint-from-known-ingredients_product:
+        type: integer
+      carbon-footprint-from-known-ingredients_serving:
+        type: number
+      energy:
+        type: integer
+      energy-kcal:
+        type: integer
+      energy-kcal_100g:
+        type: integer
+      energy-kcal_serving:
+        type: number
+      energy-kcal_unit:
+        type: string
+        description: |
+          The unit used in the field energy-kcal_unit
+          (example in JSON: “energy_unit”: “kcal”).
+          The only possible value is “kcal.”'
+      energy-kcal_value:
+        type: integer
+        description: |
+          The standardized value of a serving of 100g
+          (or 100ml for liquids) for energy expressed in kcal.
+        example: 190
+      energy-kj:
+        type: integer
+      energy-kj_100g:
+        type: integer
+      energy-kj_serving:
+        type: integer
+      energy-kj_unit:
+        type: string
+      energy-kj_value:
+        type: integer
+      energy_100g:
+        type: integer
+      energy_serving:
+        type: integer
+      energy_unit:
+        type: string
+        description: |
+          The unit used in the energy_value field
+          (example in JSON: “energy_unit”: “kJ”).
+          Possible values are “kJ” or “kcal”.'
+      energy_value:
+        type: integer
+        description: |
+          The standardized value of a serving of 100g
+          (or 100ml for liquids) for energy expressed in
+          the unit specified in the field energy_unit.
+        example: 190
+      erythritol:
+        type: integer
+        description: |
+          erythritol is a polyol which is not providing any energy.
+          As such, it needs not be taken into account when computing
+          the energy of a product. Eryhtritol is now displayed on
+          nutrition facts sheet of some products, mainly in the USA.
+          This value is entered either by contributors, either by
+          imports.
+        example: 4
+      erythritol_100g:
+        type: number
+        description: |
+          erythritol is a polyol which is not providing any energy.
+          As such, it needs not be taken into account when computing
+          the energy of a product. Eryhtritol is now displayed on
+          nutrition facts sheet of some products, mainly in the USA.
+          This value per 100g is computed from erythritol, erythritol_unit,
+          and serving_size.
+        example: 12.5
+      erythritol_serving:
+        type: number
+      erythritol_unit:
+        type: string
+        example: "g"
+      erythritol_value:
+        type: number
+      fat:
+        type: number
+      fat_100g:
+        type: number
+      fat_serving:
+        type: number
+      fat_unit:
+        type: string
+      fat_value:
+        type: number
+      fruits-vegetables-nuts-estimate-from-ingredients_100g:
+        type: integer
+      fruits-vegetables-nuts-estimate-from-ingredients_serving:
+        type: integer
+      nova-group:
+        type: integer
+      nova-group_100g:
+        type: integer
+      nova-group_serving:
+        type: integer
+      nutrition-score-fr:
+        type: integer
+      nutrition-score-fr_100g:
+        type: integer
+        description: |
+          Experimental nutrition score derived from
+          the UK FSA score and adapted for the French market
+          (formula defined by the team of Professor Hercberg).
+      proteins:
+        type: number
+      proteins_100g:
+        type: number
+      proteins_serving:
+        type: number
+      proteins_unit:
+        type: string
+      proteins_value:
+        type: number
+      salt:
+        type: number
+      salt_100g:
+        type: number
+      salt_serving:
+        type: number
+      salt_unit:
+        type: string
+      salt_value:
+        type: number
+      saturated-fat:
+        type: number
+      saturated-fat_100g:
+        type: number
+      saturated-fat_serving:
+        type: number
+      saturated-fat_unit:
+        type: string
+      saturated-fat_value:
+        type: number
+      sodium:
+        type: number
+      sodium_100g:
+        type: number
+      sodium_serving:
+        type: number
+      sodium_unit:
+        type: string
+      sodium_value:
+        type: number
+      sugars:
+        type: number
+      sugars_100g:
+        type: number
+      sugars_serving:
+        type: number
+      sugars_unit:
+        type: string
+      sugars_value:
+        type: number
+  nutriscore_data:
+    type: object
+    properties:
+      energy:
+        type: integer
+      energy_points:
+        type: integer
+      energy_value:
+        type: integer
+      fiber:
+        type: integer
+      fiber_points:
+        type: integer
+      fiber_value:
+        type: integer
+      fruits_vegetables_nuts_colza_walnut_olive_oils:
+        type: integer
+      fruits_vegetables_nuts_colza_walnut_olive_oils_points:
+        type: integer
+      fruits_vegetables_nuts_colza_walnut_olive_oils_value:
+        type: integer
+      grade:
+        type: string
+      is_beverage:
+        type: integer
+      is_cheese:
+        type: integer
+      is_fat:
+        type: integer
+      is_water:
+        type: integer
+      negative_points:
+        type: integer
+      positive_points:
+        type: integer
+      proteins:
+        type: number
+      proteins_points:
+        type: integer
+      proteins_value:
+        type: number
+      saturated_fat:
+        type: number
+      saturated_fat_points:
+        type: integer
+      saturated_fat_ratio:
+        type: number
+      saturated_fat_ratio_points:
+        type: integer
+      saturated_fat_ratio_value:
+        type: number
+      saturated_fat_value:
+        type: number
+      score:
+        type: integer
+      sodium:
+        type: number
+      sodium_points:
+        type: integer
+      sodium_value:
+        type: number
+      sugars:
+        type: number
+      sugars_points:
+        type: integer
+      sugars_value:
+        type: number
+  nutriscore_grade:
+    type: string
+  nutriscore_score:
+    type: integer
+  nutriscore_score_opposite:
+    type: integer
+  nutrition_data:
+    type: string
+  nutrition_data_per:
+    type: string
+  nutrition_data_per_imported:
+    type: string
+  nutrition_data_prepared:
+    type: string
+  nutrition_data_prepared_per:
+    type: string
+  nutrition_grade_fr:
+    type: string
+    description: |
+      Nutrition grade (‘a’ to ‘e’),
+      https://world.openfoodfacts.org/nutriscore.
+  nutrition_grades:
+    type: string
+  nutrition_grades_tags:
+    type: array
+    items:
+      type: string
+  nutrition_score_beverage:
+    type: integer
+  nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients:
+    type: integer
+  ? nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value
+  : type: integer
+  nutrition_score_warning_no_fiber:
+    type: integer
+  obsolete:
+    type: string
+  obsolete_imported:
+    type: string
+  obsolete_since_date:
+    type: string
+  origin:
+    type: string
+  origin_en:
+    type: string
+    description: |
+      This can be returned in many other languages
+      like origin_fr (for french).
+  origins:
+    type: string
+    description: |
+      Origins of ingredients
+  origins_hierarchy:
+    type: array
+    items:
+      type: object
+  origins_lc:
+    type: string
+  origins_tags:
+    type: array
+    items:
+      type: object
+  other_nutritional_substances_tags:
+    type: array
+    items:
+      type: object
+  owner:
+    type: string
+  owner_fields:
+    type: object
+    properties:
+      abbreviated_product_name_fr:
+        type: integer
+      allergens:
+        type: integer
+      brands:
+        type: integer
+      carbohydrates:
+        type: integer
+      conservation_conditions_fr:
+        type: integer
+      countries:
+        type: integer
+      customer_service_fr:
+        type: integer
+      data_sources:
+        type: integer
+      energy:
+        type: integer
+      energy-kcal:
+        type: integer
+      energy-kj:
+        type: integer
+      fat:
+        type: integer
+      generic_name_fr:
+        type: integer
+      ingredients_text_fr:
+        type: integer
+      lang:
+        type: integer
+      lc:
+        type: integer
+      no_nutrition_data:
+        type: integer
+      nutrition_data_per:
+        type: integer
+      obsolete:
+        type: integer
+      owner:
+        type: integer
+      packaging:
+        type: string
+        description: |
+          shape, material.
+        example: Cardboard
+      producer_version_id:
+        type: integer
+      product_name_fr:
+        type: integer
+      proteins:
+        type: integer
+      quantity:
+        type: integer
+      salt:
+        type: integer
+      saturated-fat:
+        type: integer
+      serving_size:
+        type: integer
+      sugars:
+        type: integer
+  owner_imported:
+    type: string
+  owners_tags:
+    type: string
+  packaging:
+    type: string
+  packaging_hierarchy:
+    type: array
+    items:
+      type: string
+  packaging_imported:
+    type: string
+  packaging_lc:
+    type: string
+  packaging_tags:
+    type: array
+    items:
+      type: string
+  packaging_text:
+    type: string
+    description: |
+      Recycling instructions as raw text, e.g. Plastic
+      bottle to recycle, Plastic cap to recycle.
+      This will get automatically parsed and
+      will be used to compute the Eco-Score.
+      You can either request it (if it exists) or
+      send it in a specific language.
+    example: packaging_text_en
+  packaging_text_en:
+    type: string
+    description: |
+      This can be returned in many other languages
+      like packaging_text_fr (for french).
+  packagings:
+    $ref: ./packagings/packagings.yaml
+  packagings_complete:
+    $ref: ./packagings/packagings_complete.yaml
+  photographers_tags:
+    type: array
+    items:
+      type: string
+  pnns_groups_1:
+    type: string
+  pnns_groups_1_tags:
+    type: array
+    items:
+      type: string
+  pnns_groups_2:
+    type: string
+  pnns_groups_2_tags:
+    type: array
+    items:
+      type: string
+  popularity_key:
+    type: integer
+  popularity_tags:
+    type: array
+    items:
+      type: string
+  producer_version_id:
+    type: string
+  producer_version_id_imported:
+    type: string
+  product_name:
+    type: string
+    description: |
+      The name of the product
+  product_name_en:
+    type: string
+    description: |
+      The name of the product can also
+      be in many other languages like
+      product_name_fr (for french).
+  product_quantity:
+    type: string
+  purchase_places:
+    type: string
+    description: |
+      Country, state, or city where the product can be purchased.
+    example: Paris
+  purchase_places_tags:
+    type: array
+    items:
+      type: string
+  quantity:
+    type: string
+    description: |
+      Quantity and Unit.
+  quantity_imported:
+    type: string
+  removed_countries_tags:
+    type: array
+    items:
+      type: object
+  rev:
+    type: integer
+  scans_n:
+    type: integer
+  scores:
+    type: object
+
+  serving_quantity:
+    type: string
+  serving_size:
+    type: string
+    description: |
+      Serving size in g (or ml).
+  serving_size_imported:
+    type: string
+  sortkey:
+    type: integer
+  sources:
+    type: array
+    items:
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        images:
+          type: array
+          items:
+            type: object
+        import_t:
+          type: integer
+        manufacturer:
+          type:
+            - integer
+            - string
+        name:
+          type: string
+        source_licence:
+          type: string
+        source_licence_url:
+          type: string
+        url:
+          type:
+            - "null"
+            - string
+  sources_fields:
+    type: object
+    properties:
+      org-gs1:
+        type: object
+        properties:
+          gln:
+            type: string
+          gpcCategoryCode:
+            type: string
+          gpcCategoryName:
+            type: string
+          isAllergenRelevantDataProvided:
+            type: string
+          lastChangeDateTime:
+            type: string
+          partyName:
+            type: string
+          productionVariantDescription:
+            type: string
+          publicationDateTime:
+            type: string
+  states:
+    type: string
+  states_hierarchy:
+    type: array
+    items:
+      type: string
+  states_tags:
+    type: array
+    items:
+      type: string
+  stores:
+    type: string
+    description: |
+      Distributor name.
+    example: Walmart
+  stores_tags:
+    type: array
+    items:
+      type: string
+  teams:
+    type: string
+  teams_tags:
+    type: array
+    items:
+      type: string
+  traces:
+    type: string
+    description: |
+      List of substances that might cause allergies
+      that are present in trace amounts in the product
+      (this does not include the ingredients, as they
+      are not only present in trace amounts).
+      It is taxonomized with the allergens taxonomy.
+  traces_from_ingredients:
+    type: string
+  traces_from_user:
+    type: string
+  traces_hierarchy:
+    type: array
+    items:
+      type: object
+  traces_lc:
+    type: string
+  traces_tags:
+    type: array
+    items:
+      type: object
+  unique_scans_n:
+    type: integer
+  unknown_ingredients_n:
+    type: integer
+  unknown_nutrients_tags:
+    type: array
+    items:
+      type: object
+  update_key:
+    type: string
+  vitamins_prev_tags:
+    type: array
+    items:
+      type: object
+  vitamins_tags:
+    type: array
+    items:
+      type: object

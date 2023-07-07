@@ -1,0 +1,31 @@
+type: object
+properties:
+  additives_n:
+    type: integer
+    description: |
+      Number of food additives.
+  checked:
+    type: string
+  complete:
+    type: integer
+  completeness:
+    type: number
+  ecoscore_grade:
+    type: string
+    description: |
+      See also: `ecoscore_tags`
+  ecoscore_score:
+    type: integer
+    description: |
+      See also: `ecoscore_tags`
+  food_groups:
+    type: string
+  food_groups_tags:
+    type: array
+    items:
+      type: string
+
+patternProperties:
+  'food_groups_(?<language_code>\w\w)':
+    type: string
+    description: see `food_groups`

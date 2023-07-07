@@ -1,0 +1,50 @@
+type: object
+description: |
+  More Meta data about product (database handling)
+properties:
+  informers_tags:
+    type: array
+    items:
+      type: string
+  interface_version_created:
+    type: string
+  interface_version_modified:
+    type: string
+  languages:
+    type: object
+    patternProperties:
+      'en:(?<language_name>\w\w)':
+        type: integer
+        description: |
+          **TODO** explain !
+  languages_codes:
+    type: object
+    patternProperties:
+      (?<language_code>\w\w):
+        type: integer
+    description: |
+      Same as `languages` but by language code, instead of language tags
+  languages_hierarchy:
+    type: array
+    items:
+      type: string
+  languages_tags:
+    type: array
+    items:
+      type: string
+  last_edit_dates_tags:
+    type: array
+    items:
+      type: string
+  last_editor:
+    type: string
+
+  last_modified_by:
+    type: string
+    description: |
+      The username of the user who last modified the product.
+    example: sebleouf
+  last_modified_t:
+    type: integer
+    description: |
+      Date when the product page was last modified.

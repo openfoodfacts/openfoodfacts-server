@@ -1,0 +1,43 @@
+type: object
+detail: |
+  Here are referenced fields that one may found in the database but
+  either have no real meaning or should not be considered part of the API
+
+properties:
+  countries_imported:
+    type: string
+  grades:
+    type: object
+
+  countries_beforescanbot:
+    type: string
+
+  _id:
+    type: string
+    description: id in database of the product, this normally is the barcode
+  _keywords:
+    type: array
+    items:
+      type: string
+
+  lang_imported:
+    type: string
+
+  lc_imported:
+    type: string
+
+  max_imgid:
+    type: string
+
+patternProperties:
+  'abbreviated_product_name_(?<language_code>\w\w)_imported':
+    type: string
+  'conservation_conditions_(?<language_code>\w\w)_imported':
+    type: string
+  'customer_service_(?<language_code>\w\w)_imported':
+    type: string
+
+  'ingredients_text_(?<language_code>\w\w)_imported':
+    type: string
+    description: |
+      list of ingredients as imported by the producer in language_code
