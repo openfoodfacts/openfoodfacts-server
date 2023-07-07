@@ -38,6 +38,8 @@ The process of cloning the repository will create a number of symbolic links whi
  - Completely disable UAC
  - Specifically grant the [Create symbolic links](https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links) permission to your user
 
+Make sure you also activated the [Developper mode](https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development) on your device.
+
 ## 2. Clone the repository from GitHub
 
 > _You must have a GitHub account if you want to contribute to Open Food Facts development, but it’s not required if you just want to see how it works._
