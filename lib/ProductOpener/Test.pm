@@ -565,7 +565,7 @@ sub _sub_items ($item_ref, $subfields_ref) {
 		# get first level
 		my @result = ();
 		my @key = split(/\./, shift(@$subfields_ref));
-		
+
 		if (deep_exists($item_ref, @key)) {
 			# only support array for now
 			my @sub_items = deep_get($item_ref, @key);
