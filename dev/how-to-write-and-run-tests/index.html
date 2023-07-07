@@ -955,10 +955,10 @@
 <p>To run a single test you can use:</p>
 <ul>
 <li>for unit test:
-   <div class="highlight"><pre><span></span><code>make<span class="w"> </span>unit-test<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;filename.t&quot;</span>
+   <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-unit<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;filename.t&quot;</span>
 </code></pre></div></li>
 <li>for integration test:
-   <div class="highlight"><pre><span></span><code>make<span class="w"> </span>int-test<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;filename.t&quot;</span>
+   <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-int<span class="w"> </span><span class="nv">test</span><span class="o">=</span><span class="s2">&quot;filename.t&quot;</span>
 </code></pre></div></li>
 </ul>
 <p>If you made change that impact stored expected results, you can use:</p>
@@ -967,8 +967,8 @@
   <div class="highlight"><pre><span></span><code>make<span class="w"> </span>update_tests_results
 </code></pre></div></li>
 <li>or to generate expected results for a single test
-  (here for integration test, <code>unit-test</code> otherwise)
-  <div class="highlight"><pre><span></span><code>make<span class="w"> </span>int-test<span class="o">=</span><span class="s2">&quot;filename.t --update-expected results&quot;</span>
+  (here for integration test, <code>test-unit</code> otherwise)
+  <div class="highlight"><pre><span></span><code>make<span class="w"> </span>test-int<span class="o">=</span><span class="s2">&quot;filename.t --update-expected results&quot;</span>
 </code></pre></div></li>
 </ul>
 <p>If you re-generate test results, be sure to look carefully that the changes your commit are expected changes.</p>
