@@ -436,10 +436,11 @@ my %the = (
 # e.g. "fraises issues de l'agriculture biologique"
 
 # Put composed labels like fair-trade-organic first
+# There is no need to add labels in every language, synonyms are used automatically
 my @labels = (
 	"en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "en:pdo", "fr:label-rouge",
 	"en:sustainable-seafood-msc", "en:responsible-aquaculture-asc",
-	"fr:aoc", "en:vegan", "en:vegetarian", "pl:bio",
+	"fr:aoc", "en:vegan", "en:vegetarian",
 );
 my %labels_regexps = ();
 
@@ -4471,7 +4472,7 @@ my %ingredients_categories_and_types = (
 			[
 				"jabłek", "pomarańczy", "marchwi", "bananów", "brzoskwiń", "gujawy",
 				"papai", "ananasów", "mango", "marakui", "liczi", "kiwi",
-				"limonek",
+				"limonek", "jabłkowy", "marchwiowy", "bananowy", "pomarańczowy"
 			],
 		],
 		# flours

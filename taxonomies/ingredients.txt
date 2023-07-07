@@ -10379,6 +10379,7 @@ fr:viande de bœuf cuite, viande de boeuf cuite, viande bovine cuite, bœuf cuit
 hu:főtt marhahús
 it:manzo cotto, carne di manzo cotta
 nl:gekookt rundvlees
+pl:mięso wołowe gotowane
 # ingredient/fr:bœuf-cuit has 58 products in 4 languages @2019-04-02
 
 <en:beef meat
@@ -10510,6 +10511,7 @@ fi:Naudanlihatiiviste
 fr:extrait de viande de bœuf, extrait de viande de boeuf, extrait de viande bovine
 hu:marhahúskivonat
 nl:rundvleesextract
+pl:ekstrakt wołowy
 sv:nötköttsextrakt, nötkottextrakt
 vegan:en:no
 vegetarian:en:no
@@ -10536,6 +10538,7 @@ es:foie de res, higado de res
 fi:naudan maksa
 fr:foie de boeuf
 hr:goveda jetra
+pl:wątroba wołowa, wątroby wołowe, wątroby wołowej
 sv:nötlever
 # ingredient/fr:foie-de-boeuf has 13 products in french @2019-05-24
 
@@ -10559,6 +10562,7 @@ ciqual_food_code:en:40107
 ciqual_food_name:en:Liver, calf, cooked
 ciqual_food_name:fr:Foie, veau, cuit
 
+<en:animal
 en:cow
 bg:крава
 ca:vaca
@@ -11387,6 +11391,7 @@ fi:riistaeläin, riista
 fr:Gibier
 hu:vad
 it:Selvaggina
+pl:dziczyzna
 
 ###################################################################################################
 #
@@ -11403,6 +11408,7 @@ fi:hirvieläin
 fr:biche
 hu:szarvas
 it:Cervo
+pl:jeleń, jelenia
 
 <en:meat
 <en:deer
@@ -11429,7 +11435,7 @@ lt:Elniena
 mk:срнечко месо
 nl:hertevlees
 pa:ਵੈਨਿਸਨ
-pl:Mięso z jeleniowatych
+pl:mięso z jelenia, mięso z jeleniowatych
 ru:оленина
 uk:оленятина
 vi:Thịt nai
@@ -11474,6 +11480,22 @@ fi:poron lapa
 fr:épaule de renne
 sv:renbog
 # ingredient/fi:poron-lapa has 1 product in 2 languages @2020-06-08
+
+###################################################################################################
+#
+#                                Boar
+#
+###################################################################################################
+<en:game animal
+en:wild boar
+pl:dzik, dzika
+wikidata:en:Q58697
+ciqual_food_code:en:14002
+ciqual_food_name:en:Wild boar, raw
+
+<en:wild boar
+en:wild boar meat
+pl:mięso z dzika
 
 # description:en:Merguez is a red, spicy mutton- or beef-based fresh sausage from Maghrebi cuisine.
 
@@ -12516,7 +12538,7 @@ it:prosciutto
 ja:ハム
 nb:skinke
 nl:Ham
-pl:Szynka, szynka wieprzowa, szynki, szynki wieprzowej, mięso z szynki wieprzowej
+pl:Szynka, szynka wieprzowa, szynki, szynki wieprzowej, mięso z szynki wieprzowej, mięso wieprzowe z szynki
 pt:Presunto
 ru:Ветчина
 sv:skinka, skinka av gris, svinskinka
@@ -15609,7 +15631,7 @@ hu:extra szűz olívaolaj, extraszűz olívaolaj
 it:olio d'oliva extra vergine, olio extravergine di oliva, olio di oliva extra vergine, olio extra vergine di oliva, olio extra vergine d'oliva, olio extravergine d'oliva, olio vegetale extravergine d'oliva
 nl:olijfolie extra vierge, extra olijfolie van de eerste persing, extra vierge olijfolie, extra vergine olijfolie
 no:extra virgin olivenolje, ekstra virgin olivenolje, ekstra jomfru olivenolje
-pl:oliwa z oliwek extra virgin, oliwa extra virgin
+pl:oliwa z oliwek extra virgin, oliwa extra virgin, oliwa z oliwek ekstra virgin, oliwa ekstra virgin
 pt:Azeite extra virgem, azeite virgem extra
 sv:extra jungfru olivolja, olivolja extra virgin, extra jungfruolja, extra fin olivolja, extra virgin olivolja, extra jungfruolivolja
 ciqual_food_code:en:17270
@@ -16976,6 +16998,7 @@ fi:anisöljy, anisöljyä
 fr:huile d’anis,huile essentielle d'anis
 it:olio de semi di anice
 nl:anijsolie
+pl:olejek anyżowy
 sv:anisolja
 wikidata:en:Q549313
 # derivedFrom:en:aniseed
@@ -17361,7 +17384,7 @@ it:aceto di vino bianco
 ja:白ワインビネガー
 lt:baltojo vyno actas
 nl:witte wijnazijn
-pl:ocet winny biały, biały ocet winny, ocet z białego wina, octu z białego wina
+pl:ocet winny biały, biały ocet winny, ocet z białego wina, octu z białego wina, ocet z wina białego
 pt:Vinagre de vinho branco
 sv:vitvinsvinäger
 
@@ -19767,7 +19790,7 @@ fr:préparation aromatisante, préparation aromatique
 hu:fűszerkészítmény
 it:preparazione di spezie
 nl:aromatiserende bereiding
-pl:preparat aromatyzujący, preparaty aromatyzujące
+pl:preparat aromatyzujący, preparaty aromatyzujące, preparaty aromatyczne, preparat aromatyczny
 pt:preparacao aromatizante
 ro:preparat aromatizant
 ru:вкусоароматические вещества и препараты
@@ -19837,6 +19860,7 @@ en:meat flavour
 de:Fleischgeschmack, Fleischaroma
 es:aroma de carne
 fr:Arôme de viande
+pl:aromat mięsny, aromat mięsa
 
 # comment:en:Two parents due to and/or ingredient
 
@@ -19991,6 +20015,7 @@ hu:természetes citromaroma, természetes citrom aroma
 id:perisa alami lemon
 it:aroma naturale di limone
 nl:natuurlijk citroenaroma
+pl:naturalny aromat cytryny
 pt:aroma natural de limão
 ru:натуральный ароматизатор лимон
 vegan:en:yes
@@ -20035,6 +20060,7 @@ hr:prirodna aroma limeta
 hu:természetes lime aroma
 it:aroma naturale di lime
 nl:natuurlijk limoen aroma, natuurlijk aroma van limoen
+pl:naturalny aromat limonki
 
 # Two parents due to and/or ingredient
 
@@ -20225,6 +20251,7 @@ fi:omena-aromi
 fr:arôme de pomme
 hr:aroma jabuke
 hu:alma aroma
+pl:aromat jabłkowy
 
 <en:natural flavouring
 en:natural apple flavouring
@@ -20236,6 +20263,7 @@ hu:természetes alma aroma
 is:náttúruleg eplabragðefni
 nb:naturlig eplesmak
 nl:natuurlijk appelaroma
+pl:naturalny aromat jabłkowy
 
 <en:flavouring
 en:pear flavouring
@@ -20341,6 +20369,7 @@ fi:luontainen mansikka-aromi
 fr:arôme naturel de fraise
 hu:természetes eper aroma
 nl:natuurlijk aardbeienaroma
+pl:naturalny aromat truskawkowy
 
 <en:natural flavouring
 en:natural raspberry flavouring
@@ -20350,6 +20379,7 @@ fi:luontainen vadelma-aromi
 fr:arôme naturel de framboise
 hu:természetes málna aroma
 it:Aroma naturale di lampone
+pl:naturalny aromat malinowy
 # derivedFrom:en:raspberry
 
 <en:natural flavouring
@@ -20378,6 +20408,7 @@ de:natürlicher Paprikageschmack
 fi:luontainen paprika-aromi
 fr:arôme naturel de paprika
 hu:természetes paprika aroma
+pl:naturalny aromat papryki
 
 
 # Two parents due to and/or ingredient
@@ -20462,6 +20493,7 @@ fi:luontainen karamelliaromi
 fr:arôme naturel de caramel
 hu:természetes karamella aroma, természetes karamell aroma
 nl:natuurlijk caramelaroma
+pl:naturalny aromat karmelowy
 pt:aroma natural de caramelo
 
 <en:natural flavouring
@@ -20910,6 +20942,7 @@ es:aroma de fruta de la pasión
 fi:passiohedelmäaromi
 fr:arôme de fruit de la passion
 hu:maracuja aroma
+pl:aromat marakui
 
 <en:flavouring
 en:celery flavouring
@@ -23590,7 +23623,7 @@ nb:hirse
 nl:gierst
 os:елцык
 pa:ਬਾਜਰਾ
-pl:proso, prosa
+pl:proso, prosa, jaglana, jaglany, jaglane
 ps:ږدن
 pt:milhete, painço, milho-miúdo, milho-alvo
 ro:mei
@@ -24207,7 +24240,7 @@ la:chenopodium quinoa
 lt:bolivinė balanda
 ms:kuinoa
 nl:quinoa, gierstmelde
-pl:komosa ryżowa, quinoa
+pl:komosa ryżowa, quinoa, komosy ryżowej
 qu:kinwa
 ru:киноа
 sh:kinoa
@@ -24246,6 +24279,7 @@ en:quinoa seeds
 de:Quinoa-Samen, Quinoasamen, Quinoa Samen
 es:semillas de quinoa
 fr:Graines de quinoa
+pl:nasiona komosy ryżowej, ziarna komosy ryżowej
 
 <en:quinoa
 en:red quinoa
@@ -24256,6 +24290,7 @@ fi:punainen kvinoa
 fr:quinoa rouge
 hu:vörös kinoa
 it:Quinoa rossa
+pl:komosa ryżowa czerwona
 
 <en:quinoa
 en:black quinoa
@@ -24265,6 +24300,7 @@ es:quinoa negra
 fr:quinoa noir
 it:quinoa nera
 nl:zwarte quinoa
+pl:komosa ryżowa czarna
 pt:quinoa preta
 #97 in 6 @2021-09-21
 
@@ -24276,6 +24312,7 @@ es:quinoa blanca
 fi:valkoinen kvinoa
 fr:quinoa blanc, quinoa blond
 hu:fehér kinoa
+pl:komosa ryżowa biała
 pt:quinoa branco
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/white-quinoa
 # 63 products in 4 languages @2018-09-22
@@ -24490,6 +24527,11 @@ en:malted rye flakes
 fr:flocons de seigle malté
 nl:roggemoutvlokken
 # 92 in 2 @ 2021-10-28
+
+<en:rye flour
+<en:malt
+en:malted rye flour
+pl:mąka ze słodu żytniego, mąka słodowa żytnia
 
 <en:rye
 en:wholemeal rye
@@ -25115,7 +25157,7 @@ nb:hvetemel
 nl:tarwemeel, tarwebloem, tarwe bloem
 nn:hvetemel
 no:hvetemel
-pl:mąka pszenna
+pl:mąka pszenna, mąka z pszenicy zwyczajnej
 pt:farinha de trigo
 ro:făină de grâu, faina de grau, făină din grâu, faina din grau
 ru:Пшеничная мука, мука пшеничная хлебопекарная высшего сорта, мука пшеничная высшего сорта, мука пшеничная, мука пшеничная хлебопекарная первого сорта, мука пшеничная хлебопекарная высший сорт, мука пшеничная хлебопекарная второго сорта, мука пшеничная 1 сорта, мука пшеничная первого сорта, мука пшеничная хлебопекарная первый сорт, мука пшеничная общего назначения
@@ -25150,6 +25192,7 @@ hr:pšenično sladno brašno
 hu:búzamaláta liszt
 it:farina di grano maltato, farina di malto di frumento
 nl:gemout tarwemeel, tarwemoutmeel, tarwemoutbloem
+pl:mąka słodowa pszenna, mąka pszenna słodowana
 pt:farinha de malte de trigo
 sv:vetemaltmjöl
 
@@ -25173,9 +25216,12 @@ sv:karamelliserat vetemaltmjöl
 <en:wheat flour
 bg:пшенично брашно тип 450
 fr:farine de blé type 45, farine de blé t45
+pl:mąka pszenna typ 450, mąka pszenna 450, mąka pszenna tortowa typ 450, mąka pszenna tortowa
+
 
 <en:wheat flour
 fr:farine de blé type 55, farine de blé t55
+pl:mąka pszenna typ 550, mąka pszenna 550
 # ingredient/fr:farine-de-ble-type-55 has 12 products @2019-06-02
 
 <en:wheat flour
@@ -25206,6 +25252,9 @@ ciqual_food_name:fr:Farine de blé tendre ou froment T65
 fr:farine de froment T65
 
 <en:wheat flour
+pl:mąka pszenna typ 750, mąka pszenna 750, mąka pszenna chlebowa
+
+<en:wheat flour
 bg:пшенично брашно тип 800
 fr:farine de blé t80
 
@@ -25226,6 +25275,7 @@ it:farina di grano tenero tipo 0, farina di grano tipo 0
 en:wheat flour type 00, flour type 00
 de:Weichweizenmehl Typ 00, Typ 00 Weichweizenmehl, Weizenmehl Typ 00
 it:farina di grano tenero tipo 00, farina di grano tipo 00
+pl:mąka pszenna typ 00
 
 <en:wheat flour
 hr:pšenično brašno tip 400
@@ -25233,6 +25283,7 @@ hr:pšenično brašno tip 400
 <en:wheat flour
 en:wheat flour type 500, flour type 500
 bg:бяло пшенично брашно тип 500, брашно тип 500, пшенично брашно тип 500
+pl:mąka pszenna typ 500, mąka pszenna 500
 
 <en:wheat flour
 en:wheat flour type 550, flour type 550
@@ -25249,6 +25300,9 @@ en:wheat flour T-1050
 hr:pšenično brašno T-1050
 
 <en:wheat flour
+pl:mąka pszenna typ 1850, mąka pszenna 1850, mąka pszenna graham
+
+<en:wheat flour
 es:Harina de trigo enriquecida segun ley 25630, Harina de trigo enriquecida s/ley 25630,Harina de trigo 000 enriquecida Ley 25630
 
 <en:wheat flour
@@ -25261,6 +25315,7 @@ fr:farine de blé dur
 hu:durumbúzaliszt
 it:farina di grano duro
 nl:durum tarwemeel
+pl:mąka z pszenicy durum
 sv:durumvetemjöl, mjöl av durumvete
 uk:борошно з пшеннци тверднх сортив
 
@@ -25309,7 +25364,7 @@ lt:visų grūdo dalių kvietiniai miltai
 lv:pilngraudu kviešu milti
 nb:fullkornshvetemel
 nl:volkorentarwemeel, volkoren tarwemeel
-pl:Mąka pszenna pełnoziarnista
+pl:Mąka pszenna pełnoziarnista, mąka pszenna razowa
 pt:farinha de trigo integral, farinha integral de trigo
 ro:făină integrală de grâu
 sv:fullkornsvetemjöl, grahamsmjöl av vete
@@ -25433,6 +25488,7 @@ hr:integralno ječmeno brašno, ječmeno brašno iz cijelog zrna, brašno cijelo
 hu:teljes kiőrlésű árpaliszt
 it:Farina integrale d'orzo
 nl:volkoren gerstemeel
+pl:mąka jęczmienna pełnoziarnista, pełnoziarnista mąka jęczmienna
 sv:fullkornskornmjöl
 
 <en:barley flour
@@ -25448,6 +25504,7 @@ hr:brašno od ječmenog slado, ječmeno sladno brašno
 hu:árpamalátaliszt
 it:farina di orzo maltato, farina d'orzo maltato, farina di malto d'orzo
 nl:gerstemoutmeel
+pl:mąka ze słodu jęczmiennego
 sv:kornmaltmjöl, maltmjöl av korn
 
 <en:barley flour
@@ -25495,8 +25552,12 @@ ciqual_food_name:en:Rye flour, type 170
 ciqual_food_name:fr:Farine de seigle T170
 
 <en:rye flour
+pl:mąka żytnia typ 720, mąka żytnia 720
+
+<en:rye flour
 en:Rye flour type 85, Rye flour T85
 fr:Farine de seigle T85
+pl:mąka żytnia typ 850, mąka żytnia 850
 ciqual_food_code:en:9532
 ciqual_food_name:en:Rye flour, type 85
 ciqual_food_name:fr:Farine de seigle T85
@@ -25523,8 +25584,12 @@ it:farina di segale integrale
 hu:teljes kiőrlésű rozsliszt
 nb:fullkornsrugmel
 nl:volkoren roggemeel
+pl:mąka żytnia pełnoziarnista, mąka żytnia razowa, pełnoziarnista mąka żytnia
 pt:farinha integral de centeio
 sv:fullkornsrågmjöl, fullkornsmjöl av råg
+
+<en:wholemeal rye flour
+pl:mąka żytnia razowa typ 2000, mąka żytnia razowa 2000, mąka żytnia typ 2000, mąka żytnia typ 2000 razowa
 
 <en:rye flour
 en:dextrinated rye flour
@@ -25634,6 +25699,7 @@ de:Flachsmehl, Leinmehl
 es:semilla de lino amarillo, semillas de lino amarillo, semillas de lino marron
 fi:pellavansiemenjauho
 fr:farine de lin, farine de graines de lin
+pl:mąka lniana, mąka z lnu
 ro:făină din seminte de in
 sv:linfrömjöl
 #openfoodfacts:https://fr.openfoodfacts.org/ingredient/farine-de-lin
@@ -25682,6 +25748,7 @@ ciqual_food_name:fr:Farine de soja
 <en:soya flour
 fr:farine de soja degraissée
 hr:obezmašćeno sojino brašno
+pl:odtłuszczona mąka sojowa
 ro:făină de soia degrasată, faina de soia degrasata
 
 <en:flour
@@ -25867,6 +25934,7 @@ fr:farine de quinoa
 hu:quinoa liszt, quinoaliszt
 it:Farina di quinoa
 nl:quinoameel
+pl:mąka z komosy ryżowej
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/quinoa-flour
 # 173 products in 5 languages @2018-09-22
 
@@ -30226,7 +30294,7 @@ hu:szójafehérje
 hr:bjelančevine soje, hidrolizat sojinih bjelančevina, sojine bjelančevine
 it:proteine di soia
 nl:soja-eiwit, sojaeiwitten
-pl:Białko sojowe, hydrolizat białka sojowego, białko soi, białko z soi, białka sojowego
+pl:Białko sojowe, białko soi, białko z soi, białka sojowego
 pt:Proteína de soja
 ro:proteină de soia, proteina de soia, proteină vegetală din soia, proteina vegetala din soia
 ru:Соевый протеин, соевый белок
@@ -30426,7 +30494,7 @@ fi:sianlihaproteiini
 fr:Protéines de porc
 hu:sertésfehérje, sertéshúsfehérje, sertés fehérje
 nl:varkenseiwit
-pl:białko wieprzowe
+pl:białko wieprzowe, białka zwierzęce wieprzowe
 ro:proteină de porc, proteina de porc
 sv:grisköttprotein, animaliskt protein av gris
 vegetarian:en:no
@@ -30446,6 +30514,7 @@ fi:naudanlihaproteiini, naudan proteiini
 fr:Protéine de bœuf
 hu:marhafehérje
 it:proteine del manzo, proteine di manzo
+pl:białko wołowe
 vegetarian:en:no
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:naudan-proteiini
 # 1 entry @ 2019-10-31
@@ -35936,6 +36005,7 @@ de:Mangoaroma
 es:aroma de mango
 fi:mangoaromi
 fr:arôme de mangue
+pl:aromat mango
 sv:mangoarom
 # ingredient/fr:arome-de-mangue has 6 products in 4 languages @2020-05-25
 
@@ -37447,7 +37517,7 @@ fi:luontainen sitrusaromi
 fr:arôme naturel d'agrumes, arômes naturels d'agrumes
 hu:természetes citrus aroma, természetes citrusaroma
 nl:natuurlijke aroma's van citrusvruchten
-pl:naturalny aromat cytrusowy, naturalny aromat z cytrusów
+pl:naturalny aromat cytrusowy, naturalny aromat z cytrusów, naturalny aromat owoców cytrusowych
 sv:naturlig citronarom
 
 <en:citrus fruit
@@ -39037,6 +39107,7 @@ nl:gekonfijte sinaasappelschillen
 en:concentrated orange extract
 de:konzentrierter Orangenextrakt
 fr:Extraits de concentré d'orange
+pl:skoncentrowany ekstrakt z pomarańczy
 
 <en:orange extract
 fr:extraits naturels d'orange
@@ -39067,7 +39138,7 @@ ciqual_food_name:fr:Marmelade d'orange
 #
 ###################################################################################################
 
-<en:cirtus fruit
+<en:citrus fruit
 en:Yuzu
 ja:柚子, ゆず
 
@@ -39713,7 +39784,7 @@ nb:stjernefrukt
 ne:कन्तर
 nl:stervrucht, carambola, sterfruit
 or:କରମଙ୍ଗା
-pl:karambola
+pl:karambola, karamboli
 pt:caramboleiro, carambola
 ro:carambola
 ru:карамбола
@@ -40670,6 +40741,7 @@ en:medjool dates
 de:Medjool Datteln
 fr:dattes Medjool
 it:Datteri Medjool
+pl:daktyle medjool, daktyle odmiany medjoool
 # 9in3@2019-06-04
 
 #process:en: en:paste
@@ -40679,6 +40751,7 @@ en:date paste
 de:pürierte Datteln
 fr:pâte de datte
 nl:dadelpuree
+pl:pasta daktylowa
 sv:dadelpuré
 
 #process:en:en:syrup
@@ -42018,7 +42091,7 @@ no:papaya
 nv:babáayah
 oc:papaia
 or:ଅମୃତଭଣ୍ଡା
-pl:papają, papai
+pl:papaja, papają, papai
 pt:mamão, papaia, ababaia
 qu:papaya
 ro:papaya
@@ -42486,7 +42559,7 @@ it:succo di melagrana
 # 61 products in 3 languages @2018-10-03
 
 <en:pomegranate juice
-en:pomegranate juice
+en:pure pomegranate juice
 fr:pur jus de grenade
 
 <en:pomegranate juice
@@ -49435,7 +49508,7 @@ nl:venkel
 nn:fennikel
 oc:fenolh
 or:ପାନମଧୁରୀ
-pl:fenkuł włoski, fenkuł, koper włoski
+pl:fenkuł włoski, fenkuł, koper włoski, kopru włoskiego
 pt:funcho
 qu:inuhu
 ro:fenicul
@@ -49889,6 +49962,11 @@ carbon_footprint_fr_foodges_value:fr:0.6
 ciqual_food_code:en:20034
 ciqual_food_name:en:Onion, raw
 ciqual_food_name:fr:Oignon, cru
+
+# description:en:Cebula dymka is a name for young onion meant to be pickled or consumed raw
+
+<en:onion
+pl:cebula dymka
 
 <en:onion
 fr:oignon semoule
@@ -51529,6 +51607,7 @@ fr:farine de manioc
 hu:maniókaliszt
 nl:maniokmeel
 nn:kassavamel
+pl:mąka z manioku
 sv:maniokmjöl
 nutriscore_fruits_vegetables_nuts:en:no
 
@@ -51923,7 +52002,7 @@ da:peberfrugt
 de:Gemüsepaprika
 eo:kapsiko
 es:pimiento, morrón, pimiento morrón, pimiento dulce, pimientos dulces
-et:paprika, paprikad
+et:paprikad
 eu:pipermorro
 fa:فلفل دلمه‌ای
 fi:paprikaa, makea paprika, makeat paprikat
@@ -52600,7 +52679,6 @@ cy:Paprica
 el:πάπρικα
 eo:papriko
 es:pimentón, paprika
-et:paprika
 eu:piperrauts
 fa:پاپریکا
 fr:paprika
@@ -54020,6 +54098,7 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Navette_(plante)
 # description:en:A BEAN is a seed of one of several genera of the flowering plant family Fabaceae, which are used for human or animal food.
 # comment:en:Beans is the generic term for Phaseolus vulgaris, however the correct name "common bean" is not much used as ingredient. So be wary with the wikidata translations as well.
 
+<en:legume
 en:beans, common bean, bean
 am:ኣደንጓሬ
 ar:فاصولياء شائعة
@@ -55479,7 +55558,7 @@ la:Pisum sativum L. subsp. sativum
 lt:žalieji žirneliai
 lv:zaļie zirnīši
 nl:groene erwt, groene erwten
-pl:groszek zielony, zielony groszek, groszku zielonego, zielonego groszku
+pl:groszek zielony, zielony groszek, groszku zielonego, zielonego groszku, groch zielony
 ro:mazăre
 ru:Зеленый горошек
 sv:gröna ärtor
@@ -55879,7 +55958,7 @@ pl:soczewica brązowa
 en:red lentil flour
 de:rotes Linsenmehl, Rotelinsenmehl
 fr:farine de lentilles corail
-pl:mąka z czerwonej soczewicy
+pl:mąka z czerwonej soczewicy, mąka z soczewicy czerwonej
 
 <en:lentils
 fr:lentillons
@@ -57240,7 +57319,6 @@ it:noci
 ja:ナッツ
 nb:trenøtt, trenøtter
 nl:boomnoten
-pl:Orzechy
 pt:Árvore de frutos secos
 allergens:en: en:nuts
 
@@ -57557,6 +57635,7 @@ fr:graine d'anis vert, anis vert, graine d'anis, anis
 hr:plod anisa
 it:Anice
 nl:anijszaad, anijs
+pl:anyż, anyżek, anyżu
 ru:семена аниса
 sv:anis, anisfrö
 te:సోపు
@@ -57594,6 +57673,7 @@ it:Semi di coriandolo
 nb:korianderfrö
 nl:korianderzaad
 or:ଧନିଆ ମଞ୍ଜି
+pl:owoc kolendry, owoc kolendry siewnej, nasiona kolendry, nasiono kolendry, ziarna kolendry
 pt:semente de coentro
 ru:семена кориандра
 th:ม็ดผักชี
@@ -60354,6 +60434,7 @@ fr:graine de fenugrec, graines de fenugrec
 it:seme di fieno greco, semi di fieno greco
 la:Trigonellae foenugraeci semen
 nl:fenegriekzaad
+pl:nasiona kozieradki, nasiono kozieradki
 wikidata:en:Q57659978
 ciqual_food_code:en:11077
 ciqual_food_name:en:Fenugreek, seed
@@ -60985,7 +61066,7 @@ nb:Stjerneanis
 nl:steranijs
 oc:Badiana
 or:ଅନାସି ଫୁଲ
-pl:Cynamonowiec cejloński, Badian właściwy, anyż gwiaździsty, anyżu gwiaździstego
+pl:Cynamonowiec cejloński, Badian właściwy, anyż gwiaździsty, anyżu gwiaździstego, anyż gwiazdkowy
 pt:Estrela-de-anis
 ru:анис звёздчатый
 sd:باديان خطائي
@@ -62692,7 +62773,7 @@ lv:Ārstniecības lupstājs
 nb:Løpstikke
 nl:lavas
 oc:Api salvatge
-pl:lubczyk, lubczyku
+pl:lubczyk, lubczyku, lubczyka
 pt:Levístico
 ro:Leuștean
 ru:Любисток
@@ -62714,12 +62795,14 @@ en:lovage leaves
 de:Liebstöckel Blätter, Liebstöckelblätter
 fi:liperin lehdet
 fr:feuilles de livèche
+pl:liście lubczyku, lubczyk liść
 
 <en:lovage
 en:dried lovage
 de:Getrockneter Liebstöckel
 fi:kuivattu liperi
 fr:livèche séchée
+pl:lubczyk suszony, suszony lubczyk
 
 <en:lovage
 en:lovage root
@@ -62728,6 +62811,7 @@ de:liebstöckelwurzel
 fi:lipstikanjuuri
 fr:racine de livèche
 nl:lavaswortel
+pl:korzeń lubczyku, korzeń lubczyka
 sv:libbstickarot
 # ingredient/fr:racine-de-liveche has 40 products in 4 languages @2020-05-24
 
@@ -63827,7 +63911,7 @@ lv:apiņi
 ms:Hop
 nl:hop
 nn:humle
-pl:chmiel, chmielu, chmielowy, chmielowa, chmielowe
+pl:chmiel, chmielu, chmielowy, chmielowa, chmielowe, szyszki chmielu
 pt:lúpolo
 ro:hamei
 ru:хмель, хмелепродукты
@@ -63861,6 +63945,14 @@ pl:ekstrakt z chmielu
 pt:extracto de lupolo
 sk:chmelovy extract
 # ingredient/fr:extrait-de-houblon has 155 products in 15 languages @2018-12-01
+
+<en:hops
+en:hops flavour
+pl:aromat chmielu
+
+<en:hops flavour
+en:natural hops flavour
+pl:naturalny aromat chmielu
 
 <en:hops
 en:natural hop, natural hops
@@ -64721,7 +64813,7 @@ nn:maté
 oc:Mate
 os:Мате
 pa:ਮੇਟ
-pl:Yerba mate, mate
+pl:Yerba mate, mate, liście mate, liści mate
 pt:chimarrão, erva-mate
 qu:Mati upyana
 ro:Mate
@@ -64757,6 +64849,7 @@ es:yerba mate elaborada con palo
 <en:mate
 en:yerba mate extract
 es:extracto de yerba mate
+pl:ekstrakt z mate, ekstrakt z liści mate, ekstrakt yerba mate
 
 ###################################################################################################
 #
@@ -64996,6 +65089,12 @@ pl:oliwki Koroneiki
 xx:Koroneiki
 wikipedia:en:https://en.wikipedia.org/wiki/Koroneiki
 wikidata:en:Q21087084
+
+# See https://en.wikipedia.org/wiki/List_of_olive_cultivars
+
+<en:olive
+en:Halkidiki olives
+pl:oliwki Halkidiki, oliwki Chalkidiki
 
 <en:olive
 en:green olive, green olives
@@ -69482,6 +69581,7 @@ nl:visextract
 bg:месо от риба
 fr:chair de poisson, chair de poissons
 de:Fischfleisch
+pl:mięso ryb
 # ingredient/fr:chair-de-poisson has 355 products in 2 languages @2018-12-29
 
 # description:fr:Un fumet de poisson est un fond préparé à partir de poisson.
@@ -71325,7 +71425,7 @@ lt:Strimelė
 lv:strimala
 or:ହେରିଂଗ ସାଟନ
 pa:ਅਟਲਾਂਟਿਕ ਹੇਰਿੰਗ
-pl:śledź atlantycki, sałaka, śledź oceaniczny, śledzia atlantyckiego, śledzia oceanicznego, śledzi atlantyckich, śledzi oceanicznych
+pl:śledź atlantycki, śledź oceaniczny, śledzia atlantyckiego, śledzia oceanicznego, śledzi atlantyckich, śledzi oceanicznych
 pt:arenque-do-atlântico
 ru:атлантическая сельдь
 tr:Baltık ringası
@@ -71341,6 +71441,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Atlantic_herring
 <en:Atlantic herring
 fr:clupea harengus pêché en Atlantique Nord
 
+<en:Atlantic herring
+en:Baltic herring
+la:Clupea harengus membras
+nl:Oostzeeharing
+pl:śledź bałtycki, śledzia bałtyckiego, śledzie bałtyckie
+ru:Салака
+ua:Салака
 
 
 <en:fish
@@ -76214,9 +76321,22 @@ wikipedia:en:https://en.wikipedia.org/wiki/Psyllium
 # ingredient/fr:psyllium has 89 products in 4 languages @2018-12-17
 
 <en:psyllium
+en:blond psyllium
+es:psyllium rubio
+fr:psyllium blond
+la:Plantago ovata
+pl:babka jajowata, babki jajowatej
+
+<en:blond psyllium
+en:blond psyllium husk
 es:tegumento de psyllium rubio
 fr:tégument de psyllium blond
-la:Plantago ovata
+pl:łupina nasienna babki jajowatej
+
+<en:blond psyllium
+en:blond psyllium fibre
+pl:błonnik babki jajowatej, błonnik z babki jajowatej
+
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -77225,6 +77345,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Caffeine
 # ingredient/fr:caféine has 426 languages in 11 languages @2019-05-18
 vegan:en:yes
 vegetarian:en:yes
+
+<en:caffeine
+en:natural caffeine
+pl:naturalna kofeina, kofeina naturalna
 
 
 # description:en:GLUCURONOLACTONE is a naturally occurring substance that is an important structural component of nearly all connective tissues.
@@ -78304,6 +78428,10 @@ vegetarian:en:no
 # ingredient/fr:volaille has 99 products in 4 languages @2019-03-11
 
 <en:poultry
+en:poultry protein
+pl:białko drobiowe
+
+<en:poultry
 en:poultry meat
 bg:птиче месо
 da:Fjerkrækød
@@ -78331,7 +78459,7 @@ fi:siipikarjan nahka
 fr:peau de volaille
 it:Pelle di pollame
 nl:gevogeltevel
-pl:skórki z kurcząt, skórki z kurczaka
+pl:skórki drobiowe, skórki z drobiu
 # ingredient/fr:peau-de-volaille has 76 products in french @2019-03-29
 
 <en:poultry
@@ -78635,7 +78763,7 @@ fr:peau de poulet
 hr:pileće kožice
 it:pelle di pollo
 nl:kippenvel
-pl:skóra z kurczaka, skóry z kurczaka, skóry z kurcząt
+pl:skóra z kurczaka, skóry z kurczaka, skóry z kurcząt, skórki z kurcząt, skórki z kurczaka, skórki drobiowe z kurczaka
 ro:piele de pui
 sv:kycklingskinn
 # ingredient/fr:peau-de-poulet has 215 products in 7 languages @2019-03-29
@@ -78659,7 +78787,7 @@ it:carne di pollo
 ja:鶏肉
 nb:kyllingkjøtt
 nl:kippenvlees
-pl:Mięso z kurczaka, mięso kurczęce, mięso z kurcząt
+pl:Mięso z kurczaka, mięso kurczęce, mięso z kurcząt, mięso drobiowe z kurczaka, mięso kurze, mięso z kury, mięsa kurczaka, mięso kurczaka
 ro:carne de pui
 ru:куриное мясо
 sk:prsia kuracie
@@ -78749,9 +78877,6 @@ fr:haut de cuisse de poulet
 
 
 <en:chicken meat
-fr:filets de poulet
-
-<en:chicken meat
 fr:poulet traité en salaison
 
 <fr:poulet traité en salaison
@@ -78799,7 +78924,7 @@ da:kyllingefilet
 de:Hühnerfilet
 es:Filete de pechuga de pollo
 fi:kanafilee
-fr:filet de poulet, fillets de poulet, viande de filet de poulet
+fr:filet de poulet, fillets de poulet, viande de filet de poulet, filets de poulet
 it:Filetto di pollo
 nl:kipfilet
 pl:filet z kurczaka, filety z kurczaka, filet z kurcząt
@@ -78882,7 +79007,7 @@ fi:broilerin rintafilee, broilerin rintafileetä
 fr:filet de poitrine de poulet
 hr:file pilećih prsa
 nl:kippenborstfilet
-pl:filet z piersi kurczaka, filet z piersi z kurczaka, filety z piersi kurczaka, filety z piersi z kurczaka, filet z piersi kurcząt
+pl:filet z piersi kurczaka, filet z piersi z kurczaka, filety z piersi kurczaka, filety z piersi z kurczaka, filet z piersi kurcząt, mięso z fileta piersi kurczaka
 sv:kycklingbröstfilé
 # ingredient/fr:filet-de-poitrine-de-poulet has 9 products in 2 languages @2020-06-13
 
@@ -78894,7 +79019,7 @@ es:muslo de pollo
 fi:kanankoipi
 fr:cuisse de poulet, cuisses de poulet
 nb:kyllinglår
-pl:udko z kurczaka, udko kurczaka, udka z kurczaka
+pl:udko z kurczaka, udko kurczaka, udka z kurczaka, mięso z uda kurczaka
 sv:kyckling lårkött
 carbon_footprint_fr_foodges_ingredient:fr:Cuisse de poulet
 carbon_footprint_fr_foodges_value:fr:4.9
@@ -79295,6 +79420,7 @@ en:turkey thigh meat
 de:putenoberkeulenfleisch
 fr:viande de cuisse de dinde
 de:putenoberkeulenfleisch
+pl:mięso z uda indyka
 # ingredient/fr:viande-de-cuisse-de-dinde has 58 products in french @2019-04-16
 
 <en:turkey
@@ -79305,7 +79431,7 @@ de:Truthahn-Haut
 fi:kalkkunan nahka
 fr:peau de dinde
 nl:kalkoenvel
-pl:skórki z indyka, skórki indycze
+pl:skórki z indyka, skórki indycze, skórki drobiowe z indyka
 # ingredient/fr:peau-de-dinde has 76 products in french @2019-03-01
 
 <en:turkey meat
@@ -80571,6 +80697,7 @@ fr:extraits végétaux
 hr:biljni ekstrakt
 it:estratto vegetale, estratti vegetali
 nl:plantaardig extract, plantaardige extracten
+pl:ekstrakty warzyw, ekstrakt warzyw
 pt:Extrato de vegetais
 sv:grönsaksextrakt
 # ingredient/fr:extraits-végétaux has 224 products in 11 languages @2019-05-15
@@ -80709,7 +80836,7 @@ ne:रेसा
 nl:vezel, voedingsvezel, voedingsvezels, vezels
 nn:fiber
 oc:fibra
-pl:włókno, błonnik
+pl:włókno, błonnik, błonniki
 pt:fibra, fibra alimentar, fibras alimentares
 qu:Q'aytucha
 ro:Fibră
@@ -80769,6 +80896,7 @@ sv:linfröfiber
 <en:sugarcane
 en:sugarcane fiber, sugarcane fibers
 fr:fibre de canne à sucre, fibres de canne à sucre
+pl:błonnik z trzciny cukrowej
 
 # description:en:INULINS are a group of naturally occurring polysaccharides produced by many types of plants, industrially most often extracted from chicory. Chicory root is the main source of extraction for commercial production of inulin. It can be used to replace sugar, fat, and flour.
 
@@ -86574,6 +86702,7 @@ fr:extrait d'orange
 hr:orange extract
 it:estratto di arancia
 nl:sinaasappelextracten
+pl:ekstrakt z pomarańczy, ekstrakty z pomarańczy
 pt:extrato de laranja
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-d'orange
 # 44 products @2018-09-28
