@@ -205,6 +205,7 @@ my %contains_regexps = (
 	fr => "contient",
 	it => "contengono",
 	nl => "bevat",
+	pl => "zawiera|zawierają",
 	ro => "con[țţt]ine|con[țţt]in",
 	sv => "innehåller",
 );
@@ -368,6 +369,7 @@ my %of = (
 my %from = (
 	en => " from ",
 	fr => " de la | de | du | des | d'",
+	pl => " z ",
 );
 
 my %and = (
@@ -417,6 +419,7 @@ my %and_or = (
 	it => " e | o | e/o | e / o",
 	nl => " en/of | en / of ",
 	nb => " og | eller | og/eller | og / eller ",
+	pl => " i | oraz ",
 	ru => " и | или | и/или | и / или ",
 	sv => " och | eller | och/eller | och / eller ",
 );
@@ -2061,6 +2064,8 @@ sub parse_ingredients_text ($product_ref) {
 								'en',
 							],
 
+							'pl' => ['^masa kakaowa minimum$',],
+
 							'ru' => [
 								'^россия$', '^состав( продукта)?$',
 								'^энергетическая ценность$', '^калорийность$',
@@ -3341,7 +3346,7 @@ sub normalize_a_of_b ($lc, $a, $b) {
 			return $a . " de " . $b;
 		}
 	}
-	elsif ($lc eq "ru") {
+	elsif (($lc eq "ru") or ($lc eq "pl")) {
 		return $a . " " . $b;
 	}
 }
@@ -3916,6 +3921,7 @@ my %phrases_after_ingredients_list = (
 		'przechowywać w chlodnym i ciemnym miejscu',    #keep in a dry and dark place
 		'n(a|o)jlepiej spożyć przed',    #Best before
 		'Przechowywanie',
+		'pakowan(o|y|e) w atmosferze ochronnej',    # Packaged in protective environment
 	],
 
 	pt => [
@@ -4432,6 +4438,20 @@ my %ingredients_categories_and_types = (
 		],
 	],
 
+	pl => [
+		# oils and fats
+		[
+			# categories
+			["olej", "olej roślinny", "oleje", "oleje roślinne", "tłuszcze", "tłuszcze roślinne",],
+			# types
+			[
+				"rzepakowy", "z oliwek", "palmowy", "słonecznikowy",
+				"kokosowy", "sojowy", "shea", "palmowy utwardzony",
+				"palmowy nieutwardzony"
+			],
+		],
+	],
+
 	ru => [
 		# oils
 		[
@@ -4511,7 +4531,7 @@ sub develop_ingredients_categories_and_types ($product_lc, $text) {
 				$and_or = $and_or{$product_lc};
 			}
 
-			if (($product_lc eq "en") or ($product_lc eq "ru")) {
+			if (($product_lc eq "en") or ($product_lc eq "ru") or ($product_lc eq "pl")) {
 
 				# vegetable oil (palm, sunflower and olive)
 				$text
@@ -4866,6 +4886,12 @@ sub preparse_ingredients_text ($product_lc, $text) {
 
 		$text =~ s/dient\(s\)/dients/ig;
 		$text =~ s/\bissu(\(e\))?(\(s\))?/issu/ig;
+	}
+	elsif ($product_lc eq 'pl') {
+
+		# remove stopwords
+		$text =~ s/w? zmiennych? proporcjach?//i;
+
 	}
 
 	$text = develop_ingredients_categories_and_types($product_lc, $text);

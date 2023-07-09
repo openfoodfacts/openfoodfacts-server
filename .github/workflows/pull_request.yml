@@ -2,7 +2,14 @@ name: Pull Requests
 
 on:
   pull_request:
-
+    # we can't do that, because status are required
+    # see https://stackoverflow.com/questions/66751567/return-passing-status-on-github-workflow-when-using-paths-ignore
+    # paths-ignore:
+    #   - "**.md"
+    #   - ".github/CODEOWNERS"
+    #   - ".github/PULL_REQUEST_TEMPLATE.md"
+    #   - ".editorconfig"
+  
 jobs:
 
   # those are just until we de-activate their mandatory
