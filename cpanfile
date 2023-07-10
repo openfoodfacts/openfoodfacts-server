@@ -52,6 +52,8 @@ requires 'Spreadsheet::CSV';
 requires 'List::MoreUtils';
 requires 'Excel::Writer::XLSX';
 requires 'Pod::Simple::HTMLBatch';
+requires 'Apache::Bootstrap';
+requires 'Apache2::Connection::XForwardedFor';  # deps: libapache2-mod-perl2-dev
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
