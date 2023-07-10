@@ -35,7 +35,8 @@ my @products = (
 		(
 			imgupload_front_en => ["$sample_products_images_path/front_en.3.full.jpg", 'front_en.3.full.jpg']
 		)
-	},	
+	},
+
 );
 
 # create the products in the database
@@ -75,7 +76,7 @@ my $tests_ref = [
 		test_case => 'get-image-too-small',
 		method => 'GET',
 		path => '/api/v2/product/1234567890013',
-		
+
 	},
 	{
 		test_case => 'post-same-image-twice',
@@ -91,7 +92,7 @@ my $tests_ref = [
 		test_case => 'get-same-image-twice',
 		method => 'GET',
 		path => '/api/v2/product/1234567890014',
-		# expected_status_code => 404,
+
 	},
 	{
 		test_case => 'post-missing-imagefield',
@@ -121,8 +122,9 @@ my $tests_ref = [
 		test_case => 'get-missing-imgupload_[imagefield]',
 		method => 'GET',
 		path => '/api/v2/product/1234567890016',
-		
-	},	
+
+	},
+
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
