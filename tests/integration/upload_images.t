@@ -35,8 +35,7 @@ my @products = (
 		(
 			imgupload_front_en => ["$sample_products_images_path/front_en.3.full.jpg", 'front_en.3.full.jpg']
 		)
-	},
-	
+	},	
 );
 
 # create the products in the database
@@ -109,9 +108,21 @@ my $tests_ref = [
 		path => '/api/v2/product/1234567890015',
 		expected_status_code => 404,
 	},
-	# TODO: add tests for:
-	# - missing corresponding imgupload_[imagefield]
-	
+	{
+		test_case => 'post-missing-imgupload_[imagefield]',
+		method => 'POST',
+		path => '/cgi/product_image_upload.pl',
+		form => {
+			code => "1234567890016",
+			imagefield => "front_en",
+		}
+	},
+	{
+		test_case => 'get-missing-imgupload_[imagefield]',
+		method => 'GET',
+		path => '/api/v2/product/1234567890016',
+		
+	},	
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
