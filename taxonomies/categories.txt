@@ -36,6 +36,14 @@ stopwords:nl:bevat,en
 stopwords:nl_be:bevat,en
 stopwords:de:und,mit,von
 
+# add following tag for category having always same nutriscore grade
+# only 1 letter is allowed
+# expected_nutriscore_grade:en:c
+# add following tag for category having always same ingredient
+# only 1 ingredient tag is allowed (use "en:olive-oil" and not "en:Olive oil")
+# expected_ingredients:en: en:olive-oil
+
+
 # add following tag to ignore "Energy value in kJ does not correspond to the value calculated from the other nutrients error
 # only for categories having nutrients that are not displayed in the nutrition table and contributing to the energy
 # for example, lemon juices containing organic acid, it is forbidden to display organic acid in nutrition tables but
@@ -30802,6 +30810,29 @@ nl:Glutenvrije koekjes, Koekjes zonder gluten, Glutenvrij koekje
 pl:Ciasteczka bezglutenowe
 ro:Biscuiți fără gluten
 
+<en:Biscuits
+fr:Tartelettes au caramel, Tartelettes au caramel beurre salé, Tartelette au caramel, Tartelette au caramel beurre salé, Tartelettes caramel, Tartelette caramel
+
+<en:Biscuits
+en:Tartlet biscuits with chocolate, Biscuit (small tart) with chocolate pre-packed, Chocolate tartlets
+de:Schokoladentörtchen
+fr:Tartelettes au chocolat, tartelette au chocolat
+it:Tortini di cioccolato
+nl:Chocolade taartjes
+agribalyse_food_code:en:24052
+ciqual_food_code:en:24052
+ciqual_food_name:en:Biscuit (small tart), with chocolate, pre-packed
+
+<en:Biscuits
+en:Tartlet biscuits with fruit preparation, Biscuit with fruit covering, Small tart with fruit covering
+de:Biscuit mit Fruchtüberzug, Keks mit Fruchtüberzug, Kleine Torte mit Fruchtüberzug
+fr:Tartelettes à la préparation de fruits, Biscuit sec nappé aux fruits, Tartelette aux fruits
+it:snack dolci con copertura a base di frutta
+agribalyse_food_code:en:24679
+ciqual_food_code:en:24679
+ciqual_food_name:en:Biscuit (small tart), with fruit covering
+ciqual_food_name:fr:Biscuit sec nappé aux fruits, tartelette
+
 #do not confuse with the cocktail spritz
 <en:Biscuits
 en:Sprits biscuits, Sprits, spritz biscuits
@@ -35194,6 +35225,7 @@ ciqual_food_name:fr:Chocolat au lait aux fruits secs (noisettes, amandes, raisin
 <en:Chocolates with hazelnuts
 <en:Milk chocolates
 en:Milk chocolates with hazelnuts, Milk chocolate with hazelnuts
+bg:Млечен шоколад с лешници
 de:Milchschokolade mit Haselnüssen
 es:Chocolate con leche y avellanas
 fi:hasselpähkinämaitosuklaat
@@ -35212,6 +35244,7 @@ ciqual_food_name:fr:Chocolat au lait aux fruits secs (noisettes, amandes, raisin
 <en:Chocolates with almonds
 <en:Milk chocolates
 en:Milk chocolates with almonds, Milk chocolate with almonds
+bg:Млечен шоколад с бадеми
 de:Milchschokolade mit Mandeln
 es:Chocalte con leche almendrado
 fi:Maitosuklaa manteleilla
@@ -35230,6 +35263,7 @@ ciqual_food_name:fr:Chocolat au lait aux fruits secs (noisettes, amandes, raisin
 <en:Chocolates with raisins
 <en:Milk chocolates
 en:Milk chocolates with raisins
+bg:Млечен шоколад със стафиди
 lt:Pieniški šokoladai su razinomis
 agribalyse_food_code:en:31018
 ciqual_food_code:en:31018
@@ -53129,6 +53163,8 @@ agribalyse_food_code:en:17270
 ciqual_food_code:en:17270
 ciqual_food_name:en:Olive oil, extra virgin
 ciqual_food_name:fr:Huile d'olive vierge extra
+expected_nutriscore_grade:en:c
+expected_ingredients:en: en:olive-oil
 
 <en:Olive oils
 en:Olive pomace oils
@@ -57244,6 +57280,7 @@ ciqual_food_name:fr:Polenta ou semoule de maïs, cuite, non salée
 
 <en:Cereal semolinas
 en:Rice semolinas
+bg:Оризов грис
 de:Reisgrieße, Reisgrieß
 es:Sémolas de arroz, Sémola de arroz
 fr:Semoules de riz
@@ -57252,6 +57289,7 @@ nl:Rijstgriesmelen
 
 <en:Cereal semolinas
 en:Wheat semolinas
+bg:Пшеничен грис
 de:Weizengrieße, Weizengrieß
 es:Sémolas y semolinas de trigo, Sémolas de trigo, Sémola de trigo
 fi:Vehnäsuurimot
@@ -57349,6 +57387,7 @@ ciqual_food_name:fr:Blé dur précuit, entier, cru
 
 <en:Starches
 en:Potato starches
+bg:Картофено нишесте
 fr:Fécules de pomme de terre, Fécule de pomme de terre
 ja:馬鈴薯デンプン
 lt:Bulvių krakmolas
@@ -57370,6 +57409,7 @@ nl:Graanzetmelen
 
 <en:Cereal starches
 en:Corn starch, Cornstarch, Cornflour, Maize starch
+bg:Царевично нишесте
 de:Maisstärke, Speisestärke
 es:Almidón de maíz
 fi:Maissitärkkelys
@@ -57568,6 +57608,7 @@ wikidata:en:Q943935
 
 <en:Flours
 en:Potato flours, Flour of potatoes
+bg:Картофено брашно
 fi:Perunajauhot
 fr:Farines de pommes de terre
 it:Farine di patate
@@ -57649,6 +57690,7 @@ description:en:substances added to food to preserve flavor or enhance its taste,
 
 <en:Food additives
 en:Soy lecithin
+bg:Соев лецитин
 es:Lecitina de soja
 fr:Lécithine de soja
 ja:大豆レシチン
@@ -66495,6 +66537,7 @@ ciqual_food_name:fr:Sauce moutarde, préemballée
 
 <en:Sauces
 en:Barbecue sauces, BBQ sauces
+bg:Сос барбекю
 de:Barbecuesaucen, BBQ-Saucen
 es:Salsa barbacoa
 fi:Barbeque-kastikkeet, BBQ-kastikkeet
@@ -69317,6 +69360,7 @@ ciqual_food_name:fr:Tomate, concentré, appertisé
 
 <en:Tomatoes and their products
 en:Double concentrate tomato paste
+bg:Двойно концентриана доматена паста
 fr:Double concentré de tomate
 agribalyse_food_code:en:20268
 ciqual_food_code:en:20268
@@ -83284,6 +83328,7 @@ nl:Rijstpastas
 
 <en:Pastas
 en:Chickpea pasta
+bg:Паста от нахут
 fr:Pâtes de pois chiche
 
 <en:Pastas
@@ -84700,6 +84745,9 @@ en:Chocolate pies, Chocolate tarts
 de:Schokoladentorten, Schokotorten
 fr:Tartes au chocolat, Tarte au chocolat
 nl:Chocoladetaarten
+agribalyse_food_code:en:23497
+ciqual_food_code:en:23497
+ciqual_food_name:en:Chocolate tart from bakery
 
 <en:Sweet pies
 en:Fruit pies with confectioner's custard
@@ -84909,20 +84957,9 @@ fr:Crostatina
 it:Crostatina
 
 <en:Tartlets
-en:Chocolate tartlets
-de:Schokoladentörtchen
-en:Chocolate tart from bakery
-fr:Tartelettes au chocolat
-it:Tortini di cioccolato
-nl:Chocolade taartjes
-agribalyse_food_code:en:23497
-ciqual_food_code:en:23497
-ciqual_food_name:en:Chocolate tart from bakery
-
-<en:Tartlets
 en:Fruit tartlets
 de:Obsttörtchen
-fr:Tartelettes aux fruits
+fr:Tartelettes aux fruits entiers ou coupés, Tartelettes aux fruits
 it:crostatine alla frutta
 agribalyse_food_code:en:23499
 ciqual_food_code:en:23499
@@ -84967,26 +85004,6 @@ nl:Citroentaartjes
 en:Pear tartlets
 fr:Tartelettes à la poire
 nl:Peertaartjes
-
-<en:Tartlets
-fr:Tartelettes au caramel, Tartelettes au caramel beurre salé, Tartelette au caramel, Tartelette au caramel beurre salé, Tartelettes caramel, Tartelette caramel
-
-<en:Tartlets
-en:Biscuit (small tart) with chocolate pre-packed
-fr:tartelette au chocolat
-agribalyse_food_code:en:24052
-ciqual_food_code:en:24052
-ciqual_food_name:en:Biscuit (small tart), with chocolate, pre-packed
-
-<en:Tartlets
-en:Biscuit with fruit covering, Small tart with fruit covering
-de:Biscuit mit Fruchtüberzug, Keks mit Fruchtüberzug, Kleine Torte mit Fruchtüberzug
-fr:Biscuit sec nappé aux fruits, Tartelette aux fruits
-it:snack dolci con copertura a base di frutta
-agribalyse_food_code:en:24679
-ciqual_food_code:en:24679
-ciqual_food_name:en:Biscuit (small tart), with fruit covering
-ciqual_food_name:fr:Biscuit sec nappé aux fruits, tartelette
 
 <en:Specific products
 en:Products sold before year 2000, products sold before 2000
@@ -96191,6 +96208,7 @@ fr:Germes de choux frais
 <en:Vegetables based foods
 <en:Dried plant-based foods
 en:Dried vegetables
+bg:Сушени зеленчуци
 de:Getrocknetes Gemüse
 es:Verduras y hortalizas deshidratadas, Verduras y hortalizas desecadas, Verduras deshidratadas, Verduras desecadas, Hortalizas deshidratadas, Hortalizas desecadas
 fi:kuivatut vihannekset
@@ -96203,6 +96221,7 @@ who_id:en:16
 <en:Dried vegetables
 <en:Tomatoes and their products
 en:Dried tomatoes, Sun-Dried tomatoes, Dried tomato, Sun-Dried tomato
+bg:Сушени домати
 de:Getrocknete Tomaten
 es:Tomates secos, Tomates deshidratados, Tomates desecados
 fi:kuivatut tomaatit
@@ -100717,6 +100736,7 @@ fr:Croissants ordinaires
 
 <en:Viennoiseries
 en:Filled croissants
+bg:Кроасани с пълнеж
 de:Gefüllte Croissants
 es:Cruasanes rellenos
 fi:Täytetyt voisarvet, Täytetyt kroisantit, Täytetyt croissantit

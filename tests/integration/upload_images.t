@@ -5,6 +5,7 @@ use ProductOpener::PerlStandards;
 use Test::More;
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
+use ProductOpener::Products qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
 
 use File::Basename "dirname";
@@ -18,6 +19,30 @@ remove_all_products();
 wait_application_ready();
 
 my $sample_products_images_path = dirname(__FILE__) . "/inputs/upload_images";
+
+# Create a normal user
+my $ua = new_client();
+
+my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+create_user($ua, \%create_user_args);
+
+# Create some products
+
+my @products = (
+
+	{
+		%{dclone(\%default_product_form)},
+		(
+			imgupload_front_en => ["$sample_products_images_path/front_en.3.full.jpg", 'front_en.3.full.jpg']
+		)
+	},
+	
+);
+
+# create the products in the database
+foreach my $product_ref (@products) {
+	edit_product($ua, $product_ref);
+}
 
 my $tests_ref = [
 	{
@@ -37,12 +62,56 @@ my $tests_ref = [
 		path => '/api/v2/product/1234567890012',
 		expected_status_code => 200,
 	},
+	{
+		test_case => 'post-image-too-small',
+		method => 'POST',
+		path => '/cgi/product_image_upload.pl',
+		form => {
+			code => "1234567890013",
+			imagefield => "front_en",
+			imgupload_front_en => ["$sample_products_images_path/small-img.jpg", 'small-img.jpg'],
+		}
+	},
+	{
+		test_case => 'get-image-too-small',
+		method => 'GET',
+		path => '/api/v2/product/1234567890013',
+		
+	},
+	{
+		test_case => 'post-same-image-twice',
+		method => 'POST',
+		path => '/cgi/product_image_upload.pl',
+		form => {
+			code => "1234567890014",
+			imagefield => "front_en",
+			imgupload_front_en => ["$sample_products_images_path/front_en.3.full.jpg", 'front_en.3.full.jpg'],
+		}
+	},
+	{
+		test_case => 'get-same-image-twice',
+		method => 'GET',
+		path => '/api/v2/product/1234567890014',
+		# expected_status_code => 404,
+	},
+	{
+		test_case => 'post-missing-imagefield',
+		method => 'POST',
+		path => '/cgi/product_image_upload.pl',
+		form => {
+			code => "1234567890015",
+			imgupload_front_en => ["$sample_products_images_path/1.jpg", '1.jpg'],
+		}
+	},
+	{
+		test_case => 'get-missing-imagefield',
+		method => 'GET',
+		path => '/api/v2/product/1234567890015',
+		expected_status_code => 404,
+	},
 	# TODO: add tests for:
-	# - missing imagefield
 	# - missing corresponding imgupload_[imagefield]
-	# - too small image
-	# - image already uploaded
-	# -> use a different barcode for each test
+	
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
