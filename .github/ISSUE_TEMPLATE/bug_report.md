@@ -1,6 +1,7 @@
 ---
 name: Bug report
 description: Create a report to help us improve the Open Food Facts server, API or web app
+about: Create a report to help us improve the Open Food Facts server, API or web app
 labels: ["bug"]
 title: ""
 assignees: ""
