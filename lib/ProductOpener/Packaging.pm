@@ -957,7 +957,8 @@ sub aggregate_packaging_by_parent_materials ($product_ref) {
 
 		# Iterate over each parent material to compute weight statistics
 		my $total_weight = deep_get($packagings_materials_ref, "all", "weight");
-		while (my ($parent_material_id, $parent_material_ref) = each %$packagings_materials_ref) {
+		foreach my $parent_material_id (sort keys %$packagings_materials_ref) {
+			my $parent_material_ref = $packagings_materials_ref->{$parent_material_id};
 			if (defined $parent_material_ref->{weight}) {
 				if ($total_weight) {
 					$parent_material_ref->{weight_percent} = $parent_material_ref->{weight} / $total_weight * 100;
