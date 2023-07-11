@@ -5,7 +5,6 @@ use ProductOpener::PerlStandards;
 use Test::More;
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
-use ProductOpener::Products qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
 
 use File::Basename "dirname";
@@ -19,30 +18,6 @@ remove_all_products();
 wait_application_ready();
 
 my $sample_products_images_path = dirname(__FILE__) . "/inputs/upload_images";
-
-# Create a normal user
-my $ua = new_client();
-
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
-create_user($ua, \%create_user_args);
-
-# Create some products
-
-my @products = (
-
-	{
-		%{dclone(\%default_product_form)},
-		(
-			imgupload_front_en => ["$sample_products_images_path/front_en.3.full.jpg", 'front_en.3.full.jpg']
-		)
-	},
-
-);
-
-# create the products in the database
-foreach my $product_ref (@products) {
-	edit_product($ua, $product_ref);
-}
 
 my $tests_ref = [
 	{
@@ -70,12 +45,14 @@ my $tests_ref = [
 			code => "1234567890013",
 			imagefield => "front_en",
 			imgupload_front_en => ["$sample_products_images_path/small-img.jpg", 'small-img.jpg'],
-		}
+		},
+		expected_status_code => 200,
 	},
 	{
 		test_case => 'get-image-too-small',
 		method => 'GET',
 		path => '/api/v2/product/1234567890013',
+		expected_status_code => 200,
 
 	},
 	{
@@ -86,12 +63,26 @@ my $tests_ref = [
 			code => "1234567890014",
 			imagefield => "front_en",
 			imgupload_front_en => ["$sample_products_images_path/front_en.3.full.jpg", 'front_en.3.full.jpg'],
-		}
+		},
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'post-same-image-twice-duplicate',
+		method => 'POST',
+		path => '/cgi/product_image_upload.pl',
+		form => {
+			code => "1234567890014",
+			imagefield => "front_en",
+			imgupload_front_en => ["$sample_products_images_path/front_en.3.full.jpg", 'front_en.3.full.jpg'],
+		},
+		expected_status_code => 200,
+
 	},
 	{
 		test_case => 'get-same-image-twice',
 		method => 'GET',
 		path => '/api/v2/product/1234567890014',
+		expected_status_code => 200,
 
 	},
 	{
@@ -101,7 +92,8 @@ my $tests_ref = [
 		form => {
 			code => "1234567890015",
 			imgupload_front_en => ["$sample_products_images_path/1.jpg", '1.jpg'],
-		}
+		},
+		expected_status_code => 200,
 	},
 	{
 		test_case => 'get-missing-imagefield',
@@ -116,12 +108,14 @@ my $tests_ref = [
 		form => {
 			code => "1234567890016",
 			imagefield => "front_en",
-		}
+		},
+		expected_status_code => 200,
 	},
 	{
 		test_case => 'get-missing-imgupload_[imagefield]',
 		method => 'GET',
 		path => '/api/v2/product/1234567890016',
+		expected_status_code => 200,
 
 	},
 
