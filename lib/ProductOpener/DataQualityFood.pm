@@ -668,6 +668,7 @@ sub check_nutrition_data ($product_ref) {
 			}
 		}
 
+		# catch serving_size = "serving", regardless of setting (per 100g or per serving)
 		if (    (defined $product_ref->{serving_size})
 			and ($product_ref->{serving_size} ne "")
 			and ($product_ref->{serving_size} !~ /\d/))
@@ -678,13 +679,15 @@ sub check_nutrition_data ($product_ref) {
 			and (defined $product_ref->{nutrition_data_per})
 			and ($product_ref->{nutrition_data_per} eq 'serving'))
 		{
-
 			if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} eq '')) {
-				push @{$product_ref->{data_quality_warnings_tags}},
-					"en:nutrition-data-per-serving-missing-serving-size";
+				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-missing-serving-size";
+			}
+			elsif ($product_ref->{serving_quantity} eq "0") {
+				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-serving-quantity-is-0";
 			}
 			elsif ($product_ref->{serving_quantity} == 0) {
-				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-serving-quantity-is-0";
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:nutrition-data-per-serving-serving-quantity-is-not-recognized";
 			}
 		}
 	}
