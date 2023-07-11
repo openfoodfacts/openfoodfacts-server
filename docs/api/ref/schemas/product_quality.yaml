@@ -26,8 +26,6 @@ properties:
     type: string
     description: |
       Source of data imported from producers.
-  data_sources_imported:
-    type: string
   data_sources_tags:
     type: array
     items:

@@ -78,15 +78,13 @@ properties:
       You can either request it (if it exists) or send it in a specific language.
 
       **TODO**: explain if it is the one in the main product language or in requested language
-    examples:
-      cookies: |
+    example: |
         Farine de blé* 67,4%, sucre de canne*, huile de tournesol oléique*, graines de chia* 5,2%, son de blé*, oranges déshydratées * 0,9%, farine de riz*, poudres à lever (acide citrique, carbonates de sodium), arôme naturel d'orange.
   ingredients_text_with_allergens:
     type: string
     description: |
       Same text as `ingredients_text` but where allergens have HTML elements around them to identify them
-    examples:
-      cookies: |
+    example: |
         Farine de <span class="allergen">blé*</span> 67,4%, sucre de canne*, huile de tournesol oléique*, graines de chia* 5,2%, <span class="allergen">son de blé*</span>, oranges déshydratées * 0,9%, farine de riz*, poudres à lever (acide citrique, carbonates de sodium), arôme naturel d'orange.
   ingredients_that_may_be_from_palm_oil_n:
     type: integer

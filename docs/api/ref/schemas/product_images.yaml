@@ -26,7 +26,7 @@ properties:
       '(<?imgid>\d+)':
         type: object
         $ref: ./images/image.yaml
-      '(<?image_type>front|nutrition|ingredients|packaging)_(?<language_code>\w\w)':
+      '(<?image_type>front|nutrition|ingredients|packaging|other)_(?<language_code>\w\w)':
         type: object
         $ref: ./images/role_image.yaml
 
@@ -40,7 +40,7 @@ properties:
   selected_images:
     type: object
     patternProperties:
-      '(<?image_type>front|packaging|ingredients|nutrition)':
+      '(<?image_type>front|packaging|ingredients|nutrition|other)':
         type: object
         description: URLs of thumbnails image of image of type `image_type`
         properties:

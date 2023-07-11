@@ -5,8 +5,6 @@ properties:
 
   brands:
     type: string
-  brands_imported:
-    type: string
   brands_tags:
     type: array
     items:
@@ -103,8 +101,7 @@ properties:
     type: array
     items:
       type: string
-    examples:
-      nutella: ["2016-03-11","2016-03","2016"]
+    example: ["2016-03-11","2016-03","2016"]
 
   manufacturing_places:
     type: string

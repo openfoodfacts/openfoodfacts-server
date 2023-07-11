@@ -13,7 +13,8 @@ info:
   license:
     name: 'data: ODbL'
     url: 'https://opendatacommons.org/licenses/odbl/summary/index.html'
-    identifier: "ODbL-1.0"
+    # can't use url and identifier - use x-identifier
+    x-identifier: "ODbL-1.0"
   version: '2'
 servers:
   - description: dev
@@ -152,6 +153,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: ./requestBodies/crop_a_photo.yaml
+        required: true
       tags:
         - Write Requests
     get:
@@ -319,7 +321,7 @@ paths:
                           /^\d+$/:
                             $ref: ./schemas/images/image.yaml
                           (front|ingredients|nutrition|packaging|other)_\w\w(-\w\w)?:
-                            $ref: ./schemas/images/selected_image.yaml
+                            $ref: ./schemas/images/role_image.yaml
                   status:
                     type: integer
                     example: 1

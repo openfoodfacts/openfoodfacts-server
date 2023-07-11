@@ -9,8 +9,6 @@ properties:
       By doing so, the no_nutrition_data field takes the value "on".
       This case is frequent (thousands of products).
     example: "on"
-  no_nutrition_data_imported:
-    type: string
   nova_group:
     type: integer
   nova_groups:
@@ -309,8 +307,6 @@ properties:
     type: string
   nutrition_data_per:
     type: string
-  nutrition_data_per_imported:
-    type: string
   nutrition_data_prepared:
     type: string
   nutrition_data_prepared_per:
@@ -335,8 +331,6 @@ properties:
   nutrition_score_warning_no_fiber:
     type: integer
   obsolete:
-    type: string
-  obsolete_imported:
     type: string
   obsolete_since_date:
     type: string
@@ -365,84 +359,13 @@ properties:
     type: array
     items:
       type: object
-  owner:
-    type: string
-  owner_fields:
-    type: object
-    properties:
-      abbreviated_product_name_fr:
-        type: integer
-      allergens:
-        type: integer
-      brands:
-        type: integer
-      carbohydrates:
-        type: integer
-      conservation_conditions_fr:
-        type: integer
-      countries:
-        type: integer
-      customer_service_fr:
-        type: integer
-      data_sources:
-        type: integer
-      energy:
-        type: integer
-      energy-kcal:
-        type: integer
-      energy-kj:
-        type: integer
-      fat:
-        type: integer
-      generic_name_fr:
-        type: integer
-      ingredients_text_fr:
-        type: integer
-      lang:
-        type: integer
-      lc:
-        type: integer
-      no_nutrition_data:
-        type: integer
-      nutrition_data_per:
-        type: integer
-      obsolete:
-        type: integer
-      owner:
-        type: integer
-      packaging:
-        type: string
-        description: |
-          shape, material.
-        example: Cardboard
-      producer_version_id:
-        type: integer
-      product_name_fr:
-        type: integer
-      proteins:
-        type: integer
-      quantity:
-        type: integer
-      salt:
-        type: integer
-      saturated-fat:
-        type: integer
-      serving_size:
-        type: integer
-      sugars:
-        type: integer
-  owner_imported:
-    type: string
-  owners_tags:
-    type: string
+
   packaging:
     type: string
   packaging_hierarchy:
     type: array
     items:
       type: string
-  packaging_imported:
-    type: string
   packaging_lc:
     type: string
   packaging_tags:
@@ -492,8 +415,6 @@ properties:
       type: string
   producer_version_id:
     type: string
-  producer_version_id_imported:
-    type: string
   product_name:
     type: string
     description: |
@@ -519,8 +440,6 @@ properties:
     type: string
     description: |
       Quantity and Unit.
-  quantity_imported:
-    type: string
   removed_countries_tags:
     type: array
     items:
@@ -534,12 +453,15 @@ properties:
 
   serving_quantity:
     type: string
+    description: |
+      Normalized version of serving_size.
+      Note that this is NOT the number of servings by product.
+      <small>(in perl, see `normalize_serving_size`)</small>
   serving_size:
     type: string
     description: |
-      Serving size in g (or ml).
-  serving_size_imported:
-    type: string
+      Serving size text (generally in g or ml).
+      We expect a quantity + unit but the user is free to input any string.
   sortkey:
     type: integer
   sources:

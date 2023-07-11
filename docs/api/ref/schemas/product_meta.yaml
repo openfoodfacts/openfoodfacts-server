@@ -48,3 +48,11 @@ properties:
     type: integer
     description: |
       Date when the product page was last modified.
+  owner:
+    description: |
+      Id of the producer in case he provides his own data about a product (producer platform).
+    type: string
+  owners_tags:
+    description: |
+      Tagyfied version of owner
+    type: string

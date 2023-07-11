@@ -16,8 +16,7 @@ properties:
     type: string
   allergens_from_user:
     type: string
-  allergens_imported:
-    type: string
+
   amino_acids_prev_tags:
     type: array
     items:
@@ -83,6 +82,70 @@ properties:
     type: array
     items:
       type: object
+  owner_fields:
+    type: object
+    properties:
+      abbreviated_product_name_fr:
+        type: integer
+      allergens:
+        type: integer
+      brands:
+        type: integer
+      carbohydrates:
+        type: integer
+      conservation_conditions_fr:
+        type: integer
+      countries:
+        type: integer
+      customer_service_fr:
+        type: integer
+      data_sources:
+        type: integer
+      energy:
+        type: integer
+      energy-kcal:
+        type: integer
+      energy-kj:
+        type: integer
+      fat:
+        type: integer
+      generic_name_fr:
+        type: integer
+      ingredients_text_fr:
+        type: integer
+      lang:
+        type: integer
+      lc:
+        type: integer
+      no_nutrition_data:
+        type: integer
+      nutrition_data_per:
+        type: integer
+      obsolete:
+        type: integer
+      owner:
+        type: integer
+      packaging:
+        type: string
+        description: |
+          shape, material.
+        example: Cardboard
+      producer_version_id:
+        type: integer
+      product_name_fr:
+        type: integer
+      proteins:
+        type: integer
+      quantity:
+        type: integer
+      salt:
+        type: integer
+      saturated-fat:
+        type: integer
+      serving_size:
+        type: integer
+      sugars:
+        type: integer
 
 patternProperties:
   'conservation_conditions_(?<language_code>\w\w)':

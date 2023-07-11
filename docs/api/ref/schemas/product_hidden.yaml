@@ -4,8 +4,36 @@ detail: |
   either have no real meaning or should not be considered part of the API
 
 properties:
+  allergens_imported:
+    type: string
+  brands_imported:
+    type: string
   countries_imported:
     type: string
+  data_sources_imported:
+    type: string
+  lang_imported:
+    type: string
+  lc_imported:
+    type: string
+  no_nutrition_data_imported:
+    type: string
+  nutrition_data_per_imported:
+    type: string
+  obsolete_imported:
+    type: string
+  owner_imported:
+    type: string
+  packaging_imported:
+    type: string
+  producer_version_id_imported:
+    type: string
+  quantity_imported:
+    type: string
+  serving_size_imported:
+    type: string
+
+
   grades:
     type: object
 
@@ -19,12 +47,6 @@ properties:
     type: array
     items:
       type: string
-
-  lang_imported:
-    type: string
-
-  lc_imported:
-    type: string
 
   max_imgid:
     type: string

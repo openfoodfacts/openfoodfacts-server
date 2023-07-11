@@ -29,7 +29,6 @@ x-examples:
         - nutella
       abbreviated_product_name: Nutella t.400
       abbreviated_product_name_fr: Nutella t.400
-      abbreviated_product_name_fr_imported: Nutella t.400
       added_countries_tags: []
       additives_n: 1
       additives_original_tags:
@@ -45,7 +44,6 @@ x-examples:
         - 'en:milk'
         - 'en:nuts'
         - 'en:soybeans'
-      allergens_imported: 'Lait, Fruits à coque, Soja'
       allergens_lc: fr
       allergens_tags:
         - 'en:milk'
@@ -54,7 +52,6 @@ x-examples:
       amino_acids_prev_tags: []
       amino_acids_tags: []
       brands: Ferrero
-      brands_imported: Nutella
       brands_tags:
         - ferrero
       carbon_footprint_percent_of_known_ingredients: 13
@@ -116,7 +113,6 @@ x-examples:
       completeness: 0.875
       conservation_conditions: A conserver au sec et à l'abri de la chaleur. Ne pas mettre au réfrigérateur.
       conservation_conditions_fr: A conserver au sec et à l'abri de la chaleur. Ne pas mettre au réfrigérateur.
-      conservation_conditions_fr_imported: A conserver au sec et à l'abri de la chaleur. Ne pas mettre au réfrigérateur.
       correctors_tags:
         - user1
         - user2
@@ -126,7 +122,6 @@ x-examples:
       countries_beforescanbot: 'Belgium,France'
       countries_hierarchy:
         - 'en:Algeria  Austria  Belgium  Canada  France  Germany  Italy  Luxembourg  Mexico  Morocco  Netherlands  Portugal  Senegal  Spain  Switzerland  Tunisia  United Kingdom  United States'
-      countries_imported: France
       countries_lc: fr
       countries_tags:
         - 'en:algeria-austria-belgium-canada-france-germany-italy-luxembourg-mexico-morocco-netherlands-portugal-senegal-spain-switzerland-tunisia-united-kingdom-united-states'
@@ -134,7 +129,6 @@ x-examples:
       creator: openfoodfacts-contributors
       customer_service: 'FERRERO FRANCE COMMERCIALE - Service Consommateurs, CS 90058 - 76136 MONT SAINT AIGNAN Cedex'
       customer_service_fr: 'FERRERO FRANCE COMMERCIALE - Service Consommateurs, CS 90058 - 76136 MONT SAINT AIGNAN Cedex'
-      customer_service_fr_imported: 'FERRERO FRANCE COMMERCIALE - Service Consommateurs, CS 90058 - 76136 MONT SAINT AIGNAN Cedex'
       data_quality_bugs_tags: []
       data_quality_errors_tags: []
       data_quality_info_tags:
@@ -161,7 +155,6 @@ x-examples:
         - 'en:ecoscore-packaging-unspecified-shape'
         - 'en:ecoscore-production-system-no-label'
       data_sources: 'Database - FoodRepo / openfood.ch, Databases, Producer - Ferrero, Producers, App - yuka, Apps, Producer - ferrero-france-commerciale, Database - Equadis, Database - GDSN, App - InFood, App - Open Food Facts, App - halal-healthy, App - smoothie-openfoodfacts'
-      data_sources_imported: 'Database - Equadis, Database - GDSN, Databases, Producers, Producer - ferrero-france-commerciale, Producers, Producer - ferrero-france-commerciale'
       data_sources_tags:
         - database-foodrepo-openfood-ch
         - databases
@@ -329,7 +322,6 @@ x-examples:
       generic_name_en: ''
       generic_name_es: Crema de Avellanas con cacao
       generic_name_fr: Pâte à tartiner aux noisettes
-      generic_name_fr_imported: Pâte à tartiner aux noisettes
       generic_name_id: ''
       generic_name_it: Nutella
       generic_name_nl: ''
@@ -660,7 +652,6 @@ x-examples:
         - 'en:no-gluten'
         - 'en:nonorganic'
       lang: en
-      lang_imported: fr
       languages:
         'en:arabic': 2
         'en:english': 4
@@ -697,7 +688,6 @@ x-examples:
       last_modified_by: user4
       last_modified_t: 1659084329
       lc: en
-      lc_imported: fr
       link: ''
       main_countries_tags: []
       manufacturing_places: ''
@@ -718,7 +708,6 @@ x-examples:
         - 'en:ecoscore-missing-data-packagings'
         - 'en:ecoscore-computed'
       no_nutrition_data: 'null'
-      no_nutrition_data_imported: 'false'
       nova_group: 4
       nova_groups: '4'
       nova_groups_markers:
@@ -847,7 +836,6 @@ x-examples:
       nutriscore_score_opposite: -26
       nutrition_data: 'on'
       nutrition_data_per: 100g
-      nutrition_data_per_imported: 100g
       nutrition_data_prepared: ''
       nutrition_data_prepared_per: 100g
       nutrition_grade_fr: e
@@ -859,7 +847,6 @@ x-examples:
       nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value: 13
       nutrition_score_warning_no_fiber: 1
       obsolete: ''
-      obsolete_imported: '0'
       obsolete_since_date: ''
       origin: ''
       origin_ar: ''
@@ -904,12 +891,10 @@ x-examples:
         saturated-fat: 1657859437
         serving_size: 1657859437
         sugars: 1657859437
-      owner_imported: org-ferrero-france-commerciale
       owners_tags: org-ferrero-france-commerciale
       packaging: PP 5 Ummi PLASTIQUE / PLASTIEK PAP 27 WWW PAPIER / PAPIER CIPAP 82 PANNEAU DE FIBRE COMPOSITES/ COMPOSIET VEZELPLAAT GL 70 VERRE / GLAS
       packaging_hierarchy:
         - 'fr:PP 5 Ummi PLASTIQUE / PLASTIEK PAP 27 WWW PAPIER / PAPIER CIPAP 82 PANNEAU DE FIBRE COMPOSITES/ COMPOSIET VEZELPLAAT GL 70 VERRE / GLAS'
-      packaging_imported: bocal
       packaging_lc: fr
       packaging_tags:
         - 'fr:pp-5-ummi-plastique-plastiek-pap-27-www-papier-papier-cipap-82-panneau-de-fibre-composites-composiet-vezelplaat-gl-70-verre-glas'
@@ -961,14 +946,12 @@ x-examples:
         - at-least-5-fr-scans-2021
         - at-least-10-fr-scans-2021
       producer_version_id: '2014'
-      producer_version_id_imported: '2014'
       product_name: Nutella
       product_name_ar: نوتيلا
       product_name_de: Nutella
       product_name_en: Nutella
       product_name_es: Nutella
       product_name_fr: Pâte à tartiner Nutella noisettes et cacao - 400g
-      product_name_fr_imported: Pâte à tartiner Nutella noisettes et cacao - 400g
       product_name_id: ''
       product_name_it: Nutella
       product_name_nl: ''
@@ -977,7 +960,6 @@ x-examples:
       purchase_places_tags:
         - f-77480-mousseaux-les-bray-france
       quantity: 400g
-      quantity_imported: 400 g
       removed_countries_tags: []
       rev: 421
       scans_n: 3713
@@ -1016,7 +998,6 @@ x-examples:
             fr: 'https://images.openfoodfacts.org/images/products/301/762/042/2003/packaging_fr.420.100.jpg'
       serving_quantity: '15'
       serving_size: 15g
-      serving_size_imported: 15 g (15)
       sortkey: 1610877517
       sources:
         - fields:
