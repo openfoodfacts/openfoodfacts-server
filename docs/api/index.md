@@ -58,7 +58,7 @@ While testing your applications, **make all API requests to the staging environm
 
 [staging_url]: https://world.openfoodfacts.net
 
-> **Warning**: The staging environment has an extra level of [HTTP Basic Authentication][basic_auth] (username: `off`, password: `off`). When making API requests to staging, you may use [https://off:off@world.openfoodfacts.net/][staging_url] as the base URL to include the authentication.
+> **Warning**: The staging environment has an extra level of [HTTP Basic Authentication][basic_auth] (username: `off`, password: `off`). When making API requests to staging, you may use [https://@world.openfoodfacts.net/][staging_url] as the base URL to include the authentication.
 
 [basic_auth]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#basic_authentication_scheme
 
