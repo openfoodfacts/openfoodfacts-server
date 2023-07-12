@@ -38,7 +38,7 @@ properties:
         description:
           This represents an image (or part of it) selected for a specific role on this product.
         type: object
-        $ref: ./role_image.yaml
+        $ref: ./image_role.yaml
     patternProperties:
       '(?<imgid>\d+)':
         description: |
