@@ -1,4 +1,6 @@
 type: object
+description: |
+  Nutrition fields of a product
 properties:
   fruits-vegetables-nuts_100g_estimate:
     type: integer
@@ -32,19 +34,19 @@ properties:
       alcohol:
         description: |
           Quantity of alcool per 100g, per serving
-        type: float
+        type: number
       carbohydrates:
-        type: float
+        type: number
       energy:
-        type: float
+        type: number
       energy-kcal:
-        type: float
+        type: number
       energy-kj:
-        type: float
+        type: number
       fat:
         type: number
       fruits-vegetables-nuts-estimate-from-ingredients_100g:
-        type: float
+        type: number
       nova-group:
         type: integer
       nutrition-score-fr:
@@ -53,21 +55,21 @@ properties:
           the UK FSA score and adapted for the French market
           (formula defined by the team of Professor Hercberg).
       proteins:
-        type: float
+        type: number
       salt:
-        type: float
+        type: number
       saturated-fat:
-        type: float
+        type: number
       sodium:
-        type: float
+        type: number
       sugars:
-        type: float
+        type: number
       carbon-footprint-from-known-ingredients_product:
         type: integer
       carbon-footprint-from-known-ingredients_serving:
         type: number
       erythritol:
-        type: float
+        type: number
         description: |
           erythritol is a polyol which is not providing any energy.
           As such, it needs not be taken into account when computing
@@ -77,7 +79,7 @@ properties:
           imports.
         example: 12.5
     patternProperties:
-      '(<?nutrient>\w+)_unit':
+      '(?<nutrient>\w+)_unit':
         description: |
           The unit in which the nutrient for 100g or per serving is measured.
 
@@ -97,45 +99,45 @@ properties:
           [units-module]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Units.html
           [default-unit]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Food.html#default_unit_for_nid_(_%24nid)
         enum: ['公斤', '公升', 'kg', 'кг', 'l', 'л', '毫克', 'mg', 'мг', 'mcg', 'µg', 'oz', 'fl oz', 'dl', 'дл', 'cl', 'кл', '斤', 'g', '', ' ', 'kj', '克', '公克', 'г', 'мл', 'ml', 'mmol/l', '毫升', '% vol', 'ph', '%', '% dv', '% vol (alcohol)', 'iu', 'mol/l', 'mval/l', 'ppm', '�rh', '�fh', '�e', '�dh', 'gpg']
-      '(<?nutrient>\w+)_100g':
+      '(?<nutrient>\w+)_100g':
         description: |
           The standardized value of a serving of 100g (or 100ml for liquids)
           for the nutrient.
 
           This is computed from the `nutrient` property,
           the serving size, and the `nutrient`_unit field.
-        type: float
-      '(<?nutrient>\w+)_serving':
+        type: number
+      '(?<nutrient>\w+)_serving':
         description: |
           The standardized value of a serving for this product.
-        type: float
-      '(<?nutrient>\w+)_value':
+        type: number
+      '(?<nutrient>\w+)_value':
         description: |
           The standardized value of a serving of 100g (or 100ml for liquids)
           for the nutrient.
-        type: float
-      '(<?nutrient>\w+)_prepared':
+        type: number
+      '(?<nutrient>\w+)_prepared':
         description: |
           The value for nutrient for **prepared** product.
-        type: float
-      '(<?nutrient>\w+)_prepared_unit':
+        type: number
+      '(?<nutrient>\w+)_prepared_unit':
         description: |
           The unit in which the nutrient for 100g or per serving of **prepared** product is measured.
         type: string
-      '(<?nutrient>\w+)_prepared_100g':
+      '(?<nutrient>\w+)_prepared_100g':
         description: |
           The standardized value of a serving of 100g (or 100ml for liquids)
           for the nutrient, for **prepared** product.
-        type: float
-      '(<?nutrient>\w+)_prepared_serving':
+        type: number
+      '(?<nutrient>\w+)_prepared_serving':
         description: |
           The standardized value of a serving for the **prepared** product.
-        type: float
-      '(<?nutrient>\w+)_prepared_value':
+        type: number
+      '(?<nutrient>\w+)_prepared_value':
         description: |
           The standardized value of a serving of 100g (or 100ml for liquids)
           for the nutrient for **prepared** product.
-        type: float
+        type: number
   nutriscore_data:
     description: |
       Detail of data the Nutri-Score was computed upon.
@@ -243,3 +245,15 @@ properties:
     type: integer
   nutrition_score_warning_no_fiber:
     type: integer
+  other_nutritional_substances_tags:
+    type: array
+    items:
+      type: object
+  unknown_nutrients_tags:
+    type: array
+    items:
+      type: object
+  vitamins_tags:
+    type: array
+    items:
+      type: object

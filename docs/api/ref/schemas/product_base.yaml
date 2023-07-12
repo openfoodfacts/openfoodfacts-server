@@ -22,17 +22,6 @@ properties:
         It helps retrieve barcodes starting by
       example:
         ["code-13","3017620422xxx","301762042xxxx","30176204xxxxx","3017620xxxxxx","301762xxxxxxx","30176xxxxxxxx","3017xxxxxxxxx","301xxxxxxxxxx","30xxxxxxxxxxx","3xxxxxxxxxxxx"]
-  created_t:
-    type: integer
-    description: |
-      Date when the product was added (UNIX timestamp format).
-      See also `entry_dates_tags`
-    example:
-      1457680652
-  creator:
-    type: string
-    description: |
-      The contributor who added the product first.
   generic_name:
     type: string
     description: |
@@ -55,6 +44,30 @@ properties:
       Nova group as an integer from 1 to 4. See https://world.openfoodfacts.org/nova
   nova_groups:
     type: string
+  obsolete:
+    type: string
+  obsolete_since_date:
+    description: |
+      A date at which the product was declared obsolete.
+      This means it's not produced any more.
+    type: string
+  product_name:
+    type: string
+    description: |
+      The name of the product
+  product_name_en:
+    type: string
+    description: |
+      The name of the product can also
+      be in many other languages like
+      product_name_fr (for french).
+  product_quantity:
+    type: string
+  quantity:
+    type: string
+    description: |
+      Quantity and Unit.
+
 
 patternProperties:
   abbreviated_product_name_(?<language_code>\w\w):

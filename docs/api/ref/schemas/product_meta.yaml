@@ -1,7 +1,26 @@
 type: object
 description: |
-  More Meta data about product (database handling)
+  Metadata of a product (author, editors, creation date, etc.)
+
 properties:
+  created_t:
+    type: integer
+    description: |
+      Date when the product was added (UNIX timestamp format).
+      See also `entry_dates_tags`
+    example:
+      1457680652
+  creator:
+    type: string
+    description: |
+      The contributor who added the product first.
+  editors_tags:
+    description: |
+      List of editors who edited the product.
+    type: array
+    items:
+      type: string
+
   informers_tags:
     type: array
     items:
@@ -55,4 +74,72 @@ properties:
   owners_tags:
     description: |
       Tagyfied version of owner
+    type: string
+  photographers_tags:
+    type: array
+    items:
+      type: string
+  rev:
+    description: revision number of this product version (each edit adds a revision)
+    type: integer
+  sources:
+    type: array
+    items:
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        images:
+          type: array
+          items:
+            type: object
+        import_t:
+          type: integer
+        manufacturer:
+          type:
+            - integer
+            - string
+        name:
+          type: string
+        source_licence:
+          type: string
+        source_licence_url:
+          type: string
+        url:
+          type:
+            - "null"
+            - string
+  sources_fields:
+    type: object
+    properties:
+      org-gs1:
+        type: object
+        properties:
+          gln:
+            type: string
+          gpcCategoryCode:
+            type: string
+          gpcCategoryName:
+            type: string
+          isAllergenRelevantDataProvided:
+            type: string
+          lastChangeDateTime:
+            type: string
+          partyName:
+            type: string
+          productionVariantDescription:
+            type: string
+          publicationDateTime:
+            type: string
+  teams:
+    type: string
+  teams_tags:
+    type: array
+    items:
+      type: string
+  update_key:
     type: string

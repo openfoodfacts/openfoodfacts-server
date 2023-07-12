@@ -31,13 +31,13 @@ properties:
       while the full images have `full` as the key.
     properties:
       '100':
-        $ref: ./properties/image_size.yaml
+        $ref: ./image_size.yaml
       '200':
-        $ref: ./properties/image_size.yaml
+        $ref: ./image_size.yaml
       '400':
-        $ref: ./properties/image_size.yaml
+        $ref: ./image_size.yaml
       full:
-        $ref: ./properties/image_size.yaml
+        $ref: ./image_size.yaml
   white_magic:
     type: 'null'
     example: null

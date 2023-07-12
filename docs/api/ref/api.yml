@@ -78,10 +78,7 @@ paths:
                   - type: object
                     properties:
                       product:
-                        type: object
-                        properties:
-                          knowledge_panels:
-                            $ref: ./schemas/knowledge_panels/panels.yaml
+                        $ref: ./schemas/product_knowledge_panels.yaml
       description: |
         Knowledge panels gives high leve informations about a product,
         ready to display.
@@ -290,53 +287,29 @@ paths:
         all packaging_shapes containing "fe" will be returned.
         This is useful if you have a search in your application,
         for a specific product field.
-  '/api/v2/product/{barcode}?fields=images':
-    parameters:
-      - schema:
-          type: string
-        name: barcode
-        in: path
-        required: true
-    get:
-      summary: Get Images for a specific product by barcode (special case of get product)
-      tags:
-        - Read Requests
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    example: '3017620422003'
-                  product:
-                    type: object
-                    properties:
-                      images:
-                        type: object
-                        patternProperties:
-                          /^\d+$/:
-                            $ref: ./schemas/images/image.yaml
-                          (front|ingredients|nutrition|packaging|other)_\w\w(-\w\w)?:
-                            $ref: ./schemas/images/role_image.yaml
-                  status:
-                    type: integer
-                    example: 1
-                  status_verbose:
-                    type: string
-                    example: product found
-      operationId: get-api-v2-product-barcode-?fields=images
-      description: Images ensure the reliability of Open Food Facts data. It provides a primary source and proof of all the structured data. You may therefore want to display it along the structured information.
 components:
   schemas:
-    "Product Base":
-      description: Base fields of product schema
+    "Product-Base":
       $ref: ./schemas/product_base.yaml
+    "Product-Misc":
+      $ref: ./schemas/product_misc.yaml
+    "Product-Tags":
+      $ref: ./schemas/product_tags.yaml
+    "Product-Nutrition":
+      $ref: ./schemas/product_nutrition.yaml
+    "Product-Ingredients":
+      $ref: ./schemas/product_ingredients.yaml
+    "Product-Images":
+      $ref: ./schemas/product_images.yaml
+    "Product-Eco-Score":
+      $ref: ./schemas/product_ecoscore.yaml
+    "Product-Metadata":
+      $ref: ./schemas/product_meta.yaml
+    "Product-Data-Quality":
+      $ref: ./schemas/product_quality.yaml
+    "Product-Knowledge-Panels":
+      $ref: ./schemas/product_knowledge_panels.yaml
     Product:
-      description: Complete product schema
       $ref: ./schemas/product.yaml
   parameters:
     id:

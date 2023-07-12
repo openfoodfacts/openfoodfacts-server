@@ -174,7 +174,30 @@ properties:
     type: array
     items:
       type: object
-
+  origin:
+    type: string
+  purchase_places:
+    type: string
+    description: |
+      Country, state, or city where the product can be purchased.
+    example: Paris
+  purchase_places_tags:
+    type: array
+    items:
+      type: string
+  stores:
+    type: string
+    description: |
+      Distributor name.
+    example: Walmart
+  stores_tags:
+    type: array
+    items:
+      type: string
+  traces_from_ingredients:
+    type: string
+  traces_from_user:
+    type: string
 
 
 patternProperties:
@@ -182,3 +205,7 @@ patternProperties:
     type: string
   'customer_service_(?<language_code>\w\w)':
     type: string
+  'origin_(?<language_code>\w\w)':
+    type: string
+    description: |
+      `origin` in language indicated by `language_code`

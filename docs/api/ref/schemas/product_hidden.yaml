@@ -64,6 +64,44 @@ properties:
 
   max_imgid:
     type: string
+  packaging:
+    type: string
+  packaging_hierarchy:
+    type: array
+    items:
+      type: string
+  packaging_lc:
+    type: string
+  packaging_tags:
+    type: array
+    items:
+      type: string
+  producer_version_id:
+    type: string
+  removed_countries_tags:
+    type: array
+    items:
+      type: object
+  sortkey:
+    type: integer
+
+  states:
+    type: string
+  states_hierarchy:
+    type: array
+    items:
+      type: string
+  states_tags:
+    type: array
+    items:
+      type: string
+  vitamins_prev_tags:
+    type: array
+    items:
+      type: object
+
+  scores:
+    type: object
 
 patternProperties:
   'abbreviated_product_name_(?<language_code>\w\w)_imported':

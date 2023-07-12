@@ -1,4 +1,5 @@
 type: object
+description: Fields about ingredients of a product
 properties:
 
   additives_tags:
@@ -101,6 +102,40 @@ properties:
   ingredients_with_unspecified_percent_sum:
     type: integer
   known_ingredients_n:
+    type: integer
+  origins:
+    type: string
+    description: |
+      Origins of ingredients
+  origins_hierarchy:
+    type: array
+    items:
+      type: object
+  origins_lc:
+    type: string
+  origins_tags:
+    type: array
+    items:
+      type: object
+  traces:
+    type: string
+    description: |
+      List of substances that might cause allergies
+      that are present in trace amounts in the product
+      (this does not include the ingredients, as they
+      are not only present in trace amounts).
+      It is taxonomized with the allergens taxonomy.
+  traces_hierarchy:
+    type: array
+    items:
+      type: object
+  traces_lc:
+    type: string
+  traces_tags:
+    type: array
+    items:
+      type: object
+  unknown_ingredients_n:
     type: integer
 
 

@@ -62,13 +62,6 @@ properties:
     items:
       type: string
 
-  editors_tags:
-    description: |
-      List of editors who edited the product.
-    type: array
-    items:
-      type: string
-
   emb_codes:
     type: string
     description: |

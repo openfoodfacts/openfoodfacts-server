@@ -14,13 +14,16 @@ properties:
           description: |
             properties of fullsize image
             **TODO** explain how to compute name
-          $ref: ./properties/image_size.yaml
+          $ref: ./image_size.yaml
     patternProperties:
       '(?<image_size>100|400)':
         description: |
           properties of thumbnail of size `image_size`.
           **TODO** explain how to compute name
-        $ref: ./properties/image_size.yaml
+
+          For real type: see description of property `full`.
+          (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))
+        type: string
   uploaded_t:
     type: string
     example: '1457680652'
