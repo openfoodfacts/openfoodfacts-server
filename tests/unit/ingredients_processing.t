@@ -1636,7 +1636,40 @@ my @tests = (
 	[
 		{
 			lc => "pl",
-			ingredients_text => "suszony koperek, liofilizowane ananasy"
+			ingredients_text => "liofilizowane ananasy"
+		},
+		[
+			{
+				'id' => 'en:pineapple',
+				'processing' => 'en:freeze-dried',
+				'text' => 'ananasy'
+			}
+		]
+	],
+
+	# en:dried (with separate entry)
+	[
+		{
+			lc => "pl",
+			ingredients_text => "czosnek suszony, suszony czosnek"
+		},
+		[
+			{
+				'id' => 'en:dried-garlic',
+				'text' => 'czosnek suszony'
+			},
+			{
+				'id' => 'en:dried-garlic',
+				'text' => 'suszony czosnek'
+			}
+		]
+	],
+
+	# en:dried (with processing)
+	[
+		{
+			lc => "pl",
+			ingredients_text => "suszony koperek, pomidory suszone, grzyby suszone, koper suszony"
 		},
 		[
 			{
@@ -1645,10 +1678,20 @@ my @tests = (
 				'text' => 'koperek'
 			},
 			{
-				'id' => 'en:pineapple',
-				'processing' => 'en:freeze-dried',
-				'text' => 'ananasy'
-			}
+				'id' => 'en:tomato',
+				'processing' => 'en:dried',
+				'text' => 'pomidory'
+			},
+			{
+				'id' => 'en:mushroom',
+				'processing' => 'en:dried',
+				'text' => 'grzyby'
+			},
+			{
+				'id' => 'en:dill',
+				'processing' => 'en:dried',
+				'text' => 'koper'
+			},
 		]
 	],
 
@@ -1685,7 +1728,7 @@ my @tests = (
 				'text' => "\x{9175}\x{6bcd}\x{30a8}\x{30ad}\x{30b9}\x{30d1}\x{30a6}\x{30c0}\x{30fc}"
 			},
 			{
-				'id' => "ja:\x{30af}\x{30ea}\x{30fc}\x{30df}\x{30f3}\x{30b0}\x{30d1}\x{30a6}\x{30c0}\x{30fc}",
+				'id' => 'en:creaming-powder',
 				'text' => "\x{30af}\x{30ea}\x{30fc}\x{30df}\x{30f3}\x{30b0}\x{30d1}\x{30a6}\x{30c0}\x{30fc}"
 			},
 			{

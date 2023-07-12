@@ -25,18 +25,20 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 
 ### Windows Prerequisites
 
-When running with Windows, install [Docker Desktop](https://www.docker.com/products/docker-desktop/) which will cover all of the above.
+When running with Windows, install [Docker Desktop](https://www.docker.com/products/docker-desktop/) **which will cover all of the above**.
 
 The Make tasks use a number of Linux commands, such as rm and nproc, so it is recommeded to run Make commands from the Git Bash shell. In addition, the following need to be installed and included in the PATH:
 
 - [Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm)
-- [wget for windows](https://eternallybored.org/misc/wget/) (In order to download the full product database).
+- [wget for windows](https://eternallybored.org/misc/wget/) (In order to download the full product database). If you want to download wget with the executable, copy the wget.exe file to C:/Windows/System32 and you are done.
 
 The process of cloning the repository will create a number of symbolic links which require specific permissions under Windows. In order to do this you can use any one of these alternatives:
 
  - Use an Administrative command prompt for all Git commands
  - Completely disable UAC
  - Specifically grant the [Create symbolic links](https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links) permission to your user
+
+Make sure you also activated the [Developper mode](https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development) on your device.
 
 ## 2. Clone the repository from GitHub
 
@@ -85,6 +87,7 @@ Before running the `docker-compose` deployment, you can review and configure
 Product Opener's environment (`.env` file).
 
 The `.env` file contains ProductOpener default settings:
+
 | Field | Description |
 | ----------------------------------------------------------------- | --- |
 | `PRODUCT_OPENER_DOMAIN`                                           | Can be set to different values based on which **OFF flavor** is run.|
@@ -147,7 +150,7 @@ The command will run 2 subcommands:
 
 * You might not immediately see the test products: create an account, login, and they should appear.
 
-* For a full description of available make targets, see [docker/README.md](../../docker/README.md#makefile-commands)
+* For a full description of available make targets, see [Docker / Makefile commands](ref-docker-commands.md)
 
 **Hosts file:**
 
