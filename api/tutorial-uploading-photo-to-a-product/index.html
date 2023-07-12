@@ -1031,7 +1031,7 @@ You can also upload some photos that are neither of that 4 categories, but they 
 </ul>
 <h3 id="describing-the-post-request">Describing the Post Request<a class="headerlink" href="#describing-the-post-request" title="Permanent link">#</a></h3>
 <p>To upload photos to a product, make a <code>POST</code> request to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_image_upload.pl"><code>Add a Photo to an Existing Product</code></a> endpoint.</p>
-<div class="highlight"><pre><span></span><code>https://off:off@world.openfoodfacts.net/cgi/product_image_upload.pl
+<div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/cgi/product_image_upload.pl
 </code></pre></div>
 <h3 id="upload-photo-of-a-product">Upload Photo of a Product<a class="headerlink" href="#upload-photo-of-a-product" title="Permanent link">#</a></h3>
 <p>Add a <code>user_id</code> and <code>password</code> as body parameters to the request for authentication. The <code>code</code> (barcode of the product to be updated) is required to indicate the product for the uploaded photo. Then, include other product data to be added in the request body.</p>
@@ -1073,7 +1073,7 @@ You can also upload some photos that are neither of that 4 categories, but they 
 </tbody>
 </table>
 <p>If the image is in the <code>images/real-orange-juice-ingredients.jpg</code>, we can use curl (thanks to the special '@' attributes, which enables reading from a file):</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-XPOST<span class="w"> </span>-u<span class="w"> </span>off:off<span class="w">  </span>https://world.openfoodfacts.net/cgi/product_image_upload.pl<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-XPOST<span class="w"> </span>https://world.openfoodfacts.net/cgi/product_image_upload.pl<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-F<span class="w"> </span><span class="nv">user_id</span><span class="o">=</span>your_user_id<span class="w"> </span>-F<span class="w"> </span><span class="nv">password</span><span class="o">=</span>your_password<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-F<span class="w"> </span><span class="nv">code</span><span class="o">=</span><span class="m">0180411000803</span><span class="w"> </span>-F<span class="w"> </span><span class="nv">imagefield</span><span class="o">=</span>ingredients_en<span class="w"> </span>-F<span class="w"> </span><span class="nv">imgupload_ingredients_en</span><span class="o">=</span>@images/real-orange-juice-ingredients.jpg
 </code></pre></div>

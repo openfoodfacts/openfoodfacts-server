@@ -1024,11 +1024,8 @@
 <li>Production: <a href="https://world.openfoodfacts.org">https://world.openfoodfacts.org</a></li>
 <li>Staging: <a href="https://world.openfoodfacts.net">https://world.openfoodfacts.net</a></li>
 </ul>
-<p>Consider using the <a href="https://world.openfoodfacts.net">staging environment</a> if you are not in a production scenario.</p>
+<p>Consider using the [staging environment][staging_url] if you are not in a production scenario.</p>
 <p>While testing your applications, <strong>make all API requests to the staging environment</strong>. This way, we can ensure the product database is safe.</p>
-<blockquote>
-<p><strong>Warning</strong>: The staging environment has an extra level of <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#basic_authentication_scheme">HTTP Basic Authentication</a> (username: <code>off</code>, password: <code>off</code>). When making API requests to staging, you may use <a href="https://world.openfoodfacts.net">https://off:off@world.openfoodfacts.net/</a> as the base URL to include the authentication.</p>
-</blockquote>
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
 <ul>
 <li>READ operations (getting info about a product, etc...) do not require authentication, although we recommend using a custom User-Agent if you're developing an application (to not risk being identified as a bot)</li>
