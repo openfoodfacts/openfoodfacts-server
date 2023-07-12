@@ -56,12 +56,6 @@ Consider using the [staging environment][staging_url] if you are not in a produc
 
 While testing your applications, **make all API requests to the staging environment**. This way, we can ensure the product database is safe.
 
-[staging_url]: https://world.openfoodfacts.net
-
-> **Warning**: The staging environment has an extra level of [HTTP Basic Authentication][basic_auth] (username: `off`, password: `off`). When making API requests to staging, you may use [https://off:off@world.openfoodfacts.net/][staging_url] as the base URL to include the authentication.
-
-[basic_auth]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#basic_authentication_scheme
-
 ## Authentication
 
 - READ operations (getting info about a product, etc...) do not require authentication, although we recommend using a custom User-Agent if you're developing an application (to not risk being identified as a bot)

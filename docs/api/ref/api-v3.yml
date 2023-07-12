@@ -20,7 +20,7 @@ servers:
   - url: 'https://world.openfoodfacts.org'
     description: prod
   - description: dev
-    url: 'https://off:off@world.openfoodfacts.net'
+    url: 'https://world.openfoodfacts.net'
 paths:
   '/api/v3/product/{barcode}':
     get:
