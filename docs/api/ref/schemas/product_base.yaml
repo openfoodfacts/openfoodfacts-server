@@ -49,6 +49,12 @@ properties:
     type: string
     description: |
       **TODO** explain difference with `lc`
+  nova_group:
+    type: integer
+    description:
+      Nova group as an integer from 1 to 4. See https://world.openfoodfacts.org/nova
+  nova_groups:
+    type: string
 
 patternProperties:
   abbreviated_product_name_(?<language_code>\w\w):

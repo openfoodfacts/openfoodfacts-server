@@ -39,6 +39,20 @@ properties:
 
   countries_beforescanbot:
     type: string
+  nucleotides_prev_tags:
+    type: array
+    items:
+      type: object
+
+  nutrition_data:
+    type: string
+  nutrition_data_per:
+    type: string
+  nutrition_data_prepared:
+    type: string
+  nutrition_data_prepared_per:
+    type: string
+ 
 
   _id:
     type: string

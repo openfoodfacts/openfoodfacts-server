@@ -332,7 +332,11 @@ paths:
       description: Images ensure the reliability of Open Food Facts data. It provides a primary source and proof of all the structured data. You may therefore want to display it along the structured information.
 components:
   schemas:
+    "Product Base":
+      description: Base fields of product schema
+      $ref: ./schemas/product_base.yaml
     Product:
+      description: Complete product schema
       $ref: ./schemas/product.yaml
   parameters:
     id:

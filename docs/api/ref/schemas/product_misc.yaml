@@ -24,6 +24,23 @@ properties:
     type: array
     items:
       type: string
+  nutrient_levels:
+    description: |
+      Traffic light indicators on main nutrients levels
+    type: object
+    properties:
+      fat:
+        type: string
+        enum: ["low", "moderate", "high"]
+      salt:
+        type: string
+        enum: ["low", "moderate", "high"]
+      saturated-fat:
+        type: string
+        enum: ["low", "moderate", "high"]
+      sugars:
+        type: string.
+        enum: ["low", "moderate", "high"]
 
 patternProperties:
   'food_groups_(?<language_code>\w\w)':

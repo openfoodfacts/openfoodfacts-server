@@ -146,6 +146,36 @@ properties:
         type: integer
       sugars:
         type: integer
+  nova_groups_markers:
+    type: object
+    description: |
+      Detail of ingredients or processing that makes the products having Nova 3 or 4
+    properties:
+      "3":
+        description: |
+          Markers of level 3
+        type: array
+        items:
+          type: array
+          description: |
+            This array has two element for each marker.
+            One
+          items:
+            type: string
+      "4":
+        description: |
+          Markers of level 4
+        type: array
+        items:
+          # same as above
+          $ref: "#/properties/nova_groups_markers/properties/3/items"
+
+  nucleotides_tags:
+    type: array
+    items:
+      type: object
+
+
 
 patternProperties:
   'conservation_conditions_(?<language_code>\w\w)':

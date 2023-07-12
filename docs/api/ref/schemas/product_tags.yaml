@@ -111,3 +111,11 @@ properties:
     type: array
     items:
       type: object
+  nova_groups_tags:
+    type: array
+    items:
+      type: string
+  nutrient_levels_tags:
+    type: array
+    items:
+      type: string
