@@ -45,7 +45,7 @@ use Log::Any qw($log);
 use ProductOpener::Lang qw/:all/;
 
 # initialize html
-sub get_initial_html($cc) {
+sub get_initial_html ($cc) {
 	my $html;
 	if (open(my $IN, "<:encoding(UTF-8)", "$data_root/madenearme/madenearme-$cc.html")) {
 
@@ -58,14 +58,14 @@ sub get_initial_html($cc) {
 	return $html;
 }
 
-
 # parse the JSONL to find all products for country with emb_codes_tags
 # return an iterator
-sub iter_products_from_jsonl($jsonl_path, $country) {
+sub iter_products_from_jsonl ($jsonl_path, $country) {
 	my $jsonl;
 	if ($jsonl_path =~ /\.gz$/) {
-		open($jsonl, "gunzip -c $jsonl_path |") or die("can’t open pipe to $jsonl_path");
-	} else {
+		open($jsonl, "<", "gunzip -c $jsonl_path |") or die("can’t open pipe to $jsonl_path");
+	}
+	else {
 		open($jsonl, "<:encoding(UTF-8)", $jsonl_path)
 			or die("$jsonl_path not found\n");
 	}
@@ -80,8 +80,9 @@ sub iter_products_from_jsonl($jsonl_path, $country) {
 				$product_ref = decode_json($line);
 				1;
 			} or next;
-			if ((defined $product_ref->{emb_codes_tags}) && 
-				($is_world || (grep {$_ eq $country} @{$product_ref->{countries_tags}}))) {
+			if (   (defined $product_ref->{emb_codes_tags})
+				&& ($is_world || (grep {$_ eq $country} @{$product_ref->{countries_tags}})))
+			{
 				return $product_ref;
 			}
 		}

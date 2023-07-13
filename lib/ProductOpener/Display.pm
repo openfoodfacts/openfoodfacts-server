@@ -6514,7 +6514,7 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 
 =head2  get_packager_code_coordinates ($emb_code)
 
-Transform a traçability code (emb code) into a latitude / longitude pair.
+Transform a traceability code (emb code) into a latitude / longitude pair.
 
 We try using packagers_codes taxonomy, or fsa_rating or geocode for uk,
 or city.
@@ -6523,12 +6523,13 @@ or city.
 
 =head4 $emb_code - string
 
-The traçability code
+The traceability code
 
 =head3 returns - list of 2 elements
 (latitude, longitude) if found, or (undef, undef) otherwise
 
 =cut
+
 sub get_packager_code_coordinates ($emb_code) {
 
 	my $lat;
@@ -6577,9 +6578,8 @@ sub get_packager_code_coordinates ($emb_code) {
 
 }
 
-
 # an iterator over a cursor to unify cases between mongodb and external data (like filtered jsonl)
-sub cursor_iter($cursor) {
+sub cursor_iter ($cursor) {
 	return sub {
 		return $cursor->next();
 	};
@@ -6587,7 +6587,7 @@ sub cursor_iter($cursor) {
 
 =head2 map_of_products($products_iter, $request_ref, $graph_ref)
 
-Build the html to display a map of products
+Build the HTML to display a map of products
 
 =head3 parameters
 
@@ -6603,7 +6603,8 @@ Must return a reference to a function that on each call return a product, or und
 Specifications for the graph
 
 =cut
-sub map_of_products($products_iter, $request_ref, $graph_ref) {
+
+sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 
 	my $html = '';
 
@@ -6617,7 +6618,7 @@ sub map_of_products($products_iter, $request_ref, $graph_ref) {
 	my %seen = ();
 	my @pointers = ();
 
-	while (my $product_ref = $products_iter->()){
+	while (my $product_ref = $products_iter->()) {
 		my $url = $formatted_subdomain . product_url($product_ref->{code});
 
 		my $manufacturing_places = escape_single_quote($product_ref->{"manufacturing_places"});
@@ -6692,7 +6693,12 @@ sub map_of_products($products_iter, $request_ref, $graph_ref) {
 
 	$log->info(
 		"rendering map for matching products",
-		{count => $matching_products, matching_products => $matching_products, products => $seen_products, emb_codes => $emb_codes}
+		{
+			count => $matching_products,
+			matching_products => $matching_products,
+			products => $seen_products,
+			emb_codes => $emb_codes
+		}
 	) if $log->is_debug();
 
 	# Points to display?
@@ -6722,14 +6728,13 @@ sub map_of_products($products_iter, $request_ref, $graph_ref) {
 	return $html;
 }
 
-
 =head2 search_products_for_map($request_ref, $query_ref)
 
 Build the MongoDB query corresponding to a search to display a map
 
 =head3 parameters
 
-=head4 $request_ref - hasmap
+=head4 $request_ref - hashmap
 
 =head4 $query_ref - hashmap
 
@@ -6738,7 +6743,8 @@ Base query that will be modified to be able to build the map
 =head3 returns - MongoDB::Cursor instance
 
 =cut
-sub search_products_for_map($request_ref, $query_ref) {
+
+sub search_products_for_map ($request_ref, $query_ref) {
 
 	add_params_to_query($request_ref, $query_ref);
 
@@ -6797,6 +6803,7 @@ Base query for this search
 Specification of the graph
 
 =cut
+
 sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 
 	my $cursor = search_products_for_map($request_ref, $query_ref);
@@ -6806,9 +6813,7 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 
 	$html .= search_permalink($request_ref);
 
-	eval {
-		$html .= map_of_products(cursor_iter($cursor), $request_ref, $graph_ref);
-	} or do {
+	eval {$html .= map_of_products(cursor_iter($cursor), $request_ref, $graph_ref);} or do {
 		$html .= "<p>" . lang("error_database") . "</p>";
 	};
 	return $html;
@@ -6818,10 +6823,10 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 
 add a permalink to a search result page
 
-=head3 return - string - generated html
+=head3 return - string - generated HTML
 =cut
 
-sub search_permalink($request_ref) {
+sub search_permalink ($request_ref) {
 	my $html = '';
 	if (defined $request_ref->{current_link}) {
 		$request_ref->{current_link_query_display} = $request_ref->{current_link};
