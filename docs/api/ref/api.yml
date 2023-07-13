@@ -17,7 +17,7 @@ info:
   version: '2'
 servers:
   - description: dev
-    url: 'https://off:off@world.openfoodfacts.net'
+    url: 'https://world.openfoodfacts.net'
   - url: 'https://world.openfoodfacts.org'
     description: prod
 paths:
