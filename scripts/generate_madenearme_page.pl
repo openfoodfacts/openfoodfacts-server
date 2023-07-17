@@ -63,7 +63,7 @@ sub get_initial_html ($cc) {
 sub iter_products_from_jsonl ($jsonl_path, $country) {
 	my $jsonl;
 	if ($jsonl_path =~ /\.gz$/) {
-		open($jsonl, "<", "gunzip -c $jsonl_path |") or die("can’t open pipe to $jsonl_path");
+		open($jsonl, "-|", "gunzip -c $jsonl_path") or die("can’t open pipe to $jsonl_path");
 	}
 	else {
 		open($jsonl, "<:encoding(UTF-8)", $jsonl_path)
