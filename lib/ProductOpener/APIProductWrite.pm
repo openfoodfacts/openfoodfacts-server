@@ -57,9 +57,8 @@ use ProductOpener::Tags qw/:all/;
 
 use Encode;
 
-=head2 skip_protected_field($product_ref, $field, $moderator = 0)
+=head2 skip_protected_field ($product_ref, $field, $moderator = 0)
 
-Return 1 if we should ignore a field value sent by a user because we already have a value sent by the producer.
 
 =cut
 
@@ -98,7 +97,6 @@ sub skip_protected_image ($product_ref, $imagefield, $moderator = 0) {
 		# ignore the new image upload
 		if (    (not $server_options{producers_platform})
 			and (defined $product_ref->{owner_fields})
-			and (defined $product_ref->{owner_fields}{$imagefield})
 			and (not $moderator))
 		{
 			$log->debug(

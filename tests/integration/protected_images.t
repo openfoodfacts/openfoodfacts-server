@@ -48,7 +48,6 @@ ok(!html_displays_error($resp));
 
 my @products = (
 	{
-		%{dclone(\%default_product_form)},
 		(
 			code => '0200000000034',
 			product_name => "An unprotected product",
@@ -57,7 +56,6 @@ my @products = (
 		)
 	},
 	{
-		%{dclone(\%default_product_form)},
 		(
 			code => '0200000000035',
 			product_name => "A protected product",
@@ -77,8 +75,8 @@ foreach my $product_form_override (@products) {
 for my $code ('0200000000035') {
 	my $product_ref = retrieve_product($code);
 	$product_ref->{owner_fields} = {
-		"imagefield" => 1680183938,
-		"imgupload_front_en" => 1680183938,
+		# "imagefield" => 1680183938,
+		"imgupload_[imagefield]" => 1680183938,
 	};
 	store_product("organization-owner", $product_ref, "protecting the product");
 }
@@ -128,7 +126,6 @@ my $tests_ref = [
 
 ];
 
-# Note: some tests override $ua with $moderator_ua
 execute_api_tests(__FILE__, $tests_ref, $ua);
 
 done_testing();
