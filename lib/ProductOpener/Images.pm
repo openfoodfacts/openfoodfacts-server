@@ -93,6 +93,7 @@ BEGIN {
 
 		&get_code_and_imagefield_from_file_name
 		&get_imagefield_from_string
+		&get_selected_image_uploader
 		&process_image_upload
 		&process_image_move
 
@@ -355,6 +356,23 @@ sub scan_code ($file) {
 	print STDERR "scan_code return code: $code\n";
 
 	return $code;
+}
+
+sub get_selected_image_uploader ($product_ref, $imagefield) {
+
+	# Retrieve the product's image data
+	my $image_data = $product_ref->{images}{$imagefield};
+
+	if ($image_data && $image_data->{imgid}) {
+		my $imgid = $image_data->{imgid};
+
+		# Retrieve the uploader of the selected image
+		my $uploader = $product_ref->{images}{$imgid}{uploader};
+
+		return $uploader if defined $uploader;
+	}
+
+	return;    # Return undef if no uploader found
 }
 
 sub display_search_image_form ($id) {

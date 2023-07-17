@@ -240,7 +240,7 @@ if ($imagefield) {
 	my $imgid_returncode;
 	my $imagefield_or_filename = $imagefield;
 	(defined $tmp_filename) and $imagefield_or_filename = $tmp_filename;
-	if (not skip_protected_image($product_ref, $imagefield, $User{moderator})) {
+	if (not is_protected_image($product_ref, $imagefield, $User{moderator})) {
 		$imgid_returncode
 			= process_image_upload($product_id, $imagefield_or_filename, $User_id, time(), "image upload", \$imgid,
 			\$debug_string);

@@ -38,7 +38,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&write_product_api
 		&skip_protected_field
-		&skip_protected_image
+		&is_protected_image
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -54,6 +54,7 @@ use ProductOpener::API qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Images qw/:all/;
 
 use Encode;
 
@@ -89,27 +90,13 @@ sub skip_protected_field ($product_ref, $field, $moderator = 0) {
 
 =cut
 
-sub skip_protected_image ($product_ref, $imagefield, $moderator = 0) {
+sub is_protected_image ($product_ref, $imagefield, $moderator = 0) {
 
-	# Add image-specific checks here
-	if (defined $product_ref->{imgupload_ $imagefield}) {
-		# If there is already a photo uploaded by the producer, and the modification is not made by a moderator,
-		# ignore the new image upload
-		if (    (not $server_options{producers_platform})
-			and (defined $product_ref->{owner_fields})
-			and (not $moderator))
-		{
-			$log->debug(
-				"Skipping image upload as imgupload_imagefield already has a value",
-				{
-					code => $product_ref->{code},
-					imagefield => $imagefield,
-					existing_value => $product_ref->{imgupload_ $imagefield}
-				}
-			) if $log->is_debug();
-			return 1;
-		}
+	my $selected_uploader = get_selected_image_uploader($product_ref, $imagefield);
+	if ((not $server_options{producers_platform}) and (not $moderator) and (not defined $selected_uploader)) {
+		return 1;
 	}
+
 	return 0;
 }
 
