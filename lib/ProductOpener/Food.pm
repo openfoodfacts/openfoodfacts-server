@@ -343,7 +343,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 
 =item C<#nutrient> a leading C<#> indicates a comment and will be ignored
 
-=item C<!nutrient> a leading C<!> indicates an important nutrient, they should always be showned
+=item C<!nutrient> a leading C<!> indicates an important nutrient, they should always be shown
 
 =item The level of each nutrient is indicated by leading dashes before its id:
 
@@ -353,7 +353,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 =item C<--sub-sub-nutrient> - for level 3, etc.
 =back
 
-=item C<nutrient-> a C<-> at the end indicates that the nutrient should be hidden and only showned if explicitely added.
+=item C<nutrient-> a C<-> at the end indicates that the nutrient should be hidden and only shown if explicitly added.
 
 =back
 
