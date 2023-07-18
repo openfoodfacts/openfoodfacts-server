@@ -22340,9 +22340,13 @@ tr:firik
 zh:翡麦
 wikidata:en:Q771079
 wikipedia:en:https://en.wikipedia.org/wiki/Freekeh
-ciqual_food_code:en:51510
-ciqual_food_name:en:Frik (crushed immature durum wheat), raw
-ciqual_food_name:fr:Frik (blé dur immature concassé), cru
+# Note: Frik is in CIQUAL 2020, but not in the CALNUT 2020 consolidated table as it is missing some data (e.g. sugars)
+# use boulgour instead
+ciqual_proxy_food_code:en:9691
+ciqual_proxy_food_name:fr:Boulgour de blé, cuit, non salé
+#ciqual_food_code:en:51510
+#ciqual_food_name:en:Frik (crushed immature durum wheat), raw
+#ciqual_food_name:fr:Frik (blé dur immature concassé), cru
 
 #processing:en: en:cooked
 #<en:freekeh
@@ -85465,6 +85469,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tomato_sauce
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
 carbon_footprint_fr_foodges_value:fr:2.9
 # ingredient/fr:préparation-à-base-de-tomates has 91 products in 5 languages @2018-12-26
+ciqual_proxy_food_code:en:11107
+ciqual_proxy_food_name:en:Tomato sauce, with onions, prepacked
 
 <en:tomato sauce
 fr:sauce tomate cuite
