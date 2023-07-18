@@ -377,7 +377,7 @@ et:sojaletsitiin
 fi:soijalesitiini, soijalesitiiniä, soijalesitiinit, E322 soijasta
 fr:lécithine de soja, lécithines de soja, émulsifiant lécithines de soja, lécithine de soja e322
 he:לציטין סויה
-hr:emulgator soja lecitin, emulgator sojin lecitin, soja lecitin, sojin lecithin, sojin lecitin, sojini lecitini
+hr:emulgator soja lecitin, emulgator sojin lecitin, soja lecitin, emulgatori sojin lecitin, sojin lecithin, sojin lecitin, sojini lecitini
 hu:szójalecitin, szójalecitinek
 is:sojalesitin
 it:lecitina di soia, lecitine di soia
@@ -478,6 +478,7 @@ es:Lecitina de colza, lecitinas de colza
 et:rapsi letsitiin
 fi:rapsilesitiini, rapsilesitiiniä, rypsilesitiini, rypsilesitiiniä
 fr:lécithine de colza, lécithines de colza
+hr:emulgator lecitin iz uljane repice
 hu:repce lecitin, lecitini (repica)
 it:Lecitina di colza
 lt:rapsų lecitinai, emulsiklis rapsų lecitinas
@@ -1166,7 +1167,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium_longum
 en:bifidus actiregularis, b. actiregularis
 xx:bifidus actiregularis, b. actiregularis
 de:Bifidus ActiRegularis, Bifidus Kultur ActiRegularis
-hr:Bifidus Actiregularis® kultura, Bifidus Actiregularis® kultura (CNCM 1-2494 min 4x)
+hr:Bifidus Actiregularis® kultura, Bifidus Actiregularis® kultura (CNCM 1-2494 min 4x109/125g)
 ru:бифидобактерии-actiregularis, бифидобактерии actiregularis
 # ingredient/bifidus-actiregularis has 142 products in 5 languages @2019-07-08
 
@@ -2767,7 +2768,7 @@ de:teilentrahmte milch
 es:leche parcialmente desnatada, leche semidesnatada, Leche semidescremada, leche parcialmente descremada
 fi:kevytmaito
 fr:lait demi-écrémé, lait partiellement écrémé, Lait à 15.5 g/l de matière grasse
-hr:djelomično obrano mlijeko, djelomično obrano mlijeko s 1,5% mliječne masti bez laktoze (<0,1 g/100 g), djelomično obrano mlijeko s 1.5% mliječne masti
+hr:djelomično obrano mlijeko, djelomično obrano mlijeko s 1,5% mliječne masti bez laktoze, djelomično obrano mlijeko s 1,5% mliječne masti bez laktoze (<0,1 g/100 g), djelomično obrano mlijeko s 1.5% mliječne masti, djelimično obrano mlijeko
 hu:zsírszegény tej, félzsíros tej
 is:léttmjólk
 it:latte parzialmente scremato
@@ -9251,6 +9252,7 @@ de:Pyridoxinhydrochlorid
 es:clorhidrato de piridoxina
 fi:pyridoksiinihydrokloridi
 fr:chlorhydrate de pyridoxine
+hr:piridoksin-hidroklorid
 hu:Piridoxamin-hidroklorid
 nl:pyridoxine hydrochloride
 pt:cloridrato de piridoxina
@@ -17556,6 +17558,7 @@ fi:riisiviinietikka, riisietikka
 fr:vinaigre de riz
 gl:Vinagre de arroz
 he:חומץ אורז
+hr:rižin ocat
 hu:rizsecet
 id:Cuka beras
 it:Aceto di riso
@@ -18013,6 +18016,7 @@ fr:gin, london-dry-gin
 gl:Xenebra
 gv:Jeneeve
 he:ג'ין
+hr:gin
 hu:gin
 hy:Ջին
 id:Gin
@@ -21077,6 +21081,7 @@ de:Trüffelaroma, Trüffel-Aroma
 es:aroma de trufa
 fi:tryffeliaromi
 fr:arôme de truffe
+hr:aroma bijelog tartufa
 hu:trüffel aroma
 
 <en:natural flavouring
@@ -21404,6 +21409,7 @@ de:Buchenholzrauch, Buchenrauch
 es:Madera de haya ahumada
 fi:pyökkipuusavu, pyökistä valmistettu savuaromi
 fr:fumée de bois de hêtre, fumée naturelle au bois de hêtre
+hr:dim bukovine, dim drva bukve
 hu:bükkfán füstölt, bükkfa füst
 it:fumo di faggio
 sv:bokträrök
@@ -22305,7 +22311,6 @@ es:sémola de trigo candeal integral
 fi:durum-täysjyvävehnäjauho
 fr:semoule de blé dur complète, semoule complète de blé dur, semoule de ble dur complet
 hr:integralna krupica durum pšenice, integralne krupice durum pšenice, durum krupica iz pšenice cjelovitog zrna
-
 hu:teljes kiőrlésű durumbúzadara, teljes kiőrlésű durum búzaliszt
 it:semola di grano duro integrale, semola integrale di grano duro
 nl:volkoren griesmeel van harde tarwe
@@ -22316,6 +22321,10 @@ sl:polnozrnati pšenični zdrob durum
 sr:integralna krupica durum pšenice
 sv:fullkornsdurumvete
 # 350 in 20 @2021-09-28
+
+<en:whole durum wheat semolina
+en:organic whole durum wheat semolina
+hr:eko integralna krupica durum pšenice
 
 <en:durum wheat semolina
 fr:semoule de blé dur précuite
@@ -23019,7 +23028,7 @@ gd:Braich
 gl:Malte
 he:לתת
 hi:माल्ट
-hr:Slad
+hr:Slad, slada
 hu:maláta
 hy:Ածիկ
 id:Malt
@@ -23133,7 +23142,7 @@ es:malta de cebada,cebada de malta
 et:odralinnased
 fi:ohramallas, ohramallasta
 fr:malt d'orge, malts d'orge, orge malté, orge maltée
-hr:ječmeni slad
+hr:ječmeni slad, ječmenog slada
 hu:árpamaláta, árpa maláta
 it:malto d'orzo
 lt:miežių salyklas
@@ -23168,7 +23177,6 @@ es:extracto de malta de cebada, extracto de cebada malteada, jarabe de cebada ma
 et:odralinnaseekstrakt
 fi:ohramallasuute, ohramallasuutetta
 fr:extrait de malte d'orge, extrait d'orge malté, extrait d'orge maltée, extrait de malt d'orge
-hr:ekstrakt ječmenog slada
 hu:árpamaláta kivonat
 it:estratto di malto d'orzo
 lt:miežių salyklo ekstraktas
@@ -23403,6 +23411,10 @@ ciqual_food_code:en:9540
 ciqual_food_name:en:Buckwheat flour
 ciqual_food_name:fr:Farine de sarrasin
 #1493 @2021-09-27
+
+<en:buckwheat flour
+en:extruded buckwheat flour
+hr:ekstrudirano heljdino brašno
 
 <en:buckwheat flour
 fr:galette en blé noir
@@ -24214,11 +24226,15 @@ de:weiße Quinoa, weißer Quinoa, Quinoa weiß
 es:quinoa blanca
 fi:valkoinen kvinoa
 fr:quinoa blanc, quinoa blond
-hr:bijela kvinoja
+hr:bijela kvinoja, quinoa bijela
 hu:fehér kinoa
 pt:quinoa branco
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/white-quinoa
 # 63 products in 4 languages @2018-09-22
+
+<en:white quinoa
+en:oganic white quinoa
+hr:eko quinoa bijela
 
 <en:quinoa
 en:white quinoa flour
@@ -24272,7 +24288,7 @@ ga:seagal
 gl:centeo
 he:שיפון
 hi:नीवारिका
-hr:raž
+hr:raž, raži
 hu:rozs
 hy:աշորա
 ia:secale
@@ -25189,6 +25205,7 @@ de:Hartweizenmehl
 es:harina de trigo duro
 fi:durumvehnäjauho
 fr:farine de blé dur
+hr:durum pšenično brašno
 hu:durumbúzaliszt
 it:farina di grano duro
 nl:durum tarwemeel
@@ -27302,6 +27319,7 @@ en:carnaroli rice
 de:Carnaroli Reis
 fi:carnaroli riisi
 fr:riz Carnaroli
+hr:carnaroli riža
 hu:carnaroli rizs
 it:riso carnaroli
 ja:カルナローリ
@@ -31146,7 +31164,7 @@ gu:ચોકલિટ્
 gv:shocklaid
 he:שוקולד
 hi:चॉकलेट
-hr:Čokolada
+hr:Čokolada, čokoladni
 ht:chokola
 hu:csokoládé
 hy:Շոկոլադ
@@ -31310,7 +31328,7 @@ de:Schokoladenpulver
 es:chocolate en polvo
 fi:suklaajauhe
 fr:chocolat en poudre, poudre de chocolat
-hr:čokolada u prahu
+# hr:čokolada u prahu, čokoladni prah # ingredients_processing
 it:cioccolato in polvere
 nl:chocoladepoeder
 pt:Chocolate em pó
@@ -31333,7 +31351,7 @@ es:copos de chocolate, pepitas de chocolate,gotas de chocolate,chips de chocolat
 fi:suklaapalat, suklaarouhe
 fr:morceaux de chocolat, pépites de chocolat, copeaux de chocolat
 he:שברי שוקולד, נטיפי שוקולד, שוקולד צ׳יפס, שוקולד צ'יפס, חתיכות שוקולד
-hr:komadići čokolade
+hr:komadići čokolade, čokoladni komadići, čokoladni posip
 it:pezzi di cioccolato, gocce di cioccolato
 nl:Chocostukjes
 pl:Kawałki czekolady
@@ -31563,6 +31581,10 @@ fr:chocolat au lait en poudre
 # <en:compound
 <en:milk chocolate
 fr:barre de chocolat au lait
+
+<en:milk chocolate
+en:whole milk chocolate
+hr:čokolada-od-punomasnog-mlijeka
 
 description:en:WHITE CHOCOLATE is made of sugar, milk, and cocoa butter, without the cocoa solids. It is pale ivory colour, and lacks many of the compounds found in milk and dark chocolates.
 # <en:category:en:White chocolates
@@ -39276,7 +39298,7 @@ fo:sólber
 fr:cassis, baies de cassis
 ga:grosella
 he:ענבי שועל
-hr:crni ribiz, crnog ribiza
+hr:crni ribiz, crnog ribiza, crna ribizla, crni ribizl, crne ribizle
 hu:fekete ribizli
 io:kasiso
 is:sólber
@@ -40754,6 +40776,10 @@ ciqual_food_name:fr:Figue, crue
 <en:fig
 en:organic fig
 hr:eko smokva
+
+<en:organic fig
+en:dried organic fig
+hr:eko suha smokva
 
 <en:fig
 en:Pajarero Figs
@@ -46106,6 +46132,7 @@ es:Achicoria
 fi:sikuri
 fr:Chicorée
 he:עולש
+hr:cikorije
 it:Cicoria
 ja:チコリー
 nl:chicorij
@@ -46833,6 +46860,11 @@ fr:huile d'ail
 <en:garlic
 <en:onion
 fr:oignon et ail en poudre
+
+<en:garlic
+<en:vinegar
+en:garlic vinegar
+hr:češnja ocat
 
 # description:en:ALOE VERA is a succulent plant species of the genus Aloe.
 
@@ -48728,6 +48760,7 @@ de:schwarze Karotte
 es:Zanahorias negras
 fi:Musta porkkana, mustaporkkana, mustaporkkanaa
 fr:carotte noire
+hr:crna mrkva
 it:carote nere
 nb:sort gulrot
 nl:zwarte wortel
@@ -49828,6 +49861,7 @@ fi:punasipuli
 fr:oignon rouge, oignons rouges
 he:בצל סגול
 hi:लाल प्याज
+hr:crveni luk
 hu:lilahagyma, vöröshagyma
 is:rauðlaukur
 it:cipolla rossa
@@ -51878,6 +51912,10 @@ ciqual_food_name:en:Sweet pepper, red, raw
 ciqual_food_name:fr:Poivron rouge, cru
 # 17432 in 13 languages @2021-10-12
 
+<en:red bell pepper
+en:red grilled pepper
+hr:crvena pečena paprika
+
 <en:sweet pepper
 en:italian pepper
 de:italienischer Pfeffer
@@ -52106,7 +52144,7 @@ de:roter Chili, rote Chili-Schoten
 es:chile rojo, chiles rojos, red-chili,chili rojo
 fi:punainen chili
 fr:piment rouge, piments rouges
-hr:crvene papričice
+hr:crvene papričice, crveni čili
 it:peperoncini rossi
 nb:rød chili pepper, rød chili
 nl:rode peper, rode chilipeper
@@ -52119,6 +52157,10 @@ en:red chili purée, red chilli purée
 de:rotes Chili-Püree, rotes Chilipüree
 fr:Purée de piment rouge
 it:purè di peperoncino rosso
+
+<en:red chili pepper
+en:pounded red chili pepper
+hr:crvena tucana ljuta paprika
 
 <en:red chili pepper
 en:red pepper seed oil
@@ -54895,7 +54937,7 @@ gn:Kumanda
 gu:વટાણા
 he:אפונה
 hi:मटर
-hr:grašak
+hr:grašak, graška
 ht:Pwa
 hu:Borsó
 hy:ոլոռ
@@ -58698,7 +58740,7 @@ et:vürtsid
 fi:mauste, mausteet
 fr:épice, épices, aromate
 he:תבלין
-hr:začin, začini, zači
+hr:začin, začini, zači, začina, začinskog bilja
 hu:fűszerm fűszerek
 is:krydd
 it:spezie
@@ -58806,7 +58848,7 @@ de:Gewürz Extrakte, Gewürzextrakte, Gewurzextrakte, Gewürzextrakt
 es:Extracto de especias
 fi:mausteuute, mausteuutteet
 fr:extrait d'épice, extraits d'épices
-hr:ekstrakti začina
+# hr:ekstrakti začina # in ingredients_processing.txt
 hu:fűszerkivonat, fűszerkivonatok, fűszer kivonat, fűszer kivonatok
 it:Estratto di spezie
 ja:香辛料抽出物
@@ -59917,7 +59959,7 @@ gl:craveiro da india
 gu:લવિંગ
 he:ציפורן
 hi:लौंग
-hr:klinčić
+hr:klinčić, cvjetne palice klinčića, syzygium aromaticum
 ht:jiwòf
 hu:szegfűszeg
 id:cengkih
@@ -62338,7 +62380,7 @@ fi:salvia
 fr:sauge
 ga:sáiste
 he:מרווה
-hr:kadulja
+hr:kadulja, kadulje
 hu:zsálya
 id:salvio
 it:salvia
@@ -62607,7 +62649,7 @@ fi:kehäkukka, tarhakehäkukka
 fr:souci, soucis, fleurs de calendula, calendula
 ga:Ór Muire
 gl:Maravalla
-hr:Neven
+hr:Neven, Calendula officinalis L.
 hu:Orvosi körömvirág
 is:Morgunfrú
 it:calendula
@@ -63890,7 +63932,7 @@ fa:بادرنجبویه
 fi:Sitruunamelissa
 fr:mélisse
 gl:Melisa
-hr:Matičnjak
+hr:Matičnjak, matičnjaka
 hu:citromfű
 hy:Պատրինջ դեղատու
 is:Sítrónumelissa
@@ -64808,6 +64850,7 @@ de:schwarze Oliven
 es:aceituna negra, oliva negra
 fi:musta oliivi
 fr:olives noires, olive noire
+hr:crne masline, crne odgorčene stolne masline
 it:olive nere
 nl:zwarte olijven, zwarte olijf
 no:svart oliven, svarte oliven, sort oliven, sorte oliven
@@ -65578,6 +65621,7 @@ en:soapwort
 de:Seifenkraut, Echtes Seifenkraut
 fi:suopayrtti
 fr:saponaire
+hr:sapunike
 it:Saponaria
 nl:zeekruid
 
@@ -65631,7 +65675,7 @@ gu:ચા
 ha:Shayi
 he:תה
 hi:चाय
-hr:čaj, camellia sinensis
+hr:čaj, čaja, camellia sinensis
 ht:Te
 hu:tea
 hy:թեյ
@@ -66400,6 +66444,11 @@ de:Bourbon-Vanilleschote gemahlen
 
 <en:Bourbon vanilla beans
 de:Bourbonvanilleschotenextrakt
+
+<en:Bourbon vanilla
+<en:bourbon vanilla extract
+en:extract and bourbon vanilla seeds
+hr:ekstrakt i sjemenke bourbon vanilije 
 
 <en:vanilla
 en:vanilla seeds
@@ -75012,7 +75061,7 @@ gu:કરચલો
 gv:કરચલો
 he:סרטנים קצרי בטן
 hi:केकड़ा
-hr:rakova
+hr:rakova, rakovice
 ht:Krab
 hu:Rövidfarkú rákok
 hy:խաչափառներ
@@ -77368,9 +77417,9 @@ nl:zachte koffie zonder cafeïne
 fr:café Arabica décaféiné torréfié
 
 # extract in ingredient_processing
-#<en:decaffeinated coffee
+<en:decaffeinated coffee
 #en:decaffeinated coffee extract
-#hr:dekofeinizirani ekstrakt kave
+hr:dekofeinizirani ekstrakt kave
 
 <en:coffee
 en:coffee powder
@@ -77391,6 +77440,7 @@ de:Kaffe Arabica, reiner Arabica-Kaffee, Arabica Kaffee
 es:café arabica, puro arabica
 fi:arabiankahvi, arabica-kahvi
 fr:café arabica, arabica, Café 100 % arabica, café pur arabica
+hr:kave 100 arabica
 hu:arabica kávé, arabica
 it:caffè Arabica
 nl:arabica koffie
@@ -78962,6 +79012,10 @@ fr:jambon de dinde cuit standard goût fumé
 <en:turkey
 en:roasted turkey including natural turkey juices
 de:Gebratener Truthahn mit natürlichen Truthahnsäften
+
+<en:turkey
+en:turkey gizzard meat
+hr:meso purećeg zabatka
 
 <en:poultry
 en:quail
@@ -82502,7 +82556,7 @@ ga:Briosca
 gd:Briosgaid
 gl:Galleta
 he:ביסקוויט
-hr:Biskvit
+hr:biskvit, čajno pecivo
 hu:Kekszek, Keksz
 hy:բիսկվիտ
 id:Biskuit
@@ -82676,6 +82730,7 @@ fr:décor au cacao maigre, decor au cacao maigre, enrobage au cacao maigre
 fr:chocolat de couverture
 ca:cobertura de xocolata, cobertura de cacau
 es:cobertura de chocolate
+hr:čokoladna kuvertura, čokoladni preljev
 pt:chocolate de cobertura
 
 <en:coating
