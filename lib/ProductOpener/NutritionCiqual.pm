@@ -88,6 +88,8 @@ sub load_ciqual_data() {
 	# Then, load the extended Ciqual CALNUT table that contains all nutrients but only for some Ciqual categories
 	# If we have data in CALNUT, it overrides the possibly partial data we may have loaded from the Ciqual table
 	load_ciqual_calnut_table();
+
+	return;
 }
 
 # Unit factors used by both functions to load Ciqual and CALNUT tables
