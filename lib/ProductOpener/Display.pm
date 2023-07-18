@@ -81,6 +81,7 @@ BEGIN {
 		&display_recent_changes
 		&add_tag_prefix_to_link
 		&display_taxonomy_api
+		&map_of_products
 
 		&display_nested_list_of_ingredients
 		&display_ingredients_analysis_details
@@ -162,6 +163,7 @@ use ProductOpener::Nutriscore qw(:all);
 use ProductOpener::Ecoscore qw(:all);
 use ProductOpener::Attributes qw(:all);
 use ProductOpener::KnowledgePanels qw(:all);
+use ProductOpener::KnowledgePanelsTags qw(:all);
 use ProductOpener::Orgs qw(:all);
 use ProductOpener::Web qw(:all);
 use ProductOpener::Recipes qw(:all);
@@ -793,6 +795,8 @@ sub init_request ($request_ref = {}) {
 	if (is_admin_user($User_id)) {
 		$admin = 1;
 	}
+	$request_ref->{admin} = $admin;
+	# TODO: remove the $admin global variable, and use $request_ref->{admin} instead.
 
 	# Producers platform: not logged in users, or users with no permission to add products
 
@@ -1442,7 +1446,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 					if $log->is_debug();
 				$results = execute_query(
 					sub {
-						return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+						return get_products_collection(get_products_collection_request_parameters($request_ref))
 							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
@@ -1456,7 +1460,8 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 					if $log->is_debug();
 				$results = execute_query(
 					sub {
-						return get_products_collection({obsolete => request_param($request_ref, "obsolete"), tags => 1})
+						return get_products_collection(
+							get_products_collection_request_parameters($request_ref, {tags => 1}))
 							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
@@ -1524,7 +1529,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 						if $log->is_debug();
 					$count_results = execute_query(
 						sub {
-							return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+							return get_products_collection(get_products_collection_request_parameters($request_ref))
 								->aggregate($aggregate_count_parameters, {allowDiskUse => 1});
 						}
 					);
@@ -1538,7 +1543,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 					$count_results = execute_query(
 						sub {
 							return get_products_collection(
-								{obsolete => request_param($request_ref, "obsolete"), tags => 1})
+								get_products_collection_request_parameters($request_ref, {tags => 1}))
 								->aggregate($aggregate_count_parameters, {allowDiskUse => 1});
 						}
 					);
@@ -4054,6 +4059,18 @@ HTML
 				if ($description ne "") {
 					$tag_template_data_ref->{description} = $description;
 				}
+
+				# Display knowledge panels for the tag, if any
+
+				initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
+				my $tag_ref = {};    # Object to store the knowledge panels
+				my $panels_created
+					= create_tag_knowledge_panels($tag_ref, $lc, $cc, $knowledge_panels_options_ref, $tagtype,
+					$canon_tagid);
+				if ($panels_created) {
+					$tag_template_data_ref->{tag_panels}
+						= display_knowledge_panel($tag_ref, $tag_ref->{"knowledge_panels_" . $lc}, "root");
+				}
 			}
 
 			$tag_template_data_ref->{products_title} = $products_title;
@@ -4404,6 +4421,47 @@ sub count_products ($request_ref, $query_ref, $obsolete = 0) {
 	};
 
 	return $count;
+}
+
+=head2 get_products_collection_request_parameters ($request_ref, $additional_parameters_ref = {} )
+
+This function looks at the request object to set parameters to pass to the get_products_collection() function.
+
+=head3 Arguments
+
+=head4 $request_ref request object
+
+=head4 $additional_parameters_ref
+
+An optional reference to a hash of parameters that should be added to the parameters extracted from the request object.
+This is useful in particular to request the query to be executed on the smaller products_tags category, by passing
+{ tags = 1 }
+
+=head3 Return value
+
+A reference to a parameters object that can be passed to get_products_collection()
+
+=cut
+
+sub get_products_collection_request_parameters ($request_ref, $additional_parameters_ref = {}) {
+
+	my $parameters_ref = {};
+
+	# If the request is for obsolete products, we will select a specific products collection
+	# for obsolete products
+	$parameters_ref->{obsolete} = request_param($request_ref, "obsolete");
+
+	# Admin users can request a specific query_timeout for MongoDB queries
+	if ($request_ref->{admin}) {
+		$parameters_ref->{timeout} = request_param($request_ref, "timeout");
+	}
+
+	# Add / overwrite request parameters with additional parameters passed as arguments
+	foreach my $parameter (keys %$additional_parameters_ref) {
+		$parameters_ref->{$parameter} = $additional_parameters_ref->{$parameter};
+	}
+
+	return $parameters_ref;
 }
 
 =head2 add_params_to_query ( $request_ref, $query_ref )
@@ -4917,7 +4975,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
 				$count = execute_query(
 					sub {
-						return get_products_collection({obsolete => request_param($request_ref, "obsolete"), tags => 1})
+						return get_products_collection(
+							get_products_collection_request_parameters($request_ref, {tags => 1}))
 							->count_documents($query_ref);
 					}
 				);
@@ -4928,7 +4987,8 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				$log->debug("Executing MongoDB query", {query => $aggregate_parameters}) if $log->is_debug();
 				$cursor = execute_query(
 					sub {
-						return get_products_collection({obsolete => request_param($request_ref, "obsolete"), tags => 1})
+						return get_products_collection(
+							get_products_collection_request_parameters($request_ref, {tags => 1}))
 							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
@@ -4980,7 +5040,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 										{key => $key_count})
 										if $log->is_debug();
 									return get_products_collection(
-										{obsolete => request_param($request_ref, "obsolete"), tags => 1})
+										get_products_collection_request_parameters($request_ref, {tags => 1}))
 										->count_documents($query_ref);
 								}
 							);
@@ -4993,7 +5053,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 									$log->debug("count_documents on complete products collection", {key => $key_count})
 										if $log->is_debug();
 									return get_products_collection(
-										{obsolete => request_param($request_ref, "obsolete")})
+										get_products_collection_request_parameters($request_ref))
 										->count_documents($query_ref);
 								}
 							);
@@ -5020,7 +5080,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 						sub {
 							$log->debug("empty query_ref, use estimated_document_count fot better performance", {})
 								if $log->is_debug();
-							return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+							return get_products_collection(get_products_collection_request_parameters($request_ref))
 								->estimated_document_count();
 						}
 					);
@@ -5032,7 +5092,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 					if $log->is_debug();
 				$cursor = execute_query(
 					sub {
-						return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+						return get_products_collection(get_products_collection_request_parameters($request_ref))
 							->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 					}
 				);
@@ -5520,14 +5580,7 @@ sub search_and_export_products ($request_ref, $query_ref, $sort_by) {
 
 	# Display an error message
 
-	if (defined $request_ref->{current_link}) {
-		$request_ref->{current_link_query_display} = $request_ref->{current_link};
-		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-		$html
-			.= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">"
-			. lang("search_edit")
-			. "</a><br>";
-	}
+	$html .= search_permalink($request_ref);
 
 	$request_ref->{title} = lang("search_results");
 	$request_ref->{content_ref} = \$html;
@@ -6394,7 +6447,7 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+				return get_products_collection(get_products_collection_request_parameters($request_ref))
 					->query($query_ref)->fields($fields_ref);
 			}
 		);
@@ -6420,14 +6473,7 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 		$html .= "<p>" . lang("no_products") . "</p>";
 	}
 
-	if (defined $request_ref->{current_link}) {
-		$request_ref->{current_link_query_display} = $request_ref->{current_link};
-		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-		$html
-			.= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">"
-			. lang("search_edit")
-			. "</a><br>";
-	}
+	$html .= search_permalink($request_ref);
 
 	if ($count <= 0) {
 		# $request_ref->{content_html} = $html;
@@ -6465,6 +6511,24 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 
 	return $html;
 }
+
+=head2  get_packager_code_coordinates ($emb_code)
+
+Transform a traceability code (emb code) into a latitude / longitude pair.
+
+We try using packagers_codes taxonomy, or fsa_rating or geocode for uk,
+or city.
+
+=head3 parameters
+
+=head4 $emb_code - string
+
+The traceability code
+
+=head3 returns - list of 2 elements
+(latitude, longitude) if found, or (undef, undef) otherwise
+
+=cut
 
 sub get_packager_code_coordinates ($emb_code) {
 
@@ -6514,70 +6578,35 @@ sub get_packager_code_coordinates ($emb_code) {
 
 }
 
-sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
-
-	add_params_to_query($request_ref, $query_ref);
-
-	add_country_and_owner_filters_to_query($request_ref, $query_ref);
-
-	my $cursor;
-
-	$log->info("retrieving products from MongoDB to display them in a map") if $log->is_info();
-
-	eval {
-		$cursor = execute_query(
-			sub {
-				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
-					->query($query_ref)->fields(
-					{
-						code => 1,
-						lc => 1,
-						product_name => 1,
-						"product_name_$lc" => 1,
-						brands => 1,
-						images => 1,
-						manufacturing_places => 1,
-						origins => 1,
-						emb_codes_tags => 1,
-					}
-					);
-			}
-		);
+# an iterator over a cursor to unify cases between mongodb and external data (like filtered jsonl)
+sub cursor_iter ($cursor) {
+	return sub {
+		return $cursor->next();
 	};
-	if ($@) {
-		$log->warn("MongoDB error", {error => $@}) if $log->is_warn();
-	}
-	else {
-		$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
-	}
+}
 
-	$log->info("retrieved products from MongoDB to display them in a map") if $log->is_info();
+=head2 map_of_products($products_iter, $request_ref, $graph_ref)
 
-	my @products = $cursor->all;
-	my $count = @products;
+Build the HTML to display a map of products
+
+=head3 parameters
+
+=head4 $products_iter - iterator
+
+Must return a reference to a function that on each call return a product, or undef to end iteration
+
+
+=head4 $request_ref - hashmap ref
+
+=head4 $graph_ref - hashmap ref
+
+Specifications for the graph
+
+=cut
+
+sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 
 	my $html = '';
-
-	if ($count < 0) {
-		$html .= "<p>" . lang("error_database") . "</p>";
-	}
-	elsif ($count == 0) {
-		$html .= "<p>" . lang("no_products") . "</p>";
-	}
-
-	if (defined $request_ref->{current_link}) {
-		$request_ref->{current_link_query_display} = $request_ref->{current_link};
-		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-		$html
-			.= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">"
-			. lang("search_edit")
-			. "</a><br>";
-	}
-
-	if ($count <= 0) {
-		$log->warn("could not retrieve enough products for a map", {count => $count}) if $log->is_warn();
-		return $html;
-	}
 
 	$graph_ref->{graph_title} = escape_single_quote($graph_ref->{graph_title});
 
@@ -6589,7 +6618,7 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 	my %seen = ();
 	my @pointers = ();
 
-	foreach my $product_ref (@products) {
+	while (my $product_ref = $products_iter->()) {
 		my $url = $formatted_subdomain . product_url($product_ref->{code});
 
 		my $manufacturing_places = escape_single_quote($product_ref->{"manufacturing_places"});
@@ -6653,15 +6682,29 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 		$matching_products++;
 	}
 
+	# no products --> no map
+	if ($matching_products <= 0) {
+		if ($matching_products == 0) {
+			$html .= "<p>" . lang("no_products") . "</p>";
+		}
+		$log->warn("could not retrieve enough products for a map", {count => $matching_products}) if $log->is_warn();
+		return $html;
+	}
+
 	$log->info(
 		"rendering map for matching products",
-		{count => $count, matching_products => $matching_products, products => $seen_products, emb_codes => $emb_codes}
+		{
+			count => $matching_products,
+			matching_products => $matching_products,
+			products => $seen_products,
+			emb_codes => $emb_codes
+		}
 	) if $log->is_debug();
 
 	# Points to display?
 	my $count_string = q{};
 	if ($emb_codes > 0) {
-		$count_string = sprintf(lang("map_count"), $count, $seen_products);
+		$count_string = sprintf(lang("map_count"), $matching_products, $seen_products);
 	}
 
 	if (defined $request_ref->{current_link}) {
@@ -6682,6 +6725,117 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 	process_template('web/pages/products_map/map_of_products.tt.html', $map_template_data_ref, \$html)
 		|| ($html .= 'template error: ' . $tt->error());
 
+	return $html;
+}
+
+=head2 search_products_for_map($request_ref, $query_ref)
+
+Build the MongoDB query corresponding to a search to display a map
+
+=head3 parameters
+
+=head4 $request_ref - hashmap
+
+=head4 $query_ref - hashmap
+
+Base query that will be modified to be able to build the map
+
+=head3 returns - MongoDB::Cursor instance
+
+=cut
+
+sub search_products_for_map ($request_ref, $query_ref) {
+
+	add_params_to_query($request_ref, $query_ref);
+
+	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+
+	my $cursor;
+
+	$log->info("retrieving products from MongoDB to display them in a map") if $log->is_info();
+
+	eval {
+		$cursor = execute_query(
+			sub {
+				return get_products_collection(get_products_collection_request_parameters($request_ref))
+					->query($query_ref)->fields(
+					{
+						code => 1,
+						lc => 1,
+						product_name => 1,
+						"product_name_$lc" => 1,
+						brands => 1,
+						images => 1,
+						manufacturing_places => 1,
+						origins => 1,
+						emb_codes_tags => 1,
+					}
+					);
+			}
+		);
+	};
+	if ($@) {
+		$log->warn("MongoDB error", {error => $@}) if $log->is_warn();
+	}
+	else {
+		$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
+	}
+
+	$log->info("retrieved products from MongoDB to display them in a map") if $log->is_info();
+	$cursor->immortal(1);
+	return $cursor;
+}
+
+=head2 search_and_map_products ($request_ref, $query_ref, $graph_ref)
+
+Trigger a search and build a map
+
+=head3 parameters
+
+=head4 $request_ref - hashmap ref
+
+=head4 $query_ref - hashmap ref
+
+Base query for this search
+
+=head4 $graph_ref
+
+Specification of the graph
+
+=cut
+
+sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
+
+	my $cursor = search_products_for_map($request_ref, $query_ref);
+
+	# add search link
+	my $html = '';
+
+	$html .= search_permalink($request_ref);
+
+	eval {$html .= map_of_products(cursor_iter($cursor), $request_ref, $graph_ref);} or do {
+		$html .= "<p>" . lang("error_database") . "</p>";
+	};
+	return $html;
+}
+
+=head2 search_permalink($request_ref)
+
+add a permalink to a search result page
+
+=head3 return - string - generated HTML
+=cut
+
+sub search_permalink ($request_ref) {
+	my $html = '';
+	if (defined $request_ref->{current_link}) {
+		$request_ref->{current_link_query_display} = $request_ref->{current_link};
+		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
+		$html
+			.= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">"
+			. lang("search_edit")
+			. "</a><br>";
+	}
 	return $html;
 }
 
@@ -11003,7 +11157,7 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 	eval {
 		$cursor = execute_query(
 			sub {
-				return get_products_collection({obsolete => request_param($request_ref, "obsolete")})
+				return get_products_collection(get_products_collection_request_parameters($request_ref))
 					->query($query_ref)->fields($fields_ref);
 			}
 		);
@@ -11029,14 +11183,7 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 		$html .= "<p>" . lang("no_products") . "</p>";
 	}
 
-	if (defined $request_ref->{current_link}) {
-		$request_ref->{current_link_query_display} = $request_ref->{current_link};
-		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-		$html
-			.= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">"
-			. lang("search_edit")
-			. "</a><br>";
-	}
+	$html .= search_permalink($request_ref);
 
 	if ($count <= 0) {
 		return $html;

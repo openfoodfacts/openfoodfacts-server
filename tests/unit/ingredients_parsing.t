@@ -568,6 +568,26 @@ my @lists = (
 		"sunflower vegetable oils, colza vegetable oils and strawberry"
 	],
 
+	# Polish oils
+	["pl", "oleje roślinne (słonecznikowy)", "oleje roślinne słonecznikowy"],
+	["pl", "oleje roślinne: słonecznikowy", "oleje roślinne słonecznikowy"],
+	["pl", "oleje roślinne (słonecznikowy, rzepakowy)", "oleje roślinne słonecznikowy, oleje roślinne rzepakowy"],
+	[
+		"pl",
+		"oleje roślinne (sojowy, słonecznikowy, kokosowy, rzepakowy) w zmiennych proporcjach",
+		"oleje roślinne sojowy, oleje roślinne słonecznikowy, oleje roślinne kokosowy, oleje roślinne rzepakowy"
+	],
+	[
+		"pl",
+		"tłuszcze roślinne (palmowy nieutwardzony, shea)",
+		"tłuszcze roślinne palmowy nieutwardzony, tłuszcze roślinne shea"
+	],
+	[
+		"pl",
+		"tłuszcze roślinne (kokosowy i palmowy) w zmiennych proporcjach",
+		"tłuszcze roślinne kokosowy, tłuszcze roślinne palmowy"
+	],
+
 	# Russian oils (more tests needed)
 	["ru", "масло (Подсолнечное)", "масло Подсолнечное"],
 	["ru", "Масло (подсолнечное)", "Масло подсолнечное"],

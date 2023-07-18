@@ -442,7 +442,25 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 				);
 			}
 			elsif (defined $test_ref->{form}) {
-				$response = $test_ua->post($url, Content => $test_ref->{form}, %$headers_in);
+				my $form = $test_ref->{form};
+				my $is_multipart = 0;
+				foreach my $value (values %$form) {
+					if (ref($value) eq 'ARRAY') {
+						$is_multipart = 1;
+						last;
+					}
+				}
+				if ($is_multipart) {
+					$response = $test_ua->post(
+						$url,
+						"Content-Type" => "multipart/form-data",
+						Content => $form,
+						%$headers_in
+					);
+				}
+				else {
+					$response = $test_ua->post($url, Content => $form, %$headers_in);
+				}
 			}
 			else {
 				$response = $test_ua->post($url, %$headers_in);

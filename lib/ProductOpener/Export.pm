@@ -196,7 +196,7 @@ sub export_csv ($args_ref) {
 
 	my @collections = ("products");    # products collection
 	if ($args_ref->{include_obsolete_products}) {
-		push @collections, {"products_obsolete"};
+		push @collections, "products_obsolete";
 	}
 
 	# Create a list of the fields that we will export

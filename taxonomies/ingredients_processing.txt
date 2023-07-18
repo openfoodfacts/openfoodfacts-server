@@ -13,6 +13,7 @@
 
 # be careful: raw in English can mean "unrefined" as in "raw cane sugar"
 # or uncooked "raw fish"
+
 # unrefined ingredients like "raw sugar", "raw milk", "raw honey" etc.
 # need to be kept in the taxonomy.
 # Same for things like "jambon cru", "lait cru" in French.
@@ -34,6 +35,7 @@ fi:raaka
 fr:cru, crue, crus, crues, brut, non raffiné
 hr:nerafinirani
 hu:nyers, nyersen
+ja:生
 nl:rauw, rauwe
 pl:surowy, surowa, surowe
 pt:cru, crus
@@ -72,7 +74,7 @@ ca:pura, pur
 de:Purer
 es:pura, puro
 fr:pur
-hr:pasirana, pureće
+hr:pasirana, pasirani, pureće, pire
 it:puro, puri, pura, pure
 
 en:selected
@@ -110,7 +112,7 @@ fr:graine, graines
 hr:u zrnu, sjeme
 is:fræ
 it:semi, grani
-ja:の実
+ja:の実, の種
 jv:Wiji
 ko:양귀비 씨
 nb:frø
@@ -144,6 +146,7 @@ fr:feuille de, feuille d'
 hr:list
 hu:levél
 it:foglie, in foglie
+ja:の葉
 nl:blad, bladeren
 pl:natka, liść, liście, nać, liście z
 ro:frunze de
@@ -179,6 +182,7 @@ pt:cortado, cortada, cortados, cortadas
 en:thick cut
 es:cortada gruesa,cortado grueso, cortados gruesos,cortadas gruesas
 hu:vastagon vágott, vastag vágás
+ja:厚切り
 pt:corte crosso, cortado grosso, cortes grossos, cortados grossos
 
 # <en:cut
@@ -225,6 +229,7 @@ es:lamina,laminada,laminado, laminadas,laminados,rodajas
 fr:tranché, tranchée, tranchés, tranchées, en lamelles, en tranches, en lanières, en rondelles, tranches de, lamelles de, lanières de, rondelle de, rondelles de, tranches d', lamelles d', lanières d', rondelles d'
 hu:szeletelt, szelt, szeletelve
 it:a fette, in fette, affettato, affettata, affettati, affettate
+ja:スライス, 薄切り
 nl:schijfjesamande émondée
 pt:laminado, laminada, laminados, laminadas, em lâminas, em lâmina, em rodela, em rodelas, rodela de, rodelas de
 
@@ -239,6 +244,7 @@ fr:hâché, hâchée, hâchés, hâchées, haché, hachée, hachés, hachées
 hr:usitnjeni, usitnjena, sjeckani
 hu:apróra vágott, aprított, aprítva, apróra vágva
 is:hakkaðar
+ja:刻み
 nb:hakkede
 nl:gehakt, gehakte
 nn:hakkede
@@ -285,6 +291,10 @@ nl:gebroken
 pt:triturado, triturada, triturados, trituradas, esmagado, esmagada, esmagados, esmagadas
 sv:krossad
 
+en:agglomerated
+hr:aglomerirani
+
+<en:agglomerated
 en:rolled
 de:gerollt, gerollte, gerollter, gerolltes
 es:arrollada,arrollado
@@ -301,6 +311,7 @@ fi:raastettu, raastetut
 fr:râpé, râpée, râpés, râpées
 hu:reszelt, reszelve
 it:grattugiato, grattugiata, grattugiati, grattugiate
+ja:おろし
 nl:geraspt, geraspte
 pl:tarty, tarta, tarte
 pt:ralado, ralada, ralados, raladas
@@ -380,6 +391,7 @@ fr:en purée, purée de, purée d'
 hr:kaša, kaša od
 hu:püré, pürésített
 it:purea di
+ja:ピュレ, ピューレ, ピューレー
 mk:каша од
 nb:puré
 nl:puree
@@ -412,6 +424,7 @@ fr:entier, entière, entiers, entières
 hr:cijele
 hu:egész, egészben
 it:intero, intera, interi, intere
+ja:全
 pl:całe, w całości
 pt:inteiro, inteira, inteiros, inteiras
 sv:hel, hela
@@ -462,6 +475,7 @@ fi:hiutaleet, hiutale
 fr:flocons de, en flocons
 hr:pahuljice od
 it:fiocchi di, fiocchi d'
+ja:フレーク
 nl:vlokken
 pl:płatki, grys, wiórki
 pt:floco, flocos, em floco, em flocos, floco de, flocos de
@@ -474,7 +488,7 @@ es:copos de
 fi:lastu
 fr:chips de
 it:fettine di
-ja:チップス
+ja:チップス, チップ
 nl:chips
 pl:chipsy
 
@@ -516,7 +530,7 @@ id:Bubuk
 io:Polvo
 is:duft
 it:in polvere, en polvere, polvere di, polvere d'
-ja:パウダー
+ja:パウダー, 粉末, 末
 jv:Bubuk
 lt:milteliai
 lv:pulveris
@@ -566,7 +580,7 @@ he:קמח אורז
 hu:liszt
 is:mjöl
 it:farina di, farina d'
-ja:粉
+ja:粉, フラワー
 lt:miltai
 lv:milti
 nb:mel
@@ -627,7 +641,7 @@ cs:loupaná
 es:sin cascara, pelada, pelado, peladas, pelados
 fi:kuoreton, kuorettomat
 fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées, émondé, émondée, émondés, émondées
-hr:oljušteni
+hr:oljušteni, golice
 it:decorticato, decorticati, decorticata, decorticate, sbucciati, sgusciato, sgusciati, sgusciata, sgusciate
 pl:łuskany, łuskana, łuskane
 pt:descascado, descascada, descascados, descascadas, sem casca, sem cascas
@@ -711,6 +725,7 @@ gl:Polpa
 he:בקבוקון מיץ
 hu:bél, velő
 it:polpa, polpa di, polpa d'
+ja:パルプ
 nl:pulp, vruchtvlees
 #nl:false:met pulp
 pl:pulpa, pulpa z
@@ -749,6 +764,7 @@ es:desengrasado, desengrasada,desgrasado,desgrasada
 fr:dégraissé, dégraissée, dégraissés, dégraissées
 hu:zsírtalanított
 it:sgrassato, sgrassata
+ja:脱脂
 nl:ontvet, ontvette
 pl:odtłuszczone, o obniżonej zawartości tłuszczu
 pt:desengordurado, desengordurada
@@ -784,6 +800,7 @@ fr:jus de, jus d'
 hr:sok, sok od, voćni sok od, od soka
 hu:leve, lé
 it:succo, succo di, succo d', succhi, succhi di, succhi d'
+ja:ジュース, 果汁
 nb:juice
 nl:sap
 nn:juice
@@ -854,9 +871,10 @@ es:concentrado, concentrada, concentrados, concentradas
 fa:کنسانتره
 fi:tiivistetty, tiiviste, tiivisteitä
 fr:concentré, concentrée, concentrés, concentrées, concentré de
-hr:koncentriran, koncentrirani, koncentrani, koncentrat, koncentrat za
+hr:koncentriran, koncentrirani, koncentrani, koncentrat, koncentrat za, koncentrati
 hu:sűrítmény, sűrített, koncentrátum
 it:concentrato, concentrato di, concentrato d', concentrati, concentrata, concentrate
+ja:濃縮
 ko:농축물
 mk:концентриран, концентрирана
 nl:concentraten, concentraat, geconcentreerd, geconcentreerde
@@ -894,6 +912,7 @@ de:200fach konzentriertes
 #fr:pâte de, pâte d'
 #hr:pasta od
 #it:pasta di, pasta d'
+#ja:ペースト
 #pl:pasta z
 #sv:pasta
 
@@ -913,6 +932,7 @@ fr:à base de concentré, à partir de concentré
 hr:koncentrirane, na koncentrat, od koncentriranog soka škrob, od koncentriranog soka, od koncentrirane kaše
 hu:sűrítményből, koncentrátumból, sűrítményekből, koncentrátumokból
 it:da concentrato
+ja:濃縮還元
 lt:iš koncentrąto
 nl:uit concentraat, van concentraat, op basis van concentraat
 pl:z koncentratu
@@ -937,7 +957,7 @@ he:מיובשים, מיובש
 hr:sušeni, sušena, sušeno, sušene, suha, suhe, suho, suhi
 hu:szárított
 it:secco, secca, secchi, secche, essiccato, essiccati, essiccata, essiccate
-ja:ドライ
+ja:ドライ, 乾燥
 lt:džiovinti
 lv:žāvēti
 nb:tørkede
@@ -1093,7 +1113,7 @@ fr:extrait de, extrait d'
 hr:ekstrakt
 hu:kivonat, kivonatból
 it:estratto di, estratti di, estratto d', estratti d'
-ja:エキス
+ja:エキス, 抽出物
 #it:falsePositive:antiossidante estratto ricco di tocoferolo
 nb:ekstrakt, ekstrakter
 nl:extract
@@ -1200,6 +1220,7 @@ ca:congelat, congelades, ultracongelat, ultracongelades
 de:tiefgefroren, gefroren, tiefgefrorene, gefrorene, tiefgefrorener, gefrorener, tiefgefrorenes, gefrorenes
 es:congelado, conjelada, congelados, conjeladas,ultracongelado, ultracongelada,ultracongelados, ultracongeladas
 fr:surgelé, surgelée, surgelés, surgelées, congelé, congelée, congelés, congelées
+hr:smrznuti, brzo smrznuti
 hu:fagyasztott, fagyott
 it:congelato, congelati, congelata, congelate, surgelato, surgelati, surgelata, surgelate
 nl:diepgevroren
@@ -1226,7 +1247,7 @@ de:pasteurisiert, pasteurisierte, pasteurisierter, pasteurisiertes
 es:pasteurizado, pasteurizada, pasteurizados, pasteurizadas, producto pasteurizado, producto pasteurizada, pasterizada
 fi:pastöroitu
 fr:pasteurisé, pasteurisée, pasteurisés, pasteurisées
-hr:pasterizirano, pasterizirana
+hr:pasterizirano, pasterizirana, pasterizirani
 hu:pasztőrözött, pasztörizált
 it:pastorizzato, pastorizzata, pastorizzate, pastorizzati
 ja:パスチャライズ
@@ -1298,6 +1319,7 @@ hr:kuhani
 hu:főtt, főzött
 id:rebus
 it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
+ja:ゆで, 茹で
 ms:rebus
 nl:gekookt, gekookte
 nn:kogte
@@ -1362,6 +1384,7 @@ fr:frit, frite, frits, frites
 hr:pržene
 hu:sült
 it:fritto, fritta, fritti, fritte
+ja:フライド
 pl:smażony, smażona, smażone
 pt:frito, frita, fritos, fritas
 sv:friterad, stekt
@@ -1378,6 +1401,7 @@ et:röstitud
 fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
 hu:pörkölt
 it:arrostito, arrostita, arrostiti, arrostite
+ja:ロースト
 nl:gebraden
 pt:assado, assada, assados, assadas
 sk:pražené
@@ -1385,6 +1409,7 @@ sv:rostat, rostade
 
 #<en:roasted
 en:dry roasted
+ja:焙煎
 
 #comment:en:In the actual translations on products, there is not always a difference between toasted and roasted
 
@@ -1555,6 +1580,7 @@ fr:sucré, sucrée, sucrés, sucrées, sucree, sucrees
 #better not add fr:sucre and fr:sucres
 hu:cukrozott
 it:zuccherato, zuccherati, zuccherata, zuccherate
+ja:加糖
 nl:gesuikerd, gesuikerde
 pt:açucarado, açucarada, açucarados, açucaradas
 sv:sockrad
@@ -1695,6 +1721,7 @@ es:fermentado
 hr:fermentirano
 hu:fermentált
 it:fermentato, fermentata, fermentati, fermentate
+ja:発酵
 pl:fermentowany, fermentowana, fermentowane, kiszony, kiszona, kiszone, kiszonych, kiszonego, kiszonej
 pt:fermentado, fermentada, fermentados, fermentadas
 wikidata:en:Q6950796
@@ -1748,6 +1775,7 @@ fr:aromatisé, aromatisée, aromatisées
 # What to do with aromatisé au x and aromatisé de
 hu:ízesített
 it:aromatizzato, aromatizzata, aromatizzati, aromatizzate
+ja:調味
 nl:gearomatiseerd, gearomatiseerde
 pl:aromatyzowany, aromatyzowana, aromatyzowane, przyprawiony, przyprawiona, przyprawione
 pt:aromatizado, aromatizada, aromatizados, aromatizadas
@@ -1767,6 +1795,7 @@ fr:fumé,fumés,fumée,fumées
 hr:dimljena, dimljeni
 hu:füstölt, füstölve
 it:affumicato, affumicata, affumicati, affumicate
+ja:燻製, 薫製, くん製, スモーク
 nl:gerookt, gerookte
 pl:wędzony, wędzona, wędzone, wędzonych, wędzonego, wędzonej
 pt:fumado, fumada, fumados, fumadas, defumado, defumada, defumados, defumadas
@@ -1890,7 +1919,7 @@ hr:nehidrogenirani
 hu:nem hidrogénezett
 it:non idrogenato, non idrogenati
 nl:niet gehydrogeneerd, niet gehydrogeneerde
-pl:nieuwodorniony
+pl:nieuwodorniony, nieutwardzony, nieutwardzone
 pt:nâo hidrogenada
 ro:nehidrogenate
 sv:ohärdad
@@ -1909,7 +1938,7 @@ fr:hydrogénée
 hu:hidrogénezett
 it:idrogenato, idrogenati, idrogenata, idrogenate
 nl:Gehydrogeneerde
-pl:uwodorniony, uwodorniona, uwodornione
+pl:uwodorniony, uwodorniona, uwodornione, utwardzony, utwardzone, utwardzona
 sv:hårdat
 
 #<en:hydrogenated
@@ -1922,5 +1951,5 @@ fr:totalement hydrogénée
 fi:kokonaan kovetettu
 hr:potpuno hidrogenirana, potpuno hidrogenirano
 nb:fullherdet
-pl:całkowicie uwodorniony, całkowicie uwodorniona, całkowicie uwodornione
+pl:całkowicie uwodorniony, całkowicie uwodorniona, całkowicie uwodornione, całkowicie utwardzony, całkowicie utwardzona, całkowicie utwardzone
 sv:fullhärdad
