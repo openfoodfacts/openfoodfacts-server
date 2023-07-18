@@ -12,7 +12,7 @@ ln -sfT /opt/product-opener/lib/ProductOpener/Config2_docker.pm /opt/product-ope
 
 # Create symlinks of data files that are indeed conf data in /mnt/podata (because we currently mix data and conf data)
 # we need to do this here, because /mnt/podata is a volume
-for path in data-default external-data emb_codes ingredients packager-codes po taxonomies templates build-cache;
+for path in data-default external-data emb_codes ingredients madenearme packager-codes po taxonomies templates build-cache;
 do
     test -d /mnt/podata/${path} || ln -sf /opt/product-opener/${path} /mnt/podata/${path}
 done
