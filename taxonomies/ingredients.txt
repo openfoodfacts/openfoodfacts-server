@@ -35073,13 +35073,13 @@ ciqual_food_name:en:Apricot, pitted, dried
 ciqual_food_name:fr:Abricot, dénoyauté, sec
 #24 in 3 @2021-09-12
 
-<en:apricot
+<en:tree nut
 en:apricot kernels
 de:Aprikosenkerne
 es:huesos de albaricoque
 fi:aprikoosinsiemen, aprikoosinsiemenet
 fr:noyaux d'abricots, noyau d'abricot
-it:Noccioli di Albicocca
+it:Noccioli di albicocca, mandorle d'albicocca
 nb:aprikoskjerner
 nl:abrikozenpitten
 sv:aprikoskärnor
@@ -54598,7 +54598,7 @@ nl:gerehydrateerde vermicelli van erwten
 nl:veldbonen
 
 <en:legume
-en:broad bean, fava bean, faba bean
+en:broad bean, fava bean, faba bean, Vicia faba
 am:ባቄላ
 ar:فول
 ay:Jawasa
@@ -54634,6 +54634,7 @@ ka:ცერცვი
 kk:Ат бұршақ
 ko:누에콩
 ku:Keşol
+la:Vicia faba
 lv:lauka pupa
 mk:бакла
 ml:അവര
@@ -54721,12 +54722,9 @@ ciqual_food_name:fr:Fève à écosser, fraîche
 <en:legume
 fr:féverole, féverolle
 
-<en:broad bean
-en:Vicia faba
-la:Vicia faba
-
 <en:plant protein
 en:broad bean protein
+de:Ackerbohneneiweiß
 nl:tuinbooneiwit
 
 # rare bean from the Lyon region in France
@@ -57674,6 +57672,9 @@ en:hemp seed oil
 de:Hanföl, Hanfsamenöl
 es:aciete de semillas de Cáñamo Sativa L
 
+<en:hemp seed
+en:hemp seed paste
+de:Hanfsamenmus
 
 <en:pumpkin
 <en:seed
@@ -57845,6 +57846,7 @@ nutriscore_fruits_vegetables_nuts:en:no
 
 <en:sunflower seed
 en:sunflower seed paste
+de:Sonnenblumenkernmus
 hr:pasta od suncokretovih sjemenki
 
 
