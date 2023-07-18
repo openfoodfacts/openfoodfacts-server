@@ -45,7 +45,7 @@
 
     <!-- Start form -->
 
-    <form method="post" action="/cgi/user.pl" enctype="multipart/form-data">
+    <form method="post" action="/cgi/user.pl" enctype="multipart/form-data" id="user_form">
 		[% FOREACH section IN sections %]
 
             [% IF section.name %]
@@ -100,7 +100,7 @@
                     [% END %]
                 </div>
                 <!-- show video about account creation beside user form section-->
-                [% IF section.id != "professional" AND section.id != "contributor_settings" %]
+                [% IF server_options_producers_platform AND section.id == "user" AND type != "edit" %]
                     <div class="video-container" style="width:70%">
     
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/RXKxDuuKYV0"
