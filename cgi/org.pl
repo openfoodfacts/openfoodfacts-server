@@ -91,6 +91,9 @@ if ($action eq 'process') {
 		if (single_param('delete') eq 'on') {
 			if ($admin) {
 				$type = 'delete';
+				my $groups_ref = ['admins', 'members'];
+				remove_user_from_org($org_ref, $User_id, $groups_ref);
+				$template_data_ref->{result} = "User Removed";
 			}
 			else {
 				display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
