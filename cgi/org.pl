@@ -91,9 +91,6 @@ if ($action eq 'process') {
 		if (single_param('delete') eq 'on') {
 			if ($admin) {
 				$type = 'delete';
-				my $groups_ref = ['admins', 'members'];
-				remove_user_from_org($org_ref, $User_id, $groups_ref);
-				$template_data_ref->{result} = "User Removed";
 			}
 			else {
 				display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
@@ -366,7 +363,19 @@ elsif ($action eq 'process') {
 		$template_data_ref->{profile_url} = canonicalize_tag_link("editors", "org-" . $orgid);
 		$template_data_ref->{profile_name} = sprintf(lang('user_s_page'), $org_ref->{name});
 	}
-	elsif ($type eq 'delete') {
+	elsif ($type eq 'user_delete') {
+		$log->debug("before deleting the user from org",
+			{type => $type, action => $action, orgid => $orgid, userid => single_param('user_id')})
+			if $log->is_debug();
+		if (is_user_in_org_group($org_ref, $User_id, "admins")) {
+			my $groups_ref = ['members'];
+			my $user_to_remove = single_param('user_id');
+			remove_user_from_org($orgid, $user_to_remove, $groups_ref);
+			$template_data_ref->{result} = "User successfully removed from the organization";
+			$log->debug("after removal")
+				if $log->is_debug();
+		}
+
 	}
 }
 
