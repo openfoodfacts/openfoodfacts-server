@@ -1,9 +1,9 @@
 name: Run release-please
 on:
-  pull_request:
   push:
     branches:
       - main
+      - feat-add-dist-to-releases
 jobs:
   release-please:
     runs-on: ubuntu-latest
