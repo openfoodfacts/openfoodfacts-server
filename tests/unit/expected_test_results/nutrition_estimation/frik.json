@@ -1,0 +1,45 @@
+{
+   "estimated_nutrients" : {
+      "nutrients" : {
+         "alcohol" : 0,
+         "calcium" : 0.0503,
+         "carbohydrates" : 55.8,
+         "chloride" : 0.089,
+         "copper" : 0.001,
+         "energy" : 321,
+         "fat" : 2.25,
+         "fiber" : 19.3,
+         "fructose" : 0.5,
+         "glucose" : 0.5,
+         "iron" : 0.0052,
+         "lactose" : 0.5,
+         "magnesium" : 0.114,
+         "maltose" : 0.5,
+         "manganese" : 0.0036,
+         "phosphorus" : 0.321,
+         "polyols" : 0,
+         "potassium" : 0.512,
+         "proteins" : 9.62,
+         "salt" : 0.011,
+         "sodium" : 0.0042,
+         "starch" : 30.2,
+         "sucrose" : 0.5,
+         "vitamin-b6" : 0.00014,
+         "vitamin-e" : 0.0001,
+         "water" : 11.3,
+         "zinc" : 0.0036
+      },
+      "total" : 100,
+      "total_with_nutrients" : 100,
+      "unknown_ingredients" : {}
+   },
+   "ingredients" : [
+      {
+         "id" : "en:freekeh",
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "frik"
+      }
+   ]
+}

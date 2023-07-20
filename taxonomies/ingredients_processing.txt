@@ -74,7 +74,7 @@ ca:pura, pur
 de:Purer
 es:pura, puro
 fr:pur
-hr:pasirana, pureće
+hr:pasirana, pasirani, pureće, pire
 it:puro, puri, pura, pure
 
 en:selected
@@ -295,6 +295,10 @@ nl:gebroken
 pt:triturado, triturada, triturados, trituradas, esmagado, esmagada, esmagados, esmagadas
 sv:krossad
 
+en:agglomerated
+hr:aglomerirani
+
+<en:agglomerated
 en:rolled
 de:gerollt, gerollte, gerollter, gerolltes
 es:arrollada,arrollado
@@ -643,7 +647,7 @@ cs:loupaná
 es:sin cascara, pelada, pelado, peladas, pelados
 fi:kuoreton, kuorettomat
 fr:décortiqué, décortiquée, décortiqués, décortiquées, décoquillé, décoquillée, décoquillés, décoquillées, émondé, émondée, émondés, émondées
-hr:oljušteni
+hr:oljušteni, golice
 it:decorticato, decorticati, decorticata, decorticate, sbucciati, sgusciato, sgusciati, sgusciata, sgusciate
 pl:łuskany, łuskana, łuskane, obłuskany, obłuskana, obłuskane
 pt:descascado, descascada, descascados, descascadas, sem casca, sem cascas
@@ -874,7 +878,7 @@ es:concentrado, concentrada, concentrados, concentradas
 fa:کنسانتره
 fi:tiivistetty, tiiviste, tiivisteitä
 fr:concentré, concentrée, concentrés, concentrées, concentré de
-hr:koncentriran, koncentrirani, koncentrani, koncentrat, koncentrat za
+hr:koncentriran, koncentrirani, koncentrani, koncentrat, koncentrat za, koncentrati
 hu:sűrítmény, sűrített, koncentrátum
 it:concentrato, concentrato di, concentrato d', concentrati, concentrata, concentrate
 ja:濃縮
@@ -1124,7 +1128,7 @@ es:extracto, extracto de, extractos
 fi:uute, uutetta, uutteet, pähkinäuute
 fr:extrait de, extrait d'
 #fr:falsePositive:sels mineraux extraits des eaux du bassin de vichy, Sucres extraits de fruits, Extraits naturels et aromates, Extraits végétaux à pouvoir colorant, extrait sec
-hr:ekstrakt
+hr:ekstrakt, ekstrakti
 hu:kivonat, kivonatból
 it:estratto di, estratti di, estratto d', estratti d'
 ja:エキス, 抽出物
@@ -1236,6 +1240,7 @@ ca:congelat, congelades, ultracongelat, ultracongelades
 de:tiefgefroren, gefroren, tiefgefrorene, gefrorene, tiefgefrorener, gefrorener, tiefgefrorenes, gefrorenes
 es:congelado, conjelada, congelados, conjeladas,ultracongelado, ultracongelada,ultracongelados, ultracongeladas
 fr:surgelé, surgelée, surgelés, surgelées, congelé, congelée, congelés, congelées
+hr:smrznuti, brzo smrznuti
 hu:fagyasztott, fagyott
 it:congelato, congelati, congelata, congelate, surgelato, surgelati, surgelata, surgelate
 nl:diepgevroren
@@ -1262,7 +1267,7 @@ de:pasteurisiert, pasteurisierte, pasteurisierter, pasteurisiertes
 es:pasteurizado, pasteurizada, pasteurizados, pasteurizadas, producto pasteurizado, producto pasteurizada, pasterizada
 fi:pastöroitu
 fr:pasteurisé, pasteurisée, pasteurisés, pasteurisées
-hr:pasterizirano, pasterizirana
+hr:pasterizirano, pasterizirana, pasterizirani
 hu:pasztőrözött, pasztörizált
 it:pastorizzato, pastorizzata, pastorizzate, pastorizzati
 ja:パスチャライズ
@@ -1344,7 +1349,7 @@ ro:fiert
 sv:kokt, kokta
 
 en:distilled
-hr:destilat
+hr:destilat, destilirani
 wikidata:en:Q101017
 
 #<en:cooked
@@ -1383,6 +1388,7 @@ da:puffede
 de:gepufft, gepuffte, gepuffter, gepufftes, gepoppt, gepoppte, gepoppter
 es:hinchado,hinchada,hinchados,hinchadas
 fr:soufflé, soufflée, soufflés, soufflées
+hr:ekspandirana, ekspandirani
 hu:puffasztott, felfújt
 it:soffiato, soffiati, soffiata, soffiate
 nl:gepoft, gepofte
@@ -1420,6 +1426,7 @@ de:gebraten, gebratene, gebratener, gebratenes
 es:asado, asada, asados, asadas
 et:röstitud
 fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
+hr:prženog
 hu:pörkölt
 it:arrostito, arrostita, arrostiti, arrostite
 ja:ロースト
@@ -1819,7 +1826,7 @@ de:geräuchert, geräucherte
 es:ahumada, ahumado, ahumadas, ahumados
 fi:savustettu, savustetut, savustettua
 fr:fumé,fumés,fumée,fumées
-hr:dimljena, dimljeni
+hr:dimljena, dimljeni, dimljena
 hu:füstölt, füstölve
 it:affumicato, affumicata, affumicati, affumicate
 ja:燻製, 薫製, くん製, スモーク
