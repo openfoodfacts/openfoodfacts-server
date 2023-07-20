@@ -4501,9 +4501,7 @@ my %ingredients_categories_and_types = (
 			# categories
 			["mięso", "mięsa"],
 			# types
-			[
-				"wieprzowe", "wołowe", "drobiowe", "z kurczaka", "z indyka", "cielęce"
-			],
+			["wieprzowe", "wołowe", "drobiowe", "z kurczaka", "z indyka", "cielęce"],
 		],
 	],
 
