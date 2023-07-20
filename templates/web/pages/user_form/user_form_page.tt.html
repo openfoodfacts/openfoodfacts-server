@@ -1,4 +1,6 @@
 <!-- start templates/[% template.name %] -->
+<!-- Add Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 <script>
 
@@ -29,11 +31,38 @@
 
     inputfield.value = value;
     }
+    function togglePasswordVisibility(FieldID) {
+        const passwordInput = document.getElementById(FieldID);
+        const toggleIcon = passwordInput.nextElementSibling.querySelector("span.toggle-password i");
+    
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            if (toggleIcon) {
+                toggleIcon.classList.replace("fa-eye-slash", "fa-eye");
+            }
+           
+        } else {
+            passwordInput.type = "password";
+            if (toggleIcon) {
+                toggleIcon.classList.replace("fa-eye", "fa-eye-slash");
+            }
+        }
+    }
 </script>
 
 <style>
     .pro_org_display {
         display: none;
+    }
+    .toggle-password {
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .password-container {
+        position: relative;
     }
 </style>
 
