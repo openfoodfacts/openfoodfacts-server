@@ -391,6 +391,15 @@ my $title = lang($type . '_org_title');
 
 $log->debug("org form - template data", {template_data_ref => $template_data_ref}) if $log->is_debug();
 
+if (defined $User{pro_moderator}) {
+	my @org_members;
+	foreach my $member_id (sort keys %{$org_ref->{members}}) {
+		my $member_user_ref = retrieve_user($member_id);
+		push @org_members, $member_user_ref;
+	}
+	$template_data_ref->{org_members} = \@org_members;
+}
+
 $tt->process('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
 	or $html = "<p>template error: " . $tt->error() . "</p>";
 
