@@ -2071,9 +2071,9 @@ wikidata:en:Q34172
 wikipedia:en:https://en.wikipedia.org/wiki/Butter
 vegan:en:no
 vegetarian:en:yes
-proxy_ciqual_food_code:en:16400
-proxy_ciqual_food_name:en:Butter, 82% fat, unsalted
-proxy_ciqual_food_name:fr:Beurre à 82% MG, doux
+ciqual_proxy_food_code:en:16400
+ciqual_proxy_food_name:en:Butter, 82% fat, unsalted
+ciqual_proxy_food_name:fr:Beurre à 82% MG, doux
 # ingredient/butter has 19735 products @2019-07-10
 
 # description:en:All categories of butter are sold in both salted and unsalted forms. Either granular salt or a strong brine are added to salted butter during processing. In addition to enhanced flavor, the addition of salt acts as a preservative.
@@ -6940,8 +6940,8 @@ en:fontina, fontina cheese
 ar:فونتينا
 de:Fontina
 es:fontina, queso fontina
-fr:Fontine, Fontina AOP, Fontine DOP
-it:Fontina, Fontina DOP
+fr:Fontine
+it:Fontina
 ja:フォンティーナ
 ko:폰티나
 ru:Фонтина
@@ -6955,7 +6955,8 @@ description:en:Fontina is a cow's milk cheese, produced worldwide.
 <en:fontina
 en:fontina AOP
 de:Fontina g.U.
-fr:Fontine DOP
+fr:Fontine AOP, Fontine DOP
+it:Fontina DOP
 xx:Fontina AOP
 description:de:Fontina AOP ist ein norditalienischer Käse mit geschützter Herkunftsbezeichnung.
 description:en:Fontina AOP is an cow's milk cheese, produced in the Aosta Valley.
@@ -10360,8 +10361,8 @@ tr:Sığır eti
 zh:牛肉
 carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
 carbon_footprint_fr_foodges_value:fr:35.8
-proxy_ciqual_food_code:en:6101
-proxy_ciqual_food_name:fr:Boeuf, braisé
+ciqual_proxy_food_code:en:6101
+ciqual_proxy_food_name:fr:Boeuf, braisé
 
 <en:beef meat
 en:angus beef
@@ -15575,8 +15576,8 @@ description:fr:L’huile d'olive est une variété d'huile alimentaire, à base 
 description:nl:Olijfolie is een plantaardige olie die door persing uit olijven, de vruchten van de olijfboom, wordt gewonnen.
 description:pt:Azeite é um produto alimentar extraído da azeitona, o fruto da oliveira.
 #ingredient/olive-oil 26977 in 33 @2021-08-20
-proxy_ciqual_food_code:en:17270
-proxy_ciqual_food_name:fr:Huile d'olive vierge extra
+ciqual_proxy_food_code:en:17270
+ciqual_proxy_food_name:fr:Huile d'olive vierge extra
 
 
 
@@ -15796,7 +15797,7 @@ ca:Oli de colza
 de:Kolzaöl
 el:κραμβέλαιο
 es:aceite de colza
-fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza, colza
+fr:huile de colza, huile végétale de colza, huile colza, graisses végétales de colza, graisses vegetales de colza
 hu:Repceolaj
 it:olio di colza, olio vegetale di colza
 nb:rapsolje
@@ -17974,7 +17975,7 @@ nl:chocoladelikeur
 <en:liqueur
 en:advocaat
 de:Eierlikör
-fr:Avocat
+xx:Advocaat
 
 # description:en:Amaretto (Italian for "a little bitter") is a sweet Italian liqueur that originated in Saronno, Italy.
 
@@ -18695,8 +18696,8 @@ description:en:WHITE WINE is a wine whose colour can be straw-yellow, yellow-gre
 # yue:白葡萄酒
 wikidata:en:Q10210
 wikipedia:en:https://en.wikipedia.org/wiki/White_wine
-proxy_ciqual_food_code:en:5215
-proxy_ciqual_food_name:fr:Vin blanc (sec)
+ciqual_proxy_food_code:en:5215
+ciqual_proxy_food_name:fr:Vin blanc (sec)
 # en:white-wine has 2793 products in 5 languages @2018-10-29
 
 <en:white wine
@@ -22539,7 +22540,7 @@ en:semolina flour
 bg:брашно от грис, грисово брашно
 de:Grießmehl
 es:harina de sémola
-fr:Semoule de blé
+fr:farine de semoule
 pl:mąka pszenna semolina
 
 # TODO Question: should we split ?
@@ -22567,9 +22568,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Semolina
 wikidata:en:Q381350
 carbon_footprint_fr_foodges_ingredient:fr:Semoule de blé dur
 carbon_footprint_fr_foodges_value:fr:0.6
-proxy_ciqual_food_code:en:9610
-proxy_ciqual_food_name:en:Durum wheat semolina, raw
-proxy_ciqual_food_name:fr:Semoule de blé dur, crue
+ciqual_proxy_food_code:en:9610
+ciqual_proxy_food_name:en:Durum wheat semolina, raw
+ciqual_proxy_food_name:fr:Semoule de blé dur, crue
 #980 @2021-09-28
 
 #comment:en:This is in many languages synonym of en:wheat semolina
@@ -25177,8 +25178,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Wheat_flour
 wikidata:en:Q2249305
 carbon_footprint_fr_foodges_ingredient:fr:Farine de blé
 carbon_footprint_fr_foodges_value:fr:1.2
-proxy_ciqual_food_code:en:9410
-proxy_ciqual_food_name:fr:Farine de blé tendre ou froment T110
+ciqual_proxy_food_code:en:9410
+ciqual_proxy_food_name:fr:Farine de blé tendre ou froment T110
 
 <en:wheat flour
 en:malted wheat flour, wheat malt flour
@@ -26657,8 +26658,8 @@ wikidata:en:Q5090
 wikipedia:en:https://en.wikipedia.org/wiki/Rice
 carbon_footprint_fr_foodges_ingredient:fr:Riz jasmin (Thaïlande)
 carbon_footprint_fr_foodges_value:fr:1.4
-proxy_ciqual_food_code:en:9100
-proxy_ciqual_food_name:fr:Riz blanc, cru
+ciqual_proxy_food_code:en:9100
+ciqual_proxy_food_name:fr:Riz blanc, cru
 vegan:en:yes
 vegetarian:en:yes
 
@@ -31183,8 +31184,8 @@ ru:обезжиренный какаопорошок, сухой обезжир�
 
 <en:cocoa
 en:cocoa solids
-de:Kakaopulver
-fr:Fèves de Cacao
+fr:cacao sec
+
 wikipedia:en:https://en.wikipedia.org/wiki/Cocoa_solids
 
 <en:cocoa paste
@@ -41866,12 +41867,14 @@ ciqual_food_name:en:Watermelon, pulp, raw
 ciqual_food_name:fr:Pastèque, pulpe, crue
 
 <en:melon
-en:bitter melon
+en:bitter melon, momordic
 de:Bittermelone
-es:melón amargo
-fr:melon amer
-it:melone amaro
+es:melón amargo, momordic
+fr:melon amer, margose, momordique
+it:melone amaro, momordic
 ja:ゴーヤ, ニガウリ, 苦瓜, にがうり
+nl:Sopropo
+
 
 #category/honeydew-melons
 <en:melon
@@ -47626,8 +47629,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Beetroot
 carbon_footprint_fr_foodges_ingredient:fr:Betteraves
 carbon_footprint_fr_foodges_value:fr:0.2
 # en:beetroot has 319 products in 5 languages @2018-10-22
-proxy_ciqual_food_code:en:20091
-proxy_ciqual_food_name:fr:Betterave rouge, crue
+ciqual_proxy_food_code:en:20091
+ciqual_proxy_food_name:fr:Betterave rouge, crue
 
 # Sometimes it is indicated as a colour.
 
@@ -49338,10 +49341,6 @@ fr:céleri rave râpé
 <en:celeriac
 fr:jus de céleri-rave concentré, jus de céleri rave concentré, jus concentré de céleri rave
 
-<en:plant
-en:Taro
-ja:タロイモ
-
 <en:root vegetable
 <en:Taro
 en:taro tuber
@@ -49351,7 +49350,7 @@ ciqual_food_code:en:53200
 ciqual_food_name:en:Taro, tuber, raw
 ciqual_food_name:fr:Taro, tubercule, cru
 
-<en:Taro
+<en:plant
 en:Taro
 af:Taro
 am:ጎደሬ
@@ -49383,7 +49382,7 @@ hu:Taró
 id:Talas
 ig:Ede
 it:Colocasia esculenta
-ja:サトイモ, 里芋, さといも
+ja:サトイモ, 里芋, さといも, タロイモ
 ka:ტარო 
 kn:ಕೆಸು
 ko:토란
@@ -53555,7 +53554,7 @@ de:Brunnenkresse
 eo:akvokreso
 es:berro
 fi:Isovesikrassi
-fr:Cresson de fontaine, cresson
+fr:Cresson de fontaine
 gl:Agrón
 id:Selada Air
 io:Kreso
@@ -66567,7 +66566,7 @@ es:vainilla natural
 fi:luontainen vanilja
 fr:vanille naturelle
 it:Vaniglia naturale
-nl:Vanille
+nl:Natuurlijke vanille
 pt:Baunilha natural
 ru:натуральная ваниль
 # ingredient/fr:vanille-naturelle has 113 products in 3 languages @2019-02-24
@@ -78701,8 +78700,8 @@ fr:poulet fermier, poulet fermier élevé en plein air
 <en:chicken
 en:whole chicken, whole chickens
 fr:poulet entier, poulets entiers
-proxy_ciqual_food_code:en:36005
-proxy_ciqual_food_name:fr:Poulet, viande et peau, rôti/cuit au four
+ciqual_proxy_food_code:en:36005
+ciqual_proxy_food_name:fr:Poulet, viande et peau, rôti/cuit au four
 
 <en:animal protein
 <en:chicken
@@ -81630,8 +81629,8 @@ wikidata:en:Q178
 wikipedia:en:https://en.wikipedia.org/wiki/Pasta
 carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
 carbon_footprint_fr_foodges_value:fr:0.5
-proxy_ciqual_food_code:en:9810
-proxy_ciqual_food_name:fr:Pâtes sèches standard, crues
+ciqual_proxy_food_code:en:9810
+ciqual_proxy_food_name:fr:Pâtes sèches standard, crues
 # ingredient/fr:pâtes-alimentaires has 115 products 2019-05-20
 # ingredient/paste has 1809 products @2018-12-10
 vegan:en:ignore
@@ -86748,13 +86747,6 @@ fr:piment poblano
 it:pepe Poblano
 es:chile poblano
 
-<en:vegetable
-en:momordic
-es:momordic
-fr:momordique, margose, melon amer
-it:momordic
-nl:Sopropo
-
 en:xylose
 xx:xylose
 wikipedia:en:https://en.wikipedia.org/wiki/Xylose
@@ -86767,3 +86759,10 @@ fr:fève de tonka, fèves de tonka, fève tonka, fèves tonka
 it:fava de tonka, fave di tonka
 nl:tonkaboon
 pt:fava tonka, fava de cumaru
+
+# listed as an ingredient in Japanese products 
+en:creaming powder, creamer
+ja:クリーミングパウダー
+
+en:creaming agent
+fr:agent de crémage

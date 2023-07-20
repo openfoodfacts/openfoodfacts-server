@@ -390,15 +390,6 @@ $zoom_size = 800;
 $page_size = 24;
 
 $google_analytics = <<HTML
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQX9SYHB2P&aip=1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('set', 'allow_google_signals', false);
-  gtag('config', 'G-HQX9SYHB2P', {"anonymize_ip": true, 'allow_google_signals': false});
-</script>
 <!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
