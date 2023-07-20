@@ -44,84 +44,35 @@ my %moderator_edit_form = (
 $resp = edit_user($admin_ua, \%moderator_edit_form);
 ok(!html_displays_error($resp));
 
-# Create some products
-
-my @products = (
-	{
-		(
-			code => '0200000000034',
-			product_name => "An unprotected product",
-			imagefield => "front_en",
-			imgupload_front_en => ["$sample_products_images_path/front_en.3.full.jpg", 'front_en.3.full.jpg'],
-		)
-	},
-	{
-		(
-			code => '0200000000035',
-			product_name => "A protected product",
-			imagefield => "front_en",
-			imgupload_front_en => ["$sample_products_images_path/1.jpg", '1.jpg'],
-		)
-	},
-
-);
-
-# create the products in the database
-foreach my $product_form_override (@products) {
-	edit_product($ua, $product_form_override);
-}
-
-# Declare which fields have been sent by an owner and should be protected
-for my $code ('0200000000035') {
-	my $product_ref = retrieve_product($code);
-	$product_ref->{owner_fields} = {
-		# "imagefield" => 1680183938,
-		"imgupload_[imagefield]" => 1680183938,
-	};
-	store_product("organization-owner", $product_ref, "protecting the product");
-}
-
-# Note: expected results are stored in json files, see execute_api_tests
-# Each test is composed of two test case:
-# 1. one that edits a product,
-# 2. one that gets the product to verify if it was edited or protected
-
 my $tests_ref = [
 
 	{
-		test_case => 'post-select-image-unprotected-product',
+		test_case => 'post-protected-image',
 		method => 'POST',
 		path => '/cgi/product_image_upload.pl',
 		form => {
 
-			code => '0200000000034',
+			code => '0300000000134',
 			imagefield => "front_en",
 			imgupload_front_en => ["$sample_products_images_path/front_en.4.full.jpg", 'front_en.4.full.jpg'],
 		},
-
-	},
-	{
-		test_case => 'get-selected-image-unprotected-product',
-		method => 'GET',
-		path => '/api/v2/product/0200000000034',
 	},
 
 	{
-		test_case => 'post-select-image-protected-product',
+		test_case => 'post-select-protected-image',
 		method => 'POST',
 		path => '/cgi/product_image_upload.pl',
 		form => {
-
-			code => '0200000000035',
+			code => '0300000000134',
 			imagefield => "front_en",
-			imgupload_front_en => ["$sample_products_images_path/front_en.4.full.jpg", 'front_en.4.full.jpg'],
+			imgupload_front_en => ["$sample_products_images_path/front_en.3.full.jpg", 'front_en.3.full.jpg'],
 		},
 
 	},
 	{
-		test_case => 'get-selected-image-protected-product',
+		test_case => 'get-protected-image',
 		method => 'GET',
-		path => '/api/v2/product/0200000000035',
+		path => '/api/v2/product/0300000000134',
 	},
 
 ];

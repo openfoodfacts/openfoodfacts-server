@@ -93,7 +93,7 @@ sub skip_protected_field ($product_ref, $field, $moderator = 0) {
 sub is_protected_image ($product_ref, $imagefield, $moderator = 0) {
 
 	my $selected_uploader = get_selected_image_uploader($product_ref, $imagefield);
-	if ((not $server_options{producers_platform}) and (not $moderator) and (not defined $selected_uploader)) {
+	if ((not $server_options{producers_platform}) and (not $moderator) and (defined $selected_uploader)) {
 		return 1;
 	}
 

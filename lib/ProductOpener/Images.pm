@@ -361,10 +361,10 @@ sub scan_code ($file) {
 sub get_selected_image_uploader ($product_ref, $imagefield) {
 
 	# Retrieve the product's image data
-	my $image_data = $product_ref->{images}{$imagefield};
+	my $image_ref = $product_ref->{images}{$imagefield};
 
-	if ($image_data && $image_data->{imgid}) {
-		my $imgid = $image_data->{imgid};
+	if ($image_ref && $image_ref->{imgid}) {
+		my $imgid = $image_ref->{imgid};
 
 		# Retrieve the uploader of the selected image
 		my $uploader = $product_ref->{images}{$imgid}{uploader};
