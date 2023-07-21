@@ -364,16 +364,20 @@ elsif ($action eq 'process') {
 		$template_data_ref->{profile_name} = sprintf(lang('user_s_page'), $org_ref->{name});
 	}
 	elsif ($type eq 'user_delete') {
-		$log->debug("before deleting the user from org",
-			{type => $type, action => $action, orgid => $orgid, userid => single_param('user_id')})
-			if $log->is_debug();
-		if (is_user_in_org_group($org_ref, $User_id, "admins")) {
-			my $groups_ref = ['members'];
+
+		if (is_user_in_org_group($org_ref, $User_id, "members")) {
+			my $groups_ref = ['admins','members'];
 			my $user_to_remove = single_param('user_id');
 			remove_user_from_org($orgid, $user_to_remove, $groups_ref);
+
+			# Reset the 'org' field of the user
+			my $user_ref = retrieve_user($user_to_remove);
+			delete $user_ref->{org};
+			delete $user_ref->{org_id};
+			my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language",$user_to_remove) . ".sto";
+			store($user_file, $user_ref);
 			$template_data_ref->{result} = "User successfully removed from the organization";
-			$log->debug("after removal")
-				if $log->is_debug();
+
 		}
 
 	}
