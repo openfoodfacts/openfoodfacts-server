@@ -525,7 +525,7 @@ foreach my $country (keys %{$properties{countries}}) {
 
 		#print "dates_stats_$country countryid: $country - date: $date - start: $start - end: $end\n";
 
-		my $current = 0;  # count products
+		my $current = 0;    # count products
 		for (my $i = $start; $i <= $end; $i++) {
 			$current += ($dates{$country}{$date}{$i} // 0);
 			$countries_dates{$country}{$date}{$i} = $current;
