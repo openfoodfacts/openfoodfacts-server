@@ -2,37 +2,9 @@
 
 [% INCLUDE 'web/common/includes/error_list.tt.html' %]
 
-<!-- Add Font Awesome CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
 <script>
-    function togglePasswordVisibility() {
-        const passwordInput = document.getElementById("login_user_password");
-        const toggleIcon = document.querySelector(".toggle-password i");
-    
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
-            toggleIcon.classList.replace("fa-eye-slash", "fa-eye");
-           
-        } else {
-            passwordInput.type = "password";
-            toggleIcon.classList.replace("fa-eye", "fa-eye-slash");
-        }
-    }
-    </script>
-    
-<style>
-    .toggle-password {
-        cursor: pointer;
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    .password-container {
-        position: relative;
-    }
-</style>
+   [% INCLUDE web/pages/user_form/togglepassword.js %]
+</script>
 
 <form method="post" action="/cgi/login.pl" enctype="multipart/form-data">
     <div class="row">
@@ -51,8 +23,8 @@
             </label>
             <div class="password-container">
               <input id="login_user_password" type="password" name="password" autocomplete="current-password" required="required" />
-              <span class="toggle-password" onclick="togglePasswordVisibility()">
-                <i class="fas fa-eye-slash" aria-hidden="true"></i>
+              <span class="toggle-password" onclick="togglePasswordVisibility('login_user_password')">
+                <span class="material-icons material-symbols-visibility">visibility_off</span>
                 </span>
                 </div>
         </div>
