@@ -3,7 +3,7 @@
 To avoid messing product-opener repository with translations of web-pages,
 we moved most pages in 
 [openfoodfacts-web repository](https://github.com/openfoodfacts/openfoodfacts-web)
-specificly in the lang/ directory.
+specifically in the lang/ directory.
 
 This repo only has a really minimal lang directory named lang-default.
 
