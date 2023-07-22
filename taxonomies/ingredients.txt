@@ -22225,7 +22225,7 @@ ru:крупа пшеничная
 sv:vetekross
 # ingredient/fr:gruau-de-ble has 3 products in 1 language @2020-12-19
 
-<en:wheat
+<en:wheat groats
 az:Manna yarması
 pl:kasza manna, kasza manna z pszenicy
 sr:griz
@@ -23647,6 +23647,10 @@ zh:卡莎
 wikidata:en:Q10379618
 wikipedia:en:https://en.wikipedia.org/wiki/Kasha
 # ingredient/fr:kasha has 13 products @2019-02-17
+
+<en:buckwheat kasha
+en:roasted buckwheat kasha
+pl:kasza gryczana palona, kasza gryczana prażona
 
 <en:buckwheat
 en:rehydrated nuckwheat
@@ -37467,7 +37471,7 @@ hu:sűrített almalé, almalé sűrítmény, almalé koncentrátum, almalé konc
 it:succo di mele a base di concentrato
 nb:eplejuice fra konsentrat
 nl:appelsap uit concentraat
-pl:sok jabłkowy z koncentratu, sok jabłkowy z zagęszczonego soku jabłkowego, sok z koncentratu z jabłek, sok jabłkowy z zagęszczonego soku
+pl:sok jabłkowy z koncentratu, sok jabłkowy z zagęszczonego soku jabłkowego, sok z koncentratu z jabłek, sok jabłkowy z zagęszczonego soku, sok jabłkowy z soku zagęszczonego
 pt:Sumo de maçã obtido a partir de um produto concentrado, Suco de maçã reconstituído, suco de maçã verde reconstituído
 ro:suc de mere obţinut din suc concentrat
 sv:äppeljuice från koncentrat
@@ -37899,6 +37903,7 @@ fr:jus de pamplemousse à base de concentré
 de:Grapefruitsaft aus Konzentrat, Grapefruitsaft aus Grapefruitsaftkonzentrat
 fi:greippimehu tiivisteestä
 it:succo di pompelmo a base di concentrato
+pl:sok grejpfrutowy z zagęszczonego soku grejpfrutowego
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-pamplemousse-à-base-de-concentré
 # 32 products in 5 @2021-10-25
 
@@ -38474,7 +38479,7 @@ fr:jus de citron à base de concentré, jus de citron reconstitué, jus de citro
 hu:citromlé koncentrátumból
 it:succo di limone da concentrato
 nl:citroensap uit concentraat, citroensap uit geconcentreerd sap
-pl:sok cytrynowy z koncentratu, sok cytrynowy z zagęszczonego soku cytrynowego
+pl:sok cytrynowy z koncentratu, sok cytrynowy z zagęszczonego soku cytrynowego, sok z cytryn z zagęszczonego soku z cytryn
 sv:citronjuice från koncentrat, citronsaft från koncentrat
 
 <en:lemon juice from concentrate
@@ -45904,6 +45909,7 @@ de:Gemüsekonzentrat
 es:concentrado de verduras, concentrado vegetal
 fi:kasvistiiviste, kasvistiivisteet
 fr:concentré de légumes, concentrés de légumes
+pl:koncentraty warzyw
 pt:Concentrado de vegetal, concentrado de vegetais
 hr:biljni koncentrat
 sv:grönsakskoncentrat
@@ -66140,20 +66146,22 @@ pl:kiełki słonecznika
 fr:pétales de tournesol
 
 <en:plant
-en:soapwort
+en:soapwort, Saponaria officinalis, Saponaria
 de:Seifenkraut, Echtes Seifenkraut
 fi:suopayrtti
 fr:saponaire
 hr:sapunike
 it:Saponaria
 nl:zeekruid
+pl:Mydlnica lekarska
 
 <en:soapwort
-en:soapwort extract
+en:soapwort extract, Saponaria extract
 de:Seifenkrautextrakt
 fi:suopayrttiuute
 fr:Extrait de saponaire
 it:Estratto di Saponaria
+pl:ekstrakt z mydlnicy lekarskiej, ekstrakt z korzenia mydlnicy
 
 # description:en:TEA is an aromatic beverage commonly prepared by pouring hot or boiling water over cured leaves of the Camellia sinensis, an evergreen shrub (bush) native to East Asia. After water, it is the most widely consumed drink in the world. There are many different types of tea; some, like Darjeeling and Chinese greens, have a cooling, slightly bitter, and astringent flavour, while others have vastly different profiles that include sweet, nutty, floral or grassy notes.
 
@@ -69780,6 +69788,10 @@ pl:ryby białe, ryb białych
 # Theragra chalcogramma ou Merluccius productus ou Merluccius gayi ou Merluccius hubbsi
 ciqual_food_code:en:26249
 ciqual_food_name:fr:Poisson blanc, cuit (aliment moyen)
+
+<en:white fish
+en:white fish fillets
+pl:filety z ryb białych
 
 <en:fish
 fr:extrait de poisson
@@ -79028,6 +79040,10 @@ carbon_footprint_fr_foodges_value:fr:4.9
 ciqual_food_code:en:36005
 ciqual_food_name:fr:Poulet, viande et peau, rôti/cuit au four
 
+<en:chicken meat
+en:chicken meat extract
+pl:ekstrakt mięsa kurzego
+
 #process:en: en:mechanically separated
 <en:chicken meat
 # en:processing:mechanically separated
@@ -79154,7 +79170,7 @@ fi:kanafilee
 fr:filet de poulet, fillets de poulet, viande de filet de poulet, filets de poulet
 it:Filetto di pollo
 nl:kipfilet
-pl:filet z kurczaka, filety z kurczaka, filet z kurcząt
+pl:filet z kurczaka, filety z kurczaka, filet z kurcząt, mięso z fileta kurczaka, mięso z fileta z kurczaka
 ru:Куриное филе
 sv:kycklingfilé, kycklinginnerfilé, kycklinglårfilé, filé av kyckling
 # ingredient/fr:filet-de-poulet has 836 products in 6 languages @2019-03-19
