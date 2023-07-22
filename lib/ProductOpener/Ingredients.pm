@@ -126,8 +126,18 @@ use List::MoreUtils qw(uniq);
 use Test::More;
 
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
+# U+00B7 "·" (Middle Dot). Is a common character in Catalan. To avoid to break ingredients,
+#  spaces are added before and after the symbol hereafter.
+# U+2022 "•" (Bullet)
+# U+2023 "‣" (Triangular Bullet )
+# U+25E6 "◦" (White Bullet)
+# U+2043 "⁃" (Hyphen Bullet)
+# U+204C "⁌" (Black Leftwards Bullet)
+# U+204D "⁍" (Black Rightwards Bullet)
+# U+2219 "∙" (Bullet Operator )
+# U+22C5 "⋅" (Dot Operator)
 my $middle_dot
-	= qr/(?:\N{U+00B7}|\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5})/i;
+	= qr/(?: \N{U+00B7} |\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5})/i;
 
 # Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
 my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;

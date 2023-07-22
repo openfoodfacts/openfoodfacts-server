@@ -271,7 +271,7 @@ test-unit: guard-test
 test-int: guard-test # usage: make test-one test=test-file.t
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
-	${DOCKER_COMPOSE_TEST} exec backend perl tests/integration/${test}
+	${DOCKER_COMPOSE_TEST} exec backend perl ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_TEST} stop backend
 
