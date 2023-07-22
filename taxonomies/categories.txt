@@ -1421,6 +1421,10 @@ en:India Pale Ale (IPA), IPA beers
 xx:India Pale Ale (IPA)
 wikidata:en:Q1543214
 
+en:America Pale Ale (APA), APA beers
+lt:APA alus
+wikidata:en:Q15940735
+
 <en:Beers
 fr:Bières de Noël
 nl:Kerstbieren
@@ -1593,6 +1597,11 @@ pl:Piwa włoskie
 ro:Beri italiene, Beri italia, Bere italia, Bere italiana, Bere italiană
 # Disabled for safety: origins:en: en:Italy
 wikidata:en:Q3640378
+
+<en:Beers
+en:Beers from Latvia, Latvian beers
+lt:Latviškas alus, alus iš Latvijos
+wikidata:en:Q15873100
 
 <en:Beers
 en:Lithuanian beers
@@ -1791,6 +1800,11 @@ origins:en: en:Czech Republic
 #wikidata:en:
 
 <en:Beers
+en:Beers from Denmark, Danish beers
+lt:Daniškas alus, alus iš Danijos
+wikidata:en:Q3655862
+
+<en:Beers
 en:Beers from Germany, German beers
 bg:Германска бира
 de:Deutsche Biere
@@ -1904,6 +1918,11 @@ origins:en: en:Germany
 wikidata:en:Q880640
 
 <en:Beers
+en:Beers from Poland, Polish beers
+lt:Lenkiškas alus, alus iš Lenkijos
+wikidata:en:Q4880014
+
+<en:Beers
 en:Beers from United Kingdom
 de:Biere aus dem Vereinigten Königreich
 fr:Bières du Royaume Uni
@@ -1933,16 +1952,6 @@ origins:en: en:United Kingdom
 #wikidata:en:
 
 <en:Beers
-en:Beers from Poland, Polish beers
-lt:Lenkiškas alus, alus iš Lenkijos
-wikidata:en:Q4880014
-
-<en:Beers
-en:Beers from Latvia, Latvian beers
-lt:Latviškas alus, alus iš Latvijos
-wikidata:en:Q15873100
-
-<en:Beers
 en:Amber beers, Amber ale
 de:Amber ales
 es:Cerveza ambar
@@ -1969,7 +1978,7 @@ ro:Beri cu fructe, Bere cu fructe
 wikidata:en:Q3510707
 
 <en:Beers with fruits
-en:Cherry beers
+en:Cherry kriek beers, Kriek beers, Cherry beers
 de:Kirschbier
 es:Cervezas de cereza
 fr:Bières à la cerise
@@ -2031,6 +2040,11 @@ ro:Beri blonde, Bere blondă, Bere blonda
 wikidata:en:Q2792509
 agribalyse_food_code:en:5001
 ciqual_food_code:en:5001
+
+<en:Lagers
+en:Pilsners, Pilsner
+lt:Pilsner šviesusis alus
+wikidata:en:Q152281
 
 <en:Beers
 en:Stouts, stout, Dark beers, Dark beer
@@ -2168,6 +2182,27 @@ zh:姜啤
 wikidata:en:Q1448819
 
 <en:Non-alcoholic beers
+en:Non-alcoholic APA beers, Non-alcoholic American Pale Ale
+lt:Nealkoholinis APA alus
+
+<en:Non-alcoholic beers
+en:Non-alcoholic lager beers
+lt:Nealkoholinis šviesusis alus
+
+<en:Non-alcoholic lager beers
+en:Non-alcoholic pilsner beers
+lt:Nealkoholinis šviesusis pilsner alus
+
+<en:Beers
+en:Non-alcoholic organic beers
+lt:nealkoholinis ekologiškas alus
+labels:en: en:organic
+
+<en:Non-alcoholic beers
+en:Non-alcoholic radler beers
+lt:Nealkoholinis radler alus
+
+<en:Non-alcoholic beers
 en:Non-alcoholic wheat beers, Non-alcoholic wheat beer
 de:Alkoholfreie Weizenbiere, Alkoholfreies Weizenbier, Alkoholfreie Weißbiere, Alkoholfreies Weißbier
 fr:Bières de blé sans alcool
@@ -2176,7 +2211,6 @@ it:Birre bianche analcoliche, Birre di frumento analcoliche
 lt:Nealkoholinis kvietinis alus
 nl:Alcoholvrije witbieren, Alcoholvrij witbier
 wikidata:en:Q90409425
-
 
 <en:Alcoholic beverages
 en:German liqueur
