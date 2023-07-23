@@ -1548,6 +1548,15 @@ it:Birre corse, Birre della Corsica
 nl:Corsicaanse bieren, Bieren uit Corsica
 # Disabled for safety: origins:en: en:Corsica
 
+<en:French beers
+en:Brittany Beers
+de:Bretonische Biere
+fr:Bières bretonnes, Bières de bretagne
+it:Birre bretoni, Birre della Bretagna
+nl:Bretonse bieren
+origins:en: fr:Bretagne
+wikidata:en:Q2905049
+
 <en:Beers
 en:Organic beers
 de:Bio-Biere
@@ -1562,17 +1571,8 @@ pl:Piwa organiczne
 ro:Beri bio, Bere bio
 labels:en: en:organic
 
-<en:French beers
-en:Brittany Beers
-de:Bretonische Biere
-fr:Bières bretonnes, Bières de bretagne
-it:Birre bretoni, Birre della Bretagna
-nl:Bretonse bieren
-origins:en: fr:Bretagne
-wikidata:en:Q2905049
-
 <en:Beers
-en:Beers from Ireland, Irish beers
+en:Irish beers, Beers from Ireland
 de:Irische Biere
 fr:Bières irlandaises
 hu:Ír sörök
@@ -1600,12 +1600,12 @@ ro:Beri italiene, Beri italia, Bere italia, Bere italiana, Bere italiană
 wikidata:en:Q3640378
 
 <en:Beers
-en:Beers from Latvia, Latvian beers
+en:Latvian beers, Beers from Latvia
 lt:Latviškas alus, alus iš Latvijos
 wikidata:en:Q15873100
 
 <en:Beers
-en:Lithuanian beers
+en:Lithuanian beers, Beers from Lithuania
 fr:Bières lituaniennes
 pl:Piwa litewskie
 lt:Lietuviškas alus
@@ -1704,7 +1704,7 @@ origins:en: en:Belgium
 #wikidata:en:
 
 <en:Beers
-en:Bulgarian beers
+en:Bulgarian beers, Beers from Bulgaria
 bg:Българска бира
 fr:Bières bulgares, bières bulgariennes
 lt:Bulgariškas alus
@@ -1720,7 +1720,7 @@ wikidata:en:Q4879992
 #wikidata:en:Q18416565
 
 <en:Beers
-en:Beers from Czech republic
+en:Czech beers, Beers from Czech republic
 bg:Чешка бира
 de:Tschechische Biere
 fr:Bières de République tchèque
@@ -1801,17 +1801,17 @@ origins:en: en:Czech Republic
 #wikidata:en:
 
 <en:Beers
-en:Beers from Denmark, Danish beers
+en:Danish beers, Beers from Denmark
 lt:Daniškas alus, alus iš Danijos
 wikidata:en:Q3655862
 
 <en:Beers
-en:Beers from Estonia, Estonian beers
+en:Estonian beers, Beers from Estonia
 lt:Estiškas alus, alus iš Estijos
 wikidata:en:Q15392318
 
 <en:Beers
-en:Beers from Germany, German beers
+en:German beers, Beers from Germany
 bg:Германска бира
 de:Deutsche Biere
 es:Cervezas de alemania
@@ -1929,7 +1929,7 @@ lt:Lenkiškas alus, alus iš Lenkijos
 wikidata:en:Q4880014
 
 <en:Beers
-en:Beers from Ukraine, Ukrainian beers
+en:Ukrainian beers, Beers from Ukraine
 lt:Ukrainietiškas alus, alus iš Ukrainos
 wikidata:en:Q4880025
 
@@ -2005,17 +2005,19 @@ en:Beers with chestnut
 de:Biere mit Kastanien
 fr:Bières à la chataigne
 it:Birre alla castagna
+lt:Alus su kaštainiais
 nl:Kastanjebieren
 
 <en:Beers with fruits
 en:Beers with pear
 de:Birnenbier
 fr:Bières à la poire
+lt:Alus su kriaušėmis
 nl:Peerbieren
 
 <en:Beers with fruits
 en:Radler beers
-lt:Radler alus
+lt:Radleris, Radler alus
 description:en:Radler is a type of beer mixed from lager and citrus soda. It is usually 50/50 or 60/40 mixed
 wikidata:en:Q260417
 
