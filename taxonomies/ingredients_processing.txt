@@ -143,7 +143,7 @@ de:blatt, blätter
 es:hojas de, hoja de
 fi:lehti, lehdet
 fr:feuille de, feuille d'
-hr:list
+hr:list, folium
 hu:levél
 it:foglie, in foglie
 ja:の葉
@@ -191,6 +191,7 @@ de:mittelfein geschnittenen
 <en:cut
 en:finely cut
 es:cortado fino, cortada fina,cortados finos, cortadas finas
+hr:fino sjeckana
 hu:vékonyan vágott, vékony vágás
 pt:cortado fino, cortada fina, cortados finos, cortadas finas
 
@@ -370,7 +371,9 @@ hr:fino mljeveno
 hu:finomra őrölt
 
 # <en:ground
+en:coarsely ground
 de:grob gemahlen, grob gemahlene, grob gemahlener, grob gemahlenes
+hr:grublje mljeveno, grubo mljeveni
 hu:durvára őrölt
 
 # <en:ground
@@ -405,6 +408,11 @@ sv:puré
 # nb:parsing:$puré
 # sv:parsing:$puré
 
+# <en:concentrated
+# <en:pureed
+en:concentrated puree
+hr:od koncentrirane kaše, koncentrirana kaša od, koncentrirane kaše
+
 
 hu:lapított
 
@@ -434,6 +442,7 @@ en:halved, halves
 bg:наполовина
 de:halbiert, halbierte, halbierter, halbiertes, halbe
 fr:demi
+hr:polovice
 pl:połówki
 pt:metade, metades
 # de:false-positives:Halbbitterschokolade, halbfettstufe, halbgetrocknete, halbfester, halberstädter, halbbitter, Halbrahm
@@ -449,7 +458,7 @@ af:stukkies
 de:stücke, stücken, stückchen, gestückelt, stück
 es:trozo, troza, trozos, trozas, guarnición
 fr:morceaux, pièces de, en morceaux, morceaux de, morceaux d'
-hr:komadići, komadići od, hrskavi komadići, hrskavi komadići od, komata
+hr:komadići, komadići od, hrskavi komadići, hrskavi komadići od, komadić, komata, posip
 hu:darabok, darabolt, darab, darabka
 it:pezzi, in pezzi, a pezzi, pezzi di, pezzi d'
 nl:stukjes
@@ -473,7 +482,7 @@ de:Flocken
 es:escamas de
 fi:hiutaleet, hiutale
 fr:flocons de, en flocons
-hr:pahuljice od
+hr:pahuljice, pahuljice od
 it:fiocchi di, fiocchi d'
 ja:フレーク
 nl:vlokken
@@ -693,6 +702,7 @@ es:piel de, corteza de
 #es:false:cáscaras
 fi:kuori, kuoret, kuorta
 fr:écorce de, écorces de, écorces d'
+hr:kora, korica, kora od 
 hu:héj, héja
 it:scorza di, scorze di, scorza d', scorze d'
 nl:schil, schillen
@@ -815,7 +825,7 @@ sv:juice, saft
 #<en:concentrated
 #en:concentrated juice of
 #fr:jus concentré de, jus concentré d'
-#hr:koncentrirani sok od
+hr:koncentrirani sok, koncentrirani sok od, koncentriran sok od, koncentrani sok od, koncentrat soka, koncentriran sok, koncentrirani sokovi, od koncentriranog soka
 
 # fr:pur jus
 
@@ -871,7 +881,7 @@ es:concentrado, concentrada, concentrados, concentradas
 fa:کنسانتره
 fi:tiivistetty, tiiviste, tiivisteitä
 fr:concentré, concentrée, concentrés, concentrées, concentré de
-hr:koncentriran, koncentrirani, koncentrani, koncentrat, koncentrat za, koncentrati
+hr:koncentriran, koncentrirani, koncentrani, koncentrat, koncentrat za, koncentrati, iz koncentrata, od koncentrata, konc.
 hu:sűrítmény, sűrített, koncentrátum
 it:concentrato, concentrato di, concentrato d', concentrati, concentrata, concentrate
 ja:濃縮
@@ -891,6 +901,7 @@ wikidata:en:Q1355665
 en:double concentrated
 de:zweifach konzentriert, zweifach konzentrierte, zweifach konzentrierter, zweifach konzentriertes, 2 fach konzentriert, 2 fach konzentrierte, 2 fach konzentrierter, 2 fach konzentriertes, doppelt konzentriert, doppelt konzentrierte, doppelt konzentrierter, doppelt konzentriertes, 2-fach konzentriert, 2-fach konzentrierte, 2-fach konzentrierter, 2-fach konzentriertes
 es:doble concentrado,doble concentrada
+hr:dvostruki koncentrat
 it:doppio concentrato, doppio concentrato di, doppio concentrato d'
 pl:podwójnie skoncentrowany
 
@@ -901,6 +912,12 @@ de:dreifach konzentriert
 de:200fach konzentriertes
 
 #en:not from concentrate
+
+# <en:concentrated
+# <en:extract
+en:concentrated extract
+hr:koncentrirani ekstrakt
+
 
 # there is a problem with en:cocoa paste
 #en:paste
@@ -929,7 +946,7 @@ de:aus Konzentrat, aus Konzentraten
 es:a base de concentrado, a base de concentrada, a partir de concentrado, a partir de concentrada
 fi:tiivisteestä, tiivisteestä valmistettu
 fr:à base de concentré, à partir de concentré
-hr:koncentrirane, na koncentrat, od koncentriranog soka škrob, od koncentriranog soka, od koncentrirane kaše
+hr:koncentrirane, koncentrirano, na koncentrat
 hu:sűrítményből, koncentrátumból, sűrítményekből, koncentrátumokból
 it:da concentrato
 ja:濃縮還元
@@ -986,7 +1003,7 @@ en:freeze dried
 de:gefriergetrocknet, gefriergetrocknete, gefriergetrockneter, gefriergetrocknetes
 fi:pakkaskuivattu, pakkaskuivatut, pakastekuivattu
 fr:lyophilisé, lyophilisée, lyophilisés, lyophilisées
-hr:liofilizirane, liofiliziran, liofilizirana
+hr:liofilizirane, liofiliziran, liofilizirana, liofiliziranih
 hu:fagyasztva szárított
 nb:frysetørkede
 nl:gevriesdroogde
@@ -1052,7 +1069,7 @@ bg:дехидратиран, дехидратирано, дехидратира�
 ca:deshidratat, deshidratada
 es:deshidratado, deshidratada, deshidratados, deshidratadas
 fr:déshydraté, déshydratée, déshydratés, déshydratées
-hr:dehidrirani
+hr:dehidrirani, osušeno
 hu:dehidratált, liofilizált
 it:disidratato, disidratata, disidratati, disidratate
 nl:gedehydrateerde
@@ -1364,7 +1381,7 @@ da:puffede
 de:gepufft, gepuffte, gepuffter, gepufftes, gepoppt, gepoppte, gepoppter
 es:hinchado,hinchada,hinchados,hinchadas
 fr:soufflé, soufflée, soufflés, soufflées
-hr:ekspandirana, ekspandirani
+hr:ekspandirana, ekspandirani, ekspandiranih
 hu:puffasztott, felfújt
 it:soffiato, soffiati, soffiata, soffiate
 nl:gepoft, gepofte
@@ -1598,7 +1615,7 @@ da:kandiserede
 de:kandiert, kandierte, kandierten, kandierter
 es:confitado,confitada,confitados,confitadas
 fr:confit,confite,confits,confites,confit de,confit d'
-hr:kandirana
+hr:kandirana, kandirane
 hu:kandírozott, konfitált
 it:candito, candita, canditi, candite
 nl:gekonfijt, gekonfijte
@@ -1720,7 +1737,7 @@ en:fermented
 bg:ферментирало, ферментирал, ферментирала, ферментирали
 ca:fermentat
 es:fermentado
-hr:fermentirano
+hr:fermentirano, fermentirana
 hu:fermentált
 it:fermentato, fermentata, fermentati, fermentate
 ja:発酵
@@ -1928,6 +1945,7 @@ sv:ohärdad
 
 #en:hydrolysed, hydrolized
 #fr:Hydrolisé, hydrolisée
+#hr:hidrolizat, hidrolizirane
 #nl:gehydrolyseerd, gehydrolyseerde
 
 en:hydrogenated
