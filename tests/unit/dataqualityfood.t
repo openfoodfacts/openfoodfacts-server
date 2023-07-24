@@ -521,6 +521,92 @@ check_quality_and_test_product_has_quality_tag(
 	'serving size should contains digits', 0
 );
 
+# serving size is missing
+$product_ref = {
+	nutrition_data => "on",
+	nutrition_data_per => "serving"
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-missing-serving-size',
+	'serving size should be provided if "per serving" is selected', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-serving-quantity-is-0',
+	'serving size equal to 0 is unexpected', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-serving-quantity-is-not-recognized',
+	'serving size cannot be parsed', 0
+);
+# serving size equal to 0
+$product_ref = {
+	nutrition_data => "on",
+	nutrition_data_per => "serving",
+	serving_quantity => "0",
+	serving_size => "0g"
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-missing-serving-size',
+	'serving size should be provided if "per serving" is selected', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-serving-quantity-is-0',
+	'serving size equal to 0 is unexpected', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-serving-quantity-is-not-recognized',
+	'serving size cannot be parsed', 0
+);
+# serving size cannot be parsed
+$product_ref = {
+	nutrition_data => "on",
+	nutrition_data_per => "serving",
+	serving_size => "1 container"
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-missing-serving-size',
+	'serving size should be provided if "per serving" is selected', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-serving-quantity-is-0',
+	'serving size equal to 0 is unexpected', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-serving-quantity-is-not-recognized',
+	'serving size cannot be parsed', 1
+);
+# last 3 tests should not appears when expected serving size is provided
+$product_ref = {
+	nutrition_data => "on",
+	nutrition_data_per => "serving",
+	serving_quantity => "50",
+	serving_size => "50 mL"
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-missing-serving-size',
+	'serving size should be provided if "per serving" is selected', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-serving-quantity-is-0',
+	'serving size equal to 0 is unexpected', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-serving-quantity-is-not-recognized',
+	'serving size cannot be parsed', 0
+);
+
 # percentage for ingredient is higher than 100% in extracted ingredients from the picture
 $product_ref = {
 	ingredients => [

@@ -666,10 +666,14 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 		param("user_id", $userid);
 		init_user($request_ref);
 
-		my $email = lang("add_user_email_body");
-		$email =~ s/<USERID>/$userid/g;
-		# $email =~ s/<PASSWORD>/$user_ref->{password}/g;
-		$error = send_email($user_ref, lang("add_user_email_subject"), $email);
+		# Fetch the HTML mail template corresponding to the user language, english is the
+		# default if the translation is not available
+		my $email_content = get_html_email_content("user_welcome.html", $user_ref->{initial_lc});
+		my $user_name = $user_ref->{name};
+		# Replace placeholders by user values
+		$email_content =~ s/\{\{USERID\}\}/$userid/g;
+		$email_content =~ s/\{\{NAME\}\}/$user_name/g;
+		$error = send_html_email($user_ref, lang("add_user_email_subject"), $email_content);
 
 		my $admin_mail_body = <<EMAIL
 

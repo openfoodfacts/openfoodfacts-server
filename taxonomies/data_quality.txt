@@ -58,6 +58,14 @@ description:en:Saturated Fat is a sub-section of Fat on the nutrition labels, as
 description:fr:Les acides gras saturés sont contenus dans les matières grasses. En conséquence, ils ne doivent jamais être plus élévés que ces dernières.
 
 <en:Nutrition errors
+en:Nutrition data per serving - Missing serving size, serving quantity is unknown
+description:en:"Nutrition facts are specified for the product as sold." is checked. "per serving" is selected. But the serving size is missing.
+
+<en:Nutrition errors
+en:Nutrition data per serving - Serving quantity is not recognized
+description:en: although serving size is given, it cannot be parsed (digit or unit may be missing or unknown)
+
+<en:Nutrition errors
 en:Nutrition data per serving - Serving quantity is 0
 fr:Données nutritionnelles par portion - portion nulle
 description:en:Serving quantity is 0 or is not recognized while nutrition data is per portion.
@@ -2687,10 +2695,6 @@ description:en: We have nutrition data for prepared product
 
 <en:Nutrition warnings
 en:Nutrition data - Prepared without category dried products to be rehydrated
-#description:en:
-
-<en:Nutrition warnings
-en:Nutrition data per serving - Missing serving size
 #description:en:
 
 <en:Nutri-Score warnings
