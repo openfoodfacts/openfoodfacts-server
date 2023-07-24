@@ -195,6 +195,7 @@ use Template;
 use Devel::Size qw(size total_size);
 use Data::DeepAccess qw(deep_get);
 use Log::Log4perl;
+use LWP::UserAgent;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -1293,6 +1294,8 @@ sub get_cache_results ($key, $request_ref) {
 
 	my $results;
 
+	# TODO: This is just for testing. Need to remove later
+	return $results;
 	$log->debug("MongoDB hashed query key", {key => $key}) if $log->is_debug();
 
 	# disable caching if ?no_cache=1
@@ -1433,6 +1436,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	my $results = get_cache_results($key, $request_ref);
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
+		my $used_mongo = 1;
 
 		# do not use the smaller cached products_tags collection if ?no_cache=1
 		# or if we are on the producers platform
@@ -1458,13 +1462,15 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 				$log->debug("Executing MongoDB aggregate query on products_tags collection",
 					{query => $aggregate_parameters})
 					if $log->is_debug();
-				$results = execute_query(
-					sub {
-						return get_products_collection(
-							get_products_collection_request_parameters($request_ref, {tags => 1}))
-							->aggregate($aggregate_parameters, {allowDiskUse => 1});
-					}
+
+				my $ua = LWP::UserAgent->new();
+				my $resp = $ua->post(
+					'http://host.docker.internal:3000/query',
+					Content => encode_json($aggregate_parameters),
+					"Content-Type" => "application/json; charset=utf-8"
 				);
+				$results = decode_json($resp->decoded_content);
+				$used_mongo = 0;
 			};
 		}
 		if ($@) {
@@ -1481,8 +1487,13 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		# the return value of aggregate has changed from version 0.702
 		# and v1.4.5 of the perl MongoDB module
 		if (defined $results) {
-			$results = [$results->all];
+			if ($used_mongo) {
+				$results = [$results->all];
+			}
 
+			$log->debug("John G Query results",
+				{results => $results})
+				if $log->is_debug();
 			if (defined $results->[0]) {
 				set_cache_results($key, $results);
 			}
