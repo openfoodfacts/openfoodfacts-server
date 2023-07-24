@@ -36,6 +36,7 @@ properties:
     type: string
     description: |
       Main language of the product.
+      This is a duplicate of `lang` property (for historical reasons).
   lang:
     type: string
     description: |
