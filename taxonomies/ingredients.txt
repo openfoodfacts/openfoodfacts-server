@@ -478,7 +478,7 @@ es:Lecitina de colza, lecitinas de colza
 et:rapsi letsitiin
 fi:rapsilesitiini, rapsilesitiiniä, rypsilesitiini, rypsilesitiiniä
 fr:lécithine de colza, lécithines de colza
-hr:emulgator lecitin iz uljane repice
+hr:lecitin repica, lecitin uljane repice
 hu:repce lecitin, lecitini (repica)
 it:Lecitina di colza
 lt:rapsų lecitinai, emulsiklis rapsų lecitinas
@@ -497,6 +497,7 @@ vegetarian:en:yes
 fr:émulsifiant lécithines, émulsifiants lécithines
 de:emulgator lecithine
 es:emulsionante de lecitina, emulsionantes de lecitina
+hr:emulgator lecitin iz uljane repice
 it:emulsionante lecitine
 nl:emulgator lecithinen
 pt:emulsionante lecitinas
@@ -1712,7 +1713,7 @@ fi:laktaasi, laktaasientsyymi
 fr:lactase
 gl:lactase
 he:לקטאז
-hr:laktaza, laktazu, enzim laktaza
+hr:laktaza, laktazu, laktozu, enzim laktaza
 hu:laktáz, laktáz enzim, laktázenzim
 io:laktazo
 is:laktasi
@@ -32731,7 +32732,7 @@ et:maltodekstriin
 fi:maltodekstriini, maltodekstriiniä
 fr:Maltodextrines, maltodextrine, malto-dextrine
 he:מלטודקסטרינים
-hr:maltodekstrin
+hr:maltodekstrin, maltodekstrini
 hu:Maltodextrin
 is:maltódextrín
 it:Maltodestrine, maltodestrina
@@ -32866,7 +32867,7 @@ gd:Beirm
 gl:Lévedo
 he:שמרים
 hi:खमीर
-hr:Kvasac
+hr:kvasac, majčin kvasac
 hu:élesztő
 hy:Խմորասնկեր
 id:Khamir
@@ -38218,7 +38219,7 @@ gl:Lima
 gv:Leeim
 he:ליים
 hi:नींबू
-hr:Limeta
+hr:limeta, limete
 hu:zöldcitrom
 it:limetta
 ja:ライム
@@ -49861,7 +49862,7 @@ fi:punasipuli
 fr:oignon rouge, oignons rouges
 he:בצל סגול
 hi:लाल प्याज
-hr:crveni luk
+hr:crveni luk, luk crveni
 hu:lilahagyma, vöröshagyma
 is:rauðlaukur
 it:cipolla rossa
@@ -52144,7 +52145,7 @@ de:roter Chili, rote Chili-Schoten
 es:chile rojo, chiles rojos, red-chili,chili rojo
 fi:punainen chili
 fr:piment rouge, piments rouges
-hr:crvene papričice, crveni čili
+hr:crvene papričice, crveni čili, ljuta paprika
 it:peperoncini rossi
 nb:rød chili pepper, rød chili
 nl:rode peper, rode chilipeper
@@ -55640,7 +55641,7 @@ de:Rote Linsen
 es:lentejas rojas
 fi:punainen linssi, punaiset linssit
 fr:lentilles corail, lentilles rouges, lentilles corail rouge
-hr:leća svijetlo crvena, leća tamnocrvena
+hr:leća svijetlo crvena, leća tamnocrvena, leća crvena
 it:lenticchie rosse
 ja:赤レンズ豆
 nl:rode linzen
@@ -56471,7 +56472,7 @@ fr:noisette, noisettes
 ga:cnónna coill
 gl:Abelá
 he:אגוז לוז
-hr:lješnjak, lješnjaci
+hr:lješnjak, lješnjaci, lešnjak, lješnjake
 ht:Nwazèt
 hu:mogyoró
 id:Kacang hazel
@@ -56560,6 +56561,10 @@ pt:avelã inteira torrada, avelâs inteiras torradas, avelã inteira tostada, av
 openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noisettes-entières-torréfiées
 # 15 products in 1 language @2018-10-007
 
+<en:hazelnut
+en:hazelnut kernel
+hr:lješnjak jezgra
+
 #processing:en: en:chopped
 <en:hazelnut
 en:chopped hazelnuts
@@ -56621,7 +56626,7 @@ de:Haselnüsspaste, Haselnusspaste, Haselnussmasse, Haselnussmark
 es:pasta de avellana, pasta de avellanas
 fi:hasselpähkinätahna, hasselpähkinämassa
 fr:pâte de noisette, purée de noisettes
-hr:pasta lješnjaka, pasta od lješnjaka
+hr:pasta lješnjaka, pasta od lješnjaka, lješnjak pasta, lješnjakova pasta
 hu:mogyoromassza
 it:pasta di nocciole
 nb:hasselnøttpasta, hasselnøtmasse
@@ -56664,6 +56669,44 @@ ru:ядро ореха фундука дробленое
 # fr:noisette chilienne
 # nl:Chileense hazelnoot
 # de:chilenische Haselnüsse
+
+###################################################################################################
+#
+#                                Maca
+#
+###################################################################################################
+<en:plant
+en:maca, lepidium meyenii, peruvian ginseng
+az:Lepidium meyenii
+ba:Ҡандалагөл
+ca:Lepidium meyenii
+cs:Řeřicha peruánská
+de:Maca
+el:Μάκα
+es:Lepidium meyenii
+fa:جینسنگ پرویی
+fi:Andienkrassi
+fr:Maca
+hr:maca
+hu:Maca
+it:Lepidium meyenii
+ja:マカ
+ko:마카
+lt:Peruvinė pipirnė
+nl:Lepidium meyenii
+pt:Lepidium meyenii
+qu:Maka
+ro:Maca
+ru:Мака перуанская
+sk:Žerucha peruánska
+sl:Maca
+sr:Peruanska maka
+sv:Maca
+tr:Lepidium meyenii
+uk:Мака перуанська
+vi:Maca
+zh:印加萝卜
+wikidata:en:Q795158
 
 ###################################################################################################
 #
@@ -57945,6 +57988,7 @@ de:Flachs
 es:lino
 fi:pellava
 fr:lin
+hr:lan
 it:lino
 pt:Linho
 # ingredient/fr:lin has 239 products in 6 languages @2018-12-06
@@ -61461,7 +61505,7 @@ ga:lus an phiobair
 gl:menta común
 he:נענע חריפה
 hi:पिपरमिंट
-hr:paprena metvica, paprene metvice
+hr:paprena metvica, paprene metvice, divlje metvice
 hu:borsmenta
 hy:անանուխ
 id:pepermin
@@ -62519,6 +62563,7 @@ en:lovage leaves
 de:Liebstöckel Blätter, Liebstöckelblätter
 fi:liperin lehdet
 fr:feuilles de livèche
+hr:ljupčac list
 
 <en:lovage
 en:dried lovage
@@ -62532,6 +62577,7 @@ da:løvstikkerod
 de:liebstöckelwurzel
 fi:lipstikanjuuri
 fr:racine de livèche
+hr:ljupčac korijen
 nl:lavaswortel
 sv:libbstickarot
 # ingredient/fr:racine-de-liveche has 40 products in 4 languages @2020-05-24
@@ -62911,6 +62957,7 @@ es:hoja de laurel, laurel
 fi:laakerinlehti
 fr:feuille de laurier, feuille de laurier, laurier
 hi:तेज पत्ता
+hr:lovor, lovorov
 hu:babérlevél
 hy:դափնու տերև
 it:laurier, alloro, lauro
@@ -64223,10 +64270,11 @@ de:Lindenblüten
 es:Tila
 fi:lehmus
 fr:tilleul, fleurs de tilleul
-hr:cvijet lipe
+hr:lipa, cvijet lipe
 it:Fiori di tiglio
 nl:Linde, lindebloesem
 wikipedia:en:https://en.wikipedia.org/wiki/Tilia
+wikidata:en:Q127849
 # ingredient/fr:tilleul has 109 products in 4 languages @2019-01-23
 
 ###################################################################################################
@@ -74648,6 +74696,7 @@ gl:Lura
 gn:Kalama
 he:דיונוני רחף
 hi:विद्रूप
+hr:lignje
 hu:Kalmárok
 hy:Կաղամարներ
 id:Cumi-cumi
