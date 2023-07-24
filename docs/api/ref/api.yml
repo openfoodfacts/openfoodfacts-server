@@ -16,6 +16,10 @@ info:
     # can't use url and identifier - use x-identifier
     x-identifier: "ODbL-1.0"
   version: '2'
+externalDocs:
+  description: |
+    Please read the API introduction before using this API.
+  url: https://openfoodfacts.github.io/openfoodfacts-server/api/
 servers:
   - description: dev
     url: 'https://world.openfoodfacts.net'
@@ -45,6 +49,10 @@ paths:
             application/json:
               schema:
                 $ref: ./responses/get_product_by_barcode.yaml
+              examples:
+                spread-example:
+                  $ref: ./examples/get_product_by_barcode_spread.yaml
+
       description: |
         A product can be fetched via its unique barcode.
         It returns all the details of that product response.

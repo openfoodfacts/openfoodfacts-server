@@ -39,6 +39,25 @@ properties:
   last_checker:
     type: string
 
+  states:
+    description: |
+      comma separated list of values indicating some states of the product,
+      like things to be done, or to be completed.
+      See [states taxonomy](https://static.openfoodfacts.net/data/taxonomies/states.json)
+    type: string
+  states_hierarchy:
+    type: array
+    items:
+      type: string
+  states_tags:
+    type: array
+    items:
+      description:
+        Each state describe something that is completed or is to be done or improved on the product.
+
+        Refer to [states taxonomy](https://static.openfoodfacts.net/data/taxonomies/states.json)
+      type: string
+
   misc_tags:
     description: |
       Information about different aspect of the product

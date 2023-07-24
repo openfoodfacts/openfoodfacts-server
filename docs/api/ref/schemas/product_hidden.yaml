@@ -77,6 +77,9 @@ properties:
     items:
       type: string
   producer_version_id:
+    description: |
+      A version id internal to the producer.
+      We may grab those from PIM or GS1 platforms.
     type: string
   removed_countries_tags:
     type: array
@@ -85,16 +88,6 @@ properties:
   sortkey:
     type: integer
 
-  states:
-    type: string
-  states_hierarchy:
-    type: array
-    items:
-      type: string
-  states_tags:
-    type: array
-    items:
-      type: string
   vitamins_prev_tags:
     type: array
     items:

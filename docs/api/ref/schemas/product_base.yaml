@@ -28,7 +28,9 @@ properties:
       Legal name of the product as regulated
       by the European authorities.
   id:
-    description: alias of `code`
+    description: |
+      internal identifier for the product, usually set to the value of `code`,
+      except on the producers platform where it is prefixed by the owner
     type: string
   lc:
     type: string
@@ -37,7 +39,11 @@ properties:
   lang:
     type: string
     description: |
-      **TODO** explain difference with `lc`
+      Main language of the product.
+
+      This should be the main language of product packaging (if one is predominant).
+
+      Main language is also used to decide which ingredients list to parse.
   nova_group:
     type: integer
     description:

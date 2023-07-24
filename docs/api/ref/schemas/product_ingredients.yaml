@@ -76,9 +76,8 @@ properties:
       Raw list of ingredients. This will get automatically
       parsed and get used to compute the Eco-Score or find allergens, etc..
 
-      You can either request it (if it exists) or send it in a specific language.
+      It's a copy of ingredients_text in the main language of the product (see `lang` proprety).
 
-      **TODO**: explain if it is the one in the main product language or in requested language
     example: |
         Farine de blé* 67,4%, sucre de canne*, huile de tournesol oléique*, graines de chia* 5,2%, son de blé*, oranges déshydratées * 0,9%, farine de riz*, poudres à lever (acide citrique, carbonates de sodium), arôme naturel d'orange.
   ingredients_text_with_allergens:
