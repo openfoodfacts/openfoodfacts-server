@@ -38,12 +38,12 @@
 				<td>[% users.initial_lc %]</td>
 				<td>[% users.initial_cc %]</td>
 				<td>
-					<form method="post" action="/cgi/org.pl?type=edit&orgid=[% orgid %]" onsubmit="return confirm('Are you sure you want to remove this user?')">
+					<form method="post" action="/cgi/org.pl" onsubmit="return confirm('Are you sure you want to remove this user?')">
 						<input type="hidden" name="action" value="process" />
 						<input type="hidden" name="type" value="user_delete" />
 						<input type="hidden" name="org_id" value="[% orgid %]">
 						<input type="hidden" name="user_id" value="[% users.userid %]">
-						<input type="submit" name="remove_user" class="button small" value="Remove User" />
+						<input type="submit" name="remove_user" class="button small" value="[% lang("remove_user") %]"/ />
 					</form>
 				</td>
 			</tr>

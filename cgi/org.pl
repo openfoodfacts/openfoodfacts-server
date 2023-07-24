@@ -358,29 +358,28 @@ elsif ($action eq 'process') {
 	if ($type eq "edit") {
 
 		store_org($org_ref);
-		$template_data_ref->{result} = lang("edit_org_result");
-
-		$template_data_ref->{profile_url} = canonicalize_tag_link("editors", "org-" . $orgid);
-		$template_data_ref->{profile_name} = sprintf(lang('user_s_page'), $org_ref->{name});
 	}
 	elsif ($type eq 'user_delete') {
 
 		if (is_user_in_org_group($org_ref, $User_id, "members")) {
-			my $groups_ref = ['admins','members'];
+			my $groups_ref = ['admins', 'members'];
 			my $user_to_remove = single_param('user_id');
+			# remove the user from org
 			remove_user_from_org($orgid, $user_to_remove, $groups_ref);
 
 			# Reset the 'org' field of the user
 			my $user_ref = retrieve_user($user_to_remove);
 			delete $user_ref->{org};
 			delete $user_ref->{org_id};
-			my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language",$user_to_remove) . ".sto";
+			my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_to_remove) . ".sto";
 			store($user_file, $user_ref);
-			$template_data_ref->{result} = "User successfully removed from the organization";
 
 		}
 
 	}
+	$template_data_ref->{result} = lang("edit_org_result");
+	$template_data_ref->{profile_url} = canonicalize_tag_link("editors", "org-" . $orgid);
+	$template_data_ref->{profile_name} = sprintf(lang('user_s_page'), $org_ref->{name});
 }
 
 $template_data_ref->{orgid} = $orgid;
@@ -396,12 +395,12 @@ my $title = lang($type . '_org_title');
 $log->debug("org form - template data", {template_data_ref => $template_data_ref}) if $log->is_debug();
 
 # allow org admins to view the list of users associated with their org
-	my @org_members;
-	foreach my $member_id (sort keys %{$org_ref->{members}}) {
-		my $member_user_ref = retrieve_user($member_id);
-		push @org_members, $member_user_ref;
-	}
-	$template_data_ref->{org_members} = \@org_members;
+my @org_members;
+foreach my $member_id (sort keys %{$org_ref->{members}}) {
+	my $member_user_ref = retrieve_user($member_id);
+	push @org_members, $member_user_ref;
+}
+$template_data_ref->{org_members} = \@org_members;
 
 $tt->process('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
 	or $html = "<p>template error: " . $tt->error() . "</p>";
