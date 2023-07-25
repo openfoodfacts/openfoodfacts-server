@@ -1451,3 +1451,18 @@ a.panel_title {
     background-color: scale-color($button-bg-color, $lightness: -$button-function-factor / 2);
     color: #fff;
 }
+
+// Tuto video beside user form
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 100rem;
+  @media #{$small-only} {
+    flex-direction: column;
+    gap: 0;
+    margin-top: -2rem;
+  }
+}
