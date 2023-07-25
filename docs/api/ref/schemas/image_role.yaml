@@ -1,4 +1,6 @@
 type: object
+description: |
+  property of an image (or part thereof) selected for a particular role and a particular language.
 properties:
   angle:
     type: integer
@@ -9,7 +11,7 @@ properties:
     example: full
   geometry:
     type: string
-    example: 0x0--1--1
+    example: "0x0--1--1"
   imgid:
     type: string
     example: '121'
@@ -29,13 +31,13 @@ properties:
       while the full images have `full` as the key.
     properties:
       '100':
-        $ref: ./properties/image_size.yaml
+        $ref: ./image_size.yaml
       '200':
-        $ref: ./properties/image_size.yaml
+        $ref: ./image_size.yaml
       '400':
-        $ref: ./properties/image_size.yaml
+        $ref: ./image_size.yaml
       full:
-        $ref: ./properties/image_size.yaml
+        $ref: ./image_size.yaml
   white_magic:
     type: 'null'
     example: null
