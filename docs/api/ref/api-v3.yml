@@ -304,9 +304,6 @@ paths:
           in: query
           name: term
           description: Alias for the "string" parameter provided for backward compatibility. "string" takes precedence.
-components:
-  schemas: null
-  parameters: null
 tags:
   - name: Read Requests
   - name: Write Requests

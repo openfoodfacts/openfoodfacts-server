@@ -2063,6 +2063,7 @@ sub parse_ingredients_text ($product_ref) {
 								'u promjenjivim omjerima|u promjenjivim udjelima|u promijenljivom udjelu',    # in variable proportions
 								'uključujući žitarice koje sadrže gluten',    # including grains containing gluten
 								'za alergene',    # for allergens
+								'u promjenjivim udjelima'    # in variable proportions
 							],
 
 							'it' => ['^in proporzion[ei] variabil[ei]$',],

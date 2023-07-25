@@ -333,8 +333,33 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 	hk => "hk",
 );
 
-# http://healthycanadians.gc.ca/eating-nutrition/label-etiquetage/tips-conseils/nutrition-fact-valeur-nutritive-eng.php
+=head2 %nutriments_tables
 
+An array that condition how nutrients are displayed.
+
+It is a list of nutrients names with eventual prefixes and suffixes:
+
+=over
+
+=item C<#nutrient> a leading C<#> indicates a comment and will be ignored
+
+=item C<!nutrient> a leading C<!> indicates an important nutrient, they should always be shown
+
+=item The level of each nutrient is indicated by leading dashes before its id:
+
+=over
+=item C<nutrient> - no dash for top nutrients
+=item C<-sub-nutrient> - for level 2
+=item C<--sub-sub-nutrient> - for level 3, etc.
+=back
+
+=item C<nutrient-> a C<-> at the end indicates that the nutrient should be hidden and only shown if explicitly added.
+
+=back
+
+=cut
+
+# http://healthycanadians.gc.ca/eating-nutrition/label-etiquetage/tips-conseils/nutrition-fact-valeur-nutritive-eng.php
 %nutriments_tables = (
 	europe => [
 		(
