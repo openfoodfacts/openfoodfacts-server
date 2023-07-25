@@ -13,11 +13,16 @@ info:
   license:
     name: 'data: ODbL'
     url: 'https://opendatacommons.org/licenses/odbl/summary/index.html'
-    identifier: "ODbL-1.0"
+    # can't use url and identifier - use x-identifier
+    x-identifier: "ODbL-1.0"
   version: '2'
+externalDocs:
+  description: |
+    Please read the API introduction before using this API.
+  url: https://openfoodfacts.github.io/openfoodfacts-server/api/
 servers:
   - description: dev
-    url: 'https://off:off@world.openfoodfacts.net'
+    url: 'https://world.openfoodfacts.net'
   - url: 'https://world.openfoodfacts.org'
     description: prod
 paths:
@@ -44,6 +49,10 @@ paths:
             application/json:
               schema:
                 $ref: ./responses/get_product_by_barcode.yaml
+              examples:
+                spread-example:
+                  $ref: ./examples/get_product_by_barcode_spread.yaml
+
       description: |
         A product can be fetched via its unique barcode.
         It returns all the details of that product response.
@@ -77,10 +86,7 @@ paths:
                   - type: object
                     properties:
                       product:
-                        type: object
-                        properties:
-                          knowledge_panels:
-                            $ref: ./schemas/knowledge_panels/panels.yaml
+                        $ref: ./schemas/product_knowledge_panels.yaml
       description: |
         Knowledge panels gives high leve informations about a product,
         ready to display.
@@ -152,6 +158,7 @@ paths:
           multipart/form-data:
             schema:
               $ref: ./requestBodies/crop_a_photo.yaml
+        required: true
       tags:
         - Write Requests
     get:
@@ -288,48 +295,28 @@ paths:
         all packaging_shapes containing "fe" will be returned.
         This is useful if you have a search in your application,
         for a specific product field.
-  '/api/v2/product/{barcode}?fields=images':
-    parameters:
-      - schema:
-          type: string
-        name: barcode
-        in: path
-        required: true
-    get:
-      summary: Get Images for a specific product by barcode (special case of get product)
-      tags:
-        - Read Requests
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    example: '3017620422003'
-                  product:
-                    type: object
-                    properties:
-                      images:
-                        type: object
-                        patternProperties:
-                          /^\d+$/:
-                            $ref: ./schemas/images/image.yaml
-                          (front|ingredients|nutrition|packaging|other)_\w\w(-\w\w)?:
-                            $ref: ./schemas/images/selected_image.yaml
-                  status:
-                    type: integer
-                    example: 1
-                  status_verbose:
-                    type: string
-                    example: product found
-      operationId: get-api-v2-product-barcode-?fields=images
-      description: Images ensure the reliability of Open Food Facts data. It provides a primary source and proof of all the structured data. You may therefore want to display it along the structured information.
 components:
   schemas:
+    "Product-Base":
+      $ref: ./schemas/product_base.yaml
+    "Product-Misc":
+      $ref: ./schemas/product_misc.yaml
+    "Product-Tags":
+      $ref: ./schemas/product_tags.yaml
+    "Product-Nutrition":
+      $ref: ./schemas/product_nutrition.yaml
+    "Product-Ingredients":
+      $ref: ./schemas/product_ingredients.yaml
+    "Product-Images":
+      $ref: ./schemas/product_images.yaml
+    "Product-Eco-Score":
+      $ref: ./schemas/product_ecoscore.yaml
+    "Product-Metadata":
+      $ref: ./schemas/product_meta.yaml
+    "Product-Data-Quality":
+      $ref: ./schemas/product_quality.yaml
+    "Product-Knowledge-Panels":
+      $ref: ./schemas/product_knowledge_panels.yaml
     Product:
       $ref: ./schemas/product.yaml
   parameters:

@@ -36,6 +36,14 @@ stopwords:nl:bevat,en
 stopwords:nl_be:bevat,en
 stopwords:de:und,mit,von
 
+# add following tag for category having always same nutriscore grade
+# only 1 letter is allowed
+# expected_nutriscore_grade:en:c
+# add following tag for category having always same ingredient
+# only 1 ingredient tag is allowed (use "en:olive-oil" and not "en:Olive oil")
+# expected_ingredients:en: en:olive-oil
+
+
 # add following tag to ignore "Energy value in kJ does not correspond to the value calculated from the other nutrients error
 # only for categories having nutrients that are not displayed in the nutrition table and contributing to the energy
 # for example, lemon juices containing organic acid, it is forbidden to display organic acid in nutrition tables but
@@ -30802,6 +30810,29 @@ nl:Glutenvrije koekjes, Koekjes zonder gluten, Glutenvrij koekje
 pl:Ciasteczka bezglutenowe
 ro:Biscuiți fără gluten
 
+<en:Biscuits
+fr:Tartelettes au caramel, Tartelettes au caramel beurre salé, Tartelette au caramel, Tartelette au caramel beurre salé, Tartelettes caramel, Tartelette caramel
+
+<en:Biscuits
+en:Tartlet biscuits with chocolate, Biscuit (small tart) with chocolate pre-packed, Chocolate tartlets
+de:Schokoladentörtchen
+fr:Tartelettes au chocolat, tartelette au chocolat
+it:Tortini di cioccolato
+nl:Chocolade taartjes
+agribalyse_food_code:en:24052
+ciqual_food_code:en:24052
+ciqual_food_name:en:Biscuit (small tart), with chocolate, pre-packed
+
+<en:Biscuits
+en:Tartlet biscuits with fruit preparation, Biscuit with fruit covering, Small tart with fruit covering
+de:Biscuit mit Fruchtüberzug, Keks mit Fruchtüberzug, Kleine Torte mit Fruchtüberzug
+fr:Tartelettes à la préparation de fruits, Biscuit sec nappé aux fruits, Tartelette aux fruits
+it:snack dolci con copertura a base di frutta
+agribalyse_food_code:en:24679
+ciqual_food_code:en:24679
+ciqual_food_name:en:Biscuit (small tart), with fruit covering
+ciqual_food_name:fr:Biscuit sec nappé aux fruits, tartelette
+
 #do not confuse with the cocktail spritz
 <en:Biscuits
 en:Sprits biscuits, Sprits, spritz biscuits
@@ -35194,6 +35225,7 @@ ciqual_food_name:fr:Chocolat au lait aux fruits secs (noisettes, amandes, raisin
 <en:Chocolates with hazelnuts
 <en:Milk chocolates
 en:Milk chocolates with hazelnuts, Milk chocolate with hazelnuts
+bg:Млечен шоколад с лешници
 de:Milchschokolade mit Haselnüssen
 es:Chocolate con leche y avellanas
 fi:hasselpähkinämaitosuklaat
@@ -35212,6 +35244,7 @@ ciqual_food_name:fr:Chocolat au lait aux fruits secs (noisettes, amandes, raisin
 <en:Chocolates with almonds
 <en:Milk chocolates
 en:Milk chocolates with almonds, Milk chocolate with almonds
+bg:Млечен шоколад с бадеми
 de:Milchschokolade mit Mandeln
 es:Chocalte con leche almendrado
 fi:Maitosuklaa manteleilla
@@ -35230,6 +35263,7 @@ ciqual_food_name:fr:Chocolat au lait aux fruits secs (noisettes, amandes, raisin
 <en:Chocolates with raisins
 <en:Milk chocolates
 en:Milk chocolates with raisins
+bg:Млечен шоколад със стафиди
 lt:Pieniški šokoladai su razinomis
 agribalyse_food_code:en:31018
 ciqual_food_code:en:31018
@@ -42605,6 +42639,11 @@ fr:Desserts lactés fermentés aux fruits
 lt:Rauginti pieno desertai su vaisiais
 nl:gefermenteerde melkdesserts met vruchten
 
+# contains products with flavours (natural, artificial or fruit or flower extract) but no fruit preparations (jam, fruit chunks)
+<en:Fermented dairy desserts
+en:Flavoured fermented dairy desserts
+fr:Desserts lactés fermentés aromatisés
+
 #Yogurt-like dessert containing additives (i.e. gellant agent) that prevents it to be called "yogurt" according to the French legislation. This category shouldn't be translated since it arises from a particularity of the French legislation
 <en:Fermented dairy desserts
 fr:Spécialités laitières, spécialité laitière
@@ -42761,6 +42800,80 @@ en:Fresh cream cheese with sheeps's milk
 <fr:Fromages blancs
 fr:Fromages blancs au lait de chèvre
 en:Fresh cream cheese with goat's milk
+
+<en:Plain fermented dairy desserts
+en:Fat free plain fermented dairy desserts, Fat free plain fermented milk yogurt, Fat free plain dairy specialty
+fr:Desserts lactés fermentés nature sans matière grasse, Yaourt nature au lait fermenté à 0% de matières grasses, Spécialité laitière à 0% de matières grasses
+agribalyse_food_code:en:19594
+ciqual_food_code:en:19594
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, fat free
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, 0% MG
+
+<en:Plain fermented dairy desserts
+en:Plain fermented dairy desserts with cream, Plain fermented milk yogurt with cream, Plain dairy specialty with cream, Plain yogurts with cream, plain fermented milks with cream, plain dairy specialties with cream
+fr:Desserts lactés fermentés nature à la crème, Yaourt au lait fermenté à la crème, Spécialité laitière nature à la crème, Yaourts à la crème, Laits fermentés à la crème, Spécialités laitières nature à la crème, laits-fermentes
+agribalyse_food_code:en:19598
+ciqual_food_code:en:19598
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, w cream
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, à la crème
+
+<en:Flavoured fermented dairy desserts
+en:Fat free fermented dairy desserts with sweeteners, Fat free flavoured fermented milk yogurt with sweetener, Fat free flavoured dairy specialty with sweetener
+fr:Desserts lactés fermentés édulcorés sans matière grasse, Yaourt avec édulcorants à 0% de matières grasses, Lait fermenté avec édulcorants à 0% de matières grasses, Spécialité laitière aromatisée avec édulcorants à 0% de matières grasses
+agribalyse_food_code:en:19559
+ciqual_food_code:en:19559
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, flavoured, with sweetener, fat free
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé, avec édulcorants, 0% MG
+
+<en:Flavoured fermented dairy desserts
+en:Flavoured fermented dairy desserts with sugar and cream, Fermented milk flavoured yogurt with sugar and cream, Flavoured dairy specialty with sugar and cream
+fr:Desserts lactés fermentés aromatisés sucrés à la crème, Yaourt sucré aromatisé au lait fermenté et à la crème, Spécialité laitière aromatisée sucrée à la crème
+it:Yogurt aromatizzato al latte fermentato con zucchero e panna
+agribalyse_food_code:en:19577
+ciqual_food_code:en:19577
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, flavoured, w sugar, with cream
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé, sucré, à la crème
+
+<en:Fermented dairy desserts with fruits
+en:Fat free fermented dairy desserts with fruits and sweeteners fortified with vitamin D, Fat free fermented milk yogurt with fruits and sweetener fortified with vitamin D, Fat free dairy specialty with fruits and sweetener fortified with vitamin D
+fr:Desserts lactés fermentés aux fruits édulcorés sans matière grasse enrichis en vitamine D, Yaourt aux fruits avec édulcorants à 0% de matières grasses enrichi en vitamine D, Lait fermenté aux fruits avec édulcorants à 0% de matières grasses enrichi en vitamine D, Spécialité laitière aux fruits avec édulcorants à 0% de matières grasses enrichie en vitamine D
+agribalyse_food_code:en:19582
+ciqual_food_code:en:19582
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sweetener, fat free, fortified with vitamin D
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, avec édulcorants, 0% MG, enrichi en vitamine D
+
+<en:Fermented dairy desserts with fruits
+en:Fermented dairy desserts with fruits sugar and cream, Fermented milk yogurt with fruits and sugar and cream, Dairy specialty with fruits and sugar and cream
+fr:Desserts lactés fermentés aux fruits sucrés à la crème, Yaourt sucré au lait fermenté aux fruits et à la crème, Spécialité laitière sucrée aux fruits et à la crème
+agribalyse_food_code:en:19589
+ciqual_food_code:en:19589
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits, with sugar, with cream
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré, à la crème
+
+<en:Fermented dairy desserts with fruits
+en:Fermented dairy desserts with fruits enriched with vitamin D, Fermented milk yogurt fortified with vitamin D with fruits and sugar, Dairy specialty fortified with vitamin D with fruits and sugar
+fr:Desserts lactés fermentés aux fruits enrichis en vitamine D, Yaourt sucré au lait fermenté aux fruits enrichi en vitamine D, Spécialité laitière sucrée aux fruits enrichie en vitamine D
+agribalyse_food_code:en:19592
+ciqual_food_code:en:19592
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sugar, fortified with vitamin D
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré, enrichi en vitamine D
+
+<en:Fermented dairy desserts with fruits
+en:Fermented dairy desserts with fruits and sweeteners, Yogurt with fruits and sweetener, Yogurt fruit flavoured with sweetener, Fermented milk with fruits and sweetener, Fermented milk fruit flavoured with sweetener, Dairy specialty with fruits and sweetener, Dairy specialty fruit flavoured with sweetener
+fr:Desserts lactés fermentés édulcorés aux fruits, Yaourt aromatisé avec édulcorants, Yaourt aux fruits avec édulcorants, Lait fermenté aromatisé avec édulcorants, Lait fermenté aux fruits avec édulcorants, Spécialité laitière aromatisée avec édulcorants, Spécialité laitière aux fruits avec édulcorants
+pt:Iogurtes com frutas e adoçante
+ciqual_food_code:en:19675
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sweetener (average)
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, avec édulcorants (aliment moyen)
+
+<en:Fermented dairy desserts with fruits
+en:Fat free fermented dairy desserts with fruits and sweeteners, Fat free fermented milk yogurt with fruits and sweetener, Fat free dairy specialty with fruits and sweetener
+fr:Desserts lactés fermentés édulcorés aux fruits sans matière grasse, Yaourt aux fruits avec édulcorants à 0% de matières grasses, Lait fermenté aux fruits avec édulcorants à 0% de matières grasses, Spécialité laitière aux fruits avec édulcorants à 0% de matières grasses
+agribalyse_food_code:en:19581
+ciqual_food_code:en:19581
+ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sweetener, fat free
+ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, avec édulcorants, 0% MG
+
 
 # <en:ingredient:en:cheese
 # <en:sheeps milk
@@ -47596,51 +47709,6 @@ pl:Jogurty bez laktozy
 pt:Iogurtes sem lactose
 #wikidata:en:
 
-<en:Yogurts
-en:Yogurt with fruits and sweetener, Yogurt fruit flavoured with sweetener, Fermented milk with fruits and sweetener, Fermented milk fruit flavoured with sweetener, Dairy specialty with fruits and sweetener, Dairy specialty fruit flavoured with sweetener
-fr:Yaourt aromatisé avec édulcorants, Yaourt aux fruits avec édulcorants, Lait fermenté aromatisé avec édulcorants, Lait fermenté aux fruits avec édulcorants, Spécialité laitière aromatisée avec édulcorants, Spécialité laitière aux fruits avec édulcorants
-pt:Iogurtes com frutas e adoçante
-ciqual_food_code:en:19675
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sweetener (average)
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, avec édulcorants (aliment moyen)
-
-<en:Fruit yogurts
-en:Fat free fermented milk yogurt with fruits and sweetener, Fat free dairy specialty with fruits and sweetener
-fr:Yaourt aux fruits avec édulcorants à 0% de matières grasses, Lait fermenté aux fruits avec édulcorants à 0% de matières grasses, Spécialité laitière aux fruits avec édulcorants à 0% de matières grasses
-agribalyse_food_code:en:19581
-ciqual_food_code:en:19581
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sweetener, fat free
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, avec édulcorants, 0% MG
-
-<en:Fruit yogurts
-en:Fat free fermented milk yogurt with fruits and sweetener fortified with vitamin D, Fat free dairy specialty with fruits and sweetener fortified with vitamin D
-fr:Yaourt aux fruits avec édulcorants à 0% de matières grasses enrichi en vitamine D, Lait fermenté aux fruits avec édulcorants à 0% de matières grasses enrichi en vitamine D, Spécialité laitière aux fruits avec édulcorants à 0% de matières grasses enrichie en vitamine D
-agribalyse_food_code:en:19582
-ciqual_food_code:en:19582
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sweetener, fat free, fortified with vitamin D
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, avec édulcorants, 0% MG, enrichi en vitamine D
-
-<en:Fruit yogurts
-en:Fermented milk yogurt with fruits and sugar and cream, Dairy specialty with fruits and sugar and cream
-fr:Yaourt sucré au lait fermenté aux fruits et à la crème, Spécialité laitière sucrée aux fruits et à la crème
-agribalyse_food_code:en:19589
-ciqual_food_code:en:19589
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits, with sugar, with cream
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré, à la crème
-
-<en:Fruit yogurts
-en:Fermented milk yogurt fortified with vitamin D with fruits and sugar, Dairy specialty fortified with vitamin D with fruits and sugar
-fr:Yaourt sucré au lait fermenté aux fruits enrichi en vitamine D, Spécialité laitière sucrée aux fruits enrichie en vitamine D
-agribalyse_food_code:en:19592
-ciqual_food_code:en:19592
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sugar, fortified with vitamin D
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré, enrichi en vitamine D
-
-<en:Sweetened yogurts
-<en:Plain yogurts
-en:Plain sweetened yogurts, Sweetened plain yogurts, Plain fermented milk yogurt with sugar, Plain dairy specialty with sugar
-fr:Yaourts natures sucrés, Yaourts sucrés au lait fermenté, Spécialités laitières natures sucrées
-
 <en:Sweetened yogurts
 <en:Plain yogurts
 en:Plain yogurt with sugar
@@ -47650,31 +47718,6 @@ agribalyse_food_code:en:19599
 ciqual_food_code:en:19599
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, w sugar
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, sucré
-
-<en:Yogurts
-en:Fat free plain fermented milk yogurt, Fat free plain dairy specialty
-fr:Yaourt nature au lait fermenté à 0% de matières grasses, Spécialité laitière à 0% de matières grasses
-agribalyse_food_code:en:19594
-ciqual_food_code:en:19594
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, fat free
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, 0% MG
-
-<en:Flavoured yogurts
-en:Fat free flavoured fermented milk yogurt with sweetener, Fat free flavoured dairy specialty with sweetener
-fr:Yaourt avec édulcorants à 0% de matières grasses, Lait fermenté avec édulcorants à 0% de matières grasses, Spécialité laitière aromatisée avec édulcorants à 0% de matières grasses
-agribalyse_food_code:en:19559
-ciqual_food_code:en:19559
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, flavoured, with sweetener, fat free
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé, avec édulcorants, 0% MG
-
-<en:Flavoured yogurts
-en:Fermented milk flavoured yogurt with sugar and cream, Flavoured dairy specialty with sugar and cream
-fr:Yaourt sucré aromatisé au lait fermenté et à la crème, Spécialité laitière aromatisée sucrée à la crème
-it:Yogurt aromatizzato al latte fermentato con zucchero e panna
-agribalyse_food_code:en:19577
-ciqual_food_code:en:19577
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, flavoured, w sugar, with cream
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé, sucré, à la crème
 
 <en:Yogurts
 <en:Fermented milk drinks
@@ -47722,6 +47765,7 @@ ciqual_food_code:en:19535
 fr:Yaourts à boire sans sucres
 # A verifier ajoute depuis Nutrinet
 
+<en:Flavoured fermented dairy desserts
 <en:Yogurts
 en:Flavoured yogurts, Flavoured fermented milk yogurt with sugar
 bg:Ароматизирани кисели млека
@@ -48390,14 +48434,6 @@ agribalyse_proxy_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, 
 ciqual_food_code:en:19593
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
-
-<en:Yogurts
-en:Plain fermented milk yogurt with cream, Plain dairy specialty with cream, Plain yogurts with cream, plain fermented milks with cream, plain dairy specialties with cream
-fr:Yaourt au lait fermenté à la crème, Spécialité laitière nature à la crème, Yaourts à la crème, Laits fermentés à la crème, Spécialités laitières nature à la crème, laits-fermentes
-agribalyse_food_code:en:19598
-ciqual_food_code:en:19598
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain, w cream
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, à la crème
 
 en:Desserts
 bg:Десерти
@@ -53129,6 +53165,8 @@ agribalyse_food_code:en:17270
 ciqual_food_code:en:17270
 ciqual_food_name:en:Olive oil, extra virgin
 ciqual_food_name:fr:Huile d'olive vierge extra
+expected_nutriscore_grade:en:c
+expected_ingredients:en: en:olive-oil
 
 <en:Olive oils
 en:Olive pomace oils
@@ -57244,6 +57282,7 @@ ciqual_food_name:fr:Polenta ou semoule de maïs, cuite, non salée
 
 <en:Cereal semolinas
 en:Rice semolinas
+bg:Оризов грис
 de:Reisgrieße, Reisgrieß
 es:Sémolas de arroz, Sémola de arroz
 fr:Semoules de riz
@@ -57252,6 +57291,7 @@ nl:Rijstgriesmelen
 
 <en:Cereal semolinas
 en:Wheat semolinas
+bg:Пшеничен грис
 de:Weizengrieße, Weizengrieß
 es:Sémolas y semolinas de trigo, Sémolas de trigo, Sémola de trigo
 fi:Vehnäsuurimot
@@ -57349,6 +57389,7 @@ ciqual_food_name:fr:Blé dur précuit, entier, cru
 
 <en:Starches
 en:Potato starches
+bg:Картофено нишесте
 fr:Fécules de pomme de terre, Fécule de pomme de terre
 ja:馬鈴薯デンプン
 lt:Bulvių krakmolas
@@ -57370,6 +57411,7 @@ nl:Graanzetmelen
 
 <en:Cereal starches
 en:Corn starch, Cornstarch, Cornflour, Maize starch
+bg:Царевично нишесте
 de:Maisstärke, Speisestärke
 es:Almidón de maíz
 fi:Maissitärkkelys
@@ -57568,6 +57610,7 @@ wikidata:en:Q943935
 
 <en:Flours
 en:Potato flours, Flour of potatoes
+bg:Картофено брашно
 fi:Perunajauhot
 fr:Farines de pommes de terre
 it:Farine di patate
@@ -57649,6 +57692,7 @@ description:en:substances added to food to preserve flavor or enhance its taste,
 
 <en:Food additives
 en:Soy lecithin
+bg:Соев лецитин
 es:Lecitina de soja
 fr:Lécithine de soja
 ja:大豆レシチン
@@ -66495,6 +66539,7 @@ ciqual_food_name:fr:Sauce moutarde, préemballée
 
 <en:Sauces
 en:Barbecue sauces, BBQ sauces
+bg:Сос барбекю
 de:Barbecuesaucen, BBQ-Saucen
 es:Salsa barbacoa
 fi:Barbeque-kastikkeet, BBQ-kastikkeet
@@ -69317,6 +69362,7 @@ ciqual_food_name:fr:Tomate, concentré, appertisé
 
 <en:Tomatoes and their products
 en:Double concentrate tomato paste
+bg:Двойно концентриана доматена паста
 fr:Double concentré de tomate
 agribalyse_food_code:en:20268
 ciqual_food_code:en:20268
@@ -77242,7 +77288,7 @@ wikidata:en:Q67881839
 
 <en:Breaded meat cutlets
 <en:Breaded chicken
-en:Breaded chicken cutlets, Breaded turkey escalope
+en:Breaded chicken cutlets
 bg:Паниран пилешки котлет
 de:Panierte Hähnchenschnitzel
 fi:Leivitetyt kanaleikkeet
@@ -77256,7 +77302,7 @@ ciqual_food_name:fr:Poulet, escalope panée
 
 <en:Breaded meat cutlets
 <en:Breaded turkey
-en:Breaded turkey cutlets
+en:Breaded turkey cutlets, Breaded turkey escalope
 de:Panierte Putenschnitzel
 fr:Escalopes de dinde panées, Escalopes de dinde à la milanaise, escalopes de dinde milanaises, escalope de dinde viennoise, escalopes de dinde panées, escalope de dinde panée, Escalopes de dinde marinées à la milanaise
 agribalyse_food_code:en:36318
@@ -83284,6 +83330,7 @@ nl:Rijstpastas
 
 <en:Pastas
 en:Chickpea pasta
+bg:Паста от нахут
 fr:Pâtes de pois chiche
 
 <en:Pastas
@@ -84700,6 +84747,9 @@ en:Chocolate pies, Chocolate tarts
 de:Schokoladentorten, Schokotorten
 fr:Tartes au chocolat, Tarte au chocolat
 nl:Chocoladetaarten
+agribalyse_food_code:en:23497
+ciqual_food_code:en:23497
+ciqual_food_name:en:Chocolate tart from bakery
 
 <en:Sweet pies
 en:Fruit pies with confectioner's custard
@@ -84909,20 +84959,9 @@ fr:Crostatina
 it:Crostatina
 
 <en:Tartlets
-en:Chocolate tartlets
-de:Schokoladentörtchen
-en:Chocolate tart from bakery
-fr:Tartelettes au chocolat
-it:Tortini di cioccolato
-nl:Chocolade taartjes
-agribalyse_food_code:en:23497
-ciqual_food_code:en:23497
-ciqual_food_name:en:Chocolate tart from bakery
-
-<en:Tartlets
 en:Fruit tartlets
 de:Obsttörtchen
-fr:Tartelettes aux fruits
+fr:Tartelettes aux fruits entiers ou coupés, Tartelettes aux fruits
 it:crostatine alla frutta
 agribalyse_food_code:en:23499
 ciqual_food_code:en:23499
@@ -84967,26 +85006,6 @@ nl:Citroentaartjes
 en:Pear tartlets
 fr:Tartelettes à la poire
 nl:Peertaartjes
-
-<en:Tartlets
-fr:Tartelettes au caramel, Tartelettes au caramel beurre salé, Tartelette au caramel, Tartelette au caramel beurre salé, Tartelettes caramel, Tartelette caramel
-
-<en:Tartlets
-en:Biscuit (small tart) with chocolate pre-packed
-fr:tartelette au chocolat
-agribalyse_food_code:en:24052
-ciqual_food_code:en:24052
-ciqual_food_name:en:Biscuit (small tart), with chocolate, pre-packed
-
-<en:Tartlets
-en:Biscuit with fruit covering, Small tart with fruit covering
-de:Biscuit mit Fruchtüberzug, Keks mit Fruchtüberzug, Kleine Torte mit Fruchtüberzug
-fr:Biscuit sec nappé aux fruits, Tartelette aux fruits
-it:snack dolci con copertura a base di frutta
-agribalyse_food_code:en:24679
-ciqual_food_code:en:24679
-ciqual_food_name:en:Biscuit (small tart), with fruit covering
-ciqual_food_name:fr:Biscuit sec nappé aux fruits, tartelette
 
 <en:Specific products
 en:Products sold before year 2000, products sold before 2000
@@ -96191,6 +96210,7 @@ fr:Germes de choux frais
 <en:Vegetables based foods
 <en:Dried plant-based foods
 en:Dried vegetables
+bg:Сушени зеленчуци
 de:Getrocknetes Gemüse
 es:Verduras y hortalizas deshidratadas, Verduras y hortalizas desecadas, Verduras deshidratadas, Verduras desecadas, Hortalizas deshidratadas, Hortalizas desecadas
 fi:kuivatut vihannekset
@@ -96203,6 +96223,7 @@ who_id:en:16
 <en:Dried vegetables
 <en:Tomatoes and their products
 en:Dried tomatoes, Sun-Dried tomatoes, Dried tomato, Sun-Dried tomato
+bg:Сушени домати
 de:Getrocknete Tomaten
 es:Tomates secos, Tomates deshidratados, Tomates desecados
 fi:kuivatut tomaatit
@@ -100717,6 +100738,7 @@ fr:Croissants ordinaires
 
 <en:Viennoiseries
 en:Filled croissants
+bg:Кроасани с пълнеж
 de:Gefüllte Croissants
 es:Cruasanes rellenos
 fi:Täytetyt voisarvet, Täytetyt kroisantit, Täytetyt croissantit
@@ -103925,6 +103947,7 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux céré
 fr:Bonbons dragéifiés
 #wikidata:en:
 
+<en:Flavoured fermented dairy desserts
 <fr:Fromages blancs
 fr:Fromages blancs aromatisés
 
@@ -104921,10 +104944,6 @@ ciqual_food_code:en:31026
 ciqual_food_name:en:White chocolate bar, with dried fruits (nuts, almonds, raisins, praline)
 ciqual_food_name:fr:Chocolat blanc aux fruits secs (noisettes, amandes, raisins, praliné) , tablette
 
-
-
-<fr:Fromages blancs
-fr:Fromages blancs aromatisés
 
 <en:Cakes
 en:Almond cakes

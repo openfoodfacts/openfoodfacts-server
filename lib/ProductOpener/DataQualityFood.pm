@@ -668,6 +668,7 @@ sub check_nutrition_data ($product_ref) {
 			}
 		}
 
+		# catch serving_size = "serving", regardless of setting (per 100g or per serving)
 		if (    (defined $product_ref->{serving_size})
 			and ($product_ref->{serving_size} ne "")
 			and ($product_ref->{serving_size} !~ /\d/))
@@ -678,13 +679,15 @@ sub check_nutrition_data ($product_ref) {
 			and (defined $product_ref->{nutrition_data_per})
 			and ($product_ref->{nutrition_data_per} eq 'serving'))
 		{
-
 			if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} eq '')) {
-				push @{$product_ref->{data_quality_warnings_tags}},
-					"en:nutrition-data-per-serving-missing-serving-size";
+				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-missing-serving-size";
+			}
+			elsif ($product_ref->{serving_quantity} eq "0") {
+				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-serving-quantity-is-0";
 			}
 			elsif ($product_ref->{serving_quantity} == 0) {
-				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-serving-quantity-is-0";
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:nutrition-data-per-serving-serving-quantity-is-not-recognized";
 			}
 		}
 	}
@@ -913,6 +916,49 @@ sub check_nutrition_data ($product_ref) {
 			}
 			elsif ($product_ref->{nutriments}{"salt_100g"} < 0.1) {
 				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-1-g-salt";
+			}
+		}
+
+		# some categories have expected nutriscore grade - push data quality error if calculated nutriscore grade differs from expected nutriscore grade or if it is not calculated
+		my $expected_nutriscore_grade
+			= get_inherited_property_from_categories_tags($product_ref, "expected_nutriscore_grade:en");
+
+		# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
+		if ((defined $expected_nutriscore_grade) and ($expected_nutriscore_grade =~ /^([a-e]){1}$/i)) {
+			if (
+				# nutriscore not calculated but should have expected nutriscore grade
+				(not(defined $product_ref->{nutrition_grade_fr}))
+				# nutriscore calculated but unexpected nutriscore grade
+				or (    (defined $product_ref->{nutrition_grade_fr})
+					and ($product_ref->{nutrition_grade_fr} ne $expected_nutriscore_grade))
+				)
+			{
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:nutri-score-grade-from-category-does-not-match-calculated-grade";
+			}
+		}
+
+		# some categories have an expected ingredient - push data quality error if ingredient differs from expected ingredient
+		# note: we currently support only 1 expected ingredient
+		my $expected_ingredients = get_inherited_property_from_categories_tags($product_ref, "expected_ingredients:en");
+
+		if ((defined $expected_ingredients)) {
+			$expected_ingredients = canonicalize_taxonomy_tag("en", "ingredients", $expected_ingredients);
+			my $number_of_ingredients = (defined $product_ref->{ingredients}) ? @{$product_ref->{ingredients}} : 0;
+
+			if ($number_of_ingredients == 0) {
+				push @{$product_ref->{data_quality_warnings_tags}},
+					"en:ingredients-single-ingredient-from-category-missing";
+			}
+			elsif (
+				# more than 1 ingredient
+				($number_of_ingredients > 1)
+				# ingredient different than expected ingredient
+				or not(is_a("ingredients", $product_ref->{ingredients}[0]{id}, $expected_ingredients))
+				)
+			{
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients";
 			}
 		}
 	}

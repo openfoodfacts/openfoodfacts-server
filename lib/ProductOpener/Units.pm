@@ -307,7 +307,7 @@ sub normalize_serving_size ($serving) {
 	}
 
 	#$log->trace("serving size normalized", { serving => $serving, q => $q, u => $u }) if $log->is_trace();
-	return 0;
+	return;
 }
 
 # @todo we should have equivalences for more units if we are supporting this

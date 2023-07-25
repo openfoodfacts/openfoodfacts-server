@@ -56,12 +56,14 @@
                     "panel_id": "packaging_components",
             },
         },
+        [% IF (product.packagings_materials AND product.packagings_materials.size) %]
         {
             "element_type": "panel",
             "panel_element": {
                 "panel_id": "packaging_materials",
             },
-        },       
+        },
+        [% END %]
     ]
 [% END %]
 }
