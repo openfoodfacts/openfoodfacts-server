@@ -4,30 +4,31 @@ description: |
   The origin of the cropping coordinates is the top-left corner.
   Note that rotation is applied *before* cropping, so the cropping bounding box
   is relative to the rotated image.
+required:
+  - id
+  - code
+  - imgid
 properties:
   code:
     type: string
     description: Barcode of the product.
     example: "04963406"
-    required: true
   imgid:
     type: integer
     description: identifier of the image to select, it should be a number
     example: 2
-    required: true
   id:
     type: string
     description: |
       identifier of the selected image field, should be in the format
       `{IMAGE_TYPE}_{LANG}` format, where `IMAGE_TYPE` is one of
-      `front|ingredients|nutrition|packaging` and `LANG` is the 2 letter
+      `front|ingredients|nutrition|packaging|other` and `LANG` is the 2 letter
       language code.
       Note that if you select an image for the main language of the product (ex:
       `ingredients_it` if `it` is the main language), this image will be
       displayed on Product Opener for all languages (ex: on
       `https://fr.openfoodfacts.org`, unless `ingredients_fr` exists).
     example: front_en
-    required: true
   x1:
     type: integer
     example: 0
