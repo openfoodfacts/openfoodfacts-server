@@ -268,7 +268,7 @@ test-unit: guard-test
 	${DOCKER_COMPOSE_TEST} run --rm backend perl ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
-test-int: guard-test # usage: make test-one test=test-file.t
+test-int: guard-test # usage: make test-int test=test-file.t
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
 	${DOCKER_COMPOSE_TEST} exec backend perl ${args} tests/integration/${test}
