@@ -27,6 +27,8 @@ ifeq ($(OS), Darwin)
 else
   export CPU_COUNT=$(shell nproc || echo 1)
 endif
+
+# tell gitbash not to complete path
 export MSYS_NO_PATHCONV=1
 
 # load env variables

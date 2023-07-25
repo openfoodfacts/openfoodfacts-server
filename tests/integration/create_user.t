@@ -25,7 +25,8 @@ is $response->{_rc}, 200;
 my @words = ('bob@test.com', $default_user_form{userid}, $default_user_form{name});
 
 foreach my $word (@words) {
-    like($response->content, qr/\Q$word\E/i, "the word is in the page"); #checking word by word if they match what is saved in the preference page
+	like($response->content, qr/\Q$word\E/i, "the word is in the page")
+		;    #checking word by word if they match what is saved in the preference page
 }
 
 done_testing();
