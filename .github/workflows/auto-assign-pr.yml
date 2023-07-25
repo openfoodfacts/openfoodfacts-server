@@ -1,9 +1,13 @@
 # .github/workflows/auto-author-assign.yml
-name: 'Auto Author Assign'
+name: 'Assign the author of a PR automatically'
 
 on:
   pull_request_target:
     types: [opened, reopened]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   pull-requests: write
