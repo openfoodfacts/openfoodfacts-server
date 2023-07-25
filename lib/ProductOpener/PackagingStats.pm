@@ -398,9 +398,10 @@ sub init_products_packaging_components_csv ($name) {
 	$csv->print(
 		$filehandle,
 		[
-			"code", "countries_tags", "categories_tags", "number_of_units",
-			"shape", "material", "parent_material", "recycling",
-			"weight", "weight_measured", "weight_specified", "quantity_per_unit"
+			"code", "product_quantity", "countries_tags", "categories_tags",
+			"number_of_units", "shape", "material", "parent_material",
+			"recycling", "weight", "weight_measured", "weight_specified",
+			"quantity_per_unit"
 		]
 	);
 
@@ -433,12 +434,13 @@ sub export_product_packaging_components_to_csv ($csv, $filehandle, $product_ref)
 			my $weight = $packaging_ref->{weight_specified} // $packaging_ref->{weight_measured};
 
 			my @values = (
-				$product_ref->{code}, $countries_tags,
-				$categories_tags, $packaging_ref->{number_of_units},
-				$packaging_ref->{shape}, $packaging_ref->{material},
-				get_parent_material($packaging_ref->{material}), $packaging_ref->{recycling},
-				$weight, $packaging_ref->{weight_measured},
-				$packaging_ref->{weight_specified}, $packaging_ref->{quantity_per_unit},
+				$product_ref->{code}, $product_ref->{product_quantity},
+				$countries_tags, $categories_tags,
+				$packaging_ref->{number_of_units}, $packaging_ref->{shape},
+				$packaging_ref->{material}, get_parent_material($packaging_ref->{material}),
+				$packaging_ref->{recycling}, $weight,
+				$packaging_ref->{weight_measured}, $packaging_ref->{weight_specified},
+				$packaging_ref->{quantity_per_unit},
 			);
 
 			$csv->print($filehandle, \@values);
