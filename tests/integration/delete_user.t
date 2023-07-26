@@ -41,7 +41,7 @@ my %product_fields = (
 edit_product($ua, \%product_fields);
 
 my @words
-	= ("Delete the user", "User is being deleted. This may take a few minutes.", "Invalid user.", "Unknown user.");
+	= ("Delete the user", "User is being deleted. This may take a few minutes.", "Invalid user.", "Unknown user.", "Incorrect user name or password.");
 my $url_userid = construct_test_url("/cgi/user.pl?type=edit&userid=tests", "world");
 my $url_delete = construct_test_url("/cgi/user.pl", "world");
 my $response_edit = $ua->get($url_userid);
@@ -94,8 +94,22 @@ my $response_email = $admin->get($url_email);
 my $url_contributor = construct_test_url("/contributor/tests", "world");
 my $response_contributor = $admin->get($url_contributor);
 
-like($response_userid->content, qr/\Q$words[2]\E/i, "the userid edit page is well deleted");    #checking if the edit page of the common ua is well deleted
-like($response_email->content, qr/\Q$words[2]\E/i, "the email edit page is well deleted");    #checking if the edit page of the common ua is well deleted
-like($response_contributor->content, qr/\Q$words[3]\E/i, "the contributor page of the ua is well deleted");    #checking if the edit page of the common ua is well deleted
+#checking if the edit page of the common ua is well deleted
+like($response_userid->content, qr/\Q$words[2]\E/i, "the userid edit page is well deleted");
+#checking if the edit page of the common ua is well deleted
+like($response_email->content, qr/\Q$words[2]\E/i, "the email edit page is well deleted");
+#checking if the edit page of the common ua is well deleted
+like($response_contributor->content, qr/\Q$words[3]\E/i, "the contributor page of the ua is well deleted");
+
+# checking if an ua can reconnect with the deleted account ids
+my $url_login = construct_test_url("/cgi/login.pl", "world");
+my %login_form = (
+	user_id => "tests",
+	password => "testtest",
+	submit => "Sign in"
+);
+my $response_login = $ua->post($url_login, \%login_form);
+like($response_login->content, qr/\Q$words[4]\E/i, "an user can't login with the deleted account ids");
+
 
 done_testing();

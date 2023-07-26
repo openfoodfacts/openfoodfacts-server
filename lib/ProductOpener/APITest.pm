@@ -757,20 +757,4 @@ sub fake_http_server ($port, $dump_path, $responses_ref) {
 	return $httpd;
 }
 
-=head2 wait_for_minion_job($task_name, $created_after_ts)
-Sub-programme which wait till the minion finished its job or
-if it takes too much time
-
-=head3 Arguments
-=head4 $task_name
-The name of the task 
-
-=head4 $created_after_ts
-The timestamp of the creation of the task
-
-=head3 Returns
-Returns a job id
-
-=cut
-
 1;
