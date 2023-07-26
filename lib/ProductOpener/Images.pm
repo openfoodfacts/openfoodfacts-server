@@ -140,6 +140,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Text qw/:all/;
+use Data::DeepAccess qw(deep_get);
 
 use IO::Compress::Gzip qw(gzip $GzipError);
 use Log::Any qw($log);
@@ -361,18 +362,12 @@ sub scan_code ($file) {
 sub get_selected_image_uploader ($product_ref, $imagefield) {
 
 	# Retrieve the product's image data
-	my $image_ref = $product_ref->{images}{$imagefield};
+	my $imgid = deep_get($product_ref, "images", $imagefield, "imgid");
 
-	if ($image_ref && $image_ref->{imgid}) {
-		my $imgid = $image_ref->{imgid};
+	# Retrieve the uploader of the image
+	my $uploader = deep_get($product_ref, "images", $imgid, "uploader");
 
-		# Retrieve the uploader of the selected image
-		my $uploader = $product_ref->{images}{$imgid}{uploader};
-
-		return $uploader if defined $uploader;
-	}
-
-	return;    # Return undef if no uploader found
+	return $uploader;
 }
 
 sub display_search_image_form ($id) {

@@ -86,18 +86,20 @@ sub skip_protected_field ($product_ref, $field, $moderator = 0) {
 	return 0;
 }
 
-=head2 skip_protected_image($product_ref, $imagefield, $moderator = 0)
+=head2 is_protected_image($product_ref, $imagefield)
 
 =cut
 
-sub is_protected_image ($product_ref, $imagefield, $moderator = 0) {
+sub is_protected_image ($product_ref, $imagefield) {
 
 	my $selected_uploader = get_selected_image_uploader($product_ref, $imagefield);
-	if ((not $server_options{producers_platform}) and (not $moderator) and (defined $selected_uploader)) {
-		return 1;
+	my $owner = $product_ref->{owner};
+
+	if ((not $server_options{producers_platform}) and (defined $owner) and ($selected_uploader ne $owner)) {
+		return 1;    #image should be protected
 	}
 
-	return 0;
+	return 0;    # image should not be protected
 }
 
 =head2 update_field_with_0_or_1_value($request_ref, $product_ref, $field, $value)

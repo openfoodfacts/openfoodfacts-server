@@ -30,19 +30,39 @@ my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
 $resp = create_user($ua, \%create_user_args);
 ok(!html_displays_error($resp));
 
-# Create a moderator
-my $moderator_ua = new_client();
-$resp = create_user($moderator_ua, \%moderator_user_form);
-ok(!html_displays_error($resp));
-
-# Admin gives moderator status
-my %moderator_edit_form = (
-	%moderator_user_form,
-	user_group_moderator => "1",
-	type => "edit",
+my %product_form = (
+	generic_name => "A generic name",
+	ingredients_text => "apple, milk, eggs, palm oil",
+	categories => "some unknown category",
+	labels => "organic",
+	origin => "france",
+	brands => "Test brand",
+	packaging_text_en =>
+		"1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
+	'nutriment_energy-kj' => 10,
+	nutriment_fat => 5,
+	nutriment_proteins => 2,
+	quantity => "90g",
 );
-$resp = edit_user($admin_ua, \%moderator_edit_form);
-ok(!html_displays_error($resp));
+
+my @products = (
+	{
+		%{dclone(\%default_product_form)},
+		%{dclone(\%product_form)},
+		(
+			code => '0900000000139',
+			product_name => "A test product",
+		)
+	},
+);
+# create the products in the database
+foreach my $product_form_override (@products) {
+	edit_product($ua, $product_form_override);
+}
+
+# Setting the owner of the product
+my $product_ref = retrieve_product('0900000000139');
+$product_ref->{owner} = "sample", store_product("sample", $product_ref, "protecting image");
 
 my $tests_ref = [
 
@@ -52,10 +72,11 @@ my $tests_ref = [
 		path => '/cgi/product_image_upload.pl',
 		form => {
 
-			code => '0300000000134',
+			code => '0900000000139',
 			imagefield => "front_en",
 			imgupload_front_en => ["$sample_products_images_path/front_en.4.full.jpg", 'front_en.4.full.jpg'],
 		},
+
 	},
 
 	{
@@ -63,16 +84,16 @@ my $tests_ref = [
 		method => 'POST',
 		path => '/cgi/product_image_upload.pl',
 		form => {
-			code => '0300000000134',
+			code => '0900000000139',
 			imagefield => "front_en",
-			imgupload_front_en => ["$sample_products_images_path/front_en.3.full.jpg", 'front_en.3.full.jpg'],
+			imgupload_front_en => ["$sample_products_images_path/1.jpg", '1.jpg'],
 		},
 
 	},
 	{
 		test_case => 'get-protected-image',
 		method => 'GET',
-		path => '/api/v2/product/0300000000134',
+		path => '/api/v2/product/0900000000139?fields=images,owner,selected_images',
 	},
 
 ];

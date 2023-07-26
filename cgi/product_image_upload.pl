@@ -313,8 +313,9 @@ if ($imagefield) {
 			# Changed 2020-04-20: don't overwrite selected images if the source is the product edit form
 			and (  (not defined single_param('source'))
 				or (single_param('source') ne "product_edit_form")
-				or (not defined $product_ref->{images}{$imagefield})
-				and (not is_protected_image($product_ref, $imagefield, $User{moderator})))
+				or (not defined $product_ref->{images}{$imagefield}) and ($User{moderator})
+				or (not is_protected_image($product_ref, $imagefield)))
+
 			)
 		{
 			$log->debug("selecting image", {imgid => $imgid, imagefield => $imagefield}) if $log->is_debug();

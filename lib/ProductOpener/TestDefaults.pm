@@ -36,7 +36,6 @@ BEGIN {
 		%default_user_form
 		%moderator_user_form
 		%pro_moderator_user_form
-		%producer_user_form
 
 		$test_password
 	);    # symbols to export on request
@@ -79,17 +78,6 @@ a user which is an admin
 	email => 'admin@openfoodfacts.org',
 	userid => 'stephane',    # has to be part of %admins
 	name => "Admin",
-);
-
-=head2 %producer_user_form
-a user which is a producer
-=cut
-
-%producer_user_form = (
-	%{clone(\%default_user_form)},
-	email => 'producer@openfoodfacts.org',
-	userid => 'producer',
-	name => "Producer",
 );
 
 =head2 %moderator_user_form and %pro_moderator_user_form
