@@ -53,7 +53,6 @@ BEGIN {
 		&execute_api_tests
 		&wait_server
 		&fake_http_server
-		&wait_for_minion_job
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -64,7 +63,6 @@ use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::Mail qw/ $LOG_EMAIL_START $LOG_EMAIL_END /;
 use ProductOpener::Store qw/store retrieve/;
-use ProductOpener::Producers qw/:all/;
 
 use Test::More;
 use LWP::UserAgent;
@@ -774,26 +772,5 @@ The timestamp of the creation of the task
 Returns a job id
 
 =cut
-
-sub wait_for_minion_job ($task_name, $created_after_ts) {
-	my $waited = 0;    # counting the waiting time
-	my $jobs = $minion->jobs({tasks => [$task_name]});
-	my $job_id = 0;    # job id
-					   #iterate on job
-	while (my $job = $jobs->next) {
-		#only those who were created after the timestamp
-		if ($job->created > $created_after_ts) {
-			#waiting the job to be done
-			while ($job->state = "inactive" or $job->state = "active" or waited < 200) {
-				sleep(2);
-				waited++;
-			}
-			#checking if it did not fail
-			is($job->state, "finished");
-			$job_id = $job->id;
-		}
-	}
-	return $job_id;
-}
 
 1;

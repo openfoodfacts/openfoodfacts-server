@@ -8,6 +8,7 @@ use ProductOpener::Test qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Producers qw/:all/;
+use ProductOpener::Producers qw/:all/;
 
 remove_all_users();
 wait_application_ready();
@@ -66,9 +67,23 @@ my $response_delete = $ua->post($url_delete, \%delete_form);
 like($response_delete->content, qr/\Q$words[1]\E/i, "the account was deleted");
 
 #waiting the deletion task to be done
-#my $job_id = wait_for_minion_job("delete_user", $before_delete_ts);
-#my $job = $minion->job($job_id);
-#is($job->state, "finished");
+my $jobs = $minion->jobs({tasks => ["delete_user_task"]});
+my $job_id = 0;    # job id
+#iterate on job
+while (my $job = $jobs->next) {
+	#only those who were created after the timestamp
+	my $waited = 0; #waiting time
+	if ($job->created > $before_delete_ts) {
+		#waiting the job to be done
+		while ($job->state == "inactive" or $job->state == "active" or $waited < 200) {
+			sleep(2);
+			$waited++;
+		}
+	#checking if it did not fail
+	is($job->state, "finished");
+	$job_id = $job->id;
+	}
+}
 
 # admin ua checking if the account is well deleted
 my $response_userid = $admin->get($url_userid);
@@ -79,11 +94,8 @@ my $response_email = $admin->get($url_email);
 my $url_contributor = construct_test_url("/contributor/tests", "world");
 my $response_contributor = $admin->get($url_contributor);
 
-like($response_userid->content, qr/\Q$words[2]\E/i, "the userid edit page is well deleted")
-	;    #checking if the edit page of the common ua is well deleted
-like($response_email->content, qr/\Q$words[2]\E/i, "the email edit page is well deleted")
-	;    #checking if the edit page of the common ua is well deleted
-like($response_contributor->content, qr/\Q$words[3]\E/i, "the contributor page of the ua is well deleted")
-	;    #checking if the edit page of the common ua is well deleted
+like($response_userid->content, qr/\Q$words[2]\E/i, "the userid edit page is well deleted");    #checking if the edit page of the common ua is well deleted
+like($response_email->content, qr/\Q$words[2]\E/i, "the email edit page is well deleted");    #checking if the edit page of the common ua is well deleted
+like($response_contributor->content, qr/\Q$words[3]\E/i, "the contributor page of the ua is well deleted");    #checking if the edit page of the common ua is well deleted
 
 done_testing();
