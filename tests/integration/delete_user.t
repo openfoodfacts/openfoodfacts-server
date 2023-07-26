@@ -73,7 +73,6 @@ like($response_delete->content, qr/\Q$words[1]\E/i, "the account was deleted");
 
 #waiting the deletion task to be done
 my $jobs = $minion->jobs({tasks => ["delete_user_task"]});
-my $job_id = 0;    # job id
 #iterate on job
 while (my $job = $jobs->next) {
 	#only those who were created after the timestamp
@@ -84,11 +83,15 @@ while (my $job = $jobs->next) {
 			sleep(2);
 			$waited++;
 		}
-		#checking if it did not fail
-		is($job->state, "finished");
-		$job_id = $job->id;
 	}
 }
+#checking if there is still delete_user_task jobs
+$jobs = $minion->jobs({tasks => ["delete_user_task"]});
+my $jobs_count = 0;
+while (my $job = $jobs->next) {
+    $jobs_count++;
+}
+ok($jobs_count == 0, "delete user task is finished");
 
 # admin ua checking if the account is well deleted
 my $response_userid = $admin->get($url_userid);
