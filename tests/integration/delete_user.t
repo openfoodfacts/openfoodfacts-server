@@ -40,8 +40,13 @@ my %product_fields = (
 );
 edit_product($ua, \%product_fields);
 
-my @words
-	= ("Delete the user", "User is being deleted. This may take a few minutes.", "Invalid user.", "Unknown user.", "Incorrect user name or password.");
+my @words = (
+	"Delete the user",
+	"User is being deleted. This may take a few minutes.",
+	"Invalid user.",
+	"Unknown user.",
+	"Incorrect user name or password."
+);
 my $url_userid = construct_test_url("/cgi/user.pl?type=edit&userid=tests", "world");
 my $url_delete = construct_test_url("/cgi/user.pl", "world");
 my $response_edit = $ua->get($url_userid);
@@ -72,16 +77,16 @@ my $job_id = 0;    # job id
 #iterate on job
 while (my $job = $jobs->next) {
 	#only those who were created after the timestamp
-	my $waited = 0; #waiting time
+	my $waited = 0;    #waiting time
 	if ($job->created > $before_delete_ts) {
 		#waiting the job to be done
 		while ($job->state == "inactive" or $job->state == "active" or $waited < 200) {
 			sleep(2);
 			$waited++;
 		}
-	#checking if it did not fail
-	is($job->state, "finished");
-	$job_id = $job->id;
+		#checking if it did not fail
+		is($job->state, "finished");
+		$job_id = $job->id;
 	}
 }
 
@@ -110,6 +115,5 @@ my %login_form = (
 );
 my $response_login = $ua->post($url_login, \%login_form);
 like($response_login->content, qr/\Q$words[4]\E/i, "an user can't login with the deleted account ids");
-
 
 done_testing();
