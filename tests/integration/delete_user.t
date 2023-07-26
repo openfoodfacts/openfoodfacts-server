@@ -89,7 +89,7 @@ while (my $job = $jobs->next) {
 $jobs = $minion->jobs({tasks => ["delete_user_task"]});
 my $jobs_count = 0;
 while (my $job = $jobs->next) {
-    $jobs_count++;
+	$jobs_count++;
 }
 ok($jobs_count == 0, "delete user task is finished");
 
