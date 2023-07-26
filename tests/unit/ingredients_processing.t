@@ -1130,7 +1130,7 @@ my @tests = (
 			},
 			{
 				'id' => 'en:spinach',
-				'processing' => 'de:grob-gemahlen',
+				'processing' => 'en:coarsely-ground',
 				'text' => 'spinat'
 			},
 			{

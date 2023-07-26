@@ -187,7 +187,8 @@ my %may_contain_regexps = (
 		"saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
 	fr =>
 		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
-	hr => "Mogući sadržaj|može sadržavati|može sadržavati tragove|može sadržati|proizvod može sadržavati|sadrži",
+	hr =>
+		"Mogući sadržaj|može sadržavati|može sadržavati tragove|može sadržavati u tragovima|može sadržati|proizvod može sadržavati|sadrži|sadržaj",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
@@ -2062,6 +2063,7 @@ sub parse_ingredients_text ($product_ref) {
 								'savjet kod alergije',    # allergy advice
 								'uključujući žitarice koje sadrže gluten',    # including grains containing gluten
 								'za alergene',    # for allergens
+								'u promjenjivim udjelima'    # in variable proportions
 							],
 
 							'it' => ['^in proporzion[ei] variabil[ei]$',],

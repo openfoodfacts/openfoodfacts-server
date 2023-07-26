@@ -4,6 +4,10 @@ on:
   pull_request:
     paths: ["**.po", "**.pot", ".github/workflows/translation-check.yml"]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate:
     name: Validate translation files
