@@ -94,6 +94,11 @@ sub analyze_request ($request_ref) {
 
 	$request_ref->{query_string} = $request_ref->{original_query_string};
 
+	# `no_index` specifies whether we send an empty HTML page with a <meta name="robots" content="noindex">
+	# in the HTML headers. This is only done for known web crawlers (Google, Bing, Yandex,...) on webpages that
+	# trigger heavy DB aggregation queries and overload our server.
+	$request_ref->{no_index} = 0;
+
 	$log->debug("analyzing query_string, step 0 - unmodified", {query_string => $request_ref->{query_string}})
 		if $log->is_debug();
 
@@ -478,6 +483,12 @@ sub analyze_request ($request_ref) {
 					$request_ref->{tagtype2} = $tag_type_from_singular{"en"}{shift @components};
 				}
 				my $tagtype = $request_ref->{tagtype2};
+
+				if ($request_ref->{is_crawl_bot} eq 1) {
+					# Don't index web pages with 2 nested tags: as an example, there are billions of combinations for
+					# category x ingredient alone
+					$request_ref->{no_index} = 1;
+				}
 
 				if (($#components >= 0)) {
 					$request_ref->{tag2} = shift @components;
