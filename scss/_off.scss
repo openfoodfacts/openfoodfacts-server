@@ -1401,15 +1401,15 @@ $section-cyan: #008c8c;
 }
 // Eye Icon CSS
 .toggle-password {
-        cursor: pointer;
-        position: absolute;
-        right: 10px;
-        top: 60%;
-        transform: translateY(-50%);
-    }
-    .password-container {
-        position: relative;
-    }
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 60%;
+  transform: translateY(-50%);
+}
+.password-container {
+  position: relative;
+}
 
 // 1st packaging component is empty and hidden, it is used to add new components
 #packaging_0_row {
