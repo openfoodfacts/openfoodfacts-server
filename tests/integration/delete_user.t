@@ -111,7 +111,11 @@ my %login_form = (
 	submit => "Sign in"
 );
 my $response_login = $ua->post($url_login, \%login_form);
-like($response_login->content, qr/Incorrect user name or password\./, "an user can't login with the deleted account ids");
+like(
+	$response_login->content,
+	qr/Incorrect user name or password\./,
+	"an user can't login with the deleted account ids"
+);
 
 #checking if the added product has been anonymized
 my $url_product = construct_test_url("/api/v2/product/2000000000001", "world");
