@@ -180,6 +180,9 @@ documentation:
 - scripts/generate_perl_html_doc_from_pod.pl
 - po/README.md
 
+openapi:
+- docs/assets/api-rapidoc.html
+
 docker:
 - docker/**/*
 
