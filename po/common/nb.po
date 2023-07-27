@@ -183,7 +183,7 @@ msgstr "Produktside også redigert av"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr ""
+msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
@@ -468,11 +468,11 @@ msgstr "Slett bildene"
 
 msgctxt "delete_user"
 msgid "Delete a user"
-msgstr ""
+msgstr "Slett brukerkonto"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
-msgstr ""
+msgstr "Dette vil slette brukeropplysningene dine og anonymisere alle bidragene dine. Vennligst skriv inn brukernavnet ditt på nytt for å bekrefte."
 
 msgctxt "danger_zone"
 msgid "Danger Zone"
@@ -496,7 +496,7 @@ msgstr "Doner til Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -552,7 +552,7 @@ msgstr "Kontoinnstillinger"
 
 msgctxt "edit_user_result"
 msgid "Your account parameters have been changed."
-msgstr ""
+msgstr "Dine brukerinnstillinger har blitt endret."
 
 msgctxt "editors_p"
 msgid "editors"
@@ -564,7 +564,7 @@ msgstr "redaktør"
 
 msgctxt "email"
 msgid "E-mail address"
-msgstr ""
+msgstr "E-post"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -633,7 +633,7 @@ msgstr "Passordene er forskjellige."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "E-postadressen du skrev er allerede brukt av en annen bruker. Har du kanskje en konto allerede? I så fall kan du <a href=\"/cgi/reset_password.pl\">tilbakestille passordet</a> til den andre kontoen din."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
@@ -653,15 +653,15 @@ msgstr "Ugyldig bruker."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "Brukernavnet kan kun inneholde bokstaver uten aksent, tall og bindestreker."
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 20 characters)."
-msgstr ""
+msgstr "Brukernavnet er for langt (maks 20 tegn)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr ""
+msgstr "Navnet er for langt (maks 60 tegn)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -717,7 +717,7 @@ msgstr "Utløpsdatoen er en måte å spore produktendringer over tid, og for å 
 
 msgctxt "explore_products_by"
 msgid "Explore products by..."
-msgstr ""
+msgstr "Utforsk produkter etter..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
@@ -742,7 +742,7 @@ msgstr "<<site_name>> blogg"
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://blog.openfoodfacts.org/en/"
-msgstr ""
+msgstr "https://blog.openfoodfacts.org/en/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -782,7 +782,7 @@ msgstr "Oversettere"
 # Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr ""
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
@@ -937,7 +937,8 @@ msgstr "Bildet er for lite! Vennligst ikke last opp bilder funnet på internett,
 msgctxt "image_upload_error_no_barcode_found_in_image_long"
 msgid "The barcode in the image could not be read, or the image contained no barcode.\n"
 "You can try with another image, or directly enter the barcode."
-msgstr ""
+msgstr "Strekkoden i bildet kunne ikke leses, eller bildet inneholdt ingen strekkode.\n"
+"Du kan prøve med et annet bilde, eller skrive inn strekkoden manuelt."
 
 msgctxt "image_upload_error_no_barcode_found_in_image_short"
 msgid "No barcode found in the image."
@@ -945,7 +946,7 @@ msgstr "Finner ingen strekkode i bildet."
 
 msgctxt "image_upload_error_no_barcode_specified_or_found"
 msgid "No barcode specified or found in the image or filename."
-msgstr ""
+msgstr "Ingen strekkode spesifisert eller funnet i bildet eller filnavnet."
 
 msgctxt "image_upload_error_could_not_read_image"
 msgid "The image could not be read."
