@@ -8,44 +8,29 @@ use ProductOpener::Test qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Producers qw/:all/;
-use ProductOpener::Producers qw/:all/;
 
 remove_all_users();
 wait_application_ready();
 
-# new common user agent
+#new common user agent
 my $ua = new_client();
 my %create_client_args = (%default_user_form, (email => 'bob@test.com'));
 create_user($ua, \%create_client_args);
 
-# new admin user agent
+#new admin user agent
 my $admin = new_client();
 create_user($admin, \%admin_user_form);
 
-# common ua add a new product then delete the account while being still logged in
-my %product_fields = (
-	code => '200000000098',
-	lang => "en",
-	product_name => "Cool test product 75ml",
-	generic_name => "A sample test product",
-	quantity => "75 ml",
-	link => "https://github.com/openfoodfacts/openfoodfacts-server",
-	expiration_date => "test",
-	ingredients_text => "apple, milk",
-	origin => "france",
-	serving_size => "10g",
-	packaging_text => "Plastic box, paper lid",
-	nutriment_salt_value => "1.1",
-	nutriment_salt_unit => "g",
-);
-edit_product($ua, \%product_fields);
+#common ua add a new product then delete the account while being still logged in
+edit_product($ua, \%default_product);
 
 my @words = (
 	"Delete the user",
 	"User is being deleted. This may take a few minutes.",
 	"Invalid user.",
 	"Unknown user.",
-	"Incorrect user name or password."
+	"Incorrect user name or password.",
+	"/editor/anonymous"
 );
 my $url_userid = construct_test_url("/cgi/user.pl?type=edit&userid=tests", "world");
 my $url_delete = construct_test_url("/cgi/user.pl", "world");
@@ -93,7 +78,7 @@ while (my $job = $jobs->next) {
 }
 ok($jobs_count == 0, "delete user task is finished");
 
-# admin ua checking if the account is well deleted
+#admin ua checking if the account is well deleted
 my $response_userid = $admin->get($url_userid);
 
 my $url_email = construct_test_url('/cgi/user.pl?type=edit&userid=bob@test.com', "world");
@@ -109,7 +94,7 @@ like($response_email->content, qr/\Q$words[2]\E/i, "the email edit page is well 
 #checking if the edit page of the common ua is well deleted
 like($response_contributor->content, qr/\Q$words[3]\E/i, "the contributor page of the ua is well deleted");
 
-# checking if an ua can reconnect with the deleted account ids
+#checking if an ua can reconnect with the deleted account ids
 my $url_login = construct_test_url("/cgi/login.pl", "world");
 my %login_form = (
 	user_id => "tests",
@@ -118,5 +103,11 @@ my %login_form = (
 );
 my $response_login = $ua->post($url_login, \%login_form);
 like($response_login->content, qr/\Q$words[4]\E/i, "an user can't login with the deleted account ids");
+
+#checking if the added product has been anonymized
+my $url_product = construct_test_url("/cgi/product.pl?type=edit&code=2000000000001", "world");
+my $response_product = $admin->get($url_product);
+
+like($response_product->content, qr/\Q$words[5]\E/i, "the product has been anonymized");
 
 done_testing();
