@@ -114,8 +114,8 @@ my $response_login = $ua->post($url_login, \%login_form);
 like($response_login->content, qr/Incorrect user name or password\./, "an user can't login with the deleted account ids");
 
 #checking if the added product has been anonymized
-my $url_product = construct_test_url("/cgi/product.pl?type=edit&code=2000000000001", "world");
+my $url_product = construct_test_url("/api/v2/product/2000000000001", "world");
 my $response_product = $admin->get($url_product);
-like($response_product->content, qr{/editor/anonymous}, "the product has been anonymized");
+like($response_product->content, qr/"creator":"anonymous/, "the product has been anonymized");
 
 done_testing();
