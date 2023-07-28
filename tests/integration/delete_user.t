@@ -65,7 +65,7 @@ while (my $job = $jobs->next) {
 	if ($job->created > $before_delete_ts) {
 		#waiting the job to be done
 		while ($job->state == "inactive" or $job->state == "active" or $waited < 200) {
-			sleep(2);
+			sleep(3);
 			$waited++;
 		}
 	}
