@@ -55,6 +55,7 @@ BEGIN {
 		&display_icon
 
 		&display_structured_response
+		&display_no_index_page_and_exit
 		&display_page
 		&display_text
 		&display_points
@@ -882,8 +883,35 @@ CSS
 	$request_ref->{cc} = $cc;
 	$request_ref->{country} = $country;
 	$request_ref->{lcs} = \@lcs;
+	set_user_agent_request_ref_attributes($request_ref);
 
 	return $request_ref;
+}
+
+=head2 set_user_agent_request_ref_attributes ($request_ref)
+
+Set two attributes to `request_ref`:
+
+- `user_agent`: the request User-Agent
+- `is_crawl_bot`: a flag (0 or 1) that indicates whether the request comes
+  from a known web crawler (Google, Bing,...). We only use User-Agent value
+  to set this flag.
+
+=cut
+
+sub set_user_agent_request_ref_attributes ($request_ref) {
+	my $user_agent = user_agent();
+	$request_ref->{user_agent} = $user_agent;
+
+	my $is_crawl_bot = 0;
+	if ($user_agent
+		=~ /Googlebot|Googlebot-Image|bingbot|Applebot|YandexBot|YandexRenderResourcesBot|DuckDuckBot|DotBot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|www\.qwant\.com|facebookexternalhit/
+		)
+	{
+		$is_crawl_bot = 1;
+	}
+	$request_ref->{is_crawl_bot} = $is_crawl_bot;
+	return;
 }
 
 sub _get_date ($t) {
@@ -1006,6 +1034,38 @@ Any code after the call to display_error_and_exit() will not be executed.
 sub display_error_and_exit ($error_message, $status_code) {
 
 	display_error($error_message, $status_code);
+	exit();
+}
+
+=head2 display_no_index_page_and_exit ()
+
+Return an empty HTML page with a '<meta name="robots" content="noindex">' directive
+in the HTML header.
+
+This is useful to prevent web crawlers to overload our servers by querying webpages
+that require a lot of resources (especially aggregation queries).
+
+=cut
+
+sub display_no_index_page_and_exit () {
+	my $html
+		= '<!DOCTYPE html><html><head><meta name="robots" content="noindex"></head><body><h1>NOINDEX</h1><p>We detected that your browser is a web crawling bot, and this page should not be indexed by web crawlers. If this is unexpected, contact us on Slack or write us an email at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>.</p></body></html>';
+	my $http_headers_ref = {
+		'-status' => 200,
+		'-expires' => '-1d',
+		'-charset' => 'UTF-8',
+	};
+
+	print header(%$http_headers_ref);
+
+	my $r = Apache2::RequestUtil->request();
+	$r->rflush;
+	# Setting the status makes mod_perl append a default error to the body
+	# Send 200 instead.
+	$r->status(200);
+	binmode(STDOUT, ":encoding(UTF-8)");
+	print $html;
+	return;
 	exit();
 }
 

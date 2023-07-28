@@ -94,6 +94,11 @@ sub analyze_request ($request_ref) {
 
 	$request_ref->{query_string} = $request_ref->{original_query_string};
 
+	# `no_index` specifies whether we send an empty HTML page with a <meta name="robots" content="noindex">
+	# in the HTML headers. This is only done for known web crawlers (Google, Bing, Yandex,...) on webpages that
+	# trigger heavy DB aggregation queries and overload our server.
+	$request_ref->{no_index} = 0;
+
 	$log->debug("analyzing query_string, step 0 - unmodified", {query_string => $request_ref->{query_string}})
 		if $log->is_debug();
 
@@ -562,6 +567,24 @@ sub analyze_request ($request_ref) {
 		and ($server_options{private_products}))
 	{
 		$request_ref->{text} = 'index-pro';
+	}
+
+	# Return noindex empty HTML page for web crawlers that crawl specific facet pages
+	if (($request_ref->{is_crawl_bot} eq 1) and (defined $request_ref->{tagtype})) {
+		if ($request_ref->{tagtype} !~ /^brands|categories|labels|additives|nova-groups|ecoscore|nutrition-grades$/) {
+			# Only allow indexation of a selected number of facets
+			# Ingredients were left out because of the number of possible ingredients (1.2M)
+			$request_ref->{no_index} = 1;
+		}
+		elsif ($request_ref->{page} >= 2) {
+			# Don't index facet pages with page number > 1 (we want only 1 index page per facet value)
+			$request_ref->{no_index} = 1;
+		}
+		elsif (defined $request_ref->{tagtype2}) {
+			# Don't index web pages with 2 nested tags: as an example, there are billions of combinations for
+			# category x ingredient alone
+			$request_ref->{no_index} = 1;
+		}
 	}
 
 	$log->debug("request analyzed", {lc => $lc, lang => $lang, request_ref => $request_ref}) if $log->is_debug();
