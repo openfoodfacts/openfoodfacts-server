@@ -361,19 +361,11 @@ elsif ($action eq 'process') {
 	}
 	elsif ($type eq 'user_delete') {
 
-		if (is_user_in_org_group($org_ref, $User_id, "members")) {
-			my $groups_ref = ['admins', 'members'];
-			my $user_to_remove = single_param('user_id');
-			# remove the user from org
-			remove_user_from_org($orgid, $user_to_remove, $groups_ref);
-
-			# Reset the 'org' field of the user
-			my $user_ref = retrieve_user($user_to_remove);
-			delete $user_ref->{org};
-			delete $user_ref->{org_id};
-			my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_to_remove) . ".sto";
-			store($user_file, $user_ref);
-
+		if (is_user_in_org_group($org_ref, $User_id, "admins")) {
+			remove_user_by_org_admin($orgid, single_param('user_id'));
+		}
+		else {
+			display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
 		}
 
 	}
