@@ -54,6 +54,15 @@
 	</div>
 	[% END %]
 
+		<form method="post" action="/cgi/org.pl" enctype="multipart/form-data" style="margin-bottom: 20px;">
+		<p>Enter email addresses of users to invite (comma-separated):</p>
+		<textarea id="email_list" name="email_list" style="height:100px;width:50vw"></textarea>
+		<input type="hidden" name="action" value="process" />
+		<input type="hidden" name="type" value="add_users" />
+		<input type="hidden" name="orgid" value="[% orgid %]" />
+		<input type="submit" name=".submit" class="button" value="Invite Users" />
+	</form>
+
     <!-- Start form -->
     
     <p>[% lang('org_profile_description') %]</p>

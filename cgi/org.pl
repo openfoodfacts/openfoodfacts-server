@@ -358,18 +358,35 @@ elsif ($action eq 'process') {
 	if ($type eq "edit") {
 
 		store_org($org_ref);
+		$template_data_ref->{result} = lang("edit_org_result");
 	}
 	elsif ($type eq 'user_delete') {
 
 		if (is_user_in_org_group($org_ref, $User_id, "admins")) {
 			remove_user_by_org_admin($orgid, single_param('user_id'));
+			$template_data_ref->{result} = lang("edit_org_result");
 		}
 		else {
 			display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
 		}
 
 	}
-	$template_data_ref->{result} = lang("edit_org_result");
+	elsif ($type eq 'add_users') {
+		if (is_user_in_org_group($org_ref, $User_id, "admins")) {
+			my $email_list = remove_tags_and_quote(single_param('email_list'));
+			my $result = add_users_to_org_by_admin($orgid, $email_list);
+			if ($result) {
+				# Users added successfully
+				$template_data_ref->{result} = "Users added to the organization successfully.";
+
+			}
+			else {
+				# Error handling if user does not exist
+				$template_data_ref->{result} = "Users matching some of the emails does not exist";
+			}
+		}
+	}
+
 	$template_data_ref->{profile_url} = canonicalize_tag_link("editors", "org-" . $orgid);
 	$template_data_ref->{profile_name} = sprintf(lang('user_s_page'), $org_ref->{name});
 }
