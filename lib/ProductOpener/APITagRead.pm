@@ -72,6 +72,7 @@ sub read_tag_api ($request_ref) {
 
 	my $response_ref = $request_ref->{api_response};
 
+    # we add the inputs to the response
 	my $tagtype = $request_ref->{tagtype};
 	my $tagid = $request_ref->{tagid};
 
@@ -120,6 +121,7 @@ sub read_tag_api ($request_ref) {
 			$canon_tagid = get_string_id_for_lang("no_language", $display_tag);
 		}
 
+        # add canonical values to tag output
 		$response_ref->{tag} = {
 			tagid => $canon_tagid,
 			tagtype => $tagtype
