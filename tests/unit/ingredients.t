@@ -530,6 +530,15 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			ingredients_text => "砂糖、小麦粉、全粉乳、カカオマス、ショートニング、植物油脂、ココアバター、小麦全粒粉、小麦ふすま、食塩、小麦胚芽 ／ 加工デンプン、乳化剤（大豆由来）、膨脹剤、香料",
 		}
 	],
+	# U+00B7 "·" (Middle Dot) is a character found in ingredient forsome countries (Catalan)
+	[
+		"ca-middle-dot",
+		{
+			lc => "ca",
+			ingredients_text =>
+				"Formatge mozzarella (llet de vaca pasteuritzada, sal, ferments làctics i quall) i antiaglomerant (cel·lulosa).",
+		}
+	],
 );
 
 my $json = JSON->new->allow_nonref->canonical;

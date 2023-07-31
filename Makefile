@@ -27,6 +27,8 @@ ifeq ($(OS), Darwin)
 else
   export CPU_COUNT=$(shell nproc || echo 1)
 endif
+
+# tell gitbash not to complete path
 export MSYS_NO_PATHCONV=1
 
 # load env variables
@@ -215,7 +217,7 @@ import_prod_data:
 	cd ./html/data && sha256sum --check gz-sha256sum
 	@echo "🥫 Restoring the MongoDB dump …"
 	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "cd /data/db && mongorestore --quiet --drop --gzip --archive=/import/openfoodfacts-mongodbdump.gz"
-	rm html/data/openfoodfacts-mongodbdump.tar.gz && rm html/data/gz-sha256sum
+	rm html/data/openfoodfacts-mongodbdump.gz && rm html/data/gz-sha256sum
 
 #--------#
 # Checks #
@@ -271,7 +273,7 @@ test-unit: guard-test
 test-int: guard-test # usage: make test-one test=test-file.t
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
-	${DOCKER_COMPOSE_TEST} exec backend perl tests/integration/${test}
+	${DOCKER_COMPOSE_TEST} exec backend perl ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_TEST} stop backend
 
@@ -283,9 +285,11 @@ stop_tests:
 clean_tests:
 	${DOCKER_COMPOSE_TEST} down -v --remove-orphans
 
-update_tests_results:
+update_tests_results: build_lang_test
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
+	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
+	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 	${DOCKER_COMPOSE_TEST} exec -T -w /opt/product-opener/tests backend bash update_tests_results.sh
 	${DOCKER_COMPOSE_TEST} stop
 
@@ -337,6 +341,19 @@ lint_perltidy:
 check_critic:
 	@echo "🥫 Checking with perlcritic"
 	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
+
+
+check_openapi_v2:
+	docker run --rm \
+		-v ${PWD}:/local openapitools/openapi-generator-cli validate --recommend \
+		-i /local/docs/api/ref/api.yml
+
+check_openapi_v3:
+	docker run --rm \
+		-v ${PWD}:/local openapitools/openapi-generator-cli validate --recommend \
+		-i /local/docs/api/ref/api-v3.yml
+
+check_openapi: check_openapi_v2 check_openapi_v3
 
 #-------------#
 # Compilation #

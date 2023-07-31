@@ -28,6 +28,11 @@ my @tests = (
 		desc => 'unknown ingredients',
 		product => {lc => "en", ingredients_text => "sugar 50%, strange ingredient, stranger ingredient"},
 	},
+	{
+		id => 'frik',
+		desc => 'ingredient in CIQUAL table but not in CALNUT extended table',
+		product => {lc => "en", ingredients_text => "frik"},
+	},
 );
 
 foreach my $test_ref (@tests) {

@@ -57,10 +57,10 @@ The barcode of the product.
 
 ### Describing the Post Request
 
-To upload photos to a product, make a `POST` request to the [`Add a Photo to an Existing Product`](https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#post-/cgi/product_image_upload.pl) endpoint.
+To upload photos to a product, make a `POST` request to the [`Add a Photo to an Existing Product`](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_image_upload.pl) endpoint.
 
 ```text
-https://off:off@world.openfoodfacts.net/cgi/product_image_upload.pl
+https://world.openfoodfacts.net/cgi/product_image_upload.pl
 ```
 
 ### Upload Photo of a Product
@@ -80,7 +80,7 @@ To add a new image for ingredients in English  to *100% Real Orange Juice*, the 
 If the image is in the `images/real-orange-juice-ingredients.jpg`, we can use curl (thanks to the special '@' attributes, which enables reading from a file):
 
 ```bash
-curl -XPOST -u off:off  https://world.openfoodfacts.net/cgi/product_image_upload.pl \
+curl -XPOST https://world.openfoodfacts.net/cgi/product_image_upload.pl \
   -F user_id=your_user_id -F password=your_password \
   -F code=0180411000803 -F imagefield=ingredients_en -F imgupload_ingredients_en=@images/real-orange-juice-ingredients.jpg
 ```

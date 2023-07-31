@@ -56,12 +56,6 @@ Consider using the [staging environment][staging_url] if you are not in a produc
 
 While testing your applications, **make all API requests to the staging environment**. This way, we can ensure the product database is safe.
 
-[staging_url]: https://world.openfoodfacts.net
-
-> **Warning**: The staging environment has an extra level of [HTTP Basic Authentication][basic_auth] (username: `off`, password: `off`). When making API requests to staging, you may use [https://off:off@world.openfoodfacts.net/][staging_url] as the base URL to include the authentication.
-
-[basic_auth]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#basic_authentication_scheme
-
 ## Authentication
 
 - READ operations (getting info about a product, etc...) do not require authentication, although we recommend using a custom User-Agent if you're developing an application (to not risk being identified as a bot)
@@ -113,7 +107,7 @@ Open-source contributors develop our SDKs, and more contributions are welcome to
 
 > **Warning**: Before exploring any SDK, please read the [Before You Start section](#before-you-start).
 >
-> Also, remember to check the [API Reference Documentation](https://openfoodfacts.github.io/openfoodfacts-server/api/ref/) first to verify if the problem is in SDK implementation or in the API itself.
+> Also, remember to check the [API Reference Documentation](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/) first to verify if the problem is in SDK implementation or in the API itself.
 
 - [Cordova](https://github.com/openfoodfacts/openfoodfacts-cordova-app)
 - [Dart](https://github.com/openfoodfacts/openfoodfacts-dart/blob/master/DOCUMENTATION.md), published on [pub.dev](https://pub.dev/packages/openfoodfacts)
