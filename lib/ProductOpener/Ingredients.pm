@@ -180,7 +180,7 @@ my %may_contain_regexps = (
 	bs => "može da sadrži",
 	cs => "může obsahovat|může obsahovat stopy",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
-	de => "Kann enthalten|Kann Spuren|Spuren",
+	de => "Kann enthalten|Kann Spuren|Spuren|Kann",
 	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
 	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
 	fi =>
@@ -188,7 +188,7 @@ my %may_contain_regexps = (
 	fr =>
 		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
 	hr =>
-		"Mogući sadržaj|može sadržavati|može sadržavati tragove|može sadržavati u tragovima|može sadržati|proizvod može sadržavati|sadrži|sadržaj",
+		"mogući sadržaj|mogući tragovi|može sadržavati|može sadržavati alergene u tragovima|može sadržavati tragove|može sadržavati u tragovima|može sadržati|može sadržati tragove|proizvod može sadržavati|proizvod može sadržavati tragove",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
@@ -2061,6 +2061,8 @@ sub parse_ingredients_text ($product_ref) {
 								'^u tragovima$',    # in traces
 								'označene podebljano',    # marked in bold
 								'savjet kod alergije',    # allergy advice
+								'u promjenjivim omjerima|u promjenjivim udjelima|u promijenljivom udjelu'
+								,    # in variable proportions
 								'uključujući žitarice koje sadrže gluten',    # including grains containing gluten
 								'za alergene',    # for allergens
 								'u promjenjivim udjelima'    # in variable proportions

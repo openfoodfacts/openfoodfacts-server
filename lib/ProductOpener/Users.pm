@@ -64,6 +64,7 @@ BEGIN {
 		&create_password_hash
 		&check_password_hash
 		&retrieve_user
+		&remove_user_by_org_admin
 
 		&check_session
 
@@ -933,6 +934,19 @@ sub retrieve_user ($user_id) {
 		$user_ref = retrieve($user_file);
 	}
 	return $user_ref;
+}
+
+sub remove_user_by_org_admin ($orgid, $user_id) {
+	my $groups_ref = ['admins', 'members'];
+	remove_user_from_org($orgid, $user_id, $groups_ref);
+
+	# Reset the 'org' field of the user
+	my $user_ref = retrieve_user($user_id);
+	delete $user_ref->{org};
+	delete $user_ref->{org_id};
+	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+	store($user_file, $user_ref);
+	return;
 }
 
 sub init_user ($request_ref) {
