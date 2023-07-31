@@ -40,10 +40,10 @@ stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
 stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el:περιέχει
-stopwords:en:contains, contain, from, with, produced with, with added, minimum,including, inter alia, edible, added to enhance freshness, added to maintain flavor and freshness, less than 1% of:
+stopwords:en:added to enhance freshness, added to maintain flavor and freshness, assorted, contains, contain, edible, from, including, inter alia, less than 1% of:, minimum, produced with, with, with added
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
-stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter
+stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter, minimum
 stopwords:hr:i, i/ili, ili, iz, max, min, najmanje, najviše, od, sadržaj, sadrže, sadrži, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima, u tragovima
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
@@ -28505,7 +28505,7 @@ fi:raakasokeri
 fr:sucre non raffiné, sucre brut, sucre complet
 it:Zucchero non raffinato
 ja:粗糖
-nl:ongeraffineerde suiker, ruwe suiker
+nl:ongeraffineerde suiker, ruwe suiker, oerzoet
 pl:Cukier nierafinowany
 pt:açúcar não refinado
 sv:råsocker
@@ -33045,7 +33045,7 @@ sv:vetegluten
 fr:gluten vital de blé
 
 # nova:en:maltodextrin
-en:maltodextrind, maltodextrins
+en:maltodextrin, maltodextrins
 bg:Малтодекстрин
 ca:Maltodextrina
 cs:Maltodextriny
@@ -47757,7 +47757,7 @@ it:Galatto-oligosaccaridi di lattosio
 
 #comment:this should NOT contain the colour red, as beetroot can have multiple colours. Put it under en:red beetroot.
 <en:root vegetable
-en:beetroot, beet
+en:beetroot, beet, beet root
 af:Beet
 bg:цвекло
 ca:remolatxa
@@ -48817,8 +48817,8 @@ ca:pastanaga
 co:rundonu
 cs:mrkev, karotka
 cy:moronen
-da:gulerod, gulerødder, Have-Gulerod
-de:Karotten, Karotte, Möhre, Möhren, Möhrchen
+da:gulerødder, Have-Gulerod
+de:Karotten, Karotte, Möhre, Möhren, Möhrchen, Pariser Karotten, Möhrensticks
 dv:ކެރެޓް
 el:καρότο
 eo:karoto
@@ -48827,7 +48827,7 @@ et:porgand
 eu:azenario
 fa:هویج
 fi:porkkana, porkkanaa
-fr:carotte
+fr:carotte, carottes courtes
 ga:cairéad
 gl:cenoria
 gn:sanaória
@@ -50451,7 +50451,7 @@ en:pearl onion, pearl onions
 bg:перлени лукчета
 de:perlzwiebel
 fi:pikkusipuli, pikkusipulit
-fr:oignons grelots
+fr:oignons grelots, grelot
 is:perlulaukur
 pl:cebula perłowa, cebulka perłowa
 wikidata:en:Q508630
@@ -51106,13 +51106,19 @@ en:sorrel or acid
 da:syre
 
 <en:salad
-en:Oak leaf lettuce
+en:oak leaf lettuce
 de:Eichenblattsalat
 fi:tammenlehtisalaatti
 fr:Feuille de Chêne
 nl:Eikenbladsla
 wikidata:en:Q2590939
 # ingredient/fr:feuille-de-chene has 13 products in french @2019-05-24
+
+<en:oak leaf lettuce
+fr:feuille de chene verte
+
+<en:oak leaf lettuce
+fr:feuille de chene rouge
 
 <en:salad
 fr:mélange de salades, salade mélangée
@@ -52118,7 +52124,7 @@ et:paprika, paprikad
 eu:pipermorro
 fa:فلفل دلمه‌ای
 fi:paprikaa, makea paprika, makeat paprikat
-fr:poivron, poivrons
+fr:poivron, poivrons, mini-poivrons
 ha:barkono
 he:גמבה, פלפל
 hr:paprika, slatka paprika
@@ -52867,6 +52873,7 @@ es:pimienta roja dulce
 fr:Paprika doux
 pl:papryka w proszku słodka, słodka papryka w proszku
 
+# in some languages paprika is either the spice or the vegetable
 <en:bell pepper
 <en:spice
 en:spice or bell pepper
@@ -54642,7 +54649,7 @@ da:hvide bønner
 de:weiße Bohnen
 es:Alubias blancas, judia blanca
 fi:valkoinen papu, valkoiset pavut
-fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs, haricots blancs lingots, haricots coco blancs, haricots cocos blancs, haricots coco, haricots cocos, lingots, haricots blancs dits mogette
+fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs, haricots blancs lingots, haricots coco blancs, haricots cocos blancs, haricots coco, haricots cocos, lingots, haricots blancs dits mogette, haricot plat coco
 it:Fagioli bianchi
 nb:hvite bønner
 nl:witte bonen
@@ -55296,11 +55303,11 @@ cs:hrách
 cv:Пăрçа
 cy:Pysen
 da:Ært
-de:Erbse, Erbsen
+de:Erbse, Erbsen, junge Erbsen
 dv:ފެހި އޮށް
 el:αρακάς
 eo:pizo
-es:guisante
+es:guisante, arveja, arvejas
 et:hernes, herned
 eu:Ilar
 fa:نخود فرنگی
@@ -55416,6 +55423,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pea
 fr:extrait de pois
 hr:ekstrakt graška
 
+<en:pea
+en:yellow pea
+de:Palerbse, Palerbsen
+
 # description:en:The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
 # chickpea parent is NOT pea
 <en:legume
@@ -55436,7 +55447,7 @@ da:kikært, kikærter
 de:Kichererbse, Kichererbsen
 dv:ސަނާ މުގު
 el:ρεβίθι, ρεβιθιά, ρεβύθι
-es:garbanzo, garbanzos, garbanzo beans,arvejas
+es:garbanzo, garbanzos, garbanzo beans
 et:kikerhernes
 eu:txitxirio
 fa:نخود
@@ -55679,7 +55690,7 @@ vegetarian:en:yes
 #3142 in 20 @2021-10-05
 
 <en:green peas
-en:garden peas
+en:garden peas, sweet peas
 de:Markerbsen, Gartenerbsen, Markerbsenschoten
 es:guisantes de jardín
 fi:tarhaherne, tarhaherneet
@@ -55703,7 +55714,8 @@ fr:petits pois fins
 
 <en:garden peas
 en:extra fine garden peas
-fr:petits pois très fins, petits pois extra fins
+de:Palerbsen sehr fein
+fr:petits pois très fins, petits pois extra fins, petits pois doux extra-fins
 es:guisantes extrafinos
 nl:extra fijne doperwten, erwten zeer fijn
 
@@ -55725,6 +55737,10 @@ de:Junge Markerbsen
 <en:garden peas
 en:en:garden peas flour
 fr:farine de petits pois
+
+<en:garden peas
+<en:carrots
+de:Junge Erbsen mit Möhren
 
 # description:en:The snow pea (Pisum sativum var. saccharatum) is a variety of pea eaten whole in its pod while still unripe.
 
@@ -68020,7 +68036,7 @@ da:Spiselige svampe, Svampe
 de:Pilz, Pilze, Speisepilz, Speisepilze
 el:Μανιτάρι
 eo:manĝebla fungo
-es:seta, champinon, champiñon, champiñones
+es:seta, champinon, champiñon, champiñones, setas cultivadas, setas frescas cultivadas
 et:Söögiseen, seen, seened
 eu:ziza, Ziza jangarri
 fa:قارچ خوراکی, قارچ چتری
@@ -68429,7 +68445,7 @@ cy:Madarch meithrin
 da:Havechampignon, champignon, champignoner
 de:Champignons, Zucht-Champignon
 eo:Ĉampinjono
-es:Agaricus bisporus,champinon cultivado,champinon cultivados,setas cultivadas
+es:Agaricus bisporus, champinon cultivado, champinon cultivados
 et:šampinjon, šampinjonid, aedšampinjon
 fa:قارچ خوراکی تکمه‌ای
 fi:herkkusieni
@@ -68662,7 +68678,12 @@ la:Lactarius sanguifluus
 wikidata:en:Q961386
 wikipedia:en:https://en.wikipedia.org/wiki/Lactarius_sanguifluus
 
-
+<en:mushroom
+en:sweet toothm wood hedgehog
+de:Semmel-Stoppelpilz
+fr:pied de mouton
+la:hydnum repandum
+nl:gele stekelzwam
 
 # description:en:Morchella, the true morels, is a genus of edible sac fungi closely related to anatomically simpler cup fungi in the order Pezizales (division Ascomycota).
 
@@ -78360,7 +78381,7 @@ pl:estry steroli roślinnych
 
 #category/cucumbers
 <en:vegetable
-en:cucumber, cucumbers
+en:cucumber, cucumbers, baby cucumbers
 ar:الخيار
 bg:краставица, краставици
 ca:cogombre
