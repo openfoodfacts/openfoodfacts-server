@@ -49,6 +49,7 @@ stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, ö
 stopwords:id:mengandung
 stopwords:is:úr
 stopwords:it:contiene, nella
+stopwords:ja:等, その他
 stopwords:lt:iš, su, su pridėtiniu, mažiausiai, įskaitant
 stopwords:lv:no
 stopwords:nb:av, fra, bl a, blant annet, tilsatt
@@ -108,7 +109,7 @@ fr:sirop de caramel, sirop caramel
 hr:karamel sirup, karamelizirani sirup, karamelov sirup
 hu:karamellszirup, karamell szirup, karamell-szirup, karamella szirup
 it:sciroppo di caramello
-ja:キャラメルシロップ
+ja:キャラメルシロップ, カラメルシラップ
 lt:karamelizuotas sirupas, karamelizuoto sirupo
 nl:Karamel siroop
 pl:syrop karmelowy
@@ -875,6 +876,7 @@ fr:amidon modifié de pomme de terre, amidon modifié de pommes de terre, amidon
 hr:modificirani krumpirov škrob
 hu:módosított burgonyakeményítő
 it:amido di patate modificiate, amido modificato di patata
+ja:加工澱粉, じゃがいもでん粉
 lt:modifikuotas bulvių krakmolas
 nb:modifisert potetstivelse
 nl:gemodificeerd aardappelzetmeel
@@ -11958,7 +11960,7 @@ fr:porc
 he:חזיר
 hu:sertés, disznó, malac
 it:suino
-ja:豚
+ja:豚, ポーク
 nb:svin, flesk
 nl:varken
 pl:Wieprzowina
@@ -13677,7 +13679,7 @@ hu:kukoricakeményítő
 id:tepung jagung
 is:maíssterkja
 it:amido di mais
-ja:コーンスターチ
+ja:コーンスターチ, とうもろこしでん粉
 kk:жүгері крахмалы
 ko:옥수수 녹말
 lt:kukurūzų krakmolas
@@ -13965,6 +13967,55 @@ fr:amidon d'orge
 sv:kornstärkelse
 allergens:en: en:gluten
 # ingredient/fr:amidon-d'orge has 1 product in 1 language @2020-06-08
+
+<en:starch
+en:Sago
+ar:ساغو
+be:Сага
+bn:সাগু
+ca:Sagú
+cs:Ságo
+da:Sago
+de:Sago
+dv:ސާގު
+eo:Saguo
+es:Sagú
+et:Saago
+eu:Sago
+fa:ساگو
+fi:Saago
+fr:Sagou
+gu:સાબુદાણા
+hi:साबूदाना
+id:Sagu
+io:Saguto
+is:Sagó
+it:Sago
+ja:サゴヤシ, サゴ
+jv:Sagu
+kk:Саго
+kn:ಸಬ್ಬಕ್ಕಿ
+ko:사고
+la:Sagum
+lt:Sagas
+ml:പനനൂറ്
+mr:साबुदाणा
+ms:Sagu
+nl:Sago
+no:Sago
+pl:Sago
+pt:Sagu
+ru:Саго
+su:Sagu
+sv:Sago
+ta:சவ்வரிசி
+te:సగ్గుబియ్యం
+tl:Sago
+uk:Саго
+vi:Sago
+zh:西米
+wikidata:en:Q218778
+description:en:starch extracted from tropical palm stems
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -15376,7 +15427,7 @@ hu:kókuszolaj
 id:Minyak kelapa
 is:kókosolía
 it:olio di cocco
-ja:ヤシ油
+ja:ヤシ油, ココナッツオイル
 kn:ಕೊಬ್ಬರಿ ಎಣ್ಣೆ
 ko:야자유
 lt:kokosų aliejus
@@ -25543,6 +25594,7 @@ he:קמח שיפון
 hr:raženo brašno
 hu:rozsliszt
 it:farina di segala, farina di segale
+ja:ライ麦粉
 nb:rugmel
 nl:roggemeel, roggebloem, rogge-bloem
 pl:mąka żytnia
@@ -25774,6 +25826,7 @@ hr:kukuruzno brašno
 hu:kukoricaliszt
 is:maísmjöl
 it:farina di mais
+ja:コーンフラワー
 lt:kukurūzų miltai
 lv:kukurūzas milti
 nb:maismel
@@ -26046,7 +26099,7 @@ id:jagung
 io:maizo
 is:maís
 it:mais
-ja:トウモロコシ, とうもろこし
+ja:トウモロコシ, とうもろこし, コーン
 jv:jagung
 ka:სიმინდი
 kg:disângu
@@ -26360,7 +26413,7 @@ fr:pétales de maïs, pétale de maïs, cornflakes, corn flakes, flocons de maï
 hr:kukuruzne pahuljice
 hu:kukoricapehely
 it:fiocchi di mais, cornflakes
-ja:コーンフレーク
+# ja:コーンフレーク # see ingredients_processings.txt
 nl:maïsvlokken, cornflakes
 pl:płatki kukurydziane
 pt:flocos de milho
@@ -26498,7 +26551,7 @@ ii:ꍯ
 io:Rizo
 is:Hrísgrjón
 it:riso
-ja:米
+ja:米, ご飯
 jv:Pantun
 ka:ბრინჯი
 kk:Күріш
@@ -27077,7 +27130,6 @@ fr:riz pour risotto étuvé
 
 ########################### RICE SPECIES #######################
 
-#comment:en:Note that red rice is not really a rice. It is kept here for easy retrieval
 #category/wild-rices
 <en:cereal
 en:wild rice
@@ -27109,6 +27161,7 @@ fr:riz sauvage noir
 hu:fekete vadrizs
 nl:zwarte wilde rijst
 
+#comment:en:Note that red rice is not really a rice. It is kept here for easy retrieval
 <en:rice
 en:red rice
 ar:أرز أحمر
@@ -27634,6 +27687,23 @@ fr:riz complet germé, riz brun germé
 en:germinated red rice, sprouted red rice
 de:gekeimter roter Reis
 fr:riz rouge germé
+
+<en:red rice
+<en:yeast
+en:Red yeast rice
+de:Rot fermentierter Reis
+es:Arroz de levadura roja
+fi:Punainen riisi
+fr:Levure de riz rouge
+id:Angkak
+ja:紅麹
+jv:Angkak
+ko:홍국
+pt:Arroz fermentado vermelho
+ru:Красный дрожжевой рис
+tr:Kırmızı pirinç mayası
+zh:紅麴米
+wikidata:en:Q1135788
 
 <en:black rice
 <en:germinated rice
@@ -28564,7 +28634,7 @@ hy:Մալթոզ
 id:maltosa
 is:Maltósi
 it:maltosio
-ja:マルトース
+ja:マルトース, 麦芽糖
 ka:მალტოზა
 kk:Мальтоза
 ko:말토스
@@ -29135,6 +29205,21 @@ en:powdered glucose syrup
 fr:sirop de glucose de blé
 nl:tarweglucosestroop
 sv:glukossirap från vetemjöl
+
+<en:glucose syrup
+en:Mizuame
+de:Mizuame
+es:Mizuame
+fa:میزوآمه
+fr:Mizuame
+ja:麦水飴
+pa:ਮਿਜ਼ੂਆਮੇ
+pl:Mizuame
+sq:Mizuame
+zh:水飴
+wikidata:en:Q3044475
+description:en:A clear, thick, sticky liquid, it is made by converting starch to sugars.
+# in Japanese 水飴 (mizuame) is generic for glucose syrup
 
 <en:cereal glucose syrup
 <en:powdered glucose syrup
@@ -30274,6 +30359,7 @@ fr:protéine de soja, protéines de soja
 hu:szójafehérje
 hr:bjelančevine soje, hidrolizat sojinih bjelančevina, sojine bjelančevine, bjelančevina soje
 it:proteine di soia
+ja:大豆たんぱく, 大豆タンパク, 大豆たん白
 nl:soja-eiwit, sojaeiwitten
 pl:Białko sojowe, hydrolizat białka sojowego, białko soi, białko z soi, białka sojowego
 pt:Proteína de soja
@@ -30738,7 +30824,7 @@ fi:natriumkaseinaatti
 fr:caséinate de sodium
 hu:nátrium-kazeinát
 it:caseinato di sodio, cassinato di sodio
-ja:カゼインナトリウム, カゼインNa
+ja:カゼインナトリウム, カゼインNa, カゼインＮａ
 nl:natriumcaseïnaat
 pl:kazeinian sodu
 pt:caseinato de sódio
@@ -30806,7 +30892,7 @@ hr:kakao, kakaov, theobroma cacao L, kakaovca
 hu:kakaó
 id:Kakao
 it:cacao
-ja:ココア
+ja:ココア, カカオ
 ko:코코아
 lt:kakava
 mt:kawkaw
@@ -31236,6 +31322,7 @@ es:pepitas de cacao, trozos de habas de cacao, trocitos de pepitas de cacao
 fi:Kaakaopapusipsit
 fr:éclats de fèves de cacao
 it:granella di semi di cacao, scaglie di cacao, granella di fave di cacao, granella di cacao
+ja:カカオニブ
 # ingredient/fr:éclats-de-fèves-de-cacao has 122 products in 6 languages @2019-05-26
 
 <en:cocoa bean chips
@@ -32179,7 +32266,7 @@ hu:Ásványvíz
 hy:Հանքային ջուր
 id:Air mineral
 it:Acqua minerale
-ja:ミネラルウォーター, 鉱泉水
+ja:ミネラルウォーター, 鉱泉水, 鉱水
 ka:მინერალური წყალი
 kk:Минерал су
 ky:Минералдуу суулар
@@ -32794,7 +32881,7 @@ en:edamame, edamame bean, edamame beans, edamame soybeans
 da:edamame bønner
 de:Edamame Bohnen
 fr:edamame, haricots edamame, fèves de soja edamame, edamame fèves, fève edamame
-ja:枝豆, えだ豆
+ja:枝豆, えだ豆, えだまめ
 nl:edamamebonen
 wikidata:en:Q1377879
 wikipedia:en:https://en.wikipedia.org/wiki/Edamame
@@ -33117,6 +33204,7 @@ fi:ravintohiiva
 fr:levure alimentaire
 id:ragi nutrisional
 it:lievito alimentare
+ja:イーストフード
 nl:edelgist
 pl:drożdże odżywcze
 ru:пищевые дрожжи
@@ -34901,6 +34989,7 @@ es:Zumo a partir de concentrado, zumo concentrado, jugo concentrado
 fi:mehutiiviste
 fr:jus concentré
 it:succo concentrato
+ja:濃縮果汁
 nl:sap uit vruchtensapconcentraat, geconcentreerd sap
 ru:концентрированные соки
 # ingredient/fr:jus-concentré has 184 products in 5 languages @2019-02-02
@@ -37519,6 +37608,42 @@ fr:agrumes à base de concentré
 
 ###################################################################################################
 #
+#                                Citrus unshiu
+#
+###################################################################################################
+
+# description:en:The orange is the fruit of the citrus species Citrus × sinensis in the family Rutaceae
+
+<en:fruit
+<en:citrus fruit
+en:Citrus unshiu
+ar:برتقال ساتسوما
+bg:Сацума
+ca:Citrus unshiu
+cv:Уншиу (мандарин)
+de:Satsuma
+eo:Mikano
+es:Citrus unshiu
+fr:Mandarine satsuma
+it:Citrus unshiu
+ja:ウンシュウミカン, うんしゅうみかん
+ko:온주귤
+nl:Satsuma
+pl:Mandarynka Satsuma
+pt:Mikan
+ro:Mikan
+ru:Мандарин уншиу
+so:Liin Beydarin
+sv:Satsuma
+tr:Satsuma
+uk:Мандарин Уншіу
+vi:Satsuma
+zh:温州蜜柑
+wikidata:en:Q875262
+description:en:Citrus unshiu is a semi-seedless and easy-peeling citrus species, also known as miyagawa mandarin, unshu mikan, cold hardy mandarin, satsuma mandarin, satsuma orange, naartjie, and tangerine.
+
+###################################################################################################
+#
 #                                Clementine
 #
 ###################################################################################################
@@ -38542,7 +38667,7 @@ ht:mandarin
 hu:mandarin
 io:mandarino
 it:mandarino, mandarini
-ja:マンダリンオレンジ, うんしゅうみかん
+ja:マンダリンオレンジ
 lt:mandarina
 lv:mandarīn
 nb:mandarin
@@ -46739,6 +46864,7 @@ es:Pasta de ajo
 fi:valkosipulitahna
 fr:pâte d'ail, pulpe d'ail, ail en purée
 it:Impasto d'aglio
+# ja:ガーリックペースト # see ingredients_processings.txt
 pl:pasta czosnkowa
 # en:garlic-paste has 35 products in 2 languages @2018-10-23
 
@@ -46936,7 +47062,7 @@ cs:česnekový extrakt
 de:Knoblauchextrakt
 fi:valkosipuliuute
 fr:extrait d'ail
-ja:ガーリックエキス
+# ja:ガーリックエキス # see ingredients_processings.txt
 pl:ekstrakt czosnku, ekstrakt z czosnku
 # fr:extrait-d'ail has 71 products in 4 languages @2018-10-22
 
@@ -47442,6 +47568,18 @@ fr:fibres de pousses de bambou
 it:fibra di germoglio di bambù
 nl:vezels van bamboescheuten
 # ingredient/fr:fibres-de-pousses-de-bambou has 77 products in 5 languages @2019-02-03
+
+<en:bamboo
+en:Sasa veitchii
+ca:Sasa veitchii
+es:Sasa veitchii
+fr:Sasa veitchii
+is:Sasa veitchii
+ja:クマザサ
+sv:Sasa veitchii
+vi:Sasa veitchii
+wikidata:en:Q3015670
+description:en:large species of bamboo grass
 
 <en:vegetable fiber
 en:acacia fibre, acacia fibre
@@ -49275,6 +49413,7 @@ wikidata:en:Q227997
 en:Konjac
 de:Konjak
 fr:Konjac
+ja:こんにゃく
 ro:konjac
 wikidata:en:Q674443
 description:en:Konjac is a common name of the East and Southeast Asian plant Amorphophallus konjac (syn. A. rivieri), which has an edible corm (bulbo-tuber).
@@ -51054,7 +51193,7 @@ id:Horenso
 io:Spinato
 is:Spínat
 it:spinaci
-ja:ホウレンソウ
+ja:ホウレンソウ, ほうれん草
 kk:Самалдық
 kn:ಪಾಲಕ್
 ko:시금치
@@ -51562,7 +51701,7 @@ ia:patata
 ik:Asiaġruaq
 io:Terpomo
 it:patata, patate
-ja:ジャガイモ, じゃがいも, 馬鈴薯
+ja:ジャガイモ, じゃがいも, 馬鈴薯, ポテト
 ka:კარტოფილი
 ks:اولُو
 la:Patata
@@ -54432,7 +54571,7 @@ es:Alubias rojas, judias rojas
 fi:punaiset kidneypavut, kidneypapu
 fr:haricot rouge, haricots rouges
 it:fagioli rossi
-ja:金時豆
+ja:金時豆, インゲン豆
 nl:Rode bonen
 pl:fasola czerwona, fasoli czerwonej
 pt:Feijões vermelhos
@@ -54950,6 +55089,20 @@ vi:Đậu đỏ
 za:Lwglimz
 zh:紅豆
 wikidata:en:Q380279
+
+<en:legume
+en:Sweet bean paste
+ca:Pasta de mongetes
+es:Pasta de judía dulce
+fr:Pâte de haricots
+it:Pasta di fagioli
+ja:餡, こしあん
+jv:Pasta kacang legi
+ko:콩소
+pa:ਮਿੱਠੀ ਬੀਨ ਦਾ ਪੇਸਟ
+zh:豆沙
+wikidata:en:Q29340
+description:en:food ingredient used throughout East Asian cuisine, primarily as a filling for sweet desserts and pastries. 
 
 <en:legume
 en:cowpea, cowpeas
@@ -56135,7 +56288,6 @@ sv:mandelpulver
 <en:almond paste
 en:prepacked Almond paste
 fr:Pâte d'amande préemballée
-ja:アーモンドペースト
 ciqual_food_code:en:15201
 ciqual_food_name:en:Almond paste or marzipan, prepacked
 ciqual_food_name:fr:Pâte d'amande, préemballée
@@ -56256,6 +56408,7 @@ fi:mantelitahna
 fr:pâte d'amande, pâte d'amandes, purée d'amande, purée d'amandes
 hr:pasta od badema, bademova pasta
 it:pasta di mandorle
+ja:アーモンドペースト
 pt:Pasta de amêndoa, pasta de amêndoas
 pl:pasta z migdałów, pasta migdałowa
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:pâte-d'amande
@@ -58760,6 +58913,41 @@ fr:assaisonnement goût salé
 <en:condiment
 fr:assaisonnement goût fromage
 
+
+###################################################################################################
+#
+#                                Annatto
+#
+###################################################################################################
+
+# see en:E160b in additives.txt
+#<en:condiment
+# en:Annatto
+# ar:أناتو
+# ca:Arxiota
+# de:Annatto
+# eo:Biksa kolorigilo
+# es:Achiote
+# et:Annaato
+# hu:Annatto
+# is:Annatto
+# it:Annatto
+# ja:アナトー
+# jv:Annatto
+# kn:ಅನಾಟೋ
+# ko:안나토
+# lt:Anatas
+# nl:Anatto
+# pl:Annato
+# pt:Anato
+# sl:Anato
+# sr:Anato
+# sv:Annatto
+# vi:Màu điều nhuộm
+# zh:胭脂樹紅
+# wikidata:en:Q425902
+# description:en:orange-red condiment and food coloring derived from the seeds of the achiote tree (Bixa orellana), native to tropical parts of the Americas.
+
 ###################################################################################################
 #
 #                                Miso
@@ -60385,7 +60573,7 @@ id:jahe
 io:Jinjero
 is:Engifer
 it:zenzero
-ja:ショウガ, しょうが, 生姜
+ja:ショウガ, しょうが, 生姜, ジンジャー
 jv:Jaé
 ka:ჯანჯაფილი
 kk:Жанжабіл, Зімбір
@@ -63807,6 +63995,7 @@ hr:pripravak od hmelja
 
 
 <en:plant
+en:jasmine petals
 fr:pétales de jasmin
 
 # description:en:JUNIPERS are coniferous plants in the genus Juniperus of the cypress family Cupressaceae. Juniper berries are a spice used in a wide variety of culinary dishes and best known for the primary flavoring in gin. Juniper berry sauce is often a popular flavoring choice for quail, pheasant, veal, rabbit, venison and other game dishes.
@@ -66758,9 +66947,18 @@ wikipedia:en:https://en.wikipedia.org/wiki/Yac%C3%B3n
 
 <en:plant
 en:Ashitaba
+es:Angelica keiskei
+id:Ashitaba
+it:Angelica keiskei
 ja:アシタバ, 明日葉, あしたば
+jv:Ashitaba
+ru:Angelica keiskei
+sv:Angelica keiskei
+vi:Angelica keiskei
+zh:明日叶
 wikidata:en:Q4805168
 wikipedia:en:https://en.wikipedia.org/wiki/Ashitaba
+description:en:species of flowering plant in the carrot family
 
 <en:plant
 en:Japanese hornwort
@@ -66785,6 +66983,44 @@ en:Nozawana
 ja:ノザワナ, 野沢菜, のざわな
 wikidata:en:Q3049961
 wikipedia:en:https://en.wikipedia.org/wiki/Nozawana
+
+<en:plant
+en:Gardenia jasminoides
+ar:غردينية ياسمينية
+as:তগৰ
+az:Jasminəbənzər qardeniya
+be:Gardenia jasminoides
+bn:গন্ধরাজ
+ca:Gardenia jasminoides
+cs:Gardénie jasmínovitá
+de:Gardenie
+es:Gardenia jasminoides
+fa:گاردنیا
+fi:Kiinangardenia
+hi:अनंत वृक्ष
+id:Kacapiring
+it:Gardenia jasminoides
+ja:クチナシ
+jv:Ceplok piring
+ko:치자나무
+ml:ഗന്ധരാജൻ
+my:ဇီဇဝါ
+ne:इन्द्रकमल
+nl:Kaapse jasmijn
+no:Gardenia
+pl:Gardenia jaśminowata
+pt:Gardenia jasminoides
+ro:Gardenia jasminoides
+ru:Гардения жасминовидная
+su:Kacapiring
+ta:கும்பிலி
+th:พุดซ้อน
+to:Siale matalateau
+ty:Taina
+uz:Gardenia jasminoides
+vi:Dành dành
+zh:栀子花
+wikidata:en:Q1072101
 
 # description:en:Algae is an informal term for a large, diverse group of photosynthetic eukaryotic organisms that are not necessarily closely related, and is thus polyphyletic.
 
@@ -67276,7 +67512,7 @@ hy:կոմբու
 id:Kombu
 is:Kombu
 it:kombu
-ja:コンブ, 昆布
+ja:コンブ, 昆布, こんぶ
 ms:Kombu
 nl:Kombu
 pl:Kombu
@@ -67394,42 +67630,49 @@ ciqual_food_name:fr:Nori (Porphyra sp.), séchée ou déshydratée
 en:sea lettuce, green laver
 ar:أولفا خسية
 az:Ulva yosunu
+be:Ульва
 ca:enciam de mar
 cs:porost locikový
 da:Havsalat
-de:Meersalat
-es:lechuga de mar
-eu:Itsas uraza
-fi:merisalaatti
-fr:laitue de mer, laitue de mers
+de:Meersalat, ulva
+es:lechuga de mar, ulva
+eu:Itsas uraza, ulva
+fa:کاهوی دریایی
+fi:merisalaatti, Suolilevät
+fr:laitue de mer, laitue de mers, ulve
 ga:Glasán
 gd:Glasag
-gl:Leituga de mar
+gl:Leituga de mar, ulva
 hr:Morska salata
-hu:tengeri saláta
+hu:tengeri saláta, ulva
+id:ulva
 is:Maríusvunta
-it:lattuga di mare
+it:lattuga di mare, ulva
 ja:アオサ
 ka:ულვა
 ko:갈파래속
 la:Ulva sp.
 mk:морска марула
-nl:zeesla
-pl:Ulwa sałatowa
+nl:zeesla, ulva
+no:ulva
+pl:Ulwa sałatowa, ulva
 pt:Alface-do-mar
 ru:Ульва
-sv:Havssallat
-uk:Морський салат
-zh:石莼
+sv:Havssallat, ulva
+uk:Морський салат, Ульва
+uz:Ulva
+vi:Ulva
+zh:石莼, 石莼属
 # zh-hans:石莼
 # zh-hant:石蓴
 # zh-hk:石蓴
 # zh-tw:石蓴
+wikidata:en:Q1109330
 wikipedia:en:https://en.wikipedia.org/wiki/Sea_lettuce
 # ingredient/fr:laitue-de-mer has 73 products in 4 languages @2019-02-22
 # algues:laitue de mer
 ciqual_food_code:en:20985
-ciqual_food_name:en:Sea lettuce (ulva sp.), dried or dehydrated)
+ciqual_food_name:en:Sea lettuce (ulva sp.), dried or dehydrated
 ciqual_food_name:fr:Laitue de mer (Ulva sp.), séchée ou déshydratée
 
 
@@ -72110,6 +72353,33 @@ fr:préparation à base de surimi
 # ingredient/fr:préparation-à-base-de-surimi has 21 products in french @2019-02-03
 # préparation de surimi  (chair de poisson, stabilisants:sorbitol, polyphosphates)
 
+<en:surimi
+en:Kamaboko
+ar:كامبوكو
+da:Kamaboko
+de:Kamaboko
+es:Kamaboko
+fa:کالباس ماهی
+fr:Kamaboko
+id:Kamaboko
+it:Kamaboko
+ja:蒲鉾, かまぼこ
+jv:Kamaboko
+ko:가마보코
+ms:Kamaboko
+no:Kamaboko
+pt:Kamaboko
+ru:Камабоко
+sq:Kamaboko
+sv:Kamaboko
+th:คามาโบโกะ
+tr:Kamaboko
+uk:Камабоко
+vi:Kamaboko
+zh:蒲鉾
+wikidata:en:Q166204
+description:en:type of cured surimi, a processed seafood product common in Japanese cuisine
+
 <en:fish
 <en:white fish
 en:thread-fin bream
@@ -72374,8 +72644,32 @@ en:skipjack tuna fillet
 hr:fileti tune prugaste
 
 <en:skipjack tuna
-en:bonito flakes
+en:Katsuobushi, bonito flakes
+ar:كاتسوؤبوشي
+ca:Katsuobushi
+da:Katsuobushi
+de:Katsuobushi
+es:Katsuobushi
+fi:Katsuobushi
+fr:Katsuobushi
+id:Katsuobushi
+is:Katsuobushi
+it:Katsuobushi
 ja:鰹節, カツオ節, かつお節
+jv:Katsuobushi
+ko:가쓰오부시
+ms:Katsuobushi
+nl:Katsuobushi
+pt:Katsuobushi
+ru:Кацуобуси
+sv:Katsuobushi
+th:คัตสึโอบูชิ
+tr:Katsuobushi
+uk:Кацуобусі
+vi:Katsuobushi
+zh:鰹魚乾
+wikidata:en:Q113739
+description:en:simmered, smoked and fermented skipjack tuna
 
 #category/yellowfin-tunas
 <en:tuna
@@ -75188,7 +75482,7 @@ id:Kepiting
 io:Krabo
 is:Krabbar
 it:Granchio
-ja:カニ
+ja:カニ, かに
 jv:Kepithing
 ka:ცხრაფეხები
 kk:Таңқы шаян
@@ -75427,7 +75721,7 @@ id:Lobster
 io:Homardo
 is:Humrar
 it:Omaro
-ja:ロブスター
+ja:ロブスター, オマールエビ
 jv:Lobster
 ka:ჰომარი
 kk:Омарлар, Омар шаяны
@@ -78235,7 +78529,7 @@ io:hano
 is:Kjúklingur
 it:Polli, pollo
 iu:ᐊ'ᐊ'ᐋᒃ
-ja:ニワトリ
+ja:ニワトリ, チキン
 jv:Pitik
 ka:ქათამი
 kg:Nsusu
@@ -81750,6 +82044,12 @@ pl:makaron udon
 wikidata:en:Q471861
 wikipedia:en:https://en.wikipedia.org/wiki/Udon
 
+<en:noodle
+en:Alkaline noodles
+es:Kansui
+ja:かんすい
+wikidata:en:Q9017170
+description:en:variation of noodles with a much higher quantity of alkali than usual. The most common examples are Chinese Lamian noodles and Japanese Ramen noodles. 
 
 <en:dough
 en:shortcrust dough
@@ -82840,6 +83140,7 @@ fr:enrobage, enrobant, décor, decor, chemisage
 hr:preljev
 hu:bevonat, fűszerezés
 it:rivestimento
+ja:シーズニング
 lt:apvalkalas
 nb:belegg
 nl:coating
@@ -83902,7 +84203,7 @@ id:Kaldu
 io:Buliono
 is:seyði
 it:brodo
-ja:ブイヨン
+ja:ブイヨン, 出汁, だし
 ko:브로스
 lb:Britt
 li:Boeljóng
@@ -84043,7 +84344,7 @@ es:Caldo de pollo
 fi:kanaliemi
 fr:Bouillon de poulet, fond de poulet
 it:brodo di pollo
-ja:チキンスープ
+ja:チキンスープ, チキンブイヨン
 nl:Kippenbouillon
 pl:Rosół z kurczaka
 sv:kycklingbuljong, kycklingfond
@@ -85422,7 +85723,7 @@ hu:szójaszósz
 id:kecap
 is:sojasósa
 it:salsa di soia
-ja:醤油, しょうゆ
+ja:醤油, しょうゆ, 醤油たれ
 jv:kécap
 ka:სოიას სოუსი
 kk:соя соусы
@@ -85532,6 +85833,11 @@ wikidata:en:Q3514675
 # ingredient/fr:tamari has 84 products in 3 languages @2019-04-11
 # usage:nl: tamari (water, volle soja, zeezout, alcohol, fermentatiestarter)
 
+<en:soy sauce
+en:honjozo
+ja:本醸造
+wikipedia:en:https://en.wikipedia.org/wiki/Soy_sauce
+description:en:Honjōzō (本醸造, 'genuine fermented'): Contains 100% genuine fermented product
 
 # description:en:RÉMOULADE is a condiment invented in France that is usually aioli- or mayonnaise-based. Although similar to tartar sauce, it is often more yellowish, sometimes flavored with curry, and sometimes contains chopped pickles or piccalilli. It can also contain horseradish, paprika, anchovies, capers and a host of other items. While its original purpose was possibly for serving with meats, it is now more often used as a condiment or dipping sauce, primarily for sole, plaice, and seafood cakes (such as crab or salmon cakes).
 # comment:en:Translations with the word sauce in it are preferred
@@ -85980,6 +86286,11 @@ nl:sambal oelek
 pl:sambal oelek
 description:en:Raw chili paste (bright red, thin and sharp tasting). Can be used as the base for making other sambals or as an ingredient for other cuisines.
 
+<en:hot sauce
+en:Kanzuri
+ja:かんずり
+wikidata:en:Q11264544
+description:en:Japanese fermented chili paste manufactured in Niigata Prefecture
 
 #category/bearnaise-sauce
 <en:sauce
@@ -86459,6 +86770,7 @@ es:chile poblano
 
 en:xylose
 xx:xylose
+ja:キシロース
 wikipedia:en:https://en.wikipedia.org/wiki/Xylose
 
 # Tonka beans are prohibited for use in food in the US: https://www.govinfo.gov/content/pkg/CFR-2006-title21-vol3/xml/CFR-2006-title21-vol3-sec189-130.xml

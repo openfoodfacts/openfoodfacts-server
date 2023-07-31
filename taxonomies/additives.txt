@@ -555,7 +555,7 @@ hy:E120, Կարմին
 ia:E120, carmin
 io:E120, Karmino
 it:E120, Cocciniglia, acido carminico, vari tipi di carminio, C22H20O13
-ja:E120, コチニール色素, コチニール
+ja:E120, コチニール色素, コチニール, カルミン酸色素
 ky:E120, Кармин
 lt:E120, Košenilis, karmino rūgštis, karminai
 lv:E120, Košenils, karmīnskābe, karmīni
@@ -1478,7 +1478,7 @@ id:E150, Karamel
 io:E150, Karamelo
 is:E150, Karamella
 it:E150, caramello
-ja:E150, キャラメル
+ja:E150, キャラメル, カラメル
 ka:E150, კარამელი
 kk:E150, Карамель
 kn:E150, ಕ್ಯಾರಮೆಲ್
@@ -2141,20 +2141,26 @@ vegetarian:en:yes
 
 
 en:E160b, Annatto, bixin, norbixin, roucou, achiote, annatto color, annatto colour
+ar:E160b, أناتو
 bg:E160b, Анато, биксин, норбиксин (i), БИКСИН И НОРБИКСИН
-ca:E160b, Bixina, norbixina de bixa, norbixina
+ca:E160b, Arxiota, Bixina, norbixina de bixa, norbixina
 cs:E160b, Annatto, bixin, norbixin
 da:E160b, Annatto, Annattoekstrakter (bixin og norbixin), Annattoekstrakter, Bixin, Norbixin
 de:E160b, Annatto (Bixin und Norbixin), Bixin und Norbixin, Annatto, Achote, Orlean, E 160b, Anatto, Bixin, Norbixin, Annatto Bixin
 el:E160b, Αννατο, μπιξινη, νορμπιξινη (i)
+eo:E160b, Biksa kolorigilo
 es:E160b, Annato, bixina, norbixina, Achiote,anato
 et:E160b, Annaato, biksiin, norbiksiin (i)
 fi:E160b, Annatto, biksiini, norbiksiini, Annattoa, biksiiniä, norbiksiiniä
 fr:E160b, Rocou, annatto, mélange de bixine et norbixine, Bixine, Norbixine, Annatto extract, Extraits de rocou, Extrait de graine de roucou, base de bixine, base de norbixine, CI 75120, Orange naturel CI n.4, Natural orange 4, CAS 1393-63-1, 89957-43-7, CAS 6983-79-5, Annatto seed extract, Bixa orellana seed extract, bixa orellana, achiote, Annatto G
 hr:E160b, annatto, e160b(i), e160b(ii), annato norbixin
 hu:E160b, Annatto, bixin, norbixin
+is:E160b, Annatto
 it:E160b, Annatto, bissina, norbissina, C24H28O4
 ja:E160b, アナトー色素, アナトー
+jv:E160b, Annatto
+kn:E160b, ಅನಾಟೋ
+ko:E160b, 안나토
 lt:E160b, Anatas, biksinas, norbiksinas
 lv:E160b, Annato, biksīns, norbiksīns
 mt:E160b, Annatto, biksin, norbiksin
@@ -2166,7 +2172,11 @@ ro:E160b, Annatto, bixină, norbixină (i)
 ru:E160b, Annatto, аннато, экстракт анато
 sk:E160b, Annatto, bixín, norbixín
 sl:E160b, Anato, biksin, norbiksin
+sr:E160b, Anato
 sv:E160b, Annattoextrakt, bixin, norbixin i., Annatto, E 160b, Roucou
+vi:E160b, Màu điều nhuộm
+zh:E160b, 胭脂樹紅
+wikidata:en:Q425902
 colour_index:en:CI 75120
 e_number:en:160b
 efsa_evaluation_url:en: http://dx.doi.org/10.2903/j.efsa.2016.4544
@@ -10211,7 +10221,7 @@ fr:E401, alginate de sodium
 hr:E401
 hu:E401, Nátrium-alginát
 it:E401, alginato di sodio, sodio alginato
-ja:E401, アルギン酸ナトリウム
+ja:E401, アルギン酸ナトリウム, アルギニン酸na
 lt:E401, Natrio alginatas
 lv:E401, Nātrija algināts
 mt:E401, Alġinat tas-sodju
@@ -11258,6 +11268,7 @@ fi:E424, Curdlan
 fr:E424, Curdlan
 hu:E424, E424 food additive
 it:E424, E424 food additive
+ja:E424, カードラン
 lt:E424, E424 food additive
 lv:E424, E424 food additive
 mt:E424, E424 food additive
@@ -12584,6 +12595,7 @@ fr:E450(i), Pyrophosphate de sodium acide, Pyrophosphate acide de sodium, Diphos
 hr:E450(i), E450i, dinatrijev difosfat
 hu:E450(i), Dinátrium-difoszfát
 it:E450(i), Difosfato disodico
+ja:E450(i), ピロリン酸ナトリウム
 lt:E450(i), Dinatrio difosfatas
 lv:E450(i), Dinātrija difosfāts
 mt:E450(i), Difosfat disodiku, Difosfat didroġenat disodiku, Pirofosfat didroġenat disodiku, Pirofosfat tal-aċidu tas-sodju
@@ -17759,7 +17771,7 @@ fi:E578, Kalsiumglukonaatti, Kalsiumglukonaattia
 fr:E578, Gluconate de calcium, Pentahydroxyéthanoate de calcium, Gluconate calcique
 hu:E578, kalcium-glükonát
 it:E578, gluconato di calcio
-ja:E578, グルコン酸カルシウム
+ja:E578, グルコン酸カルシウム, グルコン酸ｃａ
 lt:E578, kalcio gliukonatas
 lv:E578, kalcija glikonāts
 mt:E578, glukonat tal-kalċju
@@ -18600,6 +18612,7 @@ fi:E639, Alaniini, Alaniinia
 fr:E639, Alanine
 hu:E639, Alanin
 it:E639, E639 food additive
+ja:E639, アラニン
 lt:E639, E639 food additive
 lv:E639, E639 food additive
 mt:E639, E639 food additive
@@ -21227,7 +21240,7 @@ hu:E951, Aszpartám
 id:E951, Aspartam
 is:E951, Aspartam
 it:E951, Aspartame
-ja:E951, アスパルテーム, アスパルテーム L-フェニルアラニン化合物
+ja:E951, アスパルテーム, アスパルテーム L-フェニルアラニン化合物, l-フェニルアラニン化合物
 ko:E951, 아스파탐
 lt:E951, Aspartamas
 lv:E951, Aspartāms
@@ -21625,6 +21638,7 @@ fr:E960, Glucosides de stéviol, stévioside, rébaudioside A, extrait de stévi
 hr:E960, steviol glikozidi, stevia list, steviol glikozidi iz stevije
 hu:E960, Szteviol-glikozidok szinonimák
 it:E960, Glicosidi dello steviolo, glicosidi steviolici, Estratto di stevia
+ja:E960, ステビア
 lt:E960, Steviolio glikozidai
 lv:E960, Steviolglikozīdi
 mt:E960, Glikosidi tal-istevjol

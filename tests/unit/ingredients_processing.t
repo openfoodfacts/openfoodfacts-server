@@ -1746,7 +1746,7 @@ my @tests = (
 				'text' => "\x{7c89}\x{672b}\x{9152}"
 			},
 			{
-				'id' => 'en:bonito-flakes',
+				'id' => 'en:katsuobushi',
 				'processing' => 'en:powder',
 				'text' => "\x{304b}\x{3064}\x{304a}\x{7bc0}"
 			},
