@@ -448,9 +448,13 @@ my %the = (
 
 # Put composed labels like fair-trade-organic first
 my @labels = (
-	"en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "en:pdo", "fr:label-rouge",
+	"en:fair-trade-organic", "en:organic",
+	"en:fair-trade", "en:pgi",
+	"en:pdo", "fr:label-rouge",
 	"en:sustainable-seafood-msc", "en:responsible-aquaculture-asc",
-	"fr:aoc", "en:vegan", "en:vegetarian", "nl:beter-leven-1-ster", "nl:beter-leven-2-ster","nl:beter-leven-3-ster"
+	"fr:aoc", "en:vegan",
+	"en:vegetarian", "nl:beter-leven-1-ster",
+	"nl:beter-leven-2-ster", "nl:beter-leven-3-ster"
 );
 my %labels_regexps = ();
 
