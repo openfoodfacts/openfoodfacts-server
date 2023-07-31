@@ -11991,6 +11991,7 @@ nl:Varkensvlees
 pl:mięso wieprzowe
 pt:carne de suíno, carne de porco
 ro:carne de porc, carne porc
+sk:bravčové mäso
 sl:svinjsko meso
 sv:fläskkött, griskött, svinkött, fläsk, kött från gris
 tr:domuz eti
@@ -13732,7 +13733,7 @@ pl:niemodyfikowana skrobia kukurydziana, skrobia natywna
 en:modified corn starch, modified corn starches, modified maize starch, corn starch modified
 bg:модифицирано царевично нишесте
 ca:Midó de moresc modificat, midó de panís modificat, midó modificat de blat de moro, midó de blat de moro modificat, midons de moresc modificat, midons de panís modificat, midons de blat de moro modificat
-cs:Modifikovaný kukuřičný škrob
+cs:Modifikovaný kukuřičný škrob, kukuřičný modifikovaný škrob
 da:modificeret majsstivelse
 de:modifizierte Maisstärke
 el:τροποποιημένο άμυλο αραβοσίτου
@@ -13751,7 +13752,7 @@ pl:modyfikowana skrobia kukurydziana, modyfikowana skrobia z kukurydzy, skrobia 
 pt:amido de milho modificado, amido modificado de milho
 ro:amidon modificat din porumb, amidon modificat de porumb
 ru:крахмал кукурузный модифицированный
-sk:modifikovaný kukuričný škrob
+sk:modifikovaný kukuričný škrob, kukuričný modifikovaný škrob
 sl:modificiran koruzni škrob
 sr:modifikovani kukuruzni skrob
 sv:modifierad majsstärkelse
@@ -31523,7 +31524,7 @@ bn:ডার্ক চকোলেট
 ca:Xocolata negra
 cs:hořká čokoláda
 da:mørk chokolade
-de:dunkle Schokolade, Zartbitterschokolade, Zartbitter-Schokolade
+de:dunkle Schokolade, Zartbitterschokolade, Zartbitter-Schokolade, Edel-Bitterschokolade
 el:μαύρη σοκολάτα
 eo:nigra ĉokolado
 es:Chocolate negro, Chocolate amargo
@@ -52940,7 +52941,7 @@ carbon_footprint_fr_foodges_value:fr:2.9
 en:tomato purée
 bg:доматено пюре
 ca:puré de tomàquet
-cs:rajčatové pyré
+cs:rajčatové pyré, rajčatový protlak
 da:tomatpuré, tomatpure
 de:Tomatenmark, Tomatenpüree
 el:πουρές τομάτας
@@ -52958,7 +52959,7 @@ nl:tomatenpurée, tomatenconcentraat, tomatenpuree
 pt:Puré de tomate
 pl:przecier pomidorowy
 ru:томатное поре
-sk:bravčové mäso
+sk:paradajkový pretlak
 sr:pire od paradajza
 sv:tomatpuré, tomatpyré, tomatpure, mosade tomater
 carbon_footprint_fr_foodges_ingredient:fr:Sauce tomate
@@ -64816,7 +64817,7 @@ ar:الزيتون
 bg:маслини, маслина
 bo:རྒྱ་ཨར།
 ca:oliva
-cs:oliva
+cs:oliva, olivy
 da:oliven
 de:Oliven, Olive
 eo:olivo
@@ -64845,8 +64846,8 @@ pt:axeitonas, azeitona, azeitonas
 qu:Asitunas
 ro:măslină, măsline
 ru:маслины, оливка
-sk:Oliva
-sv:Oliv, oliver
+sk:oliva, olivy
+sv:oliv, oliver
 th:นํ้า
 tr:zeytin
 tt:зәйтүн
@@ -80359,6 +80360,10 @@ sv:grönsaksextrakt
 # <en:compound
 <en:vegetable extract
 fr:extraits végétaux à pouvoir colorant
+
+# <en:compound
+de:färbende Konzentrate
+fr:concentré colorant
 
 # description:en:CONCENTRATE is the form of substance which has had the majority of its base component (in the case of a liquid: the solvent) removed
 
