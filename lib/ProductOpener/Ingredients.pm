@@ -188,7 +188,7 @@ my %may_contain_regexps = (
 	fr =>
 		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
 	hr =>
-		"Mogući sadržaj|može sadržavati|može sadržavati tragove|može sadržavati u tragovima|može sadržati|proizvod može sadržavati|sadrži|sadržaj",
+		"mogući sadržaj|mogući tragovi|može sadržavati|može sadržavati alergene u tragovima|može sadržavati tragove|može sadržavati u tragovima|može sadržati|može sadržati tragove|proizvod može sadržavati|proizvod može sadržavati tragove",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
@@ -448,9 +448,13 @@ my %the = (
 
 # Put composed labels like fair-trade-organic first
 my @labels = (
-	"en:fair-trade-organic", "en:organic", "en:fair-trade", "en:pgi", "en:pdo", "fr:label-rouge",
+	"en:fair-trade-organic", "en:organic",
+	"en:fair-trade", "en:pgi",
+	"en:pdo", "fr:label-rouge",
 	"en:sustainable-seafood-msc", "en:responsible-aquaculture-asc",
-	"fr:aoc", "en:vegan", "en:vegetarian"
+	"fr:aoc", "en:vegan",
+	"en:vegetarian", "nl:beter-leven-1-ster",
+	"nl:beter-leven-2-ster", "nl:beter-leven-3-ster"
 );
 my %labels_regexps = ();
 
@@ -2061,6 +2065,8 @@ sub parse_ingredients_text ($product_ref) {
 								'^u tragovima$',    # in traces
 								'označene podebljano',    # marked in bold
 								'savjet kod alergije',    # allergy advice
+								'u promjenjivim omjerima|u promjenjivim udjelima|u promijenljivom udjelu'
+								,    # in variable proportions
 								'uključujući žitarice koje sadrže gluten',    # including grains containing gluten
 								'za alergene',    # for allergens
 								'u promjenjivim udjelima'    # in variable proportions
@@ -3908,7 +3914,7 @@ my %phrases_after_ingredients_list = (
 		'Bewaren bij kamertemperatuur',
 		'Cacao: ten minste ',
 		'Droog bewaren',
-		'E = door EU goedgekeurde hulpstof.',
+		'E = door EU goedgekeurde hulpstof',
 		'E door EU goedgekeurde hulpstoffen',
 		'"E"-nummers zijn door de EU goedgekeurde hulpstoffen',
 		'gemiddelde voedingswaarden',
