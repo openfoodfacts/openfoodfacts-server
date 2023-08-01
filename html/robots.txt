@@ -5,6 +5,10 @@ Disallow: /cgi
 Disallow: /code
 Disallow: /api
 
+# Disallow: Bingbot (temporary test)
+User-agent: Bingbot
+Disallow: /
+
 # Disallow: SEOkicks-Robot
 User-agent: SEOkicks-Robot
 Disallow: /
@@ -44,6 +48,12 @@ Disallow: /
 User-agent: Cliqzbot
 Disallow: /
 User-agent: SeekportBot
+Disallow: /
+User-agent: SeekportBot
+Disallow: /
+User-agent: Seekport Bot
+Disallow: /
+User-agent: Seekport
 Disallow: /
 User-agent: Paracrawl
 Disallow: /
