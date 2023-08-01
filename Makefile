@@ -27,6 +27,8 @@ ifeq ($(OS), Darwin)
 else
   export CPU_COUNT=$(shell nproc || echo 1)
 endif
+
+# tell gitbash not to complete path
 export MSYS_NO_PATHCONV=1
 
 # load env variables
@@ -283,7 +285,7 @@ stop_tests:
 clean_tests:
 	${DOCKER_COMPOSE_TEST} down -v --remove-orphans
 
-update_tests_results:
+update_tests_results: build_lang_test
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
 	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
@@ -339,6 +341,19 @@ lint_perltidy:
 check_critic:
 	@echo "🥫 Checking with perlcritic"
 	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
+
+
+check_openapi_v2:
+	docker run --rm \
+		-v ${PWD}:/local openapitools/openapi-generator-cli validate --recommend \
+		-i /local/docs/api/ref/api.yml
+
+check_openapi_v3:
+	docker run --rm \
+		-v ${PWD}:/local openapitools/openapi-generator-cli validate --recommend \
+		-i /local/docs/api/ref/api-v3.yml
+
+check_openapi: check_openapi_v2 check_openapi_v3
 
 #-------------#
 # Compilation #

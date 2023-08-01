@@ -180,6 +180,9 @@ documentation:
 - scripts/generate_perl_html_doc_from_pod.pl
 - po/README.md
 
+openapi:
+- docs/assets/api-rapidoc.html
+
 docker:
 - docker/**/*
 
@@ -608,9 +611,6 @@ Made Near Me:
 
 PAO:
 - scripts/generate_pao_taxonomy.pl
-
-blog:
-- scripts/get_blog_updates.pl
 
 Minion:
 - scripts/minion.pl
