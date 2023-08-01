@@ -519,7 +519,8 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 
 					# Initialize the stats for the country / category / material if needed
 					defined $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
-						{$material} or $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
+						{$material}
+						or $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
 						{$material} = {};
 
 					my $material_stats_ref
@@ -544,13 +545,15 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 					if (defined $product_ref->{packagings_materials_main}) {
 
 						# Initialize the stats for the country / category / material if needed
-						(defined $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
-						{$material}) or $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
-						{$material} = {};
+						(
+							defined $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}
+								{materials}{$material})
+							or $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
+							{$material} = {};
 
 						my $main_material_stats_ref
-						= $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
-						{$material};
+							= $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
+							{$material};
 
 						# Increment the number of products that have the material as their main material
 						$main_material_stats_ref->{main_n} += 1;
