@@ -574,20 +574,26 @@ sub analyze_request ($request_ref) {
 	}
 
 	# Return noindex empty HTML page for web crawlers that crawl specific facet pages
-	if (($request_ref->{is_crawl_bot} eq 1) and (defined $request_ref->{tagtype})) {
-		if ($request_ref->{tagtype} !~ /^brands|categories|labels|additives|nova-groups|ecoscore|nutrition-grades$/) {
-			# Only allow indexation of a selected number of facets
-			# Ingredients were left out because of the number of possible ingredients (1.2M)
+	if ($request_ref->{is_crawl_bot} eq 1) {
+		if (defined $request_ref->{groupby_tagtype}) {
 			$request_ref->{no_index} = 1;
 		}
-		elsif ($request_ref->{page} >= 2) {
-			# Don't index facet pages with page number > 1 (we want only 1 index page per facet value)
-			$request_ref->{no_index} = 1;
-		}
-		elsif (defined $request_ref->{tagtype2}) {
-			# Don't index web pages with 2 nested tags: as an example, there are billions of combinations for
-			# category x ingredient alone
-			$request_ref->{no_index} = 1;
+		elsif (defined $request_ref->{tagtype}) {
+			if ($request_ref->{tagtype} !~ /^brands|categories|labels|additives|nova-groups|ecoscore|nutrition-grades$/)
+			{
+				# Only allow indexation of a selected number of facets
+				# Ingredients were left out because of the number of possible ingredients (1.2M)
+				$request_ref->{no_index} = 1;
+			}
+			elsif ($request_ref->{page} >= 2) {
+				# Don't index facet pages with page number > 1 (we want only 1 index page per facet value)
+				$request_ref->{no_index} = 1;
+			}
+			elsif (defined $request_ref->{tagtype2}) {
+				# Don't index web pages with 2 nested tags: as an example, there are billions of combinations for
+				# category x ingredient alone
+				$request_ref->{no_index} = 1;
+			}
 		}
 	}
 
