@@ -55,14 +55,14 @@
                                             [% END %]
                                         },
                                         {
-                                            "text": "[% IF parent_material_data.weight_percent %][% round(parent_material_data.weight_percent) %]%[% END %]",
+                                            "text": "[% IF parent_material_data.weight_percent %][% round(parent_material_data.weight_percent * 10) / 10 %]%[% END %]",
                                         },                                        
                                         {
                                             "text": "[% IF parent_material_data.weight %][% parent_material_data.weight %] g[% END %]"
                                         },
                                         [% IF product.product_quantity %]
                                         {
-                                            "text": "[% IF parent_material_data.weight_100g %][% round(parent_material_data.weight_100g) %] g[% END %]"
+                                            "text": "[% IF parent_material_data.weight_100g %][% round(parent_material_data.weight_100g * 10 ) / 10 %] g[% END %]"
                                         },
                                         [% END %]
                                     ]

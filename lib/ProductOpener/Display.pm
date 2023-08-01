@@ -3963,14 +3963,6 @@ HTML
 						$user_template_data_ref->{edit_profile} = 1;
 						$user_template_data_ref->{orgid} = $orgid;
 					}
-					if (defined $User{pro_moderator}) {
-						my @org_members;
-						foreach my $member_id (sort keys %{$user_or_org_ref->{members}}) {
-							my $member_user_ref = retrieve_user($member_id);
-							push @org_members, $member_user_ref;
-						}
-						$user_template_data_ref->{org_members} = \@org_members;
-					}
 
 					process_template('web/pages/org_profile/org_profile.tt.html',
 						$user_template_data_ref, \$profile_html)
@@ -4248,6 +4240,9 @@ HTML
 	}
 	# Rendering Page tags
 	my $tag_html;
+	# TODO: is_crawl_bot should be added directly by process_template(),
+	# but we would need to add a new $request_ref parameter to process_template(), will do later
+	$tag_template_data_ref->{is_crawl_bot} = $request_ref->{is_crawl_bot};
 	process_template('web/pages/tag/tag.tt.html', $tag_template_data_ref, \$tag_html)
 		or $tag_html = "<p>tag.tt.html template error: " . $tt->error() . "</p>";
 

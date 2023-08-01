@@ -29,6 +29,7 @@ my %product_form = (
 	(
 		code => '0200000000235',
 		product_name => "Only-Product",
+		categories => "cakes",
 	)
 );
 
@@ -40,7 +41,7 @@ my $tests_ref = [
 		test_case => 'normal-user-access-product-page',
 		method => 'GET',
 		path => '/product/0200000000235/only-product',
-		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
+		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
 		response_content_must_match => '<title>Only-Product - 100 g</title>'
@@ -50,7 +51,7 @@ my $tests_ref = [
 		test_case => 'crawler-access-product-page',
 		method => 'GET',
 		path => '/product/0200000000235/only-product',
-		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
+		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
 		response_content_must_match => '<title>Only-Product - 100 g</title>'
@@ -114,6 +115,26 @@ my $tests_ref = [
 		expected_status_code => 200,
 		expected_type => 'html',
 		response_content_must_match => 'Unknown user.'
+	},
+	# Normal user should get facet knowledge panels
+	{
+		test_case => 'normal-user-get-facet-knowledge-panels',
+		method => 'GET',
+		path => '/category/cakes',
+		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
+		expected_status_code => 200,
+		expected_type => 'html',
+		response_content_must_match => 'Fetching facet knowledge panel'
+	},
+	# Crawling bot should have access to product page
+	{
+		test_case => 'crawler-does-not-get-facet-knowledge-panels',
+		method => 'GET',
+		path => '/category/cakes',
+		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
+		expected_status_code => 200,
+		expected_type => 'html',
+		response_content_must_not_match => 'Fetching facet knowledge panel'
 	},
 ];
 

@@ -61,6 +61,8 @@ BEGIN {
 		%ecoscore_countries_enabled
 		@ecoscore_countries_enabled_sorted
 
+		%agribalyse
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -78,7 +80,7 @@ use Text::CSV();
 use Math::Round;
 use Data::DeepAccess qw(deep_get deep_exists);
 
-my %agribalyse = ();
+%agribalyse = ();
 
 =head1 VARIABLES
 
@@ -102,7 +104,7 @@ foreach my $country (@ecoscore_countries_enabled_sorted) {
 
 =head1 FUNCTIONS
 
-=head2 load_agribalyse_data( $product_ref )
+=head2 load_agribalyse_data()
 
 Loads the AgriBalyse database.
 
