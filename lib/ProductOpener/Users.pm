@@ -937,7 +937,7 @@ sub retrieve_user ($user_id) {
 	return $user_ref;
 }
 
-sub email_has_off_account ($email) {
+sub is_email_has_off_account ($email) {
 
 	# First, check if the email exists in the users_emails.sto file
 	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
@@ -953,7 +953,7 @@ sub email_has_off_account ($email) {
 		}
 	}
 
-	return undef;    # Email is not associated with an OFF account
+	return;    # Email is not associated with an OFF account
 }
 
 sub remove_user_by_org_admin ($orgid, $user_id) {
@@ -976,7 +976,7 @@ sub add_users_to_org_by_admin ($org_id, $email_list) {
 
 	foreach my $email (@emails) {
 		# Check if the email is associated with an OpenFoodFacts account
-		my $user_id = email_has_off_account($email);
+		my $user_id = is_email_has_off_account($email);
 		if (defined $user_id) {
 			# Add the user to the organization
 			add_user_to_org($org_id, $user_id, ["members"]);
