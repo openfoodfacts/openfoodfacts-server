@@ -95,7 +95,7 @@ sub is_protected_image ($product_ref, $imagefield) {
 	my $selected_uploader = get_selected_image_uploader($product_ref, $imagefield);
 	my $owner = $product_ref->{owner};
 
-	if ((not $server_options{producers_platform}) and (defined $owner) and ($selected_uploader ne $owner)) {
+	if ((not $server_options{producers_platform}) and (defined $owner) and ($selected_uploader eq $owner)) {
 		return 1;    #image should be protected
 	}
 
