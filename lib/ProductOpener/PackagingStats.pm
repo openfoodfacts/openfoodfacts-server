@@ -517,6 +517,11 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 
 					my $weight_100g = deep_get($product_ref, "packagings_materials", $material, "weight_100g");
 
+					# Initialize the stats for the country / category / material if needed
+					defined $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
+						{$material} or $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
+						{$material} = {};
+
 					my $material_stats_ref
 						= $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
 						{$material};
@@ -538,18 +543,25 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 					# Record if it is the main material of the product
 					if (defined $product_ref->{packagings_materials_main}) {
 
+						# Initialize the stats for the country / category / material if needed
+						(defined $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
+						{$material}) or $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
+						{$material} = {};
+
+						my $main_material_stats_ref
+						= $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
+						{$material};
+
 						# Increment the number of products that have the material as their main material
-						deep_val($packagings_materials_stats_ref,
-							("countries", $country, "categories", $category, "materials", $material, "main_n"))
-							+= 1;
+						$main_material_stats_ref->{main_n} += 1;
 
 						# Record if the product has the material (1) or not (0): useful to compute percent
-						push @{$material_stats_ref->{main}{values}},
+						push @{$main_material_stats_ref->{main}{values}},
 							(($product_ref->{packagings_materials_main} eq $material) ? 1 : 0);
 
 						# Record the weight per 100g of product, for all products that have the material as their main material
 						if (defined $weight_100g) {
-							push @{$material_stats_ref->{weight_100g_main}{values}},
+							push @{$main_material_stats_ref->{weight_100g_main}{values}},
 								(($product_ref->{packagings_materials_main} eq $material) ? $weight_100g : 0);
 						}
 					}
