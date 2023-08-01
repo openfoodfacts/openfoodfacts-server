@@ -96,6 +96,26 @@ my $tests_ref = [
 		expected_type => 'html',
 		response_content_must_not_match => '<h1>NOINDEX</h1>'
 	},
+	# Crawling bot should not have access to list of tags
+	{
+		test_case => 'crawler-access-list-of-tags',
+		method => 'GET',
+		path => '/categories',
+		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
+		expected_status_code => 200,
+		expected_type => 'html',
+		response_content_must_match => '<h1>NOINDEX</h1>'
+	},
+	# Normal user should have access to list of tags
+	{
+		test_case => 'normal-user-access-category-facet-page',
+		method => 'GET',
+		path => '/categories',
+		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
+		expected_status_code => 200,
+		expected_type => 'html',
+		response_content_must_not_match => '<h1>NOINDEX</h1>'
+	},
 	# Crawling bot should receive a noindex page for most facet pages (including editor facet)
 	{
 		test_case => 'crawler-access-editor-facet-page',
