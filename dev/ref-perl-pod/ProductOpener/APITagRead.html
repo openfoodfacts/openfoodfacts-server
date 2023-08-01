@@ -26,7 +26,7 @@
   <li class='indexItem indexItem1'><a href='#NAME'>NAME</a>
   <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
   <ul   class='indexList indexList2'>
-    <li class='indexItem indexItem2'><a href='#read_product_api_(_%24request_ref_)'>read_product_api ( $request_ref )</a>
+    <li class='indexItem indexItem2'><a href='#read_tag_api_(_%24request_ref_)'>read_tag_api ( $request_ref )</a>
     <ul   class='indexList indexList3'>
       <li class='indexItem indexItem3'><a href='#Parameters'>Parameters</a>
       <ul   class='indexList indexList4'>
@@ -48,15 +48,13 @@ name="DESCRIPTION"
 >DESCRIPTION</a></h1>
 
 <h2><a class='u' href='#___top' title='click to go to top of document'
-name="read_product_api_(_$request_ref_)"
->read_product_api ( $request_ref )</a></h2>
+name="read_tag_api_(_$request_ref_)"
+>read_tag_api ( $request_ref )</a></h2>
 
-<p>Process API V3 READ product requests.</p>
+<p>Process API V3 READ tag requests.</p>
 
-<p>TODO: v0 / v1 / v2 READ product requests are still handled by Display::display_product_api () which contains similar code.
-Internally,
-we should be able to upgrade those requests to v3,
-and then customize the response to make it return the v2 expected response.</p>
+<p>Currently only return the knowledge_panels field for the tag,
+if any.</p>
 
 <h3><a class='u' href='#___top' title='click to go to top of document'
 name="Parameters"
