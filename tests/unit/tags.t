@@ -50,10 +50,10 @@ is(display_taxonomy_tag("en", "categories", "en:doesnotexist"), "Doesnotexist");
 is(display_taxonomy_tag("fr", "categories", "en:doesnotexist"), "en:doesnotexist");
 
 is(display_taxonomy_tag_link("fr", "categories", "en:doesnotexist"),
-	'<a href="/categorie/en:doesnotexist" class="tag user_defined" lang="en">en:doesnotexist</a>');
+	'<a href="/category/en:doesnotexist" class="tag user_defined" lang="en">en:doesnotexist</a>');
 
 is(display_tags_hierarchy_taxonomy("fr", "categories", ["en:doesnotexist"]),
-	'<a href="/categorie/en:doesnotexist" class="tag user_defined" lang="en">en:doesnotexist</a>');
+	'<a href="/category/en:doesnotexist" class="tag user_defined" lang="en">en:doesnotexist</a>');
 
 is(
 	display_tags_hierarchy_taxonomy("en", "categories", ["en:doesnotexist"]),

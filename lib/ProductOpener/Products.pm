@@ -2639,10 +2639,7 @@ sub product_url ($code_or_ref) {
 		$code = $code_or_ref;
 	}
 
-	my $path = $tag_type_singular{products}{$product_lc};
-	if (not defined $path) {
-		$path = $tag_type_singular{products}{en};
-	}
+	my $path = $tag_type_singular{products}{en};
 
 	my $titleid = '';
 	if (defined $ref) {

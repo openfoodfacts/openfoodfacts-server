@@ -2705,7 +2705,7 @@ sub display_tag_link ($tagtype, $tag) {
 
 	$tag = canonicalize_tag2($tagtype, $tag);
 
-	my $path = $tag_type_singular{$tagtype}{$lc};
+	my $path = $tag_type_singular{$tagtype}{en};
 
 	my $tag_lc = $lc;
 	if ($tag =~ /^(\w\w):/) {
@@ -2748,7 +2748,7 @@ sub canonicalize_taxonomy_tag_link ($target_lc, $tagtype, $tag) {
 	$tag = display_taxonomy_tag($target_lc, $tagtype, $tag);
 	my $tagurl = get_taxonomyurl($target_lc, $tag);
 
-	my $path = $tag_type_singular{$tagtype}{$target_lc};
+	my $path = $tag_type_singular{$tagtype}{en};
 	$log->info("tax tag 1 /$path/$tagurl") if $log->is_info();
 	return "/$path/$tagurl";
 }
@@ -2769,7 +2769,7 @@ sub display_taxonomy_tag_link ($target_lc, $tagtype, $tag) {
 		$tag = $';
 	}
 
-	my $path = $tag_type_singular{$tagtype}{$target_lc} // '';
+	my $path = $tag_type_singular{$tagtype}{en};
 
 	my $css_class = get_tag_css_class($target_lc, $tagtype, $tag);
 
@@ -4032,11 +4032,7 @@ sub canonicalize_tag_link ($tagtype, $tagid) {
 		}
 	}
 
-	my $path = $tag_type_singular{$tagtype}{$lang};
-	if (not defined $path) {
-		$path = $tag_type_singular{$tagtype}{en};
-	}
-
+	my $path = $tag_type_singular{$tagtype}{en};
 	my $link = "/$path/" . URI::Escape::XS::encodeURIComponent($tagid);
 
 	$log->info("canonicalize_tag_link $tagtype $tagid $path $link") if $log->is_info();
@@ -4097,7 +4093,7 @@ GEXF
 			$graph->add_node(
 				name => $tagid,
 				label => canonicalize_tag2($tagtype, $tagid),
-				URL => "http://$lc.openfoodfacts.org/" . $tag_type_singular{$tagtype}{$lc} . "/" . $tagid
+				URL => "http://$lc.openfoodfacts.org/" . $tag_type_singular{$tagtype}{en} . "/" . $tagid
 			);
 
 			if (defined $tags_direct_parents{$lc}{$tagtype}{$tagid}) {

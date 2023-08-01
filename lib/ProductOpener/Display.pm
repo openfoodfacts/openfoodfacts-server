@@ -1083,7 +1083,7 @@ sub display_index_for_producer ($request_ref) {
 		if ($count > 0) {
 			push @{$template_data_ref->{facets}},
 				{
-				url => "/" . $tag_type_plural{$tagtype}{$lc},
+				url => "/" . $tag_type_plural{$tagtype}{en},
 				number_of_products => lang("number_of_products_with_" . $tagtype),
 				count => $count,
 				};
@@ -1635,6 +1635,19 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	return $results;
 }
 
+=head2 display_list_of_tags ($request_ref, $query_ref)
+
+Return a page with list of tags, such as /brands or /labels.
+
+Given the tagtype, specific information can be added to the webpage:
+
+- over-exposure risks for additives (/additives)
+- histogram plot for nutrition-grades (/nutrition-grades) or NOVA groups (/nova-groups)
+- map for origin of ingredients (/origins)
+- ...
+
+=cut
+
 sub display_list_of_tags ($request_ref, $query_ref) {
 
 	my $results = query_list_of_tags($request_ref, $query_ref);
@@ -1759,9 +1772,9 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 		my $i = 0;
 		my $j = 0;
 
-		my $path = $tag_type_singular{$tagtype}{$lc};
+		my $path = $tag_type_singular{$tagtype}{en};
 
-		if (not defined $tag_type_singular{$tagtype}{$lc}) {
+		if (not defined $tag_type_singular{$tagtype}{en}) {
 			$log->error("no path defined for tagtype", {tagtype => $tagtype, lc => $lc}) if $log->is_error();
 			die();
 		}
@@ -2435,7 +2448,7 @@ sub display_list_of_tags_translate ($request_ref, $query_ref) {
 		my $to_be_translated = 0;
 		my $translated = 0;
 
-		my $path = $tag_type_singular{$tagtype}{$lc};
+		my $path = $tag_type_singular{$tagtype}{en};
 
 		my @tagcounts;
 
@@ -3120,8 +3133,8 @@ sub display_tag ($request_ref) {
 	}
 
 	if (defined $request_ref->{groupby_tagtype}) {
-		$request_ref->{current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
-		$request_ref->{world_current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
+		$request_ref->{current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{en};
+		$request_ref->{world_current_link} .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{en};
 	}
 
 	# If the query contained tags in non-canonical form, redirect to the form with the canonical tags
@@ -4071,7 +4084,7 @@ HTML
 			#---- tag_name would return-> Snacks -----
 
 			$tag_template_data_ref->{tagtype} = $tagtype;
-			$tag_template_data_ref->{tagtype_path} = '/' . $tag_type_plural{$tagtype}{$lc};
+			$tag_template_data_ref->{tagtype_path} = '/' . $tag_type_plural{$tagtype}{en};
 			$tag_template_data_ref->{tagtype_name} = lang($tagtype . '_s');
 			$tag_template_data_ref->{tagid} = $tagid;
 			$tag_template_data_ref->{tagid_path} = $newtagidpath;
@@ -4080,7 +4093,7 @@ HTML
 
 			if (defined $tagid2) {
 				$tag_template_data_ref->{tagtype2} = $tagtype2;
-				$tag_template_data_ref->{tagtype2_path} = '/' . $tag_type_plural{$tagtype2}{$lc};
+				$tag_template_data_ref->{tagtype2_path} = '/' . $tag_type_plural{$tagtype2}{en};
 				$tag_template_data_ref->{tagtype2_name} = lang($tagtype2 . '_s');
 				$tag_template_data_ref->{tagid2} = $tagid2;
 				$tag_template_data_ref->{tagid2_path} = $newtagid2path;
@@ -5280,7 +5293,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 				push @{$template_data_ref->{current_drilldown_fields}},
 					{
 					current_link => $request_ref->{current_link},
-					tag_type_plural => $tag_type_plural{$newtagtype}{$lc},
+					tag_type_plural => $tag_type_plural{$newtagtype}{en},
 					nofollow => $nofollow,
 					tagtype => $newtagtype,
 					};

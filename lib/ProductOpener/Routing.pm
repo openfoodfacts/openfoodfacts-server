@@ -297,7 +297,7 @@ sub analyze_request ($request_ref) {
 		# check the product code looks like a number
 		if ($components[1] =~ /^\d/) {
 			$request_ref->{redirect}
-				= $formatted_subdomain . '/' . $tag_type_singular{products}{$lc} . '/' . $components[1];
+				= $formatted_subdomain . '/' . $tag_type_singular{products}{en} . '/' . $components[1];
 		}
 		else {
 			$request_ref->{status_code} = 404;
@@ -387,7 +387,7 @@ sub analyze_request ($request_ref) {
 
 			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{$components[0]};
 			$request_ref->{stats_nid} = $nutriments_labels{$lc}{$components[1]};
-			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
+			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{en};
 			$canon_rel_url_suffix .= "/" . $components[1];
 			pop @components;
 			pop @components;
@@ -399,7 +399,7 @@ sub analyze_request ($request_ref) {
 		if (defined $tag_type_from_plural{$lc}{$components[-1]}) {
 
 			$request_ref->{groupby_tagtype} = $tag_type_from_plural{$lc}{pop @components};
-			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
+			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{en};
 			$log->debug("request looks like a list of tags", {groupby => $request_ref->{groupby_tagtype}, lc => $lc})
 				if $log->is_debug();
 		}
@@ -408,7 +408,7 @@ sub analyze_request ($request_ref) {
 
 			$request_ref->{groupby_tagtype} = $tag_type_from_plural{"en"}{pop @components};
 			# use $lc for canon url
-			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{$lc};
+			$canon_rel_url_suffix .= "/" . $tag_type_plural{$request_ref->{groupby_tagtype}}{en};
 			$log->debug("request looks like a list of tags", {groupby => $request_ref->{groupby_tagtype}, lc => "en"})
 				if $log->is_debug();
 		}
@@ -469,7 +469,7 @@ sub analyze_request ($request_ref) {
 			}
 
 			$request_ref->{canon_rel_url}
-				.= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $request_ref->{tag_prefix} . $request_ref->{tagid};
+				.= "/" . $tag_type_singular{$tagtype}{en} . "/" . $request_ref->{tag_prefix} . $request_ref->{tagid};
 
 			# 2nd tag?
 
@@ -525,7 +525,7 @@ sub analyze_request ($request_ref) {
 
 				$request_ref->{canon_rel_url}
 					.= "/"
-					. $tag_type_singular{$tagtype}{$lc} . "/"
+					. $tag_type_singular{$tagtype}{en} . "/"
 					. $request_ref->{tag2_prefix}
 					. $request_ref->{tagid2};
 			}
