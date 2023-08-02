@@ -921,7 +921,7 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 
 	my $is_crawl_bot = 0;
 	if ($user_agent
-		=~ /Googlebot|Googlebot-Image|bingbot|Applebot|YandexBot|YandexRenderResourcesBot|DuckDuckBot|DotBot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|www\.qwant\.com|facebookexternalhit/
+		=~ /Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|YandexBot|YandexRenderResourcesBot|DuckDuckBot|DotBot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|www\.qwant\.com|facebookexternalhit/
 		)
 	{
 		$is_crawl_bot = 1;
