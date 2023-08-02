@@ -545,7 +545,7 @@ function initializeTagifyInput(el) {
 
     let abortController;
     let debounceTimer;
-    let timeoutWait = 300;
+    const timeoutWait = 300;
 
     input.on("input", function(event) {
         const value = event.detail.value;
