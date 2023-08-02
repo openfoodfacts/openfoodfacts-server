@@ -916,11 +916,11 @@ Set two attributes to `request_ref`:
 =cut
 
 sub set_user_agent_request_ref_attributes ($request_ref) {
-	my $user_agent = user_agent();
-	$request_ref->{user_agent} = $user_agent;
+	my $user_agent_str = user_agent();
+	$request_ref->{user_agent} = $user_agent_str;
 
 	my $is_crawl_bot = 0;
-	if ($user_agent
+	if ($user_agent_str
 		=~ /Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|YandexBot|YandexRenderResourcesBot|DuckDuckBot|DotBot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|www\.qwant\.com|facebookexternalhit/
 		)
 	{
