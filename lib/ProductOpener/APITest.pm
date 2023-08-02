@@ -59,9 +59,10 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use ProductOpener::Producers qw/$minion/;
 use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Test qw/:all/;
-use ProductOpener::Mail qw/ $LOG_EMAIL_START $LOG_EMAIL_END /;
+use ProductOpener::Mail qw/$LOG_EMAIL_START $LOG_EMAIL_END/;
 use ProductOpener::Store qw/store retrieve/;
 
 use Test::More;
