@@ -56,6 +56,7 @@ BEGIN {
 
 		&display_structured_response
 		&display_no_index_page_and_exit
+		&display_robots_txt_and_exit
 		&display_page
 		&display_text
 		&display_points
@@ -573,6 +574,8 @@ sub init_request ($request_ref = {}) {
 	# in the HTML headers. This is only done for known web crawlers (Google, Bing, Yandex,...) on webpages that
 	# trigger heavy DB aggregation queries and overload our server.
 	$request_ref->{no_index} = 0;
+	# If deny_all_robots_txt=1, serve a version of robots.txt where all agents are denied access (Disallow: /)
+	$request_ref->{deny_all_robots_txt} = 0;
 
 	# TODO: global variables should be moved to $request_ref
 	$styles = '';
@@ -745,9 +748,15 @@ sub init_request ($request_ref = {}) {
 
 	# If lc is not one of the official languages of the country and if the request comes from
 	# a bot crawler, don't index the webpage (return an empty noindex HTML page)
-	# It also disables every world-{lc} combinations for lc != 'en' for web crawlers
-	if (!($lc ~~ $country_languages{$cc}) and ($request_ref->{is_crawl_bot} eq 1)) {
-		$request_ref->{no_index} = 1;
+	# We also disable indexing for all subdomains that don't have the format world, cc or cc-lc
+	my $hostname_components_count = $hostname =~ tr/\.//;
+	if ((!($lc ~~ $country_languages{$cc})) or $hostname_components_count ne 2 or $subdomain =~ /^(ssl-)?api/) {
+		# Use robots.txt with disallow: / for all agents
+		$request_ref->{deny_all_robots_txt} = 1;
+
+		if ($request_ref->{is_crawl_bot} eq 1) {
+			$request_ref->{no_index} = 1;
+		}
 	}
 
 	# select the nutriment table format according to the country
@@ -1082,6 +1091,33 @@ sub display_no_index_page_and_exit () {
 	binmode(STDOUT, ":encoding(UTF-8)");
 	print $html;
 	return;
+	exit();
+}
+
+=head2 display_robots_txt_and_exit ($deny_access)
+
+Return robots.txt page and exit.
+
+robots.txt depends on $deny_access value. It can either be:
+- if $deny_access is 1: a robots.txt where we deny all traffic
+  combinations. The file is available in html/robots/deny.txt
+- otherwise: the standard robots.txt, available in html/robots/standard.txt
+
+=cut
+
+sub display_robots_txt_and_exit ($deny_access) {
+	my $file_path = "$www_root/robots/standard.txt";
+	if ($deny_access eq 1) {
+		$file_path = "$www_root/robots/deny.txt";
+	}
+	$log->info("robots.txt file path: " . $file_path);
+	open(my $IN, "<:encoding(UTF-8)", $file_path) or die "cannot open $file_path";
+	my $text = join('', (<$IN>));
+	close($IN);
+
+	my $r = Apache2::RequestUtil->request();
+	$r->content_type("text/plain");
+	print $text;
 	exit();
 }
 

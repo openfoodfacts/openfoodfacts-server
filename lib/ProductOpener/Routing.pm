@@ -97,6 +97,14 @@ sub analyze_request ($request_ref) {
 	$log->debug("analyzing query_string, step 0 - unmodified", {query_string => $request_ref->{query_string}})
 		if $log->is_debug();
 
+	if ($request_ref->{query_string} eq "robots.txt") {
+		# robots.txt depends on the subdomain. It can either be:
+		# - the standard robots.txt, available in html/robots/standard.txt
+		# - a robots.txt where we deny all trafic, only for non-authorized cc-lc
+		#   combinations. The file is available in html/robots/deny.txt
+		display_robots_txt_and_exit($request_ref->{deny_all_robots_txt});
+	}
+
 	# Remove ref and utm_* parameters
 	# Examples:
 	# https://world.openfoodfacts.org/?utm_content=bufferbd4aa&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer
