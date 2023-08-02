@@ -156,6 +156,37 @@ my $tests_ref = [
 		expected_type => 'html',
 		response_content_must_not_match => 'Fetching facet knowledge panel'
 	},
+	# Normal user should get access to every possible cc-lc combination
+	{
+		test_case => 'normal-user-get-non-official-cc-lc',
+		method => 'GET',
+		path => '/?cc=ch&lc=es',
+		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
+		expected_status_code => 200,
+		expected_type => 'html',
+		response_content_must_not_match => '<h1>NOINDEX</h1>'
+	},
+	# Crawling bot should not have access to non official cc-lc combination
+	# Here lc=es is not an official language of cc=ch
+	{
+		test_case => 'crawler-get-non-official-cc-lc',
+		method => 'GET',
+		path => '/?cc=ch&lc=es',
+		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
+		expected_status_code => 200,
+		expected_type => 'html',
+		response_content_must_match => '<h1>NOINDEX</h1>'
+	},
+	# Crawling bot should not have access to world-{lc} where lc != en
+	{
+		test_case => 'crawler-get-non-official-cc-lc',
+		method => 'GET',
+		path => '/?cc=world&lc=es',
+		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
+		expected_status_code => 200,
+		expected_type => 'html',
+		response_content_must_match => '<h1>NOINDEX</h1>'
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

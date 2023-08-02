@@ -566,6 +566,14 @@ sub init_request ($request_ref = {}) {
 	# remove the / to normalize the query string, as we use it to build some redirect urls
 	$request_ref->{original_query_string} =~ s/^\///;
 
+	# Set $request_ref->{is_crawl_bot}
+	set_user_agent_request_ref_attributes($request_ref);
+
+	# `no_index` specifies whether we send an empty HTML page with a <meta name="robots" content="noindex">
+	# in the HTML headers. This is only done for known web crawlers (Google, Bing, Yandex,...) on webpages that
+	# trigger heavy DB aggregation queries and overload our server.
+	$request_ref->{no_index} = 0;
+
 	# TODO: global variables should be moved to $request_ref
 	$styles = '';
 	$scripts = '';
@@ -614,6 +622,7 @@ sub init_request ($request_ref = {}) {
 		($cc, $country, $lc) = ('world', 'en:world', 'en');
 	}
 	elsif (defined $country_codes{$subdomain}) {
+		# subdomain is the country code: fr.openfoodfacts.org, uk.openfoodfacts.org,...
 		local $log->context->{subdomain_format} = 1;
 
 		$cc = $subdomain;
@@ -633,6 +642,7 @@ sub init_request ($request_ref = {}) {
 
 	}
 	elsif ($subdomain =~ /(.*?)-(.*)/) {
+		# subdomain contains the country code and the language code: world-fr.openfoodfacts.org, ch-it.openfoodfacts.org,...
 		local $log->context->{subdomain_format} = 2;
 		$log->debug("subdomain in cc-lc format - checking values",
 			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country})
@@ -731,6 +741,13 @@ sub init_request ($request_ref = {}) {
 		if (not((defined $country_languages{$cc}[0]) and ($lc eq $country_languages{$cc}[0]))) {
 			$subdomain .= "-" . $lc;
 		}
+	}
+
+	# If lc is not one of the official languages of the country and if the request comes from
+	# a bot crawler, don't index the webpage (return an empty noindex HTML page)
+	# It also disables every world-{lc} combinations for lc != 'en' for web crawlers
+	if (!($lc ~~ $country_languages{$cc}) and ($request_ref->{is_crawl_bot} eq 1)) {
+		$request_ref->{no_index} = 1;
 	}
 
 	# select the nutriment table format according to the country
@@ -883,7 +900,6 @@ CSS
 	$request_ref->{cc} = $cc;
 	$request_ref->{country} = $country;
 	$request_ref->{lcs} = \@lcs;
-	set_user_agent_request_ref_attributes($request_ref);
 
 	return $request_ref;
 }
