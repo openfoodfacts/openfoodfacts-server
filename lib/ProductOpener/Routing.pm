@@ -94,11 +94,6 @@ sub analyze_request ($request_ref) {
 
 	$request_ref->{query_string} = $request_ref->{original_query_string};
 
-	# `no_index` specifies whether we send an empty HTML page with a <meta name="robots" content="noindex">
-	# in the HTML headers. This is only done for known web crawlers (Google, Bing, Yandex,...) on webpages that
-	# trigger heavy DB aggregation queries and overload our server.
-	$request_ref->{no_index} = 0;
-
 	$log->debug("analyzing query_string, step 0 - unmodified", {query_string => $request_ref->{query_string}})
 		if $log->is_debug();
 
@@ -576,6 +571,7 @@ sub analyze_request ($request_ref) {
 	# Return noindex empty HTML page for web crawlers that crawl specific facet pages
 	if ($request_ref->{is_crawl_bot} eq 1) {
 		if (defined $request_ref->{groupby_tagtype}) {
+			# $request_ref->{no_index} is set to 0 by default in init_request()
 			$request_ref->{no_index} = 1;
 		}
 		elsif (defined $request_ref->{tagtype}) {
