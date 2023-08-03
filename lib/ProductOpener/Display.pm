@@ -1131,8 +1131,8 @@ sub display_robots_txt_and_exit ($request_ref) {
 				defined $tag_value_plural
 				and length($tag_value_plural)
 				!= 0
-				# ecoscore has the same value for singular and plural
-				and ($type ne 'ecoscore') and not($tag_value_plural ~~ $vars->{disallow_paths_localized})
+				# ecoscore has the same value for singular and plural, and products should not be disabled
+				and ($type !~ /^ecoscore|products$/) and not($tag_value_plural ~~ $vars->{disallow_paths_localized})
 				)
 			{
 				push(@{$vars->{disallow_paths_localized}}, $tag_value_plural);

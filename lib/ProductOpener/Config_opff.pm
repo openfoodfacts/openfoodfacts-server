@@ -267,7 +267,7 @@ XML
 	= qw(states countries languages labels categories additives additives_classes vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces nutrient_levels misc ingredients nova_groups);
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
-@index_tag_types = qw(brands categories labels additives nova_groups nutrition_grades);
+@index_tag_types = qw(brands categories labels additives nova_groups nutrition_grades products);
 
 # fields in product edit form, above ingredients and nutrition facts
 

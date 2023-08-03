@@ -625,7 +625,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 );
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
-@index_tag_types = qw(brands categories labels additives nova_groups ecoscore nutrition_grades);
+@index_tag_types = qw(brands categories labels additives nova_groups ecoscore nutrition_grades products);
 
 # fields in product edit form, above ingredients and nutrition facts
 

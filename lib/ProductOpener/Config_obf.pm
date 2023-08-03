@@ -243,7 +243,7 @@ HTML
 	= qw(states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening inci_functions);
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
-@index_tag_types = qw(brands categories labels additives);
+@index_tag_types = qw(brands categories labels additives products);
 
 # fields in product edit form, above ingredients and nutrition facts
 
