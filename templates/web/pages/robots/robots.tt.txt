@@ -3,6 +3,9 @@ Disallow: /
 [% ELSE %]User-agent: *
 Allow: /cgi/product_image.pl
 Allow: /cgi/opensearch.pl
+Disallow: /cgi
+Disallow: /code
+Disallow: /api
 [% FOREACH path IN disallow_paths_localized %]Disallow: /[% path %]
 [% END %]
 
@@ -47,8 +50,6 @@ Disallow: /
 User-agent: Cliqzbot/3.0
 Disallow: /
 User-agent: Cliqzbot
-Disallow: /
-User-agent: SeekportBot
 Disallow: /
 User-agent: SeekportBot
 Disallow: /
