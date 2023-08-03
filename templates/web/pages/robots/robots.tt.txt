@@ -1,8 +1,6 @@
-[% IF deny_access %]
-User-agent: *
+[% IF deny_access %]User-agent: *
 Disallow: /
-[% ELSE %]
-User-agent: *
+[% ELSE %]User-agent: *
 Allow: /cgi/product_image.pl
 Allow: /cgi/opensearch.pl
 [% FOREACH path IN disallow_paths_localized %]Disallow: /[% path %]

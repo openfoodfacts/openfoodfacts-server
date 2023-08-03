@@ -187,6 +187,70 @@ my $tests_ref = [
 		expected_type => 'html',
 		response_content_must_match => '<h1>NOINDEX</h1>'
 	},
+	# Indexing should be disabled on all world-{lc} subdomains
+	{
+		test_case => 'get-robots-txt-word-lc-subdomain',
+		path => '/robots.txt',
+		subdomain => 'world-it',
+		expected_type => 'html',
+		response_content_must_match => '^User-agent: \*\\nDisallow: /\\n$'
+	},
+	# Indexing should be disabled on invalid {cc}-{lc} subdomains
+	{
+		test_case => 'get-robots-txt-invalid-cc-lc-subdomain',
+		path => '/robots.txt',
+		subdomain => 'es-it',
+		expected_type => 'html',
+		response_content_must_match => '^User-agent: \*\\nDisallow: /\\n$'
+	},
+	# Indexing should be disabled selectively on valid {cc}-{lc} subdomains
+	{
+		test_case => 'get-robots-txt-ch-it',
+		path => '/robots.txt',
+		subdomain => 'ch-it',
+		expected_type => 'html',
+		response_content_must_match => '^User-agent: \*\\nAllow: /cgi/product_image\.pl\\nAllow: /cgi/opensearch\.pl'
+	},
+	# Indexing should be disabled on ssl-api subdomain
+	{
+		test_case => 'get-robots-txt-ssl-api-subdomain',
+		path => '/robots.txt',
+		subdomain => 'ssl-api',
+		expected_type => 'html',
+		response_content_must_match => '^User-agent: \*\\nDisallow: /\\n$'
+	},
+	# Indexing should be disabled on all {lc}-pro platform
+	{
+		test_case => 'get-robots-txt-fr-pro-platform',
+		path => '/robots.txt',
+		subdomain => 'fr.pro',
+		expected_type => 'html',
+		response_content_must_match => '^User-agent: \*\\nDisallow: /\\n$'
+	},
+	# Indexing should be disabled on world.prod platform
+	{
+		test_case => 'get-robots-txt-world-pro-platform',
+		path => '/robots.txt',
+		subdomain => 'world.pro',
+		expected_type => 'html',
+		response_content_must_match => '^User-agent: \*\\nDisallow: /\\n$'
+	},
+	# Indexing should be disabled selectively (facet pages only) on {lc} subdomains
+	{
+		test_case => 'get-robots-txt-fr',
+		path => '/robots.txt',
+		subdomain => 'fr',
+		expected_type => 'html',
+		response_content_must_match => 'Disallow: /qualite-des-donnees'
+	},
+	# Indexing should be disabled selectively (facet pages only) on world subdomains
+	{
+		test_case => 'get-robots-txt-world',
+		path => '/robots.txt',
+		subdomain => 'world',
+		expected_type => 'html',
+		response_content_must_match => 'User-agent: \*\\nAllow: /cgi/product_image\.pl\\nAllow: /cgi/opensearch\.pl'
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
