@@ -1094,27 +1094,54 @@ sub display_no_index_page_and_exit () {
 	exit();
 }
 
-=head2 display_robots_txt_and_exit ($deny_access)
+=head2 display_robots_txt_and_exit ($request_ref)
 
 Return robots.txt page and exit.
 
-robots.txt depends on $deny_access value. It can either be:
-- if $deny_access is 1: a robots.txt where we deny all traffic
-  combinations. The file is available in html/robots/deny.txt
-- otherwise: the standard robots.txt, available in html/robots/standard.txt
+robots.txt is dynamically generated based on lc, it's content depends on $request_ref:
+- if $request_ref->{deny_all_robots_txt} is 1: a robots.txt where we deny all traffic
+  combinations.
+- otherwise: the standard robots.txt. We disallow indexing of most facet pages, the
+  exceptions can be found in ProductOpener::Config::index_tag_types
 
 =cut
 
-sub display_robots_txt_and_exit ($deny_access) {
-	my $file_path = "$www_root/robots/standard.txt";
-	if ($deny_access eq 1) {
-		$file_path = "$www_root/robots/deny.txt";
-	}
-	$log->info("robots.txt file path: " . $file_path);
-	open(my $IN, "<:encoding(UTF-8)", $file_path) or die "cannot open $file_path";
-	my $text = join('', (<$IN>));
-	close($IN);
+sub display_robots_txt_and_exit ($request_ref) {
+	my $template_data_ref = {facets => []};
+	my $vars = {deny_access => $request_ref->{deny_all_robots_txt}, disallow_paths_localized => []};
 
+	foreach my $type (keys %tag_type_singular) {
+		# Get facet name for both english and the request language
+		foreach my $lang ('en', $request_ref->{lc}) {
+			my $tag_value_singular = $tag_type_singular{$type}{$lang};
+			my $tag_value_plural = $tag_type_plural{$type}{$lang};
+			if (
+					defined $tag_value_singular
+				and length($tag_value_singular) != 0
+				and not($tag_value_singular ~~ $vars->{disallow_paths_localized})
+				# check that it's not one of the exception
+				# we don't perform this check below for list of tags pages as all list of
+				# tags pages are not indexable
+				and not($type ~~ @ProductOpener::Config::index_tag_types)
+				)
+			{
+				push(@{$vars->{disallow_paths_localized}}, $tag_value_singular);
+			}
+			if (
+				defined $tag_value_plural
+				and length($tag_value_plural)
+				!= 0
+				# ecoscore has the same value for singular and plural
+				and ($type ne 'ecoscore') and not($tag_value_plural ~~ $vars->{disallow_paths_localized})
+				)
+			{
+				push(@{$vars->{disallow_paths_localized}}, $tag_value_plural);
+			}
+		}
+	}
+
+	my $text;
+	$tt->process("web/pages/robots/robots.tt.txt", $vars, \$text);
 	my $r = Apache2::RequestUtil->request();
 	$r->content_type("text/plain");
 	print $text;

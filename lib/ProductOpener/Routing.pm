@@ -102,7 +102,7 @@ sub analyze_request ($request_ref) {
 		# - the standard robots.txt, available in html/robots/standard.txt
 		# - a robots.txt where we deny all trafic, only for non-authorized cc-lc
 		#   combinations. The file is available in html/robots/deny.txt
-		display_robots_txt_and_exit($request_ref->{deny_all_robots_txt});
+		display_robots_txt_and_exit($request_ref);
 	}
 
 	# Remove ref and utm_* parameters
@@ -583,8 +583,7 @@ sub analyze_request ($request_ref) {
 			$request_ref->{no_index} = 1;
 		}
 		elsif (defined $request_ref->{tagtype}) {
-			if ($request_ref->{tagtype} !~ /^brands|categories|labels|additives|nova-groups|ecoscore|nutrition-grades$/)
-			{
+			if (not($request_ref->{tagtype} ~~ @ProductOpener::Config::index_tag_types)) {
 				# Only allow indexation of a selected number of facets
 				# Ingredients were left out because of the number of possible ingredients (1.2M)
 				$request_ref->{no_index} = 1;

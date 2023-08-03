@@ -1,51 +1,12 @@
+[% IF deny_access %]
+User-agent: *
+Disallow: /
+[% ELSE %]
 User-agent: *
 Allow: /cgi/product_image.pl
 Allow: /cgi/opensearch.pl
-Disallow: /cgi
-Disallow: /code
-Disallow: /api
-Disallow: /countries
-Disallow: /country
-Disallow: /packaging
-Disallow: /origins
-Disallow: /origin
-Disallow: /manufacturing-places
-Disallow: /manufacturing-place
-Disallow: /packager-codes
-Disallow: /packager-code
-Disallow: /ingredients
-Disallow: /ingredient
-Disallow: /vitamins
-Disallow: /vitamin
-Disallow: /minerals
-Disallow: /mineral
-Disallow: /amino-acids
-Disallow: /amino-acid
-Disallow: /nucleotides
-Disallow: /nucleotide
-Disallow: /other-nutritional-substances
-Disallow: /other-nutritional-substance
-Disallow: /allergens
-Disallow: /allergen
-Disallow: /traces
-Disallow: /trace
-Disallow: /misc
-Disallow: /languages
-Disallow: /language
-Disallow: /contributors
-Disallow: /contributor
-Disallow: /states
-Disallow: /state
-Disallow: /data-sources
-Disallow: /data-source
-Disallow: /entry-dates
-Disallow: /entry-date
-Disallow: /last-edit-dates
-Disallow: /last-edit-date
-Disallow: /last-check-dates
-Disallow: /last-check-date
-Disallow: /teams
-Disallow: /team
+[% FOREACH path IN disallow_paths_localized %]Disallow: /[% path %]
+[% END %]
 
 # Disallow: Bingbot (temporary test)
 User-agent: Bingbot
@@ -124,3 +85,4 @@ Disallow: /
 
 User-agent: DataForSeoBot
 Disallow: /
+[% END %]
