@@ -374,16 +374,22 @@ elsif ($action eq 'process') {
 	elsif ($type eq 'add_users') {
 		if (is_user_in_org_group($org_ref, $User_id, "admins")) {
 			my $email_list = remove_tags_and_quote(single_param('email_list'));
-			my $result = add_users_to_org_by_admin($orgid, $email_list);
-			if ($result) {
-				# Users added successfully
-				$template_data_ref->{result} = "Users added to the organization successfully.";
+			my $email_ref = add_users_to_org_by_admin($orgid, $email_list);
 
+			my @messages;
+
+			if (@{$email_ref->{invited}}) {
+				# Some users need to create an OFF account
+				my $emails_invited_str = join("<br>&rarr; ", @{$email_ref->{invited}});
+				push @messages,
+					"<h3>Please ask the following users to create an Open Food Facts account first:</h3><br>&rarr; $emails_invited_str.";
 			}
-			else {
-				# Error handling if user does not exist
-				$template_data_ref->{result} = "Users matching some of the emails does not exist";
+			if (@{$email_ref->{added}}) {
+				# All users added successfully
+				my $emails_added_str = join("<br>&rarr; ", @{$email_ref->{added}});
+				push @messages, "<h3>Users added to the organization successfully:</h3><br>&rarr; $emails_added_str.";
 			}
+			$template_data_ref->{result} = join("<br>", @messages);
 		}
 	}
 

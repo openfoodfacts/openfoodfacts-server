@@ -971,23 +971,34 @@ sub remove_user_by_org_admin ($orgid, $user_id) {
 
 sub add_users_to_org_by_admin ($org_id, $email_list) {
 
+	my @emails_added;
+	my @emails_invited;
+
 	# Convert the email_list into an array of email addresses
 	my @emails = split(/,\s*/, $email_list);
 
 	foreach my $email (@emails) {
+
 		# Check if the email is associated with an OpenFoodFacts account
 		my $user_id = is_email_has_off_account($email);
 		if (defined $user_id) {
 			# Add the user to the organization
 			add_user_to_org($org_id, $user_id, ["members"]);
+			push @emails_added, $email;
 		}
 		else {
-			# we can send an invitation email to the user
-			return 0;
+
+			push @emails_invited, $email;
+
 		}
 	}
+	my $email_ref = {
+		added => \@emails_added,
+		invited => \@emails_invited,
+	};
+	$log->debug("The list of email ids ", {emails_list => $email_ref}) if $log->is_debug();
 
-	return 1;
+	return $email_ref;
 }
 
 sub init_user ($request_ref) {
