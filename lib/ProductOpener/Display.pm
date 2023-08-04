@@ -1177,17 +1177,6 @@ sub display_text ($request_ref) {
 		return $html;
 	};
 
-	my $replace_query = sub ($query) {
-
-		my $query_ref = decode_json($query);
-		my $sort_by = undef;
-		if (defined $query_ref->{sort_by}) {
-			$sort_by = $query_ref->{sort_by};
-			delete $query_ref->{sort_by};
-		}
-		return search_and_display_products({}, $query_ref, $sort_by, undef, undef);
-	};
-
 	if ($file =~ /\/index-pro/) {
 		# On the producers platform, display products only if the owner is logged in
 		# and has an associated org or is a moderator
@@ -1200,8 +1189,6 @@ sub display_text ($request_ref) {
 		# Display all products
 		$html .= search_and_display_products($request_ref, {}, "last_modified_t_complete_first", undef, undef);
 	}
-
-	$html =~ s/\[\[query:(.*?)\]\]/$replace_query->($1)/eg;
 
 	# Replace included texts
 	$html =~ s/\[\[(.*?)\]\]/$replace_file->($1)/eg;
