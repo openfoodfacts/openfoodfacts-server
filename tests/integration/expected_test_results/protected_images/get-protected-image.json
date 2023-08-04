@@ -5,20 +5,20 @@
       "1" : {
         "sizes" : {
           "100" : {
-            "h" : 92,
+            "h" : 67,
             "w" : 100
           },
           "400" : {
             "h" : 183,
-            "w" : 200
+            "w" : 275
           },
           "full" : {
             "h" : 183,
-            "w" : 200
+            "w" : 275
           }
         },
         "uploaded_t" : "--ignore--",
-        "uploader" : "tests"
+        "uploader" : "sample-owner"
       },
       "2" : {
         "sizes" : {
@@ -42,25 +42,25 @@
         "angle" : 0,
         "coordinates_image_size" : "full",
         "geometry" : "0x0--1--1",
-        "imgid" : "2",
+        "imgid" : "1",
         "normalize" : null,
-        "rev" : "6",
+        "rev" : "4",
         "sizes" : {
           "100" : {
-            "h" : 92,
+            "h" : 67,
             "w" : 100
           },
           "200" : {
-            "h" : 183,
+            "h" : 133,
             "w" : 200
           },
           "400" : {
             "h" : 183,
-            "w" : 200
+            "w" : 275
           },
           "full" : {
             "h" : 183,
-            "w" : 200
+            "w" : 275
           }
         },
         "white_magic" : null,
@@ -70,17 +70,17 @@
         "y2" : "-1"
       }
     },
-    "owner" : "sample",
+    "owner" : "sample-owner",
     "selected_images" : {
       "front" : {
         "display" : {
-          "en" : "http://images.openfoodfacts.localhost/images/products/090/000/000/0139/front_en.6.400.jpg"
+          "en" : "http://images.openfoodfacts.localhost/images/products/090/000/000/0139/front_en.4.400.jpg"
         },
         "small" : {
-          "en" : "http://images.openfoodfacts.localhost/images/products/090/000/000/0139/front_en.6.200.jpg"
+          "en" : "http://images.openfoodfacts.localhost/images/products/090/000/000/0139/front_en.4.200.jpg"
         },
         "thumb" : {
-          "en" : "http://images.openfoodfacts.localhost/images/products/090/000/000/0139/front_en.6.100.jpg"
+          "en" : "http://images.openfoodfacts.localhost/images/products/090/000/000/0139/front_en.4.100.jpg"
         }
       }
     }

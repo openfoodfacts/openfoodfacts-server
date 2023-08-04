@@ -19,9 +19,10 @@ remove_all_products();
 wait_application_ready();
 my $sample_products_images_path = dirname(__FILE__) . "/inputs/upload_images";
 
-# Create an admin
-my $admin_ua = new_client();
-my $resp = create_user($admin_ua, \%admin_user_form);
+# Create an owner
+my $owner_ua = new_client();
+my %create_user_argss = (%default_user_form, (name => 'sample-owner', userid => "sample-owner"));
+my $resp = create_user($owner_ua, \%create_user_argss);
 ok(!html_displays_error($resp));
 
 # Create a normal user
@@ -57,12 +58,12 @@ my @products = (
 );
 # create the products in the database
 foreach my $product_form_override (@products) {
-	edit_product($ua, $product_form_override);
+	edit_product($owner_ua, $product_form_override);
 }
 
 # Setting the owner of the product
 my $product_ref = retrieve_product('0900000000139');
-$product_ref->{owner} = "sample", store_product("sample", $product_ref, "protecting image");
+$product_ref->{owner} = "sample-owner", store_product("sample-owner", $product_ref, "protecting image");
 
 my $tests_ref = [
 
@@ -74,9 +75,10 @@ my $tests_ref = [
 
 			code => '0900000000139',
 			imagefield => "front_en",
-			imgupload_front_en => ["$sample_products_images_path/front_en.4.full.jpg", 'front_en.4.full.jpg'],
+			imgupload_front_en => ["$sample_products_images_path/pulses-cereals.jpg", 'pulses-cereals.jpg'],
 		},
-
+		ua => $owner_ua,
+		expected_status => 200,
 	},
 
 	{
@@ -88,7 +90,8 @@ my $tests_ref = [
 			imagefield => "front_en",
 			imgupload_front_en => ["$sample_products_images_path/1.jpg", '1.jpg'],
 		},
-
+		ua => $ua,
+		expected_status => 403,
 	},
 	{
 		test_case => 'get-protected-image',

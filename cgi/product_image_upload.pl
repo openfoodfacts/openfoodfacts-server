@@ -237,10 +237,11 @@ if ($imagefield) {
 
 	my $imgid;
 	my $debug_string;
-	my $imgid_returncode;
+
 	my $imagefield_or_filename = $imagefield;
 	(defined $tmp_filename) and $imagefield_or_filename = $tmp_filename;
-	$imgid_returncode
+
+	my $imgid_returncode
 		= process_image_upload($product_id, $imagefield_or_filename, $User_id, time(), "image upload", \$imgid,
 		\$debug_string);
 
@@ -313,8 +314,8 @@ if ($imagefield) {
 			# Changed 2020-04-20: don't overwrite selected images if the source is the product edit form
 			and (  (not defined single_param('source'))
 				or (single_param('source') ne "product_edit_form")
-				or (not defined $product_ref->{images}{$imagefield}) and ($User{moderator})
-				or (not is_protected_image($product_ref, $imagefield)))
+				or (not defined $product_ref->{images}{$imagefield}))
+			and (not is_protected_image($product_ref, $imagefield) or $User{moderator})
 
 			)
 		{
