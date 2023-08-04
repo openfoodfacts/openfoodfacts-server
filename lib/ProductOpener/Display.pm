@@ -4240,6 +4240,9 @@ HTML
 	}
 	# Rendering Page tags
 	my $tag_html;
+	# TODO: is_crawl_bot should be added directly by process_template(),
+	# but we would need to add a new $request_ref parameter to process_template(), will do later
+	$tag_template_data_ref->{is_crawl_bot} = $request_ref->{is_crawl_bot};
 	process_template('web/pages/tag/tag.tt.html', $tag_template_data_ref, \$tag_html)
 		or $tag_html = "<p>tag.tt.html template error: " . $tt->error() . "</p>";
 
