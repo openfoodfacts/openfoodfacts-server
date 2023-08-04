@@ -1372,9 +1372,17 @@ sub get_cache_results ($key, $request_ref) {
 sub set_cache_results ($key, $results) {
 
 	$log->debug("Setting value for MongoDB query key", {key => $key}) if $log->is_debug();
+	my $result_size = total_size($results);
+
+	# memcached max object size is 1 048 576 bytes
+	if ($result_size >= 1048576) {
+		$mongodb_log->info(
+			"set_cache_results - skipping - setting value - key: $key (total_size: $result_size > max size)");
+		return;
+	}
 
 	if ($mongodb_log->is_debug()) {
-		$mongodb_log->debug("set_cache_results - setting value - key: $key - total_size: " . total_size($results));
+		$mongodb_log->debug("set_cache_results - setting value - key: $key - total_size: $result_size");
 	}
 
 	if ($memd->set($key, $results, 3600)) {
@@ -4773,6 +4781,34 @@ sub add_params_to_query ($request_ref, $query_ref) {
 	}
 	return;
 }
+
+=head2 search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $page)
+
+Search products and return an HTML snippet that should be included in the webpage.
+
+=head3 Parameters
+
+=head4 $request_ref
+
+Reference to the internal request object.
+
+=head4 $query_ref
+
+Reference to the MongoDB query object.
+
+=head4 $sort_by
+
+A string indicating how to sort results (created_t, popularity,...), or a sorting subroutine.
+
+=head4 $limit
+
+Limit of the number of products to return.
+
+=head4 $page
+
+Requested page (first page starts at 1).
+
+=cut
 
 sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $page) {
 
