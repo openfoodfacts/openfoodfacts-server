@@ -7,7 +7,8 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: GoogleCloudPlatform/release-please-action@v3
+      - id: release
+        uses: google-github-actions/release-please-action@v3.7.11
         with:
           # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
           # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
@@ -24,3 +25,51 @@ jobs:
               {"type":"docs","section":"Technical","hidden":false},
               {"type":"test","section":"Technical","hidden":false}
             ]
+      - name: Wait for frontend container build workflow
+        # only if a new release was created
+        if: ${{ steps.release.outputs.release_created }}
+        id: wait-build
+        uses: tomchv/wait-my-workflow@v1.1.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: build (frontend)
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          intervalSeconds: 10
+          timeoutSeconds: 600 # 10m
+      - name: get a stripped version of tag_name
+        # only if a new release was created
+        if: ${{ steps.release.outputs.release_created }}
+        run: |
+          TAG_NAME="${{ steps.release.outputs.tag_name }}"
+          # remove eventual initial v
+          STRIPPED_TAG_NAME=${TAG_NAME/v/}
+          echo "TAG_NAME=$STRIPPED_TAG_NAME" >> $GITHUB_ENV
+      - name: get js dist files to add to the release
+        # only if a new release was created
+        if: ${{ steps.release.outputs.release_created }}
+        id: create-frontend-dist-tar
+        run : |
+          # directory to put files in
+          mkdir -p /tmp/frontend-dist
+          # download docker image corresponding to the tag
+          image_name=ghcr.io/${{ github.repository }}/frontend:${{ env.TAG_NAME }}
+          docker pull $image_name
+          # extract the dist files, we create a temporary docker container and use docker cp
+          id=$(docker create $image_name)
+          docker cp -a $id:/opt/product-opener/html/css/dist/ /tmp/frontend-dist/css/
+          docker cp -a $id:/opt/product-opener/html/images/icons/dist/ /tmp/frontend-dist/icons/
+          docker cp -a $id:/opt/product-opener/html/js/dist/ /tmp/frontend-dist/js/
+          docker rm -v $id
+          # make a tar
+          tar czf /tmp/frontend-dist.tgz -C /tmp/frontend-dist .
+      - name: Add the dist tar to the release
+        # only if a new release was created
+        if: ${{ steps.release.outputs.release_created }}
+        id: add-frontend-dist-to-release
+        uses: svenstaro/upload-release-action@2.6.1
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: /tmp/frontend-dist.tgz
+          asset_name: frontend-dist.tgz
+          tag: ${{ steps.release.outputs.tag_name }}
+          overwrite: true

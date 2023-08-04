@@ -64,6 +64,7 @@ BEGIN {
 		&create_password_hash
 		&check_password_hash
 		&retrieve_user
+		&remove_user_by_org_admin
 
 		&check_session
 
@@ -666,10 +667,14 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 		param("user_id", $userid);
 		init_user($request_ref);
 
-		my $email = lang("add_user_email_body");
-		$email =~ s/<USERID>/$userid/g;
-		# $email =~ s/<PASSWORD>/$user_ref->{password}/g;
-		$error = send_email($user_ref, lang("add_user_email_subject"), $email);
+		# Fetch the HTML mail template corresponding to the user language, english is the
+		# default if the translation is not available
+		my $email_content = get_html_email_content("user_welcome.html", $user_ref->{initial_lc});
+		my $user_name = $user_ref->{name};
+		# Replace placeholders by user values
+		$email_content =~ s/\{\{USERID\}\}/$userid/g;
+		$email_content =~ s/\{\{NAME\}\}/$user_name/g;
+		$error = send_html_email($user_ref, lang("add_user_email_subject"), $email_content);
 
 		my $admin_mail_body = <<EMAIL
 
@@ -929,6 +934,19 @@ sub retrieve_user ($user_id) {
 		$user_ref = retrieve($user_file);
 	}
 	return $user_ref;
+}
+
+sub remove_user_by_org_admin ($orgid, $user_id) {
+	my $groups_ref = ['admins', 'members'];
+	remove_user_from_org($orgid, $user_id, $groups_ref);
+
+	# Reset the 'org' field of the user
+	my $user_ref = retrieve_user($user_id);
+	delete $user_ref->{org};
+	delete $user_ref->{org_id};
+	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+	store($user_file, $user_ref);
+	return;
 }
 
 sub init_user ($request_ref) {

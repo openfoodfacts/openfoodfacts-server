@@ -62,15 +62,9 @@ jobs:
       #       build -o /output/api/ref-v3/index.html api-v3.yml && \
       #     sudo chown $UID -R gh_pages
 
-      # Disabled by alex on 2023-03-09 because of a false positive Error:
-      # "attribute .Product. is not of type `object` (../schemas/product.yaml#/Product)"
-      # because of legit `$ref: ../schemas/product.yaml#/Product` in `get_product_by_barcode.yaml`
-      #
-      # - name: Validate OpenAPI
-      #   run: |
-      #     docker run --rm \
-      #     -v ${PWD}:/local openapitools/openapi-generator-cli validate \
-      #     -i /local/docs/reference/api.yml \
+      - name: Validate OpenAPI
+        run: |
+          make check_openapi
 
       # generate OpenAPI documentation with rapidoc
       # we do this after mkdocs to overwrite api.html file
@@ -86,7 +80,7 @@ jobs:
 
 
       - name: Deploy API documentation to Github Pages
-        uses: JamesIves/github-pages-deploy-action@v4.4.2
+        uses: JamesIves/github-pages-deploy-action@v4.4.3
         # we only deploy on push to main
         if: |
           github.event_name == 'push' && github.event.ref == 'refs/heads/main'

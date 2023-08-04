@@ -55,6 +55,7 @@ BEGIN {
 		&display_icon
 
 		&display_structured_response
+		&display_no_index_page_and_exit
 		&display_page
 		&display_text
 		&display_points
@@ -81,6 +82,7 @@ BEGIN {
 		&display_recent_changes
 		&add_tag_prefix_to_link
 		&display_taxonomy_api
+		&map_of_products
 
 		&display_nested_list_of_ingredients
 		&display_ingredients_analysis_details
@@ -881,8 +883,35 @@ CSS
 	$request_ref->{cc} = $cc;
 	$request_ref->{country} = $country;
 	$request_ref->{lcs} = \@lcs;
+	set_user_agent_request_ref_attributes($request_ref);
 
 	return $request_ref;
+}
+
+=head2 set_user_agent_request_ref_attributes ($request_ref)
+
+Set two attributes to `request_ref`:
+
+- `user_agent`: the request User-Agent
+- `is_crawl_bot`: a flag (0 or 1) that indicates whether the request comes
+  from a known web crawler (Google, Bing,...). We only use User-Agent value
+  to set this flag.
+
+=cut
+
+sub set_user_agent_request_ref_attributes ($request_ref) {
+	my $user_agent = user_agent();
+	$request_ref->{user_agent} = $user_agent;
+
+	my $is_crawl_bot = 0;
+	if ($user_agent
+		=~ /Googlebot|Googlebot-Image|bingbot|Applebot|YandexBot|YandexRenderResourcesBot|DuckDuckBot|DotBot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|www\.qwant\.com|facebookexternalhit/
+		)
+	{
+		$is_crawl_bot = 1;
+	}
+	$request_ref->{is_crawl_bot} = $is_crawl_bot;
+	return;
 }
 
 sub _get_date ($t) {
@@ -1005,6 +1034,38 @@ Any code after the call to display_error_and_exit() will not be executed.
 sub display_error_and_exit ($error_message, $status_code) {
 
 	display_error($error_message, $status_code);
+	exit();
+}
+
+=head2 display_no_index_page_and_exit ()
+
+Return an empty HTML page with a '<meta name="robots" content="noindex">' directive
+in the HTML header.
+
+This is useful to prevent web crawlers to overload our servers by querying webpages
+that require a lot of resources (especially aggregation queries).
+
+=cut
+
+sub display_no_index_page_and_exit () {
+	my $html
+		= '<!DOCTYPE html><html><head><meta name="robots" content="noindex"></head><body><h1>NOINDEX</h1><p>We detected that your browser is a web crawling bot, and this page should not be indexed by web crawlers. If this is unexpected, contact us on Slack or write us an email at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>.</p></body></html>';
+	my $http_headers_ref = {
+		'-status' => 200,
+		'-expires' => '-1d',
+		'-charset' => 'UTF-8',
+	};
+
+	print header(%$http_headers_ref);
+
+	my $r = Apache2::RequestUtil->request();
+	$r->rflush;
+	# Setting the status makes mod_perl append a default error to the body
+	# Send 200 instead.
+	$r->status(200);
+	binmode(STDOUT, ":encoding(UTF-8)");
+	print $html;
+	return;
 	exit();
 }
 
@@ -3902,14 +3963,6 @@ HTML
 						$user_template_data_ref->{edit_profile} = 1;
 						$user_template_data_ref->{orgid} = $orgid;
 					}
-					if (defined $User{pro_moderator}) {
-						my @org_members;
-						foreach my $member_id (sort keys %{$user_or_org_ref->{members}}) {
-							my $member_user_ref = retrieve_user($member_id);
-							push @org_members, $member_user_ref;
-						}
-						$user_template_data_ref->{org_members} = \@org_members;
-					}
 
 					process_template('web/pages/org_profile/org_profile.tt.html',
 						$user_template_data_ref, \$profile_html)
@@ -4187,6 +4240,9 @@ HTML
 	}
 	# Rendering Page tags
 	my $tag_html;
+	# TODO: is_crawl_bot should be added directly by process_template(),
+	# but we would need to add a new $request_ref parameter to process_template(), will do later
+	$tag_template_data_ref->{is_crawl_bot} = $request_ref->{is_crawl_bot};
 	process_template('web/pages/tag/tag.tt.html', $tag_template_data_ref, \$tag_html)
 		or $tag_html = "<p>tag.tt.html template error: " . $tt->error() . "</p>";
 
@@ -5579,14 +5635,7 @@ sub search_and_export_products ($request_ref, $query_ref, $sort_by) {
 
 	# Display an error message
 
-	if (defined $request_ref->{current_link}) {
-		$request_ref->{current_link_query_display} = $request_ref->{current_link};
-		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-		$html
-			.= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">"
-			. lang("search_edit")
-			. "</a><br>";
-	}
+	$html .= search_permalink($request_ref);
 
 	$request_ref->{title} = lang("search_results");
 	$request_ref->{content_ref} = \$html;
@@ -6479,14 +6528,7 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 		$html .= "<p>" . lang("no_products") . "</p>";
 	}
 
-	if (defined $request_ref->{current_link}) {
-		$request_ref->{current_link_query_display} = $request_ref->{current_link};
-		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-		$html
-			.= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">"
-			. lang("search_edit")
-			. "</a><br>";
-	}
+	$html .= search_permalink($request_ref);
 
 	if ($count <= 0) {
 		# $request_ref->{content_html} = $html;
@@ -6524,6 +6566,24 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 
 	return $html;
 }
+
+=head2  get_packager_code_coordinates ($emb_code)
+
+Transform a traceability code (emb code) into a latitude / longitude pair.
+
+We try using packagers_codes taxonomy, or fsa_rating or geocode for uk,
+or city.
+
+=head3 parameters
+
+=head4 $emb_code - string
+
+The traceability code
+
+=head3 returns - list of 2 elements
+(latitude, longitude) if found, or (undef, undef) otherwise
+
+=cut
 
 sub get_packager_code_coordinates ($emb_code) {
 
@@ -6573,70 +6633,35 @@ sub get_packager_code_coordinates ($emb_code) {
 
 }
 
-sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
-
-	add_params_to_query($request_ref, $query_ref);
-
-	add_country_and_owner_filters_to_query($request_ref, $query_ref);
-
-	my $cursor;
-
-	$log->info("retrieving products from MongoDB to display them in a map") if $log->is_info();
-
-	eval {
-		$cursor = execute_query(
-			sub {
-				return get_products_collection(get_products_collection_request_parameters($request_ref))
-					->query($query_ref)->fields(
-					{
-						code => 1,
-						lc => 1,
-						product_name => 1,
-						"product_name_$lc" => 1,
-						brands => 1,
-						images => 1,
-						manufacturing_places => 1,
-						origins => 1,
-						emb_codes_tags => 1,
-					}
-					);
-			}
-		);
+# an iterator over a cursor to unify cases between mongodb and external data (like filtered jsonl)
+sub cursor_iter ($cursor) {
+	return sub {
+		return $cursor->next();
 	};
-	if ($@) {
-		$log->warn("MongoDB error", {error => $@}) if $log->is_warn();
-	}
-	else {
-		$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
-	}
+}
 
-	$log->info("retrieved products from MongoDB to display them in a map") if $log->is_info();
+=head2 map_of_products($products_iter, $request_ref, $graph_ref)
 
-	my @products = $cursor->all;
-	my $count = @products;
+Build the HTML to display a map of products
+
+=head3 parameters
+
+=head4 $products_iter - iterator
+
+Must return a reference to a function that on each call return a product, or undef to end iteration
+
+
+=head4 $request_ref - hashmap ref
+
+=head4 $graph_ref - hashmap ref
+
+Specifications for the graph
+
+=cut
+
+sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 
 	my $html = '';
-
-	if ($count < 0) {
-		$html .= "<p>" . lang("error_database") . "</p>";
-	}
-	elsif ($count == 0) {
-		$html .= "<p>" . lang("no_products") . "</p>";
-	}
-
-	if (defined $request_ref->{current_link}) {
-		$request_ref->{current_link_query_display} = $request_ref->{current_link};
-		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-		$html
-			.= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">"
-			. lang("search_edit")
-			. "</a><br>";
-	}
-
-	if ($count <= 0) {
-		$log->warn("could not retrieve enough products for a map", {count => $count}) if $log->is_warn();
-		return $html;
-	}
 
 	$graph_ref->{graph_title} = escape_single_quote($graph_ref->{graph_title});
 
@@ -6648,7 +6673,7 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 	my %seen = ();
 	my @pointers = ();
 
-	foreach my $product_ref (@products) {
+	while (my $product_ref = $products_iter->()) {
 		my $url = $formatted_subdomain . product_url($product_ref->{code});
 
 		my $manufacturing_places = escape_single_quote($product_ref->{"manufacturing_places"});
@@ -6712,15 +6737,29 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 		$matching_products++;
 	}
 
+	# no products --> no map
+	if ($matching_products <= 0) {
+		if ($matching_products == 0) {
+			$html .= "<p>" . lang("no_products") . "</p>";
+		}
+		$log->warn("could not retrieve enough products for a map", {count => $matching_products}) if $log->is_warn();
+		return $html;
+	}
+
 	$log->info(
 		"rendering map for matching products",
-		{count => $count, matching_products => $matching_products, products => $seen_products, emb_codes => $emb_codes}
+		{
+			count => $matching_products,
+			matching_products => $matching_products,
+			products => $seen_products,
+			emb_codes => $emb_codes
+		}
 	) if $log->is_debug();
 
 	# Points to display?
 	my $count_string = q{};
 	if ($emb_codes > 0) {
-		$count_string = sprintf(lang("map_count"), $count, $seen_products);
+		$count_string = sprintf(lang("map_count"), $matching_products, $seen_products);
 	}
 
 	if (defined $request_ref->{current_link}) {
@@ -6741,6 +6780,117 @@ sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
 	process_template('web/pages/products_map/map_of_products.tt.html', $map_template_data_ref, \$html)
 		|| ($html .= 'template error: ' . $tt->error());
 
+	return $html;
+}
+
+=head2 search_products_for_map($request_ref, $query_ref)
+
+Build the MongoDB query corresponding to a search to display a map
+
+=head3 parameters
+
+=head4 $request_ref - hashmap
+
+=head4 $query_ref - hashmap
+
+Base query that will be modified to be able to build the map
+
+=head3 returns - MongoDB::Cursor instance
+
+=cut
+
+sub search_products_for_map ($request_ref, $query_ref) {
+
+	add_params_to_query($request_ref, $query_ref);
+
+	add_country_and_owner_filters_to_query($request_ref, $query_ref);
+
+	my $cursor;
+
+	$log->info("retrieving products from MongoDB to display them in a map") if $log->is_info();
+
+	eval {
+		$cursor = execute_query(
+			sub {
+				return get_products_collection(get_products_collection_request_parameters($request_ref))
+					->query($query_ref)->fields(
+					{
+						code => 1,
+						lc => 1,
+						product_name => 1,
+						"product_name_$lc" => 1,
+						brands => 1,
+						images => 1,
+						manufacturing_places => 1,
+						origins => 1,
+						emb_codes_tags => 1,
+					}
+					);
+			}
+		);
+	};
+	if ($@) {
+		$log->warn("MongoDB error", {error => $@}) if $log->is_warn();
+	}
+	else {
+		$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
+	}
+
+	$log->info("retrieved products from MongoDB to display them in a map") if $log->is_info();
+	$cursor->immortal(1);
+	return $cursor;
+}
+
+=head2 search_and_map_products ($request_ref, $query_ref, $graph_ref)
+
+Trigger a search and build a map
+
+=head3 parameters
+
+=head4 $request_ref - hashmap ref
+
+=head4 $query_ref - hashmap ref
+
+Base query for this search
+
+=head4 $graph_ref
+
+Specification of the graph
+
+=cut
+
+sub search_and_map_products ($request_ref, $query_ref, $graph_ref) {
+
+	my $cursor = search_products_for_map($request_ref, $query_ref);
+
+	# add search link
+	my $html = '';
+
+	$html .= search_permalink($request_ref);
+
+	eval {$html .= map_of_products(cursor_iter($cursor), $request_ref, $graph_ref);} or do {
+		$html .= "<p>" . lang("error_database") . "</p>";
+	};
+	return $html;
+}
+
+=head2 search_permalink($request_ref)
+
+add a permalink to a search result page
+
+=head3 return - string - generated HTML
+=cut
+
+sub search_permalink ($request_ref) {
+	my $html = '';
+	if (defined $request_ref->{current_link}) {
+		$request_ref->{current_link_query_display} = $request_ref->{current_link};
+		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
+		$html
+			.= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">"
+			. lang("search_edit")
+			. "</a><br>";
+	}
 	return $html;
 }
 
@@ -11088,14 +11238,7 @@ sub search_and_analyze_recipes ($request_ref, $query_ref) {
 		$html .= "<p>" . lang("no_products") . "</p>";
 	}
 
-	if (defined $request_ref->{current_link}) {
-		$request_ref->{current_link_query_display} = $request_ref->{current_link};
-		$request_ref->{current_link_query_display} =~ s/\?action=process/\?action=display/;
-		$html
-			.= "&rarr; <a href=\"$request_ref->{current_link_query_display}&action=display\">"
-			. lang("search_edit")
-			. "</a><br>";
-	}
+	$html .= search_permalink($request_ref);
 
 	if ($count <= 0) {
 		return $html;

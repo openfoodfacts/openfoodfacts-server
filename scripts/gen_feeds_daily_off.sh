@@ -3,11 +3,8 @@
 cd /srv/off/scripts
 export PERL5LIB="../lib:${PERL5LIB}"
 
-./generate_madenearme_page.pl uk en > /srv/off/html/madenearme-uk.html
-./generate_madenearme_page.pl world en > /srv/off/html/madenearme.html
-./generate_madenearme_page.pl fr fr > /srv/off/html/cestemballepresdechezvous.html
-
 ./remove_empty_products.pl
+./gen_top_tags_per_country.pl
 #./compute_missions.pl
 ./export_database.pl
 ./mongodb_dump.sh /srv2/off/html openfoodfacts 10.0.0.3 off
@@ -18,6 +15,11 @@ gzip < fr.openfoodfacts.org.products.rdf > fr.openfoodfacts.org.products.rdf.gz
 
 gzip < en.openfoodfacts.org.products.csv > en.openfoodfacts.org.products.csv.gz
 gzip < fr.openfoodfacts.org.products.csv > fr.openfoodfacts.org.products.csv.gz
+
+# Made near me static pages
+./generate_madenearme_page.pl uk en > /srv/off/html/madenearme-uk.html
+./generate_madenearme_page.pl world en > /srv/off/html/madenearme.html
+./generate_madenearme_page.pl fr fr > /srv/off/html/cestemballepresdechezvous.html
 
 cd /srv/off/scripts
 

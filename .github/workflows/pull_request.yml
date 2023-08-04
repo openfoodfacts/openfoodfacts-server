@@ -9,6 +9,10 @@ on:
     #   - ".github/CODEOWNERS"
     #   - ".github/PULL_REQUEST_TEMPLATE.md"
     #   - ".editorconfig"
+    
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
   
 jobs:
 
