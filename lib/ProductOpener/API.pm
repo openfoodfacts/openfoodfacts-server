@@ -74,6 +74,7 @@ use ProductOpener::Packaging qw/:all/;
 
 use ProductOpener::APIProductRead qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::APITagRead qw/:all/;
 use ProductOpener::APITaxonomySuggestions qw/:all/;
 
 use CGI qw(header);
@@ -392,6 +393,16 @@ sub process_api_request ($request_ref) {
 
 			if ($request_ref->{api_method} =~ /^(GET|HEAD|OPTIONS)$/) {
 				taxonomy_suggestions_api($request_ref);
+			}
+			else {
+				add_invalid_method_error($response_ref, $request_ref);
+			}
+		}
+		# Tag read
+		elsif ($request_ref->{api_action} eq "tag") {
+
+			if ($request_ref->{api_method} =~ /^(GET|HEAD|OPTIONS)$/) {
+				read_tag_api($request_ref);
 			}
 			else {
 				add_invalid_method_error($response_ref, $request_ref);

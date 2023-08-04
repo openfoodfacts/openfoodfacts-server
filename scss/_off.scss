@@ -1399,6 +1399,17 @@ $section-cyan: #008c8c;
 .delete_packaging > span {
   line-height: 2.6428571429rem;
 }
+// Eye Icon CSS
+.toggle-password {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 60%;
+  transform: translateY(-50%);
+}
+.password-container {
+  position: relative;
+}
 
 // 1st packaging component is empty and hidden, it is used to add new components
 #packaging_0_row {
@@ -1450,4 +1461,19 @@ a.panel_title {
 .button:focus, .button:hover, button:focus, button:hover {
     background-color: scale-color($button-bg-color, $lightness: -$button-function-factor / 2);
     color: #fff;
+}
+
+// Tuto video beside user form
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 100rem;
+  @media #{$small-only} {
+    flex-direction: column;
+    gap: 0;
+    margin-top: -2rem;
+  }
 }
