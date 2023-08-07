@@ -1460,7 +1460,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		else {
 
 			eval {
-				$results = execute_tags_query($aggregate_parameters);
+				$results = execute_aggregate_tags_query($aggregate_parameters);
 			};
 		}
 		if ($@) {
@@ -1530,7 +1530,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 			}
 			else {
 				eval {
-					$count_results = execute_tags_query($aggregate_count_parameters);
+					$count_results = execute_aggregate_tags_query($aggregate_count_parameters);
 				}
 			}
 			if ((not $@) and (defined $count_results)) {
@@ -4992,7 +4992,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 					if (    ($only_tags_filters)
 						and ((not defined single_param("no_cache")) or (single_param("no_cache") == 0)))
 					{
-						$count = execute_tags_query($query_ref);
+						$count = execute_count_tags_query($query_ref);
 					}
 					else {
 

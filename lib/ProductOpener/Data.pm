@@ -52,7 +52,8 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&execute_query
-		&execute_tags_query
+		&execute_aggregate_tags_query
+		&execute_count_tags_query
 		&get_database
 		&get_collection
 		&get_products_collection
@@ -118,15 +119,29 @@ sub execute_query ($sub) {
 	)->run();
 }
 
-sub execute_tags_query($aggregate_parameters) {
+sub execute_aggregate_tags_query($aggregate_parameters) {
 	$log->debug("Executing PostgreSQL aggregate query",
 		{query => $aggregate_parameters})
 		if $log->is_debug();
 
 	my $ua = LWP::UserAgent->new();
 	my $resp = $ua->post(
-		'http://host.docker.internal:3000/query',
+		'http://host.docker.internal:3000/aggregate',
 		Content => encode_json($aggregate_parameters),
+		"Content-Type" => "application/json; charset=utf-8"
+	);
+	return decode_json($resp->decoded_content);
+}
+
+sub execute_count_tags_query($query_ref) {
+	$log->debug("Executing PostgreSQL count",
+		{query => $query_ref})
+		if $log->is_debug();
+
+	my $ua = LWP::UserAgent->new();
+	my $resp = $ua->post(
+		'http://host.docker.internal:3000/count',
+		Content => encode_json($query_ref),
 		"Content-Type" => "application/json; charset=utf-8"
 	);
 	return decode_json($resp->decoded_content);
