@@ -1402,6 +1402,10 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 
 	my $groupby_tagtype = $request_ref->{groupby_tagtype};
 	my $page = $request_ref->{page};
+	# Flag that indicates whether we cache MongoDB results in Memcached
+	# Caching is disabled for crawling bots, as they tend to explore
+	# all pages (and make caching inefficient)
+	my $cache_results_flag = scalar(not $request_ref->{is_crawl_bot});
 
 	# Add a meta robot noindex for pages related to users
 	if (    (defined $groupby_tagtype)
@@ -1538,7 +1542,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		if (defined $results) {
 			$results = [$results->all];
 
-			if (defined $results->[0]) {
+			if (defined $results->[0] and $cache_results_flag) {
 				set_cache_results($key, $results);
 			}
 		}
@@ -1608,15 +1612,18 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 
 				$count_results = [$count_results->all]->[0];
 				$request_ref->{structured_response}{count} = $count_results->{$groupby_tagtype . "_tags"};
-				set_cache_results($key_count, $request_ref->{structured_response}{count});
-				$log->debug(
-					"Set cached aggregate count for query key",
-					{
-						key => $key_count,
-						results_count => $request_ref->{structured_response}{count},
-						count_results => $count_results
-					}
-				) if $log->is_debug();
+
+				if ($cache_results_flag) {
+					set_cache_results($key_count, $request_ref->{structured_response}{count});
+					$log->debug(
+						"Set cached aggregate count for query key",
+						{
+							key => $key_count,
+							results_count => $request_ref->{structured_response}{count},
+							count_results => $count_results
+						}
+					) if $log->is_debug();
+				}
 			}
 		}
 		else {
@@ -4815,6 +4822,10 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	$request_ref->{page_type} = "products";
 	$request_ref->{page_format} = "full_width";
 
+	# Flag that indicates whether we cache MongoDB results in Memcached
+	# Caching is disabled for crawling bots, as they tend to explore
+	# all pages (and make caching inefficient)
+	my $cache_results_flag = scalar(not $request_ref->{is_crawl_bot});
 	my $template_data_ref = {};
 
 	add_params_to_query($request_ref, $query_ref);
@@ -5139,7 +5150,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 						if ($@) {
 							$log->warn("MongoDB error during count", {error => $@}) if $log->is_warn();
 						}
-						else {
+						elsif ($cache_results_flag) {
 							$log->debug("count query complete, setting cache", {key => $key_count, count => $count})
 								if $log->is_debug();
 							set_cache_results($key_count, $count);
@@ -5200,7 +5211,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			$request_ref->{structured_response}{count} = $count;
 
 			# Don't set the cache if no_count was set
-			if (not single_param('no_count')) {
+			if (not single_param('no_count') and $cache_results_flag) {
 				set_cache_results($key, $request_ref->{structured_response});
 			}
 		}
