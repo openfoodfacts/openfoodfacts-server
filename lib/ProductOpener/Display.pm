@@ -4953,133 +4953,98 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		my $cursor;
 		eval {
-			if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
-				$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
-				$count = execute_query(
-					sub {
-						return get_products_collection(
-							get_products_collection_request_parameters($request_ref, {tags => 1}))
-							->count_documents($query_ref);
-					}
-				);
-				$log->info("MongoDB count query ok", {error => $@, count => $count}) if $log->is_info();
-
-				my $aggregate_parameters
-					= [{"\$match" => $query_ref}, {"\$sample" => {"size" => $request_ref->{sample_size}}}];
-				$log->debug("Executing MongoDB query", {query => $aggregate_parameters}) if $log->is_debug();
-				$cursor = execute_query(
-					sub {
-						return get_products_collection(
-							get_products_collection_request_parameters($request_ref, {tags => 1}))
-							->aggregate($aggregate_parameters, {allowDiskUse => 1});
-					}
-				);
+			$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
+			# test if query_ref is empty
+			if (single_param('no_count')) {
+				# Skip the count if it is not needed
+				# e.g. for some API queries
+				$log->debug("no_count is set, skipping count") if $log->is_debug();
 			}
-			else {
-				$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
-				# test if query_ref is empty
-				if (single_param('no_count')) {
-					# Skip the count if it is not needed
-					# e.g. for some API queries
-					$log->debug("no_count is set, skipping count") if $log->is_debug();
-				}
-				elsif (keys %{$query_ref} > 0) {
-					#check if count results is in cache
-					my $key_count = generate_cache_key("search_products_count", $query_ref);
-					$log->debug("MongoDB query key - search_products_count", {key => $key_count}) if $log->is_debug();
-					my $results_count = get_cache_results($key_count, $request_ref);
-					if (not defined $results_count) {
+			elsif (keys %{$query_ref} > 0) {
+				#check if count results is in cache
+				my $key_count = generate_cache_key("search_products_count", $query_ref);
+				$log->debug("MongoDB query key - search_products_count", {key => $key_count}) if $log->is_debug();
+				my $results_count = get_cache_results($key_count, $request_ref);
+				if (not defined $results_count) {
 
-						$log->debug("count not in cache for query", {key => $key_count}) if $log->is_debug();
+					$log->debug("count not in cache for query", {key => $key_count}) if $log->is_debug();
 
-						# Count queries are very expensive, if possible, execute them on the smaller products_tags collection
-						my $only_tags_filters = 1;
+					# Count queries are very expensive, if possible, execute them on the smaller products_tags collection
+					my $only_tags_filters = 1;
 
-						if ($server_options{producers_platform}) {
-							$only_tags_filters = 0;
-						}
-						else {
-
-							foreach my $field (keys %$query_ref) {
-								if ($field !~ /_tags$/) {
-									$log->debug(
-										"non tags field in query filters, cannot use smaller products_tags collection",
-										{field => $field, value => $query_ref->{field}}
-									) if $log->is_debug();
-									$only_tags_filters = 0;
-									last;
-								}
-							}
-						}
-
-						if (    ($only_tags_filters)
-							and ((not defined single_param("no_cache")) or (single_param("no_cache") == 0)))
-						{
-
-							$count = execute_query(
-								sub {
-									$log->debug("count_documents on smaller products_tags collection",
-										{key => $key_count})
-										if $log->is_debug();
-									return get_products_collection(
-										get_products_collection_request_parameters($request_ref, {tags => 1}))
-										->count_documents($query_ref);
-								}
-							);
-
-						}
-						else {
-
-							$count = execute_query(
-								sub {
-									$log->debug("count_documents on complete products collection", {key => $key_count})
-										if $log->is_debug();
-									return get_products_collection(
-										get_products_collection_request_parameters($request_ref))
-										->count_documents($query_ref);
-								}
-							);
-						}
-						if ($@) {
-							$log->warn("MongoDB error during count", {error => $@}) if $log->is_warn();
-						}
-						else {
-							$log->debug("count query complete, setting cache", {key => $key_count, count => $count})
-								if $log->is_debug();
-							set_cache_results($key_count, $count);
-						}
+					if ($server_options{producers_platform}) {
+						$only_tags_filters = 0;
 					}
 					else {
-						# Cached result
-						$count = $results_count;
-						$log->debug("count in cache for query", {key => $key_count, count => $count})
+
+						foreach my $field (keys %$query_ref) {
+							if ($field !~ /_tags$/) {
+								$log->debug(
+									"non tags field in query filters, cannot use smaller products_tags collection",
+									{field => $field, value => $query_ref->{field}}
+								) if $log->is_debug();
+								$only_tags_filters = 0;
+								last;
+							}
+						}
+					}
+
+					if (    ($only_tags_filters)
+						and ((not defined single_param("no_cache")) or (single_param("no_cache") == 0)))
+					{
+						$count = execute_tags_query($query_ref);
+					}
+					else {
+
+						$count = execute_query(
+							sub {
+								$log->debug("count_documents on complete products collection", {key => $key_count})
+									if $log->is_debug();
+								return get_products_collection(
+									get_products_collection_request_parameters($request_ref))
+									->count_documents($query_ref);
+							}
+						);
+					}
+					if ($@) {
+						$log->warn("MongoDB error during count", {error => $@}) if $log->is_warn();
+					}
+					else {
+						$log->debug("count query complete, setting cache", {key => $key_count, count => $count})
 							if $log->is_debug();
+						set_cache_results($key_count, $count);
 					}
 				}
 				else {
-					# if query_ref is empty (root URL world.openfoodfacts.org) use estimated_document_count for better performance
-					$count = execute_query(
-						sub {
-							$log->debug("empty query_ref, use estimated_document_count fot better performance", {})
-								if $log->is_debug();
-							return get_products_collection(get_products_collection_request_parameters($request_ref))
-								->estimated_document_count();
-						}
-					);
+					# Cached result
+					$count = $results_count;
+					$log->debug("count in cache for query", {key => $key_count, count => $count})
+						if $log->is_debug();
 				}
-				$log->info("MongoDB count query done", {error => $@, count => $count}) if $log->is_info();
-
-				$log->debug("Executing MongoDB query",
-					{query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip})
-					if $log->is_debug();
-				$cursor = execute_query(
+			}
+			else {
+				# if query_ref is empty (root URL world.openfoodfacts.org) use estimated_document_count for better performance
+				$count = execute_query(
 					sub {
+						$log->debug("empty query_ref, use estimated_document_count fot better performance", {})
+							if $log->is_debug();
 						return get_products_collection(get_products_collection_request_parameters($request_ref))
-							->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+							->estimated_document_count();
 					}
 				);
-				$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
 			}
+			$log->info("MongoDB count query done", {error => $@, count => $count}) if $log->is_info();
+
+			$log->debug("Executing MongoDB query",
+				{query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip})
+				if $log->is_debug();
+			$cursor = execute_query(
+				sub {
+					return get_products_collection(get_products_collection_request_parameters($request_ref))
+						->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
+				}
+			);
+			$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
 		};
 		if ($@) {
 			$log->warn("MongoDB error", {error => $@}) if $log->is_warn();

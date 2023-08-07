@@ -155,16 +155,6 @@ This is useful when moving products to another flavour
 If set to a true value, the function returns a collection that contains only obsolete products,
 otherwise it returns the collection with products that are not obsolete.
 
-=head4 tags
-
-If set to a true value, the function may return a smaller collection that contains only the *_tags fields,
-in order to speed aggregate queries. The smaller collection is created every night,
-and may therefore contain slightly stale data.
-
-As of 2023/03/13, we return the products_tags collection for non obsolete products.
-For obsolete products, we currently return the products_obsolete collection, but we might
-create a separate products_obsolete_tags collection in the future, if it becomes necessary to create one.
-
 =head3 Return values
 
 Returns a mongoDB collection object.
@@ -176,11 +166,6 @@ sub get_products_collection ($parameters_ref = {}) {
 	my $collection = 'products';
 	if ($parameters_ref->{obsolete}) {
 		$collection .= '_obsolete';
-	}
-	# We don't have a products_obsolete_tags collection at this point
-	# if it changes, the following elsif should be changed to a if
-	elsif ($parameters_ref->{tags}) {
-		$collection .= '_tags';
 	}
 	return get_collection($database, $collection, $parameters_ref->{timeout});
 }
