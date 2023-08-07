@@ -52,6 +52,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&execute_query
+		&execute_tags_query
 		&get_database
 		&get_collection
 		&get_products_collection
@@ -71,6 +72,7 @@ use ProductOpener::Config qw/:all/;
 
 use MongoDB;
 use Tie::IxHash;
+use JSON::PP;
 use Log::Any qw($log);
 
 use Action::CircuitBreaker;
@@ -114,6 +116,20 @@ sub execute_query ($sub) {
 			# Do not retry the query, as it will make things worse
 		strategy => {Fibonacci => {max_retries_number => 0,}},
 	)->run();
+}
+
+sub execute_tags_query($aggregate_parameters) {
+	$log->debug("Executing PostgreSQL aggregate query",
+		{query => $aggregate_parameters})
+		if $log->is_debug();
+
+	my $ua = LWP::UserAgent->new();
+	my $resp = $ua->post(
+		'http://host.docker.internal:3000/query',
+		Content => encode_json($aggregate_parameters),
+		"Content-Type" => "application/json; charset=utf-8"
+	);
+	return decode_json($resp->decoded_content);
 }
 
 =head2 get_products_collection( $parameters_ref )
