@@ -1186,7 +1186,7 @@ sub check_ingredients ($product_ref) {
 				}
 
 				# Dutch and other languages can have 4 consecutive consonants
-				if ($display_lc !~ /de|hr|nl/) {
+				if ($display_lc !~ /de|hr|nl|pl/) {
 					if ($product_ref->{$ingredients_text_lc} =~ /[bcdfghjklmnpqrstvwxz]{5}/is) {
 
 						push @{$product_ref->{data_quality_warnings_tags}},
