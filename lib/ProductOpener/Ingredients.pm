@@ -180,7 +180,7 @@ my %may_contain_regexps = (
 	bs => "može da sadrži",
 	cs => "může obsahovat|může obsahovat stopy",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
-	de => "Kann enthalten|Kann Spuren|Spuren|Kann",
+	de => "Kann enthalten|Kann Spuren|Spuren|Kann Anteile|Anteile|Kann auch|Kann",
 	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
 	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
 	fi =>
@@ -2663,7 +2663,7 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 	# Go through each ingredient to set percent_min, percent_max, and if we can an absolute percent
 
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
-		if (defined $ingredient_ref->{percent}) {
+		if ((defined $ingredient_ref->{percent}) and ($ingredient_ref->{percent} > 0)) {
 			# There is a specified percent for the ingredient.
 
 			if ($percent_mode eq "grams") {
@@ -4719,6 +4719,9 @@ sub preparse_ingredients_text ($product_lc, $text) {
 	}
 
 	$text =~ s/\&quot;/"/g;
+	$text =~ s/\&lt;/</g;
+	$text =~ s/\&gt;/>/g;
+	$text =~ s/\&apos;/'/g;
 	$text =~ s/’/'/g;
 
 	# turn special chars to spaces

@@ -100,10 +100,10 @@ fr:friture
 # <en:syrup
 en:caramel syrup
 bg:карамелен сироп
-ca:xarop de carmel
+ca:xarop de carmel, caramel liquid
 da:karamelsukkersirup
 de:Karamellsirup, Caramelsirup
-es:jarabe de caramelo, sirope de caramelo
+es:jarabe de caramelo, sirope de caramelo, caramelo líquido
 fi:Karamellisiirappi
 fr:sirop de caramel, sirop caramel
 hr:karamel sirup, karamelizirani sirup, karamelov sirup
@@ -3379,7 +3379,7 @@ ciqual_food_name:fr:Lait de chèvre, demi-écrémé, UHT
 en:sheeps milk, sheep milk, ewe's milk, sheep's milk
 ar:حليب الغنم
 bg:овче мляко
-ca:lley d'ovella
+ca:llet d'ovella
 cs:ovči mléko
 da:Fåremælk
 de:Schafsmilch, Schafmilch
@@ -3435,6 +3435,10 @@ ciqual_food_code:en:19250
 ciqual_food_name:en:Sheep milk, whole
 ciqual_food_name:fr:Lait de brebis, entier
 
+<en:sheeps milk
+<en:skimmed milk
+en:skimmed sheeps milk, skimmed sheep milk, semi-skimmed sheeps milk
+fr:lait de brebis partiellement écrémé
 
 #processing:en: en:raw
 #<en:sheeps milk
@@ -10145,6 +10149,8 @@ ciqual_food_name:fr:Sel au céleri
 
 <en:salt
 en:potassium salt, potassium chloride
+ca:sal mineral de potassi
+es:sal mineral de potasio
 bg:калиева сол
 pl:sól potasowa, mineralna sól potasowa
 
@@ -26809,8 +26815,9 @@ ro:orez italian
 # comment:en:Parboiled rice is an independent aspect and can be present for all rice entries.
 <en:rice
 en:parboiled rice
+ca:arròs precuit, arròs vaporitzat
 de:parboiled Reis
-es:arroz precocido
+es:arroz precocido, arroz vaporizado
 fi:parboil-käsitelty riisi
 fr:riz étuvé, riz parboiled
 hu:forrázott rizs, előfőzött rizs
@@ -84641,7 +84648,9 @@ fr:jus cuisiné
 <en:broth
 en:meat stock, meat broth
 bg:месен бульон
+ca:brou de carn
 de:Fleischbrühe
+es:caldo de carne
 fi:lihaliemi
 fr:bouillon de viande
 sv:köttbuljong, köttfond
@@ -85410,6 +85419,8 @@ fr:sauce aux fruits rouges
 
 <en:sauce
 en:Curry sauce
+ca:salsa de curry
+es:salsa de curry
 fr:Sauce au curry
 ciqual_food_code:en:11132
 ciqual_food_name:en:Curry sauce, prepacked
