@@ -50016,7 +50016,6 @@ lt:Anakardžiai su druska, Sūdyti anakardžiai
 tr:Tuzlu Kaju
 
 <en:Cashew nuts
-<fr:Fruits à coque salés
 en:Unsalted cashews, Unsalted cashew nuts
 de:Ungesalzene Cashewnüsse, Ungesalzene Cashewkerne
 fr:Noix de cajou non-salées
@@ -55858,6 +55857,7 @@ ciqual_food_name:en:Muesli, crunchy, with fruits and/or dried fruits, grains (no
 ciqual_food_name:fr:Muesli croustillant aux fruits et/ou fruits secs, graines (non enrichi en vitamines et minéraux)
 
 <en:Mueslis
+<en:Cereals with nuts
 en:Mueslis with nuts, Walnut muesli
 de:Müslis mit Nüssen
 fr:Mueslis aux fruits à coque, Mueslis aux noix
@@ -55928,6 +55928,7 @@ fr:Mueslis croustillants
 lt:Traškus muslis
 
 <en:Mueslis
+<en:Chocolate cereals
 en:Mueslis with chocolate
 de:Müslis mit Schokolade, Schokomüslis
 es:Mueslis con chocolate
@@ -70525,8 +70526,8 @@ agribalyse_proxy_food_name:en:Fish brandade or fish shepherd's pie
 en:Meals with falafels
 fr:Plats préparés aux falafels
 
+# This category shouldn't be under en:Meats and their products (it is for products which main ingredient is meat)
 <en:Meals
-<en:Meats and their products
 en:Meals with meat
 bg:Ястия с месо
 ca:Aliments amb carn
@@ -83045,19 +83046,6 @@ fr:Tagliatelles sans gluten
 <en:Gluten-free pasta
 fr:Coquillettes sans gluten
 
-<en:Pasta dishes
-en:Stuffed pastas
-bg:Пълнена паста
-ca:Pastes farcides
-de:Gefüllte Nudeln
-es:Pastas rellenas
-fi:täytetyt pastat
-fr:Pâtes farcies
-he:פסטה ממולאת
-hu:Töltött tészták
-it:Pasta farcita, pasta ripiena
-nl:Gevulde pastas
-
 <en:Pastas
 en:Oat pasta
 es:Pastas de avena
@@ -83537,7 +83525,8 @@ es:Pasta rellena de queso
 fr:Pâtes farcies au fromage
 it:Pasta ripiena di formaggio
 
-<en:Tortellini
+<en:Stuffed pastas
+en:Ravioli with ricotta and spinach
 fr:Ravioli ricotta & épinards, Ravioli ricotta épinards
 it:Ravioli ricotta e spinaci
 agribalyse_proxy_food_code:en:25219
@@ -83601,18 +83590,16 @@ en:Cheese ravioli in tomato sauce
 <fr:Ravioles du Dauphiné
 fr:Ravioles fraîches du Dauphiné
 
-
 <en:Stuffed Pastas
 en:Pasta stuffed with meat
 de:Nudeln mit Fleischfüllung
 es:Pasta rellena de carne
-fr:Pates farcies à la viande
+fr:Pâtes farcies à la viande
 it:tortellini o ravioli alla carne
 agribalyse_proxy_food_code:en:25157
 agribalyse_proxy_food_name:en:Fresh pasta, stuffed with meat (e.g. bolognese-style ravioli), raw
 agribalyse_proxy_food_name:fr:Pâtes fraîches farcies (ex : raviolis), à la viande (ex : bolognaise), crues
 
-<en:Fresh pasta
 <en:Fresh meals
 <en:Ravioli
 en:Fresh ravioli
@@ -83708,8 +83695,7 @@ fr:Ravioli à la bolognaise, raviolis à la bolognaise, Ravioli bolognaise, Ravi
 hu:Bolognais ravioli, Ravioli bolognaival
 nl:Bolognese Raviolis
 
-<en:Stuffed Pastas
-<en:fresh pasta
+<en:Stuffed pastas
 en:Fresh pasta stuffed with cheese and vegetables
 fr:Pâtes fraîches farcies au fromage et aux légumes
 agribalyse_food_code:en:25182
@@ -83717,7 +83703,7 @@ ciqual_food_code:en:25182
 ciqual_food_name:en:Fresh pasta, stuffed with cheese and vegetables (e.g. ravioli), raw
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), au fromage et aux légumes, crues
 
-<en:Stuffed Pastas
+<en:Stuffed pastas
 en:Cooked fresh pasta stuffed with cheese and vegetables
 fr:Pâtes fraîches cuits farcies au fromage et aux légumes
 agribalyse_food_code:en:25155
@@ -83725,13 +83711,12 @@ ciqual_food_code:en:25155
 ciqual_food_name:en:Fresh pasta, stuffed with cheese and vegetables (e.g. ravioli), cooked
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), au fromage et aux légumes, cuites
 
-<en:Stuffed Pastas
+<en:Stuffed pastas
 en:Pasta stuffed with vegetables
 es:Pasta rellena de verduras
 fr:Pates farcies aux légumes
 
 <en:Pasta stuffed with vegetables
-<en:fresh pasta
 en:Fresh pasta stuffed with vegetables
 fr:Pâtes fraîches farcies aux légumes
 agribalyse_food_code:en:25203
@@ -83924,6 +83909,23 @@ fr:Pâtes au saumon
 <en:Pasta dishes
 en:Macaroni and cheese
 wikidata:en:Q378341
+
+<en:Pasta dishes
+en:Stuffed pastas in sauce
+fr:Pâtes farcies en sauce
+
+<en:Pasta dishes
+en:Stuffed pastas
+bg:Пълнена паста
+ca:Pastes farcides
+de:Gefüllte Nudeln
+es:Pastas rellenas
+fi:täytetyt pastat
+fr:Pâtes farcies
+he:פסטה ממולאת
+hu:Töltött tészták
+it:Pasta farcita, pasta ripiena
+nl:Gevulde pastas
 
 <en:Stuffed Pastas
 en:Tortellini
