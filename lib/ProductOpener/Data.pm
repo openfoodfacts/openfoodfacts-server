@@ -120,31 +120,31 @@ sub execute_query ($sub) {
 }
 
 sub execute_aggregate_tags_query($aggregate_parameters) {
-	$log->debug("Executing PostgreSQL aggregate query",
-		{query => $aggregate_parameters})
-		if $log->is_debug();
-
-	my $ua = LWP::UserAgent->new();
-	my $resp = $ua->post(
-		'http://host.docker.internal:3000/aggregate',
-		Content => encode_json($aggregate_parameters),
-		"Content-Type" => "application/json; charset=utf-8"
-	);
-	return decode_json($resp->decoded_content);
+	return execute_tags_query('aggregate', $aggregate_parameters);
 }
 
 sub execute_count_tags_query($query_ref) {
-	$log->debug("Executing PostgreSQL count",
-		{query => $query_ref})
-		if $log->is_debug();
+	return execute_tags_query('count', $query_ref);
+}
 
-	my $ua = LWP::UserAgent->new();
-	my $resp = $ua->post(
-		'http://host.docker.internal:3000/count',
-		Content => encode_json($query_ref),
-		"Content-Type" => "application/json; charset=utf-8"
-	);
-	return decode_json($resp->decoded_content);
+sub execute_tags_query($type, $parameters) {
+	if ((defined $query_url) and (length($query_url) > 0)) {
+		$query_url =~ s/^\s+|\s+$//g;
+		my $path = "$query_url/$type";
+		$log->debug('Executing PostgreSQL ' . $type . ' query on ' . $path,
+			{query => $parameters})
+			if $log->is_debug();
+
+		my $ua = LWP::UserAgent->new();
+		my $resp = $ua->post($path,
+			Content => encode_json($parameters),
+			'Content-Type' => 'application/json; charset=utf-8'
+		);
+		return decode_json($resp->decoded_content);
+	} else {
+		$log->debug('QUERY_URL not defined') if $log->is_debug();
+		return;
+	}
 }
 
 =head2 get_products_collection( $parameters_ref )

@@ -14,6 +14,7 @@ x-backend-conf: &backend-conf
     - POSTGRES_USER
     - POSTGRES_PASSWORD
     - ROBOTOFF_URL
+    - QUERY_URL
     - EVENTS_URL
     - FACETS_KP_URL
     - EVENTS_USERNAME
