@@ -42,11 +42,11 @@ msgstr "Lägg till en produkt"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr "Registrera"
+msgstr "Registrera dig"
 
 msgctxt "add_user_display"
 msgid "Register"
-msgstr "Registrera"
+msgstr "Registrera dig"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
@@ -468,7 +468,7 @@ msgstr "Ta bort bilderna"
 
 msgctxt "delete_user"
 msgid "Delete a user"
-msgstr ""
+msgstr "Radera en användare"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -564,7 +564,7 @@ msgstr "redaktör"
 
 msgctxt "email"
 msgid "E-mail address"
-msgstr ""
+msgstr "E-postadress"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -998,15 +998,15 @@ msgstr "Ingredienser"
 
 msgctxt "no_ingredient"
 msgid "Ingredients are missing"
-msgstr ""
+msgstr "Ingredienser saknas"
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
-msgstr ""
+msgstr "1 ingrediens"
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
-msgstr ""
+msgstr "{number} ingredienser"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1376,7 +1376,7 @@ msgstr "Prenumerera på nyhetsbrevet (maximalt två e-postmeddelanden per månad
 
 msgctxt "subscribe_to_our_newsletter"
 msgid "Subscribe to our newsletter"
-msgstr ""
+msgstr "Prenumerera på vårt nyhetsbrev"
 
 msgctxt "next"
 msgid "Next"
@@ -2361,7 +2361,7 @@ msgstr "En samlad, fri och öppen databas över ingredienser, näringsfakta och 
 
 msgctxt "site_name"
 msgid "Open Food Facts"
-msgstr "Öppna Produktfakta"
+msgstr "Open Food Facts"
 
 msgctxt "logo_site_name"
 msgid "Open Food Facts logo"
@@ -3139,7 +3139,7 @@ msgstr ""
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "Format: ÅÅÅÅ-MM-DD, ÅÅÅÅ-MM eller ÅÅÅÅ"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
@@ -4651,7 +4651,7 @@ msgstr ""
 
 msgctxt "attribute_group_allergens_name"
 msgid "Allergens"
-msgstr ""
+msgstr "Allergener"
 
 msgctxt "attribute_group_allergens_warning"
 msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
@@ -4786,7 +4786,7 @@ msgstr "Mycket hög miljöpåverkan"
 # keep the %s, it will be replaced by an allergen
 msgctxt "contains_s"
 msgid "Contains: %s"
-msgstr ""
+msgstr "Innehåller: %s"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "may_contain_s"
@@ -6047,11 +6047,11 @@ msgstr ""
 
 msgctxt "palm_oil_ingredients"
 msgid "Ingredients that contain palm oil"
-msgstr ""
+msgstr "Ingredienser som innehåller palmolja"
 
 msgctxt "may_contain_palm_oil_ingredients"
 msgid "Ingredients that may contain palm oil"
-msgstr ""
+msgstr "Ingredienser som kan innehålla palmolja"
 
 msgctxt "palm_oil_free_ingredients"
 msgid "No ingredients containing palm oil detected"
@@ -6063,7 +6063,7 @@ msgstr ""
 
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
-msgstr ""
+msgstr "Okända ingredienser"
 
 msgctxt "nova_1_unprocessed_ingredients"
 msgid "The product contains only unprocessed or minimally processed ingredients."
@@ -6166,7 +6166,7 @@ msgstr ""
 
 msgctxt "action_add_categories"
 msgid "Add a category"
-msgstr ""
+msgstr "Lägg till en kategori"
 
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
@@ -6342,7 +6342,7 @@ msgstr ""
 # {links} must not be translated, it will be replaced by icons and/or text links
 msgctxt "f_footer_follow_us_links"
 msgid "Follow us: {links}"
-msgstr ""
+msgstr "Följ oss: {links}"
 
 # Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
 msgctxt "footer_install_the_app_exclamation_mark"
@@ -6486,7 +6486,7 @@ msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
-msgstr ""
+msgstr "Ogiltigt värde: måste vara 0 eller 1"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
@@ -6517,7 +6517,7 @@ msgstr ""
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
-msgstr ""
+msgstr "Importera och exportera produkter"
 
 msgctxt "add_products"
 msgid "Add products"
@@ -6551,7 +6551,7 @@ msgstr ""
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
-msgstr ""
+msgstr "Ange ett värde mellan 0 och {max}."
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
