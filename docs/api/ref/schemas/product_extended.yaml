@@ -92,11 +92,11 @@ properties:
         description: |
           you can retrieve all kind of properties, the same as on the parent object (the product).
           It's not processed entries (like tags for example) but raw ones.
-        type:
-          oneOf:
-            - integer
-            - string
-            - object
+        type: object
+        oneOf:
+          - integer
+          - string
+          - object
   nova_groups_markers:
     type: object
     description: |
