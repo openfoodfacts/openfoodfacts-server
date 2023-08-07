@@ -107,6 +107,8 @@ BEGIN {
 
 		@search_series
 
+		%index_tag_types_set
+
 		$admin
 		$memd
 		$default_request_ref
@@ -278,6 +280,10 @@ my $tags_page_size = 10000;
 if (defined $options{export_limit}) {
 	$export_limit = $options{export_limit};
 }
+
+# Save all tag types to index in a set to make checks easier
+%index_tag_types_set;
+@index_tag_types_set{@ProductOpener::Config::index_tag_types} = ();
 
 # Initialize the Template module
 $tt = Template->new(
@@ -749,8 +755,7 @@ sub init_request ($request_ref = {}) {
 	# If lc is not one of the official languages of the country and if the request comes from
 	# a bot crawler, don't index the webpage (return an empty noindex HTML page)
 	# We also disable indexing for all subdomains that don't have the format world, cc or cc-lc
-	my $hostname_components_count = $hostname =~ tr/\.//;
-	if ((!($lc ~~ $country_languages{$cc})) or $hostname_components_count ne 2 or $subdomain =~ /^(ssl-)?api/) {
+	if ((!($lc ~~ $country_languages{$cc})) or $subdomain =~ /^(ssl-)?api/) {
 		# Use robots.txt with disallow: / for all agents
 		$request_ref->{deny_all_robots_txt} = 1;
 
@@ -930,7 +935,7 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 
 	my $is_crawl_bot = 0;
 	if ($user_agent_str
-		=~ /Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|YandexBot|YandexRenderResourcesBot|DuckDuckBot|DotBot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|www\.qwant\.com|facebookexternalhit/
+		=~ /Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|YandexBot|YandexRenderResourcesBot|DuckDuckBot|DotBot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|www\.qwant\.com|facebookexternalhit/i
 		)
 	{
 		$is_crawl_bot = 1;
@@ -1110,7 +1115,7 @@ sub display_robots_txt_and_exit ($request_ref) {
 	my $template_data_ref = {facets => []};
 	my $vars = {deny_access => $request_ref->{deny_all_robots_txt}, disallow_paths_localized => []};
 
-	foreach my $type (keys %tag_type_singular) {
+	foreach my $type (sort keys %tag_type_singular) {
 		# Get facet name for both english and the request language
 		foreach my $lang ('en', $request_ref->{lc}) {
 			my $tag_value_singular = $tag_type_singular{$type}{$lang};
@@ -1122,7 +1127,7 @@ sub display_robots_txt_and_exit ($request_ref) {
 				# check that it's not one of the exception
 				# we don't perform this check below for list of tags pages as all list of
 				# tags pages are not indexable
-				and not($type ~~ @ProductOpener::Config::index_tag_types)
+				and not(exists($index_tag_types_set{$type}))
 				)
 			{
 				push(@{$vars->{disallow_paths_localized}}, $tag_value_singular);
