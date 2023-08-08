@@ -577,7 +577,24 @@ sub analyze_request ($request_ref) {
 	}
 
 	# Return noindex empty HTML page for web crawlers that crawl specific facet pages
-	if (
+	if (is_no_index_page($request_ref)) {
+		# $request_ref->{no_index} is set to 0 by default in init_request()
+		$request_ref->{no_index} = 1;
+	}
+
+	$log->debug("request analyzed", {lc => $lc, lang => $lang, request_ref => $request_ref}) if $log->is_debug();
+
+	return 1;
+}
+
+=head2 is_no_index_page ($request_ref)
+
+Return 1 if the page should not be indexed by web crawlers based on analyzed request, 0 otherwise.
+
+=cut
+
+sub is_no_index_page ($request_ref) {
+	return scalar(
 		($request_ref->{is_crawl_bot} == 1) and (
 			# All list of tags pages should be non-indexable
 			(defined $request_ref->{groupby_tagtype})
@@ -596,15 +613,7 @@ sub analyze_request ($request_ref) {
 				)
 			)
 		)
-		)
-	{
-		# $request_ref->{no_index} is set to 0 by default in init_request()
-		$request_ref->{no_index} = 1;
-	}
-
-	$log->debug("request analyzed", {lc => $lc, lang => $lang, request_ref => $request_ref}) if $log->is_debug();
-
-	return 1;
+	);
 }
 
 # component was specified as en:product, fr:produit etc.
