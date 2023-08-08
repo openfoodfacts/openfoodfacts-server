@@ -2025,7 +2025,7 @@ sub update_export_status_for_csv_file_task ($job, $args_ref) {
 }
 
 sub queue_job {    ## no critic (Subroutines::RequireArgUnpacking)
-	return $minion->enqueue(@_);
+	return get_minion()->enqueue(@_);
 }
 
 1;
