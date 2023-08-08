@@ -198,7 +198,7 @@ my %may_contain_regexps = (
 		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van",
 	nb =>
 		"kan inneholde spor av|kan forekomme spor av|kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
-	pl => "może zawierać śladowe ilości|produkt może zawierać|może zawierać",
+	pl => "może zawierać śladowe ilości|produkt może zawierać|może zawierać|możliwa obecność",
 	pt => "pode conter vestígios de|pode conter",
 	ro => "poate con[țţt]ine urme de|poate con[țţt]ine|poate con[țţt]in",
 	ru => "Могут содержаться следы",
@@ -380,7 +380,7 @@ my %of = (
 my %from = (
 	en => " from ",
 	fr => " de la | de | du | des | d'",
-	pl => " z ",
+	pl => " z | ze ",
 );
 
 my %and = (
@@ -430,7 +430,7 @@ my %and_or = (
 	it => " e | o | e/o | e / o",
 	nl => " en/of | en / of ",
 	nb => " og | eller | og/eller | og / eller ",
-	pl => " i | oraz ",
+	pl => " i | oraz | lub | albo ",
 	ru => " и | или | и/или | и / или ",
 	sv => " och | eller | och/eller | och / eller ",
 );
@@ -447,6 +447,7 @@ my %the = (
 # e.g. "fraises issues de l'agriculture biologique"
 
 # Put composed labels like fair-trade-organic first
+# There is no need to add labels in every language, synonyms are used automatically
 my @labels = (
 	"en:fair-trade-organic", "en:organic",
 	"en:fair-trade", "en:pgi",
@@ -454,7 +455,7 @@ my @labels = (
 	"en:sustainable-seafood-msc", "en:responsible-aquaculture-asc",
 	"fr:aoc", "en:vegan",
 	"en:vegetarian", "nl:beter-leven-1-ster",
-	"nl:beter-leven-2-ster", "nl:beter-leven-3-ster"
+	"nl:beter-leven-2-ster", "nl:beter-leven-3-ster",
 );
 my %labels_regexps = ();
 
@@ -2082,7 +2083,15 @@ sub parse_ingredients_text ($product_ref) {
 								'en',
 							],
 
-							'pl' => ['^masa kakaowa minimum$',],
+							'pl' => [
+								'^czekolada deserowa: masa kakaowa min(imum)?$',
+								'^masa kakaowa( w czekoladzie mlecznej)? min(imum)?$',
+								'^masa mleczna min(imum)?$',
+								'^(?>\d+\s+g\s+)?(?>\w+\s?)*?100\s?g(?> \w*)?$',  # "pomidorów zużyto na 100 g produktu"
+								'^\w*\s?z \d* g (?>\w+\s?)*?100\s?g\s(?>produktu)?$'
+								,    # "Sporządzono z 40 g owoców na 100 g produktu"
+								'^(?>\d+\s+g\s+)?(?>\w+\s?)*?ze\s+\d+\s?g(?>\s+\w*)*$' # "produktu wyprodukowano ze 133 g mięsa wieprzowego"
+							],
 
 							'ru' => [
 								'^россия$', '^состав( продукта)?$',
@@ -4460,13 +4469,47 @@ my %ingredients_categories_and_types = (
 		# oils and fats
 		[
 			# categories
-			["olej", "olej roślinny", "oleje", "oleje roślinne", "tłuszcze", "tłuszcze roślinne",],
+			["olej", "olej roślinny", "oleje", "oleje roślinne", "tłuszcze", "tłuszcze roślinne", "tłuszcz roślinny",],
 			# types
 			[
 				"rzepakowy", "z oliwek", "palmowy", "słonecznikowy",
 				"kokosowy", "sojowy", "shea", "palmowy utwardzony",
-				"palmowy nieutwardzony"
+				"palmowy nieutwardzony",
 			],
+		],
+		# concentrates
+		[
+			# categories
+			[
+				"koncentraty",
+				"koncentraty roślinne",
+				"soki z zagęszczonych soków z",
+				"soki owocowe", "przeciery", "przeciery z", "soki owocowe z zagęszczonych soków owocowych",
+			],
+			# types
+			[
+				"jabłek", "pomarańczy", "marchwi", "bananów", "brzoskwiń", "gujawy",
+				"papai", "ananasów", "mango", "marakui", "liczi", "kiwi",
+				"limonek", "jabłkowy", "marchwiowy", "bananowy", "pomarańczowy"
+			],
+		],
+		# flours
+		[
+			# categories
+			["mąki", "mąka"],
+			# types
+			[
+				"pszenna", "kukurydziana", "ryżowa", "pszenna pełnoziarnista",
+				"orkiszowa", "żytnia", "jęczmienna", "owsiana",
+				"jaglana", "gryczana",
+			],
+		],
+		#meat
+		[
+			# categories
+			["mięso", "mięsa"],
+			# types
+			["wieprzowe", "wołowe", "drobiowe", "z kurczaka", "z indyka", "cielęce"],
 		],
 	],
 
@@ -4911,7 +4954,7 @@ sub preparse_ingredients_text ($product_lc, $text) {
 	elsif ($product_lc eq 'pl') {
 
 		# remove stopwords
-		$text =~ s/w? zmiennych? proporcjach?//i;
+		$text =~ s/w? (zmiennych|różnych)? proporcjach?//i;
 
 	}
 

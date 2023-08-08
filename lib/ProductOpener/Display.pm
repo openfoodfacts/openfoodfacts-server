@@ -1177,17 +1177,6 @@ sub display_text ($request_ref) {
 		return $html;
 	};
 
-	my $replace_query = sub ($query) {
-
-		my $query_ref = decode_json($query);
-		my $sort_by = undef;
-		if (defined $query_ref->{sort_by}) {
-			$sort_by = $query_ref->{sort_by};
-			delete $query_ref->{sort_by};
-		}
-		return search_and_display_products({}, $query_ref, $sort_by, undef, undef);
-	};
-
 	if ($file =~ /\/index-pro/) {
 		# On the producers platform, display products only if the owner is logged in
 		# and has an associated org or is a moderator
@@ -1200,8 +1189,6 @@ sub display_text ($request_ref) {
 		# Display all products
 		$html .= search_and_display_products($request_ref, {}, "last_modified_t_complete_first", undef, undef);
 	}
-
-	$html =~ s/\[\[query:(.*?)\]\]/$replace_query->($1)/eg;
 
 	# Replace included texts
 	$html =~ s/\[\[(.*?)\]\]/$replace_file->($1)/eg;
@@ -1385,9 +1372,17 @@ sub get_cache_results ($key, $request_ref) {
 sub set_cache_results ($key, $results) {
 
 	$log->debug("Setting value for MongoDB query key", {key => $key}) if $log->is_debug();
+	my $result_size = total_size($results);
+
+	# $max_memcached_object_size is defined is Cache.pm
+	if ($result_size >= $max_memcached_object_size) {
+		$mongodb_log->info(
+			"set_cache_results - skipping - setting value - key: $key (total_size: $result_size > max size)");
+		return;
+	}
 
 	if ($mongodb_log->is_debug()) {
-		$mongodb_log->debug("set_cache_results - setting value - key: $key - total_size: " . total_size($results));
+		$mongodb_log->debug("set_cache_results - setting value - key: $key - total_size: $result_size");
 	}
 
 	if ($memd->set($key, $results, 3600)) {
@@ -1407,6 +1402,10 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 
 	my $groupby_tagtype = $request_ref->{groupby_tagtype};
 	my $page = $request_ref->{page};
+	# Flag that indicates whether we cache MongoDB results in Memcached
+	# Caching is disabled for crawling bots, as they tend to explore
+	# all pages (and make caching inefficient)
+	my $cache_results_flag = scalar(not $request_ref->{is_crawl_bot});
 
 	# Add a meta robot noindex for pages related to users
 	if (    (defined $groupby_tagtype)
@@ -1543,7 +1542,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		if (defined $results) {
 			$results = [$results->all];
 
-			if (defined $results->[0]) {
+			if (defined $results->[0] and $cache_results_flag) {
 				set_cache_results($key, $results);
 			}
 		}
@@ -1613,15 +1612,18 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 
 				$count_results = [$count_results->all]->[0];
 				$request_ref->{structured_response}{count} = $count_results->{$groupby_tagtype . "_tags"};
-				set_cache_results($key_count, $request_ref->{structured_response}{count});
-				$log->debug(
-					"Set cached aggregate count for query key",
-					{
-						key => $key_count,
-						results_count => $request_ref->{structured_response}{count},
-						count_results => $count_results
-					}
-				) if $log->is_debug();
+
+				if ($cache_results_flag) {
+					set_cache_results($key_count, $request_ref->{structured_response}{count});
+					$log->debug(
+						"Set cached aggregate count for query key",
+						{
+							key => $key_count,
+							results_count => $request_ref->{structured_response}{count},
+							count_results => $count_results
+						}
+					) if $log->is_debug();
+				}
 			}
 		}
 		else {
@@ -4787,11 +4789,43 @@ sub add_params_to_query ($request_ref, $query_ref) {
 	return;
 }
 
+=head2 search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $page)
+
+Search products and return an HTML snippet that should be included in the webpage.
+
+=head3 Parameters
+
+=head4 $request_ref
+
+Reference to the internal request object.
+
+=head4 $query_ref
+
+Reference to the MongoDB query object.
+
+=head4 $sort_by
+
+A string indicating how to sort results (created_t, popularity,...), or a sorting subroutine.
+
+=head4 $limit
+
+Limit of the number of products to return.
+
+=head4 $page
+
+Requested page (first page starts at 1).
+
+=cut
+
 sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $page) {
 
 	$request_ref->{page_type} = "products";
 	$request_ref->{page_format} = "full_width";
 
+	# Flag that indicates whether we cache MongoDB results in Memcached
+	# Caching is disabled for crawling bots, as they tend to explore
+	# all pages (and make caching inefficient)
+	my $cache_results_flag = scalar(not $request_ref->{is_crawl_bot});
 	my $template_data_ref = {};
 
 	add_params_to_query($request_ref, $query_ref);
@@ -5116,7 +5150,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 						if ($@) {
 							$log->warn("MongoDB error during count", {error => $@}) if $log->is_warn();
 						}
-						else {
+						elsif ($cache_results_flag) {
 							$log->debug("count query complete, setting cache", {key => $key_count, count => $count})
 								if $log->is_debug();
 							set_cache_results($key_count, $count);
@@ -5177,7 +5211,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			$request_ref->{structured_response}{count} = $count;
 
 			# Don't set the cache if no_count was set
-			if (not single_param('no_count')) {
+			if (not single_param('no_count') and $cache_results_flag) {
 				set_cache_results($key, $request_ref->{structured_response});
 			}
 		}
