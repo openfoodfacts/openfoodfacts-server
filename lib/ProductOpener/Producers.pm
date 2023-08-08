@@ -109,8 +109,8 @@ The backend minion $minion
 
 =cut
 
-sub get_minion{
-	if(not defined $minion){
+sub get_minion {
+	if (not defined $minion) {
 		if (not defined $server_options{minion_backend}) {
 			print STDERR "No Minion backend configured in lib/ProductOpener/Config2.pm\n";
 		}
@@ -1862,12 +1862,16 @@ sub export_and_import_to_public_database ($args_ref) {
 
 	# Remote import
 
-	my $remote_import_job_id = get_minion()->enqueue(import_csv_file => [$args_ref] =>
+	my $remote_import_job_id
+		= get_minion()
+		->enqueue(import_csv_file => [$args_ref] =>
 			{queue => $server_options{minion_export_queue}, parents => [$local_export_job_id]});
 
 	# Local export status update
 
-	my $local_export_status_job_id = get_minion()->enqueue(update_export_status_for_csv_file => [$args_ref] =>
+	my $local_export_status_job_id
+		= get_minion()
+		->enqueue(update_export_status_for_csv_file => [$args_ref] =>
 			{queue => $server_options{minion_local_queue}, parents => [$remote_import_job_id]});
 
 	$exports_ref->{$export_id}{local_export_job_id} = $local_export_job_id;
