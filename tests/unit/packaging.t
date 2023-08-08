@@ -687,6 +687,7 @@ $product_ref = {
 
 ProductOpener::Packaging::canonicalize_packaging_components_properties($product_ref);
 ProductOpener::Packaging::aggregate_packaging_by_parent_materials($product_ref);
+ProductOpener::Packaging::compute_weight_stats_for_parent_materials($product_ref);
 
 is_deeply(
 	$product_ref->{packagings_materials},
@@ -727,6 +728,7 @@ $product_ref = {
 
 ProductOpener::Packaging::canonicalize_packaging_components_properties($product_ref);
 ProductOpener::Packaging::aggregate_packaging_by_parent_materials($product_ref);
+ProductOpener::Packaging::compute_weight_stats_for_parent_materials($product_ref);
 
 is_deeply(
 	$product_ref->{packagings_materials},
@@ -742,6 +744,8 @@ is_deeply(
 	}
 
 ) or diag explain $product_ref->{packagings_materials};
+
+is($product_ref->{packagings_materials_main}, "en:metal");
 
 # 0 product_quantity
 
@@ -759,6 +763,7 @@ $product_ref = {
 
 ProductOpener::Packaging::canonicalize_packaging_components_properties($product_ref);
 ProductOpener::Packaging::aggregate_packaging_by_parent_materials($product_ref);
+ProductOpener::Packaging::compute_weight_stats_for_parent_materials($product_ref);
 
 is_deeply(
 	$product_ref->{packagings_materials},
@@ -781,6 +786,7 @@ $product_ref = {};
 
 ProductOpener::Packaging::canonicalize_packaging_components_properties($product_ref);
 ProductOpener::Packaging::aggregate_packaging_by_parent_materials($product_ref);
+ProductOpener::Packaging::compute_weight_stats_for_parent_materials($product_ref);
 
 is_deeply(
 	$product_ref->{packagings_materials},

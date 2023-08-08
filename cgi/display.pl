@@ -110,6 +110,13 @@ if (defined $request_ref->{error_message}) {
 	return Apache2::Const::OK;
 }
 
+if ($request_ref->{no_index} eq 1) {
+	# The request is made from a known web crawler and the web-page shouldn't be indexed:
+	# return directly a "noindex" empty HTML page
+	display_no_index_page_and_exit();
+	return Apache2::Const::OK;
+}
+
 $log->debug(
 	"after analyze_request",
 	{

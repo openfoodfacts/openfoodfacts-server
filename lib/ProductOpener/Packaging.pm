@@ -950,10 +950,37 @@ sub aggregate_packaging_by_parent_materials ($product_ref) {
 				deep_val($packagings_materials_ref, "all", "weight") += $total_weight;
 			}
 		}
+	}
+
+	$product_ref->{packagings_materials} = $packagings_materials_ref;
+
+	return;
+}
+
+=head2 compute_weight_stats_for_parent_materials($product_ref)
+
+Compute stats for the parent materials of a product:
+- % of the weight of a material over the weight of all packaging
+- weight of packaging per 100g of product
+
+Also compute the main parent material.
+
+=cut
+
+sub compute_weight_stats_for_parent_materials ($product_ref) {
+
+	# We will determine which packaging material has the greatest weight
+	my $packagings_materials_main;
+	my $packagings_materials_main_weight = 0;
+
+	my $packagings_materials_ref = $product_ref->{packagings_materials};
+
+	if (defined $packagings_materials_ref) {
 
 		# Iterate over each parent material to compute weight statistics
 		my $total_weight = deep_get($packagings_materials_ref, "all", "weight");
-		foreach my $parent_material_ref (values %$packagings_materials_ref) {
+		foreach my $parent_material_id (sort keys %$packagings_materials_ref) {
+			my $parent_material_ref = $packagings_materials_ref->{$parent_material_id};
 			if (defined $parent_material_ref->{weight}) {
 				if ($total_weight) {
 					$parent_material_ref->{weight_percent} = $parent_material_ref->{weight} / $total_weight * 100;
@@ -962,12 +989,23 @@ sub aggregate_packaging_by_parent_materials ($product_ref) {
 					$parent_material_ref->{weight_100g}
 						= $parent_material_ref->{weight} / $product_ref->{product_quantity} * 100;
 				}
+				if (    ($parent_material_id ne "all")
+					and ($parent_material_ref->{weight} > $packagings_materials_main_weight))
+				{
+					$packagings_materials_main = $parent_material_id;
+					$packagings_materials_main_weight = $parent_material_ref->{weight};
+				}
 			}
 		}
 	}
 
-	$product_ref->{packagings_materials} = $packagings_materials_ref;
-
+	# Record the main packaging material
+	if (defined $packagings_materials_main) {
+		$product_ref->{packagings_materials_main} = $packagings_materials_main;
+	}
+	else {
+		delete $product_ref->{packagings_materials_main};
+	}
 	return;
 }
 
@@ -1089,6 +1127,9 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 
 	# Aggregate data per parent material
 	aggregate_packaging_by_parent_materials($product_ref);
+
+	# Compute stats for each parent material
+	compute_weight_stats_for_parent_materials($product_ref);
 
 	$log->debug("analyze_and_combine_packaging_data - done",
 		{packagings => $product_ref->{packagings}, response => $response_ref})

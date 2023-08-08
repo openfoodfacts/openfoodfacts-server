@@ -225,7 +225,7 @@ sub get_html_email_content ($filename, $lang) {
 		$file = "$data_root/lang/en/emails/$filename";
 	}
 
-	open(my $IN, "<:encoding(UTF-8)", $file) or log->error("Can't open $file for reading");
+	open(my $IN, "<:encoding(UTF-8)", $file) or $log->error("Can't open $file for reading");
 	return unless $IN;
 	my $html = join('', (<$IN>));
 	close($IN);

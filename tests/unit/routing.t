@@ -32,7 +32,8 @@ my @tests = (
 			'lc' => 'en',
 			'original_query_string' => 'api/v0/attribute_groups',
 			'page' => 1,
-			'query_string' => 'api/v0/attribute_groups'
+			'query_string' => 'api/v0/attribute_groups',
+			'no_index' => '0'
 		},
 	},
 	{
@@ -56,7 +57,8 @@ my @tests = (
 			'tag' => 'en:breads',
 			'tag_prefix' => '',
 			'tagid' => 'en:breads',
-			'tagtype' => 'categories'
+			'tagtype' => 'categories',
+			'no_index' => '0'
 		},
 	},
 	{
@@ -78,7 +80,8 @@ my @tests = (
 			'tag' => 'en:breads',
 			'tag_prefix' => '',
 			'tagid' => 'en:breads',
-			'tagtype' => 'categories'
+			'tagtype' => 'categories',
+			'no_index' => '0'
 		},
 	},
 	{
@@ -100,7 +103,8 @@ my @tests = (
 			'tag' => 'en:breads',
 			'tag_prefix' => '',
 			'tagid' => 'en:breads',
-			'tagtype' => 'categories'
+			'tagtype' => 'categories',
+			'no_index' => '0'
 		},
 	},
 	{
@@ -122,7 +126,8 @@ my @tests = (
 			'tag' => 'en:bread',
 			'tag_prefix' => '',
 			'tagid' => 'en:bread',
-			'tagtype' => 'categories'
+			'tagtype' => 'categories',
+			'no_index' => '0'
 		},
 	},
 
