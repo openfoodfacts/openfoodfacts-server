@@ -1189,7 +1189,7 @@ Populates the data structure needed to compute the Nutri-Score and computes it.
 
 =cut
 
-sub compute_nutrition_score ($product_ref) {
+sub compute_nutrition_score ($product_ref, $version = "2021") {
 
 	# Initialize values
 
@@ -1401,8 +1401,15 @@ sub compute_nutrition_score ($product_ref) {
 
 	$product_ref->{nutriscore_data} = compute_nutriscore_data($product_ref, $prepared, $nutriments_field);
 
-	my ($nutriscore_score, $nutriscore_grade)
-		= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade($product_ref->{nutriscore_data});
+	my ($nutriscore_score, $nutriscore_grade);
+
+	if ($version eq "2023") {
+		($nutriscore_score, $nutriscore_grade) = ProductOpener::Nutriscore::compute_nutriscore_score_and_grade_2023($product_ref->{nutriscore_data});
+	}
+	else {
+		($nutriscore_score, $nutriscore_grade) = ProductOpener::Nutriscore::compute_nutriscore_score_and_grade_2021($product_ref->{nutriscore_data});		
+	}
+		
 
 	$product_ref->{nutriscore_score} = $nutriscore_score;
 	$product_ref->{nutriscore_grade} = $nutriscore_grade;

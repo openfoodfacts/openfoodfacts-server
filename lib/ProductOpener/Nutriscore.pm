@@ -592,8 +592,8 @@ my %points_thresholds_2023 = (
 	fruits_vegetables_legumes => [40, 60, 80, 80, 80],    # %
 	fruits_vegetables_legumes_beverages => [40, 40, 60, 60, 80, 80],
 	fiber => [3.0, 4.1, 5.2, 6.3, 7.4],    # g / 100g - AOAC method
-	proteins => [2.4, 4.8, 7.2, 9.6, 12, 14, 17]    # g / 100g
-		proteins_beverages => [1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0]    # g / 100g
+	proteins => [2.4, 4.8, 7.2, 9.6, 12, 14, 17],    # g / 100g
+	proteins_beverages => [1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0],    # g / 100g
 );
 
 =head2 get_value_with_one_less_negative_point( $nutriscore_data_ref, $nutrient )
@@ -775,7 +775,7 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 	if (
 		($nutriscore_data_ref->{is_beverage})
 		or (    (not $nutriscore_data_ref->{is_fat_nuts_seeds})
-			and (($nutriscore_data_ref->{negative_points} < 11) or (nutriscore_data_ref->{is_cheese})))
+			and (($nutriscore_data_ref->{negative_points} < 11) or ($nutriscore_data_ref->{is_cheese})))
 		or ($nutriscore_data_ref->{negative_points} < 7)
 		)
 	{
