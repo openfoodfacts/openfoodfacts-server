@@ -136,6 +136,8 @@ my $compute_main_countries = '';
 my $prefix_packaging_tags_with_language = '';
 my $fix_non_string_ids = '';
 my $assign_ciqual_codes = '';
+my $obsolete = 0;
+my $fix_obsolete;
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -190,6 +192,8 @@ GetOptions(
 	"compute-main-countries" => \$compute_main_countries,
 	"prefix-packaging-tags-with-language" => \$prefix_packaging_tags_with_language,
 	"assign-ciqual-codes" => \$assign_ciqual_codes,
+	"obsolete" => \$obsolete,
+	"fix-obsolete" => \$fix_obsolete,
 ) or die("Error in command line arguments:\n\n$usage");
 
 use Data::Dumper;
@@ -261,7 +265,8 @@ if (    (not $process_ingredients)
 	and (not $count)
 	and (not $just_print_codes)
 	and (not $prefix_packaging_tags_with_language)
-	and (not $assign_ciqual_codes))
+	and (not $assign_ciqual_codes)
+	and (not $fix_obsolete))
 {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -352,7 +357,15 @@ use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
 my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
-my $products_collection = get_products_collection({timeout => $socket_timeout_ms});
+
+# Collection that will be used to iterate products
+my $products_collection = get_products_collection({obsolete => $obsolete, timeout => $socket_timeout_ms});
+
+# Collections for saving current / obsolete products
+my %products_collections = (
+	current => get_products_collection({timeout => $socket_timeout_ms}),
+	obsolete => get_products_collection({obsolete => $obsolete, timeout => $socket_timeout_ms}),
+);
 
 my $products_count = "";
 
@@ -379,6 +392,7 @@ my $n = 0;    # number of products updated
 my $m = 0;    # number of products with a new version created
 
 my $fix_rev_not_incremented_fixed = 0;
+my $fix_obsolete_fixed = 0;
 
 # Used to get stats on fields deleted by an user
 my %deleted_fields = ();
@@ -1345,7 +1359,25 @@ while (my $product_ref = $cursor->next) {
 				# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
 				$product_ref->{_id} .= '';
 				$product_ref->{code} .= '';
-				$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+				my $collection = "current";
+				if ($product_ref->{obsolete}) {
+					$collection = "obsolete";
+				}
+				$products_collections{$collection}
+					->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+
+				# If the obsolete flag of the product does not
+				# correspond to the collection we are iterating over
+				# delete the product from the collection
+				if (
+					$fix_obsolete
+					and (  ($obsolete and not $product_ref->{obsolete})
+						or ((not $obsolete) and $product_ref->{obsolete}))
+					)
+				{
+					$products_collection->delete_one({"_id" => $product_ref->{_id}});
+					$fix_obsolete_fixed++;
+				}
 			}
 		}
 
@@ -1394,6 +1426,10 @@ if ($prefix_packaging_tags_with_language) {
 }
 
 print "$n products updated (pretend: $pretend) - $m new versions created\n";
+
+if ($fix_obsolete_fixed) {
+	print "$fix_obsolete_fixed removed from wrong collection (obsolete or current)\n";
+}
 
 if ($fix_rev_not_incremented_fixed) {
 	print "$fix_rev_not_incremented_fixed rev fixed\n";
