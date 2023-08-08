@@ -106,7 +106,7 @@ BEGIN {
 		&process_product_edit_rules
 		&preprocess_product_field
 		&product_data_is_protected
-
+		&update_existing_product_without_creating_a_new_revision
 		&make_sure_numbers_are_stored_as_numbers
 		&change_product_server_or_code
 
@@ -1034,6 +1034,44 @@ sub compute_sort_keys ($product_ref) {
 	$product_ref->{popularity_key} = $popularity_key + 0;
 
 	return;
+}
+
+=head2 update_existing_product_without_creating_a_new_revision( $mongodb_to_mongodb, $product_ref, $products_collection, $data_root, $path)
+
+update existing product without creating a new revision
+
+=head3 Parameters
+
+=head4 $mongodb_to_mongodb
+  
+=head4 $product_ref
+
+Product object reference.
+
+=head4  $products_collection
+=head4 $data_root
+=head4 $path
+
+=cut
+
+sub update_existing_product_without_creating_a_new_revision ($mongodb_to_mongodb, $product_ref, $products_collection,
+	$path)
+{
+
+	make_sure_numbers_are_stored_as_numbers($product_ref);
+
+	if (!$mongodb_to_mongodb) {
+		# Store data to .sto file
+		store("$data_root/products/$path/product.sto", $product_ref);
+	}
+
+	# Store data to mongodb
+	# Make sure product _id and code are saved as string and not a number
+	# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
+	# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
+	$product_ref->{_id} .= '';
+	$product_ref->{code} .= '';
+	$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
 }
 
 =head2 store_product ($user_id, $product_ref, $comment)
