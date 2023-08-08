@@ -1114,6 +1114,7 @@ robots.txt is dynamically generated based on lc, it's content depends on $reques
 sub display_robots_txt_and_exit ($request_ref) {
 	my $template_data_ref = {facets => []};
 	my $vars = {deny_access => $request_ref->{deny_all_robots_txt}, disallow_paths_localized => []};
+	my %disallow_paths_localized_set = ();
 
 	foreach my $type (sort keys %tag_type_singular) {
 		# Get facet name for both english and the request language
@@ -1123,13 +1124,14 @@ sub display_robots_txt_and_exit ($request_ref) {
 			if (
 					defined $tag_value_singular
 				and length($tag_value_singular) != 0
-				and not($tag_value_singular ~~ $vars->{disallow_paths_localized})
+				and not(exists($disallow_paths_localized_set{$tag_value_singular}))
 				# check that it's not one of the exception
 				# we don't perform this check below for list of tags pages as all list of
 				# tags pages are not indexable
 				and not(exists($index_tag_types_set{$type}))
 				)
 			{
+				$disallow_paths_localized_set{$tag_value_singular} = undef;
 				push(@{$vars->{disallow_paths_localized}}, $tag_value_singular);
 			}
 			if (
@@ -1137,9 +1139,10 @@ sub display_robots_txt_and_exit ($request_ref) {
 				and length($tag_value_plural)
 				!= 0
 				# ecoscore has the same value for singular and plural, and products should not be disabled
-				and ($type !~ /^ecoscore|products$/) and not($tag_value_plural ~~ $vars->{disallow_paths_localized})
+				and ($type !~ /^ecoscore|products$/) and not(exists($disallow_paths_localized_set{$tag_value_plural}))
 				)
 			{
+				$disallow_paths_localized_set{$tag_value_plural} = undef;
 				push(@{$vars->{disallow_paths_localized}}, $tag_value_plural);
 			}
 		}
