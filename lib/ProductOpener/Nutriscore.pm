@@ -44,7 +44,8 @@ of a food product.
 		is_beverage => 1,
 		is_water => 0,
 		is_cheese => 0,
-		is_fat => 0,
+		is_fat (for 2021 version)
+		is_fat_nuts_seed (for 2023 version)
 	}
 
 	my ($nutriscore_score, $nutriscore_grade) = compute_nutriscore_score_and_grade(
@@ -82,6 +83,14 @@ BEGIN {
 
 		&get_value_with_one_less_negative_point
 		&get_value_with_one_more_positive_point
+
+		%points_thresholds_2023
+
+		&compute_nutriscore_score_and_grade_2023
+		&compute_nutriscore_grade_2023
+
+		&get_value_with_one_less_negative_point_2023
+		&get_value_with_one_more_positive_point_2023
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -123,15 +132,15 @@ sub compute_nutriscore_score_and_grade ($nutriscore_data_ref) {
 }
 
 sub get_value_with_one_less_negative_point ($nutriscore_data_ref, $nutrient) {
-	return get_value_with_one_less_negative_point_2021 ($nutriscore_data_ref, $nutrient);
+	return get_value_with_one_less_negative_point_2021($nutriscore_data_ref, $nutrient);
 }
 
 sub get_value_with_one_more_positive_point ($nutriscore_data_ref, $nutrient) {
-	return get_value_with_one_more_positive_point_2021 ($nutriscore_data_ref, $nutrient);
+	return get_value_with_one_more_positive_point_2021($nutriscore_data_ref, $nutrient);
 }
 
 sub compute_nutriscore_grade ($nutrition_score, $is_beverage, $is_water) {
-	return compute_nutriscore_grade_2021 ($nutrition_score, $is_beverage, $is_water);
+	return compute_nutriscore_grade_2021($nutrition_score, $is_beverage, $is_water);
 }
 
 # 2021 algorithm
@@ -317,6 +326,17 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 	# The values must be rounded with one more digit than the thresolds.
 	# Undefined values are counted as 0 (it can be the case in particular for waters that have different nutrients listed)
 
+	# Note (2023/08/08): there used to be a rounding rule (e.g. in the Nutri-Score specification UPDATED 12/05/2020):
+	# "Points are assigned for a given nutrient based on the content of the nutrient in question in the food, with a
+	# rounded value corresponding to one additional number with regard to the point attribution threshold."
+	#
+	# This rule has been changed (e.g. in spec UPDATED 27/09/2022):
+	# Points are assigned according to the values indicated on the mandatory nutritional declaration.
+	# To determine number of decimals needed, we recommend the use of the European guidance document
+	# with regards to the settings of tolerances for nutrient values for labels. For optional nutrients, in accordance
+	# with Article 30-2 of the INCO regulation 1169/2011, such as fibre, rounding guidelines from the previous
+	# document are also recommended.
+
 	# Round with 1 digit after the comma for energy, saturated fat, saturated fat ratio, sodium and fruits
 
 	foreach my $nutrient (
@@ -475,7 +495,6 @@ sub compute_nutriscore_grade_2021 ($nutrition_score, $is_beverage, $is_water) {
 	return $grade;
 }
 
-
 # 2022 / 2023 algorithm
 
 =head2 compute_nutriscore_score_and_grade( $nutriscore_data_ref )
@@ -506,7 +525,7 @@ If the product is a beverage, water, cheese, or fat, it must contain a positive 
 - is_beverage
 - is_water
 - is_cheese
-- is_fat
+- is_fat_nuts_seeds
 
 =head4 Output keys: details of the Nutri-Score computation
 
@@ -558,19 +577,23 @@ my %points_thresholds_2023 = (
 	# negative points
 
 	energy => [335, 670, 1005, 1340, 1675, 2010, 2345, 2680, 3015, 3350],    # kJ / 100g
-	energy_beverages => [0, 30, 60, 90, 120, 150, 180, 210, 240, 270],    # kJ /100g or 100ml
-	sugars => [4.5, 9, 13.5, 18, 22.5, 27, 31, 36, 40, 45],    # g / 100g
-	sugars_beverages => [0, 1.5, 3, 4.5, 6, 7.5, 9, 10.5, 12, 13.5],    # g / 100g or 100ml
+	energy_beverages => [30, 90, 150, 210, 240, 270, 300, 330, 360, 390],    # kJ /100g or 100ml
+	sugars => [3.4, 6.8, 10, 14, 17, 20, 24, 27, 31, 34, 37, 41, 44, 48, 51],    # g / 100g
+	sugars_beverages => [0.5, 2, 3.5, 5, 6, 7, 8, 9, 10, 11],    # g / 100g or 100ml
 	saturated_fat => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],    # g / 100g
+	salt => [0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.2, 3.4, 3.6, 3.8, 4]
+	,    # g / 100g
+
+	# for fats
+	energy_from_saturated_fats => [120, 240, 360, 480, 600, 720, 840, 960, 1080, 1200],    # g / 100g
 	saturated_fat_ratio => [10, 16, 22, 28, 34, 40, 46, 52, 58, 64],    # %
-	sodium => [90, 180, 270, 360, 450, 540, 630, 720, 810, 900],    # mg / 100g
 
 	# positive points
-
-	fruits_vegetables_nuts_colza_walnut_olive_oils => [40, 60, 80, 80, 80],    # %
-	fruits_vegetables_nuts_colza_walnut_olive_oils_beverages => [40, 40, 60, 60, 80, 80, 80, 80, 80, 80],
-	fiber => [0.9, 1.9, 2.8, 3.7, 4.7],    # g / 100g - AOAC method
-	proteins => [1.6, 3.2, 4.8, 6.4, 8.0]    # g / 100g
+	fruits_vegetables_legumes => [40, 60, 80, 80, 80],    # %
+	fruits_vegetables_legumes_beverages => [40, 40, 60, 60, 80, 80],
+	fiber => [3.0, 4.1, 5.2, 6.3, 7.4],    # g / 100g - AOAC method
+	proteins => [2.4, 4.8, 7.2, 9.6, 12, 14, 17]    # g / 100g
+		proteins_beverages => [1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0]    # g / 100g
 );
 
 =head2 get_value_with_one_less_negative_point( $nutriscore_data_ref, $nutrient )
@@ -659,42 +682,24 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 	# The values must be rounded with one more digit than the thresolds.
 	# Undefined values are counted as 0 (it can be the case in particular for waters that have different nutrients listed)
 
-	# Round with 1 digit after the comma for energy, saturated fat, saturated fat ratio, sodium and fruits
+	# The Nutri-Score FAQ has been updated (UPDATED 27/09/2022 or earleier),
+	# and there is now no rounding of nutrient values
 
-	foreach my $nutrient (
-		qw(energy saturated_fat saturated_fat_ratio sodium fruits_vegetables_nuts_colza_walnut_olive_oils))
-	{
-		if (defined $nutriscore_data_ref->{$nutrient}) {
-			$nutriscore_data_ref->{$nutrient . "_value"} = int($nutriscore_data_ref->{$nutrient} * 10 + 0.5) / 10;
-		}
-		else {
-			$nutriscore_data_ref->{$nutrient . "_value"} = 0;
-		}
-	}
+	# Points are assigned according to the values indicated on the mandatory nutritional declaration.
+	# To determine number of decimals needed, we recommend the use of the European guidance document
+	# with regards to the settings of tolerances for nutrient values for labels. For optional nutrients, in accordance
+	# with Article 30-2 of the INCO regulation 1169/2011, such as fibre, rounding guidelines from the previous
+	# document are also recommended.
 
-	# Round with 2 digits for sugars, fiber and proteins
-
-	foreach my $nutrient (qw(sugars fiber proteins)) {
-		if (defined $nutriscore_data_ref->{$nutrient}) {
-			$nutriscore_data_ref->{$nutrient . "_value"} = int($nutriscore_data_ref->{$nutrient} * 100 + 0.5) / 100;
-		}
-		else {
-			$nutriscore_data_ref->{$nutrient . "_value"} = 0;
-		}
-	}
-
-	# Special case for sugar: we need to round to 2 digits if we are closed to a threshold defined with 1 digit (e.g. 4.5)
-	# but if the threshold is defined with 0 digit (e.g. 9) we need to round with 1 digit.
-	if (   (($nutriscore_data_ref->{"sugars_value"} - int($nutriscore_data_ref->{"sugars_value"})) > 0.9)
-		or (($nutriscore_data_ref->{"sugars_value"} - int($nutriscore_data_ref->{"sugars_value"})) < 0.1))
-	{
-		$nutriscore_data_ref->{"sugars_value"} = int($nutriscore_data_ref->{"sugars"} * 10 + 0.5) / 10;
+	# Compute the energy from saturates
+	if (defined $nutriscore_data_ref->{saturated_fat}) {
+		$nutriscore_data_ref->{energy_from_saturated_fat} = $nutriscore_data_ref->{saturated_fat} * 37 / 100;
 	}
 
 	# Compute the negative and positive points
 
 	foreach my $nutrient (
-		qw(energy sugars saturated_fat saturated_fat_ratio sodium fruits_vegetables_nuts_colza_walnut_olive_oils fiber proteins)
+		qw(energy energy_from_saturated_fats sugars saturated_fat saturated_fat_ratio salt fruits_vegetables_legumes fiber proteins)
 		)
 	{
 
@@ -710,52 +715,68 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 
 		foreach my $threshold (@{$points_thresholds_2023{$nutrient_threshold_id}}) {
 			# The saturated fat ratio table uses the greater or equal sign instead of greater
-			if (
-				(
-						($nutrient eq "saturated_fat_ratio")
-					and ($nutriscore_data_ref->{$nutrient . "_value"} >= $threshold)
-				)
-				or
-				(($nutrient ne "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient . "_value"} > $threshold))
-				)
+			if (   (($nutrient eq "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient} >= $threshold))
+				or (($nutrient ne "saturated_fat_ratio") and ($nutriscore_data_ref->{$nutrient} > $threshold)))
 			{
 				$nutriscore_data_ref->{$nutrient . "_points"}++;
 			}
 		}
 	}
 
+	# For red meat products, the number of maximum protein points is set at 2 points
+	# Red meat products qualifying for this specific rule are products from beef, veal, swine and lamb,
+	# though they include also game/venison, horse, donkey, goat, camel and kangaroo.
+
+	if (($nutriscore_data_ref->{is_read_meat_products}) and ($nutriscore_data_ref->{proteins_points} > 2)) {
+		$nutriscore_data_ref->{proteins_points} = 2;
+	}
+
 	# Negative points
 
-	# If the product is an added fat (oil, butter etc.) the saturated fat points are replaced
-	# by the saturated fat / fat ratio points
+	# If the product is in fats, oils, nuts and seeds category,
+	# the energy points are replaced by the energy from saturates points, and
+	# the saturated fat points are replaced by the saturated fat / fat ratio points
 
+	my $energy = "energy";
 	my $fat = "saturated_fat";
-	if ((defined $nutriscore_data_ref->{is_fat}) and ($nutriscore_data_ref->{is_fat})) {
+	if ($nutriscore_data_ref->{is_fat_nuts_seeds}) {
 		$fat = "saturated_fat_ratio";
+		$energy = "energy_from_saturated_fats";
+	}
+
+	# Beverages with non-nutritive sweetenrs have 4 extra negative points
+	if ($nutriscore_data_ref->{is_beverage}) {
+		if ($nutriscore_data_ref->{has_sweeteners}) {
+			$nutriscore_data_ref->{"sweeteners_points"} = 4;
+		}
+		else {
+			$nutriscore_data_ref->{"sweeteners_points"} = 0;
+		}
 	}
 
 	$nutriscore_data_ref->{negative_points} = 0;
-	foreach my $nutrient ("energy", "sugars", $fat, "sodium") {
-		$nutriscore_data_ref->{negative_points} += $nutriscore_data_ref->{$nutrient . "_points"};
+	foreach my $nutrient ($energy, "sugars", $fat, "salt", "sweeteners") {
+		$nutriscore_data_ref->{negative_points} += ($nutriscore_data_ref->{$nutrient . "_points"} || 0);
 	}
 
-	# If the sum of negative points is greater or equal to 11
-	# and if the fruits points are less than the maximum (5 or 10 for beverages)
-	# then proteins do not count
-
-	# If the product is a cheese, always count the proteins points
+	# Positive points
 
 	$nutriscore_data_ref->{positive_points} = 0;
 
-	my @positive_nutrients = qw(fruits_vegetables_nuts_colza_walnut_olive_oils fiber);
+	my @positive_nutrients = qw(fruits_vegetables_legumes fiber);
+
+	# Positive points for proteins are counted in the following 3 cases:
+	# - the product is a beverage
+	# - the product is not in the fats, oils, nuts and seeds category
+	# and the negative points are less than 11 or the product is a cheese
+	# - the product is in the fats, oils, nuts and seeds category
+	# and the negative points are less than 7
 
 	if (
-		   ($nutriscore_data_ref->{negative_points} < 11)
-		or ((defined $nutriscore_data_ref->{is_cheese}) and ($nutriscore_data_ref->{is_cheese}))
-		or (    ((defined $nutriscore_data_ref->{is_beverage}) and ($nutriscore_data_ref->{is_beverage}))
-			and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 10))
-		or (    ((not defined $nutriscore_data_ref->{is_beverage}) or (not $nutriscore_data_ref->{is_beverage}))
-			and ($nutriscore_data_ref->{fruits_vegetables_nuts_colza_walnut_olive_oils_points} == 5))
+		($nutriscore_data_ref->{is_beverage})
+		or (    (not $nutriscore_data_ref->{is_fat_nuts_seeds})
+			and (($nutriscore_data_ref->{negative_points} < 11) or (nutriscore_data_ref->{is_cheese})))
+		or ($nutriscore_data_ref->{negative_points} < 7)
 		)
 	{
 		push @positive_nutrients, "proteins";
@@ -783,10 +804,10 @@ sub compute_nutriscore_grade_2023 ($nutrition_score, $is_beverage, $is_water) {
 		if ($is_water) {
 			$grade = 'a';
 		}
-		elsif ($nutrition_score <= 1) {
+		elsif ($nutrition_score <= 2) {
 			$grade = 'b';
 		}
-		elsif ($nutrition_score <= 5) {
+		elsif ($nutrition_score <= 6) {
 			$grade = 'c';
 		}
 		elsif ($nutrition_score <= 9) {
@@ -798,7 +819,7 @@ sub compute_nutriscore_grade_2023 ($nutrition_score, $is_beverage, $is_water) {
 	}
 	else {
 
-		if ($nutrition_score <= -1) {
+		if ($nutrition_score <= -6) {
 			$grade = 'a';
 		}
 		elsif ($nutrition_score <= 2) {
