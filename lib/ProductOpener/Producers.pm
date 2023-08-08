@@ -98,7 +98,7 @@ use Minion;
 # Minion backend
 my $minion;
 
-=head2 get_minion()
+=head2 get_minion
 Function to get the backend minion
 
 =head3 Arguments
@@ -109,7 +109,7 @@ The backend minion $minion
 
 =cut
 
-sub get_minion(){
+sub get_minion{
 	if(not defined $minion){
 		if (not defined $server_options{minion_backend}) {
 			print STDERR "No Minion backend configured in lib/ProductOpener/Config2.pm\n";
