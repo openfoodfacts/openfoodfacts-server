@@ -282,7 +282,7 @@ if (defined $options{export_limit}) {
 }
 
 # Save all tag types to index in a set to make checks easier
-%index_tag_types_set;
+%index_tag_types_set = ();
 @index_tag_types_set{@ProductOpener::Config::index_tag_types} = ();
 
 # Initialize the Template module
