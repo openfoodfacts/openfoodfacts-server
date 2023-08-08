@@ -1374,8 +1374,8 @@ sub set_cache_results ($key, $results) {
 	$log->debug("Setting value for MongoDB query key", {key => $key}) if $log->is_debug();
 	my $result_size = total_size($results);
 
-	# memcached max object size is 1 048 576 bytes
-	if ($result_size >= 1048576) {
+	# $max_memcached_object_size is defined is Cache.pm
+	if ($result_size >= $max_memcached_object_size) {
 		$mongodb_log->info(
 			"set_cache_results - skipping - setting value - key: $key (total_size: $result_size > max size)");
 		return;
