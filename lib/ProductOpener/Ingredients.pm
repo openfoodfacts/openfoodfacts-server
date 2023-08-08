@@ -3382,8 +3382,8 @@ sub normalize_enumeration ($lc, $type, $enumeration) {
 		$trailing_space = " ";
 	}
 
-	my $and = $Lang{_and_}{$lc};
-	#my $enumeration_separators = $obrackets . '|' . $cbrackets . '|\/| \/ | ' . $dashes . ' |' . $commas . ' |' . $commas. '|'  . $Lang{_and_}{$lc};
+	# do not match anything if we don't have a translation for "and"
+	my $and = $and{$lc} || " will not match ";
 
 	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $enumeration);
 
@@ -3400,7 +3400,8 @@ sub normalize_additives_enumeration ($lc, $enumeration) {
 
 	$log->debug("normalize_additives_enumeration", {enumeration => $enumeration}) if $log->is_debug();
 
-	my $and = $Lang{_and_}{$lc};
+	# do not match anything if we don't have a translation for "and"
+	my $and = $and{$lc} || " will not match ";
 
 	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $enumeration);
 
@@ -3431,7 +3432,8 @@ sub normalize_vitamin ($lc, $a) {
 
 sub normalize_vitamins_enumeration ($lc, $vitamins_list) {
 
-	my $and = $Lang{_and_}{$lc};
+	# do not match anything if we don't have a translation for "and"
+	my $and = $and{$lc} || " will not match ";
 
 	# The ?: makes the group non-capturing, so that the split does not create an extra item for the group
 	my @vitamins = split(/(?:\(|\)|\/| \/ | - |, |,|$and)+/i, $vitamins_list);
@@ -3493,7 +3495,8 @@ sub normalize_allergens_enumeration ($type, $lc, $before, $allergens_list, $afte
 	$log->debug("splitting allergens", {input => $allergens_list, before => $before, after => $after})
 		if $log->is_debug();
 
-	my $and = $Lang{_and_}{$lc};
+	# do not match anything if we don't have a translation for "and"
+	my $and = $and{$lc} || " will not match ";
 
 	$log->debug("splitting allergens", {input => $allergens_list}) if $log->is_debug();
 
@@ -5080,7 +5083,8 @@ sub extract_ingredients_classes_from_text ($product_ref) {
 	not defined $product_ref->{ingredients_text} and return;
 
 	my $text = preparse_ingredients_text($product_ref->{lc}, $product_ref->{ingredients_text});
-	my $and = $Lang{_and_}{$product_ref->{lc}};
+	# do not match anything if we don't have a translation for "and"
+	my $and = $and{$lc} || " will not match ";
 	$and =~ s/ /-/g;
 
 	#  remove % / percent (to avoid identifying 100% as E100 in some cases)
@@ -5954,7 +5958,8 @@ sub detect_allergens_from_text ($product_ref) {
 			my $text = $product_ref->{"ingredients_text_" . $language};
 			next if not defined $text;
 
-			my $and = $Lang{_and_}{$language};
+			# do not match anything if we don't have a translation for "and"
+			my $and = $and{$lc} || " will not match ";
 			my $of = ' - ';
 			if (defined $of{$language}) {
 				$of = $of{$language};
