@@ -856,14 +856,30 @@ sub is_cheese_for_nutrition_score ($product_ref) {
 
 =head2 is_fat_for_nutrition_score( $product_ref )
 
-Determines if a product should be considered as fat for Nutri-Score computations,
-based on the product categories.
+Determines if a product should be considered as fat
+for Nutri-Score (2021 version) computations, based on the product categories.
 
 =cut
 
 sub is_fat_for_nutrition_score ($product_ref) {
 
 	return has_tag($product_ref, "categories", "en:fats");
+}
+
+=head2 is_fat_nuts_seeds_for_nutrition_score( $product_ref )
+
+Determines if a product should be considered as fats / oils / nuts / seeds
+for Nutri-Score (2023 version) computations, based on the product categories.
+
+=cut
+
+sub is_fat_nuts_seeds_for_nutrition_score ($product_ref) {
+
+	return (
+			   has_tag($product_ref, "categories", "en:fats")
+			or has_tag($product_ref, "categories", "en:nuts")
+			or has_tag($product_ref, "categories", "en:seeds")
+	);
 }
 
 =head2 special_process_product ( $ingredients_ref )
@@ -1136,48 +1152,79 @@ Ref to a mapping suitable to call compute_nutriscore_score_and_grade
 
 =cut
 
-sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field) {
+sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $version = "2021") {
 
 	my $nutriments_ref = $product_ref->{$nutriments_field};
 
-	# compute data
-	my $saturated_fat_ratio = saturated_fat_ratio($nutriments_ref, $prepared);
-	my $fruits = compute_fruit_ratio($product_ref, $prepared);
-	my $nutriscore_data = {
-		is_beverage => $product_ref->{nutrition_score_beverage},
-		is_water => is_water_for_nutrition_score($product_ref),
-		is_cheese => is_cheese_for_nutrition_score($product_ref),
-		is_fat => is_fat_for_nutrition_score($product_ref),
+	my $nutriscore_data_ref;
 
-		energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
-		sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
-		saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
-		saturated_fat_ratio => $saturated_fat_ratio,
-		sodium => $nutriments_ref->{"sodium" . $prepared . "_100g"} * 1000,    # in mg,
+	# The 2021 and 2023 version of the Nutri-Score need different nutrients
+	if ($version eq "2021") {
+		# fruits, vegetables, nuts, olive / rapeseed / walnut oils
+		my $fruits = compute_fruit_ratio($product_ref, $prepared);
 
-		fruits_vegetables_nuts_colza_walnut_olive_oils => $fruits,
-		fiber => (
-			(defined $nutriments_ref->{"fiber" . $prepared . "_100g"})
-			? $nutriments_ref->{"fiber" . $prepared . "_100g"}
-			: 0
-		),
-		proteins => $nutriments_ref->{"proteins" . $prepared . "_100g"},
-	};
+		$nutriscore_data_ref = {
+			is_beverage => $product_ref->{nutrition_score_beverage},
+			is_water => is_water_for_nutrition_score($product_ref),
+			is_cheese => is_cheese_for_nutrition_score($product_ref),
+			is_fat => is_fat_for_nutrition_score($product_ref),
+
+			energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
+			sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
+			saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
+			saturated_fat_ratio => saturated_fat_ratio($nutriments_ref, $prepared),
+			sodium => $nutriments_ref->{"sodium" . $prepared . "_100g"} * 1000,    # in mg,
+
+			fruits_vegetables_nuts_colza_walnut_olive_oils => $fruits,
+			fiber => (
+				(defined $nutriments_ref->{"fiber" . $prepared . "_100g"})
+				? $nutriments_ref->{"fiber" . $prepared . "_100g"}
+				: 0
+			),
+			proteins => $nutriments_ref->{"proteins" . $prepared . "_100g"},
+		};
+
+	}
+	else {
+		# TODO: fruits, vegetables, legumes
+		my $fruits = compute_fruit_ratio($product_ref, $prepared);
+
+		$nutriscore_data_ref = {
+			is_beverage => $product_ref->{nutrition_score_beverage},
+			is_water => is_water_for_nutrition_score($product_ref),
+			is_cheese => is_cheese_for_nutrition_score($product_ref),
+			is_fat_nuts_seeds => is_fat_nuts_seeds_for_nutrition_score($product_ref),
+
+			energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
+			sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
+			saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
+			saturated_fat_ratio => saturated_fat_ratio($nutriments_ref, $prepared),
+			salt => $nutriments_ref->{"salt" . $prepared . "_100g"} * 1000,    # in mg,
+
+			fruits_vegetables_legumes => $fruits,
+			fiber => (
+				(defined $nutriments_ref->{"fiber" . $prepared . "_100g"})
+				? $nutriments_ref->{"fiber" . $prepared . "_100g"}
+				: 0
+			),
+			proteins => $nutriments_ref->{"proteins" . $prepared . "_100g"},
+		};
+	}
 
 	# tweak data to take into account special cases
 
 	# if sugar is undefined but carbohydrates is 0, set sugars to 0
 	if (sugar_0_because_of_carbohydrates_0($nutriments_ref, $prepared)) {
-		$nutriscore_data->{sugars} = 0;
+		$nutriscore_data_ref->{sugars} = 0;
 	}
 	# if saturated_fat is undefined but fat is 0, set saturated_fat to 0
 	# as well as saturated_fat_ratio
 	if (saturated_fat_0_because_of_fat_0($nutriments_ref, $prepared)) {
-		$nutriscore_data->{saturated_fat} = 0;
-		$nutriscore_data->{saturated_fat_ratio} = 0;
+		$nutriscore_data_ref->{saturated_fat} = 0;
+		$nutriscore_data_ref->{saturated_fat_ratio} = 0;
 	}
 
-	return $nutriscore_data;
+	return $nutriscore_data_ref;
 }
 
 =head2 compute_nutrition_score( $product_ref )
@@ -1404,12 +1451,13 @@ sub compute_nutrition_score ($product_ref, $version = "2021") {
 	my ($nutriscore_score, $nutriscore_grade);
 
 	if ($version eq "2023") {
-		($nutriscore_score, $nutriscore_grade) = ProductOpener::Nutriscore::compute_nutriscore_score_and_grade_2023($product_ref->{nutriscore_data});
+		($nutriscore_score, $nutriscore_grade)
+			= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade_2023($product_ref->{nutriscore_data});
 	}
 	else {
-		($nutriscore_score, $nutriscore_grade) = ProductOpener::Nutriscore::compute_nutriscore_score_and_grade_2021($product_ref->{nutriscore_data});		
+		($nutriscore_score, $nutriscore_grade)
+			= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade_2021($product_ref->{nutriscore_data});
 	}
-		
 
 	$product_ref->{nutriscore_score} = $nutriscore_score;
 	$product_ref->{nutriscore_grade} = $nutriscore_grade;
