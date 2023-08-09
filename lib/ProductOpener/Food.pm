@@ -1432,7 +1432,7 @@ sub compute_nutrition_score ($product_ref, $version = "2021") {
 
 	# If the Nutri-Score is unknown or not applicable, exit the function
 	if (
-		(defined $product_ref->{"nutrition_grades_tags"})
+			(defined $product_ref->{"nutrition_grades_tags"})
 		and (defined $product_ref->{"nutrition_grades_tags"}[0])
 		and (  ($product_ref->{"nutrition_grades_tags"}[0] eq "unknown")
 			or ($product_ref->{"nutrition_grades_tags"}[0] eq "not-applicable"))

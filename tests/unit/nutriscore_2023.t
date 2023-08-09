@@ -437,15 +437,15 @@ foreach my $test_ref (@tests) {
 	my $testid = $test_ref->[0];
 	my $product_ref = $test_ref->[1];
 
-    # We need salt_value to compute sodium_100g with fix_salt_equivalent
-    foreach my $prepared ('', '_prepared') {
-    if (deep_exists($product_ref, "nutriments", "salt${prepared}_100g")) {
-        $product_ref->{nutriments}{"salt${prepared}_value"} = $product_ref->{nutriments}{"salt${prepared}_100g"};
-    }
-    }
+	# We need salt_value to compute sodium_100g with fix_salt_equivalent
+	foreach my $prepared ('', '_prepared') {
+		if (deep_exists($product_ref, "nutriments", "salt${prepared}_100g")) {
+			$product_ref->{nutriments}{"salt${prepared}_value"} = $product_ref->{nutriments}{"salt${prepared}_100g"};
+		}
+	}
 
-    fix_salt_equivalent($product_ref);
-    compute_serving_size_data($product_ref);
+	fix_salt_equivalent($product_ref);
+	compute_serving_size_data($product_ref);
 	compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 	extract_ingredients_from_text($product_ref);
 	special_process_product($product_ref);
