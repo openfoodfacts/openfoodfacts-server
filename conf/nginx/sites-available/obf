@@ -26,14 +26,19 @@ server {
 	listen [::]:80;
 
 	server_name *.openbeautyfacts.org ;
-
-	root /srv/obf/html;
-
+       
+  # enable large uploads
+  client_max_body_size 20M;
+ 
+  # logs location
 	access_log /var/log/nginx/obf-access.log proxied_requests;
-        error_log /var/log/nginx/obf-error.log;
+  error_log /var/log/nginx/obf-error.log;
 
 	gzip on;
 	gzip_min_length 1000;
+  gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript text/csv;
+	
+  root /srv/obf/html;
 
 	location /data/ {
 		include snippets/off.cors-headers.include;
