@@ -4,6 +4,9 @@ lib/ProductOpener/Config2.pm
 lib/ProductOpener/SiteLang.pm
 po/site-specific
 
+# Data - we shall not mix data and git files, as it makes deployments/updates difficult
+html/data/
+
 # tests outputs
 tests/unit/outputs/
 tests/integration/outputs/

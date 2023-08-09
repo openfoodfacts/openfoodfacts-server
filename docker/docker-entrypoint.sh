@@ -17,6 +17,12 @@ do
     test -d /mnt/podata/${path} || ln -sf /opt/product-opener/${path} /mnt/podata/${path}
 done
 
+# link some static files
+for path in data-fields.{md,txt}
+do
+  test -L /opt/products-opener/html_data/$path || ln -sf /opt/products-opener/html/$path /opt/products-opener/html_data/$path
+done
+
 # this is not very elegant, but incron scripts won't have env variables so put them in a file
 rm -f /tmp/env-export.sh && export > /tmp/env-export.sh
 chown www-data:www-data /tmp/env-export.sh && chmod 0400 /tmp/env-export.sh
