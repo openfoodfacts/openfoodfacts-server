@@ -78,6 +78,10 @@ server {
 
 	root /srv/off-pro/html;
 
+    # enable large uploads
+    client_max_body_size 20M;
+
+    # logs location
 	access_log /srv/off-pro/logs/nginx.off.access2.log;
 	error_log /srv/off-pro/logs/nginx.off.error2.log;
 
@@ -101,6 +105,8 @@ server {
 
 	gzip on;
 	gzip_min_length 1000;
+	gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript text/csv;
+
 
 	location /data/ {
      if ($request_method = 'OPTIONS') {

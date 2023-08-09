@@ -75,11 +75,15 @@ server {
 
 	root /srv/off/html;
 
+    # enable large uploads
+    client_max_body_size 20M;
+
+    # logs location
 	access_log /srv/off/logs/nginx.access2.log combined buffer=256K flush=1s;
 	error_log /srv/off/logs/nginx.error2.log;
 
-        # some redirection for specific subdomains
-        include snippets/off.domain-redirects.include;
+	# some redirection for specific subdomains
+	include snippets/off.domain-redirects.include;
 
 	# Redirect GET requests to https. POST requests will be transformed
 	# to GET by most browsers when redirected, and it breaks apps that
@@ -101,9 +105,11 @@ server {
 
 	gzip on;
 	gzip_min_length 1000;
+	gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript text/csv;
+
 
 	location /data/ {
-                include snippets/off.cors-headers.include;
+        include snippets/off.cors-headers.include;
 		include snippets/ssl-headers.conf;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
