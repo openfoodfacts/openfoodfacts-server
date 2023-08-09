@@ -585,7 +585,7 @@ my %points_thresholds_2023 = (
 	,    # g / 100g
 
 	# for fats
-	energy_from_saturated_fats => [120, 240, 360, 480, 600, 720, 840, 960, 1080, 1200],    # g / 100g
+	energy_from_saturated_fat => [120, 240, 360, 480, 600, 720, 840, 960, 1080, 1200],    # g / 100g
 	saturated_fat_ratio => [10, 16, 22, 28, 34, 40, 46, 52, 58, 64],    # %
 
 	# positive points
@@ -699,9 +699,10 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 	# Compute the negative and positive points
 
 	foreach my $nutrient (
-		qw(energy energy_from_saturated_fats sugars saturated_fat saturated_fat_ratio salt fruits_vegetables_legumes fiber proteins)
+		qw(energy energy_from_saturated_fat sugars saturated_fat saturated_fat_ratio salt fruits_vegetables_legumes fiber proteins)
 		)
 	{
+		next if not defined $nutriscore_data_ref->{$nutrient};
 
 		my $nutrient_threshold_id = $nutrient;
 		if (    (defined $nutriscore_data_ref->{is_beverage})
@@ -741,7 +742,7 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 	my $fat = "saturated_fat";
 	if ($nutriscore_data_ref->{is_fat_nuts_seeds}) {
 		$fat = "saturated_fat_ratio";
-		$energy = "energy_from_saturated_fats";
+		$energy = "energy_from_saturated_fat";
 	}
 
 	# Beverages with non-nutritive sweetenrs have 4 extra negative points
@@ -783,7 +784,7 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 	}
 
 	foreach my $nutrient (@positive_nutrients) {
-		$nutriscore_data_ref->{positive_points} += $nutriscore_data_ref->{$nutrient . "_points"};
+		$nutriscore_data_ref->{positive_points} += ($nutriscore_data_ref->{$nutrient . "_points"} || 0);
 	}
 
 	my $score = $nutriscore_data_ref->{negative_points} - $nutriscore_data_ref->{positive_points};

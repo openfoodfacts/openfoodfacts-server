@@ -1199,7 +1199,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
 			saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
 			saturated_fat_ratio => saturated_fat_ratio($nutriments_ref, $prepared),
-			salt => $nutriments_ref->{"salt" . $prepared . "_100g"} * 1000,    # in mg,
+			salt => $nutriments_ref->{"salt" . $prepared . "_100g"},
 
 			fruits_vegetables_legumes => $fruits,
 			fiber => (
@@ -1382,7 +1382,7 @@ sub compute_nutrition_score ($product_ref, $version = "2021") {
 					);
 				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 				add_tag($product_ref, "misc", "en:nutrition-not-enough-data-to-compute-nutrition-score");
-				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared . " - ";
+				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared . "_100g - ";
 				add_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data");
 				add_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data-$nid");
 			}
@@ -1433,6 +1433,7 @@ sub compute_nutrition_score ($product_ref, $version = "2021") {
 	# If the Nutri-Score is unknown or not applicable, exit the function
 	if (
 		(defined $product_ref->{"nutrition_grades_tags"})
+		and (defined $product_ref->{"nutrition_grades_tags"}[0])
 		and (  ($product_ref->{"nutrition_grades_tags"}[0] eq "unknown")
 			or ($product_ref->{"nutrition_grades_tags"}[0] eq "not-applicable"))
 		)
@@ -1446,7 +1447,7 @@ sub compute_nutrition_score ($product_ref, $version = "2021") {
 
 	# Populate the data structure that will be passed to Food::Nutriscore
 
-	$product_ref->{nutriscore_data} = compute_nutriscore_data($product_ref, $prepared, $nutriments_field);
+	$product_ref->{nutriscore_data} = compute_nutriscore_data($product_ref, $prepared, $nutriments_field, $version);
 
 	my ($nutriscore_score, $nutriscore_grade);
 

@@ -18,6 +18,8 @@ use ProductOpener::NutritionCiqual qw/:all/;
 use ProductOpener::NutritionEstimation qw/:all/;
 use ProductOpener::Test qw/:all/;
 
+use Data::DeepAccess qw(deep_exists);
+
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 # Needed to compute estimated nutrients
@@ -35,7 +37,7 @@ my @tests = (
 				fat_100g => 90,
 				"saturated-fat_100g" => 15,
 				sugars_100g => 0,
-				sodium_100g => 0,
+				salt_100g => 0,
 				fiber_100g => 0,
 				proteins_100g => 0
 			}
@@ -51,7 +53,7 @@ my @tests = (
 				fat_100g => 92,
 				"saturated-fat_100g" => 14,
 				sugars_100g => 0,
-				sodium_100g => 0,
+				salt_100g => 0,
 				fiber_100g => 0,
 				proteins_100g => 0
 			}
@@ -67,7 +69,7 @@ my @tests = (
 				fat_100g => 100,
 				"saturated-fat_100g" => 7,
 				sugars_100g => 0,
-				sodium_100g => 0,
+				salt_100g => 0,
 				fiber_100g => 0,
 				proteins_100g => 0
 			}
@@ -83,7 +85,7 @@ my @tests = (
 				fat_100g => 100,
 				"saturated-fat_100g" => 10,
 				sugars_100g => 0,
-				sodium_100g => 0,
+				salt_100g => 0,
 				fiber_100g => 0,
 				proteins_100g => 0
 			}
@@ -99,7 +101,7 @@ my @tests = (
 				fat_100g => 100,
 				"saturated-fat_100g" => 10,
 				sugars_100g => 0,
-				sodium_100g => 0,
+				salt_100g => 0,
 				fiber_100g => 0,
 				proteins_100g => 0
 			}
@@ -117,7 +119,7 @@ my @tests = (
 				fat_100g => 100,
 				"saturated-fat_100g" => 10,
 				carbohydrates_100g => 0,
-				sodium_100g => 0,
+				salt_100g => 0,
 				fiber_100g => 0,
 				proteins_100g => 0
 			}
@@ -135,7 +137,7 @@ my @tests = (
 				energy_100g => 3378,
 				fat_100g => 100,
 				carbohydrates_100g => 0,
-				sodium_100g => 0,
+				salt_100g => 0,
 				fiber_100g => 0,
 				proteins_100g => 0
 			}
@@ -153,7 +155,7 @@ my @tests = (
 				fat_100g => 100,
 				"saturated-fat_100g" => 1.03,
 				sugars_100g => 31,
-				sodium_100g => 0.221,
+				salt_100g => 1,
 				fiber_100g => 6.9,
 				proteins_100g => 10.3
 			}
@@ -172,7 +174,7 @@ my @tests = (
 				fat_100g => 10,
 				"saturated-fat_100g" => 5,
 				sugars_100g => 10,
-				sodium_100g => 0,
+				salt_100g => 0,
 				fiber_100g => 2,
 				proteins_100g => 5
 			},
@@ -189,7 +191,7 @@ my @tests = (
 				fat_100g => 10,
 				"saturated-fat_100g" => 5,
 				sugars_100g => 10,
-				sodium_100g => 0,
+				salt_100g => 0,
 				fiber_100g => 2,
 				proteins_100g => 5
 			},
@@ -206,7 +208,7 @@ my @tests = (
 				fat_100g => 10,
 				"saturated-fat_100g" => 5,
 				sugars_100g => 10,
-				sodium_100g => 0,
+				salt_100g => 0,
 				fiber_100g => 2,
 				proteins_100g => 5
 			},
@@ -223,7 +225,7 @@ my @tests = (
 				fat_100g => 10,
 				"saturated-fat_100g" => 5,
 				sugars_100g => 10,
-				sodium_100g => 0,
+				salt_100g => 0,
 				fiber_100g => 2,
 				proteins_100g => 5
 			},
@@ -241,7 +243,7 @@ my @tests = (
 				fat_100g => 10,
 				"saturated-fat_100g" => 5,
 				sugars_100g => 10,
-				sodium_100g => 0,
+				salt_100g => 0,
 				fiber_100g => 2,
 				proteins_100g => 5
 			},
@@ -260,7 +262,7 @@ my @tests = (
 				fat_100g => 8.4,
 				"saturated-fat_100g" => 1.2,
 				sugars_100g => 1.1,
-				sodium_100g => 0.4,
+				salt_100g => 0.4,
 				fiber_100g => 10.9,
 				proteins_100g => 2.4
 			},
@@ -281,7 +283,7 @@ my @tests = (
 				fat_100g => 10,
 				"saturated-fat_100g" => 0.2,
 				sugars_100g => 3,
-				sodium_100g => 0.2,
+				salt_100g => 0.2,
 				fiber_100g => 1.1,
 				proteins_100g => 0.9
 			},
@@ -300,7 +302,7 @@ my @tests = (
 				energy_100g => 250,
 				fat_100g => 0,
 				sugars_100g => 12,
-				sodium_100g => 0.2,
+				salt_100g => 0.2,
 				fiber_100g => 0,
 				proteins_100g => 0.5
 			},
@@ -321,7 +323,7 @@ my @tests = (
 				fat_100g => 0,
 				"saturated-fat_100g" => 0,
 				sugars_100g => 3,
-				sodium_100g => 0,
+				salt_100g => 0,
 				fiber_100g => 0,
 				proteins_100g => 0
 			}
@@ -339,7 +341,7 @@ my @tests = (
 				fat_prepared_100g => 0,
 				"saturated-fat_prepared_100g" => 1.1,
 				sugars_prepared_100g => 6.3,
-				sodium_prepared_100g => 0.045,
+				salt_prepared_100g => 0.5,
 				fiber_prepared_100g => 1.9,
 				proteins_prepared_100g => 3.8
 			}
@@ -358,7 +360,7 @@ my @tests = (
 				fat_100g => 0,
 				"saturated-fat_100g" => 0,
 				sugars_100g => 8.9,
-				sodium_100g => 0.2,
+				salt_100g => 0.2,
 				fiber_100g => 0.5,
 				proteins_100g => 0.2
 			},
@@ -374,7 +376,7 @@ my @tests = (
 				fat_100g => 0,
 				"saturated-fat_100g" => 0,
 				sugars_100g => 8.9,
-				sodium_100g => 0.2,
+				salt_100g => 0.2,
 				fiber_100g => 0.5,
 				proteins_100g => 0.2
 			},
@@ -393,7 +395,7 @@ my @tests = (
 				fat_100g => 0,
 				"saturated-fat_100g" => 0,
 				sugars_100g => 8.9,
-				sodium_100g => 0.2,
+				salt_100g => 0.2,
 				fiber_100g => 0.5,
 				proteins_100g => 0.2
 			},
@@ -435,10 +437,19 @@ foreach my $test_ref (@tests) {
 	my $testid = $test_ref->[0];
 	my $product_ref = $test_ref->[1];
 
+    # We need salt_value to compute sodium_100g with fix_salt_equivalent
+    foreach my $prepared ('', '_prepared') {
+    if (deep_exists($product_ref, "nutriments", "salt${prepared}_100g")) {
+        $product_ref->{nutriments}{"salt${prepared}_value"} = $product_ref->{nutriments}{"salt${prepared}_100g"};
+    }
+    }
+
+    fix_salt_equivalent($product_ref);
+    compute_serving_size_data($product_ref);
 	compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 	extract_ingredients_from_text($product_ref);
 	special_process_product($product_ref);
-	diag explain compute_estimated_nutrients($product_ref);
+	compute_estimated_nutrients($product_ref);
 	compute_nutrition_score($product_ref, "2023");
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
