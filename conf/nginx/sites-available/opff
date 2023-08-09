@@ -27,10 +27,14 @@ server {
 
 	server_name *.openpetfoodfacts.org;
 
-	root /srv/opff/html;
+  # enable large uploads
+  client_max_body_size 20M;
 
+  # logs location
 	access_log /var/log/nginx/opff-access.log proxied_requests;
 	error_log /var/log/nginx/opff-error.log;
+
+  root /srv/opff/html;
 
 	location /data/ {
 		include snippets/off.cors-headers.include;
