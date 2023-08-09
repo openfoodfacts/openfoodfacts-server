@@ -11430,4 +11430,51 @@ sub generate_select2_options_for_taxonomy_to_json ($target_lc, $tagtype) {
 		JSON::PP->new->utf8->canonical->encode(generate_select2_options_for_taxonomy($target_lc, $tagtype)));
 }
 
+=head2 get_languages
+
+Generates all the languages in the $lc language
+
+=head3 Arguments
+
+=head3 Return value	
+
+A list with every language written in the $lc language
+
+=cut
+
+sub get_languages{
+	my @languages_list = ();
+	my @tags_list = get_all_taxonomy_entries("languages");
+	my $language;
+	foreach my $tag (@tags_list){
+		$language = display_taxonomy_tag($lc, "languages", $tag);
+		push @languages_list, $language;
+	}
+	return @languages_list;
+}
+
+=head2 get_countries
+
+Generates all the countries name in the $lc language
+
+=head3 Arguments
+
+=head3 Return value	
+
+A list with every country written in the $lc language
+
+=cut
+
+sub get_countries(){
+	my @countries_list = ();
+	my @tags_list = get_all_taxonomy_entries("countries");
+	my $country;
+	foreach my $tag (@tags_list){
+		$country = display_taxonomy_tag($lc, "countries", $tag);
+		push @countries_list, $country;
+	}
+	return @countries_list;
+}
+
+
 1;
