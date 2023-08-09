@@ -27,10 +27,18 @@ server {
 
 	server_name *.openpetfoodfacts.org;
 
-	root /srv/opff/html;
+	gzip on;
+	gzip_min_length 1000;
+	gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript text/csv;
 
+	# enable large uploads
+	client_max_body_size 20M;
+
+	# logs location
 	access_log /var/log/nginx/opff-access.log proxied_requests;
 	error_log /var/log/nginx/opff-error.log;
+
+	root /srv/opff/html;
 
 	location /data/ {
 		include snippets/off.cors-headers.include;
@@ -40,8 +48,6 @@ server {
 	}
 
 
-	gzip on;
-	gzip_min_length 1000;
 
 
 	# Add index.php to the list if you are using PHP
