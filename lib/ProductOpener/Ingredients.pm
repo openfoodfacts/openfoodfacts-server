@@ -5084,7 +5084,7 @@ sub extract_ingredients_classes_from_text ($product_ref) {
 
 	my $text = preparse_ingredients_text($product_ref->{lc}, $product_ref->{ingredients_text});
 	# do not match anything if we don't have a translation for "and"
-	my $and = $and{$lc} || " will not match ";
+	my $and = $and{$product_ref->{lc}} || " will not match ";
 	$and =~ s/ /-/g;
 
 	#  remove % / percent (to avoid identifying 100% as E100 in some cases)
@@ -5959,7 +5959,7 @@ sub detect_allergens_from_text ($product_ref) {
 			next if not defined $text;
 
 			# do not match anything if we don't have a translation for "and"
-			my $and = $and{$lc} || " will not match ";
+			my $and = $and{$language} || " will not match ";
 			my $of = ' - ';
 			if (defined $of{$language}) {
 				$of = $of{$language};
