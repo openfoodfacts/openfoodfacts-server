@@ -65,7 +65,7 @@ BEGIN {
 		&is_fat_for_nutrition_score
 
 		&compute_nutriscore
-		&compute_nutrition_score
+		&compute_nutriscore
 		&compute_nova_group
 		&compute_serving_size_data
 		&compute_unknown_nutrients
@@ -1227,20 +1227,11 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 	return $nutriscore_data_ref;
 }
 
-=head2 compute_nutrition_score( $product_ref )
-
-Determines if we have enough data to compute the Nutri-Score (category + nutrition facts),
-and if the Nutri-Score is applicable to the product the category.
-
-Populates the data structure needed to compute the Nutri-Score and computes it.
+=head2 remove_nutriscore_fields ( $product_ref )
 
 =cut
 
-sub compute_nutrition_score ($product_ref, $version = "2021") {
-
-	# Initialize values
-
-	$product_ref->{nutrition_score_debug} = '';
+sub remove_nutriscore_fields ($product_ref) {
 
 	# remove reference type fields from the product
 	remove_fields(
@@ -1276,49 +1267,34 @@ sub compute_nutrition_score ($product_ref, $version = "2021") {
 		]
 	);
 
-	$product_ref->{misc_tags} = ["en:nutriscore-not-computed"];
+	return;
+}
 
-	my $prepared = '';
+=head2 is_nutriscore_applicable_to_the_product_categories($product_ref)
+
+Check that the product has a category, that we know if it is a beverage or not,
+and that it is not in a category for which the Nutri-Score should not be computed
+(e.g. food for babies)
+
+=cut
+
+sub is_nutriscore_applicable_to_the_product_categories ($product_ref) {
+
+	my $nutriscore_applicable = 1;
 
 	# do not compute a score when we don't have a category
 	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
 		$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 		$product_ref->{nutrition_score_debug} = "no score when the product does not have a category" . " - ";
 		add_tag($product_ref, "misc", "en:nutriscore-missing-category");
+		$nutriscore_applicable = 0;
 	}
 
 	if (not defined $product_ref->{nutrition_score_beverage}) {
 		$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 		$product_ref->{nutrition_score_debug} = "did not determine if it was a beverage" . " - ";
 		add_tag($product_ref, "misc", "en:nutriscore-beverage-status-unknown");
-	}
-
-	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, powder milk)
-	# unless we have nutrition data for the prepared product
-	# same for en:chocolate-powders, en:dessert-mixes and en:flavoured-syrups
-
-	foreach my $category_tag (
-		"en:dried-products-to-be-rehydrated", "en:cocoa-and-chocolate-powders",
-		"en:dessert-mixes", "en:flavoured-syrups",
-		"en:instant-beverages"
-		)
-	{
-
-		if (has_tag($product_ref, "categories", $category_tag)) {
-
-			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
-				$product_ref->{nutrition_score_debug}
-					= "using prepared product data for category $category_tag" . " - ";
-				$prepared = '_prepared';
-			}
-			else {
-				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
-				$product_ref->{nutrition_score_debug}
-					= "no score for category $category_tag without data for prepared product" . " - ";
-				add_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data");
-			}
-			last;
-		}
+		$nutriscore_applicable = 0;
 	}
 
 	# do not compute a score for coffee, tea etc. except ice teas etc.
@@ -1344,9 +1320,67 @@ sub compute_nutrition_score ($product_ref, $version = "2021") {
 					add_tag($product_ref, "misc", "en:nutriscore-not-applicable");
 					$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id" . " - ";
 					$product_ref->{nutriscore_data} = {nutriscore_not_applicable_for_category => $category_id};
+					$nutriscore_applicable = 0;
 					last;
 				}
 			}
+		}
+	}
+
+	return $nutriscore_applicable;
+}
+
+=head2 check_availability_of_nutrients_needed_for_nutriscore ($product_ref)
+
+Check that we know or can estimate the nutrients needed to compute the Nutri-Score of the product.
+
+=head3 Return values
+
+=head4 $nutrients_available 0 or 1
+
+=head4 $prepared "" or "_prepared"
+
+Suffix to indicate if the Nutri-Score should be computed on prepared values
+
+=head4 $nutriments_field "nutriments" or "nutriments_estimated"
+
+Indicates which nutrients fields were used to compute the Nutri-Score.
+
+=cut
+
+sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
+
+	my $nutrients_available = 1;
+
+	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, powder milk)
+	# unless we have nutrition data for the prepared product
+	# same for en:chocolate-powders, en:dessert-mixes and en:flavoured-syrups
+
+	my $prepared = '';
+
+	foreach my $category_tag (
+		"en:dried-products-to-be-rehydrated", "en:cocoa-and-chocolate-powders",
+		"en:dessert-mixes", "en:flavoured-syrups",
+		"en:instant-beverages"
+		)
+	{
+
+		if (has_tag($product_ref, "categories", $category_tag)) {
+
+			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
+				$product_ref->{nutrition_score_debug}
+					= "using prepared product data for category $category_tag" . " - ";
+				$prepared = '_prepared';
+				push @{$product_ref->{misc_tags}}, "en:nutrition-grade-computed-for-prepared-product";
+			}
+			else {
+				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
+				$product_ref->{nutrition_score_debug}
+					= "no score for category $category_tag without data for prepared product" . " - ";
+				add_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data");
+				$nutrients_available = 0;
+			}
+			last;
 		}
 	}
 
@@ -1385,6 +1419,7 @@ sub compute_nutrition_score ($product_ref, $version = "2021") {
 				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared . "_100g - ";
 				add_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data");
 				add_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data-$nid");
+				$nutrients_available = 0;
 			}
 			else {
 				$key_nutrients++;
@@ -1406,7 +1441,7 @@ sub compute_nutrition_score ($product_ref, $version = "2021") {
 	# Remove ending -
 	$product_ref->{nutrition_score_debug} =~ s/ - $//;
 
-	# By default we use the "nutriments" hash as a source (specified nutriements),
+	# By default we use the "nutriments" hash as a source (specified nutrients),
 	# but if we don't have specified nutrients, we can use use the "nutriments_estimated" hash if it exists.
 	# If we have some specified nutrients but are missing required nutrients for the Nutri-Score,
 	# we do not use estimated nutrients, in order to encourage users to complete the nutrition facts
@@ -1428,58 +1463,75 @@ sub compute_nutrition_score ($product_ref, $version = "2021") {
 
 		# Delete the warning for missing fiber, as we will get fiber from the estimate
 		delete $product_ref->{nutrition_score_warning_no_fiber};
+
+		$nutrients_available = 1;
 	}
 
-	# If the Nutri-Score is unknown or not applicable, exit the function
-	if (
-			(defined $product_ref->{"nutrition_grades_tags"})
-		and (defined $product_ref->{"nutrition_grades_tags"}[0])
-		and (  ($product_ref->{"nutrition_grades_tags"}[0] eq "unknown")
-			or ($product_ref->{"nutrition_grades_tags"}[0] eq "not-applicable"))
-		)
-	{
-		return;
-	}
+	return ($nutrients_available, $prepared, $nutriments_field);
+}
 
-	if ($prepared ne '') {
-		push @{$product_ref->{misc_tags}}, "en:nutrition-grade-computed-for-prepared-product";
-	}
+=head2 compute_nutriscore( $product_ref )
 
-	# Populate the data structure that will be passed to Food::Nutriscore
+Determines if we have enough data to compute the Nutri-Score (category + nutrition facts),
+and if the Nutri-Score is applicable to the product the category.
 
-	$product_ref->{nutriscore_data} = compute_nutriscore_data($product_ref, $prepared, $nutriments_field, $version);
+Populates the data structure needed to compute the Nutri-Score and computes it.
 
-	my ($nutriscore_score, $nutriscore_grade);
+=cut
 
-	if ($version eq "2023") {
-		($nutriscore_score, $nutriscore_grade)
-			= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade_2023($product_ref->{nutriscore_data});
+sub compute_nutriscore ($product_ref, $version = "2021") {
+
+	# Initialize values
+
+	$product_ref->{nutrition_score_debug} = '';
+
+	# Remove any previously existing Nutri-Score related fields
+	remove_nutriscore_fields($product_ref);
+
+	my $nutriscore_applicable = is_nutriscore_applicable_to_the_product_categories($product_ref);
+
+	my ($nutrients_available, $prepared, $nutriments_field)
+		= check_availability_of_nutrients_needed_for_nutriscore($product_ref);
+
+	if (not($nutriscore_applicable and $nutrients_available)) {
+		push @{$product_ref->{misc_tags}}, "en:nutriscore-not-computed";
 	}
 	else {
-		($nutriscore_score, $nutriscore_grade)
-			= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade_2021($product_ref->{nutriscore_data});
+		push @{$product_ref->{misc_tags}}, "en:nutriscore-computed";
+
+		# Populate the data structure that will be passed to Food::Nutriscore
+
+		$product_ref->{nutriscore_data} = compute_nutriscore_data($product_ref, $prepared, $nutriments_field, $version);
+
+		my ($nutriscore_score, $nutriscore_grade);
+
+		if ($version eq "2023") {
+			($nutriscore_score, $nutriscore_grade)
+				= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade_2023($product_ref->{nutriscore_data});
+		}
+		else {
+			($nutriscore_score, $nutriscore_grade)
+				= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade_2021($product_ref->{nutriscore_data});
+		}
+
+		$product_ref->{nutriscore_score} = $nutriscore_score;
+		$product_ref->{nutriscore_grade} = $nutriscore_grade;
+
+		$product_ref->{nutriments}{"nutrition-score-fr_100g"} = $nutriscore_score;
+		$product_ref->{nutriments}{"nutrition-score-fr"} = $nutriscore_score;
+
+		$product_ref->{"nutrition_grade_fr"} = $nutriscore_grade;
+
+		$product_ref->{"nutrition_grades_tags"} = [$product_ref->{"nutrition_grade_fr"}];
+		$product_ref->{"nutrition_grades"}
+			= $product_ref->{"nutrition_grade_fr"};    # needed for the /nutrition-grade/unknown query
+
+		# In order to be able to sort by nutrition score in MongoDB,
+		# we create an opposite of the nutrition score
+		# as otherwise, in ascending order on nutriscore_score, we first get products without the nutriscore_score field
+		# instead we can sort on descending order on nutriscore_score_opposite
+		$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;
 	}
-
-	$product_ref->{nutriscore_score} = $nutriscore_score;
-	$product_ref->{nutriscore_grade} = $nutriscore_grade;
-
-	$product_ref->{nutriments}{"nutrition-score-fr_100g"} = $nutriscore_score;
-	$product_ref->{nutriments}{"nutrition-score-fr"} = $nutriscore_score;
-
-	$product_ref->{"nutrition_grade_fr"} = $nutriscore_grade;
-
-	$product_ref->{"nutrition_grades_tags"} = [$product_ref->{"nutrition_grade_fr"}];
-	$product_ref->{"nutrition_grades"}
-		= $product_ref->{"nutrition_grade_fr"};    # needed for the /nutrition-grade/unknown query
-
-	shift @{$product_ref->{misc_tags}};
-	push @{$product_ref->{misc_tags}}, "en:nutriscore-computed";
-
-	# In order to be able to sort by nutrition score in MongoDB,
-	# we create an opposite of the nutrition score
-	# as otherwise, in ascending order on nutriscore_score, we first get products without the nutriscore_score field
-	# instead we can sort on descending order on nutriscore_score_opposite
-	$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;
 
 	return;
 }

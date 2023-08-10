@@ -439,7 +439,7 @@ foreach my $test_ref (@tests) {
 	extract_ingredients_from_text($product_ref);
 	special_process_product($product_ref);
 	diag explain compute_estimated_nutrients($product_ref);
-	compute_nutrition_score($product_ref);
+	compute_nutriscore($product_ref);
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }

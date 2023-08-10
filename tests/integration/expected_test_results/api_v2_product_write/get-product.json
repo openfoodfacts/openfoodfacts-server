@@ -656,7 +656,6 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
-         "en:nutriscore-not-computed",
          "en:nutrition-not-enough-data-to-compute-nutrition-score",
          "en:nutriscore-missing-nutrition-data",
          "en:nutriscore-missing-nutrition-data-energy",
@@ -664,6 +663,7 @@
          "en:nutriscore-missing-nutrition-data-saturated-fat",
          "en:nutriscore-missing-nutrition-data-proteins",
          "en:nutrition-no-fiber",
+         "en:nutriscore-not-computed",
          "en:packagings-number-of-components-0",
          "en:packagings-not-complete",
          "en:packagings-empty",
@@ -785,7 +785,7 @@
          "unknown"
       ],
       "nutrition_score_beverage" : 0,
-      "nutrition_score_debug" : "missing energy - missing fat - missing saturated-fat - missing proteins",
+      "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing proteins_100g",
       "nutrition_score_warning_no_fiber" : 1,
       "other_nutritional_substances_tags" : [],
       "packaging_materials_tags" : [],

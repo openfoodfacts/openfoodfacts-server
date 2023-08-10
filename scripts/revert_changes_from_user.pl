@@ -69,13 +69,7 @@ use File::Copy;
 
 use Getopt::Long;
 
-my @fields_to_update = ();
-my $key;
-my $index = '';
 my $pretend = '';
-my $process_ingredients = '';
-my $compute_nutrition_score = '';
-my $compute_nova = '';
 my $reverted_user_id = '';
 
 GetOptions(
