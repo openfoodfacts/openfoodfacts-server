@@ -12,7 +12,7 @@ tests/unit/outputs/
 tests/integration/outputs/
 
 # local configs, most of them are link to files in conf/ depending on instance
-/html/.well-known/apple-app-site-association 
+/html/.well-known/apple-*
 /log.conf
 /minion_log.conf
 
