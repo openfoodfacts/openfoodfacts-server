@@ -140,6 +140,23 @@
     <!-- End form -->
 
 [% ELSIF action == 'process' %]
+
+[% IF email_ref.invited.size > 0 OR email_ref.added.size > 0 %]
+  [% SET messages = [] %]
+  
+  [% IF email_ref.invited.size > 0 %]
+    [% SET emails_invited_str = email_ref.invited.join("<br>&rarr; ") %]
+    [% messages.push('<h3>' _ lang('please_ask_users_create_account_first') _ '</h3><br>&rarr; ' _ emails_invited_str) %]
+  [% END %]
+
+  [% IF email_ref.added.size > 0 %]
+    [% SET emails_added_str = email_ref.added.join("<br>&rarr; ") %]
+    [% messages.push('<h3>' _ lang('users_added_successfully') _ '</h3><br>&rarr; ' _ emails_added_str) %]
+  [% END %]
+
+  [% messages.join("<br>") %]
+[% END %]
+
     <p>[% result %]</p>
     <p>&rarr; <a href="[% profile_url %]">[% profile_name %]</a></p>
 [% END %]

@@ -362,8 +362,8 @@ elsif ($action eq 'process') {
 	}
 	elsif ($type eq 'user_delete') {
 
-		if (is_user_in_org_group($org_ref, $User_id, "admins")) {
-			remove_user_by_org_admin($orgid, single_param('user_id'));
+		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{moderator}) {
+			remove_user_by_org_admin(single_param('org_id'), single_param('user_id'));
 			$template_data_ref->{result} = lang("edit_org_result");
 		}
 		else {
@@ -372,24 +372,15 @@ elsif ($action eq 'process') {
 
 	}
 	elsif ($type eq 'add_users') {
-		if (is_user_in_org_group($org_ref, $User_id, "admins")) {
+		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{moderator}) {
 			my $email_list = remove_tags_and_quote(single_param('email_list'));
 			my $email_ref = add_users_to_org_by_admin($orgid, $email_list);
 
-			my @messages;
-
-			if (@{$email_ref->{invited}}) {
-				# Some users need to create an OFF account
-				my $emails_invited_str = join("<br>&rarr; ", @{$email_ref->{invited}});
-				push @messages,
-					"<h3>Please ask the following users to create an Open Food Facts account first:</h3><br>&rarr; $emails_invited_str.";
-			}
-			if (@{$email_ref->{added}}) {
-				# All users added successfully
-				my $emails_added_str = join("<br>&rarr; ", @{$email_ref->{added}});
-				push @messages, "<h3>Users added to the organization successfully:</h3><br>&rarr; $emails_added_str.";
-			}
-			$template_data_ref->{result} = join("<br>", @messages);
+			# Set the template data for display
+			$template_data_ref->{email_ref} = {
+				added => \@{$email_ref->{added}},
+				invited => \@{$email_ref->{invited}},
+			};
 		}
 	}
 
