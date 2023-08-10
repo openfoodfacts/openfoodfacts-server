@@ -56,6 +56,7 @@ BEGIN {
 
 		&display_structured_response
 		&display_no_index_page_and_exit
+		&display_robots_txt_and_exit
 		&display_page
 		&display_text
 		&display_points
@@ -105,6 +106,8 @@ BEGIN {
 		&process_template
 
 		@search_series
+
+		%index_tag_types_set
 
 		$admin
 		$memd
@@ -277,6 +280,10 @@ my $tags_page_size = 10000;
 if (defined $options{export_limit}) {
 	$export_limit = $options{export_limit};
 }
+
+# Save all tag types to index in a set to make checks easier
+%index_tag_types_set = ();
+@index_tag_types_set{@ProductOpener::Config::index_tag_types} = ();
 
 # Initialize the Template module
 $tt = Template->new(
@@ -566,6 +573,16 @@ sub init_request ($request_ref = {}) {
 	# remove the / to normalize the query string, as we use it to build some redirect urls
 	$request_ref->{original_query_string} =~ s/^\///;
 
+	# Set $request_ref->{is_crawl_bot}
+	set_user_agent_request_ref_attributes($request_ref);
+
+	# `no_index` specifies whether we send an empty HTML page with a <meta name="robots" content="noindex">
+	# in the HTML headers. This is only done for known web crawlers (Google, Bing, Yandex,...) on webpages that
+	# trigger heavy DB aggregation queries and overload our server.
+	$request_ref->{no_index} = 0;
+	# If deny_all_robots_txt=1, serve a version of robots.txt where all agents are denied access (Disallow: /)
+	$request_ref->{deny_all_robots_txt} = 0;
+
 	# TODO: global variables should be moved to $request_ref
 	$styles = '';
 	$scripts = '';
@@ -614,6 +631,7 @@ sub init_request ($request_ref = {}) {
 		($cc, $country, $lc) = ('world', 'en:world', 'en');
 	}
 	elsif (defined $country_codes{$subdomain}) {
+		# subdomain is the country code: fr.openfoodfacts.org, uk.openfoodfacts.org,...
 		local $log->context->{subdomain_format} = 1;
 
 		$cc = $subdomain;
@@ -633,6 +651,7 @@ sub init_request ($request_ref = {}) {
 
 	}
 	elsif ($subdomain =~ /(.*?)-(.*)/) {
+		# subdomain contains the country code and the language code: world-fr.openfoodfacts.org, ch-it.openfoodfacts.org,...
 		local $log->context->{subdomain_format} = 2;
 		$log->debug("subdomain in cc-lc format - checking values",
 			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country})
@@ -730,6 +749,18 @@ sub init_request ($request_ref = {}) {
 		$subdomain = $cc;
 		if (not((defined $country_languages{$cc}[0]) and ($lc eq $country_languages{$cc}[0]))) {
 			$subdomain .= "-" . $lc;
+		}
+	}
+
+	# If lc is not one of the official languages of the country and if the request comes from
+	# a bot crawler, don't index the webpage (return an empty noindex HTML page)
+	# We also disable indexing for all subdomains that don't have the format world, cc or cc-lc
+	if ((!($lc ~~ $country_languages{$cc})) or $subdomain =~ /^(ssl-)?api/) {
+		# Use robots.txt with disallow: / for all agents
+		$request_ref->{deny_all_robots_txt} = 1;
+
+		if ($request_ref->{is_crawl_bot} eq 1) {
+			$request_ref->{no_index} = 1;
 		}
 	}
 
@@ -883,7 +914,6 @@ CSS
 	$request_ref->{cc} = $cc;
 	$request_ref->{country} = $country;
 	$request_ref->{lcs} = \@lcs;
-	set_user_agent_request_ref_attributes($request_ref);
 
 	return $request_ref;
 }
@@ -900,12 +930,12 @@ Set two attributes to `request_ref`:
 =cut
 
 sub set_user_agent_request_ref_attributes ($request_ref) {
-	my $user_agent = user_agent();
-	$request_ref->{user_agent} = $user_agent;
+	my $user_agent_str = user_agent();
+	$request_ref->{user_agent} = $user_agent_str;
 
 	my $is_crawl_bot = 0;
-	if ($user_agent
-		=~ /Googlebot|Googlebot-Image|bingbot|Applebot|YandexBot|YandexRenderResourcesBot|DuckDuckBot|DotBot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|www\.qwant\.com|facebookexternalhit/
+	if ($user_agent_str
+		=~ /Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|YandexBot|YandexRenderResourcesBot|DuckDuckBot|DotBot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|www\.qwant\.com|facebookexternalhit/i
 		)
 	{
 		$is_crawl_bot = 1;
@@ -1066,6 +1096,63 @@ sub display_no_index_page_and_exit () {
 	binmode(STDOUT, ":encoding(UTF-8)");
 	print $html;
 	return;
+	exit();
+}
+
+=head2 display_robots_txt_and_exit ($request_ref)
+
+Return robots.txt page and exit.
+
+robots.txt is dynamically generated based on lc, it's content depends on $request_ref:
+- if $request_ref->{deny_all_robots_txt} is 1: a robots.txt where we deny all traffic
+  combinations.
+- otherwise: the standard robots.txt. We disallow indexing of most facet pages, the
+  exceptions can be found in ProductOpener::Config::index_tag_types
+
+=cut
+
+sub display_robots_txt_and_exit ($request_ref) {
+	my $template_data_ref = {facets => []};
+	my $vars = {deny_access => $request_ref->{deny_all_robots_txt}, disallow_paths_localized => []};
+	my %disallow_paths_localized_set = ();
+
+	foreach my $type (sort keys %tag_type_singular) {
+		# Get facet name for both english and the request language
+		foreach my $lang ('en', $request_ref->{lc}) {
+			my $tag_value_singular = $tag_type_singular{$type}{$lang};
+			my $tag_value_plural = $tag_type_plural{$type}{$lang};
+			if (
+					defined $tag_value_singular
+				and length($tag_value_singular) != 0
+				and not(exists($disallow_paths_localized_set{$tag_value_singular}))
+				# check that it's not one of the exception
+				# we don't perform this check below for list of tags pages as all list of
+				# tags pages are not indexable
+				and not(exists($index_tag_types_set{$type}))
+				)
+			{
+				$disallow_paths_localized_set{$tag_value_singular} = undef;
+				push(@{$vars->{disallow_paths_localized}}, $tag_value_singular);
+			}
+			if (
+				defined $tag_value_plural
+				and length($tag_value_plural)
+				!= 0
+				# ecoscore has the same value for singular and plural, and products should not be disabled
+				and ($type !~ /^ecoscore|products$/) and not(exists($disallow_paths_localized_set{$tag_value_plural}))
+				)
+			{
+				$disallow_paths_localized_set{$tag_value_plural} = undef;
+				push(@{$vars->{disallow_paths_localized}}, $tag_value_plural);
+			}
+		}
+	}
+
+	my $text;
+	$tt->process("web/pages/robots/robots.tt.txt", $vars, \$text);
+	my $r = Apache2::RequestUtil->request();
+	$r->content_type("text/plain");
+	print $text;
 	exit();
 }
 
