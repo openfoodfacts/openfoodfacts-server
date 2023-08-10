@@ -11,6 +11,24 @@ html/data/
 tests/unit/outputs/
 tests/integration/outputs/
 
+# local configs, most of them are link to files in conf/ depending on instance
+/html/.well-known/apple-app-site-association 
+/log.conf
+/minion_log.conf
+
+# data dirs
+/build-cache
+/debug
+/deleted.images
+/dist
+/logs
+/new_images
+/orgs
+/products
+/tmp
+/users
+
+
 # Local files
 .DS_Store?
 ._*
