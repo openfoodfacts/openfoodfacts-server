@@ -38,13 +38,20 @@
       "fat_100g" : 0,
       "fiber_100g" : 0.5,
       "proteins_100g" : 0.2,
+      "salt" : 0.5,
+      "salt_100g" : 0.5,
+      "salt_unit" : "g",
+      "salt_value" : 0.5,
       "saturated-fat_100g" : 0,
       "sodium_100g" : 0.2,
+      "sodium_value" : 0.2,
       "sugars_100g" : 8.9
    },
    "nutriscore_data" : {
       "nutriscore_not_applicable_for_category" : "en:alcoholic-beverages"
    },
+   "nutrition_data_per" : "100g",
+   "nutrition_data_prepared_per" : "100g",
    "nutrition_grades_tags" : [
       "not-applicable"
    ],

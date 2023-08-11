@@ -442,6 +442,10 @@ foreach my $test_ref (@tests) {
 		if (deep_exists($product_ref, "nutriments", "salt${prepared}_100g")) {
 			$product_ref->{nutriments}{"salt${prepared}_value"} = $product_ref->{nutriments}{"salt${prepared}_100g"};
 		}
+		if (deep_exists($product_ref, "nutriments", "sodium${prepared}_100g")) {
+			$product_ref->{nutriments}{"sodium${prepared}_value"}
+				= $product_ref->{nutriments}{"sodium${prepared}_100g"};
+		}
 	}
 
 	fix_salt_equivalent($product_ref);
@@ -450,7 +454,7 @@ foreach my $test_ref (@tests) {
 	extract_ingredients_from_text($product_ref);
 	special_process_product($product_ref);
 	compute_estimated_nutrients($product_ref);
-	compute_nutrition_score($product_ref, "2023");
+	compute_nutriscore($product_ref, "2023");
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }

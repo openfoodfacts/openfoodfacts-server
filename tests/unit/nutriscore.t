@@ -18,6 +18,8 @@ use ProductOpener::NutritionCiqual qw/:all/;
 use ProductOpener::NutritionEstimation qw/:all/;
 use ProductOpener::Test qw/:all/;
 
+use Data::DeepAccess qw(deep_exists);
+
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 # Needed to compute estimated nutrients
@@ -435,6 +437,19 @@ foreach my $test_ref (@tests) {
 	my $testid = $test_ref->[0];
 	my $product_ref = $test_ref->[1];
 
+	# We need salt_value to compute sodium_100g with fix_salt_equivalent
+	foreach my $prepared ('', '_prepared') {
+		if (deep_exists($product_ref, "nutriments", "salt${prepared}_100g")) {
+			$product_ref->{nutriments}{"salt${prepared}_value"} = $product_ref->{nutriments}{"salt${prepared}_100g"};
+		}
+		if (deep_exists($product_ref, "nutriments", "sodium${prepared}_100g")) {
+			$product_ref->{nutriments}{"sodium${prepared}_value"}
+				= $product_ref->{nutriments}{"sodium${prepared}_100g"};
+		}
+	}
+
+	fix_salt_equivalent($product_ref);
+	compute_serving_size_data($product_ref);
 	compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 	extract_ingredients_from_text($product_ref);
 	special_process_product($product_ref);
