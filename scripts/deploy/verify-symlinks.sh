@@ -10,7 +10,6 @@ KNOWN_SERVICES=(obf off off-pro opf opff)
 declare -A LONG_NAMES
 LONG_NAMES[obf]=openbeautyfacts
 LONG_NAMES[off]=openfoodfacts
-LONG_NAMES[off-pro]=pro.openfoodfacts
 LONG_NAMES[opf]=openproductsfoodfacts
 LONG_NAMES[opff]=openpetfoodfacts
 
@@ -44,6 +43,8 @@ function check_args {
   ZFS_PATH="/mnt/$SERVICE"
   IS_PRO=$(is_pro "$SERVICE")
   NON_PRO_SERVICE=$(non_pro_name "$SERVICE")
+  PRO_SERVICE=$NON_PRO_SERVICE"-pro"
+  SERVICE_LONG_NAME=${LONG_NAMES[$NON_PRO_SERVICE]}
 }
 
 function compute_expected_links {
@@ -54,19 +55,47 @@ function compute_expected_links {
   EXPECTED_LINKS["$REPO_PATH/minion_log.conf"]="$REPO_PATH/conf/$SERVICE-minion_log.conf"
   # config
   EXPECTED_LINKS["$REPO_PATH/lib/ProductOpener/Config.pm"]="$REPO_PATH/lib/ProductOpener/Config_$NON_PRO_SERVICE.pm"
+  EXPECTED_LINKS["$REPO_PATH/po/site-specific"]="$REPO_PATH/po/$SERVICE_LONG_NAME"
   # data linked to zfs storages
   EXPECTED_LINKS["$REPO_PATH/orgs"]="$ZFS_PATH/orgs"
   EXPECTED_LINKS["$REPO_PATH/users"]="$ZFS_PATH/users"
   EXPECTED_LINKS["$REPO_PATH/products"]="$ZFS_PATH/products"
   EXPECTED_LINKS["$REPO_PATH/html/images/products"]="$ZFS_PATH/images/products"
   EXPECTED_LINKS["$REPO_PATH/html/data"]="$ZFS_PATH/html_data"
+  # .well-known
+  for path in apple-app-site-association apple-developer-merchantid-domain-association
+  do
+    EXPECTED_LINKS["$REPO_PATH/html/.well-known/$path"]="$REPO_PATH/conf/well-known/$SERVICE-$path"
+  done
   # deeper link in zfs storages
   EXPECTED_LINKS["$REPO_PATH/deleted.images"]="$ZFS_PATH/deleted.images"
+  if [[ -z $IS_PRO ]]
+  then
+    EXPECTED_LINKS["$REPO_PATH/deleted_products"]="$ZFS_PATH/deleted_products"
+    EXPECTED_LINKS["$REPO_PATH/deleted_products_images"]="$ZFS_PATH/deleted_products_images"
+    # producers imports
+    EXPECTED_LINKS["$REPO_PATH/imports"]="$ZFS_PATH/imports"
+  else
+    EXPECTED_LINKS["$REPO_PATH/deleted_private_products"]="$ZFS_PATH/deleted_private_products"
+  fi
+
+  EXPECTED_LINKS["$REPO_PATH/html/data"]="$ZFS_PATH/html_data"
+  EXPECTED_LINKS["$REPO_PATH/html/exports"]="$ZFS_PATH/html_data/exports"
+  EXPECTED_LINKS["$REPO_PATH/html/dump"]="$ZFS_PATH/html_data/dump"
+  EXPECTED_LINKS["$REPO_PATH/html/files"]="$ZFS_PATH/html_data/files"
+
   # caches
   EXPECTED_LINKS["$REPO_PATH/build-cache"]="$ZFS_PATH/cache/build-cache"
   EXPECTED_LINKS["$REPO_PATH/debug"]="$ZFS_PATH/cache/debug"
   EXPECTED_LINKS["$REPO_PATH/new_images"]="$ZFS_PATH/cache/new_images"
   EXPECTED_LINKS["$REPO_PATH/tmp"]="$ZFS_PATH/cache/tmp"
+  EXPECTED_LINKS["$REPO_PATH/export_files"]="$ZFS_PATH/cache/export_files"
+
+  # exchange path
+  if [[ -z $IS_PRO]]
+  then
+    EXPECTED_LINKS["/srv/$PRO_SERVICE/export_files"]="/mnt/$PRO_SERVICE/cache/export_files"
+  fi
 
   # link in zfs storages to files in git
   EXPECTED_LINKS["$ZFS_PATH/html_data/data-fields.md"]="$REPO_PATH/html/data/data-fields.md"
