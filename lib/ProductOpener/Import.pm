@@ -2824,14 +2824,12 @@ sub update_export_status_for_csv_file ($args_ref) {
 	my $columns_ref = $csv->getline($io);
 	$csv->column_names(@{deduped_colnames($columns_ref)});
 
-	my $products_collection = get_products_collection();
-
 	while (my $imported_product_ref = $csv->getline_hr($io)) {
 
 		$i++;
 
 		# By default, use the orgid passed in the arguments
-		# it may be overrode later on a per product basis
+		# it may be overridden later on a per product basis
 		my $org_id = $args_ref->{org_id};
 
 		# The option import_owner is used when exporting from the producers database to the public database
@@ -2880,9 +2878,12 @@ sub update_export_status_for_csv_file ($args_ref) {
 			$product_ref->{states} = join(',', @{$product_ref->{states_tags}});
 			compute_field_tags($product_ref, $product_ref->{lc}, "states");
 
+			# Update the product without creating a new revision
 			my $path = product_path($product_ref);
 			store("$data_root/products/$path/product.sto", $product_ref);
 			$product_ref->{code} = $product_ref->{code} . '';
+			# Use the obsolete collection if the product is obsolete
+			my $products_collection = get_products_collection({obsolete => $product_ref->{obsolete}});
 			$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
 		}
 	}

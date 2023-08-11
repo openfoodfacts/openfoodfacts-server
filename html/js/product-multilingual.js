@@ -544,26 +544,33 @@ function initializeTagifyInput(el) {
     });
 
     let abortController;
+    let debounceTimer;
+    const timeoutWait = 300;
+
     input.on("input", function(event) {
         const value = event.detail.value;
         input.whitelist = null; // reset the whitelist
 
         if (el.dataset.autocomplete && el.dataset.autocomplete !== "") {
-            // https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
-            if (abortController) {
-                abortController.abort();
-            }
+            clearTimeout(debounceTimer);
 
-            abortController = new AbortController();
+            debounceTimer = setTimeout(function(){
+                // https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
+                if (abortController) {
+                    abortController.abort();
+                }
 
-            fetch(el.dataset.autocomplete + "&string=" + value, {
-                signal: abortController.signal
-            }).
-            then((RES) => RES.json()).
-            then(function(json) {
-                input.whitelist = json.suggestions;
-                input.dropdown.show(value); // render the suggestions dropdown
-            });
+                abortController = new AbortController();
+
+                fetch(el.dataset.autocomplete + "&string=" + value, {
+                    signal: abortController.signal
+                }).
+                then((RES) => RES.json()).
+                then(function(json) {
+                    input.whitelist = json.suggestions;
+                    input.dropdown.show(value); // render the suggestions dropdown
+                });
+            }, timeoutWait);
         }
     });
 

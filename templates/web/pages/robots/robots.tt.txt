@@ -1,9 +1,16 @@
+[% IF deny_access -%]
+User-agent: *
+Disallow: /
+[% ELSE -%]
 User-agent: *
 Allow: /cgi/product_image.pl
 Allow: /cgi/opensearch.pl
 Disallow: /cgi
 Disallow: /code
 Disallow: /api
+[% FOREACH path IN disallow_paths_localized -%]
+Disallow: /[% path %]
+[% END %]
 
 # Disallow: Bingbot (temporary test)
 User-agent: Bingbot
@@ -49,8 +56,6 @@ User-agent: Cliqzbot
 Disallow: /
 User-agent: SeekportBot
 Disallow: /
-User-agent: SeekportBot
-Disallow: /
 User-agent: Seekport Bot
 Disallow: /
 User-agent: Seekport
@@ -80,4 +85,6 @@ Disallow: /
 User-agent: Amazonbot
 Disallow: /
 
-
+User-agent: DataForSeoBot
+Disallow: /
+[% END %]
