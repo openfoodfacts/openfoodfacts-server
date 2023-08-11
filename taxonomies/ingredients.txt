@@ -1,38 +1,74 @@
 
 #comment:en:These are synonyms of ingredients
 
-#synonyms need to be separated with an empty line.
-#If a term is also in the taxonomy, it must come first. e.g. "en:hydrolysed"
+# Synonyms must be separated with an empty line.
+# If a term is also in the taxonomy, it must come first. e.g. "en:hydrolysed"
 
-# comment:en:These are words that occur inside the name of one ingredient, but that can be removed for matching the ingredient with entries in the taxonomy
+# comment:en:These are words that occur inside the name of one ingredient, that can be considered as synonyms for matching the ingredient with entries in the taxonomy
+# note: synonyms should not be ingredients themselves, if we have an ingredient entry with synonyms, they should not be listed in the synonyms below as well
+
 synonyms:en:fiber, fibre
+
 synonyms:en:hydrolysed, hydrolyzed
+
 synonyms:en:pasteurised, pasteurized
+
+synonyms:en:wholemeal, whole, whole grain, wholegrain, complete
+
+synonyms:en:semi-wholemeal, semi-whole, semi-whole grain, semi-wholegrain, semi-complete, semiwhole, semiwholemeal
+
+synonyms:en:semi-sweet, semisweet
+
 synonyms:es:zumo, jugo
+
 synonyms:es:jarabe, sirope
+
+synonyms:fr:semi-complet, demi-complet
+
+synonyms:fr:semi-complète, demi-complète
+
 synonyms:lt:ląsteliena, skaidulos
+
 synonyms:lt:pilno grūdo, viso grūdo
+
 synonyms:lt:kviečių,kvietiniai,kvietinės, kvietinis
+
 synonyms:lt:miežių,miežinio, miežinis
+
 synonyms:lt:kiašinių, kiaušinio
+
 synonyms:lt:vištų,vištienos, vištos
+
 synonyms:pt:suco, sumo
+
 synonyms:pt:extrato, extracto
+
 synonyms:pt:geléia, geleia
+
 synonyms:pt:conservadores, conservantes, conservante, conservador
+
 synonyms:pt:soda, refrigerante
+
 synonyms:pt:mascavo, mascavado
+
 synonyms:pt:amônio, amónio
+
 synonyms:pt:graxos, gordo, graxo, gordos
+
 synonyms:pt:gorduras, lípido, gordura, lípidos
+
 synonyms:pt:oliva, oliveira
+
 synonyms:pt:azeite de oliva, azeite
+
 synonyms:pt:láctico, lático, lácteo
+
 synonyms:pt:pistache, pistáchio, pistácio, pistacho, pistaches, pistáchios, pistácios, pistachos
+
 synonyms:pt:sorvete, gelado
 
 
-# comment:en:These are words that occur inside an ingredient list, but are not ingredients (black list)
+# comment:en:These are words that occur inside the name of one ingredient, but that can be removed for matching the ingredient with entries in the taxonomy
 
 stopwords:bg:съдържа, в, от, с, със, до, и, или, и/или, минимум, произведено с, с добавенo, включително, променливо, отношение, съотношение
 stopwords:bs:i, u promjenljivom odnosu
@@ -22647,14 +22683,9 @@ fr:semoule blanche de blé dur biologique de sicile
 <en:durum wheat semolina
 en:semi-whole durum wheat semolina, semi-complete durum wheat semolina
 de:Halbvollkorn-Hartweizengrieß, Hartweizengrieß halbvollkorn
-fr:semoule de blé dur demi-complète. semoule semi-complète de blé dur, semoule demi-complète de blé dur, Semoule de blé dur semi-complète
+fr:semoule de blé dur semi-complète, semoule semi-complète de blé dur
 nl:halfvolkoren harde tarwegriesmeel
 # 61 in 2 @2021-09-28
-
-#<en:semi-whole durum wheat semolina
-#en:organic semi-whole durum wheat semolina
-#fr:semoule semi-complète de blé dur bio, semoule semi-complète de blé dur biologique, semoule de #blé dur demi-complète biologique
-# ingredient/fr:semoule-semi-complete-de-ble-dur-biologique has 9 products in french @2019-05-25
 
 <en:durum wheat semolina
 en:whole durum wheat semolina, durum wholewheat semolina, Whole durum semolina
@@ -25668,6 +25699,10 @@ ro:făină integrală
 ru:мука пшеничная цельнозерновая
 sv:fullkornsmjöl
 
+<en:cereal flour
+en:semi-wholemeal flour
+fr:farine semi-complète
+
 # Question
 
 <en:wheat flour
@@ -25693,6 +25728,11 @@ pl:Mąka pszenna pełnoziarnista, mąka pszenna razowa
 pt:farinha de trigo integral, farinha integral de trigo
 ro:făină integrală de grâu
 sv:fullkornsvetemjöl, grahamsmjöl av vete
+
+<en:wheat flour
+<en:semi-wholemeal flour
+en:semi-wholemeal wheat flour
+fr:farine de blé semi-complète, farine de blé semi-complète, farine de blé semi-complet, farine semi-complète de blé, farine semi-complète de froment, farine de froment semi-complet
 
 <en:wheat flour
 en:dextrinated wheat flour
@@ -26249,15 +26289,21 @@ fr:farine de riz blanc
 it:Farina di riso bianco
 
 <en:rice flour
+<en:wholemeal flour
 en:brown rice flour, full rice flour, whole rice flour, whole grain rice flour
 de:Reisvollkornmehl, braunes Reismehl, volles Reismehl, Vollkornreismehl
 es:harina de arroz integral, harina integral de arroz
 fi:tumma riisijauho, täysjyväriisijauho
-fr:farine de riz complet, farine complète de riz
+fr:farine de riz complet, farine complète de riz, farine de riz complète
 hr:integralno rižino brašno
 hu:barnariszliszt
 it:Farina di riso nero
 nl:volkoren rijstmeel
+
+<en:semi-wholemeal flour
+<en:rice flour
+en:semi-wholemeal rice flour
+fr:farine de riz semi-complète, farine de riz semi-complet, farine semi-complète de riz
 
 <en:flour
 <en:quinoa
@@ -27117,6 +27163,7 @@ wikidata:en:Q115443
 ########################### PROCESSING STAGES OF RICES #######################
 
 <en:rice
+en:semi-whole rice
 fr:riz semi-complet
 
 #category/brown-rices
@@ -27147,6 +27194,10 @@ ciqual_food_name:en:Rice, brown, raw
 ciqual_food_name:fr:Riz complet, cru
 wikidata:en:Q1066624
 # 3816 in 19 @2021-09-13
+
+<en:rice
+en:semi-wholemeal rice
+fr:riz semi-complet
 
 <en:brown rice
 en:whole grain brown rice, wholegrain brown rice
@@ -27389,10 +27440,12 @@ nl:witte ronde rijst, ronde rijst wit
 fr:riz rond blanc bio
 
 <en:round rice
-fr:riz rond demi-complet, riz rond complet légèrement poli
+en:semi-whole round rice
+fr:riz rond semi-complet, riz rond complet légèrement poli
 nl:halfvolkoren ronde rijst, volkoren ronde rijst lichtjes gepolijst
 
 <en:round rice
+en:whole round rice
 fr:riz rond complet
 nl:volkoren ronde rijst
 # ingredient/fr:riz-rond-complet has 19 products @2019-05-29
@@ -27575,11 +27628,6 @@ nl:witte basmatirijst
 # ingredient/fr:riz-basmati-blanc has 11 products @2019-0529
 # ingredient/fr:riz-basmati-blanc has 11 products @2019-0529
 
-#<en:basmati rice
-#<en:organic rice
-#fr:riz basmati demi-complet issu de l'agriculture biologique
-# ingredient/fr:riz-basmati-demi-complet-issu-de-l-agriculture-biologique has 3 products @2019-05-30
-
 <en:basmati rice
 en:brown basmati rice
 de:brauner Basmatireis
@@ -27698,7 +27746,8 @@ fr:riz-blanc-thailandais-a-grains-longs-issu-de-l-agriculture-biologique
 # 2019-05-30
 
 <en:Thai rice
-fr:riz thaï demi-complet, riz thai demi-complet
+en:semi-whole thai rice
+fr:riz thaï semi-complet
 
 <en:Thai rice
 en:Thaï brown rice
@@ -32091,6 +32140,10 @@ de:Halbbitterschokolade
 <en:chocolate
 en:chocolate bar
 hr:kakao pločice
+
+<en:chocolate
+en:semi-sweet chocolate
+fr:chocolat mi-sucré
 
 description:en:MILK CHOCOLATE is solid chocolate made with milk added in the form of powdered milk, liquid milk, or condensed milk.
 # <en:contains:en:sugar
