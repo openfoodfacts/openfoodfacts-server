@@ -364,6 +364,7 @@ my @debug_taxonomies = ("categories", "labels", "additives");
 
 sub build_lang ($Languages_ref) {
 	# $Languages_ref is a hash of languages with translations initialized from the languages taxonomy by Tags.pm
+	# Note: all .po files must have a corresponding entry in the languages.txt taxonomy
 
 	# Load the strings from the .po files
 	# UI strings, non-Roman characters can be used
