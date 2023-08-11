@@ -49,7 +49,8 @@ x-backend-conf: &backend-conf
     - orgs:/mnt/podata/orgs # .sto
     # build-cache
     - build_cache:/mnt/podata/build-cache
-
+    # export_files folders must be accessible between pro and public instances
+    - export_files:/mnt/podata/export_files
     # all the rest
     - podata:/mnt/podata
 
