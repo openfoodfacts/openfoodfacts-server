@@ -149,10 +149,6 @@ server {
 		gunzip on;
 	}
 
-	location = /robots.txt {
-		try_files $uri $uri/ =404;
-	}
-
         include snippets/off.locations-redirects.include;
 
 	# Dynamically generated files and CGI scripts are passed
