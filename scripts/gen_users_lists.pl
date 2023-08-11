@@ -55,7 +55,7 @@ foreach my $userid (@userids) {
 	}
 }
 
-store("$data_root/users_emails.sto", \%emails);
+store("$data_root/users/users_emails.sto", \%emails);
 
 exit(0);
 
