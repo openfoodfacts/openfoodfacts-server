@@ -539,6 +539,15 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 				"Formatge mozzarella (llet de vaca pasteuritzada, sal, ferments làctics i quall) i antiaglomerant (cel·lulosa).",
 		}
 	],
+	# synonyms between demi-complet -> semi-complet
+	[
+		"fr-semi",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"farine demi-complète de riz, farine de blé demi complet",
+		}
+	],	
 );
 
 my $json = JSON->new->allow_nonref->canonical;
