@@ -134,7 +134,9 @@ foreach my $stringid (sort keys %Lang) {
 				# As of 2022/12/08, there are 3630 instances where this test fail
 				# We can enable it one language at a time
 				if ($l =~ /^fr$/) {
-					fail("string $stringid in language $l does not contain $word: $Lang{$stringid}{$l}");
+					fail(     "string $stringid in language $l does not contain $word "
+							. "(while it should never be translated): "
+							. "$Lang{$stringid}{$l}");
 				}
 			}
 		}

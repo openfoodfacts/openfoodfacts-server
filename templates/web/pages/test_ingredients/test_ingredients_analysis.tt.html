@@ -13,6 +13,8 @@
 </form>
 
 [% IF action == 'process' %]
+    <h4>Preparsed ingredients text</h4>
+    <p>[% preparsed_ingredients_text %]</p>
     [% display_ingredients_analysis %]
     <h4>Ingredients analysis</h4>
     [% html_details %]

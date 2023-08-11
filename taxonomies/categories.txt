@@ -1417,7 +1417,9 @@ agribalyse_proxy_food_name:en:Beer, dark
 agribalyse_proxy_food_name:fr:Bière brune
 
 <en:Beers
-en:India Pale Ale (IPA), IPA ales, India pale ale, India pale ales
+en:India Pale Ale (IPA), IPA ales, India pale ale, India pale ales, IPA beers
+es:Cerveza IPA, IPA
+ca:Cervesa IPA, IPA
 xx:India Pale Ale (IPA)
 wikidata:en:Q1543214
 
@@ -4669,11 +4671,23 @@ origins:en: en:Portugal
 
 <en:Liqueurs
 en:Herbal liqueur, Kräuterlikör
+ca:Licor d'herbes
 de:Kräuterschnäppse, Kräuterliköre, Kräuterschnaps, Kräuterlikör
+es:Licor de hierbas
 fr:Liqueur herbale
 it:Liquori alle erbe
 nl:Kruidenlikeur
 wikidata:en:Q1883967
+
+<en:Liqueurs
+en:Apple liqueur
+ca:Licor de poma
+es:Licor de manzana
+
+<en:Liqueurs
+en:Coffee liqueur
+ca:Licor de cafè, Licor cafè
+es:Licor de café, Licor café
 
 <en:Liqueurs
 en:Croatian liqueur
@@ -4759,6 +4773,7 @@ origins:en: en:Spain
 #wikidata:en:
 
 <en:Spanish liqueur
+<en:Coffee liqueur
 es:Licor café de Galicia
 protected_name_file_number:en: PGI-ES-01911
 protected_name_type:en: gi
@@ -4766,6 +4781,7 @@ origins:en: en:Spain
 #wikidata:en:
 
 <en:Spanish liqueur
+<en:Herbal liqueur
 es:Licor de hierbas de Galicia
 protected_name_file_number:en: PGI-ES-01912
 protected_name_type:en: gi
@@ -4780,6 +4796,7 @@ origins:en: en:Spain
 #wikidata:en:
 
 <en:Spanish liqueur
+ca:Ratafia
 es:Ratafia catalana
 protected_name_file_number:en: PGI-ES-01945
 protected_name_type:en: gi
@@ -33444,6 +33461,7 @@ it:Panini per hot dog
 ja:ホットドッグ用パン, ホットドッグ用バンズ
 lt:Dešrainių bandelės, Bandelės dešrainiams
 nl:Hotdog-broodjes, Hot-dog broodje
+pl:Bułki hot-dog, Bułki do hot-dogów
 pt:Pães para hot dog, pãos para hot dog
 wikidata:en:Q1047392
 agribalyse_food_code:en:7259
@@ -33557,6 +33575,7 @@ zh:早餐
 
 en:Cocoa and its products
 bg:Какаови изделия, какаови продукти
+ca:Cacau i derivats
 de:Kakao und Kakaoprodukte
 es:Cacao y sus productos
 fr:Cacao et dérivés
@@ -33932,7 +33951,8 @@ fi:Mämmi, mammi
 wikidata:en:Q1630666
 
 <en:Desserts
-es:Roscón, roscon
+es:Roscón, roscon, Roscón de Reyes
+fr:Gâteaux des rois, gâteau des rois
 wikidata:en:Q7367597
 
 <en:Cakes
@@ -37799,11 +37819,15 @@ ciqual_food_name:fr:Potée auvergnate (chou et porc)
 en:Stuffed cabbage
 bg:Сарми
 fr:Chou farci
+pl:Gołąbki
+sr:Сарма
+ua:Голубці
 agribalyse_food_code:en:25106
 ciqual_food_code:en:25106
 ciqual_food_name:en:Stuffed cabbage
 ciqual_food_name:fr:Chou farci
-#wikidata:en:
+wikidata:en:Q6499669
+wikipedia:en:https://en.wikipedia.org/wiki/Cabbage_roll
 
 <en:fish eggs
 en:Caviars
@@ -37814,6 +37838,7 @@ fr:Caviars, Caviar
 it:Caviale
 lt:Ikrai
 nl:Kaviaar
+pl:kawior
 ro:Caviar
 tr:Havyar
 wikidata:en:Q186385
@@ -39806,6 +39831,7 @@ fr:Chips barbecue
 it:Patatine barbecue
 lt:Barbekiu traškučiai
 nl:Barbecuesmaak chips
+pl:Chipsy barbecue, Czipsy barbecue
 
 <en:Potato crisps
 en:Salt and vinegar crisps
@@ -41226,6 +41252,12 @@ wikidata:en:Q620951
 fr:Vacherin fribourgeois
 de:Vacherin fribourgeois
 wikidata:en:Q677647
+
+# There are two cheeses called vacherin in Switzerland. The Vacherin Mont-d'Or is also different from the Mont d'Or from France.
+<en:Cheeses from Switzerland
+<en:Cow cheeses
+en:Swiss Vacherin Mont-d'Or
+fr:Vacherin Mont-d'Or suisse
 
 <en:Cheeses from Switzerland
 <en:Cow cheeses
@@ -43718,6 +43750,7 @@ fr:Fromages fondus, Fromage fondu
 it:Formaggio fuso
 lt:Lydyti sūriai
 nl:Funduekazen
+pl:Sery topione, Ser topiony
 pt:Queijos derretidos
 wikidata:en:Q190531
 agribalyse_food_code:en:12355
@@ -49708,6 +49741,7 @@ nl:Verse fruitsalade
 
 <en:Dairy desserts
 en:Flans
+ca:Flans
 de:Puddingkuchen
 es:Flanes
 fr:Flans gélifiés, Flans
@@ -49718,6 +49752,8 @@ wikidata:en:Q16636380
 
 <en:Flans
 en:Refrigerated flan with eggs
+ca:Flans d'ou, Flan d'ou
+es:Flanes de huevo, Flan de huevo
 fr:Flan aux œufs rayon frais
 agribalyse_food_code:en:19674
 ciqual_food_code:en:19674
@@ -50142,7 +50178,6 @@ lt:Anakardžiai su druska, Sūdyti anakardžiai
 tr:Tuzlu Kaju
 
 <en:Cashew nuts
-<fr:Fruits à coque salés
 en:Unsalted cashews, Unsalted cashew nuts
 de:Ungesalzene Cashewnüsse, Ungesalzene Cashewkerne
 fr:Noix de cajou non-salées
@@ -50980,6 +51015,7 @@ it:Burro di frutta secca, Burro di semi oleosi
 ja:ナッツバター
 lt:Riešutų sviestai
 nl:Notenpasta's
+pl:Masła z orzechów, pasty z orzechów
 pt:Manteiga de frutos secos
 ru:Ореховые пасты, Ореховая паста
 wikidata:en:Q10752679
@@ -50995,6 +51031,7 @@ it:Burro di mandorle
 ja:アーモンドバター
 lt:Migdolų riešutų sviestai, Migdolų riešutų kremai
 nl:Amandelpasta's
+pl:Masło migdałowe, Pasta z migdałów, Masło z migdałów
 pt:Manteigas de amêndoa
 wikidata:en:Q4733896
 
@@ -51021,6 +51058,7 @@ ja:カシューナッツバター
 lt:Anakardžių riešutų sviestai
 nl:Cashewpasta's
 nl_be:Cashewpasta's
+pl:Masło z orzechów nerkowca, Pasta z orzechów nerkowca, Masło z nerkowców, Pasta z nerkowców
 wikidata:en:Q17113213
 
 <en:Nut butters
@@ -51033,6 +51071,7 @@ lt:Lazdyno riešutų sviestai
 it:Burri di nocciole
 nl:Hazelnootpasta's
 nl_be:Hazelnootpasta's
+pl:Masło z orzechów laskowych, Pasta z orzechów laskowych
 pt:Manteigas de avelã
 wikidata:en:Q5688100
 
@@ -51067,7 +51106,7 @@ ja:ピーナッツバター
 lt:Žemės riešutų sviestai, žemės riešutų pastos
 nl:Pindakazen
 nl_be:Pindakazen
-pl:Masło orzechowe
+pl:Masło z orzeszków ziemnych, Masło z orzeszków arachidowych
 pt:Manteigas de amendoim
 ru:Арахисовая паста, Арахисовые пасты
 sv:Jordnötssmör
@@ -55984,6 +56023,7 @@ ciqual_food_name:en:Muesli, crunchy, with fruits and/or dried fruits, grains (no
 ciqual_food_name:fr:Muesli croustillant aux fruits et/ou fruits secs, graines (non enrichi en vitamines et minéraux)
 
 <en:Mueslis
+<en:Cereals with nuts
 en:Mueslis with nuts, Walnut muesli
 de:Müslis mit Nüssen
 fr:Mueslis aux fruits à coque, Mueslis aux noix
@@ -56054,6 +56094,7 @@ fr:Mueslis croustillants
 lt:Traškus muslis
 
 <en:Mueslis
+<en:Chocolate cereals
 en:Mueslis with chocolate
 de:Müslis mit Schokolade, Schokomüslis
 es:Mueslis con chocolate
@@ -58370,7 +58411,6 @@ ciqual_food_name:en:Belle Helene pear dessert (cooked pear topped with hot choco
 ciqual_food_name:fr:Poire belle Hélène
 
 <en:Frozen desserts
-<en:Vacherins
 en:Vacherin ice cream
 fr:Vacherin glacé
 agribalyse_food_code:en:39502
@@ -59213,6 +59253,12 @@ es:Granizados de café
 
 <en:Granizados
 es:Granizados de cebada
+
+<en:Granizados
+es:Granizados de naranja
+
+<en:Granizados
+es:Granizados de fresa
 
 <en:Granizados
 es:Granizados de turrón
@@ -65001,6 +65047,15 @@ origins:en: en:Ireland
 wikidata:en:Q54870034
 
 <en:Salts
+en:Polish salts
+pl:Sól polska
+origins:en: en:Poland
+
+<en:Polish salts
+en:Kłodawa salt
+pl:Sól kłodawska, Sól z Kłodawy
+
+<en:Salts
 en:Portuguese salts
 fr:Sels portugais
 lt:Portogališkos druskos
@@ -66213,6 +66268,7 @@ en:Vegetarian sauces
 bg:Вегетариански сосове
 fr:Sauces végétariennes
 lt:Vegetariški padažai
+pl:Sosy wegetariańskie, wegetariańskie sosy
 
 <en:Vegetarian sauces
 <en:Pasta sauces
@@ -66233,6 +66289,7 @@ en:Vegan sauces
 bg:Веган сосове
 fr:Sauces véganes
 lt:Veganiški padažai
+pl:Sosy wegańskie, wegańskie sosy
 
 <en:Vegan sauces
 en:Egg-free mayonnaises
@@ -66245,13 +66302,14 @@ hu:Tojásmentes majénz
 it:Maionese senza uovo
 lt:Majonezai be kiaušinių
 nl:Eivrije mayonaises
-pl:majonez bezjajeczny
+pl:Majonezy bezjajeczne, majonez bezjajeczny
 tr:Yumurtasız mayonez
 
 <en:Vegan sauces
 en:Tartare-style vegan sauces
 fr:Sauces véganes façon tartare
 lt:Tartare stiliaus veganiški padažai
+pl:Sosy tatarskie wegańskie, wegańskie sosy tatarskie
 
 <en:Vegan sauces
 en:Béarnaise-style vegan sauces
@@ -66264,6 +66322,7 @@ de:Erdnusssauce
 fr:Sauces aux cacahuètes, Sauce aux cacahuètes, Sauces saté, Sauce saté, Sauces à l'arachide, Sauces à la cacahuète, Sauces aux arachides, Sauce à l'arachide, Sauce à la cacahuète, Sauce aux arachides
 lt:Žemės riešutų padažai
 nl:Pindasauzen
+pl:Sosy z orzeszków ziemnych
 wikidata:en:Q107310187
 
 #peanut suaces with added spices
@@ -66450,6 +66509,7 @@ en:Yogurt sauces, Yogurt dressing sauces, Yogurt dressing
 fr:Sauces au yaourt, Sauce au yaourt, Sauces dressing au yaourt
 nl:Yoghurtsauzen
 lt:Jogurto padažai
+pl:Sosy jogurtowe, Sos jogurtowy
 agribalyse_food_code:en:11166
 ciqual_food_code:en:11166
 ciqual_food_name:en:Yogurt sauce
@@ -66511,6 +66571,7 @@ ciqual_food_name:fr:Sauce basquaise ou Sauce aux poivrons, préemballée
 en:American-style sauces
 fr:Sauces américaine
 lt:Amerikietiško stiliaus padažai
+pl:Sosy amerykańskie, Sos amerykański, Sosy w stylu amerykańskim
 agribalyse_food_code:en:11167
 ciqual_food_code:en:11167
 ciqual_food_name:en:American-style sauce, prepacked
@@ -66583,6 +66644,7 @@ fr:Sauces aux champignons, Sauces champignons, Sauces champignons archiduc, Sauc
 ja:マッシュルームソース
 lt:Grybų padažai, padažai su grybais
 nl:Paddenstoelsauzen, Paddenstoelsaus
+pl:Sosy grzybowe, Sos grzybowy
 agribalyse_food_code:en:11160
 ciqual_food_code:en:11160
 ciqual_food_name:en:Mushroom sauce, prepacked
@@ -66613,6 +66675,7 @@ en:Hollandaise sauce
 de:Sauce Hollandaise
 fr:Sauces hollandaise, Sauce hollandaise
 ja:オランデーズソース
+pl:Sosy holenderskie, Sos holenderski
 agribalyse_food_code:en:11105
 ciqual_food_code:en:11105
 ciqual_food_name:en:Hollandaise sauce, prepacked
@@ -66687,6 +66750,7 @@ es:Salsa de mostaza
 fr:Sauces moutarde
 lt:Garstyčių padažai
 nl:Mosterdsauzen, Mosterdsaus
+pl:Sosy musztardowe, sos musztardowy
 agribalyse_food_code:en:11157
 ciqual_food_code:en:11157
 ciqual_food_name:en:Mustard sauce prepacked
@@ -66705,6 +66769,7 @@ it:Salse barbecue
 ja:バーベキューソース
 lt:Barbekiu padažai
 nl:Barbecuesauzen
+pl:Sosy barbecue, Sos barbecue, Sosy BBQ
 agribalyse_food_code:en:11100
 ciqual_food_code:en:11100
 ciqual_food_name:en:Barbecue sauce, prepacked
@@ -66792,6 +66857,7 @@ fr:Sauces à l'huitre, sauce à l'huitre, sauce d'huitre, sauce huitre
 ja:オイスターソース
 lt:Austrių padažai
 nl:Oestersauzen
+pl:Sosy ostrygowe, Sos ostrygowy
 wikidata:en:Q780827
 
 <en:Sauces
@@ -66883,6 +66949,7 @@ it:Salse Teriyaki
 ja:照り焼きのタレ, 照り焼きソース
 lt:Teriyaki padažai
 nl:Teriyakisauzen, Teriyakisaus
+pl:Sosy Teriyaki, Sos Teriyaki
 ciqual_food_code:en:11301
 ciqual_food_name:en:Teriyaki sauce, prepacked
 ciqual_food_name:fr:Sauce teriyaki, préemballée
@@ -66931,6 +66998,7 @@ fr:Sauces béarnaises, Sauce béarnaise
 it:Salsa bernese
 ja:ベアルネーズソース
 nl:Béarnaise saus
+pl:Sosy bearneńskie, Sos bearneński
 agribalyse_food_code:en:11102
 ciqual_food_code:en:11102
 ciqual_food_name:en:Bearnaise sauce, prepacked
@@ -66973,6 +67041,7 @@ fr:Aïolis, Aiolis, sauces Aïoli, sauces Aïolis, sauce Aïoli
 it:Salsa aioli
 ja:アイオリ
 nl:Knoflooksauzen, Aiolisauzen
+pl:Aioli, Sosy aioli
 wikidata:en:Q283231
 agribalyse_food_code:en:11168
 ciqual_food_code:en:11168
@@ -67097,8 +67166,18 @@ pl:Sriracha, Sosy sriracha
 wikidata:en:Q1392674
 
 <en:Hot sauces
+en:Sambal
 nl:Sambals
+pl:Sambal
 wikidata:en:Q1056554
+wikipedia:en:https://en.wikipedia.org/wiki/Sambal
+
+<en:Sambal
+en:Sambal oelek
+nl:Sambal oelek
+pl:Sambal oelek
+xx:Sambal oelek
+wikidata:en:Q1772919
 
 <en:Sauces
 en:Pepper sauces
@@ -68321,6 +68400,7 @@ origins:en: en:Poland
 #wikidata:en:
 
 <en:Polish meat products
+<en:kaszanka
 pl:Krupnioki śląskie
 protected_name_file_number:en: PGI-PL-01315
 protected_name_type:en: pgi
@@ -68953,6 +69033,12 @@ protected_name_file_number:en: PGI-ES-2186, TSG-ES-0012
 protected_name_type:en: pgi, tsg
 origins:en: en:Spain
 wikidata:en:Q584324
+
+<en:Spanish meat products
+<en:Serrano ham
+en:Duroc ham
+es:Jamón Duroc
+ca:Pernil Duroc
 
 <en:Spanish meat products
 es:Los Pedroches
@@ -69944,6 +70030,7 @@ es:Nems de pollo
 fr:Nems au poulet, Nem au poulet cuit, Pâté impérial au poulet cuit
 it:Involtini di pollo
 nl:Kiploempias
+pl:Dania z kurczakiem
 agribalyse_food_code:en:25582
 ciqual_food_code:en:25582
 ciqual_food_name:en:Egg roll or Nem, with chicken, cooked
@@ -70473,6 +70560,7 @@ it:Pasti con pesce
 ja:魚料理
 lt:Žuvies patiekalai, patiekalai su žuvimi
 nl:Vismaaltijden
+pl:Dania z rybami, Dania z rybą
 pt:Refeições com peixe, pratos com peixe
 ru:Блюда с рыбой
 #wikidata:en:
@@ -70640,8 +70728,8 @@ agribalyse_proxy_food_name:en:Fish brandade or fish shepherd's pie
 en:Meals with falafels
 fr:Plats préparés aux falafels
 
+# This category shouldn't be under en:Meats and their products (it is for products which main ingredient is meat)
 <en:Meals
-<en:Meats and their products
 en:Meals with meat
 bg:Ястия с месо
 ca:Aliments amb carn
@@ -76015,10 +76103,12 @@ nl:Gemalen vleesproducten
 <en:Ground meat preparations
 en:Meat tartares
 fr:Tartares de viande
+pl:Tatar
 
 <en:Meat tartares
 en:Beef tartares
 fr:Tartares de boeuf
+pl:Tatar wołowy
 
 <en:Ground meat preparations
 fr:Américains préparés, hâchés américains
@@ -76043,6 +76133,8 @@ ciqual_food_name:fr:Boeuf, steak ou bifteck, cru
 
 <en:Meats and their products
 en:Beef and its products
+ca:Carn de bobí i derivats
+es:Carne de vacuno y sus productos
 fr:Viande de bœuf et dérivés, viande de boeuf et dérivés
 nl:Rundvlees en afgeleide producten
 
@@ -76383,6 +76475,8 @@ nl:Verse gehakt producten
 
 <en:Meats and their products
 en:Pork and its products
+ca:Carn de porc i derivats
+es:Carne de cerdo y sus productos
 fr:Porc et dérivés
 
 <en:Pork and its products
@@ -77684,7 +77778,9 @@ nl:Eendenworst
 
 <en:Meats and their products
 en:Turkey and its products
-en:Dinde et dérivés
+ca:Gall d'indi i derivats
+es:Pavo y sus productos
+fr:Dinde et dérivés
 
 <en:Turkey and its products
 <en:Poultries
@@ -77904,6 +78000,8 @@ ciqual_food_name:fr:Pintade, poitrine, crue
 
 <en:Meats and their products
 en:Chicken and its products
+ca:Pollastre i derivats
+es:Pollo y sus productos
 fr:Poulet et dérivés
 nl:Kip en afgeleide producten
 
@@ -80011,6 +80109,10 @@ protected_name_type:en: pgi
 origins:en: en:Ireland
 wikidata:en:Q85801725
 
+<en:Black pudding
+en:kaszanka
+pl:kaszanka
+
 <fr:Boudins
 en:Brown puddings
 
@@ -80296,6 +80398,12 @@ ro:Pate de ficat de porc, Pate din ficat de porc
 agribalyse_food_code:en:8305
 ciqual_food_code:en:8305
 ciqual_food_name:en:Pork liver pâté
+
+<fr:Pâté
+<en:Salmons
+en:Salmon Pâtés
+es:Patés de salmón
+ca:Patés de salmó
 
 <en:Pork liver Pâtés
 en:Pork liver pâté superior quality
@@ -83146,19 +83254,6 @@ fr:Tagliatelles sans gluten
 <en:Gluten-free pasta
 fr:Coquillettes sans gluten
 
-<en:Pasta dishes
-en:Stuffed pastas
-bg:Пълнена паста
-ca:Pastes farcides
-de:Gefüllte Nudeln
-es:Pastas rellenas
-fi:täytetyt pastat
-fr:Pâtes farcies
-he:פסטה ממולאת
-hu:Töltött tészták
-it:Pasta farcita, pasta ripiena
-nl:Gevulde pastas
-
 <en:Pastas
 en:Oat pasta
 es:Pastas de avena
@@ -83638,12 +83733,24 @@ es:Pasta rellena de queso
 fr:Pâtes farcies au fromage
 it:Pasta ripiena di formaggio
 
-<en:Tortellini
+<en:Stuffed pastas
+en:Ravioli with ricotta and spinach
 fr:Ravioli ricotta & épinards, Ravioli ricotta épinards
 it:Ravioli ricotta e spinaci
 agribalyse_proxy_food_code:en:25219
 agribalyse_proxy_food_name:en:Lasagna or cannelloni with vegetables and goat cheese, cooked
 agribalyse_proxy_food_name:fr:Lasagnes ou canelloni aux légumes et au fromage de chèvre, cuits
+
+<en:Stuffed pastas
+<en:Pasta dishes
+en:pierogi
+cs:pirohy
+pl:pierogi
+ru:пероги
+sk:pirohy
+ua:пироги, вареники
+wikidata:en:Q697800
+wikipedia:en:https://en.wikipedia.org/wiki/Pierogi
 
 <en:Stuffed pastas
 <en:Pasta dishes
@@ -83702,18 +83809,16 @@ en:Cheese ravioli in tomato sauce
 <fr:Ravioles du Dauphiné
 fr:Ravioles fraîches du Dauphiné
 
-
 <en:Stuffed Pastas
 en:Pasta stuffed with meat
 de:Nudeln mit Fleischfüllung
 es:Pasta rellena de carne
-fr:Pates farcies à la viande
+fr:Pâtes farcies à la viande
 it:tortellini o ravioli alla carne
 agribalyse_proxy_food_code:en:25157
 agribalyse_proxy_food_name:en:Fresh pasta, stuffed with meat (e.g. bolognese-style ravioli), raw
 agribalyse_proxy_food_name:fr:Pâtes fraîches farcies (ex : raviolis), à la viande (ex : bolognaise), crues
 
-<en:Fresh pasta
 <en:Fresh meals
 <en:Ravioli
 en:Fresh ravioli
@@ -83809,8 +83914,7 @@ fr:Ravioli à la bolognaise, raviolis à la bolognaise, Ravioli bolognaise, Ravi
 hu:Bolognais ravioli, Ravioli bolognaival
 nl:Bolognese Raviolis
 
-<en:Stuffed Pastas
-<en:fresh pasta
+<en:Stuffed pastas
 en:Fresh pasta stuffed with cheese and vegetables
 fr:Pâtes fraîches farcies au fromage et aux légumes
 agribalyse_food_code:en:25182
@@ -83818,7 +83922,7 @@ ciqual_food_code:en:25182
 ciqual_food_name:en:Fresh pasta, stuffed with cheese and vegetables (e.g. ravioli), raw
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), au fromage et aux légumes, crues
 
-<en:Stuffed Pastas
+<en:Stuffed pastas
 en:Cooked fresh pasta stuffed with cheese and vegetables
 fr:Pâtes fraîches cuits farcies au fromage et aux légumes
 agribalyse_food_code:en:25155
@@ -83826,13 +83930,12 @@ ciqual_food_code:en:25155
 ciqual_food_name:en:Fresh pasta, stuffed with cheese and vegetables (e.g. ravioli), cooked
 ciqual_food_name:fr:Pâtes fraîches farcies (ex : raviolis), au fromage et aux légumes, cuites
 
-<en:Stuffed Pastas
+<en:Stuffed pastas
 en:Pasta stuffed with vegetables
 es:Pasta rellena de verduras
 fr:Pates farcies aux légumes
 
 <en:Pasta stuffed with vegetables
-<en:fresh pasta
 en:Fresh pasta stuffed with vegetables
 fr:Pâtes fraîches farcies aux légumes
 agribalyse_food_code:en:25203
@@ -84025,6 +84128,23 @@ fr:Pâtes au saumon
 <en:Pasta dishes
 en:Macaroni and cheese
 wikidata:en:Q378341
+
+<en:Pasta dishes
+en:Stuffed pastas in sauce
+fr:Pâtes farcies en sauce
+
+<en:Pasta dishes
+en:Stuffed pastas
+bg:Пълнена паста
+ca:Pastes farcides
+de:Gefüllte Nudeln
+es:Pastas rellenas
+fi:täytetyt pastat
+fr:Pâtes farcies
+he:פסטה ממולאת
+hu:Töltött tészták
+it:Pasta farcita, pasta ripiena
+nl:Gevulde pastas
 
 <en:Stuffed Pastas
 en:Tortellini
@@ -84567,11 +84687,12 @@ ciqual_food_code:en:23020
 ciqual_food_name:en:Rum baba, prepacked
 ciqual_food_name:fr:Baba au rhum, préemballé
 
+# Epiphany is celebrated with different types of dessert according to the country. This category contains almond frangipane type of cake. Roscón de Reyes is in another category.
 <en:Pastries
 en:King cakes, King cake, Twelfth Night cake
 de:Dreikönigskuchen
-es:Roscón de Reyes
-fr:Galettes des rois, Galette des rois, Gâteaux des rois, Galette des rois feuilletée, Galettes à la frangipane, Galette à la frangipane, Galettes des rois à la frangipane
+es:Tarta de reyes, tarta de reyes francesa, torta rellena de frangipane
+fr:Galettes des rois, Galette des rois, Galette des rois feuilletée, Galettes à la frangipane, Galette à la frangipane, Galettes des rois à la frangipane
 it:Torte dei Re magi
 ja:キングケーキ
 nl:Koningentaarten, Koningentaart
@@ -85421,6 +85542,7 @@ es:Perritos calientes, Hot dogs, Hot-dog
 fr:Hot-dogs, Hot-dog
 ja:ホットドッグ
 nl:Hotdogs
+pl:Hot-dogi
 wikidata:en:Q181055
 agribalyse_food_code:en:25403
 ciqual_food_code:en:25403
@@ -85440,6 +85562,7 @@ en:Vegetarian hot dog sandwiches
 es:Perritos calientes vegetales, Perritos vegetales, Hot dog vegetales
 fr:Hot-dogs végétariens, hot-dog végétal, hots-dogs végétaux, Hot-dog végétarien
 nl:Vegetarische hotdogs
+pl:Hot-dogi wegetariańskie, wegetariańskie hot-dogi
 
 <en:French bread sandwiches
 en:Baguette sandwiches with salami and butter
@@ -91738,6 +91861,7 @@ en:Vanillin sugars
 de:Vanillin-Zucker
 fr:Sucres vanillinés
 nl:Vanillinesuiker
+pl:Cukier wanilinowy
 wikidata:en:Q26883454
 
 <en:Sweeteners
@@ -97430,7 +97554,7 @@ fr:Fèves de Tonka
 it:Faves di Tonka
 la:Dipteryx odorata
 nl:Tonkabonen
-pt:Favas-de-cumaru
+pt:Favas de cumaru
 
 <en:Vegetables
 it:Fagioli Bianchi di Rotonda
@@ -100585,7 +100709,7 @@ hu:Előételek
 it:Antipasti
 ja:前菜
 nl:Voorgerechten, Voorgerecht
-pl:Przekąska, Zakąska
+pl:Przystawki
 pt:Aperitivos
 ro:Aperitive
 ru:Аппетайзеры, предястия
@@ -101847,7 +101971,7 @@ agribalyse_proxy_food_name:en:Plant-based sausage with tofu (vegan)
 agribalyse_proxy_food_name:fr:Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
 
 <en:Vegetarian sausages
-en:Vegan saucages
+en:Vegan sausages
 pl:Kiełbasy wegańskie, Kiełbaski wegańskie
 agribalyse_proxy_food_code:en:20337
 agribalyse_proxy_food_name:en:Plant-based sausage with tofu (vegan)
@@ -102377,7 +102501,9 @@ ciqual_food_name:fr:Pâte brisée, pur beurre, surgelée, crue
 
 <en:Pie dough
 en:Puff pastry sheets
+ca:Massa de pasta de full
 de:Blätterteig Platten
+es:Masa de hojaldre, Pasta de hojaldre
 fr:Pâtes feuilletées, Pâte feuilletée, Pâtes à tarte feuilletées
 it:Fogli di pasta sfoglia, Pasta sfoglia tirata
 nl:Bladerdeegbladen, Bladerdegen
@@ -103459,6 +103585,7 @@ es:Kvas
 fr:Kvass
 lt:Gira
 nl:Kvas
+pl:Kwas chlebowy
 ru:Квас
 wikidata:en:Q173773
 
@@ -104167,12 +104294,6 @@ agribalyse_food_code:en:39228
 ciqual_food_code:en:39228
 ciqual_food_name:en:Fruit mousse, refrigerated
 ciqual_food_name:fr:Mousse aux fruits, rayon frais
-#wikidata:en:
-
-<en:Desserts
-en:Vacherins
-fr:Vacherins
-nl:Vacherin
 #wikidata:en:
 
 <en:Pastries
@@ -105134,11 +105255,6 @@ nl:Vruchtenmousse
 ciqual_food_code:en:39228
 ciqual_food_name:en:Fruit mousse, refrigerated
 ciqual_food_name:fr:Mousse aux fruits, rayon frais
-
-<en:Desserts
-en:Vacherins
-fr:Vacherins
-nl:Vacherin
 
 <en:Pastries
 en:Strudels
