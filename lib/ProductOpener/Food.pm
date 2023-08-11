@@ -1189,7 +1189,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 
 	}
 	else {
-		# TODO: fruits, vegetables, legumes
+		# TODO: needs to be replaced by "fruits, vegetables, legumes"
 		my $fruits = compute_fruit_ratio($product_ref, $prepared);
 
 		$nutriscore_data_ref = {
@@ -1553,7 +1553,7 @@ sub compute_nutriscore ($product_ref, $current_version = "2021") {
 			$product_ref->{nutriscore}{$version}{grade} = $product_ref->{nutriscore}{$version}{data}{grade};
 			$product_ref->{nutriscore}{$version}{score} = $product_ref->{nutriscore}{$version}{data}{score};
 			delete $product_ref->{nutriscore}{$version}{data}{grade};
-			delete $product_ref->{nutriscore}{$version}{data}{score};			
+			delete $product_ref->{nutriscore}{$version}{data}{score};
 		}
 	}
 
