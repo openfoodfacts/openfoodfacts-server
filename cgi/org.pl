@@ -372,7 +372,7 @@ elsif ($action eq 'process') {
 
 	}
 	elsif ($type eq 'add_users') {
-		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{moderator}) {
+		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
 			my $email_list = remove_tags_and_quote(single_param('email_list'));
 			my $email_ref = add_users_to_org_by_admin($orgid, $email_list);
 
