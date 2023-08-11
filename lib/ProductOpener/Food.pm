@@ -115,6 +115,9 @@ use URI::Escape::XS;
 
 use CGI qw/:cgi :form escapeHTML/;
 
+use Data::DeepAccess qw(deep_set);
+use Storable qw/dclone/;
+
 use Log::Any qw($log);
 
 # Load nutrient stats for all categories and countries
@@ -1511,11 +1514,22 @@ sub compute_nutriscore ($product_ref, $current_version = "2021") {
 
 			# Compute the Nutri-Score
 			my ($nutriscore_score, $nutriscore_grade)
-				= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade($product_ref->{nutriscore_data},
-				$version);
+				= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade(
+				$product_ref->{nutriscore}{$version}{data}, $version);
 
 			# Populate the Nutri-Score fields for the current version
 			if ($version eq $current_version) {
+				# Record which version is the current version
+				$product_ref->{nutriscore_version} = $version;
+
+				# Copy the Nutriscore data to nutriscore_data
+				# to easily see diffs with previous Nutri-Score structure
+				# (to be deleted once we are sure everything works,
+				# we will generate the nutriscore_data fields on request
+				# when asked through the API with an old API version)
+				$product_ref->{nutriscore_data} = dclone($product_ref->{nutriscore}{$version}{data});
+
+				# Copy the resulting values to the main Nutri-Score fields
 				$product_ref->{nutriscore_score} = $nutriscore_score;
 				$product_ref->{nutriscore_grade} = $nutriscore_grade;
 
@@ -1534,8 +1548,13 @@ sub compute_nutriscore ($product_ref, $current_version = "2021") {
 				# instead we can sort on descending order on nutriscore_score_opposite
 				$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;
 			}
-		}
 
+			# Move the resulting score and grade up one level, to make them stand out
+			$product_ref->{nutriscore}{$version}{grade} = $product_ref->{nutriscore}{$version}{data}{grade};
+			$product_ref->{nutriscore}{$version}{score} = $product_ref->{nutriscore}{$version}{data}{score};
+			delete $product_ref->{nutriscore}{$version}{data}{grade};
+			delete $product_ref->{nutriscore}{$version}{data}{score};			
+		}
 	}
 
 	return;
