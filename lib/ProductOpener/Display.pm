@@ -56,6 +56,7 @@ BEGIN {
 
 		&display_structured_response
 		&display_no_index_page_and_exit
+		&display_robots_txt_and_exit
 		&display_page
 		&display_text
 		&display_points
@@ -105,6 +106,8 @@ BEGIN {
 		&process_template
 
 		@search_series
+
+		%index_tag_types_set
 
 		$admin
 		$memd
@@ -277,6 +280,10 @@ my $tags_page_size = 10000;
 if (defined $options{export_limit}) {
 	$export_limit = $options{export_limit};
 }
+
+# Save all tag types to index in a set to make checks easier
+%index_tag_types_set = ();
+@index_tag_types_set{@ProductOpener::Config::index_tag_types} = ();
 
 # Initialize the Template module
 $tt = Template->new(
@@ -566,6 +573,16 @@ sub init_request ($request_ref = {}) {
 	# remove the / to normalize the query string, as we use it to build some redirect urls
 	$request_ref->{original_query_string} =~ s/^\///;
 
+	# Set $request_ref->{is_crawl_bot}
+	set_user_agent_request_ref_attributes($request_ref);
+
+	# `no_index` specifies whether we send an empty HTML page with a <meta name="robots" content="noindex">
+	# in the HTML headers. This is only done for known web crawlers (Google, Bing, Yandex,...) on webpages that
+	# trigger heavy DB aggregation queries and overload our server.
+	$request_ref->{no_index} = 0;
+	# If deny_all_robots_txt=1, serve a version of robots.txt where all agents are denied access (Disallow: /)
+	$request_ref->{deny_all_robots_txt} = 0;
+
 	# TODO: global variables should be moved to $request_ref
 	$styles = '';
 	$scripts = '';
@@ -614,6 +631,7 @@ sub init_request ($request_ref = {}) {
 		($cc, $country, $lc) = ('world', 'en:world', 'en');
 	}
 	elsif (defined $country_codes{$subdomain}) {
+		# subdomain is the country code: fr.openfoodfacts.org, uk.openfoodfacts.org,...
 		local $log->context->{subdomain_format} = 1;
 
 		$cc = $subdomain;
@@ -633,6 +651,7 @@ sub init_request ($request_ref = {}) {
 
 	}
 	elsif ($subdomain =~ /(.*?)-(.*)/) {
+		# subdomain contains the country code and the language code: world-fr.openfoodfacts.org, ch-it.openfoodfacts.org,...
 		local $log->context->{subdomain_format} = 2;
 		$log->debug("subdomain in cc-lc format - checking values",
 			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country})
@@ -730,6 +749,18 @@ sub init_request ($request_ref = {}) {
 		$subdomain = $cc;
 		if (not((defined $country_languages{$cc}[0]) and ($lc eq $country_languages{$cc}[0]))) {
 			$subdomain .= "-" . $lc;
+		}
+	}
+
+	# If lc is not one of the official languages of the country and if the request comes from
+	# a bot crawler, don't index the webpage (return an empty noindex HTML page)
+	# We also disable indexing for all subdomains that don't have the format world, cc or cc-lc
+	if ((!($lc ~~ $country_languages{$cc})) or $subdomain =~ /^(ssl-)?api/) {
+		# Use robots.txt with disallow: / for all agents
+		$request_ref->{deny_all_robots_txt} = 1;
+
+		if ($request_ref->{is_crawl_bot} eq 1) {
+			$request_ref->{no_index} = 1;
 		}
 	}
 
@@ -883,7 +914,6 @@ CSS
 	$request_ref->{cc} = $cc;
 	$request_ref->{country} = $country;
 	$request_ref->{lcs} = \@lcs;
-	set_user_agent_request_ref_attributes($request_ref);
 
 	return $request_ref;
 }
@@ -900,12 +930,12 @@ Set two attributes to `request_ref`:
 =cut
 
 sub set_user_agent_request_ref_attributes ($request_ref) {
-	my $user_agent = user_agent();
-	$request_ref->{user_agent} = $user_agent;
+	my $user_agent_str = user_agent();
+	$request_ref->{user_agent} = $user_agent_str;
 
 	my $is_crawl_bot = 0;
-	if ($user_agent
-		=~ /Googlebot|Googlebot-Image|bingbot|Applebot|YandexBot|YandexRenderResourcesBot|DuckDuckBot|DotBot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|www\.qwant\.com|facebookexternalhit/
+	if ($user_agent_str
+		=~ /Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|YandexBot|YandexRenderResourcesBot|DuckDuckBot|DotBot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|www\.qwant\.com|facebookexternalhit/i
 		)
 	{
 		$is_crawl_bot = 1;
@@ -1069,6 +1099,63 @@ sub display_no_index_page_and_exit () {
 	exit();
 }
 
+=head2 display_robots_txt_and_exit ($request_ref)
+
+Return robots.txt page and exit.
+
+robots.txt is dynamically generated based on lc, it's content depends on $request_ref:
+- if $request_ref->{deny_all_robots_txt} is 1: a robots.txt where we deny all traffic
+  combinations.
+- otherwise: the standard robots.txt. We disallow indexing of most facet pages, the
+  exceptions can be found in ProductOpener::Config::index_tag_types
+
+=cut
+
+sub display_robots_txt_and_exit ($request_ref) {
+	my $template_data_ref = {facets => []};
+	my $vars = {deny_access => $request_ref->{deny_all_robots_txt}, disallow_paths_localized => []};
+	my %disallow_paths_localized_set = ();
+
+	foreach my $type (sort keys %tag_type_singular) {
+		# Get facet name for both english and the request language
+		foreach my $lang ('en', $request_ref->{lc}) {
+			my $tag_value_singular = $tag_type_singular{$type}{$lang};
+			my $tag_value_plural = $tag_type_plural{$type}{$lang};
+			if (
+					defined $tag_value_singular
+				and length($tag_value_singular) != 0
+				and not(exists($disallow_paths_localized_set{$tag_value_singular}))
+				# check that it's not one of the exception
+				# we don't perform this check below for list of tags pages as all list of
+				# tags pages are not indexable
+				and not(exists($index_tag_types_set{$type}))
+				)
+			{
+				$disallow_paths_localized_set{$tag_value_singular} = undef;
+				push(@{$vars->{disallow_paths_localized}}, $tag_value_singular);
+			}
+			if (
+				defined $tag_value_plural
+				and length($tag_value_plural)
+				!= 0
+				# ecoscore has the same value for singular and plural, and products should not be disabled
+				and ($type !~ /^ecoscore|products$/) and not(exists($disallow_paths_localized_set{$tag_value_plural}))
+				)
+			{
+				$disallow_paths_localized_set{$tag_value_plural} = undef;
+				push(@{$vars->{disallow_paths_localized}}, $tag_value_plural);
+			}
+		}
+	}
+
+	my $text;
+	$tt->process("web/pages/robots/robots.tt.txt", $vars, \$text);
+	my $r = Apache2::RequestUtil->request();
+	$r->content_type("text/plain");
+	print $text;
+	exit();
+}
+
 # Specific index for producer on the platform for producers
 sub display_index_for_producer ($request_ref) {
 
@@ -1177,17 +1264,6 @@ sub display_text ($request_ref) {
 		return $html;
 	};
 
-	my $replace_query = sub ($query) {
-
-		my $query_ref = decode_json($query);
-		my $sort_by = undef;
-		if (defined $query_ref->{sort_by}) {
-			$sort_by = $query_ref->{sort_by};
-			delete $query_ref->{sort_by};
-		}
-		return search_and_display_products({}, $query_ref, $sort_by, undef, undef);
-	};
-
 	if ($file =~ /\/index-pro/) {
 		# On the producers platform, display products only if the owner is logged in
 		# and has an associated org or is a moderator
@@ -1200,8 +1276,6 @@ sub display_text ($request_ref) {
 		# Display all products
 		$html .= search_and_display_products($request_ref, {}, "last_modified_t_complete_first", undef, undef);
 	}
-
-	$html =~ s/\[\[query:(.*?)\]\]/$replace_query->($1)/eg;
 
 	# Replace included texts
 	$html =~ s/\[\[(.*?)\]\]/$replace_file->($1)/eg;
@@ -1385,9 +1459,17 @@ sub get_cache_results ($key, $request_ref) {
 sub set_cache_results ($key, $results) {
 
 	$log->debug("Setting value for MongoDB query key", {key => $key}) if $log->is_debug();
+	my $result_size = total_size($results);
+
+	# $max_memcached_object_size is defined is Cache.pm
+	if ($result_size >= $max_memcached_object_size) {
+		$mongodb_log->info(
+			"set_cache_results - skipping - setting value - key: $key (total_size: $result_size > max size)");
+		return;
+	}
 
 	if ($mongodb_log->is_debug()) {
-		$mongodb_log->debug("set_cache_results - setting value - key: $key - total_size: " . total_size($results));
+		$mongodb_log->debug("set_cache_results - setting value - key: $key - total_size: $result_size");
 	}
 
 	if ($memd->set($key, $results, 3600)) {
@@ -1407,6 +1489,10 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 
 	my $groupby_tagtype = $request_ref->{groupby_tagtype};
 	my $page = $request_ref->{page};
+	# Flag that indicates whether we cache MongoDB results in Memcached
+	# Caching is disabled for crawling bots, as they tend to explore
+	# all pages (and make caching inefficient)
+	my $cache_results_flag = scalar(not $request_ref->{is_crawl_bot});
 
 	# Add a meta robot noindex for pages related to users
 	if (    (defined $groupby_tagtype)
@@ -1543,7 +1629,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		if (defined $results) {
 			$results = [$results->all];
 
-			if (defined $results->[0]) {
+			if (defined $results->[0] and $cache_results_flag) {
 				set_cache_results($key, $results);
 			}
 		}
@@ -1613,15 +1699,18 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 
 				$count_results = [$count_results->all]->[0];
 				$request_ref->{structured_response}{count} = $count_results->{$groupby_tagtype . "_tags"};
-				set_cache_results($key_count, $request_ref->{structured_response}{count});
-				$log->debug(
-					"Set cached aggregate count for query key",
-					{
-						key => $key_count,
-						results_count => $request_ref->{structured_response}{count},
-						count_results => $count_results
-					}
-				) if $log->is_debug();
+
+				if ($cache_results_flag) {
+					set_cache_results($key_count, $request_ref->{structured_response}{count});
+					$log->debug(
+						"Set cached aggregate count for query key",
+						{
+							key => $key_count,
+							results_count => $request_ref->{structured_response}{count},
+							count_results => $count_results
+						}
+					) if $log->is_debug();
+				}
 			}
 		}
 		else {
@@ -4787,11 +4876,43 @@ sub add_params_to_query ($request_ref, $query_ref) {
 	return;
 }
 
+=head2 search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $page)
+
+Search products and return an HTML snippet that should be included in the webpage.
+
+=head3 Parameters
+
+=head4 $request_ref
+
+Reference to the internal request object.
+
+=head4 $query_ref
+
+Reference to the MongoDB query object.
+
+=head4 $sort_by
+
+A string indicating how to sort results (created_t, popularity,...), or a sorting subroutine.
+
+=head4 $limit
+
+Limit of the number of products to return.
+
+=head4 $page
+
+Requested page (first page starts at 1).
+
+=cut
+
 sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $page) {
 
 	$request_ref->{page_type} = "products";
 	$request_ref->{page_format} = "full_width";
 
+	# Flag that indicates whether we cache MongoDB results in Memcached
+	# Caching is disabled for crawling bots, as they tend to explore
+	# all pages (and make caching inefficient)
+	my $cache_results_flag = scalar(not $request_ref->{is_crawl_bot});
 	my $template_data_ref = {};
 
 	add_params_to_query($request_ref, $query_ref);
@@ -5116,7 +5237,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 						if ($@) {
 							$log->warn("MongoDB error during count", {error => $@}) if $log->is_warn();
 						}
-						else {
+						elsif ($cache_results_flag) {
 							$log->debug("count query complete, setting cache", {key => $key_count, count => $count})
 								if $log->is_debug();
 							set_cache_results($key_count, $count);
@@ -5177,7 +5298,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 			$request_ref->{structured_response}{count} = $count;
 
 			# Don't set the cache if no_count was set
-			if (not single_param('no_count')) {
+			if (not single_param('no_count') and $cache_results_flag) {
 				set_cache_results($key, $request_ref->{structured_response});
 			}
 		}

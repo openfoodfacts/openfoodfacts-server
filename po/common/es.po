@@ -19,11 +19,6 @@ msgctxt "1_product"
 msgid "1 product"
 msgstr "1 producto"
 
-# leave a space before and after, unless there are no spaces between "A and B" in the target language
-msgctxt "_and_"
-msgid " and "
-msgstr " y "
-
 msgctxt "about"
 msgid "About me"
 msgstr "Presentación"
@@ -6587,7 +6582,7 @@ msgstr "% de los productos que contienen el material"
 
 msgctxt "packaging_material_products_percent_main"
 msgid "% of products containing mostly the material"
-msgstr ""
+msgstr "% de los productos que contienen principalmente el material"
 
 msgctxt "relative_to_products_containing_the_material"
 msgid "for products that contain the material"
@@ -6595,7 +6590,7 @@ msgstr "para productos que contienen el material"
 
 msgctxt "relative_to_products_containing_mostly_the_material"
 msgid "for products that contain mostly the material"
-msgstr ""
+msgstr "para productos que contienen el material"
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"

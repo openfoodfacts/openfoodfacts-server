@@ -1,5 +1,8 @@
 # For reference, please look at https://github.com/actions/labeler
 
+javascript:
+- '**/*.js'
+
 github_actions:
 - .github/**/*
 
@@ -743,6 +746,7 @@ unit tests:
 multilingual products:
 - cgi/product_jqm_multilingual.pl
 - cgi/product_multilingual.pl
+- html/js/product-multilingual.js
 
 file import:
 - cgi/import_file_process.pl

@@ -129,11 +129,12 @@ my $nutriscore_data_ref = {
 	'saturated_fat_points' => 3
 };
 
-like(display_nutriscore_calculation_details($nutriscore_data_ref), qr/Score nutritionnel: 6/);
-like(display_nutriscore_calculation_details($nutriscore_data_ref), qr/Proteins:\n2&nbsp;<\/strong>\/&nbsp;5/);
-like(display_nutriscore_calculation_details($nutriscore_data_ref), qr/Positive points: 2/);
-like(display_nutriscore_calculation_details($nutriscore_data_ref), qr/Negative points: 8/);
-like(display_nutriscore_calculation_details($nutriscore_data_ref), qr/<strong>Nutri-Score: C<\/strong>/);
+my $nutriscore_calculation_detail = display_nutriscore_calculation_details($nutriscore_data_ref);
+like($nutriscore_calculation_detail, qr/Nutritional score: 6/);
+like($nutriscore_calculation_detail, qr/Proteins:\n2&nbsp;<\/strong>\/&nbsp;5/);
+like($nutriscore_calculation_detail, qr/Positive points: 2/);
+like($nutriscore_calculation_detail, qr/Negative points: 8/);
+like($nutriscore_calculation_detail, qr/<strong>Nutri-Score: C<\/strong>/);
 
 $lc = 'en';
 my $product_ref = {
