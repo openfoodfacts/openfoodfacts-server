@@ -1,10 +1,15 @@
 #!/bin/sh
 
+SCRIPT_DIR=$(dirname "$0")
+SCRIPT_DIR=$(realpath "$SCRIPT_DIR")
+
 cp -a /home/sftp/carrefour/data/*xml /srv/off/imports/carrefour/data/
 
 cd /srv/off/imports/carrefour
 
-./mv_non_off_files.sh
+# mv non off files
+grep -Z -l -r '"DPH -' data | xargs --null -I{} mv {} data.obf/
+grep -Z -l -r '"ALI - PRODUITS POUR ANIMAUX' data | xargs --null -I{} mv {} data.opff/
 
 # Warning some Carrefour XML files are broken with 2 <TabNutXMLPF>.*</TabNutXMLPF>
 # fix them by removing the second one:
@@ -13,9 +18,9 @@ find . -name "*.xml" -type f -exec sed -i 's/<\/TabNutXMLPF><TabNutXMLPF>.*/<\/T
 
 unzip -o '/home/sftp/carrefour/data/*zip' -d /srv/off/imports/carrefour/images/
 
-cd /srv/off-pro/scripts
+cd $SCRIPT_DIR
 
-export PERL5LIB=.
+export PERL5LIB=../lib
 
 ./convert_carrefour_data_off1.sh
 
