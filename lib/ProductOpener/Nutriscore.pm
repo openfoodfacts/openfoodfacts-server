@@ -111,24 +111,12 @@ We will keep both algorithms for a transition period, and we will be able to rem
 
 =cut
 
-sub compute_nutriscore_score_and_grade ($nutriscore_data_ref) {
+sub compute_nutriscore_score_and_grade ($nutriscore_data_ref, $version = "2021") {
 
-	# We will pass a %point structure to get the details of the computation
-	# so that it can be returned
-	my %points = ();
-
-	my $nutrition_score = compute_nutriscore_score_2021($nutriscore_data_ref);
-
-	my $nutrition_grade = compute_nutriscore_grade_2021(
-		$nutrition_score,
-		$nutriscore_data_ref->{is_beverage},
-		$nutriscore_data_ref->{is_water}
-	);
-
-	$nutriscore_data_ref->{score} = $nutrition_score;
-	$nutriscore_data_ref->{grade} = $nutrition_grade;
-
-	return ($nutrition_score, $nutrition_grade);
+	if ($version eq "2023") {
+		return compute_nutriscore_score_and_grade_2023($nutriscore_data_ref);
+	}
+	return compute_nutriscore_score_and_grade_2021($nutriscore_data_ref);
 }
 
 sub get_value_with_one_less_negative_point ($nutriscore_data_ref, $nutrient) {
@@ -145,7 +133,7 @@ sub compute_nutriscore_grade ($nutrition_score, $is_beverage, $is_water) {
 
 # 2021 algorithm
 
-=head2 compute_nutriscore_score_and_grade( $nutriscore_data_ref )
+=head2 compute_nutriscore_score_and_grade_2021( $nutriscore_data_ref )
 
 C<compute_nutriscore_score_and_grade()> computes the Nutri-Score score and grade
 of a food product, and also returns the details of the points for each nutrient.

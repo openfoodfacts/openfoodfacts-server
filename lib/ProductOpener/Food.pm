@@ -1479,7 +1479,7 @@ Populates the data structure needed to compute the Nutri-Score and computes it.
 
 =cut
 
-sub compute_nutriscore ($product_ref, $version = "2021") {
+sub compute_nutriscore ($product_ref, $current_version = "2021") {
 
 	# Initialize values
 
@@ -1499,38 +1499,43 @@ sub compute_nutriscore ($product_ref, $version = "2021") {
 	else {
 		push @{$product_ref->{misc_tags}}, "en:nutriscore-computed";
 
-		# Populate the data structure that will be passed to Food::Nutriscore
+		$product_ref->{nutriscore} = {};
 
-		$product_ref->{nutriscore_data} = compute_nutriscore_data($product_ref, $prepared, $nutriments_field, $version);
+		# 2023/08/10: compute both the 2021 and the 2023 versions of the Nutri-Score
 
-		my ($nutriscore_score, $nutriscore_grade);
+		foreach my $version ("2021", "2023") {
 
-		if ($version eq "2023") {
-			($nutriscore_score, $nutriscore_grade)
-				= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade_2023($product_ref->{nutriscore_data});
+			# Populate the data structure that will be passed to Food::Nutriscore
+			deep_set($product_ref, "nutriscore", $version, "data",
+				compute_nutriscore_data($product_ref, $prepared, $nutriments_field, $version));
+
+			# Compute the Nutri-Score
+			my ($nutriscore_score, $nutriscore_grade)
+				= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade($product_ref->{nutriscore_data},
+				$version);
+
+			# Populate the Nutri-Score fields for the current version
+			if ($version eq $current_version) {
+				$product_ref->{nutriscore_score} = $nutriscore_score;
+				$product_ref->{nutriscore_grade} = $nutriscore_grade;
+
+				$product_ref->{nutriments}{"nutrition-score-fr_100g"} = $nutriscore_score;
+				$product_ref->{nutriments}{"nutrition-score-fr"} = $nutriscore_score;
+
+				$product_ref->{"nutrition_grade_fr"} = $nutriscore_grade;
+
+				$product_ref->{"nutrition_grades_tags"} = [$product_ref->{"nutrition_grade_fr"}];
+				$product_ref->{"nutrition_grades"}
+					= $product_ref->{"nutrition_grade_fr"};    # needed for the /nutrition-grade/unknown query
+
+				# In order to be able to sort by nutrition score in MongoDB,
+				# we create an opposite of the nutrition score
+				# as otherwise, in ascending order on nutriscore_score, we first get products without the nutriscore_score field
+				# instead we can sort on descending order on nutriscore_score_opposite
+				$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;
+			}
 		}
-		else {
-			($nutriscore_score, $nutriscore_grade)
-				= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade_2021($product_ref->{nutriscore_data});
-		}
 
-		$product_ref->{nutriscore_score} = $nutriscore_score;
-		$product_ref->{nutriscore_grade} = $nutriscore_grade;
-
-		$product_ref->{nutriments}{"nutrition-score-fr_100g"} = $nutriscore_score;
-		$product_ref->{nutriments}{"nutrition-score-fr"} = $nutriscore_score;
-
-		$product_ref->{"nutrition_grade_fr"} = $nutriscore_grade;
-
-		$product_ref->{"nutrition_grades_tags"} = [$product_ref->{"nutrition_grade_fr"}];
-		$product_ref->{"nutrition_grades"}
-			= $product_ref->{"nutrition_grade_fr"};    # needed for the /nutrition-grade/unknown query
-
-		# In order to be able to sort by nutrition score in MongoDB,
-		# we create an opposite of the nutrition score
-		# as otherwise, in ascending order on nutriscore_score, we first get products without the nutriscore_score field
-		# instead we can sort on descending order on nutriscore_score_opposite
-		$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;
 	}
 
 	return;
