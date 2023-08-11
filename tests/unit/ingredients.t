@@ -544,10 +544,9 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 		"fr-semi",
 		{
 			lc => "fr",
-			ingredients_text =>
-				"farine demi-complète de riz, farine de blé demi complet",
+			ingredients_text => "farine demi-complète de riz, farine de blé demi complet",
 		}
-	],	
+	],
 );
 
 my $json = JSON->new->allow_nonref->canonical;
