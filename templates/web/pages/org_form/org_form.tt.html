@@ -18,6 +18,7 @@
 			<thead>
 			<tr>
 				<th>[% lang("serial_no") %]</th>
+				<th>[% lang("admin_status") %]</th>
 				<th>[% lang("username") %]</th>
 				<th>[% lang("name") %]</th>
 				<th>[% lang("email") %]</th>
@@ -32,6 +33,10 @@
 			[% FOREACH users IN org_members %]
 			<tr>
 				<td>[% count %].</td>
+				<td>
+					<input type="checkbox" name="admin_status_[% users.userid %]" value= "1" [% IF admin_status.users.userid %]checked[% END %]>
+					<input type="hidden" name="admin_status_[% users.userid %]" value="0">
+				</td>
 				<td>[% users.userid %]</td>
 				<td>[% users.name %]</td>
 				<td>[% users.email %]</td>
@@ -51,6 +56,16 @@
 			[% END %]
 		</tbody>
 		</table>
+		<div>
+			<form method="post" action="/cgi/org.pl">
+				<input type="hidden" name="action" value="process" />
+				<input type="hidden" name="type" value="admin_status" />
+				<input type="hidden" name="org_id" value="[% orgid %]">
+				<input type="hidden" name="user_id" value="[% users.userid %]">
+				<input type="submit" name="grant_remove_admin_status" class="button" style="margin-bottom: 10px;" value="[% lang("grant_remove_admin_status") %]"/>
+	
+			</form>
+		</div>
 	</div>
 	[% END %]
 

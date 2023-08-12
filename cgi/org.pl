@@ -372,6 +372,27 @@ elsif ($action eq 'process') {
 	$template_data_ref->{result} = lang("edit_org_result");
 	$template_data_ref->{profile_url} = canonicalize_tag_link("editors", "org-" . $orgid);
 	$template_data_ref->{profile_name} = sprintf(lang('user_s_page'), $org_ref->{name});
+
+	elsif ($type eq 'admin_status') {
+		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
+			foreach my $user_id (sort keys %{$org_ref->{members}}) {
+				my $checkbox_name = "admin_status_$user_id";
+				my $is_admin = single_param($checkbox_name) ? 1 : 0;
+
+				if ($is_admin) {
+					add_user_to_org($org_ref, $user_id, ["admins"]);
+
+				}
+				else {
+					remove_user_from_org($org_ref, $user_id, ["admins"]);
+
+				}
+				store_org($org_ref);
+			}
+
+			$template_data_ref->{result} = lang("admin_status_updated");
+		}
+	}
 }
 
 $template_data_ref->{orgid} = $orgid;
@@ -389,6 +410,9 @@ $log->debug("org form - template data", {template_data_ref => $template_data_ref
 # allow org admins to view the list of users associated with their org
 my @org_members;
 foreach my $member_id (sort keys %{$org_ref->{members}}) {
+	if (is_user_in_org_group($org_ref, $member_id, "admins")) {
+		$template_data_ref->{admin_status}{$member_id} = 1;
+	}
 	my $member_user_ref = retrieve_user($member_id);
 	push @org_members, $member_user_ref;
 }
