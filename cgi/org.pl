@@ -362,7 +362,7 @@ elsif ($action eq 'process') {
 	}
 	elsif ($type eq 'user_delete') {
 
-		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{moderator}) {
+		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
 			remove_user_by_org_admin(single_param('org_id'), single_param('user_id'));
 			$template_data_ref->{result} = lang("edit_org_result");
 		}
