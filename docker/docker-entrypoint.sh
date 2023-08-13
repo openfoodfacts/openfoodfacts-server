@@ -20,7 +20,7 @@ done
 # link some static files
 for path in data-fields.{md,txt}
 do
-  test -L /opt/products-opener/html_data/$path || ln -sf /opt/products-opener/html/$path /opt/products-opener/html_data/$path
+  test -L /opt/products-opener/html_data/$path || ln -sf /opt/products-opener/html/$path /mnt/podata/html_data/$path
 done
 
 # this is not very elegant, but incron scripts won't have env variables so put them in a file
