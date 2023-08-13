@@ -35,6 +35,8 @@ x-backend-conf: &backend-conf
     - ${WEB_LANG_PATH}:/mnt/podata/lang
     # Static data (e.g dumps)
     - html_data:/opt/product-opener/html/data
+    # other servers dirs (this is temporary to be able to develop for now)
+    - other_servers:/srv
 
     # Binds from frontend container (read-only)
     - icons_dist:/opt/product-opener/html/images/icons/dist:ro

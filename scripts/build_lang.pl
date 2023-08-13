@@ -27,6 +27,7 @@ use utf8;
 
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
@@ -44,10 +45,8 @@ ProductOpener::Lang::build_lang(\%Languages);
 # use $server_domain in part of the name so that we have different files
 # when 2 instances of Product Opener share the same $data_root
 # as is the case with world.openfoodfacts.org and world.preprod.openfoodfacts.org
-if (!-e "$data_root/data") {
-	mkdir("$data_root/data", 0755) or die("Could not create target directory $data_root/data : $!\n");
-}
-store("$data_root/data/Lang.${server_domain}.sto", \%Lang);
+ensure_dir_created_or_die($BASE_DIRS{PRIVATE_DATA});
+store("$BASE_DIRS{PRIVATE_DATA}/Lang.${server_domain}.sto", \%Lang);
 
 # Generate JSON files for JavaScript I18N
 ProductOpener::Lang::build_json();

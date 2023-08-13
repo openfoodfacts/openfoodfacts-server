@@ -6,6 +6,7 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Products qw/:all/;
 
@@ -52,7 +53,7 @@ sub find_products($$) {
 }
 
 if (scalar $#products < 0) {
-	find_products("$data_root/products", '');
+	find_products($BASE_DIRS{PRODUCTS}, '');
 }
 
 # Create directory to move old images to
@@ -75,12 +76,12 @@ foreach my $code (@products) {
 
 	my $path = product_path($code);
 
-	my $product_ref = retrieve("$data_root/products/$path/product.sto")
-		or print "not defined $data_root/products/$path/product.sto\n";
+	my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/product.sto")
+		or print "not defined $BASE_DIRS{PRODUCTS}/$path/product.sto\n";
 
 	if ((defined $product_ref)) {
 
-		my $dir = "$www_root/images/products/$path";
+		my $dir = "$BASE_DIRS{PRODUCTS_IMAGES}/$path";
 
 		# Store the highest version number for each imageid
 
@@ -133,7 +134,7 @@ foreach my $code (@products) {
 					my $current_dir = "$www_root/old-images/products";
 					foreach my $component (split("/", $path)) {
 						$current_dir .= "/$component";
-						(-e "$current_dir") or mkdir($current_dir, 0755);
+						(-e $current_dir) or mkdir($current_dir, 0755);
 					}
 
 					require File::Copy;

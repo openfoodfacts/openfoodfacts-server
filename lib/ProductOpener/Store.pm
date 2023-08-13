@@ -42,6 +42,7 @@ BEGIN {
 use vars @EXPORT_OK;    # no 'my' keyword for these
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 
 use Storable qw(lock_store lock_nstore lock_retrieve);
 use Encode;
@@ -297,7 +298,7 @@ sub sto_iter ($initial_path, $pattern = qr/\.sto$/i) {
 			# explore a new dir until we get some file
 			while ((scalar @files == 0) && (scalar @dirs > 0)) {
 				my $current_dir = shift @dirs;
-				opendir(DIR, "$current_dir") or die "Cannot open $current_dir\n";
+				opendir(DIR, $current_dir) or die "Cannot open $current_dir\n";
 				# Sort files so that we always explore them in the same order (useful for tests)
 				my @candidates = sort readdir(DIR);
 				closedir(DIR);

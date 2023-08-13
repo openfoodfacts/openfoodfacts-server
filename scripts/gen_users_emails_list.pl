@@ -66,13 +66,14 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 
 my @userids;
 my $arg = $ARGV[0] || "";
 
 if (scalar $#userids < 0) {
-	opendir DH, "$data_root/users" or die "Couldn't open the current directory: $!";
+	opendir DH, $BASE_DIRS{USERS} or die "Couldn't open the current directory: $!";
 	@userids = sort(readdir(DH));
 	closedir(DH);
 }
@@ -81,7 +82,7 @@ foreach my $userid (@userids) {
 	next if $userid eq "." or $userid eq "..";
 	next if $userid eq 'all';
 
-	my $user_ref = retrieve("$data_root/users/$userid");
+	my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid");
 
 	my $first = '';
 	if (!exists $user_ref->{discussion}) {

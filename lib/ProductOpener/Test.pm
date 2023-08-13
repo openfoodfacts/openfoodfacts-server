@@ -63,6 +63,7 @@ use vars @EXPORT_OK;
 use IO::Capture::Stdout::Extended;
 use IO::Capture::Stderr::Extended;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Data qw/execute_query get_products_collection/;
 use ProductOpener::Store "store";
 
@@ -213,11 +214,11 @@ sub remove_all_products () {
 		}
 	);
 	# clean files
-	remove_tree("$data_root/products", {keep_root => 1, error => \my $err});
+	remove_tree($BASE_DIRS{PRODUCTS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));
 	}
-	remove_tree("$www_root/images/products", {keep_root => 1, error => \$err});
+	remove_tree($BASE_DIRS{PRODUCTS_IMAGES}, {keep_root => 1, error => \$err});
 	if (@$err) {
 		confess("not able to remove some products directories: " . join(":", @$err));
 	}
@@ -236,7 +237,7 @@ sub remove_all_users () {
 	check_not_production();
 	# clean files
 	# clean files
-	remove_tree("$data_root/users", {keep_root => 1, error => \my $err});
+	remove_tree($BASE_DIRS{USERS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
 		confess("not able to remove some users directories: " . join(":", @$err));
 	}
@@ -254,7 +255,7 @@ sub remove_all_orgs () {
 	# Important: check we are not on a prod database
 	check_not_production();
 	# clean files
-	remove_tree("$data_root/orgs", {keep_root => 1, error => \my $err});
+	remove_tree($BASE_DIRS{ORGS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
 		confess("not able to remove some orgs directories: " . join(":", @$err));
 	}
@@ -305,7 +306,7 @@ sub ensure_expected_results_dir ($expected_results_dir, $update_expected_results
 	if ($update_expected_results) {
 		# Reset the expected results dir
 		if (-e $expected_results_dir) {
-			remove_tree("$expected_results_dir", {error => \my $err});
+			remove_tree($expected_results_dir, {error => \my $err});
 			if (@$err) {
 				confess("not able to remove some result directories: " . join(":", @$err));
 			}

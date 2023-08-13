@@ -1,7 +1,7 @@
 #!/bin/sh
 
 SCRIPT_DIR=$(dirname "$0")
-SCRIPT_DIR=$(realpath "$SCRIPT_DIR")
+SCRIPT_DIR=$(realpath $SCRIPT_DIR)
 
 cp -a /home/sftp/carrefour/data/*xml /srv/off/imports/carrefour/data/
 

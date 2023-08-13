@@ -37,6 +37,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -125,15 +126,15 @@ sub gen_missions_html() {
 				. "\">$Lang{all_missions}{$lang}</a></p>";
 
 			$missionid =~ s/(.*)\.//;
-			(-e "$data_root/lang/$lang/missions") or mkdir("$data_root/lang/$lang/missions", 0755);
-			open(my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/missions/$missionid.html");
+			(-e "$BASE_DIRS{LANG}/$lang/missions") or mkdir("$BASE_DIRS{LANG}/$lang/missions", 0755);
+			open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{LANG}/$lang/missions/$missionid.html");
 			print $OUT $html2;
 			close $OUT;
 		}
 
 		$html .= "</ul>";
 
-		open(my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/missions_list.html");
+		open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{LANG}/$lang/texts/missions_list.html");
 		print $OUT $html;
 		close $OUT;
 	}
@@ -143,7 +144,7 @@ sub gen_missions_html() {
 
 sub compute_missions() {
 
-	opendir DH, "$data_root/users" or die "Couldn't open the current directory: $!";
+	opendir DH, $BASE_DIRS{USERS} or die "Couldn't open the current directory: $!";
 	my @userids = sort(readdir(DH));
 	closedir(DH);
 
@@ -159,11 +160,11 @@ sub compute_missions() {
 
 		$log->debug("userid without extension", {userid => $userid}) if $log->is_debug();
 
-		my $user_ref = retrieve("$data_root/users/$userid.sto");
+		my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid.sto");
 
 		compute_missions_for_user($user_ref);
 
-		store("$data_root/users/$userid.sto", $user_ref);
+		store("$BASE_DIRS{USERS}/$userid.sto", $user_ref);
 
 		foreach my $missionid (keys %{$user_ref->{missions}}) {
 			(defined $missions_ref->{$missionid}) or $missions_ref->{$missionid} = {};

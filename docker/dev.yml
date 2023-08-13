@@ -97,6 +97,7 @@ services:
 volumes:
   product_images:
   html_data:
+  other_servers:
   products:
   # those one are volumes shared between off and pro, so we assign hard-coded names
   # see docs/dev/explain-pro-dev-setup.md

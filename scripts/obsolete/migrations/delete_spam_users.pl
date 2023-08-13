@@ -29,6 +29,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 
 use File::Copy;
@@ -36,7 +37,7 @@ use File::Copy;
 my @userids;
 
 if (scalar $#userids < 0) {
-	opendir DH, "$data_root/users" or die "Couldn't open the current directory: $!";
+	opendir DH, $BASE_DIRS{USERS} or die "Couldn't open the current directory: $!";
 	@userids = sort(readdir(DH));
 	closedir(DH);
 }
@@ -56,23 +57,23 @@ foreach my $userid (@userids) {
 	next if $userid eq "." or $userid eq "..";
 	next if $userid eq 'all';
 
-	my $user_ref = retrieve("$data_root/users/$userid");
+	my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid");
 
 	if ((defined $user_ref) and ($user_ref->{name} =~ /:\/\//)) {
 		print $user_ref->{name} . "\n";
 		push @emails_to_delete, $user_ref->{email};
-		move("$data_root/users/$userid", "$spam_users_dir/$userid");
+		move("$BASE_DIRS{USERS}/$userid", "$spam_users_dir/$userid");
 		$i++;
 	}
 }
 
-my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
 
 foreach my $email (@emails_to_delete) {
 	delete $emails_ref->{$email};
 }
 
-store("$data_root/users/users_emails.sto", $emails_ref);
+store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 
 print $i . "\n";
 

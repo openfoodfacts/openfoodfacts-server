@@ -22,8 +22,7 @@
 
 use CGI::Carp qw(fatalsToBrowser);
 
-use strict;
-use utf8;
+use ProductOpener::PerlStandards;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 

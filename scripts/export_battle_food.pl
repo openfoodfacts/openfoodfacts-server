@@ -26,6 +26,7 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -139,7 +140,7 @@ foreach my $l (values %lang_lc) {
 		$total++;
 	}
 
-	open(my $OUT, ">:encoding(UTF-8)", "$www_root/data/$lang.openfoodfacts.org.products.battlefood.10.json");
+	open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{PUBLIC_DATA}/$lang.openfoodfacts.org.products.battlefood.10.json");
 	my $data = encode_json(\@products);
 	$data =~ s/\.100g/_100g/g;
 	print $OUT $data;

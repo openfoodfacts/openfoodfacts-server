@@ -299,13 +299,15 @@ bash:
 
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl: _FORCE
-	if [ -f $@ ]; then perl -c -CS -Ilib $@; else true; fi
+	@if [[ -f $@ ]]; then perl -c -CS -Ilib $@; else true; fi
 
 
 # TO_CHECK look at changed files (compared to main) with extensions .pl, .pm, .t
+# filter out obsolete scripts
 # the ls at the end is to avoid removed files.
+# the first commad is to check we have git (to avoid trying to run this line inside the container on check_perl*)
 # We have to finally filter out "." as this will the output if we have no file
-TO_CHECK=$(shell git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | xargs ls -d 2>/dev/null | grep -v "^.$$" )
+TO_CHECK=$(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -v "scripts/obsolete" | xargs ls -d 2>/dev/null | grep -v "^.$$" )
 
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"

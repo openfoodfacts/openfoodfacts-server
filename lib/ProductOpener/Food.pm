@@ -95,6 +95,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -121,12 +122,13 @@ use Log::Any qw($log);
 # the stats are displayed on category pages and used in product pages,
 # as well as in data quality checks and improvement opportunity detection
 
-if (opendir(my $dh, "$data_root/data/categories_stats")) {
+if (opendir(my $dh, "$BASE_DIRS{PRIVATE_DATA}/categories_stats")) {
 	foreach my $file (readdir($dh)) {
 		if ($file =~ /categories_nutriments_per_country.(\w+).sto$/) {
 			my $country_cc = $1;
 			$categories_nutriments_per_country{$country_cc}
-				= retrieve("$data_root/data/categories_stats/categories_nutriments_per_country.$country_cc.sto");
+				= retrieve(
+				"$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_nutriments_per_country.$country_cc.sto");
 		}
 	}
 	closedir $dh;

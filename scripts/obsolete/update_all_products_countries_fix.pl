@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -90,7 +91,7 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 
 				$product_ref->{countries} = display_taxonomy_tag($lc, "countries", $countryid);
 		if ($code ne '993605347529') {
-			store("$data_root/products/$path/product.sto", $product_ref);
+			store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
 			$products_collection->save($product_ref);
 			}
 			}

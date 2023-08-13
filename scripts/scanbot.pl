@@ -30,6 +30,7 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -110,10 +111,8 @@ print STDERR "Loading scan logs\n";
 
 # Save scan product data in /data
 # This scan data can then be filtered and used as input for other scripts such as add_nutriscore_to_scanbot_csv.pl
-my $output_dir = "$data_root/data/scanbot.$year";
-if (!-e $output_dir) {
-	mkdir($output_dir, oct(755)) or die("Could not create $output_dir : $!\n");
-}
+my $output_dir = "$BASE_DIRS{PRIVATE_DATA}/scanbot.$year";
+ensure_dir_created_or_die($output_dir);
 
 my %ips = ();
 
@@ -205,7 +204,7 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 	# next if not defined retrieve_product($code);
 	my $product_id = $code;
 	my $path = product_path_from_id($product_id);
-	my $product_path = "$data_root/products/$path/product.sto";
+	my $product_path = "$BASE_DIRS{PRODUCTS}/$path/product.sto";
 	next if !-e $product_path;
 
 	$countries_ranks_for_products{$code} = {};
@@ -242,7 +241,7 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 
 if ($update_scans) {
 
-	my $scans_ref = retrieve_json("$data_root/products/all_products_scans.json");
+	my $scans_ref = retrieve_json("$BASE_DIRS{PRODUCTS}/all_products_scans.json");
 	if (not defined $scans_ref) {
 		$scans_ref = {};
 	}
@@ -253,7 +252,7 @@ if ($update_scans) {
 		unique_scans_n_by_country => \%countries_for_all_products,
 	};
 
-	store_json("$data_root/products/all_products_scans.json", $scans_ref);
+	store_json("$BASE_DIRS{PRODUCTS}/all_products_scans.json", $scans_ref);
 }
 
 print STDERR "Ranking products for all countries\n";
@@ -340,7 +339,7 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 
 		if ($update_scans) {
 
-			my $scans_ref = retrieve_json("$data_root/products/$path/scans.json");
+			my $scans_ref = retrieve_json("$BASE_DIRS{PRODUCTS}/$path/scans.json");
 			if (not defined $scans_ref) {
 				$scans_ref = {};
 			}
@@ -352,7 +351,7 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 				unique_scans_rank_by_country => $countries_ranks_for_products{$code},
 			};
 
-			store_json("$data_root/products/$path/scans.json", $scans_ref);
+			store_json("$BASE_DIRS{PRODUCTS}/$path/scans.json", $scans_ref);
 		}
 
 		# Update popularity_tags + add countries
@@ -506,7 +505,7 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 			}
 			else {
 				print "updating scan count for $code\n";
-				store("$data_root/products/$path/product.sto", $product_ref);
+				store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
 				get_products_collection()->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
 			}
 		}

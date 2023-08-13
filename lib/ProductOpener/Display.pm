@@ -149,6 +149,7 @@ use vars @EXPORT_OK;
 use ProductOpener::HTTP qw(:all);
 use ProductOpener::Store qw(:all);
 use ProductOpener::Config qw(:all);
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Tags qw(:all);
 use ProductOpener::TagsEntries qw(:all);
 use ProductOpener::Users qw(:all);
@@ -1205,7 +1206,7 @@ sub display_text ($request_ref) {
 		$text_lang = 'en';
 	}
 
-	my $file = "$data_root/lang/$text_lang/texts/" . $texts{$textid}{$text_lang};
+	my $file = "$BASE_DIRS{LANG}/$text_lang/texts/" . $texts{$textid}{$text_lang};
 
 	open(my $IN, "<:encoding(UTF-8)", $file);
 	my $html = join('', (<$IN>));
@@ -1251,7 +1252,7 @@ sub display_text ($request_ref) {
 	my $replace_file = sub ($fileid) {
 		($fileid =~ /\.\./) and return '';
 		$fileid =~ s/^texts\///;
-		my $file = "$data_root/lang/$lc/texts/$fileid";
+		my $file = "$BASE_DIRS{LANG}/$lc/texts/$fileid";
 		my $html = '';
 		if (-e $file) {
 			open(my $IN, "<:encoding(UTF-8)", "$file");
@@ -1413,7 +1414,7 @@ sub display_mission ($request_ref) {
 
 	my $missionid = $request_ref->{missionid};
 
-	open(my $IN, "<:encoding(UTF-8)", "$data_root/lang/$lang/missions/$missionid.html");
+	open(my $IN, "<:encoding(UTF-8)", "$BASE_DIRS{LANG}/$lang/missions/$missionid.html");
 	my $html = join('', (<$IN>));
 
 	$request_ref->{content_ref} = \$html;
@@ -1753,14 +1754,14 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 
 		$request_ref->{title} = sprintf(lang("list_of_x"), $Lang{$tagtype . "_p"}{$lang});
 
-		if (  -e "$data_root/lang/$lc/texts/"
+		if (  -e "$BASE_DIRS{LANG}/$lc/texts/"
 			. get_string_id_for_lang("no_language", $Lang{$tagtype . "_p"}{$lang})
 			. ".list.html")
 		{
 			open(
 				my $IN,
 				q{<},
-				"$data_root/lang/$lc/texts/"
+				"$BASE_DIRS{LANG}/$lc/texts/"
 					. get_string_id_for_lang("no_language", $Lang{$tagtype . "_p"}{$lang})
 					. ".list.html"
 			);
@@ -2776,12 +2777,12 @@ sub display_points_ranking ($tagtype, $tagid) {
 	my $ambassadors_points_ref;
 
 	if ($tagtype eq 'users') {
-		$points_ref = retrieve("$data_root/data/index/users_points.sto");
-		$ambassadors_points_ref = retrieve("$data_root/data/index/ambassadors_users_points.sto");
+		$points_ref = retrieve("$BASE_DIRS{PRIVATE_DATA}/index/users_points.sto");
+		$ambassadors_points_ref = retrieve("$BASE_DIRS{PRIVATE_DATA}/index/ambassadors_users_points.sto");
 	}
 	else {
-		$points_ref = retrieve("$data_root/data/index/countries_points.sto");
-		$ambassadors_points_ref = retrieve("$data_root/data/index/ambassadors_countries_points.sto");
+		$points_ref = retrieve("$BASE_DIRS{PRIVATE_DATA}/index/countries_points.sto");
+		$ambassadors_points_ref = retrieve("$BASE_DIRS{PRIVATE_DATA}/index/ambassadors_countries_points.sto");
 	}
 
 	$html .= "\n\n<table id=\"${tagtype}table\">\n";
@@ -2968,7 +2969,7 @@ sub display_points ($request_ref) {
 	my $products_title = $display_tag;
 
 	if ($tagtype eq 'users') {
-		my $user_ref = retrieve("$data_root/users/$tagid.sto");
+		my $user_ref = retrieve("$BASE_DIRS{USERS}/$tagid.sto");
 		if (defined $user_ref) {
 			if ((defined $user_ref->{name}) and ($user_ref->{name} ne '')) {
 				$title = $user_ref->{name} . " ($tagid)";
@@ -4023,7 +4024,7 @@ HTML
 
 				# User
 
-				$user_or_org_ref = retrieve("$data_root/users/$tagid.sto");
+				$user_or_org_ref = retrieve("$BASE_DIRS{USERS}/$tagid.sto");
 
 				if (not defined $user_or_org_ref) {
 					display_error_and_exit(lang("error_unknown_user"), 404);
@@ -7423,7 +7424,7 @@ HTML
 
 			my $path = product_path($product_ref);
 
-			if (-e "$www_root/images/products/$path/$filename.full.json") {
+			if (-e "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$filename.full.json") {
 				$html .= <<HTML
 <a href="/images/products/$path/$filename.full.json">OCR result</a>
 HTML
@@ -10415,7 +10416,7 @@ HTML
 		# Return blame information
 		if (single_param("blame")) {
 			my $path = product_path_from_id($product_id);
-			my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 			if (not defined $changes_ref) {
 				$changes_ref = [];
 			}
@@ -10445,7 +10446,7 @@ sub display_rev_info ($product_ref, $rev) {
 	my $code = $product_ref->{code};
 
 	my $path = product_path($product_ref);
-	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 	if (not defined $changes_ref) {
 		return '';
 	}
@@ -10493,7 +10494,7 @@ sub display_product_history ($code, $product_ref) {
 	}
 
 	my $path = product_path($product_ref);
-	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 	if (not defined $changes_ref) {
 		$changes_ref = [];
 	}

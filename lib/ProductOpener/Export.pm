@@ -92,6 +92,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -531,7 +532,7 @@ sub export_csv ($args_ref) {
 
 					if (not defined $scans_ref) {
 						# Load the scan data
-						$scans_ref = retrieve_json("$data_root/products/$product_path/scans.json");
+						$scans_ref = retrieve_json("$BASE_DIRS{PRODUCTS}/$product_path/scans.json");
 					}
 					if (not defined $scans_ref) {
 						$scans_ref = {};
@@ -586,13 +587,13 @@ sub export_csv ($args_ref) {
 
 							if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
 								$value
-									= "$www_root/images/products/"
+									= "$BASE_DIRS{PRODUCTS_IMAGES}/"
 									. $product_path . "/"
 									. $product_ref->{images}{$imagefield}{imgid} . ".jpg";
 							}
 							elsif (defined $other_images{$product_ref->{code} . "." . $imagefield}) {
 								$value
-									= "$www_root/images/products/"
+									= "$BASE_DIRS{PRODUCTS_IMAGES}/"
 									. $product_path . "/"
 									. $other_images{$product_ref->{code} . "." . $imagefield}{imgid} . ".jpg";
 							}

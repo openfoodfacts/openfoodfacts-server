@@ -201,6 +201,11 @@ RUN \
     mkdir -p /opt/product-opener/html/data/taxonomies/ && \
     mkdir -p /opt/product-opener/html/images/ && \
     chown www-data:www-data -R /opt/product-opener/html/ && \
+    # inter services directories (until we get a real solution)
+    for service in obf off opf opff; do \
+        mkdir -p /srv/$service; \
+        chown www-data:www-data -R /srv/$service; \
+    done && \
     # logs dir
     mkdir -p /var/log/apache2/ && \
     chown www-data:www-data -R /var/log

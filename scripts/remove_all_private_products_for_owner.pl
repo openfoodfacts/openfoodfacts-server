@@ -38,6 +38,7 @@ TXT
 	;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Data qw/:all/;
 
@@ -59,21 +60,19 @@ $products_collection->delete_many({"owner" => $owner});
 
 use File::Copy::Recursive qw(dirmove);
 
-my $deleted_dir = $data_root . "/deleted_private_products/" . $owner . "." . time();
-(-e $data_root . "/deleted_private_products") or mkdir($data_root . "/deleted_private_products", oct(755));
+my $deleted_dir = "$BASE_DIRS{DELETED_PRIVATE_PRODUCTS}/$owner." . time();
+ensure_dir_created_or_die($deleted_dir);
 
 print STDERR "Moving data to $deleted_dir\n";
 
-mkdir($deleted_dir, oct(755));
-
-dirmove("$data_root/import_files/$owner", "$deleted_dir/import_files")
-	or print STDERR "Could not move $data_root/import_files/$owner to $deleted_dir/import_files : $!\n";
-dirmove("$data_root/export_files/$owner", "$deleted_dir/export_files")
-	or print STDERR "Could not move $data_root/export_files/$owner to $deleted_dir/export_files : $!\n";
-dirmove("$data_root/products/$owner", "$deleted_dir/products")
-	or print STDERR "Could not move $data_root/products/$owner to $deleted_dir/products : $!\n";
-dirmove("$www_root/images/products/$owner", "$deleted_dir/images")
-	or print STDERR "Could not move $www_root/images/products/$owner to $deleted_dir/images : $!\n";
+dirmove("$BASE_DIRS{IMPORT_FILES}/$owner", "$deleted_dir/import_files")
+	or print STDERR "Could not move $BASE_DIRS{IMPORT_FILES}/$owner to $deleted_dir/import_files : $!\n";
+dirmove("$BASE_DIRS{EXPORT_FILES}/$owner", "$deleted_dir/export_files")
+	or print STDERR "Could not move $BASE_DIRS{EXPORT_FILES}/$owner to $deleted_dir/export_files : $!\n";
+dirmove("$BASE_DIRS{PRODUCTS}/$owner", "$deleted_dir/products")
+	or print STDERR "Could not move $BASE_DIRS{PRODUCTS}/$owner to $deleted_dir/products : $!\n";
+dirmove("$BASE_DIRS{PRODUCTS_IMAGES}/$owner", "$deleted_dir/images")
+	or print STDERR "Could not move $BASE_DIRS{PRODUCTS_IMAGES}/$owner to $deleted_dir/images : $!\n";
 
 exit(0);
 

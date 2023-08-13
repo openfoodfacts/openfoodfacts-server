@@ -23,6 +23,31 @@ do
   test -L /opt/products-opener/html_data/$path || ln -sf /opt/products-opener/html/$path /mnt/podata/html_data/$path
 done
 
+# create some directories that might be needed
+for path in deleted_products_images reverted_products deleted_private_products translate deleted_products deleted.images import_files files
+do
+  path="/mnt/podata/$path"
+  [[ -d $path ]] || mkdir $path
+done
+for path in dump exports
+do
+  src_path=/opt/product-opener/html/data/$path
+  target_path=/opt/product-opener/html/$path
+  [[ -d $target_path ]] && [[ ! -e $src_path ]] && mv $target_path $src_path
+  [[ -d $src_path ]] || mkdir -p $src_path
+  [[ -h $target_path ]] || ln -s $src_path $target_path
+done
+[[ -d /opt/product-opener/html/data/files/debug ]] || mkdir /opt/product-opener/html/data/files/debug
+# exchanges between projects (NOTE: just faking for now)
+for service in obf off opf opff
+do
+  for path in "/srv/$service/products" "/srv/$service/html/images/products"
+  do
+    [[ -d $path ]] || mkdir -p $path
+  done
+done
+
+
 # this is not very elegant, but incron scripts won't have env variables so put them in a file
 rm -f /tmp/env-export.sh && export > /tmp/env-export.sh
 chown www-data:www-data /tmp/env-export.sh && chmod 0400 /tmp/env-export.sh
