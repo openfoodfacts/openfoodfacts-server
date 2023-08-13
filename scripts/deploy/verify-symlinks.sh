@@ -56,6 +56,8 @@ function compute_expected_links {
   # config
   EXPECTED_LINKS["$REPO_PATH/lib/ProductOpener/Config.pm"]="$REPO_PATH/lib/ProductOpener/Config_$NON_PRO_SERVICE.pm"
   EXPECTED_LINKS["$REPO_PATH/po/site-specific"]="$REPO_PATH/po/$SERVICE_LONG_NAME"
+  # off-web
+  EXPECTED_LINKS["$REPO_PATH/lang"]="/srv/openfoodfacts-web/lang"
   # data linked to zfs storages
   EXPECTED_LINKS["$REPO_PATH/orgs"]="$ZFS_PATH/orgs"
   EXPECTED_LINKS["$REPO_PATH/users"]="$ZFS_PATH/users"
