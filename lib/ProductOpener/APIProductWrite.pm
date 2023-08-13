@@ -38,7 +38,6 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&write_product_api
 		&skip_protected_field
-		&is_protected_image
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -58,7 +57,7 @@ use ProductOpener::Images qw/:all/;
 
 use Encode;
 
-=head2 skip_protected_field ($product_ref, $field, $moderator = 0)
+=head2 skip_protected_field($product_ref, $field, $moderator = 0)
 
 
 =cut
@@ -84,22 +83,6 @@ sub skip_protected_field ($product_ref, $field, $moderator = 0) {
 		return 1;
 	}
 	return 0;
-}
-
-=head2 is_protected_image($product_ref, $imagefield)
-
-=cut
-
-sub is_protected_image ($product_ref, $imagefield) {
-
-	my $selected_uploader = get_selected_image_uploader($product_ref, $imagefield);
-	my $owner = $product_ref->{owner};
-
-	if ((not $server_options{producers_platform}) and (defined $owner) and ($selected_uploader eq $owner)) {
-		return 1;    #image should be protected
-	}
-
-	return 0;    # image should not be protected
 }
 
 =head2 update_field_with_0_or_1_value($request_ref, $product_ref, $field, $value)

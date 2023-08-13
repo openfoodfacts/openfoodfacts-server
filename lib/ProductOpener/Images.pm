@@ -94,6 +94,7 @@ BEGIN {
 		&get_code_and_imagefield_from_file_name
 		&get_imagefield_from_string
 		&get_selected_image_uploader
+		&is_protected_image
 		&process_image_upload
 		&process_image_move
 
@@ -359,17 +360,6 @@ sub scan_code ($file) {
 	return $code;
 }
 
-sub get_selected_image_uploader ($product_ref, $imagefield) {
-
-	# Retrieve the product's image data
-	my $imgid = deep_get($product_ref, "images", $imagefield, "imgid");
-
-	# Retrieve the uploader of the image
-	my $uploader = deep_get($product_ref, "images", $imgid, "uploader");
-
-	return $uploader;
-}
-
 sub display_search_image_form ($id) {
 
 	my $html = '';
@@ -611,6 +601,36 @@ sub get_imagefield_from_string ($l, $filename) {
 		if $log->is_debug();
 
 	return $imagefield;
+}
+
+sub get_selected_image_uploader ($product_ref, $imagefield) {
+
+	# Retrieve the product's image data
+	my $imgid = deep_get($product_ref, "images", $imagefield, "imgid");
+
+	# Retrieve the uploader of the image
+	if (defined $imgid) {
+		my $uploader = deep_get($product_ref, "images", $imgid, "uploader");
+		return $uploader;
+	}
+
+	return;
+}
+
+sub is_protected_image ($product_ref, $imagefield) {
+
+	my $selected_uploader = get_selected_image_uploader($product_ref, $imagefield);
+	my $owner = $product_ref->{owner};
+
+	if (    (not $server_options{producers_platform})
+		and (defined $owner)
+		and (defined $selected_uploader)
+		and ($selected_uploader eq $owner))
+	{
+		return 1;    #image should be protected
+	}
+
+	return 0;    # image should not be protected
 }
 
 =head2 process_image_upload ( $product_id, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref )

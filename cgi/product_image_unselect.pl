@@ -57,7 +57,9 @@ if (not defined $code) {
 	exit(0);
 }
 
-my $product_ref = process_image_unselect($User_id, $product_id, $id);
+if (not is_protected_image($product_ref, $id) or $User{moderator}) {
+	my $product_ref = process_image_unselect($User_id, $product_id, $id);
+}
 
 my $data = encode_json({status_code => 0, status => 'status ok', imagefield => $id});
 

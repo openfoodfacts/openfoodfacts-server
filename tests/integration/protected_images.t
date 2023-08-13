@@ -91,7 +91,6 @@ my $tests_ref = [
 			imgupload_front_en => ["$sample_products_images_path/1.jpg", '1.jpg'],
 		},
 		ua => $ua,
-		expected_status => 403,
 	},
 	{
 		test_case => 'get-protected-image',
