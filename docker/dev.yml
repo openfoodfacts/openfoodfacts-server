@@ -34,6 +34,8 @@ services:
     # only turn on for off profile
     profiles: ["off"]
     <<: *minion-db-network
+    ports:
+      - 5433:5432
   backend:
     <<: [*backend-conf, *minion-db-network] 
   incron: *backend-conf

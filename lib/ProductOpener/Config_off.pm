@@ -699,6 +699,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 );
 
 # fields for drilldown facet navigation
+# If adding to this list ensure that the tables are being replicated to Postgres in the openfoodfacts-query repo
 
 @drilldown_fields = qw(
 	nutrition_grades

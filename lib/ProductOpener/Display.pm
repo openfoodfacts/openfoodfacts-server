@@ -4965,7 +4965,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 						$only_tags_filters = 0;
 					}
 					else {
-
+						# TODO: Call postgres which can return -1 if count not supported
 						foreach my $field (keys %$query_ref) {
 							if ($field !~ /_tags$/) {
 								$log->debug(
