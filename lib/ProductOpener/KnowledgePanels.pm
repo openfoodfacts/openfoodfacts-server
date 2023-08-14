@@ -359,7 +359,7 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 			my $target_dir = "$BASE_DIRS{PUBLIC_FILES}/debug/knowledge_panels/";
 			my $target_file = "$target_dir/$panel_id." . $product_ref->{code} . ".json";
 			ensure_dir_created_or_die($target_dir);
-			open(my $out, ">:encoding(UTF-8)", $www_root . $target_file) or die "cannot open $www_root/$target_file";
+			open(my $out, ">:encoding(UTF-8)", $target_file) or die "cannot open $target_file";
 			print $out $panel_json;
 			close($out);
 
