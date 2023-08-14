@@ -40,7 +40,7 @@ jobs:
           rm -rf gh_pages/dev/ref-perl-pod && \
           mkdir gh_pages/dev/ref-perl-pod && \
           cp docs/assets/simple.min.css gh_pages/dev/ref-perl-pod && \
-          perl -CS -I lib scripts/generate_perl_html_doc_from_pod.pl && \
+          perl -CS -I lib scripts/generate_perl_html_doc_from_pod.pl
 
       # DISABLED: in favor of rapidoc
       # generating OpenAPI documentation with redocly
