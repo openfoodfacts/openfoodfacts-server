@@ -28,6 +28,9 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         imagemagick \
         graphviz \
         tesseract-ocr \
+        lftp \
+        gzip \
+        tar \
         # perlmagick \
         #
         # Packages from ./cpanfile:
