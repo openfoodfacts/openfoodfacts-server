@@ -37,7 +37,6 @@ use utf8;
 use Pod::Simple::HTMLBatch;
 use Getopt::Long;
 
-
 my $usage = <<TXT
 
 generate_perl_html_doc_from_pod.pl scans the Perl source code of Product Opener
@@ -47,11 +46,10 @@ Usage:
 checkbot.pl target_directory
 
 TXT
-;
+	;
 
 # Beginning
-GetOptions(
-) or die("Error in command line arguments:\n\n$usage");
+GetOptions() or die("Error in command line arguments:\n\n$usage");
 (scalar @ARGV) == 1 or die("Error in command line arguments:\n\n$usage");
 my $target_dir = pop @ARGV;
 
