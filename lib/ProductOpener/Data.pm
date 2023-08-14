@@ -110,29 +110,30 @@ sub execute_query ($sub) {
 	)->run();
 }
 
-sub execute_aggregate_tags_query($aggregate_parameters) {
+sub execute_aggregate_tags_query ($aggregate_parameters) {
 	return execute_tags_query('aggregate', $aggregate_parameters);
 }
 
-sub execute_count_tags_query($query_ref) {
+sub execute_count_tags_query ($query_ref) {
 	return execute_tags_query('count', $query_ref);
 }
 
-sub execute_tags_query($type, $parameters) {
+sub execute_tags_query ($type, $parameters) {
 	if ((defined $query_url) and (length($query_url) > 0)) {
 		$query_url =~ s/^\s+|\s+$//g;
 		my $path = "$query_url/$type";
-		$log->debug('Executing PostgreSQL ' . $type . ' query on ' . $path,
-			{query => $parameters})
+		$log->debug('Executing PostgreSQL ' . $type . ' query on ' . $path, {query => $parameters})
 			if $log->is_debug();
 
 		my $ua = LWP::UserAgent->new();
-		my $resp = $ua->post($path,
+		my $resp = $ua->post(
+			$path,
 			Content => encode_json($parameters),
 			'Content-Type' => 'application/json; charset=utf-8'
 		);
 		return decode_json($resp->decoded_content);
-	} else {
+	}
+	else {
 		$log->debug('QUERY_URL not defined') if $log->is_debug();
 		return;
 	}

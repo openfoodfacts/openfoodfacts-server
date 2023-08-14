@@ -1459,9 +1459,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		}
 		else {
 
-			eval {
-				$results = execute_aggregate_tags_query($aggregate_parameters);
-			};
+			eval {$results = execute_aggregate_tags_query($aggregate_parameters);};
 		}
 		if ($@) {
 			$log->warn("MongoDB error", {error => $@}) if $log->is_warn();
@@ -1529,9 +1527,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 				}
 			}
 			else {
-				eval {
-					$count_results = execute_aggregate_tags_query($aggregate_count_parameters);
-				}
+				eval {$count_results = execute_aggregate_tags_query($aggregate_count_parameters);}
 			}
 			if ((not $@) and (defined $count_results)) {
 				$request_ref->{structured_response}{count} = $count_results->{$groupby_tagtype . "_tags"};
@@ -4968,10 +4964,9 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 						# TODO: Call postgres which can return -1 if count not supported
 						foreach my $field (keys %$query_ref) {
 							if ($field !~ /_tags$/) {
-								$log->debug(
-									"non tags field in query filters, cannot use postgres cache",
-									{field => $field, value => $query_ref->{field}}
-								) if $log->is_debug();
+								$log->debug("non tags field in query filters, cannot use postgres cache",
+									{field => $field, value => $query_ref->{field}})
+									if $log->is_debug();
 								$only_tags_filters = 0;
 								last;
 							}
@@ -4989,8 +4984,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 							sub {
 								$log->debug("count_documents on complete products collection", {key => $key_count})
 									if $log->is_debug();
-								return get_products_collection(
-									get_products_collection_request_parameters($request_ref))
+								return get_products_collection(get_products_collection_request_parameters($request_ref))
 									->count_documents($query_ref);
 							}
 						);
