@@ -261,16 +261,18 @@ sub display_select_crop_init ($object_ref) {
 	}
 
 	foreach my $imgid (sort {$object_ref->{images}{$a}{uploaded_t} <=> $object_ref->{images}{$b}{uploaded_t}} @images) {
-		my $admin_fields = '';
-		if ($User{moderator}) {
-			$admin_fields
-				= ", uploader: '"
-				. $object_ref->{images}{$imgid}{uploader}
-				. "', uploaded: '"
-				. display_date($object_ref->{images}{$imgid}{uploaded_t}) . "'";
-		}
+		my $uploader = $object_ref->{images}{$imgid}{uploader};
+		my $uploaded_date = display_date($object_ref->{images}{$imgid}{uploaded_t});
+
 		$images .= <<JS
-{imgid: "$imgid", thumb_url: "$imgid.$thumb_size.jpg", crop_url: "$imgid.$crop_size.jpg", display_url: "$imgid.$display_size.jpg" $admin_fields},
+{
+	imgid: "$imgid",
+	thumb_url: "$imgid.$thumb_size.jpg",
+	crop_url: "$imgid.$crop_size.jpg",
+	display_url: "$imgid.$display_size.jpg",
+	uploader: "$uploader",
+	uploaded: "$uploaded_date",
+},
 JS
 			;
 	}
