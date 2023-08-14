@@ -29,7 +29,7 @@ do
   path="/mnt/podata/$path"
   [[ -d $path ]] || mkdir $path
 done
-for path in dump exports
+for path in dump exports files
 do
   src_path=/opt/product-opener/html/data/$path
   target_path=/opt/product-opener/html/$path
