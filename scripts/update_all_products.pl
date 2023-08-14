@@ -116,6 +116,7 @@ my $run_ocr = '';
 my $autorotate = '';
 my $remove_team = '';
 my $remove_label = '';
+my $remove_category = '';
 my $remove_nutrient = '';
 my $remove_old_carbon_footprint = '';
 my $fix_spanish_ingredientes = '';
@@ -177,6 +178,7 @@ GetOptions(
 	"fix-yuka-salt" => \$fix_yuka_salt,
 	"remove-team=s" => \$remove_team,
 	"remove-label=s" => \$remove_label,
+	"remove-category=s" => \$remove_category,
 	"remove-nutrient=s" => \$remove_nutrient,
 	"remove-old-carbon-footprint" => \$remove_old_carbon_footprint,
 	"fix-spanish-ingredientes" => \$fix_spanish_ingredientes,
@@ -247,6 +249,7 @@ if (    (not $process_ingredients)
 	and (not $fix_non_string_ids)
 	and (not $compute_sort_key)
 	and (not $remove_team)
+	and (not $remove_category)
 	and (not $remove_label)
 	and (not $remove_nutrient)
 	and (not $remove_old_carbon_footprint)
@@ -340,6 +343,10 @@ if ((defined $remove_team) and ($remove_team ne "")) {
 
 if ((defined $remove_label) and ($remove_label ne "")) {
 	$query_ref->{labels_tags} = $remove_label;
+}
+
+if ((defined $remove_category) and ($remove_category ne "")) {
+	$query_ref->{categories_tags} = $remove_category;
 }
 
 if (defined $key) {
@@ -547,6 +554,12 @@ while (my $product_ref = $cursor->next) {
 			$product_ref->{labels} = join(',', @{$product_ref->{labels_tags}});
 			compute_field_tags($product_ref, $product_ref->{lc}, "labels");
 		}
+
+		if ((defined $remove_category) and ($remove_category ne "")) {
+			remove_tag($product_ref, "categories", $remove_category);
+			$product_ref->{categories} = join(',', @{$product_ref->{categories_tags}});
+			compute_field_tags($product_ref, $product_ref->{lc}, "categories");
+		}		
 
 		if ((defined $remove_nutrient) and ($remove_nutrient ne "")) {
 			if (defined $product_ref->{nutriments}) {
