@@ -1436,7 +1436,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	my $results = get_cache_results($key, $request_ref);
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
-		# do not use the smaller cached products_tags collection if ?no_cache=1
+		# do not use the postgres cache if ?no_cache=1
 		# or if we are on the producers platform
 		if (   ((defined single_param("no_cache")) and (single_param("no_cache")))
 			or ($server_options{producers_platform}))
@@ -1510,7 +1510,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 
 			my $count_results;
 
-			# do not use the smaller cached products_tags collection if ?no_cache=1
+			# do not use the smaller postgres cache if ?no_cache=1
 			# or if we are on the producers platform
 			if (   ((defined single_param("no_cache")) and (single_param("no_cache")))
 				or ($server_options{producers_platform}))
@@ -4405,7 +4405,7 @@ sub count_products ($request_ref, $query_ref, $obsolete = 0) {
 	return $count;
 }
 
-=head2 get_products_collection_request_parameters ($request_ref, $additional_parameters_ref = {} )
+=head2 get_products_collection_request_parameters ($request_ref)
 
 This function looks at the request object to set parameters to pass to the get_products_collection() function.
 
@@ -4413,19 +4413,13 @@ This function looks at the request object to set parameters to pass to the get_p
 
 =head4 $request_ref request object
 
-=head4 $additional_parameters_ref
-
-An optional reference to a hash of parameters that should be added to the parameters extracted from the request object.
-This is useful in particular to request the query to be executed on the smaller products_tags category, by passing
-{ tags = 1 }
-
 =head3 Return value
 
 A reference to a parameters object that can be passed to get_products_collection()
 
 =cut
 
-sub get_products_collection_request_parameters ($request_ref, $additional_parameters_ref = {}) {
+sub get_products_collection_request_parameters ($request_ref) {
 
 	my $parameters_ref = {};
 
@@ -4436,11 +4430,6 @@ sub get_products_collection_request_parameters ($request_ref, $additional_parame
 	# Admin users can request a specific query_timeout for MongoDB queries
 	if ($request_ref->{admin}) {
 		$parameters_ref->{timeout} = request_param($request_ref, "timeout");
-	}
-
-	# Add / overwrite request parameters with additional parameters passed as arguments
-	foreach my $parameter (keys %$additional_parameters_ref) {
-		$parameters_ref->{$parameter} = $additional_parameters_ref->{$parameter};
 	}
 
 	return $parameters_ref;
@@ -4969,7 +4958,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 					$log->debug("count not in cache for query", {key => $key_count}) if $log->is_debug();
 
-					# Count queries are very expensive, if possible, execute them on the smaller products_tags collection
+					# Count queries are very expensive, if possible, execute them on the postgres cache
 					my $only_tags_filters = 1;
 
 					if ($server_options{producers_platform}) {
@@ -4980,7 +4969,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 						foreach my $field (keys %$query_ref) {
 							if ($field !~ /_tags$/) {
 								$log->debug(
-									"non tags field in query filters, cannot use smaller products_tags collection",
+									"non tags field in query filters, cannot use postgres cache",
 									{field => $field, value => $query_ref->{field}}
 								) if $log->is_debug();
 								$only_tags_filters = 0;
@@ -5059,7 +5048,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 			$request_ref->{structured_response}{page_count} = $page_count;
 
-			# The page count may be higher than the count from the products_tags collection which is updated every night
+			# The page count may be higher than the count from the postgres cache which is updated every night
 			# in that case, set $count to $page_count
 			# It's also possible that the count query had a timeout and that $count is 0 even though we have results
 			if ($page_count > $count) {

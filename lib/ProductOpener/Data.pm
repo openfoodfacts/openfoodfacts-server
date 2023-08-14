@@ -27,19 +27,10 @@ ProductOpener::Data - methods to create or get the mongoDB client and fetch "dat
 The module implements the methods required to fetch certain collections from the MongoDB database.
 The functions used in this module are responsible for executing queries, to get connection to database and also to select the collection required.
 
-The module exposes 2 distinct kinds of collections, products and products_tags, returned by the Data::get_products_collections
-and the Data::get_products_tags_collections methods respectively.
-
 The products collection contains a complete document for each product in the OpenFoodFacts database which exposes all
 available information about the product.
 
-The products_tags collection contains a stripped down version of the data in the products collection, where each
-product entry has a select few fields, including fields used in tags. The main purpose of having this copy is to
-improve performance of aggregate queries for an improved user experience and more efficient resource usage. This
-collection was initially proposed in L<issue#1610|https://github.com/openfoodfacts/openfoodfacts-server/issues/1610> on
-GitHub, where some additional context is available.
-
-Obsolete products that have been withdrawn from the market have separate collections: products_obsolete and products_obsolete_tags
+Obsolete products that have been withdrawn from the market have a separate collection: products_obsolete
 
 =cut
 
