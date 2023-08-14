@@ -27,7 +27,7 @@ for documentation in POD format to generate documentation in HTML files.
 
 =head1 SYNOPSIS
 
-The script is runned by generate-doc.yml
+The script is run by C<generate-doc.yml>
 
 =cut
 
