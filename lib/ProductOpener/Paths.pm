@@ -170,13 +170,6 @@ A directory where we store revisions we reverted for some products
 
 $BASE_DIRS{REVERTED_PRODUCTS} = "$data_root/reverted_products";
 
-# FIXME: how do we handle this (git or data ?)
-# =head3 $BASE_DIRS{FILES}
-# A directory to store private files
-# =cut
-#
-# $BASE_DIRS{FILES} = "$data_root/files";
-
 =head2 $BASE_DIRS{FILES_DEBUG}
 A directory used to debug knowledge panels
 =cut

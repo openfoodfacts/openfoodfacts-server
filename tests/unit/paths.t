@@ -18,7 +18,6 @@ my $EXPECTED_BASE_PATHS = {
 	DELETED_PRODUCTS => "$data_root/deleted_products",
 	DELETED_PRODUCTS_IMAGES => "$data_root/deleted_products_images",
 	EXPORT_FILES => "$data_root/export_files",
-	FILES => "$data_root/files",
 	FILES_DEBUG => "$www_root/files/debug",
 	IMPORT_FILES => "$data_root/import_files",
 	LANG => "$data_root/lang",

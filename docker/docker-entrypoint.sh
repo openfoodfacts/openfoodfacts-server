@@ -24,7 +24,7 @@ do
 done
 
 # create some directories that might be needed
-for path in deleted_products_images reverted_products deleted_private_products translate deleted_products deleted.images import_files files
+for path in deleted_products_images reverted_products deleted_private_products translate deleted_products deleted.images import_files
 do
   path="/mnt/podata/$path"
   [[ -d $path ]] || mkdir $path
