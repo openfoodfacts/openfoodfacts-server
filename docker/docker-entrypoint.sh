@@ -35,6 +35,7 @@ do
   target_path=/opt/product-opener/html/$path
   [[ -d $target_path ]] && [[ ! -e $src_path ]] && mv $target_path $src_path
   [[ -d $src_path ]] || mkdir -p $src_path
+  [[ -e $target_path ]] && [[ ! -h $target_path ]] && [[ -d $src_path ]] && rm -rf $target_path
   [[ -h $target_path ]] || ln -s $src_path $target_path
 done
 [[ -d /opt/product-opener/html/data/files/debug ]] || mkdir /opt/product-opener/html/data/files/debug
