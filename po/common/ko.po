@@ -115,6 +115,10 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "조직의 이름(회사 이름 또는 브랜드)을 입력하십시오."
 
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr ""
+
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 msgstr "이 계정은 생산자 또는 브랜드 {org}과 연결된 전문 계정입니다. 생산자를 위한 플랫폼에 액세스할 수 있습니다."
@@ -973,6 +977,10 @@ msgstr "(원본 이미지)"
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr "사진 상세 및 속성 정보"
+
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr ""
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -6546,6 +6554,14 @@ msgstr ""
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
+msgstr ""
+
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr ""
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
 msgstr ""
 
 msgctxt "product_js_sugars_warning"
