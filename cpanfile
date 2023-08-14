@@ -89,6 +89,10 @@ requires 'Action::Retry'; # deps: libmath-fibonacci-perl
 requires 'AnyEvent';
 requires 'AnyEvent::Inotify::Simple';
 
+# more Apache stuff
+requires 'Apache2::Connection::XForwardedFor';
+requires 'Apache::Bootstrap';
+
 on 'test' => sub {
   requires 'Test::More', '>= 1.302186, < 2.0';
   requires 'Test::MockModule';

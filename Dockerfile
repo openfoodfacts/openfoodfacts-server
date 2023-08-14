@@ -31,6 +31,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         lftp \
         gzip \
         tar \
+        unzip \
+        zip \
         # perlmagick \
         #
         # Packages from ./cpanfile:
@@ -147,7 +149,9 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         # gnu readline
         libreadline-dev \
         # IO::AIO needed by Perl::LanguageServer
-        libperl-dev
+        libperl-dev \
+        # needed to build Apache2::Connection::XForwardedFor
+        libapache2-mod-perl2-dev
 
 # Run www-data user as host user 'off' or developper uid
 ARG USER_UID
