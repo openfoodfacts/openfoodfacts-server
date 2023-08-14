@@ -559,7 +559,7 @@ while (my $product_ref = $cursor->next) {
 			remove_tag($product_ref, "categories", $remove_category);
 			$product_ref->{categories} = join(',', @{$product_ref->{categories_tags}});
 			compute_field_tags($product_ref, $product_ref->{lc}, "categories");
-		}		
+		}
 
 		if ((defined $remove_nutrient) and ($remove_nutrient ne "")) {
 			if (defined $product_ref->{nutriments}) {
