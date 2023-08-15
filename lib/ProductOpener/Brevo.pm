@@ -51,7 +51,7 @@ use HTTP::Request::Common;
 
  my $api_base_url = 'https://api.brevo.com/v3';
  # Brevo API key
- my $api_key = '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';
+ my $api_key = 'API_KEY';
 
 sub add_contact_to_list($email, $username, $cc, $lc) {
    
@@ -110,8 +110,8 @@ sub get_contact_info ($contact_id) {
     if ($response->is_success) {
         my $contact_data = decode_json($response->content);
         return $contact_data; # Return the contact information as a hash reference
-    } else {
-        # You may want to handle errors and logging here
+    }
+    else {
         return ; # Failed to get contact info
     }
 }
