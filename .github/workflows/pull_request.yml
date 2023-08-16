@@ -9,11 +9,11 @@ on:
     #   - ".github/CODEOWNERS"
     #   - ".github/PULL_REQUEST_TEMPLATE.md"
     #   - ".editorconfig"
-    
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-  
+
 jobs:
 
   # those are just until we de-activate their mandatory
@@ -90,7 +90,7 @@ jobs:
       run: make check_perl
 
   tests:
-    name: Perl unit tests
+    name: Perl unit and integrations tests
     needs: build_backend
     runs-on: ubuntu-latest
     steps:
@@ -101,8 +101,21 @@ jobs:
       uses: ishworkh/docker-image-artifact-download@v1
       with:
         image: "openfoodfacts-server/backend:dev"
-    - name: test
-      run: make tests
+    - name: tests
+      run: |
+        make codecov_prepare
+        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' tests
+    - name: generate coverage results
+      # even if tests failed
+      if: always()
+      run: |
+        make coverage_txt
+        make codecov
+    - uses: codecov/codecov-action@v3
+      if: always()
+      with:
+        files: cover_db/codecov.json
+
 
   tests_dev:
     name: Test make dev
