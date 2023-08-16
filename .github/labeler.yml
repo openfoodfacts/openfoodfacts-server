@@ -18,6 +18,10 @@ mongodb:
 - scripts/update_all_products_from_dir_in_mongodb.pl
 - scripts/update_all_products_revisions_from_dir_in_mongodb.pl
 
+stores:
+- taxonomies/unused/stores.txt
+- scripts/tag_stores_magasins_u.pl
+
 tagline:
 - html/files/app/tagline/tagline-off-ios.json
 - html/files/tagline-off.json
