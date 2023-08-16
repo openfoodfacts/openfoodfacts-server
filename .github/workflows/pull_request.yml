@@ -90,7 +90,7 @@ jobs:
       run: make check_perl
 
   tests:
-    name: Perl unit and integrations tests
+    name: Perl unit tests
     needs: build_backend
     runs-on: ubuntu-latest
     steps:
