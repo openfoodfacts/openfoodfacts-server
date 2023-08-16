@@ -194,6 +194,12 @@ if ($action eq 'display') {
 					type => "password",
 					label => "password_confirm"
 				},
+				{
+					field => "preferred_language",
+				},
+				{
+					field => "country",
+				},
 			]
 			};
 

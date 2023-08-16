@@ -11442,14 +11442,15 @@ A list with every language written in the $lc language
 
 =cut
 
-sub get_languages{
+sub get_languages {
 	my @languages_list = ();
 	my @tags_list = get_all_taxonomy_entries("languages");
 	my $language;
-	foreach my $tag (@tags_list){
+	foreach my $tag (@tags_list) {
 		$language = display_taxonomy_tag($lc, "languages", $tag);
 		push @languages_list, $language;
 	}
+	@languages_list = sort @languages_list;
 	return @languages_list;
 }
 
@@ -11465,16 +11466,16 @@ A list with every country written in the $lc language
 
 =cut
 
-sub get_countries(){
+sub get_countries() {
 	my @countries_list = ();
 	my @tags_list = get_all_taxonomy_entries("countries");
 	my $country;
-	foreach my $tag (@tags_list){
+	foreach my $tag (@tags_list) {
 		$country = display_taxonomy_tag($lc, "countries", $tag);
 		push @countries_list, $country;
 	}
+	@countries_list = sort @countries_list;
 	return @countries_list;
 }
-
 
 1;
