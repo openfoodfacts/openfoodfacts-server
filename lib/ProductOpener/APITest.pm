@@ -515,7 +515,7 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 
 		my $response_content = $response->decoded_content;
 
-		if ($test_ref->{expected_type} eq 'text') {
+		if ((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq 'text')) {
 			# Check that the text file is the same as expected (useful for checking dynamic robots.txt)
 			is(
 				compare_file_to_expected_results(
