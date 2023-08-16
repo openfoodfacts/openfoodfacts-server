@@ -30,6 +30,13 @@ tests/integration/outputs/
 /html/files
 /html/data
 /html/exports
+/deleted_private_products
+/deleted_products
+/deleted_products_images
+/export_files
+
+# Images
+/html/images/products
 
 
 # Local files
@@ -70,13 +77,10 @@ html/bower_components
 local
 
 # Front build
-html/css/dist
-html/js/dist
-html/images/icons/dist
-html/images/attributes/*.svg
-
-# Images
-html/images/products/*
+/html/css/dist
+/html/js/dist
+/html/images/icons/dist
+/html/images/attributes/*.svg
 
 # Don't store helm dependencies in our git repo
 docker/productopener/charts
