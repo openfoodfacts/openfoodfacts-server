@@ -172,7 +172,8 @@ COPY ./cpanfile* /tmp/
 # Add ProductOpener runtime dependencies from cpan
 RUN --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
     cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
-    || ( for f in /root/.cpanm/work/*/build.log;do echo $f"==============";cat $f; done; false )
+    # in case of errors show build.log, but still, fail
+    || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end =============" done; false )
 
 ######################
 # backend production image stage
@@ -195,13 +196,13 @@ RUN \
 RUN \
     mkdir -p var/run/apache2/ && \
     chown www-data:www-data var/run/apache2/ && \
-    for path in data html_data users products product_images orgs new_images logs tmp; do \
+    for path in data html_data users products product_images orgs new_images logs tmp build-cache/taxonomies; do \
         mkdir -p /mnt/podata/${path}; \
     done && \
     chown www-data:www-data -R /mnt/podata && \
     # Create symlinks of data files that are indeed conf data in /mnt/podata (because we currently mix data and conf data)
     # NOTE: do not changes those links for they are in a volume, or handle migration in entry-point
-    for path in data-default external-data emb_codes ingredients madenearme packager-codes po taxonomies templates build-cache; do \
+    for path in data-default external-data emb_codes ingredients madenearme packager-codes po taxonomies templates; do \
         ln -sf /opt/product-opener/${path} /mnt/podata/${path}; \
     done && \
     # Create some necessary files to ensure permissions in volumes

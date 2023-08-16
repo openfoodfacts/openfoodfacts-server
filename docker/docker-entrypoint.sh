@@ -10,9 +10,16 @@ ln -sfT /opt/product-opener/lib/ProductOpener/SiteLang_${PRODUCT_OPENER_FLAVOR_S
 ln -sfT /opt/product-opener/lib/ProductOpener/Config_${PRODUCT_OPENER_FLAVOR_SHORT}.pm /opt/product-opener/lib/ProductOpener/Config.pm
 ln -sfT /opt/product-opener/lib/ProductOpener/Config2_docker.pm /opt/product-opener/lib/ProductOpener/Config2.pm
 
+# 2023-08-16 migration for build-cache… should be in a volume
+if [[ -L /mnt/podata/build-cache ]]
+then
+  unlink /mnt/podata/build-cache
+  mkdir -p /mnt/podata/build-cache/taxonomies
+fi
+
 # Create symlinks of data files that are indeed conf data in /mnt/podata (because we currently mix data and conf data)
 # we need to do this here, because /mnt/podata is a volume
-for path in data-default external-data emb_codes ingredients madenearme packager-codes po taxonomies templates build-cache;
+for path in data-default external-data emb_codes ingredients madenearme packager-codes po taxonomies templates;
 do
     test -d /mnt/podata/${path} || ln -sf /opt/product-opener/${path} /mnt/podata/${path}
 done
