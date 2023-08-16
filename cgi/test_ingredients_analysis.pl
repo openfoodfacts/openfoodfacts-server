@@ -28,6 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -42,24 +43,59 @@ use JSON::PP;
 
 use Log::Any qw($log);
 
-my $request_ref = ProductOpener::Display::init_request();
+sub display_test_ingredient_analysis_html_page ($request_ref) {
+	my $template_data_ref = {};
 
-my $template_data_ref = {};
+	my $type = single_param('type') || 'add';
+	my $action = single_param('action') || 'display';
+	my $ingredients_text = remove_tags_and_quote(decode utf8 => single_param('ingredients_text'));
 
-my $type = single_param('type') || 'add';
-my $action = single_param('action') || 'display';
+	my $html = '';
+	$template_data_ref->{action} = $action;
+	$template_data_ref->{type} = $type;
 
-my $ingredients_text = remove_tags_and_quote(decode utf8 => single_param('ingredients_text'));
+	$template_data_ref->{ingredients_text} = $ingredients_text;
 
-my $html = '';
-$template_data_ref->{action} = $action;
-$template_data_ref->{type} = $type;
+	if ($action eq 'process') {
 
-$template_data_ref->{ingredients_text} = $ingredients_text;
+		# Create a dummy product
+		my $product_ref = {
+			code => 0,
+			lc => $lc,
+			"ingredients_text_$lc" => $ingredients_text,
+			"ingredients_text" => $ingredients_text,
+		};
 
-if ($action eq 'process') {
+		clean_ingredients_text($product_ref);
+		$log->debug("extract_ingredients_from_text") if $log->is_debug();
+		extract_ingredients_from_text($product_ref);
+		$log->debug("extract_ingredients_classes_from_text") if $log->is_debug();
+		extract_ingredients_classes_from_text($product_ref);
 
-	# Create a dummy product
+		my $html_details = display_ingredients_analysis_details($product_ref);
+		$html_details =~ s/.*tabindex="-1">/<div>/;
+
+		$template_data_ref->{lc} = $lc;
+		$template_data_ref->{html_details} = $html_details;
+		$template_data_ref->{display_ingredients_analysis} = display_ingredients_analysis($product_ref);
+		$template_data_ref->{product_ref} = $product_ref;
+		$template_data_ref->{preparsed_ingredients_text} = preparse_ingredients_text($lc, $ingredients_text);
+
+		my $json = JSON::PP->new->pretty->encode($product_ref->{ingredients});
+		$template_data_ref->{json} = $json;
+	}
+
+	process_template('web/pages/test_ingredients/test_ingredients_analysis.tt.html', $template_data_ref, \$html)
+		or $html = '';
+
+	$request_ref->{title} = "Ingredients analysis test";
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
+	exit();
+}
+
+sub test_ingredient_analysis_api_call ($request_ref) {
+	my $ingredients_text = remove_tags_and_quote(decode utf8 => single_param('ingredients_text'));
 	my $product_ref = {
 		code => 0,
 		lc => $lc,
@@ -72,23 +108,24 @@ if ($action eq 'process') {
 	extract_ingredients_from_text($product_ref);
 	$log->debug("extract_ingredients_classes_from_text") if $log->is_debug();
 	extract_ingredients_classes_from_text($product_ref);
-
-	my $html_details = display_ingredients_analysis_details($product_ref);
-	$html_details =~ s/.*tabindex="-1">/<div>/;
-
-	$template_data_ref->{lc} = $lc;
-	$template_data_ref->{html_details} = $html_details;
-	$template_data_ref->{display_ingredients_analysis} = display_ingredients_analysis($product_ref);
-	$template_data_ref->{product_ref} = $product_ref;
-	$template_data_ref->{preparsed_ingredients_text} = preparse_ingredients_text($lc, $ingredients_text);
-
-	my $json = JSON::PP->new->pretty->encode($product_ref->{ingredients});
-	$template_data_ref->{json} = $json;
+	my %output = (ingredients => $product_ref->{ingredients});
+	my $data = JSON::PP->new->pretty->encode(\%output);
+	write_cors_headers();
+	print header(
+		-status => 200,
+		-type => 'application/json',
+		-charset => 'utf-8',
+	) . $data;
+	exit();
 }
 
-process_template('web/pages/test_ingredients/test_ingredients_analysis.tt.html', $template_data_ref, \$html)
-	or $html = '';
+my $request_ref = ProductOpener::Display::init_request();
 
-$request_ref->{title} = "Ingredients analysis test";
-$request_ref->{content_ref} = \$html;
-display_page($request_ref);
+if (defined single_param('json')) {
+	# API call, return JSON response
+	test_ingredient_analysis_api_call($request_ref);
+}
+else {
+	# Display classic HTML page
+	display_test_ingredient_analysis_html_page($request_ref);
+}
