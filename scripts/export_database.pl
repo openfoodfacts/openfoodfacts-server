@@ -525,6 +525,7 @@ XML
 	system("(head -1 $csv_filename.temp && (tail -n +2 $csv_filename.temp | sort)) > $csv_filename.temp2");
 	unlink "$csv_filename.temp";
 	my $csv_size_new = (-s "$csv_filename.temp2") // 0;
+    # guard: we replace target file only if it's big enough (to avoid replacing valid export by a broken one)
 	if ($csv_size_new >= $csv_size_old * 0.99) {
 		unlink $csv_filename;
 		rename "$csv_filename.temp2", $csv_filename;
