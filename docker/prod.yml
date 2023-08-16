@@ -43,6 +43,8 @@ volumes:
   podata:
     external: true
     name: ${COMPOSE_PROJECT_NAME}_podata
+  export_files:
+    name: ${COMPOSE_PROJECT_NAME}_export_files
 
 networks:
   webnet:
