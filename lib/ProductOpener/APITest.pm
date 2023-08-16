@@ -760,7 +760,7 @@ sub fake_http_server ($port, $dump_path, $responses_ref) {
 }
 
 =head2 get_minion_jobs($task_name, $created_after_ts, $max_waiting_time)
-Sub-programme which wait till the minion finished its job or
+Subprogram which wait till the minion finished its job or
 if it takes too much time
 
 =head3 Arguments
@@ -783,7 +783,7 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 	my $waited = 0;    # counting the waiting time
 	my $jobs = get_minion()->jobs({tasks => [$task_name]});
 	my $job_id = 0;    # job id
-					   #iterate on job
+			#iterate on job
 	while (my $job = $jobs->next) {
 		#only those who were created after the timestamp
 		if ($job->created > $created_after_ts) {

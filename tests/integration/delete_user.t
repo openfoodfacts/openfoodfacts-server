@@ -57,8 +57,8 @@ my $response_delete = $ua->post($url_delete, \%delete_form);
 like($response_delete->content, qr/User is being deleted\. This may take a few minutes\./, "the account was deleted");
 
 #waiting the deletion task to be done
-my $max_waiting_time = 400;
-my $jobs_ref = get_minion_jobs("delete_user_task", $before_delete_ts, $max_waiting_time);
+my $max_time = 400;
+my $jobs_ref = get_minion_jobs("delete_user_task", $before_delete_ts, $max_time);
 
 #checking if there are remaining jobs
 my $count = 0;
