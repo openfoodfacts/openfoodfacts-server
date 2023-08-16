@@ -1,3 +1,5 @@
+# properties vegan:en, vegetarian:en and from_palm_oil:en can have values yes, no, maybe
+# in the case of maybe, if the ingredient has sub-ingredients, then only its sub-ingredients are considered
 
 #comment:en:These are synonyms of ingredients
 
@@ -35431,8 +35433,8 @@ pl:sok, soki, soku, soków
 pt:Sumo
 ru:Сок
 # ingredient/fr:jus has 156 products in 4 languages @2019-02-02
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:juice
 en:concentrated juice
@@ -60192,8 +60194,8 @@ zh:食品添加剂
 wikidata:en:Q2596997
 wikipedia:en:https://en.wikipedia.org/wiki/Condiment
 # ingredient/fr:condiment has 360 products in 6 languages @2019-03-09
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:condiment
 en:powdered condiment
@@ -81768,8 +81770,8 @@ wikidata:en:Q636056
 wikipedia:en:https://en.wikipedia.org/wiki/Purée
 # ingredient/fr:purée has 151 products @2018-10-05
 # used only to qualify another ingredient, ignore for ingredient analysis
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:purée
 en:concentrated purée
@@ -82255,8 +82257,8 @@ wikidata:en:Q745361
 wikipedia:en:https://en.wikipedia.org/wiki/Stuffing
 # ingredient/fr:garniture has 1531 products in 9 languages @2018-12-01
 # ingredient/fr:farce has 884 products in 6 languages @2019-05-18
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:filling
 en:apricot filling
@@ -82639,8 +82641,8 @@ ciqual_proxy_food_code:en:9810
 ciqual_proxy_food_name:fr:Pâtes sèches standard, crues
 # ingredient/fr:pâtes-alimentaires has 115 products 2019-05-20
 # ingredient/paste has 1809 products @2018-12-10
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:pasta
 en:durum wheat semolina pasta
@@ -83039,8 +83041,8 @@ ta:நூடுல்ஸ்
 wikidata:en:q192874
 wikipedia:en:https://en.wikipedia.org/wiki/Noodle
 # ingredient/fr:nouilles has 241 products in 7 languages @2019-05-08
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
 carbon_footprint_fr_foodges_value:fr:7.3
 
@@ -84190,8 +84192,8 @@ tr:kaplama
 # usage:fr:Enrobage:farines (blé, seigle, et riz) (contient gluten) eau, amidon modifié, amidon et protéines de blé (contient gluten ), sel
 # ingredient/fr:enrobant has 79 products in 4 languages @2019-02-21
 # coating (water, wheat flour, modified corn starch, gluten of wheat, corn flour, corn starch, salt, potato starch)
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:coating
 en:cocoa coating
@@ -85727,8 +85729,8 @@ nl:korst
 # usage:fr: croûte: herbes aromatiques bio
 # usage:fr: conservateur (croûte) : natamycine (contient lait)
 # usage/de: Kruste (mit Farbstoff [E 160b])
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 
 # description:en:The outer layer of cheese. Mostly for cheeses that have a distinctive layer different from the cheese itself.
 
@@ -86078,8 +86080,8 @@ en:jam
 de:Marmelade de:Konfitüre
 pl:dżem
 ru:джем, повидло, варенье
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 
 ###################################################################################################
 #
@@ -86213,8 +86215,8 @@ zh:醬
 wikidata:en:Q178359
 wikipedia:en:https://en.wikipedia.org/wiki/Sauce
 # ingredient/sauce has 5701 products in 15 languages @2019-05-02
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 nova:en:3
 
 <en:sauce
