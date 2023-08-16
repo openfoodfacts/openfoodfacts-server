@@ -161,6 +161,10 @@ BEGIN {
 
 		&cmp_taxonomy_tags_alphabetically
 
+		&cached_display_taxonomy_tag
+		$cached_display_taxonomy_tag_calls
+		$cached_display_taxonomy_tag_misses
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -3850,6 +3854,45 @@ sub exists_taxonomy_tag ($tagtype, $tagid) {
 			and (exists $translations_from{$tagtype}{$tagid})
 			and not((exists $just_synonyms{$tagtype}) and (exists $just_synonyms{$tagtype}{$tagid})));
 }
+
+
+=head2 cached_display_taxonomy_tag ( $target_lc, $tagtype, $canon_tagid )
+
+Return the name of a tag for displaying it to the user.
+This function builds a cache of the resulting names, in order to reduce execution time.
+The cache is an evergrowing hash of input parameters.
+This function should only be used in batch scripts, and not in code called from the Apache mod_perl processes.
+
+=head3 Arguments
+
+=head4 $target_lc - target language code
+
+=head4 $tagtype
+
+=head4 $canon_tagid
+
+=head3 Return values
+
+The tag translation if it exists in target language,
+otherwise, the tag id.
+
+=cut
+
+my %cached_display_taxonomy_tags = ();
+$cached_display_taxonomy_tag_calls = 0;
+$cached_display_taxonomy_tag_misses = 0;
+
+sub cached_display_taxonomy_tag ($target_lc, $tagtype, $tag) {
+	$cached_display_taxonomy_tag_calls++;
+	my $key = $target_lc . ':' . $tagtype . ':' . $tag;
+	return $cached_display_taxonomy_tags{$key} if exists $cached_display_taxonomy_tags{$key};
+
+	$cached_display_taxonomy_tag_misses++;
+	my $value = display_taxonomy_tag($target_lc, $tagtype, $tag);
+	$cached_display_taxonomy_tags{$key} = $value;
+	return $value;
+}
+
 
 =head2 display_taxonomy_tag ( $target_lc, $tagtype, $canon_tagid )
 
