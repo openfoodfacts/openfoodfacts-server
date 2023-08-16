@@ -284,8 +284,8 @@ is_deeply(
 	\@tags,
 	[
 		'en:added-sugar', 'en:fruit', 'en:citrus-fruit', 'en:disaccharide',
-		'en:sugar', 'en:fruit-juice', 'en:orange', 'en:salt',
-		'en:orange-juice', 'en:concentrated-orange-juice'
+		'en:juice', 'en:sugar', 'en:fruit-juice', 'en:orange',
+		'en:salt', 'en:orange-juice', 'en:concentrated-orange-juice'
 	]
 ) or diag explain(\@tags);
 
@@ -299,9 +299,9 @@ foreach my $tag (@tags) {
 is_deeply(
 	\@tags,
 	[
-		'en:concentrated-orange-juice', 'en:fruit', 'en:citrus-fruit', 'en:fruit-juice',
-		'en:orange', 'en:orange-juice', 'en:sugar', 'en:added-sugar',
-		'en:disaccharide', 'en:salt'
+		'en:concentrated-orange-juice', 'en:fruit', 'en:citrus-fruit', 'en:juice',
+		'en:fruit-juice', 'en:orange', 'en:orange-juice', 'en:sugar',
+		'en:added-sugar', 'en:disaccharide', 'en:salt'
 	]
 ) or diag explain(\@tags);
 

@@ -29,6 +29,7 @@
 
     inputfield.value = value;
     }
+    [% INCLUDE web/pages/user_form/togglepassword.tt.js %]
 </script>
 
 <style>
@@ -78,7 +79,12 @@
                                 </div>
                         [% ELSIF field.type == 'password' %]
                             <label for="[% field.field %]">[% lang(field.label) %]</label>
-                            <input type="password" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="new-password"/>
+                            <div class="password-container">
+                                <input type="password" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="new-password"/>
+                                <span class="toggle-password" onclick="togglePasswordVisibility('[% field.field %]')">
+                                    <span class="material-icons material-symbols-visibility">visibility_off</span>
+                                    </span>
+                                </div>
                         [% ELSIF field.type == 'email' %]
                             <label for="[% field.field %]">	[% field.label %]</label>
                             <input type="email" id="[% field.field %]" name="[% field.field %]" value = "[% field.value %]" autocomplete="email"/>

@@ -64,6 +64,8 @@ BEGIN {
 		&create_password_hash
 		&check_password_hash
 		&retrieve_user
+		&remove_user_by_org_admin
+		&add_users_to_org_by_admin
 
 		&check_session
 
@@ -933,6 +935,70 @@ sub retrieve_user ($user_id) {
 		$user_ref = retrieve($user_file);
 	}
 	return $user_ref;
+}
+
+sub is_email_has_off_account ($email) {
+
+	# First, check if the email exists in the users_emails.sto file
+	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+
+	if (defined $emails_ref->{$email}) {
+		my $user_id = $emails_ref->{$email}[0];
+
+		# Next, check if the user file exists and has the 'userid' field
+		my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+		if (-e $user_file) {
+			my $user_ref = retrieve($user_file);
+			return $user_ref->{userid} if defined $user_ref->{userid};
+		}
+	}
+
+	return;    # Email is not associated with an OFF account
+}
+
+sub remove_user_by_org_admin ($orgid, $user_id) {
+	my $groups_ref = ['admins', 'members'];
+	remove_user_from_org($orgid, $user_id, $groups_ref);
+
+	# Reset the 'org' field of the user
+	my $user_ref = retrieve_user($user_id);
+	delete $user_ref->{org};
+	delete $user_ref->{org_id};
+	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+	store($user_file, $user_ref);
+	return;
+}
+
+sub add_users_to_org_by_admin ($org_id, $email_list) {
+
+	my @emails_added;
+	my @emails_invited;
+
+	# Convert the email_list into an array of email addresses
+	my @emails = split(/,\s*/, $email_list);
+
+	foreach my $email (@emails) {
+
+		# Check if the email is associated with an OpenFoodFacts account
+		my $user_id = is_email_has_off_account($email);
+		if (defined $user_id) {
+			# Add the user to the organization
+			add_user_to_org($org_id, $user_id, ["members"]);
+			push @emails_added, $email;
+		}
+		else {
+
+			push @emails_invited, $email;
+
+		}
+	}
+	my $email_ref = {
+		added => \@emails_added,
+		invited => \@emails_invited,
+	};
+	$log->debug("The list of email ids ", {emails_list => $email_ref}) if $log->is_debug();
+
+	return $email_ref;
 }
 
 sub init_user ($request_ref) {

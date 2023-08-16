@@ -1,5 +1,8 @@
 # For reference, please look at https://github.com/actions/labeler
 
+javascript:
+- '**/*.js'
+
 github_actions:
 - .github/**/*
 
@@ -179,6 +182,9 @@ documentation:
 - docs/**/*
 - scripts/generate_perl_html_doc_from_pod.pl
 - po/README.md
+
+openapi:
+- docs/assets/api-rapidoc.html
 
 docker:
 - docker/**/*
@@ -740,6 +746,7 @@ unit tests:
 multilingual products:
 - cgi/product_jqm_multilingual.pl
 - cgi/product_multilingual.pl
+- html/js/product-multilingual.js
 
 file import:
 - cgi/import_file_process.pl

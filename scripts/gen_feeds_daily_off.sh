@@ -4,6 +4,7 @@ cd /srv/off/scripts
 export PERL5LIB="../lib:${PERL5LIB}"
 
 ./remove_empty_products.pl
+./gen_top_tags_per_country.pl
 #./compute_missions.pl
 ./export_database.pl
 ./mongodb_dump.sh /srv2/off/html openfoodfacts 10.0.0.3 off
