@@ -198,7 +198,7 @@ RUN \
 RUN \
     mkdir -p var/run/apache2/ && \
     chown www-data:www-data var/run/apache2/ && \
-    for path in data html_data users products product_images orgs new_images logs tmp build-cache/taxonomies; do \
+    for path in data html_data users products product_images orgs new_images logs tmp build-cache/taxonomies debug; do \
         mkdir -p /mnt/podata/${path}; \
     done && \
     chown www-data:www-data -R /mnt/podata && \
@@ -210,7 +210,7 @@ RUN \
     # Create some necessary files to ensure permissions in volumes
     mkdir -p /opt/product-opener/html/data/ && \
     mkdir -p /opt/product-opener/html/data/taxonomies/ && \
-    mkdir -p /opt/product-opener/html/images/ && \
+    mkdir -p /opt/product-opener/html/images/products && \
     chown www-data:www-data -R /opt/product-opener/html/ && \
     # inter services directories (until we get a real solution)
     for service in obf off opf opff; do \
