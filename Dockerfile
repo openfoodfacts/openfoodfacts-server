@@ -172,7 +172,7 @@ COPY ./cpanfile* /tmp/
 # Add ProductOpener runtime dependencies from cpan
 RUN --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
     cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
-    || ( for f in /root/.cpanm/work/*/build.log;do echo $f"==============";cat $f; done; ) || false
+    || ( for f in /root/.cpanm/work/*/build.log;do echo $f"==============";cat $f; done; false )
 
 ######################
 # backend production image stage
