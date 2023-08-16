@@ -171,6 +171,8 @@ WORKDIR /tmp
 COPY ./cpanfile* /tmp/
 # Add ProductOpener runtime dependencies from cpan
 RUN --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
+    # first install some dependencies that are not well handled
+    cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
     cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
     # in case of errors show build.log, but still, fail
     || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )

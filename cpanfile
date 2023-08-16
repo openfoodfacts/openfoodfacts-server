@@ -93,11 +93,6 @@ requires 'AnyEvent::Inotify::Simple';
 requires 'Apache::Bootstrap';  # needed by Apache2::Connection::XForwardedFor
 requires 'Apache2::Connection::XForwardedFor';
 
-on 'build' => sub {
-  # needed by Apache2::Connection::XForwardedFor but not declared, so we must ensure it's installed first
-  requires 'Apache::Bootstrap';
-};
-
 on 'test' => sub {
   requires 'Test::More', '>= 1.302186, < 2.0';
   requires 'Test::MockModule';
