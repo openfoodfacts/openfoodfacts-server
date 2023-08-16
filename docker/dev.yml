@@ -110,7 +110,6 @@ volumes:
     name: ${PO_COMMON_PREFIX:-}po_export_files
   podata:
   dbdata:
-  build_cache:
 
 networks:
   # this is a specific network to enable pro platform to join the postgres db

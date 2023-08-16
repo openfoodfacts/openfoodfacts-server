@@ -135,3 +135,6 @@ volumes:
   js_dist:
   css_dist:
   node_modules:
+  # build_cache does not needs not be external, for wiping it will avoid keeping too much cached data
+  build_cache:
+  other_servers:
