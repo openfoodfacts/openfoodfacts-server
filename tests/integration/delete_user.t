@@ -62,7 +62,7 @@ my $jobs_ref = get_minion_jobs("delete_user_task", $before_delete_ts, $max_waiti
 
 #checking if there are remaining jobs
 my $count = 0;
-while(my $job = $jobs_ref->next){
+while (my $job = $jobs_ref->next) {
 	$count++;
 }
 is($count, 0, "waiting job is completed");
@@ -107,8 +107,8 @@ like(
 );
 
 #checking if the added product has been anonymized
-my $url_product = construct_test_url("/api/v2/product/2000000000001", "world");
+my $url_product = construct_test_url("/cgi/product.pl?type=edit&code=2000000000001", "world");
 my $response_product = $admin->get($url_product);
-like($response_product->content, qr/"creator":"anonymous/, "the product has been anonymized");
+like($response_product->content, qr/\/editor\/anonymous/, "the product has been anonymized");
 
 done_testing();
