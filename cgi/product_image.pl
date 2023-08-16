@@ -176,7 +176,6 @@ $html .= "<p>" . $tt->error() . "</p>";
 
 $request_ref->{title} = $alt;
 $request_ref->{content_ref} = \$html;
-$request_ref->{full_width} = 0;
 display_page($request_ref);
 
 exit(0);

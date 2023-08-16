@@ -716,7 +716,6 @@ elsif ($action eq 'process') {
 		if ($map_title ne '') {
 			$request_ref->{title} = $map_title . " - " . lang("search_map");
 		}
-		$request_ref->{full_width} = 1;
 
 		${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
@@ -756,7 +755,6 @@ HTML
 		if ($graph_ref->{graph_title} ne '') {
 			$request_ref->{title} = $graph_ref->{graph_title} . " - " . lang("search_graph");
 		}
-		$request_ref->{full_width} = 1;
 
 		${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">

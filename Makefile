@@ -151,18 +151,18 @@ tail:
 	@echo "🥫 Reading logs (Apache2, Nginx) …"
 	tail -f logs/**/*
 
-cover:
-	@echo "🥫 running …"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
-	${DOCKER_COMPOSE_TEST} run --rm -e HARNESS_PERL_SWITCHES="-MDevel::Cover" backend prove -l tests/unit
-	${DOCKER_COMPOSE_TEST} stop
+codecov_prepare:
+	@echo "🥫 Preparing to run code coverage…"
+	mkdir -p cover_db
+	${DOCKER_COMPOSE_TEST} run --rm backend cover -delete
+	mkdir -p cover_db
 
 codecov:
-	@echo "🥫 running …"
+	@echo "🥫 running cover to generate a report usable by codecov …"
 	${DOCKER_COMPOSE_TEST} run --rm backend cover -report codecovbash
 
 coverage_txt:
+	@echo "🥫 running cover to generate text report …"
 	${DOCKER_COMPOSE_TEST} run --rm backend cover
 
 #----------#
@@ -239,10 +239,11 @@ lint: lint_perltidy
 
 tests: build_lang_test unit_test integration_test
 
+# add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
 unit_test:
 	@echo "🥫 Running unit tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
@@ -253,7 +254,7 @@ integration_test:
 # this is the place where variables are important
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
 # note: we need the -T option for ci (non tty environment)
-	${DOCKER_COMPOSE_TEST} exec -T backend prove -l -r tests/integration
+	${DOCKER_COMPOSE_TEST} exec ${COVER_OPTS}  -T backend prove -l -r tests/integration
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 integration tests success"
 
@@ -305,7 +306,7 @@ bash:
 # TO_CHECK look at changed files (compared to main) with extensions .pl, .pm, .t
 # filter out obsolete scripts
 # the ls at the end is to avoid removed files.
-# the first command is to check we have git (to avoid trying to run this line inside the container on check_perl*)
+# the first commad is to check we have git (to avoid trying to run this line inside the container on check_perl*)
 # We have to finally filter out "." as this will the output if we have no file
 TO_CHECK=$(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -v "scripts/obsolete" | xargs ls -d 2>/dev/null | grep -v "^.$$" )
 

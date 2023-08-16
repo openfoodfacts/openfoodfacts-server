@@ -93,6 +93,8 @@ BEGIN {
 
 		&get_code_and_imagefield_from_file_name
 		&get_imagefield_from_string
+		&get_selected_image_uploader
+		&is_protected_image
 		&process_image_upload
 		&process_image_move
 
@@ -140,6 +142,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Text qw/:all/;
+use Data::DeepAccess qw(deep_get);
 
 use IO::Compress::Gzip qw(gzip $GzipError);
 use Log::Any qw($log);
@@ -262,16 +265,18 @@ sub display_select_crop_init ($object_ref) {
 	}
 
 	foreach my $imgid (sort {$object_ref->{images}{$a}{uploaded_t} <=> $object_ref->{images}{$b}{uploaded_t}} @images) {
-		my $admin_fields = '';
-		if ($User{moderator}) {
-			$admin_fields
-				= ", uploader: '"
-				. $object_ref->{images}{$imgid}{uploader}
-				. "', uploaded: '"
-				. display_date($object_ref->{images}{$imgid}{uploaded_t}) . "'";
-		}
+		my $uploader = $object_ref->{images}{$imgid}{uploader};
+		my $uploaded_date = display_date($object_ref->{images}{$imgid}{uploaded_t});
+
 		$images .= <<JS
-{imgid: "$imgid", thumb_url: "$imgid.$thumb_size.jpg", crop_url: "$imgid.$crop_size.jpg", display_url: "$imgid.$display_size.jpg" $admin_fields},
+{
+	imgid: "$imgid",
+	thumb_url: "$imgid.$thumb_size.jpg",
+	crop_url: "$imgid.$crop_size.jpg",
+	display_url: "$imgid.$display_size.jpg",
+	uploader: "$uploader",
+	uploaded: "$uploaded_date",
+},
 JS
 			;
 	}
@@ -599,6 +604,36 @@ sub get_imagefield_from_string ($l, $filename) {
 		if $log->is_debug();
 
 	return $imagefield;
+}
+
+sub get_selected_image_uploader ($product_ref, $imagefield) {
+
+	# Retrieve the product's image data
+	my $imgid = deep_get($product_ref, "images", $imagefield, "imgid");
+
+	# Retrieve the uploader of the image
+	if (defined $imgid) {
+		my $uploader = deep_get($product_ref, "images", $imgid, "uploader");
+		return $uploader;
+	}
+
+	return;
+}
+
+sub is_protected_image ($product_ref, $imagefield) {
+
+	my $selected_uploader = get_selected_image_uploader($product_ref, $imagefield);
+	my $owner = $product_ref->{owner};
+
+	if (    (not $server_options{producers_platform})
+		and (defined $owner)
+		and (defined $selected_uploader)
+		and ($selected_uploader eq $owner))
+	{
+		return 1;    #image should be protected
+	}
+
+	return 0;    # image should not be protected
 }
 
 =head2 process_image_upload ( $product_id, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref )
