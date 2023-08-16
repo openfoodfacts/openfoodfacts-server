@@ -70,6 +70,13 @@ properties:
     type: array
     items:
       type: string
+  ingredients_lc:
+    type: string
+    description: |
+      Language that was used to parse the ingredient list. If `ingredients_text` is available
+      for the product main language (`lang`), `ingredients_lc=lang`, otherwise we look at
+      `ingredients_text` fields for other languages and set `ingredients_lc` to the first
+      non-empty `ingredient_text`. 
   ingredients_text:
     type: string
     description: |
