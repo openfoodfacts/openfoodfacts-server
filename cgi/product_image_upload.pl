@@ -173,7 +173,7 @@ my $product_id = product_id_for_owner($Owner_id, $code);
 
 my $interface_version = '20120622';
 
-# check image directory exists
+# Check that the image directory exists
 ensure_dir_created($BASE_DIRS{PRODUCTS_IMAGES}) or display_error_and_exit("Missing path", 503);
 
 if ($imagefield) {
