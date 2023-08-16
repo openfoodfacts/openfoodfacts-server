@@ -3855,7 +3855,6 @@ sub exists_taxonomy_tag ($tagtype, $tagid) {
 			and not((exists $just_synonyms{$tagtype}) and (exists $just_synonyms{$tagtype}{$tagid})));
 }
 
-
 =head2 cached_display_taxonomy_tag ( $target_lc, $tagtype, $canon_tagid )
 
 Return the name of a tag for displaying it to the user.
@@ -3892,7 +3891,6 @@ sub cached_display_taxonomy_tag ($target_lc, $tagtype, $tag) {
 	$cached_display_taxonomy_tags{$key} = $value;
 	return $value;
 }
-
 
 =head2 display_taxonomy_tag ( $target_lc, $tagtype, $canon_tagid )
 

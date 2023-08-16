@@ -375,8 +375,7 @@ XML
 				}
 				if (defined $taxonomy_fields{$field}) {
 					if (defined $product_ref->{$field . '_tags'}) {
-						$csv
-							.= join(',',
+						$csv .= join(',',
 							map {cached_display_taxonomy_tag($lc, $field, $_)} @{$product_ref->{$field . '_tags'}})
 							. "\t";
 					}
@@ -525,7 +524,7 @@ XML
 	system("(head -1 $csv_filename.temp && (tail -n +2 $csv_filename.temp | sort)) > $csv_filename.temp2");
 	unlink "$csv_filename.temp";
 	my $csv_size_new = (-s "$csv_filename.temp2") // 0;
-    # guard: we replace target file only if it's big enough (to avoid replacing valid export by a broken one)
+	# guard: we replace target file only if it's big enough (to avoid replacing valid export by a broken one)
 	if ($csv_size_new >= $csv_size_old * 0.99) {
 		unlink $csv_filename;
 		rename "$csv_filename.temp2", $csv_filename;
@@ -593,8 +592,5 @@ XML
 	}
 
 }
-
-print "cached_display_taxonomy_tag_calls: $cached_display_taxonomy_tag_calls\n";
-print "cached_display_taxonomy_tag_misses: $cached_display_taxonomy_tag_misses\n";
 
 exit(0);
