@@ -19,7 +19,9 @@ jobs:
           make build_taxonomies  GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
        - uses: actions/checkout@master
        - name: generate coverage results
-         run: make cover
+         run: |
+           mkdir -p cover_db
+           make cover
        - name: generate text file with results
          if: always()
          run: make coverage_txt
