@@ -3181,9 +3181,10 @@ sub analyze_ingredients ($product_ref) {
 					}
 				}
 
-				# Vegetable oil (rapeseed oil, ...) : ignore "from_palm_oil:en:maybe" if the ingredient has sub-ingredients
-				if (    ($property eq "from_palm_oil")
-					and (defined $value)
+				# if the property value is "maybe" and the ingredient has sub-ingredients,
+				# we ignore the ingredient and only look at its sub-ingredients (already added)
+				# e.g. "Vegetable oil (rapeseed oil, ...)""
+				if (    (defined $value)
 					and ($value eq "maybe")
 					and (defined $ingredient_ref->{ingredients}))
 				{
