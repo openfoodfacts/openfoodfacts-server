@@ -53,6 +53,7 @@ BEGIN {
 		&execute_api_tests
 		&wait_server
 		&fake_http_server
+		&get_minion_jobs
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -756,6 +757,48 @@ sub fake_http_server ($port, $dump_path, $responses_ref) {
 		}
 	);
 	return $httpd;
+}
+
+=head2 get_minion_jobs($task_name, $created_after_ts, $max_waiting_time)
+Sub-programme which wait till the minion finished its job or
+if it takes too much time
+
+=head3 Arguments
+
+=head4 $task_name
+The name of the task 
+
+=head4 $created_after_ts
+The timestamp of the creation of the task
+
+=head4 $max_waiting_time
+The max waiting time for this given task
+
+=head3 Returns
+Returns jobs associated with the task_name
+
+=cut
+
+sub get_minion_jobs($task_name, $created_after_ts, $max_waiting_time) {
+	my $waited = 0;    # counting the waiting time
+	my $jobs = get_minion()->jobs({tasks => [$task_name]});
+	my $job_id = 0;    # job id
+	#iterate on job
+	while (my $job = $jobs->next) {
+		#only those who were created after the timestamp
+		if ($job->created > $created_after_ts) {
+			#waiting the job to be done
+			while ($job->state eq "inactive" or $job->state eq "active" or $waited < $max_waiting_time) {
+				sleep(2);
+				$waited++;
+			}
+			#checking if it did not fail
+			is($job->state, "finished");
+			$job_id = $job->id;
+		}
+	}
+	$jobs = get_minion()->jobs({tasks => [$task_name]});
+	return $jobs;
 }
 
 1;
