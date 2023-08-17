@@ -52,12 +52,8 @@ like($response_delete->content, qr/User is being deleted\. This may take a few m
 my $max_time = 400;
 my $jobs_ref = get_minion_jobs("delete_user_task", $before_delete_ts, $max_time);
 
-#checking if there are remaining jobs
-my $count = 0;
-while (my $job = $jobs_ref->next) {
-	$count++;
-}
-is($count, 0, "waiting job is completed");
+is(scalar @{$jobs_ref}, 1, "One delete_user_task was triggered");
+is(@{$jobs_ref}[0]->state, "finished", "delete_user_task finished without errors");
 
 #user sign out of its account
 my %signout_form = (
