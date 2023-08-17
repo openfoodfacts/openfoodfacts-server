@@ -58,6 +58,8 @@ my @products = (
 			origin => "france"
 		)
 	},
+	# Note: the following product will have ingredients set in English (language of the interface)
+	# and not in Spanish (main language of the product)
 	{
 		%{dclone(\%default_product_form)},
 		(

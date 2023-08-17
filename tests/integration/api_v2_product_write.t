@@ -103,6 +103,29 @@ my $tests_ref = [
 		path => '/api/v2/product/1234567890003',
 		expected_status_code => 404,
 	},
+	# Test that we use the language of the interface (lc) for language fields without a language suffix
+	{
+		test_case => 'post-product-ingredients-text-without-language',
+		method => 'POST',
+		path => '/cgi/product_jqm_multilingual.pl',
+		form => {
+			cc => "uk",
+			lc => "en",
+			lang => "fr",
+			code => "1234567890004",
+			product_name => "Some sausages",
+			categories => "Sausages",
+			quantity => "250 g",
+			serving_size => '20 g',
+			ingredients_text => "Pork meat, salt",
+		}
+	},
+	{
+		test_case => 'get-product-ingredients-text-without-language',
+		method => 'GET',
+		path => '/api/v2/product/1234567890004',
+		expected_status_code => 404,
+	},	
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
