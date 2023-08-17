@@ -125,7 +125,7 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/api/v2/product/1234567890004',
 		expected_status_code => 404,
-	},	
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
