@@ -793,7 +793,6 @@ Returns jobs associated with the task_name
 sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 	my $waited = 0;    # counting the waiting time
 	my $jobs = get_minion()->jobs({tasks => [$task_name]});
-	my $job_id = 0;    # job id
 					   #iterate on job
 	while (my $job = $jobs->next) {
 		#only those who were created after the timestamp
@@ -805,7 +804,6 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 			}
 			#checking if it did not fail
 			is($job->state, "finished");
-			$job_id = $job->id;
 		}
 	}
 	$jobs = get_minion()->jobs({tasks => [$task_name]});
