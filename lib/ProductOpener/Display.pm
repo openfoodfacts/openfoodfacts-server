@@ -1401,10 +1401,6 @@ sub display_text ($request_ref) {
 		$request_ref->{canon_url} = "/$textid";
 	}
 
-	if ($textid ne 'index') {
-		$request_ref->{full_width} = 1;
-	}
-
 	display_page($request_ref);
 	exit();
 }
@@ -2440,9 +2436,6 @@ HEADER
 
 	}
 
-	# datatables clears both
-	$request_ref->{full_width} = 1;
-
 	$log->debug("end", {}) if $log->is_debug();
 
 	return $html;
@@ -2745,9 +2738,6 @@ HEADER
 			;
 
 	}
-
-	# datatables clears both
-	$request_ref->{full_width} = 1;
 
 	$log->debug("end", {}) if $log->is_debug();
 
@@ -4490,7 +4480,6 @@ JS
 
 	$request_ref->{content_ref} = \$html;
 	$request_ref->{page_type} = "products";
-	$request_ref->{page_type} = "full_width";
 
 	display_page($request_ref);
 
@@ -7126,11 +7115,6 @@ sub display_page ($request_ref) {
 		if ($img_url !~ /misc/) {
 			$og_images2 = '';
 		}
-	}
-
-	my $main_margin_right = "margin-right:301px;";
-	if ((defined $request_ref->{full_width}) and ($request_ref->{full_width} == 1)) {
-		$main_margin_right = '';
 	}
 
 	my $og_type = 'food';
