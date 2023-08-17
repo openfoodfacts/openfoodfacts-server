@@ -134,6 +134,6 @@ jobs:
         make dev
         make status
     - name: test all is running
-      run: make livecheck
+      run: make livecheck || ( tail -n 300 logs/apache2/*error*log; docker-compose logs; false )
     - name: test clean
       run: make hdown
