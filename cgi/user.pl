@@ -196,9 +196,13 @@ if ($action eq 'display') {
 				},
 				{
 					field => "preferred_language",
+					type => "language",
+					label => "language"
 				},
 				{
 					field => "country",
+					type => "country",
+					label => "country"
 				},
 			]
 			};

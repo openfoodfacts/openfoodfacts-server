@@ -88,6 +88,16 @@
                         [% ELSIF field.type == 'email' %]
                             <label for="[% field.field %]">	[% field.label %]</label>
                             <input type="email" id="[% field.field %]" name="[% field.field %]" value = "[% field.value %]" autocomplete="email"/>
+                        [% ELSIF field.type == 'language' %]
+                            <label for="[% field.field %]">	[% field.label %]</label>
+                            <select name="language" id="language-select">
+                                <option value="">--Please choose an option--</option>
+                            </select>
+                        [% ELSIF field.type == 'country' %]
+                            <label for="[% field.field %]"> [% field.label %]</label>
+                            <select name="country" id="country-select">
+                                <option value="">--Please choose an option--</option>
+                            </select>
                         [% ELSIF field.type == 'checkbox' %]
                             [% IF accepted_organization && section.id == "professional" %]
                                 <p>[% f_lang('f_this_is_a_pro_account_for_org', {'org' => accepted_organization}) %]</p>
@@ -102,7 +112,6 @@
                                 <input type="hidden" name="[% field.field %]" value="[% field.value %]">
                             </label>
                         [% END %]
-
                     [% END %]
                 </div>
                 <!-- show video about account creation beside user form section-->
