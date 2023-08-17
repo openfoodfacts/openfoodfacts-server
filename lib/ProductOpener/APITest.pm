@@ -786,7 +786,7 @@ The timestamp of the creation of the task
 The max waiting time for this given task
 
 =head3 Returns
-Returns jobs associated with the task_name
+Returns a list of jobs associated with the task_name
 
 =cut
 
