@@ -24,14 +24,6 @@ create_user($admin, \%admin_user_form);
 #common ua add a new product then delete the account while being still logged in
 edit_product($ua, \%default_product);
 
-my @words = (
-	"User is being deleted. This may take a few minutes.",
-	"See you soon!",
-	"Invalid user.",
-	"Unknown user.",
-	"Incorrect user name or password.",
-	"/editor/anonymous"
-);
 my $url_userid = construct_test_url("/cgi/user.pl?type=edit&userid=tests", "world");
 my $url_delete = construct_test_url("/cgi/user.pl", "world");
 my $response_edit = $ua->get($url_userid);
