@@ -1236,10 +1236,11 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 
 sub remove_nutriscore_fields ($product_ref) {
 
-	# remove reference type fields from the product
+	# remove direct fields from the product
 	remove_fields(
 		$product_ref,
 		[
+			"nutriscore",
 			"nutrition_score_warning_no_fiber",
 			"nutrition_score_warning_fruits_vegetables_nuts_estimate",
 			"nutrition_score_warning_fruits_vegetables_nuts_from_category",
@@ -1254,11 +1255,14 @@ sub remove_nutriscore_fields ($product_ref) {
 			"nutriscore_points",
 			"nutrition_grade_fr",
 			"nutrition_grades",
-			"nutrition_grades_tags"
+			"nutrition_grades_tags",
+			"nutriscore_tags",
+			"nutriscore_2021_tags",
+			"nutriscore_2023_tags",
 		]
 	);
 
-	# strip score-type fields from the product
+	# strip nutriments / score-type fields from the product
 	remove_fields(
 		$product_ref->{nutriments},
 		[
@@ -1473,6 +1477,88 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 	return ($nutrients_available, $prepared, $nutriments_field);
 }
 
+=head2 set_fields_for_current_version_of_nutriscore($product_ref, $current_version, $nutriscore_score, $nutriscore_grade)
+
+We may compute several versions of the Nutri-Score grade and score. One version is considered "current".
+This function sets the product fields for the current version.
+
+=cut
+
+sub set_fields_for_current_version_of_nutriscore ($product_ref, $version, $nutriscore_score, $nutriscore_grade) {
+
+	# Record which version is the current version
+	$product_ref->{nutriscore_version} = $version;
+
+	# Copy the Nutriscore data to nutriscore_data
+	# to easily see diffs with previous Nutri-Score structure
+	# (to be deleted once we are sure everything works,
+	# we will generate the nutriscore_data fields on request
+	# when asked through the API with an old API version)
+	$product_ref->{nutriscore_data} = dclone($product_ref->{nutriscore}{$version}{data});
+
+	# Copy the resulting values to the main Nutri-Score fields
+	$product_ref->{nutriscore_score} = $nutriscore_score;
+	$product_ref->{nutriscore_grade} = $nutriscore_grade;
+
+	$product_ref->{"nutrition_grades_tags"} = [$nutriscore_grade];
+	$product_ref->{"nutrition_grades"} = $nutriscore_grade;    # needed for the /nutrition-grade/unknown query
+															   # (TODO at some point: remove the nutrition_grades field)
+
+	# Gradually rename nutrition_grades_tags to nutriscore_tags
+	$product_ref->{"nutriscore_tags"} = [$nutriscore_grade];
+
+	# Fields used to display the Nutri-Score score inside nutrition facts table
+	# and to compute averages etc. for categories
+	$product_ref->{nutriments}{"nutrition-score-fr_100g"} = $nutriscore_score;
+	$product_ref->{nutriments}{"nutrition-score-fr"} = $nutriscore_score;
+
+	# Legacy field, to be removed from the product and returned by the API on request / for older versions
+	$product_ref->{"nutrition_grade_fr"} = $nutriscore_grade;
+
+	# In order to be able to sort by nutrition score in MongoDB,
+	# we create an opposite of the nutrition score
+	# as otherwise, in ascending order on nutriscore_score, we first get products without the nutriscore_score field
+	# instead we can sort on descending order on nutriscore_score_opposite
+	$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;
+
+	return;
+}
+
+=head2 set_fields_comparing_nutriscore_versions($product_ref, $version1, $version2)
+
+When we are migrating from one version of the Nutri-Score to another (e.g. 2021 vs 2023),
+we may compute both version for a time. This function sets temporary fields to ease the comparison
+of both versions.
+
+Once the migration is complete, those fields will no longer be computed.
+
+=cut
+
+sub set_fields_comparing_nutriscore_versions ($product_ref, $version1, $version2) {
+
+	my $nutriscore1 = $product_ref->{nutriscore}{$version1}{grade};
+	my $nutriscore2 = $product_ref->{nutriscore}{$version2}{grade};
+
+	# Set tags fields for both versions
+	$product_ref->{"nutriscore_${version1}_tags"} = [$nutriscore1];
+	$product_ref->{"nutriscore_${version2}_tags"} = [$nutriscore2];
+
+	# Compare both versions
+	if ($nutriscore1 eq $nutriscore2) {
+		push @{$product_ref->{misc_tags}}, "en:nutriscore-$version1-same-as-$version2";
+	}
+	elsif ($nutriscore1 lt $nutriscore2) {
+		push @{$product_ref->{misc_tags}}, "en:nutriscore-$version1-better-than-$version2";
+	}
+	else {
+		push @{$product_ref->{misc_tags}}, "en:nutriscore-$version1-worse-than-$version2";
+	}
+
+	push @{$product_ref->{misc_tags}}, "en:nutriscore-$version1-$nutriscore1-$version2-$nutriscore2";
+
+	return;
+}
+
 =head2 compute_nutriscore( $product_ref )
 
 Determines if we have enough data to compute the Nutri-Score (category + nutrition facts),
@@ -1519,34 +1605,9 @@ sub compute_nutriscore ($product_ref, $current_version = "2021") {
 
 			# Populate the Nutri-Score fields for the current version
 			if ($version eq $current_version) {
-				# Record which version is the current version
-				$product_ref->{nutriscore_version} = $version;
 
-				# Copy the Nutriscore data to nutriscore_data
-				# to easily see diffs with previous Nutri-Score structure
-				# (to be deleted once we are sure everything works,
-				# we will generate the nutriscore_data fields on request
-				# when asked through the API with an old API version)
-				$product_ref->{nutriscore_data} = dclone($product_ref->{nutriscore}{$version}{data});
-
-				# Copy the resulting values to the main Nutri-Score fields
-				$product_ref->{nutriscore_score} = $nutriscore_score;
-				$product_ref->{nutriscore_grade} = $nutriscore_grade;
-
-				$product_ref->{nutriments}{"nutrition-score-fr_100g"} = $nutriscore_score;
-				$product_ref->{nutriments}{"nutrition-score-fr"} = $nutriscore_score;
-
-				$product_ref->{"nutrition_grade_fr"} = $nutriscore_grade;
-
-				$product_ref->{"nutrition_grades_tags"} = [$product_ref->{"nutrition_grade_fr"}];
-				$product_ref->{"nutrition_grades"}
-					= $product_ref->{"nutrition_grade_fr"};    # needed for the /nutrition-grade/unknown query
-
-				# In order to be able to sort by nutrition score in MongoDB,
-				# we create an opposite of the nutrition score
-				# as otherwise, in ascending order on nutriscore_score, we first get products without the nutriscore_score field
-				# instead we can sort on descending order on nutriscore_score_opposite
-				$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;
+				set_fields_for_current_version_of_nutriscore($product_ref, $current_version, $nutriscore_score,
+					$nutriscore_grade);
 			}
 
 			# Move the resulting score and grade up one level, to make them stand out
@@ -1555,6 +1616,10 @@ sub compute_nutriscore ($product_ref, $current_version = "2021") {
 			delete $product_ref->{nutriscore}{$version}{data}{grade};
 			delete $product_ref->{nutriscore}{$version}{data}{score};
 		}
+
+		# 2023/08/17: as we are migrating from one version of the Nutri-Score to another, we set temporary fields
+		# to compare both versions.
+		set_fields_comparing_nutriscore_versions($product_ref, "2021", "2023");
 	}
 
 	return;

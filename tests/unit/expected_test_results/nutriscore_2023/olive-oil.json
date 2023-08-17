@@ -47,7 +47,9 @@
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-nuts-from-category",
       "en:nutrition-fruits-vegetables-nuts-from-category-en-olive-oils",
-      "en:nutrition-all-nutriscore-values-known"
+      "en:nutrition-all-nutriscore-values-known",
+      "en:nutriscore-2021-worse-than-2023",
+      "en:nutriscore-2021-c-2023-b"
    ],
    "nutriments" : {
       "energy_100g" : 3460,
@@ -133,6 +135,12 @@
          "score" : -4
       }
    },
+   "nutriscore_2021_tags" : [
+      "c"
+   ],
+   "nutriscore_2023_tags" : [
+      "b"
+   ],
    "nutriscore_data" : {
       "energy" : 3460,
       "energy_from_saturated_fat" : 5.18,
@@ -164,6 +172,9 @@
    "nutriscore_grade" : "b",
    "nutriscore_score" : -4,
    "nutriscore_score_opposite" : 4,
+   "nutriscore_tags" : [
+      "b"
+   ],
    "nutriscore_version" : "2023",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",

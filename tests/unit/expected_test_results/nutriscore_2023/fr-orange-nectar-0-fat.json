@@ -136,7 +136,9 @@
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
-      "en:nutrition-all-nutriscore-values-known"
+      "en:nutrition-all-nutriscore-values-known",
+      "en:nutriscore-2021-same-as-2023",
+      "en:nutriscore-2021-e-2023-e"
    ],
    "nutriments" : {
       "energy_100g" : 250,
@@ -224,6 +226,12 @@
          "score" : 13
       }
    },
+   "nutriscore_2021_tags" : [
+      "e"
+   ],
+   "nutriscore_2023_tags" : [
+      "e"
+   ],
    "nutriscore_data" : {
       "energy" : 250,
       "energy_from_saturated_fat" : 0,
@@ -256,6 +264,9 @@
    "nutriscore_grade" : "e",
    "nutriscore_score" : 13,
    "nutriscore_score_opposite" : -13,
+   "nutriscore_tags" : [
+      "e"
+   ],
    "nutriscore_version" : "2023",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",

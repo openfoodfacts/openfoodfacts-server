@@ -45,7 +45,9 @@
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutrition-no-fruits-vegetables-nuts",
-      "en:nutrition-no-fiber-or-fruits-vegetables-nuts"
+      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+      "en:nutriscore-2021-worse-than-2023",
+      "en:nutriscore-2021-d-2023-b"
    ],
    "nutriments" : {
       "energy_100g" : 3378,
@@ -131,6 +133,12 @@
          "score" : 1
       }
    },
+   "nutriscore_2021_tags" : [
+      "d"
+   ],
+   "nutriscore_2023_tags" : [
+      "b"
+   ],
    "nutriscore_data" : {
       "energy" : 3378,
       "energy_points" : 10,
@@ -168,6 +176,9 @@
    "nutriscore_grade" : "d",
    "nutriscore_score" : 11,
    "nutriscore_score_opposite" : -11,
+   "nutriscore_tags" : [
+      "d"
+   ],
    "nutriscore_version" : "2021",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
