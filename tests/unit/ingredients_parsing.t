@@ -588,6 +588,12 @@ my @lists = (
 		"tłuszcze roślinne kokosowy, tłuszcze roślinne palmowy"
 	],
 
+	# Polish meats
+	["pl", "mięso (wołowe, wieprzowe, cielęce)", "mięso wołowe, mięso wieprzowe, mięso cielęce"],
+
+	# Polish juices and concentrates
+	["pl", "przeciery z (jabłek, bananów, marchwi)", "przeciery z jabłek, przeciery z bananów, przeciery z marchwi"],
+
 	# Russian oils (more tests needed)
 	["ru", "масло (Подсолнечное)", "масло Подсолнечное"],
 	["ru", "Масло (подсолнечное)", "Масло подсолнечное"],

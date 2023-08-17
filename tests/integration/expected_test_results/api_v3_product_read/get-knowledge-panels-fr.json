@@ -58,7 +58,7 @@
                            "values" : [
                               {
                                  "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-                                 "text" : "Conditionnement"
+                                 "text" : "Emballage"
                               },
                               {
                                  "percent" : 3.820792696782,
@@ -248,7 +248,7 @@
                            "values" : [
                               {
                                  "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-                                 "text" : "Conditionnement"
+                                 "text" : "Emballage"
                               },
                               {
                                  "percent" : 3.1173493176578,
@@ -534,7 +534,7 @@
                      "panel_ids" : [
                         "packaging_recycling"
                      ],
-                     "title" : "Conditionnement"
+                     "title" : "Emballage"
                   }
                },
                {
@@ -1199,14 +1199,14 @@
                            ]
                         }
                      ],
-                     "title" : "Matières d'emballage"
+                     "title" : "Matériaux d'emballage"
                   }
                }
             ],
             "expanded" : true,
             "level" : "info",
             "title_element" : {
-               "title" : "Matières d'emballage"
+               "title" : "Matériaux d'emballage"
             },
             "topics" : [
                "environment"

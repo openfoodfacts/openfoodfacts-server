@@ -22,6 +22,8 @@ my @tests = (
 			cc => "world",
 			lc => "en",
 			original_query_string => 'api/v0/attribute_groups',
+			no_index => '0',
+			is_crawl_bot => '1'
 		},
 		expected_output_request => {
 			'api' => 'v0',
@@ -33,7 +35,8 @@ my @tests = (
 			'original_query_string' => 'api/v0/attribute_groups',
 			'page' => 1,
 			'query_string' => 'api/v0/attribute_groups',
-			'no_index' => '0'
+			'no_index' => '0',
+			'is_crawl_bot' => '1'
 		},
 	},
 	{
@@ -43,6 +46,8 @@ my @tests = (
 			cc => "world",
 			lc => "en",
 			original_query_string => 'category/breads/no-nutrition-data',
+			no_index => '0',
+			is_crawl_bot => '0'
 		},
 		expected_output_request => {
 			'api' => 'v0',
@@ -58,7 +63,8 @@ my @tests = (
 			'tag_prefix' => '',
 			'tagid' => 'en:breads',
 			'tagtype' => 'categories',
-			'no_index' => '0'
+			'no_index' => '0',
+			'is_crawl_bot' => '0'
 		},
 	},
 	{
@@ -68,6 +74,8 @@ my @tests = (
 			cc => "world",
 			lc => "en",
 			original_query_string => 'category/breads',
+			no_index => '0',
+			is_crawl_bot => '1'
 		},
 		expected_output_request => {
 			'api' => 'v0',
@@ -81,7 +89,8 @@ my @tests = (
 			'tag_prefix' => '',
 			'tagid' => 'en:breads',
 			'tagtype' => 'categories',
-			'no_index' => '0'
+			'no_index' => '0',
+			'is_crawl_bot' => '1'
 		},
 	},
 	{
@@ -91,6 +100,8 @@ my @tests = (
 			cc => "world",
 			lc => "en",
 			original_query_string => 'category/breads/4',
+			no_index => '0',
+			is_crawl_bot => '1'
 		},
 		expected_output_request => {
 			'api' => 'v0',
@@ -104,7 +115,8 @@ my @tests = (
 			'tag_prefix' => '',
 			'tagid' => 'en:breads',
 			'tagtype' => 'categories',
-			'no_index' => '0'
+			'no_index' => '1',
+			'is_crawl_bot' => '1'
 		},
 	},
 	{
@@ -114,6 +126,8 @@ my @tests = (
 			cc => "world",
 			lc => "en",
 			original_query_string => 'category/bread/4',
+			no_index => '0',
+			is_crawl_bot => '0'
 		},
 		expected_output_request => {
 			'api' => 'v0',
@@ -127,7 +141,8 @@ my @tests = (
 			'tag_prefix' => '',
 			'tagid' => 'en:bread',
 			'tagtype' => 'categories',
-			'no_index' => '0'
+			'no_index' => '0',
+			'is_crawl_bot' => '0'
 		},
 	},
 

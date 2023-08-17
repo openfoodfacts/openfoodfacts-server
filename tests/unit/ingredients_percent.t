@@ -1064,6 +1064,48 @@ my @tests = (
 
 	],
 
+	# Trigger illegal division by zero - https://github.com/openfoodfacts/openfoodfacts-server/issues/8782
+	[
+		{
+			lc => "fr",
+			ingredients_text => 'légumes 0% (épices et aromates (contient oignon et safran &lt;0.1%), sel)',
+		},
+		[
+			{
+				'id' => 'en:vegetable',
+				'ingredients' => [
+					{
+						'id' => 'en:herbs-and-spices',
+						'ingredients' => [
+							{
+								'id' => 'en:onion',
+								'percent_estimate' => 25,
+								'text' => 'contient oignon'
+							},
+							{
+								'id' => 'en:e164',
+								'percent' => '0.1',
+								'percent_estimate' => 25,
+								'text' => 'safran'
+							}
+						],
+						'percent_estimate' => 50,
+						'text' => "\x{e9}pices et aromates"
+					},
+					{
+						'id' => 'en:salt',
+						'percent_estimate' => 50,
+						'text' => 'sel'
+					}
+				],
+				'percent' => 0,
+				'percent_estimate' => 100,
+				'text' => "l\x{e9}gumes"
+			}
+		]
+
+	]
+
 );
 
 foreach my $test_ref (@tests) {
