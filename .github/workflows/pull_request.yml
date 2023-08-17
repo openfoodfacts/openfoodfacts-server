@@ -9,6 +9,9 @@ on:
     #   - ".github/CODEOWNERS"
     #   - ".github/PULL_REQUEST_TEMPLATE.md"
     #   - ".editorconfig"
+  push:
+    branches:
+    - main
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -33,6 +36,7 @@ jobs:
   lint:
     name: NPM lint
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
     steps:
     - uses: actions/checkout@v3
       with:
@@ -70,6 +74,7 @@ jobs:
     name: Check perl
     needs: build_backend
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
     steps:
     - uses: actions/checkout@v3
       with:
@@ -116,10 +121,10 @@ jobs:
       with:
         files: cover_db/codecov.json
 
-
   tests_dev:
     name: Test make dev
     needs: build_backend  # only to avoid building taxonomies
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
