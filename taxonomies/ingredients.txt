@@ -183,8 +183,6 @@ hu:tejkaramella
 it:caramello al latte
 
 
-
-
 <en:E150
 en:caramel powder
 bg:карамел на прах
@@ -1190,9 +1188,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium_bifidum
 
 <en:bifidus
 en:Bifidobacterium lactis, Bifidobacterium animalis, B. lactis, B. animalis
-xx:Bifidobacterium lactis, b. lactis
+xx:Bifidobacterium lactis, B. lactis
 hr:bifidobacterium animalis BB-12
 es:Bifidobacterium lactis, Bifidobacterium animalis sp lactis
+sv:Bifidobacterium lactis
 wikidata:en:Q62854400
 wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium_animalis
 
@@ -1313,6 +1312,7 @@ bg:Лактобацилус булгарикус, Lactobacillus bulgaricus, Lact
 es:lactobacilus delbrueckii sp Bulgaricus, Lactobacillus delbrueckii subspecies bulgaricus
 fr:L bulgaricus, bulgaricus
 xx:Lactobacillus bulgaricus, L. bulgaricus
+sv:Lactobacillus bulgaricus, L. bulgaricus
 wikidata:en:Q47455075
 wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_delbrueckii_subsp._bulgaricus
 # ingredient/Lactobacillus-bulgaricus has 157 products in 13 languages @2019-07-08
@@ -1422,6 +1422,7 @@ es:Streptococcus thermophilus, thermophilus
 it:streptococcus thermophilius, s. thermophilus, thermophilus
 ja:サーモフィラス菌
 pl:streptococcus thermophilus, Streptococcus salivarius ssp. thermophilus
+sv:Streptococcus thermophilus, s. thermophilus
 zh:嗜热链球菌
 # zh-hans:嗜熱鏈球菌
 # zh-tw:嗜熱性鏈球菌
@@ -4641,7 +4642,7 @@ nb:mysepulver, mysepulver av melk
 nl:weipoeder, wei poeder, wei-poeder
 pl:Serwatka w proszku, preparat serwatkowy
 pt:soro de leite em pó, lactossoro em pó, lacto-soro em pó, lactosoro em pó
-ro:produs din zer praf
+ro:zer praf, produs din zer praf, derivat din zer pudră
 ru:сухая молочная сыворотка, сыворотка молочная сухая, сыворотка сухая молочная
 sk:sušená srvátka
 sq:hirre pluhur
@@ -10494,6 +10495,7 @@ ja:牛肉
 nb:kjøtt av storfe
 nl:Rundvlees
 pl:Mięso wołowe
+ro:carne de vită, carne de vita
 tr:Sığır eti
 zh:牛肉
 carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
@@ -15435,6 +15437,7 @@ hu:részben hidrogénezett pálmaolaj, részlegesen hidrogénezett pálmaolaj
 it:Olio di palma parzialmente idrogenato
 nl:gedeeltelijk geharde palmolie
 pl:częściowo utwardzony olej palmowy, olej roślinny palmowy częściowo utwardzony
+ro:ulei de palmier parţial hidrogenat
 
 # description:en:PALM KERNEL OIL is an edible plant oil derived from the kernel of the oil palm Elaeis guineensis. It should not be confused with the other two edible oils derived from palm fruits:palm oil, extracted from the pulp of the oil palm fruit, and coconut oil, extracted from the kernel of the coconut.
 
@@ -16692,6 +16695,7 @@ en:shea oil
 de:Sheaöl
 hr:shea ulje
 pl:olej shea, olej roślinny shea
+ro:ulei de shea
 sv:sheaolja
 
 description:en:ILLIPE butter is a vegetable fat from the nut of the Shorea stenoptera tree.
@@ -17525,7 +17529,7 @@ pa:ਸਿਰਕਾ
 pl:ocet, octu, octowy, octowa, octowe, octowej, octowego, octowych
 pt:vinagre
 qu:mama aqha
-ro:oțet
+ro:oțet, otet
 ru:уксус, уксусная кислота, уксус натуральный, уксус столовый, уксусная кислота пищевая, уксус пищевой, кислота уксусная
 rw:vinegre
 sh:sirće, ocat
@@ -17680,7 +17684,7 @@ sv:ättiksprit
 <en:vinegar powder
 en:alcohol vinegar powder
 fr:poudre de vinaigre d'alcool
-ro:ţet praf din alcool
+ro:oţet praf din alcool, otet praf din alcool
 
 <en:alcohol vinegar
 es:vinagre de alcohol de caña
@@ -20853,6 +20857,7 @@ lt:vanilės kvapioji medžiaga
 nl:vanillearoma, vanille aroma
 pl:Aromat waniliowy
 pt:aroma baunilha
+ro:aromă de vanilie
 ru:ароматизатор идентичный натуральному-ванилин
 sv:vaniljarom
 
@@ -20876,6 +20881,7 @@ nb:naturlig vanilijarom
 nl:natuurlijk vanillearoma, natuurlijk vanille aroma, natuurlijke vanille aroma
 pl:naturalny aromat wanilii, naturalny aromat waniliowy
 pt:aroma de baunilha natural, aromatizante de baunilha natural, aroma natural de baunilha
+ro:aromă naturală de vanilie, aromă de vanilie naturală
 sv:naturlig vaniljarom, naturlig vanilijarom
 vegan:en:yes
 vegetarian:en:yes
@@ -22385,7 +22391,7 @@ lt:kviečių ląsteliena, kviečių skaidulos
 nl:tarwevezel, tarwevezels
 pl:błonnik pszenny, błonnik pszeniczny
 pt:fibras de trigo
-ro:fibră de grâu
+ro:fibră de grâu,  fibre de grâu
 ru:Пшеничные волокна, пищевые волокна пшеничные
 sv:vetefiber, Vete fiber
 tr:buğday lifi
@@ -31602,7 +31608,7 @@ nb:fett redusert kakaopulver
 nl:magere cacaopoeder, magere cacao poeder, cacaopoeder met verminderd vetgehalte
 pl:niskotłuszczowe kakao w proszku, kakao w proszku o obniżonej zawartości tłuszczu
 pt:cacau magro em pó
-ro:cacao pudra degresata
+ro:cacao pudra degresata, pudră de cacao cu conţinut redus de grăsime
 ru:какао порошок с пониженным содержанием жира
 sk:kakaový prášok so zníženým množstvom tuku
 sv:fettreducerat kakaopulver, fettreducerad kakaopulver, skummet kakaopulver, fettreduserat kakaopulver, avfettat kakaopulver, fettfattigt kakaopulver
@@ -47509,7 +47515,7 @@ oc:jolverd
 os:басгæрдæг
 pl:pietruszka, pietruszki, pietruszkowa, pietruszkowe, pietruszkowy
 pt:salsa
-ro:pătrunjel
+ro:pătrunjel,patrunjel
 ru:петрушка кудрявая, петрушка, зелень петрушки
 sc:pedrusìmula
 sd:پارسلي
@@ -60039,7 +60045,7 @@ nb:sesamfrø
 nl:sesamzaad, sesam zaden, sesamzaden
 pl:nasiona sezamu, ziarno sezamu, ziarna sezamu
 pt:sementes de sésamo, sementes de sésam
-ro:semințe de susan
+ro:semințe de susan, seminte de susan
 sk:sezamové semeno
 sl:sezamovo seme
 sv:sesamfrön, sesamfrö
@@ -61624,7 +61630,7 @@ pa:ਲੌਂਗ
 pl:goździki, goździk, goździkowy, goździkowe, goździkowa, goździków
 ps:لونګ
 pt:cravo-da-índia
-ro:cuișoare
+ro:cuișoare, cuisoare
 ru:гвоздика
 sa:लवङ्गम्
 sh:klinčić
@@ -62095,8 +62101,7 @@ hr:griffonia, griffonia simplicifolia
 wikidata:en:Q1941426
 
 #category/mustards
-<en:spice
-# <en:flavour
+#<en:compound
 en:mustard
 ar:صلصة الخردل
 be:Гарчыца
@@ -62150,7 +62155,7 @@ pa:ਸਰੋਂ
 pl:Musztarda
 pt:mostarda
 qu:Mustasa
-ro:muștar, muştar
+ro:muștar, muştar, mustar
 ru:горчица, горчицы
 sh:Senf
 sk:Horčica
@@ -62204,6 +62209,7 @@ fr:Moutarde anglaise
 nl:Engelse mosterd
 
 # <en:seed
+<en:spice
 <en:mustard
 en:mustard seed
 bg:синапено семе, синапени семена
@@ -62224,7 +62230,7 @@ nl:mosterdzaad, mosterdzaden
 nn:sennepsfrø
 pl:ziarno gorczycy, ziarna gorczycy, gorczyca, gorczycy, gorczycę, nasiona gorczycy, gorczycę
 pt:Semente de mostarda
-ro:boabe de muștar
+ro:boabe de muștar, boabe de mustar
 ru:горчичное зерно
 sl:gorčično seme
 sr:seme slačice
@@ -78963,6 +78969,7 @@ nl:gebrande koffiebonen
 #nl:koffie-extract
 #pl:ekstrakt kawy
 #pt:extrato de café
+#ro:extract din cafea
 #sv:kaffeextrakt
 # ingredient/fr:extrait-de-café has 279 products in 5 languages @2018-11-30
 
@@ -86577,7 +86584,7 @@ oc:Maionesa
 pa:ਮਾਇਓਨੇਜ਼
 pl:majonez, sos majonezowy, majonezowy
 pt:maionese
-ro:maioneză
+ro:maioneză, maioneza, sos de maioneză
 ru:майонез
 se:Majoneasa
 sh:Majoneza
