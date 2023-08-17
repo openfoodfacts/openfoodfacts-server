@@ -3859,7 +3859,7 @@ sub exists_taxonomy_tag ($tagtype, $tagid) {
 
 Return the name of a tag for displaying it to the user.
 This function builds a cache of the resulting names, in order to reduce execution time.
-The cache is an evergrowing hash of input parameters.
+The cache is an ever-growing hash of input parameters.
 This function should only be used in batch scripts, and not in code called from the Apache mod_perl processes.
 
 =head3 Arguments
