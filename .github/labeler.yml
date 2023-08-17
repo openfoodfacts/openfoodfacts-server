@@ -1,5 +1,8 @@
 # For reference, please look at https://github.com/actions/labeler
 
+javascript:
+- '**/*.js'
+
 github_actions:
 - .github/**/*
 
@@ -14,6 +17,10 @@ mongodb:
 - scripts/checkmongodb.pl
 - scripts/update_all_products_from_dir_in_mongodb.pl
 - scripts/update_all_products_revisions_from_dir_in_mongodb.pl
+
+stores:
+- taxonomies/unused/stores.txt
+- scripts/tag_stores_magasins_u.pl
 
 tagline:
 - html/files/app/tagline/tagline-off-ios.json
@@ -743,6 +750,7 @@ unit tests:
 multilingual products:
 - cgi/product_jqm_multilingual.pl
 - cgi/product_multilingual.pl
+- html/js/product-multilingual.js
 
 file import:
 - cgi/import_file_process.pl

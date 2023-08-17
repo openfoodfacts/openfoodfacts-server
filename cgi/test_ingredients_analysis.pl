@@ -80,14 +80,10 @@ if ($action eq 'process') {
 	$template_data_ref->{html_details} = $html_details;
 	$template_data_ref->{display_ingredients_analysis} = display_ingredients_analysis($product_ref);
 	$template_data_ref->{product_ref} = $product_ref;
+	$template_data_ref->{preparsed_ingredients_text} = preparse_ingredients_text($lc, $ingredients_text);
 
 	my $json = JSON::PP->new->pretty->encode($product_ref->{ingredients});
 	$template_data_ref->{json} = $json;
-}
-
-my $full_width = 1;
-if ($action ne 'display') {
-	$full_width = 0;
 }
 
 process_template('web/pages/test_ingredients/test_ingredients_analysis.tt.html', $template_data_ref, \$html)
@@ -95,5 +91,4 @@ process_template('web/pages/test_ingredients/test_ingredients_analysis.tt.html',
 
 $request_ref->{title} = "Ingredients analysis test";
 $request_ref->{content_ref} = \$html;
-$request_ref->{full_width} = $full_width;
 display_page($request_ref);
