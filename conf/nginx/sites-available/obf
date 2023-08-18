@@ -101,10 +101,6 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
-	location = /robots.txt {
-		try_files $uri $uri/ =404;
-	}
-
 	location / {
 		proxy_set_header Host $host;
 		proxy_set_header X-Real-IP $remote_addr;
