@@ -95,8 +95,8 @@ my @products = (
 			countries => "United Kingdom, Ireland",
 			categories => "breakfast cereals"
 		)
-	}	
-	# 
+	}
+	#
 );
 
 foreach my $product_ref (@products) {
