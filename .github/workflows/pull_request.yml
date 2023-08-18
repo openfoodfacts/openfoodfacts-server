@@ -34,7 +34,7 @@ jobs:
       run: exit 0
 
   lint:
-    name: NPM lint
+    name: 🕵️‍♀️ NPM lint
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
     steps:
@@ -51,7 +51,7 @@ jobs:
 
   # this will build the docker image and upload as an artifact for following jobs
   build_backend:
-    name: Build backend dev image for tests
+    name: 🏗 Build backend dev image for tests
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -63,7 +63,7 @@ jobs:
       uses: ishworkh/docker-image-artifact-upload@v1
       with:
         image: "openfoodfacts-server/backend:dev"
-    - name: rebuild taxonomies
+    - name: Rebuild taxonomies
       # here we first restore dates from git for taxonomies to avoid build them all
       # see https://stackoverflow.com/a/60984318/2886726
       run: |
@@ -71,7 +71,7 @@ jobs:
         make build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
 
   check_perl:
-    name: Check perl
+    name: 🐪 Check Perl
     needs: build_backend
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
@@ -95,7 +95,7 @@ jobs:
       run: make check_perl
 
   tests:
-    name: Perl unit tests
+    name: 🐪 Perl unit tests
     needs: build_backend
     runs-on: ubuntu-latest
     steps:
@@ -122,7 +122,7 @@ jobs:
         files: cover_db/codecov.json
 
   tests_dev:
-    name: Test make dev
+    name: 🧪 Test make dev
     needs: build_backend  # only to avoid building taxonomies
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
@@ -138,7 +138,7 @@ jobs:
       run: |
         make dev
         make status
-    - name: test all is running
+    - name: Test all is running
       run: make livecheck
     - name: test clean
       run: make hdown
