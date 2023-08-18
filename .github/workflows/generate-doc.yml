@@ -1,4 +1,4 @@
-name: Documentation
+name: 📖 Documentation
 
 on:
   pull_request:
@@ -27,7 +27,7 @@ jobs:
           scripts/build_mkdocs.sh
 
       # generating perl documentation
-      - name: Install Perl requirements
+      - name: 🐪 Install Perl requirements
         run: |
           sudo apt-get update
           sudo apt-get install perl perl-doc cpanminus libmodern-perl-perl
