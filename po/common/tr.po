@@ -1468,7 +1468,7 @@ msgstr "Beslenme bilgisinin bulunduğu %s kategorisinin %d ürünleri için orta
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr ""
+msgstr "% fark"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
@@ -2650,7 +2650,7 @@ msgstr ""
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "Uyarı: Meyve, sebze ve kuruyemiş miktarı etikette belirtilmemiştir, içindekiler listesinden tahmin edilmiştir: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -4415,7 +4415,7 @@ msgstr ""
 
 msgctxt "nutriscore_score_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score score based on the information provided (nutrition facts and category). If the score we compute is different from the score you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr ""
+msgstr "Open Food Facts, sağlanan bilgilere (beslenme gerçekleri ve kategori) dayalı olarak Nutri-Score puanını hesaplar. Hesapladığımız puan sizin verdiğiniz puandan farklıysa, farkın giderilebilmesi için yapımcılar platformunda özel bir bildirim alırsınız."
 
 msgctxt "mandatory_field"
 msgid "Mandatory field"
@@ -5110,7 +5110,7 @@ msgstr "m² başına kg soya"
 
 msgctxt "percent_in_product"
 msgid "% in product"
-msgstr ""
+msgstr "üründe %"
 
 msgctxt "forest_footprint_calculation_details"
 msgid "Details of the calculation of the forest footprint"
@@ -5270,7 +5270,7 @@ msgstr "Vizyon, Misyon, Değerler ve Programlar"
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -5376,7 +5376,7 @@ msgstr "Başarısız oldu"
 # Export: use a noun and not a verb
 msgctxt "export_job_export"
 msgid "Export from the producers platform"
-msgstr ""
+msgstr "Üreticiler platformundan ihracat"
 
 # Import: use a noun and not a verb
 msgctxt "export_job_import"
@@ -5465,7 +5465,7 @@ msgstr "Eksik bilgileri eklemek için ürünü düzenleyebilirsiniz."
 
 msgctxt "ecoscore_product_category_reference_score"
 msgid "Baseline score of the product category"
-msgstr ""
+msgstr "Ürün kategorisinin temel puanı"
 
 msgctxt "ecoscore_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
@@ -5539,7 +5539,7 @@ msgstr ""
 
 msgctxt "ecoscore_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
-msgstr ""
+msgstr "Daha ayrıntılı bir kategori eklemek için ürün sayfasını değiştirebilirsiniz."
 
 msgctxt "ecoscore_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
@@ -5607,7 +5607,7 @@ msgstr "Tüm bileşenlerin puanı"
 
 msgctxt "ecoscore_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
-msgstr ""
+msgstr "Bu ürünün ambalaj bilgileri doldurulmamıştır."
 
 msgctxt "ecoscore_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
@@ -5615,7 +5615,7 @@ msgstr ""
 
 msgctxt "ecoscore_edit_for_more_precise_ecoscore"
 msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
-msgstr ""
+msgstr "Eco-Score'un daha doğru hesaplanması için ürün sayfasını düzenleyebilir ve ekleme yapabilirsiniz."
 
 msgctxt "ecoscore_final_score"
 msgid "Final score"
@@ -5684,7 +5684,7 @@ msgstr ""
 
 msgctxt "org_protect_data"
 msgid "Protect the data that is provided by the organization."
-msgstr ""
+msgstr "Kuruluş tarafından sağlanan verileri koruyun."
 
 msgctxt "org_protect_data_note"
 msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
@@ -5712,11 +5712,11 @@ msgstr ""
 
 msgctxt "ecoscore_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
-msgstr ""
+msgstr "Orta etkili bileşenlerin kökenleri"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
-msgstr ""
+msgstr "Düşük etkili bileşenlerin kökenleri"
 
 msgctxt "ecoscore_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
@@ -5982,7 +5982,7 @@ msgstr "Eksik besin değerleri"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
-msgstr ""
+msgstr "Eksik kategori ve beslenme bilgileri"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
@@ -6004,7 +6004,7 @@ msgstr "Bilgi Kaynağı"
 # variable names between { } must not be translated
 msgctxt "f_app_user"
 msgid "A user of the {app_name} app"
-msgstr ""
+msgstr "{app_name} uygulamasının bir kullanıcısı"
 
 msgctxt "food_groups_p"
 msgid "food groups"
@@ -6056,7 +6056,7 @@ msgstr "Hurma yağı içerebilecek malzemeler"
 
 msgctxt "palm_oil_free_ingredients"
 msgid "No ingredients containing palm oil detected"
-msgstr ""
+msgstr "Hurma yağı içeren içerik bulunamadı"
 
 msgctxt "attribute_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
