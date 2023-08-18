@@ -110,10 +110,10 @@ my $tests_ref = [
 		path => '/cgi/product_jqm_multilingual.pl',
 		form => {
 			cc => "uk",
-			lc => "en",
-			lang => "fr",
+			lc => "en",	# lc is the language of the interface
+			lang => "fr",	# lang is the main language of the product
 			code => "1234567890004",
-			product_name => "Some sausages",
+			product_name => "Some sausages",	# product_name does not have a language suffix, so it is assumed to be in the language of the interface (lc = "en")
 			categories => "Sausages",
 			quantity => "250 g",
 			serving_size => '20 g',
@@ -124,7 +124,6 @@ my $tests_ref = [
 		test_case => 'get-product-ingredients-text-without-language',
 		method => 'GET',
 		path => '/api/v2/product/1234567890004',
-		expected_status_code => 404,
 	},
 ];
 
