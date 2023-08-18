@@ -513,7 +513,7 @@ If the product is a beverage, water, cheese, or fat, it must contain a positive 
 - is_beverage
 - is_water
 - is_cheese
-- is_fat_nuts_seeds
+- is_fat_oil_nuts_seeds
 
 =head4 Output keys: details of the Nutri-Score computation
 
@@ -728,7 +728,7 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 
 	my $energy = "energy";
 	my $fat = "saturated_fat";
-	if ($nutriscore_data_ref->{is_fat_nuts_seeds}) {
+	if ($nutriscore_data_ref->{is_fat_oil_nuts_seeds}) {
 		$fat = "saturated_fat_ratio";
 		$energy = "energy_from_saturated_fat";
 	}
@@ -763,7 +763,7 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 
 	if (
 		($nutriscore_data_ref->{is_beverage})
-		or (    (not $nutriscore_data_ref->{is_fat_nuts_seeds})
+		or (    (not $nutriscore_data_ref->{is_fat_oil_nuts_seeds})
 			and (($nutriscore_data_ref->{negative_points} < 11) or ($nutriscore_data_ref->{is_cheese})))
 		or ($nutriscore_data_ref->{negative_points} < 7)
 		)

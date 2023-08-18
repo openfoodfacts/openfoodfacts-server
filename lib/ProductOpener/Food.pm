@@ -869,20 +869,51 @@ sub is_fat_for_nutrition_score ($product_ref) {
 	return has_tag($product_ref, "categories", "en:fats");
 }
 
-=head2 is_fat_nuts_seeds_for_nutrition_score( $product_ref )
+=head2 is_fat_oil_nuts_seeds_for_nutrition_score( $product_ref )
 
 Determines if a product should be considered as fats / oils / nuts / seeds
 for Nutri-Score (2023 version) computations, based on the product categories.
 
+From the 2022 main algorithm report update FINAL:
+
+"This category includes fats and oils from plant or animal sources, including cream, margarines,
+butters and oils (as the current situation).
+
+Additionally, the following products are included in this category, using the Harmonized System
+Nomenclature1 codes:
+- Nuts: 0801 0802
+- Processed nuts: 200811 200819
+- Ground nuts: 1202
+- Seeds: 1204 (linseed) 1206 (sunflower)1207 (other seeds)
+
+Of note chestnuts are excluded from the category."
+
 =cut
 
-sub is_fat_nuts_seeds_for_nutrition_score ($product_ref) {
+sub is_fat_oil_nuts_seeds_for_nutrition_score ($product_ref) {
 
-	return (
+	if (has_tag($product_ref, "categories", "en:chestnuts")) {
+		return 0;
+	}
+	elsif (
 			   has_tag($product_ref, "categories", "en:fats")
-			or has_tag($product_ref, "categories", "en:nuts")
-			or has_tag($product_ref, "categories", "en:seeds")
-	);
+			or has_tag($product_ref, "categories", "en:creams")
+			or has_tag($product_ref, "categories", "en:seeds")) {
+		return 1;
+	}
+	else {
+		my $hs_heading = get_inherited_property_from_categories_tags ($product_ref, "wco_hs_code:en");
+		my $hs_code = get_inherited_property_from_categories_tags ($product_ref, "wco_hs_code:en");
+
+		if (($hs_heading eq "08.01") or ($hs_heading eq "08.02")
+			or ($hs_code eq "2008.11") or ($hs_code eq "2008.19")
+			or ($hs_heading eq "12.02")
+			or (($hs_heading eq "12.04") or ($hs_heading eq "12.06") or ($hs_heading eq "12.07"))) {
+			return 1;
+		}
+	}
+
+	return 0;
 }
 
 =head2 special_process_product ( $ingredients_ref )
@@ -1196,7 +1227,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			is_beverage => $product_ref->{nutrition_score_beverage},
 			is_water => is_water_for_nutrition_score($product_ref),
 			is_cheese => is_cheese_for_nutrition_score($product_ref),
-			is_fat_nuts_seeds => is_fat_nuts_seeds_for_nutrition_score($product_ref),
+			is_fat_oil_nuts_seeds => is_fat_oil_nuts_seeds_for_nutrition_score($product_ref),
 
 			energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
 			sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
