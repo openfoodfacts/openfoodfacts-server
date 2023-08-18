@@ -311,6 +311,14 @@ sub get_value_with_one_more_positive_point_2021 ($nutriscore_data_ref, $nutrient
 
 sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 
+	# If the product is in fats and oils category,
+	# the saturated fat points are replaced by the saturated fat / fat ratio points
+
+	my $saturated_fat = "saturated_fat";
+	if ($nutriscore_data_ref->{is_fat}) {
+		$saturated_fat = "saturated_fat_ratio";
+	}
+
 	# The values must be rounded with one more digit than the thresolds.
 	# Undefined values are counted as 0 (it can be the case in particular for waters that have different nutrients listed)
 
@@ -327,9 +335,7 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 
 	# Round with 1 digit after the comma for energy, saturated fat, saturated fat ratio, sodium and fruits
 
-	foreach my $nutrient (
-		qw(energy saturated_fat saturated_fat_ratio sodium fruits_vegetables_nuts_colza_walnut_olive_oils))
-	{
+	foreach my $nutrient ("energy", $saturated_fat, "sodium", "fruits_vegetables_nuts_colza_walnut_olive_oils") {
 		if (defined $nutriscore_data_ref->{$nutrient}) {
 			$nutriscore_data_ref->{$nutrient . "_value"} = int($nutriscore_data_ref->{$nutrient} * 10 + 0.5) / 10;
 		}
@@ -340,7 +346,7 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 
 	# Round with 2 digits for sugars, fiber and proteins
 
-	foreach my $nutrient (qw(sugars fiber proteins)) {
+	foreach my $nutrient ("sugars", "fiber", "proteins") {
 		if (defined $nutriscore_data_ref->{$nutrient}) {
 			$nutriscore_data_ref->{$nutrient . "_value"} = int($nutriscore_data_ref->{$nutrient} * 100 + 0.5) / 100;
 		}
@@ -359,9 +365,9 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 
 	# Compute the negative and positive points
 
-	foreach my $nutrient (
-		qw(energy sugars saturated_fat saturated_fat_ratio sodium fruits_vegetables_nuts_colza_walnut_olive_oils fiber proteins)
-		)
+	foreach
+		my $nutrient ("energy", "sugars", $saturated_fat, "sodium", "fruits_vegetables_nuts_colza_walnut_olive_oils",
+		"fiber", "proteins")
 	{
 
 		my $nutrient_threshold_id = $nutrient;
@@ -392,16 +398,8 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 
 	# Negative points
 
-	# If the product is an added fat (oil, butter etc.) the saturated fat points are replaced
-	# by the saturated fat / fat ratio points
-
-	my $fat = "saturated_fat";
-	if ((defined $nutriscore_data_ref->{is_fat}) and ($nutriscore_data_ref->{is_fat})) {
-		$fat = "saturated_fat_ratio";
-	}
-
 	$nutriscore_data_ref->{negative_points} = 0;
-	foreach my $nutrient ("energy", "sugars", $fat, "sodium") {
+	foreach my $nutrient ("energy", "sugars", $saturated_fat, "sodium") {
 		$nutriscore_data_ref->{negative_points} += $nutriscore_data_ref->{$nutrient . "_points"};
 	}
 
@@ -679,17 +677,20 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 	# with Article 30-2 of the INCO regulation 1169/2011, such as fibre, rounding guidelines from the previous
 	# document are also recommended.
 
-	# Compute the energy from saturates
-	if (defined $nutriscore_data_ref->{saturated_fat}) {
-		$nutriscore_data_ref->{energy_from_saturated_fat} = $nutriscore_data_ref->{saturated_fat} * 37 / 100;
-	}
-
 	# Compute the negative and positive points
 
-	foreach my $nutrient (
-		qw(energy energy_from_saturated_fat sugars saturated_fat saturated_fat_ratio salt fruits_vegetables_legumes fiber proteins)
-		)
-	{
+	# If the product is in fats, oils, nuts and seeds category,
+	# the energy points are replaced by the energy from saturates points, and
+	# the saturated fat points are replaced by the saturated fat / fat ratio points
+
+	my $energy = "energy";
+	my $saturated_fat = "saturated_fat";
+	if ($nutriscore_data_ref->{is_fat_oil_nuts_seeds}) {
+		$saturated_fat = "saturated_fat_ratio";
+		$energy = "energy_from_saturated_fat";
+	}
+
+	foreach my $nutrient ($energy, "sugars", $saturated_fat, "salt", "fruits_vegetables_legumes", "fiber", "proteins") {
 		next if not defined $nutriscore_data_ref->{$nutrient};
 
 		my $nutrient_threshold_id = $nutrient;
@@ -720,20 +721,7 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 		$nutriscore_data_ref->{proteins_points} = 2;
 	}
 
-	# Negative points
-
-	# If the product is in fats, oils, nuts and seeds category,
-	# the energy points are replaced by the energy from saturates points, and
-	# the saturated fat points are replaced by the saturated fat / fat ratio points
-
-	my $energy = "energy";
-	my $fat = "saturated_fat";
-	if ($nutriscore_data_ref->{is_fat_oil_nuts_seeds}) {
-		$fat = "saturated_fat_ratio";
-		$energy = "energy_from_saturated_fat";
-	}
-
-	# Beverages with non-nutritive sweetenrs have 4 extra negative points
+	# Beverages with non-nutritive sweeteners have 4 extra negative points
 	if ($nutriscore_data_ref->{is_beverage}) {
 		if ($nutriscore_data_ref->{has_sweeteners}) {
 			$nutriscore_data_ref->{"sweeteners_points"} = 4;
@@ -743,8 +731,10 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 		}
 	}
 
+	# Negative points
+
 	$nutriscore_data_ref->{negative_points} = 0;
-	foreach my $nutrient ($energy, "sugars", $fat, "salt", "sweeteners") {
+	foreach my $nutrient ($energy, "sugars", $saturated_fat, "salt", "sweeteners") {
 		$nutriscore_data_ref->{negative_points} += ($nutriscore_data_ref->{$nutrient . "_points"} || 0);
 	}
 

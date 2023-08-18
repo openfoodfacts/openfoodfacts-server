@@ -895,21 +895,28 @@ sub is_fat_oil_nuts_seeds_for_nutrition_score ($product_ref) {
 	if (has_tag($product_ref, "categories", "en:chestnuts")) {
 		return 0;
 	}
-	elsif (
-			   has_tag($product_ref, "categories", "en:fats")
-			or has_tag($product_ref, "categories", "en:creams")
-			or has_tag($product_ref, "categories", "en:seeds")) {
+	elsif (has_tag($product_ref, "categories", "en:fats")
+		or has_tag($product_ref, "categories", "en:creams")
+		or has_tag($product_ref, "categories", "en:seeds"))
+	{
 		return 1;
 	}
 	else {
-		my $hs_heading = get_inherited_property_from_categories_tags ($product_ref, "wco_hs_code:en");
-		my $hs_code = get_inherited_property_from_categories_tags ($product_ref, "wco_hs_code:en");
+		my $hs_heading = get_inherited_property_from_categories_tags($product_ref, "wco_hs_code:en");
 
-		if (($hs_heading eq "08.01") or ($hs_heading eq "08.02")
-			or ($hs_code eq "2008.11") or ($hs_code eq "2008.19")
-			or ($hs_heading eq "12.02")
-			or (($hs_heading eq "12.04") or ($hs_heading eq "12.06") or ($hs_heading eq "12.07"))) {
-			return 1;
+		if (defined $hs_heading) {
+			my $hs_code = get_inherited_property_from_categories_tags($product_ref, "wco_hs_code:en");
+
+			if (
+				($hs_heading eq "08.01") or ($hs_heading eq "08.02")    # nuts
+				or ($hs_code eq "2008.11") or ($hs_code eq "2008.19")    # processed nuts
+				or ($hs_heading eq "12.02")    # peanuts
+				or ($hs_heading eq "12.04") or ($hs_heading eq "12.06") or ($hs_heading eq "12.07")    # nuts
+				)
+
+			{
+				return 1;
+			}
 		}
 	}
 
@@ -1197,16 +1204,17 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 		# fruits, vegetables, nuts, olive / rapeseed / walnut oils
 		my $fruits = compute_fruit_ratio($product_ref, $prepared);
 
+		my $is_fat = is_fat_for_nutrition_score($product_ref);
+
 		$nutriscore_data_ref = {
 			is_beverage => $product_ref->{nutrition_score_beverage},
 			is_water => is_water_for_nutrition_score($product_ref),
 			is_cheese => is_cheese_for_nutrition_score($product_ref),
-			is_fat => is_fat_for_nutrition_score($product_ref),
+			is_fat => $is_fat,
 
 			energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
 			sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
 			saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
-			saturated_fat_ratio => saturated_fat_ratio($nutriments_ref, $prepared),
 			sodium => $nutriments_ref->{"sodium" . $prepared . "_100g"} * 1000,    # in mg,
 
 			fruits_vegetables_nuts_colza_walnut_olive_oils => $fruits,
@@ -1218,21 +1226,27 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			proteins => $nutriments_ref->{"proteins" . $prepared . "_100g"},
 		};
 
+		if ($is_fat) {
+			# Add the fat and saturated fat / fat ratio
+			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared . "_100g"};
+			$nutriscore_data_ref->{saturated_fat_ratio} = saturated_fat_ratio($nutriments_ref, $prepared);
+		}
 	}
 	else {
 		# TODO: needs to be replaced by "fruits, vegetables, legumes"
 		my $fruits = compute_fruit_ratio($product_ref, $prepared);
 
+		my $is_fat_oil_nuts_seeds = is_fat_oil_nuts_seeds_for_nutrition_score($product_ref);
+
 		$nutriscore_data_ref = {
 			is_beverage => $product_ref->{nutrition_score_beverage},
 			is_water => is_water_for_nutrition_score($product_ref),
 			is_cheese => is_cheese_for_nutrition_score($product_ref),
-			is_fat_oil_nuts_seeds => is_fat_oil_nuts_seeds_for_nutrition_score($product_ref),
+			is_fat_oil_nuts_seeds => $is_fat_oil_nuts_seeds,
 
 			energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
 			sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
 			saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
-			saturated_fat_ratio => saturated_fat_ratio($nutriments_ref, $prepared),
 			salt => $nutriments_ref->{"salt" . $prepared . "_100g"},
 
 			fruits_vegetables_legumes => $fruits,
@@ -1243,6 +1257,14 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			),
 			proteins => $nutriments_ref->{"proteins" . $prepared . "_100g"},
 		};
+
+		if ($is_fat_oil_nuts_seeds) {
+			# Add the fat and saturated fat / fat ratio
+			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared};
+			$nutriscore_data_ref->{saturated_fat_ratio} = saturated_fat_ratio($nutriments_ref, $prepared);
+			# Compute the energy from saturates
+			$nutriscore_data_ref->{energy_from_saturated_fat} = $nutriscore_data_ref->{saturated_fat} * 37;
+		}
 	}
 
 	# tweak data to take into account special cases
