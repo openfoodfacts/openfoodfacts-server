@@ -79,7 +79,7 @@ jobs:
             > gh_pages/api/ref-v3/index.html
 
 
-      - name: Deploy API documentation to Github Pages
+      - name: Deploy API documentation to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.3
         # we only deploy on push to main
         if: |
