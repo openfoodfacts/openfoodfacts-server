@@ -6190,7 +6190,7 @@ msgstr "添加基本详细信息"
 # this is not used yet
 msgctxt "action_add_portion_size"
 msgid "Add portion size"
-msgstr ""
+msgstr "添加份量"
 
 # this is not used yet
 msgctxt "action_add_ingredients_image"
@@ -6205,37 +6205,37 @@ msgstr "拍摄营养成分表"
 # this is not used yet
 msgctxt "action_refresh_ingredients_image"
 msgid "Refresh the photo of the ingredients"
-msgstr ""
+msgstr "刷新一下成分照片"
 
 # this is not used yet
 msgctxt "action_refresh_nutrition_image"
 msgid "Refresh the photo of the nutrition facts"
-msgstr ""
+msgstr "刷新一下关于营养成分的照片"
 
 # this is not used yet
 msgctxt "action_add_packaging_text"
 msgid "Extract and check the recycling information"
-msgstr ""
+msgstr "提取并查看回收信息"
 
 # this is not used yet
 msgctxt "action_add_stores"
 msgid "Add the store where you found this product"
-msgstr ""
+msgstr "添加您找到该产品所在的商店"
 
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "添加该产品上存在的任何标签"
 
 # this is not used yet
 msgctxt "action_countries"
 msgid "Add the country where you found this product"
-msgstr ""
+msgstr "添加您发现该产品所在的国家/地区"
 
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "拍摄追溯码照片"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6316,42 +6316,42 @@ msgstr "产品添加"
 
 msgctxt "products_edited"
 msgid "Products edited"
-msgstr ""
+msgstr "产品已编辑"
 
 msgctxt "products_photographed"
 msgid "Products photographed"
-msgstr ""
+msgstr "已拍摄的产品"
 
 # result of the matching with the user preferences: should ne a noun, not a verb
 msgctxt "matching_with_your_preferences"
 msgid "Matching with your preferences"
-msgstr ""
+msgstr "匹配您的喜好"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_join_us_on_slack"
 msgid "Join us on <a href=\"{url}\">Slack</a>"
-msgstr ""
+msgstr "加入我们 <a href=\"{url}\">Slack</a>"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_discover_our_code_of_conduct"
 msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
-msgstr ""
+msgstr "了解我们的 <a href=\"{url}\">行为准则</a>"
 
 # {links} must not be translated, it will be replaced by icons and/or text links
 msgctxt "f_footer_follow_us_links"
 msgid "Follow us: {links}"
-msgstr ""
+msgstr "关注我们： {links}"
 
 # Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
 msgctxt "footer_install_the_app_exclamation_mark"
 msgid "Install the app!"
-msgstr ""
+msgstr "安装 App"
 
 # HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
 msgctxt "footer_scan_your_everyday_foods"
 msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
-msgstr ""
+msgstr "扫描您的 <span id=\"everyday\">每天</span> <span id=\"foods\">食物</span>"
 
 msgctxt "nutrition"
 msgid "Nutrition"
@@ -6360,7 +6360,7 @@ msgstr "营养"
 # Note: "criteria" is plural here. So in French for instance: "Vos critères"
 msgctxt "your_criteria"
 msgid "Your criteria"
-msgstr ""
+msgstr "您的标准"
 
 msgctxt "product"
 msgid "Product"
@@ -6372,55 +6372,55 @@ msgstr "环境影响"
 
 msgctxt "api_result_failure"
 msgid "Failure"
-msgstr ""
+msgstr "失败"
 
 msgctxt "api_result_product_found"
 msgid "Product found"
-msgstr ""
+msgstr "已找到产品"
 
 msgctxt "api_result_product_not_found"
 msgid "Product not found"
-msgstr ""
+msgstr "未找到产品"
 
 msgctxt "api_result_product_updated"
 msgid "Product updated"
-msgstr ""
+msgstr "产品已更新"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
-msgstr ""
+msgstr "无效的 API 操作"
 
 msgctxt "api_message_invalid_api_method"
 msgid "Invalid API method"
-msgstr ""
+msgstr "无效的 API 方式"
 
 msgctxt "api_message_empty_request_body"
 msgid "Empty request body"
-msgstr ""
+msgstr "请求正文为空"
 
 msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
-msgstr ""
+msgstr "请求正文中的 JSON 无效"
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
-msgstr ""
+msgstr "无效的代码"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
-msgstr ""
+msgstr "无效类型：必须是对象"
 
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
-msgstr ""
+msgstr "无效类型：必须是数组"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
-msgstr ""
+msgstr "无效类型：必须是整数"
 
 msgctxt "api_message_invalid_type_must_be_number"
 msgid "Invalid type: must be a number"
-msgstr ""
+msgstr "无效类型：必须是数字"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
@@ -6444,7 +6444,7 @@ msgstr "警告"
 
 msgctxt "api_impact_failure"
 msgid "Failure"
-msgstr ""
+msgstr "失败"
 
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
@@ -6462,29 +6462,29 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "空件重量"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "每单位所含产品数量"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
 msgid "Help categorize more {title} on Hunger Games"
-msgstr ""
+msgstr "帮助分类更多关于《饥饿游戏》的 {title}"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "产品的所有包装部件都已列出"
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
-msgstr ""
+msgstr "无效的用户ID和密码"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
-msgstr ""
+msgstr "无效值：必须是 0 或 1"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
@@ -6515,7 +6515,7 @@ msgstr "输入净重或净体积并注明单位（例如克 g 或毫升 ml）。
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
-msgstr ""
+msgstr "进出口产品"
 
 msgctxt "add_products"
 msgid "Add products"
