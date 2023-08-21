@@ -1,5 +1,43 @@
 # Changelog
 
+## [2.17.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.16.0...v2.17.0) (2023-08-17)
+
+
+### Features
+
+* add some US stores ([#8864](https://github.com/openfoodfacts/openfoodfacts-server/issues/8864)) ([f6bdca1](https://github.com/openfoodfacts/openfoodfacts-server/commit/f6bdca181f412e483244ea3a73fa0361e0b909e2))
+* Allowing Org Admins to Add/Invite Users ([#8763](https://github.com/openfoodfacts/openfoodfacts-server/issues/8763)) ([e2494e6](https://github.com/openfoodfacts/openfoodfacts-server/commit/e2494e6707065b1b0b37d8138c34b5c74e508deb))
+* New Crowdin updates ([#8784](https://github.com/openfoodfacts/openfoodfacts-server/issues/8784)) ([0aa6db5](https://github.com/openfoodfacts/openfoodfacts-server/commit/0aa6db542ecdc9a92a342b23ac510074ae9c6633))
+* New Crowdin updates ([#8835](https://github.com/openfoodfacts/openfoodfacts-server/issues/8835)) ([f7905b8](https://github.com/openfoodfacts/openfoodfacts-server/commit/f7905b8cb7d84a4b1e7e559acab2250d81a7751a))
+* show image uploader and upload time to all users ([#8845](https://github.com/openfoodfacts/openfoodfacts-server/issues/8845)) ([2db5929](https://github.com/openfoodfacts/openfoodfacts-server/commit/2db5929acadf5d813a55a97503adedd1a6683fbd))
+
+
+### Bug Fixes
+
+* add me,ry,sh,wa languages to taxonomy ([#8838](https://github.com/openfoodfacts/openfoodfacts-server/issues/8838)) ([7e80671](https://github.com/openfoodfacts/openfoodfacts-server/commit/7e80671797035322d6bcf56b31e20c400a49c336))
+* Added Protection On Images for normal Users ([#8610](https://github.com/openfoodfacts/openfoodfacts-server/issues/8610)) ([52bb44a](https://github.com/openfoodfacts/openfoodfacts-server/commit/52bb44a4117741bd6e9ef494afae0d1eab8e431c))
+* fix and speed up CSV export ([#8863](https://github.com/openfoodfacts/openfoodfacts-server/issues/8863)) ([8e69a1d](https://github.com/openfoodfacts/openfoodfacts-server/commit/8e69a1dfb44c9425e84adf1d112d245b0deea7d0))
+* link to register for the OFF days ([#8859](https://github.com/openfoodfacts/openfoodfacts-server/issues/8859)) ([b74bbd8](https://github.com/openfoodfacts/openfoodfacts-server/commit/b74bbd8861eb10ea65784dec3036b0dd344f0d1e))
+* Remove category in update_all_products  ([#8848](https://github.com/openfoodfacts/openfoodfacts-server/issues/8848)) ([d2e5537](https://github.com/openfoodfacts/openfoodfacts-server/commit/d2e55379ed17111e6c4c19b25c6b3b9931a2240b))
+* remove legacy robotoff-proxy nginx config ([#8833](https://github.com/openfoodfacts/openfoodfacts-server/issues/8833)) ([9d0ce04](https://github.com/openfoodfacts/openfoodfacts-server/commit/9d0ce0487f051b4ec8af7fe630038ae862268389))
+* simplify vegan/vegetarian ingredients analysis and merge 'ignore' and 'maybe' ([#8849](https://github.com/openfoodfacts/openfoodfacts-server/issues/8849)) ([eaabdb8](https://github.com/openfoodfacts/openfoodfacts-server/commit/eaabdb8b6d8ba3251cf837598b31a5b309906bce))
+
+
+### Taxonomy
+
+* added ingredients in taxonomies ([#8828](https://github.com/openfoodfacts/openfoodfacts-server/issues/8828)) ([6bd5d86](https://github.com/openfoodfacts/openfoodfacts-server/commit/6bd5d861cd69399ab43f19e379c31942bf9ca9af))
+* eurocode - brassicas, stalk vegetables, shoot vegetables ([b8ed4a0](https://github.com/openfoodfacts/openfoodfacts-server/commit/b8ed4a07873051440658c83e18815780aefdcde5))
+* eurocode 2 group 8.10 - leaf vegetables ([#8829](https://github.com/openfoodfacts/openfoodfacts-server/issues/8829)) ([e3151fe](https://github.com/openfoodfacts/openfoodfacts-server/commit/e3151fe82bfa5e1fe2ae70f5d1eab827a2186af1))
+* eurocode for ingredients - brassicas, stalk vegetables, shoot vegetables ([#8869](https://github.com/openfoodfacts/openfoodfacts-server/issues/8869)) ([b8ed4a0](https://github.com/openfoodfacts/openfoodfacts-server/commit/b8ed4a07873051440658c83e18815780aefdcde5))
+* new categories and Lithuanian translations ([#8718](https://github.com/openfoodfacts/openfoodfacts-server/issues/8718)) ([940b0b6](https://github.com/openfoodfacts/openfoodfacts-server/commit/940b0b632a58d7491142b474f0f74207bf28d53a))
+* romanian ingredients ([#8841](https://github.com/openfoodfacts/openfoodfacts-server/issues/8841)) ([b375f2f](https://github.com/openfoodfacts/openfoodfacts-server/commit/b375f2f871e3d4be17caac48716e8792d80aa9f5))
+* semi-complete flour ([#8836](https://github.com/openfoodfacts/openfoodfacts-server/issues/8836)) ([5c77255](https://github.com/openfoodfacts/openfoodfacts-server/commit/5c77255be0788dc907b6b71833cd1fa8b75188e4))
+
+
+### Technical
+
+* update how-to-use-repl.md ([#8817](https://github.com/openfoodfacts/openfoodfacts-server/issues/8817)) ([0fe01dc](https://github.com/openfoodfacts/openfoodfacts-server/commit/0fe01dc437ccd6ad4d7ee27c5b489235d7f45dc4))
+
 ## [2.16.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.15.0...v2.16.0) (2023-08-10)
 
 
