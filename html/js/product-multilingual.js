@@ -704,9 +704,10 @@ function get_recents(tagfield) {
 
                 var $this = $(this);
                 var id = $this.attr('id');
+                var clas= $this.attr("data-info");
 
                 var html = '<ul class="ui-selectable single-selectable">';
-
+                if(typeof clas === "undefined" || !stringStartsWith(clas, "protect")){
                 $.each(images, function(index, image) {
                     var selected = '';
                     imgids[image.imgid] = index;
@@ -721,7 +722,7 @@ function get_recents(tagfield) {
                     }
 
                     html += '</li>';
-                });
+                });}
                 html += '</ul>';
 
                 if (!stringStartsWith(id, 'manage')) {
@@ -741,14 +742,16 @@ function get_recents(tagfield) {
                         '</div>' +
                         '<div id="imgsearchmsg_' + id + '" data-alert class="alert-box info" style="display:none">' + lang().product_js_uploading_image +
                         '<a href="#" class="close">&times;</a>' +
-                        '</div>' +
-                        '<div id="imgsearcherror_' + id + '" data-alert class="alert-box alert" style="display:none">' + lang().product_js_image_upload_error +
-                        '<a href="#" class="close">&times;</a>' +
                         '</div>';
 
-
+ 
+                        if(typeof clas === "undefined" || !stringStartsWith(clas, "protect"))
+                        {
+                            html+= '<div id="imgsearcherror_' + id + '" data-alert class="alert-box alert" style="display:none">' + lang().product_js_image_upload_error +
+                            '<a href="#" class="close">&times;</a>' +
+                            '</div>';
                     html += '<input type="checkbox" class="use_low_res_images" name="use_low_res_images_' + id + '" id="use_low_res_images_' + id + '">';
-                    html += '<label for="use_low_res_images_' + id + '">' + lang().product_js_use_low_res_images + '</label>';
+                    html += '<label for="use_low_res_images_' + id + '">' + lang().product_js_use_low_res_images + '</label>';}
 
                     html += '<div class="row">';
                     html += '<div class="columns small-12 medium-12 large-6 xlarge-8"><div class="cropbox" id="cropbox_' + id + '"></div></div>';

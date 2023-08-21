@@ -200,6 +200,8 @@ sub display_select_crop ($object_ref, $id_lc, $language) {
 	if (is_protected_image($object_ref, $id_lc)) {
 		$html .= <<HTML;
 <p>$message</p>
+<label for="$id">$label (<span class="tab_language">$language</span>)</label>
+<div class=\"select_crop\" id=\"$id\" data-info="protect"></div>
 HTML
 	}
 	else {
