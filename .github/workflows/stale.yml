@@ -1,4 +1,4 @@
-name: "Stale issue handler"
+name: "🌋 Stale issue handler"
 on:
   schedule:
   - cron: "0 0 * * *"
@@ -10,7 +10,7 @@ jobs:
     - uses: actions/stale@v8
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        stale-issue-message: 'This issue is stale because it has been open 90 days with no activity.'
+        stale-issue-message: 'This issue has been open 90 days with no activity. Can you give it a little love by linking it to a parent issue, adding relevant labels and projets, creating a mockup if applicable, adding code pointers from https://github.com/openfoodfacts/openfoodfacts-server/blob/main/.github/labeler.yml, giving it a priority, editing the original issue to have a more comprehensive description… Thank you very much for your contribution to 🍊 Open Food Facts '
         days-before-stale: 90
         days-before-close: -1
         skip-stale-issue-message: true
