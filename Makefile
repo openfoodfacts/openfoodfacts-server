@@ -27,6 +27,8 @@ ifeq ($(OS), Darwin)
 else
   export CPU_COUNT=$(shell nproc || echo 1)
 endif
+
+# tell gitbash not to complete path
 export MSYS_NO_PATHCONV=1
 
 # load env variables
@@ -149,18 +151,18 @@ tail:
 	@echo "🥫 Reading logs (Apache2, Nginx) …"
 	tail -f logs/**/*
 
-cover:
-	@echo "🥫 running …"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
-	${DOCKER_COMPOSE_TEST} run --rm -e HARNESS_PERL_SWITCHES="-MDevel::Cover" backend prove -l tests/unit
-	${DOCKER_COMPOSE_TEST} stop
+codecov_prepare:
+	@echo "🥫 Preparing to run code coverage…"
+	mkdir -p cover_db
+	${DOCKER_COMPOSE_TEST} run --rm backend cover -delete
+	mkdir -p cover_db
 
 codecov:
-	@echo "🥫 running …"
+	@echo "🥫 running cover to generate a report usable by codecov …"
 	${DOCKER_COMPOSE_TEST} run --rm backend cover -report codecovbash
 
 coverage_txt:
+	@echo "🥫 running cover to generate text report …"
 	${DOCKER_COMPOSE_TEST} run --rm backend cover
 
 #----------#
@@ -235,10 +237,11 @@ lint: lint_perltidy
 
 tests: build_lang_test unit_test integration_test
 
+# add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
 unit_test:
 	@echo "🥫 Running unit tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
@@ -249,7 +252,7 @@ integration_test:
 # this is the place where variables are important
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
 # note: we need the -T option for ci (non tty environment)
-	${DOCKER_COMPOSE_TEST} exec -T backend prove -l -r tests/integration
+	${DOCKER_COMPOSE_TEST} exec ${COVER_OPTS}  -T backend prove -l -r tests/integration
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 integration tests success"
 
@@ -281,7 +284,7 @@ stop_tests:
 clean_tests:
 	${DOCKER_COMPOSE_TEST} down -v --remove-orphans
 
-update_tests_results:
+update_tests_results: build_lang_test
 	@echo "🥫 Updated expected test results with actuals for easy Git diff"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
 	${DOCKER_COMPOSE_TEST} run --no-deps --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend /opt/product-opener/scripts/build_tags_taxonomy.pl ${name}
@@ -295,13 +298,15 @@ bash:
 
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl: _FORCE
-	if [ -f $@ ]; then perl -c -CS -Ilib $@; else true; fi
+	@if [[ -f $@ ]]; then perl -c -CS -Ilib $@; else true; fi
 
 
 # TO_CHECK look at changed files (compared to main) with extensions .pl, .pm, .t
+# filter out obsolete scripts
 # the ls at the end is to avoid removed files.
+# the first commad is to check we have git (to avoid trying to run this line inside the container on check_perl*)
 # We have to finally filter out "." as this will the output if we have no file
-TO_CHECK=$(shell git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | xargs ls -d 2>/dev/null | grep -v "^.$$" )
+TO_CHECK=$(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -v "scripts/obsolete" | xargs ls -d 2>/dev/null | grep -v "^.$$" )
 
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"
@@ -337,6 +342,19 @@ lint_perltidy:
 check_critic:
 	@echo "🥫 Checking with perlcritic"
 	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
+
+
+check_openapi_v2:
+	docker run --rm \
+		-v ${PWD}:/local openapitools/openapi-generator-cli validate --recommend \
+		-i /local/docs/api/ref/api.yml
+
+check_openapi_v3:
+	docker run --rm \
+		-v ${PWD}:/local openapitools/openapi-generator-cli validate --recommend \
+		-i /local/docs/api/ref/api-v3.yml
+
+check_openapi: check_openapi_v2 check_openapi_v3
 
 #-------------#
 # Compilation #

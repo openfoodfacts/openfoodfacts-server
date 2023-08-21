@@ -1,9 +1,20 @@
+[% IF deny_access -%]
+User-agent: *
+Disallow: /
+[% ELSE -%]
 User-agent: *
 Allow: /cgi/product_image.pl
 Allow: /cgi/opensearch.pl
 Disallow: /cgi
 Disallow: /code
 Disallow: /api
+[% FOREACH path IN disallow_paths_localized -%]
+Disallow: /[% path %]
+[% END %]
+
+# Disallow: Bingbot (temporary test)
+User-agent: Bingbot
+Disallow: /
 
 # Disallow: SEOkicks-Robot
 User-agent: SEOkicks-Robot
@@ -43,7 +54,11 @@ User-agent: Cliqzbot/3.0
 Disallow: /
 User-agent: Cliqzbot
 Disallow: /
-User-agent: Seekport Crawler
+User-agent: SeekportBot
+Disallow: /
+User-agent: Seekport Bot
+Disallow: /
+User-agent: Seekport
 Disallow: /
 User-agent: Paracrawl
 Disallow: /
@@ -70,4 +85,6 @@ Disallow: /
 User-agent: Amazonbot
 Disallow: /
 
-
+User-agent: DataForSeoBot
+Disallow: /
+[% END %]

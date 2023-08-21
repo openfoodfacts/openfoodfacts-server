@@ -1,0 +1,260 @@
+type: object
+description: |
+  Nutrition fields of a product
+properties:
+  fruits-vegetables-nuts_100g_estimate:
+    type: integer
+    description: |
+      An estimate, from ingredients list of the percentage of vegetable and nuts.
+      This is an important information for Nutri-Score computation.
+  no_nutrition_data:
+    type: string
+    description: |
+      When a product does not have nutrition data displayed on the
+      packaging, the user can check the field "Nutrition facts are
+      not specified on the product".
+      By doing so, the no_nutrition_data field takes the value "on".
+      This case is frequent (thousands of products).
+    example: "on"
+  nutriments:
+    type: object
+    description: |
+      All known nutrients for the product.
+
+      Note that each nutrients are declined with a variety of suffixes like `_100g`, `_serving`,
+      see patternProperties below.
+      A specific `_unit` is the unit used to measure the nutrient.
+
+      Also for products that have a nutrition table for prepared product
+      (eg. the nutrition facts for a bowl of milk with cocoa powder),
+      a `_prepared` suffix is added (before other suffixes).
+
+      **FIXME** add more nutrients with description.
+    properties:
+      alcohol:
+        description: |
+          Quantity of alcool per 100g, per serving
+        type: number
+      carbohydrates:
+        type: number
+      energy:
+        type: number
+      energy-kcal:
+        type: number
+      energy-kj:
+        type: number
+      fat:
+        type: number
+      fruits-vegetables-nuts-estimate-from-ingredients_100g:
+        type: number
+      nova-group:
+        type: integer
+      nutrition-score-fr:
+        description: |
+          Experimental nutrition score derived from
+          the UK FSA score and adapted for the French market
+          (formula defined by the team of Professor Hercberg).
+      proteins:
+        type: number
+      salt:
+        type: number
+      saturated-fat:
+        type: number
+      sodium:
+        type: number
+      sugars:
+        type: number
+      carbon-footprint-from-known-ingredients_product:
+        type: integer
+      carbon-footprint-from-known-ingredients_serving:
+        type: number
+      erythritol:
+        type: number
+        description: |
+          erythritol is a polyol which is not providing any energy.
+          As such, it needs not be taken into account when computing
+          the energy of a product. Eryhtritol is now displayed on
+          nutrition facts sheet of some products, mainly in the USA.
+          This value is entered either by contributors, either by
+          imports.
+        example: 12.5
+    patternProperties:
+      '(?<nutrient>\w+)_unit':
+        description: |
+          The unit in which the nutrient for 100g or per serving is measured.
+
+          The possible values depends on the nutrient.
+
+          * `g` for grams
+          * `mg` for milligrams
+          * `μg` for micrograms
+          * `cl` for centiliters
+          * `ml` for mililiters
+          * `dv` for recommended daily intakes (aka [Dietary Reference Intake](https://en.wikipedia.org/wiki/Dietary_Reference_Intake))
+          * `% vol` for alcohol vol per 100 ml
+
+          🤓 code: see the [Units module][units-module],
+          and [Food:default_unit_for_nid function][default-unit]
+
+          [units-module]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Units.html
+          [default-unit]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Food.html#default_unit_for_nid_(_%24nid)
+        type: string
+        enum: ['公斤', '公升', 'kg', 'кг', 'l', 'л', '毫克', 'mg', 'мг', 'mcg', 'µg', 'oz', 'fl oz', 'dl', 'дл', 'cl', 'кл', '斤', 'g', '', ' ', 'kj', '克', '公克', 'г', 'мл', 'ml', 'mmol/l', '毫升', '% vol', 'ph', '%', '% dv', '% vol (alcohol)', 'iu', 'mol/l', 'mval/l', 'ppm', '�rh', '�fh', '�e', '�dh', 'gpg']
+      '(?<nutrient>\w+)_100g':
+        description: |
+          The standardized value of a serving of 100g (or 100ml for liquids)
+          for the nutrient.
+
+          This is computed from the `nutrient` property,
+          the serving size, and the `nutrient`_unit field.
+        type: number
+      '(?<nutrient>\w+)_serving':
+        description: |
+          The standardized value of a serving for this product.
+        type: number
+      '(?<nutrient>\w+)_value':
+        description: |
+          The standardized value of a serving of 100g (or 100ml for liquids)
+          for the nutrient.
+        type: number
+      '(?<nutrient>\w+)_prepared':
+        description: |
+          The value for nutrient for **prepared** product.
+        type: number
+      '(?<nutrient>\w+)_prepared_unit':
+        description: |
+          The unit in which the nutrient for 100g or per serving of **prepared** product is measured.
+        type: string
+      '(?<nutrient>\w+)_prepared_100g':
+        description: |
+          The standardized value of a serving of 100g (or 100ml for liquids)
+          for the nutrient, for **prepared** product.
+        type: number
+      '(?<nutrient>\w+)_prepared_serving':
+        description: |
+          The standardized value of a serving for the **prepared** product.
+        type: number
+      '(?<nutrient>\w+)_prepared_value':
+        description: |
+          The standardized value of a serving of 100g (or 100ml for liquids)
+          for the nutrient for **prepared** product.
+        type: number
+  nutriscore_data:
+    description: |
+      Detail of data the Nutri-Score was computed upon.
+
+      **TODO** document each property
+    type: object
+    properties:
+      energy:
+        type: integer
+      energy_points:
+        type: integer
+      energy_value:
+        type: integer
+      fiber:
+        type: integer
+      fiber_points:
+        type: integer
+      fiber_value:
+        type: integer
+      fruits_vegetables_nuts_colza_walnut_olive_oils:
+        type: integer
+      fruits_vegetables_nuts_colza_walnut_olive_oils_points:
+        type: integer
+      fruits_vegetables_nuts_colza_walnut_olive_oils_value:
+        type: integer
+      grade:
+        type: string
+      is_beverage:
+        type: integer
+      is_cheese:
+        type: integer
+      is_fat:
+        type: integer
+      is_water:
+        type: integer
+      negative_points:
+        type: integer
+      positive_points:
+        type: integer
+      proteins:
+        type: number
+      proteins_points:
+        type: integer
+      proteins_value:
+        type: number
+      saturated_fat:
+        type: number
+      saturated_fat_points:
+        type: integer
+      saturated_fat_ratio:
+        type: number
+      saturated_fat_ratio_points:
+        type: integer
+      saturated_fat_ratio_value:
+        type: number
+      saturated_fat_value:
+        type: number
+      score:
+        type: integer
+      sodium:
+        type: number
+      sodium_points:
+        type: integer
+      sodium_value:
+        type: number
+      sugars:
+        type: number
+      sugars_points:
+        type: integer
+      sugars_value:
+        type: number
+  nutriscore_grade:
+    description: |
+      Nutri-Score for the product as a letter.
+
+      See https://world.openfoodfacts.org/nutriscore.
+    type: string
+    enum: ["a", "b", "c", "d", "e"]
+  nutriscore_score:
+    description: |
+      Nutri-Score for the product as an integer (see also `nutriscore_grade`).
+    type: integer
+  nutriscore_score_opposite:
+    type: integer
+  nutrition_grade_fr:
+    type: string
+    description: |
+      Nutrition grade (‘a’ to ‘e’),
+      https://world.openfoodfacts.org/nutriscore.
+  nutrition_grades:
+    description: |
+      Nutrition grades as a comma separated list.
+
+      Some products with multiple components might have multiple Nutri-Score
+    type: string
+  nutrition_grades_tags:
+    type: array
+    items:
+      type: string
+  nutrition_score_beverage:
+    type: integer
+  nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients:
+    type: integer
+  nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value: 
+    type: integer
+  nutrition_score_warning_no_fiber:
+    type: integer
+  other_nutritional_substances_tags:
+    type: array
+    items:
+      type: object
+  unknown_nutrients_tags:
+    type: array
+    items:
+      type: object
+  vitamins_tags:
+    type: array
+    items:
+      type: object

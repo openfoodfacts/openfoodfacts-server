@@ -265,6 +265,8 @@
 						[% IF ! server_options_producers_platform %]
 							[%# for now, display the packagings banner in all cases %]
 							[% IF 1 == 1 %]
+								[% INCLUDE 'web/common/includes/offdays_banner.tt.html' %]							
+							[% ELSIF 1 == 2 %]
 								[% INCLUDE 'web/common/includes/packagings_banner.tt.html' %]
 							[% ELSE %]
 								[%# we keep the old code so that we can easily put back the donation banner %]

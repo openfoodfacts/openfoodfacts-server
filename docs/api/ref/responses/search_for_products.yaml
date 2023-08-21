@@ -2,18 +2,28 @@ type: object
 properties:
   count:
     type: integer
+    description: |
+      Total number of products found
     example: 2701
   page:
     type: integer
+    description: |
+      Page number of returned results
     example: 1
   page_count:
     type: integer
+    description: |
+      Total number of pages
     example: 24
   page_size:
     type: integer
+    description: |
+      Number of products per pages
     example: 24
   products:
     type: array
+    description: |
+      The products matching the query corresponding to current page
     items:
       $ref: ../schemas/product.yaml
   skip:

@@ -1,0 +1,161 @@
+type: object
+properties:
+  additives_original_tags:
+    type: array
+    items:
+      type: string
+  additives_prev_original_tags:
+    type: array
+    items:
+      type: string
+  added_countries_tags:
+    type: array
+    items:
+      type: object
+  allergens_from_ingredients:
+    type: string
+  allergens_from_user:
+    type: string
+
+  amino_acids_prev_tags:
+    type: array
+    items:
+      type: object
+  amino_acids_tags:
+    type: array
+    items:
+      type: object
+  carbon_footprint_percent_of_known_ingredients:
+    type: integer
+  categories_properties:
+    type: object
+    properties:
+      "agribalyse_food_code:en":
+        type: string
+      "agribalyse_proxy_food_code:en":
+        type: string
+      "ciqual_food_code:en":
+        type: string
+  categories_properties_tags:
+    type: array
+    items:
+      type: string
+  category_properties:
+    type: object
+    additionalProperties:
+        description: those are properties taken from the category taxonomy
+        type: string
+  ciqual_food_name_tags:
+    type: array
+    items:
+      type: string
+  compared_to_category:
+    type: string
+    description: |
+      the category to use for comparison.
+
+      **TODO** explain how it is chosen.
+  conservation_conditions:
+    type: string
+  customer_service:
+    type: string
+    description: |
+      Contact info of customer service.
+  expiration_date:
+    type: string
+
+  link:
+    type: string
+    description: |
+      link to the product on the website of the producer
+
+  main_countries_tags:
+    type: array
+    items:
+      type: object
+
+  minerals_prev_tags:
+    type: array
+    items:
+      type: object
+  minerals_tags:
+    type: array
+    items:
+      type: object
+  owner_fields:
+    type: object
+    description: |
+      Those are fields provided by the producer (through producers platform),
+      and the value he provided.
+    properties:
+      additionalProperties:
+        description: |
+          you can retrieve all kind of properties, the same as on the parent object (the product).
+          It's not processed entries (like tags for example) but raw ones.
+        oneOf:
+          - type: integer
+          - type: string
+          - type: object
+  nova_groups_markers:
+    type: object
+    description: |
+      Detail of ingredients or processing that makes the products having Nova 3 or 4
+    properties:
+      "3":
+        description: |
+          Markers of level 3
+        type: array
+        items:
+          type: array
+          description: |
+            This array has two element for each marker.
+            One
+          items:
+            type: string
+      "4":
+        description: |
+          Markers of level 4
+        type: array
+        items:
+          # same as above
+          $ref: "#/properties/nova_groups_markers/properties/3/items"
+
+  nucleotides_tags:
+    type: array
+    items:
+      type: object
+  origin:
+    type: string
+  purchase_places:
+    type: string
+    description: |
+      Country, state, or city where the product can be purchased.
+    example: Paris
+  purchase_places_tags:
+    type: array
+    items:
+      type: string
+  stores:
+    type: string
+    description: |
+      Distributor name.
+    example: Walmart
+  stores_tags:
+    type: array
+    items:
+      type: string
+  traces_from_ingredients:
+    type: string
+  traces_from_user:
+    type: string
+
+
+patternProperties:
+  'conservation_conditions_(?<language_code>\w\w)':
+    type: string
+  'customer_service_(?<language_code>\w\w)':
+    type: string
+  'origin_(?<language_code>\w\w)':
+    type: string
+    description: |
+      `origin` in language indicated by `language_code`
