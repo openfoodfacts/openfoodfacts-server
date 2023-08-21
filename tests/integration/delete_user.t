@@ -48,7 +48,7 @@ my $response_delete = $ua->post($url_delete, \%delete_form);
 #checking if we are redirected to the account deleted page
 like($response_delete->content, qr/User is being deleted\. This may take a few minutes\./, "the account was deleted");
 
-waiting the deletion task to be done (weirdly enough it is not useful anymore..)
+#waiting the deletion task to be done (weirdly enough it is not useful anymore..)
 my $max_time = 200;
 my $jobs_ref = get_minion_jobs("delete_user_task", $before_delete_ts, $max_time);
 
