@@ -1,3 +1,5 @@
+# properties vegan:en, vegetarian:en and from_palm_oil:en can have values yes, no, maybe
+# in the case of maybe, if the ingredient has sub-ingredients, then only its sub-ingredients are considered
 
 #comment:en:These are synonyms of ingredients
 
@@ -179,8 +181,6 @@ sv:karamelliserad sockersirap, karamelliserat sockersirap, karamelliserad sirap,
 fr:caramel au lait
 hu:tejkaramella
 it:caramello al latte
-
-
 
 
 <en:E150
@@ -1188,9 +1188,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium_bifidum
 
 <en:bifidus
 en:Bifidobacterium lactis, Bifidobacterium animalis, B. lactis, B. animalis
-xx:Bifidobacterium lactis, b. lactis
+xx:Bifidobacterium lactis, B. lactis
 hr:bifidobacterium animalis BB-12
 es:Bifidobacterium lactis, Bifidobacterium animalis sp lactis
+sv:Bifidobacterium lactis
 wikidata:en:Q62854400
 wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium_animalis
 
@@ -1311,6 +1312,7 @@ bg:Лактобацилус булгарикус, Lactobacillus bulgaricus, Lact
 es:lactobacilus delbrueckii sp Bulgaricus, Lactobacillus delbrueckii subspecies bulgaricus
 fr:L bulgaricus, bulgaricus
 xx:Lactobacillus bulgaricus, L. bulgaricus
+sv:Lactobacillus bulgaricus, L. bulgaricus
 wikidata:en:Q47455075
 wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_delbrueckii_subsp._bulgaricus
 # ingredient/Lactobacillus-bulgaricus has 157 products in 13 languages @2019-07-08
@@ -1420,6 +1422,7 @@ es:Streptococcus thermophilus, thermophilus
 it:streptococcus thermophilius, s. thermophilus, thermophilus
 ja:サーモフィラス菌
 pl:streptococcus thermophilus, Streptococcus salivarius ssp. thermophilus
+sv:Streptococcus thermophilus, s. thermophilus
 zh:嗜热链球菌
 # zh-hans:嗜熱鏈球菌
 # zh-tw:嗜熱性鏈球菌
@@ -4639,7 +4642,7 @@ nb:mysepulver, mysepulver av melk
 nl:weipoeder, wei poeder, wei-poeder
 pl:Serwatka w proszku, preparat serwatkowy
 pt:soro de leite em pó, lactossoro em pó, lacto-soro em pó, lactosoro em pó
-ro:produs din zer praf
+ro:zer praf, produs din zer praf, derivat din zer pudră
 ru:сухая молочная сыворотка, сыворотка молочная сухая, сыворотка сухая молочная
 sk:sušená srvátka
 sq:hirre pluhur
@@ -10492,6 +10495,7 @@ ja:牛肉
 nb:kjøtt av storfe
 nl:Rundvlees
 pl:Mięso wołowe
+ro:carne de vită, carne de vita
 tr:Sığır eti
 zh:牛肉
 carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
@@ -15433,6 +15437,7 @@ hu:részben hidrogénezett pálmaolaj, részlegesen hidrogénezett pálmaolaj
 it:Olio di palma parzialmente idrogenato
 nl:gedeeltelijk geharde palmolie
 pl:częściowo utwardzony olej palmowy, olej roślinny palmowy częściowo utwardzony
+ro:ulei de palmier parţial hidrogenat
 
 # description:en:PALM KERNEL OIL is an edible plant oil derived from the kernel of the oil palm Elaeis guineensis. It should not be confused with the other two edible oils derived from palm fruits:palm oil, extracted from the pulp of the oil palm fruit, and coconut oil, extracted from the kernel of the coconut.
 
@@ -16690,6 +16695,7 @@ en:shea oil
 de:Sheaöl
 hr:shea ulje
 pl:olej shea, olej roślinny shea
+ro:ulei de shea
 sv:sheaolja
 
 description:en:ILLIPE butter is a vegetable fat from the nut of the Shorea stenoptera tree.
@@ -17523,7 +17529,7 @@ pa:ਸਿਰਕਾ
 pl:ocet, octu, octowy, octowa, octowe, octowej, octowego, octowych
 pt:vinagre
 qu:mama aqha
-ro:oțet
+ro:oțet, otet
 ru:уксус, уксусная кислота, уксус натуральный, уксус столовый, уксусная кислота пищевая, уксус пищевой, кислота уксусная
 rw:vinegre
 sh:sirće, ocat
@@ -17678,7 +17684,7 @@ sv:ättiksprit
 <en:vinegar powder
 en:alcohol vinegar powder
 fr:poudre de vinaigre d'alcool
-ro:ţet praf din alcool
+ro:oţet praf din alcool, otet praf din alcool
 
 <en:alcohol vinegar
 es:vinagre de alcohol de caña
@@ -20851,6 +20857,7 @@ lt:vanilės kvapioji medžiaga
 nl:vanillearoma, vanille aroma
 pl:Aromat waniliowy
 pt:aroma baunilha
+ro:aromă de vanilie
 ru:ароматизатор идентичный натуральному-ванилин
 sv:vaniljarom
 
@@ -20874,6 +20881,7 @@ nb:naturlig vanilijarom
 nl:natuurlijk vanillearoma, natuurlijk vanille aroma, natuurlijke vanille aroma
 pl:naturalny aromat wanilii, naturalny aromat waniliowy
 pt:aroma de baunilha natural, aromatizante de baunilha natural, aroma natural de baunilha
+ro:aromă naturală de vanilie, aromă de vanilie naturală
 sv:naturlig vaniljarom, naturlig vanilijarom
 vegan:en:yes
 vegetarian:en:yes
@@ -22383,7 +22391,7 @@ lt:kviečių ląsteliena, kviečių skaidulos
 nl:tarwevezel, tarwevezels
 pl:błonnik pszenny, błonnik pszeniczny
 pt:fibras de trigo
-ro:fibră de grâu
+ro:fibră de grâu,  fibre de grâu
 ru:Пшеничные волокна, пищевые волокна пшеничные
 sv:vetefiber, Vete fiber
 tr:buğday lifi
@@ -31600,7 +31608,7 @@ nb:fett redusert kakaopulver
 nl:magere cacaopoeder, magere cacao poeder, cacaopoeder met verminderd vetgehalte
 pl:niskotłuszczowe kakao w proszku, kakao w proszku o obniżonej zawartości tłuszczu
 pt:cacau magro em pó
-ro:cacao pudra degresata
+ro:cacao pudra degresata, pudră de cacao cu conţinut redus de grăsime
 ru:какао порошок с пониженным содержанием жира
 sk:kakaový prášok so zníženým množstvom tuku
 sv:fettreducerat kakaopulver, fettreducerad kakaopulver, skummet kakaopulver, fettreduserat kakaopulver, avfettat kakaopulver, fettfattigt kakaopulver
@@ -35431,8 +35439,8 @@ pl:sok, soki, soku, soków
 pt:Sumo
 ru:Сок
 # ingredient/fr:jus has 156 products in 4 languages @2019-02-02
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:juice
 en:concentrated juice
@@ -46245,6 +46253,7 @@ carbon_footprint_fr_foodges_value:fr:27.4
 carbon_footprint_fr_foodges_ingredient:fr:Fruit ou légume moyen de saison, produit localement
 carbon_footprint_fr_foodges_value:fr:0.3
 nutriscore_fruits_vegetables_nuts:en:yes
+eurocode_2_group_1:en: 8
 
 <en:vegetable
 en:vegetables in variable proportion
@@ -46343,6 +46352,3124 @@ pt:Sumo de vejetais
 ru:Овощной сок
 sv:grönsaksjuice
 
+# LEAF VEGETABLES (Eurocode 2 8.10)
+
+<en:vegetable
+en:leaf vegetable, leafy vegetable
+fr:légume-feuille, légumes-feuilles
+eurocode_2_group_2:en: 8.10
+
+#comment:en:Note that the translations between the various endives are not always clear. Nor do all languages distinguish between the  green part and the root.
+
+# description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
+# comment:en: Endive in english is different from endive in french.
+
+<en:leaf vegetable
+en:endive, Endives
+ca:endívia
+cy:Endif
+da:endivie
+de:Endivien, Endivie
+eo:endivio
+es:escarola, escarolas, endibia, endibias
+eu:osterzuri
+fa:اندیو
+fi:endiivi
+fr:scarole, chicorée endive
+ga:searbhán muc
+gl:endivia
+hr:endivija
+hu:endívia
+id:endive
+io:endivio
+it:scarola, indivia
+ja:エンダイブ
+ko:꽃상추
+ku:xêzimok
+la:Cichorium Endivia
+mt:scarola
+nb:endivie
+nl:andijvie
+nv:tʼąąʼdoolghasí
+pl:endywia, endywii
+pt:endívia
+ro:andivă
+ru:эндивий
+sr:ендивија
+sv:sydcikoria, cikoriasallat
+tr:hindiba
+uk:цикорій салатний
+vi:rau cúc đắng
+zh:苦苣
+# nds-nl:andievie
+# pcd:indife
+# scn:nirvia
+# sr-ec:ендивија
+wikidata:en:Q178547
+# wikidata:en:Q28604477 what is this?
+# category/endives has 8 products @2019-05-22
+# ingredient/endive has 125 products @2019-05-22
+eurocode_2_group_3:en: 8.10.10
+
+# description:en:RADICCHIO is a perennial cultivated form of leaf chicory (Cichorium intybus, Asteraceae) sometimes known as Italian chicory because of its common use in Italian cuisine.
+
+<en:leaf vegetable
+en:radicchio
+ar:الهندباء
+bg:червена цикория, радичио
+ca:radicchio
+da:radicchio, radicchiosalat
+de:roter Chicorée, Radicchio
+eo:salatcikorio
+es:radicchio
+fi:punasikuri, punasalaatti
+fr:chicorée rouge, radicchio, trévise, salade trévise
+hu:vörös cikória
+it:radicchio, radicchio rosso
+ja:ラディッキオ
+ko:라디키오
+nl:roodlof
+pl:cykoria sałatowa, czerwona cykoria, radicchio, cykoria radicchio
+pt:radicchio
+ru:радиккьо
+sh:radiccio di treviso
+sv:radicchiosallad, rosensallat, rosésallat
+#arz:هندباء
+# en-ca:radicchio
+# en-gb:radicchio
+# pt-br:radicchio
+# vec:radicio
+wikidata:en:Q767765
+wikipedia:en:https://en.wikipedia.org/wiki/Radicchio
+# 703 in 7 @2021-10-03
+eurocode_2_group_3:en: 8.10.10
+
+<en:endive
+en:curly endive, frisée lettuce
+cy:ysgellog y meirch
+da:kruset endivie
+de:krauser Salat, Endiven gekraust, Krausblättrige Endivie, Frisée
+el:αντίδι κατσαρό
+es:escarola rizada
+fi:friseesalaatti, kähäräendiivi
+fr:chicorée frisée, frisée, salade frisée, endive frisée
+ga:searbhán cas
+it:indivia riccia
+la:Cichorium endivia var. crispum
+lv:krokainā endīvija, krokaino lapu endīvija
+nl:krulandijvie, frisée sla
+pl:endywia kędzierzawa
+pt:chicória frisada, chicória crespa
+sk:čakanka štrbáková pravá kučeravá
+sv:frisésallat, friséesallat
+# description:fr:La frisée, ou chicorée frisée est une salade couramment cultivée.
+wikidata:en:Q2963415
+wikipedia:fr:https://fr.wikipedia.org/wiki/Chicorée_frisée
+ciqual_food_code:en:20012
+ciqual_food_name:en:Curly endive, raw
+ciqual_food_name:fr:Salade ou chicorée frisée, crue
+# 201 in 5 @2021-10-03
+
+<en:endive
+en:broad-leaved endive, Batavian endive, escarole, flat endive
+da:bredbladet endivie, escarole, escarolesalat
+de:glatte Endivie, Eskariol, Winterendivie, Endivie-Eskariol, Eskariol Endivie, Breitblättrige Endivie, Ganzblättrige Endivie
+el:αντίδι πλατύφυλλο
+es:escarola lisa
+fi:siloendiivi, lehtisikuri
+fr:chicorée scarole
+it:indivia scarola
+la:Cichorium endivia var latifolium
+lt:salotinė trūkažolė
+lv:platlapu endīvija
+mt:indivja tal-weraq wiesa'
+nl:kropandijvie, andijvie breedblad
+pl:endywia szerokolistna
+sv:escarolesallat
+#pcd:pindchucq
+wikidata:en:Q3237463
+description:en:Escarole, or broad-leaved endive (var latifolia), has broad, pale green leaves and is less bitter than the other varieties. Varieties or names include Batavian endive, grumolo, scarola, and scarole.
+
+###################################################################################################
+#
+#                                Lettuce
+#
+###################################################################################################
+
+# description:en:LETTUCE (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
+# comment:en:There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
+
+#category/lettuces
+<en:salad
+<en:leaf vegetable
+en:lettuce, Lettuces
+af:Blaarslaai
+am:ሰላጣ
+an:Ensalada
+ar:خس
+az:Süddəyən, Kahı
+ba:Латук
+be:Латук
+bg:Маруля
+bn:লেটুস
+bo:རྗེན་ཚལ་
+ca:Lletuga, enciam
+cs:locika, locika setá
+cy:Letysen
+de:Lattich, Gartensalat
+eo:Laktuko, Kultiva laktuko
+es:Lechuga, Lechugas, Lechuga roja, Lechuga de hoja roja
+et:Salat, Aedsalat
+eu:Uraza
+fa:لاکتوکا, کاهو
+fi:lehtisalaatti
+fr:laitue, Laitues
+ga:Leitís
+gl:Leituga
+gu:Ka'anakyrỹi
+gv:Glassyr
+he:חסה, חסה תרבותית
+hr:Salata, Zelena salata
+ht:Leti
+hu:kerti saláta
+hy:հազար
+id:Selada
+io:Latugo
+is:Salat
+it:Lattuga
+ja:アキノノゲシ属, レタス
+ka:ღორისქადა, სალათა
+kk:Ассүттіген, Салат
+kn:ಲೆಟಿಸ್
+ko:왕고들빼기속, 상추
+ku:Kahû
+ky:Сүттикен
+la:Lactuca, Lactuca sativa
+lt:Salota, Sėjamoji salota
+lv:salātlapas, Dārza salāti
+mk:Зелена салата
+ml:ഉർവച്ചീര
+ms:Salad
+my:ဆလတ်ပင်
+nb:Salater
+nl:sla
+nn:hagesalat, Planteslekta salat
+os:Къæсула
+pa:ਸਲਾਦ
+pl:sałata, sałaty, sałat
+pt:alface
+qu:Pilliyuyu
+ro:salată
+ru:Салат, Латук
+rw:Imboga za leti
+sc:Lattuca
+sh:Zelena salata
+si:සලාද
+sr:зелена салата
+sv:Sallat, Sallatsläktet
+ta:இலைக்கோசு
+th:สกุลผักกาดหอม, ผักกาดหอม
+tl:Letsugas
+to:Lētisilau
+tr:Marul
+ug:ظوسذث
+uk:Латук, Салат
+uz:Salat
+vi:Chi Rau diếp, Xà lách
+wa:Salåde
+za:byaekaengjgwx
+zh:莴苣属, 萵苣
+# aeb-arab:خسّ
+# ang:Leahtric
+# atj:Katiapi
+# bar:Salot
+# bcl:Litsugas
+# en-ca:Lettuce
+# en-gb:Lettuce
+# hak:Fú-mak
+# kaa:Salat
+# lij:Leituga
+# mzn:کهوک
+# nah:Quillechuca
+# pnb:سلاد
+# pt-br:Alface
+# rup:Sâlatâ
+# scn:Lattuca
+# sco:lettuce
+# sgs:Saluotis
+# tyv:Салат
+# war:Letsugas
+# wuu:莴苣
+# yue:生菜
+# zh-tw:萵苣
+#plant:wikidata:en:Q83193
+wikidata:en:Q104666136
+wikipedia:en:https://en.wikipedia.org/wiki/Lettuce
+ciqual_food_code:en:20031
+ciqual_food_name:en:Lettuce, raw
+ciqual_food_name:fr:Laitue, crue
+# 2021 in 5 languages @2021-08-10
+eurocode_2_group_3:en: 8.10.12
+
+#category/romaine-lettuce
+<en:lettuce
+en:romaine lettuce, cos
+ar:خس روماني
+bn:রোমাইন লেটুস
+ca:enciam llarg
+cs:římský salát
+da:romainesalat, romersk salat, bindsalat
+de:Römersalat, römischer Salat, Bindesalat
+el:θρίδαξ ο μακρόφυλλος ο ρωμαϊκός
+eo:roma laktuko
+es:lechuga romana, lechuga larga, lechugon
+et:rooma salat
+fa:کاهوی رومی
+fi:roomansalaatti, sidesalaatti
+fr:laitue romaine
+ga:cósleitís
+he:חסה עלים
+hi:रोमेन सलाद
+hr:salata kristalka
+it:lattuga romana
+ja:ロメインレタス
+ko:로메인상추
+la:Lactuca sativa var. longifolia
+lv:romiešu salāti
+ml:റൊമെയ്ൻ ലെറ്റ്യൂസ്
+nb:romanosalat
+nl:bindsla, romeinse sla, romaine
+pa:ਰੋਮੇਨ ਸਲਾਦ
+pl:sałata rzymska, sałaty rzymskiej
+pt:alface romana
+ro:salată romană
+ru:римский салат
+sl:solata vezivka
+sv:romansallat
+tl:letsugas romana
+vi:rau diếp
+zh:蘿蔓萵苣
+#nan:oe-á-chhài
+#yue:羅馬生菜
+wikidata:en:Q1762893
+ciqual_food_code:en:20171
+ciqual_food_name:en:Cos or romaine lettuce, raw
+ciqual_food_name:fr:Laitue romaine, crue
+#758 in 7 @2021-10-04
+
+# description:en:Crisphead – The most popular type in the United States, it is very heat-sensitive and was originally adapted for growth in the northern United States. It ships well, but is low in flavor and nutritional content, being composed of even more water than other lettuce types.
+
+#category/iceberg-lettuce
+<en:lettuce
+en:iceberg lettuce
+bg:салата айсберг
+ca:enciam iceberg
+da:icebergsalat, iceberg-salat
+de:Eisbergsalat
+eo:glacilaktuko
+es:lechuga iceberg, iceberg
+fi:jäävuorisalaatti
+fr:laitue iceberg, iceberg
+hu:jégsaláta
+it:insalata iceberg, lattuga iceberg
+la:Lactuca sativa var. capitata
+nb:isbergsalat
+nl:ijsbergsla
+pl:sałata lodowa, sałaty lodowej
+pt:alface americana
+sv:isbergssallat
+# zh-tw:皺葉萵苣
+wikidata:en:Q1310886
+ciqual_food_code:en:20200
+ciqual_food_name:en:Iceberg lettuce, raw
+ciqual_food_name:fr:Laitue iceberg, crue
+# 357 in 10 @2021-10-08
+
+<en:lettuce
+fr:jeunes pousses de laitue verte
+#20 in fr @2021-10-05
+
+<en:lettuce
+fr:jeunes pousses de laitue rouge
+# 20 in fr @2021-10-08
+
+<en:lettuce
+en:Red leaf lettuce
+ja:サニーレタス, アカチリメンチシャ, 赤チリメンチシャ
+wikidata:en:Q7305343
+wikipedia:en:https://en.wikipedia.org/wiki/Red_leaf_lettuce
+
+# description:en:CORN SALAT is a small annual plant that is eaten as a leaf vegetable. It is typically served as a salad with chopped hard-boiled eggs and crumbled bacon.
+# comment:en:The wikidata translations are a mix of common and latin names.
+
+<en:salad
+<en:leaf vegetable
+en:corn salad, common cornsalad, lamb's lettuce, fetticus, nut lettuce, field salad, rapunzel, doucette, raiponce, Nusslisalat
+ar:خس النعجة
+be:валер’янэла малая
+ca:canonges, herba dels canonges
+cs:polníček, kozlíček polní
+cy:gwylaeth yr oen
+da:vårsalat, feldsalat
+de:Feldsalat, Rapunzel, Rapunzelsalat, Nüsslisalat
+el:λυκοτρίβολο
+es:milamores, canonigos
+et:põldkännak
+eu:ardi-mihi
+fi:vuonankaali
+fr:mâche, rampon
+ga:ceathrú uain
+gl:herba dos cóengos
+hr:matovilac
+hu:salátagalambbegy, galambbegy, madársaláta, mezeisaláta
+io:valerianelo
+is:akursalat
+it:songino, nusslisalat, lattughella, dolcetta, morbidello, Formentino, Valerianella, Serzetto
+ja:ノヂシャ
+ko:콘샐러드
+la:valerianella locusta
+nb:vårsalat
+nl:veldsla
+oc:doceta
+pl:rapunkuł, roszpunka warzywna, roszponka, roszponki
+pt:canónigos, alface-de-cordeiro
+ro:fetică
+ru:полевой салат, Валерянелла, Валерьяница
+sk:valeriánka poľná
+sl:navadni motovilec
+sr:матовилац, matilovac
+sv:vårklynne, fältsallat, vintersallat
+tr:kuzugevreği
+uk:мласкавець салатний
+wa:doûcete
+zh:萵苣纈草
+# hsb:rjaponka, prawa rjaponka, solotwička
+#nap:còssa e muónece
+# sr-ec:матовилац
+# sr-el:matovilac
+# vec:gałinełe
+# vls:kôornsaloa
+wikidata:en:Q158954
+wikipedia:en:https://en.wikipedia.org/wiki/Valerianella_locusta
+ciqual_food_code:en:20099
+ciqual_food_name:en:Lamb's lettuce, raw
+ciqual_food_name:fr:Mâche, crue
+# 262 in 7 @2021-10-03
+eurocode_2_group_3:en: 8.10.16
+
+# description:en:CHARD (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens-Group) is a green leafy vegetable. Chard, like other green leafy vegetables, has highly nutritious leaves, making it a popular component of healthy diets.Fresh young chard can be used raw in salads. Mature chard leaves and stalks are typically cooked (like in pizzoccheri) or sautéed; the bitterness fades with cooking, leaving a refined flavor which is more delicate than that of cooked spinach.
+
+# <en:Vegetable rods
+<en:leaf vegetable
+en:chard, Chards, Swiss chard, silver beet, seakale beet, leaf beet
+ar:سلق
+bg:Манголд
+bs:Blitva
+ca:bleda
+co:Geia
+cs:Mangold
+da:bladbede, sølvbede, mangold
+de:Mangold
+el:Σέσκουλο
+eo:Folibeto
+es:Acelgas
+eu:Zerba
+fa:برگ چغندر
+fi:mangoldi, lehtimangoldi, lehtijuurikas
+fr:blette, Blettes, bette, bettes, côtes de blettes
+ga:Biatas bán
+gl:Acelga
+he:סלק עלים
+hr:Blitva
+hu:Mángold
+it:Bietola, bietole
+ja:フダンソウ
+kk:Жапырақты қызылша
+ko:근대
+ku:Dîw
+la:Beta vulgaris var. cicla
+mk:Блитва
+nb:bladbete
+nl:snijbiet
+nn:mangold
+pl:boćwina, botwina, botwiny, boćwiny
+pt:acelga
+ro:Mangold
+ru:мангольд
+sr:блитва
+sv:Mangold
+tr:Pazı
+uk:Мангольд
+zh:莙薘菜
+# azb:پازی تره‌سی
+# frr:Mangold
+# hsb:Burak
+# kk-arab:جاپىراقتى قىزىلشا
+# kk-cn:جاپىراقتى قىزىلشا
+# kk-cyrl:Жапырақты қызылша
+# kk-kz:Жапырақты қызылша
+# kk-latn:Japıraqtı qızılşa# kk-tr:Japıraqtı qızılşa
+# ku-arab:دیو
+# ku-latn:Dîw
+# pcd:Biéte
+# sr-ec:блитва
+# sr-el:Blitva
+# yue:豬乸菜
+# zh-cn:莙荙菜
+# zh-hans:莙荙菜
+# zh-hant:莙薘菜
+# zh-hk:莙薘菜
+# zh-sg:莙荙菜
+# zh-tw:莙薘菜
+wikidata:en:Q157954
+wikipedia:en:https://en.wikipedia.org/wiki/Chard
+# ingredient/fr:blette/languages has 88 products in 8 languages @2019-03-22
+# category/chards has 16 products @2019-05-22
+ciqual_food_code:en:20004
+ciqual_food_name:en:Swiss chard, raw
+ciqual_food_name:fr:Bette ou blette, crue
+eurocode_2_group_3:en: 8.10.20
+
+<en:chard
+en:chard concentrate
+de:Rübenkonzentrat
+fr:concentrés de blettes
+
+<en:leaf vegetable
+en:spinach
+am:ቆስጣ
+ar:سبانخ
+as:পালেং শাক
+az:Dirrik ispanağı
+be:Шпінат
+bg:спанак
+bn:পালং শাক
+bo:ཚལ་སྣག
+br:pinochez
+bs:Špinat
+ca:espinac,espinacs
+co:spinacciu
+cs:špenát setý
+cy:Sbigoglys
+da:spinat
+de:Spinat
+dv:ބޯވެލި
+el:Σπανάκι
+eo:spinaco
+es:espinacas
+et:spinat
+eu:Ziazerba
+fa:اسفناج
+fi:pinaatti
+fo:spinat
+fr:épinard, épinards
+fy:spinaazje
+ga:Spionáiste
+gd:Bloinigean-gàrraidh
+gl:Espinaca
+gu:પાલક
+he:תרד
+hi:पालक
+hr:Špinat
+ht:Epina
+hu:spenót
+hy:սպանախ
+id:Horenso
+io:Spinato
+is:Spínat
+it:spinaci
+ja:ホウレンソウ, ほうれん草
+kk:Самалдық
+kn:ಪಾಲಕ್
+ko:시금치
+ku:Siyale
+la:Spinacia oleracea
+lb:Päinetsch
+li:Spinaasj
+lt:Daržinis špinatas, špinatas, Špinatų lapai
+lv:spināti
+mk:Спанаќ
+ml:ചീര
+mr:पालक
+my:ဟင်းနုနွယ်
+nb:spinat
+ne:पालुङ्गो
+nl:spinazie
+nn:Spinat
+nv:Waaʼ
+oc:espinarc
+or:ପାଳଙ୍ଗ
+os:Голмандзы
+pa:ਪਾਲਕ
+pl:Szpinak warzywny, szpinak, szpinaku, szpinakowy, szpinakowa, szpinakowe
+pt:espinafres
+ro:Spanac
+ru:шпинат огородный
+rw:Epinari
+sd:پالڪ
+se:spináhtta
+sh:Špinat
+sl:Špinača
+sq:spinaqi
+sr:спанаћ
+sv:spenat
+ta:பசலை கீரை
+te:పాల కూర
+th:ปวยเล้ง
+tl:Espinaka
+tr:Ispanak
+uk:Шпинат городній
+ur:پالک
+vi:Rau chân vịt
+wa:Spinasse
+za:byaekbohcaiq
+zh:菠菜
+# azb:ایسپاناق
+# bar:Spinat
+# bho:पालकी
+# cdo:Pŏ̤-lìng-chái
+# chr:ᎢᏤᎢ ᎠᎩᏍᏗ
+# ckb:سپێناخ
+# dsb:spinat
+# hak:Po-lîn-chhòi
+# hsb:spinat
+# kbp:Kpema
+# mzn:اسبناخ
+# nan:Poe-lêng-á
+# new:पलः
+# nrm:Épinoches
+# pap:spinazi
+# pnb:پالک
+# roa-tara:spinace
+# yue:菠菜
+# zh-tw:菠菜
+wikidata:en:Q81464
+wikipedia:en:https://en.wikipedia.org/wiki/Spinach
+carbon_footprint_fr_foodges_ingredient:fr:Epinard
+carbon_footprint_fr_foodges_value:fr:0.5
+# fr:épinard 1204 in 9 languages products @2018-10-14
+ciqual_food_code:en:20059
+ciqual_food_name:en:Spinach, raw
+ciqual_food_name:fr:Épinard, cru
+eurocode_2_group_3:en: 8.10.24
+
+<en:spinach
+en:baby spinach
+bg:бейби спанак
+de:Babyspinat
+es:Espinaca bebé.
+fi:babypinaatti, baby-pinaatti
+fr:Jeunes pousses d'épinards, pousse d'épinards
+nl:Baby spinazie
+sv:babyspenat
+
+<en:spinach
+fr:feuille d'épinards
+nl:spinazieblad
+
+<en:spinach
+en:spinach powder
+#en:processing:en:powder
+#de:Spinatpulver
+#es:polvo de espinaca
+#fi:pinaattijauhe
+#fr:poudre d'épinard, épinards en poudre, épinard en poudre
+#hr:špinat u prahu
+#it:Polvere di spinaci
+#nl:spinaziepoeder
+#pl:szpinak w proszku, sproszkowany szpinak
+#pt:pó de espinafre
+# fr:poudre-d'épinard 40 products in 4 languages @2018-10-14
+# fr:épinards-en-poudre 17 products in 4 languages @2018-10-14
+
+<en:spinach
+fr:épinards déshydratés
+fi:kuivattu pinaatti
+
+<en:spinach
+en:Cooked spinach
+fr:Épinards cuits
+ciqual_food_code:en:20027
+ciqual_food_name:en:Spinach, cooked
+ciqual_food_name:fr:Épinard, cuit
+
+<en:spinach
+fr:épinards en branches, épinards branches
+de:Blattspinat
+it:foglie di spinaci
+nl:bladspinazie
+# fr:épinards-en-branches in 3 languages 44 products @2018-10-14
+
+<en:spinach
+fr:Épinards hachés
+nl:gehakte spinazie
+# ingredient/fr:epinards-haches has 26 products in 2 languages @2019-05-24
+
+<en:spinach
+en:spinach puree
+fr:purée d'épinards
+ciqual_food_code:en:20285
+ciqual_food_name:en:Spinach, puree
+ciqual_food_name:fr:Épinard, purée
+
+<en:spinach
+<en:amaranth
+en:spinach or amaranth
+ms:bayam
+
+# Atriplex hortensis
+<en:leaf vegetable
+en:garden orache, orach
+eurocode_2_group_3:en: 8.10.28
+
+# comment:en:Cress can mean Garden Cress, Watercress, or the group of all cresses. And seemingly different things in different languages.
+<en:leaf vegetable
+en:cress
+de:Kresse
+fr:Cresson
+wikipedia:en:https://en.wikipedia.org/wiki/Cress
+eurocode_2_group_3:en: 8.10.30
+
+<en:leaf vegetable
+en:land cress, American cress, winter cress
+la:barbarea verna
+eurocode_2_group_3:en: 8.10.34
+
+# description:en:WATERCRESS or yellowcress is an aquatic plant species with the botanical name Nasturtium officinale. Watercress can be sold in supermarkets in sealed plastic bags, containing a little moisture and lightly pressurised to prevent crushing of contents. Watercress is 95% water and has low contents of carbohydrates, protein, fat, and dietary fiber.
+# comment:en:The wikidata-page refers to plant and not the vegetable. The translations are taken from the wikipedia-pages.
+
+<en:cress
+en:Watercress
+af:Bronkors
+an:Berro
+ar:جرجير الماء
+ca:creixen
+de:Brunnenkresse
+eo:akvokreso
+es:berro
+fi:Isovesikrassi
+fr:Cresson de fontaine
+gl:Agrón
+id:Selada Air
+io:Kreso
+it:Crescione
+ja:オランダガラシ, クレソン, クレス
+ko:물냉이
+la:Nasturtium officinale
+nb:Brønnkarse
+nl:waterkers
+pt:agrião
+ru:Брункресс
+sr:Поточарка
+tr:Su teresi
+vi:Cải xoong
+zh:西洋菜
+# sco:Kerse
+# sr-ec:Поточарка
+# yue:西洋菜
+# zh-cn:西洋菜
+# zh-hans:西洋菜
+# zh-hant:西洋菜
+# zh-hk:西洋菜
+# zh-sg:西洋菜
+# zh-tw:水芥菜
+wikidata:en:Q150452
+wikipedia:en:https://en.wikipedia.org/wiki/Watercress
+# ingredient/watercress has 107 products in 4 languages @2019-04-13
+# ingredient/fr:cresson has 61 products in 5 languages @2018-12-14
+ciqual_food_code:en:20022
+ciqual_food_name:en:Watercress, raw
+ciqual_food_name:fr:Cresson de fontaine, cru
+eurocode_2_group_3:en: 8.10.36
+
+# description:en:Cress (Lepidium sativum), sometimes referred to as garden cress (or curly cress) to distinguish it from similar plants also referred to as cress (from old Germanic cresso which means sharp, spicy), is a rather fast-growing, edible herb.
+
+<en:cress
+en:garden cress
+af:waterkers
+am:ፌጦ
+ar:رشاد مزروع
+az:vəzəri-bozalaq
+be:клапоўнік пасяўны
+bg:кресон
+bn:হালিম শাক
+bs:obična grbaštica
+ca:morritort
+cs:řeřicha zahradní
+cy:pupurlys yr ardd
+da:have-karse, havekarse
+de:Gartenkresse
+el:κάρδαμο
+eo:ĝardenkreso
+es:lepido, berro hortelano, berro de jardin
+et:salatkress
+fa:شاهی
+fi:vihanneskrassi
+ff:lapsur
+fr:cresson alénois
+ga:biolar gairdín
+gu:અશેળિયો
+hu:kerti zsázsa
+hy:կոտեմ
+is:karsi
+it:crescione di giardino, crescione inglese
+ja:コショウソウ
+ka:წიწმატი
+kk:кресс салат
+ko:큰다닥냉이
+kw:beler lowarth
+la:Lepidium Sativum
+lt:sėjamoji pipirnė
+mk:добрејка
+ml:ആശാളി
+mr:अहाळीव
+nb:karse
+ne:चम्सुर
+nl:tuinkers, sterrenkers, bitterkers, cressonette
+nn:matkarse
+os:дудгæ
+pl:pieprzyca siewna, rzeżucha ogrodowa
+pt:agrião-mouro, agrião-de-horta, mastruço
+qu:willk'uyuyu
+ro:creson
+ru:кресс-салат
+sh:obična grbaštica
+sk:žerucha záhradná
+sv:smörgåskrasse, kryddkrasse
+te:ఆడలవిటల
+th:เทียนแดง
+tr:tere
+uk:кресс-салат
+ur:ہالوں
+zh:水芹
+#ace:camcuruih
+#aeb:حبة الرشاد
+#azb:وزه ری
+#csb:zagrodna krjasa
+#frr:klaker
+#hsb:zahrodna žerchej
+#kab:agernunnec
+#lbe:гьумалаккиж
+#lez:цiуьлуьк
+#mzn:شاهین
+#wuu:家独行菜
+wikidata:en:Q27033
+wikipedia:en:https://en.wikipedia.org/wiki/Garden_cress
+ciqual_food_code:en:20199
+ciqual_food_name:en:Garden cress, raw
+ciqual_food_name:fr:Cresson alénois, cru
+# 8 in 4 @2021-10-04
+eurocode_2_group_3:en: 8.10.30
+
+<en:leaf vegetable
+en:vine leaf, vine leaves
+bg:лозови листа
+de:Weinblätter
+es:hojas de parra
+fi:viininlehdet
+fr:feuilles de vigne, feuille de vigne
+he:עלי גפן, עלה גפן
+it:foglie di vite
+# ingredient/fr:feuilles-de-vigne has 27 products in 5 languages @2019-02-10
+vegan:en:yes
+vegetarian:en:yes
+eurocode_2_group_3:en: 8.10.40
+
+<en:leaf vegetable
+en:dandelion, common dandelion, dandelion leaf, dandelion leaves
+af:perdeblom
+ar:Խատուտիկ սովորական
+az:Dərman zəncirotu
+be:Адуванчык лекавы
+bg:обикновено глухарче
+bh:टॅराक्सॅकम ऑफिशिनाले
+ca:xicoia, dent de lleó
+ce:Да́рбане ба́ппа
+cs:pampeliška lékařská, Pampelišky smetánky
+da:Mælkebøtte
+de:Löwenzahn
+el:ταράξακο
+eo:oficina taraksako, ofta leontodo
+es:diente de león, achicoria amarga
+et:Harilik võilill
+eu:Txikoria-belarra
+fa:قاصدک, گل قاصدک
+fi:voikukka
+fr:pissenlit, feuille de pissenlit, feuilles de pissenlit
+fy:Hynsteblom
+ga:caisearbhán, caisearbhán coiteann
+gl:mexacán común
+he:שינן רפואי
+hr:ljekoviti maslačak
+hu:gyermekláncfű
+hy:Խատուտիկ սովորական
+id:jombang, tanaman jombang
+is:Túnfífill
+it:dente di leone
+ja:タンポポ, セイヨウタンポポ
+ko:서양민들레
+ku:Xizêmok
+ky:Каакым-кукум
+la:Taraxacum officinale
+li:pisblóm
+lt:kiaulpienė
+lv:cūkpiene, ārstniecības pienene
+ml:ദുഗ്ധഫേനി
+ms:Dandelion
+nl:paardenbloem
+nn:løvetann
+pt:dente-de-leão
+rm:flur-portg
+ro:Păpădia
+ru:одуванчик, Одува́нчик лека́рственный
+sk:Púpava lekárska
+sl:regrat, Navadni regrat
+sr:Маслачак, Maslačak
+sv:maskros
+tr:karahindiba
+uk:кульбаба
+vi:địa đinh
+wa:Såvadje cécoreye
+zh:西洋蒲公英
+#ang:ægwyrt
+#bar: Zigori
+#csb:Mlécz
+#dsb:Mlac
+#hsb:Mlóč
+#ing:Дарбан баппа
+#ksh:Ketteplöck
+#lbe:Къупан тӀутӀи
+#nds:hondebloeme
+#olo:Rohtuvoikukku
+#sah:Ньээм от
+#sco:Dentylion
+#vec:pissacan
+#vep:Bakbatai
+#vls:pisseblomme
+ciqual_food_code:en:20038
+ciqual_food_name:en:Dandelion, raw
+ciqual_food_name:fr:Pissenlit, cru
+#100 @2021-10-06
+eurocode_2_group_3:en: 8.10.44
+
+###################################################################################################
+#
+#                                Nettle
+#
+###################################################################################################
+# description:en:NETTLES or stinging nettles, applies particularly to Urtica dioica. U. dioica has a flavour similar to spinach mixed with cucumber when cooked, and is rich in vitamins A and C, iron, potassium, manganese, and calcium.
+# comment:en:For the translations the latin name is not used, but the popular name.
+
+<en:leaf vegetable
+en:nettle, stinging nettle, perrenial nettle
+am:ሳማ
+ar:قراص
+ay:itapallu
+az:Gicitkən
+be:Крапіва
+bg:коприва
+br:Linad
+ca:Ortiga
+cs:kopřiva
+cv:Вĕлтĕрен
+da:Nælde
+de:Brennnessel, Brennnesseln
+el:Τσουκνίδα
+eo:Urtiko
+es:ortiga
+et:Nõges
+eu:asun
+fa:گزنه
+fi:nokkonen, nokkoset
+fr:ortie, orties, herbes d'ortie
+ga:Neantóg
+gl:Ortiga
+he:סרפד
+hr:kopriva, urtica dioica L
+hu:Csalánfélék
+hy:եղինջ
+io:Urtiko
+it:ortiche
+ja:イラクサ属
+ka:ჭინჭარი
+kk:Қалақай
+ko:쐐기풀속
+ku:Giyagezk
+kv:Петшӧр
+ky:Чалкан
+la:Urtica, Urtica dioica
+li:Brennieëtel
+lt:Dilgėlė
+lv:Nātres
+mk:коприва
+mn:Халгай
+nb:brennesler
+nl:brandnetel
+nn:nesleslekta
+nv:Hołchʼíʼí
+oc:Ortiga
+os:Пысыра
+pl:Pokrzywa, pokrzywy, pokrzyw
+qu:Kisa
+ru:крапива
+sc:Pitigaìa
+sk:pŕhľava
+sq:Hithëra
+sv:Nässelsläktet
+ta:செந்தட்டி
+tr:Isırgan
+tt:Кычыткан
+uk:Кропива
+uz:Gazanda
+zh:蕁麻
+# ast:Urtica
+# azb:گیجیت‌کن
+# ckb:گەزگەسک
+# de-at:Brennnesseln
+# de-ch:Brennnesseln
+# diq:Dırrıke
+# frr:Braannäädler
+# hsb:Kopřiwa
+# inh:Нитт
+# kk-arab:قالاقاي
+# kk-cn:قالاقاي
+# kk-cyrl:Қалақай
+# kk-kz:Қалақай
+# kk-latn:Qalaqaý
+# kk-tr:Qalaqaý
+# koi:Петшӧр
+# ku-arab:گیاگەزک
+# ku-latn:Giyagezk
+# lbe:МечӀ
+# mdf:Палакс
+# mrj:Нуж
+# myv:Пиципалакс
+# mzn:گزنه
+# nds-nl:Braandnetel
+# nrm:Ortchie
+# sgs:Nuotrīna
+# xmf:ჭუჭელე
+# yue:蕁麻
+# zea:Broeinekel
+# zh-cn:荨麻
+# zh-hans:荨麻
+# zh-hant:蕁麻
+# zh-hk:蕁麻
+# zh-sg:荨麻
+# zh-tw:蕁麻
+wikidata:en:Q121671
+wikipedia:en:https://en.wikipedia.org/wiki/Urtica_dioica
+# ingredient/fr:ortie has 97 products in 5 languages @2019-05-06
+eurocode_2_group_3:en: 8.10.48
+
+<en:nettle
+en:nettle leaf, nettle leaves
+bg:листа от коприва
+
+# description:en:COMMON SORREL or garden sorrel (Rumex acetosa), often simply called sorrel, is a perennial herb in the family Polygonaceae. The leaves may be puréed in soups and sauces or added to salads; they have a flavour that is similar to kiwifruit or sour wild strawberries.
+
+<en:leaf vegetable
+<en:salad
+en:sorrel, common sorrel
+af:veldsuring
+ar:حماض بستاني
+az:adi əvəlik
+ba:ҡуҙғалаҡ
+bg:киселец
+ca:agrella
+cs:šťovík kyselý
+da:almindelig syre
+de:Sauerampfer
+el:λάπαθο
+eo:okzalo
+es:acedera común
+et:hapuoblikas, hapu oblikas
+eu:mingarratz handi
+fa:سورل، لوئیزیانا
+fi:niittysuolaheinä
+fr:oseille
+ga:samhadh
+gl:aceda
+hi:खट्टा पालक
+hr:obična kiselica
+hu:mezei sóska
+io:oxalo
+is:túnsúra
+it:acetosa
+ja:スイバ
+ka:მჟაუნა
+ko:수영
+ku:tirşo
+ky:кызыл аткулак
+la:rumex acetosa
+lt:valgomoji rūgštynė
+lv:pļavas skābene
+mk:киселец
+mr:चुका
+nb:engsyre
+nl:zuring, veldzuring, zurkel
+nn:engsyre
+nv:chaatʼíní
+os:хуырхæг
+pl:szczaw zwyczajny, szczaw
+pt:azeda
+ro:măcriș
+ru:щавель кислый
+se:juopmu
+sh:kiseljak
+sk:štiav lúčny
+sl:navadna kislica
+sq:lëpjeta
+sr:кисељак, kiseljak
+sv:ängssyra
+tg:туршак
+uk:щавель кислий
+ur:ہوبابل
+vi:chút chít
+zh:酸模
+# azb:عادی او‌لیک
+# csb:kwasné zelé
+# diq:amênvaş
+# frr:ruad jüd
+# hsb:kisały zdźer
+# koi:тшӧтшкӧр
+# sgs:rūgštīnė
+# stq:suurke
+# vec:spanavin
+# vep:sol'hein
+#wuu:酸模
+# zh-tw:酸模
+wikidata:en:Q26297
+wikipedia:en:https://en.wikipedia.org/wiki/Sorrel
+ciqual_food_code:en:20111
+ciqual_food_name:en:Sorrel, raw
+ciqual_food_name:fr:Oseille, crue
+# 138 in 5 @2021-12-01
+eurocode_2_group_3:en: 8.10.50
+
+<en:leaf vegetable
+en:purslane
+la:portulaca oleracea
+eurocode_2_group_3:en: 8.10.55
+
+###################################################################################################
+#
+#                                Parsley
+#
+###################################################################################################
+# description:en:PARSLEY or garden parsley (Petroselinum crispum) is a species of flowering plant in the family Apiaceae
+
+#category/parsley
+<en:herb
+<en:leaf vegetable
+en:parsley
+af:pietersielie
+ar:بقدونس
+az:cəfəri
+ba:петрушка үләне
+bg:магданоз
+br:perisilh
+bs:peršun
+ca:julivert
+cs:petržel
+cy:persli
+da:persille
+de:petersilie, persilie
+el:μαϊντανός
+eo:petroselo
+es:perejil
+et:petersell, aedpetersell
+eu:perrexil
+fa:جعفری
+fi:persilja
+fr:persil
+ga:peirsil
+gl:perexil
+he:פטרוזיליה
+hi:अजमोद
+hr:peršin, peršina, peršinov
+ht:pèsi
+hu:petrezselyem
+hy:մաղադանոս
+id:peterseli
+ie:petrosel
+io:petroselo
+is:steinselja
+it:prezzemolo
+ja:パセリ
+ka:ოხრახუში
+kk:ақжелкен
+kn:ಅಜಮೋದ
+ko:파슬리
+ku:gêjnak
+ky:ашкөк
+la:petroselinum crispum
+lt:petražolė, petražolių, petražolės
+lv:pētersīļi
+mk:магдонос
+ms:pokok pasli
+nb:persille
+nl:peterselie
+nn:persille
+oc:jolverd
+os:басгæрдæг
+pl:pietruszka, pietruszki, pietruszkowa, pietruszkowe, pietruszkowy
+pt:salsa
+ro:pătrunjel,patrunjel
+ru:петрушка кудрявая, петрушка, зелень петрушки
+sc:pedrusìmula
+sd:پارسلي
+sh:peršin
+sk:petržlen
+sl:peteršilj
+sq:majdanozi
+sr:першун, peršun
+sv:persilja
+ta:வோக்கோசு
+tl:kinchay
+tr:maydanoz
+uk:петрушка
+vi:mùi tây
+wa:pierzin
+yi:פעטרישקע
+zh:香芹
+# aeb-arab:معدنوس
+# aeb-latn:ma3dnous
+# azb:جعفری
+# bar:petersilie
+# csb:piotrëszka
+# frr:pitersile
+# inh:дарбаьрхӏ
+# lbe:накьлил уртту
+# myv:алашань тикше
+# nah:perexil
+# nap:petrusino
+# pdc:pederli
+# qu:qhurita
+# scn:pitrusinu
+# sco:persel
+# sgs:petroška
+# vec:parsémoło
+# vls:perselle
+# xmf:მაკინდოლი
+# yue:番茜
+wikidata:en:q65522500
+# plant: wikidata:en:q25284
+wikipedia:en:https://en.wikipedia.org/wiki/parsley
+# en:22363 in 51 @2021-09-16
+eurocode_2_group_3:en: 8.10.60
+
+<en:parsley
+en:fresh parsley
+bg:свеж магданоз
+fr:persil frais
+ciqual_food_code:en:11014
+ciqual_food_name:en:Parsley, fresh
+ciqual_food_name:fr:Persil, frais
+
+#processing:en: en:dehydrated
+#<en:parsley
+#en:dehydrated parsley
+#de:Petersilie getrocknet
+#es:perejil deshidratado
+#fi:kuivattu persilja
+#fr:persil déshydraté, persil séché
+#it:prezzemolo essiccato
+#nl:Gedehydrateerde peterselie
+#ru:зелень петрушки сушёная
+# fr:persil-déshydraté has 204 products in 4 languages @2018-10-10
+
+#processing:en: en:leaf
+#<en:parsley
+#en:parsley leaf, parsley leaves
+#cs:listová petržel
+#de:Petersilienblatt, Petersilienblätter
+#es:hojas de perejil
+#hr:peršinov list
+#hu:petrezselyemlevél
+#pl:natka pietruszki
+#ro:frunze de pătrunjel
+#sr:peršunov list
+#57 in 10 @2021-09-16
+
+# BRASSICAS (Eurocode 2 8.15)
+
+<en:vegetable
+en:brassica
+la:brassica
+eurocode_2_group_2:en: 8.15
+
+# description:en:BROCCOLI is an edible green plant in the cabbage family whose large flowering head is eaten as a vegetable
+
+# <en:category:en:Vegetables
+<en:brassica
+en:broccoli
+af:Broccoli
+ar:قنبيط أخضر
+az:Brokkoli
+bg:Броколи
+bn:ব্রকলি
+bo:མེ་ཚལ་ལྗང་ཁུ།
+bs:Brokula
+ca:bròcoli
+cs:brokolice
+cy:Brocoli
+da:broccoli
+de:Brokkoli, Broccoli
+dv:ބުރޮކޯޅި
+el:Μπρόκολο
+eo:Brokolo
+es:Brócoli, Brócolis
+et:brokkoli, spargelkapsas
+eu:Brokoli
+fa:کلم بروکلی
+fi:parsakaali
+fr:Brocoli, Brocolis
+ga:Brocailí
+gl:Brócoli
+gv:Callish Rangagh
+he:ברוקולי
+hr:Brokula
+ht:Bwokoli
+hu:Brokkoli
+hy:բրոկկոլի
+id:Brokoli
+is:Spergilkál
+it:broccoli
+ja:ブロッコリー
+jv:Brokoli
+kk:Брокколи
+kn:ಬ್ರಾಕಲಿ
+ko:브로콜리
+la:Brassica oleracea italica
+lo:ດອກກ້ວຍໄມ້ຝະລັ່ງ
+lt:Brokolis
+lv:brokoļi
+mk:Брокула
+ml:ബ്രോക്കൊളി
+mr:ब्रोकली
+ms:Brokoli
+nb:brokkoli
+nl:broccoli
+nn:brokkoli
+nv:Chʼilzooł
+os:Брокколи
+pa:ਬਰੋਕਲੀ
+pl:brokuł, brokuły, brokuła, brokułów, brokułowy, brokułowa, brokułowe
+pt:brócolos
+ro:Broccoli
+ru:брокколи
+sh:Brokula
+sk:Brokolica
+sl:Brokoli
+sr:броколи
+su:Brokoli
+sv:broccoli
+ta:புரோக்கோலி
+te:బ్రొక్కొలి
+th:บรอกโคลี
+tl:Brokoli
+tr:Brokoli
+uk:броколі
+ur:شاخ گوبھی
+vi:Bông cải xanh
+zh:西蘭花
+# bho:ब्रोकली
+# ckb:برۆکڵی
+# hsb:Brokoli
+# ilo:Broccoli
+# lij:Bròccolo
+# nan:Chheⁿ-hoe-chhài
+# nap:Vruoccole
+# pnb:بروکلی
+# pt-br:brócolis
+# war:Brokoli
+# yue:西蘭花
+wikidata:en:Q47722
+wikipedia:en:https://en.wikipedia.org/wiki/Broccoli
+carbon_footprint_fr_foodges_ingredient:fr:Brocoli (France)
+carbon_footprint_fr_foodges_value:fr:0.4
+# ingredient/broccoli has 1167 products in 10 languages @2018-10-16
+# category/broccoli has 150 products @2019-05-24
+ciqual_food_code:en:20057
+ciqual_food_name:en:Broccoli, raw
+ciqual_food_name:fr:Brocoli, cru
+eurocode_2_group_3:en: 8.15.10
+
+<en:broccoli
+en:Broccoli floret, broccoli top
+de:Brokkoliröschen
+fr:Brocolis en fleurettes
+nl:broccoliroosjes
+# ingredient/fr:brocolis-en-fleurettes has 17 products in 3 languages @2019-05-24
+carbon_footprint_fr_foodges_ingredient:fr:Brocoli (France)
+carbon_footprint_fr_foodges_value:fr:0.4
+eurocode_2_group_3:en: 8.15.12
+
+<en:broccoli
+en:broccoli cress
+de:Brokkolikresse
+es:mastuerzo
+fr:pousses de brocoli
+nl:broccoli cress
+# en:broccoli-cress has 1 product in 1 language @2018-10-16
+
+<en:broccoli
+en:romanesco broccoli, Broccolo Romanesco, Romanesque cauliflower, Romanesco
+ar:بروكلى رومانسكى
+#arz:بروكلى رومانسكى
+ca:romanesco
+cs:romanesco
+de:Romanesco
+eo:florbrokolo
+es:romanescu
+et:romaani lillkapsas
+eu:romanesko
+fa:کلم رومی
+fr:choux romanesco, chou romanesco, romanesco, choux romanesco en fleurettes, fleurettes de chou romanesco
+gl:brócoli romanesco
+hu:pagodakarfiol
+id:romanesko
+it:broccolo romanesco
+ja:ロマネスコ
+kk:романеско қырыққабаты, romanesko qırıqqabatı, رومانەسكو قىرىققاباتى
+la:brassica oleracea convar. botrytis var. botrytis
+mk:римска брокула
+ml:റൊമാനെസ്കോ ബ്രോക്കോളി
+nl:romanesco
+nn:romanesco
+pt:romanesco
+ru:романеско
+uk:капуста романеско
+zh:宝塔花菜
+wikidata:en:Q1775431
+ciqual_food_code:en:20280
+ciqual_food_name:en:Romanesco cauliflower or romanesco broccoli, raw
+ciqual_food_name:fr:Chou romanesco ou brocoli à pomme, cru
+
+# description:en:CAULIFLOWER is one of several vegetables in the species Brassica oleracea in the genus Brassica
+
+<en:vegetable
+en:cauliflower
+bg:карфиол
+da:blomkål
+de:Blumenkohl
+es:coliflor
+fi:kukkakaali
+fr:chou-fleur, choux-fleur, choux-fleurs
+it:cavolfiore, cavolfiori
+ja:カリフラワー
+nl:bloemkool
+pl:kalafior
+pt:Couve flor
+ru:цветная капуста, капуста цветная
+sv:blomkål
+te:గోబీ పుష్పం
+zh:花椰菜
+wikidata:en:Q23900272
+wikipedia:en:https://en.wikipedia.org/wiki/Cauliflower
+carbon_footprint_fr_foodges_ingredient:fr:Chou-Fleur
+carbon_footprint_fr_foodges_value:fr:0.5
+# en:cauliflower has 660 products in 5 languages @2018-10-17
+eurocode_2_group_3:en: 8.15.15
+
+<en:cauliflower
+en:cauliflower florets
+de:Blumenkohlröschen, Blumenkohl-Röschen
+fr:Choux-fleurs en fleurettes
+nl:Bloemkoolroosjes
+# ingredient/fr:choux-fleurs-en-fleurettes has 15 products in 6 languages @2019-05-24
+
+# description:en:CABBAGE or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads.
+
+<en:vegetable
+en:cabbage
+bg:зеле
+ca:col
+da:kål
+de:Kohl
+es:col,repollo,berza
+fi:kaali, keräkaali
+fr:chou, choux
+hu:fejeskáposzta
+it:cavolo
+ja:キャベツ
+li:kappes
+lt:kopūstai
+nb:kål
+nl:kool
+pl:kapusta, kapusty
+ru:капуста
+sv:kål
+to:kāpisi
+tr:lahana
+# ksh:kappes
+# mdf:капста
+# sco:cabbitch
+# szl:kapusta gowjasto
+wikidata:en:Q14328596
+wikipedia:en:https://en.wikipedia.org/wiki/Cabbage
+# fr:chou has 374 products in 4 languages @2018-10-20
+eurocode_2_group_3:en: 8.15.20
+
+fr:Chou pommé, Chou cabus
+carbon_footprint_fr_foodges_ingredient:fr:Chou pommé
+carbon_footprint_fr_foodges_value:fr:0.8
+
+# description:en:Cabbage or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads.
+# There is an issue with the wikidata item, it mixes white cabbage and cabbage.
+
+<en:cabbage
+en:white cabbage
+am:ጥቅል ጎመን
+ar:ملفوف
+az:kələm
+ba:кәбеҫтә
+be:капуста белакачанная
+bg:бяло зеле
+bi:kabis
+bn:বাঁধাকপি
+bo:པད་ལོག
+cs:hlávkové zelí, zelí
+cy:bresychen
+da:hvidkål
+de:Weißkohl, Weisskohl
+el:λάχανο
+eo:blanka brasiko
+es:col blanca
+et:kapsas
+eu:aza
+fa:کلم‌برگ
+fi:valkokaali, kupukaali
+fj:kaveti
+fr:chou blanc
+ga:cabáiste
+gd:càl
+gl:repolo
+gu:tajao
+gv:cabbash vane
+he:כרוב
+hi:बंद गोभी
+ht:chou
+hr:kupus
+hu:fejes káposzta
+hy:կաղամբ
+ia:caule
+id:kubis
+io:kaulo
+is:hvítkál
+it:cavolo bianco, cavolo cappuccio
+jv:kul
+ka:კომბოსტო
+kn:ಎಲೆಕೋಸು
+ko:양배추
+ku:kelem
+li:sjepeng
+lt:gūžinis kopūstas
+lv:galviņkāposti
+mk:зелка
+ml:മൊട്ടക്കൂസ്
+mo:куреки
+mr:कोबी
+ms:kubis bulat
+mt:kaboċċa
+my:ဂေါ်ဖီထုပ်
+nb:hvitkål
+ne:बन्दागोभी
+nl:witte kool, wittekool
+nn:hovudkål
+nv:chʼil łigaii
+oc:caulet
+or:ବନ୍ଧାକୋବି
+pa:ਪੱਤਾ ਗੋਭੀ
+pl:kapusta biała, biała kapusta, białej kapusty
+ps:كرم
+pt:repolho
+rn:ishu
+ro:varză albă
+ru:капуста белокочанная
+rw:ishu
+sa:पर्णशाकम्
+sd:بند گوبي
+sh:kupus
+si:ගෝවා
+sk:kapusta obyčajná hlávková
+sm:kapisi
+so:kaabaj
+sq:lakra
+sr:купус
+#sr-la:kupus
+su:engkol
+sv:vitkål
+sw:kabichi
+ta:முட்டைக்கோசு
+te:కాబేజీ
+tg:карам
+th:กะหล่ำปลี
+tl:repolyo
+tt:кәбестә
+ug:كاپۇسكا
+uk:капуста білоголова
+ur:بند گوبھی
+vi:cải bắp
+yi:קרויט
+za:byaekgienjsim
+zh:卷心菜
+#ang:caƿel
+#bar:kabis
+#bcl:repolyo
+#bho:पत्ता गोभी
+#cdo:gái-làng-chái
+#de-ch:Weisskohl
+#frr:witjkual
+#hak:kô-lì-chhoi
+#hyw:կաղամբ
+#kaa:kapusta
+#ksh:kappes
+#mai:बन्दाकोबी
+#mdf:капста
+#nah:col
+#nan:ko-lê-chhài
+#nds:busekool
+#nrm:caboche
+#pam:repolyu
+#pcd:cabu
+#pnb:بند گوبی
+#sat:ᱵᱳᱱᱫᱷᱟᱠᱩᱵᱤ
+#scn:càvulu
+#sco:cabbitch
+#sgs:kuopūsts
+#szl:kapusta gowjasto
+#vec:capuso
+#vep:kerakapust
+#war:ripolyu
+#wuu:卷心菜
+#yue:椰菜
+wikidata:en:Q35051
+ciqual_food_code:en:20116
+ciqual_food_name:en:White cabbage, raw
+ciqual_food_name:fr:Chou blanc, cru
+# 930 in 13 @2021-09-29
+
+# description:en:The red cabbage (purple-leaved varieties of Brassica oleracea Capitata Group) is a kind of cabbage, also known as purple cabbage, red kraut, or blue kraut after preparation.
+
+<en:cabbage
+en:red cabbage
+bg:червено зеле
+bn:লাল বাঁধাকপি
+br:kaol ruz
+ca:col llombarda
+cs:červené zelí
+da:rødkål
+de:rotkohl
+el:κόκκινο λάχανο
+eo:ruĝa brasiko
+es:cacho lombarda, col lombarda
+fa:کلم‌قرمز
+fi:punakaali
+fr:chou rouge
+ga:cabáiste dearg
+gl:lombarda
+he:כרוב אדום
+hi:लाल पत्ता गोभी
+hu:vörös káposzta
+hy:կարմիր կաղամբ
+id:kol merah
+is:rauðkál
+it:cavolo rosso
+ja:赤キャベツ, 紫キャベツ, レッドキャベツ
+ka:წითელი კომბოსტო
+ko:적채
+lg:emboga
+lv:sarkanais galviņkāposts
+mk:црвена зелка
+ml:ചുവന്ന കാബേജ്
+ms:kubis merah
+nb:rødkål
+ne:रातो गोभी
+nl:rode kool, rodekool
+pl:czerwona kapusta, kapusta czerwona
+pt:couve-roxa
+ro:varză roșie
+sk:červená kapusta
+sq:lakër e kuqe
+th:กะหล่ำปลีม่วง
+tr:kırmızı lahana
+uk:капуста червоноголова
+zh:紫甘藍
+# bar:blaukraut
+# bho:लाल पत्ता गोभी
+# frr:ruadkual
+#hsb:čerwjeny kał
+# nan:âng ko-lê-chhài
+# pcd:colé'd vaque
+# szl:modro kapusta
+# vec:Càvorlo roso
+wikidata:en:q263203
+wikipedia:en:https://en.wikipedia.org/wiki/Red_cabbage
+ciqual_food_code:en:20014
+ciqual_food_name:en:Red cabbage, raw
+ciqual_food_name:fr:Chou rouge, cru
+# 988 in 9 @2021-09-28
+eurocode_2_group_3:en: 8.15.24
+
+# en:description:CHINESE CABBAGE (Brassica rapa, subspecies pekinensis and chinensis) can refer to two groups of Chinese leaf vegetables often used in Chinese cuisine:the Pekinensis Group (napa cabbage) and the Chinensis Group (bok choy).
+# en:comment:IN french chou chinois is used for both varieties. And in other languages as well.
+
+<en:cabbage
+en:Chinese cabbage, Napa cabbage
+ar:برند
+bg:китайско зеле
+ca:col xinesa
+cs:pekingské zelí
+da:kinakål
+de:Chinakohl
+el:kινέζικο λάχανο
+eo:pekina brasiko
+es:col china
+et:pekingi lehtnaeris
+fa:کاهوی چینی
+fi:kiinankaali
+fr:chou chinois, pe-tsaï
+ga:cabáiste Síneach
+id:sawi putih
+it:cavolo di pechino
+ja:ハクサイ, はくさい
+jv:sawi putih
+ko:배추
+la:brassica rapa subsp. pekinensis
+lt:pekininis kopūstas
+lv:ķīnas kāposti
+mk:кинеска зелка
+ms:kubis cina
+nb:napakål
+nl:chinese kool
+pl:kapusta pekińska, kapusta właściwa pekińska
+pt:couve-da-china
+sk:kapusta čínska, kapusta pekinská
+sl:kitajski kapus
+sv:kinakål
+th:ผักกาดขาว
+tl:petsay
+tr:çin lahanası
+ug:يېسىۋېلەك
+uk:капуста пекінська
+uz:pekin karami
+vi:cải thảo
+zh:大白菜
+#arz:ملفوف برند
+#lzh:菘
+#szy:mamumuway
+# yue:紹菜
+wikidata:en:Q13360268
+wikipedia:en:https://en.wikipedia.org/wiki/Chinese_cabbage
+ciqual_food_code:en:20167
+ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), raw
+ciqual_food_name:fr:Chou chinois ou pak-choi ou pé-tsai, cru
+# 200 @2021-09-29
+eurocode_2_group_3:en: 8.15.28
+
+# description:en:Bok choy, pak choi or pok choi (Chinese:上海青; pinyin:Shànghǎi qīng; literally:"Shanghai Green"; Brassica rapa subsp. chinensis) is a type of Chinese cabbage.
+
+<en:cabbage
+en:pak choi, bok choy, pok choi
+ar:ملفوف صيني
+bo:ཚལ་དཀར་ཆེ་བ།
+ca:pak choi, bleda xinesa
+cs:bok čoj, pak čoj zelí, čínské
+da:bok choi, pak choi, kinesisk kål
+de:Pak Choi, Chinesischer Senfkohl
+el:mποκ τσόι
+es:bok choy, pak choi
+eu:txinatar aza
+fa:کلم چینی
+fi:pinaattikiinankaali, pak choi, bok choy, paksoi, pak-soi
+fr:bok choy, pak choï, chou de Chine
+gl:col chinesa, coia chinesa, repolo chinés
+hu:bordáskel, bok choy, pak choi, bok choi
+id:pakcoy, bok choy
+is:blaðkál, salatkál, kínverskt selleríkál
+it:bok choy, pak-choi
+ja:チンゲンサイ, チンゲン菜, 青梗菜
+kn:ಬಾಯ್ ಚಾಯ್
+ko:청경채
+la:Brassica rapa subsp. chinensis
+mk:бок чој, пак чој
+ms:bok choy, pak choi, pok choi
+nb:bak choy, pak choy, paksoi, tai tsai
+nl:paksoi, bokchoy, pak-choi
+pl:pak choi, bok choy, pok choi, kapusta bok choy, kapusta pak choy
+pt:pak-choi, bok-choi, tsoi sum
+ru:бок-чой, пак-чо́й, кита́йская черешко́вая капу́ста
+uk:бок-чой
+sv:sellerikål, pak choi
+vi:cải thìa, cải bẹ trắng, cải chíp, bạch giới tử
+zh:小白菜
+#arz:ملفوف صينى
+#yue:白菜
+wikidata:en:Q18968514
+wikipedia:en:https://en.wikipedia.org/wiki/Bok_choy
+ciqual_food_code:en:20167
+ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), raw
+ciqual_food_name:fr:Chou chinois ou pak-choi ou pé-tsai, cru
+# 128 in 5 @2021-09-29
+eurocode_2_group_3:en: 8.15.28
+
+<en:cabbage
+en:brussels sprouts
+af:brusselspruit
+ar:كرنب بروكسل
+bg:брюкселско зеле
+bn:ব্রাসেলস স্প্রাউট
+br:kaol-bihan
+ca:col de Brusselles
+cs:růžičková kapusta, kapusta růžičková
+cy:ysgewyll
+da:rosenkål
+de:Rosenkohl
+el:λαχανάκι Βρυξελλών, λάχανα Βρυξελλών
+eo:burĝonbrasiko
+es:col de Bruselas, coles de bruselas
+et:rooskapsas, brüsseli kapsas
+eu:bruselaza
+fa:کلم بروکسل
+fi:ruusukaali, brysselinkaali
+fr:chou de Bruxelles, choux de bruxelles
+ga:bachlóg Bhruiséile
+gd:buinneag Bhruisealach
+gl:col de Bruxelas
+gv:caaylag
+he:כרוב ניצנים
+hr:kelj pupčar
+hu:bimbós kel
+id:kubis brussel
+is:rósakál
+it:cavolini di Bruxelles, cavolo di Bruxelles
+ja:メキャベツ, 芽キャベツ
+ka:ბრიუსელის კომბოსტო
+kk:Брюссель қырыққабаты
+ko:방울다다기
+la:Cauliculus Bruxellanus
+lb:brockelchen
+lt:briuselio kopūstas
+lv:briseles kāposti, rožkāposti
+ms:kubis brussels
+mt:kaboċċi ta' Brussell, kaboċċi taz-zokk
+nb:rosenkål
+nl:spruitjes, spruitkool
+nn:rosenkål
+nv:atʼééké bijish yázhí
+pl:kapusta brukselska, Kapusta warzywna brukselska, brukselka, brukselki
+pt:couve-de-bruxelas
+ro:varză de Bruxelles
+ru:брюссельская капуста
+sh:prokelj
+sk:kapusta obyčajná ružičková, kel ružičkový
+sl:brstični ohrovt
+sr:прокељ
+sv:brysselkål
+ta:கிளைக்கோசு
+tg:ғужмкарам
+th:กะหล่ำดาว
+tl:usbong ng bruselas
+tr:brüksel lahanası
+uk:брюссельська капуста
+uz:bryussel karami
+vi:cải brussels
+zh:抱子甘藍
+# hsb:pupkaty kał, pupak
+# kk-arab:بريۋسسەل قىرىققاباتى
+# kk-cn:بريۋسسەل قىرىققاباتى
+# kk-cyrl:брюссель қырыққабаты
+# kk-kz:брюссель қырыққабаты
+# kk-latn:bryusselʹ qırıqqabatı
+# kk-tr:bryusselʹ qırıqqabatı
+# ksh:spruut
+# lij:cöo de Bruxelles
+# mri:aonanī
+# nds-nl:keulkes
+# pcd:ésproete
+# sr-ec:прокељ
+# sr-el:prokelj
+# vec:càvorlo de Brusel
+# wuu:抱子甘蓝
+# zh-cn:抱子甘蓝
+# zh-hans:抱子甘蓝
+# zh-hant:抱子甘藍
+# zh-hk:抱子甘藍
+# zh-sg:抱子甘蓝
+# zh-tw:抱子甘藍
+wikidata:en:Q150463
+ciqual_food_code:en:20058
+ciqual_food_name:en:Brussels sprout, raw
+ciqual_food_name:fr:Chou de Bruxelles, cru
+# fr:chou-de-Bruxelles has 41 products in 2 languages @2018-10-19
+eurocode_2_group_3:en: 8.15.40
+
+# Brassica oleracea var. sabellica
+# be careful with the translation found on packages.
+
+<en:cabbage
+en:kohlrabi
+de:kohlrabi
+es:colirrábano
+fr:chou-rave
+nl:koolrabi
+pl:kalarepa
+ru:Кольра́би
+ua:Кольрабі
+wikidata:en:Q147202
+wikipedia:en:https://en.wikipedia.org/wiki/Kohlrabi
+eurocode_2_group_3:en: 8.15.50
+
+<en:kohlrabi
+en:cooked kohlrabi, boiled kohlrabi
+pl:kalarepa gotowana, gotowana kalarepa, kalarepa ugotowana, ugotowana kalarepa
+ciqual_food_code:en:20094
+ciqual_food_name:en:Kohlrabi, boiled/cooked in water
+
+# description:en:RAPINI or BROCCOLI RABE (Brassica rapa subspecies rapa) is a green cruciferous vegetable, with the leaves, buds, and stems all being edible; the buds somewhat resemble broccoli, but do not form a large head.
+
+<en:cabbage
+en:rapini, broccoli rabe
+de:Wildbrokkoli
+es:grelos, rapini
+fr:rapini, brocoli-rave
+it:friarielli, broccoletti, broccoli di rapa, cime di rapa, rapini, pulezze
+
+<en:cabbage
+en:kale, curly cale, curly kale
+af:boerkool
+ar:كرنب أجعد
+bn:পাতাকপি
+ca:col verda
+cs:kapusta kadeřavá
+da:grønkål
+de:Grünkohl
+eo:krispa brasiko
+el:λαχανίδα
+es:col rizada
+et:lehtkapsas
+eu:aza berde
+fa:کلم کالی
+fi:lehtikaali
+fr:chou frisé
+ga:càl
+gv:caayl jiarg
+he:כרוב על
+hi:एक प्रकार का गोभी
+hu:fodros kel
+id:kubis keriting
+is:grænkál
+ja:ケール
+jv:kalé
+ka:კალე
+kk:кале, kale, كالە
+kn:ಕೇಲ್
+ko:케일
+ky:бакча капустасы
+la:brassica oleracea convar. acephala var. sabellica
+li:boerekuuel
+lt:lapiniai kopūstai
+lv:lapu kāposti
+mk:кељ
+ml:കലെ
+ms:kale
+nb:grønnkål
+nl:boerenkool
+nn:grønkål
+or:ଗୋଟେ ପ୍ରକାରର କୋବି
+pa:ਕਾਲੀ
+pl:jarmuż, jarmużu
+pt:couve, couve-de-folhas
+ru:кале
+sh:kelj
+sk:kel
+sl:kodrasti ohrovt
+sq:lakër jeshile
+sv:grönkål
+sw:sukumawiki
+ta:பரட்டைக்கீரை
+tr:kara lahana
+uk:браунколь
+vi:cải xoăn
+zh:羽衣甘藍
+#arz:كرنب اجعد
+# ckb:کەیڵ
+# frr:greenkual
+# hsb:zeleny kał
+# ksh:Kühl
+# nds:gröönkohl
+# nds-nl:mous
+# pcd:chou-crolèi
+# roa-tara:cavole rizze
+# sco:kail
+#vec:càvorlo riso
+#wuu:羽衣甘蓝
+wikidata:en:Q45989
+ciqual_food_code:en:20218
+ciqual_food_name:en:Curly kale, raw
+ciqual_food_name:fr:Chou frisé, cru
+# 2029 in 13 languages @2021-10-19
+eurocode_2_group_3:en: 8.15.55
+
+<en:kale
+en:kale sprouts
+pl:kiełki jarmużu
+
+<en:cabbage
+en:komatsuna
+ja:小松菜, コマツナ
+
+<en:vegetable
+en:collard greens, collard
+wikidata:en:Q14879985
+
+<en:kale
+en:baby kale
+de:Kohlsprossen
+fr:Jeunes pousses de chou frisé
+#103 in en @2021-10-19
+
+<en:kale
+en:kale juice
+
+<en:kale
+en:kale puree
+de:Grünkohlpüree
+fr:purée de chou frisé
+it:purea di cavolo
+
+# description:en:Savoy cabbage (Brassica oleracea var. sabauda L. or Brassica oleracea Savoy Cabbage Group) is a variety of the plant species Brassica oleracea.
+# be careful with the translation found on packages.
+
+<en:cabbage
+en:savoy cabbage, green cabbage
+ca:col de milà
+cs:hlávková kapusta
+da:savojkål
+de:Wirsing, Wirsingkohl
+el:λάχανο μιλάνου, κράμβη του μιλάνου, λάχανο σαβοΐας
+eo:savoja brasiko
+es:col de saboya, col de Milán
+eu:aza kizkur
+fa:کلم ساوی
+fi:kurttukaali
+fr:chou vert, choux verts, chou de milan, chou de savoie
+ga:cabáiste saváí
+gv:cabbash chraplit
+hr:kelj
+hu:kelkáposzta
+id:kubis savoy
+is:blöðrukál
+it:verza, verze, cavolo verza, cavolo di milano
+ja:サボイキャベツ
+ko:사보이양배추
+la:brassica oleracea sabauda
+lt:savojinis kopūstas
+lv:savojas kāposti, virziņkāposti
+nl:savooikool, groene kool
+nn:savoykål
+pl:kapusta warzywna włoska
+pt:couve-lombarda
+ro:varza creață
+ru:савойская капуста
+sk:kapusta obyčajná kelová, kel hlávkový
+sr:кељ
+#sr-la:kelj
+tr:milano lahanası
+uk:капуста савойська
+wa:savoye
+zh:野甘蓝
+#arz:ملفوف سافوى
+# de-ch:Wirsing
+# en-ca:savoy cabbage
+# en-gb:savoy cabbage
+# hsb:krjózkaty kał
+# ksh:Schavur
+# lij:garbuxo
+# pt-br:couve-lombarda
+#vec:verza
+wikidata:en:Q154013
+wikipedia:en:https://en.wikipedia.org/wiki/Savoy_cabbage
+ciqual_food_code:en:20069
+ciqual_food_name:en:Green cabbage, raw
+ciqual_food_name:fr:Chou vert, cru
+# 256 @2021-09-29
+eurocode_2_group_3:en: 8.15.20
+
+# description:en:GAI LAN (Brassica oleracea var. alboglabra) is a leaf vegetable with thick, flat, glossy blue-green leaves with thick stems, and florets similar to (but much smaller than) broccoli
+
+<en:cabbage
+en:gai lan, chinese broccoli, chinese kale, gai-lan, kailan, kai-lan
+ca:bròquil xinès
+de:kai-lan
+eo:ĉina brokolo
+es:brassica oleracea var. alboglabra
+eu:kai-lan
+fa:کلم‌برگ چینی
+fi:härmekaali, kiinanbrokkoli, kailaan
+fr:brocoli chinois
+he:ברוקולי סיני
+id:kailan
+it:brassica oleracea var. alboglabra
+ja:カイラン
+ko:가이란
+ms:kailan
+nl:kailan
+sv:daggkål, kinesisk broccoli
+th:คะน้า
+za:byaekgaiqlanz
+zh:芥藍
+wikidata:en:Q1677369
+wikipedia:en:https://en.wikipedia.org/wiki/Gai_lan
+# ingredient/en:gai-lan has 2 products in 1 language @2020-06-13
+
+# description:en:SAUERKRAUT (lit. 'sour cabbage') is finely cut raw cabbage that has been fermented by various lactic acid bacteria.
+
+# en:sauerkraut can be a compound ingredient, i.e. Sauerkraut (Weißkohl, Salz)
+
+<en:white cabbage
+en:sauerkraut
+af:Suurkool
+ar:ساوركراوت
+az:Kələm turşusu
+be:Капуста квашаная
+bg:Кисело зеле
+br:Kaol-go
+ca:xucrut
+cs:kysané zelí
+da:sauerkraut
+de:Sauerkraut
+el:Ξινό λάχανο
+eo:Acida brasiko
+es:Chucrut
+et:hapukapsas
+eu:Sauerkraut
+fa:کلم‌ترش
+fi:hapankaali
+fo:súrkál
+fr:choucroute
+ga:Cabáiste géaraithe
+he:כרוב כבוש
+hr:Kiseli kupus
+hu:Savanyú káposzta
+id:Sauerkraut
+io:Surkruto
+is:súrkál
+it:crauti
+ja:ザワークラウト
+ka:მჟავე კომბოსტო
+ko:자우어크라우트
+lb:Sauermous
+li:zoermoos
+lv:skābēti kāposti
+mk:кисела зелја
+nb:sauerkraut
+nl:zuurkool
+nn:surkål
+pa:ਜ਼ਾਉਰਕਰੌਟ
+pl:Kapusta kwaszona, kapusta kiszona, kapusty kiszonej, kiszonej kapusty, kiszona kapusta, kwaszonej kapusty
+pt:chucrute
+ro:varză acră
+ru:квашеная капуста
+sh:Kiseli kupus
+sk:kyslá kapusta
+sq:Lakër turshi
+sr:кисели купус
+sv:surkål
+th:เซาเออร์เคราท์
+uk:Квашена капуста
+vi:Dưa cải Đức
+vo:züdöfabrasid
+yi:זויערקרויט
+zh:德国酸菜
+# bar:Sauakraut
+# be-tarask:Квашаная капуста
+# en-gb:sauerkraut
+# frr:soerkoal
+# gsw:Sauerkraut
+# ksh:Suure Kappes
+# nds-nl:zoerkool
+# sco:sauerkraut
+# sr-ec:Кисели купус
+# sr-el:Kiseli kupus
+# yue:德國酸菜
+# zh-cn:德国酸菜
+# zh-hans:德国酸菜
+# zh-hant:德國酸菜
+# zh-hk:德國酸菜
+# zh-sg:德国酸菜
+# zh-tw:德國酸菜
+wikidata:en:Q154166
+# en:sauerkraut has 166 products in 3 languages @2018-10-19
+
+<en:sauerkraut
+en:raw sauerkraut
+de:Rohes Sauerkraut
+fr:choucroute crue
+
+<en:vegetable juice
+<en:sauerkraut
+en:sauerkraut juice
+de:Sauerkrautsaft
+es:zumo de choucroute
+fi:hapankaalimehu
+fr:jus de choucroute
+nl:zuurkoolsap
+pl:sok z kapusty kiszonej, sok z kiszonej kapusty, sok z kwaszonej kapusty
+# en:sauerkraut-juice has 8 products in 3 languages @2018-10-19
+
+<en:white cabbage
+en:kimchi
+az:Kimçi
+ko:김치
+pl:kimchi
+ru:Кимчхи 
+ua:Кімчі
+xx:kimchi
+wikidata:en:Q141898
+
+# STALK VEGETABLES (Eurocode 2 8.20)
+
+<en:vegetable
+en:stalk vegetable
+fr:légume-tige, légumes-tiges
+eurocode_2_group_2:en: 8.20
+
+<en:stalk vegetable
+en:celery
+af:Seldery
+am:ሰለሪ
+ar:كرفس
+az:İyli kərəviz
+bg:целина
+bn:পাথুনি শাক
+bo:ལྕ་ཚལ།
+br:Ach
+bs:Celer
+ca:Api
+cs:Miřík celer, celer
+cy:Seleri
+da:selleri
+de:Sellerie, Staudensellerie
+el:Σέλινο
+eo:celerio
+es:apio
+et:Aedseller, seller
+eu:Apio
+fa:کرفس
+fi:Selleri
+fr:céleri
+ga:Soilire
+gl:Apio
+gv:Smullish
+he:סלרי
+hr:celer, celera, stablo celera
+ht:Sèlri
+hu:Zeller
+id:Seledri
+io:Celerio
+is:Seljurót
+it:sedano
+ja:セロリ
+jv:Slèdri
+ka:ნიახური
+kk:Балдыркөк
+kn:ಸೆಲರಿ
+ko:셀러리
+la:Apium graveolens
+lt:Valgomasis salieras, salierai
+lv:Selerija, selerijas
+mr:अजमोदा
+ms:Daun Saderi
+mt:karfus
+my:တရုတ်နံနံပင်
+nb:Selleri
+nl:selderij
+nv:Hazaʼaleehtsoh
+oc:Api
+os:Маламар
+pl:Seler zwyczajny, seler, selera, selerowy, selerowe, selerowa, selerem
+pt:aipo,aipos
+qu:Apiyu
+ro:Țelină
+ru:Сельдерей пахучий, сельдерей, сельдерея
+sa:कुस्तुम्बरीपर्णम्
+sc:Appiu
+sh:Celer
+sk:Zeler voňavý, zeler
+sl:Navadna zelena, listna zelena
+sq:Selinoja
+sr:Целер, celer
+su:Salédri
+sv:Selleri
+ta:சிவரிக்கீரை
+tg:Карафс
+th:ขึ้นฉ่าย
+tl:Apyo
+tr:Kereviz
+uk:Селе́ра
+vi:Cần tây
+wa:Celeri
+yi:סעלערי
+za:Ginzcaiq
+zh:旱芹
+description:en:CELERY (Apium graveolens) is a marshland plant in the family Apiaceae that has been cultivated as a vegetable since antiquity.
+# ast:callapazu
+# azb:ایلی کرویز
+# ckb:کەرەوز
+# eml:Sèlar
+# frr:silere
+# lij:Séllao
+# nap:Accio
+# pcd:Chilri
+# sco:Celery
+# xmf:სონა
+# yue:西芹
+allergens:en: en:celery
+wikidata:en:Q23012379
+wikipedia:en:https://en.wikipedia.org/wiki/Celery
+# fr:celeri has 4877 products in 10 languages @2018-10-21
+carbon_footprint_fr_foodges_ingredient:fr:Céleri
+carbon_footprint_fr_foodges_value:fr:0.8
+eurocode_2_group_3:en: 8.20.10
+
+<en:celery
+en:celery stalk
+fr:céleri branche
+de:Stangensellerie
+nl:bleekselderij
+pl:seler naciowy, selera naciowego
+ciqual_food_code:en:20023
+ciqual_food_name:en:Celery stalk, raw
+ciqual_food_name:fr:Céleri branche, cru
+# 88 in 3 languages @2021-12-01
+
+<en:celery
+<en:herb
+en:celery leaves
+de:Sellerieblätter, Sellerieblatt
+es:apio hoja
+fr:feuilles de céleri
+it:foglie di sedano
+nl:selderblad, bladselderij
+pl:liść selera, liście selera, seler liść
+# fr:feuilles-de-céleri has 39 products in 4 languages @2018-10-21
+
+<en:celery
+fr:garniture de céleri
+# fr:garniture-de-céleri has 27 products in 1 language @2018-10-20
+
+<en:celery
+en:celery puree
+de:Selleriepüree
+fi:selleripyree, sellerisose
+fr:purée de céleri
+pl:przecier z selera, przecier selerowy, przeciery z selera
+# In process de:Selleriepüree
+
+<en:celery
+en:celery juice
+de:Selleriesaft
+es:Jugo de apio
+fr:jus de céleri
+it:Succo di sedano
+pl:sok z selera
+
+<en:celery juice
+en:concentrated celery juice
+de:Sellerieextrakt, Konzentriertes Selleriesaft
+fi:sellerimehutiiviste
+fr:jus de céleri concentré, jus concentré de céleri
+# fr:jus-concentré-de-céleri has 64 products in 1 language @2018-10-21
+
+<en:concentrated celery juice
+en:powdered concentrated celery juice
+#en:processing:en:powder
+#de:Konzentriertes Selleriesaftpulver
+#fr:jus concentré de céleri en poudre
+
+<en:celery
+fr:extrait de céleri
+fi:selleriuute
+nl:selderextract
+# fr:extrait-de-céleri has 58 products @2018-10-20
+
+<en:celery
+<en:seed
+en:celery seed
+de:Selleriesamen, Selleriesaat
+es:Semilla de apio
+fi:sellerinsiemen
+fr:graines de céleri
+it:Semi di sedano
+ja:セロリシード
+nl:selderij zaad, selderijzaad
+pl:nasiona selera
+sv:sellerifrö
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-céleri
+# 66 products in 3 languages @2018-10-07
+
+<en:celery
+en:celery powder
+bg:целина на прах
+de:Selleriepulver
+fi:sellerijauhe
+fr:céleri en poudre
+it:sedano in polvere
+nl:selderpoeder
+wikipedia:en:https://en.wikipedia.org/wiki/Celery_powder
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:céleri-en-poudre
+# 41 products in 4 languages @2018-10-07
+
+<en:carrot juice
+<en:celery
+fr:jus concentré de céleri et de carotte
+# fr:jus-concentré-de-céleri-et-de-carotte has 31 products in 1 language @2018-10-20
+
+# description:en:FENNEL (Foeniculum vulgare) is a flowering plant species in the carrot family. The bulb, foliage, and fruits of the fennel plant are used in many of the culinary traditions of the world. The bulb is a crisp vegetable that can be sautéed, stewed, braised, grilled, or eaten raw. Young tender leaves are used for garnishes, as a salad, to add flavor to salads, to flavor sauces to be served with puddings, and also in soups and fish sauce.
+
+# <en:category:en:Plant-based foods
+<en:stalk vegetable
+en:fennel
+af:vinkel
+an:fenullo
+ar:شمرة شائعة
+az:adi razyana
+ba:фенхель, фенхель үләне
+be:фенхель звычайны
+bg:резене, див копър
+br:lost-louarn
+bs:komorač
+ca:fonoll
+ce:йиппар
+cs:fenykl
+cy:ffenigl
+da:fennikel
+de:Fenchel
+dv:ދަވިއްގަނދު
+el:μάραθο, μάραθος, φινόκιο
+eo:fenkolo
+es:hinojo
+et:apteegitill
+eu:mihilu
+fa:رازیانه
+fi:fenkoli, fenkolia
+fr:fenouil, fenouils, fenouil commun
+ga:finéal
+gl:fiúncho
+gu:વરિયાળી
+he:שומר פשוט
+hi:सौंफ
+hr:komorač, koromač, komorača
+ht:anis
+hu:édeskömény
+hy:Հոռոմ-սամիթ սովորական
+id:adas
+io:fenikulo
+is:fenníka
+it:finocchio
+ja:フェンネル
+jv:adas
+ka:დიდი კამა
+kk:Фенхель, Fenxelʹ, فەنحەل
+kn:ಸೊಂಪು
+ko:회향
+ku:rizyane
+la:foeniculum vulgare
+lt:paprastasis pankolis
+lv:fenhelis
+mk:морач
+ml:പെരുംജീരകം
+mr:बडीशेप
+ms:adas, pokok adas
+my:စမုန်စပါး
+nb:fennikel
+ne:सुप
+nl:venkel
+nn:fennikel
+oc:fenolh
+or:ପାନମଧୁରୀ
+pl:fenkuł włoski, fenkuł, koper włoski, kopru włoskiego
+pt:funcho
+qu:inuhu
+ro:fenicul
+ru:Фенхель обыкновенный
+sc:fenugu
+sd:وڏڦ
+sh:komorač
+si:මාදුරු
+sk:fenikel
+sl:komarček
+sq:maraja
+sr:коморач, Komorač
+su:adas
+sv:fänkål
+ta:பெருஞ்சீரகம்
+te:సోంపు
+th:ผักชีล้อม
+tl:haras
+tr:rezene
+uk:фенхель
+ur:سونف
+zh:小茴香
+# aeb-arab:بسباس
+# ast:fenoyu
+# azb:رازیانه
+#ban:adas
+#gom:बडिशेप
+#gor:denggu-denggu
+# hil:inóho
+#kab:Tansawt
+#lij:Fenoggio
+#lmo:fenoeugg
+#mad:Aḍḍhâs
+# mai:सुप
+# nap:စမုန်စပါး
+# nds-nl:veankel
+# sco:finkle
+#scn:fenugu
+#wuu:茴香
+# yue:茴香
+# zh-tw:茴香
+wikipedia:en:https://en.wikipedia.org/wiki/Fennel
+wikidata:en:Q43511
+ciqual_food_code:en:20028
+ciqual_food_name:en:Fennel, raw
+ciqual_food_name:fr:Fenouil, cru
+# 2221 in20 @2021-10-09
+eurocode_2_group_3:en: 8.20.20
+
+
+<en:stalk vegetable
+en:sea kale, seakale, crambe
+fr:chou marin, chourbe, crambe maritime
+es:col marina
+la:crambe maritima
+nl:zeekool
+eurocode_2_group_3:en: 8.20.30
+
+# description:en:RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
+
+<en:stalk vegetable
+# <en:Vegetable rods
+en:rhubarb, rhubarbs
+af:rabarber
+ar:راوند
+az:ravənd
+bg:ревен
+ca:ruibarbre
+cs:rebarbora, reveň lékařská
+da:rabarber
+de:Rhabarber
+el:ραβέντι
+eo:rabarbo
+es:ruibarbo, ruibarbos
+et:rabarber
+eu:arabarba
+fa:رابارب
+fi:raparperi
+fr:rhubarbe, rhubarbes
+ga:biabhóg, rúbarb
+gl:ruibarbo
+hr:rabarbara
+hu:rebarbara
+id:rhubarb
+it:rabarbaro
+kn:ರೂಬಾರ್ಬ್
+ko:루바브
+la:rheum, rheum rhabarbarum
+lt:rabarbaras
+lv:rabarber
+ml:റുബാർബ്
+ms:rubarb, روبارب‎‎, rawand, راوند‎‎
+mt:rabarbru
+nb:rabarbra
+nl:rabarber
+nn:rabarbra
+nv:jiłtʼoʼí
+pl:rabarbar
+pt:ruibarbo
+ro:revent
+ru:ревень
+se:rabárber
+sl:rabarbara
+sr:рабарбара, rabarbara
+sv:rabarber
+tr:ravent
+zh:大黄
+wa:rubåbe
+#als:rabarbr
+#sco:rhubarub
+wikidata:en:Q20767168
+# plant:wikidata:en:Q7535
+wikipedia:en:https://en.wikipedia.org/wiki/Rhubarb
+# 502 in 4  languages @2021-10-25
+# category/rhubarbs has 4 products 22019-05-22
+eurocode_2_group_3:en: 8.20.50
+
+<en:rhubarb
+en:rhubarb juice
+cs:rebarborová štáva
+da:rabarberjuice
+de:Rhabarbersaft
+fi:raparperimehu
+fr:jus de rhubarbe
+it:succo di rabarbaro
+nl:rabarbersap
+#25 @2021-10-25
+
+# SHOOT VEGETABLES (Eurocode 2 8.25)
+
+<en:vegetable
+en:shoot vegetable
+eurocode_2_group_2:en: 8.25
+
+# description:en:Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis
+# is a spring vegetable, a flowering perennial plant species in the genus Asparagus
+
+<en:shoot vegetable
+en:asparagus
+af:Aspersie
+ar:هليون
+az:Qulançar,  Dərman qulançarı
+ba:Себен үләне
+be:Спаржа лекавая
+bg:аспержа, аспержи
+bo:འདམ་མྱུག
+bs:Šparoga
+ca:Espàrrec
+cs:Chřest lékařský
+da:Asparges
+de:Spargel, Gemüsespargel
+el:Σπαράγγι
+eo:Asparago, asparagi
+es:espárrago, espárragos
+et:spargel, asparaagus
+eu:Себен үләне
+fa:مارچوبه
+fi:Parsa
+fr:asperge, asperges
+gl:Esparragueira
+gv:Asparag
+he:אספרג רפואי
+hi:शतावर
+hr:Ljekovita šparoga
+id:Asparagus
+io:Asparago
+is:Spergill
+it:Asparago, aspargi, asparagio
+ja:アスパラガス
+ka:სატაცური
+kk:Кәдімгі қасқыржем
+kn:ಶತಾವರಿ
+ko:아스파라거스
+ku:Kilig, Közönséges spárga
+li:Asperge
+lt:Vaistinis smidras, šparagas
+lv:Sparģeļi
+mr:अस्पॅरॅगस
+ms:Asparagus
+my:ကညွတ်ပင်
+nb:Asparges
+ne:कुरिलो
+nl:asperge, asperges
+nn:Asparges
+nv:Chʼałdą́ą́ʼ, Jádí nátʼoh
+oc:Espargue
+pa:ਛਤਾਵਰ
+pl:Szparag, szparagi, szparagów
+pt:espargo
+qu:Isparaw
+ro:Sparanghel
+ru:спаржа
+rw:Asiperije
+sd:اسپريگس
+sh:Špargla
+sl:Beluš, špargelj
+sq:Shpargulli mjekësor
+sr:Шпаргла
+sv:Sparris
+ta:சாத்தாவாரியினம்
+te:పిల్లితేగ
+tl:Esparago
+uk:Холодок лікарський
+ur:ہلیون
+vi:Măng tây
+wa:Aspedje
+yi:אספארגוס
+zh:芦笋
+carbon_footprint_fr_foodges_ingredient:fr:Asperges en boite Chine
+carbon_footprint_fr_foodges_value:fr:2.4
+carbon_footprint_fr_foodges_ingredient:fr:Asperges saison France
+carbon_footprint_fr_foodges_value:fr:0.9
+# als:Schbargl
+# ang:eorþnafela
+# ast:espárragu
+# csb:Lékarskô szparaga
+# frr:Spargel
+# hsb:Prawy hromak
+# lfn:Asparago
+# nap:spalece, sparece
+# pcd:Aspérjhe
+# pt-br:aspargo
+# scn:spàraciu, spàriciu
+# sco:Asparagus
+# sr-ec:Шпаргла
+# sr-el:Špargla
+# vec:Spàraxo
+# yue:露筍
+# zh-cn:芦笋
+# zh-hk:蘆筍
+# zh-mo:蘆筍
+# zh-my:芦笋
+# zh-sg:芦笋
+# zh-tw:蘆筍
+wikidata:en:Q23041045
+wikipedia:en:https://en.wikipedia.org/wiki/Asparagus
+# en:asparagus has 301 products in 6 languages @2018-11-11
+eurocode_2_group_3:en: 8.25.10
+
+<en:asparagus
+en:green asparagus
+bg:зелена аспержа, зелени аспержи
+de:grüner Spargel, Grüne Spargeln
+es:espárragos verdes
+fi:vihreä parsa
+fr:asperges vertes
+it:asparagi verdi
+nl:groene asperges
+pl:zielone szparagi, zielony szparag, zielonych szparagów
+pt:espargos verdes
+wikidata:en:Q35075688
+ciqual_food_code:en:20279
+ciqual_food_name:en:Asparagus, green, raw
+ciqual_food_name:fr:Asperge, verte, crue
+# 170 in 7 @2021-09-23
+
+<en:green asparagus
+es:Espárragos verdes sin pelar
+
+<en:asparagus
+en:white asparagus
+bg:бяла аспержа, бели аспержи
+de:weisse Spargeln
+es:Espárrago blanco
+fi:valkoinen parsa
+fr:asperges blanches, asperge blanche
+it:asparagi bianchi
+nl:witte asperges
+pl:białe szparagi, biały szparag, białych szparagów
+pt:Espargos brancos
+# fr:asperges blanches has 46 products in 4 languages @2018-11-11
+
+<en:shoot vegetable
+en:chicory
+bg:цикория
+de:Chicoree, Zichorie
+es:Achicoria
+fi:sikuri
+fr:Chicorée
+he:עולש
+hr:cikorije
+it:Cicoria
+ja:チコリー
+nl:chicorij
+pl:cykoria, cykorii
+pt:chicória
+
+<en:chicory
+en:chicory root
+de:Chikoreewurzel, Zichorienwurzel
+fr:racine de chicorée
+hr:cikorija korijen, korijen cikorije
+it:radice di cicoria
+pl:korzeń cykorii, korzenia cykorii
+
+<en:vegetable fiber
+<en:chicory
+en:chicory fibre, chicory root fiber
+cs:vláknina z kořene čekanky
+da:cikoriefibre
+de:Zichorienfäser, Zichorienwurzelfaser, Zichorienwurzelfasern, Ballaststoff aus Zichorienwurzel
+es:fibra de la raíz de achicoria,fibra de achicoria
+fi:sikurikuitu, sikurijuurikuitu
+fr:fibre de chicorée, fibres de chicorée, fibre de racine de chicorée, fibres de racine de chicorée, fibres de racines de chicorée
+hr:vlakna iz korijena cikorije
+it:Fibre di cicoria
+nl:chichoreivezel, chichoreiwortelvezel
+pl:błonnik z cykorii, błonnik z korzenia cykorii, włókna z korzenia cykorii
+sk:vláknina z koreňa čakanky
+sv:cikoriarotfiber, fiber från cikoriarot
+# ingredient/fr:fibre-de-chicoree has 254 products in 5 languages @2018-12-10
+
+<en:chicory
+fr:chicorée soluble
+es:achicoria en polvo
+nl:oploscichorei, poeder met witlof, cichorei
+pt:chicória solúvel
+# ingredient/fr:chicorée-soluble has 70 products in 4 languages @2018-12-10
+ciqual_food_code:en:18152
+ciqual_food_name:en:Chicory, powder, instant
+ciqual_food_name:fr:Chicorée, poudre soluble
+
+<en:chicory
+en:extract of chicory
+bg:екстракт от цикория
+de:Zichorien-Extrakt
+es:extracto de achicoria
+fi:sikuriuute
+fr:extrait de chicorée, extraits de chicorée
+it:estratto di cicoria, Estratti di cicoria
+nl:cichorei-extract, chicorei extract
+pl:ekstrakt z cykorii
+pt:extrato de chicória, extracto de chicória
+# ingredient/extract-of-chicory has 31 products @2019-04-04
+
+<en:shoot vegetable
+en:Belgian endive
+cs:čekanka
+da:julesalat
+de:Chicorée
+es:endivia Belga
+fi:salaattisikuri
+fr:endive, endives
+hu:cikória
+it:Cicoria Belga
+la:Cichorium intybus var. foliosum
+nl:witlof
+wikidata:en:Q1474
+# 451 in 16 @2021-09-05
+carbon_footprint_fr_foodges_ingredient:fr:Endive
+carbon_footprint_fr_foodges_value:fr:1.2
+ciqual_food_code:en:20026
+ciqual_food_name:en:Chicory, raw
+ciqual_food_name:fr:Endive, crue
+eurocode_2_group_3:en: 8.25.20
+
+#category/artichokes
+<en:shoot vegetable
+en:artichoke
+ar:خرشوف
+az:Əkilən ənginar
+bg:артишок
+bo:ཁོ་རེ་ཡའི་ཤིང་ཞིག
+br:Artichaod
+ca:Carxofera
+co:Artichjoccu
+cs:artyčok
+da:Artiskok
+de:Artischocke
+es:alcachofa
+eu:Orburu
+fa:کنگر فرنگی
+fi:Latva-artisokka
+fr:artichaut, artichauts
+gl:Alcachofa
+he:ארטישוק
+hu:Articsóka
+id:Artichoke
+io:Artichoko
+it:carciofo, carciofi
+ja:アーティチョーク
+kk:Бөрікгүл
+kn:ಆರ್ಟಿಚೋಕ್
+ko:아티초크
+ku:Artîşok
+la:Cynara scolymus
+lt:Tikrasis artišokas
+mk:Артичока
+nl:artisjok
+nn:Artisjokk
+nv:Azeeʼ hókániitsoh
+pl:karczoch, karczochy, karczocha
+pt:alcachofra
+ro:Anghinare
+ru:артишок
+rw:Aritisho
+sh:Artičoka
+si:ආටිචෝක්
+sk:Artičoka
+sq:Angjinarja
+sr:Артичока
+sv:kronärtskocka
+tr:Enginar
+uk:Артишок іспанський
+uz:Artishok
+vi:Atisô
+zh:朝鲜蓟
+# aeb-arab:قنّاريّة
+# aeb-latn:gannèriyya
+# ckb:ئارتیشوو
+# pcd:Àrtichoe
+# pms:Articiòch
+# yue:雅枝竹
+wikidata:en:Q23041430
+wikipedia:en:https://en.wikipedia.org/wiki/Artichoke
+carbon_footprint_fr_foodges_ingredient:fr:Artichauts
+carbon_footprint_fr_foodges_value:fr:2.5
+description:de:Die Artischocke (Cynara cardunculus subsp. scolymus (L.) Hegi, Syn.: Cynara scolymus L.) ist eine distelartige, kräftige Kulturpflanze aus der Familie der Korbblütler. Die Sortengruppe der Artischocken wird wegen ihrer essbaren knospigen Blütenstände angebaut und als Blütengemüse verzehrt.
+description:en:The globe ARTICHOKE (Cynara cardunculus var. scolymus), also known as French artichoke and green artichoke in the USA, is a variety of a species of thistle cultivated as a food. Leaves are often removed one at a time, and the fleshy base eaten, with hollandaise, vinegar, butter, mayonnaise, aioli, lemon juice, or other sauces. The fibrous upper part of each leaf is usually discarded. The heart is eaten when the inedible choke has been peeled away from the base and discarded. The thin leaves covering the choke are also edible.
+description:es:Cynara scolymus, la alcachofera, alcachofa, alcacil o alcaucil,1​ entre otros numerosos nombres vernáculos, es una planta herbácea del género Cynara en la familia Asteraceae; es cultivada desde la antigüedad como alimento en climas templados.
+description:fr:L’artichaut (Cynara cardunculus var. scolymus (L.) Benth.) est une plante de la famille des Astéracées. On désigne sous le nom d'artichaut à la fois la plante entière et sa partie comestible. Les têtes d'artichaut sont consommées soit crues soit cuites.
+description:it:Il carciofo (Cynara cardunculus subsp. scolymus) è una pianta angiosperma dicotiledone della famiglia Asteraceae coltivata in Italia e in altri Paesi per uso alimentare.
+description:nl:De artisjok (Cynara scolymus) is een plant uit de composietenfamilie. De vlezige schutbladeren van het gesloten bloemhoofdje worden als groente gegeten.
+description:pt:Uma alcachofra (Cynara cardunculus subsp. scolymus) é uma planta com até um metro de altura, da família das compostas.
+ciqual_food_code:en:20052
+ciqual_food_name:en:Artichoke, globe, raw
+ciqual_food_name:fr:Artichaut, cru
+eurocode_2_group_3:en: 8.25.30
+
+#category/artichoke-hearts
+<en:artichoke
+en:Artichoke heart, artichoke bottom
+de:Artischockenherzen
+es:Corazones de alcachofa
+fi:artisokansydämet
+fr:cœurs d'artichauts, coeurs d'artichauts, Fonds d'artichaut
+it:Cuori di carciofo
+nl:artisjokharten
+description:en:The heart is eaten when the inedible choke has been peeled away from the base and discarded.
+#wikidata:en:none
+# ingredient/Artichoke-heart 448 in 6 languages @2021-08-22
+
+#category/frozen-artichoke-bottom
+<en:Artichoke heart
+en:Frozen raw artichoke bottom
+fr:Fond d'artichaut cru surgelé
+ciqual_food_code:en:20232
+ciqual_food_name:en:Artichoke base, frozen, raw
+ciqual_food_name:fr:Artichaut, fond, surgelé, cru
+
+# description:en:The bamboos are evergreen perennial flowering plants in the subfamily Bambusoideae of the grass family Poaceae.
+
+<en:shoot vegetable
+en:bamboo
+ar:خيزران
+as:বাঁহ
+az:Bambuk
+be:бамбуки
+bg:Бамбук
+bi:Bambu
+bn:বাঁশ
+bo:སྨུག་མ།
+ca:Bambú
+co:Bambù
+cs:Bambus
+cy:Bambŵ
+da:Bambus
+de:Bambus
+el:Μπαμπού
+eo:Bambuo
+es:Bambú
+et:Bambus
+eu:Banbu
+fa:خیزران
+fi:bambu
+fj:Veibitubitu
+fr:bambou
+ga:Bambú
+gd:Cuilc Innseannach
+gl:Bambú
+gn:Takuapi
+gu:વાંસ
+he:חזרן
+hi:बाँस
+hr:Bambus
+ht:Banbou
+hu:Bambusz
+id:Bambu
+io:Bambuo
+is:Bambus
+it:bambù
+ja:竹
+jv:Pring
+ka:ბამბუკი
+kk:Бамбукkn:ಬಿದಿರು
+ko:대나무
+ky:Бамбук
+la:Bambuseae
+lt:Bambukai
+lv:bambusi
+mk:Бамбус
+ml:മുള
+ms:Buluh
+my:ဝါး
+nb:bambus
+nl:Bamboe
+nn:bambus
+nv:Lókʼaatsoh
+oc:Bambó
+pa:ਬਾਂਸ
+pl:Bambus
+pt:Bambu
+ro:Bambus
+ru:бамбуки
+sa:वंशः
+sh:Bambus
+sk:Bambus
+sl:Bambus
+sn:Mushenjere
+sq:Bambuja
+sr:бамбус
+su:Awi
+sv:Bambu
+sw:Mwanzi
+ta:மூங்கில்
+te:వెదురు
+th:ไผ่
+tl:Kawayan
+tr:Bambu
+uk:бамбук
+ur:بانس
+vi:tre
+za:Faexcuk
+zh:簕竹族
+# ang:Ȝærsbēam
+# bjn:Paring
+# cdo:Dé̤ṳk
+# en-gb:bamboo
+# en-ca:bamboo
+# frr:Bambus
+# hak:Chuk
+# hsb:Bambus
+# ilo:Kawayan
+# jbo:bambusa
+# nan:Tek
+# pnb:بامبو
+# rup:Bambusu
+# tcy:ಬೆದ್‍ರ್
+# war:Kawayan
+# wuu:竹
+# yue:竹
+wikidata:en:Q35922
+wikipedia:en:https://en.wikipedia.org/wiki/Bamboo
+# ingredient/fr:bambou has 54 products @2019-02-03
+# vegetable fiber (bamboo, chicory, potato)
+# Légumes (pousses d'haricots mungo, oignons, haricots verts, chou blanc, bambou, carottes, pommes de terre)
+eurocode_2_group_3:en: 8.25.40
+
+# description:en:Bamboo shoots or bamboo sprouts are the edible shoots (new bamboo culms that come out of the ground) of many bamboo species including Bambusa vulgaris and Phyllostachys edulis.
+
+<en:bamboo
+en:bamboo shoot, bamboo sprouts
+as:খৰিচা
+bo:སྨྱུག་རྩ།
+ca:brot de bambú
+cs:bambusový výhonek
+de:Bambussprossen, Bambusschoessling
+el:βλαστάρι μπαμπού, βλαστός μπαμπού
+es:brotes de bambú
+et:bambusevõrsed, bambusevõrs
+eu:banbu-kimuak
+fi:bambunverso, bambunversoja
+fr:pousse de bambou, pousses de bambou
+gn:takuarembo
+hu:bambuszrügy
+id:rebung
+it:germoglio di bambù, germogli di bambù, bambu a fette
+ja:タケノコ, 筍, たけのこ
+kn:ಕಳಲೆ
+ko:죽순
+lt:bambuko ūglis
+ms:rebung buluh
+nb:bambusskudd
+nl:bamboescheuten, bamboescheut, bamboespruit
+nn:bambusskudd
+or:କରଡ଼ି
+pl:pęd bambusa, pędy bambusa
+pt:rebento de bambu, rebentos de bambu
+ru:бамбуковые побеги
+su:iwung
+sv:bambuskott
+th:หน่อไม้
+uk:паростки бамбуку
+vi:măng
+zh:筍
+# bcl:lambo
+# ilo:rabong
+# lzh:筍
+# tcy:ಕಣಿಲೆ
+# yue:筍
+# zh-hans:笋
+# zh-hant:筍
+# zh-hk:筍
+# zh-tw:筍
+wikidata:en:Q2157176
+wikipedia:en:https://en.wikipedia.org/wiki/Bamboo_shoot
+ciqual_food_code:en:20198
+ciqual_food_name:en:Bamboo shoots, raw
+ciqual_food_name:fr:Bambou, pousse, crue
+# 412 in 10 languages @2021-09-22
+
+# <en:bamboo
+<en:vegetable fiber
+en:bamboo fibre
+bg:бамбукови фибри
+da:bambusfibre
+de:Bambusfaser, Bambusfasern
+es:Fibra de bambú
+fi:bambukuitu
+fr:fibre de bambou, fibres de bambou
+hr:vlakna bambusa
+it:fibre di bambù
+nl:bamboevezel, bamboevezels
+pl:błonnik bambusowy, błonnik roślinny bambusowy
+sv:bambufiber
+# ingredient/fr:fibre-de-bambou has 186 products in 5 languages  @2019-02-03
+
+<en:bamboo fibre
+en:bamboo shoot fiber
+de:bamboo fibre
+fr:fibres de pousses de bambou
+it:fibra di germoglio di bambù
+nl:vezels van bamboescheuten
+# ingredient/fr:fibres-de-pousses-de-bambou has 77 products in 5 languages @2019-02-03
+
+<en:bamboo
+en:Sasa veitchii
+ca:Sasa veitchii
+es:Sasa veitchii
+fr:Sasa veitchii
+is:Sasa veitchii
+ja:クマザサ
+sv:Sasa veitchii
+vi:Sasa veitchii
+wikidata:en:Q3015670
+description:en:large species of bamboo grass
+
+# description:en:HEART OF PALM is a vegetable harvested from the inner core and growing bud of certain palm trees. Heart of palm may be eaten on its own, and often it is eaten in a salad. Hearts of palm are rich in fiber, potassium, iron, zinc, phosphorus, copper, vitamins B2, B6, and C.
+
+# <en:category:en:Fresh plant-based foods
+<en:vegetable
+en:Heart of palm, Hearts of palm, palm heart
+ar:جمار
+de:Palmherzen, Palmherz
+eo:Palmomedolo
+es:Palmito
+fa:پنیر نخل
+fi:Palmun sydän
+fr:Cœur de palmier, cœurs de palmiers, cœurs de palmier, coeur de palmier, coeurs de palmiers, coeurs de palmier, choux palmistes, chou palmiste
+gl:Palmito
+gv:Cabbash phalm
+he:לבבות דקל
+it:cuori di palma, Palmito
+ja:ハート・オブ・パーム
+jv:Pondhoh
+la:Cerebrum palmae
+lt:Palmės šerdis
+nl:Palmharten
+pl:serce palmy, serca palmy
+pt:Palmito
+ru:Сердцевина пальмы
+sv:Palmhjärta
+tl:Ubod
+wikidata:en:Q743144
+wikipedia:en:https://en.wikipedia.org/wiki/Heart_of_palm
+# fr:coeurs-de-palmier has 16 products in 3 languages @2018-10-19
+eurocode_2_group_3:en: 8.25.50
+
 # description:en:ROOT VEGETABLES are underground plant parts eaten by humans as food.
 
 <en:vegetable
@@ -46433,242 +49560,6 @@ wikidata:en:Q2142465
 wikipedia:en:https://en.wikipedia.org/wiki/Crudités
 # ingredient/fr:crudités has 74 products in french @2019-03-29
 
-
-#category/artichokes
-<en:vegetable
-en:artichoke
-ar:خرشوف
-az:Əkilən ənginar
-bg:артишок
-bo:ཁོ་རེ་ཡའི་ཤིང་ཞིག
-br:Artichaod
-ca:Carxofera
-co:Artichjoccu
-cs:artyčok
-da:Artiskok
-de:Artischocke
-es:alcachofa
-eu:Orburu
-fa:کنگر فرنگی
-fi:Latva-artisokka
-fr:artichaut, artichauts
-gl:Alcachofa
-he:ארטישוק
-hu:Articsóka
-id:Artichoke
-io:Artichoko
-it:carciofo, carciofi
-ja:アーティチョーク
-kk:Бөрікгүл
-kn:ಆರ್ಟಿಚೋಕ್
-ko:아티초크
-ku:Artîşok
-la:Cynara scolymus
-lt:Tikrasis artišokas
-mk:Артичока
-nl:artisjok
-nn:Artisjokk
-nv:Azeeʼ hókániitsoh
-pl:karczoch, karczochy, karczocha
-pt:alcachofra
-ro:Anghinare
-ru:артишок
-rw:Aritisho
-sh:Artičoka
-si:ආටිචෝක්
-sk:Artičoka
-sq:Angjinarja
-sr:Артичока
-sv:kronärtskocka
-tr:Enginar
-uk:Артишок іспанський
-uz:Artishok
-vi:Atisô
-zh:朝鲜蓟
-# aeb-arab:قنّاريّة
-# aeb-latn:gannèriyya
-# ckb:ئارتیشوو
-# pcd:Àrtichoe
-# pms:Articiòch
-# yue:雅枝竹
-wikidata:en:Q23041430
-wikipedia:en:https://en.wikipedia.org/wiki/Artichoke
-carbon_footprint_fr_foodges_ingredient:fr:Artichauts
-carbon_footprint_fr_foodges_value:fr:2.5
-description:de:Die Artischocke (Cynara cardunculus subsp. scolymus (L.) Hegi, Syn.: Cynara scolymus L.) ist eine distelartige, kräftige Kulturpflanze aus der Familie der Korbblütler. Die Sortengruppe der Artischocken wird wegen ihrer essbaren knospigen Blütenstände angebaut und als Blütengemüse verzehrt.
-description:en:The globe ARTICHOKE (Cynara cardunculus var. scolymus), also known as French artichoke and green artichoke in the USA, is a variety of a species of thistle cultivated as a food. Leaves are often removed one at a time, and the fleshy base eaten, with hollandaise, vinegar, butter, mayonnaise, aioli, lemon juice, or other sauces. The fibrous upper part of each leaf is usually discarded. The heart is eaten when the inedible choke has been peeled away from the base and discarded. The thin leaves covering the choke are also edible.
-description:es:Cynara scolymus, la alcachofera, alcachofa, alcacil o alcaucil,1​ entre otros numerosos nombres vernáculos, es una planta herbácea del género Cynara en la familia Asteraceae; es cultivada desde la antigüedad como alimento en climas templados.
-description:fr:L’artichaut (Cynara cardunculus var. scolymus (L.) Benth.) est une plante de la famille des Astéracées. On désigne sous le nom d'artichaut à la fois la plante entière et sa partie comestible. Les têtes d'artichaut sont consommées soit crues soit cuites.
-description:it:Il carciofo (Cynara cardunculus subsp. scolymus) è una pianta angiosperma dicotiledone della famiglia Asteraceae coltivata in Italia e in altri Paesi per uso alimentare.
-description:nl:De artisjok (Cynara scolymus) is een plant uit de composietenfamilie. De vlezige schutbladeren van het gesloten bloemhoofdje worden als groente gegeten.
-description:pt:Uma alcachofra (Cynara cardunculus subsp. scolymus) é uma planta com até um metro de altura, da família das compostas.
-ciqual_food_code:en:20052
-ciqual_food_name:en:Artichoke, globe, raw
-ciqual_food_name:fr:Artichaut, cru
-
-#category/artichoke-hearts
-<en:artichoke
-en:Artichoke heart, artichoke bottom
-de:Artischockenherzen
-es:Corazones de alcachofa
-fi:artisokansydämet
-fr:cœurs d'artichauts, coeurs d'artichauts, Fonds d'artichaut
-it:Cuori di carciofo
-nl:artisjokharten
-description:en:The heart is eaten when the inedible choke has been peeled away from the base and discarded.
-#wikidata:en:none
-# ingredient/Artichoke-heart 448 in 6 languages @2021-08-22
-
-#category/frozen-artichoke-bottom
-<en:Artichoke heart
-en:Frozen raw artichoke bottom
-fr:Fond d'artichaut cru surgelé
-ciqual_food_code:en:20232
-ciqual_food_name:en:Artichoke base, frozen, raw
-ciqual_food_name:fr:Artichaut, fond, surgelé, cru
-
-
-# description:en:Asparagus, or garden asparagus, folk name sparrow grass, scientific name Asparagus officinalis
-# is a spring vegetable, a flowering perennial plant species in the genus Asparagus
-
-<en:vegetable
-en:asparagus
-af:Aspersie
-ar:هليون
-az:Qulançar,  Dərman qulançarı
-ba:Себен үләне
-be:Спаржа лекавая
-bg:аспержа, аспержи
-bo:འདམ་མྱུག
-bs:Šparoga
-ca:Espàrrec
-cs:Chřest lékařský
-da:Asparges
-de:Spargel, Gemüsespargel
-el:Σπαράγγι
-eo:Asparago, asparagi
-es:espárrago, espárragos
-et:spargel, asparaagus
-eu:Себен үләне
-fa:مارچوبه
-fi:Parsa
-fr:asperge, asperges
-gl:Esparragueira
-gv:Asparag
-he:אספרג רפואי
-hi:शतावर
-hr:Ljekovita šparoga
-id:Asparagus
-io:Asparago
-is:Spergill
-it:Asparago, aspargi, asparagio
-ja:アスパラガス
-ka:სატაცური
-kk:Кәдімгі қасқыржем
-kn:ಶತಾವರಿ
-ko:아스파라거스
-ku:Kilig, Közönséges spárga
-li:Asperge
-lt:Vaistinis smidras, šparagas
-lv:Sparģeļi
-mr:अस्पॅरॅगस
-ms:Asparagus
-my:ကညွတ်ပင်
-nb:Asparges
-ne:कुरिलो
-nl:asperge, asperges
-nn:Asparges
-nv:Chʼałdą́ą́ʼ, Jádí nátʼoh
-oc:Espargue
-pa:ਛਤਾਵਰ
-pl:Szparag, szparagi, szparagów
-pt:espargo
-qu:Isparaw
-ro:Sparanghel
-ru:спаржа
-rw:Asiperije
-sd:اسپريگس
-sh:Špargla
-sl:Beluš, špargelj
-sq:Shpargulli mjekësor
-sr:Шпаргла
-sv:Sparris
-ta:சாத்தாவாரியினம்
-te:పిల్లితేగ
-tl:Esparago
-uk:Холодок лікарський
-ur:ہلیون
-vi:Măng tây
-wa:Aspedje
-yi:אספארגוס
-zh:芦笋
-carbon_footprint_fr_foodges_ingredient:fr:Asperges en boite Chine
-carbon_footprint_fr_foodges_value:fr:2.4
-carbon_footprint_fr_foodges_ingredient:fr:Asperges saison France
-carbon_footprint_fr_foodges_value:fr:0.9
-# als:Schbargl
-# ang:eorþnafela
-# ast:espárragu
-# csb:Lékarskô szparaga
-carbon_footprint_fr_foodges_ingredient:fr:Asperges en boite Chine
-carbon_footprint_fr_foodges_value:fr:2.4
-carbon_footprint_fr_foodges_ingredient:fr:Asperges saison France
-carbon_footprint_fr_foodges_value:fr:0.9
-# frr:Spargel
-# hsb:Prawy hromak
-# lfn:Asparago
-# nap:spalece, sparece
-# pcd:Aspérjhe
-# pt-br:aspargo
-# scn:spàraciu, spàriciu
-# sco:Asparagus
-# sr-ec:Шпаргла
-# sr-el:Špargla
-# vec:Spàraxo
-# yue:露筍
-# zh-cn:芦笋
-# zh-hk:蘆筍
-# zh-mo:蘆筍
-# zh-my:芦笋
-# zh-sg:芦笋
-# zh-tw:蘆筍
-wikidata:en:Q23041045
-wikipedia:en:https://en.wikipedia.org/wiki/Asparagus
-# en:asparagus has 301 products in 6 languages @2018-11-11
-
-<en:asparagus
-en:green asparagus
-bg:зелена аспержа, зелени аспержи
-de:grüner Spargel, Grüne Spargeln
-es:espárragos verdes
-fi:vihreä parsa
-fr:asperges vertes
-it:asparagi verdi
-nl:groene asperges
-pl:zielone szparagi, zielony szparag, zielonych szparagów
-pt:espargos verdes
-wikidata:en:Q35075688
-ciqual_food_code:en:20279
-ciqual_food_name:en:Asparagus, green, raw
-ciqual_food_name:fr:Asperge, verte, crue
-# 170 in 7 @2021-09-23
-
-<en:green asparagus
-es:Espárragos verdes sin pelar
-
-<en:asparagus
-en:white asparagus
-bg:бяла аспержа, бели аспержи
-de:weisse Spargeln
-es:Espárrago blanco
-fi:valkoinen parsa
-fr:asperges blanches, asperge blanche
-it:asparagi bianchi
-nl:witte asperges
-pl:białe szparagi, biały szparag, białych szparagów
-pt:Espargos brancos
-# fr:asperges blanches has 46 products in 4 languages @2018-11-11
-
 #category/avocados
 <en:vegetable
 en:avocado
@@ -46736,227 +49627,6 @@ fr:Pulpe d'avocat crue
 ciqual_food_code:en:13004
 ciqual_food_name:en:Avocado, pulp, raw
 ciqual_food_name:fr:Avocat, pulpe, cru
-
-#comment:en:Note that the translations between the various endives are not always clear. Nor do all languages distinguish between the  green part and the root.
-
-
-# description:en:Cichorium endivia is a species of flowering plant belonging to the genus Cichorium, which is widely cultivated as one of the species of similar bitter-leafed vegetables known as endive and escarole.
-# comment:en: Endive in english is different from endive in french.
-
-# <en:Vegetables
-<en:vegetable
-en:endive, Endives
-ca:endívia
-cy:Endif
-da:endivie
-de:Endivien, Endivie
-eo:endivio
-es:escarola, escarolas, endibia, endibias
-eu:osterzuri
-fa:اندیو
-fi:endiivi
-fr:scarole, chicorée endive
-ga:searbhán muc
-gl:endivia
-hr:endivija
-hu:endívia
-id:endive
-io:endivio
-it:scarola, indivia
-ja:エンダイブ
-ko:꽃상추
-ku:xêzimok
-la:Cichorium Endivia
-mt:scarola
-nb:endivie
-nl:andijvie
-nv:tʼąąʼdoolghasí
-pl:endywia, endywii
-pt:endívia
-ro:andivă
-ru:эндивий
-sr:ендивија
-sv:sydcikoria, cikoriasallat
-tr:hindiba
-uk:цикорій салатний
-vi:rau cúc đắng
-zh:苦苣
-# nds-nl:andievie
-# pcd:indife
-# scn:nirvia
-# sr-ec:ендивија
-wikidata:en:Q178547
-# wikidata:en:Q28604477 what is this?
-# category/endives has 8 products @2019-05-22
-# ingredient/endive has 125 products @2019-05-22
-
-<en:endive
-en:curly endive, frisée lettuce
-cy:ysgellog y meirch
-da:kruset endivie
-de:krauser Salat, Endiven gekraust, Krausblättrige Endivie, Frisée
-el:αντίδι κατσαρό
-es:escarola rizada
-fi:friseesalaatti, kähäräendiivi
-fr:chicorée frisée, frisée, salade frisée, endive frisée
-ga:searbhán cas
-it:indivia riccia
-la:Cichorium endivia var. crispum
-lv:krokainā endīvija, krokaino lapu endīvija
-nl:krulandijvie, frisée sla
-pl:endywia kędzierzawa
-pt:chicória frisada, chicória crespa
-sk:čakanka štrbáková pravá kučeravá
-sv:frisésallat, friséesallat
-# description:fr:La frisée, ou chicorée frisée est une salade couramment cultivée.
-wikidata:en:Q2963415
-wikipedia:fr:https://fr.wikipedia.org/wiki/Chicorée_frisée
-ciqual_food_code:en:20012
-ciqual_food_name:en:Curly endive, raw
-ciqual_food_name:fr:Salade ou chicorée frisée, crue
-# 201 in 5 @2021-10-03
-
-<en:endive
-en:broad-leaved endive, Batavian endive, escarole, flat endive
-da:bredbladet endivie, escarole, escarolesalat
-de:glatte Endivie, Eskariol, Winterendivie, Endivie-Eskariol, Eskariol Endivie, Breitblättrige Endivie, Ganzblättrige Endivie
-el:αντίδι πλατύφυλλο
-es:escarola lisa
-fi:siloendiivi, lehtisikuri
-fr:chicorée scarole
-it:indivia scarola
-la:Cichorium endivia var latifolium
-lt:salotinė trūkažolė
-lv:platlapu endīvija
-mt:indivja tal-weraq wiesa'
-nl:kropandijvie, andijvie breedblad
-pl:endywia szerokolistna
-sv:escarolesallat
-#pcd:pindchucq
-wikidata:en:Q3237463
-description:en:Escarole, or broad-leaved endive (var latifolia), has broad, pale green leaves and is less bitter than the other varieties. Varieties or names include Batavian endive, grumolo, scarola, and scarole.
-
-
-
-<en:vegetable
-en:Belgian endive
-cs:čekanka
-da:julesalat
-de:Chicorée
-es:endivia Belga
-fi:salaattisikuri
-fr:endive, endives
-hu:cikória
-it:Cicoria Belga
-la:Cichorium intybus var. foliosum
-nl:witlof
-wikidata:en:Q1474
-# 451 in 16 @2021-09-05
-carbon_footprint_fr_foodges_ingredient:fr:Endive
-carbon_footprint_fr_foodges_value:fr:1.2
-ciqual_food_code:en:20026
-ciqual_food_name:en:Chicory, raw
-ciqual_food_name:fr:Endive, crue
-
-# description:en:RADICCHIO is a perennial cultivated form of leaf chicory (Cichorium intybus, Asteraceae) sometimes known as Italian chicory because of its common use in Italian cuisine.
-
-<en:vegetable
-en:radicchio
-ar:الهندباء
-bg:червена цикория, радичио
-ca:radicchio
-da:radicchio, radicchiosalat
-de:roter Chicorée, Radicchio
-eo:salatcikorio
-es:radicchio
-fi:punasikuri, punasalaatti
-fr:chicorée rouge, radicchio, trévise, salade trévise
-hu:vörös cikória
-it:radicchio
-ja:ラディッキオ
-ko:라디키오
-nl:roodlof
-pl:cykoria sałatowa, czerwona cykoria, radicchio, cykoria radicchio
-pt:radicchio
-ru:радиккьо
-sh:radiccio di treviso
-sv:radicchiosallad, rosensallat, rosésallat
-#arz:هندباء
-# en-ca:radicchio
-# en-gb:radicchio
-# pt-br:radicchio
-# vec:radicio
-wikidata:en:Q767765
-wikipedia:en:https://en.wikipedia.org/wiki/Radicchio
-# 703 in 7 @2021-10-03
-
-<en:vegetable
-<en:chicory
-it:radicchio rosso
-
-<en:vegetable
-en:chicory
-bg:цикория
-de:Chicoree, Zichorie
-es:Achicoria
-fi:sikuri
-fr:Chicorée
-he:עולש
-hr:cikorije
-it:Cicoria
-ja:チコリー
-nl:chicorij
-pl:cykoria, cykorii
-pt:chicória
-
-<en:chicory
-en:chicory root
-de:Chikoreewurzel, Zichorienwurzel
-fr:racine de chicorée
-hr:cikorija korijen, korijen cikorije
-it:radice di cicoria
-pl:korzeń cykorii, korzenia cykorii
-
-<en:vegetable fiber
-<en:chicory
-en:chicory fibre, chicory root fiber
-cs:vláknina z kořene čekanky
-da:cikoriefibre
-de:Zichorienfäser, Zichorienwurzelfaser, Zichorienwurzelfasern, Ballaststoff aus Zichorienwurzel
-es:fibra de la raíz de achicoria,fibra de achicoria
-fi:sikurikuitu, sikurijuurikuitu
-fr:fibre de chicorée, fibres de chicorée, fibre de racine de chicorée, fibres de racine de chicorée, fibres de racines de chicorée
-hr:vlakna iz korijena cikorije
-it:Fibre di cicoria
-nl:chichoreivezel, chichoreiwortelvezel
-pl:błonnik z cykorii, błonnik z korzenia cykorii, włókna z korzenia cykorii
-sk:vláknina z koreňa čakanky
-sv:cikoriarotfiber, fiber från cikoriarot
-# ingredient/fr:fibre-de-chicoree has 254 products in 5 languages @2018-12-10
-
-<en:chicory
-fr:chicorée soluble
-es:achicoria en polvo
-nl:oploscichorei, poeder met witlof, cichorei
-pt:chicória solúvel
-# ingredient/fr:chicorée-soluble has 70 products in 4 languages @2018-12-10
-ciqual_food_code:en:18152
-ciqual_food_name:en:Chicory, powder, instant
-ciqual_food_name:fr:Chicorée, poudre soluble
-
-<en:chicory
-en:extract of chicory
-bg:екстракт от цикория
-de:Zichorien-Extrakt
-es:extracto de achicoria
-fi:sikuriuute
-fr:extrait de chicorée, extraits de chicorée
-it:estratto di cicoria, Estratti di cicoria
-nl:cichorei-extract, chicorei extract
-pl:ekstrakt z cykorii
-pt:extrato de chicória, extracto de chicória
-# ingredient/extract-of-chicory has 31 products @2019-04-04
-
 
 <en:vegetable
 <en:herb
@@ -47063,148 +49733,12 @@ ciqual_food_name:fr:Cardon, cru
 wikipedia:en:https://en.wikipedia.org/wiki/Cardoon
 #30 in 5 @2021-10-21
 
-# description:en:CHARD (Beta vulgaris subsp. vulgaris, Cicla-Group and Flavescens-Group) is a green leafy vegetable. Chard, like other green leafy vegetables, has highly nutritious leaves, making it a popular component of healthy diets.Fresh young chard can be used raw in salads. Mature chard leaves and stalks are typically cooked (like in pizzoccheri) or sautéed; the bitterness fades with cooking, leaving a refined flavor which is more delicate than that of cooked spinach.
-
-# <en:Vegetable rods
-<en:vegetable
-en:chard, Chards, Swiss chard
-ar:سلق
-bg:Манголд
-bs:Blitva
-ca:bleda
-co:Geia
-cs:Mangold
-da:bladbede, sølvbede, mangold
-de:Mangold
-el:Σέσκουλο
-eo:Folibeto
-es:Acelgas
-eu:Zerba
-fa:برگ چغندر
-fi:mangoldi, lehtimangoldi, lehtijuurikas
-fr:blette, Blettes, bette, bettes, côtes de blettes
-ga:Biatas bán
-gl:Acelga
-he:סלק עלים
-hr:Blitva
-hu:Mángold
-it:Bietola, bietole
-ja:フダンソウ
-kk:Жапырақты қызылша
-ko:근대
-ku:Dîw
-la:Beta vulgaris var. cicla
-mk:Блитва
-nb:bladbete
-nl:snijbiet
-nn:mangold
-pl:boćwina, botwina, botwiny, boćwiny
-pt:acelga
-ro:Mangold
-ru:мангольд
-sr:блитва
-sv:Mangold
-tr:Pazı
-uk:Мангольд
-zh:莙薘菜
-# azb:پازی تره‌سی
-# frr:Mangold
-# hsb:Burak
-# kk-arab:جاپىراقتى قىزىلشا
-# kk-cn:جاپىراقتى قىزىلشا
-# kk-cyrl:Жапырақты қызылша
-# kk-kz:Жапырақты қызылша
-# kk-latn:Japıraqtı qızılşa# kk-tr:Japıraqtı qızılşa
-# ku-arab:دیو
-# ku-latn:Dîw
-# pcd:Biéte
-# sr-ec:блитва
-# sr-el:Blitva
-# yue:豬乸菜
-# zh-cn:莙荙菜
-# zh-hans:莙荙菜
-# zh-hant:莙薘菜
-# zh-hk:莙薘菜
-# zh-sg:莙荙菜
-# zh-tw:莙薘菜
-wikidata:en:Q157954
-wikipedia:en:https://en.wikipedia.org/wiki/Chard
-# ingredient/fr:blette/languages has 88 products in 8 languages @2019-03-22
-# category/chards has 16 products @2019-05-22
-ciqual_food_code:en:20004
-ciqual_food_name:en:Swiss chard, raw
-ciqual_food_name:fr:Bette ou blette, crue
-
-<en:chard
-en:chard concentrate
-de:Rübenkonzentrat
-fr:concentrés de blettes
-
 # en:Daikon cress
 # de:Daikonkresse
 # es:daikor cress
 # fr:pousse de daikon
 # nl:daikon cress
 # ingredient/daikon-cress has no products @2019-05-15
-
-
-
-# description:en:CORN SALAT is a small annual plant that is eaten as a leaf vegetable. It is typically served as a salad with chopped hard-boiled eggs and crumbled bacon.
-# comment:en:The wikidata translations are a mix of common and latin names.
-
-<en:salad
-# <en:Leaf vegetables
-en:corn salad, common cornsalad, lamb's lettuce, fetticus, nut lettuce, field salad, rapunzel, doucette, raiponce, Nusslisalat
-ar:خس النعجة
-be:валер’янэла малая
-ca:canonges, herba dels canonges
-cs:polníček, kozlíček polní
-cy:gwylaeth yr oen
-da:vårsalat, feldsalat
-de:Feldsalat, Rapunzel, Rapunzelsalat, Nüsslisalat
-el:λυκοτρίβολο
-es:milamores, canonigos
-et:põldkännak
-eu:ardi-mihi
-fi:vuonankaali
-fr:mâche, rampon
-ga:ceathrú uain
-gl:herba dos cóengos
-hr:matovilac
-hu:salátagalambbegy, galambbegy, madársaláta, mezeisaláta
-io:valerianelo
-is:akursalat
-it:songino, nusslisalat, lattughella, dolcetta, morbidello, Formentino, Valerianella, Serzetto
-ja:ノヂシャ
-ko:콘샐러드
-la:valerianella locusta
-nb:vårsalat
-nl:veldsla
-oc:doceta
-pl:rapunkuł, roszpunka warzywna, roszponka, roszponki
-pt:canónigos, alface-de-cordeiro
-ro:fetică
-ru:полевой салат, Валерянелла, Валерьяница
-sk:valeriánka poľná
-sl:navadni motovilec
-sr:матовилац, matilovac
-sv:vårklynne, fältsallat, vintersallat
-tr:kuzugevreği
-uk:мласкавець салатний
-wa:doûcete
-zh:萵苣纈草
-# hsb:rjaponka, prawa rjaponka, solotwička
-#nap:còssa e muónece
-# sr-ec:матовилац
-# sr-el:matovilac
-# vec:gałinełe
-# vls:kôornsaloa
-wikidata:en:Q158954
-wikipedia:en:https://en.wikipedia.org/wiki/Valerianella_locusta
-ciqual_food_code:en:20099
-ciqual_food_name:en:Lamb's lettuce, raw
-ciqual_food_name:fr:Mâche, crue
-# 262 in 7 @2021-10-03
 
 
 # description:en:GARLIC (Allium sativum) is a species in the onion genus.
@@ -47944,202 +50478,6 @@ de:getrocknete Aubergine
 fi:kuivattu munakoiso
 fr:aubergines séchées
 
-# description:en:The bamboos are evergreen perennial flowering plants in the subfamily Bambusoideae of the grass family Poaceae.
-
-<en:vegetable
-en:bamboo
-ar:خيزران
-as:বাঁহ
-az:Bambuk
-be:бамбуки
-bg:Бамбук
-bi:Bambu
-bn:বাঁশ
-bo:སྨུག་མ།
-ca:Bambú
-co:Bambù
-cs:Bambus
-cy:Bambŵ
-da:Bambus
-de:Bambus
-el:Μπαμπού
-eo:Bambuo
-es:Bambú
-et:Bambus
-eu:Banbu
-fa:خیزران
-fi:bambu
-fj:Veibitubitu
-fr:bambou
-ga:Bambú
-gd:Cuilc Innseannach
-gl:Bambú
-gn:Takuapi
-gu:વાંસ
-he:חזרן
-hi:बाँस
-hr:Bambus
-ht:Banbou
-hu:Bambusz
-id:Bambu
-io:Bambuo
-is:Bambus
-it:bambù
-ja:竹
-jv:Pring
-ka:ბამბუკი
-kk:Бамбукkn:ಬಿದಿರು
-ko:대나무
-ky:Бамбук
-la:Bambuseae
-lt:Bambukai
-lv:bambusi
-mk:Бамбус
-ml:മുള
-ms:Buluh
-my:ဝါး
-nb:bambus
-nl:Bamboe
-nn:bambus
-nv:Lókʼaatsoh
-oc:Bambó
-pa:ਬਾਂਸ
-pl:Bambus
-pt:Bambu
-ro:Bambus
-ru:бамбуки
-sa:वंशः
-sh:Bambus
-sk:Bambus
-sl:Bambus
-sn:Mushenjere
-sq:Bambuja
-sr:бамбус
-su:Awi
-sv:Bambu
-sw:Mwanzi
-ta:மூங்கில்
-te:వెదురు
-th:ไผ่
-tl:Kawayan
-tr:Bambu
-uk:бамбук
-ur:بانس
-vi:tre
-za:Faexcuk
-zh:簕竹族
-# ang:Ȝærsbēam
-# bjn:Paring
-# cdo:Dé̤ṳk
-# en-gb:bamboo
-# en-ca:bamboo
-# frr:Bambus
-# hak:Chuk
-# hsb:Bambus
-# ilo:Kawayan
-# jbo:bambusa
-# nan:Tek
-# pnb:بامبو
-# rup:Bambusu
-# tcy:ಬೆದ್‍ರ್
-# war:Kawayan
-# wuu:竹
-# yue:竹
-wikidata:en:Q35922
-wikipedia:en:https://en.wikipedia.org/wiki/Bamboo
-# ingredient/fr:bambou has 54 products @2019-02-03
-# vegetable fiber (bamboo, chicory, potato)
-# Légumes (pousses d'haricots mungo, oignons, haricots verts, chou blanc, bambou, carottes, pommes de terre)
-
-# description:en:Bamboo shoots or bamboo sprouts are the edible shoots (new bamboo culms that come out of the ground) of many bamboo species including Bambusa vulgaris and Phyllostachys edulis.
-
-<en:bamboo
-en:bamboo shoot, bamboo sprouts
-as:খৰিচা
-bo:སྨྱུག་རྩ།
-ca:brot de bambú
-cs:bambusový výhonek
-de:Bambussprossen, Bambusschoessling
-el:βλαστάρι μπαμπού, βλαστός μπαμπού
-es:brotes de bambú
-et:bambusevõrsed, bambusevõrs
-eu:banbu-kimuak
-fi:bambunverso, bambunversoja
-fr:pousse de bambou, pousses de bambou
-gn:takuarembo
-hu:bambuszrügy
-id:rebung
-it:germoglio di bambù, germogli di bambù, bambu a fette
-ja:タケノコ, 筍, たけのこ
-kn:ಕಳಲೆ
-ko:죽순
-lt:bambuko ūglis
-ms:rebung buluh
-nb:bambusskudd
-nl:bamboescheuten, bamboescheut, bamboespruit
-nn:bambusskudd
-or:କରଡ଼ି
-pl:pęd bambusa, pędy bambusa
-pt:rebento de bambu, rebentos de bambu
-ru:бамбуковые побеги
-su:iwung
-sv:bambuskott
-th:หน่อไม้
-uk:паростки бамбуку
-vi:măng
-zh:筍
-# bcl:lambo
-# ilo:rabong
-# lzh:筍
-# tcy:ಕಣಿಲೆ
-# yue:筍
-# zh-hans:笋
-# zh-hant:筍
-# zh-hk:筍
-# zh-tw:筍
-wikidata:en:Q2157176
-wikipedia:en:https://en.wikipedia.org/wiki/Bamboo_shoot
-ciqual_food_code:en:20198
-ciqual_food_name:en:Bamboo shoots, raw
-ciqual_food_name:fr:Bambou, pousse, crue
-# 412 in 10 languages @2021-09-22
-
-# <en:bamboo
-<en:vegetable fiber
-en:bamboo fibre
-bg:бамбукови фибри
-da:bambusfibre
-de:Bambusfaser, Bambusfasern
-es:Fibra de bambú
-fi:bambukuitu
-fr:fibre de bambou, fibres de bambou
-hr:vlakna bambusa
-it:fibre di bambù
-nl:bamboevezel, bamboevezels
-pl:błonnik bambusowy, błonnik roślinny bambusowy
-sv:bambufiber
-# ingredient/fr:fibre-de-bambou has 186 products in 5 languages  @2019-02-03
-
-<en:bamboo fibre
-en:bamboo shoot fiber
-de:bamboo fibre
-fr:fibres de pousses de bambou
-it:fibra di germoglio di bambù
-nl:vezels van bamboescheuten
-# ingredient/fr:fibres-de-pousses-de-bambou has 77 products in 5 languages @2019-02-03
-
-<en:bamboo
-en:Sasa veitchii
-ca:Sasa veitchii
-es:Sasa veitchii
-fr:Sasa veitchii
-is:Sasa veitchii
-ja:クマザサ
-sv:Sasa veitchii
-vi:Sasa veitchii
-wikidata:en:Q3015670
-description:en:large species of bamboo grass
-
 <en:vegetable fiber
 en:acacia fibre, acacia fibre
 de:Akazienfasern
@@ -48342,930 +50680,6 @@ nl:bietenkiemen
 pl:kiełki buraka
 # en:beetroot-sprouts has 1 product in 1 language @2018-10-21
 
-
-
-# description:en:BROCCOLI is an edible green plant in the cabbage family whose large flowering head is eaten as a vegetable
-
-# <en:category:en:Vegetables
-<en:vegetable
-en:broccoli
-af:Broccoli
-ar:قنبيط أخضر
-az:Brokkoli
-bg:Броколи
-bn:ব্রকলি
-bo:མེ་ཚལ་ལྗང་ཁུ།
-bs:Brokula
-ca:bròcoli
-cs:brokolice
-cy:Brocoli
-da:broccoli
-de:Brokkoli, Broccoli
-dv:ބުރޮކޯޅި
-el:Μπρόκολο
-eo:Brokolo
-es:Brócoli, Brócolis
-et:brokkoli, spargelkapsas
-eu:Brokoli
-fa:کلم بروکلی
-fi:parsakaali
-fr:Brocoli, Brocolis
-ga:Brocailí
-gl:Brócoli
-gv:Callish Rangagh
-he:ברוקולי
-hr:Brokula
-ht:Bwokoli
-hu:Brokkoli
-hy:բրոկկոլի
-id:Brokoli
-is:Spergilkál
-it:broccoli
-ja:ブロッコリー
-jv:Brokoli
-kk:Брокколи
-kn:ಬ್ರಾಕಲಿ
-ko:브로콜리
-la:Brassica oleracea italica
-lo:ດອກກ້ວຍໄມ້ຝະລັ່ງ
-lt:Brokolis
-lv:brokoļi
-mk:Брокула
-ml:ബ്രോക്കൊളി
-mr:ब्रोकली
-ms:Brokoli
-nb:brokkoli
-nl:broccoli
-nn:brokkoli
-nv:Chʼilzooł
-os:Брокколи
-pa:ਬਰੋਕਲੀ
-pl:brokuł, brokuły, brokuła, brokułów, brokułowy, brokułowa, brokułowe
-pt:brócolos
-ro:Broccoli
-ru:брокколи
-sh:Brokula
-sk:Brokolica
-sl:Brokoli
-sr:броколи
-su:Brokoli
-sv:broccoli
-ta:புரோக்கோலி
-te:బ్రొక్కొలి
-th:บรอกโคลี
-tl:Brokoli
-tr:Brokoli
-uk:броколі
-ur:شاخ گوبھی
-vi:Bông cải xanh
-zh:西蘭花
-# bho:ब्रोकली
-# ckb:برۆکڵی
-# hsb:Brokoli
-# ilo:Broccoli
-# lij:Bròccolo
-# nan:Chheⁿ-hoe-chhài
-# nap:Vruoccole
-# pnb:بروکلی
-# pt-br:brócolis
-# war:Brokoli
-# yue:西蘭花
-wikidata:en:Q47722
-wikipedia:en:https://en.wikipedia.org/wiki/Broccoli
-carbon_footprint_fr_foodges_ingredient:fr:Brocoli (France)
-carbon_footprint_fr_foodges_value:fr:0.4
-# ingredient/broccoli has 1167 products in 10 languages @2018-10-16
-# category/broccoli has 150 products @2019-05-24
-ciqual_food_code:en:20057
-ciqual_food_name:en:Broccoli, raw
-ciqual_food_name:fr:Brocoli, cru
-
-<en:vegetable
-en:Broccoli floret
-de:Brokkoliröschen
-fr:Brocolis en fleurettes
-nl:broccoliroosjes
-# ingredient/fr:brocolis-en-fleurettes has 17 products in 3 languages @2019-05-24
-carbon_footprint_fr_foodges_ingredient:fr:Brocoli (France)
-carbon_footprint_fr_foodges_value:fr:0.4
-
-<en:broccoli
-en:broccoli cress
-de:Brokkolikresse
-es:mastuerzo
-fr:pousses de brocoli
-nl:broccoli cress
-# en:broccoli-cress has 1 product in 1 language @2018-10-16
-
-<en:broccoli
-en:romanesco broccoli, Broccolo Romanesco, Romanesque cauliflower, Romanesco
-ar:بروكلى رومانسكى
-#arz:بروكلى رومانسكى
-ca:romanesco
-cs:romanesco
-de:Romanesco
-eo:florbrokolo
-es:romanescu
-et:romaani lillkapsas
-eu:romanesko
-fa:کلم رومی
-fr:choux romanesco, chou romanesco, romanesco, choux romanesco en fleurettes, fleurettes de chou romanesco
-gl:brócoli romanesco
-hu:pagodakarfiol
-id:romanesko
-it:broccolo romanesco
-ja:ロマネスコ
-kk:романеско қырыққабаты, romanesko qırıqqabatı, رومانەسكو قىرىققاباتى
-la:brassica oleracea convar. botrytis var. botrytis
-mk:римска брокула
-ml:റൊമാനെസ്കോ ബ്രോക്കോളി
-nl:romanesco
-nn:romanesco
-pt:romanesco
-ru:романеско
-uk:капуста романеско
-zh:宝塔花菜
-wikidata:en:Q1775431
-ciqual_food_code:en:20280
-ciqual_food_name:en:Romanesco cauliflower or romanesco broccoli, raw
-ciqual_food_name:fr:Chou romanesco ou brocoli à pomme, cru
-
-# description:en:CAULIFLOWER is one of several vegetables in the species Brassica oleracea in the genus Brassica
-
-<en:vegetable
-en:cauliflower
-bg:карфиол
-da:blomkål
-de:Blumenkohl
-es:coliflor
-fi:kukkakaali
-fr:chou-fleur, choux-fleur, choux-fleurs
-it:cavolfiore, cavolfiori
-ja:カリフラワー
-nl:bloemkool
-pl:kalafior
-pt:Couve flor
-ru:цветная капуста, капуста цветная
-sv:blomkål
-te:గోబీ పుష్పం
-zh:花椰菜
-wikidata:en:Q23900272
-wikipedia:en:https://en.wikipedia.org/wiki/Cauliflower
-carbon_footprint_fr_foodges_ingredient:fr:Chou-Fleur
-carbon_footprint_fr_foodges_value:fr:0.5
-# en:cauliflower has 660 products in 5 languages @2018-10-17
-
-<en:cauliflower
-en:cauliflower florets
-de:Blumenkohlröschen, Blumenkohl-Röschen
-fr:Choux-fleurs en fleurettes
-nl:Bloemkoolroosjes
-# ingredient/fr:choux-fleurs-en-fleurettes has 15 products in 6 languages @2019-05-24
-
-# description:en:CABBAGE or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads.
-
-
-<en:vegetable
-en:cabbage
-bg:зеле
-ca:col
-da:kål
-de:Kohl
-es:col,repollo,berza
-fi:kaali, keräkaali
-fr:chou, choux
-hu:fejeskáposzta
-it:cavolo
-ja:キャベツ
-li:kappes
-lt:kopūstai
-nb:kål
-nl:kool
-pl:kapusta, kapusty
-ru:капуста
-sv:kål
-to:kāpisi
-tr:lahana
-# ksh:kappes
-# mdf:капста
-# sco:cabbitch
-# szl:kapusta gowjasto
-wikidata:en:Q14328596
-wikipedia:en:https://en.wikipedia.org/wiki/Cabbage
-# fr:chou has 374 products in 4 languages @2018-10-20
-
-fr:Chou pommé, Chou cabus
-carbon_footprint_fr_foodges_ingredient:fr:Chou pommé
-carbon_footprint_fr_foodges_value:fr:0.8
-
-# description:en:Cabbage or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads.
-# There is an issue with the wikidata item, it mixes white cabbage and cabbage.
-
-<en:cabbage
-en:white cabbage
-am:ጥቅል ጎመን
-ar:ملفوف
-az:kələm
-ba:кәбеҫтә
-be:капуста белакачанная
-bg:бяло зеле
-bi:kabis
-bn:বাঁধাকপি
-bo:པད་ལོག
-cs:hlávkové zelí, zelí
-cy:bresychen
-da:hvidkål
-de:Weißkohl, Weisskohl
-el:λάχανο
-eo:blanka brasiko
-es:col blanca
-et:kapsas
-eu:aza
-fa:کلم‌برگ
-fi:valkokaali, kupukaali
-fj:kaveti
-fr:chou blanc
-ga:cabáiste
-gd:càl
-gl:repolo
-gu:tajao
-gv:cabbash vane
-he:כרוב
-hi:बंद गोभी
-ht:chou
-hr:kupus
-hu:fejes káposzta
-hy:կաղամբ
-ia:caule
-id:kubis
-io:kaulo
-is:hvítkál
-it:cavolo bianco, cavolo cappuccio
-jv:kul
-ka:კომბოსტო
-kn:ಎಲೆಕೋಸು
-ko:양배추
-ku:kelem
-li:sjepeng
-lt:gūžinis kopūstas
-lv:galviņkāposti
-mk:зелка
-ml:മൊട്ടക്കൂസ്
-mo:куреки
-mr:कोबी
-ms:kubis bulat
-mt:kaboċċa
-my:ဂေါ်ဖီထုပ်
-nb:hvitkål
-ne:बन्दागोभी
-nl:witte kool, wittekool
-nn:hovudkål
-nv:chʼil łigaii
-oc:caulet
-or:ବନ୍ଧାକୋବି
-pa:ਪੱਤਾ ਗੋਭੀ
-pl:kapusta biała, biała kapusta, białej kapusty
-ps:كرم
-pt:repolho
-rn:ishu
-ro:varză albă
-ru:капуста белокочанная
-rw:ishu
-sa:पर्णशाकम्
-sd:بند گوبي
-sh:kupus
-si:ගෝවා
-sk:kapusta obyčajná hlávková
-sm:kapisi
-so:kaabaj
-sq:lakra
-sr:купус
-#sr-la:kupus
-su:engkol
-sv:vitkål
-sw:kabichi
-ta:முட்டைக்கோசு
-te:కాబేజీ
-tg:карам
-th:กะหล่ำปลี
-tl:repolyo
-tt:кәбестә
-ug:كاپۇسكا
-uk:капуста білоголова
-ur:بند گوبھی
-vi:cải bắp
-yi:קרויט
-za:byaekgienjsim
-zh:卷心菜
-#ang:caƿel
-#bar:kabis
-#bcl:repolyo
-#bho:पत्ता गोभी
-#cdo:gái-làng-chái
-#de-ch:Weisskohl
-#frr:witjkual
-#hak:kô-lì-chhoi
-#hyw:կաղամբ
-#kaa:kapusta
-#ksh:kappes
-#mai:बन्दाकोबी
-#mdf:капста
-#nah:col
-#nan:ko-lê-chhài
-#nds:busekool
-#nrm:caboche
-#pam:repolyu
-#pcd:cabu
-#pnb:بند گوبی
-#sat:ᱵᱳᱱᱫᱷᱟᱠᱩᱵᱤ
-#scn:càvulu
-#sco:cabbitch
-#sgs:kuopūsts
-#szl:kapusta gowjasto
-#vec:capuso
-#vep:kerakapust
-#war:ripolyu
-#wuu:卷心菜
-#yue:椰菜
-wikidata:en:Q35051
-ciqual_food_code:en:20116
-ciqual_food_name:en:White cabbage, raw
-ciqual_food_name:fr:Chou blanc, cru
-# 930 in 13 @2021-09-29
-
-# description:en:The red cabbage (purple-leaved varieties of Brassica oleracea Capitata Group) is a kind of cabbage, also known as purple cabbage, red kraut, or blue kraut after preparation.
-
-<en:cabbage
-en:red cabbage
-bg:червено зеле
-bn:লাল বাঁধাকপি
-br:kaol ruz
-ca:col llombarda
-cs:červené zelí
-da:rødkål
-de:rotkohl
-el:κόκκινο λάχανο
-eo:ruĝa brasiko
-es:cacho lombarda, col lombarda
-fa:کلم‌قرمز
-fi:punakaali
-fr:chou rouge
-ga:cabáiste dearg
-gl:lombarda
-he:כרוב אדום
-hi:लाल पत्ता गोभी
-hu:vörös káposzta
-hy:կարմիր կաղամբ
-id:kol merah
-is:rauðkál
-it:cavolo rosso
-ja:赤キャベツ, 紫キャベツ, レッドキャベツ
-ka:წითელი კომბოსტო
-ko:적채
-lg:emboga
-lv:sarkanais galviņkāposts
-mk:црвена зелка
-ml:ചുവന്ന കാബേജ്
-ms:kubis merah
-nb:rødkål
-ne:रातो गोभी
-nl:rode kool, rodekool
-pl:czerwona kapusta, kapusta czerwona
-pt:couve-roxa
-ro:varză roșie
-sk:červená kapusta
-sq:lakër e kuqe
-th:กะหล่ำปลีม่วง
-tr:kırmızı lahana
-uk:капуста червоноголова
-zh:紫甘藍
-# bar:blaukraut
-# bho:लाल पत्ता गोभी
-# frr:ruadkual
-#hsb:čerwjeny kał
-# nan:âng ko-lê-chhài
-# pcd:colé'd vaque
-# szl:modro kapusta
-# vec:Càvorlo roso
-wikidata:en:q263203
-wikipedia:en:https://en.wikipedia.org/wiki/Red_cabbage
-ciqual_food_code:en:20014
-ciqual_food_name:en:Red cabbage, raw
-ciqual_food_name:fr:Chou rouge, cru
-# 988 in 9 @2021-09-28
-
-# en:description:CHINESE CABBAGE (Brassica rapa, subspecies pekinensis and chinensis) can refer to two groups of Chinese leaf vegetables often used in Chinese cuisine:the Pekinensis Group (napa cabbage) and the Chinensis Group (bok choy).
-# en:comment:IN french chou chinois is used for both varieties. And in other languages as well.
-
-<en:cabbage
-en:Napa cabbage
-ar:برند
-bg:китайско зеле
-ca:col xinesa
-cs:pekingské zelí
-da:kinakål
-de:Chinakohl
-el:kινέζικο λάχανο
-eo:pekina brasiko
-es:col china
-et:pekingi lehtnaeris
-fa:کاهوی چینی
-fi:kiinankaali
-fr:chou chinois, pe-tsaï
-ga:cabáiste Síneach
-id:sawi putih
-it:cavolo di pechino
-ja:ハクサイ, はくさい
-jv:sawi putih
-ko:배추
-la:brassica rapa subsp. pekinensis
-lt:pekininis kopūstas
-lv:ķīnas kāposti
-mk:кинеска зелка
-ms:kubis cina
-nb:napakål
-nl:chinese kool
-pl:kapusta pekińska, kapusta właściwa pekińska
-pt:couve-da-china
-sk:kapusta čínska, kapusta pekinská
-sl:kitajski kapus
-sv:kinakål
-th:ผักกาดขาว
-tl:petsay
-tr:çin lahanası
-ug:يېسىۋېلەك
-uk:капуста пекінська
-uz:pekin karami
-vi:cải thảo
-zh:大白菜
-#arz:ملفوف برند
-#lzh:菘
-#szy:mamumuway
-# yue:紹菜
-wikidata:en:Q13360268
-wikipedia:en:https://en.wikipedia.org/wiki/Chinese_cabbage
-ciqual_food_code:en:20167
-ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), raw
-ciqual_food_name:fr:Chou chinois ou pak-choi ou pé-tsai, cru
-# 200 @2021-09-29
-
-# description:en:Bok choy, pak choi or pok choi (Chinese:上海青; pinyin:Shànghǎi qīng; literally:"Shanghai Green"; Brassica rapa subsp. chinensis) is a type of Chinese cabbage.
-
-<en:cabbage
-en:pak choi, bok choy, pok choi
-ar:ملفوف صيني
-bo:ཚལ་དཀར་ཆེ་བ།
-ca:pak choi, bleda xinesa
-cs:bok čoj, pak čoj zelí, čínské
-da:bok choi, pak choi, kinesisk kål
-de:Pak Choi, Chinesischer Senfkohl
-el:mποκ τσόι
-es:bok choy, pak choi
-eu:txinatar aza
-fa:کلم چینی
-fi:pinaattikiinankaali, pak choi, bok choy, paksoi, pak-soi
-fr:bok choy, pak choï, chou de Chine
-gl:col chinesa, coia chinesa, repolo chinés
-hu:bordáskel, bok choy, pak choi, bok choi
-id:pakcoy, bok choy
-is:blaðkál, salatkál, kínverskt selleríkál
-it:bok choy, pak-choi
-ja:チンゲンサイ, チンゲン菜, 青梗菜
-kn:ಬಾಯ್ ಚಾಯ್
-ko:청경채
-la:Brassica rapa subsp. chinensis
-mk:бок чој, пак чој
-ms:bok choy, pak choi, pok choi
-nb:bak choy, pak choy, paksoi, tai tsai
-nl:paksoi, bokchoy, pak-choi
-pl:pak choi, bok choy, pok choi, kapusta bok choy, kapusta pak choy
-pt:pak-choi, bok-choi, tsoi sum
-ru:бок-чой, пак-чо́й, кита́йская черешко́вая капу́ста
-uk:бок-чой
-sv:sellerikål, pak choi
-vi:cải thìa, cải bẹ trắng, cải chíp, bạch giới tử
-zh:小白菜
-#arz:ملفوف صينى
-#yue:白菜
-wikidata:en:Q18968514
-wikipedia:en:https://en.wikipedia.org/wiki/Bok_choy
-ciqual_food_code:en:20167
-ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), raw
-ciqual_food_name:fr:Chou chinois ou pak-choi ou pé-tsai, cru
-# 128 in 5 @2021-09-29
-
-# Brassica oleracea var. sabellica
-# be careful with the translation found on packages.
-
-<en:cabbage
-en:kohlrabi
-de:kohlrabi
-es:colirrábano
-fr:chou-rave
-nl:koolrabi
-pl:kalarepa
-ru:Кольра́би
-ua:Кольрабі
-wikidata:en:Q147202
-wikipedia:en:https://en.wikipedia.org/wiki/Kohlrabi
-
-<en:kohlrabi
-en:cooked kohlrabi, boiled kohlrabi
-pl:kalarepa gotowana, gotowana kalarepa, kalarepa ugotowana, ugotowana kalarepa
-ciqual_food_code:en:20094
-ciqual_food_name:en:Kohlrabi, boiled/cooked in water
-
-# description:en:RAPINI or BROCCOLI RABE (Brassica rapa subspecies rapa) is a green cruciferous vegetable, with the leaves, buds, and stems all being edible; the buds somewhat resemble broccoli, but do not form a large head.
-
-<en:cabbage
-en:rapini, broccoli rabe
-de:Wildbrokkoli
-es:grelos, rapini
-fr:rapini, brocoli-rave
-it:friarielli, broccoletti, broccoli di rapa, cime di rapa, rapini, pulezze
-
-<en:cabbage
-en:kale, curly cale
-af:boerkool
-ar:كرنب أجعد
-bn:পাতাকপি
-ca:col verda
-cs:kapusta kadeřavá
-da:grønkål
-de:Grünkohl
-eo:krispa brasiko
-el:λαχανίδα
-es:col rizada
-et:lehtkapsas
-eu:aza berde
-fa:کلم کالی
-fi:lehtikaali
-fr:chou frisé
-ga:càl
-gv:caayl jiarg
-he:כרוב על
-hi:एक प्रकार का गोभी
-hu:fodros kel
-id:kubis keriting
-is:grænkál
-ja:ケール
-jv:kalé
-ka:კალე
-kk:кале, kale, كالە
-kn:ಕೇಲ್
-ko:케일
-ky:бакча капустасы
-la:brassica oleracea convar. acephala var. sabellica
-li:boerekuuel
-lt:lapiniai kopūstai
-lv:lapu kāposti
-mk:кељ
-ml:കലെ
-ms:kale
-nb:grønnkål
-nl:boerenkool
-nn:grønkål
-or:ଗୋଟେ ପ୍ରକାରର କୋବି
-pa:ਕਾਲੀ
-pl:jarmuż, jarmużu
-pt:couve, couve-de-folhas
-ru:кале
-sh:kelj
-sk:kel
-sl:kodrasti ohrovt
-sq:lakër jeshile
-sv:grönkål
-sw:sukumawiki
-ta:பரட்டைக்கீரை
-tr:kara lahana
-uk:браунколь
-vi:cải xoăn
-zh:羽衣甘藍
-#arz:كرنب اجعد
-# ckb:کەیڵ
-# frr:greenkual
-# hsb:zeleny kał
-# ksh:Kühl
-# nds:gröönkohl
-# nds-nl:mous
-# pcd:chou-crolèi
-# roa-tara:cavole rizze
-# sco:kail
-#vec:càvorlo riso
-#wuu:羽衣甘蓝
-wikidata:en:Q45989
-ciqual_food_code:en:20218
-ciqual_food_name:en:Curly kale, raw
-ciqual_food_name:fr:Chou frisé, cru
-# 2029 in 13 languages @2021-10-19
-
-<en:kale
-en:kale sprouts
-pl:kiełki jarmużu
-
-<en:cabbage
-en:komatsuna
-ja:小松菜, コマツナ
-
-<en:vegetable
-en:collard greens, collard
-wikidata:en:Q14879985
-
-<en:kale
-en:baby kale
-de:Kohlsprossen
-fr:Jeunes pousses de chou frisé
-#103 in en @2021-10-19
-
-<en:kale
-en:kale juice
-
-<en:kale
-en:kale puree
-de:Grünkohlpüree
-fr:purée de chou frisé
-it:purea di cavolo
-
-<en:cabbage
-en:brussels sprouts
-af:brusselspruit
-ar:كرنب بروكسل
-bg:брюкселско зеле
-bn:ব্রাসেলস স্প্রাউট
-br:kaol-bihan
-ca:col de Brusselles
-cs:růžičková kapusta, kapusta růžičková
-cy:ysgewyll
-da:rosenkål
-de:Rosenkohl
-el:λαχανάκι Βρυξελλών, λάχανα Βρυξελλών
-eo:burĝonbrasiko
-es:col de Bruselas, coles de bruselas
-et:rooskapsas, brüsseli kapsas
-eu:bruselaza
-fa:کلم بروکسل
-fi:ruusukaali, brysselinkaali
-fr:chou de Bruxelles, choux de bruxelles
-ga:bachlóg Bhruiséile
-gd:buinneag Bhruisealach
-gl:col de Bruxelas
-gv:caaylag
-he:כרוב ניצנים
-hr:kelj pupčar
-hu:bimbós kel
-id:kubis brussel
-is:rósakál
-it:cavolini di Bruxelles, cavolo di Bruxelles
-ja:メキャベツ, 芽キャベツ
-ka:ბრიუსელის კომბოსტო
-kk:Брюссель қырыққабаты
-ko:방울다다기
-la:Cauliculus Bruxellanus
-lb:brockelchen
-lt:briuselio kopūstas
-lv:briseles kāposti, rožkāposti
-ms:kubis brussels
-mt:kaboċċi ta' Brussell, kaboċċi taz-zokk
-nb:rosenkål
-nl:spruitjes, spruitkool
-nn:rosenkål
-nv:atʼééké bijish yázhí
-pl:kapusta brukselska, Kapusta warzywna brukselska, brukselka, brukselki
-pt:couve-de-bruxelas
-ro:varză de Bruxelles
-ru:брюссельская капуста
-sh:prokelj
-sk:kapusta obyčajná ružičková, kel ružičkový
-sl:brstični ohrovt
-sr:прокељ
-sv:brysselkål
-ta:கிளைக்கோசு
-tg:ғужмкарам
-th:กะหล่ำดาว
-tl:usbong ng bruselas
-tr:brüksel lahanası
-uk:брюссельська капуста
-uz:bryussel karami
-vi:cải brussels
-zh:抱子甘藍
-# hsb:pupkaty kał, pupak
-# kk-arab:بريۋسسەل قىرىققاباتى
-# kk-cn:بريۋسسەل قىرىققاباتى
-# kk-cyrl:брюссель қырыққабаты
-# kk-kz:брюссель қырыққабаты
-# kk-latn:bryusselʹ qırıqqabatı
-# kk-tr:bryusselʹ qırıqqabatı
-# ksh:spruut
-# lij:cöo de Bruxelles
-# mri:aonanī
-# nds-nl:keulkes
-# pcd:ésproete
-# sr-ec:прокељ
-# sr-el:prokelj
-# vec:càvorlo de Brusel
-# wuu:抱子甘蓝
-# zh-cn:抱子甘蓝
-# zh-hans:抱子甘蓝
-# zh-hant:抱子甘藍
-# zh-hk:抱子甘藍
-# zh-sg:抱子甘蓝
-# zh-tw:抱子甘藍
-wikidata:en:Q150463
-ciqual_food_code:en:20058
-ciqual_food_name:en:Brussels sprout, raw
-ciqual_food_name:fr:Chou de Bruxelles, cru
-# fr:chou-de-Bruxelles has 41 products in 2 languages @2018-10-19
-
-
-# description:en:Savoy cabbage (Brassica oleracea var. sabauda L. or Brassica oleracea Savoy Cabbage Group) is a variety of the plant species Brassica oleracea.
-# be careful with the translation found on packages.
-
-<en:cabbage
-en:savoy cabbage, green cabbage
-ca:col de milà
-cs:hlávková kapusta
-da:savojkål
-de:Wirsing, Wirsingkohl
-el:λάχανο μιλάνου, κράμβη του μιλάνου, λάχανο σαβοΐας
-eo:savoja brasiko
-es:col de saboya, col de Milán
-eu:aza kizkur
-fa:کلم ساوی
-fi:kurttukaali
-fr:chou vert, choux verts, chou de milan, chou de savoie
-ga:cabáiste saváí
-gv:cabbash chraplit
-hr:kelj
-hu:kelkáposzta
-id:kubis savoy
-is:blöðrukál
-it:verza, verze, cavolo verza, cavolo di milano
-ja:サボイキャベツ
-ko:사보이양배추
-la:brassica oleracea sabauda
-lt:savojinis kopūstas
-lv:savojas kāposti, virziņkāposti
-nl:savooikool, groene kool
-nn:savoykål
-pl:kapusta warzywna włoska
-pt:couve-lombarda
-ro:varza creață
-ru:савойская капуста
-sk:kapusta obyčajná kelová, kel hlávkový
-sr:кељ
-#sr-la:kelj
-tr:milano lahanası
-uk:капуста савойська
-wa:savoye
-zh:野甘蓝
-#arz:ملفوف سافوى
-# de-ch:Wirsing
-# en-ca:savoy cabbage
-# en-gb:savoy cabbage
-# hsb:krjózkaty kał
-# ksh:Schavur
-# lij:garbuxo
-# pt-br:couve-lombarda
-#vec:verza
-wikidata:en:Q154013
-wikipedia:en:https://en.wikipedia.org/wiki/Savoy_cabbage
-ciqual_food_code:en:20069
-ciqual_food_name:en:Green cabbage, raw
-ciqual_food_name:fr:Chou vert, cru
-# 256 @2021-09-29
-
-# description:en:GAI LAN (Brassica oleracea var. alboglabra) is a leaf vegetable with thick, flat, glossy blue-green leaves with thick stems, and florets similar to (but much smaller than) broccoli
-
-<en:cabbage
-en:gai lan, chinese broccoli, chinese kale, gai-lan, kailan, kai-lan
-ca:bròquil xinès
-de:kai-lan
-eo:ĉina brokolo
-es:brassica oleracea var. alboglabra
-eu:kai-lan
-fa:کلم‌برگ چینی
-fi:härmekaali, kiinanbrokkoli, kailaan
-fr:brocoli chinois
-he:ברוקולי סיני
-id:kailan
-it:brassica oleracea var. alboglabra
-ja:カイラン
-ko:가이란
-ms:kailan
-nl:kailan
-sv:daggkål, kinesisk broccoli
-th:คะน้า
-za:byaekgaiqlanz
-zh:芥藍
-wikidata:en:Q1677369
-wikipedia:en:https://en.wikipedia.org/wiki/Gai_lan
-# ingredient/en:gai-lan has 2 products in 1 language @2020-06-13
-
-# description:en:SAUERKRAUT (lit. 'sour cabbage') is finely cut raw cabbage that has been fermented by various lactic acid bacteria.
-
-# en:sauerkraut can be a compound ingredient, i.e. Sauerkraut (Weißkohl, Salz)
-
-<en:white cabbage
-en:sauerkraut
-af:Suurkool
-ar:ساوركراوت
-az:Kələm turşusu
-be:Капуста квашаная
-bg:Кисело зеле
-br:Kaol-go
-ca:xucrut
-cs:kysané zelí
-da:sauerkraut
-de:Sauerkraut
-el:Ξινό λάχανο
-eo:Acida brasiko
-es:Chucrut
-et:hapukapsas
-eu:Sauerkraut
-fa:کلم‌ترش
-fi:hapankaali
-fo:súrkál
-fr:choucroute
-ga:Cabáiste géaraithe
-he:כרוב כבוש
-hr:Kiseli kupus
-hu:Savanyú káposzta
-id:Sauerkraut
-io:Surkruto
-is:súrkál
-it:crauti
-ja:ザワークラウト
-ka:მჟავე კომბოსტო
-ko:자우어크라우트
-lb:Sauermous
-li:zoermoos
-lv:skābēti kāposti
-mk:кисела зелја
-nb:sauerkraut
-nl:zuurkool
-nn:surkål
-pa:ਜ਼ਾਉਰਕਰੌਟ
-pl:Kapusta kwaszona, kapusta kiszona, kapusty kiszonej, kiszonej kapusty, kiszona kapusta, kwaszonej kapusty
-pt:chucrute
-ro:varză acră
-ru:квашеная капуста
-sh:Kiseli kupus
-sk:kyslá kapusta
-sq:Lakër turshi
-sr:кисели купус
-sv:surkål
-th:เซาเออร์เคราท์
-uk:Квашена капуста
-vi:Dưa cải Đức
-vo:züdöfabrasid
-yi:זויערקרויט
-zh:德国酸菜
-# bar:Sauakraut
-# be-tarask:Квашаная капуста
-# en-gb:sauerkraut
-# frr:soerkoal
-# gsw:Sauerkraut
-# ksh:Suure Kappes
-# nds-nl:zoerkool
-# sco:sauerkraut
-# sr-ec:Кисели купус
-# sr-el:Kiseli kupus
-# yue:德國酸菜
-# zh-cn:德国酸菜
-# zh-hans:德国酸菜
-# zh-hant:德國酸菜
-# zh-hk:德國酸菜
-# zh-sg:德国酸菜
-# zh-tw:德國酸菜
-wikidata:en:Q154166
-# en:sauerkraut has 166 products in 3 languages @2018-10-19
-
-<en:sauerkraut
-en:raw sauerkraut
-de:Rohes Sauerkraut
-fr:choucroute crue
-
-<en:vegetable juice
-<en:sauerkraut
-en:sauerkraut juice
-de:Sauerkrautsaft
-es:zumo de choucroute
-fi:hapankaalimehu
-fr:jus de choucroute
-nl:zuurkoolsap
-pl:sok z kapusty kiszonej, sok z kiszonej kapusty, sok z kwaszonej kapusty
-# en:sauerkraut-juice has 8 products in 3 languages @2018-10-19
-
-
-<en:white cabbage
-en:kimchi
-az:Kimçi
-ko:김치
-pl:kimchi
-ru:Кимчхи
-ua:Кімчі
-xx:kimchi
-wikidata:en:Q141898
 
 # description:en:The CARROT (Daucus carota subsp. sativus) is a root vegetable, usually orange in colour, though purple, black, red, white, and yellow cultivars exist
 
@@ -49696,196 +51110,6 @@ fr:jus de carotte à base de concentré, jus de carottes à base de concentré
 en:carrot juice powder
 pl:sok z marchwi w proszku
 
-<en:vegetable
-en:celery
-af:Seldery
-am:ሰለሪ
-ar:كرفس
-az:İyli kərəviz
-bg:целина
-bn:পাথুনি শাক
-bo:ལྕ་ཚལ།
-br:Ach
-bs:Celer
-ca:Api
-cs:Miřík celer, celer
-cy:Seleri
-da:selleri
-de:Sellerie, Staudensellerie
-el:Σέλινο
-eo:celerio
-es:apio
-et:Aedseller, seller
-eu:Apio
-fa:کرفس
-fi:Selleri
-fr:céleri
-ga:Soilire
-gl:Apio
-gv:Smullish
-he:סלרי
-hr:celer, celera, stablo celera
-ht:Sèlri
-hu:Zeller
-id:Seledri
-io:Celerio
-is:Seljurót
-it:sedano
-ja:セロリ
-jv:Slèdri
-ka:ნიახური
-kk:Балдыркөк
-kn:ಸೆಲರಿ
-ko:셀러리
-la:Apium graveolens
-lt:Valgomasis salieras, salierai
-lv:Selerija, selerijas
-mr:अजमोदा
-ms:Daun Saderi
-mt:karfus
-my:တရုတ်နံနံပင်
-nb:Selleri
-nl:selderij
-nv:Hazaʼaleehtsoh
-oc:Api
-os:Маламар
-pl:Seler zwyczajny, seler, selera, selerowy, selerowe, selerowa, selerem
-pt:aipo,aipos
-qu:Apiyu
-ro:Țelină
-ru:Сельдерей пахучий, сельдерей, сельдерея
-sa:कुस्तुम्बरीपर्णम्
-sc:Appiu
-sh:Celer
-sk:Zeler voňavý, zeler
-sl:Navadna zelena, listna zelena
-sq:Selinoja
-sr:Целер, celer
-su:Salédri
-sv:Selleri
-ta:சிவரிக்கீரை
-tg:Карафс
-th:ขึ้นฉ่าย
-tl:Apyo
-tr:Kereviz
-uk:Селе́ра
-vi:Cần tây
-wa:Celeri
-yi:סעלערי
-za:Ginzcaiq
-zh:旱芹
-description:en:CELERY (Apium graveolens) is a marshland plant in the family Apiaceae that has been cultivated as a vegetable since antiquity.
-# ast:callapazu
-# azb:ایلی کرویز
-# ckb:کەرەوز
-# eml:Sèlar
-# frr:silere
-# lij:Séllao
-# nap:Accio
-# pcd:Chilri
-# sco:Celery
-# xmf:სონა
-# yue:西芹
-allergens:en: en:celery
-wikidata:en:Q23012379
-wikipedia:en:https://en.wikipedia.org/wiki/Celery
-# fr:celeri has 4877 products in 10 languages @2018-10-21
-carbon_footprint_fr_foodges_ingredient:fr:Céleri
-carbon_footprint_fr_foodges_value:fr:0.8
-
-<en:celery
-en:celery stalk
-fr:céleri branche
-de:Stangensellerie
-nl:bleekselderij
-pl:seler naciowy, selera naciowego
-ciqual_food_code:en:20023
-ciqual_food_name:en:Celery stalk, raw
-ciqual_food_name:fr:Céleri branche, cru
-# 88 in 3 languages @2021-12-01
-
-<en:celery
-<en:herb
-en:celery leaves
-de:Sellerieblätter, Sellerieblatt
-es:apio hoja
-fr:feuilles de céleri
-it:foglie di sedano
-nl:selderblad, bladselderij
-pl:liść selera, liście selera, seler liść
-# fr:feuilles-de-céleri has 39 products in 4 languages @2018-10-21
-
-<en:celery
-fr:garniture de céleri
-# fr:garniture-de-céleri has 27 products in 1 language @2018-10-20
-
-<en:celery
-en:celery puree
-de:Selleriepüree
-fi:selleripyree, sellerisose
-fr:purée de céleri
-pl:przecier z selera, przecier selerowy, przeciery z selera
-# In process de:Selleriepüree
-
-<en:celery
-en:celery juice
-de:Selleriesaft
-es:Jugo de apio
-fr:jus de céleri
-it:Succo di sedano
-pl:sok z selera
-
-<en:celery juice
-en:concentrated celery juice
-de:Sellerieextrakt, Konzentriertes Selleriesaft
-fi:sellerimehutiiviste
-fr:jus de céleri concentré, jus concentré de céleri
-# fr:jus-concentré-de-céleri has 64 products in 1 language @2018-10-21
-
-<en:concentrated celery juice
-en:powdered concentrated celery juice
-#en:processing:en:powder
-#de:Konzentriertes Selleriesaftpulver
-#fr:jus concentré de céleri en poudre
-
-<en:celery
-fr:extrait de céleri
-fi:selleriuute
-nl:selderextract
-# fr:extrait-de-céleri has 58 products @2018-10-20
-
-<en:celery
-<en:seed
-en:celery seed
-de:Selleriesamen, Selleriesaat
-es:Semilla de apio
-fi:sellerinsiemen
-fr:graines de céleri
-it:Semi di sedano
-ja:セロリシード
-nl:selderij zaad, selderijzaad
-pl:nasiona selera
-sv:sellerifrö
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:graines-de-céleri
-# 66 products in 3 languages @2018-10-07
-
-<en:celery
-en:celery powder
-bg:целина на прах
-de:Selleriepulver
-fi:sellerijauhe
-fr:céleri en poudre
-it:sedano in polvere
-nl:selderpoeder
-wikipedia:en:https://en.wikipedia.org/wiki/Celery_powder
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:céleri-en-poudre
-# 41 products in 4 languages @2018-10-07
-
-<en:carrot juice
-<en:celery
-fr:jus concentré de céleri et de carotte
-# fr:jus-concentré-de-céleri-et-de-carotte has 31 products in 1 language @2018-10-20
-
 # description:en:CELERIAC (Apium graveolens var. rapaceum), also called turnip-rooted celery, celery root, or knob celery, is a variety of celery cultivated for its edible stem or hypocotyl, and shoots.
 
 <en:root vegetable
@@ -50034,162 +51258,6 @@ fr:concentré de carotte et de citrouille
 <fr:concentré de carotte et de citrouille
 de:Färbende Konzentrate Karotte und Kürbis
 
-# description:en:FENNEL (Foeniculum vulgare) is a flowering plant species in the carrot family. The bulb, foliage, and fruits of the fennel plant are used in many of the culinary traditions of the world. The bulb is a crisp vegetable that can be sautéed, stewed, braised, grilled, or eaten raw. Young tender leaves are used for garnishes, as a salad, to add flavor to salads, to flavor sauces to be served with puddings, and also in soups and fish sauce.
-
-# <en:category:en:Plant-based foods
-<en:root vegetable
-en:fennel
-af:vinkel
-an:fenullo
-ar:شمرة شائعة
-az:adi razyana
-ba:фенхель, фенхель үләне
-be:фенхель звычайны
-bg:резене, див копър
-br:lost-louarn
-bs:komorač
-ca:fonoll
-ce:йиппар
-cs:fenykl
-cy:ffenigl
-da:fennikel
-de:Fenchel
-dv:ދަވިއްގަނދު
-el:μάραθο, μάραθος, φινόκιο
-eo:fenkolo
-es:hinojo
-et:apteegitill
-eu:mihilu
-fa:رازیانه
-fi:fenkoli, fenkolia
-fr:fenouil, fenouils, fenouil commun
-ga:finéal
-gl:fiúncho
-gu:વરિયાળી
-he:שומר פשוט
-hi:सौंफ
-hr:komorač, koromač, komorača
-ht:anis
-hu:édeskömény
-hy:Հոռոմ-սամիթ սովորական
-id:adas
-io:fenikulo
-is:fenníka
-it:finocchio
-ja:フェンネル
-jv:adas
-ka:დიდი კამა
-kk:Фенхель, Fenxelʹ, فەنحەل
-kn:ಸೊಂಪು
-ko:회향
-ku:rizyane
-la:foeniculum vulgare
-lt:paprastasis pankolis
-lv:fenhelis
-mk:морач
-ml:പെരുംജീരകം
-mr:बडीशेप
-ms:adas, pokok adas
-my:စမုန်စပါး
-nb:fennikel
-ne:सुप
-nl:venkel
-nn:fennikel
-oc:fenolh
-or:ପାନମଧୁରୀ
-pl:fenkuł włoski, fenkuł, koper włoski, kopru włoskiego
-pt:funcho
-qu:inuhu
-ro:fenicul
-ru:Фенхель обыкновенный
-sc:fenugu
-sd:وڏڦ
-sh:komorač
-si:මාදුරු
-sk:fenikel
-sl:komarček
-sq:maraja
-sr:коморач, Komorač
-su:adas
-sv:fänkål
-ta:பெருஞ்சீரகம்
-te:సోంపు
-th:ผักชีล้อม
-tl:haras
-tr:rezene
-uk:фенхель
-ur:سونف
-zh:小茴香
-# aeb-arab:بسباس
-# ast:fenoyu
-# azb:رازیانه
-#ban:adas
-#gom:बडिशेप
-#gor:denggu-denggu
-# hil:inóho
-#kab:Tansawt
-#lij:Fenoggio
-#lmo:fenoeugg
-#mad:Aḍḍhâs
-# mai:सुप
-# nap:စမုန်စပါး
-# nds-nl:veankel
-# sco:finkle
-#scn:fenugu
-#wuu:茴香
-# yue:茴香
-# zh-tw:茴香
-wikipedia:en:https://en.wikipedia.org/wiki/Fennel
-wikidata:en:Q43511
-ciqual_food_code:en:20028
-ciqual_food_name:en:Fennel, raw
-ciqual_food_name:fr:Fenouil, cru
-# 2221 in20 @2021-10-09
-
-<en:fennel
-en:fennel powder
-fr:fenouil poudre
-
-#<en:fennel
-#en:organic fennel
-#de:Bio-Fenchel
-#es:hinojo orgánico
-#fi:luomu fenkoli
-#fr:fenouil bio
-
-
-# description:en:HEART OF PALM is a vegetable harvested from the inner core and growing bud of certain palm trees. Heart of palm may be eaten on its own, and often it is eaten in a salad. Hearts of palm are rich in fiber, potassium, iron, zinc, phosphorus, copper, vitamins B2, B6, and C.
-
-# <en:category:en:Fresh plant-based foods
-<en:vegetable
-en:Heart of palm, Hearts of palm
-ar:جمار
-de:Palmherzen, Palmherz
-eo:Palmomedolo
-es:Palmito
-fa:پنیر نخل
-fi:Palmun sydän
-fr:Cœur de palmier, cœurs de palmiers, cœurs de palmier, coeur de palmier, coeurs de palmiers, coeurs de palmier, choux palmistes, chou palmiste
-gl:Palmito
-gv:Cabbash phalm
-he:לבבות דקל
-it:cuori di palma, Palmito
-ja:ハート・オブ・パーム
-jv:Pondhoh
-la:Cerebrum palmae
-lt:Palmės šerdis
-nl:Palmharten
-pl:serce palmy, serca palmy
-pt:Palmito
-ru:Сердцевина пальмы
-sv:Palmhjärta
-tl:Ubod
-wikidata:en:Q743144
-wikipedia:en:https://en.wikipedia.org/wiki/Heart_of_palm
-# fr:coeurs-de-palmier has 16 products in 3 languages @2018-10-19
-
-
-
 # description:en:HORSERADISH (Armoracia rusticana, syn. Cochlearia armoracia) is a perennial plant of the family Brassicaceae. The intact horseradish root has hardly any aroma. When cut or grated enzymes from the now-broken plant cells break down sinigrin (a glucosinolate) to produce allyl isothiocyanate (mustard oil), which irritates the mucous membranes of the sinuses and eyes. Grated mash should be used immediately or preserved in vinegar for best flavor.
 
 <en:root vegetable
@@ -50282,7 +51350,7 @@ de:Meerrettichpaste
 # description:en:JERUSALEM ARTICHOKE (Helianthus tuberosus), also called sunroot, sunchoke, earth apple, or topinambour, is a species of sunflower. The tubers are sometimes used as a substitute for potatoes: they have a similar consistency, and in their raw form have a similar texture, but a sweeter, nuttier flavor; raw and sliced thinly, they are fit for a salad.
 
 <en:root vegetable
-en:Jerusalem artichoke
+en:Jerusalem artichoke, root artichoke
 ar:دوار الشمس الدرني
 az:Yerarmudu
 be:Тапінамбур
@@ -51327,76 +52395,6 @@ nl:okra
 pt:Quiabo
 wikidata:en:Q12047207
 
-
-# description:en:RHUBARB is a cultivated plant in the genus Rheum in the family Polygonaceae. Rhubarb is stewed with sugar or used in pies and desserts, but it can also be put into savoury dishes or pickled. Rhubarb can be dehydrated and infused with fruit juice.
-
-<en:vegetable
-# <en:Vegetable rods
-en:rhubarb, rhubarbs
-af:rabarber
-ar:راوند
-az:ravənd
-bg:ревен
-ca:ruibarbre
-cs:rebarbora, reveň lékařská
-da:rabarber
-de:Rhabarber
-el:ραβέντι
-eo:rabarbo
-es:ruibarbo, ruibarbos
-et:rabarber
-eu:arabarba
-fa:رابارب
-fi:raparperi
-fr:rhubarbe, rhubarbes
-ga:biabhóg, rúbarb
-gl:ruibarbo
-hr:rabarbara
-hu:rebarbara
-id:rhubarb
-it:rabarbaro
-kn:ರೂಬಾರ್ಬ್
-ko:루바브
-la:rheum, rheum rhabarbarum
-lt:rabarbaras
-lv:rabarber
-ml:റുബാർബ്
-ms:rubarb, روبارب‎‎, rawand, راوند‎‎
-mt:rabarbru
-nb:rabarbra
-nl:rabarber
-nn:rabarbra
-nv:jiłtʼoʼí
-pl:rabarbar
-pt:ruibarbo
-ro:revent
-ru:ревень
-se:rabárber
-sl:rabarbara
-sr:рабарбара, rabarbara
-sv:rabarber
-tr:ravent
-zh:大黄
-wa:rubåbe
-#als:rabarbr
-#sco:rhubarub
-wikidata:en:Q20767168
-# plant:wikidata:en:Q7535
-wikipedia:en:https://en.wikipedia.org/wiki/Rhubarb
-# 502 in 4  languages @2021-10-25
-# category/rhubarbs has 4 products 22019-05-22
-
-<en:rhubarb
-en:rhubarb juice
-cs:rebarborová štáva
-da:rabarberjuice
-de:Rhabarbersaft
-fi:raparperimehu
-fr:jus de rhubarbe
-it:succo di rabarbaro
-nl:rabarbersap
-#25 @2021-10-25
-
 # description:fr:La SALADE est un terme générique désignant en jardinage et horticulture diverses sortes de feuilles, c'est-à-dire de plantes potagères dont les feuilles, consommées crues, entrent dans la composition d'un mets froid dont elles ont pris le nom, la « salade », sous-entendu « salade verte ».
 # comment:en:in english salad seems to refer more to the group of dishes than the group of plants.
 
@@ -51511,85 +52509,6 @@ en:wild rocket
 la:diplotaxis tenuifolia
 wikidata:en:Q163812
 wikipedia:en:https://en.wikipedia.org/wiki/Diplotaxis_tenuifolia
-
-# description:en:COMMON SORREL or garden sorrel (Rumex acetosa), often simply called sorrel, is a perennial herb in the family Polygonaceae. The leaves may be puréed in soups and sauces or added to salads; they have a flavour that is similar to kiwifruit or sour wild strawberries.
-
-<en:salad
-en:sorrel, common sorrel
-af:veldsuring
-ar:حماض بستاني
-az:adi əvəlik
-ba:ҡуҙғалаҡ
-bg:киселец
-ca:agrella
-cs:šťovík kyselý
-da:almindelig syre
-de:Sauerampfer
-el:λάπαθο
-eo:okzalo
-es:acedera común
-et:hapuoblikas, hapu oblikas
-eu:mingarratz handi
-fa:سورل، لوئیزیانا
-fi:niittysuolaheinä
-fr:oseille
-ga:samhadh
-gl:aceda
-hi:खट्टा पालक
-hr:obična kiselica
-hu:mezei sóska
-io:oxalo
-is:túnsúra
-it:acetosa
-ja:スイバ
-ka:მჟაუნა
-ko:수영
-ku:tirşo
-ky:кызыл аткулак
-la:rumex acetosa
-lt:valgomoji rūgštynė
-lv:pļavas skābene
-mk:киселец
-mr:चुका
-nb:engsyre
-nl:zuring, veldzuring, zurkel
-nn:engsyre
-nv:chaatʼíní
-os:хуырхæг
-pl:szczaw zwyczajny, szczaw
-pt:azeda
-ro:măcriș
-ru:щавель кислый
-se:juopmu
-sh:kiseljak
-sk:štiav lúčny
-sl:navadna kislica
-sq:lëpjeta
-sr:кисељак, kiseljak
-sv:ängssyra
-tg:туршак
-uk:щавель кислий
-ur:ہوبابل
-vi:chút chít
-zh:酸模
-# azb:عادی او‌لیک
-# csb:kwasné zelé
-# diq:amênvaş
-# frr:ruad jüd
-# hsb:kisały zdźer
-# koi:тшӧтшкӧр
-# sgs:rūgštīnė
-# stq:suurke
-# vec:spanavin
-# vep:sol'hein
-#wuu:酸模
-# zh-tw:酸模
-wikidata:en:Q26297
-wikipedia:en:https://en.wikipedia.org/wiki/Sorrel
-ciqual_food_code:en:20111
-ciqual_food_name:en:Sorrel, raw
-ciqual_food_name:fr:Oseille, crue
-"# 138 in 5 @2021-12-01
 
 #in additives_classes
 <en:sorrel
@@ -51777,186 +52696,6 @@ en:concentrated shallot juice
 de:Konzentrierter Zwiebelsaft
 fr:jus d'échalote concentré
 
-<en:vegetable
-en:spinach
-am:ቆስጣ
-ar:سبانخ
-as:পালেং শাক
-az:Dirrik ispanağı
-be:Шпінат
-bg:спанак
-bn:পালং শাক
-bo:ཚལ་སྣག
-br:pinochez
-bs:Špinat
-ca:espinac,espinacs
-co:spinacciu
-cs:špenát setý
-cy:Sbigoglys
-da:spinat
-de:Spinat
-dv:ބޯވެލި
-el:Σπανάκι
-eo:spinaco
-es:espinacas
-et:spinat
-eu:Ziazerba
-fa:اسفناج
-fi:pinaatti
-fo:spinat
-fr:épinard, épinards
-fy:spinaazje
-ga:Spionáiste
-gd:Bloinigean-gàrraidh
-gl:Espinaca
-gu:પાલક
-he:תרד
-hi:पालक
-hr:Špinat
-ht:Epina
-hu:spenót
-hy:սպանախ
-id:Horenso
-io:Spinato
-is:Spínat
-it:spinaci
-ja:ホウレンソウ, ほうれん草
-kk:Самалдық
-kn:ಪಾಲಕ್
-ko:시금치
-ku:Siyale
-la:Spinacia oleracea
-lb:Päinetsch
-li:Spinaasj
-lt:Daržinis špinatas, špinatas, Špinatų lapai
-lv:spināti
-mk:Спанаќ
-ml:ചീര
-mr:पालक
-my:ဟင်းနုနွယ်
-nb:spinat
-ne:पालुङ्गो
-nl:spinazie
-nn:Spinat
-nv:Waaʼ
-oc:espinarc
-or:ପାଳଙ୍ଗ
-os:Голмандзы
-pa:ਪਾਲਕ
-pl:Szpinak warzywny, szpinak, szpinaku, szpinakowy, szpinakowa, szpinakowe
-pt:espinafres
-ro:Spanac
-ru:шпинат огородный
-rw:Epinari
-sd:پالڪ
-se:spináhtta
-sh:Špinat
-sl:Špinača
-sq:spinaqi
-sr:спанаћ
-sv:spenat
-ta:பசலை கீரை
-te:పాల కూర
-th:ปวยเล้ง
-tl:Espinaka
-tr:Ispanak
-uk:Шпинат городній
-ur:پالک
-vi:Rau chân vịt
-wa:Spinasse
-za:byaekbohcaiq
-zh:菠菜
-# azb:ایسپاناق
-# bar:Spinat
-# bho:पालकी
-# cdo:Pŏ̤-lìng-chái
-# chr:ᎢᏤᎢ ᎠᎩᏍᏗ
-# ckb:سپێناخ
-# dsb:spinat
-# hak:Po-lîn-chhòi
-# hsb:spinat
-# kbp:Kpema
-# mzn:اسبناخ
-# nan:Poe-lêng-á
-# new:पलः
-# nrm:Épinoches
-# pap:spinazi
-# pnb:پالک
-# roa-tara:spinace
-# yue:菠菜
-# zh-tw:菠菜
-wikidata:en:Q81464
-wikipedia:en:https://en.wikipedia.org/wiki/Spinach
-carbon_footprint_fr_foodges_ingredient:fr:Epinard
-carbon_footprint_fr_foodges_value:fr:0.5
-# fr:épinard 1204 in 9 languages products @2018-10-14
-ciqual_food_code:en:20059
-ciqual_food_name:en:Spinach, raw
-ciqual_food_name:fr:Épinard, cru
-
-<en:spinach
-en:baby spinach
-bg:бейби спанак
-de:Babyspinat
-es:Espinaca bebé.
-fi:babypinaatti, baby-pinaatti
-fr:Jeunes pousses d'épinards, pousse d'épinards
-nl:Baby spinazie
-sv:babyspenat
-
-<en:spinach
-fr:feuille d'épinards
-nl:spinazieblad
-
-<en:spinach
-en:spinach powder
-#en:processing:en:powder
-#de:Spinatpulver
-#es:polvo de espinaca
-#fi:pinaattijauhe
-#fr:poudre d'épinard, épinards en poudre, épinard en poudre
-#hr:špinat u prahu
-#it:Polvere di spinaci
-#nl:spinaziepoeder
-#pl:szpinak w proszku, sproszkowany szpinak
-#pt:pó de espinafre
-# fr:poudre-d'épinard 40 products in 4 languages @2018-10-14
-# fr:épinards-en-poudre 17 products in 4 languages @2018-10-14
-
-<en:spinach
-fr:épinards déshydratés
-fi:kuivattu pinaatti
-
-<en:spinach
-en:Cooked spinach
-fr:Épinards cuits
-ciqual_food_code:en:20027
-ciqual_food_name:en:Spinach, cooked
-ciqual_food_name:fr:Épinard, cuit
-
-<en:spinach
-fr:épinards en branches, épinards branches
-de:Blattspinat
-it:foglie di spinaci
-nl:bladspinazie
-# fr:épinards-en-branches in 3 languages 44 products @2018-10-14
-
-<en:spinach
-fr:Épinards hachés
-nl:gehakte spinazie
-# ingredient/fr:epinards-haches has 26 products in 2 languages @2019-05-24
-
-<en:spinach
-en:spinach puree
-fr:purée d'épinards
-ciqual_food_code:en:20285
-ciqual_food_name:en:Spinach, puree
-ciqual_food_name:fr:Épinard, purée
-
-<en:spinach
-<en:amaranth
-en:spinach or amaranth
-ms:bayam
 
 # description:en:The SWEET POTATO (Ipomoea batatas) is a dicotyledonous plant that belongs to the bindweed or morning glory family, Convolvulaceae.
 
@@ -54164,137 +54903,6 @@ wikidata:en:Q932664
 en:Nelumbo
 pl:Lotos, lotosu
 xx:Nelumbo, Nelumbo Adans.
-
-# comment:en:Cress can mean Garden Cress, Watercress, or the group of all cresses. And seemingly different things in different languages.
-<en:vegetable
-en:cress
-de:Kresse
-fr:Cresson
-wikipedia:en:https://en.wikipedia.org/wiki/Cress
-
-# description:en:WATERCRESS or yellowcress is an aquatic plant species with the botanical name Nasturtium officinale. Watercress can be sold in supermarkets in sealed plastic bags, containing a little moisture and lightly pressurised to prevent crushing of contents. Watercress is 95% water and has low contents of carbohydrates, protein, fat, and dietary fiber.
-# comment:en:The wikidata-page refers to plant and not the vegetable. The translations are taken from the wikipedia-pages.
-
-<en:cress
-en:Watercress
-af:Bronkors
-an:Berro
-ar:جرجير الماء
-ca:creixen
-de:Brunnenkresse
-eo:akvokreso
-es:berro
-fi:Isovesikrassi
-fr:Cresson de fontaine
-gl:Agrón
-id:Selada Air
-io:Kreso
-it:Crescione
-ja:オランダガラシ, クレソン, クレス
-ko:물냉이
-la:Nasturtium officinale
-nb:Brønnkarse
-nl:waterkers
-pt:agrião
-ru:Брункресс
-sr:Поточарка
-tr:Su teresi
-vi:Cải xoong
-zh:西洋菜
-# sco:Kerse
-# sr-ec:Поточарка
-# yue:西洋菜
-# zh-cn:西洋菜
-# zh-hans:西洋菜
-# zh-hant:西洋菜
-# zh-hk:西洋菜
-# zh-sg:西洋菜
-# zh-tw:水芥菜
-wikidata:en:Q150452
-wikipedia:en:https://en.wikipedia.org/wiki/Watercress
-# ingredient/watercress has 107 products in 4 languages @2019-04-13
-# ingredient/fr:cresson has 61 products in 5 languages @2018-12-14
-ciqual_food_code:en:20022
-ciqual_food_name:en:Watercress, raw
-ciqual_food_name:fr:Cresson de fontaine, cru
-
-# description:en:Cress (Lepidium sativum), sometimes referred to as garden cress (or curly cress) to distinguish it from similar plants also referred to as cress (from old Germanic cresso which means sharp, spicy), is a rather fast-growing, edible herb.
-
-<en:cress
-en:garden cress
-af:waterkers
-am:ፌጦ
-ar:رشاد مزروع
-az:vəzəri-bozalaq
-be:клапоўнік пасяўны
-bg:кресон
-bn:হালিম শাক
-bs:obična grbaštica
-ca:morritort
-cs:řeřicha zahradní
-cy:pupurlys yr ardd
-da:have-karse, havekarse
-de:Gartenkresse
-el:κάρδαμο
-eo:ĝardenkreso
-es:lepido, berro hortelano, berro de jardin
-et:salatkress
-fa:شاهی
-fi:vihanneskrassi
-ff:lapsur
-fr:cresson alénois
-ga:biolar gairdín
-gu:અશેળિયો
-hu:kerti zsázsa
-hy:կոտեմ
-is:karsi
-it:crescione di giardino, crescione inglese
-ja:コショウソウ
-ka:წიწმატი
-kk:кресс салат
-ko:큰다닥냉이
-kw:beler lowarth
-la:Lepidium Sativum
-lt:sėjamoji pipirnė
-mk:добрејка
-ml:ആശാളി
-mr:अहाळीव
-nb:karse
-ne:चम्सुर
-nl:tuinkers, sterrenkers, bitterkers, cressonette
-nn:matkarse
-os:дудгæ
-pl:pieprzyca siewna, rzeżucha ogrodowa
-pt:agrião-mouro, agrião-de-horta, mastruço
-qu:willk'uyuyu
-ro:creson
-ru:кресс-салат
-sh:obična grbaštica
-sk:žerucha záhradná
-sv:smörgåskrasse, kryddkrasse
-te:ఆడలవిటల
-th:เทียนแดง
-tr:tere
-uk:кресс-салат
-ur:ہالوں
-zh:水芹
-#ace:camcuruih
-#aeb:حبة الرشاد
-#azb:وزه ری
-#csb:zagrodna krjasa
-#frr:klaker
-#hsb:zahrodna žerchej
-#kab:agernunnec
-#lbe:гьумалаккиж
-#lez:цiуьлуьк
-#mzn:شاهین
-#wuu:家独行菜
-wikidata:en:Q27033
-wikipedia:en:https://en.wikipedia.org/wiki/Garden_cress
-ciqual_food_code:en:20199
-ciqual_food_name:en:Garden cress, raw
-ciqual_food_name:fr:Cresson alénois, cru
-# 8 in 4 @2021-10-04
 
 # description:en:A PUMPKIN is a cultivar of a squash plant, most commonly of Cucurbita pepo, that is round, with smooth, slightly ribbed skin, and deep yellow to orange coloration.
 
@@ -59437,7 +60045,7 @@ nb:sesamfrø
 nl:sesamzaad, sesam zaden, sesamzaden
 pl:nasiona sezamu, ziarno sezamu, ziarna sezamu
 pt:sementes de sésamo, sementes de sésam
-ro:semințe de susan
+ro:semințe de susan, seminte de susan
 sk:sezamové semeno
 sl:sezamovo seme
 sv:sesamfrön, sesamfrö
@@ -59603,8 +60211,8 @@ zh:食品添加剂
 wikidata:en:Q2596997
 wikipedia:en:https://en.wikipedia.org/wiki/Condiment
 # ingredient/fr:condiment has 360 products in 6 languages @2019-03-09
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:condiment
 en:powdered condiment
@@ -61022,7 +61630,7 @@ pa:ਲੌਂਗ
 pl:goździki, goździk, goździkowy, goździkowe, goździkowa, goździków
 ps:لونګ
 pt:cravo-da-índia
-ro:cuișoare
+ro:cuișoare, cuisoare
 ru:гвоздика
 sa:लवङ्गम्
 sh:klinčić
@@ -61493,8 +62101,7 @@ hr:griffonia, griffonia simplicifolia
 wikidata:en:Q1941426
 
 #category/mustards
-<en:spice
-# <en:flavour
+#<en:compound
 en:mustard
 ar:صلصة الخردل
 be:Гарчыца
@@ -61548,7 +62155,7 @@ pa:ਸਰੋਂ
 pl:Musztarda
 pt:mostarda
 qu:Mustasa
-ro:muștar, muştar
+ro:muștar, muştar, mustar
 ru:горчица, горчицы
 sh:Senf
 sk:Horčica
@@ -61602,6 +62209,7 @@ fr:Moutarde anglaise
 nl:Engelse mosterd
 
 # <en:seed
+<en:spice
 <en:mustard
 en:mustard seed
 bg:синапено семе, синапени семена
@@ -61622,7 +62230,7 @@ nl:mosterdzaad, mosterdzaden
 nn:sennepsfrø
 pl:ziarno gorczycy, ziarna gorczycy, gorczyca, gorczycy, gorczycę, nasiona gorczycy, gorczycę
 pt:Semente de mostarda
-ro:boabe de muștar
+ro:boabe de muștar, boabe de mustar
 ru:горчичное зерно
 sl:gorčično seme
 sr:seme slačice
@@ -62959,144 +63567,6 @@ nl:hennepmeel
 en:blackberry leaf, blackberry leaves
 fr:feuilles de mûre
 nl:braamblad, braambladeren
-
-###################################################################################################
-#
-#                                Parsley
-#
-###################################################################################################
-# description:en:PARSLEY or garden parsley (Petroselinum crispum) is a species of flowering plant in the family Apiaceae
-
-#category/parsley
-<en:herb
-en:parsley
-af:pietersielie
-ar:بقدونس
-az:cəfəri
-ba:петрушка үләне
-bg:магданоз
-br:perisilh
-bs:peršun
-ca:julivert
-cs:petržel
-cy:persli
-da:persille
-de:petersilie, persilie
-el:μαϊντανός
-eo:petroselo
-es:perejil
-et:petersell, aedpetersell
-eu:perrexil
-fa:جعفری
-fi:persilja
-fr:persil
-ga:peirsil
-gl:perexil
-he:פטרוזיליה
-hi:अजमोद
-hr:peršin, peršina, peršinov
-ht:pèsi
-hu:petrezselyem
-hy:մաղադանոս
-id:peterseli
-ie:petrosel
-io:petroselo
-is:steinselja
-it:prezzemolo
-ja:パセリ
-ka:ოხრახუში
-kk:ақжелкен
-kn:ಅಜಮೋದ
-ko:파슬리
-ku:gêjnak
-ky:ашкөк
-la:petroselinum crispum
-lt:petražolė, petražolių, petražolės
-lv:pētersīļi
-mk:магдонос
-ms:pokok pasli
-nb:persille
-nl:peterselie
-nn:persille
-oc:jolverd
-os:басгæрдæг
-pl:pietruszka, pietruszki, pietruszkowa, pietruszkowe, pietruszkowy
-pt:salsa
-ro:pătrunjel
-ru:петрушка кудрявая, петрушка, зелень петрушки
-sc:pedrusìmula
-sd:پارسلي
-sh:peršin
-sk:petržlen
-sl:peteršilj
-sq:majdanozi
-sr:першун, peršun
-sv:persilja
-ta:வோக்கோசு
-tl:kinchay
-tr:maydanoz
-uk:петрушка
-vi:mùi tây
-wa:pierzin
-yi:פעטרישקע
-zh:香芹
-# aeb-arab:معدنوس
-# aeb-latn:ma3dnous
-# azb:جعفری
-# bar:petersilie
-# csb:piotrëszka
-# frr:pitersile
-# inh:дарбаьрхӏ
-# lbe:накьлил уртту
-# myv:алашань тикше
-# nah:perexil
-# nap:petrusino
-# pdc:pederli
-# qu:qhurita
-# scn:pitrusinu
-# sco:persel
-# sgs:petroška
-# vec:parsémoło
-# vls:perselle
-# xmf:მაკინდოლი
-# yue:番茜
-wikidata:en:q65522500
-# plant: wikidata:en:q25284
-wikipedia:en:https://en.wikipedia.org/wiki/parsley
-# en:22363 in 51 @2021-09-16
-
-<en:parsley
-en:fresh parsley
-bg:свеж магданоз
-fr:persil frais
-ciqual_food_code:en:11014
-ciqual_food_name:en:Parsley, fresh
-ciqual_food_name:fr:Persil, frais
-
-#processing:en: en:dehydrated
-#<en:parsley
-#en:dehydrated parsley
-#de:Petersilie getrocknet
-#es:perejil deshidratado
-#fi:kuivattu persilja
-#fr:persil déshydraté, persil séché
-#it:prezzemolo essiccato
-#nl:Gedehydrateerde peterselie
-#ru:зелень петрушки сушёная
-# fr:persil-déshydraté has 204 products in 4 languages @2018-10-10
-
-#processing:en: en:leaf
-#<en:parsley
-#en:parsley leaf, parsley leaves
-#cs:listová petržel
-#de:Petersilienblatt, Petersilienblätter
-#es:hojas de perejil
-#hr:peršinov list
-#hu:petrezselyemlevél
-#pl:natka pietruszki
-#ro:frunze de pătrunjel
-#sr:peršunov list
-#57 in 10 @2021-09-16
 
 <en:root vegetable
 en:parsley root
@@ -64485,82 +64955,6 @@ hr:kupina list
 fr:feuilles de mûres douces
 
 <en:plant
-en:dandelion, common dandelion
-af:perdeblom
-ar:Խատուտիկ սովորական
-az:Dərman zəncirotu
-be:Адуванчык лекавы
-bg:обикновено глухарче
-bh:टॅराक्सॅकम ऑफिशिनाले
-ca:xicoia, dent de lleó
-ce:Да́рбане ба́ппа
-cs:pampeliška lékařská, Pampelišky smetánky
-da:Mælkebøtte
-de:Löwenzahn
-el:ταράξακο
-eo:oficina taraksako, ofta leontodo
-es:diente de león, achicoria amarga
-et:Harilik võilill
-eu:Txikoria-belarra
-fa:قاصدک, گل قاصدک
-fi:voikukka
-fr:pissenlit
-fy:Hynsteblom
-ga:caisearbhán, caisearbhán coiteann
-gl:mexacán común
-he:שינן רפואי
-hr:ljekoviti maslačak
-hu:gyermekláncfű
-hy:Խատուտիկ սովորական
-id:jombang, tanaman jombang
-is:Túnfífill
-it:dente di leone
-ja:タンポポ, セイヨウタンポポ
-ko:서양민들레
-ku:Xizêmok
-ky:Каакым-кукум
-la:Taraxacum officinale
-li:pisblóm
-lt:kiaulpienė
-lv:cūkpiene, ārstniecības pienene
-ml:ദുഗ്ധഫേനി
-ms:Dandelion
-nl:paardenbloem
-nn:løvetann
-pt:dente-de-leão
-rm:flur-portg
-ro:Păpădia
-ru:одуванчик, Одува́нчик лека́рственный
-sk:Púpava lekárska
-sl:regrat, Navadni regrat
-sr:Маслачак, Maslačak
-sv:maskros
-tr:karahindiba
-uk:кульбаба
-vi:địa đinh
-wa:Såvadje cécoreye
-zh:西洋蒲公英
-#ang:ægwyrt
-#bar: Zigori
-#csb:Mlécz
-#dsb:Mlac
-#hsb:Mlóč
-#ing:Дарбан баппа
-#ksh:Ketteplöck
-#lbe:Къупан тӀутӀи
-#nds:hondebloeme
-#olo:Rohtuvoikukku
-#sah:Ньээм от
-#sco:Dentylion
-#vec:pissacan
-#vep:Bakbatai
-#vls:pisseblomme
-ciqual_food_code:en:20038
-ciqual_food_name:en:Dandelion, raw
-ciqual_food_name:fr:Pissenlit, cru
-#100 @2021-10-06
-
-<en:plant
 en:ginkgo leaf
 de:Ginkgoblätter
 fr:ginkgo feuille
@@ -65067,212 +65461,7 @@ es:hierba luisa, cedrón, verbena de Indias
 la:aloysia citrodora
 wikipedia:en:https://es.wikipedia.org/wiki/Aloysia_citrodora
 
-###################################################################################################
-#
-#                                Lettuce
-#
-###################################################################################################
 
-# description:en:LETTUCE (Lactuca sativa) is an annual plant of the daisy family, Asteraceae. It is most often grown as a leaf vegetable, but sometimes for its stem and seeds. Lettuce is most often used for salads, although it is also seen in other kinds of food, such as soups, sandwiches and wraps; it can also be grilled.
-# comment:en:There is a mixup between the popular translations of Lactuca and Lactuca Sativa. Not sure which one should be used. For the moment they are combined.
-
-#category/lettuces
-<en:salad
-en:lettuce, Lettuces
-af:Blaarslaai
-am:ሰላጣ
-an:Ensalada
-ar:خس
-az:Süddəyən, Kahı
-ba:Латук
-be:Латук
-bg:Маруля
-bn:লেটুস
-bo:རྗེན་ཚལ་
-ca:Lletuga, enciam
-cs:locika, locika setá
-cy:Letysen
-de:Lattich, Gartensalat
-eo:Laktuko, Kultiva laktuko
-es:Lechuga, Lechugas, Lechuga roja, Lechuga de hoja roja
-et:Salat, Aedsalat
-eu:Uraza
-fa:لاکتوکا, کاهو
-fi:lehtisalaatti
-fr:laitue, Laitues
-ga:Leitís
-gl:Leituga
-gu:Ka'anakyrỹi
-gv:Glassyr
-he:חסה, חסה תרבותית
-hr:Salata, Zelena salata
-ht:Leti
-hu:kerti saláta
-hy:հազար
-id:Selada
-io:Latugo
-is:Salat
-it:Lattuga
-ja:アキノノゲシ属, レタス
-ka:ღორისქადა, სალათა
-kk:Ассүттіген, Салат
-kn:ಲೆಟಿಸ್
-ko:왕고들빼기속, 상추
-ku:Kahû
-ky:Сүттикен
-la:Lactuca, Lactuca sativa
-lt:Salota, Sėjamoji salota
-lv:salātlapas, Dārza salāti
-mk:Зелена салата
-ml:ഉർവച്ചീര
-ms:Salad
-my:ဆလတ်ပင်
-nb:Salater
-nl:sla
-nn:hagesalat, Planteslekta salat
-os:Къæсула
-pa:ਸਲਾਦ
-pl:sałata, sałaty, sałat
-pt:alface
-qu:Pilliyuyu
-ro:salată
-ru:Салат, Латук
-rw:Imboga za leti
-sc:Lattuca
-sh:Zelena salata
-si:සලාද
-sr:зелена салата
-sv:Sallat, Sallatsläktet
-ta:இலைக்கோசு
-th:สกุลผักกาดหอม, ผักกาดหอม
-tl:Letsugas
-to:Lētisilau
-tr:Marul
-ug:ظوسذث
-uk:Латук, Салат
-uz:Salat
-vi:Chi Rau diếp, Xà lách
-wa:Salåde
-za:byaekaengjgwx
-zh:莴苣属, 萵苣
-# aeb-arab:خسّ
-# ang:Leahtric
-# atj:Katiapi
-# bar:Salot
-# bcl:Litsugas
-# en-ca:Lettuce
-# en-gb:Lettuce
-# hak:Fú-mak
-# kaa:Salat
-# lij:Leituga
-# mzn:کهوک
-# nah:Quillechuca
-# pnb:سلاد
-# pt-br:Alface
-# rup:Sâlatâ
-# scn:Lattuca
-# sco:lettuce
-# sgs:Saluotis
-# tyv:Салат
-# war:Letsugas
-# wuu:莴苣
-# yue:生菜
-# zh-tw:萵苣
-#plant:wikidata:en:Q83193
-wikidata:en:Q104666136
-wikipedia:en:https://en.wikipedia.org/wiki/Lettuce
-ciqual_food_code:en:20031
-ciqual_food_name:en:Lettuce, raw
-ciqual_food_name:fr:Laitue, crue
-# 2021 in 5 languages @2021-08-10
-
-#category/romaine-lettuce
-<en:lettuce
-en:romaine lettuce, cos
-ar:خس روماني
-bn:রোমাইন লেটুস
-ca:enciam llarg
-cs:římský salát
-da:romainesalat, romersk salat, bindsalat
-de:Römersalat, römischer Salat, Bindesalat
-el:θρίδαξ ο μακρόφυλλος ο ρωμαϊκός
-eo:roma laktuko
-es:lechuga romana, lechuga larga, lechugon
-et:rooma salat
-fa:کاهوی رومی
-fi:roomansalaatti, sidesalaatti
-fr:laitue romaine
-ga:cósleitís
-he:חסה עלים
-hi:रोमेन सलाद
-hr:salata kristalka
-it:lattuga romana
-ja:ロメインレタス
-ko:로메인상추
-la:Lactuca sativa var. longifolia
-lv:romiešu salāti
-ml:റൊമെയ്ൻ ലെറ്റ്യൂസ്
-nb:romanosalat
-nl:bindsla, romeinse sla, romaine
-pa:ਰੋਮੇਨ ਸਲਾਦ
-pl:sałata rzymska, sałaty rzymskiej
-pt:alface romana
-ro:salată romană
-ru:римский салат
-sl:solata vezivka
-sv:romansallat
-tl:letsugas romana
-vi:rau diếp
-zh:蘿蔓萵苣
-#nan:oe-á-chhài
-#yue:羅馬生菜
-wikidata:en:Q1762893
-ciqual_food_code:en:20171
-ciqual_food_name:en:Cos or romaine lettuce, raw
-ciqual_food_name:fr:Laitue romaine, crue
-#758 in 7 @2021-10-04
-
-# description:en:Crisphead – The most popular type in the United States, it is very heat-sensitive and was originally adapted for growth in the northern United States. It ships well, but is low in flavor and nutritional content, being composed of even more water than other lettuce types.
-
-#category/iceberg-lettuce
-<en:lettuce
-en:iceberg lettuce
-bg:салата айсберг
-ca:enciam iceberg
-da:icebergsalat, iceberg-salat
-de:Eisbergsalat
-eo:glacilaktuko
-es:lechuga iceberg, iceberg
-fi:jäävuorisalaatti
-fr:laitue iceberg, iceberg
-hu:jégsaláta
-it:insalata iceberg, lattuga iceberg
-la:Lactuca sativa var. capitata
-nb:isbergsalat
-nl:ijsbergsla
-pl:sałata lodowa, sałaty lodowej
-pt:alface americana
-sv:isbergssallat
-# zh-tw:皺葉萵苣
-wikidata:en:Q1310886
-ciqual_food_code:en:20200
-ciqual_food_name:en:Iceberg lettuce, raw
-ciqual_food_name:fr:Laitue iceberg, crue
-# 357 in 10 @2021-10-08
-
-<en:lettuce
-fr:jeunes pousses de laitue verte
-#20 in fr @2021-10-05
-
-<en:lettuce
-fr:jeunes pousses de laitue rouge
-# 20 in fr @2021-10-08
-
-<en:lettuce
-en:Red leaf lettuce
-ja:サニーレタス, アカチリメンチシャ, 赤チリメンチシャ
-wikidata:en:Q7305343
-wikipedia:en:https://en.wikipedia.org/wiki/Red_leaf_lettuce
 
 # description:en:TILIA is a genus of about 30 species of trees, or bushes, native throughout most of the temperate Northern Hemisphere.
 
@@ -65682,121 +65871,6 @@ zh:旋果蚊草子
 wikidata:en:Q147176
 wikipedia:en:https://en.wikipedia.org/wiki/Filipendula_ulmaria
 # fr:reine-des-prés has 37 products in 1 language @2018-10-15
-
-
-
-###################################################################################################
-#
-#                                Nettle
-#
-###################################################################################################
-# description:en:NETTLES or stinging nettles, applies particularly to Urtica dioica. U. dioica has a flavour similar to spinach mixed with cucumber when cooked, and is rich in vitamins A and C, iron, potassium, manganese, and calcium.
-# comment:en:For the translations the latin name is not used, but the popular name.
-
-<en:plant
-en:nettle, stinging nettle
-am:ሳማ
-ar:قراص
-ay:itapallu
-az:Gicitkən
-be:Крапіва
-bg:коприва
-br:Linad
-ca:Ortiga
-cs:kopřiva
-cv:Вĕлтĕрен
-da:Nælde
-de:Brennnessel, Brennnesseln
-el:Τσουκνίδα
-eo:Urtiko
-es:ortiga
-et:Nõges
-eu:asun
-fa:گزنه
-fi:nokkonen, nokkoset
-fr:ortie, orties, herbes d'ortie
-ga:Neantóg
-gl:Ortiga
-he:סרפד
-hr:kopriva, urtica dioica L
-hu:Csalánfélék
-hy:եղինջ
-io:Urtiko
-it:ortiche
-ja:イラクサ属
-ka:ჭინჭარი
-kk:Қалақай
-ko:쐐기풀속
-ku:Giyagezk
-kv:Петшӧр
-ky:Чалкан
-la:Urtica, Urtica dioica
-li:Brennieëtel
-lt:Dilgėlė
-lv:Nātres
-mk:коприва
-mn:Халгай
-nb:brennesler
-nl:brandnetel
-nn:nesleslekta
-nv:Hołchʼíʼí
-oc:Ortiga
-os:Пысыра
-pl:Pokrzywa, pokrzywy, pokrzyw
-qu:Kisa
-ru:крапива
-sc:Pitigaìa
-sk:pŕhľava
-sq:Hithëra
-sv:Nässelsläktet
-ta:செந்தட்டி
-tr:Isırgan
-tt:Кычыткан
-uk:Кропива
-uz:Gazanda
-zh:蕁麻
-# ast:Urtica
-# azb:گیجیت‌کن
-# ckb:گەزگەسک
-# de-at:Brennnesseln
-# de-ch:Brennnesseln
-# diq:Dırrıke
-# frr:Braannäädler
-# hsb:Kopřiwa
-# inh:Нитт
-# kk-arab:قالاقاي
-# kk-cn:قالاقاي
-# kk-cyrl:Қалақай
-# kk-kz:Қалақай
-# kk-latn:Qalaqaý
-# kk-tr:Qalaqaý
-# koi:Петшӧр
-# ku-arab:گیاگەزک
-# ku-latn:Giyagezk
-# lbe:МечӀ
-# mdf:Палакс
-# mrj:Нуж
-# myv:Пиципалакс
-# mzn:گزنه
-# nds-nl:Braandnetel
-# nrm:Ortchie
-# sgs:Nuotrīna
-# xmf:ჭუჭელე
-# yue:蕁麻
-# zea:Broeinekel
-# zh-cn:荨麻
-# zh-hans:荨麻
-# zh-hant:蕁麻
-# zh-hk:蕁麻
-# zh-sg:荨麻
-# zh-tw:蕁麻
-wikidata:en:Q121671
-wikipedia:en:https://en.wikipedia.org/wiki/Urtica_dioica
-# ingredient/fr:ortie has 97 products in 5 languages @2019-05-06
-
-<en:nettle
-en:nettle leaf, nettle leaves
-bg:листа от коприва
 
 
 # description:en:The olive, known by the botanical name Olea europaea, is a species of small tree in the family Oleaceae
@@ -67581,20 +67655,6 @@ hr:pripravak vanilija
 <en:herbs
 en:za'atar
 xx:za'atar
-
-<en:plant
-en:vine leaves
-bg:лозови листа
-de:Weinblätter
-es:hojas de parra
-fi:viininlehdet
-fr:feuilles de vigne
-he:עלי גפן, עלה גפן
-it:foglie di vite
-# ingredient/fr:feuilles-de-vigne has 27 products in 5 languages @2019-02-10
-vegan:en:yes
-vegetarian:en:yes
-
 
 # en:description:WASABI (Eutrema japonicum or Wasabia japonica) or Japanese horseradish is a plant of the Brassicaceae family.
 
@@ -78909,6 +78969,7 @@ nl:gebrande koffiebonen
 #nl:koffie-extract
 #pl:ekstrakt kawy
 #pt:extrato de café
+#ro:extract din cafea
 #sv:kaffeextrakt
 # ingredient/fr:extrait-de-café has 279 products in 5 languages @2018-11-30
 
@@ -81727,8 +81788,8 @@ wikidata:en:Q636056
 wikipedia:en:https://en.wikipedia.org/wiki/Purée
 # ingredient/fr:purée has 151 products @2018-10-05
 # used only to qualify another ingredient, ignore for ingredient analysis
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:purée
 en:concentrated purée
@@ -82214,8 +82275,8 @@ wikidata:en:Q745361
 wikipedia:en:https://en.wikipedia.org/wiki/Stuffing
 # ingredient/fr:garniture has 1531 products in 9 languages @2018-12-01
 # ingredient/fr:farce has 884 products in 6 languages @2019-05-18
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:filling
 en:apricot filling
@@ -82598,8 +82659,8 @@ ciqual_proxy_food_code:en:9810
 ciqual_proxy_food_name:fr:Pâtes sèches standard, crues
 # ingredient/fr:pâtes-alimentaires has 115 products 2019-05-20
 # ingredient/paste has 1809 products @2018-12-10
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:pasta
 en:durum wheat semolina pasta
@@ -82998,8 +83059,8 @@ ta:நூடுல்ஸ்
 wikidata:en:q192874
 wikipedia:en:https://en.wikipedia.org/wiki/Noodle
 # ingredient/fr:nouilles has 241 products in 7 languages @2019-05-08
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 carbon_footprint_fr_foodges_ingredient:fr:Pâte à tarte
 carbon_footprint_fr_foodges_value:fr:7.3
 
@@ -84149,8 +84210,8 @@ tr:kaplama
 # usage:fr:Enrobage:farines (blé, seigle, et riz) (contient gluten) eau, amidon modifié, amidon et protéines de blé (contient gluten ), sel
 # ingredient/fr:enrobant has 79 products in 4 languages @2019-02-21
 # coating (water, wheat flour, modified corn starch, gluten of wheat, corn flour, corn starch, salt, potato starch)
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 
 <en:coating
 en:cocoa coating
@@ -85686,8 +85747,8 @@ nl:korst
 # usage:fr: croûte: herbes aromatiques bio
 # usage:fr: conservateur (croûte) : natamycine (contient lait)
 # usage/de: Kruste (mit Farbstoff [E 160b])
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 
 # description:en:The outer layer of cheese. Mostly for cheeses that have a distinctive layer different from the cheese itself.
 
@@ -86037,8 +86098,8 @@ en:jam
 de:Marmelade de:Konfitüre
 pl:dżem
 ru:джем, повидло, варенье
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 
 ###################################################################################################
 #
@@ -86172,8 +86233,8 @@ zh:醬
 wikidata:en:Q178359
 wikipedia:en:https://en.wikipedia.org/wiki/Sauce
 # ingredient/sauce has 5701 products in 15 languages @2019-05-02
-vegan:en:ignore
-vegetarian:en:ignore
+vegan:en:maybe
+vegetarian:en:maybe
 nova:en:3
 
 <en:sauce
@@ -86523,7 +86584,7 @@ oc:Maionesa
 pa:ਮਾਇਓਨੇਜ਼
 pl:majonez, sos majonezowy, majonezowy
 pt:maionese
-ro:maioneză
+ro:maioneză, maioneza, sos de maioneză
 ru:майонез
 se:Majoneasa
 sh:Majoneza

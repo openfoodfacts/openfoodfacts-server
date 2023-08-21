@@ -393,11 +393,6 @@ $template_data_ref->{debug} = $debug;
 $template_data_ref->{userid} = $userid;
 $template_data_ref->{type} = $type;
 
-my $full_width = 1;
-if ($action ne 'display') {
-	$full_width = 0;
-}
-
 if (($type eq "edit_owner") and ($action eq "process")) {
 	$log->info("redirecting to / after changing owner", {}) if $log->is_info();
 
@@ -417,6 +412,5 @@ else {
 
 	$request_ref->{title} = lang($type . '_user_' . $action);
 	$request_ref->{content_ref} = \$html;
-	$request_ref->{full_width} = $full_width;
 	display_page($request_ref);
 }
