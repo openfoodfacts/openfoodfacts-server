@@ -131,7 +131,20 @@ sub execute_tags_query ($type, $parameters) {
 			Content => encode_json($parameters),
 			'Content-Type' => 'application/json; charset=utf-8'
 		);
-		return decode_json($resp->decoded_content);
+		if ($resp->is_success) {
+			return decode_json($resp->decoded_content);
+		}
+		else {
+			$log->warn(
+				"query response not ok",
+				{
+					code => $resp->code,
+					status_line => $resp->status_line,
+					response => $resp
+				}
+			) if $log->is_warn();
+			return;
+		}
 	}
 	else {
 		$log->debug('QUERY_URL not defined') if $log->is_debug();

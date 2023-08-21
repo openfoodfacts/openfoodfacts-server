@@ -1344,6 +1344,11 @@ sub set_cache_results ($key, $results) {
 	return;
 }
 
+sub can_use_query_cache() {
+	return (    ((not defined single_param("no_cache")) or (not single_param("no_cache")))
+			and (not $server_options{producers_platform}));
+}
+
 sub query_list_of_tags ($request_ref, $query_ref) {
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
@@ -1436,12 +1441,14 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	my $results = get_cache_results($key, $request_ref);
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
+		$results = undef;
 		# do not use the postgres cache if ?no_cache=1
 		# or if we are on the producers platform
-		if (   ((defined single_param("no_cache")) and (single_param("no_cache")))
-			or ($server_options{producers_platform}))
-		{
+		if (can_use_query_cache()) {
+			$results = execute_aggregate_tags_query($aggregate_parameters);
+		}
 
+		if (not defined $results) {
 			eval {
 				$log->debug("Executing MongoDB aggregate query on products collection",
 					{query => $aggregate_parameters})
@@ -1456,19 +1463,15 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 				# and v1.4.5 of the perl MongoDB module
 				$results = [$results->all] if defined $results;
 			};
-		}
-		else {
+			if ($@) {
+				$log->warn("MongoDB error", {error => $@}) if $log->is_warn();
+			}
+			else {
+				$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
+			}
 
-			eval {$results = execute_aggregate_tags_query($aggregate_parameters);};
+			$log->debug("MongoDB query done", {error => $@}) if $log->is_debug();
 		}
-		if ($@) {
-			$log->warn("MongoDB error", {error => $@}) if $log->is_warn();
-		}
-		else {
-			$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
-		}
-
-		$log->debug("MongoDB query done", {error => $@}) if $log->is_debug();
 
 		$log->trace("aggregate query done") if $log->is_trace();
 
@@ -1507,12 +1510,13 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		if (not defined $results_count) {
 
 			my $count_results;
-
 			# do not use the smaller postgres cache if ?no_cache=1
 			# or if we are on the producers platform
-			if (   ((defined single_param("no_cache")) and (single_param("no_cache")))
-				or ($server_options{producers_platform}))
-			{
+			if (can_use_query_cache()) {
+				$count_results = execute_aggregate_tags_query($aggregate_count_parameters);
+			}
+
+			if (not defined $count_results) {
 				eval {
 					$log->debug("Executing MongoDB aggregate count query on products collection",
 						{query => $aggregate_count_parameters})
@@ -1526,9 +1530,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 					$count_results = [$count_results->all]->[0] if defined $count_results;
 				}
 			}
-			else {
-				eval {$count_results = execute_aggregate_tags_query($aggregate_count_parameters);}
-			}
+
 			if ((not $@) and (defined $count_results)) {
 				$request_ref->{structured_response}{count} = $count_results->{$groupby_tagtype . "_tags"};
 				set_cache_results($key_count, $request_ref->{structured_response}{count});
@@ -4955,31 +4957,11 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 					$log->debug("count not in cache for query", {key => $key_count}) if $log->is_debug();
 
 					# Count queries are very expensive, if possible, execute them on the postgres cache
-					my $only_tags_filters = 1;
-
-					if ($server_options{producers_platform}) {
-						$only_tags_filters = 0;
-					}
-					else {
-						# TODO: Call postgres which can return -1 if count not supported
-						foreach my $field (keys %$query_ref) {
-							if ($field !~ /_tags$/) {
-								$log->debug("non tags field in query filters, cannot use postgres cache",
-									{field => $field, value => $query_ref->{field}})
-									if $log->is_debug();
-								$only_tags_filters = 0;
-								last;
-							}
-						}
-					}
-
-					if (    ($only_tags_filters)
-						and ((not defined single_param("no_cache")) or (single_param("no_cache") == 0)))
-					{
+					if (can_use_query_cache()) {
 						$count = execute_count_tags_query($query_ref);
 					}
-					else {
 
+					if (not defined $count) {
 						$count = execute_query(
 							sub {
 								$log->debug("count_documents on complete products collection", {key => $key_count})
@@ -4989,6 +4971,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 							}
 						);
 					}
+
 					if ($@) {
 						$log->warn("MongoDB error during count", {error => $@}) if $log->is_warn();
 					}
