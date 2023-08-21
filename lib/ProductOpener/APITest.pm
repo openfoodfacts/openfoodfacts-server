@@ -792,19 +792,27 @@ Returns a list of jobs associated with the task_name
 
 sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 	my $waited = 0;    # counting the waiting time
-	my $jobs = get_minion()->jobs({tasks => [$task_name]});
     my @run_jobs = ();
-	#iterate on job
-	while (my $job = $jobs->next) {
-		#only those who were created after the timestamp
-		if ($job->created > $created_after_ts) {
-			#waiting the job to be done
-			while ($job->state eq "inactive" or $job->state eq "active" or $waited < $max_waiting_time) {
-				sleep(2);
-				$waited++;
+	my $ext_loop = 0;
+	while ($waited < $max_waiting_time) {
+		my $jobs = get_minion()->jobs({tasks => [$task_name]});
+		#iterate on job
+		while (my $job = $jobs->next) {
+			#only those who were created after the timestamp
+			if ($job->created > $created_after_ts) {
+				#waiting the job to be done
+				while ($job->state eq "inactive" or $job->state eq "active") {
+					sleep(2);
+					$waited++;
+				}
+				push @run_jobs, $job;
 			}
-			push @run_jobs, $job;
 		}
+		if (($ext_loop <= 2) || ($waited < $max_waiting_time)) {
+			sleep(2);
+			$waited+=2;
+		}
+		$ext_loop++;
 	}
 	return \@run_jobs;
 }
