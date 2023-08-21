@@ -121,6 +121,23 @@ function compute_expected_links {
     done
   fi
 
+  # nginx links
+  EXPECTED_LINKS["/etc/nginx/sites-enabled/$SERVICE"] = "$REPO_PATH/conf/nginx/sites-available/$SERVICE"
+  EXPECTED_LINKS["/etc/nginx/snippets/expires-no-json-xml.conf"] = "$REPO_PATH/conf/nginx/snippets/expires-no-json-xml.conf"
+  EXPECTED_LINKS["/etc/nginx/snippets/off.cors-headers.include"] = "$REPO_PATH/conf/nginx/snippets/off.cors-headers.include"
+  EXPECTED_LINKS["/etc/nginx/conf.d/log_format_realip.conf"] = "$REPO_PATH/conf/nginx/conf.d/log_format_realip.conf"
+  EXPECTED_LINKS["/etc/nginx/mime.types"] = "$REPO_PATH/conf/nginx/mime.types"
+  if [[ $SERVICE eq "off" ]]
+  then
+    EXPECTED_LINKS["/etc/nginx/off.domain-redirects.include"] = "$REPO_PATH/conf/nginx/off.domain-redirects.include"
+    EXPECTED_LINKS["/etc/nginx/off.locations-redirects.include"] = "$REPO_PATH/conf/nginx/off.locations-redirects.include"
+  fi
+
+  # apache2 links
+  EXPECTED_LINKS["/etc/apache2/ports.conf"] = "$REPO_PATH/conf/apache-2.4/$SERVICE-ports.conf"
+  EXPECTED_LINKS["/etc/apache2/mods-available/mpm_prefork.conf"] = "$REPO_PATH/conf/apache-2.4/$SERVICE-mpm_prefork.conf"
+  EXPECTED_LINKS["/etc/apache2/sites-enabled/$SERVICE"] = "$REPO_PATH/conf/apache-2.4/sites-available/$SERVICE"
+
   # Note: other link on old versions:
   # /srv/$SERVICE/users_emails.sto -> /srv/$SERVICE/users/users_emails.sto
   # /srv/$SERVICE/orgs_glns.sto -> /srv/$SERVICE/orgs/orgs_glns.sto
@@ -129,7 +146,6 @@ function compute_expected_links {
 
 # check links
 function check_links {
-  GOT_ERROR=0
   for target in ${!EXPECTED_LINKS[@]}
   do
     destination=${EXPECTED_LINKS[$target]}
@@ -142,9 +158,23 @@ function check_links {
 }
 
 
+function other_checks {
+  # apache2 must run with off user and group
+  for variable in USER GROUP
+  do 
+    if ! ( grep "^export APACHE_RUN_$variable=off" /etc/apache2/envvars )
+    then
+      GOT_ERROR=1
+      >2 echo "WRONG $variable for apache2: it should be off instead of" $(grep "^export APACHE_RUN_$variable=.*" /etc/apache2/envvars)
+    fi
+  done
+}
+
+
 # run
 check_args
 compute_expected_links
+GOT_ERROR=0
 check_links
 if [[ $GOT_ERROR -ne 0 ]]; then
   exit -3

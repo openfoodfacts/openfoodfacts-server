@@ -29,7 +29,7 @@ server {
 	client_header_timeout 120s;
 
 	# logs location
-	access_log /var/log/nginx/off-access.log proxied_requests buffer=256K flush=1s;;
+	access_log /var/log/nginx/off-access.log proxied_requests buffer=256K flush=1s;
 	error_log /var/log/nginx/off-error.log;
 
 	# some redirection for specific subdomains
