@@ -17,22 +17,27 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         apache2 \
         apt-utils \
         cpanminus \
+        # being able to build things
         g++ \
         gcc \
         less \
         libapache2-mod-perl2 \
-        # libexpat1-dev \
         make \
         gettext \
         wget \
+        # images processing
         imagemagick \
         graphviz \
         tesseract-ocr \
+        # ftp client
         lftp \
+        # some compression utils
         gzip \
         tar \
         unzip \
         zip \
+        # useful to send mail
+        mailutils \
         # perlmagick \
         #
         # Packages from ./cpanfile:
