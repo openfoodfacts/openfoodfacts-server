@@ -122,21 +122,30 @@ function compute_expected_links {
   fi
 
   # nginx links
-  EXPECTED_LINKS["/etc/nginx/sites-enabled/$SERVICE"] = "$REPO_PATH/conf/nginx/sites-available/$SERVICE"
-  EXPECTED_LINKS["/etc/nginx/snippets/expires-no-json-xml.conf"] = "$REPO_PATH/conf/nginx/snippets/expires-no-json-xml.conf"
-  EXPECTED_LINKS["/etc/nginx/snippets/off.cors-headers.include"] = "$REPO_PATH/conf/nginx/snippets/off.cors-headers.include"
-  EXPECTED_LINKS["/etc/nginx/conf.d/log_format_realip.conf"] = "$REPO_PATH/conf/nginx/conf.d/log_format_realip.conf"
-  EXPECTED_LINKS["/etc/nginx/mime.types"] = "$REPO_PATH/conf/nginx/mime.types"
+  EXPECTED_LINKS["/etc/nginx/sites-enabled/$SERVICE"]="$REPO_PATH/conf/nginx/sites-available/$SERVICE"
+  EXPECTED_LINKS["/etc/nginx/snippets/expires-no-json-xml.conf"]="$REPO_PATH/conf/nginx/snippets/expires-no-json-xml.conf"
+  EXPECTED_LINKS["/etc/nginx/snippets/off.cors-headers.include"]="$REPO_PATH/conf/nginx/snippets/off.cors-headers.include"
+  EXPECTED_LINKS["/etc/nginx/conf.d/log_format_realip.conf"]="$REPO_PATH/conf/nginx/conf.d/log_format_realip.conf"
+  EXPECTED_LINKS["/etc/nginx/mime.types"]="$REPO_PATH/conf/nginx/mime.types"
   if [[ $SERVICE eq "off" ]]
   then
-    EXPECTED_LINKS["/etc/nginx/off.domain-redirects.include"] = "$REPO_PATH/conf/nginx/off.domain-redirects.include"
-    EXPECTED_LINKS["/etc/nginx/off.locations-redirects.include"] = "$REPO_PATH/conf/nginx/off.locations-redirects.include"
+    EXPECTED_LINKS["/etc/nginx/off.domain-redirects.include"]="$REPO_PATH/conf/nginx/off.domain-redirects.include"
+    EXPECTED_LINKS["/etc/nginx/off.locations-redirects.include"]="$REPO_PATH/conf/nginx/off.locations-redirects.include"
   fi
 
   # apache2 links
-  EXPECTED_LINKS["/etc/apache2/ports.conf"] = "$REPO_PATH/conf/apache-2.4/$SERVICE-ports.conf"
-  EXPECTED_LINKS["/etc/apache2/mods-available/mpm_prefork.conf"] = "$REPO_PATH/conf/apache-2.4/$SERVICE-mpm_prefork.conf"
-  EXPECTED_LINKS["/etc/apache2/sites-enabled/$SERVICE"] = "$REPO_PATH/conf/apache-2.4/sites-available/$SERVICE"
+  EXPECTED_LINKS["/etc/apache2/ports.conf"]="$REPO_PATH/conf/apache-2.4/$SERVICE-ports.conf"
+  EXPECTED_LINKS["/etc/apache2/mods-available/mpm_prefork.conf"]="$REPO_PATH/conf/apache-2.4/$SERVICE-mpm_prefork.conf"
+  EXPECTED_LINKS["/etc/apache2/sites-enabled/$SERVICE"]="$REPO_PATH/conf/apache-2.4/sites-available/$SERVICE"
+
+  # systemd links
+  for systemd_unit in {apache2,nginx}.service.d email-failures@.service gen_feeds_{,daily}@.{service,timer}
+  do
+    EXPECTED_LINKS["/etc/systemd/system/$systemd_unit"]="$REPO_PATH/conf/systemd/$systemd_unit"
+  done
+
+  # log rotate config
+  EXPECTED_LINKS["/etc/logrotate.d/apache2"]="$REPO_PATH/conf/logrotate/apache2"
 
   # Note: other link on old versions:
   # /srv/$SERVICE/users_emails.sto -> /srv/$SERVICE/users/users_emails.sto
