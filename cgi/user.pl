@@ -137,6 +137,12 @@ if ($action eq 'process') {
 $template_data_ref->{action} = $action;
 $template_data_ref->{errors} = \@errors;
 
+# Create the list of countries and languages for the select options of country field and preferred language field
+#my $languages_list = get_languages();
+#my $countries_list = get_countries();
+#$template_data_ref->{languages_list} = $languages_list
+#$template_data_ref->{countries_list} = $countries_list;
+
 $log->debug("user form - before display / process", {type => $type, action => $action, userid => $userid})
 	if $log->is_debug();
 
@@ -163,10 +169,6 @@ if ($action eq 'display') {
 	}
 
 	$template_data_ref->{user_ref} = $user_ref;
-
-	# Create the list of countries and languages for the select options of country field and preferred language field
-	$template_data_ref->{languages} = get_languages();
-	$template_data_ref->{countries} = get_countries();
 
 	# Create the list of sections and fields
 

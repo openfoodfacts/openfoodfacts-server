@@ -11538,7 +11538,7 @@ sub generate_select2_options_for_taxonomy_to_json ($target_lc, $tagtype) {
 		JSON::PP->new->utf8->canonical->encode(generate_select2_options_for_taxonomy($target_lc, $tagtype)));
 }
 
-=head2 get_languages
+=head2 get_languages()
 
 Generates all the languages in the $lc language
 
@@ -11550,7 +11550,7 @@ A list with every language written in the $lc language
 
 =cut
 
-sub get_languages {
+sub get_languages() {
 	my @languages_list = ();
 	my @tags_list = get_all_taxonomy_entries("languages");
 	my $language;
@@ -11562,7 +11562,7 @@ sub get_languages {
 	return @languages_list;
 }
 
-=head2 get_countries
+=head2 get_countries()
 
 Generates all the countries name in the $lc language
 
