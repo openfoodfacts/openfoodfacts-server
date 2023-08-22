@@ -2720,8 +2720,6 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 
 	# Determine if percent listed are absolute (default) or relative to a parent ingredient
 
-	
-
 	# Check if all ingredients have a set quantity
 	# and compute the sum of all percents and quantities
 
@@ -2755,15 +2753,15 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 
 	if (($total_min == $total_max) and $all_ingredients_have_a_set_percent) {
 		$percent_mode = "scale_percents";
-	}	
+	}
 	elsif (($total_min == $total_max) and $all_ingredients_have_a_set_quantity) {
 		$percent_mode = "scale_grams";
 	}
 	elsif ($percent_sum > $total_max) {
-		$percent_mode = "relative";	# percents are relative to the parent ingredient
+		$percent_mode = "relative";    # percents are relative to the parent ingredient
 	}
 	else {
-		$percent_mode = "absolute";	# percents are absolute (relative to the whole product)
+		$percent_mode = "absolute";    # percents are absolute (relative to the whole product)
 	}
 
 	$log->debug(
@@ -2783,7 +2781,9 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 	# Go through each ingredient to set percent_min, percent_max, and if we can an absolute percent
 
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
-		if (((defined $ingredient_ref->{percent}) and ($ingredient_ref->{percent} > 0)) or ($percent_mode eq "scale_grams")) {
+		if (   ((defined $ingredient_ref->{percent}) and ($ingredient_ref->{percent} > 0))
+			or ($percent_mode eq "scale_grams"))
+		{
 			# There is a specified percent for the ingredient (or we can derive it from grams)
 
 			if ($percent_mode eq "scale_percents") {

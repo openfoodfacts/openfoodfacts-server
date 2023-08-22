@@ -14,59 +14,29 @@ use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Test qw/:all/;
 
-
-
-
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 my @tests = (
 
-	[
-		'sugar',
-		{lc => "en", ingredients_text => "sugar"},
-	],
+	['sugar', {lc => "en", ingredients_text => "sugar"},],
 
-	[
-		'sugar-milk',
-		{lc => "en", ingredients_text => "sugar, milk"},
-	],
+	['sugar-milk', {lc => "en", ingredients_text => "sugar, milk"},],
 
-	[
-		'sugar-milk-water',
-		{lc => "en", ingredients_text => "sugar, milk, water"},
-	],
+	['sugar-milk-water', {lc => "en", ingredients_text => "sugar, milk, water"},],
 
-	[
-		'sugar-90-percent-milk',
-		{lc => "en", ingredients_text => "sugar 90%, milk"},
-	],
+	['sugar-90-percent-milk', {lc => "en", ingredients_text => "sugar 90%, milk"},],
 
-	[
-		'sugar-milk-10-percent',
-		{lc => "en", ingredients_text => "sugar, milk 10%"},
-	],
+	['sugar-milk-10-percent', {lc => "en", ingredients_text => "sugar, milk 10%"},],
 
-	[
-		'sugar-milk-10-percent-water',
-		{lc => "en", ingredients_text => "sugar, milk 10%, water"},
-	],
+	['sugar-milk-10-percent-water', {lc => "en", ingredients_text => "sugar, milk 10%, water"},],
 
-	[
-		'sugar-water-milk-10-percent',
-		{lc => "en", ingredients_text => "sugar, water, milk 10%"},
-	],
+	['sugar-water-milk-10-percent', {lc => "en", ingredients_text => "sugar, water, milk 10%"},],
 
 	# Ingredients with sub-ingredients
 
-	[
-		'chocolate-1-sub-ingredient',
-		{lc => "en", ingredients_text => "chocolate (cocoa)"},
-	],
+	['chocolate-1-sub-ingredient', {lc => "en", ingredients_text => "chocolate (cocoa)"},],
 
-	[
-		'chocolate-2-sub-ingredients',
-		{lc => "en", ingredients_text => "chocolate (cocoa, sugar), milk"},
-	],
+	['chocolate-2-sub-ingredients', {lc => "en", ingredients_text => "chocolate (cocoa, sugar), milk"},],
 
 	[
 		'chocolate-sub-sub-ingredients',
@@ -92,10 +62,7 @@ my @tests = (
 		},
 	],
 
-	[
-		'flour-chocolate-egg',
-		{lc => "en", ingredients_text => "Flour, chocolate (cocoa, sugar, soy lecithin), egg"},
-	],
+	['flour-chocolate-egg', {lc => "en", ingredients_text => "Flour, chocolate (cocoa, sugar, soy lecithin), egg"},],
 
 	# For lists like  "Beans (52%), Tomatoes (33%), Water, Sugar, Cornflour, Salt, Spirit Vinegar"
 	# we can set a maximum on Sugar, Cornflour etc. that takes into account that all ingredients
@@ -109,10 +76,7 @@ my @tests = (
 		{lc => "en", ingredients_text => "Beans (52%), Tomatoes (33%), Water, Sugar, Cornflour, Salt, Spirit Vinegar"},
 	],
 
-	[
-		'minimum-percent',
-		{lc => "es", ingredients_text => "Leche. Cacao: 27% mínimo"},
-	],
+	['minimum-percent', {lc => "es", ingredients_text => "Leche. Cacao: 27% mínimo"},],
 
 	# All ingredients have % specified, but the total is not 100%
 	# We now scale them to 100%.
@@ -163,10 +127,7 @@ my @tests = (
 
 	# Where flavourings or other ingredients with a maximum percentage are not the first ingredient then
 	# use their maximum percentage
-	[
-		'ingredient-with-max-percent',
-		{lc => "en", ingredients_text => "milk, flavouring"},
-	],
+	['ingredient-with-max-percent', {lc => "en", ingredients_text => "milk, flavouring"},],
 
 	# Can get percent_max from parent ingredient
 	[
@@ -193,10 +154,7 @@ my @tests = (
 	],
 
 	# Where two ingredients have a maximum then apply it
-	[
-		'2-ingredients-with-max-percent',
-		{lc => "en", ingredients_text => "milk, lemon flavouring, orange flavouring"},
-	],
+	['2-ingredients-with-max-percent', {lc => "en", ingredients_text => "milk, lemon flavouring, orange flavouring"},],
 
 	# Ingredients indicated in grams, with a sum different than 100 (here 200)
 	# The percents need to be scaled to take into account the actual sum
@@ -249,7 +207,11 @@ foreach my $test_ref (@tests) {
 
 	compute_ingredients_percent_estimates(100, $product_ref->{ingredients});
 
-	compare_to_expected_results($product_ref->{ingredients}, "$expected_result_dir/$testid.json", $update_expected_results);
+	compare_to_expected_results(
+		$product_ref->{ingredients},
+		"$expected_result_dir/$testid.json",
+		$update_expected_results
+	);
 }
 
 done_testing();
