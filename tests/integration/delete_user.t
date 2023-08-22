@@ -49,11 +49,12 @@ my $response_delete = $ua->post($url_delete, \%delete_form);
 like($response_delete->content, qr/User is being deleted\. This may take a few minutes\./, "the account was deleted");
 
 #waiting the deletion task to be done (weirdly enough it is not useful anymore..)
-my $max_time = 30;
-my $jobs_ref = get_minion_jobs("delete_user_task", $before_delete_ts, $max_time);
+my $max_time = 60;
+my $jobs_ref = get_minion_jobs("delete_user", $before_delete_ts, $max_time);
 
-#is(scalar @{$jobs_ref}, 1, "One delete_user_task was triggered");
-#is(@{$jobs_ref}[0]->state, "finished", "delete_user_task finished without errors");
+is(scalar @{$jobs_ref}, 1, "One delete_user was triggered");
+my $delete_job_state = $jobs_ref->[0]->info->{state};
+is($delete_job_state, "finished", "delete_user finished without errors");
 
 #user sign out of its account
 my %signout_form = (

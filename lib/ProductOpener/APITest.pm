@@ -76,6 +76,7 @@ use Carp qw/confess/;
 use Clone qw/clone/;
 use File::Tail;
 use Test::Fake::HTTPD;
+use Minion;
 
 # Constants of the test website main domain and url
 # Should be used internally only (see: construct_test_url to build urls in tests)
@@ -792,29 +793,38 @@ Returns a list of jobs associated with the task_name
 
 sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 	my $waited = 0;    # counting the waiting time
-	my @run_jobs = ();
-	my $ext_loop = 0;
-	while ($waited < $max_waiting_time) {
+	my %run_jobs = ();
+	while (!(scalar %run_jobs) and ($waited < $max_waiting_time)) {
 		my $jobs = get_minion()->jobs({tasks => [$task_name]});
-		#iterate on job
+		# iterate on job
 		while (my $job = $jobs->next) {
-			#only those who were created after the timestamp
-			if ($job->created > $created_after_ts) {
-				#waiting the job to be done
-				while ($job->state eq "inactive" or $job->state eq "active") {
+			next if (defined $run_jobs{$job->{id}});
+			# only those who were created after the timestamp
+			if ($job->{created} > $created_after_ts) {
+				# retrieving the job id
+				my $job_id = $job->{id};
+				# retrieving the job state
+				my $job_state = $job->{state};
+				# waiting the job to be done
+				while (($job_state eq "active") or ($job_state eq "inactive")) {
 					sleep(2);
 					$waited += 2;
+					# reload to get updated state
+					$job = get_minion()->job($job_id);
+					$job_state = $job->info->{state};
 				}
-				push @run_jobs, $job;
+				$run_jobs{$job_id} = $job;
 			}
 		}
-		if (($ext_loop == 0) || ($waited < $max_waiting_time)) {
+		if (!(scalar %run_jobs)) {
+			# try to wait for jobs
 			sleep(2);
 			$waited += 2;
 		}
-		$ext_loop++;
 	}
-	return \@run_jobs;
+	# sort by creation date to have jobs in predictable order
+	my @all_jobs = sort {$_->{created}} (values %run_jobs);
+	return  \@all_jobs;
 }
 
 1;
