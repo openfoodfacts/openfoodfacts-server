@@ -3468,7 +3468,7 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 
 					# Latin animal species (e.g. for fish)
 					if ($tagtype eq "ingredients") {
-						@test_languages = ("xx","la");
+						@test_languages = ("xx", "la");
 					}
 				}
 				elsif ($options{product_type} eq "beauty") {
