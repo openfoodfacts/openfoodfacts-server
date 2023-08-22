@@ -1,0 +1,32 @@
+[
+   {
+      "id" : "en:milk",
+      "percent" : 20,
+      "percent_estimate" : 20,
+      "text" : "milk"
+   },
+   {
+      "id" : "en:fruit",
+      "ingredients" : [
+         {
+            "id" : "en:apple",
+            "percent_estimate" : 30,
+            "text" : "apples"
+         },
+         {
+            "id" : "en:pear",
+            "percent_estimate" : 30,
+            "text" : "pears"
+         }
+      ],
+      "percent" : 60,
+      "percent_estimate" : 60,
+      "text" : "fruits"
+   },
+   {
+      "id" : "en:lemon-flavouring",
+      "percent" : 20,
+      "percent_estimate" : 20,
+      "text" : "lemon flavouring"
+   }
+]
