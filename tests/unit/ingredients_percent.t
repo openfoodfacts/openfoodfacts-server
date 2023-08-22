@@ -14,6 +14,9 @@ use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Test qw/:all/;
 
+
+
+
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 my @tests = (
@@ -228,7 +231,7 @@ my @tests = (
 		'ingredients-in-different-quantities',
 		{
 			lc => 'en',
-			ingredients_text => "lemon juice 5%, orange juice 10cl, sugar 5g, salt 0.5mg, apple juice 1L, ice cream 100ml",
+			ingredients_text => "lemon 1 KG, orange juice 10cl, sugar 5g, salt 0.5mg, apple juice 1L, ice cream 100ml",
 		}
 	],
 );
