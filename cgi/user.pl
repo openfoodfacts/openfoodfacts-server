@@ -164,6 +164,10 @@ if ($action eq 'display') {
 
 	$template_data_ref->{user_ref} = $user_ref;
 
+	# Create the list of countries and languages for the select options of country field and preferred language field
+	$template_data_ref->{languages} = get_languages();
+	$template_data_ref->{countries} = get_countries();
+
 	# Create the list of sections and fields
 
 	$template_data_ref->{sections} = [];
