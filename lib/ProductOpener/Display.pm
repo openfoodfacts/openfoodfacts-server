@@ -1618,8 +1618,6 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		$log->trace("aggregate query done") if $log->is_trace();
 
 		if (defined $results) {
-			$results = [$results->all];
-
 			if (defined $results->[0] and $cache_results_flag) {
 				set_cache_results($key, $results);
 			}
