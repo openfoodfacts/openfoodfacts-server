@@ -51,7 +51,10 @@ stopwords:de:und,mit,von
 # ignore_energy_calculated_error:en:yes
 
 # World Customs Organizations Harmonized System Nomenclature properties
-# e.g.
+# e.g. for Linseed, 
+# under "SECTION II VEGETABLE PRODUCTS"
+# it corresponds to "12 	Oil seeds and oleaginous fruits; [...]".
+# so, we click on "0212-2022E", we scroll down and we see "12.04 | 1204.00 | Linseed, whether or not broken."
 # wco_hs_heading:en: 12.04
 # wco_hs_code:en: 1204.00
 # are from https://www.wcoomd.org/en/topics/nomenclature/instrument-and-tools/hs-nomenclature-2022-edition/hs-nomenclature-2022-edition.aspx
