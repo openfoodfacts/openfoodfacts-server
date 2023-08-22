@@ -78,6 +78,7 @@ BEGIN {
 		&flatten_sub_ingredients
 		&compute_ingredients_tags
 
+		&get_percent_or_quantity_and_normalized_quantity
 		&compute_ingredients_percent_values
 		&init_percent_values
 		&set_percent_min_values
@@ -114,6 +115,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Units qw/:all/;
 
 use Encode;
 use Clone qw(clone);
@@ -885,7 +887,7 @@ sub add_specific_ingredients_from_labels ($product_ref) {
 	return;
 }
 
-=head2 parse_specific_ingredients_from_text ( product_ref, $text, $percent_regexp )
+=head2 parse_specific_ingredients_from_text ( product_ref, $text, $percent_or_quantity_regexp )
 
 Lists of ingredients sometime include extra mentions for specific ingredients
 at the end of the ingredients list. e.g. "Prepared with 50g of fruits for 100g of finished product".
@@ -900,7 +902,7 @@ This function is also used to parse the origins of ingredients field.
 
 =head4 text $text
 
-=head4 percent regular expression $percent_regexp
+=head4 percent regular expression $percent_or_quantity_regexp
 
 Used to find % values, language specific.
 
@@ -916,7 +918,7 @@ Array of specific ingredients.
 
 =cut
 
-sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_regexp) {
+sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quantity_regexp) {
 
 	my $product_lc = $product_ref->{lc};
 
@@ -943,13 +945,13 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_regexp) 
 			# Total Milk Content 73%.
 
 			if (
-				(defined $percent_regexp)
+				(defined $percent_or_quantity_regexp)
 				and ($text
-					=~ /\s*(?:total |min |minimum )?([^,.;]+?)\s+content(?::| )+$percent_regexp\s*(?:per 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i
+					=~ /\s*(?:total |min |minimum )?([^,.;]+?)\s+content(?::| )+$percent_or_quantity_regexp\s*(?:per 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i
 				)
 				)
 			{
-				$percent = $2;    # $percent_regexp
+				$percent = $2;    # $percent_or_quantity_regexp
 				$ingredient = $1;
 				$matched_text = $&;
 				# Remove the matched text
@@ -973,14 +975,14 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_regexp) 
 			# Préparée avec 50 g de fruits pour 100 g de produit fini.
 
 			if (
-				(defined $percent_regexp)
+				(defined $percent_or_quantity_regexp)
 				and ($text
-					=~ /\s*(?:(?:préparé|prepare)(?:e|s|es)? avec)(?: au moins)?(?::| )+$percent_regexp (?:de |d')?([^,.;]+?)\s*(?:pour 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i
+					=~ /\s*(?:(?:préparé|prepare)(?:e|s|es)? avec)(?: au moins)?(?::| )+$percent_or_quantity_regexp (?:de |d')?([^,.;]+?)\s*(?:pour 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i
 				)
 				)
 			{
-				$percent = $1;    # $percent_regexp
-				$ingredient = $2;
+				$percent = $1;    # $percent_or_quantity_regexp
+				$ingredient = $3;
 				$matched_text = $&;
 				# Remove the matched text
 				$text = $` . ' ' . $';
@@ -989,13 +991,13 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_regexp) 
 			# Teneur totale en sucres : 60 g pour 100 g de produit fini.
 			# Teneur en citron de 100%
 			elsif (
-				(defined $percent_regexp)
+				(defined $percent_or_quantity_regexp)
 				and ($text
-					=~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;]+?)\s*(?:pour 100\s*(?:g)(?: de produit(?: fini)?)?)?(?: de)?(?::| )+$percent_regexp\s*(?:pour 100\s*(?:g)(?:[^,.;]*?))?(?:;|\.| - |$)/i
+					=~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;]+?)\s*(?:pour 100\s*(?:g)(?: de produit(?: fini)?)?)?(?: de)?(?::| )+$percent_or_quantity_regexp\s*(?:pour 100\s*(?:g)(?:[^,.;]*?))?(?:;|\.| - |$)/i
 				)
 				)
 			{
-				$percent = $2;    # $percent_regexp
+				$percent = $2;    # $percent_or_quantity_regexp
 				$ingredient = $1;
 				$matched_text = $&;
 				# Remove the matched text
@@ -1221,6 +1223,27 @@ sub parse_origins_from_text ($product_ref, $text) {
 	return $text;
 }
 
+=head2 get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value, $percent_or_quantity_unit)
+
+Used to assign percent or quantity for strings parsed with $percent_or_quantity_regexp.
+
+=cut
+
+sub get_percent_or_quantity_and_normalized_quantity ($percent_or_quantity_value, $percent_or_quantity_unit) {
+
+	my ($percent, $quantity, $quantity_g);
+
+	if ($percent_or_quantity_unit =~ /\%/) {
+		$percent = $percent_or_quantity_value;
+	}
+	else {
+		$quantity = $percent_or_quantity_value . " " . $percent_or_quantity_unit;
+		$quantity_g = normalize_quantity($quantity);
+	}
+
+	return ($percent, $quantity, $quantity_g);
+}
+
 =head2 parse_ingredients_text ( product_ref )
 
 Parse the ingredients_text field to extract individual ingredients.
@@ -1290,16 +1313,14 @@ sub parse_ingredients_text ($product_ref) {
 		$ignore_strings_after_percent = $ignore_strings_after_percent{$product_lc};
 	}
 
-	my $percent_regexp
-		= '(?:<|'
-		. $min_regexp
-		. '|\s|\.|:)*(\d+(?:(?:\,|\.)\d+)?)\s*(?:\%|g)\s*(?:'
-		. $min_regexp . '|'
-		. $ignore_strings_after_percent
-		. '|\s|\)|\]|\}|\*)*';
+	# Regular expression to find percent or quantities
+	# $percent_or_quantity_regexp has 2 capturing group: one for the number, and one for the % sign or the unit
+	my $percent_or_quantity_regexp = '(?:<|' . $min_regexp . '|\s|\.|:)*' . '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number
+		. '(\%|g|gr|mg|kg|ml|cl|dl|l)\s*'    # % or unit
+		. '(?:' . $min_regexp . '|' . $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';
 
 	# Extract phrases related to specific ingredients at the end of the ingredients list
-	$text = parse_specific_ingredients_from_text($product_ref, $text, $percent_regexp);
+	$text = parse_specific_ingredients_from_text($product_ref, $text, $percent_or_quantity_regexp);
 
 	my $analyze_ingredients_function = sub ($analyze_ingredients_self, $ingredients_ref, $level, $s) {
 
@@ -1311,7 +1332,8 @@ sub parse_ingredients_text ($product_ref) {
 		my $before = '';
 		my $between = '';
 		my $between_level = $level;
-		my $percent = undef;
+		my $percent_or_quantity_value = undef;
+		my $percent_or_quantity_unit = undef;
 		my $origin = undef;
 		my $labels = undef;
 		my $vegan = undef;
@@ -1383,14 +1405,21 @@ sub parse_ingredients_text ($product_ref) {
 					# percent followed by a separator, assume the percent applies to the parent (e.g. tomatoes)
 					# tomatoes (64%, origin: Spain)
 
-					if (($between =~ $separators) and ($` =~ /^$percent_regexp$/i)) {
+					if (($between =~ $separators) and ($` =~ /^$percent_or_quantity_regexp$/i)) {
 
-						$percent = $1;
+						$percent_or_quantity_value = $1;
+						$percent_or_quantity_unit = $2;
 						# remove what is before the first separator
 						$between =~ s/(.*?)$separators//;
 						$debug_ingredients
-							and $log->debug("separator found after percent", {between => $between, percent => $percent})
-							if $log->is_debug();
+							and $log->debug(
+							"separator found after percent",
+							{
+								between => $between,
+								percent_or_quantity_value => $percent_or_quantity_value,
+								percent_or_quantity_unit => $percent_or_quantity_unit
+							}
+							) if $log->is_debug();
 					}
 
 					# sel marin (France, Italie)
@@ -1401,14 +1430,20 @@ sub parse_ingredients_text ($product_ref) {
 						$between =~ s/^(.*?$separators)/origins:$1/;
 					}
 
-					$debug_ingredients and $log->debug("initial processing of percent and origins",
-						{between => $between, after => $after, percent => $percent})
-						if $log->is_debug();
+					$debug_ingredients and $log->debug(
+						"initial processing of percent and origins",
+						{
+							between => $between,
+							after => $after,
+							percent_or_quantity_value => $percent_or_quantity_value,
+							percent_or_quantity_unit => $percent_or_quantity_unit
+						}
+					) if $log->is_debug();
 
 					# : is in $separators but we want to keep "origine : France" or "min : 23%"
 					if (    ($between =~ $separators)
 						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
-						and ($between !~ /^$percent_regexp$/i))
+						and ($between !~ /^$percent_or_quantity_regexp$/i))
 					{
 						$between_level = $level + 1;
 						$debug_ingredients and $log->debug("between contains a separator", {between => $between})
@@ -1420,12 +1455,19 @@ sub parse_ingredients_text ($product_ref) {
 							and $log->debug("between does not contain a separator", {between => $between})
 							if $log->is_debug();
 
-						if ($between =~ /^$percent_regexp$/i) {
+						if ($between =~ /^$percent_or_quantity_regexp$/i) {
 
-							$percent = $1;
+							$percent_or_quantity_value = $1;
+							$percent_or_quantity_unit = $2;
 							$debug_ingredients
-								and $log->debug("between is a percent", {between => $between, percent => $percent})
-								if $log->is_debug();
+								and $log->debug(
+								"between is a percent",
+								{
+									between => $between,
+									percent_or_quantity_value => $percent_or_quantity_value,
+									percent_or_quantity_unit => $percent_or_quantity_unit
+								}
+								) if $log->is_debug();
 							$between = '';
 						}
 						else {
@@ -1537,12 +1579,19 @@ sub parse_ingredients_text ($product_ref) {
 				$last_separator = $sep;
 			}
 
-			if ($after =~ /^$percent_regexp($separators|$)/i) {
-				$percent = $1;
+			if ($after =~ /^$percent_or_quantity_regexp($separators|$)/i) {
+				$percent_or_quantity_value = $1;
+				$percent_or_quantity_unit = $2;
 				$after = $';
 				$debug_ingredients
-					and $log->debug("after started with a percent", {after => $after, percent => $percent})
-					if $log->is_debug();
+					and $log->debug(
+					"after started with a percent",
+					{
+						after => $after,
+						percent_or_quantity_value => $percent_or_quantity_value,
+						percent_or_quantity_unit => $percent_or_quantity_unit
+					}
+					) if $log->is_debug();
 			}
 		}
 		else {
@@ -1573,9 +1622,9 @@ sub parse_ingredients_text ($product_ref) {
 			my $ingredient1_orig = $ingredient1;
 			my $ingredient2_orig = $ingredient2;
 
-			$ingredient =~ s/\s$percent_regexp$//i;
-			$ingredient1 =~ s/\s$percent_regexp$//i;
-			$ingredient2 =~ s/\s$percent_regexp$//i;
+			$ingredient =~ s/\s$percent_or_quantity_regexp$//i;
+			$ingredient1 =~ s/\s$percent_or_quantity_regexp$//i;
+			$ingredient2 =~ s/\s$percent_or_quantity_regexp$//i;
 
 			# check if the whole ingredient is an ingredient
 			my $canon_ingredient = canonicalize_taxonomy_tag($product_lc, "ingredients", $before);
@@ -1655,11 +1704,18 @@ sub parse_ingredients_text ($product_ref) {
 				$current_ingredient = $ingredient;
 
 				# Strawberry 10.3%
-				if ($ingredient =~ /\s$percent_regexp$/i) {
-					$percent = $1;
-					$debug_ingredients and $log->debug("percent found after",
-						{ingredient => $ingredient, percent => $percent, new_ingredient => $`})
-						if $log->is_debug();
+				if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
+					$percent_or_quantity_value = $1;
+					$percent_or_quantity_unit = $2;
+					$debug_ingredients and $log->debug(
+						"percent found after",
+						{
+							ingredient => $ingredient,
+							percent_or_quantity_value => $percent_or_quantity_value,
+							percent_or_quantity_unit => $percent_or_quantity_unit,
+							new_ingredient => $`
+						}
+					) if $log->is_debug();
 					$ingredient = $`;
 				}
 
@@ -1667,7 +1723,7 @@ sub parse_ingredients_text ($product_ref) {
 				if (
 					$ingredient =~ m{^
 									 \s*
-									 ( \d+ ([,.] \d+)? )
+									 ( \d+ (?:[,.] \d+)? )
 									 \s*
 									 (\%|g)
 									 \s*
@@ -1677,10 +1733,17 @@ sub parse_ingredients_text ($product_ref) {
 									}sxmi
 					)
 				{
-					$percent = $1;
-					$debug_ingredients and $log->debug("percent found before",
-						{ingredient => $ingredient, percent => $percent, new_ingredient => $'})
-						if $log->is_debug();
+					$percent_or_quantity_value = $1;
+					$percent_or_quantity_unit = $2;
+					$debug_ingredients and $log->debug(
+						"percent found before",
+						{
+							ingredient => $ingredient,
+							percent_or_quantity_value => $percent_or_quantity_value,
+							percent_or_quantity_unit => $percent_or_quantity_unit,
+							new_ingredient => $'
+						}
+					) if $log->is_debug();
 					$ingredient = $';
 				}
 
@@ -2165,8 +2228,19 @@ sub parse_ingredients_text ($product_ref) {
 					text => $ingredient
 				);
 
-				if (defined $percent) {
-					$ingredient{percent} = $percent + 0;
+				if (defined $percent_or_quantity_value) {
+					my ($percent, $quantity, $quantity_g)
+						= get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value,
+						$percent_or_quantity_unit);
+					if (defined $percent) {
+						$ingredient{percent} = $percent + 0;
+					}
+					if (defined $quantity) {
+						$ingredient{quantity} = $quantity;
+					}
+					if (defined $quantity_g) {
+						$ingredient{quantity_g} = $quantity_g;
+					}
 				}
 				if (defined $origin) {
 					$ingredient{origins} = $origin;
