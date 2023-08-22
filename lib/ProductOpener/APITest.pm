@@ -794,7 +794,7 @@ Returns a list of jobs associated with the task_name
 sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 	my $waited = 0;    # counting the waiting time
 	my %run_jobs = ();
-	while (!(scalar %run_jobs) and ($waited < $max_waiting_time)) {
+	while (($waited < $max_waiting_time) and (!(scalar %run_jobs))) {
 		my $jobs = get_minion()->jobs({tasks => [$task_name]});
 		# iterate on job
 		while (my $job = $jobs->next) {
