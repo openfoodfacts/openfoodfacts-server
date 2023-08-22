@@ -6888,6 +6888,7 @@ es:queso blanco fresco
 <en:Cheese
 en:cream cheese
 hr:krem sir
+pl:serek śmietankowy
 
 <en:cheese
 en:Quark
@@ -13203,7 +13204,7 @@ lb:schmalz
 nb:smult
 nl:reuzel
 nn:smult
-pl:smalec
+pl:smalec, smalec wieprzowy
 pt:banha
 ru:смалец
 sv:ister
@@ -15993,13 +15994,14 @@ lv:rapšu eļļa, rapšu ella
 nb:rapsolje
 nl:raapolie, raapzaad, raap, raapzaadolie, gedeeltelijk geharde raapzaadolie
 no:rapsolje
-pl:olej roślinny rzepakowy, olej rzepakowy, olej z rzepaku, oleje roślinne rzepakowy
+pl:olej roślinny rzepakowy, olej rzepakowy, olej z rzepaku, oleje roślinne rzepakowy, tłuszcz rzepakowy, tłuszcze roślinne rzepakowy, tłuszcz roślinny rzepakowy
 ro:ulei de rapiță, ulei vegetal de rapiță, ulei de rapita
 ru:Рапсовое масло
 sk:repkový olej
 sq:repičino ulje
 sv:Rapsolja, rybsolja, Rapsfett, rypsolja
 from_palm_oil:en:no
+nutriscore_fruits_vegetables_nuts:en:yes
 wikipedia:en:Q1922338
 description:de:Rapsöl oder Rüböl (auch Rübsenöl, Kolzaöl und Kohlsaatöl genannt) ist ein pflanzliches Öl, welches aus den Samen vom Raps (Brassica napus), gewonnen wird.
 description:en:Rapeseed (Brassica napus), also known as rape, or oilseed rape, is a bright-yellow flowering member of the family Brassicaceae, cultivated mainly for its oil-rich seed, which naturally contains appreciable amounts of erucic acid. Rapeseed is the third-largest source of vegetable oil and the second-largest source of protein meal in the world.
@@ -16032,8 +16034,6 @@ nl:canola olie
 sv:rybsolja, rypsolja
 tr:kanola yağı
 wikipedia:en:https://en.wikipedia.org/wiki/Canola_oil
-from_palm_oil:en:no
-nutriscore_fruits_vegetables_nuts:en:yes
 description:en:Canola oil, or canola for short, originally known as low erucic acid rapeseed, is a vegetable oil derived from a variety of rapeseed that is low in erucic acid, as opposed to colza oil.
 description:es:El aceite de colza (aceite de nabina o de canola) es el extracto de la semilla de la colza, usado sobre todo en el norte de Europa como condimento y para el alumbrado.
 description:pt:Canola é um cultivo criado para ter baixo teor de ácido erúcico. O termo canola (Brassica napus L., Brassica rapa L., e Brassica juncea) se refere a variedades de plantas de três espécies da família das crucíferas, pertencentes ao gênero Brassica, que produzem um óleo comestível.
@@ -16067,8 +16067,6 @@ carbon_footprint_fr_foodges_ingredient:fr:Huile de colza
 carbon_footprint_fr_foodges_value:fr:2.2
 ciqual_food_code:en:17130
 ciqual_food_name:fr:Huile de colza
-from_palm_oil:en:no
-nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:rapeseed oil
 en:low erucic acid rapeseed oil
@@ -33285,6 +33283,7 @@ de:Sojaerzeugnis
 <en:soya bean
 en:soya base
 es:base de soja
+pl:baza sojowa
 
 # fr:Jus de soja is a compound ingredient:soybean + water
 
@@ -40264,7 +40263,9 @@ pl:borówka amerykańska, borówka wysoka, niebieska jagoda, borówki amerykańs
 en:billberry, common blueberry
 fi:mustikka, mustikat
 la:Vaccinium myrtillus
-pl:borówka czarna, jagoda, czarna jagoda, czernica, borówka czernica, borówki czernicy, jagodowy, jagodowe, jagodowa, czarnej jagody
+pl:borówka czarna, jagoda, jagoda czarna, czarna jagoda, czarne jagody, czarnej jagody, czernica, borówka czernica, borówki czernicy, jagoda, jagody, jagodowy, jagodowe, jagodowa
+wikipedia:en:https://en.wikipedia.org/wiki/Vaccinium_myrtillus
+wikidata:en:Q5413585
 
 #comment:en:
 <en:blueberry
@@ -41068,7 +41069,7 @@ fr:crème de noix de coco, crème de coco
 it:Crema di noce di cocco
 ja:ココナッツクリーム
 nl:kokoscreme
-pl:śmietanka kokosowa, śmietanki kokosowej
+pl:śmietanka kokosowa, śmietanki kokosowej, krem kokosowy
 pt:Creme de coco
 se:Kokosgrädde
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:crème-de-noix-de-coco
@@ -47411,7 +47412,7 @@ nl:zuring, veldzuring, zurkel
 nn:engsyre
 nv:chaatʼíní
 os:хуырхæг
-pl:szczaw zwyczajny, szczaw
+pl:szczaw zwyczajny, szczaw, szczawiu
 pt:azeda
 ro:măcriș
 ru:щавель кислый
@@ -52263,7 +52264,7 @@ oc:Rafe
 or:ମୂଳା
 os:Булкъ
 pa:ਮੂਲੀ
-pl:rzodkiew
+pl:rzodkiew, rzodkwi, rzodkiewka, rzodkiewki
 ps:مولۍ
 pt:Rabanete
 qu:Rawanushcu
@@ -52342,6 +52343,7 @@ bg:черна ряпа
 de:Schwarzer Winter-Rettich
 fr:Radis noir, radis d'Espagne
 nl:Rammenas
+pl:rzodkiew czarna
 ciqual_food_code:en:20089
 ciqual_food_name:en:Radish, black, raw
 ciqual_food_name:fr:Radis noir, cru
@@ -52350,6 +52352,7 @@ ciqual_food_name:fr:Radis noir, cru
 en:Red radish
 fr:Radis rouge
 ja:ラディッシュ
+pl:rzodkiew czerwona, czerwona rzodkiew, czerwonej rzodkwi
 ciqual_food_code:en:20045
 ciqual_food_name:en:Radish, raw
 ciqual_food_name:fr:Radis rouge, cru
@@ -52373,6 +52376,7 @@ fr:radis blanc, radis d'hiver, radis chinois, daikon
 it:ravanello bianco
 ja:ダイコン, 大根, だいこん
 nl:witte rammenas
+biała rzodkiew, białej rzodkwi, rzodkiew biała
 
 
 <en:root vegetable
@@ -63000,6 +63004,7 @@ es:hojas de menta, hoja de menta, menta en hojas
 fi:mintunlehti, mintunlehdet
 fr:feuilles de menthe
 it:foglio di menta, foglie di menta intere
+pl:liść mięty, liście mięty
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/mint-leaves
 # 50 products in 2 languages @2018-10-10
 
@@ -63011,6 +63016,7 @@ es:aceite de menta
 fr:huile de menthe
 it:olio di menta
 nl:muntolie
+pl:olejek miętowy
 
 # description:en:Spearmint (binomial Mentha spicata, synonym Mentha viridis), also known as garden mint.
 
@@ -63121,7 +63127,7 @@ lv:piparmētra
 ms:pudina
 nb:peppermynte
 nl:pepermunt
-pl:mięta pieprzowa
+pl:mięta pieprzowa, mięty pieprzowej
 ps:تور ويلني
 pt:hortelã-pimenta
 ro:izmă bună
@@ -63167,6 +63173,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Peppermint
 en:peppermint leaf, peppermint leaves
 de:Pfefferminzblätter, Pfefferminzblätter ganz
 fr:feuilles de menthe poivrée, feuilles de menthe poivrée entières
+pl:liść mięty pieprzowej, liście mięty pieprzowej, ziele mięty pieprzowej
 #83 @2021-10-11
 
 <en:peppermint
@@ -67567,7 +67574,7 @@ fr:gousse de vanille, gousses de vanille, écorce de vanille
 hr:mahune vanilije
 it:baccelli di vaniglia, bacche di vaniglia
 nl:vanillestokje, vanillestokjes
-pl:laski wanilii
+pl:laski wanilii, laska wanilii
 pt:vagem de baunilha
 sv:vaniljstång, vaniljböna
 # ingredient/fr:gousse-de-vanille has 207 products in 5 languages @2019-02-24
@@ -77295,7 +77302,7 @@ hi:isabgol
 hr:psyllium, vlakna psylliuma
 it:psyllium, fibra di psillio
 nl:Psyllium, psylliumvezels, psylliumvezel, vlozaadvezels
-pl:Babka, łuski płesznika, błonnik psylium, babka płesznik, babki płesznik
+pl:Babka, łuski płesznika, błonnik psylium, babka płesznik, babki płesznik, błonnik z babki płesznik, łupiny nasienne babki płesznik
 ro:Psyllium
 ru:Подорожник
 sd:اسپنگر
@@ -77319,7 +77326,7 @@ pl:babka jajowata, babki jajowatej
 en:blond psyllium husk
 es:tegumento de psyllium rubio
 fr:tégument de psyllium blond
-pl:łupina nasienna babki jajowatej
+pl:łupina nasienna babki jajowatej, łupiny nasion babki jajowatej, łuska babki jajowatej
 
 <en:blond psyllium
 en:blond psyllium fibre
