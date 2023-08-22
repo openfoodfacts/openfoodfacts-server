@@ -89,12 +89,12 @@
                             <label for="[% field.field %]">	[% field.label %]</label>
                             <input type="email" id="[% field.field %]" name="[% field.field %]" value = "[% field.value %]" autocomplete="email"/>
                         [% ELSIF field.type == 'language' %]
-                            <label for="[% field.field %]">	[% field.label %]</label>
+                            <label for="[% field.field %]">	[% lang(field.label) %]</label>
                             <select name="language" id="language-select">
                                 <option value="">--Please choose an option--</option>
                             </select>
                         [% ELSIF field.type == 'country' %]
-                            <label for="[% field.field %]"> [% field.label %]</label>
+                            <label for="[% field.field %]"> [% lang(field.label) %]</label>
                             <select name="country" id="country-select">
                                 <option value="">--Please choose an option--</option>
                             </select>
