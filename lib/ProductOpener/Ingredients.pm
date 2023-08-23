@@ -2103,7 +2103,7 @@ sub parse_ingredients_text ($product_ref) {
 							],
 
 							'pl' => [
-								'^czekolada deserowa: masa kakaowa min(imum)?$',
+								'^czekolada( deserowa)?: masa kakaowa min(imum)?$',
 								'^masa kakaowa( w czekoladzie mlecznej)? min(imum)?$',
 								'^masa mleczna min(imum)?$',
 								'^(?>\d+\s+g\s+)?(?>\w+\s?)*?100\s?g(?> \w*)?$',  # "pomidorów zużyto na 100 g produktu"
