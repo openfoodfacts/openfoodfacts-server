@@ -91,12 +91,18 @@
                         [% ELSIF field.type == 'language' %]
                             <label for="[% field.field %]">	[% lang(field.label) %]</label>
                             <select name="language" id="language-select">
-                                <option value="">--Please choose an option--</option>
+                                <option value="">--Choose-an-option--</option>
+                                [% FOREACH language IN languages_list %]
+                                    <option value="[% language %]"> [% language %]</option>
+                                [% END %]
                             </select>
                         [% ELSIF field.type == 'country' %]
                             <label for="[% field.field %]"> [% lang(field.label) %]</label>
                             <select name="country" id="country-select">
-                                <option value="">--Please choose an option--</option>
+                                <option value="">--Choose-an-option--</option>
+                                [% FOREACH country IN countries_list %]
+                                    <option value="[% country %]"> [% country %]</option>
+                                [% END %] 
                             </select>
                         [% ELSIF field.type == 'checkbox' %]
                             [% IF accepted_organization && section.id == "professional" %]

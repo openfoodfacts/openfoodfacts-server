@@ -11538,6 +11538,62 @@ sub generate_select2_options_for_taxonomy_to_json ($target_lc, $tagtype) {
 		JSON::PP->new->utf8->canonical->encode(generate_select2_options_for_taxonomy($target_lc, $tagtype)));
 }
 
+=head2 language_format($string_to_normalise)
+
+Normalising a string which represents a language or a country
+
+=head3 Arguments
+
+=head4 $string_to_normalise
+
+String that needs to be normalise
+
+=head3 Return value	
+
+A normalised string of the given string
+
+=cut
+
+sub language_format($string_to_normalise){
+	my $result = 0;
+	# If there is the cc in front of the string 
+	if ($string_to_normalise =~ qr/$lc\:/){
+		my $length = length($lc) + 1;
+		$result = substr $string_to_normalise, $length;
+	}
+	# If there is no translation in a given language, there is "en:" before the string
+	elsif ($string_to_normalise =~ qr/en\:/){
+		$result = substr $string_to_normalise, length("en:");
+	}
+	# If there is a capital I in front of the string 
+	elsif ($string_to_normalise =~ qr/I[A-Z]/){
+		$result = substr $string_to_normalise, length("I");
+	}
+	# If there is a capital I- in front of the string 
+	elsif ($string_to_normalise =~ qr/I\-[A-Z]/){
+		$result = substr $string_to_normalise, length("I-");
+	}
+	# If there is a motif "Tshi" in front of the string 
+	elsif ($string_to_normalise =~ qr/Tshi[A-Z]/){
+		$result = substr $string_to_normalise, length("Tshi");
+	}
+	# If there is a motif "Isi" in front of the string 
+	elsif ($string_to_normalise =~ qr/Isi[A-Z]/){
+		$result = substr $string_to_normalise, length("Isi");
+	}
+	# If there is a motif "Izi-" in front of the string 
+	elsif ($string_to_normalise =~ qr/Isi\-[A-Z]/){
+		$result = substr $string_to_normalise, length("Isi-");
+	}
+
+	# If the string does not contain a motif that has to be removed return the original string
+	if (!$result) {
+		return $string_to_normalise;
+	}	
+	# If the string is modified, return the modified version
+	return $result;
+}
+
 =head2 get_languages()
 
 Generates all the languages in the $lc language
@@ -11553,13 +11609,23 @@ A list with every language written in the $lc language
 sub get_languages() {
 	my @languages_list = ();
 	my @tags_list = get_all_taxonomy_entries("languages");
-	my $language;
 	foreach my $tag (@tags_list) {
-		$language = display_taxonomy_tag($lc, "languages", $tag);
-		push @languages_list, $language;
+		my $language = display_taxonomy_tag($lc, "languages", $tag);
+		# We want to have a normalized string, for instance : French, English, etc... if $lc = en (todo) and reject "Unknown language"
+		my $unknown = 0;
+		if ($language eq "Unknown language"){
+			$unknown = 1;	
+		} 
+		# Normalise $langage
+		my $normalise_language = language_format($language);
+
+		# Adding to the list the modified string (or not even adding it if equal to "Unknown language")
+		if ($unknown == 0) {
+			push @languages_list, $normalise_language;
+		}
 	}
-	@languages_list = sort @languages_list;
-	return @languages_list;
+	my @sorted_languages_list = sort @languages_list;
+	return @sorted_languages_list;
 }
 
 =head2 get_countries()
@@ -11577,13 +11643,17 @@ A list with every country written in the $lc language
 sub get_countries() {
 	my @countries_list = ();
 	my @tags_list = get_all_taxonomy_entries("countries");
-	my $country;
 	foreach my $tag (@tags_list) {
-		$country = display_taxonomy_tag($lc, "countries", $tag);
-		push @countries_list, $country;
+		my $country = display_taxonomy_tag($lc, "countries", $tag);
+
+		# Normalise $langage
+		my $normalise_country = language_format($country);
+
+		# Adding to the list the modified string
+		push @countries_list, $normalise_country;
 	}
-	@countries_list = sort @countries_list;
-	return @countries_list;
+	my @sorted_countries_list = sort @countries_list;
+	return @sorted_countries_list;
 }
 
 1;
