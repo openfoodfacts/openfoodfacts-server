@@ -11538,57 +11538,57 @@ sub generate_select2_options_for_taxonomy_to_json ($target_lc, $tagtype) {
 		JSON::PP->new->utf8->canonical->encode(generate_select2_options_for_taxonomy($target_lc, $tagtype)));
 }
 
-=head2 language_format($string_to_normalise)
+=head2 language_format($string_to_standardise)
 
-Normalising a string which represents a language or a country
+Standardizing a string which represents a language or a country
 
 =head3 Arguments
 
 =head4 $string_to_normalise
 
-String that needs to be normalise
+String that needs to be standardized
 
 =head3 Return value	
 
-A normalised string of the given string
+A standardized string of the given string
 
 =cut
 
-sub language_format($string_to_normalise){
+sub language_format($string_to_standardise){
 	my $result = 0;
 	# If there is the cc in front of the string 
-	if ($string_to_normalise =~ qr/$lc\:/){
+	if ($string_to_standardise =~ qr/$lc\:/){
 		my $length = length($lc) + 1;
-		$result = substr $string_to_normalise, $length;
+		$result = substr $string_to_standardise, $length;
 	}
-	# If there is no translation in a given language, there is "en:" before the string
-	elsif ($string_to_normalise =~ qr/en\:/){
-		$result = substr $string_to_normalise, length("en:");
+	# If there is no translation in a givenlanguage, there is "en:" before the string
+	elsif ($string_to_standardise =~ qr/en\:/){
+		$result = substr $string_to_standardise, length("en:");
 	}
 	# If there is a capital I in front of the string 
-	elsif ($string_to_normalise =~ qr/I[A-Z]/){
-		$result = substr $string_to_normalise, length("I");
+	elsif ($string_to_standardise =~ qr/I[A-Z]/){
+		$result = substr $string_to_standardise, length("I");
 	}
 	# If there is a capital I- in front of the string 
-	elsif ($string_to_normalise =~ qr/I\-[A-Z]/){
-		$result = substr $string_to_normalise, length("I-");
+	elsif ($string_to_standardise =~ qr/I\-[A-Z]/){
+		$result = substr $string_to_standardise, length("I-");
 	}
 	# If there is a motif "Tshi" in front of the string 
-	elsif ($string_to_normalise =~ qr/Tshi[A-Z]/){
-		$result = substr $string_to_normalise, length("Tshi");
+	elsif ($string_to_standardise =~ qr/Tshi[A-Z]/){
+		$result = substr $string_to_standardise, length("Tshi");
 	}
 	# If there is a motif "Isi" in front of the string 
-	elsif ($string_to_normalise =~ qr/Isi[A-Z]/){
-		$result = substr $string_to_normalise, length("Isi");
+	elsif ($string_to_standardise =~ qr/Isi[A-Z]/){
+		$result = substr $string_to_standardise, length("Isi");
 	}
 	# If there is a motif "Izi-" in front of the string 
-	elsif ($string_to_normalise =~ qr/Isi\-[A-Z]/){
-		$result = substr $string_to_normalise, length("Isi-");
+	elsif ($string_to_standardise =~ qr/Isi\-[A-Z]/){
+		$result = substr $string_to_standardise, length("Isi-");
 	}
 
 	# If the string does not contain a motif that has to be removed return the original string
 	if (!$result) {
-		return $string_to_normalise;
+		return $string_to_standardise;
 	}	
 	# If the string is modified, return the modified version
 	return $result;
