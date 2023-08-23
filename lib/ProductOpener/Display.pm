@@ -11554,42 +11554,42 @@ A standardized string of the given string
 
 =cut
 
-sub language_format($string_to_standardise){
+sub language_format ($string_to_standardise) {
 	my $result = 0;
-	# If there is the cc in front of the string 
-	if ($string_to_standardise =~ qr/$lc\:/){
+	# If there is the cc in front of the string
+	if ($string_to_standardise =~ qr/$lc\:/) {
 		my $length = length($lc) + 1;
 		$result = substr $string_to_standardise, $length;
 	}
 	# If there is no translation in a givenlanguage, there is "en:" before the string
-	elsif ($string_to_standardise =~ qr/en\:/){
+	elsif ($string_to_standardise =~ qr/en\:/) {
 		$result = substr $string_to_standardise, length("en:");
 	}
-	# If there is a capital I in front of the string 
-	elsif ($string_to_standardise =~ qr/I[A-Z]/){
+	# If there is a capital I in front of the string
+	elsif ($string_to_standardise =~ qr/I[A-Z]/) {
 		$result = substr $string_to_standardise, length("I");
 	}
-	# If there is a capital I- in front of the string 
-	elsif ($string_to_standardise =~ qr/I\-[A-Z]/){
+	# If there is a capital I- in front of the string
+	elsif ($string_to_standardise =~ qr/I\-[A-Z]/) {
 		$result = substr $string_to_standardise, length("I-");
 	}
-	# If there is a motif "Tshi" in front of the string 
-	elsif ($string_to_standardise =~ qr/Tshi[A-Z]/){
+	# If there is a motif "Tshi" in front of the string
+	elsif ($string_to_standardise =~ qr/Tshi[A-Z]/) {
 		$result = substr $string_to_standardise, length("Tshi");
 	}
-	# If there is a motif "Isi" in front of the string 
-	elsif ($string_to_standardise =~ qr/Isi[A-Z]/){
+	# If there is a motif "Isi" in front of the string
+	elsif ($string_to_standardise =~ qr/Isi[A-Z]/) {
 		$result = substr $string_to_standardise, length("Isi");
 	}
-	# If there is a motif "Izi-" in front of the string 
-	elsif ($string_to_standardise =~ qr/Isi\-[A-Z]/){
+	# If there is a motif "Izi-" in front of the string
+	elsif ($string_to_standardise =~ qr/Isi\-[A-Z]/) {
 		$result = substr $string_to_standardise, length("Isi-");
 	}
 
 	# If the string does not contain a motif that has to be removed return the original string
 	if (!$result) {
 		return $string_to_standardise;
-	}	
+	}
 	# If the string is modified, return the modified version
 	return $result;
 }
@@ -11613,9 +11613,9 @@ sub get_languages() {
 		my $language = display_taxonomy_tag($lc, "languages", $tag);
 		# We want to have a normalized string, for instance : French, English, etc... if $lc = en (todo) and reject "Unknown language"
 		my $unknown = 0;
-		if ($language eq "Unknown language"){
-			$unknown = 1;	
-		} 
+		if ($language eq "Unknown language") {
+			$unknown = 1;
+		}
 		# Normalise $langage
 		my $normalise_language = language_format($language);
 
