@@ -5833,9 +5833,9 @@ ja:ライムジュース, ライム・ジュース
 lt:Žaliųjų citrinų sultys
 nl:Limoensappen
 pl:Soki limonkowe
-agribalyse_food_code:en:13067
-agribalyse_proxy_food_name:en:Lime, pulp, raw
-agribalyse_proxy_food_name:fr:Citron vert ou Lime, pulpe, cru
+agribalyse_food_code:en:2028
+agribalyse_proxy_food_name:en:Lemon juice, pure juice
+agribalyse_proxy_food_name:fr:Jus de citron, pur jus
 wikidata:en:Q5361217
 ignore_energy_calculated_error:en:yes
 
@@ -5857,6 +5857,11 @@ ciqual_food_name:fr:Jus de citron vert, pur jus
 en:Lime juices from concentrate
 fr:Jus de citron vert à partir d'un concentré
 nl:limoensappen uit concentraat
+
+<en:Lime juices
+<en:Fruit juice concentrates
+en:Lime juice concentrates, concentrated lime juices
+fr:Concentrés de jus de citrons verts, Jus de citrons verts concentrés
 
 <en:Fruit juices
 en:Lemon juice
@@ -8364,6 +8369,11 @@ fr:Concentrés de jus de fruits, jus de fruits concentrés
 <en:Fruit juice concentrates
 en:Apple juice concentrates, concentrated apple juices
 fr:Concentrés de jus de pommes, Jus de pommes concentrés
+
+<en:Squeezed lemon juices
+<en:Fruit juice concentrates
+en:Lemon juice concentrates, concentrated lemon juices
+fr:Concentrés de jus de citrons, Jus de citrons concentrés
 
 <en:Plant-based foods and beverages
 en:Dairy substitutes, Dairies substitutes
@@ -32548,6 +32558,10 @@ ciqual_food_code:en:7001
 ciqual_food_name:en:Bread, French bread, baguette
 ciqual_food_name:fr:Pain, baguette, courante
 
+<en:Baguettes
+en:Frozen baguettes
+fr:Baguettes surgelées
+
 <en:Breads
 fr:Pains de tradition française, pain de tradition française, pains traditionnels français, pain traditionnel français, pains traditionnels de France, pain traditionnel de France, pains tradition, pain tradition
 #Synonyms are the terms defined in the decret : https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000727617
@@ -42597,6 +42611,9 @@ fr:Fromages à pâte pressée non cuite, fromage à pâte pressée non cuite
 hu:Nyers préselt sajtok
 it:Formaggi a pasta pressata cruda
 nl:Onverhitte geperste kazen
+agribalyse_proxy_food_code:en:12755
+agribalyse_proxy_food_name:en:Saint-Paulin cheese, from cow's milk (semi-hard cheese)
+agribalyse_proxy_food_name:fr:Saint-Paulin (fromage à pâte pressée non cuite demi-ferme)
 wikidata:en:Q2213488
 
 <en:Uncooked pressed cheeses
@@ -63718,6 +63735,13 @@ lt:Džiovintas maltas laiškinis česnakas
 nl:Gemalen gedroogde biesloken
 
 <en:Chives
+en:Dried Chives
+fr:Ciboulette séchée
+agribalyse_proxy_food_code:en:11060
+agribalyse_proxy_food_name:en:Provence herbs, dried
+agribalyse_proxy_food_name:fr:Herbes de Provence, séchées
+
+<en:Chives
 <en:Lyophilized aromatic plants
 en:Lyophilized Chives, Freeze-dried Chives
 de:gefriergetrockneter Schnittlauch
@@ -63855,6 +63879,13 @@ es:Eneldo seco molido
 fr:Aneth sèche moulue
 lt:Džiovinti malti krapai
 nl:Gemalen gedroogde dille
+
+<en:Dill
+en:Dried dill
+fr:Aneth séchée
+agribalyse_proxy_food_code:en:11060
+agribalyse_proxy_food_name:en:Provence herbs, dried
+agribalyse_proxy_food_name:fr:Herbes de Provence, séchées
 
 <en:Plant-based foods
 en:Fresh chervil, Garden chervil products, Garden chervil, Chervil
@@ -64553,6 +64584,13 @@ es:Estragón seco molido
 fr:Estragon sec moulu
 nl:Gedroogde gemalen dragon
 
+<en:Tarragon
+en:Dried tarragon
+fr:Estragon séché
+agribalyse_proxy_food_code:en:11060
+agribalyse_proxy_food_name:en:Provence herbs, dried
+agribalyse_proxy_food_name:fr:Herbes de Provence, séchées
+
 <en:Aromatic herbs
 en:Thyme, Common thyme, Garden thyme
 bg:Мащерка
@@ -65156,16 +65194,19 @@ ciqual_food_name:fr:Epice (aliment moyen)
 
 <en:Spices
 <en:Herbal teas
-en:Anise
+en:Anise, Aniseed, Green anise
 de:Anise
 es:Anís verde
-fr:Infusions Anis vert
+fr:Anis, Anis vert, Infusions Anis vert
 hu:Ánizs
 ja:アニス
 la:Pimpinella anisum
 lt:Anyžius
 nl:Anijs
 wikidata:en:Q28692
+agribalyse_proxy_food_code:en:20028
+agribalyse_proxy_food_name:en:Fennel, raw
+agribalyse_proxy_food_name:fr:Fenouil, cru
 
 <en:Spices
 en:Cardamom, cardamon
@@ -65306,6 +65347,10 @@ ciqual_food_name:fr:Curry, poudre
 en:Garam masala
 ja:ガラムマサラ
 xx:Garam masala
+
+<en:Flavour enhancers
+en:Glutamate, Monosodium glutamate
+fr:Glutamate, Glutamate monosodique
 
 <en:Spices
 en:Cumin, Cummin
@@ -66603,6 +66648,22 @@ ciqual_food_name:fr:Sauce au beurre, préemballée
 #wikidata:en:
 
 <en:Sauces
+en:Roux
+fr:Roux, Roux blancs
+agribalyse_proxy_food_code:en:11140
+agribalyse_proxy_food_name:en:White butter sauce, prepacked
+agribalyse_proxy_food_name:fr:Sauce au beurre blanc, préemballée
+#wikidata:en:
+
+<en:Roux
+en:Brown roux
+fr:Roux bruns
+agribalyse_proxy_food_code:en:11158
+agribalyse_proxy_food_name:en:Sauce, butter, prepacked
+agribalyse_proxy_food_name:fr:Sauce au beurre, préemballée
+#wikidata:en:
+
+<en:Sauces
 fr:Sauces blanches
 #wikidata:en:
 
@@ -66959,7 +67020,7 @@ ciqual_food_name:en:Teriyaki sauce, prepacked
 ciqual_food_name:fr:Sauce teriyaki, préemballée
 wikidata:en:Q26883531
 
-<en:Sauces
+<en:Soy sauces
 en:Yakitori sauces
 fr:Sauces Yakitori
 ja:焼き鳥のタレ
@@ -67526,6 +67587,10 @@ en:Violet mustards
 es:Mostazas violetas
 fr:Moutardes violettes, Moutardes à la violette
 nl:Viooltjesmosterds
+
+en:Spices
+<en:Mustard seeds
+fr:Graines de moutarde
 
 <en:Sauces
 en:Pasta sauces
@@ -69352,6 +69417,10 @@ it:Tamaris
 ja:たまり醤油
 nl:Tamari sojasauzen
 #wikidata:en:
+
+<en:Soy sauces
+en:Sukiyaki sauces
+fr:Sauces Sukiyaki
 
 <en:Sauces
 en:Sofritos
@@ -72495,6 +72564,11 @@ agribalyse_food_code:en:11001
 ciqual_food_code:en:11001
 ciqual_food_name:en:Broth, stock or bouillon, beef, dehydrated
 
+<en:Dehydrated broths
+en:Dehydrated fish broths, Fish stock
+fr:Fumet de poisson déshydraté
+agribalyse_proxy_food_code:en:25918
+
 <en:Broths
 en:Liquid broths
 de:Flüssige Brühen
@@ -73053,6 +73127,10 @@ ciqual_food_code:en:25162
 ciqual_food_name:en:Vegetables au gratin (oven grilled)
 ciqual_food_name:fr:Gratin de légumes
 #wikidata:en:
+
+<en:Vegetable gratins
+en:frozen-vegetable-gratins
+fr:Gratins de légumes surgelés
 
 <en:Vegetable gratins
 en:Vegetables au gratin in bechamel sauce, Oven grilled vegetables in bechamel sauce
@@ -74803,13 +74881,25 @@ nl:Producten met slakken
 zh:蜗牛准备材料
 
 <en:Snails
-en:Snail in cooked parsley butter
+en:Cooked snails in parsley butter
 fr:Escargot en sauce au beurre persillé cuit
 lt:Sraigės virtame petražolių svieste
 agribalyse_food_code:en:10042
 ciqual_food_code:en:10042
 ciqual_food_name:en:Snail in parsley butter, cooked
 ciqual_food_name:fr:Escargot en sauce au beurre persillé, cuit
+
+<en:Cooked snails in parsley butter
+<en:Frozen snails
+en:Frozen cooked snails in parsley butter
+fr:Escargots en sauce au beurre persillé cuits surgelés
+
+<en:Frozen snails
+en:Frozen snails in parsley butter
+fr:Escargots en sauce au beurre persillé surgelés
+agribalyse_proxy_food_code:en:10042
+agribalyse_proxy_food_name:en:Snail in parsley butter, cooked
+agribalyse_proxy_food_name:fr:Escargot en sauce au beurre persillé, cuit
 
 <en:Snails
 en:Snails in puff pastry
@@ -77768,8 +77858,10 @@ ciqual_food_name:en:Duck, meat, roasted/baked
 ciqual_food_name:fr:Canard, viande, rôtie/cuite au four
 
 <en:Ducks
+en:Duck fillets
 fr:Filets de canard
 it:Filetti di anatra
+#comment:en:The difference between a duck fillet and a duck breast is that duck breast comes from a Southwest duck, a duck that has been force-fed to to produce foie gras, giving tender meat.
 
 <en:Ducks
 <en:Poultry sausages
@@ -92556,6 +92648,9 @@ fi:purkitetut punajuuret
 fr:Betteraves en conserve
 it:Barbabietole in scatola
 nl:Rode bieten in blik/pot
+ciqual_proxy_food_code:en:20003
+ciqual_proxy_food_name:en:Beetroot, cooked
+ciqual_proxy_food_name:fr:Betterave rouge, cuite
 
 <en:Canned vegetables
 <en:Brussels sprouts
@@ -93183,6 +93278,9 @@ fr:Asperges blanches
 it:Asparagi bianchi
 ja:ホワイトアスパラガス
 nl:Witte asperges
+agribalyse_proxy_food_code:en:20282
+agribalyse_proxy_food_name:en:Asparagus, white or purple, peeled, raw
+agribalyse_proxy_food_name:fr:Asperge, blanche ou violette, pelée, crue
 #TOCHECK:wikidata:en:Q22806705
 
 <en:Canned asparagus
@@ -104393,9 +104491,6 @@ fr:Brochettes végétariennes
 en:Edible tableware
 de:Essbares Geschirr
 fr:Couverts comestibles, Vaisselles comestibles
-
-en:Stuffing
-fr:Farces
 
 ### Extra categories
 
