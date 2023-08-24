@@ -4859,8 +4859,33 @@ sub preparse_ingredients_text ($product_lc, $text) {
 
 	# colorants alimentaires E (124,122,133,104,110)
 	my $roman_numerals = "i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xii|xiv|xv";
-	my $additivesregexp
-		= '(\d{3}|\d{4})(( |-|\.)?([abcdefgh]))?(( |-|\.)?((' . $roman_numerals . ')|\((' . $roman_numerals . ')\)))?';
+	my $additivesregexp;
+	# special cases, when $and (" a ", " e " or " i ") conflict with variants (E470a, E472e or E451i or E451(i))
+	# in these cases, we fetch variant only if there is no space before
+	# E470a	 -> ok, E470 a -> not ok, E470 a, -> ok
+	# E451i -> ok, E451 i -> not ok, E451 i, -> ok
+	if ($and eq " a " || $and eq " e ") {
+		# based on $additivesregexp below in the else, with following modifications
+		# no space before abcdefgh
+		$additivesregexp
+			= '(\d{3}|\d{4})((-|\.)?([abcdefgh]))?(( |,|.)?((' . $roman_numerals . ')|\((' . $roman_numerals . ')\)))?';
+	}
+	elsif ($and eq " i ") {
+		# based on $additivesregexp below in the else, with following modifications
+		# no space before i
+		$additivesregexp
+			= '(\d{3}|\d{4})(( |-|\.)?([abcdefgh]))?((-|\.)?(('
+			. $roman_numerals . ')|\(('
+			. $roman_numerals
+			. ')\)))?';
+	}
+	else {
+		$additivesregexp
+			= '(\d{3}|\d{4})(( |-|\.)?([abcdefgh]))?(( |-|\.)?(('
+			. $roman_numerals . ')|\(('
+			. $roman_numerals
+			. ')\)))?';
+	}
 
 	$text
 		=~ s/\b(e|ins|sin|i-n-s|s-i-n|i\.n\.s\.?|s\.i\.n\.?)(:|\(|\[| | n| nb|#|°)+((($additivesregexp)( |\/| \/ | - |,|, |$and))+($additivesregexp))\b(\s?(\)|\]))?/normalize_additives_enumeration($product_lc,$3)/ieg;
@@ -4878,6 +4903,10 @@ sub preparse_ingredients_text ($product_lc, $text) {
 
 	# Canonicalize additives to remove the dash that can make further parsing break
 	# Match E + number + letter a to h + i to xv, followed by a space or separator
+	# $3 would be either \d{3} or \d{4} in $additivesregexp
+	# $6 would be ([abcdefgh]) in $additivesregexp
+	# $9 would be (( |-|\.)?((' . $roman_numerals . ')|\((' . $roman_numerals . ')\))) in $additivesregexp
+	# $12 would be (\b|\s|,|\.|;|\/|-|\\|\)|\]|$)
 	$text =~ s/(\b)e( |-|\.)?$additivesregexp(\b|\s|,|\.|;|\/|-|\\|\)|\]|$)/replace_additive($3,$6,$9) . $12/ieg;
 
 	# E100 et E120 -> E100, E120
