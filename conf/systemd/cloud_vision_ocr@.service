@@ -1,6 +1,8 @@
 # service instance name "%i" is off or off-pro
 [Unit]
 Description=run cloud vision OCR on new images for %i
+# __ will be replaced by @ in email-failures@.service
+OnFailure=email-failures@cloud_vision_ocr__%i.service
 
 [Service]
 Type=simple
