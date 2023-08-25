@@ -281,7 +281,7 @@ sub normalize_code ($code) {
 	if (defined $code) {
 		my $gs1_code = _try_normalize_code_gs1($code);
 		if ($gs1_code) {
-			return $$gs1_code;
+			return $gs1_code;
 		}
 
 		# Keep only digits, remove spaces, dashes and everything else
@@ -316,20 +316,19 @@ sub _try_normalize_code_gs1 ($code) {
 	if ($code =~ /^\(.+/) {
 		# Code could be a GS1 bracketed AI element string
 		my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
-		my $ai_data_str;
 		if ($encoder->ai_data_str($code)) {
-			$ai_data_str = $encoder->ai_data_str();
-			if ($ai_data_str =~ /^\(01\)(\d{1,14})$/) {
+			my $ai_data_str = $encoder->ai_data_str();
+			if ($ai_data_str =~ /^\(01\)(\d{1,14})/) {
 				return $1;
 			}
 		}
 	}
-	elsif ($code =~ /^\[.+/) {
+	elsif ($code =~ /^\^.+/) {
 		# Code could be a GS1 unbracketed AI element string
 		my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
 		if ($encoder->data_str($code)) {
-			$ai_data_str = $encoder->ai_data_str();
-			if ($ai_data_str =~ /^\(01\)(\d{1,14})$/) {
+			my $ai_data_str = $encoder->ai_data_str();
+			if ($ai_data_str =~ /^\(01\)(\d{1,14})/) {
 				return $1;
 			}
 		}
@@ -338,8 +337,8 @@ sub _try_normalize_code_gs1 ($code) {
 		# Code could be a GS1 unbracketed AI element string
 		my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
 		if ($encoder->data_str($code)) {
-			$ai_data_str = $encoder->ai_data_str();
-			if ($ai_data_str =~ /^\(01\)(\d{1,14})$/) {
+			my $ai_data_str = $encoder->ai_data_str();
+			if ($ai_data_str =~ /^\(01\)(\d{1,14})/) {
 				return $1;
 			}
 		}
