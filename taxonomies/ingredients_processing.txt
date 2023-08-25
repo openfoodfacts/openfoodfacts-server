@@ -288,18 +288,22 @@ en:nibbed
 
 #de:in Sticks geschnitten
 
-en:crushed
+#en:description:Mechanical processing of grain or other feed materials to reduce their size
+en:crushed, crushing
 bg:натрошенo, натрошен, натрошена, натрошени
 es:aplastada, aplastado, aplastadas, aplastados,triturado,triturada,triturados,trituradas
 fi:murskattu, murskatut
-fr:concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées
+fr:concassé, concassée, concassés, concassées, broyé, broyée, broyés, broyées, broyage
+hr:izdrobljeno, smrvljeno
 hu:zúzott, összetörve, összetört
 nl:gebroken
 pt:triturado, triturada, triturados, trituradas, esmagado, esmagada, esmagados, esmagadas
 sv:krossad
 
-en:agglomerated
-hr:aglomerirani
+#en:description:Special shaping by compression through a die
+en:pellet, pelleted, agglomerated
+fr:aggloméré
+hr:aglomerirani, peleta, peletirano
 
 <en:agglomerated
 en:rolled
@@ -484,6 +488,7 @@ fr:brisures
 nl:schilfers
 pt:descadado, descamada
 
+#en:description:rolling of moist heat-treated material
 en:flakes
 bg:люспи, люспи от
 ca:flocs, flocs de, flocs d'
@@ -582,7 +587,8 @@ wikidata:en:Q2908004
 
 #comment:en:Not all languages use (have?) a separate word for flour, but use powder instead
 #<en:powdered
-en:flour
+#en:description:Physical processing of grain to reduce particle size and facilitate separation into constituent fractions (principally flour, bran and middlings)
+en:flour, bran, middlings, feed
 bg:брашно, брашно от
 ca:Farina d'
 cs:mouka, mouka z
@@ -595,6 +601,7 @@ et:jahu
 #fi:jauho
 fr:Farine de
 he:קמח אורז
+hr:brašno, posije, prekrupa
 hu:liszt
 is:mjöl
 it:farina di, farina d'
@@ -731,7 +738,8 @@ nl:schilletjes
 en:zest
 
 # en:description:The soft center of a fruit
-en:pulp
+#<en:pressed
+en:pulp, pomace, pressed pulp
 bg:пулп, пулп от
 ca:polpa, polpa de
 cs:dřeň, dužina
@@ -743,6 +751,7 @@ fr:pulpe, pulpe de, pulpe d', en pulpe
 #fr:false:avec pulpe
 gl:Polpa
 he:בקבוקון מיץ
+hr:pulpa, komina, prešana pulp
 hu:bél, velő
 it:polpa, polpa di, polpa d'
 ja:パルプ
@@ -892,7 +901,7 @@ es:concentrado, concentrada, concentrados, concentradas
 fa:کنسانتره
 fi:tiivistetty, tiiviste, tiivisteitä
 fr:concentré, concentrée, concentrés, concentrées, concentré de
-hr:iz koncentrata, koncentriran, koncentrirani, koncentrani, koncentrat, koncentrat za, koncentrati, od koncentrata
+hr:iz koncentrata, koncentriran, koncentrirani, koncentrani, koncentrat, koncentrat za, koncentrati, od koncentrata, konc
 hu:sűrítmény, sűrített, koncentrátum
 it:concentrato, concentrato di, concentrato d', concentrati, concentrata, concentrate
 ja:濃縮
@@ -974,6 +983,7 @@ ro:din concentrat
 sk:z koncentrátu
 sv:från koncentrat
 
+#en:description:Dehydration by artificial or natural processes
 en:dried, dry
 ar:مجف
 bg:изсушен, изсушено, изсушена, изсушени, сушен, сушено, сушена, сушени
@@ -1140,6 +1150,7 @@ en:partially reconstituted
 pl:częściowo odtworzony, częściowo odtworzone, częściowo odtworzona, częściowo odtworzonego, częściowo odtworzonej, częściowo odtworzonych
 pt:parcialmente reconstituído, parcialmente reconstituída, parcialmente reconstituídos, parcialmente reconstituídas
 
+#en:description:Removal either by organic solvent of fat or oil from certain materials or by aqueous solvent of sugar or other water-soluble components. In the case of the use of organic solvent, the resulting product must be technically free of such solvent.
 en:extract, extracts, extracted, extract of, extracts of, extractive, extractives, extractives of
 bg:екстракт, екстракт от
 ca:extracte
@@ -1173,18 +1184,23 @@ fr:extrait naturel de, extrait naturel d'
 pl:naturalny ekstrakt, naturalny ekstrakt z, naturalne ekstrakty z, naturalne ekstrakty, naturalny wyciąg, naturalny wyciąg z, naturalne wyciągi z, naturalne wyciągi
 pt:extrato natural, extratos naturais, extracto natural, extractos naturais, extrato natural de, extratos naturais de, extracto natural de, extractos naturais de, extrato natural da, extratos naturais da, extracto natural da, extractos naturais da
 
+#en:description:Pressing of material through an orifice under pressure.
+en:extruded
+fr:extrudé
+hr:ekstrudirane
 
 #fr:obtenu par extraction hydrique
 
-en:pressed, extraite par pression
+#en:description:removal by mechanical extraction (by a screw or other type of press), with or without a slight heating, of fat/oil from oil-rich materials or of juice from fruits or other vegetable products en:pressed, extraite par pression
 # en:false:compressed
+en:pressed, extraite par pression
 bg:пресовано, пресован, пресована, пресовани
 ca:premsat
 da:presset, pressede
 de:abgepresste
 es:espremido de, prensado, prensada
 fr:pressé, pressée, pressées
-hr:prešano
+hr:prešano, ekspeler, pogača, 
 hu:préselt, sajtolt
 #fr:false:à pâte pressée, fromage pressé
 it:spremuto, spremuta, spremuti, spremute, spremuto di, spremuta di, spremuto d', spremuta d'
@@ -1250,11 +1266,15 @@ it:Solidi di
 en:macerate
 hr:macerat
 
+#en:description:Modification of starch to improve markedly its swelling properties in cold water
 en:pregelatinisation, starch gelatinization
 hr:preželatinirano, preželatinizirano
 wikidata:en:Q7601513
-description:en:Modification of starch to significantly improve its swelling properties in cold water
-# reference: https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:31998L0067
+
+#en:description:mechanical separation of the component parts of kernel/grain, sometimes after steeping in water, with or without sulphur dioxide, for the extraction of starch
+#en:germ, gluten, starch, wet-milling
+#fr:germe, gluten, amidon
+#hr:klica, gluten, škrob
 
 #######################################################################
 #
@@ -1356,6 +1376,7 @@ pl:blanszowany, blanszowana, blanszowane, blanszowanych, blanszowanego, blanszow
 en:thermally processed
 hr:termički obrađena
 
+#en:description:General term covering a number of heat treatments carried out under specific conditions to influence the nutritional value or the structure of the material
 en:cooked, boiled
 bg:сготвено, сготвена, сготвен, сготвени, варено, варена, варен, варени
 cs:vařená
@@ -1364,7 +1385,7 @@ de:gekocht, gekochte, gekochter, gekochtes
 es:cocido, cocida, cocidos, cocidas
 fi:paistettu, keitetty, kypsennetty, kypsennetyt
 fr:cuit, cuite, cuits, cuites, cuit au naturel, cuite au naturel, cuits au naturel, cuites au naturel, cuisiné, cuisinée, cuisinés, cuisinées
-hr:kuhani, kuhano
+hr:kuhani, kuhano, tostirano, prženo, termički obrađeno
 hu:főtt, főzött
 id:rebus
 it:cotto, cotta, cotti, cotte, cotto al naturale, cotta al naturale, cotti al naturale, cotte al naturale, cucinato, cucinata, cucinati, cucinate
@@ -1412,6 +1433,7 @@ nl:gekarameliseerde, gekaramelliseerde
 pl:karmelizowany, karmelizowana, karmelizowane, karmelizowanego, karmelizowanej, karmelizowanych
 pt:caramelizado, caramelizada, caramelizados, caramelizadas
 
+#en:pregelatinisation
 en:puffed, inflated
 da:puffede
 de:gepufft, gepuffte, gepuffter, gepufftes, gepoppt, gepoppte, gepoppter
@@ -1669,6 +1691,7 @@ sv:kanderad, kanderade
 
 #<en:candied
 en:semi candied, semi-candied
+fr:semi-confit, semi confit
 
 #en:crystallized
 pt:cristalizado, cristalizada, cristalizados, cristalizadas
@@ -1771,6 +1794,16 @@ fr:irradié, irradiée, irradiés, irradiées
 
 en:non-irradiated, not treated with irradiation, without irradiation
 fr:non irradié, non irradiée, non irradiés, non irradiées, sans irradiation
+
+#en:description:complete or partial removal of impurities in sugars, oils, fats and other natural materials by chemical/physical treatment
+en:refined, partially refined
+fr:raffiné, partiellement raffiné
+hr:rafinirano, djelomično rafinirano
+
+#en:description:Complete or partial removal of mono- and disaccharides from molasses and other material containing sugar by chemical or physical means
+#en:Desugared, partially desugared
+#fr:Dessucré, partiellement dessucré
+#hr:bez šećera, sa smanjenom količinom šećera
 
 #######################################################################
 #
@@ -1994,20 +2027,22 @@ pt:nâo hidrogenada
 ro:nehidrogenate
 sv:ohärdad
 
+#en:description:Breakdown into simpler chemical constituents by appropriate treatment with water and possibly either enzymes or acid/alkali
 #en:hydrolysed, hydrolized
 #fr:Hydrolisé, hydrolisée
-#hr:hidrolizat, hidrolizirane
+#hr:hidrolizat, hidrolizirane, hidrolizirano
 #nl:gehydrolyseerd, gehydrolyseerde
 #pl:hydrolizat, hydrolizowane
 
-en:hydrogenated
+#en:description:Transformation of unsaturated glycerides into saturated glycerides (of oils and fats)
+en:hydrogenated, hardened, partially hardened
 bg:хидрогениран, хидрогенирано
 ca:hidrogenat, hidrogenada
 de:Gehärtetes
 es:hidrogenado
 fi:kovetettu, hydrogenoitu
 fr:hydrogénée
-hr:očvrsnuto
+hr:očvrsnuto, skrućeno, djelomično skrućeno
 hu:hidrogénezett
 it:idrogenato, idrogenati, idrogenata, idrogenate
 nl:Gehydrogeneerde
