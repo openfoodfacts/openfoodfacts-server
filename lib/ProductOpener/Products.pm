@@ -344,7 +344,7 @@ sub _try_normalize_code_gs1 ($code) {
 		}
 	}
 
-	return undef;
+	return;
 }
 
 # - When products are public, the _id is the code, and the path is of the form 123/456/789/0123

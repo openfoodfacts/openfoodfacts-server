@@ -21,10 +21,14 @@ is(normalize_code(' just a simple test 036000291452 here we go '),
 is(normalize_code(' just a simple test 036000291455 here we go '),
 	'036000291455', 'should not add leading 0 to cleaned invalid UPC12');
 is(normalize_code('(01)00012345000058(17)270101'), '00012345000058', 'should reduce GS1 AI bracketed string to GTIN');
-is(normalize_code('^00012345000058270101'), '00012345000058', 'should reduce GS1 AI unbracketed string with ^ as FNC1 to GTIN');
-is(normalize_code("\x{001d}00012345000058270101"), '00012345000058', 'should reduce GS1 AI unbracketed string with original FNC1 to GTIN');
-is(normalize_code("\x{241d}00012345000058270101"), '00012345000058', 'should reduce GS1 AI unbracketed string with GS as FNC1 to GTIN');
-is(normalize_code('https://id.gs1.org/01/09506000140445/22/2A'), '09506000140445', 'should reduce GS1 Digital Link URI string with ^ as FNC1 to GTIN');
+is(normalize_code('^00012345000058270101'),
+	'00012345000058', 'should reduce GS1 AI unbracketed string with ^ as FNC1 to GTIN');
+is(normalize_code("\x{001d}00012345000058270101"),
+	'00012345000058', 'should reduce GS1 AI unbracketed string with original FNC1 to GTIN');
+is(normalize_code("\x{241d}00012345000058270101"),
+	'00012345000058', 'should reduce GS1 AI unbracketed string with GS as FNC1 to GTIN');
+is(normalize_code('https://id.gs1.org/01/09506000140445/22/2A'),
+	'09506000140445', 'should reduce GS1 Digital Link URI string with ^ as FNC1 to GTIN');
 
 # product storage path
 is(product_path_from_id('not a real code'), 'invalid', 'non digit code should return "invalid"');
