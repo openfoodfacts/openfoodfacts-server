@@ -311,37 +311,41 @@ sub normalize_code ($code) {
 }
 
 sub _try_normalize_code_gs1 ($code) {
-	$code =~ s/[\N{U+001D}\N{U+241D}]/^/g; # Replace FNC1/<GS1> with ^ for the GS1Encoder to work
-	my $parsed_as_gs1 = 0;
-	if ($code =~ /^\(.+/) {
-		# Code could be a GS1 bracketed AI element string
-		my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
-		if ($encoder->ai_data_str($code)) {
-			my $ai_data_str = $encoder->ai_data_str();
-			if ($ai_data_str =~ /^\(01\)(\d{1,14})/) {
-				return $1;
+	eval {
+		my $parsed_as_gs1 = 0;
+		if ($code =~ /^\(.+/) {
+			# Code could be a GS1 bracketed AI element string
+			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
+			if ($encoder->ai_data_str($code)) {
+				my $ai_data_str = $encoder->ai_data_str();
+				if ($ai_data_str =~ /^\(01\)(\d{1,14})/) {
+					return $1;
+				}
 			}
 		}
-	}
-	elsif ($code =~ /^\^.+/) {
-		# Code could be a GS1 unbracketed AI element string
-		my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
-		if ($encoder->data_str($code)) {
-			my $ai_data_str = $encoder->ai_data_str();
-			if ($ai_data_str =~ /^\(01\)(\d{1,14})/) {
-				return $1;
+		elsif ($code =~ /^\^.+/) {
+			# Code could be a GS1 unbracketed AI element string
+			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
+			if ($encoder->data_str($code)) {
+				my $ai_data_str = $encoder->ai_data_str();
+				if ($ai_data_str =~ /^\(01\)(\d{1,14})/) {
+					return $1;
+				}
 			}
 		}
-	}
-	elsif ($code =~ /^http?s:\/\/.+/) {
-		# Code could be a GS1 unbracketed AI element string
-		my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
-		if ($encoder->data_str($code)) {
-			my $ai_data_str = $encoder->ai_data_str();
-			if ($ai_data_str =~ /^\(01\)(\d{1,14})/) {
-				return $1;
+		elsif ($code =~ /^http?s:\/\/.+/) {
+			# Code could be a GS1 unbracketed AI element string
+			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
+			if ($encoder->data_str($code)) {
+				my $ai_data_str = $encoder->ai_data_str();
+				if ($ai_data_str =~ /^\(01\)(\d{1,14})/) {
+					return $1;
+				}
 			}
 		}
+	};
+	if ($@) {
+		$log->warn("GS1Parser error", {error => $@}) if $log->is_warn();
 	}
 
 	return;
