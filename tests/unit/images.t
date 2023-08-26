@@ -1,13 +1,13 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use Test::More;
-#use Log::Any::Adapter 'TAP', filter => "none";
-use Log::Any::Adapter 'TAP', filter => "info";
+use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Images qw/:all/;
+
+use File::Basename 'dirname';
 
 # get_code_and_imagefield_from_file_name tests
 
@@ -38,6 +38,23 @@ foreach my $test_ref (@tests) {
 	my ($code, $imagefield) = get_code_and_imagefield_from_file_name($test_ref->[0], $test_ref->[1]);
 	is($code, $test_ref->[2]);
 	is($imagefield, $test_ref->[3]);
+}
+
+# scan_code tests based on GS1-US-Barcode-Capabilities-Test-Kit-Version-1.pdf
+
+my @scan_code_tests = (
+
+	["01_upc_a.jpg",			"0725272730706"],
+	["02_upc_e.jpg",			"01234565"],
+	["03_itf_13.jpg",			"0012345123456"],
+	["04_gs1_128.jpg",			"01234567890128"],
+	["05_gs1_databar_omni.jpg",	"00123456789012"]
+);
+
+my $sample_products_images_path = dirname(__FILE__) . "/inputs/images/";
+foreach my $test_ref (@scan_code_tests) {
+	my $code = scan_code($sample_products_images_path .  $test_ref->[0]);
+	is($code, $test_ref->[1], $test_ref->[0] . ' is expected to return "' . $test_ref->[1] . '" instead of "' . $code . '"');
 }
 
 done_testing();
