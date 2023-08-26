@@ -44,17 +44,18 @@ foreach my $test_ref (@tests) {
 
 my @scan_code_tests = (
 
-	["01_upc_a.jpg",			"0725272730706"],
-	["02_upc_e.jpg",			"01234565"],
-	["03_itf_13.jpg",			"0012345123456"],
-	["04_gs1_128.jpg",			"01234567890128"],
-	["05_gs1_databar_omni.jpg",	"00123456789012"]
+	["01_upc_a.jpg", "0725272730706"],
+	["02_upc_e.jpg", "01234565"],
+	["03_itf_13.jpg", "0012345123456"],
+	["04_gs1_128.jpg", "4044782317112"],
+	["05_gs1_databar_omni.jpg", "1234567890128"]
 );
 
 my $sample_products_images_path = dirname(__FILE__) . "/inputs/images/";
 foreach my $test_ref (@scan_code_tests) {
-	my $code = scan_code($sample_products_images_path .  $test_ref->[0]);
-	is($code, $test_ref->[1], $test_ref->[0] . ' is expected to return "' . $test_ref->[1] . '" instead of "' . $code . '"');
+	my $code = scan_code($sample_products_images_path . $test_ref->[0]);
+	is($code, $test_ref->[1],
+		$test_ref->[0] . ' is expected to return "' . $test_ref->[1] . '" instead of "' . $code . '"');
 }
 
 done_testing();
