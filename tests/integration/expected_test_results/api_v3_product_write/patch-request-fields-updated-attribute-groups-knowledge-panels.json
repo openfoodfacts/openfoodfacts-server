@@ -1,0 +1,861 @@
+{
+   "code" : "1234567890009",
+   "errors" : [],
+   "product" : {
+      "attribute_groups" : [
+         {
+            "attributes" : [
+               {
+                  "description" : "",
+                  "description_short" : "Missing data to compute the Nutri-Score",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nutriscore-unknown.svg",
+                  "id" : "nutriscore",
+                  "match" : 0,
+                  "name" : "Nutri-Score",
+                  "panel_id" : "nutriscore",
+                  "status" : "unknown",
+                  "title" : "Nutri-Score unknown"
+               },
+               {
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nutrient-level-salt-unknown.svg",
+                  "id" : "low_salt",
+                  "missing" : "Missing nutrition facts",
+                  "name" : "Salt",
+                  "status" : "unknown",
+                  "title" : "Salt in unknown quantity"
+               },
+               {
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nutrient-level-fat-unknown.svg",
+                  "id" : "low_fat",
+                  "missing" : "Missing nutrition facts",
+                  "name" : "Fat",
+                  "status" : "unknown",
+                  "title" : "Fat in unknown quantity"
+               },
+               {
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nutrient-level-sugars-unknown.svg",
+                  "id" : "low_sugars",
+                  "missing" : "Missing nutrition facts",
+                  "name" : "Sugars",
+                  "status" : "unknown",
+                  "title" : "Sugars in unknown quantity"
+               },
+               {
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nutrient-level-saturated-fat-unknown.svg",
+                  "id" : "low_saturated_fat",
+                  "missing" : "Missing nutrition facts",
+                  "name" : "Saturated fat",
+                  "status" : "unknown",
+                  "title" : "Saturated fat in unknown quantity"
+               }
+            ],
+            "id" : "nutritional_quality",
+            "name" : "Nutritional quality"
+         },
+         {
+            "attributes" : [
+               {
+                  "debug" : "missing ingredients list",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/gluten-content-unknown.svg",
+                  "id" : "allergens_no_gluten",
+                  "name" : "Gluten",
+                  "panel_id" : "ingredients",
+                  "status" : "unknown",
+                  "title" : "Presence unknown: Gluten"
+               },
+               {
+                  "debug" : "missing ingredients list",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/milk-content-unknown.svg",
+                  "id" : "allergens_no_milk",
+                  "name" : "Milk",
+                  "panel_id" : "ingredients",
+                  "status" : "unknown",
+                  "title" : "Presence unknown: Milk"
+               },
+               {
+                  "debug" : "missing ingredients list",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/eggs-content-unknown.svg",
+                  "id" : "allergens_no_eggs",
+                  "name" : "Eggs",
+                  "panel_id" : "ingredients",
+                  "status" : "unknown",
+                  "title" : "Presence unknown: Eggs"
+               },
+               {
+                  "debug" : "missing ingredients list",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nuts-content-unknown.svg",
+                  "id" : "allergens_no_nuts",
+                  "name" : "Nuts",
+                  "panel_id" : "ingredients",
+                  "status" : "unknown",
+                  "title" : "Presence unknown: Nuts"
+               },
+               {
+                  "debug" : "missing ingredients list",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/peanuts-content-unknown.svg",
+                  "id" : "allergens_no_peanuts",
+                  "name" : "Peanuts",
+                  "panel_id" : "ingredients",
+                  "status" : "unknown",
+                  "title" : "Presence unknown: Peanuts"
+               },
+               {
+                  "debug" : "missing ingredients list",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/sesame-seeds-content-unknown.svg",
+                  "id" : "allergens_no_sesame_seeds",
+                  "name" : "Sesame seeds",
+                  "panel_id" : "ingredients",
+                  "status" : "unknown",
+                  "title" : "Presence unknown: Sesame seeds"
+               },
+               {
+                  "debug" : "missing ingredients list",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/soybeans-content-unknown.svg",
+                  "id" : "allergens_no_soybeans",
+                  "name" : "Soybeans",
+                  "panel_id" : "ingredients",
+                  "status" : "unknown",
+                  "title" : "Presence unknown: Soybeans"
+               },
+               {
+                  "debug" : "missing ingredients list",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/celery-content-unknown.svg",
+                  "id" : "allergens_no_celery",
+                  "name" : "Celery",
+                  "panel_id" : "ingredients",
+                  "status" : "unknown",
+                  "title" : "Presence unknown: Celery"
+               },
+               {
+                  "debug" : "missing ingredients list",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/mustard-content-unknown.svg",
+                  "id" : "allergens_no_mustard",
+                  "name" : "Mustard",
+                  "panel_id" : "ingredients",
+                  "status" : "unknown",
+                  "title" : "Presence unknown: Mustard"
+               },
+               {
+                  "debug" : "missing ingredients list",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/lupin-content-unknown.svg",
+                  "id" : "allergens_no_lupin",
+                  "name" : "Lupin",
+                  "panel_id" : "ingredients",
+                  "status" : "unknown",
+                  "title" : "Presence unknown: Lupin"
+               },
+               {
+                  "debug" : "missing ingredients list",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/fish-content-unknown.svg",
+                  "id" : "allergens_no_fish",
+                  "name" : "Fish",
+                  "panel_id" : "ingredients",
+                  "status" : "unknown",
+                  "title" : "Presence unknown: Fish"
+               },
+               {
+                  "debug" : "missing ingredients list",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/crustaceans-content-unknown.svg",
+                  "id" : "allergens_no_crustaceans",
+                  "name" : "Crustaceans",
+                  "panel_id" : "ingredients",
+                  "status" : "unknown",
+                  "title" : "Presence unknown: Crustaceans"
+               },
+               {
+                  "debug" : "missing ingredients list",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/molluscs-content-unknown.svg",
+                  "id" : "allergens_no_molluscs",
+                  "name" : "Molluscs",
+                  "panel_id" : "ingredients",
+                  "status" : "unknown",
+                  "title" : "Presence unknown: Molluscs"
+               },
+               {
+                  "debug" : "missing ingredients list",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/sulphur-dioxide-and-sulphites-content-unknown.svg",
+                  "id" : "allergens_no_sulphur_dioxide_and_sulphites",
+                  "name" : "Sulphur dioxide and sulphites",
+                  "panel_id" : "ingredients",
+                  "status" : "unknown",
+                  "title" : "Presence unknown: Sulphur dioxide and sulphites"
+               }
+            ],
+            "id" : "allergens",
+            "name" : "Allergens",
+            "warning" : "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
+         },
+         {
+            "attributes" : [
+               {
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/vegan-status-unknown.svg",
+                  "id" : "vegan",
+                  "name" : "Vegan",
+                  "panel_id" : "ingredients",
+                  "status" : "unknown",
+                  "title" : "Vegan status unknown"
+               },
+               {
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/vegetarian-status-unknown.svg",
+                  "id" : "vegetarian",
+                  "name" : "Vegetarian",
+                  "panel_id" : "ingredients",
+                  "status" : "unknown",
+                  "title" : "Vegetarian status unknown"
+               },
+               {
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/palm-oil-content-unknown.svg",
+                  "id" : "palm_oil_free",
+                  "name" : "Palm oil free",
+                  "panel_id" : "ingredients",
+                  "status" : "unknown",
+                  "title" : "Palm oil content unknown"
+               }
+            ],
+            "id" : "ingredients_analysis",
+            "name" : "Ingredients"
+         },
+         {
+            "attributes" : [
+               {
+                  "description" : "",
+                  "description_short" : "Food processing level unknown",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nova-group-unknown.svg",
+                  "id" : "nova",
+                  "match" : 0,
+                  "name" : "NOVA group",
+                  "panel_id" : "nova",
+                  "status" : "unknown",
+                  "title" : "NOVA not computed"
+               },
+               {
+                  "description" : "",
+                  "description_short" : "",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/additives-unknown.svg",
+                  "id" : "additives",
+                  "match" : 0,
+                  "missing" : "Missing ingredients list",
+                  "name" : "Additives",
+                  "panel_id" : "additives",
+                  "status" : "unknown",
+                  "title" : "Additives not computed"
+               }
+            ],
+            "id" : "processing",
+            "name" : "Food processing"
+         },
+         {
+            "attributes" : [
+               {
+                  "description" : "",
+                  "description_short" : "Unknown environmental impact",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-unknown.svg",
+                  "id" : "ecoscore",
+                  "match" : 0,
+                  "name" : "Eco-Score",
+                  "panel_id" : "ecoscore",
+                  "status" : "unknown",
+                  "title" : "Eco-Score not computed"
+               },
+               {
+                  "description" : "",
+                  "description_short" : "Currently only for products with chicken or eggs",
+                  "grade" : "e",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/forest-footprint-not-computed.svg",
+                  "id" : "forest_footprint",
+                  "match" : 0,
+                  "name" : "Forest footprint",
+                  "status" : "known",
+                  "title" : "Forest footprint not computed"
+               }
+            ],
+            "id" : "environment",
+            "name" : "Environment"
+         },
+         {
+            "attributes" : [
+               {
+                  "description" : "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.",
+                  "description_short" : "Organic products promote ecological sustainability and biodiversity.",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/organic-unknown.svg",
+                  "id" : "labels_organic",
+                  "name" : "Organic farming",
+                  "status" : "unknown",
+                  "title" : "Missing information: organic product?"
+               },
+               {
+                  "description" : "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards.",
+                  "description_short" : "Fair trade products help producers in developing countries.",
+                  "grade" : "unknown",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/fair-trade-unknown.svg",
+                  "id" : "labels_fair_trade",
+                  "name" : "Fair trade",
+                  "status" : "unknown",
+                  "title" : "Missing information: fair trade product?"
+               }
+            ],
+            "id" : "labels",
+            "name" : "Labels"
+         }
+      ],
+      "knowledge_panels" : {
+         "ecoscore" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_categories"
+                     ],
+                     "html" : "Could you add a precise product category so that we can compute the Eco-Score?"
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "unknown",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-unknown.svg",
+               "title" : "Eco-Score not computed - Unknown environmental impact",
+               "type" : "grade"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "environment_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ecoscore"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "packaging_recycling",
+                     "panel_ids" : [
+                        "packaging_recycling"
+                     ],
+                     "title" : "Packaging"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "origins_of_ingredients"
+                     ],
+                     "title" : "Transportation"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Environment"
+            },
+            "topics" : [
+               "environment"
+            ],
+            "type" : "card"
+         },
+         "health_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "nutrition",
+                     "panel_ids" : [
+                        "nutriscore"
+                     ],
+                     "title" : "Nutrition",
+                     "type" : "subcard"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "nutrition_facts_table"
+                     ],
+                     "title" : ""
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "ingredients",
+                     "panel_ids" : [
+                        "ingredients"
+                     ],
+                     "title" : "Ingredients",
+                     "type" : "subcard"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "nova"
+                     ],
+                     "title" : "Food processing"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Health"
+            },
+            "topics" : [
+               "health"
+            ],
+            "type" : "card"
+         },
+         "ingredients" : {
+            "elements" : [
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_ingredients_text"
+                     ],
+                     "html" : "Could you add the ingredients list?"
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "evaluation" : "unknown",
+            "expand_for" : "large",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/ingredients.svg",
+               "title" : "Ingredients are missing"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nova" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n\n    \n       The ingredients of the product must be specified in order to determine the NOVA group.\n    \n\n"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>Food products are classified into 4 groups according to their degree of processing:</p>\n<ol>\n<li>Unprocessed or minimally processed foods</li>\n<li>Processed culinary ingredients</li>\n<li>Processed foods</li>\n<li>Ultra processed foods</li>\n</ol>\n<br>\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nova\">Learn more about the NOVA classification</a></p>\n"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_ingredients_image"
+                     ],
+                     "html" : "Take a photo of the ingredients"
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nova-group-unknown.svg",
+               "title" : "Food processing level unknown"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "The category of the product must be specified in order to compute the Nutri-Score.\n                    ",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "The nutrition facts of the product must be specified in order to compute the Nutri-Score.\n                    ",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_categories",
+                        "add_nutrition_facts"
+                     ],
+                     "html" : "Could you add the information needed to compute the Nutri-Score?"
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : ""
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nutriscore\">Learn more about the Nutri-Score</a></p>\n"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "unknown",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nutriscore-unknown.svg",
+               "subtitle" : "Missing category and nutrition facts",
+               "title" : "Missing data to compute the Nutri-Score",
+               "type" : "grade"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutrition_facts_table" : {
+            "elements" : [
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "style" : "max-width:15rem",
+                           "text" : "Nutrition facts",
+                           "type" : "text"
+                        },
+                        {
+                           "column_group_id" : "product",
+                           "shown_by_default" : true,
+                           "text" : "As sold<br>for 100 g / 100 ml",
+                           "text_for_small_screens" : "100g",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "nutrition_facts_table",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fat"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 1,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Saturated fat"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Carbohydrates"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 1,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sugars"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fiber"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Proteins"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Salt"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Nutrition facts"
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
+            "expand_for" : "large",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/scale-balance.svg",
+               "title" : "Nutrition facts"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "origins_of_ingredients" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                The origins of the ingredients of this product are not indicated.<br><br>\n                If they are indicated on the packaging, you can modify the product sheet and add them.<br><br>\n                If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>.\n                    ",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_origins"
+                     ],
+                     "html" : "Add the origins of ingredients for this product"
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "evaluation" : "unknown",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
+               "subtitle" : "Missing origins of ingredients information",
+               "title" : "Origins of ingredients"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging_components" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "evaluation" : "neutral",
+                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Bag\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "icon_alt" : "Unknown",
+                     "icon_color_from_evaluation" : true,
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Packaging parts"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging_materials" : {
+            "elements" : [
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Material",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "%",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Packaging weight",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "packaging_materials",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Plastic"
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Packaging materials"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Packaging materials"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging_recycling" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_components"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_materials"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
+               "title" : "Packaging with a medium impact"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "health_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "environment_card"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "type" : "root"
+         }
+      },
+      "packagings" : [
+         {
+            "material" : {
+               "id" : "en:plastic",
+               "lc_name" : "Plastic"
+            },
+            "number_of_units" : 1,
+            "shape" : {
+               "id" : "en:bag",
+               "lc_name" : "Bag"
+            }
+         }
+      ]
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "id" : "recycling",
+            "value" : null
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      }
+   ]
+}

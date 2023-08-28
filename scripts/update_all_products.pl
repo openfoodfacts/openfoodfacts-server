@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -75,6 +75,8 @@ use ProductOpener::Packaging qw(:all);
 use ProductOpener::ForestFootprint qw(:all);
 use ProductOpener::MainCountries qw(:all);
 use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::API qw/:all/;
+use ProductOpener::LoadData qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -114,6 +116,7 @@ my $run_ocr = '';
 my $autorotate = '';
 my $remove_team = '';
 my $remove_label = '';
+my $remove_category = '';
 my $remove_nutrient = '';
 my $remove_old_carbon_footprint = '';
 my $fix_spanish_ingredientes = '';
@@ -133,6 +136,9 @@ my $fix_nutrition_data = '';
 my $compute_main_countries = '';
 my $prefix_packaging_tags_with_language = '';
 my $fix_non_string_ids = '';
+my $assign_ciqual_codes = '';
+my $obsolete = 0;
+my $fix_obsolete;
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -172,6 +178,7 @@ GetOptions(
 	"fix-yuka-salt" => \$fix_yuka_salt,
 	"remove-team=s" => \$remove_team,
 	"remove-label=s" => \$remove_label,
+	"remove-category=s" => \$remove_category,
 	"remove-nutrient=s" => \$remove_nutrient,
 	"remove-old-carbon-footprint" => \$remove_old_carbon_footprint,
 	"fix-spanish-ingredientes" => \$fix_spanish_ingredientes,
@@ -186,6 +193,9 @@ GetOptions(
 	"fix-nutrition-data" => \$fix_nutrition_data,
 	"compute-main-countries" => \$compute_main_countries,
 	"prefix-packaging-tags-with-language" => \$prefix_packaging_tags_with_language,
+	"assign-ciqual-codes" => \$assign_ciqual_codes,
+	"obsolete" => \$obsolete,
+	"fix-obsolete" => \$fix_obsolete,
 ) or die("Error in command line arguments:\n\n$usage");
 
 use Data::Dumper;
@@ -194,9 +204,6 @@ print Dumper(\@fields_to_update);
 
 @fields_to_update = split(/,/, join(',', @fields_to_update));
 
-use Data::Dumper;
-
-# simple procedural interface
 print Dumper(\@fields_to_update);
 
 if ((defined $team) and ($team ne "")) {
@@ -209,8 +216,7 @@ my $unknown_fields = 0;
 
 foreach my $field (@fields_to_update) {
 	if (    (not defined $tags_fields{$field})
-		and (not defined $taxonomy_fields{$field})
-		and (not defined $hierarchy_fields{$field}))
+		and (not defined $taxonomy_fields{$field}))
 	{
 		print "Unknown field: $field\n";
 		$unknown_fields++;
@@ -243,6 +249,7 @@ if (    (not $process_ingredients)
 	and (not $fix_non_string_ids)
 	and (not $compute_sort_key)
 	and (not $remove_team)
+	and (not $remove_category)
 	and (not $remove_label)
 	and (not $remove_nutrient)
 	and (not $remove_old_carbon_footprint)
@@ -260,25 +267,11 @@ if (    (not $process_ingredients)
 	and (scalar @fields_to_update == 0)
 	and (not $count)
 	and (not $just_print_codes)
-	and (not $prefix_packaging_tags_with_language))
+	and (not $prefix_packaging_tags_with_language)
+	and (not $assign_ciqual_codes)
+	and (not $fix_obsolete))
 {
 	die("Missing fields to update or --count option:\n$usage");
-}
-
-if ($compute_ecoscore) {
-
-	init_packaging_taxonomies_regexps();
-	load_agribalyse_data();
-	load_ecoscore_data();
-}
-
-if ($compute_forest_footprint) {
-
-	load_forest_footprint_data();
-}
-
-if ($compute_main_countries) {
-	load_scans_data();
 }
 
 # Make sure we have a user id and we will use a new .sto file for all edits that change values entered by users
@@ -287,6 +280,8 @@ if ((not defined $User_id) and (($fix_serving_size_mg_to_ml) or ($fix_missing_lc
 		"Missing --user-id. We must have a user id and we will use a new .sto file for all edits that change values entered by users.\n"
 	);
 }
+
+load_data();
 
 # Get a list of all products not yet updated
 # Use query filters entered using --query categories_tags=en:plant-milks
@@ -350,6 +345,10 @@ if ((defined $remove_label) and ($remove_label ne "")) {
 	$query_ref->{labels_tags} = $remove_label;
 }
 
+if ((defined $remove_category) and ($remove_category ne "")) {
+	$query_ref->{categories_tags} = $remove_category;
+}
+
 if (defined $key) {
 	$query_ref->{update_key} = {'$ne' => "$key"};
 }
@@ -365,7 +364,15 @@ use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
 my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
-my $products_collection = get_products_collection($socket_timeout_ms);
+
+# Collection that will be used to iterate products
+my $products_collection = get_products_collection({obsolete => $obsolete, timeout => $socket_timeout_ms});
+
+# Collections for saving current / obsolete products
+my %products_collections = (
+	current => get_products_collection({timeout => $socket_timeout_ms}),
+	obsolete => get_products_collection({obsolete => $obsolete, timeout => $socket_timeout_ms}),
+);
 
 my $products_count = "";
 
@@ -392,6 +399,7 @@ my $n = 0;    # number of products updated
 my $m = 0;    # number of products with a new version created
 
 my $fix_rev_not_incremented_fixed = 0;
+my $fix_obsolete_fixed = 0;
 
 # Used to get stats on fields deleted by an user
 my %deleted_fields = ();
@@ -415,6 +423,11 @@ if ($prefix_packaging_tags_with_language) {
 }
 
 while (my $product_ref = $cursor->next) {
+
+	# Response structure to keep track of warnings and errors
+	# Note: currently some warnings and errors are added,
+	# but we do not yet do anything with them
+	my $response_ref = get_initialized_response();
 
 	my $productid = $product_ref->{_id};
 	my $code = $product_ref->{code};
@@ -540,6 +553,12 @@ while (my $product_ref = $cursor->next) {
 			remove_tag($product_ref, "labels", $remove_label);
 			$product_ref->{labels} = join(',', @{$product_ref->{labels_tags}});
 			compute_field_tags($product_ref, $product_ref->{lc}, "labels");
+		}
+
+		if ((defined $remove_category) and ($remove_category ne "")) {
+			remove_tag($product_ref, "categories", $remove_category);
+			$product_ref->{categories} = join(',', @{$product_ref->{categories_tags}});
+			compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 		}
 
 		if ((defined $remove_nutrient) and ($remove_nutrient ne "")) {
@@ -1207,11 +1226,7 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($process_packagings) {
-			# Until we provide an interface to directly change the packaging data structure
-			# erase it before reconstructing it
-			# (otherwise there is no way to remove incorrect entries)
-			$product_ref->{packagings} = [];
-			analyze_and_combine_packaging_data($product_ref);
+			analyze_and_combine_packaging_data($product_ref, $response_ref);
 		}
 
 		if ($compute_ecoscore) {
@@ -1326,6 +1341,10 @@ while (my $product_ref = $cursor->next) {
 			}
 		}
 
+		if ($assign_ciqual_codes) {
+			assign_ciqual_codes($product_ref);
+		}
+
 		if (not $pretend) {
 			$product_ref->{update_key} = $key;
 
@@ -1353,7 +1372,25 @@ while (my $product_ref = $cursor->next) {
 				# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
 				$product_ref->{_id} .= '';
 				$product_ref->{code} .= '';
-				$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+				my $collection = "current";
+				if ($product_ref->{obsolete}) {
+					$collection = "obsolete";
+				}
+				$products_collections{$collection}
+					->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+
+				# If the obsolete flag of the product does not
+				# correspond to the collection we are iterating over
+				# delete the product from the collection
+				if (
+					$fix_obsolete
+					and (  ($obsolete and not $product_ref->{obsolete})
+						or ((not $obsolete) and $product_ref->{obsolete}))
+					)
+				{
+					$products_collection->delete_one({"_id" => $product_ref->{_id}});
+					$fix_obsolete_fixed++;
+				}
 			}
 		}
 
@@ -1402,6 +1439,10 @@ if ($prefix_packaging_tags_with_language) {
 }
 
 print "$n products updated (pretend: $pretend) - $m new versions created\n";
+
+if ($fix_obsolete_fixed) {
+	print "$fix_obsolete_fixed removed from wrong collection (obsolete or current)\n";
+}
 
 if ($fix_rev_not_incremented_fixed) {
 	print "$fix_rev_not_incremented_fixed rev fixed\n";

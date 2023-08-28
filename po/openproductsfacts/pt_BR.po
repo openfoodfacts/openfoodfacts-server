@@ -11,12 +11,12 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: pt-BR\n"
-"X-Crowdin-File-ID: 2544\n"
+"X-Crowdin-File-ID: 3129\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openproductsfacts.org/images/apps/off.apk"
-msgstr "https://world.openproductsfacts.org/images/apps/off.apk"
+msgstr "https://br.openproductsfacts.org/images/apps/off.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
@@ -28,24 +28,14 @@ msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/pt/app/open-beauty-facts/id1122926380"
 
-#. make sure the image exists with your country code at https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-XX-178x150.png. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openproductsfacts-logo-en-178x150.png"
-msgstr "openproductsfacts-logo-en-178x150.png"
-
-#. make sure the image exists with your country code at https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-XX-356x300.png. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openproductsfacts-logo-en-356x300.png"
-msgstr "openproductsfacts-logo-en-356x300.png"
-
 msgctxt "site_name"
 msgid "Open Products Facts"
 msgstr "Open Products Facts"
 
 #. change https://www.microsoft.com/en-us/p/ to https://www.microsoft.com/fr-fr/p/ (for instance) and make sure the url works
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/pt-pt/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
+msgstr ""
 
 msgctxt "tagline"
 msgid "Open Products Facts gathers information and data on products from around the world."
@@ -62,7 +52,7 @@ msgstr "Esta página de produto não está completa. Pode ajudar a completá-la 
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Products Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Products Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://pt.openfoodfacts.org/fazer-um-donativo-ao-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Products Facts\" /></a><p><site_name>> é feito por uma associação sem fins lucrativos, independente do setor. É feito para todos, por todos, e é financiado por todos. Pode apoiar o nosso trabalho <a href=\"https://pt.openfoodfacts.org/fazer-um-donativo-ao-open-food-facts\">doando para o Open Products Facts</a> e também <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">usando o mecanismo de busca Lilo</a>.<br/><b>Obrigado!</b></p>"
+msgstr "<a href=\"https://br.openfoodfacts.org/fazer-um-donativo-ao-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Doar ao Open Products Facts\" /></a><p><<site_name>> é feito por uma associação sem fins lucrativos, independente do setor. É feito para todos, por todos, e financiado por todos. Você pode apoiar nosso trabalho <a href=\"https://br.openfoodfacts.org/fazer-um-donativo-ao-open-food-facts\">doando para Open Products Facts</a> e também <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">usando o mecanismo de busca Lilo</a>.<br/><b>Obrigado!</b></p>"
 
 msgctxt "donate"
 msgid "Donate to Open Products Facts"

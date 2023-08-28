@@ -1,5 +1,20 @@
 {
    "lc" : "nl",
+   "misc_tags" : [
+      "en:packagings-number-of-components-1",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:plastic"
+   ],
+   "packaging_recycling_tags" : [
+      "en:recycle-with-plastics"
+   ],
+   "packaging_shapes_tags" : [
+      "en:unknown"
+   ],
    "packaging_text" : "overig bij plastic afval",
    "packagings" : [
       {
@@ -7,5 +22,10 @@
          "recycling" : "en:recycle-with-plastics",
          "shape" : "en:unknown"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 1
 }

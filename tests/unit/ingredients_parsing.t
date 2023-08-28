@@ -568,13 +568,64 @@ my @lists = (
 		"sunflower vegetable oils, colza vegetable oils and strawberry"
 	],
 
+	# Polish oils
+	["pl", "oleje roślinne (słonecznikowy)", "oleje roślinne słonecznikowy"],
+	["pl", "oleje roślinne: słonecznikowy", "oleje roślinne słonecznikowy"],
+	["pl", "oleje roślinne (słonecznikowy, rzepakowy)", "oleje roślinne słonecznikowy, oleje roślinne rzepakowy"],
+	[
+		"pl",
+		"oleje roślinne (sojowy, słonecznikowy, kokosowy, rzepakowy) w zmiennych proporcjach",
+		"oleje roślinne sojowy, oleje roślinne słonecznikowy, oleje roślinne kokosowy, oleje roślinne rzepakowy"
+	],
+	[
+		"pl",
+		"tłuszcze roślinne (palmowy nieutwardzony, shea)",
+		"tłuszcze roślinne palmowy nieutwardzony, tłuszcze roślinne shea"
+	],
+	[
+		"pl",
+		"tłuszcze roślinne (kokosowy i palmowy) w zmiennych proporcjach",
+		"tłuszcze roślinne kokosowy, tłuszcze roślinne palmowy"
+	],
+
+	# Polish meats
+	["pl", "mięso (wołowe, wieprzowe, cielęce)", "mięso wołowe, mięso wieprzowe, mięso cielęce"],
+
+	# Polish juices and concentrates
+	["pl", "przeciery z (jabłek, bananów, marchwi)", "przeciery z jabłek, przeciery z bananów, przeciery z marchwi"],
+
 	# Russian oils (more tests needed)
 	["ru", "масло (Подсолнечное)", "масло Подсолнечное"],
 	["ru", "Масло (подсолнечное)", "Масло подсолнечное"],
 	["ru", "масло растительное (подсолнечное, соевое)", "масло растительное подсолнечное, масло растительное соевое"],
 
 	# grammes -> g
-	["fr", "Teneur en fruits: 50gr pour 100 grammes", "Teneur en fruits: 50g pour 100 g"]
+	["fr", "Teneur en fruits: 50gr pour 100 grammes", "Teneur en fruits: 50g pour 100 g"],
+
+	# test conflicts between the word "and" in some languages and additives variants. With letters i or e or a.
+	[
+		"hr",
+		"bojilo: E 150a, tvari za rahljenje: E 500 i E 503, sol.",
+		"bojilo: e150a, tvari za rahljenje: e500, e503, sol."
+	],
+	[
+		"hr",
+		"bojilo: E 150a, tvari za rahljenje: E 500 i, E 503, sol.",
+		"bojilo: e150a, tvari za rahljenje: e500 i, e503, sol."
+	],
+	[
+		"hr",
+		"bojilo: E 150a, tvari za rahljenje: E 500(i), E 503, sol.",
+		"bojilo: e150a, tvari za rahljenje: e500i, e503, sol."
+	],
+	[
+		"hr",
+		"bojilo: E 150a, tvari za rahljenje: E 500i, E 503, sol.",
+		"bojilo: e150a, tvari za rahljenje: e500i, e503, sol."
+	],
+	["it", "formaggio, E 472 e, E470a.", "formaggio, e472 e, e470a."],
+	["it", "formaggio, E 472 e E470a.", "formaggio, e472, e470a."],
+	["sk", "syr, E470 a E470a, mlieko.", "syr, e470, e470a, mlieko."]
 );
 
 foreach my $test_ref (@lists) {

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -106,17 +106,19 @@ if ($action eq 'process') {
 
 	if ($type eq 'edit') {
 		if (single_param('delete') eq 'on') {
-			if ($admin) {
-				$type = 'delete';
-			}
-			else {
-				display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
-			}
+			$type = 'delete';
 		}
 	}
 
+	# change organization
 	if ($type eq 'edit_owner') {
-		ProductOpener::Users::check_edit_owner($user_ref, \@errors);
+		# only admin and pro moderators can change organization freely
+		if ($admin or $User{pro_moderator}) {
+			ProductOpener::Users::check_edit_owner($user_ref, \@errors);
+		}
+		else {
+			display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
+		}
 	}
 	elsif ($type ne 'delete') {
 		ProductOpener::Users::check_user_form($type, $user_ref, \@errors);
@@ -283,6 +285,11 @@ if ($action eq 'display') {
 				field => "org",
 				label => lang("organization"),
 				};
+			push @{$administrator_section_ref->{fields}},
+				{
+				field => "crm_user_id",
+				label => lang("crm_user_id"),
+				};
 			foreach my $group (@user_groups) {
 				push @{$administrator_section_ref->{fields}},
 					{
@@ -343,7 +350,7 @@ if ($action eq 'display') {
 			}
 
 			if (   ((defined $user_ref->{pro}) and ($user_ref->{pro}))
-				or ((defined $server_options{producers_platform}) and ($type eq "add")))
+				or (($server_options{producers_platform}) and ($type eq "add")))
 			{
 				if (($section_ref->{id} eq "professional") and $field_ref->{type} eq "checkbox") {
 					$field_ref->{value} = "on";
@@ -373,8 +380,6 @@ elsif ($action eq 'process') {
 
 		$template_data_ref->{user_org} = $user_ref->{org};
 
-		$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
-
 		my $pro_url = "https://" . $subdomain . ".pro." . $server_domain . "/";
 		$template_data_ref->{add_user_pro_url} = sprintf(lang("add_user_you_can_edit_pro_promo"), $pro_url);
 
@@ -387,11 +392,6 @@ elsif ($action eq 'process') {
 $template_data_ref->{debug} = $debug;
 $template_data_ref->{userid} = $userid;
 $template_data_ref->{type} = $type;
-
-my $full_width = 1;
-if ($action ne 'display') {
-	$full_width = 0;
-}
 
 if (($type eq "edit_owner") and ($action eq "process")) {
 	$log->info("redirecting to / after changing owner", {}) if $log->is_info();
@@ -412,6 +412,5 @@ else {
 
 	$request_ref->{title} = lang($type . '_user_' . $action);
 	$request_ref->{content_ref} = \$html;
-	$request_ref->{full_width} = $full_width;
 	display_page($request_ref);
 }

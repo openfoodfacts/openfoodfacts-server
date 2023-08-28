@@ -23,7 +23,17 @@
                 [% lang('ecoscore_platform_prompt_ecoscore_modal') %]
                     `
             }
-        }, 
+        },
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("action_add_origins") %]`,
+                "actions": [
+                    "add_origins",
+                ]
+            }
+        },
+    ],
 [% ELSE %]
     [% IF product.ecoscore_data.adjustments.origins_of_ingredients.value <= 0 %]
     "evaluation": "bad",
@@ -101,7 +111,7 @@
                     [% END %]
                 ]
             }
-        },   
+        },
+    ],
 [% END %]
-    ]
 }

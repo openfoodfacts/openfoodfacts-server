@@ -14,11 +14,14 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Nutriscore qw/:all/;
+use ProductOpener::NutritionCiqual qw/:all/;
+use ProductOpener::NutritionEstimation qw/:all/;
 use ProductOpener::Test qw/:all/;
 
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
-init_emb_codes();
+# Needed to compute estimated nutrients
+load_ciqual_data();
 
 my @tests = (
 
@@ -96,6 +99,42 @@ my @tests = (
 				fat_100g => 100,
 				"saturated-fat_100g" => 10,
 				sugars_100g => 0,
+				sodium_100g => 0,
+				fiber_100g => 0,
+				proteins_100g => 0
+			}
+		}
+	],
+
+	# if no sugar but carbohydrates is 0, consider sugar 0
+	[
+		"sunflower-oil-no-sugar",
+		{
+			lc => "en",
+			categories => "sunflower oils",
+			nutriments => {
+				energy_100g => 3378,
+				fat_100g => 100,
+				"saturated-fat_100g" => 10,
+				carbohydrates_100g => 0,
+				sodium_100g => 0,
+				fiber_100g => 0,
+				proteins_100g => 0
+			}
+		}
+	],
+
+	# if no sugar but carbohydrates is 0, consider sugar 0
+	# still saturated fat missing will block
+	[
+		"sunflower-oil-no-sugar-no-sat-fat",
+		{
+			lc => "en",
+			categories => "sunflower oils",
+			nutriments => {
+				energy_100g => 3378,
+				fat_100g => 100,
+				carbohydrates_100g => 0,
 				sodium_100g => 0,
 				fiber_100g => 0,
 				proteins_100g => 0
@@ -191,6 +230,7 @@ my @tests = (
 			ingredients_text => "Fresh milk 80%, sugar"
 		}
 	],
+
 	[
 		"dairy-drink-with-less-than-80-percent-milk",
 		{
@@ -244,6 +284,25 @@ my @tests = (
 				sodium_100g => 0.2,
 				fiber_100g => 1.1,
 				proteins_100g => 0.9
+			},
+		}
+
+	],
+
+	# if fat is 0 and we have no saturated fat, we consider it 0
+	[
+		"fr-orange-nectar-0-fat",
+		{
+			lc => "en",
+			categories => "fruit-nectar",
+			ingredients_text => "Orange 47%, Water, Sugar, Carrots 10%",
+			nutriments => {
+				energy_100g => 250,
+				fat_100g => 0,
+				sugars_100g => 12,
+				sodium_100g => 0.2,
+				fiber_100g => 0,
+				proteins_100g => 0.5
 			},
 		}
 
@@ -341,6 +400,32 @@ my @tests = (
 		}
 	],
 
+	# Nutri-Score from estimated nutrients
+	[
+		"en-sugar-estimated-nutrients",
+		{
+			lc => "en",
+			categories => "sugars",
+			ingredients_text => "sugar",
+		}
+	],
+	[
+		"en-apple-estimated-nutrients",
+		{
+			lc => "en",
+			categories => "apples",
+			ingredients_text => "apples",
+		}
+	],
+	[
+		"94-percent-sugar-and-unknown-ingredient",
+		{
+			lc => "en",
+			categories => "sugars",
+			ingredients_text => "sugar 94%, strange ingredient",
+		}
+	],
+
 );
 
 my $json = JSON->new->allow_nonref->canonical;
@@ -353,6 +438,7 @@ foreach my $test_ref (@tests) {
 	compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 	extract_ingredients_from_text($product_ref);
 	special_process_product($product_ref);
+	diag explain compute_estimated_nutrients($product_ref);
 	compute_nutrition_score($product_ref);
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);

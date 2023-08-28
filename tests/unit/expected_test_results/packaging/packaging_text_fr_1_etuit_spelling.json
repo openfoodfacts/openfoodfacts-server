@@ -1,5 +1,24 @@
 {
    "lc" : "fr",
+   "misc_tags" : [
+      "en:packagings-number-of-components-3",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:cardboard",
+      "en:glass",
+      "en:metal"
+   ],
+   "packaging_recycling_tags" : [
+      "en:recycle"
+   ],
+   "packaging_shapes_tags" : [
+      "en:bottle",
+      "en:capsule",
+      "en:unknown"
+   ],
    "packaging_text" : "étuit en carton à recycler, bouteille en verre à recycler, capsule en métal à recycler",
    "packagings" : [
       {
@@ -17,5 +36,12 @@
          "recycling" : "en:recycle",
          "shape" : "en:capsule"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:glass" : {},
+      "en:metal" : {},
+      "en:paper-or-cardboard" : {}
+   },
+   "packagings_n" : 3
 }

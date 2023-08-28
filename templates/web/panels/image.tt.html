@@ -4,7 +4,9 @@
 
 <figure itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject" style="margin-bottom:0">
    
-    <img style="border-radius:10px;margin-bottom:0.5rem;" [% IF image.type == 'front' %]id="og_image" [% END %] class="product_image" src="[% image.sizes.400.url %]" width="[% image.sizes.400.width %]" height="[% image.sizes.400.height %]" alt="[% image.alt %]" itemprop="thumbnail" loading="lazy">
+    <a data-reveal-id="drop_[% image.type %]">
+        <img style="border-radius:10px;margin-bottom:0.5rem;" [% IF image.type == 'front' %]id="og_image" [% END %] class="product_image" src="[% image.sizes.400.url %]" width="[% image.sizes.400.width %]" height="[% image.sizes.400.height %]" alt="[% image.alt %]" itemprop="thumbnail" loading="lazy">
+    </a>
 
     <meta itemprop="imgid" content="[% image.type %]">
     

@@ -1,15 +1,36 @@
 {
    "lc" : "en",
+   "misc_tags" : [
+      "en:packagings-number-of-components-2",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
    "packaging" : "PET, box, paper bag",
+   "packaging_materials_tags" : [
+      "en:kraft-paper",
+      "en:plastic"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:box",
+      "en:unknown"
+   ],
    "packaging_text" : "plastic box, kraft paper",
    "packagings" : [
       {
-         "material" : "en:pet-polyethylene-terephthalate",
+         "material" : "en:plastic",
          "shape" : "en:box"
       },
       {
          "material" : "en:kraft-paper",
-         "shape" : "en:bag"
+         "shape" : "en:unknown"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:paper-or-cardboard" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 2
 }

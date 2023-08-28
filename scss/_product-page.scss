@@ -48,6 +48,10 @@ $decalTop:48px;
         display:flex;
     }
     padding:0;
+   
+    @media (max-width:1024px){
+        margin-bottom:50px;
+    }
 }
 #attributes_grid {
     

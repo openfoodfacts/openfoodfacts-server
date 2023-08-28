@@ -29,6 +29,7 @@
 
     inputfield.value = value;
     }
+    [% INCLUDE web/pages/user_form/togglepassword.tt.js %]
 </script>
 
 <style>
@@ -45,7 +46,7 @@
 
     <!-- Start form -->
 
-    <form method="post" action="/cgi/user.pl" enctype="multipart/form-data">
+    <form method="post" action="/cgi/user.pl" enctype="multipart/form-data" id="user_form">
 		[% FOREACH section IN sections %]
 
             [% IF section.name %]
@@ -60,44 +61,62 @@
             [% IF section.note %]
                 <p >[% section.note %]</p>
             [% END %]
+            <div class="form-wrapper">
+                <div class="form-container" style="width: 80%;margin-right: 20px;">
+                   [% FOREACH field IN section.fields %]
+                       [% IF field.field == 'userid' %]
+                            [% IF type == 'edit' %]
+                                <label for="[% field.field %]"> [% field.label %]</label>
+                                <p id="userid"><a href="/editor/[% field.value %]">[% field.value %]</a></p>
+                            [% ELSE %]
+                                <label for="[% field.field %]">  [% lang(field.label) %] [% lang('username_info')  %]</label>
+                                <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="username" onkeyup="normalize_string_value(this)" />
+                            [% END %]
+                        [% ELSIF field.type == 'text' %]
+                              <div [% IF section.id == "professional" %] class="pro_org_display" [% END %]>
+                                  <label for="[% field.field %]">[% field.label %]</label>
+                                  <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" [% IF section.id == "teams" %] onkeyup="normalize_string_value(this)" [% END %]/>
+                                </div>
+                        [% ELSIF field.type == 'password' %]
+                            <label for="[% field.field %]">[% lang(field.label) %]</label>
+                            <div class="password-container">
+                                <input type="password" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="new-password"/>
+                                <span class="toggle-password" onclick="togglePasswordVisibility('[% field.field %]')">
+                                    <span class="material-icons material-symbols-visibility">visibility_off</span>
+                                    </span>
+                                </div>
+                        [% ELSIF field.type == 'email' %]
+                            <label for="[% field.field %]">	[% field.label %]</label>
+                            <input type="email" id="[% field.field %]" name="[% field.field %]" value = "[% field.value %]" autocomplete="email"/>
+                        [% ELSIF field.type == 'checkbox' %]
+                            [% IF accepted_organization && section.id == "professional" %]
+                                <p>[% f_lang('f_this_is_a_pro_account_for_org', {'org' => accepted_organization}) %]</p>
+                            [% ELSE %]
+                                <label for="[% field.field %]">
+                                    <input type="checkbox" id="[% field.field %]" name="[% field.field %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
+                                     [% field.label %]
+                                </label>
+                            [% END %]
+                        [% ELSIF field.type == 'hidden' %]
+                            <label for="pro">
+                                <input type="hidden" name="[% field.field %]" value="[% field.value %]">
+                            </label>
+                        [% END %]
 
-            [% FOREACH field IN section.fields %]
-                [% IF field.field == 'userid' %]
-                    [% IF type == 'edit' %]
-                        <label for="[% field.field %]"> [% field.label %]</label>
-                        <p id="userid"><a href="/editor/[% field.value %]">[% field.value %]</a></p>
-                    [% ELSE %]
-                        <label for="[% field.field %]">  [% lang(field.label) %] [% lang('username_info')  %]</label>
-                        <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="username" onkeyup="normalize_string_value(this)" />
                     [% END %]
-                [% ELSIF field.type == 'text' %]
-                        <div [% IF section.id == "professional" %] class="pro_org_display" [% END %]>
-                            <label for="[% field.field %]">[% field.label %]</label>
-                            <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" [% IF section.id == "teams" %] onkeyup="normalize_string_value(this)" [% END %]/>
-                        </div>
-                [% ELSIF field.type == 'password' %]
-                    <label for="[% field.field %]">[% lang(field.label) %]</label>
-                    <input type="password" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="new-password"/>
-                [% ELSIF field.type == 'email' %]
-                    <label for="[% field.field %]">	[% field.label %]</label>
-                    <input type="email" id="[% field.field %]" name="[% field.field %]" value = "[% field.value %]" autocomplete="email"/>
-                [% ELSIF field.type == 'checkbox' %]
-                    [% IF accepted_organization && section.id == "professional" %]
-                        <p>[% f_lang('f_this_is_a_pro_account_for_org', {'org' => accepted_organization}) %]</p>
-                    [% ELSE %]
-                        <label for="[% field.field %]">
-                            <input type="checkbox" id="[% field.field %]" name="[% field.field %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
-                            [% field.label %]
-                        </label>
-                    [% END %]
-                [% ELSIF field.type == 'hidden' %]
-                    <label for="pro">
-                        <input type="hidden" name="[% field.field %]" value="[% field.value %]">
-                    </label>
+                </div>
+                <!-- show video about account creation beside user form section-->
+                [% IF server_options_producers_platform AND section.id == "user" AND type != "edit" %]
+                    <div class="video-container" style="width:70%">
+    
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/RXKxDuuKYV0"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen style="margin-top: 20px;max-width: 100%;"></iframe>
+    
+                    </div>
                 [% END %]
-
-            [% END %]
-
+            </div>
 			[% IF section.id == "professional" %]
             <div class="pro_org_display">
                 [% IF requested_org_ref.defined %]
@@ -127,12 +146,14 @@
             <p>[% lang("unsubscribe_info") %]</p>
         [% END %]
 
-        [% IF admin %]
-            <label>
-                <input type="checkbox" name="delete" onchange="if (this.checked) { if (!confirm('This action cannot be undone, are you sure you want to delete the user?')) { this.checked = false }}" />
-                [% lang("delete_user") %]
-            </label>
+        [% IF userid %]
+            <fieldset>
+                <legend class="text_warning">[% lang("danger_zone") %]</legend>
+                <input type="button" name=".delete" class="button text_warning" value="[% lang("delete_user") %]" onclick="if ('[% userid %]'.localeCompare(prompt('[% lang("delete_confirmation") %]'),undefined,'base') === 0) {document.getElementById('delete_input').value='on';document.getElementById('user_form').submit();}"/>
+                <input type="hidden" name="delete" id="delete_input"/>
+            </fieldset>
         [% END %]
+
         <input type="hidden" name="action" value="process" />
         <input type="hidden" name="type" value="[% type %]" />
         [% IF userid %]
@@ -205,8 +226,10 @@
         <!-- Do not display donate link on producers platform -->
 
         [% IF !(server_options_producers_platform) %]
-            <h3>[% lang("you_can_also_help_us") %]</h3>
-            <p>[% lang("bottom_content") %]</p>
+            [% IF lc == "en" or lc == "fr" %]
+                <h3>[% lang("you_can_also_help_us") %]</h3>
+                <p>[% lang("bottom_content") %]</p>
+            [% END %]
         [% END %]
 
     [% END %]

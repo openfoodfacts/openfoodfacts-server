@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -28,6 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -104,16 +105,22 @@ elsif ((defined $User_id) and (($User_id eq 'kiliweb')) or (remote_addr() eq "20
 	# Yuka may not be passing the user_id for the crop, use the ip 207.154.237.7
 
 	# 2019/08/28: accept images if there is already an image selected for the language
-	if ((defined $product_ref) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$imgid})) {
+	if (    (defined $product_ref)
+		and (defined $product_ref->{images})
+		and (defined $product_ref->{images}{$imgid})
+		and (not is_protected_image($product_ref, $id) or $User{moderator}))
+	{
 		$product_ref
 			= process_image_crop($User_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2,
 			$y2, $coordinates_image_size);
 	}
 }
 else {
-	$product_ref
-		= process_image_crop($User_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2,
-		$coordinates_image_size);
+	if (not is_protected_image($product_ref, $id) or $User{moderator}) {
+		$product_ref
+			= process_image_crop($User_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2,
+			$y2, $coordinates_image_size);
+	}
 }
 
 my $data = encode_json(
@@ -128,7 +135,8 @@ my $data = encode_json(
 
 $log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
-print header(-type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*') . $data;
+write_cors_headers();
+print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 exit(0);
 

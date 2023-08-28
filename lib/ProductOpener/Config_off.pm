@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -42,6 +42,7 @@ BEGIN {
 		$producers_email
 
 		$google_cloud_vision_api_key
+		$google_cloud_vision_api_url
 
 		$crowdin_project_identifier
 		$crowdin_project_key
@@ -51,6 +52,9 @@ BEGIN {
 		$events_url
 		$events_username
 		$events_password
+
+		$facets_kp_url
+		$redis_url
 
 		$mongodb
 		$mongodb_host
@@ -77,6 +81,7 @@ BEGIN {
 		@display_other_fields
 		@drilldown_fields
 		@taxonomy_fields
+		@index_tag_types
 		@export_fields
 
 		%tesseract_ocr_available_languages
@@ -85,6 +90,7 @@ BEGIN {
 
 		@edit_rules
 
+		$build_cache_repo
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -154,6 +160,11 @@ use ProductOpener::Config2;
 		unaccent => 1,
 		lowercase => 1,
 	},
+	# xx: language less entries, also deaccent
+	xx => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 );
 
 %admins = map {$_ => 1} qw(
@@ -163,6 +174,7 @@ use ProductOpener::Config2;
 	hangy
 	manoncorneille
 	raphael0202
+	sarazine-ouattara
 	stephane
 	tacinte
 	teolemon
@@ -182,6 +194,8 @@ $options{users_who_can_upload_small_images} = {
 
 $options{product_type} = "food";
 
+# edit rules
+# see ProductOpener::Products::process_product_edit_rules for documentation
 @edit_rules = (
 
 	{
@@ -301,6 +315,19 @@ $options{product_type} = "food";
 		],
 	},
 
+	# as of 2023-01-27 far too much errors in updates
+	# No fix on the app
+	{
+		name => "Halal App Chakib",
+		conditions => [["user_id", "halal-app-chakib"],],
+		actions => [["ignore"],],
+		notifications => [
+			qw (
+				slack_channel_edit-alert
+			)
+		],
+	},
+
 );
 
 # server constants
@@ -319,6 +346,7 @@ $conf_root = $ProductOpener::Config2::conf_root;
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
+$google_cloud_vision_api_url = $ProductOpener::Config2::google_cloud_vision_api_url;
 
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
 $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
@@ -336,9 +364,17 @@ $events_url = $ProductOpener::Config2::events_url;
 $events_username = $ProductOpener::Config2::events_username;
 $events_password = $ProductOpener::Config2::events_password;
 
+# Redis is used to push updates to the search server
+$redis_url = $ProductOpener::Config2::redis_url;
+
+# Facets knowledge panels url
+$facets_kp_url = $ProductOpener::Config2::facets_kp_url;
+
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
+
+$build_cache_repo = $ProductOpener::Config2::build_cache_repo;
 
 $reference_timezone = 'Europe/Paris';
 
@@ -355,15 +391,6 @@ $zoom_size = 800;
 $page_size = 24;
 
 $google_analytics = <<HTML
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQX9SYHB2P&aip=1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('set', 'allow_google_signals', false);
-  gtag('config', 'G-HQX9SYHB2P', {"anonymize_ip": true, 'allow_google_signals': false});
-</script>
 <!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
@@ -535,22 +562,70 @@ $options{categories_exempted_from_nutrient_levels} = [
 	)
 ];
 
+$options{replace_existing_values_when_importing_those_tags_fields} = {
+	"allergens" => 1,
+	"traces" => 1,
+};
+
 # fields for which we will load taxonomies
 # note: taxonomies that are used as properties of other taxonomies must be loaded first
 # (e.g. additives_classes are referenced in additives)
+# Below is a list of all of the taxonomies with other taxonomies that reference them
+# If there are entries in () these are other taxonomies that are combined into this one
+#
+# additives
+# additives_classes: additives, minerals
+# allergens: ingredients, traces
+# amino_acids
+# categories
+# countries:
+# data_quality
+# data_quality_bugs (data_quality)
+# data_quality_errors (data_quality)
+# data_quality_errors_producers (data_quality)
+# data_quality_info (data_quality)
+# data_quality_warnings (data_quality)
+# data_quality_warnings_producers (data_quality)
+# food_groups: categories
+# improvements
+# ingredients_analysis
+# ingredients_processing:
+# ingredients (additives_classes, additives, minerals, vitamins, nucleotides, other_nutritional_substances): labels
+# labels: categories
+# languages:
+# minerals
+# misc
+# nova_groups
+# nucleotides
+# nutrient_levels
+# nutrients
+# origins (countries): categories, ingredients, labels
+# other_nutritional_substances
+# packaging_materials: packaging_recycling, packaging_shapes
+# packaging_recycling
+# packaging_shapes: packaging_materials, packaging_recycling
+# packaging (packaging_materials, packaging_shapes, packaging_recycling, preservation): labels
+# periods_after_opening:
+# states:
+# traces (allergens)
+# vitamins
 
 @taxonomy_fields = qw(
-	states countries languages labels categories food_groups
-	ingredients ingredients_processing
-	additives_classes additives vitamins minerals amino_acids nucleotides other_nutritional_substances allergens traces
-	origins
+	languages states countries
+	allergens origins additives_classes ingredients
+	packaging_shapes packaging_materials packaging_recycling packaging
+	labels food_groups categories
+	ingredients_processing
+	additives vitamins minerals amino_acids nucleotides other_nutritional_substances traces
 	ingredients_analysis
 	nutrients nutrient_levels misc nova_groups
-	packaging packaging_shapes packaging_materials packaging_recycling
 	periods_after_opening
 	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 	improvements
 );
+
+# tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
+@index_tag_types = qw(brands categories labels additives nova_groups ecoscore nutrition_grades products);
 
 # fields in product edit form, above ingredients and nutrition facts
 
@@ -664,6 +739,7 @@ $options{categories_exempted_from_nutrient_levels} = [
 	creator
 	created_t
 	last_modified_t
+	last_modified_by
 	product_name
 	abbreviated_product_name
 	generic_name
@@ -687,7 +763,7 @@ $options{categories_exempted_from_nutrient_levels} = [
 	traces
 	serving_size
 	serving_quantity
-	no_nutriments
+	no_nutrition_data
 	additives_n
 	additives
 	nutriscore_score
@@ -723,7 +799,6 @@ $options{import_export_fields_groups} = [
 			"quantity_value_unit", "net_weight_value_unit",
 			"drained_weight_value_unit", "volume_value_unit",
 			"serving_size_value_unit", "packaging",
-			"packaging_text",
 			"brands", "brand_owner",
 			"categories", "categories_specific",
 			"labels", "labels_specific",
@@ -739,15 +814,15 @@ $options{import_export_fields_groups} = [
 	["ingredients", ["ingredients_text", "allergens", "traces"]],
 	["nutrition"],
 	["nutrition_other"],
+	["packaging"],
 	[
 		"other",
 		[
-			"nutriscore_score_producer", "nutriscore_grade_producer",
-			"nova_group_producer", "conservation_conditions",
-			"warning", "preparation",
-			"recipe_idea", "recycling_instructions_to_recycle",
-			"recycling_instructions_to_discard", "customer_service",
-			"link"
+			"conservation_conditions", "warning",
+			"preparation", "nutriscore_score_producer",
+			"nutriscore_grade_producer", "nova_group_producer",
+			"recipe_idea", "customer_service",
+			"link",
 		]
 	],
 	[
@@ -933,7 +1008,7 @@ $options{redirect_texts} = {
 $options{display_tag_additives} = [
 	'@additives_classes',
 	'wikipedia',
-	'title:efsa_evaluation_overexposure_risk_title',
+	#'title:efsa_evaluation_overexposure_risk_title',
 	'efsa_evaluation',
 	'efsa_evaluation_overexposure_risk',
 	'efsa_evaluation_exposure_table',

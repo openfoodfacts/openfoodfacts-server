@@ -1,0 +1,81 @@
+{
+   "estimated_nutrients" : {
+      "nutrients" : {
+         "alcohol" : 0,
+         "beta-carotene" : 0,
+         "calcium" : 0.001845,
+         "carbohydrates" : 49.9,
+         "cholesterol" : 0,
+         "copper" : 2.75e-06,
+         "energy" : 850,
+         "energy-kcal" : 199.5,
+         "energy-kj" : 850,
+         "fat" : 0,
+         "fiber" : 0,
+         "fructose" : 0,
+         "galactose" : 0,
+         "glucose" : 0,
+         "iodine" : 1.5e-07,
+         "iron" : 3.85e-05,
+         "lactose" : 0,
+         "magnesium" : 0.000825,
+         "maltose" : 0,
+         "manganese" : 3.15e-06,
+         "pantothenic-acid" : 0,
+         "phosphorus" : 0,
+         "phylloquinone" : 0,
+         "polyols" : 0,
+         "potassium" : 0.00675,
+         "proteins" : 0,
+         "salt" : 0.0027,
+         "saturated-fat" : 0,
+         "selenium" : 2.5e-06,
+         "sodium" : 0.001085,
+         "starch" : 0,
+         "sucrose" : 49.9,
+         "sugars" : 49.9,
+         "vitamin-a" : 0,
+         "vitamin-b1" : 0,
+         "vitamin-b12" : 0,
+         "vitamin-b2" : 9.5e-06,
+         "vitamin-b6" : 0,
+         "vitamin-b9" : 0,
+         "vitamin-c" : 0,
+         "vitamin-d" : 0,
+         "vitamin-e" : 0,
+         "vitamin-pp" : 0,
+         "water" : 0.085,
+         "zinc" : 1e-05
+      },
+      "total" : 100,
+      "total_with_nutrients" : 50,
+      "unknown_ingredients" : {
+         "en:strange-ingredient" : 0.375,
+         "en:stranger-ingredient" : 0.125
+      }
+   },
+   "ingredients" : [
+      {
+         "id" : "en:sugar",
+         "percent" : 50,
+         "percent_estimate" : 50,
+         "percent_max" : 50,
+         "percent_min" : 50,
+         "text" : "sugar"
+      },
+      {
+         "id" : "en:strange-ingredient",
+         "percent_estimate" : 37.5,
+         "percent_max" : 50,
+         "percent_min" : 25,
+         "text" : "strange ingredient"
+      },
+      {
+         "id" : "en:stranger-ingredient",
+         "percent_estimate" : 12.5,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "stranger ingredient"
+      }
+   ]
+}

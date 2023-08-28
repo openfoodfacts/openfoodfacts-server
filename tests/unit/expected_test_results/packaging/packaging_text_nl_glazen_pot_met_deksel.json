@@ -1,16 +1,37 @@
 {
    "lc" : "nl",
+   "misc_tags" : [
+      "en:packagings-number-of-components-2",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:glass",
+      "en:metal"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:jar",
+      "en:lid"
+   ],
    "packaging_text" : "1 glazen pot, 1 metalen deksel",
    "packagings" : [
       {
          "material" : "en:glass",
-         "number" : "1",
+         "number_of_units" : 1,
          "shape" : "en:jar"
       },
       {
          "material" : "en:metal",
-         "number" : "1",
+         "number_of_units" : 1,
          "shape" : "en:lid"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:glass" : {},
+      "en:metal" : {}
+   },
+   "packagings_n" : 2
 }

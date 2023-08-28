@@ -23,6 +23,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_food_code" : "20114",
          "id" : "en:oyster-mushroom",
          "origins" : "en:european-union",
          "percent" : 69,
@@ -60,6 +61,7 @@
    "ingredients_hierarchy" : [
       "en:oyster-mushroom",
       "en:mushroom",
+      "en:pleurotus",
       "fr:chapelure-de-mais"
    ],
    "ingredients_n" : 2,
@@ -75,6 +77,7 @@
    "ingredients_tags" : [
       "en:oyster-mushroom",
       "en:mushroom",
+      "en:pleurotus",
       "fr:chapelure-de-mais"
    ],
    "ingredients_text" : "Pleurotes* 69% (Origine UE), chapelure de mais",
@@ -82,7 +85,11 @@
    "ingredients_with_specified_percent_sum" : 69,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 31,
-   "known_ingredients_n" : 2,
+   "ingredients_without_ciqual_codes" : [
+      "fr:chapelure-de-mais"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "known_ingredients_n" : 3,
    "lc" : "fr",
    "misc_tags" : [
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",

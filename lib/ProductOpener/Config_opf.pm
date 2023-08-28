@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -43,6 +43,7 @@ BEGIN {
 		$producers_email
 
 		$google_cloud_vision_api_key
+		$google_cloud_vision_api_url
 
 		$crowdin_project_identifier
 		$crowdin_project_key
@@ -77,6 +78,7 @@ BEGIN {
 		@display_other_fields
 		@drilldown_fields
 		@taxonomy_fields
+		@index_tag_types
 		@export_fields
 
 		%tesseract_ocr_available_languages
@@ -194,6 +196,7 @@ $conf_root = $ProductOpener::Config2::conf_root;
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
+$google_cloud_vision_api_url = $ProductOpener::Config2::google_cloud_vision_api_url;
 
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
 $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
@@ -227,15 +230,6 @@ $zoom_size = 800;
 $page_size = 20;
 
 $google_analytics = <<HTML
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31851927-12"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-31851927-12');
-</script>
 HTML
 	;
 
@@ -245,6 +239,9 @@ HTML
 
 @taxonomy_fields
 	= qw(states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening);
+
+# tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
+@index_tag_types = qw(brands categories labels additives products);
 
 # fields in product edit form, above ingredients and nutrition facts
 

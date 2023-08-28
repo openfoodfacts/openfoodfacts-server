@@ -1,0 +1,73 @@
+{
+   "code" : "1234567890007",
+   "errors" : [],
+   "product" : {
+      "packagings" : [
+         {
+            "material" : {
+               "id" : "en:plastic",
+               "lc_name" : "Plastic"
+            },
+            "number_of_units" : 2,
+            "recycling" : {
+               "id" : "en:strange value",
+               "lc_name" : "Strange value"
+            },
+            "shape" : {
+               "id" : "en:bottle",
+               "lc_name" : "Bottle"
+            }
+         },
+         {
+            "material" : {
+               "id" : "en:cardboard",
+               "lc_name" : "Cardboard"
+            },
+            "number_of_units" : 1,
+            "recycling" : {
+               "id" : "en:recycle",
+               "lc_name" : "Recycle"
+            },
+            "shape" : {
+               "id" : "en:box",
+               "lc_name" : "Box"
+            }
+         }
+      ]
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "default_value" : "en",
+            "id" : "tags_lc"
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "recycling",
+            "value" : "en:strange value"
+         },
+         "impact" : {
+            "id" : "none",
+            "lc_name" : "None",
+            "name" : "None"
+         },
+         "message" : {
+            "id" : "unrecognized_value",
+            "lc_name" : "Unrecognized value",
+            "name" : "Unrecognized value"
+         }
+      }
+   ]
+}

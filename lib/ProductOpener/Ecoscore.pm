@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -61,6 +61,8 @@ BEGIN {
 		%ecoscore_countries_enabled
 		@ecoscore_countries_enabled_sorted
 
+		%agribalyse
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -78,7 +80,7 @@ use Text::CSV();
 use Math::Round;
 use Data::DeepAccess qw(deep_get deep_exists);
 
-my %agribalyse = ();
+%agribalyse = ();
 
 =head1 VARIABLES
 
@@ -102,21 +104,28 @@ foreach my $country (@ecoscore_countries_enabled_sorted) {
 
 =head1 FUNCTIONS
 
-=head2 load_agribalyse_data( $product_ref )
+=head2 load_agribalyse_data()
 
 Loads the AgriBalyse database.
 
 =cut
 
 sub load_agribalyse_data() {
-
-	my $agribalyse_details_by_step_csv_file = $data_root . "/ecoscore/agribalyse/AGRIBALYSE3.0.1_vf.csv.2";
+	my $agribalyse_details_by_step_csv_file = $data_root . "/external-data/ecoscore/agribalyse/AGRIBALYSE_vf.csv.2";
 
 	my $rows_ref = [];
 
 	my $encoding = "UTF-8";
 
-	$log->debug("opening agribalyse CSV file", {file => $agribalyse_details_by_step_csv_file}) if $log->is_debug();
+	open(my $version_file,
+		"<:encoding($encoding)", $data_root . '/external-data/ecoscore/agribalyse/AGRIBALYSE_version.txt')
+		or die($!);
+	chomp(my $agribalyse_version = <$version_file>);
+	close($version_file);
+
+	$log->debug("opening agribalyse CSV file",
+		{file => $agribalyse_details_by_step_csv_file, version => $agribalyse_version})
+		if $log->is_debug();
 
 	my $csv_options_ref = {binary => 1, sep_char => ","};    # should set binary attribute.
 
@@ -127,8 +136,7 @@ sub load_agribalyse_data() {
 
 		my $row_ref;
 
-		# Skip 4 first lines
-		$csv->getline($io);
+		# Skip 3 first lines
 		$csv->getline($io);
 		$csv->getline($io);
 		$csv->getline($io);
@@ -154,6 +162,7 @@ sub load_agribalyse_data() {
 				co2_distribution => $row_ref->[19] + 0,    # Supermarché et distribution
 				co2_consumption => $row_ref->[20] + 0,    # Consommation
 				co2_total => $row_ref->[21] + 0,    # Total
+				version => $agribalyse_version
 			};
 		}
 	}
@@ -181,7 +190,7 @@ sub load_ecoscore_data_origins_of_ingredients_distances() {
 	my $csv = Text::CSV->new($csv_options_ref)
 		or die("Cannot use CSV: " . Text::CSV->error_diag());
 
-	my $csv_file = $data_root . "/ecoscore/data/distances.csv";
+	my $csv_file = $data_root . "/external-data/ecoscore/data/distances.csv";
 	my $encoding = "UTF-8";
 
 	$log->debug("opening ecoscore origins distances CSV file", {file => $csv_file}) if $log->is_debug();
@@ -223,9 +232,10 @@ sub load_ecoscore_data_origins_of_ingredients_distances() {
 
 			next if ((not defined $origin) or ($origin eq ""));
 
-			my $origin_id = canonicalize_taxonomy_tag("en", "origins", $origin);
+			my $origin_id_exists_in_taxonomy;
+			my $origin_id = canonicalize_taxonomy_tag("en", "origins", $origin, \$origin_id_exists_in_taxonomy);
 
-			if (not exists_taxonomy_tag("origins", $origin_id)) {
+			if (not $origin_id_exists_in_taxonomy) {
 
 				$log->error("ecoscore origin does not exist in taxonomy", {origin => $origin, origin_id => $origin_id})
 					if $log->is_error();
@@ -280,7 +290,7 @@ sub load_ecoscore_data_origins_of_ingredients() {
 	my $csv = Text::CSV->new($csv_options_ref)
 		or die("Cannot use CSV: " . Text::CSV->error_diag());
 
-	my $csv_file = $data_root . "/ecoscore/data/fr_countries.csv";
+	my $csv_file = $data_root . "/external-data/ecoscore/data/fr_countries.csv";
 	my $encoding = "UTF-8";
 
 	$log->debug("opening ecoscore origins CSV file", {file => $csv_file}) if $log->is_debug();
@@ -304,29 +314,30 @@ sub load_ecoscore_data_origins_of_ingredients() {
 
 			next if ((not defined $origin) or ($origin eq ""));
 
-			my $origin_id = canonicalize_taxonomy_tag("fr", "origins", $origin);
+			my $origin_id_exists_in_taxonomy;
+			my $origin_id = canonicalize_taxonomy_tag("fr", "origins", $origin, \$origin_id_exists_in_taxonomy);
 
-			if (not exists_taxonomy_tag("origins", $origin_id)) {
+			if (not $origin_id_exists_in_taxonomy) {
 
 				# Eco-Score entries like "Macedonia [FYROM]": remove the [..] part
 				# but keep it in the first try, as it is needed to distinguish "Congo [DRC]" and "Congo [Republic]"
 				if ($origin =~ /^(.*)\[(.*)\]/) {
-					$origin_id = canonicalize_taxonomy_tag("fr", "origins", $1);
-					if (not exists_taxonomy_tag("origins", $origin_id)) {
-						$origin_id = canonicalize_taxonomy_tag("fr", "origins", $2);
+					$origin_id = canonicalize_taxonomy_tag("fr", "origins", $1, \$origin_id_exists_in_taxonomy);
+					if (not $origin_id_exists_in_taxonomy) {
+						$origin_id = canonicalize_taxonomy_tag("fr", "origins", $2, \$origin_id_exists_in_taxonomy);
 					}
 				}
 			}
 
 			# La Guyane Française -> Guyane Française
-			if (not exists_taxonomy_tag("origins", $origin_id)) {
+			if (not $origin_id_exists_in_taxonomy) {
 
 				if ($origin =~ /^(la|les|l'|le)\s?(.*)$/i) {
-					$origin_id = canonicalize_taxonomy_tag("fr", "origins", $2);
+					$origin_id = canonicalize_taxonomy_tag("fr", "origins", $2, \$origin_id_exists_in_taxonomy);
 				}
 			}
 
-			if (not exists_taxonomy_tag("origins", $origin_id)) {
+			if (not $origin_id_exists_in_taxonomy) {
 
 				$log->error("ecoscore origin does not exist in taxonomy", {origin => $origin, origin_id => $origin_id})
 					if $log->is_error();
@@ -373,8 +384,8 @@ sub load_ecoscore_data_packaging() {
 
 	# Eco_score_Calculateur.csv is not up to date anymore, instead use a copy of the table in
 	# https://docs.score-environnemental.com/methodologie/produit/emballages/score-par-materiaux
-	# my $csv_file = $data_root . "/ecoscore/data/Eco_score_Calculateur.csv.11";
-	my $csv_file = $data_root . "/ecoscore/data/fr_packaging_materials.csv";
+	# my $csv_file = $data_root . "/external-data/ecoscore/data/Eco_score_Calculateur.csv.11";
+	my $csv_file = $data_root . "/external-data/ecoscore/data/fr_packaging_materials.csv";
 	my $encoding = "UTF-8";
 
 	$ecoscore_data{packaging_materials} = {};
@@ -420,9 +431,11 @@ sub load_ecoscore_data_packaging() {
 				$material = $';
 			}
 
-			my $material_id = canonicalize_taxonomy_tag("fr", "packaging_materials", $material);
+			my $material_id_exists_in_taxonomy;
+			my $material_id
+				= canonicalize_taxonomy_tag("fr", "packaging_materials", $material, \$material_id_exists_in_taxonomy);
 
-			if (not exists_taxonomy_tag("packaging_materials", $material_id)) {
+			if (not $material_id_exists_in_taxonomy) {
 				$log->error(
 					"ecoscore material does not exist in taxonomy",
 					{material => $material, material_id => $material_id}
@@ -466,24 +479,67 @@ sub load_ecoscore_data_packaging() {
 		# "Bouteille PET Biosourcé",75
 		# "Bouteille rPET transparente (100%)",100
 
-		$ecoscore_data{packaging_materials}{"en:opaque-pet.en:bottle"}
-			= $ecoscore_data{packaging_materials}{"en:colored-pet.en:bottle"};
-		$properties{"packaging_materials"}{"en:opaque-pet.en:bottle"}{"ecoscore_score:en"}
-			= $ecoscore_data{packaging_materials}{"en:colored-pet.en:bottle"}{score};
-		$ecoscore_data{packaging_materials}{"en:pet-polyethylene-terephthalate.en:bottle"}
-			= $ecoscore_data{packaging_materials}{"en:colored-pet.en:bottle"};
-		$properties{"packaging_materials"}{"en:pet-polyethylene-terephthalate.en:bottle"}{"ecoscore_score:en"}
-			= $ecoscore_data{packaging_materials}{"en:colored-pet.en:bottle"}{score};
+		# We assign the same score to some target material.shape as a source material.shape
+		# Use English names for source / target shapes and materials
+		# they will be canonicalized with the taxonomies
+		my @assignments = (
+			{
+				target_shape => "bottle",
+				target_material => "opaque pet",
+				source_shape => "bottle",
+				source_material => "colored pet"
+			},
+			{
+				target_shape => "bottle",
+				target_material => "polyethylene terephthalate",
+				source_shape => "bottle",
+				source_material => "colored pet"
+			},
+			# Assign transparent rPET bottle score to rPET
+			{
+				target_shape => "bottle",
+				target_material => "rpet",
+				source_shape => "bottle",
+				source_material => "transparent rpet"
+			},
+			{
+				target_material => "plastic",
+				source_material => "other plastics"
+			},
+		);
 
-		# Assign transparent rPET bottle score to rPET
-		$ecoscore_data{packaging_materials}{"en:rpet-recycled-polyethylene-terephthalate"}
-			= $ecoscore_data{packaging_materials}{"en:transparent-rpet.en:bottle"};
-		$properties{"packaging_materials"}{"en:rpet-recycled-polyethylene-terephthalate"}{"ecoscore_score:en"}
-			= $ecoscore_data{packaging_materials}{"en:transparent-rpet.en:bottle"}{score};
+		foreach my $assignment_ref (@assignments) {
 
-		$ecoscore_data{packaging_materials}{"en:plastic"} = $ecoscore_data{packaging_materials}{"en:other-plastics"};
-		$properties{"packaging_materials"}{"en:plastic"}{"ecoscore_score:en"}
-			= $ecoscore_data{packaging_materials}{"en:plastic"}{score};
+			# We canonicalize the names given in the assignments, as the taxonomies can change over time, including the canonical names
+			my $target_material
+				= canonicalize_taxonomy_tag_or_die("en", "packaging_materials", $assignment_ref->{target_material},);
+
+			my $source_material
+				= canonicalize_taxonomy_tag_or_die("en", "packaging_materials", $assignment_ref->{source_material},);
+
+			my $target = $target_material;
+			my $source = $source_material;
+
+			if (defined $assignment_ref->{target_shape}) {
+				my $target_shape
+					= canonicalize_taxonomy_tag_or_die("en", "packaging_shapes", $assignment_ref->{target_shape},);
+
+				my $source_shape
+					= canonicalize_taxonomy_tag_or_die("en", "packaging_shapes", $assignment_ref->{source_shape},);
+
+				$target .= '.' . $target_shape;
+				$source .= '.' . $source_shape;
+			}
+
+			if (defined $ecoscore_data{packaging_materials}{$source}) {
+				$ecoscore_data{packaging_materials}{$target} = $ecoscore_data{packaging_materials}{$source};
+				$properties{packaging_materials}{$target}{"ecoscore_score:en"}
+					= $ecoscore_data{packaging_materials}{$source}{"score"};
+			}
+			else {
+				die("source of assignement $source does not have Eco-Score data");
+			}
+		}
 	}
 	else {
 		die("Could not open ecoscore materials CSV $csv_file: $!");
@@ -494,8 +550,8 @@ sub load_ecoscore_data_packaging() {
 
 	# Packaging shapes / formats
 
-	$csv_file = $data_root . "/ecoscore/data/Eco_score_Calculateur.csv.12";
-	$csv_file = $data_root . "/ecoscore/data/fr_packaging_shapes.csv";
+	$csv_file = $data_root . "/external-data/ecoscore/data/Eco_score_Calculateur.csv.12";
+	$csv_file = $data_root . "/external-data/ecoscore/data/fr_packaging_shapes.csv";
 	$encoding = "UTF-8";
 
 	$ecoscore_data{packaging_shapes} = {};
@@ -526,15 +582,17 @@ sub load_ecoscore_data_packaging() {
 			# skip ondulated cardboard (should be a material)
 			next if ($shape eq "Carton ondulé");
 
-			my $shape_id = canonicalize_taxonomy_tag("fr", "packaging_shapes", $shape);
+			my $shape_id_exists_in_taxonomy;
+			my $shape_id = canonicalize_taxonomy_tag("fr", "packaging_shapes", $shape, \$shape_id_exists_in_taxonomy);
 
 			# Handle special cases that are not recognized by the packaging shapes taxonomy
 			# conserve is used in preservation taxonomy, but it may be a packaging
 			if ($shape_id =~ /^fr:conserve/i) {
 				$shape_id = "en:can";
+				$shape_id_exists_in_taxonomy = 1;
 			}
 
-			if (not exists_taxonomy_tag("packaging_shapes", $shape_id)) {
+			if (not $shape_id_exists_in_taxonomy) {
 				$log->error("ecoscore shape does not exist in taxonomy", {shape => $shape, shape_id => $shape_id})
 					if $log->is_error();
 				$errors++;
@@ -627,6 +685,11 @@ Returned values:
 =cut
 
 sub compute_ecoscore ($product_ref) {
+	my $old_ecoscore_data = $product_ref->{ecoscore_data};
+	my $old_agribalyse = $old_ecoscore_data->{agribalyse};
+	my $old_ecoscore_grade = $old_ecoscore_data->{grade};
+	my $old_ecoscore_score = $old_ecoscore_data->{score};
+	my $old_previous_data = $old_ecoscore_data->{previous_data};
 
 	delete $product_ref->{ecoscore_grade};
 	delete $product_ref->{ecoscore_score};
@@ -641,6 +704,8 @@ sub compute_ecoscore ($product_ref) {
 	}
 	remove_tag($product_ref, "misc", "en:ecoscore-no-missing-data");
 	remove_tag($product_ref, "misc", "en:ecoscore-not-applicable");
+	remove_tag($product_ref, "misc", "en:ecoscore-changed");
+	remove_tag($product_ref, "misc", "en:ecoscore-grade-changed");
 
 	# Check if we have extended ecoscore_data from the impact estimator
 	# Remove any misc "en:ecoscore-extended-data-version-[..]" tags
@@ -676,6 +741,14 @@ sub compute_ecoscore ($product_ref) {
 		}
 	}
 
+	# Always compute the bonuses and maluses, even for categories that don't have Eco-Score
+	# (e.g. sodas, spring water)
+
+	compute_ecoscore_production_system_adjustment($product_ref);
+	compute_ecoscore_threatened_species_adjustment($product_ref);
+	compute_ecoscore_origins_of_ingredients_adjustment($product_ref);
+	compute_ecoscore_packaging_adjustment($product_ref);
+
 	if ($category_without_ecoscore) {
 		$product_ref->{ecoscore_data}{ecoscore_not_applicable_for_category} = $category_without_ecoscore;
 		$product_ref->{ecoscore_data}{status} = "unknown";
@@ -689,13 +762,6 @@ sub compute_ecoscore ($product_ref) {
 		# Compute the LCA Eco-Score based on AgriBalyse
 
 		compute_ecoscore_agribalyse($product_ref);
-
-		# Compute the bonuses and maluses
-
-		compute_ecoscore_production_system_adjustment($product_ref);
-		compute_ecoscore_threatened_species_adjustment($product_ref);
-		compute_ecoscore_origins_of_ingredients_adjustment($product_ref);
-		compute_ecoscore_packaging_adjustment($product_ref);
 
 		# Compute the final Eco-Score and assign the A to E grade
 
@@ -789,9 +855,13 @@ sub compute_ecoscore ($product_ref) {
 					$product_ref->{ecoscore_data}{"scores"}{$cc} = 79;
 				}
 
-				$log->debug("compute_ecoscore - final score and grade",
-					{score => $product_ref->{"scores"}{$cc}, grade => $product_ref->{"grades"}{$cc}})
-					if $log->is_debug();
+				$log->debug(
+					"compute_ecoscore - final score and grade",
+					{
+						score => $product_ref->{ecoscore_data}{"scores"}{$cc},
+						grade => $product_ref->{ecoscore_data}{"grades"}{$cc}
+					}
+				) if $log->is_debug();
 			}
 
 			# The following values correspond to the Eco-Score for France.
@@ -842,6 +912,31 @@ sub compute_ecoscore ($product_ref) {
 			add_tag($product_ref, "misc", "en:ecoscore-not-computed");
 		}
 	}
+
+	# Track if ecoscore has changed through different Agribalyse versions
+	# Don't overwrite previous_data from before. This should be manually cleared
+	# before each version upgrade
+	if (defined $old_previous_data) {
+		$product_ref->{ecoscore_data}{previous_data} = $old_previous_data;
+		$old_ecoscore_grade = $old_previous_data->{grade};
+		$old_ecoscore_score = $old_previous_data->{score};
+	}
+	if (defined $old_ecoscore_score || defined $product_ref->{ecoscore_score}) {
+		if (!defined $old_ecoscore_score || $old_ecoscore_score != $product_ref->{ecoscore_score}) {
+			if (!defined $old_previous_data && defined $old_agribalyse) {
+				$product_ref->{ecoscore_data}{previous_data} = {
+					grade => $old_ecoscore_grade,
+					score => $old_ecoscore_score,
+					agribalyse => $old_agribalyse
+				};
+			}
+			add_tag($product_ref, "misc", "en:ecoscore-changed");
+			if (!defined $old_ecoscore_grade || $old_ecoscore_grade ne $product_ref->{ecoscore_grade}) {
+				add_tag($product_ref, "misc", "en:ecoscore-grade-changed");
+			}
+		}
+	}
+
 	return;
 }
 
@@ -1314,7 +1409,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment ($product_ref) {
 	$product_ref->{ecoscore_data}{adjustments}{origins_of_ingredients} = {
 		origins_from_origins_field => \@origins_from_origins_field,
 		aggregated_origins => \@aggregated_origins,
-		epi_score => $epi_score,
+		epi_score => 0 + $epi_score,
 		epi_value => round($epi_value),
 	};
 

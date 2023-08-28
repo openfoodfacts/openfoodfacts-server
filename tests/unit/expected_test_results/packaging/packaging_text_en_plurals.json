@@ -1,27 +1,50 @@
 {
    "lc" : "en",
+   "misc_tags" : [
+      "en:packagings-number-of-components-5",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:metal"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:box",
+      "en:can",
+      "en:eating-utensils",
+      "en:knife",
+      "en:spoon"
+   ],
    "packaging_text" : "6 cans, 2 boxes, 2 knives, 3 spoons, 1 utensil",
    "packagings" : [
       {
          "material" : "en:metal",
-         "number" : "6",
+         "number_of_units" : 6,
          "shape" : "en:can"
       },
       {
-         "number" : "2",
+         "number_of_units" : 2,
          "shape" : "en:box"
       },
       {
-         "number" : "2",
+         "number_of_units" : 2,
          "shape" : "en:knife"
       },
       {
-         "number" : "3",
+         "number_of_units" : 3,
          "shape" : "en:spoon"
       },
       {
-         "number" : "1",
+         "number_of_units" : 1,
          "shape" : "en:eating-utensils"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:metal" : {},
+      "en:unknown" : {}
+   },
+   "packagings_n" : 5
 }

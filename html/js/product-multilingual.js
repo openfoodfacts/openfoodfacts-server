@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2021 Association Open Food Facts
+// Copyright (C) 2011-2023 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -172,7 +172,6 @@ function select_nutriment(event, ui) {
 function add_line() {
 
     $(this).unbind("change");
-    $(this).unbind("autocompletechange");
 
     var id = parseInt($("#new_max").val(), 10) + 1;
     $("#new_max").val(id);
@@ -195,7 +194,6 @@ function add_line() {
         //change: add_line
     });
 
-    // newline.find(".nutriment_label").bind("autocompletechange", add_line);
     newline.find(".nutriment_label").change(add_line);
 
     $(document).foundation('equalizer', 'reflow');
@@ -546,26 +544,33 @@ function initializeTagifyInput(el) {
     });
 
     let abortController;
+    let debounceTimer;
+    const timeoutWait = 300;
+
     input.on("input", function(event) {
         const value = event.detail.value;
-        input.settings.whitelist = []; // reset the whitelist
+        input.whitelist = null; // reset the whitelist
 
         if (el.dataset.autocomplete && el.dataset.autocomplete !== "") {
-            // https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
-            if (abortController) {
-                abortController.abort();
-            }
+            clearTimeout(debounceTimer);
 
-            abortController = new AbortController();
+            debounceTimer = setTimeout(function(){
+                // https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
+                if (abortController) {
+                    abortController.abort();
+                }
 
-            fetch(el.dataset.autocomplete + "term=" + value, {
-                signal: abortController.signal
-            }).
-            then((RES) => RES.json()).
-            then(function(whitelist) {
-                input.settings.whitelist = whitelist;
-                input.dropdown.show.call(input, value); // render the suggestions dropdown
-            });
+                abortController = new AbortController();
+
+                fetch(el.dataset.autocomplete + "&string=" + value, {
+                    signal: abortController.signal
+                }).
+                then((RES) => RES.json()).
+                then(function(json) {
+                    input.whitelist = json.suggestions;
+                    input.dropdown.show(value); // render the suggestions dropdown
+                });
+            }, timeoutWait);
         }
     });
 
@@ -1083,7 +1088,9 @@ $(document).foundation({
             });
 
             var id = tab[0].id; // e.g. tabs_front_image_en_tab
+            // pragma warning disable S5852
             var lc = id.replace(/.*(..)_tab/, "$1");
+           // pragma warning disable S5852
             $(".tabs_" + lc).addClass('active');
 
             $(document).foundation('tab', 'reflow');

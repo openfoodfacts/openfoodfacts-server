@@ -496,62 +496,83 @@ my @tests = (
 		]
 	],
 
+	# All ingredients have % specified, but the total is not 100%
+	# We now scale them to 100%.
+	# Note: currently the min part is ignored, we set percent instead of percent_min
 	[
-		{lc => "es", ingredients_text => "Leche min 12.2%, Cacao: min 7%, Avellanas (mínimo 3%)"},
+		{lc => "es", ingredients_text => "Leche min 12.2%, Cacao: min 7%, Avellanas (mínimo 0,8%)"},
 		[
 			{
 				'id' => 'en:milk',
-				'percent' => '12.2',
-				'percent_estimate' => '12.2',
+				'percent' => 61,
+				'percent_estimate' => 61,
+				'percent_max' => 61,
+				'percent_min' => 61,
 				'text' => 'Leche'
 			},
 			{
 				'id' => 'en:cocoa',
-				'percent' => '7',
-				'percent_estimate' => '7',
+				'percent' => 35,
+				'percent_estimate' => 35,
+				'percent_max' => 35,
+				'percent_min' => 35,
 				'text' => 'Cacao'
 			},
 			{
 				'id' => 'en:hazelnut',
-				'percent' => '3',
-				'percent_estimate' => '80.8',
+				'percent' => '4',
+				'percent_estimate' => 4,
+				'percent_max' => 4,
+				'percent_min' => 4,
 				'text' => 'Avellanas'
 			}
 		]
+
 	],
 
+	# bug #3762 "min" in "cumin"
 	# bug #3762 "min" in "cumin"
 	[
 		{lc => "fr", ingredients_text => "sel (min 20%), poivre (min. 10%), piment (min : 5%), cumin 0,4%, ail : 0.1%"},
 		[
 			{
 				'id' => 'en:salt',
-				'percent' => '20',
-				'percent_estimate' => 20,
+				'percent' => '56.3380281690141',
+				'percent_estimate' => '56.3380281690141',
+				'percent_max' => '56.3380281690141',
+				'percent_min' => '56.3380281690141',
 				'text' => 'sel'
 			},
 			{
 				'id' => 'en:pepper',
-				'percent' => '10',
-				'percent_estimate' => 10,
+				'percent' => '28.169014084507',
+				'percent_estimate' => '28.169014084507',
+				'percent_max' => '28.169014084507',
+				'percent_min' => '28.169014084507',
 				'text' => 'poivre'
 			},
 			{
 				'id' => 'en:chili-pepper',
-				'percent' => '5',
-				'percent_estimate' => 5,
+				'percent' => '14.0845070422535',
+				'percent_estimate' => '14.0845070422535',
+				'percent_max' => '14.0845070422535',
+				'percent_min' => '14.0845070422535',
 				'text' => 'piment'
 			},
 			{
 				'id' => 'en:cumin',
-				'percent' => '0.4',
-				'percent_estimate' => '0.4',
+				'percent' => '1.12676056338028',
+				'percent_estimate' => '1.12676056338028',
+				'percent_max' => '1.12676056338027',
+				'percent_min' => '1.12676056338028',
 				'text' => 'cumin'
 			},
 			{
 				'id' => 'en:garlic',
-				'percent' => '0.1',
-				'percent_estimate' => '64.6',
+				'percent' => '0.28169014084507',
+				'percent_estimate' => '0.281690140845058',
+				'percent_max' => '0.281690140845058',
+				'percent_min' => '0.28169014084507',
 				'text' => 'ail'
 			}
 		]
@@ -797,6 +818,293 @@ my @tests = (
 			}
 		]
 	],
+
+	# Where flavourings or other ingredients with a maximum percentage are not the first ingredient then
+	# use their maximum percentage
+	[
+		{lc => "en", ingredients_text => "milk, flavouring"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent_estimate' => 97.5,
+				'percent_max' => 100,
+				'percent_min' => 95,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:flavouring',
+				'percent_estimate' => 2.5,
+				'percent_max' => 5,
+				'percent_min' => 0,
+				'text' => 'flavouring'
+			}
+		]
+	],
+
+	# Can get percent_max from parent ingredient
+	[
+		{lc => "en", ingredients_text => "milk, natural flavouring"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent_estimate' => 97.5,
+				'percent_max' => 100,
+				'percent_min' => 95,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:natural-flavouring',
+				'percent_estimate' => 2.5,
+				'percent_max' => 5,
+				'percent_min' => 0,
+				'text' => 'natural flavouring'
+			}
+		]
+	],
+
+	# Where flavourings are the first ingredient then ignore maximum percentages
+	[
+		{lc => "en", ingredients_text => "flavouring, lemon flavouring"},
+		[
+			{
+				'id' => 'en:flavouring',
+				'percent_estimate' => 75,
+				'percent_max' => 100,
+				'percent_min' => 50,
+				'text' => 'flavouring'
+			},
+			{
+				'id' => 'en:lemon-flavouring',
+				'percent_estimate' => 25,
+				'percent_max' => 50,
+				'percent_min' => 0,
+				'text' => 'lemon flavouring'
+			}
+		]
+	],
+
+	# Where maximum would prevent ingredients from adding up to 100% then ignore it
+	[
+		{lc => "en", ingredients_text => "milk 80%, flavouring"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent' => 80,
+				'percent_estimate' => 80,
+				'percent_max' => 80,
+				'percent_min' => 80,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:flavouring',
+				'percent_estimate' => 20,
+				'percent_max' => 20,
+				'percent_min' => 20,
+				'text' => 'flavouring'
+			}
+		]
+	],
+
+	# Where maximum is lower than later ingredients then ignore it
+	[
+		{lc => "en", ingredients_text => "milk, flavouring, sugar 10%"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent_estimate' => 62.5,
+				'percent_max' => 80,
+				'percent_min' => 45,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:flavouring',
+				'percent_estimate' => 23.75,
+				'percent_max' => 45,
+				'percent_min' => 10,
+				'text' => 'flavouring'
+			},
+			{
+				'id' => 'en:sugar',
+				'percent' => 10,
+				'percent_estimate' => 13.75,
+				'percent_max' => 10,
+				'percent_min' => 10,
+				'text' => 'sugar'
+			}
+		]
+	],
+
+	# Where two ingredients have a maximum then apply it
+	[
+		{lc => "en", ingredients_text => "milk, lemon flavouring, orange flavouring"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent_estimate' => 95,
+				'percent_max' => 100,
+				'percent_min' => 90,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:lemon-flavouring',
+				'percent_estimate' => 2.5,
+				'percent_max' => 5,
+				'percent_min' => 0,
+				'text' => 'lemon flavouring'
+			},
+			{
+				'id' => 'en:orange-flavouring',
+				'percent_estimate' => 2.5,
+				'percent_max' => 5,
+				'percent_min' => 0,
+				'text' => 'orange flavouring'
+			}
+		]
+	],
+
+	# Ingredients indicated in grams, with a sum different than 100 (here 200)
+	# The percents need to be scaled to take into account the actual sum
+	# This works only if we have actual percent values for all ingredients
+	[
+		{lc => "en", ingredients_text => "milk (160g), sugar (30g), lemon flavouring (10g)"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent' => 80,
+				'percent_estimate' => 80,
+				'percent_max' => 80,
+				'percent_min' => 80,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:sugar',
+				'percent' => 15,
+				'percent_estimate' => 15,
+				'percent_max' => 15,
+				'percent_min' => 15,
+				'text' => 'sugar'
+			},
+			{
+				'id' => 'en:lemon-flavouring',
+				'percent' => '5',
+				'percent_estimate' => 5,
+				'percent_max' => 5,
+				'percent_min' => 5,
+				'text' => 'lemon flavouring'
+			}
+		]
+
+	],
+	# smaller sum than 100, sub ingredients, ingredients not in quantity order (as in a recipe)
+	[
+		{lc => "en", ingredients_text => "milk (10g), fruits 30g (apples, pears), lemon flavouring (10g)"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent' => 20,
+				'percent_estimate' => 20,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:fruit',
+				'ingredients' => [
+					{
+						'id' => 'en:apple',
+						'percent_estimate' => 30,
+						'text' => 'apples'
+					},
+					{
+						'id' => 'en:pear',
+						'percent_estimate' => 30,
+						'text' => 'pears'
+					}
+				],
+				'percent' => 60,
+				'percent_estimate' => 60,
+				'text' => 'fruits'
+			},
+			{
+				'id' => 'en:lemon-flavouring',
+				'percent' => '20',
+				'percent_estimate' => 20,
+				'text' => 'lemon flavouring'
+			}
+		]
+
+	],
+	# This test currently does not give very good results, as we have one ingredient without quantity,
+	# so we can't do much about it
+	[
+		{lc => "en", ingredients_text => "milk (160g), sugar (30g), lemon flavouring"},
+		[
+			{
+				'id' => 'en:milk',
+				'percent' => 160,
+				'percent_estimate' => 100,
+				'percent_max' => 70,
+				'percent_min' => 160,
+				'text' => 'milk'
+			},
+			{
+				'id' => 'en:sugar',
+				'percent' => 30,
+				'percent_estimate' => 0,
+				'percent_max' => 30,
+				'percent_min' => 30,
+				'text' => 'sugar'
+			},
+			{
+				'id' => 'en:lemon-flavouring',
+				'percent_estimate' => 0,
+				'percent_max' => 5,
+				'percent_min' => 0,
+				'text' => 'lemon flavouring'
+			}
+		]
+
+	],
+
+	# Trigger illegal division by zero - https://github.com/openfoodfacts/openfoodfacts-server/issues/8782
+	[
+		{
+			lc => "fr",
+			ingredients_text => 'légumes 0% (épices et aromates (contient oignon et safran &lt;0.1%), sel)',
+		},
+		[
+			{
+				'id' => 'en:vegetable',
+				'ingredients' => [
+					{
+						'id' => 'en:herbs-and-spices',
+						'ingredients' => [
+							{
+								'id' => 'en:onion',
+								'percent_estimate' => 25,
+								'text' => 'contient oignon'
+							},
+							{
+								'id' => 'en:e164',
+								'percent' => '0.1',
+								'percent_estimate' => 25,
+								'text' => 'safran'
+							}
+						],
+						'percent_estimate' => 50,
+						'text' => "\x{e9}pices et aromates"
+					},
+					{
+						'id' => 'en:salt',
+						'percent_estimate' => 50,
+						'text' => 'sel'
+					}
+				],
+				'percent' => 0,
+				'percent_estimate' => 100,
+				'text' => "l\x{e9}gumes"
+			}
+		]
+
+	]
 
 );
 

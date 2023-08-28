@@ -1,0 +1,111 @@
+# Redirects for off
+
+location = /donate-to-open-food-facts {
+	try_files /donate/en.html =404;
+}
+
+location = /faire-un-don-a-open-food-facts {
+	try_files /donate/fr.helloasso.html =404;
+}
+
+location = /donner-a-open-food-facts {
+        try_files /donate/fr.helloasso.html =404;
+}
+
+# bg: даряване-на-openfoodfacts
+# ca: dona a openfoodfacts
+location = /darujte-openfoodfacts {
+	try_files /donate/cs.html =404;
+}
+
+location = /doner-til-open-food-facts {
+	try_files /donate/da.html =404;
+}
+
+location = /spenden {
+	try_files /donate/de.html =404;
+}
+# el: δωρεά σε openfoodfacts doreá se openfoodfacts
+location = /dar-a-open-food-facts {
+	try_files /donate/es.html =404;
+}
+# ee: anneta-to-openfoodfacts
+location = /haz-su-donacion-a-open-food-facts {
+	try_files /donate/es.html =404;
+}
+location = /dona-a-open-food-facts {
+	try_files /donate/it.html =404;
+}
+location = /doneren-aan-openfoodfacts {
+	try_files /donate/nl.html =404;
+}
+# pl: Przekaż darowiznę na openfoodfacts
+location = /pozhertvovat-open-food-facts {
+	try_files /donate/ru.html =404;
+}
+
+location = /donate-to-open-food-facts-ru {
+	try_files /donate/ru.html =404;
+}
+location = /doniraj-k-open-food-facts {
+	try_files /donate/sl.html =404;
+}
+
+location = /open-food-factse-bagista-bulununs {
+	try_files /donate/tr.html =404;
+}
+
+location = /donate-to-open-food-facts-he {
+	try_files /donate/he.html =404;
+}
+
+location = /fazer-um-donativo-ao-open-food-facts {
+	try_files /donate/pt.html =404;
+}
+
+location = /lahjoita-open-food-factsille {
+	try_files /donate/fi.html =404;
+}
+
+location = /donate-to-open-food-facts-ko {
+	try_files /donate/ko.html =404;
+}
+
+# zh-cn: 捐赠给openfoodfacts Juānzèng gěi openfoodfacts
+
+
+location = /hunger-game {
+	return 301 https://hunger.openfoodfacts.org;
+}
+
+location = /ecoscore {
+	if ( $host ~ "^fr\..*" ) {
+	        return 301 https://$host/eco-score-l-impact-environnemental-des-produits-alimentaires;
+	}
+	return 301 https://$host/eco-score-the-environmental-impact-of-food-products;
+}
+
+# 2022-06-13 Redirect press pages to blog post about the new Flutter app
+location = /presse {
+	return 302 https://blog.openfoodfacts.org/fr/communique-de-presse-nouvelle-appli;
+}
+
+location = /press {
+	return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
+}
+
+location = /prensa {
+	    return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
+}
+
+location = /stampa {
+	    return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
+}
+
+location = /press-and-blogs {
+	return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
+}
+
+location = /pers {
+	return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
+}

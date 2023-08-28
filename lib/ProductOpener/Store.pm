@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -35,6 +35,7 @@ BEGIN {
 		&unac_string_perl
 		&get_string_id_for_lang
 		&get_url_id_for_lang
+		&sto_iter
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -253,7 +254,9 @@ sub retrieve ($file) {
 
 sub store_json ($file, $ref) {
 
-	return write_json($file, $ref);
+	# we sort hash keys so that the same object results in the same file
+	# we do not indent as it can easily multiply the size by 2 or more with deep nested structures
+	return write_json($file, $ref, (sort => 1));
 }
 
 sub retrieve_json ($file) {
@@ -271,6 +274,57 @@ sub retrieve_json ($file) {
 	}
 
 	return $return;
+}
+
+=head2  sto_iter($initial_path, $pattern=qr/\.sto$/i)
+
+iterate all the files corresponding to $pattern starting from $initial_path
+
+use it as an iterator:
+my $iter = sto_iter(".");
+while (my $path = $iter->()) {
+	# do stuff
+}
+
+=cut
+
+sub sto_iter ($initial_path, $pattern = qr/\.sto$/i) {
+	my @dirs = ($initial_path);
+	my @files = ();
+	my %seen;
+	return sub {
+		if (scalar @files == 0) {
+			# explore a new dir until we get some file
+			while ((scalar @files == 0) && (scalar @dirs > 0)) {
+				my $current_dir = shift @dirs;
+				opendir(DIR, "$current_dir") or die "Cannot open $current_dir\n";
+				# Sort files so that we always explore them in the same order (useful for tests)
+				my @candidates = sort readdir(DIR);
+				closedir(DIR);
+				foreach my $file (@candidates) {
+					# avoid ..
+					next if $file =~ /^\.\.?$/;
+					my $path = "$current_dir/$file";
+					if (-d $path) {
+						# explore sub dirs
+						next if $seen{$path};
+						$seen{$path} = 1;
+						push @dirs, $path;
+					}
+					next if ($path !~ $pattern);
+					push(@files, $path);
+				}
+			}
+		}
+		# if we still have files, return a file
+		if (scalar @files > 0) {
+			return shift @files;
+		}
+		else {
+			# or end iteration
+			return;
+		}
+	};
 }
 
 1;

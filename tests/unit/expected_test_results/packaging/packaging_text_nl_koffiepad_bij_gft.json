@@ -1,10 +1,28 @@
 {
    "lc" : "nl",
+   "misc_tags" : [
+      "en:packagings-number-of-components-1",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [
+      "en:recycle-as-green-waste"
+   ],
+   "packaging_shapes_tags" : [
+      "en:coffee-pad"
+   ],
    "packaging_text" : "koffiepad bij gft",
    "packagings" : [
       {
          "recycling" : "en:recycle-as-green-waste",
          "shape" : "en:coffee-pad"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:unknown" : {}
+   },
+   "packagings_n" : 1
 }
