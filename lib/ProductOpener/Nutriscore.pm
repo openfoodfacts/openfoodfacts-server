@@ -44,8 +44,8 @@ of a food product.
 		is_beverage => 1,
 		is_water => 0,
 		is_cheese => 0,
-		is_fat (for 2021 version)
-		is_fat_nuts_seed (for 2023 version)
+		is_fat => 1, # for 2021 version
+		is_fat_nuts_seed => 1, # for 2023 version
 	}
 
 	my ($nutriscore_score, $nutriscore_grade) = compute_nutriscore_score_and_grade(
@@ -119,6 +119,7 @@ sub compute_nutriscore_score_and_grade ($nutriscore_data_ref, $version = "2021")
 	return compute_nutriscore_score_and_grade_2021($nutriscore_data_ref);
 }
 
+# methods returning the 2021 version for now, to ease switch, later on.
 sub get_value_with_one_less_negative_point ($nutriscore_data_ref, $nutrient) {
 	return get_value_with_one_less_negative_point_2021($nutriscore_data_ref, $nutrient);
 }
@@ -135,7 +136,7 @@ sub compute_nutriscore_grade ($nutrition_score, $is_beverage, $is_water) {
 
 =head2 compute_nutriscore_score_and_grade_2021( $nutriscore_data_ref )
 
-C<compute_nutriscore_score_and_grade()> computes the Nutri-Score score and grade
+Computes the Nutri-Score score and grade
 of a food product, and also returns the details of the points for each nutrient.
 
 =head3 Arguments: $nutriscore_data_ref
@@ -483,9 +484,9 @@ sub compute_nutriscore_grade_2021 ($nutrition_score, $is_beverage, $is_water) {
 
 # 2022 / 2023 algorithm
 
-=head2 compute_nutriscore_score_and_grade( $nutriscore_data_ref )
+=head2 compute_nutriscore_score_and_grade_2023( $nutriscore_data_ref )
 
-C<compute_nutriscore_score_and_grade()> computes the Nutri-Score score and grade
+Computes the Nutri-Score score and grade
 of a food product, and also returns the details of the points for each nutrient.
 
 =head3 Arguments: $nutriscore_data_ref
@@ -582,7 +583,7 @@ my %points_thresholds_2023 = (
 	proteins_beverages => [1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0],    # g / 100g
 );
 
-=head2 get_value_with_one_less_negative_point( $nutriscore_data_ref, $nutrient )
+=head2 get_value_with_one_less_negative_point_2023( $nutriscore_data_ref, $nutrient )
 
 For a given Nutri-Score nutrient value, return the highest smaller value that would result in less negative points.
 e.g. for a sugars value of 15 (which gives 3 points), return 13.5 (which gives 2 points).
@@ -617,7 +618,7 @@ sub get_value_with_one_less_negative_point_2023 ($nutriscore_data_ref, $nutrient
 	return $lower_threshold;
 }
 
-=head2 get_value_with_one_more_positive_point( $nutriscore_data_ref, $nutrient )
+=head2 get_value_with_one_more_positive_point_2023( $nutriscore_data_ref, $nutrient )
 
 For a given Nutri-Score nutrient value, return the smallest higher value that would result in more positive points.
 e.g. for a proteins value of 2.0 (which gives 1 point), return 3.3 (which gives 2 points)
