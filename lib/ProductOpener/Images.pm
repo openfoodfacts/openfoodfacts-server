@@ -133,6 +133,8 @@ use Image::Magick;
 use Graphics::Color::RGB;
 use Graphics::Color::HSL;
 use Barcode::ZBar;
+use Imager;
+use Imager::zxing;
 use Image::OCR::Tesseract 'get_ocr';
 
 use ProductOpener::Products qw/:all/;
@@ -299,13 +301,7 @@ sub scan_code ($file) {
 
 	my $code = undef;
 
-	# create a reader
-	my $scanner = Barcode::ZBar::ImageScanner->new();
-
 	print STDERR "scan_code file: $file\n";
-
-	# configure the reader
-	$scanner->parse_config("enable");
 
 	# obtain image data
 	my $magick = Image::Magick->new();
@@ -319,6 +315,12 @@ sub scan_code ($file) {
 		$log->warn("cannot read file to scan barcode", {error => $imagemagick_error}) if $log->is_warn();
 	}
 	else {
+		# create a reader/decoder
+		my $scanner = Barcode::ZBar::ImageScanner->new();
+
+		# configure the reader/decoder
+		$scanner->parse_config("enable");
+
 		# wrap image data
 		my $image = Barcode::ZBar::Image->new();
 		$image->set_format('Y800');
@@ -348,15 +350,40 @@ sub scan_code ($file) {
 			}
 
 			if (defined $code) {
-				$code = normalize_code($code);
 				last;
 			}
-			else {
-				$magick->Rotate(degrees => 90);
-			}
 
+			$magick->Rotate(degrees => 90);
 		}
 	}
+
+	if (not(defined $code)) {
+		my $decoder = Imager::zxing::Decoder->new();
+		$decoder->set_formats("DataMatrix");
+
+		my $imager = Imager->new();
+		$imager->read(file => $file)
+			or die "Cannot read $file: ", $imager->errstr;
+		my @results = $decoder->decode($imager);
+		# extract results
+		foreach my $result (@results) {
+			if (not($result->is_valid())) {
+				next;
+			}
+
+			$code = $result->text();
+			my $type = $result->format();
+			$log->debug("barcode found", {code => $code, type => $type}) if $log->is_debug();
+			print STDERR "scan_code code found: $code\n";
+			if (($code !~ /^\d+|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+$/)) {
+				$code = undef;
+				next;
+			}
+			last;
+		}
+	}
+
+	$code = normalize_code($code);
 
 	if (defined $code) {
 		$code = normalize_code($code);
