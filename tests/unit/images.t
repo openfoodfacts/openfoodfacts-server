@@ -48,7 +48,8 @@ my @scan_code_tests = (
 	["02_upc_e.jpg", "01234565"],
 	["03_itf_13.jpg", "0012345123456"],
 	["04_gs1_128.jpg", "4044782317112"],
-	["05_gs1_databar_omni.jpg", "1234567890128"]
+	["05_gs1_databar_omni.jpg", "1234567890128"],
+	["37_gs1_datamatrix.jpg", "0725272730706"]
 );
 
 my $sample_products_images_path = dirname(__FILE__) . "/inputs/images/";
