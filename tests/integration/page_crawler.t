@@ -19,8 +19,8 @@ wait_application_ready();
 
 my $ua = new_client();
 
-my $CRAWLING_BOT_USER_AGENT
-	= 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/';
+my $CRAWLING_BOT_USER_AGENT = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)';
+my $DENIED_CRAWLING_BOT_USER_AGENT = 'Mozilla/5.0 (compatible; AhrefsBot/6.1; +http://ahrefs.com/robot/)';
 my $NORMAL_USER_USER_AGENT
 	= 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0';
 
@@ -55,6 +55,16 @@ my $tests_ref = [
 		expected_status_code => 200,
 		expected_type => 'html',
 		response_content_must_match => '<title>Only-Product - 100 g</title>'
+	},
+	# Denied crawling bot should not have access to any page
+	{
+		test_case => 'denied-crawler-access-product-page',
+		method => 'GET',
+		path => '/product/0200000000235/only-product',
+		headers_in => {'User-Agent' => $DENIED_CRAWLING_BOT_USER_AGENT},
+		expected_status_code => 200,
+		expected_type => 'html',
+		response_content_must_match => '<h1>NOINDEX</h1>'
 	},
 	# Crawling bot should receive a noindex page for nested facets
 	{
