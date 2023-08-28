@@ -20,10 +20,9 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-
 # pre-requisites:
-# - from the Croatian ministry of agriculture website, 
-#   download the actual list of "Register of approved establishments dealing with 
+# - from the Croatian ministry of agriculture website,
+#   download the actual list of "Register of approved establishments dealing with
 #   food of animal origin - all establishments" http://veterinarstvo.hr/default.aspx?id=2423
 # - convert xls file into csv:
 # $ ssconvert '07-08-2023. svi odobreni objekti.xls'  hr_07082023_svi_odobreni_objekti.csv
@@ -63,7 +62,6 @@ my $outfile = 'HR-merge-UTF-8.csv';
 # my $nolatlongfile = 'DE-nolatlong.html'; # benbenben not needed
 
 my @address_columns = ('ADRESA OBJEKTA (Address)', 'MJESTO I POŠTANSKI BROJ (town/postal code');
-
 
 my $GOOGLE_APIKEY = undef;
 
@@ -195,11 +193,11 @@ async sub geocode_table {
 		concurrent => 15;
 }
 
-# sub fixup_csv { # benbenben not needed 
+# sub fixup_csv { # benbenben not needed
 # 	my ($csv_string_ref) = @_;
 
 # 	# Lines end with separator, parser thinks there's an empty field there
-# 	${$csv_string_ref} =~ s/;$//gsmx; # benbenben no ; at tend of line 
+# 	${$csv_string_ref} =~ s/;$//gsmx; # benbenben no ; at tend of line
 # 	${$csv_string_ref} =~ tr/„”“‟/"/;    # Normalize different double quotes # # benbenben no different quotes
 # 	${$csv_string_ref} =~ s/\r\n//gsmx;    # Remove unquoted embedded CRLF
 # 										   # e.g ';OT Ebenheit' in address splitting the field
