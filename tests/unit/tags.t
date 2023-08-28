@@ -812,4 +812,7 @@ is(canonicalize_taxonomy_tag('fr', 'packaging_materials', 'Gaz / CO2 - Dioxide d
 my $regexps_ref = generate_regexps_matching_taxonomy_entries("test", "list_of_regexps", {});
 compare_to_expected_results($regexps_ref, "$expected_result_dir/regexps.json", $update_expected_results);
 
+# xx: entries for ingredients should be used to match in all languages
+is(canonicalize_taxonomy_tag('pl', 'ingredients', 'Lactobacillus bulgaricus'), "en:lactobacillus-bulgaricus");
+
 done_testing();
