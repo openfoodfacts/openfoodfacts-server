@@ -89,8 +89,14 @@ requires 'Action::Retry'; # deps: libmath-fibonacci-perl
 requires 'AnyEvent';
 requires 'AnyEvent::Inotify::Simple';
 
-# GS1 Encoder
+# GS1 Sunrise 2027
 requires 'GS1::SyntaxEngine::FFI';
+requires 'Imager::zxing';
+requires 'Imager::File::AVIF';
+requires 'Imager::File::HEIF';
+requires 'Imager::File::JPEG';
+requires 'Imager::File::PNG';
+requires 'Imager::File::WEBP';
 
 on 'test' => sub {
   requires 'Test::More', '>= 1.302186, < 2.0';
