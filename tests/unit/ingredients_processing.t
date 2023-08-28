@@ -1960,8 +1960,9 @@ my @tests = (
 				'text' => 'keitetty riisi'
 			},
 			{
-				'id' => 'fi:keitetyt-perunat',
-				'text' => 'keitetyt perunat'
+				'id' => 'en:potato',
+				'processing' => 'en:cooked',
+				'text' => 'perunat'
 			},
 			{
 				'id' => 'en:potato',
@@ -1969,16 +1970,18 @@ my @tests = (
 				'text' => 'peruna'
 			},
 			{
-				'id' => 'fi:perunat',
+				'id' => 'en:potato',
 				'text' => 'perunat'
 			},
 			{
-				'id' => 'fi:kuivatut-perunat',
-				'text' => 'kuivatut perunat'
+				'id' => 'en:potato',
+				'processing' => 'en:dried',
+				'text' => 'perunat'
 			},
 			{
-				'id' => 'fi:leikatut-perunat',
-				'text' => 'leikatut perunat'
+				'id' => 'en:potato',
+				'processing' => 'en:cut',
+				'text' => 'perunat'
 			},
 			{
 				'id' => 'en:potato',
@@ -1994,8 +1997,9 @@ my @tests = (
 				'text' => 'pakasteperunat'
 			},
 			{
-				'id' => 'fi:jauhetut-perunat',
-				'text' => 'jauhetut perunat'
+				'id' => 'en:potato',
+				'processing' => 'en:ground',
+				'text' => 'perunat'
 			},
 			{
 				'id' => 'fi:maidon-kuiva-aineet',
@@ -2307,37 +2311,39 @@ my @tests = (
 			}
 		]
 	],
-	
+
 	# Greek
 
 	[
 		{
 			lc => "el",
-			ingredients_text => "ψημένο κρεμμύδι, παγωμένη πατάτα, σκόνη φράουλας, πουρέ σκόρδου",
+			ingredients_text => "κρεμμύδι στο φούρνο, παγωμένη πατάτα, κρεμμύδι σε σκόνη, πουρέ κρεμμυδιού",
 		},
 		[
 			{
 				'id' => 'en:onion',
 				'processing' => 'en:roasted',
-				'text' => "\x{43b}\x{443}\x{43a}"
+				'text' => "\x{3ba}\x{3c1}\x{3b5}\x{3bc}\x{3bc}\x{3cd}\x{3b4}\x{3b9}"
 			},
 			{
 				'id' => 'en:potato',
 				'processing' => 'en:frozen',
-				'text' => "\x{43a}\x{430}\x{440}\x{442}\x{43e}\x{444}\x{438}"
+				'text' => "\x{3c0}\x{3b1}\x{3c4}\x{3ac}\x{3c4}\x{3b1}"
 			},
 			{
-				'id' => 'en:strawberry',
+				'id' => 'en:onion',
 				'processing' => 'en:powder',
-				'text' => "\x{44f}\x{433}\x{43e}\x{434}\x{438}"
+				'text' => "\x{3ba}\x{3c1}\x{3b5}\x{3bc}\x{3bc}\x{3cd}\x{3b4}\x{3b9}"
 			},
 			{
-				'id' => 'en:garlic',
-				'processing' => 'en:pureed',
-				'text' => "\x{447}\x{435}\x{441}\x{44a}\x{43d}"
+				'id' =>
+					"el:\x{3c0}\x{3bf}\x{3c5}\x{3c1}\x{3ad}-\x{3ba}\x{3c1}\x{3b5}\x{3bc}\x{3bc}\x{3c5}\x{3b4}\x{3b9}\x{3bf}\x{3cd}",
+				'text' =>
+					"\x{3c0}\x{3bf}\x{3c5}\x{3c1}\x{3ad} \x{3ba}\x{3c1}\x{3b5}\x{3bc}\x{3bc}\x{3c5}\x{3b4}\x{3b9}\x{3bf}\x{3cd}"
 			}
 		]
-	],	
+
+	],
 );
 
 foreach my $test_ref (@tests) {
