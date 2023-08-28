@@ -596,8 +596,10 @@ Return 1 if the page should not be indexed by web crawlers based on analyzed req
 sub is_no_index_page ($request_ref) {
 	return scalar(
 		($request_ref->{is_crawl_bot} == 1) and (
+			# if is_denied_crawl_bot == 1, we don't accept any request from this bot
+			($request_ref->{is_denied_crawl_bot} == 1)
 			# All list of tags pages should be non-indexable
-			(defined $request_ref->{groupby_tagtype})
+			or (defined $request_ref->{groupby_tagtype})
 			or (
 				(
 					defined $request_ref->{tagtype} and (
