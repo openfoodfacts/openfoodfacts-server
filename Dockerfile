@@ -8,10 +8,11 @@ ARG CPANMOPTS=
 ######################
 # Base modperl image stage
 ######################
-FROM debian:bullseye AS modperl
+FROM debian:bookworm AS modperl
 
 # Install cpm to install cpanfile dependencies
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
+    echo "deb http://deb.debian.org/debian bookworm-backports main contrib non-free" > /etc/apt/sources.list.d/backports.list && \
     apt update && \
     apt install -y \
         apache2 \
@@ -50,7 +51,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         liburi-find-perl \
         libxml-simple-perl \
         libexperimental-perl \
-        libapache2-request-perl \
+        libapache2-request-perl/bookworm-backports \
         libdigest-md5-perl \
         libtime-local-perl \
         libdbd-pg-perl \
@@ -144,7 +145,17 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         # gnu readline
         libreadline-dev \
         # IO::AIO needed by Perl::LanguageServer
-        libperl-dev
+        libperl-dev \
+        # Imager::zxing
+        pkg-config \
+        libzxing-dev \
+        libavif-dev \
+        libde265-dev \
+        libheif-dev \
+        libjpeg-dev \
+        libpng-dev \
+        libwebp-dev \
+        libx265-dev
 
 # Run www-data user as host user 'off' or developper uid
 ARG USER_UID
