@@ -169,14 +169,17 @@ en:cut, steel cut, regular cut
 #en:false_positives:cuttlefish, cutlet
 bg:нарязано, нарязана, нарязани, нарязани на
 ca:tallat
+da:udskårne,skåret
 de:geschnitten, geschnittene, geschnittener, geschnittenes
 es:cortado,cortada,cortados,cortadas
+fi:leikatut
 fr:coupé, coupée, coupés, coupées, émincé, émincée, émincés, émincées, émincé de, en éclats, éclats de, éclats d', en copeaux, copeaux de, copeaux d'
 hu:vágott, vágás
 it:tagliato, tagliata, tagliati, tagliate
 nl:gesneden
 pl:cięty, cięta, cięte, krojony, krojone, krojona, pokrojony, pokrojone, pokrojona
 pt:cortado, cortada, cortados, cortadas
+sv:skuren
 
 # <en:cut
 en:thick cut
@@ -355,7 +358,7 @@ en:ground
 bg:смляно, смлян, смляна, смляни, мляно
 ca:mòlt, mòlts, mòltes
 cs:mleté
-da:formalede
+da:formalede,malede
 de:gemahlen, gemahlene, gemahlener, gemahlenes
 es:molido, molidos, molida, molidas
 fi:jauhettu, jauhetut
@@ -397,6 +400,7 @@ bg:пюре, на пюре, пюре от
 ca:puré, pure de, pure d'
 da:puré, pure
 de:püree, puree, püree aus, puree aus, pürierte
+el:πουρές, πουρέ
 es:puré, pure, puré de, pure de, cremogenado, cremogenada
 fi:sose, pyree, pyre
 fr:en purée, purée de, purée d'
@@ -538,7 +542,7 @@ es:en polvo, polvo de
 et:pulber
 fa:پودر
 fi:jauhe
-fr:en poudre, poudre de, poudre d'
+fr:en poudre, poudre de, poudre d', semoule de, semoule d', semoule, en semoule
 he:אבקה
 hi:चूर्ण, पाउडर
 hr:prah, prah od, praha, prahu, u prahu
@@ -936,6 +940,7 @@ hr:koncentrirani ekstrakt
 #pl:NFC
 
 # there is a problem with en:cocoa paste
+# 2023/08/28: (Stéphane) what's the problem with cocoa paste?
 #en:paste
 #ca:pasta d'
 #cs:pasta
@@ -946,7 +951,7 @@ hr:koncentrirani ekstrakt
 #hr:pasta, pasta od
 #it:pasta di, pasta d'
 ja:ペースト
-#pl:pasta z
+#pl:pasta z, pasta
 #sv:pasta
 
 de:eingekochter
@@ -1022,6 +1027,7 @@ fi:pakkaskuivattu, pakkaskuivatut, pakastekuivattu
 fr:lyophilisé, lyophilisée, lyophilisés, lyophilisées
 hr:liofilizirane, liofiliziran, liofilizirana, liofilizirani, liofiliziranih, liofilizacijom
 hu:fagyasztva szárított
+it:liofilizzata, liofilizzate, liofilizzato, liofilizzati
 nb:frysetørkede
 nl:gevriesdroogde
 pl:liofilizowane, liofilizowana, liofilizowany, liofilizowanej
@@ -1085,15 +1091,18 @@ pt:Xarope
 en:dehydrated
 bg:дехидратиран, дехидратирано, дехидратирана, дехидратирани
 ca:deshidratat, deshidratada
+da:dehydrerede,dehydreret
 es:deshidratado, deshidratada, deshidratados, deshidratadas
 fr:déshydraté, déshydratée, déshydratés, déshydratées
 hr:dehidrirani, osušeno
 hu:dehidratált, liofilizált
 it:disidratato, disidratata, disidratati, disidratate
+nb:dehydrerte, dehydrert
 nl:gedehydrateerde
 pl:odwodniony, odwodnione, odwodniona
 pt:desidratado, desidratada, desidratados, desidratadas
 ro:deshidratată
+sv:dehydrerat, dehydrerad, dehydrerade
 
 en:partially dehydrated
 fr:semi-déshydraté, semi-déshydratée, semi-déshydratés, semi-déshydratées, partiellement déshydraté, partiellement déshydratée, partiellement déshydratés, partiellement déshydratées
@@ -1101,15 +1110,18 @@ fr:semi-déshydraté, semi-déshydratée, semi-déshydratés, semi-déshydratée
 en:rehydrated
 bg:рехидратиран, рехидратирано, рехидратирана, рехидратирани
 ca:rehidratat, rehidratada
+da:rehydrerede,rehydreret
 es:rehidritado, rehidritada, rehidritados, rehidritadas
 de:rehydriert, rehydrierte, rehydrierter, rehydriertes
+fi:rehydratoitu
 fr:réhydraté, réhydratée, réhydratés, réhydratées
 hr:rehidrirana, rehidrirani
 hu:rehidratált
 it:reidratato, reidratata, reidratati, reidratate
+nb:rehydrerte, rehydrert
 pl:uwodnione, uwodniony, uwodniona
 pt:reidratado, reidratada, reidratados, reidratadas
-sv:rehydrerat, rehydrerad
+sv:rehydrerat, rehydrerad, rehydrerade
 
 en:partially rehydrated
 fr:semi-réhydraté, semi-réhydratée, semi-réhydratés, semi-réhydratées, partiellement réhydraté, partiellement réhydratée, partiellement réhydratés, partiellement réhydratées
@@ -1124,7 +1136,7 @@ fr:hydraté, hydratée, hydratés, hydratées
 hu:hidratált
 it:idratato, idratata, idratati, idratate
 pt:idratado, idratada, idratados, idratadas
-sv:hydrerat, hydrerad
+sv:hydrerat, hydrerad, hydrerade
 
 en:partially hydrated
 fr:semi-hydraté, semi-hydratée, semi-hydratés, semi-hydratées, partiellement hydraté, partiellement hydratée, partiellement hydratés, partiellement hydratées
@@ -1243,9 +1255,13 @@ pt:separado mecanicamente, separada mecanicamente, separados mecanicamente, sepa
 sv:maskinurbenat
 
 en:solids
+da:tørstof
 es:sólidos de
-fr:Solides du
-it:Solidi di
+fi:kuiva-aine
+fr:solides du
+it:solidi di
+nb:tørrstoff
+sv:fast
 
 en:macerate
 hr:macerat
@@ -1264,29 +1280,39 @@ description:en:Modification of starch to significantly improve its swelling prop
 # Processes that heat an ingredient (over fire, in water)
 
 en:frozen
+ar:مجمد
 bg:замразено, замразен, замразена, замразени
 ca:congelat, congelades, ultracongelat, ultracongelades
+da:frosne
 de:tiefgefroren, gefroren, tiefgefrorene, gefrorene, tiefgefrorener, gefrorener, tiefgefrorenes, gefrorenes
+el:παγωμένη
 es:congelado, conjelada, congelados, conjeladas,ultracongelado, ultracongelada,ultracongelados, ultracongeladas
+fi:pakaste
 fr:surgelé, surgelée, surgelés, surgelées, congelé, congelée, congelés, congelées
 hr:smrznuti, brzo smrznuti
 hu:fagyasztott, fagyott
 it:congelato, congelati, congelata, congelate, surgelato, surgelati, surgelata, surgelate
+nb:frosne
 nl:diepgevroren
 pl:mrożony, mrożona, mrożone
 pt:congelado, congelada, congelados, congeladas, ultracongelado, ultracongelada, ultracongelados, ultracongeladas
 ro:congelat
+sv:fryst, frossad
 
 en:unfrozen
 bg:размразено, размразен, размразена, размразени
 ca:descongelat, descongelada, descongelades
+da:ufrosne
 de:ungefroren, ungefrorene, ungefrorener, ungefrorenes
 es:descongelado, descongelada,descongelados, descongeladas
+fi:pakastetut
 fr:décongelé, décongelée, décongelés, décongelées
 hu:felolvasztott, kiolvasztott
 it:decongelato, decongelata, decongelati, decongelate
+nb:ufrosne
 nl:ontdooid
 pt:descongelado, descongelada, descongelados, descongeladas
+sv:ofryst, ofrossad
 
 en:pasteurised, pasteurized
 bg:пастьоризиран, пастьоризирано
@@ -1357,12 +1383,13 @@ en:thermally processed
 hr:termički obrađena
 
 en:cooked, boiled
+ar:مطبوخ
 bg:сготвено, сготвена, сготвен, сготвени, варено, варена, варен, варени
 cs:vařená
 da:kogte
 de:gekocht, gekochte, gekochter, gekochtes
 es:cocido, cocida, cocidos, cocidas
-fi:paistettu, keitetty, kypsennetty, kypsennetyt
+fi:paistettu, keitetty, keitetyt, kypsennetty, kypsennetyt
 fr:cuit, cuite, cuits, cuites, cuit au naturel, cuite au naturel, cuits au naturel, cuites au naturel, cuisiné, cuisinée, cuisinés, cuisinées
 hr:kuhani, kuhano
 hu:főtt, főzött
@@ -1372,6 +1399,7 @@ ja:ゆで, 茹で
 ms:rebus
 nl:gekookt, gekookte
 nn:kogte
+nb:kokt,kokte,stekt
 pl:gotowana, gotowany, gotowane, gotowanej, gotowanego, gotowanych, ugotowana, ugotowany, ugotowane, ugotowanej, ugotowanego, ugotowanych
 pt:cozido, cozida, cozidos, cozidas
 ro:fiert
@@ -1424,7 +1452,7 @@ nl:gepoft, gepofte
 pl:dmuchany, dmuchane, dmuchana, preparowany, preparowana, preparowane, ekspandowany, ekspandowane, ekspandowana
 se:puffat
 
-en:pre-fried
+en:pre-fried, prefried
 es:prefrito,prefrita,prefritos,prefritas
 fr:pré-frit, pré-frite, pré-frits, pré-frites, préfrit, préfrite, préfrits, préfrites
 hu:elősütött
@@ -1434,6 +1462,8 @@ sv:förfriterad
 
 en:fried
 bg:пържено, пържен, пържена, пържени
+ca:fregida, fregides
+da:stegte
 de:frittiert, frittierte, frittierter
 es:frito, fritos, frita, fritas
 fr:frit, frite, frits, frites
@@ -1447,11 +1477,13 @@ sv:friterad, stekt
 # nl:gefrituurd
 # en:wikitionary:To cook food by heating in an oven or over a fire without covering, resulting in a crisp, possibly even slightly charred appearance.
 
-en:roasted
+en:roasted, baked
 bg:печено, печен, печена, печени
 ca:rostit,rostits,rostida,rostides
 cs:pražené
+da:ristet,ristede,bagt, bagte
 de:gebraten, gebratene, gebratener, gebratenes
+el:ψημένο, στο φούρνο
 es:asado, asada, asados, asadas
 et:röstitud
 fr:rôti, rôtie, rôtis, rôties, torréfié, torréfiée, torréfiés, torréfiées
@@ -1462,7 +1494,7 @@ ja:ロースト
 nl:gebraden
 pt:assado, assada, assados, assadas
 sk:pražené
-sv:rostat, rostade
+sv:rostad, rostade, bakad
 
 #<en:roasted
 en:dry roasted
@@ -1509,6 +1541,9 @@ sv:grillad
 <en:grilled
 es:barbeque,barbequed
 pt:churrasco
+
+en:sauteed
+fr:sauté, sautée, sautés, sautées, rissolé, rissolée, rissolés, rissolées
 
 en:melted
 ca:fos
