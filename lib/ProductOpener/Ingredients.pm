@@ -1826,8 +1826,11 @@ sub parse_ingredients_text ($product_ref) {
 									(
 										#($product_lc =~ /^(en|es|it|fr)$/)
 										(
-											   ($product_lc eq 'bs')
+											   ($product_lc eq 'ar')
+											or ($product_lc eq 'bg')
+											or ($product_lc eq 'bs')
 											or ($product_lc eq 'cs')
+											or ($product_lc eq 'el')
 											or ($product_lc eq 'en')
 											or ($product_lc eq 'es')
 											or ($product_lc eq 'fr')
@@ -1854,8 +1857,17 @@ sub parse_ingredients_text ($product_ref) {
 
 									# match after the ingredient, does not require a space
 									# match before the ingredient, require a space
-									or (    ($product_lc eq 'fi')
-										and ($new_ingredient =~ /(^($regexp)\b|($regexp)$)/i))
+									or (
+										(
+											   ($product_lc eq 'da')
+											or ($product_lc eq 'fi')
+											or ($product_lc eq 'nb')
+											or ($product_lc eq 'no')
+											or ($product_lc eq 'nn')
+											or ($product_lc eq 'sv')
+										)
+										and ($new_ingredient =~ /(^($regexp)\b|($regexp)$)/i)
+									)
 									)
 								{
 									$new_ingredient = $` . $';

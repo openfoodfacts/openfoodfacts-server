@@ -1823,6 +1823,521 @@ my @tests = (
 		]
 
 	],
+
+	# Danish (da)
+
+	# for mælketørstof to work, mælke needs to be added as a synonym in the ingredients taxonomy, as the main translation is mælk
+	[
+		{
+			lc => "da",
+			ingredients_text =>
+				"stegte ris, rispulver, kogte ris, kogte kartofler, kogte kartofler, kartofler, tørrede kartofler, udskårne kartofler, kartoflerpulver, kartoffelpuré, frosne kartofler, malede kartofler, mælketørstof, kartoffelekstrakt, bagt kartoffel, ufrosne bagte kartofler, ristet ananas , ristede bananer, dehydreret purløg, rehydrerede bananer",
+		},
+		[
+			{
+				'id' => 'en:rice',
+				'processing' => 'en:fried',
+				'text' => 'ris'
+			},
+			{
+				'id' => 'en:rice',
+				'processing' => 'en:powder',
+				'text' => 'ris'
+			},
+			{
+				'id' => 'en:rice',
+				'processing' => 'en:cooked',
+				'text' => 'ris'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:cooked',
+				'text' => 'kartofler'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:cooked',
+				'text' => 'kartofler'
+			},
+			{
+				'id' => 'en:potato',
+				'text' => 'kartofler'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:dried',
+				'text' => 'kartofler'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:cut',
+				'text' => 'kartofler'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:powder',
+				'text' => 'kartofler'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:pureed',
+				'text' => 'kartoffel'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:frozen',
+				'text' => 'kartofler'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:ground',
+				'text' => 'kartofler'
+			},
+			{
+				'id' => 'en:milk',
+				'processing' => 'en:solids',
+				'text' => "m\x{e6}lke"
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:extract',
+				'text' => 'kartoffel'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:roasted',
+				'text' => 'kartoffel'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:unfrozen, en:roasted',
+				'text' => 'kartofler'
+			},
+			{
+				'id' => 'en:pineapple',
+				'processing' => 'en:roasted',
+				'text' => 'ananas'
+			},
+			{
+				'id' => 'en:banana',
+				'processing' => 'en:roasted',
+				'text' => 'bananer'
+			},
+			{
+				'id' => 'en:chives',
+				'processing' => 'en:dehydrated',
+				'text' => "purl\x{f8}g"
+			},
+			{
+				'id' => 'en:banana',
+				'processing' => 'en:rehydrated',
+				'text' => 'bananer'
+			}
+		]
+
+	],
+
+	# Finnish (fi)
+	[
+		{
+			lc => "fi",
+			ingredients_text =>
+				"paistettu riisi, riisijauhe, keitetty riisi, keitetyt perunat, keitetty peruna, perunat, kuivatut perunat, leikatut perunat, perunajauhe, perunasose, pakasteperunat, jauhetut perunat, maidon kuiva-aineet, perunauute, uuniperuna, pakastetut uuniperunat, paahdetut ananas , paahdetut banaanit, kuivattu ruohosipuli, rehydratoitu banaani",
+		},
+		[
+			{
+				'id' => 'en:rice',
+				'processing' => 'en:cooked',
+				'text' => 'riisi'
+			},
+			{
+				'id' => 'en:rice',
+				'processing' => 'en:powder',
+				'text' => 'riisi'
+			},
+			{
+				'id' => 'en:cooked-rice',
+				'text' => 'keitetty riisi'
+			},
+			{
+				'id' => 'fi:keitetyt-perunat',
+				'text' => 'keitetyt perunat'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:cooked',
+				'text' => 'peruna'
+			},
+			{
+				'id' => 'fi:perunat',
+				'text' => 'perunat'
+			},
+			{
+				'id' => 'fi:kuivatut-perunat',
+				'text' => 'kuivatut perunat'
+			},
+			{
+				'id' => 'fi:leikatut-perunat',
+				'text' => 'leikatut perunat'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:powder',
+				'text' => 'peruna'
+			},
+			{
+				'id' => 'en:mashed-potato',
+				'text' => 'perunasose'
+			},
+			{
+				'id' => 'fi:pakasteperunat',
+				'text' => 'pakasteperunat'
+			},
+			{
+				'id' => 'fi:jauhetut-perunat',
+				'text' => 'jauhetut perunat'
+			},
+			{
+				'id' => 'fi:maidon-kuiva-aineet',
+				'text' => 'maidon kuiva-aineet'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:extract',
+				'text' => 'peruna'
+			},
+			{
+				'id' => 'fi:uuniperuna',
+				'text' => 'uuniperuna'
+			},
+			{
+				'id' => 'fi:pakastetut-uuniperunat',
+				'text' => 'pakastetut uuniperunat'
+			},
+			{
+				'id' => 'en:pineapple',
+				'processing' => 'en:toasted',
+				'text' => 'ananas'
+			},
+			{
+				'id' => 'fi:paahdetut-banaanit',
+				'text' => 'paahdetut banaanit'
+			},
+			{
+				'id' => 'en:chives',
+				'processing' => 'en:dried',
+				'text' => 'ruohosipuli'
+			},
+			{
+				'id' => 'en:banana',
+				'processing' => 'en:rehydrated',
+				'text' => 'banaani'
+			}
+		]
+
+	],
+
+	# Norwegian bokmal (nb)
+	[
+		{
+			lc => "nb",
+			ingredients_text =>
+				"stekt ris, rispulver, kokt ris, kokte poteter, kokt potet, poteter, tørkede poteter, kuttede poteter, potetpulver, potetpuré, frosne poteter, malte poteter, melkefaststoffer, potetekstrakt, bakt potet, ufrosne bakte poteter, stekt ananas , ristede bananer, dehydrert gressløk, rehydrerte bananer",
+		},
+		[
+			{
+				'id' => 'en:rice',
+				'processing' => 'en:cooked',
+				'text' => 'ris'
+			},
+			{
+				'id' => 'en:rice',
+				'processing' => 'en:powder',
+				'text' => 'ris'
+			},
+			{
+				'id' => 'en:rice',
+				'processing' => 'en:cooked',
+				'text' => 'ris'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:cooked',
+				'text' => 'poteter'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:cooked',
+				'text' => 'potet'
+			},
+			{
+				'id' => 'en:potato',
+				'text' => 'poteter'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:dried',
+				'text' => 'poteter'
+			},
+			{
+				'id' => 'nb:kuttede-poteter',
+				'text' => 'kuttede poteter'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:powder',
+				'text' => 'potet'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:pureed',
+				'text' => 'potet'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:frozen',
+				'text' => 'poteter'
+			},
+			{
+				'id' => 'nb:malte-poteter',
+				'text' => 'malte poteter'
+			},
+			{
+				'id' => 'nb:melkefaststoffer',
+				'text' => 'melkefaststoffer'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:extract',
+				'text' => 'potet'
+			},
+			{
+				'id' => 'nb:bakt-potet',
+				'text' => 'bakt potet'
+			},
+			{
+				'id' => 'nb:ufrosne-bakte-poteter',
+				'text' => 'ufrosne bakte poteter'
+			},
+			{
+				'id' => 'nb:stekt-ananas',
+				'text' => 'stekt ananas'
+			},
+			{
+				'id' => 'en:banana',
+				'processing' => 'en:toasted',
+				'text' => 'bananer'
+			},
+			{
+				'id' => "nb:dehydrert-gressl\x{f8}k",
+				'text' => "dehydrert gressl\x{f8}k"
+			},
+			{
+				'id' => 'en:banana',
+				'processing' => 'en:rehydrated',
+				'text' => 'bananer'
+			}
+		]
+
+	],
+
+	# Swedish (sv)
+	[
+		{
+			lc => "sv",
+			ingredients_text =>
+				"stekt ris, rispulver, kokt ris, kokt potatis, kokt potatis, potatis, torkad potatis, skuren potatis, potatispulver, potatispuré, fryst potatis, mald potatis, mjölkfasta ämnen, potatisextrakt, bakad potatis, ofryst bakad potatis, rostad ananas , rostade bananer, torkad gräslök, rehydrerade bananer",
+		},
+		[
+			{
+				'id' => 'en:rice',
+				'processing' => 'en:fried',
+				'text' => 'ris'
+			},
+			{
+				'id' => 'en:rice',
+				'processing' => 'en:powder',
+				'text' => 'ris'
+			},
+			{
+				'id' => 'en:cooked-rice',
+				'text' => 'kokt ris'
+			},
+			{
+				'id' => 'en:cooked-potato',
+				'text' => 'kokt potatis'
+			},
+			{
+				'id' => 'en:cooked-potato',
+				'text' => 'kokt potatis'
+			},
+			{
+				'id' => 'en:potato',
+				'text' => 'potatis'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:dried',
+				'text' => 'potatis'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:cut',
+				'text' => 'potatis'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:powder',
+				'text' => 'potatis'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:pureed',
+				'text' => 'potatis'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:frozen',
+				'text' => 'potatis'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:ground',
+				'text' => 'potatis'
+			},
+			{
+				'id' => "sv:mj\x{f6}lkfasta-\x{e4}mnen",
+				'text' => "mj\x{f6}lkfasta \x{e4}mnen"
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:extract',
+				'text' => 'potatis'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:roasted',
+				'text' => 'potatis'
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:unfrozen, en:roasted',
+				'text' => 'potatis'
+			},
+			{
+				'id' => 'en:pineapple',
+				'processing' => 'en:roasted',
+				'text' => 'ananas'
+			},
+			{
+				'id' => 'sv:rostade-bananer',
+				'text' => 'rostade bananer'
+			},
+			{
+				'id' => 'en:chives',
+				'processing' => 'en:dried',
+				'text' => "gr\x{e4}sl\x{f6}k"
+			},
+			{
+				'id' => 'sv:rehydrerade-bananer',
+				'text' => 'rehydrerade bananer'
+			}
+		]
+
+	],
+
+	# Arabic
+
+	[
+		{
+			lc => "ar",
+			ingredients_text => "بصل، مسحوق بصل، بصل مطبوخ، بصل مجمد",
+		},
+		[
+			{
+				'id' => 'en:onion',
+				'text' => "\x{628}\x{635}\x{644}"
+			},
+			{
+				'id' => 'en:onion',
+				'processing' => 'en:powder',
+				'text' => "\x{628}\x{635}\x{644}"
+			},
+			{
+				'id' => 'en:onion',
+				'processing' => 'en:cooked',
+				'text' => "\x{628}\x{635}\x{644}"
+			},
+			{
+				'id' => 'en:onion',
+				'processing' => 'en:frozen',
+				'text' => "\x{628}\x{635}\x{644}"
+			}
+		]
+
+	],
+
+	# Bulgarian
+
+	[
+		{
+			lc => "bg",
+			ingredients_text => "печен лук, замразени картофи, ягоди на прах, пюре от чесън",
+		},
+		[
+			{
+				'id' => 'en:onion',
+				'processing' => 'en:roasted',
+				'text' => "\x{43b}\x{443}\x{43a}"
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:frozen',
+				'text' => "\x{43a}\x{430}\x{440}\x{442}\x{43e}\x{444}\x{438}"
+			},
+			{
+				'id' => 'en:strawberry',
+				'processing' => 'en:powder',
+				'text' => "\x{44f}\x{433}\x{43e}\x{434}\x{438}"
+			},
+			{
+				'id' => 'en:garlic',
+				'processing' => 'en:pureed',
+				'text' => "\x{447}\x{435}\x{441}\x{44a}\x{43d}"
+			}
+		]
+	],
+	
+	# Greek
+
+	[
+		{
+			lc => "el",
+			ingredients_text => "ψημένο κρεμμύδι, παγωμένη πατάτα, σκόνη φράουλας, πουρέ σκόρδου",
+		},
+		[
+			{
+				'id' => 'en:onion',
+				'processing' => 'en:roasted',
+				'text' => "\x{43b}\x{443}\x{43a}"
+			},
+			{
+				'id' => 'en:potato',
+				'processing' => 'en:frozen',
+				'text' => "\x{43a}\x{430}\x{440}\x{442}\x{43e}\x{444}\x{438}"
+			},
+			{
+				'id' => 'en:strawberry',
+				'processing' => 'en:powder',
+				'text' => "\x{44f}\x{433}\x{43e}\x{434}\x{438}"
+			},
+			{
+				'id' => 'en:garlic',
+				'processing' => 'en:pureed',
+				'text' => "\x{447}\x{435}\x{441}\x{44a}\x{43d}"
+			}
+		]
+	],	
 );
 
 foreach my $test_ref (@tests) {

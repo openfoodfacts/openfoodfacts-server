@@ -2391,7 +2391,7 @@ co:Latti
 cs:Mléko
 cv:Сĕт
 cy:Llaeth
-da:Mælk
+da:Mælk,mælke
 de:Milch
 el:Γάλα, γάλακτος
 es:Leche
@@ -35321,9 +35321,6 @@ pl:owoce leśne, owoców leśnych
 en:forest berries paste
 hr:pasta od šumskog-voća
 
-<en:red fruits
-fr:fruits rouges lyophilisés
-
 # <en:compound
 <en:berries
 en:berry blend, berry mix
@@ -43465,46 +43462,6 @@ nl:frambozenlikeur
 # 3 products in 2 languages @2018-09-27
 
 <en:raspberry
-en:dried raspberries
-de:getrocknete Himbeeren, Himbeeren getrocknet
-es:frambuesas deshidratadas, frambuesas secas
-fi:kuivattu vadelma
-fr:Framboises déshydratées
-pl:malina suszona, maliny suszone,
-sv:torkade hallon
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:kuivattu-vadelma
-# 1 entry @ 2019-10-31
-
-<en:dried raspberries
-en:freeze-dried raspberries
-de:Himbeeren gefriergetrockent
-es:frambuesas liofilizadas
-fi:pakkaskuivattu vadelma, pakastekuivattu vadelma
-fr:framboises lyophilisées
-# hr:komadići liofiliziranih malina # see ingredients_processings.txt
-it:lamponi liofilizzati
-pl:maliny liofilizowane, malina liofilizowana
-sv:frystorkade hallon
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:framboises-lyophilisées
-# 46 products in 4 languages @2018-09-27
-
-<en:freeze-dried raspberries
-en:freeze-dried raspberry pieces
-fr:morceaux de framboises lyophilisées
-fi:pakastekuivattu vadelma paloina
-
-<en:raspberry
-en:raspberry powder
-bg:малини на прах
-de:Himbeerpulver, Himbeerfruchtpulver
-es:frambuesas en polvo, frutillas en polvo, polvo de fresas, polvo de frutillas
-fi:vadelmajauhe
-fr:Poudre de framboise
-hr:malina u prahu
-pl:proszek malinowy
-sv:hallonpulver
-
-<en:raspberry
 en:raspberry jam
 bg:конфитюр от малини
 de:Himbeermarmelade
@@ -43656,7 +43613,7 @@ ca:maduixa,maduixes
 cs:jahoda, Jahodník velkoplodý
 da:jordbær, Havejordbær
 de:Erdbeere, Erdbeeren
-el:Φράουλα
+el:Φράουλα, φράουλα, φράουλες
 eo:frago
 es:fresa, frutilla
 et:Aedmaasikas
@@ -43819,22 +43776,6 @@ pl:sok truskawkowy z koncentratu, sok truskawkowy z zagęszczonego soku truskawk
 # 58 products @2018-10-01
 
 <en:strawberry
-en:freeze-dried strawberries
-de:Erdbeeren gefriergetrocknet
-fi:pakkaskuivattu mansikka, pakastekuivattu mansikka
-fr:fraises lyophilisées
-hr:liofilizirane jagode
-it:fragole liofilizzate
-pl:truskawki liofilizowane, truskawka liofilizowana
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fraises-lyophilisées
-# 38 products in 3 languages @2108-10-01
-
-<en:freeze-dried strawberries
-en:freeze-dried strawberry pieces
-de:gefriergetrocknete Erdbeerstücke, gefriergetrocknete Erdbeerscheiben
-fi:pakastekuivattu mansikka paloina
-
-<en:strawberry
 <en:purée
 en:strawberry puree
 bg:пюре от ягоди
@@ -43873,11 +43814,6 @@ ro:pudră de căpșuni
 <en:fruit juice
 <en:grape
 fi:mansikoista valmistettu mehu ja viinirypäleet
-
-<en:strawberry
-en:strawberry powder
-ja:イチゴ粉末
-
 
 # description:en:Fragaria vesca, commonly called WILD STRAWBERRY, woodland strawberry, Alpine strawberry, Carpathian strawberry, European strawberry, or fraisier des bois, is a perennial herbaceous plant in the rose family that grows naturally throughout much of the Northern Hemisphere, and that produces edible fruits.
 
@@ -49541,9 +49477,6 @@ eurocode_2_group_3:en: 8.30.10
 pl:cebula dymka
 
 <en:onion
-fr:oignon semoule
-
-<en:onion
 en:onion paster
 hr:pasta od luka
 
@@ -49612,9 +49545,6 @@ ciqual_food_name:en:Chive or spring onion, fresh
 ciqual_food_name:fr:Ciboule ou Ciboulette, fraîche
 # 3011 @2021-10-20
 eurocode_2_group_3:en: 8.30.15
-
-<en:spring onion
-pl:liofilizowana cebulka zielona
 
 <en:onion
 en:onion sproute
@@ -50132,6 +50062,7 @@ de:Knoblauch
 dv:ލޮނުމެދު
 el:Σκόρδο
 eo:ajlo
+el:σκόρδο
 es:ajo, diente de ajo, dientes de ajo
 et:küüslauk, küüslaugu
 eu:baratxuri
@@ -50321,10 +50252,6 @@ it:Impasto d'aglio
 # ja:ガーリックペースト # see ingredients_processings.txt
 pl:pasta czosnkowa
 # en:garlic-paste has 35 products in 2 languages @2018-10-23
-
-<en:garlic
-fr:Ail semoule déshydraté
-# 4@2019-06-12
 
 #<en:garlic
 #en:garlic powder
@@ -51589,11 +51516,12 @@ cs:brambor
 da:kartoffel, kartofler
 de:Kartoffel, Kartoffeln
 eo:terpomo
+el:πατάτα, πατάτες
 es:patata, papas
 et:kartul, kartulid
 eu:patata
 ff:Kudaku
-fi:peruna, perunaa
+fi:peruna, perunaa, perunat
 fr:pomme de terre, pommes de terre, pommes de terre de consommation
 gd:Buntàta
 gl:pataca
@@ -52602,26 +52530,20 @@ pt:beterraba vermelha
 ciqual_food_code:en:20091
 ciqual_food_name:fr:Betterave rouge, crue
 
-<en:red beetroot
-fr:betterave rouge déshydratée, betterave rouge en poudre, poudre de betterave rouge
-it:barbabietole in polvere
-# fr:betterave-rouge-déshydratée has 55 products in 3 languages @2018-10-22
-# fr:betterave-rouge-en-poudre has 44 products in 3 languages @2018-10-22
-
-<en:red beetroot
-en:red beetroot juice
-de:Rote Bete Saft
-es:zumo de remolacha roja, jugo de remolacha roja
-fr:jus de betterave rouge
-it:succo di barbabietole rosse
-nl:rodebietensap
-sv:rödbetsjuice
+#<en:red beetroot
+#en:red beetroot juice
+#de:Rote Bete Saft
+#es:zumo de remolacha roja, jugo de remolacha roja
+#fr:jus de betterave rouge
+#it:succo di barbabietole rosse
+#nl:rodebietensap
+#sv:rödbetsjuice
 # fr:jus-de-betterave-rouge has 38 products @2018-10-21
 
-<en:red beetroot juice
-fr:jus de betterave rouge concentré, concentré de jus de betterave rouge, jus concentré de betterave rouge
-de:Rote Bete-Saftkonzentrat
-nl:geconcentreerd rodebietensap
+#<en:red beetroot juice
+#fr:jus de betterave rouge concentré, concentré de jus de betterave rouge, jus concentré de betterave rouge
+#de:Rote Bete-Saftkonzentrat
+#nl:geconcentreerd rodebietensap
 # fr:jus-de-betterave-rouge-concentré has 37 products in 4 languages @2018-10-21
 
 <en:beetroot
