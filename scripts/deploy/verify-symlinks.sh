@@ -59,11 +59,17 @@ function compute_expected_links {
   # off-web
   EXPECTED_LINKS["$REPO_PATH/lang"]="/srv/openfoodfacts-web/lang"
   # data linked to zfs storages
+  EXPECTED_LINKS["$REPO_PATH/data"]="$ZFS_PATH"
   EXPECTED_LINKS["$REPO_PATH/orgs"]="$ZFS_PATH/orgs"
   EXPECTED_LINKS["$REPO_PATH/users"]="$ZFS_PATH/users"
   EXPECTED_LINKS["$REPO_PATH/products"]="$ZFS_PATH/products"
   EXPECTED_LINKS["$REPO_PATH/html/images/products"]="$ZFS_PATH/images/products"
+  # public data
   EXPECTED_LINKS["$REPO_PATH/html/data"]="$ZFS_PATH/html_data"
+  EXPECTED_LINKS["$REPO_PATH/html/exports"]="$ZFS_PATH/html_data/exports"
+  EXPECTED_LINKS["$REPO_PATH/html/dump"]="$ZFS_PATH/html_data/dump"
+  EXPECTED_LINKS["$REPO_PATH/html/files"]="$ZFS_PATH/html_data/files"
+
   # .well-known
   for path in apple-app-site-association apple-developer-merchantid-domain-association
   do
@@ -71,6 +77,9 @@ function compute_expected_links {
   done
   # deeper link in zfs storages
   EXPECTED_LINKS["$REPO_PATH/deleted.images"]="$ZFS_PATH/deleted.images"
+  EXPECTED_LINKS["$REPO_PATH/reverted_products"]="$ZFS_PATH/reverted_products"
+  EXPECTED_LINKS["$REPO_PATH/translate"]="$ZFS_PATH/translate"
+
   if [[ -z $IS_PRO ]]
   then
     EXPECTED_LINKS["$REPO_PATH/deleted_products"]="$ZFS_PATH/deleted_products"
@@ -80,11 +89,6 @@ function compute_expected_links {
   else
     EXPECTED_LINKS["$REPO_PATH/deleted_private_products"]="$ZFS_PATH/deleted_private_products"
   fi
-
-  EXPECTED_LINKS["$REPO_PATH/html/data"]="$ZFS_PATH/html_data"
-  EXPECTED_LINKS["$REPO_PATH/html/exports"]="$ZFS_PATH/html_data/exports"
-  EXPECTED_LINKS["$REPO_PATH/html/dump"]="$ZFS_PATH/html_data/dump"
-  EXPECTED_LINKS["$REPO_PATH/html/files"]="$ZFS_PATH/html_data/files"
 
   # caches
   EXPECTED_LINKS["$REPO_PATH/build-cache"]="$ZFS_PATH/cache/build-cache"

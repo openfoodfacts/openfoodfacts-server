@@ -22,12 +22,6 @@ my $EXPECTED_BASE_PATHS = {
 	IMPORT_FILES => "$data_root/import_files",
 	LANG => "$data_root/lang",
 	LOGS => "$data_root/logs",
-	OBF_PRODUCTS_DIR => '/srv/obf/products',
-	OBF_PRODUCTS_IMAGES_DIR => '/srv/obf/html/images/products',
-	OPFF_PRODUCTS_DIR => '/srv/opff/products',
-	OPFF_PRODUCTS_IMAGES_DIR => '/srv/opff/html/images/products',
-	OPF_PRODUCTS_DIR => '/srv/opf/products',
-	OPF_PRODUCTS_IMAGES_DIR => '/srv/opf/html/images/products',
 	ORGS => "$data_root/orgs",
 	PRIVATE_DATA => "$data_root/data",
 	PRODUCTS => "$data_root/products",
@@ -40,7 +34,19 @@ my $EXPECTED_BASE_PATHS = {
 	USERS => "$data_root/users",
 	USERS_TRANSLATIONS => "$data_root/translate",
 };
-is_deeply(base_paths(), $EXPECTED_BASE_PATHS, "base_paths content");
+my $EXPECTED_FOREIGN_PATHS = {
+	OBF_PRODUCTS_DIR => '/srv/obf/products',
+	OBF_PRODUCTS_IMAGES_DIR => '/srv/obf/html/images/products',
+	OPFF_PRODUCTS_DIR => '/srv/opff/products',
+	OPFF_PRODUCTS_IMAGES_DIR => '/srv/opff/html/images/products',
+	OPF_PRODUCTS_DIR => '/srv/opf/products',
+	OPF_PRODUCTS_IMAGES_DIR => '/srv/opf/html/images/products',
+};
+my %EXPECTED_OFF_PATHS = (
+	%{$EXPECTED_BASE_PATHS},
+	%{$EXPECTED_FOREIGN_PATHS},
+);
+is_deeply(base_paths(), \%EXPECTED_OFF_PATHS, "base_paths content for off");
 
 ok(ensure_dir_created("$BASE_DIRS{CACHE_TMP}"), "cache tmp directory exists");
 remove_tree("$BASE_DIRS{CACHE_TMP}/test-unit-xxx");
@@ -52,5 +58,13 @@ ok(
 );
 
 ok(!ensure_dir_created("$data_root/doesnotexists"), "We do not create a path that's not under a know folder");
+
+# pro instances
+my $producers_platform_previous = $server_options{producers_platform};
+{
+	$server_options{producers_platform} = 1;
+	is_deeply(base_paths(), $EXPECTED_BASE_PATHS, "base_paths content for off pro");
+}
+$server_options{producers_platform} = $producers_platform_previous;
 
 done_testing()

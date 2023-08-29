@@ -239,14 +239,17 @@ Return the list of base paths as a hashmap
 
 sub base_paths() {
 	my %paths = (%BASE_DIRS);
-	# also add foreign projects dirs for products migrations
-	my $servers_options = $options{other_servers};
-	foreach my $server_name (keys %{$servers_options}) {
-		if ($server_name eq $options{current_server}) {
-			next;
+	if (!$server_options{producers_platform}) {
+		# on non pro instances,
+		# also add foreign projects dirs for products migrations
+		my $servers_options = $options{other_servers};
+		foreach my $server_name (keys %{$servers_options}) {
+			if ($server_name eq $options{current_server}) {
+				next;
+			}
+			$paths{uc($server_name) . "_PRODUCTS_DIR"} = products_dir($server_name);
+			$paths{uc($server_name) . "_PRODUCTS_IMAGES_DIR"} = products_images_dir($server_name);
 		}
-		$paths{uc($server_name) . "_PRODUCTS_DIR"} = products_dir($server_name);
-		$paths{uc($server_name) . "_PRODUCTS_IMAGES_DIR"} = products_images_dir($server_name);
 	}
 	return \%paths;
 }
