@@ -630,9 +630,12 @@
             "en:nutriscore-missing-nutrition-data-proteins",
             "en:nutrition-no-fiber",
             "en:nutriscore-using-estimated-nutrition-facts",
+            "en:nutriscore-computed",
             "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
             "en:nutrition-all-nutriscore-values-known",
-            "en:nutriscore-computed",
+            "en:nutriscore-2021-different-from-2023",
+            "en:nutriscore-2021-better-than-2023",
+            "en:nutriscore-2021-a-2023-b",
             "en:packagings-number-of-components-0",
             "en:packagings-not-complete",
             "en:packagings-empty",
@@ -713,6 +716,95 @@
             "water_100g" : 90.025,
             "zinc_100g" : 4.025e-05
          },
+         "nutriscore" : {
+            "2021" : {
+               "category_available" : 1,
+               "data" : {
+                  "energy" : 155.25,
+                  "energy_points" : 0,
+                  "energy_value" : 155.3,
+                  "fiber" : 0.975,
+                  "fiber_points" : 1,
+                  "fiber_value" : 0.98,
+                  "fruits_vegetables_nuts_colza_walnut_olive_oils" : 50,
+                  "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 1,
+                  "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 50,
+                  "is_beverage" : 0,
+                  "is_cheese" : 0,
+                  "is_fat" : 0,
+                  "is_water" : 0,
+                  "negative_points" : 1,
+                  "positive_points" : 2,
+                  "proteins" : 0.2025,
+                  "proteins_points" : 0,
+                  "proteins_value" : 0.2,
+                  "saturated_fat" : 0.01575,
+                  "saturated_fat_points" : 0,
+                  "saturated_fat_value" : 0,
+                  "sodium" : 0.6,
+                  "sodium_points" : 0,
+                  "sodium_value" : 0.6,
+                  "sugars" : 7.575,
+                  "sugars_points" : 1,
+                  "sugars_value" : 7.58
+               },
+               "grade" : "a",
+               "nutrients_available" : 1,
+               "nutriscore_applicable" : 1,
+               "nutriscore_computed" : 1,
+               "score" : -1
+            },
+            "2023" : {
+               "category_available" : 1,
+               "data" : {
+                  "count_proteins" : 1,
+                  "count_proteins_reason" : "negative_points_less_than_11",
+                  "energy" : 155.25,
+                  "energy_points" : 0,
+                  "fiber" : 0.975,
+                  "fiber_points" : 0,
+                  "fruits_vegetables_legumes" : 50,
+                  "fruits_vegetables_legumes_points" : 1,
+                  "is_beverage" : 0,
+                  "is_cheese" : 0,
+                  "is_fat_oil_nuts_seeds" : 0,
+                  "is_water" : 0,
+                  "negative_nutrients" : [
+                     "energy",
+                     "sugars",
+                     "saturated_fat",
+                     "salt",
+                     "sweeteners"
+                  ],
+                  "negative_points" : 2,
+                  "positive_nutrients" : [
+                     "fruits_vegetables_legumes",
+                     "fiber",
+                     "proteins"
+                  ],
+                  "positive_points" : 1,
+                  "proteins" : 0.2025,
+                  "proteins_points" : 0,
+                  "salt" : 0.0019,
+                  "salt_points" : 0,
+                  "saturated_fat" : 0.01575,
+                  "saturated_fat_points" : 0,
+                  "sugars" : 7.575,
+                  "sugars_points" : 2
+               },
+               "grade" : "b",
+               "nutrients_available" : 1,
+               "nutriscore_applicable" : 1,
+               "nutriscore_computed" : 1,
+               "score" : 1
+            }
+         },
+         "nutriscore_2021_tags" : [
+            "a"
+         ],
+         "nutriscore_2023_tags" : [
+            "b"
+         ],
          "nutriscore_data" : {
             "energy" : 155.25,
             "energy_points" : 0,
@@ -735,9 +827,6 @@
             "proteins_value" : 0.2,
             "saturated_fat" : 0.01575,
             "saturated_fat_points" : 0,
-            "saturated_fat_ratio" : 16.1538461538462,
-            "saturated_fat_ratio_points" : 2,
-            "saturated_fat_ratio_value" : 16.2,
             "saturated_fat_value" : 0,
             "score" : -1,
             "sodium" : 0.6,
@@ -750,6 +839,10 @@
          "nutriscore_grade" : "a",
          "nutriscore_score" : -1,
          "nutriscore_score_opposite" : 1,
+         "nutriscore_tags" : [
+            "a"
+         ],
+         "nutriscore_version" : "2021",
          "nutrition_data_per" : "100g",
          "nutrition_data_prepared_per" : "100g",
          "nutrition_grade_fr" : "a",
@@ -758,7 +851,7 @@
             "a"
          ],
          "nutrition_score_beverage" : 0,
-         "nutrition_score_debug" : "missing energy - missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
+         "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
          "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
          "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 50,
          "nutrition_score_warning_nutriments_estimated" : 1,
