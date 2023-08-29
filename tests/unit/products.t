@@ -30,6 +30,12 @@ is(normalize_code("\x{241d}010404478231711217270101"),
 	'4044782317112', 'should reduce GS1 AI unbracketed string with GS as FNC1 to GTIN');
 is(normalize_code('https://id.gs1.org/01/04044782317112/22/2A'),
 	'4044782317112', 'should reduce GS1 Digital Link URI string with ^ as FNC1 to GTIN');
+is(normalize_code('https://dalgiardino.com/01/09506000134376/10/ABC/21/123456?17=211200'),
+	'9506000134376', 'should reduce GS1 Digital Link URI to GTIN');
+is(normalize_code('https://example.com/01/00012345000058?17=271200'),
+	'0012345000058', 'should reduce GS1 Digital Link URI to GTIN');
+is(normalize_code('https://world.openfoodfacts.org/'), '', 'non-GS1 URIs should return an empty string');
+is(normalize_code('http://spam.zip/'), '', 'non-GS1 URIs should return an empty string');
 
 # product storage path
 is(product_path_from_id('not a real code'), 'invalid', 'non digit code should return "invalid"');
