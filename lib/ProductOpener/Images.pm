@@ -359,7 +359,7 @@ sub scan_code ($file) {
 
 	if (not(defined $code)) {
 		my $decoder = Imager::zxing::Decoder->new();
-		$decoder->set_formats("DataMatrix");
+		$decoder->set_formats("DataMatrix|QRCode|MicroQRCode|DataBar|DataBarExpanded");
 
 		my $imager = Imager->new();
 		$imager->read(file => $file)
