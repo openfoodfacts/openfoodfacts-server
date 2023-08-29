@@ -1019,7 +1019,7 @@
 
 <h1 id="tutorial-on-using-the-open-food-facts-api">Tutorial on using the Open Food Facts API<a class="headerlink" href="#tutorial-on-using-the-open-food-facts-api" title="Permanent link">#</a></h1>
 <p>Welcome to this tutorial on basic usage of Open Food Facts API.</p>
-<p>Fist, be sure to see our <a href="../">Introduction to the API</a>.</p>
+<p>First, be sure to see our <a href="../">Introduction to the API</a>.</p>
 <h2 id="scan-a-product-to-get-nutri-score">Scan A Product To Get Nutri-score<a class="headerlink" href="#scan-a-product-to-get-nutri-score" title="Permanent link">#</a></h2>
 <p>This basic tutorial shows you can get the Nutri-score of a product, for instance, to display it in a mobile app after scanning the product barcode. Let's use <a href="https://world.openfoodfacts.net/product/3017624010701/nutella-nutella-ferrero">Nutella Ferrero</a> as the product example for this tutorial.</p>
 <p>To get a product nutriscore, send a request to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/product/-barcode-">Get A Product By Barcode</a> endpoint.</p>
@@ -1125,9 +1125,9 @@ Let's look at the <a href="https://world.openfoodfacts.net/api/v2/product/018041
 </code></pre></div>
 <p>The sample response above for 100% Real Orange Juice <code>misc_tags</code> shows that the Nutri-Score is missing category (<code>en:nutriscore-missing-category</code>) and sodium(salt) (<code>en:nutriscore-missing-nutrition-data-sodium</code>). Now you can write to the OFF API to provide these nutriment data (if you have them) so that the Nutri-Score can be computed.</p>
 <h3 id="write-data-to-make-nutri-score-computation-possible">Write data to make Nutri-Score computation possible<a class="headerlink" href="#write-data-to-make-nutri-score-computation-possible" title="Permanent link">#</a></h3>
-<p>The WRITE operations in the OFF API require  authentication. Therefore you need a valid <code>user_id</code> and <code>password</code>  to write the missing nutriment data to 100% Real Orange Juice.</p>
+<p>The WRITE operations in the OFF API require  authentication. Therefore you need a valid <code>user_id</code> and <code>password</code> to write the missing nutriment data to 100% Real Orange Juice.</p>
 <blockquote>
-<p>Sign up on the <a href="https://world.openfoodfacts.net/">Open Food Facts App</a> to get your<code>user_id</code> and <code>password</code>if you don't have one.</p>
+<p>Sign up on the <a href="https://world.openfoodfacts.net/">Open Food Facts App</a> to get your<code>user_id</code> and <code>password</code> if you don't have one.</p>
 </blockquote>
 <p>To write data to a product, make a <code>POST</code> request to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl"><code>Add or Edit A Product</code></a> endpoint.</p>
 <div class="highlight"><pre><span></span><code>https://world.openfoodfacts.net/cgi/product_jqm2.pl
@@ -1180,7 +1180,7 @@ Let's look at the <a href="https://world.openfoodfacts.net/api/v2/product/018041
 <span class="w">  </span>-F<span class="w"> </span><span class="nv">user_id</span><span class="o">=</span>your_user_id<span class="w"> </span>-F<span class="w"> </span><span class="nv">password</span><span class="o">=</span>your_password<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-F<span class="w"> </span><span class="nv">code</span><span class="o">=</span><span class="m">0180411000803</span><span class="w"> </span>-F<span class="w"> </span><span class="nv">nutriment_sodium</span><span class="o">=</span><span class="m">0</span>.015<span class="w"> </span>-F<span class="w"> </span><span class="nv">nutriment_sodium_unit</span><span class="o">=</span>g<span class="w"> </span>-F<span class="w"> </span><span class="nv">categories</span><span class="o">=</span><span class="s2">&quot;Orange Juice&quot;</span>
 </code></pre></div>
-<p>If the request is succesful, it returns a response that indicated that the fields have been saved.</p>
+<p>If the request is successful, it returns a response that indicates that the fields have been saved.</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;status_verbose&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fields saved&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
