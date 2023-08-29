@@ -1387,7 +1387,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_rhamnosus
 <en:Lactobacillus rhamnosus
 en:Lactobacillus rhamnosus GG
 xx:Lactobacillus rhamnosus GG, LGG
-hr:kultura Lactobacillus rhamnosus, kultura Lactobacillus rhamnosus, LGG
+hr:kultura Lactobacillus rhamnosus, kultura Lactobacillus rhamnosus, LGG, Lactobacillus rhamnosus Gorbach & Goldin ATCC 53103
 # ingredient/fi:Lactobacillus-rhamnosus-GG has 1 product in 2 languages @2020-06-08
 
 # description:en:BACILLUS COAGULANS is a lactic acid-forming bacterial species. B. coagulans is often marketed as Lactobacillus sporogenes or a 'sporeforming lactic acid bacterium' probiotic, but this is an outdated name due to taxonomic changes in 1939.
@@ -2391,7 +2391,7 @@ co:Latti
 cs:Mléko
 cv:Сĕт
 cy:Llaeth
-da:Mælk
+da:Mælk,mælke
 de:Milch
 el:Γάλα, γάλακτος
 es:Leche
@@ -4693,7 +4693,7 @@ pl:słodka serwatka
 en:sweet whey powder
 #en:process:en:powder
 bg:сладка суроватка на прах
-de:Süßmolkepulver, Süssmolkepulver, Sussmolkenpulver, Süssmolkenpulver, Süßmolkenpulver, Sußmolkenpulver
+de:Süßmolkepulver, Süssmolkepulver, Sussmolkenpulver, Süssmolkenpulver, Süßmolkenpulver, Sußmolkenpulver, Süßmolken pulver
 es:suero de leche azucarado en polvo, lactosuero azucarado en polvo
 et:magus vadakupulber
 fi:makea herajauhe, makeutettu herajauhe
@@ -15541,7 +15541,7 @@ fr:huile de noix de cajou
 en:pumpkin seed oil
 bg:олио от тиквени семки
 da:græskarkerneolie
-de:Kürbiskern-Öl
+de:Kürbiskern-Öl, Kürbiskernöl
 fi:kurpitsansiemenöljy
 fr:Huile de pépins de courge
 hu:tökmagolaj
@@ -24450,6 +24450,7 @@ sv:fullkornshavremjöl
 
 <en:oat flour
 en:gluten free oat flour
+de: glutenfreies Hafermehl
 es:harina de avena libre de gluten, harina de avena sin gluten
 fr:farine d'avoine sans gluten
 
@@ -35320,9 +35321,6 @@ pl:owoce leśne, owoców leśnych
 en:forest berries paste
 hr:pasta od šumskog-voća
 
-<en:red fruits
-fr:fruits rouges lyophilisés
-
 # <en:compound
 <en:berries
 en:berry blend, berry mix
@@ -43466,46 +43464,6 @@ nl:frambozenlikeur
 # 3 products in 2 languages @2018-09-27
 
 <en:raspberry
-en:dried raspberries
-de:getrocknete Himbeeren, Himbeeren getrocknet
-es:frambuesas deshidratadas, frambuesas secas
-fi:kuivattu vadelma
-fr:Framboises déshydratées
-pl:malina suszona, maliny suszone,
-sv:torkade hallon
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:kuivattu-vadelma
-# 1 entry @ 2019-10-31
-
-<en:dried raspberries
-en:freeze-dried raspberries
-de:Himbeeren gefriergetrockent
-es:frambuesas liofilizadas
-fi:pakkaskuivattu vadelma, pakastekuivattu vadelma
-fr:framboises lyophilisées
-# hr:komadići liofiliziranih malina # see ingredients_processings.txt
-it:lamponi liofilizzati
-pl:maliny liofilizowane, malina liofilizowana
-sv:frystorkade hallon
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:framboises-lyophilisées
-# 46 products in 4 languages @2018-09-27
-
-<en:freeze-dried raspberries
-en:freeze-dried raspberry pieces
-fr:morceaux de framboises lyophilisées
-fi:pakastekuivattu vadelma paloina
-
-<en:raspberry
-en:raspberry powder
-bg:малини на прах
-de:Himbeerpulver, Himbeerfruchtpulver
-es:frambuesas en polvo, frutillas en polvo, polvo de fresas, polvo de frutillas
-fi:vadelmajauhe
-fr:Poudre de framboise
-hr:malina u prahu
-pl:proszek malinowy
-sv:hallonpulver
-
-<en:raspberry
 en:raspberry jam
 bg:конфитюр от малини
 de:Himbeermarmelade
@@ -43657,7 +43615,7 @@ ca:maduixa,maduixes
 cs:jahoda, Jahodník velkoplodý
 da:jordbær, Havejordbær
 de:Erdbeere, Erdbeeren
-el:Φράουλα
+el:Φράουλα, φράουλα, φράουλες
 eo:frago
 es:fresa, frutilla
 et:Aedmaasikas
@@ -43820,22 +43778,6 @@ pl:sok truskawkowy z koncentratu, sok truskawkowy z zagęszczonego soku truskawk
 # 58 products @2018-10-01
 
 <en:strawberry
-en:freeze-dried strawberries
-de:Erdbeeren gefriergetrocknet
-fi:pakkaskuivattu mansikka, pakastekuivattu mansikka
-fr:fraises lyophilisées
-hr:liofilizirane jagode
-it:fragole liofilizzate
-pl:truskawki liofilizowane, truskawka liofilizowana
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:fraises-lyophilisées
-# 38 products in 3 languages @2108-10-01
-
-<en:freeze-dried strawberries
-en:freeze-dried strawberry pieces
-de:gefriergetrocknete Erdbeerstücke, gefriergetrocknete Erdbeerscheiben
-fi:pakastekuivattu mansikka paloina
-
-<en:strawberry
 <en:purée
 en:strawberry puree
 bg:пюре от ягоди
@@ -43874,11 +43816,6 @@ ro:pudră de căpșuni
 <en:fruit juice
 <en:grape
 fi:mansikoista valmistettu mehu ja viinirypäleet
-
-<en:strawberry
-en:strawberry powder
-ja:イチゴ粉末
-
 
 # description:en:Fragaria vesca, commonly called WILD STRAWBERRY, woodland strawberry, Alpine strawberry, Carpathian strawberry, European strawberry, or fraisier des bois, is a perennial herbaceous plant in the rose family that grows naturally throughout much of the Northern Hemisphere, and that produces edible fruits.
 
@@ -49471,6 +49408,1144 @@ wikipedia:en:https://en.wikipedia.org/wiki/Heart_of_palm
 # fr:coeurs-de-palmier has 16 products in 3 languages @2018-10-19
 eurocode_2_group_3:en: 8.25.50
 
+
+# ONION-FAMILY VEGETABLES (Eurocode 2 8.30)
+
+<en:vegetable
+en:onion-family vegetable
+fr:légume de la famille de l'oignon
+eurocode_2_group_2:en: 8.30
+
+# description:en:The ONION (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. They are usually served cooked, as a vegetable or part of a prepared savoury dish, but can also be eaten raw or used to make pickles or chutneys.
+
+# <en:class:en:Vegetables
+# <en:class:en:Onions and their products
+<en:onion-family vegetable
+<en:root vegetable
+en:onion, onions
+ar:بصل
+bg:лук, кромид лук
+bn:পিঁয়াজ
+ca:ceba
+cs:cibule
+cy:Nionyn
+da:løg
+de:Zwiebel, Zwiebeln
+el:κρεμμύδι, κρεμμύδια
+eo:cepo
+es:cebolla, Cebollas
+et:sibul
+eu:tipula
+fi:sipuli, sipulit
+fr:oignon, oignons
+he:בצל
+hr:luk, crni luk
+hu:hagyma, hagymák, vöröshagyma
+io:Onyono
+is:laukur
+it:cipolla, Cipolle
+ja:タマネギ, オニオン, たまねぎ, 玉葱, 玉ねぎ
+lt:svogūnai
+lv:sīpoli
+nb:løk
+nl:ui, uien, ajuin
+no:løk
+nv:tłʼohchin
+pl:cebula, cebuli, cebulowy, cebulowa, cebulowe, cebulka, cebulki
+pt:cebola
+ro:ceapă, ceapa
+ru:лук, лук репчатый
+sv:lök
+tr:soğan
+uk:Цибуля
+vi:hành tây
+zh:洋葱
+# aeb-arab:راس بصل
+# ckb:پیاز
+wikidata:en:Q3406628
+wikipedia:en:https://en.wikipedia.org/wiki/Onion
+# ingredient/onion has 12754 products in 18 languages @2018-12-06
+# category/onions has 233 products @2019-05-22
+carbon_footprint_fr_foodges_ingredient:fr:Oignons
+carbon_footprint_fr_foodges_value:fr:0.6
+ciqual_food_code:en:20034
+ciqual_food_name:en:Onion, raw
+ciqual_food_name:fr:Oignon, cru
+eurocode_2_group_3:en: 8.30.10
+
+# description:en:Cebula dymka is a name for young onion meant to be pickled or consumed raw
+
+<en:onion
+pl:cebula dymka
+
+<en:onion
+en:onion paster
+hr:pasta od luka
+
+# <en:compound
+<en:onion
+<en:oil
+en:onion oil
+de:Zwiebelöl
+es:aceite de cebolla
+
+# description:en:SCALLIONS are vegetables of various Allium onion species. Spring onions may be cooked or used raw as a part of salads, salsas or Asian recipes. Diced scallions are used in soup, noodle and seafood dishes, sandwiches, curries and as part of a stir fry. In many Eastern sauces, the bottom half-centimetre (quarter-inch) of the root is commonly removed before use.
+# comment:en:do not mix green onion with welsh onion
+
+# category/scallions
+# <en:Vegetables
+<en:onion
+en:spring onion, green onion, scallions, spring onions, green onions
+ar:البصل الاخضر
+bg:преснен лук, зелен лук
+ca:ceba tendra, cebeta, ceballot
+cs:jarní cibulka
+da:forårsløg
+de:Frühlingszwiebel
+el:φρέσκο κρεμμυδακι
+eo:askolonio
+es:cebolla de primavera, cebolletas tiernas
+et:roheline sibul
+fa:پیازچه
+fi:vihersipuli, vihersipulit
+fr:oignon vert, cébette, oignon de printemps, oignons verts, cébettes, oignons de printemps
+he:בצל ירוק
+hi:हरी प्याज
+hu:zöldhagyma, újhagyma
+hy:Կանաչ սոխ
+id:daun bawang
+is:vorlaukur
+it:cipollotto
+ja:ワケギ
+jv:loncang
+kk:жасыл жуа
+ko:파류
+mr:कांदेपात
+ms:Daun bawang
+nl:lente-ui, bosui, Lenteuitjes, lenteui
+nn:vårlauk
+no:vårløk
+pl:cebulka zielona, zielona cebulka, zielonej cebulki
+pt:cebolinha
+ru:лук зелёный
+sk:jarná cibuľka
+sv:salladslök, vårlök
+ta:வெங்காயத்தாள்
+th:หอมต้นเดี่ยว
+tr:yeşil soğan
+uk:зелена цибуля
+ug:غول پىياز
+uz:ko'k piyoz
+vi:hành lá
+zh:青蔥
+# arz:بصل اخضر
+# sco:sybae
+wikidata:en:Q774278
+wikipedia:en:https://en.wikipedia.org/wiki/Scallion
+ciqual_food_code:en:11003
+ciqual_food_name:en:Chive or spring onion, fresh
+ciqual_food_name:fr:Ciboule ou Ciboulette, fraîche
+# 3011 @2021-10-20
+eurocode_2_group_3:en: 8.30.15
+
+<en:onion
+en:onion sproute
+de:Zwiebelsprosse, Zwiebelsprossen
+es:Germinados de cebolla
+
+# Zilveruitjes zijn in azijn ingelegde kleine uitjes. These are small white onions only used in pickles.
+
+<en:onion
+en:small white onions, silverskin onions
+de:Silberzwiebeln
+eo:peklita cepo
+es:Cebollitas
+fi:Hillosipuli
+fr:oignons blancs, petits oignons blancs, petits oignons
+he:בצל כבוש
+it:cipolline
+nl:zilveruitjes, zilverui
+sv:Syltlök
+# wikipedia:en:https://en.wikipedia.org/wiki/Pickled_onion ????
+wikidata:en:Q2477614
+# ingredient/fr:petits-oignons-blancs has 14 products in 4 languages @2018-12-06
+# ingredient/fr:petits-oignons has 53 products @2018-11-06
+
+<en:onion
+en:red onion, red onions
+ar:بصل أحمر
+bg:червен лук
+bn:লাল পিঁয়াজ
+cs:červená cibule
+da:rødløg
+de:rote Zwiebel, rote Zwiebeln
+es:cebolla roja
+fa:پیاز قرمز
+fi:punasipuli
+fr:oignon rouge, oignons rouges
+he:בצל סגול
+hi:लाल प्याज
+hr:crveni luk, luk crveni
+hu:lilahagyma, vöröshagyma
+is:rauðlaukur
+it:cipolla rossa
+ja:赤たまねぎ
+ka:წითელი ხახვი
+nb:rødløk
+nl:rode ui, rode uien
+nn:raudlauk
+or:ନାଲି ପିଆଜ
+pa:ਲਾਲ ਪਿਆਜ਼
+pl:czerwona cebula, cebula czerwona
+pt:Cebola vermelha
+ro:ceapă roșie
+ru:красный лук
+sq:qepë e kuqe
+sr:crveni luk
+sv:rödlök
+tr:kırmızı soğan
+wikidata:en:Q622350
+wikipedia:en:https://en.wikipedia.org/wiki/Red_onion
+# pnb:لال پیاز
+# ingredient/red-onions has 76 products in english @2018-12-06
+# ingredient/fr:oignon-rouge has 93 products in 6 languages @2018-12-06
+
+<en:onion
+en:Roscoff onions
+de:Roscoff Zwiebeln, Roscoff Zwiebel
+fr:oignon de Roscoff, oignons de Roscoff
+nl:Roscoffui, Roscoff ui
+
+<en:Roscoff onions
+en:Roscoff PDO onions
+fr:oignon de Roscoff AOP
+nl:Roscoffui met BOB-keurmerk
+
+# description:en:Allium fistulosum, the Welsh onion, also commonly called bunching onion, long green onion, Japanese bunching onion, and spring onion, is a species of perennial plant. A. fistulosum is an ingredient in Asian cuisine, especially in East and Southeast Asia. In the West, A. fistulosum is primarily used as a scallion or salad onion.
+# comment:en:On products one often finds wrong translations.
+
+<en:onion
+en:Welsh onion, bunching onion, long green onion
+be:Цыбуля-батун
+bo:ཙོང་།
+br:Sivolez
+ca:cebollí gallès
+cs:cibule zimní
+cy:Nionyn Cymreig
+de:Winterzwiebel
+eo:Vintra cepo
+es:cebolleta
+eu:Tipuleta
+fi:Pillisipuli
+fr:ciboule
+hr:Zimski luk
+id:Bawang daun
+io:Cibolo
+it:cipolla d'inverno
+ja:ネギ, ねぎ, 葱
+jv:Bawang godhong
+ka:ჭლაკვი
+kk:Батун
+ko:파
+la:Allium fistulosum
+ln:Ndɛmbi
+nl:stengelui
+nn:Pipelauk
+oc:Cebola
+pl:czosnek dęty
+pt:cebolleta
+ro:ceapă de tuns
+ru:Лук-батун
+sl:čebula
+sr:аљма
+su:Bawang daun
+sv:Piplök, walesisk lök
+te:ఉల్లి కాడలు
+tr:Kış soğanı
+uk:Батун
+uz:Batun piyozi
+vi:Hành
+za:coeng
+zh:葱
+# cdo:Chĕ̤ng
+# hak:Chhûng-é
+# hsb:Pózdnja cybla
+# nan:Chhang-á
+# sr-ec:аљма
+# zh-tw:蔥
+wikidata:en:Q27938
+wikipedia:en:https://en.wikipedia.org/wiki/Allium_fistulosum
+# ingredient/fr:ciboule has 127 products in 6 languages @2019-04-16
+
+<en:onion
+en:yellow onion
+de:gelbe Zwiebel, gelbe Zwiebeln
+fi:keltasipuli
+fr:oignon jaune, oignons jaunes
+nl:Gele ui
+sv:gul lök
+wikidata:en:Q8051898
+wikipedia:en:https://en.wikipedia.org/wiki/Yellow_onion
+# ingredient/fr:oignons-jaunes has 15 products @2019-05-25
+
+<en:onion
+en:white onion
+de:weiße Zwiebel, weiße Zwiebeln
+es:cebolla blanca
+fr:Oignon blanc
+it:cipolla bianca
+pl:cebula biała, biała cebula
+wikidata:en:Q7995660
+wikipedia:en:https://en.wikipedia.org/wiki/White_onion
+
+<en:onion
+en:fresh onions
+de:frische Zwiebeln
+es:Cebollas frescas
+fi:tuore sipuli, tuoreet sipulit
+fr:oignons frais
+it:cipolla fresca
+nl:verse uien
+ru:лук свежий
+# ingredient/fresh-onions has 485 products in 3 languages @2018-12-06
+
+<en:onion
+fr:jus d'oignon concentré, jus concentré d'oignon, jus concentré d'oignons
+de:Zwiebelsaftkonzentrat
+fi:sipulimehutiiviste
+nl:geconcentreerd uiensap
+sv:lökjuicekoncentrat
+# ingredient/fr:jus-d’oignon-concentré has 48 products in 5 languages @2018-12-06
+
+#processing:en: en:dried
+#processing:en: en:dehydrated
+<en:onion
+en:dehydrated onion, dried onion
+bg:сух лук
+ca:ceba deshidratada
+cs:cibule sušená
+da:tørret løg
+de:Zwiebeln getrocknet, Trockenzwiebeln
+es:cebolla deshidratada
+fi:kuivattu sipuli
+fr:oignons déshydratés, oignon déshydraté, oignon séché
+hu:szárított hagyma, dehidratált hagyma
+it:cipolle disidratate
+ja:ドライ玉ねぎ
+nl:gedroogde uien, gedroogde ui, oignons séchés, oignon déshydraté
+nn:tørket løk
+pl:suszona cebula, cebula suszona, cebula w proszku, sproszkowana cebula
+pt:cebola desidratada, cebola seca
+ro:ceapă deshidratată
+ru:лук репчатый сушеный, лук-репчатый сушёный, лук репчатый-сушёный
+sv:torkad lök
+uk:цибуля ріпчаста сушена
+ciqual_food_code:en:20180
+ciqual_food_name:en:Onion, dried
+ciqual_food_name:fr:Oignon, séché
+# 12664 in 22 @2021-09-10
+
+#category/onion-powder
+#processing:en: en:powder
+#<en:onion
+#en:onion powder, Granulated onion, Dried minced onion
+#bg:лук на прах
+#ca:ceba en pols
+#cs:Sušená cibule
+#da:løgpulver
+#de:Zwiebelpulver
+#el:κρεμμύδια σε σκόνη, κρεμμύδι σκόνη
+#eo:pulvorigita cepo
+#es:cebolla en polvo, Cebolla seca molida, Cebollas secas en polvo
+#et:sibulapulber
+#fi:sipulijauhe
+#fr:oignon en poudre, oignons en poudre, poudre d'oignons, poudre d'oignon
+#he:אבקת בצל, בצל מיובש כתוש, בצל כתוש מיובש
+#hr:luk u prahu
+#hu:vöröshagymapor
+#it:cipolla en polvere
+#ja:玉ねぎパウダー
+#lt:svogūnų milteliai
+#lv:sīpolu pulveris
+#ms:Serbuk bawang
+#nb:løkpulver
+#nl:uienpoeder, uipoeder, Uienpoeders
+#pl:Cebula w proszku
+#pt:cebola em pó
+#ro:ceapă pudră
+#ru:Луковый порошок
+#sk:sušená cibuľa
+#sl:čebula v prahu
+#sv:lökpulver
+#tr:soğan tozu
+#wikidata:en:Q7093931
+# 24139 in 36 @2021-09-10
+
+# description:en:The PEARL ONION (Allium ampeloprasum var. sectivum or A. ampeloprasum 'Pearl-Onion Group'), also known as button or baby onions in the UK, or creamers in the US, is a close relative of the leek
+
+<en:onion
+en:pearl onion, pearl onions
+bg:перлени лукчета
+de:perlzwiebel
+fi:pikkusipuli, pikkusipulit
+fr:oignons grelots, grelot
+is:perlulaukur
+pl:cebula perłowa, cebulka perłowa
+wikidata:en:Q508630
+wikipedia:en:https://en.wikipedia.org/wiki/Pearl_onion
+# ingredient/fr:oignons-grelots has 96 products in french @2018-11-06
+
+<en:onion
+en:Onion Extract
+de:Zwiebelextrakt
+es:Extracto de cebolla
+et:sibulaekstrakt
+fi:sipuliuute
+fr:extrait d'oignon
+it:Estratto di cipolla
+ja:玉ねぎエキス, オニオンエキス
+lt:svogūnų ekstraktas
+nl:uienextract
+pl:ekstrakt z cebuli, ekstrakty z cebuli, ekstrakt cebulowy
+pt:Extrato de cebolo
+sv:lökextrakt
+# ingredient/fr:extrait-d’oignon has 119 products in 3 languages @2018-12-06
+
+<en:onion
+en:pre fried onions
+da:forstegte løg
+de:vorgebratene Zwiebeln
+es:cebollas pre freidas
+fi:esipaistettu sipuli, esipaistetut sipulit
+fr:oignons préfrits, oignon préfrit
+nl:voorgefrituurde uitjes
+nn:friterad lök
+pt:cebolas pre fritas
+ru:лук жареный
+sv:forhåndsstekt løk
+# ingredient/fr:oignons-préfrits has 422 products in 4 languages @2018-12-06
+
+<en:pre fried onions
+fr:oignon préfrit à l'huile de tournesol
+it:cipolla prefritta in olio di girasole
+nl:voorgebakken ui in zonnebloemolie
+sv:lök brynt i solrosolja
+# ingredient/fr:oignon-préfrit-à-l'huile-de-tournesol has 44 products in 3 languages @2018-12-06
+
+# description:en:The SHALLOT is a type of onion, specifically a botanical variety of the species Allium cepa.
+
+<en:onion-family vegetable
+<en:root vegetable
+en:shallot, shallots
+am:ቀይ ሽንኩርት
+ar:كراث أندلسي
+br:chalotez
+ca:escalunya
+cs:cibule šalotka
+da:skalotteløg
+de:Schalotte, Schalotten
+eo:askalono
+es:chalota
+eu:tipulatx
+fa:موسیر
+fi:salottisipuli
+fr:échalote
+gl:chalota
+he:בצלצל
+ht:echalot
+hu:mogyoróhagyma
+id:kunir
+io:shaloto
+is:skalottlaukur
+it:scalogno
+ja:エシャロット
+jv:brambang
+ko:셜롯
+la:allium ascalonicum
+lb:schalott
+ml:ചുവന്നുള്ളി
+ms:bawang merah
+my:ကြက်သွန်နီကလေး
+nb:sjalottløk
+ne:छ्यापी
+nl:sjalot
+nn:Sjalottlauk
+oc:Escaluènha
+pl:szalotka, czosnek askaloński, szalotki
+pt:chalota
+ro:hașmă
+ru:Лук-шалот
+su:bawang beureum
+sv:schalottenlök
+ta:சின்ன வெங்காயம்
+th:หอมแดง
+tr:arpacık soğanı
+uk:Цибуля шалот
+ur:قفلوط
+vi:Hẹ tây
+zh:火葱
+# en-gb:shallot
+# mai:छ्यापी
+# nan:âng-chhang-thâu
+# sco:shallot
+# vec:scarlogna
+# yue:紅蔥頭
+# zh-cn:火葱
+# zh-hans:火葱
+# zh-hant:火蔥
+# zh-hk:火蔥
+# zh-sg:火葱
+# zh-tw:分蔥
+wikidata:en:Q193498
+wikipedia:en:https://en.wikipedia.org/wiki/Shallot
+ciqual_food_code:en:20097
+ciqual_food_name:en:Shallot, raw
+ciqual_food_name:fr:Échalote, crue
+eurocode_2_group_3:en: 8.30.20
+
+<en:shallot
+en:red shallot
+fr:échalote rouge
+pl:czerwona szalotka
+
+<en:shallot
+en:concentrated shallot juice
+de:Konzentrierter Zwiebelsaft
+fr:jus d'échalote concentré
+
+# description:en:The LEEK is a vegetable, a cultivar of Allium ampeloprasum, the broadleaf wild leek. Leeks have a mild, onion-like taste. In its raw state, the vegetable is crunchy and firm. The edible portions of the leek are the white base of the leaves (above the roots and stem base), the light green parts, and to a lesser extent the dark green parts of the leaves. Leeks are typically chopped into slices 5–10 mm thick. The slices have a tendency to fall apart, due to the layered structure of the leek. The different ways of preparing the vegetable are: boiling, frying or raw.
+
+# category/leeks
+<en:onion-family vegetable
+en:leek
+ar:كراث
+az:kəvər soğanı
+be:цыбуля парэй
+bg:праз
+bn:পলাণ্ডু
+bo:ཀེའུ་ཙོང་།
+br:pour
+ca:porro
+co:porru
+cs:pór, pórek
+cy:cenhinen
+da:porre, porrer
+de:Lauch, Lauche, Porrees, Porree
+el:πράσο
+eo:poreo
+es:puerro, puerros
+eu:porru
+fa:تره‌فرنگی
+fi:purjo, purjosipuli
+fr:poireau, poireaux
+ga:cainneann
+gl:allo porro
+gv:cannian
+ha:albasa mai kara
+he:כרישה
+hi:हरा प्याज
+hr:poriluk
+ht:powo
+hu:póréhagyma
+hy:պրաս
+id:bawang prei
+io:porelo
+is:blaðlaukur
+it:porro, porri
+ja:リーキ
+jv:brambang préi
+ka:პრასი
+kk:порей пиязы, poreý pïyazı, پورەي پىييازى
+kn:ಲೀಕ್
+ko:대파
+ku:pirasa, پراسا
+la:allium ampeloprasum var. porrum
+li:sjpoor
+lt:poras, daržinis poras
+lv:puravi
+mk:праз
+ms:bawang perai, ‏باوڠ ڤراي‎‎
+mt:kurrat
+my:ထန်းကြက်သွန်
+nb:purre, purreløk
+nl:prei
+nn:purre
+oc:pòrre
+os:зæнгджын хъæдындз
+pl:por, pora
+pt:alho-porro, alho francês
+ro:praz
+ru:лук-порей
+rw:igitunguru
+sc:porru
+se:boskalávki
+sh:praziluk
+sk:pór
+sl:por
+sq:presh, preshi
+sr:празилук, praziluk
+sv:purjolök
+ta:லீக்ஸ்
+tg:гандано
+th:กระเทียมต้น
+tr:pırasa
+uk:цибуля порей
+ur:کراث
+vi:tỏi tây
+wa:porea
+yi:פארע-ציבעלע
+zh:韭葱
+# aeb-arab:كرّاث
+#ang:lēac
+#arz:كراث
+# frr:gäärslook
+# kbp:puwaroo
+# nah:huēyi caxtillān xōnacatl
+# nap:puorr
+# nds:look
+#pap:siboyo largu
+# pcd:poreau
+# pnb:ہرا پیاز
+# pt-br:alho poró
+# sco:leek
+#smn:purjosiipuul
+#sms:purjoluukk
+# vls:pret
+#wuu:韭葱
+#xmf:პურასქია
+# yue:京蔥
+#plant: wikidata:en:Q21870138
+wikidata:en:Q1807269
+wikipedia:en:https://en.wikipedia.org/wiki/Leek
+carbon_footprint_fr_foodges_ingredient:fr:Poireau
+carbon_footprint_fr_foodges_value:fr:0.3
+ciqual_food_code:en:20039
+ciqual_food_name:en:Leek, raw
+ciqual_food_name:fr:Poireau, cru
+eurocode_2_group_3:en: 8.30.30
+
+<en:leek
+en:concentrated leek juice
+da:koncentreret porresaft
+de:Konzentrierter Porreesaft
+fr:jus de poireau concentré
+#20 in 3 @2021-10-26
+
+<en:leek
+en:leek sprouts
+pl:kiełki pora
+
+# description:en:GARLIC (Allium sativum) is a species in the onion genus.
+
+<en:onion-family vegetable
+<en:root vegetable
+en:garlic, garlic bulb, garlic clove
+af:Knoffel
+am:ነጭ ሽንኩርት
+ar:ثوم
+ay:Ajusa
+az:Sarımsaq
+ba:һарымһаҡ
+be:часнок
+bg:чесън
+bi:Galik
+bm:tumɛ
+bn:রসুন
+bo:སྒོག་ལོག
+br:Kignen
+bs:Bijeli luk
+ca:all, allets, dent d'all, dents d'alls
+co:Aglia
+cs:česnek, česnek kuchyňský
+cv:Ыхра
+cy:Garlleg
+da:hvidløg, hvidløgs
+de:Knoblauch
+dv:ލޮނުމެދު
+el:Σκόρδο
+eo:ajlo
+el:σκόρδο
+es:ajo, diente de ajo, dientes de ajo
+et:küüslauk, küüslaugu
+eu:baratxuri
+fa:سیر
+fi:valkosipuli, valkosipulia
+fo:hvítleykur
+fr:ail
+fy:knyflok
+ga:Gairleog
+gd:creamh
+gl:Allo
+gn:Áho
+gu:લસણ
+gv:Garleid
+ha:Tafarnuwa
+he:שום
+hi:लहसुन
+hr:Češnjak
+ht:Lay
+hu:fokhagyma
+hy:Սխտոր
+id:Bawang putih
+io:Alio
+is:Hvítlaukur
+it:aglio
+ja:ニンニク, にんにく, ガーリック
+jv:Bawang
+ka:ნიორი
+kk:Сарымсақ
+km:ខ្ទឹមស
+kn:ಬೆಳ್ಳುಳ್ಳಿ
+ko:마늘
+ku:sîr
+ky:Сарымсак
+la:Allium sativum
+lb:Knuewelek
+lg:Emisuwa egikaluba
+li:witlouk
+lo:ຜັກທຽມ
+lt:Valgomasis česnakas, česnakai
+lv:ķiploks
+mk:Лук
+ml:വെളുത്തുള്ളി
+mn:Саримс
+mr:लसूण
+ms:bawang putih
+mt:tewm
+my:ကြက်သွန်ဖြူ
+nb:hvitløk
+ne:लसुन
+nl:knoflook
+nn:hvitløk, hvitløks
+nv:Tłʼohchin díchʼííʼí
+oc:Alh cultivat
+or:ରସୁଣ
+os:Нуры
+pa:ਲਸਣ
+pl:czosnek, czosnku, czosnkowy, czosnkowa, czosnkowe
+ps:هوږه
+pt:alho
+qu:Ahus
+ro:usturoi
+ru:чеснок, чеснок свежий
+sa:लशुनम्
+sc:Azu
+sd:ٿوم
+sh:Češnjak
+si:සුදු ලූනු
+sk:Cesnak kuchynský
+sl:Česen
+so:Toon
+sq:hudhra
+sr:бели лук, beli luk
+sv:vitlök, vitlöks
+sw:Kitunguu saumu
+ta:பூண்டு
+te:వెల్లులి
+tg:Сирпиёз
+th:กระเทียม
+tl:Bawang
+tm:sarymsak
+tr:Sarımsak
+tt:сарымсак
+uk:часник
+ur:لہسن
+uz:Sarimsoq
+vi:Tỏi
+vo:läl
+wa:A
+wo:laac
+yi:קנאבל
+za:suenq
+zh:蒜
+# aeb-arab:راس ثوم
+# ang:garleac
+# arz:ثوم
+# azb:ساریمساق
+# bar:Knofe
+# bcl:Bawang
+# be-tarask:xxаснок
+# cdo:Sáung-tàu
+# ckb:سیر
+# dsb:Pšawy kobołk
+# fur:Ai
+# gag:sarmısak
+# gom:लसूण, Losun
+# grc:σκόρδον
+# hsb:Prawy kobołk
+# inh:Саьмарсаькх
+# kaa:sarımsaq
+# kab:tiskart
+# krc:сарсмакъ
+# lbe:Лаччи
+# lij:aggio
+# lzh:蒜
+# mai:लह्सुन
+# myv:ကြက်သွန်ဖြူ
+# nah:Caxtillān xōnacatl
+# nan:Soàn-thâu
+# nap:àglio
+# olo:Čosnokku
+# pam:Bawang
+# pap:konofló
+# pcd:al
+# pms:ai
+# pnb:لسن
+# roa-tara:aglie
+# ruq:al'
+# sah:чочунаах
+# scn:Agghia
+# sco:garlic
+# sgs:Česnags
+# sr-ec:бели лук
+# sr-el:beli luk
+# srn:kunofroku
+# su:Wortel translation error
+# tcy:ಬೊಳ್ಳುಳಿ
+# tyv:Чеснок
+# vec:ajo
+# vep:Künz'lauk
+# vls:look
+# war:Lasona
+# xal:сәрмсг
+# yue:蒜頭
+# zh-hans:蒜
+# zh-hant:蒜
+# zh-tw:大蒜
+wikidata:en:Q21546392
+wikipedia:en:https://en.wikipedia.org/wiki/Garlic
+# en:garlic has 22470 products in 18 languages @2018-10-23
+ciqual_food_code:en:11000
+ciqual_food_name:en:Garlic, fresh
+ciqual_food_name:fr:Ail, cru
+eurocode_2_group_3:en: 8.30.40
+
+<en:garlic
+en:tender garlic
+da:hvidløgsskud
+de:Knoblauchsprossen, Knoblauch-Sprossen
+es:ajo tierno,ajete
+
+
+<en:garlic
+en:garlic puree
+bg:чесново пюре
+da:hvidløgspuré, hvidløgspure
+de:Knoblauchpüree
+es:puré de ajo
+fi:valkosipulipyree, valkosipulisose
+fr:purée d'ail
+hu:fokhagymapüré
+it:Purè d'aglio
+nl:knoflookpuree
+pl:przecier z czosnku, przecier czosnkowy
+sv:vitlökspuré
+# In process de:Knoblauchpüree
+# en:garlic-puree has 775 products in 5 languages @2018-10-23
+
+<en:garlic
+en:garlic paste
+bg:чеснова паста
+de:Knoblauchpaste
+es:Pasta de ajo
+fi:valkosipulitahna
+fr:pâte d'ail, pulpe d'ail, ail en purée
+it:Impasto d'aglio
+# ja:ガーリックペースト # see ingredients_processings.txt
+pl:pasta czosnkowa
+# en:garlic-paste has 35 products in 2 languages @2018-10-23
+
+#<en:garlic
+#en:garlic powder
+#en:processing:en:powder
+#bs:bijeli luk u prahu
+#ca:All en pols
+#da:hvidløgspulver
+#de:Knoblauchpulver
+#el:σκόρδο σκόνη, σκόρδο σε σκόνη
+#es:ajo en polvo
+#et:küüslaugupulber
+#fi:valkosipulijauhe
+#fr:poudre d'ail, ail en poudre
+#hu:fokhagymapor
+#it:aglio in polvere, polvere di aglio
+#lt:česnakų milteliai, česnako milteliai
+#nl:knoflookpoeder
+#nn:hvitløkspulver
+#pl:czosnek sproszkowany
+#pt:alho em pó
+#ro:pudră de usturoi
+#ru:Чесночный порошок
+#sl:česen v prahu
+#sv:vitlökspulver
+#tr:sarimsak tozu
+# fr:poudre-d'ail has 161 producs in 25 languages @2018-10-22
+
+<en:garlic
+en:black garlic
+bg:черен чесън
+de:schwarzer Knoblauch
+es:ajo negro
+fr:Ail noir
+pl:Czarny czosnek
+
+# description:en:Allium ursinum, known as WILD GARLIC, ramsons, buckrams, broad-leaved garlic, wood garlic, bear leek or bear's garlic, is a bulbous perennial flowering plant in the amaryllis family Amaryllidaceae.
+
+<en:garlic
+en:wild garlic, ramsons, buckrams, broad-leaved garlic, wood garlic, bear leek, bear's garlic, allium ursinum
+af:wildeknoffel
+an:allium ursinum
+ar:ثوم الدببة
+az:ayı soğanı
+ba:йыуа
+be:цыбуля мядзведжая
+bg:левурда, див чесън
+bs:medvjeđi luk
+ca:allium ursinum
+ce:хьонка
+co:allium ursinum
+cs:česnek medvědí
+da:ramsløg
+de:bärlauch
+eo:ursa ajlo
+es:allium ursinum
+et:karulauk
+eu:hartz-baratxuri
+fa:والک
+fi:karhunlaukka, villivalkosipuli
+fr:ail des ours
+fy:blêdlok
+ga:creamh
+hr:medvjeđi luk
+hu:medvehagyma
+hy:ղանձիլ
+id:allium ursinum
+is:bjarnarlaukur
+it:aglio orsino
+ja:ラムソン
+ka:ღანძილი
+kk:ұсақ торлы жуа
+ku:lûş
+lb:heckeknuewelek
+li:daslook
+lt:meškinis česnakas
+lv:laksis
+mk:мечкин лук
+nb:ramsløk
+nl:daslook
+nn:ramslauk
+oc:allium ursinum
+os:скъуда
+pl:czosnek niedźwiedzi
+pt:allium ursinum
+ro:leurdă
+ru:черемша
+sk:cesnak medvedí
+sl:čemaž
+sq:lerthi
+sr:сремуш
+sv:ramslök
+uk:цибуля ведмежа
+ur:لہسن دُب
+vi:tỏi gấu
+wa:a des tchamps
+zh:熊葱
+# als:bärlauch
+# ang:hramsa
+# ast:allium ursinum
+# bxr:халяар
+# ceb:allium ursinum
+# dsb:źiwy kobołk
+# frr:baarlook
+# hsb:pyšny kobołk
+# inh:хьонк
+# myv:паксячурька
+# nds:nl daslouk
+# pcd:ail des orses
+# pms:allium ursinum
+# sco:allium ursinum
+# tyv:хылба
+# vec:ajo selvadego
+# war:allium ursinum
+# wuu:熊葱
+wikidata:en:Q130882
+wikipedia:en:https://en.wikipedia.org/wiki/Allium_ursinum
+# fr:ail-des-ours contains 52 products in 3 languages @2018-10-22
+
+<en:garlic
+en:dried garlic
+bg:сушен чесън
+fr:ail séché, ail déshydraté
+cs:Sušený česnek
+da:tørret hvidløg
+de:getrockneter Knoblauch, Knoblauch getrocknet
+es:ajo deshidratado
+fi:kuivattu valkosipuli
+it:aglio essicato, aglio secco
+nl:gedroogde knoflook
+nn:tørket hvitløk
+pl:suszony czosnek, czosnek suszony
+sv:torkad vitlök, torkad hvidlök
+# fr:ailséché contains 35 products in 8 languages @2018-10-22
+ciqual_food_code:en:11023
+ciqual_food_name:en:Garlic, powder, dried
+ciqual_food_name:fr:Ail séché, poudre
+
+<en:garlic
+bg:пресен чесън
+en:fresh garlic
+fr:ail frais
+# fr:ail-frais has 31 products in 1 language @2018-10-22
+
+<en:garlic
+en:garlic extract
+bg:екстракт от чесън
+cs:česnekový extrakt
+de:Knoblauchextrakt
+fi:valkosipuliuute
+fr:extrait d'ail
+# ja:ガーリックエキス # see ingredients_processings.txt
+pl:ekstrakt czosnku, ekstrakt z czosnku
+# fr:extrait-d'ail has 71 products in 4 languages @2018-10-22
+
+<en:garlic
+en:garlic oil
+de:Knoblauchöl
+es:aceite de ajo
+fr:huile d'ail
+pl:olej czosnkowy
+
+<en:garlic
+<en:onion
+fr:oignon et ail en poudre
+
+<en:garlic
+<en:vinegar
+en:garlic vinegar
+hr:češnja ocat
+
+###################################################################################################
+#
+#                                Chives
+#
+###################################################################################################
+# description:en:CHIVES, scientific name Allium schoenoprasum, are an edible species of the genus Allium
+
+<en:onion-family vegetable
+<en:root vegetable
+en:chives, chive
+af:sprietui
+am:ቀጭን ሽንኩርት
+ar:ثوم معمر
+az:mala soğanı
+be:цыбуля скарада
+bg:сибирски лук, див лук
+bo:ཀེའུ།
+bs:vlasac
+ca:cibulet
+cs:pažitka, pažitka pobřežní
+cy:cenhinen syfi
+da:purløg
+de:Schnittlauch
+el:πρασουλίδα, σχοινόπρασο, άλλιον το σχοινόπρασον
+eo:ŝenoprazo
+es:cebollino, cebollinos
+et:murulauk
+eu:tipulin
+fa:پیاز کوهی
+fi:ruohosipuli, ruohosipulia, käärmeenlaukka
+fr:ciboulette
+ga:síobhas
+gl:ceboliño
+gv:shoushan
+he:שום העירית
+hr:vlasac
+ht:siv
+hu:metélőhagyma
+id:lokio
+is:graslaukur
+it:cippolina, aglio d'india, erba cipollina
+ja:チャイブ
+jv:lokio
+kk:шалғын жуа, şalğın jwa, شالعىن جۋا
+ko:차이브
+la:allium schoenoprasum
+lb:bratzel
+li:bieslouk
+lt:laiškinis česnakas
+lv:maurloks, maurloki
+mk:власец
+ml:ചൈവ്സ്
+nb:grasløk
+nl:bieslook
+nn:graslauk
+oc:ceboleta
+pl:szczypior, czosnek szczypiorek, szczypiorek, szczypiorku, szczypioru
+pt:cebolinho
+ro:arpagic
+ru:лук скорода
+sk:pažítka
+sl:drobnjak
+sr:vlašac
+sv:gräslök
+ta:இனப்பூண்டு
+tr:yaprak soğanı
+uk:цибуля-різанець
+ur:ثوم معمر
+vi:hành tăm
+wa:brele
+zh:蝦夷蔥
+# ang:secglēac
+# csb:łëczk
+# de-ch:Schnittlauch
+# dsb:cybulinka
+# en-ca:chives
+# en-gb:chives
+# hsb:słódny kobołk
+# nds-nl:kreilook
+# pam:chives
+# pcd:chiboléte
+# sco:chives
+# szl:szńitloch
+# vec:ajo de bisi
+# yue:細香蔥
+# zh-cn:蝦夷蔥
+# zh-hans:蝦夷蔥
+# zh-hant:蝦夷蔥
+# zh-tw:細香蔥
+#plant: wikidata:en:Q51148
+wikidata:en:Q61046162
+wikipedia:en:https://en.wikipedia.org/wiki/Chives
+# 4350 in 20 @2021-10-19
+eurocode_2_group_3:en: 8.30.50
+
+<en:chives
+en:chive seasoning
+de:Schnittlauch Kräuter
+es:aderezo de cebollino
+#11 @2021-10-19
+
+# TUBERS (Eurocode 2 8.10)
+
+<en:vegetable
+en:tuber, tubers, tuber vegetable
+de:Knollengemüse
+es:tubérculo,tubérculos
+fr:tubercule
+eurocode_2_group_2:en: 8.34
+
+
+# ROOT VEGETABLES (Eurocode 2 8.38)
+# Note: what Eurocode defines as Root vegetables seem to be only "tap root" vegetables
+# We will keep "Root vegetable" as a parent entry for tubers, taproot vegetables etc.
+# and use "taproot vegetable" for the "root vegetable" Eurocode entry.
+# It's important to have a distinct taproot vegetable parent, as they are considered
+# as vegetables for the Nutri-Score 2023 formula, while tubers aren't.
+
+<en:vegetable
+en:taproot vegetable, tap-root vegetable
+eurocode_2_group_2:en: 8.38
+
 # description:en:ROOT VEGETABLES are underground plant parts eaten by humans as food.
 
 <en:vegetable
@@ -49537,10 +50612,1249 @@ zh:根菜
 wikidata:en:Q20136
 wikipedia:en:https://en.wikipedia.org/wiki/List_of_root_vegetables
 
-<en:vegetable
-en:tuber,tubers
-de:Knollengemüse
-es:tubérculo,tubérculos
+# description:en:The CARROT (Daucus carota subsp. sativus) is a root vegetable, usually orange in colour, though purple, black, red, white, and yellow cultivars exist
+
+<en:root vegetable
+<en:taproot vegetable
+en:carrot
+af:Wortel
+am:ካሮት
+ar:جَزَر
+az:yerkökü
+ba:кишер
+be:морква
+bg:морков, моркови
+bi:Karot
+bn:গাজর
+bo:ལབ་སེར།
+br:Karotez
+bs:mrkva
+ca:pastanaga
+co:rundonu
+cs:mrkev, karotka
+cy:moronen
+da:gulerødder, Have-Gulerod
+de:Karotten, Karotte, Möhre, Möhren, Möhrchen, Pariser Karotten, Möhrensticks
+dv:ކެރެޓް
+el:καρότο
+eo:karoto
+es:zanahoria,zanahoria baby
+et:porgand
+eu:azenario
+fa:هویج
+fi:porkkana, porkkanaa
+fr:carotte, carottes courtes
+ga:cairéad
+gl:cenoria
+gn:sanaória
+gv:carradje
+he:גזר
+hi:गाजर
+hr:mrkva, mrkve, od mrkve
+ht:karòt
+hu:sárgarépa
+hy:Գազար
+id:wortel
+io:karoto
+is:gulrót
+it:carota, carote
+ja:ニンジン, にんじん, 人参
+jv:wortel
+ka:სტაფილო
+kk:сәбіз
+kn:ಗಜ್ಜರಿ
+ko:당근
+ku:гӧрдкушман
+ky:Сабиз
+lb:Muert
+li:Moeër
+lo:ຫົວຜັກກາດເຫຼືອງ
+lt:morkos
+lv:burkāns, burkāni
+mk:морков
+ml:കാരറ്റ്
+mn:Лууван
+mr:गाजर
+ms:Lobak merah
+my:မုန်လာဥနီ
+nb:gulrot
+ne:गाजर
+nl:wortel, wortels, wortelen
+nn:gulrot
+nv:Chąąshtʼezhiitsoh
+oc:pastenaga
+or:ଗାଜର
+os:Уырыдзы
+pa:ਗਾਜਰ
+pl:marchew uprawna, marchew, marchwi, marchewka, marchewki, marchewkowa, marchewkowy, marchewkowe, marchewek
+pt:cenoura
+qu:Sanurya
+rn:Ikaroti
+ro:morcov, morcovi
+ru:морковь
+rw:Ikaroti
+sa:गृञ्जनकम्
+sc:Fostinaja
+sh:mrkva
+si:කැරට්
+sk:mrkva obyčajná
+sl:Navadno korenje
+sm:taloti
+so:kaaroot
+sq:karrotë
+sr:шаргарепа, šargarepa
+su:wortel
+sv:morot, morötter
+sw:karoti
+ta:மஞ்சள் முள்ளங்கி
+te:కారెట్
+tg:сабзӣ
+th:แคร์รอต
+ti:ካሮቲ
+tk:Käşir
+tl:karot
+tr:havuç
+ug:سەۋزە
+uk:морква
+ur:گاجر
+uz:sabzi
+vi:Cà rốt
+wa:raecene
+xh:umnqathe
+za:lauxbaeghoengz
+zh:胡萝卜
+# aeb-arab:جدر سنّارية
+# aeb-latn:jder sennèrya
+# ang:moru
+# arz:جزر
+# atj:Rikarot
+# bar:Gelbe Ruam
+# be-tarask:морква
+# bho:गाजर
+# cdo:È̤ng-chái-tàu
+# chy:anonévee'tose
+# ckb:گێزەر
+# de-ch:Karotte
+# en-ca:carrot
+# en-gb:carrot
+# frr:Wochel
+# gsw:sanaória
+# hak:Fùng-chhoi-thèu
+# jbo:najgenja
+# kaa:geshir
+# kbp:Kaarɔɔtɩ
+# koi:гӧрдкушман
+# lad:safanórya
+# lbe:къур
+# mdf:пурьхкя
+# nah:Caxtillān camohtli
+# nan:Âng-chhài-thâu
+# nap:Pastenaca
+# pcd:Càrote
+# pfl:Gellerieb
+# pnb:گاجر
+# pt-br:cenoura
+# rup:morcuvu
+# sco:carrot
+# sgs:Muorks
+# sr-ec:шаргарепа
+# vls:karote
+# vro:põrgnas
+# war:karot
+# wuu:胡萝卜
+# yue:紅蘿蔔
+carbon_footprint_fr_foodges_ingredient:fr:Carottes fraîches
+carbon_footprint_fr_foodges_value:fr:0.3
+# zh-cn:胡萝卜
+# zh-hans:胡萝卜
+# zh-hant:胡蘿蔔
+# zh-hk:胡蘿蔔
+# zh-mo:胡蘿蔔
+# zh-my:胡萝卜
+# zh-sg:胡萝卜
+# zh-tw:胡蘿蔔
+wikidata:en:Q81
+wikipedia:en:https://en.wikipedia.org/wiki/Carrot
+# en:carot has 8224 products in 15 languages @2018-10-21
+ciqual_food_code:en:20009
+ciqual_food_name:en:Carrot, raw
+ciqual_food_name:fr:Carotte, crue
+eurocode_2_group_3:en: 8.38.10
+
+<en:carrot
+es:Zanahorias de la variedad Nantesa
+
+<en:carrot
+en:dried carrot
+de:getrocknete Möhre
+fr:carotte séchée, carottes séchées
+pl:suszona marchewka, suszona marchew
+ru:морковь сушёная
+
+<en:carrot
+en:cooked carrot
+de:gekochte Möhren, gekochte Karotten
+es:zanahorias cocidas
+fi:kypsennetty porkkana
+fr:carotte cuite
+pl:marchew gotowana, marchew ugotowana
+
+<en:carrot
+# <en:organic
+en:organic carrots
+bg:био моркови, биологични моркови
+de:Bio Karotten
+fi:luomu porkkanat
+fr:carottes bio, carottes issues de l'agriculture biologique
+nl:biologische wortel
+ru:морковь свежая
+# en:organic-carrots has 580 products in 3 languages @2018-10-20
+
+<en:carrot
+en:baby carrots
+bg:бейби моркови
+de:Babykarotten, Babymöhren
+fr:jeunes carottes
+# fr:jeunes-carottes has 34 products in 1 language @2018-10-20
+
+<en:carrot
+fr:carottes en rondelles
+de:Karotten in Scheiben
+it:Carote e lamelle
+# fr:carottes-en-rondelles has 54 products in 3 languages @2018-10-20
+
+<en:carrot
+fr:carottes en morceaux
+# fr:carottes-en-morceaux has 28 products in 1 language @2018-10-20
+
+<en:carrot
+fr:carottes râpées
+nl:geraspte wortelen
+# fr:carottes-râpées has 107 products in 3 languages @2018-10-20
+
+<en:carrot
+en:carrot purée
+bg:пюре от моркови
+de:Karottenpüree
+es:Puré de zanahoria
+fi:porkkanapyree, porkkanasose
+fr:purée de carotte
+it:puré di carote
+pl:przecier marchwiowy
+# In process de:Karottenpüree
+# fr:purée-de-carotte has 52 products in 2 languages @2018-10-20
+ciqual_food_code:en:20261
+ciqual_food_name:en:Carrots, puree
+ciqual_food_name:fr:Carotte, purée
+
+# fr:concentré de carotte usage as a colour is not always mentioned
+
+<en:carrot
+fr:concentré de carotte, concentré de carottes
+de:Karottenkonzentrat
+fi:porkkanatiiviste
+hr:koncentrat mrkve
+it:concentrato di carota, concentrato di carote
+ro:concentrat de morcov
+# fr:concentré-de-carotte has 221 products in 4 languages @2018-10-10
+
+<en:carrot
+en:carrot extract
+da:gulerodsekstrakt
+de:Karottenextrakt
+es:extracto de zanahorias
+fi:porkkanauute
+fr:extrait de carotte
+it:estratto di carota, estratto di carote
+ja:人参エキス
+nl:wortelextract, kleurend wortelextract
+pt:Extrato de cenoura, extrato de cenouras
+# fr:extrait-de-carotte has 176 products in 6 languages @0218-10-20
+
+<en:carrot
+en:carrot powder
+de:Karottenpulver
+fi:porkkanajauhe
+
+<en:carrot
+de:Karottengranulat
+fi:porkkanaraaste
+ru:морковь гранулы
+
+<en:carrot
+<en:vegetable fiber
+fr:fibre de carotte, fibres de carotte
+de:Karottenfasern
+fi:porkkanakuitu
+nl:wortelvezel
+# fr:fibre-de-carotte has 174 products in 2 languages @2018-10-20
+
+<en:carrot
+fr:carottes déshydratées
+de:Karotten getrocknet
+fi:kuivatut porkkanat
+it:carote disidratate
+pl:marchew suszona
+sl:suseno korenje
+sv:torkad morot
+# fr:carottes-déshydratées has 59 products i 4 languages @2018-10-20
+
+<en:carrot
+en:yellow carrot
+de:Gelbe Karotten
+es:zanahoria amarilla
+fi:keltainen porkkana
+fr:carottes jaunes, carotte jaune
+nl:gele wortel
+pl:żółta marchew
+sv:gul morot, gula morötter
+# fr:carotte-jaune has 132 products in 4 languages @2018-10-20
+
+<en:carrot
+en:orange carrot
+de:orange Möhre, orange Karotte
+fi:oranssi porkkana
+fr:carottes oranges
+
+<en:carrot
+en:violet carrot
+fr:carotte violette, carotte pourpre
+pl:purpurowa marchew
+
+<en:carrot
+nl:winterpeen
+
+# This is mainly used as colorant
+
+<en:anthocyanin
+<en:carrot
+en:black carrot, black carrots
+bg:черен морков, черни моркови
+de:schwarze Karotte
+es:Zanahorias negras
+fi:Musta porkkana, mustaporkkana, mustaporkkanaa
+fr:carotte noire
+hr:crna mrkva, crne mrkve
+it:carote nere
+nb:sort gulrot
+nl:zwarte wortel
+pl:czarna marchew, czarnej marchwi
+sv:svart morot
+wikidata:en:Q11767451
+# fr:carotte-noire has 122 products in 4 languages @2018-10-20
+
+<en:black carrot
+en:black carrot juice
+bg:сок от черен морков
+de:schwarzer Karottensaft
+es:zumo de zanahoria negra
+fi:Musta porkkanamehu
+fr:jus de carotte noire
+it:succo di carote nere
+pl:sok z czarnej marchwi
+sv:svartmorotjuice
+# fr:jus-de-carotte-noire has 34 products in 3 languages @2018-10-20
+
+# The french pourpre is translated to black in dutch and german
+
+<en:black carrot juice
+en:concentrated black carrot juice
+bg:концентриран сок от черен морков
+fr:jus de carotte noire concentré, jus concentré de carotte noire, jus de carotte pourpre concentré, jus concentré de carotte pourpre
+de:Schwarzmöhrensaftkonzentrat, konzentrierter Saft aus schwarzer Karotte
+hr:koncentrirani sok crne mrkve
+nl:zwarte wortelsapconcentraat, geconcentreerd zwarte wortelsap
+pl:zagęszczony sok z czarnej marchwi, skoncentrowany sok z czarnej marchwi
+# fr:jus-de-carotte-noire-concentré has 26 products in 2 languages @2018-10-20
+# fr:jus-de-carotte-pourpre-concentré has 22 products @2018-10-20
+
+<en:black carrot
+en:concentrated black carrot, black carrot concentrate
+de:schwarze Möhre Konzentrat, Konzentrate aus schwarzer Karotte
+fr:concentré de carotte pourpre
+hr:koncentrat crne mrkve
+sv:svart morotskoncentrat
+
+
+# description:en:Carrot juice has a particularly high content of β-carotene, a source of vitamin A, but it is also high in B complex vitamins like folate, and many minerals including calcium, copper, magnesium, potassium, phosphorus, and iron.
+
+<en:vegetable juice
+<en:carrot
+en:carrot juice
+az:Yerkökü şirəsi
+bg:сок от моркови
+da:gulerodsjuice, gulerodssaft
+de:Karottensaft
+el:χυμός καρότου
+eo:karota suko
+es:jugo de zanahoria
+et:Porgandimahl
+fa:آب هویج
+fi:porkkanamehu
+fr:jus de carotte, jus de carottes
+he:מיץ גזר
+id:Jus wortel
+it:Succo di carota
+ja:ニンジンジュース
+ko:당근 주스
+nl:wortelsap
+pl:Sok marchwiowy, sok marchewkowy, sok z marchwi, sok z marchewki
+pt:Sumo de cenoura
+ru:морковный сок
+sa:गृञ्जनकरसः
+sl:Korenčkov sok
+sq:leng me karrota
+sv:morotsjuice
+ta:கேரட் சாறு
+th:น้ำแคร์รอต
+tr:havuç suyu
+zh:胡萝卜汁
+# jam:Kiarat juus
+# yue:紅蘿蔔汁
+wikidata:en:Q1190074
+wikipedia:en:https://en.wikipedia.org/wiki/Carrot_juice
+# en:carot-juice has 188 products in 4 languages 2018-10-20
+
+# Is used as colour, but always mentioned as such
+
+<en:carrot juice
+en:concentrated carrot juice
+da:koncentreret gulerodsjuice, koncentreret gulerodssaft
+de:Karottensaftkonzentrat, konzentrierter Karottensaft
+es:jugo de zanahoria concentrado
+fi:porkkanamehutiiviste
+fr:jus concentré de carotte, jus concentré de carottes, jus de carotte concentré
+it:Succo di carota concentrato
+nl:Geconcentreerd wortelsap
+no:gulrotkonsentrat
+ru:Концентрированный морковный сок
+sv:morotjuicekoncentrat
+# fr:jus-concentré-de-carotte has 122 products in 1 language @2018-10-20
+
+#This is not the same as concentrate carrot juice, this one has been reconstructed with water
+<en:carrot juice
+en:carrot juice from concentrate
+da:gulerodsjuice fra koncentrat, gulerodssaft fra koncentrat
+de:Karottensaft aus Karottensaftkonzentrat
+es:zumo de zanahoria a partir de concentrado
+fr:jus de carotte à base de concentré, jus de carottes à base de concentré
+
+<en:carrot juice
+en:carrot juice powder
+pl:sok z marchwi w proszku
+
+# description:en:Scorzonera hispanica, black SALSIFY or Spanish salsify, also known as black oyster plant, serpent root, viper's herb, viper's grass or simply scorzonera, is a perennial member of the genus Scorzonera in the sunflower family (Asteraceae), cultivated as a root vegetable.
+
+<en:root vegetable
+<en:taproot vegetable
+en:salsify, black salsify
+ar:سلسفي هسباني
+az:İspan təkəsaqqalı
+be:Скарцанера
+bg:испански кокеш, черен корен, козелец
+ca:Escurçonera de nap
+cs:hadí mord španělský
+da:Skorzonerrod
+de:Schwarzwurzeln
+et:mustjuur, aed-mustjuur
+eu:Eskortzonera
+fi:Mustajuuri
+fr:salsifis, salsifis noirs
+gl:Escorzoneira
+hr:crni korijen
+hu:Feketegyökér
+it:scorzonera
+ja:スコルツォネラヒスパニカ
+ku:Sping
+lt:Valgomoji gelteklė
+lv:melnsakne
+nl:schorseneren
+pl:Wężymord czarny korzeń
+pt:Escorcioneira
+ro:Scorțoneră
+ru:Козелец испанский
+sv:Svartrot
+tr:Sakız otu
+zh:黑婆罗门参
+# azb:ساققیز اوْتو
+# vls:Schosneere
+wikidata:en:Q385259
+wikipedia:en:https://en.wikipedia.org/wiki/Scorzonera_hispanica
+ciqual_food_code:en:20197
+ciqual_food_name:en:Salsify, black, raw
+ciqual_food_name:fr:Salsifis noir, cru
+# ingredient/fr:salsifis has 58 products in 5 languages @2019-04-05
+eurocode_2_group_3:en: 8.38.20
+
+<en:salsify
+en:Raw black salsify
+fr:Salsifis noirs crus
+ciqual_food_code:en:20197
+ciqual_food_name:en:Salsify, black, raw
+ciqual_food_name:fr:Salsifis noir, cru
+
+<en:salsify
+en:Cooked salsify
+fr:Salsifis cuits
+ciqual_food_code:en:20046
+ciqual_food_name:en:Salsify, cooked
+ciqual_food_name:fr:Salsifis, cuit
+
+<en:salsify
+en:salsify juice concentrate
+hr:koncentriani sok crnog korijena
+
+<en:root vegetable
+<en:taproot vegetable
+en:celeriac
+ar:الكرفس اللفتي
+bg:корен целина
+ca:Api-rave
+cs:celer bulvový
+da:knoldselleri
+de:Knollensellerie
+eo:tubercelerio
+es:Apio nabo,raiz de apio
+et:Juurseller
+fi:mukulaselleri, juuriselleri
+fr:céleri-rave, céleri rave
+ga:Soiliriac
+hr:korijen celera
+it:sedano rapa
+ja:セロリアック
+la:Apium graveolens var. rapaceum
+ms:Akar saderi
+nb:sellerirot
+nl:knolselderij
+pl:seler korzeń, korzeń selera, seler korzeniowy
+ro:rădăcină de țelină
+ru:корень сельдерея
+sr:koren celera
+sv:Rotselleri
+# ru:сельдерей пахучий translation error, see also en:celery
+allergens:en: en:celery
+wikidata:en:Q575174
+wikipedia:en:https://en.wikipedia.org/wiki/Celeriac
+ciqual_food_code:en:20055
+ciqual_food_name:en:Celeriac, raw
+ciqual_food_name:fr:Céleri-rave, cru
+# fr:céleri-rave has 399 products in 4 languages @2018-10-20
+eurocode_2_group_3:en: 8.38.30
+
+<en:celeriac
+fr:céleri rave râpé
+# fr:céleri-rave-râpé has 17 products in 1 language @2018-10-20
+
+<en:celeriac
+fr:jus de céleri-rave concentré, jus de céleri rave concentré, jus concentré de céleri rave
+
+<en:root vegetable
+<en:Taro
+en:taro tuber
+fr:Tubercule de taro
+wikidata:en:Q1771944
+ciqual_food_code:en:53200
+ciqual_food_name:en:Taro, tuber, raw
+ciqual_food_name:fr:Taro, tubercule, cru
+
+# description:en:The SWEET POTATO (Ipomoea batatas) is a dicotyledonous plant that belongs to the bindweed or morning glory family, Convolvulaceae.
+
+<en:root vegetable
+<en:tuber
+en:sweet potato
+af:Patats
+ak:atomo
+am:ስኳር ድንች
+ar:بطاطا حلوة
+ay:Apichu
+az:Qramafonçiçək batat
+be:Батат
+bg:сладък картоф, сладки картофи
+bn:মিষ্টি আলু
+bo:ཞོག་མངར།
+br:patatez dous
+bs:Batat
+ca:moniato,muniato
+cs:povijnice batátová
+da:sød kartoffel
+de:Süßkartoffel, Süsskartoffeln, Süßkartoffeln
+el:Γλυκοπατάτα
+eo:Batato
+es:patata dulce, batata,boniato
+et:bataat
+eu:Batata
+fa:سیب‌زمینی شیرین
+fi:bataatti
+fj:Kumala
+fr:patate douce, patates douces
+ga:Práta Spáinneach
+gn:Jety
+gu:શક્કરીયાં
+he:בטטה
+hi:शकरकन्द
+hr:batat, krumpir batat, slatki krumpir
+ht:Patat
+hu:Édesburgonya
+hy:բաթաթ
+id:Ubi jalar
+io:Patato
+is:Sætar kartöflur
+it:Patata dolce, patate dolci
+ja:サツマイモ, さつまいも, さつま芋, 薩摩芋, 甘藷
+jv:Ketéla rambat
+ka:ბატატი
+kk:Батат
+km:ដំឡូងជ្វា
+kn:ಸಿಹಿ ಗೆಣಸು
+ko:고구마
+ky:Батат
+la:Ipomoea batatas
+lg:Lumonde awusse
+ln:Libɛngɛ́
+lo:ມັນດ້າງ
+lt:Batatas
+lv:batāte
+mk:Сладок компир
+ml:മധുരക്കിഴങ്ങ്
+mr:रताळे
+ms:ubi keledek
+nb:søtpotet
+ne:सखरखण्ड
+nl:zoete aardappel
+nn:søtpotet
+or:କନ୍ଦମୂଳ
+pa:ਸ਼ਕਰਕੰਦ
+pl:batat, batata, batatów, słodki ziemniak, słodkich ziemniaków, słodkie ziemniaki, słodkiego ziemniaka, batatowy
+pt:batata-doce
+qu:Kumar
+ro:Batat
+ru:батат
+sa:मिष्टालुकम्
+sd:ناڙو
+sh:Batat
+si:බතල
+sk:Povojník batatový
+sl:Batata
+sn:Mbambaira
+so:Sonkor qadi
+sq:patatja e ëmbël
+sr:Батат
+su:Hui
+sv:sötpotatis
+sw:Kiazi kitamu
+ta:வற்றாளை
+te:చిలగడదుంప
+tg:Батат
+th:มันเทศ
+tl:Kamote
+to:Kumala
+tr:Tatlı patates
+ug:تاتلىقياڭيۇ
+uk:Батат
+ur:شکر قندی
+uz:Batat
+vi:Khoai lang
+wo:pataas
+yi:זיס־קארטאפל
+za:Maenz
+zh:番薯
+# ang:Swētu eorþperu
+# arz:بطاطا
+# azb:قرامافونچیچک باتات
+# bcl:Kamoteng kamang
+# bjn:Gumbili lancar
+# cdo:Huăng-sṳ̀
+# ceb:Kamote
+# de-ch:Süsskartoffel
+# gan:薯
+# hak:Fân-sù
+# hsb:Słódke dulki
+# ilo:Kamote
+# mai:सखरखण्ड
+# nah:Camohtli
+# nan:Han-chî
+# pam:Kamuti
+# pnb:شکرقندی
+# roa-tara:patana doce
+# sco:Sweet potato
+# tcy:ಕೆರೆಂಗ್
+# tpi:Kaukau
+# xmf:ბატატი
+# yue:番薯
+# zh-hant:番薯
+# zh-tw
+wikidata:en:Q37937
+wikipedia:en:https://en.wikipedia.org/wiki/Sweet_potato
+# ingredient/fr:patate-douce has 327 products in 6 languages @2018-12-22
+nutriscore_fruits_vegetables_nuts:en:no
+eurocode_2_group_3:en: 8.34.30
+
+<en:sweet potato
+en:organic sweet potato
+hr:bio krumpirslatki
+
+<en:sweet potato
+en:purple sweet potato
+ja:ムラサキイモ, 紫芋, 紫いも, むらさきいも, 有色甘藷
+
+#comment:en: put tapioka-related translations under en:tapioc starch
+<en:root vegetable
+<en:tuber
+en:cassava, cassava root, manioc, manioc root, yuca, yuca root
+af:broodwortel
+ak:bankyi
+ar:بفرة
+az:maniok
+be:маніёк
+bg:маниока
+bi:maniok
+bm:banaku
+bn:শিমুল আলু
+ca:iuca
+cs:maniok jedlý
+da:kassava, cassava, maniok
+de:Maniok, Cassave
+el:κασάβα
+ee:agbeli
+eo:manioko
+es:cassava
+eu:manioka
+fa:مانیوک
+fi:maniokki, kassava
+fr:manioc, racine de manioc
+#frr:maniok
+ga:casabhach
+gl:mandioca
+gn:mandi'o
+gu:મોગો
+ha:rogo
+he:מניהוט מצוי
+hr:manioka
+ht:manyòk dous
+hu:manióka
+id:singkong
+io:manioko
+is:kassavarót
+it:manioca
+ja:キャッサバ
+jv:ketéla pohung
+kg:mandioko
+ki:mĩanga
+kn:ಮರಗೆಣಸು
+ko:카사바
+la:manihot esculenta, mandioca
+ln:manyɔ́kɔ
+lt:valgomasis manijokas
+lv:manioka
+mg:mangahazo
+ml:മരച്ചീനി
+ms:ubi kayu
+my:ပီလောပီနံ
+nb:maniok
+nl:maniok, cassave
+nn:kassava, maniokrot
+ny:chinangwa
+oc:manioc
+pl:kassawa
+pt:mandioca
+qu:rumu
+ru:маниок
+sg:gozo
+sh:manioka
+sn:mufarinya
+sl:manioka
+sr:tapioka, тапиока
+su:sampeu
+sv:maniok
+sw:muhogo
+ta:மரவள்ளி
+te:కర్ర పెండలము
+th:มันสำปะหลัง
+tl:kamoteng-kahoy
+to:mānioke
+tr:manyok
+ty:māniota
+uk:маніок
+ur:کاساوا
+vi:sắn
+yi:מאניאק
+yo:ẹ̀gẹ́
+za:moegsawz
+zh:木薯
+#ban:kaséla
+#bcl:balinghoy
+#bjn:jawaw
+#ceb:kamoteng kahoy
+#csb:jôdny maniok
+#dag:banchi
+#din:bafora
+#dsb:pšawy maniok
+#hsb:prawy maniok
+#ilo:balinghoy
+#mad:sabbhrâng
+#min:ubi parancih
+#nah:cuauhcamohtli
+#nan:chhiū-chî
+#nia:gowirio
+#sco:cassava
+#war:bilanghoy
+#wuu:木薯
+#yue:木薯
+nutriscore_fruits_vegetables_nuts:en:no
+wikidata:en:Q43304555
+wikipedia:en:https://en.wikipedia.org/wiki/Cassava
+ciqual_food_code:en:54031
+ciqual_food_name:en:Cassava or manioc, roots, raw
+ciqual_food_name:fr:Manioc, racine crue
+#650 in 10 @2021-10-18
+eurocode_2_group_3:en: 8.34.50
+
+<en:flour
+<en:cassava
+en:cassava flour
+bg:брашно от маниока
+de:Maniokmehl
+fr:farine de manioc
+hu:maniókaliszt
+nl:maniokmeel
+nn:kassavamel
+pl:mąka z manioku
+sv:maniokmjöl
+nutriscore_fruits_vegetables_nuts:en:no
+
+# description:en:TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
+
+<en:starch
+en:tapioca, tapioca starch, manioc starch
+ar:تابيوكا
+bg:тапиока, нишесте от тапиока
+ca:tapioca, midó de tapioca, midó de mandioca
+cs:tapioka, tapiokový škrob
+da:tapioca, tapiokastivelse, tapiocastivelse
+de:Tapioka, Tapiocastärke, Tapiokastärke, Maniokstärke
+el:ταπιόκα, άμυλο ταπιόκαζ
+eo:tapioko
+es:tapioca, almidón de tapioca, almidón de mandioca
+eu:tapioka
+fa:تاپیوکا
+fi:tapioka, tapiokatärkkelys
+fr:tapioca, amidon de tapioca, amidon de manioc
+ga:taipióca
+he:טפיוקה
+hr:tapioka
+hu:tápióka, tápiókakeményítő
+id:tapioka
+io:tapiokao
+it:tapioca, amido di tapioca
+ja:タピオカ
+jv:tapioka
+kk:тапиока, tapïoka, تاپىيوكا
+ko:타피오카
+mt:tapjoka
+nb:tapioka, tapiokastivelse
+nl:tapiocazetmeel, tapioca zetmeel, tapioca
+nn:tapioka
+pl:tapioka, skrobia z tapioki, skrobia tapiokowa, skrobia z manioku
+pt:tapioca
+ru:тапиока
+sk:tapiokový škrob
+sl:tapioka, tapiokin škrob
+su:tapioka
+sv:tapioka, tapiokastärkelse
+uk:тапіока
+vi:bột năng
+zh:木薯根淀粉
+#lfn:tapioca
+wikidata:en:Q873761
+wikipedia:en:https://en.wikipedia.org/wiki/Tapioca
+
+<en:modified starch
+<en:tapioca starch
+en:modified tapioca starch, modified manioc starch
+da:modificeret tapiokastivelse
+de:modifizierte Tapiokastärke
+es:almidón modificado de tapioca,almidón modificado de mandioca
+fi:muunnettu tapiokatärkkelys
+fr:amidon modifié de tapioca, amidon transformé de tapioca, amidon de tapioca modifié, amidon modifié de manioc
+hu:módosított tápiókakeményítő
+it:amido modificato di tapioca
+nb:modifisert tapiokastivelse
+nl:gemodificeerd tapiocazetmeel
+pl:Skrobia modyfikowana z tapioki
+pt:amido modificado de tapioca
+sv:modifierad tapiokastärkelse, modifierad tapioka stärkelse
+
+# Is this the same as tapioca starch? This is not cassave flour, as that is diluted.
+
+
+# description:en:Yam is the common name for some plant species in the genus Dioscorea (family Dioscoreaceae) that form edible tubers.
+# In some places, other (unrelated) root vegetables are sometimes referred to as "yams".
+<en:root vegetable
+<en:tuber
+en:yam
+de:Yam, Yamswurzel, Yamswurzeln
+fr:igname
+nutriscore_fruits_vegetables_nuts:en:no
+wikidata:en:Q8047551
+wikipedia:en:https://en.wikipedia.org/wiki/Yam_(vegetable)
+eurocode_2_group_3:en: 8.34.40
+
+# description:en:The POTATO is a starchy, tuberous crop from the perennial nightshade Solanum tuberosum.
+
+<en:root vegetable
+<en:tuber
+en:potato, potatoes
+ab:Акартош
+ar:بطاطس
+ay:Ch'uqi
+be:бульба
+bg:картоф, картофи
+bi:Kumala
+bn:আলু
+bo:ཞོ་ཁོག
+bs:krompir
+ca:patata
+cs:brambor
+da:kartoffel, kartofler
+de:Kartoffel, Kartoffeln
+eo:terpomo
+el:πατάτα, πατάτες
+es:patata, papas
+et:kartul, kartulid
+eu:patata
+ff:Kudaku
+fi:peruna, perunaa, perunat
+fr:pomme de terre, pommes de terre, pommes de terre de consommation
+gd:Buntàta
+gl:pataca
+gu:Yvy'a
+he:תפוח אדמה
+hi:आलू
+hr:krumpir
+ht:Pòm tè
+hu:burgonya, krumpli
+ia:patata
+ik:Asiaġruaq
+io:Terpomo
+it:patata, patate
+ja:ジャガイモ, じゃがいも, 馬鈴薯, ポテト
+ka:კარტოფილი
+ks:اولُو
+la:Patata
+li:Aerpel
+lt:bulvė, bulvės
+mg:Ovy
+mk:компир
+mr:बटाटा
+nb:potet, poteter
+ne:आलु
+nl:aardappel, aardappelen
+nn:potet, poteter
+nv:Nímasii
+or:ଆଳୁ
+os:Картоф
+pa:ਆਲੂ
+pl:ziemniak, ziemniaki, ziemniaczana, ziemniaczane, ziemniaczany, ziemniaków, ziemniaka, ziemniaczanego, ziemniaczanych
+pt:batata
+rn:Ikiraya
+ro:cartof, cartofi
+ru:картофель, картошка
+rw:Ikirayi
+sl:krompir, zemiak
+sm:Pateta
+sn:Mbatatisi
+so:Barandho
+sq:Patatja
+sv:potatis
+tr:patates
+uk:картопля
+uz:Kartoshka
+wa:Crompire
+za:Majlingzsuz
+zh:馬鈴薯
+zu:Izambane
+# arz:بطاطس
+# bar:Eadäpfe
+# bho:आलू
+# ceb:Patatas
+# chr:ᏄᎾ
+# chy:Aéstomemésêhestôtse
+# csb:Bùlwa
+# diq:Kartole
+# gan:土豆
+# kaa:Kartoshka
+# koi:Картов
+# krc:Гардош
+# ksh:Ääpel
+# lad:Patata
+# lbe:Нущи
+# mai:आलु
+# mdf:Модамарь
+# mrj:Тури
+# nds:Kantüffel
+# nds-nl:Eerpel
+# rup:Cartofi
+# sco:Tattie
+# stq:Tuffelke
+# tyv:Картофель
+# zh-cn:马铃薯
+# zh-hans:马铃薯
+# zh-hant:馬鈴薯
+# zh-hk:薯仔
+# zh-mo:馬鈴薯
+# zh-tw:馬鈴薯
+wikidata:en:Q16587531
+wikipedia:en:https://en.wikipedia.org/wiki/Potato
+carbon_footprint_fr_foodges_ingredient:fr:Pomme de terre
+carbon_footprint_fr_foodges_value:fr:0.6
+# en:potato has 2269 products in 23 languages @2018-10-15
+nutriscore_fruits_vegetables_nuts:en:no
+ciqual_food_code:en:4003
+ciqual_food_name:fr:Pomme de terre, bouillie/cuite à l'eau
+eurocode_2_group_3:en: 8.34.15
+
+<en:potato
+en:table potatoes
+de:Speisekartoffeln
+
+<en:potato
+fr:Pommes de terre de consommation à chair ferme
+# ingredient/fr:pommes-de-terre-de-consommation-a-chair-ferme has 9 products @2019-06-01
+
+<en:potato
+en:British potato
+de:Britische Kartoffel, Britische Kartoffeln
+
+<en:potato
+<en:flour
+en:potato flour
+bg:брашно от картофи, картофено брашно
+de:Kartoffelmehl
+es:harina de patata
+fi:perunajauho
+fr:farine de pomme de terre, farine de pommes de terre, pomme de terre en poudre
+it:Farina di patate
+nb:potetmel
+nl:aardappelmeel
+pl:Mąka ziemniaczana
+sv:potatismjöl
+# ingredient/en:potato-flour has 1998 products in 4 languages @2020-05-23
+
+<fr:Pommes de terre de consommation à chair ferme
+fr:Pommes de terre de consommation à chair ferme bio
+
+<en:organic potato
+en:organic potato from France
+fr:Pommes de terre biologiques origine France
+
+<en:potato
+en:precooked potato
+de:vorgegarte Kartoffeln, Kartoffeln (vorgegart), Speisekartoffeln gekocht
+fr:pommes de terre précuites
+
+<en:potato
+en:russet potatoes
+de:Geröstete Kartoffeln
+fr:Pommes de terres rousses
+
+<en:potato
+en:cooked potato
+de:gegarte Kartoffeln
+es:patata cocida
+fi:kypsennetty peruna
+fr:pomme de terre cuite, pommes de terre cuites
+nl:gegaarde aardappel
+ro:cartofi fierți
+sv:kokt potatis
+# en:cooked-potato has 62 productsin 1 language @2018-10-15
+
+# description:en:MASHED POTATO (British English) or mashed potatoes (American English and Canadian English), colloquially known as mash (British English), is a dish prepared by mashing boiled potatoes.
+
+<en:potato
+en:mashed potato, mashed potatoes
+ar:بطاطا مهروسة
+az:kartof püresi
+be:бульбяное пюрэ
+bg:картофено пюре, пюре от картофи
+bn:আলু ভর্তা
+ca:puré de patates
+cs:bramborová kaše
+cv:токкоми
+da:kartoffelmos
+de:kartoffelpüree
+el:πουρέ πατάτας
+eo:terpomkaĉo
+es:puré de papas
+et:kartulipuder
+fa:پوره سیب‌زمینی
+fi:perunasose, perunamuusi
+fr:purée de pomme de terre, purée de pommes de terre
+ga:brúitín
+he:מחית תפוחי אדמה
+hr:pire krumpir
+id:kentang tumbuk
+it:purea di patate
+ja:マッシュポテト
+ko:매시트 포테이토
+la:pulticula ex pomis terrestribus
+lt:bulvių košė
+ms:kentang lecek
+nb:potetmos
+nl:aardappelpuree
+pt:purê de batata
+ru:картофельное пюре
+se:buđetnjuvddus
+sv:potatismos
+th:มันฝรั่งบด
+tr:patates püresi
+uk:картопляне пюре
+zh:馬鈴薯泥
+wikidata:en:Q322787
+wikipedia:en:https://en.wikipedia.org/wiki/Mashed_potato
+# bat_smg:bolbiu potra
+# szl:sztamfkartofle
+# vls:puree
+# wuu:土豆泥
+# zh_yue:薯茸
+# fr:purée-de-pomme-de-terre has 152 products in 1 language @2018-10-15
+
+<en:mashed potato
+en:instant mashed potatoes
+hr:instant pire krumpir
+
+<en:potato
+en:potato flakes
+bg:картофени люспи
+da:kartoffelflager
+de:Kartoffelflocken
+es:copos de patata
+fi:perunahiutale, perunahiutaleita
+fr:flocon de pomme de terre, flocons de pommes de terre, flocons de pomme de terre
+hr:krumpirove pahuljice, pahuljice krumpira
+it:fiocco di patata, fiocchi di patate
+nl:aardappelvlokken
+pl:płatki ziemniaczane
+ru:картофельние хлопья, картофельные-хлопья
+sv:potatisflingor
+# fr:flocon-de-pomme-de-terre has 937 products in 12 languages @2018-10-15
+
+<en:potato flakes
+en:dehydrated potato flakes
+bg:дехидратирани картофени люспи
+de:getrocknete Kartoffelflocken
+es:copos de patata deshidratados
+fi:kuivatut perunahiutaleet
+fr:flocons de pomme de terre déshydratés
+sl:krompirjevi kosmiči
+# fr:flocons-de-pomme-de-terre-déshydratés has 100 products in 2 languages @2018-10-15
+
+<en:potato flakes
+fr:flocons de pomme de terre réhydratés
+# fr:flocons-de-pomme-de-terre-réhydratés has 71 products in 1 language @2018-10-15
+
+<en:potato
+<en:vegetable fiber
+en:potato fiber, potato fibre
+ca:fibra de patata, fibra vegetal de patata
+da:kartoffelfibre
+de:Kartoffelfasern, Kartoffelfaser, Kartoffelballaststoffe
+es:fibra de patata, fibra vegetal de patata
+fi:perunakuitu
+fr:fibres de pomme de terre, fibre de pomme de terre, fibres de pommes de terre
+hr:krumpirova vlakna
+nb:potetfiber
+nl:aardappelvezel, aardappelvezels
+no:potetfiber, potetfibre
+pl:błonnik ziemniaczany
+sv:potatisfiber
+# en:potato-fibre has 110 products in 4 languages @2018-10-15
+
+# fr:pommes de terre préfrites is a compound ingredient:Pomme de terre préfrite [pomme de terre, huile de tournesol, dextrose de blé]
+
+<en:potato
+fr:pommes de terre préfrites
+nl:voorgebakken aardappel
+sv:forstekt potatis
+# fr:pommes-de-terre-préfrites has 151 products in 3 languages @2018-10-15
+carbon_footprint_fr_foodges_ingredient:fr:Frites surgelées
+carbon_footprint_fr_foodges_value:fr:1.3
+
+# description:en:CELERIAC (Apium graveolens var. rapaceum), also called turnip-rooted celery, celery root, or knob celery, is a variety of celery cultivated for its edible stem or hypocotyl, and shoots.
+
+<en:tuber
+en:Taro
+af:Taro
+am:ጎደሬ
+ar:قلقاس مأكول
+be:Colocasia esculenta
+bh:अरुई
+bi:Taro
+bn:কচু
+ca:Taro
+cs:Kolokázie jedlá
+de:Taro
+dv:އޮޅު އަލަ
+el:Κολοκασία η εδώδιμος
+eo:Taro
+es:Colocasia esculenta
+eu:Taro
+fa:تارو
+fi:Taaro
+fj:Dalo
+fr:Colocasia esculenta
+gl:Taro
+gu:અળવી
+ha:Gwaza
+he:טארו
+hi:अरबी सब्जी
+hr:Taro
+ht:Chou Karayib
+hu:Taró
+id:Talas
+ig:Ede
+it:Colocasia esculenta
+ja:サトイモ, 里芋, さといも, タロイモ
+ka:ტარო 
+kn:ಕೆಸು
+ko:토란
+la:Colocasia esculenta
+lt:Valgomoji kolokazija
+lv:Kolokāzija
+mg:Saonjo
+ml:താള്
+mr:अळू
+ms:Keladi Cina
+ne:कर्कलो
+nl:Taro
+nn:Taro
+no:Taro
+pa:ਅਰਵੀ
+pl:Kolokazja jadalna, taro, eddo, kolokazja, kleśnica, kleśniec jadalny
+pt:Taro
+rn:Amateke
+ru:Таро
+sg:Langä
+sl:Taro
+sm:Talo
+sr:Таро
+su:Kimpul
+sv:Taro
+sw:Magimbi
+ta:சேம்பு
+th:เผือก
+tl:Gabi
+to:Talo
+tr:Gölevez
+ty:Taro
+uk:Таро
+ur:تارو
+vi:Colocasia esculenta
+za:Biek
+zh:芋
+zu:Amadumbe
+wikidata:en:Q227997
+eurocode_2_group_3:en: 8.34.55
+
 
 # description:en:Crudités (plural only) are traditional French appetizers consisting of sliced or whole raw vegetables[1] which are typically dipped in a vinaigrette or other dipping sauce. Examples of crudités include celery sticks, carrot sticks, cucumber sticks, bell pepper strips, broccoli, cauliflower, fennel, and asparagus spears.
 
@@ -49742,438 +52056,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cardoon
 # ingredient/daikon-cress has no products @2019-05-15
 
 
-# description:en:GARLIC (Allium sativum) is a species in the onion genus.
 
-<en:root vegetable
-en:garlic, garlic bulb, garlic clove
-af:Knoffel
-am:ነጭ ሽንኩርት
-ar:ثوم
-ay:Ajusa
-az:Sarımsaq
-ba:һарымһаҡ
-be:часнок
-bg:чесън
-bi:Galik
-bm:tumɛ
-bn:রসুন
-bo:སྒོག་ལོག
-br:Kignen
-bs:Bijeli luk
-ca:all, allets, dent d'all, dents d'alls
-co:Aglia
-cs:česnek, česnek kuchyňský
-cv:Ыхра
-cy:Garlleg
-da:hvidløg, hvidløgs
-de:Knoblauch
-dv:ލޮނުމެދު
-el:Σκόρδο
-eo:ajlo
-es:ajo, diente de ajo, dientes de ajo
-et:küüslauk, küüslaugu
-eu:baratxuri
-fa:سیر
-fi:valkosipuli, valkosipulia
-fo:hvítleykur
-fr:ail
-fy:knyflok
-ga:Gairleog
-gd:creamh
-gl:Allo
-gn:Áho
-gu:લસણ
-gv:Garleid
-ha:Tafarnuwa
-he:שום
-hi:लहसुन
-hr:Češnjak
-ht:Lay
-hu:fokhagyma
-hy:Սխտոր
-id:Bawang putih
-io:Alio
-is:Hvítlaukur
-it:aglio
-ja:ニンニク, にんにく, ガーリック
-jv:Bawang
-ka:ნიორი
-kk:Сарымсақ
-km:ខ្ទឹមស
-kn:ಬೆಳ್ಳುಳ್ಳಿ
-ko:마늘
-ku:sîr
-ky:Сарымсак
-la:Allium sativum
-lb:Knuewelek
-lg:Emisuwa egikaluba
-li:witlouk
-lo:ຜັກທຽມ
-lt:Valgomasis česnakas, česnakai
-lv:ķiploks
-mk:Лук
-ml:വെളുത്തുള്ളി
-mn:Саримс
-mr:लसूण
-ms:bawang putih
-mt:tewm
-my:ကြက်သွန်ဖြူ
-nb:hvitløk
-ne:लसुन
-nl:knoflook
-nn:hvitløk, hvitløks
-nv:Tłʼohchin díchʼííʼí
-oc:Alh cultivat
-or:ରସୁଣ
-os:Нуры
-pa:ਲਸਣ
-pl:czosnek, czosnku, czosnkowy, czosnkowa, czosnkowe
-ps:هوږه
-pt:alho
-qu:Ahus
-ro:usturoi
-ru:чеснок, чеснок свежий
-sa:लशुनम्
-sc:Azu
-sd:ٿوم
-sh:Češnjak
-si:සුදු ලූනු
-sk:Cesnak kuchynský
-sl:Česen
-so:Toon
-sq:hudhra
-sr:бели лук, beli luk
-sv:vitlök, vitlöks
-sw:Kitunguu saumu
-ta:பூண்டு
-te:వెల్లులి
-tg:Сирпиёз
-th:กระเทียม
-tl:Bawang
-tm:sarymsak
-tr:Sarımsak
-tt:сарымсак
-uk:часник
-ur:لہسن
-uz:Sarimsoq
-vi:Tỏi
-vo:läl
-wa:A
-wo:laac
-yi:קנאבל
-za:suenq
-zh:蒜
-# aeb-arab:راس ثوم
-# ang:garleac
-# arz:ثوم
-# azb:ساریمساق
-# bar:Knofe
-# bcl:Bawang
-# be-tarask:xxаснок
-# cdo:Sáung-tàu
-# ckb:سیر
-# dsb:Pšawy kobołk
-# fur:Ai
-# gag:sarmısak
-# gom:लसूण, Losun
-# grc:σκόρδον
-# hsb:Prawy kobołk
-# inh:Саьмарсаькх
-# kaa:sarımsaq
-# kab:tiskart
-# krc:сарсмакъ
-# lbe:Лаччи
-# lij:aggio
-# lzh:蒜
-# mai:लह्सुन
-# myv:ကြက်သွန်ဖြူ
-# nah:Caxtillān xōnacatl
-# nan:Soàn-thâu
-# nap:àglio
-# olo:Čosnokku
-# pam:Bawang
-# pap:konofló
-# pcd:al
-# pms:ai
-# pnb:لسن
-# roa-tara:aglie
-# ruq:al'
-# sah:чочунаах
-# scn:Agghia
-# sco:garlic
-# sgs:Česnags
-# sr-ec:бели лук
-# sr-el:beli luk
-# srn:kunofroku
-# su:Wortel translation error
-# tcy:ಬೊಳ್ಳುಳಿ
-# tyv:Чеснок
-# vec:ajo
-# vep:Künz'lauk
-# vls:look
-# war:Lasona
-# xal:сәрмсг
-# yue:蒜頭
-# zh-hans:蒜
-# zh-hant:蒜
-# zh-tw:大蒜
-wikidata:en:Q21546392
-wikipedia:en:https://en.wikipedia.org/wiki/Garlic
-# en:garlic has 22470 products in 18 languages @2018-10-23
-ciqual_food_code:en:11000
-ciqual_food_name:en:Garlic, fresh
-ciqual_food_name:fr:Ail, cru
-
-<en:garlic
-en:tender garlic
-da:hvidløgsskud
-de:Knoblauchsprossen, Knoblauch-Sprossen
-es:ajo tierno,ajete
-
-
-<en:garlic
-en:garlic puree
-bg:чесново пюре
-da:hvidløgspuré, hvidløgspure
-de:Knoblauchpüree
-es:puré de ajo
-fi:valkosipulipyree, valkosipulisose
-fr:purée d'ail
-hu:fokhagymapüré
-it:Purè d'aglio
-nl:knoflookpuree
-pl:przecier z czosnku, przecier czosnkowy
-sv:vitlökspuré
-# In process de:Knoblauchpüree
-# en:garlic-puree has 775 products in 5 languages @2018-10-23
-
-<en:garlic
-en:garlic paste
-bg:чеснова паста
-de:Knoblauchpaste
-es:Pasta de ajo
-fi:valkosipulitahna
-fr:pâte d'ail, pulpe d'ail, ail en purée
-it:Impasto d'aglio
-# ja:ガーリックペースト # see ingredients_processings.txt
-pl:pasta czosnkowa
-# en:garlic-paste has 35 products in 2 languages @2018-10-23
-
-<en:garlic
-fr:Ail semoule déshydraté
-# 4@2019-06-12
-
-#<en:garlic
-#en:garlic powder
-#en:processing:en:powder
-#bs:bijeli luk u prahu
-#ca:All en pols
-#da:hvidløgspulver
-#de:Knoblauchpulver
-#el:σκόρδο σκόνη, σκόρδο σε σκόνη
-#es:ajo en polvo
-#et:küüslaugupulber
-#fi:valkosipulijauhe
-#fr:poudre d'ail, ail en poudre
-#hu:fokhagymapor
-#it:aglio in polvere, polvere di aglio
-#lt:česnakų milteliai, česnako milteliai
-#nl:knoflookpoeder
-#nn:hvitløkspulver
-#pl:czosnek sproszkowany
-#pt:alho em pó
-#ro:pudră de usturoi
-#ru:Чесночный порошок
-#sl:česen v prahu
-#sv:vitlökspulver
-#tr:sarimsak tozu
-# fr:poudre-d'ail has 161 producs in 25 languages @2018-10-22
-
-<en:garlic
-en:black garlic
-bg:черен чесън
-de:schwarzer Knoblauch
-es:ajo negro
-fr:Ail noir
-pl:Czarny czosnek
-
-# description:en:Allium ursinum, known as WILD GARLIC, ramsons, buckrams, broad-leaved garlic, wood garlic, bear leek or bear's garlic, is a bulbous perennial flowering plant in the amaryllis family Amaryllidaceae.
-
-<en:garlic
-en:wild garlic, ramsons, buckrams, broad-leaved garlic, wood garlic, bear leek, bear's garlic, allium ursinum
-af:wildeknoffel
-an:allium ursinum
-ar:ثوم الدببة
-az:ayı soğanı
-ba:йыуа
-be:цыбуля мядзведжая
-bg:левурда, див чесън
-bs:medvjeđi luk
-ca:allium ursinum
-ce:хьонка
-co:allium ursinum
-cs:česnek medvědí
-da:ramsløg
-de:bärlauch
-eo:ursa ajlo
-es:allium ursinum
-et:karulauk
-eu:hartz-baratxuri
-fa:والک
-fi:karhunlaukka, villivalkosipuli
-fr:ail des ours
-fy:blêdlok
-ga:creamh
-hr:medvjeđi luk
-hu:medvehagyma
-hy:ղանձիլ
-id:allium ursinum
-is:bjarnarlaukur
-it:aglio orsino
-ja:ラムソン
-ka:ღანძილი
-kk:ұсақ торлы жуа
-ku:lûş
-lb:heckeknuewelek
-li:daslook
-lt:meškinis česnakas
-lv:laksis
-mk:мечкин лук
-nb:ramsløk
-nl:daslook
-nn:ramslauk
-oc:allium ursinum
-os:скъуда
-pl:czosnek niedźwiedzi
-pt:allium ursinum
-ro:leurdă
-ru:черемша
-sk:cesnak medvedí
-sl:čemaž
-sq:lerthi
-sr:сремуш
-sv:ramslök
-uk:цибуля ведмежа
-ur:لہسن دُب
-vi:tỏi gấu
-wa:a des tchamps
-zh:熊葱
-# als:bärlauch
-# ang:hramsa
-# ast:allium ursinum
-# bxr:халяар
-# ceb:allium ursinum
-# dsb:źiwy kobołk
-# frr:baarlook
-# hsb:pyšny kobołk
-# inh:хьонк
-# myv:паксячурька
-# nds:nl daslouk
-# pcd:ail des orses
-# pms:allium ursinum
-# sco:allium ursinum
-# tyv:хылба
-# vec:ajo selvadego
-# war:allium ursinum
-# wuu:熊葱
-wikidata:en:Q130882
-wikipedia:en:https://en.wikipedia.org/wiki/Allium_ursinum
-# fr:ail-des-ours contains 52 products in 3 languages @2018-10-22
-
-<en:garlic
-en:organic garlic
-bg:био чесън
-de:Bio-Knoblauch
-es:ajo orgánico
-fi:luomuvalkosipuli, luomu valkosipuli
-fr:ail bio
-nl:biologische knoflook
-pl:czosnek organiczny, czosnek bio
-# fr:ail-bio has 18 products in 2 languages @2018-10-22
-
-<en:garlic
-en:dried garlic
-bg:сушен чесън
-fr:ail séché, ail déshydraté
-cs:Sušený česnek
-da:tørret hvidløg
-de:getrockneter Knoblauch, Knoblauch getrocknet
-es:ajo deshidratado
-fi:kuivattu valkosipuli
-it:aglio essicato, aglio secco
-nl:gedroogde knoflook
-nn:tørket hvitløk
-pl:suszony czosnek, czosnek suszony
-sv:torkad vitlök, torkad hvidlök
-# fr:ailséché contains 35 products in 8 languages @2018-10-22
-ciqual_food_code:en:11023
-ciqual_food_name:en:Garlic, powder, dried
-ciqual_food_name:fr:Ail séché, poudre
-
-<en:dried garlic
-en:dried garlic powder
-bg:Сушен чесън на прах
-fr:Ail séché en poudre
-pl:suszony czosnek w proszku, czosnek suszony granulowany
-ciqual_food_code:en:11023
-ciqual_food_name:en:Garlic, powder, dried
-ciqual_food_name:fr:Ail séché, poudre
-
-<fr:ail déshydraté
-<en:garlic
-en:rehydrated garlic
-bg:рехидратиран чесън
-de:Rehydrierter Knoblauch
-fi:rekombinoitu valkosipuli
-fr:ail réhydraté
-it:Aglio reidrataro
-sv:rehydrerad vitlök
-# en:rehydrated-garlic contains 66 products in 2 languages @2018-10-22
-
-<en:garlic
-fr:ail semoule
-# fr:ail-semoule has 31 products in 1 language @2018-10-22
-
-<en:garlic
-bg:пресен чесън
-fr:ail frais
-# fr:ail-frais has 31 products in 1 language @2018-10-22
-
-<en:garlic
-<en:herb
-fr:ail et fines herbes
-de:Knoblauch und Kräuter
-es:ajo y finas hierbas
-nl:knoflook en fijne kruiden
-pt:alho e ervas aromáticas
-# fr:ail-et-fines-herbes has 81 products in 7 languages @2018-10-22
-
-<en:garlic
-en:garlic extract
-bg:екстракт от чесън
-cs:česnekový extrakt
-de:Knoblauchextrakt
-fi:valkosipuliuute
-fr:extrait d'ail
-# ja:ガーリックエキス # see ingredients_processings.txt
-pl:ekstrakt czosnku, ekstrakt z czosnku
-# fr:extrait-d'ail has 71 products in 4 languages @2018-10-22
-
-<en:garlic
-en:garlic oil
-de:Knoblauchöl
-es:aceite de ajo
-fr:huile d'ail
-pl:olej czosnkowy
-
-<en:garlic
-<en:onion
-fr:oignon et ail en poudre
-
-<en:garlic
-<en:vinegar
-en:garlic vinegar
-hr:češnja ocat
 
 # description:en:ALOE VERA is a succulent plant species of the genus Aloe.
 
@@ -50649,26 +52532,20 @@ pt:beterraba vermelha
 ciqual_food_code:en:20091
 ciqual_food_name:fr:Betterave rouge, crue
 
-<en:red beetroot
-fr:betterave rouge déshydratée, betterave rouge en poudre, poudre de betterave rouge
-it:barbabietole in polvere
-# fr:betterave-rouge-déshydratée has 55 products in 3 languages @2018-10-22
-# fr:betterave-rouge-en-poudre has 44 products in 3 languages @2018-10-22
-
-<en:red beetroot
-en:red beetroot juice
-de:Rote Bete Saft
-es:zumo de remolacha roja, jugo de remolacha roja
-fr:jus de betterave rouge
-it:succo di barbabietole rosse
-nl:rodebietensap
-sv:rödbetsjuice
+#<en:red beetroot
+#en:red beetroot juice
+#de:Rote Bete Saft
+#es:zumo de remolacha roja, jugo de remolacha roja
+#fr:jus de betterave rouge
+#it:succo di barbabietole rosse
+#nl:rodebietensap
+#sv:rödbetsjuice
 # fr:jus-de-betterave-rouge has 38 products @2018-10-21
 
-<en:red beetroot juice
-fr:jus de betterave rouge concentré, concentré de jus de betterave rouge, jus concentré de betterave rouge
-de:Rote Bete-Saftkonzentrat
-nl:geconcentreerd rodebietensap
+#<en:red beetroot juice
+#fr:jus de betterave rouge concentré, concentré de jus de betterave rouge, jus concentré de betterave rouge
+#de:Rote Bete-Saftkonzentrat
+#nl:geconcentreerd rodebietensap
 # fr:jus-de-betterave-rouge-concentré has 37 products in 4 languages @2018-10-21
 
 <en:beetroot
@@ -50680,562 +52557,6 @@ fr:pousses de betterave
 nl:bietenkiemen
 pl:kiełki buraka
 # en:beetroot-sprouts has 1 product in 1 language @2018-10-21
-
-
-# description:en:The CARROT (Daucus carota subsp. sativus) is a root vegetable, usually orange in colour, though purple, black, red, white, and yellow cultivars exist
-
-<en:root vegetable
-en:carrot
-af:Wortel
-am:ካሮት
-ar:جَزَر
-az:yerkökü
-ba:кишер
-be:морква
-bg:морков, моркови
-bi:Karot
-bn:গাজর
-bo:ལབ་སེར།
-br:Karotez
-bs:mrkva
-ca:pastanaga
-co:rundonu
-cs:mrkev, karotka
-cy:moronen
-da:gulerødder, Have-Gulerod
-de:Karotten, Karotte, Möhre, Möhren, Möhrchen, Pariser Karotten, Möhrensticks
-dv:ކެރެޓް
-el:καρότο
-eo:karoto
-es:zanahoria,zanahoria baby
-et:porgand
-eu:azenario
-fa:هویج
-fi:porkkana, porkkanaa
-fr:carotte, carottes courtes
-ga:cairéad
-gl:cenoria
-gn:sanaória
-gv:carradje
-he:גזר
-hi:गाजर
-hr:mrkva, mrkve, od mrkve
-ht:karòt
-hu:sárgarépa
-hy:Գազար
-id:wortel
-io:karoto
-is:gulrót
-it:carota, carote
-ja:ニンジン, にんじん, 人参
-jv:wortel
-ka:სტაფილო
-kk:сәбіз
-kn:ಗಜ್ಜರಿ
-ko:당근
-ku:гӧрдкушман
-ky:Сабиз
-lb:Muert
-li:Moeër
-lo:ຫົວຜັກກາດເຫຼືອງ
-lt:morkos
-lv:burkāns, burkāni
-mk:морков
-ml:കാരറ്റ്
-mn:Лууван
-mr:गाजर
-ms:Lobak merah
-my:မုန်လာဥနီ
-nb:gulrot
-ne:गाजर
-nl:wortel, wortels, wortelen
-nn:gulrot
-nv:Chąąshtʼezhiitsoh
-oc:pastenaga
-or:ଗାଜର
-os:Уырыдзы
-pa:ਗਾਜਰ
-pl:marchew uprawna, marchew, marchwi, marchewka, marchewki, marchewkowa, marchewkowy, marchewkowe, marchewek
-pt:cenoura
-qu:Sanurya
-rn:Ikaroti
-ro:morcov, morcovi
-ru:морковь
-rw:Ikaroti
-sa:गृञ्जनकम्
-sc:Fostinaja
-sh:mrkva
-si:කැරට්
-sk:mrkva obyčajná
-sl:Navadno korenje
-sm:taloti
-so:kaaroot
-sq:karrotë
-sr:шаргарепа, šargarepa
-su:wortel
-sv:morot, morötter
-sw:karoti
-ta:மஞ்சள் முள்ளங்கி
-te:కారెట్
-tg:сабзӣ
-th:แคร์รอต
-ti:ካሮቲ
-tk:Käşir
-tl:karot
-tr:havuç
-ug:سەۋزە
-uk:морква
-ur:گاجر
-uz:sabzi
-vi:Cà rốt
-wa:raecene
-xh:umnqathe
-za:lauxbaeghoengz
-zh:胡萝卜
-# aeb-arab:جدر سنّارية
-# aeb-latn:jder sennèrya
-# ang:moru
-# arz:جزر
-# atj:Rikarot
-# bar:Gelbe Ruam
-# be-tarask:морква
-# bho:गाजर
-# cdo:È̤ng-chái-tàu
-# chy:anonévee'tose
-# ckb:گێزەر
-# de-ch:Karotte
-# en-ca:carrot
-# en-gb:carrot
-# frr:Wochel
-# gsw:sanaória
-# hak:Fùng-chhoi-thèu
-# jbo:najgenja
-# kaa:geshir
-# kbp:Kaarɔɔtɩ
-# koi:гӧрдкушман
-# lad:safanórya
-# lbe:къур
-# mdf:пурьхкя
-# nah:Caxtillān camohtli
-# nan:Âng-chhài-thâu
-# nap:Pastenaca
-# pcd:Càrote
-# pfl:Gellerieb
-# pnb:گاجر
-# pt-br:cenoura
-# rup:morcuvu
-# sco:carrot
-# sgs:Muorks
-# sr-ec:шаргарепа
-# vls:karote
-# vro:põrgnas
-# war:karot
-# wuu:胡萝卜
-# yue:紅蘿蔔
-carbon_footprint_fr_foodges_ingredient:fr:Carottes fraîches
-carbon_footprint_fr_foodges_value:fr:0.3
-# zh-cn:胡萝卜
-# zh-hans:胡萝卜
-# zh-hant:胡蘿蔔
-# zh-hk:胡蘿蔔
-# zh-mo:胡蘿蔔
-# zh-my:胡萝卜
-# zh-sg:胡萝卜
-# zh-tw:胡蘿蔔
-wikidata:en:Q81
-wikipedia:en:https://en.wikipedia.org/wiki/Carrot
-# en:carot has 8224 products in 15 languages @2018-10-21
-ciqual_food_code:en:20009
-ciqual_food_name:en:Carrot, raw
-ciqual_food_name:fr:Carotte, crue
-
-<en:carrot
-es:Zanahorias de la variedad Nantesa
-
-<en:carrot
-en:dried carrot
-de:getrocknete Möhre
-fr:carotte séchée, carottes séchées
-pl:suszona marchewka, suszona marchew
-ru:морковь сушёная
-
-<en:carrot
-en:cooked carrot
-de:gekochte Möhren, gekochte Karotten
-es:zanahorias cocidas
-fi:kypsennetty porkkana
-fr:carotte cuite
-pl:marchew gotowana, marchew ugotowana
-
-<en:carrot
-# <en:organic
-en:organic carrots
-bg:био моркови, биологични моркови
-de:Bio Karotten
-fi:luomu porkkanat
-fr:carottes bio, carottes issues de l'agriculture biologique
-nl:biologische wortel
-ru:морковь свежая
-# en:organic-carrots has 580 products in 3 languages @2018-10-20
-
-<en:carrot
-en:baby carrots
-bg:бейби моркови
-de:Babykarotten, Babymöhren
-fr:jeunes carottes
-# fr:jeunes-carottes has 34 products in 1 language @2018-10-20
-
-<en:carrot
-fr:carottes en rondelles
-de:Karotten in Scheiben
-it:Carote e lamelle
-# fr:carottes-en-rondelles has 54 products in 3 languages @2018-10-20
-
-<en:carrot
-fr:carottes en morceaux
-# fr:carottes-en-morceaux has 28 products in 1 language @2018-10-20
-
-<en:carrot
-fr:carottes râpées
-nl:geraspte wortelen
-# fr:carottes-râpées has 107 products in 3 languages @2018-10-20
-
-<en:carrot
-en:carrot purée
-bg:пюре от моркови
-de:Karottenpüree
-es:Puré de zanahoria
-fi:porkkanapyree, porkkanasose
-fr:purée de carotte
-it:puré di carote
-pl:przecier marchwiowy
-# In process de:Karottenpüree
-# fr:purée-de-carotte has 52 products in 2 languages @2018-10-20
-ciqual_food_code:en:20261
-ciqual_food_name:en:Carrots, puree
-ciqual_food_name:fr:Carotte, purée
-
-# fr:concentré de carotte usage as a colour is not always mentioned
-
-<en:carrot
-fr:concentré de carotte, concentré de carottes
-de:Karottenkonzentrat
-fi:porkkanatiiviste
-hr:koncentrat mrkve
-it:concentrato di carota, concentrato di carote
-ro:concentrat de morcov
-# fr:concentré-de-carotte has 221 products in 4 languages @2018-10-10
-
-<en:carrot
-en:carrot extract
-da:gulerodsekstrakt
-de:Karottenextrakt
-es:extracto de zanahorias
-fi:porkkanauute
-fr:extrait de carotte
-it:estratto di carota, estratto di carote
-ja:人参エキス
-nl:wortelextract, kleurend wortelextract
-pt:Extrato de cenoura, extrato de cenouras
-# fr:extrait-de-carotte has 176 products in 6 languages @0218-10-20
-
-<en:carrot
-en:carrot powder
-de:Karottenpulver
-fi:porkkanajauhe
-
-<en:carrot
-de:Karottengranulat
-fi:porkkanaraaste
-ru:морковь гранулы
-
-<en:carrot
-<en:vegetable fiber
-fr:fibre de carotte, fibres de carotte
-de:Karottenfasern
-fi:porkkanakuitu
-nl:wortelvezel
-# fr:fibre-de-carotte has 174 products in 2 languages @2018-10-20
-
-<en:carrot
-fr:carottes déshydratées
-de:Karotten getrocknet
-fi:kuivatut porkkanat
-it:carote disidratate
-pl:marchew suszona
-sl:suseno korenje
-sv:torkad morot
-# fr:carottes-déshydratées has 59 products i 4 languages @2018-10-20
-
-<en:carrot
-en:yellow carrot
-de:Gelbe Karotten
-es:zanahoria amarilla
-fi:keltainen porkkana
-fr:carottes jaunes, carotte jaune
-nl:gele wortel
-pl:żółta marchew
-sv:gul morot, gula morötter
-# fr:carotte-jaune has 132 products in 4 languages @2018-10-20
-
-<en:carrot
-en:orange carrot
-de:orange Möhre, orange Karotte
-fi:oranssi porkkana
-fr:carottes oranges
-
-<en:carrot
-en:violet carrot
-fr:carotte violette, carotte pourpre
-pl:purpurowa marchew
-
-<en:carrot
-nl:winterpeen
-
-# This is mainly used as colorant
-
-<en:anthocyanin
-<en:carrot
-en:black carrot, black carrots
-bg:черен морков, черни моркови
-de:schwarze Karotte
-es:Zanahorias negras
-fi:Musta porkkana, mustaporkkana, mustaporkkanaa
-fr:carotte noire
-hr:crna mrkva, crne mrkve
-it:carote nere
-nb:sort gulrot
-nl:zwarte wortel
-pl:czarna marchew, czarnej marchwi
-sv:svart morot
-wikidata:en:Q11767451
-# fr:carotte-noire has 122 products in 4 languages @2018-10-20
-
-<en:black carrot
-en:black carrot juice
-bg:сок от черен морков
-de:schwarzer Karottensaft
-es:zumo de zanahoria negra
-fi:Musta porkkanamehu
-fr:jus de carotte noire
-it:succo di carote nere
-pl:sok z czarnej marchwi
-sv:svartmorotjuice
-# fr:jus-de-carotte-noire has 34 products in 3 languages @2018-10-20
-
-# The french pourpre is translated to black in dutch and german
-
-<en:black carrot juice
-en:concentrated black carrot juice
-bg:концентриран сок от черен морков
-fr:jus de carotte noire concentré, jus concentré de carotte noire, jus de carotte pourpre concentré, jus concentré de carotte pourpre
-de:Schwarzmöhrensaftkonzentrat, konzentrierter Saft aus schwarzer Karotte
-hr:koncentrirani sok crne mrkve
-nl:zwarte wortelsapconcentraat, geconcentreerd zwarte wortelsap
-pl:zagęszczony sok z czarnej marchwi, skoncentrowany sok z czarnej marchwi
-# fr:jus-de-carotte-noire-concentré has 26 products in 2 languages @2018-10-20
-# fr:jus-de-carotte-pourpre-concentré has 22 products @2018-10-20
-
-<en:black carrot
-en:concentrated black carrot, black carrot concentrate
-de:schwarze Möhre Konzentrat, Konzentrate aus schwarzer Karotte
-fr:concentré de carotte pourpre
-hr:koncentrat crne mrkve
-sv:svart morotskoncentrat
-
-
-# description:en:Carrot juice has a particularly high content of β-carotene, a source of vitamin A, but it is also high in B complex vitamins like folate, and many minerals including calcium, copper, magnesium, potassium, phosphorus, and iron.
-
-<en:vegetable juice
-<en:carrot
-en:carrot juice
-az:Yerkökü şirəsi
-bg:сок от моркови
-da:gulerodsjuice, gulerodssaft
-de:Karottensaft
-el:χυμός καρότου
-eo:karota suko
-es:jugo de zanahoria
-et:Porgandimahl
-fa:آب هویج
-fi:porkkanamehu
-fr:jus de carotte, jus de carottes
-he:מיץ גזר
-id:Jus wortel
-it:Succo di carota
-ja:ニンジンジュース
-ko:당근 주스
-nl:wortelsap
-pl:Sok marchwiowy, sok marchewkowy, sok z marchwi, sok z marchewki
-pt:Sumo de cenoura
-ru:морковный сок
-sa:गृञ्जनकरसः
-sl:Korenčkov sok
-sq:leng me karrota
-sv:morotsjuice
-ta:கேரட் சாறு
-th:น้ำแคร์รอต
-tr:havuç suyu
-zh:胡萝卜汁
-# jam:Kiarat juus
-# yue:紅蘿蔔汁
-wikidata:en:Q1190074
-wikipedia:en:https://en.wikipedia.org/wiki/Carrot_juice
-# en:carot-juice has 188 products in 4 languages 2018-10-20
-
-# Is used as colour, but always mentioned as such
-
-<en:carrot juice
-en:concentrated carrot juice
-da:koncentreret gulerodsjuice, koncentreret gulerodssaft
-de:Karottensaftkonzentrat, konzentrierter Karottensaft
-es:jugo de zanahoria concentrado
-fi:porkkanamehutiiviste
-fr:jus concentré de carotte, jus concentré de carottes, jus de carotte concentré
-it:Succo di carota concentrato
-nl:Geconcentreerd wortelsap
-no:gulrotkonsentrat
-ru:Концентрированный морковный сок
-sv:morotjuicekoncentrat
-# fr:jus-concentré-de-carotte has 122 products in 1 language @2018-10-20
-
-#This is not the same as concentrate carrot juice, this one has been reconstructed with water
-<en:carrot juice
-en:carrot juice from concentrate
-da:gulerodsjuice fra koncentrat, gulerodssaft fra koncentrat
-de:Karottensaft aus Karottensaftkonzentrat
-es:zumo de zanahoria a partir de concentrado
-fr:jus de carotte à base de concentré, jus de carottes à base de concentré
-
-<en:carrot juice
-en:carrot juice powder
-pl:sok z marchwi w proszku
-
-# description:en:CELERIAC (Apium graveolens var. rapaceum), also called turnip-rooted celery, celery root, or knob celery, is a variety of celery cultivated for its edible stem or hypocotyl, and shoots.
-
-<en:root vegetable
-en:celeriac
-ar:الكرفس اللفتي
-bg:корен целина
-ca:Api-rave
-cs:celer bulvový
-da:knoldselleri
-de:Knollensellerie
-eo:tubercelerio
-es:Apio nabo,raiz de apio
-et:Juurseller
-fi:mukulaselleri, juuriselleri
-fr:céleri-rave, céleri rave
-ga:Soiliriac
-hr:korijen celera
-it:sedano rapa
-ja:セロリアック
-la:Apium graveolens var. rapaceum
-ms:Akar saderi
-nb:sellerirot
-nl:knolselderij
-pl:seler korzeń, korzeń selera, seler korzeniowy
-ro:rădăcină de țelină
-ru:корень сельдерея
-sr:koren celera
-sv:Rotselleri
-# ru:сельдерей пахучий translation error, see also en:celery
-allergens:en: en:celery
-wikidata:en:Q575174
-wikipedia:en:https://en.wikipedia.org/wiki/Celeriac
-ciqual_food_code:en:20055
-ciqual_food_name:en:Celeriac, raw
-ciqual_food_name:fr:Céleri-rave, cru
-# fr:céleri-rave has 399 products in 4 languages @2018-10-20
-
-<en:celeriac
-fr:céleri rave râpé
-# fr:céleri-rave-râpé has 17 products in 1 language @2018-10-20
-
-<en:celeriac
-fr:jus de céleri-rave concentré, jus de céleri rave concentré, jus concentré de céleri rave
-
-<en:root vegetable
-<en:Taro
-en:taro tuber
-fr:Tubercule de taro
-wikidata:en:Q1771944
-ciqual_food_code:en:53200
-ciqual_food_name:en:Taro, tuber, raw
-ciqual_food_name:fr:Taro, tubercule, cru
-
-<en:plant
-en:Taro
-af:Taro
-am:ጎደሬ
-ar:قلقاس مأكول
-be:Colocasia esculenta
-bh:अरुई
-bi:Taro
-bn:কচু
-ca:Taro
-cs:Kolokázie jedlá
-de:Taro
-dv:އޮޅު އަލަ
-el:Κολοκασία η εδώδιμος
-eo:Taro
-es:Colocasia esculenta
-eu:Taro
-fa:تارو
-fi:Taaro
-fj:Dalo
-fr:Colocasia esculenta
-gl:Taro
-gu:અળવી
-ha:Gwaza
-he:טארו
-hi:अरबी सब्जी
-hr:Taro
-ht:Chou Karayib
-hu:Taró
-id:Talas
-ig:Ede
-it:Colocasia esculenta
-ja:サトイモ, 里芋, さといも, タロイモ
-ka:ტარო 
-kn:ಕೆಸು
-ko:토란
-la:Colocasia esculenta
-lt:Valgomoji kolokazija
-lv:Kolokāzija
-mg:Saonjo
-ml:താള്
-mr:अळू
-ms:Keladi Cina
-ne:कर्कलो
-nl:Taro
-nn:Taro
-no:Taro
-pa:ਅਰਵੀ
-pl:Kolokazja jadalna, taro, eddo, kolokazja, kleśnica, kleśniec jadalny
-pt:Taro
-rn:Amateke
-ru:Таро
-sg:Langä
-sl:Taro
-sm:Talo
-sr:Таро
-su:Kimpul
-sv:Taro
-sw:Magimbi
-ta:சேம்பு
-th:เผือก
-tl:Gabi
-to:Talo
-tr:Gölevez
-ty:Taro
-uk:Таро
-ur:تارو
-vi:Colocasia esculenta
-za:Biek
-zh:芋
-zu:Amadumbe
-wikidata:en:Q227997
 
 en:Konjac
 de:Konjak
@@ -51431,683 +52752,12 @@ ciqual_food_name:en:Jerusalem artichoke, raw
 ciqual_food_name:fr:Topinambour, cru
 
 
-# description:en:The LEEK is a vegetable, a cultivar of Allium ampeloprasum, the broadleaf wild leek. Leeks have a mild, onion-like taste. In its raw state, the vegetable is crunchy and firm. The edible portions of the leek are the white base of the leaves (above the roots and stem base), the light green parts, and to a lesser extent the dark green parts of the leaves. Leeks are typically chopped into slices 5–10 mm thick. The slices have a tendency to fall apart, due to the layered structure of the leek. The different ways of preparing the vegetable are: boiling, frying or raw.
-
-# category/leeks
-<en:root vegetable
-en:leek
-ar:كراث
-az:kəvər soğanı
-be:цыбуля парэй
-bg:праз
-bn:পলাণ্ডু
-bo:ཀེའུ་ཙོང་།
-br:pour
-ca:porro
-co:porru
-cs:pór, pórek
-cy:cenhinen
-da:porre, porrer
-de:Lauch, Lauche, Porrees, Porree
-el:πράσο
-eo:poreo
-es:puerro, puerros
-eu:porru
-fa:تره‌فرنگی
-fi:purjo, purjosipuli
-fr:poireau, poireaux
-ga:cainneann
-gl:allo porro
-gv:cannian
-ha:albasa mai kara
-he:כרישה
-hi:हरा प्याज
-hr:poriluk
-ht:powo
-hu:póréhagyma
-hy:պրաս
-id:bawang prei
-io:porelo
-is:blaðlaukur
-it:porro, porri
-ja:リーキ
-jv:brambang préi
-ka:პრასი
-kk:порей пиязы, poreý pïyazı, پورەي پىييازى
-kn:ಲೀಕ್
-ko:대파
-ku:pirasa, پراسا
-la:allium ampeloprasum var. porrum
-li:sjpoor
-lt:poras, daržinis poras
-lv:puravi
-mk:праз
-ms:bawang perai, ‏باوڠ ڤراي‎‎
-mt:kurrat
-my:ထန်းကြက်သွန်
-nb:purre, purreløk
-nl:prei
-nn:purre
-oc:pòrre
-os:зæнгджын хъæдындз
-pl:por, pora
-pt:alho-porro, alho francês
-ro:praz
-ru:лук-порей
-rw:igitunguru
-sc:porru
-se:boskalávki
-sh:praziluk
-sk:pór
-sl:por
-sq:presh, preshi
-sr:празилук, praziluk
-sv:purjolök
-ta:லீக்ஸ்
-tg:гандано
-th:กระเทียมต้น
-tr:pırasa
-uk:цибуля порей
-ur:کراث
-vi:tỏi tây
-wa:porea
-yi:פארע-ציבעלע
-zh:韭葱
-# aeb-arab:كرّاث
-#ang:lēac
-#arz:كراث
-# frr:gäärslook
-# kbp:puwaroo
-# nah:huēyi caxtillān xōnacatl
-# nap:puorr
-# nds:look
-#pap:siboyo largu
-# pcd:poreau
-# pnb:ہرا پیاز
-# pt-br:alho poró
-# sco:leek
-#smn:purjosiipuul
-#sms:purjoluukk
-# vls:pret
-#wuu:韭葱
-#xmf:პურასქია
-# yue:京蔥
-#plant: wikidata:en:Q21870138
-wikidata:en:Q1807269
-wikipedia:en:https://en.wikipedia.org/wiki/Leek
-carbon_footprint_fr_foodges_ingredient:fr:Poireau
-carbon_footprint_fr_foodges_value:fr:0.3
-ciqual_food_code:en:20039
-ciqual_food_name:en:Leek, raw
-ciqual_food_name:fr:Poireau, cru
-# 6266 in 27 @2021-10-26
-
-<en:leek
-en:concentrated leek juice
-da:koncentreret porresaft
-de:Konzentrierter Porreesaft
-fr:jus de poireau concentré
-#20 in 3 @2021-10-26
-
-<en:leek
-en:leek powder
-de:Lauchpulver
-#15 in 2 @2021-10-26
-
 # description:en:Asclepias is a genus of herbaceous, perennial, flowering plants known as milkweeds.
 <en:root vegetable
 en:asclepias
 sr:miluk
 wikidata:en:Q162153
 wikipedia:en:https://en.wikipedia.org/wiki/Asclepias
-
-<en:leek
-en:leek sprouts
-pl:kiełki pora
-
-
-# description:en:The ONION (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. They are usually served cooked, as a vegetable or part of a prepared savoury dish, but can also be eaten raw or used to make pickles or chutneys.
-
-# <en:class:en:Vegetables
-# <en:class:en:Onions and their products
-<en:root vegetable
-en:onion, onions
-ar:بصل
-bg:лук, кромид лук
-bn:পিঁয়াজ
-ca:ceba
-cs:cibule
-cy:Nionyn
-da:løg
-de:Zwiebel, Zwiebeln
-el:κρεμμύδι, κρεμμύδια
-eo:cepo
-es:cebolla, Cebollas
-et:sibul
-eu:tipula
-fi:sipuli, sipulit
-fr:oignon, oignons
-he:בצל
-hr:luk, crni luk
-hu:hagyma, hagymák, vöröshagyma
-io:Onyono
-is:laukur
-it:cipolla, Cipolle
-ja:タマネギ, オニオン, たまねぎ, 玉葱, 玉ねぎ
-lt:svogūnai
-lv:sīpoli
-nb:løk
-nl:ui, uien, ajuin
-no:løk
-nv:tłʼohchin
-pl:cebula, cebuli, cebulowy, cebulowa, cebulowe, cebulka, cebulki
-pt:cebola
-ro:ceapă, ceapa
-ru:лук, лук репчатый
-sv:lök
-tr:soğan
-uk:Цибуля
-vi:hành tây
-zh:洋葱
-# aeb-arab:راس بصل
-# ckb:پیاز
-wikidata:en:Q3406628
-wikipedia:en:https://en.wikipedia.org/wiki/Onion
-# ingredient/onion has 12754 products in 18 languages @2018-12-06
-# category/onions has 233 products @2019-05-22
-carbon_footprint_fr_foodges_ingredient:fr:Oignons
-carbon_footprint_fr_foodges_value:fr:0.6
-ciqual_food_code:en:20034
-ciqual_food_name:en:Onion, raw
-ciqual_food_name:fr:Oignon, cru
-
-<en:onion
-en:organic onion
-hr:bio luk ljubičasti
-
-# description:en:Cebula dymka is a name for young onion meant to be pickled or consumed raw
-
-<en:onion
-pl:cebula dymka
-
-<en:onion
-fr:oignon semoule
-
-<en:onion
-fr:oignons grillés en poudre
-
-<en:onion
-fr:oignon fumé en poudre
-
-<en:onion
-en:onion purée
-de:pürierte Zwiebeln
-fr:Purée d’oignons
-pl:przecier z cebuli, przecier cebulowy, pasta cebulowa
-
-<en:onion
-en:onion paster
-hr:pasta od luka
-
-# <en:compound
-<en:onion
-<en:oil
-en:onion oil
-de:Zwiebelöl
-es:aceite de cebolla
-
-# description:en:SCALLIONS are vegetables of various Allium onion species. Spring onions may be cooked or used raw as a part of salads, salsas or Asian recipes. Diced scallions are used in soup, noodle and seafood dishes, sandwiches, curries and as part of a stir fry. In many Eastern sauces, the bottom half-centimetre (quarter-inch) of the root is commonly removed before use.
-# comment:en:do not mix green onion with welsh onion
-
-# category/scallions
-# <en:Vegetables
-<en:onion
-en:spring onion, green onion, scallions, spring onions, green onions
-ar:البصل الاخضر
-bg:преснен лук, зелен лук
-ca:ceba tendra, cebeta, ceballot
-cs:jarní cibulka
-da:forårsløg
-de:Frühlingszwiebel
-el:φρέσκο κρεμμυδακι
-eo:askolonio
-es:cebolla de primavera, cebolletas tiernas
-et:roheline sibul
-fa:پیازچه
-fi:vihersipuli, vihersipulit
-fr:oignon vert, cébette, oignons de printemps, oignons verts, cébettes
-he:בצל ירוק
-hi:हरी प्याज
-hu:zöldhagyma, újhagyma
-hy:Կանաչ սոխ
-id:daun bawang
-is:vorlaukur
-it:cipollotto
-ja:ワケギ
-jv:loncang
-kk:жасыл жуа
-ko:파류
-mr:कांदेपात
-ms:Daun bawang
-nl:lente-ui, bosui, Lenteuitjes, lenteui
-nn:vårlauk
-no:vårløk
-pl:cebulka zielona, zielona cebulka, zielonej cebulki
-pt:cebolinha
-ru:лук зелёный
-sk:jarná cibuľka
-sv:salladslök, vårlök
-ta:வெங்காயத்தாள்
-th:หอมต้นเดี่ยว
-tr:yeşil soğan
-uk:зелена цибуля
-ug:غول پىياز
-uz:ko'k piyoz
-vi:hành lá
-zh:青蔥
-# arz:بصل اخضر
-# sco:sybae
-wikidata:en:Q774278
-wikipedia:en:https://en.wikipedia.org/wiki/Scallion
-ciqual_food_code:en:11003
-ciqual_food_name:en:Chive or spring onion, fresh
-ciqual_food_name:fr:Ciboule ou Ciboulette, fraîche
-# 3011 @2021-10-20
-
-<en:spring onion
-en:spring Onion Powder
-ar:مسحوق بصل أخضر
-da:forårsløgspulver
-de:Frühlingszwiebelpulver
-el:φρέσκο κρεμμυδακι σε σκόνη
-es:cebolleta en polvo
-it:cipollotti in polvere
-nl:lente-uipoeder
-nn:vårløkspulver
-sv:vårlökspulver
-
-<en:spring onion
-pl:liofilizowana cebulka zielona
-
-<en:onion
-en:onion sproute
-de:Zwiebelsprosse, Zwiebelsprossen
-es:Germinados de cebolla
-
-<en:spring onion
-en:dried spring onion, dried green onions
-de:getrocknete Frühlingszwiebel, getrocknete Frühlingszwiebeln
-es:cebolleta deshidratada, cebolleta seca
-fi:kuivattu kevätsipuli
-fr:Oignon de printemps séché
-
-# Zilveruitjes zijn in azijn ingelegde kleine uitjes. These are small white onions only used in pickles.
-
-<en:onion
-en:small white onions, silverskin onions
-de:Silberzwiebeln
-eo:peklita cepo
-es:Cebollitas
-fi:Hillosipuli
-fr:oignons blancs, petits oignons blancs, petits oignons
-he:בצל כבוש
-it:cipolline
-nl:zilveruitjes, zilverui
-sv:Syltlök
-# wikipedia:en:https://en.wikipedia.org/wiki/Pickled_onion ????
-wikidata:en:Q2477614
-# ingredient/fr:petits-oignons-blancs has 14 products in 4 languages @2018-12-06
-# ingredient/fr:petits-oignons has 53 products @2018-11-06
-
-<en:onion
-en:red onion, red onions
-ar:بصل أحمر
-bg:червен лук
-bn:লাল পিঁয়াজ
-cs:červená cibule
-da:rødløg
-de:rote Zwiebel, rote Zwiebeln
-es:cebolla roja
-fa:پیاز قرمز
-fi:punasipuli
-fr:oignon rouge, oignons rouges
-he:בצל סגול
-hi:लाल प्याज
-hr:crveni luk, luk crveni
-hu:lilahagyma, vöröshagyma
-is:rauðlaukur
-it:cipolla rossa
-ja:赤たまねぎ
-ka:წითელი ხახვი
-nb:rødløk
-nl:rode ui, rode uien
-nn:raudlauk
-or:ନାଲି ପିଆଜ
-pa:ਲਾਲ ਪਿਆਜ਼
-pl:czerwona cebula, cebula czerwona
-pt:Cebola vermelha
-ro:ceapă roșie
-ru:красный лук
-sq:qepë e kuqe
-sr:crveni luk
-sv:rödlök
-tr:kırmızı soğan
-wikidata:en:Q622350
-wikipedia:en:https://en.wikipedia.org/wiki/Red_onion
-# pnb:لال پیاز
-# ingredient/red-onions has 76 products in english @2018-12-06
-# ingredient/fr:oignon-rouge has 93 products in 6 languages @2018-12-06
-
-<en:red onion
-en:marinated red onion
-de:Marinierte rote Zwiebel
-fi:marinoitu punasipuli
-fr:Oignon rouge mariné
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:marinoitu-punasipuli
-# 1 entry @ 2019-10-31
-
-<en:onion
-en:Roscoff onions
-de:Roscoff Zwiebeln, Roscoff Zwiebel
-fr:oignon de Roscoff
-nl:Roscoffui, Roscoff ui
-
-<en:Roscoff onions
-en:Roscoff onion powder
-#en:processing:en:powder
-#de:Roscoff Zwiebelpulver
-#fr:oignon de Roscoff en poudre
-#nl:Roscoff ui in poedervorm
-
-<en:Roscoff onions
-en:Roscoff PDO onions
-fr:oignon de Roscoff AOP
-nl:Roscoffui met BOB-keurmerk
-
-
-# description:en:Allium fistulosum, the Welsh onion, also commonly called bunching onion, long green onion, Japanese bunching onion, and spring onion, is a species of perennial plant. A. fistulosum is an ingredient in Asian cuisine, especially in East and Southeast Asia. In the West, A. fistulosum is primarily used as a scallion or salad onion.
-# comment:en:On products one often finds wrong translations.
-
-<en:onion
-en:Welsh onion, bunching onion, long green onion
-be:Цыбуля-батун
-bo:ཙོང་།
-br:Sivolez
-ca:cebollí gallès
-cs:cibule zimní
-cy:Nionyn Cymreig
-de:Winterzwiebel
-eo:Vintra cepo
-es:cebolleta
-eu:Tipuleta
-fi:Pillisipuli
-fr:ciboule
-hr:Zimski luk
-id:Bawang daun
-io:Cibolo
-it:cipolla d'inverno
-ja:ネギ, ねぎ, 葱
-jv:Bawang godhong
-ka:ჭლაკვი
-kk:Батун
-ko:파
-la:Allium fistulosum
-ln:Ndɛmbi
-nl:stengelui
-nn:Pipelauk
-oc:Cebola
-pl:czosnek dęty
-pt:cebolleta
-ro:ceapă de tuns
-ru:Лук-батун
-sl:čebula
-sr:аљма
-su:Bawang daun
-sv:Piplök, walesisk lök
-te:ఉల్లి కాడలు
-tr:Kış soğanı
-uk:Батун
-uz:Batun piyozi
-vi:Hành
-za:coeng
-zh:葱
-# cdo:Chĕ̤ng
-# hak:Chhûng-é
-# hsb:Pózdnja cybla
-# nan:Chhang-á
-# sr-ec:аљма
-# zh-tw:蔥
-wikidata:en:Q27938
-wikipedia:en:https://en.wikipedia.org/wiki/Allium_fistulosum
-# ingredient/fr:ciboule has 127 products in 6 languages @2019-04-16
-
-<en:onion
-en:yellow onion
-de:gelbe Zwiebel, gelbe Zwiebeln
-fi:keltasipuli
-fr:oignon jaune, oignons jaunes
-nl:Gele ui
-sv:gul lök
-wikidata:en:Q8051898
-wikipedia:en:https://en.wikipedia.org/wiki/Yellow_onion
-# ingredient/fr:oignons-jaunes has 15 products @2019-05-25
-
-<en:onion
-en:white onion
-de:weiße Zwiebel, weiße Zwiebeln
-es:cebolla blanca
-fr:Oignon blanc
-it:cipolla bianca
-pl:cebula biała, biała cebula
-wikidata:en:Q7995660
-wikipedia:en:https://en.wikipedia.org/wiki/White_onion
-
-<en:onion
-en:fresh onions
-de:frische Zwiebeln
-es:Cebollas frescas
-fi:tuore sipuli, tuoreet sipulit
-fr:oignons frais
-it:cipolla fresca
-nl:verse uien
-ru:лук свежий
-# ingredient/fresh-onions has 485 products in 3 languages @2018-12-06
-
-<en:onion
-en:Onion pieces
-de:Zwiebelstücke
-
-<en:onion
-fr:jus d'oignon concentré, jus concentré d'oignon, jus concentré d'oignons
-de:Zwiebelsaftkonzentrat
-fi:sipulimehutiiviste
-nl:geconcentreerd uiensap
-sv:lökjuicekoncentrat
-# ingredient/fr:jus-d’oignon-concentré has 48 products in 5 languages @2018-12-06
-
-#processing:en: en:dried
-#processing:en: en:dehydrated
-<en:onion
-en:dehydrated onion, dried onion
-bg:сух лук
-ca:ceba deshidratada
-cs:cibule sušená
-da:tørret løg
-de:Zwiebeln getrocknet, Trockenzwiebeln
-es:cebolla deshidratada
-fi:kuivattu sipuli
-fr:oignons déshydratés, oignon déshydraté, oignon séché
-hu:szárított hagyma, dehidratált hagyma
-it:cipolle disidratate
-ja:ドライ玉ねぎ
-nl:gedroogde uien, gedroogde ui, oignons séchés, oignon déshydraté
-nn:tørket løk
-pl:suszona cebula, cebula suszona, cebula w proszku, sproszkowana cebula
-pt:cebola desidratada, cebola seca
-ro:ceapă deshidratată
-ru:лук репчатый сушеный, лук-репчатый сушёный, лук репчатый-сушёный
-sv:torkad lök
-uk:цибуля ріпчаста сушена
-ciqual_food_code:en:20180
-ciqual_food_name:en:Onion, dried
-ciqual_food_name:fr:Oignon, séché
-# 12664 in 22 @2021-09-10
-
-#category/onion-powder
-#processing:en: en:powder
-#<en:onion
-#en:onion powder, Granulated onion, Dried minced onion
-#bg:лук на прах
-#ca:ceba en pols
-#cs:Sušená cibule
-#da:løgpulver
-#de:Zwiebelpulver
-#el:κρεμμύδια σε σκόνη, κρεμμύδι σκόνη
-#eo:pulvorigita cepo
-#es:cebolla en polvo, Cebolla seca molida, Cebollas secas en polvo
-#et:sibulapulber
-#fi:sipulijauhe
-#fr:oignon en poudre, oignons en poudre, poudre d'oignons, poudre d'oignon
-#he:אבקת בצל, בצל מיובש כתוש, בצל כתוש מיובש
-#hr:luk u prahu
-#hu:vöröshagymapor
-#it:cipolla en polvere
-#ja:玉ねぎパウダー
-#lt:svogūnų milteliai
-#lv:sīpolu pulveris
-#ms:Serbuk bawang
-#nb:løkpulver
-#nl:uienpoeder, uipoeder, Uienpoeders
-#pl:Cebula w proszku
-#pt:cebola em pó
-#ro:ceapă pudră
-#ru:Луковый порошок
-#sk:sušená cibuľa
-#sl:čebula v prahu
-#sv:lökpulver
-#tr:soğan tozu
-#wikidata:en:Q7093931
-# 24139 in 36 @2021-09-10
-
-<en:onion
-es:Cebolla seca molida
-
-<en:onion powder
-de:Röstzwiebelpulver
-
-<en:onion
-fr:oignons coupés
-#  ingredient/fr:oignons-coupés has 19 products in french @2018-11-06
-
-<en:onion
-fr:oignons émincés
-# ingredient/fr:oignons-émincés has 45 products in french @2018-11-06
-
-# description:en:The PEARL ONION (Allium ampeloprasum var. sectivum or A. ampeloprasum 'Pearl-Onion Group'), also known as button or baby onions in the UK, or creamers in the US, is a close relative of the leek
-
-<en:onion
-en:pearl onion, pearl onions
-bg:перлени лукчета
-de:perlzwiebel
-fi:pikkusipuli, pikkusipulit
-fr:oignons grelots, grelot
-is:perlulaukur
-pl:cebula perłowa, cebulka perłowa
-wikidata:en:Q508630
-wikipedia:en:https://en.wikipedia.org/wiki/Pearl_onion
-# ingredient/fr:oignons-grelots has 96 products in french @2018-11-06
-
-<en:onion
-fr:oignons en morceaux
-# ingredient/fr:oignons-en-morceaux has 27 products in french @2018-11-06
-
-<en:onion
-fr:oignons rissolés
-# ingredient/fr:oignons-rissolés has 96 products in french @2018-11-06
-
-<en:onion
-en:rehydrated onion
-de:rehydrierte Zwiebeln
-es:Cebolla rehidratada
-fi:rekombinoitu sipuli
-fr:oignon réhydraté, oignons réhydratés
-it:cipolla reidratata
-sv:rehydrerad lök
-# ingredient/fr:oignons-réhydratés has 104 products in 4 languages @2018-11-06
-# ingredient/fr:oignon-réhydraté has 26 products in 3 languages @2018-12-06
-
-<en:onion
-en:Onion Extract
-de:Zwiebelextrakt
-es:Extracto de cebolla
-et:sibulaekstrakt
-fi:sipuliuute
-fr:extrait d'oignon
-it:Estratto di cipolla
-ja:玉ねぎエキス, オニオンエキス
-lt:svogūnų ekstraktas
-nl:uienextract
-pl:ekstrakt z cebuli, ekstrakty z cebuli, ekstrakt cebulowy
-pt:Extrato de cebolo
-sv:lökextrakt
-# ingredient/fr:extrait-d’oignon has 119 products in 3 languages @2018-12-06
-
-<en:onion
-en:pre fried onions
-da:forstegte løg
-de:vorgebratene Zwiebeln
-es:cebollas pre freidas
-fi:esipaistettu sipuli, esipaistetut sipulit
-fr:oignons préfrits, oignon préfrit
-nl:voorgefrituurde uitjes
-nn:friterad lök
-pt:cebolas pre fritas
-ru:лук жареный
-sv:forhåndsstekt løk
-# ingredient/fr:oignons-préfrits has 422 products in 4 languages @2018-12-06
-
-<en:pre fried onions
-fr:oignon préfrit à l'huile de tournesol
-it:cipolla prefritta in olio di girasole
-nl:voorgebakken ui in zonnebloemolie
-sv:lök brynt i solrosolja
-# ingredient/fr:oignon-préfrit-à-l'huile-de-tournesol has 44 products in 3 languages @2018-12-06
-
-# fr:oignons-grillés is a compound ingredient, eg:Zwiebeln gegrillt (Zwiebeln, Palmöl, Weizenmehl, Kochsalz)
-
-<en:onion
-en:Baked onion
-bg:Печен лук
-de:Zwiebeln gegrillt, Röstzwiebeln, Röstzwiebel
-fi:paahdettu sipuli
-fr:oignon grillé, oignons grillés
-it:cipolle grigliate
-nl:gebakken ui, gebakken uien
-pl:cebula pieczona, pieczona cebula
-pt:cebolas grelhadas
-sv:stekt lök
-# ingredient/fr:oignons-grillés has 111 products in 4 languages @2018-12-06
-
-<en:fried onion
-fr:oignon grillé en poudre
-pl:cebula smażona w proszku, smażona cebula w proszku
-
-# fr:oignon-frit is a compound ingredient, eg:gefrituurde uien ( uien, raapzaadolie, zonnebloemolie, zout)
-
-#is fried and grilled onion the same thing?
-<en:onion
-en:fried onion
-ca:ceba fregida, cebes fregides
-de:frittierte Zwiebeln
-es:cebolla frita, cebollas fritas
-fr:oignon frit, oignons frits
-de:frittierte Zwiebeln
-hu:Sült hagyma
-it:Cipolla fritta
-nl:gefrituurde ui, gefrituurde uien
-pl:cebula smażona, smażona cebula
-pt:cebola frita, cebolas fritas
-# ingredient/fr:oignon-frit has 347 products @2018-12-6
 
 
 # description:en:The PARSNIP (Pastinaca sativa) is a root vegetable closely related to the carrot and parsley.
@@ -52553,796 +53203,6 @@ fr:salade mélangée verte et rouge
 fr:salade composée
 # ingredient/fr:salade-composée has 97 products in french @2019-04-16
 # usage:fr: Salade composée 88% : Scarole, carotte râpées, maïs (maïs, sucre, sel), emmental 12%, dés de jambon cuit supérieur 12% (jambon de porc 10,9%, sel, sirop de glucose, dextrose, arômes naturels, antioxydant : ascorbate de sodium, conservateur: nitrite de sodium), frisée, chicorée rouge.
-
-# description:en:Scorzonera hispanica, black SALSIFY or Spanish salsify, also known as black oyster plant, serpent root, viper's herb, viper's grass or simply scorzonera, is a perennial member of the genus Scorzonera in the sunflower family (Asteraceae), cultivated as a root vegetable.
-
-<en:root vegetable
-en:salsify, black salsify
-ar:سلسفي هسباني
-az:İspan təkəsaqqalı
-be:Скарцанера
-bg:испански кокеш, черен корен, козелец
-ca:Escurçonera de nap
-cs:hadí mord španělský
-da:Skorzonerrod
-de:Schwarzwurzeln
-et:mustjuur, aed-mustjuur
-eu:Eskortzonera
-fi:Mustajuuri
-fr:salsifis, salsifis noirs
-gl:Escorzoneira
-hr:crni korijen
-hu:Feketegyökér
-it:scorzonera
-ja:スコルツォネラヒスパニカ
-ku:Sping
-lt:Valgomoji gelteklė
-lv:melnsakne
-nl:schorseneren
-pl:Wężymord czarny korzeń
-pt:Escorcioneira
-ro:Scorțoneră
-ru:Козелец испанский
-sv:Svartrot
-tr:Sakız otu
-zh:黑婆罗门参
-# azb:ساققیز اوْتو
-# vls:Schosneere
-wikidata:en:Q385259
-wikipedia:en:https://en.wikipedia.org/wiki/Scorzonera_hispanica
-ciqual_food_code:en:20197
-ciqual_food_name:en:Salsify, black, raw
-ciqual_food_name:fr:Salsifis noir, cru
-# ingredient/fr:salsifis has 58 products in 5 languages @2019-04-05
-
-<en:salsify
-en:Raw black salsify
-fr:Salsifis noirs crus
-ciqual_food_code:en:20197
-ciqual_food_name:en:Salsify, black, raw
-ciqual_food_name:fr:Salsifis noir, cru
-
-<en:salsify
-en:Cooked salsify
-fr:Salsifis cuits
-ciqual_food_code:en:20046
-ciqual_food_name:en:Salsify, cooked
-ciqual_food_name:fr:Salsifis, cuit
-
-<en:salsify
-en:salsify juice concentrate
-hr:koncentriani sok crnog korijena
-
-# description:en:The SHALLOT is a type of onion, specifically a botanical variety of the species Allium cepa.
-
-<en:root vegetable
-en:shallot, shallots
-am:ቀይ ሽንኩርት
-ar:كراث أندلسي
-br:chalotez
-ca:escalunya
-cs:cibule šalotka
-da:skalotteløg
-de:Schalotte, Schalotten
-eo:askalono
-es:chalota
-eu:tipulatx
-fa:موسیر
-fi:salottisipuli
-fr:échalote
-gl:chalota
-he:בצלצל
-ht:echalot
-hu:mogyoróhagyma
-id:kunir
-io:shaloto
-is:skalottlaukur
-it:scalogno
-ja:エシャロット
-jv:brambang
-ko:셜롯
-la:allium ascalonicum
-lb:schalott
-ml:ചുവന്നുള്ളി
-ms:bawang merah
-my:ကြက်သွန်နီကလေး
-nb:sjalottløk
-ne:छ्यापी
-nl:sjalot
-nn:Sjalottlauk
-oc:Escaluènha
-pl:szalotka, czosnek askaloński, szalotki
-pt:chalota
-ro:hașmă
-ru:Лук-шалот
-su:bawang beureum
-sv:schalottenlök
-ta:சின்ன வெங்காயம்
-th:หอมแดง
-tr:arpacık soğanı
-uk:Цибуля шалот
-ur:قفلوط
-vi:Hẹ tây
-zh:火葱
-# en-gb:shallot
-# mai:छ्यापी
-# nan:âng-chhang-thâu
-# sco:shallot
-# vec:scarlogna
-# yue:紅蔥頭
-# zh-cn:火葱
-# zh-hans:火葱
-# zh-hant:火蔥
-# zh-hk:火蔥
-# zh-sg:火葱
-# zh-tw:分蔥
-wikidata:en:Q193498
-wikipedia:en:https://en.wikipedia.org/wiki/Shallot
-ciqual_food_code:en:20097
-ciqual_food_name:en:Shallot, raw
-ciqual_food_name:fr:Échalote, crue
-# fr:échalote 2126 products in 9 languages @2018-10-03
-
-<en:shallot
-en:red shallot
-pl:czerwona szalotka
-
-<en:shallot
-fr:échalote déshydratée
-fi:kuivattu salottisipuli
-# ingredient/fr:échalote-déshydratée has 67 products in french @2019-02-14
-
-<en:shallot
-fr:pulpe d'échalote
-
-<en:shallot
-en:concentrated shallot juice
-de:Konzentrierter Zwiebelsaft
-fr:jus d'échalote concentré
-
-
-# description:en:The SWEET POTATO (Ipomoea batatas) is a dicotyledonous plant that belongs to the bindweed or morning glory family, Convolvulaceae.
-
-<en:root vegetable
-en:sweet potato
-af:Patats
-ak:atomo
-am:ስኳር ድንች
-ar:بطاطا حلوة
-ay:Apichu
-az:Qramafonçiçək batat
-be:Батат
-bg:сладък картоф, сладки картофи
-bn:মিষ্টি আলু
-bo:ཞོག་མངར།
-br:patatez dous
-bs:Batat
-ca:moniato,muniato
-cs:povijnice batátová
-da:sød kartoffel
-de:Süßkartoffel, Süsskartoffeln, Süßkartoffeln
-el:Γλυκοπατάτα
-eo:Batato
-es:patata dulce, batata,boniato
-et:bataat
-eu:Batata
-fa:سیب‌زمینی شیرین
-fi:bataatti
-fj:Kumala
-fr:patate douce, patates douces
-ga:Práta Spáinneach
-gn:Jety
-gu:શક્કરીયાં
-he:בטטה
-hi:शकरकन्द
-hr:batat, krumpir batat, slatki krumpir
-ht:Patat
-hu:Édesburgonya
-hy:բաթաթ
-id:Ubi jalar
-io:Patato
-is:Sætar kartöflur
-it:Patata dolce, patate dolci
-ja:サツマイモ, さつまいも, さつま芋, 薩摩芋, 甘藷
-jv:Ketéla rambat
-ka:ბატატი
-kk:Батат
-km:ដំឡូងជ្វា
-kn:ಸಿಹಿ ಗೆಣಸು
-ko:고구마
-ky:Батат
-la:Ipomoea batatas
-lg:Lumonde awusse
-ln:Libɛngɛ́
-lo:ມັນດ້າງ
-lt:Batatas
-lv:batāte
-mk:Сладок компир
-ml:മധുരക്കിഴങ്ങ്
-mr:रताळे
-ms:ubi keledek
-nb:søtpotet
-ne:सखरखण्ड
-nl:zoete aardappel
-nn:søtpotet
-or:କନ୍ଦମୂଳ
-pa:ਸ਼ਕਰਕੰਦ
-pl:batat, batata, batatów, słodki ziemniak, słodkich ziemniaków, słodkie ziemniaki, słodkiego ziemniaka, batatowy
-pt:batata-doce
-qu:Kumar
-ro:Batat
-ru:батат
-sa:मिष्टालुकम्
-sd:ناڙو
-sh:Batat
-si:බතල
-sk:Povojník batatový
-sl:Batata
-sn:Mbambaira
-so:Sonkor qadi
-sq:patatja e ëmbël
-sr:Батат
-su:Hui
-sv:sötpotatis
-sw:Kiazi kitamu
-ta:வற்றாளை
-te:చిలగడదుంప
-tg:Батат
-th:มันเทศ
-tl:Kamote
-to:Kumala
-tr:Tatlı patates
-ug:تاتلىقياڭيۇ
-uk:Батат
-ur:شکر قندی
-uz:Batat
-vi:Khoai lang
-wo:pataas
-yi:זיס־קארטאפל
-za:Maenz
-zh:番薯
-# ang:Swētu eorþperu
-# arz:بطاطا
-# azb:قرامافونچیچک باتات
-# bcl:Kamoteng kamang
-# bjn:Gumbili lancar
-# cdo:Huăng-sṳ̀
-# ceb:Kamote
-# de-ch:Süsskartoffel
-# gan:薯
-# hak:Fân-sù
-# hsb:Słódke dulki
-# ilo:Kamote
-# mai:सखरखण्ड
-# nah:Camohtli
-# nan:Han-chî
-# pam:Kamuti
-# pnb:شکرقندی
-# roa-tara:patana doce
-# sco:Sweet potato
-# tcy:ಕೆರೆಂಗ್
-# tpi:Kaukau
-# xmf:ბატატი
-# yue:番薯
-# zh-hant:番薯
-# zh-tw
-wikidata:en:Q37937
-wikipedia:en:https://en.wikipedia.org/wiki/Sweet_potato
-# ingredient/fr:patate-douce has 327 products in 6 languages @2018-12-22
-nutriscore_fruits_vegetables_nuts:en:no
-
-<en:sweet potato
-en:organic sweet potato
-hr:bio krumpirslatki
-
-<en:sweet potato
-en:purple sweet potato
-ja:ムラサキイモ, 紫芋, 紫いも, むらさきいも, 有色甘藷
-
-#comment:en: put tapioka-related translations under en:tapioc starch
-<en:root vegetable
-en:cassava, cassava root, manioc, manioc root, yuca, yuca root
-af:broodwortel
-ak:bankyi
-ar:بفرة
-az:maniok
-be:маніёк
-bg:маниока
-bi:maniok
-bm:banaku
-bn:শিমুল আলু
-ca:iuca
-cs:maniok jedlý
-da:kassava, cassava, maniok
-de:Maniok, Cassave
-el:κασάβα
-ee:agbeli
-eo:manioko
-es:cassava
-eu:manioka
-fa:مانیوک
-fi:maniokki, kassava
-fr:manioc, racine de manioc
-#frr:maniok
-ga:casabhach
-gl:mandioca
-gn:mandi'o
-gu:મોગો
-ha:rogo
-he:מניהוט מצוי
-hr:manioka
-ht:manyòk dous
-hu:manióka
-id:singkong
-io:manioko
-is:kassavarót
-it:manioca
-ja:キャッサバ
-jv:ketéla pohung
-kg:mandioko
-ki:mĩanga
-kn:ಮರಗೆಣಸು
-ko:카사바
-la:manihot esculenta, mandioca
-ln:manyɔ́kɔ
-lt:valgomasis manijokas
-lv:manioka
-mg:mangahazo
-ml:മരച്ചീനി
-ms:ubi kayu
-my:ပီလောပီနံ
-nb:maniok
-nl:maniok, cassave
-nn:kassava, maniokrot
-ny:chinangwa
-oc:manioc
-pl:kassawa
-pt:mandioca
-qu:rumu
-ru:маниок
-sg:gozo
-sh:manioka
-sn:mufarinya
-sl:manioka
-sr:tapioka, тапиока
-su:sampeu
-sv:maniok
-sw:muhogo
-ta:மரவள்ளி
-te:కర్ర పెండలము
-th:มันสำปะหลัง
-tl:kamoteng-kahoy
-to:mānioke
-tr:manyok
-ty:māniota
-uk:маніок
-ur:کاساوا
-vi:sắn
-yi:מאניאק
-yo:ẹ̀gẹ́
-za:moegsawz
-zh:木薯
-#ban:kaséla
-#bcl:balinghoy
-#bjn:jawaw
-#ceb:kamoteng kahoy
-#csb:jôdny maniok
-#dag:banchi
-#din:bafora
-#dsb:pšawy maniok
-#hsb:prawy maniok
-#ilo:balinghoy
-#mad:sabbhrâng
-#min:ubi parancih
-#nah:cuauhcamohtli
-#nan:chhiū-chî
-#nia:gowirio
-#sco:cassava
-#war:bilanghoy
-#wuu:木薯
-#yue:木薯
-nutriscore_fruits_vegetables_nuts:en:no
-wikidata:en:Q43304555
-wikipedia:en:https://en.wikipedia.org/wiki/Cassava
-ciqual_food_code:en:54031
-ciqual_food_name:en:Cassava or manioc, roots, raw
-ciqual_food_name:fr:Manioc, racine crue
-#650 in 10 @2021-10-18
-
-<en:flour
-<en:cassava
-en:cassava flour
-bg:брашно от маниока
-de:Maniokmehl
-fr:farine de manioc
-hu:maniókaliszt
-nl:maniokmeel
-nn:kassavamel
-pl:mąka z manioku
-sv:maniokmjöl
-nutriscore_fruits_vegetables_nuts:en:no
-
-# description:en:TAPIOCA is a starch extracted from cassava root (tapioca seems to be the same as tapioca starch, but not used as such on ingredient lists)
-
-<en:starch
-en:tapioca, tapioca starch, manioc starch
-ar:تابيوكا
-bg:тапиока, нишесте от тапиока
-ca:tapioca, midó de tapioca, midó de mandioca
-cs:tapioka, tapiokový škrob
-da:tapioca, tapiokastivelse, tapiocastivelse
-de:Tapioka, Tapiocastärke, Tapiokastärke, Maniokstärke
-el:ταπιόκα, άμυλο ταπιόκαζ
-eo:tapioko
-es:tapioca, almidón de tapioca, almidón de mandioca
-eu:tapioka
-fa:تاپیوکا
-fi:tapioka, tapiokatärkkelys
-fr:tapioca, amidon de tapioca, amidon de manioc
-ga:taipióca
-he:טפיוקה
-hr:tapioka
-hu:tápióka, tápiókakeményítő
-id:tapioka
-io:tapiokao
-it:tapioca, amido di tapioca
-ja:タピオカ
-jv:tapioka
-kk:тапиока, tapïoka, تاپىيوكا
-ko:타피오카
-mt:tapjoka
-nb:tapioka, tapiokastivelse
-nl:tapiocazetmeel, tapioca zetmeel, tapioca
-nn:tapioka
-pl:tapioka, skrobia z tapioki, skrobia tapiokowa, skrobia z manioku
-pt:tapioca
-ru:тапиока
-sk:tapiokový škrob
-sl:tapioka, tapiokin škrob
-su:tapioka
-sv:tapioka, tapiokastärkelse
-uk:тапіока
-vi:bột năng
-zh:木薯根淀粉
-#lfn:tapioca
-wikidata:en:Q873761
-wikipedia:en:https://en.wikipedia.org/wiki/Tapioca
-
-<en:modified starch
-<en:tapioca starch
-en:modified tapioca starch, modified manioc starch
-da:modificeret tapiokastivelse
-de:modifizierte Tapiokastärke
-es:almidón modificado de tapioca,almidón modificado de mandioca
-fi:muunnettu tapiokatärkkelys
-fr:amidon modifié de tapioca, amidon transformé de tapioca, amidon de tapioca modifié, amidon modifié de manioc
-hu:módosított tápiókakeményítő
-it:amido modificato di tapioca
-nb:modifisert tapiokastivelse
-nl:gemodificeerd tapiocazetmeel
-pl:Skrobia modyfikowana z tapioki
-pt:amido modificado de tapioca
-sv:modifierad tapiokastärkelse, modifierad tapioka stärkelse
-
-# Is this the same as tapioca starch? This is not cassave flour, as that is diluted.
-
-
-# description:en:Yam is the common name for some plant species in the genus Dioscorea (family Dioscoreaceae) that form edible tubers.
-# In some places, other (unrelated) root vegetables are sometimes referred to as "yams".
-<en:root vegetable
-en:yam
-de:Yam, Yamswurzel, Yamswurzeln
-fr:igname
-nutriscore_fruits_vegetables_nuts:en:no
-wikidata:en:Q8047551
-wikipedia:en:https://en.wikipedia.org/wiki/Yam_(vegetable)
-
-# description:en:The POTATO is a starchy, tuberous crop from the perennial nightshade Solanum tuberosum.
-
-<en:root vegetable
-en:potato, potatoes
-ab:Акартош
-ar:بطاطس
-ay:Ch'uqi
-be:бульба
-bg:картоф, картофи
-bi:Kumala
-bn:আলু
-bo:ཞོ་ཁོག
-bs:krompir
-ca:patata
-cs:brambor
-da:kartoffel, kartofler
-de:Kartoffel, Kartoffeln
-eo:terpomo
-es:patata, papas
-et:kartul, kartulid
-eu:patata
-ff:Kudaku
-fi:peruna, perunaa
-fr:pomme de terre, pommes de terre, pommes de terre de consommation
-gd:Buntàta
-gl:pataca
-gu:Yvy'a
-he:תפוח אדמה
-hi:आलू
-hr:krumpir
-ht:Pòm tè
-hu:burgonya, krumpli
-ia:patata
-ik:Asiaġruaq
-io:Terpomo
-it:patata, patate
-ja:ジャガイモ, じゃがいも, 馬鈴薯, ポテト
-ka:კარტოფილი
-ks:اولُو
-la:Patata
-li:Aerpel
-lt:bulvė, bulvės
-mg:Ovy
-mk:компир
-mr:बटाटा
-nb:potet, poteter
-ne:आलु
-nl:aardappel, aardappelen
-nn:potet, poteter
-nv:Nímasii
-or:ଆଳୁ
-os:Картоф
-pa:ਆਲੂ
-pl:ziemniak, ziemniaki, ziemniaczana, ziemniaczane, ziemniaczany, ziemniaków, ziemniaka, ziemniaczanego, ziemniaczanych
-pt:batata
-rn:Ikiraya
-ro:cartof, cartofi
-ru:картофель, картошка
-rw:Ikirayi
-sl:krompir, zemiak
-sm:Pateta
-sn:Mbatatisi
-so:Barandho
-sq:Patatja
-sv:potatis
-tr:patates
-uk:картопля
-uz:Kartoshka
-wa:Crompire
-za:Majlingzsuz
-zh:馬鈴薯
-zu:Izambane
-# arz:بطاطس
-# bar:Eadäpfe
-# bho:आलू
-# ceb:Patatas
-# chr:ᏄᎾ
-# chy:Aéstomemésêhestôtse
-# csb:Bùlwa
-# diq:Kartole
-# gan:土豆
-# kaa:Kartoshka
-# koi:Картов
-# krc:Гардош
-# ksh:Ääpel
-# lad:Patata
-# lbe:Нущи
-# mai:आलु
-# mdf:Модамарь
-# mrj:Тури
-# nds:Kantüffel
-# nds-nl:Eerpel
-# rup:Cartofi
-# sco:Tattie
-# stq:Tuffelke
-# tyv:Картофель
-# zh-cn:马铃薯
-# zh-hans:马铃薯
-# zh-hant:馬鈴薯
-# zh-hk:薯仔
-# zh-mo:馬鈴薯
-# zh-tw:馬鈴薯
-wikidata:en:Q16587531
-wikipedia:en:https://en.wikipedia.org/wiki/Potato
-carbon_footprint_fr_foodges_ingredient:fr:Pomme de terre
-carbon_footprint_fr_foodges_value:fr:0.6
-# en:potato has 2269 products in 23 languages @2018-10-15
-nutriscore_fruits_vegetables_nuts:en:no
-ciqual_food_code:en:4003
-ciqual_food_name:fr:Pomme de terre, bouillie/cuite à l'eau
-
-<en:potato
-en:table potatoes
-de:Speisekartoffeln
-
-<en:potato
-fr:Pommes de terre de consommation à chair ferme
-# ingredient/fr:pommes-de-terre-de-consommation-a-chair-ferme has 9 products @2019-06-01
-
-<en:potato
-en:British potato
-de:Britische Kartoffel, Britische Kartoffeln
-
-<en:potato
-<en:flour
-en:potato flour
-bg:брашно от картофи, картофено брашно
-de:Kartoffelmehl
-es:harina de patata
-fi:perunajauho
-fr:farine de pomme de terre, farine de pommes de terre, pomme de terre en poudre
-it:Farina di patate
-nb:potetmel
-nl:aardappelmeel
-pl:Mąka ziemniaczana
-sv:potatismjöl
-# ingredient/en:potato-flour has 1998 products in 4 languages @2020-05-23
-
-<fr:Pommes de terre de consommation à chair ferme
-fr:Pommes de terre de consommation à chair ferme bio
-
-<en:potato
-en:organic potato
-fi:luomuperuna, luomu peruna
-fr:pommes de terre biologiques
-# ingredient/fr:pommes-de-terre-biologiques has 7 products @2019-06-03
-
-<en:organic potato
-en:organic potato from France
-fr:Pommes de terre biologiques origine France
-
-<en:potato
-en:precooked potato
-de:vorgegarte Kartoffeln, Kartoffeln (vorgegart), Speisekartoffeln gekocht
-fr:pommes de terre précuites
-
-<en:potato
-en:russet potatoes
-de:Geröstete Kartoffeln
-fr:Pommes de terres rousses
-
-<en:potato
-en:potato powder
-#en:processing:en:powder
-#bg:картофи на прах
-#da:kartoffelpulver
-#de:Kartoffelpulver
-#el:πατάτα σε σκόνη
-#es:patata en polvo
-#fi:perunajauhe, kuivattu peruna
-#fr:poudre de pommes de terre, poudre de pomme de terre, pomme de terre déshydratée, pommes de terre déshydratées, pommes de terre en poudre, g de terre déshydratée
-#hr:dehidrirani krumpir
-#hu:burgonyapor
-#it:Patate in polvere
-#nl:aardappelpoeder, gedehydrateerde aardappelen
-#pt:Patatas en polvo
-#sk:sušené zemiaky
-#sl:krompir v prahu
-#sv:potatispulver, torkad potatis
-# en:potato-powder has 67 products in 13 languages @2018-10-15
-
-<en:potato
-fr:pomme de terre déshydratée, pommes de terre déshydratées, 
-sk:sušené zemiaky
-
-<en:potato
-en:cooked potato
-de:gegarte Kartoffeln
-es:patata cocida
-fi:kypsennetty peruna
-fr:pomme de terre cuite, pommes de terre cuites
-nl:gegaarde aardappel
-ro:cartofi fierți
-sv:kokt potatis
-# en:cooked-potato has 62 productsin 1 language @2018-10-15
-
-# description:en:MASHED POTATO (British English) or mashed potatoes (American English and Canadian English), colloquially known as mash (British English), is a dish prepared by mashing boiled potatoes.
-
-<en:potato
-en:mashed potato, mashed potatoes
-ar:بطاطا مهروسة
-az:kartof püresi
-be:бульбяное пюрэ
-bg:картофено пюре, пюре от картофи
-bn:আলু ভর্তা
-ca:puré de patates
-cs:bramborová kaše
-cv:токкоми
-da:kartoffelmos
-de:kartoffelpüree
-el:πουρέ πατάτας
-eo:terpomkaĉo
-es:puré de papas
-et:kartulipuder
-fa:پوره سیب‌زمینی
-fi:perunasose, perunamuusi
-fr:purée de pomme de terre, purée de pommes de terre
-ga:brúitín
-he:מחית תפוחי אדמה
-hr:pire krumpir
-id:kentang tumbuk
-it:purea di patate
-ja:マッシュポテト
-ko:매시트 포테이토
-la:pulticula ex pomis terrestribus
-lt:bulvių košė
-ms:kentang lecek
-nb:potetmos
-nl:aardappelpuree
-pt:purê de batata
-ru:картофельное пюре
-se:buđetnjuvddus
-sv:potatismos
-th:มันฝรั่งบด
-tr:patates püresi
-uk:картопляне пюре
-zh:馬鈴薯泥
-wikidata:en:Q322787
-wikipedia:en:https://en.wikipedia.org/wiki/Mashed_potato
-# bat_smg:bolbiu potra
-# szl:sztamfkartofle
-# vls:puree
-# wuu:土豆泥
-# zh_yue:薯茸
-# fr:purée-de-pomme-de-terre has 152 products in 1 language @2018-10-15
-
-<en:mashed potato
-en:instant mashed potatoes
-hr:instant pire krumpir
-
-<en:potato
-en:potato flakes
-bg:картофени люспи
-da:kartoffelflager
-de:Kartoffelflocken
-es:copos de patata
-fi:perunahiutale, perunahiutaleita
-fr:flocon de pomme de terre, flocons de pommes de terre, flocons de pomme de terre
-hr:krumpirove pahuljice, pahuljice krumpira
-it:fiocco di patata, fiocchi di patate
-nl:aardappelvlokken
-pl:płatki ziemniaczane
-ru:картофельние хлопья, картофельные-хлопья
-sv:potatisflingor
-# fr:flocon-de-pomme-de-terre has 937 products in 12 languages @2018-10-15
-
-<en:potato flakes
-en:dehydrated potato flakes
-bg:дехидратирани картофени люспи
-de:getrocknete Kartoffelflocken
-es:copos de patata deshidratados
-fi:kuivatut perunahiutaleet
-fr:flocons de pomme de terre déshydratés
-sl:krompirjevi kosmiči
-# fr:flocons-de-pomme-de-terre-déshydratés has 100 products in 2 languages @2018-10-15
-
-<en:potato flakes
-fr:flocons de pomme de terre réhydratés
-# fr:flocons-de-pomme-de-terre-réhydratés has 71 products in 1 language @2018-10-15
-
-<en:potato
-<en:vegetable fiber
-en:potato fiber, potato fibre
-ca:fibra de patata, fibra vegetal de patata
-da:kartoffelfibre
-de:Kartoffelfasern, Kartoffelfaser, Kartoffelballaststoffe
-es:fibra de patata, fibra vegetal de patata
-fi:perunakuitu
-fr:fibres de pomme de terre, fibre de pomme de terre, fibres de pommes de terre
-hr:krumpirova vlakna
-nb:potetfiber
-nl:aardappelvezel, aardappelvezels
-no:potetfiber, potetfibre
-pl:błonnik ziemniaczany
-sv:potatisfiber
-# en:potato-fibre has 110 products in 4 languages @2018-10-15
-
-# fr:pommes de terre préfrites is a compound ingredient:Pomme de terre préfrite [pomme de terre, huile de tournesol, dextrose de blé]
-
-<en:potato
-fr:pommes de terre préfrites
-nl:voorgebakken aardappel
-sv:forstekt potatis
-# fr:pommes-de-terre-préfrites has 151 products in 3 languages @2018-10-15
-carbon_footprint_fr_foodges_ingredient:fr:Frites surgelées
-carbon_footprint_fr_foodges_value:fr:1.3
 
 # description:en: The bell pepper (also known as sweet pepper, pepper or capsicum /ˈkæpsɪkəm/) is a cultivar group of the species Capsicum annuum. Cultivars of the plant produce fruits in different colours, including red, yellow, orange, green, white, and purple.
 # comment:en:in some languages en:bell-pepper and en:parika are not distinguished, but the same word.
@@ -64475,119 +64335,6 @@ ciqual_food_name:fr:Laurier, feuille
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:laurier
 # 3758 in 22 @2021-09-19
 
-###################################################################################################
-#
-#                                Chives
-#
-###################################################################################################
-# description:en:CHIVES, scientific name Allium schoenoprasum, are an edible species of the genus Allium
-
-<en:root vegetable
-en:chives, chive
-af:sprietui
-am:ቀጭን ሽንኩርት
-ar:ثوم معمر
-az:mala soğanı
-be:цыбуля скарада
-bg:сибирски лук, див лук
-bo:ཀེའུ།
-bs:vlasac
-ca:cibulet
-cs:pažitka, pažitka pobřežní
-cy:cenhinen syfi
-da:purløg
-de:Schnittlauch
-el:πρασουλίδα, σχοινόπρασο, άλλιον το σχοινόπρασον
-eo:ŝenoprazo
-es:cebollino, cebollinos
-et:murulauk
-eu:tipulin
-fa:پیاز کوهی
-fi:ruohosipuli, ruohosipulia, käärmeenlaukka
-fr:ciboulette
-ga:síobhas
-gl:ceboliño
-gv:shoushan
-he:שום העירית
-hr:vlasac
-ht:siv
-hu:metélőhagyma
-id:lokio
-is:graslaukur
-it:cippolina, aglio d'india, erba cipollina
-ja:チャイブ
-jv:lokio
-kk:шалғын жуа, şalğın jwa, شالعىن جۋا
-ko:차이브
-la:allium schoenoprasum
-lb:bratzel
-li:bieslouk
-lt:laiškinis česnakas
-lv:maurloks, maurloki
-mk:власец
-ml:ചൈവ്സ്
-nb:grasløk
-nl:bieslook
-nn:graslauk
-oc:ceboleta
-pl:szczypior, czosnek szczypiorek, szczypiorek, szczypiorku, szczypioru
-pt:cebolinho
-ro:arpagic
-ru:лук скорода
-sk:pažítka
-sl:drobnjak
-sr:vlašac
-sv:gräslök
-ta:இனப்பூண்டு
-tr:yaprak soğanı
-uk:цибуля-різанець
-ur:ثوم معمر
-vi:hành tăm
-wa:brele
-zh:蝦夷蔥
-# ang:secglēac
-# csb:łëczk
-# de-ch:Schnittlauch
-# dsb:cybulinka
-# en-ca:chives
-# en-gb:chives
-# hsb:słódny kobołk
-# nds-nl:kreilook
-# pam:chives
-# pcd:chiboléte
-# sco:chives
-# szl:szńitloch
-# vec:ajo de bisi
-# yue:細香蔥
-# zh-cn:蝦夷蔥
-# zh-hans:蝦夷蔥
-# zh-hant:蝦夷蔥
-# zh-tw:細香蔥
-#plant: wikidata:en:Q51148
-wikidata:en:Q61046162
-wikipedia:en:https://en.wikipedia.org/wiki/Chives
-# 4350 in 20 @2021-10-19
-
-<en:chives
-en:dehydrated chives
-da:tørret purløg
-de:Schnittlauch getrocknet
-fi:kuivattu ruohosipuli
-fr:ciboulette déshydratée
-it:erba cipollina essiccata
-nl:gedroogde bieslook
-nn:tørket gressløk
-pl:szczypiorek suszony
-sv:torkad gräslök
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:ciboulette-déshydratée
-# 69 products in 3 languages @2018-10-08
-
-<en:chives
-en:chive seasoning
-de:Schnittlauch Kräuter
-es:aderezo de cebollino
-#11 @2021-10-19
-
 
 ###################################################################################################
 #
@@ -70053,7 +69800,7 @@ de:Weiße Trüffel
 es:Tuber magnatum
 eu:Grisola jator
 fr:Truffe blanche
-hr:bijeli tartuf, bijelitartufi, tuber magnatum
+hr:bijeli tartuf, bijelitartufi, bijeli tartufi, tuber magnatum
 hu:Isztriai szarvasgomba
 it:Tuber magnatum
 nl:Witte truffel
