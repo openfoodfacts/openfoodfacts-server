@@ -383,8 +383,10 @@ sub scan_code ($file) {
 		}
 	}
 
-	$code = normalize_code($code);
-	print STDERR "scan_code return code: $code\n";
+	if (defined $code) {
+		$code = normalize_code($code);
+		print STDERR "scan_code return code: $code\n";
+	}
 
 	return $code;
 }
