@@ -198,6 +198,8 @@
       "2023" : {
          "category_available" : 1,
          "data" : {
+            "count_proteins" : 1,
+            "count_proteins_reason" : "beverage",
             "energy" : 3378,
             "energy_points" : 10,
             "fiber" : 2,
@@ -208,7 +210,19 @@
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
             "is_water" : 0,
+            "negative_nutrients" : [
+               "energy",
+               "sugars",
+               "saturated_fat",
+               "salt",
+               "sweeteners"
+            ],
             "negative_points" : 22,
+            "positive_nutrients" : [
+               "fruits_vegetables_legumes",
+               "fiber",
+               "proteins"
+            ],
             "positive_points" : 7,
             "proteins" : 5,
             "proteins_points" : 7,

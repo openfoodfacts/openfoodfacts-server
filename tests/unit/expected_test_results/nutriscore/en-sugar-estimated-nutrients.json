@@ -186,6 +186,8 @@
       "2023" : {
          "category_available" : 1,
          "data" : {
+            "count_proteins" : 0,
+            "count_proteins_reason" : "negative_points_more_than_11",
             "energy" : 1700,
             "energy_points" : 5,
             "fiber" : 0,
@@ -196,7 +198,18 @@
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
             "is_water" : 0,
+            "negative_nutrients" : [
+               "energy",
+               "sugars",
+               "saturated_fat",
+               "salt",
+               "sweeteners"
+            ],
             "negative_points" : 20,
+            "positive_nutrients" : [
+               "fruits_vegetables_legumes",
+               "fiber"
+            ],
             "positive_points" : 0,
             "proteins" : 0,
             "proteins_points" : 0,
