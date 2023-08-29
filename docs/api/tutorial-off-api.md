@@ -2,7 +2,7 @@
 
 Welcome to this tutorial on basic usage of Open Food Facts API.
 
-Fist, be sure to see our [Introduction to the API](./index.md).
+First, be sure to see our [Introduction to the API](./index.md).
 
 ## Scan A Product To Get Nutri-score
 
@@ -149,9 +149,9 @@ The sample response above for 100% Real Orange Juice `misc_tags` shows that the 
 
 ### Write data to make Nutri-Score computation possible
 
-The WRITE operations in the OFF API require  authentication. Therefore you need a valid `user_id` and `password`  to write the missing nutriment data to 100% Real Orange Juice.
+The WRITE operations in the OFF API require  authentication. Therefore you need a valid `user_id` and `password` to write the missing nutriment data to 100% Real Orange Juice.
 
-> Sign up on the [Open Food Facts App](https://world.openfoodfacts.net/) to get your`user_id` and `password`if you don't have one.
+> Sign up on the [Open Food Facts App](https://world.openfoodfacts.net/) to get your`user_id` and `password` if you don't have one.
 
 To write data to a product, make a `POST` request to the [`Add or Edit A Product`](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl) endpoint.
 
@@ -180,7 +180,7 @@ curl -XPOST -x POST https://world.openfoodfacts.net/cgi/product_jqm2.pl \
   -F code=0180411000803 -F nutriment_sodium=0.015 -F nutriment_sodium_unit=g -F categories="Orange Juice"
 ```
 
-If the request is succesful, it returns a response that indicated that the fields have been saved.
+If the request is successful, it returns a response that indicates that the fields have been saved.
 
 ```json
 {
