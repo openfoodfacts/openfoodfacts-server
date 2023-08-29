@@ -49,7 +49,9 @@ my @scan_code_tests = (
 	["03_itf_13.jpg", "0012345123456"],
 	["04_gs1_128.jpg", "4044782317112"],
 	["05_gs1_databar_omni.jpg", "1234567890128"],
-	["37_gs1_datamatrix.jpg", "0725272730706"]
+	["37_gs1_datamatrix.jpg", "0725272730706"],
+	["43_gs1_qrcode_digital_link.jpg", "9506000134369"],
+	["52_gs1_datamatrix_digital_link.jpg", "5010029000214"]
 );
 
 my $sample_products_images_path = dirname(__FILE__) . "/inputs/images/";
