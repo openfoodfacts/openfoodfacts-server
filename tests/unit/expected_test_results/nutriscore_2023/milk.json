@@ -80,8 +80,6 @@
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
-      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
-      "en:nutrition-all-nutriscore-values-known",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-d-2023-d"
    ],
@@ -105,6 +103,7 @@
    },
    "nutriscore" : {
       "2021" : {
+         "category_available" : 1,
          "data" : {
             "energy" : 3378,
             "energy_points" : 10,
@@ -135,9 +134,13 @@
             "sugars_value" : 10
          },
          "grade" : "d",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
          "score" : 14
       },
       "2023" : {
+         "category_available" : 1,
          "data" : {
             "energy" : 3378,
             "energy_points" : 10,
@@ -161,6 +164,9 @@
             "sugars_points" : 2
          },
          "grade" : "d",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
          "score" : 16
       }
    },

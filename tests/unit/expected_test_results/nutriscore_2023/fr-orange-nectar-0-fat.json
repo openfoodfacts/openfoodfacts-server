@@ -93,7 +93,8 @@
       "en:disaccharide",
       "en:carrot",
       "en:vegetable",
-      "en:root-vegetable"
+      "en:root-vegetable",
+      "en:taproot-vegetable"
    ],
    "ingredients_n" : 4,
    "ingredients_n_tags" : [
@@ -117,7 +118,8 @@
       "en:disaccharide",
       "en:carrot",
       "en:vegetable",
-      "en:root-vegetable"
+      "en:root-vegetable",
+      "en:taproot-vegetable"
    ],
    "ingredients_text" : "Orange 47%, Water, Sugar, Carrots 10%",
    "ingredients_with_specified_percent_n" : 2,
@@ -129,12 +131,10 @@
       "en:sugar"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
-   "known_ingredients_n" : 10,
+   "known_ingredients_n" : 11,
    "lc" : "en",
    "misc_tags" : [
       "en:nutriscore-computed",
-      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
-      "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutriscore-2021-same-as-2023",
@@ -159,6 +159,7 @@
    },
    "nutriscore" : {
       "2021" : {
+         "category_available" : 1,
          "data" : {
             "energy" : 250,
             "energy_points" : 9,
@@ -190,9 +191,13 @@
             "sugars_value" : 12
          },
          "grade" : "e",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
          "score" : 15
       },
       "2023" : {
+         "category_available" : 1,
          "data" : {
             "energy" : 250,
             "energy_points" : 5,
@@ -218,6 +223,9 @@
             "sweeteners_points" : 0
          },
          "grade" : "e",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
          "score" : 13
       }
    },

@@ -433,6 +433,8 @@
       "en:nutrition-no-fiber",
       "en:nutriscore-using-estimated-nutrition-facts",
       "en:nutriscore-not-computed",
+      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+      "en:nutrition-all-nutriscore-values-known",
       "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
@@ -499,11 +501,70 @@
       "water_100g" : 75.8,
       "zinc_100g" : 0.00014
    },
+   "nutriscore" : {
+      "2021" : {
+         "category_available" : 0,
+         "data" : {
+            "energy" : 383,
+            "fiber" : 2.7,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 100,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat" : 0,
+            "is_water" : 0,
+            "proteins" : 1.06,
+            "saturated_fat" : 0.005,
+            "sodium" : 2.5,
+            "sugars" : 15.6
+         },
+         "grade" : "unknown",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 0,
+         "nutriscore_computed" : 0
+      },
+      "2023" : {
+         "category_available" : 0,
+         "data" : {
+            "energy" : 383,
+            "fiber" : 2.7,
+            "fruits_vegetables_legumes" : 100,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat_oil_nuts_seeds" : 0,
+            "is_water" : 0,
+            "proteins" : 1.06,
+            "salt" : 0.0063,
+            "saturated_fat" : 0.005,
+            "sugars" : 15.6
+         },
+         "grade" : "unknown",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 0,
+         "nutriscore_computed" : 0
+      }
+   },
+   "nutriscore_2021_tags" : [
+      "unknown"
+   ],
+   "nutriscore_2023_tags" : [
+      "unknown"
+   ],
+   "nutriscore_grade" : "unknown",
+   "nutriscore_tags" : [
+      "unknown"
+   ],
+   "nutriscore_version" : "2021",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
-   "nutrition_grades_tags" : [],
+   "nutrition_grade_fr" : "unknown",
+   "nutrition_grades" : "unknown",
+   "nutrition_grades_tags" : [
+      "unknown"
+   ],
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "no score when the product does not have a category - missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 100,
    "nutrition_score_warning_nutriments_estimated" : 1,
    "origins" : "Martinique",
    "origins_hierarchy" : [

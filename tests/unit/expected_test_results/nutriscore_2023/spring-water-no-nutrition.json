@@ -36,8 +36,6 @@
       "en:nutriscore-computed",
       "en:nutrition-no-fruits-vegetables-nuts",
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
-      "en:nutrition-no-fruits-vegetables-nuts",
-      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-a-2023-a"
    ],
@@ -47,6 +45,7 @@
    },
    "nutriscore" : {
       "2021" : {
+         "category_available" : 1,
          "data" : {
             "energy" : null,
             "energy_points" : 0,
@@ -69,7 +68,7 @@
             "saturated_fat" : null,
             "saturated_fat_points" : 0,
             "saturated_fat_value" : 0,
-            "sodium" : 0,
+            "sodium" : null,
             "sodium_points" : 0,
             "sodium_value" : 0,
             "sugars" : null,
@@ -77,9 +76,13 @@
             "sugars_value" : 0
          },
          "grade" : "a",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
          "score" : 0
       },
       "2023" : {
+         "category_available" : 1,
          "data" : {
             "energy" : null,
             "fiber" : 0,
@@ -99,6 +102,9 @@
             "sweeteners_points" : 0
          },
          "grade" : "a",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
          "score" : 0
       }
    },
