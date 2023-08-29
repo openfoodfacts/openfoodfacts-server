@@ -590,7 +590,7 @@ e.g. for a sugars value of 15 (which gives 3 points), return 13.5 (which gives 2
 
 The value corresponds to the highest smaller threshold.
 
-Return undef is the input nutrient value already gives the minimum amount of points (0).
+Return undef if the input nutrient value already gives the minimum amount of points (0).
 
 =cut
 
@@ -623,9 +623,9 @@ sub get_value_with_one_less_negative_point_2023 ($nutriscore_data_ref, $nutrient
 For a given Nutri-Score nutrient value, return the smallest higher value that would result in more positive points.
 e.g. for a proteins value of 2.0 (which gives 1 point), return 3.3 (which gives 2 points)
 
-The value correspond to the smallest higher threshold + 1 increment so that it strictly greater than the threshold.
+The value corresponds to the smallest higher threshold + 1 increment so that it strictly greater than the threshold.
 
-Return undef is the input nutrient value already gives the maximum amount of points.
+Return undef if the input nutrient value already gives the maximum amount of points.
 
 =cut
 
@@ -648,7 +648,7 @@ sub get_value_with_one_more_positive_point_2023 ($nutriscore_data_ref, $nutrient
 		}
 	}
 
-	# The return value needs to be stricly greater than the threshold
+	# The return value needs to be strictly greater than the threshold
 
 	my $return_value = $higher_threshold;
 
@@ -666,7 +666,7 @@ sub get_value_with_one_more_positive_point_2023 ($nutriscore_data_ref, $nutrient
 
 sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 
-	# The values must be rounded with one more digit than the thresolds.
+	# The values must be rounded with one more digit than the thresholds.
 	# Undefined values are counted as 0 (it can be the case in particular for waters that have different nutrients listed)
 
 	# The Nutri-Score FAQ has been updated (UPDATED 27/09/2022 or earleier),
