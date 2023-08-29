@@ -1033,11 +1033,11 @@ sub compute_fruit_ratio ($product_ref, $prepared) {
 
 	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"}) {
 		$fruits = 2 * $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"};
-		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-dried";
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-dried");
 
 		if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
 			$fruits += $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
-			push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
+			add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts");
 		}
 
 		$fruits
@@ -1045,12 +1045,12 @@ sub compute_fruit_ratio ($product_ref, $prepared) {
 	}
 	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
 		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
-		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts");
 	}
 	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"}) {
 		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"};
 		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} = 1;
-		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate";
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-estimate");
 	}
 	# Use the estimate from the ingredients list if we have one
 	elsif (
@@ -1062,7 +1062,7 @@ sub compute_fruit_ratio ($product_ref, $prepared) {
 		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"};
 		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
 		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
-		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients";
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients");
 	}
 	else {
 		# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
@@ -1073,10 +1073,10 @@ sub compute_fruit_ratio ($product_ref, $prepared) {
 				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} = $category_id;
 				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}
 					= $fruits_vegetables_nuts_by_category{$category_id};
-				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category";
+				add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-from-category");
 				my $category = $category_id;
 				$category =~ s/:/-/;
-				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category-$category";
+				add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-from-category-$category");
 				last;
 			}
 		}
@@ -1085,17 +1085,17 @@ sub compute_fruit_ratio ($product_ref, $prepared) {
 		if (not defined $fruits) {
 			$fruits = 0;
 			$product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} = 1;
-			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fruits-vegetables-nuts";
+			add_tag($product_ref, "misc", "en:nutrition-no-fruits-vegetables-nuts");
 		}
 	}
 
 	if (   (defined $product_ref->{nutrition_score_warning_no_fiber})
 		or (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts}))
 	{
-		push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber-or-fruits-vegetables-nuts";
+		add_tag($product_ref, "misc", "en:nutrition-no-fiber-or-fruits-vegetables-nuts");
 	}
 	else {
-		push @{$product_ref->{misc_tags}}, "en:nutrition-all-nutriscore-values-known";
+		add_tag($product_ref, "misc", "en:nutrition-all-nutriscore-values-known");
 	}
 
 	return $fruits;
@@ -1215,7 +1215,11 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
 			sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
 			saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
-			sodium => $nutriments_ref->{"sodium" . $prepared . "_100g"} * 1000,    # in mg,
+			sodium => (
+				(defined $nutriments_ref->{"sodium" . $prepared . "_100g"})
+				? $nutriments_ref->{"sodium" . $prepared . "_100g"} * 1000
+				: undef
+			),    # in mg,
 
 			fruits_vegetables_nuts_colza_walnut_olive_oils => $fruits,
 			fiber => (
@@ -1336,17 +1340,28 @@ Check that the product has a category, that we know if it is a beverage or not,
 and that it is not in a category for which the Nutri-Score should not be computed
 (e.g. food for babies)
 
+=head3 Return values
+
+=head4 $category_available - 0 or 1
+
+=head4 $nutriscore_applicable - 0 or 1
+
+=head4 $not_applicable_category - undef or category id
+
 =cut
 
 sub is_nutriscore_applicable_to_the_product_categories ($product_ref) {
 
+	my $category_available = 1;
 	my $nutriscore_applicable = 1;
+	my $not_applicable_category = undef;
 
 	# do not compute a score when we don't have a category
 	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
 		$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 		$product_ref->{nutrition_score_debug} = "no score when the product does not have a category" . " - ";
 		add_tag($product_ref, "misc", "en:nutriscore-missing-category");
+		$category_available = 0;
 		$nutriscore_applicable = 0;
 	}
 
@@ -1381,13 +1396,14 @@ sub is_nutriscore_applicable_to_the_product_categories ($product_ref) {
 					$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id" . " - ";
 					$product_ref->{nutriscore_data} = {nutriscore_not_applicable_for_category => $category_id};
 					$nutriscore_applicable = 0;
+					$not_applicable_category = $category_id;
 					last;
 				}
 			}
 		}
 	}
 
-	return $nutriscore_applicable;
+	return ($category_available, $nutriscore_applicable, $not_applicable_category);
 }
 
 =head2 check_availability_of_nutrients_needed_for_nutriscore ($product_ref)
@@ -1431,7 +1447,7 @@ sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
 				$product_ref->{nutrition_score_debug}
 					= "using prepared product data for category $category_tag" . " - ";
 				$prepared = '_prepared';
-				push @{$product_ref->{misc_tags}}, "en:nutrition-grade-computed-for-prepared-product";
+				add_tag($product_ref, "misc", "en:nutrition-grade-computed-for-prepared-product");
 			}
 			else {
 				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
@@ -1547,10 +1563,31 @@ sub set_fields_for_current_version_of_nutriscore ($product_ref, $version, $nutri
 	# (to be deleted once we are sure everything works,
 	# we will generate the nutriscore_data fields on request
 	# when asked through the API with an old API version)
-	$product_ref->{nutriscore_data} = dclone($product_ref->{nutriscore}{$version}{data});
+	# Before 2023-08-29, we did not create a nutriscore_data structure when the Nutri-Score was not computed
+	# so we do not copy the nutriscore data structure in that case.
+	if ($product_ref->{nutriscore}{$version}{nutriscore_computed}) {
+		$product_ref->{nutriscore_data} = dclone($product_ref->{nutriscore}{$version}{data});
+		# The grade and score fields are now one level up (not in the data section)
+		# copy them for backward compatibility
+		$product_ref->{nutriscore_data}{grade} = $nutriscore_grade;
+		$product_ref->{nutriscore_data}{score} = $nutriscore_score;
+	}
 
 	# Copy the resulting values to the main Nutri-Score fields
-	$product_ref->{nutriscore_score} = $nutriscore_score;
+	if (defined $nutriscore_score) {
+		$product_ref->{nutriscore_score} = $nutriscore_score;
+
+		# Fields used to display the Nutri-Score score inside nutrition facts table
+		# and to compute averages etc. for categories
+		$product_ref->{nutriments}{"nutrition-score-fr_100g"} = $nutriscore_score;
+		$product_ref->{nutriments}{"nutrition-score-fr"} = $nutriscore_score;
+
+		# In order to be able to sort by nutrition score in MongoDB,
+		# we create an opposite of the nutrition score
+		# as otherwise, in ascending order on nutriscore_score, we first get products without the nutriscore_score field
+		# instead we can sort on descending order on nutriscore_score_opposite
+		$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;
+	}
 	$product_ref->{nutriscore_grade} = $nutriscore_grade;
 
 	$product_ref->{"nutrition_grades_tags"} = [$nutriscore_grade];
@@ -1560,19 +1597,8 @@ sub set_fields_for_current_version_of_nutriscore ($product_ref, $version, $nutri
 	# Gradually rename nutrition_grades_tags to nutriscore_tags
 	$product_ref->{"nutriscore_tags"} = [$nutriscore_grade];
 
-	# Fields used to display the Nutri-Score score inside nutrition facts table
-	# and to compute averages etc. for categories
-	$product_ref->{nutriments}{"nutrition-score-fr_100g"} = $nutriscore_score;
-	$product_ref->{nutriments}{"nutrition-score-fr"} = $nutriscore_score;
-
 	# Legacy field, to be removed from the product and returned by the API on request / for older versions
 	$product_ref->{"nutrition_grade_fr"} = $nutriscore_grade;
-
-	# In order to be able to sort by nutrition score in MongoDB,
-	# we create an opposite of the nutrition score
-	# as otherwise, in ascending order on nutriscore_score, we first get products without the nutriscore_score field
-	# instead we can sort on descending order on nutriscore_score_opposite
-	$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;
 
 	return;
 }
@@ -1596,18 +1622,27 @@ sub set_fields_comparing_nutriscore_versions ($product_ref, $version1, $version2
 	$product_ref->{"nutriscore_${version1}_tags"} = [$nutriscore1];
 	$product_ref->{"nutriscore_${version2}_tags"} = [$nutriscore2];
 
-	# Compare both versions
-	if ($nutriscore1 eq $nutriscore2) {
-		push @{$product_ref->{misc_tags}}, "en:nutriscore-$version1-same-as-$version2";
-	}
-	elsif ($nutriscore1 lt $nutriscore2) {
-		push @{$product_ref->{misc_tags}}, "en:nutriscore-$version1-better-than-$version2";
-	}
-	else {
-		push @{$product_ref->{misc_tags}}, "en:nutriscore-$version1-worse-than-$version2";
+	# Compare both versions, only if Nutri-Score has been computed in at least one version
+	if (   (not $product_ref->{nutriscore}{$version1}{nutriscore_computed})
+		or (not $product_ref->{nutriscore}{$version2}{nutriscore_computed}))
+	{
+		return;
 	}
 
-	push @{$product_ref->{misc_tags}}, "en:nutriscore-$version1-$nutriscore1-$version2-$nutriscore2";
+	if ($nutriscore1 eq $nutriscore2) {
+		add_tag($product_ref, "misc", "en:nutriscore-$version1-same-as-$version2");
+	}
+	else {
+		add_tag($product_ref, "misc", "en:nutriscore-$version1-different-from-$version2");
+		if ($nutriscore1 lt $nutriscore2) {
+			add_tag($product_ref, "misc", "en:nutriscore-$version1-better-than-$version2");
+		}
+		else {
+			add_tag($product_ref, "misc", "en:nutriscore-$version1-worse-than-$version2");
+		}
+	}
+
+	add_tag($product_ref, "misc", "en:nutriscore-$version1-$nutriscore1-$version2-$nutriscore2");
 
 	return;
 }
@@ -1630,50 +1665,78 @@ sub compute_nutriscore ($product_ref, $current_version = "2021") {
 	# Remove any previously existing Nutri-Score related fields
 	remove_nutriscore_fields($product_ref);
 
-	my $nutriscore_applicable = is_nutriscore_applicable_to_the_product_categories($product_ref);
+	my ($category_available, $nutriscore_applicable, $not_applicable_category)
+		= is_nutriscore_applicable_to_the_product_categories($product_ref);
 
 	my ($nutrients_available, $prepared, $nutriments_field)
 		= check_availability_of_nutrients_needed_for_nutriscore($product_ref);
 
 	if (not($nutriscore_applicable and $nutrients_available)) {
-		push @{$product_ref->{misc_tags}}, "en:nutriscore-not-computed";
+		add_tag($product_ref, "misc", "en:nutriscore-not-computed");
 	}
 	else {
-		push @{$product_ref->{misc_tags}}, "en:nutriscore-computed";
+		add_tag($product_ref, "misc", "en:nutriscore-computed");
+	}
 
-		$product_ref->{nutriscore} = {};
+	# 2023/08/10: compute both the 2021 and the 2023 versions of the Nutri-Score
 
-		# 2023/08/10: compute both the 2021 and the 2023 versions of the Nutri-Score
+	foreach my $version ("2021", "2023") {
 
-		foreach my $version ("2021", "2023") {
-
-			# Populate the data structure that will be passed to Food::Nutriscore
-			deep_set($product_ref, "nutriscore", $version, "data",
-				compute_nutriscore_data($product_ref, $prepared, $nutriments_field, $version));
-
-			# Compute the Nutri-Score
-			my ($nutriscore_score, $nutriscore_grade)
-				= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade(
-				$product_ref->{nutriscore}{$version}{data}, $version);
-
-			# Populate the Nutri-Score fields for the current version
-			if ($version eq $current_version) {
-
-				set_fields_for_current_version_of_nutriscore($product_ref, $current_version, $nutriscore_score,
-					$nutriscore_grade);
+		# Record if we have enough data to compute the Nutri-Score and if the Nutri-Score is applicable to the product categories
+		deep_set(
+			$product_ref,
+			"nutriscore",
+			$version,
+			{
+				"category_available" => $category_available,
+				"nutriscore_applicable" => $nutriscore_applicable,
+				"nutrients_available" => $nutrients_available,
+				"nutriscore_computed" => $nutriscore_applicable * $nutrients_available,
 			}
+		);
 
-			# Move the resulting score and grade up one level, to make them stand out
-			$product_ref->{nutriscore}{$version}{grade} = $product_ref->{nutriscore}{$version}{data}{grade};
-			$product_ref->{nutriscore}{$version}{score} = $product_ref->{nutriscore}{$version}{data}{score};
-			delete $product_ref->{nutriscore}{$version}{data}{grade};
-			delete $product_ref->{nutriscore}{$version}{data}{score};
+		if (defined $not_applicable_category) {
+			deep_set($product_ref, "nutriscore", $version, "not_applicable_category", $not_applicable_category);
 		}
 
-		# 2023/08/17: as we are migrating from one version of the Nutri-Score to another, we set temporary fields
-		# to compare both versions.
-		set_fields_comparing_nutriscore_versions($product_ref, "2021", "2023");
+		# Populate the data structure that will be passed to Food::Nutriscore
+		deep_set($product_ref, "nutriscore", $version, "data",
+			compute_nutriscore_data($product_ref, $prepared, $nutriments_field, $version));
+
+		# Compute the Nutri-Score
+		my ($nutriscore_score, $nutriscore_grade);
+
+		if (not $category_available) {
+			$nutriscore_grade = "unknown";
+		}
+		elsif (not $nutriscore_applicable) {
+			$nutriscore_grade = "not-applicable";
+		}
+		elsif (not $nutrients_available) {
+			$nutriscore_grade = "unknown";
+		}
+		else {
+			($nutriscore_score, $nutriscore_grade)
+				= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade(
+				$product_ref->{nutriscore}{$version}{data}, $version);
+		}
+
+		# Populate the Nutri-Score fields for the current version
+		if ($version eq $current_version) {
+
+			set_fields_for_current_version_of_nutriscore($product_ref, $current_version, $nutriscore_score,
+				$nutriscore_grade);
+		}
+
+		$product_ref->{nutriscore}{$version}{grade} = $nutriscore_grade;
+		if (defined $nutriscore_score) {
+			$product_ref->{nutriscore}{$version}{score} = $nutriscore_score;
+		}
 	}
+
+	# 2023/08/17: as we are migrating from one version of the Nutri-Score to another, we set temporary fields
+	# to compare both versions.
+	set_fields_comparing_nutriscore_versions($product_ref, "2021", "2023");
 
 	return;
 }

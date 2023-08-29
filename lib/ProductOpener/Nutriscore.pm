@@ -203,9 +203,6 @@ sub compute_nutriscore_score_and_grade_2021 ($nutriscore_data_ref) {
 		$nutriscore_data_ref->{is_water}
 	);
 
-	$nutriscore_data_ref->{score} = $nutrition_score;
-	$nutriscore_data_ref->{grade} = $nutrition_grade;
-
 	return ($nutrition_score, $nutrition_grade);
 }
 
@@ -552,9 +549,6 @@ sub compute_nutriscore_score_and_grade_2023 ($nutriscore_data_ref) {
 		$nutriscore_data_ref->{is_beverage},
 		$nutriscore_data_ref->{is_water}
 	);
-
-	$nutriscore_data_ref->{score} = $nutrition_score;
-	$nutriscore_data_ref->{grade} = $nutrition_grade;
 
 	return ($nutrition_score, $nutrition_grade);
 }
