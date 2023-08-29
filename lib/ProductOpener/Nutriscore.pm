@@ -747,26 +747,31 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 	# and the negative points are less than 7
 
 	$nutriscore_data_ref->{count_proteins} = 0;
-	if  ($nutriscore_data_ref->{is_beverage}) {
-			$nutriscore_data_ref->{count_proteins} = 1;
-			$nutriscore_data_ref->{count_proteins_reason} = "beverage";
-		}
-		elsif ($nutriscore_data_ref->{is_cheese}) {
-			$nutriscore_data_ref->{count_proteins} = 1;
-			$nutriscore_data_ref->{count_proteins_reason} = "cheese";
-		}
-		else {
-			if ($nutriscore_data_ref->{is_fat_oil_nuts_seeds}) {
-				if ($nutriscore_data_ref->{negative_points} < 7) {
-					$nutriscore_data_ref->{count_proteins} = 1;
-					$nutriscore_data_ref->{count_proteins_reason} = "negative_points_less_than_7";
-				}
+	if ($nutriscore_data_ref->{is_beverage}) {
+		$nutriscore_data_ref->{count_proteins} = 1;
+		$nutriscore_data_ref->{count_proteins_reason} = "beverage";
+	}
+	elsif ($nutriscore_data_ref->{is_cheese}) {
+		$nutriscore_data_ref->{count_proteins} = 1;
+		$nutriscore_data_ref->{count_proteins_reason} = "cheese";
+	}
+	else {
+		if ($nutriscore_data_ref->{is_fat_oil_nuts_seeds}) {
+			if ($nutriscore_data_ref->{negative_points} < 7) {
+				$nutriscore_data_ref->{count_proteins} = 1;
+				$nutriscore_data_ref->{count_proteins_reason} = "negative_points_less_than_7";
 			}
 			else {
-				if ($nutriscore_data_ref->{negative_points} < 11) {
-					$nutriscore_data_ref->{count_proteins} = 1;
-					$nutriscore_data_ref->{count_proteins_reason} = "negative_points_less_than_11";
-				}
+				$nutriscore_data_ref->{count_proteins_reason} = "negative_points_more_than_7";
+			}
+		}
+		else {
+			if ($nutriscore_data_ref->{negative_points} < 11) {
+				$nutriscore_data_ref->{count_proteins} = 1;
+				$nutriscore_data_ref->{count_proteins_reason} = "negative_points_less_than_11";
+			}
+			else {
+				$nutriscore_data_ref->{count_proteins_reason} = "negative_points_more_than_11";
 			}
 		}
 	}
