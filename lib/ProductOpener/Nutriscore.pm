@@ -141,7 +141,7 @@ of a food product, and also returns the details of the points for each nutrient.
 
 =head3 Arguments: $nutriscore_data_ref
 
-1 hash references need to be passed as arguments. It is used for both input and output:
+Hash reference used for both input and output:
 
 =head4 Input keys: data to compute Nutri-Score
 
@@ -172,8 +172,6 @@ Returned values:
 - [nutrient]_points -> points for each nutrient
 - negative_points -> sum of unfavorable nutrients points
 - positive_points -> sum of favorable nutrients points
-- score -> nutrition score
-- grade -> Nutri-Score grade (A ti E
 
 The nutrients that are counted for the negative and positive points depend on the product type
 (if it is a beverage, cheese or fat) and on the values for some of the nutrients.
@@ -226,7 +224,7 @@ my %points_thresholds_2021 = (
 	proteins => [1.6, 3.2, 4.8, 6.4, 8.0]    # g / 100g
 );
 
-=head2 get_value_with_one_less_negative_point( $nutriscore_data_ref, $nutrient )
+=head2 get_value_with_one_less_negative_point_2021 ( $nutriscore_data_ref, $nutrient )
 
 For a given Nutri-Score nutrient value, return the highest smaller value that would result in less negative points.
 e.g. for a sugars value of 15 (which gives 3 points), return 13.5 (which gives 2 points).
@@ -261,7 +259,7 @@ sub get_value_with_one_less_negative_point_2021 ($nutriscore_data_ref, $nutrient
 	return $lower_threshold;
 }
 
-=head2 get_value_with_one_more_positive_point( $nutriscore_data_ref, $nutrient )
+=head2 get_value_with_one_more_positive_point_2021 ( $nutriscore_data_ref, $nutrient )
 
 For a given Nutri-Score nutrient value, return the smallest higher value that would result in more positive points.
 e.g. for a proteins value of 2.0 (which gives 1 point), return 3.3 (which gives 2 points)
@@ -488,7 +486,7 @@ of a food product, and also returns the details of the points for each nutrient.
 
 =head3 Arguments: $nutriscore_data_ref
 
-1 hash references need to be passed as arguments. It is used for both input and output:
+Hash reference used for both input and output:
 
 =head4 Input keys: data to compute Nutri-Score
 
@@ -517,10 +515,12 @@ Returned values:
 
 - [nutrient]_value -> rounded values for each nutrient according to the Nutri-Score rules
 - [nutrient]_points -> points for each nutrient
+- negative_nutrients -> list of nutrients that are counted in negative points
 - negative_points -> sum of unfavorable nutrients points
+- positive_nutrients -> list of nutrients that are counted in positive points
 - positive_points -> sum of favorable nutrients points
-- score -> nutrition score
-- grade -> Nutri-Score grade (A ti E
+- count_proteins -> indicates if proteins are counted in the positive points
+- count_proteins_reason ->  indicates why proteins are counted
 
 The nutrients that are counted for the negative and positive points depend on the product type
 (if it is a beverage, cheese or fat) and on the values for some of the nutrients.
@@ -728,16 +728,16 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 
 	# Negative points
 
+	$nutriscore_data_ref->{negative_nutrients} = [$energy, "sugars", $saturated_fat, "salt", "sweeteners"];
 	$nutriscore_data_ref->{negative_points} = 0;
-	foreach my $nutrient ($energy, "sugars", $saturated_fat, "salt", "sweeteners") {
+	foreach my $nutrient (@{$nutriscore_data_ref->{negative_nutrients}}) {
 		$nutriscore_data_ref->{negative_points} += ($nutriscore_data_ref->{$nutrient . "_points"} || 0);
 	}
 
 	# Positive points
 
 	$nutriscore_data_ref->{positive_points} = 0;
-
-	my @positive_nutrients = qw(fruits_vegetables_legumes fiber);
+	$nutriscore_data_ref->{positive_nutrients} = ["fruits_vegetables_legumes", "fiber"];
 
 	# Positive points for proteins are counted in the following 3 cases:
 	# - the product is a beverage
@@ -746,17 +746,36 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 	# - the product is in the fats, oils, nuts and seeds category
 	# and the negative points are less than 7
 
-	if (
-		($nutriscore_data_ref->{is_beverage})
-		or (    (not $nutriscore_data_ref->{is_fat_oil_nuts_seeds})
-			and (($nutriscore_data_ref->{negative_points} < 11) or ($nutriscore_data_ref->{is_cheese})))
-		or ($nutriscore_data_ref->{negative_points} < 7)
-		)
-	{
-		push @positive_nutrients, "proteins";
+	$nutriscore_data_ref->{count_proteins} = 0;
+	if  ($nutriscore_data_ref->{is_beverage}) {
+			$nutriscore_data_ref->{count_proteins} = 1;
+			$nutriscore_data_ref->{count_proteins_reason} = "beverage";
+		}
+		elsif ($nutriscore_data_ref->{is_cheese}) {
+			$nutriscore_data_ref->{count_proteins} = 1;
+			$nutriscore_data_ref->{count_proteins_reason} = "cheese";
+		}
+		else {
+			if ($nutriscore_data_ref->{is_fat_oil_nuts_seeds}) {
+				if ($nutriscore_data_ref->{negative_points} < 7) {
+					$nutriscore_data_ref->{count_proteins} = 1;
+					$nutriscore_data_ref->{count_proteins_reason} = "negative_points_less_than_7";
+				}
+			}
+			else {
+				if ($nutriscore_data_ref->{negative_points} < 11) {
+					$nutriscore_data_ref->{count_proteins} = 1;
+					$nutriscore_data_ref->{count_proteins_reason} = "negative_points_less_than_11";
+				}
+			}
+		}
 	}
 
-	foreach my $nutrient (@positive_nutrients) {
+	if ($nutriscore_data_ref->{count_proteins}) {
+		push @{$nutriscore_data_ref->{positive_nutrients}}, "proteins";
+	}
+
+	foreach my $nutrient (@{$nutriscore_data_ref->{positive_nutrients}}) {
 		$nutriscore_data_ref->{positive_points} += ($nutriscore_data_ref->{$nutrient . "_points"} || 0);
 	}
 
