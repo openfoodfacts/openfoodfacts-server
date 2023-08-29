@@ -48,7 +48,9 @@ my @scan_code_tests = (
 	["02_upc_e.jpg", "01234565"],
 	["03_itf_13.jpg", "0012345123456"],
 	["04_gs1_128.jpg", "4044782317112"],
-	["05_gs1_databar_omni.jpg", "1234567890128"],
+	["05_gs1_databar_omni.jpg", "5010029000214"],
+	["07_gs1_databar_stacked.jpg", "5010029000214"],
+	["08_gs1_databar_stacked_omni.jpg", "5010029000214"],
 	["37_gs1_datamatrix.jpg", "0725272730706"],
 	["43_gs1_qrcode_digital_link.jpg", "9506000134369"],
 	["52_gs1_datamatrix_digital_link.jpg", "5010029000214"]
