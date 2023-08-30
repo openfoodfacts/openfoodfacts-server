@@ -31,7 +31,7 @@ do
 done
 
 # create some directories that might be needed
-for path in deleted_products_images reverted_products deleted_private_products translate deleted_products deleted.images import_files
+for path in new_images deleted_products_images reverted_products deleted_private_products translate deleted_products deleted.images import_files tmp build-cache/taxonomies debug
 do
   path="/mnt/podata/$path"
   [[ -d $path ]] || mkdir $path

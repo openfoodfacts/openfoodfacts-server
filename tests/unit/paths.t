@@ -42,10 +42,7 @@ my $EXPECTED_FOREIGN_PATHS = {
 	OPF_PRODUCTS_DIR => '/srv/opf/products',
 	OPF_PRODUCTS_IMAGES_DIR => '/srv/opf/html/images/products',
 };
-my %EXPECTED_OFF_PATHS = (
-	%{$EXPECTED_BASE_PATHS},
-	%{$EXPECTED_FOREIGN_PATHS},
-);
+my %EXPECTED_OFF_PATHS = (%{$EXPECTED_BASE_PATHS}, %{$EXPECTED_FOREIGN_PATHS},);
 is_deeply(base_paths(), \%EXPECTED_OFF_PATHS, "base_paths content for off");
 
 ok(ensure_dir_created("$BASE_DIRS{CACHE_TMP}"), "cache tmp directory exists");
