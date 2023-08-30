@@ -28098,7 +28098,8 @@ nl:rijstmelk
 
 #description:en:Carob pods are mildly sweet on their own, so they are used in powdered, chip or syrup form as an ingredient in cakes and cookies, sometimes as a substitute for chocolate in recipes because of the color, texture, and taste of carob.
 #comment:en:When used as ingredient, the kernels of the carob pod of the carob tree is used.
-en:carob seeds, carob, Carobin
+<en:pulse
+en:carob bean locust bean, carob seeds, carob, Carobin
 ca:garrofa, farina de garrofa
 cs:carubin
 da:Johannesbrødmel
@@ -28115,6 +28116,7 @@ pl:karob, karobu, karobowy, karobowe, karobowa
 sv:Johannesbrödfrö
 vegan:en:yes
 vegetarian:en:yes
+eurocode_2_group_3:en: 7.10.xx
 
 <en:carob seeds
 en:caroube dalmate
@@ -33131,6 +33133,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Textured_vegetable_protein
 #category/soy-beans
 <en:soya
 <en:legume
+<en:pulse
 en:soya bean, soy beans, soya beans, soybean, soybeans
 ar:فول الصويا
 bg:соеви зърна
@@ -33187,6 +33190,7 @@ description:pt:A soja (Glycine max), também conhecida como feijão-soja e feij�
 ciqual_food_code:en:20901
 ciqual_food_name:en:Soybean, whole grain
 ciqual_food_name:fr:Soja, graine entière
+eurocode_2_group_3:en: 7.10.50
 
 <en:soya bean
 en:Whole soybean grain
@@ -47721,6 +47725,7 @@ ciqual_food_name:fr:Chou romanesco ou brocoli à pomme, cru
 # description:en:CAULIFLOWER is one of several vegetables in the species Brassica oleracea in the genus Brassica
 
 <en:vegetable
+<en:brassica
 en:cauliflower
 bg:карфиол
 da:blomkål
@@ -47754,6 +47759,7 @@ nl:Bloemkoolroosjes
 # description:en:CABBAGE or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads.
 
 <en:vegetable
+<en:brassica
 en:cabbage
 bg:зеле
 ca:col
@@ -48087,6 +48093,7 @@ ciqual_food_name:fr:Chou chinois ou pak-choi ou pé-tsai, cru
 eurocode_2_group_3:en: 8.15.28
 
 <en:cabbage
+<en:brassica
 en:brussels sprouts
 af:brusselspruit
 ar:كرنب بروكسل
@@ -49415,7 +49422,7 @@ description:en:large species of bamboo grass
 # description:en:HEART OF PALM is a vegetable harvested from the inner core and growing bud of certain palm trees. Heart of palm may be eaten on its own, and often it is eaten in a salad. Hearts of palm are rich in fiber, potassium, iron, zinc, phosphorus, copper, vitamins B2, B6, and C.
 
 # <en:category:en:Fresh plant-based foods
-<en:vegetable
+<en:shoot vegetable
 en:Heart of palm, Hearts of palm, palm heart
 ar:جمار
 de:Palmherzen, Palmherz
@@ -54064,7 +54071,7 @@ sv:paprika
 en:fruit vegetable
 eurocode_2_group_2:en: 8.40
 
-<en:vegetable
+<en:fruit vegetable
 en:tomato, tomatoes
 ab:Атомат
 am:ቲማቲም
@@ -55285,6 +55292,7 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Navette_(plante)
 # comment:en:Beans is the generic term for Phaseolus vulgaris, however the correct name "common bean" is not much used as ingredient. So be wary with the wikidata translations as well.
 
 <en:legume
+<en:pulse
 en:beans, common bean, bean
 am:ኣደንጓሬ
 ar:فاصولياء شائعة
@@ -55386,6 +55394,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Phaseolus_vulgaris
 # ingredient/fr:haricots has 92 products in 4 languages @2019-06-02
 carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
 carbon_footprint_fr_foodges_value:fr:2
+eurocode_2_group_3:en: 7.10.30
 
 <en:beans
 en:bean sprouts, beansprouts
@@ -55581,8 +55590,8 @@ wikidata:en:Q159753
 ##########################
 
 
-
-# description:en:A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse). Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
+# description:en:A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse).
+# Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
 en:legume
 af:Peulgewas
 an:Legumbre
@@ -55668,10 +55677,16 @@ wikidata:en:Q145909
 vegan:en:yes
 vegetarian:en:yes
 
+<en:legume
+en:pulse, pulses
+fr:légumineuse sèche, légumineuses sèches, légumes secs, légume sec
+pt:pulso
+eurocode_2_group_2:en: 7.10
+wikidata:en:Q2727662
+
 # description:en:Phaseolus lunatus, commonly known as the LIMA BEAN, butter bean, sieva bean, Double Bean or Madagascar bean, is a legume grown for its edible seeds or beans
 
 #category/butter-beans
-<en:legume
 <en:pod and seed vegetable
 en:lima bean, lima beans, butter bean
 ca:garrofó, fesol de la peladilla, mongeta de Lima
@@ -55683,7 +55698,7 @@ es:Garrofones, Garrofón, Habones, Judías de Lima, Habas de Lima
 eu:limako babarruna
 fa:لوبیای عروس
 fi:voipapu, limanpapu, valkoinen voipapu
-fr:haricot de Lima
+fr:haricot de Lima, haricots de Lima
 ga:pónaire mhór
 ht:pwachouk
 id:kacang kratok, kacang jawa, kekara
@@ -55714,7 +55729,16 @@ ciqual_food_code:en:20126
 ciqual_food_name:en:Lima bean, raw
 ciqual_food_name:fr:Haricot de Lima, cru
 #528 @2021-10-27
+# eurocode 8.45.25 is for fresh Lima beans
 eurocode_2_group_3:en: 8.45.25
+# eurocode 7.10.34 is for dried lima beans
+# eurocode_2_group_3:en: 7.10.34
+
+<en:lima bean
+<en:pulse
+en:dried lima bean
+fr:haricot de Lima sec, haricots de Lima secs
+eurocode_2_group_3:en: 7.10.34
 
 <en:lima bean
 en:large lima beans
@@ -55724,12 +55748,16 @@ fr:Grands haricots de Lima
 en:baby lima beans
 
 <en:legume
+<en:pulse
 en:pinto beans
 de:Pinto Bohnen
 es:frijol pinto
 fr:Haricots pinto
+eurocode_2_group_3:en: 7.10.30
+eurocode_2_group_4:en: 7.10.30.45
 
 <en:legume
+<en:pulse
 en:white beans, navy beans, great northern beans, haricot beans
 bg:бял боб
 da:hvide bønner
@@ -55744,11 +55772,14 @@ pl:fasola biała
 ru:фасоль белая
 sv:vit böna, vita bönor
 # ingredient/fr:lingots-blancs has 8 products @2019-06-02
+eurocode_2_group_3:en: 7.10.30
+eurocode_2_group_4:en: 7.10.30.10
 
-<en:legume
+
+<en:pulse
 fr:haricots coco roses, haricots cocos roses
 
-<en:legume
+<en:pulse
 fr:haricots chevriers verts
 
 <en:white beans
@@ -55766,26 +55797,38 @@ fr:haricots blancs précuits
 <en:white beans
 fr:haricots blancs réhydratés
 
-<en:legume
-en:black beans
+<en:pulse
+en:black bean, black beans
 bg:черен боб
 da:sorte bønner
 de:schwarze Bohnen
 es:Alubias negras
 fi:mustapapu, mustapavut
-fr:haricots noirs
+fr:haricot noir, haricots noirs
 it:Fagioli neri
 nl:Zwarte bonen
 pl:fasola czarna, fasoli czarnej
 pt:Feijão preto
 sv:svarta bönor
+eurocode_2_group_3:en: 7.10.30
+eurocode_2_group_4:en: 7.10.30.40
 
 <en:black beans
 en:black bean flour
 fr:farine de haricots noirs
 
-<en:legume
-en:red beans, red kidney beans, kidney beans
+<en:pulse
+en:Boston bean
+eurocode_2_group_3:en: 7.10.30
+eurocode_2_group_4:en: 7.10.30.20
+
+<en:pulse
+en:kidney bean
+eurocode_2_group_3:en: 7.10.30
+eurocode_2_group_4:en: 7.10.30.20
+
+<en:pulse
+en:red bean, red beans, red kidney beans
 bg:червен боб
 da:Røde kidneybønner, kidneybønner
 de:Rote Bohnen, Kidneybohnen
@@ -55801,6 +55844,8 @@ ru:фасоль красная, красная фасоль, Фасоль кру
 sv:röda kidneybönor, kidneybönor
 wikidata:en:Q1828227
 wikipedia:en:https://en.wikipedia.org/wiki/Kidney_bean
+eurocode_2_group_3:en: 7.10.30
+eurocode_2_group_4:en: 7.10.30.25
 
 <en:red beans
 en:small red beans
@@ -55821,7 +55866,7 @@ fr:haricots rouges précuits
 <en:red beans
 fr:haricots rouges réhydratés
 
-<en:legume
+<en:kidney bean
 en:cannellini beans, white kidney beans
 de:Cannellini Bohnen, Cannellinibohnen
 fr:haricots cannellini
@@ -55830,6 +55875,7 @@ wikidata:en:Q74663825
 
 #comment:en:Do not confuse these with mungo beans: Vigna mungo
 <en:legume
+<en:pulse
 en:mung bean, mungbean
 ar:بقلة الماش
 bg:папуда, птичи боб, бебриджа
@@ -55845,7 +55891,7 @@ el:ροβίτσα
 eo:mungfabo
 es:judías mungo, habas de mungo
 et:munguba
-fa:ماش‎
+fa:ماش
 fi:mungpapu
 fr:haricot mungo
 gu:મગ
@@ -55902,6 +55948,13 @@ zh:綠豆
 wikidata:en:Q484447
 wikipedia:en:https://en.wikipedia.org/wiki/Mung_bean
 #579 @2021-10-06
+eurocode_2_group_3:en: 7.10.38
+
+<en:pulse
+en:black gram, urd bean, urd
+fr:haricot urd, haricots urd, urd, haricot mungio à grain noir
+la:vigna mungo
+eurocode_2_group_3:en: 7.10.42
 
 <en:mung bean
 en:mung bean sprout, mung bean seedlings
@@ -55943,7 +55996,7 @@ ciqual_food_name:fr:Haricot mungo germé ou pousse de ""soja"", cru
 #en:Mungbean powder
 #zh:緣豆粉
 
-<en:legume
+<en:pulse
 en:borlotti bean, borlotti, cranberry bean
 de:Borlotti Bohnen, Borlottibohnen
 fr:haricots borlotti, haricots marbrés
@@ -55954,7 +56007,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cranberry_bean
 description:en:The borlotti bean is a variety of common bean (Phaseolus vulgaris) first bred in Colombia as the cargamanto.
 # description:en:The BLACK-EYED PEA is a subspecies of the cowpea, grown around the world for its medium-sized, edible bean.
 
-<en:legume
+<en:pulse
 en:black-eyed pea, blackeye peas, black eye beans, black eyed beans
 de:Augenbohnen
 dv:ލޫބިޔާ
@@ -55976,8 +56029,9 @@ zh:黑眼豆
 wikidata:en:Q3246973
 wikipedia:en:https://en.wikipedia.org/wiki/Black-eyed_pea
 # ingredient/nl:zwarte-oogbonen has 1 product @2019-05-24
+eurocode_2_group_3:en: 7.10.46
 
-<en:legume
+<en:pulse
 en:brown beans
 da:brune bønner
 de:braune Bohnen
@@ -55986,9 +56040,10 @@ fi:ruskea papu, ruskeat pavut
 fr:haricots bruns
 nb:brune bønner
 nl:bruine bonen
+eurocode_2_group_3:en: 7.10.30
+eurocode_2_group_4:en: 7.10.30.35
 
-
-<en:legume
+<en:pulse
 en:flageolets
 de:Flageolette
 es:habichuelas
@@ -55997,6 +56052,8 @@ fr:flageolets
 # ingredient/fr:flageolets has 74 products in 2 languages @2019-02-25
 carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
 carbon_footprint_fr_foodges_value:fr:2
+eurocode_2_group_3:en: 7.10.30
+eurocode_2_group_4:en: 7.10.30.30
 
 <en:flageolets
 en:green flageolets
@@ -56016,7 +56073,7 @@ nl:extra fijne groene flageolets
 # description:en:Lupin or lupini beans are the yellow legume seeds of the genus Lupinus. They are traditionally eaten as a pickled snack food. The lupin is devoid of starch, which is very unusual for a species of edible bean. Lupin allergy may cause life-threatening anaphylaxis in sensitive individuals.
 # only "sweet" varieties of lupin are used for human food
 
-<en:legume
+<en:pulse
 en:lupin bean, lupin, lupines, lupine, sweet lupin, lupini, lupini beans
 ar:ترمس
 az:Acıpaxla
@@ -56090,6 +56147,7 @@ ciqual_food_code:en:20534
 ciqual_food_name:en:lupin grain, raw
 ciqual_food_name:fr:Lupin, graine crue
 # 957 in 12 @2021-10-01
+eurocode_2_group_3:en: 7.10.xx
 
 <en:lupin
 en:white lupin
@@ -56143,7 +56201,6 @@ nl:gerehydrateerde vermicelli van erwten
 <en:legume
 nl:veldbonen
 
-<en:legume
 <en:pod and seed vegetable
 en:broad bean, fava bean, faba bean, Vicia faba
 am:ባቄላ
@@ -56254,7 +56311,16 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vicia_faba
 ciqual_food_code:en:20518
 ciqual_food_name:en:Broad bean, dried
 ciqual_food_name:fr:Fève, sèche
+#eurocode 8.45.20 is for fresh broad beans
+#eurocode_2_group_3:en: 7.10.20 is for dried broad beans
 eurocode_2_group_3:en: 8.45.20
+
+
+<en:broad bean
+<en:pulse
+en:dried broad bean
+fr:fève sêche, fèves sèches
+eurocode_2_group_3:en: 7.10.20
 
 <en:broad bean
 en:faba bean preparation
@@ -56266,8 +56332,10 @@ fr:Fèves fraîches à écosser
 ciqual_food_code:en:20517
 ciqual_food_name:en:Broad bean, to shell, fresh
 ciqual_food_name:fr:Fève à écosser, fraîche
+eurocode_2_group_3:en: 8.45.20
 
-<en:legume
+<en:pulse
+en:horse bean
 fr:féverole, féverolle
 
 <en:plant protein
@@ -56276,11 +56344,11 @@ de:Ackerbohneneiweiß
 nl:tuinbooneiwit
 
 # rare bean from the Lyon region in France
-<en:legume
+<en:pulse
 en:meat bean
 fr:haricot viande, haricots viande
 
-<en:legume
+<en:pulse
 en:Adzuki bean, azuki bean
 en:Adzuki bean, azuki bean
 ar:لوبياء مقرنة
@@ -56519,7 +56587,7 @@ de:Palerbse, Palerbsen
 
 # description:en:The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
 # chickpea parent is NOT pea
-<en:legume
+<en:pulse
 en:chickpea, chickpeas, garbanzo, garbanzo beans, chick pea, chick peas
 af:kekerertjie
 am:ሽምብራ
@@ -56626,6 +56694,7 @@ carbon_footprint_fr_foodges_value:fr:1.5
 # ingredient/fr:pois-chiche has 700 products in 13 languages @2019-02-15
 ciqual_food_code:en:20532
 ciqual_food_name:fr:Pois chiche, appertisé, égoutté
+eurocode_2_group_3:en: 7.10.15
 
 <en:chickpea
 en:pedrosillano chickpeas
@@ -56882,6 +56951,7 @@ vegetarian:en:yes
 # description:en:SPLIT PEAS  are an agricultural or culinary preparation consisting of the dried, peeled and split seeds of Pisum sativum, the pea. Green and yellow split peas are commonly used to make pea soup or "split pea soup", and sometimes pease pudding, which was commonly prepared in medieval Europe.
 
 <en:pea
+<en:pulse
 en:split pea, split peas
 de:Schälerbsen, geschälte Trockenerbsen
 el:Φάβα
@@ -56903,6 +56973,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Split_pea
 ciqual_food_code:en:20506
 ciqual_food_name:en:Split pea, cooked
 ciqual_food_name:fr:Pois cassé, cuit
+eurocode_2_group_3:en: 7.10.10
 
 <en:split pea
 en:Cooked split peas
@@ -56946,6 +57017,7 @@ sv:plattvial
 # comment:en:The wikidata entry is more about the plant, so translations can be wrong.
 
 <en:legume
+<en:pulse
 en:lentils, lentil
 am:ምስ'ር
 ar:عدس
@@ -57052,6 +57124,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Lentilles vertes
 carbon_footprint_fr_foodges_value:fr:0.3
 ciqual_food_code:en:20505
 ciqual_food_name:fr:Lentille, bouillie/cuite à l'eau
+eurocode_2_group_3:en: 7.10.25
 
 <en:lentils
 en:pardina lentils
