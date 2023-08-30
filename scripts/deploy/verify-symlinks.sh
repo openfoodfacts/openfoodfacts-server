@@ -133,8 +133,8 @@ function compute_expected_links {
   EXPECTED_LINKS["/etc/nginx/mime.types"]="$REPO_PATH/conf/nginx/mime.types"
   if [[ $SERVICE eq "off" ]]
   then
-    EXPECTED_LINKS["/etc/nginx/off.domain-redirects.include"]="$REPO_PATH/conf/nginx/off.domain-redirects.include"
-    EXPECTED_LINKS["/etc/nginx/off.locations-redirects.include"]="$REPO_PATH/conf/nginx/off.locations-redirects.include"
+    EXPECTED_LINKS["/etc/nginx/snippets/off.domain-redirects.include"]="$REPO_PATH/conf/nginx/off.domain-redirects.include"
+    EXPECTED_LINKS["/etc/nginx/snippets/off.locations-redirects.include"]="$REPO_PATH/conf/nginx/off.locations-redirects.include"
   fi
 
   # apache2 links

@@ -125,7 +125,7 @@ services:
       # some expires rules
       - ./conf/nginx/snippets/expires-no-json-xml.conf:/etc/nginx/snippets/expires-no-json-xml.conf
       # some redirects
-      - ./conf/nginx/snippets/off.locations-redirects.include:/etc/nginx/conf.d/off.locations-redirects.include
+      - ./conf/nginx/snippets/off.locations-redirects.include:/etc/nginx/snippets/off.locations-redirects.include
     ports:
       - ${PRODUCT_OPENER_EXPOSE}${PRODUCT_OPENER_PORT}:80
 
