@@ -27,52 +27,37 @@
 # - convert xls file into csv:
 # $ ssconvert '07-08-2023. svi odobreni objekti.xls'  hr_07082023_svi_odobreni_objekti.csv
 # - remove first lines before header:
-# $ sed '1,4d' hr_07082023_svi_odobreni_objekti.csv > hr-export_crop.csv
-# - replace "," separator by ";" separator:
+# $ sed '1,4d' hr_07082023_svi_odobreni_objekti.csv > hr-export_truncated.csv
+# - csv file is expected to be semi-colons separed but file already contains semi-colons
+#   we will reaplace all semi-colons by a default text temporarily
+#   convert separators to semi-colons
+#   finally convert default text to commas
+# $ rpl ";" "<semi-colon>" hr-export_crop.csv
 # $ csvtool -t ',' -u ';' col 1- hr-export_crop.csv > hr-export.csv
-# - copy this last file to packager-codes folder
-# - replace undef by your GOOGLE_APIKEY
-# - run this script
-# - delete hr-export.csv from packager-codes folder
+# $ rpl "<semi-colon>" "," hr-export.csv
+# - remove all quotes, not necessary anymore
+# $ rpl "\"" "" hr-export.csv
+# - remove spaces before and after semi-colons
+# $ rpl " ;" ";" hr-export.csv
+# $ rpl "; " ";" hr-export.csv
 
-use utf8;
-use autodie;
-use open qw(:std :utf8);
-use Modern::Perl '2017';
-
+use Time::HiRes;    # sleep less than a second
+use HTTP::CookieJar::LWP;
+use LWP::UserAgent;
+use JSON qw(from_json);
 use Encode qw( encode );
-
-use CHI ();
 use Data::Table qw( fromCSV );
-use Future::AsyncAwait;
-use Future::Utils qw( fmap_scalar fmap0 );
-use Geo::Coder::Google 0.20;
-use IO::Async::Function ();
-use IO::Async::Loop ();
-use Math::BigNum ();
-use Sort::Naturally qw( ncmp );
 use Text::CSV qw( csv );
+use strict;
+use warnings;
 
-use ProductOpener::Config qw/:all/;
+my $jar = HTTP::CookieJar::LWP->new;
+my $ua = LWP::UserAgent->new(cookie_jar => $jar);
 
-my $csv_file = 'hr-export.csv';
+my $csv_file = 'hr-export.csv';    # this file should be in the same folder as this script
 my $csv_encoding = 'utf-8';
-
 my $outfile = 'HR-merge-UTF-8.csv';
-# my $nolatlongfile = 'DE-nolatlong.html'; # benbenben not needed
-
-my @address_columns = ('ADRESA OBJEKTA (Address)', 'MJESTO I POŠTANSKI BROJ (town/postal code');
-
-my $GOOGLE_APIKEY = undef;
-
-my $geocoder;
-$geocoder = Geo::Coder::Google->new(
-	apiver => 3,
-	apikey => $GOOGLE_APIKEY,
-	host => 'maps.google.hr',
-	hl => 'en',
-	gl => 'hr'
-) if defined $GOOGLE_APIKEY;
+my %known_locations = ();
 
 my $csv = Text::CSV->new(
 	{
@@ -84,209 +69,99 @@ my $csv = Text::CSV->new(
 		quote_char => undef,
 		escape_char => undef,
 		strict => 1,
+		allow_whitespace => 1,    # strip whitespace around separator
 	}
 );
-
-my $cache = CHI->new(driver => 'Memory', global => 1);
-
-my $loop = IO::Async::Loop->new;
-
-my $geofun = IO::Async::Function->new(
-	code => sub {
-		my ($location) = @_;
-		my $res;
-		if (defined $geocoder) {
-			$res = eval {$geocoder->geocode(location => $location)};
-			if ($@) {
-				say {*STDERR} "Error geocoding $location: $@";
-			}
-		}
-		return $res;
-	},
-	max_workers => 15,
-);
-
-$loop->add($geofun);
-
-sub trim {my $s = shift; $s =~ s/^\s+|\s+$//gsmx; return $s}
-
-sub fill_cache {
-	my ($cache) = @_;
-
-	if (-e "$data_root/packager-codes/$outfile") {
-		my $row_refs = csv(
-			in => "$data_root/packager-codes/$outfile",
-			headers => 'auto',
-			sep_char => q{;},
-			quote_char => q{"}
-		);
-
-		foreach my $row_ref (@{$row_refs}) {
-			if ($row_ref->{'lat'} && $row_ref->{'lng'}) {
-				my $address = join q{, }, @{$row_ref}{@address_columns};
-				my $lat = $row_ref->{'lat'};
-				my $lng = $row_ref->{'lng'};
-				if ($address) {
-					$cache->set($address, {lat => $lat, lng => $lng});
-				}
-			}
-		}
-	}
-
-	return;
-}
-
-async sub geocode_address {
-	my ($address) = @_;
-
-	my ($lat, $lng);
-
-	my $cached = $cache->get($address);
-	if ($cached) {
-		$lat = $cached->{lat};
-		$lng = $cached->{lng};
-	}
-	else {
-		my $res = await $geofun->call(args => [$address]);
-
-		if (    exists $res->{'geometry'}
-			and exists $res->{'geometry'}{'location'})
-		{
-			$lat = $res->{'geometry'}{'location'}{'lat'};
-			$lng = $res->{'geometry'}{'location'}{'lng'};
-
-			# Exponential notation won't work
-			$lat = Math::BigNum->new($lat)->as_float;
-			$lng = Math::BigNum->new($lng)->as_float;
-
-			$cache->set($address, {lat => $lat, lng => $lng});
-		}
-		else {
-			say {*STDERR} "Didn't receive coordinates for address: $address";
-
-		}
-	}
-
-	return ($lat, $lng);
-}
-
-async sub geocode_row {
-	my ($t, $row_idx) = @_;
-
-	my $rowhash_ref = $t->rowHashRef($row_idx);
-	my $address = join q{, }, @{$rowhash_ref}{@address_columns};
-
-	my ($lat, $lng) = await geocode_address($address);
-
-	$t->setElm($row_idx, 'lat', $lat);
-	$t->setElm($row_idx, 'lng', $lng);
-}
-
-async sub geocode_table {
-	my ($t) = @_;
-
-	await fmap0 {
-		my ($i) = @_;
-		geocode_row($t, $i);
-	}
-	foreach => [0 .. $t->lastRow],
-		concurrent => 15;
-}
-
-# sub fixup_csv { # benbenben not needed
-# 	my ($csv_string_ref) = @_;
-
-# 	# Lines end with separator, parser thinks there's an empty field there
-# 	${$csv_string_ref} =~ s/;$//gsmx; # benbenben no ; at tend of line
-# 	${$csv_string_ref} =~ tr/„”“‟/"/;    # Normalize different double quotes # # benbenben no different quotes
-# 	${$csv_string_ref} =~ s/\r\n//gsmx;    # Remove unquoted embedded CRLF
-# 										   # e.g ';OT Ebenheit' in address splitting the field
-# 	${$csv_string_ref} =~ s/;(?=\sOT)/,/gsmx;
-
-# 	return;
-# }
 
 sub read_csv {
 	open my $in_fh, "<:encoding($csv_encoding)", $csv_file;
 	read $in_fh, my $csv_string, -s $in_fh;
 	close $in_fh;
 
-	# fixup_csv(\$csv_string);
-
 	open my $string_fh, '<:encoding(utf-8)', \(encode('utf-8', $csv_string));
 
 	return $string_fh;
 }
 
-sub make_header {
-	my ($fh) = @_;
+sub prepare_url {
+	my ($row) = shift;
 
-	my $hrow = $csv->getline($fh);
-	@{$hrow} = map {trim($_)} @{$hrow};
+	my $street = $row->[3];
 
-	# my @header; # benbenben no duplicated columns
-	# my %seen_hdrs = (); # benbenben no duplicated columns
-	foreach my $label (@{$hrow}) {
-		# my $nseen = ++$seen_hdrs{$label}; # benbenben no duplicated columns
+	my $town_and_postalcode = $row->[4];
+	$town_and_postalcode =~ s/"//g;    # remove quotes "
+	$town_and_postalcode =~ s/\s+$//g;    # remove trailing whitespace
+	my ($town, $postalcode) = split(", ", $town_and_postalcode);
+	my $municipality = $row->[5];
+	my $county = $row->[6];
 
-		# if ($nseen > 1) { #  benbenbenno duplicated columns
-		# 	$label = $label . $nseen; # benbenben no duplicated columns
-		# } # benbenben no duplicated columns
+	my $url
+		= "https://geocode.maps.co/search?street=$street&town=$town&postalcode=$postalcode&municipality=$municipality&county=$county&country=Croatia&country_code=hr\n";
 
-		push @header, $label;
-	}
-
-	return \@header;
+	$url =~ s/[ \t]/+/g;
+	return $url;
 }
 
-sub make_table {
-	my ($fh, $header_ref) = @_;
+sub get_lat_lon_sub {
+	my ($url_get) = shift;
+	my $lt = "";
+	my $ln = "";
 
-	my $t = Data::Table->new([], $header_ref);
+	my $search_coordinates = $ua->get($url_get);
+	if ($search_coordinates->is_success) {
+		my ($search_coordinates_result) = $search_coordinates->decoded_content;
+		# convert to json
+		my $json_data = from_json($search_coordinates_result);
 
-	# Data::Table::fromCSV doesn't have a good handling of loose quotes
-	# at the start/end of a field. Use Text::CSV for reading.
-	while (1) {
-		my $row = $csv->getline($fh);
-		last if $csv->eof;
-		if (defined $row) {
-			$t->addRow($row);
+		for my $hashref (@{$json_data}) {
+			$lt = $hashref->{lat};
+			$ln = $hashref->{lon};
+			last;
 		}
 	}
+	else {
+		die $search_coordinates->status_line;
+	}
+	Time::HiRes::sleep(0.5);    # 2 requests per second limitation
 
-	# $t->addCol(undef, 'code', 0); # benbenben no need to recreate code if missing
-	$t->addCol(undef, $_) for ('lat', 'lng');
-
-	return $t;
+	return ($lt, $ln);
 }
 
-# async sub process_rows {
-# 	my ($t) = @_;
+sub get_lat_lon {
+	my ($url) = shift;
+	my $lat = "";
+	my $lon = "";
 
-# 	return await fmap0 {
-# 		my ($i) = @_;
-# 		my $row_ref = $t->rowRef($i);
+	# if already know, update direclty lat lon
+	if (exists $known_locations{$url}) {
+		($lat, $lon) = split(",", $known_locations{$url});
+	}
+	else {
+		($lat, $lon) = get_lat_lon_sub($url);
 
-# 		foreach my $col (@{$row_ref}) {
-# 			if (defined $col) {
-# 				$col = trim($col);
-# 			}
-# 		}
-
-# 		# if the new approval number is empty,
-# 		# use the egg packing approval number or
-# 		# the old approval number as a fallback code
-# 		my $code
-# 			= $t->elm($i, 'Neue Zulassungsnummer')
-# 			|| $t->elm($i, 'Zulassungsnummer Eierpackstellen')
-# 			|| (split /,/, $t->elm($i, 'Alte Zulassungs-nummern') // q{})[0];
-# 		$t->setElm($i, 'code', $code);
-
-# 		return Future->done();
-# 	}
-# 	foreach => [0 .. $t->lastRow],
-# 		concurrent => 15;
-# }
+		if ($lat eq "" || $lon eq "") {
+			# street name not recognized (example: "V. Cecelje 6" -> Ulica Vilima Cecelja)
+			# remove street name (first parameter) from the search
+			$url =~ s/\?(.*?)&/\?/;
+			($lat, $lon) = get_lat_lon_sub($url);
+			if ($lat eq "" || $lon eq "") {
+				# county prevents to get results (example: Petkovec Toplički 42C Varaždinske Toplice, 42223)
+				$url =~ s/\&county=(.*?)&/\&/;
+				($lat, $lon) = get_lat_lon_sub($url);
+				if ($lat eq "" || $lon eq "") {
+					# postalcode prevents to get results (example: Vrh Visočki 21	Visoko, 42224)
+					$url =~ s/\&postalcode=(.*?)&/\&/;
+					($lat, $lon) = get_lat_lon_sub($url);
+					if ($lat eq "" || $lon eq "") {
+						die "Error, got empty coordinate for $url.\n";
+					}
+				}
+			}
+		}
+	}
+	$known_locations{$url} = "$lat,$lon";
+	return ($lat, $lon);
+}
 
 sub write_csv {
 	my ($t) = @_;
@@ -294,39 +169,28 @@ sub write_csv {
 	open my $out_fh, '>:encoding(utf-8)', $outfile;
 	$t->csv(1, {file => $out_fh, delimiter => q{;}});
 	close $out_fh;
-
-	return;
 }
 
-# sub write_nolatlong {
-# 	my ($t) = @_;
-
-# 	open my $nolatlong_fh, '>:encoding(utf-8)', $nolatlongfile;
-
-# 	# it's useful to have a list of addresses that weren't geocoded
-# 	my $nolatlong_table = $t->match_pattern_hash('!$_{lat} || !$_{lng}'); ## no critic (RequireInterpolationOfMetachars)
-
-# 	print {$nolatlong_fh} $nolatlong_table->html;
-
-# 	close $nolatlong_fh;
-
-# 	return;
-# }
-
-async sub main {
-	fill_cache($cache);
-
+sub main {
 	my $in_fh = read_csv;
-	my $header_ref = make_header($in_fh);
-	my $t = make_table($in_fh, $header_ref);
-	# await process_rows($t); # no space before or after emb code +  no need to recreate emb code when missing
-	await geocode_table($t);
 
-	# $t->sort('code', \&ncmp, Data::Table::ASC);
+	my $header = $csv->getline($in_fh);
+
+	# lower case
+	@{$header} = map {lc} @{$header};
+
+	push(@{$header}, 'lat', 'lng');
+
+	my $t = Data::Table->new([], $header);
+
+	while (defined(my $row = $csv->getline($in_fh))) {
+		my $row_url = prepare_url($row);
+		my ($lattitude, $longitude) = get_lat_lon($row_url);
+		push(@{$row}, $lattitude, $longitude);
+		$t->addRow($row);
+	}
+
 	write_csv($t);
-	# write_nolatlong($t);
-
-	exit 0;
 }
 
-exit main(@ARGV)->get;
+exit main();

@@ -25,12 +25,7 @@ use utf8;
 use Modern::Perl '2017';
 use experimental qw/switch/;
 
-use ProductOpener::Config qw/:all/;
-use ProductOpener::Store qw/:all/;
-use ProductOpener::Food qw/:all/;
-use ProductOpener::Index qw/:all/;
-use ProductOpener::Tags qw/:all/;
-use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::Config qw/:all/;mverCodes qw/:all/;
 
 use Term::ANSIColor;
 use Carp;
@@ -166,7 +161,7 @@ my %approval_key = (
 	es => 'n_rgseaa',
 	fi => 'numero',
 	fr => 'numero_agrement',
-	hr => 'Odobreni br./App. No.',
+	hr => 'odobreni br./app. no.',
 	hu => 'code',
 	it => 'approvalnumber',
 	lt => 'vet_approval_no',
