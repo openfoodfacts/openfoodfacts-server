@@ -59,7 +59,7 @@ function compute_expected_links {
   # off-web
   EXPECTED_LINKS["$REPO_PATH/lang"]="/srv/openfoodfacts-web/lang"
   # data linked to zfs storages
-  EXPECTED_LINKS["$REPO_PATH/data"]="$ZFS_PATH"
+  EXPECTED_LINKS["$REPO_PATH/data"]="$ZFS_PATH/data"
   EXPECTED_LINKS["$REPO_PATH/orgs"]="$ZFS_PATH/orgs"
   EXPECTED_LINKS["$REPO_PATH/users"]="$ZFS_PATH/users"
   EXPECTED_LINKS["$REPO_PATH/products"]="$ZFS_PATH/products"
