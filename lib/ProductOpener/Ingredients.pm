@@ -826,7 +826,7 @@ sub add_properties_from_specific_ingredients ($product_ref) {
 		}
 
 		foreach my $property (qw(origins)) {
-			my $property_value = has_specific_ingredient_property($product_ref, $ingredientid, "origins");
+			my $property_value = has_specific_ingredient_property($product_ref, $ingredientid, $property);
 			if ((defined $property_value) and (not defined $ingredient_ref->{$property})) {
 				$ingredient_ref->{$property} = $property_value;
 			}
@@ -932,7 +932,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		$ingredient = undef;
 		my $matched_ingredient_ref = {};
 		my $matched_text;
-		my $percent;
+		my ($percent_or_quantity_value, $percent_or_quantity_unit);
 		my $origins;
 
 		# Note: in regular expressions below, use non-capturing groups (starting with (?: )
@@ -951,8 +951,10 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				)
 				)
 			{
-				$percent = $2;    # $percent_or_quantity_regexp
 				$ingredient = $1;
+				# 2 groups captured by $percent_or_quantity_regexp:
+				$percent_or_quantity_value = $2;
+				$percent_or_quantity_unit = $3;
 				$matched_text = $&;
 				# Remove the matched text
 				$text = $` . ' ' . $';
@@ -981,7 +983,9 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				)
 				)
 			{
-				$percent = $1;    # $percent_or_quantity_regexp
+				# 2 groups captured by $percent_or_quantity_regexp:
+				$percent_or_quantity_value = $1;
+				$percent_or_quantity_unit = $2;
 				$ingredient = $3;
 				$matched_text = $&;
 				# Remove the matched text
@@ -997,8 +1001,10 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				)
 				)
 			{
-				$percent = $2;    # $percent_or_quantity_regexp
 				$ingredient = $1;
+				# 2 groups captured by $percent_or_quantity_regexp:
+				$percent_or_quantity_value = $2;
+				$percent_or_quantity_unit = $3;
 				$matched_text = $&;
 				# Remove the matched text
 				$text = $` . ' ' . $';
@@ -1028,8 +1034,23 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				text => $matched_text,
 			};
 
+			# Add percent and quantity fields
+
+			if (defined $percent_or_quantity_value) {
+				my ($percent, $quantity, $quantity_g)
+					= get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value,
+					$percent_or_quantity_unit);
+
+				defined $percent and $specific_ingredients_ref->{percent} = $percent + 0;
+				defined $quantity and $specific_ingredients_ref->{quantity} = $quantity;
+				defined $quantity_g and $specific_ingredients_ref->{quantity_g} = $quantity_g + 0;
+
+			}
+
+			# Add origin field
+
 			my $and_or = $and_or{$product_lc};
-			defined $percent and $specific_ingredients_ref->{percent} = $percent + 0;
+
 			defined $origins
 				and $specific_ingredients_ref->{origins}
 				= join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,|$and_or/, $origins));
@@ -1227,6 +1248,37 @@ sub parse_origins_from_text ($product_ref, $text) {
 
 Used to assign percent or quantity for strings parsed with $percent_or_quantity_regexp.
 
+=head3 Arguments
+
+=head4 percent_or_quantity_value
+
+=head4 percent_or_quantity_unit
+
+=head3 Return values
+
+If the percent_or_quantity_unit is %, we return a defined value for percent, otherwise we return quantity and quantity_g
+
+=head4 percent
+
+=head4 quantity
+
+If the unit is not %, quantity is a concatenation of the quantity value and unit
+
+=head4 quantity_g
+
+Normalized quantity in grams.
+
+=head3 Example
+
+$ingredient = "100% cocoa";	# or "milk 10cl"
+
+if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
+	$percent_or_quantity_value = $1;
+	$percent_or_quantity_unit = $2;
+
+	my ($percent, $quantity, $quantity_g)
+		= get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value, $percent_or_quantity_unit);
+
 =cut
 
 sub get_percent_or_quantity_and_normalized_quantity ($percent_or_quantity_value, $percent_or_quantity_unit) {
@@ -1315,9 +1367,11 @@ sub parse_ingredients_text ($product_ref) {
 
 	# Regular expression to find percent or quantities
 	# $percent_or_quantity_regexp has 2 capturing group: one for the number, and one for the % sign or the unit
-	my $percent_or_quantity_regexp = '(?:<|' . $min_regexp . '|\s|\.|:)*' . '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number
+	my $percent_or_quantity_regexp = '(?:<|' . $min_regexp . '|\s|\.|:)*'    # optional minimum, and separators
+		. '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number, possibly with a dot or comma
 		. '(\%|g|gr|mg|kg|ml|cl|dl|l)\s*'    # % or unit
-		. '(?:' . $min_regexp . '|' . $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';
+		. '(?:' . $min_regexp . '|'    # optional minimum
+		. $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';    # strings that can be ignored
 
 	# Extract phrases related to specific ingredients at the end of the ingredients list
 	$text = parse_specific_ingredients_from_text($product_ref, $text, $percent_or_quantity_regexp);
@@ -6308,12 +6362,14 @@ sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients ($product_
 		my $fruits = 0;
 		foreach my $ingredient_ref (@{$product_ref->{specific_ingredients}}) {
 			my $ingredient_id = $ingredient_ref->{id};
-			if (defined $ingredient_ref->{percent}) {
+			# We can have specific ingredients with % or grams
+			my $percent_or_quantity_g = $ingredient_ref->{percent} || $ingredient_ref->{quantity_g};
+			if (defined $percent_or_quantity_g) {
 				my $nutriscore_fruits_vegetables_nuts
 					= get_inherited_property("ingredients", $ingredient_id, "nutriscore_fruits_vegetables_nuts:en");
 
 				if ((defined $nutriscore_fruits_vegetables_nuts) and ($nutriscore_fruits_vegetables_nuts eq "yes")) {
-					$fruits += $ingredient_ref->{percent};
+					$fruits += $percent_or_quantity_g;
 				}
 			}
 		}
