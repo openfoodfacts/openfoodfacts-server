@@ -40,7 +40,7 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 --query some_field=-some_value	match products that don't have some_value for some_field
 --process-ingredients	compute allergens, additives detection
 --clean-ingredients	remove nutrition facts, conservation conditions etc.
---compute-nutrition-score	nutriscore
+--compute-nutriscore	nutriscore
 --compute-serving-size	compute serving size values
 --compute-history	compute history and completeness
 --check-quality	run quality checks
@@ -97,7 +97,7 @@ my $just_print_codes = '', my $pretend = '';
 my $process_ingredients = '';
 my $process_packagings = '';
 my $clean_ingredients = '';
-my $compute_nutrition_score = '';
+my $compute_nutriscore = '';
 my $compute_serving_size = '';
 my $compute_data_sources = '';
 my $compute_nova = '';
@@ -154,7 +154,7 @@ GetOptions(
 	"process-ingredients" => \$process_ingredients,
 	"process-packagings" => \$process_packagings,
 	"assign-categories-properties" => \$assign_categories_properties,
-	"compute-nutrition-score" => \$compute_nutrition_score,
+	"compute-nutriscore" => \$compute_nutriscore,
 	"compute-history" => \$compute_history,
 	"compute-serving-size" => \$compute_serving_size,
 	"reassign-energy-kcal" => \$reassign_energy_kcal,
@@ -228,7 +228,7 @@ if ($unknown_fields > 0) {
 }
 
 if (    (not $process_ingredients)
-	and (not $compute_nutrition_score)
+	and (not $compute_nutriscore)
 	and (not $compute_nova)
 	and (not $clean_ingredients)
 	and (not $delete_old_fields)
@@ -1076,9 +1076,10 @@ while (my $product_ref = $cursor->next) {
 			compute_nova_group($product_ref);
 		}
 
-		if ($compute_nutrition_score) {
+		if ($compute_nutriscore) {
+			$product_ref->{misc_tags} = [];
 			fix_salt_equivalent($product_ref);
-			compute_nutrition_score($product_ref);
+			compute_nutriscore($product_ref);
 			compute_nutrient_levels($product_ref);
 		}
 
@@ -1197,7 +1198,7 @@ while (my $product_ref = $cursor->next) {
 
 					fix_salt_equivalent($product_ref);
 					compute_serving_size_data($product_ref);
-					compute_nutrition_score($product_ref);
+					compute_nutriscore($product_ref);
 					compute_nutrient_levels($product_ref);
 					$product_values_changed = 1;
 				}
@@ -1220,7 +1221,7 @@ while (my $product_ref = $cursor->next) {
 
 				fix_salt_equivalent($product_ref);
 				compute_serving_size_data($product_ref);
-				compute_nutrition_score($product_ref);
+				compute_nutriscore($product_ref);
 				compute_nutrient_levels($product_ref);
 			}
 		}

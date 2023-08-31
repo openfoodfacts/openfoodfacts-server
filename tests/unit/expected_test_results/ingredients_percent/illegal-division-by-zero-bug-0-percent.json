@@ -1,0 +1,33 @@
+[
+   {
+      "id" : "en:vegetable",
+      "ingredients" : [
+         {
+            "id" : "en:herbs-and-spices",
+            "ingredients" : [
+               {
+                  "id" : "en:onion",
+                  "percent_estimate" : 25,
+                  "text" : "contient oignon"
+               },
+               {
+                  "id" : "en:e164",
+                  "percent" : 0.1,
+                  "percent_estimate" : 25,
+                  "text" : "safran"
+               }
+            ],
+            "percent_estimate" : 50,
+            "text" : "épices et aromates"
+         },
+         {
+            "id" : "en:salt",
+            "percent_estimate" : 50,
+            "text" : "sel"
+         }
+      ],
+      "percent" : 0,
+      "percent_estimate" : 100,
+      "text" : "légumes"
+   }
+]
