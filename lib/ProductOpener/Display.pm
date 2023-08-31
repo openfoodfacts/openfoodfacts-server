@@ -926,6 +926,8 @@ Set two attributes to `request_ref`:
 - `is_crawl_bot`: a flag (0 or 1) that indicates whether the request comes
   from a known web crawler (Google, Bing,...). We only use User-Agent value
   to set this flag.
+- `is_denied_crawl_bot`: a flag (0 or 1) that indicates whether the request
+  comes from a web crawler we want to deny access to.
 
 =cut
 
@@ -934,13 +936,21 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	$request_ref->{user_agent} = $user_agent_str;
 
 	my $is_crawl_bot = 0;
+	my $is_denied_crawl_bot = 0;
 	if ($user_agent_str
-		=~ /Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|YandexBot|YandexRenderResourcesBot|DuckDuckBot|DotBot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|www\.qwant\.com|facebookexternalhit/i
+		=~ /Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|YandexBot|YandexRenderResourcesBot|DuckDuckBot|DotBot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|www\.qwant\.com|facebookexternalhit|Bytespider|GPTBot|SEOkicks-Robot|SearchmetricsBot|MJ12bot|SurveyBot|SEOdiver|wotbox|Cliqzbot|Paracrawl|Scrapy|VelenPublicWebCrawler|SemrushBot|MegaIndex\.ru|YandexMarket|Amazonbot|aiohttp|python-request/i
 		)
 	{
 		$is_crawl_bot = 1;
+		if ($user_agent_str
+			=~ /bingbot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|Bytespider|SEOkicks-Robot|SearchmetricsBot|MJ12bot|SurveyBot|SEOdiver|wotbox|Cliqzbot|Paracrawl|Scrapy|VelenPublicWebCrawler|SemrushBot|MegaIndex\.ru|YandexMarket|Amazonbot/
+			)
+		{
+			$is_denied_crawl_bot = 1;
+		}
 	}
 	$request_ref->{is_crawl_bot} = $is_crawl_bot;
+	$request_ref->{is_denied_crawl_bot} = $is_denied_crawl_bot;
 	return;
 }
 
