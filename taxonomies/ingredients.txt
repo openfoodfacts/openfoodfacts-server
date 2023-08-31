@@ -36413,6 +36413,11 @@ zh:大果蔓越梅
 wikidata:en:Q149397
 wikipedia:en:https://en.wikipedia.org/wiki/Vaccinium_macrocarpon
 
+<en:berries
+en:bearberry, bearberries
+la:Arctostaphylos uva-ursi
+eurocode_2_group_3:en: 9.30.66
+
 ##########################################
 #              Flavourings
 ##########################################
@@ -40162,10 +40167,12 @@ pl:Morwa czarna
 ciqual_food_code:en:13071
 ciqual_food_name:en:Black mulberry, raw
 ciqual_food_name:fr:Mûre noire (du mûrier), crue
+eurocode_2_group_3:en: 9.30.62
 
 <en:berries
 en:White mulberry
 pl:Morwa biała
+eurocode_2_group_3:en: 9.30.62
 
 
 <en:blackberry
@@ -40179,7 +40186,7 @@ fr:jus de mûre à base de jus concentré
 ###################################################################################################
 
 <en:berries
-en:blackcurrant
+en:blackcurrant, black currant
 af:swartaalbessie
 bg:касис
 ca:riber negre
@@ -40222,6 +40229,7 @@ description:de:Die Schwarze Johannisbeere ist eine Pflanzenart aus der Gattung J
 description:fr:Fruit formé de baies noires formant des grappes, pulpeuses, à la peau lisse, fortement aromatiques, utilisé pour faire des liqueurs, des sirops, des gelées…
 description:nl:de vrucht (bes) van de Ribes nigrum
 # 3581 in 22 @2021-09-12
+<eurocode_2_group_3:en: 9.30.32
 
 #processing:en: en:juice
 #<en:blackcurrant
@@ -40296,7 +40304,7 @@ hr:komadi i sok crnog ribiza
 #
 ###################################################################################################
 
-# description:eNBlueberries are perennial flowering plants with blue– or purple–colored berries.
+# description:en: Blueberries are perennial flowering plants with blue– or purple–colored berries.
 # comment:en:usually only the generic name is in use
 
 <en:berries
@@ -40337,6 +40345,7 @@ zh:山桑子
 wikidata:en:Q5812410
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/blueberry
 # 943 producten in 13 languages @2018-10-01
+<eurocode_2_group_3:en: 9.30.46
 
 #en:the specific names are not seen as ingredient.
 <en:blueberry
@@ -40347,12 +40356,13 @@ nl:blauwe bes, blauwe bessen
 pl:borówka amerykańska, borówka wysoka, niebieska jagoda, borówki amerykańskie
 
 <en:blueberry
-en:billberry, common blueberry
+en:bilberry, bilberries, huckleberry, huckleberries, whortleberry, whortleberries
 fi:mustikka, mustikat
 la:Vaccinium myrtillus
 pl:borówka czarna, jagoda, jagoda czarna, czarna jagoda, czarne jagody, czarnej jagody, czernica, borówka czernica, borówki czernicy, jagoda, jagody, jagodowy, jagodowe, jagodowa
 wikipedia:en:https://en.wikipedia.org/wiki/Vaccinium_myrtillus
 wikidata:en:Q5413585
+<eurocode_2_group_3:en: 9.30.42
 
 #comment:en:
 <en:blueberry
@@ -40430,6 +40440,11 @@ en:Loganberry, loganberries
 fr:mûroise
 la:Rubus loganobaccus
 eurocode_2_group_3:en: 9.30.22
+
+<en:berries
+en:dewberry, dewberries, youngberry, youngberries
+la:Rubus caesius
+eurocode_2_group_3:en: 9.30.26
 
 ###################################################################################################
 #
@@ -40568,7 +40583,7 @@ ciqual_food_name:fr:Carambole, pulpe, crue
 # description:en:Rubus chamaemorus is a rhizomatous herb native to cool temperate regions, alpine and arctic tundra and boreal forest, producing amber-colored edible fruit similar to the blackberry. English common names include CLOUDBERRY, nordic berry, bakeapple (in Newfoundland and Labrador), knotberry and knoutberry (in England), aqpik or low-bush salmonberry (in Alaska – not to be confused with salmonberry, Rubus spectabilis), and averin or evron (in Scotland).
 
 <en:berries
-en:cloudberry, rubus chamaemorus, nordic berry, bakeapple, knotberry, knoutberry
+en:cloudberry, cloudberries, rubus chamaemorus, nordic berry, bakeapple, knotberry, knotberries, knoutberry
 az:rubus chamaemorus
 ba:мораҡ
 be:марошка
@@ -40582,7 +40597,7 @@ es:rubus chamaemorus
 et:rabamurakas
 fa:تمشک شمالی
 fi:lakka, hilla
-fr:plaquebière
+fr:plaquebière, mûre artique, mûres artiques, mûre polaire, mûres polaires
 ga:eithreog shléibhe
 ik:aqpik
 is:múltuber
@@ -40590,6 +40605,7 @@ it:rubus chamaemorus
 ja:ホロムイイチゴ
 ko:진들딸기
 kv:мырпом
+la:rubus chamaemorus
 lt:paprastoji tekšė
 lv:lācene
 ms:rubus chamaemorus
@@ -40625,6 +40641,8 @@ zh:雲莓
 wikidata:en:Q160092
 wikipedia:en:https://en.wikipedia.org/wiki/Rubus_chamaemorus
 # ingredient/sv:hjortron has 3 products in 2 languages @2020-06-13
+<eurocode_2_group_3:en: 9.30.28
+
 
 ###################################################################################################
 #
@@ -41531,6 +41549,7 @@ es:Saúco
 fi:selja
 fr:sureau
 it:sambuco
+la:sambuca nigra
 nl:vlier
 pl:czarny bez, czarnego bzu
 sv:fläder
@@ -41539,7 +41558,7 @@ sv:fläder
 
 <en:elder
 <en:berries
-en:elderberry
+en:elderberry, elderberries
 bg:Бъз
 da:hyldebær
 de:Holunderbeer, Holunderbeere, Holunderbeeren
@@ -41553,6 +41572,7 @@ sv:fläderbär
 ciqual_food_code:en:13126
 ciqual_food_name:en:Elderberry, berries, raw
 ciqual_food_name:fr:Sureau, baie, crue
+eurocode_2_group_3:en: 9.30.50
 
 <en:elderberry
 <en:fruit juice
@@ -41644,6 +41664,12 @@ fr:Extraits de fleurs de sureau
 it:Estratto di sanbuco
 pl:ekstrakt z kwiatu czarnego bzu, ekstrakt z kwiatu bzu czarnego, ekstrakt kwiatu czarnego bzu, wyciąg z czarnego bzu
 sv:fläderblomsextrakt
+
+<en:berries
+en:rowanberry, rowanberries
+fr:sorbe
+la:sorbus aucaparia
+eurocode_2_group_3:en: 9.30.54
 
 ###################################################################################################
 #
@@ -41825,6 +41851,7 @@ ciqual_food_code:en:13020
 ciqual_food_name:en:Gooseberry, raw
 ciqual_food_name:fr:Groseille à maquereau, crue
 #34 in 5 @2021-09-15
+<eurocode_2_group_3:en: 9.30.30
 
 #processing:en: en:juice
 #<en:gooseberry
@@ -42136,7 +42163,7 @@ pl:sok z koncentratu z kiwi
 # description:en:Vaccinium vitis-idaea (lingonberry, partridgeberry, The Lingering O’Mahoney or cowberry) is a short evergreen shrub in the heath family that bears edible fruit
 
 <en:berries
-en:lingonberry
+en:lingonberry, lingonberries, cowberry, cowberries, foxberry, foxberries, mountain cranberry, mountain cranberries, red whortleberry, red whortleberries
 ca:nabius
 da:tyttebær
 de:Preiselbeeren
@@ -42145,6 +42172,7 @@ et:pohl
 fi:Puolukka
 fr:myrtille rouge
 it:Mirtilli rossi
+la:Vaccinium vitis-idaea
 lb:rout Molbier
 lt:Bruknė
 nb:tyttebær
@@ -42154,6 +42182,7 @@ ru:брусника
 sv:lingon
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/lingonberry
 # 7 products @2018-10-01
+eurocode_2_group_3:en: 9.30.44
 
 # No products
 # <en:fruit
@@ -43608,10 +43637,16 @@ ciqual_food_name:fr:Groseille, crue
 wikidata:en:Q14714085
 description:nl:rode bes of witte bes; vrucht van de aalbesstruik
 # 866 in 12 @2021-09-12
+<eurocode_2_group_3:en: 9.30.34
 
 <en:redcurrant
 en:red currant juice
 de:roter Johannisbeersaft, Johannisbeersaft rot, roter Johannisbeerensaft, Johannisbeerensaft rot
+
+<en:berries
+en:whitecurrant, white currant
+fr:groseille blanche, groseilles blanches
+<eurocode_2_group_3:en: 9.30.36
 
 ###################################################################################################
 #
@@ -43994,6 +44029,7 @@ zh:沙棘
 wikidata:en:Q165378
 wikipedia:en:https://en.wikipedia.org/wiki/Hippophae_rhamnoides
 # ingredient/fr:argousier has 7 products in 4 languages @2020-06-13
+eurocode_2_group_3:en: 9.30.70
 
 <en:sea-buckthorn
 <en:fruit juice
@@ -67753,12 +67789,13 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rhodiola_rosea
 # ingredient/en:rhodiola-rosea has 8 products in 1 language @2020-06-13
 
 <en:plant
-en:Cape gooseberry, goldenberry, Peruvian groundcherry
+en:Cape gooseberry, Cape gooseberries, goldenberry, goldenberries, golden berry, golden berries, Peruvian groundcherry
 es:uchuva, aguaymanto, uvilla
-la:Physalis peruviana
+la:Physalis peruviana, physalis
 pl:Miechunka peruwiańska, rodzynek brazylijski, jagoda inkaska, jagoda inków, miechunka
 wikidata:en:Q165227
 wikipedia:en:https://en.wikipedia.org/wiki/Physalis_peruviana
+eurocode_2_group_3:en: 9.30.58
 
 # Withania somnifera, known commonly as ASHWAGANDHA, Indian ginseng, poison gooseberry, or winter cherry, is a plant in the Solanaceae or nightshade family.
 
