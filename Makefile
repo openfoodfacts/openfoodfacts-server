@@ -77,7 +77,7 @@ goodbye:
 #-------#
 # Local #
 #-------#
-dev: hello build create_folders init_backend _up import_sample_data create_mongodb_indexes refresh_product_tags
+dev: hello build init_backend _up import_sample_data create_mongodb_indexes refresh_product_tags
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://world.openfoodfacts.localhost/"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
 
@@ -119,7 +119,7 @@ _up:
 	${DOCKER_COMPOSE} up -d 2>&1
 	@echo "🥫 started service at http://openfoodfacts.localhost"
 
-up: build _up
+up: build create_folders _up
 
 down:
 	@echo "🥫 Bringing down containers …"
@@ -173,13 +173,13 @@ coverage_txt:
 #----------#
 # Services #
 #----------#
-build_lang:
+build_lang: create_folders
 	@echo "🥫 Rebuild language"
     # Run build_lang.pl
     # Languages may build taxonomies on-the-fly so include GITHUB_TOKEN so results can be cached
 	${DOCKER_COMPOSE} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
-build_lang_test:
+build_lang_test: create_folders
 # Run build_lang.pl in test env
 	${DOCKER_COMPOSE_TEST} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
@@ -245,14 +245,14 @@ lint: lint_perltidy
 tests: build_lang_test unit_test integration_test
 
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
-unit_test:
+unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
-integration_test:
+integration_test: create_folders
 	@echo "🥫 Running unit tests …"
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
@@ -270,13 +270,14 @@ test-stop:
 
 # usage:  make test-unit test=test-name.t
 # you can add args= to pass options, like args="-d" to debug
-test-unit: guard-test
+test-unit: guard-test create_folders
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run --rm backend perl ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
-test-int: guard-test # usage: make test-one test=test-file.t
+# you can add args= to pass options, like args="-d" to debug
+test-int: guard-test create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
 	${DOCKER_COMPOSE_TEST} exec backend perl ${args} tests/integration/${test}
