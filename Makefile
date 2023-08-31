@@ -252,7 +252,7 @@ integration_test:
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
 # this is the place where variables are important
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion
 # note: we need the -T option for ci (non tty environment)
 	${DOCKER_COMPOSE_TEST} exec ${COVER_OPTS}  -T backend prove -l -r tests/integration
 	${DOCKER_COMPOSE_TEST} stop
@@ -271,9 +271,9 @@ test-unit: guard-test
 	${DOCKER_COMPOSE_TEST} run --rm backend perl ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
-test-int: guard-test # usage: make test-one test=test-file.t
+test-int: guard-test # usage: make test-int test=test-file.t
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion
 	${DOCKER_COMPOSE_TEST} exec backend perl ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_TEST} stop backend
