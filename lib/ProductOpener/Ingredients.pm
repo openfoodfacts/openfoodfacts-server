@@ -87,8 +87,7 @@ BEGIN {
 		&compute_ingredients_percent_estimates
 
 		&estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients
-
-		&add_milk
+		&estimate_fruits_vegetables_legumes_value_from_ingredients
 		&estimate_milk_percent_from_ingredients
 
 		&has_specific_ingredient_property
@@ -6447,6 +6446,27 @@ sub is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ($ingredient_id) {
 	return ((defined $nutriscore_fruits_vegetables_nuts) and ($nutriscore_fruits_vegetables_nuts eq "yes"));
 }
 
+=head2 estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients ( product_ref )
+
+This function analyzes the ingredients to estimate the minimum percentage of
+fruits, vegetables, nuts, olive / walnut / rapeseed oil, so that we can compute
+the Nutri-Score fruit points if we don't have a value given by the manufacturer
+or estimated by users.
+
+Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} (and _serving)
+
+=cut
+
+sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients ($product_ref) {
+
+	return estimate_ingredients_matching_function(
+		$product_ref,
+		\&is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils,
+		"fruits-vegetables-nuts-estimate-from-ingredients"
+	);
+
+}
+
 =head2 is_fruits_vegetables_legumes ( $ingredient_id )
 
 Determine if an ingredient shoud be counted as "fruits, vegetables, legumes"
@@ -6520,25 +6540,22 @@ sub is_fruits_vegetables_legumes ($ingredient_id) {
 	);
 }
 
-=head2 estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients ( product_ref )
+=head2 estimate_fruits_vegetables_legumes_value_from_ingredients ( product_ref )
 
 This function analyzes the ingredients to estimate the minimum percentage of
-fruits, vegetables, nuts, olive / walnut / rapeseed oil, so that we can compute
-the Nutri-Score fruit points if we don't have a value given by the manufacturer
-or estimated by users.
+fruits, vegetables, legumes, so that we can compute the Nutri-Score (2023) fruit points.
 
-Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} (and _serving)
+Results are stored in $product_ref->{nutriments}{"fruits-vegetables-legumes-estimate-from-ingredients_100g"} (and _serving)
 
 =cut
 
-sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients ($product_ref) {
+sub estimate_fruits_vegetables_legumes_value_from_ingredients ($product_ref) {
 
 	return estimate_ingredients_matching_function(
 		$product_ref,
-		\&is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils,
-		"fruits-vegetables-nuts-estimate-from-ingredients"
+		\&is_fruits_vegetables_legumes,
+		"fruits-vegetables-legumes-estimate-from-ingredients"
 	);
-
 }
 
 =head2 is_milk ( $ingredient_id )
