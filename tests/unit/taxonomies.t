@@ -23,27 +23,24 @@ foreach my $ingredient (@ingredients) {
 	my $eurocode_2_group_3 = get_property("ingredients", $ingredient, "eurocode_2_group_3:en");
 	if ($eurocode_2_group_3) {
 		my $eurocode_2_group_2 = get_inherited_property("ingredients", $ingredient, "eurocode_2_group_2:en");
+
 		if (not $eurocode_2_group_2) {
 			fail("ingredient $ingredient is missing an inherited eurocode_2_group_2 property");
 		}
-		else {
-			my $eurocode_2_group_3_prefix = $eurocode_2_group_3;
-			$eurocode_2_group_3_prefix =~ s/\.[^\.]+$//;
-			if ($eurocode_2_group_3_prefix ne $eurocode_2_group_2) {
-				fail(
-					"ingredient $ingredient has eurocode_2_group_3: $eurocode_2_group_3 that does not match the inherited eurocode_2_group_2: $eurocode_2_group_2"
-				);
-			}
 
-			# Add to the list of known Eurocodes
-			# We may have several taxonomy entries with the same eurocode_2_group_3,
-			# we suffix them with the name of the ingredient
-			$eurocodes{$eurocode_2_group_3 . " " . $ingredient} = {
-				ingredient => $ingredient,
-				eurocode_2_group_2 => $eurocode_2_group_2,
-				eurocode_2_group_3 => $eurocode_2_group_3,
-			};
-		}
+		my $eurocode_2_group_3_prefix = $eurocode_2_group_3;
+		$eurocode_2_group_3_prefix =~ s/\.[^\.]+$//;
+		is($eurocode_2_group_3_prefix, $eurocode_2_group_2, "$eurocode_2_group_3 prefix matches eurocode_2_group_2");
+
+		# Add to the list of known Eurocodes
+		# We may have several taxonomy entries with the same eurocode_2_group_3,
+		# we suffix them with the name of the ingredient
+		$eurocodes{$eurocode_2_group_3 . " " . $ingredient} = {
+			ingredient => $ingredient,
+			eurocode_2_group_2 => $eurocode_2_group_2,
+			eurocode_2_group_3 => $eurocode_2_group_3,
+		};
+
 	}
 }
 
