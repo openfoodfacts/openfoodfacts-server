@@ -54,7 +54,7 @@ if (not defined $server_options{minion_backend}) {
 }
 
 # for worker, if we don't have a -q argument, deduce it from configuration
-if ((grep /^worker$/, @ARGV) and !(grep /^-q$/, @ARGV)) {
+if ((grep {/^worker$/} @ARGV) and (! grep {/^-q$/} @ARGV)) {
 	push @ARGV, "-q";
 	push @ARGV, $server_domain;
 }
