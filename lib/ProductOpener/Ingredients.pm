@@ -200,7 +200,7 @@ my %may_contain_regexps = (
 		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van",
 	nb =>
 		"kan inneholde spor av|kan forekomme spor av|kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
-	pl => "może zawierać śladowe ilości|produkt może zawierać|może zawierać|możliwa obecność",
+	pl => "może zawierać śladowe ilości|produkt może zawierać:?|może zawierać:?|możliwa obecność",
 	pt => "pode conter vestígios de|pode conter",
 	ro => "poate con[țţt]ine urme de|poate con[țţt]ine|poate con[țţt]in",
 	ru => "Могут содержаться следы",
@@ -2372,6 +2372,7 @@ sub parse_ingredients_text ($product_ref) {
 								'^czekolada( deserowa)?: masa kakaowa min(imum)?$',
 								'^masa kakaowa( w czekoladzie mlecznej)? min(imum)?$',
 								'^masa mleczna min(imum)?$',
+								'^zawartość tłuszczu$',
 								'^(?>\d+\s+g\s+)?(?>\w+\s?)*?100\s?g(?> \w*)?$',  # "pomidorów zużyto na 100 g produktu"
 								'^\w*\s?z \d* g (?>\w+\s?)*?100\s?g\s(?>produktu)?$'
 								,    # "Sporządzono z 40 g owoców na 100 g produktu"
