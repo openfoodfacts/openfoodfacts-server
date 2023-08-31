@@ -102,6 +102,7 @@ stopwords:zh::配料
 
 # Eurocode properties
 # e.g.
+# eurocode_2_group_1:en: 8
 # eurocode_2_group_2:en: 8.25
 # eurocode_2_group_3:en: 8.25.50
 # are from https://web.archive.org/web/20170712020557/http://www.ianunwin.demon.co.uk/eurocode/docmn/ec99/ecmgintr.htm#MGList
@@ -35268,6 +35269,7 @@ wikidata:en:Q1364
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fruit
 # 963 products in 9 languages @2018-09-26
 nutriscore_fruits_vegetables_nuts:en:yes
+eurocode_2_group_1:en: 9
 
 <en:fruit
 en:fruit puree
@@ -35302,10 +35304,11 @@ de:Trauben
 # description:en:A berry is a small, pulpy, and often edible fruit. Typically, berries are juicy, rounded, brightly colored, sweet or sour, and do not have a stone or pit, although many pips or seeds may be present. Common examples are strawberries, raspberries, blueberries, blackberries, red currants, white currants and blackcurrants
 
 <en:fruit
-en:berries
+en:berries, berry
 da:Bær
 es:bayas
 fi:marja, marjat, marjoja
+fr:baies, baie
 he:פירות יער
 hr:bobičasto voće
 hu:bogyó, bogyótermés, bogyós gyümölcs
@@ -35319,6 +35322,7 @@ ru:Ягоды
 sv:Bär
 wikipedia:en:https://en.wikipedia.org/wiki/Berry
 # ingredient/fr:fruits-rouges 205 products @2018-10-01
+eurocode_2_group_2:en: 9.30
 
 <en:berries
 en:forest berries
@@ -35628,6 +35632,10 @@ sv:päronberedning
 # usage:fr:préparation de poires 13% (sucre, poires 41%, amidon de maïs, jus de citron concentré, arôme naturel)
 
 
+<en:fruit
+en:prunus species fruit
+eurocode_2_group_2:en: 9.20
+
 ###################################################################################################
 #
 #                                Apricot
@@ -35635,7 +35643,7 @@ sv:päronberedning
 ###################################################################################################
 # description:en:APRICOT is a fruit, or the tree that bears the fruit, of several species in the genus Prunus (stone fruits).
 
-<en:fruit
+<en:prunus species fruit
 en:apricot
 ab:аҷарам
 af:appelkoos
@@ -35767,6 +35775,7 @@ carbon_footprint_fr_foodges_value:fr:0.6
 carbon_footprint_fr_foodges_ingredient:fr:Abricot "Pays du Sud"
 carbon_footprint_fr_foodges_value:fr:1.1
 # 5160 in 25 @2021-09-12
+eurocode_2_group_3:en: 9.20.10
 
 <en:apricot
 en:Bergeron Apricot
@@ -36612,7 +36621,7 @@ hu:természetes mangó aroma
 
 description:en:The PEACH (Prunus persica) is a deciduous tree native to the region of Northwest China
 comment:en:The wikipedia entry mixes the name of the tree and the name of the fruit
-<en:fruit
+<en:prunus species fruit
 en:peach, peaches
 an:presiquera
 ar:دراق
@@ -36665,6 +36674,7 @@ description:es:Prunus persica es una especie de árbol del género Prunus de la 
 description:fr:La pêche est un fruit comestible produit par le pêcher (Prunus persica) originaire de Chine.
 description:it:Il pesco (Prunus persica) è una specie della famiglia Rosaceae che produce un frutto commestibile chiamato pèsca.
 description:nl:De perzik (Prunus persica) is een boomsoort en een vrucht. De vrucht bevat een harde houtachtige pit.
+eurocode_2_group_3:en: 9.20.20
 
 #process:en:halved
 #<en:peach
@@ -37049,7 +37059,7 @@ pt:Sumo e polpa de pera
 ###################################################################################################
 # comment:en: NB en:plum = fr:prune, and en:prune = fr:pruneau.
 
-<en:fruit
+<en:prunus species fruit
 en:plum
 bg:слива, сливи
 ca:pruna
@@ -37084,6 +37094,7 @@ ciqual_food_code:en:13100
 ciqual_food_name:en:Plum, raw
 ciqual_food_name:fr:Prune, crue
 # 35 products in 1 language @2018-09-30
+eurocode_2_group_3:en: 9.20.30
 
 <en:plum
 en:plum sugar
@@ -37173,6 +37184,21 @@ fr:prunes d'Ente
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-pruneaux
 # 39 products in 1 language @2018-09-30
 
+<en:prunus species fruit
+en:chickasaw plum
+la:prunus angustifolia
+eurocode_2_group_3:en: 9.20.50
+
+<en:prunus species fruit
+en:Japanese plum, Chinese plum, Susina
+la:prunus salicina
+eurocode_2_group_3:en: 9.20.55
+
+<en:prunus species fruit
+en:sloe, sloe plum, blackthorn
+fr:prunelle, épine noire, épines noires
+la:prunus spinosa
+eurocode_2_group_3:en: 9.20.60
 
 ###################################################################################################
 #
@@ -37218,7 +37244,7 @@ es:dulce de membrillo
 ###################################################################################################
 # description:en:The greengages are a group of cultivars of the common European plum.
 
-<en:fruit
+<en:prunus species fruit
 en:greengage
 ar:جنارك
 bg:Ренклод
@@ -37248,7 +37274,13 @@ ciqual_food_code:en:13041
 ciqual_food_name:en:Greengage plum, raw
 ciqual_food_name:fr:Prune Reine-Claude, crue
 # ingredient/fr:reines-claudes has 37 products in 3 languages @2019-02-16
+eurocode_2_group_3:en: 9.20.36
 
+<en:prunus species fruit
+en:damson, damson plum
+fr:quetsche, quetsches, prune bleue
+la:prunus domestica var institia
+eurocode_2_group_3:en: 9.20.32
 
 ###################################################################################################
 #
@@ -37257,7 +37289,7 @@ ciqual_food_name:fr:Prune Reine-Claude, crue
 ###################################################################################################
 # description:en:Mirabelle plum, also known as mirabelle prune or cherry plum (Prunus domestica subsp. syriaca), is a cultivar group of plum trees of the genus Prunus.
 
-<en:fruit
+<en:prunus species fruit
 en:mirabelle plum
 cs:Slivoň mirabelka
 da:Mirabelblomme
@@ -37290,7 +37322,12 @@ zh:黃香李
 wikidata:en:Q149741
 wikipedia:en:https://en.wikipedia.org/wiki/Mirabelle_plum
 # ingredient/fr:mirabelles has 41 products in french @2018-12-28
+eurocode_2_group_3:en: 9.20.34
 
+
+<en:fruit
+en:malaceous fruit
+eurocode_2_group_2:en: 9.10
 
 ###################################################################################################
 #
@@ -37300,7 +37337,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mirabelle_plum
 # description:en:APPLE is a sweet, edible fruit produced by an apple tree (Malus pumila).
 # This can be a compound product, i.e. appels (gedroogde appels, voedingszuur (citroenzuur), conserveermiddel (_zwaveldioxide_))
 
-<en:fruit
+<en:malaceous fruit
 en:apple, apples
 af:appel
 am:ፖም
@@ -37542,6 +37579,20 @@ wikipedia:en:https://en.wikipedia.org/wiki/Apple
 ciqual_food_code:en:13050
 ciqual_food_name:en:Apple, pulp, raw
 ciqual_food_name:fr:Pomme, pulpe, crue
+
+<en:apple
+en:dessert apple
+fr:pomme de table, pommes de tables
+eurocode_2_group_3:en: 9.10.10
+
+<en:apple
+en:cooking apple
+fr:pomme à cuire, pommes à cuire
+eurocode_2_group_3:en: 9.15
+
+# TODO: try to put apple varieties below under en:dessert apple, or en:cooking apple
+# Note from Eurocode definition and policies:
+# "The division of apples into the categories Dessert apple and Cooking apple is somewhat arbitrary as some varieties can be used in both ways."
 
 <en:apple
 en:Pink Lady apple
@@ -40066,6 +40117,7 @@ ciqual_food_code:en:13029
 ciqual_food_name:en:Blackberry, raw
 ciqual_food_name:fr:Mûre (de ronce), crue
 # 404 products in 7 languages @21018-10-01
+eurocode_2_group_3:en: 9.30.24
 
 <en:blackberry
 en:Rubus fruticosus
@@ -40373,6 +40425,12 @@ sv:blåbärssaft av koncentrat
 en:blueberry filling
 hr:preljev od borovnica, punilo od borovnice, punjenje od borovnica
 
+<en:berries
+en:Loganberry, loganberries
+fr:mûroise
+la:Rubus loganobaccus
+eurocode_2_group_3:en: 9.30.22
+
 ###################################################################################################
 #
 #                                Boysenberry
@@ -40575,7 +40633,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rubus_chamaemorus
 ###################################################################################################
 # description:en:CHERRY is the fruit of many plants of the genus Prunus, and is a fleshy drupe (stone fruit).
 
-<en:fruit
+<en:prunus species fruit
 en:cherry, cherries
 an:ziresa
 ar:كرز
@@ -40796,6 +40854,7 @@ fi:hapankirsikka, hapankirsikat
 fr:griotte, griottes, cerises griottes
 hr:višnja, višnje, od višnje
 it:amarene
+la:prunus cerasus
 nl:morellen, kriek, krieken, zure kers
 pl:wiśnia, wiśnie, wiśniowy, wiśniowe, wiśniowa, wiśniowego, wiśniowych, wiśniowej
 pt:ginjas
@@ -40804,6 +40863,7 @@ ciqual_food_name:en:Morello cherry, raw
 ciqual_food_name:fr:Griotte, crue
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:griottes
 # 182 products in 7 languages @2018-09-29
+eurocode_2_group_3:en: 9.20.45
 
 <en:sour cherry
 en:sour cherry juice
@@ -40837,7 +40897,7 @@ ca:cirerer
 cs:třešeň ptačí
 cy:Coeden geirios du
 da:Fugle-Kirsebær
-de:Vogel-Kirsche
+de:Vogel-Kirsche, Vogelkirsche
 el:Κερασιά
 eo:Ĉerizarbo
 et:Magus kirsipuu
@@ -40857,6 +40917,7 @@ ka:ბალი
 kk:Мойыл
 ko:양벚나무
 ku:Gelyaz
+la:Prunus avium
 lt:Trešnė
 lv:saldais ķirsis
 nb:Morell
@@ -40907,12 +40968,8 @@ zh:欧洲甜樱桃
 # zh-sg:甜樱桃
 wikidata:en:Q165137
 # ingredient/fr:bigarreaux has 105 products in french @2019-02-22
+eurocode_2_group_3:en: 9.20.40
 
-<en:sweet cherry
-en:Prunus avium
-de:Vogelkirsche (Prunus avium)
-fr:prunus avium, merise
-la:Prunus avium
 
 <en:sweet cherry
 fr:bigarreaux confits
@@ -40950,6 +41007,7 @@ hr:pasta od višnje
 en:cherry stem, cherry stalk
 de:Kirschstiel, Kirschenstiel, Kirschenstiele, Kirschstiele
 fr:queues de cerise
+
 
 ###################################################################################################
 #
@@ -41400,6 +41458,8 @@ description:nl:De dadelpalm (Phoenix dactylifera) behoort tot de palmenfamilie. 
 ciqual_food_code:en:13011
 ciqual_food_name:en:Date, pulp and peel, dried
 ciqual_food_name:fr:Datte, pulpe et peau, sèche
+eurocode_2_group_2:en: 9.25
+eurocode_2_group_3:en: 9.25.30
 
 
 <en:date
@@ -42224,6 +42284,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lychee
 ciqual_food_code:en:13023
 ciqual_food_name:en:Lychee, pulp, raw
 ciqual_food_name:fr:Litchi, pulpe, cru
+eurocode_2_group_2:en: 9.25
+eurocode_2_group_3:en: 9.25.40
 
 <en:lychee
 en:Lychee pulp
@@ -42647,7 +42709,7 @@ wikidata:en:Q652206
 ###################################################################################################
 
 #category/nectarines
-<en:fruit
+<en:prunus species fruit
 en:nectarine
 ar:زليقة
 bg:нектарина
@@ -42703,6 +42765,7 @@ ciqual_food_code:en:13030
 ciqual_food_name:en:Nectarine, pulp and peel, raw
 ciqual_food_name:fr:Nectarine ou brugnon, pulpe et peau, crue
 #94 in 5 @2021-10-28
+eurocode_2_group_3:en: 9.20.15
 
 ###################################################################################################
 #
@@ -43285,7 +43348,7 @@ es:chirimoya
 wikipedia:en:https://en.wikipedia.org/wiki/Custard_apple
 
 <en:fruit
-en:persimmon,sharon fruit,khaki
+en:persimmon, sharon fruit, khaki, kaki
 bg:райска ябълка
 de:Kaki, Sharonfrucht
 es:caqui
@@ -43295,6 +43358,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Diospyros_kaki
 ciqual_food_code:en:13066
 ciqual_food_name:en:Persimmon, pulp, raw
 ciqual_food_name:fr:Kaki, pulpe, cru
+eurocode_2_group_2:en: 9.25
+eurocode_2_group_3:en: 9.25.44
 
 <en:persimmon
 en:persimmon juice
@@ -43388,6 +43453,7 @@ zh:樹莓
 ciqual_food_code:en:13015
 ciqual_food_name:en:Raspberry, raw
 ciqual_food_name:fr:Framboise, crue
+eurocode_2_group_3:en: 9.30.20
 
 <en:raspberry
 en:red raspberries
@@ -43748,6 +43814,7 @@ carbon_footprint_fr_foodges_value:fr:0.8
 ciqual_food_code:en:13014
 ciqual_food_name:en:Strawberry, raw
 ciqual_food_name:fr:Fraise, crue
+eurocode_2_group_3:en: 9.30.15
 
 <en:strawberry
 en:strawberry pieces
@@ -43955,6 +44022,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tamarillo
 # Note that in french often 'raisin' is used to indicate the dried one
 
 <en:fruit
+<en:berry
 en:grape
 af:druiwe
 am:ወይን
@@ -44157,6 +44225,7 @@ ciqual_food_code:en:13044
 ciqual_food_name:en:Grape, white, raw
 ciqual_food_name:fr:Raisin blanc à gros grain (type Italia ou Dattier) cru
 # 356 in 7 @2021-10-15
+eurocode_2_group_3:en: 9.30.10
 
 <en:white grape
 en:white seedless grape
@@ -44183,6 +44252,7 @@ fr:raisin noir, raisins noirs
 ciqual_food_code:en:13045
 ciqual_food_name:en:Grape, red, raw
 ciqual_food_name:fr:Raisin noir, cru
+eurocode_2_group_3:en: 9.30.12
 
 <en:black grape
 en:Concord grape, Concord black grape
@@ -45661,17 +45731,19 @@ fr:Jus de Grenade issu de l'agriculture biologique
 fr:écorces de grenade
 
 <en:fruit
-en:acerola
+en:acerola, acerola cherry, acerola cherries, west indian cherry, west indian cherries, Barbados cherry, Barbados cherries
 de:Acerolakirschen
 es:acerola
 fi:akerola, acerola
-fr:acérola
+fr:acérola, cerise des Antilles, cerises des Antilles, cerise de la Barbade, cerises de la Barbade
 it:acerola
 nl:acerola
 pl:Acerola, acerola
 ru:Ацерола
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola
 # 133 products in 4 languages @2018-10-03
+eurocode_2_group_2:en: 9.25
+eurocode_2_group_3:en: 9.25.48
 
 <en:acerola
 <en:fruit juice
