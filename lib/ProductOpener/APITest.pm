@@ -803,8 +803,10 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 			if ($job->{created} > $created_after_ts) {
 				# retrieving the job id
 				my $job_id = $job->{id};
+				# we have a dict, get the object to be consistent with case when we wait
+				my $job = get_minion()->job($job_id);
 				# retrieving the job state
-				my $job_state = $job->{state};
+				my $job_state = $job->info->{state};
 				# waiting the job to be done
 				while (($job_state eq "active") or ($job_state eq "inactive")) {
 					sleep(2);
@@ -823,7 +825,7 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 		}
 	}
 	# sort by creation date to have jobs in predictable order
-	my @all_jobs = sort {$_->{created}} (values %run_jobs);
+	my @all_jobs = sort {$_->info->{created}} (values %run_jobs);
 	return \@all_jobs;
 }
 
