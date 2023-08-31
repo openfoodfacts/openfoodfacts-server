@@ -6364,19 +6364,160 @@ sub add_ingredients_matching_function ($ingredients_ref, $match_function_ref) {
 	return $count;
 }
 
-=head2 is_nutriscore_2021_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ( $ingredient_id )
+=head2 estimate_ingredients_matching_function ( $product_ref, $match_function_ref, $nutrient_id = undef )
 
-Determine if an ingredient shoud be counted as "fruits, vegetables, nuts, olive / walnut / rapeseed oils"
-in Nutriscore 2021 algorithm
+This function analyzes the ingredients to estimate the minimum percentage of ingredients of a specific type
+(e.g. fruits/vegetables/legumes for the Nutri-Score).
+
+=head3 Parameters
+
+=head4 $product_ref
+
+=head4 $match_function_ref
+
+Reference to a function that matches specific ingredients (e.g. fruits/vegetables/legumes)
+
+=head4 $nutrient_id (optional)
+
+If the $nutrient_id argument is defined, we also store the nutrient value in $product_ref->{nutriments}.
+
+=head3 Return value
+
+Minimum percentage of ingredients matching the function.
 
 =cut
 
-sub is_nutriscore_2021_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ($ingredient_id) {
+sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $nutrient_id = undef) {
+
+	my $count;
+
+	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
+
+		$count = add_ingredients_matching_function($product_ref->{ingredients}, $match_function_ref);
+	}
+
+	# If we have specific ingredients, check if we have a higher fruits / vegetables content
+	if (defined $product_ref->{specific_ingredients}) {
+		my $specific_ingredients_count = 0;
+		foreach my $ingredient_ref (@{$product_ref->{specific_ingredients}}) {
+			my $ingredient_id = $ingredient_ref->{id};
+			# We can have specific ingredients with % or grams
+			my $percent_or_quantity_g = $ingredient_ref->{percent} || $ingredient_ref->{quantity_g};
+			if (defined $percent_or_quantity_g) {
+
+				if ($match_function_ref->($ingredient_id)) {
+					$specific_ingredients_count += $percent_or_quantity_g;
+				}
+			}
+		}
+
+		if (    ($specific_ingredients_count > 0)
+			and ((not defined $count) or ($specific_ingredients_count > $count)))
+		{
+			$count = $specific_ingredients_count;
+		}
+	}
+
+	if (defined $nutrient_id) {
+		if (defined $count) {
+			$product_ref->{nutriments}{$nutrient_id . "_100g"} = $count;
+			$product_ref->{nutriments}{$nutrient_id . "_serving"} = $count;
+		}
+		elsif (defined $product_ref->{nutriments}) {
+			delete $product_ref->{nutriments}{$nutrient_id . "_100g"};
+			delete $product_ref->{nutriments}{$nutrient_id . "_serving"};
+		}
+	}
+
+	return $count;
+}
+
+=head2 is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ( $ingredient_id )
+
+Determine if an ingredient shoud be counted as "fruits, vegetables, nuts, olive / walnut / rapeseed oils"
+in Nutriscore 2021 algorithm.
+
+=cut
+
+sub is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ($ingredient_id) {
 
 	my $nutriscore_fruits_vegetables_nuts
 		= get_inherited_property("ingredients", $ingredient_id, "nutriscore_fruits_vegetables_nuts:en");
 
 	return ((defined $nutriscore_fruits_vegetables_nuts) and ($nutriscore_fruits_vegetables_nuts eq "yes"));
+}
+
+=head2 is_fruits_vegetables_legumes ( $ingredient_id )
+
+Determine if an ingredient shoud be counted as "fruits, vegetables, legumes"
+in Nutriscore 2023 algorithm.
+
+1.2.2. Ingredients contributing to the ‘Fruit, vegetables and legumes’ component
+The list of ingredients qualifying for the “Fruit, vegetables and legumes” component has been revised
+to include the following Eurocodes:
+•
+Vegetables groups
+o 8.10 (Leaf vegetables);
+o 8.15 (Brassicas);
+o 8.20 (Stalk vegetables);
+o 8.25 (Shoot vegetables);
+o 8.30 (Onion-family vegetables);
+o 8.38 (Root vegetables);
+o 8.40 (Fruit vegetables);
+o 8.42 (Flower-head vegetables);
+o 8.45 (Seed vegetables and immature pulses);
+o 8.50 (Edible fungi);
+o 8.55 (Seaweeds and algae);
+o 8.60 (Vegetable mixtures)
+Fruits groups
+o 9.10 (Malaceous fruit);
+o 9.20 (Prunus species fruit);
+o 9.25 (Other stone fruit);
+o 9.30 (Berries);
+o 9.40 (Citrus fruit);
+o 9.50 (Miscellaneous fruit);
+o 9.60 (Fruit mixtures).
+Pulses groups
+o 7.10 (Pulses).
+
+=cut
+
+my %fruits_vegetables_legumes_eurocodes = (
+	"8.10" => 1,
+	"8.15" => 1,
+	"8.20" => 1,
+	"8.25" => 1,
+	"8.30" => 1,
+	"8.38" => 1,
+	"8.40" => 1,
+	"8.42" => 1,
+	"8.45" => 1,
+	"8.50" => 1,
+	"8.55" => 1,
+	"8.60" => 1,
+	"9.10" => 1,
+	"9.20" => 1,
+	"9.25" => 1,
+	"9.30" => 1,
+	"9.40" => 1,
+	"9.50" => 1,
+	"9.60" => 1,
+	"7.10" => 1,
+);
+
+sub is_fruits_vegetables_legumes ($ingredient_id) {
+
+	my $eurocode_2_group_1 = get_inherited_property("ingredients", $ingredient_id, "eurocode_2_group_1:en");
+	my $eurocode_2_group_2 = get_inherited_property("ingredients", $ingredient_id, "eurocode_2_group_2:en");
+
+	return (
+		# All fruits groups
+		# TODO: check that we don't have entries under en:fruits that are in fact not listed in Eurocode 9 "Fruits and fruit products"
+		((defined $eurocode_2_group_1) and ($eurocode_2_group_1 eq "9"))
+		# Vegetables and legumes
+			or ((defined $eurocode_2_group_2)
+			and (exists $fruits_vegetables_legumes_eurocodes{$eurocode_2_group_2}))
+	);
 }
 
 =head2 estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients ( product_ref )
@@ -6392,53 +6533,12 @@ Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimat
 
 sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients ($product_ref) {
 
-	if (defined $product_ref->{nutriments}) {
-		delete $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"};
-		delete $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_serving"};
-	}
+	return estimate_ingredients_matching_function(
+		$product_ref,
+		\&is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils,
+		"fruits-vegetables-nuts-estimate-from-ingredients"
+	);
 
-	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
-
-		(defined $product_ref->{nutriments}) or $product_ref->{nutriments} = {};
-
-		$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"}
-			= add_ingredients_matching_function($product_ref->{ingredients},
-			\&is_nutriscore_2021_fruits_vegetables_nuts_olive_walnut_rapeseed_oils);
-	}
-
-	# If we have specific ingredients, check if we have a higher fruits / vegetables content
-	if (defined $product_ref->{specific_ingredients}) {
-		my $fruits = 0;
-		foreach my $ingredient_ref (@{$product_ref->{specific_ingredients}}) {
-			my $ingredient_id = $ingredient_ref->{id};
-			# We can have specific ingredients with % or grams
-			my $percent_or_quantity_g = $ingredient_ref->{percent} || $ingredient_ref->{quantity_g};
-			if (defined $percent_or_quantity_g) {
-				my $nutriscore_fruits_vegetables_nuts
-					= get_inherited_property("ingredients", $ingredient_id, "nutriscore_fruits_vegetables_nuts:en");
-
-				if ((defined $nutriscore_fruits_vegetables_nuts) and ($nutriscore_fruits_vegetables_nuts eq "yes")) {
-					$fruits += $percent_or_quantity_g;
-				}
-			}
-		}
-
-		if (
-			($fruits > 0)
-			and (  (not defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"})
-				or ($fruits > $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"}))
-			)
-		{
-			$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"} = $fruits;
-		}
-	}
-
-	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"}) {
-		$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_serving"}
-			= $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"};
-	}
-
-	return;
 }
 
 =head2 is_milk ( $ingredient_id )
@@ -6463,17 +6563,7 @@ Return value: estimated % of milk.
 
 sub estimate_milk_percent_from_ingredients ($product_ref) {
 
-	my $milk_percent = 0;
-
-	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
-
-		$log->debug("milk percent - start", {milk_percent => $milk_percent}) if $log->is_debug();
-		$milk_percent = add_ingredients_matching_function($product_ref->{ingredients}, \&is_milk);
-	}
-
-	$log->debug("milk percent", {milk_percent => $milk_percent}) if $log->is_debug();
-
-	return $milk_percent;
+	return estimate_ingredients_matching_function($product_ref, \&is_milk);
 }
 
 1;
