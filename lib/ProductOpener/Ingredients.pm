@@ -78,6 +78,7 @@ BEGIN {
 		&flatten_sub_ingredients
 		&compute_ingredients_tags
 
+		&get_percent_or_quantity_and_normalized_quantity
 		&compute_ingredients_percent_values
 		&init_percent_values
 		&set_percent_min_values
@@ -114,6 +115,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Units qw/:all/;
 
 use Encode;
 use Clone qw(clone);
@@ -824,7 +826,7 @@ sub add_properties_from_specific_ingredients ($product_ref) {
 		}
 
 		foreach my $property (qw(origins)) {
-			my $property_value = has_specific_ingredient_property($product_ref, $ingredientid, "origins");
+			my $property_value = has_specific_ingredient_property($product_ref, $ingredientid, $property);
 			if ((defined $property_value) and (not defined $ingredient_ref->{$property})) {
 				$ingredient_ref->{$property} = $property_value;
 			}
@@ -885,7 +887,7 @@ sub add_specific_ingredients_from_labels ($product_ref) {
 	return;
 }
 
-=head2 parse_specific_ingredients_from_text ( product_ref, $text, $percent_regexp )
+=head2 parse_specific_ingredients_from_text ( product_ref, $text, $percent_or_quantity_regexp )
 
 Lists of ingredients sometime include extra mentions for specific ingredients
 at the end of the ingredients list. e.g. "Prepared with 50g of fruits for 100g of finished product".
@@ -900,7 +902,7 @@ This function is also used to parse the origins of ingredients field.
 
 =head4 text $text
 
-=head4 percent regular expression $percent_regexp
+=head4 percent regular expression $percent_or_quantity_regexp
 
 Used to find % values, language specific.
 
@@ -916,7 +918,7 @@ Array of specific ingredients.
 
 =cut
 
-sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_regexp) {
+sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quantity_regexp) {
 
 	my $product_lc = $product_ref->{lc};
 
@@ -930,7 +932,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_regexp) 
 		$ingredient = undef;
 		my $matched_ingredient_ref = {};
 		my $matched_text;
-		my $percent;
+		my ($percent_or_quantity_value, $percent_or_quantity_unit);
 		my $origins;
 
 		# Note: in regular expressions below, use non-capturing groups (starting with (?: )
@@ -943,14 +945,16 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_regexp) 
 			# Total Milk Content 73%.
 
 			if (
-				(defined $percent_regexp)
+				(defined $percent_or_quantity_regexp)
 				and ($text
-					=~ /\s*(?:total |min |minimum )?([^,.;]+?)\s+content(?::| )+$percent_regexp\s*(?:per 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i
+					=~ /\s*(?:total |min |minimum )?([^,.;]+?)\s+content(?::| )+$percent_or_quantity_regexp\s*(?:per 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i
 				)
 				)
 			{
-				$percent = $2;    # $percent_regexp
 				$ingredient = $1;
+				# 2 groups captured by $percent_or_quantity_regexp:
+				$percent_or_quantity_value = $2;
+				$percent_or_quantity_unit = $3;
 				$matched_text = $&;
 				# Remove the matched text
 				$text = $` . ' ' . $';
@@ -973,14 +977,16 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_regexp) 
 			# Préparée avec 50 g de fruits pour 100 g de produit fini.
 
 			if (
-				(defined $percent_regexp)
+				(defined $percent_or_quantity_regexp)
 				and ($text
-					=~ /\s*(?:(?:préparé|prepare)(?:e|s|es)? avec)(?: au moins)?(?::| )+$percent_regexp (?:de |d')?([^,.;]+?)\s*(?:pour 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i
+					=~ /\s*(?:(?:préparé|prepare)(?:e|s|es)? avec)(?: au moins)?(?::| )+$percent_or_quantity_regexp (?:de |d')?([^,.;]+?)\s*(?:pour 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i
 				)
 				)
 			{
-				$percent = $1;    # $percent_regexp
-				$ingredient = $2;
+				# 2 groups captured by $percent_or_quantity_regexp:
+				$percent_or_quantity_value = $1;
+				$percent_or_quantity_unit = $2;
+				$ingredient = $3;
 				$matched_text = $&;
 				# Remove the matched text
 				$text = $` . ' ' . $';
@@ -989,14 +995,16 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_regexp) 
 			# Teneur totale en sucres : 60 g pour 100 g de produit fini.
 			# Teneur en citron de 100%
 			elsif (
-				(defined $percent_regexp)
+				(defined $percent_or_quantity_regexp)
 				and ($text
-					=~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;]+?)\s*(?:pour 100\s*(?:g)(?: de produit(?: fini)?)?)?(?: de)?(?::| )+$percent_regexp\s*(?:pour 100\s*(?:g)(?:[^,.;]*?))?(?:;|\.| - |$)/i
+					=~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;]+?)\s*(?:pour 100\s*(?:g)(?: de produit(?: fini)?)?)?(?: de)?(?::| )+$percent_or_quantity_regexp\s*(?:pour 100\s*(?:g)(?:[^,.;]*?))?(?:;|\.| - |$)/i
 				)
 				)
 			{
-				$percent = $2;    # $percent_regexp
 				$ingredient = $1;
+				# 2 groups captured by $percent_or_quantity_regexp:
+				$percent_or_quantity_value = $2;
+				$percent_or_quantity_unit = $3;
 				$matched_text = $&;
 				# Remove the matched text
 				$text = $` . ' ' . $';
@@ -1026,8 +1034,23 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_regexp) 
 				text => $matched_text,
 			};
 
+			# Add percent and quantity fields
+
+			if (defined $percent_or_quantity_value) {
+				my ($percent, $quantity, $quantity_g)
+					= get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value,
+					$percent_or_quantity_unit);
+
+				defined $percent and $specific_ingredients_ref->{percent} = $percent + 0;
+				defined $quantity and $specific_ingredients_ref->{quantity} = $quantity;
+				defined $quantity_g and $specific_ingredients_ref->{quantity_g} = $quantity_g + 0;
+
+			}
+
+			# Add origin field
+
 			my $and_or = $and_or{$product_lc};
-			defined $percent and $specific_ingredients_ref->{percent} = $percent + 0;
+
 			defined $origins
 				and $specific_ingredients_ref->{origins}
 				= join(",", map {canonicalize_taxonomy_tag($product_lc, "origins", $_)} split(/,|$and_or/, $origins));
@@ -1221,6 +1244,58 @@ sub parse_origins_from_text ($product_ref, $text) {
 	return $text;
 }
 
+=head2 get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value, $percent_or_quantity_unit)
+
+Used to assign percent or quantity for strings parsed with $percent_or_quantity_regexp.
+
+=head3 Arguments
+
+=head4 percent_or_quantity_value
+
+=head4 percent_or_quantity_unit
+
+=head3 Return values
+
+If the percent_or_quantity_unit is %, we return a defined value for percent, otherwise we return quantity and quantity_g
+
+=head4 percent
+
+=head4 quantity
+
+If the unit is not %, quantity is a concatenation of the quantity value and unit
+
+=head4 quantity_g
+
+Normalized quantity in grams.
+
+=head3 Example
+
+$ingredient = "100% cocoa";	# or "milk 10cl"
+
+if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
+	$percent_or_quantity_value = $1;
+	$percent_or_quantity_unit = $2;
+
+	my ($percent, $quantity, $quantity_g)
+		= get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value, $percent_or_quantity_unit);
+
+=cut
+
+sub get_percent_or_quantity_and_normalized_quantity ($percent_or_quantity_value, $percent_or_quantity_unit) {
+
+	my ($percent, $quantity, $quantity_g);
+
+	if ($percent_or_quantity_unit =~ /\%/) {
+		$percent = $percent_or_quantity_value;
+	}
+	else {
+		$quantity = $percent_or_quantity_value . " " . $percent_or_quantity_unit;
+		$quantity_g = normalize_quantity($quantity);
+	}
+
+	return ($percent, $quantity, $quantity_g);
+}
+
 =head2 parse_ingredients_text ( product_ref )
 
 Parse the ingredients_text field to extract individual ingredients.
@@ -1290,16 +1365,16 @@ sub parse_ingredients_text ($product_ref) {
 		$ignore_strings_after_percent = $ignore_strings_after_percent{$product_lc};
 	}
 
-	my $percent_regexp
-		= '(?:<|'
-		. $min_regexp
-		. '|\s|\.|:)*(\d+(?:(?:\,|\.)\d+)?)\s*(?:\%|g)\s*(?:'
-		. $min_regexp . '|'
-		. $ignore_strings_after_percent
-		. '|\s|\)|\]|\}|\*)*';
+	# Regular expression to find percent or quantities
+	# $percent_or_quantity_regexp has 2 capturing group: one for the number, and one for the % sign or the unit
+	my $percent_or_quantity_regexp = '(?:<|' . $min_regexp . '|\s|\.|:)*'    # optional minimum, and separators
+		. '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number, possibly with a dot or comma
+		. '(\%|g|gr|mg|kg|ml|cl|dl|l)\s*'    # % or unit
+		. '(?:' . $min_regexp . '|'    # optional minimum
+		. $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';    # strings that can be ignored
 
 	# Extract phrases related to specific ingredients at the end of the ingredients list
-	$text = parse_specific_ingredients_from_text($product_ref, $text, $percent_regexp);
+	$text = parse_specific_ingredients_from_text($product_ref, $text, $percent_or_quantity_regexp);
 
 	my $analyze_ingredients_function = sub ($analyze_ingredients_self, $ingredients_ref, $level, $s) {
 
@@ -1311,7 +1386,8 @@ sub parse_ingredients_text ($product_ref) {
 		my $before = '';
 		my $between = '';
 		my $between_level = $level;
-		my $percent = undef;
+		my $percent_or_quantity_value = undef;
+		my $percent_or_quantity_unit = undef;
 		my $origin = undef;
 		my $labels = undef;
 		my $vegan = undef;
@@ -1383,14 +1459,21 @@ sub parse_ingredients_text ($product_ref) {
 					# percent followed by a separator, assume the percent applies to the parent (e.g. tomatoes)
 					# tomatoes (64%, origin: Spain)
 
-					if (($between =~ $separators) and ($` =~ /^$percent_regexp$/i)) {
+					if (($between =~ $separators) and ($` =~ /^$percent_or_quantity_regexp$/i)) {
 
-						$percent = $1;
+						$percent_or_quantity_value = $1;
+						$percent_or_quantity_unit = $2;
 						# remove what is before the first separator
 						$between =~ s/(.*?)$separators//;
 						$debug_ingredients
-							and $log->debug("separator found after percent", {between => $between, percent => $percent})
-							if $log->is_debug();
+							and $log->debug(
+							"separator found after percent",
+							{
+								between => $between,
+								percent_or_quantity_value => $percent_or_quantity_value,
+								percent_or_quantity_unit => $percent_or_quantity_unit
+							}
+							) if $log->is_debug();
 					}
 
 					# sel marin (France, Italie)
@@ -1401,14 +1484,20 @@ sub parse_ingredients_text ($product_ref) {
 						$between =~ s/^(.*?$separators)/origins:$1/;
 					}
 
-					$debug_ingredients and $log->debug("initial processing of percent and origins",
-						{between => $between, after => $after, percent => $percent})
-						if $log->is_debug();
+					$debug_ingredients and $log->debug(
+						"initial processing of percent and origins",
+						{
+							between => $between,
+							after => $after,
+							percent_or_quantity_value => $percent_or_quantity_value,
+							percent_or_quantity_unit => $percent_or_quantity_unit
+						}
+					) if $log->is_debug();
 
 					# : is in $separators but we want to keep "origine : France" or "min : 23%"
 					if (    ($between =~ $separators)
 						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
-						and ($between !~ /^$percent_regexp$/i))
+						and ($between !~ /^$percent_or_quantity_regexp$/i))
 					{
 						$between_level = $level + 1;
 						$debug_ingredients and $log->debug("between contains a separator", {between => $between})
@@ -1420,12 +1509,19 @@ sub parse_ingredients_text ($product_ref) {
 							and $log->debug("between does not contain a separator", {between => $between})
 							if $log->is_debug();
 
-						if ($between =~ /^$percent_regexp$/i) {
+						if ($between =~ /^$percent_or_quantity_regexp$/i) {
 
-							$percent = $1;
+							$percent_or_quantity_value = $1;
+							$percent_or_quantity_unit = $2;
 							$debug_ingredients
-								and $log->debug("between is a percent", {between => $between, percent => $percent})
-								if $log->is_debug();
+								and $log->debug(
+								"between is a percent",
+								{
+									between => $between,
+									percent_or_quantity_value => $percent_or_quantity_value,
+									percent_or_quantity_unit => $percent_or_quantity_unit
+								}
+								) if $log->is_debug();
 							$between = '';
 						}
 						else {
@@ -1537,12 +1633,19 @@ sub parse_ingredients_text ($product_ref) {
 				$last_separator = $sep;
 			}
 
-			if ($after =~ /^$percent_regexp($separators|$)/i) {
-				$percent = $1;
+			if ($after =~ /^$percent_or_quantity_regexp($separators|$)/i) {
+				$percent_or_quantity_value = $1;
+				$percent_or_quantity_unit = $2;
 				$after = $';
 				$debug_ingredients
-					and $log->debug("after started with a percent", {after => $after, percent => $percent})
-					if $log->is_debug();
+					and $log->debug(
+					"after started with a percent",
+					{
+						after => $after,
+						percent_or_quantity_value => $percent_or_quantity_value,
+						percent_or_quantity_unit => $percent_or_quantity_unit
+					}
+					) if $log->is_debug();
 			}
 		}
 		else {
@@ -1573,9 +1676,9 @@ sub parse_ingredients_text ($product_ref) {
 			my $ingredient1_orig = $ingredient1;
 			my $ingredient2_orig = $ingredient2;
 
-			$ingredient =~ s/\s$percent_regexp$//i;
-			$ingredient1 =~ s/\s$percent_regexp$//i;
-			$ingredient2 =~ s/\s$percent_regexp$//i;
+			$ingredient =~ s/\s$percent_or_quantity_regexp$//i;
+			$ingredient1 =~ s/\s$percent_or_quantity_regexp$//i;
+			$ingredient2 =~ s/\s$percent_or_quantity_regexp$//i;
 
 			# check if the whole ingredient is an ingredient
 			my $canon_ingredient = canonicalize_taxonomy_tag($product_lc, "ingredients", $before);
@@ -1655,11 +1758,18 @@ sub parse_ingredients_text ($product_ref) {
 				$current_ingredient = $ingredient;
 
 				# Strawberry 10.3%
-				if ($ingredient =~ /\s$percent_regexp$/i) {
-					$percent = $1;
-					$debug_ingredients and $log->debug("percent found after",
-						{ingredient => $ingredient, percent => $percent, new_ingredient => $`})
-						if $log->is_debug();
+				if ($ingredient =~ /\s$percent_or_quantity_regexp$/i) {
+					$percent_or_quantity_value = $1;
+					$percent_or_quantity_unit = $2;
+					$debug_ingredients and $log->debug(
+						"percent found after",
+						{
+							ingredient => $ingredient,
+							percent_or_quantity_value => $percent_or_quantity_value,
+							percent_or_quantity_unit => $percent_or_quantity_unit,
+							new_ingredient => $`
+						}
+					) if $log->is_debug();
 					$ingredient = $`;
 				}
 
@@ -1667,7 +1777,7 @@ sub parse_ingredients_text ($product_ref) {
 				if (
 					$ingredient =~ m{^
 									 \s*
-									 ( \d+ ([,.] \d+)? )
+									 ( \d+ (?:[,.] \d+)? )
 									 \s*
 									 (\%|g)
 									 \s*
@@ -1677,10 +1787,17 @@ sub parse_ingredients_text ($product_ref) {
 									}sxmi
 					)
 				{
-					$percent = $1;
-					$debug_ingredients and $log->debug("percent found before",
-						{ingredient => $ingredient, percent => $percent, new_ingredient => $'})
-						if $log->is_debug();
+					$percent_or_quantity_value = $1;
+					$percent_or_quantity_unit = $2;
+					$debug_ingredients and $log->debug(
+						"percent found before",
+						{
+							ingredient => $ingredient,
+							percent_or_quantity_value => $percent_or_quantity_value,
+							percent_or_quantity_unit => $percent_or_quantity_unit,
+							new_ingredient => $'
+						}
+					) if $log->is_debug();
 					$ingredient = $';
 				}
 
@@ -2177,8 +2294,19 @@ sub parse_ingredients_text ($product_ref) {
 					text => $ingredient
 				);
 
-				if (defined $percent) {
-					$ingredient{percent} = $percent + 0;
+				if (defined $percent_or_quantity_value) {
+					my ($percent, $quantity, $quantity_g)
+						= get_percent_or_quantity_and_normalized_quantity($percent_or_quantity_value,
+						$percent_or_quantity_unit);
+					if (defined $percent) {
+						$ingredient{percent} = $percent + 0;
+					}
+					if (defined $quantity) {
+						$ingredient{quantity} = $quantity;
+					}
+					if (defined $quantity_g) {
+						$ingredient{quantity_g} = $quantity_g;
+					}
 				}
 				if (defined $origin) {
 					$ingredient{origins} = $origin;
@@ -2658,13 +2786,13 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 
 	# Determine if percent listed are absolute (default) or relative to a parent ingredient
 
-	my $percent_mode = "absolute";
-
-	# Assume that percent listed is relative to the parent ingredient
-	# if the sum of specified percents for the ingredients is greater than the percent max of the parent.
+	# Check if all ingredients have a set quantity
+	# and compute the sum of all percents and quantities
 
 	my $percent_sum = 0;
 	my $all_ingredients_have_a_set_percent = 1;
+	my $quantity_sum = 0;
+	my $all_ingredients_have_a_set_quantity = 1;
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 		if (defined $ingredient_ref->{percent}) {
 			$percent_sum += $ingredient_ref->{percent};
@@ -2672,20 +2800,34 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 		else {
 			$all_ingredients_have_a_set_percent = 0;
 		}
+
+		if (defined $ingredient_ref->{quantity_g}) {
+			$quantity_sum += $ingredient_ref->{quantity_g};
+		}
+		else {
+			$all_ingredients_have_a_set_quantity = 0;
+		}
 	}
 
-	if ($percent_sum > $total_max) {
-		$percent_mode = "relative";
-	}
+	my $percent_mode;
 
 	# If the parent ingredient percent is known (total_min = total_max)
-	# and we have set percent for all ingredients, then the ingredients percent value
-	# may in fact be a quantity in grams, we will need to scale the quantities to get actual percent values
+	# and we have set quantity for all ingredients,
+	# we will need to scale the quantities to get actual percent values
 	# This is the case in particular for recipes that can be specified in grams with a total greater than 100g
 	# So we start supposing it's grams (as if it's percent it will also work).
 
 	if (($total_min == $total_max) and $all_ingredients_have_a_set_percent) {
-		$percent_mode = "grams";
+		$percent_mode = "scale_percents";
+	}
+	elsif (($total_min == $total_max) and $all_ingredients_have_a_set_quantity) {
+		$percent_mode = "scale_grams";
+	}
+	elsif ($percent_sum > $total_max) {
+		$percent_mode = "relative";    # percents are relative to the parent ingredient
+	}
+	else {
+		$percent_mode = "absolute";    # percents are absolute (relative to the whole product)
 	}
 
 	$log->debug(
@@ -2697,26 +2839,35 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 			total_max => $total_max,
 			percent_sum => $percent_sum,
 			all_ingredients_have_a_set_percent => $all_ingredients_have_a_set_percent,
+			quantity_sum => $quantity_sum,
+			all_ingredients_have_a_set_quantity => $all_ingredients_have_a_set_quantity,
 		}
 	) if $log->is_debug();
 
 	# Go through each ingredient to set percent_min, percent_max, and if we can an absolute percent
 
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
-		if ((defined $ingredient_ref->{percent}) and ($ingredient_ref->{percent} > 0)) {
-			# There is a specified percent for the ingredient.
+		if (   ((defined $ingredient_ref->{percent}) and ($ingredient_ref->{percent} > 0))
+			or ($percent_mode eq "scale_grams"))
+		{
+			# There is a specified percent for the ingredient (or we can derive it from grams)
 
-			if ($percent_mode eq "grams") {
-				# the specified percent of the ingredient is in fact in grams
-				# (when we parse the ingredients list, if we see a value in grams, we assign it to the percent field,
-				# as values are usually listed for 100g)
-				# we need to convert it to actual %
+			if ($percent_mode eq "scale_percents") {
+				# The parent percent is known, and we have set values for the percent of all ingredients
+				# We can scale the percent of the ingredients so that their sum matches the parent percent
 				my $percent = $ingredient_ref->{percent} * $total_max / $percent_sum;
 				$ingredient_ref->{percent} = $percent;
 				$ingredient_ref->{percent_min} = $percent;
 				$ingredient_ref->{percent_max} = $percent;
 			}
-			if (($percent_mode eq "absolute") or ($total_min == $total_max)) {
+			elsif ($percent_mode eq "scale_grams") {
+				# Convert gram values to percent
+				my $percent = $ingredient_ref->{quantity_g} * $total_max / $quantity_sum;
+				$ingredient_ref->{percent} = $percent;
+				$ingredient_ref->{percent_min} = $percent;
+				$ingredient_ref->{percent_max} = $percent;
+			}
+			elsif (($percent_mode eq "absolute") or ($total_min == $total_max)) {
 				# We can assign an absolute percent to the ingredient because
 				# 1. the percent mode is absolute
 				# or 2. we have a specific percent for the parent ingredient
@@ -6252,12 +6403,14 @@ sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients ($product_
 		my $fruits = 0;
 		foreach my $ingredient_ref (@{$product_ref->{specific_ingredients}}) {
 			my $ingredient_id = $ingredient_ref->{id};
-			if (defined $ingredient_ref->{percent}) {
+			# We can have specific ingredients with % or grams
+			my $percent_or_quantity_g = $ingredient_ref->{percent} || $ingredient_ref->{quantity_g};
+			if (defined $percent_or_quantity_g) {
 				my $nutriscore_fruits_vegetables_nuts
 					= get_inherited_property("ingredients", $ingredient_id, "nutriscore_fruits_vegetables_nuts:en");
 
 				if ((defined $nutriscore_fruits_vegetables_nuts) and ($nutriscore_fruits_vegetables_nuts eq "yes")) {
-					$fruits += $ingredient_ref->{percent};
+					$fruits += $percent_or_quantity_g;
 				}
 			}
 		}
