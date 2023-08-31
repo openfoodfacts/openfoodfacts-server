@@ -86,7 +86,6 @@ BEGIN {
 		&delete_ingredients_percent_values
 		&compute_ingredients_percent_estimates
 
-		&add_fruits
 		&estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients
 
 		&add_milk
@@ -6329,47 +6328,55 @@ sub detect_allergens_from_text ($product_ref) {
 	return;
 }
 
-=head2 add_fruits ( $ingredients_ref )
+=head2 add_ingredients_matching_function ( $ingredients_ref, $match_function_ref )
 
-Recursive function to compute the % of fruits, vegetables, nuts and olive/walnut/rapeseed oil
-for Nutri-Score computation.
+Recursive function to compute the percentage of ingredients that match a specific function.
+
+Used to compute % of fruits and vegetables, % of milk etc. which is needed by some algorithm
+like the Nutri-Score.
 
 =cut
 
-sub add_fruits ($ingredients_ref) {
+sub add_ingredients_matching_function ($ingredients_ref, $match_function_ref) {
 
-	my $fruits = 0;
+	my $count = 0;
 
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
-
-		my $nutriscore_fruits_vegetables_nuts
-			= get_inherited_property("ingredients", $ingredient_ref->{id}, "nutriscore_fruits_vegetables_nuts:en");
-
-		if ((defined $nutriscore_fruits_vegetables_nuts) and ($nutriscore_fruits_vegetables_nuts eq "yes")) {
-
+		my $match = $match_function_ref->($ingredient_ref->{id});
+		if ($match) {
 			if (defined $ingredient_ref->{percent}) {
-				$fruits += $ingredient_ref->{percent};
+				$count += $ingredient_ref->{percent};
 			}
 			elsif (defined $ingredient_ref->{percent_min}) {
-				$fruits += $ingredient_ref->{percent_min};
+				$count += $ingredient_ref->{percent_min};
 			}
 			# We may not have percent_min if the ingredient analysis failed because of seemingly impossible values
 			# in that case, try to get the possible percent values in nested sub ingredients
 			elsif (defined $ingredient_ref->{ingredients}) {
-				$fruits += add_fruits($ingredient_ref->{ingredients});
+				$count += add_ingredients_matching_function($ingredient_ref->{ingredients}, $match_function_ref);
 			}
 		}
 		elsif (defined $ingredient_ref->{ingredients}) {
-			$fruits += add_fruits($ingredient_ref->{ingredients});
+			$count += add_ingredients_matching_function($ingredient_ref->{ingredients}, $match_function_ref);
 		}
-		$log->debug("add_fruits ingredient, current total",
-			{ingredient_id => $ingredient_ref->{id}, current_fruits => $fruits})
-			if $log->is_debug();
 	}
 
-	$log->debug("add_fruits result", {fruits => $fruits}) if $log->is_debug();
+	return $count;
+}
 
-	return $fruits;
+=head2 is_nutriscore_2021_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ( $ingredient_id )
+
+Determine if an ingredient shoud be counted as "fruits, vegetables, nuts, olive / walnut / rapeseed oils"
+in Nutriscore 2021 algorithm
+
+=cut
+
+sub is_nutriscore_2021_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ($ingredient_id) {
+
+	my $nutriscore_fruits_vegetables_nuts
+		= get_inherited_property("ingredients", $ingredient_id, "nutriscore_fruits_vegetables_nuts:en");
+
+	return ((defined $nutriscore_fruits_vegetables_nuts) and ($nutriscore_fruits_vegetables_nuts eq "yes"));
 }
 
 =head2 estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients ( product_ref )
@@ -6395,7 +6402,8 @@ sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients ($product_
 		(defined $product_ref->{nutriments}) or $product_ref->{nutriments} = {};
 
 		$product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients_100g"}
-			= add_fruits($product_ref->{ingredients});
+			= add_ingredients_matching_function($product_ref->{ingredients},
+			\&is_nutriscore_2021_fruits_vegetables_nuts_olive_walnut_rapeseed_oils);
 	}
 
 	# If we have specific ingredients, check if we have a higher fruits / vegetables content
@@ -6433,44 +6441,15 @@ sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients ($product_
 	return;
 }
 
-=head2 add_milk ( $ingredients_ref )
+=head2 is_milk ( $ingredient_id )
 
-Recursive function to compute the % of milk for Nutri-Score computation.
+Determine if an ingredient shoud be counted as milk in Nutriscore 2021 algorithm
 
 =cut
 
-sub add_milk ($ingredients_ref) {
+sub is_milk ($ingredient_id) {
 
-	my $milk = 0;
-
-	foreach my $ingredient_ref (@{$ingredients_ref}) {
-
-		if (is_a("ingredients", $ingredient_ref->{id}, "en:milk")) {
-
-			if (defined $ingredient_ref->{percent}) {
-				$milk += $ingredient_ref->{percent};
-			}
-			elsif (defined $ingredient_ref->{percent_min}) {
-				$milk += $ingredient_ref->{percent_min};
-			}
-			# We may not have percent_min if the ingredient analysis failed because of seemingly impossible values
-			# in that case, try to get the possible percent values in nested sub ingredients
-			elsif (defined $ingredient_ref->{ingredients}) {
-				$milk += add_milk($ingredient_ref->{ingredients});
-			}
-		}
-		elsif (defined $ingredient_ref->{ingredients}) {
-			$milk += add_milk($ingredient_ref->{ingredients});
-		}
-
-		$log->debug("add_milk ingredient, current total",
-			{ingredient_id => $ingredient_ref->{id}, current_milk => $milk})
-			if $log->is_debug();
-	}
-
-	$log->debug("add_milk result", {milk => $milk}) if $log->is_debug();
-
-	return $milk;
+	return is_a("ingredients", $ingredient_id, "en:milk");
 }
 
 =head2 estimate_milk_percent_from_ingredients ( product_ref )
@@ -6489,7 +6468,7 @@ sub estimate_milk_percent_from_ingredients ($product_ref) {
 	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
 
 		$log->debug("milk percent - start", {milk_percent => $milk_percent}) if $log->is_debug();
-		$milk_percent = add_milk($product_ref->{ingredients});
+		$milk_percent = add_ingredients_matching_function($product_ref->{ingredients}, \&is_milk);
 	}
 
 	$log->debug("milk percent", {milk_percent => $milk_percent}) if $log->is_debug();
