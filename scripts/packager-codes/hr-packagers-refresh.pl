@@ -178,6 +178,12 @@ sub main {
 
 	# lower case
 	@{$header} = map {lc} @{$header};
+	# replace spaces, dots, etc.  by underscores
+	@{$header} = map {s/(\ |\.|\/|\(|\))/_/g; $_} @{$header};
+	# replace multiple underscores by a single one
+	@{$header} = map {s/_{2,}/_/g; $_} @{$header};
+	# remove underscores if name ends by underscores
+	@{$header} = map {s/_$//g; $_} @{$header};
 
 	push(@{$header}, 'lat', 'lng');
 
