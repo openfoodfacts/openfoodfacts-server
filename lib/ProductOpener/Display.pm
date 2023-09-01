@@ -3900,8 +3900,8 @@ HTML
 
 				if ($packager_codes{$canon_tagid}{cc} eq 'hr') {
 					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{naziv_odobrenog_objekta_approved_establishment}<br>
-$packager_codes{$canon_tagid}{adresa_objekta_address} $packager_codes{$canon_tagid}{mjesto_i_poštanski_broj_town_postal_code} ($packager_codes{$canon_tagid}{županija_county})
+<p>$packager_codes{$canon_tagid}{approved_establishment}<br>
+$packager_codes{$canon_tagid}{street_address} $packager_codes{$canon_tagid}{town_and_postal_code} ($packager_codes{$canon_tagid}{county})
 </p>
 HTML
 						;

@@ -185,20 +185,15 @@ sub write_csv {
 sub main {
 	my $in_fh = read_csv;
 
-	my $header = $csv->getline($in_fh);
+	my @header = (
+		'number', 'app_number', 'approved_establishment', 'street_address',
+		'town_and_postal_code', 'municipality', 'county', 'remark',
+		'sante', 'sante_activity', 'species'
+	);
 
-	# lower case
-	@{$header} = map {lc} @{$header};
-	# replace spaces, dots, etc.  by underscores
-	@{$header} = map {s/(\ |\.|\/|\(|\))/_/g; $_} @{$header};
-	# replace multiple underscores by a single one
-	@{$header} = map {s/_{2,}/_/g; $_} @{$header};
-	# remove underscores if name ends by underscores
-	@{$header} = map {s/_$//g; $_} @{$header};
+	push(@header, 'lat', 'lng');
 
-	push(@{$header}, 'lat', 'lng');
-
-	my @rows = ($header);
+	my @rows = (\@header);
 
 	while (defined(my $row = $csv->getline($in_fh))) {
 		my $row_url = prepare_url($row);
