@@ -1888,10 +1888,7 @@ sv:Veteöl, Starköl
 zh:白啤酒, 小麦啤酒
 wikidata:en:Q15079724
 
-<en:Wheat beers
-en:Hefeweizen beers, hefeweizen
-xx:Hefeweizen
-description:en:Hefeweizen is a lager that originated from Bavaria. It is unfiltered wheat beer consisting of 50% wheat malt.
+################################# LAGERS #################################
 
 <en:Beers
 en:Lagers, lager
@@ -1912,6 +1909,13 @@ ciqual_food_code:en:5001
 wikipedia:en:https://en.wikipedia.org/wiki/Lager
 
 <en:Lagers
+<en:Wheat beers
+<en:Unfiltered beers
+en:Hefeweizen, Hefeweizen beers
+xx:Hefeweizen
+description:en:Hefeweizen is a lager that originated from Bavaria. It is unfiltered wheat beer consisting of 50% wheat malt.
+
+<en:Lagers
 en:Märzen
 xx:Märzen
 wikidata:en:Q1760222
@@ -1919,10 +1923,18 @@ wikipedia:en:https://en.wikipedia.org/wiki/M%C3%A4rzen
 
 <en:Lagers
 en:Pilsners, , Pilsner, Pilsner beers
-lt:Pilsner šviesusis alus
 xx:Pilsners, Pilsner
 wikidata:en:Q152281
 wikipedia:en:https://en.wikipedia.org/wiki/Pilsner
+
+<en:Beers
+en:Unfiltered beers
+xx:Unfiltered beers
+
+<en:Beers
+en:Unpasteurized beers
+xx:Unpasteurized beers
+description:en:Unpasteurized is a live beer containing healthy living micro-organisms: yeast. Due to alcohol and acidity, harmful bacteria are not present.
 
 <en:Beers
 en:Strong beers, 8% beers, Beers with 8° alcohol or more
