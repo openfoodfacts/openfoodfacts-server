@@ -1419,6 +1419,8 @@ agribalyse_proxy_food_name:fr:Bière brune
 <en:Beers
 en:Packaged beers, Beers in a package, Packed beers
 lt:Supakuotas alus, Alus pakuotėje, Alus dėžėje
+xx:Packaged beers
+description:en:Beers that are packed for example: 6x330ml
 
 ################################# ALES #################################
 
@@ -1429,6 +1431,7 @@ wikidata:en:Q208385
 
 <en:Ales
 en:Pale ales, Pale ale
+xx:Pale ales
 
 ############ IPA ############
 
@@ -1441,97 +1444,123 @@ xx:India Pale Ale (IPA), IPA, IPA ales, India pale ale, India pale ales
 wikidata:en:Q1543214
 
 <en:India Pale Ale (IPA)
+en:Amber IPA
 xx:Amber IPA
 
 <en:India Pale Ale (IPA)
 <en:American beers
+en:American IPA
 xx:American IPA
 lt:Amerikietiškas IPA
 
 <xx:American IPA
+en:Cornish IPA
 xx:Cornish IPA
 
 <xx:American IPA
 <en:Strong beers
+en:Double IPA, Imperial IPA, Extra IPA, DIPA
 xx:Double IPA, Imperial IPA, Extra IPA, DIPA
 
 <xx:American IPA
+en:East Coast IPA, East IPA
 xx:East Coast IPA, East IPA
 
 <xx:American IPA
+en:Hurricane IPA, Tornado IPA
 xx:Hurricane IPA, Tornado IPA
 
 <xx:American IPA
+en:New England IPA, NEIPA, Hazy IPA, Juicy IPA, Unfiltered IPA
 xx:New England IPA, NEIPA, Hazy IPA, Juicy IPA, Unfiltered IPA
 wikidata:en:Q103350505
 
 <en:Sour beers
 <xx:New England IPA
+en:Sour IPA
 xx:Sour IPA
 description:en: Sour IPA is based from New England IPA with added sour taste
 
 <xx:New England IPA
+en:Milkshake IPA
 xx:Milkshake IPA
 wikidata:en:Q103351397
 
 <xx:American IPA
+en:Punk IPA
 xx:Punk IPA
 
 <xx:American IPA
 <en:Red ales
+en:Red IPA
 xx:Red IPA
 
 <xx:American IPA
 <en:Strong beers
+en:Triple IPA
 xx:Triple IPA
 
 <xx:American IPA
+en:West Coast IPA, West Coast India Pale Ale, West IPA
 xx:West Coast IPA, West Coast India Pale Ale, West IPA
 wikidata:en:Q103352549
 
 <en:India Pale Ale (IPA)
+en:Brut IPA
 xx:Brut IPA
 description:en:Brut is a new style of IPA that is similar to champagne in terms of appearance and sensation.
 
 <en:India Pale Ale (IPA)
+en:Blond IPA, Blonde IPA
 xx:Blond IPA, Blonde IPA
 
 <en:India Pale Ale (IPA)
+en:Cascade IPA
 xx:Cascade IPA
 
 <en:India Pale Ale (IPA)
+en:Dark IPA
 xx:Dark IPA
 
 <en:India Pale Ale (IPA)
+en:Double dry-hopped IPA, DDH IPA
 xx:Double dry-hopped IPA, DDH IPA
 
 <en:India Pale Ale (IPA)
+en:Forest IPA
 xx:Forest IPA
 
 <en:India Pale Ale (IPA)
+en:Fruit IPA, Tropical IPA, Citrus IPA, Passion IPA
 xx:Fruit IPA, Tropical IPA, Citrus IPA, Passion IPA
 
 <en:India Pale Ale (IPA)
 <en:Norwegian beers
+en:Kveik IPA
 xx:Kveik IPA
 description:en:Kveik IPA is a dry-hopped IPA containing Norwegian yeast.
 
 <en:India Pale Ale (IPA)
+en:Matcha IPA
 xx:Matcha IPA
 
 <en:India Pale Ale (IPA)
+en:Rye IPA
 xx:Rye IPA
 wikidata:en:Q25220404
 wikipedia:en:https://en.wikipedia.org/wiki/Rye_IPA
 
 <en:India Pale Ale (IPA)
+en:Session IPA
 xx:Session IPA
 wikidata:en:Q103351397
 
 <en:India Pale Ale (IPA)
+en:Summer IPA
 xx:Summer IPA
 
 <en:India Pale Ale (IPA)
+en:White IPA
 xx:White IPA
 
 ############ END OF IPA ############
@@ -1544,7 +1573,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Saison
 
 <en:Pale ales
 <en:American beers
-en:American Pale Ale (APA), APA beers
+en:American Pale Ale (APA), APA beers, American Pale Ale
+xx:American Pale Ale
 lt:APA alus
 wikidata:en:Q15940735
 
