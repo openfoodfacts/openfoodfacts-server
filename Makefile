@@ -156,7 +156,7 @@ tail:
 	@echo "🥫 Reading logs (Apache2, Nginx) …"
 	tail -f logs/**/*
 
-codecov_prepare:
+codecov_prepare: create_folders
 	@echo "🥫 Preparing to run code coverage…"
 	mkdir -p cover_db
 	${DOCKER_COMPOSE_TEST} run --rm backend cover -delete
