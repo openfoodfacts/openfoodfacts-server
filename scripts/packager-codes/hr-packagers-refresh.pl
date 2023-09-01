@@ -46,7 +46,6 @@ use HTTP::CookieJar::LWP;
 use LWP::UserAgent;
 use JSON qw(from_json);
 use Encode qw( encode );
-use Data::Table qw( fromCSV );
 use Text::CSV qw( csv );
 use strict;
 use warnings;
@@ -164,10 +163,22 @@ sub get_lat_lon {
 }
 
 sub write_csv {
-	my ($t) = @_;
+	my $rows_ref = shift;
 
 	open my $out_fh, '>:encoding(utf-8)', $outfile;
-	$t->csv(1, {file => $out_fh, delimiter => q{;}});
+	my $csv_out = Text::CSV->new(
+                        {
+                                eol => "\n",
+                                sep => ";",
+                                quote_space => 0,
+                                binary => 1
+                        }
+                ) or die "Cannot use CSV: " . Text::CSV->error_diag();
+
+    foreach my $row_ref (@$rows_ref) {
+		$csv_out->print($out_fh, $row_ref);
+	}
+
 	close $out_fh;
 }
 
@@ -187,16 +198,16 @@ sub main {
 
 	push(@{$header}, 'lat', 'lng');
 
-	my $t = Data::Table->new([], $header);
+	my @rows = ($header);
 
 	while (defined(my $row = $csv->getline($in_fh))) {
 		my $row_url = prepare_url($row);
 		my ($lattitude, $longitude) = get_lat_lon($row_url);
 		push(@{$row}, $lattitude, $longitude);
-		$t->addRow($row);
+		push @rows, $row;
 	}
 
-	write_csv($t);
+	write_csv(\@rows);
 }
 
 exit main();
