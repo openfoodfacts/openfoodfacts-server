@@ -3558,6 +3558,8 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
 
 	# Ingredients classes
+	# Select best language to parse ingredients
+	$product_ref->{ingredients_lc} = select_ingredients_lc($product_ref);
 	clean_ingredients_text($product_ref);
 	extract_ingredients_from_text($product_ref);
 	extract_ingredients_classes_from_text($product_ref);
