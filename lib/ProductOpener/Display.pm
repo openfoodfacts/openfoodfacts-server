@@ -3871,16 +3871,6 @@ HTML
 					push @markers, \@geo;
 				}
 
-				if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{raison_sociale_enseigne_commerciale}<br>
-$packager_codes{$canon_tagid}{adresse} $packager_codes{$canon_tagid}{code_postal} $packager_codes{$canon_tagid}{commune}<br>
-SIRET : $packager_codes{$canon_tagid}{siret} - <a href="$packager_codes{$canon_tagid}{section}">Source</a>
-</p>
-HTML
-						;
-				}
-
 				if ($packager_codes{$canon_tagid}{cc} eq 'ch') {
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{full_address}</p>
@@ -3893,6 +3883,25 @@ HTML
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{razon_social}<br>
 $packager_codes{$canon_tagid}{provincia_localidad}
+</p>
+HTML
+						;
+				}
+
+				if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{raison_sociale_enseigne_commerciale}<br>
+$packager_codes{$canon_tagid}{adresse} $packager_codes{$canon_tagid}{code_postal} $packager_codes{$canon_tagid}{commune}<br>
+SIRET : $packager_codes{$canon_tagid}{siret} - <a href="$packager_codes{$canon_tagid}{section}">Source</a>
+</p>
+HTML
+						;
+				}
+
+				if ($packager_codes{$canon_tagid}{cc} eq 'hr') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{approved_establishment}<br>
+$packager_codes{$canon_tagid}{street_address} $packager_codes{$canon_tagid}{town_and_postal_code} ($packager_codes{$canon_tagid}{county})
 </p>
 HTML
 						;
