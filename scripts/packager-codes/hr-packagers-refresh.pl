@@ -167,15 +167,15 @@ sub write_csv {
 
 	open my $out_fh, '>:encoding(utf-8)', $outfile;
 	my $csv_out = Text::CSV->new(
-                        {
-                                eol => "\n",
-                                sep => ";",
-                                quote_space => 0,
-                                binary => 1
-                        }
-                ) or die "Cannot use CSV: " . Text::CSV->error_diag();
+		{
+			eol => "\n",
+			sep => ";",
+			quote_space => 0,
+			binary => 1
+		}
+	) or die "Cannot use CSV: " . Text::CSV->error_diag();
 
-    foreach my $row_ref (@$rows_ref) {
+	foreach my $row_ref (@$rows_ref) {
 		$csv_out->print($out_fh, $row_ref);
 	}
 
