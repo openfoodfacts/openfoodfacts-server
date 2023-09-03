@@ -3955,7 +3955,9 @@ my %phrases_after_ingredients_list = (
 	],
 
 	en => [
+		'adds a trivial amount',    # e.g. adds a trivial amount of added sugars per serving
 		'after opening',
+		#'Best before',
 		'nutrition(al)? (as sold|facts|information|typical|value[s]?)',
 		# "nutrition advice" seems to appear before ingredients rather than after.
 		# "nutritional" on its own would match the ingredient "nutritional yeast" etc.
@@ -3966,8 +3968,8 @@ my %phrases_after_ingredients_list = (
 		'once opened[,]? (consume|keep|refrigerate|store|use)',
 		'(Storage( instructions)?[: ]+)?Store in a cool[,]? dry place',
 		'(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
-		#'Best before',
 		#'See bottom of tin',
+		'spices and or vegetable powder as last ingredient',
 	],
 
 	es => [
@@ -4216,7 +4218,7 @@ my %ignore_phrases = (
 		'\d\d?\s?%\sFett\si(\.|,)\s?Tr(\.|,)?',    # 45 % Fett i.Tr.
 		"inklusive",
 	],
-	en => ["na|n/a|not applicable",],
+	en => ["na|n/a|not applicable", "Contains 2% and less of",],    # Contains 2% and less of (Xanthan Gum)
 	fr => ["non applicable|non concerné",],
 
 );
