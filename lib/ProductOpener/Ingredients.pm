@@ -2470,7 +2470,8 @@ sub compute_ingredients_tags ($product_ref) {
 	remove_fields(
 		$product_ref,
 		[
-			"ingredients_tags, ingredients_original_tags", "ingredients_n",
+			"ingredients_hierarchy", "ingredients_tags",
+			"ingredients_original_tags", "ingredients_n",
 			"known_ingredients_n", "unknown_ingredients_n",
 			"ingredients_n_tags", "ingredients_with_specified_percent_n",
 			"ingredients_with_unspecified_percent_n", "ingredients_with_specified_percent_sum",
@@ -2628,6 +2629,27 @@ sub extract_ingredients_from_text ($product_ref) {
 
 		estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($product_ref);
 
+	}
+	else {
+		remove_fields(
+			$product_ref,
+			[
+				"ingredients_without_ciqual_codes", # assign_ciqual_codes - may have been introduced in previous version
+				"ingredients_without_ciqual_codes_n"
+				,    # assign_ciqual_codes - may have been introduced in previous version
+				"specific_ingredients"
+				, # estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients - may have been introduced in previous version
+			]
+		);
+		remove_fields(
+			$product_ref->{nutriments},
+			[
+				"fruits-vegetables-nuts-estimate-from-ingredients_100g"
+				, # estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients - may have been introduced in previous version
+				"fruits-vegetables-nuts-estimate-from-ingredients_serving"
+				, # estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients - may have been introduced in previous version
+			]
+		);
 	}
 
 	# Keep the nested list of sub-ingredients, but also copy the sub-ingredients at the end for apps
