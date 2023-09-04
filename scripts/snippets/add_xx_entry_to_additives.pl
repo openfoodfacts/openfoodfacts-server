@@ -33,6 +33,7 @@ while (my $line = <STDIN>) {
 
     if ($line =~ /^\w\w:(E(?:[^,]+))/) {
         $e_number = $1;
+        chomp($e_number);
     }
     if ((defined $e_number) and ($line =~ /^(#|e_number:|wikidata|efsa)/)) {
         print "xx:$e_number\n";
