@@ -101,11 +101,14 @@ stopwords:sv:av, från, med, innehåller, inklusive, bl a, bland annat, minimum,
 stopwords:zh::配料
 
 # Eurocode properties
-# e.g.
+# e.g. for palm heart
+# under "version 99/1"
+# it corresponds to "Main group 8: Vegetables and vegetable products"
+# eurocode_2_group_1:en: 8
 # eurocode_2_group_1:en: 8
 # eurocode_2_group_2:en: 8.25
 # eurocode_2_group_3:en: 8.25.50
-# are from https://web.archive.org/web/20170712020557/http://www.ianunwin.demon.co.uk/eurocode/docmn/ec99/ecmgintr.htm#MGList
+# are from https://web.archive.org/web/20170621070633/http://www.ianunwin.demon.co.uk/eurocode/docmn/classpad.htm
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
