@@ -54,14 +54,14 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/product/12345678',
 		expected_status_code => 404,
-        expected_type => 'html',
+		expected_type => 'html',
 	},
 	{
 		test_case => 'get-existing-product',
 		method => 'GET',
 		path => '/product/200000000034',
 		expected_status_code => 200,
-        expected_type => 'html',
+		expected_type => 'html',
 	},
 ];
 
