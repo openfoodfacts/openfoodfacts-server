@@ -54,7 +54,18 @@ jobs:
           mkdir -p /tmp/frontend-dist
           # download docker image corresponding to the tag
           image_name=ghcr.io/${{ github.repository }}/frontend:${{ env.TAG_NAME }}
-          docker pull $image_name
+          # pull image, eventually waiting for it to be available in ghcr.io
+          waited=0
+          while ! (docker pull $image_name); do
+            sleep 30
+            waited=$((waited+30))
+            # timeout after 6 minutes
+            if [[ $waited -gt 360 ]]; then
+              echo "Timeout waiting for image $image_name"
+              # Abort the job
+              exit 1
+            fi
+          done
           # extract the dist files, we create a temporary docker container and use docker cp
           id=$(docker create $image_name)
           docker cp -a $id:/opt/product-opener/html/css/dist/ /tmp/frontend-dist/css/
