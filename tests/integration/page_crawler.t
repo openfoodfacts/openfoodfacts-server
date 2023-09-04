@@ -29,7 +29,8 @@ my %product_form = (
 	(
 		code => '0200000000235',
 		product_name => "Only-Product",
-		categories => "cakes",
+		categories => "cakes, hazelnut spreads",
+		brands => "Nutella",
 	)
 );
 
@@ -134,7 +135,7 @@ my $tests_ref = [
 		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
-		response_content_must_match => '<h1>NOINDEX</h1>'
+		response_content_must_match => '<h1>NOINDEX</h1>',
 	},
 	# Normal user should have access to editor facet
 	{
@@ -142,7 +143,7 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/editor/unknown-user',
 		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
-		expected_status_code => 200,
+		expected_status_code => 404,
 		expected_type => 'html',
 		response_content_must_match => 'Unknown user.'
 	},

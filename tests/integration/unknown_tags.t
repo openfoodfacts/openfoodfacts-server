@@ -33,7 +33,7 @@ my @products = (
 			product_name => "test",
 			ingredients_text => "apple, someunknowningredient",
 			countries => "france",
-            labels => "organic",
+			labels => "organic",
 		)
 	},
 
@@ -52,7 +52,7 @@ my $tests_ref = [
 		path => '/product/321342143242343243423',
 		expected_status_code => 404,
 		expected_type => 'html',
-	},    
+	},
 	{
 		test_case => 'country-france-exists',
 		method => 'GET',
@@ -66,8 +66,8 @@ my $tests_ref = [
 		path => '/country/cambodia',
 		expected_status_code => 200,
 		expected_type => 'html',
-        response_content_must_match => 'cambodia',
-	},    
+		response_content_must_match => 'cambodia',
+	},
 	{
 		test_case => 'country-doesnotexist',
 		method => 'GET',
@@ -82,7 +82,7 @@ my $tests_ref = [
 		path => '/ingredient/apple',
 		expected_status_code => 200,
 		expected_type => 'html',
-        response_content_must_match => 'apple',
+		response_content_must_match => 'apple',
 	},
 	{
 		test_case => 'ingredient-someunknowningredient-does-not-exist-but-not-empty',
@@ -90,7 +90,7 @@ my $tests_ref = [
 		path => '/ingredient/someunknowningredient',
 		expected_status_code => 200,
 		expected_type => 'html',
-        response_content_must_match => 'someunknowningredient',
+		response_content_must_match => 'someunknowningredient',
 	},
 	{
 		test_case => 'ingredient-someunknownandemptyingredient-does-not-exist-and-empty',
@@ -98,8 +98,8 @@ my $tests_ref = [
 		path => '/ingredient/someunknownandemptyingredient',
 		expected_status_code => 404,
 		expected_type => 'html',
-        response_content_must_not_match => 'someunknownandemptyingredient',
-	},        
+		response_content_must_not_match => 'someunknownandemptyingredient',
+	},
 	{
 		test_case => 'country-doesnotexist-ingredients-apple',
 		method => 'GET',
@@ -107,7 +107,7 @@ my $tests_ref = [
 		expected_status_code => 404,
 		expected_type => 'html',
 		response_content_must_not_match => 'doesnotexist',
-	},       
+	},
 	{
 		test_case => 'country-doesnotexist-ingredients',
 		method => 'GET',
@@ -119,12 +119,12 @@ my $tests_ref = [
 	{
 		test_case => 'ingredient-someunknowningredient-does-not-exist-but-not-empty-labels',
 		method => 'GET',
-        # we need &no_cache=1 in order to get results (otherwise we use the products_tags collection)
+		# we need &no_cache=1 in order to get results (otherwise we use the products_tags collection)
 		path => '/ingredient/someunknowningredient/labels&no_cache=1',
 		expected_status_code => 200,
 		expected_type => 'html',
-        response_content_must_match => 'someunknowningredient',
-	},    
+		response_content_must_match => 'someunknowningredient',
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

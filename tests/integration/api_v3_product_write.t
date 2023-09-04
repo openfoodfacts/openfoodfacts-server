@@ -443,7 +443,8 @@ my $tests_ref = [
 					}			
 				]
 			}
-		}'
+		}',
+		expected_status_code => 403,
 	},
 	# Packaging complete
 	{
