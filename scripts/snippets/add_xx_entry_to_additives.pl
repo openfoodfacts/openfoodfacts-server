@@ -31,6 +31,7 @@ my $e_number;
 
 while (my $line = <STDIN>) {
 
+<<<<<<< HEAD
     if ($line =~ /^\w\w:(E(?:[^,]+))/) {
         $e_number = $1;
         chomp($e_number);
@@ -39,6 +40,15 @@ while (my $line = <STDIN>) {
         print "xx:$e_number\n";
         $e_number = undef;
     }
+=======
+	if ($line =~ /^\w\w:(E(?:[^,]+))/) {
+		$e_number = $1;
+	}
+	if ((defined $e_number) and ($line =~ /^(#|e_number:|wikidata|efsa)/)) {
+		print "xx:$e_number\n";
+		$e_number = undef;
+	}
+>>>>>>> 601aff8ec564a21a04129e5855b17895f6046016
 
-    print $line;
+	print $line;
 }
