@@ -819,7 +819,6 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 					$waited += 2;
 				}
 				else {
-					# note the $job we get through the jobs() iterator only
 					$run_jobs{$job_id} = $job;
 				}
 			}
