@@ -1105,7 +1105,6 @@ sub display_no_index_page_and_exit () {
 	$r->status(200);
 	binmode(STDOUT, ":encoding(UTF-8)");
 	print $html;
-	return;
 	exit();
 }
 
