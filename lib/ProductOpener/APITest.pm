@@ -812,8 +812,6 @@ sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 				my $job_state = $job->{state};
 				# check if the job is done
 				if (($job_state eq "active") or ($job_state eq "inactive")) {
-					print STDERR
-						"task $task_name - job $job_id - state $job_state - waiting 2 - (waited: $waited, max_waiting_time: $max_waiting_time)\n";
 					$jobs_complete = 0;
 					sleep(2);
 					$waited += 2;
