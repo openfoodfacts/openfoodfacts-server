@@ -787,41 +787,39 @@ The timestamp of the creation of the task
 The max waiting time for this given task
 
 =head3 Returns
-Returns a list of jobs associated with the task_name
+Returns a list of jobs information associated with the task_name
+
+Note: for each job we return the job information (as returned by the jobs() iterator),
+not the Minion job object.
 
 =cut
 
 sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
 	my $waited = 0;    # counting the waiting time
 	my %run_jobs = ();
-	while (($waited < $max_waiting_time) and (!(scalar %run_jobs))) {
+	my $jobs_complete = 0;
+	while (($waited < $max_waiting_time) and (not $jobs_complete)) {
 		my $jobs = get_minion()->jobs({tasks => [$task_name]});
-		# iterate on job
+		# iterate on jobs
+		$jobs_complete = 1;
 		while (my $job = $jobs->next) {
 			next if (defined $run_jobs{$job->{id}});
 			# only those who were created after the timestamp
-			if ($job->{created} > $created_after_ts) {
+			if ($job->{created} >= $created_after_ts) {
 				# retrieving the job id
 				my $job_id = $job->{id};
-				# we have a dict, get the object to be consistent with case when we wait
-				my $job = get_minion()->job($job_id);
 				# retrieving the job state
-				my $job_state = $job->info->{state};
-				# waiting the job to be done
-				while (($job_state eq "active") or ($job_state eq "inactive")) {
+				my $job_state = $job->{state};
+				# check if the job is done
+				if (($job_state eq "active") or ($job_state eq "inactive")) {
+					$jobs_complete = 0;
 					sleep(2);
 					$waited += 2;
-					# reload to get updated state
-					$job = get_minion()->job($job_id);
-					$job_state = $job->info->{state};
 				}
-				$run_jobs{$job_id} = $job;
+				else {
+					$run_jobs{$job_id} = $job;
+				}
 			}
-		}
-		if (!(scalar %run_jobs)) {
-			# try to wait for jobs
-			sleep(2);
-			$waited += 2;
 		}
 	}
 	# sort by creation date to have jobs in predictable order

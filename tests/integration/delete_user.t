@@ -53,7 +53,7 @@ my $max_time = 60;
 my $jobs_ref = get_minion_jobs("delete_user", $before_delete_ts, $max_time);
 
 is(scalar @{$jobs_ref}, 1, "One delete_user was triggered");
-my $delete_job_state = $jobs_ref->[0]->info->{state};
+my $delete_job_state = $jobs_ref->[0]{state};
 is($delete_job_state, "finished", "delete_user finished without errors");
 
 #user sign out of its account
