@@ -205,7 +205,7 @@ jobs:
             done
           done
 
-    - name: init backend
+    - name: initialize the backend
       uses: appleboy/ssh-action@master
       with:
         host: ${{ env.SSH_HOST }}
