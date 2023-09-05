@@ -1056,7 +1056,7 @@ sub display_error ($error_message, $status_code) {
 		{
 			title => lang('error'),
 			content_ref => \$html,
-			status => $status_code,
+			status_code => $status_code,
 			page_type => "error",
 		}
 	);
@@ -1105,7 +1105,6 @@ sub display_no_index_page_and_exit () {
 	$r->status(200);
 	binmode(STDOUT, ":encoding(UTF-8)");
 	print $html;
-	return;
 	exit();
 }
 
@@ -1746,7 +1745,6 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 		$log->debug("results for aggregate MongoDB query key", {"results" => $results}) if $log->is_debug();
 		$html .= "<p>" . lang("no_products") . "</p>";
 		$request_ref->{structured_response}{count} = 0;
-
 	}
 	else {
 
@@ -4374,11 +4372,40 @@ HTML
 
 		# TODO: Producer
 
-		${$request_ref->{content_ref}}
-			.= $tag_html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
+		my $search_results_html = search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
+
+		${$request_ref->{content_ref}} .= $tag_html . $search_results_html;
 	}
 
-	display_page($request_ref);
+	# If we have no resultings products or aggregated tags, and the tag value does not exist in the taxonomy,
+	# we do not output the tag value in the page title and content
+	if (
+		($request_ref->{structured_response}{count} == 0)
+		and (
+			(
+				(
+					(defined $tagid)
+					and (
+						not(    (defined $taxonomy_fields{$tagtype})
+							and (exists_taxonomy_tag($tagtype, $canon_tagid)))
+					)
+				)
+			)
+			or (
+				(defined $tagid2)
+				and (
+					not(    (defined $taxonomy_fields{$tagtype2})
+						and (exists_taxonomy_tag($tagtype2, $canon_tagid2)))
+				)
+			)
+		)
+		)
+	{
+		display_error_and_exit(lang("no_products"), 404);
+	}
+	else {
+		display_page($request_ref);
+	}
 
 	return;
 }
