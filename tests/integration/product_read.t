@@ -63,6 +63,13 @@ my $tests_ref = [
 		expected_status_code => 200,
 		expected_type => 'html',
 	},
+	{
+		test_case => 'get-existing-product-api',
+		method => 'GET',
+		path => '/api/v3/product/200000000034',
+		expected_status_code => 200,
+		expected_type => 'html',
+	},    
 ];
 
 execute_api_tests(__FILE__, $tests_ref);
