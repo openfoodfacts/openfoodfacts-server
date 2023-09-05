@@ -5866,11 +5866,6 @@ en:Lime juices from concentrate
 fr:Jus de citron vert à partir d'un concentré
 nl:limoensappen uit concentraat
 
-<en:Lime juices
-<en:Fruit juice concentrates
-en:Lime juice concentrates, concentrated lime juices
-fr:Concentrés de jus de citrons verts, Jus de citrons verts concentrés
-
 <en:Fruit juices
 en:Lemon juice
 bg:Лимонов сок
@@ -8378,10 +8373,13 @@ fr:Concentrés de jus de fruits, jus de fruits concentrés
 en:Apple juice concentrates, concentrated apple juices
 fr:Concentrés de jus de pommes, Jus de pommes concentrés
 
-<en:Squeezed lemon juices
 <en:Fruit juice concentrates
 en:Lemon juice concentrates, concentrated lemon juices
 fr:Concentrés de jus de citrons, Jus de citrons concentrés
+
+<en:Fruit juice concentrates
+en:Lime juice concentrates, concentrated lime juices
+fr:Concentrés de jus de citrons verts, Jus de citrons verts concentrés
 
 <en:Plant-based foods and beverages
 en:Dairy substitutes, Dairies substitutes
@@ -34639,6 +34637,14 @@ fr:Riz au lait saveur vanille
 lt:Vaniliniai ryžių pudingai
 nl:Rijstpudding met vanille
 
+<en:Rice puddings
+en:Plain rice puddings
+fr:Riz au lait nature
+
+<en:Rice puddings
+en:Rice puddings with a fruit preparation
+fr:Riz au lait à la préparation de fruits
+
 <en:Cakes
 en:Fruit cakes, Fruit cake
 de:Obstkuchen, Fruchtkuchen
@@ -34858,8 +34864,9 @@ food_groups:en: en:Sweets
 pnns_group_2:en:Sweets
 
 <en:Confectioneries
-fr:Substituts du chocolat
-en:Chocolate substitutes
+en:Compound chocolates, Chocolate substitutes
+de:Schokoladenersatz
+fr:Succédanés du chocolat, Substituts du chocolat
 ja:凖チョコレート
 # ja note: Industry policy:
 # チョコレート類 refers to chocolate products in Japan. It contains チョコレート ("chocolate"), 凖チョコレート, チョコレート菓子 ("chocolate snack"), 凖チョコレート菓子, カカオマス ("cocoa mass"), ココアバター ("cocoa butter"), ココアケーキ, ココアパウダー ("cocoa powder"), and 調整ココアパウダー.
@@ -42842,6 +42849,12 @@ lt:Sūriai su graikiniais riešutais
 nl:Notenkazen
 pt:Queijos com nozes
 
+# fermented milk product from Finland and Sweden, with around 10% fat. It is generally used as a lighter alternative to sour cream.
+<en:Fermented milk products
+xx:Kermaviili
+fi:Kermaviili
+se:Gräddfil
+
 <en:Dairy desserts
 <en:Fermented milk products
 en:Fermented dairy desserts
@@ -46065,6 +46078,15 @@ en:Fruit skyrs, Fruit skyr
 fr:Skyrs aux fruits, Skyr aux fruits
 nl:Skyrs met vruchten
 
+<en:Fermented dairy desserts
+xx:Viili, Filmjölk
+fi:Viili
+se:Filmjölk, filbunke
+
+<fi:Viili
+<en:Fermented dairy desserts with fruits
+se:Filmjölk med frukt
+
 <en:Fermented milk products
 # <en:ingredient:en:cheese
 en:Quarks, quark
@@ -46131,14 +46153,6 @@ nl:Kwarks natuur
 en:Fruit quarks, Fruit quark
 fr:Quarks aux fruits, Quark aux fruits
 nl:Kwarks met vruchten
-
-<en:Quarks
-en:Curd snacks
-lt:Varškės sūreliai
-
-<en:Quarks
-en:Curd snacks
-lt:Varškės sūreliai
 
 <en:Quarks
 en:Herb quarks
