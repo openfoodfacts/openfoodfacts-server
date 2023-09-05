@@ -175,7 +175,7 @@ jobs:
           make create_external_volumes && \
           make create_external_networks
 
-    - name: wait docker images
+    - name: wait for docker images to be available
       # we sometimes have the images not ready immediately after build, so we prefer to wait for it
       uses: appleboy/ssh-action@master
       with:
