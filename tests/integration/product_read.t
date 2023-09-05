@@ -52,7 +52,7 @@ my $tests_ref = [
 	{
 		test_case => 'get-existing-product',
 		method => 'GET',
-        # the path needs to include the product title, otherwise we get a redirect (not supported in tests container)
+		# the path needs to include the product title, otherwise we get a redirect (not supported in tests container)
 		path => '/product/200000000034/some-product',
 		expected_status_code => 200,
 		expected_type => 'html',
