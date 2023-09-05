@@ -53,6 +53,7 @@ BEGIN {
 		&execute_api_tests
 		&wait_server
 		&fake_http_server
+		&get_minion_jobs
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -61,8 +62,9 @@ use vars @EXPORT_OK;
 
 use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Test qw/:all/;
-use ProductOpener::Mail qw/ $LOG_EMAIL_START $LOG_EMAIL_END /;
+use ProductOpener::Mail qw/$LOG_EMAIL_START $LOG_EMAIL_END/;
 use ProductOpener::Store qw/store retrieve/;
+use ProductOpener::Producers qw/get_minion/;
 
 use Test::More;
 use LWP::UserAgent;
@@ -74,6 +76,7 @@ use Carp qw/confess/;
 use Clone qw/clone/;
 use File::Tail;
 use Test::Fake::HTTPD;
+use Minion;
 
 # Constants of the test website main domain and url
 # Should be used internally only (see: construct_test_url to build urls in tests)
@@ -515,7 +518,7 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 
 		my $response_content = $response->decoded_content;
 
-		if ($test_ref->{expected_type} eq 'text') {
+		if ((defined $test_ref->{expected_type}) and ($test_ref->{expected_type} eq 'text')) {
 			# Check that the text file is the same as expected (useful for checking dynamic robots.txt)
 			is(
 				compare_file_to_expected_results(
@@ -766,6 +769,62 @@ sub fake_http_server ($port, $dump_path, $responses_ref) {
 		}
 	);
 	return $httpd;
+}
+
+=head2 get_minion_jobs($task_name, $created_after_ts, $max_waiting_time)
+Subprogram which wait till the minion finished its job or
+if it takes too much time
+
+=head3 Arguments
+
+=head4 $task_name
+The name of the task 
+
+=head4 $created_after_ts
+The timestamp of the creation of the task
+
+=head4 $max_waiting_time
+The max waiting time for this given task
+
+=head3 Returns
+Returns a list of jobs information associated with the task_name
+
+Note: for each job we return the job information (as returned by the jobs() iterator),
+not the Minion job object.
+
+=cut
+
+sub get_minion_jobs ($task_name, $created_after_ts, $max_waiting_time) {
+	my $waited = 0;    # counting the waiting time
+	my %run_jobs = ();
+	my $jobs_complete = 0;
+	while (($waited < $max_waiting_time) and (not $jobs_complete)) {
+		my $jobs = get_minion()->jobs({tasks => [$task_name]});
+		# iterate on jobs
+		$jobs_complete = 1;
+		while (my $job = $jobs->next) {
+			next if (defined $run_jobs{$job->{id}});
+			# only those who were created after the timestamp
+			if ($job->{created} >= $created_after_ts) {
+				# retrieving the job id
+				my $job_id = $job->{id};
+				# retrieving the job state
+				my $job_state = $job->{state};
+				# check if the job is done
+				if (($job_state eq "active") or ($job_state eq "inactive")) {
+					$jobs_complete = 0;
+					sleep(2);
+					$waited += 2;
+				}
+				else {
+					$run_jobs{$job_id} = $job;
+				}
+			}
+		}
+	}
+	# sort by creation date to have jobs in predictable order
+	my @all_jobs = sort {$_->info->{created}} (values %run_jobs);
+	return \@all_jobs;
 }
 
 1;

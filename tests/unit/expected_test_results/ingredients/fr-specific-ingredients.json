@@ -121,7 +121,8 @@
       {
          "id" : "en:fruit",
          "ingredient" : "fruits",
-         "percent" : 50,
+         "quantity" : "50 g",
+         "quantity_g" : 50,
          "text" : "Préparée avec 50 g de fruits pour 100g de produit fini."
       },
       {
@@ -145,7 +146,8 @@
       {
          "id" : "en:sugar",
          "ingredient" : "sucres",
-         "percent" : 60,
+         "quantity" : "60 g",
+         "quantity_g" : 60,
          "text" : "Teneur totale en sucres : 60 g pour 100 g de produit fini."
       },
       {
@@ -157,7 +159,8 @@
       {
          "id" : "en:fruit-juice",
          "ingredient" : "jus de fruits",
-         "percent" : 35,
+         "quantity" : "35 g",
+         "quantity_g" : 35,
          "text" : "Teneur minimum en jus de fruits 35 g pour 100 g de produit fini."
       },
       {

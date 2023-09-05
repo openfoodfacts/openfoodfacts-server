@@ -938,12 +938,12 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	my $is_crawl_bot = 0;
 	my $is_denied_crawl_bot = 0;
 	if ($user_agent_str
-		=~ /Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|YandexBot|YandexRenderResourcesBot|DuckDuckBot|DotBot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|www\.qwant\.com|facebookexternalhit|Bytespider|GPTBot|SEOkicks-Robot|SearchmetricsBot|MJ12bot|SurveyBot|SEOdiver|wotbox|Cliqzbot|Paracrawl|Scrapy|VelenPublicWebCrawler|SemrushBot|MegaIndex\.ru|YandexMarket|Amazonbot|aiohttp|python-request/i
+		=~ /Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Apple|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request/i
 		)
 	{
 		$is_crawl_bot = 1;
 		if ($user_agent_str
-			=~ /bingbot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|Bytespider|SEOkicks-Robot|SearchmetricsBot|MJ12bot|SurveyBot|SEOdiver|wotbox|Cliqzbot|Paracrawl|Scrapy|VelenPublicWebCrawler|SemrushBot|MegaIndex\.ru|YandexMarket|Amazonbot/
+			=~ /bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon/
 			)
 		{
 			$is_denied_crawl_bot = 1;
@@ -7838,7 +7838,7 @@ JS
 	# try to display ingredients in the local language if available
 
 	my $ingredients_text = $product_ref->{ingredients_text};
-	my $ingredients_text_lang = $product_ref->{lc};
+	my $ingredients_text_lang = $product_ref->{ingredients_lc};
 
 	if (defined $product_ref->{ingredients_text_with_allergens}) {
 		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
@@ -11049,7 +11049,8 @@ sub data_to_display_ingredients_analysis_details ($product_ref) {
 
 	my $result_data_ref = {};
 
-	my $ingredients_text = "";
+	my $ingredients_text_lc = $product_ref->{ingredients_lc};
+	my $ingredients_text = "$ingredients_text_lc: ";
 	my $ingredients_list = "";
 
 	display_nested_list_of_ingredients($product_ref->{ingredients}, \$ingredients_text, \$ingredients_list);

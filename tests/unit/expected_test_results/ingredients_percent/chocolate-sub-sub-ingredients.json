@@ -1,0 +1,42 @@
+[
+   {
+      "id" : "en:chocolate",
+      "ingredients" : [
+         {
+            "id" : "en:cocoa",
+            "ingredients" : [
+               {
+                  "id" : "en:cocoa-paste",
+                  "percent" : 70,
+                  "percent_estimate" : 70,
+                  "percent_max" : 70,
+                  "percent_min" : 70,
+                  "text" : "cocoa paste"
+               },
+               {
+                  "id" : "en:cocoa-butter",
+                  "percent_estimate" : 15,
+                  "percent_max" : 30,
+                  "percent_min" : 0,
+                  "text" : "cocoa butter"
+               }
+            ],
+            "percent_estimate" : 85,
+            "percent_max" : 100,
+            "percent_min" : 70,
+            "text" : "cocoa"
+         },
+         {
+            "id" : "en:sugar",
+            "percent_estimate" : 15,
+            "percent_max" : 30,
+            "percent_min" : 0,
+            "text" : "sugar"
+         }
+      ],
+      "percent_estimate" : 100,
+      "percent_max" : 100,
+      "percent_min" : 100,
+      "text" : "chocolate"
+   }
+]
