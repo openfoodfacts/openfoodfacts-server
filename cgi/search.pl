@@ -738,13 +738,13 @@ HTML
 
 		# We want existing values for axis fields
 		foreach my $axis ('x', 'y') {
-			if (    ($graph_ref->{"axis_$axis"} ne "")
-				and ($graph_ref->{"axis_$axis"} ne "forest_footprint")
-				and ($graph_ref->{"axis_$axis"} !~ /_n$/))
-			{
-				(defined $query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"})
-					or $query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} = {};
-				$query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"}{'$exists'} = 1;
+
+			if ($graph_ref->{"axis_$axis"} ne "") {
+				my $field = $graph_ref->{"axis_$axis"};
+				# Get the field path components
+				my @fields = get_search_field_path_components($field);
+				# Convert to dot notation to get the MongoDB field
+				$query_ref->{join(".", @fields)} = {'$exists' => 1};
 			}
 		}
 
