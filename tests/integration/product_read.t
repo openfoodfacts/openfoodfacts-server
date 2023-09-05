@@ -56,7 +56,7 @@ my $tests_ref = [
 		path => '/product/200000000034/some-product',
 		expected_status_code => 200,
 		expected_type => 'html',
-	},     
+	},
 	{
 		test_case => 'get-unexisting-product',
 		method => 'GET',

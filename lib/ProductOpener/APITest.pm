@@ -499,7 +499,7 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 		# We would need to re-construct the url
 		my $final_url = $response->request->uri;
 		if ($url ne $final_url) {
-			diag("Got a redirect to " . $final_url );
+			diag("Got a redirect to " . $final_url);
 		}
 
 		# Check if we got the expected response status code, expect 200 if not provided
