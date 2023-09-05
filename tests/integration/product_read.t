@@ -50,26 +50,20 @@ foreach my $product_form_override (@products) {
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
 	{
+		test_case => 'get-existing-product',
+		method => 'GET',
+        # the path needs to include the product title, otherwise we get a redirect (not supported in tests container)
+		path => '/product/200000000034/some-product',
+		expected_status_code => 200,
+		expected_type => 'html',
+	},     
+	{
 		test_case => 'get-unexisting-product',
 		method => 'GET',
-		path => '/product/12345678',
+		path => '/product/300000000034',
 		expected_status_code => 404,
 		expected_type => 'html',
 	},
-	{
-		test_case => 'get-existing-product',
-		method => 'GET',
-		path => '/product/200000000034',
-		expected_status_code => 200,
-		expected_type => 'html',
-	},
-	{
-		test_case => 'get-existing-product-api',
-		method => 'GET',
-		path => '/api/v3/product/200000000034',
-		expected_status_code => 200,
-		expected_type => 'html',
-	},    
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

@@ -495,6 +495,13 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 			$response = $test_ua->request($request);
 		}
 
+		# Check if we got a redirect: they are currently not supported by execute_api_tests
+		# We would need to re-construct the url
+		my $final_url = $response->request->uri;
+		if ($url ne $final_url) {
+			diag("Got a redirect to " . $final_url );
+		}
+
 		# Check if we got the expected response status code, expect 200 if not provided
 		if (not defined $test_ref->{expected_status_code}) {
 			$test_ref->{expected_status_code} = 200;
