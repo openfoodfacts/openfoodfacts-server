@@ -76,6 +76,7 @@ BEGIN {
 		&display_product_history
 		&display_preferences_api
 		&display_attribute_groups_api
+		&get_search_field_path_components
 		&search_and_display_products
 		&search_and_export_products
 		&search_and_graph_products
@@ -6614,8 +6615,9 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 		}
 	}
 
+	# Add fields for the axis
 	foreach my $axis ('x', 'y') {
-		my @field = $graph_ref->{"axis_$axis"};
+		my $field = $graph_ref->{"axis_$axis"};
 		# Get the field path components
 		my @fields = get_search_field_path_components($field);
 		# Convert to dot notation to get the MongoDB field
