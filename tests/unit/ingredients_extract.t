@@ -15,10 +15,22 @@ use ProductOpener::Ingredients qw/:all/;
 
 my @lists = (
 	# en phrases_after_ingredients_list
-	["en", "carrots, green peas, corn, scallion. *adds a trivial amount of added sugars per serving.", "carrots, green peas, corn, scallion.",],
-	["en", "EGGS, TOMATO PASTE (tomato paste, citric acid, salt). *SPICES AND OR VEGETABLE POWDER as last ingredient when that flavor.", "EGGS, TOMATO PASTE (tomato paste, citric acid, salt)."],
+	[
+		"en",
+		"carrots, green peas, corn, scallion. *adds a trivial amount of added sugars per serving.",
+		"carrots, green peas, corn, scallion.",
+	],
+	[
+		"en",
+		"EGGS, TOMATO PASTE (tomato paste, citric acid, salt). *SPICES AND OR VEGETABLE POWDER as last ingredient when that flavor.",
+		"EGGS, TOMATO PASTE (tomato paste, citric acid, salt)."
+	],
 	# en ignore_phrases,
-	["en", "Egg White not applicable, not applicable, Contains 2% or less of: Xanthan Gum, Salt, Glucono-delta-lactone.", "Egg White, Xanthan Gum, Salt, Glucono-delta-lactone.",],
+	[
+		"en",
+		"Egg White not applicable, not applicable, Contains 2% or less of: Xanthan Gum, Salt, Glucono-delta-lactone.",
+		"Egg White, Xanthan Gum, Salt, Glucono-delta-lactone.",
+	],
 );
 
 foreach my $test_ref (@lists) {
@@ -28,8 +40,8 @@ foreach my $test_ref (@lists) {
 	print STDERR "input from the picture extraction (ingredients list ($lc)): $ingredients_text_from_image\n";
 	print STDERR "cut_ingredients_text_from_image (result from sub routine): $cut_ingredients_text_from_image\n";
 	my $expected = $test_ref->[2];
-	is(lc($cut_ingredients_text_from_image), lc($expected)) or print STDERR "Original ingredients: $ingredients_text_from_image ($lc)\n";
+	is(lc($cut_ingredients_text_from_image), lc($expected))
+		or print STDERR "Original ingredients: $ingredients_text_from_image ($lc)\n";
 }
-
 
 done_testing();
