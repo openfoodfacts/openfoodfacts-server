@@ -1394,30 +1394,73 @@ $section-cyan: #008c8c;
   margin-bottom: 8px;
 }
 
-#everyday {
-  line-height: 28px;
+
+.highlight {
+  line-height: 130%;
   font-weight: 800;
   color: #ffffff;
 
   transform: rotate(2.5deg);
-  background-color: #0064c8;
-  border-inline: 5px solid #0064c8;
   border-radius: 5px;
   text-transform: uppercase;
   display: inline-block;
+
+  &.orange {
+    background-color: $off-orange;
+    border-inline: 5px solid $off-orange;
+  }
+
+  &.blue {
+    background-color: $off-blue;
+    border-inline: 5px solid $off-blue;
+  }
+
+  &.turquoise {
+    background-color: $off-turquoise;
+    border-inline: 5px solid $off-turquoise;
+  }
+
+  &.pink {
+    background-color: $off-pink;
+    border-inline: 5px solid $off-pink;
+  }
+
+  &.yellow {
+    color: $black;
+    background-color: $highlight-yellow;
+    border-inline: 5px solid $highlight-yellow;
+  }
+
+  &.dark-green {
+    background-color: $highlight-green;
+    border-inline: 5px solid $highlight-green;
+  }
+
+  &.dark-orange {
+    background-color: $highlight-dark-orange;
+    border-inline: 5px solid $highlight-dark-orange;
+  }
+
+  &.light-blue {
+    background-color: $highlight-light-blue;
+    border-inline: 5px solid $highlight-light-blue;
+  }
+
+  &.rotate-right {
+    transform: rotate(2.5deg);
+  }
+
+  &.rotate-left {
+    transform: rotate(-3deg);
+  }
+}
+
+#everyday {
+  @extend .highlight, .rotate-right, .blue;
 }
 
 #foods {
-  line-height: 28px;
-  font-weight: 800;
-  color: #ffffff;
-
-  transform: rotate(-3deg);
-  background-color: #ff8714;
-  border-inline: 5px solid #ff8714;
-  border-radius: 5px;
-  text-transform: uppercase;
-  display: inline-block;
+  @extend .highlight, .rotate-left, .orange;
 }
 
 .search_form_accordion_navigation {
