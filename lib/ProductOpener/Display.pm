@@ -5864,7 +5864,7 @@ sub get_search_field_title_and_details ($field) {
 		$allow_decimals = "allowDecimals:false,\n";
 		$title = escape_single_quote(lang("ecoscore_score"));
 	}
-	elsif ($field =~ /^packagings_materials\.([^\.]+)\.([^\.]+)$/) {
+	elsif ($field =~ /^packagings_materials\.([^.]+)\.([^.]+)$/) {
 		my $material = $1;
 		my $subfield = $2;
 		$title = lang("packaging") . " - ";
@@ -5904,7 +5904,7 @@ sub get_search_field_title_and_details ($field) {
 sub display_scatter_plot ($graph_ref, $products_ref) {
 
 	my @products = @{$products_ref};
-	my $count = @products;
+	my $count = scalar @products;
 
 	my $html = '';
 
@@ -6018,14 +6018,16 @@ sub display_scatter_plot ($graph_ref, $products_ref) {
 			}
 		}
 
-		defined $series{$seriesid} or $series{$seriesid} = '';
+		$series{$seriesid} = $series{$seriesid} // '';
 
 		$data{product_name} = $product_ref->{product_name};
 		$data{url} = $formatted_subdomain . product_url($product_ref->{code});
 		$data{img} = display_image_thumb($product_ref, 'front');
 
+        # create data entry for series
 		defined $series{$seriesid} or $series{$seriesid} = '';
 		$series{$seriesid} .= JSON::PP->new->encode(\%data) . ',';
+        # count entries / series
 		defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 		$series_n{$seriesid}++;
 		$i++;
