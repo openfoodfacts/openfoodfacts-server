@@ -4216,10 +4216,10 @@ my %prefixes_before_dash = (fr => ['demi', 'saint',],);
 my %ignore_phrases = (
 	de => [
 		'\d\d?\s?%\sFett\si(\.|,)\s?Tr(\.|,)?',    # 45 % Fett i.Tr.
-		"inklusive",
+		'inklusive',
 	],
-	en => ["na|n/a|not applicable", "Contains 2% and less of",],    # Contains 2% and less of (Xanthan Gum)
-	fr => ["non applicable|non concerné",],
+	en => ['na|n/a|not applicable', 'contains 2% or less of:',],    # Contains 2% or less of (Xanthan Gum)
+	fr => ['non applicable|non concerné',],
 
 );
 
@@ -4424,7 +4424,7 @@ sub cut_ingredients_text_for_lang ($text, $language) {
 	if (defined $phrases_after_ingredients_list{$language}) {
 
 		foreach my $regexp (@{$phrases_after_ingredients_list{$language}}) {
-			if ($text =~ /\s*\b$regexp\b(.*)$/is) {
+			if ($text =~ /(\*)+\s*\b$regexp\b(.*)$/is) {
 				$text = $`;
 				$log->debug("removed phrases_after_ingredients_list", {removed => $1, kept => $text, regexp => $regexp})
 					if $log->is_debug();
@@ -4439,7 +4439,14 @@ sub cut_ingredients_text_for_lang ($text, $language) {
 	if (defined $ignore_phrases{$language}) {
 
 		foreach my $regexp (@{$ignore_phrases{$language}}) {
-			$text =~ s/^\s*($regexp)(\.)?\s*$//is;
+			# substract regexp
+			$text =~ s/\s*\b(?:$regexp)\s*/ /gi;
+			# rm double parenthesis
+			$text =~ s/\(\s?\)//g;
+			# rm double commas
+			$text =~ s/\s?,\s?,/,/g;
+			# rm double spaces
+			$text =~ s/\s+/ /g;
 		}
 	}
 

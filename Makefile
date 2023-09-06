@@ -248,7 +248,7 @@ unit_test:
 	@echo "🥫 unit tests success"
 
 integration_test:
-	@echo "🥫 Running unit tests …"
+	@echo "🥫 Running integration tests …"
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
 # this is the place where variables are important
