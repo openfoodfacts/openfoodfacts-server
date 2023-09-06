@@ -5849,7 +5849,15 @@ sub get_search_field_title_and_details ($field) {
 		$title = escape_single_quote(lang($field . "_s"));
 	}
 	elsif ($field =~ /^packagings_materials\.([^\.]+)\.([^\.]+)$/) {
-		$title = lang("packaging") . " - " . display_taxonomy_tag($lc, "packagings_materials", "zz:$1") . ' - ' . $2;
+		$title = lang("packaging") . " - ";
+		if ($1 eq "all") {
+			$title .= lang("packagings_materials_all");
+		}
+		else {
+			$title .= display_taxonomy_tag($lc, "packagings_materials", "zz:$1");
+		}
+		$title .= ' - ' . lang($2);
+		display_taxonomy_tag($lc, "packagings_materials", "zz:$1") . ' - ' . $2;
 	}
 	else {
 		$title = display_taxonomy_tag($lc, "nutrients", "zz:" . $field);
