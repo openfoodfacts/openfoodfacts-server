@@ -322,16 +322,29 @@ if ($action eq 'display') {
 		$axis_labels{$nid} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 		$log->debug("nutriments", {nid => $nid, value => $axis_labels{$nid}}) if $log->is_debug();
 	}
-	push @axis_values, "additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n";
-	push @axis_values, "fruits-vegetables-nuts-estimate-from-ingredients";
-	push @axis_values, "forest_footprint";
-	$axis_labels{additives_n} = lang("number_of_additives");
-	$axis_labels{ingredients_n} = lang("ingredients_n_s");
-	$axis_labels{known_ingredients_n} = lang("known_ingredients_n_s");
-	$axis_labels{unknown_ingredients_n} = lang("unknown_ingredients_n_s");
+
+	my @other_search_fields = (
+		"additives_n", "ingredients_n",
+		"known_ingredients_n", "unknown_ingredients_n",
+		"fruits-vegetables-nuts-estimate-from-ingredients", "forest_footprint",
+		"product_quantity",
+	);
+
+	# Add the fields related to packaging
+	foreach my $material ("all", "en:plastic", "en:glass", "en:metal", "en:paper-or-cardboard", "en:unknown") {
+		foreach my $subfield ("weight", "weight_100g", "weight_percent") {
+			push @other_search_fields, "packagings_materials.$material.$subfield";
+		}
+	}
+
 	$axis_labels{search_nutriment} = lang("search_nutriment");
 	$axis_labels{products_n} = lang("number_of_products");
-	$axis_labels{forest_footprint} = lang("forest_footprint");
+
+	foreach my $field (@other_search_fields) {
+		my ($title, $unit, $unit2, $allow_decimals) = get_search_field_title_and_details($field);
+		push @axis_values, $field;
+		$axis_labels{$field} = $title;
+	}
 
 	my @sorted_axis_values = ("", sort({lc($axis_labels{$a}) cmp lc($axis_labels{$b})} @axis_values));
 

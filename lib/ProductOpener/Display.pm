@@ -77,6 +77,7 @@ BEGIN {
 		&display_preferences_api
 		&display_attribute_groups_api
 		&get_search_field_path_components
+		&get_search_field_title_and_details
 		&search_and_display_products
 		&search_and_export_products
 		&search_and_graph_products
@@ -5814,7 +5815,7 @@ my %nutrition_grades_colors = (
 sub get_search_field_path_components ($field) {
 	my @fields;
 	# direct fields
-	if ($field =~ /_n$/) {
+	if (($field =~ /_n$/) or ($field eq "product_quantity")) {
 		@fields = ($field);
 	}
 	# indirect fields separated with the . character
@@ -5848,16 +5849,35 @@ sub get_search_field_title_and_details ($field) {
 		$allow_decimals = "allowDecimals:false,\n";
 		$title = escape_single_quote(lang($field . "_s"));
 	}
+	elsif ($field eq "product_quantity") {
+		$allow_decimals = "allowDecimals:false,\n";
+		$title = escape_single_quote(lang("quantity"));
+		$unit = ' (g)';
+		$unit2 = 'g';
+	}
 	elsif ($field =~ /^packagings_materials\.([^\.]+)\.([^\.]+)$/) {
+		my $material = $1;
+		my $subfield = $2;
 		$title = lang("packaging") . " - ";
-		if ($1 eq "all") {
+		if ($material eq "all") {
 			$title .= lang("packagings_materials_all");
 		}
 		else {
-			$title .= display_taxonomy_tag($lc, "packagings_materials", "zz:$1");
+			$title .= display_taxonomy_tag($lc, "packaging_materials", $material);
 		}
-		$title .= ' - ' . lang($2);
-		display_taxonomy_tag($lc, "packagings_materials", "zz:$1") . ' - ' . $2;
+		$title .= ' - ' . lang($subfield);
+		if ($subfield =~ /_percent$/) {
+			$unit = ' %';
+			$unit2 = '%';
+		}
+		elsif ($subfield =~ /_100g$/) {
+			$unit = ' (g/100g)';
+			$unit2 = 'g/100g';
+		}
+		else {
+			$unit = ' (g)';
+			$unit2 = 'g';
+		}
 	}
 	else {
 		$title = display_taxonomy_tag($lc, "nutrients", "zz:" . $field);
@@ -5881,6 +5901,7 @@ sub display_scatter_plot ($graph_ref, $products_ref) {
 
 	my %axis_details = ();
 	my %min = ();    # Minimum for the axis, 0 except -15 for Nutri-Score score
+	my %fields = ();    # fields path components for each axis, to use with deep_get()
 
 	foreach my $axis ("x", "y") {
 		# Set the titles and details of each axis
@@ -5899,6 +5920,9 @@ sub display_scatter_plot ($graph_ref, $products_ref) {
 		if ($field =~ /^nutrition-score/) {
 			$min{$axis} = -15;
 		}
+
+		# Store the field path components
+		$fields{$field} = [get_search_field_path_components($field)];
 	}
 
 	my %nutriments = ();
@@ -5917,22 +5941,25 @@ sub display_scatter_plot ($graph_ref, $products_ref) {
 		foreach my $axis ('x', 'y') {
 
 			my $field = $graph_ref->{"axis_" . $axis};
-			my @fields = get_search_field_path_components($field);
-			my $value = deep_get($product_ref, @fields);
+			my $value = deep_get($product_ref, @{$fields{$field}});
 
 			# For nutrients except energy-kcal, convert to the default nutrient unit
-			if ((defined $value) and ($fields[0] eq "nutriments") and ($field !~ /energy-kcal/)) {
+			if ((defined $value) and ($fields{$field}[0] eq "nutriments") and ($field !~ /energy-kcal/)) {
 				$value = g_to_unit($value, (get_property("nutrients", "zz:$field", "unit:en") // 'g'));
 			}
 
-			$data{$axis} = $value;
+			if (defined $value) {
+				$value = $value + 0;    # Make sure the value is a number
+			}
 
-			$data{"a_field_$axis"} = $field;
-			$data{"a_value_$axis"} = $value;
+			$data{$axis} = $value;
 		}
 
 		# Keep only products that have known values for both x and y
-		next if ((not defined $data{x}) or (not defined $data{y}));
+		if ((not defined $data{x}) or (not defined $data{y})) {
+			$log->debug("Skipping product with unknown values ", {data => \%data}) if $log->is_debug();
+			next;
+		}
 
 		# Add values to stats, and set min axis
 		foreach my $axis ('x', 'y') {
@@ -6208,41 +6235,34 @@ sub display_histogram ($graph_ref, $products_ref) {
 
 	my $html = '';
 
-	my $x_allowDecimals = '';
-	my $y_allowDecimals = '';
-	my $x_title;
-	my $y_title;
-	my $x_unit = '';
-	my $y_unit = '';
-	my $x_unit2 = '';
-	my $y_unit2 = '';
+	my %axis_details = ();
+	my %min = ();    # Minimum for the axis, 0 except -15 for Nutri-Score score
 
-	if ($graph_ref->{axis_x} eq 'additives_n') {
-		$x_allowDecimals = "allowDecimals:false,\n";
-		$x_title = escape_single_quote(lang("number_of_additives"));
-	}
-	elsif ($graph_ref->{axis_x} eq "forest_footprint") {
-		$x_allowDecimals = "allowDecimals:true,\n";
-		$x_title = escape_single_quote(lang($graph_ref->{axis_x}));
-	}
-	elsif ($graph_ref->{axis_x} =~ /ingredients_n$/) {
-		$x_allowDecimals = "allowDecimals:false,\n";
-		$x_title = escape_single_quote(lang($graph_ref->{axis_x} . "_s"));
-	}
-	else {
-		$x_title = display_taxonomy_tag($lc, "nutrients", "zz:" . $graph_ref->{axis_x});
-		$x_unit
-			= " ("
-			. (get_property("nutrients", "zz:" . $graph_ref->{axis_x}, "unit:en") // 'g') . " "
-			. lang("nutrition_data_per_100g") . ")";
-		$x_unit =~ s/\&nbsp;/ /g;
-		$x_unit2 = (get_property("nutrients", "zz:" . $graph_ref->{axis_x}, "unit:en") // 'g');
+	foreach my $axis ("x") {
+		# Set the titles and details of each axis
+		my $field = $graph_ref->{"axis_" . $axis};
+		my ($title, $unit, $unit2, $allow_decimals) = get_search_field_title_and_details($field);
+		$axis_details{$axis} = {
+			title => $title,
+			unit => $unit,
+			unit2 => $unit2,
+			allow_decimals => $allow_decimals,
+		};
+
+		# Set the minimum value for the axis (0 in most cases, except for Nutri-Score)
+		$min{$axis} = 0;
+
+		if ($field =~ /^nutrition-score/) {
+			$min{$axis} = -15;
+		}
 	}
 
-	$y_allowDecimals = "allowDecimals:false,\n";
-	$y_title = escape_single_quote(lang("number_of_products"));
-
-	my $nid = $graph_ref->{"axis_x"};
+	$axis_details{"y"} = {
+		title => escape_single_quote(lang("number_of_products")),
+		allow_decimals => "allowDecimals:false,\n",
+		unit => '',
+		unit2 => '',
+	};
 
 	my $i = 0;
 
@@ -6253,92 +6273,71 @@ sub display_histogram ($graph_ref, $products_ref) {
 	my $min = 10000000000000;
 	my $max = -10000000000000;
 
+	my $field = $graph_ref->{"axis_x"};
+	my @fields = get_search_field_path_components($field);
+
 	foreach my $product_ref (@products) {
 
-		# Keep only products that have known values for x
+		my $value = deep_get($product_ref, @fields);
 
-		if (
-			(
-				(
-						(($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} =~ /ingredients_n$/))
-					and (defined $product_ref->{$graph_ref->{axis_x}})
-				)
-				or (($graph_ref->{axis_x} eq 'forest_footprint') and (defined $product_ref->{forest_footprint_data}))
-				or (defined $product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"})
-				and ($product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"} ne '')
-			)
-			)
-		{
+		# For nutrients except energy-kcal, convert to the default nutrient unit
+		if ((defined $value) and ($fields[0] eq "nutriments") and ($field !~ /energy-kcal/)) {
+			$value = g_to_unit($value, (get_property("nutrients", "zz:$field", "unit:en") // 'g'));
+		}
 
-			# Identify the series id
-			my $seriesid = 0;
-			my $s = 1000000;
+		# Keep only products that have known values for both x and y
+		if (not defined $value) {
+			next;
+		}
 
-			# default, organic, fairtrade, with_sweeteners
-			# order: organic, organic+fairtrade, organic+fairtrade+sweeteners, organic+sweeteners, fairtrade, fairtrade + sweeteners
-			#
+		$value = $value + 0;    # Make sure the value is a number
 
-			foreach my $series (@search_series) {
-				# Label?
-				if ($graph_ref->{"series_$series"}) {
-					if (defined lang("search_series_${series}_label")) {
-						if (has_tag($product_ref, "labels", 'en:' . lc($Lang{"search_series_${series}_label"}{en}))) {
-							$seriesid += $s;
-						}
-						else {
-						}
-					}
+		if ($value < $min) {
+			$min = $value;
+		}
+		if ($value > $max) {
+			$max = $value;
+		}
 
-					if ($product_ref->{$series}) {
+		# Identify the series id
+		my $seriesid = 0;
+		my $s = 1000000;
+
+		# default, organic, fairtrade, with_sweeteners
+		# order: organic, organic+fairtrade, organic+fairtrade+sweeteners, organic+sweeteners, fairtrade, fairtrade + sweeteners
+		#
+
+		foreach my $series (@search_series) {
+			# Label?
+			if ($graph_ref->{"series_$series"}) {
+				if (defined lang("search_series_${series}_label")) {
+					if (has_tag($product_ref, "labels", 'en:' . lc($Lang{"search_series_${series}_label"}{en}))) {
 						$seriesid += $s;
 					}
+					else {
+					}
 				}
 
-				if (($series eq 'default') and ($seriesid == 0)) {
+				if ($product_ref->{$series}) {
 					$seriesid += $s;
 				}
-				$s = $s / 10;
 			}
 
-			# print STDERR "Display::search_and_graph_products: i: $i - axis_x: $graph_ref->{axis_x} - axis_y: $graph_ref->{axis_y}\n";
-
-			my $value = 0;
-
-			# number of ingredients, additives etc. (ingredients_n)
-			if ($nid =~ /_n$/) {
-				$value = $product_ref->{$nid};
+			if (($series eq 'default') and ($seriesid == 0)) {
+				$seriesid += $s;
 			}
-			elsif ($nid eq "forest_footprint") {
-				$value = $product_ref->{forest_footprint_data}{footprint_per_kg};
-			}
-			# energy-kcal is already in kcal
-			elsif ($nid eq 'energy-kcal') {
-				$value = $product_ref->{nutriments}{"${nid}_100g"};
-			}
-			elsif ($nid =~ /^nutrition-score/) {
-				$value = $product_ref->{nutriments}{"${nid}_100g"};
-			}
-			else {
-				$value = g_to_unit($product_ref->{nutriments}{"${nid}_100g"},
-					(get_property("nutrients", "zz:$nid", "unit:en") // 'g'));
-			}
-
-			if ($value < $min) {
-				$min = $value;
-			}
-			if ($value > $max) {
-				$max = $value;
-			}
-
-			push @all_values, $value;
-
-			defined $series{$seriesid} or $series{$seriesid} = [];
-			push @{$series{$seriesid}}, $value;
-
-			defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
-			$series_n{$seriesid}++;
-			$i++;
+			$s = $s / 10;
 		}
+
+		push @all_values, $value;
+
+		defined $series{$seriesid} or $series{$seriesid} = [];
+		push @{$series{$seriesid}}, $value;
+
+		defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
+		$series_n{$seriesid}++;
+		$i++;
+
 	}
 
 	# define intervals
@@ -6360,7 +6359,7 @@ sub display_histogram ($graph_ref, $products_ref) {
 		push @intervals, [$min, $max, "$min"];
 	}
 	else {
-		if (($nid =~ /_n$/) or ($nid =~ /^nutrition-score/)) {
+		if (($field =~ /_n$/) or ($field =~ /^nutrition-score/)) {
 			$interval = 1;
 			$intervals = 0;
 			for (my $j = $min; $j <= $max; $j++) {
@@ -6497,7 +6496,7 @@ JS
             xAxis: {
                 title: {
                     enabled: true,
-                    text: '${x_title}${x_unit}'
+                    text: '$axis_details{x}{title}$axis_details{x}{unit}'
                 },
 				categories: [
 					$categories
@@ -6505,10 +6504,10 @@ JS
             },
             yAxis: {
 
-				$y_allowDecimals
+				$axis_details{y}{allow_decimals}
 				min:0,
                 title: {
-                    text: '${y_title}${y_unit}'
+                    text: '$axis_details{y}{title}'
                 },
 				stackLabels: {
                 enabled: true,
@@ -6519,14 +6518,14 @@ JS
             }
             },
         tooltip: {
-            headerFormat: '<b>${x_title} {point.key}</b><br>${x_unit}<table>',
+            headerFormat: '<b>$axis_details{x}{title} {point.key}</b><br>$axis_details{x}{unit}<table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                 '<td style="padding:0"><b>{point.y}</b></td></tr>',
             footerFormat: '</table>Total: <b>{point.total}</b>',
             shared: true,
             useHTML: true,
 			formatter: function() {
-            var points='<table class="tip"><caption>${x_title} ' + this.x + '</b><br>${x_unit}</caption><tbody>';
+            var points='<table class="tip"><caption>$axis_details{x}{title} ' + this.x + '</b><br>$axis_details{x}{unit}</caption><tbody>';
             //loop each point in this.points
             \$.each(this.points,function(i,point){
                 points+='<tr><th style="color: '+point.series.color+'">'+point.series.name+': </th>'
