@@ -5901,6 +5901,22 @@ sub get_search_field_title_and_details ($field) {
 	return ($title, $unit, $unit2, $allow_decimals);
 }
 
+=head2 display_scatter_plot ($graph_ref, $products_ref)
+
+Called by search_and_graph_products() to display a scatter plot of products on 2 axis
+
+=head3 Arguments
+
+=head4 $graph_ref
+
+Options for the graph, set by /cgi/search.pl
+
+=head4 $products_ref
+
+List of search results from search_and_graph_products()
+
+=cut
+
 sub display_scatter_plot ($graph_ref, $products_ref) {
 
 	my @products = @{$products_ref};
@@ -5978,8 +5994,8 @@ sub display_scatter_plot ($graph_ref, $products_ref) {
 
 		# Identify the series id
 		my $seriesid = 0;
-        # series value, we start high for first series
-        # and second series value will have s / 10, etc.
+		# series value, we start high for first series
+		# and second series value will have s / 10, etc.
 		my $s = 1000000;
 
 		# default, organic, fairtrade, with_sweeteners
@@ -6026,10 +6042,10 @@ sub display_scatter_plot ($graph_ref, $products_ref) {
 		$data{url} = $formatted_subdomain . product_url($product_ref->{code});
 		$data{img} = display_image_thumb($product_ref, 'front');
 
-        # create data entry for series
+		# create data entry for series
 		defined $series{$seriesid} or $series{$seriesid} = '';
 		$series{$seriesid} .= JSON::PP->new->encode(\%data) . ',';
-        # count entries / series
+		# count entries / series
 		defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
 		$series_n{$seriesid}++;
 		$i++;
@@ -6240,6 +6256,22 @@ HTML
 	return $html;
 
 }
+
+=head2 display_histogram ($graph_ref, $products_ref)
+
+Called by search_and_graph_products() to display an histogram of products on 1 axis
+
+=head3 Arguments
+
+=head4 $graph_ref
+
+Options for the graph, set by /cgi/search.pl
+
+=head4 $products_ref
+
+List of search results from search_and_graph_products()
+
+=cut
 
 sub display_histogram ($graph_ref, $products_ref) {
 
