@@ -5978,6 +5978,8 @@ sub display_scatter_plot ($graph_ref, $products_ref) {
 
 		# Identify the series id
 		my $seriesid = 0;
+        # series value, we start high for first series
+        # and second series value will have s / 10, etc.
 		my $s = 1000000;
 
 		# default, organic, fairtrade, with_sweeteners
