@@ -3969,7 +3969,6 @@ my %phrases_after_ingredients_list = (
 		'(Storage( instructions)?[: ]+)?Store in a cool[,]? dry place',
 		'(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
 		#'See bottom of tin',
-		'spices and or vegetable powder as last ingredient',
 	],
 
 	es => [

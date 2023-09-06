@@ -20,11 +20,6 @@ my @lists = (
 		"carrots, green peas, corn, scallion. *adds a trivial amount of added sugars per serving.",
 		"carrots, green peas, corn, scallion.",
 	],
-	[
-		"en",
-		"EGGS, TOMATO PASTE (tomato paste, citric acid, salt). *SPICES AND OR VEGETABLE POWDER as last ingredient when that flavor.",
-		"EGGS, TOMATO PASTE (tomato paste, citric acid, salt)."
-	],
 	# en ignore_phrases,
 	[
 		"en",
