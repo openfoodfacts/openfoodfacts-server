@@ -24,6 +24,20 @@
       format("svg"); /* Legacy iOS */
 }
 
+/* plus-jakarta-sans-regular - cyrillic-ext_latin_latin-ext_vietnamese */
+@font-face {
+  font-display: auto;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-regular.woff2') format('woff2'),
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    url('/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-regular.ttf') format('truetype');
+  /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+
+
 // Font for Material Icons
 // variable to prevent sonar-cloud to complain that there isn't a generic family for the icon font
 $material-icons: "Material Icons";
