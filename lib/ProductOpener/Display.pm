@@ -5815,7 +5815,8 @@ my %nutrition_grades_colors = (
 sub get_search_field_path_components ($field) {
 	my @fields;
 	# direct fields
-	if (($field =~ /_n$/) or ($field eq "product_quantity")) {
+	if (($field =~ /_n$/) or ($field eq "product_quantity") or ($field eq "nova_group") or ($field eq "ecoscore_score"))
+	{
 		@fields = ($field);
 	}
 	# indirect fields separated with the . character
@@ -5854,6 +5855,14 @@ sub get_search_field_title_and_details ($field) {
 		$title = escape_single_quote(lang("quantity"));
 		$unit = ' (g)';
 		$unit2 = 'g';
+	}
+	elsif ($field eq "nova_group") {
+		$allow_decimals = "allowDecimals:false,\n";
+		$title = escape_single_quote(lang("nova_groups_s"));
+	}
+	elsif ($field eq "ecoscore_score") {
+		$allow_decimals = "allowDecimals:false,\n";
+		$title = escape_single_quote(lang("ecoscore_score"));
 	}
 	elsif ($field =~ /^packagings_materials\.([^\.]+)\.([^\.]+)$/) {
 		my $material = $1;
