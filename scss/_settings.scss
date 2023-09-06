@@ -180,7 +180,7 @@ $cursor-text-value: text;
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 $include-html-type-classes: $include-html-classes;
 // We use these to control header font styles
-$header-font-family: $body-font-family;
+$header-font-family: "Plus Jakarta Sans", $font-family-sans-serif;
 $header-font-weight: $font-weight-normal;
 $header-font-style: normal;
 $header-font-color: $jet;
