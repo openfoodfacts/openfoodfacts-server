@@ -63,14 +63,9 @@ my @tests = (
 	],
 
 	[
-		"fr", "Ingrédients :
-Pulpe de tomate 41% (tomate pelée 24.6%, jus de tomate 16.4%, acidifiant : acide citrique), purée de tomate 25%, eau, oignon,
-crème fraîche
-5%, lait de coco déshydraté 2,5% (contient des protéines de lait), curry 2%, sucre, amidon modifié de maïs, poivron vert, poivron rouge, sel, noix de coco râpée 1%, arôme naturel de curry 0,25%, acidifiant : acide lactique. Peut contenir des traces de céleri et de moutarde.
-",
-		"Pulpe de tomate 41% (tomate pelée 24.6%, jus de tomate 16.4%, acidifiant : acide citrique), purée de tomate 25%, eau, oignon,
-crème fraîche
-5%, lait de coco déshydraté 2,5% (contient des protéines de lait), curry 2%, sucre, amidon modifié de maïs, poivron vert, poivron rouge, sel, noix de coco râpée 1%, arôme naturel de curry 0,25%, acidifiant : acide lactique. Peut contenir des traces de céleri et de moutarde."
+		"fr",
+		"Ingrédients : Pulpe de tomate 41% (tomate pelée 24.6%, jus de tomate 16.4%, acidifiant : acide citrique), purée de tomate 25%, eau, oignon, crème fraîche 5%, lait de coco déshydraté 2,5% (contient des protéines de lait), curry 2%, sucre, amidon modifié de maïs, poivron vert, poivron rouge, sel, noix de coco râpée 1%, arôme naturel de curry 0,25%, acidifiant : acide lactique. Peut contenir des traces de céleri et de moutarde.",
+		"Pulpe de tomate 41% (tomate pelée 24.6%, jus de tomate 16.4%, acidifiant : acide citrique), purée de tomate 25%, eau, oignon, crème fraîche 5%, lait de coco déshydraté 2,5% (contient des protéines de lait), curry 2%, sucre, amidon modifié de maïs, poivron vert, poivron rouge, sel, noix de coco râpée 1%, arôme naturel de curry 0,25%, acidifiant : acide lactique. Peut contenir des traces de céleri et de moutarde."
 	],
 
 	[

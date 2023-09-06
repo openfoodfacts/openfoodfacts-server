@@ -28,7 +28,7 @@ my @lists = (
 	# en ignore_phrases,
 	[
 		"en",
-		"Egg White not applicable, not applicable, Contains 2% or less of: Xanthan Gum, Salt, Glucono-delta-lactone.",
+		"Egg White, Contains 2% or less of: Xanthan Gum, Salt, Glucono-delta-lactone.",
 		"Egg White, Xanthan Gum, Salt, Glucono-delta-lactone.",
 	],
 );

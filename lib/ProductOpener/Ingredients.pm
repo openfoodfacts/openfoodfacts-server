@@ -4218,7 +4218,7 @@ my %ignore_phrases = (
 		'\d\d?\s?%\sFett\si(\.|,)\s?Tr(\.|,)?',    # 45 % Fett i.Tr.
 		'inklusive',
 	],
-	en => ['na|n/a|not applicable', 'contains 2% or less of:',],    # Contains 2% or less of (Xanthan Gum)
+	en => ['contains 2% or less of:',],    # Contains 2% or less of (Xanthan Gum)
 	fr => ['non applicable|non concerné',],
 
 );
@@ -4424,7 +4424,7 @@ sub cut_ingredients_text_for_lang ($text, $language) {
 	if (defined $phrases_after_ingredients_list{$language}) {
 
 		foreach my $regexp (@{$phrases_after_ingredients_list{$language}}) {
-			if ($text =~ /(\*)+\s*\b$regexp\b(.*)$/is) {
+			if ($text =~ /\*?\s*\b$regexp\b(.*)$/is) {
 				$text = $`;
 				$log->debug("removed phrases_after_ingredients_list", {removed => $1, kept => $text, regexp => $regexp})
 					if $log->is_debug();
