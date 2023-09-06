@@ -2634,20 +2634,17 @@ sub extract_ingredients_from_text ($product_ref) {
 		remove_fields(
 			$product_ref,
 			[
-				"ingredients_without_ciqual_codes", # assign_ciqual_codes - may have been introduced in previous version
-				"ingredients_without_ciqual_codes_n"
-				,    # assign_ciqual_codes - may have been introduced in previous version
-				"specific_ingredients"
-				, # estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients - may have been introduced in previous version
+				# assign_ciqual_codes - may have been introduced in previous version
+				"ingredients_without_ciqual_codes",
+				"ingredients_without_ciqual_codes_n",
 			]
 		);
 		remove_fields(
 			$product_ref->{nutriments},
 			[
-				"fruits-vegetables-nuts-estimate-from-ingredients_100g"
-				, # estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients - may have been introduced in previous version
-				"fruits-vegetables-nuts-estimate-from-ingredients_serving"
-				, # estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients - may have been introduced in previous version
+				# estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients - may have been introduced in previous version
+				"fruits-vegetables-nuts-estimate-from-ingredients_100g",
+				"fruits-vegetables-nuts-estimate-from-ingredients_serving",
 			]
 		);
 	}
