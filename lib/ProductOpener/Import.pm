@@ -3027,7 +3027,7 @@ sub import_products_categories_from_public_database ($args_ref) {
 						$log->debug("Food::special_process_product") if $log->is_debug();
 						ProductOpener::Food::special_process_product($product_ref);
 					}
-					compute_nutrition_score($product_ref);
+					compute_nutriscore($product_ref);
 					compute_nova_group($product_ref);
 					compute_nutrient_levels($product_ref);
 					compute_unknown_nutrients($product_ref);

@@ -92,6 +92,9 @@ Disallow: /nutrient-level
 Disallow: /nutrient-levels
 Disallow: /nutrient
 Disallow: /nutrients
+Disallow: /nutri-score
+Disallow: /nutri-score-2021
+Disallow: /nutri-score-2023
 Disallow: /nutrition-grades
 Disallow: /origin
 Disallow: /origins
@@ -208,4 +211,7 @@ User-agent: Amazonbot
 Disallow: /
 
 User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: AhrefsBot
 Disallow: /

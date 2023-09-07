@@ -43,7 +43,9 @@ my @tests = (
 			ingredients_text =>
 				"Courgette grillée 37,5%, tomate pelée 20%, poivron jaune 17%, oignon rouge grillé 8%, eau, huile d'olive vierge extra 3,9%, oignon, olive noire entière dénoyautée saumurée 2,5% (olive, eau, sel, correcteurs d'acidité : acide citrique, acide lactique), ail, basilic 0,9%, amidon de riz, sel"
 		},
-		89.8
+		# add_fruit() currently matches "olive noire entière dénoyautée saumurée 2,5% (..)" to 2.5% fruit, even though it has sub-ingredients that are not fruits
+		# TODO: investigate on actual product data to see if trying to fix this would have more true positives than false positives
+		92.3
 	],
 );
 
