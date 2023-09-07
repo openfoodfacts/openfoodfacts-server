@@ -819,7 +819,7 @@ sub is_beverage_for_nutrition_score ($product_ref) {
 		# dairy drinks need to have at least 80% of milk to be considered as food instead of beverages
 		my $milk_percent = estimate_nutriscore_2021_milk_percent_from_ingredients($product_ref);
 
-		if ($milk_percent >= 80) {
+		if ((defined $milk_percent) and ($milk_percent >= 80)) {
 			$log->debug("milk >= 80%", {milk_percent => $milk_percent}) if $log->is_debug();
 			$is_beverage = 0;
 		}
@@ -1331,7 +1331,9 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared};
 			$nutriscore_data_ref->{saturated_fat_ratio} = saturated_fat_ratio($nutriments_ref, $prepared);
 			# Compute the energy from saturates
-			$nutriscore_data_ref->{energy_from_saturated_fat} = $nutriscore_data_ref->{saturated_fat} * 37;
+			if (defined $nutriscore_data_ref->{saturated_fat}) {
+				$nutriscore_data_ref->{energy_from_saturated_fat} = $nutriscore_data_ref->{saturated_fat} * 37;
+			}
 		}
 	}
 

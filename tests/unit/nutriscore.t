@@ -382,6 +382,23 @@ my @tests = (
 			},
 		}
 	],
+	# potatoes should not count as vegetables
+	[
+		"en-potatoes-category",
+		{
+			lc => "en",
+			categories => "potatoes, vegetables",
+			nutriments => {
+				energy_100g => 182,
+				fat_100g => 0,
+				"saturated-fat_100g" => 0,
+				sugars_100g => 8.9,
+				sodium_100g => 0.2,
+				fiber_100g => 0.5,
+				proteins_100g => 0.2
+			},
+		}
+	],
 
 	# categories without Nutri-Score
 
