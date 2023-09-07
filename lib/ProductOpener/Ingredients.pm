@@ -87,9 +87,9 @@ BEGIN {
 		&delete_ingredients_percent_values
 		&compute_ingredients_percent_estimates
 
-		&estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients
-		&estimate_fruits_vegetables_legumes_value_from_ingredients
-		&estimate_milk_percent_from_ingredients
+		&estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients
+		&estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients
+		&estimate_nutriscore_2021_milk_percent_from_ingredients
 
 		&has_specific_ingredient_property
 
@@ -2625,8 +2625,8 @@ sub extract_ingredients_from_text ($product_ref) {
 
 		compute_ingredients_percent_estimates(100, $product_ref->{ingredients});
 
-		estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($product_ref);
-		estimate_fruits_vegetables_legumes_value_from_ingredients ($product_ref);
+		estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients($product_ref);
+		estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients ($product_ref);
 	}
 	else {
 		remove_fields(
@@ -2640,7 +2640,7 @@ sub extract_ingredients_from_text ($product_ref) {
 		remove_fields(
 			$product_ref->{nutriments},
 			[
-				# estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients - may have been introduced in previous version
+				# estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients - may have been introduced in previous version
 				"fruits-vegetables-nuts-estimate-from-ingredients_100g",
 				"fruits-vegetables-nuts-estimate-from-ingredients_serving",
 				"fruits-vegetables-legumes-estimate-from-ingredients_100g",
@@ -6508,10 +6508,10 @@ sub is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ($ingredient_id) {
 	my $nutriscore_fruits_vegetables_nuts
 		= get_inherited_property("ingredients", $ingredient_id, "nutriscore_fruits_vegetables_nuts:en");
 
-	return ((defined $nutriscore_fruits_vegetables_nuts) and ($nutriscore_fruits_vegetables_nuts eq "yes"));
+	return (((defined $nutriscore_fruits_vegetables_nuts) and ($nutriscore_fruits_vegetables_nuts eq "yes")) or 0);
 }
 
-=head2 estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients ( product_ref )
+=head2 estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients ( product_ref )
 
 This function analyzes the ingredients to estimate the minimum percentage of
 fruits, vegetables, nuts, olive / walnut / rapeseed oil, so that we can compute
@@ -6522,7 +6522,7 @@ Results are stored in $product_ref->{nutriments}{"fruits-vegetables-nuts-estimat
 
 =cut
 
-sub estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients ($product_ref) {
+sub estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients ($product_ref) {
 
 	return estimate_ingredients_matching_function(
 		$product_ref,
@@ -6596,16 +6596,19 @@ sub is_fruits_vegetables_legumes ($ingredient_id) {
 	my $eurocode_2_group_2 = get_inherited_property("ingredients", $ingredient_id, "eurocode_2_group_2:en");
 
 	return (
+		(
 		# All fruits groups
 		# TODO: check that we don't have entries under en:fruits that are in fact not listed in Eurocode 9 "Fruits and fruit products"
 		((defined $eurocode_2_group_1) and ($eurocode_2_group_1 eq "9"))
 		# Vegetables and legumes
 			or ((defined $eurocode_2_group_2)
 			and (exists $fruits_vegetables_legumes_eurocodes{$eurocode_2_group_2}))
+		)
+		or 0
 	);
 }
 
-=head2 estimate_fruits_vegetables_legumes_value_from_ingredients ( product_ref )
+=head2 estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients ( product_ref )
 
 This function analyzes the ingredients to estimate the minimum percentage of
 fruits, vegetables, legumes, so that we can compute the Nutri-Score (2023) fruit points.
@@ -6614,7 +6617,7 @@ Results are stored in $product_ref->{nutriments}{"fruits-vegetables-legumes-esti
 
 =cut
 
-sub estimate_fruits_vegetables_legumes_value_from_ingredients ($product_ref) {
+sub estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients ($product_ref) {
 
 	return estimate_ingredients_matching_function(
 		$product_ref,
@@ -6634,7 +6637,7 @@ sub is_milk ($ingredient_id) {
 	return is_a("ingredients", $ingredient_id, "en:milk");
 }
 
-=head2 estimate_milk_percent_from_ingredients ( product_ref )
+=head2 estimate_nutriscore_2021_milk_percent_from_ingredients ( product_ref )
 
 This function analyzes the ingredients to estimate the minimum percentage of milk in a product,
 in order to know if a dairy drink should be considered as a food (at least 80% of milk) or a beverage.
@@ -6643,7 +6646,7 @@ Return value: estimated % of milk.
 
 =cut
 
-sub estimate_milk_percent_from_ingredients ($product_ref) {
+sub estimate_nutriscore_2021_milk_percent_from_ingredients ($product_ref) {
 
 	return estimate_ingredients_matching_function($product_ref, \&is_milk);
 }
