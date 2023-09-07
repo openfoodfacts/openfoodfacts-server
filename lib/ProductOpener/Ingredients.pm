@@ -4446,6 +4446,8 @@ sub cut_ingredients_text_for_lang ($text, $language) {
 			$text =~ s/\s?,\s?,/,/g;
 			# rm double spaces
 			$text =~ s/\s+/ /g;
+			# rm space before comma
+			$text =~ s/\s,/,/g;
 		}
 	}
 
