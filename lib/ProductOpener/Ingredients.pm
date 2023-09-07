@@ -4217,7 +4217,7 @@ my %ignore_phrases = (
 		'\d\d?\s?%\sFett\si(\.|,)\s?Tr(\.|,)?',    # 45 % Fett i.Tr.
 		'inklusive',
 	],
-	en => ['contains 2% or less of:',],    # Contains 2% or less of (Xanthan Gum)
+	en => ['not applicable',],
 	fr => ['non applicable|non concerné',],
 
 );
