@@ -1151,7 +1151,8 @@ sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref, $prepared) 
 			if (has_tag($product_ref, "categories", $category_id)) {
 				$fruits_vegetables_legumes = $category_ref->[1];
 				$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_from_category} = $category_id;
-				$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_from_category_value} = $fruits_vegetables_legumes;
+				$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_from_category_value}
+					= $fruits_vegetables_legumes;
 				add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-from-category");
 				my $category = $category_id;
 				$category =~ s/:/-/;
