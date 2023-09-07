@@ -623,7 +623,7 @@ sub init_additives_classes_regexps() {
 				# 2022-09-22: not sure if the following is still needed
 				# before refactoring, we had a comment about not turning
 				# "vitamin A" into "vitamin : A", but it does not happen
-				# skip_entries_matching => '/^en:vitamins$/',
+				# skip_entries_matching => '/^en:vitamins$/',
 			}
 		)
 	};
@@ -2583,7 +2583,7 @@ sub extract_ingredients_from_text ($product_ref) {
 	# origins, labels etc. of specific ingredients. Those information may come from:
 	# - the origin of ingredients field ("origin")
 	# - labels (e.g. "British eggs")
-	# - the end of the list of the ingredients. e.g. "Origin of the rice: Thailand"
+	# - the end of the list of the ingredients. e.g. "Origin of the rice: Thailand"
 
 	$product_ref->{specific_ingredients} = [];
 
@@ -2872,7 +2872,7 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 
 	my $percent_mode;
 
-	# If the parent ingredient percent is known (total_min = total_max)
+	# If the parent ingredient percent is known (total_min = total_max)
 	# and we have set quantity for all ingredients,
 	# we will need to scale the quantities to get actual percent values
 	# This is the case in particular for recipes that can be specified in grams with a total greater than 100g
@@ -3508,7 +3508,7 @@ sub analyze_ingredients ($product_ref) {
 					$property_value = "en:" . $property;    # en:vegetarian
 				}
 
-				# In all cases, keep track of unknown ingredients so that we can display unknown ingredients
+				# In all cases, keep track of unknown ingredients so that we can display unknown ingredients
 				# even if some ingredients also triggered non-vegan or non-vegetarian
 				if (defined $values{"undef"}) {
 					$ingredients_analysis_ref->{$properties_unknown_tags{$property}} = $values{"undef"};
@@ -4997,7 +4997,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# Spanish "and" is y or e when before "i" or "hi"
 	# E can also be in a vitamin enumeration (vitamina B y E)
 	# colores E (120, 124 y 125)
-	# color E 120
+	# color E 120
 
 	# replace "and / or" by "and"
 	# except if followed by a separator, a digit, or "and", to avoid false positives
@@ -6498,7 +6498,7 @@ sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $
 
 =head2 is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ( $ingredient_id )
 
-Determine if an ingredient shoud be counted as "fruits, vegetables, nuts, olive / walnut / rapeseed oils"
+Determine if an ingredient should be counted as "fruits, vegetables, nuts, olive / walnut / rapeseed oils"
 in Nutriscore 2021 algorithm.
 
 =cut
