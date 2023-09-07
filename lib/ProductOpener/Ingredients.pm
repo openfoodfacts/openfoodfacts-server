@@ -2626,7 +2626,7 @@ sub extract_ingredients_from_text ($product_ref) {
 		compute_ingredients_percent_estimates(100, $product_ref->{ingredients});
 
 		estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients($product_ref);
-
+		estimate_fruits_vegetables_legumes_value_from_ingredients ($product_ref);
 	}
 	else {
 		remove_fields(
@@ -2643,6 +2643,12 @@ sub extract_ingredients_from_text ($product_ref) {
 				# estimate_nutriscore_fruits_vegetables_nuts_value_from_ingredients - may have been introduced in previous version
 				"fruits-vegetables-nuts-estimate-from-ingredients_100g",
 				"fruits-vegetables-nuts-estimate-from-ingredients_serving",
+				"fruits-vegetables-legumes-estimate-from-ingredients_100g",
+				"fruits-vegetables-legumes-estimate-from-ingredients_serving",
+				"fruits-vegetables-nuts-estimate-from-ingredients-prepared_100g",
+				"fruits-vegetables-nuts-estimate-from-ingredients-prepared_serving",
+				"fruits-vegetables-legumes-estimate-from-ingredients-prepared_100g",
+				"fruits-vegetables-legumes-estimate-from-ingredients-prepared_serving",					
 			]
 		);
 	}

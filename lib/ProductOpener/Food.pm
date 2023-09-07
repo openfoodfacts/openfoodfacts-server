@@ -1015,7 +1015,7 @@ my @fruits_vegetables_nuts_by_category_sorted
 	= sort {$fruits_vegetables_nuts_by_category{$b} <=> $fruits_vegetables_nuts_by_category{$a}}
 	keys %fruits_vegetables_nuts_by_category;
 
-=head2 compute_fruit_ratio($product_ref, $prepared)
+=head2 compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil($product_ref, $prepared)
 
 Compute the fruit % according to the Nutri-Score rules
 
@@ -1027,7 +1027,7 @@ The fruit ratio
 
 =cut
 
-sub compute_fruit_ratio ($product_ref, $prepared) {
+sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($product_ref, $prepared) {
 
 	my $fruits = undef;
 
@@ -1099,6 +1099,36 @@ sub compute_fruit_ratio ($product_ref, $prepared) {
 	}
 
 	return $fruits;
+}
+
+=head2 compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared)
+
+Compute the % of fruits, vegetables and legumes for the Nutri-Score 2023 algorithm.
+
+Differences with the 2021 version:
+- we use only the estimate from the ingredients
+- we do not use an estimate from the product category
+- we do not use values estimated by users from ingredients list: too difficult to know what should be included or not
+
+=head3 Arguments
+
+=head4 $product_ref - ref to the product
+
+=head4 $prepared - string contains either "" or "-prepared"
+
+=cut
+
+sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref, $prepared) {
+
+	my $fruits_vegetables_legumes = deep_get($product_ref, "nutriments", "fruits-vegetables-legumes-estimate-from-ingredients" . $prepared . "_100g");
+
+	if (defined $fruits_vegetables_legumes) {
+		$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients} = 1;
+		$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value} = $fruits_vegetables_legumes;
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients");
+	}
+
+	return $fruits_vegetables_legumes;
 }
 
 =head2 saturated_fat_ratio( $nutriments_ref, $prepared )
@@ -1202,7 +1232,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 	# The 2021 and 2023 version of the Nutri-Score need different nutrients
 	if ($version eq "2021") {
 		# fruits, vegetables, nuts, olive / rapeseed / walnut oils
-		my $fruits = compute_fruit_ratio($product_ref, $prepared);
+		my $fruits_vegetables_nuts_colza_walnut_olive_oils = compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil($product_ref, $prepared);
 
 		my $is_fat = is_fat_for_nutrition_score($product_ref);
 
@@ -1221,7 +1251,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 				: undef
 			),    # in mg,
 
-			fruits_vegetables_nuts_colza_walnut_olive_oils => $fruits,
+			fruits_vegetables_nuts_colza_walnut_olive_oils => $fruits_vegetables_nuts_colza_walnut_olive_oils,
 			fiber => (
 				(defined $nutriments_ref->{"fiber" . $prepared . "_100g"})
 				? $nutriments_ref->{"fiber" . $prepared . "_100g"}
@@ -1237,8 +1267,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 		}
 	}
 	else {
-		# TODO: needs to be replaced by "fruits, vegetables, legumes"
-		my $fruits = compute_fruit_ratio($product_ref, $prepared);
+		my $fruits_vegetables_legumes = compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared);
 
 		my $is_fat_oil_nuts_seeds = is_fat_oil_nuts_seeds_for_nutrition_score($product_ref);
 
@@ -1253,7 +1282,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
 			salt => $nutriments_ref->{"salt" . $prepared . "_100g"},
 
-			fruits_vegetables_legumes => $fruits,
+			fruits_vegetables_legumes => $fruits_vegetables_legumes,
 			fiber => (
 				(defined $nutriments_ref->{"fiber" . $prepared . "_100g"})
 				? $nutriments_ref->{"fiber" . $prepared . "_100g"}
@@ -1305,6 +1334,12 @@ sub remove_nutriscore_fields ($product_ref) {
 			"nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients",
 			"nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value",
 			"nutrition_score_warning_no_fruits_vegetables_nuts",
+			"nutrition_score_warning_fruits_vegetables_legumes_estimate",
+			"nutrition_score_warning_fruits_vegetables_legumes_from_category",
+			"nutrition_score_warning_fruits_vegetables_legumes_from_category_value",
+			"nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients",
+			"nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value",
+			"nutrition_score_warning_no_fruits_vegetables_legumes",			
 			"nutriscore_score",
 			"nutriscore_score_opposite",
 			"nutriscore_grade",
