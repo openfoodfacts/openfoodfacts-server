@@ -115,7 +115,7 @@ use URI::Escape::XS;
 
 use CGI qw/:cgi :form escapeHTML/;
 
-use Data::DeepAccess qw(deep_set);
+use Data::DeepAccess qw(deep_set deep_get);
 use Storable qw/dclone/;
 
 use Log::Any qw($log);
@@ -817,7 +817,7 @@ sub is_beverage_for_nutrition_score ($product_ref) {
 		}
 
 		# dairy drinks need to have at least 80% of milk to be considered as food instead of beverages
-		my $milk_percent = estimate_milk_percent_from_ingredients($product_ref);
+		my $milk_percent = estimate_nutriscore_2021_milk_percent_from_ingredients($product_ref);
 
 		if ($milk_percent >= 80) {
 			$log->debug("milk >= 80%", {milk_percent => $milk_percent}) if $log->is_debug();
@@ -974,9 +974,7 @@ sub fix_salt_equivalent ($product_ref) {
 	return;
 }
 
-# UK FSA scores thresholds
-
-# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
+# estimates by category of products. not exact values. For the Nutri-Score, it's important to distinguish only between the thresholds: 40, 60 and 80
 my %fruits_vegetables_nuts_by_category = (
 	"en:fruit-juices" => 100,
 	"en:vegetable-juices" => 100,
@@ -1101,13 +1099,28 @@ sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($prod
 	return $fruits;
 }
 
+# estimates by category of products. not exact values. For the Nutri-Score, it's important to distinguish only between the thresholds: 40, 60 and 80
+# first entries match first, so we put potatoes before vegetables
+my @fruits_vegetables_legumes_by_category_sorted = (
+	["en:potatoes", 0],
+	["en:sweet-potatoes", 0],
+	["en:fruit-juices", 100],
+	["en:vegetable-juices", 100],
+	["en:fruit-sauces", 90],
+	["en:vegetables", 90],
+	["en:fruits", 90],
+	["en:mushrooms", 90],
+	["en:canned-fruits", 90],
+	["en:frozen-fruits", 90],
+	["en:jams", 50],
+);
+
 =head2 compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared)
 
 Compute the % of fruits, vegetables and legumes for the Nutri-Score 2023 algorithm.
 
 Differences with the 2021 version:
-- we use only the estimate from the ingredients
-- we do not use an estimate from the product category
+- we use only the estimate from the ingredients or a conservative estimate from the product category
 - we do not use values estimated by users from ingredients list: too difficult to know what should be included or not
 
 =head3 Arguments
@@ -1123,11 +1136,29 @@ sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref, $prepared) 
 	my $fruits_vegetables_legumes = deep_get($product_ref, "nutriments",
 		"fruits-vegetables-legumes-estimate-from-ingredients" . $prepared . "_100g");
 
+	# First get a conservative estimate from the ingredients list
 	if (defined $fruits_vegetables_legumes) {
 		$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients} = 1;
 		$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value}
 			= $fruits_vegetables_legumes;
 		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients");
+	}
+	# if we do not have ingredients, try to use the product category
+	else {
+		foreach my $category_ref (@fruits_vegetables_legumes_by_category_sorted) {
+
+			my $category_id = $category_ref->[0];
+			if (has_tag($product_ref, "categories", $category_id)) {
+				$fruits_vegetables_legumes = $category_ref->[1];
+				$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_from_category} = $category_id;
+				$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_from_category_value} = $fruits_vegetables_legumes;
+				add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-from-category");
+				my $category = $category_id;
+				$category =~ s/:/-/;
+				add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-from-category-$category");
+				last;
+			}
+		}
 	}
 
 	return $fruits_vegetables_legumes;
