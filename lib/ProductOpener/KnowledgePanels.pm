@@ -1146,7 +1146,7 @@ sub create_ingredients_panel ($product_ref, $target_lc, $target_cc, $options_ref
 
 	my $ingredients_text = $product_ref->{ingredients_text};
 	my $ingredients_text_with_allergens = $product_ref->{ingredients_text_with_allergens};
-	my $ingredients_text_lc = $product_ref->{lc};
+	my $ingredients_text_lc = $product_ref->{ingredients_lc};
 
 	if (    (defined $product_ref->{"ingredients_text" . "_" . $target_lc})
 		and ($product_ref->{"ingredients_text" . "_" . $target_lc} ne ''))

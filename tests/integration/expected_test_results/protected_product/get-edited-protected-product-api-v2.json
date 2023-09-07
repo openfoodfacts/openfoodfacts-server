@@ -487,6 +487,7 @@
       "ingredients_hierarchy" : [
          "en:apple",
          "en:fruit",
+         "en:malaceous-fruit",
          "en:milk",
          "en:dairy",
          "en:egg",
@@ -495,6 +496,7 @@
          "en:vegetable-oil-and-fat",
          "en:palm-oil-and-fat"
       ],
+      "ingredients_lc" : "en",
       "ingredients_n" : 4,
       "ingredients_n_tags" : [
          "4",
@@ -510,6 +512,7 @@
       "ingredients_tags" : [
          "en:apple",
          "en:fruit",
+         "en:malaceous-fruit",
          "en:milk",
          "en:dairy",
          "en:egg",
@@ -536,7 +539,7 @@
       "ingredients_without_ciqual_codes_n" : 1,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
-      "known_ingredients_n" : 9,
+      "known_ingredients_n" : 10,
       "labels" : "organic",
       "labels_hierarchy" : [
          "en:organic"

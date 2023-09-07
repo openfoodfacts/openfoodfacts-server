@@ -29,7 +29,8 @@ my %product_form = (
 	(
 		code => '0200000000235',
 		product_name => "Only-Product",
-		categories => "cakes",
+		categories => "cakes, hazelnut spreads",
+		brands => "Nutella",
 	)
 );
 
@@ -40,27 +41,27 @@ my $tests_ref = [
 	{
 		test_case => 'normal-user-access-product-page',
 		method => 'GET',
-		path => '/product/0200000000235/only-product',
+		path => '/product/0200000000235/only-product-nutella',
 		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
-		response_content_must_match => '<title>Only-Product - 100 g</title>'
+		response_content_must_match => '<title>Only-Product - Nutella - 100 g</title>'
 	},
 	# Crawling bot should have access to product page
 	{
 		test_case => 'crawler-access-product-page',
 		method => 'GET',
-		path => '/product/0200000000235/only-product',
+		path => '/product/0200000000235/only-product-nutella',
 		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
-		response_content_must_match => '<title>Only-Product - 100 g</title>'
+		response_content_must_match => '<title>Only-Product - Nutella - 100 g</title>'
 	},
 	# Denied crawling bot should not have access to any page
 	{
 		test_case => 'denied-crawler-access-product-page',
 		method => 'GET',
-		path => '/product/0200000000235/only-product',
+		path => '/product/0200000000235/only-product-nutella',
 		headers_in => {'User-Agent' => $DENIED_CRAWLING_BOT_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
@@ -134,7 +135,7 @@ my $tests_ref = [
 		headers_in => {'User-Agent' => $CRAWLING_BOT_USER_AGENT},
 		expected_status_code => 200,
 		expected_type => 'html',
-		response_content_must_match => '<h1>NOINDEX</h1>'
+		response_content_must_match => '<h1>NOINDEX</h1>',
 	},
 	# Normal user should have access to editor facet
 	{
@@ -142,7 +143,7 @@ my $tests_ref = [
 		method => 'GET',
 		path => '/editor/unknown-user',
 		headers_in => {'User-Agent' => $NORMAL_USER_USER_AGENT},
-		expected_status_code => 200,
+		expected_status_code => 404,
 		expected_type => 'html',
 		response_content_must_match => 'Unknown user.'
 	},

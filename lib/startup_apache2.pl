@@ -93,7 +93,6 @@ use ProductOpener::Recipes qw(:all);
 use ProductOpener::MainCountries qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
 use ProductOpener::API qw/:all/;
-use ProductOpener::APITest qw/:all/;
 use ProductOpener::APIProductRead qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
 use ProductOpener::APITaxonomySuggestions qw/:all/;

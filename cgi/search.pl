@@ -94,7 +94,8 @@ if ((defined single_param('json')) or (defined single_param('jsonp')) or (define
 }
 
 my @search_fields
-	= qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries ingredients additives allergens traces nutrition_grades nova_groups languages creator editors states);
+	= qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries
+	ingredients additives allergens traces nutrition_grades nova_groups ecoscore languages creator editors states);
 
 $admin and push @search_fields, "lang";
 
@@ -109,6 +110,8 @@ my %search_tags_fields = (
 	allergens => 1,
 	traces => 1,
 	nutrition_grades => 1,
+	nova_groups => 1,
+	eco_score => 1,
 	purchase_places => 1,
 	stores => 1,
 	countries => 1,
@@ -322,16 +325,28 @@ if ($action eq 'display') {
 		$axis_labels{$nid} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 		$log->debug("nutriments", {nid => $nid, value => $axis_labels{$nid}}) if $log->is_debug();
 	}
-	push @axis_values, "additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n";
-	push @axis_values, "fruits-vegetables-nuts-estimate-from-ingredients";
-	push @axis_values, "forest_footprint";
-	$axis_labels{additives_n} = lang("number_of_additives");
-	$axis_labels{ingredients_n} = lang("ingredients_n_s");
-	$axis_labels{known_ingredients_n} = lang("known_ingredients_n_s");
-	$axis_labels{unknown_ingredients_n} = lang("unknown_ingredients_n_s");
+
+	my @other_search_fields = (
+		"additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n",
+		"fruits-vegetables-nuts-estimate-from-ingredients",
+		"forest_footprint", "product_quantity", "nova_group", 'ecoscore_score',
+	);
+
+	# Add the fields related to packaging
+	foreach my $material ("all", "en:plastic", "en:glass", "en:metal", "en:paper-or-cardboard", "en:unknown") {
+		foreach my $subfield ("weight", "weight_100g", "weight_percent") {
+			push @other_search_fields, "packagings_materials.$material.$subfield";
+		}
+	}
+
 	$axis_labels{search_nutriment} = lang("search_nutriment");
 	$axis_labels{products_n} = lang("number_of_products");
-	$axis_labels{forest_footprint} = lang("forest_footprint");
+
+	foreach my $field (@other_search_fields) {
+		my ($title, $unit, $unit2, $allow_decimals) = get_search_field_title_and_details($field);
+		push @axis_values, $field;
+		$axis_labels{$field} = $title;
+	}
 
 	my @sorted_axis_values = ("", sort({lc($axis_labels{$a}) cmp lc($axis_labels{$b})} @axis_values));
 
@@ -738,13 +753,13 @@ HTML
 
 		# We want existing values for axis fields
 		foreach my $axis ('x', 'y') {
-			if (    ($graph_ref->{"axis_$axis"} ne "")
-				and ($graph_ref->{"axis_$axis"} ne "forest_footprint")
-				and ($graph_ref->{"axis_$axis"} !~ /_n$/))
-			{
-				(defined $query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"})
-					or $query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} = {};
-				$query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"}{'$exists'} = 1;
+
+			if ($graph_ref->{"axis_$axis"} ne "") {
+				my $field = $graph_ref->{"axis_$axis"};
+				# Get the field path components
+				my @fields = get_search_field_path_components($field);
+				# Convert to dot notation to get the MongoDB field
+				$query_ref->{join(".", @fields)} = {'$exists' => 1};
 			}
 		}
 

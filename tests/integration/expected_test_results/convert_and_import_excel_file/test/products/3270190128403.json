@@ -598,8 +598,10 @@
    "ingredients_hierarchy" : [
       "en:green-lentils",
       "en:legume",
+      "en:pulse",
       "en:lentils"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
       "1",
@@ -612,6 +614,7 @@
    "ingredients_tags" : [
       "en:green-lentils",
       "en:legume",
+      "en:pulse",
       "en:lentils"
    ],
    "ingredients_text" : "Lentilles vertes issues de l'agriculture biologique.",
@@ -628,7 +631,7 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "interface_version_created" : "import_csv_file - version 2019/09/17",
-   "known_ingredients_n" : 3,
+   "known_ingredients_n" : 4,
    "labels" : "Organic, EU Organic, FR-BIO-01, AB Agriculture Biologique, Agriculture France",
    "labels_hierarchy" : [
       "en:organic",
