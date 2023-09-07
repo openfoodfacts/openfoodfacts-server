@@ -1120,11 +1120,13 @@ Differences with the 2021 version:
 
 sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref, $prepared) {
 
-	my $fruits_vegetables_legumes = deep_get($product_ref, "nutriments", "fruits-vegetables-legumes-estimate-from-ingredients" . $prepared . "_100g");
+	my $fruits_vegetables_legumes = deep_get($product_ref, "nutriments",
+		"fruits-vegetables-legumes-estimate-from-ingredients" . $prepared . "_100g");
 
 	if (defined $fruits_vegetables_legumes) {
 		$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients} = 1;
-		$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value} = $fruits_vegetables_legumes;
+		$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value}
+			= $fruits_vegetables_legumes;
 		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients");
 	}
 
@@ -1232,7 +1234,8 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 	# The 2021 and 2023 version of the Nutri-Score need different nutrients
 	if ($version eq "2021") {
 		# fruits, vegetables, nuts, olive / rapeseed / walnut oils
-		my $fruits_vegetables_nuts_colza_walnut_olive_oils = compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil($product_ref, $prepared);
+		my $fruits_vegetables_nuts_colza_walnut_olive_oils
+			= compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil($product_ref, $prepared);
 
 		my $is_fat = is_fat_for_nutrition_score($product_ref);
 
@@ -1339,7 +1342,7 @@ sub remove_nutriscore_fields ($product_ref) {
 			"nutrition_score_warning_fruits_vegetables_legumes_from_category_value",
 			"nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients",
 			"nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value",
-			"nutrition_score_warning_no_fruits_vegetables_legumes",			
+			"nutrition_score_warning_no_fruits_vegetables_legumes",
 			"nutriscore_score",
 			"nutriscore_score_opposite",
 			"nutriscore_grade",

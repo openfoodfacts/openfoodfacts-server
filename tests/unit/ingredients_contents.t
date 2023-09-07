@@ -34,30 +34,37 @@ some unknown ingredient
 my @ingredients = ();
 
 foreach my $ingredient (split(/\s*(?:,|\n)\s*/, $ingredients)) {
-    # ignore comments
-    next if $ingredient =~ /^\s*\#/;
-    my $ingredient_id = canonicalize_taxonomy_tag("en", "ingredients", $ingredient);
-    push(@ingredients, {
-        ingredient => $ingredient,
-        ingredient_id => $ingredient_id,
-        is_fruits_vegetables_legumes => ProductOpener::Ingredients::is_fruits_vegetables_legumes($ingredient_id),
-        is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils => ProductOpener::Ingredients::is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils($ingredient_id),
-        is_milk => ProductOpener::Ingredients::is_milk($ingredient_id),
-    });
+	# ignore comments
+	next if $ingredient =~ /^\s*\#/;
+	my $ingredient_id = canonicalize_taxonomy_tag("en", "ingredients", $ingredient);
+	push(
+		@ingredients,
+		{
+			ingredient => $ingredient,
+			ingredient_id => $ingredient_id,
+			is_fruits_vegetables_legumes => ProductOpener::Ingredients::is_fruits_vegetables_legumes($ingredient_id),
+			is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils =>
+				ProductOpener::Ingredients::is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils($ingredient_id),
+			is_milk => ProductOpener::Ingredients::is_milk($ingredient_id),
+		}
+	);
 }
 
-compare_to_expected_results(
-    \@ingredients,
-    "$expected_result_dir/individual_ingredients.json",
-    $update_expected_results
-);
+compare_to_expected_results(\@ingredients, "$expected_result_dir/individual_ingredients.json",
+	$update_expected_results);
 
 # Analysis of ingredients lists
 
 my @tests = (
 
-	['fruits-water-sugar', {lc => "en", ingredients_text => "apple 50%, banana 30%, strawberry 10%, water 5%, sugar 5%"},],
-    ['vegetable-oils', {lc => "en", ingredients_text => "olive oil 40%, rapeseed oil 30%, sunflower oil 20%, walnut oil 10%"},],
+	[
+		'fruits-water-sugar',
+		{lc => "en", ingredients_text => "apple 50%, banana 30%, strawberry 10%, water 5%, sugar 5%"},
+	],
+	[
+		'vegetable-oils',
+		{lc => "en", ingredients_text => "olive oil 40%, rapeseed oil 30%, sunflower oil 20%, walnut oil 10%"},
+	],
 
 );
 
@@ -68,11 +75,7 @@ foreach my $test_ref (@tests) {
 
 	extract_ingredients_from_text($product_ref);
 
-	compare_to_expected_results(
-		$product_ref,
-		"$expected_result_dir/$testid.json",
-		$update_expected_results
-	);
+	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }
 
 done_testing();

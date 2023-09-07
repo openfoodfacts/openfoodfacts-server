@@ -2626,7 +2626,7 @@ sub extract_ingredients_from_text ($product_ref) {
 		compute_ingredients_percent_estimates(100, $product_ref->{ingredients});
 
 		estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients($product_ref);
-		estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients ($product_ref);
+		estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients($product_ref);
 	}
 	else {
 		remove_fields(
@@ -2648,7 +2648,7 @@ sub extract_ingredients_from_text ($product_ref) {
 				"fruits-vegetables-nuts-estimate-from-ingredients-prepared_100g",
 				"fruits-vegetables-nuts-estimate-from-ingredients-prepared_serving",
 				"fruits-vegetables-legumes-estimate-from-ingredients-prepared_100g",
-				"fruits-vegetables-legumes-estimate-from-ingredients-prepared_serving",					
+				"fruits-vegetables-legumes-estimate-from-ingredients-prepared_serving",
 			]
 		);
 	}
@@ -6597,14 +6597,14 @@ sub is_fruits_vegetables_legumes ($ingredient_id) {
 
 	return (
 		(
-		# All fruits groups
-		# TODO: check that we don't have entries under en:fruits that are in fact not listed in Eurocode 9 "Fruits and fruit products"
-		((defined $eurocode_2_group_1) and ($eurocode_2_group_1 eq "9"))
-		# Vegetables and legumes
-			or ((defined $eurocode_2_group_2)
-			and (exists $fruits_vegetables_legumes_eurocodes{$eurocode_2_group_2}))
+			# All fruits groups
+			# TODO: check that we don't have entries under en:fruits that are in fact not listed in Eurocode 9 "Fruits and fruit products"
+			((defined $eurocode_2_group_1) and ($eurocode_2_group_1 eq "9"))
+				# Vegetables and legumes
+				or ((defined $eurocode_2_group_2)
+				and (exists $fruits_vegetables_legumes_eurocodes{$eurocode_2_group_2}))
 		)
-		or 0
+			or 0
 	);
 }
 
