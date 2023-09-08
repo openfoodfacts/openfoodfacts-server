@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?><catalogue_item_notification:catalogueItemNotificationMessage xmlns:catalogue_item_notification="urn:gs1:gdsn:catalogue_item_notification:xsd:3" xmlns:sh="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:gs1:gdsn:catalogue_item_notification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/CatalogueItemNotification.xsd">
+   <sh:StandardBusinessDocumentHeader>
+      <sh:HeaderVersion>1.0</sh:HeaderVersion>
+      <sh:Sender>
+         <sh:Identifier Authority="GS1">3027800020370</sh:Identifier>
+      </sh:Sender>
+      <sh:Receiver>
+         <sh:Identifier Authority="GS1">8888888899990</sh:Identifier>
+      </sh:Receiver>
+      <sh:DocumentIdentification>
+         <sh:Standard>GS1</sh:Standard>
+         <sh:TypeVersion>3.1</sh:TypeVersion>
+         <sh:InstanceIdentifier>3027800020301_CIN7312874d273140cab9b41b7d69a2d05147</sh:InstanceIdentifier>
+         <sh:Type>catalogueItemNotification</sh:Type>
+         <sh:MultipleType>false</sh:MultipleType>
+         <sh:CreationDateAndTime>2023-08-28T09:20:29+02:00</sh:CreationDateAndTime>
+      </sh:DocumentIdentification>
+   </sh:StandardBusinessDocumentHeader>
+   <transaction>
+      <transactionIdentification>
+         <entityIdentification>3027800020301_CIN7312874d273140cab9b41b7d69a2d05147_TransactionID</entityIdentification>
+         <contentOwner>
+            <gln>3010802100102</gln>
+         </contentOwner>
+      </transactionIdentification>
+      <documentCommand>
+         <documentCommandHeader type="ADD">
+            <documentCommandIdentification>
+               <entityIdentification>3027800020301_CIN7312874d273140cab9b41b7d69a2d05147_DocID</entityIdentification>
+               <contentOwner>
+                  <gln>3010802100102</gln>
+               </contentOwner>
+            </documentCommandIdentification>
+         </documentCommandHeader>
+         <catalogue_item_notification:catalogueItemNotification>
+            <creationDateTime>2023-08-28T09:20:29+02:00</creationDateTime>
+            <documentStatusCode>ORIGINAL</documentStatusCode>
+            <catalogueItemNotificationIdentification>
+               <entityIdentification>3027800020301_CIN7312874d273140cab9b41b7d69a2d05147_CIN</entityIdentification>
+               <contentOwner>
+                  <gln>3010802100102</gln>
+               </contentOwner>
+            </catalogueItemNotificationIdentification>
+            <isReload>false</isReload>
+            <catalogueItem>
+               <dataRecipient>8888888899990</dataRecipient>
+               <sourceDataPool>3027800020370</sourceDataPool>
+               <catalogueItemState>
+                  <catalogueItemStateCode>REGISTERED</catalogueItemStateCode>
+               </catalogueItemState>
+               <tradeItem>
+                  <gtin>03080210001100</gtin>
+                  <additionalTradeItemIdentification additionalTradeItemIdentificationTypeCode="SUPPLIER_ASSIGNED">652510000_01</additionalTradeItemIdentification>
+                  <isTradeItemABaseUnit>true</isTradeItemABaseUnit>
+                  <isTradeItemAConsumerUnit>true</isTradeItemAConsumerUnit>
+                  <isTradeItemADespatchUnit>false</isTradeItemADespatchUnit>
+                  <isTradeItemAnInvoiceUnit>true</isTradeItemAnInvoiceUnit>
+                  <isTradeItemAnOrderableUnit>true</isTradeItemAnOrderableUnit>
+                  <isTradeItemAService>false</isTradeItemAService>
+                  <tradeItemUnitDescriptorCode>BASE_UNIT_OR_EACH</tradeItemUnitDescriptorCode>
+                  <tradeItemTradeChannelCode>MASS_MERCHANDISING</tradeItemTradeChannelCode>
+                  <brandOwner>
+                     <gln>3010802100102</gln>
+                     <partyName>KRONENBOURG SAS</partyName>
+                  </brandOwner>
+                  <informationProviderOfTradeItem>
+                     <gln>3010802100102</gln>
+                     <partyName>BRASSERIES KRONENBOURG </partyName>
+                  </informationProviderOfTradeItem>
+                  <manufacturerOfTradeItem>
+                     <gln>3010802100102</gln>
+                     <partyName>BRASSERIES KRONENBOURG </partyName>
+                  </manufacturerOfTradeItem>
+                  <displayUnitInformation>
+                     <isTradeItemADisplayUnit>FALSE</isTradeItemADisplayUnit>
+                  </displayUnitInformation>
+                  <gdsnTradeItemClassification>
+                     <gpcCategoryCode>10000159</gpcCategoryCode>
+                     <gpcCategoryName>Bière</gpcCategoryName>
+                     <additionalTradeItemClassification>
+                        <additionalTradeItemClassificationValue>
+                           <additionalTradeItemClassificationCodeValue>GS1_FRANCE</additionalTradeItemClassificationCodeValue>
+                           <additionalTradeItemClassificationProperty>
+                              <additionalTradeItemClassificationPropertyCode>brandSocietalValue</additionalTradeItemClassificationPropertyCode>
+                              <additionalTradeItemClassificationPropertyDescription languageCode="fr">Au quotidien, ce sont 600 personnes qui perpétuent notre savoir-faire dans notre brasserie implantée dans l'Est de la France.</additionalTradeItemClassificationPropertyDescription>
+                           </additionalTradeItemClassificationProperty>
+                        </additionalTradeItemClassificationValue>
+                     </additionalTradeItemClassification>
+                     <additionalTradeItemClassification>
+                        <additionalTradeItemClassificationValue>
+                           <additionalTradeItemClassificationCodeValue>GS1_FRANCE</additionalTradeItemClassificationCodeValue>
+                           <additionalTradeItemClassificationProperty>
+                              <additionalTradeItemClassificationPropertyCode>brandEnvironmentalValue</additionalTradeItemClassificationPropertyCode>
+                              <additionalTradeItemClassificationPropertyDescription languageCode="fr">* Notre brasserie a divisé par 2 ses émissions de carbone en 20 ans, par plus de 3 sa consommation d'eau en 50 ans et dépollue ses eaux usées. Notre objectif est d'être 100% neutre en carbone d'ici 2030 ! * Dans notre démarche qualité, notre brasserie intègre un contrôle annuel des pesticides sur notre 1664. * Nos résidus de céréales issus du brassage sont réutilisés localement en nourriture pour le bétail.</additionalTradeItemClassificationPropertyDescription>
+                           </additionalTradeItemClassificationProperty>
+                        </additionalTradeItemClassificationValue>
+                     </additionalTradeItemClassification>
+                  </gdsnTradeItemClassification>
+                  <targetMarket>
+                     <targetMarketCountryCode>250</targetMarketCountryCode>
+                  </targetMarket>
+                  <tradeItemContactInformation>
+                     <contactTypeCode>BZL</contactTypeCode>
+                     <contactAddress>67210 Obernai France</contactAddress>
+                     <contactName>Kronenbourg SAS</contactName>
+                     <structuredAddress>
+                        <countryCode>250</countryCode>
+                        <postalCode>67210</postalCode>
+                     </structuredAddress>
+                  </tradeItemContactInformation>
+                  <tradeItemContactInformation>
+                     <contactTypeCode>CXC</contactTypeCode>
+                     <contactAddress>03 88 27 59 59</contactAddress>
+                     <contactName>Service Consommateurs BK </contactName>
+                     <structuredAddress>
+                        <countryCode>250</countryCode>
+                        <postalCode>67210</postalCode>
+                     </structuredAddress>
+                     <targetMarketCommunicationChannel>
+                        <communicationChannel>
+                           <communicationChannelCode>WEBSITE</communicationChannelCode>
+                           <communicationValue>https://www.beertime.fr</communicationValue>
+                        </communicationChannel>
+                     </targetMarketCommunicationChannel>
+                  </tradeItemContactInformation>
+                  <tradeItemInformation>
+                     <tradeItemComponents>
+                        <numberOfPiecesInSet>1</numberOfPiecesInSet>
+                     </tradeItemComponents>
+                     <extension>
+                        <alcohol_information:alcoholInformationModule xmlns:alcohol_information="urn:gs1:gdsn:alcohol_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:alcohol_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AlcoholInformationModule.xsd">
+                           <alcoholInformation>
+                              <percentageOfAlcoholByVolume>5.5</percentageOfAlcoholByVolume>
+                           </alcoholInformation>
+                        </alcohol_information:alcoholInformationModule>
+                        
+                        <allergen_information:allergenInformationModule xmlns:allergen_information="urn:gs1:gdsn:allergen_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:allergen_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AllergenInformationModule.xsd">
+                           <allergenRelatedInformation>
+                              <allergenSpecificationAgency>European Union</allergenSpecificationAgency>
+                              <allergenSpecificationName>2003/89/EC</allergenSpecificationName>
+                              <allergenStatement languageCode="fr">MALT D'ORGE, BLE, MALT DE BLE,</allergenStatement>
+                              <isAllergenRelevantDataProvided>true</isAllergenRelevantDataProvided>
+                              <allergen>
+                                 <allergenTypeCode>AW</allergenTypeCode>
+                                 <levelOfContainmentCode>CONTAINS</levelOfContainmentCode>
+                              </allergen>
+                           </allergenRelatedInformation>
+                        </allergen_information:allergenInformationModule>
+                        <consumer_instructions:consumerInstructionsModule xmlns:consumer_instructions="urn:gs1:gdsn:consumer_instructions:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:consumer_instructions:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ConsumerInstructionsModule.xsd">
+                           <consumerInstructions>
+                              <consumerStorageInstructions languageCode="fr">A L'ABRI SOLEIL ET PLUIE</consumerStorageInstructions>
+                              <consumerUsageInstructions languageCode="fr">Pour s'assurer que le produit conserve ses caractéristiques, il est essentiel qu'il soit stocké à l'abri de la lumière directe, dans un endroit sec, à température modérée. Durée maxi de stockage, précisée sur l'étiquette palette. Ne se conserve pas après ouverture.</consumerUsageInstructions>
+                           </consumerInstructions>
+                        </consumer_instructions:consumerInstructionsModule>
+                        <dangerous_substance_information:dangerousSubstanceInformationModule xmlns:dangerous_substance_information="urn:gs1:gdsn:dangerous_substance_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:dangerous_substance_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DangerousSubstanceInformationModule.xsd">
+                           <dangerousSubstanceInformation>
+                              <dangerousSubstanceProperties>
+                                 <isDangerousSubstance>FALSE</isDangerousSubstance>
+                              </dangerousSubstanceProperties>
+                           </dangerousSubstanceInformation>
+                        </dangerous_substance_information:dangerousSubstanceInformationModule>
+                        <delivery_purchasing_information:deliveryPurchasingInformationModule xmlns:delivery_purchasing_information="urn:gs1:gdsn:delivery_purchasing_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd">
+                           <deliveryPurchasingInformation>
+                              <consumerFirstAvailabilityDateTime>2005-01-14T00:00:00+01:00</consumerFirstAvailabilityDateTime>
+                              <firstShipDateTime>2005-01-14T00:00:00+01:00</firstShipDateTime>
+                              <isTradeItemReorderable>true</isTradeItemReorderable>
+                              <orderingUnitOfMeasure>H87</orderingUnitOfMeasure>
+                              <startAvailabilityDateTime>2005-01-14T00:00:00+01:00</startAvailabilityDateTime>
+                              <distributionDetails>
+                                 <orderingLeadTime measurementUnitCode="DAY">5</orderingLeadTime>
+                              </distributionDetails>
+                           </deliveryPurchasingInformation>
+                        </delivery_purchasing_information:deliveryPurchasingInformationModule>
+                        <duty_fee_tax_information:dutyFeeTaxInformationModule xmlns:duty_fee_tax_information="urn:gs1:gdsn:duty_fee_tax_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:duty_fee_tax_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DutyFeeTaxInformationModule.xsd">
+                           <dutyFeeTaxInformation>
+                              <dutyFeeTaxAgencyCode>65</dutyFeeTaxAgencyCode>
+                              <dutyFeeTaxTypeCode>S</dutyFeeTaxTypeCode>
+                              <dutyFeeTaxTypeDescription languageCode="fr">TVA 20 %</dutyFeeTaxTypeDescription>
+                              <dutyFeeTax>
+                                 <dutyFeeTaxCategoryCode codeListVersion="2">STANDARD</dutyFeeTaxCategoryCode>
+                              </dutyFeeTax>
+                           </dutyFeeTaxInformation>
+                           <dutyFeeTaxInformation>
+                              <dutyFeeTaxAgencyCode>65</dutyFeeTaxAgencyCode>
+                              <dutyFeeTaxTypeCode>3001000002282</dutyFeeTaxTypeCode>
+                              <dutyFeeTaxTypeDescription languageCode="fr">TAXE ECO-EMBALLAGES (FR)</dutyFeeTaxTypeDescription>
+                              <dutyFeeTax>
+                                 <dutyFeeTaxAmount currencyCode="EUR">0.0021</dutyFeeTaxAmount>
+                              </dutyFeeTax>
+                           </dutyFeeTaxInformation>
+                           <dutyFeeTaxInformation>
+                              <dutyFeeTaxAgencyCode>65</dutyFeeTaxAgencyCode>
+                              <dutyFeeTaxTypeCode>3001000002312</dutyFeeTaxTypeCode>
+                              <dutyFeeTaxTypeDescription languageCode="fr">DROITS d'aCCISES SUR LES ALCOOLS (F</dutyFeeTaxTypeDescription>
+                              <dutyFeeTax>
+                                 <dutyFeeTaxAmount currencyCode="EUR">0.1419</dutyFeeTaxAmount>
+                              </dutyFeeTax>
+                           </dutyFeeTaxInformation>
+                        </duty_fee_tax_information:dutyFeeTaxInformationModule>
+                        <farming_and_processing_information:farmingAndProcessingInformationModule xmlns:farming_and_processing_information="urn:gs1:gdsn:farming_and_processing_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:farming_and_processing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FarmingAndProcessingInformationModule.xsd">
+                           <rawMaterialIrradiatedCode>FALSE</rawMaterialIrradiatedCode>
+                           <tradeItemOrganicInformation>
+                              <organicClaim>
+                                 <organicTradeItemCode>5</organicTradeItemCode>
+                              </organicClaim>
+                           </tradeItemOrganicInformation>
+                           <tradeItemFarmingAndProcessing>
+                              <geneticallyModifiedDeclarationCode>FREE_FROM</geneticallyModifiedDeclarationCode>
+                              <irradiatedCode>FALSE</irradiatedCode>
+                              <preservationTechniqueCode>PASTEURISATION</preservationTechniqueCode>
+                           </tradeItemFarmingAndProcessing>
+                        </farming_and_processing_information:farmingAndProcessingInformationModule>
+                        <food_and_beverage_ingredient:foodAndBeverageIngredientModule xmlns:food_and_beverage_ingredient="urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeverageIngredientModule.xsd">
+                           <ingredientStatement languageCode="fr">Eau, MALT D'ORGE, sirop de glucose, BLE, MALT DE BLE, extrait de houblon,</ingredientStatement>
+                           <isIngredientRelevantDataProvided>TRUE</isIngredientRelevantDataProvided>
+                           <foodAndBeverageIngredient>
+                              <ingredientName languageCode="en">Water</ingredientName>
+                              <ingredientName languageCode="fr">Eau</ingredientName>
+                           </foodAndBeverageIngredient>
+                           <foodAndBeverageIngredient>
+                              <ingredientName languageCode="en">BARLEY MALT</ingredientName>
+                              <ingredientName languageCode="fr">MALT D'ORGE</ingredientName>
+                           </foodAndBeverageIngredient>
+                           <foodAndBeverageIngredient>
+                              <ingredientName languageCode="en">glucose syrup</ingredientName>
+                              <ingredientName languageCode="fr">sirop de glucose</ingredientName>
+                           </foodAndBeverageIngredient>
+                           <foodAndBeverageIngredient>
+                              <ingredientName languageCode="en">WHEAT</ingredientName>
+                              <ingredientName languageCode="fr">BLE</ingredientName>
+                           </foodAndBeverageIngredient>
+                           <foodAndBeverageIngredient>
+                              <ingredientName languageCode="en">WHEAT MALT</ingredientName>
+                              <ingredientName languageCode="fr">MALT DE BLE</ingredientName>
+                           </foodAndBeverageIngredient>
+                           <foodAndBeverageIngredient>
+                              <ingredientName languageCode="en">hops extract</ingredientName>
+                              <ingredientName languageCode="fr">extrait de houblon</ingredientName>
+                           </foodAndBeverageIngredient>
+                        </food_and_beverage_ingredient:foodAndBeverageIngredientModule>
+                        <food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule xmlns:food_and_beverage_preparation_serving="urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeveragePreparationServingModule.xsd">
+                           <preparationServing>
+                              <preparationTypeCode>READY_TO_DRINK</preparationTypeCode>
+                           </preparationServing>
+                        </food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule>
+                        <health_related_information:healthRelatedInformationModule xmlns:health_related_information="urn:gs1:gdsn:health_related_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:health_related_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/HealthRelatedInformationModule.xsd">
+                           <healthRelatedInformation>
+                              <compulsoryAdditiveLabelInformation languageCode="fr">L'abus d'alcool est dangereux pour la santé, à consommer avec modération. La consommation de boissons alcoolisées pendant la grossesse, même en faible quantité, peut avoir des conséquences grave sur la santé de l'enfant.</compulsoryAdditiveLabelInformation>
+                              <nutritionalProgram>
+                                 <nutritionalProgramCode>8</nutritionalProgramCode>
+                                 <nutritionalScore>EXEMPT</nutritionalScore>
+                              </nutritionalProgram>
+                           </healthRelatedInformation>
+                        </health_related_information:healthRelatedInformationModule>
+                        <health_wellness_packaging_marking:healthWellnessPackagingMarkingModule xmlns:health_wellness_packaging_marking="urn:gs1:gdsn:health_wellness_packaging_marking:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:health_wellness_packaging_marking:xsd:3  http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/HealthWellnessPackagingMarkingModule.xsd">
+                           <healthWellnessPackagingMarking>
+                              <isPackagingMarkedWithIngredients>true</isPackagingMarkedWithIngredients>
+                           </healthWellnessPackagingMarking>
+                        </health_wellness_packaging_marking:healthWellnessPackagingMarkingModule>
+                        <marketing_information:marketingInformationModule xmlns:marketing_information="urn:gs1:gdsn:marketing_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:marketing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/MarketingInformationModule.xsd">
+                           <marketingInformation>
+                              <tradeItemFeatureBenefit languageCode="fr">1664 Blonde est une bière moelleuse et complexe. Elle possède une fine amertume et des notes florales grâce au houblon Strisselspalt, cultivé en France.</tradeItemFeatureBenefit>
+                              <tradeItemMarketingMessage languageCode="fr">- 1664 Blonde est une bière moelleuse et complexe, avec une fine amertume et des notes florales. - La 1664 blonde est idéale pour accompagner vos moments conviviaux, en famille ou entre amis. - Bière à l'amertume généreuse et bien présente avec un équilibre entre les saveurs sucrées et acides, une mousse dense, une petillance fine et une robe jaune or intense. Le houblon Strisselspalt, cultivé en France, lui confère son goût caractéristique, sa fine amertume et ses notes florales. - 1664 Blonde se marie idéalement avec de la viande, salade ou plateaux de fromages. - Bière brassée en Alsace, à Obernai et labellisée Origine France Garantie. Notre histoire commence en 1664, date à laquelle un jeune tonnelier, Jérôme Hatt obtient sa maîtrise de brasseur. Il pose alors avec sa femme Marguerite, la 1ère pierre de la brasserie familiale située à Strasbourg. Depuis cette date, notre brasserie n'a jamais quitté ses terres alsaciennes. De nos jours, les Maîtres Brasseurs 1664 perpétuent ce savoir-faire brassicole en sélectionnant avec soin leurs matières premières et en privilégiant l'approvisionnement local. Nous travaillons chaque jour à réduire notre empreinte environnementale. Concrètement, nous avons divisé par 2 nos émissions carbone en 20 ans, par plus de 3 notre consommation d'eau en 50 ans et avons pour objectif d'être 100% neutre en carbone d&#146;ici 2030 ! C'est en nous appuyant sur notre savoir-faire que nous innovons sans cesse pour vous proposer de nouvelles expériences de dégustation de bières avec ou sans alcool.</tradeItemMarketingMessage>
+                              <shortTradeItemMarketingMessage languageCode="fr">1664 Blonde, une bière premium brassée en Alsace, à Obernai. Labellisée Origine France Garantie, 1664 Blonde c'est une bière française élaborée dans une brasserie française responsable.
+</shortTradeItemMarketingMessage>
+                              <tradeItemKeyWords languageCode="fr">bière,bières,blonde,bière blonde,bières blondes,1664,1664 blonde, française, bière française, origine France garantie, bière OFG, Alsace, bière alsacienne</tradeItemKeyWords>
+                              <brandMarketingDescription languageCode="fr">Notre histoire commence en 1664, date à laquelle un jeune tonnelier, Jérôme Hatt obtient sa maîtrise de brasseur. Il pose alors avec sa femme Marguerite, la 1ère pierre de la brasserie familiale située à Strasbourg. Depuis cette date, notre brasserie n'a jamais quitté ses terres alsaciennes. De nos jours, les Maîtres Brasseurs 1664 perpétuent ce savoir-faire brassicole en sélectionnant avec soin leurs matières premières et en privilégiant l&#146;approvisionnement local. Nous travaillons chaque jour à réduire notre empreinte environnementale. Concrètement, nous avons divisé par 2 nos émissions carbone en 20 ans, par plus de 3 notre consommation d&#146;eau en 50 ans et avons pour objectif d&#146;être 100% neutre en carbone d&#146;ici 2030 ! C'est en nous appuyant sur notre savoir-faire que nous innovons sans cesse pour vous proposer de nouvelles expériences de dégustation de bières avec ou sans alcool.</brandMarketingDescription>
+                              <tradeItemStory languageCode="fr">Labellisée Origine France Garantie depuis la création du label en 2011, 1664 Blonde est une bière française élaborée dans une brasserie française responsable.</tradeItemStory>
+                              <season>
+                                 <isTradeItemSeasonal>FALSE</isTradeItemSeasonal>
+                              </season>
+                           </marketingInformation>
+                        </marketing_information:marketingInformationModule>
+                        <nutritional_information:nutritionalInformationModule xmlns:nutritional_information="urn:gs1:gdsn:nutritional_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:nutritional_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/NutritionalInformationModule.xsd">
+                           <isNutrientRelevantDataProvided>true</isNutrientRelevantDataProvided>
+                           <nutrientHeader>
+                              <preparationStateCode>UNPREPARED</preparationStateCode>
+                              <servingSize measurementUnitCode="MLT">100.0</servingSize>
+                              <nutrientDetail>
+                                 <nutrientTypeCode>ENER-</nutrientTypeCode>
+                                 <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                 <quantityContained measurementUnitCode="KJO">188</quantityContained>
+                                 <quantityContained measurementUnitCode="E14">45</quantityContained>
+                              </nutrientDetail>
+                              <nutrientDetail>
+                                 <nutrientTypeCode>FAT</nutrientTypeCode>
+                                 <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                 <quantityContained measurementUnitCode="GRM">0.1</quantityContained>
+                              </nutrientDetail>
+                              <nutrientDetail>
+                                 <nutrientTypeCode>FASAT</nutrientTypeCode>
+                                 <measurementPrecisionCode>LESS_THAN</measurementPrecisionCode>
+                                 <quantityContained measurementUnitCode="GRM">0</quantityContained>
+                              </nutrientDetail>
+                              <nutrientDetail>
+                                 <nutrientTypeCode>CHOAVL</nutrientTypeCode>
+                                 <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                 <quantityContained measurementUnitCode="GRM">3</quantityContained>
+                              </nutrientDetail>
+                              <nutrientDetail>
+                                 <nutrientTypeCode>SUGAR-</nutrientTypeCode>
+                                 <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                 <quantityContained measurementUnitCode="GRM">0.08</quantityContained>
+                              </nutrientDetail>
+                              <nutrientDetail>
+                                 <nutrientTypeCode>PRO-</nutrientTypeCode>
+                                 <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                 <quantityContained measurementUnitCode="GRM">0.5</quantityContained>
+                              </nutrientDetail>
+                              <nutrientDetail>
+                                 <nutrientTypeCode>SALTEQ</nutrientTypeCode>
+                                 <measurementPrecisionCode>LESS_THAN</measurementPrecisionCode>
+                                 <quantityContained measurementUnitCode="GRM">0.01</quantityContained>
+                              </nutrientDetail>
+                           </nutrientHeader>
+                        </nutritional_information:nutritionalInformationModule>
+                        <packaging_information:packagingInformationModule xmlns:packaging_information="urn:gs1:gdsn:packaging_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd">
+                           <packaging>
+                              <packagingTermsAndConditionsCode>5</packagingTermsAndConditionsCode>
+                              <packagingTypeCode>BX</packagingTypeCode>
+                              <isPackagingReturnable>FALSE</isPackagingReturnable>
+                           </packaging>
+                        </packaging_information:packagingInformationModule>
+                        <packaging_marking:packagingMarkingModule xmlns:packaging_marking="urn:gs1:gdsn:packaging_marking:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd">
+                           <packagingMarking>
+                              <isPackagingMarkedReturnable>false</isPackagingMarkedReturnable>
+                              <isPriceOnPack>false</isPriceOnPack>
+                              <isTradeItemMarkedAsRecyclable>true</isTradeItemMarkedAsRecyclable>
+                              <packagingMarkedLabelAccreditationCode>TRIMAN</packagingMarkedLabelAccreditationCode>
+                              <packagingDate>
+                                 <tradeItemDateOnPackagingTypeCode>BEST_BEFORE_DATE</tradeItemDateOnPackagingTypeCode>
+                              </packagingDate>
+                           </packagingMarking>
+                        </packaging_marking:packagingMarkingModule>
+                        <place_of_item_activity:placeOfItemActivityModule xmlns:place_of_item_activity="urn:gs1:gdsn:place_of_item_activity:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:place_of_item_activity:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PlaceOfItemActivityModule.xsd">
+                           <importClassification>
+                              <importClassificationTypeCode>CUSTOMS_TARIFF_NUMBER</importClassificationTypeCode>
+                              <importClassificationValue>2203000900</importClassificationValue>
+                           </importClassification>
+                           <importClassification>
+                              <importClassificationTypeCode>INTRASTAT</importClassificationTypeCode>
+                              <importClassificationValue>22030009</importClassificationValue>
+                           </importClassification>
+                           <placeOfProductActivity>
+                              <countryOfOriginStatement languageCode="fr">Fabriqué en France par BK 67210 Obernai France</countryOfOriginStatement>
+                              <provenanceStatement languageCode="fr">67210 Obernai</provenanceStatement>
+                              <countryOfOrigin>
+                                 <countryCode>250</countryCode>
+                              </countryOfOrigin>
+                           </placeOfProductActivity>
+                        </place_of_item_activity:placeOfItemActivityModule>
+                        <promotional_item_information:promotionalItemInformationModule xmlns:promotional_item_information="urn:gs1:gdsn:promotional_item_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd">
+                           <isTradeItemAPromotionalUnit>false</isTradeItemAPromotionalUnit>
+                        </promotional_item_information:promotionalItemInformationModule>
+                        <referenced_file_detail_information:referencedFileDetailInformationModule xmlns:referenced_file_detail_information="urn:gs1:gdsn:referenced_file_detail_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:referenced_file_detail_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ReferencedFileDetailInformationModule.xsd">
+                           <referencedFileHeader>
+                              <referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+                              <contentDescription languageCode="fr">Produit emballé / Packshot</contentDescription>
+                              <fileEffectiveStartDateTime>2023-01-26T00:50:32+01:00</fileEffectiveStartDateTime>
+                              <fileFormatName>png</fileFormatName>
+                              <fileName>03080210001100_A1N1_s12.png</fileName>
+                              <uniformResourceIdentifier>https://secure.equadis.com/Equadis/MultimediaFileViewer?key=253443926_0975AFA005A3C506D2AA4C0828ACC54E&amp;idFile=7885400&amp;file=10454/03080210001100_A1N1_s12.png</uniformResourceIdentifier>
+                              <isPrimaryFile>TRUE</isPrimaryFile>
+                              <referencedFileDetail>
+                                 <isFileBackgroundTransparent>TRUE</isFileBackgroundTransparent>
+                                 <fileContentInformation>
+                                    <verticalCameraAngleCode>PARALLEL</verticalCameraAngleCode>
+                                 </fileContentInformation>
+                                 <fileUsageInformation>
+                                    <canFilesBeEdited>FALSE</canFilesBeEdited>
+                                 </fileUsageInformation>
+                              </referencedFileDetail>
+                           </referencedFileHeader>
+                           <referencedFileHeader>
+                              <referencedFileTypeCode>TECHNICAL_DATA_SHEET</referencedFileTypeCode>
+                              <fileEffectiveStartDateTime>2022-02-01T17:42:31+01:00</fileEffectiveStartDateTime>
+                              <fileFormatName>pdf</fileFormatName>
+                              <fileName>03080210001100_1643733810250_s08.pdf</fileName>
+                              <uniformResourceIdentifier>https://secure.equadis.com/Equadis/MultimediaFileViewer?key=110037590_85936554BF429540FF11F0B00D9CDF2D&amp;idFile=3403952&amp;file=10454/03080210001100_1643733810250_s08.pdf</uniformResourceIdentifier>
+                           </referencedFileHeader>
+                        </referenced_file_detail_information:referencedFileDetailInformationModule>
+                        <sales_information:salesInformationModule xmlns:sales_information="urn:gs1:gdsn:sales_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:sales_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/SalesInformationModule.xsd">
+                           <salesInformation>
+                              <isBasePriceDeclarationRelevant>FALSE</isBasePriceDeclarationRelevant>
+                              <priceComparisonMeasurement measurementUnitCode="LTR">0.33</priceComparisonMeasurement>
+                              <priceComparisonContentTypeCode>PER_LITRE</priceComparisonContentTypeCode>
+                              <sellingUnitOfMeasure>H87</sellingUnitOfMeasure>
+                           </salesInformation>
+                        </sales_information:salesInformationModule>
+                        <trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule xmlns:trade_item_data_carrier_and_identification="urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDataCarrierAndIdentificationModule.xsd">
+                           <dataCarrier>
+                              <dataCarrierTypeCode>EAN_13</dataCarrierTypeCode>
+                           </dataCarrier>
+                        </trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule>
+                        <trade_item_description:tradeItemDescriptionModule xmlns:trade_item_description="urn:gs1:gdsn:trade_item_description:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd">
+                           <tradeItemDescriptionInformation>
+                              <additionalTradeItemDescription languageCode="fr">Bière 1664 Blonde - La bière blonde 1664 est idéale en accompagnement de viande, salade ou plateaux de fromages</additionalTradeItemDescription>
+                              <additionalTradeItemDescription languageCode="fr">Bière 1664 Blonde - La bière blonde 1664 est idéale en accompagnement de viande, salade ou plateaux de fromages</additionalTradeItemDescription>
+                              <descriptionShort languageCode="fr">33 cl 1664</descriptionShort>
+                              <functionalName languageCode="fr">33 cl 1664</functionalName>
+                              <invoiceName languageCode="fr">33 cl 1664</invoiceName>
+                              <regulatedProductName languageCode="fr">Bière premium</regulatedProductName>
+                              <tradeItemDescription languageCode="fr">1664 33 cl 1664 5.5 DEGRE ALCOOL</tradeItemDescription>
+                              <brandNameInformation>
+                                 <brandName>1664</brandName>
+                                 <subBrand>1664</subBrand>
+                              </brandNameInformation>
+                           </tradeItemDescriptionInformation>
+                        </trade_item_description:tradeItemDescriptionModule>
+                        <trade_item_handling:tradeItemHandlingModule xmlns:trade_item_handling="urn:gs1:gdsn:trade_item_handling:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_handling:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemHandlingModule.xsd">
+                           <tradeItemHandlingInformation>
+                              <tradeItemStacking>
+                                 <stackingFactor>1</stackingFactor>
+                                 <stackingFactorTypeCode>STORAGE_UNSPECIFIED</stackingFactorTypeCode>
+                              </tradeItemStacking>
+                              <tradeItemStacking>
+                                 <stackingFactor>1</stackingFactor>
+                                 <stackingFactorTypeCode>TRANSPORT_UNSPECIFIED</stackingFactorTypeCode>
+                              </tradeItemStacking>
+                           </tradeItemHandlingInformation>
+                        </trade_item_handling:tradeItemHandlingModule>
+                        <trade_item_lifespan:tradeItemLifespanModule xmlns:trade_item_lifespan="urn:gs1:gdsn:trade_item_lifespan:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_lifespan:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemLifespanModule.xsd">
+                           <tradeItemLifespan>
+                              <minimumTradeItemLifespanFromTimeOfArrival>180</minimumTradeItemLifespanFromTimeOfArrival>
+                              <minimumTradeItemLifespanFromTimeOfProduction>360</minimumTradeItemLifespanFromTimeOfProduction>
+                           </tradeItemLifespan>
+                        </trade_item_lifespan:tradeItemLifespanModule>
+                        <trade_item_measurements:tradeItemMeasurementsModule xmlns:trade_item_measurements="urn:gs1:gdsn:trade_item_measurements:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd">
+                           <tradeItemMeasurements>
+                              <depth measurementUnitCode="MMT">58</depth>
+                              <height measurementUnitCode="MMT">145</height>
+                              <netContent measurementUnitCode="MLT">330</netContent>
+                              <width measurementUnitCode="MMT">58</width>
+                              <tradeItemWeight>
+                                 <grossWeight measurementUnitCode="KGM">0.355</grossWeight>
+                                 <netWeight measurementUnitCode="KGM">0.33</netWeight>
+                              </tradeItemWeight>
+                           </tradeItemMeasurements>
+                        </trade_item_measurements:tradeItemMeasurementsModule>
+                        <trade_item_size:tradeItemSizeModule xmlns:trade_item_size="urn:gs1:gdsn:trade_item_size:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_size:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemSizeModule.xsd">
+                           <nonPackagedSizeDimension>
+                              <descriptiveSizeDimension languageCode="fr">0.33</descriptiveSizeDimension>
+                           </nonPackagedSizeDimension>
+                        </trade_item_size:tradeItemSizeModule>
+                        <trade_item_temperature_information:tradeItemTemperatureInformationModule xmlns:trade_item_temperature_information="urn:gs1:gdsn:trade_item_temperature_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd">
+                           <tradeItemTemperatureConditionTypeCode>AMBIENT</tradeItemTemperatureConditionTypeCode>
+                           <tradeItemTemperatureInformation>
+                              <maximumTemperature temperatureMeasurementUnitCode="CEL">25</maximumTemperature>
+                              <minimumTemperature temperatureMeasurementUnitCode="CEL">0</minimumTemperature>
+                              <temperatureQualifierCode>STORAGE_HANDLING</temperatureQualifierCode>
+                           </tradeItemTemperatureInformation>
+                        </trade_item_temperature_information:tradeItemTemperatureInformationModule>
+                        
+                        <variable_trade_item_information:variableTradeItemInformationModule xmlns:variable_trade_item_information="urn:gs1:gdsn:variable_trade_item_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd">
+                           <variableTradeItemInformation>
+                              <isTradeItemAVariableUnit>false</isTradeItemAVariableUnit>
+                           </variableTradeItemInformation>
+                        </variable_trade_item_information:variableTradeItemInformationModule>
+                        
+                     </extension>
+                  </tradeItemInformation>
+                  <tradeItemSynchronisationDates>
+                     <lastChangeDateTime>2023-08-28T09:20:29+02:00</lastChangeDateTime>
+                     <effectiveDateTime>2004-03-16T00:00:00+01:00</effectiveDateTime>
+                     <publicationDateTime>2023-08-28T09:20:29+02:00</publicationDateTime>
+                  </tradeItemSynchronisationDates>
+                  <avpList>
+                     <stringAVP attributeName="countryOfSettlement">250</stringAVP>
+                     <stringAVP attributeName="extendedImportClassification">FR_EXCISE_DUTY_CODE:51</stringAVP>
+                     <stringAVP attributeName="fiscalDescriptionCode">BIERE_SUP_2_8_BRASSERIE_TAUX_NORMAL</stringAVP>
+                  </avpList>
+               </tradeItem>
+            </catalogueItem>
+         </catalogue_item_notification:catalogueItemNotification>
+      </documentCommand>
+   </transaction>
+</catalogue_item_notification:catalogueItemNotificationMessage>
