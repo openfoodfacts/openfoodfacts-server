@@ -3977,7 +3977,9 @@ my %phrases_after_ingredients_list = (
 	],
 
 	en => [
+		'adds a trivial amount',    # e.g. adds a trivial amount of added sugars per serving
 		'after opening',
+		#'Best before',
 		'nutrition(al)? (as sold|facts|information|typical|value[s]?)',
 		# "nutrition advice" seems to appear before ingredients rather than after.
 		# "nutritional" on its own would match the ingredient "nutritional yeast" etc.
@@ -3988,7 +3990,6 @@ my %phrases_after_ingredients_list = (
 		'once opened[,]? (consume|keep|refrigerate|store|use)',
 		'(Storage( instructions)?[: ]+)?Store in a cool[,]? dry place',
 		'(dist(\.)?|distributed|sold)(\&|and|sold| )* (by|exclusively)',
-		#'Best before',
 		#'See bottom of tin',
 	],
 
@@ -4236,10 +4237,10 @@ my %prefixes_before_dash = (fr => ['demi', 'saint',],);
 my %ignore_phrases = (
 	de => [
 		'\d\d?\s?%\sFett\si(\.|,)\s?Tr(\.|,)?',    # 45 % Fett i.Tr.
-		"inklusive",
+		'inklusive',
 	],
-	en => ["na|n/a|not applicable",],
-	fr => ["non applicable|non concerné",],
+	en => ['not applicable',],
+	fr => ['non applicable|non concerné',],
 
 );
 
@@ -4444,7 +4445,7 @@ sub cut_ingredients_text_for_lang ($text, $language) {
 	if (defined $phrases_after_ingredients_list{$language}) {
 
 		foreach my $regexp (@{$phrases_after_ingredients_list{$language}}) {
-			if ($text =~ /\s*\b$regexp\b(.*)$/is) {
+			if ($text =~ /\*?\s*\b$regexp\b(.*)$/is) {
 				$text = $`;
 				$log->debug("removed phrases_after_ingredients_list", {removed => $1, kept => $text, regexp => $regexp})
 					if $log->is_debug();
@@ -4459,7 +4460,16 @@ sub cut_ingredients_text_for_lang ($text, $language) {
 	if (defined $ignore_phrases{$language}) {
 
 		foreach my $regexp (@{$ignore_phrases{$language}}) {
-			$text =~ s/^\s*($regexp)(\.)?\s*$//is;
+			# substract regexp
+			$text =~ s/\s*\b(?:$regexp)\s*/ /gi;
+			# rm opened-closed parenthesis
+			$text =~ s/\(\s?\)//g;
+			# rm double commas
+			$text =~ s/\s?,\s?,/,/g;
+			# rm double spaces
+			$text =~ s/\s+/ /g;
+			# rm space before comma
+			$text =~ s/\s,\s?/, /g;
 		}
 	}
 
