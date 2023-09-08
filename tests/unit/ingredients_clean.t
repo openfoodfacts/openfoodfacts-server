@@ -23,7 +23,7 @@ my @tests = (
 	[
 		"fr",
 		"lait 98 % ,sel,ferments lactiques,coagulant Valeurs nutritionnelles Pour 100 g 1225 kj 295 kcal pour 22g 270 kJ 65 kcal Matières grasses dont acides gras saturés pour 100g 23g/ 15,5g pour 22g 5,1g/ 3,4g Glucides dont sucres traces Protéines pour 100g 22 g pour 22g 4,8 g Sel pour 100g 1,8 g pour 22g 0,40g Calcium pour 100g 680 mg(85 % ) pour 22g 150 mg(19 % ) Afin d'éviter les risques d'étouffement pour les enfants de moins de 4 ans, coupez en petites bouchées. AQR: Apports Quotidiens de Référence А conserver au froid après achat.",
-		"lait 98 % ,sel,ferments lactiques,coagulant"
+		"lait 98 %, sel,ferments lactiques,coagulant"
 	],
 
 	[

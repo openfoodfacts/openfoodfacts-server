@@ -4440,14 +4440,14 @@ sub cut_ingredients_text_for_lang ($text, $language) {
 		foreach my $regexp (@{$ignore_phrases{$language}}) {
 			# substract regexp
 			$text =~ s/\s*\b(?:$regexp)\s*/ /gi;
-			# rm double parenthesis
+			# rm opened-closed parenthesis
 			$text =~ s/\(\s?\)//g;
 			# rm double commas
 			$text =~ s/\s?,\s?,/,/g;
 			# rm double spaces
 			$text =~ s/\s+/ /g;
 			# rm space before comma
-			$text =~ s/\s,/,/g;
+			$text =~ s/\s,\s?/, /g;
 		}
 	}
 
