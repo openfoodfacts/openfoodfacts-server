@@ -6534,11 +6534,12 @@ sub estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients ($p
 
 =head2 is_fruits_vegetables_legumes ( $ingredient_id )
 
-Determine if an ingredient shoud be counted as "fruits, vegetables, legumes"
+Determine if an ingredient should be counted as "fruits, vegetables, legumes"
 in Nutriscore 2023 algorithm.
 
-1.2.2. Ingredients contributing to the ‘Fruit, vegetables and legumes’ component
-The list of ingredients qualifying for the “Fruit, vegetables and legumes” component has been revised
+1.2.2. Ingredients contributing to the "Fruit, vegetables and legumes" component
+
+The list of ingredients qualifying for the "Fruit, vegetables and legumes" component has been revised
 to include the following Eurocodes:
 •
 Vegetables groups
@@ -6628,7 +6629,7 @@ sub estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients 
 
 =head2 is_milk ( $ingredient_id )
 
-Determine if an ingredient shoud be counted as milk in Nutriscore 2021 algorithm
+Determine if an ingredient should be counted as milk in Nutriscore 2021 algorithm
 
 =cut
 
