@@ -276,7 +276,7 @@
 						[% END %]
             			
 						[% IF page_format == "banner" %]
-							<!-- banner pages such as product and product edit form have their own h1 title -->
+							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
 							[% content %]
 						[% ELSIF page_type == "products" %]
 							[% IF schema_org_itemtype.defined %]
