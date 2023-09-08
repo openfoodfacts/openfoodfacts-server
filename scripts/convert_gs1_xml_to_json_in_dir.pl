@@ -27,7 +27,6 @@ use utf8;
 use warnings;
 
 use JSON;
-use XML::XML2JSON;
 
 my $dir = $ARGV[0];
 
@@ -37,37 +36,10 @@ if (not defined $dir) {
 
 opendir(my $dh, $dir) or die("Could not open the $dir directory: $!\n");
 
-my $xml2json = XML::XML2JSON->new(module => 'JSON', pretty => 1, force_array => 0, attribute_prefix => "");
-
 foreach my $file (sort(readdir($dh))) {
 
 	next if $file !~ /\.xml$/;
+	$file = $`;    # remove xml extension
 
-	open(my $in, "<:encoding(UTF-8)", "$dir/$file") or die("Could not read $dir/$file: $!");
-	my $xml = join('', (<$in>));
-	close($in);
-
-	my $json = $xml2json->convert($xml);
-
-	# XML2JSON changes the namespace concatenation character from : to $
-	# e.g. "allergen_information$allergenInformationModule":
-	# it is unwanted, turn it back to : so that we can match the expected input of ProductOpener::GS1
-	$json =~ s/([a-z])\$([a-z])/$1:$2/ig;
-
-	# Note: XML2JSON also creates a hash for simple text values. Text values of tags are converted to $t properties.
-	# e.g. <gtin>03449862093657</gtin>
-	#
-	# becomes:
-	#
-	# gtin: {
-	#    $t: "03449865355608"
-	# },
-	#
-	# This is taken care of later by the ProductOpener::GS1::convert_single_text_property_to_direct_value() function
-
-	$file =~ s/\.xml$/.json/;
-
-	open(my $out, ">:encoding(UTF-8)", "$dir/$file") or die("Could not read $dir/$file: $!");
-	print $out $json;
-	close($out);
+	convert_gs1_xml_file_to_json("dir/$file.xml", "dir/$file.json");
 }

@@ -48,22 +48,22 @@ foreach my $file (sort(readdir($dh))) {
 
 	if (open(my $json_in, "<:encoding(UTF-8)", "$dir/$file")) {
 
-        local $/;    #Enable 'slurp' mode
-        my $json_ref = $json->decode(<$json_in>);
-        
-        close($json_in);
+		local $/;    #Enable 'slurp' mode
+		my $json_ref = $json->decode(<$json_in>);
+
+		close($json_in);
 
 		if (open(my $json_out, ">:encoding(UTF-8)", "$dir/$file")) {
 			my $pretty_json = $json->pretty->encode($json_ref);
-		print $json_out $pretty_json;
-		close($json_out);
+			print $json_out $pretty_json;
+			close($json_out);
 		}
 		else {
 			print STDERR "could not write $dir/$file: $!\n";
 		}
-    }
-    else {
-        print STDERR "could not read $dir/$file: $!\n";
-    }
+	}
+	else {
+		print STDERR "could not read $dir/$file: $!\n";
+	}
 }
 
