@@ -65,8 +65,9 @@ info:
 	@echo "${NAME} version: ${VERSION}"
 
 usage:
-  @echo "🥫 Welcome to the Open Food Facts project"
-  @echo "See: /docker/README.md for available commands (also at https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-docker-commands/)"
+	@echo "🥫 Welcome to the Open Food Facts project"
+	@echo "🥫 See available commands at docker/README.md"
+	@echo "🥫 or https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-docker-commands/"
 
 hello:
 	@echo "🥫 Welcome to the Open Food Facts dev environment setup!"
