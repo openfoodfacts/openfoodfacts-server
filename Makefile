@@ -53,7 +53,7 @@ DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # we also enable the possibility to fake services in po_test_runner
 DOCKER_COMPOSE_TEST=ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker-compose --env-file=${ENV_FILE}
 
-.DEFAULT_GOAL := dev
+.DEFAULT_GOAL := usage
 
 # this target is always to build, see https://www.gnu.org/software/make/manual/html_node/Force-Targets.html
 _FORCE:
@@ -63,6 +63,11 @@ _FORCE:
 #------#
 info:
 	@echo "${NAME} version: ${VERSION}"
+
+usage:
+	@echo "🥫 Welcome to the Open Food Facts project"
+	@echo "🥫 See available commands at docker/README.md"
+	@echo "🥫 or https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-docker-commands/"
 
 hello:
 	@echo "🥫 Welcome to the Open Food Facts dev environment setup!"
