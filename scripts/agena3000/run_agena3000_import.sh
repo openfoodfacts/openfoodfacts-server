@@ -2,6 +2,7 @@
 
 # Mirror data from Agena3000's server
 # access needs to be configured in ~/.netrc
+# FIXME: explicit LFTP_HOME
 lftp -c "set cmd:default-protocol sftp; open sftp-a3dm.agena3000.com:2222; mirror --Remove-source-files /PROD/Fiches/ /home/sftp/agena3000/PROD/Fiches/"
 
 cd /srv/off-pro/scripts

@@ -41,6 +41,7 @@ BEGIN {
 		%BASE_DIRS
 
 		&base_paths
+		&base_paths_loading_script
 		&check_missing_dirs
 		&ensure_dir_created
 		&ensure_dir_created_or_die
@@ -205,6 +206,14 @@ Users contributed translations directory
 
 $BASE_DIRS{USERS_TRANSLATIONS} = "$data_root/translate";
 
+=head2 $BASE_DIRS{SFTP_HOME}
+sftp home directory, only for producers platform
+=cut
+
+$BASE_DIRS{SFTP_HOME} = $sftp_root;
+
+my @PRO_ONLY_PATHS = qw(SFTP_HOME);
+
 =head1 FUNCTIONS
 
 =head2 products_dir($server_name)
@@ -249,6 +258,10 @@ sub base_paths() {
 			}
 			$paths{uc($server_name) . "_PRODUCTS_DIR"} = products_dir($server_name);
 			$paths{uc($server_name) . "_PRODUCTS_IMAGES_DIR"} = products_images_dir($server_name);
+		}
+		# remove some paths
+		foreach my $path (@PRO_ONLY_PATHS) {
+			delete $paths{$path};
 		}
 	}
 	return \%paths;
@@ -308,3 +321,24 @@ sub ensure_dir_created_or_die ($path, $mode = 0755) {
 	}
 	return $result;
 }
+
+=head2 base_paths_loading_script()
+Return a sh script to define environment variables
+
+You can then use it in a script by running:
+
+C<< . <(perl -e 'use ProductOpener::Paths qw/:all/; print base_paths_loading_script()') >>
+
+=cut
+
+sub base_paths_loading_script() {
+	my %paths = %{base_paths()};
+	my @outputs = ();
+	foreach my $path_name (keys %paths) {
+		my $value = $paths{$path_name};
+		push @outputs, "export OFF_${path_name}_DIR=$value";
+	}
+	return (join "\n", @outputs) . "\n";
+}
+
+1;
