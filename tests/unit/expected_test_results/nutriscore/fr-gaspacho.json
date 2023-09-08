@@ -172,7 +172,6 @@
    "ingredients_hierarchy" : [
       "en:tomato",
       "en:vegetable",
-      "en:fruit-vegetable",
       "en:cucumber",
       "en:bell-pepper",
       "en:onion",
@@ -217,7 +216,6 @@
    "ingredients_tags" : [
       "en:tomato",
       "en:vegetable",
-      "en:fruit-vegetable",
       "en:cucumber",
       "en:bell-pepper",
       "en:onion",
@@ -250,7 +248,7 @@
       "fr:pain-de-riz"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
-   "known_ingredients_n" : 23,
+   "known_ingredients_n" : 22,
    "lc" : "fr",
    "misc_tags" : [
       "en:nutriscore-computed",
@@ -265,8 +263,8 @@
       "energy_100g" : 148,
       "fat_100g" : 10,
       "fiber_100g" : 1.1,
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 12.3909090909091,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 12.3909090909091,
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 1.1,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 1.1,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 89,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 89,
       "nutrition-score-fr" : -4,
@@ -328,7 +326,7 @@
             "energy_points" : 0,
             "fiber" : 1.1,
             "fiber_points" : 0,
-            "fruits_vegetables_legumes" : 12.3909090909091,
+            "fruits_vegetables_legumes" : 1.1,
             "fruits_vegetables_legumes_points" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,
@@ -418,7 +416,7 @@
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 12.3909090909091,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 1.1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 89,
    "pnns_groups_1" : "Fruits and vegetables",
