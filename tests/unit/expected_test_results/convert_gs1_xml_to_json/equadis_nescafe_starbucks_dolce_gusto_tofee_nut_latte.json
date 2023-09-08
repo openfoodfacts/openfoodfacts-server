@@ -1,1 +1,723 @@
-{"catalogue_item_notification:catalogueItemNotificationMessage":{"xmlns:catalogue_item_notification":"urn:gs1:gdsn:catalogue_item_notification:xsd:3","xmlns:sh":"http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader","xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","xsi:schemaLocation":"urn:gs1:gdsn:catalogue_item_notification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/CatalogueItemNotification.xsd","sh:StandardBusinessDocumentHeader":{"sh:HeaderVersion":"1.0","sh:Sender":{"sh:Identifier":{"Authority":"GS1","$t":"3027800020370"}},"sh:Receiver":{"sh:Identifier":{"Authority":"GS1","$t":"8888888899990"}},"sh:DocumentIdentification":{"sh:Standard":"GS1","sh:TypeVersion":"3.1","sh:InstanceIdentifier":"3027800020301_CIN2267e52d47994de6a78ff752db69cb3a326","sh:Type":"catalogueItemNotification","sh:MultipleType":"false","sh:CreationDateAndTime":"2023-09-08T15:20:38+02:00"}},"transaction":{"transactionIdentification":{"entityIdentification":"3027800020301_CIN2267e52d47994de6a78ff752db69cb3a326_TransactionID","contentOwner":{"gln":"3010337100035"}},"documentCommand":{"documentCommandHeader":{"type":"ADD","documentCommandIdentification":{"entityIdentification":"3027800020301_CIN2267e52d47994de6a78ff752db69cb3a326_DocID","contentOwner":{"gln":"3010337100035"}}},"catalogue_item_notification:catalogueItemNotification":{"creationDateTime":"2023-09-08T15:20:38+02:00","documentStatusCode":"ORIGINAL","catalogueItemNotificationIdentification":{"entityIdentification":"3027800020301_CIN2267e52d47994de6a78ff752db69cb3a326_CIN","contentOwner":{"gln":"3010337100035"}},"isReload":"false","catalogueItem":{"dataRecipient":"8888888899990","sourceDataPool":"3027800020370","catalogueItemState":{"catalogueItemStateCode":"REGISTERED"},"tradeItem":{"gtin":"07613039676172","additionalTradeItemIdentification":{"additionalTradeItemIdentificationTypeCode":"SUPPLIER_ASSIGNED","$t":"12539845"},"isTradeItemABaseUnit":"true","isTradeItemAConsumerUnit":"true","isTradeItemADespatchUnit":"false","isTradeItemAnInvoiceUnit":"true","isTradeItemAnOrderableUnit":"true","isTradeItemAService":"false","isTradeItemNonphysical":"false","tradeItemUnitDescriptorCode":"BASE_UNIT_OR_EACH","tradeItemTradeChannelCode":"MASS_MERCHANDISING","brandOwner":{"gln":"7613039000373","partyName":"Société des Produits Nestlé S.A."},"informationProviderOfTradeItem":{"gln":"3010337100035","partyName":"Nestlé France S.A.S."},"manufacturerOfTradeItem":{"gln":"3010337100035","partyName":"Nestlé France S.A.S."},"displayUnitInformation":{"isTradeItemADisplayUnit":"FALSE"},"gdsnTradeItemClassification":{"gpcCategoryCode":"10008180","gpcCategoryName":"Coffee ? Capsules/Pods"},"targetMarket":{"targetMarketCountryCode":"250"},"tradeItemContactInformation":[{"contactTypeCode":"BZL","contactAddress":"34-40 rue Guynemer 92130 Issy-les-Moulineaux","contactName":"Nestlé France"},{"contactTypeCode":"CXC","contactAddress":"34-40 rue Guynemer 92130 Issy-les-Moulineaux","contactName":"Nestlé France"}],"tradeItemInformation":{"productionVariantDescription":{"languageCode":"fr","$t":"44191738"},"tradeItemComponents":{"numberOfPiecesInSet":"0"},"extension":{"allergen_information:allergenInformationModule":{"xmlns:allergen_information":"urn:gs1:gdsn:allergen_information:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:allergen_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AllergenInformationModule.xsd","allergenRelatedInformation":{"allergenSpecificationAgency":"EU","allergenSpecificationName":"1169/2011","allergenStatement":{"languageCode":"fr","$t":"Lait"},"isAllergenRelevantDataProvided":"true","allergen":[{"allergenTypeCode":"AM","levelOfContainmentCode":"CONTAINS"}]}},"consumer_instructions:consumerInstructionsModule":{"xmlns:consumer_instructions":"urn:gs1:gdsn:consumer_instructions:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:consumer_instructions:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ConsumerInstructionsModule.xsd","consumerInstructions":{"consumerStorageInstructions":{"languageCode":"fr","$t":"Conserver dans un endroit propre, sec et à température ambiante."}}},"dangerous_substance_information:dangerousSubstanceInformationModule":{"xmlns:dangerous_substance_information":"urn:gs1:gdsn:dangerous_substance_information:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:dangerous_substance_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DangerousSubstanceInformationModule.xsd","dangerousSubstanceInformation":{"dangerousSubstanceProperties":{"isDangerousSubstance":"FALSE"}}},"delivery_purchasing_information:deliveryPurchasingInformationModule":{"xmlns:delivery_purchasing_information":"urn:gs1:gdsn:delivery_purchasing_information:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd","deliveryPurchasingInformation":{"firstShipDateTime":"2020-10-05T00:00:00+02:00","isTradeItemReorderable":"false","startAvailabilityDateTime":"2020-10-05T00:00:00+02:00"}},"duty_fee_tax_information:dutyFeeTaxInformationModule":{"xmlns:duty_fee_tax_information":"urn:gs1:gdsn:duty_fee_tax_information:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:duty_fee_tax_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DutyFeeTaxInformationModule.xsd","dutyFeeTaxInformation":[{"dutyFeeTaxAgencyCode":"65","dutyFeeTaxTypeCode":"2G","dutyFeeTaxTypeDescription":{"languageCode":"fr","$t":"TAUX REDUIT 5.5 %"},"dutyFeeTax":{"dutyFeeTaxCategoryCode":{"codeListVersion":"2","$t":"LOW"}}},{"dutyFeeTaxAgencyCode":"65","dutyFeeTaxTypeCode":"3001000002282","dutyFeeTaxTypeDescription":{"languageCode":"fr","$t":"TAXE ECO-EMBALLAGES (FR)"},"dutyFeeTax":{"dutyFeeTaxAmount":{"currencyCode":"EUR","$t":"0.005"}}}]},"farming_and_processing_information:farmingAndProcessingInformationModule":{"xmlns:farming_and_processing_information":"urn:gs1:gdsn:farming_and_processing_information:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:farming_and_processing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FarmingAndProcessingInformationModule.xsd","rawMaterialIrradiatedCode":"FALSE","tradeItemOrganicInformation":{"organicClaim":{"organicTradeItemCode":"5"}},"tradeItemFarmingAndProcessing":{"geneticallyModifiedDeclarationCode":"UNDECLARED","irradiatedCode":"FALSE","preservationTechniqueCode":"CONSERVE"}},"food_and_beverage_ingredient:foodAndBeverageIngredientModule":{"xmlns:food_and_beverage_ingredient":"urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeverageIngredientModule.xsd","ingredientStatement":{"languageCode":"fr","$t":"Ingrédients: Capsule de lait : LAIT entier en poudre (66,5%), sucre (30,7%), arômes naturels, sel, matière grasse de LAIT anhydre. Capsule de café : Café torréfié moulu."},"isIngredientRelevantDataProvided":"TRUE","foodAndBeverageIngredient":{"ingredientSequence":"01","ingredientContentPercentage":"0.00","ingredientName":{"languageCode":"fr","$t":"FRUITS_VEGETABLES_LEGUMINOUS_AND_NUTS"}}},"food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule":{"xmlns:food_and_beverage_preparation_serving":"urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeveragePreparationServingModule.xsd","servingQuantityInformation":{"numberOfServingsPerPackage":"6"},"preparationServing":{"preparationInstructions":{"languageCode":"fr","$t":"1 capsule = 1 tasse de 200 ml."},"preparationTypeCode":"UNSPECIFIED"}},"health_related_information:healthRelatedInformationModule":{"xmlns:health_related_information":"urn:gs1:gdsn:health_related_information:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:health_related_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/HealthRelatedInformationModule.xsd","healthRelatedInformation":{"compulsoryAdditiveLabelInformation":{"languageCode":"fr","$t":"Conditionné sous atmosphère protectrice."},"nutritionalProgram":{"nutritionalProgramIngredients":{"nutritionalProgramIngredientMeasurement":{"measurementUnitCode":"P1","$t":"0.0000"},"nutritionalProgramIngredientTypeCode":"FRUITS_VEGETABLES_LEGUMES_AND_NUTS"}}}},"marketing_information:marketingInformationModule":{"xmlns:marketing_information":"urn:gs1:gdsn:marketing_information:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:marketing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/MarketingInformationModule.xsd","marketingInformation":{"tradeItemFeatureBenefit":[{"languageCode":"fr","$t":"Café 100% Arabica."},{"languageCode":"fr","$t":"La recette incontournable saisonnière des coffeeshop."},{"languageCode":"fr","$t":"Retrouvez un incontournable des coffeeshop maintenant chez vous."},{"languageCode":"fr","$t":"STARBUCKS s'engage pour un approvisionnement café 100% éthique en partenariat avec Conservation International."},{"languageCode":"fr","$t":"Retrouvez votre Café STARBUCKS préféré maintenant chez vous."}],"tradeItemMarketingMessage":{"languageCode":"fr","$t":"Découvrez STARBUCKS Toffee Nut Latte, un incontournable de saison qui allie une mousse de lait et la saveur généreuse du caramel à la douceur d'un gout de noisettes grillés, le tout mélangé à un espresso velouté 100% arabica, à préparer chez vous avec votre machine NESCAFE DOLCE GUSTO. Un format boîte contenant 12 capsules vous permet de préparer 6 boissons gourmandes."},"season":{"isTradeItemSeasonal":"FALSE"}}},"nutritional_information:nutritionalInformationModule":{"xmlns:nutritional_information":"urn:gs1:gdsn:nutritional_information:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:nutritional_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/NutritionalInformationModule.xsd","isNutrientRelevantDataProvided":"true","nutrientHeader":[{"preparationStateCode":"PREPARED","dailyValueIntakeReference":{"languageCode":"fr","$t":"AR:Apport de référence pour un adulte-type (8400kj/2000kcal)"},"servingSize":{"measurementUnitCode":"GRM","$t":"100.0"},"servingSizeDescription":{"languageCode":"fr","$t":"100 GRM"},"nutrientDetail":[{"nutrientTypeCode":"ENER-","measurementPrecisionCode":"APPROXIMATELY","quantityContained":[{"measurementUnitCode":"KJO","$t":"1811"},{"measurementUnitCode":"E14","$t":"433"}]},{"nutrientTypeCode":"FAT","measurementPrecisionCode":"APPROXIMATELY","quantityContained":{"measurementUnitCode":"GRM","$t":"16.7"}},{"nutrientTypeCode":"FASAT","measurementPrecisionCode":"APPROXIMATELY","quantityContained":{"measurementUnitCode":"GRM","$t":"9.1"}},{"nutrientTypeCode":"CHOAVL","measurementPrecisionCode":"APPROXIMATELY","quantityContained":{"measurementUnitCode":"GRM","$t":"47.2"}},{"nutrientTypeCode":"SUGAR-","measurementPrecisionCode":"APPROXIMATELY","quantityContained":{"measurementUnitCode":"GRM","$t":"42.2"}},{"nutrientTypeCode":"FIBTG","measurementPrecisionCode":"APPROXIMATELY","quantityContained":{"measurementUnitCode":"GRM","$t":"14.9"}},{"nutrientTypeCode":"PRO-","measurementPrecisionCode":"APPROXIMATELY","quantityContained":{"measurementUnitCode":"GRM","$t":"14.8"}},{"nutrientTypeCode":"SALTEQ","measurementPrecisionCode":"APPROXIMATELY","quantityContained":{"measurementUnitCode":"GRM","$t":"0.89"}}]},{"preparationStateCode":"PREPARED","dailyValueIntakeReference":{"languageCode":"fr","$t":"AR:Apport de référence pour un adulte-type (8400kj/2000kcal)"},"servingSize":{"measurementUnitCode":"GRM","$t":"221.3"},"servingSizeDescription":{"languageCode":"fr","$t":"Pour 200 ml"},"nutrientDetail":[{"nutrientTypeCode":"ENER-","measurementPrecisionCode":"APPROXIMATELY","quantityContained":[{"measurementUnitCode":"KJO","$t":"301"},{"measurementUnitCode":"E14","$t":"72"}]},{"nutrientTypeCode":"FAT","dailyValueIntakePercent":"4.00","measurementPrecisionCode":"APPROXIMATELY","quantityContained":{"measurementUnitCode":"GRM","$t":"2.5"}},{"nutrientTypeCode":"FASAT","dailyValueIntakePercent":"8.00","measurementPrecisionCode":"APPROXIMATELY","quantityContained":{"measurementUnitCode":"GRM","$t":"1.6"}},{"nutrientTypeCode":"CHOAVL","dailyValueIntakePercent":"3.00","measurementPrecisionCode":"APPROXIMATELY","quantityContained":{"measurementUnitCode":"GRM","$t":"9"}},{"nutrientTypeCode":"SUGAR-","dailyValueIntakePercent":"9.00","measurementPrecisionCode":"APPROXIMATELY","quantityContained":{"measurementUnitCode":"GRM","$t":"8.2"}},{"nutrientTypeCode":"FIBTG","measurementPrecisionCode":"APPROXIMATELY","quantityContained":{"measurementUnitCode":"GRM","$t":"0.8"}},{"nutrientTypeCode":"PRO-","dailyValueIntakePercent":"6.00","measurementPrecisionCode":"APPROXIMATELY","quantityContained":{"measurementUnitCode":"GRM","$t":"2.8"}},{"nutrientTypeCode":"SALTEQ","dailyValueIntakePercent":"3.00","measurementPrecisionCode":"APPROXIMATELY","quantityContained":{"measurementUnitCode":"GRM","$t":"0.16"}}]}]},"packaging_information:packagingInformationModule":{"xmlns:packaging_information":"urn:gs1:gdsn:packaging_information:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd","packaging":{"packagingTypeCode":"BX"}},"packaging_marking:packagingMarkingModule":{"xmlns:packaging_marking":"urn:gs1:gdsn:packaging_marking:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd","packagingMarking":{"hasBatchNumber":"true","isPackagingMarkedReturnable":"false","isPriceOnPack":"false","packagingMarkedLabelAccreditationCode":["TRIMAN"],"localPackagingMarkedLabelAccreditationCodeReference":["NO_ASC","NO_FSC","NO_MSC"],"packagingDate":{"tradeItemDateOnPackagingTypeCode":"BEST_BEFORE_DATE"}}},"place_of_item_activity:placeOfItemActivityModule":{"xmlns:place_of_item_activity":"urn:gs1:gdsn:place_of_item_activity:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:place_of_item_activity:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PlaceOfItemActivityModule.xsd","importClassification":{"importClassificationTypeCode":"CUSTOMS_TARIFF_NUMBER","importClassificationValue":"0901210000"},"placeOfProductActivity":{"countryOfOrigin":{"countryCode":"276"},"productActivityDetails":{"productActivityTypeCode":"LAST_PROCESSING","countryOfActivity":{"countryCode":"276"}}}},"promotional_item_information:promotionalItemInformationModule":{"xmlns:promotional_item_information":"urn:gs1:gdsn:promotional_item_information:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd","isTradeItemAPromotionalUnit":"false"},"referenced_file_detail_information:referencedFileDetailInformationModule":{"xmlns:referenced_file_detail_information":"urn:gs1:gdsn:referenced_file_detail_information:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:referenced_file_detail_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ReferencedFileDetailInformationModule.xsd","referencedFileHeader":{"referencedFileTypeCode":"PRODUCT_IMAGE","contentDescription":{"languageCode":"fr","$t":"Produit emballé / Packshot"},"fileEffectiveStartDateTime":"2023-03-29T00:00:00+02:00","fileFormatName":"png","fileName":"07613039676172_C1C1_s66.png","uniformResourceIdentifier":"https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613039676172_C1C1_s04.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204680015&filename=07613039676172_C1C1_s04.png","isPrimaryFile":"TRUE"}},"sales_information:salesInformationModule":{"xmlns:sales_information":"urn:gs1:gdsn:sales_information:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:sales_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/SalesInformationModule.xsd","tradeItemPriceInformation":{"cataloguePrice":{"tradeItemPrice":{"currencyCode":"EUR","$t":"5.872"},"priceBasisQuantity":{"measurementUnitCode":"H87","$t":"1"},"priceEffectiveStartDate":"2023-03-01T00:00:00+01:00"}},"salesInformation":{"isBasePriceDeclarationRelevant":"FALSE","priceComparisonMeasurement":{"measurementUnitCode":"KGM","$t":"0.1278"},"priceComparisonContentTypeCode":"PER_KILOGRAM","sellingUnitOfMeasure":"H87"}},"trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule":{"xmlns:trade_item_data_carrier_and_identification":"urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDataCarrierAndIdentificationModule.xsd","dataCarrier":{"dataCarrierTypeCode":"EAN_13"}},"trade_item_description:tradeItemDescriptionModule":{"xmlns:trade_item_description":"urn:gs1:gdsn:trade_item_description:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd","tradeItemDescriptionInformation":{"descriptionShort":{"languageCode":"fr","$t":"SBK DGST TOFFEE NUT LAT 12cap127,8g"},"functionalName":{"languageCode":"fr","$t":"Café"},"invoiceName":{"languageCode":"fr","$t":"Café"},"regulatedProductName":{"languageCode":"fr","$t":"Café torréfié moulu saveur caramel noisette, lait entier en poudre et sucre"},"tradeItemDescription":{"languageCode":"fr","$t":"STARBUCKS by NESCAFE DOLCE GUSTO Toffee Nut Latte 127.5g"},"brandNameInformation":{"brandName":"STARBUCKS","subBrand":"SEASONAL LATTE"}}},"trade_item_lifespan:tradeItemLifespanModule":{"xmlns:trade_item_lifespan":"urn:gs1:gdsn:trade_item_lifespan:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:trade_item_lifespan:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemLifespanModule.xsd","tradeItemLifespan":{"minimumTradeItemLifespanFromTimeOfArrival":"120","minimumTradeItemLifespanFromTimeOfProduction":"365"}},"trade_item_measurements:tradeItemMeasurementsModule":{"xmlns:trade_item_measurements":"urn:gs1:gdsn:trade_item_measurements:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd","tradeItemMeasurements":{"depth":{"measurementUnitCode":"MMT","$t":"110"},"height":{"measurementUnitCode":"MMT","$t":"110"},"netContent":{"measurementUnitCode":"GRM","$t":"127.8"},"width":{"measurementUnitCode":"MMT","$t":"110"},"netContentStatement":{"languageCode":"fr","$t":"6x15,8g+6x5,5g"},"tradeItemWeight":{"grossWeight":{"measurementUnitCode":"GRM","$t":"185.43"},"netWeight":{"measurementUnitCode":"GRM","$t":"127.8"}}}},"trade_item_temperature_information:tradeItemTemperatureInformationModule":[{"xmlns:trade_item_temperature_information":"urn:gs1:gdsn:trade_item_temperature_information:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd","tradeItemTemperatureConditionTypeCode":"AMBIENT","tradeItemTemperatureInformation":{"maximumTemperature":{"temperatureMeasurementUnitCode":"CEL","$t":"30"},"minimumTemperature":{"temperatureMeasurementUnitCode":"CEL","$t":"6"},"temperatureQualifierCode":"STORAGE_HANDLING"}},{"xmlns:trade_item_temperature_information":"urn:gs1:gdsn:trade_item_temperature_information:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd","tradeItemTemperatureConditionTypeCode":"AMBIENT","tradeItemTemperatureInformation":{"maximumTemperature":{"temperatureMeasurementUnitCode":"CEL","$t":"30"},"minimumTemperature":{"temperatureMeasurementUnitCode":"CEL","$t":"6"},"temperatureQualifierCode":"STORAGE_HANDLING"}}],"variable_trade_item_information:variableTradeItemInformationModule":{"xmlns:variable_trade_item_information":"urn:gs1:gdsn:variable_trade_item_information:xsd:3","xsi:schemaLocation":"urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd","variableTradeItemInformation":{"isTradeItemAVariableUnit":"false"}}}},"tradeItemSynchronisationDates":{"lastChangeDateTime":"2023-09-08T15:20:38+02:00","effectiveDateTime":"2023-08-04T00:00:00+02:00","publicationDateTime":"2023-09-08T15:20:38+02:00"},"avpList":{"stringAVP":{"attributeName":"countryOfSettlement","$t":"250"}}}}}}}}}
+{
+   "catalogue_item_notification:catalogueItemNotificationMessage" : {
+      "sh:StandardBusinessDocumentHeader" : {
+         "sh:DocumentIdentification" : {
+            "sh:CreationDateAndTime" : "2023-09-08T15:20:38+02:00",
+            "sh:InstanceIdentifier" : "3027800020301_CIN2267e52d47994de6a78ff752db69cb3a326",
+            "sh:MultipleType" : "false",
+            "sh:Standard" : "GS1",
+            "sh:Type" : "catalogueItemNotification",
+            "sh:TypeVersion" : "3.1"
+         },
+         "sh:HeaderVersion" : "1.0",
+         "sh:Receiver" : {
+            "sh:Identifier" : {
+               "$t" : "8888888899990",
+               "Authority" : "GS1"
+            }
+         },
+         "sh:Sender" : {
+            "sh:Identifier" : {
+               "$t" : "3027800020370",
+               "Authority" : "GS1"
+            }
+         }
+      },
+      "transaction" : {
+         "documentCommand" : {
+            "catalogue_item_notification:catalogueItemNotification" : {
+               "catalogueItem" : {
+                  "catalogueItemState" : {
+                     "catalogueItemStateCode" : "REGISTERED"
+                  },
+                  "dataRecipient" : "8888888899990",
+                  "sourceDataPool" : "3027800020370",
+                  "tradeItem" : {
+                     "additionalTradeItemIdentification" : {
+                        "$t" : "12539845",
+                        "additionalTradeItemIdentificationTypeCode" : "SUPPLIER_ASSIGNED"
+                     },
+                     "avpList" : {
+                        "stringAVP" : {
+                           "$t" : "250",
+                           "attributeName" : "countryOfSettlement"
+                        }
+                     },
+                     "brandOwner" : {
+                        "gln" : "7613039000373",
+                        "partyName" : "Société des Produits Nestlé S.A."
+                     },
+                     "displayUnitInformation" : {
+                        "isTradeItemADisplayUnit" : "FALSE"
+                     },
+                     "gdsnTradeItemClassification" : {
+                        "gpcCategoryCode" : "10008180",
+                        "gpcCategoryName" : "Coffee ? Capsules/Pods"
+                     },
+                     "gtin" : "07613039676172",
+                     "informationProviderOfTradeItem" : {
+                        "gln" : "3010337100035",
+                        "partyName" : "Nestlé France S.A.S."
+                     },
+                     "isTradeItemABaseUnit" : "true",
+                     "isTradeItemAConsumerUnit" : "true",
+                     "isTradeItemADespatchUnit" : "false",
+                     "isTradeItemAService" : "false",
+                     "isTradeItemAnInvoiceUnit" : "true",
+                     "isTradeItemAnOrderableUnit" : "true",
+                     "isTradeItemNonphysical" : "false",
+                     "manufacturerOfTradeItem" : {
+                        "gln" : "3010337100035",
+                        "partyName" : "Nestlé France S.A.S."
+                     },
+                     "targetMarket" : {
+                        "targetMarketCountryCode" : "250"
+                     },
+                     "tradeItemContactInformation" : [
+                        {
+                           "contactAddress" : "34-40 rue Guynemer 92130 Issy-les-Moulineaux",
+                           "contactName" : "Nestlé France",
+                           "contactTypeCode" : "BZL"
+                        },
+                        {
+                           "contactAddress" : "34-40 rue Guynemer 92130 Issy-les-Moulineaux",
+                           "contactName" : "Nestlé France",
+                           "contactTypeCode" : "CXC"
+                        }
+                     ],
+                     "tradeItemInformation" : {
+                        "extension" : {
+                           "allergen_information:allergenInformationModule" : {
+                              "allergenRelatedInformation" : {
+                                 "allergen" : [
+                                    {
+                                       "allergenTypeCode" : "AM",
+                                       "levelOfContainmentCode" : "CONTAINS"
+                                    }
+                                 ],
+                                 "allergenSpecificationAgency" : "EU",
+                                 "allergenSpecificationName" : "1169/2011",
+                                 "allergenStatement" : {
+                                    "$t" : "Lait",
+                                    "languageCode" : "fr"
+                                 },
+                                 "isAllergenRelevantDataProvided" : "true"
+                              },
+                              "xmlns:allergen_information" : "urn:gs1:gdsn:allergen_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:allergen_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AllergenInformationModule.xsd"
+                           },
+                           "consumer_instructions:consumerInstructionsModule" : {
+                              "consumerInstructions" : {
+                                 "consumerStorageInstructions" : {
+                                    "$t" : "Conserver dans un endroit propre, sec et à température ambiante.",
+                                    "languageCode" : "fr"
+                                 }
+                              },
+                              "xmlns:consumer_instructions" : "urn:gs1:gdsn:consumer_instructions:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:consumer_instructions:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ConsumerInstructionsModule.xsd"
+                           },
+                           "dangerous_substance_information:dangerousSubstanceInformationModule" : {
+                              "dangerousSubstanceInformation" : {
+                                 "dangerousSubstanceProperties" : {
+                                    "isDangerousSubstance" : "FALSE"
+                                 }
+                              },
+                              "xmlns:dangerous_substance_information" : "urn:gs1:gdsn:dangerous_substance_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:dangerous_substance_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DangerousSubstanceInformationModule.xsd"
+                           },
+                           "delivery_purchasing_information:deliveryPurchasingInformationModule" : {
+                              "deliveryPurchasingInformation" : {
+                                 "firstShipDateTime" : "2020-10-05T00:00:00+02:00",
+                                 "isTradeItemReorderable" : "false",
+                                 "startAvailabilityDateTime" : "2020-10-05T00:00:00+02:00"
+                              },
+                              "xmlns:delivery_purchasing_information" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd"
+                           },
+                           "duty_fee_tax_information:dutyFeeTaxInformationModule" : {
+                              "dutyFeeTaxInformation" : [
+                                 {
+                                    "dutyFeeTax" : {
+                                       "dutyFeeTaxCategoryCode" : {
+                                          "$t" : "LOW",
+                                          "codeListVersion" : "2"
+                                       }
+                                    },
+                                    "dutyFeeTaxAgencyCode" : "65",
+                                    "dutyFeeTaxTypeCode" : "2G",
+                                    "dutyFeeTaxTypeDescription" : {
+                                       "$t" : "TAUX REDUIT 5.5 %",
+                                       "languageCode" : "fr"
+                                    }
+                                 },
+                                 {
+                                    "dutyFeeTax" : {
+                                       "dutyFeeTaxAmount" : {
+                                          "$t" : "0.005",
+                                          "currencyCode" : "EUR"
+                                       }
+                                    },
+                                    "dutyFeeTaxAgencyCode" : "65",
+                                    "dutyFeeTaxTypeCode" : "3001000002282",
+                                    "dutyFeeTaxTypeDescription" : {
+                                       "$t" : "TAXE ECO-EMBALLAGES (FR)",
+                                       "languageCode" : "fr"
+                                    }
+                                 }
+                              ],
+                              "xmlns:duty_fee_tax_information" : "urn:gs1:gdsn:duty_fee_tax_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:duty_fee_tax_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DutyFeeTaxInformationModule.xsd"
+                           },
+                           "farming_and_processing_information:farmingAndProcessingInformationModule" : {
+                              "rawMaterialIrradiatedCode" : "FALSE",
+                              "tradeItemFarmingAndProcessing" : {
+                                 "geneticallyModifiedDeclarationCode" : "UNDECLARED",
+                                 "irradiatedCode" : "FALSE",
+                                 "preservationTechniqueCode" : "CONSERVE"
+                              },
+                              "tradeItemOrganicInformation" : {
+                                 "organicClaim" : {
+                                    "organicTradeItemCode" : "5"
+                                 }
+                              },
+                              "xmlns:farming_and_processing_information" : "urn:gs1:gdsn:farming_and_processing_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:farming_and_processing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FarmingAndProcessingInformationModule.xsd"
+                           },
+                           "food_and_beverage_ingredient:foodAndBeverageIngredientModule" : {
+                              "foodAndBeverageIngredient" : {
+                                 "ingredientContentPercentage" : "0.00",
+                                 "ingredientName" : {
+                                    "$t" : "FRUITS_VEGETABLES_LEGUMINOUS_AND_NUTS",
+                                    "languageCode" : "fr"
+                                 },
+                                 "ingredientSequence" : "01"
+                              },
+                              "ingredientStatement" : {
+                                 "$t" : "Ingrédients: Capsule de lait : LAIT entier en poudre (66,5%), sucre (30,7%), arômes naturels, sel, matière grasse de LAIT anhydre. Capsule de café : Café torréfié moulu.",
+                                 "languageCode" : "fr"
+                              },
+                              "isIngredientRelevantDataProvided" : "TRUE",
+                              "xmlns:food_and_beverage_ingredient" : "urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeverageIngredientModule.xsd"
+                           },
+                           "food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule" : {
+                              "preparationServing" : {
+                                 "preparationInstructions" : {
+                                    "$t" : "1 capsule = 1 tasse de 200 ml.",
+                                    "languageCode" : "fr"
+                                 },
+                                 "preparationTypeCode" : "UNSPECIFIED"
+                              },
+                              "servingQuantityInformation" : {
+                                 "numberOfServingsPerPackage" : "6"
+                              },
+                              "xmlns:food_and_beverage_preparation_serving" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeveragePreparationServingModule.xsd"
+                           },
+                           "health_related_information:healthRelatedInformationModule" : {
+                              "healthRelatedInformation" : {
+                                 "compulsoryAdditiveLabelInformation" : {
+                                    "$t" : "Conditionné sous atmosphère protectrice.",
+                                    "languageCode" : "fr"
+                                 },
+                                 "nutritionalProgram" : {
+                                    "nutritionalProgramIngredients" : {
+                                       "nutritionalProgramIngredientMeasurement" : {
+                                          "$t" : "0.0000",
+                                          "measurementUnitCode" : "P1"
+                                       },
+                                       "nutritionalProgramIngredientTypeCode" : "FRUITS_VEGETABLES_LEGUMES_AND_NUTS"
+                                    }
+                                 }
+                              },
+                              "xmlns:health_related_information" : "urn:gs1:gdsn:health_related_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:health_related_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/HealthRelatedInformationModule.xsd"
+                           },
+                           "marketing_information:marketingInformationModule" : {
+                              "marketingInformation" : {
+                                 "season" : {
+                                    "isTradeItemSeasonal" : "FALSE"
+                                 },
+                                 "tradeItemFeatureBenefit" : [
+                                    {
+                                       "$t" : "Café 100% Arabica.",
+                                       "languageCode" : "fr"
+                                    },
+                                    {
+                                       "$t" : "La recette incontournable saisonnière des coffeeshop.",
+                                       "languageCode" : "fr"
+                                    },
+                                    {
+                                       "$t" : "Retrouvez un incontournable des coffeeshop maintenant chez vous.",
+                                       "languageCode" : "fr"
+                                    },
+                                    {
+                                       "$t" : "STARBUCKS s'engage pour un approvisionnement café 100% éthique en partenariat avec Conservation International.",
+                                       "languageCode" : "fr"
+                                    },
+                                    {
+                                       "$t" : "Retrouvez votre Café STARBUCKS préféré maintenant chez vous.",
+                                       "languageCode" : "fr"
+                                    }
+                                 ],
+                                 "tradeItemMarketingMessage" : {
+                                    "$t" : "Découvrez STARBUCKS Toffee Nut Latte, un incontournable de saison qui allie une mousse de lait et la saveur généreuse du caramel à la douceur d'un gout de noisettes grillés, le tout mélangé à un espresso velouté 100% arabica, à préparer chez vous avec votre machine NESCAFE DOLCE GUSTO. Un format boîte contenant 12 capsules vous permet de préparer 6 boissons gourmandes.",
+                                    "languageCode" : "fr"
+                                 }
+                              },
+                              "xmlns:marketing_information" : "urn:gs1:gdsn:marketing_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:marketing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/MarketingInformationModule.xsd"
+                           },
+                           "nutritional_information:nutritionalInformationModule" : {
+                              "isNutrientRelevantDataProvided" : "true",
+                              "nutrientHeader" : [
+                                 {
+                                    "dailyValueIntakeReference" : {
+                                       "$t" : "AR:Apport de référence pour un adulte-type (8400kj/2000kcal)",
+                                       "languageCode" : "fr"
+                                    },
+                                    "nutrientDetail" : [
+                                       {
+                                          "measurementPrecisionCode" : "APPROXIMATELY",
+                                          "nutrientTypeCode" : "ENER-",
+                                          "quantityContained" : [
+                                             {
+                                                "$t" : "1811",
+                                                "measurementUnitCode" : "KJO"
+                                             },
+                                             {
+                                                "$t" : "433",
+                                                "measurementUnitCode" : "E14"
+                                             }
+                                          ]
+                                       },
+                                       {
+                                          "measurementPrecisionCode" : "APPROXIMATELY",
+                                          "nutrientTypeCode" : "FAT",
+                                          "quantityContained" : {
+                                             "$t" : "16.7",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "measurementPrecisionCode" : "APPROXIMATELY",
+                                          "nutrientTypeCode" : "FASAT",
+                                          "quantityContained" : {
+                                             "$t" : "9.1",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "measurementPrecisionCode" : "APPROXIMATELY",
+                                          "nutrientTypeCode" : "CHOAVL",
+                                          "quantityContained" : {
+                                             "$t" : "47.2",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "measurementPrecisionCode" : "APPROXIMATELY",
+                                          "nutrientTypeCode" : "SUGAR-",
+                                          "quantityContained" : {
+                                             "$t" : "42.2",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "measurementPrecisionCode" : "APPROXIMATELY",
+                                          "nutrientTypeCode" : "FIBTG",
+                                          "quantityContained" : {
+                                             "$t" : "14.9",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "measurementPrecisionCode" : "APPROXIMATELY",
+                                          "nutrientTypeCode" : "PRO-",
+                                          "quantityContained" : {
+                                             "$t" : "14.8",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "measurementPrecisionCode" : "APPROXIMATELY",
+                                          "nutrientTypeCode" : "SALTEQ",
+                                          "quantityContained" : {
+                                             "$t" : "0.89",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       }
+                                    ],
+                                    "preparationStateCode" : "PREPARED",
+                                    "servingSize" : {
+                                       "$t" : "100.0",
+                                       "measurementUnitCode" : "GRM"
+                                    },
+                                    "servingSizeDescription" : {
+                                       "$t" : "100 GRM",
+                                       "languageCode" : "fr"
+                                    }
+                                 },
+                                 {
+                                    "dailyValueIntakeReference" : {
+                                       "$t" : "AR:Apport de référence pour un adulte-type (8400kj/2000kcal)",
+                                       "languageCode" : "fr"
+                                    },
+                                    "nutrientDetail" : [
+                                       {
+                                          "measurementPrecisionCode" : "APPROXIMATELY",
+                                          "nutrientTypeCode" : "ENER-",
+                                          "quantityContained" : [
+                                             {
+                                                "$t" : "301",
+                                                "measurementUnitCode" : "KJO"
+                                             },
+                                             {
+                                                "$t" : "72",
+                                                "measurementUnitCode" : "E14"
+                                             }
+                                          ]
+                                       },
+                                       {
+                                          "dailyValueIntakePercent" : "4.00",
+                                          "measurementPrecisionCode" : "APPROXIMATELY",
+                                          "nutrientTypeCode" : "FAT",
+                                          "quantityContained" : {
+                                             "$t" : "2.5",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "dailyValueIntakePercent" : "8.00",
+                                          "measurementPrecisionCode" : "APPROXIMATELY",
+                                          "nutrientTypeCode" : "FASAT",
+                                          "quantityContained" : {
+                                             "$t" : "1.6",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "dailyValueIntakePercent" : "3.00",
+                                          "measurementPrecisionCode" : "APPROXIMATELY",
+                                          "nutrientTypeCode" : "CHOAVL",
+                                          "quantityContained" : {
+                                             "$t" : "9",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "dailyValueIntakePercent" : "9.00",
+                                          "measurementPrecisionCode" : "APPROXIMATELY",
+                                          "nutrientTypeCode" : "SUGAR-",
+                                          "quantityContained" : {
+                                             "$t" : "8.2",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "measurementPrecisionCode" : "APPROXIMATELY",
+                                          "nutrientTypeCode" : "FIBTG",
+                                          "quantityContained" : {
+                                             "$t" : "0.8",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "dailyValueIntakePercent" : "6.00",
+                                          "measurementPrecisionCode" : "APPROXIMATELY",
+                                          "nutrientTypeCode" : "PRO-",
+                                          "quantityContained" : {
+                                             "$t" : "2.8",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "dailyValueIntakePercent" : "3.00",
+                                          "measurementPrecisionCode" : "APPROXIMATELY",
+                                          "nutrientTypeCode" : "SALTEQ",
+                                          "quantityContained" : {
+                                             "$t" : "0.16",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       }
+                                    ],
+                                    "preparationStateCode" : "PREPARED",
+                                    "servingSize" : {
+                                       "$t" : "221.3",
+                                       "measurementUnitCode" : "GRM"
+                                    },
+                                    "servingSizeDescription" : {
+                                       "$t" : "Pour 200 ml",
+                                       "languageCode" : "fr"
+                                    }
+                                 }
+                              ],
+                              "xmlns:nutritional_information" : "urn:gs1:gdsn:nutritional_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:nutritional_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/NutritionalInformationModule.xsd"
+                           },
+                           "packaging_information:packagingInformationModule" : {
+                              "packaging" : {
+                                 "packagingTypeCode" : "BX"
+                              },
+                              "xmlns:packaging_information" : "urn:gs1:gdsn:packaging_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd"
+                           },
+                           "packaging_marking:packagingMarkingModule" : {
+                              "packagingMarking" : {
+                                 "hasBatchNumber" : "true",
+                                 "isPackagingMarkedReturnable" : "false",
+                                 "isPriceOnPack" : "false",
+                                 "localPackagingMarkedLabelAccreditationCodeReference" : [
+                                    "NO_ASC",
+                                    "NO_FSC",
+                                    "NO_MSC"
+                                 ],
+                                 "packagingDate" : {
+                                    "tradeItemDateOnPackagingTypeCode" : "BEST_BEFORE_DATE"
+                                 },
+                                 "packagingMarkedLabelAccreditationCode" : [
+                                    "TRIMAN"
+                                 ]
+                              },
+                              "xmlns:packaging_marking" : "urn:gs1:gdsn:packaging_marking:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd"
+                           },
+                           "place_of_item_activity:placeOfItemActivityModule" : {
+                              "importClassification" : {
+                                 "importClassificationTypeCode" : "CUSTOMS_TARIFF_NUMBER",
+                                 "importClassificationValue" : "0901210000"
+                              },
+                              "placeOfProductActivity" : {
+                                 "countryOfOrigin" : {
+                                    "countryCode" : "276"
+                                 },
+                                 "productActivityDetails" : {
+                                    "countryOfActivity" : {
+                                       "countryCode" : "276"
+                                    },
+                                    "productActivityTypeCode" : "LAST_PROCESSING"
+                                 }
+                              },
+                              "xmlns:place_of_item_activity" : "urn:gs1:gdsn:place_of_item_activity:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:place_of_item_activity:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PlaceOfItemActivityModule.xsd"
+                           },
+                           "promotional_item_information:promotionalItemInformationModule" : {
+                              "isTradeItemAPromotionalUnit" : "false",
+                              "xmlns:promotional_item_information" : "urn:gs1:gdsn:promotional_item_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd"
+                           },
+                           "referenced_file_detail_information:referencedFileDetailInformationModule" : {
+                              "referencedFileHeader" : {
+                                 "contentDescription" : {
+                                    "$t" : "Produit emballé / Packshot",
+                                    "languageCode" : "fr"
+                                 },
+                                 "fileEffectiveStartDateTime" : "2023-03-29T00:00:00+02:00",
+                                 "fileFormatName" : "png",
+                                 "fileName" : "07613039676172_C1C1_s66.png",
+                                 "isPrimaryFile" : "TRUE",
+                                 "referencedFileTypeCode" : "PRODUCT_IMAGE",
+                                 "uniformResourceIdentifier" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613039676172_C1C1_s04.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204680015&filename=07613039676172_C1C1_s04.png"
+                              },
+                              "xmlns:referenced_file_detail_information" : "urn:gs1:gdsn:referenced_file_detail_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:referenced_file_detail_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ReferencedFileDetailInformationModule.xsd"
+                           },
+                           "sales_information:salesInformationModule" : {
+                              "salesInformation" : {
+                                 "isBasePriceDeclarationRelevant" : "FALSE",
+                                 "priceComparisonContentTypeCode" : "PER_KILOGRAM",
+                                 "priceComparisonMeasurement" : {
+                                    "$t" : "0.1278",
+                                    "measurementUnitCode" : "KGM"
+                                 },
+                                 "sellingUnitOfMeasure" : "H87"
+                              },
+                              "tradeItemPriceInformation" : {
+                                 "cataloguePrice" : {
+                                    "priceBasisQuantity" : {
+                                       "$t" : "1",
+                                       "measurementUnitCode" : "H87"
+                                    },
+                                    "priceEffectiveStartDate" : "2023-03-01T00:00:00+01:00",
+                                    "tradeItemPrice" : {
+                                       "$t" : "5.872",
+                                       "currencyCode" : "EUR"
+                                    }
+                                 }
+                              },
+                              "xmlns:sales_information" : "urn:gs1:gdsn:sales_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:sales_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/SalesInformationModule.xsd"
+                           },
+                           "trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule" : {
+                              "dataCarrier" : {
+                                 "dataCarrierTypeCode" : "EAN_13"
+                              },
+                              "xmlns:trade_item_data_carrier_and_identification" : "urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDataCarrierAndIdentificationModule.xsd"
+                           },
+                           "trade_item_description:tradeItemDescriptionModule" : {
+                              "tradeItemDescriptionInformation" : {
+                                 "brandNameInformation" : {
+                                    "brandName" : "STARBUCKS",
+                                    "subBrand" : "SEASONAL LATTE"
+                                 },
+                                 "descriptionShort" : {
+                                    "$t" : "SBK DGST TOFFEE NUT LAT 12cap127,8g",
+                                    "languageCode" : "fr"
+                                 },
+                                 "functionalName" : {
+                                    "$t" : "Café",
+                                    "languageCode" : "fr"
+                                 },
+                                 "invoiceName" : {
+                                    "$t" : "Café",
+                                    "languageCode" : "fr"
+                                 },
+                                 "regulatedProductName" : {
+                                    "$t" : "Café torréfié moulu saveur caramel noisette, lait entier en poudre et sucre",
+                                    "languageCode" : "fr"
+                                 },
+                                 "tradeItemDescription" : {
+                                    "$t" : "STARBUCKS by NESCAFE DOLCE GUSTO Toffee Nut Latte 127.5g",
+                                    "languageCode" : "fr"
+                                 }
+                              },
+                              "xmlns:trade_item_description" : "urn:gs1:gdsn:trade_item_description:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd"
+                           },
+                           "trade_item_lifespan:tradeItemLifespanModule" : {
+                              "tradeItemLifespan" : {
+                                 "minimumTradeItemLifespanFromTimeOfArrival" : "120",
+                                 "minimumTradeItemLifespanFromTimeOfProduction" : "365"
+                              },
+                              "xmlns:trade_item_lifespan" : "urn:gs1:gdsn:trade_item_lifespan:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_lifespan:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemLifespanModule.xsd"
+                           },
+                           "trade_item_measurements:tradeItemMeasurementsModule" : {
+                              "tradeItemMeasurements" : {
+                                 "depth" : {
+                                    "$t" : "110",
+                                    "measurementUnitCode" : "MMT"
+                                 },
+                                 "height" : {
+                                    "$t" : "110",
+                                    "measurementUnitCode" : "MMT"
+                                 },
+                                 "netContent" : {
+                                    "$t" : "127.8",
+                                    "measurementUnitCode" : "GRM"
+                                 },
+                                 "netContentStatement" : {
+                                    "$t" : "6x15,8g+6x5,5g",
+                                    "languageCode" : "fr"
+                                 },
+                                 "tradeItemWeight" : {
+                                    "grossWeight" : {
+                                       "$t" : "185.43",
+                                       "measurementUnitCode" : "GRM"
+                                    },
+                                    "netWeight" : {
+                                       "$t" : "127.8",
+                                       "measurementUnitCode" : "GRM"
+                                    }
+                                 },
+                                 "width" : {
+                                    "$t" : "110",
+                                    "measurementUnitCode" : "MMT"
+                                 }
+                              },
+                              "xmlns:trade_item_measurements" : "urn:gs1:gdsn:trade_item_measurements:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd"
+                           },
+                           "trade_item_temperature_information:tradeItemTemperatureInformationModule" : [
+                              {
+                                 "tradeItemTemperatureConditionTypeCode" : "AMBIENT",
+                                 "tradeItemTemperatureInformation" : {
+                                    "maximumTemperature" : {
+                                       "$t" : "30",
+                                       "temperatureMeasurementUnitCode" : "CEL"
+                                    },
+                                    "minimumTemperature" : {
+                                       "$t" : "6",
+                                       "temperatureMeasurementUnitCode" : "CEL"
+                                    },
+                                    "temperatureQualifierCode" : "STORAGE_HANDLING"
+                                 },
+                                 "xmlns:trade_item_temperature_information" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3",
+                                 "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd"
+                              },
+                              {
+                                 "tradeItemTemperatureConditionTypeCode" : "AMBIENT",
+                                 "tradeItemTemperatureInformation" : {
+                                    "maximumTemperature" : {
+                                       "$t" : "30",
+                                       "temperatureMeasurementUnitCode" : "CEL"
+                                    },
+                                    "minimumTemperature" : {
+                                       "$t" : "6",
+                                       "temperatureMeasurementUnitCode" : "CEL"
+                                    },
+                                    "temperatureQualifierCode" : "STORAGE_HANDLING"
+                                 },
+                                 "xmlns:trade_item_temperature_information" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3",
+                                 "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd"
+                              }
+                           ],
+                           "variable_trade_item_information:variableTradeItemInformationModule" : {
+                              "variableTradeItemInformation" : {
+                                 "isTradeItemAVariableUnit" : "false"
+                              },
+                              "xmlns:variable_trade_item_information" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd"
+                           }
+                        },
+                        "productionVariantDescription" : {
+                           "$t" : "44191738",
+                           "languageCode" : "fr"
+                        },
+                        "tradeItemComponents" : {
+                           "numberOfPiecesInSet" : "0"
+                        }
+                     },
+                     "tradeItemSynchronisationDates" : {
+                        "effectiveDateTime" : "2023-08-04T00:00:00+02:00",
+                        "lastChangeDateTime" : "2023-09-08T15:20:38+02:00",
+                        "publicationDateTime" : "2023-09-08T15:20:38+02:00"
+                     },
+                     "tradeItemTradeChannelCode" : "MASS_MERCHANDISING",
+                     "tradeItemUnitDescriptorCode" : "BASE_UNIT_OR_EACH"
+                  }
+               },
+               "catalogueItemNotificationIdentification" : {
+                  "contentOwner" : {
+                     "gln" : "3010337100035"
+                  },
+                  "entityIdentification" : "3027800020301_CIN2267e52d47994de6a78ff752db69cb3a326_CIN"
+               },
+               "creationDateTime" : "2023-09-08T15:20:38+02:00",
+               "documentStatusCode" : "ORIGINAL",
+               "isReload" : "false"
+            },
+            "documentCommandHeader" : {
+               "documentCommandIdentification" : {
+                  "contentOwner" : {
+                     "gln" : "3010337100035"
+                  },
+                  "entityIdentification" : "3027800020301_CIN2267e52d47994de6a78ff752db69cb3a326_DocID"
+               },
+               "type" : "ADD"
+            }
+         },
+         "transactionIdentification" : {
+            "contentOwner" : {
+               "gln" : "3010337100035"
+            },
+            "entityIdentification" : "3027800020301_CIN2267e52d47994de6a78ff752db69cb3a326_TransactionID"
+         }
+      },
+      "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3",
+      "xmlns:sh" : "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader",
+      "xmlns:xsi" : "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/CatalogueItemNotification.xsd"
+   }
+}
