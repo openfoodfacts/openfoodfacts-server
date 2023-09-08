@@ -7,15 +7,13 @@ map $host $madenearme_name {
 
 }
 server {
-	#listen 80 default_server;
 	listen 80;
-	#listen [::]:80 default_server;
 	listen [::]:80;
 
 	server_name madenear.me cestemballepresdechezvous.fr madenear.me.uk;
 
-	access_log /var/log/nginx/nginx.$madenearme_name.access.log;
-	error_log /var/log/nginx/nginx.$madenearme_name.error.log;
+	access_log /var/log/nginx/nginx.madenearme.access.log proxied_requests;
+	error_log /var/log/nginx/nginx.madenearme.error.log;
 
 	gzip on;
 	gzip_min_length 1000;
