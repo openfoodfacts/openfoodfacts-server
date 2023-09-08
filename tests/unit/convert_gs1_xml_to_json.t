@@ -32,12 +32,22 @@ foreach my $file (sort(readdir($dh))) {
         local $/;    #Enable 'slurp' mode
         my $json = JSON->new->allow_nonref->canonical;
 			my $json_ref = $json->decode(<$json_fh>);
-            compare_to_expected_results($json_ref, "$expected_result_dir/$file.json", $update_expected_results);
+            #compare_to_expected_results($json_ref, "$expected_result_dir/$file.json", $update_expected_results);
+
+            my $messages_ref = [];
+            my $products_ref = [];
+            read_gs1_json_file("$expected_result_dir/$file.json", $products_ref, $messages_ref);
+
+            compare_to_expected_results($products_ref, "$expected_result_dir/$file.products.json", $update_expected_results);
+
             unlink($json_file);
     }
     else {
         fail("Could not read $json_file");
     }
 }
+
+
+
 
 done_testing();
