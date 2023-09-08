@@ -2,14 +2,28 @@
    "catalogue_item_notification:catalogueItemNotificationMessage" : {
       "sh:StandardBusinessDocumentHeader" : {
          "sh:DocumentIdentification" : {
-            "sh:CreationDateAndTime" : "2023-08-25T18:08:34+02:00",
-            "sh:InstanceIdentifier" : "3027800020301_CINb16b2546987c49f5aa0ff4e30f6191fa15",
-            "sh:MultipleType" : "false",
-            "sh:Standard" : "GS1",
-            "sh:Type" : "catalogueItemNotification",
-            "sh:TypeVersion" : "3.1"
+            "sh:CreationDateAndTime" : {
+               "$t" : "2023-08-25T18:08:34+02:00"
+            },
+            "sh:InstanceIdentifier" : {
+               "$t" : "3027800020301_CINb16b2546987c49f5aa0ff4e30f6191fa15"
+            },
+            "sh:MultipleType" : {
+               "$t" : "false"
+            },
+            "sh:Standard" : {
+               "$t" : "GS1"
+            },
+            "sh:Type" : {
+               "$t" : "catalogueItemNotification"
+            },
+            "sh:TypeVersion" : {
+               "$t" : "3.1"
+            }
          },
-         "sh:HeaderVersion" : "1.0",
+         "sh:HeaderVersion" : {
+            "$t" : "1.0"
+         },
          "sh:Receiver" : {
             "sh:Identifier" : {
                "$t" : "8888888899990",
@@ -28,10 +42,16 @@
             "catalogue_item_notification:catalogueItemNotification" : {
                "catalogueItem" : {
                   "catalogueItemState" : {
-                     "catalogueItemStateCode" : "REGISTERED"
+                     "catalogueItemStateCode" : {
+                        "$t" : "REGISTERED"
+                     }
                   },
-                  "dataRecipient" : "8888888899990",
-                  "sourceDataPool" : "3027800020370",
+                  "dataRecipient" : {
+                     "$t" : "8888888899990"
+                  },
+                  "sourceDataPool" : {
+                     "$t" : "3027800020370"
+                  },
                   "tradeItem" : {
                      "additionalTradeItemIdentification" : {
                         "$t" : "12505248",
@@ -44,44 +64,90 @@
                         }
                      },
                      "brandOwner" : {
-                        "gln" : "7613039000373",
-                        "partyName" : "Société des Produits Nestlé S.A."
+                        "gln" : {
+                           "$t" : "7613039000373"
+                        },
+                        "partyName" : {
+                           "$t" : "Société des Produits Nestlé S.A."
+                        }
                      },
                      "displayUnitInformation" : {
-                        "isTradeItemADisplayUnit" : "FALSE"
+                        "isTradeItemADisplayUnit" : {
+                           "$t" : "FALSE"
+                        }
                      },
                      "gdsnTradeItemClassification" : {
-                        "gpcCategoryCode" : "10000050",
-                        "gpcCategoryName" : "Concentrés/Sels/Attendrisseurs (Longue Conservation)"
+                        "gpcCategoryCode" : {
+                           "$t" : "10000050"
+                        },
+                        "gpcCategoryName" : {
+                           "$t" : "Concentrés/Sels/Attendrisseurs (Longue Conservation)"
+                        }
                      },
-                     "gtin" : "07613033687983",
+                     "gtin" : {
+                        "$t" : "07613033687983"
+                     },
                      "informationProviderOfTradeItem" : {
-                        "gln" : "3010337100035",
-                        "partyName" : "Nestlé France S.A.S."
+                        "gln" : {
+                           "$t" : "3010337100035"
+                        },
+                        "partyName" : {
+                           "$t" : "Nestlé France S.A.S."
+                        }
                      },
-                     "isTradeItemABaseUnit" : "true",
-                     "isTradeItemAConsumerUnit" : "true",
-                     "isTradeItemADespatchUnit" : "false",
-                     "isTradeItemAService" : "false",
-                     "isTradeItemAnInvoiceUnit" : "true",
-                     "isTradeItemAnOrderableUnit" : "true",
+                     "isTradeItemABaseUnit" : {
+                        "$t" : "true"
+                     },
+                     "isTradeItemAConsumerUnit" : {
+                        "$t" : "true"
+                     },
+                     "isTradeItemADespatchUnit" : {
+                        "$t" : "false"
+                     },
+                     "isTradeItemAService" : {
+                        "$t" : "false"
+                     },
+                     "isTradeItemAnInvoiceUnit" : {
+                        "$t" : "true"
+                     },
+                     "isTradeItemAnOrderableUnit" : {
+                        "$t" : "true"
+                     },
                      "manufacturerOfTradeItem" : {
-                        "gln" : "3010337100035",
-                        "partyName" : "Nestlé France S.A.S."
+                        "gln" : {
+                           "$t" : "3010337100035"
+                        },
+                        "partyName" : {
+                           "$t" : "Nestlé France S.A.S."
+                        }
                      },
                      "targetMarket" : {
-                        "targetMarketCountryCode" : "250"
+                        "targetMarketCountryCode" : {
+                           "$t" : "250"
+                        }
                      },
                      "tradeItemContactInformation" : [
                         {
-                           "contactAddress" : "34-40 rue Guynemer 92130 Issy-les-Moulineaux",
-                           "contactName" : "Nestlé France",
-                           "contactTypeCode" : "BZL"
+                           "contactAddress" : {
+                              "$t" : "34-40 rue Guynemer 92130 Issy-les-Moulineaux"
+                           },
+                           "contactName" : {
+                              "$t" : "Nestlé France"
+                           },
+                           "contactTypeCode" : {
+                              "$t" : "BZL"
+                           }
                         },
                         {
-                           "contactAddress" : "34-40 rue Guynemer 92130 Issy-les-Moulineaux",
-                           "contactName" : "Nestlé France",
-                           "contactTypeCode" : "CXC"
+                           "contactAddress" : {
+                              "$t" : "34-40 rue Guynemer 92130 Issy-les-Moulineaux"
+                           },
+                           "contactName" : {
+                              "$t" : "Nestlé France"
+                           },
+                           "contactTypeCode" : {
+                              "$t" : "CXC"
+                           }
                         }
                      ],
                      "tradeItemInformation" : {
@@ -90,29 +156,51 @@
                               "allergenRelatedInformation" : {
                                  "allergen" : [
                                     {
-                                       "allergenTypeCode" : "BC",
-                                       "levelOfContainmentCode" : "CONTAINS"
+                                       "allergenTypeCode" : {
+                                          "$t" : "BC"
+                                       },
+                                       "levelOfContainmentCode" : {
+                                          "$t" : "CONTAINS"
+                                       }
                                     },
                                     {
-                                       "allergenTypeCode" : "AE",
-                                       "levelOfContainmentCode" : "MAY_CONTAIN"
+                                       "allergenTypeCode" : {
+                                          "$t" : "AE"
+                                       },
+                                       "levelOfContainmentCode" : {
+                                          "$t" : "MAY_CONTAIN"
+                                       }
                                     },
                                     {
-                                       "allergenTypeCode" : "AM",
-                                       "levelOfContainmentCode" : "MAY_CONTAIN"
+                                       "allergenTypeCode" : {
+                                          "$t" : "AM"
+                                       },
+                                       "levelOfContainmentCode" : {
+                                          "$t" : "MAY_CONTAIN"
+                                       }
                                     },
                                     {
-                                       "allergenTypeCode" : "AW",
-                                       "levelOfContainmentCode" : "MAY_CONTAIN"
+                                       "allergenTypeCode" : {
+                                          "$t" : "AW"
+                                       },
+                                       "levelOfContainmentCode" : {
+                                          "$t" : "MAY_CONTAIN"
+                                       }
                                     }
                                  ],
-                                 "allergenSpecificationAgency" : "EU",
-                                 "allergenSpecificationName" : "1169/2011",
+                                 "allergenSpecificationAgency" : {
+                                    "$t" : "EU"
+                                 },
+                                 "allergenSpecificationName" : {
+                                    "$t" : "1169/2011"
+                                 },
                                  "allergenStatement" : {
                                     "$t" : "céleri",
                                     "languageCode" : "fr"
                                  },
-                                 "isAllergenRelevantDataProvided" : "true"
+                                 "isAllergenRelevantDataProvided" : {
+                                    "$t" : "true"
+                                 }
                               },
                               "xmlns:allergen_information" : "urn:gs1:gdsn:allergen_information:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:allergen_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AllergenInformationModule.xsd"
@@ -130,7 +218,9 @@
                            "dangerous_substance_information:dangerousSubstanceInformationModule" : {
                               "dangerousSubstanceInformation" : {
                                  "dangerousSubstanceProperties" : {
-                                    "isDangerousSubstance" : "FALSE"
+                                    "isDangerousSubstance" : {
+                                       "$t" : "FALSE"
+                                    }
                                  }
                               },
                               "xmlns:dangerous_substance_information" : "urn:gs1:gdsn:dangerous_substance_information:xsd:3",
@@ -138,9 +228,15 @@
                            },
                            "delivery_purchasing_information:deliveryPurchasingInformationModule" : {
                               "deliveryPurchasingInformation" : {
-                                 "firstShipDateTime" : "2011-12-26T00:00:00+01:00",
-                                 "isTradeItemReorderable" : "false",
-                                 "startAvailabilityDateTime" : "2011-12-26T00:00:00+01:00"
+                                 "firstShipDateTime" : {
+                                    "$t" : "2011-12-26T00:00:00+01:00"
+                                 },
+                                 "isTradeItemReorderable" : {
+                                    "$t" : "false"
+                                 },
+                                 "startAvailabilityDateTime" : {
+                                    "$t" : "2011-12-26T00:00:00+01:00"
+                                 }
                               },
                               "xmlns:delivery_purchasing_information" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd"
@@ -154,8 +250,12 @@
                                           "codeListVersion" : "2"
                                        }
                                     },
-                                    "dutyFeeTaxAgencyCode" : "65",
-                                    "dutyFeeTaxTypeCode" : "2G",
+                                    "dutyFeeTaxAgencyCode" : {
+                                       "$t" : "65"
+                                    },
+                                    "dutyFeeTaxTypeCode" : {
+                                       "$t" : "2G"
+                                    },
                                     "dutyFeeTaxTypeDescription" : {
                                        "$t" : "TAUX REDUIT 5.5 %",
                                        "languageCode" : "fr"
@@ -168,8 +268,12 @@
                                           "currencyCode" : "EUR"
                                        }
                                     },
-                                    "dutyFeeTaxAgencyCode" : "65",
-                                    "dutyFeeTaxTypeCode" : "3001000002282",
+                                    "dutyFeeTaxAgencyCode" : {
+                                       "$t" : "65"
+                                    },
+                                    "dutyFeeTaxTypeCode" : {
+                                       "$t" : "3001000002282"
+                                    },
                                     "dutyFeeTaxTypeDescription" : {
                                        "$t" : "TAXE ECO-EMBALLAGES (FR)",
                                        "languageCode" : "fr"
@@ -180,14 +284,22 @@
                               "xsi:schemaLocation" : "urn:gs1:gdsn:duty_fee_tax_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DutyFeeTaxInformationModule.xsd"
                            },
                            "farming_and_processing_information:farmingAndProcessingInformationModule" : {
-                              "rawMaterialIrradiatedCode" : "FALSE",
+                              "rawMaterialIrradiatedCode" : {
+                                 "$t" : "FALSE"
+                              },
                               "tradeItemFarmingAndProcessing" : {
-                                 "geneticallyModifiedDeclarationCode" : "UNDECLARED",
-                                 "irradiatedCode" : "FALSE"
+                                 "geneticallyModifiedDeclarationCode" : {
+                                    "$t" : "UNDECLARED"
+                                 },
+                                 "irradiatedCode" : {
+                                    "$t" : "FALSE"
+                                 }
                               },
                               "tradeItemOrganicInformation" : {
                                  "organicClaim" : {
-                                    "organicTradeItemCode" : "5"
+                                    "organicTradeItemCode" : {
+                                       "$t" : "5"
+                                    }
                                  }
                               },
                               "xmlns:farming_and_processing_information" : "urn:gs1:gdsn:farming_and_processing_information:xsd:3",
@@ -195,18 +307,24 @@
                            },
                            "food_and_beverage_ingredient:foodAndBeverageIngredientModule" : {
                               "foodAndBeverageIngredient" : {
-                                 "ingredientContentPercentage" : "0.00",
+                                 "ingredientContentPercentage" : {
+                                    "$t" : "0.00"
+                                 },
                                  "ingredientName" : {
                                     "$t" : "FRUITS_VEGETABLES_LEGUMINOUS_AND_NUTS",
                                     "languageCode" : "fr"
                                  },
-                                 "ingredientSequence" : "01"
+                                 "ingredientSequence" : {
+                                    "$t" : "01"
+                                 }
                               },
                               "ingredientStatement" : {
                                  "$t" : "Ingrédients: Sel iodé, sucre, bœuf 12,3% : graisse de bœuf, viande de bœuf 2,4% ; fécule de pomme de terre, arômes, sel, extrait de levure, colorant : caramel ordinaire ; oignon, plantes aromatiques et épices 0,4% : persil, poivre blanc, clou de girofle ; antioxydant : extraits de romarin ; extraits de CELERI et de thym. Peut contenir : œufs, lait, gluten.",
                                  "languageCode" : "fr"
                               },
-                              "isIngredientRelevantDataProvided" : "TRUE",
+                              "isIngredientRelevantDataProvided" : {
+                                 "$t" : "TRUE"
+                              },
                               "xmlns:food_and_beverage_ingredient" : "urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeverageIngredientModule.xsd"
                            },
@@ -216,10 +334,14 @@
                                     "$t" : "1 cube (10 g) pour 1/2 L d'eau. Pour vos pâtes, riz et soupes : Ajoutez le(s) cube(s) directement dans l'eau bouillante. En mijoté : Ajoutez le(s) cube(s) dans l'eau pour la cuisson des viandes, légumes et féculents. Dans vos poêlées : Emiettez directement le cube dans la poêle. Inutile de saler.",
                                     "languageCode" : "fr"
                                  },
-                                 "preparationTypeCode" : "UNSPECIFIED"
+                                 "preparationTypeCode" : {
+                                    "$t" : "UNSPECIFIED"
+                                 }
                               },
                               "servingQuantityInformation" : {
-                                 "numberOfServingsPerPackage" : "72"
+                                 "numberOfServingsPerPackage" : {
+                                    "$t" : "72"
+                                 }
                               },
                               "xmlns:food_and_beverage_preparation_serving" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeveragePreparationServingModule.xsd"
@@ -227,7 +349,9 @@
                            "health_related_information:healthRelatedInformationModule" : {
                               "healthRelatedInformation" : {
                                  "nutritionalProgram" : {
-                                    "nutritionalProgramCode" : "8",
+                                    "nutritionalProgramCode" : {
+                                       "$t" : "8"
+                                    },
                                     "nutritionalProgramDetail" : {
                                        "$t" : "On Pack",
                                        "languageCode" : "fr"
@@ -237,9 +361,13 @@
                                           "$t" : "0.0000",
                                           "measurementUnitCode" : "P1"
                                        },
-                                       "nutritionalProgramIngredientTypeCode" : "FRUITS_VEGETABLES_LEGUMES_AND_NUTS"
+                                       "nutritionalProgramIngredientTypeCode" : {
+                                          "$t" : "FRUITS_VEGETABLES_LEGUMES_AND_NUTS"
+                                       }
                                     },
-                                    "nutritionalScore" : "C"
+                                    "nutritionalScore" : {
+                                       "$t" : "C"
+                                    }
                                  }
                               },
                               "xmlns:health_related_information" : "urn:gs1:gdsn:health_related_information:xsd:3",
@@ -248,7 +376,9 @@
                            "marketing_information:marketingInformationModule" : {
                               "marketingInformation" : {
                                  "season" : {
-                                    "isTradeItemSeasonal" : "FALSE"
+                                    "isTradeItemSeasonal" : {
+                                       "$t" : "FALSE"
+                                    }
                                  },
                                  "tradeItemFeatureBenefit" : [
                                     {
@@ -281,7 +411,9 @@
                               "xsi:schemaLocation" : "urn:gs1:gdsn:marketing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/MarketingInformationModule.xsd"
                            },
                            "nutritional_information:nutritionalInformationModule" : {
-                              "isNutrientRelevantDataProvided" : "true",
+                              "isNutrientRelevantDataProvided" : {
+                                 "$t" : "true"
+                              },
                               "nutrientHeader" : [
                                  {
                                     "dailyValueIntakeReference" : {
@@ -290,8 +422,12 @@
                                     },
                                     "nutrientDetail" : [
                                        {
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "ENER-",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "ENER-"
+                                          },
                                           "quantityContained" : [
                                              {
                                                 "$t" : "1070",
@@ -304,63 +440,93 @@
                                           ]
                                        },
                                        {
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "FAT",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "FAT"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "11.1",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "FASAT",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "FASAT"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "7.4",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "CHOAVL",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "CHOAVL"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "34.3",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "SUGAR-",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "SUGAR-"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "23.6",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "measurementPrecisionCode" : "LESS_THAN",
-                                          "nutrientTypeCode" : "FIBTG",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "LESS_THAN"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "FIBTG"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "0.5",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "PRO-",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "PRO-"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "4.5",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "SALTEQ",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "SALTEQ"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "45.8",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        }
                                     ],
-                                    "preparationStateCode" : "UNPREPARED",
+                                    "preparationStateCode" : {
+                                       "$t" : "UNPREPARED"
+                                    },
                                     "servingSize" : {
                                        "$t" : "100.0",
                                        "measurementUnitCode" : "GRM"
@@ -377,8 +543,12 @@
                                     },
                                     "nutrientDetail" : [
                                        {
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "ENER-",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "ENER-"
+                                          },
                                           "quantityContained" : [
                                              {
                                                 "$t" : "27",
@@ -391,69 +561,111 @@
                                           ]
                                        },
                                        {
-                                          "dailyValueIntakePercent" : "0.00",
-                                          "measurementPrecisionCode" : "LESS_THAN",
-                                          "nutrientTypeCode" : "FAT",
+                                          "dailyValueIntakePercent" : {
+                                             "$t" : "0.00"
+                                          },
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "LESS_THAN"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "FAT"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "0.5",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "dailyValueIntakePercent" : "1.00",
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "FASAT",
+                                          "dailyValueIntakePercent" : {
+                                             "$t" : "1.00"
+                                          },
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "FASAT"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "0.2",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "dailyValueIntakePercent" : "0.00",
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "CHOAVL",
+                                          "dailyValueIntakePercent" : {
+                                             "$t" : "0.00"
+                                          },
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "CHOAVL"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "0.9",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "dailyValueIntakePercent" : "1.00",
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "SUGAR-",
+                                          "dailyValueIntakePercent" : {
+                                             "$t" : "1.00"
+                                          },
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "SUGAR-"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "0.6",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "measurementPrecisionCode" : "LESS_THAN",
-                                          "nutrientTypeCode" : "FIBTG",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "LESS_THAN"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "FIBTG"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "0.5",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "dailyValueIntakePercent" : "0.00",
-                                          "measurementPrecisionCode" : "LESS_THAN",
-                                          "nutrientTypeCode" : "PRO-",
+                                          "dailyValueIntakePercent" : {
+                                             "$t" : "0.00"
+                                          },
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "LESS_THAN"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "PRO-"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "0.5",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "dailyValueIntakePercent" : "18.00",
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "SALTEQ",
+                                          "dailyValueIntakePercent" : {
+                                             "$t" : "18.00"
+                                          },
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "SALTEQ"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "1.1",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        }
                                     ],
-                                    "preparationStateCode" : "UNPREPARED",
+                                    "preparationStateCode" : {
+                                       "$t" : "UNPREPARED"
+                                    },
                                     "servingSize" : {
                                        "$t" : "2.5",
                                        "measurementUnitCode" : "GRM"
@@ -470,8 +682,12 @@
                                     },
                                     "nutrientDetail" : [
                                        {
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "ENER-",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "ENER-"
+                                          },
                                           "quantityContained" : [
                                              {
                                                 "$t" : "21",
@@ -484,63 +700,93 @@
                                           ]
                                        },
                                        {
-                                          "measurementPrecisionCode" : "LESS_THAN",
-                                          "nutrientTypeCode" : "FAT",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "LESS_THAN"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "FAT"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "0.5",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "FASAT",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "FASAT"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "0.1",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "CHOAVL",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "CHOAVL"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "0.7",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "measurementPrecisionCode" : "LESS_THAN",
-                                          "nutrientTypeCode" : "SUGAR-",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "LESS_THAN"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "SUGAR-"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "0.5",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "measurementPrecisionCode" : "LESS_THAN",
-                                          "nutrientTypeCode" : "FIBTG",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "LESS_THAN"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "FIBTG"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "0.5",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "measurementPrecisionCode" : "LESS_THAN",
-                                          "nutrientTypeCode" : "PRO-",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "LESS_THAN"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "PRO-"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "0.5",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        },
                                        {
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "SALTEQ",
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "SALTEQ"
+                                          },
                                           "quantityContained" : {
                                              "$t" : "0.92",
                                              "measurementUnitCode" : "GRM"
                                           }
                                        }
                                     ],
-                                    "preparationStateCode" : "PREPARED",
+                                    "preparationStateCode" : {
+                                       "$t" : "PREPARED"
+                                    },
                                     "servingSize" : {
                                        "$t" : "100.0",
                                        "measurementUnitCode" : "MLT"
@@ -552,45 +798,71 @@
                            },
                            "packaging_information:packagingInformationModule" : {
                               "packaging" : {
-                                 "packagingTypeCode" : "BX"
+                                 "packagingTypeCode" : {
+                                    "$t" : "BX"
+                                 }
                               },
                               "xmlns:packaging_information" : "urn:gs1:gdsn:packaging_information:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd"
                            },
                            "packaging_marking:packagingMarkingModule" : {
                               "packagingMarking" : {
-                                 "hasBatchNumber" : "true",
-                                 "isPackagingMarkedReturnable" : "false",
-                                 "isPriceOnPack" : "false",
+                                 "hasBatchNumber" : {
+                                    "$t" : "true"
+                                 },
+                                 "isPackagingMarkedReturnable" : {
+                                    "$t" : "false"
+                                 },
+                                 "isPriceOnPack" : {
+                                    "$t" : "false"
+                                 },
                                  "localPackagingMarkedLabelAccreditationCodeReference" : [
-                                    "NO_ASC",
-                                    "NO_FSC",
-                                    "NO_MSC"
+                                    {
+                                       "$t" : "NO_ASC"
+                                    },
+                                    {
+                                       "$t" : "NO_FSC"
+                                    },
+                                    {
+                                       "$t" : "NO_MSC"
+                                    }
                                  ],
                                  "packagingDate" : {
-                                    "tradeItemDateOnPackagingTypeCode" : "BEST_BEFORE_DATE"
+                                    "tradeItemDateOnPackagingTypeCode" : {
+                                       "$t" : "BEST_BEFORE_DATE"
+                                    }
                                  },
-                                 "packagingMarkedLabelAccreditationCode" : [
-                                    "TRIMAN"
-                                 ]
+                                 "packagingMarkedLabelAccreditationCode" : {
+                                    "$t" : "TRIMAN"
+                                 }
                               },
                               "xmlns:packaging_marking" : "urn:gs1:gdsn:packaging_marking:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd"
                            },
                            "place_of_item_activity:placeOfItemActivityModule" : {
                               "importClassification" : {
-                                 "importClassificationTypeCode" : "CUSTOMS_TARIFF_NUMBER",
-                                 "importClassificationValue" : "2104100089"
+                                 "importClassificationTypeCode" : {
+                                    "$t" : "CUSTOMS_TARIFF_NUMBER"
+                                 },
+                                 "importClassificationValue" : {
+                                    "$t" : "2104100089"
+                                 }
                               },
                               "placeOfProductActivity" : {
                                  "countryOfOrigin" : {
-                                    "countryCode" : "703"
+                                    "countryCode" : {
+                                       "$t" : "703"
+                                    }
                                  },
                                  "productActivityDetails" : {
                                     "countryOfActivity" : {
-                                       "countryCode" : "703"
+                                       "countryCode" : {
+                                          "$t" : "703"
+                                       }
                                     },
-                                    "productActivityTypeCode" : "LAST_PROCESSING"
+                                    "productActivityTypeCode" : {
+                                       "$t" : "LAST_PROCESSING"
+                                    }
                                  }
                               },
                               "xmlns:place_of_item_activity" : "urn:gs1:gdsn:place_of_item_activity:xsd:3",
@@ -603,16 +875,24 @@
                                     "languageCode" : "fr"
                                  },
                                  "claimDetail" : {
-                                    "claimElementCode" : "PALM_OIL",
-                                    "claimMarkedOnPackage" : "TRUE",
-                                    "claimTypeCode" : "FREE_FROM"
+                                    "claimElementCode" : {
+                                       "$t" : "PALM_OIL"
+                                    },
+                                    "claimMarkedOnPackage" : {
+                                       "$t" : "TRUE"
+                                    },
+                                    "claimTypeCode" : {
+                                       "$t" : "FREE_FROM"
+                                    }
                                  }
                               },
                               "xmlns:product_information" : "urn:gs1:gdsn:product_information:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:product_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ProductInformationModule.xsd"
                            },
                            "promotional_item_information:promotionalItemInformationModule" : {
-                              "isTradeItemAPromotionalUnit" : "false",
+                              "isTradeItemAPromotionalUnit" : {
+                                 "$t" : "false"
+                              },
                               "xmlns:promotional_item_information" : "urn:gs1:gdsn:promotional_item_information:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd"
                            },
@@ -623,144 +903,268 @@
                                        "$t" : "Produit emballé / Packshot",
                                        "languageCode" : "fr"
                                     },
-                                    "fileEffectiveStartDateTime" : "2021-10-29T00:00:00+02:00",
-                                    "fileFormatName" : "png",
-                                    "fileName" : "07613033687983_A1N1_s09.png",
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2021-10-29T00:00:00+02:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "png"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "07613033687983_A1N1_s09.png"
+                                    },
                                     "referencedFileDetail" : {
                                        "fileUsageInformation" : {
-                                          "canFilesBeEdited" : "FALSE"
+                                          "canFilesBeEdited" : {
+                                             "$t" : "FALSE"
+                                          }
                                        },
-                                       "isFileBackgroundTransparent" : "FALSE"
+                                       "isFileBackgroundTransparent" : {
+                                          "$t" : "FALSE"
+                                       }
                                     },
-                                    "referencedFileTypeCode" : "PRODUCT_IMAGE",
-                                    "uniformResourceIdentifier" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_A1N1_s09.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721137&filename=07613033687983_A1N1_s09.png"
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "PRODUCT_IMAGE"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_A1N1_s09.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721137&filename=07613033687983_A1N1_s09.png"
+                                    }
                                  },
                                  {
                                     "contentDescription" : {
                                        "$t" : "Produit emballé / Packshot",
                                        "languageCode" : "fr"
                                     },
-                                    "fileEffectiveStartDateTime" : "2021-10-29T00:00:00+02:00",
-                                    "fileFormatName" : "png",
-                                    "fileName" : "07613033687983_A1L1_s201.png",
-                                    "isPrimaryFile" : "TRUE",
-                                    "referencedFileTypeCode" : "PRODUCT_IMAGE",
-                                    "uniformResourceIdentifier" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_A1L1_s09.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721135&filename=07613033687983_A1L1_s09.png"
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2021-10-29T00:00:00+02:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "png"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "07613033687983_A1L1_s201.png"
+                                    },
+                                    "isPrimaryFile" : {
+                                       "$t" : "TRUE"
+                                    },
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "PRODUCT_IMAGE"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_A1L1_s09.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721135&filename=07613033687983_A1L1_s09.png"
+                                    }
                                  },
                                  {
                                     "contentDescription" : {
                                        "$t" : "Produit emballé / Packshot",
                                        "languageCode" : "fr"
                                     },
-                                    "fileEffectiveStartDateTime" : "2023-04-03T00:00:00+02:00",
-                                    "fileFormatName" : "jpg",
-                                    "fileName" : "07613033687983_A1L1_s09.jpg",
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2023-04-03T00:00:00+02:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "jpg"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "07613033687983_A1L1_s09.jpg"
+                                    },
                                     "referencedFileDetail" : {
                                        "fileUsageInformation" : {
-                                          "canFilesBeEdited" : "FALSE"
+                                          "canFilesBeEdited" : {
+                                             "$t" : "FALSE"
+                                          }
                                        },
-                                       "isFileBackgroundTransparent" : "FALSE"
+                                       "isFileBackgroundTransparent" : {
+                                          "$t" : "FALSE"
+                                       }
                                     },
-                                    "referencedFileTypeCode" : "PRODUCT_IMAGE",
-                                    "uniformResourceIdentifier" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_A1L1_s09.jpg?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721134&filename=07613033687983_A1L1_s09.jpg"
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "PRODUCT_IMAGE"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_A1L1_s09.jpg?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721134&filename=07613033687983_A1L1_s09.jpg"
+                                    }
                                  },
                                  {
                                     "contentDescription" : {
                                        "$t" : "Produit emballé / Packshot",
                                        "languageCode" : "fr"
                                     },
-                                    "fileEffectiveStartDateTime" : "2021-10-29T00:00:00+02:00",
-                                    "fileFormatName" : "png",
-                                    "fileName" : "07613033687983_A8N1_s09.png",
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2021-10-29T00:00:00+02:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "png"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "07613033687983_A8N1_s09.png"
+                                    },
                                     "referencedFileDetail" : {
                                        "fileUsageInformation" : {
-                                          "canFilesBeEdited" : "FALSE"
+                                          "canFilesBeEdited" : {
+                                             "$t" : "FALSE"
+                                          }
                                        },
-                                       "isFileBackgroundTransparent" : "FALSE"
+                                       "isFileBackgroundTransparent" : {
+                                          "$t" : "FALSE"
+                                       }
                                     },
-                                    "referencedFileTypeCode" : "PRODUCT_IMAGE",
-                                    "uniformResourceIdentifier" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_A8N1_s09.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721140&filename=07613033687983_A8N1_s09.png"
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "PRODUCT_IMAGE"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_A8N1_s09.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721140&filename=07613033687983_A8N1_s09.png"
+                                    }
                                  },
                                  {
                                     "contentDescription" : {
                                        "$t" : "Produit emballé / Packshot",
                                        "languageCode" : "fr"
                                     },
-                                    "fileEffectiveStartDateTime" : "2021-10-29T00:00:00+02:00",
-                                    "fileFormatName" : "png",
-                                    "fileName" : "07613033687983_A7N1_s09.png",
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2021-10-29T00:00:00+02:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "png"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "07613033687983_A7N1_s09.png"
+                                    },
                                     "referencedFileDetail" : {
                                        "fileUsageInformation" : {
-                                          "canFilesBeEdited" : "FALSE"
+                                          "canFilesBeEdited" : {
+                                             "$t" : "FALSE"
+                                          }
                                        },
-                                       "isFileBackgroundTransparent" : "FALSE"
+                                       "isFileBackgroundTransparent" : {
+                                          "$t" : "FALSE"
+                                       }
                                     },
-                                    "referencedFileTypeCode" : "PRODUCT_IMAGE",
-                                    "uniformResourceIdentifier" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_A7N1_s09.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721141&filename=07613033687983_A7N1_s09.png"
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "PRODUCT_IMAGE"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_A7N1_s09.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721141&filename=07613033687983_A7N1_s09.png"
+                                    }
                                  },
                                  {
                                     "contentDescription" : {
                                        "$t" : "Produit emballé / Packshot",
                                        "languageCode" : "fr"
                                     },
-                                    "fileEffectiveStartDateTime" : "2021-10-29T00:00:00+02:00",
-                                    "fileFormatName" : "png",
-                                    "fileName" : "07613033687983_A9N1_s09.png",
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2021-10-29T00:00:00+02:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "png"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "07613033687983_A9N1_s09.png"
+                                    },
                                     "referencedFileDetail" : {
                                        "fileUsageInformation" : {
-                                          "canFilesBeEdited" : "FALSE"
+                                          "canFilesBeEdited" : {
+                                             "$t" : "FALSE"
+                                          }
                                        },
-                                       "isFileBackgroundTransparent" : "FALSE"
+                                       "isFileBackgroundTransparent" : {
+                                          "$t" : "FALSE"
+                                       }
                                     },
-                                    "referencedFileTypeCode" : "PRODUCT_IMAGE",
-                                    "uniformResourceIdentifier" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_A9N1_s09.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721142&filename=07613033687983_A9N1_s09.png"
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "PRODUCT_IMAGE"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_A9N1_s09.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721142&filename=07613033687983_A9N1_s09.png"
+                                    }
                                  },
                                  {
-                                    "fileEffectiveStartDateTime" : "2023-04-03T00:00:00+02:00",
-                                    "fileFormatName" : "pdf",
-                                    "fileName" : "07613033687983_L1_s09.pdf",
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2023-04-03T00:00:00+02:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "pdf"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "07613033687983_L1_s09.pdf"
+                                    },
                                     "referencedFileDetail" : {
                                        "fileUsageInformation" : {
-                                          "canFilesBeEdited" : "FALSE"
+                                          "canFilesBeEdited" : {
+                                             "$t" : "FALSE"
+                                          }
                                        },
-                                       "isFileBackgroundTransparent" : "FALSE"
+                                       "isFileBackgroundTransparent" : {
+                                          "$t" : "FALSE"
+                                       }
                                     },
-                                    "referencedFileTypeCode" : "PACKAGING_ARTWORK",
-                                    "uniformResourceIdentifier" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_L1_s09.pdf?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721143&filename=07613033687983_L1_s09.pdf"
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "PACKAGING_ARTWORK"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_L1_s09.pdf?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721143&filename=07613033687983_L1_s09.pdf"
+                                    }
                                  },
                                  {
                                     "contentDescription" : {
                                        "$t" : "Produit emballé / Packshot",
                                        "languageCode" : "fr"
                                     },
-                                    "fileEffectiveStartDateTime" : "2021-10-29T00:00:00+02:00",
-                                    "fileFormatName" : "png",
-                                    "fileName" : "07613033687983_A2N1_s09.png",
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2021-10-29T00:00:00+02:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "png"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "07613033687983_A2N1_s09.png"
+                                    },
                                     "referencedFileDetail" : {
                                        "fileUsageInformation" : {
-                                          "canFilesBeEdited" : "FALSE"
+                                          "canFilesBeEdited" : {
+                                             "$t" : "FALSE"
+                                          }
                                        },
-                                       "isFileBackgroundTransparent" : "FALSE"
+                                       "isFileBackgroundTransparent" : {
+                                          "$t" : "FALSE"
+                                       }
                                     },
-                                    "referencedFileTypeCode" : "PRODUCT_IMAGE",
-                                    "uniformResourceIdentifier" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_A2N1_s09.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721138&filename=07613033687983_A2N1_s09.png"
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "PRODUCT_IMAGE"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_A2N1_s09.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721138&filename=07613033687983_A2N1_s09.png"
+                                    }
                                  },
                                  {
                                     "contentDescription" : {
                                        "$t" : "Produit emballé / Packshot",
                                        "languageCode" : "fr"
                                     },
-                                    "fileEffectiveStartDateTime" : "2021-10-29T00:00:00+02:00",
-                                    "fileFormatName" : "png",
-                                    "fileName" : "07613033687983_A3N1_s09.png",
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2021-10-29T00:00:00+02:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "png"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "07613033687983_A3N1_s09.png"
+                                    },
                                     "referencedFileDetail" : {
                                        "fileUsageInformation" : {
-                                          "canFilesBeEdited" : "FALSE"
+                                          "canFilesBeEdited" : {
+                                             "$t" : "FALSE"
+                                          }
                                        },
-                                       "isFileBackgroundTransparent" : "FALSE"
+                                       "isFileBackgroundTransparent" : {
+                                          "$t" : "FALSE"
+                                       }
                                     },
-                                    "referencedFileTypeCode" : "PRODUCT_IMAGE",
-                                    "uniformResourceIdentifier" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_A3N1_s09.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721139&filename=07613033687983_A3N1_s09.png"
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "PRODUCT_IMAGE"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://nestlecontenthub-dam.esko-saas.com/mediabeacon/servlet/dload/07613033687983_A3N1_s09.png?apikey=3FB047E2-3E1B-4177-AF64-3999E0543B78&id=204721139&filename=07613033687983_A3N1_s09.png"
+                                    }
                                  }
                               ],
                               "xmlns:referenced_file_detail_information" : "urn:gs1:gdsn:referenced_file_detail_information:xsd:3",
@@ -768,13 +1172,19 @@
                            },
                            "sales_information:salesInformationModule" : {
                               "salesInformation" : {
-                                 "isBasePriceDeclarationRelevant" : "FALSE",
-                                 "priceComparisonContentTypeCode" : "PER_KILOGRAM",
+                                 "isBasePriceDeclarationRelevant" : {
+                                    "$t" : "FALSE"
+                                 },
+                                 "priceComparisonContentTypeCode" : {
+                                    "$t" : "PER_KILOGRAM"
+                                 },
                                  "priceComparisonMeasurement" : {
                                     "$t" : "0.18",
                                     "measurementUnitCode" : "KGM"
                                  },
-                                 "sellingUnitOfMeasure" : "H87"
+                                 "sellingUnitOfMeasure" : {
+                                    "$t" : "H87"
+                                 }
                               },
                               "tradeItemPriceInformation" : {
                                  "cataloguePrice" : {
@@ -782,7 +1192,9 @@
                                        "$t" : "1",
                                        "measurementUnitCode" : "H87"
                                     },
-                                    "priceEffectiveStartDate" : "2023-03-01T00:00:00+01:00",
+                                    "priceEffectiveStartDate" : {
+                                       "$t" : "2023-03-01T00:00:00+01:00"
+                                    },
                                     "tradeItemPrice" : {
                                        "$t" : "2.252",
                                        "currencyCode" : "EUR"
@@ -794,7 +1206,9 @@
                            },
                            "trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule" : {
                               "dataCarrier" : {
-                                 "dataCarrierTypeCode" : "EAN_13"
+                                 "dataCarrierTypeCode" : {
+                                    "$t" : "EAN_13"
+                                 }
                               },
                               "xmlns:trade_item_data_carrier_and_identification" : "urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDataCarrierAndIdentificationModule.xsd"
@@ -802,7 +1216,9 @@
                            "trade_item_description:tradeItemDescriptionModule" : {
                               "tradeItemDescriptionInformation" : {
                                  "brandNameInformation" : {
-                                    "brandName" : "MAGGI"
+                                    "brandName" : {
+                                       "$t" : "MAGGI"
+                                    }
                                  },
                                  "descriptionShort" : {
                                     "$t" : "MAGGI BOUILLON BOEUF 180G",
@@ -830,8 +1246,12 @@
                            },
                            "trade_item_lifespan:tradeItemLifespanModule" : {
                               "tradeItemLifespan" : {
-                                 "minimumTradeItemLifespanFromTimeOfArrival" : "120",
-                                 "minimumTradeItemLifespanFromTimeOfProduction" : "365"
+                                 "minimumTradeItemLifespanFromTimeOfArrival" : {
+                                    "$t" : "120"
+                                 },
+                                 "minimumTradeItemLifespanFromTimeOfProduction" : {
+                                    "$t" : "365"
+                                 }
                               },
                               "xmlns:trade_item_lifespan" : "urn:gs1:gdsn:trade_item_lifespan:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_lifespan:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemLifespanModule.xsd"
@@ -870,7 +1290,9 @@
                            },
                            "trade_item_temperature_information:tradeItemTemperatureInformationModule" : [
                               {
-                                 "tradeItemTemperatureConditionTypeCode" : "AMBIENT",
+                                 "tradeItemTemperatureConditionTypeCode" : {
+                                    "$t" : "AMBIENT"
+                                 },
                                  "tradeItemTemperatureInformation" : {
                                     "maximumTemperature" : {
                                        "$t" : "30",
@@ -880,13 +1302,17 @@
                                        "$t" : "6",
                                        "temperatureMeasurementUnitCode" : "CEL"
                                     },
-                                    "temperatureQualifierCode" : "STORAGE_HANDLING"
+                                    "temperatureQualifierCode" : {
+                                       "$t" : "STORAGE_HANDLING"
+                                    }
                                  },
                                  "xmlns:trade_item_temperature_information" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3",
                                  "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd"
                               },
                               {
-                                 "tradeItemTemperatureConditionTypeCode" : "AMBIENT",
+                                 "tradeItemTemperatureConditionTypeCode" : {
+                                    "$t" : "AMBIENT"
+                                 },
                                  "tradeItemTemperatureInformation" : {
                                     "maximumTemperature" : {
                                        "$t" : "30",
@@ -896,7 +1322,9 @@
                                        "$t" : "6",
                                        "temperatureMeasurementUnitCode" : "CEL"
                                     },
-                                    "temperatureQualifierCode" : "STORAGE_HANDLING"
+                                    "temperatureQualifierCode" : {
+                                       "$t" : "STORAGE_HANDLING"
+                                    }
                                  },
                                  "xmlns:trade_item_temperature_information" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3",
                                  "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd"
@@ -904,7 +1332,9 @@
                            ],
                            "variable_trade_item_information:variableTradeItemInformationModule" : {
                               "variableTradeItemInformation" : {
-                                 "isTradeItemAVariableUnit" : "false"
+                                 "isTradeItemAVariableUnit" : {
+                                    "$t" : "false"
+                                 }
                               },
                               "xmlns:variable_trade_item_information" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd"
@@ -916,44 +1346,74 @@
                         }
                      },
                      "tradeItemSynchronisationDates" : {
-                        "effectiveDateTime" : "2023-05-24T00:00:00+02:00",
-                        "lastChangeDateTime" : "2023-08-25T18:08:34+02:00",
-                        "publicationDateTime" : "2023-08-25T18:08:34+02:00"
+                        "effectiveDateTime" : {
+                           "$t" : "2023-05-24T00:00:00+02:00"
+                        },
+                        "lastChangeDateTime" : {
+                           "$t" : "2023-08-25T18:08:34+02:00"
+                        },
+                        "publicationDateTime" : {
+                           "$t" : "2023-08-25T18:08:34+02:00"
+                        }
                      },
-                     "tradeItemTradeChannelCode" : "MASS_MERCHANDISING",
-                     "tradeItemUnitDescriptorCode" : "BASE_UNIT_OR_EACH"
+                     "tradeItemTradeChannelCode" : {
+                        "$t" : "MASS_MERCHANDISING"
+                     },
+                     "tradeItemUnitDescriptorCode" : {
+                        "$t" : "BASE_UNIT_OR_EACH"
+                     }
                   }
                },
                "catalogueItemNotificationIdentification" : {
                   "contentOwner" : {
-                     "gln" : "3010337100035"
+                     "gln" : {
+                        "$t" : "3010337100035"
+                     }
                   },
-                  "entityIdentification" : "3027800020301_CINb16b2546987c49f5aa0ff4e30f6191fa15_CIN"
+                  "entityIdentification" : {
+                     "$t" : "3027800020301_CINb16b2546987c49f5aa0ff4e30f6191fa15_CIN"
+                  }
                },
-               "creationDateTime" : "2023-08-25T18:08:34+02:00",
-               "documentStatusCode" : "ORIGINAL",
-               "isReload" : "false"
+               "creationDateTime" : {
+                  "$t" : "2023-08-25T18:08:34+02:00"
+               },
+               "documentStatusCode" : {
+                  "$t" : "ORIGINAL"
+               },
+               "isReload" : {
+                  "$t" : "false"
+               }
             },
             "documentCommandHeader" : {
                "documentCommandIdentification" : {
                   "contentOwner" : {
-                     "gln" : "3010337100035"
+                     "gln" : {
+                        "$t" : "3010337100035"
+                     }
                   },
-                  "entityIdentification" : "3027800020301_CINb16b2546987c49f5aa0ff4e30f6191fa15_DocID"
+                  "entityIdentification" : {
+                     "$t" : "3027800020301_CINb16b2546987c49f5aa0ff4e30f6191fa15_DocID"
+                  }
                },
                "type" : "ADD"
             }
          },
          "transactionIdentification" : {
             "contentOwner" : {
-               "gln" : "3010337100035"
+               "gln" : {
+                  "$t" : "3010337100035"
+               }
             },
-            "entityIdentification" : "3027800020301_CINb16b2546987c49f5aa0ff4e30f6191fa15_TransactionID"
+            "entityIdentification" : {
+               "$t" : "3027800020301_CINb16b2546987c49f5aa0ff4e30f6191fa15_TransactionID"
+            }
          }
       },
       "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3",
       "xmlns:sh" : "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader",
       "xmlns:xsi" : "http://www.w3.org/2001/XMLSchema-instance",
       "xsi:schemaLocation" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/CatalogueItemNotification.xsd"
-   }
+   },
+   "encoding" : "UTF-8",
+   "version" : "1.0"
 }

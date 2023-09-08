@@ -2,14 +2,28 @@
    "catalogue_item_notification:catalogueItemNotificationMessage" : {
       "sh:StandardBusinessDocumentHeader" : {
          "sh:DocumentIdentification" : {
-            "sh:CreationDateAndTime" : "2023-08-28T09:20:29+02:00",
-            "sh:InstanceIdentifier" : "3027800020301_CIN7312874d273140cab9b41b7d69a2d05147",
-            "sh:MultipleType" : "false",
-            "sh:Standard" : "GS1",
-            "sh:Type" : "catalogueItemNotification",
-            "sh:TypeVersion" : "3.1"
+            "sh:CreationDateAndTime" : {
+               "$t" : "2023-08-28T09:20:29+02:00"
+            },
+            "sh:InstanceIdentifier" : {
+               "$t" : "3027800020301_CIN7312874d273140cab9b41b7d69a2d05147"
+            },
+            "sh:MultipleType" : {
+               "$t" : "false"
+            },
+            "sh:Standard" : {
+               "$t" : "GS1"
+            },
+            "sh:Type" : {
+               "$t" : "catalogueItemNotification"
+            },
+            "sh:TypeVersion" : {
+               "$t" : "3.1"
+            }
          },
-         "sh:HeaderVersion" : "1.0",
+         "sh:HeaderVersion" : {
+            "$t" : "1.0"
+         },
          "sh:Receiver" : {
             "sh:Identifier" : {
                "$t" : "8888888899990",
@@ -28,10 +42,16 @@
             "catalogue_item_notification:catalogueItemNotification" : {
                "catalogueItem" : {
                   "catalogueItemState" : {
-                     "catalogueItemStateCode" : "REGISTERED"
+                     "catalogueItemStateCode" : {
+                        "$t" : "REGISTERED"
+                     }
                   },
-                  "dataRecipient" : "8888888899990",
-                  "sourceDataPool" : "3027800020370",
+                  "dataRecipient" : {
+                     "$t" : "8888888899990"
+                  },
+                  "sourceDataPool" : {
+                     "$t" : "3027800020370"
+                  },
                   "tradeItem" : {
                      "additionalTradeItemIdentification" : {
                         "$t" : "652510000_01",
@@ -54,19 +74,29 @@
                         ]
                      },
                      "brandOwner" : {
-                        "gln" : "3010802100102",
-                        "partyName" : "KRONENBOURG SAS"
+                        "gln" : {
+                           "$t" : "3010802100102"
+                        },
+                        "partyName" : {
+                           "$t" : "KRONENBOURG SAS"
+                        }
                      },
                      "displayUnitInformation" : {
-                        "isTradeItemADisplayUnit" : "FALSE"
+                        "isTradeItemADisplayUnit" : {
+                           "$t" : "FALSE"
+                        }
                      },
                      "gdsnTradeItemClassification" : {
                         "additionalTradeItemClassification" : [
                            {
                               "additionalTradeItemClassificationValue" : {
-                                 "additionalTradeItemClassificationCodeValue" : "GS1_FRANCE",
+                                 "additionalTradeItemClassificationCodeValue" : {
+                                    "$t" : "GS1_FRANCE"
+                                 },
                                  "additionalTradeItemClassificationProperty" : {
-                                    "additionalTradeItemClassificationPropertyCode" : "brandSocietalValue",
+                                    "additionalTradeItemClassificationPropertyCode" : {
+                                       "$t" : "brandSocietalValue"
+                                    },
                                     "additionalTradeItemClassificationPropertyDescription" : {
                                        "$t" : "Au quotidien, ce sont 600 personnes qui perpétuent notre savoir-faire dans notre brasserie implantée dans l'Est de la France.",
                                        "languageCode" : "fr"
@@ -76,9 +106,13 @@
                            },
                            {
                               "additionalTradeItemClassificationValue" : {
-                                 "additionalTradeItemClassificationCodeValue" : "GS1_FRANCE",
+                                 "additionalTradeItemClassificationCodeValue" : {
+                                    "$t" : "GS1_FRANCE"
+                                 },
                                  "additionalTradeItemClassificationProperty" : {
-                                    "additionalTradeItemClassificationPropertyCode" : "brandEnvironmentalValue",
+                                    "additionalTradeItemClassificationPropertyCode" : {
+                                       "$t" : "brandEnvironmentalValue"
+                                    },
                                     "additionalTradeItemClassificationPropertyDescription" : {
                                        "$t" : "* Notre brasserie a divisé par 2 ses émissions de carbone en 20 ans, par plus de 3 sa consommation d'eau en 50 ans et dépollue ses eaux usées. Notre objectif est d'être 100% neutre en carbone d'ici 2030 ! * Dans notre démarche qualité, notre brasserie intègre un contrôle annuel des pesticides sur notre 1664. * Nos résidus de céréales issus du brassage sont réutilisés localement en nourriture pour le bétail.",
                                        "languageCode" : "fr"
@@ -87,49 +121,101 @@
                               }
                            }
                         ],
-                        "gpcCategoryCode" : "10000159",
-                        "gpcCategoryName" : "Bière"
+                        "gpcCategoryCode" : {
+                           "$t" : "10000159"
+                        },
+                        "gpcCategoryName" : {
+                           "$t" : "Bière"
+                        }
                      },
-                     "gtin" : "03080210001100",
+                     "gtin" : {
+                        "$t" : "03080210001100"
+                     },
                      "informationProviderOfTradeItem" : {
-                        "gln" : "3010802100102",
-                        "partyName" : "BRASSERIES KRONENBOURG"
+                        "gln" : {
+                           "$t" : "3010802100102"
+                        },
+                        "partyName" : {
+                           "$t" : "BRASSERIES KRONENBOURG "
+                        }
                      },
-                     "isTradeItemABaseUnit" : "true",
-                     "isTradeItemAConsumerUnit" : "true",
-                     "isTradeItemADespatchUnit" : "false",
-                     "isTradeItemAService" : "false",
-                     "isTradeItemAnInvoiceUnit" : "true",
-                     "isTradeItemAnOrderableUnit" : "true",
+                     "isTradeItemABaseUnit" : {
+                        "$t" : "true"
+                     },
+                     "isTradeItemAConsumerUnit" : {
+                        "$t" : "true"
+                     },
+                     "isTradeItemADespatchUnit" : {
+                        "$t" : "false"
+                     },
+                     "isTradeItemAService" : {
+                        "$t" : "false"
+                     },
+                     "isTradeItemAnInvoiceUnit" : {
+                        "$t" : "true"
+                     },
+                     "isTradeItemAnOrderableUnit" : {
+                        "$t" : "true"
+                     },
                      "manufacturerOfTradeItem" : {
-                        "gln" : "3010802100102",
-                        "partyName" : "BRASSERIES KRONENBOURG"
+                        "gln" : {
+                           "$t" : "3010802100102"
+                        },
+                        "partyName" : {
+                           "$t" : "BRASSERIES KRONENBOURG "
+                        }
                      },
                      "targetMarket" : {
-                        "targetMarketCountryCode" : "250"
+                        "targetMarketCountryCode" : {
+                           "$t" : "250"
+                        }
                      },
                      "tradeItemContactInformation" : [
                         {
-                           "contactAddress" : "67210 Obernai France",
-                           "contactName" : "Kronenbourg SAS",
-                           "contactTypeCode" : "BZL",
+                           "contactAddress" : {
+                              "$t" : "67210 Obernai France"
+                           },
+                           "contactName" : {
+                              "$t" : "Kronenbourg SAS"
+                           },
+                           "contactTypeCode" : {
+                              "$t" : "BZL"
+                           },
                            "structuredAddress" : {
-                              "countryCode" : "250",
-                              "postalCode" : "67210"
+                              "countryCode" : {
+                                 "$t" : "250"
+                              },
+                              "postalCode" : {
+                                 "$t" : "67210"
+                              }
                            }
                         },
                         {
-                           "contactAddress" : "03 88 27 59 59",
-                           "contactName" : "Service Consommateurs BK",
-                           "contactTypeCode" : "CXC",
+                           "contactAddress" : {
+                              "$t" : "03 88 27 59 59"
+                           },
+                           "contactName" : {
+                              "$t" : "Service Consommateurs BK "
+                           },
+                           "contactTypeCode" : {
+                              "$t" : "CXC"
+                           },
                            "structuredAddress" : {
-                              "countryCode" : "250",
-                              "postalCode" : "67210"
+                              "countryCode" : {
+                                 "$t" : "250"
+                              },
+                              "postalCode" : {
+                                 "$t" : "67210"
+                              }
                            },
                            "targetMarketCommunicationChannel" : {
                               "communicationChannel" : {
-                                 "communicationChannelCode" : "WEBSITE",
-                                 "communicationValue" : "https://www.beertime.fr"
+                                 "communicationChannelCode" : {
+                                    "$t" : "WEBSITE"
+                                 },
+                                 "communicationValue" : {
+                                    "$t" : "https://www.beertime.fr"
+                                 }
                               }
                            }
                         }
@@ -138,26 +224,36 @@
                         "extension" : {
                            "alcohol_information:alcoholInformationModule" : {
                               "alcoholInformation" : {
-                                 "percentageOfAlcoholByVolume" : "5.5"
+                                 "percentageOfAlcoholByVolume" : {
+                                    "$t" : "5.5"
+                                 }
                               },
                               "xmlns:alcohol_information" : "urn:gs1:gdsn:alcohol_information:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:alcohol_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AlcoholInformationModule.xsd"
                            },
                            "allergen_information:allergenInformationModule" : {
                               "allergenRelatedInformation" : {
-                                 "allergen" : [
-                                    {
-                                       "allergenTypeCode" : "AW",
-                                       "levelOfContainmentCode" : "CONTAINS"
+                                 "allergen" : {
+                                    "allergenTypeCode" : {
+                                       "$t" : "AW"
+                                    },
+                                    "levelOfContainmentCode" : {
+                                       "$t" : "CONTAINS"
                                     }
-                                 ],
-                                 "allergenSpecificationAgency" : "European Union",
-                                 "allergenSpecificationName" : "2003/89/EC",
+                                 },
+                                 "allergenSpecificationAgency" : {
+                                    "$t" : "European Union"
+                                 },
+                                 "allergenSpecificationName" : {
+                                    "$t" : "2003/89/EC"
+                                 },
                                  "allergenStatement" : {
                                     "$t" : "MALT D'ORGE, BLE, MALT DE BLE,",
                                     "languageCode" : "fr"
                                  },
-                                 "isAllergenRelevantDataProvided" : "true"
+                                 "isAllergenRelevantDataProvided" : {
+                                    "$t" : "true"
+                                 }
                               },
                               "xmlns:allergen_information" : "urn:gs1:gdsn:allergen_information:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:allergen_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AllergenInformationModule.xsd"
@@ -179,7 +275,9 @@
                            "dangerous_substance_information:dangerousSubstanceInformationModule" : {
                               "dangerousSubstanceInformation" : {
                                  "dangerousSubstanceProperties" : {
-                                    "isDangerousSubstance" : "FALSE"
+                                    "isDangerousSubstance" : {
+                                       "$t" : "FALSE"
+                                    }
                                  }
                               },
                               "xmlns:dangerous_substance_information" : "urn:gs1:gdsn:dangerous_substance_information:xsd:3",
@@ -187,17 +285,27 @@
                            },
                            "delivery_purchasing_information:deliveryPurchasingInformationModule" : {
                               "deliveryPurchasingInformation" : {
-                                 "consumerFirstAvailabilityDateTime" : "2005-01-14T00:00:00+01:00",
+                                 "consumerFirstAvailabilityDateTime" : {
+                                    "$t" : "2005-01-14T00:00:00+01:00"
+                                 },
                                  "distributionDetails" : {
                                     "orderingLeadTime" : {
                                        "$t" : "5",
                                        "measurementUnitCode" : "DAY"
                                     }
                                  },
-                                 "firstShipDateTime" : "2005-01-14T00:00:00+01:00",
-                                 "isTradeItemReorderable" : "true",
-                                 "orderingUnitOfMeasure" : "H87",
-                                 "startAvailabilityDateTime" : "2005-01-14T00:00:00+01:00"
+                                 "firstShipDateTime" : {
+                                    "$t" : "2005-01-14T00:00:00+01:00"
+                                 },
+                                 "isTradeItemReorderable" : {
+                                    "$t" : "true"
+                                 },
+                                 "orderingUnitOfMeasure" : {
+                                    "$t" : "H87"
+                                 },
+                                 "startAvailabilityDateTime" : {
+                                    "$t" : "2005-01-14T00:00:00+01:00"
+                                 }
                               },
                               "xmlns:delivery_purchasing_information" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd"
@@ -211,8 +319,12 @@
                                           "codeListVersion" : "2"
                                        }
                                     },
-                                    "dutyFeeTaxAgencyCode" : "65",
-                                    "dutyFeeTaxTypeCode" : "S",
+                                    "dutyFeeTaxAgencyCode" : {
+                                       "$t" : "65"
+                                    },
+                                    "dutyFeeTaxTypeCode" : {
+                                       "$t" : "S"
+                                    },
                                     "dutyFeeTaxTypeDescription" : {
                                        "$t" : "TVA 20 %",
                                        "languageCode" : "fr"
@@ -225,8 +337,12 @@
                                           "currencyCode" : "EUR"
                                        }
                                     },
-                                    "dutyFeeTaxAgencyCode" : "65",
-                                    "dutyFeeTaxTypeCode" : "3001000002282",
+                                    "dutyFeeTaxAgencyCode" : {
+                                       "$t" : "65"
+                                    },
+                                    "dutyFeeTaxTypeCode" : {
+                                       "$t" : "3001000002282"
+                                    },
                                     "dutyFeeTaxTypeDescription" : {
                                        "$t" : "TAXE ECO-EMBALLAGES (FR)",
                                        "languageCode" : "fr"
@@ -239,8 +355,12 @@
                                           "currencyCode" : "EUR"
                                        }
                                     },
-                                    "dutyFeeTaxAgencyCode" : "65",
-                                    "dutyFeeTaxTypeCode" : "3001000002312",
+                                    "dutyFeeTaxAgencyCode" : {
+                                       "$t" : "65"
+                                    },
+                                    "dutyFeeTaxTypeCode" : {
+                                       "$t" : "3001000002312"
+                                    },
                                     "dutyFeeTaxTypeDescription" : {
                                        "$t" : "DROITS d'aCCISES SUR LES ALCOOLS (F",
                                        "languageCode" : "fr"
@@ -251,15 +371,25 @@
                               "xsi:schemaLocation" : "urn:gs1:gdsn:duty_fee_tax_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DutyFeeTaxInformationModule.xsd"
                            },
                            "farming_and_processing_information:farmingAndProcessingInformationModule" : {
-                              "rawMaterialIrradiatedCode" : "FALSE",
+                              "rawMaterialIrradiatedCode" : {
+                                 "$t" : "FALSE"
+                              },
                               "tradeItemFarmingAndProcessing" : {
-                                 "geneticallyModifiedDeclarationCode" : "FREE_FROM",
-                                 "irradiatedCode" : "FALSE",
-                                 "preservationTechniqueCode" : "PASTEURISATION"
+                                 "geneticallyModifiedDeclarationCode" : {
+                                    "$t" : "FREE_FROM"
+                                 },
+                                 "irradiatedCode" : {
+                                    "$t" : "FALSE"
+                                 },
+                                 "preservationTechniqueCode" : {
+                                    "$t" : "PASTEURISATION"
+                                 }
                               },
                               "tradeItemOrganicInformation" : {
                                  "organicClaim" : {
-                                    "organicTradeItemCode" : "5"
+                                    "organicTradeItemCode" : {
+                                       "$t" : "5"
+                                    }
                                  }
                               },
                               "xmlns:farming_and_processing_information" : "urn:gs1:gdsn:farming_and_processing_information:xsd:3",
@@ -344,13 +474,17 @@
                                  "$t" : "Eau, MALT D'ORGE, sirop de glucose, BLE, MALT DE BLE, extrait de houblon,",
                                  "languageCode" : "fr"
                               },
-                              "isIngredientRelevantDataProvided" : "TRUE",
+                              "isIngredientRelevantDataProvided" : {
+                                 "$t" : "TRUE"
+                              },
                               "xmlns:food_and_beverage_ingredient" : "urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeverageIngredientModule.xsd"
                            },
                            "food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule" : {
                               "preparationServing" : {
-                                 "preparationTypeCode" : "READY_TO_DRINK"
+                                 "preparationTypeCode" : {
+                                    "$t" : "READY_TO_DRINK"
+                                 }
                               },
                               "xmlns:food_and_beverage_preparation_serving" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeveragePreparationServingModule.xsd"
@@ -362,8 +496,12 @@
                                     "languageCode" : "fr"
                                  },
                                  "nutritionalProgram" : {
-                                    "nutritionalProgramCode" : "8",
-                                    "nutritionalScore" : "EXEMPT"
+                                    "nutritionalProgramCode" : {
+                                       "$t" : "8"
+                                    },
+                                    "nutritionalScore" : {
+                                       "$t" : "EXEMPT"
+                                    }
                                  }
                               },
                               "xmlns:health_related_information" : "urn:gs1:gdsn:health_related_information:xsd:3",
@@ -371,7 +509,9 @@
                            },
                            "health_wellness_packaging_marking:healthWellnessPackagingMarkingModule" : {
                               "healthWellnessPackagingMarking" : {
-                                 "isPackagingMarkedWithIngredients" : "true"
+                                 "isPackagingMarkedWithIngredients" : {
+                                    "$t" : "true"
+                                 }
                               },
                               "xmlns:health_wellness_packaging_marking" : "urn:gs1:gdsn:health_wellness_packaging_marking:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:health_wellness_packaging_marking:xsd:3  http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/HealthWellnessPackagingMarkingModule.xsd"
@@ -383,10 +523,12 @@
                                     "languageCode" : "fr"
                                  },
                                  "season" : {
-                                    "isTradeItemSeasonal" : "FALSE"
+                                    "isTradeItemSeasonal" : {
+                                       "$t" : "FALSE"
+                                    }
                                  },
                                  "shortTradeItemMarketingMessage" : {
-                                    "$t" : "1664 Blonde, une bière premium brassée en Alsace, à Obernai. Labellisée Origine France Garantie, 1664 Blonde c'est une bière française élaborée dans une brasserie française responsable.",
+                                    "$t" : "1664 Blonde, une bière premium brassée en Alsace, à Obernai. Labellisée Origine France Garantie, 1664 Blonde c'est une bière française élaborée dans une brasserie française responsable.\n",
                                     "languageCode" : "fr"
                                  },
                                  "tradeItemFeatureBenefit" : {
@@ -410,103 +552,147 @@
                               "xsi:schemaLocation" : "urn:gs1:gdsn:marketing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/MarketingInformationModule.xsd"
                            },
                            "nutritional_information:nutritionalInformationModule" : {
-                              "isNutrientRelevantDataProvided" : "true",
-                              "nutrientHeader" : [
-                                 {
-                                    "nutrientDetail" : [
-                                       {
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "ENER-",
-                                          "quantityContained" : [
-                                             {
-                                                "$t" : "188",
-                                                "measurementUnitCode" : "KJO"
-                                             },
-                                             {
-                                                "$t" : "45",
-                                                "measurementUnitCode" : "E14"
-                                             }
-                                          ]
+                              "isNutrientRelevantDataProvided" : {
+                                 "$t" : "true"
+                              },
+                              "nutrientHeader" : {
+                                 "nutrientDetail" : [
+                                    {
+                                       "measurementPrecisionCode" : {
+                                          "$t" : "APPROXIMATELY"
                                        },
-                                       {
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "FAT",
-                                          "quantityContained" : {
-                                             "$t" : "0.1",
-                                             "measurementUnitCode" : "GRM"
-                                          }
+                                       "nutrientTypeCode" : {
+                                          "$t" : "ENER-"
                                        },
-                                       {
-                                          "measurementPrecisionCode" : "LESS_THAN",
-                                          "nutrientTypeCode" : "FASAT",
-                                          "quantityContained" : {
-                                             "$t" : "0",
-                                             "measurementUnitCode" : "GRM"
+                                       "quantityContained" : [
+                                          {
+                                             "$t" : "188",
+                                             "measurementUnitCode" : "KJO"
+                                          },
+                                          {
+                                             "$t" : "45",
+                                             "measurementUnitCode" : "E14"
                                           }
+                                       ]
+                                    },
+                                    {
+                                       "measurementPrecisionCode" : {
+                                          "$t" : "APPROXIMATELY"
                                        },
-                                       {
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "CHOAVL",
-                                          "quantityContained" : {
-                                             "$t" : "3",
-                                             "measurementUnitCode" : "GRM"
-                                          }
+                                       "nutrientTypeCode" : {
+                                          "$t" : "FAT"
                                        },
-                                       {
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "SUGAR-",
-                                          "quantityContained" : {
-                                             "$t" : "0.08",
-                                             "measurementUnitCode" : "GRM"
-                                          }
-                                       },
-                                       {
-                                          "measurementPrecisionCode" : "APPROXIMATELY",
-                                          "nutrientTypeCode" : "PRO-",
-                                          "quantityContained" : {
-                                             "$t" : "0.5",
-                                             "measurementUnitCode" : "GRM"
-                                          }
-                                       },
-                                       {
-                                          "measurementPrecisionCode" : "LESS_THAN",
-                                          "nutrientTypeCode" : "SALTEQ",
-                                          "quantityContained" : {
-                                             "$t" : "0.01",
-                                             "measurementUnitCode" : "GRM"
-                                          }
+                                       "quantityContained" : {
+                                          "$t" : "0.1",
+                                          "measurementUnitCode" : "GRM"
                                        }
-                                    ],
-                                    "preparationStateCode" : "UNPREPARED",
-                                    "servingSize" : {
-                                       "$t" : "100.0",
-                                       "measurementUnitCode" : "MLT"
+                                    },
+                                    {
+                                       "measurementPrecisionCode" : {
+                                          "$t" : "LESS_THAN"
+                                       },
+                                       "nutrientTypeCode" : {
+                                          "$t" : "FASAT"
+                                       },
+                                       "quantityContained" : {
+                                          "$t" : "0",
+                                          "measurementUnitCode" : "GRM"
+                                       }
+                                    },
+                                    {
+                                       "measurementPrecisionCode" : {
+                                          "$t" : "APPROXIMATELY"
+                                       },
+                                       "nutrientTypeCode" : {
+                                          "$t" : "CHOAVL"
+                                       },
+                                       "quantityContained" : {
+                                          "$t" : "3",
+                                          "measurementUnitCode" : "GRM"
+                                       }
+                                    },
+                                    {
+                                       "measurementPrecisionCode" : {
+                                          "$t" : "APPROXIMATELY"
+                                       },
+                                       "nutrientTypeCode" : {
+                                          "$t" : "SUGAR-"
+                                       },
+                                       "quantityContained" : {
+                                          "$t" : "0.08",
+                                          "measurementUnitCode" : "GRM"
+                                       }
+                                    },
+                                    {
+                                       "measurementPrecisionCode" : {
+                                          "$t" : "APPROXIMATELY"
+                                       },
+                                       "nutrientTypeCode" : {
+                                          "$t" : "PRO-"
+                                       },
+                                       "quantityContained" : {
+                                          "$t" : "0.5",
+                                          "measurementUnitCode" : "GRM"
+                                       }
+                                    },
+                                    {
+                                       "measurementPrecisionCode" : {
+                                          "$t" : "LESS_THAN"
+                                       },
+                                       "nutrientTypeCode" : {
+                                          "$t" : "SALTEQ"
+                                       },
+                                       "quantityContained" : {
+                                          "$t" : "0.01",
+                                          "measurementUnitCode" : "GRM"
+                                       }
                                     }
+                                 ],
+                                 "preparationStateCode" : {
+                                    "$t" : "UNPREPARED"
+                                 },
+                                 "servingSize" : {
+                                    "$t" : "100.0",
+                                    "measurementUnitCode" : "MLT"
                                  }
-                              ],
+                              },
                               "xmlns:nutritional_information" : "urn:gs1:gdsn:nutritional_information:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:nutritional_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/NutritionalInformationModule.xsd"
                            },
                            "packaging_information:packagingInformationModule" : {
                               "packaging" : {
-                                 "isPackagingReturnable" : "FALSE",
-                                 "packagingTermsAndConditionsCode" : "5",
-                                 "packagingTypeCode" : "BX"
+                                 "isPackagingReturnable" : {
+                                    "$t" : "FALSE"
+                                 },
+                                 "packagingTermsAndConditionsCode" : {
+                                    "$t" : "5"
+                                 },
+                                 "packagingTypeCode" : {
+                                    "$t" : "BX"
+                                 }
                               },
                               "xmlns:packaging_information" : "urn:gs1:gdsn:packaging_information:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd"
                            },
                            "packaging_marking:packagingMarkingModule" : {
                               "packagingMarking" : {
-                                 "isPackagingMarkedReturnable" : "false",
-                                 "isPriceOnPack" : "false",
-                                 "isTradeItemMarkedAsRecyclable" : "true",
-                                 "packagingDate" : {
-                                    "tradeItemDateOnPackagingTypeCode" : "BEST_BEFORE_DATE"
+                                 "isPackagingMarkedReturnable" : {
+                                    "$t" : "false"
                                  },
-                                 "packagingMarkedLabelAccreditationCode" : [
-                                    "TRIMAN"
-                                 ]
+                                 "isPriceOnPack" : {
+                                    "$t" : "false"
+                                 },
+                                 "isTradeItemMarkedAsRecyclable" : {
+                                    "$t" : "true"
+                                 },
+                                 "packagingDate" : {
+                                    "tradeItemDateOnPackagingTypeCode" : {
+                                       "$t" : "BEST_BEFORE_DATE"
+                                    }
+                                 },
+                                 "packagingMarkedLabelAccreditationCode" : {
+                                    "$t" : "TRIMAN"
+                                 }
                               },
                               "xmlns:packaging_marking" : "urn:gs1:gdsn:packaging_marking:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd"
@@ -514,17 +700,27 @@
                            "place_of_item_activity:placeOfItemActivityModule" : {
                               "importClassification" : [
                                  {
-                                    "importClassificationTypeCode" : "CUSTOMS_TARIFF_NUMBER",
-                                    "importClassificationValue" : "2203000900"
+                                    "importClassificationTypeCode" : {
+                                       "$t" : "CUSTOMS_TARIFF_NUMBER"
+                                    },
+                                    "importClassificationValue" : {
+                                       "$t" : "2203000900"
+                                    }
                                  },
                                  {
-                                    "importClassificationTypeCode" : "INTRASTAT",
-                                    "importClassificationValue" : "22030009"
+                                    "importClassificationTypeCode" : {
+                                       "$t" : "INTRASTAT"
+                                    },
+                                    "importClassificationValue" : {
+                                       "$t" : "22030009"
+                                    }
                                  }
                               ],
                               "placeOfProductActivity" : {
                                  "countryOfOrigin" : {
-                                    "countryCode" : "250"
+                                    "countryCode" : {
+                                       "$t" : "250"
+                                    }
                                  },
                                  "countryOfOriginStatement" : {
                                     "$t" : "Fabriqué en France par BK 67210 Obernai France",
@@ -539,7 +735,9 @@
                               "xsi:schemaLocation" : "urn:gs1:gdsn:place_of_item_activity:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PlaceOfItemActivityModule.xsd"
                            },
                            "promotional_item_information:promotionalItemInformationModule" : {
-                              "isTradeItemAPromotionalUnit" : "false",
+                              "isTradeItemAPromotionalUnit" : {
+                                 "$t" : "false"
+                              },
                               "xmlns:promotional_item_information" : "urn:gs1:gdsn:promotional_item_information:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd"
                            },
@@ -550,28 +748,56 @@
                                        "$t" : "Produit emballé / Packshot",
                                        "languageCode" : "fr"
                                     },
-                                    "fileEffectiveStartDateTime" : "2023-01-26T00:50:32+01:00",
-                                    "fileFormatName" : "png",
-                                    "fileName" : "03080210001100_A1N1_s12.png",
-                                    "isPrimaryFile" : "TRUE",
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2023-01-26T00:50:32+01:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "png"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "03080210001100_A1N1_s12.png"
+                                    },
+                                    "isPrimaryFile" : {
+                                       "$t" : "TRUE"
+                                    },
                                     "referencedFileDetail" : {
                                        "fileContentInformation" : {
-                                          "verticalCameraAngleCode" : "PARALLEL"
+                                          "verticalCameraAngleCode" : {
+                                             "$t" : "PARALLEL"
+                                          }
                                        },
                                        "fileUsageInformation" : {
-                                          "canFilesBeEdited" : "FALSE"
+                                          "canFilesBeEdited" : {
+                                             "$t" : "FALSE"
+                                          }
                                        },
-                                       "isFileBackgroundTransparent" : "TRUE"
+                                       "isFileBackgroundTransparent" : {
+                                          "$t" : "TRUE"
+                                       }
                                     },
-                                    "referencedFileTypeCode" : "PRODUCT_IMAGE",
-                                    "uniformResourceIdentifier" : "https://secure.equadis.com/Equadis/MultimediaFileViewer?key=253443926_0975AFA005A3C506D2AA4C0828ACC54E&idFile=7885400&file=10454/03080210001100_A1N1_s12.png"
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "PRODUCT_IMAGE"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://secure.equadis.com/Equadis/MultimediaFileViewer?key=253443926_0975AFA005A3C506D2AA4C0828ACC54E&idFile=7885400&file=10454/03080210001100_A1N1_s12.png"
+                                    }
                                  },
                                  {
-                                    "fileEffectiveStartDateTime" : "2022-02-01T17:42:31+01:00",
-                                    "fileFormatName" : "pdf",
-                                    "fileName" : "03080210001100_1643733810250_s08.pdf",
-                                    "referencedFileTypeCode" : "TECHNICAL_DATA_SHEET",
-                                    "uniformResourceIdentifier" : "https://secure.equadis.com/Equadis/MultimediaFileViewer?key=110037590_85936554BF429540FF11F0B00D9CDF2D&idFile=3403952&file=10454/03080210001100_1643733810250_s08.pdf"
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2022-02-01T17:42:31+01:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "pdf"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "03080210001100_1643733810250_s08.pdf"
+                                    },
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "TECHNICAL_DATA_SHEET"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://secure.equadis.com/Equadis/MultimediaFileViewer?key=110037590_85936554BF429540FF11F0B00D9CDF2D&idFile=3403952&file=10454/03080210001100_1643733810250_s08.pdf"
+                                    }
                                  }
                               ],
                               "xmlns:referenced_file_detail_information" : "urn:gs1:gdsn:referenced_file_detail_information:xsd:3",
@@ -579,20 +805,28 @@
                            },
                            "sales_information:salesInformationModule" : {
                               "salesInformation" : {
-                                 "isBasePriceDeclarationRelevant" : "FALSE",
-                                 "priceComparisonContentTypeCode" : "PER_LITRE",
+                                 "isBasePriceDeclarationRelevant" : {
+                                    "$t" : "FALSE"
+                                 },
+                                 "priceComparisonContentTypeCode" : {
+                                    "$t" : "PER_LITRE"
+                                 },
                                  "priceComparisonMeasurement" : {
                                     "$t" : "0.33",
                                     "measurementUnitCode" : "LTR"
                                  },
-                                 "sellingUnitOfMeasure" : "H87"
+                                 "sellingUnitOfMeasure" : {
+                                    "$t" : "H87"
+                                 }
                               },
                               "xmlns:sales_information" : "urn:gs1:gdsn:sales_information:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:sales_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/SalesInformationModule.xsd"
                            },
                            "trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule" : {
                               "dataCarrier" : {
-                                 "dataCarrierTypeCode" : "EAN_13"
+                                 "dataCarrierTypeCode" : {
+                                    "$t" : "EAN_13"
+                                 }
                               },
                               "xmlns:trade_item_data_carrier_and_identification" : "urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDataCarrierAndIdentificationModule.xsd"
@@ -610,8 +844,12 @@
                                     }
                                  ],
                                  "brandNameInformation" : {
-                                    "brandName" : "1664",
-                                    "subBrand" : "1664"
+                                    "brandName" : {
+                                       "$t" : "1664"
+                                    },
+                                    "subBrand" : {
+                                       "$t" : "1664"
+                                    }
                                  },
                                  "descriptionShort" : {
                                     "$t" : "33 cl 1664",
@@ -641,12 +879,20 @@
                               "tradeItemHandlingInformation" : {
                                  "tradeItemStacking" : [
                                     {
-                                       "stackingFactor" : "1",
-                                       "stackingFactorTypeCode" : "STORAGE_UNSPECIFIED"
+                                       "stackingFactor" : {
+                                          "$t" : "1"
+                                       },
+                                       "stackingFactorTypeCode" : {
+                                          "$t" : "STORAGE_UNSPECIFIED"
+                                       }
                                     },
                                     {
-                                       "stackingFactor" : "1",
-                                       "stackingFactorTypeCode" : "TRANSPORT_UNSPECIFIED"
+                                       "stackingFactor" : {
+                                          "$t" : "1"
+                                       },
+                                       "stackingFactorTypeCode" : {
+                                          "$t" : "TRANSPORT_UNSPECIFIED"
+                                       }
                                     }
                                  ]
                               },
@@ -655,8 +901,12 @@
                            },
                            "trade_item_lifespan:tradeItemLifespanModule" : {
                               "tradeItemLifespan" : {
-                                 "minimumTradeItemLifespanFromTimeOfArrival" : "180",
-                                 "minimumTradeItemLifespanFromTimeOfProduction" : "360"
+                                 "minimumTradeItemLifespanFromTimeOfArrival" : {
+                                    "$t" : "180"
+                                 },
+                                 "minimumTradeItemLifespanFromTimeOfProduction" : {
+                                    "$t" : "360"
+                                 }
                               },
                               "xmlns:trade_item_lifespan" : "urn:gs1:gdsn:trade_item_lifespan:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_lifespan:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemLifespanModule.xsd"
@@ -704,7 +954,9 @@
                               "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_size:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemSizeModule.xsd"
                            },
                            "trade_item_temperature_information:tradeItemTemperatureInformationModule" : {
-                              "tradeItemTemperatureConditionTypeCode" : "AMBIENT",
+                              "tradeItemTemperatureConditionTypeCode" : {
+                                 "$t" : "AMBIENT"
+                              },
                               "tradeItemTemperatureInformation" : {
                                  "maximumTemperature" : {
                                     "$t" : "25",
@@ -714,62 +966,98 @@
                                     "$t" : "0",
                                     "temperatureMeasurementUnitCode" : "CEL"
                                  },
-                                 "temperatureQualifierCode" : "STORAGE_HANDLING"
+                                 "temperatureQualifierCode" : {
+                                    "$t" : "STORAGE_HANDLING"
+                                 }
                               },
                               "xmlns:trade_item_temperature_information" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd"
                            },
                            "variable_trade_item_information:variableTradeItemInformationModule" : {
                               "variableTradeItemInformation" : {
-                                 "isTradeItemAVariableUnit" : "false"
+                                 "isTradeItemAVariableUnit" : {
+                                    "$t" : "false"
+                                 }
                               },
                               "xmlns:variable_trade_item_information" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3",
                               "xsi:schemaLocation" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd"
                            }
                         },
                         "tradeItemComponents" : {
-                           "numberOfPiecesInSet" : "1"
+                           "numberOfPiecesInSet" : {
+                              "$t" : "1"
+                           }
                         }
                      },
                      "tradeItemSynchronisationDates" : {
-                        "effectiveDateTime" : "2004-03-16T00:00:00+01:00",
-                        "lastChangeDateTime" : "2023-08-28T09:20:29+02:00",
-                        "publicationDateTime" : "2023-08-28T09:20:29+02:00"
+                        "effectiveDateTime" : {
+                           "$t" : "2004-03-16T00:00:00+01:00"
+                        },
+                        "lastChangeDateTime" : {
+                           "$t" : "2023-08-28T09:20:29+02:00"
+                        },
+                        "publicationDateTime" : {
+                           "$t" : "2023-08-28T09:20:29+02:00"
+                        }
                      },
-                     "tradeItemTradeChannelCode" : "MASS_MERCHANDISING",
-                     "tradeItemUnitDescriptorCode" : "BASE_UNIT_OR_EACH"
+                     "tradeItemTradeChannelCode" : {
+                        "$t" : "MASS_MERCHANDISING"
+                     },
+                     "tradeItemUnitDescriptorCode" : {
+                        "$t" : "BASE_UNIT_OR_EACH"
+                     }
                   }
                },
                "catalogueItemNotificationIdentification" : {
                   "contentOwner" : {
-                     "gln" : "3010802100102"
+                     "gln" : {
+                        "$t" : "3010802100102"
+                     }
                   },
-                  "entityIdentification" : "3027800020301_CIN7312874d273140cab9b41b7d69a2d05147_CIN"
+                  "entityIdentification" : {
+                     "$t" : "3027800020301_CIN7312874d273140cab9b41b7d69a2d05147_CIN"
+                  }
                },
-               "creationDateTime" : "2023-08-28T09:20:29+02:00",
-               "documentStatusCode" : "ORIGINAL",
-               "isReload" : "false"
+               "creationDateTime" : {
+                  "$t" : "2023-08-28T09:20:29+02:00"
+               },
+               "documentStatusCode" : {
+                  "$t" : "ORIGINAL"
+               },
+               "isReload" : {
+                  "$t" : "false"
+               }
             },
             "documentCommandHeader" : {
                "documentCommandIdentification" : {
                   "contentOwner" : {
-                     "gln" : "3010802100102"
+                     "gln" : {
+                        "$t" : "3010802100102"
+                     }
                   },
-                  "entityIdentification" : "3027800020301_CIN7312874d273140cab9b41b7d69a2d05147_DocID"
+                  "entityIdentification" : {
+                     "$t" : "3027800020301_CIN7312874d273140cab9b41b7d69a2d05147_DocID"
+                  }
                },
                "type" : "ADD"
             }
          },
          "transactionIdentification" : {
             "contentOwner" : {
-               "gln" : "3010802100102"
+               "gln" : {
+                  "$t" : "3010802100102"
+               }
             },
-            "entityIdentification" : "3027800020301_CIN7312874d273140cab9b41b7d69a2d05147_TransactionID"
+            "entityIdentification" : {
+               "$t" : "3027800020301_CIN7312874d273140cab9b41b7d69a2d05147_TransactionID"
+            }
          }
       },
       "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3",
       "xmlns:sh" : "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader",
       "xmlns:xsi" : "http://www.w3.org/2001/XMLSchema-instance",
       "xsi:schemaLocation" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/CatalogueItemNotification.xsd"
-   }
+   },
+   "encoding" : "UTF-8",
+   "version" : "1.0"
 }
