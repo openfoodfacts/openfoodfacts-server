@@ -33,9 +33,22 @@ foreach my $file (sort(readdir($dh))) {
 		my $json = JSON->new->allow_nonref->canonical;
 		my $json_ref = $json->decode(<$json_fh>);
 
-        # First we compare the GS1 JSON to our expected results
-        # the exact format of the JSON varies depending on whether it was generated with the Perl GS1.Pm module
-        # or with the old nodejs convert_gs1_xml_to_json.js script.
+		# First we compare the GS1 JSON to our expected results
+		# the exact format of the JSON varies depending on whether it was generated with the Perl GS1.Pm module
+		# or with the old nodejs convert_gs1_xml_to_json.js script.
+
+		# In particular XML2JSON creates a hash for simple text values. Text values of tags are converted to $t properties.
+		# e.g. <gtin>03449862093657</gtin>
+		#
+		# becomes:
+		#
+		# gtin: {
+		#    $t: "03449865355608"
+		# },
+		#
+		# There are also differences with arrays with one element that are moved one level
+		# To see some sample differences, see this commit: https://github.com/openfoodfacts/openfoodfacts-server/pull/8976/commits/adb696d4d5ed6098f254f8a6a9537f727aa4311a#diff-e203f2af6fbc612b40c57a0439aa4145468d4c9028b462a084c8b77dd67d27a8
+
 		compare_to_expected_results($json_ref, "$expected_result_dir/$file.json",
 			$update_expected_results, {desc => "convert GS1 xml to json: $file"});
 
@@ -43,9 +56,9 @@ foreach my $file (sort(readdir($dh))) {
 		my $products_ref = [];
 		read_gs1_json_file("$expected_result_dir/$file.json", $products_ref, $messages_ref);
 
-        # Then we process the GS1 JSON to extract product data in OFF expected format
-        # even if the JSON files were different, we should get exactly the same OFF products
-        # as the GS1.pm JSON to OFF conversion should handle the syntax variations of the JSON files
+		# Then we process the GS1 JSON to extract product data in OFF expected format
+		# even if the JSON files were different, we should get exactly the same OFF products
+		# as the GS1.pm JSON to OFF conversion should handle the syntax variations of the JSON files
 		compare_to_expected_results(
 			$products_ref, "$expected_result_dir/$file.products.json",
 			$update_expected_results, {desc => "convert GS1 json to OFF: $file"}
