@@ -15786,7 +15786,7 @@ gl:Aceite de oliva
 he:שמן זית
 hi:जैतून का तेल
 hr:maslinovo ulje
-hu:olívaolaj
+hu:olívaolaj, olivaolaj
 id:Minyak zaitun
 is:Ólífuolía
 it:olio d'oliva, olio di oliva
@@ -32429,7 +32429,7 @@ he:מים
 hi:जल
 hr:voda, vode, vodu
 ht:Dlo
-hu:Víz, ivóvíz
+hu:víz, ivóvíz, viz
 hy:Ջուր
 ia:Aqua
 id:Air
@@ -39794,22 +39794,6 @@ hr:ekstrakt kore naranče
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-zeste-d'orange
 # 54 products in 2 languages @2018-09-28
 
-# CANDIED ORANGE PEEL is a compound ingredient
-
-<en:orange zest
-en:candied orange peel, candied orange zest
-bg:захаросани портокалови кори
-de:kandierte Orangenschalen, Orangeat, Orangenschalen confiert
-es:corteza de naranja confitada
-fi:kandeerattu appelsiininkuori
-fr:écorces d'orange confites, écorces d'oranges confites, orangeat
-# hr:kandirana narančina korica # see ingredients_processing.txt
-it:scorze d'arancia candite, cubetti di scorza di limone
-nl:gekonfijte sinaasappelschillen
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorces-d'orange-confites/
-# 303 products in 6 languages @2018-09-28openfoodfacts:https://world.openfoodfacts.org/ingredient/en:candied-orange-zest
-# 3 products in 1 language @2018-09-28
-
 <en:orange extract
 en:concentrated orange extract
 de:konzentrierter Orangenextrakt
@@ -39827,6 +39811,20 @@ fi:luontainen appelsiiniuute
 <en:orange pulp
 fr:Jus d'orange dont pulpe
 # 5@2019-06-07
+
+# CANDIED ORANGE PEEL is a compound ingredient
+en:candied orange peel, candied orange zest
+bg:захаросани портокалови кори
+de:kandierte Orangenschalen, Orangeat, Orangenschalen confiert
+es:corteza de naranja confitada
+fi:kandeerattu appelsiininkuori
+fr:écorces d'orange confites, écorces d'oranges confites, orangeat
+# hr:kandirana narančina korica # see ingredients_processing.txt
+it:scorze d'arancia candite, cubetti di scorza di limone
+nl:gekonfijte sinaasappelschillen
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorces-d'orange-confites/
+# 303 products in 6 languages @2018-09-28openfoodfacts:https://world.openfoodfacts.org/ingredient/en:candied-orange-zest
+# 3 products in 1 language @2018-09-28
 
 # <en:orange
 en:orange marmalade
@@ -55858,7 +55856,7 @@ ciqual_food_name:fr:Haricot de Lima, cru
 # eurocode 8.45.25 is for fresh Lima beans
 eurocode_2_group_3:en: 8.45.25
 # eurocode 7.10.34 is for dried lima beans
-# eurocode_2_group_3:en: 7.10.34
+# eurocode_2_group_3:en: 7.10.34
 
 <en:lima bean
 <en:pulse
@@ -59891,7 +59889,7 @@ et:valge pipar
 fi:valkopippuri
 fr:poivre blanc
 hr:bijeli papor
-hu:fehérbors
+hu:fehérbors, fehér bors
 it:pepe bianco
 ja:白胡椒, 白コショウ, 白こしょう, ホワイトペッパー
 nb:hvit pepper
@@ -59985,7 +59983,7 @@ fi:mustapippuri
 fr:poivre noir
 ga:piobar dubh
 hr:crni papar, papar crni, plod crnog papra, piper nigrum
-hu:feketebors
+hu:feketebors, fekete bors
 it:pepe nero
 ja:黒胡椒, 黒こしょう, 黒コショウ, ブラックペッパー
 kk:қара бұрыш
@@ -63580,7 +63578,7 @@ fa:تایم
 fi:timjami
 fr:thym
 hr:timijan, majčina dušica
-hu:kaukkfű
+hu:kakukkfű, kaukkfű
 id:thyme
 it:timo
 ja:タイム
