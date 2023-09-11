@@ -39,10 +39,8 @@ use ProductOpener::Paths qw/:all/;
 
 my $r = shift;
 
-my %name_to_lang = ("combiendesucres" => "fr", "howmuchsugar" => "en");
 # read site name in apache provided header
-my $site_name = $r->header_in('X-Site-Name');
-my $lang = $name_to_lang{$site_name} // 'en';
+my $lang = $r->headers_in->{"X-Site-Lang"} // 'en';
 
 my $ids_ref = lock_retrieve($BASE_DIRS{PRIVATE_DATA} . "/sugar/$lang/products_ids.sto")
 	or die("Cannot open sugar/products_ids.sto");

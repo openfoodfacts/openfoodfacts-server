@@ -2,24 +2,35 @@ map $host $howmuchsugar_name {
 	hostnames;
 
 	default       howmuchsugar;
-	combiendesucre.fr combiendesucre;
+	combiendesucres.fr combiendesucres;
 }
 
+map $howmuchsugar_name $howmuchsugar_lang {
+
+	default       en;
+	combiendesucres fr;
+}
+
+log_format proxied_requests2
+  '$http_x_forwarded_for - $remote_user [$time_local] '
+  '"$request" $status $body_bytes_sent '
+  '"$http_referer" "$http_user_agent"'
+  '"$howmuchsugar_lang" "$howmuchsugar_name"';
 server {
 	listen 80;
 	listen [::]:80;
 
-	server_name howmuchsugar.in;
+	server_name howmuchsugar.in combiendesucres.fr;
 
 	include /etc/nginx/snippets/expires-no-json-xml.conf;
 
-	access_log /var/log/nginx/nginx.howmuchsugar.access.log proxied_requests;
+	access_log /var/log/nginx/nginx.howmuchsugar.access.log proxied_requests2;
 	error_log /var/log/nginx/nginx.howmuchsugar.error.log;
 
 	gzip on;
 	gzip_min_length 1000;
 
-	root /srv/off/html/data/sugar;
+	root /srv/off/html/data/sugar/$howmuchsugar_lang;
 
 	# Add index.php to the list if you are using PHP
 	index index.html index.htm index.nginx-debian.html;
@@ -31,7 +42,7 @@ server {
 	location ~ ^/(favicon.ico) {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
-		try_files $uri /$howmuchsugar_name-favicon.ico;
+		try_files $howmuchsugar_name-favicon.ico =404;
 	}
 
 	location ~ ^/(.well-known|images|js|rss|data|files|resources|foundation)/ {
@@ -59,6 +70,7 @@ server {
 		proxy_set_header X-Real-IP $remote_addr;
 		proxy_set_header       X-Forwarded-For $proxy_add_x_forwarded_for;
 		proxy_set_header X-Site-Name $howmuchsugar_name;
+		proxy_set_header X-Site-Lang $howmuchsugar_lang;
 		proxy_pass http://127.0.0.1:8004;
 	}
 }
