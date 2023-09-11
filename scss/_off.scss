@@ -1412,7 +1412,7 @@ $section-cyan: #008c8c;
 
 // Title with Plus Jakarta Sans, according to brand guidelines
 .emphasized-title {
-  font-family: "Plus Jakarta Sans";
+  font-family: "Plus Jakarta Sans", $font-family-sans-serif;
   font-weight: 700;
   // override color as it is not black due to our choice of $dark
   color: $black !important;
@@ -1640,7 +1640,7 @@ a.panel_title {
 
 #app-landing-page {
   // use Plus Jakarta Sans everywhere
-  font-family: "Plus Jakarta Sans";
+  font-family: "Plus Jakarta Sans", $font-family-sans-serif;
 
   .highlight-label {
   // make the highlighted labels smaller
