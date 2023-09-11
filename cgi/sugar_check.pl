@@ -26,6 +26,8 @@ use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use JSON::PP;
+use ProductOpener::Display qw/single_param/;
+use ProductOpener::Paths qw/:all/;
 
 my $debug = 0;
 
@@ -36,7 +38,8 @@ my $answer = decode utf8 => single_param('answer');
 my $actual = decode utf8 => single_param('actual');
 my $points = decode utf8 => single_param('points');
 
-open(my $OUT, ">>", "/srv/sugar/logs/sugar_log");
+my $current_year = (localtime())[5] + 1900;
+open(my $OUT, ">>", $BASE_DIRS{PRIVATE_DATA} . "/${current_year}_sugar_log");
 print $OUT remote_addr() . "\t"
 	. time() . "\t"
 	. $product . "\t"
