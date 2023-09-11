@@ -1961,6 +1961,7 @@ sub convert_gs1_xml_file_to_json ($xml_file, $json_file) {
 	open(my $out, ">:encoding(UTF-8)", $json_file) or die("Could not write $json_file: $!");
 	print $out $json;
 	close($out);
+	return;
 }
 
 1;
