@@ -37,7 +37,8 @@ use ProductOpener::Paths qw/:all/;
 
 # this script is used by howmuchsugar to redirect to a new product randomly
 
-my $ids_ref = lock_retrieve($BASE_DIRS{PUBLIC_DATA} . "/products_ids.sto");
+my $ids_ref = lock_retrieve($BASE_DIRS{PRIVATE_DATA} . "/sugar/products_ids.sto")
+	or die("Cannot open sugar/products_ids.sto");
 my @ids = @$ids_ref;
 
 srand();
