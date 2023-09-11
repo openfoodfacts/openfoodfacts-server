@@ -280,9 +280,39 @@ Normalized version of the code
 sub normalize_code ($code) {
 
 	if (defined $code) {
-		my $gs1_code = _try_normalize_code_gs1($code);
+		my ($gs1_code, $gs1_ai_data_str) = &normalize_code_with_gs1_ai($code);
 		if ($gs1_code) {
 			$code = $gs1_code;
+		}
+	}
+	return $code;
+}
+
+=head2 normalize_code_with_gs1_ai()
+
+C<normalize_code_with_gs1_ai()> this function normalizes the product code by:
+- running the given code through normalization method provided by GS1 to format a GS1 data string, or data URI to a GTIN,
+- keeping only digits and removing spaces/dashes etc.,
+- normalizing the length by adding leading zeroes or removing the leading zero (in case of 14 digit codes)
+
+=head3 Arguments
+
+Product Code in the Raw form: $code
+
+=head3 Return Values
+
+Normalized version of the code, and GS1 AI data string of the code, if a valid GS1 string was given as the argument
+
+=cut
+
+sub normalize_code_with_gs1_ai ($code) {
+
+	my $ai_data_str;
+	if (defined $code) {
+		my ($gs1_code, $gs1_ai_data_str) = &_try_normalize_code_gs1($code);
+		if ($gs1_code and $gs1_ai_data_str) {
+			$code = $gs1_code;
+			$ai_data_str = $gs1_ai_data_str;
 		}
 
 		# Keep only digits, remove spaces, dashes and everything else
@@ -308,7 +338,7 @@ sub normalize_code ($code) {
 			$code = $';
 		}
 	}
-	return $code;
+	return ($code, $ai_data_str);
 }
 
 sub _try_normalize_code_gs1 ($code) {
@@ -346,11 +376,12 @@ sub _try_normalize_code_gs1 ($code) {
 	};
 	if ($@) {
 		$log->warn("GS1Parser error", {error => $@}) if $log->is_warn();
+		$code = undef;
 		$ai_data_str = undef;
 	}
 
-	if ((defined $ai_data_str) and ($ai_data_str =~ /^\(01\)(\d{1,14})/)) {
-		return $1;
+	if ((defined $code) and (defined $ai_data_str) and ($ai_data_str =~ /^\(01\)(\d{1,14})/)) {
+		return ($1, $ai_data_str);
 	}
 	else {
 		return;

@@ -394,7 +394,7 @@ sub write_product_api ($request_ref) {
 
 		if ($code ne 'test') {
 			# Load the product
-			$code = normalize_requested_code($request_ref->{code}, $response_ref);
+			($code, my $ai_data_string) = &normalize_requested_code($request_ref->{code}, $response_ref);
 
 			# Check if the code is valid
 			if ($code !~ /^\d{4,24}$/) {
