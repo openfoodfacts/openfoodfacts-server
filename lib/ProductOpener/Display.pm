@@ -1208,6 +1208,13 @@ sub display_text ($request_ref) {
 
 	$request_ref->{page_type} = "text";
 
+	if ($textid eq 'open-food-facts-mobile-app') {
+		# we want the mobile app landing page to be included in a <div class="row">
+		# so we display it under the `banner` page format, which is the page format
+		# used on product pages, with a colored banner on top
+		$request_ref->{page_format} = "banner";
+	}
+
 	my $text_lang = $lang;
 
 	# if a page does not exist in the local language, use the English version
@@ -4944,7 +4951,6 @@ Requested page (first page starts at 1).
 sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $page) {
 
 	$request_ref->{page_type} = "products";
-	$request_ref->{page_format} = "full_width";
 
 	# Flag that indicates whether we cache MongoDB results in Memcached
 	# Caching is disabled for crawling bots, as they tend to explore
