@@ -3,7 +3,6 @@ map $host $howmuchsugar_name {
 
 	default       howmuchsugar;
 	combiendesucre.fr combiendesucre;
-
 }
 
 server {
@@ -14,8 +13,8 @@ server {
 
 	include /etc/nginx/snippets/expires-no-json-xml.conf;
 
-	access_log /srv/sugar/logs/nginx.howmuchsugar.access.log proxied_requests;
-	error_log /srv/sugar/logs/nginx.howmuchsugar.error.log;
+	access_log /var/log/nginx/nginx.howmuchsugar.access.log proxied_requests;
+	error_log /var/log/nginx/nginx.howmuchsugar.error.log;
 
 	gzip on;
 	gzip_min_length 1000;
@@ -59,6 +58,7 @@ server {
 		proxy_set_header Host $host;
 		proxy_set_header X-Real-IP $remote_addr;
 		proxy_set_header       X-Forwarded-For $proxy_add_x_forwarded_for;
-		proxy_pass http://127.0.0.1:8001;
+		proxy_set_header X-Site-Name $howmuchsugar_name;
+		proxy_pass http://127.0.0.1:8004;
 	}
 }

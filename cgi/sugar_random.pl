@@ -37,7 +37,14 @@ use ProductOpener::Paths qw/:all/;
 
 # this script is used by howmuchsugar to redirect to a new product randomly
 
-my $ids_ref = lock_retrieve($BASE_DIRS{PRIVATE_DATA} . "/sugar/products_ids.sto")
+my $r = shift;
+
+my %name_to_lang = ("combiendesucres" => "fr", "howmuchsugar" => "en");
+# read site name in apache provided header
+my $site_name = $r->header_in('X-Site-Name');
+my $lang = $name_to_lang{$site_name} // 'en';
+
+my $ids_ref = lock_retrieve($BASE_DIRS{PRIVATE_DATA} . "/sugar/$lang/products_ids.sto")
 	or die("Cannot open sugar/products_ids.sto");
 my @ids = @$ids_ref;
 
@@ -48,7 +55,6 @@ my @shuffle = shuffle(@ids);
 my $id = pop(@shuffle);
 
 $log->info("random ids sampled", {ids => scalar(@ids), id => $id}) if $log->is_info();
-my $r = shift;
 
 $r->headers_out->set(Location => "/$id");
 $r->headers_out->set(Pragma => "no-cache");
