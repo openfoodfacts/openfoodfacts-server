@@ -18,13 +18,15 @@ my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init
 
 my $input_dir = "$test_dir/inputs/$test_id";
 
+my $tmp_dir = File::Temp->newdir();
+
 opendir(my $dh, $input_dir) or die("Could not open the $input_dir directory: $!\n");
 
 foreach my $file (sort(readdir($dh))) {
 
 	next if $file !~ /\.xml$/;
 	my $file = $`;    # remove xml extension
-	my $json_file = "$input_dir/$file.json";
+	my $json_file = "$tmp_dir/$file.json";
 
 	convert_gs1_xml_file_to_json("$input_dir/$file.xml", $json_file);
 
@@ -62,8 +64,6 @@ foreach my $file (sort(readdir($dh))) {
 			$products_ref, "$expected_result_dir/$file.products.json",
 			$update_expected_results, {desc => "convert GS1 json to OFF: $file"}
 		);
-
-		unlink($json_file);
 	}
 	else {
 		fail("Could not read $json_file");
