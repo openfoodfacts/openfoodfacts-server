@@ -29,9 +29,8 @@ foreach my $file (sort(readdir($dh))) {
 	convert_gs1_xml_file_to_json("$input_dir/$file.xml", $json_file);
 
 	if (open(my $json_fh, "<:encoding(UTF-8)", $json_file)) {
-		local $/;    #Enable 'slurp' mode
 		my $json = JSON->new->allow_nonref->canonical;
-		my $json_ref = $json->decode(<$json_fh>);
+		my $json_ref = $json->decode(join("", <$json_fh>));
 
 		# First we compare the GS1 JSON to our expected results
 		# the exact format of the JSON varies depending on whether it was generated with the Perl GS1.Pm module
