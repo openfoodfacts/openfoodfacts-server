@@ -263,8 +263,9 @@ sub assign_new_code() {
 =head2 normalize_code()
 
 C<normalize_code()> this function normalizes the product code by:
-- Keeps only digits and removes spaces/dashes etc.
-- Normalizes the length by adding leading zeroes or removing the leading zero (in case of 14 digit codes)
+- running the given code through normalization method provided by GS1 to format a GS1 data string, or data URL to a GTIN,
+- keeping only digits and removing spaces/dashes etc.,
+- normalizing the length by adding leading zeroes or removing the leading zero (in case of 14 digit codes)
 
 =head3 Arguments
 
