@@ -22,6 +22,10 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+# Script used to prettify a JSON file in the same way we use for expected outputs in tests.
+
+# Used to convert JSON files from convert_gs1_xml_to_json.js (without spaces or line breaks)
+
 use strict;
 use utf8;
 use warnings;
@@ -36,10 +40,30 @@ if (not defined $dir) {
 
 opendir(my $dh, $dir) or die("Could not open the $dir directory: $!\n");
 
+my $json = JSON->new->allow_nonref->canonical;
+
 foreach my $file (sort(readdir($dh))) {
 
-	next if $file !~ /\.xml$/;
-	$file = $`;    # remove xml extension
+	next if $file !~ /\.json$/;
 
-	convert_gs1_xml_file_to_json("dir/$file.xml", "dir/$file.json");
+	if (open(my $json_in, "<:encoding(UTF-8)", "$dir/$file")) {
+
+		local $/;    #Enable 'slurp' mode
+		my $json_ref = $json->decode(<$json_in>);
+
+		close($json_in);
+
+		if (open(my $json_out, ">:encoding(UTF-8)", "$dir/$file")) {
+			my $pretty_json = $json->pretty->encode($json_ref);
+			print $json_out $pretty_json;
+			close($json_out);
+		}
+		else {
+			print STDERR "could not write $dir/$file: $!\n";
+		}
+	}
+	else {
+		print STDERR "could not read $dir/$file: $!\n";
+	}
 }
+
