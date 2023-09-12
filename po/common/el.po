@@ -29,7 +29,7 @@ msgstr "Προσθέστε"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr ""
+msgstr "Προσθήκη γλώσσας"
 
 msgctxt "add_product"
 msgid "Add a product"
@@ -49,35 +49,35 @@ msgstr ""
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
-msgstr ""
+msgstr "Σας ευχαριστούμε για τη συμμετοχή σας!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
-msgstr ""
+msgstr "Τώρα μπορείτε να προσθέσετε και να επεξεργαστείτε προϊόντα στο διαδίκτυο ή με τη δωρεάν <a href=\"%s\">εφαρμογή για κινητά</a>."
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Ελάτε μαζί μας στο Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr ""
+msgstr "Το %s είναι ένα συνεργατικό εγχείρημα στο οποίο μπορείτε να προσφέρετε πολλά περισσότερα από νέα προϊόντα: την ενέργεια, τον ενθουσιασμό και τις ιδέες σας!"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
+msgstr "Χρησιμοποιούμε ένα σύστημα συζήτησης που ονομάζεται Slack όπου όλοι οι συμμετέχοντες στο εγχείρημα μπορούν να συνδιαλέγονται και να συνεργάζονται. Παρακαλώ εγγραφείτε! Θα χαρούμε να σας γνωρίσουμε!"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
-msgstr ""
+msgstr "Τώρα μπορείτε εύκολα να εισαγάγετε τα δεδομένα του προϊόντος και τις φωτογραφίες σας."
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
-msgstr ""
+msgstr "Τώρα μπορείτε να προσθέσετε και να επεξεργαστείτε τα προϊόντα σας και να εισαγάγετε τα δεδομένα και τις φωτογραφίες τους στην δωρεάν πλατφόρμα <a href=\"%s\">για τους παραγωγούς</a>."
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
-msgstr ""
+msgstr "Υπάρχει ήδη ένας οργανισμός με το όνομα %s."
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
@@ -113,6 +113,10 @@ msgstr ""
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
+msgstr ""
+
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
 msgstr ""
 
 msgctxt "f_this_is_a_pro_account_for_org"
@@ -972,6 +976,10 @@ msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr ""
 
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr ""
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Προϊόντα που προσθέσατε και απαιτούν συμπλήρωση"
@@ -1091,7 +1099,7 @@ msgstr ""
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/gr/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -4534,7 +4542,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
-msgstr ""
+msgstr "Πολύ καλή διατροφική ποιότητα"
 
 msgctxt "attribute_nutriscore_b_description_short"
 msgid "Good nutritional quality"
@@ -4753,7 +4761,7 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_b_description_short"
 msgid "Low environmental impact"
-msgstr ""
+msgstr "Χαμηλό περιβαλλοντικό αντίκτυπο"
 
 msgctxt "attribute_ecoscore_c_description_short"
 msgid "Moderate environmental impact"
@@ -6537,6 +6545,14 @@ msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
 msgstr ""
 
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr ""
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr ""
+
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
 msgstr ""
@@ -6583,5 +6599,29 @@ msgstr ""
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
+msgstr ""
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr ""
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr ""
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr ""
+
+msgctxt "weight"
+msgid "Weight"
+msgstr ""
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr ""
+
+msgctxt "weight_percent"
+msgid "Weight percent"
 msgstr ""
 

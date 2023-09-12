@@ -115,6 +115,10 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Angiv navnet på din organisation (firmanavn eller varemærke)."
 
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr "Indtast e-mailadresser på brugere der skal inviteres (kommasepareret):"
+
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 msgstr "Dette er en professionel konto tilknyttet producenten eller mærket {org}. Du har adgang til producentplatformen."
@@ -974,6 +978,10 @@ msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr "Fotodetaljer og tilskrivningsoplysninger"
 
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr "Inviter bruger(e)"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Produkter tilføjet af dig, som mangler udfyldelse"
@@ -1093,7 +1101,7 @@ msgstr "Tilgængelig i App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/dk/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -6550,6 +6558,14 @@ msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
 msgstr "Angiv en værdi mellem 0 og {max}."
 
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr "Bed venligst følgende brugere om at oprette en Open Food Facts-konto først:"
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr "Brugere føjet til organisationen:"
+
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
 msgstr "Sukker bør ikke være højere end kulhydrater."
@@ -6597,4 +6613,28 @@ msgstr ""
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "i forhold til alle produkter"
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr ""
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr ""
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr ""
+
+msgctxt "weight"
+msgid "Weight"
+msgstr ""
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr ""
+
+msgctxt "weight_percent"
+msgid "Weight percent"
+msgstr ""
 
