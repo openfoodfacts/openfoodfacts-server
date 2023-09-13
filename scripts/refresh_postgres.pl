@@ -20,10 +20,6 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# This script expects nginx access logs on STDIN
-# filtered by the app:
-# grep "Official Android App" nginx.access2.log | grep Scan > android_app.log
-
 use Modern::Perl '2017';
 
 use ProductOpener::Config qw/:all/;
