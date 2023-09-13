@@ -5114,66 +5114,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		my $cursor;
 		eval {
-			$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
-			# test if query_ref is empty
-			if (single_param('no_count')) {
-				# Skip the count if it is not needed
-				# e.g. for some API queries
-				$log->debug("no_count is set, skipping count") if $log->is_debug();
-			}
-			elsif (keys %{$query_ref} > 0) {
-				#check if count results is in cache
-				my $key_count = generate_cache_key("search_products_count", $query_ref);
-				$log->debug("MongoDB query key - search_products_count", {key => $key_count}) if $log->is_debug();
-				my $results_count = get_cache_results($key_count, $request_ref);
-				if (not defined $results_count) {
-
-					$log->debug("count not in cache for query", {key => $key_count}) if $log->is_debug();
-
-					# Count queries are very expensive, if possible, execute them on the postgres cache
-					if (can_use_query_cache()) {
-						$count = execute_count_tags_query($query_ref);
-					}
-
-					if (not defined $count) {
-						$count = execute_query(
-							sub {
-								$log->debug("count_documents on complete products collection", {key => $key_count})
-									if $log->is_debug();
-								return get_products_collection(get_products_collection_request_parameters($request_ref))
-									->count_documents($query_ref);
-							}
-						);
-					}
-
-					if ($@) {
-						$log->warn("MongoDB error during count", {error => $@}) if $log->is_warn();
-					}
-					elsif ($cache_results_flag) {
-						$log->debug("count query complete, setting cache", {key => $key_count, count => $count})
-							if $log->is_debug();
-						set_cache_results($key_count, $count);
-					}
-				}
-				else {
-					# Cached result
-					$count = $results_count;
-					$log->debug("count in cache for query", {key => $key_count, count => $count})
-						if $log->is_debug();
-				}
-			}
-			else {
-				# if query_ref is empty (root URL world.openfoodfacts.org) use estimated_document_count for better performance
-				$count = execute_query(
-					sub {
-						$log->debug("empty query_ref, use estimated_document_count fot better performance", {})
-							if $log->is_debug();
-						return get_products_collection(get_products_collection_request_parameters($request_ref))
-							->estimated_document_count();
-					}
-				);
-			}
-			$log->info("MongoDB count query done", {error => $@, count => $count}) if $log->is_info();
+			$count = estimate_result_count($request_ref, $query_ref);
 
 			$log->debug("Executing MongoDB query",
 				{query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip})
@@ -5462,6 +5403,83 @@ JS
 	process_template('web/common/includes/list_of_products.tt.html', $template_data_ref, \$html)
 		|| return "template error: " . $tt->error();
 	return $html;
+}
+
+=head2 estimate_result_count( $request_ref , $query_ref )
+
+Works out the expected number of results for a given query
+Uses the Postgres cache if approriate
+
+=cut
+
+sub estimate_result_count($request_ref, $query_ref) {
+	my $count;
+	my $err;
+
+	$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
+	# test if query_ref is empty
+	if (single_param('no_count')) {
+		# Skip the count if it is not needed
+		# e.g. for some API queries
+		$log->debug("no_count is set, skipping count") if $log->is_debug();
+	}
+	elsif (keys %{$query_ref} > 0) {
+		#check if count results is in cache
+		my $key_count = generate_cache_key("search_products_count", $query_ref);
+		$log->debug("MongoDB query key - search_products_count", {key => $key_count}) if $log->is_debug();
+		$count = get_cache_results($key_count, $request_ref);
+		if (not defined $count) {
+
+			$log->debug("count not in cache for query", {key => $key_count}) if $log->is_debug();
+
+			# Count queries are very expensive, if possible, execute them on the postgres cache
+			if (can_use_query_cache()) {
+				$count = execute_count_tags_query($query_ref);
+				$err = $@;
+			}
+
+			if (not defined $count) {
+				$count = execute_query(
+					sub {
+						$log->debug("count_documents on complete products collection", {key => $key_count})
+							if $log->is_debug();
+						return get_products_collection(get_products_collection_request_parameters($request_ref))
+							->count_documents($query_ref);
+					}
+				);
+				$err = $@;
+				if ($err) {
+					$log->warn("MongoDB error during count", {error => $err}) if $log->is_warn();
+				}
+			}
+
+			if ((defined $count) and $cache_results_flag) {
+				$log->debug("count query complete, setting cache", {key => $key_count, count => $count})
+					if $log->is_debug();
+				set_cache_results($key_count, $count);
+			}
+		}
+		else {
+			# Cached result
+			$log->debug("count in cache for query", {key => $key_count, count => $count})
+				if $log->is_debug();
+		}
+	}
+	else {
+		# if query_ref is empty (root URL world.openfoodfacts.org) use estimated_document_count for better performance
+		$count = execute_query(
+			sub {
+				$log->debug("empty query_ref, use estimated_document_count fot better performance", {})
+					if $log->is_debug();
+				return get_products_collection(get_products_collection_request_parameters($request_ref))
+					->estimated_document_count();
+			}
+		);
+		$err = $@;
+	}
+	$log->info("Count query done", {error => $err, count => $count}) if $log->is_info();
+
+	return $count;
 }
 
 =head2 display_pagination( $request_ref , $count , $limit , $page )
