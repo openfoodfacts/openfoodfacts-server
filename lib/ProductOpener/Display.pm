@@ -1434,9 +1434,7 @@ sub get_cache_results ($key, $request_ref) {
 
 	my $results;
 
-	# TODO: This is just for testing. Need to remove later
-	return $results;
-	$log->debug("MongoDB hashed query key", {key => $key}) if $log->is_debug();
+		$log->debug("MongoDB hashed query key", {key => $key}) if $log->is_debug();
 
 	# disable caching if ?no_cache=1
 	# or if the user is logged in and no_cache is different from 0
