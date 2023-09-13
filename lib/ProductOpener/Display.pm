@@ -1442,7 +1442,7 @@ sub get_cache_results ($key, $request_ref) {
 
 	my $results;
 
-		$log->debug("MongoDB hashed query key", {key => $key}) if $log->is_debug();
+	$log->debug("MongoDB hashed query key", {key => $key}) if $log->is_debug();
 
 	# disable caching if ?no_cache=1
 	# or if the user is logged in and no_cache is different from 0
@@ -5158,7 +5158,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		my $cursor;
 		eval {
-			$count = estimate_result_count($request_ref, $query_ref);
+			$count = estimate_result_count($request_ref, $query_ref, $cache_results_flag);
 
 			$log->debug("Executing MongoDB query",
 				{query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip})
@@ -5449,14 +5449,7 @@ JS
 	return $html;
 }
 
-=head2 estimate_result_count( $request_ref , $query_ref )
-
-Works out the expected number of results for a given query
-Uses the Postgres cache if approriate
-
-=cut
-
-sub estimate_result_count($request_ref, $query_ref) {
+sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 	my $count;
 	my $err;
 
