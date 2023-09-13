@@ -1613,14 +1613,15 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 				# and v1.4.5 of the perl MongoDB module
 				$results = [$results->all] if defined $results;
 			};
-			if ($@) {
-				$log->warn("MongoDB error", {error => $@}) if $log->is_warn();
+			my $err = $@;
+			if ($err) {
+				$log->warn("MongoDB error", {error => $err}) if $log->is_warn();
 			}
 			else {
-				$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
+				$log->info("MongoDB query ok", {error => $err}) if $log->is_info();
 			}
 
-			$log->debug("MongoDB query done", {error => $@}) if $log->is_debug();
+			$log->debug("MongoDB query done", {error => $err}) if $log->is_debug();
 		}
 
 		$log->trace("aggregate query done") if $log->is_trace();
@@ -1681,7 +1682,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 				}
 			}
 
-			if ((not $@) and (defined $count_results)) {
+			if (defined $count_results) {
 				$request_ref->{structured_response}{count} = $count_results->{$groupby_tagtype . "_tags"};
 
 				if ($cache_results_flag) {
