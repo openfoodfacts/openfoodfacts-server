@@ -96,6 +96,7 @@ my $tests_ref = [
 			nutriment_sugars => '12.5',
 		},
 		expected_type => "html",
+		expected_status_code => 403,
 	},
 	{
 		test_case => 'get-product-auth-bad-user-password',

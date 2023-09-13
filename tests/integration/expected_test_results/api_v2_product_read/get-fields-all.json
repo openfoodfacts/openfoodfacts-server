@@ -638,6 +638,7 @@
       "ingredients_hierarchy" : [
          "en:apple",
          "en:fruit",
+         "en:malaceous-fruit",
          "en:milk",
          "en:dairy",
          "en:egg",
@@ -662,6 +663,7 @@
       "ingredients_tags" : [
          "en:apple",
          "en:fruit",
+         "en:malaceous-fruit",
          "en:milk",
          "en:dairy",
          "en:egg",
@@ -686,7 +688,7 @@
       "ingredients_without_ciqual_codes_n" : 1,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
-      "known_ingredients_n" : 9,
+      "known_ingredients_n" : 10,
       "labels" : "organic",
       "labels_hierarchy" : [
          "en:organic"
@@ -730,6 +732,7 @@
          "en:nutriscore-not-computed",
          "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
          "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+         "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
          "en:packagings-number-of-components-4",
          "en:packagings-not-complete",
          "en:packagings-not-empty-but-not-complete",
@@ -763,6 +766,8 @@
       "nutrient_levels" : {},
       "nutrient_levels_tags" : [],
       "nutriments" : {
+         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 25,
+         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 25,
          "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25,
          "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 25,
          "nova-group" : 3,
@@ -831,6 +836,8 @@
       ],
       "nutrition_score_beverage" : 0,
       "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 25,
       "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
       "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 25,
       "nutrition_score_warning_no_fiber" : 1,

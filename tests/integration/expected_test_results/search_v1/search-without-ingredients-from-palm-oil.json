@@ -463,6 +463,7 @@
          "ingredients_hierarchy" : [
             "en:apple",
             "en:fruit",
+            "en:malaceous-fruit",
             "en:milk",
             "en:dairy",
             "en:egg",
@@ -487,6 +488,7 @@
          "ingredients_tags" : [
             "en:apple",
             "en:fruit",
+            "en:malaceous-fruit",
             "en:milk",
             "en:dairy",
             "en:egg",
@@ -511,7 +513,7 @@
          "ingredients_without_ciqual_codes_n" : 1,
          "interface_version_created" : "20150316.jqm2",
          "interface_version_modified" : "20150316.jqm2",
-         "known_ingredients_n" : 9,
+         "known_ingredients_n" : 10,
          "lang" : "en",
          "languages" : {
             "en:english" : 5
@@ -547,6 +549,7 @@
             "en:nutriscore-not-computed",
             "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
             "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+            "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
             "en:packagings-number-of-components-3",
             "en:packagings-not-complete",
             "en:packagings-not-empty-but-not-complete",
@@ -568,6 +571,8 @@
          "nutrient_levels" : {},
          "nutrient_levels_tags" : [],
          "nutriments" : {
+            "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 25,
+            "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 25,
             "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25,
             "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 25,
             "nova-group" : 1,
@@ -636,6 +641,8 @@
          ],
          "nutrition_score_beverage" : 0,
          "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+         "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+         "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 25,
          "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
          "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 25,
          "nutrition_score_warning_no_fiber" : 1,
@@ -1191,6 +1198,7 @@
             "en:nutriscore-not-computed",
             "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
             "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+            "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
             "en:packagings-number-of-components-0",
             "en:packagings-not-complete",
             "en:packagings-empty",
@@ -1209,6 +1217,8 @@
          "nutrient_levels" : {},
          "nutrient_levels_tags" : [],
          "nutriments" : {
+            "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 50,
+            "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 50,
             "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50,
             "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 50,
             "nova-group" : 1,
@@ -1277,6 +1287,8 @@
          ],
          "nutrition_score_beverage" : 0,
          "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+         "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+         "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 50,
          "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
          "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 50,
          "nutrition_score_warning_no_fiber" : 1,
@@ -1773,6 +1785,7 @@
          "ingredients_hierarchy" : [
             "en:apple",
             "en:fruit",
+            "en:malaceous-fruit",
             "en:milk",
             "en:dairy",
             "en:egg"
@@ -1792,6 +1805,7 @@
          "ingredients_tags" : [
             "en:apple",
             "en:fruit",
+            "en:malaceous-fruit",
             "en:milk",
             "en:dairy",
             "en:egg"
@@ -1812,7 +1826,7 @@
          "ingredients_without_ciqual_codes_n" : 1,
          "interface_version_created" : "20150316.jqm2",
          "interface_version_modified" : "20150316.jqm2",
-         "known_ingredients_n" : 5,
+         "known_ingredients_n" : 6,
          "lang" : "en",
          "languages" : {
             "en:english" : 4
@@ -1848,6 +1862,7 @@
             "en:nutriscore-not-computed",
             "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
             "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+            "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
             "en:packagings-number-of-components-0",
             "en:packagings-not-complete",
             "en:packagings-empty",
@@ -1868,6 +1883,8 @@
          "nutrient_levels" : {},
          "nutrient_levels_tags" : [],
          "nutriments" : {
+            "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 33.3333333333333,
+            "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 33.3333333333333,
             "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 33.3333333333333,
             "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 33.3333333333333,
             "nova-group" : 1,
@@ -1936,6 +1953,8 @@
          ],
          "nutrition_score_beverage" : 0,
          "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+         "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+         "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 33.3333333333333,
          "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
          "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 33.3333333333333,
          "nutrition_score_warning_no_fiber" : 1,
@@ -2399,6 +2418,7 @@
          "ingredients_hierarchy" : [
             "en:apple",
             "en:fruit",
+            "en:malaceous-fruit",
             "en:water",
             "en:palm-oil",
             "en:oil-and-fat",
@@ -2420,6 +2440,7 @@
          "ingredients_tags" : [
             "en:apple",
             "en:fruit",
+            "en:malaceous-fruit",
             "en:water",
             "en:palm-oil",
             "en:oil-and-fat",
@@ -2440,7 +2461,7 @@
          "ingredients_without_ciqual_codes_n" : 0,
          "interface_version_created" : "20150316.jqm2",
          "interface_version_modified" : "20150316.jqm2",
-         "known_ingredients_n" : 7,
+         "known_ingredients_n" : 8,
          "lang" : "es",
          "languages" : {
             "en:english" : 4
@@ -2477,6 +2498,7 @@
             "en:nutriscore-computed",
             "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
             "en:nutrition-all-nutriscore-values-known",
+            "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
             "en:nutriscore-2021-same-as-2023",
             "en:nutriscore-2021-d-2023-d",
             "en:packagings-number-of-components-0",
@@ -2497,6 +2519,8 @@
          "nutrient_levels" : {},
          "nutrient_levels_tags" : [],
          "nutriments" : {
+            "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 33.3333333333333,
+            "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 33.3333333333333,
             "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 33.3333333333333,
             "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 33.3333333333333,
             "nova-group" : 1,
@@ -2687,6 +2711,8 @@
          ],
          "nutrition_score_beverage" : 0,
          "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+         "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+         "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 33.3333333333333,
          "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
          "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 33.3333333333333,
          "nutrition_score_warning_nutriments_estimated" : 1,
@@ -3302,6 +3328,7 @@
          "ingredients_hierarchy" : [
             "en:apple",
             "en:fruit",
+            "en:malaceous-fruit",
             "en:water"
          ],
          "ingredients_lc" : "en",
@@ -3318,6 +3345,7 @@
          "ingredients_tags" : [
             "en:apple",
             "en:fruit",
+            "en:malaceous-fruit",
             "en:water"
          ],
          "ingredients_text" : "apple, water",
@@ -3334,7 +3362,7 @@
          "ingredients_without_ciqual_codes_n" : 0,
          "interface_version_created" : "20150316.jqm2",
          "interface_version_modified" : "20150316.jqm2",
-         "known_ingredients_n" : 3,
+         "known_ingredients_n" : 4,
          "lang" : "es",
          "languages" : {
             "en:english" : 5
@@ -3371,6 +3399,7 @@
             "en:nutriscore-computed",
             "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
             "en:nutrition-all-nutriscore-values-known",
+            "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
             "en:nutriscore-2021-different-from-2023",
             "en:nutriscore-2021-better-than-2023",
             "en:nutriscore-2021-a-2023-b",
@@ -3399,6 +3428,8 @@
          "nutrient_levels" : {},
          "nutrient_levels_tags" : [],
          "nutriments" : {
+            "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 50,
+            "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 50,
             "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50,
             "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 50,
             "nova-group" : 1,
@@ -3590,6 +3621,8 @@
          ],
          "nutrition_score_beverage" : 0,
          "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+         "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+         "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 50,
          "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
          "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 50,
          "nutrition_score_warning_nutriments_estimated" : 1,
@@ -4223,6 +4256,7 @@
          "ingredients_hierarchy" : [
             "en:apple",
             "en:fruit",
+            "en:malaceous-fruit",
             "en:water"
          ],
          "ingredients_lc" : "en",
@@ -4239,6 +4273,7 @@
          "ingredients_tags" : [
             "en:apple",
             "en:fruit",
+            "en:malaceous-fruit",
             "en:water"
          ],
          "ingredients_text" : "apple, water",
@@ -4255,7 +4290,7 @@
          "ingredients_without_ciqual_codes_n" : 0,
          "interface_version_created" : "20150316.jqm2",
          "interface_version_modified" : "20150316.jqm2",
-         "known_ingredients_n" : 3,
+         "known_ingredients_n" : 4,
          "lang" : "en",
          "languages" : {
             "en:english" : 4
@@ -4292,6 +4327,7 @@
             "en:nutriscore-computed",
             "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
             "en:nutrition-all-nutriscore-values-known",
+            "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
             "en:nutriscore-2021-different-from-2023",
             "en:nutriscore-2021-better-than-2023",
             "en:nutriscore-2021-a-2023-b",
@@ -4320,6 +4356,8 @@
          "nutrient_levels" : {},
          "nutrient_levels_tags" : [],
          "nutriments" : {
+            "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 50,
+            "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 50,
             "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50,
             "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 50,
             "nova-group" : 1,
@@ -4511,6 +4549,8 @@
          ],
          "nutrition_score_beverage" : 0,
          "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+         "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+         "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 50,
          "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
          "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 50,
          "nutrition_score_warning_nutriments_estimated" : 1,

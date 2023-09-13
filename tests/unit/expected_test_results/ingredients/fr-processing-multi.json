@@ -81,6 +81,7 @@
    "ingredients_hierarchy" : [
       "en:peeled-tomatoes",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:tomato",
       "en:lemon",
       "en:fruit",
@@ -114,6 +115,7 @@
    "ingredients_tags" : [
       "en:peeled-tomatoes",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:tomato",
       "en:lemon",
       "en:fruit",
@@ -140,9 +142,11 @@
       "en:raw-milk"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
-   "known_ingredients_n" : 17,
+   "known_ingredients_n" : 18,
    "lc" : "fr",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 16.6666666666667,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 16.6666666666667,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 16.6666666666667,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 16.6666666666667
    },

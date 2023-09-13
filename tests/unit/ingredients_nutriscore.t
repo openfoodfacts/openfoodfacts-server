@@ -43,7 +43,9 @@ my @tests = (
 			ingredients_text =>
 				"Courgette grillée 37,5%, tomate pelée 20%, poivron jaune 17%, oignon rouge grillé 8%, eau, huile d'olive vierge extra 3,9%, oignon, olive noire entière dénoyautée saumurée 2,5% (olive, eau, sel, correcteurs d'acidité : acide citrique, acide lactique), ail, basilic 0,9%, amidon de riz, sel"
 		},
-		89.8
+		# add_fruit() currently matches "olive noire entière dénoyautée saumurée 2,5% (..)" to 2.5% fruit, even though it has sub-ingredients that are not fruits
+		# TODO: investigate on actual product data to see if trying to fix this would have more true positives than false positives
+		92.3
 	],
 );
 
@@ -67,7 +69,7 @@ foreach my $test_ref (@tests) {
 # test the estimate percent of milk
 
 @tests = (
-	[{lc => "fr", ingredients_text => ""}, 0],
+	[{lc => "fr", ingredients_text => ""}, undef],
 	[{lc => "fr", ingredients_text => "lait"}, 100],
 	[{lc => "fr", ingredients_text => "lait entier"}, 100],
 	[{lc => "fr", ingredients_text => "lait frais"}, 100],
@@ -87,7 +89,7 @@ foreach my $test_ref (@tests) {
 
 	extract_ingredients_from_text($product_ref);
 
-	is(estimate_milk_percent_from_ingredients($product_ref), $expected_milk)
+	is(estimate_nutriscore_2021_milk_percent_from_ingredients($product_ref), $expected_milk)
 		or diag explain $product_ref->{ingredients};
 }
 

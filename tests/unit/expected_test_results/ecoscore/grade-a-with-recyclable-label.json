@@ -460,6 +460,7 @@
    "ingredients_hierarchy" : [
       "en:aubergine",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:potato",
       "en:root-vegetable",
       "en:tuber",
@@ -482,6 +483,7 @@
    "ingredients_tags" : [
       "en:aubergine",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:potato",
       "en:root-vegetable",
       "en:tuber",
@@ -497,7 +499,7 @@
    "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "known_ingredients_n" : 9,
+   "known_ingredients_n" : 10,
    "labels_tags" : [
       "en:eu-organic"
    ],
@@ -513,6 +515,8 @@
       "en:ecoscore-grade-changed"
    ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 60,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 60,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 61,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 61
    },
