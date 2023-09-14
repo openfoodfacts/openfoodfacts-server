@@ -1,5 +1,12 @@
 #!/bin/sh
 
+>&2 echo "FIX this script before running it
+- remove php
+- load pathes from perl and use them
+- eventually use timestamp to determine which file to import
+"
+exit(1)
+
 cd /srv/off/imports/fleurymichon/images
 
 php ExportOpenFoodFacts.php

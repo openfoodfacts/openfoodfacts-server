@@ -1,5 +1,17 @@
 #!/bin/sh
 
+# do not continue on failure
+set -e
+
+# load utils
+. scripts/imports/imports_utils.sh
+
+# this script must be launch from server root (/srv/off-pro)
+export PERL5LIB=lib/ProductOpener:$PERL5LIB
+
+# load paths
+. <(perl -e 'use ProductOpener::Paths qw/:all/; print base_paths_loading_script()')
+
 SCRIPT_DIR=$(dirname "$0")
 SCRIPT_DIR=$(realpath $SCRIPT_DIR)
 

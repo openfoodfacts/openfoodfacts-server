@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
 # Equadis import
-./scripts/equadis-import/run_equadis_import.sh
+./scripts/imports/equadis/equadis-import/run_equadis_import.sh
 # Agena import
-./scripts/agena3000/run_agena3000_import.sh
+./scripts/imports/agena3000/run_agena3000_import.sh
+# Carrefour
+./scripts/imports/carrefour/import_carrefour.sh
+
+# Export
+./scripts/export_producers_platform_data_to_public_database.sh
