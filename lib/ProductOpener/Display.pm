@@ -2369,7 +2369,7 @@ HTML
 				.= 'var countries_map_links=JSON.parse(' . $json->encode($json->encode($countries_map_links)) . ');'
 				.= 'var countries_map_names=JSON.parse(' . $json->encode($json->encode($countries_map_names)) . ');'
 				.= <<"JS";
-\$('#world-map').vectorMap({
+const map = \$('#world-map').vectorMap({
   map: 'world_mill',
   series: {
     regions: [{
@@ -2393,6 +2393,10 @@ HTML
   },
 });
 
+window.addEventListener("resize", () => {
+	map.updateSize();
+});
+
 JS
 			$scripts .= <<SCRIPTS
 <script src="$static_subdomain/js/dist/jquery-jvectormap.js"></script>
@@ -2405,7 +2409,7 @@ SCRIPTS
 HEADER
 				;
 			my $map_html = <<HTML
-  <div id="world-map" style="width: 600px; height: 400px"></div>
+  <div id="world-map" style="min-width: 250px; max-width: 600px; min-height: 250px; max-height: 400px;"></div>
 
 HTML
 				;
