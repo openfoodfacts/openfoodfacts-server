@@ -1416,6 +1416,7 @@ $section-cyan: #008c8c;
   font-weight: 700;
   // override color as it is not black due to our choice of $dark
   color: $black !important;
+  font-variant-ligatures: none;
 }
 
 
@@ -1429,7 +1430,6 @@ $section-cyan: #008c8c;
   border-radius: 5px;
   text-transform: uppercase;
   display: inline-block;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
 
   &.orange {
     background-color: $off-orange;
@@ -1641,6 +1641,7 @@ a.panel_title {
 #app-landing-page {
   // use Plus Jakarta Sans everywhere
   font-family: "Plus Jakarta Sans", $font-family-sans-serif;
+  font-variant-ligatures: none;
 
   .highlight-label {
   // make the highlighted labels smaller
