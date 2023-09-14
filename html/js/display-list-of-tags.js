@@ -52,11 +52,11 @@ function displayWorldMap(selector, countries) {
             ? `(${products} ${countries_map_data[index]}) ${label}`
             : `${label} (${countries_map_data[index]} ${products})`;
       }
-      tooltip.innerText = label;
+      tooltip.text(label);
     },
     onRegionClick: (_e, code) => {
       if (countries_map_links[code]) {
-        window.location.href = `//${getServerDomain}${countries_map_links[code]}`;
+        window.location.href = `//${getServerDomain()}${countries_map_links[code]}`;
       }
     },
   });
