@@ -37,7 +37,7 @@ function displayWorldMap(selector, countries) {
     map: "world_merc",
     visualizeData: {
       values: countries_map_data,
-      scale: ["#C8EEFF", "#0071A4"]
+      scale: ["#008C8C", "#ff8714"]
     },
     onRegionTooltipShow: (_e, tooltip, index) => {
       let label = countries_map_names[index];

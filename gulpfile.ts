@@ -134,7 +134,6 @@ function copyCss() {
     "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
     "./node_modules/@yaireo/tagify/dist/tagify.css",
     "./node_modules/cropperjs/dist/cropper.css",
-    "./node_modules/jsvectormap/dist/css/jsvectormap.css",
     "./node_modules/select2/dist/css/select2.min.css",
   ]).
     pipe(init()).

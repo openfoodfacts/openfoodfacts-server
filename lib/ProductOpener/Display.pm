@@ -2377,11 +2377,6 @@ JS
 <script src="$static_subdomain/js/dist/display-list-of-tags.js"></script>
 SCRIPTS
 				;
-
-			$header .= <<HEADER
-<link rel="stylesheet" media="all" href="/css/dist/jsvectormap.css">
-HEADER
-				;
 			my $map_html = <<HTML
   <div id="world-map" style="min-width: 250px; max-width: 600px; min-height: 250px; max-height: 400px;"></div>
 
