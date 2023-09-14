@@ -3,6 +3,9 @@
 # do not continue on failure
 set -e
 
+# load utils
+. scripts/imports/imports_utils.sh
+
 # this script must be launch from server root (/srv/off-pro)
 export PERL5LIB=lib/ProductOpener:$PERL5LIB
 
@@ -12,20 +15,11 @@ export PERL5LIB=lib/ProductOpener:$PERL5LIB
 DATA_TMP_DIR=$OFF_CACHE_TMP_DIR/equadis-data
 IMAGES_TMP_DIR=$OFF_CACHE_TMP_DIR/equadis-images
 
-# find last run and deduce how many days to fetch
-if [[ -f "$OFF_PRIVATE_DATA_DIR/equadis-import-success" ]]
-then
-    LAST_TS=$(cat $OFF_PRIVATE_DATA_DIR/equadis-import-success)
-    CURRENT_TS=$(date +%s)
-    DIFF=$(( $CURRENT_TS - $LAST_TS ))
-    # 86400 seconds in a day, +1 because we want upper bound
-    IMPORT_SINCE=$(( $DIFF / 86400 + 1 ))
-else
-    # defaults to one week
-    IMPORT_SINCE=7
-fi
+SUCCESS_FILE_PATH="$OFF_PRIVATE_DATA_DIR/equadis-import-success"
 
-# copy files modified in the last few days
+IMPORT_SINCE=$(import_since $SUCCESS_FILE_PATH)
+
+# copy files modified in the last succesful run
 rm -rf $DATA_TMP_DIR
 mkdir $DATA_TMP_DIR
 find $OFF_SFTP_HOME_DIR/equadis/data/ -mtime -$IMPORT_SINCE -type f -exec cp {} $DATA_TMP_DIR/ \;
@@ -43,4 +37,4 @@ find $OFF_SFTP_HOME_DIR/equadis/data/ -mtime -$IMPORT_SINCE -type f -exec cp {} 
     --define lc=fr --images_download_dir $IMAGES_TMP_DIR --csv_file $DATA_TMP_DIR/equadis-data.tsv  || exit 102
 
 # mark successful run
-echo $(date +%s) > $OFF_PRIVATE_DATA_DIR/equadis-import-success
+mark_successful_run $SUCCESS_FILE_PATH

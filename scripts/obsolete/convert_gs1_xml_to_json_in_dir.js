@@ -1,3 +1,6 @@
+// OBSOLETE: we want to avoid to use NODE for things that can be done in perl
+// use convert_gs1_xml_to_json.pl instead
+
 // This script is used to convert GDSN data from Equadis in XML format
 // to a corresponding JSON structure
 
