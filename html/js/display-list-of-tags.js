@@ -35,14 +35,9 @@ function displayWorldMap(selector, countries) {
   const map = new jsVectorMap({
     selector: selector,
     map: "world_merc",
-    series: {
-      regions: [
-        {
-          values: countries_map_data,
-          scale: ["#C8EEFF", "#0071A4"],
-          normalizeFunction: "polynomial",
-        },
-      ],
+    visualizeData: {
+      values: countries_map_data,
+      scale: ["#C8EEFF", "#0071A4"]
     },
     onRegionTooltipShow: (_e, tooltip, index) => {
       let label = countries_map_names[index];
