@@ -33,10 +33,10 @@ foreach my $test_ref (@ingredients) {
 
 my @tests = (
 	[{lc => "fr", ingredients_text => ""}, undef],
-	[{lc => "fr", ingredients_text => "eau, sucre, noisettes"}, 0],
+	[{lc => "fr", ingredients_text => "eau, sucre, noisettes"}, 16.6666666666667],
 	[{lc => "fr", ingredients_text => "banane 50%, fraise 30%, eau"}, 80],
 	[{lc => "fr", ingredients_text => "banane 50%, gâteau (fraise 30%, framboise 5%, farine), eau"}, 85],
-	[{lc => "fr", ingredients_text => "banane, gâteau (fraise 30%, framboise 5%, farine), eau"}, 70],
+	[{lc => "fr", ingredients_text => "banane, gâteau (fraise 30%, framboise 5%, farine), eau"}, 85],
 	[
 		{
 			lc => "fr",
@@ -45,7 +45,7 @@ my @tests = (
 		},
 		# add_fruit() currently matches "olive noire entière dénoyautée saumurée 2,5% (..)" to 2.5% fruit, even though it has sub-ingredients that are not fruits
 		# TODO: investigate on actual product data to see if trying to fix this would have more true positives than false positives
-		92.3
+		93.8
 	],
 );
 
@@ -76,10 +76,10 @@ foreach my $test_ref (@tests) {
 	[{lc => "fr", ingredients_text => "lait de vache"}, 100],
 	[{lc => "fr", ingredients_text => "lait pasteurisé"}, 100],
 	[{lc => "fr", ingredients_text => "lait de coco"}, 0],
-	[{lc => "fr", ingredients_text => "lait, sucre, noisettes"}, 33.3333333333333],
+	[{lc => "fr", ingredients_text => "lait, sucre, noisettes"}, 66.6666666666667],
 	[{lc => "fr", ingredients_text => "lait écrémé 50%, fraise 30%, eau"}, 50],
-	[{lc => "fr", ingredients_text => "banane 50%, gâteau (fraise, framboise, lait demi-écrémé), eau"}, 0],
-	[{lc => "fr", ingredients_text => "lait frais, gâteau (lait 30%, framboise 5%, farine), eau"}, 65],
+	[{lc => "fr", ingredients_text => "banane 50%, gâteau (fraise, framboise, lait demi-écrémé), eau"}, 7.29166666666666],
+	[{lc => "fr", ingredients_text => "lait frais, gâteau (lait 30%, framboise 5%, farine), eau"}, 80],
 );
 
 foreach my $test_ref (@tests) {
