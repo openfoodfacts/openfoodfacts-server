@@ -78,7 +78,10 @@ foreach my $test_ref (@tests) {
 	[{lc => "fr", ingredients_text => "lait de coco"}, 0],
 	[{lc => "fr", ingredients_text => "lait, sucre, noisettes"}, 66.6666666666667],
 	[{lc => "fr", ingredients_text => "lait écrémé 50%, fraise 30%, eau"}, 50],
-	[{lc => "fr", ingredients_text => "banane 50%, gâteau (fraise, framboise, lait demi-écrémé), eau"}, 7.29166666666666],
+	[
+		{lc => "fr", ingredients_text => "banane 50%, gâteau (fraise, framboise, lait demi-écrémé), eau"},
+		7.29166666666666
+	],
 	[{lc => "fr", ingredients_text => "lait frais, gâteau (lait 30%, framboise 5%, farine), eau"}, 80],
 );
 
