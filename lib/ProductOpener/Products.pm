@@ -66,6 +66,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&normalize_code
+		&normalize_code_with_gs1_ai
 		&assign_new_code
 		&split_code
 		&product_id_for_owner
