@@ -191,7 +191,7 @@ jobs:
           waited=0
           for IMAGE_TYPE in frontend backend
           do
-            image_name=ghcr.io/${{ github.repository }}/$IMAGE_TYPE:${{ env.TAG_NAME }}
+            image_name=ghcr.io/${{ github.repository }}/$IMAGE_TYPE:sha-${{ github.sha }}
             # pull image, eventually waiting for it to be available in ghcr.io
             while ! (docker pull $image_name); do
               sleep 30

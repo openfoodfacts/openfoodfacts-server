@@ -18,11 +18,6 @@ gzip < fr.openfoodfacts.org.products.csv > fr.openfoodfacts.org.products.csv.gz
 
 cd /srv/off/scripts
 
-# Made near me static pages
-./generate_madenearme_page.pl uk en > /srv/off/html/madenearme-uk.html
-./generate_madenearme_page.pl world en > /srv/off/html/madenearme.html
-./generate_madenearme_page.pl fr fr > /srv/off/html/cestemballepresdechezvous.html
-
 # Small products data and images export for Docker dev environments
 # for about 1/10000th of the products contained in production.
 ./export_products_data_and_images.pl --sample-mod 10000,0 --products-file /srv/off/html/exports/products.random-modulo-10000.tar.gz --images-file /srv/off/html/exports/products.random-modulo-10000.images.tar.gz
@@ -34,3 +29,8 @@ zip en.openfoodfacts.org.products.small.csv.zip en.openfoodfacts.org.products.sm
 # Equadis import
 /srv/off-pro/scripts/equadis-import/run_equadis_import.sh
 /srv/off-pro/scripts/agena3000/run_agena3000_import.sh
+
+# Made near me static pages - disabled for now (too slow)
+# ./generate_madenearme_page.pl uk en > /srv/off/html/madenearme-uk.html
+# ./generate_madenearme_page.pl world en > /srv/off/html/madenearme.html
+# ./generate_madenearme_page.pl fr fr > /srv/off/html/cestemballepresdechezvous.html
