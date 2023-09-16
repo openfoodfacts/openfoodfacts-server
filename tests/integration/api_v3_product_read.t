@@ -84,6 +84,12 @@ my $tests_ref = [
 		expected_status_code => 200,
 	},
 	{
+		test_case => 'get-existing-product-gs1-data-uri',
+		method => 'GET',
+		path => '/api/v3/product/https%3A%2F%2Fid.gs1.org%2F01%2F00200000000034%2F10%2FABC%2F21%2F123456%3F17%3D211200',
+		expected_status_code => 200,
+	},
+	{
 		test_case => 'get-specific-fields',
 		method => 'GET',
 		path => '/api/v3/product/200000000034',
