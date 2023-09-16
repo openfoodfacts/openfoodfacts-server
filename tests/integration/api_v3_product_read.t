@@ -60,6 +60,30 @@ my $tests_ref = [
 		expected_status_code => 200,
 	},
 	{
+		test_case => 'get-existing-product-gs1-caret',
+		method => 'GET',
+		path => '/api/v3/product/%5E0100200000000034',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-existing-product-gs1-fnc1',
+		method => 'GET',
+		path => '/api/v3/product/%1D0100200000000034',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-existing-product-gs1-gs',
+		method => 'GET',
+		path => '/api/v3/product/%E2%90%9D0100200000000034',
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'get-existing-product-gs1-ai-data-str',
+		method => 'GET',
+		path => '/api/v3/product/(01)00200000000034',
+		expected_status_code => 200,
+	},
+	{
 		test_case => 'get-specific-fields',
 		method => 'GET',
 		path => '/api/v3/product/200000000034',

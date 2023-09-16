@@ -457,7 +457,6 @@ sub normalize_requested_code ($requested_code, $response_ref) {
 
 	my ($code, $ai_data_str) = &normalize_code_with_gs1_ai($requested_code);
 	$response_ref->{code} = $code;
-	$response_ref->{ai_data_str} = $ai_data_str;
 
 	# Add a warning if the normalized code is different from the requested code
 	if ($code ne $requested_code) {
