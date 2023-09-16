@@ -148,23 +148,23 @@ sub analyze_request ($request_ref) {
 		{query_string => $request_ref->{query_string}})
 		if $log->is_debug();
 
-	# Decode the escaped characters in the query string
-	$request_ref->{query_string} = decode("utf8", URI::Escape::XS::decodeURIComponent($request_ref->{query_string}));
-
-	$log->debug("analyzing query_string, step 3 - components UTF8 decoded",
-		{query_string => $request_ref->{query_string}})
-		if $log->is_debug();
-
-	$request_ref->{page} = 1;
-
 	# some sites like FB can add query parameters, remove all of them
 	# make sure that all query parameters of interest have already been consumed above
 
 	$request_ref->{query_string} =~ s/(\&|\?).*//;
 
-	$log->debug("analyzing query_string, step 4 - removed all query parameters",
+	$log->debug("analyzing query_string, step 3 - removed all query parameters",
 		{query_string => $request_ref->{query_string}})
 		if $log->is_debug();
+
+	# Decode the escaped characters in the query string
+	$request_ref->{query_string} = decode("utf8", URI::Escape::XS::decodeURIComponent($request_ref->{query_string}));
+
+	$log->debug("analyzing query_string, step 4 - components UTF8 decoded",
+		{query_string => $request_ref->{query_string}})
+		if $log->is_debug();
+
+	$request_ref->{page} = 1;
 
 	# if the query request json or xml, either through the json=1 parameter or a .json extension
 	# set the $request_ref->{api} field
