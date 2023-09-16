@@ -115,6 +115,10 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Merci de saisir le nom de votre organisation (nom de l'entreprise ou marque)."
 
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr "Saisissez les courriels des utilisateurs à inviter (séparés par des virgules) :"
+
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 msgstr "Ce compte est un compte professionnel associé au producteur ou à la marque {org}. Vous avez accès à la Plateforme pour les Producteurs."
@@ -976,6 +980,10 @@ msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr "Détail de la photo et informations d'attribution"
 
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr "Inviter des utilisateurs"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Les produits que vous avez ajoutés qui sont à compléter"
@@ -1095,7 +1103,7 @@ msgstr "Disponible sur l'App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/fr/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -5129,7 +5137,7 @@ msgstr "Nombre de produits avec des modifications depuis le dernier export"
 
 msgctxt "number_of_products_withdrawn_from_the_market_since_last_export"
 msgid "Number of products withdrawn from the market since last export"
-msgstr "Nombre de produits avec des modifications depuis le dernier export"
+msgstr "Nombre de produits retirés du marché depuis le dernier export"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
@@ -6553,6 +6561,14 @@ msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
 msgstr "Veuillez entrer une valeur entre 0 et {max}."
 
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr "Veuillez d'abord demander aux utilisateurs suivants de créer un compte Open Food Facts :"
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr "Utilisateurs ajoutés à l'organisation avec succès :"
+
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
 msgstr "Les sucres ne doivent pas être supérieurs aux glucides."
@@ -6600,4 +6616,28 @@ msgstr "pour les produits qui contiennent principalement le matériau"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "par rapport à tous les produits"
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr ""
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr ""
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr ""
+
+msgctxt "weight"
+msgid "Weight"
+msgstr ""
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr ""
+
+msgctxt "weight_percent"
+msgid "Weight percent"
+msgstr ""
 
