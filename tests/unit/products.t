@@ -37,6 +37,77 @@ is(normalize_code('https://example.com/01/00012345000058?17=271200'),
 is(normalize_code('https://world.openfoodfacts.org/'), '', 'non-GS1 URIs should return an empty string');
 is(normalize_code('http://spam.zip/'), '', 'non-GS1 URIs should return an empty string');
 
+# code normalization with GS1 AI
+is(normalize_code_with_gs1_ai('036000291452'), ('0036000291452', undef), 'GS1: should add leading 0 to valid UPC12');
+is(
+	normalize_code_with_gs1_ai('036000291455'),
+	('036000291455', undef),
+	'GS1: should not add 0 to invalid UPC12, just return as-is'
+);
+is(normalize_code_with_gs1_ai('4015533014963'), ('4015533014963', undef), 'GS1: should just return invalid EAN13');
+ok(!(defined normalize_code_with_gs1_ai(undef)), 'GS1: undef should stay undef');
+is(
+	normalize_code_with_gs1_ai(' just a simple test 4015533014963 here we go '),
+	('4015533014963', undef),
+	'GS1: barcode should always be cleaned from anything but digits'
+);
+is(
+	normalize_code_with_gs1_ai(' just a simple test 036000291452 here we go '),
+	('0036000291452', undef),
+	'GS1: should add leading 0 to cleaned valid UPC12'
+);
+is(
+	normalize_code_with_gs1_ai(' just a simple test 036000291455 here we go '),
+	('036000291455', undef),
+	'GS1: should not add leading 0 to cleaned invalid UPC12'
+);
+is(
+	normalize_code_with_gs1_ai('0104044782317112'),
+	('4044782317112', '(01)04044782317112'),
+	'GS1: should reduce GS1 AI unbracketed string to GTIN'
+);
+is(
+	normalize_code_with_gs1_ai('(01)04044782317112(17)270101'),
+	('4044782317112', '(01)04044782317112(17)270101'),
+	'GS1: should reduce GS1 AI bracketed string to GTIN'
+);
+is(
+	normalize_code_with_gs1_ai('^010404478231711217270101'),
+	('4044782317112', '(01)04044782317112(17)270101'),
+	'GS1: should reduce GS1 AI unbracketed string with ^ as FNC1 to GTIN'
+);
+is(
+	normalize_code_with_gs1_ai("\x{001d}010404478231711217270101"),
+	('4044782317112', '(01)04044782317112(17)270101'),
+	'GS1: should reduce GS1 AI unbracketed string with original FNC1 to GTIN'
+);
+is(
+	normalize_code_with_gs1_ai("\x{241d}010404478231711217270101"),
+	('4044782317112', '(01)04044782317112(17)270101'),
+	'GS1: should reduce GS1 AI unbracketed string with GS as FNC1 to GTIN'
+);
+is(
+	normalize_code_with_gs1_ai('https://id.gs1.org/01/04044782317112/22/2A'),
+	('4044782317112', '(01)04044782317112(22)2A'),
+	'GS1: should reduce GS1 Digital Link URI string with ^ as FNC1 to GTIN'
+);
+is(
+	normalize_code_with_gs1_ai('https://dalgiardino.com/01/09506000134376/10/ABC/21/123456?17=211200'),
+	('9506000134376', '(01)09506000134376(10)ABC(21)123456(17)211200'),
+	'GS1: should reduce GS1 Digital Link URI to GTIN'
+);
+is(
+	normalize_code_with_gs1_ai('https://example.com/01/00012345000058?17=271200'),
+	('0012345000058', '(01)00012345000058(17)271200'),
+	'GS1: should reduce GS1 Digital Link URI to GTIN'
+);
+is(
+	normalize_code_with_gs1_ai('https://world.openfoodfacts.org/'),
+	('', undef),
+	'GS1: non-GS1 URIs should return an empty string'
+);
+is(normalize_code_with_gs1_ai('http://spam.zip/'), ('', undef), 'GS1: non-GS1 URIs should return an empty string');
+
 # product storage path
 is(product_path_from_id('not a real code'), 'invalid', 'non digit code should return "invalid"');
 is(
