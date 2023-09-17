@@ -281,10 +281,7 @@ Normalized version of the code
 sub normalize_code ($code) {
 
 	if (defined $code) {
-		my ($gs1_code, $gs1_ai_data_str) = &normalize_code_with_gs1_ai($code);
-		if ($gs1_code) {
-			$code = $gs1_code;
-		}
+		($code, my $gs1_ai_data_str) = &normalize_code_with_gs1_ai($code);
 	}
 	return $code;
 }
