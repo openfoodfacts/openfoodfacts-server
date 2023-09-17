@@ -190,8 +190,9 @@ my @tests = (
 			'lc' => 'en',
 			'original_query_string' =>
 				'api/v3/product/https%3A%2F%2Fid.gs1.org%2F01%2F03564703999971%2F10%2FABC%2F21%2F123456%3F17%3D211200',
-			'query_string' => 'api/v3/product/https://id.gs1.org/01/03564703999971/10/ABC/21/123456?17=211200',
-			'code' => '03564703999971',
+			'query_string' =>
+				'api/v3/product/https%3A%2F%2Fid.gs1.org%2F01%2F03564703999971%2F10%2FABC%2F21%2F123456%3F17%3D211200',
+			'code' => 'https://id.gs1.org/01/03564703999971/10/ABC/21/123456?17=211200',
 			'page' => '1',
 			'no_index' => '0',
 			'is_crawl_bot' => '0'
