@@ -157,11 +157,14 @@ sub analyze_request ($request_ref) {
 		{query_string => $request_ref->{query_string}})
 		if $log->is_debug();
 
-	# Decode the escaped characters in the query string
-	$request_ref->{query_string} = decode("utf8", URI::Escape::XS::decodeURIComponent($request_ref->{query_string}));
+	# Split query string by "/" to know where it points
+	my @components = ();
+	foreach my $component (split(/\//, $request_ref->{query_string})) {
+		# Decode the escaped characters in the query string
+		push(@components, decode("utf8", URI::Escape::XS::decodeURIComponent($component)));
+	}
 
-	$log->debug("analyzing query_string, step 4 - components UTF8 decoded",
-		{query_string => $request_ref->{query_string}})
+	$log->debug("analyzing query_string, step 4 - components split and UTF8 decoded", {components => \@components})
 		if $log->is_debug();
 
 	$request_ref->{page} = 1;
@@ -171,9 +174,6 @@ sub analyze_request ($request_ref) {
 	if ((defined single_param('json')) or (defined single_param('jsonp')) or (defined single_param('xml'))) {
 		$request_ref->{api} = 'v0';
 	}
-
-	# Split query string by "/" to know where it points
-	my @components = split(/\//, $request_ref->{query_string});
 
 	# Root, ex: https://world.openfoodfacts.org/
 	if ($#components < 0) {
