@@ -32,6 +32,8 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 
 use File::Copy;
+use POSIX qw/strftime/;
+use JSON;
 
 my @userids;
 
@@ -51,20 +53,33 @@ if (!-e $spam_users_dir) {
 	mkdir($spam_users_dir, oct(755)) or die("Could not create $spam_users_dir : $!\n");
 }
 
+# jsonl of removed users
+my $time_prefix = strftime("%Y-%m-%d-%H-%M-%S", localtime);
+open(my $jsonl_file, ">:encoding(UTF-8)", "$spam_users_dir/$time_prefix-spam-users.jsonl");
+my $json = JSON->new->allow_nonref->canonical;
+
 foreach my $userid (@userids) {
 
 	next if $userid eq "." or $userid eq "..";
 	next if $userid eq 'all';
 
 	my $user_ref = retrieve("$data_root/users/$userid");
+	
+	my $is_spam = (
+		(defined $user_ref) and ($user_ref->{name} =~ /(?:forms\.yandex|:\/\/)/));
 
-	if ((defined $user_ref) and ($user_ref->{name} =~ /:\/\//)) {
+	if ($is_spam) {
 		print $user_ref->{name} . "\n";
 		push @emails_to_delete, $user_ref->{email};
+                eval {
+                    print $jsonl_file $json->encode($user_ref) . "\n";
+                };
 		move("$data_root/users/$userid", "$spam_users_dir/$userid");
 		$i++;
 	}
 }
+
+close($jsonl_file);
 
 my $emails_ref = retrieve("$data_root/users/users_emails.sto");
 
