@@ -248,7 +248,11 @@ sub load_ecoscore_data_origins_of_ingredients_distances() {
 			};
 
 			for (my $i = 3; $i < (scalar @{$row_ref}); $i++) {
-				$ecoscore_data{origins}{$origin_id}{"transportation_score_" . $countries[$i]} = $row_ref->[$i];
+				my $value = $row_ref->[$i];
+				if ($value eq "") {
+					$value = 0;
+				}
+				$ecoscore_data{origins}{$origin_id}{"transportation_score_" . $countries[$i]} = $value;
 			}
 
 			$log->debug("ecoscore origins CSV file - row",

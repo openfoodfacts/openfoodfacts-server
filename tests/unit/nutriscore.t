@@ -18,6 +18,8 @@ use ProductOpener::NutritionCiqual qw/:all/;
 use ProductOpener::NutritionEstimation qw/:all/;
 use ProductOpener::Test qw/:all/;
 
+use Data::DeepAccess qw(deep_exists);
+
 my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 # Needed to compute estimated nutrients
@@ -380,6 +382,23 @@ my @tests = (
 			},
 		}
 	],
+	# potatoes should not count as vegetables
+	[
+		"en-potatoes-category",
+		{
+			lc => "en",
+			categories => "potatoes, vegetables",
+			nutriments => {
+				energy_100g => 182,
+				fat_100g => 0,
+				"saturated-fat_100g" => 0,
+				sugars_100g => 8.9,
+				sodium_100g => 0.2,
+				fiber_100g => 0.5,
+				proteins_100g => 0.2
+			},
+		}
+	],
 
 	# categories without Nutri-Score
 
@@ -435,11 +454,24 @@ foreach my $test_ref (@tests) {
 	my $testid = $test_ref->[0];
 	my $product_ref = $test_ref->[1];
 
+	# We need salt_value to compute sodium_100g with fix_salt_equivalent
+	foreach my $prepared ('', '_prepared') {
+		if (deep_exists($product_ref, "nutriments", "salt${prepared}_100g")) {
+			$product_ref->{nutriments}{"salt${prepared}_value"} = $product_ref->{nutriments}{"salt${prepared}_100g"};
+		}
+		if (deep_exists($product_ref, "nutriments", "sodium${prepared}_100g")) {
+			$product_ref->{nutriments}{"sodium${prepared}_value"}
+				= $product_ref->{nutriments}{"sodium${prepared}_100g"};
+		}
+	}
+
+	fix_salt_equivalent($product_ref);
+	compute_serving_size_data($product_ref);
 	compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 	extract_ingredients_from_text($product_ref);
 	special_process_product($product_ref);
 	diag explain compute_estimated_nutrients($product_ref);
-	compute_nutrition_score($product_ref);
+	compute_nutriscore($product_ref);
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
 }

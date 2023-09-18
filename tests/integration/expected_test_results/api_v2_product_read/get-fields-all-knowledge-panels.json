@@ -638,6 +638,7 @@
       "ingredients_hierarchy" : [
          "en:apple",
          "en:fruit",
+         "en:malaceous-fruit",
          "en:milk",
          "en:dairy",
          "en:egg",
@@ -646,6 +647,7 @@
          "en:vegetable-oil-and-fat",
          "en:palm-oil-and-fat"
       ],
+      "ingredients_lc" : "en",
       "ingredients_n" : 4,
       "ingredients_n_tags" : [
          "4",
@@ -661,6 +663,7 @@
       "ingredients_tags" : [
          "en:apple",
          "en:fruit",
+         "en:malaceous-fruit",
          "en:milk",
          "en:dairy",
          "en:egg",
@@ -1383,7 +1386,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<span>apple</span>, <span>milk</span>, <span>eggs</span>, <span>palm oil</span>"
+                     "html" : "en: <span>apple</span>, <span>milk</span>, <span>eggs</span>, <span>palm oil</span>"
                   }
                },
                {
@@ -1979,7 +1982,7 @@
             "type" : "inline"
          }
       },
-      "known_ingredients_n" : 9,
+      "known_ingredients_n" : 10,
       "labels" : "organic",
       "labels_hierarchy" : [
          "en:organic"
@@ -2011,7 +2014,6 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
-         "en:nutriscore-not-computed",
          "en:nutrition-not-enough-data-to-compute-nutrition-score",
          "en:nutriscore-missing-nutrition-data",
          "en:nutriscore-missing-nutrition-data-energy",
@@ -2021,6 +2023,10 @@
          "en:nutriscore-missing-nutrition-data-sodium",
          "en:nutriscore-missing-nutrition-data-proteins",
          "en:nutrition-no-fiber",
+         "en:nutriscore-not-computed",
+         "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+         "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+         "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
          "en:packagings-number-of-components-4",
          "en:packagings-not-complete",
          "en:packagings-not-empty-but-not-complete",
@@ -2054,19 +2060,80 @@
       "nutrient_levels" : {},
       "nutrient_levels_tags" : [],
       "nutriments" : {
+         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 25,
+         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 25,
          "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25,
          "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 25,
          "nova-group" : 3,
          "nova-group_100g" : 3,
          "nova-group_serving" : 3
       },
+      "nutriscore" : {
+         "2021" : {
+            "category_available" : 1,
+            "data" : {
+               "energy" : null,
+               "fiber" : 0,
+               "fruits_vegetables_nuts_colza_walnut_olive_oils" : 25,
+               "is_beverage" : 0,
+               "is_cheese" : 0,
+               "is_fat" : 0,
+               "is_water" : 0,
+               "proteins" : null,
+               "saturated_fat" : null,
+               "sodium" : null,
+               "sugars" : null
+            },
+            "grade" : "unknown",
+            "nutrients_available" : 0,
+            "nutriscore_applicable" : 1,
+            "nutriscore_computed" : 0
+         },
+         "2023" : {
+            "category_available" : 1,
+            "data" : {
+               "energy" : null,
+               "fiber" : 0,
+               "fruits_vegetables_legumes" : 25,
+               "is_beverage" : 0,
+               "is_cheese" : 0,
+               "is_fat_oil_nuts_seeds" : 0,
+               "is_water" : 0,
+               "proteins" : null,
+               "salt" : null,
+               "saturated_fat" : null,
+               "sugars" : null
+            },
+            "grade" : "unknown",
+            "nutrients_available" : 0,
+            "nutriscore_applicable" : 1,
+            "nutriscore_computed" : 0
+         }
+      },
+      "nutriscore_2021_tags" : [
+         "unknown"
+      ],
+      "nutriscore_2023_tags" : [
+         "unknown"
+      ],
+      "nutriscore_grade" : "unknown",
+      "nutriscore_tags" : [
+         "unknown"
+      ],
+      "nutriscore_version" : "2021",
       "nutrition_data_per" : "100g",
       "nutrition_data_prepared_per" : "100g",
+      "nutrition_grade_fr" : "unknown",
+      "nutrition_grades" : "unknown",
       "nutrition_grades_tags" : [
          "unknown"
       ],
       "nutrition_score_beverage" : 0,
-      "nutrition_score_debug" : "missing energy - missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
+      "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 25,
+      "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
+      "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 25,
       "nutrition_score_warning_no_fiber" : 1,
       "origin" : "france",
       "origin_en" : "france",

@@ -115,6 +115,10 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Sei pregato di inserire il nome della tua organizzazione (nome dell'azienda o del marchio)."
 
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr "Inserisci gli indirizzi email degli utenti da invitare (separati da virgole):"
+
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 msgstr "Questo profilo è professionale ed è associato al produttore o marchio, {org}. Hai accesso alla Piattaforma per Produttori."
@@ -975,6 +979,10 @@ msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr "Dettagli della foto e informazioni sull'attribuzione"
 
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr "Invita utenti"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Prodotti aggiunti che devono essere completati"
@@ -1094,7 +1102,7 @@ msgstr "Disponibile su App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/it/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -6551,6 +6559,14 @@ msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
 msgstr "Sei pregato di inserire un valore tra 0 e {max}."
 
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr "Chiedi ai seguenti utenti di creare prima un account Open Food Facts:"
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr "Utenti aggiunti all'organizzazione con successo:"
+
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
 msgstr "Gli zuccheri non dovrebbero essere superiori ai carboidrati."
@@ -6598,4 +6614,28 @@ msgstr "per i prodotti che per lo più contengono il materiale"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "relativo a tutti i prodotti"
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr "Numero di componenti dell'imballaggio"
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr "Numero di componenti dell'imballaggio"
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr "Tutti i materiali"
+
+msgctxt "weight"
+msgid "Weight"
+msgstr "Peso"
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr "Peso per 100 g di prodotto"
+
+msgctxt "weight_percent"
+msgid "Weight percent"
+msgstr "Percentuale di peso"
 

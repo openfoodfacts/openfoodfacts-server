@@ -153,6 +153,7 @@
       "en:potato",
       "en:vegetable",
       "en:root-vegetable",
+      "en:tuber",
       "en:pork",
       "en:animal",
       "en:semi-skimmed-milk",
@@ -199,6 +200,7 @@
       "en:potato",
       "en:vegetable",
       "en:root-vegetable",
+      "en:tuber",
       "en:pork",
       "en:animal",
       "en:semi-skimmed-milk",
@@ -232,9 +234,11 @@
       "en:spice"
    ],
    "ingredients_without_ciqual_codes_n" : 4,
-   "known_ingredients_n" : 23,
+   "known_ingredients_n" : 24,
    "lc" : "fr",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },

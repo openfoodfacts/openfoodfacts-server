@@ -3458,6 +3458,8 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 		else {
 
 			# try matching in other languages (by default, in the "language-less" language xx, and in English)
+			# note that there may be conflicts where a non-English word matches an English entry,
+			# so this should be disabled in taxonomies with many small entries such as ingredients
 			my @test_languages = ("xx", "en");
 
 			if (defined $options{product_type}) {
@@ -3466,14 +3468,14 @@ sub canonicalize_taxonomy_tag ($tag_lc, $tagtype, $tag, $exists_in_taxonomy_ref 
 
 					# Latin animal species (e.g. for fish)
 					if ($tagtype eq "ingredients") {
-						@test_languages = ("la");
+						@test_languages = ("xx", "la");
 					}
 				}
 				elsif ($options{product_type} eq "beauty") {
 
 					# Beauty products ingredients are often in English or Latin
 					if ($tagtype eq "ingredients") {
-						@test_languages = ("en", "la");
+						@test_languages = ("xx", "en", "la");
 					}
 				}
 			}

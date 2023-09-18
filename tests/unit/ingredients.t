@@ -549,8 +549,6 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 	],
 );
 
-my $json = JSON->new->allow_nonref->canonical;
-
 foreach my $test_ref (@tests) {
 
 	my $testid = $test_ref->[0];

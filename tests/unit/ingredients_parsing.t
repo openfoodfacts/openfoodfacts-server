@@ -600,7 +600,32 @@ my @lists = (
 	["ru", "масло растительное (подсолнечное, соевое)", "масло растительное подсолнечное, масло растительное соевое"],
 
 	# grammes -> g
-	["fr", "Teneur en fruits: 50gr pour 100 grammes", "Teneur en fruits: 50g pour 100 g"]
+	["fr", "Teneur en fruits: 50gr pour 100 grammes", "Teneur en fruits: 50g pour 100 g"],
+
+	# test conflicts between the word "and" in some languages and additives variants. With letters i or e or a.
+	[
+		"hr",
+		"bojilo: E 150a, tvari za rahljenje: E 500 i E 503, sol.",
+		"bojilo: e150a, tvari za rahljenje: e500, e503, sol."
+	],
+	[
+		"hr",
+		"bojilo: E 150a, tvari za rahljenje: E 500 i, E 503, sol.",
+		"bojilo: e150a, tvari za rahljenje: e500 i, e503, sol."
+	],
+	[
+		"hr",
+		"bojilo: E 150a, tvari za rahljenje: E 500(i), E 503, sol.",
+		"bojilo: e150a, tvari za rahljenje: e500i, e503, sol."
+	],
+	[
+		"hr",
+		"bojilo: E 150a, tvari za rahljenje: E 500i, E 503, sol.",
+		"bojilo: e150a, tvari za rahljenje: e500i, e503, sol."
+	],
+	["it", "formaggio, E 472 e, E470a.", "formaggio, e472 e, e470a."],
+	["it", "formaggio, E 472 e E470a.", "formaggio, e472, e470a."],
+	["sk", "syr, E470 a E470a, mlieko.", "syr, e470, e470a, mlieko."]
 );
 
 foreach my $test_ref (@lists) {

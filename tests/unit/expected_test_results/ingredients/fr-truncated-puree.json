@@ -54,6 +54,7 @@
    "ingredients_hierarchy" : [
       "en:tomato-puree",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:tomato",
       "en:beef",
       "en:animal",
@@ -77,6 +78,7 @@
    "ingredients_tags" : [
       "en:tomato-puree",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:tomato",
       "en:beef",
       "en:animal",
@@ -96,9 +98,11 @@
       "en:oil-and-fat"
    ],
    "ingredients_without_ciqual_codes_n" : 3,
-   "known_ingredients_n" : 9,
+   "known_ingredients_n" : 10,
    "lc" : "fr",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 46.8503937007874,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 46.8503937007874,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 46.8503937007874,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 46.8503937007874
    },

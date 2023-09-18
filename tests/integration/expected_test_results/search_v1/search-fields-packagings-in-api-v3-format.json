@@ -1,7 +1,7 @@
 {
-   "count" : 5,
+   "count" : 6,
    "page" : "1",
-   "page_count" : 5,
+   "page_count" : 6,
    "page_size" : 24,
    "products" : [
       {
@@ -59,6 +59,10 @@
       {
          "code" : "200000000045",
          "packaging_text_en" : "no",
+         "packagings" : []
+      },
+      {
+         "code" : "200000000046",
          "packagings" : []
       }
    ],

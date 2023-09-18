@@ -241,7 +241,7 @@
 				<!-- full width banner on mobile -->
 				
 				[% IF mobile %]
-					<a href="[% mobile.link %]" class="button large expand success">
+					<a href="[% mobile.link %]" id="mobile-app-top-banner" class="button large expand success">
 					<div class="row collapse">
 						<div class="small-6 columns">
 							[% mobile.text %]
@@ -276,7 +276,7 @@
 						[% END %]
             			
 						[% IF page_format == "banner" %]
-							<!-- banner pages such as product and product edit form have their own h1 title -->
+							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
 							[% content %]
 						[% ELSIF page_type == "products" %]
 							[% IF schema_org_itemtype.defined %]

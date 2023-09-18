@@ -104,6 +104,7 @@
       "en:dough",
       "en:chopped-tomatoes",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:tomato",
       "en:cheese",
       "en:dairy",
@@ -140,6 +141,7 @@
       "en:dough",
       "en:chopped-tomatoes",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:tomato",
       "en:cheese",
       "en:dairy",
@@ -164,9 +166,11 @@
       "en:wheat-flour"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
-   "known_ingredients_n" : 18,
+   "known_ingredients_n" : 19,
    "lc" : "fr",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 23.3333333333333,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 23.3333333333333,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 23.3333333333333,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 23.3333333333333
    },
