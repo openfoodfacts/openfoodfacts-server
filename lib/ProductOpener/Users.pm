@@ -66,6 +66,7 @@ BEGIN {
 		&retrieve_user
 		&remove_user_by_org_admin
 		&add_users_to_org_by_admin
+		&is_supsicious_name
 
 		&check_session
 
@@ -333,7 +334,7 @@ sub is_supsicious_name ($value) {
 	# email or xxx.nunsrt
 	my $email_re = qr/^[\w_.+]+(?:@[\w._+]+)?$/;
 	my $invite_re = qr/(?:click here|wants to meet you|:\/\/|\.\w{2,3}\b)/i;
-	return (defined $value) and ($value =~ $invite_re) and (not $value =~ $email_re);
+	return ((defined $value) and ($value =~ $invite_re) and (not $value =~ $email_re));
 }
 
 =head2 check_user_form($type, $user_ref, $errors_ref)
