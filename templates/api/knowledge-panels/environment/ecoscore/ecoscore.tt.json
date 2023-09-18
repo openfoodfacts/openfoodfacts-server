@@ -9,7 +9,16 @@
         "type": "grade",
         "grade": "[% panel.grade %]",
     },
-    "elements": [           
+    "elements": [
+        [% IF panel.transportation_warning.defined %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "warning",
+                "html": `[% panel.transportation_warning %]`,
+            }
+        },
+        [% END %]
         {
             "element_type": "text",
             "text_element": {

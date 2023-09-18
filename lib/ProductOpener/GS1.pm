@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -42,14 +42,12 @@ And the %gs1_maps translate the GS1 specific identifiers (e.g. for allergens or 
 package ProductOpener::GS1;
 
 use ProductOpener::PerlStandards;
-use Exporter    qw< import >;
+use Exporter qw< import >;
 
 use Log::Any qw($log);
 
-
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
 		%gs1_maps
@@ -60,12 +58,13 @@ BEGIN
 		&generate_gs1_confirmation_message
 		&write_off_csv_file
 		&print_unknown_entries_in_gs1_maps
+		&convert_gs1_xml_file_to_json
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -74,7 +73,7 @@ use ProductOpener::Display qw/$tt process_template display_date_iso/;
 use JSON::PP;
 use boolean;
 use Data::DeepAccess qw(deep_get);
-
+use XML::XML2JSON;
 
 =head1 GS1 MAPS
 
@@ -92,7 +91,6 @@ Used to keep track of values we encounter in GS1 data for which we do not have a
 Maps from GS1 to OFF
 
 =cut
-
 
 my %unknown_entries_in_gs1_maps = ();
 
@@ -136,8 +134,9 @@ my %unknown_entries_in_gs1_maps = ();
 		# Shellfish could be Molluscs or Crustaceans
 		# "UN" => "Shellfish",
 		"UW" => "Wheat",
+		"X99" => "None",
 	},
-	
+
 	measurementUnitCode => {
 		"GRM" => "g",
 		"KGM" => "kg",
@@ -150,7 +149,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"KJO" => "kJ",
 		"H87" => "pièces",
 	},
-	
+
 	# reference: GS1 T4073 Nutrient type code
 	# https://gs1.se/en/guides/documentation/test-code-lists/t4073-nutrient-type-code/
 	nutrientTypeCode => {
@@ -158,7 +157,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"CA" => "calcium",
 		"CASN" => "casein",
 		"CHOAVL" => "carbohydrates",
-		"CHOCAL" => "vitamin-d",	# cholecalciferol
+		"CHOCAL" => "vitamin-d",    # cholecalciferol
 		"CHOLN" => "choline",
 		"CLD" => "chloride",
 		"CR" => "chromium",
@@ -209,8 +208,8 @@ my %unknown_entries_in_gs1_maps = ();
 		"NUCLEOTIDE" => "nucleotide",
 		"P" => "phosphorus",
 		"PANTAC" => "pantothenic-acid",
-		"POLYL" => "polyols",	
-		"POLYLS" => "polyols",	
+		"POLYL" => "polyols",
+		"POLYLS" => "polyols",
 		"PRO-" => "proteins",
 		"RIBF" => "vitamin-b2",
 		"SALTEQ" => "salt",
@@ -234,29 +233,8 @@ my %unknown_entries_in_gs1_maps = ();
 		# skipped X_ entries such as X_ACAI_BERRY_EXTRACT
 		"ZN" => "zinc",
 	},
-	
+
 	packagingTypeCode => {
-		"AE" => "Aérosol",
-		"BA" => "Tonneau",
-		"BG" => "Sac",
-		"BK" => "Barquette",
-		"BO" => "Bouteille",
-		"BPG" => "Blister",
-		"BRI" => "Brique",
-		"BX" => "Boite",
-		"CNG" => "Canette",
-		"CR" => "Caisse",
-		"CT" => "Conteneur",
-		"CU" => "Pot",
-		"EN" => "Enveloppe",
-		"JR" => "Bocal",
-		"PO" => "Poche",
-		"PUG" => "Sac de transport",
-		"TU" => "Tube",
-		"WRP" => "Film",
-	},		
-	
-	packagingTypeCode_unused_not_taxonomized_yet => {
 		"AE" => "en:aerosol",
 		"BA" => "en:barrel",
 		"BG" => "en:bag",
@@ -274,8 +252,8 @@ my %unknown_entries_in_gs1_maps = ();
 		"PUG" => "en:carrying-bag",
 		"TU" => "en:tube",
 		"WRP" => "en:film",
-	},	
-	
+	},
+
 	# http://apps.gs1.org/GDD/Pages/clDetails.aspx?semanticURN=urn:gs1:gdd:cl:PackagingMarkedLabelAccreditationCode
 	packagingMarkedLabelAccreditationCode => {
 		"ADCCPA" => "fr:produit-certifie",
@@ -288,6 +266,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"APPELLATION_ORIGINE_CONTROLEE" => "fr:aoc",
 		"AQUACULTURE_STEWARDSHIP_COUNCIL" => "en:responsible-aquaculture-asc",
 		"BLEU_BLANC_COEUR" => "fr:bleu-blanc-coeur",
+		"BIO_LABEL_GERMAN" => "de:EG-Öko-Verordnung",
 		"BIO_PARTENAIRE" => "fr:biopartenaire",
 		"CROSSED_GRAIN_SYMBOL" => "en:crossed-grain-symbol",
 		"DEMETER" => "en:demeter",
@@ -302,7 +281,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"FAIR_TRADE_MARK" => "en:fairtrade-international",
 		"FAIRTRADE_COCOA" => "en:fair-trade",
 		"FAIR_TRADE_USA" => "en:fairtrade-usa",
-		"FOREST_STEWARDSHIP_COUNCIL_LABEL" => "en:fsc",		
+		"FOREST_STEWARDSHIP_COUNCIL_LABEL" => "en:fsc",
 		"FOREST_STEWARDSHIP_COUNCIL_MIX" => "en:fsc-mix",
 		"FOREST_STEWARDSHIP_COUNCIL_RECYCLED" => "en:fsc-recycled",
 		"GREEN_DOT" => "en:green-dot",
@@ -329,15 +308,22 @@ my %unknown_entries_in_gs1_maps = ();
 		"VIANDE_BOVINE_FRANCAISE" => "en:french-beef",
 		"VOLAILLE_FRANCAISE" => "en:french-poultry",
 	},
-	
+
+	# https://gs1.se/en/guides/documentation/code-lists/t3783-target-market-country-code/
 	targetMarketCountryCode => {
+		"040" => "en:austria",
+		"056" => "en:belgium",
 		"250" => "en:france",
+		"276" => "en:germany",
+		"380" => "en:italy",
+		"724" => "en:spain",
+		"756" => "en:switzerland",
 	},
-	
+
 	timeMeasurementUnitCode => {
 		"MON" => "month",
 		"DAY" => "day",
-	},	
+	},
 );
 
 # Normalize some entries
@@ -349,8 +335,9 @@ foreach my $tag (sort keys %{$gs1_maps{allergenTypeCode}}) {
 	}
 	else {
 		$log->error("gs1_maps - entry not in taxonomy",
-			{ tagtype => "allergens", tag => $gs1_maps{allergenTypeCode}{$tag} }) if $log->is_error();
-			die;
+			{tagtype => "allergens", tag => $gs1_maps{allergenTypeCode}{$tag}})
+			if $log->is_error();
+		die;
 	}
 }
 
@@ -361,11 +348,11 @@ foreach my $tag (sort keys %{$gs1_maps{packagingMarkedLabelAccreditationCode}}) 
 	}
 	else {
 		$log->error("gs1_maps - entry not in taxonomy",
-			{ tagtype => "labels", tag => $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag} }) if $log->is_error();
-			die;
+			{tagtype => "labels", tag => $gs1_maps{packagingMarkedLabelAccreditationCode}{$tag}})
+			if $log->is_error();
+		die;
 	}
 }
-
 
 =head2 %gs1_message_to_off
 
@@ -377,40 +364,62 @@ my %gs1_message_to_off = (
 
 	fields => [
 
-		["catalogue_item_notification:catalogueItemNotificationMessage", {
+		[
+			"catalogue_item_notification:catalogueItemNotificationMessage",
+			{
 				fields => [
-					["sh:StandardBusinessDocumentHeader", {
+					[
+						"sh:StandardBusinessDocumentHeader",
+						{
 							fields => [
 
 							],
 						}
 					],
 
-					["transaction", {
+					[
+						"transaction",
+						{
 							fields => [
-								["transactionIdentification", {
+								[
+									"transactionIdentification",
+									{
 										fields => [
 											["entityIdentification", "transactionIdentification_entityIdentification"],
-											["contentOwner", {
-													fields => [
-														["gln", "transactionIdentification_contentOwner_gln"],
-													],
+											[
+												"contentOwner",
+												{
+													fields => [["gln", "transactionIdentification_contentOwner_gln"],],
 												}
 											],
 										],
 									},
 								],
 
-								["documentCommand", {
+								[
+									"documentCommand",
+									{
 										fields => [
-											["documentCommandHeader", {
+											[
+												"documentCommandHeader",
+												{
 													fields => [
-														["documentCommandIdentification", {
+														[
+															"documentCommandIdentification",
+															{
 																fields => [
-																	["entityIdentification", "documentCommandIdentification_entityIdentification"],
-																	["contentOwner", {
+																	[
+																		"entityIdentification",
+																		"documentCommandIdentification_entityIdentification"
+																	],
+																	[
+																		"contentOwner",
+																		{
 																			fields => [
-																				["gln", "documentCommandIdentification_contentOwner_gln"],
+																				[
+																					"gln",
+																					"documentCommandIdentification_contentOwner_gln"
+																				],
 																			],
 																		}
 																	],
@@ -422,30 +431,56 @@ my %gs1_message_to_off = (
 												},
 											],
 
-											["catalogue_item_notification:catalogueItemNotification", {
+											[
+												"catalogue_item_notification:catalogueItemNotification",
+												{
 													fields => [
-														["creationDateTime", "catalogueItemNotification_creationDateTime"],
-														["documentStatusCode", "catalogueItemNotification_documentStatusCode"],
-														["catalogueItemNotificationIdentification", {
+														[
+															"creationDateTime",
+															"catalogueItemNotification_creationDateTime"
+														],
+														[
+															"documentStatusCode",
+															"catalogueItemNotification_documentStatusCode"
+														],
+														[
+															"catalogueItemNotificationIdentification",
+															{
 																fields => [
-																	["entityIdentification", "catalogueItemNotificationIdentification_entityIdentification"],
-																	["contentOwner", {
+																	[
+																		"entityIdentification",
+																		"catalogueItemNotificationIdentification_entityIdentification"
+																	],
+																	[
+																		"contentOwner",
+																		{
 																			fields => [
-																				["gln", "catalogueItemNotificationIdentification_contentOwner_gln"],
+																				[
+																					"gln",
+																					"catalogueItemNotificationIdentification_contentOwner_gln"
+																				],
 																			],
 																		}
 																	],
 																],
 															},
 														],
-														["catalogueItem", {
+														[
+															"catalogueItem",
+															{
 																fields => [
-																	["tradeItem", {
+																	[
+																		"tradeItem",
+																		{
 																			fields => [
 																				["gtin", "gtin"],
-																				["targetMarket", {
+																				[
+																					"targetMarket",
+																					{
 																						fields => [
-																							["targetMarketCountryCode", "targetMarketCountryCode"],
+																							["targetMarketCountryCode",
+																								"targetMarketCountryCode"
+																							],
 																						],
 																					},
 																				],
@@ -470,7 +505,6 @@ my %gs1_message_to_off = (
 	],
 );
 
-
 =head2 %gs1_product_to_off
 
 Defines the structure of the GS1 product data and how it maps to the OFF data.
@@ -479,17 +513,17 @@ Defines the structure of the GS1 product data and how it maps to the OFF data.
 
 my %gs1_product_to_off = (
 
-	match => [
-		["isTradeItemAConsumerUnit", "true"],
-	],
+	match => [["isTradeItemAConsumerUnit", "true"],],
 
 	fields => [
-	
+
 		# source_field => target_field : assign the value of the source field to the target field
 		["gtin", "code"],
 
 		# source_field => source_hash : go down one level
-		["brandOwner", {
+		[
+			"brandOwner",
+			{
 				fields => [
 					["gln", "sources_fields:org-gs1:gln"],
 					# source_field => target_field1,target_field2 : assign value of the source field to multiple target fields
@@ -497,18 +531,22 @@ my %gs1_product_to_off = (
 				],
 			},
 		],
-		
-		["gdsnTradeItemClassification", {
+
+		[
+			"gdsnTradeItemClassification",
+			{
 				fields => [
 					["gpcCategoryCode", "sources_fields:org-gs1:gpcCategoryCode"],
 					# not always present and could be in different languages
 					["gpcCategoryName", "sources_fields:org-gs1:gpcCategoryName, +categories_if_match_in_taxonomy"],
 				],
 			},
-		],		
-			
+		],
+
 		# will override brandOwner values if present
-		["informationProviderOfTradeItem", {
+		[
+			"informationProviderOfTradeItem",
+			{
 				fields => [
 					["gln", "sources_fields:org-gs1:gln"],
 					# source_field => target_field1,target_field2 : assign value of the source field to multiple target fields
@@ -516,143 +554,167 @@ my %gs1_product_to_off = (
 				],
 			},
 		],
-		
-		["targetMarket", {
-				fields => [
-					["targetMarketCountryCode", "countries%targetMarketCountryCode"],
-				],
+
+		[
+			"targetMarket",
+			{
+				fields => [["targetMarketCountryCode", "countries%targetMarketCountryCode"],],
 			},
 		],
-		
+
 		# http://apps.gs1.org/GDD/Pages/clDetails.aspx?semanticURN=urn:gs1:gdd:cl:ContactTypeCode&release=4
 		# source_field => array of hashes: go down one level, expect an array
-		["tradeItemContactInformation", [
+		[
+			"tradeItemContactInformation",
+			[
 				{
 					# match => hash of key value conditions: assign values to field only if the conditions match
-					match => [
-						["contactTypeCode", "CXC"],
-					],
-					fields => [
-						["contactName", "customer_service_fr"],
-						["contactAddress", "+customer_service_fr"],
-					],
+					match => [["contactTypeCode", "CXC"],],
+					fields => [["contactName", "customer_service_fr"], ["contactAddress", "+customer_service_fr"],],
 				},
 			],
 		],
-		
-		["tradeItemInformation",
+
+		[
+			"tradeItemInformation",
 			{
 				fields => [
 					# Sometimes contains strings like "Signal CLAY&CHARCOAL DENTIFRICE 75 ML", not a good fit for the producer_version_id
 					# but other time contains strings that look like internal version ids / item ids (e.g. "44041392")
-					["productionVariantDescription", "sources_fields:org-gs1:productionVariantDescription, producer_version_id"],
-					
-					["extension", {
+					[
+						"productionVariantDescription",
+						"sources_fields:org-gs1:productionVariantDescription, producer_version_id"
+					],
+
+					[
+						"extension",
+						{
 							fields => [
 
-								["alcohol_information:alcoholInformationModule", {
+								[
+									"alcohol_information:alcoholInformationModule",
+									{
 										fields => [
-											["alcoholInformation", {
-													fields => [
-														["percentageOfAlcoholByVolume", "alcohol_100g_value"],
-													],
+											[
+												"alcoholInformation",
+												{
+													fields => [["percentageOfAlcoholByVolume", "alcohol_100g_value"],],
 												},
 											],
 										],
 									},
-								],						
-							
-								["allergen_information:allergenInformationModule", {
+								],
+
+								[
+									"allergen_information:allergenInformationModule",
+									{
 										fields => [
-											["allergenRelatedInformation", {
+											[
+												"allergenRelatedInformation",
+												{
 													fields => [
-														["allergen", [
+														[
+															"allergen",
+															[
 																{
-																	match => [
-																		["levelOfContainmentCode", "CONTAINS"],
-																	],
+																	match => [["levelOfContainmentCode", "CONTAINS"],],
 																	fields => [
 																		# source_field => +target_field' : add to field, separate with commas if field is not empty
 																		# source_field => target_field%map_id : map the target value using the specified map_id
 																		# (do not assign a value if there is no corresponding entry in the map)
-																		['allergenTypeCode', '+allergens%allergenTypeCode'],
+																		[
+																			'allergenTypeCode',
+																			'+allergens%allergenTypeCode'
+																		],
 																	],
 																},
 																{
-																	match => [
-																		["levelOfContainmentCode", "MAY_CONTAIN"],
-																	],
+																	match =>
+																		[["levelOfContainmentCode", "MAY_CONTAIN"],],
 																	fields => [
 																		# source_field => +target_field' : add to field, separate with commas if field is not empty
 																		# source_field => target_field%map_id : map the target value using the specified map_id
 																		# (do not assign a value if there is no corresponding entry in the map)
-																		['allergenTypeCode', '+traces%allergenTypeCode'],
+																		[
+																			'allergenTypeCode',
+																			'+traces%allergenTypeCode'
+																		],
 																	],
 																},
 															],
 														],
-														["isAllergenRelevantDataProvided", "sources_fields:org-gs1:isAllergenRelevantDataProvided"],
+														[
+															"isAllergenRelevantDataProvided",
+															"sources_fields:org-gs1:isAllergenRelevantDataProvided"
+														],
 													],
 												},
 											],
 										],
 									},
 								],
-								
-								["nutritional_information:nutritionalInformationModule", {
+
+								[
+									"nutritional_information:nutritionalInformationModule",
+									{
 										fields => [
-											["nutrientHeader"],	# nutrients are handled specially with specific code
+											["nutrientHeader"],    # nutrients are handled specially with specific code
 										],
 									},
 								],
-								
-								["consumer_instructions:consumerInstructionsModule", {
+
+								[
+									"consumer_instructions:consumerInstructionsModule",
+									{
 										fields => [
-											["consumerInstructions", {
-													fields => [
-														["consumerStorageInstructions", "conservation_conditions"],
-													],
+											[
+												"consumerInstructions",
+												{
+													fields =>
+														[["consumerStorageInstructions", "conservation_conditions"],],
 												},
 											],
 										],
 									}
 								],
-								
-								["food_and_beverage_ingredient:foodAndBeverageIngredientModule", {
-										fields => [
-											["ingredientStatement", "ingredients_text"],
-										],
+
+								[
+									"food_and_beverage_ingredient:foodAndBeverageIngredientModule",
+									{
+										fields => [["ingredientStatement", "ingredients_text"],],
 									},
 								],
-								
-								["nonfood_ingredient:nonfoodIngredientModule", {
-										fields => [
-											["nonfoodIngredientStatement", "ingredients_text"],
-										],
+
+								[
+									"nonfood_ingredient:nonfoodIngredientModule",
+									{
+										fields => [["nonfoodIngredientStatement", "ingredients_text"],],
 									},
-								],								
-								
-								["food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule", {
+								],
+
+								[
+									"food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule",
+									{
 										fields => [
-											["preparationServing", {
-													fields => [
-														["preparationInstructions", "preparation"],
-													],
+											[
+												"preparationServing",
+												{
+													fields => [["preparationInstructions", "preparation"],],
 												},
 											],
 										],
 									},
 								],
-								
-								["health_related_information:healthRelatedInformationModule", {
+
+								[
+									"health_related_information:healthRelatedInformationModule",
+									{
 										fields => [
-											["healthRelatedInformation", {
-													match => [
-														["nutritionalProgramCode","8"],
-													],
-													fields => [
-														["nutritionalScore", "nutriscore_grade_producer"],
-													],
+											[
+												"healthRelatedInformation",
+												{
+													match => [["nutritionalProgramCode", "8"],],
+													fields => [["nutritionalScore", "nutriscore_grade_producer"],],
 												},
 											],
 										],
@@ -660,14 +722,18 @@ my %gs1_product_to_off = (
 								],
 
 								# 2021-12-20: it looks like the nutritionalProgramCode is now in an extra nutritionProgram field
-								["health_related_information:healthRelatedInformationModule", {
+								[
+									"health_related_information:healthRelatedInformationModule",
+									{
 										fields => [
-											["healthRelatedInformation", {
+											[
+												"healthRelatedInformation",
+												{
 													fields => [
-														["nutritionalProgram", {
-																match => [
-																	["nutritionalProgramCode","8"],
-																],
+														[
+															"nutritionalProgram",
+															{
+																match => [["nutritionalProgramCode", "8"],],
 																fields => [
 																	["nutritionalScore", "nutriscore_grade_producer"],
 																],
@@ -679,25 +745,37 @@ my %gs1_product_to_off = (
 										],
 									},
 								],
-							
-								["packaging_information:packagingInformationModule", {
+
+								# 20230328: this packaging field is too imprecise, and the packaging field is deprecated,
+								# as we have a new packagings components structure
+								#
+								#								[
+								#									"packaging_information:packagingInformationModule",
+								#									{
+								#										fields => [
+								#											[
+								#												"packaging",
+								#												{
+								#													fields => [["packagingTypeCode", "+packaging%packagingTypeCode"],],
+								#												},
+								#											],
+								#										],
+								#									},
+								#								],
+
+								[
+									"packaging_marking:packagingMarkingModule",
+									{
 										fields => [
-											["packaging", {
-													fields => [
-														["packagingTypeCode", "+packaging%packagingTypeCode"],
-													],
-												},
-											],
-										],
-									},
-								],							
-								
-								["packaging_marking:packagingMarkingModule", {
-										fields => [
-											["packagingMarking", {
+											[
+												"packagingMarking",
+												{
 													fields => [
 														# the source can be an array if there are multiple labels
-														["packagingMarkedLabelAccreditationCode", "+labels%packagingMarkedLabelAccreditationCode"],
+														[
+															"packagingMarkedLabelAccreditationCode",
+															"+labels%packagingMarkedLabelAccreditationCode"
+														],
 													],
 												},
 											],
@@ -705,9 +783,13 @@ my %gs1_product_to_off = (
 									},
 								],
 
-								["place_of_item_activity:placeOfItemActivityModule", {
+								[
+									"place_of_item_activity:placeOfItemActivityModule",
+									{
 										fields => [
-											["placeOfProductActivity", {
+											[
+												"placeOfProductActivity",
+												{
 													fields => [
 														# provenanceStatement is a free text field, which can contain manufacturing places
 														# and/or origins of ingredients and related statements, in different languages
@@ -717,42 +799,44 @@ my %gs1_product_to_off = (
 											],
 										],
 									},
-								],								
-								
-								["referenced_file_detail_information:referencedFileDetailInformationModule", {
+								],
+
+								[
+									"referenced_file_detail_information:referencedFileDetailInformationModule",
+									{
 										fields => [
-											["referencedFileHeader",  [
+											[
+												"referencedFileHeader",
+												[
 													{
-														match => [
-															["isPrimaryFile", "TRUE"],
-														],
-														fields => [
-															["uniformResourceIdentifier", "image_front_url"],
-														],
+														match => [["isPrimaryFile", "TRUE"],],
+														fields => [["uniformResourceIdentifier", "image_front_url"],],
 													},
 													{
-														does_not_match => [
-															["isPrimaryFile", "TRUE"],
-														],
-														fields => [
-															["uniformResourceIdentifier", "+image_other_url"],
-														],
+														does_not_match => [["isPrimaryFile", "TRUE"],],
+														fields => [["uniformResourceIdentifier", "+image_other_url"],],
 													},
 												],
 											],
 										],
 									},
-								],								
-								
-								["trade_item_description:tradeItemDescriptionModule", {
+								],
+
+								[
+									"trade_item_description:tradeItemDescriptionModule",
+									{
 										fields => [
-											["tradeItemDescriptionInformation", {
+											[
+												"tradeItemDescriptionInformation",
+												{
 													fields => [
 														["descriptionShort", "abbreviated_product_name"],
 														["functionalName", "+categories_if_match_in_taxonomy"],
 														["regulatedProductName", "generic_name"],
 														["tradeItemDescription", "product_name"],
-														["brandNameInformation", {
+														[
+															"brandNameInformation",
+															{
 																fields => [
 																	['brandName' => '+brands'],
 																	['subBrand' => '+brands'],
@@ -765,16 +849,20 @@ my %gs1_product_to_off = (
 										],
 									},
 								],
-								
-								["trade_item_measurements:tradeItemMeasurementsModule", {
+
+								[
+									"trade_item_measurements:tradeItemMeasurementsModule",
+									{
 										fields => [
-											["tradeItemMeasurements", {
+											[
+												"tradeItemMeasurements",
+												{
 													fields => [
 														["netContent", "quantity"],
-														["tradeItemWeight", {
-																fields => [
-																	["netWeight", "net_weight"],
-																],
+														[
+															"tradeItemWeight",
+															{
+																fields => [["netWeight", "net_weight"],],
 															},
 														],
 													],
@@ -782,11 +870,15 @@ my %gs1_product_to_off = (
 											],
 										],
 									},
-								],								
-								
-								["trade_item_lifespan:tradeItemLifespanModule", {
+								],
+
+								[
+									"trade_item_lifespan:tradeItemLifespanModule",
+									{
 										fields => [
-											["tradeItemLifespan", {
+											[
+												"tradeItemLifespan",
+												{
 													fields => [
 														# the source can be an array if there are multiple labels
 														["itemPeriodSafeToUseAfterOpening", "+periods_after_opening"],
@@ -802,17 +894,19 @@ my %gs1_product_to_off = (
 				],
 			},
 		],
-		
-		["tradeItemSynchronisationDates", {
+
+		[
+			"tradeItemSynchronisationDates",
+			{
 				fields => [
-					["publicationDateTime", "sources_fields:org-gs1:publicationDateTime"],	# Not available in CodeOnline export
+					["publicationDateTime", "sources_fields:org-gs1:publicationDateTime"]
+					,    # Not available in CodeOnline export
 					["lastChangeDateTime", "sources_fields:org-gs1:lastChangeDateTime"],
 				],
 			},
 		],
 	],
 );
-
 
 =head1 FUNCTIONS
 
@@ -828,10 +922,9 @@ my @csv_fields = ();
 sub init_csv_fields() {
 
 	%seen_csv_fields = ();
-	@csv_fields = ();	
+	@csv_fields = ();
 	return;
 }
-
 
 =head2 assign_field ( $results_ref $target_field $target_value)
 
@@ -840,10 +933,10 @@ so that we can output the fields in the same order when we export a CSV.
 
 =cut
 
-sub assign_field($results_ref, $target_field, $target_value) {
-	
+sub assign_field ($results_ref, $target_field, $target_value) {
+
 	$results_ref->{$target_field} = $target_value;
-	
+
 	if (not defined $seen_csv_fields{$target_field}) {
 		push @csv_fields, $target_field;
 		$seen_csv_fields{$target_field} = 1;
@@ -851,8 +944,7 @@ sub assign_field($results_ref, $target_field, $target_value) {
 	return;
 }
 
-
-sub extract_nutrient_quantity_contained($type, $per, $results_ref, $nid, $nutrient_detail_ref ) {
+sub extract_nutrient_quantity_contained ($type, $per, $results_ref, $nid, $nutrient_detail_ref) {
 
 	my $nutrient_field = $nid . $type . "_" . $per;
 
@@ -864,7 +956,9 @@ sub extract_nutrient_quantity_contained($type, $per, $results_ref, $nid, $nutrie
 	# - Equadis has 2 ENER- nutrientDetail, each with a single quantityContained hash
 	# - Agena3000 has 1 ENER- nutrientDetail with an array of 2 quantityContained
 	# --> convert a single hash to an array with a hash
-	if ((defined $nutrient_detail_ref->{quantityContained}) and (ref($nutrient_detail_ref->{quantityContained}) ne "ARRAY")) {
+	if (    (defined $nutrient_detail_ref->{quantityContained})
+		and (ref($nutrient_detail_ref->{quantityContained}) ne "ARRAY"))
+	{
 		$nutrient_detail_ref->{quantityContained} = [$nutrient_detail_ref->{quantityContained}];
 	}
 
@@ -879,13 +973,14 @@ sub extract_nutrient_quantity_contained($type, $per, $results_ref, $nid, $nutrie
 			$nutrient_unit = $gs1_maps{measurementUnitCode}{$quantity_contained_ref->{measurementUnitCode}};
 		}
 		else {
-			$log->error("gs1_to_off - unrecognized quantity contained",
-			{ quantityContained => $quantity_contained_ref }) if $log->is_error();
+			$log->error("gs1_to_off - unrecognized quantity contained", {quantityContained => $quantity_contained_ref})
+				if $log->is_error();
 		}
 
 		# less than < modifier
-		if ((defined $nutrient_detail_ref->{measurementPrecisionCode})
-		and ($nutrient_detail_ref->{measurementPrecisionCode} eq "LESS_THAN")) {
+		if (    (defined $nutrient_detail_ref->{measurementPrecisionCode})
+			and ($nutrient_detail_ref->{measurementPrecisionCode} eq "LESS_THAN"))
+		{
 			$nutrient_value = "< " . $nutrient_value;
 		}
 
@@ -905,7 +1000,6 @@ sub extract_nutrient_quantity_contained($type, $per, $results_ref, $nid, $nutrie
 	return;
 }
 
-
 =head2 gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref)
 
 Recursive function to go through all first level keys of the $gs1_to_off_ref mapping.
@@ -924,100 +1018,113 @@ The same hash reference is passed to recursive calls to the gs1_to_off function.
 
 =cut
 
-
 sub gs1_to_off;
 
 sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 
 	# We should have a hash
 	if (ref($json_ref) ne "HASH") {
-		$log->error("gs1_to_off - json_ref is not a hash", { gs1_to_off_ref => $gs1_to_off_ref, json_ref => $json_ref, results_ref => $results_ref }) if $log->is_error();
+		$log->error("gs1_to_off - json_ref is not a hash",
+			{gs1_to_off_ref => $gs1_to_off_ref, json_ref => $json_ref, results_ref => $results_ref})
+			if $log->is_error();
 		return;
 	}
-	
-	$log->debug("gs1_to_off", { json_ref_keys => [sort keys %$json_ref] }) if $log->is_debug();
-	
+
+	$log->debug("gs1_to_off", {json_ref_keys => [sort keys %$json_ref]}) if $log->is_debug();
+
 	# Check the matching conditions if any
-	
+
 	if (defined $gs1_to_off_ref->{match}) {
-		
-		$log->debug("gs1_to_off - checking conditions", { match => $gs1_to_off_ref->{match} } ) if $log->is_debug();
-	
+
+		$log->debug("gs1_to_off - checking conditions", {match => $gs1_to_off_ref->{match}}) if $log->is_debug();
+
 		foreach my $match_field_ref (@{$gs1_to_off_ref->{match}}) {
-			
+
 			my $match_field = $match_field_ref->[0];
 			my $match_value = $match_field_ref->[1];
-			
-			if ((not defined $json_ref->{$match_field})
-				or ($json_ref->{$match_field} ne $match_value)) {
-									
-				$log->debug("gs1_to_off - condition does not match",
-					{	match_field => $match_field,
+
+			if (   (not defined $json_ref->{$match_field})
+				or ($json_ref->{$match_field} ne $match_value))
+			{
+
+				$log->debug(
+					"gs1_to_off - condition does not match",
+					{
+						match_field => $match_field,
 						match_value => $match_value,
-						actual_value => $json_ref->{$match_field} }) if $log->is_debug();
-				
+						actual_value => $json_ref->{$match_field}
+					}
+				) if $log->is_debug();
+
 				return;
-			}	
+			}
 		}
-		
+
 		$log->debug("gs1_to_off - conditions match") if $log->is_debug();
 	}
-	
+
 	# Check the matching exceptions
-	
+
 	if (defined $gs1_to_off_ref->{does_not_match}) {
-		
-		$log->debug("gs1_to_off - checking conditions", { does_not_match => $gs1_to_off_ref->{does_not_match} } ) if $log->is_debug();
-		
+
+		$log->debug("gs1_to_off - checking conditions", {does_not_match => $gs1_to_off_ref->{does_not_match}})
+			if $log->is_debug();
+
 		my $match = 1;
-	
+
 		foreach my $match_field_ref (@{$gs1_to_off_ref->{does_not_match}}) {
-			
+
 			my $match_field = $match_field_ref->[0];
 			my $match_value = $match_field_ref->[1];
-			
-			if ((not defined $json_ref->{$match_field})
-				or ($json_ref->{$match_field} ne $match_value)) {
-									
-				$log->debug("gs1_to_off - condition does not match",
-					{	match_field => $match_field,
+
+			if (   (not defined $json_ref->{$match_field})
+				or ($json_ref->{$match_field} ne $match_value))
+			{
+
+				$log->debug(
+					"gs1_to_off - condition does not match",
+					{
+						match_field => $match_field,
 						match_value => $match_value,
-						actual_value => $json_ref->{$match_field} }) if $log->is_debug();
-				
+						actual_value => $json_ref->{$match_field}
+					}
+				) if $log->is_debug();
+
 				$match = 0;
 				last;
-			}	
+			}
 		}
-		
+
 		return if $match;
-		
+
 		$log->debug("gs1_to_off - conditions match") if $log->is_debug();
-	}	
-		
+	}
+
 	$log->debug("gs1_to_off - assigning fields") if $log->is_debug();
-	
+
 	# If the conditions match, assign the fields
 
 	foreach my $source_field_ref (@{$gs1_to_off_ref->{fields}}) {
-		
+
 		my $source_field = $source_field_ref->[0];
 		my $source_target = $source_field_ref->[1];
-		
-		$log->debug("gs1_to_off - source fields", { source_field => $source_field }) if $log->is_debug();
-		
+
+		$log->debug("gs1_to_off - source fields", {source_field => $source_field}) if $log->is_debug();
+
 		if (defined $json_ref->{$source_field}) {
-			
+
 			$log->debug("gs1_to_off - existing source fields",
-				{ source_field => $source_field, ref => ref($source_target) }) if $log->is_debug();
-		
+				{source_field => $source_field, ref => ref($source_target)})
+				if $log->is_debug();
+
 			# if the source field is nutrientHeader, we need to extract multiple
 			# nutrition facts tables (for unprepared and prepared product)
 			# with multiple nutrients.
 			# As the mapping is complex, it is done with special code below
 			# instead of the generic matching code.
-			
+
 			if ($source_field eq "nutrientHeader") {
-				
+
 				$log->debug("gs1_to_off - special handling for nutrientHeader array") if $log->is_debug();
 
 				# If there is only one nutrition facts table, nutrientHeader might not be an array
@@ -1026,59 +1133,77 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 				if (ref($json_ref->{$source_field}) eq 'HASH') {
 					$json_ref->{$source_field} = [$json_ref->{$source_field}];
 				}
-				
+
 				# Some products like ice cream may have nutrients per 100g + nutrients per 100ml
 				# in that case, the last values (e.g. for 100g) will override previous values (e.g. for 100ml)
-				
+
 				foreach my $nutrient_header_ref (@{$json_ref->{$source_field}}) {
-					
+
 					my $type = "";
-					
+
 					if ($nutrient_header_ref->{preparationStateCode} eq "PREPARED") {
 						$type = "_prepared";
 					}
-					
+
 					my $serving_size_value;
 					my $serving_size_unit;
 					my $serving_size_description;
 					my $serving_size_description_lc;
-					
+
 					if (defined $nutrient_header_ref->{servingSize}{'#'}) {
 						$serving_size_value = $nutrient_header_ref->{servingSize}{'#'};
-						$serving_size_unit = $gs1_maps{measurementUnitCode}{$nutrient_header_ref->{servingSize}{'@'}{measurementUnitCode}};
+						$serving_size_unit = $gs1_maps{measurementUnitCode}
+							{$nutrient_header_ref->{servingSize}{'@'}{measurementUnitCode}};
 					}
 					elsif (defined $nutrient_header_ref->{servingSize}{'$t'}) {
 						$serving_size_value = $nutrient_header_ref->{servingSize}{'$t'};
-						$serving_size_unit = $gs1_maps{measurementUnitCode}{$nutrient_header_ref->{servingSize}{measurementUnitCode}};
+						$serving_size_unit
+							= $gs1_maps{measurementUnitCode}{$nutrient_header_ref->{servingSize}{measurementUnitCode}};
 					}
 					else {
 						$log->error("gs1_to_off - unrecognized serving size",
-									{ servingSize => $nutrient_header_ref->{servingSize} }) if $log->is_error();
+							{servingSize => $nutrient_header_ref->{servingSize}})
+							if $log->is_error();
 					}
-					
+
+					# We may have a servingSizeDescription in multiple languages, in that case, take the first one
+
 					if (defined $nutrient_header_ref->{servingSizeDescription}) {
-						if (defined $nutrient_header_ref->{servingSizeDescription}{'#'}) {
-							$serving_size_description = $nutrient_header_ref->{servingSizeDescription}{'#'};
-							$serving_size_description_lc = $nutrient_header_ref->{servingSizeDescription}{'@'}{languageCode};
+						my @serving_size_descriptions;
+						if (ref($nutrient_header_ref->{servingSizeDescription}) eq "ARRAY") {
+							@serving_size_descriptions = @{$nutrient_header_ref->{servingSizeDescription}};
 						}
-						elsif (defined $nutrient_header_ref->{servingSizeDescription}{'$t'}) {
-							$serving_size_description = $nutrient_header_ref->{servingSizeDescription}{'$t'};
-							$serving_size_description_lc = $nutrient_header_ref->{servingSizeDescription}{languageCode};
+						else {
+							@serving_size_descriptions = ($nutrient_header_ref->{servingSizeDescription});
+						}
+
+						if (scalar @serving_size_descriptions > 0) {
+
+							my $serving_size_description_ref = $serving_size_descriptions[0];
+							if (defined $serving_size_description_ref->{'#'}) {
+								$serving_size_description = $serving_size_description_ref->{'#'};
+								$serving_size_description_lc = $serving_size_description_ref->{'@'}{languageCode};
+							}
+							elsif (defined $serving_size_description_ref->{'$t'}) {
+								$serving_size_description = $serving_size_description_ref->{'$t'};
+								$serving_size_description_lc = $serving_size_description_ref->{languageCode};
+							}
 						}
 					}
-					
+
 					my $per = "100g";
-					
+
 					if ((defined $serving_size_value) and ($serving_size_value != 100)) {
 						$per = "serving";
-						$serving_size_value += 0;	# remove extra .0
-						
+						$serving_size_value += 0;    # remove extra .0
+
 						# Some serving sizes have an extra description
 						# e.g. par portion : 14 g + 200 ml d'eau
 						my $extra_serving_size_description = "";
 						if ((defined $serving_size_description) and (defined $serving_size_description_lc)) {
 							# Par Portion de 30 g (2)
-							$serving_size_description =~ s/^(par |pour )?((1 |une )?(part |portion ))?(de )?\s*:?=?\s*//i;
+							$serving_size_description
+								=~ s/^(par |pour )?((1 |une )?(part |portion ))?(de )?\s*:?=?\s*//i;
 							$serving_size_description =~ s/( |\d)(gr|grammes)$/$1g/i;
 							# Par Portion de 30 g (2) : remove number of portions
 							$serving_size_description =~ s/\(\d+\)//i;
@@ -1087,93 +1212,110 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 							# skip the extra description if it is equal to value + unit
 							# to avoid things like 43 g (43 g)
 							# "Pour 45g ?²?" --> ignore bogus characters at the end
-							if (($serving_size_description !~ /^\s*$/)
-								and ($serving_size_description !~ /^$serving_size_value\s*$serving_size_unit(\?|\.|\,|\s|\*|²)*$/i)) {
+							if (
+								($serving_size_description !~ /^\s*$/)
+								and ($serving_size_description
+									!~ /^$serving_size_value\s*$serving_size_unit(\?|\.|\,|\s|\*|²)*$/i)
+								)
+							{
 								$extra_serving_size_description = ' (' . $serving_size_description . ')';
 							}
 						}
-						
-						assign_field($results_ref, "serving_size", $serving_size_value . " " . $serving_size_unit . $extra_serving_size_description);
+
+						assign_field($results_ref, "serving_size",
+							$serving_size_value . " " . $serving_size_unit . $extra_serving_size_description);
 					}
-					
+
 					if (defined $nutrient_header_ref->{nutrientDetail}) {
-						
+
 						# If there's only one nutrient, we may not get an array
-						
+
 						if (ref($nutrient_header_ref->{nutrientDetail}) ne 'ARRAY') {
-							$log->error("gs1_to_off - nutrient_header is not an array ", { results_ref => $results_ref  }) if $log->is_error();
+							$log->error("gs1_to_off - nutrient_header is not an array ", {results_ref => $results_ref})
+								if $log->is_error();
 							next;
 						}
-						
+
 						foreach my $nutrient_detail_ref (@{$nutrient_header_ref->{nutrientDetail}}) {
 							my $nid = $gs1_maps{nutrientTypeCode}{$nutrient_detail_ref->{nutrientTypeCode}};
-							
+
 							if (defined $nid) {
-								extract_nutrient_quantity_contained($type, $per, $results_ref, $nid, $nutrient_detail_ref)
+								extract_nutrient_quantity_contained($type, $per, $results_ref, $nid,
+									$nutrient_detail_ref);
 							}
 							else {
 								$log->error("gs1_to_off - unrecognized nutrient",
-									{ code => $results_ref->{code}, nutrient_detail_ref => $nutrient_detail_ref }) if $log->is_error();
+									{code => $results_ref->{code}, nutrient_detail_ref => $nutrient_detail_ref})
+									if $log->is_error();
 								my $map = "nutrientTypeCode";
 								my $source_value = $nutrient_detail_ref->{nutrientTypeCode};
 								defined $unknown_entries_in_gs1_maps{$map} or $unknown_entries_in_gs1_maps{$map} = {};
-								defined $unknown_entries_in_gs1_maps{$map}{$source_value} or $unknown_entries_in_gs1_maps{$map}{$source_value} = 0;
+								defined $unknown_entries_in_gs1_maps{$map}{$source_value}
+									or $unknown_entries_in_gs1_maps{$map}{$source_value} = 0;
 								$unknown_entries_in_gs1_maps{$map}{$source_value}++;
 							}
 						}
 					}
 				}
 			}
-		
-			# If the value is a scalar, it is a target field (or multiple target fields)			
+
+			# If the value is a scalar, it is a target field (or multiple target fields)
 			elsif (ref($source_target) eq "") {
-				
-				$log->debug("gs1_to_off - source field directly maps to target field",
-						{ source_field => $source_field, target_field => $source_target }) if $log->is_debug();
-						
+
+				$log->debug(
+					"gs1_to_off - source field directly maps to target field",
+					{source_field => $source_field, target_field => $source_target}
+				) if $log->is_debug();
+
 				# We may have multiple source values, in an array
-				
+
 				my @source_values;
-				
+
 				if (ref($json_ref->{$source_field}) eq "ARRAY") {
 					@source_values = @{$json_ref->{$source_field}};
 				}
 				else {
 					@source_values = ($json_ref->{$source_field});
 				}
-				
+
 				foreach my $source_value (@source_values) {
-				
+
 					# We may have multiple target fields, separated by commas
 					foreach my $target_field (split(/\s*,\s*/, $source_target)) {
-						
-						$log->debug("gs1_to_off - assign value to target field",
-							{ source_field => $source_field, source_value => $source_value, target_field => $target_field }) if $log->is_debug();
-							
+
+						$log->debug(
+							"gs1_to_off - assign value to target field",
+							{
+								source_field => $source_field,
+								source_value => $source_value,
+								target_field => $target_field
+							}
+						) if $log->is_debug();
+
 						# We might combine a value and a unit, but also keep them separate so that we can assign fields like quantity_value and quantity_unit
 						my $source_value_value;
 						my $source_value_unit;
-							
+
 						# Some fields indicate a language:
-						
-	# ingredientStatement: {
-	#   languageCode: "fr",
-	#   $t: "Ingrédients: LAIT entier en poudre (38,9%), PETIT-LAIT filtré en poudre, café soluble (8,0%), fibres de chicorée (oligofructose) (8%), chicorée soluble (7,5%), stabilisant : E331, correcteur d'acidité : E340, sulfate de magnésium."
-	# },
+
+						# ingredientStatement: {
+						#   languageCode: "fr",
+						#   $t: "Ingrédients: LAIT entier en poudre (38,9%), PETIT-LAIT filtré en poudre, café soluble (8,0%), fibres de chicorée (oligofructose) (8%), chicorée soluble (7,5%), stabilisant : E331, correcteur d'acidité : E340, sulfate de magnésium."
+						# },
 
 						# or another format (depending on how the XML was converted to JSON):
-						
-	# ingredientStatement: {
-	#   #: "Ingrédients: LAIT entier en poudre (38,9%), PETIT-LAIT filtré en poudre, café soluble (8,0%), fibres de chicorée (oligofructose) (8%), chicorée soluble (7,5%), stabilisant : E331, correcteur d'acidité : E340, sulfate de magnésium.",
-	#   @: {
-	#     languageCode: "fr"
-	#   }
-	# },
+
+						# ingredientStatement: {
+						#   #: "Ingrédients: LAIT entier en poudre (38,9%), PETIT-LAIT filtré en poudre, café soluble (8,0%), fibres de chicorée (oligofructose) (8%), chicorée soluble (7,5%), stabilisant : E331, correcteur d'acidité : E340, sulfate de magnésium.",
+						#   @: {
+						#     languageCode: "fr"
+						#   }
+						# },
 
 						if (ref($source_value) eq "HASH") {
 							my $language_code;
 							my $value;
-							
+
 							# There may be a language code
 							if (defined $source_value->{languageCode}) {
 								$language_code = $source_value->{languageCode};
@@ -1181,26 +1323,27 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 							elsif ((defined $source_value->{'@'}) and (defined $source_value->{'@'}{languageCode})) {
 								$language_code = $source_value->{'@'}{languageCode};
 							}
-							
+
 							# Keep track of language codes so that we can assign the lc and lang fields
 							if (defined $language_code) {
 								defined $results_ref->{languages} or $results_ref->{languages} = {};
-								defined $results_ref->{languages}{$language_code} or $results_ref->{languages}{$language_code} = 0;
+								defined $results_ref->{languages}{$language_code}
+									or $results_ref->{languages}{$language_code} = 0;
 								$results_ref->{languages}{$language_code}++;
 							}
-							
+
 							if (defined $source_value->{'$t'}) {
 								$value = $source_value->{'$t'};
 							}
 							elsif (defined $source_value->{'#'}) {
 								$value = $source_value->{'#'};
 							}
-							
+
 							# There may be a measurement unit code, or a time measurement unit code
 							# in that case, concatenate it to the value
-							
+
 							foreach my $code ("measurementUnitCode", "timeMeasurementUnitCode") {
-							
+
 								if (defined $source_value->{$code}) {
 									$source_value_value = $value;
 									$source_value_unit = $gs1_maps{$code}{$source_value->{$code}};
@@ -1212,30 +1355,45 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 									$value .= " " . $gs1_maps{$code}{$source_value->{'@'}{$code}};
 								}
 							}
-							
+
 							# If the field is a language specific field, we can assign the value to the language specific field
 							if ((defined $language_code) and (defined $language_fields{$target_field})) {
 								$target_field = $target_field . "_" . lc($language_code);
-								$log->debug("gs1_to_off - changed to language specific target field",
-									{ source_field => $source_field, source_value => $source_value, target_field => $target_field }) if $log->is_debug();
+								$log->debug(
+									"gs1_to_off - changed to language specific target field",
+									{
+										source_field => $source_field,
+										source_value => $source_value,
+										target_field => $target_field
+									}
+								) if $log->is_debug();
 							}
-							
+
 							if (defined $value) {
 								$source_value = $value;
 							}
 							else {
-								$log->error("gs1_to_off - issue with source value structure",
-									{ source_field => $source_field, source_value => $source_value, target_field => $target_field }) if $log->is_error();
+								$log->error(
+									"gs1_to_off - issue with source value structure",
+									{
+										source_field => $source_field,
+										source_value => $source_value,
+										target_field => $target_field
+									}
+								) if $log->is_error();
 								$source_value = undef;
 							}
 						}
-						
-						if ((defined $source_value) and ($source_value ne "")
+
+						if (
+								(defined $source_value)
+							and ($source_value ne "")
 							# CodeOnline sometimes has empty values '.' or '0' for partyName for one of the fields brandOwner or informationProviderOfTradeItem
 							# ignore them in order to keep the partyName value from the other fields
-							and not (($source_field eq "partyName") and (length($source_value) < 2))
-						) {
-							
+							and not(($source_field eq "partyName") and (length($source_value) < 2))
+							)
+						{
+
 							# allergenTypeCode => '+traces%allergens',
 							# % sign means we will use a map to transform the source value
 							if ($target_field =~ /\%/) {
@@ -1245,28 +1403,38 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 									$source_value = $gs1_maps{$map}{$source_value};
 								}
 								else {
-									$log->error("gs1_to_off - unknown source value for map",
-										{ code => $results_ref->{code}, source_field => $source_field, source_value => $source_value, target_field => $target_field, map => $map }) if $log->is_error();
-									defined $unknown_entries_in_gs1_maps{$map} or $unknown_entries_in_gs1_maps{$map} = {};
-									defined $unknown_entries_in_gs1_maps{$map}{$source_value} or $unknown_entries_in_gs1_maps{$map}{$source_value} = 0;
+									$log->error(
+										"gs1_to_off - unknown source value for map",
+										{
+											code => $results_ref->{code},
+											source_field => $source_field,
+											source_value => $source_value,
+											target_field => $target_field,
+											map => $map
+										}
+									) if $log->is_error();
+									defined $unknown_entries_in_gs1_maps{$map}
+										or $unknown_entries_in_gs1_maps{$map} = {};
+									defined $unknown_entries_in_gs1_maps{$map}{$source_value}
+										or $unknown_entries_in_gs1_maps{$map}{$source_value} = 0;
 									$unknown_entries_in_gs1_maps{$map}{$source_value}++;
 									# Skip the entry
 									next;
 								}
-							}							
-						
+							}
+
 							# allergenTypeCode => '+traces%allergens',
 							# + sign means we will create a comma separated list if we have multiple values
 							if ($target_field =~ /^\+/) {
 								$target_field = $';
-								
+
 								if (defined $results_ref->{$target_field}) {
 									$source_value = $results_ref->{$target_field} . ', ' . $source_value;
 								}
 							}
-							
+
 							assign_field($results_ref, $target_field, $source_value);
-							
+
 							if ($target_field eq "quantity") {
 								if (defined $source_value_value) {
 									assign_field($results_ref, $target_field . "_value", $source_value_value);
@@ -1275,53 +1443,53 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 							}
 						}
 					}
-					
+
 				}
 			}
-			
+
 			elsif (ref($source_target) eq "ARRAY") {
-				
-#	http://apps.gs1.org/GDD/Pages/clDetails.aspx?semanticURN=urn:gs1:gdd:cl:ContactTypeCode&release=4
-#	source_field => array of hashes: go down one level, expect an array
-#	
-#		["tradeItemContactInformation", [
-#				{
-#					# match => hash of key value conditions: assign values to field only if the conditions match
-#					match => [
-#						["contactTypeCode", "CXC"],
-#					],
-#					fields => [
-#						["contactAddress", "customer_service_fr"],
-#					],
-#				},
-#			],
-#		],		
-	
-				$log->debug("gs1_to_off - array field", { source_field => $source_field }) if $log->is_debug();
-	
+
+				#	http://apps.gs1.org/GDD/Pages/clDetails.aspx?semanticURN=urn:gs1:gdd:cl:ContactTypeCode&release=4
+				#	source_field => array of hashes: go down one level, expect an array
+				#
+				#		["tradeItemContactInformation", [
+				#				{
+				#					# match => hash of key value conditions: assign values to field only if the conditions match
+				#					match => [
+				#						["contactTypeCode", "CXC"],
+				#					],
+				#					fields => [
+				#						["contactAddress", "customer_service_fr"],
+				#					],
+				#				},
+				#			],
+				#		],
+
+				$log->debug("gs1_to_off - array field", {source_field => $source_field}) if $log->is_debug();
+
 				# Loop through the array entries of the GS1 to OFF mapping
-				
+
 				foreach my $gs1_to_off_array_entry_ref (@{$source_target}) {
-					
+
 					# Loop through the array entries of the JSON file
-					
+
 					# If the source file is not an array, create it
 					# (e.g. if only one element is there, the xml to json conversion might not create an array)
 					if (ref($json_ref->{$source_field}) ne "ARRAY") {
-						$json_ref->{$source_field} = [ $json_ref->{$source_field} ];
+						$json_ref->{$source_field} = [$json_ref->{$source_field}];
 					}
-							
+
 					foreach my $json_array_entry_ref (@{$json_ref->{$source_field}}) {
 
 						gs1_to_off($gs1_to_off_array_entry_ref, $json_array_entry_ref, $results_ref);
 					}
 				}
-			}			
-			
+			}
+
 			elsif (ref($source_target) eq "HASH") {
-				
+
 				# Go down one level
-				
+
 				# The source structure may be a hash or an array of hashes
 				# e.g. Equadis: allergenRelatedInformation is a hash, CodeOnline: it is an array
 
@@ -1337,13 +1505,14 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 				# 			{
 				# 				allergenTypeCode: "AE",
 				# 				levelOfContainmentCode: "CONTAINS"
-				# 			},				
+				# 			},
 
 				$log->debug("gs1_to_off - source_target is a hash",
-					{ source_field => $source_field,  source_target => $source_target, json_ref => $json_ref }) if $log->is_debug();
-				
+					{source_field => $source_field, source_target => $source_target, json_ref => $json_ref})
+					if $log->is_debug();
+
 				if (ref($json_ref->{$source_field}) eq "HASH") {
-				
+
 					gs1_to_off($source_target, $json_ref->{$source_field}, $results_ref);
 				}
 				elsif (ref($json_ref->{$source_field}) eq "ARRAY") {
@@ -1354,13 +1523,20 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 						# allergenRelatedInformation: [
 						# 	[ ]
 						# ]
-						
+
 						if (ref($json_array_entry_ref) eq "HASH") {
 							gs1_to_off($source_target, $json_array_entry_ref, $results_ref);
 						}
 						else {
-							$log->debug("gs1_to_off - expected a hash but got an array",
-								{ source_field => $source_field,  source_target => $source_target, json_ref => $json_ref, json_array_entry_ref => $json_array_entry_ref }) if $log->is_debug();
+							$log->debug(
+								"gs1_to_off - expected a hash but got an array",
+								{
+									source_field => $source_field,
+									source_target => $source_target,
+									json_ref => $json_ref,
+									json_array_entry_ref => $json_array_entry_ref
+								}
+							) if $log->is_debug();
 						}
 					}
 				}
@@ -1369,7 +1545,6 @@ sub gs1_to_off ($gs1_to_off_ref, $json_ref, $results_ref) {
 	}
 	return;
 }
-
 
 =head2 convert_single_text_property_to_direct_value ($json )
 
@@ -1404,16 +1579,18 @@ gtin: "03449865355608"
 
 =cut
 
+sub convert_single_text_property_to_direct_value ($json_ref) {
 
-sub convert_single_text_property_to_direct_value($json_ref) {
+	my $type = ref $json_ref or return;
 
-    my $type = ref $json_ref or return;
-
-    if ($type eq 'HASH') {
+	if ($type eq 'HASH') {
 		foreach my $key (keys %$json_ref) {
 			if (ref $json_ref->{$key}) {
 				# Hash with a single $t value?
-				if ((ref $json_ref->{$key} eq 'HASH') and ((scalar keys %{$json_ref->{$key}}) == 1) and (defined $json_ref->{$key}{'$t'})) {
+				if (    (ref $json_ref->{$key} eq 'HASH')
+					and ((scalar keys %{$json_ref->{$key}}) == 1)
+					and (defined $json_ref->{$key}{'$t'}))
+				{
 					$json_ref->{$key} = $json_ref->{$key}{'$t'};
 				}
 				else {
@@ -1421,18 +1598,17 @@ sub convert_single_text_property_to_direct_value($json_ref) {
 				}
 			}
 		}
-    }
-    elsif ($type eq 'ARRAY') {
-    
-        foreach my $elem (@$json_ref) {
-            if (ref $elem) {
-                convert_single_text_property_to_direct_value($elem);
-            }
-        }
-    }
-    return;
-}
+	}
+	elsif ($type eq 'ARRAY') {
 
+		foreach my $elem (@$json_ref) {
+			if (ref $elem) {
+				convert_single_text_property_to_direct_value($elem);
+			}
+		}
+	}
+	return;
+}
 
 =head2 convert_gs1_json_message_to_off_products_csv_fields ($json, $products_ref, $messages_ref)
 
@@ -1461,9 +1637,8 @@ Each message will be added as one element (a hash ref) of the messages data arra
 
 =cut
 
+sub convert_gs1_json_message_to_off_products_csv ($json_ref, $products_ref, $messages_ref) {
 
-sub convert_gs1_json_message_to_off_products_csv($json_ref, $products_ref, $messages_ref) {
-	
 	# Depending on how the original XML was converted to JSON,
 	# text values of XML tags can be assigned directly as the value of the corresponding key
 	# or they can be stored inside a hash with the $t key
@@ -1471,10 +1646,10 @@ sub convert_gs1_json_message_to_off_products_csv($json_ref, $products_ref, $mess
 	# levelOfContainmentCode: {
 	#	$t: "MAY_CONTAIN"
 	# },
-	
+
 	# The JSON can contain only the product information "tradeItem" level
 	# or the tradeItem can be encapsulated in a message
-	
+
 	# catalogue_item_notification:catalogueItemNotificationMessage
 	# - transaction
 	# -- documentCommand
@@ -1488,61 +1663,68 @@ sub convert_gs1_json_message_to_off_products_csv($json_ref, $products_ref, $mess
 		my $message_ref = {};
 		gs1_to_off(\%gs1_message_to_off, $json_ref, $message_ref);
 		push @$messages_ref, $message_ref;
-		$log->debug("convert_gs1_json_to_off_csv - GS1 message fields", { message_ref => $message_ref }) if $log->is_debug();
+		$log->debug("convert_gs1_json_to_off_csv - GS1 message fields", {message_ref => $message_ref})
+			if $log->is_debug();
 	}
-	
-	foreach my $field (qw(
+
+	foreach my $field (
+		qw(
 		catalogue_item_notification:catalogueItemNotificationMessage
 		transaction
 		documentCommand
 		catalogue_item_notification:catalogueItemNotification
 		catalogueItem
-		)) {
+		)
+		)
+	{
 		if (defined $json_ref->{$field}) {
 			$json_ref = $json_ref->{$field};
-			$log->debug("convert_gs1_json_to_off_csv - remove encapsulating field", { field => $field }) if $log->is_debug();
+			$log->debug("convert_gs1_json_to_off_csv - remove encapsulating field", {field => $field})
+				if $log->is_debug();
 		}
 	}
 
 	# A product can contain a child product
 	my $child_product_json_ref = deep_get($json_ref, qw(catalogueItemChildItemLink catalogueItem));
 	if (defined $child_product_json_ref) {
-		$log->debug("convert_gs1_json_to_off_csv - found a child item", {  }) if $log->is_debug();
-		convert_gs1_json_message_to_off_products_csv($child_product_json_ref, $products_ref, $messages_ref)
+		$log->debug("convert_gs1_json_to_off_csv - found a child item", {}) if $log->is_debug();
+		convert_gs1_json_message_to_off_products_csv($child_product_json_ref, $products_ref, $messages_ref);
 	}
 
 	if (defined $json_ref->{tradeItem}) {
 		$json_ref = $json_ref->{tradeItem};
 	}
-	
+
 	if (not defined $json_ref->{gtin}) {
-		$log->debug("convert_gs1_json_to_off_csv - no gtin - skipping", { json_ref => $json_ref }) if $log->is_debug();
+		$log->debug("convert_gs1_json_to_off_csv - no gtin - skipping", {json_ref => $json_ref}) if $log->is_debug();
 		return {};
 	}
-	
+
 	if ((not defined $json_ref->{isTradeItemAConsumerUnit}) or ($json_ref->{isTradeItemAConsumerUnit} ne "true")) {
-		$log->debug("convert_gs1_json_to_off_csv - isTradeItemAConsumerUnit not true - skipping", 
-			{ isTradeItemAConsumerUnit => $json_ref->{isTradeItemAConsumerUnit} }) if $log->is_debug();
+		$log->debug(
+			"convert_gs1_json_to_off_csv - isTradeItemAConsumerUnit not true - skipping",
+			{isTradeItemAConsumerUnit => $json_ref->{isTradeItemAConsumerUnit}}
+		) if $log->is_debug();
 		return {};
 	}
-	
+
 	my $product_ref = {};
-	
+
 	gs1_to_off(\%gs1_product_to_off, $json_ref, $product_ref);
-	
+
 	# assign the lang and lc fields
 	if (defined $product_ref->{languages}) {
-		my @sorted_languages = sort ( { $product_ref->{languages}{$b} <=> $product_ref->{languages}{$a} } keys %{$product_ref->{languages}});
+		my @sorted_languages = sort({$product_ref->{languages}{$b} <=> $product_ref->{languages}{$a}}
+			keys %{$product_ref->{languages}});
 		my $top_language = $sorted_languages[0];
 		$product_ref->{lc} = $top_language;
 		$product_ref->{lang} = $top_language;
 		delete $product_ref->{languages};
 	}
-	
+
 	push @$products_ref, $product_ref;
 	return;
 }
-
 
 =head2 read_gs1_json_file ($json_file, $products_ref, $messages_ref)
 
@@ -1562,12 +1744,12 @@ The encapsulating GS1 message is added to the $messages_ref array
 
 =cut
 
-sub read_gs1_json_file($json_file, $products_ref, $messages_ref) {
+sub read_gs1_json_file ($json_file, $products_ref, $messages_ref) {
 
-	$log->debug("read_gs1_json_file", { json_file => $json_file }) if $log->is_debug();
-	
-	open (my $in, "<", $json_file) or die("Cannot open json file $json_file : $!\n");
-	my $json = join (q{}, (<$in>));
+	$log->debug("read_gs1_json_file", {json_file => $json_file}) if $log->is_debug();
+
+	open(my $in, "<", $json_file) or die("Cannot open json file $json_file : $!\n");
+	my $json = join(q{}, (<$in>));
 	close($in);
 
 	my $json_ref = decode_json($json);
@@ -1576,21 +1758,19 @@ sub read_gs1_json_file($json_file, $products_ref, $messages_ref) {
 	# to the format generated by the nodejs xml2json module
 	# which is the expected format of the ProductOpener::GS1 module
 	convert_single_text_property_to_direct_value($json_ref);
-		
+
 	convert_gs1_json_message_to_off_products_csv($json_ref, $products_ref, $messages_ref);
 	return;
 }
-
 
 sub generate_gs1_message_identifier() {
 
 	# local GLN + 60 random hexadecimal characters
 	my $identifier = deep_get(\%options, qw(gs1 local_gln)) . "_";
-	$identifier .= sprintf("%x", rand 16) for 1..60;
+	$identifier .= sprintf("%x", rand 16) for 1 .. 60;
 
 	return $identifier;
 }
-
 
 =head2 generate_gs1_confirmation_message ($notification_message_ref, $timestamp)
 
@@ -1616,7 +1796,7 @@ generate test confirmation messages which don't have a different content every t
 
 =cut
 
-sub generate_gs1_confirmation_message($notification_message_ref, $timestamp) {
+sub generate_gs1_confirmation_message ($notification_message_ref, $timestamp) {
 
 	# We will need to generate a message identifier, put it in the XML content,
 	# and return it as it is used as the file name
@@ -1639,18 +1819,18 @@ sub generate_gs1_confirmation_message($notification_message_ref, $timestamp) {
 	# Include the notification data in the template data for the confirmation
 	$confirmation_data_ref->{notification} = $notification_message_ref;
 
-
 	my $xml;
 	if (process_template('gs1/catalogue_item_confirmation.tt.xml', $confirmation_data_ref, \$xml)) {
-		$log->debug("generate_gs1_confirmation_message - success", { confirmation_instance_identifier => $confirmation_instance_identifier}) if $log->is_error();
+		$log->debug("generate_gs1_confirmation_message - success",
+			{confirmation_instance_identifier => $confirmation_instance_identifier})
+			if $log->is_error();
 	}
 	else {
-		$log->error("generate_gs1_confirmation_message - template error", { error => $tt->error() }) if $log->is_error();
+		$log->error("generate_gs1_confirmation_message - template error", {error => $tt->error()}) if $log->is_error();
 	}
 
 	return ($confirmation_instance_identifier, $xml);
 }
-
 
 =head2 write_off_csv_file ($csv_file, $products_ref)
 
@@ -1664,34 +1844,38 @@ Write all product data from the $products_ref array to a CSV file in OFF format.
 
 =cut
 
-sub write_off_csv_file($csv_file, $products_ref) {
+sub write_off_csv_file ($csv_file, $products_ref) {
 
-	$log->debug("write_off_csv_file", { csv_file => $csv_file }) if $log->is_debug();
-	
+	$log->debug("write_off_csv_file", {csv_file => $csv_file}) if $log->is_debug();
+
 	open(my $filehandle, ">:encoding(UTF-8)", $csv_file) or die("Cannot write csv file $csv_file : $!\n");
-	
+
 	my $separator = "\t";
-	
-	my $csv = Text::CSV->new ( { binary => 1 , sep_char => $separator } )  # should set binary attribute.
-		or die "Cannot use CSV: ".Text::CSV->error_diag ();
+
+	my $csv = Text::CSV->new({binary => 1, sep_char => $separator})    # should set binary attribute.
+		or die "Cannot use CSV: " . Text::CSV->error_diag();
 
 	# Print the header line with fields names
-	
-	$log->debug("write_off_csv_file - header", { csv_fields => \@csv_fields }) if $log->is_debug();
-	
-	$csv->print ($filehandle, \@csv_fields);
+
+	$log->debug("write_off_csv_file - header", {csv_fields => \@csv_fields}) if $log->is_debug();
+
+	$csv->print($filehandle, \@csv_fields);
 	print $filehandle "\n";
-	
+
 	# We may have the same product multiple times, sort by sources_fields:org-gs1:publicationDateTime
 	# or by lastChangeDateTime (publicationDateTime is not in the CodeOnline export)
 	my %seen_products = ();
-	
+
 	foreach my $product_ref (
-		sort {($b->{"sources_fields:org-gs1:publicationDateTime"} // $b->{"sources_fields:org-gs1:lastChangeDateTime"})
-				cmp ($a->{"sources_fields:org-gs1:publicationDateTime"} // $a->{"sources_fields:org-gs1:lastChangeDateTime"}) } 
-			@$products_ref) {
-		
-		$log->debug("write_off_csv_file - product", { code => $product_ref->{code} }) if $log->is_debug();
+		sort {
+			($b->{"sources_fields:org-gs1:publicationDateTime"} // $b->{"sources_fields:org-gs1:lastChangeDateTime"})
+				cmp($a->{"sources_fields:org-gs1:publicationDateTime"}
+					// $a->{"sources_fields:org-gs1:lastChangeDateTime"})
+		} @$products_ref
+		)
+	{
+
+		$log->debug("write_off_csv_file - product", {code => $product_ref->{code}}) if $log->is_debug();
 		if (defined $seen_products{$product_ref->{code}}) {
 			# Skip product for which we have a more recent publication
 			next;
@@ -1699,20 +1883,19 @@ sub write_off_csv_file($csv_file, $products_ref) {
 		else {
 			$seen_products{$product_ref->{code}} = 1;
 		}
-		
+
 		my @csv_fields_values = ();
 		foreach my $field (@csv_fields) {
 			push @csv_fields_values, $product_ref->{$field};
 		}
-		
-		$csv->print ($filehandle, \@csv_fields_values);
+
+		$csv->print($filehandle, \@csv_fields_values);
 		print $filehandle "\n";
 	}
-	
+
 	close $filehandle;
 	return;
 }
-
 
 =head2 print_unknown_entries_in_gs1_maps ()
 
@@ -1722,23 +1905,63 @@ ordered by the number of occurrences in the GS1 data
 =cut
 
 sub print_unknown_entries_in_gs1_maps() {
-	
+
 	my $unknown_entries = 0;
-	
+
 	foreach my $map (sort keys %unknown_entries_in_gs1_maps) {
 		print "$map map has unknown entries:\n";
-		
-		foreach my $source_value
-			(sort { $unknown_entries_in_gs1_maps{$map}{$a} <=> $unknown_entries_in_gs1_maps{$map}{$b} }
-				keys %{$unknown_entries_in_gs1_maps{$map}}) {
+
+		foreach my $source_value (
+			sort {$unknown_entries_in_gs1_maps{$map}{$a} <=> $unknown_entries_in_gs1_maps{$map}{$b}}
+			keys %{$unknown_entries_in_gs1_maps{$map}}
+			)
+		{
 			print $source_value . "\t" . $unknown_entries_in_gs1_maps{$map}{$source_value} . "\n";
 			$unknown_entries++;
 		}
-		
+
 		print "\n";
 	}
-	
+
 	return $unknown_entries;
+}
+
+=head2 convert_gs1_xml_file_to_json ($xml_file, $json_file)
+
+Convert a GS1 XML file to a JSON file
+
+=cut 
+
+sub convert_gs1_xml_file_to_json ($xml_file, $json_file) {
+
+	my $xml2json = XML::XML2JSON->new(module => 'JSON', pretty => 1, force_array => 0, attribute_prefix => "");
+
+	open(my $in, "<:encoding(UTF-8)", $xml_file) or die("Could not read $xml_file: $!");
+	my $xml = join('', (<$in>));
+	close($in);
+
+	my $json = $xml2json->convert($xml);
+
+	# XML2JSON changes the namespace concatenation character from : to $
+	# e.g. "allergen_information$allergenInformationModule":
+	# it is unwanted, turn it back to : so that we can match the expected input of ProductOpener::GS1
+	$json =~ s/([a-z])\$([a-z])/$1:$2/ig;
+
+	# Note: XML2JSON also creates a hash for simple text values. Text values of tags are converted to $t properties.
+	# e.g. <gtin>03449862093657</gtin>
+	#
+	# becomes:
+	#
+	# gtin: {
+	#    $t: "03449865355608"
+	# },
+	#
+	# This is taken care of later by the ProductOpener::GS1::convert_single_text_property_to_direct_value() function
+
+	open(my $out, ">:encoding(UTF-8)", $json_file) or die("Could not write $json_file: $!");
+	print $out $json;
+	close($out);
+	return;
 }
 
 1;

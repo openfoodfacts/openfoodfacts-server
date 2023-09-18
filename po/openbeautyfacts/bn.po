@@ -5,15 +5,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bn\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-24 19:08\n"
 "Language-Team: Bengali\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: bn\n"
-"X-Crowdin-File: openbeautyfacts.pot\n"
-"X-Crowdin-File-ID: 1810\n"
+"X-Crowdin-File-ID: 3125\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -29,22 +27,12 @@ msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr ""
 
-#. make sure the image exists with your country code. https://static.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en-178x150.png Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openbeautyfacts-logo-en-178x150.png"
-msgstr "openbeautyfacts-logo-en-178x150.png"
-
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openbeautyfacts-logo-en-356x300.png"
-msgstr "openbeautyfacts-logo-en-356x300.png"
-
 msgctxt "site_name"
 msgid "Open Beauty Facts"
 msgstr "Open Beauty Facts"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 msgstr ""
 
 msgctxt "tagline"
@@ -66,23 +54,23 @@ msgstr ""
 
 msgctxt "donate"
 msgid "Donate to Open Beauty Facts"
-msgstr ""
+msgstr "ওপেন বিউটি ফ্যাক্ট এ দান করো"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenBeautyFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenBeautyFacts"
 
 msgctxt "brands_example"
 msgid "Nivea, Nivea Men"
-msgstr ""
+msgstr "নিভিয়া, নিভিয়া মেন"
 
 msgctxt "categories_example"
 msgid "Anti-dandruff shampoo, Whitening toothpaste"
-msgstr ""
+msgstr "খুশকি দূর করার শ্যাম্পু, দাঁত সাদাকরণ টুথপেস্ট"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
-msgstr ""
+msgstr "ইএমবি ৫৩০৬২"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
@@ -97,21 +85,21 @@ msgid "A collaborative, free and open database of cosmetic products from around 
 msgstr ""
 
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openbeautyfacts.org"
-msgstr ""
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 msgctxt "generic_name_example"
 msgid "Anti-dandruff shampoo"
-msgstr ""
+msgstr "খুশকি দূর করার শ্যাম্পু"
 
 msgctxt "product_name_example"
 msgid "Anti-Perspirant Stress Protect"
-msgstr ""
+msgstr "অ্যান্টি-পার্সপিরেন্ট স্ট্রেস সুরক্ষা"
 
 #. make sure the image exists with your country code. https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png Otherwise, ask @teolemon how to create a translated logo
 msgctxt "og_image_url"
 msgid "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-beauty-hunt\">Open Beauty Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"
@@ -124,7 +112,7 @@ msgstr ""
 
 msgctxt "search_description_opensearch"
 msgid "Open Beauty Facts product search"
-msgstr ""
+msgstr "ওপেন বিউটি ফ্যাক্টস পণ্য অনুসন্ধান"
 
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
@@ -133,7 +121,7 @@ msgstr ""
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
 msgid "/open-beauty-facts-mobile-app"
-msgstr ""
+msgstr "/open-food-facts-mobile-app"
 
 # Do not translate
 msgctxt "footer_obf"
@@ -143,5 +131,5 @@ msgstr "Open Food Facts"
 # Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openfoodfacts.org"
-msgstr ""
+msgstr "https://bd.openfoodfacts.org"
 

@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : "13014",
          "id" : "en:strawberry",
          "origins" : "en:finland",
          "percent_estimate" : 58.3333333333333,
@@ -11,6 +12,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "13007",
          "id" : "en:blackcurrant",
          "origins" : "en:south-africa",
          "percent_estimate" : 20.8333333333333,
@@ -21,6 +23,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "13015",
          "id" : "en:raspberry",
          "origins" : "en:sweden",
          "percent_estimate" : 10.4166666666667,
@@ -51,6 +54,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "16030",
          "id" : "en:cocoa-butter",
          "labels" : "en:fair-trade",
          "percent_estimate" : 2.60416666666666,
@@ -76,6 +80,7 @@
       "en:orange",
       "en:citrus-fruit",
       "en:cocoa",
+      "en:plant",
       "en:cocoa-butter"
    ],
    "ingredients_n" : 6,
@@ -101,6 +106,7 @@
       "en:orange",
       "en:citrus-fruit",
       "en:cocoa",
+      "en:plant",
       "en:cocoa-butter"
    ],
    "ingredients_text" : "Mansikka alkuperä Suomi, Mustaherukka (alkuperä Etelä-Afrikka), Vadelma (alkuperä : Ruotsi), Appelsiini (luomu), kaakao ja kaakaovoi (reilu kauppa)",
@@ -108,9 +114,16 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 9,
+   "ingredients_without_ciqual_codes" : [
+      "en:cocoa",
+      "en:orange"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "known_ingredients_n" : 10,
    "lc" : "fi",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 16.6666666666667,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 16.6666666666667,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 16.6666666666667,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 16.6666666666667
    },

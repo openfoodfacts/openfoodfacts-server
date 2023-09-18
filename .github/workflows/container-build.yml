@@ -7,6 +7,10 @@ on:
       - deploy-*
     tags: 
       - v*.*.*
+      
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -18,7 +22,7 @@ jobs:
           "backend"
         ]
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 1
 
@@ -48,7 +52,7 @@ jobs:
           type=sha,format=long
 
     - name: Build and push
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v4
       with:
         context: .
         push: true

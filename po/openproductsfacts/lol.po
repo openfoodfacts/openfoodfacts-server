@@ -5,134 +5,122 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lol\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-24 19:14\n"
 "Language-Team: LOLCAT\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: lol\n"
-"X-Crowdin-File: openproductsfacts.pot\n"
-"X-Crowdin-File-ID: 1814\n"
+"X-Crowdin-File-ID: 3129\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openproductsfacts.org/images/apps/off.apk"
-msgstr "crwdns167442:0crwdne167442:0"
+msgstr "crwdns228351:0crwdne228351:0"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
-msgstr "crwdns167444:0crwdne167444:0"
+msgstr "crwdns228353:0crwdne228353:0"
 
 #. change https://apps.apple.com/app/ to https://apps.apple.com/fr/app/ (for instance) and make sure the url works
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
-msgstr "crwdns167446:0crwdne167446:0"
-
-#. make sure the image exists with your country code at https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-XX-178x150.png. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openproductsfacts-logo-en-178x150.png"
-msgstr "crwdns167448:0crwdne167448:0"
-
-#. make sure the image exists with your country code at https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-XX-356x300.png. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openproductsfacts-logo-en-356x300.png"
-msgstr "crwdns167450:0crwdne167450:0"
+msgstr "crwdns228355:0crwdne228355:0"
 
 msgctxt "site_name"
 msgid "Open Products Facts"
-msgstr "crwdns167452:0crwdne167452:0"
+msgstr "crwdns228357:0crwdne228357:0"
 
 #. change https://www.microsoft.com/en-us/p/ to https://www.microsoft.com/fr-fr/p/ (for instance) and make sure the url works
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
-msgstr "crwdns167454:0crwdne167454:0"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
+msgstr "crwdns228359:0crwdne228359:0"
 
 msgctxt "tagline"
 msgid "Open Products Facts gathers information and data on products from around the world."
-msgstr "crwdns167456:0crwdne167456:0"
+msgstr "crwdns228361:0crwdne228361:0"
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr "crwdns167458:0crwdne167458:0"
+msgstr "crwdns228363:0crwdne228363:0"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "crwdns167460:0crwdne167460:0"
+msgstr "crwdns228365:0crwdne228365:0"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Products Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Products Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "crwdns167462:0crwdne167462:0"
+msgstr "crwdns228367:0crwdne228367:0"
 
 msgctxt "donate"
 msgid "Donate to Open Products Facts"
-msgstr "crwdns167464:0crwdne167464:0"
+msgstr "crwdns228369:0crwdne228369:0"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr "crwdns167466:0crwdne167466:0"
+msgstr "crwdns228371:0crwdne228371:0"
 
 msgctxt "brands_example"
 msgid "Nike, Apple"
-msgstr "crwdns167470:0crwdne167470:0"
+msgstr "crwdns228373:0crwdne228373:0"
 
 msgctxt "categories_example"
 msgid "Mobile phone, Washing machine powder"
-msgstr "crwdns167472:0crwdne167472:0"
+msgstr "crwdns228375:0crwdne228375:0"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
-msgstr "crwdns167474:0crwdne167474:0"
+msgstr "crwdns228377:0crwdne228377:0"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of information on products from around the world"
-msgstr "crwdns167476:0crwdne167476:0"
+msgstr "crwdns228379:0crwdne228379:0"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">Facebook group for contributors</a>"
-msgstr "crwdns167478:0crwdne167478:0"
+msgstr "crwdns228381:0crwdne228381:0"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of products from around the world."
-msgstr "crwdns167480:0crwdne167480:0"
+msgstr "crwdns228383:0crwdne228383:0"
 
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr "crwdns167482:0crwdne167482:0"
+msgstr "crwdns228385:0crwdne228385:0"
 
 msgctxt "generic_name_example"
 msgid "Android smartphone"
-msgstr "crwdns167484:0crwdne167484:0"
+msgstr "crwdns228387:0crwdne228387:0"
 
 msgctxt "product_name_example"
 msgid "iPod Touch (1st generation)"
-msgstr "crwdns167486:0crwdne167486:0"
+msgstr "crwdns228389:0crwdne228389:0"
 
 msgctxt "og_image_url"
 msgid "https://static.openproductsfacts.org/images/misc/openproductsfacts-logo-en-178x150.png"
-msgstr "crwdns167488:0crwdne167488:0"
+msgstr "crwdns228391:0crwdne228391:0"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-product-hunt\">Open Product Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr "crwdns167490:0crwdne167490:0"
+msgstr "crwdns228393:0crwdne228393:0"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr "crwdns167492:0crwdne167492:0"
+msgstr "crwdns228395:0crwdne228395:0"
 
 msgctxt "search_description_opensearch"
 msgid "Open Products Facts product search"
-msgstr "crwdns167494:0crwdne167494:0"
+msgstr "crwdns228397:0crwdne228397:0"
 
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-msgstr "crwdns167496:0crwdne167496:0"
+msgstr "crwdns228399:0crwdne228399:0"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
 msgid "/open-products-facts-mobile-app"
-msgstr "crwdns167498:0crwdne167498:0"
+msgstr "crwdns228401:0crwdne228401:0"
 

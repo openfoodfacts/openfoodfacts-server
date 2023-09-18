@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : "13014",
          "id" : "en:strawberry",
          "origins" : "en:france",
          "percent_estimate" : 55.5555555555556,
@@ -11,6 +12,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "13007",
          "id" : "en:blackcurrant",
          "origins" : "en:south-africa",
          "percent_estimate" : 22.2222222222222,
@@ -21,6 +23,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "13015",
          "id" : "en:raspberry",
          "origins" : "en:belgium",
          "percent_estimate" : 11.1111111111111,
@@ -71,6 +74,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "16030",
          "id" : "en:cocoa-butter",
          "labels" : "en:fair-trade",
          "percent_estimate" : 0.347222222222221,
@@ -81,6 +85,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "13008",
          "id" : "en:cherry",
          "labels" : "en:organic",
          "percent_estimate" : 0.347222222222229,
@@ -108,8 +113,10 @@
       "en:orange",
       "en:lemon",
       "en:cocoa",
+      "en:plant",
       "en:cocoa-butter",
-      "en:cherry"
+      "en:cherry",
+      "en:prunus-species-fruit"
    ],
    "ingredients_n" : 9,
    "ingredients_n_tags" : [
@@ -139,17 +146,28 @@
       "en:orange",
       "en:lemon",
       "en:cocoa",
+      "en:plant",
       "en:cocoa-butter",
-      "en:cherry"
+      "en:cherry",
+      "en:prunus-species-fruit"
    ],
    "ingredients_text" : "Fraise origine France, Cassis (origine Afrique du Sud), Framboise (origine : Belgique), Pamplemousse bio, Orange (bio), Citron (issue de l'agriculture biologique), cacao et beurre de cacao (commerce équitable), cerises issues de l'agriculture biologique",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 9,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 12,
+   "ingredients_without_ciqual_codes" : [
+      "en:cocoa",
+      "en:grapefruit",
+      "en:lemon",
+      "en:orange"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
+   "known_ingredients_n" : 14,
    "lc" : "fr",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 11.1111111111111,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 11.1111111111111,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 11.1111111111111,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 11.1111111111111
    },

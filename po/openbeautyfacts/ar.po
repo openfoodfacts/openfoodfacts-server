@@ -5,15 +5,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-07-26 05:21\n"
 "Language-Team: Arabic\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ar\n"
-"X-Crowdin-File: openbeautyfacts.pot\n"
-"X-Crowdin-File-ID: 1810\n"
+"X-Crowdin-File-ID: 3125\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -29,23 +27,13 @@ msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 
-#. make sure the image exists with your country code. https://static.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en-178x150.png Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openbeautyfacts-logo-en-178x150.png"
-msgstr "openbeautyfacts-logo-en-178x150.png"
-
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openbeautyfacts-logo-en-356x300.png"
-msgstr "openbeautyfacts-logo-en-356x300.png"
-
 msgctxt "site_name"
 msgid "Open Beauty Facts"
-msgstr ""
+msgstr "Open Beauty Facts"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
+msgstr ""
 
 msgctxt "tagline"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
@@ -54,7 +42,7 @@ msgstr "الحقائق الجمالية المفتوحة تجمع معلومات
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
 msgid "OpenBeautyFacts"
-msgstr "الحقائق الجمالية المفتوحة"
+msgstr "OpenBeautyFacts"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
@@ -109,8 +97,8 @@ msgid "A collaborative, free and open database of cosmetic products from around 
 msgstr "قاعدة بيانات معاونة و مجانية و مفتوحة عن مستحضرات التجميل من جميع أنحاء العالم."
 
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openbeautyfacts.org"
-msgstr "https://en.wiki.openbeautyfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 msgctxt "generic_name_example"
 msgid "Anti-dandruff shampoo"
@@ -149,7 +137,7 @@ msgstr "أكوا / ماء ، كبريتات لوريث الصوديوم ، دي�
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
 msgid "/open-beauty-facts-mobile-app"
-msgstr ""
+msgstr "/open-beauty-facts-mobile-app"
 
 # Do not translate
 msgctxt "footer_obf"
@@ -159,5 +147,5 @@ msgstr "Open Food Facts"
 # Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openfoodfacts.org"
-msgstr ""
+msgstr "https://world-ar.openfoodfacts.org"
 

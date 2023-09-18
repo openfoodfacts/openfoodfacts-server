@@ -1,0 +1,356 @@
+////////////////
+//// topbar
+//
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] { background-color: $chocolate !important; }
+
+.upper-nav {
+  background-color: $ristreto;
+  nav {
+    background-color: $ristreto;
+  }
+  .top-bar-section {
+     & li.has-dropdown > a::after { margin-top: -2px; }
+    .dropdown {
+      // smallfix: Display of the dropdown menu border (desktop).
+      background-color: $white;
+      border: 1px solid $chocolate;
+      border-top: none;
+      // smallfix: Removed weird margin on <label>, cleaned some code.
+      & li.has-form {
+        padding: 0 !important;
+        form {
+          .button {
+            width: 100%;
+            height: 100%;
+            padding: 1rem;
+          }
+        }
+      }
+      & li.divider {
+        @media #{$small-only} { border-color: rgba(255, 255, 255, .33); }
+      }
+      & li label { 
+        margin-top: 0; 
+        padding-bottom: 8px;
+        @media #{$small-only} {
+          color: $white;
+        }
+      }
+      // fix: issue#7501: Added back arrow in the menu in responsive mode.
+      & li.back h5 a:hover { text-decoration: none; }
+      & li.back h5 > a::before {
+        display: block;
+        // there's no generic/fallback font which exist for icon font, so I used 'fantasy'
+        font-family: "Material Icons", fantasy;
+        content: "\e5c4";
+      }
+    }
+    ul {
+      li { 
+        background: $ristreto; 
+        // smallfix: Content alignment @ top-bar.
+        a {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+      }
+      &.left {
+        li {
+          &:first-child {
+            #menu_link {
+              display: inline-flex;
+              padding-top: 12px;
+              padding-bottom: 9px;
+            }
+          }
+        }
+      }
+      // smallfix: Content alignment in the 'Sign In' button. 
+      &.right {
+        li {
+          a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+          }
+        }
+      }
+    }
+
+    @media #{$small-only} {
+      display: flex;
+      justify-content: space-between;
+      .left {
+        width: 5rem;
+      }
+      .right {
+        display: flex;
+        margin-left: auto;
+        float: none !important;
+        width: auto;
+        height: 3.2rem !important;
+        align-items: center;
+        .userlink {
+          padding-right: 2rem;
+        }
+        .button {
+          height: auto;
+          position: relative;
+          //not sure why top: auto; is added, breaks buttons in the top bar
+          //top: auto;
+        }
+      }
+    }
+  }
+  .top-bar-section ul li.active > a.button {
+    background: $primary-color;
+    &:hover {
+      background: $oceanblue;
+    }
+    &.white {
+      background: $white;
+      color: $primary-color;
+    }
+  }
+  .select2-container--default .select2-selection--multiple,
+  .select2-container--default .select2-selection--single {
+    background-color: transparent;
+    border: 0px solid #aaa;
+    color: $white;
+    .select2-selection__placeholder,
+    .select2-selection__arrow,
+    .select2-selection__arrow b,
+    .select2-selection__clear {
+      color: $white;
+      border-color: $white transparent transparent;
+    }
+  }
+  .userlink {
+    display: flex;
+    align-items: center;
+    line-height: 1rem;
+  }
+  .top-bar-section .has-dropdown > a:after {
+    border-color: $white transparent transparent;
+  }
+}
+
+.topbarsticky {
+  background: $ristreto;
+  z-index: 200;
+  .top-bar-section ul li {
+    background: inherit;
+  }
+  #offNav {
+    background-color: $cafecreme;
+    transition: all 0.3s;
+    @media #{$large-up} {
+      border-radius: 0 0;
+      height: 82px;
+      display: flex;
+      align-items: center;
+    }
+    .top-bar {
+      width: 100%;
+      @media #{$medium-up} {
+        li:not(.has-form) a:not(.button):hover {
+          background: transparent;
+          color: $black;
+        }
+      }
+      &:not(.expanded) {
+        height: 124px;
+        @media #{$topbar-media-query} {
+          height: 62px;
+        }
+      }
+      &.expanded {
+        border-bottom: 1px solid #000;
+        box-shadow: 0 4px 8px rgb(0 0 0 / 50%);
+        z-index: 10;
+        .toggle-topbar a {
+          color: $oceanblue;
+          span::after {
+            box-shadow: 0 0 0 1px $oceanblue, 0 7px 0 1px $oceanblue,
+              0 14px 0 1px $oceanblue;
+          }
+        }
+        .title-area {
+          background: $primary-color;
+        }
+      }
+      .top-bar-section {
+        a {
+          line-height: 62px;
+        }
+      }
+      .top-bar-links {
+        color: black;
+      }
+      .name {
+        height: 62px;
+        h2 a {
+          display: flex;
+          align-items: center;
+          img {
+            width: 65px;
+          }
+        }
+      }
+    }
+    .search-li {
+      height: 64px;
+      display: flex;
+      width: 100%;
+      padding: 0 1rem;
+      align-items: center;
+      @media #{$topbar-media-query} {
+        width: 220px;
+      }
+      @media #{$large-up} {
+        width: 400px;
+      }
+      .postfix-round {
+        display: flex;
+        div:first-child {
+          width: 100%;
+        }
+        div:last-child {
+          width: 4rem;
+        }
+      }
+      form {
+        width: 100%;
+        input {
+          height: 2.35rem;
+          &[type="text"] {
+            width: 100%;
+            //border-color:$white;
+            box-shadow: none;
+            @media #{$topbar-media-query} {
+              width: 180px;
+            }
+            @media #{$large-up} {
+              width: 360px;
+            }
+          }
+        }
+      }
+    }
+    button,
+    input,
+    select {
+      top: 0;
+    }
+    button[type="submit"] {
+      height: 2.35rem;
+      background-color: $primary-button-color;
+      fill: white;
+      padding: 0.4rem 0.5rem;
+    }
+  }
+  .top-bar {
+    background-color: $cafecreme;
+    .name h2 {
+      font-size: 1.2rem;
+      @media #{$large-up} {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  &.sticky {
+    #offNav {
+      border-radius: 0 0 0 0;
+    }
+  }
+}
+
+.top-bar-section .has-dropdown > a:after {
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.4);
+}
+
+.top-bar-section ul li > a:hover {
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 40.063em) {
+  .top-bar-section .has-dropdown > a:after {
+    border-color: rgba(0, 0, 0, 0.4) transparent transparent transparent;
+  }
+  #select_country_li {
+    padding-left: 0;
+  }
+}
+
+//
+//// end topbar gen
+////////////////
+
+@media #{$topbar-media-query} {
+  #offNav {
+    .top-bar {
+      display: flex;
+    }
+    .title-area {
+      width: 380px;
+      display: flex;
+      span {
+        white-space: nowrap;
+        font-size: 1.2rem;
+        @media #{$large-up} {
+          font-size: 1.5rem;
+        }
+      }
+    }
+    .top-bar-section {
+      width: 100%;
+      display: flex;
+    }
+    .search-li {
+      width: 400px;
+    }
+    .search_and_links {
+      width: 100%;
+      display: flex;
+      a {
+        font-size: 16px;
+      }
+      .getapp {
+        margin-left: auto;
+        align-items: center;
+        @media #{$medium-up} {
+          margin-right: 1rem;
+        }
+        @media #{$xlarge-up} {
+          margin-right: 0;
+        }
+        a {
+          height: 36px;
+          line-height: 16px;
+          display: flex;
+          align-items: center;
+          border-radius: $global-radius;
+          fill: $white;
+          @media #{$medium-only} {
+            padding-left: 0.25rem !important;
+            padding-right: 0.5rem !important;
+          }
+          .bt-text {
+            line-height: 1;
+            @media #{$medium-up} {
+              display: inline-block;
+            }
+          }
+          span {
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            padding-left: 0.25rem;
+          }
+        }
+      }
+    }
+  }
+}

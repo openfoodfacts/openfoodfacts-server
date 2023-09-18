@@ -3,12 +3,32 @@
       "en:coffees"
    ],
    "lc" : "fr",
-   "packaging" : "Capsules en aluminium à recycler",
+   "misc_tags" : [
+      "en:packagings-number-of-components-1",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:aluminium"
+   ],
+   "packaging_recycling_tags" : [
+      "en:recycle"
+   ],
+   "packaging_shapes_tags" : [
+      "en:coffee-capsule"
+   ],
+   "packaging_text" : "Capsules en aluminium à recycler",
    "packagings" : [
       {
          "material" : "en:aluminium",
          "recycling" : "en:recycle",
          "shape" : "en:coffee-capsule"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:metal" : {}
+   },
+   "packagings_n" : 1
 }

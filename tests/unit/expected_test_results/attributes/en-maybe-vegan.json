@@ -345,6 +345,39 @@
    "categories_tags" : [
       "en:non-dairy-cheeses"
    ],
+   "data_quality_bugs_tags" : [
+      "en:main-language-missing",
+      "en:code-missing",
+      "en:created-missing"
+   ],
+   "data_quality_errors_tags" : [],
+   "data_quality_info_tags" : [
+      "en:no-packaging-data",
+      "en:ingredients-percent-analysis-ok",
+      "en:ecoscore-extended-data-not-computed",
+      "en:food-groups-1-unknown",
+      "en:food-groups-2-unknown",
+      "en:food-groups-3-unknown"
+   ],
+   "data_quality_tags" : [
+      "en:main-language-missing",
+      "en:code-missing",
+      "en:created-missing",
+      "en:no-packaging-data",
+      "en:ingredients-percent-analysis-ok",
+      "en:ecoscore-extended-data-not-computed",
+      "en:food-groups-1-unknown",
+      "en:food-groups-2-unknown",
+      "en:food-groups-3-unknown",
+      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:ecoscore-packaging-packaging-data-missing",
+      "en:ecoscore-production-system-no-label"
+   ],
+   "data_quality_warnings_tags" : [
+      "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
+      "en:ecoscore-packaging-packaging-data-missing",
+      "en:ecoscore-production-system-no-label"
+   ],
    "ecoscore_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -600,6 +633,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "16129",
          "from_palm_oil" : "yes",
          "id" : "en:palm-oil",
          "percent_estimate" : 16.6666666666667,
@@ -647,6 +681,7 @@
       "en:palm-oil-and-fat",
       "en:enzyme"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 3,
    "ingredients_n_tags" : [
       "3",
@@ -674,6 +709,11 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:enzyme",
+      "en:tapioca"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 7,
    "languages" : {},
    "languages_codes" : {},
@@ -684,7 +724,6 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:nutriscore-not-computed",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
@@ -694,6 +733,13 @@
       "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-proteins",
       "en:nutrition-no-fiber",
+      "en:nutriscore-not-computed",
+      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
+      "en:packagings-number-of-components-0",
+      "en:packagings-not-complete",
+      "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-not-computed"
    ],
@@ -719,20 +765,87 @@
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
       "nova-group" : 3,
       "nova-group_100g" : 3,
       "nova-group_serving" : 3
    },
+   "nutriscore" : {
+      "2021" : {
+         "category_available" : 1,
+         "data" : {
+            "energy" : null,
+            "fiber" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat" : 0,
+            "is_water" : 0,
+            "proteins" : null,
+            "saturated_fat" : null,
+            "sodium" : null,
+            "sugars" : null
+         },
+         "grade" : "unknown",
+         "nutrients_available" : 0,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 0
+      },
+      "2023" : {
+         "category_available" : 1,
+         "data" : {
+            "energy" : null,
+            "fiber" : 0,
+            "fruits_vegetables_legumes" : 0,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat_oil_nuts_seeds" : 0,
+            "is_water" : 0,
+            "proteins" : null,
+            "salt" : null,
+            "saturated_fat" : null,
+            "sugars" : null
+         },
+         "grade" : "unknown",
+         "nutrients_available" : 0,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 0
+      }
+   },
+   "nutriscore_2021_tags" : [
+      "unknown"
+   ],
+   "nutriscore_2023_tags" : [
+      "unknown"
+   ],
+   "nutriscore_grade" : "unknown",
+   "nutriscore_tags" : [
+      "unknown"
+   ],
+   "nutriscore_version" : "2021",
+   "nutrition_data_per" : "100g",
+   "nutrition_data_prepared_per" : "100g",
+   "nutrition_grade_fr" : "unknown",
+   "nutrition_grades" : "unknown",
    "nutrition_grades_tags" : [
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "missing energy - missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
+   "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 0,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
    "nutrition_score_warning_no_fiber" : 1,
    "other_nutritional_substances_tags" : [],
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [],
    "packagings" : [],
+   "packagings_materials" : {},
    "pnns_groups_1" : "unknown",
    "pnns_groups_1_tags" : [
       "unknown",

@@ -1,10 +1,31 @@
 {
    "lc" : "en",
+   "misc_tags" : [
+      "en:packagings-number-of-components-1",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:glass"
+   ],
+   "packaging_recycling_tags" : [
+      "en:recycle"
+   ],
+   "packaging_shapes_tags" : [
+      "en:bottle"
+   ],
    "packaging_text" : "glass bottle",
    "packagings" : [
       {
          "material" : "en:glass",
+         "recycling" : "en:recycle",
          "shape" : "en:bottle"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:glass" : {}
+   },
+   "packagings_n" : 1
 }

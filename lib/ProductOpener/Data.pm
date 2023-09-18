@@ -1,7 +1,7 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -39,30 +39,31 @@ improve performance of aggregate queries for an improved user experience and mor
 collection was initially proposed in L<issue#1610|https://github.com/openfoodfacts/openfoodfacts-server/issues/1610> on
 GitHub, where some additional context is available.
 
+Obsolete products that have been withdrawn from the market have separate collections: products_obsolete and products_obsolete_tags
+
 =cut
 
 package ProductOpener::Data;
 
 use ProductOpener::PerlStandards;
-use Exporter    qw< import >;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&execute_query
 		&get_database
 		&get_collection
 		&get_products_collection
-		&get_products_tags_collection
 		&get_emb_codes_collection
 		&get_recent_changes_collection
+		&remove_documents_by_ids
 
-		);    # symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 
 use experimental 'smartmatch';
 
@@ -104,26 +105,49 @@ eval {
 
 =cut
 
-sub execute_query($sub) {
+sub execute_query ($sub) {
 
 	return Action::Retry->new(
-		attempt_code => sub { $action->run($sub) },
-		on_failure_code => sub { my ($error, $h) = @_; die $error; }, # by default Action::Retry would return undef
-		# If we didn't get results from MongoDB, the server is probably overloaded
-		# Do not retry the query, as it will make things worse
-		strategy => { Fibonacci => { max_retries_number => 0, } },
+		attempt_code => sub {$action->run($sub)},
+		on_failure_code => sub {my ($error, $h) = @_; die $error;},    # by default Action::Retry would return undef
+			# If we didn't get results from MongoDB, the server is probably overloaded
+			# Do not retry the query, as it will make things worse
+		strategy => {Fibonacci => {max_retries_number => 0,}},
 	)->run();
 }
 
-=head2 get_products_collection()
+=head2 get_products_collection( $parameters_ref )
 
 C<get_products_collection()> establishes a connection to MongoDB and uses timeout as an argument. This then selects a collection
 from within the database.
 
 =head3 Arguments
 
-This method takes in arguments of integer type (user defined timeout in milliseconds).
-It is optional for this subroutine to have an argument.
+This method takes parameters in an optional hash reference with the following keys:
+
+=head4 database MongoDB database name
+
+Defaults to $ProductOpener::Config::mongodb
+
+This is useful when moving products to another flavour
+(e.g. from Open Food Facts (database: off) to Open Beauty Facts (database: obf))
+
+=head4 timeout User defined timeout in milliseconds
+
+=head4 obsolete
+
+If set to a true value, the function returns a collection that contains only obsolete products,
+otherwise it returns the collection with products that are not obsolete.
+
+=head4 tags
+
+If set to a true value, the function may return a smaller collection that contains only the *_tags fields,
+in order to speed aggregate queries. The smaller collection is created every night,
+and may therefore contain slightly stale data.
+
+As of 2023/03/13, we return the products_tags collection for non obsolete products.
+For obsolete products, we currently return the products_obsolete collection, but we might
+create a separate products_obsolete_tags collection in the future, if it becomes necessary to create one.
 
 =head3 Return values
 
@@ -131,38 +155,29 @@ Returns a mongoDB collection object.
 
 =cut
 
-sub get_products_collection($timeout=undef) {
-	return get_collection($mongodb, 'products', $timeout);
+sub get_products_collection ($parameters_ref = {}) {
+	my $database = $parameters_ref->{database} // $mongodb;
+	my $collection = 'products';
+	if ($parameters_ref->{obsolete}) {
+		$collection .= '_obsolete';
+	}
+	# We don't have a products_obsolete_tags collection at this point
+	# if it changes, the following elsif should be changed to a if
+	elsif ($parameters_ref->{tags}) {
+		$collection .= '_tags';
+	}
+	return get_collection($database, $collection, $parameters_ref->{timeout});
 }
 
-=head2 get_products_tags_collection()
-
-C<get_products_collection()> This selects the product tag collection from within the database.
-
-=head3 Arguments
-
-This method takes in arguments of integer type (user defined timeout in milliseconds).
-It is optional for this subroutine to have an argument.
-
-=head3 Return values
-
-Returns a mongoDB collection.
-
-=cut
-
-sub get_products_tags_collection($timeout=undef) {
-	return get_collection($mongodb, 'products_tags', $timeout);
-}
-
-sub get_emb_codes_collection($timeout=undef) {
+sub get_emb_codes_collection ($timeout = undef) {
 	return get_collection($mongodb, 'emb_codes', $timeout);
 }
 
-sub get_recent_changes_collection($timeout=undef) {
+sub get_recent_changes_collection ($timeout = undef) {
 	return get_collection($mongodb, 'recent_changes', $timeout);
 }
 
-sub get_collection($database, $collection, $timeout=undef) {
+sub get_collection ($database, $collection, $timeout = undef) {
 	return get_mongodb_client($timeout)->get_database($database)->get_collection($collection);
 }
 
@@ -186,7 +201,7 @@ Returns $client of type MongoDB::MongoClient object.
 
 =cut
 
-sub get_mongodb_client($timeout=undef) {
+sub get_mongodb_client ($timeout = undef) {
 	# Note that for web pages, $client will be cached in mod_perl,
 	# so passing in different options for different queries won't do anything after the first call.
 
@@ -205,13 +220,69 @@ sub get_mongodb_client($timeout=undef) {
 	);
 
 	if (!defined($client)) {
-		$log->info("Creating new DB connection", { socket_timeout_ms => $client_options{socket_timeout_ms} });
+		$log->info("Creating new DB connection", {socket_timeout_ms => $client_options{socket_timeout_ms}});
 		$client = MongoDB::MongoClient->new(%client_options);
-	} else {
+	}
+	else {
 		$log->info("DB connection already exists");
 	}
 
 	return $client;
+}
+
+=head2 remove_documents_by_ids($ids_to_remove_ref, $coll, $bulk_write_size=100)
+
+Efficiently removes a set of documents
+
+=head3 Arguments
+
+=head4 $ids_to_remove_ref - ref to list of ids to remove
+
+correspond to the _id field
+
+=head4 $coll - a document collection
+
+=head4 $bulk_size - how many concurrent deletion in a bulk
+
+=head3 Return values
+
+Returns a hash with:
+<dl>
+  <dt>removed</dt>
+  <dd>int - number of effectively removed items</dd>
+  <dt>errors</dt>
+  <dd>ref to a list of errors</dd>
+</dl>
+=cut
+
+sub remove_documents_by_ids ($ids_to_remove_ref, $coll, $bulk_write_size = 100) {
+	my @ids_to_remove = (@$ids_to_remove_ref);    # copy the list because we will use splice
+	my @errors = ();
+
+	if (!@ids_to_remove) {
+		return {removed => 0, errors => \@errors};    # nothing to do
+	}
+
+	# remove found ids
+	my $removed = 0;
+	# prepare a bulk operation, with one operation per slice
+	my $bulk = $coll->unordered_bulk;
+	while (scalar @ids_to_remove) {
+		my @batch_ids = splice(@ids_to_remove, 0, $bulk_write_size);
+		$bulk->find({_id => {'$in' => \@batch_ids}})->delete_many();
+	}
+	# try to do our best
+	eval {
+		# execute
+		my $bulk_result = $bulk->execute();
+		$removed += $bulk_result->deleted_count;
+	};
+	my $error = $@;
+	if ($error) {
+		push @errors, $error;
+	}
+
+	return {removed => $removed, errors => \@errors};
 }
 
 1;

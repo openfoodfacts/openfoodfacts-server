@@ -1,0 +1,15 @@
+/*
+ * Tables
+ */
+$include-sveetoy-tables: $include-sveetoy-classes !default;
+
+@if $include-sveetoy-tables {
+    table{
+        ///
+        /// Enable table to take full width
+        ///
+        &.expand{
+            width: 100%;
+        }
+    }
+}

@@ -67,7 +67,8 @@ db.products.aggregate( [
 	categories_properties_tags:1,
 	ecoscore_tags:1,
 	owners_tags:1,
-	food_groups_tags:1
+	food_groups_tags:1,
+	weighers_tags:1,
 	}},
 {"$out": "products_tags"}
 ]);

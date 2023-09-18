@@ -148,7 +148,8 @@ function displayFolksonomyPropertyValues() {
     //$(".details").before(
     $("div[itemtype='https://schema.org/Product']").append(
         String('<!-- ---- Folksonomy Engine ----- -->' +
-        '<div id="free_properties_1" class="feus">' +
+        '<div id="free_properties_1" class="feus row ">' +
+        '<div  class="column large-12 h-space-tiny ">' +
         '<h2>Personalized properties (<span data-tooltip aria-haspopup="true" class="has-tip" data-position="top" data-alignment="left" title="Be aware the data model might be modified. Use at your own risk.">beta</span>)</h2>' +
         '<p id="fe_login_info"></p>' +
         "<p>These properties are created and filed by users for any kind of usages. Feel free to add your own. " +
@@ -171,7 +172,7 @@ function displayFolksonomyPropertyValues() {
         '<td>' +
         '<input id="fe_form_new_property" name="property" class="text tagify-me" value="" lang="en" placeholder="Enter a property" ></input>' +
             '<small id="fe_prop_eg" >Example: color</small>' +
-            '<small id="fe_prop_err" style="visibility: hidden;"><br>Can countain only minus letters, numbers, "_", and ":"</small>' +
+            '<small id="fe_prop_err" style="visibility: hidden;"><br>Can contain only lower case letters, numbers, "-", "_", and ":"</small>' +
         '</td>' +
         '<td>' +
         '<input id="fe_form_new_value" name="value" placeholder="value" ></input>' +
@@ -181,6 +182,7 @@ function displayFolksonomyPropertyValues() {
         '</tr>' +
         '</table>' +
         '</form>' +
+        '</div>' +
         '</div>' +
         '<!-- ----- /Folksonomy Engine ----- -->');
 
@@ -206,7 +208,7 @@ function displayFolksonomyPropertyValues() {
 
     // Control new property entry
     $("#fe_form_new_property").on("keyup", function() {
-        const kControl = /^[a-z0-9_]+(\\:[a-z0-9_]+)*$/; // a property is made of minus letters + numbers + _ and :
+        const kControl = /^[a-z0-9_-]+(\\:[a-z0-9_-]+)*$/; // a property is made of lower case letters + numbers + - + _ and :
         if ($("#fe_form_new_property").val() && kControl.test($("#fe_form_new_property").val()) === false) {
             console.log("k syntax is bad!");
             $("#fe_prop_err").css("visibility", "visible");

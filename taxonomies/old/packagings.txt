@@ -28,6 +28,7 @@ de:Schüssel
 el:Μπολ
 fr:Bol
 hu:Tál
+nl:Kom
 pt:Tigela
 
 en:Box
@@ -57,14 +58,17 @@ nl:Blik
 
 fr:Opercule
 de:Deckel
+nl:Kapje
 
 fr:Pot
 de:Kanne
+nl:Potje
 
 en:Tray
 de:Körbchen
 fr:Barquette
 hu:Tálca
+nl:Bord
 
 en:Film
 de:Folie
@@ -88,6 +92,7 @@ de:Individuelle Verpackung
 fr:Emballage individuel
 hu:Egyedi csomagolás
 el:Ατομική συσκευασία
+nl:Individuele verpakking
 pt:Embalagem individual
 
 en:Cork
@@ -108,6 +113,7 @@ hu:Pálcika, pálca
 en:Tube
 fr:Tube
 hu:Tubus
+nl:Tube
 
 en:Can
 bg:Кен
@@ -115,32 +121,38 @@ de:Dose
 fr:Canette
 hu:Konzervdoboz
 it:Lattina, Latta
+nl:Blik, blikje
 pt:Lata
 
 fr:Capsule
 bg:Капсула
 de:Kapsel
 hu:Kapszula
+nl:Capsule
 
 en:Flask
 fr:Gourde
 hu:Kulacs, flaska, palack
 it:Borraccia
+nl:Veldfles
 
 <en:Flask
 en:Plastic flask
 fr:Gourde en plastique
 hu:Műanyag palack
 it:Borraccia di plastica
+nl:Plastic veldfles
 
 fr:Assiette
 bg:Чиния
 de:Teller
+nl:Schaal
 
 fr:Filet
 bg:Мрежа
 de:Netz
 hu:Háló
+nl:Net, netje
 
 # note: en:synonyms (E.g. RC codes) apply to all languages, there is no need to repeat them
 synonyms:en:Recycling code, RC
@@ -151,6 +163,7 @@ de:Kunststoff
 fr:Plastique
 hu:Műanyag
 it:Plastica
+nl:Plastic
 ru:Пластик
 wikidata:en:Q11474
 
@@ -160,6 +173,7 @@ de:wiederverwertbares Material
 fr:Matériau recyclable
 hu:Újrahasznosítható anyag
 it:Materiale riciclabile
+nl:Recycleerbaar materiaal
 pt:Material reciclável
 
 <en:Recyclable material
@@ -170,6 +184,7 @@ fr:Plastique recyclable
 hu:Újrahasznosítható műanyag
 it:Plastica riciclabile
 ja:プラマーク
+nl:Recycleerbaar plastic
 pt:Plástico reciclável
 
 en:Recycled material
@@ -385,7 +400,7 @@ fr:Métaux
 de:Metalle
 hu:Fémek, fém
 it:Metalli
-nl:Metaal
+nl:Metalen
 pt:Metais
 ru:Металл
 
@@ -395,6 +410,7 @@ bg:Рециклируеми метали
 de:Wiederverwertbare Metalle
 hu:Újrahasznosított fémek
 it:Metalli riciclabili
+nl:Recycleerbare metalen
 
 <en:Metals
 en:Steel, 40 FE, Recycling Code 40, RC 40, 40, RC Steel
@@ -448,6 +464,7 @@ en:Jute, 61 TEX
 bg:Юта, 61 TEX
 de:Jute, 61 TEX, 61-TEX
 hu:Juta, 61 TEX, 61-TEX
+nl:Jute
 ru:Джутовое волокно
 
 en:Other Textiles, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX
@@ -461,6 +478,7 @@ en:Glass
 bg:Стъкло
 hu:Üveg
 it:Vetro
+nl:Glas
 
 <en:Glass
 en:Mixed Glass Container/Multi-Part Container, 70 GLS
@@ -491,6 +509,7 @@ en:Light Leaded Glass, 75 GLS
 en:Leaded Glass, 76 GLS, 76-GLS
 de:Bleiglas
 hu:Ólomüveg
+nl:Glas-in-lood
 
 <en:Glass
 en:Copper Mixed/Copper Backed Glass, 77 GLS
@@ -716,6 +735,7 @@ en:Refrigerated, Fresh
 es:Refrigerado
 fr:Frais, Réfrigéré
 hu:Hűtött, friss
+nl:Gekoeld, vers
 wikidata:en:Q747713
 
 en:Modified atmosphere
@@ -751,6 +771,7 @@ en:Flash pasteurization
 es:Pasteurizado suave, Flash-pasteurizado, Flash pasteurizado
 fr:Flash pasteurisé
 hu:Gyors pasztőrözés, Gyors pasztőrözött
+nl:Flash-pasteurisatie
 wikidata:en:Q3137001
 
 en:Sterilizated
@@ -778,6 +799,7 @@ en:Microwaveable
 es:Microondable
 fr:Micro-ondable
 hu:Mikrózható, Mikrohullámú sütőben elkészíthető
+nl:Magnetronbestendig
 
 <en:Bottle
 <en:Plastic
@@ -786,6 +808,7 @@ bg:Пластмасова бутилка
 de:Plastikflasche
 fr:Bouteille en plastique
 hu:Műanyag palack
+nl:Plastic fles
 ru:Пластиковая бутылка
 wikidata:en:Q1757946
 
@@ -796,6 +819,7 @@ bg:Стъклена бутилка
 de:Glasflasche
 fr:Bouteille en verre
 hu:Üveg plack
+nl:Glazen fles
 ru:Стеклянная бутылка
 wikidata:en:Q5567094
 
@@ -805,6 +829,7 @@ en:Glass jar
 bg:Стъклен буркан
 fr:Bocal en verre
 hu:Üveg befőttesüveg
+nl:Glazen pot
 ru:Стеклянная банка
 
 <en:Metal
@@ -825,6 +850,7 @@ en:Paper bag
 bg:Хартиена торбичка
 fr:Sac en papier, Sac papier
 hu:Papírzacskó
+nl:Papieren zak
 ru:бумажный пакет
 
 <en:Plastic
@@ -833,4 +859,5 @@ bg:Пластмасова торбичка
 de:Plastiktüte
 fr:Sac plastique
 hu:Műanyagzacskó, Nejlonzacskó
+nl:Plastic zak
 pt:Saco de plástico

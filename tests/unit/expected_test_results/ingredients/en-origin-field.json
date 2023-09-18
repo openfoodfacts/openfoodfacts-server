@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : "13014",
          "id" : "en:strawberry",
          "origins" : "en:spain",
          "percent_estimate" : 58.3333333333333,
@@ -11,6 +12,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "13015",
          "id" : "en:raspberry",
          "origins" : "en:new-caledonia",
          "percent_estimate" : 20.8333333333333,
@@ -31,6 +33,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "13020",
          "id" : "en:gooseberry",
          "percent_estimate" : 5.20833333333333,
          "percent_max" : 25,
@@ -50,6 +53,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "20041",
          "id" : "en:bell-pepper",
          "origins" : "en:guatemala",
          "percent_estimate" : 2.60416666666666,
@@ -74,9 +78,11 @@
       "en:blueberry",
       "en:gooseberry",
       "en:white-peach",
+      "en:prunus-species-fruit",
       "en:peach",
       "en:bell-pepper",
-      "en:vegetable"
+      "en:vegetable",
+      "en:fruit-vegetable"
    ],
    "ingredients_n" : 6,
    "ingredients_n_tags" : [
@@ -100,18 +106,27 @@
       "en:blueberry",
       "en:gooseberry",
       "en:white-peach",
+      "en:prunus-species-fruit",
       "en:peach",
       "en:bell-pepper",
-      "en:vegetable"
+      "en:vegetable",
+      "en:fruit-vegetable"
    ],
    "ingredients_text" : "Strawberries (Spain), raspberries, blueberries, gooseberries, white peaches, bell peppers. Origin of bell peppers: Guatemala",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 10,
+   "ingredients_without_ciqual_codes" : [
+      "en:blueberry",
+      "en:white-peach"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "known_ingredients_n" : 12,
    "lc" : "en",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 16.6666666666667,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 16.6666666666667,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 16.6666666666667,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 16.6666666666667
    },

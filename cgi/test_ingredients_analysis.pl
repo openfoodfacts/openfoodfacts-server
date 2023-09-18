@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -46,13 +46,12 @@ my $request_ref = ProductOpener::Display::init_request();
 
 my $template_data_ref = {};
 
-my $type = param('type') || 'add';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'add';
+my $action = single_param('action') || 'display';
 
-my $ingredients_text = remove_tags_and_quote(decode utf8=>param('ingredients_text'));
+my $ingredients_text = remove_tags_and_quote(decode utf8 => single_param('ingredients_text'));
 
-
-my $html= '';
+my $html = '';
 $template_data_ref->{action} = $action;
 $template_data_ref->{type} = $type;
 
@@ -74,8 +73,6 @@ if ($action eq 'process') {
 	$log->debug("extract_ingredients_classes_from_text") if $log->is_debug();
 	extract_ingredients_classes_from_text($product_ref);
 
-
-
 	my $html_details = display_ingredients_analysis_details($product_ref);
 	$html_details =~ s/.*tabindex="-1">/<div>/;
 
@@ -83,20 +80,15 @@ if ($action eq 'process') {
 	$template_data_ref->{html_details} = $html_details;
 	$template_data_ref->{display_ingredients_analysis} = display_ingredients_analysis($product_ref);
 	$template_data_ref->{product_ref} = $product_ref;
+	$template_data_ref->{preparsed_ingredients_text} = preparse_ingredients_text($lc, $ingredients_text);
 
 	my $json = JSON::PP->new->pretty->encode($product_ref->{ingredients});
 	$template_data_ref->{json} = $json;
 }
 
-
-my $full_width = 1;
-if ($action ne 'display') {
-	$full_width = 0;
-}
-
-process_template('web/pages/test_ingredients/test_ingredients_analysis.tt.html', $template_data_ref, \$html) or $html = '';
+process_template('web/pages/test_ingredients/test_ingredients_analysis.tt.html', $template_data_ref, \$html)
+	or $html = '';
 
 $request_ref->{title} = "Ingredients analysis test";
 $request_ref->{content_ref} = \$html;
-$request_ref->{full_width} = $full_width;
 display_page($request_ref);

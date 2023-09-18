@@ -1,14 +1,14 @@
 #!/usr/bin/perl -w
 
+# Import a CSV file
+
 use Modern::Perl '2017';
 
-use Getopt::Long qw/GetOptions/;
 use Log::Any::Adapter 'TAP';
 use Mock::Quick qw/qobj qmeth/;
 use Test::MockModule;
 use Test::More;
 
-use File::Basename "dirname";
 use File::Path qw/make_path remove_tree/;
 
 use ProductOpener::Config '$data_root';
@@ -17,30 +17,13 @@ use ProductOpener::Producers qw/load_csv_or_excel_file convert_file/;
 use ProductOpener::Products "retrieve_product";
 use ProductOpener::Store "store";
 use ProductOpener::Test qw/:all/;
+use ProductOpener::LoadData qw/:all/;
 
-my $test_id = "import_csv_file";
-my $test_dir = dirname(__FILE__);
+load_data();
+
+my ($test_id, $test_dir, $expected_results_dir, $update_expected_results) = (init_expected_results(__FILE__));
 my $inputs_dir = "$test_dir/inputs/$test_id/";
-my $expected_dir = "$test_dir/expected_test_results/$test_id/";
-my $outputs_dir = "$test_dir/outputs/$test_id";
-make_path($outputs_dir);
-
-my $usage = <<TXT
-
-The expected results of the tests are saved in $test_dir/expected_test_results/$test_id
-
-To verify differences and update the expected test results,
-actual test results can be saved by passing --update-expected-results
-
-The directory will be created if it does not already exist.
-
-TXT
-  ;
-
-my $update_expected_results;
-
-GetOptions("update-expected-results" => \$update_expected_results)
-  or die("Error in command line arguments.\n\n" . $usage);
+my $outputs_dir = "$test_dir/outputs/$test_id/";
 
 # fake image download using input directory instead of distant server
 sub fake_download_image ($) {
@@ -60,66 +43,65 @@ sub fake_download_image ($) {
 	return $response;
 }
 
+my @tests = (
+	{
+		test_case => "test",
+		csv_files => ["test.csv"],
+	},
+	{
+		test_case => "replace_existing_values",
+		csv_files => ["replace_existing_values_1.csv", "replace_existing_values_2.csv"],
+
+	}
+);
+
 # Testing import of a csv file
-{
+foreach my $test_ref (@tests) {
+
 	my $import_module = Test::MockModule->new('ProductOpener::Import');
 
 	# mock download image to fetch image in inputs_dir
 	$import_module->mock('download_image', \&fake_download_image);
-
-	# inputs
-	my $my_excel = $inputs_dir . "test.xlsx";
-	my $columns_fields_json = $inputs_dir . "test.columns_fields.json";
 
 	# clean data
 	remove_all_products();
 	# import csv can create some organizations if they don't exist, remove them
 	remove_all_orgs();
 
-	# step1: parse xls
-	my ($out, $err, $csv_result) = capture_ouputs(
-		sub {
-			return scalar load_csv_or_excel_file($my_excel);
-		}
-	);
-	ok(!$csv_result->{error});
-
-	# step2: get columns match
-	my $default_values_ref = {lc => "en", countries => "en"};
-
-	# this is the file we need
-	my $columns_fields_file = $outputs_dir . "test.columns_fields.sto";
-	create_sto_from_json($columns_fields_json, $columns_fields_file);
-
-	# step3 convert file
-	my $converted_file = $outputs_dir . "test.converted.csv";
-	my $conv_result;
-	($out, $err, $conv_result) = capture_ouputs(
-		sub {
-			return scalar convert_file($default_values_ref, $my_excel, $columns_fields_file, $converted_file);
-		}
-	);
-	ok(!$conv_result->{error});
-
-	# step4 import file
-	my $datestring = localtime();
-	my $args = {
-		"user_id" => "test-user",
-		"org_id" => "test-org",
-		"owner_id" => "org-test-org",
-		"csv_file" => $converted_file,
-		"exported_t" => $datestring,
-	};
-
+	# expected results
+	my $test_case = $test_ref->{test_case};
+	my $expected_test_results_dir = $expected_results_dir . "/" . $test_case;
+	my $outputs_test_dir = $outputs_dir . "/" . $test_case;
+	make_path($outputs_test_dir);
 	my $stats_ref;
 
-	# run
-	($out, $err) = capture_ouputs(
-		sub {
-			$stats_ref = ProductOpener::Import::import_csv_file($args);
-		}
-	);
+	# inputs
+	foreach my $csv (@{$test_ref->{csv_files}}) {
 
+		my $csv_file = $inputs_dir . $csv;
+
+		# import file
+		my $datestring = localtime();
+		my $args = {
+			"user_id" => "test-user",
+			"org_id" => "test-org",
+			"owner_id" => "org-test-org",
+			"csv_file" => $csv_file,
+			"exported_t" => $datestring,
+		};
+
+		# run import_csv_file
+		print STDERR "Running ProductOpener::Import::import_csv_file and capturing its output\n";
+
+		# Note: if the code executed by capture_outputs() dies, the test will end without showing why/where it died.
+		my ($out, $err) = capture_ouputs(
+			sub {
+				$stats_ref = ProductOpener::Import::import_csv_file($args);
+			}
+		);
+		print STDERR "ProductOpener::Import::import_csv_file - done \n";
+
+	}
 	# get all products in db, sorted by code for predictability
 	my $cursor = execute_query(
 		sub {
@@ -135,7 +117,7 @@ sub fake_download_image ($) {
 	normalize_products_for_test_comparison(\@products);
 
 	# verify result
-	compare_array_to_expected_results(\@products, $expected_dir, $update_expected_results);
+	compare_array_to_expected_results(\@products, $expected_test_results_dir, $update_expected_results);
 
 	# also verify sto
 	if (!$update_expected_results) {
@@ -144,16 +126,12 @@ sub fake_download_image ($) {
 			push(@sto_products, retrieve_product($product->{code}));
 		}
 		normalize_products_for_test_comparison(\@sto_products);
-		compare_array_to_expected_results(\@products, $expected_dir, $update_expected_results);
+		compare_array_to_expected_results(\@products, $expected_test_results_dir, $update_expected_results);
 	}
 
-	compare_to_expected_results($stats_ref, $expected_dir . "/stats.json", $update_expected_results);
+	compare_to_expected_results($stats_ref, $expected_test_results_dir . "/stats.json", $update_expected_results);
 
 	# TODO verify images
-	# clean csv and sto
-	unlink $inputs_dir . "eco-score-template.xlsx.csv";
-	unlink $inputs_dir . "test.columns_fields.sto";
-	rmdir remove_tree($outputs_dir);
 }
 
 done_testing();

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -35,7 +35,7 @@ owner-id is of the form org-orgid or user-userid
 
 
 TXT
-;
+	;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -45,8 +45,8 @@ use Getopt::Long;
 
 my $owner;
 
-GetOptions ("owner=s"   => \$owner)
-or die("Error in command line arguments:\n\n$usage");
+GetOptions("owner=s" => \$owner)
+	or die("Error in command line arguments:\n\n$usage");
 
 if ($owner !~ /^(user|org)-\S+$/) {
 	die("owner must start with user- or org-:\n\n$usage");
@@ -57,7 +57,6 @@ print STDERR "Deleting products for owner $owner in database\n";
 my $products_collection = get_products_collection();
 $products_collection->delete_many({"owner" => $owner});
 
-
 use File::Copy::Recursive qw(dirmove);
 
 my $deleted_dir = $data_root . "/deleted_private_products/" . $owner . "." . time();
@@ -67,10 +66,14 @@ print STDERR "Moving data to $deleted_dir\n";
 
 mkdir($deleted_dir, oct(755));
 
-dirmove("$data_root/import_files/$owner", "$deleted_dir/import_files") or print STDERR "Could not move $data_root/import_files/$owner to $deleted_dir/import_files : $!\n";
-dirmove("$data_root/export_files/$owner", "$deleted_dir/export_files") or print STDERR "Could not move $data_root/export_files/$owner to $deleted_dir/export_files : $!\n";
-dirmove("$data_root/products/$owner", "$deleted_dir/products") or print STDERR "Could not move $data_root/products/$owner to $deleted_dir/products : $!\n";
-dirmove("$www_root/images/products/$owner", "$deleted_dir/images") or print STDERR "Could not move $www_root/images/products/$owner to $deleted_dir/images : $!\n";
+dirmove("$data_root/import_files/$owner", "$deleted_dir/import_files")
+	or print STDERR "Could not move $data_root/import_files/$owner to $deleted_dir/import_files : $!\n";
+dirmove("$data_root/export_files/$owner", "$deleted_dir/export_files")
+	or print STDERR "Could not move $data_root/export_files/$owner to $deleted_dir/export_files : $!\n";
+dirmove("$data_root/products/$owner", "$deleted_dir/products")
+	or print STDERR "Could not move $data_root/products/$owner to $deleted_dir/products : $!\n";
+dirmove("$www_root/images/products/$owner", "$deleted_dir/images")
+	or print STDERR "Could not move $www_root/images/products/$owner to $deleted_dir/images : $!\n";
 
 exit(0);
 

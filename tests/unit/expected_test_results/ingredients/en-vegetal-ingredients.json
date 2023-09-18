@@ -44,7 +44,7 @@
          "id" : "en:flavouring",
          "labels" : "en:vegan",
          "percent_estimate" : 5,
-         "percent_max" : 20,
+         "percent_max" : "5",
          "percent_min" : 0,
          "text" : "flavours",
          "vegan" : "en:yes",
@@ -97,9 +97,19 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 5,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:charcoal",
+      "en:e428",
+      "en:ferment",
+      "en:flavouring",
+      "en:rennet"
+   ],
+   "ingredients_without_ciqual_codes_n" : 5,
    "known_ingredients_n" : 6,
    "lc" : "en",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },

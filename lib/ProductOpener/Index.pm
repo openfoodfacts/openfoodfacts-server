@@ -1,7 +1,7 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,12 +20,11 @@
 
 package ProductOpener::Index;
 
-use ProductOpener::PerlStandards; 
-use Exporter    qw< import >;
+use ProductOpener::PerlStandards;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&normalize
 		&decode_html
@@ -33,22 +32,20 @@ BEGIN
 
 		&normalize
 
-		$memd
 		$lang_dir
 		%texts
 
-		);    # symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 
 use CGI qw/:standard escape unescape/;
 use Time::Local;
-use Cache::Memcached::Fast;
 use Digest::MD5 qw(md5);
 use URI::Escape;
 use URI::Escape::XS;
@@ -66,15 +63,6 @@ use HTML::Entities qw(decode_entities);
 #setlocale(LC_CTYPE, "fr_FR");   # May need to be changed depending on system
 # -> setting a locale makes unac_string fail to unaccent... :-(
 
-
-# Initialize exported variables
-
-$memd = Cache::Memcached::Fast->new(
-	{   'servers' => ["127.0.0.1:11211"],
-		'utf8'    => 1,
-	}
-);
-
 # Load the texts from the /lang directory
 
 # The /lang directory is not present in the openfoodfacts-server repository,
@@ -89,7 +77,9 @@ $lang_dir = "$data_root/lang";
 
 if (not -e $lang_dir) {
 	$lang_dir = "$data_root/lang-default";
-	$log->warn("The $data_root/lang directory does not exist. It should be copied from the openfoodfacts-web repository. Using default texts from $lang_dir") if $log->is_warn();
+	$log->warn(
+		"The $data_root/lang directory does not exist. It should be copied from the openfoodfacts-web repository. Using default texts from $lang_dir"
+	) if $log->is_warn();
 }
 
 if (opendir DH2, $lang_dir) {
@@ -100,7 +90,7 @@ if (opendir DH2, $lang_dir) {
 		next if $langid eq '.';
 		next if $langid eq '..';
 		#$log->trace("reading texts", { lang => $langid }) if $log->is_trace();
-		next if ((length($langid) ne 2) and not ($langid eq 'other'));
+		next if ((length($langid) ne 2) and not($langid eq 'other'));
 
 		if (-e "$lang_dir/$langid/texts") {
 			opendir DH, "$lang_dir/$langid/texts" or die "Couldn't open $lang_dir/$langid/texts: $!";
@@ -134,7 +124,7 @@ else {
 # Converting them to global variables.
 # - better solution: create a class?
 
-sub normalize($s) {
+sub normalize ($s) {
 
 	# Remove comments
 	$s =~ s/(<|\&lt;)!--(.*?)--(>|\&gt;)//sg;
@@ -144,8 +134,6 @@ sub normalize($s) {
 
 	# Remove open comments
 	$s =~ s/(<|\&lt;)!--(.*)//sg;
-
-
 
 	# Add line feeds instead of </p> and </div> etc.
 	$s =~ s/<\/(p|div|span|blockquote)>/\n\n/ig;
@@ -158,15 +146,15 @@ sub normalize($s) {
 	# Remove tags
 	$s =~ s/<(([^>]|\n)*)>//g;
 
-	$s =~ s/&nbsp;/ /g ;
-	$s =~ s/&#160;/ /g ;
+	$s =~ s/&nbsp;/ /g;
+	$s =~ s/&#160;/ /g;
 
 	$s =~ s/\s+/ /g;
 
 	return $s;
 }
 
-sub decode_html_entities($string) {
+sub decode_html_entities ($string) {
 
 	# utf8::is_utf8($string) or $string = decode("UTF8", $string);
 
@@ -174,8 +162,8 @@ sub decode_html_entities($string) {
 
 	my $utf8 = decode_entities($string);
 
-	if (0 and ($utf8 =~ /Ã/)) { # doesn't work
-		# double encoding?
+	if (0 and ($utf8 =~ /Ã/)) {    # doesn't work
+								   # double encoding?
 		$utf8 =~ s/Ã©/é/g;
 		$utf8 =~ s/Ã´/ô/g;
 		$utf8 =~ s/Ã»/û/g;
@@ -187,6 +175,5 @@ sub decode_html_entities($string) {
 
 	return $utf8;
 }
-
 
 1;

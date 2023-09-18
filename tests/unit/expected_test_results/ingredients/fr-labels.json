@@ -11,6 +11,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "26036",
          "id" : "en:salmon",
          "labels" : "en:sustainable-seafood-msc",
          "percent_estimate" : 25,
@@ -38,6 +39,7 @@
       "en:orange-juice",
       "en:fruit",
       "en:citrus-fruit",
+      "en:juice",
       "en:fruit-juice",
       "en:orange",
       "en:salmon",
@@ -58,6 +60,7 @@
       "en:orange-juice",
       "en:fruit",
       "en:citrus-fruit",
+      "en:juice",
       "en:fruit-juice",
       "en:orange",
       "en:salmon",
@@ -69,7 +72,11 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 8,
+   "ingredients_without_ciqual_codes" : [
+      "en:orange-juice"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "known_ingredients_n" : 9,
    "labels" : "en:no-gluten",
    "labels_hierarchy" : [
       "en:no-gluten"
@@ -80,6 +87,8 @@
    ],
    "lc" : "fr",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 50,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 50,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 50
    },

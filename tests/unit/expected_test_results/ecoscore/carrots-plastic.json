@@ -237,26 +237,27 @@
       },
       "agribalyse" : {
          "agribalyse_food_code" : "20009",
-         "co2_agriculture" : 0.087677241,
-         "co2_consumption" : 0.099564814,
-         "co2_distribution" : 0.029228063,
+         "co2_agriculture" : 0.080834159,
+         "co2_consumption" : 0.032148159,
+         "co2_distribution" : 0.010835386,
          "co2_packaging" : 0,
          "co2_processing" : 0,
-         "co2_total" : 0.38690672,
-         "co2_transportation" : 0.1704366,
+         "co2_total" : 0.365123794,
+         "co2_transportation" : 0.24130609,
          "code" : "20009",
          "dqr" : "2.15",
-         "ef_agriculture" : 0.044256253,
-         "ef_consumption" : 0.0042189169,
-         "ef_distribution" : 0.0091483656,
+         "ef_agriculture" : 0.033540086,
+         "ef_consumption" : 0.0013151004,
+         "ef_distribution" : 0.0022301586,
          "ef_packaging" : 0,
          "ef_processing" : 0,
-         "ef_total" : 0.070883164,
-         "ef_transportation" : 0.013259629,
+         "ef_total" : 0.055979458,
+         "ef_transportation" : 0.018894113,
          "is_beverage" : 0,
          "name_en" : "Carrot, raw",
          "name_fr" : "Carotte, crue",
-         "score" : 98
+         "score" : 99,
+         "version" : "3.1"
       },
       "grade" : "b",
       "grades" : {
@@ -399,6 +400,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_food_code" : "20009",
          "id" : "en:carrot",
          "origins" : "en:france",
          "percent_estimate" : 100,
@@ -418,7 +420,8 @@
    "ingredients_hierarchy" : [
       "en:carrot",
       "en:vegetable",
-      "en:root-vegetable"
+      "en:root-vegetable",
+      "en:taproot-vegetable"
    ],
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
@@ -432,26 +435,44 @@
    "ingredients_tags" : [
       "en:carrot",
       "en:vegetable",
-      "en:root-vegetable"
+      "en:root-vegetable",
+      "en:taproot-vegetable"
    ],
    "ingredients_text" : "Carottes (origine France)",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 3,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "known_ingredients_n" : 4,
    "labels_tags" : [
       "en:demeter"
    ],
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-1",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty",
       "en:ecoscore-extended-data-not-computed",
-      "en:ecoscore-computed"
+      "en:ecoscore-computed",
+      "en:ecoscore-changed",
+      "en:ecoscore-grade-changed"
    ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
    },
+   "packaging_materials_tags" : [
+      "en:plastic"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:tray"
+   ],
    "packaging_text" : "Barquette en plastique",
    "packagings" : [
       {
@@ -459,5 +480,10 @@
          "shape" : "en:tray"
       }
    ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 1,
    "unknown_ingredients_n" : 0
 }

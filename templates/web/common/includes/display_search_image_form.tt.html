@@ -1,21 +1,25 @@
-<div id="imgsearchdiv_[% id %]">
-	<a class="button small expand" id="imgsearchbutton_[% id %]"> 
-        [% display_icon('photo_camera') %] [% product_image_with_barcode %]
-	<input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_[% id %]"
-		style="position: absolute;right:0;bottom:0;top:0;cursor:pointer;opacity:0;width:100%;height:100%;"/>
-	</a>
-</div>
+<div id="search_image" style="margin-bottom:2rem;">
 
-<div id="progressbar_[% id %]" class="progress" style="display:none">
-  <span id="progressmeter_[% id %]" class="meter" style="width:0%"></span>
-</div>
+  <div id="imgsearchdiv_[% id %]">
+    <a class="button small expand" id="imgsearchbutton_[% id %]"> 
+          [% display_icon('photo_camera') %] [% product_image_with_barcode %]
+    <input type="file" accept="image/*" class="img_input" name="imgupload_search" id="imgupload_search_[% id %]"
+      style="position: absolute;right:0;bottom:0;top:0;cursor:pointer;opacity:0;width:100%;height:100%;"/>
+    </a>
+  </div>
 
-<div id="imgsearchmsg_[% id %]" data-alert class="alert-box info" style="display:none">
-  [% lang("sending_image") %]
-  <a href="#" class="close">&times;</a>
-</div>
+  <div id="progressbar_[% id %]" class="progress" style="display:none">
+    <span id="progressmeter_[% id %]" class="meter" style="width:0%"></span>
+  </div>
 
-<div id="imgsearcherror_[% id %]" data-alert class="alert-box alert" style="display:none">
-  [% lang("send_image_error") %]
-  <a href="#" class="close">&times;</a>
+  <div id="imgsearchmsg_[% id %]" data-alert class="alert-box info" style="display:none">
+    [% lang("sending_image") %]
+    <a href="#" class="close">&times;</a>
+  </div>
+
+  <div id="imgsearcherror_[% id %]" data-alert class="alert-box alert" style="display:none">
+    [% lang("send_image_error") %]
+    <a href="#" class="close">&times;</a>
+  </div>
+
 </div>

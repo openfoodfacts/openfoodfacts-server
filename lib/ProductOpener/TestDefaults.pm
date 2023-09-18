@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,27 +20,46 @@
 
 package ProductOpener::TestDefaults;
 
-use utf8;
-use Modern::Perl '2017';
-use Exporter qw< import >;
+use ProductOpener::PerlStandards;
+use Exporter qw/import/;
+
+use Clone qw/clone/;
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-	  %default_product_form
-	  %default_user_form
+		%admin_user_form
+		%default_org_edit_form
+		%default_org_edit_admin_form
+		%default_product
+		%default_product_form
+		%default_user_form
+		%moderator_user_form
+		%pro_moderator_user_form
+
+		$test_password
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
 use vars @EXPORT_OK;
 
+=head2 $test_password
+The default test password
+=cut
+
+$test_password = "testtest";
+
+=head2 %default_user_form
+A basic user.
+=cut
+
 %default_user_form = (
 	email => 'test@test.com',
 	userid => "tests",
 	name => "Test",
-	password => "testtest",
-	confirm_password => "testtest",
+	password => $test_password,
+	confirm_password => $test_password,
 	pro_checkbox => 0,
 	requested_org => "",
 	team_1 => "",
@@ -49,5 +68,78 @@ use vars @EXPORT_OK;
 	action => "process",
 	type => "add"
 );
+
+=head2 %admin_user_form
+a user which is an admin
+=cut
+
+%admin_user_form = (
+	%{clone(\%default_user_form)},
+	email => 'admin@openfoodfacts.org',
+	userid => 'stephane',    # has to be part of %admins
+	name => "Admin",
+);
+
+=head2 %moderator_user_form and %pro_moderator_user_form
+a user which is a moderator, or a pro platform moderator
+
+NB: must be created by an admin
+=cut
+
+%moderator_user_form = (
+	%{clone(\%default_user_form)},
+	email => 'moderator@openfoodfacts.org',
+	userid => 'moderator',
+	name => "Moderator",
+);
+
+%pro_moderator_user_form = (
+	%{clone(\%default_user_form)},
+	email => 'promoderator@openfoodfacts.org',
+	userid => 'promoderator',
+	name => "Pro Moderator",
+);
+
+%default_product = (
+	code => '2000000000001',
+	lang => "en",
+	product_name => "test_default",
+	generic_name => "default_name",
+	quantity => "100 g",
+	link => "http://world.openfoodfacts.org/",
+	ingredients_text => "water, test_ingredient",
+	origin => "Germany",
+	categories => "snacks",
+	serving_size => "10 g",
+);
+
+%default_product_form = (
+	%default_product,
+	action => "process",
+	type => "add",
+	".submit" => "submit"
+);
+
+%default_org_edit_form = (
+	orgid => "acme-inc",
+	action => "process",
+	type => "edit",
+	name => "Acme Inc.",
+	link => "",
+	customer_service_name => "",
+	customer_service_address => "",
+	customer_service_mail => "",
+	customer_service_link => "",
+	customer_service_phone => "",
+	customer_service_info => "",
+	commercial_service_name => "",
+	commercial_service_address => "",
+	commercial_service_mail => "",
+	commercial_service_link => "",
+	commercial_service_phone => "",
+	commercial_service_info => "",
+);
+
+%default_org_edit_admin_form = (list_of_gs1_gln => "",);
 
 1;

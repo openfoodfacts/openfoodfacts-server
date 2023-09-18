@@ -49,6 +49,7 @@
    "ingredients_hierarchy" : [
       "en:peach",
       "en:fruit",
+      "en:prunus-species-fruit",
       "en:some-unknown-ingredient",
       "en:another-unknown-ingredient"
    ],
@@ -66,6 +67,7 @@
    "ingredients_tags" : [
       "en:peach",
       "en:fruit",
+      "en:prunus-species-fruit",
       "en:some-unknown-ingredient",
       "en:another-unknown-ingredient"
    ],
@@ -74,9 +76,17 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 2,
+   "ingredients_without_ciqual_codes" : [
+      "en:another-unknown-ingredient",
+      "en:peach",
+      "en:some-unknown-ingredient"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "known_ingredients_n" : 3,
    "lc" : "en",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 33.3333333333333,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 33.3333333333333,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 33.3333333333333,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 33.3333333333333
    },

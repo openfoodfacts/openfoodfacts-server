@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : "20047",
          "id" : "en:tomato",
          "percent_estimate" : 62.125,
          "percent_max" : 68,
@@ -10,6 +11,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "20041",
          "id" : "en:bell-pepper",
          "percent" : 12,
          "percent_estimate" : 12,
@@ -20,6 +22,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "26053",
          "id" : "en:tuna",
          "percent" : 10,
          "percent_estimate" : 10,
@@ -30,6 +33,7 @@
          "vegetarian" : "no"
       },
       {
+         "ciqual_food_code" : "17270",
          "from_palm_oil" : "no",
          "id" : "en:extra-virgin-olive-oil",
          "percent" : 4,
@@ -41,6 +45,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "22000",
          "id" : "en:egg",
          "percent" : 3,
          "percent_estimate" : 3,
@@ -51,6 +56,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "20034",
          "id" : "en:onion",
          "percent" : 3,
          "percent_estimate" : 3,
@@ -70,6 +76,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "9510",
          "id" : "en:corn-starch",
          "percent_estimate" : 1.5,
          "percent_max" : 3,
@@ -79,6 +86,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "percent_estimate" : 1.4375,
          "percent_max" : 3,
@@ -123,6 +131,7 @@
    "ingredients_hierarchy" : [
       "en:tomato",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:bell-pepper",
       "en:tuna",
       "en:fish",
@@ -135,6 +144,7 @@
       "en:egg",
       "en:onion",
       "en:root-vegetable",
+      "en:onion-family-vegetable",
       "en:sugar",
       "en:added-sugar",
       "en:disaccharide",
@@ -166,6 +176,7 @@
    "ingredients_tags" : [
       "en:tomato",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:bell-pepper",
       "en:tuna",
       "en:fish",
@@ -178,6 +189,7 @@
       "en:egg",
       "en:onion",
       "en:root-vegetable",
+      "en:onion-family-vegetable",
       "en:sugar",
       "en:added-sugar",
       "en:disaccharide",
@@ -192,9 +204,16 @@
    "ingredients_with_specified_percent_sum" : 32,
    "ingredients_with_unspecified_percent_n" : 5,
    "ingredients_with_unspecified_percent_sum" : 68,
-   "known_ingredients_n" : 22,
+   "ingredients_without_ciqual_codes" : [
+      "en:e330",
+      "en:sugar"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "known_ingredients_n" : 24,
    "lc" : "es",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 71.25,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 71.25,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 75.25,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 75.25
    },
