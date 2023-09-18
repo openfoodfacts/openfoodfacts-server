@@ -11,6 +11,10 @@ use ProductOpener::Users qw/:all/;
 
 remove_all_users();
 wait_application_ready();
+# we need to create spam user log to be able to tail on it
+open(my $log, ">>", "$data_root/logs/user_spam.log");
+$log . close();
+
 my $ua = new_client();
 
 my %create_user_args = (%default_user_form, (email => 'bob@test.com'));
@@ -47,7 +51,7 @@ foreach my $args_ref (["name", "click http://test.com"], ["faxnumber", "0"]) {
 	my $logid = tail_log_start("$data_root//logs/user_spam.log");
 	$response = create_user($ua, \%create_user_args);
 	my $logged = tail_log_read($logid);
-	like($response->content, qr/\bError\b/, "Error in the page - $testnum");
+	like($response->content, qr/class="error_page"/, "Error in the page - $testnum");
 	# user in spam log
 	like($logged, qr/\b$userid\b/, "Error in spam log - $testnum");
 	is(undef, retrieve_user($userid), "User not created - $testnum");
