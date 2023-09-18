@@ -329,6 +329,13 @@ sub check_user_org ($user_ref, $new_org_id) {
 	return;
 }
 
+sub is_supsicious_name ($value) {
+	# email or xxx.nunsrt
+	my $email_re = qr/^[\w_.+]+(?:@[\w._+]+)?$/;
+	my $invite_re = qr/(?:click here|wants to meet you|:\/\/|\.\w{2,3}\b)/i;
+	return (defined $value) and ($value =~ $invite_re) and (not $value =~ $email_re);
+}
+
 =head2 check_user_form($type, $user_ref, $errors_ref)
 
 C<check_user_form()> This method checks and validates the different entries in the user form.
@@ -359,7 +366,7 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 	# Check for spam
 	my $is_spam = undef;
 	# e.g. name with "Lydia want to meet you! Click here:" + an url or + a .com / .ru
-	if ($user_ref->{name} =~ /(?:click here|wants to meet you|:\/\/|\.\w{2,3}\b)/i) {
+	if (is_supsicious_name($user_ref->{name})) {
 		$is_spam = 1;
 	}
 	# check for spam, that may have filled the honeypot faxnumber field

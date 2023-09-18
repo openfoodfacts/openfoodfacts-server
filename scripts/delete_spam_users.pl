@@ -30,10 +30,23 @@ use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Users qw/:all/;
 
 use File::Copy;
 use POSIX qw/strftime/;
 use JSON;
+use Getopt::Long;
+
+my $usage = <<EOF
+Usage: $0 [--dry-run]
+
+Try to find and remove users created by a spammer
+EOF
+	;
+
+my $dry_run = 0;
+GetOptions("dry-run" => \$dry_run,)
+	or die("Error in command line arguments:\n\n$usage");
 
 my @userids;
 
@@ -64,17 +77,12 @@ foreach my $userid (@userids) {
 	next if $userid eq 'all';
 
 	my $user_ref = retrieve("$data_root/users/$userid");
-	
-	my $is_spam = (
-		(defined $user_ref) and ($user_ref->{name} =~ /(?:forms\.yandex|:\/\/)/));
 
-	if ($is_spam) {
+	if ((defined $user_ref) and (is_supsicious_name($user_ref->{name}))) {
 		print $user_ref->{name} . "\n";
 		push @emails_to_delete, $user_ref->{email};
-                eval {
-                    print $jsonl_file $json->encode($user_ref) . "\n";
-                };
-		move("$data_root/users/$userid", "$spam_users_dir/$userid");
+		eval {print $jsonl_file $json->encode($user_ref) . "\n";};
+		$dry_run or move("$data_root/users/$userid", "$spam_users_dir/$userid");
 		$i++;
 	}
 }
@@ -87,9 +95,9 @@ foreach my $email (@emails_to_delete) {
 	delete $emails_ref->{$email};
 }
 
-store("$data_root/users/users_emails.sto", $emails_ref);
+$dry_run or store("$data_root/users/users_emails.sto", $emails_ref);
 
-print $i . "\n";
+print "$i accounts removed\n";
 
 exit(0);
 
