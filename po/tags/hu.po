@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: openfoodfacts\n"
+"PO-Revision-Date: 2021-04-06 11:14+0200\n"
+"Last-Translator: Báthory Péter <bathory86p@gmail.com>\n"
+"Language-Team: Hungarian\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
-"Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-07-08 13:26\n"
-"Language-Team: Hungarian\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: crowdin.com\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Language: hu\n"
 "X-Crowdin-File: /master/po/tags/tags.pot\n"
@@ -17,7 +17,7 @@ msgstr ""
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "additives:plural"
 msgid "additives"
-msgstr "adalék(ok)"
+msgstr "adalékok"
 
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "additives:singular"
@@ -27,7 +27,7 @@ msgstr "adalék"
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "allergens:plural"
 msgid "allergens"
-msgstr "allergén(ek)"
+msgstr "allergének"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "allergens:singular"
@@ -37,7 +37,7 @@ msgstr "allergén"
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "brands:plural"
 msgid "brands"
-msgstr "márkanev(ek)"
+msgstr "márkanevek"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "brands:singular"
@@ -47,7 +47,7 @@ msgstr "márkanév"
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "categories:plural"
 msgid "categories"
-msgstr "kategóriá(k)"
+msgstr "kategóriák"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "categories:singular"
@@ -57,7 +57,7 @@ msgstr "kategória"
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "checkers:plural"
 msgid "checkers"
-msgstr "ellenőrző(k)"
+msgstr "ellenőrzők"
 
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "checkers:singular"
@@ -87,17 +87,17 @@ msgstr "kód"
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "correctors:plural"
 msgid "correctors"
-msgstr "javító(k)"
+msgstr "korrektorok"
 
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "correctors:singular"
 msgid "corrector"
-msgstr "javító"
+msgstr "korrektor"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "countries:plural"
 msgid "countries"
-msgstr "ország(ok)"
+msgstr "országok"
 
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "countries:singular"
@@ -117,7 +117,7 @@ msgstr "debug"
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "editors:plural"
 msgid "editors"
-msgstr "szerkesztő(k)"
+msgstr "szerkesztők"
 
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "editors:singular"
@@ -137,7 +137,7 @@ msgstr "üzemkód"
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "entry_dates:plural"
 msgid "entry-dates"
-msgstr "bejegyzés-dátumai"
+msgstr "bejegyzési-dátumok"
 
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "entry_dates:singular"
@@ -147,7 +147,7 @@ msgstr "bejegyzés-dátuma"
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "informers:plural"
 msgid "informers"
-msgstr "informátor(ok)"
+msgstr "informátorok"
 
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "informers:singular"
@@ -157,7 +157,7 @@ msgstr "informátor"
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "ingredients:plural"
 msgid "ingredients"
-msgstr "összetevő(k)"
+msgstr "összetevők"
 
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "ingredients:singular"
@@ -172,7 +172,7 @@ msgstr "összetevők-pálmaolajból"
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "ingredients_from_palm_oil:singular"
 msgid "ingredients-from-palm-oil"
-msgstr "összetevők-pálmaolajból"
+msgstr "összetevő-pálmaolajból"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "ingredients_n:plural"
@@ -192,7 +192,7 @@ msgstr "összetevők-amelyek-pálmaolajat-tartalmazhatnak"
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "ingredients_that_may_be_from_palm_oil:singular"
 msgid "ingredients-that-may-be-from-palm-oil"
-msgstr "összetevők-amelyek-pálmaolajat-tartalmazhatnak"
+msgstr "összetevő-amely-pálmaolajat-tartalmazhat"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "known_nutrients:plural"
@@ -307,7 +307,7 @@ msgstr "eredet"
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "packaging:plural"
 msgid "packaging"
-msgstr "csomagolás"
+msgstr "csomagolások"
 
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "packaging:singular"
@@ -327,12 +327,12 @@ msgstr "felbontás-utáni-időtartam"
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "photographers:plural"
 msgid "photographers"
-msgstr "fényképészek"
+msgstr "fotósok"
 
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "photographers:singular"
 msgid "photographer"
-msgstr "fényképész"
+msgstr "fotós"
 
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "pnns_groups_1:plural"
@@ -377,12 +377,12 @@ msgstr "vásárlás-helye"
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "states:plural"
 msgid "states"
-msgstr "államok"
+msgstr "állapotok"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "states:singular"
 msgid "state"
-msgstr "állam"
+msgstr "állapot"
 
 #. part of an url, put here the translation in your language, without caps, and by using hyphens instead of spaces
 msgctxt "stores:plural"
@@ -487,11 +487,11 @@ msgstr "nukleotidok"
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "other_nutritional_substances:singular"
 msgid "other-nutritional-substance"
-msgstr "egyéb-táplálkozási-anyag"
+msgstr "egyéb-tápanyag"
 
 msgctxt "other_nutritional_substances:plural"
 msgid "other-nutritional-substances"
-msgstr "egyéb-táplálkozási-anyagok"
+msgstr "egyéb-tápanyagok"
 
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "nova_groups:singular"
@@ -506,34 +506,137 @@ msgstr "nova-csoportok"
 #. part of an url, put here the plural in your language, without caps, and by using hyphens instead of spaces
 msgctxt "last_check_dates:plural"
 msgid "last-check-dates"
-msgstr ""
+msgstr "utolsó-ellenőrzés-dátumai"
 
 #. part of an url, put here the singular in your language, without caps, and by using hyphens instead of spaces
 msgctxt "last_check_dates:singular"
 msgid "last-check-date"
-msgstr ""
+msgstr "utolsó-ellenőrzés-dátuma"
 
 msgctxt "data_sources:singular"
 msgid "data-source"
-msgstr ""
+msgstr "adatforrás"
 
 msgctxt "data_sources:plural"
 msgid "data-sources"
-msgstr ""
+msgstr "adatforrások"
 
 msgctxt "popularity:singular"
 msgid "popularity"
-msgstr ""
+msgstr "népszerűség"
 
 msgctxt "popularity:plural"
 msgid "popularity"
-msgstr ""
+msgstr "népszerűségek"
 
 msgctxt "ingredients_analysis:singular"
 msgid "ingredients-analysis"
-msgstr ""
+msgstr "összetevő-analízis"
 
 msgctxt "ingredients_analysis:plural"
 msgid "ingredients-analysis"
-msgstr ""
+msgstr "összetevő-analízis"
 
+msgctxt "data_quality:plural"
+msgid "data-quality"
+msgstr "adatminőség"
+
+msgctxt "data_quality:singular"
+msgid "data-quality"
+msgstr "adatminőség"
+
+msgctxt "data_quality_bugs:plural"
+msgid "data-quality-bugs"
+msgstr "adatminőség-programhibák"
+
+msgctxt "data_quality_bugs:singular"
+msgid "data-quality-bug"
+msgstr "adatminőség-programhiba"
+
+msgctxt "data_quality_info:plural"
+msgid "data-quality-info"
+msgstr "adatminőség-információk"
+
+msgctxt "data_quality_info:singular"
+msgid "data-quality-info"
+msgstr "adatminőség-információ"
+
+msgctxt "data_quality_warnings:plural"
+msgid "data-quality-warnings"
+msgstr "adatminőség-figyelmeztetések"
+
+msgctxt "data_quality_warnings:singular"
+msgid "data-quality-warning"
+msgstr "adatminőség-figyelmeztetés"
+
+msgctxt "data_quality_errors:plural"
+msgid "data-quality-errors"
+msgstr "adatminőség-hibák"
+
+msgctxt "data_quality_errors:singular"
+msgid "data-quality-error"
+msgstr "adatminőség-hiba"
+
+msgctxt "data_quality_warnings_producers:plural"
+msgid "data-quality-warnings-producers"
+msgstr "adatminőség-figyelmeztetések-gyártók"
+
+msgctxt "data_quality_warnings_producers:singular"
+msgid "data-quality-warning-producers"
+msgstr "adatminőség-figyelmeztetés-gyártók"
+
+msgctxt "data_quality_errors_producers:plural"
+msgid "data-quality-errors-producers"
+msgstr "adatminőség-hibák-gyártók"
+
+msgctxt "data_quality_errors_producers:singular"
+msgid "data-quality-error-producers"
+msgstr "adatminőség-hiba-gyártók"
+
+msgctxt "improvements:plural"
+msgid "possible-improvements"
+msgstr "lehetséges-fejlesztések"
+
+msgctxt "improvements:singular"
+msgid "possible-improvement"
+msgstr "lehetséges-fejlesztés"
+
+msgctxt "imports:plural"
+msgid "imports"
+msgstr "importok"
+
+msgctxt "imports:singular"
+msgid "import"
+msgstr "import"
+
+msgctxt "teams:plural"
+msgid "teams"
+msgstr "csapatok"
+
+msgctxt "teams:singular"
+msgid "team"
+msgstr "csapat"
+
+msgctxt "categories_properties:singular"
+msgid "categories-properties"
+msgstr "kategória-tulajdonságok"
+
+msgctxt "categories_properties:plural"
+msgid "categories-properties"
+msgstr "kategória-tulajdonságok"
+
+msgctxt "owners:plural"
+msgid "owners"
+msgstr "tulajdonosok"
+
+msgctxt "owners:singular"
+msgid "owner"
+msgstr "tulajdonos"
+
+msgctxt "ecoscore:plural"
+msgid "ecoscore"
+msgstr "ecoscore"
+
+msgctxt "ecoscore:singular"
+msgid "ecoscore"
+msgstr "ecoscore"

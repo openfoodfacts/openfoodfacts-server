@@ -1,0 +1,186 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:filling",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "20047",
+               "id" : "en:chopped-tomatoes",
+               "percent_estimate" : 46.6666666666667,
+               "percent_max" : 70,
+               "percent_min" : 23.3333333333333,
+               "text" : "tomates concassées",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:cheese",
+               "percent_estimate" : 11.6666666666667,
+               "percent_max" : 35,
+               "percent_min" : 0,
+               "processing" : "en:grated",
+               "text" : "fromage",
+               "vegan" : "no",
+               "vegetarian" : "maybe"
+            },
+            {
+               "ciqual_food_code" : "11033",
+               "id" : "en:basil-leaf",
+               "percent_estimate" : 11.6666666666667,
+               "percent_max" : 23.3333333333333,
+               "percent_min" : 0,
+               "text" : "feuilles de basilic",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "percent" : 70,
+         "percent_estimate" : 70,
+         "percent_max" : 70,
+         "percent_min" : 70,
+         "text" : "Garniture",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:pizza-dough",
+         "ingredients" : [
+            {
+               "id" : "en:wheat-flour",
+               "percent_estimate" : 20,
+               "percent_max" : 30,
+               "percent_min" : 10,
+               "text" : "farine de blé",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "18066",
+               "id" : "en:water",
+               "percent_estimate" : 5,
+               "percent_max" : 15,
+               "percent_min" : 0,
+               "text" : "eau",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "11058",
+               "id" : "en:salt",
+               "percent_estimate" : 5,
+               "percent_max" : 10,
+               "percent_min" : 0,
+               "text" : "sel",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "percent" : 30,
+         "percent_estimate" : 30,
+         "percent_max" : 30,
+         "percent_min" : 30,
+         "text" : "Pâte à pizza"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:cheese"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:pizza-dough"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:pizza-dough"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_hierarchy" : [
+      "en:filling",
+      "en:pizza-dough",
+      "en:dough",
+      "en:chopped-tomatoes",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "en:tomato",
+      "en:cheese",
+      "en:dairy",
+      "en:basil-leaf",
+      "en:herb",
+      "en:basil",
+      "en:wheat-flour",
+      "en:cereal",
+      "en:flour",
+      "en:wheat",
+      "en:cereal-flour",
+      "en:water",
+      "en:salt"
+   ],
+   "ingredients_n" : 8,
+   "ingredients_n_tags" : [
+      "8",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:filling",
+      "en:pizza-dough",
+      "en:chopped-tomatoes",
+      "en:cheese",
+      "en:basil-leaf",
+      "en:wheat-flour",
+      "en:water",
+      "en:salt"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:filling",
+      "en:pizza-dough",
+      "en:dough",
+      "en:chopped-tomatoes",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "en:tomato",
+      "en:cheese",
+      "en:dairy",
+      "en:basil-leaf",
+      "en:herb",
+      "en:basil",
+      "en:wheat-flour",
+      "en:cereal",
+      "en:flour",
+      "en:wheat",
+      "en:cereal-flour",
+      "en:water",
+      "en:salt"
+   ],
+   "ingredients_text" : "Garniture 70% (tomates concassées, fromage râpé, feuilles de basilic), Pâte à pizza 30% (farine de blé, eau, sel)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 6,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:cheese",
+      "en:wheat-flour"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "known_ingredients_n" : 19,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 23.3333333333333,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 23.3333333333333,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 23.3333333333333,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 23.3333333333333
+   },
+   "recipe" : {
+      "en:cheese" : 11.6666666666667,
+      "en:flour" : 20,
+      "en:tomato" : 46.6666666666667,
+      "en:water" : 5,
+      "other" : 16.6666666666667,
+      "unknown" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

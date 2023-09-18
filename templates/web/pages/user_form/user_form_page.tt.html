@@ -1,0 +1,243 @@
+<!-- start templates/[% template.name %] -->
+
+<script>
+
+    function normalize_string_value(inputfield) {
+
+    var value = inputfield.value.toLowerCase();
+
+    // Chrome can autofill the username with an email address,
+    // remove everything after @ so that we don't end up with
+    // email addresses as usernames.
+
+    value = value.replace(new RegExp("\@.*"),"");
+
+    value = value.replace(new RegExp(" ", 'g'),"-");
+    value = value.replace(new RegExp("[àáâãäå]", 'g'),"a");
+    value = value.replace(new RegExp("æ", 'g'),"ae");
+    value = value.replace(new RegExp("ç", 'g'),"c");
+    value = value.replace(new RegExp("[èéêë]", 'g'),"e");
+    value = value.replace(new RegExp("[ìíîï]", 'g'),"i");
+    value = value.replace(new RegExp("ñ", 'g'),"n");
+    value = value.replace(new RegExp("[òóôõö]", 'g'),"o");
+    value = value.replace(new RegExp("œ", 'g'),"oe");
+    value = value.replace(new RegExp("[ùúûü]", 'g'),"u");
+    value = value.replace(new RegExp("[ýÿ]", 'g'),"y");
+    value = value.replace(new RegExp("[^a-zA-Z0-9-]", 'g'),"-");
+    value = value.replace(new RegExp("-+", 'g'),"-");
+    value = value.replace(new RegExp("^-"),"");
+
+    inputfield.value = value;
+    }
+    [% INCLUDE web/pages/user_form/togglepassword.tt.js %]
+</script>
+
+<style>
+    .pro_org_display {
+        display: none;
+    }
+</style>
+
+[% IF action == 'display' || action == 'none' %]
+[% INCLUDE 'web/common/includes/error_list.tt.html' %]
+[% END %]
+
+[% IF action == 'display' %]
+
+    <!-- Start form -->
+
+    <form method="post" action="/cgi/user.pl" enctype="multipart/form-data" id="user_form">
+		[% FOREACH section IN sections %]
+
+            [% IF section.name %]
+                <fieldset id="[% section.id %]_section">
+                    <legend [% IF section.id == "administrator" %] style = "background-color:#ffcccc"[% END %]>[% section.name %]</legend>
+            [% END %]
+
+            [% IF section.description %]
+                <p >[% section.description %]</p>
+            [% END %]
+
+            [% IF section.note %]
+                <p >[% section.note %]</p>
+            [% END %]
+            <div class="form-wrapper">
+                <div class="form-container" style="width: 80%;margin-right: 20px;">
+                   [% FOREACH field IN section.fields %]
+                       [% IF field.field == 'userid' %]
+                            [% IF type == 'edit' %]
+                                <label for="[% field.field %]"> [% field.label %]</label>
+                                <p id="userid"><a href="/editor/[% field.value %]">[% field.value %]</a></p>
+                            [% ELSE %]
+                                <label for="[% field.field %]">  [% lang(field.label) %] [% lang('username_info')  %]</label>
+                                <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="username" onkeyup="normalize_string_value(this)" />
+                            [% END %]
+                        [% ELSIF field.type == 'text' %]
+                              <div [% IF section.id == "professional" %] class="pro_org_display" [% END %]>
+                                  <label for="[% field.field %]">[% field.label %]</label>
+                                  <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" [% IF section.id == "teams" %] onkeyup="normalize_string_value(this)" [% END %]/>
+                                </div>
+                        [% ELSIF field.type == 'password' %]
+                            <label for="[% field.field %]">[% lang(field.label) %]</label>
+                            <div class="password-container">
+                                <input type="password" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="new-password"/>
+                                <span class="toggle-password" onclick="togglePasswordVisibility('[% field.field %]')">
+                                    <span class="material-icons material-symbols-visibility">visibility_off</span>
+                                    </span>
+                                </div>
+                        [% ELSIF field.type == 'email' %]
+                            <label for="[% field.field %]">	[% field.label %]</label>
+                            <input type="email" id="[% field.field %]" name="[% field.field %]" value = "[% field.value %]" autocomplete="email"/>
+                        [% ELSIF field.type == 'checkbox' %]
+                            [% IF accepted_organization && section.id == "professional" %]
+                                <p>[% f_lang('f_this_is_a_pro_account_for_org', {'org' => accepted_organization}) %]</p>
+                            [% ELSE %]
+                                <label for="[% field.field %]">
+                                    <input type="checkbox" id="[% field.field %]" name="[% field.field %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
+                                     [% field.label %]
+                                </label>
+                            [% END %]
+                        [% ELSIF field.type == 'hidden' %]
+                            <label for="pro">
+                                <input type="hidden" name="[% field.field %]" value="[% field.value %]">
+                            </label>
+                        [% END %]
+
+                    [% END %]
+                </div>
+                <!-- show video about account creation beside user form section-->
+                [% IF server_options_producers_platform AND section.id == "user" AND type != "edit" %]
+                    <div class="video-container" style="width:70%">
+    
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/RXKxDuuKYV0"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen style="margin-top: 20px;max-width: 100%;"></iframe>
+    
+                    </div>
+                [% END %]
+            </div>
+			[% IF section.id == "professional" %]
+            <div class="pro_org_display">
+                [% IF requested_org_ref.defined %]
+                    <div id="existing_org_warning">
+                        <p>[% org_name %] </p>
+                        <p>[% lang("add_user_existing_org_pending") %] </p>
+                        <p>[% lang("please_email_producers") %] </p>
+                    </div>
+                [% ELSE %]
+                    <p>[% lang("enter_name_of_org") %]</p>
+                [% END %]
+            </div>
+            [% END %]
+
+            [% IF section.name %]
+                </fieldset>
+            [% END %]
+
+		[% END %]
+
+        <!--newsletter subscription-->
+        [% IF type == 'add' %]
+            <label>
+                <input type="checkbox" name="newsletter" checked="on" />
+                [% lang("newsletter_description") %]
+            </label>
+            <p>[% lang("unsubscribe_info") %]</p>
+        [% END %]
+
+        [% IF userid %]
+            <fieldset>
+                <legend class="text_warning">[% lang("danger_zone") %]</legend>
+                <input type="button" name=".delete" class="button text_warning" value="[% lang("delete_user") %]" onclick="if ('[% userid %]'.localeCompare(prompt('[% lang("delete_confirmation") %]'),undefined,'base') === 0) {document.getElementById('delete_input').value='on';document.getElementById('user_form').submit();}"/>
+                <input type="hidden" name="delete" id="delete_input"/>
+            </fieldset>
+        [% END %]
+
+        <input type="hidden" name="action" value="process" />
+        <input type="hidden" name="type" value="[% type %]" />
+        [% IF userid %]
+            <input type="hidden" name="userid" value="[% userid %]" />
+            <input type="submit" name=".submit" class="button" value="[% lang("save") %]" />
+        [% ELSE %]
+            <input type="submit" name=".submit" class="button" value="[% lang("add_user") %]" />
+        [% END %]
+    </form>
+
+    <!-- End form -->
+
+[% ELSIF action == 'process' %]
+    <p>[% lang("${type}_user_result") %]</p>
+
+    [% IF type == 'add' %]
+
+        <!-- Show different messages depending on whether it is a pro account
+        and whether we are on the public platform or the pro platform -->
+
+        [% IF user_requested_org.defined %]
+
+            <!-- Pro account, but the requested org already exists -->
+
+            <div id="existing_org_warning">
+                <p>[% add_user_existing_org %]</p>
+                <p>[% lang("add_user_existing_org_pending") %]</p>
+                <p>[% lang("please_email_producers") %]</p>
+            </div>
+
+        [% ELSIF user_org.defined %]
+
+            <!-- Pro-account, with a newly created org -->
+
+            [% IF server_options_producers_platform.defined %]
+
+                <!-- We are on the producers platform -->
+                <!-- Suggest next steps: -->
+                <!-- - import product data -->
+
+                <p>[% lang("add_user_you_can_edit_pro") %]</p>
+                <p>&rarr; <a href="/cgi/import_file_upload.pl">[% lang("import_product_data") %]</a></p>
+
+            [% ELSE %]
+
+                <!-- We are on the public platform, link to the producers platform -->
+
+                <p>[% add_user_pro_url %]</p>
+
+            [% END %]
+
+        [% ELSE %]
+
+            <!-- Personal account -->
+            <!-- Suggest next steps:
+            - add or edit products on the web site or through the app
+            - join us on Slack -->
+
+            <p>[% add_user_you_can_edit %]</p>
+            <p>[% add_user_join_the_project %]</p>
+            <p>[% lang("add_user_join_us_on_slack") %]</p>
+            <p>&rarr; <a href="https://slack.openfoodfacts.org">[% lang("join_us_on_slack") %]</a></p>
+
+        [% END %]
+
+    [% END %]
+
+    [% IF type == 'add' || type == 'edit' %]
+
+        <!-- Do not display donate link on producers platform -->
+
+        [% IF !(server_options_producers_platform) %]
+            [% IF lc == "en" or lc == "fr" %]
+                <h3>[% lang("you_can_also_help_us") %]</h3>
+                <p>[% lang("bottom_content") %]</p>
+            [% END %]
+        [% END %]
+
+    [% END %]
+
+[% END %]
+
+[% IF debug %]
+    <p>type: [% type %] action: [% action %] userid: [% userid %]</p>
+[% END %]
+
+<!-- end templates/[% template.name %] -->

@@ -8,28 +8,57 @@ synonyms:fr:fruit de la passion, fruits de la passion, maracuja, passion
 
 en:yogurts, yoghurts
 fr:yaourts, yoghourts, yogourts
+nl:yoghurts
+description:en: a yogurts of whatever type
+description:fr: un yaourt de n'importe quel type
+color:en: white
+flavour:en: undef
 
 <en:yogurts
 en:banana yogurts
 fr:yaourts à la banane
+nl:bananenyoghurt
+description:en: a banana yogurt
+description:fr: un yaourt à la banane
+color:en: yellow
+flavour:en: banana
 
 <en:yogurts
 en:Passion fruit yogurts
 fr:yaourts au fruit de la passion
+nl:yoghurts met passievrucht
+color:en: undef
+flavour:en: passion fruit
+
+<en:yogurts
+fr:yaourts allégés
 
 <fr:yoghourts
 en:lemon yogurts
 fr:yaourts au citron
+nl:yoghurts met citroen
+description:en: a yogurts with lemon inside
+description:fr: un yaourt avec du citron
+color:en: yellow
+flavour:en: lemon
 
 <fr:yaourts fruit de la passion
+<fr:yaourts allégés
 fr:yaourts au fruit de la passion allégés
+nl:magere yoghurts met passievrucht
+
 
 <fr:yaourts au citron
+<fr:yaourts allégés
 fr:yaourts au citron allégés
+nl:magere citroenyoghurt
+description:en: for light yogurts with lemon
 
 <fr:yaourt
 fr:yaourts à la myrtille
-
+nl:bosbessenyoghurt
+flavour:en: blueberry
+flavour:fr: myrtille
 
 en:meat
 vegan:en:no
@@ -57,7 +86,9 @@ en:fake-duck-meat
 en:vegetable
 vegan:en:yes
 
+# the soup yogourt synonym is used to test suggestions matching xx: synonyms
 en:soup
+xx:something that means soup in every language, something else that means soup in every language
 vegan:en:maybe
 
 <en:soup
@@ -73,3 +104,23 @@ de:Spätzle
 en:Kale
 de:Grünkohl
 
+en:Kefir 2.5 %
+de:Kefir 2.5 %
+fr:Kéfir 2,5 %
+ru:Кефир 2.5 %, Кефир 2.5%
+
+fr:French entry
+de:Special value for German
+
+fr:French entry with default value
+xx:French entry with default value
+de:Special value for German 2
+
+xx:Language-less entry
+de:Special value for German 3
+
+# xx: entry with accents, need to match unaccented version
+sv:Ä-märket
+xx:Ä-märket
+
+en:Entry with (parentheses) and some *!#{}@$ characters, synonym with *%@$(]% chars

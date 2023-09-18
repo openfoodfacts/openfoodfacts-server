@@ -5,14 +5,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-01 10:59\n"
 "Language-Team: Polish\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: pl\n"
-"X-Crowdin-File: /master/po/openbeautyfacts/openbeautyfacts.pot\n"
+"X-Crowdin-File-ID: 3125\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -28,22 +27,12 @@ msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/pl/app/open-beauty-facts/id1122926380"
 
-#. make sure the image exists with your country code. https://static.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en-178x150.png Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openbeautyfacts-logo-en-178x150.png"
-msgstr "openbeautyfacts-logo-en-178x150.png"
-
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openbeautyfacts-logo-en-356x300.png"
-msgstr "openbeautyfacts-logo-en-356x300.png"
-
 msgctxt "site_name"
 msgid "Open Beauty Facts"
 msgstr "Open Beauty Facts"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 msgstr ""
 
 msgctxt "tagline"
@@ -57,29 +46,19 @@ msgstr "OpenBeautyFacts"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "Ta strona produktu jest niekompletna. Możesz nam pomóc w dokończeniu tego zadania, edytując go i dodając więcej danych z dostępnych zdjęć, lub robiąc nowe zdjęci za pomocą aplikacji mobilnej dla <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Androida</a> lub <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Dziękujemy!"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> jest tworzony przez stowarzyszenie non-profit, niezależne od przemysłu. Jest on realizowany przez wszystkich i finansowany przez wszystkich. Możesz wspierać naszą pracę przez <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">przekazując darowiznę na Open Beauty Facts</a> oraz <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">korzystając z wyszukiwarki Lilo</a>.<br/><b>Dziękujemy!</b></p>"
 
 msgctxt "donate"
 msgid "Donate to Open Beauty Facts"
-msgstr ""
+msgstr "Wspomóż Open Beauty Facts"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenBeautyFacts"
 msgstr "https://www.facebook.com/OpenBeautyFacts"
-
-msgctxt "footer"
-msgid "<a href=\"https://world.openbeautyfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
 
 msgctxt "brands_example"
 msgid "Nivea, Nivea Men"
@@ -95,19 +74,19 @@ msgstr "EMB 53062"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
-msgstr ""
+msgstr "Wspólna, bezpłatna i otwarta baza danych składników oraz informacje o produktach kosmetycznych z całego świata"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "oraz <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">grupa na Facebooku dla współtwórców</a>"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
-msgstr ""
+msgstr "Wspólna, bezpłatna i otwarta baza danych produktów kosmetycznych z całego świata."
 
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openbeautyfacts.org"
-msgstr "https://en.wiki.openbeautyfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 msgctxt "generic_name_example"
 msgid "Anti-dandruff shampoo"
@@ -125,7 +104,8 @@ msgstr "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.pn
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-beauty-hunt\">Open Beauty Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr ""
+msgstr "To <a href=\"/open-beauty-hunt\">Open Beauty Hunt</a> dnia <<site_name>> od soboty 21 lutego do niedzieli 1 marca! Współtwórcy otrzymują\n"
+"punkty Odkrywców za produkty, które dodają, i punkty Ambasadora dla nowych współtwórców, którzy rekrutują. Punkty są aktualizowane co 30 minut."
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
@@ -137,10 +117,20 @@ msgstr "Wyszukiwarka produktów Open Beauty Facts"
 
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-msgstr ""
+msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-beauty-facts-mobile-app"
-msgstr ""
+msgid "/open-beauty-facts-mobile-app"
+msgstr "/otwórz-aplikację-mobilną-beauty-facts"
+
+# Do not translate
+msgctxt "footer_obf"
+msgid "Open Food Facts"
+msgstr "Open Food Facts"
+
+# Do not translate
+msgctxt "footer_obf_link"
+msgid "https://world.openfoodfacts.org"
+msgstr "https://world.openfoodfacts.org"
 

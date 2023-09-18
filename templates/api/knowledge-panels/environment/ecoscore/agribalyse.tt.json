@@ -1,0 +1,74 @@
+{
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+    "title_element": {
+        "icon_url": "[% static_subdomain %]/images/icons/dist/lca.svg",
+        "icon_color_from_evaluation": true,
+        "icon_size": "small",
+        "title": "[% lang('average_impact_of_the_category') %][% sep %]: [% panel.agribalyse_grade FILTER upper %] (Score: [% panel.agribalyse_score %]/100)",
+        "subtitle": "[% lang('categories_s') FILTER ucfirst %][% sep %]: [% panel.agribalyse_category_name.dquote %]",
+        "type": "grade",
+        "grade": "[% panel.agribalyse_grade %]",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "html": `
+                    <p>[% lang('categories_s') FILTER ucfirst %][% sep %]: 
+                    <a href="https://agribalyse.ademe.fr/app/aliments/[% product.ecoscore_data.agribalyse.code %]">[% panel.agribalyse_category_name %]</a>
+                    </p>
+                    <ul>
+                        <li>
+                            [% lang('ecoscore_pef_environmental_score') %][% sep %]: [% product.ecoscore_data.agribalyse.ef_total FILTER format("%.2f"); %]
+                            [% lang('ecoscore_lower_the_score_lower_the_impact') %]
+                        </li>
+                        <li>
+                            [% lang('ecoscore_incl_climate_change_impact') %][% sep %]: [% product.ecoscore_data.agribalyse.co2_total FILTER format("%.2f"); %]
+                            [% lang('ecoscore_kg_co2_eq_kg_product') %]
+                        </li>
+                    </ul>
+                    `
+            }
+        },
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "ecoscore_lca_impacts_by_stages_table",
+                "table_type": "percents",
+                "title": "[% lang('ecoscore_impact_detail_by_stages') %]",
+                "columns": [
+                    {
+                        "text": "[% lang('ecoscore_stage') %]",
+                        "type": "text",
+                    },
+                    {
+                        "text": "[% lang('ecoscore_impact') %]",
+                        "type": "percent",
+                    }
+                ],
+                "rows": [
+                    [% FOREACH step IN ["agriculture", "processing", "packaging", "transportation", "distribution", "consumption"] %]
+                    {
+                        "id": "[% step %]",
+                        "values": [
+                            {
+                                "icon_url": "[% static_subdomain %]/images/icons/dist/[% step %].svg",
+                                "text": "[% lang("ecoscore_$step") %]"
+                            },
+                            {
+                                [% ef_step = "ef_$step" %]
+                                "text": "[% (100 * product.ecoscore_data.agribalyse.$ef_step / product.ecoscore_data.agribalyse.ef_total) FILTER format('%.1f'); %] %",
+                                "percent": [% (100 * product.ecoscore_data.agribalyse.$ef_step / product.ecoscore_data.agribalyse.ef_total) %]
+                            }
+                        ],
+                    },
+                    [% END %]
+                ]
+            }
+        }
+    ]
+}

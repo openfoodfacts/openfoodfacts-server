@@ -5,19 +5,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: mg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-01 10:55\n"
 "Language-Team: Malagasy\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: mg\n"
-"X-Crowdin-File: /master/po/openbeautyfacts/openbeautyfacts.pot\n"
+"X-Crowdin-File-ID: 3125\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openbeautyfacts.org/images/apps/obf.apk"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org/images/apps/obf.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
@@ -28,119 +27,110 @@ msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr ""
 
-#. make sure the image exists with your country code. https://static.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en-178x150.png Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openbeautyfacts-logo-en-178x150.png"
-msgstr ""
-
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openbeautyfacts-logo-en-356x300.png"
-msgstr ""
-
 msgctxt "site_name"
 msgid "Open Beauty Facts"
 msgstr ""
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 msgstr ""
 
 msgctxt "tagline"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr ""
+msgstr "Open Beauty Facts dia manangona sy mamakafaka anton-kevitra mikasika ny vokatra fikarakarana vatana manerana ny lafivalon'izao tontolo izao."
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
 msgid "OpenBeautyFacts"
-msgstr ""
+msgstr "OpenBeautyFacts"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "Tsy feno ny fahalalana mahakasika ny vokatra. Azonao atao ny manampy hamitana izany amin'ny alàlan'ny fanitsiana azy ary manampy fahalalana betsaka kokoa avy amin'ny sary ananantsika, na amin'ny fakana sary bebe kokoa amin'ny alàlan'ny application amin'ny <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> na <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone / iPad</a>. Misaotra anao!"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">  <img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a> <p> <<site_name>> dia novolavolaina fikambanana tsy mitady tombony, tsy miankina amin'ny orinasa. Natao ho an'ny rehetra, avy amin'ny rehetra, ary vatsian'ny rehetra. Azonao atao ny manohana ny asanay amin'ny <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"> fanomezana ho an'ny Open Beauty Facts </a> ary amin'ny alàlan'ny <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\"> mampiasa ny milina fikarohana an'ny Lilo koa </a>. <br> <b> Misaotra! </b></p>"
 
 msgctxt "donate"
 msgid "Donate to Open Beauty Facts"
-msgstr ""
+msgstr "Hanome fanampiana ny Open Beauty Facts"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenBeautyFacts"
-msgstr ""
-
-msgctxt "footer"
-msgid "<a href=\"https://world.openbeautyfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "https://www.facebook.com/OpenBeautyFacts"
 
 msgctxt "brands_example"
 msgid "Nivea, Nivea Men"
-msgstr ""
+msgstr "Nivea, Nivea Men"
 
 msgctxt "categories_example"
 msgid "Anti-dandruff shampoo, Whitening toothpaste"
-msgstr ""
+msgstr "Shampoing manala anga-drano, famotsiana nify"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
-msgstr ""
+msgstr "EMB 53062"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, and information on cosmetic products from around the world"
-msgstr ""
+msgstr "Serasera miara-miasa, malalaka ary misokatra amin'ny fampahalalana momba ny vokatra kosmetika avy amin'ny lafivalon'izao tontolo izao"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "ary ny vondrona <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\"> Facebook ho an'ny mpandray anjara </a>"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
-msgstr ""
+msgstr "Serasera miara-miasa, malalaka ary misokatra amin'ny fampahalalana momba ny vokatra kosmetika avy amin'ny lafivalon'izao tontolo izao."
 
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openbeautyfacts.org"
+msgid "https://wiki.openfoodfacts.org"
 msgstr ""
 
 msgctxt "generic_name_example"
 msgid "Anti-dandruff shampoo"
-msgstr ""
+msgstr "Shampooing manala anga-drano"
 
 msgctxt "product_name_example"
 msgid "Anti-Perspirant Stress Protect"
-msgstr ""
+msgstr "Fiarovana amin'ny tsemboka ateraky ny stress"
 
 #. make sure the image exists with your country code. https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png Otherwise, ask @teolemon how to create a translated logo
 msgctxt "og_image_url"
 msgid "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en.png"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-beauty-hunt\">Open Beauty Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr ""
+msgstr "Misy <a href=\"/open-beauty-hunt\"> Open Beauty Hunt </a> ny <<site_name>> nanomboka ny sabotsy 21 febambra ka hatramin'ny alahady 1 martsa! Ireo mpandray anjara dia nomena valisoa\n"
+"Isa Mpanokatra ho an'ny vokatra nampidirin'izy ireo ary isa Ambasadaoro ho an'ny mpandray anjara vaovao noraisin'izy ireo. Ny isa dia havaozina isaky ny 30 minitra."
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr ""
+msgstr "→ Miaraka amin'ny Chrome, Firefox ary Safari, afaka misafidy sary marobe (vokatra, akora sns) ianao amin'ny alàlan'ny fanindriana azy ireo sy fitazonana ny kitendry Ctrl mba hampidirana azy ireo indray mandeha."
 
 msgctxt "search_description_opensearch"
 msgid "Open Beauty Facts product search"
-msgstr ""
+msgstr "Fikarohana vokatra eto amin'ny Open Beauty Facts"
 
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-msgstr ""
+msgstr "AQUA / RANO, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-beauty-facts-mobile-app"
+msgid "/open-beauty-facts-mobile-app"
+msgstr ""
+
+# Do not translate
+msgctxt "footer_obf"
+msgid "Open Food Facts"
+msgstr "Open Food Facts"
+
+# Do not translate
+msgctxt "footer_obf_link"
+msgid "https://world.openfoodfacts.org"
 msgstr ""
 

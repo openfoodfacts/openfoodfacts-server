@@ -1,0 +1,37 @@
+{
+    "level" :"recommendation",
+    "topics": [
+        "health"
+    ],
+    "evaluation": "good",
+    "title_element": {
+        "title": "Mangez plus de légumes secs : lentilles, haricots, pois chiches...",
+        "subtitle": "Au moins 2 fois par semaine, car ils sont naturellement riches en fibres",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/arrow-top-right-thick.svg",
+        "icon_color_from_evaluation": true,
+        "evaluation": "good",                
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "quote",
+                "html": `
+                Données complémentaires :
+                <ul>
+                <li>Les légumes secs peuvent accompagner une volaille, un poisson ou une viande. Ils
+                peuvent aussi remplacer la viande et la volaille ; dans ce cas, il est conseillé de les
+                associer à un produit céréalier comme dans une salade de haricots rouges et maïs,
+                un couscous avec des pois chiches ou un curry de lentilles accompagné de riz.</li>
+                <li>Les légumes secs sont naturellement riches en fibres, et contiennent des protéines
+                végétales.</li>
+                <li>Si vous pouvez, privilégiez les légumes secs bio.</li>
+                </ul>
+                    `,
+                "source_text": "Santé publique France - Recommendations sur l'alimentation, l'activité physique et la sédentarité pour les adultes - Janvier 2019",
+                "source_url": "https://www.santepubliquefrance.fr/content/download/35744/683783",
+                "source_language": "fr",
+            }
+        },
+    ],
+}

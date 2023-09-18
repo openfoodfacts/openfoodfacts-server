@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2019 Association Open Food Facts
+// Copyright (C) 2011-2023 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -20,13 +20,23 @@
 
 /* eslint-disable max-classes-per-file */
 
+
+function getServerDomain() {
+  const hostname = window.location.href.match(/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i)[1];
+  const splittedHostname = hostname.split('.');
+  // shift the first subdomain ('world', 'fr', 'uk',...)
+  splittedHostname.shift();
+
+  return `api.${splittedHostname.join('.')}`;
+}
+
 class RobotoffAsker extends HTMLElement {
 
   static get template() {
     const tmpl = document.createElement('template');
     tmpl.innerHTML = `
       <style>
-        :host { background-color: #274477; color: white; position: fixed; bottom: 0; width: 100%; border-top: 1px solid #eee; z-index: 100; padding-top: 10px; }
+        :host { background-color: #274477; color: white; position: fixed; bottom: 0; left: 0; width: 100%; border-top: 1px solid #eee; z-index: 100; padding-top: 10px; }
         #value { font-weight: bold; }
         #close { width: 10px; height: 10px; position: absolute; top: 0; left: 0; margin: 2px 0 0 2px; color: #888888 }
         #zoom[data-zoom-in-src=""] { cursor: zoom-out; }
@@ -98,7 +108,8 @@ class RobotoffAsker extends HTMLElement {
   async nextQuestion() {
     this.question = this.questions ? this.questions.pop() : null;
     if (!this.question) {
-      const response = await fetch(`${this.url}/api/v1/questions/${this.code}?lang=${this.lang}`, { credentials: 'include' });
+      const serverDomain = getServerDomain();
+      const response = await fetch(`${this.url}/api/v1/questions/${this.code}?lang=${this.lang}&server_domain=${serverDomain}`, { credentials: 'include' });
       const json = await response.json();
       if (!json || json.status !== 'found') {
         this.style.display = 'none';
@@ -173,7 +184,7 @@ class RobotoffAsker extends HTMLElement {
       content.appendChild(script.cloneNode(true));
     }
 
-    content.querySelector('#thumbnail').addEventListener('click', e => {
+    content.querySelector('#thumbnail').addEventListener('click', (e) => {
       const zoomRow = this.shadowRoot.querySelector('#zoomrow');
       if (zoomRow.classList.toggle('hidden')) {
         e.currentTarget.style.cursor = 'zoom-in';
@@ -183,20 +194,20 @@ class RobotoffAsker extends HTMLElement {
       }
     });
 
-    content.querySelector('#zoom').addEventListener('click', e => {
+    content.querySelector('#zoom').addEventListener('click', (e) => {
       const small = e.currentTarget.getAttribute('data-small-src');
       const large = e.currentTarget.getAttribute('data-large-src');
       const zoomIn = e.currentTarget.getAttribute('data-zoom-in-src');
       const zoomOut = e.currentTarget.getAttribute('data-zoom-out-src');
-      if (zoomOut !== '') {
-        e.currentTarget.setAttribute('src', zoomOut);
-        e.currentTarget.setAttribute('data-zoom-in-src', large);
-        e.currentTarget.setAttribute('data-zoom-out-src', '');
-      }
-      else {
+      if (zoomOut === '') {
         e.currentTarget.setAttribute('src', zoomIn);
         e.currentTarget.setAttribute('data-zoom-in-src', '');
         e.currentTarget.setAttribute('data-zoom-out-src', small);
+      }
+      else {
+        e.currentTarget.setAttribute('src', zoomOut);
+        e.currentTarget.setAttribute('data-zoom-in-src', large);
+        e.currentTarget.setAttribute('data-zoom-out-src', '');
       }
     });
 

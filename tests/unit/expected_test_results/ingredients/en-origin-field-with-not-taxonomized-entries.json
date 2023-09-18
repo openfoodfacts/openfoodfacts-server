@@ -1,0 +1,114 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:peach",
+         "origins" : "en:spain",
+         "percent_estimate" : 66.6666666666667,
+         "percent_max" : 100,
+         "percent_min" : 33.3333333333333,
+         "text" : "Peaches",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:some-unknown-ingredient",
+         "origins" : "en:france",
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "Some unknown ingredient"
+      },
+      {
+         "id" : "en:another-unknown-ingredient",
+         "origins" : "en:malta",
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "another unknown ingredient"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "en:some-unknown-ingredient",
+         "en:another-unknown-ingredient"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:some-unknown-ingredient",
+         "en:another-unknown-ingredient"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:some-unknown-ingredient",
+         "en:another-unknown-ingredient"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_hierarchy" : [
+      "en:peach",
+      "en:fruit",
+      "en:prunus-species-fruit",
+      "en:some-unknown-ingredient",
+      "en:another-unknown-ingredient"
+   ],
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:peach",
+      "en:some-unknown-ingredient",
+      "en:another-unknown-ingredient"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:peach",
+      "en:fruit",
+      "en:prunus-species-fruit",
+      "en:some-unknown-ingredient",
+      "en:another-unknown-ingredient"
+   ],
+   "ingredients_text" : "Peaches. Some unknown ingredient, another unknown ingredient.\nOrigin of peaches: Spain. Origin of some unknown ingredient: France. origin of Another Unknown Ingredient: Malta",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:another-unknown-ingredient",
+      "en:peach",
+      "en:some-unknown-ingredient"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "known_ingredients_n" : 3,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 33.3333333333333,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 33.3333333333333,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 33.3333333333333,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 33.3333333333333
+   },
+   "specific_ingredients" : [
+      {
+         "id" : "en:peach",
+         "ingredient" : "peaches",
+         "origins" : "en:spain",
+         "text" : "Origin of peaches: Spain."
+      },
+      {
+         "id" : "en:some-unknown-ingredient",
+         "ingredient" : "some unknown ingredient",
+         "origins" : "en:france",
+         "text" : "Origin of some unknown ingredient: France."
+      },
+      {
+         "id" : "en:another-unknown-ingredient",
+         "ingredient" : "Another Unknown Ingredient",
+         "origins" : "en:malta",
+         "text" : "origin of Another Unknown Ingredient: Malta"
+      }
+   ],
+   "unknown_ingredients_n" : 2
+}

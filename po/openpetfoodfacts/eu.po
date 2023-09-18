@@ -5,29 +5,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: eu\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-01 10:26\n"
 "Language-Team: Basque\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: eu\n"
-"X-Crowdin-File: /master/po/openpetfoodfacts/openpetfoodfacts.pot\n"
-
-#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openfoodfacts-logo-en-178x150.png"
-msgstr ""
-
-#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openfoodfacts-logo-en-356x300.png"
-msgstr ""
+"X-Crowdin-File-ID: 3131\n"
 
 # Do not translate Open Pet Food Facts
 msgctxt "site_name"
 msgid "Open Pet Food Facts"
-msgstr ""
+msgstr "Open Pet Food Facts"
 
 # Do not translate Open Pet Food Facts
 msgctxt "tagline"
@@ -37,7 +26,7 @@ msgstr ""
 #. replace by the right country code, and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner&hl=eu"
 
 msgctxt "brands_example"
 msgid "Purina, Pedigree"
@@ -57,7 +46,7 @@ msgstr ""
 
 msgctxt "labels_example"
 msgid "No sugar, No colorings"
-msgstr ""
+msgstr "Azukrerik ez, koloratzailerik ez"
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, ascorbic acid"
@@ -70,10 +59,10 @@ msgstr ""
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
-msgstr ""
+msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 msgstr ""
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
@@ -97,16 +86,6 @@ msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenPetFoodFacts"
 msgstr ""
 
-msgctxt "footer"
-msgid "<a href=\"https://world.openpetfoodfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openpetfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
-
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
 msgstr ""
@@ -124,12 +103,12 @@ msgid "A collaborative, free and open database of pet food products from around 
 msgstr ""
 
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr ""
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 msgctxt "og_image_url"
 msgid "https://world.openpetfoodfacts.org/images/misc/openpetfoodfacts-logo-en.png"
-msgstr ""
+msgstr "https://world.openpetfoodfacts.org/images/misc/openpetfoodfacts-logo-en.png"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-beauty-hunt\">Open Pet Food Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"
@@ -142,10 +121,10 @@ msgstr ""
 
 msgctxt "search_description_opensearch"
 msgid "Open Pet Food Facts product search"
-msgstr ""
+msgstr "Open Pet Food Facts produktuaren bilaketa"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-pet-food-facts-mobile-app"
+msgid "/open-pet-food-facts-mobile-app"
 msgstr ""
 

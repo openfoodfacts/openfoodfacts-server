@@ -1,0 +1,184 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:cane-sugar",
+         "labels" : "en:organic",
+         "percent_estimate" : 62.5,
+         "percent_max" : 100,
+         "percent_min" : 25,
+         "text" : "Sucre de canne",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:apricot",
+         "labels" : "en:organic",
+         "origins" : "en:provence",
+         "percent_estimate" : 18.75,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "abricots",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "2028",
+         "id" : "en:concentrated-lemon-juice",
+         "labels" : "en:organic",
+         "percent_estimate" : 9.375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "jus de citrons concentré",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:gelling-agent",
+         "ingredients" : [
+            {
+               "id" : "en:fruit-pectin",
+               "percent_estimate" : 9.375,
+               "percent_max" : 25,
+               "percent_min" : 0,
+               "text" : "pectines de fruits",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "percent_estimate" : 9.375,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "gélifiant"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:cane-sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:sugar",
+      "en:apricot",
+      "en:fruit",
+      "en:prunus-species-fruit",
+      "en:concentrated-lemon-juice",
+      "en:juice",
+      "en:fruit-juice",
+      "en:lemon-juice",
+      "en:gelling-agent",
+      "en:fruit-pectin",
+      "en:e440a"
+   ],
+   "ingredients_n" : 5,
+   "ingredients_n_tags" : [
+      "5",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:cane-sugar",
+      "en:apricot",
+      "en:concentrated-lemon-juice",
+      "en:gelling-agent",
+      "en:fruit-pectin"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:cane-sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:sugar",
+      "en:apricot",
+      "en:fruit",
+      "en:prunus-species-fruit",
+      "en:concentrated-lemon-juice",
+      "en:juice",
+      "en:fruit-juice",
+      "en:lemon-juice",
+      "en:gelling-agent",
+      "en:fruit-pectin",
+      "en:e440a"
+   ],
+   "ingredients_text" : "Sucre de canne*, abricots*, jus de citrons concentré*, gélifiant : pectines de fruits. *biologique.\nPréparée avec 50 grammes de fruits pour 100gr de produit fini.\nPréparé avec 32,5 % de légumes -\nPréparés avec 25,2g de tomates.\nPREPARE AVEC 30% DE TRUC INCONNU.\nTeneur totale en sucres : 60 g pour 100 g de produit fini.\nTeneur en lait: minimum 40%.\nTeneur minimum en jus de fruits 35 grammes pour 100 grammes de produit fini.\nPrésence exceptionnelle possible de noyaux ou de morceaux de noyaux.\nOrigine des abricots: Provence.\nTeneur en citron de 5,5%",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 4,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:apricot",
+      "en:cane-sugar",
+      "en:fruit-pectin"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "known_ingredients_n" : 14,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 115.7,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 115.7,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 148.2,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 148.2
+   },
+   "specific_ingredients" : [
+      {
+         "id" : "en:fruit",
+         "ingredient" : "fruits",
+         "quantity" : "50 g",
+         "quantity_g" : 50,
+         "text" : "Préparée avec 50 g de fruits pour 100g de produit fini."
+      },
+      {
+         "id" : "en:vegetable",
+         "ingredient" : "légumes",
+         "percent" : 32.5,
+         "text" : "Préparé avec 32.5% de légumes - "
+      },
+      {
+         "id" : "en:tomato",
+         "ingredient" : "tomates",
+         "percent" : 25.2,
+         "text" : "Préparés avec 25.2% de tomates."
+      },
+      {
+         "id" : "fr:truc-inconnu",
+         "ingredient" : "TRUC INCONNU",
+         "percent" : 30,
+         "text" : "PREPARE AVEC 30% DE TRUC INCONNU."
+      },
+      {
+         "id" : "en:sugar",
+         "ingredient" : "sucres",
+         "quantity" : "60 g",
+         "quantity_g" : 60,
+         "text" : "Teneur totale en sucres : 60 g pour 100 g de produit fini."
+      },
+      {
+         "id" : "en:milk",
+         "ingredient" : "lait",
+         "percent" : 40,
+         "text" : "Teneur en lait: minimum 40%."
+      },
+      {
+         "id" : "en:fruit-juice",
+         "ingredient" : "jus de fruits",
+         "quantity" : "35 g",
+         "quantity_g" : 35,
+         "text" : "Teneur minimum en jus de fruits 35 g pour 100 g de produit fini."
+      },
+      {
+         "id" : "en:lemon",
+         "ingredient" : "citron",
+         "percent" : 5.5,
+         "text" : "Teneur en citron de 5.5%"
+      },
+      {
+         "id" : "en:apricot",
+         "ingredient" : "abricots",
+         "origins" : "en:provence",
+         "text" : "Origine des abricots: Provence."
+      }
+   ],
+   "unknown_ingredients_n" : 0
+}

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,17 +20,26 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use strict;
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Producers qw/:all/;
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::Food qw/:all/;
+use ProductOpener::Nutriscore qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::Packaging qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
+use ProductOpener::MainCountries qw/:all/;
+use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::LoadData qw/:all/;
 
 use Log::Any qw($log);
 use Log::Log4perl;
-Log::Log4perl->init("$data_root/minion_log.conf"); # Init log4perl from a config file.
+Log::Log4perl->init("$conf_root/minion_log.conf");    # Init log4perl from a config file.
 use Log::Any::Adapter;
-Log::Any::Adapter->set('Log4perl'); # Send all logs to Log::Log4perl
+Log::Any::Adapter->set('Log4perl');    # Send all logs to Log::Log4perl
 
 use Mojolicious::Lite;
 
@@ -38,8 +47,9 @@ use Minion;
 
 # Minion backend
 
-$log->info("starting minion producers workers", { minion_backend => $server_options{minion_backend} }) if $log->is_info();
+$log->info("starting minion producers workers", {minion_backend => $server_options{minion_backend}}) if $log->is_info();
 
+load_data();
 
 if (not defined $server_options{minion_backend}) {
 
@@ -52,15 +62,21 @@ app->minion->add_task(import_csv_file => \&ProductOpener::Producers::import_csv_
 
 app->minion->add_task(export_csv_file => \&ProductOpener::Producers::export_csv_file_task);
 
-app->minion->add_task(import_products_categories_from_public_database => \&import_products_categories_from_public_database_task);
+app->minion->add_task(
+	update_export_status_for_csv_file => \&ProductOpener::Producers::update_export_status_for_csv_file_task);
+
+app->minion->add_task(
+	import_products_categories_from_public_database => \&import_products_categories_from_public_database_task);
+
+app->minion->add_task(delete_user => \&ProductOpener::Users::delete_user_task);
 
 app->config(
-    hypnotoad => {
-        listen => [ $server_options{minion_daemon_server_and_port} ],
-        proxy  => 1,
-    },
+	hypnotoad => {
+		listen => [$server_options{minion_daemon_server_and_port}],
+		proxy => 1,
+	},
 );
 
 app->start;
 
-$log->info("minion producers workers stopped", { minion_backend => $server_options{minion_backend} }) if $log->is_info();
+$log->info("minion producers workers stopped", {minion_backend => $server_options{minion_backend}}) if $log->is_info();

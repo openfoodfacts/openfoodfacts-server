@@ -1,0 +1,9 @@
+title: panel_element
+x-stoplight:
+  id: ymx41elz4yrnj
+type: object
+description: Panels can include other panels as sub-panels using the panel_element.
+properties:
+  panel_id:
+    type: string
+    description: The id of the panel to include. The id is the key of the panel in the panels object returned in the knowledge_panels field.

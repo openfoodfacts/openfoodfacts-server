@@ -5,33 +5,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-07-08 14:07\n"
 "Language-Team: Russian\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ru\n"
-"X-Crowdin-File: /master/po/openfoodfacts/openfoodfacts.pot\n"
-
-#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openfoodfacts-logo-en-178x150.png"
-msgstr "openfoodfacts-logo-ru-178x150.png"
-
-#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openfoodfacts-logo-en-356x300.png"
-msgstr "openfoodfacts-logo-ru-356x300.png"
+"X-Crowdin-File-ID: 3127\n"
 
 msgctxt "tagline"
 msgid "Open Food Facts gathers information and data on food products from around the world."
-msgstr "Open Food Facts собирает информацию и данные о пищевых продуктах по всему миру."
+msgstr "Open Food Facts собирает информацию о продуктах питания по всему миру."
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-food-facts-mobile-app"
-msgstr "open-food-facts-mobile-app"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
 
 msgctxt "tagline_2019_nutriscore"
 msgid "Discover the Nutri-Score"
@@ -39,15 +28,15 @@ msgstr "Откройте для себя Nutri-Score"
 
 msgctxt "tagline_2019_nutriscore_petition"
 msgid "1 million signatures for a vote to make the Nutri-Score compulsory in Europe"
-msgstr "1 млн. подписей за проведение голосования, делающего Nutri-Score обязательным в Европе"
+msgstr "1 млн. подписей за проведение голосования, об обязательности Nutri-Score в Европе"
 
 msgctxt "tagline_2019_nova"
 msgid "Discover the Nova groups on food processing"
-msgstr "Откройте для себя группы Nova по переработке пищевых продуктов"
+msgstr "Откройте для себя группы по переработке пищевых продуктов Nova "
 
 msgctxt "tagline_2019_translation"
 msgid "Help bring Open Food Facts to English speakers around the world"
-msgstr "Помогите донести информацию об Open Food Facts до носителей английского языка по всему миру"
+msgstr "Помогите рассказать про Open Food Facts носителям английского языка во всем мире"
 
 msgctxt "tagline_2019_donation"
 msgid "Help food transparency worldwide by donating to Open Food Facts"
@@ -55,5 +44,5 @@ msgstr "Помогите обеспечить прозрачность прод�
 
 msgctxt "tagline_2019_rating"
 msgid "Do you like Open Food Facts ? You can rate it in the Play Store."
-msgstr "Вам нравятся Open Food Facts ? Вы можете оценить в Play Store."
+msgstr "Вам нравится Open Food Facts? Оцените в Play Store."
 

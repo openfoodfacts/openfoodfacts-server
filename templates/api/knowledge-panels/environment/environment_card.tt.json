@@ -1,0 +1,84 @@
+{
+    "type": "card",
+    "expanded": true,
+    "topics": [
+        "environment"
+    ],
+    "title_element": {
+        "title": "[% lang('environment_card_title') %]",
+    },    
+    "elements": [
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "ecoscore",
+            },
+        },
+        [% IF panels.ecoscore_extended.defined %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "ecoscore_extended",
+            },
+        },
+        [% END %]           
+        [% IF panels.carbon_footprint.defined %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang('carbon_footprint') %]",
+                "panel_ids": ["carbon_footprint"],
+            },
+        },
+        [% END %]    
+        [% IF panels.packaging_recycling.defined %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang('ecoscore_packaging') %]",
+                "panel_group_id": "packaging_recycling",
+                "panel_ids": [
+                    "packaging_recycling",
+                ],
+                [% IF panel.packaging_image.defined %]
+                "image": [% encode_json(panel.packaging_image) %],
+                [% END %]
+            },
+        },
+        [% END %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang('ecoscore_transportation') %]",
+                "panel_ids": [
+                    [% IF panels.manufacturing_place.defined %]"manufacturing_place",[% END %]
+                    "origins_of_ingredients",
+                ],
+            },
+        },         
+        [% IF panels.palm_oil.defined %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang('ecoscore_threatened_species') %]",
+                "panel_ids": [
+                    "palm_oil"
+                ],
+            },
+        },
+        [% END %]        
+        [% IF product.ecoscore_data.adjustments.production_system.value.defined AND product.ecoscore_data.adjustments.production_system.value != 0 %]
+        {
+            "element_type": "panel_group",
+            "panel_group_element": {
+                "title": "[% lang('labels_p') FILTER ucfirst %]",
+                "panel_ids": [
+                    [% FOREACH label IN product.ecoscore_data.adjustments.production_system.labels %]
+                        "environment_label_[% label %]",
+                    [% END %]
+                ],
+            },
+        },
+        [% END %]
+    ],
+}

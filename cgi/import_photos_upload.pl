@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -46,94 +45,47 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
-my $type = param('type') || 'upload';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'upload';
+my $action = single_param('action') || 'display';
 
 my $title = lang("import_photos_title");
 my $html = '';
+my $js = '';
+my $template_data_ref = {};
 
 local $log->context->{type} = $type;
 local $log->context->{action} = $action;
 
-if (not defined $owner) {
-	display_error(lang("no_owner_defined"), 200);
+if (not defined $Owner_id) {
+	display_error_and_exit(lang("no_owner_defined"), 200);
 }
-
 
 else {
 
-	# Display upload info and form
+	# Enable adding field values for photos uploaded
 
+	my @add_fields
+		= qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries);
+	my %add_fields_labels = ();
+	my @add_fields_options = {value => 'add_tag', label => lang("add_tag_field")};
 
-	# Upload a file
+	foreach my $field (@add_fields) {
+		$add_fields_labels{$field} = ucfirst(lang($field . "_p"));
+		push(
+			@add_fields_options,
+			{
+				value => $field,
+				label => $add_fields_labels{$field},
+			}
+		);
+	}
+	$add_fields_labels{add_tag} = lang("add_tag_field");
 
-	$html .= "<p>" . lang("import_photos_description") . "</p>\n";
-	$html .= "<p>" . lang("import_photos_format_1") . " " . lang("import_photos_format_2") . "</p>\n";
-	$html .= "<ul>"
-	. "<li>" . lang("import_photos_format_barcode") . "</li>"
-	. "<li>" . lang("import_photos_format_front") . "</li>"
-	. "<li>" . lang("import_photos_format_ingredients") . "</li>"
-	. "<li>" . lang("import_photos_format_nutrition") . "</li>"
-	. "</ul>";
-
-	$html .=<<HTML
-      <form
-        id="fileupload"
-        action="/cgi/product_image_upload.pl"
-        method="POST"
-        enctype="multipart/form-data"
-      >
-
-        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
-        <div class="row fileupload-buttonbar">
-          <div class="large-7 columns">
-            <!-- The fileinput-button span is used to style the file input field as button -->
-            <span class="button small btn-success fileinput-button">
-              <i class="icon-add"></i>
-              <span>$Lang{add_photos}{$lang}</span>
-              <input type="file" name="files[]" multiple accept="image/*" data-url="/cgi/product_image_import.pl" />
-            </span>
-            <button type="submit" class="button small btn-primary start">
-              <i class="icon-arrow_upward"></i>
-              <span>$Lang{start_upload}{$lang}</span>
-            </button>
-            <button type="reset" class="button small btn-warning cancel alert">
-              <i class="icon-cancel"></i>
-              <span>$Lang{cancel_upload}{$lang}</span>
-            </button>
-            <!-- The global file processing state -->
-            <span class="fileupload-process"></span>
-          </div>
-          <!-- The global progress state -->
-          <div class="large-5 columns fileupload-progress fade">
-            <!-- The global progress bar -->
-            <div
-              class="progress progress-striped active"
-              role="progressbar"
-              aria-valuemin="0"
-              aria-valuemax="100"
-            >
-              <div
-                class="progress-bar progress-bar-success meter"
-                style="width:0%;"
-              ></div>
-            </div>
-            <!-- The extended global progress state -->
-            <div class="progress-extended">&nbsp;</div>
-          </div>
-        </div>
-        <!-- The table listing the files available for upload/download -->
-        <table role="presentation" class="table table-striped">
-          <tbody class="files"></tbody>
-        </table>
-      </form>
-
-	<div id="empty_space_for_equalizer" style="height:200px;width:100px;">&nbsp;</div>
-
-HTML
-;
+	my $i = 0;
+	$template_data_ref->{i} = $i;
+	$template_data_ref->{add_fields_options} = \@add_fields_options;
 
 	$scripts .= <<JS
     <!-- The template to display files available for upload -->
@@ -152,20 +104,6 @@ HTML
               <td style="min-width:150px;">
                   <span class="size">Processing...</span><br>
                   <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success meter" style="width:0\%;"></div></div>
-              </td>
-              <td>
-                  {\% if (!i && !o.options.autoUpload) { \%}
-                      <button class="button tiny btn-primary start" disabled>
-                          <i class="icon-arrow_upward"></i>
-                          <span>$Lang{start}{$lang}</span>
-                      </button>
-                  {\% } \%}
-                  {\% if (!i) { \%}
-                      <button class="button tiny btn-warning cancel alert">
-                          <i class="icon-cancel"></i>
-                          <span>$Lang{cancel}{$lang}</span>
-                      </button>
-                  {\% } \%}
               </td>
           </tr>
       {\% } \%}
@@ -193,6 +131,15 @@ HTML
                   {\% if (file.info) { \%}
                       <div><span class="label info">$Lang{info}{$lang}</span> {\%=file.info\%}</div>
                   {\% } \%}
+                  {\% if (file.code_from_filename) { \%}
+                      <div>$Lang{code_from_filename}{$lang} :</span> {\%=file.code_from_filename\%}</div>
+                  {\% } \%}
+                  {\% if (file.scanned_code) { \%}
+                      <div>$Lang{scanned_code}{$lang} : {\%=file.scanned_code\%}</div>
+                  {\% } \%}
+                  {\% if (file.using_previous_code) { \%}
+                      <div>$Lang{using_previous_code}{$lang} :</span> {\%=file.using_previous_code\%}</div>
+                  {\% } \%}
                   {\% if (file.error) { \%}
                       <div><span class="label alert">$Lang{error}{$lang}</span> {\%=file.error\%}</div>
                   {\% } \%}
@@ -203,25 +150,16 @@ HTML
                       $Lang{file_received}{$lang} </div>
                   {\% } \%}
               </td>
-              <td>
-                  {\% if (file.deleteUrl) { \%}
-                  {\% } else { \%}
-                      <button class="button tiny btn-warning cancel">
-                          <i class="icon-cancel"></i>
-                          <span>$Lang{close}{$lang}</span>
-                      </button>
-                  {\% } \%}
-              </td>
           </tr>
       {\% } \%}
     </script>
 
     <!-- The Templates plugin is included to render the upload/download listings -->
-    <script src="https://blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
+    <script src="/js/dist/tmpl.js"></script>
     <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-    <script src="https://blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+    <script src="/js/dist/load-image.all.min.js"></script>
     <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-    <script src="https://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+    <script src="/js/dist/canvas-to-blob.js"></script>
 
     <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
     <script src="/js/dist/jquery.iframe-transport.js"></script>
@@ -236,7 +174,45 @@ HTML
     <!-- The File Upload user interface plugin -->
     <script src="/js/dist/jquery.fileupload-ui.js"></script>
 JS
-;
+		;
+
+	process_template('web/pages/import_photos_upload/import_photos_upload.tt.html', $template_data_ref, \$html)
+		or $html = "<p>" . $tt->error() . "</p>";
+	process_template('web/pages/import_photos_upload/import_photos_upload.tt.js', $template_data_ref, \$js)
+		or $html = "<p>" . $tt->error() . "</p>";
+
+	$initjs .= $js;
+
+	$header .= <<HTML
+<script>
+// Keep track of codes that we have seen so that we can submit field values only once
+var codes = {};
+
+// We keep the last code recognized in an image to assign it to the next images
+var previous_code = "";
+var previous_imgid = "";
+
+// We need to wait for one upload to be complete before submitting the next one
+// so that we can pass the correct previous_code in the next request
+var submitCount = 0;
+var shouldStartIndex = 0;
+var lastFileUploaded = -1;
+
+function waitForPreviousUpload(submitIndex, callback) {
+  if(shouldStartIndex === submitIndex && lastFileUploaded === shouldStartIndex-1) {
+    callback()
+    return;
+  }
+  setTimeout(function(){
+    waitForPreviousUpload(submitIndex, callback)
+  }, 500)
+}
+
+</script>
+
+
+HTML
+		;
 
 	$initjs .= <<JS
 
@@ -251,54 +227,118 @@ JS
  * https://opensource.org/licenses/MIT
  */
 
-  'use strict';
+'use strict';
 
-  // Initialize the jQuery File Upload widget:
-  \$('#fileupload').fileupload({
-    sequentialUploads: true,
-    // Uncomment the following to send cross-domain cookies:
-    xhrFields: {withCredentials: true}
-  });
+// Enable iframe cross-domain access via redirect option:
+\$('#fileupload').fileupload({
+	sequentialUploads: true,
+	replaceFileInput : false,
+	// Uncomment the following to send cross-domain cookies:
+	xhrFields: {withCredentials: true},
+	autoUpload: true
+});
 
-  // Enable iframe cross-domain access via redirect option:
-  \$('#fileupload').fileupload(
-    'option',
-    'redirect',
-    window.location.href.replace(/\\/[^/]*\$/, '/cors/result.html?\%s')
-  );
 
-  if (false) {
+\$('#fileupload').bind('fileuploadsubmit', function (e, data) {
 
-  } else {
-    // Load existing files:
-    \$('#fileupload').addClass('fileupload-processing');
-    \$.ajax({
-      // Uncomment the following to send cross-domain cookies:
-      //xhrFields: {withCredentials: true},
-      url: \$('#fileupload').fileupload('option', 'url'),
-      dataType: 'json',
-      maxFileSize: 10000000,
-      acceptFileTypes: /(\.|\\/)(gif|jpe?g|png)\$/i,
-      context: \$('#fileupload')[0]
-    })
-      .always(function() {
-        \$(this).removeClass('fileupload-processing');
-      })
-      .done(function(result) {
-        \$(this)
-          .fileupload('option', 'done')
-          // eslint-disable-next-line new-cap
-          .call(this, \$.Event('done'), { result: result });
-      });
-  }
+	var myIndex = submitCount++;
+	var \$this = \$(this);
+
+	console.log("submit - myIndex: " + myIndex + " - previous_code: " + previous_code);
+
+	waitForPreviousUpload(myIndex, function() {
+		shouldStartIndex++;
+		console.log('starting upload #' + myIndex + " - previous_code: " + previous_code);
+		// start upload
+
+		data.formData = [
+				{ name : "previous_code", value : previous_code},
+				{ name : "previous_imgid", value : previous_imgid}
+			];
+		data.jqXHR = \$this.fileupload('send', data);
+	})
+	return false;
+});
+
+var images_processed = 0;
 
 \$('#fileupload')
-    .bind('fileuploadadd', function (e, data) {
-	\$(document).foundation('equalizer', 'reflow');
+    .bind('fileuploadadd', function (e, data) { console.log("fileuploadadd"); })
+    .bind('fileuploadstart', function (e, data) { console.log("fileuploadstart");})
+    .bind('fileuploadprocessstart', function (e, data) { console.log("fileuploadstart"); \$(document).foundation('equalizer', 'reflow'); })
+    .bind('fileuploadprocessstop', function (e, data) { console.log("fileuploadprocessstop"); \$(document).foundation('equalizer', 'reflow'); })
+    .bind('fileuploadprocessalways', function (e, data) { console.log("fileuploadprocessalways"); images_processed++; if (images_processed % 20 === 0) { \$(document).foundation('equalizer', 'reflow'); }})
+	.bind('fileuploadalways', function (e, data) {
+		lastFileUploaded++;
+		console.log("always - lastFileUploaded: " + lastFileUploaded);
+		\$(document).foundation('equalizer', 'reflow');
+});
+
+\$('#tag_0').val("");
+\$('#tagtype_0').val("add_tag");
+
+\$('#fileupload')
+    .bind('fileuploaddone', function (e, data) {
+	if (data.result && data.result.files && data.result.files[0].scanned_code) {
+		previous_code = data.result.files[0].scanned_code;
+		// Store the imgid with the scanned barcode, so that if we have another image, we can select it as the front image
+		if (data.result.image) {
+			previous_imgid = data.result.image.imgid;
+		}
+		else {
+			previous_imgid = "";
+		}
+	}
+	else {
+		previous_imgid = "";
+	}
+
+	console.log("fileuploaddone - previous_code: " + previous_code);
+
+	if (data.result && data.result.files && data.result.files[0].code) {
+		var code = data.result.files[0].code;
+		console.log("code: " + code);
+		if(typeof codes[code] === 'undefined') {
+			codes[code] = true;
+
+			var data = [
+				{name : "code", value : code},
+				{name : "comment", value : "fields added through photos upload on producer platform"}
+			];
+
+			var i = 0;
+			var n = 0;
+			while (\$('#tag_' + i).length > 0) {
+				if ((\$('#tag_' + i).val() != '') && ((\$('#tagtype_' + i).val() != 'add_tag'))) {
+					data.push({
+						name : "add_" + \$('#tagtype_' + i).val(),
+						value: \$('#tag_' + i).val()
+					});
+					n++;
+				}
+				i++;
+			}
+
+			console.log(data);
+
+			if (n > 0) {
+				\$.ajax({
+					type: "GET",
+					contentType: "application/json; charset=utf-8",
+					url: "/cgi/product_jqm_multilingual.pl",
+					data: data,
+					success: function (result) {
+						console.log("data sent");
+					}
+				});
+			}
+		}
+	}
+
 });
 
 JS
-;
+		;
 
 	$styles .= <<CSS
 
@@ -393,12 +433,11 @@ JS
 }
 
 CSS
-;
+		;
 
-	display_new( {
-		title=>$title,
-		content_ref=>\$html,
-	});
+	$request_ref->{title} = $title;
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
 }
 
 exit(0);

@@ -1,0 +1,142 @@
+{
+   "countries" : {
+      "en:world" : {
+         "categories" : {
+            "all" : {
+               "materials" : {
+                  "all" : {
+                     "contain" : {
+                        "values" : [
+                           1
+                        ]
+                     },
+                     "contain_n" : 1,
+                     "main" : {
+                        "values" : [
+                           0
+                        ]
+                     },
+                     "main_n" : 1,
+                     "weight_100g" : {
+                        "values" : [
+                           1000
+                        ]
+                     },
+                     "weight_100g_contain" : {
+                        "values" : [
+                           1000
+                        ]
+                     },
+                     "weight_100g_main" : {
+                        "values" : [
+                           0
+                        ]
+                     }
+                  },
+                  "en:glass" : {
+                     "contain" : {
+                        "values" : [
+                           1
+                        ]
+                     },
+                     "contain_n" : 1,
+                     "main" : {
+                        "values" : [
+                           1
+                        ]
+                     },
+                     "main_n" : 1,
+                     "weight_100g" : {
+                        "values" : [
+                           1000
+                        ]
+                     },
+                     "weight_100g_contain" : {
+                        "values" : [
+                           1000
+                        ]
+                     },
+                     "weight_100g_main" : {
+                        "values" : [
+                           1000
+                        ]
+                     }
+                  },
+                  "en:metal" : {
+                     "contain" : {
+                        "values" : [
+                           0
+                        ]
+                     },
+                     "main" : {
+                        "values" : [
+                           0
+                        ]
+                     },
+                     "main_n" : 1,
+                     "weight_100g" : {
+                        "values" : [
+                           0
+                        ]
+                     }
+                  },
+                  "en:paper-or-cardboard" : {
+                     "contain" : {
+                        "values" : [
+                           0
+                        ]
+                     },
+                     "main" : {
+                        "values" : [
+                           0
+                        ]
+                     },
+                     "main_n" : 1,
+                     "weight_100g" : {
+                        "values" : [
+                           0
+                        ]
+                     }
+                  },
+                  "en:plastic" : {
+                     "contain" : {
+                        "values" : [
+                           0
+                        ]
+                     },
+                     "main" : {
+                        "values" : [
+                           0
+                        ]
+                     },
+                     "main_n" : 1,
+                     "weight_100g" : {
+                        "values" : [
+                           0
+                        ]
+                     }
+                  },
+                  "en:unknown" : {
+                     "contain" : {
+                        "values" : [
+                           0
+                        ]
+                     },
+                     "main" : {
+                        "values" : [
+                           0
+                        ]
+                     },
+                     "main_n" : 1,
+                     "weight_100g" : {
+                        "values" : [
+                           0
+                        ]
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+}

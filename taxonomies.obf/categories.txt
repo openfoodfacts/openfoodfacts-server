@@ -6,10 +6,13 @@ synonyms:en:flavoured,flavored
 
 en:Hygiene
 fr:Hygiène
+nl:Hygiëne
 
 <en:Hygiene
 en:Mouthwash
 fr:Bains de bouche, bain de bouche
+nl:Mondwater
+wikidata:en:Q518968
 
 #### Dentifrices
 
@@ -17,6 +20,7 @@ fr:Bains de bouche, bain de bouche
 en:Toothpastes, tooth pastes, tooth paste
 fr:Dentifrices
 de:Zahnpasten, Zahnpastas, Zahncremes
+nl:Tandanpastas, Tandanpasta
 wikidata:en:Q35855
 
 <en:Toothpastes
@@ -40,28 +44,35 @@ fr:Dentifrices dents sensibles
 en:Soaps
 fr:Savons
 de:Seifen
+nl:Zepen
 wikidata:en:Q34396
 
 <en:Soaps
 en:Marseille soaps, Marseille soap
 fr:Savons de Marseille, Savon de Marseille
+wikidata:en:Q908677
 
 <en:Soaps
 en:Dermatological soaps, Dermatological soap
 fr:Savons dermatologiques, savon dermatologiques, savons dermatologique
 
 <en:Soaps
+en:Liquid soaps
 fr:Savons liquides, Savon liquide
+nl:Vloeibare zepen, vloeibare zeep
+wikidata:en:Q97925317
 
 <en:Hygiene
 en:Hydro-alcoholic gels, alcohol-based gels
 fr:Gels hydro-alcooliques, Solutions hydro-alcooliques
+wikidata:en:Q520181
 
 #### Douches et bains
 
 <en:Hygiene
 en:Showers and baths
 fr:Douches et bains
+nl:Douches en baden
 
 <en:Showers and baths
 en:Bubble baths, foaming baths
@@ -76,6 +87,7 @@ wikidata:en:Q798972
 en:Shower gels
 fr:Gels douche, Gel douche
 de:Duschgele, Duschgels
+nl:Douchegel, douchegels
 wikidata:en:Q1267611
 
 <en:Showers and baths
@@ -89,8 +101,14 @@ fr:Huiles douche
 <en:Hygiene
 en:Intimate hygiene
 fr:Hygiène intime
+nl:Intieme hygiëne
 
+<en:Intimate hygiene
+en:Tampons
+es:tampón higiénico
 fr:Tampons hygiéniques,Tampons
+nl:Tampons
+wikidata:en:Q976338
 
 <fr:Tampons hygiéniques
 fr:Tampons réguliers
@@ -104,6 +122,7 @@ fr:Gels pour la toilette intime
 en:Deodorants
 fr:Déodorants, Déos, Déo
 de:Deodorante, Deodorants, Deo
+nl:Deodorant, deodorants, deo
 wikidata:en:Q309035
 
 <en:Deodorants
@@ -128,19 +147,22 @@ fr:Déodorant à la pierre d'Alun
 <en:Hygiene
 en:Hair removal, Depilation
 fr:Épilation
+wikidata:en:Q625145
 
 <en:Hair removal
 fr:Gels décolorants, gel décolorant
 
 <en:Hair removal
-en:Lotion post-épilation
+fr:Lotion post-épilation
 
 <en:Hair removal
 en:Depilatory wax
 fr:Cire épilatoire
+wikidata:en:Q47471797
 
 <en:Depilatory wax
 en:Cold depilatory wax
+wikidata:en:Q47471806
 
 <en:Depilatory wax
 en:Face depilatory wax
@@ -170,6 +192,7 @@ fr:Gel de rasage
 <en:Shaving
 en:Shaving foam
 fr:Mousse à raser, crème à raser
+wikidata:en:Q413152
 
 <en:Shaving
 <en:Soaps
@@ -182,10 +205,12 @@ wikidata:en:Q1189777
 
 en:Body
 fr:Corps
+nl:Lichaam
 
 <en:Body
 en:Body milks
 fr:Laits pour le corps, laits corporels, Lait pour le corps, Lait corporel
+nl:Bodymelk, bodymelken
 wikidata:en:Q18011764
 
 <en:Body
@@ -194,6 +219,7 @@ fr:Crèmes pour le corps, crèmes corporelles, Crème pour le corps, Crème corp
 
 <en:Body creams
 fr:Crèmes pour les pieds, Crème pour les pieds
+nl:Voetencrèmes
 
 <en:Body creams
 fr:Baumes et beurres pour le corps, baumes et beurres corporels
@@ -239,11 +265,13 @@ fr:Buste, Soins du buste, Soin du buste
 en:Hand creams
 fr:Crèmes pour les mains, Crème pour les mains, crèmes mains, crème mains
 de:Handcremes
+nl:Handcrèmes
 
 ###### CATEGORIE VISAGE
 
 en:Face
 fr:Visage
+nl:Gezicht
 
 #### Crèmes pour le visage
 
@@ -251,14 +279,17 @@ fr:Visage
 en:Facial creams, face creams
 fr:Crèmes pour le visage, Crème pour le visage, crèmes visage, crème visage
 de:Gesichtscremes
+nl:Gezichtscrèmes
 
 <en:Facial creams
 en:Day creams
 fr:Crèmes de jour, Crème de jour
+nl:Dagcrèmes
 
 <en:Facial creams
 en:Night creams
 fr:Crèmes de nuit, Crème de nuit, Soin de nuit
+nl:Nachtcrèmes
 
 <en:Facial creams
 en:Day and night creams
@@ -284,6 +315,7 @@ fr:Gommages visage, Gommage visage
 <en:Face
 en:Face masks
 fr:Masques visage, Masque visage
+nl:Gezichtmasker, gezichtmaskers
 
 <en:Face
 en:Lip balms, lip cares
@@ -292,6 +324,7 @@ fr:Baumes à lèvres, Baume à lèvres, Soins des lèvres, Soin des lèvres, Soi
 <en:Face
 en:Cleansers, makeup removers
 fr:Démaquillants
+wikidata:en:Q2549529
 
 <en:Cleansers
 en:Cleansing waters, Cleanser waters
@@ -300,6 +333,7 @@ fr:Eaux démaquillantes
 <en:Cleansing waters
 en:Micellar water, Micellar waters
 fr:Eaux micellaires, eau micellaire, lotions micellaires, lotion micellaire
+nl:Reinigingswater
 
 <en:Cleansers
 en:Cleansing milks, Cleansing milk
@@ -308,12 +342,14 @@ fr:Laits démaquillants, laits démaquillant
 <en:Cleansers
 en:Nail polish remover, Nail varnish remover
 fr:Dissolvants
+wikidata:en:Q1963534
 
 <en:Cleansers
 en:Eye makeup remover
 fr:Démaquillants yeux, Démaquillant yeux
 
 <en:Cleansers
+en:Nose strips
 fr:Patchs pour le nez
 
 <en:Face
@@ -324,6 +360,7 @@ fr:Lotions visage, Lotion visage
 
 en:Hair, Hair products
 fr:Cheveux, produits pour cheveux,produits pour les cheveux, produits capillaires, produits coiffants, produits capilaires
+nl:Haar, haarproducten
 
 <en:Hair
 en:Hair conditioners
@@ -331,24 +368,30 @@ fr:Après-shampoings, Après-shampoing, Après-shampooings, Après shampooing
 wikidata:en:Q1056607
 
 <en:Hair conditioners
+en:Anti-dandruff hair conditioners
 fr:Après-shampoings antipelliculaires, Après-shampoing antipelliculaire
 
 <en:Hair conditioners
+en:Hair conditioners for colored hair
 fr:Après-shampoings pour cheveux colorés
 
 <en:Hair conditioners
+en:Hair conditioners for greasy hair
 fr:Après-shampoings pour cheveux gras
 
 <en:Hair conditioners
+en:Hair conditioners for regular hair
 fr:Après-shampoings pour cheveux normaux
 
 <en:Hair conditioners
+en:Hair conditioners for dry hair
 fr:Après-shampoings pour cheveux secs
 
 <en:Hair conditioners
 fr:Après-shampoings pour cheveux abimés
 
 <en:Hair conditioners
+en:Hair conditioners for children
 fr:Après-shampoings pour enfant
 
 #### Shampoings 
@@ -358,6 +401,7 @@ en:Shampoos
 fr:Shampoings, Shampooings
 de:Haarwaschmittel
 ar:شامبو
+nl:Shampoos
 wikidata:en:Q180204
 
 <en:Shampoos
@@ -376,6 +420,7 @@ fr:Shampoings + Gels douche, Shampoings douche
 <en:Shampoos
 en:Dry shampoos
 fr:Shampoings secs
+wikidata:en:Q11322916
 
 <en:Shampoos
 en:Shampoos for colored hair
@@ -484,15 +529,18 @@ wikidata:en:Q324120
 <en:Eyes makeup
 en:Eyeliners
 fr:Eye-liners, Eye-liner, Ligneur, Ligneurs
+wikidata:en:Q8243409
 
 <en:Eyes makeup
 en:Eyeshadows, Eyes shadows
 fr:Fards à paupières
+nl:Oogschaduw
 wikidata:en:Q964307
 
 <en:Eyes makeup
 en:Eye pencils
 fr:Crayons yeux, Crayon yeux
+nl:Oogpotloden, oogpotlood
 
 <en:Eye pencils
 en:Kohl pencils
@@ -506,6 +554,7 @@ fr:Maquillage pour le teint
 
 <en:Face Makeup
 fr:Fonds de teint
+wikidata:en:Q1418455
 
 <fr:Fonds de teint
 fr:Fond de teint poudre
@@ -542,6 +591,7 @@ wikidata:en:Q5009763
 <en:Face Makeup
 en:DD Creams, DD Cream, Daily Defense Creams, Daily Defense Cream
 fr:DD Crèmes, DD Crème, DD Creams, DD Cream
+wikidata:en:Q85755097
 
 #### Maquillage pour les ongles
 
@@ -552,12 +602,14 @@ fr:Maquillage pour les ongles
 <en:Nail makeup
 en:Nail polish
 fr:Vernis à ongles
+nl:Nagellak
 ru:Лак для ногтей
 wikidata:en:Q223807
 
 <en:Nail polish
 en:Top Coat
 fr:Top Coat
+nl:Top Coat
 
 <en:Nail makeup
 fr:Durcisseur pour les ongles, Durcisseur pour ongles
@@ -575,6 +627,7 @@ fr:Maquillage pour les lèvres
 <en:Lip Makeup
 en:Lip pencils
 fr:Crayons à lèvres
+wikidata:en:Q875981
 
 <en:Lip pencils
 fr:Crayons à lèvres et joues
@@ -587,6 +640,7 @@ wikidata:en:Q184191
 <en:Lip Makeup
 en:Lip gloss, Gloss
 fr:Gloss
+wikidata:en:Q747675
 
 <en:Lip Makeup
 en:Lip stickers
@@ -614,6 +668,7 @@ en:After Sun Care
 <en:Suncare
 en:Self-tanner, Self-tanning lotion
 fr:Autobronzants
+wikidata:en:Q995634
 
 <en:Suncare
 en:Tan Preparers, Tan Preparer, Tanning lotions, Tanning lotion
@@ -677,10 +732,19 @@ wikidata:en:Q2916237
 <en:Accessories
 fr:Préservatifs
 
+<fr:Préservatifs
+fr:Préservatifs masculins
+wikidata:en:Q14076
+
+<fr:Préservatifs
+fr:Préservatifs féminins
+wikidata:en:Q864088
+
 <en:Accessories
 fr:Gels lubrifiants, lubrifiants
 
 <en:Accessories
+en:Massage candle
 fr:Bougie pour massage
 
 <en:Moist wipes

@@ -17,8 +17,8 @@ server {
 	# listen 80 default_server;
 	# listen [::]:80 default_server;
 
-        listen 80;
-        listen [::]:80;
+		listen 80;
+		listen [::]:80;
 
 
 	server_name openbeautyfacts.org *.openbeautyfacts.org ;
@@ -37,62 +37,36 @@ server {
 	listen [::]:443 http2 ssl;
 
 	include snippets/ssl.openbeautyfacts.org;
-        include snippets/ssl-params.conf;
+		include snippets/ssl-params.conf;
 
 	root /srv/obf/html;
 
 	access_log /srv/obf/logs/nginx.access2.log;
 	error_log /srv/obf/logs/nginx.error2.log;
 
-        # Redirect GET requests to https. POST requests will be transformed
-        # to GET by most browsers when redirected, and it breaks apps that
-        # use the API through http.
+		# Redirect GET requests to https. POST requests will be transformed
+		# to GET by most browsers when redirected, and it breaks apps that
+		# use the API through http.
 
-        if ($scheme = http) {
-                set $test "A";
-        }
-        if ($request_uri !~ "/api/") {
-                set $test "${test}B";
-        }
-        if ($request_method = GET) {
-                set $test "${test}C";
-        }
-        if ($test = ABC) {
-                return 301 https://$host$request_uri;
-        }
+		if ($scheme = http) {
+			set $test "A";
+		}
+		if ($request_uri !~ "/api/") {
+			set $test "${test}B";
+		}
+		if ($request_method = GET) {
+			set $test "${test}C";
+		}
+		if ($test = ABC) {
+			return 301 https://$host$request_uri;
+		}
 
 	gzip on;
 	gzip_min_length 1000;
 
 	location /data/ {
-     if ($request_method = 'OPTIONS') {
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        #
-        # Custom headers and headers various browsers *should* be OK with but aren't
-        #
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
-        #
-        # Tell client that this pre-flight info is valid for 20 days
-        #
-        add_header 'Access-Control-Max-Age' 1728000;
-        add_header 'Content-Type' 'text/plain; charset=utf-8';
-        add_header 'Content-Length' 0;
-        return 204;
-     }
-     if ($request_method = 'POST') {
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
-        add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';
-     }
-     if ($request_method = 'GET') {
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
-        add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';
-     }
-	include snippets/ssl-headers.conf;
+		include snippets/off.cors-headers.include;
+		include snippets/ssl-headers.conf;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
@@ -102,11 +76,15 @@ server {
 	index index.html index.htm index.nginx-debian.html;
 
 	location ~* \.(eot|ttf|woff|woff2)$ {
-    		add_header Access-Control-Allow-Origin *;
+		include snippets/off.cors-headers.include;
 	}
 
 	location ~ ^/images/products/ {
+		include snippets/off.cors-headers.include;
 		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
+		# optimize gzip compressed content (like OCR .json stored next to .jpg files)
+		gzip_static always;
+		gunzip on;
 	}
 
 
@@ -116,13 +94,10 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
-	location ~ ^/(.well-known|images|css|js|rss|files|resources|foundation|bower_components)/ {
+	location ~ ^/(.well-known|images|fonts|css|js|rss|files|resources|foundation|bower_components)/ {
+		include snippets/off.cors-headers.include;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
-	}
-
-	location = /robots.txt {
 		try_files $uri $uri/ =404;
 	}
 

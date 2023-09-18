@@ -14,34 +14,6 @@
 # Default server configuration
 #
 
-proxy_cache_path  /run/nginx-cache-off  levels=1:2    keys_zone=cache_off:1m inactive=1m max_size=128m;
-
-
-# rate limiting
-# whitelist
-geo $white_list {
-	default		$binary_remote_addr;
-	# localhost
-	127.0.0.1	"";
-	::1		"";
-	10.0.0.2	"";	# off2.free.org
-	198.211.120.120	"";	# Yuka
-	198.211.125.47	"";	# Yuka
-}
-
-# which method do we limit (comment to remove limit)
-map $request_method $limit_by_method {
-	default         "";
-	GET		$white_list;
-        POST            $white_list;
-        PUT             $white_list;
-        PATCH           $white_list;
-        DELETE          $white_list;
-}
-
-limit_req_zone $limit_by_method zone=off_hit_per_ip:10m rate=1200r/m;
-
-
 server {
 	listen 80;
 	listen [::]:80;
@@ -65,7 +37,19 @@ server {
                 allow all;
         }
 
-#	return 301 https://world.openfoodfacts.org;
+        # return 301 https://world.openfoodfacts.org;
+}
+
+
+server {
+		listen 443 ssl http2 default_server;
+		listen [::]:443 ssl http2 default_server;
+	server_name _;
+
+		include snippets/ssl.openfoodfacts.org;
+		include snippets/ssl-params.conf;
+
+	return 404;
 }
 
 
@@ -74,24 +58,17 @@ server {
 	client_body_timeout 120s;
 	client_header_timeout 120s;
 
-	#listen 80 default_server;
 	listen 80;
-	#listen [::]:80 default_server;
 	listen [::]:80;
 
 	# Product Opener needs a root domain + a wildcard for all subdomains
-	server_name openfoodfacts.org *.openfoodfacts.org openfoodfacts.eu *.openfoodfacts.eu;
+	server_name openfoodfacts.org *.openfoodfacts.org;
 
 	# SSL configuration
 	#
 
-	#listen 443 ssl http2 default_server;
-	listen 443 ssl http2 default_server;
-	#listen [::]:443 ssl http2 default_server;
-	listen [::]:443 ssl http2 default_server;
-
-	ssl_session_cache   shared:SSL:10m;
-	ssl_session_timeout 10m;
+	listen 443 ssl http2;
+	listen [::]:443 ssl http2;
 
 	include snippets/ssl.openfoodfacts.org;
 	include snippets/ssl-params.conf;
@@ -101,18 +78,8 @@ server {
 	access_log /srv/off/logs/nginx.access2.log combined buffer=256K flush=1s;
 	error_log /srv/off/logs/nginx.error2.log;
 
-	if ($host = translation.openfoodfacts.org) { return 302 https://translate.openfoodfacts.org/ ; }
-	if ($host = translations.openfoodfacts.org) { return 302 https://translate.openfoodfacts.org/ ; }
-	if ($host = android.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
-        if ($host = androidtest.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
-        if ($host = ios.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
-        if ($host = iostest.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
-        if ($host = slack.openfoodfacts.org) { return 302 https://slack-openfoodfacts.herokuapp.com ; }
-        if ($host = donnez.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
-        if ($host = don.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
-        if ($host = dons.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
-        if ($host = donner.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
-        if ($host = donate.openfoodfacts.org) { return 302 https://world.openfoodfacts.org/donate-to-open-food-facts ; }
+        # some redirection for specific subdomains
+        include snippets/off.domain-redirects.include;
 
 	# Redirect GET requests to https. POST requests will be transformed
 	# to GET by most browsers when redirected, and it breaks apps that
@@ -136,317 +103,35 @@ server {
 	gzip_min_length 1000;
 
 	location /data/ {
-     if ($request_method = 'OPTIONS') {
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        #
-        # Custom headers and headers various browsers *should* be OK with but aren't
-        #
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
-        #
-        # Tell client that this pre-flight info is valid for 20 days
-        #
-        add_header 'Access-Control-Max-Age' 1728000;
-        add_header 'Content-Type' 'text/plain; charset=utf-8';
-        add_header 'Content-Length' 0;
-        return 204;
-     }
-     if ($request_method = 'POST') {
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
-        add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';
-     }
-     if ($request_method = 'GET') {
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
-        add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';
-     }
-	include snippets/ssl-headers.conf;
+                include snippets/off.cors-headers.include;
+		include snippets/ssl-headers.conf;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
-}
+	}
 
 	# Add index.php to the list if you are using PHP
 	index index.html index.htm index.nginx-debian.html;
 
 	include /etc/nginx/expires-no-json-xml.conf; # 2018-06-18 Moved to the end because of CORS issue with top_translators.csv
 
-	location ~ \.(eot|ttf|woff|woff2)$ {
-		add_header Access-Control-Allow-Origin *;
-		expires 1d;
-		access_log off;
-	}
-
 	location ~ ^/images/products/ {
+		include snippets/off.cors-headers.include;
 		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
+		# optimize gzip compressed content (like OCR .json stored next to .jpg files)
+		gzip_static always;
+		gunzip on;
 	}
 
-        location ~ ^/1.json$ {
+	if ($http_referer ~* (jobothoniel.com) ) { return 403; } # blocked since 2021-07-13
+
+	# the app requests /1.json to get the product count...
+	# the commented code below is to serve a static copy 
+	# if there is a spike of installs
+		location ~ ^/1.json$ {
                 root /srv/off/html/static;
-                try_files /1.json = 404;
-        }
-
-
-	location ~ ^/(favicon.ico) {
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
-	}
-
-	# Static files are served directly by NGINX
-
-	location ~ ^/(.well-known|images|css|js|rss|data|files|resources|foundation|bower_components)/ {
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
-	}
-
-	location = /robots.txt {
-		try_files $uri $uri/ =404;
-	}
-
-	location = /donate-to-open-food-facts {
-                try_files /donate/en.html =404;
-        }
-
-	location = /faire-un-don-a-open-food-facts {
-                try_files /donate/fr.helloasso.html =404;
-        }
-
-        location = /dona-a-open-food-facts {
-                try_files /donate/it.html =404;
-        }
-
-        location = /spenden {
-                try_files /donate/de.html =404;
-        }
-
-        location = /doner-til-open-food-facts {
-                try_files /donate/da.html =404;
-        }
-
-        location = /doniraj-k-open-food-facts {
-                try_files /donate/sl.html =404;
-        }
-        
-        location = /open-food-factse-bagista-bulununs {
-                try_files /donate/tr.html =404;
-        }
-        
-        location = /pozhertvovat-open-food-facts {
-                try_files /donate/ru.html =404;
-        }
-        
-        location = /donate-to-open-food-facts-ru {
-                try_files /donate/ru.html =404;
-        }
-        
-        location = /donate-to-open-food-facts-he {
-                try_files /donate/he.html =404;
-        }
-        
-        location = /fazer-um-donativo-ao-open-food-facts {
-                try_files /donate/pt.html =404;
-        }
-        
-        location = /lahjoita-open-food-factsille {
-                try_files /donate/fi.html =404;
-        }
-        location = /dar-a-open-food-facts {
-                try_files /donate/es.html =404;
-        }
-        location = /haz-su-donacion-a-open-food-facts {
-                try_files /donate/es.html =404;
-        }
-        
-
-
-	# Dynamically generated files and CGI scripts are passed
-	# to the Apache + mod_perl server running on a different
-	# port than port 80 (e.g. 8001)
-
-	# mise en cache de /1.json
-        location = /1.json {
-		proxy_cache            cache_off;
-		proxy_cache_valid      200  30s;
-		proxy_cache_use_stale  error timeout invalid_header updating http_500 http_502 http_503 http_504;
-
-                proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-
-		# on indique le status du cache dans la réponse au client
-		add_header		X-Cache-Status $upstream_cache_status;
-
-                proxy_pass http://127.0.0.1:8001/cgi/display.pl?1.json;
-	}
-
-	location / {
-
-                #limit_req zone=off_hit_per_ip burst=500;
-                #limit_req_status 509;
-
-		proxy_set_header Host $host;
-		proxy_set_header X-Real-IP $remote_addr;
-		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-
-		proxy_pass http://127.0.0.1:8001/cgi/display.pl?;
-	}
-
-	location /cgi/ {
-
-	        #limit_req zone=off_hit_per_ip burst=500;
-	        #limit_req_status 509;
-
-		proxy_set_header Host $host;
-		proxy_set_header X-Real-IP $remote_addr;
-		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-		proxy_pass http://127.0.0.1:8001;
-	}
-
-	# deny access to .htaccess files, if Apache's document root
-	# concurs with nginx's one
-	#
-	#location ~ /\.ht {
-	#       deny all;
-	#}
-
-}
-
-
-server {
-
-	client_body_timeout 120s;
-	client_header_timeout 120s;
-
-	#listen 80 default_server;
-	listen 80;
-	#listen [::]:80 default_server;
-	listen [::]:80;
-
-	# Product Opener needs a root domain + a wildcard for all subdomains
-	server_name xfr.openfoodfacts.org;
-
-	# SSL configuration
-	#
-	# listen 443 ssl default_server;
-	# listen [::]:443 ssl default_server;
-	#
-	# Self signed certs generated by the ssl-cert package
-	# Don't use them in a production server!
-	#
-	# include snippets/snakeoil.conf;
-
-	# 13/09/2016: got error "nginx: [emerg] invalid parameter "http2" "
-	#listen 443 ssl http2 default_server;
-	listen 443 ssl ;
-	#listen [::]:443 ssl http2 default_server;
-	listen [::]:443 ssl ;
-
-	include snippets/ssl.openfoodfacts.org;
-	include snippets/ssl-params.conf;
-
-	root /srv/off/html;
-
-	access_log /srv/off/logs/nginx.access2.log;
-	error_log /srv/off/logs/nginx.error2.log;
-
-	if ($host = android.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
-        if ($host = androidtest.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
-        if ($host = ios.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
-        if ($host = iostest.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
-        if ($host = slack.openfoodfacts.org) { return 302 https://slack-openfoodfacts.herokuapp.com ; }
-        if ($host = donner.openfoodfacts.org) { return 302 https://www.helloasso.com/associations/open-food-facts/collectes/aidez-open-food-facts-a-ameliorer-l-alimentation-de-tous ; }
-        if ($host = donate.openfoodfacts.org) { return 302 https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en ; }
-
-	# Redirect GET requests to https. POST requests will be transformed
-	# to GET by most browsers when redirected, and it breaks apps that
-	# use the API through http.
-
-	if ($scheme = http) {
-		set $test "A";
-	}
-	if ($request_uri !~ "/api/") {
-		set $test "${test}B";
-	}
-	if ($request_method = GET) {
-		set $test "${test}C";
-	}
-	if ($test = ABC) {
-		return 301 https://$host$request_uri;
-	}
-
-
-               location ~ ^/(decouvrir|contribuer|score-nutritionnel-france|classification-nova-pour-la-transformation-des-aliments|nutriscore|nova)$ {
-                        root /srv/off/html/static;
-                        try_files $uri.html =404;
-
-                }
-
-                location ~ ^/$ {
-                        try_files /fr.index.html =404;
-                }
-
-                location ~ ^/cgi/xsearch.pl {
-                        try_files /search.html =404;
-                }
-
-
-
-
-
-	gzip on;
-	gzip_min_length 1000;
-
-	location /data/ {
-     if ($request_method = 'OPTIONS') {
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        #
-        # Custom headers and headers various browsers *should* be OK with but aren't
-        #
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
-        #
-        # Tell client that this pre-flight info is valid for 20 days
-        #
-        add_header 'Access-Control-Max-Age' 1728000;
-        add_header 'Content-Type' 'text/plain; charset=utf-8';
-        add_header 'Content-Length' 0;
-        return 204;
-     }
-     if ($request_method = 'POST') {
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
-        add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';
-     }
-     if ($request_method = 'GET') {
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
-        add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';
-     }
-	include snippets/ssl-headers.conf;
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
-}
-
-	# Add index.php to the list if you are using PHP
-	index index.html index.htm index.nginx-debian.html;
-
-	include /etc/nginx/expires-no-json-xml.conf; # 2018-06-18 Moved to the end because of CORS issue with top_translators.csv
-
-	location ~* \.(eot|ttf|woff|woff2)$ {
-		add_header Access-Control-Allow-Origin *;
-	}
-
-	location ~ ^/images/products/ {
-		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
-	}
+		try_files /1.json = 404;
+		}
 
 	location ~ ^/(favicon.ico) {
 		# First attempt to serve request as file, then
@@ -456,15 +141,15 @@ server {
 
 	# Static files are served directly by NGINX
 
-	location ~ ^/(.well-known|images|css|js|rss|data|files|resources|foundation|bower_components)/ {
+	location ~ ^/(.well-known|images|fonts|css|js|rss|files|resources|foundation|bower_components)/ {
+		include snippets/off.cors-headers.include;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
+		gzip_static always;
+		gunzip on;
 	}
 
-	location = /robots.txt {
-		try_files $uri $uri/ =404;
-	}
+        include snippets/off.locations-redirects.include;
 
 	# Dynamically generated files and CGI scripts are passed
 	# to the Apache + mod_perl server running on a different
@@ -494,168 +179,3 @@ server {
 
 }
 
-
-
-
-server {
-
-	client_body_timeout 120s;
-	client_header_timeout 120s;
-
-	#listen 80 default_server;
-	listen 80;
-	#listen [::]:80 default_server;
-	listen [::]:80;
-
-	# Product Opener needs a root domain + a wildcard for all subdomains
-	server_name xworld-en.openfoodfacts.org xworld-fr.openfoodfacts.org;
-
-	# SSL configuration
-	#
-	# listen 443 ssl default_server;
-	# listen [::]:443 ssl default_server;
-	#
-	# Self signed certs generated by the ssl-cert package
-	# Don't use them in a production server!
-	#
-	# include snippets/snakeoil.conf;
-
-	# 13/09/2016: got error "nginx: [emerg] invalid parameter "http2" "
-	#listen 443 ssl http2 default_server;
-	listen 443 ssl ;
-	#listen [::]:443 ssl http2 default_server;
-	listen [::]:443 ssl ;
-
-	include snippets/ssl.openfoodfacts.org;
-	include snippets/ssl-params.conf;
-
-	root /srv/off/html;
-
-	access_log /srv/off/logs/nginx.access2.log;
-	error_log /srv/off/logs/nginx.error2.log;
-
-	if ($host = android.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
-        if ($host = androidtest.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
-        if ($host = ios.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
-        if ($host = iostest.openfoodfacts.org) { return 302 https://itunes.apple.com/app/open-food-facts/id588797948 ; }
-        if ($host = slack.openfoodfacts.org) { return 302 https://slack-openfoodfacts.herokuapp.com ; }
-        if ($host = donner.openfoodfacts.org) { return 302 https://www.helloasso.com/associations/open-food-facts/collectes/aidez-open-food-facts-a-ameliorer-l-alimentation-de-tous ; }
-        if ($host = donate.openfoodfacts.org) { return 302 https://www.helloasso.com/associations/open-food-facts/formulaires/1/widget/en ; }
-
-	# Redirect GET requests to https. POST requests will be transformed
-	# to GET by most browsers when redirected, and it breaks apps that
-	# use the API through http.
-
-	if ($scheme = http) {
-		set $test "A";
-	}
-	if ($request_uri !~ "/api/") {
-		set $test "${test}B";
-	}
-	if ($request_method = GET) {
-		set $test "${test}C";
-	}
-	if ($test = ABC) {
-		return 301 https://$host$request_uri;
-	}
-
-
-
-	gzip on;
-	gzip_min_length 1000;
-
-        location ~ ^/cgi/search.pl {
-
-        try_files /search.json =404;
-     if ($request_method = 'OPTIONS') {
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        #
-        # Custom headers and headers various browsers *should* be OK with but aren't
-        #
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
-        #
-        # Tell client that this pre-flight info is valid for 20 days
-        #
-        add_header 'Access-Control-Max-Age' 1728000;
-        add_header 'Content-Type' 'text/plain; charset=utf-8';
-        add_header 'Content-Length' 0;
-        return 204;
-     }
-     if ($request_method = 'POST') {
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
-        add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';
-     }
-     if ($request_method = 'GET') {
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
-        add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';
-     }
-	include snippets/ssl-headers.conf;
-
-
-}
-
-
-
-	# Add index.php to the list if you are using PHP
-	index index.html index.htm index.nginx-debian.html;
-
-	include /etc/nginx/expires-no-json-xml.conf; # 2018-06-18 Moved to the end because of CORS issue with top_translators.csv
-
-	location ~* \.(eot|ttf|woff|woff2)$ {
-		add_header Access-Control-Allow-Origin *;
-	}
-
-	location ~ ^/images/products/ {
-		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
-	}
-
-	location ~ ^/(favicon.ico) {
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
-	}
-
-	# Static files are served directly by NGINX
-
-	location ~ ^/(.well-known|images|css|js|rss|data|files|resources|foundation|bower_components)/ {
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
-	}
-
-	location = /robots.txt {
-		try_files $uri $uri/ =404;
-	}
-
-	# Dynamically generated files and CGI scripts are passed
-	# to the Apache + mod_perl server running on a different
-	# port than port 80 (e.g. 8001)
-
-	location / {
-		proxy_set_header Host $host;
-		proxy_set_header X-Real-IP $remote_addr;
-        	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-
-		proxy_pass http://127.0.0.1:8001/cgi/display.pl?;
-	}
-
-	location /cgi/ {
-		proxy_set_header Host $host;
-		proxy_set_header X-Real-IP $remote_addr;
-		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-		proxy_pass http://127.0.0.1:8001;
-	}
-
-	# deny access to .htaccess files, if Apache's document root
-	# concurs with nginx's one
-	#
-	#location ~ /\.ht {
-	#       deny all;
-	#}
-
-}

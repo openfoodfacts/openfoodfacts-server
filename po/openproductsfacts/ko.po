@@ -5,52 +5,41 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-11-01 10:51\n"
 "Language-Team: Korean\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ko\n"
-"X-Crowdin-File: /master/po/openproductsfacts/openproductsfacts.pot\n"
+"X-Crowdin-File-ID: 3129\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openproductsfacts.org/images/apps/off.apk"
-msgstr ""
+msgstr "https://world.openproductsfacts.org/images/apps/off.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=ko"
 
 #. change https://apps.apple.com/app/ to https://apps.apple.com/fr/app/ (for instance) and make sure the url works
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/kr/app/open-beauty-facts/id1122926380"
 
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openproductsfacts-logo-en-178x150.png"
-msgstr ""
-
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openproductsfacts-logo-en-356x300.png"
-msgstr ""
-
 msgctxt "site_name"
 msgid "Open Products Facts"
-msgstr ""
+msgstr "Open Products Facts"
 
 #. change https://www.microsoft.com/en-us/p/ to https://www.microsoft.com/fr-fr/p/ (for instance) and make sure the url works
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 msgstr ""
 
 msgctxt "tagline"
 msgid "Open Products Facts gathers information and data on products from around the world."
-msgstr ""
+msgstr "Open Products Facts 는 세계 각국에서 식품 제품에 대한 정보와 데이터를 수집합니다."
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
@@ -59,33 +48,23 @@ msgstr "OpenFoodFacts"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "이 제품 페이지는 완전하지 않습니다. 편집해서 우리가 가지고 있는 사진의 데이터를 더 추가하거나, <a href=\"https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=ko\">안드로이드</a>나 <a href=\"https://apps.apple.com/kr/app/open-beauty-facts/id1122926380\">아이폰/아이패드용</a> 앱을 사용하여 더 많은 사진을 찍으면 완성할 수 있습니다. 고맙습니다!"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Products Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Products Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Products Facts\" /></a><p><<site_name>>는 비영리 단체가 운영하고 있습니다. 여러분을 위해, 여러분에 의해 그리고 여러분의 기부에 의해 운영됩니다. <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">Open Products Facts에 기부하거나</a> <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">릴로 서치 엔진을 이용해서 저희에게 힘이 되어주세요</a>.<br/><b>감사합니다!</b></p>"
 
 msgctxt "donate"
 msgid "Donate to Open Products Facts"
-msgstr ""
+msgstr "Open Products Facts에게 기부하기"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
 msgstr "https://www.facebook.com/OpenFoodFacts"
 
-msgctxt "footer"
-msgid "<a href=\"https://world.openproductsfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
-
 msgctxt "brands_example"
 msgid "Nike, Apple"
-msgstr ""
+msgstr "애플, 나이키"
 
 msgctxt "categories_example"
 msgid "Mobile phone, Washing machine powder"
@@ -101,15 +80,15 @@ msgstr "협업을 통한 세계 각국의 식품 정보 오픈 데이터입니�
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "기여자를 위한 <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">페이스 북 그룹</a>"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of products from around the world."
 msgstr "협업을 통한 세계 각국의 식품 오픈데이터 입니다"
 
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openfoodfacts.org"
-msgstr "https://en.wiki.openfoodfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 msgctxt "generic_name_example"
 msgid "Android smartphone"
@@ -121,16 +100,16 @@ msgstr "아이팟 터치 (1세대)"
 
 msgctxt "og_image_url"
 msgid "https://static.openproductsfacts.org/images/misc/openproductsfacts-logo-en-178x150.png"
-msgstr ""
+msgstr "https://static.openproductsfacts.org/images/misc/openproductsfacts-logo-en-178x150.png"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-product-hunt\">Open Product Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr ""
+msgstr "2월 21 일 토요일부터 3 월 1 일 일요일까지 에서 <<site_name>>의 <a href=\"/open-product-hunt\">Open Product Hunt</a> 입니다! 기여자에게는 추가 한 제품에 대해 탐험가 점수와, 새로 모집 한 신규 기여자에 대한 대사 점수가 부여됩니다. 포인트는 30 분마다 업데이트됩니다."
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr ""
+msgstr "→ Chrome, Firefox 및 Safari를 사용하면 Ctrl 키를 누른 상태에서 여러 사진 (제품, 재료 등)을 클릭하여 한 번에 모두 추가 할 수 있습니다."
 
 msgctxt "search_description_opensearch"
 msgid "Open Products Facts product search"
@@ -138,10 +117,10 @@ msgstr "제품 검색"
 
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-msgstr ""
+msgstr "아쿠아 / 워터, 소듐 라우 레스 설페이트, 디소듐 코코암포 아세테이트, 글라이콜 디스테아레이트, 코카마이드엠이에이 측정"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-products-facts-mobile-app"
-msgstr ""
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
 

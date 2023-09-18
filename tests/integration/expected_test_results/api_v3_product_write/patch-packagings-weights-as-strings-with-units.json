@@ -1,0 +1,177 @@
+{
+   "code" : "1234567890018",
+   "errors" : [],
+   "product" : {
+      "misc_tags" : [
+         "en:nutriscore-missing-category",
+         "en:nutrition-not-enough-data-to-compute-nutrition-score",
+         "en:nutriscore-missing-nutrition-data",
+         "en:nutriscore-missing-nutrition-data-energy",
+         "en:nutriscore-missing-nutrition-data-fat",
+         "en:nutriscore-missing-nutrition-data-saturated-fat",
+         "en:nutriscore-missing-nutrition-data-sugars",
+         "en:nutriscore-missing-nutrition-data-sodium",
+         "en:nutriscore-missing-nutrition-data-proteins",
+         "en:nutrition-no-fiber",
+         "en:nutriscore-not-computed",
+         "en:nutrition-no-fruits-vegetables-nuts",
+         "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+         "en:packagings-number-of-components-3",
+         "en:packagings-not-complete",
+         "en:packagings-not-empty-but-not-complete",
+         "en:packagings-not-empty",
+         "en:packagings-with-weights",
+         "en:packagings-with-all-weights",
+         "en:packagings-with-all-weights-not-complete",
+         "en:ecoscore-extended-data-not-computed",
+         "en:ecoscore-not-computed",
+         "en:main-countries-new-product"
+      ],
+      "packagings" : [
+         {
+            "material" : {
+               "id" : "en:pet-1-polyethylene-terephthalate",
+               "lc_name" : "PET 1 - Polyethylene terephthalate"
+            },
+            "number_of_units" : 6,
+            "quantity_per_unit" : "25cl",
+            "quantity_per_unit_unit" : "cl",
+            "quantity_per_unit_value" : 25,
+            "shape" : {
+               "id" : "en:bottle",
+               "lc_name" : "Bottle"
+            },
+            "weight_measured" : 10
+         },
+         {
+            "material" : {
+               "id" : "en:wood",
+               "lc_name" : "Wood"
+            },
+            "number_of_units" : 1,
+            "shape" : {
+               "id" : "en:box",
+               "lc_name" : "Box"
+            },
+            "weight_specified" : 25.5
+         },
+         {
+            "material" : {
+               "id" : "en:plastic",
+               "lc_name" : "Plastic"
+            },
+            "number_of_units" : 1,
+            "shape" : {
+               "id" : "en:film",
+               "lc_name" : "Film"
+            },
+            "weight_specified" : 2.01
+         }
+      ],
+      "weighers_tags" : [
+         "openfoodfacts-contributors"
+      ]
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "id" : "weight_measured",
+            "value" : "10 g",
+            "valued_converted" : 10
+         },
+         "impact" : {
+            "id" : "value_converted",
+            "lc_name" : "Value converted",
+            "name" : "Value converted"
+         },
+         "message" : {
+            "id" : "invalid_type_must_be_number",
+            "lc_name" : "Invalid type: must be a number",
+            "name" : "Invalid type: must be a number"
+         }
+      },
+      {
+         "field" : {
+            "id" : "recycling",
+            "value" : null
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "weight_specified",
+            "value" : "25.5g",
+            "valued_converted" : 25.5
+         },
+         "impact" : {
+            "id" : "value_converted",
+            "lc_name" : "Value converted",
+            "name" : "Value converted"
+         },
+         "message" : {
+            "id" : "invalid_type_must_be_number",
+            "lc_name" : "Invalid type: must be a number",
+            "name" : "Invalid type: must be a number"
+         }
+      },
+      {
+         "field" : {
+            "id" : "recycling",
+            "value" : null
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      },
+      {
+         "field" : {
+            "id" : "weight_specified",
+            "value" : "2,01 grams",
+            "valued_converted" : 2.01
+         },
+         "impact" : {
+            "id" : "value_converted",
+            "lc_name" : "Value converted",
+            "name" : "Value converted"
+         },
+         "message" : {
+            "id" : "invalid_type_must_be_number",
+            "lc_name" : "Invalid type: must be a number",
+            "name" : "Invalid type: must be a number"
+         }
+      },
+      {
+         "field" : {
+            "id" : "recycling",
+            "value" : null
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      }
+   ]
+}

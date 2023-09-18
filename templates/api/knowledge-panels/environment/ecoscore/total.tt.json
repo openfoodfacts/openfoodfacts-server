@@ -1,0 +1,33 @@
+[% SET sum_of_bonuses_and_maluses = product.ecoscore_data.adjustments.production_system.value + product.ecoscore_data.adjustments.packaging.value + product.ecoscore_data.adjustments.threatened_species.value + product.ecoscore_data.adjustments.origins_of_ingredients.value %]
+{
+    "level": "info",
+    "topics": [
+        "environment"
+    ],
+    "title_element": {
+        "title":  "[% lang('impact_for_this_product') %]: [% panel.grade FILTER upper %] (Score: [% panel.score %]/100)",
+        "subtitle": "[% lang("front_alt") %][% sep %]: [% product_name_brand_quantity(product) %]",
+        "type": "grade",
+        "grade": "[% panel.grade %]",
+        "icon_url": "[% static_subdomain %]/images/attributes/ecoscore-[% panel.grade %].svg",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "html": `
+                [% lang('ecoscore_lca_score') %][% sep %]: [% panel.agribalyse_score %]<br>
+                [% lang('ecoscore_sum_of_bonuses_and_maluses') %][% sep %]:
+                    [% IF sum_of_bonuses_and_maluses > 25 %]
+                        +25 ([% sum_of_bonuses_and_maluses_is_capped %])
+                    [% ELSE %]
+                        [% IF sum_of_bonuses_and_maluses > 0 %]+[% END %][% sum_of_bonuses_and_maluses %]
+                    [% END %]<br><br>
+                [% lang('ecoscore_final_score') %][% sep %]: [% panel.score %]/100
+                [% IF product.ecoscore_data.downgraded AND (panel.score == 79) %] ([% lang('ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials') %])[% END %]
+                `
+            }
+        }
+    ]
+}

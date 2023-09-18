@@ -47,7 +47,7 @@ To view the list of available badges, please see [this folder](https://github.co
 
 ## Notes
 
-Badges are labeled according to how Google sorts them, which is mostly using [ISO 639-1](http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) codes. For some languages with multiple dialects the sorting is a little different.
+Badges are labeled according to how Google sorts them, which is mostly using [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) codes. For some languages with multiple dialects the sorting is a little different.
 
 All SVGs use outlined text instead of embedded fonts.
 

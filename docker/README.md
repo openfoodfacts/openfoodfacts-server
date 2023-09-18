@@ -1,31 +1,44 @@
-# Product Opener on Docker
+# Reference Docker / Makefile commands
 
-This directory contains some experimental files for running Product Opener on [Docker](https://docker.com).
+<!--
+NOTE: this file is copied to ref-docker-commands.md at documentation build time
+-->
 
-## Docker Compose
+See also [Docker best practice at Open Food Facts](https://openfoodfacts.github.io/openfoodfacts-infrastructure/docker/)
 
-### Image from Docker Hub
+The docker/ directory contains `docker-compose` overrides for running Product Opener on [Docker](https://docker.com).
+The main docker-compose file [`docker-compose.yml`](../docker-compose.yml) is located in the root of the repository.
 
-Just run `docker-compose up` in this directory to run a pre-built image and start the process. This spins up an application container for the backend, an nginx container that acts as a reverse proxy for static files, and a MongoDB container for storage. You can also deploy OFF to Docker Swarm with `docker stack deploy -c docker-compose.yml`.
+The step-by-step guide to setup the Product Opener using Docker is available on [dev environment quick start guide](../docs/dev/how-to-quick-start-guide.md).
 
-### Local development
+## Makefile targets
 
-Alternatively, run `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up` for local development. This will build a new backend image from your local source files. Note that this binds the docker container to your local develpoment directory, so be sure to build JavaScript etc. by running `npm install && npm run build`, or you will experience missing assets.
+Makefile targets are handy for beginners to start the project and for some usual tasks.
 
-Note: You can also build the frontend assets inside docker. See `build_npm.bat` or `build_npm.sh` for more information about this.
+It's better though, as you progress, if you understand how things work and be able to use targeted docker-compose commands.
 
-### Accessing Product Opener
+See also [targets to run tests](../docs/dev/how-to-write-and-run-tests.md#running-tests)
 
-In this Docker image, Product Opener is configured to run on [localhost](http://world.productopener.localhost/). You may need to add this and other subdomains to your `hosts` file (see your operating system's documentation) to access it.
+| Command                   | Description                                                                            | Notes                                                         |
+| ------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| `make dev`                | Setup a fresh dev environment.                                                        | Run only once, then use the `up`, `down`, `restart` commands. |
+| `make up`                 | Start containers.                                                                      |                                                               |
+| `make down`               | Stop containers and keep the volumes.                                                  | Products and users data will be kept.                         |
+| `make hdown`              | Stop containers and delete the volumes (hard down).                                    | Products and users data will be lost !                        |
+| `make restart`            | Restart `frontend` and `backend` containers.                                           |                                                               |
+| `make reset`              | Run `hdown` and `up`.                                                                  |                                                               |
+| `make status`             | Get containers status (up, down, fail).                                                |                                                               |
+| `make log`                | Get logs.                                                                              | Include only logs written to container's `stdout`.            |
+| `make tail`               | Get other logs (`Apache`, `mod_perl`, ...) bound to the local `logs/` directory.       |                                                               |
+| `make prune`              | Save space by removing unused Docker artifacts.                                        | Next build will take time (no cache) !                        |
+| `make prune_cache`        | Remove Docker build cache.                                                             | Next build will take time (no build cache) !                  |
+| `make clean`              | Clean up your dev environment: removes locally bound folders, run `hdown` and `prune`. | Run `make dev` to recreate a fresh dev env afterwards.        |
+| `make import_sample_data` | Load sample data (~100 products) into the MongoDB database.                            |                                                               |
+| `make import_prod_data`   | Load latest prod data (~2M products, 1.7GB) into the MongoDB database.                 | Takes up to 10m. Not recommended for dev setups !             |
+| `make lint`      | Indent and reformat your code[^lint]                       |
 
-### Connect to MongoDB
+[^lint]: If you are having permission issues with `make lint` try writing the following commands :
+`export MSYS_NO_PATHCONV=1
+docker-compose run --rm --no-deps -u root backend chown www-data:www-data -R /opt/product-opener/`
+then run again `make lint` and you should be good to go
 
-If you want to have a look at the running MongoDB database, run `docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec mongodb mongo`.
-
-### Import sample dataset
-
-By default, the container comes without a dataset, because it is intended to be used to run any Product Opener instance in a production cluster. If you require sample data for local development, you can import an extract from [OpenFoodFacts](https://world.openfoodfacts.org) with `docker-compose -f docker-compose.yml -f docker-compose.dev.yml exec backend /opt/scripts/import_sample_data.sh`.
-
-## Kubernetes
-
-The `productopener` directory contains a <a href="https://helm.sh">Helm</a> template, so that you can set up a new ProductOpener instance on <a href="https://kubernetes.io">Kubernetes</a>. Note that the deployments will create a `PersistentVolumeClaim` (PVC) with `ReadWriteMany` access mode, because the nginx container(s) and Apache container(s) will need to access the volume at the same time. This mode is not supported by every storage plugin. See [access modes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) for more information.

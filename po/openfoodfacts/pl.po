@@ -5,24 +5,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2019-08-01 17:41\n"
 "Language-Team: Polish\n"
-"Last-Translator: Pierre Slamich (pierreslamich)\n"
+"Last-Translator: \n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
-"X-Generator: crowdin.com\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: pl\n"
-"X-Crowdin-File: /master/po/openfoodfacts/openfoodfacts.pot\n"
-
-#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openfoodfacts-logo-en-178x150.png"
-msgstr "openfoodfacts-logo-pl-178x150.png"
-
-#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openfoodfacts-logo-en-356x300.png"
-msgstr "openfoodfacts-logo-pl-356x300.png"
+"X-Crowdin-File-ID: 3127\n"
 
 msgctxt "tagline"
 msgid "Open Food Facts gathers information and data on food products from around the world."
@@ -30,8 +19,8 @@ msgstr "Open Food Facts gromadzi informacje i dane dotyczące produktów spożyw
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-food-facts-mobile-app"
-msgstr "open-food-facts-mobile-app"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-aplikacja-mobilna"
 
 msgctxt "tagline_2019_nutriscore"
 msgid "Discover the Nutri-Score"
@@ -51,9 +40,9 @@ msgstr "Pomóż udostępnić Open Food Facts osobom posługującym się językie
 
 msgctxt "tagline_2019_donation"
 msgid "Help food transparency worldwide by donating to Open Food Facts"
-msgstr ""
+msgstr "Przekazując darowiznę na rzecz Open Food Facts wspomagasz transparentność etykietowania żywności na całym świecie"
 
 msgctxt "tagline_2019_rating"
 msgid "Do you like Open Food Facts ? You can rate it in the Play Store."
-msgstr "Lubisz Open Food Facts ? Możesz ocenić je w Play Store."
+msgstr "Spodobała ci się nasza aplikacja Open Food Facts? Oceń ją w Play Store."
 

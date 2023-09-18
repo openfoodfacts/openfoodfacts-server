@@ -1,27 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="https://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml">
+<!doctype html>
+<html lang="fr-FR">
 <head>
 <title>C'est emballé près de chez vous</title>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<meta name="language" content="fr-FR" />
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no" />
-
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css" />
-<script type="text/javascript" src="https://static.openfoodfacts.org/bower_components/foundation/js/vendor/jquery.cookie.js"></script>
-
-<script src="https://static.openfoodfacts.org/js/dist/jquery.iframe-transport.js"></script>
-<script src="https://static.openfoodfacts.org/js/dist/jquery.fileupload.min.js"></script>
-<script src="https://static.openfoodfacts.org/js/dist/load-image.all.min.js"></script>
-<script src="https://static.openfoodfacts.org/js/dist/canvas-to-blob.min.js"></script>
-
-<link rel="stylesheet" href="https://static.openfoodfacts.org/bower_components/leaflet/dist/leaflet.css">
-<script src="https://static.openfoodfacts.org/bower_components/leaflet/dist/leaflet.js"></script>
-<link rel="stylesheet" href="https://static.openfoodfacts.org/bower_components/leaflet.markercluster/dist/MarkerCluster.css" />
-<link rel="stylesheet" href="https://static.openfoodfacts.org/bower_components/leaflet.markercluster/dist/MarkerCluster.Default.css" />
-<script src="https://static.openfoodfacts.org/bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 
 <meta property="fb:admins" content="706410516" />
 <meta property="og:site_name" content="C'est emballé près de chez vous"/>
@@ -47,34 +29,34 @@
 <link rel="stylesheet" href="https://static.openfoodfacts.org/css/normalize.css" />
 <link rel="stylesheet" href="https://static.openfoodfacts.org/css/madenearme.css" />
 
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-31851927-2']);
-  _gaq.push(['_trackPageview']);
-
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+  _paq.push(["setCookieDomain", "cestemballepresdechezvous.fr"]);
+  _paq.push(["setDomains", ["cestemballepresdechezvous.fr"]]);
+  _paq.push(["setDoNotTrack", true]);
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
   (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    var u="//analytics.openfoodfacts.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '12']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
   })();
-
 </script>
-
-<link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
-
-
+<noscript><p><img src="//analytics.openfoodfacts.org/matomo.php?idsite=12&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
 <HEADER>
 
 <script>
-$(function() {
-
+document.addEventListener("DOMContentLoaded", function(event) {
 <INITJS>
-
 });
 </script>
-
-
 
 </head>
 <body>
@@ -87,7 +69,7 @@ $(function() {
 
 <h2>Consommer local ?</h2>
 
-<p><i>C'est emballé près de chez vous</i> montre sur une carte les lieux de production, de transformation et/ou d'emballage des produits alimentaires.
+<p><em>C'est emballé près de chez vous</em> montre sur une carte les lieux de production, de transformation et/ou d'emballage des produits alimentaires.
 Cette carte peut vous être utile si vous êtes adepte du "consommer local", ou si vous êtes curieux de voir quels aliments sont produits près de chez vous et quelle est la provenance de leurs ingrédients.</p>
 
 <CONTENT>
@@ -104,11 +86,11 @@ est également possible que l'emballeur importe des aliments préparés dans d'a
 
 <p>Si vous ne trouvez pas de produits vraiment locaux à côté de chez vous sur cette carte (les Noix de Saint-Jacques conditionnés à Fécamp qui viennent du Pérou ? Les fameux coeurs de palmiers et les crevettes géantes tigrées d'Ivry-sur-Seine ?),
 vous pouvez partir à leur recherche dans votre frigo, vos placards ou le magasin du coin et les ajouter sur le site d'<a href="https://fr.openfoodfacts.org">Open Food Facts</a>
-ou avec l'app <a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948">iPhone</a> ou <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner">Android</a>. Merci d'avance !</p>
+ou avec l'app <a href="https://apps.apple.com/fr/app/open-food-facts/id588797948">iPhone</a> ou <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner">Android</a>. Merci d'avance !</p>
 
 <p>Les données qui permettent de générer la carte sont issues du projet collaboratif <a href="https://openstreetmap.fr/">OpenStreetMap</a> qui créé une carte libre du monde.</p>
 
-<p>Ces deux projets fonctionnent grâce à la collecte citoyenne de données (le <i>crowdsourcing</i> en anglais). Ce sont des personnes comme vous et moi qui scannent les codes barres des produits et les prennent en photo, ou qui ajoutent un bout de chemin
+<p>Ces deux projets fonctionnent grâce à la collecte citoyenne de données (le <em>crowdsourcing</em> en anglais). Ce sont des personnes comme vous et moi qui scannent les codes barres des produits et les prennent en photo, ou qui ajoutent un bout de chemin
 ou de route. Vous nous rejoignez ?</p>
 
 <h2>On en discute ?</h2>
@@ -122,20 +104,20 @@ ou de route. Vous nous rejoignez ?</p>
 
 <p>
 &rarr; <a href="https://twitter.com/openfoodfactsfr">Twitter</a><br/>
-&rarr; <a href="https://plus.google.com/u/0/b/102622509148794386660/">Google+</a><br />
+&rarr; <a href="https://www.instagram.com/open.food.facts/">Instagram</a><br />
 &rarr; <a href="https://www.facebook.com/OpenFoodFacts.fr">Facebook</a> + <a href="https://www.facebook.com/groups/openfoodfacts.fr/">groupe des contributeurs</a><br />
 </p>
 
 <p>Vous pouvez ajouter des produits avec l'app iPhone ou Android :</p>
 
-<a href="https://itunes.apple.com/fr/app/open-food-facts/id588797948"><img src="https://static.openfoodfacts.org/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png" alt="Disponible sur l'App Store" width="135" height="40" /></a>
+<a href="https://apps.apple.com/fr/app/open-food-facts/id588797948"><img src="https://static.openfoodfacts.org/images/misc/Available_on_the_App_Store_Badge_FR_135x40.png" alt="Disponible sur l'App Store" width="135" height="40" /></a>
 
 <a href="https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner"><img src="https://static.openfoodfacts.org/images/misc/android-app-on-google-play-en_app_rgb_wo_135x47.png" alt="Disponible sur Google Play"  width="115" height="40" /></a><br/>
 
 <p>C'est fabriqué (et pas seulement emballé !) <s>près de</s> chez vous : le plus court des circuits-courts passe par votre cuisine !
 Pour trouver l'inspiration, découvrez chaque jour des dizaines de <a href="https://recettes.de/cuisine">recettes de cuisine</a> proposées par les blogueuses et blogueurs culinaires.</p>
 </div>
-<h2>Données ouvertes - <i>open data</i></h2>
+<h2>Données ouvertes - <em>open data</em></h2>
 <p>Les données d'Open Food Facts et d'OpenStreetMap sont disponibles gratuitement et pour tout usage sous la licence ouverte <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Database Licence (ODBL)</a>.</p>
 
 <div id="credits">
@@ -145,39 +127,15 @@ Pour trouver l'inspiration, découvrez chaque jour des dizaines de <a href="http
 
 
 <div id="sharebuttons">
-<div style="float:left;padding-right:15px;" class="sharebutton"><iframe allowtransparency="true" frameborder="0" scrolling="no" role="presentation"
-src="https://platform.twitter.com/widgets/tweet_button.html?via=OpenFoodFactsFr&amp;count=vertical&amp;lang=fr"
-style="width:65px; height:63px;"></iframe></div>
-<div style="float:left;padding-right:15px;" class="sharebutton"><fb:like href="https://cestemballepresdechezvous.fr" layout="box_count"></fb:like></div>
-<div style="float:left;padding-right:15px;padding-bottom:10px;" class="sharebutton"><g:plusone size="tall" count="true" href="https://cestemballepresdechezvous.fr"></g:plusone></div>
+  <div style="float:left;padding-right:15px;" class="sharebutton"><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-via="OpenFoodFactsFr" data-hashtags="OpenFoodFacts" data-lang="fr" data-show-count="false">Tweet</a></div>
+  <div style="float:left;padding-right:15px;" class="sharebutton"><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></div>
 </div>
 
 </div>
 
-<div id="fb-root"></div>
-
-    <script type="text/javascript">
-      window.fbAsyncInit = function() {
-        FB.init({appId: '156259644527005', status: true, cookie: true,
-                 xfbml: true});
-     };
-
-      (function() {
-        var e = document.createElement('script');
-        e.type = 'text/javascript';
-        e.src = document.location.protocol +
-          '//connect.facebook.net/fr_FR/all.js';
-        e.async = true;
-        document.getElementById('fb-root').appendChild(e);
-      }());
-
-
-    </script>
-
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
-  {lang: 'fr'}
-</script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&amp;autoLogAppEvents=1&amp;version=v5.0&amp;appId=156259644527005"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </body>
 </html>
-

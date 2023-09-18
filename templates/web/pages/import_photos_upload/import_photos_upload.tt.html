@@ -1,0 +1,68 @@
+<!-- start templates/[% template.name %] -->
+
+<p>[% lang("import_photos_description") %]</p>
+<p>[%  lang("import_photos_format_1") %] [% lang("import_photos_format_2") %]</p>
+
+<ul>
+    <li>[% lang("import_photos_format_barcode") %]</li>
+    <li>[% lang("import_photos_format_front")  %]</li>
+    <li>[%  lang("import_photos_format_ingredients")  %]</li>
+    <li>[% lang("import_photos_format_nutrition")  %]</li>
+</ul>
+
+<!--Start form-->
+<form id="fileupload" action="/cgi/product_image_upload.pl" method="POST" enctype="multipart/form-data">
+
+    <p>[% lang("add_field_values") %]</p>  
+    <div class="add_field_values_row">
+        <div class="row">
+            <div class="small-12 medium-12 large-5 columns">
+
+                <select class="tag-add-field" name="tagtype_[% i %]" id="tagtype_[% i %]" value = "">
+                    [% FOREACH add_field IN add_fields_options %]                          
+                       <option value="[% add_field.value %]" label="[% add_field.label %]">[% add_field.label %]</option>
+                    [% END %]
+                </select>
+               
+            </div>
+
+            <div class="small-12 medium-12 large-7 columns tag-add-field-value">
+                <input type="text" id="tag_[% i %]" name="tag_[% i %]" value="" placeholder="[% lang('add_value') %]">
+            </div>
+        </div>
+    </div>  
+    
+    <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+    <div class="row fileupload-buttonbar">
+        <div class="large-7 columns">
+            <!-- The fileinput-button span is used to style the file input field as button -->
+            <span class="button small btn-success fileinput-button">
+                [% display_icon('add') %]
+                <span>[% lang("add_photos") %]</span>
+                <input type="file" name="files[]" multiple accept="image/*" data-url="/cgi/product_image_import.pl" />
+            </span>
+            <!-- The global file processing state -->
+            <span class="fileupload-process"></span>
+        </div>
+
+        <!-- The global progress state -->
+        <div class="large-5 columns fileupload-progress fade">
+            <!-- The global progress bar -->
+            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-success meter" style="width:0%;"></div>
+            </div>
+            <!-- The extended global progress state -->
+            <div class="progress-extended">&nbsp;</div>
+        </div>
+    </div>
+
+    <!-- The table listing the files available for upload/download -->
+    <table role="presentation" class="table table-striped">
+        <tbody class="files"></tbody>
+    </table>
+
+</form>
+
+<div id="empty_space_for_equalizer" style="height:200px;width:100px;">&nbsp;</div>
+
+<!-- end templates/[% template.name %] -->
