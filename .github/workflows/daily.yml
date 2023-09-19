@@ -84,7 +84,7 @@ jobs:
         echo "SSH_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
         echo "SSH_USERNAME=off" >> $GITHUB_ENV
-    - name: Refresh Postgres cache
+    - name: Refresh MongoDB products_tags collection
       uses: appleboy/ssh-action@master
       with:
         host: ${{ env.SSH_HOST }}

@@ -1608,6 +1608,33 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 
 		if (not defined $results) {
 			eval {
+				$log->debug("Executing MongoDB aggregate query on products_tags collection",
+					{query => $aggregate_parameters})
+					if $log->is_debug();
+				$results = execute_query(
+					sub {
+						return get_products_collection(
+							get_products_collection_request_parameters($request_ref, {tags => 1}))
+							->aggregate($aggregate_parameters, {allowDiskUse => 1});
+					}
+				);
+				# the return value of aggregate has changed from version 0.702
+				# and v1.4.5 of the perl MongoDB module
+				$results = [$results->all] if defined $results;
+			};
+			my $err = $@;
+			if ($err) {
+				$log->warn("MongoDB error", {error => $err}) if $log->is_warn();
+			}
+			else {
+				$log->info("MongoDB query ok", {error => $err}) if $log->is_info();
+			}
+
+			$log->debug("MongoDB query done", {error => $err}) if $log->is_debug();
+		}
+
+		if (not defined $results) {
+			eval {
 				$log->debug("Executing MongoDB aggregate query on products collection",
 					{query => $aggregate_parameters})
 					if $log->is_debug();
@@ -1673,6 +1700,21 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 			# or if we are on the producers platform
 			if (can_use_query_cache()) {
 				$count_results = execute_aggregate_tags_query($aggregate_count_parameters);
+			}
+
+			if (not defined $count_results) {
+				eval {
+					$log->debug("Executing MongoDB aggregate count query on products_tags collection",
+						{query => $aggregate_count_parameters})
+						if $log->is_debug();
+					$count_results = execute_query(
+						sub {
+							return get_products_collection(
+								get_products_collection_request_parameters($request_ref, {tags => 1}))
+								->aggregate($aggregate_count_parameters, {allowDiskUse => 1});
+						}
+					);
+				}
 			}
 
 			if (not defined $count_results) {
@@ -4563,7 +4605,7 @@ sub count_products ($request_ref, $query_ref, $obsolete = 0) {
 	return $count;
 }
 
-=head2 get_products_collection_request_parameters ($request_ref)
+=head2 get_products_collection_request_parameters ($request_ref, $additional_parameters_ref = {} )
 
 This function looks at the request object to set parameters to pass to the get_products_collection() function.
 
@@ -4571,13 +4613,19 @@ This function looks at the request object to set parameters to pass to the get_p
 
 =head4 $request_ref request object
 
+=head4 $additional_parameters_ref
+
+An optional reference to a hash of parameters that should be added to the parameters extracted from the request object.
+This is useful in particular to request the query to be executed on the smaller products_tags category, by passing
+{ tags = 1 }
+
 =head3 Return value
 
 A reference to a parameters object that can be passed to get_products_collection()
 
 =cut
 
-sub get_products_collection_request_parameters ($request_ref) {
+sub get_products_collection_request_parameters ($request_ref, $additional_parameters_ref = {}) {
 
 	my $parameters_ref = {};
 
@@ -4588,6 +4636,11 @@ sub get_products_collection_request_parameters ($request_ref) {
 	# Admin users can request a specific query_timeout for MongoDB queries
 	if ($request_ref->{admin}) {
 		$parameters_ref->{timeout} = request_param($request_ref, "timeout");
+	}
+
+	# Add / overwrite request parameters with additional parameters passed as arguments
+	foreach my $parameter (keys %$additional_parameters_ref) {
+		$parameters_ref->{$parameter} = $additional_parameters_ref->{$parameter};
 	}
 
 	return $parameters_ref;
@@ -5157,7 +5210,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 			$request_ref->{structured_response}{page_count} = $page_count;
 
-			# The page count may be higher than the count from the postgres cache which is updated every night
+			# The page count may be higher than the count from the products_tags collection which is updated every night
 			# in that case, set $count to $page_count
 			# It's also possible that the count query had a timeout and that $count is 0 even though we have results
 			if ($page_count > $count) {
@@ -5446,6 +5499,48 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 			if (can_use_query_cache()) {
 				$count = execute_count_tags_query($query_ref);
 				$err = $@;
+			}
+
+			if (not defined $count) {
+				# Count queries are very expensive, if possible, execute them on the smaller products_tags collection
+				my $only_tags_filters = 1;
+
+				if ($server_options{producers_platform}) {
+					$only_tags_filters = 0;
+				}
+				else {
+
+					foreach my $field (keys %$query_ref) {
+						if ($field !~ /_tags$/) {
+							$log->debug(
+								"non tags field in query filters, cannot use smaller products_tags collection",
+								{field => $field, value => $query_ref->{field}}
+							) if $log->is_debug();
+							$only_tags_filters = 0;
+							last;
+						}
+					}
+				}
+
+				if (    ($only_tags_filters)
+					and ((not defined single_param("no_cache")) or (single_param("no_cache") == 0)))
+				{
+
+					$count = execute_query(
+						sub {
+							$log->debug("count_documents on smaller products_tags collection",
+								{key => $key_count})
+								if $log->is_debug();
+							return get_products_collection(
+								get_products_collection_request_parameters($request_ref, {tags => 1}))
+								->count_documents($query_ref);
+						}
+					);
+					$err = $@;
+					if ($err) {
+						$log->warn("MongoDB error during count", {error => $err}) if $log->is_warn();
+					}
+				}
 			}
 
 			if (not defined $count) {

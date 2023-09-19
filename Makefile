@@ -197,6 +197,10 @@ create_mongodb_indexes:
 	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "mongo off /data/db/create_indexes.js"
 
 refresh_product_tags:
+	@echo "🥫 Refreshing products tags (update MongoDB products_tags collection) …"
+# get id for mongodb container
+	docker cp scripts/refresh_products_tags.js $(shell docker-compose ps -q mongodb):/data/db
+	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "mongo off /data/db/refresh_products_tags.js"
 	@echo "🥫 Refreshing product data cached in Postgres …"
 	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl ${from}
 

@@ -12,6 +12,7 @@ nginx:
 
 mongodb:
 - conf/mongodb/create_indexes.js
+- scripts/refresh_products_tags.js
 - .github/workflows/mongo-deploy.yml
 - scripts/checkmongodb.pl
 - scripts/update_all_products_from_dir_in_mongodb.pl
