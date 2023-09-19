@@ -1208,7 +1208,7 @@ sub display_text ($request_ref) {
 
 	$request_ref->{page_type} = "text";
 
-	if ($textid eq 'open-food-facts-mobile-app') {
+	if ($textid =~ /open-food-facts-mobile-app|application-mobile-open-food-facts/) {
 		# we want the mobile app landing page to be included in a <div class="row">
 		# so we display it under the `banner` page format, which is the page format
 		# used on product pages, with a colored banner on top
@@ -2369,43 +2369,16 @@ HTML
 				.= 'var countries_map_links=JSON.parse(' . $json->encode($json->encode($countries_map_links)) . ');'
 				.= 'var countries_map_names=JSON.parse(' . $json->encode($json->encode($countries_map_names)) . ');'
 				.= <<"JS";
-\$('#world-map').vectorMap({
-  map: 'world_mill',
-  series: {
-    regions: [{
-      values: countries_map_data,
-      scale: ['#C8EEFF', '#0071A4'],
-      normalizeFunction: 'polynomial'
-    }]
-  },
-  onRegionLabelShow: function(e, el, code){
-	var label = el.html();
-	label = countries_map_names[code];
-	if (countries_map_data[code] > 0) {
-		label = label + ' (' + countries_map_data[code] + ' $Lang{products}{$lc})';
-	}
-	el.html(label);
-  },
-  onRegionClick: function(e, code, region){
-	if (countries_map_links[code]) {
-		window.location.href = "$formatted_subdomain" + countries_map_links[code];
-	}
-  },
-});
-
+displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
 JS
 			$scripts .= <<SCRIPTS
-<script src="$static_subdomain/js/dist/jquery-jvectormap.js"></script>
-<script src="$static_subdomain/js/dist/world-mill.js"></script>
+<script src="$static_subdomain/js/dist/jsvectormap.js"></script>
+<script src="$static_subdomain/js/dist/world-merc.js"></script>
+<script src="$static_subdomain/js/dist/display-list-of-tags.js"></script>
 SCRIPTS
 				;
-
-			$header .= <<HEADER
-<link rel="stylesheet" media="all" href="/css/dist/jquery-jvectormap.css">
-HEADER
-				;
 			my $map_html = <<HTML
-  <div id="world-map" style="width: 600px; height: 400px"></div>
+  <div id="world-map" style="min-width: 250px; max-width: 600px; min-height: 250px; max-height: 400px;"></div>
 
 HTML
 				;
@@ -7511,7 +7484,7 @@ HTML
 
 			if (-e "$www_root/images/products/$path/$filename.full.json") {
 				$html .= <<HTML
-<a href="/images/products/$path/$filename.full.json">OCR result</a>
+<a href="$images_subdomain/images/products/$path/$filename.full.json">OCR result</a>
 HTML
 					;
 			}

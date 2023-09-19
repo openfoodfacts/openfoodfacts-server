@@ -115,6 +115,10 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "请输入您的组织名称（公司名称或品牌）。"
 
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr "输入要邀请的用户的电子邮件地址（以逗号分隔）："
+
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 msgstr "这是与生产商或品牌方{org}相关的专业账户。您可以访问生产商的平台。"
@@ -247,7 +251,7 @@ msgstr "生产者管理手册"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> 由一个独立于行业的非盈利性的协会制定。它服务所有人，也是由所有人贡献而成的。您可以通过<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">向Open Food Facts捐款</a> 以及 <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">使用Lilo 搜索引擎</a>.<br/><b>谢谢！</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -463,15 +467,15 @@ msgstr "删除图片"
 
 msgctxt "delete_user"
 msgid "Delete a user"
-msgstr ""
+msgstr "删除用户"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
-msgstr ""
+msgstr "这将删除您的用户详细信息并使您的所有贡献匿名。请重新输入您的用户名进行确认。"
 
 msgctxt "danger_zone"
 msgid "Danger Zone"
-msgstr ""
+msgstr "危险选项"
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -559,7 +563,7 @@ msgstr "编辑"
 
 msgctxt "email"
 msgid "E-mail address"
-msgstr ""
+msgstr "邮件地址"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -737,7 +741,7 @@ msgstr "<<site_name>>博客"
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://blog.openfoodfacts.org/en/"
-msgstr ""
+msgstr "https://blog.openfoodfacts.org/en/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -973,6 +977,10 @@ msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr "照片详情和属性信息"
 
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr "邀请用户"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "您添加的产品需要完成"
@@ -1092,7 +1100,7 @@ msgstr "在app商店下载"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/cn/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1369,7 +1377,7 @@ msgstr "订阅电子报（每月最多两封电子邮件）"
 
 msgctxt "subscribe_to_our_newsletter"
 msgid "Subscribe to our newsletter"
-msgstr ""
+msgstr "订阅新闻资讯"
 
 msgctxt "next"
 msgid "Next"
@@ -1535,7 +1543,7 @@ msgstr "表格默认列出了经常指定的营养素，如果不在标签上，
 
 msgctxt "nutrition_data_table_asterisk"
 msgid "Essential nutrients to calculate the Nutri-Score."
-msgstr ""
+msgstr "计算营养分数的必需营养素。"
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1548,13 +1556,14 @@ msgstr "营养等级"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr ""
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr ""
+msgstr "<p>要了解有关<<site_name>>的更多信息，请访问 <a href=\"https://blog.openfoodfacts.org/en/\">我们的博客</a>！</p>\n"
+"<p>最近新闻：</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -1748,11 +1757,11 @@ msgstr "已经保存"
 
 msgctxt "product_edit_you_contributed"
 msgid "You just helped to improve the world largest open data database."
-msgstr ""
+msgstr "您刚刚帮助改进了世界上最大的开放数据数据库。"
 
 msgctxt "product_edit_thank_you"
 msgid "Thank you so much for joining us in our journey to data transparency!"
-msgstr ""
+msgstr "非常感谢您加入我们的数据透明度之旅！"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2277,7 +2286,7 @@ msgstr "查看产品页面"
 
 msgctxt "re_edit_product_page"
 msgid "Edit the product again"
-msgstr ""
+msgstr "再次编辑产品"
 
 msgctxt "select_country"
 msgid "Country"
@@ -2317,7 +2326,7 @@ msgstr "如果营养事实表中包含配制产品的数值，请注明配制产
 
 msgctxt "serving_too_small_for_nutrition_analysis"
 msgid "Serving size is too small (5 g / 5 ml or less) to calculate 100 g / 100 ml values and perform any further nutritional analysis"
-msgstr ""
+msgstr "份量太小（5 克/5 毫升或更少），无法计算 100 克/100 毫升值并进行任何进一步的营养分析"
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2542,7 +2551,7 @@ msgstr "不是由%s添加的产品"
 
 msgctxt "video_tutorials"
 msgid "Video Tutorials"
-msgstr ""
+msgstr "查看视频教程"
 
 msgctxt "view"
 msgid "view"
@@ -2582,7 +2591,7 @@ msgstr "从 Microsoft 获取"
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
 msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr ""
+msgstr "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2614,7 +2623,7 @@ msgstr "加载较低分辨率的图像（用于缓慢的连接)"
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
-msgstr ""
+msgstr "警告：未具体说明营养事实。它们是从原料列表中估算出来的。"
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2888,11 +2897,11 @@ msgstr "过度暴露的风险"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "欧洲食品安全局(EFSA) 已经确定，没有超过5%的人群存在每日摄入的摄入量超过可接受摄入量的风险。<tag>"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "欧洲食品安全局(EFSA) 已经确定，没有超过5%的人群存在每日摄入的摄入量超过可接受摄入量的风险。<tag>"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -2920,11 +2929,11 @@ msgstr "没有或接触过度的风险很低"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of reaching or exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "达到或超过可接受的每日摄入量 (ADI) 的风险"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of reaching exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "达到超过最大剂量而无不良反应的风险（未观察到不良反应水平 - NOAEL）"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
@@ -2944,19 +2953,19 @@ msgstr "超过5%的成员超过最大剂量而无不良反应的组别（无观�
 
 msgctxt "exposure_title_95th"
 msgid "Moderate risk"
-msgstr ""
+msgstr "中等风险"
 
 msgctxt "exposure_description_95th"
 msgid "5% of people or more"
-msgstr ""
+msgstr "5%以上的人"
 
 msgctxt "exposure_title_mean"
 msgid "High risk"
-msgstr ""
+msgstr "高风险"
 
 msgctxt "exposure_description_mean"
 msgid "50% of people or more"
-msgstr ""
+msgstr "50%以上的人"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
@@ -4007,11 +4016,11 @@ msgstr "这个面向生产者的平台还在开发中，我们在将产品导入
 
 msgctxt "crm_user_id"
 msgid "Id of corresponding contact in CRM"
-msgstr ""
+msgstr "CRM中的对应联系人ID"
 
 msgctxt "crm_org_id"
 msgid "Id of corresponding organization in CRM"
-msgstr ""
+msgstr "CRM中的对应联系人ID"
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -4113,7 +4122,7 @@ msgstr "要查看来自特定用户或组织的产品，请在下面输入其id�
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Switch to another organization"
-msgstr ""
+msgstr "切换到另一个组织"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4268,7 +4277,7 @@ msgstr "贡献者"
 
 msgctxt "contributor_settings_description"
 msgid "Those settings allow you to personalize some aspects of the website"
-msgstr ""
+msgstr "这些设置允许您个性化网站的某些方面"
 
 msgctxt "display_barcode_in_search"
 msgid "Display barcode in search results"
@@ -4584,7 +4593,7 @@ msgstr "小组%s"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr "未加工或最低限度加工的食物"
+msgstr "组别1 未加工或最低限度加工的食物"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
@@ -4656,7 +4665,7 @@ msgstr "没有或很少添加添加剂"
 
 msgctxt "attribute_additives_setting_note"
 msgid "Additives are markers of food processing, and excess consumption of some of them have undesirable health impacts."
-msgstr ""
+msgstr "添加剂是食品加工的标志，过量食用其中一些添加剂会对健康产生不良影响。"
 
 msgctxt "attribute_additives_unknown_title"
 msgid "Additives not computed"
@@ -4713,7 +4722,7 @@ msgstr "尽量说得具体些。对于塑料，请说明它是不透明的还是
 
 msgctxt "packaging_text_note_3"
 msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
-msgstr ""
+msgstr "该字段中的数据将与为每个包装部件提供的任何数据相结合。可以提供其中之一，或者两者。"
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
@@ -4890,15 +4899,15 @@ msgstr "官方网站"
 
 msgctxt "organization_members"
 msgid "Organization Members"
-msgstr ""
+msgstr "组织成员"
 
 msgctxt "number_of_members"
 msgid "Number of Members"
-msgstr ""
+msgstr "会员人数"
 
 msgctxt "serial_no"
 msgid "S.No"
-msgstr ""
+msgstr "序列号"
 
 msgctxt "contact_form"
 msgid "Contact form"
@@ -5118,7 +5127,7 @@ msgstr "自上次出口以来变化的产品数量"
 
 msgctxt "number_of_products_withdrawn_from_the_market_since_last_export"
 msgid "Number of products withdrawn from the market since last export"
-msgstr ""
+msgstr "自上次出口以来变化的产品数量"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
@@ -5155,7 +5164,7 @@ msgstr "滥砍滥伐的低风险（森林足迹）"
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr ""
+msgstr "森林足迹对应于与其成分相关的森林砍伐风险。"
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Very small forest footprint"
@@ -5274,7 +5283,7 @@ msgstr "删除所有营养值"
 
 msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
-msgstr ""
+msgstr "用户正在被删除。这可能需要几分钟的时间。"
 
 msgctxt "attribute_ecoscore_not_applicable_title"
 msgid "Eco-Score not yet applicable"
@@ -5319,11 +5328,11 @@ msgstr "以逗号分隔的 GS1 GLN 标识符列表，用于强制与该组织建
 
 msgctxt "org_valid_org"
 msgid "Validate organization as a real producer."
-msgstr ""
+msgstr "验证组织为真正的生产者。"
 
 msgctxt "org_valid_org_note"
 msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
-msgstr ""
+msgstr "该组织由一个人作为真正的生产者加以核实，同时也创造了进入客户关系管理的机会。"
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
@@ -5639,11 +5648,11 @@ msgstr "Eco-Score 最初适用于法国，随后推广到欧洲其他国家。Ec
 
 msgctxt "ecoscore_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
-msgstr ""
+msgstr "选择一个国家以包括运输的全部影响。"
 
 msgctxt "ecoscore_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
-msgstr ""
+msgstr "交通运输对贵国的全面影响目前尚不清楚。"
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
@@ -5890,35 +5899,35 @@ msgstr "健康"
 
 msgctxt "contribution_panel_title"
 msgid "Contribution"
-msgstr ""
+msgstr "貢獻度"
 
 msgctxt "contribution_navigation"
 msgid "Contribution"
-msgstr ""
+msgstr "貢獻度"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
-msgstr ""
+msgstr "检测到错误"
 
 msgctxt "data_quality_errors_panel_subtitle"
 msgid "Help us improve quality of our data by contributing fixes"
-msgstr ""
+msgstr "通过提供修复帮助我们提高数据质量"
 
 msgctxt "data_quality_warnings_panel_title"
 msgid "Potential issues"
-msgstr ""
+msgstr "潜在问题"
 
 msgctxt "data_quality_warnings_panel_subtitle"
 msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
-msgstr ""
+msgstr "我们发现了一些潜在的问题或潜在的改进，您能否检查一下是否适用？"
 
 msgctxt "data_quality_info_panel_title"
 msgid "Data Quality infos"
-msgstr ""
+msgstr "数据质量信息"
 
 msgctxt "data_quality_info_panel_subtitle"
 msgid "Some infos about data quality on this product"
-msgstr ""
+msgstr "有关该产品数据质量的一些信息"
 
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
@@ -6016,7 +6025,7 @@ msgstr "配料可能不是素食"
 
 msgctxt "attribute_vegan_setting_note"
 msgid "To determine whether a product is vegan, we only rely on the list of ingredients."
-msgstr ""
+msgstr "要确定产品是否纯素，我们仅依靠成分列表。"
 
 msgctxt "non_vegetarian_ingredients"
 msgid "Non-vegetarian ingredients"
@@ -6032,7 +6041,7 @@ msgstr "配料可能不是素食"
 
 msgctxt "attribute_vegetarian_setting_note"
 msgid "To determine whether a product is vegetarian, we only rely on the list of ingredients."
-msgstr ""
+msgstr "要确定产品是否是素食，我们仅依靠成分列表。"
 
 msgctxt "palm_oil_ingredients"
 msgid "Ingredients that contain palm oil"
@@ -6048,7 +6057,7 @@ msgstr "未检测到含有棕榈油的配料"
 
 msgctxt "attribute_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
-msgstr ""
+msgstr "要确定产品是否含有棕榈油，我们仅依靠成分列表。"
 
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
@@ -6163,25 +6172,25 @@ msgstr "添加营养成分"
 
 msgctxt "action_add_origins"
 msgid "Add the origins of ingredients for this product"
-msgstr ""
+msgstr "添加该产品成分的来源"
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
-msgstr ""
+msgstr "拍一张回收说明的照片"
 
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
-msgstr ""
+msgstr "添加包装组件"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
-msgstr ""
+msgstr "添加基本详细信息"
 
 # this is not used yet
 msgctxt "action_add_portion_size"
 msgid "Add portion size"
-msgstr ""
+msgstr "添加份量"
 
 # this is not used yet
 msgctxt "action_add_ingredients_image"
@@ -6196,37 +6205,37 @@ msgstr "拍摄营养成分表"
 # this is not used yet
 msgctxt "action_refresh_ingredients_image"
 msgid "Refresh the photo of the ingredients"
-msgstr ""
+msgstr "刷新一下成分照片"
 
 # this is not used yet
 msgctxt "action_refresh_nutrition_image"
 msgid "Refresh the photo of the nutrition facts"
-msgstr ""
+msgstr "刷新一下关于营养成分的照片"
 
 # this is not used yet
 msgctxt "action_add_packaging_text"
 msgid "Extract and check the recycling information"
-msgstr ""
+msgstr "提取并查看回收信息"
 
 # this is not used yet
 msgctxt "action_add_stores"
 msgid "Add the store where you found this product"
-msgstr ""
+msgstr "添加您找到该产品所在的商店"
 
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "添加该产品上存在的任何标签"
 
 # this is not used yet
 msgctxt "action_countries"
 msgid "Add the country where you found this product"
-msgstr ""
+msgstr "添加您发现该产品所在的国家/地区"
 
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "拍摄追溯码照片"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6307,42 +6316,42 @@ msgstr "产品添加"
 
 msgctxt "products_edited"
 msgid "Products edited"
-msgstr ""
+msgstr "产品已编辑"
 
 msgctxt "products_photographed"
 msgid "Products photographed"
-msgstr ""
+msgstr "已拍摄的产品"
 
 # result of the matching with the user preferences: should ne a noun, not a verb
 msgctxt "matching_with_your_preferences"
 msgid "Matching with your preferences"
-msgstr ""
+msgstr "匹配您的喜好"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_join_us_on_slack"
 msgid "Join us on <a href=\"{url}\">Slack</a>"
-msgstr ""
+msgstr "加入我们 <a href=\"{url}\">Slack</a>"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_discover_our_code_of_conduct"
 msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
-msgstr ""
+msgstr "了解我们的 <a href=\"{url}\">行为准则</a>"
 
 # {links} must not be translated, it will be replaced by icons and/or text links
 msgctxt "f_footer_follow_us_links"
 msgid "Follow us: {links}"
-msgstr ""
+msgstr "关注我们： {links}"
 
 # Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
 msgctxt "footer_install_the_app_exclamation_mark"
 msgid "Install the app!"
-msgstr ""
+msgstr "安装 App"
 
 # HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
 msgctxt "footer_scan_your_everyday_foods"
 msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
-msgstr ""
+msgstr "扫描您的 <span id=\"everyday\">每天</span> <span id=\"foods\">食物</span>"
 
 msgctxt "nutrition"
 msgid "Nutrition"
@@ -6351,7 +6360,7 @@ msgstr "营养"
 # Note: "criteria" is plural here. So in French for instance: "Vos critères"
 msgctxt "your_criteria"
 msgid "Your criteria"
-msgstr ""
+msgstr "您的标准"
 
 msgctxt "product"
 msgid "Product"
@@ -6363,55 +6372,55 @@ msgstr "环境影响"
 
 msgctxt "api_result_failure"
 msgid "Failure"
-msgstr ""
+msgstr "失败"
 
 msgctxt "api_result_product_found"
 msgid "Product found"
-msgstr ""
+msgstr "已找到产品"
 
 msgctxt "api_result_product_not_found"
 msgid "Product not found"
-msgstr ""
+msgstr "未找到产品"
 
 msgctxt "api_result_product_updated"
 msgid "Product updated"
-msgstr ""
+msgstr "产品已更新"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
-msgstr ""
+msgstr "无效的 API 操作"
 
 msgctxt "api_message_invalid_api_method"
 msgid "Invalid API method"
-msgstr ""
+msgstr "无效的 API 方式"
 
 msgctxt "api_message_empty_request_body"
 msgid "Empty request body"
-msgstr ""
+msgstr "请求正文为空"
 
 msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
-msgstr ""
+msgstr "请求正文中的 JSON 无效"
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
-msgstr ""
+msgstr "无效的代码"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
-msgstr ""
+msgstr "无效类型：必须是对象"
 
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
-msgstr ""
+msgstr "无效类型：必须是数组"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
-msgstr ""
+msgstr "无效类型：必须是整数"
 
 msgctxt "api_message_invalid_type_must_be_number"
 msgid "Invalid type: must be a number"
-msgstr ""
+msgstr "无效类型：必须是数字"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
@@ -6427,7 +6436,7 @@ msgstr ""
 
 msgctxt "api_impact_none"
 msgid "None"
-msgstr ""
+msgstr "无"
 
 msgctxt "api_impact_warning"
 msgid "Warning"
@@ -6435,7 +6444,7 @@ msgstr "警告"
 
 msgctxt "api_impact_failure"
 msgid "Failure"
-msgstr ""
+msgstr "失败"
 
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
@@ -6453,29 +6462,29 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "空件重量"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "每单位所含产品数量"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
 msgid "Help categorize more {title} on Hunger Games"
-msgstr ""
+msgstr "帮助分类更多关于《饥饿游戏》的 {title}"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "产品的所有包装部件都已列出"
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
-msgstr ""
+msgstr "无效的用户ID和密码"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
-msgstr ""
+msgstr "无效值：必须是 0 或 1"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
@@ -6506,7 +6515,7 @@ msgstr "输入净重或净体积并注明单位（例如克 g 或毫升 ml）。
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
-msgstr ""
+msgstr "进出口产品"
 
 msgctxt "add_products"
 msgid "Add products"
@@ -6515,64 +6524,72 @@ msgstr "添加产品"
 # Needs to be short (displayed in a menu)
 msgctxt "install_the_app_to_add_products"
 msgid "Install the app to add products"
-msgstr ""
+msgstr "安装应用程序以添加产品"
 
 msgctxt "search_and_analyze_products"
 msgid "Search and analyze products"
-msgstr ""
+msgstr "搜索和分析产品"
 
 msgctxt "resources"
 msgid "Resources"
-msgstr ""
+msgstr "参考资源"
 
 msgctxt "pro_platform_user_guide"
 msgid "Pro platform user guide"
-msgstr ""
+msgstr "高级平台用户指南"
 
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
-msgstr ""
+msgstr "生产者常见问题解答"
 
 msgctxt "join_the_next_pros_meet_up"
 msgid "Join the next Pros' Meet-up"
-msgstr ""
+msgstr "参加下一次专业人士聚会"
 
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
-msgstr ""
+msgstr "请输入 0 到 {max} 之间的一个值。"
+
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr "请先询问以下用户先创建一个打开食物事实帐户："
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr "添加到组织的用户成功："
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
-msgstr ""
+msgstr "糖分不应高于碳水化合物。"
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
-msgstr ""
+msgstr "饱和脂肪不应高于脂肪。"
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
-msgstr ""
+msgstr "包装材料"
 
 msgctxt "packaging_weight_total"
 msgid "Packaging weight"
-msgstr ""
+msgstr "包裹重量"
 
 msgctxt "packaging_weight_100g"
 msgid "Packaging weight per 100 g of product"
-msgstr ""
+msgstr "每100克产品的包装重量"
 
 msgctxt "packaging_weight_100g_mean"
 msgid "Mean packaging weight per 100 g of product"
-msgstr ""
+msgstr "每100克产品的包装重量"
 
 msgctxt "total"
 msgid "Total"
-msgstr ""
+msgstr "总计"
 
 msgctxt "packaging_material_products_percent"
 msgid "% of products containing the material"
-msgstr ""
+msgstr "% 对产品主要包含此原料"
 
 msgctxt "packaging_material_products_percent_main"
 msgid "% of products containing mostly the material"
@@ -6580,7 +6597,7 @@ msgstr "% 对产品主要包含此原料"
 
 msgctxt "relative_to_products_containing_the_material"
 msgid "for products that contain the material"
-msgstr ""
+msgstr "对于含有该材料的产品"
 
 msgctxt "relative_to_products_containing_mostly_the_material"
 msgid "for products that contain mostly the material"
@@ -6588,5 +6605,29 @@ msgstr "对于主要包含此原料的产品"
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
+msgstr "相对于所有产品"
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr ""
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr ""
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr ""
+
+msgctxt "weight"
+msgid "Weight"
+msgstr ""
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr ""
+
+msgctxt "weight_percent"
+msgid "Weight percent"
 msgstr ""
 

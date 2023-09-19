@@ -2878,10 +2878,11 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 	# This is the case in particular for recipes that can be specified in grams with a total greater than 100g
 	# So we start supposing it's grams (as if it's percent it will also work).
 
-	if (($total_min == $total_max) and $all_ingredients_have_a_set_percent) {
+	# In scale_percents or scale_grams mode, the percent/quantity sum must be greater than 0
+	if (($total_min == $total_max) and ($all_ingredients_have_a_set_percent) and ($percent_sum > 0)) {
 		$percent_mode = "scale_percents";
 	}
-	elsif (($total_min == $total_max) and $all_ingredients_have_a_set_quantity) {
+	elsif (($total_min == $total_max) and ($all_ingredients_have_a_set_quantity) and ($quantity_sum > 0)) {
 		$percent_mode = "scale_grams";
 	}
 	elsif ($percent_sum > $total_max) {

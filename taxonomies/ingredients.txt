@@ -78,7 +78,7 @@ stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
 stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el:περιέχει
-stopwords:en:added to enhance freshness, added to maintain flavor and freshness, assorted, contains, contain, edible, from, including, inter alia, less than 1% of:, minimum, produced with, with, with added
+stopwords:en:added to enhance freshness, added to maintain flavor and freshness, assorted, contains, contain, edible, from, including, inter alia, less than 1% of:, minimum, produced with, with, with added, in varying proportions
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter, minimum
@@ -1095,6 +1095,10 @@ hu:probiotikus kultúrák, probiotikus kultúra, probiotikum kultúrák, probiot
 <en:microbial culture
 en:kombucha culture, kombuncha cultures
 fr:culture de kombucha
+
+<en:lactic ferments
+en:yogurt cultures
+fr:cultures de yaourt
 
 <en:lactic ferments
 en:skyr cultures
@@ -6608,7 +6612,12 @@ es:cheddar blanco, queso cheddar blanco
 fr:Cheddar blanc
 
 <en:cheddar
-fr:cheddar orange
+en:coloured cheddar, colored cheddar
+
+# red cheddar is orange
+<en:cheddar
+en:red cheddar
+fr:cheddar orange, cheddar rouge
 # ingredient/fr:cheddar-orange has 52 products in 2 languages @2021-08-14
 
 <en:cheddar
@@ -9871,7 +9880,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kosher_salt
 # description:en:SEA SALT - is salt that is produced by the evaporation of seawater
 
 <en:salt
-en:sea salt, bay salt, solar salt, natural sea salt, pure sea salt
+en:sea salt, bay salt, solar salt, natural sea salt, pure sea salt, mineral sea salt
 ar:ملح البحر
 bg:морска сол
 ca:Sal marina, sal maria de taula
@@ -15150,7 +15159,7 @@ ru:заменитель масла какао, заменитель какао �
 
 # <en:palm
 <en:palm oil and fat
-en:palm oil, palmoil, sustainable palm fruit oil, palm vegetable oil
+en:palm oil, palmoil, sustainable palm fruit oil, palm vegetable oil, vegetable palm oil
 ar:زيت النخيل
 be:Пальмавы алей
 bg:Палмово масло
@@ -15464,7 +15473,7 @@ ro:ulei de palmier parţial hidrogenat
 # description:en:PALM KERNEL OIL is an edible plant oil derived from the kernel of the oil palm Elaeis guineensis. It should not be confused with the other two edible oils derived from palm fruits:palm oil, extracted from the pulp of the oil palm fruit, and coconut oil, extracted from the kernel of the coconut.
 
 <en:palm kernel oil and fat
-en:palm kernel oil, palm kernel
+en:palm kernel oil, palm kernel, palm kernel vegetable oil
 bs:Ulje palminog jezgra
 ca:palmist, Oli de palmist, oli vegetal de palmist
 cs:Palmojádrový olej
@@ -15726,8 +15735,9 @@ sv:kokosfett
 # 36 products in 4 languages @2018-10-03
 from_palm_oil:en:no
 
+# creamed coconut differs from coconut cream: https://en.wikipedia.org/wiki/Creamed_coconut
 <en:coconut fat
-en:coconut butter
+en:coconut butter, creamed coconut
 bg:кокосово масло
 de:Kokosbutter
 es:manteca de coco,
@@ -15992,7 +16002,7 @@ pl:rafinowana oliwa z wytłoczyn z oliwek, rafinowana oliwa z wytłoczyn oliwek
 #comment:en:Beware of a confusion between the generic name (rapeseed oil) and more specific oil varieties: colza oil and canola oil. Not all languages distinguish between the two. Probably where rapeseed is given, colza is meant. The difference between the two oils is important due to different levels of erucic acid. It seems that only the oils with a low erucic acid percentage are fit for humans. So th enaming difference between rapeseed, colza and canola might just be a language issue.
 
 <en:vegetable oil and fat
-en:rapeseed oil, rapeseed fat, rapeseed oil and fat
+en:rapeseed oil, rapeseed fat, rapeseed oil and fat, rapeseed vegetable oil
 bg:рапично масло
 ca:oli de nabina, oli vegetal de nabina
 cs:řepkový olej, olej řepkový
@@ -21645,6 +21655,9 @@ fr:arôme de malt
 sv:maltarom
 # ingredient/fr:arome-de-malt has 4 products in 2 languages @2020-05-23
 
+<en:flavouring
+en:barley malt flavouring
+
 <en:natural flavouring
 en:natural malt flavouring
 de:Natürliches Malzaroma
@@ -24529,12 +24542,12 @@ ciqual_food_name:en:Oat bran
 ciqual_food_name:fr:Son d'avoine
 #1256 @2021-09-22
 
-<en:oat
+# <en:compound
 en:oat milk
 ar:حليب الشوفان
 bg:овесено мляко
 cs:ovesné mléko
-de:Hafermilch
+de:Haferdrink, Hafermilch
 da:havredrik
 eo:avenlakto
 es:bebida de avena
@@ -24545,6 +24558,7 @@ he:חלב שיבולת-שועל
 jv:susu oat
 nl:havermelk
 pl:mleko owsiane, napój owsiany
+pt:bebida de aveia
 se:hávvarmielki
 #smn:haavvârmielkki
 #sms:ååʹvesmieʹlǩǩ
@@ -24554,6 +24568,10 @@ zh:燕麦奶
 wikidata:en:Q20972637
 #28 @2021-09-22
 
+<en:oat milk
+en:oat milk powder
+de:Haferdrinkpulver
+
 # <en:compound
 en:oat base
 de:haferbasis
@@ -24562,7 +24580,6 @@ fi:kaurapohja
 fr:jus d'avoine, base d'avoine
 it:base de avena
 nl:haverbasis
-pt:bebida de aveia
 sv:havrebas
 # usage:en:oat base (water, oats)
 # mainIngredient:en:water
@@ -28959,7 +28976,7 @@ fr:sucre de fleur de coco, sucre de fleur de cocotier, sucre de coco
 hu:kókuszcukor
 id:Gula kelapa
 it:zucchero di fiori di cocco, zucchero di cocco
-nl:kokossuiker
+nl:kokosbloesemsuiker, kokossuiker
 nn:kokosnøttsukker
 pl:cukier kokosowy
 su:Gula kalapa
@@ -30640,6 +30657,10 @@ nl:gehydrolyseerde plantaardige eiwitten, plantaardig eiwithydrolysaat
 # ingredient/fr:protéines-végétales-réhydratées has 32 products in french @2019-03-11
 
 <en:plant protein
+en:textured plant protein
+de:texturiertes Pflanzenprotein
+
+<en:plant protein
 en:pea protein
 bg:грахов протеин
 ca:Proteïna de pèsol
@@ -30671,6 +30692,7 @@ hu:borsófehérje izolátum
 ro:izolat proteic de mazăre
 
 <en:pea protein
+<en:textured plant protein
 en:textured pea protein, textured pea proteins
 de:texturiertes Erbseneiweiß
 fr:protéines de pois texturées, protéine de pois texturée
@@ -30696,6 +30718,11 @@ pl:białko bobu, białka bobu
 ro:proteină de bob
 sv:protein från bondböna
 # ingredient/en:broad-bean-protein has 6 products in 1 language @2020-05-25
+
+<en:plant protein
+en:chickpea protein
+de:Kichererbsenprotein
+fr:protéine de pois chiche
 
 <en:plant protein
 en:sunflower protein
@@ -38815,7 +38842,7 @@ ciqual_food_name:fr:Citron, zeste, cru
 en:powdered lemon zest
 hr:limunova korica u prahu
 
-<en:lemon
+<en:aromatic leaf
 <en:spice
 en:lemon leaf, lemon leaves
 de:Zitronenblatt
@@ -39211,7 +39238,7 @@ fr:écorces de citron vert, zeste de citron vert
 it:scorze di lime
 
 <en:spice
-<en:lime
+<en:aromatic leaf
 en:lime leaf, lime leaves
 da:limeblad
 de:Limettenblatt, Limettenblätter
@@ -49977,7 +50004,11 @@ pt:Extrato de cebolo
 sv:lökextrakt
 # ingredient/fr:extrait-d’oignon has 119 products in 3 languages @2018-12-06
 
-<en:onion
+# <en:compound
+en:fried onion
+de:röstzwiebeln
+
+# <en:compound
 en:pre fried onions
 da:forstegte løg
 de:vorgebratene Zwiebeln
@@ -51037,6 +51068,9 @@ nl:wortelextract, kleurend wortelextract
 pt:Extrato de cenoura, extrato de cenouras
 # fr:extrait-de-carotte has 176 products in 6 languages @0218-10-20
 
+<en:carrot extract
+de:färbendes Karottenextrakt
+
 <en:carrot
 en:carrot powder
 de:Karottenpulver
@@ -51047,7 +51081,6 @@ de:Karottengranulat
 fi:porkkanaraaste
 ru:морковь гранулы
 
-<en:carrot
 <en:vegetable fiber
 fr:fibre de carotte, fibres de carotte
 de:Karottenfasern
@@ -54780,7 +54813,6 @@ fr:Purée de tomates vertes
 fi:vihreä tomaattipyree
 # In process de:Püree aus grünen Tomaten
 
-<en:tomato
 <en:vegetable fiber
 fr:fibres de tomate, fibre de tomate
 nl:tomatenvezel
@@ -55936,6 +55968,9 @@ pt:Feijão preto
 sv:svarta bönor
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.40
+
+<en:black bean
+en:black turtle bean
 
 <en:black beans
 en:black bean flour
@@ -63730,7 +63765,11 @@ en:hemp flour
 fr:farine de chanvre
 nl:hennepmeel
 
-<en:herb
+<en:condiment
+en:aromatic leaf
+fr:feuille aromatique
+
+<en:aromatic leaf
 en:blackberry leaf, blackberry leaves
 fr:feuilles de mûre
 nl:braamblad, braambladeren
@@ -67691,7 +67730,7 @@ fr:grains de vanille épuisés, grains de vanille épuisée, graines de vanille 
 it:semi di vaniglia estratti
 # ingredient/fr:grains-de-vanille-épuisés has 31 products in 5 languages @2019-02-24
 
-<en:vanilla
+#<en:compound
 en:vanilla preparation
 hr:pripravak vanilija
 
@@ -70217,8 +70256,13 @@ pl:Pieprznik żyłkowany, pieprznik żółtawy
 xx:Cantharellus lutescens, Craterellus lutescens, Cantharellus xanthopus, Cantharellus aurora
 wikipedia:es:https://es.wikipedia.org/wiki/Cantharellus_lutescens
 
+en:mycoprotein
+es:micoproteína
+fr:mycoprotéine
+
 # description:en:QUORN is a meat substitute product originating in the UK and sold primarily in Europe, but also available in 19 countries.
 
+<en:mycoprotein
 en:Quorn mushroom product, quorn
 de:Quorn-Pilzprodukt
 fr:produit champignon quorn
