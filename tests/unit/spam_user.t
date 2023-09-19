@@ -16,4 +16,3 @@ foreach my $name ("danilo.go", 'roberto@test.me', "Lalilou", "Dan stanley") {
 }
 
 done_testing();
-p
