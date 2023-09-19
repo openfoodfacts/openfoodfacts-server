@@ -1345,7 +1345,7 @@ Nested structure of ingredients and sub-ingredients
 
 sub parse_ingredients_text ($product_ref) {
 
-	my $debug_ingredients = 0;
+	my $debug_ingredients = 1;
 
 	delete $product_ref->{ingredients};
 
@@ -3596,7 +3596,7 @@ sub normalize_fr_a_de_b ($a, $b) {
 # French: huile, olive -> huile d'olive
 # Russian: масло растительное, пальмовое -> масло растительное оливковое
 
-sub normalize_a_of_b ($lc, $a, $b) {
+sub normalize_a_of_b ($lc, $a, $b, $of_bool) {
 
 	$a =~ s/\s+$//;
 	$b =~ s/^\s+//;
@@ -3610,11 +3610,14 @@ sub normalize_a_of_b ($lc, $a, $b) {
 	elsif ($lc eq "fr") {
 		$b =~ s/^(de |d')//;
 
-		if ($b =~ /^(a|e|i|o|u|y|h)/i) {
+		if (($b =~ /^(a|e|i|o|u|y|h)/i) && ($of_bool == 1)) {
 			return $a . " d'" . $b;
 		}
-		else {
+		elsif ($of_bool == 1) {
 			return $a . " de " . $b;
+		}
+		else {
+			return $a . " " . $b;
 		}
 	}
 	elsif (($lc eq "ru") or ($lc eq "pl")) {
@@ -3625,8 +3628,7 @@ sub normalize_a_of_b ($lc, $a, $b) {
 # Vegetal oil (palm, sunflower and olive)
 # -> palm vegetal oil, sunflower vegetal oil, olive vegetal oil
 
-sub normalize_enumeration ($lc, $type, $enumeration) {
-
+sub normalize_enumeration ($lc, $type, $enumeration, $of_bool) {
 	$log->debug("normalize_enumeration", {type => $type, enumeration => $enumeration}) if $log->is_debug();
 
 	# If there is a trailing space, save it and output it
@@ -3640,7 +3642,7 @@ sub normalize_enumeration ($lc, $type, $enumeration) {
 
 	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $enumeration);
 
-	return join(", ", map {normalize_a_of_b($lc, $type, $_)} @list) . $trailing_space;
+	return join(", ", map {normalize_a_of_b($lc, $type, $_, $of_bool)} @list) . $trailing_space;
 }
 
 # iodure et hydroxide de potassium
@@ -4665,7 +4667,7 @@ my %ingredients_categories_and_types = (
 				"tournesol oléique",
 			]
 		],
-
+		# (natural) extract
 		[
 			["extrait", "extrait naturel",],
 			[
@@ -4674,9 +4676,9 @@ my %ingredients_categories_and_types = (
 				"thym",
 			]
 		],
-
+		# lecithin
 		[["lécithine",], ["colza", "soja", "soja sans ogm", "tournesol",]],
-
+		# natural flavouring
 		[
 			[
 				"arôme naturel",
@@ -4706,7 +4708,7 @@ my %ingredients_categories_and_types = (
 				"thym", "vanille", "vanille de Madagascar", "autres agrumes",
 			]
 		],
-
+		# chemical substances
 		[
 			[
 				"carbonate", "carbonates acides", "chlorure", "citrate",
@@ -4719,6 +4721,8 @@ my %ingredients_categories_and_types = (
 				"manganèse", "potassium", "sodium", "zinc",
 			]
 		],
+		# peppers
+		[["piment",], ["vert", "jaune", "rouge",], 0,],
 	],
 
 	pl => [
@@ -4792,6 +4796,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 
 	if (defined $ingredients_categories_and_types{$ingredients_lc}) {
 
+		# my $categories_and_types_ref_index = 0;
 		foreach my $categories_and_types_ref (@{$ingredients_categories_and_types{$ingredients_lc}}) {
 
 			my $category_regexp = "";
@@ -4823,9 +4828,13 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				if ($unaccented_type ne $type) {
 					$type_regexp .= '|' . $unaccented_type . '|' . $unaccented_type . 's';
 				}
-
 			}
 			$type_regexp =~ s/^\|//;
+
+			my $of_bool = 1;
+			if (defined $categories_and_types_ref->[2]) {
+				$of_bool = $categories_and_types_ref->[2];
+			}
 
 			# arôme naturel de citron-citron vert et d'autres agrumes
 			# -> separate types
@@ -4852,14 +4861,14 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 
 				# vegetable oil (palm, sunflower and olive)
 				$text
-					=~ s/($category_regexp)(?::|\(|\[| | $of )+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2)/ieg;
+					=~ s/($category_regexp)(?::|\(|\[| | $of )+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 
 				# vegetable oil (palm)
 				$text
-					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2)/ieg;
+					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 				# vegetable oil: palm
 				$text
-					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($ingredients_lc,$1,$2)/ieg;
+					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 			}
 			elsif ($ingredients_lc eq "fr") {
 				# arôme naturel de pomme avec d'autres âromes
@@ -4873,16 +4882,17 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				# TODO 18/07/2020 remove when we have a better solution
 				$text =~ s/fer (é|e)l(é|e)mentaire/fer_élémentaire/ig;
 				$text
-					=~ s/($category_regexp)(?::|\(|\[| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2)/ieg;
+					=~ s/($category_regexp)(?::|\(|\[| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 				$text =~ s/fer_élémentaire/fer élémentaire/ig;
 
 				# huile végétale (colza)
 				$text
-					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2)/ieg;
+					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 				# huile végétale : colza,
 				$text
-					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($ingredients_lc,$1,$2)/ieg;
+					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 			}
+			# $categories_and_types_ref_index += 1;
 		}
 
 		# Some additives have "et" in their name: need to recombine them
