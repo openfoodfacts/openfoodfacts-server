@@ -169,8 +169,7 @@ if ($action eq 'display') {
 	$template_data_ref->{sections} = [];
 
 	if ($user_ref) {
-		push @{$template_data_ref->{sections}},
-			{
+		push @{$template_data_ref->{sections}}, {
 			id => "user",
 			fields => [
 				{
@@ -194,8 +193,15 @@ if ($action eq 'display') {
 					type => "password",
 					label => "password_confirm"
 				},
+				{
+					# this is a honeypot to detect scripts, that fills every fields
+					# this one is hidden in a div and user won't see it
+					field => "faxnumber",
+					type => "honeypot",
+					label => "Do not enter your fax number",
+				},
 			]
-			};
+		};
 
 		# Professional account
 		push @{$template_data_ref->{sections}},
