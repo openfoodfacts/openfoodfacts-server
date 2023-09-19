@@ -1345,7 +1345,7 @@ Nested structure of ingredients and sub-ingredients
 
 sub parse_ingredients_text ($product_ref) {
 
-	my $debug_ingredients = 1;
+	my $debug_ingredients = 0;
 
 	delete $product_ref->{ingredients};
 
