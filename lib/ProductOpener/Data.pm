@@ -206,7 +206,7 @@ sub get_products_collection ($parameters_ref = {}) {
 	if ($parameters_ref->{obsolete}) {
 		$collection .= '_obsolete';
 	}
-# We don't have a products_obsolete_tags collection at this point
+	# We don't have a products_obsolete_tags collection at this point
 	# if it changes, the following elsif should be changed to a if
 	elsif ($parameters_ref->{tags}) {
 		$collection .= '_tags';

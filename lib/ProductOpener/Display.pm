@@ -5512,10 +5512,9 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 
 					foreach my $field (keys %$query_ref) {
 						if ($field !~ /_tags$/) {
-							$log->debug(
-								"non tags field in query filters, cannot use smaller products_tags collection",
-								{field => $field, value => $query_ref->{field}}
-							) if $log->is_debug();
+							$log->debug("non tags field in query filters, cannot use smaller products_tags collection",
+								{field => $field, value => $query_ref->{field}})
+								if $log->is_debug();
 							$only_tags_filters = 0;
 							last;
 						}
@@ -5528,8 +5527,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 
 					$count = execute_query(
 						sub {
-							$log->debug("count_documents on smaller products_tags collection",
-								{key => $key_count})
+							$log->debug("count_documents on smaller products_tags collection", {key => $key_count})
 								if $log->is_debug();
 							return get_products_collection(
 								get_products_collection_request_parameters($request_ref, {tags => 1}))
