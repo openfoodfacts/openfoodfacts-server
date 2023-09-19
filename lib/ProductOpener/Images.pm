@@ -287,7 +287,7 @@ JS
 	\$([]).selectcrop('init_images', [
 		$images
 	]);
-	\$(".select_crop").selectcrop('init', {img_path : "/images/products/$path/"});
+	\$(".select_crop").selectcrop('init', {img_path : "//images.$server_domain/images/products/$path/"});
 	\$(".select_crop").selectcrop('show');
 
 HTML
@@ -1808,21 +1808,21 @@ sub display_image ($product_ref, $id_lc, $size) {
 				# add srcset with 2x image only if the 2x image exists
 				my $srcset = '';
 				if (defined $product_ref->{images}{$id}{sizes}{$display_size}) {
-					$srcset = "srcset=\"/images/products/$path/$id.$rev.$display_size.jpg 2x\"";
+					$srcset = "srcset=\"$images_subdomain/images/products/$path/$id.$rev.$display_size.jpg 2x\"";
 				}
 
 				$html .= <<HTML
-<img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
+<img class="hide-for-xlarge-up" src="$images_subdomain/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
 HTML
 					;
 
 				$srcset = '';
 				if (defined $product_ref->{images}{$id}{sizes}{$zoom_size}) {
-					$srcset = "srcset=\"/images/products/$path/$id.$rev.$zoom_size.jpg 2x\"";
+					$srcset = "srcset=\"$images_subdomain/images/products/$path/$id.$rev.$zoom_size.jpg 2x\"";
 				}
 
 				$html .= <<HTML
-<img class="show-for-xlarge-up" src="/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
+<img class="show-for-xlarge-up" src="$images_subdomain/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
 HTML
 					;
 
@@ -1830,7 +1830,8 @@ HTML
 
 					my $title = lang($id . '_alt');
 
-					my $full_image_url = "/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
+					my $full_image_url
+						= "$images_subdomain/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
 					my $representative_of_page = '';
 					if ($id eq 'front') {
 						$representative_of_page = 'true';
@@ -1863,7 +1864,7 @@ HTML
 			else {
 				# jquery mobile for Cordova app
 				$html .= <<HTML
-<img src="/images/products/$path/$id.$rev.$size.jpg" width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />
+<img src="$images_subdomain/images/products/$path/$id.$rev.$size.jpg" width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />
 HTML
 					;
 			}
@@ -2001,7 +2002,7 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 	}
 
 	my $image = "$www_root/images/products/$path/$filename.full.jpg";
-	my $image_url = format_subdomain('static') . "/images/products/$path/$filename.full.jpg";
+	my $image_url = "$images_subdomain/images/products/$path/$filename.full.jpg";
 
 	my $text;
 
