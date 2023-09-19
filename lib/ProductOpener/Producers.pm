@@ -548,7 +548,7 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 		my @values = ();
 		foreach my $field (@$output_headers_ref, @$extra_output_headers_ref) {
 			push @values, $product_ref->{$field};
-			print STDERR "$field - $product_ref->{$field} . \n";
+			#print STDERR "$field - $product_ref->{$field} . \n";
 		}
 
 		$csv_out->print($out, [@values]);

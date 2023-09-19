@@ -115,6 +115,10 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Wprowadź nazwę swojej organizacji (nazwę firmy lub markę)."
 
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr ""
+
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 msgstr "To konto jest profesjonalnym kontem powiązanym z producentem lub marką {org}. Masz dostęp do Platformy dla Producentów."
@@ -975,6 +979,10 @@ msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr "Szczegóły zdjęcia i informacje o autorze"
 
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr ""
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Dodane produkty, które należy uzupełnić"
@@ -1094,7 +1102,7 @@ msgstr "Dostępny w Google Play"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/pl/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2282,7 +2290,7 @@ msgstr "Zobacz stronę produktu"
 
 msgctxt "re_edit_product_page"
 msgid "Edit the product again"
-msgstr ""
+msgstr "Edytuj produkt ponownie"
 
 msgctxt "select_country"
 msgid "Country"
@@ -2322,7 +2330,7 @@ msgstr "Jeżeli tabela wartości odżywczych zawiera wartości dla przygotowaneg
 
 msgctxt "serving_too_small_for_nutrition_analysis"
 msgid "Serving size is too small (5 g / 5 ml or less) to calculate 100 g / 100 ml values and perform any further nutritional analysis"
-msgstr ""
+msgstr "Wielkość porcji jest zbyt mała (5 g / 5 ml lub mniej), aby obliczyć wartości na 100 g / 100 ml i przeprowadzić dalszą analizę wartości odżywczych"
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2893,11 +2901,11 @@ msgstr "Ryzyko nadmiernej ekspozycji"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "Europejski Urząd ds. Bezpieczeństwa Żywności (EFSA) ustalił, że w niektórych grupach populacji istnieje wysokie ryzyko osiągnięcia lub przekroczenia dopuszczalnego dziennego spożycia (ADI) dla <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "Europejski Urząd ds. Bezpieczeństwa Żywności (EFSA) ustalił, że w niektórych grupach populacji istnieje umiarkowane ryzyko osiągnięcia lub przekroczenia dopuszczalnego dziennego spożycia (ADI) dla <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -2925,7 +2933,7 @@ msgstr "Brak lub bardzo niskie ryzyko nadmiernego narażenia"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of reaching or exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Ryzyko osiągnięcia lub przekroczenia dopuszczalnego dziennego spożycia (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of reaching exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
@@ -2949,7 +2957,7 @@ msgstr "Grupy, których ponad 5% członków przekracza maksymalną dawkę bez ne
 
 msgctxt "exposure_title_95th"
 msgid "Moderate risk"
-msgstr ""
+msgstr "Umiarkowane ryzyko"
 
 msgctxt "exposure_description_95th"
 msgid "5% of people or more"
@@ -2957,7 +2965,7 @@ msgstr ""
 
 msgctxt "exposure_title_mean"
 msgid "High risk"
-msgstr ""
+msgstr "Wysokie ryzyko"
 
 msgctxt "exposure_description_mean"
 msgid "50% of people or more"
@@ -5896,23 +5904,23 @@ msgstr "Zdrowie"
 
 msgctxt "contribution_panel_title"
 msgid "Contribution"
-msgstr ""
+msgstr "Wkład"
 
 msgctxt "contribution_navigation"
 msgid "Contribution"
-msgstr ""
+msgstr "Wkład"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
-msgstr ""
+msgstr "Wykryte błędy"
 
 msgctxt "data_quality_errors_panel_subtitle"
 msgid "Help us improve quality of our data by contributing fixes"
-msgstr ""
+msgstr "Pomóż nam poprawić jakość naszych danych, dostarczając poprawki"
 
 msgctxt "data_quality_warnings_panel_title"
 msgid "Potential issues"
-msgstr ""
+msgstr "Potencjalne problemy"
 
 msgctxt "data_quality_warnings_panel_subtitle"
 msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
@@ -6182,12 +6190,12 @@ msgstr ""
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
-msgstr ""
+msgstr "Dodaj podstawowe informacje"
 
 # this is not used yet
 msgctxt "action_add_portion_size"
 msgid "Add portion size"
-msgstr ""
+msgstr "Dodaj wielkość porcji"
 
 # this is not used yet
 msgctxt "action_add_ingredients_image"
@@ -6202,7 +6210,7 @@ msgstr "Zrób zdjęcie wartości odżywczych"
 # this is not used yet
 msgctxt "action_refresh_ingredients_image"
 msgid "Refresh the photo of the ingredients"
-msgstr ""
+msgstr "Odśwież zdjęcie składników"
 
 # this is not used yet
 msgctxt "action_refresh_nutrition_image"
@@ -6327,12 +6335,12 @@ msgstr "Dopasowane do Twoich preferencji"
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_join_us_on_slack"
 msgid "Join us on <a href=\"{url}\">Slack</a>"
-msgstr ""
+msgstr "Dołącz do nas na <a href=\"{url}\">Slack</a>"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_discover_our_code_of_conduct"
 msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
-msgstr ""
+msgstr "Poznaj nasz <a href=\"{url}\">Kodeks postępowania</a>"
 
 # {links} must not be translated, it will be replaced by icons and/or text links
 msgctxt "f_footer_follow_us_links"
@@ -6381,15 +6389,15 @@ msgstr "Produkt nie został znaleziony"
 
 msgctxt "api_result_product_updated"
 msgid "Product updated"
-msgstr ""
+msgstr "Produkt zaktualizowany"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
-msgstr ""
+msgstr "Nieprawidłowa akcja API"
 
 msgctxt "api_message_invalid_api_method"
 msgid "Invalid API method"
-msgstr ""
+msgstr "Nieprawidłowa metoda API"
 
 msgctxt "api_message_empty_request_body"
 msgid "Empty request body"
@@ -6516,7 +6524,7 @@ msgstr ""
 
 msgctxt "add_products"
 msgid "Add products"
-msgstr "Dodaj produkty"
+msgstr "Dodawaj produkty"
 
 # Needs to be short (displayed in a menu)
 msgctxt "install_the_app_to_add_products"
@@ -6525,7 +6533,7 @@ msgstr ""
 
 msgctxt "search_and_analyze_products"
 msgid "Search and analyze products"
-msgstr ""
+msgstr "Wyszukaj i analizuj produkty"
 
 msgctxt "resources"
 msgid "Resources"
@@ -6546,6 +6554,14 @@ msgstr ""
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
+msgstr "Wprowadź wartość pomiędzy 0 a {max}."
+
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr ""
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
 msgstr ""
 
 msgctxt "product_js_sugars_warning"
@@ -6558,19 +6574,19 @@ msgstr ""
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
-msgstr ""
+msgstr "Materiały opakowania"
 
 msgctxt "packaging_weight_total"
 msgid "Packaging weight"
-msgstr ""
+msgstr "Waga opakowania"
 
 msgctxt "packaging_weight_100g"
 msgid "Packaging weight per 100 g of product"
-msgstr ""
+msgstr "Waga opakowania na 100 g produktu"
 
 msgctxt "packaging_weight_100g_mean"
 msgid "Mean packaging weight per 100 g of product"
-msgstr ""
+msgstr "Średnia waga opakowania na 100 g produktu"
 
 msgctxt "total"
 msgid "Total"
@@ -6578,21 +6594,45 @@ msgstr ""
 
 msgctxt "packaging_material_products_percent"
 msgid "% of products containing the material"
-msgstr ""
+msgstr "proc. produktów zawierających ten materiał"
 
 msgctxt "packaging_material_products_percent_main"
 msgid "% of products containing mostly the material"
-msgstr ""
+msgstr "proc. produktów zawierających głównie dany materiał"
 
 msgctxt "relative_to_products_containing_the_material"
 msgid "for products that contain the material"
-msgstr ""
+msgstr "dla produktów zawierających ten materiał"
 
 msgctxt "relative_to_products_containing_mostly_the_material"
 msgid "for products that contain mostly the material"
-msgstr ""
+msgstr "dla produktów zawierających głównie ten materiał"
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
+msgstr ""
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr ""
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr ""
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr "Wszystkie materiały"
+
+msgctxt "weight"
+msgid "Weight"
+msgstr "Waga"
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr ""
+
+msgctxt "weight_percent"
+msgid "Weight percent"
 msgstr ""
 

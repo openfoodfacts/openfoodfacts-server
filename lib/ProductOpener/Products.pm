@@ -1479,6 +1479,8 @@ sub compute_data_sources ($product_ref, $changes_ref) {
 	if (defined $product_ref->{sources}) {
 		foreach my $source_ref (@{$product_ref->{sources}}) {
 
+			next if not defined $source_ref->{id};
+
 			if ($source_ref->{id} eq 'casino') {
 				$data_sources{"Producers"} = 1;
 				$data_sources{"Producer - Casino"} = 1;

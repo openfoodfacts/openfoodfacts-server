@@ -69,7 +69,7 @@ foreach my $test_ref (@tests) {
 # test the estimate percent of milk
 
 @tests = (
-	[{lc => "fr", ingredients_text => ""}, 0],
+	[{lc => "fr", ingredients_text => ""}, undef],
 	[{lc => "fr", ingredients_text => "lait"}, 100],
 	[{lc => "fr", ingredients_text => "lait entier"}, 100],
 	[{lc => "fr", ingredients_text => "lait frais"}, 100],
@@ -89,7 +89,7 @@ foreach my $test_ref (@tests) {
 
 	extract_ingredients_from_text($product_ref);
 
-	is(estimate_milk_percent_from_ingredients($product_ref), $expected_milk)
+	is(estimate_nutriscore_2021_milk_percent_from_ingredients($product_ref), $expected_milk)
 		or diag explain $product_ref->{ingredients};
 }
 
