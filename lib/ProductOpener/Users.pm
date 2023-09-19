@@ -331,9 +331,9 @@ sub check_user_org ($user_ref, $new_org_id) {
 }
 
 sub is_suspicious_name ($value) {
-	# email or xxx.nunsrt
-	my $email_re = qr/^[\w_.+]+(?:@[\w._+]+)?$/;
-	my $invite_re = qr/(?:click here|wants to meet you|:\/\/|\.\w{2,3}\b)/i;
+	# email or xxx.nunsrt are ok
+	my $email_re = qr/^[\w.+-]+(?:@[\w.+-]+)?$/;
+	my $invite_re = qr/(?:click here|wants to meet you|:\/\/|\.[a-z]{2,3}\b)/i;
 	return ((defined $value) and ($value =~ $invite_re) and (not $value =~ $email_re));
 }
 
