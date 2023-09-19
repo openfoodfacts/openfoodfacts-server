@@ -77,7 +77,7 @@ foreach my $userid (@userids) {
 
 	my $user_ref = retrieve("$data_root/users/$userid");
 
-	if ((defined $user_ref) and (is_supsicious_name($user_ref->{name}))) {
+	if ((defined $user_ref) and (is_suspicious_name($user_ref->{name}))) {
 		print $user_ref->{name} . "\n";
 		push @emails_to_delete, $user_ref->{email};
 		eval {print $jsonl_file $json->encode($user_ref) . "\n";};
