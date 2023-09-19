@@ -287,7 +287,7 @@ JS
 	\$([]).selectcrop('init_images', [
 		$images
 	]);
-	\$(".select_crop").selectcrop('init', {img_path : "/images/products/$path/"});
+	\$(".select_crop").selectcrop('init', {img_path : "//images.$server_domain/images/products/$path/"});
 	\$(".select_crop").selectcrop('show');
 
 HTML
