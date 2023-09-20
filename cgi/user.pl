@@ -125,6 +125,15 @@ if (($action eq "display") or ($action eq "none")) {
 
 if ($action eq 'display') {
 
+	if ($server_domain =~ /\.org\b/) {
+		# in production, temporarily redirect to open food facts
+		my $location = "https://$cc-$lc.openfoodfacts.org/cgi/user.pl";
+		my $r = shift;
+		$r->headers_out->set(Location =>$location);
+		$r->status(307);
+		return 307;
+	}
+
 	$scripts .= <<SCRIPT
 SCRIPT
 ;
@@ -172,10 +181,18 @@ SCRIPT
 elsif ($action eq 'process') {
 
 	my $dialog = '_user_confirm';
-	if (($type eq 'add') or ($type =~ /^edit/)) {
+	if (($server_domain =~ /\.org\b/) and ($type eq 'add')) {
+		# in production, temporarily redirect to open food facts
+		my $location = "https://$cc-$lc.openfoodfacts.org/cgi/user.pl";
+		my $r = shift;
+		$r->headers_out->set(Location =>$location);
+		$r->status(307);
+		return 307;
+	}
+	elsif (($type eq 'add') or ($type =~ /^edit/)) {
 		if ( ProductOpener::Users::process_user_form($user_ref) ) {
-            $dialog = '_user_confirm_no_mail';
-        }
+			$dialog = '_user_confirm_no_mail';
+        	}
 	}
 	elsif ($type eq 'delete') {
 		ProductOpener::Users::delete_user($user_ref);
