@@ -4722,7 +4722,7 @@ my %ingredients_categories_and_types = (
 			]
 		],
 		# peppers
-		[["piment",], ["vert", "jaune", "rouge",], 0,],
+		[["piment", "poivron"], ["vert", "jaune", "rouge",], 0,],
 	],
 
 	pl => [
