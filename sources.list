@@ -1,0 +1,8 @@
+deb http://archive.debian.org/debian/ stretch main non-free contrib
+deb-src http://archive.debian.org/debian/ stretch main non-free contrib
+deb http://archive.debian.org/debian-security/ stretch/updates main non-free contrib
+deb-src http://archive.debian.org/debian-security/ stretch/updates main non-free contrib
+deb http://archive.debian.org/debian/ stretch-proposed-updates main contrib non-free
+deb-src http://archive.debian.org/debian/ stretch-proposed-updates main contrib non-free
+deb http://archive.debian.org/debian/ stretch-backports-sloppy main contrib non-free
+deb-src http://archive.debian.org/debian/ stretch-backports-sloppy main contrib non-free

@@ -5,11 +5,114 @@ ARG USER_GID=1000
 # options for cpan installs
 ARG CPANMOPTS=
 
+FROM debian:stretch as stretchy
+ADD sources.list /etc/apt/sources.list
+
+FROM stretchy AS hacky
+
+ARG ZXING_VERSION=2.1.0
+
+# Add prerequisites for Imager::zxing
+RUN set -x && \
+    apt update && \
+    apt install -y \
+        debian-archive-keyring && \
+    apt install -y \
+        cpanminus \
+        build-essential \
+        cmake \
+        pkg-config \
+        g++ \
+        gcc \
+        libde265-dev \
+        libjpeg-dev \
+        libpng-dev \
+        libwebp-dev \
+        libx265-dev
+
+# Add files to make this a Frankenstein image: Mostly from buster or buster-backports
+ADD http://security.debian.org/debian-security/pool/updates/main/g/glibc/libc6_2.28-10+deb10u2_amd64.deb /tmp
+ADD http://security.debian.org/debian-security/pool/updates/main/c/curl/libcurl4_7.64.0-4+deb10u6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/r/rhash/librhash0_1.3.8-1_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/libu/libuv1/libuv1_1.24.1-1+deb10u1_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/e/e2fsprogs/libcom-err2_1.44.5-1+deb10u3_amd64.deb /tmp
+ADD http://security.debian.org/debian-security/pool/updates/main/k/krb5/libgssapi-krb5-2_1.17-3+deb10u5_amd64.deb /tmp
+ADD http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.1_1.1.1n-0+deb10u6_amd64.deb /tmp
+ADD http://security.debian.org/debian-security/pool/updates/main/k/krb5/libk5crypto3_1.17-3+deb10u5_amd64.deb /tmp
+ADD http://security.debian.org/debian-security/pool/updates/main/k/krb5/libkrb5-3_1.17-3+deb10u5_amd64.deb /tmp
+ADD http://security.debian.org/debian-security/pool/updates/main/k/krb5/libkrb5support0_1.17-3+deb10u5_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/c/cmake/cmake-data_3.18.4-2+deb11u1~bpo10+1_all.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/c/cmake/cmake_3.18.4-2+deb11u1~bpo10+1_amd64.deb /tmp
+ADD http://security.debian.org/debian-security/pool/updates/main/liba/libarchive/libarchive13_3.3.3-4+deb10u3_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/libz/libzstd/libzstd1_1.3.8+dfsg-3+deb10u2_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-defaults/cpp_8.3.0-1_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/g++-8_8.3.0-6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-defaults/gcc_8.3.0-1_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/gcc-8_8.3.0-6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-defaults/g++_8.3.0-1_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/cpp-8_8.3.0-6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/m/mpclib3/libmpc3_1.1.0-1_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/m/mpfr4/libmpfr6_4.0.2-1_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/i/isl/libisl19_0.20-2_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/gcc-8-base_8.3.0-6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/libcc1-0_8.3.0-6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/b/binutils/binutils_2.31.1-16_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/b/binutils/libbinutils_2.31.1-16_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/b/binutils/binutils-common_2.31.1-16_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/b/binutils/binutils-x86-64-linux-gnu_2.31.1-16_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/libgcc-8-dev_8.3.0-6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/libgcc1_8.3.0-6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/libgomp1_8.3.0-6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/libitm1_8.3.0-6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/libatomic1_8.3.0-6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/libasan5_8.3.0-6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/liblsan0_8.3.0-6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/libtsan0_8.3.0-6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/libubsan1_8.3.0-6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/libmpx2_8.3.0-6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/libquadmath0_8.3.0-6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/libstdc++-8-dev_8.3.0-6_amd64.deb /tmp
+ADD http://ftp.de.debian.org/debian/pool/main/g/gcc-8/libstdc++6_8.3.0-6_amd64.deb /tmp
+
+# Install the deps
+RUN set -x && \
+    # The first iteration will install a bunch, but fails,
+    dpkg -i --auto-deconfigure /tmp/*.deb ; \
+    # so clean up the conflict,
+    dpkg -r libcomerr2 ; \
+    # and do another run, which will then succeed.
+    dpkg -i --auto-deconfigure /tmp/*.deb
+
+# Add zxing-cpp source, and our cmake patch to enable CPack DEB.
+ADD https://github.com/zxing-cpp/zxing-cpp/archive/refs/tags/v${ZXING_VERSION}.tar.gz /tmp
+ADD zxing.patch /tmp
+
+# Compile zxing-cpp, and a .deb package from that.
+RUN set -x && \
+    cd /tmp && \
+    tar xfz v${ZXING_VERSION}.tar.gz && \
+    patch zxing-cpp-${ZXING_VERSION}/zxing.cmake /tmp/zxing.patch && \
+    cmake -S zxing-cpp-${ZXING_VERSION} -B zxing-cpp.release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DBUILD_WRITERS=OFF -DBUILD_READERS=ON -DBUILD_EXAMPLES=OFF && \
+    cmake --build zxing-cpp.release -j8 && \
+    cd zxing-cpp.release && \
+    cpack -G DEB && \
+    cd /tmp
+
+# Install the .deb package, and install Imager::* modules to /tmp/local
+RUN set -x && \
+    dpkg -i /tmp/zxing-cpp-${ZXING_VERSION}/_packages/zxing_${ZXING_VERSION}_amd64.deb && \
+    cpanm  --notest --quiet --skip-satisfied --local-lib /tmp/local/ Imager::zxing Imager::File::JPEG Imager::File::PNG Imager::File::WEBP
+
 ######################
 # Base modperl image stage
 ######################
-FROM debian:bullseye AS modperl
+FROM stretchy AS modperl
+ARG ZXING_VERSION=2.1.0
 
+ADD sources.list /etc/apt/sources.list
 # Install cpm to install cpanfile dependencies
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
     apt update && \
@@ -57,7 +160,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libtemplate-perl \
         liburi-escape-xs-perl \
         # NB: not available in ubuntu 1804 LTS:
-        libmath-random-secure-perl \
+#        libmath-random-secure-perl \
         libfile-copy-recursive-perl \
         libemail-stuffer-perl \
         liblist-moreutils-perl \
@@ -67,7 +170,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         liblog-log4perl-perl \
         liblog-any-adapter-log4perl-perl \
         # NB: not available in ubuntu 1804 LTS:
-        libgeoip2-perl \
+#        libgeoip2-perl \
         libemail-valid-perl \
         #
         # cpan dependencies that can be satisfied by apt even if the package itself can't:
@@ -85,7 +188,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libtest-exception-perl \
         # Data::Dumper::AutoEncode
         # NB: not available in ubuntu 1804 LTS:
-        libmodule-build-pluggable-perl \
+#        libmodule-build-pluggable-perl \
         libclass-accessor-lite-perl \
         # DateTime
         libclass-singleton-perl \
@@ -117,7 +220,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         # Locale::Maketext::Lexicon::Getcontext
         liblocale-maketext-lexicon-perl \
         # Log::Any::Adapter::TAP
-        liblog-any-adapter-tap-perl \
+#        liblog-any-adapter-tap-perl \
         # Math::Random::Secure
         libcrypt-random-source-perl \
         libmath-random-isaac-perl \
@@ -128,7 +231,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         # MongoDB
         libauthen-sasl-saslprep-perl \
         libauthen-scram-perl \
-        libbson-perl \
+#        libbson-perl \
         libclass-xsaccessor-perl \
         libconfig-autoconf-perl \
         libdigest-hmac-perl \
@@ -149,27 +252,19 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         cmake \
         pkg-config \
         # Imager::zxing - decoders
-        libavif-dev \
+#        libavif-dev \
         libde265-dev \
-        libheif-dev \
+#        libheif-dev \
         libjpeg-dev \
         libpng-dev \
         libwebp-dev \
         libx265-dev
 
-# Install zxing-cpp from source until 2.1 or higher is available in Debian: https://github.com/openfoodfacts/openfoodfacts-server/pull/8911/files#r1322987464
+# Install custom zxing
+COPY --from=hacky /tmp/zxing-cpp-${ZXING_VERSION}/_packages/zxing_${ZXING_VERSION}_amd64.deb /tmp
 RUN set -x && \
-    cd /tmp && \
-    wget https://github.com/zxing-cpp/zxing-cpp/archive/refs/tags/v2.1.0.tar.gz && \
-    tar xfz v2.1.0.tar.gz && \
-    cmake -S zxing-cpp-2.1.0 -B zxing-cpp.release \
-    -DCMAKE_INSTALL_PREFIX=/usr \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DBUILD_WRITERS=OFF -DBUILD_READERS=ON -DBUILD_EXAMPLES=OFF && \
-    cmake --build zxing-cpp.release -j8 && \
-    cmake --install zxing-cpp.release && \
-    cd / && \
-    rm -rf /tmp/v2.1.0.tar.gz /tmp/zxing-cpp*
+    dpkg -i /tmp/zxing_2.1.0_amd64.deb && \
+    rm /tmp/zxing_2.1.0_amd64.deb
 
 # Run www-data user as host user 'off' or developper uid
 ARG USER_UID
@@ -177,7 +272,18 @@ ARG USER_GID
 RUN usermod --uid $USER_UID www-data && \
     groupmod --gid $USER_GID www-data
 
+######################
+# Stage for installing/compiling cpanfile dependencies
+######################
+FROM modperl AS test
+ARG CPANMOPTS
+WORKDIR /tmp
 
+# Install Product Opener from the workdir.
+COPY ./cpanfile* /tmp/
+
+# Add pre-compiled Perl modules for Imager::zxing
+COPY --from=hacky /tmp/local/ /tmp/local/
 ######################
 # Stage for installing/compiling cpanfile dependencies
 ######################
