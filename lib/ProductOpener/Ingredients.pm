@@ -4891,7 +4891,6 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				$text
 					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 			}
-			# $categories_and_types_ref_index += 1;
 		}
 
 		# Some additives have "et" in their name: need to recombine them
