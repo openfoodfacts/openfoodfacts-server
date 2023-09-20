@@ -11,7 +11,7 @@ export PERL5LIB=lib:$PERL5LIB
 # load paths
 . <(perl -e 'use ProductOpener::Paths qw/:all/; print base_paths_loading_script()')
 
-if [[ -z "OFF_SFTP_HOME_DIR" ]]
+if [[ -z "$OFF_SFTP_HOME_DIR" ]]
 then
     >&2 echo "SFTP_HOME not defined, exiting"
     exit 10
