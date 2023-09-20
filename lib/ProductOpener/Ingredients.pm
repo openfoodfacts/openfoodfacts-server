@@ -4796,7 +4796,6 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 
 	if (defined $ingredients_categories_and_types{$ingredients_lc}) {
 
-		# my $categories_and_types_ref_index = 0;
 		foreach my $categories_and_types_ref (@{$ingredients_categories_and_types{$ingredients_lc}}) {
 
 			my $category_regexp = "";
