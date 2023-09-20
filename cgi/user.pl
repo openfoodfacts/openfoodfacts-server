@@ -126,6 +126,15 @@ $log->debug("user form - before display / process", { type => $type, action => $
 
 if ($action eq 'display') {
 
+	if ($server_domain =~ /\.org\b/) {
+		# in production, temporarily redirect to open food facts
+		my $location = "https://$cc-$lc.openfoodfacts.org/cgi/user.pl";
+		my $r = shift;
+		$r->headers_out->set(Location =>$location);
+		$r->status(307);
+		return 307;
+	}
+
 	$scripts .= <<SCRIPT
 SCRIPT
 ;
@@ -159,7 +168,15 @@ SCRIPT
 }
 elsif ($action eq 'process') {
 
-	if (($type eq 'add') or ($type =~ /^edit/)) {
+	if (($server_domain =~ /\.org\b/) and ($type eq 'add')) {
+		# in production, temporarily redirect to open food facts
+		my $location = "https://$cc-$lc.openfoodfacts.org/cgi/user.pl";
+		my $r = shift;
+		$r->headers_out->set(Location =>$location);
+		$r->status(307);
+		return 307;
+	}
+	elsif (($type eq 'add') or ($type =~ /^edit/)) {
 		ProductOpener::Users::process_user_form($type, $user_ref);
 	}
 	elsif ($type eq 'delete') {
