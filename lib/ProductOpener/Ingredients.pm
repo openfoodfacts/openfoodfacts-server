@@ -6040,16 +6040,44 @@ sub extract_ingredients_classes_from_text ($product_ref) {
 			= $product_ref->{ingredients_that_may_be_from_palm_oil_n} + $product_ref->{ingredients_from_palm_oil_n};
 	}
 
+	# Determine if the product has sweeteners, and non nutritive sweeteners
+	determine_if_the_product_contains_sweeteners($product_ref);
+
+	return;
+}
+
+=head2 determine_if_the_product_contains_sweeteners
+
+Check if the product contains sweeteners and non nutritive sweeteners (used for the Nutri-Score for beverages)
+
+The NNS / Non nutritive sweeteners listed in the Nutri-Score Update report beverages_31 01 2023-voted
+have been added as a non_nutritive_sweetener:en:yes property in the additives taxonomy.
+
+=cut
+
+sub determine_if_the_product_contains_sweeteners ($product_ref) {
+
 	delete $product_ref->{with_sweeteners};
-	if (defined $product_ref->{'additives_tags'}) {
-		foreach my $additive (@{$product_ref->{'additives_tags'}}) {
-			my $e = $additive;
-			$e =~ s/\D//g;
-			if (($e >= 950) and ($e <= 968)) {
-				$product_ref->{with_sweeteners} = 1;
-				last;
-			}
-		}
+	delete $product_ref->{with_non_nutritive_sweeteners};
+
+	if (
+		get_matching_regexp_property_from_tags(
+			'additives', $product_ref->{'additives_tags'},
+			'additives_classes:en', 'sweetener'
+		)
+		)
+	{
+		$product_ref->{with_sweeteners} = 1;
+	}
+
+	if (
+		get_matching_regexp_property_from_tags(
+			'additives', $product_ref->{'additives_tags'},
+			'non_nutritive_sweetener:en', 'yes'
+		)
+		)
+	{
+		$product_ref->{with_non_nutritive_sweeteners} = 1;
 	}
 
 	return;
@@ -6422,8 +6450,8 @@ sub add_ingredients_matching_function ($ingredients_ref, $match_function_ref) {
 			if (defined $ingredient_ref->{percent}) {
 				$count += $ingredient_ref->{percent};
 			}
-			elsif (defined $ingredient_ref->{percent_min}) {
-				$count += $ingredient_ref->{percent_min};
+			elsif (defined $ingredient_ref->{percent_estimate}) {
+				$count += $ingredient_ref->{percent_estimate};
 			}
 			# We may not have percent_min if the ingredient analysis failed because of seemingly impossible values
 			# in that case, try to get the possible percent values in nested sub ingredients
@@ -6441,7 +6469,7 @@ sub add_ingredients_matching_function ($ingredients_ref, $match_function_ref) {
 
 =head2 estimate_ingredients_matching_function ( $product_ref, $match_function_ref, $nutrient_id = undef )
 
-This function analyzes the ingredients to estimate the minimum percentage of ingredients of a specific type
+This function analyzes the ingredients to estimate the percentage of ingredients of a specific type
 (e.g. fruits/vegetables/legumes for the Nutri-Score).
 
 =head3 Parameters
@@ -6458,7 +6486,7 @@ If the $nutrient_id argument is defined, we also store the nutrient value in $pr
 
 =head3 Return value
 
-Minimum percentage of ingredients matching the function.
+Estimated percentage of ingredients matching the function.
 
 =cut
 

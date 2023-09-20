@@ -2,7 +2,7 @@
 #
 # EU list of additives:
 #
-# http://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02008R1333-20141106&rid=1
+# https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02008R1333-20230720
 # Annex 2 REGULATION (EC) No 1333/2008 OF THE EUROPEAN PARLIAMENT AND OF THE
 # COUNCIL
 # of 16 December 2008
@@ -2192,7 +2192,7 @@ vegan:en:yes
 vegetarian:en:yes
 
 
-en:E160b, Annatto, bixin, norbixin, roucou, achiote, annatto norbixin, annatto bixin
+en:E160b, Annatto, bixin, norbixin, roucou, achiote, annatto norbixin, annatto bixin, Orlean, Terre orellana, L. Orange, CI Natural Orange 4
 ar:E160b, أناتو
 bg:E160b, Анато, биксин, норбиксин (i), БИКСИН И НОРБИКСИН
 ca:E160b, Arxiota, Bixina, norbixina de bixa, norbixina
@@ -2240,6 +2240,19 @@ organic_eu:en:authorized
 vegan:en:yes
 vegetarian:en:yes
 # comment:en:E160b can be consumed by all religious groups, vegans and vegetarians.
+
+<en:E160b
+en:E160b(i), Annatto bixin, Bixin
+xx:E160b(i)
+e_number:en:160b
+additives_classes:en: en:colour
+
+<en:E160b
+en:E160b(ii), Annatto norbixin, Norbixin
+xx:E160b(ii)
+e_number:en:160b
+additives_classes:en: en:colour
+
 
 en:E160c, Paprika extract, capsanthin, capsorubin, Paprika oleoresin
 bg:E160c, Паприка екстракт, капсантин, капсорубин
@@ -5303,6 +5316,10 @@ additives_classes:en:en:preservative
 vegan:en:yes
 vegetarian:en:yes
 
+en:E246, Glycolipids
+xx:E246
+e_number:en:246
+
 en:E249, Potassium nitrite
 bg:E249, Калиев нитрит
 ca:E249, Nitrit de potassi
@@ -7695,6 +7712,10 @@ e_number:en:322
 wikidata:en:Q241595
 additives_classes:en: en:antioxidant, en:emulsifier
 organic_eu:en:authorized
+
+en:E322a, Oat lecithin
+xx:E322a
+e_number:en:322a
 
 en:E323, E323 food additive
 bg:E323, E323 food additive
@@ -21792,6 +21813,7 @@ vegetarian:en:yes
 # description:en:ACESULFAME POTASSIUM, also known as acesulfame K (K is the symbol for potassium) or Ace K, is a calorie-free sugar substitute (artificial sweetener) often marketed under the trade names Sunett and Sweet One.
 wikipedia:en:https://en.wikipedia.org/wiki/Acesulfame_potassium
 # ingredient/fr:acésulfame-k has 1285 products in 11 languages @2019-03-24
+non_nutritive_sweetener:en:yes
 
 
 en:E951, Aspartame, 1-Methyl N-L-alpha-aspartyl-L-phenylalanine, Asp-phe-ome, 3-Amino-N-(alpha-methoxycarbonylphenethyl) succinamic acid, 3-Amino-N-(α-carboxyphenethyl)succinamic acid N-methyl ester, L-Aspartyl-L-phenylalanine methyl ester, 1-methyl N-L-α-aspartyl-L-phenylalanate, Aspartylphenylalanine methyl ester, 3-Amino-N-(alpha-carboxyphenethyl)succinamic acid N-methyl ester, 3-Amino-N-(α-methoxycarbonylphenethyl) succinamic acid, 1-Methyl N-L-alpha-aspartyl-L-phenylalanate
@@ -21868,8 +21890,9 @@ vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Aspartame
 # ingredient/fr:e951 has 59 products @2019-03-24
 # additive/e951-aspartame has 3046 products in 23 languages @2019-03-24
+non_nutritive_sweetener:en:yes
 
-en:E952, Cyclamic acid and its Na and Ca salts, Cyclamic acid, sodium cyclamate
+en:E952, Cyclamic acid and its Na and Ca salts, Cyclamic acid, sodium cyclamate, cyclamates
 bg:E952, цикламова киселина и нейните натриеви и калиеви соли i
 ca:E952, Àcid ciclàmic i les seves sals de sodi i calci
 cs:E952, Kyselina cyklamová a její sodná a vápenatá sůl
@@ -21916,8 +21939,7 @@ additives_classes:en: en:sweetener
 vegan:en:yes
 vegetarian:en:yes
 # ingredient/fr:cyclamate has 48 products in 4 languages @2019-03-03
-
-
+non_nutritive_sweetener:en:yes
 
 en:E953, isomalt
 af:E953, Isomalt
@@ -21969,7 +21991,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Isomalt
 vegan:en:yes
 vegetarian:en:yes
 description:en:ISOMALT is a sugar substitute, a type of sugar alcohol used primarily for its sugar-like physical properties. It has little to no impact on blood sugar levels, and does not stimulate the release of insulin. Isomalt is widely used for the production of sugar-free candy, especially hard-boiled candy.
-
 
 en:E954, saccharin and its salts, saccharin, saccharin sodium salt, saccharin sodium, sodium saccharin salt, saccharin calcium salt, saccharin calcium, calcium saccharine, saccharin potassium salt, saccharine potassium, potassium saccharine, sodium saccharin
 ar:E954, سكارين
@@ -22044,6 +22065,7 @@ ciqual_food_code:en:31064
 ciqual_food_name:en:Saccharin sweetener
 ciqual_food_name:fr:Édulcorant à la saccharine
 # description:en:Sodium saccharin (benzoic sulfimide) is an artificial sweetener with effectively no food energy.
+non_nutritive_sweetener:en:yes
 
 en:E955, Sucralose
 bg:E955, Сукралоза
@@ -22080,6 +22102,7 @@ efsa_evaluation:en: Safety of the proposed extension of use of sucralose (E 955)
 additives_classes:en: en:sweetener
 vegan:en:yes
 vegetarian:en:yes
+non_nutritive_sweetener:en:yes
 
 en:E956, Alitame
 bg:E956, E956 food additive
@@ -22142,6 +22165,7 @@ efsa_evaluation:en: Scientific Opinion on the safety of the extension of use of 
 additives_classes:en: en:sweetener
 vegan:en:yes
 vegetarian:en:yes
+non_nutritive_sweetener:en:yes
 
 en:E958, Glycyrrhizin
 bg:E958, E958 food additive
@@ -22170,8 +22194,9 @@ e_number:en:958
 wikidata:en:Q418705
 vegan:en:yes
 vegetarian:en:yes
+additives_classes:en: en:sweetener
 
-en:E959, Neohesperidine dihydrochalcone, Neohesperidin dihydrochalcone, E-959 E959
+en:E959, Neohesperidine dihydrochalcone, Neohesperidin dihydrochalcone, Neohesperidine DC, NHDC
 bg:E959, Неохесперидин дихидрохалкон
 ca:E959, Neohesperidina dihidrocalcona, Neohesperidina DC
 cs:E959, Neohesperidin dc, Neohesperidindihydrochalkon, NHDC
@@ -22208,8 +22233,10 @@ vegetarian:en:yes
 # description:en:Neohesperidin dihydrochalcone, sometimes abbreviated to neohesperidin DC or simply NHDC, is an artificial sweetener derived from citrus.
 wikipedia:en:https://en.wikipedia.org/wiki/Neohesperidin_dihydrochalcone
 # ingredient/fr:néohespéridine-dc has 26 products in 3 languages @2019-02-13
+additives_classes:en: en:sweetener
+non_nutritive_sweetener:en:yes
 
-en:E960, Steviol glycosides, Steviol glycoside, stevia rebaudiana extract, stevia leaf extract, steviol, E-960, E 960
+en:E960, Steviol glycosides, Steviol glycoside, stevia rebaudiana extract, stevia leaf extract, steviol
 bg:E960, Стевиол гликозиди, листа от стевия, листа стевия
 ca:E960, Glicòsid d'esteviol
 cs:E960, Steviol-glykosidy
@@ -22236,7 +22263,7 @@ sk:E960, Glykozidy steviolu synonymá
 sl:E960, Steviol glikozidi
 sr:E960, steviol glikozidi
 sv:E960, Steviolglykosider
-ta:சிடீவியால் கிளைகோசைடு
+ta:E960, சிடீவியால் கிளைகோசைடு
 xx:E960
 e_number:en:960
 wikidata:en:Q2805600
@@ -22255,7 +22282,50 @@ wikipedia:en:https://en.wikipedia.org/wiki/Steviol_glycoside
 # additive/e960-steviol-glycosides has 1413 products in 17 languages @2019-04-20
 # ingredient/fr:extrait-de-stevia-rebaudiana has 77 products in 8 languages @2019-04-20
 # usage:fr:édulcorant :glycosides de stéviol (extrait de stevia rebaudiana)
+non_nutritive_sweetener:en:yes
+# E960 was replaced by E960a/c/d. We consider E960 to be a non nutritive sweetener.
 
+en:E960a, Steviol glycosides from Stevia
+de:E960a, Steviolglycoside aus Stevia
+es:E960a, Glucósidos de esteviol procedentes de estevia
+fr:E960a, Glycosides de stéviol issus de Stevia
+it:E960a, Glicosidi steviolici da Stevia
+nl:E960a, Steviolglycosiden uit Stevia
+pt:E960a, Glicosídeos de esteviol provenientes de estévia
+xx:E960a
+e_number:en:960a
+additives_classes:en: en:sweetener
+vegan:en:yes
+vegetarian:en:yes
+non_nutritive_sweetener:en:yes
+
+en:E960b, Rebaudioside from multiple gene donors expressed in Yarrowia lipolityca
+xx:E960b
+e_number:en:960b
+additives_classes:en: en:sweetener
+# only in Codex Alimentarius
+
+en:E960c, Enzymatically produced steviol glycosides
+de:E960c, Enzymatisch hergestellte Steviolglycoside
+es:E960c, Glucósidos de esteviol producidos enzimáticamente
+fr:E960c, Glycosides de stéviol produits par voie enzymatique
+it:E960c, Glicosidi steviolici prodotti enzimaticamente
+nl:E960c, Enzymatisch geproduceerde steviolglycosiden
+pt:E960c, Glicosídeos de esteviol produzidos enzimaticamente
+xx:E960c
+e_number:en:960c
+additives_classes:en: en:sweetener
+
+en:E960d, Glucosylated steviol glycosides
+de:E960d, Glycosylierte Steviolglycoside
+es:E960d, Glucósidos de esteviol glucosilados
+fr:E960d, Glycosides de stéviol glucosylés
+it:E960d, Glicosidi steviolici glucosilati
+nl:E960d, Geglucosyleerde steviolglycosiden
+pt:E960d, Glicosídeos de esteviol glicosilados
+xx:E960d
+e_number:en:960d
+additives_classes:en: en:sweetener
 
 en:E961, Neotame
 bg:E961, Неотам
@@ -22286,6 +22356,7 @@ wikidata:en:Q415698
 additives_classes:en: en:sweetener
 vegan:en:yes
 vegetarian:en:yes
+non_nutritive_sweetener:en:yes
 
 en:E962, Salt of aspartame-acesulfame, Aspartame-acesulfame, Aspartame-acesulfame salt, E-962, E 962
 bg:E962, Сол на аспартам-ацесулфам, Аспартам-ацесулфам
@@ -22322,7 +22393,7 @@ vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Aspartame-acesulfame_salt
 # ingredient/fr:sel-d'aspartame-acésulfame has 15 products in french @2019-04-20
 # additive/e962-salt-of-aspartame-acesulfame has 51 products in 4 languages @2019-04-20
-
+non_nutritive_sweetener:en:yes
 
 en:E963, Tagatose
 bg:E963, Тагатоза
@@ -22382,8 +22453,6 @@ wikidata:en:Q18601425
 additives_classes:en: en:sweetener
 vegan:en:yes
 vegetarian:en:yes
-
-
 
 en:E965, maltitol
 ar:E965, مالتيتول
@@ -22656,6 +22725,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Erythritol
 # ingredient/fr:érythritol has 88 products in 4 languages @2019-04-5
 # additive/e968-erythritol has 662 products in 7 languages @2019-04-05
 
+en:E969, Advantame
+xx:E969
+e_number:en:969
+additives_classes:en: en:sweetener
+non_nutritive_sweetener:en:yes
 
 en:E999, Quillaia extract, Soapbark extract, Quillay bark extract, Panama bark extract, Quillai extract, Murillo bark extract, Quillaia
 bg:E999, Куилая екстракт
@@ -23294,6 +23368,32 @@ efsa_evaluation_date:en: 2016-05-27
 efsa_evaluation:en: Safety of the proposed amendment of the specifications for basic methacrylate copolymer (E 1205) as a food additive
 vegan:en:yes
 vegetarian:en:yes
+
+en:E1206, Neutral methacrylate copolymer
+fr:Copolymère de méthacrylate neutre
+xx:E1206
+e_number:en:1206
+
+en:E1207, Anionic methacrylate copolymer
+fr:Copolymère de méthacrylate anionique
+xx:E1207
+e_number:en:1207
+
+en:E1208, Polyvinylpyrrolidone-vinyl acetate copolymer
+fr:Copolymère d’acétate de vinyle et de polyvinylpyrrolidone
+xx:E1208
+e_number:en:1208
+
+en:E1209, Polyvinyl alcohol-polyethylene glycol-graft-co-polymer
+fr:Copolymère greffé d'alcool polyvinylique et de polyéthylèneglycol
+xx:E1209
+e_number:en:1209
+
+en:E1210, Carbomer
+fr:Carbomère
+xx:E1210
+e_number:en:1210
+
 
 en:E1400, Dextrin
 ar:E1400, دكسترين

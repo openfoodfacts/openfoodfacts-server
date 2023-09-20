@@ -648,15 +648,15 @@
          "nutrient_levels" : {},
          "nutrient_levels_tags" : [],
          "nutriments" : {
-            "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 50,
-            "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 50,
-            "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50,
-            "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 50,
+            "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 75,
+            "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 75,
+            "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 75,
+            "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 75,
             "nova-group" : 1,
             "nova-group_100g" : 1,
             "nova-group_serving" : 1,
-            "nutrition-score-fr" : -1,
-            "nutrition-score-fr_100g" : -1
+            "nutrition-score-fr" : -2,
+            "nutrition-score-fr_100g" : -2
          },
          "nutriments_estimated" : {
             "alcohol_100g" : 0,
@@ -715,15 +715,15 @@
                   "fiber" : 0.975,
                   "fiber_points" : 1,
                   "fiber_value" : 0.98,
-                  "fruits_vegetables_nuts_colza_walnut_olive_oils" : 50,
-                  "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 1,
-                  "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 50,
+                  "fruits_vegetables_nuts_colza_walnut_olive_oils" : 75,
+                  "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 2,
+                  "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 75,
                   "is_beverage" : 0,
                   "is_cheese" : 0,
                   "is_fat" : 0,
                   "is_water" : 0,
                   "negative_points" : 1,
-                  "positive_points" : 2,
+                  "positive_points" : 3,
                   "proteins" : 0.2025,
                   "proteins_points" : 0,
                   "proteins_value" : 0.2,
@@ -741,7 +741,7 @@
                "nutrients_available" : 1,
                "nutriscore_applicable" : 1,
                "nutriscore_computed" : 1,
-               "score" : -1
+               "score" : -2
             },
             "2023" : {
                "category_available" : 1,
@@ -752,8 +752,8 @@
                   "energy_points" : 0,
                   "fiber" : 0.975,
                   "fiber_points" : 0,
-                  "fruits_vegetables_legumes" : 50,
-                  "fruits_vegetables_legumes_points" : 1,
+                  "fruits_vegetables_legumes" : 75,
+                  "fruits_vegetables_legumes_points" : 2,
                   "is_beverage" : 0,
                   "is_cheese" : 0,
                   "is_fat_oil_nuts_seeds" : 0,
@@ -763,7 +763,7 @@
                      "sugars",
                      "saturated_fat",
                      "salt",
-                     "sweeteners"
+                     "non_nutritive_sweeteners"
                   ],
                   "negative_points" : 2,
                   "positive_nutrients" : [
@@ -771,7 +771,7 @@
                      "fiber",
                      "proteins"
                   ],
-                  "positive_points" : 1,
+                  "positive_points" : 2,
                   "proteins" : 0.2025,
                   "proteins_points" : 0,
                   "salt" : 0.0019,
@@ -785,7 +785,7 @@
                "nutrients_available" : 1,
                "nutriscore_applicable" : 1,
                "nutriscore_computed" : 1,
-               "score" : 1
+               "score" : 0
             }
          },
          "nutriscore_2021_tags" : [
@@ -801,23 +801,23 @@
             "fiber" : 0.975,
             "fiber_points" : 1,
             "fiber_value" : 0.98,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 50,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 1,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 50,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 75,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 2,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 75,
             "grade" : "a",
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 1,
-            "positive_points" : 2,
+            "positive_points" : 3,
             "proteins" : 0.2025,
             "proteins_points" : 0,
             "proteins_value" : 0.2,
             "saturated_fat" : 0.01575,
             "saturated_fat_points" : 0,
             "saturated_fat_value" : 0,
-            "score" : -1,
+            "score" : -2,
             "sodium" : 0.6,
             "sodium_points" : 0,
             "sodium_value" : 0.6,
@@ -826,8 +826,8 @@
             "sugars_value" : 7.58
          },
          "nutriscore_grade" : "a",
-         "nutriscore_score" : -1,
-         "nutriscore_score_opposite" : 1,
+         "nutriscore_score" : -2,
+         "nutriscore_score_opposite" : 2,
          "nutriscore_tags" : [
             "a"
          ],
@@ -842,9 +842,9 @@
          "nutrition_score_beverage" : 0,
          "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
          "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-         "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 50,
+         "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 75,
          "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-         "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 50,
+         "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 75,
          "nutrition_score_warning_nutriments_estimated" : 1,
          "origin_en" : "China",
          "other_nutritional_substances_tags" : [],
@@ -1576,15 +1576,15 @@
          "nutrient_levels" : {},
          "nutrient_levels_tags" : [],
          "nutriments" : {
-            "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 50,
-            "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 50,
-            "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50,
-            "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 50,
+            "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 75,
+            "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 75,
+            "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 75,
+            "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 75,
             "nova-group" : 1,
             "nova-group_100g" : 1,
             "nova-group_serving" : 1,
-            "nutrition-score-fr" : -1,
-            "nutrition-score-fr_100g" : -1
+            "nutrition-score-fr" : -2,
+            "nutrition-score-fr_100g" : -2
          },
          "nutriments_estimated" : {
             "alcohol_100g" : 0,
@@ -1643,15 +1643,15 @@
                   "fiber" : 0.975,
                   "fiber_points" : 1,
                   "fiber_value" : 0.98,
-                  "fruits_vegetables_nuts_colza_walnut_olive_oils" : 50,
-                  "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 1,
-                  "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 50,
+                  "fruits_vegetables_nuts_colza_walnut_olive_oils" : 75,
+                  "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 2,
+                  "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 75,
                   "is_beverage" : 0,
                   "is_cheese" : 0,
                   "is_fat" : 0,
                   "is_water" : 0,
                   "negative_points" : 1,
-                  "positive_points" : 2,
+                  "positive_points" : 3,
                   "proteins" : 0.2025,
                   "proteins_points" : 0,
                   "proteins_value" : 0.2,
@@ -1669,7 +1669,7 @@
                "nutrients_available" : 1,
                "nutriscore_applicable" : 1,
                "nutriscore_computed" : 1,
-               "score" : -1
+               "score" : -2
             },
             "2023" : {
                "category_available" : 1,
@@ -1680,8 +1680,8 @@
                   "energy_points" : 0,
                   "fiber" : 0.975,
                   "fiber_points" : 0,
-                  "fruits_vegetables_legumes" : 50,
-                  "fruits_vegetables_legumes_points" : 1,
+                  "fruits_vegetables_legumes" : 75,
+                  "fruits_vegetables_legumes_points" : 2,
                   "is_beverage" : 0,
                   "is_cheese" : 0,
                   "is_fat_oil_nuts_seeds" : 0,
@@ -1691,7 +1691,7 @@
                      "sugars",
                      "saturated_fat",
                      "salt",
-                     "sweeteners"
+                     "non_nutritive_sweeteners"
                   ],
                   "negative_points" : 2,
                   "positive_nutrients" : [
@@ -1699,7 +1699,7 @@
                      "fiber",
                      "proteins"
                   ],
-                  "positive_points" : 1,
+                  "positive_points" : 2,
                   "proteins" : 0.2025,
                   "proteins_points" : 0,
                   "salt" : 0.0019,
@@ -1713,7 +1713,7 @@
                "nutrients_available" : 1,
                "nutriscore_applicable" : 1,
                "nutriscore_computed" : 1,
-               "score" : 1
+               "score" : 0
             }
          },
          "nutriscore_2021_tags" : [
@@ -1729,23 +1729,23 @@
             "fiber" : 0.975,
             "fiber_points" : 1,
             "fiber_value" : 0.98,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 50,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 1,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 50,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 75,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 2,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 75,
             "grade" : "a",
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 1,
-            "positive_points" : 2,
+            "positive_points" : 3,
             "proteins" : 0.2025,
             "proteins_points" : 0,
             "proteins_value" : 0.2,
             "saturated_fat" : 0.01575,
             "saturated_fat_points" : 0,
             "saturated_fat_value" : 0,
-            "score" : -1,
+            "score" : -2,
             "sodium" : 0.6,
             "sodium_points" : 0,
             "sodium_value" : 0.6,
@@ -1754,8 +1754,8 @@
             "sugars_value" : 7.58
          },
          "nutriscore_grade" : "a",
-         "nutriscore_score" : -1,
-         "nutriscore_score_opposite" : 1,
+         "nutriscore_score" : -2,
+         "nutriscore_score_opposite" : 2,
          "nutriscore_tags" : [
             "a"
          ],
@@ -1770,9 +1770,9 @@
          "nutrition_score_beverage" : 0,
          "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
          "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-         "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 50,
+         "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 75,
          "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-         "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 50,
+         "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 75,
          "nutrition_score_warning_nutriments_estimated" : 1,
          "origin" : "UK",
          "origin_en" : "UK",
