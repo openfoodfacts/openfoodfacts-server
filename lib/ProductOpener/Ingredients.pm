@@ -6049,45 +6049,34 @@ sub extract_ingredients_classes_from_text ($product_ref) {
 
 Check if the product contains sweeteners and non nutritive sweeteners (used for the Nutri-Score for beverages)
 
-=cut
+The NNS / Non nutritive sweeteners listed in the Nutri-Score Update report beverages_31 01 2023-voted
+have been added as a non_nutritive_sweetener:en:yes property in the additives taxonomy.
 
-# List of NNS / Non nutritive sweeteners from Nutri-Score Update report beverages_31 01 2023-voted
-my %non_nutritive_sweeteners = (
-	"en:e950" => 1,
-	"en:e951" => 1,
-	"en:e952" => 1,
-	"en:e954" => 1,
-	"en:e955" => 1,
-	"en:e957" => 1,
-	"en:e959" => 1,
-	"en:e960" =>
-		1,    # E960 is not listed in the Nutri-Score table as it was replaced by E960a/b/c/d, we assume it's E960a
-	"en:e960a" => 1,
-	"en:e961" => 1,
-	"en:e962" => 1,
-	"en:e969" => 1,
-);
+=cut
 
 sub determine_if_the_product_contains_sweeteners ($product_ref) {
 
 	delete $product_ref->{with_sweeteners};
 	delete $product_ref->{with_non_nutritive_sweeteners};
 
-	if (defined $product_ref->{'additives_tags'}) {
-		foreach my $additive (@{$product_ref->{'additives_tags'}}) {
-			my $e = $additive;
-			$e =~ s/\D//g;
-			if (($e >= 950) and ($e <= 968)) {
-				$product_ref->{with_sweeteners} = 1;
-				last;
-			}
-		}
-		foreach my $additive (@{$product_ref->{'additives_tags'}}) {
-			if (exists $non_nutritive_sweeteners{$additive}) {
-				$product_ref->{with_non_nutritive_sweeteners} = 1;
-				last;
-			}
-		}
+	if (
+		get_matching_regexp_property_from_tags(
+			'additives', $product_ref->{'additives_tags'},
+			'additives_classes:en', 'sweetener'
+		)
+		)
+	{
+		$product_ref->{with_sweeteners} = 1;
+	}
+
+	if (
+		get_matching_regexp_property_from_tags(
+			'additives', $product_ref->{'additives_tags'},
+			'non_nutritive_sweetener:en', 'yes'
+		)
+		)
+	{
+		$product_ref->{with_non_nutritive_sweeteners} = 1;
 	}
 
 	return;

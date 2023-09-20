@@ -815,4 +815,15 @@ compare_to_expected_results($regexps_ref, "$expected_result_dir/regexps.json", $
 # xx: entries for ingredients should be used to match in all languages
 is(canonicalize_taxonomy_tag('pl', 'ingredients', 'Lactobacillus bulgaricus'), "en:lactobacillus-bulgaricus");
 
+# return the first matching property
+is(get_property_from_tags("test", undef, "vegan:en"), undef);
+is(get_property_from_tags("test", [], "vegan:en"), undef);
+is(get_property_from_tags("test", ["en:vegetable", "en:meat"], "vegan:en"), "yes");
+is(get_inherited_property_from_tags("test", ["en:something-unknown", "en:beef", "en:vegetable"], "vegan:en"), "no");
+is(get_matching_regexp_property_from_tags("test", ["en:something-unknown", "en:beef", "en:vegetable"], "vegan:en", "yes"), "yes");
+# no entry matches the property (en:beef only has an inherited property)
+is(get_matching_regexp_property_from_tags("test", ["en:something-unknown", "en:beef", "en:vegetable"], "vegan:en", "no"), undef);
+is(get_matching_regexp_property_from_tags("test", ["en:something-unknown", "en:meat", "en:vegetable"], "vegan:en", "no"), "no");
+
+
 done_testing();

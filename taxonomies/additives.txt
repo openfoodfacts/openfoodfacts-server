@@ -21813,6 +21813,7 @@ vegetarian:en:yes
 # description:en:ACESULFAME POTASSIUM, also known as acesulfame K (K is the symbol for potassium) or Ace K, is a calorie-free sugar substitute (artificial sweetener) often marketed under the trade names Sunett and Sweet One.
 wikipedia:en:https://en.wikipedia.org/wiki/Acesulfame_potassium
 # ingredient/fr:acésulfame-k has 1285 products in 11 languages @2019-03-24
+non_nutritive_sweetener:en:yes
 
 
 en:E951, Aspartame, 1-Methyl N-L-alpha-aspartyl-L-phenylalanine, Asp-phe-ome, 3-Amino-N-(alpha-methoxycarbonylphenethyl) succinamic acid, 3-Amino-N-(α-carboxyphenethyl)succinamic acid N-methyl ester, L-Aspartyl-L-phenylalanine methyl ester, 1-methyl N-L-α-aspartyl-L-phenylalanate, Aspartylphenylalanine methyl ester, 3-Amino-N-(alpha-carboxyphenethyl)succinamic acid N-methyl ester, 3-Amino-N-(α-methoxycarbonylphenethyl) succinamic acid, 1-Methyl N-L-alpha-aspartyl-L-phenylalanate
@@ -21889,6 +21890,7 @@ vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Aspartame
 # ingredient/fr:e951 has 59 products @2019-03-24
 # additive/e951-aspartame has 3046 products in 23 languages @2019-03-24
+non_nutritive_sweetener:en:yes
 
 en:E952, Cyclamic acid and its Na and Ca salts, Cyclamic acid, sodium cyclamate, cyclamates
 bg:E952, цикламова киселина и нейните натриеви и калиеви соли i
@@ -21937,8 +21939,7 @@ additives_classes:en: en:sweetener
 vegan:en:yes
 vegetarian:en:yes
 # ingredient/fr:cyclamate has 48 products in 4 languages @2019-03-03
-
-
+non_nutritive_sweetener:en:yes
 
 en:E953, isomalt
 af:E953, Isomalt
@@ -21990,7 +21991,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Isomalt
 vegan:en:yes
 vegetarian:en:yes
 description:en:ISOMALT is a sugar substitute, a type of sugar alcohol used primarily for its sugar-like physical properties. It has little to no impact on blood sugar levels, and does not stimulate the release of insulin. Isomalt is widely used for the production of sugar-free candy, especially hard-boiled candy.
-
 
 en:E954, saccharin and its salts, saccharin, saccharin sodium salt, saccharin sodium, sodium saccharin salt, saccharin calcium salt, saccharin calcium, calcium saccharine, saccharin potassium salt, saccharine potassium, potassium saccharine, sodium saccharin
 ar:E954, سكارين
@@ -22065,6 +22065,7 @@ ciqual_food_code:en:31064
 ciqual_food_name:en:Saccharin sweetener
 ciqual_food_name:fr:Édulcorant à la saccharine
 # description:en:Sodium saccharin (benzoic sulfimide) is an artificial sweetener with effectively no food energy.
+non_nutritive_sweetener:en:yes
 
 en:E955, Sucralose
 bg:E955, Сукралоза
@@ -22101,6 +22102,7 @@ efsa_evaluation:en: Safety of the proposed extension of use of sucralose (E 955)
 additives_classes:en: en:sweetener
 vegan:en:yes
 vegetarian:en:yes
+non_nutritive_sweetener:en:yes
 
 en:E956, Alitame
 bg:E956, E956 food additive
@@ -22163,6 +22165,7 @@ efsa_evaluation:en: Scientific Opinion on the safety of the extension of use of 
 additives_classes:en: en:sweetener
 vegan:en:yes
 vegetarian:en:yes
+non_nutritive_sweetener:en:yes
 
 en:E958, Glycyrrhizin
 bg:E958, E958 food additive
@@ -22191,6 +22194,7 @@ e_number:en:958
 wikidata:en:Q418705
 vegan:en:yes
 vegetarian:en:yes
+additives_classes:en: en:sweetener
 
 en:E959, Neohesperidine dihydrochalcone, Neohesperidin dihydrochalcone, Neohesperidine DC, NHDC
 bg:E959, Неохесперидин дихидрохалкон
@@ -22229,6 +22233,8 @@ vegetarian:en:yes
 # description:en:Neohesperidin dihydrochalcone, sometimes abbreviated to neohesperidin DC or simply NHDC, is an artificial sweetener derived from citrus.
 wikipedia:en:https://en.wikipedia.org/wiki/Neohesperidin_dihydrochalcone
 # ingredient/fr:néohespéridine-dc has 26 products in 3 languages @2019-02-13
+additives_classes:en: en:sweetener
+non_nutritive_sweetener:en:yes
 
 en:E960, Steviol glycosides, Steviol glycoside, stevia rebaudiana extract, stevia leaf extract, steviol
 bg:E960, Стевиол гликозиди, листа от стевия, листа стевия
@@ -22257,7 +22263,7 @@ sk:E960, Glykozidy steviolu synonymá
 sl:E960, Steviol glikozidi
 sr:E960, steviol glikozidi
 sv:E960, Steviolglykosider
-ta:சிடீவியால் கிளைகோசைடு
+ta:E960, சிடீவியால் கிளைகோசைடு
 xx:E960
 e_number:en:960
 wikidata:en:Q2805600
@@ -22276,6 +22282,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Steviol_glycoside
 # additive/e960-steviol-glycosides has 1413 products in 17 languages @2019-04-20
 # ingredient/fr:extrait-de-stevia-rebaudiana has 77 products in 8 languages @2019-04-20
 # usage:fr:édulcorant :glycosides de stéviol (extrait de stevia rebaudiana)
+non_nutritive_sweetener:en:yes
+# E960 was replaced by E960a/c/d. We consider E960 to be a non nutritive sweetener.
 
 en:E960a, Steviol glycosides from Stevia
 de:E960a, Steviolglycoside aus Stevia
@@ -22289,6 +22297,7 @@ e_number:en:960a
 additives_classes:en: en:sweetener
 vegan:en:yes
 vegetarian:en:yes
+non_nutritive_sweetener:en:yes
 
 en:E960b, Rebaudioside from multiple gene donors expressed in Yarrowia lipolityca
 xx:E960b
@@ -22347,6 +22356,7 @@ wikidata:en:Q415698
 additives_classes:en: en:sweetener
 vegan:en:yes
 vegetarian:en:yes
+non_nutritive_sweetener:en:yes
 
 en:E962, Salt of aspartame-acesulfame, Aspartame-acesulfame, Aspartame-acesulfame salt, E-962, E 962
 bg:E962, Сол на аспартам-ацесулфам, Аспартам-ацесулфам
@@ -22383,7 +22393,7 @@ vegetarian:en:yes
 wikipedia:en:https://en.wikipedia.org/wiki/Aspartame-acesulfame_salt
 # ingredient/fr:sel-d'aspartame-acésulfame has 15 products in french @2019-04-20
 # additive/e962-salt-of-aspartame-acesulfame has 51 products in 4 languages @2019-04-20
-
+non_nutritive_sweetener:en:yes
 
 en:E963, Tagatose
 bg:E963, Тагатоза
@@ -22443,8 +22453,6 @@ wikidata:en:Q18601425
 additives_classes:en: en:sweetener
 vegan:en:yes
 vegetarian:en:yes
-
-
 
 en:E965, maltitol
 ar:E965, مالتيتول
@@ -22721,6 +22729,7 @@ en:E969, Advantame
 xx:E969
 e_number:en:969
 additives_classes:en: en:sweetener
+non_nutritive_sweetener:en:yes
 
 en:E999, Quillaia extract, Soapbark extract, Quillay bark extract, Panama bark extract, Quillai extract, Murillo bark extract, Quillaia
 bg:E999, Куилая екстракт
