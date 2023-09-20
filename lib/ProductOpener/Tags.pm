@@ -59,6 +59,9 @@ BEGIN {
 		&get_property
 		&get_property_with_fallbacks
 		&get_inherited_property
+		&get_property_from_tags
+		&get_inherited_property_from_tags
+		&get_matching_regexp_property_from_tags
 		&get_inherited_property_from_categories_tags
 		&get_inherited_properties
 		&get_tags_grouped_by_property
@@ -387,6 +390,89 @@ sub get_inherited_property ($tagtype, $canon_tagid, $property) {
 	return;
 }
 
+=head2 get_property_from_tags ($tagtype, $tags_ref, $property)
+
+Return the value of a property for the first tag of a list that has this property.
+
+=head3 Parameters
+
+=head4 $tagtype
+
+=head4 $tags_ref Reference to a list of tags
+
+=head4 $property
+
+=cut
+
+sub get_property_from_tags ($tagtype, $tags_ref, $property) {
+
+	my $value;
+	if (defined $tags_ref) {
+		foreach my $tagid (@$tags_ref) {
+			$value = get_property($tagtype, $tagid, $property);
+			last if $value;
+		}
+	}
+	return $value;
+}
+
+=head2 get_inherited_property_from_tags ($tagtype, $tags_ref, $property)
+
+Return the value of an inherited property for the first tag of a list that has this property.
+
+=head3 Parameters
+
+=head4 $tagtype
+
+=head4 $tags_ref Reference to a list of tags
+
+=head4 $property
+
+=cut
+
+sub get_inherited_property_from_tags ($tagtype, $tags_ref, $property) {
+
+	my $value;
+	if (defined $tags_ref) {
+		foreach my $tagid (@$tags_ref) {
+			$value = get_inherited_property($tagtype, $tagid, $property);
+			last if $value;
+		}
+	}
+	return $value;
+}
+
+=head2 get_matching_regexp_property_from_tags ($tagtype, $tags_ref, $property, $regexp)
+
+Return the value of a property for the first tag of a list that has this property that matches the regexp.
+
+=head3 Parameters
+
+=head4 $tagtype
+
+=head4 $tags_ref Reference to a list of tags
+
+=head4 $property
+
+=head4 $regexp
+
+=cut
+
+sub get_matching_regexp_property_from_tags ($tagtype, $tags_ref, $property, $regexp) {
+
+	my $matching_value;
+	if (defined $tags_ref) {
+		foreach my $tagid (@$tags_ref) {
+			my $value = get_property($tagtype, $tagid, $property);
+			if ((defined $value) and ($value =~ /$regexp/)) {
+				$matching_value = $value;
+				last;
+			}
+		}
+	}
+	return $matching_value;
+}
+
 =head2 get_inherited_property_from_categories_tags ($product_ref, $property) {
 
 Iterating from the most specific category, try to get a property for a tag by exploring the taxonomy (using parents).
@@ -403,18 +489,13 @@ The property if found.
 =cut
 
 sub get_inherited_property_from_categories_tags ($product_ref, $property) {
-	my $category_match;
 
-	if ((defined $product_ref->{categories_tags}) and (scalar @{$product_ref->{categories_tags}} > 0)) {
-
-		# Start with most specific category first
-		foreach my $category (reverse @{$product_ref->{categories_tags}}) {
-
-			$category_match = get_inherited_property("categories", $category, $property);
-			last if $category_match;
-		}
+	if (defined $product_ref->{categories_tags}) {
+		# We reverse the list of categories in order to have the most specific categories first
+		return get_inherited_property_from_tags("categories", [reverse @{$product_ref->{categories_tags}}], $property);
 	}
-	return $category_match;
+
+	return;
 }
 
 =head2 get_inherited_properties ($tagtype, $canon_tagid, $properties_names_ref, $fallback_lcs = ["xx", "en"]) {

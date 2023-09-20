@@ -1397,6 +1397,8 @@ sub compute_data_sources ($product_ref, $changes_ref) {
 	if (defined $product_ref->{sources}) {
 		foreach my $source_ref (@{$product_ref->{sources}}) {
 
+			next if not defined $source_ref->{id};
+
 			if ($source_ref->{id} eq 'casino') {
 				$data_sources{"Producers"} = 1;
 				$data_sources{"Producer - Casino"} = 1;
@@ -3558,6 +3560,8 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
 
 	# Ingredients classes
+	# Select best language to parse ingredients
+	$product_ref->{ingredients_lc} = select_ingredients_lc($product_ref);
 	clean_ingredients_text($product_ref);
 	extract_ingredients_from_text($product_ref);
 	extract_ingredients_classes_from_text($product_ref);

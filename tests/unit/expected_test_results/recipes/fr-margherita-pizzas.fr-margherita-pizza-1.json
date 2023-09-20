@@ -118,6 +118,7 @@
       "en:cereal-flour",
       "en:tomato-puree",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:tomato",
       "en:water",
       "en:mozzarella",
@@ -158,6 +159,7 @@
       "en:cereal-flour",
       "en:tomato-puree",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:tomato",
       "en:water",
       "en:mozzarella",
@@ -185,9 +187,11 @@
       "en:yeast"
    ],
    "ingredients_without_ciqual_codes_n" : 4,
-   "known_ingredients_n" : 21,
+   "known_ingredients_n" : 22,
    "lc" : "fr",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 26,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 26,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 26,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 26
    },

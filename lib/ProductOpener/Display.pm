@@ -76,6 +76,8 @@ BEGIN {
 		&display_product_history
 		&display_preferences_api
 		&display_attribute_groups_api
+		&get_search_field_path_components
+		&get_search_field_title_and_details
 		&search_and_display_products
 		&search_and_export_products
 		&search_and_graph_products
@@ -939,12 +941,12 @@ sub set_user_agent_request_ref_attributes ($request_ref) {
 	my $is_crawl_bot = 0;
 	my $is_denied_crawl_bot = 0;
 	if ($user_agent_str
-		=~ /Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|YandexBot|YandexRenderResourcesBot|DuckDuckBot|DotBot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|www\.qwant\.com|facebookexternalhit|Bytespider|GPTBot|SEOkicks-Robot|SearchmetricsBot|MJ12bot|SurveyBot|SEOdiver|wotbox|Cliqzbot|Paracrawl|Scrapy|VelenPublicWebCrawler|SemrushBot|MegaIndex\.ru|YandexMarket|Amazonbot|aiohttp|python-request/i
+		=~ /\b(Googlebot|Googlebot-Image|Google-InspectionTool|bingbot|Applebot|Yandex|DuckDuck|DotBot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Qwant|facebookexternalhit|Bytespider|GPTBot|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|Amazon|aiohttp|python-request)/i
 		)
 	{
 		$is_crawl_bot = 1;
 		if ($user_agent_str
-			=~ /bingbot|SeekportBot|AhrefsBot|DataForSeoBot|SeznamBot|ZoomBot|MojeekBot|QRbot|Bytespider|SEOkicks-Robot|SearchmetricsBot|MJ12bot|SurveyBot|SEOdiver|wotbox|Cliqzbot|Paracrawl|Scrapy|VelenPublicWebCrawler|SemrushBot|MegaIndex\.ru|YandexMarket|Amazonbot/
+			=~ /\b(bingbot|Seekport|Ahrefs|DataForSeo|Seznam|ZoomBot|Mojeek|QRbot|Bytespider|SEOkicks|Searchmetrics|MJ12|SurveyBot|SEOdiver|wotbox|Cliqz|Paracrawl|Scrapy|VelenPublicWebCrawler|Semrush|MegaIndex\.ru|YandexMarket|Amazon)/
 			)
 		{
 			$is_denied_crawl_bot = 1;
@@ -1057,7 +1059,7 @@ sub display_error ($error_message, $status_code) {
 		{
 			title => lang('error'),
 			content_ref => \$html,
-			status => $status_code,
+			status_code => $status_code,
 			page_type => "error",
 		}
 	);
@@ -1106,7 +1108,6 @@ sub display_no_index_page_and_exit () {
 	$r->status(200);
 	binmode(STDOUT, ":encoding(UTF-8)");
 	print $html;
-	return;
 	exit();
 }
 
@@ -1207,6 +1208,13 @@ sub display_text ($request_ref) {
 	my $textid = $request_ref->{text};
 
 	$request_ref->{page_type} = "text";
+
+	if ($textid =~ /open-food-facts-mobile-app|application-mobile-open-food-facts/) {
+		# we want the mobile app landing page to be included in a <div class="row">
+		# so we display it under the `banner` page format, which is the page format
+		# used on product pages, with a colored banner on top
+		$request_ref->{page_format} = "banner";
+	}
 
 	my $text_lang = $lang;
 
@@ -1747,7 +1755,6 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 		$log->debug("results for aggregate MongoDB query key", {"results" => $results}) if $log->is_debug();
 		$html .= "<p>" . lang("no_products") . "</p>";
 		$request_ref->{structured_response}{count} = 0;
-
 	}
 	else {
 
@@ -2363,43 +2370,16 @@ HTML
 				.= 'var countries_map_links=JSON.parse(' . $json->encode($json->encode($countries_map_links)) . ');'
 				.= 'var countries_map_names=JSON.parse(' . $json->encode($json->encode($countries_map_names)) . ');'
 				.= <<"JS";
-\$('#world-map').vectorMap({
-  map: 'world_mill',
-  series: {
-    regions: [{
-      values: countries_map_data,
-      scale: ['#C8EEFF', '#0071A4'],
-      normalizeFunction: 'polynomial'
-    }]
-  },
-  onRegionLabelShow: function(e, el, code){
-	var label = el.html();
-	label = countries_map_names[code];
-	if (countries_map_data[code] > 0) {
-		label = label + ' (' + countries_map_data[code] + ' $Lang{products}{$lc})';
-	}
-	el.html(label);
-  },
-  onRegionClick: function(e, code, region){
-	if (countries_map_links[code]) {
-		window.location.href = "$formatted_subdomain" + countries_map_links[code];
-	}
-  },
-});
-
+displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
 JS
 			$scripts .= <<SCRIPTS
-<script src="$static_subdomain/js/dist/jquery-jvectormap.js"></script>
-<script src="$static_subdomain/js/dist/world-mill.js"></script>
+<script src="$static_subdomain/js/dist/jsvectormap.js"></script>
+<script src="$static_subdomain/js/dist/world-merc.js"></script>
+<script src="$static_subdomain/js/dist/display-list-of-tags.js"></script>
 SCRIPTS
 				;
-
-			$header .= <<HEADER
-<link rel="stylesheet" media="all" href="/css/dist/jquery-jvectormap.css">
-HEADER
-				;
 			my $map_html = <<HTML
-  <div id="world-map" style="width: 600px; height: 400px"></div>
+  <div id="world-map" style="min-width: 250px; max-width: 600px; min-height: 250px; max-height: 400px;"></div>
 
 HTML
 				;
@@ -3882,16 +3862,6 @@ HTML
 					push @markers, \@geo;
 				}
 
-				if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
-					$description .= <<HTML
-<p>$packager_codes{$canon_tagid}{raison_sociale_enseigne_commerciale}<br>
-$packager_codes{$canon_tagid}{adresse} $packager_codes{$canon_tagid}{code_postal} $packager_codes{$canon_tagid}{commune}<br>
-SIRET : $packager_codes{$canon_tagid}{siret} - <a href="$packager_codes{$canon_tagid}{section}">Source</a>
-</p>
-HTML
-						;
-				}
-
 				if ($packager_codes{$canon_tagid}{cc} eq 'ch') {
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{full_address}</p>
@@ -3904,6 +3874,25 @@ HTML
 					$description .= <<HTML
 <p>$packager_codes{$canon_tagid}{razon_social}<br>
 $packager_codes{$canon_tagid}{provincia_localidad}
+</p>
+HTML
+						;
+				}
+
+				if ($packager_codes{$canon_tagid}{cc} eq 'fr') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{raison_sociale_enseigne_commerciale}<br>
+$packager_codes{$canon_tagid}{adresse} $packager_codes{$canon_tagid}{code_postal} $packager_codes{$canon_tagid}{commune}<br>
+SIRET : $packager_codes{$canon_tagid}{siret} - <a href="$packager_codes{$canon_tagid}{section}">Source</a>
+</p>
+HTML
+						;
+				}
+
+				if ($packager_codes{$canon_tagid}{cc} eq 'hr') {
+					$description .= <<HTML
+<p>$packager_codes{$canon_tagid}{approved_establishment}<br>
+$packager_codes{$canon_tagid}{street_address} $packager_codes{$canon_tagid}{town_and_postal_code} ($packager_codes{$canon_tagid}{county})
 </p>
 HTML
 						;
@@ -4366,11 +4355,40 @@ HTML
 
 		# TODO: Producer
 
-		${$request_ref->{content_ref}}
-			.= $tag_html . search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
+		my $search_results_html = search_and_display_products($request_ref, $query_ref, $sort_by, undef, undef);
+
+		${$request_ref->{content_ref}} .= $tag_html . $search_results_html;
 	}
 
-	display_page($request_ref);
+	# If we have no resultings products or aggregated tags, and the tag value does not exist in the taxonomy,
+	# we do not output the tag value in the page title and content
+	if (
+		($request_ref->{structured_response}{count} == 0)
+		and (
+			(
+				(
+					(defined $tagid)
+					and (
+						not(    (defined $taxonomy_fields{$tagtype})
+							and (exists_taxonomy_tag($tagtype, $canon_tagid)))
+					)
+				)
+			)
+			or (
+				(defined $tagid2)
+				and (
+					not(    (defined $taxonomy_fields{$tagtype2})
+						and (exists_taxonomy_tag($tagtype2, $canon_tagid2)))
+				)
+			)
+		)
+		)
+	{
+		display_error_and_exit(lang("no_products"), 404);
+	}
+	else {
+		display_page($request_ref);
+	}
 
 	return;
 }
@@ -4907,7 +4925,6 @@ Requested page (first page starts at 1).
 sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $page) {
 
 	$request_ref->{page_type} = "products";
-	$request_ref->{page_format} = "full_width";
 
 	# Flag that indicates whether we cache MongoDB results in Memcached
 	# Caching is disabled for crawling bots, as they tend to explore
@@ -5095,8 +5112,42 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	}
 	# - if we use user preferences, we need a lot of fields to compute product attributes: load them all
 	elsif ($request_ref->{user_preferences}) {
-		# when product attributes become more stable, we could try to restrict the fields
-		$fields_ref = {};
+		# we restrict the fields that are queried to MongoDB, and use the basic ones and those necessary
+		# by Attributes.pm to compute attributes.
+		# This list should be updated if new attributes are added.
+		$fields_ref = {
+			# generic fields
+			"lc" => 1,
+			"code" => 1,
+			"product_name" => 1,
+			"product_name_$lc" => 1,
+			"generic_name" => 1,
+			"generic_name_$lc" => 1,
+			"abbreviated_product_name" => 1,
+			"abbreviated_product_name_$lc" => 1,
+			"brands" => 1,
+			"images" => 1,
+			"quantity" => 1,
+			# fields necessary for personal search
+			"additives_n" => 1,
+			"allergens_tags" => 1,
+			"categories_tags" => 1,
+			"ecoscore_data" => 1,
+			"ecoscore_grade" => 1,
+			"ecoscore_score" => 1,
+			"forest_footprint_data" => 1,
+			"ingredients_analysis_tags" => 1,
+			"ingredients_n" => 1,
+			"labels_tags" => 1,
+			"nova_group" => 1,
+			"nutrient_levels" => 1,
+			"nutriments" => 1,
+			"nutriscore_data" => 1,
+			"nutriscore_grade" => 1,
+			"nutrition_grades" => 1,
+			"traces_tags" => 1,
+			"unknown_ingredients_n" => 1
+		};
 	}
 	else {
 		#for HTML, limit the fields we retrieve from MongoDB
@@ -5794,63 +5845,150 @@ my %nutrition_grades_colors = (
 	unknown => {r => 128, g => 128, b => 128},
 );
 
+# Return the path (list of nodes) to the search field
+
+# field name from the search form
+# it can be:
+# - a nutrient id like "saturated-fat"
+# - a direct field like ingredients_n
+# - an indirect field like packagings_materials.all.weight_100g
+
+sub get_search_field_path_components ($field) {
+	my @fields;
+	# direct fields
+	if (($field =~ /_n$/) or ($field eq "product_quantity") or ($field eq "nova_group") or ($field eq "ecoscore_score"))
+	{
+		@fields = ($field);
+	}
+	# indirect fields separated with the . character
+	elsif ($field =~ /\./) {
+		@fields = split(/\./, $field);
+	}
+	# forest footprint
+	elsif ($field eq "forest_footprint") {
+		@fields = ('forest_footprint_data', 'footprint_per_kg');
+	}
+	# we assume other fields are nutrients ids
+	else {
+		@fields = ("nutriments", $field . "_100g");
+	}
+	return @fields;
+}
+
+sub get_search_field_title_and_details ($field) {
+
+	my ($title, $unit, $unit2, $allow_decimals) = ('', '', '', '');
+
+	if ($field eq 'additives_n') {
+		$allow_decimals = "allowDecimals:false,\n";
+		$title = escape_single_quote(lang("number_of_additives"));
+	}
+	elsif ($field eq "forest_footprint") {
+		$allow_decimals = "allowDecimals:true,\n";
+		$title = escape_single_quote(lang($field));
+	}
+	elsif ($field =~ /_n$/) {
+		$allow_decimals = "allowDecimals:false,\n";
+		$title = escape_single_quote(lang($field . "_s"));
+	}
+	elsif ($field eq "product_quantity") {
+		$allow_decimals = "allowDecimals:false,\n";
+		$title = escape_single_quote(lang("quantity"));
+		$unit = ' (g)';
+		$unit2 = 'g';
+	}
+	elsif ($field eq "nova_group") {
+		$allow_decimals = "allowDecimals:false,\n";
+		$title = escape_single_quote(lang("nova_groups_s"));
+	}
+	elsif ($field eq "ecoscore_score") {
+		$allow_decimals = "allowDecimals:false,\n";
+		$title = escape_single_quote(lang("ecoscore_score"));
+	}
+	elsif ($field =~ /^packagings_materials\.([^.]+)\.([^.]+)$/) {
+		my $material = $1;
+		my $subfield = $2;
+		$title = lang("packaging") . " - ";
+		if ($material eq "all") {
+			$title .= lang("packagings_materials_all");
+		}
+		else {
+			$title .= display_taxonomy_tag($lc, "packaging_materials", $material);
+		}
+		$title .= ' - ' . lang($subfield);
+		if ($subfield =~ /_percent$/) {
+			$unit = ' %';
+			$unit2 = '%';
+		}
+		elsif ($subfield =~ /_100g$/) {
+			$unit = ' (g/100g)';
+			$unit2 = 'g/100g';
+		}
+		else {
+			$unit = ' (g)';
+			$unit2 = 'g';
+		}
+	}
+	else {
+		$title = display_taxonomy_tag($lc, "nutrients", "zz:" . $field);
+		$unit2 = $title;    # displayed in the tooltip
+		$unit
+			= " ("
+			. (get_property("nutrients", "zz:" . $field, "unit:en") // 'g') . " "
+			. lang("nutrition_data_per_100g") . ")";
+		$unit =~ s/\&nbsp;/ /g;
+	}
+
+	return ($title, $unit, $unit2, $allow_decimals);
+}
+
+=head2 display_scatter_plot ($graph_ref, $products_ref)
+
+Called by search_and_graph_products() to display a scatter plot of products on 2 axis
+
+=head3 Arguments
+
+=head4 $graph_ref
+
+Options for the graph, set by /cgi/search.pl
+
+=head4 $products_ref
+
+List of search results from search_and_graph_products()
+
+=cut
+
 sub display_scatter_plot ($graph_ref, $products_ref) {
 
 	my @products = @{$products_ref};
-	my $count = @products;
+	my $count = scalar @products;
 
 	my $html = '';
 
-	my $x_allowDecimals = '';
-	my $y_allowDecimals = '';
-	my $x_title;
-	my $y_title;
-	my $x_unit = '';
-	my $y_unit = '';
-	my $x_unit2 = '';
-	my $y_unit2 = '';
+	my %axis_details = ();
+	my %min = ();    # Minimum for the axis, 0 except -15 for Nutri-Score score
+	my %fields = ();    # fields path components for each axis, to use with deep_get()
 
-	if ($graph_ref->{axis_x} eq 'additives_n') {
-		$x_allowDecimals = "allowDecimals:false,\n";
-		$x_title = escape_single_quote(lang("number_of_additives"));
-	}
-	elsif ($graph_ref->{axis_x} eq "forest_footprint") {
-		$x_allowDecimals = "allowDecimals:true,\n";
-		$x_title = escape_single_quote(lang($graph_ref->{axis_x}));
-	}
-	elsif ($graph_ref->{axis_x} =~ /ingredients_n/) {
-		$x_allowDecimals = "allowDecimals:false,\n";
-		$x_title = escape_single_quote(lang($graph_ref->{axis_x} . "_s"));
-	}
-	else {
-		$x_title = display_taxonomy_tag($lc, "nutrients", "zz:" . $graph_ref->{axis_x});
-		$x_unit
-			= " ("
-			. (get_property("nutrients", "zz:" . $graph_ref->{axis_x}, "unit:en") // 'g') . " "
-			. lang("nutrition_data_per_100g") . ")";
-		$x_unit =~ s/\&nbsp;/ /g;
-		$x_unit2 = display_taxonomy_tag($lc, "nutrients", "zz:" . $graph_ref->{axis_x});
-	}
-	if ($graph_ref->{axis_y} eq 'additives_n') {
-		$y_allowDecimals = "allowDecimals:false,\n";
-		$y_title = escape_single_quote(lang("number_of_additives"));
-	}
-	elsif ($graph_ref->{axis_y} eq "forest_footprint") {
-		$y_allowDecimals = "allowDecimals:true,\n";
-		$y_title = escape_single_quote(lang($graph_ref->{axis_y}));
-	}
-	elsif ($graph_ref->{axis_y} =~ /ingredients_n/) {
-		$y_allowDecimals = "allowDecimals:false,\n";
-		$y_title = escape_single_quote(lang($graph_ref->{axis_y} . "_s"));
-	}
-	else {
-		$y_title = display_taxonomy_tag($lc, "nutrients", "zz:" . $graph_ref->{axis_y});
-		$y_unit
-			= " ("
-			. (get_property("nutrients", "zz:" . $graph_ref->{axis_y}, "unit:en") // 'g') . " "
-			. lang("nutrition_data_per_100g") . ")";
-		$y_unit =~ s/\&nbsp;/ /g;
-		$y_unit2 = display_taxonomy_tag($lc, "nutrients", "zz:" . $graph_ref->{axis_y});
+	foreach my $axis ("x", "y") {
+		# Set the titles and details of each axis
+		my $field = $graph_ref->{"axis_" . $axis};
+		my ($title, $unit, $unit2, $allow_decimals) = get_search_field_title_and_details($field);
+		$axis_details{$axis} = {
+			title => $title,
+			unit => $unit,
+			unit2 => $unit2,
+			allow_decimals => $allow_decimals,
+		};
+
+		# Set the minimum value for the axis (0 in most cases, except for Nutri-Score)
+		$min{$axis} = 0;
+
+		if ($field =~ /^nutrition-score/) {
+			$min{$axis} = -15;
+		}
+
+		# Store the field path components
+		$fields{$field} = [get_search_field_path_components($field)];
 	}
 
 	my %nutriments = ();
@@ -5859,122 +5997,100 @@ sub display_scatter_plot ($graph_ref, $products_ref) {
 
 	my %series = ();
 	my %series_n = ();
-	my %min = ();    # Minimum for the axis, 0 except -15 for Nutri-Score score
 
 	foreach my $product_ref (@products) {
 
+		# Gather the data for the 2 axis
+
+		my %data;
+
+		foreach my $axis ('x', 'y') {
+
+			my $field = $graph_ref->{"axis_" . $axis};
+			my $value = deep_get($product_ref, @{$fields{$field}});
+
+			# For nutrients except energy-kcal, convert to the default nutrient unit
+			if ((defined $value) and ($fields{$field}[0] eq "nutriments") and ($field !~ /energy-kcal/)) {
+				$value = g_to_unit($value, (get_property("nutrients", "zz:$field", "unit:en") // 'g'));
+			}
+
+			if (defined $value) {
+				$value = $value + 0;    # Make sure the value is a number
+			}
+
+			$data{$axis} = $value;
+		}
+
 		# Keep only products that have known values for both x and y
+		if ((not defined $data{x}) or (not defined $data{y})) {
+			$log->debug("Skipping product with unknown values ", {data => \%data}) if $log->is_debug();
+			next;
+		}
 
-		if (
-			(
-				(
-						(($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} =~ /ingredients_n$/))
-					and (defined $product_ref->{$graph_ref->{axis_x}})
-				)
-				or (($graph_ref->{axis_x} eq 'forest_footprint') and (defined $product_ref->{forest_footprint_data}))
-				or (defined $product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"})
-				and ($product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"} ne '')
-			)
-			and (
-				(
-						(($graph_ref->{axis_y} eq 'additives_n') or ($graph_ref->{axis_y} =~ /ingredients_n$/))
-					and (defined $product_ref->{$graph_ref->{axis_y}})
-				)
-				or (($graph_ref->{axis_y} eq 'forest_footprint') and (defined $product_ref->{forest_footprint_data}))
-				or (defined $product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"})
-				and ($product_ref->{nutriments}{$graph_ref->{axis_y} . "_100g"} ne '')
-			)
-			)
-		{
+		# Add values to stats, and set min axis
+		foreach my $axis ('x', 'y') {
+			my $field = $graph_ref->{"axis_" . $axis};
+			add_product_nutriment_to_stats(\%nutriments, $field, $data{$axis});
+		}
 
-			my $url = $formatted_subdomain . product_url($product_ref->{code});
+		# Identify the series id
+		my $seriesid = 0;
+		# series value, we start high for first series
+		# and second series value will have s / 10, etc.
+		my $s = 1000000;
 
-			# Identify the series id
-			my $seriesid = 0;
-			my $s = 1000000;
+		# default, organic, fairtrade, with_sweeteners
+		# order: organic, organic+fairtrade, organic+fairtrade+sweeteners, organic+sweeteners, fairtrade, fairtrade + sweeteners
+		#
 
-			# default, organic, fairtrade, with_sweeteners
-			# order: organic, organic+fairtrade, organic+fairtrade+sweeteners, organic+sweeteners, fairtrade, fairtrade + sweeteners
-			#
-
-			# Colors for nutrition grades
-			if ($graph_ref->{"series_nutrition_grades"}) {
-				if (defined $product_ref->{"nutrition_grade_fr"}) {
-					$seriesid = $product_ref->{"nutrition_grade_fr"};
-				}
-				else {
-					$seriesid = 'unknown';
-				}
+		# Colors for nutrition grades
+		if ($graph_ref->{"series_nutrition_grades"}) {
+			if (defined $product_ref->{"nutrition_grade_fr"}) {
+				$seriesid = $product_ref->{"nutrition_grade_fr"};
 			}
 			else {
-				# Colors for labels and labels combinations
-				foreach my $series (@search_series) {
-					# Label?
-					if ($graph_ref->{"series_$series"}) {
-						if (defined lang("search_series_${series}_label")) {
-							if (has_tag($product_ref, "labels", 'en:' . lc($Lang{"search_series_${series}_label"}{en})))
-							{
-								$seriesid += $s;
-							}
-							else {
-							}
-						}
-
-						if ($product_ref->{$series}) {
+				$seriesid = 'unknown';
+			}
+		}
+		else {
+			# Colors for labels and labels combinations
+			foreach my $series (@search_series) {
+				# Label?
+				if ($graph_ref->{"series_$series"}) {
+					if (defined lang("search_series_${series}_label")) {
+						if (has_tag($product_ref, "labels", 'en:' . lc($Lang{"search_series_${series}_label"}{en}))) {
 							$seriesid += $s;
 						}
+						else {
+						}
 					}
 
-					if (($series eq 'default') and ($seriesid == 0)) {
+					if ($product_ref->{$series}) {
 						$seriesid += $s;
 					}
-					$s = $s / 10;
 				}
+
+				if (($series eq 'default') and ($seriesid == 0)) {
+					$seriesid += $s;
+				}
+				$s = $s / 10;
 			}
-
-			defined $series{$seriesid} or $series{$seriesid} = '';
-
-			# print STDERR "Display::search_and_graph_products: i: $i - axis_x: $graph_ref->{axis_x} - axis_y: $graph_ref->{axis_y}\n";
-
-			my %data;
-
-			foreach my $axis ('x', 'y') {
-				my $nid = $graph_ref->{"axis_" . $axis};
-
-				$min{$axis} = 0;
-
-				# number of ingredients, additives etc. (ingredients_n)
-				if ($nid =~ /_n$/) {
-					$data{$axis} = $product_ref->{$nid};
-				}
-				elsif ($nid eq "forest_footprint") {
-					$data{$axis} = $product_ref->{forest_footprint_data}{footprint_per_kg};
-				}
-				# energy-kcal is already in kcal
-				elsif ($nid eq 'energy-kcal') {
-					$data{$axis} = $product_ref->{nutriments}{"${nid}_100g"};
-				}
-				elsif ($nid =~ /^nutrition-score/) {
-					$data{$axis} = $product_ref->{nutriments}{"${nid}_100g"};
-					$min{$axis} = -15;
-				}
-				else {
-					$data{$axis} = g_to_unit($product_ref->{nutriments}{"${nid}_100g"},
-						(get_property("nutrients", "zz:$nid", "unit:en") // 'g'));
-				}
-
-				add_product_nutriment_to_stats(\%nutriments, $nid, $product_ref->{nutriments}{"${nid}_100g"});
-			}
-			$data{product_name} = $product_ref->{product_name};
-			$data{url} = $url;
-			$data{img} = display_image_thumb($product_ref, 'front');
-
-			defined $series{$seriesid} or $series{$seriesid} = '';
-			$series{$seriesid} .= JSON::PP->new->encode(\%data) . ',';
-			defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
-			$series_n{$seriesid}++;
-			$i++;
 		}
+
+		$series{$seriesid} = $series{$seriesid} // '';
+
+		$data{product_name} = $product_ref->{product_name};
+		$data{url} = $formatted_subdomain . product_url($product_ref->{code});
+		$data{img} = display_image_thumb($product_ref, 'front');
+
+		# create data entry for series
+		defined $series{$seriesid} or $series{$seriesid} = '';
+		$series{$seriesid} .= JSON::PP->new->encode(\%data) . ',';
+		# count entries / series
+		defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
+		$series_n{$seriesid}++;
+		$i++;
+
 	}
 
 	my $series_data = '';
@@ -6094,21 +6210,21 @@ JS
                 text: '$Lang{data_source}{$lc}$sep: $formatted_subdomain'
             },
             xAxis: {
-				$x_allowDecimals
+				$axis_details{x}{allow_decimals}
 				min:$min{x},
                 title: {
                     enabled: true,
-                    text: '${x_title}${x_unit}'
+                    text: '$axis_details{x}{title}$axis_details{x}{unit}'
                 },
                 startOnTick: true,
                 endOnTick: true,
                 showLastLabel: true
             },
             yAxis: {
-				$y_allowDecimals
+				$axis_details{y}{allow_decimals}
 				min:$min{y},
                 title: {
-                    text: '${y_title}${y_unit}'
+                    text: '$axis_details{y}{title}$axis_details{y}{unit}'
                 }
             },
             tooltip: {
@@ -6119,8 +6235,8 @@ JS
                     return '<a href="' + this.point.url + '">' + this.point.product_name + '<br>'
 						+ this.point.img + '</a><br>'
 						+ '$Lang{nutrition_data_per_100g}{$lc} :'
-						+ '<br>$x_title$sep: '+ this.x + ' $x_unit2'
-						+ '<br>$y_title$sep: ' + this.y + ' $y_unit2';
+						+ '<br>$axis_details{x}{title}$sep: '+ this.x + ' $axis_details{x}{unit2}'
+						+ '<br>$axis_details{y}{title}$sep: ' + this.y + ' $axis_details{y}{unit2}';
                 }
 			},
 
@@ -6182,6 +6298,22 @@ HTML
 
 }
 
+=head2 display_histogram ($graph_ref, $products_ref)
+
+Called by search_and_graph_products() to display an histogram of products on 1 axis
+
+=head3 Arguments
+
+=head4 $graph_ref
+
+Options for the graph, set by /cgi/search.pl
+
+=head4 $products_ref
+
+List of search results from search_and_graph_products()
+
+=cut
+
 sub display_histogram ($graph_ref, $products_ref) {
 
 	my @products = @{$products_ref};
@@ -6189,41 +6321,34 @@ sub display_histogram ($graph_ref, $products_ref) {
 
 	my $html = '';
 
-	my $x_allowDecimals = '';
-	my $y_allowDecimals = '';
-	my $x_title;
-	my $y_title;
-	my $x_unit = '';
-	my $y_unit = '';
-	my $x_unit2 = '';
-	my $y_unit2 = '';
+	my %axis_details = ();
+	my %min = ();    # Minimum for the axis, 0 except -15 for Nutri-Score score
 
-	if ($graph_ref->{axis_x} eq 'additives_n') {
-		$x_allowDecimals = "allowDecimals:false,\n";
-		$x_title = escape_single_quote(lang("number_of_additives"));
-	}
-	elsif ($graph_ref->{axis_x} eq "forest_footprint") {
-		$x_allowDecimals = "allowDecimals:true,\n";
-		$x_title = escape_single_quote(lang($graph_ref->{axis_x}));
-	}
-	elsif ($graph_ref->{axis_x} =~ /ingredients_n$/) {
-		$x_allowDecimals = "allowDecimals:false,\n";
-		$x_title = escape_single_quote(lang($graph_ref->{axis_x} . "_s"));
-	}
-	else {
-		$x_title = display_taxonomy_tag($lc, "nutrients", "zz:" . $graph_ref->{axis_x});
-		$x_unit
-			= " ("
-			. (get_property("nutrients", "zz:" . $graph_ref->{axis_x}, "unit:en") // 'g') . " "
-			. lang("nutrition_data_per_100g") . ")";
-		$x_unit =~ s/\&nbsp;/ /g;
-		$x_unit2 = (get_property("nutrients", "zz:" . $graph_ref->{axis_x}, "unit:en") // 'g');
+	foreach my $axis ("x") {
+		# Set the titles and details of each axis
+		my $field = $graph_ref->{"axis_" . $axis};
+		my ($title, $unit, $unit2, $allow_decimals) = get_search_field_title_and_details($field);
+		$axis_details{$axis} = {
+			title => $title,
+			unit => $unit,
+			unit2 => $unit2,
+			allow_decimals => $allow_decimals,
+		};
+
+		# Set the minimum value for the axis (0 in most cases, except for Nutri-Score)
+		$min{$axis} = 0;
+
+		if ($field =~ /^nutrition-score/) {
+			$min{$axis} = -15;
+		}
 	}
 
-	$y_allowDecimals = "allowDecimals:false,\n";
-	$y_title = escape_single_quote(lang("number_of_products"));
-
-	my $nid = $graph_ref->{"axis_x"};
+	$axis_details{"y"} = {
+		title => escape_single_quote(lang("number_of_products")),
+		allow_decimals => "allowDecimals:false,\n",
+		unit => '',
+		unit2 => '',
+	};
 
 	my $i = 0;
 
@@ -6234,92 +6359,71 @@ sub display_histogram ($graph_ref, $products_ref) {
 	my $min = 10000000000000;
 	my $max = -10000000000000;
 
+	my $field = $graph_ref->{"axis_x"};
+	my @fields = get_search_field_path_components($field);
+
 	foreach my $product_ref (@products) {
 
-		# Keep only products that have known values for x
+		my $value = deep_get($product_ref, @fields);
 
-		if (
-			(
-				(
-						(($graph_ref->{axis_x} eq 'additives_n') or ($graph_ref->{axis_x} =~ /ingredients_n$/))
-					and (defined $product_ref->{$graph_ref->{axis_x}})
-				)
-				or (($graph_ref->{axis_x} eq 'forest_footprint') and (defined $product_ref->{forest_footprint_data}))
-				or (defined $product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"})
-				and ($product_ref->{nutriments}{$graph_ref->{axis_x} . "_100g"} ne '')
-			)
-			)
-		{
+		# For nutrients except energy-kcal, convert to the default nutrient unit
+		if ((defined $value) and ($fields[0] eq "nutriments") and ($field !~ /energy-kcal/)) {
+			$value = g_to_unit($value, (get_property("nutrients", "zz:$field", "unit:en") // 'g'));
+		}
 
-			# Identify the series id
-			my $seriesid = 0;
-			my $s = 1000000;
+		# Keep only products that have known values for both x and y
+		if (not defined $value) {
+			next;
+		}
 
-			# default, organic, fairtrade, with_sweeteners
-			# order: organic, organic+fairtrade, organic+fairtrade+sweeteners, organic+sweeteners, fairtrade, fairtrade + sweeteners
-			#
+		$value = $value + 0;    # Make sure the value is a number
 
-			foreach my $series (@search_series) {
-				# Label?
-				if ($graph_ref->{"series_$series"}) {
-					if (defined lang("search_series_${series}_label")) {
-						if (has_tag($product_ref, "labels", 'en:' . lc($Lang{"search_series_${series}_label"}{en}))) {
-							$seriesid += $s;
-						}
-						else {
-						}
-					}
+		if ($value < $min) {
+			$min = $value;
+		}
+		if ($value > $max) {
+			$max = $value;
+		}
 
-					if ($product_ref->{$series}) {
+		# Identify the series id
+		my $seriesid = 0;
+		my $s = 1000000;
+
+		# default, organic, fairtrade, with_sweeteners
+		# order: organic, organic+fairtrade, organic+fairtrade+sweeteners, organic+sweeteners, fairtrade, fairtrade + sweeteners
+		#
+
+		foreach my $series (@search_series) {
+			# Label?
+			if ($graph_ref->{"series_$series"}) {
+				if (defined lang("search_series_${series}_label")) {
+					if (has_tag($product_ref, "labels", 'en:' . lc($Lang{"search_series_${series}_label"}{en}))) {
 						$seriesid += $s;
 					}
+					else {
+					}
 				}
 
-				if (($series eq 'default') and ($seriesid == 0)) {
+				if ($product_ref->{$series}) {
 					$seriesid += $s;
 				}
-				$s = $s / 10;
 			}
 
-			# print STDERR "Display::search_and_graph_products: i: $i - axis_x: $graph_ref->{axis_x} - axis_y: $graph_ref->{axis_y}\n";
-
-			my $value = 0;
-
-			# number of ingredients, additives etc. (ingredients_n)
-			if ($nid =~ /_n$/) {
-				$value = $product_ref->{$nid};
+			if (($series eq 'default') and ($seriesid == 0)) {
+				$seriesid += $s;
 			}
-			elsif ($nid eq "forest_footprint") {
-				$value = $product_ref->{forest_footprint_data}{footprint_per_kg};
-			}
-			# energy-kcal is already in kcal
-			elsif ($nid eq 'energy-kcal') {
-				$value = $product_ref->{nutriments}{"${nid}_100g"};
-			}
-			elsif ($nid =~ /^nutrition-score/) {
-				$value = $product_ref->{nutriments}{"${nid}_100g"};
-			}
-			else {
-				$value = g_to_unit($product_ref->{nutriments}{"${nid}_100g"},
-					(get_property("nutrients", "zz:$nid", "unit:en") // 'g'));
-			}
-
-			if ($value < $min) {
-				$min = $value;
-			}
-			if ($value > $max) {
-				$max = $value;
-			}
-
-			push @all_values, $value;
-
-			defined $series{$seriesid} or $series{$seriesid} = [];
-			push @{$series{$seriesid}}, $value;
-
-			defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
-			$series_n{$seriesid}++;
-			$i++;
+			$s = $s / 10;
 		}
+
+		push @all_values, $value;
+
+		defined $series{$seriesid} or $series{$seriesid} = [];
+		push @{$series{$seriesid}}, $value;
+
+		defined $series_n{$seriesid} or $series_n{$seriesid} = 0;
+		$series_n{$seriesid}++;
+		$i++;
+
 	}
 
 	# define intervals
@@ -6341,7 +6445,7 @@ sub display_histogram ($graph_ref, $products_ref) {
 		push @intervals, [$min, $max, "$min"];
 	}
 	else {
-		if (($nid =~ /_n$/) or ($nid =~ /^nutrition-score/)) {
+		if (($field =~ /_n$/) or ($field =~ /^nutrition-score/)) {
 			$interval = 1;
 			$intervals = 0;
 			for (my $j = $min; $j <= $max; $j++) {
@@ -6478,7 +6582,7 @@ JS
             xAxis: {
                 title: {
                     enabled: true,
-                    text: '${x_title}${x_unit}'
+                    text: '$axis_details{x}{title}$axis_details{x}{unit}'
                 },
 				categories: [
 					$categories
@@ -6486,10 +6590,10 @@ JS
             },
             yAxis: {
 
-				$y_allowDecimals
+				$axis_details{y}{allow_decimals}
 				min:0,
                 title: {
-                    text: '${y_title}${y_unit}'
+                    text: '$axis_details{y}{title}'
                 },
 				stackLabels: {
                 enabled: true,
@@ -6500,14 +6604,14 @@ JS
             }
             },
         tooltip: {
-            headerFormat: '<b>${x_title} {point.key}</b><br>${x_unit}<table>',
+            headerFormat: '<b>$axis_details{x}{title} {point.key}</b><br>$axis_details{x}{unit}<table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                 '<td style="padding:0"><b>{point.y}</b></td></tr>',
             footerFormat: '</table>Total: <b>{point.total}</b>',
             shared: true,
             useHTML: true,
 			formatter: function() {
-            var points='<table class="tip"><caption>${x_title} ' + this.x + '</b><br>${x_unit}</caption><tbody>';
+            var points='<table class="tip"><caption>$axis_details{x}{title} ' + this.x + '</b><br>$axis_details{x}{unit}</caption><tbody>';
             //loop each point in this.points
             \$.each(this.points,function(i,point){
                 points+='<tr><th style="color: '+point.series.color+'">'+point.series.name+': </th>'
@@ -6599,18 +6703,13 @@ sub search_and_graph_products ($request_ref, $query_ref, $graph_ref) {
 		}
 	}
 
+	# Add fields for the axis
 	foreach my $axis ('x', 'y') {
-		if ($graph_ref->{"axis_$axis"} ne "products_n") {
-			if ($graph_ref->{"axis_$axis"} eq "forest_footprint") {
-				$fields_ref->{"forest_footprint_data.footprint_per_kg"} = 1;
-			}
-			elsif ($graph_ref->{"axis_$axis"} =~ /_n$/) {
-				$fields_ref->{$graph_ref->{"axis_$axis"}} = 1;
-			}
-			else {
-				$fields_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} = 1;
-			}
-		}
+		my $field = $graph_ref->{"axis_$axis"};
+		# Get the field path components
+		my @fields = get_search_field_path_components($field);
+		# Convert to dot notation to get the MongoDB field
+		$fields_ref->{join(".", @fields)} = 1;
 	}
 
 	if ($graph_ref->{"series_nutrition_grades"}) {
@@ -7420,7 +7519,7 @@ HTML
 
 			if (-e "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$filename.full.json") {
 				$html .= <<HTML
-<a href="/images/products/$path/$filename.full.json">OCR result</a>
+<a href="$images_subdomain/images/products/$path/$filename.full.json">OCR result</a>
 HTML
 					;
 			}
@@ -7839,7 +7938,7 @@ JS
 	# try to display ingredients in the local language if available
 
 	my $ingredients_text = $product_ref->{ingredients_text};
-	my $ingredients_text_lang = $product_ref->{lc};
+	my $ingredients_text_lang = $product_ref->{ingredients_lc};
 
 	if (defined $product_ref->{ingredients_text_with_allergens}) {
 		$ingredients_text = $product_ref->{ingredients_text_with_allergens};
@@ -11050,7 +11149,8 @@ sub data_to_display_ingredients_analysis_details ($product_ref) {
 
 	my $result_data_ref = {};
 
-	my $ingredients_text = "";
+	my $ingredients_text_lc = $product_ref->{ingredients_lc};
+	my $ingredients_text = "$ingredients_text_lc: ";
 	my $ingredients_list = "";
 
 	display_nested_list_of_ingredients($product_ref->{ingredients}, \$ingredients_text, \$ingredients_list);

@@ -268,7 +268,8 @@
    ],
    "ingredients_hierarchy" : [
       "en:tomato",
-      "en:vegetable"
+      "en:vegetable",
+      "en:fruit-vegetable"
    ],
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
@@ -281,7 +282,8 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:tomato",
-      "en:vegetable"
+      "en:vegetable",
+      "en:fruit-vegetable"
    ],
    "ingredients_text" : "Tomatoes",
    "ingredients_with_specified_percent_n" : 0,
@@ -290,7 +292,7 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "known_ingredients_n" : 2,
+   "known_ingredients_n" : 3,
    "lc" : "en",
    "misc_tags" : [
       "en:packagings-number-of-components-1",
@@ -302,6 +304,8 @@
       "en:ecoscore-not-computed"
    ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
    },

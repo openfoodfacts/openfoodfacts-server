@@ -53,7 +53,7 @@ DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # we also enable the possibility to fake services in po_test_runner
 DOCKER_COMPOSE_TEST=ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker-compose --env-file=${ENV_FILE}
 
-.DEFAULT_GOAL := dev
+.DEFAULT_GOAL := usage
 
 # this target is always to build, see https://www.gnu.org/software/make/manual/html_node/Force-Targets.html
 _FORCE:
@@ -63,6 +63,11 @@ _FORCE:
 #------#
 info:
 	@echo "${NAME} version: ${VERSION}"
+
+usage:
+	@echo "🥫 Welcome to the Open Food Facts project"
+	@echo "🥫 See available commands at docker/README.md"
+	@echo "🥫 or https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-docker-commands/"
 
 hello:
 	@echo "🥫 Welcome to the Open Food Facts dev environment setup!"
@@ -253,7 +258,7 @@ unit_test: create_folders
 	@echo "🥫 unit tests success"
 
 integration_test: create_folders
-	@echo "🥫 Running unit tests …"
+	@echo "🥫 Running integration tests …"
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
 # this is the place where variables are important
@@ -275,7 +280,8 @@ test-unit: guard-test create_folders
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run --rm backend perl ${args} tests/unit/${test}
 
-# usage:  make test-int test=test-file.t
+# usage:  make test-int test=test-name.t
+# to update expected results: make test-int test="test-name.t --update-expected-results"
 # you can add args= to pass options, like args="-d" to debug
 test-int: guard-test create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"

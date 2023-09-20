@@ -558,9 +558,8 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 							(($product_ref->{packagings_materials_main} eq $material) ? 1 : 0);
 
 						# Record the weight per 100g of product, for all products that have the material as their main material
-						if (defined $weight_100g) {
-							push @{$main_material_stats_ref->{weight_100g_main}{values}},
-								(($product_ref->{packagings_materials_main} eq $material) ? $weight_100g : 0);
+						if (($product_ref->{packagings_materials_main} eq $material) and (defined $weight_100g)) {
+							push @{$main_material_stats_ref->{weight_100g_main}{values}}, $weight_100g;
 						}
 					}
 				}

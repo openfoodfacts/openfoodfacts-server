@@ -5004,7 +5004,7 @@ it:Bibite gassate, soft drink
 lt:Gazuoti gaivieji gėrimai
 nl:Frisdranken
 pt:Sodas, bebidas refrescantes, bebidas refrescantes com gazozo
-ro:Băuturi carbogazoase, Bauturi carbogazoase
+ro:Băuturi carbogazoase, Bauturi carbogazoase, bauturi racoritoare carbogazoase, băuturi răcoritoare carbogazoase
 ru:Газированные безалкагольные напитки
 sv:Läsk, Läskedrycker, läskedryck
 th:น้ำอัดลม
@@ -5865,11 +5865,6 @@ ciqual_food_name:fr:Jus de citron vert, pur jus
 en:Lime juices from concentrate
 fr:Jus de citron vert à partir d'un concentré
 nl:limoensappen uit concentraat
-
-<en:Lime juices
-<en:Fruit juice concentrates
-en:Lime juice concentrates, concentrated lime juices
-fr:Concentrés de jus de citrons verts, Jus de citrons verts concentrés
 
 <en:Fruit juices
 en:Lemon juice
@@ -8378,10 +8373,13 @@ fr:Concentrés de jus de fruits, jus de fruits concentrés
 en:Apple juice concentrates, concentrated apple juices
 fr:Concentrés de jus de pommes, Jus de pommes concentrés
 
-<en:Squeezed lemon juices
 <en:Fruit juice concentrates
 en:Lemon juice concentrates, concentrated lemon juices
 fr:Concentrés de jus de citrons, Jus de citrons concentrés
+
+<en:Fruit juice concentrates
+en:Lime juice concentrates, concentrated lime juices
+fr:Concentrés de jus de citrons verts, Jus de citrons verts concentrés
 
 <en:Plant-based foods and beverages
 en:Dairy substitutes, Dairies substitutes
@@ -8411,6 +8409,14 @@ ru:Заменители молока, заменитель молока
 wikidata:en:Q1626970
 food_groups:en: en:Plant-based milk substitutes
 pnns_group_2:en:Plant-based milk substitutes
+
+<en:Dairy substitutes
+en:Mascarpone substitutes
+fr:Substituts du mascarpone
+
+<en:Dairy substitutes
+en:Ricotta substitutes
+fr:Substituts de la ricotta
 
 <en:Milk substitute
 en:Creamer, coffee creamers
@@ -9021,6 +9027,7 @@ lt:Vanduo
 nl:Waters, Water
 pl:Woda
 pt:Águas, águas engarrafadas, água engarrafada
+ro:Apa
 ru:Вода
 sl:vode, voda
 sv:Vatten
@@ -30939,7 +30946,7 @@ nn:Kjeks
 oc:biscuèit
 pl:herbatnik
 pt:biscoitos, Biscoito
-ro:Biscuiți, Biscuit, Fursecuri
+ro:Biscuiți, Biscuit, Fursecuri, biscuiti
 ru:бисквит
 si:විස්කොටටුහ්
 so:Buskud
@@ -34638,6 +34645,14 @@ fr:Riz au lait saveur vanille
 lt:Vaniliniai ryžių pudingai
 nl:Rijstpudding met vanille
 
+<en:Rice puddings
+en:Plain rice puddings
+fr:Riz au lait nature
+
+<en:Rice puddings
+en:Rice puddings with a fruit preparation
+fr:Riz au lait à la préparation de fruits
+
 <en:Cakes
 en:Fruit cakes, Fruit cake
 de:Obstkuchen, Fruchtkuchen
@@ -34857,8 +34872,9 @@ food_groups:en: en:Sweets
 pnns_group_2:en:Sweets
 
 <en:Confectioneries
-fr:Substituts du chocolat
-en:Chocolate substitutes
+en:Compound chocolates, Chocolate substitutes
+de:Schokoladenersatz
+fr:Succédanés du chocolat, Substituts du chocolat
 ja:凖チョコレート
 # ja note: Industry policy:
 # チョコレート類 refers to chocolate products in Japan. It contains チョコレート ("chocolate"), 凖チョコレート, チョコレート菓子 ("chocolate snack"), 凖チョコレート菓子, カカオマス ("cocoa mass"), ココアバター ("cocoa butter"), ココアケーキ, ココアパウダー ("cocoa powder"), and 調整ココアパウダー.
@@ -34957,6 +34973,7 @@ lt:Šokoladai, Šokoladiniai gaminiai
 nl:Chocoladeproducten
 pl:Czekolada, Produkty czekoladowe
 pt:Chocolates, produtos com chocolate
+ro:Ciocolată, ciocolata
 ru:Шоколад, шоколадные продукты
 sv:Choklad, Chokladprodukter
 th:ช็อกโกแลต
@@ -35955,6 +35972,7 @@ nl:Koekjesrepen met caramel en chocola
 <en:Bars covered with chocolate
 en:Chocolate confectionery with dairy filling, Chocolate bar with dairy filling
 fr:Barres chocolatées au lait, Confiserie chocolatées au lait, Barres chocolatées au lait, Barre chocolatée au lait, Barres chocolatées au lait type Kinder Maxi, Kinder Maxi
+ro:Miniprajituri pe baza de lapte
 agribalyse_food_code:en:31012
 ciqual_food_code:en:31012
 ciqual_food_name:en:Chocolate confectionery or bar, with dairy filling
@@ -37391,7 +37409,7 @@ lt:Konservuoti maisto produktai, Konservacija
 nl:Conserven, Blikvoedsel
 pl:Konserwy
 pt:Comida enlatada
-ro:Conserve
+ro:Conserve, conserve mancare
 ru:Консервы
 th:อาหารกระป๋อง
 tr:Konserve gıda, Konserve besin, Konserve yiyecek, Konserve ürünler, Konserve mamüller, Kavanozlu gıda, Kavanozlu besin, Kavanozlu yiyecek
@@ -40028,7 +40046,7 @@ oc:Produch lachièr
 pa:ਡੇਅਰੀ ਉਤਪਾਦ
 pl:Nabiał, Produkty mleczne
 pt:laticínios, lacticínios
-ro:Produse lactate
+ro:Produse lactate, lactate
 ru:Молочные продукты
 si:ගව කිරි ආශ්‍රිත නිෂ්පාදන
 sl:Mlečni izdelek
@@ -40328,7 +40346,7 @@ nl_be:Kazen
 no:Oster
 pl:Sery
 pt:Queijos
-ro:Brânzeturi, Brânză
+ro:Brânzeturi, Brânză, cascaval, cașcaval
 ru:Сыры
 sv:Ostar, Ost
 th:ชีส
@@ -42195,6 +42213,7 @@ wikidata:en:Q517409
 <en:Uncooked pressed cheeses
 <en:Cow cheeses
 en:Morbier, Morbier cheeses, Morbier cheese from cow's milk
+xx:Morbiers
 de:Morbier Käse
 fr:Morbiers
 it:Formaggio Morbier
@@ -42839,6 +42858,12 @@ lt:Sūriai su graikiniais riešutais
 nl:Notenkazen
 pt:Queijos com nozes
 
+# fermented milk product from Finland and Sweden, with around 10% fat. It is generally used as a lighter alternative to sour cream.
+<en:Fermented milk products
+xx:Kermaviili
+fi:Kermaviili
+se:Gräddfil
+
 <en:Dairy desserts
 <en:Fermented milk products
 en:Fermented dairy desserts
@@ -42880,7 +42905,7 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature, su
 
 <fr:Spécialités laitières
 <en:Plain fermented dairy desserts
-fr:Spécialités laitières nature non sucrées
+fr:Spécialités laitières nature non sucrées, Spécialité laitière nature
 nl:Melkspecialiteiten natuur
 
 <fr:Spécialités laitières
@@ -43787,6 +43812,7 @@ lt:Lydyti sūriai
 nl:Funduekazen
 pl:Sery topione, Ser topiony
 pt:Queijos derretidos
+ro:Brânză topită
 wikidata:en:Q190531
 agribalyse_food_code:en:12355
 ciqual_food_code:en:12355
@@ -45638,6 +45664,7 @@ it:Panna acida
 ja:サワークリーム
 lt:Grietinės, Grietinė
 nl:Zure romen
+ro:Smântână
 sl:Kisla smetana
 sv:Gräddfil
 food_groups:en: en:Milk and yogurt
@@ -45685,6 +45712,14 @@ fr:Crèmes végétales
 it:Panna vegetale
 nl:Plantaardige romen
 wikidata:en:Q4258412
+
+<en:Plant-based creams
+en:Pressurized whipped cream substitutes
+fr:Substituts de crème fouettée sous pression
+
+<en:Plant-based creams
+en:Sour cream substitutes
+fr:Substituts de crème épaisse
 
 <en:Plant-based creams
 en:Plant-based creams for cooking, Dairy-free creams for cooking
@@ -46041,18 +46076,33 @@ bg:Скир
 ja:スキール
 ru:Скир
 wikidata:en:Q742127
+agribalyse_proxy_food_code:en:19593
+agribalyse_proxy_food_name:en:Yogurt, fermented milk or dairy specialty, plain
+agribalyse_proxy_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
 
 <en:Skyrs
 <en:Plain fermented dairy desserts
 en:Plain skyrs, Plain skyr
 fr:Skyrs nature, Skyr nature
 nl:Skyrs natuur
+agribalyse_food_code:en:19593
+agribalyse_food_name:en:Yogurt, fermented milk or dairy specialty, plain
+agribalyse_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
 
 <en:Skyr
 <en:Fermented dairy desserts with fruits
 en:Fruit skyrs, Fruit skyr
 fr:Skyrs aux fruits, Skyr aux fruits
 nl:Skyrs met vruchten
+
+<en:Fermented dairy desserts
+xx:Viili, Filmjölk
+fi:Viili
+se:Filmjölk, filbunke
+
+<fi:Viili
+<en:Fermented dairy desserts with fruits
+se:Filmjölk med frukt
 
 <en:Fermented milk products
 # <en:ingredient:en:cheese
@@ -46120,14 +46170,6 @@ nl:Kwarks natuur
 en:Fruit quarks, Fruit quark
 fr:Quarks aux fruits, Quark aux fruits
 nl:Kwarks met vruchten
-
-<en:Quarks
-en:Curd snacks
-lt:Varškės sūreliai
-
-<en:Quarks
-en:Curd snacks
-lt:Varškės sūreliai
 
 <en:Quarks
 en:Herb quarks
@@ -47924,6 +47966,9 @@ ciqual_food_code:en:19624
 ciqual_food_name:en:Yoghurt, plain or fruit (average)
 ciqual_food_name:fr:Yaourt ou spécialité laitière nature ou aux fruits (aliment moyen)
 who_id:en:7
+agribalyse_proxy_food_code:en:19593
+agribalyse_proxy_food_name:en:Yogurt, fermented milk or dairy specialty, plain
+agribalyse_proxy_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
 
 <en:Yogurts
 en:Lactose-free yogurts
@@ -48644,12 +48689,13 @@ nl:Volle yoghurts
 ru:Йогурты из цельного молока
 
 <en:Yogurts
+<en:Plain fermented dairy desserts
 en:Plain yogurts, Plain yoghurts
 bg:Натурално кисело мляко
 de:Naturjoghurt
 es:Yogures naturales
 fi:luonnon jugurtit, luonnonjogurtit
-fr:Yaourts natures, Yaourts nature, Yaourt nature, Lait fermenté nature, Spécialité laitière nature
+fr:Yaourts natures, Yaourts nature, Yaourt nature, Lait fermenté nature
 it:Yogurt bianco
 nl:Natuurlijke yoghurt, Naturelyoghurts
 pl:Jogurty naturalne, Jogurt naturalny
@@ -48661,9 +48707,9 @@ ciqual_food_name:fr:Yaourt ou spécialité laitière nature (aliment moyen)
 agribalyse_proxy_food_code:en:19593
 agribalyse_proxy_food_name:en:Yogurt, fermented milk or dairy specialty, plain
 agribalyse_proxy_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
-ciqual_food_code:en:19593
-ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain
-ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
+#ciqual_food_code:en:19593
+#ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain
+#ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
 
 en:Desserts
 bg:Десерти
@@ -49315,7 +49361,7 @@ ciqual_food_name:fr:Crème dessert, rayon frais (aliment moyen)
 <en:Creamy puddings
 en:Double flavour creamy puddings, Double flavour custard dessert
 fr:Crèmes dessert double saveur
-nl:Dubble vla's, Dubbelvla's
+nl:Dubbel vla's, Dubbelvla's
 
 <en:Creamy puddings
 en:Canned creamy puddings, Canned custard desserts
@@ -49817,6 +49863,10 @@ agribalyse_proxy_food_name:fr:Semoule au lait, rayon frais
 <en:Puddings
 en:Chia puddings
 fr:Desserts aux graines de chia
+
+<en:Non-dairy desserts
+en:Vegan panna cotta
+fr:Panna cotta végétaliennes
 
 <en:Non-dairy desserts
 en:Vegan rice puddings
@@ -52542,6 +52592,7 @@ ciqual_food_name:fr:Graisse d'oie
 en:Turkey fat
 bg:Пуешка мас
 fr:Graisse de dinde
+nl:Kalkoenvetten
 agribalyse_food_code:en:16570
 ciqual_food_code:en:16570
 ciqual_food_name:en:Turkey fat
@@ -65274,6 +65325,7 @@ nl:Specerijen
 nl_be:Specerijen
 pl:przyprawy z niezielonych części roślin
 pt:Temperos
+ro:Condimente
 ru:Специи
 sv:Kryddor
 tr:Baharat
@@ -70907,6 +70959,14 @@ ru:Блюда с мясом
 sv:Rätter med kött
 zh:肉餐
 
+<en:Meals with meat
+en:Frozen meals with meat
+fr:Plats préparés surgelés à la viande
+
+<en:Meals with meat
+en:Canned meals with meat
+fr:Plats préparés en conserve à la viande
+
 <en:Sandwiches
 en:Doner kebab
 de:Döner kebab
@@ -71257,11 +71317,12 @@ en:Turkey dishes
 fi:Kalkkunaruokalajit
 fr:Plats à la dinde, plats à base de dinde, plats préparés à base de dinde
 lt:Kalakutienos patiekalai
-nl:Kalkoenenvleesmaaltijden
+nl:Kalkoenvleesmaaltijden, Kalkoenenvleesmaaltijden
 
 <en:Turkey dishes
 en:Christmas Turkeys, Xmas Turkeys
 fr:Dindes de Noël, Dinde de Noël
+nl:Kerstkalkoens
 
 <en:Poultry meals
 fr:Poule au pot
@@ -76567,6 +76628,7 @@ nl:Bevroren gehakte rundvleesproducten
 
 <en:Meat preparations
 <en:Breaded products
+en:Cordons bleus
 fr:Cordons bleus
 nl:Cordon bleus
 wikidata:en:Q429518
@@ -76575,11 +76637,13 @@ ciqual_food_code:en:25089
 ciqual_food_name:en:Veal escalope cordon bleu (topped with a ham slice and Gruyere sauce)
 # TODO : in the file I have, the same number is named Cordon bleu de volaille
 
-<fr:Cordons bleus
+<en:Cordons bleus
+en:Poultry cordons bleus
 fr:Cordons bleus de volaille
 
-<fr:Cordons bleus
+<en:Cordons bleus
 <en:Turkey preparations
+en:Turkey cordons bleus
 bg:Пуешки кордон бльо
 fr:Cordons bleus de dinde
 nl:Kalkoen cordon bleus
@@ -76587,8 +76651,9 @@ agribalyse_food_code:en:25089
 ciqual_food_code:en:25089
 ciqual_food_name:en:Veal escalope cordon bleu (topped with a ham slice and Gruyere sauce)
 
-<fr:Cordons bleus
+<en:Cordons bleus
 <en:Chicken preparations
+fr:Chicken cordons bleus
 bg:Пилешки кордон бльо
 fr:Cordons bleus de poulet
 nl:Kip cordon bleus
@@ -77768,10 +77833,13 @@ ciqual_food_name:fr:Dinde, escalope viennoise ou milanaise ou escalope panée
 en:Turkey preparations
 fr:Préparations à la dinde
 it:Preparati di tacchino
+nl:Kalkoenbereidingen
 
 <en:Turkey preparations
 <en:Meat patties
 en:Turkey patties
+de:Putenfrikadellen
+nl:Kalkoenpasteitjes
 fr:Galettes à la dinde
 
 <en:Poultry nuggets
@@ -77986,6 +78054,7 @@ en:Turkey and its products
 ca:Gall d'indi i derivats
 es:Pavo y sus productos
 fr:Dinde et dérivés
+nl:Kalkoen en afgeleide producten
 
 <en:Turkey and its products
 <en:Poultries
@@ -92347,6 +92416,7 @@ ja:シロップ
 nl:Siropen
 pl:Syrop, syropy
 pt:Xaropes
+ro:Sirop
 ru:Сиропы
 th:น้ำเชื่อม
 zh:糖浆
@@ -94142,6 +94212,7 @@ origins:en: en:United Kingdom
 <en:Celery
 en:Celery stalk, celery stalk
 fr:Céleris branche
+nl:Bleekselderij
 agribalyse_food_code:en:20023
 ciqual_food_code:en:20023
 ciqual_food_name:en:Celery stalk, raw
@@ -94150,6 +94221,7 @@ ciqual_food_name:fr:Céleri branche, cru
 <en:Celery
 en:Canned celery stalks
 fr:Céleri-branche en conserve, Céleri-branche appertisé, Céleri branche appertisé
+nl:Bleekselderij in blik
 agribalyse_food_code:en:20078
 ciqual_food_code:en:20078
 ciqual_food_name:en:Celery stalk, canned, drained
@@ -95178,7 +95250,7 @@ ciqual_food_name:fr:Poivron rouge, cuit
 <en:Cooked peppers
 en:Cooked sweet Yellow peppers
 fr:Poivrons jaunes cuits
-nl:gekoohte gele paprikas
+nl:Gekookte gele paprikas
 agribalyse_proxy_food_code:en:20088
 agribalyse_proxy_food_name:en:Sweet pepper, red, cooked
 cagribalyse_proxy_food_name:fr:Poivron rouge, cuit
@@ -98893,7 +98965,7 @@ it:Wafer
 ja:ウエハース, ウェハース
 nl:Wafeltjes
 pt:Bolachas
-ro:Napilitane, Napolitană
+ro:Napilitane, Napolitană, napolitane
 wikidata:en:Q1226651
 agribalyse_food_code:en:23853
 ciqual_food_code:en:23853
@@ -103157,6 +103229,7 @@ fi:soseutetut vihannekset
 fr:Purées de légumes
 it:Purè di verdure
 nl:Groentepureeën
+ro:Zacusca
 
 <en:Mashed vegetables
 en:Mashed carrots, Carrots puree
@@ -104396,6 +104469,7 @@ wikidata:en:Q816704
 <fr:Pâté
 en:Liver Pâtés, Liver Pates
 fr:Pâtés de foie
+ro:Pate de ficat
 wikidata:en:Q2878697
 
 <fr:Saucisses sèches

@@ -131,6 +131,7 @@
    "ingredients_hierarchy" : [
       "en:tomato",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:bell-pepper",
       "en:tuna",
       "en:fish",
@@ -175,6 +176,7 @@
    "ingredients_tags" : [
       "en:tomato",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:bell-pepper",
       "en:tuna",
       "en:fish",
@@ -207,11 +209,13 @@
       "en:sugar"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
-   "known_ingredients_n" : 23,
+   "known_ingredients_n" : 24,
    "lc" : "es",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 75.25,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 75.25
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 77.125,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 77.125,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 81.125,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 81.125
    },
    "unknown_ingredients_n" : 0
 }

@@ -78,7 +78,7 @@ stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
 stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el:περιέχει
-stopwords:en:added to enhance freshness, added to maintain flavor and freshness, assorted, contains, contain, edible, from, including, inter alia, less than 1% of:, minimum, produced with, with, with added
+stopwords:en:added to enhance freshness, added to maintain flavor and freshness, assorted, contains, contain, edible, from, including, inter alia, less than 1% of:, minimum, produced with, with, with added, in varying proportions
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter, minimum
@@ -101,10 +101,14 @@ stopwords:sv:av, från, med, innehåller, inklusive, bl a, bland annat, minimum,
 stopwords:zh::配料
 
 # Eurocode properties
-# e.g.
+# e.g. for palm heart
+# under "version 99/1"
+# it corresponds to "Main group 8: Vegetables and vegetable products"
+# eurocode_2_group_1:en: 8
+# eurocode_2_group_1:en: 8
 # eurocode_2_group_2:en: 8.25
 # eurocode_2_group_3:en: 8.25.50
-# are from https://web.archive.org/web/20170712020557/http://www.ianunwin.demon.co.uk/eurocode/docmn/ec99/ecmgintr.htm#MGList
+# are from https://web.archive.org/web/20170621070633/http://www.ianunwin.demon.co.uk/eurocode/docmn/classpad.htm
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
@@ -1091,6 +1095,10 @@ hu:probiotikus kultúrák, probiotikus kultúra, probiotikum kultúrák, probiot
 <en:microbial culture
 en:kombucha culture, kombuncha cultures
 fr:culture de kombucha
+
+<en:lactic ferments
+en:yogurt cultures
+fr:cultures de yaourt
 
 <en:lactic ferments
 en:skyr cultures
@@ -6604,7 +6612,12 @@ es:cheddar blanco, queso cheddar blanco
 fr:Cheddar blanc
 
 <en:cheddar
-fr:cheddar orange
+en:coloured cheddar, colored cheddar
+
+# red cheddar is orange
+<en:cheddar
+en:red cheddar
+fr:cheddar orange, cheddar rouge
 # ingredient/fr:cheddar-orange has 52 products in 2 languages @2021-08-14
 
 <en:cheddar
@@ -9867,7 +9880,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kosher_salt
 # description:en:SEA SALT - is salt that is produced by the evaporation of seawater
 
 <en:salt
-en:sea salt, bay salt, solar salt, natural sea salt, pure sea salt
+en:sea salt, bay salt, solar salt, natural sea salt, pure sea salt, mineral sea salt
 ar:ملح البحر
 bg:морска сол
 ca:Sal marina, sal maria de taula
@@ -13973,7 +13986,7 @@ nb:potetstivelse
 nl:aardappelzetmeel
 nn:Potetmjøl
 pl:skrobia ziemniaczana
-pt:fecula de batata
+pt:amido de batata, fecula de batata
 ro:amidon din cartofi, amidon de cartofi
 ru:Картофельный крахмал, крахмал картофельный
 sv:potatisstärkelse
@@ -15146,7 +15159,7 @@ ru:заменитель масла какао, заменитель какао �
 
 # <en:palm
 <en:palm oil and fat
-en:palm oil, palmoil, sustainable palm fruit oil, palm vegetable oil
+en:palm oil, palmoil, sustainable palm fruit oil, palm vegetable oil, vegetable palm oil
 ar:زيت النخيل
 be:Пальмавы алей
 bg:Палмово масло
@@ -15460,7 +15473,7 @@ ro:ulei de palmier parţial hidrogenat
 # description:en:PALM KERNEL OIL is an edible plant oil derived from the kernel of the oil palm Elaeis guineensis. It should not be confused with the other two edible oils derived from palm fruits:palm oil, extracted from the pulp of the oil palm fruit, and coconut oil, extracted from the kernel of the coconut.
 
 <en:palm kernel oil and fat
-en:palm kernel oil, palm kernel
+en:palm kernel oil, palm kernel, palm kernel vegetable oil
 bs:Ulje palminog jezgra
 ca:palmist, Oli de palmist, oli vegetal de palmist
 cs:Palmojádrový olej
@@ -15722,8 +15735,9 @@ sv:kokosfett
 # 36 products in 4 languages @2018-10-03
 from_palm_oil:en:no
 
+# creamed coconut differs from coconut cream: https://en.wikipedia.org/wiki/Creamed_coconut
 <en:coconut fat
-en:coconut butter
+en:coconut butter, creamed coconut
 bg:кокосово масло
 de:Kokosbutter
 es:manteca de coco,
@@ -15782,7 +15796,7 @@ gl:Aceite de oliva
 he:שמן זית
 hi:जैतून का तेल
 hr:maslinovo ulje
-hu:olívaolaj
+hu:olívaolaj, olivaolaj
 id:Minyak zaitun
 is:Ólífuolía
 it:olio d'oliva, olio di oliva
@@ -15988,7 +16002,7 @@ pl:rafinowana oliwa z wytłoczyn z oliwek, rafinowana oliwa z wytłoczyn oliwek
 #comment:en:Beware of a confusion between the generic name (rapeseed oil) and more specific oil varieties: colza oil and canola oil. Not all languages distinguish between the two. Probably where rapeseed is given, colza is meant. The difference between the two oils is important due to different levels of erucic acid. It seems that only the oils with a low erucic acid percentage are fit for humans. So th enaming difference between rapeseed, colza and canola might just be a language issue.
 
 <en:vegetable oil and fat
-en:rapeseed oil, rapeseed fat, rapeseed oil and fat
+en:rapeseed oil, rapeseed fat, rapeseed oil and fat, rapeseed vegetable oil
 bg:рапично масло
 ca:oli de nabina, oli vegetal de nabina
 cs:řepkový olej, olej řepkový
@@ -16564,6 +16578,9 @@ ciqual_food_code:en:17420
 ciqual_food_name:en:Soy oil
 ciqual_food_name:fr:Huile de soja
 # ingredient/soya-oil has 41836 products 1in 28 languages @2021-08-16
+
+<en:soya oil
+en:non-gmo soybean oil
 
 <en:soya oil
 en:refined soya oil
@@ -20477,10 +20494,6 @@ it:Aroma naturale alla banana
 nl:natuurlijke bananensmaak
 
 <en:natural flavouring
-en:blueberry aroma
-hr:aroma borovnice
-
-<en:natural flavouring
 en:natural cola flavouring
 de:natürliches Cola-Aroma, natürliches Colaaroma
 fi:luontainen kola-aromi
@@ -21588,6 +21601,7 @@ de:Heidelbeeraroma, Heidelbeer-Aroma
 es:aroma de arándano
 fi:mustikka-aromi
 fr:arôme de myrtille
+hr:aroma borovnice
 sv:blåbärsarom
 # ingredient/fr:arome-de-myrtille has 2 products in 2 languages @2020-06-08
 
@@ -21637,6 +21651,9 @@ fi:mallasaromi
 fr:arôme de malt
 sv:maltarom
 # ingredient/fr:arome-de-malt has 4 products in 2 languages @2020-05-23
+
+<en:flavouring
+en:barley malt flavouring
 
 <en:natural flavouring
 en:natural malt flavouring
@@ -24522,12 +24539,12 @@ ciqual_food_name:en:Oat bran
 ciqual_food_name:fr:Son d'avoine
 #1256 @2021-09-22
 
-<en:oat
+# <en:compound
 en:oat milk
 ar:حليب الشوفان
 bg:овесено мляко
 cs:ovesné mléko
-de:Hafermilch
+de:Haferdrink, Hafermilch
 da:havredrik
 eo:avenlakto
 es:bebida de avena
@@ -24538,6 +24555,7 @@ he:חלב שיבולת-שועל
 jv:susu oat
 nl:havermelk
 pl:mleko owsiane, napój owsiany
+pt:bebida de aveia
 se:hávvarmielki
 #smn:haavvârmielkki
 #sms:ååʹvesmieʹlǩǩ
@@ -24547,6 +24565,10 @@ zh:燕麦奶
 wikidata:en:Q20972637
 #28 @2021-09-22
 
+<en:oat milk
+en:oat milk powder
+de:Haferdrinkpulver
+
 # <en:compound
 en:oat base
 de:haferbasis
@@ -24555,7 +24577,6 @@ fi:kaurapohja
 fr:jus d'avoine, base d'avoine
 it:base de avena
 nl:haverbasis
-pt:bebida de aveia
 sv:havrebas
 # usage:en:oat base (water, oats)
 # mainIngredient:en:water
@@ -26635,6 +26656,7 @@ sv:vit majs
 tr:sari misir
 
 <en:corn
+<en:pod and seed vegetable
 en:sweetcorn, sweet corn
 bg:сладка царевица
 de:Süßmais, Süssmais, Zuckermais
@@ -26649,8 +26671,9 @@ nl:suikermaïs, zoete maïs
 pl:kukurydza słodka, słodka kukurydza
 pt:milgo doce
 # ingredient/fr:maïs-doux 103 products in 5 languages @2018-09-24
+eurocode_2_group_3:en: 8.45.50
 
-<en:corn
+<en:sweet corn
 en:baby corn
 pl:mini kolby kukurydzy, kukurydza baby
 # ingredient/en:baby-corn has 117 products @2023-06-25
@@ -28108,7 +28131,8 @@ nl:rijstmelk
 
 #description:en:Carob pods are mildly sweet on their own, so they are used in powdered, chip or syrup form as an ingredient in cakes and cookies, sometimes as a substitute for chocolate in recipes because of the color, texture, and taste of carob.
 #comment:en:When used as ingredient, the kernels of the carob pod of the carob tree is used.
-en:carob seeds, carob, Carobin
+<en:pulse
+en:carob bean locust bean, carob seeds, carob, Carobin
 ca:garrofa, farina de garrofa
 cs:carubin
 da:Johannesbrødmel
@@ -28125,6 +28149,7 @@ pl:karob, karobu, karobowy, karobowe, karobowa
 sv:Johannesbrödfrö
 vegan:en:yes
 vegetarian:en:yes
+eurocode_2_group_3:en: 7.10.xx
 
 <en:carob seeds
 en:caroube dalmate
@@ -28948,7 +28973,7 @@ fr:sucre de fleur de coco, sucre de fleur de cocotier, sucre de coco
 hu:kókuszcukor
 id:Gula kelapa
 it:zucchero di fiori di cocco, zucchero di cocco
-nl:kokossuiker
+nl:kokosbloesemsuiker, kokossuiker
 nn:kokosnøttsukker
 pl:cukier kokosowy
 su:Gula kalapa
@@ -30629,6 +30654,10 @@ nl:gehydrolyseerde plantaardige eiwitten, plantaardig eiwithydrolysaat
 # ingredient/fr:protéines-végétales-réhydratées has 32 products in french @2019-03-11
 
 <en:plant protein
+en:textured plant protein
+de:texturiertes Pflanzenprotein
+
+<en:plant protein
 en:pea protein
 bg:грахов протеин
 ca:Proteïna de pèsol
@@ -30660,6 +30689,7 @@ hu:borsófehérje izolátum
 ro:izolat proteic de mazăre
 
 <en:pea protein
+<en:textured plant protein
 en:textured pea protein, textured pea proteins
 de:texturiertes Erbseneiweiß
 fr:protéines de pois texturées, protéine de pois texturée
@@ -30685,6 +30715,11 @@ pl:białko bobu, białka bobu
 ro:proteină de bob
 sv:protein från bondböna
 # ingredient/en:broad-bean-protein has 6 products in 1 language @2020-05-25
+
+<en:plant protein
+en:chickpea protein
+de:Kichererbsenprotein
+fr:protéine de pois chiche
 
 <en:plant protein
 en:sunflower protein
@@ -32418,7 +32453,7 @@ he:מים
 hi:जल
 hr:voda, vode, vodu
 ht:Dlo
-hu:Víz, ivóvíz
+hu:víz, ivóvíz, viz
 hy:Ջուր
 ia:Aqua
 id:Air
@@ -33141,6 +33176,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Textured_vegetable_protein
 #category/soy-beans
 <en:soya
 <en:legume
+<en:pulse
 en:soya bean, soy beans, soya beans, soybean, soybeans
 ar:فول الصويا
 bg:соеви зърна
@@ -33197,6 +33233,7 @@ description:pt:A soja (Glycine max), também conhecida como feijão-soja e feij�
 ciqual_food_code:en:20901
 ciqual_food_name:en:Soybean, whole grain
 ciqual_food_name:fr:Soja, graine entière
+eurocode_2_group_3:en: 7.10.50
 
 <en:soya bean
 en:Whole soybean grain
@@ -35274,6 +35311,7 @@ wikidata:en:Q1364
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fruit
 # 963 products in 9 languages @2018-09-26
 nutriscore_fruits_vegetables_nuts:en:yes
+eurocode_2_group_1:en: 9
 
 <en:fruit
 en:fruit puree
@@ -35308,10 +35346,11 @@ de:Trauben
 # description:en:A berry is a small, pulpy, and often edible fruit. Typically, berries are juicy, rounded, brightly colored, sweet or sour, and do not have a stone or pit, although many pips or seeds may be present. Common examples are strawberries, raspberries, blueberries, blackberries, red currants, white currants and blackcurrants
 
 <en:fruit
-en:berries
+en:berries, berry
 da:Bær
 es:bayas
 fi:marja, marjat, marjoja
+fr:baies, baie
 he:פירות יער
 hr:bobičasto voće
 hu:bogyó, bogyótermés, bogyós gyümölcs
@@ -35325,6 +35364,7 @@ ru:Ягоды
 sv:Bär
 wikipedia:en:https://en.wikipedia.org/wiki/Berry
 # ingredient/fr:fruits-rouges 205 products @2018-10-01
+eurocode_2_group_2:en: 9.30
 
 <en:berries
 en:forest berries
@@ -35634,6 +35674,10 @@ sv:päronberedning
 # usage:fr:préparation de poires 13% (sucre, poires 41%, amidon de maïs, jus de citron concentré, arôme naturel)
 
 
+<en:fruit
+en:prunus species fruit
+eurocode_2_group_2:en: 9.20
+
 ###################################################################################################
 #
 #                                Apricot
@@ -35641,7 +35685,7 @@ sv:päronberedning
 ###################################################################################################
 # description:en:APRICOT is a fruit, or the tree that bears the fruit, of several species in the genus Prunus (stone fruits).
 
-<en:fruit
+<en:prunus species fruit
 en:apricot
 ab:аҷарам
 af:appelkoos
@@ -35773,6 +35817,7 @@ carbon_footprint_fr_foodges_value:fr:0.6
 carbon_footprint_fr_foodges_ingredient:fr:Abricot "Pays du Sud"
 carbon_footprint_fr_foodges_value:fr:1.1
 # 5160 in 25 @2021-09-12
+eurocode_2_group_3:en: 9.20.10
 
 <en:apricot
 en:Bergeron Apricot
@@ -36058,16 +36103,39 @@ ciqual_food_name:fr:Banane, pulpe, crue
 # 1538 products in 10 languages @2018-09-26
 
 <en:banana
+<en:fruit vegetable
+en:matoki, matoke, matokee, matoke banana, green banana
+fr:matooke, matoke
+eurocode_2_group_3:en: 8.40.54
+
+# "plantain" is ambiguous, in ingredients lists it refers to plantain bananas, or the plantain plant used for fibers
+<en:banana
+<en:fruit vegetable
+en:plantain banana
+de:Plantainbanane
+fr:banane plantain, bananes plantain
+la:musa paradisiaca
+ciqual_food_code:en:53100
+ciqual_food_name:en:Plantain banana, raw
+ciqual_food_name:fr:Banane plantain, crue
+#no ingredients @2021-09-10
+eurocode_2_group_3:en: 8.40.56
+
+# <en:vegetable fibre
+<en:plant
+en:plantain
+es:platano macho
+fi:ratamo
+fr:plantain
+it:piantaggine
+nl:weegbree
+pl:plantan, plantany, plantana
+# ingredient/fr:plantain has 51 products @2019-02-25
+# fibres végétales (chicorée, pomme de terre, pois, riz, plantain, psyllium)
+
+<en:banana
 en:green banana flour
 ru: Мука зелёных бананов
-
-#<en:banana
-#en:Plantain bananas
-#fr:Bananes plantain
-#ciqual_food_code:en:53100
-#ciqual_food_name:en:Plantain banana, raw
-#ciqual_food_name:fr:Banane plantain, crue
-#no ingredients @2021-09-10
 
 #processing:en: en:dried
 <en:banana
@@ -36158,6 +36226,7 @@ wikidata:en:Q25243
 # description:en:BREADFRUIT (Artocarpus altilis) is a species of flowering tree in the mulberry and jackfruit family (Moraceae). Breadfruit is a staple food in many tropical regions. Before being eaten, the fruits are roasted, baked, fried or boiled. When cooked, the taste of moderately ripe breadfruit is described as potato-like, or similar to freshly baked bread.
 
 <en:fruit
+<en:fruit vegetable
 en:breadfruit
 af:broodvrugt
 az:Çörək ağacı
@@ -36191,6 +36260,7 @@ wikidata:en:Q5869893
 wikipedia:en:https://en.wikipedia.org/wiki/Breadfruit
 # ingredient/breadfruit has 1 product in french @2019-04-29
 #plant:wikidata:en:Q14677
+eurocode_2_group_3:en: 8.40.52
 
 <en:fruit
 en:jackfruit
@@ -36384,6 +36454,11 @@ zh:大果蔓越梅
 #hsb:Wulkopłodowa tymjenka
 wikidata:en:Q149397
 wikipedia:en:https://en.wikipedia.org/wiki/Vaccinium_macrocarpon
+
+<en:berries
+en:bearberry, bearberries
+la:Arctostaphylos uva-ursi
+eurocode_2_group_3:en: 9.30.66
 
 ##########################################
 #              Flavourings
@@ -36593,7 +36668,7 @@ hu:természetes mangó aroma
 
 description:en:The PEACH (Prunus persica) is a deciduous tree native to the region of Northwest China
 comment:en:The wikipedia entry mixes the name of the tree and the name of the fruit
-<en:fruit
+<en:prunus species fruit
 en:peach, peaches
 an:presiquera
 ar:دراق
@@ -36646,6 +36721,7 @@ description:es:Prunus persica es una especie de árbol del género Prunus de la 
 description:fr:La pêche est un fruit comestible produit par le pêcher (Prunus persica) originaire de Chine.
 description:it:Il pesco (Prunus persica) è una specie della famiglia Rosaceae che produce un frutto commestibile chiamato pèsca.
 description:nl:De perzik (Prunus persica) is een boomsoort en een vrucht. De vrucht bevat een harde houtachtige pit.
+eurocode_2_group_3:en: 9.20.20
 
 #process:en:halved
 #<en:peach
@@ -37030,7 +37106,7 @@ pt:Sumo e polpa de pera
 ###################################################################################################
 # comment:en: NB en:plum = fr:prune, and en:prune = fr:pruneau.
 
-<en:fruit
+<en:prunus species fruit
 en:plum
 bg:слива, сливи
 ca:pruna
@@ -37065,6 +37141,7 @@ ciqual_food_code:en:13100
 ciqual_food_name:en:Plum, raw
 ciqual_food_name:fr:Prune, crue
 # 35 products in 1 language @2018-09-30
+eurocode_2_group_3:en: 9.20.30
 
 <en:plum
 en:plum sugar
@@ -37154,6 +37231,21 @@ fr:prunes d'Ente
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-pruneaux
 # 39 products in 1 language @2018-09-30
 
+<en:prunus species fruit
+en:chickasaw plum
+la:prunus angustifolia
+eurocode_2_group_3:en: 9.20.50
+
+<en:prunus species fruit
+en:Japanese plum, Chinese plum, Susina
+la:prunus salicina
+eurocode_2_group_3:en: 9.20.55
+
+<en:prunus species fruit
+en:sloe, sloe plum, blackthorn
+fr:prunelle, épine noire, épines noires
+la:prunus spinosa
+eurocode_2_group_3:en: 9.20.60
 
 ###################################################################################################
 #
@@ -37199,7 +37291,7 @@ es:dulce de membrillo
 ###################################################################################################
 # description:en:The greengages are a group of cultivars of the common European plum.
 
-<en:fruit
+<en:prunus species fruit
 en:greengage
 ar:جنارك
 bg:Ренклод
@@ -37229,7 +37321,13 @@ ciqual_food_code:en:13041
 ciqual_food_name:en:Greengage plum, raw
 ciqual_food_name:fr:Prune Reine-Claude, crue
 # ingredient/fr:reines-claudes has 37 products in 3 languages @2019-02-16
+eurocode_2_group_3:en: 9.20.36
 
+<en:prunus species fruit
+en:damson, damson plum
+fr:quetsche, quetsches, prune bleue
+la:prunus domestica var institia
+eurocode_2_group_3:en: 9.20.32
 
 ###################################################################################################
 #
@@ -37238,7 +37336,7 @@ ciqual_food_name:fr:Prune Reine-Claude, crue
 ###################################################################################################
 # description:en:Mirabelle plum, also known as mirabelle prune or cherry plum (Prunus domestica subsp. syriaca), is a cultivar group of plum trees of the genus Prunus.
 
-<en:fruit
+<en:prunus species fruit
 en:mirabelle plum
 cs:Slivoň mirabelka
 da:Mirabelblomme
@@ -37271,7 +37369,12 @@ zh:黃香李
 wikidata:en:Q149741
 wikipedia:en:https://en.wikipedia.org/wiki/Mirabelle_plum
 # ingredient/fr:mirabelles has 41 products in french @2018-12-28
+eurocode_2_group_3:en: 9.20.34
 
+
+<en:fruit
+en:malaceous fruit
+eurocode_2_group_2:en: 9.10
 
 ###################################################################################################
 #
@@ -37281,7 +37384,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Mirabelle_plum
 # description:en:APPLE is a sweet, edible fruit produced by an apple tree (Malus pumila).
 # This can be a compound product, i.e. appels (gedroogde appels, voedingszuur (citroenzuur), conserveermiddel (_zwaveldioxide_))
 
-<en:fruit
+<en:malaceous fruit
 en:apple, apples
 af:appel
 am:ፖም
@@ -37523,6 +37626,20 @@ wikipedia:en:https://en.wikipedia.org/wiki/Apple
 ciqual_food_code:en:13050
 ciqual_food_name:en:Apple, pulp, raw
 ciqual_food_name:fr:Pomme, pulpe, crue
+
+<en:apple
+en:dessert apple
+fr:pomme de table, pommes de tables
+eurocode_2_group_3:en: 9.10.10
+
+<en:apple
+en:cooking apple
+fr:pomme à cuire, pommes à cuire
+eurocode_2_group_3:en: 9.10.15
+
+# TODO: try to put apple varieties below under en:dessert apple, or en:cooking apple
+# Note from Eurocode definition and policies:
+# "The division of apples into the categories Dessert apple and Cooking apple is somewhat arbitrary as some varieties can be used in both ways."
 
 <en:apple
 en:Pink Lady apple
@@ -38722,7 +38839,7 @@ ciqual_food_name:fr:Citron, zeste, cru
 en:powdered lemon zest
 hr:limunova korica u prahu
 
-<en:lemon
+<en:aromatic leaf
 <en:spice
 en:lemon leaf, lemon leaves
 de:Zitronenblatt
@@ -39118,7 +39235,7 @@ fr:écorces de citron vert, zeste de citron vert
 it:scorze di lime
 
 <en:spice
-<en:lime
+<en:aromatic leaf
 en:lime leaf, lime leaves
 da:limeblad
 de:Limettenblatt, Limettenblätter
@@ -39701,22 +39818,6 @@ hr:ekstrakt kore naranče
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-zeste-d'orange
 # 54 products in 2 languages @2018-09-28
 
-# CANDIED ORANGE PEEL is a compound ingredient
-
-<en:orange zest
-en:candied orange peel, candied orange zest
-bg:захаросани портокалови кори
-de:kandierte Orangenschalen, Orangeat, Orangenschalen confiert
-es:corteza de naranja confitada
-fi:kandeerattu appelsiininkuori
-fr:écorces d'orange confites, écorces d'oranges confites, orangeat
-# hr:kandirana narančina korica # see ingredients_processing.txt
-it:scorze d'arancia candite, cubetti di scorza di limone
-nl:gekonfijte sinaasappelschillen
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorces-d'orange-confites/
-# 303 products in 6 languages @2018-09-28openfoodfacts:https://world.openfoodfacts.org/ingredient/en:candied-orange-zest
-# 3 products in 1 language @2018-09-28
-
 <en:orange extract
 en:concentrated orange extract
 de:konzentrierter Orangenextrakt
@@ -39734,6 +39835,20 @@ fi:luontainen appelsiiniuute
 <en:orange pulp
 fr:Jus d'orange dont pulpe
 # 5@2019-06-07
+
+# CANDIED ORANGE PEEL is a compound ingredient
+en:candied orange peel, candied orange zest
+bg:захаросани портокалови кори
+de:kandierte Orangenschalen, Orangeat, Orangenschalen confiert
+es:corteza de naranja confitada
+fi:kandeerattu appelsiininkuori
+fr:écorces d'orange confites, écorces d'oranges confites, orangeat
+# hr:kandirana narančina korica # see ingredients_processing.txt
+it:scorze d'arancia candite, cubetti di scorza di limone
+nl:gekonfijte sinaasappelschillen
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:écorces-d'orange-confites/
+# 303 products in 6 languages @2018-09-28openfoodfacts:https://world.openfoodfacts.org/ingredient/en:candied-orange-zest
+# 3 products in 1 language @2018-09-28
 
 # <en:orange
 en:orange marmalade
@@ -40047,6 +40162,7 @@ ciqual_food_code:en:13029
 ciqual_food_name:en:Blackberry, raw
 ciqual_food_name:fr:Mûre (de ronce), crue
 # 404 products in 7 languages @21018-10-01
+eurocode_2_group_3:en: 9.30.24
 
 <en:blackberry
 en:Rubus fruticosus
@@ -40091,10 +40207,12 @@ pl:Morwa czarna
 ciqual_food_code:en:13071
 ciqual_food_name:en:Black mulberry, raw
 ciqual_food_name:fr:Mûre noire (du mûrier), crue
+eurocode_2_group_3:en: 9.30.62
 
 <en:berries
 en:White mulberry
 pl:Morwa biała
+eurocode_2_group_3:en: 9.30.62
 
 
 <en:blackberry
@@ -40108,7 +40226,7 @@ fr:jus de mûre à base de jus concentré
 ###################################################################################################
 
 <en:berries
-en:blackcurrant
+en:blackcurrant, black currant
 af:swartaalbessie
 bg:касис
 ca:riber negre
@@ -40151,6 +40269,7 @@ description:de:Die Schwarze Johannisbeere ist eine Pflanzenart aus der Gattung J
 description:fr:Fruit formé de baies noires formant des grappes, pulpeuses, à la peau lisse, fortement aromatiques, utilisé pour faire des liqueurs, des sirops, des gelées…
 description:nl:de vrucht (bes) van de Ribes nigrum
 # 3581 in 22 @2021-09-12
+eurocode_2_group_3:en: 9.30.32
 
 #processing:en: en:juice
 #<en:blackcurrant
@@ -40225,7 +40344,7 @@ hr:komadi i sok crnog ribiza
 #
 ###################################################################################################
 
-# description:eNBlueberries are perennial flowering plants with blue– or purple–colored berries.
+# description:en: Blueberries are perennial flowering plants with blue– or purple–colored berries.
 # comment:en:usually only the generic name is in use
 
 <en:berries
@@ -40238,7 +40357,7 @@ da:bølle
 de:Heidelbeeren, Blaubeeren
 eo:mirtelo
 es:arándano
-et:mustikas
+et:mustikas, mustikad
 fa:بیل‌بری
 fi:puolukat
 fr:myrtille
@@ -40266,6 +40385,7 @@ zh:山桑子
 wikidata:en:Q5812410
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/blueberry
 # 943 producten in 13 languages @2018-10-01
+eurocode_2_group_3:en: 9.30.46
 
 #en:the specific names are not seen as ingredient.
 <en:blueberry
@@ -40276,12 +40396,13 @@ nl:blauwe bes, blauwe bessen
 pl:borówka amerykańska, borówka wysoka, niebieska jagoda, borówki amerykańskie
 
 <en:blueberry
-en:billberry, common blueberry
+en:bilberry, bilberries, huckleberry, huckleberries, whortleberry, whortleberries
 fi:mustikka, mustikat
 la:Vaccinium myrtillus
 pl:borówka czarna, jagoda, jagoda czarna, czarna jagoda, czarne jagody, czarnej jagody, czernica, borówka czernica, borówki czernicy, jagoda, jagody, jagodowy, jagodowe, jagodowa
 wikipedia:en:https://en.wikipedia.org/wiki/Vaccinium_myrtillus
 wikidata:en:Q5413585
+eurocode_2_group_3:en: 9.30.42
 
 #comment:en:
 <en:blueberry
@@ -40353,6 +40474,17 @@ sv:blåbärssaft av koncentrat
 <en:blueberry
 en:blueberry filling
 hr:preljev od borovnica, punilo od borovnice, punjenje od borovnica
+
+<en:berries
+en:Loganberry, loganberries
+fr:mûroise
+la:Rubus loganobaccus
+eurocode_2_group_3:en: 9.30.22
+
+<en:berries
+en:dewberry, dewberries, youngberry, youngberries
+la:Rubus caesius
+eurocode_2_group_3:en: 9.30.26
 
 ###################################################################################################
 #
@@ -40491,7 +40623,7 @@ ciqual_food_name:fr:Carambole, pulpe, crue
 # description:en:Rubus chamaemorus is a rhizomatous herb native to cool temperate regions, alpine and arctic tundra and boreal forest, producing amber-colored edible fruit similar to the blackberry. English common names include CLOUDBERRY, nordic berry, bakeapple (in Newfoundland and Labrador), knotberry and knoutberry (in England), aqpik or low-bush salmonberry (in Alaska – not to be confused with salmonberry, Rubus spectabilis), and averin or evron (in Scotland).
 
 <en:berries
-en:cloudberry, rubus chamaemorus, nordic berry, bakeapple, knotberry, knoutberry
+en:cloudberry, cloudberries, rubus chamaemorus, nordic berry, bakeapple, knotberry, knotberries, knoutberry
 az:rubus chamaemorus
 ba:мораҡ
 be:марошка
@@ -40505,7 +40637,7 @@ es:rubus chamaemorus
 et:rabamurakas
 fa:تمشک شمالی
 fi:lakka, hilla
-fr:plaquebière
+fr:plaquebière, mûre artique, mûres artiques, mûre polaire, mûres polaires
 ga:eithreog shléibhe
 ik:aqpik
 is:múltuber
@@ -40513,6 +40645,7 @@ it:rubus chamaemorus
 ja:ホロムイイチゴ
 ko:진들딸기
 kv:мырпом
+la:rubus chamaemorus
 lt:paprastoji tekšė
 lv:lācene
 ms:rubus chamaemorus
@@ -40548,6 +40681,8 @@ zh:雲莓
 wikidata:en:Q160092
 wikipedia:en:https://en.wikipedia.org/wiki/Rubus_chamaemorus
 # ingredient/sv:hjortron has 3 products in 2 languages @2020-06-13
+eurocode_2_group_3:en: 9.30.28
+
 
 ###################################################################################################
 #
@@ -40556,7 +40691,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Rubus_chamaemorus
 ###################################################################################################
 # description:en:CHERRY is the fruit of many plants of the genus Prunus, and is a fleshy drupe (stone fruit).
 
-<en:fruit
+<en:prunus species fruit
 en:cherry, cherries
 an:ziresa
 ar:كرز
@@ -40579,7 +40714,7 @@ de:Kirsch, Kirsche, Kirschen
 el:Κεράσι
 eo:ĉerizo
 es:cereza, cerezas,guindas
-et:kirsipuu
+et:kirsi, kirsid
 eu:Gereziondo
 fa:گیلاس
 fi:kirsikka
@@ -40777,6 +40912,7 @@ fi:hapankirsikka, hapankirsikat
 fr:griotte, griottes, cerises griottes
 hr:višnja, višnje, od višnje
 it:amarene
+la:prunus cerasus
 nl:morellen, kriek, krieken, zure kers
 pl:wiśnia, wiśnie, wiśniowy, wiśniowe, wiśniowa, wiśniowego, wiśniowych, wiśniowej
 pt:ginjas
@@ -40785,6 +40921,7 @@ ciqual_food_name:en:Morello cherry, raw
 ciqual_food_name:fr:Griotte, crue
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:griottes
 # 182 products in 7 languages @2018-09-29
+eurocode_2_group_3:en: 9.20.45
 
 <en:sour cherry
 en:sour cherry juice
@@ -40818,7 +40955,7 @@ ca:cirerer
 cs:třešeň ptačí
 cy:Coeden geirios du
 da:Fugle-Kirsebær
-de:Vogel-Kirsche
+de:Vogel-Kirsche, Vogelkirsche
 el:Κερασιά
 eo:Ĉerizarbo
 et:Magus kirsipuu
@@ -40838,6 +40975,7 @@ ka:ბალი
 kk:Мойыл
 ko:양벚나무
 ku:Gelyaz
+la:Prunus avium
 lt:Trešnė
 lv:saldais ķirsis
 nb:Morell
@@ -40888,12 +41026,8 @@ zh:欧洲甜樱桃
 # zh-sg:甜樱桃
 wikidata:en:Q165137
 # ingredient/fr:bigarreaux has 105 products in french @2019-02-22
+eurocode_2_group_3:en: 9.20.40
 
-<en:sweet cherry
-en:Prunus avium
-de:Vogelkirsche (Prunus avium)
-fr:prunus avium, merise
-la:Prunus avium
 
 <en:sweet cherry
 fr:bigarreaux confits
@@ -40932,6 +41066,7 @@ en:cherry stem, cherry stalk
 de:Kirschstiel, Kirschenstiel, Kirschenstiele, Kirschstiele
 fr:queues de cerise
 
+
 ###################################################################################################
 #
 #                                Chokeberry
@@ -40952,8 +41087,9 @@ da:Surbær
 de:Aronia, Apfelbeer, Apfelbeeren
 el:Αρώνια
 eo:aronio
-es:Aronia
-eu:Aronia
+es:aronia
+et:aroonia
+eu:aronia
 fa:انگورک گلوگیر
 fi:marja-aronia
 fr:aronie, aronia
@@ -41381,6 +41517,8 @@ description:nl:De dadelpalm (Phoenix dactylifera) behoort tot de palmenfamilie. 
 ciqual_food_code:en:13011
 ciqual_food_name:en:Date, pulp and peel, dried
 ciqual_food_name:fr:Datte, pulpe et peau, sèche
+eurocode_2_group_2:en: 9.25
+eurocode_2_group_3:en: 9.25.30
 
 
 <en:date
@@ -41452,6 +41590,7 @@ es:Saúco
 fi:selja
 fr:sureau
 it:sambuco
+la:sambuca nigra
 nl:vlier
 pl:czarny bez, czarnego bzu
 sv:fläder
@@ -41460,7 +41599,7 @@ sv:fläder
 
 <en:elder
 <en:berries
-en:elderberry
+en:elderberry, elderberries
 bg:Бъз
 da:hyldebær
 de:Holunderbeer, Holunderbeere, Holunderbeeren
@@ -41474,6 +41613,7 @@ sv:fläderbär
 ciqual_food_code:en:13126
 ciqual_food_name:en:Elderberry, berries, raw
 ciqual_food_name:fr:Sureau, baie, crue
+eurocode_2_group_3:en: 9.30.50
 
 <en:elderberry
 <en:fruit juice
@@ -41565,6 +41705,12 @@ fr:Extraits de fleurs de sureau
 it:Estratto di sanbuco
 pl:ekstrakt z kwiatu czarnego bzu, ekstrakt z kwiatu bzu czarnego, ekstrakt kwiatu czarnego bzu, wyciąg z czarnego bzu
 sv:fläderblomsextrakt
+
+<en:berries
+en:rowanberry, rowanberries
+fr:sorbe
+la:sorbus aucaparia
+eurocode_2_group_3:en: 9.30.54
 
 ###################################################################################################
 #
@@ -41668,7 +41814,7 @@ nl:cactusvijg
 
 # description:en:The gooseberry (Ribes uva-crispa) is a fruit of Ribes (which also includes the currants). It is native to Europe, the Caucasus and northern Africa.
 
-<en:fruit
+<en:berries
 en:gooseberry, gooseberries
 af:appelliefie
 ar:عنب الثعلب
@@ -41746,6 +41892,7 @@ ciqual_food_code:en:13020
 ciqual_food_name:en:Gooseberry, raw
 ciqual_food_name:fr:Groseille à maquereau, crue
 #34 in 5 @2021-09-15
+eurocode_2_group_3:en: 9.30.30
 
 #processing:en: en:juice
 #<en:gooseberry
@@ -42057,7 +42204,7 @@ pl:sok z koncentratu z kiwi
 # description:en:Vaccinium vitis-idaea (lingonberry, partridgeberry, The Lingering O’Mahoney or cowberry) is a short evergreen shrub in the heath family that bears edible fruit
 
 <en:berries
-en:lingonberry
+en:lingonberry, lingonberries, cowberry, cowberries, foxberry, foxberries, mountain cranberry, mountain cranberries, red whortleberry, red whortleberries
 ca:nabius
 da:tyttebær
 de:Preiselbeeren
@@ -42066,6 +42213,7 @@ et:pohl
 fi:Puolukka
 fr:myrtille rouge
 it:Mirtilli rossi
+la:Vaccinium vitis-idaea
 lb:rout Molbier
 lt:Bruknė
 nb:tyttebær
@@ -42075,6 +42223,7 @@ ru:брусника
 sv:lingon
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/lingonberry
 # 7 products @2018-10-01
+eurocode_2_group_3:en: 9.30.44
 
 # No products
 # <en:fruit
@@ -42205,6 +42354,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lychee
 ciqual_food_code:en:13023
 ciqual_food_name:en:Lychee, pulp, raw
 ciqual_food_name:fr:Litchi, pulpe, cru
+eurocode_2_group_2:en: 9.25
+eurocode_2_group_3:en: 9.25.40
 
 <en:lychee
 en:Lychee pulp
@@ -42628,7 +42779,7 @@ wikidata:en:Q652206
 ###################################################################################################
 
 #category/nectarines
-<en:fruit
+<en:prunus species fruit
 en:nectarine
 ar:زليقة
 bg:нектарина
@@ -42684,6 +42835,7 @@ ciqual_food_code:en:13030
 ciqual_food_name:en:Nectarine, pulp and peel, raw
 ciqual_food_name:fr:Nectarine ou brugnon, pulpe et peau, crue
 #94 in 5 @2021-10-28
+eurocode_2_group_3:en: 9.20.15
 
 ###################################################################################################
 #
@@ -43266,7 +43418,7 @@ es:chirimoya
 wikipedia:en:https://en.wikipedia.org/wiki/Custard_apple
 
 <en:fruit
-en:persimmon,sharon fruit,khaki
+en:persimmon, sharon fruit, khaki, kaki
 bg:райска ябълка
 de:Kaki, Sharonfrucht
 es:caqui
@@ -43276,6 +43428,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Diospyros_kaki
 ciqual_food_code:en:13066
 ciqual_food_name:en:Persimmon, pulp, raw
 ciqual_food_name:fr:Kaki, pulpe, cru
+eurocode_2_group_2:en: 9.25
+eurocode_2_group_3:en: 9.25.44
 
 <en:persimmon
 en:persimmon juice
@@ -43369,6 +43523,7 @@ zh:樹莓
 ciqual_food_code:en:13015
 ciqual_food_name:en:Raspberry, raw
 ciqual_food_name:fr:Framboise, crue
+eurocode_2_group_3:en: 9.30.20
 
 <en:raspberry
 en:red raspberries
@@ -43523,10 +43678,16 @@ ciqual_food_name:fr:Groseille, crue
 wikidata:en:Q14714085
 description:nl:rode bes of witte bes; vrucht van de aalbesstruik
 # 866 in 12 @2021-09-12
+eurocode_2_group_3:en: 9.30.34
 
 <en:redcurrant
 en:red currant juice
 de:roter Johannisbeersaft, Johannisbeersaft rot, roter Johannisbeerensaft, Johannisbeerensaft rot
+
+<en:berries
+en:whitecurrant, white currant
+fr:groseille blanche, groseilles blanches
+eurocode_2_group_3:en: 9.30.36
 
 ###################################################################################################
 #
@@ -43729,6 +43890,7 @@ carbon_footprint_fr_foodges_value:fr:0.8
 ciqual_food_code:en:13014
 ciqual_food_name:en:Strawberry, raw
 ciqual_food_name:fr:Fraise, crue
+eurocode_2_group_3:en: 9.30.15
 
 <en:strawberry
 en:strawberry pieces
@@ -43866,7 +44028,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fragaria_vesca
 ###################################################################################################
 
 
-<en:fruit
+<en:berries
 en:sea-buckthorn
 ar:أبو فايس
 az:murdarçayabənzər çaytikanı
@@ -43908,6 +44070,7 @@ zh:沙棘
 wikidata:en:Q165378
 wikipedia:en:https://en.wikipedia.org/wiki/Hippophae_rhamnoides
 # ingredient/fr:argousier has 7 products in 4 languages @2020-06-13
+eurocode_2_group_3:en: 9.30.70
 
 <en:sea-buckthorn
 <en:fruit juice
@@ -43936,6 +44099,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tamarillo
 # Note that in french often 'raisin' is used to indicate the dried one
 
 <en:fruit
+<en:berry
 en:grape
 af:druiwe
 am:ወይን
@@ -44138,6 +44302,7 @@ ciqual_food_code:en:13044
 ciqual_food_name:en:Grape, white, raw
 ciqual_food_name:fr:Raisin blanc à gros grain (type Italia ou Dattier) cru
 # 356 in 7 @2021-10-15
+eurocode_2_group_3:en: 9.30.10
 
 <en:white grape
 en:white seedless grape
@@ -44164,6 +44329,7 @@ fr:raisin noir, raisins noirs
 ciqual_food_code:en:13045
 ciqual_food_name:en:Grape, red, raw
 ciqual_food_name:fr:Raisin noir, cru
+eurocode_2_group_3:en: 9.30.12
 
 <en:black grape
 en:Concord grape, Concord black grape
@@ -45642,17 +45808,19 @@ fr:Jus de Grenade issu de l'agriculture biologique
 fr:écorces de grenade
 
 <en:fruit
-en:acerola
+en:acerola, acerola cherry, acerola cherries, west indian cherry, west indian cherries, Barbados cherry, Barbados cherries
 de:Acerolakirschen
 es:acerola
 fi:akerola, acerola
-fr:acérola
+fr:acérola, cerise des Antilles, cerises des Antilles, cerise de la Barbade, cerises de la Barbade
 it:acerola
 nl:acerola
 pl:Acerola, acerola
 ru:Ацерола
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/acerola
 # 133 products in 4 languages @2018-10-03
+eurocode_2_group_2:en: 9.25
+eurocode_2_group_3:en: 9.25.48
 
 <en:acerola
 <en:fruit juice
@@ -47706,6 +47874,7 @@ ciqual_food_name:fr:Chou romanesco ou brocoli à pomme, cru
 # description:en:CAULIFLOWER is one of several vegetables in the species Brassica oleracea in the genus Brassica
 
 <en:vegetable
+<en:brassica
 en:cauliflower
 bg:карфиол
 da:blomkål
@@ -47739,6 +47908,7 @@ nl:Bloemkoolroosjes
 # description:en:CABBAGE or headed cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads.
 
 <en:vegetable
+<en:brassica
 en:cabbage
 bg:зеле
 ca:col
@@ -48072,6 +48242,7 @@ ciqual_food_name:fr:Chou chinois ou pak-choi ou pé-tsai, cru
 eurocode_2_group_3:en: 8.15.28
 
 <en:cabbage
+<en:brassica
 en:brussels sprouts
 af:brusselspruit
 ar:كرنب بروكسل
@@ -48459,6 +48630,8 @@ zh:德国酸菜
 # zh-tw:德國酸菜
 wikidata:en:Q154166
 # en:sauerkraut has 166 products in 3 languages @2018-10-19
+eurocode_2_group_2:en: 8.70
+eurocode_2_group_3:en: 8.70.60
 
 <en:sauerkraut
 en:raw sauerkraut
@@ -49398,7 +49571,7 @@ description:en:large species of bamboo grass
 # description:en:HEART OF PALM is a vegetable harvested from the inner core and growing bud of certain palm trees. Heart of palm may be eaten on its own, and often it is eaten in a salad. Hearts of palm are rich in fiber, potassium, iron, zinc, phosphorus, copper, vitamins B2, B6, and C.
 
 # <en:category:en:Fresh plant-based foods
-<en:vegetable
+<en:shoot vegetable
 en:Heart of palm, Hearts of palm, palm heart
 ar:جمار
 de:Palmherzen, Palmherz
@@ -49829,7 +50002,11 @@ pt:Extrato de cebolo
 sv:lökextrakt
 # ingredient/fr:extrait-d’oignon has 119 products in 3 languages @2018-12-06
 
-<en:onion
+# <en:compound
+en:fried onion
+de:röstzwiebeln
+
+# <en:compound
 en:pre fried onions
 da:forstegte løg
 de:vorgebratene Zwiebeln
@@ -50889,6 +51066,9 @@ nl:wortelextract, kleurend wortelextract
 pt:Extrato de cenoura, extrato de cenouras
 # fr:extrait-de-carotte has 176 products in 6 languages @0218-10-20
 
+<en:carrot extract
+de:färbendes Karottenextrakt
+
 <en:carrot
 en:carrot powder
 de:Karottenpulver
@@ -50899,7 +51079,6 @@ de:Karottengranulat
 fi:porkkanaraaste
 ru:морковь гранулы
 
-<en:carrot
 <en:vegetable fiber
 fr:fibre de carotte, fibres de carotte
 de:Karottenfasern
@@ -51632,6 +51811,11 @@ ciqual_food_name:fr:Pomme de terre, bouillie/cuite à l'eau
 eurocode_2_group_3:en: 8.34.15
 
 <en:potato
+en:new potato, new potatoes
+fr:pomme de terre nouvelle, pommes de terre nouvelles
+eurocode_2_group_3:en: 8.34.10
+
+<en:potato
 en:table potatoes
 de:Speisekartoffeln
 
@@ -51894,7 +52078,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Crudités
 # ingredient/fr:crudités has 74 products in french @2019-03-29
 
 #category/avocados
-<en:vegetable
+<en:fruit vegetable
 en:avocado
 an:aguacate
 ar:الأفوكادو
@@ -51953,6 +52137,7 @@ description:fr:L'avocatier (Persea americana) est une espèce d'arbres fruitiers
 description:it:L'avocado (Persea americana) è una specie arborea da frutto che appartiene alla famiglia delle Lauracee.
 description:nl:De avocado (Persea americana) is een boom uit Centraal-Amerika. Hij is bekend om zijn gelijknamige voor consumptie geschikte vrucht.
 # 858 in 12 @2021-09-21
+eurocode_2_group_3:en: 8.40.60
 
 <en:avocado
 en:Raw avocado pulp
@@ -52192,7 +52377,7 @@ pl:sok aloesowy, sok z aloesu
 
 # description:en:Eggplant (Solanum melongena) is a plant species in the nightshade family Solanaceae grown for its often purple edible fruit. Although eggplant is the common name in many countries, in British English, it is called aubergine.
 
-<en:vegetable
+<en:fruit vegetable
 en:aubergine, eggplant
 ab:Абаклаџьан
 am:ባዚንጀን
@@ -52343,6 +52528,7 @@ carbon_footprint_fr_foodges_value:fr:6.2
 # en:aubergine has 733 products in 9 languages @2018-10-17
 ciqual_food_code:en:20053
 ciqual_food_name:en:Eggplant, raw
+eurocode_2_group_3:en: 8.40.15
 
 #comment:en:This can be seen as compound ingredient, i.e.:melanzane grigliate (melanzane, olio di girasole)
 
@@ -52431,6 +52617,7 @@ it:Galatto-oligosaccaridi di lattosio
 
 #comment:this should NOT contain the colour red, as beetroot can have multiple colours. Put it under en:red beetroot.
 <en:root vegetable
+<en:taproot vegetable
 en:beetroot, beet, beet root
 af:Beet
 bg:цвекло
@@ -52459,6 +52646,7 @@ carbon_footprint_fr_foodges_value:fr:0.2
 # en:beetroot has 319 products in 5 languages @2018-10-22
 ciqual_proxy_food_code:en:20091
 ciqual_proxy_food_name:fr:Betterave rouge, crue
+eurocode_2_group_3:en: 8.38.55
 
 # Sometimes it is indicated as a colour.
 
@@ -52690,6 +52878,7 @@ de:Meerrettichpaste
 # description:en:JERUSALEM ARTICHOKE (Helianthus tuberosus), also called sunroot, sunchoke, earth apple, or topinambour, is a species of sunflower. The tubers are sometimes used as a substitute for potatoes: they have a similar consistency, and in their raw form have a similar texture, but a sweeter, nuttier flavor; raw and sliced thinly, they are fit for a salad.
 
 <en:root vegetable
+<en:tuber
 en:Jerusalem artichoke, root artichoke
 ar:دوار الشمس الدرني
 az:Yerarmudu
@@ -52768,6 +52957,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Jerusalem_artichoke
 ciqual_food_code:en:20196
 ciqual_food_name:en:Jerusalem artichoke, raw
 ciqual_food_name:fr:Topinambour, cru
+eurocode_2_group_3:en: 8.34.20
 
 
 # description:en:Asclepias is a genus of herbaceous, perennial, flowering plants known as milkweeds.
@@ -52781,6 +52971,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Asclepias
 # description:en:The PARSNIP (Pastinaca sativa) is a root vegetable closely related to the carrot and parsley.
 
 <en:root vegetable
+<en:taproot vegetable
 en:parsnip
 ar:جزر أبيض
 az:Əkin cırhavucu
@@ -52859,6 +53050,7 @@ ciqual_food_code:en:20181
 ciqual_food_name:en:Parsnip, raw
 ciqual_food_name:fr:Panais, cru
 # ingredient/fr:panais has 372 products in 5 languages @2018-12-4
+eurocode_2_group_3:en: 8.38.34
 
 <en:parsnip
 en:Cooked parsnip
@@ -52873,7 +53065,7 @@ de:Pastinakenpulver
 # description:en:The RADISH (Raphanus raphanistrum subsp. sativus or Raphanus sativus) is an edible root vegetable of the Brassicaceae family. The root of the radish is usually eaten raw, although tougher specimens can be steamed. The raw flesh has a crisp texture and a pungent, peppery flavor.
 
 <en:root vegetable
-# category:en:Vegetables
+<en:taproot vegetable
 en:radish, Radishes
 am:ፍጁል
 ar:فجل
@@ -53004,6 +53196,7 @@ carbon_footprint_fr_foodges_value:fr:8.4
 ciqual_food_code:en:20045
 ciqual_food_name:en:Radish, raw
 ciqual_food_name:fr:Radis rouge, cru
+eurocode_2_group_3:en: 8.38.50
 
 <en:radish
 en:Black radish
@@ -53055,7 +53248,7 @@ fr:racine de lotus
 it:radice di loto
 ja:レンコン, 蓮根, れんこん
 
-<en:vegetable
+<en:pod and seed vegetable
 en:okra
 bg:бамя
 de:Okra, Gemüse-Eibisch
@@ -53066,6 +53259,7 @@ ja:オクラ
 nl:okra
 pt:Quiabo
 wikidata:en:Q12047207
+eurocode_2_group_3:en: 8.45.60
 
 # description:fr:La SALADE est un terme générique désignant en jardinage et horticulture diverses sortes de feuilles, c'est-à-dire de plantes potagères dont les feuilles, consommées crues, entrent dans la composition d'un mets froid dont elles ont pris le nom, la « salade », sous-entendu « salade verte ».
 # comment:en:in english salad seems to refer more to the group of dishes than the group of plants.
@@ -53227,7 +53421,7 @@ fr:salade composée
 # wikipedia says "In many languages, but not English, the word paprika also refers to the plant and the fruit from which the spice is made, as well as to peppers in the Grossum group (e.g. bell peppers)."
 # do not make pepper a synonym of bell pepper
 
-<en:vegetable
+<en:fruit vegetable
 en:bell pepper, sweet pepper
 af:soetrissie
 an:pimiento
@@ -53309,7 +53503,7 @@ ciqual_food_code:en:20041
 ciqual_food_name:en:Sweet pepper, green, yellow or red, raw
 ciqual_food_name:fr:Poivron, vert, jaune ou rouge, cru
 # fr:poivron has 1581 products in 11 languages @2018-10-15
-
+eurocode_2_group_3:en: 8.40.20
 
 # make "yellow bell pepper" the canonical name
 # "yellow pepper" can probably be safely assumed to be a synonym for "yellow bell pepper"
@@ -53448,7 +53642,7 @@ sv:röd och gul paprika
 # fr:poivrons-rouges-et-jaunes has 54 products in 5 languages @2018-10-15
 
 # category/chili-peppers
-<en:vegetable
+<en:fruit vegetable
 en:chili pepper, chilli pepper, chilli, chillies, chile, chile pepper
 ar:فلفل حار
 be:чырвоны перац
@@ -53563,6 +53757,7 @@ description:pt:A "Pimenta Chili" é o nome comum dado à baga obtida a partir de
 ciqual_food_code:en:20151
 ciqual_food_name:en:Chili pepper, raw
 ciqual_food_name:fr:Piment, cru
+eurocode_2_group_3:en: 8.40.25
 
 #<en:chili pepper
 #en:raw chili pepper
@@ -54028,6 +54223,10 @@ sl:paprika
 sv:paprika
 
 <en:vegetable
+en:fruit vegetable
+eurocode_2_group_2:en: 8.40
+
+<en:fruit vegetable
 en:tomato, tomatoes
 ab:Атомат
 am:ቲማቲም
@@ -54124,6 +54323,7 @@ wikidata:en:Q20638126
 ciqual_food_code:en:20047
 ciqual_food_name:en:Tomato, raw
 ciqual_food_name:fr:Tomate, crue
+eurocode_2_group_3:en: 8.40.10
 
 <en:tomato
 en:organic tomato
@@ -54611,7 +54811,6 @@ fr:Purée de tomates vertes
 fi:vihreä tomaattipyree
 # In process de:Püree aus grünen Tomaten
 
-<en:tomato
 <en:vegetable fiber
 fr:fibres de tomate, fibre de tomate
 nl:tomatenvezel
@@ -54620,6 +54819,7 @@ nl:tomatenvezel
 # comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
 
 <en:root vegetable
+<en:taproot vegetable
 en:rutabaga, swede
 bg:кръмно цвекло
 da:kålroe
@@ -54635,6 +54835,7 @@ ciqual_food_code:en:20201
 ciqual_food_name:en:Rutabaga or Swede, raw
 ciqual_food_name:fr:Rutabaga, cru
 wikidata:en:Q104733765
+eurocode_2_group_3:en: 8.38.42
 
 <en:rutabaga
 en:Cooked rutabaga, Cooked swede
@@ -54644,6 +54845,7 @@ ciqual_food_name:en:Rutabaga or Swede, cooked
 ciqual_food_name:fr:Rutabaga, cuit
 
 <en:root vegetable
+<en:taproot vegetable
 en:turnip, turnips
 af:Raap
 ar:لفت
@@ -54735,6 +54937,7 @@ carbon_footprint_fr_foodges_value:fr:0.9
 ciqual_food_code:en:20064
 ciqual_food_name:en:Turnip, peeled, raw
 ciqual_food_name:fr:Navet, pelé, cru
+eurocode_2_group_3:en: 8.38.38
 
 # description:en:Eleocharis dulcis, the Chinese water chestnut or water chestnut, is a grass-like sedge. It is grown in many countries for its edible corms.
 
@@ -54788,7 +54991,7 @@ xx:Nelumbo, Nelumbo Adans.
 
 # description:en:A PUMPKIN is a cultivar of a squash plant, most commonly of Cucurbita pepo, that is round, with smooth, slightly ribbed skin, and deep yellow to orange coloration.
 
-<en:vegetable
+<en:fruit vegetable
 en:pumpkin
 af:Pampoen
 am:የሰይጣን ዱባ
@@ -54907,6 +55110,7 @@ carbon_footprint_fr_foodges_value:fr:1.2
 ciqual_food_code:en:20139
 ciqual_food_name:en:Squash, all types, raw
 ciqual_food_name:fr:Courge, crue
+eurocode_2_group_3:en: 8.40.45
 
 <en:pumpkin
 en:pumpkin pulp
@@ -54939,7 +55143,7 @@ es:zumo de calabaza concentrado
 fi:kurpitsamehutiiviste
 fr:jus de potiron concentré, jus concentré de potiron
 
-<en:vegetable
+<en:fruit vegetable
 en:butternut squash
 ar:قرع مسكي
 az:ətirli balqabaq
@@ -54981,11 +55185,18 @@ ciqual_food_name:en:Pumpkin (cucurbita moschata), pulp, raw
 ciqual_food_name:fr:Courge musquée, pulpe, crue
 wikidata:en:Q4169287
 #696 @2021-12-01
+eurocode_2_group_3:en: 8.40.49
 
-<en:vegetable
+<en:fruit vegetable
+en:chayotte
+fr:chayotte, christophine, chouchou
+eurocode_2_group_3:en: 8.40.49
+
+<en:fruit vegetable
 en:spaghetti squash
 fr:courge spaghetti
 wikidata:en:Q2142043
+eurocode_2_group_3:en: 8.40.45
 
 <en:spaghetti squash
 en:spaghetti squash pulp
@@ -54994,8 +55205,7 @@ ciqual_food_code:en:20145
 ciqual_food_name:en:Squash, spaghetti, pulp, raw
 ciqual_food_name:fr:Courge spaghetti, pulpe, crue
 
-
-<en:vegetable
+<en:fruit vegetable
 en:giant squash
 an:calabazera
 ar:قرع كبير
@@ -55037,7 +55247,9 @@ zh:笋瓜
 #hsb:hoberski banjowc
 #pcd:paturon
 wikidata:en:Q161180
+eurocode_2_group_3:en: 8.40.45
 
+<en:fruit vegetable
 <en:pumpkin
 en:red kuri squash
 co:zucca castagnina
@@ -55059,11 +55271,19 @@ ciqual_food_name:en:Sweet green hokkaido squash, pulp, raw
 ciqual_food_name:fr:Courge hokkaïdo, pulpe, crue
 # 176 in french @2021-12-03
 description:en:Red kuri squash (often spelled 'kari') (katakana:ウチキクリ) is thin skinned orange colored winter squash, that has the appearance of a small pumpkin without the ridges.
+eurocode_2_group_3:en: 8.40.45
 
+<en:fruit vegetable
+en:acorn squash
+eurocode_2_group_3:en: 8.40.45
+
+<en:fruit vegetable
+en:custard squash
+eurocode_2_group_3:en: 8.40.45
 
 # description:en:The zucchini (American English) or courgette (British English) is a summer squash.
 
-<en:vegetable
+<en:fruit vegetable
 en:Courgette, zucchini
 ar:كوسى
 ba:ҡабаҡ
@@ -55139,7 +55359,7 @@ carbon_footprint_fr_foodges_value:fr:0.7
 ciqual_food_code:en:20020
 ciqual_food_name:fr:Courgette, pulpe et peau, crue
 # fr:courgette contains 2098 products in 9 languages @2018-10-26
-
+eurocode_2_group_3:en: 8.40.40
 
 <en:Courgette
 en:grilled courgette
@@ -55161,6 +55381,13 @@ es:calabacin deshidritado
 fi:kuivattu kesäkurpitsa
 fr:courgette séchée, courgettes séchées
 pl:suszona cukinia
+
+<en:fruit vegetable
+en:akee apple, ackee apple, akee, ackee
+fr:arille, aki
+la:blighia sapida
+eurocode_2_group_3:en: 8.40.50
+
 
 <en:root vegetable
 en:Rapeseed, rape, oilseed rape, rape seed
@@ -55219,6 +55446,7 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Navette_(plante)
 # comment:en:Beans is the generic term for Phaseolus vulgaris, however the correct name "common bean" is not much used as ingredient. So be wary with the wikidata translations as well.
 
 <en:legume
+<en:pulse
 en:beans, common bean, bean
 am:ኣደንጓሬ
 ar:فاصولياء شائعة
@@ -55320,6 +55548,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Phaseolus_vulgaris
 # ingredient/fr:haricots has 92 products in 4 languages @2019-06-02
 carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
 carbon_footprint_fr_foodges_value:fr:2
+eurocode_2_group_3:en: 7.10.30
 
 <en:beans
 en:bean sprouts, beansprouts
@@ -55331,7 +55560,8 @@ lv:diedzētas pupinas
 
 
 <en:legume
-en:green bean, green beans
+<en:pod and seed vegetable
+en:green bean, green beans, French bean
 ar:الفاصوليا الخضراء
 az:göy lobya
 bg:зелен фасул
@@ -55386,6 +55616,7 @@ ciqual_food_code:en:20061
 ciqual_food_name:en:French bean, raw
 ciqual_food_name:fr:Haricot vert, cru
 #4192 in 16 @2021-10-01
+eurocode_2_group_3:en: 8.45.30
 
 #<en:green bean
 #fr:haricots verts tres fins issus de l'agriculture biologique
@@ -55437,11 +55668,13 @@ wikidata:en:Q68189268
 ciqual_food_code:en:20195
 ciqual_food_name:en:Butter bean or yellow bean, raw
 ciqual_food_name:fr:Haricot beurre, cru
+eurocode_2_group_3:en: 8.45.25
 
 # description:en:FLAT BEANS, also known as helda beans, romano beans and "gavar fhali" in some Indian states, are a variety of Phaseolus coccineus, known as runner bean with edible pods that have a characteristic wide and flat shape.
 
+<en:pod and seed vegetable
 <en:green bean
-en:flat bean, romano bean, helda bean, flat green beans, flat beans
+en:flat bean, romano bean, helda bean, flat green beans, flat beans, runner bean
 de:flache Bohne, Helda Bohne, Romano Bohne, flache grüne Bohnen, flache Bohnen
 es:judia verde plana, ferraúra
 fi:romanopapu, romanopavut
@@ -55456,6 +55689,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Flat_bean
 ciqual_food_code:en:20269
 ciqual_food_name:en:Flat bean, raw
 ciqual_food_name:fr:Haricot plat, cru
+eurocode_2_group_3:en: 8.45.40
 
 <en:green bean
 en:round green beans
@@ -55510,8 +55744,8 @@ wikidata:en:Q159753
 ##########################
 
 
-
-# description:en:A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse). Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
+# description:en:A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse).
+# Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
 en:legume
 af:Peulgewas
 an:Legumbre
@@ -55597,10 +55831,17 @@ wikidata:en:Q145909
 vegan:en:yes
 vegetarian:en:yes
 
+<en:legume
+en:pulse, pulses
+fr:légumineuse sèche, légumineuses sèches, légumes secs, légume sec
+pt:pulso
+eurocode_2_group_2:en: 7.10
+wikidata:en:Q2727662
+
 # description:en:Phaseolus lunatus, commonly known as the LIMA BEAN, butter bean, sieva bean, Double Bean or Madagascar bean, is a legume grown for its edible seeds or beans
 
 #category/butter-beans
-<en:legume
+<en:pod and seed vegetable
 en:lima bean, lima beans, butter bean
 ca:garrofó, fesol de la peladilla, mongeta de Lima
 da:limabønne, månebønne, sukkerbønne
@@ -55611,7 +55852,7 @@ es:Garrofones, Garrofón, Habones, Judías de Lima, Habas de Lima
 eu:limako babarruna
 fa:لوبیای عروس
 fi:voipapu, limanpapu, valkoinen voipapu
-fr:haricot de Lima
+fr:haricot de Lima, haricots de Lima
 ga:pónaire mhór
 ht:pwachouk
 id:kacang kratok, kacang jawa, kekara
@@ -55642,6 +55883,16 @@ ciqual_food_code:en:20126
 ciqual_food_name:en:Lima bean, raw
 ciqual_food_name:fr:Haricot de Lima, cru
 #528 @2021-10-27
+# eurocode 8.45.25 is for fresh Lima beans
+eurocode_2_group_3:en: 8.45.25
+# eurocode 7.10.34 is for dried lima beans
+# eurocode_2_group_3:en: 7.10.34
+
+<en:lima bean
+<en:pulse
+en:dried lima bean
+fr:haricot de Lima sec, haricots de Lima secs
+eurocode_2_group_3:en: 7.10.34
 
 <en:lima bean
 en:large lima beans
@@ -55651,12 +55902,16 @@ fr:Grands haricots de Lima
 en:baby lima beans
 
 <en:legume
+<en:pulse
 en:pinto beans
 de:Pinto Bohnen
 es:frijol pinto
 fr:Haricots pinto
+eurocode_2_group_3:en: 7.10.30
+eurocode_2_group_4:en: 7.10.30.45
 
 <en:legume
+<en:pulse
 en:white beans, navy beans, great northern beans, haricot beans
 bg:бял боб
 da:hvide bønner
@@ -55671,11 +55926,14 @@ pl:fasola biała
 ru:фасоль белая
 sv:vit böna, vita bönor
 # ingredient/fr:lingots-blancs has 8 products @2019-06-02
+eurocode_2_group_3:en: 7.10.30
+eurocode_2_group_4:en: 7.10.30.10
 
-<en:legume
+
+<en:pulse
 fr:haricots coco roses, haricots cocos roses
 
-<en:legume
+<en:pulse
 fr:haricots chevriers verts
 
 <en:white beans
@@ -55693,26 +55951,41 @@ fr:haricots blancs précuits
 <en:white beans
 fr:haricots blancs réhydratés
 
-<en:legume
-en:black beans
+<en:pulse
+en:black bean, black beans
 bg:черен боб
 da:sorte bønner
 de:schwarze Bohnen
 es:Alubias negras
 fi:mustapapu, mustapavut
-fr:haricots noirs
+fr:haricot noir, haricots noirs
 it:Fagioli neri
 nl:Zwarte bonen
 pl:fasola czarna, fasoli czarnej
 pt:Feijão preto
 sv:svarta bönor
+eurocode_2_group_3:en: 7.10.30
+eurocode_2_group_4:en: 7.10.30.40
+
+<en:black bean
+en:black turtle bean
 
 <en:black beans
 en:black bean flour
 fr:farine de haricots noirs
 
-<en:legume
-en:red beans, red kidney beans, kidney beans
+<en:pulse
+en:Boston bean
+eurocode_2_group_3:en: 7.10.30
+eurocode_2_group_4:en: 7.10.30.20
+
+<en:pulse
+en:kidney bean
+eurocode_2_group_3:en: 7.10.30
+eurocode_2_group_4:en: 7.10.30.20
+
+<en:pulse
+en:red bean, red beans, red kidney beans
 bg:червен боб
 da:Røde kidneybønner, kidneybønner
 de:Rote Bohnen, Kidneybohnen
@@ -55728,6 +56001,8 @@ ru:фасоль красная, красная фасоль, Фасоль кру
 sv:röda kidneybönor, kidneybönor
 wikidata:en:Q1828227
 wikipedia:en:https://en.wikipedia.org/wiki/Kidney_bean
+eurocode_2_group_3:en: 7.10.30
+eurocode_2_group_4:en: 7.10.30.25
 
 <en:red beans
 en:small red beans
@@ -55748,7 +56023,7 @@ fr:haricots rouges précuits
 <en:red beans
 fr:haricots rouges réhydratés
 
-<en:legume
+<en:kidney bean
 en:cannellini beans, white kidney beans
 de:Cannellini Bohnen, Cannellinibohnen
 fr:haricots cannellini
@@ -55757,6 +56032,7 @@ wikidata:en:Q74663825
 
 #comment:en:Do not confuse these with mungo beans: Vigna mungo
 <en:legume
+<en:pulse
 en:mung bean, mungbean
 ar:بقلة الماش
 bg:папуда, птичи боб, бебриджа
@@ -55772,7 +56048,7 @@ el:ροβίτσα
 eo:mungfabo
 es:judías mungo, habas de mungo
 et:munguba
-fa:ماش‎
+fa:ماش
 fi:mungpapu
 fr:haricot mungo
 gu:મગ
@@ -55829,6 +56105,13 @@ zh:綠豆
 wikidata:en:Q484447
 wikipedia:en:https://en.wikipedia.org/wiki/Mung_bean
 #579 @2021-10-06
+eurocode_2_group_3:en: 7.10.38
+
+<en:pulse
+en:black gram, urd bean, urd
+fr:haricot urd, haricots urd, urd, haricot mungio à grain noir
+la:vigna mungo
+eurocode_2_group_3:en: 7.10.42
 
 <en:mung bean
 en:mung bean sprout, mung bean seedlings
@@ -55870,7 +56153,7 @@ ciqual_food_name:fr:Haricot mungo germé ou pousse de ""soja"", cru
 #en:Mungbean powder
 #zh:緣豆粉
 
-<en:legume
+<en:pulse
 en:borlotti bean, borlotti, cranberry bean
 de:Borlotti Bohnen, Borlottibohnen
 fr:haricots borlotti, haricots marbrés
@@ -55881,7 +56164,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cranberry_bean
 description:en:The borlotti bean is a variety of common bean (Phaseolus vulgaris) first bred in Colombia as the cargamanto.
 # description:en:The BLACK-EYED PEA is a subspecies of the cowpea, grown around the world for its medium-sized, edible bean.
 
-<en:legume
+<en:pulse
 en:black-eyed pea, blackeye peas, black eye beans, black eyed beans
 de:Augenbohnen
 dv:ލޫބިޔާ
@@ -55903,8 +56186,9 @@ zh:黑眼豆
 wikidata:en:Q3246973
 wikipedia:en:https://en.wikipedia.org/wiki/Black-eyed_pea
 # ingredient/nl:zwarte-oogbonen has 1 product @2019-05-24
+eurocode_2_group_3:en: 7.10.46
 
-<en:legume
+<en:pulse
 en:brown beans
 da:brune bønner
 de:braune Bohnen
@@ -55913,9 +56197,10 @@ fi:ruskea papu, ruskeat pavut
 fr:haricots bruns
 nb:brune bønner
 nl:bruine bonen
+eurocode_2_group_3:en: 7.10.30
+eurocode_2_group_4:en: 7.10.30.35
 
-
-<en:legume
+<en:pulse
 en:flageolets
 de:Flageolette
 es:habichuelas
@@ -55924,6 +56209,8 @@ fr:flageolets
 # ingredient/fr:flageolets has 74 products in 2 languages @2019-02-25
 carbon_footprint_fr_foodges_ingredient:fr:Haricot blanc en conserve (type cassoulet)
 carbon_footprint_fr_foodges_value:fr:2
+eurocode_2_group_3:en: 7.10.30
+eurocode_2_group_4:en: 7.10.30.30
 
 <en:flageolets
 en:green flageolets
@@ -55943,7 +56230,7 @@ nl:extra fijne groene flageolets
 # description:en:Lupin or lupini beans are the yellow legume seeds of the genus Lupinus. They are traditionally eaten as a pickled snack food. The lupin is devoid of starch, which is very unusual for a species of edible bean. Lupin allergy may cause life-threatening anaphylaxis in sensitive individuals.
 # only "sweet" varieties of lupin are used for human food
 
-<en:legume
+<en:pulse
 en:lupin bean, lupin, lupines, lupine, sweet lupin, lupini, lupini beans
 ar:ترمس
 az:Acıpaxla
@@ -56017,6 +56304,7 @@ ciqual_food_code:en:20534
 ciqual_food_name:en:lupin grain, raw
 ciqual_food_name:fr:Lupin, graine crue
 # 957 in 12 @2021-10-01
+eurocode_2_group_3:en: 7.10.xx
 
 <en:lupin
 en:white lupin
@@ -56070,7 +56358,7 @@ nl:gerehydrateerde vermicelli van erwten
 <en:legume
 nl:veldbonen
 
-<en:legume
+<en:pod and seed vegetable
 en:broad bean, fava bean, faba bean, Vicia faba
 am:ባቄላ
 ar:فول
@@ -56180,6 +56468,16 @@ wikipedia:en:https://en.wikipedia.org/wiki/Vicia_faba
 ciqual_food_code:en:20518
 ciqual_food_name:en:Broad bean, dried
 ciqual_food_name:fr:Fève, sèche
+#eurocode 8.45.20 is for fresh broad beans
+#eurocode_2_group_3:en: 7.10.20 is for dried broad beans
+eurocode_2_group_3:en: 8.45.20
+
+
+<en:broad bean
+<en:pulse
+en:dried broad bean
+fr:fève sêche, fèves sèches
+eurocode_2_group_3:en: 7.10.20
 
 <en:broad bean
 en:faba bean preparation
@@ -56191,8 +56489,10 @@ fr:Fèves fraîches à écosser
 ciqual_food_code:en:20517
 ciqual_food_name:en:Broad bean, to shell, fresh
 ciqual_food_name:fr:Fève à écosser, fraîche
+eurocode_2_group_3:en: 8.45.20
 
-<en:legume
+<en:pulse
+en:horse bean
 fr:féverole, féverolle
 
 <en:plant protein
@@ -56201,11 +56501,11 @@ de:Ackerbohneneiweiß
 nl:tuinbooneiwit
 
 # rare bean from the Lyon region in France
-<en:legume
+<en:pulse
 en:meat bean
 fr:haricot viande, haricots viande
 
-<en:legume
+<en:pulse
 en:Adzuki bean, azuki bean
 en:Adzuki bean, azuki bean
 ar:لوبياء مقرنة
@@ -56444,7 +56744,7 @@ de:Palerbse, Palerbsen
 
 # description:en:The chickpea or chick pea (Cicer arietinum) is an annual legume of the family Fabaceae, subfamily Faboideae.
 # chickpea parent is NOT pea
-<en:legume
+<en:pulse
 en:chickpea, chickpeas, garbanzo, garbanzo beans, chick pea, chick peas
 af:kekerertjie
 am:ሽምብራ
@@ -56551,6 +56851,7 @@ carbon_footprint_fr_foodges_value:fr:1.5
 # ingredient/fr:pois-chiche has 700 products in 13 languages @2019-02-15
 ciqual_food_code:en:20532
 ciqual_food_name:fr:Pois chiche, appertisé, égoutté
+eurocode_2_group_3:en: 7.10.15
 
 <en:chickpea
 en:pedrosillano chickpeas
@@ -56678,6 +56979,16 @@ ciqual_food_name:fr:Farine de pois chiche
 <en:chickpea flour
 en:besan
 
+<en:vegetable
+en:pod and seed vegetable
+eurocode_2_group_2:en: 8.45
+
+<en:pod and seed vegetable
+en:pea
+fr:pois
+la:pisum sativum
+eurocode_2_group_3:en: 8.45.10
+
 <en:pea
 en:green peas
 bg:зелен грах
@@ -56797,6 +57108,7 @@ vegetarian:en:yes
 # description:en:SPLIT PEAS  are an agricultural or culinary preparation consisting of the dried, peeled and split seeds of Pisum sativum, the pea. Green and yellow split peas are commonly used to make pea soup or "split pea soup", and sometimes pease pudding, which was commonly prepared in medieval Europe.
 
 <en:pea
+<en:pulse
 en:split pea, split peas
 de:Schälerbsen, geschälte Trockenerbsen
 el:Φάβα
@@ -56818,6 +57130,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Split_pea
 ciqual_food_code:en:20506
 ciqual_food_name:en:Split pea, cooked
 ciqual_food_name:fr:Pois cassé, cuit
+eurocode_2_group_3:en: 7.10.10
 
 <en:split pea
 en:Cooked split peas
@@ -56861,6 +57174,7 @@ sv:plattvial
 # comment:en:The wikidata entry is more about the plant, so translations can be wrong.
 
 <en:legume
+<en:pulse
 en:lentils, lentil
 am:ምስ'ር
 ar:عدس
@@ -56967,6 +57281,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Lentilles vertes
 carbon_footprint_fr_foodges_value:fr:0.3
 ciqual_food_code:en:20505
 ciqual_food_name:fr:Lentille, bouillie/cuite à l'eau
+eurocode_2_group_3:en: 7.10.25
 
 <en:lentils
 en:pardina lentils
@@ -57561,7 +57876,7 @@ sv:sötmandel
 
 <en:almond
 en:almond paste
-de:Mandelpaste, Mandelmasse, Mandelmuss
+de:Mandelmus, Mandelpaste, Mandelmasse
 es:masa fina de mazapán, pasta de almendra
 fi:mantelitahna
 fr:pâte d'amande, pâte d'amandes, purée d'amande, purée d'amandes
@@ -58034,7 +58349,7 @@ bg:лешникова паста, крем лешник
 ca:pasta d'avellana, pasta d'avellanes
 cs:oříšková pasta
 da:hasselnödmasse
-de:Haselnüsspaste, Haselnusspaste, Haselnussmasse, Haselnussmark, Haselnussmuss
+de:Haselnussmus, Haselnüsspaste, Haselnusspaste, Haselnussmasse, Haselnussmark
 es:pasta de avellana, pasta de avellanas
 fi:hasselpähkinätahna, hasselpähkinämassa
 fr:pâte de noisette, purée de noisettes
@@ -59607,7 +59922,7 @@ et:valge pipar
 fi:valkopippuri
 fr:poivre blanc
 hr:bijeli papor
-hu:fehérbors
+hu:fehérbors, fehér bors
 it:pepe bianco
 ja:白胡椒, 白コショウ, 白こしょう, ホワイトペッパー
 nb:hvit pepper
@@ -59701,7 +60016,7 @@ fi:mustapippuri
 fr:poivre noir
 ga:piobar dubh
 hr:crni papar, papar crni, plod crnog papra, piper nigrum
-hu:feketebors
+hu:feketebors, fekete bors
 it:pepe nero
 ja:黒胡椒, 黒こしょう, 黒コショウ, ブラックペッパー
 kk:қара бұрыш
@@ -63296,7 +63611,7 @@ fa:تایم
 fi:timjami
 fr:thym
 hr:timijan, majčina dušica
-hu:kaukkfű
+hu:kakukkfű, kaukkfű
 id:thyme
 it:timo
 ja:タイム
@@ -63448,12 +63763,17 @@ en:hemp flour
 fr:farine de chanvre
 nl:hennepmeel
 
-<en:herb
+<en:condiment
+en:aromatic leaf
+fr:feuille aromatique
+
+<en:aromatic leaf
 en:blackberry leaf, blackberry leaves
 fr:feuilles de mûre
 nl:braamblad, braambladeren
 
 <en:root vegetable
+<en:taproot vegetable
 en:parsley root
 de:Petersilienwurzel
 es:raices de peregril
@@ -63467,6 +63787,7 @@ sl:jeva korenina
 sr:koren peršuna
 wikidata:en:Q68220931
 # 113 @2021-09-16
+eurocode_2_group_3:en: 8.38.60
 
 ###################################################################################################
 #
@@ -65647,7 +65968,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Filipendula_ulmaria
 
 # description:en:The olive, known by the botanical name Olea europaea, is a species of small tree in the family Oleaceae
 
-<en:plant
+<en:fruit vegetable
 en:olive, olives
 ar:الزيتون
 bg:маслини, маслина
@@ -65705,6 +66026,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Olive
 # ingredient/olive has 2637 products in 9 languages @2018-12-01
 carbon_footprint_fr_foodges_ingredient:fr:Olives "Pays du Sud" en boite
 carbon_footprint_fr_foodges_value:fr:1.7
+eurocode_2_group_3:en: 8.40.65
 
 <en:olive
 en:Koroneiki, Koroneiki olives
@@ -65869,19 +66191,6 @@ fr:fleur d'oranger
 en:orange blossom water
 fr:eau de fleur d'oranger
 
-# <en:vegetable fibre
-<en:plant
-en:plantain
-de:Plantainbanane
-es:platano macho
-fi:ratamo
-fr:plantain
-it:piantaggine
-nl:weegbree
-pl:plantan, plantany, plantana
-# ingredient/fr:plantain has 51 products @2019-02-25
-# fibres végétales (chicorée, pomme de terre, pois, riz, plantain, psyllium)
-
 <en:plant
 fr:pin sylvestre
 la:Pinus sylvestris
@@ -65985,7 +66294,6 @@ wikipedia:en:https://en.wikipedia.org/wiki/Quinine
 ###################################################################################################
 # description:en:Plantago lanceolata is a species of flowering plant in the plantain family Plantaginaceae.
 
-<fr:plantain
 <en:plant
 en:ribwort plantain
 ar:لسان الحمل السهمي
@@ -67420,7 +67728,7 @@ fr:grains de vanille épuisés, grains de vanille épuisée, graines de vanille 
 it:semi di vaniglia estratti
 # ingredient/fr:grains-de-vanille-épuisés has 31 products in 5 languages @2019-02-24
 
-<en:vanilla
+#<en:compound
 en:vanilla preparation
 hr:pripravak vanilija
 
@@ -67533,13 +67841,14 @@ wikidata:en:Q161665
 wikipedia:en:https://en.wikipedia.org/wiki/Rhodiola_rosea
 # ingredient/en:rhodiola-rosea has 8 products in 1 language @2020-06-13
 
-<en:plant
-en:Cape gooseberry, goldenberry, Peruvian groundcherry
+<en:berries
+en:Cape gooseberry, Cape gooseberries, goldenberry, goldenberries, golden berry, golden berries, Peruvian groundcherry
 es:uchuva, aguaymanto, uvilla
-la:Physalis peruviana
+la:Physalis peruviana, physalis
 pl:Miechunka peruwiańska, rodzynek brazylijski, jagoda inkaska, jagoda inków, miechunka
 wikidata:en:Q165227
 wikipedia:en:https://en.wikipedia.org/wiki/Physalis_peruviana
+eurocode_2_group_3:en: 9.30.58
 
 # Withania somnifera, known commonly as ASHWAGANDHA, Indian ginseng, poison gooseberry, or winter cherry, is a plant in the Solanaceae or nightshade family.
 
@@ -67916,6 +68225,8 @@ ro:concentrat de spirulină, concentrat de spirulina
 # description:en:SEAWEED or macroalgae refers to several species of macroscopic, multicellular, marine algae.
 # not sure if this should kept separate from en:algae
 
+# Eurocode 8.55 Seaweeds
+
 <en:algae
 en:seaweed
 af:Seewier
@@ -67977,7 +68288,7 @@ zh:海藻
 # zh-tw:海藻
 wikidata:en:Q237169
 wikipedia:en:https://en.wikipedia.org/wiki/Seaweed
-
+eurocode_2_group_2:en: 8.55
 
 <en:algae
 en:algae concentrate
@@ -68184,6 +68495,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Kombu
 ciqual_food_code:en:20990
 ciqual_food_name:en:Kombu or Japanese kelp (Laminaria japonica), dried or dehydrated
 ciqual_food_name:fr:Kombu ou kombu japonais (Laminaria japonica), séchée ou déshydratée
+eurocode_2_group_3:en: 8.55.20
 
 en:Tangle
 fr:Kombu breton
@@ -68275,6 +68587,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nori
 ciqual_food_code:en:20987
 ciqual_food_name:en:Laver (Porphyra sp.), dried or dehydrated
 ciqual_food_name:fr:Nori (Porphyra sp.), séchée ou déshydratée
+eurocode_2_group_3:en: 8.55.30
 
 #description:en:The sea lettuces comprise the genus Ulva, a group of edible green algae that is widely distributed along the coasts of the world's oceans.
 
@@ -68326,6 +68639,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sea_lettuce
 ciqual_food_code:en:20985
 ciqual_food_name:en:Sea lettuce (ulva sp.), dried or dehydrated
 ciqual_food_name:fr:Laitue de mer (Ulva sp.), séchée ou déshydratée
+eurocode_2_group_3:en: 8.55.30
 
 
 #description:en:HIMANTHALIA ELONGATA is a brown alga (class Phaeophyta or Phaeophyceae) in the order Fucales, also known by the common names thongweed, sea thong and sea spaghetti.
@@ -68379,6 +68693,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Wakame
 ciqual_food_code:en:20984
 ciqual_food_name:en:Wakame (Undaria pinnatifida), dried or dehydrated
 ciqual_food_name:fr:Wakamé (Undaria pinnatifida), séchée ou déshydratée
+eurocode_2_group_3:en: 8.55.40
 
 # en:description:ASCOPHYLLUM NODOSUM is a large, common cold water seaweed or brown alga (Phaeophyceae) in the family Fucaceae, being the only species in the genus Ascophyllum.
 
@@ -68414,6 +68729,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Laminaria
 <en:seaweed
 la:Porphyra yezoensis
 
+<en:seaweed
+en:Irish moss, Carrageen moss
+la:Chondrus crispus
+eurocode_2_group_3:en: 8.55.10
 
 # en:description:ASPERGILLUS ORYZAE, known in English as koji, is a filamentous fungus (a mold) used in Chinese and other East Asian cuisines to ferment soybeans for making soy sauce and fermented bean paste
 
@@ -68474,7 +68793,9 @@ description:en:A MUSHROOM, or toadstool, is the fleshy, spore-bearing fruiting b
 # There is a wikipedia translation issue. Mushroom often refers to spores, so edible mushroom is better. However the edible part is not found on packages.
 #comment:nl:In dutch champignon refers to AGARICUS BISPORUS.
 
-en:mushroom
+# corresponds to the 8.50 Edible fungi eurocode
+
+en:mushroom, edible fungi
 an:Potrecón
 ar:عيش الغراب
 ba:Ашарға яраҡлы бәшмәктәр
@@ -68489,7 +68810,7 @@ da:Spiselige svampe, Svampe
 de:Pilz, Pilze, Speisepilz, Speisepilze
 el:Μανιτάρι
 eo:manĝebla fungo
-es:seta, champinon, champiñon, champiñones, setas cultivadas, setas frescas cultivadas
+es:seta, champinon, champiñon, champiñones
 et:Söögiseen, seen, seened
 eu:ziza, Ziza jangarri
 fa:قارچ خوراکی, قارچ چتری
@@ -68600,6 +68921,7 @@ nutriscore_fruits_vegetables_nuts:en:yes
 ciqual_food_code:en:20010
 ciqual_food_name:en:Mushroom, all types, raw
 ciqual_food_name:fr:Champignon, tout type, cru
+eurocode_2_group_2:en: 8.50
 
 <en:mushroom
 <en:protein
@@ -68655,7 +68977,7 @@ nl:champignonpoeder
 sv:champinjonpulver
 
 <en:mushroom
-en:Cantharellus
+en:Cantharellus, cantharelle
 de:Pfifferlinge
 pl:Pieprznik
 xx:Cantharellus
@@ -68729,14 +69051,16 @@ wikidata:en:Q188749
 wikipedia:en:https://en.wikipedia.org/wiki/Cantharellus_cibarius
 # ingredient/fr:cantharellus-cibarius has 26 products in 3 languages @2018-12-16
 # ingredient/fr:girolles has 90 products in 3 languages @2018-12-16
+eurocode_2_group_3:en: 8.50.40
 
 <en:mushroom
 en:boletus
+fr:bolet
 pl:borowik, borowiki, borowika
 xx:Boletus
 wikidata:en:Q19744
 wikipedia:en:https://en.wikipedia.org/wiki/Boletus
-
+eurocode_2_group_3:en: 8.50.25
 
 # description:en:BOLETUS EDULIS (English:penny bun, cep, porcino or porcini) is a basidiomycete fungus, and the type species of the genus Boletus.
 
@@ -68915,9 +69239,15 @@ pl:Podgrzyb brunatny, podgrzybek brunatny
 xx:Imleria badia
 wikdata:en:Q752497
 
+<en:mushroom
+en:cultivated mushroom
+es:seta cultivada, setas cultivadas, setas frescas cultivadas
+fr:champignon cultivé, champignons cultivés
+eurocode_2_group_3:en: 8.50.10
+
 #description:en:AGARICUS BISPORUS is an edible basidiomycete mushroom native to grasslands in Europe and North America.
 
-<en:mushroom
+<en:cultivated mushroom
 en:champignon, button mushrooms, cultivated mushrooms, Agaricus bisporus, cup mushroom
 af:Sampioen
 ar:غاريقون ثنائي البوغ
@@ -68988,6 +69318,15 @@ fr:champignon brun, champignons bruns
 nl:kastanjechampignon, kastanjechampignons, bruine champignon
 pl:brązowe pieczarki, pieczarki brązowe, pieczarka brązowa
 
+<en:mushroom
+en:field mushroom
+la:agaricus spp.
+eurocode_2_group_3:en: 8.50.15
+
+<en:mushroom
+en:honey mushroom
+la:armillaria mellea
+eurocode_2_group_3:en: 8.50.20
 
 <en:mushroom
 en:Craterellus
@@ -69092,7 +69431,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactarius
 # description:en:LACTARIUS DELICIOSUS, commonly known as the saffron milk cap and red pine mushroom, is one of the best known members of the large milk-cap genus Lactarius in the order Russulales.
 
 <en:milkcap
-en:saffron milk cap
+en:saffron milk cap, red pine mushroom
 ar:فطر زعفراني حليبي الغطاء
 az:Narıncı südləyən
 be:Рыжык
@@ -69138,6 +69477,7 @@ zh:松乳菇
 wikidata:en:Q62138
 wikipedia:en:https://en.wikipedia.org/wiki/Lactarius_deliciosus
 # ingredient/fr:lactarus-déliciosus has 2 products in french @2019-01-22
+eurocode_2_group_3:en: 8.50.45
 
 # description:en:LACTARIUS SANGUIFLUUS, commonly known as the bloody milk cap, is a species of fungus in the family Russulaceae.
 
@@ -69171,7 +69511,7 @@ nl:gele stekelzwam
 # description:en:Morchella, the true morels, is a genus of edible sac fungi closely related to anatomically simpler cup fungi in the order Pezizales (division Ascomycota).
 
 <en:mushroom
-en:morels
+en:morel, morels
 ar:غوشنة
 be:Смаржок
 ca:múrgola
@@ -69183,7 +69523,7 @@ et:Mürkel
 eu:Karraspina
 fa:کرکونوسه
 fi:huhtasieni, huhtasienet
-fr:morilles
+fr:morille, morilles
 ga:Morchal
 he:גמצוץ
 hi:मोर्चेल्ला
@@ -69210,6 +69550,7 @@ ur:گچھی
 wikidata:en:Q371101
 wikipedia:en:https://en.wikipedia.org/wiki/Morchella
 # ingredient/fr:morilles has 101 products in 4 languages @2019-03-03
+eurocode_2_group_3:en: 8.50.35
 
 <en:morels
 fr:Morilles séchées
@@ -69499,6 +69840,7 @@ pt:Shiitake
 sv:svart champinjon
 # fr:champignon-noir has 111 products in 2 languages @2018-11-01
 # ingredient/fr:Lentinus-edodes has 21 products in french @2018-01-22
+eurocode_2_group_3:en: 8.50.55
 
 <en:shiitake
 en:dehydrated shiitake
@@ -69516,6 +69858,11 @@ sv:rekonstituerad svart champinjon
 <en:shiitake
 <en:mushroom extract
 en:shiitake extract
+
+<en:mushroom
+en:straw mushroom
+la:volvaria volvaria
+eurocode_2_group_3:en: 8.50.60
 
 # description:en:PLEUROTUS is a genus of mushrooms popular in cooking
 
@@ -69537,24 +69884,25 @@ ca:auriana
 cs:hlíva ústřičná
 cy:Wystrysen y coed
 da:Almindelig Østershat
-de:Austern-Seitling, Austernpilz
+de:Austern-Seitling, Austernpilz, Austernsaitling
 eo:Ostrofungo
 es:Champiñon ostra
 et:Austerservik
 eu:Belarri landu
 fa:قارچ چروک
 fi:Osterivinokas
-fr:pleurotes, pleurote en huitre, Pleurote en huître, Champignons pleurote
+fr:pleurotes, pleurote en huitre, Pleurote en huître, Champignons pleurote, Pleurote en forme d'huître
 ga:Arc oisreach
 gl:Pleuroto
 hu:Késői laskagomba
 id:Jamur tiram
-it:ostrica funga
+it:orecchione, ostrica funga
 ja:ヒラタケ
 jv:Jamur tiram
 ka:ხეთამხალი
 kk:Устрицалық вешенка
 ko:느타리
+la:pleurotus ostreatus
 lb:Austerechampignon
 lt:Gluosninė kreivabudė
 lv:austeru sānause
@@ -69599,14 +69947,7 @@ wikidata:en:Q186451
 ciqual_food_code:en:20114
 ciqual_food_name:en:Oyster mushroom, raw
 ciqual_food_name:fr:Champignon, pleurote, crue
-
-<en:oyster mushroom
-en:Pleurotus ostreatus
-de:Austernsaitling (Pleurotus ostreatus)
-es:pleurotus ostreatus, seta de ostra
-fr:Pleurotus ostreatus, Pleurote en forme d'huître
-it:orecchione
-la:Pleurotus ostreatus
+eurocode_2_group_3:en: 8.50.50
 wikipedia:en:https://en.wikipedia.org/wiki/Pleurotus_ostreatus
 
 
@@ -69749,6 +70090,7 @@ zh:松露
 wikidata:en:Q2690965
 wikipedia:en:https://en.wikipedia.org/wiki/Truffle
 # ingredient/en:truffle has 14 products in 2 languages @2020-06-13
+eurocode_2_group_3:en: 8.50.30
 
 
 # description:en:tuber MELANOSPORUM is a species of truffle native to Southern Europe. It is one of the most expensive edible mushrooms in the world. In cooking, black truffles are used to refine the taste of meat, fish, soups and risotto.
@@ -69912,8 +70254,13 @@ pl:Pieprznik żyłkowany, pieprznik żółtawy
 xx:Cantharellus lutescens, Craterellus lutescens, Cantharellus xanthopus, Cantharellus aurora
 wikipedia:es:https://es.wikipedia.org/wiki/Cantharellus_lutescens
 
+en:mycoprotein
+es:micoproteína
+fr:mycoprotéine
+
 # description:en:QUORN is a meat substitute product originating in the UK and sold primarily in Europe, but also available in 19 countries.
 
+<en:mycoprotein
 en:Quorn mushroom product, quorn
 de:Quorn-Pilzprodukt
 fr:produit champignon quorn
@@ -78932,7 +79279,7 @@ vegetarian:en:yes
 
 
 #category/cucumbers
-<en:vegetable
+<en:fruit vegetable
 en:cucumber, cucumbers, baby cucumbers
 ar:الخيار
 bg:краставица, краставици
@@ -78984,6 +79331,7 @@ description:it:Il cetriolo (Cucumis sativus) è un ortaggio appartenente alla fa
 description:nl:De komkommer is een eenjarige plant uit de komkommerfamilie, waarvan de gelijknamige vrucht in Nederland en België vooral rauw als salade wordt gegeten.
 description:pt:O pepino é o fruto do pepineiro (Cucumis sativus), que se come geralmente em forma de salada.
 # 6546 products in 22 @2021-09-02
+eurocode_2_group_3:en: 8.40.30
 
 <en:cucumber
 en:raw cucumber pulp and peel
@@ -79022,12 +79370,14 @@ wikidata:en:Q1365891
 nutriscore_fruits_vegetables_nuts:en:yes
 
 <en:gherkin
-en:vinegar gherkin
+en:vinegar gherkin, pickled gherkin
 de:kleine Essiggurken
-fr:cornichons au vinaigre
+fr:cornichon au vinaigre, cornichons au vinaigre
 nl:augurken op azijn
 # usage:de:Essiggurken [Gurken, Branntweinessig, Zucker, Kochsalz]
 # fr:cornichons-au-vinaigre has 39 products in 2 languages @2018-12-01
+eurocode_2_group_2:en: 8.70
+eurocode_2_group_3:en: 8.70.40
 
 # <en:compound
 <en:cucumber
@@ -79763,6 +80113,7 @@ it:Petto di pollo
 lt:Vištos krūtinėlė
 nl:kippenborst
 pl:pierś z kurczaka, pierś kurczaka, piersi z kurczaka, piersi kurczaka, mięso z piersi kurczaka, mięso z piersi kurcząt
+pt:peito de frango
 ro:piept de pui
 sv:kycklingbröst
 tr:tavuk göğsü
@@ -87663,3 +88014,5 @@ ja:クリーミングパウダー
 
 en:creaming agent
 fr:agent de crémage
+
+

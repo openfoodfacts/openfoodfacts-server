@@ -89,8 +89,7 @@
             "energy" : null,
             "fiber" : 0,
             "fiber_points" : 0,
-            "fruits_vegetables_legumes" : 0,
-            "fruits_vegetables_legumes_points" : 0,
+            "fruits_vegetables_legumes" : null,
             "is_beverage" : 1,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
@@ -100,9 +99,10 @@
                "sugars",
                "saturated_fat",
                "salt",
-               "sweeteners"
+               "non_nutritive_sweeteners"
             ],
             "negative_points" : 0,
+            "non_nutritive_sweeteners_points" : 0,
             "positive_nutrients" : [
                "fruits_vegetables_legumes",
                "fiber",
@@ -112,8 +112,7 @@
             "proteins" : null,
             "salt" : null,
             "saturated_fat" : null,
-            "sugars" : null,
-            "sweeteners_points" : 0
+            "sugars" : null
          },
          "grade" : "a",
          "nutrients_available" : 1,
