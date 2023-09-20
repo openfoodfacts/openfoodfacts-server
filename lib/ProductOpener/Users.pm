@@ -443,15 +443,13 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 	# Check for spam
 	# e.g. name with "Lydia want to meet you! Click here:" + an url
 
-	foreach my $bad_string ('click here', 'wants to meet you', '://') {
-		if ($user_ref->{name} =~ /$bad_string/i) {
-			# log the ip
-			open(my $log, ">>", "$BASE_DIRS{LOGS}/user_spam.log");
-			print $log remote_addr() . "\t" . time() . "\t" . $user_ref->{name} . "\n";
-			close($log);
-			# bail out, return 200 status code
-			display_error_and_exit("", 200);
-		}
+	if ($user_ref->{name} =~ /(click here|wants to meet you|://|\.\w{2,3}\b)/i) {
+		# log the ip
+		open(my $log, ">>", "$BASE_DIRS{LOGS}/user_spam.log");
+		print $log remote_addr() . "\t" . time() . "\t" . $user_ref->{name} . "\n";
+		close($log);
+		# bail out, return 200 status code
+		display_error_and_exit("", 200);
 	}
 
 	# Check input parameters, redisplay if necessary

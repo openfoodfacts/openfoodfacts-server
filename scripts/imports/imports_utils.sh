@@ -9,7 +9,7 @@
 # it may not exists yet, in which case we default to one week
 function import_since() {
     SUCCESS_FILE_PATH=$1
-    if [[ -z "$SUCCESS_FILE_PATH"]]
+    if [[ -z "$SUCCESS_FILE_PATH" ]]
     then
         >&2 echo "ERROR: missing path to success file"
     fi
