@@ -20,6 +20,7 @@ is(normalize_code(' just a simple test 036000291452 here we go '),
 	'0036000291452', 'should add leading 0 to cleaned valid UPC12');
 is(normalize_code(' just a simple test 036000291455 here we go '),
 	'036000291455', 'should not add leading 0 to cleaned invalid UPC12');
+is(normalize_code('0100012345000058'), '00012345000058', 'should reduce GS1 AI unbracketed string to GTIN');
 is(normalize_code('(01)00012345000058(17)270101'), '00012345000058', 'should reduce GS1 AI bracketed string to GTIN');
 is(normalize_code('^00012345000058270101'),
 	'00012345000058', 'should reduce GS1 AI unbracketed string with ^ as FNC1 to GTIN');

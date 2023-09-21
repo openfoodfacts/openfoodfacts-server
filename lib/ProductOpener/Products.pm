@@ -281,7 +281,7 @@ sub normalize_code ($code) {
 	if (defined $code) {
 		my $gs1_code = _try_normalize_code_gs1($code);
 		if ($gs1_code) {
-			return $gs1_code;
+			$code = $gs1_code;
 		}
 
 		# Keep only digits, remove spaces, dashes and everything else
