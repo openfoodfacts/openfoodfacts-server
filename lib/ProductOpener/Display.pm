@@ -5116,6 +5116,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		# This list should be updated if new attributes are added.
 		$fields_ref = {
 			# generic fields
+			"owner" => 1,    # needed on pro platform to generate the images urls
 			"lc" => 1,
 			"code" => 1,
 			"product_name" => 1,
