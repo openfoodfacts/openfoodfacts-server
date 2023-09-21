@@ -311,44 +311,49 @@ sub normalize_code ($code) {
 }
 
 sub _try_normalize_code_gs1 ($code) {
+	my $ai_data_str;
 	eval {
-		my $parsed_as_gs1 = 0;
+		$code =~ s/[\N{U+001D}\N{U+241D}]/^/g;    # Replace FNC1/<GS1> with ^ for the GS1Encoder to work
 		if ($code =~ /^\(.+/) {
 			# Code could be a GS1 bracketed AI element string
 			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
 			if ($encoder->ai_data_str($code)) {
-				my $ai_data_str = $encoder->ai_data_str();
-				if ($ai_data_str =~ /^\(01\)(\d{1,14})/) {
-					return $1;
-				}
+				$ai_data_str = $encoder->ai_data_str();
 			}
 		}
 		elsif ($code =~ /^\^.+/) {
 			# Code could be a GS1 unbracketed AI element string
 			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
 			if ($encoder->data_str($code)) {
-				my $ai_data_str = $encoder->ai_data_str();
-				if ($ai_data_str =~ /^\(01\)(\d{1,14})/) {
-					return $1;
-				}
+				$ai_data_str = $encoder->ai_data_str();
 			}
 		}
 		elsif ($code =~ /^http?s:\/\/.+/) {
 			# Code could be a GS1 unbracketed AI element string
 			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
 			if ($encoder->data_str($code)) {
-				my $ai_data_str = $encoder->ai_data_str();
-				if ($ai_data_str =~ /^\(01\)(\d{1,14})/) {
-					return $1;
-				}
+				$ai_data_str = $encoder->ai_data_str();
+			}
+		}
+		elsif ($code =~ /^01(\d{14})/) {
+			# Code could be a GS1 unbracketed AI element string
+			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
+			if ($encoder->data_str("^01$1")) {
+				$ai_data_str = $encoder->ai_data_str();
 			}
 		}
 	};
 	if ($@) {
 		$log->warn("GS1Parser error", {error => $@}) if $log->is_warn();
+		$ai_data_str = undef;
 	}
 
-	return;
+	if ((defined $ai_data_str) and ($ai_data_str =~ /^\(01\)(\d{1,14})/)) {
+		return $1;
+	}
+	else {
+		return;
+	}
 }
 
 # - When products are public, the _id is the code, and the path is of the form 123/456/789/0123
