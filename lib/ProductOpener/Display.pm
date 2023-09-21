@@ -5111,8 +5111,43 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	}
 	# - if we use user preferences, we need a lot of fields to compute product attributes: load them all
 	elsif ($request_ref->{user_preferences}) {
-		# when product attributes become more stable, we could try to restrict the fields
-		$fields_ref = {};
+		# we restrict the fields that are queried to MongoDB, and use the basic ones and those necessary
+		# by Attributes.pm to compute attributes.
+		# This list should be updated if new attributes are added.
+		$fields_ref = {
+			# generic fields
+			"owner" => 1,    # needed on pro platform to generate the images urls
+			"lc" => 1,
+			"code" => 1,
+			"product_name" => 1,
+			"product_name_$lc" => 1,
+			"generic_name" => 1,
+			"generic_name_$lc" => 1,
+			"abbreviated_product_name" => 1,
+			"abbreviated_product_name_$lc" => 1,
+			"brands" => 1,
+			"images" => 1,
+			"quantity" => 1,
+			# fields necessary for personal search
+			"additives_n" => 1,
+			"allergens_tags" => 1,
+			"categories_tags" => 1,
+			"ecoscore_data" => 1,
+			"ecoscore_grade" => 1,
+			"ecoscore_score" => 1,
+			"forest_footprint_data" => 1,
+			"ingredients_analysis_tags" => 1,
+			"ingredients_n" => 1,
+			"labels_tags" => 1,
+			"nova_group" => 1,
+			"nutrient_levels" => 1,
+			"nutriments" => 1,
+			"nutriscore_data" => 1,
+			"nutriscore_grade" => 1,
+			"nutrition_grades" => 1,
+			"traces_tags" => 1,
+			"unknown_ingredients_n" => 1
+		};
 	}
 	else {
 		#for HTML, limit the fields we retrieve from MongoDB
@@ -7484,7 +7519,7 @@ HTML
 
 			if (-e "$www_root/images/products/$path/$filename.full.json") {
 				$html .= <<HTML
-<a href="/images/products/$path/$filename.full.json">OCR result</a>
+<a href="$images_subdomain/images/products/$path/$filename.full.json">OCR result</a>
 HTML
 					;
 			}

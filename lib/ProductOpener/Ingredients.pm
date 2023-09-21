@@ -2878,10 +2878,11 @@ sub init_percent_values ($total_min, $total_max, $ingredients_ref) {
 	# This is the case in particular for recipes that can be specified in grams with a total greater than 100g
 	# So we start supposing it's grams (as if it's percent it will also work).
 
-	if (($total_min == $total_max) and $all_ingredients_have_a_set_percent) {
+	# In scale_percents or scale_grams mode, the percent/quantity sum must be greater than 0
+	if (($total_min == $total_max) and ($all_ingredients_have_a_set_percent) and ($percent_sum > 0)) {
 		$percent_mode = "scale_percents";
 	}
-	elsif (($total_min == $total_max) and $all_ingredients_have_a_set_quantity) {
+	elsif (($total_min == $total_max) and ($all_ingredients_have_a_set_quantity) and ($quantity_sum > 0)) {
 		$percent_mode = "scale_grams";
 	}
 	elsif ($percent_sum > $total_max) {
@@ -3596,7 +3597,7 @@ sub normalize_fr_a_de_b ($a, $b) {
 # French: huile, olive -> huile d'olive
 # Russian: масло растительное, пальмовое -> масло растительное оливковое
 
-sub normalize_a_of_b ($lc, $a, $b) {
+sub normalize_a_of_b ($lc, $a, $b, $of_bool) {
 
 	$a =~ s/\s+$//;
 	$b =~ s/^\s+//;
@@ -3610,11 +3611,14 @@ sub normalize_a_of_b ($lc, $a, $b) {
 	elsif ($lc eq "fr") {
 		$b =~ s/^(de |d')//;
 
-		if ($b =~ /^(a|e|i|o|u|y|h)/i) {
+		if (($b =~ /^(a|e|i|o|u|y|h)/i) && ($of_bool == 1)) {
 			return $a . " d'" . $b;
 		}
-		else {
+		elsif ($of_bool == 1) {
 			return $a . " de " . $b;
+		}
+		else {
+			return $a . " " . $b;
 		}
 	}
 	elsif (($lc eq "ru") or ($lc eq "pl")) {
@@ -3625,8 +3629,7 @@ sub normalize_a_of_b ($lc, $a, $b) {
 # Vegetal oil (palm, sunflower and olive)
 # -> palm vegetal oil, sunflower vegetal oil, olive vegetal oil
 
-sub normalize_enumeration ($lc, $type, $enumeration) {
-
+sub normalize_enumeration ($lc, $type, $enumeration, $of_bool) {
 	$log->debug("normalize_enumeration", {type => $type, enumeration => $enumeration}) if $log->is_debug();
 
 	# If there is a trailing space, save it and output it
@@ -3640,7 +3643,7 @@ sub normalize_enumeration ($lc, $type, $enumeration) {
 
 	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $enumeration);
 
-	return join(", ", map {normalize_a_of_b($lc, $type, $_)} @list) . $trailing_space;
+	return join(", ", map {normalize_a_of_b($lc, $type, $_, $of_bool)} @list) . $trailing_space;
 }
 
 # iodure et hydroxide de potassium
@@ -4665,7 +4668,7 @@ my %ingredients_categories_and_types = (
 				"tournesol oléique",
 			]
 		],
-
+		# (natural) extract
 		[
 			["extrait", "extrait naturel",],
 			[
@@ -4674,9 +4677,9 @@ my %ingredients_categories_and_types = (
 				"thym",
 			]
 		],
-
+		# lecithin
 		[["lécithine",], ["colza", "soja", "soja sans ogm", "tournesol",]],
-
+		# natural flavouring
 		[
 			[
 				"arôme naturel",
@@ -4706,7 +4709,7 @@ my %ingredients_categories_and_types = (
 				"thym", "vanille", "vanille de Madagascar", "autres agrumes",
 			]
 		],
-
+		# chemical substances
 		[
 			[
 				"carbonate", "carbonates acides", "chlorure", "citrate",
@@ -4719,6 +4722,8 @@ my %ingredients_categories_and_types = (
 				"manganèse", "potassium", "sodium", "zinc",
 			]
 		],
+		# peppers
+		[["piment", "poivron"], ["vert", "jaune", "rouge",], 0,],
 	],
 
 	pl => [
@@ -4823,9 +4828,13 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				if ($unaccented_type ne $type) {
 					$type_regexp .= '|' . $unaccented_type . '|' . $unaccented_type . 's';
 				}
-
 			}
 			$type_regexp =~ s/^\|//;
+
+			my $of_bool = 1;
+			if (defined $categories_and_types_ref->[2]) {
+				$of_bool = $categories_and_types_ref->[2];
+			}
 
 			# arôme naturel de citron-citron vert et d'autres agrumes
 			# -> separate types
@@ -4852,14 +4861,14 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 
 				# vegetable oil (palm, sunflower and olive)
 				$text
-					=~ s/($category_regexp)(?::|\(|\[| | $of )+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2)/ieg;
+					=~ s/($category_regexp)(?::|\(|\[| | $of )+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 
 				# vegetable oil (palm)
 				$text
-					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2)/ieg;
+					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 				# vegetable oil: palm
 				$text
-					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($ingredients_lc,$1,$2)/ieg;
+					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 			}
 			elsif ($ingredients_lc eq "fr") {
 				# arôme naturel de pomme avec d'autres âromes
@@ -4873,15 +4882,15 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				# TODO 18/07/2020 remove when we have a better solution
 				$text =~ s/fer (é|e)l(é|e)mentaire/fer_élémentaire/ig;
 				$text
-					=~ s/($category_regexp)(?::|\(|\[| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2)/ieg;
+					=~ s/($category_regexp)(?::|\(|\[| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 				$text =~ s/fer_élémentaire/fer élémentaire/ig;
 
 				# huile végétale (colza)
 				$text
-					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2)/ieg;
+					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 				# huile végétale : colza,
 				$text
-					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($ingredients_lc,$1,$2)/ieg;
+					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 			}
 		}
 
@@ -6039,16 +6048,44 @@ sub extract_ingredients_classes_from_text ($product_ref) {
 			= $product_ref->{ingredients_that_may_be_from_palm_oil_n} + $product_ref->{ingredients_from_palm_oil_n};
 	}
 
+	# Determine if the product has sweeteners, and non nutritive sweeteners
+	determine_if_the_product_contains_sweeteners($product_ref);
+
+	return;
+}
+
+=head2 determine_if_the_product_contains_sweeteners
+
+Check if the product contains sweeteners and non nutritive sweeteners (used for the Nutri-Score for beverages)
+
+The NNS / Non nutritive sweeteners listed in the Nutri-Score Update report beverages_31 01 2023-voted
+have been added as a non_nutritive_sweetener:en:yes property in the additives taxonomy.
+
+=cut
+
+sub determine_if_the_product_contains_sweeteners ($product_ref) {
+
 	delete $product_ref->{with_sweeteners};
-	if (defined $product_ref->{'additives_tags'}) {
-		foreach my $additive (@{$product_ref->{'additives_tags'}}) {
-			my $e = $additive;
-			$e =~ s/\D//g;
-			if (($e >= 950) and ($e <= 968)) {
-				$product_ref->{with_sweeteners} = 1;
-				last;
-			}
-		}
+	delete $product_ref->{with_non_nutritive_sweeteners};
+
+	if (
+		get_matching_regexp_property_from_tags(
+			'additives', $product_ref->{'additives_tags'},
+			'additives_classes:en', 'sweetener'
+		)
+		)
+	{
+		$product_ref->{with_sweeteners} = 1;
+	}
+
+	if (
+		get_matching_regexp_property_from_tags(
+			'additives', $product_ref->{'additives_tags'},
+			'non_nutritive_sweetener:en', 'yes'
+		)
+		)
+	{
+		$product_ref->{with_non_nutritive_sweeteners} = 1;
 	}
 
 	return;
@@ -6421,8 +6458,8 @@ sub add_ingredients_matching_function ($ingredients_ref, $match_function_ref) {
 			if (defined $ingredient_ref->{percent}) {
 				$count += $ingredient_ref->{percent};
 			}
-			elsif (defined $ingredient_ref->{percent_min}) {
-				$count += $ingredient_ref->{percent_min};
+			elsif (defined $ingredient_ref->{percent_estimate}) {
+				$count += $ingredient_ref->{percent_estimate};
 			}
 			# We may not have percent_min if the ingredient analysis failed because of seemingly impossible values
 			# in that case, try to get the possible percent values in nested sub ingredients
@@ -6440,7 +6477,7 @@ sub add_ingredients_matching_function ($ingredients_ref, $match_function_ref) {
 
 =head2 estimate_ingredients_matching_function ( $product_ref, $match_function_ref, $nutrient_id = undef )
 
-This function analyzes the ingredients to estimate the minimum percentage of ingredients of a specific type
+This function analyzes the ingredients to estimate the percentage of ingredients of a specific type
 (e.g. fruits/vegetables/legumes for the Nutri-Score).
 
 =head3 Parameters
@@ -6457,7 +6494,7 @@ If the $nutrient_id argument is defined, we also store the nutrient value in $pr
 
 =head3 Return value
 
-Minimum percentage of ingredients matching the function.
+Estimated percentage of ingredients matching the function.
 
 =cut
 

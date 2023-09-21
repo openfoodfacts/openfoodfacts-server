@@ -20494,10 +20494,6 @@ it:Aroma naturale alla banana
 nl:natuurlijke bananensmaak
 
 <en:natural flavouring
-en:blueberry aroma
-hr:aroma borovnice
-
-<en:natural flavouring
 en:natural cola flavouring
 de:natürliches Cola-Aroma, natürliches Colaaroma
 fi:luontainen kola-aromi
@@ -21605,6 +21601,7 @@ de:Heidelbeeraroma, Heidelbeer-Aroma
 es:aroma de arándano
 fi:mustikka-aromi
 fr:arôme de myrtille
+hr:aroma borovnice
 sv:blåbärsarom
 # ingredient/fr:arome-de-myrtille has 2 products in 2 languages @2020-06-08
 
@@ -24542,12 +24539,12 @@ ciqual_food_name:en:Oat bran
 ciqual_food_name:fr:Son d'avoine
 #1256 @2021-09-22
 
-<en:oat
+# <en:compound
 en:oat milk
 ar:حليب الشوفان
 bg:овесено мляко
 cs:ovesné mléko
-de:Hafermilch
+de:Haferdrink, Hafermilch
 da:havredrik
 eo:avenlakto
 es:bebida de avena
@@ -24558,6 +24555,7 @@ he:חלב שיבולת-שועל
 jv:susu oat
 nl:havermelk
 pl:mleko owsiane, napój owsiany
+pt:bebida de aveia
 se:hávvarmielki
 #smn:haavvârmielkki
 #sms:ååʹvesmieʹlǩǩ
@@ -24567,6 +24565,10 @@ zh:燕麦奶
 wikidata:en:Q20972637
 #28 @2021-09-22
 
+<en:oat milk
+en:oat milk powder
+de:Haferdrinkpulver
+
 # <en:compound
 en:oat base
 de:haferbasis
@@ -24575,7 +24577,6 @@ fi:kaurapohja
 fr:jus d'avoine, base d'avoine
 it:base de avena
 nl:haverbasis
-pt:bebida de aveia
 sv:havrebas
 # usage:en:oat base (water, oats)
 # mainIngredient:en:water
@@ -28972,7 +28973,7 @@ fr:sucre de fleur de coco, sucre de fleur de cocotier, sucre de coco
 hu:kókuszcukor
 id:Gula kelapa
 it:zucchero di fiori di cocco, zucchero di cocco
-nl:kokossuiker
+nl:kokosbloesemsuiker, kokossuiker
 nn:kokosnøttsukker
 pl:cukier kokosowy
 su:Gula kalapa
@@ -30653,6 +30654,10 @@ nl:gehydrolyseerde plantaardige eiwitten, plantaardig eiwithydrolysaat
 # ingredient/fr:protéines-végétales-réhydratées has 32 products in french @2019-03-11
 
 <en:plant protein
+en:textured plant protein
+de:texturiertes Pflanzenprotein
+
+<en:plant protein
 en:pea protein
 bg:грахов протеин
 ca:Proteïna de pèsol
@@ -30684,6 +30689,7 @@ hu:borsófehérje izolátum
 ro:izolat proteic de mazăre
 
 <en:pea protein
+<en:textured plant protein
 en:textured pea protein, textured pea proteins
 de:texturiertes Erbseneiweiß
 fr:protéines de pois texturées, protéine de pois texturée
@@ -30709,6 +30715,11 @@ pl:białko bobu, białka bobu
 ro:proteină de bob
 sv:protein från bondböna
 # ingredient/en:broad-bean-protein has 6 products in 1 language @2020-05-25
+
+<en:plant protein
+en:chickpea protein
+de:Kichererbsenprotein
+fr:protéine de pois chiche
 
 <en:plant protein
 en:sunflower protein
@@ -38828,7 +38839,7 @@ ciqual_food_name:fr:Citron, zeste, cru
 en:powdered lemon zest
 hr:limunova korica u prahu
 
-<en:lemon
+<en:aromatic leaf
 <en:spice
 en:lemon leaf, lemon leaves
 de:Zitronenblatt
@@ -39224,7 +39235,7 @@ fr:écorces de citron vert, zeste de citron vert
 it:scorze di lime
 
 <en:spice
-<en:lime
+<en:aromatic leaf
 en:lime leaf, lime leaves
 da:limeblad
 de:Limettenblatt, Limettenblätter
@@ -40346,7 +40357,7 @@ da:bølle
 de:Heidelbeeren, Blaubeeren
 eo:mirtelo
 es:arándano
-et:mustikas
+et:mustikas, mustikad
 fa:بیل‌بری
 fi:puolukat
 fr:myrtille
@@ -40703,7 +40714,7 @@ de:Kirsch, Kirsche, Kirschen
 el:Κεράσι
 eo:ĉerizo
 es:cereza, cerezas,guindas
-et:kirsipuu
+et:kirsi, kirsid
 eu:Gereziondo
 fa:گیلاس
 fi:kirsikka
@@ -41076,8 +41087,9 @@ da:Surbær
 de:Aronia, Apfelbeer, Apfelbeeren
 el:Αρώνια
 eo:aronio
-es:Aronia
-eu:Aronia
+es:aronia
+et:aroonia
+eu:aronia
 fa:انگورک گلوگیر
 fi:marja-aronia
 fr:aronie, aronia
@@ -49990,7 +50002,11 @@ pt:Extrato de cebolo
 sv:lökextrakt
 # ingredient/fr:extrait-d’oignon has 119 products in 3 languages @2018-12-06
 
-<en:onion
+# <en:compound
+en:fried onion
+de:röstzwiebeln
+
+# <en:compound
 en:pre fried onions
 da:forstegte løg
 de:vorgebratene Zwiebeln
@@ -51050,6 +51066,9 @@ nl:wortelextract, kleurend wortelextract
 pt:Extrato de cenoura, extrato de cenouras
 # fr:extrait-de-carotte has 176 products in 6 languages @0218-10-20
 
+<en:carrot extract
+de:färbendes Karottenextrakt
+
 <en:carrot
 en:carrot powder
 de:Karottenpulver
@@ -51060,7 +51079,6 @@ de:Karottengranulat
 fi:porkkanaraaste
 ru:морковь гранулы
 
-<en:carrot
 <en:vegetable fiber
 fr:fibre de carotte, fibres de carotte
 de:Karottenfasern
@@ -53522,7 +53540,7 @@ da:Grøn peber
 de:grüne Peperoni
 es:pimiento verde, pimientos verdes, pimiento verde dulce, pimientos verdes dulces
 fi:vihreä paprika
-fr:poivron vert, poivrons verts
+fr:poivron vert, poivrons verts, poivrons vert
 it:peperoni verdi
 nl:groene paprika
 pl:zielona papryka, papryka zielona, zielonej papryki
@@ -54793,7 +54811,6 @@ fr:Purée de tomates vertes
 fi:vihreä tomaattipyree
 # In process de:Püree aus grünen Tomaten
 
-<en:tomato
 <en:vegetable fiber
 fr:fibres de tomate, fibre de tomate
 nl:tomatenvezel
@@ -57859,7 +57876,7 @@ sv:sötmandel
 
 <en:almond
 en:almond paste
-de:Mandelpaste, Mandelmasse, Mandelmuss
+de:Mandelmus, Mandelpaste, Mandelmasse
 es:masa fina de mazapán, pasta de almendra
 fi:mantelitahna
 fr:pâte d'amande, pâte d'amandes, purée d'amande, purée d'amandes
@@ -58332,7 +58349,7 @@ bg:лешникова паста, крем лешник
 ca:pasta d'avellana, pasta d'avellanes
 cs:oříšková pasta
 da:hasselnödmasse
-de:Haselnüsspaste, Haselnusspaste, Haselnussmasse, Haselnussmark, Haselnussmuss
+de:Haselnussmus, Haselnüsspaste, Haselnusspaste, Haselnussmasse, Haselnussmark
 es:pasta de avellana, pasta de avellanas
 fi:hasselpähkinätahna, hasselpähkinämassa
 fr:pâte de noisette, purée de noisettes
@@ -63746,7 +63763,11 @@ en:hemp flour
 fr:farine de chanvre
 nl:hennepmeel
 
-<en:herb
+<en:condiment
+en:aromatic leaf
+fr:feuille aromatique
+
+<en:aromatic leaf
 en:blackberry leaf, blackberry leaves
 fr:feuilles de mûre
 nl:braamblad, braambladeren
@@ -67707,7 +67728,7 @@ fr:grains de vanille épuisés, grains de vanille épuisée, graines de vanille 
 it:semi di vaniglia estratti
 # ingredient/fr:grains-de-vanille-épuisés has 31 products in 5 languages @2019-02-24
 
-<en:vanilla
+#<en:compound
 en:vanilla preparation
 hr:pripravak vanilija
 

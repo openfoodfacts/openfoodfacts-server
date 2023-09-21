@@ -1265,7 +1265,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 
 	# The 2021 and 2023 version of the Nutri-Score need different nutrients
 	if ($version eq "2021") {
-		# fruits, vegetables, nuts, olive / rapeseed / walnut oils
+		# fruits, vegetables, nuts, olive / rapeseed / walnut oils - 2021
 		my $fruits_vegetables_nuts_colza_walnut_olive_oils
 			= compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil($product_ref, $prepared);
 
@@ -1302,12 +1302,14 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 		}
 	}
 	else {
+		# fruits, vegetables, legumes - 2023
 		my $fruits_vegetables_legumes = compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared);
 
 		my $is_fat_oil_nuts_seeds = is_fat_oil_nuts_seeds_for_nutrition_score($product_ref);
+		my $is_beverage = $product_ref->{nutrition_score_beverage};
 
 		$nutriscore_data_ref = {
-			is_beverage => $product_ref->{nutrition_score_beverage},
+			is_beverage => $is_beverage,
 			is_water => is_water_for_nutrition_score($product_ref),
 			is_cheese => is_cheese_for_nutrition_score($product_ref),
 			is_fat_oil_nuts_seeds => $is_fat_oil_nuts_seeds,
@@ -1333,6 +1335,12 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			# Compute the energy from saturates
 			if (defined $nutriscore_data_ref->{saturated_fat}) {
 				$nutriscore_data_ref->{energy_from_saturated_fat} = $nutriscore_data_ref->{saturated_fat} * 37;
+			}
+		}
+
+		if ($is_beverage) {
+			if (defined $product_ref->{with_non_nutritive_sweeteners}) {
+				$nutriscore_data_ref->{with_non_nutritive_sweeteners} = $product_ref->{with_non_nutritive_sweeteners};
 			}
 		}
 	}
