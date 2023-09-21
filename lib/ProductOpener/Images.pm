@@ -340,7 +340,7 @@ sub scan_code ($file) {
 				$log->debug("barcode found", {code => $code, type => $type}) if $log->is_debug();
 				print STDERR "scan_code code found: $code\n";
 
-				if (($code !~ /^[0-9]+$/) or ($type eq 'QR-Code')) {
+				if (($code !~ /^\d+|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+$/)) {
 					$code = undef;
 					next;
 				}
@@ -357,7 +357,11 @@ sub scan_code ($file) {
 
 		}
 	}
-	print STDERR "scan_code return code: $code\n";
+
+	if (defined $code) {
+		$code = normalize_code($code);
+		print STDERR "scan_code return code: $code\n";
+	}
 
 	return $code;
 }
