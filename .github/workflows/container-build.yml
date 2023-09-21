@@ -27,7 +27,7 @@ jobs:
         fetch-depth: 1
 
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2
+      uses: docker/setup-buildx-action@v3
       with:
         version: v0.6.0
         buildkitd-flags: --debug
