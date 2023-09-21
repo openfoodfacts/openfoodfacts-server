@@ -75,6 +75,8 @@
     "@types/gulp-terser": "^1.2.3",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
     "@typescript-eslint/parser": "^6.7.2",
+    "@babel/core": "^7.22.20",
+    "@babel/preset-env": "^7.21.5",
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
     "dotenv": "^10.0.0",
