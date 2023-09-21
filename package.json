@@ -64,6 +64,8 @@
     "xml2json": "^0.12.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
     "@types/gulp": "^4.0.13",
     "@types/gulp-concat": "^0.0.34",
     "@types/gulp-csso": "^4.0.2",
@@ -72,9 +74,7 @@
     "@types/gulp-svgmin": "^1.2.2",
     "@types/gulp-terser": "^1.2.2",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
-    "@typescript-eslint/parser": "^5.62.0",
-    "@babel/core": "^7.21.8",
-    "@babel/preset-env": "^7.21.5",
+    "@typescript-eslint/parser": "^6.7.2",
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
     "dotenv": "^10.0.0",
