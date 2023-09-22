@@ -192,6 +192,10 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 			if ($line =~ /\t/) {
 				$separator = "\t";
 			}
+			# Otherwise, if the first line does not have a separator, check if it is a ;
+			elsif (($line !~ /$separator/) and ($line =~ /;/)) {
+				$separator = ";";
+			}
 		}
 	}
 
