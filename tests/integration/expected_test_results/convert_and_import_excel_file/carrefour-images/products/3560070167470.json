@@ -1,5 +1,5 @@
 {
-   "_id" : "org-test-org/3560070167470",
+   "_id" : "3560070167470",
    "_keywords" : [],
    "added_countries_tags" : [],
    "allergens" : "",
@@ -46,7 +46,6 @@
    "created_t" : "--ignore--",
    "creator" : "test-user",
    "data_quality_bugs_tags" : [],
-   "data_quality_errors_producers_tags" : [],
    "data_quality_errors_tags" : [],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
@@ -66,7 +65,6 @@
       "en:ecoscore-production-system-no-label",
       "en:ecoscore-threatened-species-ingredients-missing"
    ],
-   "data_quality_warnings_producers_tags" : [],
    "data_quality_warnings_tags" : [
       "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:ecoscore-packaging-packaging-data-missing",
@@ -415,8 +413,6 @@
          "y2" : "-1"
       }
    },
-   "improvements_data" : {},
-   "improvements_tags" : [],
    "informers_tags" : [
       "test-user"
    ],
@@ -578,9 +574,8 @@
          "url" : null
       }
    ],
-   "states" : "en:to-be-exported, en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-validated, en:packaging-photo-to-be-selected, en:nutrition-photo-to-be-selected, en:ingredients-photo-to-be-selected, en:front-photo-selected, en:photos-uploaded",
+   "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-validated, en:packaging-photo-to-be-selected, en:nutrition-photo-to-be-selected, en:ingredients-photo-to-be-selected, en:front-photo-selected, en:photos-uploaded",
    "states_hierarchy" : [
-      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
       "en:ingredients-to-be-completed",
@@ -601,7 +596,6 @@
       "en:photos-uploaded"
    ],
    "states_tags" : [
-      "en:to-be-exported",
       "en:to-be-completed",
       "en:nutrition-facts-to-be-completed",
       "en:ingredients-to-be-completed",

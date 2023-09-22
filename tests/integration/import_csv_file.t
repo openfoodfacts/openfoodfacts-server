@@ -89,6 +89,7 @@ foreach my $test_ref (@tests) {
 			"owner_id" => "org-test-org",
 			"csv_file" => $csv_file,
 			"exported_t" => $datestring,
+			"images_download_dir" => $outputs_test_dir . "/images",
 		};
 
 		# run import_csv_file

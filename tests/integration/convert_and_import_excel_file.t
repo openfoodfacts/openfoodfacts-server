@@ -62,7 +62,7 @@ my @tests = (
 		excel_file => "carrefour-images.csv",
 		columns_fields_json => "carrefour-images.columns_fields.json",
 		default_values => {lc => "fr", countries => "fr"},
-	}	
+	}
 );
 
 @tests = (
@@ -72,7 +72,7 @@ my @tests = (
 		excel_file => "carrefour-images.csv",
 		columns_fields_json => "carrefour-images.columns_fields.json",
 		default_values => {lc => "fr", countries => "fr"},
-	}	
+	}
 );
 
 # Testing import of a csv file
