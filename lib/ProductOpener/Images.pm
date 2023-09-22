@@ -686,7 +686,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 
 	# debug message passed back to apps in case of an error
 
-	my $debug = "product_id: $product_id - user_id: $user_id - imagefield: $imagefield - ";
+	my $debug = "product_id: $product_id - user_id: $user_id - imagefield: $imagefield";
 
 	my $bogus_imgid;
 	not defined $imgid_ref and $imgid_ref = \$bogus_imgid;
@@ -792,7 +792,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		$log->debug("new imgid: ", {imgid => $imgid, extension => $extension}) if $log->is_debug();
 
 		my $img_orig = "$product_www_root/images/products/$path/$imgid.$extension.orig";
-		$log->debug("writing the original image",		{img_orig => $img_orig }		) if $log->is_debug();
+		$log->debug("writing the original image", {img_orig => $img_orig}) if $log->is_debug();
 		open(my $out, ">", $img_orig)
 			or $log->warn("could not open image path for saving", {path => $img_orig, error => $!});
 		while (my $chunk = <$file>) {

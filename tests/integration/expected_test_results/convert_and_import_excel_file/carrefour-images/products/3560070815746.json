@@ -33,7 +33,9 @@
    ],
    "complete" : 0,
    "completeness" : 0.0625,
-   "correctors_tags" : [],
+   "correctors_tags" : [
+      "test-user"
+   ],
    "countries" : "fr",
    "countries_hierarchy" : [
       "en:france"
@@ -421,25 +423,25 @@
          "angle" : 0,
          "coordinates_image_size" : "400",
          "geometry" : "0x0--2--2",
-         "imgid" : "1",
+         "imgid" : "2",
          "normalize" : "false",
-         "rev" : "3",
+         "rev" : "5",
          "sizes" : {
             "100" : {
                "h" : 100,
-               "w" : 73
+               "w" : 68
             },
             "200" : {
                "h" : 200,
-               "w" : 146
+               "w" : 135
             },
             "400" : {
                "h" : 296,
-               "w" : 216
+               "w" : 200
             },
             "full" : {
                "h" : 296,
-               "w" : 216
+               "w" : 200
             }
          },
          "white_magic" : "false",
@@ -595,7 +597,7 @@
    ],
    "popularity_key" : 12,
    "removed_countries_tags" : [],
-   "rev" : 7,
+   "rev" : 8,
    "sources" : [
       {
          "fields" : [

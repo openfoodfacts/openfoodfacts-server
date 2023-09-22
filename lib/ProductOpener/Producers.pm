@@ -502,7 +502,7 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 			# If we have multiple lines per product, we need to rename some fields by adding a number
 			# so that the values on multiple lines are saved in multiple columns
 
-			if ($product_lines{$code} > 1)  {
+			if ($product_lines{$code} > 1) {
 
 				# If the field is of the form packaging_1_*
 				# we rename the field to packaging_[current number of lines of the product]_*
