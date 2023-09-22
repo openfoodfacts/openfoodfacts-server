@@ -650,7 +650,8 @@ Process an image uploaded to a product (from the web site, from the API, or from
 
 =head4 Image field $imagefield
 
-Indicates what the image is and its language.
+Indicates what the image is and its language, or indicate a path to the image file
+(for imports and when uploading an image with a barcode)
 
 Format: [front|ingredients|nutrition|packaging|other]_[2 letter language code]
 
@@ -685,7 +686,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 
 	# debug message passed back to apps in case of an error
 
-	my $debug = "product_id: $product_id - user_id: $user_id - imagefield: $imagefield";
+	my $debug = "product_id: $product_id - user_id: $user_id - imagefield: $imagefield - ";
 
 	my $bogus_imgid;
 	not defined $imgid_ref and $imgid_ref = \$bogus_imgid;
@@ -699,6 +700,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 	my $extension = 'jpg';
 
 	# Image that was already read by barcode scanner: can't read it again
+	# $image_field can be a path to the image file (for imports and when uploading an image with a barcode)
 	my $tmp_filename;
 	if ($imagefield =~ /\//) {
 		$tmp_filename = $imagefield;
@@ -763,7 +765,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		my $filename = get_string_id_for_lang("no_language", remote_addr() . '_' . $`);
 
 		my $current_product_ref = retrieve_product($product_id);
-		$imgid = $current_product_ref->{max_imgid} + 1;
+		$imgid = ($current_product_ref->{max_imgid} || 0) + 1;
 
 		# if for some reason the images directories were not created at product creation (it can happen if the images directory's permission / ownership are incorrect at some point)
 		# create them
@@ -790,6 +792,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		$log->debug("new imgid: ", {imgid => $imgid, extension => $extension}) if $log->is_debug();
 
 		my $img_orig = "$product_www_root/images/products/$path/$imgid.$extension.orig";
+		$log->debug("writing the original image",		{img_orig => $img_orig }		) if $log->is_debug();
 		open(my $out, ">", $img_orig)
 			or $log->warn("could not open image path for saving", {path => $img_orig, error => $!});
 		while (my $chunk = <$file>) {
