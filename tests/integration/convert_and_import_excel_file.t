@@ -32,10 +32,11 @@ sub fake_download_image ($) {
 	my $fname = (split(m|/|, $image_url))[-1];
 	my $image_path = $inputs_dir . $fname;
 	my $response = qobj(
-		is_success => qmeth {return (-e $fname);},
+		is_success => qmeth {return (-e $image_path);},
 		decoded_content => qmeth {
-			open(my $image, "<r", $fname);
-			my $content = <$image>;
+			open(my $image, "<", $image_path);
+			binmode($image);
+			read $image, my $content, -s $image;
 			close $image;
 			return $content;
 		},
@@ -55,7 +56,23 @@ my @tests = (
 		excel_file => "packagings-mousquetaires.xlsx",
 		columns_fields_json => "packagings-mousquetaires.columns_fields.json",
 		default_values => {lc => "fr", countries => "fr"},
-	}
+	},
+	{
+		test_case => "carrefour-images",
+		excel_file => "carrefour-images.csv",
+		columns_fields_json => "carrefour-images.columns_fields.json",
+		default_values => {lc => "fr", countries => "fr"},
+	}	
+);
+
+@tests = (
+
+	{
+		test_case => "carrefour-images",
+		excel_file => "carrefour-images.csv",
+		columns_fields_json => "carrefour-images.columns_fields.json",
+		default_values => {lc => "fr", countries => "fr"},
+	}	
 );
 
 # Testing import of a csv file
@@ -116,6 +133,7 @@ foreach my $test_ref (@tests) {
 		"owner_id" => "org-test-org",
 		"csv_file" => $converted_file,
 		"exported_t" => $datestring,
+		"images_download_dir" => $outputs_test_dir . "/images",
 	};
 
 	my $stats_ref;
