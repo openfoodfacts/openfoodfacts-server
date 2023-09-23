@@ -992,6 +992,23 @@
       "lc_name" : "Product found",
       "name" : "Product found"
    },
-   "status" : "success",
-   "warnings" : []
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "id" : "code",
+            "value" : "4260392550101"
+         },
+         "impact" : {
+            "id" : "none",
+            "lc_name" : "None",
+            "name" : "None"
+         },
+         "message" : {
+            "id" : "different_normalized_product_code",
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ]
 }
