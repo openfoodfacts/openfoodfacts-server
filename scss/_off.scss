@@ -1,13 +1,5 @@
 @use "sass:color";
 
-@import "cards";
-@import "topbar";
-@import "footer";
-@import "product-list";
-@import "product-page";
-@import "product-form";
-@import "inputs_redesign";
-
 // Fonts
 
 // From https://google-webfonts-helper.herokuapp.com/fonts/public-sans?subsets=latin,latin-ext,vietnamese :
@@ -1144,6 +1136,14 @@ span.size-48 {
 span.ico-bold {
   font-variation-settings: "wght" 700;
 }
+
+@import "cards";
+@import "topbar";
+@import "footer";
+@import "product-list";
+@import "product-page";
+@import "product-form";
+@import "inputs_redesign";
 
 .white-button {
   @include button(10, $white);
