@@ -322,7 +322,13 @@ my %abbreviations = (
 		["S. thermophilus", "streptococcus thermophilus"],
 	],
 
-	da => [["bl. a.", "blandt andet"], ["inkl.", "inklusive"], ["mod.", "modificeret"], ["past.", "pasteuriserede"], ["pr.", "per"],],
+	da => [
+		["bl. a.", "blandt andet"],
+		["inkl.", "inklusive"],
+		["mod.", "modificeret"],
+		["past.", "pasteuriserede"],
+		["pr.", "per"],
+	],
 
 	en => [
 		["w/o", "without"],
@@ -978,14 +984,13 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			if (
 				(defined $percent_or_quantity_regexp)
 				and ($text
-					=~ /\s*(?:Fremstillet af )$percent_or_quantity_regexp\s*([^,.;]+?)(?:per )100\s*g(?:;|\.| - |$)/i
-				)
+					=~ /\s*(?:Fremstillet af )$percent_or_quantity_regexp\s*([^,.;]+?)(?:per )100\s*g(?:;|\.| - |$)/i)
 				)
 			{
 				# 2 groups captured by $percent_or_quantity_regexp:
 				$percent_or_quantity_value = $1;
 				$percent_or_quantity_unit = $2;
-				$ingredient = $3; # ([^,.;]+?)
+				$ingredient = $3;    # ([^,.;]+?)
 				$matched_text = $&;
 				# Remove the matched text
 				$text = $` . ' ' . $';
@@ -1005,7 +1010,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				# 2 groups captured by $percent_or_quantity_regexp:
 				$percent_or_quantity_value = $1;
 				$percent_or_quantity_unit = $2;
-				$ingredient = $3; # ([^,.;]+?)
+				$ingredient = $3;    # ([^,.;]+?)
 				$matched_text = $&;
 				# Remove the matched text
 				$text = $` . ' ' . $';
@@ -1024,14 +1029,14 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				# 2 groups captured by $percent_or_quantity_regexp:
 				$percent_or_quantity_value = $1;
 				$percent_or_quantity_unit = $2;
-				$ingredient = $3; # ([^,.;]+?)
+				$ingredient = $3;    # ([^,.;]+?)
 				$matched_text = $&;
 				# Remove the matched text
 				$text = $` . ' ' . $';
 			}
 			# blabla ingredient blabla percent_or_quantity_regexp blabla 100g blabla
 			# examples:
-			# Contenido total de azúcares 60 g por 100g. 
+			# Contenido total de azúcares 60 g por 100g.
 			elsif (
 				(defined $percent_or_quantity_regexp)
 				and ($text
@@ -1039,8 +1044,8 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				)
 				)
 			{
-				$ingredient = $1; # ([^,.;]+?)
-				# 2 groups captured by $percent_or_quantity_regexp:
+				$ingredient = $1;    # ([^,.;]+?)
+									 # 2 groups captured by $percent_or_quantity_regexp:
 				$percent_or_quantity_value = $2;
 				$percent_or_quantity_unit = $3;
 				$matched_text = $&;
@@ -1102,7 +1107,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		elsif ($ingredients_lc eq "hr") {
 			# blabla percent_or_quantity_regexp blabla ingredient blabla 100g blabla
 			# examples:
-			# Proizvedeno od 80g voća na 100g gotovog proizvoda. 
+			# Proizvedeno od 80g voća na 100g gotovog proizvoda.
 			if (
 				(defined $percent_or_quantity_regexp)
 				and ($text
@@ -1113,7 +1118,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				# 2 groups captured by $percent_or_quantity_regexp:
 				$percent_or_quantity_value = $1;
 				$percent_or_quantity_unit = $2;
-				$ingredient = $3; # ([^,.;]+?)
+				$ingredient = $3;    # ([^,.;]+?)
 				$matched_text = $&;
 				# Remove the matched text
 				$text = $` . ' ' . $';
@@ -1128,8 +1133,8 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				)
 				)
 			{
-				$ingredient = $1; # ([^,.;]+?)
-				# 2 groups captured by $percent_or_quantity_regexp:
+				$ingredient = $1;    # ([^,.;]+?)
+									 # 2 groups captured by $percent_or_quantity_regexp:
 				$percent_or_quantity_value = $2;
 				$percent_or_quantity_unit = $3;
 				$matched_text = $&;
@@ -1140,11 +1145,11 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		elsif ($ingredients_lc eq "nl") {
 			# blabla percent_or_quantity_regexp blabla ingredient blabla 100g blabla
 			# examples:
-			# Bereid met 50g vruchten per 100g. 
+			# Bereid met 50g vruchten per 100g.
 			if (
 				(defined $percent_or_quantity_regexp)
-				and ($text
-					=~ /\s*(?:Bereid met)\s*$percent_or_quantity_regexp([^,.;]+?)(?:per 100\s*g)(?:;|\.| - |$)/i
+				and (
+					$text =~ /\s*(?:Bereid met)\s*$percent_or_quantity_regexp([^,.;]+?)(?:per 100\s*g)(?:;|\.| - |$)/i
 					# =~ "Bereid met 50g vruchten per 100g"
 				)
 				)
@@ -1152,7 +1157,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				# 2 groups captured by $percent_or_quantity_regexp:
 				$percent_or_quantity_value = $1;
 				$percent_or_quantity_unit = $2;
-				$ingredient = $3; # ([^,.;]+?)
+				$ingredient = $3;    # ([^,.;]+?)
 				$matched_text = $&;
 				# Remove the matched text
 				$text = $` . ' ' . $';
@@ -1162,7 +1167,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			# ingredientblabla percent_or_quantity_regexp blabla
 			# examples:
 			# Fruktmängd: 52g per 100 g sylt.
-			# Bärmängd: 40 g bär per 100g. 
+			# Bärmängd: 40 g bär per 100g.
 			if (
 				(defined $percent_or_quantity_regexp)
 				and ($text
@@ -1170,8 +1175,8 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				)
 				)
 			{
-				$ingredient = $1; # ([^,.;]+?)
-				# 2 groups captured by $percent_or_quantity_regexp:
+				$ingredient = $1;    # ([^,.;]+?)
+									 # 2 groups captured by $percent_or_quantity_regexp:
 				$percent_or_quantity_value = $2;
 				$percent_or_quantity_unit = $3;
 				$matched_text = $&;
@@ -1184,14 +1189,15 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			# Total mängd socker 44 g, varav tillsatt socker 41g per 100g sylt.
 			elsif (
 				(defined $percent_or_quantity_regexp)
-				and ($text
+				and (
+					$text
 					# =~ /\s*(?:ukupni )([^,.;]+?)\s*$percent_or_quantity_regexp\s*(?:na 100\s*g\s*(?:gotovog)?\s*proizvoda)(?:;|\.| - |$)/i
 					=~ /\s*(?:total mängd)([^,.;]+?)\s*(?:är )?\s*$percent_or_quantity_regexp\s*(, varav tillsatt socker \d+g )?(?:per 100\s*g\s*(?:sylt)?)(?:;|\.| - |$)/i
 				)
 				)
 			{
-				$ingredient = $1; # ([^,.;]+?)
-				# 2 groups captured by $percent_or_quantity_regexp:
+				$ingredient = $1;    # ([^,.;]+?)
+									 # 2 groups captured by $percent_or_quantity_regexp:
 				$percent_or_quantity_value = $2;
 				$percent_or_quantity_unit = $3;
 				$matched_text = $&;
