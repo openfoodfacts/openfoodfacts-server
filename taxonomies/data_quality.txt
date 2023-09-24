@@ -2857,3 +2857,23 @@ en:Carbon footprint from known ingredients less than from meat or fish
 <en:Carbon footprint warnings
 en:Carbon footprint from known ingredients more than from meat or fish
 #description:en:
+
+
+
+### Labels
+
+<en:Data quality errors
+en:vegan-label-but-non-vegan-ingredient
+description:en:This product has a vegan label but contains non-vegan ingredients.
+
+<en:Data quality errors
+en:vegetarian-label-but-non-vegetarian-ingredient
+description:en:This product has a vegetarian label but contains non-vegetarian ingredients.
+
+<en:Data quality warnings
+en:vegan-label-but-could-not-confirm-for-all-ingredients 
+description:en:This product has a vegan label, however some ingredients are not known as non-vegan in the taxonomy (could be unknown ingredients or missing vegan true/false in the taxonomy).
+
+<en:Data quality warnings
+en:vegetarian-label-but-could-not-confirm-for-all-ingredients 
+description:en:This product has a vegetarian label, however some ingredients are not known as non-vegetarian in the taxonomy (could be unknown ingredients or missing vegetarian true/false in the taxonomy).
