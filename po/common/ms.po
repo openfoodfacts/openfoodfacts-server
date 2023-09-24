@@ -650,11 +650,11 @@ msgctxt "error_invalid_user"
 msgid "Invalid user."
 msgstr "Pengguna tidak sah."
 
-msgctxt "error_invalid_username"
+msgctxt "error_invalid_User Id"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Nama pengguna mesti mengandungi hanya huruf, angka dan sengkang tanpa tanda aksen."
 
-msgctxt "error_username_too_long"
+msgctxt "error_User Id_too_long"
 msgid "The user name is too long (maximum 20 characters)."
 msgstr ""
 
@@ -674,7 +674,7 @@ msgctxt "error_no_permission"
 msgid "Permission denied."
 msgstr "Kebenaran ditolak."
 
-msgctxt "error_no_username"
+msgctxt "error_no_User Id"
 msgid "You need to enter a user name"
 msgstr "Anda perlu masukkan nama pengguna"
 
@@ -691,11 +691,11 @@ msgid "There is no account with this email"
 msgstr "Tiada terdapat akaun dengan e-mel ini"
 
 msgctxt "error_reset_unknown_id"
-msgid "This username does not exist."
+msgid "This User Id does not exist."
 msgstr "Nama pengguna ini tidak ujud."
 
-msgctxt "error_username_not_available"
-msgid "This username already exists, please choose another."
+msgctxt "error_User Id_not_available"
+msgid "This User Id already exists, please choose another."
 msgstr "Nama pengguna ini telah ujud, sila pilih yang lain."
 
 msgctxt "example"
@@ -1230,8 +1230,8 @@ msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 msgstr "<p>Sila log masuk untuk tambah atau sunting produk.</p>\n\n"
 "<p>Jika anda belum mempunyai akaun di <<site_name>>, anda boleh <a href=\"/cgi/user.pl\">daftar dalam 30 saat</a>.</p>\n"
 
-msgctxt "login_username_email"
-msgid "Username or e-mail address:"
+msgctxt "login_User Id_email"
+msgid "User Id or e-mail address:"
 msgstr "Nama pengguna atau alamat e-mel:"
 
 msgctxt "low"
@@ -1972,7 +1972,7 @@ msgstr "Tetapkan semula kata laluan"
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
 "You asked for your password to be reset on https://openfoodfacts.org\n\n"
-"for the username: <USERID>\n\n"
+"for the User Id: <USERID>\n\n"
 "To continue the password reset, click on the link below.\n"
 "If you did not ask for the password reset, you can ignore this message.\n\n"
 "<RESET_URL>\n\n"
@@ -2006,7 +2006,7 @@ msgid "An email with a link to reset your password has been sent to the e-mail a
 msgstr "E-mel dengan pautan untuk penetapan semula kata laluan anda telah dihantar ke alamat e-mel yang berkaitan dengan akaun anda."
 
 msgctxt "reset_password_send_email_msg"
-msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
+msgid "If you have forgotten your password, fill-in your User Id or e-mail address to receive instructions for resetting your password."
 msgstr "Jika anda telah terlupa kata laluan anda, isikan nama pengguna atau alamat e-mel anda untuk menerima arahan untuk menetapkan semula kata laluan anda."
 
 msgctxt "risk_level"
@@ -2481,7 +2481,7 @@ msgid "trace"
 msgstr "kesan"
 
 msgctxt "twitter"
-msgid "Twitter username (optional)"
+msgid "Twitter User Id (optional)"
 msgstr "Nama pengguna Twitter (pilihan)"
 
 msgctxt "twitter_account"
@@ -2509,19 +2509,19 @@ msgid "You can unsubscribe from the lists at any time."
 msgstr "Anda boleh hentikan langganan dari senarai pada bila-bila masa."
 
 msgctxt "userid_or_email"
-msgid "Username or e-mail address: "
+msgid "User Id or e-mail address: "
 msgstr "Nama pengguna atau alamat e-mel: "
 
-msgctxt "username"
+msgctxt "User Id"
 msgid "User name"
 msgstr "Nama pengguna"
 
-msgctxt "username_info"
+msgctxt "User Id_info"
 msgid "(non-accented letters, digits and/or dashes)"
 msgstr "(huruf, angka dan/atau sengkang yang tanpa aksen)"
 
-msgctxt "username_or_email"
-msgid "Username or email address"
+msgctxt "User Id_or_email"
+msgid "User Id or email address"
 msgstr "Nama pengguna atau alamat e-mel"
 
 msgctxt "users_add_products"

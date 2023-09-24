@@ -650,11 +650,11 @@ msgctxt "error_invalid_user"
 msgid "Invalid user."
 msgstr "Ongeldige gebruiker"
 
-msgctxt "error_invalid_username"
+msgctxt "error_invalid_User Id"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "De gebruikersnaam mag alleen niet-geaccentueerde kleine letters, cijfers en streepjes bevatten."
 
-msgctxt "error_username_too_long"
+msgctxt "error_User Id_too_long"
 msgid "The user name is too long (maximum 20 characters)."
 msgstr "De gebruikersnaam is te lang (maximaal 20 tekens)."
 
@@ -674,7 +674,7 @@ msgctxt "error_no_permission"
 msgid "Permission denied."
 msgstr "Toegang geweigerd"
 
-msgctxt "error_no_username"
+msgctxt "error_no_User Id"
 msgid "You need to enter a user name"
 msgstr "U moet een gebruikersnaam ingeven"
 
@@ -691,11 +691,11 @@ msgid "There is no account with this email"
 msgstr "Er is geen account aan dit emailadres verbonden"
 
 msgctxt "error_reset_unknown_id"
-msgid "This username does not exist."
+msgid "This User Id does not exist."
 msgstr "Deze gebruikersnaam bestaat niet"
 
-msgctxt "error_username_not_available"
-msgid "This username already exists, please choose another."
+msgctxt "error_User Id_not_available"
+msgid "This User Id already exists, please choose another."
 msgstr "Deze gebruikersnaam bestaat al, gelieve een andere te kiezen."
 
 msgctxt "example"
@@ -1230,8 +1230,8 @@ msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 msgstr "<p>U moet zich aanmelden om producten toe te voegen of te bewerken.</p>\n\n"
 "<p>Als u nog geen account hebt op <<site_name>>, kan u <a href=\"/cgi/user.pl\">zich registreren in 30 seconden</a>.</p>\n"
 
-msgctxt "login_username_email"
-msgid "Username or e-mail address:"
+msgctxt "login_User Id_email"
+msgid "User Id or e-mail address:"
 msgstr "Gebruikersnaam of emailadres:"
 
 msgctxt "low"
@@ -1971,7 +1971,7 @@ msgstr "Paswoord resetten"
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
 "You asked for your password to be reset on https://openfoodfacts.org\n\n"
-"for the username: <USERID>\n\n"
+"for the User Id: <USERID>\n\n"
 "To continue the password reset, click on the link below.\n"
 "If you did not ask for the password reset, you can ignore this message.\n\n"
 "<RESET_URL>\n\n"
@@ -2005,7 +2005,7 @@ msgid "An email with a link to reset your password has been sent to the e-mail a
 msgstr "Een e-mail met een link om uw wachtwoord te resetten is verstuurd naar het e-mailadres dat gekoppeld is aan uw account."
 
 msgctxt "reset_password_send_email_msg"
-msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
+msgid "If you have forgotten your password, fill-in your User Id or e-mail address to receive instructions for resetting your password."
 msgstr "Als u uw wachtwoord bent vergeten, vul dan uw gebruikersnaam of e-mailadres in om de instructies te ontvangen voor het opnieuw instellen van uw wachtwoord."
 
 msgctxt "risk_level"
@@ -2479,7 +2479,7 @@ msgid "trace"
 msgstr "spoor"
 
 msgctxt "twitter"
-msgid "Twitter username (optional)"
+msgid "Twitter User Id (optional)"
 msgstr "Gebruikersnaam Twitter (optioneel)"
 
 msgctxt "twitter_account"
@@ -2507,19 +2507,19 @@ msgid "You can unsubscribe from the lists at any time."
 msgstr "U kan zich makkelijk en op elk moment uitschrijven voor de nieuwsbrief"
 
 msgctxt "userid_or_email"
-msgid "Username or e-mail address: "
+msgid "User Id or e-mail address: "
 msgstr "Gebruikersnaam of emailadres: "
 
-msgctxt "username"
+msgctxt "User Id"
 msgid "User name"
 msgstr "Gebruikersnaam"
 
-msgctxt "username_info"
+msgctxt "User Id_info"
 msgid "(non-accented letters, digits and/or dashes)"
 msgstr "(letters zonder accenten, cijfers en/of streepjes)"
 
-msgctxt "username_or_email"
-msgid "Username or email address"
+msgctxt "User Id_or_email"
+msgid "User Id or email address"
 msgstr "Gebruikersnaam of emailadres"
 
 msgctxt "users_add_products"

@@ -6,9 +6,9 @@
 
     var value = inputfield.value.toLowerCase();
 
-    // Chrome can autofill the username with an email address,
+    // Chrome can autofill the User Id with an email address,
     // remove everything after @ so that we don't end up with
-    // email addresses as usernames.
+    // email addresses as User Ids.
 
     value = value.replace(new RegExp("\@.*"),"");
 
@@ -69,8 +69,8 @@
                                 <label for="[% field.field %]"> [% field.label %]</label>
                                 <p id="userid"><a href="/editor/[% field.value %]">[% field.value %]</a></p>
                             [% ELSE %]
-                                <label for="[% field.field %]">  [% lang(field.label) %] [% lang('username_info')  %]</label>
-                                <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="username" onkeyup="normalize_string_value(this)" />
+                                <label for="[% field.field %]">  [% lang(field.label) %] [% lang('User Id_info')  %]</label>
+                                <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="User Id" onkeyup="normalize_string_value(this)" />
                             [% END %]
                         [% ELSIF field.type == 'text' %]
                               <div [% IF section.id == "professional" %] class="pro_org_display" [% END %]>

@@ -650,11 +650,11 @@ msgctxt "error_invalid_user"
 msgid "Invalid user."
 msgstr "Неприпустиме ім'я користувача."
 
-msgctxt "error_invalid_username"
+msgctxt "error_invalid_User Id"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Ім’я користувача має містити лише букви без надрядкових знаків, цифри та тире."
 
-msgctxt "error_username_too_long"
+msgctxt "error_User Id_too_long"
 msgid "The user name is too long (maximum 20 characters)."
 msgstr "Ім'я користувача задовге. (максимум 20 символів)."
 
@@ -674,7 +674,7 @@ msgctxt "error_no_permission"
 msgid "Permission denied."
 msgstr "Немає дозволу."
 
-msgctxt "error_no_username"
+msgctxt "error_no_User Id"
 msgid "You need to enter a user name"
 msgstr "Введіть ім'я користувача"
 
@@ -691,11 +691,11 @@ msgid "There is no account with this email"
 msgstr "Немає облікового запису з такою електронною поштою"
 
 msgctxt "error_reset_unknown_id"
-msgid "This username does not exist."
+msgid "This User Id does not exist."
 msgstr "Таке ім'я користувача не існує."
 
-msgctxt "error_username_not_available"
-msgid "This username already exists, please choose another."
+msgctxt "error_User Id_not_available"
+msgid "This User Id already exists, please choose another."
 msgstr "Таке ім'я користувача вже існує, будь-ласка оберіть інше."
 
 msgctxt "example"
@@ -1228,8 +1228,8 @@ msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 msgstr "<p>Для того щоб додати або відредагувати продукцію, увійдіть, будь ласка.</p>\n\n"
 "<p>Якщо у вас ще немає облікового запису на<<site_name>>, ви можете <a href=\"/cgi/user.pl\">зареєструватись за 10 секунд</a>.</p>\n"
 
-msgctxt "login_username_email"
-msgid "Username or e-mail address:"
+msgctxt "login_User Id_email"
+msgid "User Id or e-mail address:"
 msgstr "Ім’я користувача або адреса ел. пошти:"
 
 msgctxt "low"
@@ -1969,7 +1969,7 @@ msgstr "Скинути пароль"
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
 "You asked for your password to be reset on https://openfoodfacts.org\n\n"
-"for the username: <USERID>\n\n"
+"for the User Id: <USERID>\n\n"
 "To continue the password reset, click on the link below.\n"
 "If you did not ask for the password reset, you can ignore this message.\n\n"
 "<RESET_URL>\n\n"
@@ -2003,7 +2003,7 @@ msgid "An email with a link to reset your password has been sent to the e-mail a
 msgstr "На адресу електронної пошти, пов'язану з вашим обліковим записом, було надіслано лист із посиланням для відновлення пароля."
 
 msgctxt "reset_password_send_email_msg"
-msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
+msgid "If you have forgotten your password, fill-in your User Id or e-mail address to receive instructions for resetting your password."
 msgstr "Якщо ви забули ваш пароль, введіть своє ім'я користувача або адресу електронної пошти, щоб отримати вказівки щодо відновлення пароля."
 
 msgctxt "risk_level"
@@ -2478,7 +2478,7 @@ msgid "trace"
 msgstr "залишок"
 
 msgctxt "twitter"
-msgid "Twitter username (optional)"
+msgid "Twitter User Id (optional)"
 msgstr "Ім'я користувача Twitter (необов'язково)"
 
 msgctxt "twitter_account"
@@ -2506,19 +2506,19 @@ msgid "You can unsubscribe from the lists at any time."
 msgstr "Ви можете скасувати підписку із списків у будь-який час."
 
 msgctxt "userid_or_email"
-msgid "Username or e-mail address: "
+msgid "User Id or e-mail address: "
 msgstr "Ім’я користувача або адреса ел. пошти: "
 
-msgctxt "username"
+msgctxt "User Id"
 msgid "User name"
 msgstr "Ім’я користувача"
 
-msgctxt "username_info"
+msgctxt "User Id_info"
 msgid "(non-accented letters, digits and/or dashes)"
 msgstr "(ненаголошені букви, цифри та/або тире)"
 
-msgctxt "username_or_email"
-msgid "Username or email address"
+msgctxt "User Id_or_email"
+msgid "User Id or email address"
 msgstr "Ім’я користувача або адреса його електронної пошти"
 
 msgctxt "users_add_products"

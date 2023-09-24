@@ -17,10 +17,10 @@ jobs:
   #     uses: appleboy/ssh-action@master
   #     with:
   #       host: ${{ env.SSH_HOST }}
-  #       username: ${{ env.SSH_USERNAME }}
+  #       User Id: ${{ env.SSH_User Id }}
   #       key: ${{ secrets.SSH_PRIVATE_KEY }}
   #       proxy_host: ${{ env.SSH_PROXY_HOST }}
-  #       proxy_username: ${{ env.SSH_USERNAME }}
+  #       proxy_User Id: ${{ env.SSH_User Id }}
   #       proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
   #       script_stop: false
   #       script: |
@@ -42,16 +42,16 @@ jobs:
         # deploy target
         echo "SSH_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
-        echo "SSH_USERNAME=off" >> $GITHUB_ENV
+        echo "SSH_User Id=off" >> $GITHUB_ENV
 
     - name: Sync production database data to the dev MongoDB
       uses: appleboy/ssh-action@master
       with:
         host: ${{ env.SSH_HOST }}
-        username: ${{ env.SSH_USERNAME }}
+        User Id: ${{ env.SSH_User Id }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         proxy_host: ${{ env.SSH_PROXY_HOST }}
-        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_User Id: ${{ env.SSH_User Id }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         command_timeout: 180m
         script_stop: false
@@ -83,15 +83,15 @@ jobs:
         # deploy target
         echo "SSH_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
-        echo "SSH_USERNAME=off" >> $GITHUB_ENV
+        echo "SSH_User Id=off" >> $GITHUB_ENV
     - name: Refresh MongoDB products_tags collection
       uses: appleboy/ssh-action@master
       with:
         host: ${{ env.SSH_HOST }}
-        username: ${{ env.SSH_USERNAME }}
+        User Id: ${{ env.SSH_User Id }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         proxy_host: ${{ env.SSH_PROXY_HOST }}
-        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_User Id: ${{ env.SSH_User Id }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         command_timeout: 180m
         script_stop: false

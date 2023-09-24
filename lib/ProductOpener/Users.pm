@@ -340,7 +340,7 @@ sub is_suspicious_name ($value) {
 =head2 check_user_form($type, $user_ref, $errors_ref)
 
 C<check_user_form()> This method checks and validates the different entries in the user form.
-It also handles Spam-usernames, fields for the organization accounts.
+It also handles Spam-User Ids, fields for the organization accounts.
 
 This will then be used in process_user_form
 
@@ -492,16 +492,16 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 		my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
 
 		if (length($user_ref->{userid}) < 2) {
-			push @{$errors_ref}, $Lang{error_no_username}{$lang};
+			push @{$errors_ref}, $Lang{error_no_User Id}{$lang};
 		}
 		elsif (-e "$data_root/users/$userid.sto") {
-			push @{$errors_ref}, $Lang{error_username_not_available}{$lang};
+			push @{$errors_ref}, $Lang{error_User Id_not_available}{$lang};
 		}
 		elsif ($user_ref->{userid} !~ /^[a-z0-9]+[a-z0-9\-]*[a-z0-9]+$/) {
-			push @{$errors_ref}, $Lang{error_invalid_username}{$lang};
+			push @{$errors_ref}, $Lang{error_invalid_User Id}{$lang};
 		}
 		elsif (length($user_ref->{userid}) > 20) {
-			push @{$errors_ref}, $Lang{error_username_too_long}{$lang};
+			push @{$errors_ref}, $Lang{error_User Id_too_long}{$lang};
 		}
 
 		if (length(decode utf8 => single_param('password')) < 6) {

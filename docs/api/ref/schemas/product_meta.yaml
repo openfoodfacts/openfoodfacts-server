@@ -61,7 +61,7 @@ properties:
   last_modified_by:
     type: string
     description: |
-      The username of the user who last modified the product.
+      The User Id of the user who last modified the product.
     example: sebleouf
   last_modified_t:
     type: integer

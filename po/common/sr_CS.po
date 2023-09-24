@@ -649,11 +649,11 @@ msgctxt "error_invalid_user"
 msgid "Invalid user."
 msgstr "Neispravan nalog."
 
-msgctxt "error_invalid_username"
+msgctxt "error_invalid_User Id"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Korisničko ime može sadržati samo slova (bez dijakritika), brojeve i crtice."
 
-msgctxt "error_username_too_long"
+msgctxt "error_User Id_too_long"
 msgid "The user name is too long (maximum 20 characters)."
 msgstr ""
 
@@ -673,7 +673,7 @@ msgctxt "error_no_permission"
 msgid "Permission denied."
 msgstr "Pristup odbijen."
 
-msgctxt "error_no_username"
+msgctxt "error_no_User Id"
 msgid "You need to enter a user name"
 msgstr "Morate uneti korisničko ime"
 
@@ -690,11 +690,11 @@ msgid "There is no account with this email"
 msgstr "Korisnik sa tim email-om ne postoji"
 
 msgctxt "error_reset_unknown_id"
-msgid "This username does not exist."
+msgid "This User Id does not exist."
 msgstr "Ovo korisničko ime ne postoji."
 
-msgctxt "error_username_not_available"
-msgid "This username already exists, please choose another."
+msgctxt "error_User Id_not_available"
+msgid "This User Id already exists, please choose another."
 msgstr "Korisničko ime je zauzeto. Molimo izaberite drugo."
 
 msgctxt "example"
@@ -1224,8 +1224,8 @@ msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
 msgstr ""
 
-msgctxt "login_username_email"
-msgid "Username or e-mail address:"
+msgctxt "login_User Id_email"
+msgid "User Id or e-mail address:"
 msgstr "Korisničko ime ili e-mail adresa:"
 
 msgctxt "low"
@@ -1964,7 +1964,7 @@ msgstr "Resetuj lozinku"
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
 "You asked for your password to be reset on https://openfoodfacts.org\n\n"
-"for the username: <USERID>\n\n"
+"for the User Id: <USERID>\n\n"
 "To continue the password reset, click on the link below.\n"
 "If you did not ask for the password reset, you can ignore this message.\n\n"
 "<RESET_URL>\n\n"
@@ -1990,7 +1990,7 @@ msgid "An email with a link to reset your password has been sent to the e-mail a
 msgstr "E-mail sa linkom za resetovanje lozinke je poslat na e-mail adresu koja je povezana sa vašim nalogom."
 
 msgctxt "reset_password_send_email_msg"
-msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
+msgid "If you have forgotten your password, fill-in your User Id or e-mail address to receive instructions for resetting your password."
 msgstr ""
 
 msgctxt "risk_level"
@@ -2464,7 +2464,7 @@ msgid "trace"
 msgstr ""
 
 msgctxt "twitter"
-msgid "Twitter username (optional)"
+msgid "Twitter User Id (optional)"
 msgstr ""
 
 msgctxt "twitter_account"
@@ -2492,19 +2492,19 @@ msgid "You can unsubscribe from the lists at any time."
 msgstr ""
 
 msgctxt "userid_or_email"
-msgid "Username or e-mail address: "
+msgid "User Id or e-mail address: "
 msgstr "Korisničko ime ili e-mail adresa: "
 
-msgctxt "username"
+msgctxt "User Id"
 msgid "User name"
 msgstr "Korisničko ime"
 
-msgctxt "username_info"
+msgctxt "User Id_info"
 msgid "(non-accented letters, digits and/or dashes)"
 msgstr ""
 
-msgctxt "username_or_email"
-msgid "Username or email address"
+msgctxt "User Id_or_email"
+msgid "User Id or email address"
 msgstr "Korisničko ime ili e-mail adresa"
 
 msgctxt "users_add_products"

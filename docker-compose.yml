@@ -16,7 +16,7 @@ x-backend-conf: &backend-conf
     - ROBOTOFF_URL
     - EVENTS_URL
     - FACETS_KP_URL
-    - EVENTS_USERNAME
+    - EVENTS_User Id
     - EVENTS_PASSWORD
     - REDIS_URL
     - GOOGLE_CLOUD_VISION_API_KEY

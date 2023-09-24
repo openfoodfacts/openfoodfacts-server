@@ -649,11 +649,11 @@ msgctxt "error_invalid_user"
 msgid "Invalid user."
 msgstr "Virheellinen käyttäjä."
 
-msgctxt "error_invalid_username"
+msgctxt "error_invalid_User Id"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Käyttäjätunnuksessa on oltava vain tarkemerkittömiä kirjaimia, numeroita ja väliviivoja."
 
-msgctxt "error_username_too_long"
+msgctxt "error_User Id_too_long"
 msgid "The user name is too long (maximum 20 characters)."
 msgstr "Käyttäjänimi on liian pitkä (enintään 20 merkkiä)."
 
@@ -673,7 +673,7 @@ msgctxt "error_no_permission"
 msgid "Permission denied."
 msgstr "Lupa evätty."
 
-msgctxt "error_no_username"
+msgctxt "error_no_User Id"
 msgid "You need to enter a user name"
 msgstr "Syötä käyttäjänimi"
 
@@ -690,11 +690,11 @@ msgid "There is no account with this email"
 msgstr "Tällä sähköpostiosoitteella ei ole olemassa tiliä"
 
 msgctxt "error_reset_unknown_id"
-msgid "This username does not exist."
+msgid "This User Id does not exist."
 msgstr "Tätä käyttäjätunnusta ei ole olemassa."
 
-msgctxt "error_username_not_available"
-msgid "This username already exists, please choose another."
+msgctxt "error_User Id_not_available"
+msgid "This User Id already exists, please choose another."
 msgstr "Tämä käyttäjätunnus on jo käytössä. Valitse jokin toinen."
 
 msgctxt "example"
@@ -1229,8 +1229,8 @@ msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 msgstr "<p>Kirjaudu sisään lisätäksesi tai muokataksesi tuotteita.</p>\n\n"
 "<p>Jos sinulla ei ole vielä tiliä <<site_name>>issä, voit <a href=\"/cgi/user.pl\">rekisteröityä 30 sekunnissa</a>.</p>\n"
 
-msgctxt "login_username_email"
-msgid "Username or e-mail address:"
+msgctxt "login_User Id_email"
+msgid "User Id or e-mail address:"
 msgstr "Käyttäjätunnus tai sähköpostiosoite:"
 
 msgctxt "low"
@@ -1971,7 +1971,7 @@ msgstr "Palauta salasana"
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
 "You asked for your password to be reset on https://openfoodfacts.org\n\n"
-"for the username: <USERID>\n\n"
+"for the User Id: <USERID>\n\n"
 "To continue the password reset, click on the link below.\n"
 "If you did not ask for the password reset, you can ignore this message.\n\n"
 "<RESET_URL>\n\n"
@@ -2004,7 +2004,7 @@ msgid "An email with a link to reset your password has been sent to the e-mail a
 msgstr "Salasanan palautuslinkin sisältävä sähköposti on lähetetty tiliisi liitettyyn sähköpostiosoitteeseen."
 
 msgctxt "reset_password_send_email_msg"
-msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
+msgid "If you have forgotten your password, fill-in your User Id or e-mail address to receive instructions for resetting your password."
 msgstr "Jos olet unohtanut salasanasi, kirjoita käyttäjätunnuksesi tai sähköpostiosoitteesi saadaksesi ohjeet salasanasi palauttamista varten."
 
 msgctxt "risk_level"
@@ -2478,7 +2478,7 @@ msgid "trace"
 msgstr "jäämä"
 
 msgctxt "twitter"
-msgid "Twitter username (optional)"
+msgid "Twitter User Id (optional)"
 msgstr "Twitter-käyttäjätunnus (valinnainen)"
 
 msgctxt "twitter_account"
@@ -2506,19 +2506,19 @@ msgid "You can unsubscribe from the lists at any time."
 msgstr "Voit peruuttaa tilauksen milloin tahansa."
 
 msgctxt "userid_or_email"
-msgid "Username or e-mail address: "
+msgid "User Id or e-mail address: "
 msgstr "Käyttäjätunnus tai sähköpostiosoite: "
 
-msgctxt "username"
+msgctxt "User Id"
 msgid "User name"
 msgstr "Käyttäjätunnus"
 
-msgctxt "username_info"
+msgctxt "User Id_info"
 msgid "(non-accented letters, digits and/or dashes)"
 msgstr "(tarkemerkittömiä kirjaimia, numeroita ja / tai viivoja)"
 
-msgctxt "username_or_email"
-msgid "Username or email address"
+msgctxt "User Id_or_email"
+msgid "User Id or email address"
 msgstr "Käyttäjätunnus tai sähköpostiosoite"
 
 msgctxt "users_add_products"

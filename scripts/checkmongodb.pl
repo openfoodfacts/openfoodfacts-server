@@ -21,7 +21,7 @@ sub send_msg($) {
 
 	# add POST data to HTTP request body
 	my $post_data
-		= '{"channel": "#infrastructure", "username": "checkmongodb", "text": "'
+		= '{"channel": "#infrastructure", "User Id": "checkmongodb", "text": "'
 		. $msg
 		. '", "icon_emoji": ":hamster:" }';
 	$req->content_type("text/plain; charset='utf8'");

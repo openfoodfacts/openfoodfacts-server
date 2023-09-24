@@ -40,7 +40,7 @@ BEGIN {
 		$crowdin_project_key
 		$robotoff_url
 		$events_url
-		$events_username
+		$events_User Id
 		$events_password
 		$redis_url
 		%server_options
@@ -79,7 +79,7 @@ $robotoff_url = '';
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
 $events_url = '';
-$events_username = '';
+$events_User Id = '';
 $events_password = '';
 
 $redis_url = '';

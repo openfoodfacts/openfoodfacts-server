@@ -788,8 +788,8 @@ function loginProcess(callback) {
     // const loginWindow =
     //     '<div data-reveal-id="dialog-form" id="fe_login_dialog" title="Dialog Form" aria-hidden="true" role="dialog">' +
     //     '<form name="login_form">' +
-    //     '<label>Username:</label>' +
-    //     '<input name="username" type="text" value="'+ getConnectedUserID() + '">' +
+    //     '<label>User Id:</label>' +
+    //     '<input name="User Id" type="text" value="'+ getConnectedUserID() + '">' +
     //     '<label>Password:</label>' +
     //     '<input name="password" type="password" value="">' +
     //     '<input id="login_submit" type="submit" value="Login">' +
@@ -805,10 +805,10 @@ function loginProcess(callback) {
     // form.addEventListener('submit', (e) => {
     //     console.log("FEUS - Submited");
     //     e.preventDefault();  // Do not submit the form
-    //     const username = $('[name="username"]').val();
+    //     const User Id = $('[name="User Id"]').val();
     //     const password = $('[name="password"]').val();
-    //     console.log("FEUS - loginProcess - username: " + username);
-    //     getCredentials(username, password, function() {
+    //     console.log("FEUS - loginProcess - User Id: " + User Id);
+    //     getCredentials(User Id, password, function() {
     //         console.log("FEUS - loginProcess() - callback");
     //         if (isWellLoggedIn() === true) { togglePopupInfo(loginWindow); }
     //     });
@@ -858,16 +858,16 @@ function getCredentialsFromCookie(_cookie, callback) {
 }
 
 
-// function getCredentials(_username, _password, callback) {
+// function getCredentials(_User Id, _password, callback) {
 //     console.log("FEUS - getCredentials - call " + feAPI + "/auth");
-//     console.log("FEUS - getCredentials - username: " + _username);
+//     console.log("FEUS - getCredentials - User Id: " + _User Id);
 //     fetch(feAPI + '/auth',{
 //         method: 'POST',
 //         headers:{
 //             Accept: 'application/json',
 //             'Content-Type': 'application/x-www-form-urlencoded',
 //         },
-//         body: 'grant_type=&username='+_username+'&password='+_password+'&scope=&client_id=&client_secret=',
+//         body: 'grant_type=&User Id='+_User Id+'&password='+_password+'&scope=&client_id=&client_secret=',
 //     }).
 //         then((payload) => payload.json()).
 //         then((resp) => {

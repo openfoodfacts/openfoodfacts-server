@@ -79,7 +79,7 @@ Create an account on the [Open Food Facts app](https://world.openfoodfacts.org/)
 
 - **The preferred one**:
   Use the login API to get a session cookie and use this cookie in your subsequent request to be authenticated. However, the session must always be used from the same IP address, and you have a maximum of sessions per user.
-- If session conditions are too restrictive for your use case, include your account credentials as parameters for authenticated requests where `user_id` is your username and `password` is your password (do this on POST / PUT / DELETE request, not on GET)
+- If session conditions are too restrictive for your use case, include your account credentials as parameters for authenticated requests where `user_id` is your User Id and `password` is your password (do this on POST / PUT / DELETE request, not on GET)
 
 You can create a global account to allow your app users to contribute without registering individual accounts on the Open Food Facts website. This way, we know that these contributions came from your application.
 

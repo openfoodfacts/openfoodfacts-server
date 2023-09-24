@@ -650,11 +650,11 @@ msgctxt "error_invalid_user"
 msgid "Invalid user."
 msgstr "Geçersiz kullanıcı."
 
-msgctxt "error_invalid_username"
+msgctxt "error_invalid_User Id"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Kullanıcı adı yalnızca renksiz rakamlar, rakamlar ve çizgiler içermelidir."
 
-msgctxt "error_username_too_long"
+msgctxt "error_User Id_too_long"
 msgid "The user name is too long (maximum 20 characters)."
 msgstr "Kullanıcı adı çok uzun (maksimum 20 karakter)."
 
@@ -674,7 +674,7 @@ msgctxt "error_no_permission"
 msgid "Permission denied."
 msgstr "İzin reddedildi."
 
-msgctxt "error_no_username"
+msgctxt "error_no_User Id"
 msgid "You need to enter a user name"
 msgstr "Bir kullanıcı adı girmeniz gerekiyor"
 
@@ -691,11 +691,11 @@ msgid "There is no account with this email"
 msgstr "Bu e-postayla hiç hesap yok"
 
 msgctxt "error_reset_unknown_id"
-msgid "This username does not exist."
+msgid "This User Id does not exist."
 msgstr "Bu kullanıcı adı mevcut değil."
 
-msgctxt "error_username_not_available"
-msgid "This username already exists, please choose another."
+msgctxt "error_User Id_not_available"
+msgid "This User Id already exists, please choose another."
 msgstr "Bu kullanıcı adı zaten var, lütfen başka bir kullanıcı adı seçin."
 
 msgctxt "example"
@@ -1226,8 +1226,8 @@ msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 msgstr "<p>Ürün eklemek veya düzenlemek için lütfen giriş yapın.</p>\n\n"
 "<p>Henüz <<site_name>> hesabınız yok ise,<a href=\"/cgi/user.pl\">30 saniye içerisinde kayıt olabilirsiniz</a></p>\n"
 
-msgctxt "login_username_email"
-msgid "Username or e-mail address:"
+msgctxt "login_User Id_email"
+msgid "User Id or e-mail address:"
 msgstr "Kullanıcı adı veya e-posta adresi:"
 
 msgctxt "low"
@@ -1968,7 +1968,7 @@ msgstr "Parolayı sıfırla"
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
 "You asked for your password to be reset on https://openfoodfacts.org\n\n"
-"for the username: <USERID>\n\n"
+"for the User Id: <USERID>\n\n"
 "To continue the password reset, click on the link below.\n"
 "If you did not ask for the password reset, you can ignore this message.\n\n"
 "<RESET_URL>\n\n"
@@ -2002,7 +2002,7 @@ msgid "An email with a link to reset your password has been sent to the e-mail a
 msgstr "Hesabınızla ilişkili e-posta adresine, şifrenizi sıfırlamak için bir bağlantı içeren bir e-posta gönderildi."
 
 msgctxt "reset_password_send_email_msg"
-msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
+msgid "If you have forgotten your password, fill-in your User Id or e-mail address to receive instructions for resetting your password."
 msgstr "Parolanızı unuttuysanız, parolanızı sıfırlama talimatlarını almak için kullanıcı adınızı veya e-posta adresinizi girin."
 
 msgctxt "risk_level"
@@ -2477,7 +2477,7 @@ msgid "trace"
 msgstr "iz"
 
 msgctxt "twitter"
-msgid "Twitter username (optional)"
+msgid "Twitter User Id (optional)"
 msgstr "Twitter kullanıcı adı (opsiyonel)"
 
 msgctxt "twitter_account"
@@ -2505,19 +2505,19 @@ msgid "You can unsubscribe from the lists at any time."
 msgstr "Liste aboneliğinizden istediğiniz zaman çıkabilirsiniz."
 
 msgctxt "userid_or_email"
-msgid "Username or e-mail address: "
+msgid "User Id or e-mail address: "
 msgstr "Kullanıcı adı veya e-posta adresi: "
 
-msgctxt "username"
+msgctxt "User Id"
 msgid "User name"
 msgstr "Kullanıcı adı"
 
-msgctxt "username_info"
+msgctxt "User Id_info"
 msgid "(non-accented letters, digits and/or dashes)"
 msgstr "(aksansız harfler, rakamlar ve/veya kısa çizgiler)"
 
-msgctxt "username_or_email"
-msgid "Username or email address"
+msgctxt "User Id_or_email"
+msgid "User Id or email address"
 msgstr "Kullanıcı adı veya e-posta adresi"
 
 msgctxt "users_add_products"

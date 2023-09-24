@@ -100,8 +100,8 @@ sub send_event ($event_ref) {
 
 		# Add basic HTTP authentification credentials if we have some
 		# (as of August 2022, they are required to post to /events)
-		if ((defined $events_username) and ($events_username ne "")) {
-			$request->authorization_basic($events_username, $events_password);
+		if ((defined $events_User Id) and ($events_User Id ne "")) {
+			$request->authorization_basic($events_User Id, $events_password);
 		}
 
 		$log->debug("send_event request", {endpoint => $endpoint, event => $event_ref}) if $log->is_debug();

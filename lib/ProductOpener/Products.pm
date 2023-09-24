@@ -1926,7 +1926,7 @@ we can rename it to a generic user account like openfoodfacts-contributors.
 
 =cut
 
-# Fields that contain usernames
+# Fields that contain User Ids
 my @users_fields = qw(editors_tags photographers_tags informers_tags correctors_tags checkers_tags weighers_tags);
 
 sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_collection) {
@@ -3310,7 +3310,7 @@ sub process_product_edit_rules ($product_ref) {
 									my $post_data
 										= '{"channel": "#'
 										. $channel
-										. '", "username": "editrules", "text": "'
+										. '", "User Id": "editrules", "text": "'
 										. $msg
 										. '", "icon_emoji": "'
 										. $emoji . '" }';

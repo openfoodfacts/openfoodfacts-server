@@ -6,8 +6,8 @@ properties:
     example: '0074570036004'
   user_id:
     type: string
-    description: A valid username.
-    example: myusername
+    description: A valid User Id.
+    example: myUser Id
   password:
     type: string
     description: A valid corresponding password.

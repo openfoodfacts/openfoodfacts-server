@@ -650,11 +650,11 @@ msgctxt "error_invalid_user"
 msgid "Invalid user."
 msgstr "Неверный идентификатор пользователя."
 
-msgctxt "error_invalid_username"
+msgctxt "error_invalid_User Id"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Имя пользователя должно содержать только латинские буквы, цифры и дефисы."
 
-msgctxt "error_username_too_long"
+msgctxt "error_User Id_too_long"
 msgid "The user name is too long (maximum 20 characters)."
 msgstr ""
 
@@ -674,7 +674,7 @@ msgctxt "error_no_permission"
 msgid "Permission denied."
 msgstr "Доступ запрещён."
 
-msgctxt "error_no_username"
+msgctxt "error_no_User Id"
 msgid "You need to enter a user name"
 msgstr "Вам нужно ввести имя пользователя"
 
@@ -691,11 +691,11 @@ msgid "There is no account with this email"
 msgstr "Нет учётной записи с этим адресом эл. почты"
 
 msgctxt "error_reset_unknown_id"
-msgid "This username does not exist."
+msgid "This User Id does not exist."
 msgstr "Такого имени пользователя не существует."
 
-msgctxt "error_username_not_available"
-msgid "This username already exists, please choose another."
+msgctxt "error_User Id_not_available"
+msgid "This User Id already exists, please choose another."
 msgstr "Это имя пользователя уже существует, выберите другое."
 
 msgctxt "example"
@@ -1230,8 +1230,8 @@ msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 msgstr "<p>Выполните вход, чтобы добавить или отредактировать продукт.</p>\n\n"
 "<p>Если у вас еще нет аккаунта на сайте <<site_name>> вы можете <a href=\"/cgi/user.pl\">зарегистрироваться за 30 секунд</a>.</p>\n"
 
-msgctxt "login_username_email"
-msgid "Username or e-mail address:"
+msgctxt "login_User Id_email"
+msgid "User Id or e-mail address:"
 msgstr "Имя пользователя или адрес электронной почты:"
 
 msgctxt "low"
@@ -1973,7 +1973,7 @@ msgstr "Сброс пароля"
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
 "You asked for your password to be reset on https://openfoodfacts.org\n\n"
-"for the username: <USERID>\n\n"
+"for the User Id: <USERID>\n\n"
 "To continue the password reset, click on the link below.\n"
 "If you did not ask for the password reset, you can ignore this message.\n\n"
 "<RESET_URL>\n\n"
@@ -2007,7 +2007,7 @@ msgid "An email with a link to reset your password has been sent to the e-mail a
 msgstr "Письмо со ссылкой для сброса пароля выслано на адрес эл. почты, связанный с вашей учётной записью."
 
 msgctxt "reset_password_send_email_msg"
-msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
+msgid "If you have forgotten your password, fill-in your User Id or e-mail address to receive instructions for resetting your password."
 msgstr "Если вы забыли свой пароль, введите имя пользователя или адрес электронной почты, чтобы получить инструкции по восстановлению пароля."
 
 msgctxt "risk_level"
@@ -2482,7 +2482,7 @@ msgid "trace"
 msgstr "след"
 
 msgctxt "twitter"
-msgid "Twitter username (optional)"
+msgid "Twitter User Id (optional)"
 msgstr "Имя пользователя в Twitter (не обязательно)"
 
 msgctxt "twitter_account"
@@ -2510,19 +2510,19 @@ msgid "You can unsubscribe from the lists at any time."
 msgstr "Вы можете отписаться от списка рассылки в любое время."
 
 msgctxt "userid_or_email"
-msgid "Username or e-mail address: "
+msgid "User Id or e-mail address: "
 msgstr "Имя пользователя или адрес эл. почты: "
 
-msgctxt "username"
+msgctxt "User Id"
 msgid "User name"
 msgstr "Имя пользователя"
 
-msgctxt "username_info"
+msgctxt "User Id_info"
 msgid "(non-accented letters, digits and/or dashes)"
 msgstr "(латинские символы, цифры и/или тире)"
 
-msgctxt "username_or_email"
-msgid "Username or email address"
+msgctxt "User Id_or_email"
+msgid "User Id or email address"
 msgstr "Имя пользователя или адрес эл. почты"
 
 msgctxt "users_add_products"

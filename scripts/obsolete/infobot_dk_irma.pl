@@ -214,7 +214,7 @@ while(<$IN>) {
 			# notify slack
 			#  payload={"text": "A very important thing has occurred! <https://alert-system.com/alerts/1234|Click here> for details!"}
 
-			# curl -X POST --data-urlencode 'payload={"channel": "#general", "username": "webhookbot", "text": "This is posted to #general and comes from a bot named webhookbot.", "icon_emoji": ":ghost:"}' https://openfoodfacts.slack.com/services/hooks/incoming-webhook?token=jMDE8Fzkz9qD7uC9Lq04fbZH
+			# curl -X POST --data-urlencode 'payload={"channel": "#general", "User Id": "webhookbot", "text": "This is posted to #general and comes from a bot named webhookbot.", "icon_emoji": ":ghost:"}' https://openfoodfacts.slack.com/services/hooks/incoming-webhook?token=jMDE8Fzkz9qD7uC9Lq04fbZH
 
 			# my $data =  encode_json(\%response);
 
@@ -233,7 +233,7 @@ while(<$IN>) {
 			$req->header('content-type' => 'application/json');
 
 			# add POST data to HTTP request body
-			my $post_data = '{"channel": "#bots", "username": "infobot", "text": "' . $bot . '", "icon_emoji": ":rabbit:" }';
+			my $post_data = '{"channel": "#bots", "User Id": "infobot", "text": "' . $bot . '", "icon_emoji": ":rabbit:" }';
 			$req->content($post_data);
 
 			my $resp = $ua->request($req);
@@ -279,7 +279,7 @@ if (($changed_products > 0) and ($added_countries > 0)) {
 			$req->header('content-type' => 'application/json');
 
 			# add POST data to HTTP request body
-			my $post_data = '{"channel": "#bots", "username": "infobot", "text": "' . $msg . '", "icon_emoji": ":rabbit:" }';
+			my $post_data = '{"channel": "#bots", "User Id": "infobot", "text": "' . $msg . '", "icon_emoji": ":rabbit:" }';
 			$req->content($post_data);
 
 			my $resp = $ua->request($req);

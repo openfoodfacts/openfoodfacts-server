@@ -650,11 +650,11 @@ msgctxt "error_invalid_user"
 msgid "Invalid user."
 msgstr "无效用户"
 
-msgctxt "error_invalid_username"
+msgctxt "error_invalid_User Id"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "用户名智能包括无重音的字母，数字和特殊符号"
 
-msgctxt "error_username_too_long"
+msgctxt "error_User Id_too_long"
 msgid "The user name is too long (maximum 20 characters)."
 msgstr "用户名太长（最多 20 个字符）。"
 
@@ -674,7 +674,7 @@ msgctxt "error_no_permission"
 msgid "Permission denied."
 msgstr "权限被拒绝"
 
-msgctxt "error_no_username"
+msgctxt "error_no_User Id"
 msgid "You need to enter a user name"
 msgstr "您需要输入一个用户名"
 
@@ -691,11 +691,11 @@ msgid "There is no account with this email"
 msgstr "没有根据此电子邮件申请的账户"
 
 msgctxt "error_reset_unknown_id"
-msgid "This username does not exist."
+msgid "This User Id does not exist."
 msgstr "此用户不存在"
 
-msgctxt "error_username_not_available"
-msgid "This username already exists, please choose another."
+msgctxt "error_User Id_not_available"
+msgid "This User Id already exists, please choose another."
 msgstr "这个名称已经存在，请另选一个！"
 
 msgctxt "example"
@@ -1228,9 +1228,9 @@ msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 msgstr "<p>请登录以添加或者编辑产品</p>\n"
 "<p>如果您还没有账户在<<site_name>>，您可以<a href=\"/cgi/user.pl\">注册30秒</a></p>\n"
 
-msgctxt "login_username_email"
-msgid "Username or e-mail address:"
-msgstr "Username or e-mail address:"
+msgctxt "login_User Id_email"
+msgid "User Id or e-mail address:"
+msgstr "User Id or e-mail address:"
 
 msgctxt "low"
 msgid "low"
@@ -1970,7 +1970,7 @@ msgstr "重置密码"
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
 "You asked for your password to be reset on https://openfoodfacts.org\n\n"
-"for the username: <USERID>\n\n"
+"for the User Id: <USERID>\n\n"
 "To continue the password reset, click on the link below.\n"
 "If you did not ask for the password reset, you can ignore this message.\n\n"
 "<RESET_URL>\n\n"
@@ -2000,7 +2000,7 @@ msgid "An email with a link to reset your password has been sent to the e-mail a
 msgstr "带有重置密码链接的电子邮件已发送至与您的帐户关联的电子邮件地址。"
 
 msgctxt "reset_password_send_email_msg"
-msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
+msgid "If you have forgotten your password, fill-in your User Id or e-mail address to receive instructions for resetting your password."
 msgstr "如果您忘记了密码，请填写您的用户名或电子邮件地址以获取重置密码。"
 
 msgctxt "risk_level"
@@ -2474,7 +2474,7 @@ msgid "trace"
 msgstr "跟踪"
 
 msgctxt "twitter"
-msgid "Twitter username (optional)"
+msgid "Twitter User Id (optional)"
 msgstr "Twitter用户(可选)"
 
 msgctxt "twitter_account"
@@ -2502,19 +2502,19 @@ msgid "You can unsubscribe from the lists at any time."
 msgstr "任何时候您都可以在列表中取消订阅。"
 
 msgctxt "userid_or_email"
-msgid "Username or e-mail address: "
+msgid "User Id or e-mail address: "
 msgstr "用户名或电子邮件地址： "
 
-msgctxt "username"
+msgctxt "User Id"
 msgid "User name"
 msgstr "用户名"
 
-msgctxt "username_info"
+msgctxt "User Id_info"
 msgid "(non-accented letters, digits and/or dashes)"
 msgstr "（非重音字母，数字和/或破折号）"
 
-msgctxt "username_or_email"
-msgid "Username or email address"
+msgctxt "User Id_or_email"
+msgid "User Id or email address"
 msgstr "用户名或电子邮件地址："
 
 msgctxt "users_add_products"

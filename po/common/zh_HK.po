@@ -650,11 +650,11 @@ msgctxt "error_invalid_user"
 msgid "Invalid user."
 msgstr "使用者無效。"
 
-msgctxt "error_invalid_username"
+msgctxt "error_invalid_User Id"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "使用者名稱只能有字母、數字及破折號。"
 
-msgctxt "error_username_too_long"
+msgctxt "error_User Id_too_long"
 msgid "The user name is too long (maximum 20 characters)."
 msgstr ""
 
@@ -674,7 +674,7 @@ msgctxt "error_no_permission"
 msgid "Permission denied."
 msgstr "權限被拒。"
 
-msgctxt "error_no_username"
+msgctxt "error_no_User Id"
 msgid "You need to enter a user name"
 msgstr "請輸入使用者名稱"
 
@@ -691,11 +691,11 @@ msgid "There is no account with this email"
 msgstr "這電郵地址未使用過"
 
 msgctxt "error_reset_unknown_id"
-msgid "This username does not exist."
+msgid "This User Id does not exist."
 msgstr "此用戶名不存在。"
 
-msgctxt "error_username_not_available"
-msgid "This username already exists, please choose another."
+msgctxt "error_User Id_not_available"
+msgid "This User Id already exists, please choose another."
 msgstr "此用戶名已存在，請選用其他名稱。"
 
 msgctxt "example"
@@ -1226,8 +1226,8 @@ msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 msgstr "<p>登入後才能新增和編輯產品。</p>\n\n"
 "<p>如果您尚未建立<<site_name>>賬號，您可以<a href=\"/cgi/user.pl\">迅速註冊</a>。</p>\n"
 
-msgctxt "login_username_email"
-msgid "Username or e-mail address:"
+msgctxt "login_User Id_email"
+msgid "User Id or e-mail address:"
 msgstr "使用者名稱或電郵地址："
 
 msgctxt "low"
@@ -1966,7 +1966,7 @@ msgstr "重設密碼"
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
 "You asked for your password to be reset on https://openfoodfacts.org\n\n"
-"for the username: <USERID>\n\n"
+"for the User Id: <USERID>\n\n"
 "To continue the password reset, click on the link below.\n"
 "If you did not ask for the password reset, you can ignore this message.\n\n"
 "<RESET_URL>\n\n"
@@ -1998,7 +1998,7 @@ msgid "An email with a link to reset your password has been sent to the e-mail a
 msgstr "電子郵件裡有一個連結用來重設您的密嗎，該信已寄給您帳戶中所設定的電子郵件地址。"
 
 msgctxt "reset_password_send_email_msg"
-msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
+msgid "If you have forgotten your password, fill-in your User Id or e-mail address to receive instructions for resetting your password."
 msgstr "如果您忘了密碼，請填入您的用戶名或電郵地址，您將會收到重設密碼的說明。"
 
 msgctxt "risk_level"
@@ -2472,7 +2472,7 @@ msgid "trace"
 msgstr "追蹤"
 
 msgctxt "twitter"
-msgid "Twitter username (optional)"
+msgid "Twitter User Id (optional)"
 msgstr "Twitter用戶名（選填）"
 
 msgctxt "twitter_account"
@@ -2500,19 +2500,19 @@ msgid "You can unsubscribe from the lists at any time."
 msgstr "您可以在隨時取消訂閱清單。"
 
 msgctxt "userid_or_email"
-msgid "Username or e-mail address: "
+msgid "User Id or e-mail address: "
 msgstr "用戶名或電郵地址："
 
-msgctxt "username"
+msgctxt "User Id"
 msgid "User name"
 msgstr "用戶名"
 
-msgctxt "username_info"
+msgctxt "User Id_info"
 msgid "(non-accented letters, digits and/or dashes)"
 msgstr "(非重音字母，數字 及/或 破折號)"
 
-msgctxt "username_or_email"
-msgid "Username or email address"
+msgctxt "User Id_or_email"
+msgid "User Id or email address"
 msgstr "用戶名或電郵地址"
 
 msgctxt "users_add_products"

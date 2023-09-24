@@ -651,11 +651,11 @@ msgctxt "error_invalid_user"
 msgid "Invalid user."
 msgstr "Impossible de lire l'utilisateur."
 
-msgctxt "error_invalid_username"
+msgctxt "error_invalid_User Id"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Le nom d'utilisateur doit être composé de lettres minuscules sans accents, de tirets et/ou de chiffres."
 
-msgctxt "error_username_too_long"
+msgctxt "error_User Id_too_long"
 msgid "The user name is too long (maximum 20 characters)."
 msgstr "Le nom d'utilisateur est trop long (20 caractères maximum)."
 
@@ -675,7 +675,7 @@ msgctxt "error_no_permission"
 msgid "Permission denied."
 msgstr "Permission refusée."
 
-msgctxt "error_no_username"
+msgctxt "error_no_User Id"
 msgid "You need to enter a user name"
 msgstr "Vous devez entrer un nom d'utilisateur."
 
@@ -692,11 +692,11 @@ msgid "There is no account with this email"
 msgstr "Il n'existe pas de compte avec cette adresse e-mail"
 
 msgctxt "error_reset_unknown_id"
-msgid "This username does not exist."
+msgid "This User Id does not exist."
 msgstr "Ce nom d'utilisateur n'existe pas."
 
-msgctxt "error_username_not_available"
-msgid "This username already exists, please choose another."
+msgctxt "error_User Id_not_available"
+msgid "This User Id already exists, please choose another."
 msgstr "Ce nom d'utilisateur existe déjà, choisissez en un autre."
 
 msgctxt "example"
@@ -1231,8 +1231,8 @@ msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 msgstr "<p>Vous devez vous connecter pour pouvoir ajouter ou modifier un produit.</p>\n\n"
 "<p>Si vous n'avez pas encore de compte sur <<site_name>>, vous pouvez <a href=\"/cgi/user.pl\">vous inscrire en 30 secondes</a>.</p>\n"
 
-msgctxt "login_username_email"
-msgid "Username or e-mail address:"
+msgctxt "login_User Id_email"
+msgid "User Id or e-mail address:"
 msgstr "Nom d'utilisateur ou adresse e-mail :"
 
 msgctxt "low"
@@ -1975,7 +1975,7 @@ msgstr "Réinitialiser le mot de passe"
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
 "You asked for your password to be reset on https://openfoodfacts.org\n\n"
-"for the username: <USERID>\n\n"
+"for the User Id: <USERID>\n\n"
 "To continue the password reset, click on the link below.\n"
 "If you did not ask for the password reset, you can ignore this message.\n\n"
 "<RESET_URL>\n\n"
@@ -2009,7 +2009,7 @@ msgid "An email with a link to reset your password has been sent to the e-mail a
 msgstr "Un e-mail avec un lien pour vous permettre de changer le mot de passe a été envoyé à l'adresse e-mail associée à votre compte."
 
 msgctxt "reset_password_send_email_msg"
-msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
+msgid "If you have forgotten your password, fill-in your User Id or e-mail address to receive instructions for resetting your password."
 msgstr "Si vous avez oublié votre mot de passe, indiquez votre nom d'utilisateur ou votre e-mail pour recevoir les instructions pour le réinitialiser."
 
 msgctxt "risk_level"
@@ -2484,7 +2484,7 @@ msgid "trace"
 msgstr "trace"
 
 msgctxt "twitter"
-msgid "Twitter username (optional)"
+msgid "Twitter User Id (optional)"
 msgstr "Nom d'utilisateur Twitter (optionel)"
 
 msgctxt "twitter_account"
@@ -2512,19 +2512,19 @@ msgid "You can unsubscribe from the lists at any time."
 msgstr "Vous pouvez vous désabonner de la lettre d'information à tout moment et facilement."
 
 msgctxt "userid_or_email"
-msgid "Username or e-mail address: "
+msgid "User Id or e-mail address: "
 msgstr "Nom d'utilisateur ou adresse e-mail : "
 
-msgctxt "username"
+msgctxt "User Id"
 msgid "User name"
 msgstr "Nom d'utilisateur"
 
-msgctxt "username_info"
+msgctxt "User Id_info"
 msgid "(non-accented letters, digits and/or dashes)"
 msgstr "(lettres non accentuées, chiffres et/ou tirets)"
 
-msgctxt "username_or_email"
-msgid "Username or email address"
+msgctxt "User Id_or_email"
+msgid "User Id or email address"
 msgstr "Nom d'utilisateur ou adresse e-mail : "
 
 msgctxt "users_add_products"

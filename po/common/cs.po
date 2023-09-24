@@ -649,11 +649,11 @@ msgctxt "error_invalid_user"
 msgid "Invalid user."
 msgstr "Neplatný uživatel."
 
-msgctxt "error_invalid_username"
+msgctxt "error_invalid_User Id"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Uživatelské jméno musí obsahovat pouze písmena bez diakritiky, číslice a pomlčky."
 
-msgctxt "error_username_too_long"
+msgctxt "error_User Id_too_long"
 msgid "The user name is too long (maximum 20 characters)."
 msgstr "Uživatelské jméno je příliš dlouhé (maximálně 20 znaků)."
 
@@ -673,7 +673,7 @@ msgctxt "error_no_permission"
 msgid "Permission denied."
 msgstr "Přístup odepřen."
 
-msgctxt "error_no_username"
+msgctxt "error_no_User Id"
 msgid "You need to enter a user name"
 msgstr "Je třeba zadat uživatelské jméno"
 
@@ -690,11 +690,11 @@ msgid "There is no account with this email"
 msgstr "Účet s tímto e-mailem neexistuje"
 
 msgctxt "error_reset_unknown_id"
-msgid "This username does not exist."
+msgid "This User Id does not exist."
 msgstr "Toto uživatelské jméno neexistuje."
 
-msgctxt "error_username_not_available"
-msgid "This username already exists, please choose another."
+msgctxt "error_User Id_not_available"
+msgid "This User Id already exists, please choose another."
 msgstr "Toto uživatelské jméno je již zabrané. Prosím vyberte si jiné."
 
 msgctxt "example"
@@ -1225,8 +1225,8 @@ msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 msgstr "<p>Pro úpravu nebo přidání produktu se prosím přihlašte</p>\n\n"
 "<p>Pokud ještě nemáte účet na <<site_name>>, můžete se <a href=\"/cgi/user.pl\">zaregistrovat za 30 sekund</a>.</p>\n"
 
-msgctxt "login_username_email"
-msgid "Username or e-mail address:"
+msgctxt "login_User Id_email"
+msgid "User Id or e-mail address:"
 msgstr "Uživatelské jméno nebo e-mailová adresa:"
 
 msgctxt "low"
@@ -1968,7 +1968,7 @@ msgstr "Obnovit heslo"
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
 "You asked for your password to be reset on https://openfoodfacts.org\n\n"
-"for the username: <USERID>\n\n"
+"for the User Id: <USERID>\n\n"
 "To continue the password reset, click on the link below.\n"
 "If you did not ask for the password reset, you can ignore this message.\n\n"
 "<RESET_URL>\n\n"
@@ -2002,7 +2002,7 @@ msgid "An email with a link to reset your password has been sent to the e-mail a
 msgstr "Na e-mailovou adresu spojenou s vaším účtem byl zaslán e-mail s odkazem na obnovu hesla."
 
 msgctxt "reset_password_send_email_msg"
-msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
+msgid "If you have forgotten your password, fill-in your User Id or e-mail address to receive instructions for resetting your password."
 msgstr "Pokud jste zapomněli své heslo, vyplňte své uživatelské jméno nebo e-mailovou adresu, abyste mohli obdržet pokyny pro jeho obnovení."
 
 msgctxt "risk_level"
@@ -2477,7 +2477,7 @@ msgid "trace"
 msgstr "stopy"
 
 msgctxt "twitter"
-msgid "Twitter username (optional)"
+msgid "Twitter User Id (optional)"
 msgstr "Twitter přezdívka (volitelné)"
 
 msgctxt "twitter_account"
@@ -2505,19 +2505,19 @@ msgid "You can unsubscribe from the lists at any time."
 msgstr "Ze seznamů adresátů se můžete kdykoli odhlásit."
 
 msgctxt "userid_or_email"
-msgid "Username or e-mail address: "
+msgid "User Id or e-mail address: "
 msgstr "Uživatelské jméno nebo e-mailová adresa: "
 
-msgctxt "username"
+msgctxt "User Id"
 msgid "User name"
 msgstr "Uživatelské jméno"
 
-msgctxt "username_info"
+msgctxt "User Id_info"
 msgid "(non-accented letters, digits and/or dashes)"
 msgstr "(písmena bez diakritiky, číslice a/nebo pomlčky)"
 
-msgctxt "username_or_email"
-msgid "Username or email address"
+msgctxt "User Id_or_email"
+msgid "User Id or email address"
 msgstr "Přezdívka nebo e-mailová adresa"
 
 msgctxt "users_add_products"

@@ -142,7 +142,7 @@ $log->debug("user form - before display / process", {type => $type, action => $a
 
 if ($action eq 'display') {
 
-	# We can pre-fill the form to create an account using the username and password
+	# We can pre-fill the form to create an account using the User Id and password
 	# passed in a form to open a session.
 	# e.g. when a non-logged user clicks on the "Edit product" button
 
@@ -181,7 +181,7 @@ if ($action eq 'display') {
 				},
 				{
 					field => "userid",
-					label => "username"
+					label => "User Id"
 				},
 				{
 					field => "password",

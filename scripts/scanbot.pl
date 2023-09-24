@@ -464,7 +464,7 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 					# notify slack
 					#  payload={"text": "A very important thing has occurred! <https://alert-system.com/alerts/1234|Click here> for details!"}
 
-					# curl -X POST --data-urlencode 'payload={"channel": "#general", "username": "webhookbot", "text": "This is posted to #general and comes from a bot named webhookbot.", "icon_emoji": ":ghost:"}' https://openfoodfacts.slack.com/services/hooks/incoming-webhook?token=jMDE8Fzkz9qD7uC9Lq04fbZH
+					# curl -X POST --data-urlencode 'payload={"channel": "#general", "User Id": "webhookbot", "text": "This is posted to #general and comes from a bot named webhookbot.", "icon_emoji": ":ghost:"}' https://openfoodfacts.slack.com/services/hooks/incoming-webhook?token=jMDE8Fzkz9qD7uC9Lq04fbZH
 
 					# my $data =  encode_json(\%response);
 
@@ -485,7 +485,7 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 
 					# add POST data to HTTP request body
 					my $post_data
-						= '{"channel": "#bots-alerts", "username": "scanbot", "text": "'
+						= '{"channel": "#bots-alerts", "User Id": "scanbot", "text": "'
 						. $bot
 						. '", "icon_emoji": ":ghost:" }';
 					$req->content($post_data);
@@ -553,7 +553,7 @@ if (($changed_products > 0) and ($added_countries > 0)) {
 
 		# add POST data to HTTP request body
 		my $post_data
-			= '{"channel": "#bots-alerts", "username": "scanbot", "text": "' . $msg . '", "icon_emoji": ":ghost:" }';
+			= '{"channel": "#bots-alerts", "User Id": "scanbot", "text": "' . $msg . '", "icon_emoji": ":ghost:" }';
 		$req->content($post_data);
 
 		my $resp = $ua->request($req);

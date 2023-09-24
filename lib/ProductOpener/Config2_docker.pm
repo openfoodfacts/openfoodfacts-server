@@ -49,7 +49,7 @@ BEGIN {
 		$robotoff_url
 		$events_url
 		$facets_kp_url
-		$events_username
+		$events_User Id
 		$events_password
 		$redis_url
 		%server_options
@@ -108,7 +108,7 @@ $robotoff_url = $ENV{ROBOTOFF_URL};
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
 $events_url = $ENV{EVENTS_URL};
-$events_username = $ENV{EVENTS_USERNAME};
+$events_User Id = $ENV{EVENTS_User Id};
 $events_password = $ENV{EVENTS_PASSWORD};
 
 # Set this to your instance of https://github.com/openfoodfacts/facets-knowledge-panels

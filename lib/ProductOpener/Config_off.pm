@@ -50,7 +50,7 @@ BEGIN {
 		$log_emails
 		$robotoff_url
 		$events_url
-		$events_username
+		$events_User Id
 		$events_password
 
 		$facets_kp_url
@@ -361,7 +361,7 @@ $log_emails = $ProductOpener::Config2::log_emails;
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
 $events_url = $ProductOpener::Config2::events_url;
-$events_username = $ProductOpener::Config2::events_username;
+$events_User Id = $ProductOpener::Config2::events_User Id;
 $events_password = $ProductOpener::Config2::events_password;
 
 # Redis is used to push updates to the search server

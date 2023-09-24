@@ -40,7 +40,7 @@ jobs:
         # deploy target
         echo "SSH_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
-        echo "SSH_USERNAME=off" >> $GITHUB_ENV
+        echo "SSH_User Id=off" >> $GITHUB_ENV
     - name: Set various variable for prod (org) deployment
       if: matrix.env == 'off-org'
       run: |
@@ -82,10 +82,10 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ env.SSH_HOST }}
-        username: ${{ env.SSH_USERNAME }}
+        User Id: ${{ env.SSH_User Id }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         proxy_host: ${{ env.SSH_PROXY_HOST }}
-        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_User Id: ${{ env.SSH_User Id }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
@@ -108,10 +108,10 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ env.SSH_HOST }}
-        username: ${{ env.SSH_USERNAME }}
+        User Id: ${{ env.SSH_User Id }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         proxy_host: ${{ env.SSH_PROXY_HOST }}
-        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_User Id: ${{ env.SSH_User Id }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
@@ -164,10 +164,10 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ env.SSH_HOST }}
-        username: ${{ env.SSH_USERNAME }}
+        User Id: ${{ env.SSH_User Id }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         proxy_host: ${{ env.SSH_PROXY_HOST }}
-        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_User Id: ${{ env.SSH_User Id }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
@@ -180,10 +180,10 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ env.SSH_HOST }}
-        username: ${{ env.SSH_USERNAME }}
+        User Id: ${{ env.SSH_User Id }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         proxy_host: ${{ env.SSH_PROXY_HOST }}
-        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_User Id: ${{ env.SSH_User Id }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         command_timeout: 25m
         script_stop: false
@@ -209,10 +209,10 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ env.SSH_HOST }}
-        username: ${{ env.SSH_USERNAME }}
+        User Id: ${{ env.SSH_User Id }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         proxy_host: ${{ env.SSH_PROXY_HOST }}
-        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_User Id: ${{ env.SSH_User Id }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         command_timeout: 25m
         script_stop: false
@@ -224,10 +224,10 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: ${{ env.SSH_HOST }}
-        username: ${{ env.SSH_USERNAME }}
+        User Id: ${{ env.SSH_User Id }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         proxy_host: ${{ env.SSH_PROXY_HOST }}
-        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_User Id: ${{ env.SSH_User Id }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         command_timeout: 15m
         script_stop: false
@@ -242,10 +242,10 @@ jobs:
       if: ${{ always() }}
       with:
         host: ${{ env.SSH_HOST }}
-        username: ${{ env.SSH_USERNAME }}
+        User Id: ${{ env.SSH_User Id }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         proxy_host: ${{ env.SSH_PROXY_HOST }}
-        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_User Id: ${{ env.SSH_User Id }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
@@ -257,10 +257,10 @@ jobs:
       if: ${{ always() }}
       with:
         host: ${{ env.SSH_HOST }}
-        username: ${{ env.SSH_USERNAME }}
+        User Id: ${{ env.SSH_User Id }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         proxy_host: ${{ env.SSH_PROXY_HOST }}
-        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_User Id: ${{ env.SSH_User Id }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |

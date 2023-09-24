@@ -649,11 +649,11 @@ msgctxt "error_invalid_user"
 msgid "Invalid user."
 msgstr "잘못된 사용자"
 
-msgctxt "error_invalid_username"
+msgctxt "error_invalid_User Id"
 msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "사용자 이름에는 악센트가 없는 문자, 숫자 및 대시만 포함되어야합니다."
 
-msgctxt "error_username_too_long"
+msgctxt "error_User Id_too_long"
 msgid "The user name is too long (maximum 20 characters)."
 msgstr "사용자 이름이 너무 깁니다(최대 20자)."
 
@@ -673,7 +673,7 @@ msgctxt "error_no_permission"
 msgid "Permission denied."
 msgstr "권한이 없습니다."
 
-msgctxt "error_no_username"
+msgctxt "error_no_User Id"
 msgid "You need to enter a user name"
 msgstr "사용자 이름을 입력해야합니다."
 
@@ -690,11 +690,11 @@ msgid "There is no account with this email"
 msgstr "이 이메일로 된 계정이 없습니다."
 
 msgctxt "error_reset_unknown_id"
-msgid "This username does not exist."
+msgid "This User Id does not exist."
 msgstr "이 사용자 이름은 존재하지 않습니다."
 
-msgctxt "error_username_not_available"
-msgid "This username already exists, please choose another."
+msgctxt "error_User Id_not_available"
+msgid "This User Id already exists, please choose another."
 msgstr "이미 쓰이는 사용자 이름입니다. 다른 이름을 선택해주세요."
 
 msgctxt "example"
@@ -1228,8 +1228,8 @@ msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 msgstr "<p>제품을 추가하거나 편집하려면 로그인 하세요.</p>\n\n"
 "<p><<site_name>>에 아직 계정이 없으면, 30초 후에 <a href=\"/cgi/user.pl\"> 등록 할 수 있습니다</a>.</p>\n"
 
-msgctxt "login_username_email"
-msgid "Username or e-mail address:"
+msgctxt "login_User Id_email"
+msgid "User Id or e-mail address:"
 msgstr "아이디 또는 이메일 주소:"
 
 msgctxt "low"
@@ -1970,7 +1970,7 @@ msgstr "비밀번호 재설정"
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
 "You asked for your password to be reset on https://openfoodfacts.org\n\n"
-"for the username: <USERID>\n\n"
+"for the User Id: <USERID>\n\n"
 "To continue the password reset, click on the link below.\n"
 "If you did not ask for the password reset, you can ignore this message.\n\n"
 "<RESET_URL>\n\n"
@@ -2004,7 +2004,7 @@ msgid "An email with a link to reset your password has been sent to the e-mail a
 msgstr "비밀번호 재설정 링크가 포함된 이메일이 계정과 연결된 이메일 주소로 전송되었습니다."
 
 msgctxt "reset_password_send_email_msg"
-msgid "If you have forgotten your password, fill-in your username or e-mail address to receive instructions for resetting your password."
+msgid "If you have forgotten your password, fill-in your User Id or e-mail address to receive instructions for resetting your password."
 msgstr "비밀번호를 잊어버린 경우 사용자 이름 또는 이메일 주소를 입력하여 비밀번호 재설정에 대한 지시사항을 따라하세요."
 
 msgctxt "risk_level"
@@ -2478,7 +2478,7 @@ msgid "trace"
 msgstr "흔적"
 
 msgctxt "twitter"
-msgid "Twitter username (optional)"
+msgid "Twitter User Id (optional)"
 msgstr "트위터 사용자 이름 (선택 사항)"
 
 msgctxt "twitter_account"
@@ -2506,19 +2506,19 @@ msgid "You can unsubscribe from the lists at any time."
 msgstr "목록에서 언제든지 구독을 취소하실 수 있습니다."
 
 msgctxt "userid_or_email"
-msgid "Username or e-mail address: "
+msgid "User Id or e-mail address: "
 msgstr "아이디 또는 이메일 주소: "
 
-msgctxt "username"
+msgctxt "User Id"
 msgid "User name"
 msgstr "사용자 이름"
 
-msgctxt "username_info"
+msgctxt "User Id_info"
 msgid "(non-accented letters, digits and/or dashes)"
 msgstr "(악센트가 아닌 문자, 숫자 또는 대시)"
 
-msgctxt "username_or_email"
-msgid "Username or email address"
+msgctxt "User Id_or_email"
+msgid "User Id or email address"
 msgstr "아이디 또는 이메일 주소"
 
 msgctxt "users_add_products"

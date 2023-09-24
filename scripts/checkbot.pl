@@ -38,7 +38,7 @@ Only --channel is mandatory.
 --max_sending: max number of alerts to be sent; default: 10
 --country: a country name in english, eg. "belgium"; all countries if omited
 --order: last modified products if omited; "random" sends products in random order
---channel: name of the slack channel: #fr, for example, or \@UserName to make tests
+--channel: name of the slack channel: #fr, for example, or \@User Id to make tests
 
 TXT
 	;
@@ -117,7 +117,7 @@ sub send_msg($) {
 	# add POST data to HTTP request body
 	#   * tests can be made with "channel": "@YourAccount" instead of "#bots-alert"
 	my $post_data
-		= '{"channel": "' . $channel . '", "username": "checkbot", "text": "' . $msg . '", "icon_emoji": ":hamster:"}';
+		= '{"channel": "' . $channel . '", "User Id": "checkbot", "text": "' . $msg . '", "icon_emoji": ":hamster:"}';
 	$req->content_type("text/plain; charset='utf8'");
 	$req->content(Encode::encode_utf8($post_data));
 
