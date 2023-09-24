@@ -27091,7 +27091,6 @@ ciqual_proxy_food_name:fr:Riz blanc, cru
 vegan:en:yes
 vegetarian:en:yes
 
-<en:rice
 <en:plant protein
 en:rice protein, rice proteins
 bg:оризов протеин
@@ -31429,14 +31428,6 @@ sv:fettreducerad kakao
 en:highly fat reduced cocoa, highly reduced fat cocoa
 de:Sehr fettarme Kokosnuss
 fr:cacao fortement dégraissé
-
-<en:cocoa
-en:cocoa cream
-de:Kakaocreme, Kakao-Creme
-es:crema de cacao
-fr:Crème de cacao
-pl:krem kakaowy
-pt:creme de cacau
 
 # description:en:COCOA BUTTER is a pale-yellow, edible vegetable fat extracted from the cocoa bean. Cocoa butter is a major ingredient in practically all types of chocolates (white chocolate, milk chocolate, and dark chocolate).
 
@@ -68911,8 +68902,7 @@ ciqual_food_name:en:Mushroom, all types, raw
 ciqual_food_name:fr:Champignon, tout type, cru
 eurocode_2_group_2:en: 8.50
 
-<en:mushroom
-<en:protein
+<en:plant protein
 en:mushroom proteins
 fr:protéine de champignon
 
@@ -86205,12 +86195,25 @@ fi:mustaherukkahillo
 # mainIngredient:en:blackcurrant
 # ingredient/en:blackcurrant-jam has 1 product in 1 language @2020-12-21
 
+# <en:compound
 en:jam
 de:Marmelade de:Konfitüre
 pl:dżem
 ru:джем, повидло, варенье
 vegan:en:maybe
 vegetarian:en:maybe
+
+#<en:compound
+en:cocoa cream
+de:Kakaocreme, Kakao-Creme
+es:crema de cacao
+fr:Crème de cacao
+pl:krem kakaowy
+pt:creme de cacau
+
+#<en:compound
+es:crema de cacao y avellanas
+fr:crème de cacao et de noisette
 
 ###################################################################################################
 #
