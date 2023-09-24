@@ -23879,9 +23879,6 @@ en:extruded buckwheat flour
 hr:ekstrudirano heljdino brašno
 
 <en:buckwheat flour
-fr:galette en blé noir
-
-<en:buckwheat flour
 <en:wholemeal flour
 en:whole grain buckwheat flour
 de:Buchweizenvollkornmehl, Buchweizen-Vollkornmehl
@@ -30786,7 +30783,7 @@ en:hydrolysed sunflower protein, hydrolyzed sunflower protein
 pl:hydrolizat białka słonecznikowego, hydrolizowane białko słonecznikowe, hydrolizat białka słonecznika
 
 
-<en:hydrolysed vegetable protein
+<en:plant protein
 en:soy protein
 bg:соев протеин, соев белтък
 ca:proteïna de soja
@@ -30846,11 +30843,12 @@ fr:protéines de soja déshydratées
 hu:dehidratált szójafehérje
 
 <en:soy protein
-en:textured soy protein
+en:textured soy protein, texturised soya protein,
 cs:texturovaná sojová bílkovina
-de:texturiertes Sojamehl 
-fr:protéines de soja texturées
-pl:teksturowane białko sojowe, teksturat białka sojowego
+de:texturiertes Sojaprotein, texturiertes Sojaeiweiss
+es:proteina de soja texturizada, proteína texturizada de soja
+fr:protéine de soja texturisé, protéines de soja texturées
+pl:teksturowane białko sojowe, teksturat białka sojowego, teksturowane białko sojowe
 
 <en:dehydrated soy protein
 en:rehydrated soy protein
@@ -30875,6 +30873,7 @@ it:Proteine isolate della soia
 pl:izolowane białko sojowe, izolat białka sojowego
 ru:изолированный белок сои
 
+<en:hydrolysed vegetable protein
 <en:soy protein
 en:hydrolysed soy protein, hydrolyzed soy protein
 da:hydrolyseret sojaprotein
@@ -33162,16 +33161,6 @@ de:Sojablüte, Sojablüten
 es:flor de soja
 nl:sojabloemen
 comment:en:This is the actual flower, not flour
-
-<en:soya
-en:texturised soya protein, texturised vegetable protein
-de:texturiertes Sojaprotein, texturiertes Sojaeiweiss
-es:proteina de soja texturizada, proteína texturizada de soja
-fr:Protéine de soja texturisé
-pl:teksturowane białko sojowe
-vegan:en:yes
-vegetarian:en:yes
-wikipedia:en:https://en.wikipedia.org/wiki/Textured_vegetable_protein
 
 #category/soy-beans
 <en:soya
@@ -40464,14 +40453,14 @@ sv:blåbärssaftkoncentrat
 
 <en:blueberry
 en:blueberry juice from concentrate
-de:Heidelbeersaft aus Heidelbeerkonzentrat
+de:Heidelbeersaft aus Heidelbeerkonzentrat, Heidelbeersaft aus Heidelbeersaftkonzentrat
 es:Concentrado de jugo de zarzamora
 fi:mustikkamehu tiivisteestä, mustikkatäysmehu tiivisteestä, mustikkatäysmehua tiivisteestä
 fr:jus de myrtille à base de concentré, jus de myrtille à base de jus concentré
 hr:sok od borovnice od koncentriranog soka borovnice
 sv:blåbärssaft av koncentrat
 
-<en:blueberry
+#<en:compound
 en:blueberry filling
 hr:preljev od borovnica, punilo od borovnice, punjenje od borovnica
 
@@ -58712,7 +58701,6 @@ description:sv:Pekanträd (Carya illinoiensis) är en valnötsväxtart.
 # ingredient/pecan-nut 4644 in 21 2021-08-21
 
 #<en:compound
-<en:pecan nut
 en:caramelized pecan nuts
 da:karameliserede pekannødder
 de:karamellisierte Pekannüsse
