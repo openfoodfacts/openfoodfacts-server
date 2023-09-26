@@ -4008,6 +4008,7 @@ fr:lait écrémé réhydraté
 # hr:rekonstituirano obrano mlijeko # see ingredients_processing.txt
 hu:visszaállított sovány tej, feloldott sovány tej
 it:latte scremato reidratato
+lt:regeneruotas nugriebtas pienas
 nl:gerehydrateerde magere melk
 pl:odtworzone odtłuszczone mleko, odtworzone mleko odtłuszczone
 pt:leite magro reconstituído
@@ -31028,6 +31029,7 @@ hr:mliječne bjelančevine, mliječnih bjelančevina, mliječni proteini
 hu:tejfehérjék, tejfehérje
 it:proteine del latte
 ja:乳たんぱく質, 乳たん白
+lt:pieno baltymai
 mk:млечни протеини
 nl:melkeiwit, melkeiwitten, melk eiwit
 pl:Białka mleczne, białka mleka, białko mleka, proteiny mleczne, proteina z mleka
@@ -42424,7 +42426,7 @@ ku:Zebeş
 ky:Дарбыз
 la:Citrullus lanatus
 lg:Sekazzi
-lt:Tikrasis arbūzas
+lt:Tikrasis arbūzas, arbūzas
 lv:arbūzs
 mk:Лубеница
 ml:തണ്ണിമത്തൻ
@@ -42514,6 +42516,14 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/watermelon
 ciqual_food_code:en:13036
 ciqual_food_name:en:Watermelon, pulp, raw
 ciqual_food_name:fr:Pastèque, pulpe, crue
+
+<en:watermelon
+<en:fruit juices
+en:watermelon juice
+
+<en:watermelon juice
+en:concentrated watermelon juice
+lt:arbūzų sulčių koncentratas
 
 <en:watermelon
 en:watermelon pulp
@@ -50504,11 +50514,13 @@ ciqual_food_name:fr:Carotte, purée
 # fr:concentré de carotte usage as a colour is not always mentioned
 
 <en:carrot
+en:carrot concentrate
 fr:concentré de carotte, concentré de carottes
 de:Karottenkonzentrat
 fi:porkkanatiiviste
 hr:koncentrat mrkve
 it:concentrato di carota, concentrato di carote
+lt:morkų koncentratas, dažiklis morkų koncentratas
 ro:concentrat de morcov
 # fr:concentré-de-carotte has 221 products in 4 languages @2018-10-10
 
@@ -81203,7 +81215,7 @@ fr:blanc d'œuf en poudre, blancs d'œufs en poudre, poudre de blanc d’œuf, b
 hr:bjelanjak u prahu, bjelanjak jaja u prahu, bjelanjak jajate u prahu
 hu:porított tojásfehérje, tojásfehérjepor, szárított tojásfehérje
 it:albume d'uovo in polvere, albume in polvere
-lt:kiaušinių baltymų milteliai
+lt:kiaušinių baltymų milteliai, kiaušinio baltymo milteliai
 nl:eiwitpoeder, gedroogd ei-eiwit, eiwit in poeder
 pl:sproszkowane białka jajek, białko jaja w proszku, białka jaj w proszku
 pt:clara de ovo em pó
