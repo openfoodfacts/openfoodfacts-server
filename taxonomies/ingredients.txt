@@ -87,6 +87,7 @@ stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, ö
 stopwords:id:mengandung
 stopwords:is:úr
 stopwords:it:contiene, nella
+# Japanese stopwords are matched without word boundaries, do not put as stopwords characters or words that could be part of an actual ingredient entry
 stopwords:ja:等, その他
 stopwords:lt:iš, su, su pridėtiniu, mažiausiai, įskaitant
 stopwords:lv:no
