@@ -125,7 +125,7 @@
             </div>
 			[% IF section.id == "professional" %]
             <div class="pro_org_display">
-                [% IF type == 'edit' && requested_org_ref.defined %]
+                [% IF requested_org_ref.defined %]
                     <div id="existing_org_warning">
                         <p>[% org_name %] </p>
                         <p>[% lang("add_user_existing_org_pending") %] </p>
