@@ -21,11 +21,12 @@
          "vegetarian" : "no"
       },
       {
-         "id" : "fr:viande-separee-mecaniquement-de-poulet-halal",
+         "id" : "fr:viande-separee-mecaniquement-de-poulet",
+         "labels" : "en:halal",
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
-         "text" : "viande séparée mecaniquement de poulet halal"
+         "text" : "viande séparée mecaniquement de poulet"
       }
    ],
    "ingredients_analysis" : {
@@ -38,13 +39,13 @@
          "fr:viande-separee-mecaniquement-de-porc"
       ],
       "en:palm-oil-content-unknown" : [
-         "fr:viande-separee-mecaniquement-de-poulet-halal"
+         "fr:viande-separee-mecaniquement-de-poulet"
       ],
       "en:vegan-status-unknown" : [
-         "fr:viande-separee-mecaniquement-de-poulet-halal"
+         "fr:viande-separee-mecaniquement-de-poulet"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:viande-separee-mecaniquement-de-poulet-halal"
+         "fr:viande-separee-mecaniquement-de-poulet"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -61,7 +62,7 @@
       "en:meat",
       "en:pork",
       "en:pork-meat",
-      "fr:viande-separee-mecaniquement-de-poulet-halal"
+      "fr:viande-separee-mecaniquement-de-poulet"
    ],
    "ingredients_n" : 3,
    "ingredients_n_tags" : [
@@ -71,7 +72,7 @@
    "ingredients_original_tags" : [
       "en:turkey-meat",
       "fr:viande-separee-mecaniquement-de-porc",
-      "fr:viande-separee-mecaniquement-de-poulet-halal"
+      "fr:viande-separee-mecaniquement-de-poulet"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
@@ -83,7 +84,7 @@
       "en:meat",
       "en:pork",
       "en:pork-meat",
-      "fr:viande-separee-mecaniquement-de-poulet-halal"
+      "fr:viande-separee-mecaniquement-de-poulet"
    ],
    "ingredients_text" : "viande de dinde séparée mécaniquement, viande séparée mécaniquement de porc, viande séparée mecaniquement de poulet halal",
    "ingredients_with_specified_percent_n" : 0,
@@ -92,7 +93,7 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "fr:viande-separee-mecaniquement-de-porc",
-      "fr:viande-separee-mecaniquement-de-poulet-halal"
+      "fr:viande-separee-mecaniquement-de-poulet"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 8,
