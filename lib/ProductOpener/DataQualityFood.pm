@@ -1384,13 +1384,39 @@ Vegetarian label: check that there is no non-vegetarian ingredient.
 =cut
 
 sub check_labels ($product_ref) {
-	if (defined $product_ref->{labels_tags} && has_tag($product_ref, "labels", "en:vegan")) {
-		if (defined $product_ref->{ingredients}) {
-			# my $has_non_vegan_ingredient = 0;
-			# foreach my $ingredient ()
+	# if (defined $product_ref->{labels_tags} && has_tag($product_ref, "labels", "en:vegan")) {
+	# 	if (defined $product_ref->{ingredients}) {
+	# 		my @ingredients = @{$product_ref->{ingredients}};
 
-			# my $product_ref_ingredients = ($product_ref->{ingredients});
-			# my @all_ingredients = ($product_ref_ingredients);
+	# 		while (@ingredients) {
+
+	# 			# Remove and process the first ingredient
+	# 			my $ingredient_ref = shift @ingredients;
+	# 			my $ingredientid = $ingredient_ref->{id};
+
+	# 			# Add sub-ingredients at the beginning of the ingredients array
+	# 			if (defined $ingredient_ref->{ingredients}) {
+
+	# 				unshift @ingredients, @{$ingredient_ref->{ingredients}};
+	# 			}
+				
+	# 			if (defined $ingredient_ref->{"vegan"}) {
+	# 				if ($ingredient_ref->{"vegan"} eq 'no') {
+	# 					push @{$product_ref->{data_quality_errors_tags}}, "en:vegan-label-but-non-vegan-ingredient";
+	# 				}
+	# 				# else 'yes', 'maybe'
+	# 			}
+	# 			else {
+	# 				push @{$product_ref->{data_quality_warnings_tags}},
+	# 					"en:vegan-label-but-could-not-confirm-for-all-ingredients";
+	# 			}
+	# 		}
+	# 	}
+	# }
+
+	# this also include en:vegan that is a child of en:vegetarian
+	if (defined $product_ref->{labels_tags} && has_tag($product_ref, "labels", "en:vegetarian")) {
+		if (defined $product_ref->{ingredients}) {
 			my @ingredients = @{$product_ref->{ingredients}};
 
 			while (@ingredients) {
@@ -1405,29 +1431,34 @@ sub check_labels ($product_ref) {
 					unshift @ingredients, @{$ingredient_ref->{ingredients}};
 				}
 
-				# vegan
-				if (defined $ingredient_ref->{"vegan"}) {
-					if ($ingredient_ref->{"vegan"} eq 'no') {
-						push @{$product_ref->{data_quality_errors_tags}}, "en:vegan-label-but-non-vegan-ingredient";
+				# some additives_classes (like thickener, for example) do not have the key-value vegan and vegetarian
+				# it it can be additives_classes that contain only vegan/vegetarian additives. 
+				# to avoid false-positive - instead of raising a warning (else below) we ignore additives_classes
+				if (!exists_taxonomy_tag("additives_classes", $ingredientid)) {
+					# vegan
+					if (defined $ingredient_ref->{"vegan"}) {
+						if ($ingredient_ref->{"vegan"} eq 'no') {
+							push @{$product_ref->{data_quality_errors_tags}}, "en:vegan-label-but-non-vegan-ingredient";
+						}
+						# else 'yes', 'maybe'
 					}
-					# else 'yes', 'maybe'
-				}
-				else {
-					push @{$product_ref->{data_quality_warnings_tags}},
-						"en:vegan-label-but-could-not-confirm-for-all-ingredients";
-				}
+					else {
+						push @{$product_ref->{data_quality_warnings_tags}},
+							"en:vegan-label-but-could-not-confirm-for-all-ingredients";
+					}
 
-				# vegetarian
-				if (defined $ingredient_ref->{"vegetarian"}) {
-					if ($ingredient_ref->{"vegetarian"} eq 'no') {
-						push @{$product_ref->{data_quality_errors_tags}},
-							"en:vegetarian-label-but-non-vegetarian-ingredient";
+					# vegetarian
+					if (defined $ingredient_ref->{"vegetarian"}) {
+						if ($ingredient_ref->{"vegetarian"} eq 'no') {
+							push @{$product_ref->{data_quality_errors_tags}},
+								"en:vegetarian-label-but-non-vegetarian-ingredient";
+						}
+						# else 'yes', 'maybe'
 					}
-					# else 'yes', 'maybe'
-				}
-				else {
-					push @{$product_ref->{data_quality_warnings_tags}},
-						"en:vegetarian-label-but-could-not-confirm-for-all-ingredients";
+					else {
+						push @{$product_ref->{data_quality_warnings_tags}},
+							"en:vegetarian-label-but-could-not-confirm-for-all-ingredients";
+					}
 				}
 			}
 		}
