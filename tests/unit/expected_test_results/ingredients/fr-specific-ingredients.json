@@ -64,6 +64,7 @@
       "en:sugar",
       "en:apricot",
       "en:fruit",
+      "en:prunus-species-fruit",
       "en:concentrated-lemon-juice",
       "en:juice",
       "en:fruit-juice",
@@ -92,6 +93,7 @@
       "en:sugar",
       "en:apricot",
       "en:fruit",
+      "en:prunus-species-fruit",
       "en:concentrated-lemon-juice",
       "en:juice",
       "en:fruit-juice",
@@ -111,9 +113,11 @@
       "en:fruit-pectin"
    ],
    "ingredients_without_ciqual_codes_n" : 3,
-   "known_ingredients_n" : 13,
+   "known_ingredients_n" : 14,
    "lc" : "fr",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 115.7,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 115.7,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 148.2,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 148.2
    },
@@ -121,7 +125,8 @@
       {
          "id" : "en:fruit",
          "ingredient" : "fruits",
-         "percent" : 50,
+         "quantity" : "50 g",
+         "quantity_g" : 50,
          "text" : "Préparée avec 50 g de fruits pour 100g de produit fini."
       },
       {
@@ -145,7 +150,8 @@
       {
          "id" : "en:sugar",
          "ingredient" : "sucres",
-         "percent" : 60,
+         "quantity" : "60 g",
+         "quantity_g" : 60,
          "text" : "Teneur totale en sucres : 60 g pour 100 g de produit fini."
       },
       {
@@ -157,7 +163,8 @@
       {
          "id" : "en:fruit-juice",
          "ingredient" : "jus de fruits",
-         "percent" : 35,
+         "quantity" : "35 g",
+         "quantity_g" : 35,
          "text" : "Teneur minimum en jus de fruits 35 g pour 100 g de produit fini."
       },
       {

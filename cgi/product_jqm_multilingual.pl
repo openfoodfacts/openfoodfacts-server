@@ -374,9 +374,12 @@ else {
 			else {
 				$product_ref->{$field} = preprocess_product_field($field, decode utf8 => single_param($field));
 
-				if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
-					my $field_lc = $field . "_" . $product_ref->{lc};
+				# If we have a language specific field like "ingredients_text" without a language code suffix
+				# we assume it is in the language of the interface
+				if (defined $language_fields{$field}) {
+					my $field_lc = $field . "_" . $lc;
 					$product_ref->{$field_lc} = $product_ref->{$field};
+					delete $product_ref->{$field};
 				}
 
 				compute_field_tags($product_ref, $lc, $field);

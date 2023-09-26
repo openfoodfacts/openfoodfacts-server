@@ -32,6 +32,7 @@
    "ingredients_hierarchy" : [
       "en:red-bell-pepper",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:bell-pepper",
       "en:yellow-bell-pepper"
    ],
@@ -48,6 +49,7 @@
    "ingredients_tags" : [
       "en:red-bell-pepper",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:bell-pepper",
       "en:yellow-bell-pepper"
    ],
@@ -58,11 +60,13 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "known_ingredients_n" : 4,
+   "known_ingredients_n" : 5,
    "lc" : "en",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 50
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
    },
    "origin_en" : "Red peppers from Spain, Italy and France, Yellow peppers from South America",
    "specific_ingredients" : [
