@@ -28,10 +28,23 @@ We want to learn what the Open Food Facts data is used for. It is not mandatory,
 ### General principles
 
 - You can search for product information, including many useful computed values.
-- Suppose we don't have the information you need on a specific product. In that case, you (or your users) can upload the product photos, and the backend (and our AI algorithms!) will process them, generating helpful info. The photos will also be available for the users of OpenFoodFacts and every other API user.
+- Suppose we don't have the information you need on a specific product. In that case, you (or your users) can upload the product photos, and the backend (and our AI algorithms!) will process them, generating helpful info. The photos will also be available for the users of Open Food Facts and every other API user.
 - You could also ask your user to enter some of the information about the product (like name, category, and weight) so that they immediately get the computed info.
 
 > Generally, the more information we have about a product, the more we can compute it.
+
+## Rate limits
+
+To protect our infrastructure, we enforce rate-limits on the API and the website. The following limits apply:
+
+- 100 req/s for all read product queries (`GET /api/v*/product` requests or product page). There is no limit on product write queries.
+- 10 req/s for all search queries (`GET /api/v*/search` or `GET /cgi/search.pl` requests)
+
+If these limits are reached, we reserve the right to deny you the access to the website and the API through IP address ban. If your IP has been banned, feel free to send us an email to explain us the reason why you reached the limits: reverting the ban is possible.
+
+If your requests come from your users directly (ex: mobile app), the rate limits will apply per user.
+
+If you need to fetch a significant fraction of the database, it's recommended to [download the data as a CSV or JSONL file directly](https://world.openfoodfacts.org/data). If you need to download images in bulk, we [have a guide for that](./how-to-download-images.md).
 
 ### If your users do not expect a result immediately (e.g., Inventory apps)
 
@@ -43,7 +56,7 @@ We want to learn what the Open Food Facts data is used for. It is not mandatory,
 
 - If you submit the product's  **nutritional values** and **category**, you'll get the **Nutri-Score**.
 - If you submit the product **ingredients**, you'll get the **NOVA group** (about food ultra-processing), **additives**, **allergens**, **normalized ingredients**, **vegan**, **vegetarian**…
-- If you submit the product's  **category** and **labels**, you'll (soon) get the **Eco-Score** (a rating of the product environmental impact)
+- If you submit the product's  **category** and **labels**, you'll get the **Eco-Score** (a rating of the product environmental impact)
 
 ## API Deployments
 
@@ -52,13 +65,13 @@ The OpenFoodFacts API has two deployments.
 - Production: <https://world.openfoodfacts.org>
 - Staging: <https://world.openfoodfacts.net>
 
-Consider using the [staging environment][staging_url] if you are not in a production scenario.
+Consider using the [staging environment](https://world.openfoodfacts.net) if you are not in a production scenario.
 
 While testing your applications, **make all API requests to the staging environment**. This way, we can ensure the product database is safe.
 
 ## Authentication
 
-- READ operations (getting info about a product, etc...) do not require authentication, although we recommend using a custom User-Agent if you're developing an application (to not risk being identified as a bot)
+- READ operations (getting info about a product, etc...) do not require authentication, although we _ask you to use a custom User-Agent_ to identify you if you're developing an application (to not risk being identified as a bot)
 
 - WRITE operations (Editing an Existing Product, Uploading images…) **require authentication**. We do this as another layer of protection against spam.
 

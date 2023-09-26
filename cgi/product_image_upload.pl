@@ -34,6 +34,7 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/:all/;
+use ProductOpener::APIProductWrite qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -314,6 +315,8 @@ if ($imagefield) {
 			and (  (not defined single_param('source'))
 				or (single_param('source') ne "product_edit_form")
 				or (not defined $product_ref->{images}{$imagefield}))
+			and (not is_protected_image($product_ref, $imagefield) or $User{moderator})
+
 			)
 		{
 			$log->debug("selecting image", {imgid => $imgid, imagefield => $imagefield}) if $log->is_debug();

@@ -115,6 +115,10 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Please enter the name of your organization (company name or brand)."
 
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr "Enter email addresses of users to invite (comma-separated):"
+
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 msgstr "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
@@ -974,6 +978,10 @@ msgstr "(Original Image)"
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr "Photo detail and attribution information"
+
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr "Invite Users"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -6551,6 +6559,14 @@ msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
 msgstr "Please enter a value between 0 and {max}."
 
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr "Please ask the following users to create an Open Food Facts account first:"
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr "Users added to the organization successfully:"
+
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
 msgstr "Sugars should not be higher than carbohydrates."
@@ -6598,4 +6614,28 @@ msgstr "for products that contain mostly the material"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "relative to all products"
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr "Numbers of packaging components"
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr "Number of packaging components"
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr "All materials"
+
+msgctxt "weight"
+msgid "Weight"
+msgstr "Weight"
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr "Weight per 100g of product"
+
+msgctxt "weight_percent"
+msgid "Weight percent"
+msgstr "Weight percent"
 

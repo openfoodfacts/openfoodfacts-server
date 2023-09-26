@@ -93,6 +93,8 @@ BEGIN {
 
 		&get_code_and_imagefield_from_file_name
 		&get_imagefield_from_string
+		&get_selected_image_uploader
+		&is_protected_image
 		&process_image_upload
 		&process_image_move
 
@@ -139,6 +141,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Text qw/:all/;
+use Data::DeepAccess qw(deep_get);
 
 use IO::Compress::Gzip qw(gzip $GzipError);
 use Log::Any qw($log);
@@ -261,16 +264,18 @@ sub display_select_crop_init ($object_ref) {
 	}
 
 	foreach my $imgid (sort {$object_ref->{images}{$a}{uploaded_t} <=> $object_ref->{images}{$b}{uploaded_t}} @images) {
-		my $admin_fields = '';
-		if ($User{moderator}) {
-			$admin_fields
-				= ", uploader: '"
-				. $object_ref->{images}{$imgid}{uploader}
-				. "', uploaded: '"
-				. display_date($object_ref->{images}{$imgid}{uploaded_t}) . "'";
-		}
+		my $uploader = $object_ref->{images}{$imgid}{uploader};
+		my $uploaded_date = display_date($object_ref->{images}{$imgid}{uploaded_t});
+
 		$images .= <<JS
-{imgid: "$imgid", thumb_url: "$imgid.$thumb_size.jpg", crop_url: "$imgid.$crop_size.jpg", display_url: "$imgid.$display_size.jpg" $admin_fields},
+{
+	imgid: "$imgid",
+	thumb_url: "$imgid.$thumb_size.jpg",
+	crop_url: "$imgid.$crop_size.jpg",
+	display_url: "$imgid.$display_size.jpg",
+	uploader: "$uploader",
+	uploaded: "$uploaded_date",
+},
 JS
 			;
 	}
@@ -282,7 +287,7 @@ JS
 	\$([]).selectcrop('init_images', [
 		$images
 	]);
-	\$(".select_crop").selectcrop('init', {img_path : "/images/products/$path/"});
+	\$(".select_crop").selectcrop('init', {img_path : "//images.$server_domain/images/products/$path/"});
 	\$(".select_crop").selectcrop('show');
 
 HTML
@@ -335,7 +340,7 @@ sub scan_code ($file) {
 				$log->debug("barcode found", {code => $code, type => $type}) if $log->is_debug();
 				print STDERR "scan_code code found: $code\n";
 
-				if (($code !~ /^[0-9]+$/) or ($type eq 'QR-Code')) {
+				if (($code !~ /^\d+|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+$/)) {
 					$code = undef;
 					next;
 				}
@@ -352,7 +357,11 @@ sub scan_code ($file) {
 
 		}
 	}
-	print STDERR "scan_code return code: $code\n";
+
+	if (defined $code) {
+		$code = normalize_code($code);
+		print STDERR "scan_code return code: $code\n";
+	}
 
 	return $code;
 }
@@ -598,6 +607,36 @@ sub get_imagefield_from_string ($l, $filename) {
 		if $log->is_debug();
 
 	return $imagefield;
+}
+
+sub get_selected_image_uploader ($product_ref, $imagefield) {
+
+	# Retrieve the product's image data
+	my $imgid = deep_get($product_ref, "images", $imagefield, "imgid");
+
+	# Retrieve the uploader of the image
+	if (defined $imgid) {
+		my $uploader = deep_get($product_ref, "images", $imgid, "uploader");
+		return $uploader;
+	}
+
+	return;
+}
+
+sub is_protected_image ($product_ref, $imagefield) {
+
+	my $selected_uploader = get_selected_image_uploader($product_ref, $imagefield);
+	my $owner = $product_ref->{owner};
+
+	if (    (not $server_options{producers_platform})
+		and (defined $owner)
+		and (defined $selected_uploader)
+		and ($selected_uploader eq $owner))
+	{
+		return 1;    #image should be protected
+	}
+
+	return 0;    # image should not be protected
 }
 
 =head2 process_image_upload ( $product_id, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref )
@@ -1773,21 +1812,21 @@ sub display_image ($product_ref, $id_lc, $size) {
 				# add srcset with 2x image only if the 2x image exists
 				my $srcset = '';
 				if (defined $product_ref->{images}{$id}{sizes}{$display_size}) {
-					$srcset = "srcset=\"/images/products/$path/$id.$rev.$display_size.jpg 2x\"";
+					$srcset = "srcset=\"$images_subdomain/images/products/$path/$id.$rev.$display_size.jpg 2x\"";
 				}
 
 				$html .= <<HTML
-<img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
+<img class="hide-for-xlarge-up" src="$images_subdomain/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
 HTML
 					;
 
 				$srcset = '';
 				if (defined $product_ref->{images}{$id}{sizes}{$zoom_size}) {
-					$srcset = "srcset=\"/images/products/$path/$id.$rev.$zoom_size.jpg 2x\"";
+					$srcset = "srcset=\"$images_subdomain/images/products/$path/$id.$rev.$zoom_size.jpg 2x\"";
 				}
 
 				$html .= <<HTML
-<img class="show-for-xlarge-up" src="/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
+<img class="show-for-xlarge-up" src="$images_subdomain/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
 HTML
 					;
 
@@ -1795,7 +1834,8 @@ HTML
 
 					my $title = lang($id . '_alt');
 
-					my $full_image_url = "/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
+					my $full_image_url
+						= "$images_subdomain/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
 					my $representative_of_page = '';
 					if ($id eq 'front') {
 						$representative_of_page = 'true';
@@ -1828,7 +1868,7 @@ HTML
 			else {
 				# jquery mobile for Cordova app
 				$html .= <<HTML
-<img src="/images/products/$path/$id.$rev.$size.jpg" width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />
+<img src="$images_subdomain/images/products/$path/$id.$rev.$size.jpg" width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />
 HTML
 					;
 			}
@@ -1966,7 +2006,7 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 	}
 
 	my $image = "$www_root/images/products/$path/$filename.full.jpg";
-	my $image_url = format_subdomain('static') . "/images/products/$path/$filename.full.jpg";
+	my $image_url = "$images_subdomain/images/products/$path/$filename.full.jpg";
 
 	my $text;
 

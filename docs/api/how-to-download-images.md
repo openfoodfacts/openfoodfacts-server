@@ -1,6 +1,6 @@
 # How to download product images
 
-The prefered method of downloading Open Food Facts images depends on what you
+The preferred method of downloading Open Food Facts images depends on what you
 which to achieve.
 
 If you want to download a limited number of images, especially if these images

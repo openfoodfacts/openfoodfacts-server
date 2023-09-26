@@ -169,8 +169,7 @@ if ($action eq 'display') {
 	$template_data_ref->{sections} = [];
 
 	if ($user_ref) {
-		push @{$template_data_ref->{sections}},
-			{
+		push @{$template_data_ref->{sections}}, {
 			id => "user",
 			fields => [
 				{
@@ -194,8 +193,15 @@ if ($action eq 'display') {
 					type => "password",
 					label => "password_confirm"
 				},
+				{
+					# this is a honeypot to detect scripts, that fills every fields
+					# this one is hidden in a div and user won't see it
+					field => "faxnumber",
+					type => "honeypot",
+					label => "Do not enter your fax number",
+				},
 			]
-			};
+		};
 
 		# Professional account
 		push @{$template_data_ref->{sections}},
@@ -393,11 +399,6 @@ $template_data_ref->{debug} = $debug;
 $template_data_ref->{userid} = $userid;
 $template_data_ref->{type} = $type;
 
-my $full_width = 1;
-if ($action ne 'display') {
-	$full_width = 0;
-}
-
 if (($type eq "edit_owner") and ($action eq "process")) {
 	$log->info("redirecting to / after changing owner", {}) if $log->is_info();
 
@@ -417,6 +418,5 @@ else {
 
 	$request_ref->{title} = lang($type . '_user_' . $action);
 	$request_ref->{content_ref} = \$html;
-	$request_ref->{full_width} = $full_width;
 	display_page($request_ref);
 }

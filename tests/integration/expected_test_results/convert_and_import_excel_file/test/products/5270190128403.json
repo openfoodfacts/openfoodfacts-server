@@ -49,7 +49,7 @@
       "5xxxxxxxxxxxx"
    ],
    "complete" : 0,
-   "completeness" : 0.5,
+   "completeness" : 0.4,
    "correctors_tags" : [],
    "countries" : "en",
    "countries_hierarchy" : [
@@ -369,6 +369,7 @@
       "en:banana",
       "en:fruit"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
       "1",
@@ -432,9 +433,10 @@
       "en:nutriscore-missing-nutrition-data-proteins",
       "en:nutrition-no-fiber",
       "en:nutriscore-using-estimated-nutrition-facts",
+      "en:nutriscore-not-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
-      "en:nutriscore-computed",
+      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
@@ -451,10 +453,10 @@
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100,
-      "nutrition-score-fr" : -3,
-      "nutrition-score-fr_100g" : -3
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
    },
    "nutriments_estimated" : {
       "alcohol_100g" : 0,
@@ -503,52 +505,70 @@
       "water_100g" : 75.8,
       "zinc_100g" : 0.00014
    },
-   "nutriscore_data" : {
-      "energy" : 383,
-      "energy_points" : 1,
-      "energy_value" : 383,
-      "fiber" : 2.7,
-      "fiber_points" : 2,
-      "fiber_value" : 2.7,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils" : 100,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 5,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 100,
-      "grade" : "a",
-      "is_beverage" : 0,
-      "is_cheese" : 0,
-      "is_fat" : 0,
-      "is_water" : 0,
-      "negative_points" : 4,
-      "positive_points" : 7,
-      "proteins" : 1.06,
-      "proteins_points" : 0,
-      "proteins_value" : 1.06,
-      "saturated_fat" : 0.005,
-      "saturated_fat_points" : 0,
-      "saturated_fat_ratio" : 2,
-      "saturated_fat_ratio_points" : 0,
-      "saturated_fat_ratio_value" : 2,
-      "saturated_fat_value" : 0,
-      "score" : -3,
-      "sodium" : 2.5,
-      "sodium_points" : 0,
-      "sodium_value" : 2.5,
-      "sugars" : 15.6,
-      "sugars_points" : 3,
-      "sugars_value" : 15.6
+   "nutriscore" : {
+      "2021" : {
+         "category_available" : 0,
+         "data" : {
+            "energy" : 383,
+            "fiber" : 2.7,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 100,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat" : 0,
+            "is_water" : 0,
+            "proteins" : 1.06,
+            "saturated_fat" : 0.005,
+            "sodium" : 2.5,
+            "sugars" : 15.6
+         },
+         "grade" : "unknown",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 0,
+         "nutriscore_computed" : 0
+      },
+      "2023" : {
+         "category_available" : 0,
+         "data" : {
+            "energy" : 383,
+            "fiber" : 2.7,
+            "fruits_vegetables_legumes" : 100,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat_oil_nuts_seeds" : 0,
+            "is_water" : 0,
+            "proteins" : 1.06,
+            "salt" : 0.0063,
+            "saturated_fat" : 0.005,
+            "sugars" : 15.6
+         },
+         "grade" : "unknown",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 0,
+         "nutriscore_computed" : 0
+      }
    },
-   "nutriscore_grade" : "a",
-   "nutriscore_score" : -3,
-   "nutriscore_score_opposite" : 3,
+   "nutriscore_2021_tags" : [
+      "unknown"
+   ],
+   "nutriscore_2023_tags" : [
+      "unknown"
+   ],
+   "nutriscore_grade" : "unknown",
+   "nutriscore_tags" : [
+      "unknown"
+   ],
+   "nutriscore_version" : "2021",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
-   "nutrition_grade_fr" : "a",
-   "nutrition_grades" : "a",
+   "nutrition_grade_fr" : "unknown",
+   "nutrition_grades" : "unknown",
    "nutrition_grades_tags" : [
-      "a"
+      "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "no score when the product does not have a category - missing energy - missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
+   "nutrition_score_debug" : "no score when the product does not have a category - missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 100,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 100,
    "nutrition_score_warning_nutriments_estimated" : 1,
@@ -606,10 +626,10 @@
          "url" : null
       }
    ],
-   "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
+   "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-completed, en:categories-to-be-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
    "states_hierarchy" : [
       "en:to-be-completed",
-      "en:nutrition-facts-completed",
+      "en:nutrition-facts-to-be-completed",
       "en:ingredients-completed",
       "en:expiration-date-to-be-completed",
       "en:packaging-code-to-be-completed",
@@ -624,7 +644,7 @@
    ],
    "states_tags" : [
       "en:to-be-completed",
-      "en:nutrition-facts-completed",
+      "en:nutrition-facts-to-be-completed",
       "en:ingredients-completed",
       "en:expiration-date-to-be-completed",
       "en:packaging-code-to-be-completed",
