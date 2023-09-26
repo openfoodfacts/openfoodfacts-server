@@ -592,6 +592,14 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			lc => "en",
 			ingredients_text => "kosher sea salt, kosher american cheese, kosher bovine gelatine",
 		}
+	],
+	# nova 4 for fruit juice concentrates
+	[
+		"en-nova-4-fruit-juice-concentrates",
+		{
+			lc => "en",
+			ingredients_text => "apple juice concentrates",
+		}
 	]
 );
 
