@@ -1399,7 +1399,7 @@ sub check_labels ($product_ref) {
 
 	# 				unshift @ingredients, @{$ingredient_ref->{ingredients}};
 	# 			}
-				
+
 	# 			if (defined $ingredient_ref->{"vegan"}) {
 	# 				if ($ingredient_ref->{"vegan"} eq 'no') {
 	# 					push @{$product_ref->{data_quality_errors_tags}}, "en:vegan-label-but-non-vegan-ingredient";
@@ -1432,7 +1432,7 @@ sub check_labels ($product_ref) {
 				}
 
 				# some additives_classes (like thickener, for example) do not have the key-value vegan and vegetarian
-				# it it can be additives_classes that contain only vegan/vegetarian additives. 
+				# it it can be additives_classes that contain only vegan/vegetarian additives.
 				# to avoid false-positive - instead of raising a warning (else below) we ignore additives_classes
 				if (!exists_taxonomy_tag("additives_classes", $ingredientid)) {
 					# vegan
