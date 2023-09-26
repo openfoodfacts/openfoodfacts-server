@@ -562,6 +562,37 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			ingredients_text => "each capsule contains: paracetamol 500 m 5 060198 790 0 mg.",
 		}
 	],
+	# mechanicaly separated meat
+	[
+		"en-mechanicaly-separated-meat",
+		{
+			lc => "en",
+			ingredients_text => "mechanicaly separated poultry meat",
+		}
+	],
+	[
+		"fr-mechanicaly-separated-meat",
+		{
+			lc => "fr",
+			ingredients_text => "viande de dinde séparée mécaniquement, viande séparée mécaniquement de porc, viande séparée mecaniquement de poulet halal",
+		}
+	],
+	# halal
+	[
+		"fr-halal",
+		{
+			lc => "fr",
+			ingredients_text => "viande halal, gélatine de boeuf halal, collagène halal, foie gras de canard halal",
+		}
+	],
+	# kosher
+	[
+		"en-kosher",
+		{
+			lc => "en",
+			ingredients_text => "kosher sea salt, kosher american cheese, kosher bovine gelatine",
+		}
+	]
 );
 
 foreach my $test_ref (@tests) {

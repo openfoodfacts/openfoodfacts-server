@@ -1,0 +1,88 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:kosher-sea-salt",
+         "percent_estimate" : 66.6666666666667,
+         "percent_max" : 100,
+         "percent_min" : 33.3333333333333,
+         "text" : "kosher sea salt"
+      },
+      {
+         "id" : "en:kosher-american-cheese",
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "kosher american cheese"
+      },
+      {
+         "id" : "en:kosher-bovine-gelatine",
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "kosher bovine gelatine"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "en:kosher-sea-salt",
+         "en:kosher-american-cheese",
+         "en:kosher-bovine-gelatine"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:kosher-sea-salt",
+         "en:kosher-american-cheese",
+         "en:kosher-bovine-gelatine"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:kosher-sea-salt",
+         "en:kosher-american-cheese",
+         "en:kosher-bovine-gelatine"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_hierarchy" : [
+      "en:kosher-sea-salt",
+      "en:kosher-american-cheese",
+      "en:kosher-bovine-gelatine"
+   ],
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:kosher-sea-salt",
+      "en:kosher-american-cheese",
+      "en:kosher-bovine-gelatine"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:kosher-sea-salt",
+      "en:kosher-american-cheese",
+      "en:kosher-bovine-gelatine"
+   ],
+   "ingredients_text" : "kosher sea salt, kosher american cheese, kosher bovine gelatine",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:kosher-american-cheese",
+      "en:kosher-bovine-gelatine",
+      "en:kosher-sea-salt"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "known_ingredients_n" : 0,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 3
+}

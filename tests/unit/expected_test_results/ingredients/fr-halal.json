@@ -1,0 +1,102 @@
+{
+   "ingredients" : [
+      {
+         "id" : "fr:viande-halal",
+         "percent_estimate" : 62.5,
+         "percent_max" : 100,
+         "percent_min" : 25,
+         "text" : "viande halal"
+      },
+      {
+         "id" : "fr:gelatine-de-boeuf-halal",
+         "percent_estimate" : 18.75,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "gélatine de boeuf halal"
+      },
+      {
+         "id" : "fr:collagene-halal",
+         "percent_estimate" : 9.375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "collagène halal"
+      },
+      {
+         "id" : "fr:foie-gras-de-canard-halal",
+         "percent_estimate" : 9.375,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "foie gras de canard halal"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "fr:viande-halal",
+         "fr:gelatine-de-boeuf-halal",
+         "fr:collagene-halal",
+         "fr:foie-gras-de-canard-halal"
+      ],
+      "en:vegan-status-unknown" : [
+         "fr:viande-halal",
+         "fr:gelatine-de-boeuf-halal",
+         "fr:collagene-halal",
+         "fr:foie-gras-de-canard-halal"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:viande-halal",
+         "fr:gelatine-de-boeuf-halal",
+         "fr:collagene-halal",
+         "fr:foie-gras-de-canard-halal"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_hierarchy" : [
+      "fr:viande-halal",
+      "fr:gelatine-de-boeuf-halal",
+      "fr:collagene-halal",
+      "fr:foie-gras-de-canard-halal"
+   ],
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "fr:viande-halal",
+      "fr:gelatine-de-boeuf-halal",
+      "fr:collagene-halal",
+      "fr:foie-gras-de-canard-halal"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "fr:viande-halal",
+      "fr:gelatine-de-boeuf-halal",
+      "fr:collagene-halal",
+      "fr:foie-gras-de-canard-halal"
+   ],
+   "ingredients_text" : "viande halal, gélatine de boeuf halal, collagène halal, foie gras de canard halal",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 4,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "fr:collagene-halal",
+      "fr:foie-gras-de-canard-halal",
+      "fr:gelatine-de-boeuf-halal",
+      "fr:viande-halal"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
+   "known_ingredients_n" : 0,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 4
+}
