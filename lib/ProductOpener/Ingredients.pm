@@ -466,6 +466,25 @@ my %the = (
 	nl => " de | het ",
 );
 
+# Strings to identify phrases like "75g per 100g of finished product"
+my %per = (
+	en => " per | for ",
+	es => " por | por cada ",
+	fr => " pour | par ",
+	it => " per ",
+	nl => " per ",
+);
+
+my $one_hundred_grams_or_ml = '100\s*(?:g|gr|ml)';
+
+my %of_finished_product = (
+	en => " of (?:finished )?product",
+	es => " de producto(?: terminado)?",
+	fr => " de produit(?: fini)?",
+	it => " di prodotto(?: finito)?",
+	nl => " van het volledige product",
+);
+
 # Labels that we want to recognize in the ingredients
 # e.g. "fraises issues de l'agriculture biologique"
 
@@ -1407,6 +1426,9 @@ sub parse_ingredients_text ($product_ref) {
 		. '(?:' . $min_regexp . '|'    # optional minimum
 		. $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';    # strings that can be ignored
 
+	my $per = $per{$ingredients_lc} || ' per ';
+	my $of_finished_product = $of_finished_product{$ingredients_lc} || '';
+
 	# Extract phrases related to specific ingredients at the end of the ingredients list
 	$text = parse_specific_ingredients_from_text($product_ref, $text, $percent_or_quantity_regexp);
 
@@ -1492,6 +1514,7 @@ sub parse_ingredients_text ($product_ref) {
 
 					# percent followed by a separator, assume the percent applies to the parent (e.g. tomatoes)
 					# tomatoes (64%, origin: Spain)
+					# tomatoes (145g per 100g of finished product)
 
 					if (($between =~ $separators) and ($` =~ /^$percent_or_quantity_regexp$/i)) {
 
@@ -1543,7 +1566,10 @@ sub parse_ingredients_text ($product_ref) {
 							and $log->debug("between does not contain a separator", {between => $between})
 							if $log->is_debug();
 
-						if ($between =~ /^$percent_or_quantity_regexp$/i) {
+						if ($between
+							=~ /^$percent_or_quantity_regexp(?:${per}${one_hundred_grams_or_ml}(?:$of_finished_product)?)?$/i
+							)
+						{
 
 							$percent_or_quantity_value = $1;
 							$percent_or_quantity_unit = $2;

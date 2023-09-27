@@ -628,6 +628,10 @@ my @lists = (
 	["sk", "syr, E470 a E470a, mlieko.", "syr, e470, e470a, mlieko."],
 	# Piments (vert, rouge, jaune) -> Piments vert, Piments rouge, Piments jaune
 	["fr", "Piments (vert, rouge, jaune)", "Piments vert, Piments rouge, Piments jaune"],
+
+	# 148 per 100g
+	["en", "tomatoes (148g per 100g), pork (200 g per 100 g of finished product) "],
+	["fr", "tomates (148 g par 100g), pork (200 gr per 100 g de produit fini)"],
 );
 
 foreach my $test_ref (@lists) {
