@@ -495,6 +495,85 @@ my @tests = (
 			},
 		}
 	],
+	# For red meat products, the number of maximum protein points is set at 2 points
+	[
+		"en-red-meat-category-no-ingredients",
+		{
+			lc => "en",
+			categories => "meat",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 20,
+				"saturated-fat_100g" => 10,
+				sugars_100g => 0,
+				sodium_100g => 0,
+				proteins_100g => 50,
+			},
+		}
+	],
+	[
+		"en-red-meat-ambiguous-category-no-ingredients",
+		{
+			lc => "en",
+			categories => "sausages",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 20,
+				"saturated-fat_100g" => 10,
+				sugars_100g => 0,
+				sodium_100g => 0,
+				proteins_100g => 50,
+			},
+		}
+	],	
+	[
+		"en-red-meat-ambiguous-category-ingredients-with-lots-of-meat",
+		{
+			lc => "en",
+			categories => "sausages",
+			ingredients_text => "pork meat, lamb meat, chicken meat, salt 1%",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 20,
+				"saturated-fat_100g" => 10,
+				sugars_100g => 0,
+				sodium_100g => 0,
+				proteins_100g => 50,
+			},
+		}
+	],
+	[
+		"en-red-meat-ambiguous-category-ingredients-with-no-meat",
+		{
+			lc => "en",
+			categories => "sausages",
+			ingredients_text => "salmon, wheat flour, salt 1%",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 20,
+				"saturated-fat_100g" => 10,
+				sugars_100g => 0,
+				sodium_100g => 0,
+				proteins_100g => 50,
+			},
+		}
+	],
+	[
+		"en-red-meat-ambiguous-category-ingredients-with-very-little-meat",
+		{
+			lc => "en",
+			categories => "sausages",
+			ingredients_text => "eggs, wheat flour, water, rice flour, lamb 1%, salt 1%",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 20,
+				"saturated-fat_100g" => 10,
+				sugars_100g => 0,
+				sodium_100g => 0,
+				proteins_100g => 50,
+			},
+		}
+	],		
 
 );
 
