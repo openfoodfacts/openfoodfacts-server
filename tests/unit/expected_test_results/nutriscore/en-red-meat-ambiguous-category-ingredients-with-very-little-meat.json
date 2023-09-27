@@ -1,0 +1,406 @@
+{
+   "additives_n" : 0,
+   "additives_old_n" : 0,
+   "additives_old_tags" : [],
+   "additives_original_tags" : [],
+   "additives_tags" : [],
+   "amino_acids_tags" : [],
+   "categories" : "sausages",
+   "categories_hierarchy" : [
+      "en:meats-and-their-products",
+      "en:prepared-meats",
+      "en:sausages"
+   ],
+   "categories_lc" : "en",
+   "categories_properties" : {
+      "ciqual_food_code:en" : "30780"
+   },
+   "categories_properties_tags" : [
+      "all-products",
+      "categories-known",
+      "agribalyse-food-code-unknown",
+      "agribalyse-proxy-food-code-unknown",
+      "ciqual-food-code-30780",
+      "ciqual-food-code-known",
+      "agribalyse-unknown"
+   ],
+   "categories_tags" : [
+      "en:meats-and-their-products",
+      "en:prepared-meats",
+      "en:sausages"
+   ],
+   "food_groups" : "en:processed-meat",
+   "food_groups_tags" : [
+      "en:fish-meat-eggs",
+      "en:processed-meat"
+   ],
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "22000",
+         "id" : "en:egg",
+         "percent_estimate" : 55.8333333333333,
+         "percent_max" : 95,
+         "percent_min" : 16.6666666666667,
+         "text" : "eggs",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:wheat-flour",
+         "percent_estimate" : 22.5833333333333,
+         "percent_max" : 48,
+         "percent_min" : 1,
+         "text" : "wheat flour",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "18066",
+         "id" : "en:water",
+         "percent_estimate" : 11.2916666666667,
+         "percent_max" : 32.3333333333333,
+         "percent_min" : 1,
+         "text" : "water",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "9520",
+         "id" : "en:rice-flour",
+         "percent_estimate" : 5.64583333333333,
+         "percent_max" : 24.5,
+         "percent_min" : 1,
+         "text" : "rice flour",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:lamb",
+         "percent" : 1,
+         "percent_estimate" : 1,
+         "percent_max" : 1,
+         "percent_min" : 1,
+         "text" : "lamb"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "percent" : 1,
+         "percent_estimate" : 3.64583333333333,
+         "percent_max" : 1,
+         "percent_min" : 1,
+         "text" : "salt",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:egg"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:lamb"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:lamb"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_tags" : [],
+   "ingredients_hierarchy" : [
+      "en:egg",
+      "en:wheat-flour",
+      "en:cereal",
+      "en:flour",
+      "en:wheat",
+      "en:cereal-flour",
+      "en:water",
+      "en:rice-flour",
+      "en:rice",
+      "en:lamb",
+      "en:animal",
+      "en:sheep",
+      "en:salt"
+   ],
+   "ingredients_n" : 6,
+   "ingredients_n_tags" : [
+      "6",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:egg",
+      "en:wheat-flour",
+      "en:water",
+      "en:rice-flour",
+      "en:lamb",
+      "en:salt"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:egg",
+      "en:wheat-flour",
+      "en:cereal",
+      "en:flour",
+      "en:wheat",
+      "en:cereal-flour",
+      "en:water",
+      "en:rice-flour",
+      "en:rice",
+      "en:lamb",
+      "en:animal",
+      "en:sheep",
+      "en:salt"
+   ],
+   "ingredients_text" : "eggs, wheat flour, water, rice flour, lamb 1%, salt 1%",
+   "ingredients_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_that_may_be_from_palm_oil_tags" : [],
+   "ingredients_with_specified_percent_n" : 2,
+   "ingredients_with_specified_percent_sum" : 2,
+   "ingredients_with_unspecified_percent_n" : 4,
+   "ingredients_with_unspecified_percent_sum" : 95.3541666666667,
+   "ingredients_without_ciqual_codes" : [
+      "en:lamb",
+      "en:wheat-flour"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "known_ingredients_n" : 13,
+   "lc" : "en",
+   "minerals_tags" : [],
+   "misc_tags" : [
+      "en:nutrition-no-fiber",
+      "en:nutriscore-computed",
+      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
+      "en:nutriscore-2021-different-from-2023",
+      "en:nutriscore-2021-worse-than-2023",
+      "en:nutriscore-2021-c-2023-b"
+   ],
+   "nucleotides_tags" : [],
+   "nutriments" : {
+      "energy_100g" : 82,
+      "fat_100g" : 20,
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
+      "nutrition-score-fr" : 4,
+      "nutrition-score-fr_100g" : 4,
+      "proteins_100g" : 50,
+      "salt" : 0,
+      "salt_100g" : 0,
+      "salt_unit" : "g",
+      "salt_value" : 0,
+      "saturated-fat_100g" : 10,
+      "sodium_100g" : 0,
+      "sodium_value" : "0",
+      "sugars_100g" : 0
+   },
+   "nutriments_estimated" : {
+      "alcohol_100g" : 0,
+      "beta-carotene_100g" : 1.12916666666667e-06,
+      "calcium_100g" : 0.0508038458333333,
+      "carbohydrates_100g" : 19.8151875,
+      "cholesterol_100g" : 0.222216666666667,
+      "copper_100g" : 0.0001114925,
+      "energy-kcal_100g" : 174.992708333333,
+      "energy-kj_100g" : 735.954166666667,
+      "energy_100g" : 735.954166666667,
+      "fat_100g" : 5.9683125,
+      "fiber_100g" : 1.72197916666667,
+      "fructose_100g" : 0.0701041666666667,
+      "galactose_100g" : 0,
+      "glucose_100g" : 0.178979166666667,
+      "iodine_100g" : 8.23604166666666e-05,
+      "iron_100g" : 0.0016050625,
+      "lactose_100g" : 0.0282291666666667,
+      "magnesium_100g" : 0.0290645479166667,
+      "maltose_100g" : 0.2823875,
+      "manganese_100g" : 0.000646230091666667,
+      "pantothenic-acid_100g" : 0.00103974791666667,
+      "phosphorus_100g" : 0.1808125,
+      "phylloquinone_100g" : 3.58329166666667e-07,
+      "polyols_100g" : 0,
+      "potassium_100g" : 0.153992325,
+      "proteins_100g" : 9.69130416666667,
+      "salt_100g" : 3.757350875,
+      "saturated-fat_100g" : 1.56094583333333,
+      "selenium_100g" : 3.61785416666667e-06,
+      "sodium_100g" : 1.49573089583333,
+      "starch_100g" : 17.344,
+      "sucrose_100g" : 0.219154166666667,
+      "sugars_100g" : 0.562895833333333,
+      "vitamin-a_100g" : 0.000101616666666667,
+      "vitamin-b12_100g" : 8.09583333333333e-07,
+      "vitamin-b1_100g" : 0.00010805625,
+      "vitamin-b2_100g" : 0.000252661458333333,
+      "vitamin-b6_100g" : 0.00011593125,
+      "vitamin-b9_100g" : 2.62043541666667e-05,
+      "vitamin-c_100g" : 7.05729166666667e-05,
+      "vitamin-d_100g" : 1.08636458333333e-06,
+      "vitamin-e_100g" : 0.0010140875,
+      "vitamin-pp_100g" : 4.92895833333333e-05,
+      "water_100g" : 57.3374427083333,
+      "zinc_100g" : 0.00107649208333333
+   },
+   "nutriscore" : {
+      "2021" : {
+         "category_available" : 1,
+         "data" : {
+            "energy" : 82,
+            "energy_points" : 0,
+            "energy_value" : 82,
+            "fiber" : 0,
+            "fiber_points" : 0,
+            "fiber_value" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 0,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat" : 0,
+            "is_water" : 0,
+            "negative_points" : 9,
+            "positive_points" : 5,
+            "proteins" : 50,
+            "proteins_points" : 5,
+            "proteins_value" : 50,
+            "saturated_fat" : 10,
+            "saturated_fat_points" : 9,
+            "saturated_fat_value" : 10,
+            "sodium" : 0,
+            "sodium_points" : 0,
+            "sodium_value" : 0,
+            "sugars" : 0,
+            "sugars_points" : 0,
+            "sugars_value" : 0
+         },
+         "grade" : "c",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
+         "score" : 4
+      },
+      "2023" : {
+         "category_available" : 1,
+         "data" : {
+            "count_proteins" : 1,
+            "count_proteins_reason" : "negative_points_less_than_11",
+            "energy" : 82,
+            "energy_points" : 0,
+            "fiber" : 0,
+            "fiber_points" : 0,
+            "fruits_vegetables_legumes" : 0,
+            "fruits_vegetables_legumes_points" : 0,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat_oil_nuts_seeds" : 0,
+            "is_water" : 0,
+            "negative_nutrients" : [
+               "energy",
+               "sugars",
+               "saturated_fat",
+               "salt",
+               "non_nutritive_sweeteners"
+            ],
+            "negative_points" : 9,
+            "positive_nutrients" : [
+               "fruits_vegetables_legumes",
+               "fiber",
+               "proteins"
+            ],
+            "positive_points" : 7,
+            "proteins" : 50,
+            "proteins_points" : 7,
+            "salt" : 0,
+            "salt_points" : 0,
+            "saturated_fat" : 10,
+            "saturated_fat_points" : 9,
+            "sugars" : 0,
+            "sugars_points" : 0
+         },
+         "grade" : "b",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
+         "score" : 2
+      }
+   },
+   "nutriscore_2021_tags" : [
+      "c"
+   ],
+   "nutriscore_2023_tags" : [
+      "b"
+   ],
+   "nutriscore_data" : {
+      "energy" : 82,
+      "energy_points" : 0,
+      "energy_value" : 82,
+      "fiber" : 0,
+      "fiber_points" : 0,
+      "fiber_value" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 0,
+      "grade" : "c",
+      "is_beverage" : 0,
+      "is_cheese" : 0,
+      "is_fat" : 0,
+      "is_water" : 0,
+      "negative_points" : 9,
+      "positive_points" : 5,
+      "proteins" : 50,
+      "proteins_points" : 5,
+      "proteins_value" : 50,
+      "saturated_fat" : 10,
+      "saturated_fat_points" : 9,
+      "saturated_fat_value" : 10,
+      "score" : 4,
+      "sodium" : 0,
+      "sodium_points" : 0,
+      "sodium_value" : 0,
+      "sugars" : 0,
+      "sugars_points" : 0,
+      "sugars_value" : 0
+   },
+   "nutriscore_grade" : "c",
+   "nutriscore_score" : 4,
+   "nutriscore_score_opposite" : -4,
+   "nutriscore_tags" : [
+      "c"
+   ],
+   "nutriscore_version" : "2021",
+   "nutrition_data_per" : "100g",
+   "nutrition_data_prepared_per" : "100g",
+   "nutrition_grade_fr" : "c",
+   "nutrition_grades" : "c",
+   "nutrition_grades_tags" : [
+      "c"
+   ],
+   "nutrition_score_beverage" : 0,
+   "nutrition_score_debug" : "",
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 0,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
+   "nutrition_score_warning_no_fiber" : 1,
+   "other_nutritional_substances_tags" : [],
+   "pnns_groups_1" : "Fish Meat Eggs",
+   "pnns_groups_1_tags" : [
+      "fish-meat-eggs",
+      "known"
+   ],
+   "pnns_groups_2" : "Processed meat",
+   "pnns_groups_2_tags" : [
+      "processed-meat",
+      "known"
+   ],
+   "unknown_ingredients_n" : 0,
+   "vitamins_tags" : []
+}
