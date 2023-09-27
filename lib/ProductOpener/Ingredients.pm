@@ -88,8 +88,9 @@ BEGIN {
 		&compute_ingredients_percent_estimates
 
 		&estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients
-		&estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients
 		&estimate_nutriscore_2021_milk_percent_from_ingredients
+		&estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients
+		&estimate_nutriscore_2023_red_meat_percent_from_ingredients
 
 		&has_specific_ingredient_property
 
@@ -6687,7 +6688,7 @@ sub is_milk ($ingredient_id) {
 
 =head2 estimate_nutriscore_2021_milk_percent_from_ingredients ( product_ref )
 
-This function analyzes the ingredients to estimate the minimum percentage of milk in a product,
+This function analyzes the ingredients to estimate the percentage of milk in a product,
 in order to know if a dairy drink should be considered as a food (at least 80% of milk) or a beverage.
 
 Return value: estimated % of milk.
@@ -6697,6 +6698,34 @@ Return value: estimated % of milk.
 sub estimate_nutriscore_2021_milk_percent_from_ingredients ($product_ref) {
 
 	return estimate_ingredients_matching_function($product_ref, \&is_milk);
+}
+
+=head2 is_red_meat ( $ingredient_id )
+
+Determine if an ingredient should be counted as red meat in Nutriscore 2023 algorithm
+
+=cut
+
+sub is_red_meat ($ingredient_id) {
+
+	my $red_meat_property = get_inherited_property("ingredients", $ingredient_id, "nutriscore_red_meat:en");
+	if ((defined $red_meat_property) and ($red_meat_property eq "yes")) {
+		return 1;
+	}
+	return 0;
+}
+
+=head2 estimate_nutriscore_2023_red_meat_percent_from_ingredients ( product_ref )
+
+This function analyzes the ingredients to estimate the percentage of red meat,
+so that we can determine if the maximum limit of 2 points for proteins
+should be applied in the Nutri-Score 2023 algorithm.
+
+=cut
+
+sub estimate_nutriscore_2023_red_meat_percent_from_ingredients ($product_ref) {
+
+	return estimate_ingredients_matching_function($product_ref, \&is_red_meat);
 }
 
 1;

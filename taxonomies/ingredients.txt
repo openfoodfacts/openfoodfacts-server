@@ -10457,6 +10457,7 @@ vegan:en:no
 vegetarian:en:no
 # ingredient/fr:bœuf has 257 products in 7 languages @2019-04-19
 # usage:fr:gélatine (bœuf)
+nutriscore_red_meat:en:yes
 
 <en:beef
 en:Grilled lean beef rib steak
@@ -10533,6 +10534,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
 carbon_footprint_fr_foodges_value:fr:35.8
 ciqual_proxy_food_code:en:6101
 ciqual_proxy_food_name:fr:Boeuf, braisé
+nutriscore_red_meat:en:yes
 
 <en:beef meat
 en:angus beef
@@ -10826,6 +10828,7 @@ ru:ягнёнок
 # scn:Agneddu
 # sco:lamm
 wikidata:en:Q4575936
+nutriscore_red_meat:en:yes
 
 # description:en:LAMB, hogget and mutton are the meat of domestic sheep (species Ovis aries) at different ages. The meat of a lamb is taken from the animal between one month and one year old, with a carcase (carcass in American English) weight of between 5.5 and 30 kg. This meat generally is more tender than that from older sheep and appears more often on tables in some Western countries.
 # comment:en:The translations of the wikipedia-entry are not clear. They seem to refer to the animal rather than the meat. So they have not been used here.
@@ -11493,6 +11496,7 @@ wikidata:en:Q7368
 wikipedia:en:https://en.wikipedia.org/wiki/Sheep
 # ingredient/fr:mouton has 12 products @2019-04-19
 # usage:fr: mouton (graisse et viande)
+nutriscore_red_meat:en:yes
 
 # description:en:mutton is the meat of domestic sheep (species Ovis aries). The meat of an adult sheep is mutton, a term only used for the meat, not the living animals. Meat from sheep features prominently in several cuisines of the Mediterranean.
 # comment:en:Some wikidata translation seems to refer to lamb and not mutton.
@@ -11637,6 +11641,7 @@ sv:ren
 wikidata:en:Q5410921
 wikipedia:en:https://en.wikipedia.org/wiki/Reindeer
 # ingredient/fr:renne has 1 product in 1 language @2020-06-08
+nutriscore_red_meat:en:yes
 
 <en:venison
 <en:reindeer
@@ -11924,6 +11929,7 @@ zh:马
 wikidata:en:Q726
 wikipedia:en:https://en.wikipedia.org/wiki/Horse
 # ingredient/fr:cheval has 4 products in 1 language @2020-05-21
+nutriscore_red_meat:en:yes
 
 <en:horse
 <en:meat
@@ -12041,6 +12047,7 @@ de:Ziege
 es:cabra
 fr:Chèvre
 pt:Cabra
+nutriscore_red_meat:en:yes
 
 # description:en:GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
 
@@ -12102,7 +12109,7 @@ ciqual_food_name:fr:Chevreau, cuit
 #
 ###################################################################################################
 <en:animal
-en:pork
+en:pork, swine
 bg:свинско
 ca:Porc
 cs:Vepřové, vepřová, vepřový
@@ -12126,6 +12133,7 @@ tr:domuz eti
 zh:猪肉
 vegan:en:no
 vegetarian:en:no
+nutriscore_red_meat:en:yes
 
 <en:meat
 <en:pork
@@ -13296,6 +13304,7 @@ it:vitello
 nl:kalf
 vegan:en:no
 vegetarian:en:no
+nutriscore_red_meat:en:yes
 
 # <en:bone
 <en:veal
@@ -88010,9 +88019,62 @@ pt:fava tonka, fava de cumaru
 
 # listed as an ingredient in Japanese products 
 en:creaming powder, creamer
-ja:クリーミングパウダー
+ja:クリーミングパウダーwild boar, bull
 
 en:creaming agent
 fr:agent de crémage
 
+<en:animal
+en:donkey
+fr:âne
+vegan:en:no
+vegetarian:en:no
+nutriscore_red_meat:en:yes
 
+<en:donkey
+en:donkey meat
+fr:viande d'âne
+
+<en:animal
+en:kangaroo
+fr:kangourou
+vegan:en:no
+vegetarian:en:no
+nutriscore_red_meat:en:yes
+
+<en:kangaroo
+en:kangaroo meat
+fr:viande de kangourou
+
+<en:animal
+en:camel
+fr:chameau
+vegan:en:no
+vegetarian:en:no
+nutriscore_red_meat:en:yes
+
+<en:camel
+en:camel meat
+fr:viande de chameau
+
+<en:animal
+en:wild boar, boar
+fr:sanglier
+vegan:en:no
+vegetarian:en:no
+nutriscore_red_meat:en:yes
+
+<en:wild boar
+en:wild board meat
+fr:viande de sanglier
+
+<en:animal
+en:bull
+fr:taureau
+vegan:en:no
+vegetarian:en:no
+nutriscore_red_meat:en:yes
+
+<en:bull
+en:bull meat
+fr:viande de taureau

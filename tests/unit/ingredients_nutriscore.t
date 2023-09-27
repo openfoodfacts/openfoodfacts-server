@@ -96,7 +96,6 @@ foreach my $test_ref (@tests) {
 		or diag explain $product_ref->{ingredients};
 }
 
-
 # test the estimate percent of red meat
 
 @tests = (
@@ -117,7 +116,6 @@ foreach my $test_ref (@tests) {
 	is(estimate_nutriscore_2023_red_meat_percent_from_ingredients($product_ref), $expected_value)
 		or diag explain $product_ref->{ingredients};
 }
-
 
 done_testing();
 
