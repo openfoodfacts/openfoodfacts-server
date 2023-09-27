@@ -1435,16 +1435,19 @@ sub check_labels ($product_ref) {
 				# it it can be additives_classes that contain only vegan/vegetarian additives.
 				# to avoid false-positive - instead of raising a warning (else below) we ignore additives_classes
 				if (!exists_taxonomy_tag("additives_classes", $ingredientid)) {
-					# vegan
-					if (defined $ingredient_ref->{"vegan"}) {
-						if ($ingredient_ref->{"vegan"} eq 'no') {
-							push @{$product_ref->{data_quality_errors_tags}}, "en:vegan-label-but-non-vegan-ingredient";
+					if (has_tag($product_ref, "labels", "en:vegan")) {
+						# vegan
+						if (defined $ingredient_ref->{"vegan"}) {
+							if ($ingredient_ref->{"vegan"} eq 'no') {
+								push @{$product_ref->{data_quality_errors_tags}},
+									"en:vegan-label-but-non-vegan-ingredient";
+							}
+							# else 'yes', 'maybe'
 						}
-						# else 'yes', 'maybe'
-					}
-					else {
-						push @{$product_ref->{data_quality_warnings_tags}},
-							"en:vegan-label-but-could-not-confirm-for-all-ingredients";
+						else {
+							push @{$product_ref->{data_quality_warnings_tags}},
+								"en:vegan-label-but-could-not-confirm-for-all-ingredients";
+						}
 					}
 
 					# vegetarian
