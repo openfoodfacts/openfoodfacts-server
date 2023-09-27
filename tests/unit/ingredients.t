@@ -574,7 +574,8 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 		"fr-mechanicaly-separated-meat",
 		{
 			lc => "fr",
-			ingredients_text => "viande de dinde séparée mécaniquement, viande séparée mécaniquement de porc, viande séparée mecaniquement de poulet halal",
+			ingredients_text =>
+				"viande de dinde séparée mécaniquement, viande séparée mécaniquement de porc, viande séparée mecaniquement de poulet halal",
 		}
 	],
 	# halal
