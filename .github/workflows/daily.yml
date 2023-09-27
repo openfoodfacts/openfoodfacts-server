@@ -1,4 +1,4 @@
-name: "Daily tasks (cronjobs)"
+name: "🕰️ Daily tasks (cronjobs)"
 
 on:
   schedule:
@@ -36,7 +36,7 @@ jobs:
     environment: ${{ matrix.env }}
     concurrency: ${{ matrix.env }}
     steps:
-    - name: Set various variable for staging (net) deployment
+    - name: Set various variables for staging (.net) deployment
       if: matrix.env == 'mongo-dev'
       run: |
         # deploy target
@@ -44,7 +44,7 @@ jobs:
         echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
         echo "SSH_USERNAME=off" >> $GITHUB_ENV
 
-    - name: Sync prod db data to dev MongoDB
+    - name: Sync production database data to the dev MongoDB
       uses: appleboy/ssh-action@master
       with:
         host: ${{ env.SSH_HOST }}
@@ -77,7 +77,7 @@ jobs:
     concurrency: ${{ matrix.env }}
     needs: dev-db-sync
     steps:
-    - name: Set various variable for staging (net) deployment
+    - name: Set various variables for the staging (.net) deployment
       if: matrix.env == 'mongo-dev'
       run: |
         # deploy target

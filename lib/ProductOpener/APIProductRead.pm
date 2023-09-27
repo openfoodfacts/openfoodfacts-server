@@ -83,7 +83,7 @@ sub read_product_api ($request_ref) {
 			|| "";
 	}
 
-	my $code = normalize_requested_code($request_ref->{code}, $response_ref);
+	my ($code, $ai_data_string) = &normalize_requested_code($request_ref->{code}, $response_ref);
 
 	my $product_ref;
 	my $product_id;

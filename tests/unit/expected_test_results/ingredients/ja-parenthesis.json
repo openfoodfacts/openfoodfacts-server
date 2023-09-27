@@ -10,16 +10,16 @@
                "percent_max" : 100,
                "percent_min" : 10,
                "text" : "本醸造",
-               "vegan" : "ignore",
-               "vegetarian" : "ignore"
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
             }
          ],
          "percent_estimate" : 55,
          "percent_max" : 100,
          "percent_min" : 10,
          "text" : "しょうゆ",
-         "vegan" : "ignore",
-         "vegetarian" : "ignore"
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
          "id" : "ja:糖類",
@@ -64,8 +64,8 @@
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "text" : "みりん",
-         "vegan" : "ignore",
-         "vegetarian" : "ignore"
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
          "ciqual_food_code" : "11058",
@@ -126,8 +126,8 @@
          "percent_max" : 11.1111111111111,
          "percent_min" : 0,
          "text" : "調味料",
-         "vegan" : "ignore",
-         "vegetarian" : "ignore"
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
          "ciqual_food_code" : "1014",
@@ -273,8 +273,10 @@
    "known_ingredients_n" : 25,
    "lc" : "ja",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0.3515625,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0.3515625,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0.3515625,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0.3515625
    },
    "unknown_ingredients_n" : 4
 }

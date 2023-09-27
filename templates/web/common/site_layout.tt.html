@@ -16,8 +16,8 @@
     <meta property="og:description" content="[% canon_description %]">
     [% options_favicons %]
     <link rel="canonical" href="[% canon_url %]">
-    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% lang('text_direction') %].css?v=[% css_timestamp %]">
-    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% lang('text_direction') %].css?v=[% css_timestamp %]" data-base-layout="true">
+    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/select2.min.css">
     <link rel="search" href="[% formatted_subdomain %]/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="[% lang('site_name') %]">
 	[% header %]
@@ -241,7 +241,7 @@
 				<!-- full width banner on mobile -->
 				
 				[% IF mobile %]
-					<a href="[% mobile.link %]" class="button large expand success">
+					<a href="[% mobile.link %]" id="mobile-app-top-banner" class="button large expand success">
 					<div class="row collapse">
 						<div class="small-6 columns">
 							[% mobile.text %]
@@ -276,7 +276,7 @@
 						[% END %]
             			
 						[% IF page_format == "banner" %]
-							<!-- banner pages such as product and product edit form have their own h1 title -->
+							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
 							[% content %]
 						[% ELSIF page_type == "products" %]
 							[% IF schema_org_itemtype.defined %]
@@ -404,9 +404,9 @@
 
 	</div>
 
-<script src="[% static_subdomain %]/js/dist/modernizr.js"></script>
-<script src="[% static_subdomain %]/js/dist/jquery.js"></script>
-<script src="[% static_subdomain %]/js/dist/jquery-ui.js"></script>
+<script src="[% static_subdomain %]/js/dist/modernizr.js" data-base-layout="true"></script>
+<script src="[% static_subdomain %]/js/dist/jquery.js" data-base-layout="true"></script>
+<script src="[% static_subdomain %]/js/dist/jquery-ui.js" data-base-layout="true"></script>
 <script src="[% static_subdomain %]/js/dist/hc-sticky.js"></script>
 <script src="[% static_subdomain %]/js/dist/display.js"></script>
 <script src="[% static_subdomain %]/js/dist/stikelem.js"></script>
@@ -430,7 +430,7 @@
 <script src="https://support.openfoodfacts.org/assets/chat/chat.min.js"></script>
 [% END %]
 
-<script src="[% static_subdomain %]/js/dist/foundation.js"></script>
+<script src="[% static_subdomain %]/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="[% static_subdomain %]/js/dist/jquery.cookie.js"></script>
 <script src="[% static_subdomain %]/js/dist/select2.min.js"></script>
 [% scripts %]

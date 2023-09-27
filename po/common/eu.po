@@ -49,7 +49,7 @@ msgstr ""
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
-msgstr ""
+msgstr "Eskerrik asko gurekin bat egiteagatik!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
@@ -114,6 +114,10 @@ msgstr ""
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr ""
+
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr "Sartu gonbidatu nahi dituzun erabiltzaileen helbide elektronikoak (komaz bereizita):"
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
@@ -971,6 +975,10 @@ msgstr ""
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr ""
+
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr "Gonbidatu erabiltzaileak"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -2420,7 +2428,7 @@ msgstr ""
 
 msgctxt "tag_contains"
 msgid "Contains:"
-msgstr ""
+msgstr "Edukia:"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
@@ -4529,7 +4537,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
-msgstr ""
+msgstr "Nutrizio-kalitate oso ona"
 
 msgctxt "attribute_nutriscore_b_description_short"
 msgid "Good nutritional quality"
@@ -4748,7 +4756,7 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_b_description_short"
 msgid "Low environmental impact"
-msgstr ""
+msgstr "Ingurumen-eragin txikia"
 
 msgctxt "attribute_ecoscore_c_description_short"
 msgid "Moderate environmental impact"
@@ -6532,6 +6540,14 @@ msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
 msgstr "Mesedez, sartu 0 eta {max} bitarteko balio bat."
 
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr "Eskatu hurrengo erabiltzaileei Open Food Facts-en kontu bat sortzeko lehenik:"
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr "Erakundera gehitu diren erabiltzaileak:"
+
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
 msgstr "Azukreek ez lukete karobohidratoak baino altuagoak izan behar."
@@ -6579,4 +6595,28 @@ msgstr ""
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr ""
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr "Bilgarri-osagaien kopurua"
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr "Bilgarri-osagaien kopurua"
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr "Material guztiak"
+
+msgctxt "weight"
+msgid "Weight"
+msgstr "Pisua"
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr "Pisua produktuaren 100 g-ko"
+
+msgctxt "weight_percent"
+msgid "Weight percent"
+msgstr "Pisuaren ehunekoa"
 

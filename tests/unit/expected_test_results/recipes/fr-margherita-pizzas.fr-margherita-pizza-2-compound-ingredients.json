@@ -39,8 +39,8 @@
          "percent_max" : 70,
          "percent_min" : 70,
          "text" : "Garniture",
-         "vegan" : "ignore",
-         "vegetarian" : "ignore"
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
          "id" : "en:pizza-dough",
@@ -104,6 +104,7 @@
       "en:dough",
       "en:chopped-tomatoes",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:tomato",
       "en:cheese",
       "en:dairy",
@@ -140,6 +141,7 @@
       "en:dough",
       "en:chopped-tomatoes",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:tomato",
       "en:cheese",
       "en:dairy",
@@ -164,11 +166,13 @@
       "en:wheat-flour"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
-   "known_ingredients_n" : 18,
+   "known_ingredients_n" : 19,
    "lc" : "fr",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 23.3333333333333,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 23.3333333333333
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 46.6666666666667,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 46.6666666666667,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 46.6666666666667,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 46.6666666666667
    },
    "recipe" : {
       "en:cheese" : 11.6666666666667,

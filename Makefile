@@ -53,7 +53,7 @@ DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # we also enable the possibility to fake services in po_test_runner
 DOCKER_COMPOSE_TEST=ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker-compose --env-file=${ENV_FILE}
 
-.DEFAULT_GOAL := dev
+.DEFAULT_GOAL := usage
 
 # this target is always to build, see https://www.gnu.org/software/make/manual/html_node/Force-Targets.html
 _FORCE:
@@ -63,6 +63,11 @@ _FORCE:
 #------#
 info:
 	@echo "${NAME} version: ${VERSION}"
+
+usage:
+	@echo "🥫 Welcome to the Open Food Facts project"
+	@echo "🥫 See available commands at docker/README.md"
+	@echo "🥫 or https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-docker-commands/"
 
 hello:
 	@echo "🥫 Welcome to the Open Food Facts dev environment setup!"
@@ -151,18 +156,18 @@ tail:
 	@echo "🥫 Reading logs (Apache2, Nginx) …"
 	tail -f logs/**/*
 
-cover:
-	@echo "🥫 running …"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
-	${DOCKER_COMPOSE_TEST} run --rm -e HARNESS_PERL_SWITCHES="-MDevel::Cover" backend prove -l tests/unit
-	${DOCKER_COMPOSE_TEST} stop
+codecov_prepare:
+	@echo "🥫 Preparing to run code coverage…"
+	mkdir -p cover_db
+	${DOCKER_COMPOSE_TEST} run --rm backend cover -delete
+	mkdir -p cover_db
 
 codecov:
-	@echo "🥫 running …"
+	@echo "🥫 running cover to generate a report usable by codecov …"
 	${DOCKER_COMPOSE_TEST} run --rm backend cover -report codecovbash
 
 coverage_txt:
+	@echo "🥫 running cover to generate text report …"
 	${DOCKER_COMPOSE_TEST} run --rm backend cover
 
 #----------#
@@ -239,21 +244,22 @@ lint: lint_perltidy
 
 tests: build_lang_test unit_test integration_test
 
+# add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
 unit_test:
 	@echo "🥫 Running unit tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
 integration_test:
-	@echo "🥫 Running unit tests …"
+	@echo "🥫 Running integration tests …"
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
 # this is the place where variables are important
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion
 # note: we need the -T option for ci (non tty environment)
-	${DOCKER_COMPOSE_TEST} exec -T backend prove -l -r tests/integration
+	${DOCKER_COMPOSE_TEST} exec ${COVER_OPTS}  -T backend prove -l -r tests/integration
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 integration tests success"
 
@@ -270,9 +276,10 @@ test-unit: guard-test
 	${DOCKER_COMPOSE_TEST} run --rm backend perl ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
-test-int: guard-test # usage: make test-one test=test-file.t
+# to update expected results: make test-int test="test-name.t --update-expected-results"
+test-int: guard-test # usage: make test-int test=test-file.t
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion
 	${DOCKER_COMPOSE_TEST} exec backend perl ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_TEST} stop backend
@@ -299,13 +306,15 @@ bash:
 
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl: _FORCE
-	if [ -f $@ ]; then perl -c -CS -Ilib $@; else true; fi
+	@if [[ -f $@ ]]; then perl -c -CS -Ilib $@; else true; fi
 
 
 # TO_CHECK look at changed files (compared to main) with extensions .pl, .pm, .t
+# filter out obsolete scripts
 # the ls at the end is to avoid removed files.
+# the first commad is to check we have git (to avoid trying to run this line inside the container on check_perl*)
 # We have to finally filter out "." as this will the output if we have no file
-TO_CHECK=$(shell git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | xargs ls -d 2>/dev/null | grep -v "^.$$" )
+TO_CHECK=$(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -v "scripts/obsolete" | xargs ls -d 2>/dev/null | grep -v "^.$$" )
 
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"

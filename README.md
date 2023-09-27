@@ -78,7 +78,6 @@ Data about food is of public interest and has to be open (i.e available to every
 
 * Join us on Slack at <https://openfoodfacts.slack.com/> in the channels: `#api`, `#productopener`, `#dev`.
 * [API v2 Documentation (WIP)](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/) ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/api/ref/api.yml))
-* [DEPRECATED API Documentation](https://openfoodfacts.github.io/api-documentation/)
 
 * Developer documentation:
   * [Server Documentation](https://openfoodfacts.github.io/openfoodfacts-server/)

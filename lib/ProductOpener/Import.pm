@@ -2272,26 +2272,34 @@ sub import_csv_file ($args_ref) {
 			# image_other_url
 			# image_other_url.2	: a second "other" photo
 
-			next if $field !~ /^image_((front|ingredients|nutrition|packaging|other)(_[a-z]{2})?)_url/;
+			next
+				if $field
+				!~ /^image_((?:front|ingredients|nutrition|packaging|other)(?:_[a-z]{2})?)_url(_[a-z]{2})?(\.[0-9]+)?$/;
 
-			my $imagefield = $1 . $';    # e.g. image_front_url_fr -> front_fr
+			my $imagefield = $1 . ($2 || '');    # e.g. image_front_url_fr or image_front_url_fr -> front_fr
+			my $number = $3;
 
 			# If the imagefield is other, and we have a value for image_other_type, try to identify the imagefield
-			if (    ($imagefield eq "other")
-				and (defined $imported_product_ref->{"image_other_type"})
-				and ($imported_product_ref->{"image_other_type"} ne ""))
-			{
-				my $type_imagefield
-					= get_imagefield_from_string($product_ref->{lc}, $imported_product_ref->{"image_other_type"});
-				$log->debug(
-					"imagefield is other, tried to guess it image_other_type",
-					{
-						imagefield => $imagefield,
-						type_imagefield => $type_imagefield,
-						image_other_type => $imported_product_ref->{"image_other_type"}
-					}
-				) if $log->is_debug();
-				$imagefield = $type_imagefield;
+			if ($imagefield eq "other") {
+				my $image_other_type_field = "image_other_type";
+				if (defined $number) {
+					$image_other_type_field .= $number;
+				}
+
+				if ($imported_product_ref->{$image_other_type_field}) {
+					my $type_imagefield
+						= get_imagefield_from_string($product_ref->{lc},
+						$imported_product_ref->{$image_other_type_field});
+					$log->debug(
+						"imagefield is other, tried to guess with image_other_type",
+						{
+							imagefield => $imagefield,
+							type_imagefield => $type_imagefield,
+							image_other_type => $imported_product_ref->{$image_other_type_field}
+						}
+					) if $log->is_debug();
+					$imagefield = $type_imagefield;
+				}
 			}
 
 			$log->debug("image file",
@@ -3027,7 +3035,7 @@ sub import_products_categories_from_public_database ($args_ref) {
 						$log->debug("Food::special_process_product") if $log->is_debug();
 						ProductOpener::Food::special_process_product($product_ref);
 					}
-					compute_nutrition_score($product_ref);
+					compute_nutriscore($product_ref);
 					compute_nova_group($product_ref);
 					compute_nutrient_levels($product_ref);
 					compute_unknown_nutrients($product_ref);

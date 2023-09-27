@@ -391,11 +391,6 @@ elsif ($action eq 'process') {
 $template_data_ref->{orgid} = $orgid;
 $template_data_ref->{type} = $type;
 
-my $full_width = 1;
-if ($action ne 'display') {
-	$full_width = 0;
-}
-
 my $title = lang($type . '_org_title');
 
 $log->debug("org form - template data", {template_data_ref => $template_data_ref}) if $log->is_debug();
@@ -413,5 +408,4 @@ $tt->process('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
 
 $request_ref->{title} = $title;
 $request_ref->{content_ref} = \$html;
-$request_ref->{full_width} = $full_width;
 display_page($request_ref);

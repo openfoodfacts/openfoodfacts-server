@@ -1670,7 +1670,7 @@ it:Arricchito con calcio
 nl:verrijkt met calcium
 pt:Enriquecido com cálcio
 
-en:Enriched wih vitamins
+en:Enriched with vitamins, Enriched wih vitamins
 ca:Enriquit amb vitamines
 de:Mit Vitaminen angereichert
 es:Enriquecido con vitaminas
@@ -1684,7 +1684,7 @@ pl:Wzbogacane witaminami
 pt:Enriquecido com vitaminas
 sv:Vitaminberikat, Vitaminberikad
 
-en:Enriched wih minerals
+en:Enriched with minerals, Enriched wih minerals
 fi:Lisätty kivennäisaineita
 fr:Enrichi en minéraux
 hu:Ásványi anyagokkal dúsított
@@ -2964,6 +2964,12 @@ pt:Feito no Luxemburgo, produzido no Luxemburgo, fabricado no Luxemburgo
 sv:Tillverkad i Luxemburg
 country:en:Luxembourg
 label_categories:en: en:Geographic label
+
+# Lithuania
+lt:Lietuvos metų gaminys
+xx:Lietuvos metų gaminys
+image:lt:lietuvos-metų-gaminys.173x90.png
+country:en:Lithuania
 
 en:Made in Poland
 bg:Произведено в Полша
@@ -4370,7 +4376,7 @@ nl:Niet geschikt voor kinderen onder 1 jaar
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #en:description:Labels used for identifying products (and ingredients) that have been grown organically.
 
-en:Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture
+en:Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture, organic ingredients
 bg:Био, биологично земеделие, биологично
 ca:Orgànic,de cultiu ecologic
 cs:Bio
@@ -6128,6 +6134,16 @@ en:LT-EKO-001
 de:LT-EKO-001
 pt:LT-EKO-001
 xx:LT-EKO-001
+
+<en:EU Organic
+lt:ekologinis žemės ūkis
+xx:ekologinis žemės ūkis
+label_categories:en: en:Environnement
+image:lt:ekologinis-žemės-ūkis.125x90.png
+auth_name:en:Ekoagros
+auth_address:en:K. Donelaičio g. 33, 44240, Kaunas, Lithuania
+auth_url:en:http://www.ekoagros.lt
+country:en:Litnuania
 
 <en:EU Organic
 en:LU-BIO-01
@@ -18830,6 +18846,7 @@ hr:vegansko društvo
 it:La società vegana
 nl:The Vegan Society
 pl:The Vegan Society, Vegan Society, Towarzystwo Wegańskie
+xx:The Vegan Society, Vegan Society, Vegan Flower
 wikidata:en:Q1855049
 
 <en:Vegan
@@ -19339,6 +19356,14 @@ nl:Kippenwelzijn
 <en:Animal welfare
 fr:Lait de paturage
 nl:Weidemelk
+
+<en:Animal welfare
+en:120 days grass-fed
+fr:120 jours de pâturage
+
+<en:Animal welfare
+en:150 days grass-fed
+fr:150 jours de pâturage
 
 en:Dutch meat
 nl:Nederlands vlees

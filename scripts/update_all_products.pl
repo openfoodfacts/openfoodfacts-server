@@ -40,7 +40,7 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 --query some_field=-some_value	match products that don't have some_value for some_field
 --process-ingredients	compute allergens, additives detection
 --clean-ingredients	remove nutrition facts, conservation conditions etc.
---compute-nutrition-score	nutriscore
+--compute-nutriscore	nutriscore
 --compute-serving-size	compute serving size values
 --compute-history	compute history and completeness
 --check-quality	run quality checks
@@ -97,7 +97,7 @@ my $just_print_codes = '', my $pretend = '';
 my $process_ingredients = '';
 my $process_packagings = '';
 my $clean_ingredients = '';
-my $compute_nutrition_score = '';
+my $compute_nutriscore = '';
 my $compute_serving_size = '';
 my $compute_data_sources = '';
 my $compute_nova = '';
@@ -116,6 +116,7 @@ my $run_ocr = '';
 my $autorotate = '';
 my $remove_team = '';
 my $remove_label = '';
+my $remove_category = '';
 my $remove_nutrient = '';
 my $remove_old_carbon_footprint = '';
 my $fix_spanish_ingredientes = '';
@@ -153,7 +154,7 @@ GetOptions(
 	"process-ingredients" => \$process_ingredients,
 	"process-packagings" => \$process_packagings,
 	"assign-categories-properties" => \$assign_categories_properties,
-	"compute-nutrition-score" => \$compute_nutrition_score,
+	"compute-nutriscore" => \$compute_nutriscore,
 	"compute-history" => \$compute_history,
 	"compute-serving-size" => \$compute_serving_size,
 	"reassign-energy-kcal" => \$reassign_energy_kcal,
@@ -177,6 +178,7 @@ GetOptions(
 	"fix-yuka-salt" => \$fix_yuka_salt,
 	"remove-team=s" => \$remove_team,
 	"remove-label=s" => \$remove_label,
+	"remove-category=s" => \$remove_category,
 	"remove-nutrient=s" => \$remove_nutrient,
 	"remove-old-carbon-footprint" => \$remove_old_carbon_footprint,
 	"fix-spanish-ingredientes" => \$fix_spanish_ingredientes,
@@ -226,7 +228,7 @@ if ($unknown_fields > 0) {
 }
 
 if (    (not $process_ingredients)
-	and (not $compute_nutrition_score)
+	and (not $compute_nutriscore)
 	and (not $compute_nova)
 	and (not $clean_ingredients)
 	and (not $delete_old_fields)
@@ -247,6 +249,7 @@ if (    (not $process_ingredients)
 	and (not $fix_non_string_ids)
 	and (not $compute_sort_key)
 	and (not $remove_team)
+	and (not $remove_category)
 	and (not $remove_label)
 	and (not $remove_nutrient)
 	and (not $remove_old_carbon_footprint)
@@ -340,6 +343,10 @@ if ((defined $remove_team) and ($remove_team ne "")) {
 
 if ((defined $remove_label) and ($remove_label ne "")) {
 	$query_ref->{labels_tags} = $remove_label;
+}
+
+if ((defined $remove_category) and ($remove_category ne "")) {
+	$query_ref->{categories_tags} = $remove_category;
 }
 
 if (defined $key) {
@@ -546,6 +553,12 @@ while (my $product_ref = $cursor->next) {
 			remove_tag($product_ref, "labels", $remove_label);
 			$product_ref->{labels} = join(',', @{$product_ref->{labels_tags}});
 			compute_field_tags($product_ref, $product_ref->{lc}, "labels");
+		}
+
+		if ((defined $remove_category) and ($remove_category ne "")) {
+			remove_tag($product_ref, "categories", $remove_category);
+			$product_ref->{categories} = join(',', @{$product_ref->{categories_tags}});
+			compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 		}
 
 		if ((defined $remove_nutrient) and ($remove_nutrient ne "")) {
@@ -1063,9 +1076,10 @@ while (my $product_ref = $cursor->next) {
 			compute_nova_group($product_ref);
 		}
 
-		if ($compute_nutrition_score) {
+		if ($compute_nutriscore) {
+			$product_ref->{misc_tags} = [];
 			fix_salt_equivalent($product_ref);
-			compute_nutrition_score($product_ref);
+			compute_nutriscore($product_ref);
 			compute_nutrient_levels($product_ref);
 		}
 
@@ -1184,7 +1198,7 @@ while (my $product_ref = $cursor->next) {
 
 					fix_salt_equivalent($product_ref);
 					compute_serving_size_data($product_ref);
-					compute_nutrition_score($product_ref);
+					compute_nutriscore($product_ref);
 					compute_nutrient_levels($product_ref);
 					$product_values_changed = 1;
 				}
@@ -1207,7 +1221,7 @@ while (my $product_ref = $cursor->next) {
 
 				fix_salt_equivalent($product_ref);
 				compute_serving_size_data($product_ref);
-				compute_nutrition_score($product_ref);
+				compute_nutriscore($product_ref);
 				compute_nutrient_levels($product_ref);
 			}
 		}
