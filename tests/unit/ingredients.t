@@ -568,8 +568,8 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 		{
 			lc => "ja",
 			ingredients_text => "増粘剤(加工デンプン、キサンタン)、酢酸Na、トレハロース、加工デンプン、グリシン、調味料(アミノ酸等)、酸化防止剤(V.C,V.E)、着色料(野菜色素)",
- 		},
-	],     
+		},
+	],
 	# 148g per 100g
 	[
 		"en-quantity-per-100g",
