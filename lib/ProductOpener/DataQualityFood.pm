@@ -1384,36 +1384,6 @@ Vegetarian label: check that there is no non-vegetarian ingredient.
 =cut
 
 sub check_labels ($product_ref) {
-	# if (defined $product_ref->{labels_tags} && has_tag($product_ref, "labels", "en:vegan")) {
-	# 	if (defined $product_ref->{ingredients}) {
-	# 		my @ingredients = @{$product_ref->{ingredients}};
-
-	# 		while (@ingredients) {
-
-	# 			# Remove and process the first ingredient
-	# 			my $ingredient_ref = shift @ingredients;
-	# 			my $ingredientid = $ingredient_ref->{id};
-
-	# 			# Add sub-ingredients at the beginning of the ingredients array
-	# 			if (defined $ingredient_ref->{ingredients}) {
-
-	# 				unshift @ingredients, @{$ingredient_ref->{ingredients}};
-	# 			}
-
-	# 			if (defined $ingredient_ref->{"vegan"}) {
-	# 				if ($ingredient_ref->{"vegan"} eq 'no') {
-	# 					push @{$product_ref->{data_quality_errors_tags}}, "en:vegan-label-but-non-vegan-ingredient";
-	# 				}
-	# 				# else 'yes', 'maybe'
-	# 			}
-	# 			else {
-	# 				push @{$product_ref->{data_quality_warnings_tags}},
-	# 					"en:vegan-label-but-could-not-confirm-for-all-ingredients";
-	# 			}
-	# 		}
-	# 	}
-	# }
-
 	# this also include en:vegan that is a child of en:vegetarian
 	if (defined $product_ref->{labels_tags} && has_tag($product_ref, "labels", "en:vegetarian")) {
 		if (defined $product_ref->{ingredients}) {
