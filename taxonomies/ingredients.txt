@@ -10319,6 +10319,14 @@ fr:préparation de viande
 nl:vleesbereiding
 wikidata:en:Q12553507
 
+<en:meat
+en:mechanically separated meat
+fr:viande séparée mécaniquement, viandes séparées mécaniquement
+nova:en:4
+# We also have a "mechanically separated" ingredients_processing, but it currently fails in some languages
+# like French where we can have "viande séparée mécaniquement de poulet" or "viande de poulet séparée mécaniquement"
+# We also currently do not support ingredients_processing for NOVA
+
 #comment:en:Finnish regulatory labeling for meat products
 
 #comment:en:whole meat product: only meat, salt, water, spices, glucose syrup and permitted additives
@@ -10534,6 +10542,13 @@ carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
 carbon_footprint_fr_foodges_value:fr:35.8
 ciqual_proxy_food_code:en:6101
 ciqual_proxy_food_name:fr:Boeuf, braisé
+
+#process:en: en:mechanically separated
+<en:beef meat
+<en:mechanically separated meat
+# en:processing:mechanically separated
+en:mechanically separated meat of beef
+fr:viande de bœuf séparée mécaniquement, viande séparée mécaniquement de bœuf
 
 <en:beef meat
 en:angus beef
@@ -12162,8 +12177,10 @@ carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en:7.4
 
 #process:en: en:mechanically separated
 <en:pork meat
+<en:mechanically separated meat
 # en:processing:mechanically separated
 en:mechanically separated meat of pork
+fr:viande de porc séparée mécaniquement, viande séparée mécaniquement de porc
 pl:mięso oddzielone mechanicznie wieprzowe, wieprzowina oddzialona mechanicznie
 
 <en:pork meat
@@ -35545,6 +35562,7 @@ nl:vruchtensapconcentraat
 pl:Koncentrat soku owocowego, zagęszczone soki owocowe
 ru:Концентрат фруктового сока
 sv:fruktjuicekoncentrat
+nova:en:4
 
 <en:fruit juice concentrate
 fr:jus concentré de fruits rouges
@@ -35562,7 +35580,6 @@ pl:sok owocowy z koncentratu, soki owocowe z koncentratu, sok owocowy z koncentr
 sv:fruktjuice från koncentrat, juicer framställd av koncentrat, juice från koncentrat, frukt juice från koncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruits-à-base-de-concentré
 # 650 products in 7 languages @2018-10-04
-
 
 <en:fruit juice from concentrate
 fr:jus de fruits rouges à base de concentrés
@@ -79542,6 +79559,11 @@ pl:Mięso drobiowe, mięsa drobiowego
 sv:Fjäderfäkött
 
 <en:poultry meat
+<en:mechanically separated meat
+en:mechanically separated poultry meat
+fr:viande de volaille séparée mécaniquement, viande séparée mécaniquement de volaille
+
+<en:poultry meat
 fr:viande de volaille traitée en salaison
 # ingredient/fr:viande-de-volaille-traitée-en-salaison has 30 products in french @2019-04-16
 
@@ -79903,8 +79925,11 @@ pl:ekstrakt mięsa kurzego
 
 #process:en: en:mechanically separated
 <en:chicken meat
+<en:mechanically separated meat
 # en:processing:mechanically separated
 en:mechanically separated meat of chicken
+es:carne de pollo separada mecanimente, carne separada mecanicamente de pollo
+fr:viande de poulet séparée mécaniquement, viande séparée mécaniquement de poulet
 pl:mięso mechanicznie oddzielone z kurczaka, mięso oddzielone mechanicznie z kurczaka, mięso oddzielone mechanicznie z kurcząt
 
 #<en:chicken meat
@@ -80221,6 +80246,11 @@ ciqual_food_name:en:Duck, meat, raw
 ciqual_food_name:fr:Canard, viande, crue
 
 <en:duck meat
+<en:mechanically separated meat
+en:mechanically separated duck meat
+fr:viande de canard séparée mécaniquement, viande séparée mécaniquement de canard
+
+<en:duck meat
 en:duck leg, duck legs
 de:Entenkeule, Entenschenkel, Entenkeulen
 fr:cuisses de canard
@@ -80507,10 +80537,11 @@ carbon_footprint_fr_foodges_ingredient:fr:Blanc de dinde
 carbon_footprint_fr_foodges_value:fr:6.5
 
 <en:turkey meat
+<en:mechanically separated meat
 en:mechanically separated meat of turkey
 de:mechanisch getrenntes Fleisch von Truthahn
 fi:koneellisesti erotettu kalkkunanliha
-fr:viande séparée mécaniquement de dinde
+fr:viande de dinde séparée mécaniquement, viande séparée mécaniquement de dinde
 it:carne di tacchino separata meccanicamente
 pl:mechanicznie oddzielone mięso z indyka, mięso oddzielone mechanicznie z indyka
 # ingredient/fr:viande-séparée-mécaniquement-de-dinde has 80 products in 4 languages @2019-04-16
