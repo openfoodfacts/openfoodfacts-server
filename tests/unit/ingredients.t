@@ -562,6 +562,22 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			ingredients_text => "each capsule contains: paracetamol 500 m 5 060198 790 0 mg.",
 		}
 	],
+
+	# 148g per 100g
+	[
+		"en-quantity-per-100g",
+		{
+			lc => "en",
+			ingredients_text => "tomatoes (148 g per 100g), pork (200 g per 100 g of finished product)",
+		},
+	],
+	[
+		"fr-quantity-per-100g",
+		{
+			lc => "fr",
+			ingredients_text => "tomates (148 g par 100g), porc (200 gr par 100 g de produit fini)",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
