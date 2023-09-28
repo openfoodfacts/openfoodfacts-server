@@ -1402,7 +1402,7 @@ sub check_labels ($product_ref) {
 				}
 
 				# some additives_classes (like thickener, for example) do not have the key-value vegan and vegetarian
-				# it it can be additives_classes that contain only vegan/vegetarian additives.
+				# it can be additives_classes that contain only vegan/vegetarian additives.
 				# to avoid false-positive - instead of raising a warning (else below) we ignore additives_classes
 				if (!exists_taxonomy_tag("additives_classes", $ingredientid)) {
 					if (has_tag($product_ref, "labels", "en:vegan")) {
