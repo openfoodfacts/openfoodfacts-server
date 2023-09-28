@@ -20265,6 +20265,10 @@ es:aroma de ciruela
 de:Aroma Koffein
 
 <en:flavouring
+en:natural peanut flavouring
+de:natürliches Erdnussaroma
+
+<en:flavouring
 en:rum flavouring
 hr:aroma rum, rum aroma
 
@@ -23880,9 +23884,6 @@ en:extruded buckwheat flour
 hr:ekstrudirano heljdino brašno
 
 <en:buckwheat flour
-fr:galette en blé noir
-
-<en:buckwheat flour
 <en:wholemeal flour
 en:whole grain buckwheat flour
 de:Buchweizenvollkornmehl, Buchweizen-Vollkornmehl
@@ -26143,6 +26144,7 @@ en:soya flour, soy flour, soybean meal
 bg:соево брашно
 bs:sojino brašno
 ca:Farina de soja
+cs:sójová mouka
 da:Sojamel, sojabønnemel
 de:Sojamehl, Sojabohnenmehl
 es:harina de soja, semola de soja
@@ -27095,7 +27097,6 @@ ciqual_proxy_food_name:fr:Riz blanc, cru
 vegan:en:yes
 vegetarian:en:yes
 
-<en:rice
 <en:plant protein
 en:rice protein, rice proteins
 bg:оризов протеин
@@ -28968,7 +28969,7 @@ en:coconut sugar, coconut palm sugar
 bg:кокосова захар
 ca:Sucre de coco
 de:Kokosblütenzucker
-es:Azucar de coco
+es:azúcar de coco, azucar de coco
 fi:kookossokeri, kookospalmusokeri
 fr:sucre de fleur de coco, sucre de fleur de cocotier, sucre de coco
 hu:kókuszcukor
@@ -28989,6 +28990,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Coconut_sugar
 <en:coconut sugar
 nl:biologische kokosbloesem siroop
 # ingredient/nl:biologische-kokosbloesem-siroop has 1 product @2019-05-24
+
+<en:coconut sugar
+es:nectar del brote de la flor del coco
 
 <en:monosaccharide
 en:grape sugar, raisin sugar
@@ -30787,7 +30791,7 @@ en:hydrolysed sunflower protein, hydrolyzed sunflower protein
 pl:hydrolizat białka słonecznikowego, hydrolizowane białko słonecznikowe, hydrolizat białka słonecznika
 
 
-<en:hydrolysed vegetable protein
+<en:plant protein
 en:soy protein
 bg:соев протеин, соев белтък
 ca:proteïna de soja
@@ -30847,11 +30851,12 @@ fr:protéines de soja déshydratées
 hu:dehidratált szójafehérje
 
 <en:soy protein
-en:textured soy protein
+en:textured soy protein, texturised soya protein
 cs:texturovaná sojová bílkovina
-de:texturiertes Sojamehl 
-fr:protéines de soja texturées
-pl:teksturowane białko sojowe, teksturat białka sojowego
+de:texturiertes Sojaprotein, texturiertes Sojaeiweiss
+es:proteina de soja texturizada, proteína texturizada de soja
+fr:protéine de soja texturisée, protéines de soja texturées
+pl:teksturowane białko sojowe, teksturat białka sojowego, teksturowane białko sojowe
 
 <en:dehydrated soy protein
 en:rehydrated soy protein
@@ -30876,6 +30881,7 @@ it:Proteine isolate della soia
 pl:izolowane białko sojowe, izolat białka sojowego
 ru:изолированный белок сои
 
+<en:hydrolysed vegetable protein
 <en:soy protein
 en:hydrolysed soy protein, hydrolyzed soy protein
 da:hydrolyseret sojaprotein
@@ -31432,14 +31438,6 @@ en:highly fat reduced cocoa, highly reduced fat cocoa
 de:Sehr fettarme Kokosnuss
 fr:cacao fortement dégraissé
 
-<en:cocoa
-en:cocoa cream
-de:Kakaocreme, Kakao-Creme
-es:crema de cacao
-fr:Crème de cacao
-pl:krem kakaowy
-pt:creme de cacau
-
 # description:en:COCOA BUTTER is a pale-yellow, edible vegetable fat extracted from the cocoa bean. Cocoa butter is a major ingredient in practically all types of chocolates (white chocolate, milk chocolate, and dark chocolate).
 
 <en:cocoa
@@ -31647,7 +31645,7 @@ bg:обеэмаслено какао на прах, какао на прах с 
 ca:cacau desgreixat en pols, cacau en pols reduït en greix
 cs:Kakaový prášek se sníženým obsahem tuku
 da:fedtfattigt kakaopulver, fedtreduceret kakaopulver, skummet kakaopulver
-de:fettarmes Kakaopulver, Kakaopulver stark entölt, fettreduziertes Kakaopulver, Kakaopulver mit reduziertem Fettgehalt
+de:fettarmes Kakaopulver, Kakaopulver stark entölt, fettreduziertes Kakaopulver, Kakaopulver mit reduziertem Fettgehalt, stark entöltes Kakaopulver
 es:cacao magro en polvo, cacao desgrasado en polvo, cacao en polvo desgrasado, cacao en polvo reducido en grasa, cacao deshidratado rebajado en grasa, cacao en polvo semidesgrasado, cacao semidesgrasado en polvo
 et:lahja kakaopulber, vähendatud rasvasisaldusega kakaopulber
 fi:vähärasvainen kaakaojauhe, vähärasvaista kaakaojauhetta
@@ -33164,16 +33162,6 @@ es:flor de soja
 nl:sojabloemen
 comment:en:This is the actual flower, not flour
 
-<en:soya
-en:texturised soya protein, texturised vegetable protein
-de:texturiertes Sojaprotein, texturiertes Sojaeiweiss
-es:proteina de soja texturizada, proteína texturizada de soja
-fr:Protéine de soja texturisé
-pl:teksturowane białko sojowe
-vegan:en:yes
-vegetarian:en:yes
-wikipedia:en:https://en.wikipedia.org/wiki/Textured_vegetable_protein
-
 #category/soy-beans
 <en:soya
 <en:legume
@@ -33798,6 +33786,7 @@ en:Baker's yeast
 ar:فطريات الخميرة
 bg:хлебна мая, мая хлебна
 ca:Llevat de forner
+cs:pekařské droždí
 de:Backhefe
 el:Μαγιά αρτοποιίας
 es:levadura de panadería
@@ -36176,6 +36165,7 @@ ciqual_food_name:fr:Banane, pulpe, sèche
 ##<en:banana
 #en:banana puree
 #bg:пюре от банани, бананово пюре, пюре от банан
+#cs:banánové pyré
 #de:Bananenpüree, Bananenmark
 #es:Puré de plátano
 #fi:banaanipyree
@@ -40465,14 +40455,14 @@ sv:blåbärssaftkoncentrat
 
 <en:blueberry
 en:blueberry juice from concentrate
-de:Heidelbeersaft aus Heidelbeerkonzentrat
+de:Heidelbeersaft aus Heidelbeerkonzentrat, Heidelbeersaft aus Heidelbeersaftkonzentrat
 es:Concentrado de jugo de zarzamora
 fi:mustikkamehu tiivisteestä, mustikkatäysmehu tiivisteestä, mustikkatäysmehua tiivisteestä
 fr:jus de myrtille à base de concentré, jus de myrtille à base de jus concentré
 hr:sok od borovnice od koncentriranog soka borovnice
 sv:blåbärssaft av koncentrat
 
-<en:blueberry
+#<en:compound
 en:blueberry filling
 hr:preljev od borovnica, punilo od borovnice, punjenje od borovnica
 
@@ -41211,12 +41201,12 @@ wikidata:en:Q3342808
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco
 # 1209 products in 11 languages @2018-10-03
 
-<en:coconut
+#<en:compound
 en:coconut cream
 bg:кокосов крем
 ca:crema de coco
-de:Kokosnusscreme, Kokossahne
-es:Crema de coco
+de:Kokosnusscreme, Kokossahne, Kokoscreme
+es:Crema de coco, nata de coco
 fi:kookoskerma
 fr:crème de noix de coco, crème de coco
 it:Crema di noce di cocco
@@ -41288,14 +41278,6 @@ en:natural coconut water
 de:Natürliches Kokosnusswasser
 es:agua de coco natural
 fr:Eau de noix de coco naturelle
-
-<en:coconut water
-en:nata de coco
-de:Nata de coco, Kokosnusssahne
-es:nata de coco
-fr:nata de coco
-wikidata:en:Q1193612
-wikipedia:en:https://en.wikipedia.org/wiki/Nata_de_coco
 
 <en:coconut milk
 en:coconut milk powder, powdered coconut milk
@@ -41451,9 +41433,6 @@ fr:pâte de noix de coco
 hr:pasta od kokosa
 it:pasta di cocco
 nl:kokospuree
-
-<en:coconut
-es:nectar del brote de la flor del coco
 
 
 ###################################################################################################
@@ -46974,7 +46953,7 @@ br:pinochez
 bs:Špinat
 ca:espinac,espinacs
 co:spinacciu
-cs:špenát setý
+cs:špenát, špenát setý
 cy:Sbigoglys
 da:spinat
 de:Spinat
@@ -51712,7 +51691,7 @@ bn:আলু
 bo:ཞོ་ཁོག
 bs:krompir
 ca:patata
-cs:brambor
+cs:brambor, brambory
 da:kartoffel, kartofler
 de:Kartoffel, Kartoffeln
 eo:terpomo
@@ -56910,6 +56889,7 @@ pl:namoczona ciecierzyca
 
 <en:chickpea
 en:dried chickpea
+cs:sušená cizrna
 fr:pois chiche secs
 ciqual_food_code:en:20516
 ciqual_food_name:en:Chick pea, dried
@@ -58713,7 +58693,6 @@ description:sv:Pekanträd (Carya illinoiensis) är en valnötsväxtart.
 # ingredient/pecan-nut 4644 in 21 2021-08-21
 
 #<en:compound
-<en:pecan nut
 en:caramelized pecan nuts
 da:karameliserede pekannødder
 de:karamellisierte Pekannüsse
@@ -63533,7 +63512,9 @@ mk:естрагон
 ms:taragon
 nb:estragon
 nl:dragon
-nn:estragon
+nb:estragon, estragonblader
+nn:estragon, estragonblader
+no:estragon, estragonblader
 oc:estragon
 os:мæзæрæу
 pa:ਤਰਖ਼ੋਨ
@@ -68924,8 +68905,7 @@ ciqual_food_name:en:Mushroom, all types, raw
 ciqual_food_name:fr:Champignon, tout type, cru
 eurocode_2_group_2:en: 8.50
 
-<en:mushroom
-<en:protein
+<en:plant protein
 en:mushroom proteins
 fr:protéine de champignon
 
@@ -82647,6 +82627,12 @@ en:inactive dough
 de:inaktive Hefe
 
 <en:pasta
+en:macaroni
+nb:makaroni
+nn:makaroni
+no:makaroni
+
+<en:pasta
 en:cooked pasta
 de:Teigwaren gekocht
 es:Pasta cocinada
@@ -86218,12 +86204,30 @@ fi:mustaherukkahillo
 # mainIngredient:en:blackcurrant
 # ingredient/en:blackcurrant-jam has 1 product in 1 language @2020-12-21
 
+# <en:compound
 en:jam
 de:Marmelade de:Konfitüre
 pl:dżem
 ru:джем, повидло, варенье
 vegan:en:maybe
 vegetarian:en:maybe
+
+#<en:compound
+en:cocoa spread, cocoa cream
+de:Kakaocreme, Kakao-Creme
+es:crema de cacao
+fr:Crème de cacao
+pl:krem kakaowy
+pt:creme de cacau
+
+#<en:compound
+en:hazelnut and cocoa spread
+es:crema de cacao y avellanas
+fr:Pâte à tartiner aux noisettes et au cacao, crème de cacao et de noisette
+
+#<en:compound
+en:hazelnut spread
+fr:pâte à tartiner aux noisettes
 
 ###################################################################################################
 #
@@ -87048,7 +87052,7 @@ en:tamari, tamari sauce, tamari soy sauce
 de:Tamari
 es:tamari
 fi:tamari
-fr:tamari, sauce soja tamari
+fr:tamari, sauce soja tamari, sauce tamari
 he:תמרי
 it:Tamari
 ja:たまり

@@ -570,6 +570,12 @@ sub init_request ($request_ref = {}) {
 	# Initialize the request object
 	$request_ref->{referer} = referer();
 	$request_ref->{original_query_string} = $ENV{QUERY_STRING};
+	# Get the cgi script path if the URL was to a /cgi/ script
+	# unset it if it is /cgi/display.pl (default route for non /cgi/ scripts)
+	$request_ref->{script_name} = $ENV{SCRIPT_NAME};
+	if ($request_ref->{script_name} eq "/cgi/display.pl") {
+		delete $request_ref->{script_name};
+	}
 
 	# Depending on web server configuration, we may get or not get a / at the start of the QUERY_STRING environment variable
 	# remove the / to normalize the query string, as we use it to build some redirect urls
@@ -681,10 +687,13 @@ sub init_request ($request_ref = {}) {
 			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country})
 			if $log->is_debug();
 	}
-	elsif ($request_ref->{original_query_string} !~ /^(cgi|api)\//) {
+	elsif ($request_ref->{original_query_string} !~ /^api\//) {
 		# redirect
-		my $redirect_url = get_world_subdomain() . '/' . $request_ref->{original_query_string};
-		$log->info("request could not be matched to a known format, redirecting",
+		my $redirect_url
+			= get_world_subdomain()
+			. ($request_ref->{script_name} ? $request_ref->{script_name} . "?" : '/')
+			. $request_ref->{original_query_string};
+		$log->info("request could not be matched to a known country, redirecting to world",
 			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url})
 			if $log->is_info();
 		redirect_to_url($request_ref, 302, $redirect_url);
@@ -707,11 +716,14 @@ sub init_request ($request_ref = {}) {
 		and ($subdomain ne $cc)
 		and ($subdomain !~ /^(ssl-)?api/)
 		and ($r->method() eq 'GET')
-		and ($request_ref->{original_query_string} !~ /^(cgi|api)\//))
+		and ($request_ref->{original_query_string} !~ /^api\//))
 	{
 		# redirect
 		my $ccdom = format_subdomain($cc);
-		my $redirect_url = $ccdom . '/' . $request_ref->{original_query_string};
+		my $redirect_url
+			= $ccdom
+			. ($request_ref->{script_name} ? $request_ref->{script_name} . "?" : '/')
+			. $request_ref->{original_query_string};
 		$log->info(
 			"lc is equal to first lc of the country, redirecting to countries main domain",
 			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url}

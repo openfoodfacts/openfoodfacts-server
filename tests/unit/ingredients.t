@@ -568,6 +568,21 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 		{
 			lc => "ja",
 			ingredients_text => "増粘剤(加工デンプン、キサンタン)、酢酸Na、トレハロース、加工デンプン、グリシン、調味料(アミノ酸等)、酸化防止剤(V.C,V.E)、着色料(野菜色素)",
+ 		},
+	],     
+	# 148g per 100g
+	[
+		"en-quantity-per-100g",
+		{
+			lc => "en",
+			ingredients_text => "tomatoes (148 g per 100g), pork (200 g per 100 g of finished product)",
+		},
+	],
+	[
+		"fr-quantity-per-100g",
+		{
+			lc => "fr",
+			ingredients_text => "tomates (148 g par 100g), porc (200 gr par 100 g de produit fini)",
 		}
 	],
 );
