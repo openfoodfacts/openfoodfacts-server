@@ -197,7 +197,7 @@ sub display_select_crop ($object_ref, $id_lc, $language) {
 	my $label = $Lang{"image_" . $imagetype}{$lang};
 
 	my $html = '';
-	if (is_protected_image($object_ref, $id_lc)) {
+	if (is_protected_image($object_ref, $id_lc) and (not $User{moderator}) and (not $admin)) {
 		$html .= <<HTML;
 <p>$message</p>
 <label for="$id">$label (<span class="tab_language">$language</span>)</label>

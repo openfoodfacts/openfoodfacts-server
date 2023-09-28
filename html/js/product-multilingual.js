@@ -427,6 +427,12 @@ function update_nutrition_image_copy() {
 
 function update_display(imagefield, first_display) {
 
+    var flag=0;
+    if(stringStartsWith(imagefield, "protect")){
+       imagefield= imagefield.replace(/^protect_/, '');
+       flag=1; 
+    }
+
     var display_url = imagefield_url[imagefield];
 
     if (display_url) {
@@ -434,7 +440,9 @@ function update_display(imagefield, first_display) {
         var imagetype = imagefield.replace(/_\w\w$/, '');
 
         var html = lang().product_js_current_image + '<br/><img src="' + img_path + display_url + '" />';
-        html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + lang().product_js_unselect_image + '</button></div>';
+        if(!flag){
+            html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + lang().product_js_unselect_image + '</button></div>';
+        } 
 
         if (stringStartsWith(imagefield, 'nutrition')) {
             // width big enough to display a copy next to nutrition table?
@@ -745,18 +753,21 @@ function get_recents(tagfield) {
                         '</div>';
 
  
-                        if(typeof clas === "undefined" || !stringStartsWith(clas, "protect"))
-                        {
+                        if(typeof clas === "undefined" || !stringStartsWith(clas, "protect")){
                             html+= '<div id="imgsearcherror_' + id + '" data-alert class="alert-box alert" style="display:none">' + lang().product_js_image_upload_error +
                             '<a href="#" class="close">&times;</a>' +
                             '</div>';
-                    html += '<input type="checkbox" class="use_low_res_images" name="use_low_res_images_' + id + '" id="use_low_res_images_' + id + '">';
-                    html += '<label for="use_low_res_images_' + id + '">' + lang().product_js_use_low_res_images + '</label>';}
+                            html += '<input type="checkbox" class="use_low_res_images" name="use_low_res_images_' + id + '" id="use_low_res_images_' + id + '">';
+                            html += '<label for="use_low_res_images_' + id + '">' + lang().product_js_use_low_res_images + '</label>';
 
-                    html += '<div class="row">';
-                    html += '<div class="columns small-12 medium-12 large-6 xlarge-8"><div class="cropbox" id="cropbox_' + id + '"></div></div>';
-                    html += '<div class="columns small-12 medium-12 large-6 xlarge-4"><div class="display" id="display_' + id + '"></div></div>';
-                    html += '</div>';
+                            html += '<div class="row">';
+                            html += '<div class="columns small-12 medium-12 large-6 xlarge-8"><div class="cropbox" id="cropbox_' + id + '"></div></div>';
+                            html += '<div class="columns small-12 medium-12 large-6 xlarge-4"><div class="display" id="display_' + id + '"></div></div>';
+                            html += '</div>';
+                        }
+                    else{
+                        html += '<div class="columns small-12 medium-12 large-6 xlarge-4"><div class="display" id="display_' + id + '"></div></div>';
+                    }
                 }
 
                 $this.html(html);
@@ -781,7 +792,13 @@ function get_recents(tagfield) {
 
                 if (!stringStartsWith(id, 'manage')) {
 
-                    update_display(id, true);
+                    if(typeof clas === "undefined" || !stringStartsWith(clas, "protect")){
+                        update_display(id, true);
+                    }
+                    else{
+                        update_display("protect_"+id, true);
+                        
+                    }
 
 
 
@@ -822,6 +839,10 @@ function get_recents(tagfield) {
                             $("#progressbar_" + imagefield).hide();
                             $("#imgsearchbutton_" + imagefield).show();
                             $("#imgsearchmsg_" + imagefield).hide();
+                            if (typeof clas === "string" && stringStartsWith(clas, "protect")) {
+                              $("#imgsearchmsg_" + imagefield).html(lang().product_js_image_received);
+                              $("#imgsearchmsg_" + imagefield).show();
+                            }
                             $('.img_input').prop("disabled", false);
                         },
                         start: function() {
