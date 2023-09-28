@@ -376,7 +376,7 @@ my %of = (
 	da => " af ",
 	de => " von ",
 	es => " de ",
-	fr => " de la | de | du | des | d'",
+	fr => " de la | de | du | des | d'| de l'",
 	is => " af ",
 	it => " di | d'",
 	nl => " van ",
@@ -388,7 +388,7 @@ my %from = (
 	en => " from ",
 	de => " aus ",
 	es => " de ",
-	fr => " de la | de | du | des | d'",
+	fr => " de la | de | du | des | d'| de l'",
 	it => " dal | della | dalla | dagli | dall'",
 	pl => " z | ze ",
 );
@@ -472,6 +472,25 @@ my %the = (
 	nl => " de | het ",
 );
 
+# Strings to identify phrases like "75g per 100g of finished product"
+my %per = (
+	en => " per | for ",
+	es => " por | por cada ",
+	fr => " pour | par ",
+	it => " per ",
+	nl => " per ",
+);
+
+my $one_hundred_grams_or_ml = '100\s*(?:g|gr|ml)';
+
+my %of_finished_product = (
+	en => " of (?:finished )?product",
+	es => " de producto(?: terminado)?",
+	fr => " de produit(?: fini)?",
+	it => " di prodotto(?: finito)?",
+	nl => " van het volledige product",
+);
+
 # Labels that we want to recognize in the ingredients
 # e.g. "fraises issues de l'agriculture biologique"
 
@@ -485,6 +504,7 @@ my @labels = (
 	"fr:aoc", "en:vegan",
 	"en:vegetarian", "nl:beter-leven-1-ster",
 	"nl:beter-leven-2-ster", "nl:beter-leven-3-ster",
+	"en:halal", "en:kosher",
 );
 my %labels_regexps = ();
 
@@ -895,7 +915,7 @@ sub add_specific_ingredients_from_labels ($product_ref) {
 	return;
 }
 
-=head2 parse_specific_ingredients_from_text ( product_ref, $text, $percent_or_quantity_regexp )
+=head2 parse_specific_ingredients_from_text ( product_ref, $text, $percent_or_quantity_regexp, $per_100g_regexp )
 
 Lists of ingredients sometime include extra mentions for specific ingredients
 at the end of the ingredients list. e.g. "Prepared with 50g of fruits for 100g of finished product".
@@ -916,6 +936,8 @@ Used to find % values, language specific.
 
 Pass undef in order to skip % recognition. This is useful if we know the text is only for the origins of ingredients.
 
+=head4 per_100g regular expression $per_100g_regexp
+
 =head3 Return values
 
 =head4 specific_ingredients structure
@@ -926,7 +948,7 @@ Array of specific ingredients.
 
 =cut
 
-sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quantity_regexp) {
+sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quantity_regexp, $per_100g_regexp) {
 
 	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
 
@@ -955,7 +977,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			if (
 				(defined $percent_or_quantity_regexp)
 				and ($text
-					=~ /\s*(?:total |min |minimum )?([^,.;]+?)\s+content(?::| )+$percent_or_quantity_regexp\s*(?:per 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i
+					=~ /\s*(?:total |min |minimum )?([^,.;]+?)\s+content(?::| )+$percent_or_quantity_regexp\s*(?:$per_100g_regexp(?:[^,.;-]*?))?(?:;|\.| - |$)/i
 				)
 				)
 			{
@@ -1063,7 +1085,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			if (
 				(defined $percent_or_quantity_regexp)
 				and ($text
-					=~ /\s*(?:(?:préparé|prepare)(?:e|s|es)? avec)(?: au moins)?(?::| )+$percent_or_quantity_regexp (?:de |d')?([^,.;]+?)\s*(?:pour 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i
+					=~ /\s*(?:(?:préparé|prepare)(?:e|s|es)? avec)(?: au moins)?(?::| )+$percent_or_quantity_regexp (?:de |d')?([^,.;]+?)\s*(?:$per_100g_regexp(?:[^,.;-]*?))?(?:;|\.| - |$)/i
 				)
 				)
 			{
@@ -1081,7 +1103,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			elsif (
 				(defined $percent_or_quantity_regexp)
 				and ($text
-					=~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;]+?)\s*(?:pour 100\s*(?:g)(?: de produit(?: fini)?)?)?(?: de)?(?::| )+$percent_or_quantity_regexp\s*(?:pour 100\s*(?:g)(?:[^,.;]*?))?(?:;|\.| - |$)/i
+					=~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;]+?)\s*(?:$per_100g_regexp)?(?: de)?(?::| )+$percent_or_quantity_regexp\s*(?:$per_100g_regexp(?:[^,.;]*?))?(?:;|\.| - |$)/i
 				)
 				)
 			{
@@ -1590,8 +1612,12 @@ sub parse_ingredients_text ($product_ref) {
 		. '(?:' . $min_regexp . '|'    # optional minimum
 		. $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';    # strings that can be ignored
 
+	my $per = $per{$ingredients_lc} || ' per ';
+	my $of_finished_product = $of_finished_product{$ingredients_lc} || '';
+	my $per_100g_regexp = "${per}${one_hundred_grams_or_ml}(?:$of_finished_product)?";
+
 	# Extract phrases related to specific ingredients at the end of the ingredients list
-	$text = parse_specific_ingredients_from_text($product_ref, $text, $percent_or_quantity_regexp);
+	$text = parse_specific_ingredients_from_text($product_ref, $text, $percent_or_quantity_regexp, $per_100g_regexp);
 
 	my $analyze_ingredients_function = sub ($analyze_ingredients_self, $ingredients_ref, $level, $s) {
 
@@ -1675,6 +1701,7 @@ sub parse_ingredients_text ($product_ref) {
 
 					# percent followed by a separator, assume the percent applies to the parent (e.g. tomatoes)
 					# tomatoes (64%, origin: Spain)
+					# tomatoes (145g per 100g of finished product)
 
 					if (($between =~ $separators) and ($` =~ /^$percent_or_quantity_regexp$/i)) {
 
@@ -1726,7 +1753,7 @@ sub parse_ingredients_text ($product_ref) {
 							and $log->debug("between does not contain a separator", {between => $between})
 							if $log->is_debug();
 
-						if ($between =~ /^$percent_or_quantity_regexp$/i) {
+						if ($between =~ /^$percent_or_quantity_regexp(?:$per_100g_regexp)?$/i) {
 
 							$percent_or_quantity_value = $1;
 							$percent_or_quantity_unit = $2;
