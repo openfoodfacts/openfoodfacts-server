@@ -440,6 +440,7 @@ function update_display(imagefield, first_display) {
         var imagetype = imagefield.replace(/_\w\w$/, '');
 
         var html = lang().product_js_current_image + '<br/><img src="' + img_path + display_url + '" />';
+        // handling the display of unselect button
         if(!flag){
             html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + lang().product_js_unselect_image + '</button></div>';
         } 
@@ -792,6 +793,7 @@ function get_recents(tagfield) {
 
                 if (!stringStartsWith(id, 'manage')) {
 
+                    // handling the display of unselect button
                     if(typeof clas === "undefined" || !stringStartsWith(clas, "protect")){
                         update_display(id, true);
                     }
@@ -839,6 +841,8 @@ function get_recents(tagfield) {
                             $("#progressbar_" + imagefield).hide();
                             $("#imgsearchbutton_" + imagefield).show();
                             $("#imgsearchmsg_" + imagefield).hide();
+
+                            // showing the message "image recieved" once user uploads the image
                             if (typeof clas === "string" && stringStartsWith(clas, "protect")) {
                               $("#imgsearchmsg_" + imagefield).html(lang().product_js_image_received);
                               $("#imgsearchmsg_" + imagefield).show();
