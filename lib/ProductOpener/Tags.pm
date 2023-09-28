@@ -879,7 +879,14 @@ sub remove_stopwords ($tagtype, $lc, $tagid) {
 
 		my $regexp = $stopwords_regexps{$tagtype . '.' . $lc};
 
-		$tagid =~ s/(^|-)($regexp)(-($regexp))*(-|$)/-/g;
+		# In Japanese, do not require a word boundary, and do not introduce a hyphen
+		if ($lc eq 'ja') {
+			$tagid =~ s/$regexp//g;
+		}
+		# In other languages, require a word boundary, and replace stopwords with a hyphen
+		else {
+			$tagid =~ s/(^|-)($regexp)(-($regexp))*(-|$)/-/g;
+		}
 
 		$tagid =~ tr/-/-/s;
 		$tagid =~ s/^-//;
