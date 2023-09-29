@@ -24,6 +24,35 @@ ProductOpener::APIProductServices - Microservices to enrich a product object
 
 =head1 DESCRIPTION
 
+This module implements a microservice API for operations done on an product object.
+
+Applications can send product data (for instance a nested list of ingredients),
+ask for one or more services to be executed on the input product data
+(for instance computing the min, max and estimated percentages of each ingredient),
+and get back resulting product data (possibly filtered to get only specific fields back).
+
+=head2 INTERFACE
+
+=head3 Request
+
+The Routing.pm and API.pm module offer an HTTP interface of this form:
+POST /api/v3/product_services/[comma separated list of services]
+
+The POST body is a JSON hash with those fields:
+
+=head4 product
+
+A product object
+
+=head4 field
+
+A comma separated list of fields to return. If empty, all available fields
+(input fields + any fields added or changed by the service) are returned.
+
+=head3 Response
+
+The response is in the JSON API v3 response format, with a resulting product object.
+
 =cut
 
 package ProductOpener::APIProductServices;

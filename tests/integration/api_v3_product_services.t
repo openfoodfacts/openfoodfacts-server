@@ -13,6 +13,38 @@ use Storable qw(dclone);
 
 wait_application_ready();
 
+# Sample product
+
+my $product_hazelnut_spread_json = '
+    "product": {
+        "ingredients": [
+            {
+                "id": "en:sugar",
+                "text": "Sucre",
+                "vegan": "yes",
+                "vegetarian": "yes"
+            },
+            {
+                "ciqual_food_code": "16129",
+                "from_palm_oil": "yes",
+                "id": "en:palm-oil",
+                "text": "huile de palme",
+                "vegan": "yes",
+                "vegetarian": "yes"
+            },
+            {
+                "ciqual_food_code": "17210",
+                "from_palm_oil": "no",
+                "id": "en:hazelnut-oil",
+                "percent": 13,
+                "text": "huile de NOISETTES",
+                "vegan": "yes",
+                "vegetarian": "yes"
+            }
+        ]
+    }
+';
+
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
 	{
@@ -21,6 +53,7 @@ my $tests_ref = [
 		path => '/api/v3/product_services/unknown',
 		body => '{"product":{}}',
 	},
+	# echo service
 	{
 		test_case => 'echo-service-no-body',
 		method => 'POST',
@@ -30,69 +63,23 @@ my $tests_ref = [
 		test_case => 'echo-service-hazelnut-spread',
 		method => 'POST',
 		path => '/api/v3/product_services/echo',
-		body => '{
-			"product": {
-                "ingredients": [
-                    {
-                        "id": "en:sugar",
-                        "text": "Sucre",
-                        "vegan": "yes",
-                        "vegetarian": "yes"
-                    },
-                    {
-                        "ciqual_food_code": "16129",
-                        "from_palm_oil": "yes",
-                        "id": "en:palm-oil",
-                        "text": "huile de palme",
-                        "vegan": "yes",
-                        "vegetarian": "yes"
-                    },
-                    {
-                        "ciqual_food_code": "17210",
-                        "from_palm_oil": "no",
-                        "id": "en:hazelnut-oil",
-                        "percent": 13,
-                        "text": "huile de NOISETTES",
-                        "vegan": "yes",
-                        "vegetarian": "yes"
-                    }
-                ]
-            }
-		}'
+		body => '{' . $product_hazelnut_spread_json . '}',
 	},
+	# estimate-ingredients-percent service
 	{
-		test_case => 'estimate-ingredients-service-hazelnut-spread',
+		test_case => 'estimate-ingredients-percent-service-hazelnut-spread',
+		method => 'POST',
+		path => '/api/v3/product_services/estimate_ingredients_percent',
+		body => '{' . $product_hazelnut_spread_json . '}',
+	},
+	# Get back only specific fields
+	{
+		test_case => 'estimate-ingredients-percent-service-hazelnut-spread-specific-fields',
 		method => 'POST',
 		path => '/api/v3/product_services/estimate_ingredients_percent',
 		body => '{
-			"product": {
-                "ingredients": [
-                    {
-                        "id": "en:sugar",
-                        "text": "Sucre",
-                        "vegan": "yes",
-                        "vegetarian": "yes"
-                    },
-                    {
-                        "ciqual_food_code": "16129",
-                        "from_palm_oil": "yes",
-                        "id": "en:palm-oil",
-                        "text": "huile de palme",
-                        "vegan": "yes",
-                        "vegetarian": "yes"
-                    },
-                    {
-                        "ciqual_food_code": "17210",
-                        "from_palm_oil": "no",
-                        "id": "en:hazelnut-oil",
-                        "percent": 13,
-                        "text": "huile de NOISETTES",
-                        "vegan": "yes",
-                        "vegetarian": "yes"
-                    }
-                ]
-            }
-		}'
+                "fields": "ingredients_percent_analysis",'
+			. $product_hazelnut_spread_json . '}',
 	},
 ];
 

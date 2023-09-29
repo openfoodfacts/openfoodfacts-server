@@ -2642,7 +2642,7 @@ sub extract_ingredients_from_text ($product_ref) {
 		assign_ciqual_codes($product_ref);
 
 		# Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient
-		estimate_ingredients_percent();
+		estimate_ingredients_percent_service($product_ref);
 
 		estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients($product_ref);
 		estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients($product_ref);
@@ -2737,6 +2737,8 @@ sub estimate_ingredients_percent_service ($product_ref) {
 	}
 
 	compute_ingredients_percent_estimates(100, $product_ref->{ingredients});
+
+	return;
 }
 
 =head2 delete_ingredients_percent_values ( ingredients_ref )
