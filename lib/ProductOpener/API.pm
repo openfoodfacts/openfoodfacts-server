@@ -74,6 +74,7 @@ use ProductOpener::Packaging qw/:all/;
 
 use ProductOpener::APIProductRead qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::APIProductServices qw/:all/;
 use ProductOpener::APITagRead qw/:all/;
 use ProductOpener::APITaxonomySuggestions qw/:all/;
 
@@ -202,7 +203,7 @@ sub decode_json_request_body ($request_ref) {
 				$request_ref->{api_response},
 				{
 					message => {id => "invalid_json_in_request_body"},
-					field => {id => "body", value => $request_ref->{body}},
+					field => {id => "body", value => $request_ref->{body}, error => $@},
 					impact => {id => "failure"},
 				}
 			);
@@ -383,6 +384,19 @@ sub process_api_request ($request_ref) {
 			}
 			elsif ($request_ref->{api_method} =~ /^(GET|HEAD)$/) {
 				read_product_api($request_ref);
+			}
+			else {
+				add_invalid_method_error($response_ref, $request_ref);
+			}
+		}
+		# Product services
+		if ($request_ref->{api_action} eq "product_services") {
+
+			if ($request_ref->{api_method} eq "OPTIONS") {
+				# Just return CORS headers
+			}
+			elsif ($request_ref->{api_method} eq "POST") {
+				product_services_api($request_ref);
 			}
 			else {
 				add_invalid_method_error($response_ref, $request_ref);
