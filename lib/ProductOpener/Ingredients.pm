@@ -370,7 +370,7 @@ my %of = (
 	da => " af ",
 	de => " von ",
 	es => " de ",
-	fr => " de la | de | du | des | d'",
+	fr => " de la | de | du | des | d'| de l'",
 	is => " af ",
 	it => " di | d'",
 	nl => " van ",
@@ -382,7 +382,7 @@ my %from = (
 	en => " from ",
 	de => " aus ",
 	es => " de ",
-	fr => " de la | de | du | des | d'",
+	fr => " de la | de | du | des | d'| de l'",
 	it => " dal | della | dalla | dagli | dall'",
 	pl => " z | ze ",
 );
@@ -498,6 +498,7 @@ my @labels = (
 	"fr:aoc", "en:vegan",
 	"en:vegetarian", "nl:beter-leven-1-ster",
 	"nl:beter-leven-2-ster", "nl:beter-leven-3-ster",
+	"en:halal", "en:kosher",
 );
 my %labels_regexps = ();
 
