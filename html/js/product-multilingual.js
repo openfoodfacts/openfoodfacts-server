@@ -428,24 +428,25 @@ function update_nutrition_image_copy() {
 function update_display(imagefield, first_display) {
 
     var flag=0;
+    var modifiedimagefield = imagefield;
     if(stringStartsWith(imagefield, "protect")){
-       imagefield= imagefield.replace(/^protect_/, '');
+        modifiedimagefield = imagefield.replace(/^protect_/, '');
        flag=1; 
     }
 
-    var display_url = imagefield_url[imagefield];
+    var display_url = imagefield_url[modifiedimagefield];
 
     if (display_url) {
 
-        var imagetype = imagefield.replace(/_\w\w$/, '');
+        var imagetype = modifiedimagefield.replace(/_\w\w$/, '');
 
         var html = lang().product_js_current_image + '<br/><img src="' + img_path + display_url + '" />';
         // handling the display of unselect button
         if(!flag){
-            html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + lang().product_js_unselect_image + '</button></div>';
+            html += '<div class="button_div" id="unselectbuttondiv_' + modifiedimagefield + '"><button id="unselectbutton_' + modifiedimagefield + '" class="small button" type="button">' + lang().product_js_unselect_image + '</button></div>';
         } 
 
-        if (stringStartsWith(imagefield, 'nutrition')) {
+        if (stringStartsWith(modifiedimagefield, 'nutrition')) {
             // width big enough to display a copy next to nutrition table?
             if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
 
@@ -457,38 +458,38 @@ function update_display(imagefield, first_display) {
 
         if ((imagetype == 'ingredients') || (imagetype == 'packaging')) {
 
-            html += '<div id="ocrbutton_loading_' + imagefield + '"></div><div class="button_div" id="ocrbuttondiv_' + imagefield + '">' +
-                ' <button id="ocrbuttongooglecloudvision_' + imagefield + '" class="small button" type="button">' + lang()["product_js_extract_" + imagetype] + '</button></div>';
+            html += '<div id="ocrbutton_loading_' + modifiedimagefield + '"></div><div class="button_div" id="ocrbuttondiv_' + modifiedimagefield + '">' +
+                ' <button id="ocrbuttongooglecloudvision_' + modifiedimagefield + '" class="small button" type="button">' + lang()["product_js_extract_" + imagetype] + '</button></div>';
 
             var full_url = display_url.replace(/\.400\./, ".full.");
-            $('#' + imagefield + '_image_full').html('<img src="' + img_path + full_url + '" class="' + imagetype + '_image_full"/>');
+            $('#' + modifiedimagefield + '_image_full').html('<img src="' + img_path + full_url + '" class="' + imagetype + '_image_full"/>');
 
-            $('div[id="display_' + imagefield + '"]').html(html);
+            $('div[id="display_' + modifiedimagefield + '"]').html(html);
 
-            $("#ocrbuttongooglecloudvision_" + imagefield).click({ imagefield: imagefield }, function(event) {
+            $("#ocrbuttongooglecloudvision_" + modifiedimagefield).click({ imagefield: modifiedimagefield }, function(event) {
                 event.stopPropagation();
                 event.preventDefault();
                 // alert(event.data.imagefield);
-                $('div[id="ocrbutton_loading_' + imagefield + '"]').html('<img src="/images/misc/loading2.gif" /> ' + lang()["product_js_extracting_" + imagetype]).show();
-                $('div[id="ocrbuttondiv_' + imagefield + '"]').hide();
+                $('div[id="ocrbutton_loading_' + modifiedimagefield + '"]').html('<img src="/images/misc/loading2.gif" /> ' + lang()["product_js_extracting_" + imagetype]).show();
+                $('div[id="ocrbuttondiv_' + modifiedimagefield + '"]').hide();
                 $.post(
-                        '/cgi/' + imagetype + '.pl', { code: code, id: imagefield, process_image: 1, ocr_engine: "google_cloud_vision" },
+                        '/cgi/' + imagetype + '.pl', { code: code, id: modifiedimagefield, process_image: 1, ocr_engine: "google_cloud_vision" },
                         null,
                         'json'
                     )
                     .done(function(data) {
-                        $('div[id="ocrbuttondiv_' + imagefield + '"]').show();
+                        $('div[id="ocrbuttondiv_' + modifiedimagefield + '"]').show();
                         if (data.status === 0) {
-                            $('div[id="ocrbutton_loading_' + imagefield + '"]').html(lang()["product_js_extracted_" + imagetype + "_ok"]);
-                            var text_id = imagefield.replace(imagetype, imagetype + "_text");
+                            $('div[id="ocrbutton_loading_' + modifiedimagefield + '"]').html(lang()["product_js_extracted_" + imagetype + "_ok"]);
+                            var text_id = modifiedimagefield.replace(imagetype, imagetype + "_text");
                             $("#" + text_id).val(data[imagetype + "_text_from_image"]);
                         } else {
-                            $('div[id="ocrbutton_loading_' + imagefield + '"]').html(lang()["product_js_extracted_" + imagetype + "_nok"]);
+                            $('div[id="ocrbutton_loading_' + modifiedimagefield + '"]').html(lang()["product_js_extracted_" + imagetype + "_nok"]);
                         }
                     })
                     .fail(function() {
-                        $('div[id="ocrbuttondiv_' + imagefield + '"]').show();
-                        $('div[id="ocrbutton_loading_' + imagefield + '"]').html(lang().job_status_failed);
+                        $('div[id="ocrbuttondiv_' + modifiedimagefield + '"]').show();
+                        $('div[id="ocrbutton_loading_' + modifiedimagefield + '"]').html(lang().job_status_failed);
                     })
                     .always(function() {
                         $(document).foundation('equalizer', 'reflow');
@@ -498,31 +499,31 @@ function update_display(imagefield, first_display) {
 
         } else {
 
-            $('div[id="display_' + imagefield + '"]').html(html);
+            $('div[id="display_' + modifiedimagefield + '"]').html(html);
         }
 
-        $("#unselectbutton_" + imagefield).click({ imagefield: imagefield }, function(event) {
+        $("#unselectbutton_" + modifiedimagefield).click({ imagefield: modifiedimagefield }, function(event) {
             event.stopPropagation();
             event.preventDefault();
             // alert(event.data.imagefield);
-            $('div[id="unselectbuttondiv_' + imagefield + '"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_unselecting_image);
+            $('div[id="unselectbuttondiv_' + modifiedimagefield + '"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_unselecting_image);
             $.post(
-                    '/cgi/product_image_unselect.pl', { code: code, id: imagefield },
+                    '/cgi/product_image_unselect.pl', { code: code, id: modifiedimagefield },
                     null,
                     'json'
                 )
                 .done(function(data) {
                     if (data.status_code === 0) {
-                        $('div[id="unselectbuttondiv_' + imagefield + '"]').html(lang().product_js_unselected_image_ok);
-                        delete imagefield_url[imagefield];
+                        $('div[id="unselectbuttondiv_' + modifiedimagefield + '"]').html(lang().product_js_unselected_image_ok);
+                        delete imagefield_url[modifiedimagefield];
                     } else {
-                        $('div[id="unselectbuttondiv_' + imagefield + '"]').html(lang().product_js_unselected_image_nok);
+                        $('div[id="unselectbuttondiv_' + modifiedimagefield + '"]').html(lang().product_js_unselected_image_nok);
                     }
-                    update_display(imagefield, false);
-                    $('div[id="display_' + imagefield + '"]').html('');
+                    update_display(modifiedimagefield, false);
+                    $('div[id="display_' + modifiedimagefield + '"]').html('');
                 })
                 .fail(function() {
-                    $('div[id="unselectbuttondiv_' + imagefield + '"]').html(lang().product_js_unselected_image_nok);
+                    $('div[id="unselectbuttondiv_' + modifiedimagefield + '"]').html(lang().product_js_unselected_image_nok);
                 })
                 .always(function() {
                     $(document).foundation('equalizer', 'reflow');
@@ -716,22 +717,23 @@ function get_recents(tagfield) {
                 var clas= $this.attr("data-info");
 
                 var html = '<ul class="ui-selectable single-selectable">';
-                if(typeof clas === "undefined" || !stringStartsWith(clas, "protect")){
-                $.each(images, function(index, image) {
-                    var selected = '';
-                    imgids[image.imgid] = index;
-                    if (($("input:hidden[name=\"" + id + ".imgid\"]").val()) == image.imgid) {
-                        selected = ' ui-selected';
-                    }
-                    html += '<li id="' + id + '_' + image.imgid + '" class="ui-state-default ui-selectee' + selected + '">';
-                    html += '<img src="' + settings.img_path + image.thumb_url + '" title="' + image.uploaded + ' - ' + image.uploader + '"/>';
+                if(typeof clas === "undefined" || !stringStartsWith(clas, "protect")) {
+                    $.each(images, function(index, image) {
+                        var selected = '';
+                        imgids[image.imgid] = index;
+                        if (($("input:hidden[name=\"" + id + ".imgid\"]").val()) == image.imgid) {
+                            selected = ' ui-selected';
+                        }
+                        html += '<li id="' + id + '_' + image.imgid + '" class="ui-state-default ui-selectee' + selected + '">';
+                        html += '<img src="' + settings.img_path + image.thumb_url + '" title="' + image.uploaded + ' - ' + image.uploader + '"/>';
 
-                    if ((stringStartsWith(id, 'manage')) && (admin)) {
-                        html += '<div class="show_for_manage_images">' + image.uploaded + '<br/>' + image.uploader + '</div>';
-                    }
+                        if ((stringStartsWith(id, 'manage')) && (admin)) {
+                            html += '<div class="show_for_manage_images">' + image.uploaded + '<br/>' + image.uploader + '</div>';
+                        }
 
-                    html += '</li>';
-                });}
+                        html += '</li>';
+                    });
+                }    
                 html += '</ul>';
 
                 if (!stringStartsWith(id, 'manage')) {
