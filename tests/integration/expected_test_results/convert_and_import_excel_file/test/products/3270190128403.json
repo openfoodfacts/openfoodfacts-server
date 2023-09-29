@@ -115,7 +115,7 @@
       "3xxxxxxxxxxxx"
    ],
    "complete" : 0,
-   "completeness" : 0.8,
+   "completeness" : 0.8625,
    "correctors_tags" : [],
    "countries" : "France",
    "countries_hierarchy" : [
@@ -570,6 +570,57 @@
    "generic_name_fr" : "Lentilles",
    "generic_name_fr_imported" : "Lentilles",
    "id" : "3270190128403",
+   "images" : {
+      "1" : {
+         "sizes" : {
+            "100" : {
+               "h" : 92,
+               "w" : 100
+            },
+            "400" : {
+               "h" : 183,
+               "w" : 200
+            },
+            "full" : {
+               "h" : 183,
+               "w" : 200
+            }
+         },
+         "uploaded_t" : "--ignore--",
+         "uploader" : "test-user"
+      },
+      "front_fr" : {
+         "angle" : 0,
+         "coordinates_image_size" : 400,
+         "geometry" : "0x0--1--1",
+         "imgid" : 1,
+         "normalize" : "false",
+         "rev" : 3,
+         "sizes" : {
+            "100" : {
+               "h" : 92,
+               "w" : 100
+            },
+            "200" : {
+               "h" : 183,
+               "w" : 200
+            },
+            "400" : {
+               "h" : 183,
+               "w" : 200
+            },
+            "full" : {
+               "h" : 183,
+               "w" : 200
+            }
+         },
+         "white_magic" : "false",
+         "x1" : -1,
+         "x2" : -1,
+         "y1" : -1,
+         "y2" : -1
+      }
+   },
    "informers_tags" : [
       "test-user"
    ],
@@ -654,10 +705,10 @@
    "lang" : "fr",
    "lang_imported" : "fr",
    "languages" : {
-      "en:french" : 5
+      "en:french" : 6
    },
    "languages_codes" : {
-      "fr" : 5
+      "fr" : 6
    },
    "languages_hierarchy" : [
       "en:french"
@@ -668,6 +719,8 @@
    ],
    "last_edit_dates_tags" : "--ignore--",
    "last_editor" : "test-user",
+   "last_image_dates_tags" : "--ignore--",
+   "last_image_t" : "--ignore--",
    "last_modified_by" : "test-user",
    "last_modified_t" : "--ignore--",
    "lc" : "fr",
@@ -683,6 +736,7 @@
       "auvergne",
       "france"
    ],
+   "max_imgid" : "1",
    "minerals_tags" : [],
    "misc_tags" : [
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
@@ -913,7 +967,9 @@
    "periods_after_opening_tags" : [
       "en:48-months"
    ],
-   "photographers_tags" : [],
+   "photographers_tags" : [
+      "test-user"
+   ],
    "pnns_groups_1" : "Fruits and vegetables",
    "pnns_groups_1_tags" : [
       "fruits-and-vegetables",
@@ -924,7 +980,7 @@
       "vegetables",
       "known"
    ],
-   "popularity_key" : 0,
+   "popularity_key" : 12,
    "producer_product_id" : "xb22-a33",
    "producer_product_id_imported" : "xb22-a33",
    "producer_version_id" : "34",
@@ -933,7 +989,7 @@
    "product_name_fr" : "Lentilles vertes Bio",
    "product_name_fr_imported" : "Lentilles vertes Bio",
    "removed_countries_tags" : [],
-   "rev" : 1,
+   "rev" : 3,
    "sources" : [
       {
          "fields" : [
@@ -971,7 +1027,7 @@
          "url" : null
       }
    ],
-   "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-completed, en:characteristics-to-be-completed, en:origins-completed, en:categories-completed, en:brands-completed, en:packaging-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
+   "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-completed, en:characteristics-to-be-completed, en:origins-completed, en:categories-completed, en:brands-completed, en:packaging-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-validated, en:packaging-photo-to-be-selected, en:nutrition-photo-to-be-selected, en:ingredients-photo-to-be-selected, en:front-photo-selected, en:photos-uploaded",
    "states_hierarchy" : [
       "en:to-be-completed",
       "en:nutrition-facts-completed",
@@ -985,7 +1041,12 @@
       "en:packaging-completed",
       "en:quantity-to-be-completed",
       "en:product-name-completed",
-      "en:photos-to-be-uploaded"
+      "en:photos-to-be-validated",
+      "en:packaging-photo-to-be-selected",
+      "en:nutrition-photo-to-be-selected",
+      "en:ingredients-photo-to-be-selected",
+      "en:front-photo-selected",
+      "en:photos-uploaded"
    ],
    "states_tags" : [
       "en:to-be-completed",
@@ -1000,7 +1061,12 @@
       "en:packaging-completed",
       "en:quantity-to-be-completed",
       "en:product-name-completed",
-      "en:photos-to-be-uploaded"
+      "en:photos-to-be-validated",
+      "en:packaging-photo-to-be-selected",
+      "en:nutrition-photo-to-be-selected",
+      "en:ingredients-photo-to-be-selected",
+      "en:front-photo-selected",
+      "en:photos-uploaded"
    ],
    "stores" : "Carrefour",
    "stores_imported" : "Carrefour",

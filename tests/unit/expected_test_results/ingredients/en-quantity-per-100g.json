@@ -1,0 +1,118 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:tomato",
+         "ingredients" : [
+            {
+               "id" : "en:per",
+               "percent_estimate" : 75,
+               "percent_max" : 100,
+               "percent_min" : 50,
+               "quantity" : "148 g",
+               "quantity_g" : 148,
+               "text" : "per"
+            }
+         ],
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "text" : "tomatoes",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:pork",
+         "ingredients" : [
+            {
+               "id" : "en:per-100-g-of-finished-product",
+               "percent_estimate" : 25,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "quantity" : "200 g",
+               "quantity_g" : 200,
+               "text" : "per 100 g of finished product"
+            }
+         ],
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "pork",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:pork"
+      ],
+      "en:non-vegetarian" : [
+         "en:pork"
+      ],
+      "en:palm-oil-content-unknown" : [
+         "en:per",
+         "en:per-100-g-of-finished-product"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:per",
+         "en:per-100-g-of-finished-product"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:per",
+         "en:per-100-g-of-finished-product"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:tomato",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "en:pork",
+      "en:animal",
+      "en:per",
+      "en:per-100-g-of-finished-product"
+   ],
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:tomato",
+      "en:pork",
+      "en:per",
+      "en:per-100-g-of-finished-product"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:tomato",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "en:pork",
+      "en:animal",
+      "en:per",
+      "en:per-100-g-of-finished-product"
+   ],
+   "ingredients_text" : "tomatoes (148 g per 100g), pork (200 g per 100 g of finished product)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:per",
+      "en:per-100-g-of-finished-product"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "known_ingredients_n" : 5,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 75,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 75,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 75,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 75
+   },
+   "unknown_ingredients_n" : 2
+}
