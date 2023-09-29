@@ -354,7 +354,7 @@ function change_image(imagefield, imgid) {
             )
             .done(function(data) {
                 imagefield_url[imagefield] = data.image.display_url;
-                update_display(imagefield, false);
+                update_display(imagefield, false, false);
                 $('.cropbuttonmsg_' + imagefield).html(lang().product_js_image_saved);
             })
             .fail(function() {
@@ -425,28 +425,21 @@ function update_nutrition_image_copy() {
     }
 }
 
-function update_display(imagefield, first_display) {
+function update_display(imagefield, first_display, protected) {
 
-    var flag=0;
-    var modifiedimagefield = imagefield;
-    if(stringStartsWith(imagefield, "protect")){
-        modifiedimagefield = imagefield.replace(/^protect_/, '');
-       flag=1; 
-    }
-
-    var display_url = imagefield_url[modifiedimagefield];
+    var display_url = imagefield_url[imagefield];
 
     if (display_url) {
 
-        var imagetype = modifiedimagefield.replace(/_\w\w$/, '');
+        var imagetype = imagefield.replace(/_\w\w$/, '');
 
         var html = lang().product_js_current_image + '<br/><img src="' + img_path + display_url + '" />';
         // handling the display of unselect button
-        if(!flag){
-            html += '<div class="button_div" id="unselectbuttondiv_' + modifiedimagefield + '"><button id="unselectbutton_' + modifiedimagefield + '" class="small button" type="button">' + lang().product_js_unselect_image + '</button></div>';
+        if(!protected){
+            html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + lang().product_js_unselect_image + '</button></div>';
         } 
 
-        if (stringStartsWith(modifiedimagefield, 'nutrition')) {
+        if (stringStartsWith(imagefield, 'nutrition')) {
             // width big enough to display a copy next to nutrition table?
             if ($('#nutrition').width() - $('#nutrition_data_table').width() > 405) {
 
@@ -458,38 +451,38 @@ function update_display(imagefield, first_display) {
 
         if ((imagetype == 'ingredients') || (imagetype == 'packaging')) {
 
-            html += '<div id="ocrbutton_loading_' + modifiedimagefield + '"></div><div class="button_div" id="ocrbuttondiv_' + modifiedimagefield + '">' +
-                ' <button id="ocrbuttongooglecloudvision_' + modifiedimagefield + '" class="small button" type="button">' + lang()["product_js_extract_" + imagetype] + '</button></div>';
+            html += '<div id="ocrbutton_loading_' + imagefield + '"></div><div class="button_div" id="ocrbuttondiv_' + imagefield + '">' +
+                ' <button id="ocrbuttongooglecloudvision_' + imagefield + '" class="small button" type="button">' + lang()["product_js_extract_" + imagetype] + '</button></div>';
 
             var full_url = display_url.replace(/\.400\./, ".full.");
-            $('#' + modifiedimagefield + '_image_full').html('<img src="' + img_path + full_url + '" class="' + imagetype + '_image_full"/>');
+            $('#' + imagefield + '_image_full').html('<img src="' + img_path + full_url + '" class="' + imagetype + '_image_full"/>');
 
-            $('div[id="display_' + modifiedimagefield + '"]').html(html);
+            $('div[id="display_' + imagefield + '"]').html(html);
 
-            $("#ocrbuttongooglecloudvision_" + modifiedimagefield).click({ imagefield: modifiedimagefield }, function(event) {
+            $("#ocrbuttongooglecloudvision_" + imagefield).click({ imagefield: imagefield }, function(event) {
                 event.stopPropagation();
                 event.preventDefault();
                 // alert(event.data.imagefield);
-                $('div[id="ocrbutton_loading_' + modifiedimagefield + '"]').html('<img src="/images/misc/loading2.gif" /> ' + lang()["product_js_extracting_" + imagetype]).show();
-                $('div[id="ocrbuttondiv_' + modifiedimagefield + '"]').hide();
+                $('div[id="ocrbutton_loading_' + imagefield + '"]').html('<img src="/images/misc/loading2.gif" /> ' + lang()["product_js_extracting_" + imagetype]).show();
+                $('div[id="ocrbuttondiv_' + imagefield + '"]').hide();
                 $.post(
-                        '/cgi/' + imagetype + '.pl', { code: code, id: modifiedimagefield, process_image: 1, ocr_engine: "google_cloud_vision" },
+                        '/cgi/' + imagetype + '.pl', { code: code, id: imagefield, process_image: 1, ocr_engine: "google_cloud_vision" },
                         null,
                         'json'
                     )
                     .done(function(data) {
-                        $('div[id="ocrbuttondiv_' + modifiedimagefield + '"]').show();
+                        $('div[id="ocrbuttondiv_' + imagefield + '"]').show();
                         if (data.status === 0) {
-                            $('div[id="ocrbutton_loading_' + modifiedimagefield + '"]').html(lang()["product_js_extracted_" + imagetype + "_ok"]);
-                            var text_id = modifiedimagefield.replace(imagetype, imagetype + "_text");
+                            $('div[id="ocrbutton_loading_' + imagefield + '"]').html(lang()["product_js_extracted_" + imagetype + "_ok"]);
+                            var text_id = imagefield.replace(imagetype, imagetype + "_text");
                             $("#" + text_id).val(data[imagetype + "_text_from_image"]);
                         } else {
-                            $('div[id="ocrbutton_loading_' + modifiedimagefield + '"]').html(lang()["product_js_extracted_" + imagetype + "_nok"]);
+                            $('div[id="ocrbutton_loading_' + imagefield + '"]').html(lang()["product_js_extracted_" + imagetype + "_nok"]);
                         }
                     })
                     .fail(function() {
-                        $('div[id="ocrbuttondiv_' + modifiedimagefield + '"]').show();
-                        $('div[id="ocrbutton_loading_' + modifiedimagefield + '"]').html(lang().job_status_failed);
+                        $('div[id="ocrbuttondiv_' + imagefield + '"]').show();
+                        $('div[id="ocrbutton_loading_' + imagefield + '"]').html(lang().job_status_failed);
                     })
                     .always(function() {
                         $(document).foundation('equalizer', 'reflow');
@@ -499,31 +492,31 @@ function update_display(imagefield, first_display) {
 
         } else {
 
-            $('div[id="display_' + modifiedimagefield + '"]').html(html);
+            $('div[id="display_' + imagefield + '"]').html(html);
         }
 
-        $("#unselectbutton_" + modifiedimagefield).click({ imagefield: modifiedimagefield }, function(event) {
+        $("#unselectbutton_" + imagefield).click({ imagefield: imagefield }, function(event) {
             event.stopPropagation();
             event.preventDefault();
             // alert(event.data.imagefield);
-            $('div[id="unselectbuttondiv_' + modifiedimagefield + '"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_unselecting_image);
+            $('div[id="unselectbuttondiv_' + imagefield + '"]').html('<img src="/images/misc/loading2.gif" /> ' + lang().product_js_unselecting_image);
             $.post(
-                    '/cgi/product_image_unselect.pl', { code: code, id: modifiedimagefield },
+                    '/cgi/product_image_unselect.pl', { code: code, id: imagefield },
                     null,
                     'json'
                 )
                 .done(function(data) {
                     if (data.status_code === 0) {
-                        $('div[id="unselectbuttondiv_' + modifiedimagefield + '"]').html(lang().product_js_unselected_image_ok);
-                        delete imagefield_url[modifiedimagefield];
+                        $('div[id="unselectbuttondiv_' + imagefield + '"]').html(lang().product_js_unselected_image_ok);
+                        delete imagefield_url[imagefield];
                     } else {
-                        $('div[id="unselectbuttondiv_' + modifiedimagefield + '"]').html(lang().product_js_unselected_image_nok);
+                        $('div[id="unselectbuttondiv_' + imagefield + '"]').html(lang().product_js_unselected_image_nok);
                     }
-                    update_display(modifiedimagefield, false);
-                    $('div[id="display_' + modifiedimagefield + '"]').html('');
+                    update_display(imagefield, false, protected);
+                    $('div[id="display_' + imagefield + '"]').html('');
                 })
                 .fail(function() {
-                    $('div[id="unselectbuttondiv_' + modifiedimagefield + '"]').html(lang().product_js_unselected_image_nok);
+                    $('div[id="unselectbuttondiv_' + imagefield + '"]').html(lang().product_js_unselected_image_nok);
                 })
                 .always(function() {
                     $(document).foundation('equalizer', 'reflow');
@@ -714,10 +707,10 @@ function get_recents(tagfield) {
 
                 var $this = $(this);
                 var id = $this.attr('id');
-                var clas= $this.attr("data-info");
+                var data_info= $this.attr("data-info");
 
                 var html = '<ul class="ui-selectable single-selectable">';
-                if(typeof clas === "undefined" || !stringStartsWith(clas, "protect")) {
+                if(typeof data_info=== "undefined" || !stringStartsWith(clas, "protect")) {
                     $.each(images, function(index, image) {
                         var selected = '';
                         imgids[image.imgid] = index;
@@ -756,7 +749,7 @@ function get_recents(tagfield) {
                         '</div>';
 
  
-                        if(typeof clas === "undefined" || !stringStartsWith(clas, "protect")){
+                        if(typeof data_info=== "undefined" || !stringStartsWith(clas, "protect")){
                             html+= '<div id="imgsearcherror_' + id + '" data-alert class="alert-box alert" style="display:none">' + lang().product_js_image_upload_error +
                             '<a href="#" class="close">&times;</a>' +
                             '</div>';
@@ -796,11 +789,11 @@ function get_recents(tagfield) {
                 if (!stringStartsWith(id, 'manage')) {
 
                     // handling the display of unselect button
-                    if(typeof clas === "undefined" || !stringStartsWith(clas, "protect")){
-                        update_display(id, true);
+                    if(typeof data_info=== "undefined" || !stringStartsWith(clas, "protect")){
+                        update_display(id, true, false);
                     }
                     else{
-                        update_display("protect_"+id, true);
+                        update_display(id, true, true);
                         
                     }
 
@@ -845,7 +838,7 @@ function get_recents(tagfield) {
                             $("#imgsearchmsg_" + imagefield).hide();
 
                             // showing the message "image recieved" once user uploads the image
-                            if (typeof clas === "string" && stringStartsWith(clas, "protect")) {
+                            if (typeof data_info=== "string" && stringStartsWith(clas, "protect")) {
                               $("#imgsearchmsg_" + imagefield).html(lang().product_js_image_received);
                               $("#imgsearchmsg_" + imagefield).show();
                             }
