@@ -710,7 +710,7 @@ function get_recents(tagfield) {
                 var data_info = $this.attr("data-info");
 
                 var html = '<ul class="ui-selectable single-selectable">';
-                if(typeof data_info === "undefined" || !stringStartsWith(clas, "protect")) {
+                if(typeof data_info === "undefined" || !stringStartsWith(data_info, "protect")) {
                     $.each(images, function(index, image) {
                         var selected = '';
                         imgids[image.imgid] = index;
@@ -749,7 +749,7 @@ function get_recents(tagfield) {
                         '</div>';
 
  
-                        if(typeof data_info === "undefined" || !stringStartsWith(clas, "protect")){
+                        if(typeof data_info === "undefined" || !stringStartsWith(data_info, "protect")){
                             html+= '<div id="imgsearcherror_' + id + '" data-alert class="alert-box alert" style="display:none">' + lang().product_js_image_upload_error +
                             '<a href="#" class="close">&times;</a>' +
                             '</div>';
@@ -789,7 +789,7 @@ function get_recents(tagfield) {
                 if (!stringStartsWith(id, 'manage')) {
 
                     // handling the display of unselect button
-                    if(typeof data_info === "undefined" || !stringStartsWith(clas, "protect")){
+                    if(typeof data_info === "undefined" || !stringStartsWith(data_info, "protect")){
                         update_display(id, true, false);
                     }
                     else{
@@ -838,7 +838,7 @@ function get_recents(tagfield) {
                             $("#imgsearchmsg_" + imagefield).hide();
 
                             // showing the message "image recieved" once user uploads the image
-                            if (typeof data_info === "string" && stringStartsWith(clas, "protect")) {
+                            if (typeof data_info === "string" && stringStartsWith(data_info, "protect")) {
                               $("#imgsearchmsg_" + imagefield).html(lang().product_js_image_received);
                               $("#imgsearchmsg_" + imagefield).show();
                             }
