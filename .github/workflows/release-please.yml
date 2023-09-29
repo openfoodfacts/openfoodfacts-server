@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: release
-        uses: google-github-actions/release-please-action@v3.7.11
+        uses: google-github-actions/release-please-action@v3.7.12
         with:
           # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
           # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
