@@ -111,9 +111,13 @@ sub retrieve_org ($org_id_or_name) {
 
 	$log->debug("retrieve_org", {org_id_or_name => $org_id_or_name, org_id => $org_id}) if $log->is_debug();
 
-	my $org_ref = retrieve("$data_root/orgs/$org_id.sto");
+	if (defined $org_id and $org_id ne "") {
 
-	return $org_ref;
+		my $org_ref = retrieve("$data_root/orgs/$org_id.sto");
+		return $org_ref;
+	}
+
+	return;
 }
 
 =head1 FUNCTIONS
