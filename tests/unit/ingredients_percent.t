@@ -194,11 +194,10 @@ my @tests = (
 	],
 	# parse texts like: "Tomato (160g of tomato per 100g of final product)"
 	[
-		'specific-ingredients-hr',
+		'specific-ingredients-en',
 		{
-			lc => "hr",
-			ingredients_text =>
-				"Šećer, suha smokva (46%) (sumporni dioksid), voda, regulator kiselosti: limunska kiselina, zgušnjivač: voćni pektin. Proizvedeno od 80g voća na 100g gotovog proizvoda. Ukupni šećeri 65g na 100g proizvoda. Ukupni šećeri: 60g na 100g gotovog proizvoda. Proizvedeno od 42 g voća na 100 g gotovog proizvoda."
+			lc => "en",
+			ingredients_text => "water. Total Milk Content 73%."
 		},
 	],
 	[
@@ -214,7 +213,15 @@ my @tests = (
 		{
 			lc => "es",
 			ingredients_text =>
-				"Tomate* (160g de tomate por cada 100g de producto final), melocotón, azúcar moreno de caña integral, zumo de limon. Elabora con 59 g de fruta por 100 g. Contenido total de azúcares 60 g por 100g."
+				"Tomate* (160g de tomate por cada 100g de producto final), melocotón, azúcar moreno de caña integral, zumo de limon. Elabora con 59 g de fruta por 100 g. Contenido total de azúcares 60 g por 100g. 160g de tomate por cada 100g de producto final."
+		},
+	],
+	[
+		'specific-ingredients-hr',
+		{
+			lc => "hr",
+			ingredients_text =>
+				"Šećer, suha smokva (46%) (sumporni dioksid), voda, regulator kiselosti: limunska kiselina, zgušnjivač: voćni pektin. Proizvedeno od 80g voća na 100g gotovog proizvoda. Ukupni šećeri 65g na 100g proizvoda. Ukupni šećeri: 60g na 100g gotovog proizvoda. Proizvedeno od 42 g voća na 100 g gotovog proizvoda."
 		},
 	],
 	[
@@ -230,7 +237,7 @@ my @tests = (
 		{
 			lc => "sv",
 			ingredients_text =>
-				"Lingon 50%*, socker*, vatten, förtjockningsmedel (pektin), surhetsreglerande medel (citronsyra). *KRAV-certifierad ekologisk ingrediens. Fruktmängd: 50g per 100g. Total mängd socker är 35 g per 100 g sylt."
+				"Lingon 50%*, socker*, vatten, förtjockningsmedel (pektin), surhetsreglerande medel (citronsyra). *KRAV-certifierad ekologisk ingrediens. Fruktmängd: 50g per 100g. Total mängd socker är 35 g per 100 g sylt. Fruktmängd: 52g per 100 g sylt. Bärmängd: 40 g bär per 100g. Total mängd socker: 45g per 100g sylt. Total mängd socker 44 g, varav tillsatt socker 41g per 100g sylt."
 		},
 	],
 );

@@ -475,20 +475,25 @@ my %the = (
 # Strings to identify phrases like "75g per 100g of finished product"
 my %per = (
 	en => " per | for ",
+	da => " per ",
 	es => " por | por cada ",
 	fr => " pour | par ",
+	hr => " na ",
 	it => " per ",
 	nl => " per ",
+	sv => "((?: bär)|(?:\, varav tillsatt socker \\d+\s*g))? per ",
 );
 
 my $one_hundred_grams_or_ml = '100\s*(?:g|gr|ml)';
 
 my %of_finished_product = (
 	en => " of (?:finished )?product",
-	es => " de producto(?: terminado)?",
-	fr => " de produit(?: fini)?",
+	es => " de producto(?: terminado| final)?",
+	fr => " (?:de|sur) produit(?: fini)?",
+	hr => " (?:gotovog )?proizvoda",
 	it => " di prodotto(?: finito)?",
 	nl => " van het volledige product",
+	sv => " sylt",
 );
 
 # Labels that we want to recognize in the ingredients
@@ -742,6 +747,18 @@ sub extract_ingredients_from_image ($product_ref, $id, $ocr_engine, $results_ref
 	return;
 }
 
+# string before percent that should be ignored
+# examples: produced with, (amount) of (60g)
+my %ignore_strings_before_percent = (
+	en => "produced with",
+	da => "fremstillet af",
+	es => "elabora con",
+	fr => "préparée avec",
+	hr => "proizvedeno od",
+	nl => "bereid met",
+	sv => "är",
+);
+
 my %min_regexp = (
 	en => "min|min\.|minimum",
 	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
@@ -754,7 +771,7 @@ my %min_regexp = (
 
 my %ignore_strings_after_percent = (
 	en => "of (?:the )?(?:total weight|grain is wholegrain rye)",
-	es => "(?:en el chocolate(?: con leche)?)",
+	es => "(?:en el chocolate(?: con leche)?)|(?:de)",
 	fi => "jauhojen määrästä",
 	fr => "(?:dans le chocolat(?: (?:blanc|noir|au lait))?)|(?:du poids total|du poids)",
 	sv => "fetthalt",
@@ -956,6 +973,19 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 	# as long as we have one match
 	my $ingredient = "start";
 
+	my %total_content_of = (
+		en => "total|min|minimum|content",
+		es => "contenido total de",
+		fr => "teneur (?:totale )?en",
+		hr => "ukupni",
+		sv => "(?:total )?mängd",
+	);
+
+	my $total_content_of = "";
+	if (defined $total_content_of{$ingredients_lc}) {
+		$total_content_of = $total_content_of{$ingredients_lc};
+	}
+
 	while ($ingredient) {
 
 		# Initialize values
@@ -970,261 +1000,77 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 
 		# Regexps should match until we reach a . ; or the end of the text
 
-		if ($ingredients_lc eq "en") {
-			# examples:
-			# Total Milk Content 73%.
+		$log->debug("parse_specific_ingredients_from_text - text: $text") if $log->is_debug();
 
-			if (
+		# text in this order: ingredient - quantity - percent
+		if (
 				(defined $percent_or_quantity_regexp)
-				and ($text
-					=~ /\s*(?:total |min |minimum )?([^,.;]+?)\s+content(?::| )+$percent_or_quantity_regexp\s*(?:$per_100g_regexp(?:[^,.;-]*?))?(?:;|\.| - |$)/i
-				)
-				)
-			{
-				$ingredient = $1;
-				# 2 groups captured by $percent_or_quantity_regexp:
-				$percent_or_quantity_value = $2;
-				$percent_or_quantity_unit = $3;
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
-			}
-
-			# Origin of the milk: United Kingdom
-			elsif (match_origin_of_the_ingredient_origin($ingredients_lc, \$text, $matched_ingredient_ref)) {
-				$origins = $matched_ingredient_ref->{origins};
-				$ingredient = $matched_ingredient_ref->{ingredient};
-				$matched_text = $matched_ingredient_ref->{matched_text};
-				# Remove extra spaces
-				$ingredient =~ s/\s+$//;
-			}
-		}
-		elsif ($ingredients_lc eq "da") {
-			# blabla percent_or_quantity_regexp blabla ingredient blabla 100g
-			# examples:
-			# Fremstillet af 40 g frugt pr. 100 g.
-			if (
-				(defined $percent_or_quantity_regexp)
-				and ($text
-					=~ /\s*(?:Fremstillet af )$percent_or_quantity_regexp\s*([^,.;]+?)(?:per )100\s*g(?:;|\.| - |$)/i)
-				)
-			{
-				# 2 groups captured by $percent_or_quantity_regexp:
-				$percent_or_quantity_value = $1;
-				$percent_or_quantity_unit = $2;
-				$ingredient = $3;    # ([^,.;]+?)
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
-			}
-		}
-		elsif ($ingredients_lc eq "es") {
-			# blabla percent_or_quantity_regexp blabla ingredient blabla 100g
-			# examples:
-			# Elabora con 59 g de fruta por 100 g.
-			if (
-				(defined $percent_or_quantity_regexp)
-				and ($text
-					=~ /\s*(?:elabora con )$percent_or_quantity_regexp\s*(?:de )([^,.;]+?)(?:por )100\s*g(?:;|\.| - |$)/i
-				)
-				)
-			{
-				# 2 groups captured by $percent_or_quantity_regexp:
-				$percent_or_quantity_value = $1;
-				$percent_or_quantity_unit = $2;
-				$ingredient = $3;    # ([^,.;]+?)
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
-			}
-			# similar to previous but in parenthesis and quantity is above 100g
-			# (percent_or_quantity_regexp blabla ingredient blabla 100g blabla)
-			# examples:
-			# 160g de tomate por cada 100g de producto final
-			elsif (
-				(defined $percent_or_quantity_regexp)
-				and ($text
-					=~ /\($percent_or_quantity_regexp\s*(?:de )\s*([^,.;]+?)\s*(?:por cada )100\s*g (?:de producto final)\s*\)/i
-				)
-				)
-			{
-				# 2 groups captured by $percent_or_quantity_regexp:
-				$percent_or_quantity_value = $1;
-				$percent_or_quantity_unit = $2;
-				$ingredient = $3;    # ([^,.;]+?)
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
-			}
-			# blabla ingredient blabla percent_or_quantity_regexp blabla 100g blabla
-			# examples:
-			# Contenido total de azúcares 60 g por 100g.
-			elsif (
-				(defined $percent_or_quantity_regexp)
-				and ($text
-					=~ /\s*(?:contenido total de )([^,.;]+?)\s*$percent_or_quantity_regexp\s*(?:por 100\s*g)(?:;|\.| - |$)/i
-				)
-				)
-			{
-				$ingredient = $1;    # ([^,.;]+?)
-									 # 2 groups captured by $percent_or_quantity_regexp:
-				$percent_or_quantity_value = $2;
-				$percent_or_quantity_unit = $3;
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
-			}
-		}
-		elsif ($ingredients_lc eq "fr") {
-
-			# examples:
-			# Teneur en lait 25% minimum.
-			# Teneur en lactose < 0,01 g/100 g.
-			# Préparée avec 50 g de fruits pour 100 g de produit fini.
-
-			if (
-				(defined $percent_or_quantity_regexp)
-				and ($text
-					=~ /\s*(?:(?:préparé|prepare)(?:e|s|es)? avec)(?: au moins)?(?::| )+$percent_or_quantity_regexp (?:de |d')?([^,.;]+?)\s*(?:$per_100g_regexp(?:[^,.;-]*?))?(?:;|\.| - |$)/i
-				)
-				)
-			{
-				# 2 groups captured by $percent_or_quantity_regexp:
-				$percent_or_quantity_value = $1;
-				$percent_or_quantity_unit = $2;
-				$ingredient = $3;
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
-			}
-
-			# Teneur totale en sucres : 60 g pour 100 g de produit fini.
-			# Teneur en citron de 100%
-			elsif (
-				(defined $percent_or_quantity_regexp)
-				and ($text
-					=~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;]+?)\s*(?:$per_100g_regexp)?(?: de)?(?::| )+$percent_or_quantity_regexp\s*(?:$per_100g_regexp(?:[^,.;]*?))?(?:;|\.| - |$)/i
-				)
-				)
-			{
-				$ingredient = $1;
-				# 2 groups captured by $percent_or_quantity_regexp:
-				$percent_or_quantity_value = $2;
-				$percent_or_quantity_unit = $3;
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
-			}
-
-			# Origine du Cacao: Pérou
-			elsif (match_origin_of_the_ingredient_origin($ingredients_lc, \$text, $matched_ingredient_ref)) {
-				$origins = $matched_ingredient_ref->{origins};
-				$ingredient = $matched_ingredient_ref->{ingredient};
-				$matched_text = $matched_ingredient_ref->{matched_text};
-				# Remove extra spaces
-				$ingredient =~ s/\s+$//;
-			}
-
-		}
-		elsif ($ingredients_lc eq "hr") {
-			# blabla percent_or_quantity_regexp blabla ingredient blabla 100g blabla
-			# examples:
-			# Proizvedeno od 80g voća na 100g gotovog proizvoda.
-			if (
-				(defined $percent_or_quantity_regexp)
-				and ($text
-					=~ /\s*(?:proizvedeno od )$percent_or_quantity_regexp\s*([^,.;]+?)(?:na 100\s*g gotovog proizvoda)(?:;|\.| - |$)/i
-				)
-				)
-			{
-				# 2 groups captured by $percent_or_quantity_regexp:
-				$percent_or_quantity_value = $1;
-				$percent_or_quantity_unit = $2;
-				$ingredient = $3;    # ([^,.;]+?)
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
-			}
-			# blabla ingredient blabla percent_or_quantity_regexp blabla 100g blabla
-			# examples:
-			# Ukupni šećeri 65g na 100g proizvoda
-			elsif (
-				(defined $percent_or_quantity_regexp)
-				and ($text
-					=~ /\s*(?:ukupni )([^,.;]+?)\s*$percent_or_quantity_regexp\s*(?:na 100\s*g\s*(?:gotovog)?\s*proizvoda)(?:;|\.| - |$)/i
-				)
-				)
-			{
-				$ingredient = $1;    # ([^,.;]+?)
-									 # 2 groups captured by $percent_or_quantity_regexp:
-				$percent_or_quantity_value = $2;
-				$percent_or_quantity_unit = $3;
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
-			}
-		}
-		elsif ($ingredients_lc eq "nl") {
-			# blabla percent_or_quantity_regexp blabla ingredient blabla 100g blabla
-			# examples:
-			# Bereid met 50g vruchten per 100g.
-			if (
-				(defined $percent_or_quantity_regexp)
-				and (
-					$text =~ /\s*(?:Bereid met)\s*$percent_or_quantity_regexp([^,.;]+?)(?:per 100\s*g)(?:;|\.| - |$)/i
-					# =~ "Bereid met 50g vruchten per 100g"
-				)
-				)
-			{
-				# 2 groups captured by $percent_or_quantity_regexp:
-				$percent_or_quantity_value = $1;
-				$percent_or_quantity_unit = $2;
-				$ingredient = $3;    # ([^,.;]+?)
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
-			}
-		}
-		elsif ($ingredients_lc eq "sv") {
-			# ingredientblabla percent_or_quantity_regexp blabla
-			# examples:
-			# Fruktmängd: 52g per 100 g sylt.
-			# Bärmängd: 40 g bär per 100g.
-			if (
-				(defined $percent_or_quantity_regexp)
-				and ($text
-					=~ /\s*([^,.;]+?)(?:mängd)\s*$percent_or_quantity_regexp\s*(?:bär )?(?:per 100\s*g\s*(?:sylt)?)(?:;|\.| - |$)/i
-				)
-				)
-			{
-				$ingredient = $1;    # ([^,.;]+?)
-									 # 2 groups captured by $percent_or_quantity_regexp:
-				$percent_or_quantity_value = $2;
-				$percent_or_quantity_unit = $3;
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
-			}
-			# blabla ingredient blabla percent_or_quantity_regexp blabla 100g blabla
-			# examples:
-			# Total mängd socker: 45g per 100g sylt.
-			# Total mängd socker 44 g, varav tillsatt socker 41g per 100g sylt.
-			elsif (
-				(defined $percent_or_quantity_regexp)
-				and (
+			and ($total_content_of ne "")
+			and (
+				(
 					$text
-					# =~ /\s*(?:ukupni )([^,.;]+?)\s*$percent_or_quantity_regexp\s*(?:na 100\s*g\s*(?:gotovog)?\s*proizvoda)(?:;|\.| - |$)/i
-					=~ /\s*(?:total mängd)([^,.;]+?)\s*(?:är )?\s*$percent_or_quantity_regexp\s*(, varav tillsatt socker \d+g )?(?:per 100\s*g\s*(?:sylt)?)(?:;|\.| - |$)/i
+					=~ /\s*(?:$total_content_of)\s*([^,.;]+?)\s*(?:$total_content_of)\s*$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|\.| - |$)/i
 				)
+				|| ($text
+					=~ /\s*([^,.;]+?)\s*(?:$total_content_of)(?::)?\s*$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|\.| - |$)/i
 				)
-			{
-				$ingredient = $1;    # ([^,.;]+?)
-									 # 2 groups captured by $percent_or_quantity_regexp:
-				$percent_or_quantity_value = $2;
-				$percent_or_quantity_unit = $3;
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
+				|| ($text
+					=~ /\s*(?:$total_content_of)\s*([^,.;]+?)\s*$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|\.| - |$)/i
+				)
+			)
+			)
+		{
+			$log->debug("parse_specific_ingredients_from_text - text in this order: ingredient - quantity - percent")
+				if $log->is_debug();
+
+			$ingredient = $1;
+			# 2 groups captured by $percent_or_quantity_regexp:
+			$percent_or_quantity_value = $2;
+			$percent_or_quantity_unit = $3;
+			$matched_text = $&;
+			# Remove the matched text
+			$text = $` . ' ' . $';
+
+			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
+			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
+				if $log->is_debug();
+			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_unit: $percent_or_quantity_unit")
+				if $log->is_debug();
+		}
+		# text in this order: quantity - ingredient - percent
+		elsif (
+			(defined $percent_or_quantity_regexp)
+			# if (    (defined $percent_or_quantity_regexp)
+			and ($text =~ /\s*$percent_or_quantity_regexp\s*([^,.;]+?)\s*(?:$per_100g_regexp)(?:;|\.| - |$)/i)
+			)
+		{
+			$log->debug("parse_specific_ingredients_from_text - text in this order: quantity - ingredient - percent")
+				if $log->is_debug();
+
+			# 2 groups captured by $percent_or_quantity_regexp:
+			$percent_or_quantity_value = $1;
+			$percent_or_quantity_unit = $2;
+			$ingredient = $3;    # ([^,.;]+?)
+			$matched_text = $&;
+			# Remove the matched text
+			$text = $` . ' ' . $';
+
+			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
+			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
+				if $log->is_debug();
+			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_unit: $percent_or_quantity_unit")
+				if $log->is_debug();
+		}
+
+		if (($ingredients_lc eq "en") || ($ingredients_lc eq "fr")) {
+			# Origin of the milk: United Kingdom
+			# Origine du Cacao: Pérou
+			if (match_origin_of_the_ingredient_origin($ingredients_lc, \$text, $matched_ingredient_ref)) {
+				$origins = $matched_ingredient_ref->{origins};
+				$ingredient = $matched_ingredient_ref->{ingredient};
+				$matched_text = $matched_ingredient_ref->{matched_text};
+				# Remove extra spaces
+				$ingredient =~ s/\s+$//;
 			}
 		}
 
@@ -1595,6 +1441,10 @@ sub parse_ingredients_text ($product_ref) {
 
 	my $and = $and{$ingredients_lc} || " and ";
 
+	my $ignore_strings_before_percent = "";
+	if (defined $ignore_strings_before_percent{$ingredients_lc}) {
+		$ignore_strings_before_percent = $ignore_strings_before_percent{$ingredients_lc};
+	}
 	my $min_regexp = "";
 	if (defined $min_regexp{$ingredients_lc}) {
 		$min_regexp = $min_regexp{$ingredients_lc};
@@ -1606,7 +1456,8 @@ sub parse_ingredients_text ($product_ref) {
 
 	# Regular expression to find percent or quantities
 	# $percent_or_quantity_regexp has 2 capturing group: one for the number, and one for the % sign or the unit
-	my $percent_or_quantity_regexp = '(?:<|' . $min_regexp . '|\s|\.|:)*'    # optional minimum, and separators
+	my $percent_or_quantity_regexp = '(?:' . $ignore_strings_before_percent . ' )?'    # optional produced with
+		. '(?:<|' . $min_regexp . '|\s|\.|:)*'    # optional minimum, and separators
 		. '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number, possibly with a dot or comma
 		. '(\%|g|gr|mg|kg|ml|cl|dl|l)\s*'    # % or unit
 		. '(?:' . $min_regexp . '|'    # optional minimum
@@ -1614,7 +1465,7 @@ sub parse_ingredients_text ($product_ref) {
 
 	my $per = $per{$ingredients_lc} || ' per ';
 	my $of_finished_product = $of_finished_product{$ingredients_lc} || '';
-	my $per_100g_regexp = "${per}${one_hundred_grams_or_ml}(?:$of_finished_product)?";
+	my $per_100g_regexp = "(${per}|\/)${one_hundred_grams_or_ml}(?:$of_finished_product)?";
 
 	# Extract phrases related to specific ingredients at the end of the ingredients list
 	$text = parse_specific_ingredients_from_text($product_ref, $text, $percent_or_quantity_regexp, $per_100g_regexp);
@@ -2396,7 +2247,6 @@ sub parse_ingredients_text ($product_ref) {
 
 							'fr' => [
 								'(\%|pourcentage|pourcentages) (.*)(exprim)',
-								'(sur|de) produit fini',    # préparé avec 50g de fruits pour 100g de produit fini
 								'pour( | faire | fabriquer )100'
 								,    # x g de XYZ ont été utilisés pour fabriquer 100 g de ABC
 								'contenir|présence',    # présence exceptionnelle de ... peut contenir ... noyaux etc.
