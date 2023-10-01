@@ -24340,6 +24340,7 @@ ciqual_food_name:fr:Avoine, crue
 <en:oat
 en:oat grain
 es:granos de avena
+de:Haferkerne
 fi:kauranjyvä, kauranjyviä, kauranjyvät
 fr:grains d'avoine
 hr:zobena prekrup
@@ -43539,6 +43540,11 @@ nl:hele frambozen
 # 10@2019-06-07
 
 <en:raspberry
+en:raspberry pieces
+de:Himbeerstücke
+fr:morceaux de framboise, morceaux de framboises
+
+<en:raspberry
 en:organic raspberry
 de:Bio-Himbeere
 fi:luomuvadelma, luomu vadelma
@@ -43633,18 +43639,10 @@ nl:frambozenlikeur
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/raspberry-liqueur
 # 3 products in 2 languages @2018-09-27
 
-<en:raspberry
-en:raspberry jam
-bg:конфитюр от малини
-de:Himbeermarmelade
-fr:confiture de framboise
-wikidata:en:Q11962286
-
 <en:sauce
 en:raspberry sauce
 de:Himbeersauce de:Himbeersoße
 fr:sauce aux framboises, sauce à la framboise, sauce framboise
-
 
 
 ###################################################################################################
@@ -43896,17 +43894,7 @@ es:trozos de fresa, fresa en trozos
 fr:morceaux de fraise
 pl:kawałki truskawek
 
-<en:strawberry
-en:strawberry
-bg:конфитюр от ягоди
-ca:melmelada de maduixa
-de:Erdbeerkonfitüre, Erdbeer-Konfitüre
-es:mermelada de fresa
-fr:Confiture de fraises
-hr:pripavak jagoda
-pl:dżem truskawkowy
-
-<en:strawberry
+#<en:compound
 en:strawberry filling
 bg:ягодов пълнеж, пълнеж от ягоди
 de:Erdbeerfüllung
@@ -86237,11 +86225,29 @@ fi:mustaherukkahillo
 
 # <en:compound
 en:jam
-de:Marmelade de:Konfitüre
+de:Marmelade, Konfitüre
+fr:confiture
 pl:dżem
 ru:джем, повидло, варенье
 vegan:en:maybe
 vegetarian:en:maybe
+
+# <en:compound
+<en:jam
+bg:конфитюр от ягоди
+ca:melmelada de maduixa
+de:Erdbeerkonfitüre, Erdbeer-Konfitüre
+es:mermelada de fresa
+fr:Confiture de fraises
+hr:pripavak jagoda
+pl:dżem truskawkowy
+
+# <en:compound
+<en:jamen:raspberry jam
+bg:конфитюр от малини
+de:Himbeermarmelade
+fr:confiture de framboise
+wikidata:en:Q11962286
 
 #<en:compound
 en:cocoa spread, cocoa cream
