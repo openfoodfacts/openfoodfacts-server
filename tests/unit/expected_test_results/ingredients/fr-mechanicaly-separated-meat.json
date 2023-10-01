@@ -2,17 +2,16 @@
    "ingredients" : [
       {
          "ciqual_food_code" : "36301",
-         "id" : "en:turkey-meat",
+         "id" : "en:mechanically-separated-meat-of-turkey",
          "percent_estimate" : 66.6666666666667,
          "percent_max" : 100,
          "percent_min" : 33.3333333333333,
-         "processing" : "en:mechanically-separated",
-         "text" : "viande de dinde",
+         "text" : "viande de dinde séparée mécaniquement",
          "vegan" : "no",
          "vegetarian" : "no"
       },
       {
-         "id" : "fr:viande-separee-mecaniquement-de-porc",
+         "id" : "en:mechanically-separated-meat-of-pork",
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 50,
          "percent_min" : 0,
@@ -21,48 +20,48 @@
          "vegetarian" : "no"
       },
       {
-         "id" : "fr:viande-separee-mecaniquement-de-poulet",
+         "ciqual_food_code" : "36005",
+         "id" : "en:mechanically-separated-meat-of-chicken",
          "labels" : "en:halal",
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
-         "text" : "viande séparée mecaniquement de poulet"
+         "text" : "viande séparée mecaniquement de poulet",
+         "vegan" : "no",
+         "vegetarian" : "no"
       }
    ],
    "ingredients_analysis" : {
       "en:non-vegan" : [
-         "en:turkey-meat",
-         "fr:viande-separee-mecaniquement-de-porc"
+         "en:mechanically-separated-meat-of-turkey",
+         "en:mechanically-separated-meat-of-pork",
+         "en:mechanically-separated-meat-of-chicken"
       ],
       "en:non-vegetarian" : [
-         "en:turkey-meat",
-         "fr:viande-separee-mecaniquement-de-porc"
-      ],
-      "en:palm-oil-content-unknown" : [
-         "fr:viande-separee-mecaniquement-de-poulet"
-      ],
-      "en:vegan-status-unknown" : [
-         "fr:viande-separee-mecaniquement-de-poulet"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "fr:viande-separee-mecaniquement-de-poulet"
+         "en:mechanically-separated-meat-of-turkey",
+         "en:mechanically-separated-meat-of-pork",
+         "en:mechanically-separated-meat-of-chicken"
       ]
    },
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
+      "en:palm-oil-free",
       "en:non-vegan",
       "en:non-vegetarian"
    ],
    "ingredients_hierarchy" : [
-      "en:turkey-meat",
+      "en:mechanically-separated-meat-of-turkey",
+      "en:meat",
       "en:poultry",
       "en:turkey",
-      "fr:viande-separee-mecaniquement-de-porc",
+      "en:mechanically-separated-meat",
+      "en:turkey-meat",
+      "en:mechanically-separated-meat-of-pork",
       "en:animal",
-      "en:meat",
       "en:pork",
       "en:pork-meat",
-      "fr:viande-separee-mecaniquement-de-poulet"
+      "en:mechanically-separated-meat-of-chicken",
+      "en:chicken",
+      "en:chicken-meat"
    ],
    "ingredients_n" : 3,
    "ingredients_n_tags" : [
@@ -70,21 +69,25 @@
       "1-10"
    ],
    "ingredients_original_tags" : [
-      "en:turkey-meat",
-      "fr:viande-separee-mecaniquement-de-porc",
-      "fr:viande-separee-mecaniquement-de-poulet"
+      "en:mechanically-separated-meat-of-turkey",
+      "en:mechanically-separated-meat-of-pork",
+      "en:mechanically-separated-meat-of-chicken"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
-      "en:turkey-meat",
+      "en:mechanically-separated-meat-of-turkey",
+      "en:meat",
       "en:poultry",
       "en:turkey",
-      "fr:viande-separee-mecaniquement-de-porc",
+      "en:mechanically-separated-meat",
+      "en:turkey-meat",
+      "en:mechanically-separated-meat-of-pork",
       "en:animal",
-      "en:meat",
       "en:pork",
       "en:pork-meat",
-      "fr:viande-separee-mecaniquement-de-poulet"
+      "en:mechanically-separated-meat-of-chicken",
+      "en:chicken",
+      "en:chicken-meat"
    ],
    "ingredients_text" : "viande de dinde séparée mécaniquement, viande séparée mécaniquement de porc, viande séparée mecaniquement de poulet halal",
    "ingredients_with_specified_percent_n" : 0,
@@ -92,11 +95,10 @@
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "fr:viande-separee-mecaniquement-de-porc",
-      "fr:viande-separee-mecaniquement-de-poulet"
+      "en:mechanically-separated-meat-of-pork"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
-   "known_ingredients_n" : 8,
+   "ingredients_without_ciqual_codes_n" : 1,
+   "known_ingredients_n" : 13,
    "lc" : "fr",
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
@@ -104,5 +106,5 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }

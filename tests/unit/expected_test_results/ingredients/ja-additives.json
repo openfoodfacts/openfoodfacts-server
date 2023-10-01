@@ -108,7 +108,7 @@
          "id" : "en:colour",
          "ingredients" : [
             {
-               "id" : "ja:野菜色素",
+               "id" : "en:vegetable-pigment",
                "percent_estimate" : 0.68359375,
                "percent_max" : 12.5,
                "percent_min" : 0,
@@ -122,18 +122,15 @@
       }
    ],
    "ingredients_analysis" : {
-      "en:palm-oil-content-unknown" : [
-         "ja:野菜色素"
-      ],
       "en:vegan-status-unknown" : [
          "en:vitamin-c",
          "en:vitamin-e",
-         "ja:野菜色素"
+         "en:vegetable-pigment"
       ],
       "en:vegetarian-status-unknown" : [
          "en:vitamin-c",
          "en:vitamin-e",
-         "ja:野菜色素"
+         "en:vegetable-pigment"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -159,7 +156,7 @@
       "en:amino-acids",
       "en:vitamin-c",
       "en:vitamin-e",
-      "ja:野菜色素"
+      "en:vegetable-pigment"
    ],
    "ingredients_n" : 14,
    "ingredients_n_tags" : [
@@ -180,7 +177,7 @@
       "en:amino-acids",
       "en:vitamin-c",
       "en:vitamin-e",
-      "ja:野菜色素"
+      "en:vegetable-pigment"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
@@ -201,7 +198,7 @@
       "en:amino-acids",
       "en:vitamin-c",
       "en:vitamin-e",
-      "ja:野菜色素"
+      "en:vegetable-pigment"
    ],
    "ingredients_text" : "増粘剤(加工デンプン、キサンタン)、酢酸Na、トレハロース、加工デンプン、グリシン、調味料(アミノ酸等)、酸化防止剤(V.C,V.E)、着色料(野菜色素)",
    "ingredients_with_specified_percent_n" : 0,
@@ -215,12 +212,12 @@
       "en:e640i",
       "en:modified-starch",
       "en:trehalose",
+      "en:vegetable-pigment",
       "en:vitamin-c",
-      "en:vitamin-e",
-      "ja:野菜色素"
+      "en:vitamin-e"
    ],
    "ingredients_without_ciqual_codes_n" : 9,
-   "known_ingredients_n" : 17,
+   "known_ingredients_n" : 18,
    "lc" : "ja",
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
@@ -228,5 +225,5 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }

@@ -481,7 +481,7 @@ my %per = (
 	hr => " na ",
 	it => " per ",
 	nl => " per ",
-	sv => "((?: bär)|(?:\, varav tillsatt socker \\d+\s*g))? per ",
+	sv => "((?: bär)|(?:\, varav tillsatt socker \\d+\\s*g))? per ",
 );
 
 my $one_hundred_grams_or_ml = '100\s*(?:g|gr|ml)';
