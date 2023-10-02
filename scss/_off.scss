@@ -606,6 +606,14 @@ ul.pagination li a {
   }
 }
 
+@media #{$small-only} {
+  .toggle_food_preferences {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}
+
 .close_food_preferences {
   margin-bottom: 1rem;
 }
