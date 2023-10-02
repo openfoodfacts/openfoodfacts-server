@@ -91,7 +91,7 @@ function generate_preferences_switch_button(preferences_text, checkbox_id) {
 		checked = " checked";
 	}	
 
-	var html = '<div class="flex-grid direction-row" style="margin-right:2rem;">' +
+	var html = '<div class="flex-grid direction-row" style="margin-right:2rem;margin-bottom:1rem;">' +
     '<fieldset class="switch round success unmarged" tabindex="0" id="' + checkbox_id +'_switch" style="align-items:center;margin-right:0.5rem;padding-top:0.1rem;padding-bottom:0.1rem;">' +
     '<input class="preferences_checkboxes" id="' + checkbox_id + '" type="checkbox"' + checked + '>' +
     '<label for="' + checkbox_id +'" class="h-space-tiny" style="margin-top:0"></label></fieldset>' +
@@ -244,7 +244,7 @@ function display_user_product_preferences(target_selected, target_selection_form
 
 		$(target_selection_form).html(
 			'<div class="panel callout">'
-			+ '<div class="edit_button">'
+			+ '<div class="edit_button edit_close_button">'
 			+ '<a class="show_selected button small success round" role="button" tabindex="0">'
 			+ '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">'
 			+ " " + lang().close + '</a></div>'
@@ -257,7 +257,7 @@ function display_user_product_preferences(target_selected, target_selection_form
 			+ attribute_groups_html.join( "" )
 			+ '</ul>'
 			+ '<br><br>'
-			+ '<div class="edit_button">'
+			+ '<div class="edit_button edit_close_button">'
 			+ '<a class="show_selected button small round success" role="button" tabindex="0">'
 			+ '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">'
 			+ " " + lang().close + '</a></div><br><br>'
