@@ -244,7 +244,7 @@ function display_user_product_preferences(target_selected, target_selection_form
 
 		$(target_selection_form).html(
 			'<div class="panel callout">'
-			+ '<div class="edit_button edit_close_button">'
+			+ '<div class="edit_button close_food_preferences">'
 			+ '<a class="show_selected button small success round" role="button" tabindex="0">'
 			+ '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">'
 			+ " " + lang().close + '</a></div>'
@@ -257,7 +257,7 @@ function display_user_product_preferences(target_selected, target_selection_form
 			+ attribute_groups_html.join( "" )
 			+ '</ul>'
 			+ '<br><br>'
-			+ '<div class="edit_button edit_close_button">'
+			+ '<div class="edit_button close_food_preferences">'
 			+ '<a class="show_selected button small round success" role="button" tabindex="0">'
 			+ '<img src="/images/icons/dist/cancel.svg" class="icon" alt="" style="filter:invert(1)">'
 			+ " " + lang().close + '</a></div><br><br>'

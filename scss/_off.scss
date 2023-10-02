@@ -606,6 +606,10 @@ ul.pagination li a {
   }
 }
 
+.close_food_preferences {
+  margin-bottom: 1rem;
+}
+
 html[dir="rtl"] {
   .tab-bar-section.middle {
     left: 0;
@@ -636,9 +640,7 @@ html[dir="rtl"] {
   }
 }
 
-.edit_close_button {
-  margin-bottom: 1rem;
-}
+
 
 .match_icons {
   height: 48px;
