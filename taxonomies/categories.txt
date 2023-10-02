@@ -75161,13 +75161,13 @@ pnns_group_2:en:Meat
 
 #Products containing at least 99% meat according to French regulations. Products with lower meat percentage goes in "Ground meat preparations"
 <en:Meats
-<en:Beef
 en:Ground meats
 de:Hackfleisch
 fr:Viandes hachées
 
 #Should contain products with >99% beef only
 <en:Ground meats
+<en:Beef
 en:Ground beef meats
 de:Rinder-Hackfleisch, Rinderhackfleisch
 fr:Viandes hachées pur bœuf, Viandes hachées de bœuf, viandes hachées de boeuf
@@ -75667,6 +75667,7 @@ pt:Bife
 ru:Говядина
 zh:牛肉
 wikidata:en:Q192628
+wco_hs_heading:en: 02.01
 
 <en:Beef
 de:Bayerisches Rindfleisch, Rindfleisch aus Bayern
@@ -76377,6 +76378,7 @@ zh:鲜马肉
 ciqual_food_code:en:6900
 ciqual_food_name:en:Horse, meat, raw
 ciqual_food_name:fr:Cheval, viande, crue
+wco_hs_heading:en: 02.05
 
 <en:Horse fresh meat
 en:Horse steak
@@ -76415,6 +76417,7 @@ fr:Viande de chèvre
 ja:山羊肉, ヤギ肉
 lt:Ožkiena
 wikidata:en:Q449506
+wco_hs_heading:en: 02.04
 
 <en:Fresh meats
 <en:Goat meat
@@ -77035,7 +77038,7 @@ es:Magro de cerdo cocido en conserva
 
 <en:Pork and its products
 <en:Meats
-en:Pork, Pork meat
+en:Pork, Pork meat, swine, swine meat
 bg:Свинско
 ca:Porc, Carn de porc
 da:Svin, svinekød, gris, grisekød
@@ -77055,6 +77058,7 @@ ru:Свинина
 sv:griskött, fläskkött, gris, fläsk
 tr:Domuz eti
 zh:猪肉
+wco_hs_heading:en: 02.03
 
 # TODO map properly
 #<en:meats
@@ -81456,6 +81460,7 @@ ciqual_food_code:en:21001
 ciqual_food_name:en:Mutton, meat, raw
 ciqual_food_name:fr:Mouton, viande, crue
 wikidata:en:Q14566073
+wco_hs_heading:en: 02.04
 
 <en:sheep meat
 en:Mutton leg
@@ -81504,6 +81509,7 @@ nl:Schapevlezen
 pl:Jagnięcina
 zh:羊肉, 羊, 羊羔, 羊羔肉
 wikidata:en:Q643419
+wco_hs_heading:en: 02.04
 
 <en:Lamb meat
 fr:Souris d'agneau, Souris d'agneau confite
@@ -82092,6 +82098,7 @@ ja:仔牛肉
 nl:Kalfsvlezen
 pl:Cielęcina
 wikidata:en:Q957434
+wco_hs_heading:en: 02.01
 
 <en:Veal meat
 en:veal medallion
