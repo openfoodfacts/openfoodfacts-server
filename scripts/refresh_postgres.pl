@@ -26,10 +26,15 @@ use ProductOpener::Config qw/:all/;
 
 use LWP::UserAgent;
 
-$query_url =~ s/^\s+|\s+$//g;
-my $from = $ARGV[0] || '';
-my $path = "$query_url/importfrommongo?from=$from";
-print STDERR "Importing to $path\n";
-my $ua = LWP::UserAgent->new();
-$ua->get($path);
-print STDERR "Finished\n";
+if (defined $query_url) {
+	$query_url =~ s/^\s+|\s+$//g;
+	my $from = $ARGV[0] || '';
+	my $path = "$query_url/importfrommongo?from=$from";
+	print STDERR "Importing to $path\n";
+	my $ua = LWP::UserAgent->new();
+	$ua->get($path);
+	print STDERR "Finished\n";
+}
+else {
+	print STDERR "QUERY_URL not defined\n";
+}
