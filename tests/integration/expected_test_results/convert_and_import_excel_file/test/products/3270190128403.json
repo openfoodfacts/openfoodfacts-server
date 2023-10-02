@@ -648,6 +648,7 @@
    "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
       "en:green-lentils",
+      "en:vegetable",
       "en:legume",
       "en:pulse",
       "en:lentils"
@@ -664,6 +665,7 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:green-lentils",
+      "en:vegetable",
       "en:legume",
       "en:pulse",
       "en:lentils"
@@ -682,7 +684,7 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "interface_version_created" : "import_csv_file - version 2019/09/17",
-   "known_ingredients_n" : 4,
+   "known_ingredients_n" : 5,
    "labels" : "Organic, EU Organic, FR-BIO-01, AB Agriculture Biologique, Agriculture France",
    "labels_hierarchy" : [
       "en:organic",
@@ -786,8 +788,8 @@
       "energy_value" : 1409,
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100,
       "nova-group" : 1,
       "nova-group_100g" : 1,
       "nova-group_serving" : 1
@@ -845,7 +847,7 @@
          "data" : {
             "energy" : 1409,
             "fiber" : 0,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 100,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
@@ -907,7 +909,7 @@
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 100,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 100,
    "nutrition_score_warning_no_fiber" : 1,
    "origins" : "France",
    "origins_hierarchy" : [
