@@ -1,4 +1,10 @@
 {
+   "additives_n" : 0,
+   "additives_old_n" : 0,
+   "additives_old_tags" : [],
+   "additives_original_tags" : [],
+   "additives_tags" : [],
+   "amino_acids_tags" : [],
    "categories" : "sugars",
    "categories_hierarchy" : [
       "en:sweeteners",
@@ -44,6 +50,9 @@
       "en:vegan",
       "en:vegetarian"
    ],
+   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
       "en:sugar",
       "en:added-sugar",
@@ -64,6 +73,8 @@
       "en:disaccharide"
    ],
    "ingredients_text" : "sugar",
+   "ingredients_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_that_may_be_from_palm_oil_tags" : [],
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
@@ -74,6 +85,7 @@
    "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 3,
    "lc" : "en",
+   "minerals_tags" : [],
    "misc_tags" : [
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
@@ -93,6 +105,7 @@
       "en:nutriscore-2021-better-than-2023",
       "en:nutriscore-2021-d-2023-e"
    ],
+   "nucleotides_tags" : [],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
@@ -206,7 +219,7 @@
                "sugars",
                "saturated_fat",
                "salt",
-               "sweeteners"
+               "non_nutritive_sweeteners"
             ],
             "negative_points" : 20,
             "positive_nutrients" : [
@@ -288,6 +301,7 @@
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
    "nutrition_score_warning_nutriments_estimated" : 1,
+   "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Sugary snacks",
    "pnns_groups_1_tags" : [
       "sugary-snacks",
@@ -298,5 +312,6 @@
       "sweets",
       "known"
    ],
-   "unknown_ingredients_n" : 0
+   "unknown_ingredients_n" : 0,
+   "vitamins_tags" : []
 }

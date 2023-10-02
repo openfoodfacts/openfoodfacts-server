@@ -1,4 +1,10 @@
 {
+   "additives_n" : 0,
+   "additives_old_n" : 0,
+   "additives_old_tags" : [],
+   "additives_original_tags" : [],
+   "additives_tags" : [],
+   "amino_acids_tags" : [],
    "categories" : "dairy drinks",
    "categories_hierarchy" : [
       "en:beverages",
@@ -56,6 +62,9 @@
       "en:non-vegan",
       "en:vegetarian"
    ],
+   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
       "en:fresh-milk",
       "en:dairy",
@@ -83,6 +92,8 @@
       "en:disaccharide"
    ],
    "ingredients_text" : "Fresh milk 80%, sugar",
+   "ingredients_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_that_may_be_from_palm_oil_tags" : [],
    "ingredients_with_specified_percent_n" : 1,
    "ingredients_with_specified_percent_sum" : 80,
    "ingredients_with_unspecified_percent_n" : 1,
@@ -94,6 +105,7 @@
    "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 6,
    "lc" : "en",
+   "minerals_tags" : [],
    "misc_tags" : [
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
@@ -102,6 +114,7 @@
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-d-2023-d"
    ],
+   "nucleotides_tags" : [],
    "nutriments" : {
       "energy_100g" : 3378,
       "fat_100g" : 10,
@@ -180,7 +193,7 @@
                "sugars",
                "saturated_fat",
                "salt",
-               "sweeteners"
+               "non_nutritive_sweeteners"
             ],
             "negative_points" : 16,
             "positive_nutrients" : [
@@ -261,6 +274,7 @@
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 0,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
+   "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Milk and dairy products",
    "pnns_groups_1_tags" : [
       "milk-and-dairy-products",
@@ -271,5 +285,6 @@
       "milk-and-yogurt",
       "known"
    ],
-   "unknown_ingredients_n" : 0
+   "unknown_ingredients_n" : 0,
+   "vitamins_tags" : []
 }

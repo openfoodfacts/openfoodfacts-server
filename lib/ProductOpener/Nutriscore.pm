@@ -718,17 +718,18 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 
 	# Beverages with non-nutritive sweeteners have 4 extra negative points
 	if ($nutriscore_data_ref->{is_beverage}) {
-		if ($nutriscore_data_ref->{has_sweeteners}) {
-			$nutriscore_data_ref->{"sweeteners_points"} = 4;
+		if ($nutriscore_data_ref->{with_non_nutritive_sweeteners}) {
+			$nutriscore_data_ref->{"non_nutritive_sweeteners_points"} = 4;
 		}
 		else {
-			$nutriscore_data_ref->{"sweeteners_points"} = 0;
+			$nutriscore_data_ref->{"non_nutritive_sweeteners_points"} = 0;
 		}
 	}
 
 	# Negative points
 
-	$nutriscore_data_ref->{negative_nutrients} = [$energy, "sugars", $saturated_fat, "salt", "sweeteners"];
+	$nutriscore_data_ref->{negative_nutrients}
+		= [$energy, "sugars", $saturated_fat, "salt", "non_nutritive_sweeteners"];
 	$nutriscore_data_ref->{negative_points} = 0;
 	foreach my $nutrient (@{$nutriscore_data_ref->{negative_nutrients}}) {
 		$nutriscore_data_ref->{negative_points} += ($nutriscore_data_ref->{$nutrient . "_points"} || 0);

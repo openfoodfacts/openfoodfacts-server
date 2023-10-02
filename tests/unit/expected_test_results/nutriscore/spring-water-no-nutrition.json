@@ -99,9 +99,10 @@
                "sugars",
                "saturated_fat",
                "salt",
-               "sweeteners"
+               "non_nutritive_sweeteners"
             ],
             "negative_points" : 0,
+            "non_nutritive_sweeteners_points" : 0,
             "positive_nutrients" : [
                "fruits_vegetables_legumes",
                "fiber",
@@ -111,8 +112,7 @@
             "proteins" : null,
             "salt" : null,
             "saturated_fat" : null,
-            "sugars" : null,
-            "sweeteners_points" : 0
+            "sugars" : null
          },
          "grade" : "a",
          "nutrients_available" : 1,

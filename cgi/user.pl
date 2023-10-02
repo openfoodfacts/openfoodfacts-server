@@ -169,8 +169,7 @@ if ($action eq 'display') {
 	$template_data_ref->{sections} = [];
 
 	if ($user_ref) {
-		push @{$template_data_ref->{sections}},
-			{
+		push @{$template_data_ref->{sections}}, {
 			id => "user",
 			fields => [
 				{
@@ -194,8 +193,15 @@ if ($action eq 'display') {
 					type => "password",
 					label => "password_confirm"
 				},
+				{
+					# this is a honeypot to detect scripts, that fills every fields
+					# this one is hidden in a div and user won't see it
+					field => "faxnumber",
+					type => "honeypot",
+					label => "Do not enter your fax number",
+				},
 			]
-			};
+		};
 
 		# Professional account
 		push @{$template_data_ref->{sections}},
@@ -307,7 +313,11 @@ if ($action eq 'display') {
 
 		$template_data_ref->{accepted_organization} = $user_ref->{org};
 	}
-	elsif ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+	elsif ( (defined $options{product_type})
+		and ($options{product_type} eq "food")
+		and (defined $user_ref->{requested_org})
+		and ($user_ref->{requested_org} ne ""))
+	{
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
 		$template_data_ref->{requested_org_ref} = $requested_org_ref;
 		$template_data_ref->{org_name} = sprintf(lang("add_user_existing_org"), org_name($requested_org_ref));

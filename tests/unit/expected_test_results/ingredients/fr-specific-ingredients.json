@@ -37,12 +37,19 @@
          "ingredients" : [
             {
                "id" : "en:fruit-pectin",
-               "percent_estimate" : 9.375,
+               "percent_estimate" : 4.6875,
                "percent_max" : 25,
                "percent_min" : 0,
                "text" : "pectines de fruits",
                "vegan" : "yes",
                "vegetarian" : "yes"
+            },
+            {
+               "id" : "fr:teneur-totale-en-sucres",
+               "percent_estimate" : 4.6875,
+               "percent_max" : 12.5,
+               "percent_min" : 0,
+               "text" : "Teneur totale en sucres"
             }
          ],
          "percent_estimate" : 9.375,
@@ -51,11 +58,21 @@
          "text" : "gélifiant"
       }
    ],
-   "ingredients_analysis" : {},
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "fr:teneur-totale-en-sucres"
+      ],
+      "en:vegan-status-unknown" : [
+         "fr:teneur-totale-en-sucres"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:teneur-totale-en-sucres"
+      ]
+   },
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan",
-      "en:vegetarian"
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
    ],
    "ingredients_hierarchy" : [
       "en:cane-sugar",
@@ -71,11 +88,12 @@
       "en:lemon-juice",
       "en:gelling-agent",
       "en:fruit-pectin",
-      "en:e440a"
+      "en:e440a",
+      "fr:teneur-totale-en-sucres"
    ],
-   "ingredients_n" : 5,
+   "ingredients_n" : 6,
    "ingredients_n_tags" : [
-      "5",
+      "6",
       "1-10"
    ],
    "ingredients_original_tags" : [
@@ -83,7 +101,8 @@
       "en:apricot",
       "en:concentrated-lemon-juice",
       "en:gelling-agent",
-      "en:fruit-pectin"
+      "en:fruit-pectin",
+      "fr:teneur-totale-en-sucres"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
@@ -100,31 +119,33 @@
       "en:lemon-juice",
       "en:gelling-agent",
       "en:fruit-pectin",
-      "en:e440a"
+      "en:e440a",
+      "fr:teneur-totale-en-sucres"
    ],
    "ingredients_text" : "Sucre de canne*, abricots*, jus de citrons concentré*, gélifiant : pectines de fruits. *biologique.\nPréparée avec 50 grammes de fruits pour 100gr de produit fini.\nPréparé avec 32,5 % de légumes -\nPréparés avec 25,2g de tomates.\nPREPARE AVEC 30% DE TRUC INCONNU.\nTeneur totale en sucres : 60 g pour 100 g de produit fini.\nTeneur en lait: minimum 40%.\nTeneur minimum en jus de fruits 35 grammes pour 100 grammes de produit fini.\nPrésence exceptionnelle possible de noyaux ou de morceaux de noyaux.\nOrigine des abricots: Provence.\nTeneur en citron de 5,5%",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
-   "ingredients_with_unspecified_percent_n" : 4,
+   "ingredients_with_unspecified_percent_n" : 5,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:apricot",
       "en:cane-sugar",
-      "en:fruit-pectin"
+      "en:fruit-pectin",
+      "fr:teneur-totale-en-sucres"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 4,
    "known_ingredients_n" : 14,
    "lc" : "fr",
    "nutriments" : {
-      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 115.7,
-      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 115.7,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 148.2,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 148.2
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 30.7,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 30.7,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 63.2,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 63.2
    },
    "specific_ingredients" : [
       {
-         "id" : "en:fruit",
-         "ingredient" : "fruits",
+         "id" : "fr:fruits-pour-100g-de-produit-fini",
+         "ingredient" : "fruits pour 100g de produit fini",
          "quantity" : "50 g",
          "quantity_g" : 50,
          "text" : "Préparée avec 50 g de fruits pour 100g de produit fini."
@@ -148,24 +169,10 @@
          "text" : "PREPARE AVEC 30% DE TRUC INCONNU."
       },
       {
-         "id" : "en:sugar",
-         "ingredient" : "sucres",
-         "quantity" : "60 g",
-         "quantity_g" : 60,
-         "text" : "Teneur totale en sucres : 60 g pour 100 g de produit fini."
-      },
-      {
          "id" : "en:milk",
          "ingredient" : "lait",
          "percent" : 40,
          "text" : "Teneur en lait: minimum 40%."
-      },
-      {
-         "id" : "en:fruit-juice",
-         "ingredient" : "jus de fruits",
-         "quantity" : "35 g",
-         "quantity_g" : 35,
-         "text" : "Teneur minimum en jus de fruits 35 g pour 100 g de produit fini."
       },
       {
          "id" : "en:lemon",
@@ -180,5 +187,5 @@
          "text" : "Origine des abricots: Provence."
       }
    ],
-   "unknown_ingredients_n" : 0
+   "unknown_ingredients_n" : 1
 }

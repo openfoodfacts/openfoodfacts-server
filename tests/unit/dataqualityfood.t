@@ -1094,5 +1094,128 @@ check_quality_and_test_product_has_quality_tag(
 	'en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients',
 	'We expect the ingredient given in the taxonomy for this product', 0
 );
-
+# vegan label but non-vegan ingredients
+# unknown ingredient -> warnings
+$product_ref = {
+	labels_tags => ["en:vegetarian", "en:vegan",],
+	ingredients => [
+		{
+			id => "en:lentils",
+			vegan => "yes",
+			vegetarian => "yes"
+		},
+		{
+			id => "en:green-bell-pepper",
+			vegan => "yes",
+			vegetarian => "yes"
+		},
+		{
+			id => "en:totoro",
+		}
+	],
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegan-label-but-non-vegan-ingredient',
+	'raise error only when vegan is no and label is vegan', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegetarian-label-but-non-vegetarian-ingredient',
+	'raise error only when vegetarian is no and label is vegan', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegan-label-but-could-not-confirm-for-all-ingredients',
+	'raise warning because vegan or non-vegan is unknown for an ingredient', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
+	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 1
+);
+# non-vegan/non-vegetarian ingredient -> error
+$product_ref = {
+	labels_tags => ["en:vegetarian", "en:vegan",],
+	ingredients => [
+		{
+			id => "en:lentils",
+			vegan => "yes",
+			vegetarian => "yes"
+		},
+		{
+			id => "en:green-bell-pepper",
+			vegan => "yes",
+			vegetarian => "yes"
+		},
+		{
+			id => "en:chicken",
+			vegan => "no",
+			vegetarian => "no"
+		}
+	],
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegan-label-but-non-vegan-ingredient',
+	'raise error only when vegan is no and label is vegan', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegetarian-label-but-non-vegetarian-ingredient',
+	'raise error only when vegetarian is no and label is vegan', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegan-label-but-could-not-confirm-for-all-ingredients',
+	'raise warning because vegan or non-vegan is unknown for an ingredient', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
+	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 0
+);
+# non-vegan/vegatarian ingredient -> error
+$product_ref = {
+	labels_tags => ["en:vegetarian", "en:vegan",],
+	ingredients => [
+		{
+			id => "en:lentils",
+			vegan => "yes",
+			vegetarian => "yes"
+		},
+		{
+			id => "en:green-bell-pepper",
+			vegan => "yes",
+			vegetarian => "yes"
+		},
+		{
+			id => "en:honey",
+			vegan => "no",
+			vegetarian => "yes"
+		}
+	],
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegan-label-but-non-vegan-ingredient',
+	'raise error only when vegan is no and label is vegan', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegetarian-label-but-non-vegetarian-ingredient',
+	'raise error only when vegetarian is no and label is vegan', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegan-label-but-could-not-confirm-for-all-ingredients',
+	'raise warning because vegan or non-vegan is unknown for an ingredient', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
+	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 0
+);
 done_testing();

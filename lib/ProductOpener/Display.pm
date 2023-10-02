@@ -571,6 +571,12 @@ sub init_request ($request_ref = {}) {
 	# Initialize the request object
 	$request_ref->{referer} = referer();
 	$request_ref->{original_query_string} = $ENV{QUERY_STRING};
+	# Get the cgi script path if the URL was to a /cgi/ script
+	# unset it if it is /cgi/display.pl (default route for non /cgi/ scripts)
+	$request_ref->{script_name} = $ENV{SCRIPT_NAME};
+	if ($request_ref->{script_name} eq "/cgi/display.pl") {
+		delete $request_ref->{script_name};
+	}
 
 	# Depending on web server configuration, we may get or not get a / at the start of the QUERY_STRING environment variable
 	# remove the / to normalize the query string, as we use it to build some redirect urls
@@ -682,10 +688,13 @@ sub init_request ($request_ref = {}) {
 			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country})
 			if $log->is_debug();
 	}
-	elsif ($request_ref->{original_query_string} !~ /^(cgi|api)\//) {
+	elsif ($request_ref->{original_query_string} !~ /^api\//) {
 		# redirect
-		my $redirect_url = get_world_subdomain() . '/' . $request_ref->{original_query_string};
-		$log->info("request could not be matched to a known format, redirecting",
+		my $redirect_url
+			= get_world_subdomain()
+			. ($request_ref->{script_name} ? $request_ref->{script_name} . "?" : '/')
+			. $request_ref->{original_query_string};
+		$log->info("request could not be matched to a known country, redirecting to world",
 			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url})
 			if $log->is_info();
 		redirect_to_url($request_ref, 302, $redirect_url);
@@ -708,11 +717,14 @@ sub init_request ($request_ref = {}) {
 		and ($subdomain ne $cc)
 		and ($subdomain !~ /^(ssl-)?api/)
 		and ($r->method() eq 'GET')
-		and ($request_ref->{original_query_string} !~ /^(cgi|api)\//))
+		and ($request_ref->{original_query_string} !~ /^api\//))
 	{
 		# redirect
 		my $ccdom = format_subdomain($cc);
-		my $redirect_url = $ccdom . '/' . $request_ref->{original_query_string};
+		my $redirect_url
+			= $ccdom
+			. ($request_ref->{script_name} ? $request_ref->{script_name} . "?" : '/')
+			. $request_ref->{original_query_string};
 		$log->info(
 			"lc is equal to first lc of the country, redirecting to countries main domain",
 			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url}
@@ -1209,7 +1221,7 @@ sub display_text ($request_ref) {
 
 	$request_ref->{page_type} = "text";
 
-	if ($textid eq 'open-food-facts-mobile-app') {
+	if ($textid =~ /open-food-facts-mobile-app|application-mobile-open-food-facts/) {
 		# we want the mobile app landing page to be included in a <div class="row">
 		# so we display it under the `banner` page format, which is the page format
 		# used on product pages, with a colored banner on top
@@ -5132,8 +5144,43 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 	}
 	# - if we use user preferences, we need a lot of fields to compute product attributes: load them all
 	elsif ($request_ref->{user_preferences}) {
-		# when product attributes become more stable, we could try to restrict the fields
-		$fields_ref = {};
+		# we restrict the fields that are queried to MongoDB, and use the basic ones and those necessary
+		# by Attributes.pm to compute attributes.
+		# This list should be updated if new attributes are added.
+		$fields_ref = {
+			# generic fields
+			"owner" => 1,    # needed on pro platform to generate the images urls
+			"lc" => 1,
+			"code" => 1,
+			"product_name" => 1,
+			"product_name_$lc" => 1,
+			"generic_name" => 1,
+			"generic_name_$lc" => 1,
+			"abbreviated_product_name" => 1,
+			"abbreviated_product_name_$lc" => 1,
+			"brands" => 1,
+			"images" => 1,
+			"quantity" => 1,
+			# fields necessary for personal search
+			"additives_n" => 1,
+			"allergens_tags" => 1,
+			"categories_tags" => 1,
+			"ecoscore_data" => 1,
+			"ecoscore_grade" => 1,
+			"ecoscore_score" => 1,
+			"forest_footprint_data" => 1,
+			"ingredients_analysis_tags" => 1,
+			"ingredients_n" => 1,
+			"labels_tags" => 1,
+			"nova_group" => 1,
+			"nutrient_levels" => 1,
+			"nutriments" => 1,
+			"nutriscore_data" => 1,
+			"nutriscore_grade" => 1,
+			"nutrition_grades" => 1,
+			"traces_tags" => 1,
+			"unknown_ingredients_n" => 1
+		};
 	}
 	else {
 		#for HTML, limit the fields we retrieve from MongoDB
@@ -7500,7 +7547,7 @@ HTML
 
 			if (-e "$www_root/images/products/$path/$filename.full.json") {
 				$html .= <<HTML
-<a href="/images/products/$path/$filename.full.json">OCR result</a>
+<a href="$images_subdomain/images/products/$path/$filename.full.json">OCR result</a>
 HTML
 					;
 			}

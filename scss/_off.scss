@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // Fonts
 
 // From https://google-webfonts-helper.herokuapp.com/fonts/public-sans?subsets=latin,latin-ext,vietnamese :
@@ -142,7 +144,6 @@ $evaluation-unknown-color: #4f4f4f;
   max-width: 100%;
 }
 
-//
 hr.floatclear {
   background: none;
   border: 0;
@@ -706,32 +707,32 @@ html[dir="rtl"] {
 
 .product_banner_does_not_match {
   color: $grade-e-color;
-  background-color: scale-color($grade-e-color, $lightness: 50%);
+  background-color: color.scale($grade-e-color, $lightness: 50%);
 }
 
 .product_banner_may_not_match {
   color: $grade-d-color;
-  background-color: scale-color($grade-d-color, $lightness: 50%);
+  background-color: color.scale($grade-d-color, $lightness: 50%);
 }
 
 .product_banner_unknown_match {
   color: #888;
-  background-color: scale-color(#888, $lightness: 50%);
+  background-color: color.scale(#888, $lightness: 50%);
 }
 
 .product_banner_poor_match {
   color: $grade-c-color;
-  background-color: scale-color($grade-c-color, $lightness: 50%);
+  background-color: color.scale($grade-c-color, $lightness: 50%);
 }
 
 .product_banner_good_match {
   color: $grade-b-color;
-  background-color: scale-color($grade-b-color, $lightness: 50%);
+  background-color: color.scale($grade-b-color, $lightness: 50%);
 }
 
 .product_banner_very_good_match {
   color: $grade-a-color;
-  background-color: scale-color($grade-a-color, $lightness: 50%);
+  background-color: color.scale($grade-a-color, $lightness: 50%);
 }
 
 #match_title {
@@ -765,32 +766,32 @@ html[dir="rtl"] {
 
 .match_status_does_not_match {
   color: $grade-e-color;
-  background-color: scale-color($grade-e-color, $lightness: 75%);
+  background-color: color.scale($grade-e-color, $lightness: 75%);
 }
 
 .match_status_may_not_match {
   color: $grade-d-color;
-  background-color: scale-color($grade-d-color, $lightness: 75%);
+  background-color: color.scale($grade-d-color, $lightness: 75%);
 }
 
 .match_status_unknown_match {
   color: #888;
-  background-color: scale-color(#888, $lightness: 75%);
+  background-color: color.scale(#888, $lightness: 75%);
 }
 
 .match_status_poor_match {
   color: $grade-c-color;
-  background-color: scale-color($grade-c-color, $lightness: 75%);
+  background-color: color.scale($grade-c-color, $lightness: 75%);
 }
 
 .match_status_good_match {
   color: $grade-b-color;
-  background-color: scale-color($grade-b-color, $lightness: 75%);
+  background-color: color.scale($grade-b-color, $lightness: 75%);
 }
 
 .match_status_very_good_match {
   color: $grade-a-color;
-  background-color: scale-color($grade-a-color, $lightness: 75%);
+  background-color: color.scale($grade-a-color, $lightness: 75%);
 }
 
 .match_score_does_not_match {
@@ -1104,7 +1105,6 @@ a.grade_e:hover {
   padding-bottom: 2rem;
 }
 
-@import "cards";
 @include foundation-card;
 
 ////
@@ -1137,6 +1137,7 @@ span.ico-bold {
   font-variation-settings: "wght" 700;
 }
 
+@import "cards";
 @import "topbar";
 @import "footer";
 @import "product-list";
@@ -1416,6 +1417,7 @@ $section-cyan: #008c8c;
   font-weight: 700;
   // override color as it is not black due to our choice of $dark
   color: $black !important;
+  font-variant-ligatures: none;
 }
 
 
@@ -1429,7 +1431,6 @@ $section-cyan: #008c8c;
   border-radius: 5px;
   text-transform: uppercase;
   display: inline-block;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
 
   &.orange {
     background-color: $off-orange;
@@ -1617,7 +1618,7 @@ a.panel_title {
 }
 
 .button:focus, .button:hover, button:focus, button:hover {
-    background-color: scale-color($button-bg-color, $lightness: -$button-function-factor / 2);
+    background-color: color.scale($button-bg-color, $lightness: $button-function-factor * -0.5);
     color: #fff;
 }
 
@@ -1641,6 +1642,7 @@ a.panel_title {
 #app-landing-page {
   // use Plus Jakarta Sans everywhere
   font-family: "Plus Jakarta Sans", $font-family-sans-serif;
+  font-variant-ligatures: none;
 
   .highlight-label {
   // make the highlighted labels smaller
