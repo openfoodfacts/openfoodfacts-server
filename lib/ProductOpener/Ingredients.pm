@@ -754,7 +754,7 @@ my %ignore_strings_before_percent = (
 	en => "produced with",
 	da => "fremstillet af",
 	es => "elabora con",
-	fr => "préparée avec",
+	fr => "pr(?:é|e)par(?:é|e)(?:e|s)? avec",
 	hr => "proizvedeno od",
 	nl => "bereid met",
 	sv => "är",
@@ -774,7 +774,7 @@ my %ignore_strings_after_percent = (
 	en => "of (?:the )?(?:total weight|grain is wholegrain rye)",
 	es => "(?:en el chocolate(?: con leche)?)|(?:de)",
 	fi => "jauhojen määrästä",
-	fr => "(?:dans le chocolat(?: (?:blanc|noir|au lait))?)|(?:du poids total|du poids)",
+	fr => "(?:dans le chocolat(?: (?:blanc|noir|au lait))?)|(?:du poids total|du poids)|(?:de)",
 	sv => "fetthalt",
 );
 
@@ -977,7 +977,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 	my %total_content_of = (
 		en => "total|min|minimum|content",
 		es => "contenido total de",
-		fr => "teneur (?:totale )?en",
+		fr => "teneur (?:totale |minimum )?en",
 		hr => "ukupni",
 		sv => "(?:total )?mängd",
 	);
@@ -1042,7 +1042,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		elsif (
 			(defined $percent_or_quantity_regexp)
 			# if (    (defined $percent_or_quantity_regexp)
-			and ($text =~ /\s*$percent_or_quantity_regexp\s*([^,.;]+?)\s*(?:$per_100g_regexp)(?:;|\.| - |$)/i)
+			and ($text =~ /\s*$percent_or_quantity_regexp\s*([^,.;]+?)\s*(?:$per_100g_regexp)?(?:;|\.| - |$)/i)
 			)
 		{
 			$log->debug("parse_specific_ingredients_from_text - text in this order: quantity - ingredient - percent")
