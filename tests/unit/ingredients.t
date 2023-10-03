@@ -625,6 +625,45 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			ingredients_text => "tomates (148 g par 100g), porc (200 gr par 100 g de produit fini)",
 		}
 	],
+	[
+		"en-content-of-ingredient",
+		{
+			lc => "en",
+			ingredients_text => "total content of milk 80%, content of fruits 120g per 100g"
+		}
+	],
+	[
+		"en-ingredient-content",
+		{
+			lc => "en",
+			ingredients_text =>
+				"strawberry content: 5%, min cocoa content: 40,3g, total milk content minimum 30%, fruit content: 10%; apples content 50.20g per 100g of product"
+		}
+	],
+	[
+		"en-prepared-with",
+		{
+			lc => "en",
+			ingredients_text => "70g of onions per 100g, prepared with 100g of cucumber per 100g of product,
+				made with 150 g of tomatoes per 100ml, prepared with: 50% of potatoes"
+		}
+	],
+	[
+		"fr-content-of-ingredient",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Taux minimum de légumes : 30%, teneur minimale en lait de 14% - teneur totale de fruits 15%"
+		}
+	],
+	[
+		"fr-prepared-with",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Elaboré avec 50g d'abricots, produit avec 30% d'asperges, fabriquée avec 500g de viande pour 100g, préparé à partir de 140 g de tomates pour 100g de produit"
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

@@ -748,13 +748,12 @@ sub extract_ingredients_from_image ($product_ref, $id, $ocr_engine, $results_ref
 	return;
 }
 
-# string before percent that should be ignored
-# examples: produced with, (amount) of (60g)
-my %ignore_strings_before_percent = (
-	en => "produced with",
+# prepared with
+my %prepared_with = (
+	en => "(?:made|prepared|produced) with",
 	da => "fremstillet af",
 	es => "elabora con",
-	fr => "préparée avec",
+	fr => "(?:élaboré|Elaboré|fabriqué|préparé|produit)(?:e)?(?:s)? (?:avec|à partir)",
 	hr => "proizvedeno od",
 	nl => "bereid met",
 	sv => "är",
@@ -974,18 +973,32 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 	# as long as we have one match
 	my $ingredient = "start";
 
-	my %total_content_of = (
-		en => "total|min|minimum|content",
-		es => "contenido total de",
-		fr => "teneur (?:totale )?en",
-		hr => "ukupni",
-		sv => "(?:total )?mängd",
+	# total or minimum
+	my %minimum_or_total = (
+		en => "min|minimum|total",
+		es => "total",
+		fr => "min|minimum|minimal|minimale|total|totale",
+		sv => "total",
 	);
+	my $minimum_or_total = $minimum_or_total{$ingredients_lc} || '';
 
-	my $total_content_of = "";
-	if (defined $total_content_of{$ingredients_lc}) {
-		$total_content_of = $total_content_of{$ingredients_lc};
-	}
+	# followed by an ingredient (e.g. "total content of fruit")
+	my %content_of_ingredient = (
+		en => "(?:(?:$minimum_or_total) )?content",
+		es => "contenido(?: (?:$minimum_or_total))",
+		fr => "(?:teneur|taux)(?: (?:$minimum_or_total))?(?: en)?",   # need to have " en" as it's not in the $of regexp
+		hr => "ukupni",
+		sv => "(?:(?:$minimum_or_total) )?mängd",
+	);
+	my $content_of_ingredient = $content_of_ingredient{$ingredients_lc};
+
+	my $of = $of{$ingredients_lc} || ' ';    # default to space in order to not match an empty string
+
+	# following an ingredient (e.g. "milk content")
+	my %ingredient_content = (en => "content",);
+	my $ingredient_content = $ingredient_content{$ingredients_lc};
+
+	my $prepared_with = $prepared_with{$ingredients_lc} || '';
 
 	while ($ingredient) {
 
@@ -999,38 +1012,52 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		# Note: in regular expressions below, use non-capturing groups (starting with (?: )
 		# for all groups, except groups that capture actual data: ingredient name, percent, origins
 
-		# Regexps should match until we reach a . ; or the end of the text
+		# Regexps should match until we reach a , . ; - or the end of the text
 
 		$log->debug("parse_specific_ingredients_from_text - text: $text") if $log->is_debug();
 
 		# text in this order: ingredient - quantity - percent
+		# e.g.
+		# - minimum content of fruit : 150g
+		# - fruit content: minimum 80%
+		# - total fruit content: 150g per 100g
 		if (
-				(defined $percent_or_quantity_regexp)
-			and ($total_content_of ne "")
+			(defined $percent_or_quantity_regexp)
 			and (
 				(
-					$text
-					=~ /\s*(?:$total_content_of)\s*([^,.;]+?)\s*(?:$total_content_of)\s*$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|\.| - |$)/i
+					# fruit content: 50%, minimum fruit content 40g per 100g
+
+					(defined $ingredient_content)
+					# optional minimum, followed by ingredient, content, : and/or spaces, percent or quantity, optional per 100g, separator
+					and ($text
+						=~ /((?:^|;|,|\.| - )\s*)(?:(?:$minimum_or_total) )?\s*([^,.;]+?)\s+(?:$ingredient_content)*(?::|\s)+$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+					)
+
 				)
-				|| ($text
-					=~ /\s*([^,.;]+?)\s*(?:$total_content_of)(?::)?\s*$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|\.| - |$)/i
+				or (
+					# minimum content of fruit: 150% / content of fruit: 150g per 100g of finished product
+					(defined $content_of_ingredient)
+					and (
+						# content, of or : or space, ingredient, percent or quantity, optional per 100g, separator
+						$text
+						=~ /((?:^|;|,|\.| - )\s*)(?:$content_of_ingredient)(?:$of|\s|:)+([^,.;]+?)\s+$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+					)
 				)
-				|| ($text
-					=~ /\s*(?:$total_content_of)\s*([^,.;]+?)\s*$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|\.| - |$)/i
-				)
+
 			)
 			)
 		{
 			$log->debug("parse_specific_ingredients_from_text - text in this order: ingredient - quantity - percent")
 				if $log->is_debug();
 
-			$ingredient = $1;
+			my $before = $1;
+			$ingredient = $2;
 			# 2 groups captured by $percent_or_quantity_regexp:
-			$percent_or_quantity_value = $2;
-			$percent_or_quantity_unit = $3;
+			$percent_or_quantity_value = $3;
+			$percent_or_quantity_unit = $4;
 			$matched_text = $&;
 			# Remove the matched text
-			$text = $` . ' ' . $';
+			$text = $` . $1 . ' ' . $';
 
 			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
 			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
@@ -1039,22 +1066,42 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				if $log->is_debug();
 		}
 		# text in this order: quantity - ingredient - percent
+		# e.g.
+		# - 75g of tomatoes per 100g
+		# - prepared with 60g of fruits
+		# - prepared with 40g of fruits per 100g of finished product
 		elsif (
 			(defined $percent_or_quantity_regexp)
-			# if (    (defined $percent_or_quantity_regexp)
-			and ($text =~ /\s*$percent_or_quantity_regexp\s*([^,.;]+?)\s*(?:$per_100g_regexp)(?:;|\.| - |$)/i)
+			and (
+				# if the string does not start with "prepared with", it needs to finish with "per 100g",
+				# otherwise we will match items that could be part of the ingredients list such as "75% of tomatoes
+
+				# prepared with, percent, ingredient, optional per 100g, separator
+				# $of needs to be first in (?:$of|\s|:) so that " of " is matched by it, instead of the ingredient capturing group
+				(
+					$text
+					=~ /((?:^|;|,|\.| - )\s*)$prepared_with(?:$of|\s|:)+$percent_or_quantity_regexp(?:$of|\s|:)+\s*([^,.;]+?)\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+				)
+				or
+				# percent, ingredient, per 100g, separator
+				(
+					$text
+					=~ /((?:^|;|,|\.| - )\s*)$percent_or_quantity_regexp(?:$of|\s|:)+\s*([^,.;]+?)\s*(?:$per_100g_regexp)(?:;|,|\.| - |$)/i
+				)
+			)
 			)
 		{
 			$log->debug("parse_specific_ingredients_from_text - text in this order: quantity - ingredient - percent")
 				if $log->is_debug();
 
+			my $before = $1;
 			# 2 groups captured by $percent_or_quantity_regexp:
-			$percent_or_quantity_value = $1;
-			$percent_or_quantity_unit = $2;
-			$ingredient = $3;    # ([^,.;]+?)
+			$percent_or_quantity_value = $2;
+			$percent_or_quantity_unit = $3;
+			$ingredient = $4;    # ([^,.;]+?)
 			$matched_text = $&;
 			# Remove the matched text
-			$text = $` . ' ' . $';
+			$text = $` . $1 . ' ' . $';
 
 			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
 			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
@@ -1081,6 +1128,9 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				= get_taxonomyid($ingredients_lc,
 				canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient));
 
+			# remove starting or ending separators in matched text
+			$matched_text =~ s/^(;|,|\.| - |\s)+//;
+			$matched_text =~ s/(;|,|\.| - |\s)+$//;
 			$matched_text =~ s/^\s+//;
 
 			my $specific_ingredients_ref = {
@@ -1442,22 +1492,15 @@ sub parse_ingredients_text ($product_ref) {
 
 	my $and = $and{$ingredients_lc} || " and ";
 
-	my $ignore_strings_before_percent = "";
-	if (defined $ignore_strings_before_percent{$ingredients_lc}) {
-		$ignore_strings_before_percent = $ignore_strings_before_percent{$ingredients_lc};
-	}
-	my $min_regexp = "";
-	if (defined $min_regexp{$ingredients_lc}) {
-		$min_regexp = $min_regexp{$ingredients_lc};
-	}
-	my $ignore_strings_after_percent = "";
-	if (defined $ignore_strings_after_percent{$ingredients_lc}) {
-		$ignore_strings_after_percent = $ignore_strings_after_percent{$ingredients_lc};
-	}
+	my $prepared_with = $prepared_with{$ingredients_lc} || '',
+
+		my $min_regexp = $min_regexp{$ingredients_lc} || '';
+
+	my $ignore_strings_after_percent = $ignore_strings_after_percent{$ingredients_lc} || '';
 
 	# Regular expression to find percent or quantities
 	# $percent_or_quantity_regexp has 2 capturing group: one for the number, and one for the % sign or the unit
-	my $percent_or_quantity_regexp = '(?:' . $ignore_strings_before_percent . ' )?'    # optional produced with
+	my $percent_or_quantity_regexp = '(?:' . "(?:$prepared_with )" . ' )?'    # optional produced with
 		. '(?:<|' . $min_regexp . '|\s|\.|:)*'    # optional minimum, and separators
 		. '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number, possibly with a dot or comma
 		. '(\%|g|gr|mg|kg|ml|cl|dl|l)\s*'    # % or unit
