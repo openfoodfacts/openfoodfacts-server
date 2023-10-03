@@ -843,10 +843,9 @@ is(
 	"no"
 );
 
-
 # Test get_knowledge_content subroutine
 
-# a match is expected here, as lang-default/fr/knowledge_panels/en_e100_world.html exists
+# a match is expected here, as lang-default/fr/knowledge_panels/additives/en_e100_world.html exists
 is(
 	get_knowledge_content("additives", "en:e100", "fr", "world"),
 	"<p>La curcumine ne présente pas de risques connus pour la santé.</p>"
@@ -857,9 +856,6 @@ is(
 	"<p>La curcumine ne présente pas de risques connus pour la santé.</p>"
 );
 # No content exists for en language, undef is expected
-is(
-	get_knowledge_content("additives", "en:e100", "en", "world"),
-	undef
-);
+is(get_knowledge_content("additives", "en:e100", "en", "world"), undef);
 
 done_testing();

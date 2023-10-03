@@ -4937,53 +4937,51 @@ sub cmp_taxonomy_tags_alphabetically ($tagtype, $target_lc, $a, $b) {
 		cmp($translations_to{$tagtype}{$b}{$target_lc} || $translations_to{$tagtype}{$b}{"xx"} || $b);
 }
 
-
-=head2 get_knowledge_content ($tag_type, $tag, $lang_id, $country_code)
+=head2 get_knowledge_content ($tagtype, $tagid, $target_lc, $target_cc)
 
 Fetch knowledge content as HTML about additive, categories,...
 
 This content is used in knowledge panels.
 
-Content is stored as HTML files in `${lang_dir}/${lang_id}/knowledge_panels/${tag_type}`.
-We first check the existence of a file specific to the country specified by `${country_code}`,
+Content is stored as HTML files in `${lang_dir}/${target_lc}/knowledge_panels/${tagtype}`.
+We first check the existence of a file specific to the country specified by `${target_cc}`,
 with a fallback on `world` otherwise. This is useful to have a more specific description for some
 countries compared to the `world` base content.
 
 =head3 Arguments
 
-=head4 $tag_type
+=head4 $tagtype
 
 The type of the tag (e.g. categories, labels, allergens)
 
-=head4 $tag
+=head4 $tagid
 
 The tag we want to match, with language prefix (ex: `en:e255`).
 
-=head4 $lang_id
+=head4 $target_lc
 
 The user language as a 2-letters code (fr, it,...)
 
-=head4 $country_code
+=head4 $target_cc
 
 The user country as a 2-letters code (fr, it, ch) or `world`
 
 =head3 Return value
 
-If a content exists for the tag type, tag value, language ID and country code, return the HTML text,
+If a content exists for the tag type, tag value, language code and country code, return the HTML text,
 return undef otherwise. 
 
 =cut
 
-sub get_knowledge_content ($tag_type, $tag, $lang_id, $country_code) {
+sub get_knowledge_content ($tagtype, $tagid, $target_lc, $target_cc) {
 	# tag value is normalized:
 	# en:250 -> en_250
-	$tag =~ s/:/_/g;
+	$tagid =~ s/:/_/g;
 
-	my $base_dir = "$lang_dir/$lang_id/knowledge_panels/$tag_type";
-	my $file_path = undef;
+	my $base_dir = "$lang_dir/$target_lc/knowledge_panels/$tagtype";
 
-	foreach my $target_country_code ($country_code, "world") {
-		$file_path = "$base_dir/$tag" . "_" . "$target_country_code.html";
+	foreach my $cc ($target_cc, "world") {
+		my $file_path = "$base_dir/$tagid" . "_" . "$cc.html";
 		$log->debug("get_knowledge_content - checking $file_path") if $log->is_debug();
 		if (-e $file_path) {
 			$log->debug("get_knowledge_content - Match on $file_path!") if $log->is_debug();
@@ -4993,9 +4991,7 @@ sub get_knowledge_content ($tag_type, $tag, $lang_id, $country_code) {
 			return $text;
 		}
 	}
-	return undef;
 }
-
 
 $log->info("Tags.pm loaded") if $log->is_info();
 

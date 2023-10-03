@@ -1227,7 +1227,7 @@ sub create_additives_panel ($product_ref, $target_lc, $target_cc, $options_ref) 
 			my $additive_description = get_knowledge_content("additives", $additive, $target_lc, $target_cc);
 
 			if (defined $additive_description) {
-				$additive_panel_data_ref->{additive_description} = $additive_description;	
+				$additive_panel_data_ref->{additive_description} = $additive_description;
 			}
 
 			create_panel_from_json_template($additive_panel_id,
