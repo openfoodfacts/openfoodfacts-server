@@ -390,7 +390,7 @@ sub process_api_request ($request_ref) {
 			}
 		}
 		# Product services
-		if ($request_ref->{api_action} eq "product_services") {
+		elsif ($request_ref->{api_action} eq "product_services") {
 
 			if ($request_ref->{api_method} eq "OPTIONS") {
 				# Just return CORS headers
@@ -603,7 +603,7 @@ sub customize_packagings ($request_ref, $product_ref) {
 	return $customized_packagings_ref;
 }
 
-=head2 customize_response_for_product ( $request_ref, $product_ref, $fields )
+=head2 customize_response_for_product ( $request_ref, $product_ref, $fields_comma_separated_list, $fields_ref )
 
 Using the fields parameter, API product or search queries can request
 a specific set of fields to be returned.
@@ -622,14 +622,18 @@ Reference to the request object.
 
 Reference to the product object (retrieved from disk or from a MongoDB query)
 
-=head4 $fields (input)
+=head4 $fields_comma_separated_list (input)
 
-Comma separated list of fields, default to none.
+Comma separated list of fields (usually from GET query parameters), default to none.
 
 Special values:
 - none: no fields are returned
 - all: all fields are returned, and special fields (e.g. attributes, knowledge panels) are not computed
 - updated: fields that were updated by a WRITE request
+
+=head4 $fields_ref (input)
+
+Reference to a list of fields (alternative way to provide fields, e.g. from a JSON body).
 
 =head3 Return value
 
@@ -637,31 +641,35 @@ Reference to the customized product object.
 
 =cut
 
-sub customize_response_for_product ($request_ref, $product_ref, $fields) {
+sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_separated_list, $fields_ref = undef) {
+
+	# Fields can be in a comma separated list (if provided as a query parameter)
+	# or in a array reference (if provided in a JSON body)
+
+	my @fields = ();
+	if (defined $fields_comma_separated_list) {
+		push @fields, split(/,/, $fields_comma_separated_list);
+	}
+	if (defined $fields_ref) {
+		push @fields, @$fields_ref;
+	}
 
 	my $customized_product_ref = {};
 
 	my $carbon_footprint_computed = 0;
 
-	if ((not defined $fields) or ($fields eq "none")) {
+	# Special case if fields is empty, or contains only "none" or "raw": we do not need to localize the Eco-Score
+
+	if ((scalar @fields) == 0) {
 		return {};
 	}
-	elsif ($fields eq "raw") {
-		# Return the raw product data, as stored in the .sto files and database
-		return $product_ref;
-	}
-
-	if ($fields =~ /\ball\b/) {
-		# Return all fields of the product, with processing that depends on the API version used
-		# e.g. in API v3, the "packagings" structure is more verbose than the stored version
-		$fields = $` . join(",", sort keys %{$product_ref}) . $';
-	}
-
-	# Callers of the API V3 WRITE product can send fields = updated to get only updated fields
-	if ($fields =~ /\bupdated\b/) {
-		if (defined $request_ref->{updated_product_fields}) {
-			$fields = $` . join(',', sort keys %{$request_ref->{updated_product_fields}}) . $';
-			$log->debug("returning only updated fields", {fields => $fields}) if $log->is_debug();
+	if ((scalar @fields) == 1) {
+		if ($fields[0] eq "none") {
+			return {};
+		}
+		if ($fields[0] eq "raw") {
+			# Return the raw product data, as stored in the .sto files and database
+			return $product_ref;
 		}
 	}
 
@@ -669,8 +677,23 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 	localize_ecoscore($cc, $product_ref);
 
 	# lets compute each requested field
-	foreach my $field (split(/,/, $fields)) {
-		if ($field eq "product_display_name") {
+	foreach my $field (@fields) {
+
+		if ($field eq 'all') {
+			# Return all fields of the product, with processing that depends on the API version used
+			# e.g. in API v3, the "packagings" structure is more verbose than the stored version
+			push @fields, sort keys %{$product_ref};
+		}
+
+		# Callers of the API V3 WRITE product can send fields = updated to get only updated fields
+		elsif ($field eq "updated") {
+			if (defined $request_ref->{updated_product_fields}) {
+				push @fields, sort keys %{$request_ref->{updated_product_fields}};
+				$log->debug("returning only updated fields", {fields => \@fields}) if $log->is_debug();
+			}
+		}
+
+		elsif ($field eq "product_display_name") {
 			$customized_product_ref->{$field} = remove_tags_and_quote(product_name_brand_quantity($product_ref));
 		}
 

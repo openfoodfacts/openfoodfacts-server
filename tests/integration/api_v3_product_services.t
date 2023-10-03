@@ -17,6 +17,8 @@ wait_application_ready();
 
 my $product_hazelnut_spread_json = '
     "product": {
+		"product_name_en": "My hazelnut spread",
+		"product_name_fr": "Ma pâte aux noisettes",
         "ingredients": [
             {
                 "id": "en:sugar",
@@ -65,6 +67,14 @@ my $tests_ref = [
 		path => '/api/v3/product_services/echo',
 		body => '{' . $product_hazelnut_spread_json . '}',
 	},
+	{
+		test_case => 'echo-service-hazelnut-spread-fields',
+		method => 'POST',
+		path => '/api/v3/product_services/echo',
+		body => '{
+			"fields": ["product_name_en","product_name_fr"],'
+			. $product_hazelnut_spread_json . '}',
+	},
 	# estimate-ingredients-percent service
 	{
 		test_case => 'estimate-ingredients-percent-service-hazelnut-spread',
@@ -78,7 +88,7 @@ my $tests_ref = [
 		method => 'POST',
 		path => '/api/v3/product_services/estimate_ingredients_percent',
 		body => '{
-                "fields": "ingredients_percent_analysis",'
+                "fields": ["ingredients_percent_analysis"],'
 			. $product_hazelnut_spread_json . '}',
 	},
 ];

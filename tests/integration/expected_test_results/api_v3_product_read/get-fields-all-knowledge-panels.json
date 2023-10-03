@@ -2164,7 +2164,7 @@
             "material" : {
                "id" : "en:wood"
             },
-            "number_of_units" : 1,
+            "number_of_units" : "1",
             "recycling" : {
                "id" : "en:recycle"
             },
@@ -2176,7 +2176,7 @@
             "material" : {
                "id" : "en:glass"
             },
-            "number_of_units" : 6,
+            "number_of_units" : "6",
             "quantity_per_unit" : "25cl",
             "quantity_per_unit_unit" : "cl",
             "quantity_per_unit_value" : 25,
@@ -2191,7 +2191,7 @@
             "material" : {
                "id" : "en:steel"
             },
-            "number_of_units" : 3,
+            "number_of_units" : "3",
             "recycling" : {
                "id" : "en:recycle"
             },
@@ -2203,7 +2203,7 @@
             "material" : {
                "id" : "en:plastic"
             },
-            "number_of_units" : 1,
+            "number_of_units" : "1",
             "recycling" : {
                "id" : "en:discard"
             },
@@ -2238,7 +2238,7 @@
       "quantity" : "100 g",
       "removed_countries_tags" : [],
       "rev" : 1,
-      "serving_quantity" : "10",
+      "serving_quantity" : 10,
       "serving_size" : "10 g",
       "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [

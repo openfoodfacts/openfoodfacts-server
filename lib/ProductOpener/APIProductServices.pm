@@ -38,7 +38,7 @@ and get back resulting product data (possibly filtered to get only specific fiel
 The Routing.pm and API.pm module offer an HTTP interface of this form:
 POST /api/v3/product_services/[comma separated list of services]
 
-The POST body is a JSON hash with those fields:
+The POST body is a JSON object with those fields:
 
 =head4 product
 
@@ -46,8 +46,8 @@ A product object
 
 =head4 field
 
-A comma separated list of fields to return. If empty, all available fields
-(input fields + any fields added or changed by the service) are returned.
+An array list of fields to return. If empty, only fields that can be created or updated by the service are returned.
+e.g. a service to parse the ingredients text list will return the "ingredients" object.
 
 =head3 Response
 
@@ -167,9 +167,9 @@ sub product_services_api ($request_ref) {
 		}
 
 		# Select / compute only the fields requested by the caller, default to all
-		$response_ref->{product} = customize_response_for_product($request_ref, $product_ref,
-			request_param($request_ref, 'fields') || "all");
-
+		# TODO: changed default to updated
+		$response_ref->{product} = customize_response_for_product($request_ref, $product_ref, undef,
+			request_param($request_ref, 'fields') || ["all"]);
 	}
 
 	$log->debug("product_services_api - stop", {request => $request_ref}) if $log->is_debug();
