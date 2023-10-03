@@ -4,8 +4,8 @@ use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
-#use Log::Any::Adapter 'TAP';
-use Log::Any::Adapter 'TAP', filter => "none";
+use Log::Any::Adapter 'TAP';
+#use Log::Any::Adapter 'TAP', filter => "none";
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
@@ -64,7 +64,7 @@ my @ingredients_text_tests = (
 		# add_fruit() currently matches "olive noire entière dénoyautée saumurée 2,5% (..)" to 2.5% fruit, even though it has sub-ingredients that are not fruits
 		# TODO: investigate on actual product data to see if trying to fix this would have more true positives than false positives
 		93.8,
-		89.7
+		89.9
 	],
 	# Soy beans
 	[
