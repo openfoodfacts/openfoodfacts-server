@@ -22429,7 +22429,6 @@ pl:słód pszenny
 pt:Malte de trigo
 sv:vetemalt, mältade vetekorn
 
-<en:wheat
 <en:vegetable fiber
 en:wheat fiber
 bg:пшенични влакна
@@ -25041,7 +25040,6 @@ en:ground rye malt
 de:Roggenmalz gemahlen
 es:malta molida de centeno
 
-<en:rye
 <en:vegetable fiber
 en:rye fiber
 de:Roggen-Ballaststoffe
@@ -26699,11 +26697,11 @@ en:baby corn
 pl:mini kolby kukurydzy, kukurydza baby
 # ingredient/en:baby-corn has 117 products @2023-06-25
 
-<en:corn
+<en:vegetable fiber
 en:corn fiber
 bg:царевични фибри, царевични влакнини
 cs:kukuřičná vláknina
-de:Ballaststoffe aus Maisfaser
+de:Maisfaser
 es:fibra de maiz
 fr:Fibre de maïs
 hr:kukuruzna vlakna
@@ -37882,7 +37880,6 @@ it:fiocchi di mela
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-pomme
 # 46 products in 4 languages @2018-10-04
 
-<en:apple
 <en:vegetable fiber
 en:apple fiber
 de:Apfelfaser
@@ -38074,7 +38071,6 @@ es:boabab fruto
 ###################################################################################################
 
 <en:vegetable fiber
-<en:citrus fruit
 en:citrus fibre, citrus fibres
 bg:цитрусови влакнини
 da:citrusfibre
@@ -38892,7 +38888,6 @@ nl:gesuikerde citroenpuree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-citron-sucrée
 # 41 products @2018-10-01
 
-<en:lemon
 <en:vegetable fiber
 en:lemon fibre
 de:Zitronenfaser
@@ -43197,7 +43192,6 @@ fr:segments d'ananas
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:segments-d'ananas
 # 36 products in 1 language @2018-09-30
 
-<en:pineapple
 <en:vegetable fiber
 en:pineapple fibre, pineapple fibres
 de:Ananasfasern
@@ -43542,11 +43536,6 @@ de:ganze Himbeeren, Himbeeren ganz
 fr:Framboises entières
 nl:hele frambozen
 # 10@2019-06-07
-
-<en:raspberry
-en:raspberry pieces
-de:Himbeerstücke
-fr:morceaux de framboise, morceaux de framboises
 
 <en:raspberry
 en:organic raspberry
@@ -46419,7 +46408,6 @@ sv:torkade grönsaker
 <en:vegetable
 fr:légumes verts
 
-<en:vegetable
 <en:vegetable fiber
 fr:fibres de légume
 fi:kasviskuitu
@@ -51943,7 +51931,6 @@ sl:krompirjevi kosmiči
 fr:flocons de pomme de terre réhydratés
 # fr:flocons-de-pomme-de-terre-réhydratés has 71 products in 1 language @2018-10-15
 
-<en:potato
 <en:vegetable fiber
 en:potato fiber, potato fibre
 ca:fibra de patata, fibra vegetal de patata
@@ -68916,6 +68903,7 @@ eurocode_2_group_2:en: 8.50
 
 <en:plant protein
 en:mushroom proteins
+de:Pilzprotein
 fr:protéine de champignon
 
 <en:mushroom
