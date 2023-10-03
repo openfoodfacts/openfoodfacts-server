@@ -712,8 +712,9 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 	# Red meat products qualifying for this specific rule are products from beef, veal, swine and lamb,
 	# though they include also game/venison, horse, donkey, goat, camel and kangaroo.
 
-	if (($nutriscore_data_ref->{is_read_meat_products}) and ($nutriscore_data_ref->{proteins_points} > 2)) {
+	if (($nutriscore_data_ref->{is_red_meat_product}) and ($nutriscore_data_ref->{proteins_points} > 2)) {
 		$nutriscore_data_ref->{proteins_points} = 2;
+		$nutriscore_data_ref->{proteins_points_limited_reason} = "red_meat_product";
 	}
 
 	# Beverages with non-nutritive sweeteners have 4 extra negative points
