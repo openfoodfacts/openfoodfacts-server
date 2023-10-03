@@ -2626,6 +2626,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Cargar imágenes de baja resolución (para conexiones lentas)"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "Una imagen ha sido enviada por el fabricante. Si cree que es incorrecta o no está actualizada, ponte en contacto con nosotros."
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr "Advertencia: los datos nutricionales no se especifican. Se han estimado a partir de la lista de ingredientes."
@@ -2906,7 +2910,7 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "La Autoridad Europea de Seguridad Alimentaria (EFSA) ha determinado que algunos grupos de población tienen un riesgo moderado de alcanzar o superar la Ingesta Diaria Admisible (IDA) de <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -2970,7 +2974,7 @@ msgstr "Riesgo alto"
 
 msgctxt "exposure_description_mean"
 msgid "50% of people or more"
-msgstr ""
+msgstr "50% de las personas o más"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
