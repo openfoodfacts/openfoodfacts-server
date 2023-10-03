@@ -4991,6 +4991,7 @@ sub get_knowledge_content ($tagtype, $tagid, $target_lc, $target_cc) {
 			return $text;
 		}
 	}
+	return;
 }
 
 $log->info("Tags.pm loaded") if $log->is_info();
