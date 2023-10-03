@@ -995,7 +995,11 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 	my $of = $of{$ingredients_lc} || ' ';    # default to space in order to not match an empty string
 
 	# following an ingredient (e.g. "milk content")
-	my %ingredient_content = (en => "content",);
+	# include space if mandatory
+	my %ingredient_content = (
+		en => " content",
+		sv => "mängd"
+	);
 	my $ingredient_content = $ingredient_content{$ingredients_lc};
 
 	my $prepared_with = $prepared_with{$ingredients_lc} || '';
@@ -1026,11 +1030,12 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			and (
 				(
 					# fruit content: 50%, minimum fruit content 40g per 100g
+					# sv: Fruktmängd: 50g per 100g (no space)
 
 					(defined $ingredient_content)
 					# optional minimum, followed by ingredient, content, : and/or spaces, percent or quantity, optional per 100g, separator
 					and ($text
-						=~ /((?:^|;|,|\.| - )\s*)(?:(?:$minimum_or_total) )?\s*([^,.;]+?)\s+(?:$ingredient_content)*(?::|\s)+$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+						=~ /((?:^|;|,|\.| - )\s*)(?:(?:$minimum_or_total) )?\s*([^,.;]+?)\s*(?:$ingredient_content)(?::|\s)+$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
 					)
 
 				)
@@ -1132,6 +1137,9 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 			$matched_text =~ s/^(;|,|\.| - |\s)+//;
 			$matched_text =~ s/(;|,|\.| - |\s)+$//;
 			$matched_text =~ s/^\s+//;
+
+			# remove ending separators for ingredient
+			$ingredient =~ s/(:|\s)*$//;
 
 			my $specific_ingredients_ref = {
 				id => $ingredient_id,

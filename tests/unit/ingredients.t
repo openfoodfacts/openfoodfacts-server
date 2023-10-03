@@ -664,6 +664,11 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 				"Elaboré avec 50g d'abricots, produit avec 30% d'asperges, fabriquée avec 500g de viande pour 100g, préparé à partir de 140 g de tomates pour 100g de produit"
 		}
 	],
+	# fruits 50% and pear 30% is not a specific ingredient
+	[
+		"en-fruits-sub-ingredients",
+		{lc => "en", ingredients_text => "fruits 50% (apple 40%, pear 30%, cranberry, lemon), sugar"},
+	]
 );
 
 foreach my $test_ref (@tests) {

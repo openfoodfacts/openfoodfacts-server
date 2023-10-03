@@ -87,17 +87,17 @@
    },
    "specific_ingredients" : [
       {
+         "id" : "en:sugar",
+         "ingredient" : "Sugar",
+         "percent" : 3,
+         "text" : "Sugar content: 3 %"
+      },
+      {
          "id" : "en:milk",
          "ingredient" : "milk",
          "quantity" : "75.2 g",
          "quantity_g" : 75.2,
          "text" : "Total milk content: 75.2g"
-      },
-      {
-         "id" : "en:sugar",
-         "ingredient" : "Sugar",
-         "percent" : 3,
-         "text" : "Sugar content: 3 %."
       }
    ],
    "unknown_ingredients_n" : 0
