@@ -110,7 +110,7 @@ BEGIN {
 		&add_tags_to_field
 
 		&init_tags_texts
-
+		&get_knowledge_content
 		&get_city_code
 		%emb_codes_cities
 		%emb_codes_geo
@@ -4935,6 +4935,63 @@ sub cmp_taxonomy_tags_alphabetically ($tagtype, $target_lc, $a, $b) {
 
 	return ($translations_to{$tagtype}{$a}{$target_lc} || $translations_to{$tagtype}{$a}{"xx"} || $a)
 		cmp($translations_to{$tagtype}{$b}{$target_lc} || $translations_to{$tagtype}{$b}{"xx"} || $b);
+}
+
+=head2 get_knowledge_content ($tagtype, $tagid, $target_lc, $target_cc)
+
+Fetch knowledge content as HTML about additive, categories,...
+
+This content is used in knowledge panels.
+
+Content is stored as HTML files in `${lang_dir}/${target_lc}/knowledge_panels/${tagtype}`.
+We first check the existence of a file specific to the country specified by `${target_cc}`,
+with a fallback on `world` otherwise. This is useful to have a more specific description for some
+countries compared to the `world` base content.
+
+=head3 Arguments
+
+=head4 $tagtype
+
+The type of the tag (e.g. categories, labels, allergens)
+
+=head4 $tagid
+
+The tag we want to match, with language prefix (ex: `en:e255`).
+
+=head4 $target_lc
+
+The user language as a 2-letters code (fr, it,...)
+
+=head4 $target_cc
+
+The user country as a 2-letters code (fr, it, ch) or `world`
+
+=head3 Return value
+
+If a content exists for the tag type, tag value, language code and country code, return the HTML text,
+return undef otherwise. 
+
+=cut
+
+sub get_knowledge_content ($tagtype, $tagid, $target_lc, $target_cc) {
+	# tag value is normalized:
+	# en:250 -> en_250
+	$tagid =~ s/:/_/g;
+
+	my $base_dir = "$lang_dir/$target_lc/knowledge_panels/$tagtype";
+
+	foreach my $cc ($target_cc, "world") {
+		my $file_path = "$base_dir/$tagid" . "_" . "$cc.html";
+		$log->debug("get_knowledge_content - checking $file_path") if $log->is_debug();
+		if (-e $file_path) {
+			$log->debug("get_knowledge_content - Match on $file_path!") if $log->is_debug();
+			open(my $IN, "<:encoding(UTF-8)", $file_path) or $log->error("cannot open file", {path => $file_path});
+			my $text = join("", (<$IN>));
+			close $IN;
+			return $text;
+		}
+	}
+	return;
 }
 
 $log->info("Tags.pm loaded") if $log->is_info();

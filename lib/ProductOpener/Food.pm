@@ -902,14 +902,14 @@ sub is_fat_oil_nuts_seeds_for_nutrition_score ($product_ref) {
 		return 1;
 	}
 	else {
-		my $hs_heading = get_inherited_property_from_categories_tags($product_ref, "wco_hs_code:en");
+		my $hs_heading = get_inherited_property_from_categories_tags($product_ref, "wco_hs_heading:en");
 
 		if (defined $hs_heading) {
 			my $hs_code = get_inherited_property_from_categories_tags($product_ref, "wco_hs_code:en");
 
 			if (
 				($hs_heading eq "08.01") or ($hs_heading eq "08.02")    # nuts
-				or ($hs_code eq "2008.11") or ($hs_code eq "2008.19")    # processed nuts
+				or ((defined $hs_code) and (($hs_code eq "2008.11") or ($hs_code eq "2008.19")))    # processed nuts
 				or ($hs_heading eq "12.02")    # peanuts
 				or ($hs_heading eq "12.04") or ($hs_heading eq "12.06") or ($hs_heading eq "12.07")    # nuts
 				)
@@ -918,6 +918,74 @@ sub is_fat_oil_nuts_seeds_for_nutrition_score ($product_ref) {
 				return 1;
 			}
 		}
+	}
+
+	return 0;
+}
+
+=head2 is_red_meat_for_nutrition_score ( $product_ref )
+
+Determines if a product should be considered as red meat for Nutri-Score (2023 version) computations,
+based on the product categories and/or ingredients.
+
+From the 2022 main algorithm report update FINAL:
+
+"Regarding the Codex Alimentarius classifications, the entire group 08.0 (Meat and meat products,
+including poultry and game and all its subgroups) is concerned, though not all food items in the
+individual sub-groups are concerned, only those containing red meat (see above).
+In the Harmonized System Classification, the codes correspond to the following:
+
+Beef:
+o 0201 Meat of bovine animals, fresh or chilled
+o 0202 Meat of bovine animals, frozen
+Pork
+o 0203 Meat of swine, fresh, chilled or frozen
+Lamb:
+o 0204 Meat of sheep or goats, fresh, chilled or frozen
+Horse
+o 0205 Horse and equine meat
+Game and venison
+o 0208903000 Of game, other than of rabbits or hares
+o 02089060 Fresh, chilled or frozen reindeer meat and edible offal thereof
+Offals and processed meat (as red meat)
+o 0206 Edible offal of bovine animals, swine, sheep, goats, horses, asses, mules or
+hinnies, fresh, chilled or frozen
+o 0210 Meat and edible offal, salted, in brine, dried or smoked; edible flours and meals
+of meat or meat offal
+o 1601 sausages
+o 1602 Prepared or preserved meat, meat offal, blood or insects (excl. sausages and
+similar products, and meat extracts and juices)
+▪ All those from swine, lamb or beef even as mixtures"
+
+=cut
+
+sub is_red_meat_product_for_nutrition_score ($product_ref) {
+
+	# Use the category HS code if all the corresponding products are considered red meat
+	my $hs_heading = get_inherited_property_from_categories_tags($product_ref, "wco_hs_heading:en");
+
+	if (defined $hs_heading) {
+
+		if (   ($hs_heading eq "02.01")
+			or ($hs_heading eq "02.02")
+			or ($hs_heading eq "02.03")
+			or ($hs_heading eq "02.04")
+			or ($hs_heading eq "02.05")
+			or ($hs_heading eq "02.06"))
+		{
+			return 1;
+		}
+	}
+
+	# Count the % of ingredients that is considered red meat
+	# (for products for which we don't have a category, or too broad categories like "sausages" which could be from red meat or from poultry etc.)
+
+	# We use a limit of 10%, in order not to include products that contain very little red meat (e.g. a pizza with cheese),
+	# as it's not clear from the Nutri-Score report update if they should be considered "red meat products":
+	# "Red meat products qualifying for this specific rule are products from beef, veal, swine and lamb"
+	my $red_meat_percent = estimate_nutriscore_2023_red_meat_percent_from_ingredients($product_ref);
+	if ((defined $red_meat_percent) and ($red_meat_percent > 10)) {
+		return 1;
 	}
 
 	return 0;
@@ -1313,6 +1381,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			is_water => is_water_for_nutrition_score($product_ref),
 			is_cheese => is_cheese_for_nutrition_score($product_ref),
 			is_fat_oil_nuts_seeds => $is_fat_oil_nuts_seeds,
+			is_red_meat_product => is_red_meat_product_for_nutrition_score($product_ref),
 
 			energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
 			sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
@@ -2853,6 +2922,9 @@ sub compute_estimated_nutrients ($product_ref) {
 		while (my ($nid, $value) = each(%{$results_ref->{nutrients}})) {
 			$product_ref->{nutriments_estimated}{$nid . '_100g'} = $value;
 		}
+	}
+	else {
+		delete $product_ref->{nutriments_estimated};
 	}
 
 	return $results_ref;
