@@ -6355,13 +6355,13 @@ msgstr "Ikuti kami: {links}"
 # Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
 msgctxt "footer_install_the_app_exclamation_mark"
 msgid "Install the app!"
-msgstr ""
+msgstr "Instal aplikasi ini!"
 
 # HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
 msgctxt "footer_scan_your_everyday_foods"
 msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
-msgstr ""
+msgstr "Pindai <span id=\"foods\">makanan</span> <span id=\"everyday\">sehari-hari</span> Anda"
 
 msgctxt "nutrition"
 msgid "Nutrition"
@@ -6370,7 +6370,7 @@ msgstr "kandungan nutrisi"
 # Note: "criteria" is plural here. So in French for instance: "Vos critères"
 msgctxt "your_criteria"
 msgid "Your criteria"
-msgstr ""
+msgstr "Kriteria Anda"
 
 msgctxt "product"
 msgid "Product"
@@ -6382,11 +6382,11 @@ msgstr "Lingkungan"
 
 msgctxt "api_result_failure"
 msgid "Failure"
-msgstr ""
+msgstr "Kegagalan"
 
 msgctxt "api_result_product_found"
 msgid "Product found"
-msgstr ""
+msgstr "Produk ditemukan"
 
 msgctxt "api_result_product_not_found"
 msgid "Product not found"
@@ -6394,23 +6394,23 @@ msgstr "Produk tidak ditemukan"
 
 msgctxt "api_result_product_updated"
 msgid "Product updated"
-msgstr ""
+msgstr "Produk diperbarui"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
-msgstr ""
+msgstr "Tindakan API tidak valid"
 
 msgctxt "api_message_invalid_api_method"
 msgid "Invalid API method"
-msgstr ""
+msgstr "Metode API tidak valid"
 
 msgctxt "api_message_empty_request_body"
 msgid "Empty request body"
-msgstr ""
+msgstr "Isi permintaan kosong"
 
 msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
-msgstr ""
+msgstr "JSON tidak valid dalam isi permintaan"
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
@@ -6418,31 +6418,31 @@ msgstr "Kode tidak valid"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
-msgstr ""
+msgstr "Jenis yang tidak valid: harus berupa objek"
 
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
-msgstr ""
+msgstr "Jenis yang tidak valid: harus berupa rangkaian"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
-msgstr ""
+msgstr "Jenis yang tidak valid: harus berupa bilangan bulat"
 
 msgctxt "api_message_invalid_type_must_be_number"
 msgid "Invalid type: must be a number"
-msgstr ""
+msgstr "Jenis yang tidak valid: harus berupa angka"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
-msgstr ""
+msgstr "Bidang yang hilang"
 
 msgctxt "api_message_unrecognized_field"
 msgid "Unrecognized field"
-msgstr ""
+msgstr "Bidang yang tidak dikenali"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
-msgstr ""
+msgstr "Nilai yang tidak diakui"
 
 msgctxt "api_impact_none"
 msgid "None"
@@ -6454,78 +6454,78 @@ msgstr "Peringatan"
 
 msgctxt "api_impact_failure"
 msgid "Failure"
-msgstr ""
+msgstr "Kegagalan"
 
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
-msgstr ""
+msgstr "Bidang diabaikan"
 
 msgctxt "api_impact_value_converted"
 msgid "Value converted"
-msgstr ""
+msgstr "Nilai yang dikonversi"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
 msgid "Number of units"
-msgstr ""
+msgstr "Jumlah unit"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "Berat satu unit kosong"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "Jumlah produk yang terkandung per unit"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
 msgid "Help categorize more {title} on Hunger Games"
-msgstr ""
+msgstr "Bantu mengkategorikan lebih banyak {title} di Hunger Games"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "Semua bagian kemasan produk tercantum."
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
-msgstr ""
+msgstr "Identitas pengguna dan kata sandi tidak valid"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
-msgstr ""
+msgstr "Nilai tidak valid: harus 0 atau 1"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "Masukkan jumlah unit kemasan dengan bentuk dan bahan yang sama yang terdapat dalam produk."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "Masukkan nama bentuk yang tercantum dalam petunjuk daur ulang jika tersedia, atau pilih bentuk."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "Masukkan bahan spesifik jika dapat ditentukan (kode bahan di dalam segitiga sering kali dapat ditemukan pada bagian kemasan), atau bahan umum (misalnya plastik atau logam) jika Anda tidak yakin."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "Masukkan petunjuk daur ulang hanya jika petunjuk tersebut tercantum pada produk."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
 msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
-msgstr ""
+msgstr "Buang makanan yang tersisa dan cuci dan keringkan bagian kemasan sebelum menimbang. Jika memungkinkan, gunakan timbangan dengan ketelitian 0,1 g atau 0,01 g."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr ""
+msgstr "Masukkan berat bersih atau volume bersih dan tunjukkan satuannya (misalnya g atau ml)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
-msgstr ""
+msgstr "Impor dan ekspor produk"
 
 msgctxt "add_products"
 msgid "Add products"
@@ -6534,23 +6534,23 @@ msgstr "Tambahkan produk"
 # Needs to be short (displayed in a menu)
 msgctxt "install_the_app_to_add_products"
 msgid "Install the app to add products"
-msgstr ""
+msgstr "Instal aplikasi untuk menambahkan produk"
 
 msgctxt "search_and_analyze_products"
 msgid "Search and analyze products"
-msgstr ""
+msgstr "Mencari dan menganalisis produk"
 
 msgctxt "resources"
 msgid "Resources"
-msgstr ""
+msgstr "Sumber daya"
 
 msgctxt "pro_platform_user_guide"
 msgid "Pro platform user guide"
-msgstr ""
+msgstr "Panduan pengguna platform Pro"
 
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
-msgstr ""
+msgstr "SSD untuk produsen"
 
 msgctxt "join_the_next_pros_meet_up"
 msgid "Join the next Pros' Meet-up"
@@ -6567,7 +6567,7 @@ msgstr "Harap minta pengguna berikut membuat akun Open Food Facts terlebih dahul
 
 msgctxt "users_added_successfully"
 msgid "Users added to the organization successfully:"
-msgstr ""
+msgstr "Pengguna berhasil ditambahkan ke organisasi:"
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
@@ -6603,7 +6603,7 @@ msgstr "% produk yang mengandung bahan tersebut"
 
 msgctxt "packaging_material_products_percent_main"
 msgid "% of products containing mostly the material"
-msgstr ""
+msgstr "% produk yang mengandung sebagian besar bahan"
 
 msgctxt "relative_to_products_containing_the_material"
 msgid "for products that contain the material"
@@ -6611,7 +6611,7 @@ msgstr "untuk produk yang mengandung bahan tersebut"
 
 msgctxt "relative_to_products_containing_mostly_the_material"
 msgid "for products that contain mostly the material"
-msgstr ""
+msgstr "untuk produk yang sebagian besar mengandung bahan"
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
