@@ -6785,7 +6785,7 @@ Determine if an ingredient should be counted as red meat in Nutriscore 2023 algo
 
 =cut
 
-sub is_red_meat ($ingredient_id) {
+sub is_red_meat ($ingredient_id, $ingredient_processing = undef) {
 
 	my $red_meat_property = get_inherited_property("ingredients", $ingredient_id, "nutriscore_red_meat:en");
 	if ((defined $red_meat_property) and ($red_meat_property eq "yes")) {
