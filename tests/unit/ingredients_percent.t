@@ -200,7 +200,7 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[1];
 
 	parse_ingredients_text($product_ref);
-	if (compute_ingredients_percent_values(100, 100, $product_ref->{ingredients}) < 0) {
+	if (compute_ingredients_percent_min_max_values(100, 100, $product_ref->{ingredients}) < 0) {
 		print STDERR "compute_ingredients_percent_values < 0, delete ingredients percent values\n";
 		delete_ingredients_percent_values($product_ref->{ingredients});
 	}
