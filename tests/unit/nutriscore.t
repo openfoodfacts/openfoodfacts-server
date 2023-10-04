@@ -545,6 +545,9 @@ my @tests = (
 				sugars_100g => 1.5,
 				sodium_100g => 0.01,
 				proteins_100g => 20,
+			},
+		}
+	],
 	# For red meat products, the number of maximum protein points is set at 2 points
 	[
 		"en-red-meat-category-no-ingredients",
