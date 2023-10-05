@@ -668,7 +668,16 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 	[
 		"en-fruits-sub-ingredients",
 		{lc => "en", ingredients_text => "fruits 50% (apple 40%, pear 30%, cranberry, lemon), sugar"},
-	]
+	],
+	# 50g of ingredient
+	[
+		"en-quantity-of-ingredient",
+		{lc => "en", ingredients_text => "50g of tomatoes, 35% garlic, 20cl of water, 10ml of rapeseed oil"}
+	],
+	[
+		"fr-quantity-of-ingredient",
+		{lc => "fr", ingredients_text => "50g de tomates, 35% d'ail, 20cl d'eau, 10ml d'huile de colza"}
+	],
 );
 
 foreach my $test_ref (@tests) {

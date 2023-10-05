@@ -1921,20 +1921,10 @@ sub parse_ingredients_text ($product_ref) {
 					$ingredient = $`;
 				}
 
+				# 50% beef, 20g of oranges
 				# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
-				if (
-					$ingredient =~ m{^
-									 \s*
-									 ( \d+ (?:[,.] \d+)? )
-									 \s*
-									 (\%|g)
-									 \s*
-
-									 ( (?: pur | de ) \s | d' )?
-									 \s*
-									}sxmi
-					)
-				{
+				my $of = $of{$ingredients_lc} || ' ';    # default to space in order to not match an empty string
+				if ($ingredient =~ /^\s*$percent_or_quantity_regexp(?:$of|\s)+/i) {
 					$percent_or_quantity_value = $1;
 					$percent_or_quantity_unit = $2;
 					$debug_ingredients and $log->debug(
