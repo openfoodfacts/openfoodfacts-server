@@ -144,7 +144,7 @@ foreach my $test_ref (@ingredients_text_tests) {
 
 # test the estimate percent of red meat
 
-@tests = (
+@ingredients_text_tests = (
 	[{lc => "fr", ingredients_text => ""}, undef],
 	[{lc => "fr", ingredients_text => "viande de porc"}, 100],
 	[{lc => "fr", ingredients_text => "canard"}, 0],
@@ -152,7 +152,7 @@ foreach my $test_ref (@ingredients_text_tests) {
 	[{lc => "fr", ingredients_text => "jambon de porc 50%, viande de kangourou 20%, eau"}, 70],
 );
 
-foreach my $test_ref (@tests) {
+foreach my $test_ref (@ingredients_text_tests) {
 
 	my $product_ref = $test_ref->[0];
 	my $expected_value = $test_ref->[1];
