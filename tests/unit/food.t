@@ -459,7 +459,6 @@ assign_nid_modifier_value_and_unit($product_ref, "salt_prepared", $modifier, $va
 # Prepared value defined in IU
 assign_nid_modifier_value_and_unit($product_ref, "vitamin-a_prepared", "", 468, "IU");
 
-
 # test support of traces, as well as "nearly" and prepared values
 compute_serving_size_data($product_ref);
 
@@ -483,7 +482,11 @@ is_deeply(
 			'sugars_100g' => 1,
 			'sugars_modifier' => "\x{2264}",
 			'sugars_unit' => 'g',
-			'sugars_value' => 1
+			'sugars_value' => 1,
+			'vitamin-a_prepared' => '0.0001404',
+			'vitamin-a_prepared_100g' => '0.0001404',
+			'vitamin-a_prepared_unit' => 'IU',
+			'vitamin-a_prepared_value' => 468,
 		},
 		'nutrition_data_per' => '100g',
 		'nutrition_data_prepared_per' => '100g'

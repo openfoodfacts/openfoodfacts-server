@@ -257,7 +257,29 @@ sub default_unit_for_nid ($nid) {
 	}
 }
 
+=head2 assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $unit)
+
+Assign a value with an unit and an optional modifier (< or ~) to a nutrient in the nutriments structure.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+=head4 nid 
+
+Nutrient id, possibly suffixed with "_prepared"
+
+=head4 value
+
+=head4 unit
+
+=cut
+
 sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $unit) {
+
+	# Get the nutrient id in the nutrients taxonomy from the nid (without a prefix and possibly suffixed by _prepared)
+	my $nutrient_id = "zz:" . $nid;
+	$nutrient_id =~ s/_prepared$//;
 
 	# We can have only a modifier with value '-' to indicate that we have no value
 
@@ -281,15 +303,16 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 		$product_ref->{nutriments}{$nid . "_value"} = $value;
 		# Convert values passed in international units IU or % of daily value % DV to the default unit for the nutrient
 		if (    ((uc($unit) eq 'IU') or (uc($unit) eq 'UI'))
-			and (defined get_property("nutrients", "zz:$nid", "iu_value:en")))
+			and (defined get_property("nutrients", $nutrient_id, "iu_value:en")))
 		{
-			$value = $value * get_property("nutrients", "zz:$nid", "iu_value:en");
-			$unit = get_property("nutrients", "zz:$nid", "unit:en");
+			$value = $value * get_property("nutrients", $nutrient_id, "iu_value:en");
+			$unit = get_property("nutrients", $nutrient_id, "unit:en");
 		}
-		elsif ((uc($unit) eq '% DV') and (defined get_property("nutrients", "zz:$nid", "dv_value:en"))) {
-			$value = $value / 100 * get_property("nutrients", "zz:$nid", "dv_value:en");
-			$unit = get_property("nutrients", "zz:$nid", "unit:en");
+		elsif ((uc($unit) eq '% DV') and (defined get_property("nutrients", $nutrient_id, "dv_value:en"))) {
+			$value = $value / 100 * get_property("nutrients", $nutrient_id, "dv_value:en");
+			$unit = get_property("nutrients", $nutrient_id, "unit:en");
 		}
+
 		if ($nid =~ /^water-hardness(_prepared)?$/) {
 			$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
 		}
