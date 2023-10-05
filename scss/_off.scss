@@ -617,6 +617,10 @@ ul.pagination li a {
 .close_food_preferences {
   margin-bottom: 1rem;
 }
+.fieldset_attribute_group {
+  display: flex;
+  flex-direction: column;
+}
 
 html[dir="rtl"] {
   .tab-bar-section.middle {
