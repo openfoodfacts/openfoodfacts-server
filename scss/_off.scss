@@ -629,7 +629,9 @@ ul.pagination li a {
   .attribute_group {
     display: flex;
     justify-content: start;
-    margin-left: 8rem;
+  }
+  .attribute_group .attribute_item:first-child {
+    padding-left: 8rem;
   }
 }
 
