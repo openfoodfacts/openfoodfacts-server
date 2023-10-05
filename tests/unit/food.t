@@ -456,6 +456,10 @@ is($value, '20,5');
 is($modifier, '~');
 assign_nid_modifier_value_and_unit($product_ref, "salt_prepared", $modifier, $value, "g");
 
+# Prepared value defined in IU
+assign_nid_modifier_value_and_unit($product_ref, "vitamin-a_prepared", "", 468, "IU");
+
+
 # test support of traces, as well as "nearly" and prepared values
 compute_serving_size_data($product_ref);
 
