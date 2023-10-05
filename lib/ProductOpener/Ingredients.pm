@@ -771,7 +771,7 @@ my %min_regexp = (
 
 my %ignore_strings_after_percent = (
 	en => "of (?:the )?(?:total weight|grain is wholegrain rye)",
-	es => "(?:en el chocolate(?: con leche)?)|(?:de)",
+	es => "(?:en el chocolate(?: con leche)?)",
 	fi => "jauhojen määrästä",
 	fr => "(?:dans le chocolat(?: (?:blanc|noir|au lait))?)|(?:du poids total|du poids)",
 	sv => "fetthalt",
@@ -1041,11 +1041,12 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				)
 				or (
 					# minimum content of fruit: 150% / content of fruit: 150g per 100g of finished product
+					# (fr) teneur en citron de 40%
 					(defined $content_of_ingredient)
 					and (
 						# content, of or : or space, ingredient, percent or quantity, optional per 100g, separator
 						$text
-						=~ /((?:^|;|,|\.| - )\s*)(?:$content_of_ingredient)(?:$of|\s|:)+([^,.;]+?)\s+$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+						=~ /((?:^|;|,|\.| - )\s*)(?:$content_of_ingredient)(?:$of|\s|:)+([^,.;]+?)(?:$of|\s)+$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
 					)
 				)
 
