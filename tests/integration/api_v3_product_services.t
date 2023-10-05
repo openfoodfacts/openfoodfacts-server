@@ -52,43 +52,63 @@ my $tests_ref = [
 	{
 		test_case => 'unknown-service',
 		method => 'POST',
-		path => '/api/v3/product_services/unknown',
-		body => '{"product":{}}',
+		path => '/api/v3/product_services',
+		body => '{
+			"services":["unknown"],
+			"product":{}
+		}',
 	},
 	# echo service
 	{
-		test_case => 'echo-service-no-body',
+		test_case => 'service-no-body',
 		method => 'POST',
-		path => '/api/v3/product_services/echo',
+		path => '/api/v3/product_services',
 	},
 	{
 		test_case => 'echo-service-hazelnut-spread',
 		method => 'POST',
 		path => '/api/v3/product_services/echo',
-		body => '{' . $product_hazelnut_spread_json . '}',
+		body => '{
+			"services":["echo"],
+			"fields":["all"],'
+			. $product_hazelnut_spread_json . '}',
 	},
 	{
 		test_case => 'echo-service-hazelnut-spread-fields',
 		method => 'POST',
-		path => '/api/v3/product_services/echo',
+		path => '/api/v3/product_services',
 		body => '{
+			"services":["echo"],
 			"fields": ["product_name_en","product_name_fr"],'
 			. $product_hazelnut_spread_json . '}',
 	},
-	# estimate-ingredients-percent service
+	# estimate_ingredients_percent service
+	# no fields parameter, should get back only updated fields
 	{
 		test_case => 'estimate-ingredients-percent-service-hazelnut-spread',
 		method => 'POST',
-		path => '/api/v3/product_services/estimate_ingredients_percent',
-		body => '{' . $product_hazelnut_spread_json . '}',
+		path => '/api/v3/product_services',
+		body => '{
+			"services":["estimate_ingredients_percent"],'
+			. $product_hazelnut_spread_json . '}',
 	},
 	# Get back only specific fields
 	{
 		test_case => 'estimate-ingredients-percent-service-hazelnut-spread-specific-fields',
 		method => 'POST',
-		path => '/api/v3/product_services/estimate_ingredients_percent',
+		path => '/api/v3/product_services',
 		body => '{
-                "fields": ["ingredients_percent_analysis"],'
+			"services":["estimate_ingredients_percent"],
+            "fields": ["ingredients_percent_analysis"],'
+			. $product_hazelnut_spread_json . '}',
+	},
+	# estimate_ingredients_percent + analyze_ingredients
+	{
+		test_case => 'estimate-ingredients-percent-analyze-ingredients-services-hazelnut-spread',
+		method => 'POST',
+		path => '/api/v3/product_services',
+		body => '{
+			"services":["estimate_ingredients_percent", "analyze_ingredients"],'
 			. $product_hazelnut_spread_json . '}',
 	},
 ];

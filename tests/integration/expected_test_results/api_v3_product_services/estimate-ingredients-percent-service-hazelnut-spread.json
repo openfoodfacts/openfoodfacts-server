@@ -1,5 +1,8 @@
 {
    "errors" : [],
+   "fields" : [
+      "updated"
+   ],
    "product" : {
       "ingredients" : [
          {
@@ -35,10 +38,11 @@
             "vegetarian" : "yes"
          }
       ],
-      "ingredients_percent_analysis" : 1,
-      "product_name_en" : "My hazelnut spread",
-      "product_name_fr" : "Ma pâte aux noisettes"
+      "ingredients_percent_analysis" : 1
    },
+   "services" : [
+      "estimate_ingredients_percent"
+   ],
    "status" : "success",
    "warnings" : []
 }

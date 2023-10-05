@@ -1,8 +1,14 @@
 {
    "errors" : [],
+   "fields" : [
+      "ingredients_percent_analysis"
+   ],
    "product" : {
       "ingredients_percent_analysis" : 1
    },
+   "services" : [
+      "estimate_ingredients_percent"
+   ],
    "status" : "success",
    "warnings" : []
 }

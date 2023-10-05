@@ -229,10 +229,6 @@ sub analyze_request ($request_ref) {
 			param("tagid", $components[4]);
 			$request_ref->{tagid} = $components[4];
 		}
-		elsif ($request_ref->{api_action} eq "product_services")
-		{    # /api/v3/product_services/[comma separated list of services]
-			$request_ref->{services} = $components[3];
-		}
 
 		$request_ref->{api_method} = $request_ref->{method};
 

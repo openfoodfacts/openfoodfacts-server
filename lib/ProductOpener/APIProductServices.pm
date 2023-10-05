@@ -36,15 +36,24 @@ and get back resulting product data (possibly filtered to get only specific fiel
 =head3 Request
 
 The Routing.pm and API.pm module offer an HTTP interface of this form:
-POST /api/v3/product_services/[comma separated list of services]
+POST /api/v3/product_services
 
 The POST body is a JSON object with those fields:
+
+=head4 services
+
+An array list of services to perform.
+
+Currently implemented services:
+
+- echo : does nothing, mostly for testing
+- estimate_ingredients_percent : compute percent_min, percent_max, percent_estimate for each ingredient in the ingredients object
 
 =head4 product
 
 A product object
 
-=head4 field
+=head4 fields
 
 An array list of fields to return. If empty, only fields that can be created or updated by the service are returned.
 e.g. a service to parse the ingredients text list will return the "ingredients" object.
@@ -87,13 +96,15 @@ Echo service that returns the input product unchanged.
 
 =cut
 
-sub echo_service ($product_ref) {
+sub echo_service ($product_ref, $updated_product_fields_ref) {
+
 	return;
 }
 
 my %service_functions = (
 	echo => \&echo_service,
 	estimate_ingredients_percent => \&ProductOpener::Ingredients::estimate_ingredients_percent_service,
+	analyze_ingredients => \&ProductOpener::Ingredients::analyze_ingredients_service,
 );
 
 =head2 product_services_api()
@@ -113,35 +124,56 @@ sub product_services_api ($request_ref) {
 
 	my $error = 0;
 
+	# Check that we have an input body
 	if (not defined $request_body_ref) {
 		$log->error("product_services_api - missing or invalid input body", {}) if $log->is_error();
 		$error = 1;
 	}
-	elsif (not defined $request_body_ref->{product}) {
-		$log->error("product_services_api - missing input product", {request_body => $request_body_ref})
-			if $log->is_error();
-		add_error(
-			$response_ref,
-			{
-				message => {id => "missing_field"},
-				field => {id => "product"},
-				impact => {id => "failure"},
-			}
-		);
-		$error = 1;
-	}
-	if (not defined $request_ref->{services}) {
-		$log->error("product_services_api - missing services", {request_body => $request_body_ref})
-			if $log->is_error();
-		add_error(
-			$response_ref,
-			{
-				message => {id => "missing_field"},
-				field => {id => "services"},
-				impact => {id => "failure"},
-			}
-		);
-		$error = 1;
+	else {
+		# Check that we have the input body fields we expect
+
+		if (not defined $request_body_ref->{product}) {
+			$log->error("product_services_api - missing input product", {request_body => $request_body_ref})
+				if $log->is_error();
+			add_error(
+				$response_ref,
+				{
+					message => {id => "missing_field"},
+					field => {id => "product"},
+					impact => {id => "failure"},
+				}
+			);
+			$error = 1;
+		}
+
+		if (not defined $request_body_ref->{services}) {
+			$log->error("product_services_api - missing services", {request_body => $request_body_ref})
+				if $log->is_error();
+			add_error(
+				$response_ref,
+				{
+					message => {id => "missing_field"},
+					field => {id => "services"},
+					impact => {id => "failure"},
+				}
+			);
+			$error = 1;
+		}
+		elsif (ref($request_body_ref->{services}) ne 'ARRAY') {
+			add_error(
+				$response_ref,
+				{
+					message => {id => "invalid_type_must_be_array"},
+					field => {id => "services"},
+					impact => {id => "failure"},
+				}
+			);
+			$error = 1;
+		}
+		else {
+			# Echo back the services that were requested
+			$response_ref->{services} = $request_body_ref->{services};
+		}
 	}
 
 	# If we did not get a fatal error, we can execute the services on the input product object
@@ -149,10 +181,14 @@ sub product_services_api ($request_ref) {
 
 		my $product_ref = $request_body_ref->{product};
 
-		foreach my $service (split(/,/, $request_ref->{services})) {
+		# We will track of fields updated by the services so that we can return only those fields
+		# if the fields parameter value is "updated"
+		$request_ref->{updated_product_fields} = {};
+
+		foreach my $service (@{$request_body_ref->{services}}) {
 			my $service_function = $service_functions{$service};
 			if (defined $service_function) {
-				&$service_function($product_ref);
+				&$service_function($product_ref, $request_ref->{updated_product_fields});
 			}
 			else {
 				add_error(
@@ -166,10 +202,12 @@ sub product_services_api ($request_ref) {
 			}
 		}
 
-		# Select / compute only the fields requested by the caller, default to all
-		# TODO: changed default to updated
-		$response_ref->{product} = customize_response_for_product($request_ref, $product_ref, undef,
-			request_param($request_ref, 'fields') || ["all"]);
+		# Select / compute only the fields requested by the caller, default to updated fields
+		my $fields_ref = request_param($request_ref, 'fields') || ["updated"];
+		$response_ref->{product} = customize_response_for_product($request_ref, $product_ref, undef, $fields_ref);
+
+		# Echo back the services that were executed
+		$response_ref->{fields} = $fields_ref;
 	}
 
 	$log->debug("product_services_api - stop", {request => $request_ref}) if $log->is_debug();

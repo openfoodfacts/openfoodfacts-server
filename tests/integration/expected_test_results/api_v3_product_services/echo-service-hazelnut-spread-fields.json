@@ -1,9 +1,16 @@
 {
    "errors" : [],
+   "fields" : [
+      "product_name_en",
+      "product_name_fr"
+   ],
    "product" : {
       "product_name_en" : "My hazelnut spread",
       "product_name_fr" : "Ma pâte aux noisettes"
    },
+   "services" : [
+      "echo"
+   ],
    "status" : "success",
    "warnings" : []
 }
