@@ -211,9 +211,9 @@ function display_user_product_preferences(target_selected, target_selection_form
 
                 attribute_group_html += "<li id='attribute_" + attribute.id + "' class='attribute'>" +
                     "<fieldset class='fieldset_attribute_group' style='margin:0;padding:0;border:none'>" +
-                    "<div><div style='width:96px;float:left;margin-right:1em;'><img src='" + attribute.icon_url + "' class='match_icons' alt=''></div>" +
-                    "<span class='attribute_name'>" + attribute.setting_name + "</span></div><br>";
-                attribute_group_html += "<div class='attribute_group row'>"
+                    "<div class='attribute_img'><div style='width:96px;float:left;margin-right:1em;'><img src='" + attribute.icon_url + "' class='match_icons' alt=''></div>" +
+                    "<span class='attribute_name'>" + attribute.setting_name + "</span></div>";
+                attribute_group_html += "<div class='attribute_group'>"
 
                 $.each(preferences, function(key, preference) {
 
@@ -223,7 +223,7 @@ function display_user_product_preferences(target_selected, target_selection_form
                         checked = ' checked';
                     }
 
-                    attribute_group_html += "<div class='attribute_item small-12 medium-6 large-4 columns'>"
+                    attribute_group_html += "<div class='attribute_item'>"
                     attribute_group_html += "<input class='attribute_radio' id='attribute_" + attribute.id + "_" + preference.id +
                         "' value='" + preference.id + "' type='radio' name='" + attribute.id + "'" + checked + ">" +
                         "<label for='attribute_" + attribute.id + "_" + preference.id + "'>" + preference.name + "</label>" +

@@ -621,6 +621,17 @@ ul.pagination li a {
   display: flex;
   flex-direction: column;
 }
+.attribute_img {
+  display: flex;
+  align-items: center;
+}
+@media #{$large-up} {
+  .attribute_group {
+    display: flex;
+    justify-content: start;
+    margin-left: 8rem;
+  }
+}
 
 html[dir="rtl"] {
   .tab-bar-section.middle {
