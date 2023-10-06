@@ -105,7 +105,7 @@ $button-sml: rem-calc(14);
 $button-med: rem-calc(16);
 $button-lrg: rem-calc(18);
 // Use button variables for .modest feature
-$sveetoy-button-modests: ( tiny: $button-tny / 2, small: $button-sml / 2, medium: $button-med / 2, large: $button-lrg / 2, );
+$sveetoy-button-modests: ( tiny: $button-tny * 0.5, small: $button-sml * 0.5, medium: $button-med * 0.5, large: $button-lrg * 0.5, );
 // Button color scheme
 $sveetoy-button-colors-schemes: $sveetoy-colors-schemes;
 // A5. Sveetoys Boxes

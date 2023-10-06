@@ -88,8 +88,9 @@ BEGIN {
 		&compute_ingredients_percent_estimates
 
 		&estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients
-		&estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients
 		&estimate_nutriscore_2021_milk_percent_from_ingredients
+		&estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients
+		&estimate_nutriscore_2023_red_meat_percent_from_ingredients
 
 		&has_specific_ingredient_property
 
@@ -323,7 +324,13 @@ my %abbreviations = (
 		["S. thermophilus", "streptococcus thermophilus"],
 	],
 
-	da => [["bl. a.", "blandt andet"], ["inkl.", "inklusive"], ["mod.", "modificeret"], ["past.", "pasteuriserede"],],
+	da => [
+		["bl. a.", "blandt andet"],
+		["inkl.", "inklusive"],
+		["mod.", "modificeret"],
+		["past.", "pasteuriserede"],
+		["pr.", "per"],
+	],
 
 	en => [
 		["w/o", "without"],
@@ -371,7 +378,7 @@ my %of = (
 	da => " af ",
 	de => " von ",
 	es => " de ",
-	fr => " de la | de | du | des | d'",
+	fr => " de la | de | du | des | d'| de l'",
 	is => " af ",
 	it => " di | d'",
 	nl => " van ",
@@ -383,7 +390,7 @@ my %from = (
 	en => " from ",
 	de => " aus ",
 	es => " de ",
-	fr => " de la | de | du | des | d'",
+	fr => " de la | de | du | des | d'| de l'",
 	it => " dal | della | dalla | dagli | dall'",
 	pl => " z | ze ",
 );
@@ -467,6 +474,30 @@ my %the = (
 	nl => " de | het ",
 );
 
+# Strings to identify phrases like "75g per 100g of finished product"
+my %per = (
+	en => " per | for ",
+	da => " per ",
+	es => " por | por cada ",
+	fr => " pour | par ",
+	hr => " na ",
+	it => " per ",
+	nl => " per ",
+	sv => "((?: bär)|(?:\, varav tillsatt socker \\d+\\s*g))? per ",
+);
+
+my $one_hundred_grams_or_ml = '100\s*(?:g|gr|ml)';
+
+my %of_finished_product = (
+	en => " of (?:finished )?product",
+	es => " de producto(?: terminado| final)?",
+	fr => " (?:de|sur) produit(?: fini)?",
+	hr => " (?:gotovog )?proizvoda",
+	it => " di prodotto(?: finito)?",
+	nl => " van het volledige product",
+	sv => " sylt",
+);
+
 # Labels that we want to recognize in the ingredients
 # e.g. "fraises issues de l'agriculture biologique"
 
@@ -480,6 +511,7 @@ my @labels = (
 	"fr:aoc", "en:vegan",
 	"en:vegetarian", "nl:beter-leven-1-ster",
 	"nl:beter-leven-2-ster", "nl:beter-leven-3-ster",
+	"en:halal", "en:kosher",
 );
 my %labels_regexps = ();
 
@@ -717,6 +749,17 @@ sub extract_ingredients_from_image ($product_ref, $id, $ocr_engine, $results_ref
 	return;
 }
 
+# prepared with
+my %prepared_with = (
+	en => "(?:made|prepared|produced) with",
+	da => "fremstillet af",
+	es => "elabora con",
+	fr => "(?:(?:é|e)labor(?:é|e)|fabriqu(?:é|e)|pr(?:é|e)par(?:é|e)|produit)(?:e)?(?:s)? (?:avec|à partir)",
+	hr => "proizvedeno od",
+	nl => "bereid met",
+	sv => "är",
+);
+
 my %min_regexp = (
 	en => "min|min\.|minimum",
 	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
@@ -890,7 +933,7 @@ sub add_specific_ingredients_from_labels ($product_ref) {
 	return;
 }
 
-=head2 parse_specific_ingredients_from_text ( product_ref, $text, $percent_or_quantity_regexp )
+=head2 parse_specific_ingredients_from_text ( product_ref, $text, $percent_or_quantity_regexp, $per_100g_regexp )
 
 Lists of ingredients sometime include extra mentions for specific ingredients
 at the end of the ingredients list. e.g. "Prepared with 50g of fruits for 100g of finished product".
@@ -911,6 +954,8 @@ Used to find % values, language specific.
 
 Pass undef in order to skip % recognition. This is useful if we know the text is only for the origins of ingredients.
 
+=head4 per_100g regular expression $per_100g_regexp
+
 =head3 Return values
 
 =head4 specific_ingredients structure
@@ -921,13 +966,44 @@ Array of specific ingredients.
 
 =cut
 
-sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quantity_regexp) {
+sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quantity_regexp, $per_100g_regexp) {
 
 	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
 
 	# Go through the ingredient lists multiple times
 	# as long as we have one match
 	my $ingredient = "start";
+
+	# total or minimum
+	my %minimum_or_total = (
+		en => "min|minimum|total",
+		es => "total",
+		fr => "min|minimum|minimal|minimale|total|totale",
+		sv => "total",
+	);
+	my $minimum_or_total = $minimum_or_total{$ingredients_lc} || '';
+
+	# followed by an ingredient (e.g. "total content of fruit")
+	my %content_of_ingredient = (
+		en => "(?:(?:$minimum_or_total) )?content",
+		es => "contenido(?: (?:$minimum_or_total))",
+		fr => "(?:teneur|taux)(?: (?:$minimum_or_total))?(?: en)?",   # need to have " en" as it's not in the $of regexp
+		hr => "ukupni",
+		sv => "(?:(?:$minimum_or_total) )?mängd",
+	);
+	my $content_of_ingredient = $content_of_ingredient{$ingredients_lc};
+
+	my $of = $of{$ingredients_lc} || ' ';    # default to space in order to not match an empty string
+
+	# following an ingredient (e.g. "milk content")
+	# include space if mandatory
+	my %ingredient_content = (
+		en => " content",
+		sv => "mängd"
+	);
+	my $ingredient_content = $ingredient_content{$ingredients_lc};
+
+	my $prepared_with = $prepared_with{$ingredients_lc} || '';
 
 	while ($ingredient) {
 
@@ -941,87 +1017,116 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		# Note: in regular expressions below, use non-capturing groups (starting with (?: )
 		# for all groups, except groups that capture actual data: ingredient name, percent, origins
 
-		# Regexps should match until we reach a . ; or the end of the text
+		# Regexps should match until we reach a , . ; - or the end of the text
 
-		if ($ingredients_lc eq "en") {
-			# examples:
-			# Total Milk Content 73%.
+		$log->debug("parse_specific_ingredients_from_text - text: $text") if $log->is_debug();
 
-			if (
-				(defined $percent_or_quantity_regexp)
-				and ($text
-					=~ /\s*(?:total |min |minimum )?([^,.;]+?)\s+content(?::| )+$percent_or_quantity_regexp\s*(?:per 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i
+		# text in this order: ingredient - quantity - percent
+		# e.g.
+		# - minimum content of fruit : 150g
+		# - fruit content: minimum 80%
+		# - total fruit content: 150g per 100g
+		if (
+			(defined $percent_or_quantity_regexp)
+			and (
+				(
+					# fruit content: 50%, minimum fruit content 40g per 100g
+					# sv: Fruktmängd: 50g per 100g (no space)
+
+					(defined $ingredient_content)
+					# optional minimum, followed by ingredient, content, : and/or spaces, percent or quantity, optional per 100g, separator
+					and ($text
+						=~ /((?:^|;|,|\.| - )\s*)(?:(?:$minimum_or_total) )?\s*([^,.;]+?)\s*(?:$ingredient_content)(?::|\s)+$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+					)
+
 				)
+				or (
+					# minimum content of fruit: 150% / content of fruit: 150g per 100g of finished product
+					# (fr) teneur en citron de 40%
+					(defined $content_of_ingredient)
+					and (
+						# content, of or : or space, ingredient, percent or quantity, optional per 100g, separator
+						$text
+						=~ /((?:^|;|,|\.| - )\s*)(?:$content_of_ingredient)(?:$of|\s|:)+([^,.;]+?)(?:$of|\s)+$percent_or_quantity_regexp\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+					)
 				)
-			{
-				$ingredient = $1;
-				# 2 groups captured by $percent_or_quantity_regexp:
-				$percent_or_quantity_value = $2;
-				$percent_or_quantity_unit = $3;
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
-			}
 
-			# Origin of the milk: United Kingdom
-			elsif (match_origin_of_the_ingredient_origin($ingredients_lc, \$text, $matched_ingredient_ref)) {
-				$origins = $matched_ingredient_ref->{origins};
-				$ingredient = $matched_ingredient_ref->{ingredient};
-				$matched_text = $matched_ingredient_ref->{matched_text};
-				# Remove extra spaces
-				$ingredient =~ s/\s+$//;
-			}
+			)
+			)
+		{
+			$log->debug("parse_specific_ingredients_from_text - text in this order: ingredient - quantity - percent")
+				if $log->is_debug();
+
+			my $before = $1;
+			$ingredient = $2;
+			# 2 groups captured by $percent_or_quantity_regexp:
+			$percent_or_quantity_value = $3;
+			$percent_or_quantity_unit = $4;
+			$matched_text = $&;
+			# Remove the matched text
+			$text = $` . $1 . ' ' . $';
+
+			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
+			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
+				if $log->is_debug();
+			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_unit: $percent_or_quantity_unit")
+				if $log->is_debug();
 		}
-		elsif ($ingredients_lc eq "fr") {
+		# text in this order: quantity - ingredient - percent
+		# e.g.
+		# - 75g of tomatoes per 100g
+		# - prepared with 60g of fruits
+		# - prepared with 40g of fruits per 100g of finished product
+		elsif (
+			(defined $percent_or_quantity_regexp)
+			and (
+				# if the string does not start with "prepared with", it needs to finish with "per 100g",
+				# otherwise we will match items that could be part of the ingredients list such as "75% of tomatoes
 
-			# examples:
-			# Teneur en lait 25% minimum.
-			# Teneur en lactose < 0,01 g/100 g.
-			# Préparée avec 50 g de fruits pour 100 g de produit fini.
+				# prepared with, percent, ingredient, optional per 100g, separator
+				# $of needs to be first in (?:$of|\s|:) so that " of " is matched by it, instead of the ingredient capturing group
+				(
+					$text
+					=~ /((?:^|;|,|\.| - )\s*)$prepared_with(?:$of|\s|:)+$percent_or_quantity_regexp(?:$of|\s|:)+\s*([^,.;]+?)\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+				)
+				or
+				# percent, ingredient, per 100g, separator
+				(
+					$text
+					=~ /((?:^|;|,|\.| - )\s*)$percent_or_quantity_regexp(?:$of|\s|:)+\s*([^,.;]+?)\s*(?:$per_100g_regexp)(?:;|,|\.| - |$)/i
+				)
+			)
+			)
+		{
+			$log->debug("parse_specific_ingredients_from_text - text in this order: quantity - ingredient - percent")
+				if $log->is_debug();
 
-			if (
-				(defined $percent_or_quantity_regexp)
-				and ($text
-					=~ /\s*(?:(?:préparé|prepare)(?:e|s|es)? avec)(?: au moins)?(?::| )+$percent_or_quantity_regexp (?:de |d')?([^,.;]+?)\s*(?:pour 100\s*(?:g)(?:[^,.;-]*?))?(?:;|\.| - |$)/i
-				)
-				)
-			{
-				# 2 groups captured by $percent_or_quantity_regexp:
-				$percent_or_quantity_value = $1;
-				$percent_or_quantity_unit = $2;
-				$ingredient = $3;
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
-			}
+			my $before = $1;
+			# 2 groups captured by $percent_or_quantity_regexp:
+			$percent_or_quantity_value = $2;
+			$percent_or_quantity_unit = $3;
+			$ingredient = $4;    # ([^,.;]+?)
+			$matched_text = $&;
+			# Remove the matched text
+			$text = $` . $1 . ' ' . $';
 
-			# Teneur totale en sucres : 60 g pour 100 g de produit fini.
-			# Teneur en citron de 100%
-			elsif (
-				(defined $percent_or_quantity_regexp)
-				and ($text
-					=~ /\s*teneur(?: min| minimum| minimale| totale)?(?: en | de | d'| du )([^,.;]+?)\s*(?:pour 100\s*(?:g)(?: de produit(?: fini)?)?)?(?: de)?(?::| )+$percent_or_quantity_regexp\s*(?:pour 100\s*(?:g)(?:[^,.;]*?))?(?:;|\.| - |$)/i
-				)
-				)
-			{
-				$ingredient = $1;
-				# 2 groups captured by $percent_or_quantity_regexp:
-				$percent_or_quantity_value = $2;
-				$percent_or_quantity_unit = $3;
-				$matched_text = $&;
-				# Remove the matched text
-				$text = $` . ' ' . $';
-			}
+			$log->debug("parse_specific_ingredients_from_text - ingredient: $ingredient") if $log->is_debug();
+			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_value: $percent_or_quantity_value")
+				if $log->is_debug();
+			$log->debug("parse_specific_ingredients_from_text - percent_or_quantity_unit: $percent_or_quantity_unit")
+				if $log->is_debug();
+		}
 
+		if (($ingredients_lc eq "en") || ($ingredients_lc eq "fr")) {
+			# Origin of the milk: United Kingdom
 			# Origine du Cacao: Pérou
-			elsif (match_origin_of_the_ingredient_origin($ingredients_lc, \$text, $matched_ingredient_ref)) {
+			if (match_origin_of_the_ingredient_origin($ingredients_lc, \$text, $matched_ingredient_ref)) {
 				$origins = $matched_ingredient_ref->{origins};
 				$ingredient = $matched_ingredient_ref->{ingredient};
 				$matched_text = $matched_ingredient_ref->{matched_text};
 				# Remove extra spaces
 				$ingredient =~ s/\s+$//;
 			}
-
 		}
 
 		# If we found an ingredient, save it in specific_ingredients
@@ -1030,7 +1135,13 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				= get_taxonomyid($ingredients_lc,
 				canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient));
 
+			# remove starting or ending separators in matched text
+			$matched_text =~ s/^(;|,|\.| - |\s)+//;
+			$matched_text =~ s/(;|,|\.| - |\s)+$//;
 			$matched_text =~ s/^\s+//;
+
+			# remove ending separators for ingredient
+			$ingredient =~ s/(:|\s)*$//;
 
 			my $specific_ingredients_ref = {
 				id => $ingredient_id,
@@ -1611,25 +1722,27 @@ sub parse_ingredients_text ($product_ref) {
 
 	my $and = $and{$ingredients_lc} || " and ";
 
-	my $min_regexp = "";
-	if (defined $min_regexp{$ingredients_lc}) {
-		$min_regexp = $min_regexp{$ingredients_lc};
-	}
-	my $ignore_strings_after_percent = "";
-	if (defined $ignore_strings_after_percent{$ingredients_lc}) {
-		$ignore_strings_after_percent = $ignore_strings_after_percent{$ingredients_lc};
-	}
+	my $prepared_with = $prepared_with{$ingredients_lc} || '',
+
+		my $min_regexp = $min_regexp{$ingredients_lc} || '';
+
+	my $ignore_strings_after_percent = $ignore_strings_after_percent{$ingredients_lc} || '';
 
 	# Regular expression to find percent or quantities
 	# $percent_or_quantity_regexp has 2 capturing group: one for the number, and one for the % sign or the unit
-	my $percent_or_quantity_regexp = '(?:<|' . $min_regexp . '|\s|\.|:)*'    # optional minimum, and separators
+	my $percent_or_quantity_regexp = '(?:' . "(?:$prepared_with )" . ' )?'    # optional produced with
+		. '(?:<|' . $min_regexp . '|\s|\.|:)*'    # optional minimum, and separators
 		. '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number, possibly with a dot or comma
 		. '(\%|g|gr|mg|kg|ml|cl|dl|l)\s*'    # % or unit
 		. '(?:' . $min_regexp . '|'    # optional minimum
 		. $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';    # strings that can be ignored
 
+	my $per = $per{$ingredients_lc} || ' per ';
+	my $of_finished_product = $of_finished_product{$ingredients_lc} || '';
+	my $per_100g_regexp = "(${per}|\/)${one_hundred_grams_or_ml}(?:$of_finished_product)?";
+
 	# Extract phrases related to specific ingredients at the end of the ingredients list
-	$text = parse_specific_ingredients_from_text($product_ref, $text, $percent_or_quantity_regexp);
+	$text = parse_specific_ingredients_from_text($product_ref, $text, $percent_or_quantity_regexp, $per_100g_regexp);
 
 	my $analyze_ingredients_function = sub ($analyze_ingredients_self, $ingredients_ref, $level, $s) {
 
@@ -1713,6 +1826,7 @@ sub parse_ingredients_text ($product_ref) {
 
 					# percent followed by a separator, assume the percent applies to the parent (e.g. tomatoes)
 					# tomatoes (64%, origin: Spain)
+					# tomatoes (145g per 100g of finished product)
 
 					if (($between =~ $separators) and ($` =~ /^$percent_or_quantity_regexp$/i)) {
 
@@ -1764,7 +1878,7 @@ sub parse_ingredients_text ($product_ref) {
 							and $log->debug("between does not contain a separator", {between => $between})
 							if $log->is_debug();
 
-						if ($between =~ /^$percent_or_quantity_regexp$/i) {
+						if ($between =~ /^$percent_or_quantity_regexp(?:$per_100g_regexp)?$/i) {
 
 							$percent_or_quantity_value = $1;
 							$percent_or_quantity_unit = $2;
@@ -2079,20 +2193,10 @@ sub parse_ingredients_text ($product_ref) {
 					$ingredient = $`;
 				}
 
+				# 50% beef, 20g of oranges
 				# 90% boeuf, 100% pur jus de fruit, 45% de matière grasses
-				if (
-					$ingredient =~ m{^
-									 \s*
-									 ( \d+ (?:[,.] \d+)? )
-									 \s*
-									 (\%|g)
-									 \s*
-
-									 ( (?: pur | de ) \s | d' )?
-									 \s*
-									}sxmi
-					)
-				{
+				my $of = $of{$ingredients_lc} || ' ';    # default to space in order to not match an empty string
+				if ($ingredient =~ /^\s*$percent_or_quantity_regexp(?:$of|\s)+/i) {
 					$percent_or_quantity_value = $1;
 					$percent_or_quantity_unit = $2;
 					$debug_ingredients and $log->debug(
@@ -2324,7 +2428,6 @@ sub parse_ingredients_text ($product_ref) {
 
 							'fr' => [
 								'(\%|pourcentage|pourcentages) (.*)(exprim)',
-								'(sur|de) produit fini',    # préparé avec 50g de fruits pour 100g de produit fini
 								'pour( | faire | fabriquer )100'
 								,    # x g de XYZ ont été utilisés pour fabriquer 100 g de ABC
 								'contenir|présence',    # présence exceptionnelle de ... peut contenir ... noyaux etc.
@@ -2429,12 +2532,9 @@ sub parse_ingredients_text ($product_ref) {
 							'sv' => [
 								'^Minst \d{1,3}\s*% kakao I chokladen$',
 								'^Mjölkchokladen innehåller minst',
-								'^Fruktmängd \d+\s*g per$',
 								'^Kakaohalt i chokladen$',
 								'varierande proportion',
-								'^total mängd socker',
 								'kan innehålla ben$',
-								'^per 100 g sylt$',
 								'^Kakao minst',
 								'^fetthalt',
 							],
@@ -4306,7 +4406,6 @@ my %phrases_after_ingredients_list = (
 	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnhold', 'kjølevare',],
 
 	nl => [
-		'bereid met',
 		'Beter Leven keurmerk 1 ster.',
 		'Beter Leven keurmerk 3 sterren',
 		'Bewaren bij kamertemperatuur',
@@ -6825,7 +6924,7 @@ sub is_milk ($ingredient_id) {
 
 =head2 estimate_nutriscore_2021_milk_percent_from_ingredients ( product_ref )
 
-This function analyzes the ingredients to estimate the minimum percentage of milk in a product,
+This function analyzes the ingredients to estimate the percentage of milk in a product,
 in order to know if a dairy drink should be considered as a food (at least 80% of milk) or a beverage.
 
 Return value: estimated % of milk.
@@ -6835,6 +6934,34 @@ Return value: estimated % of milk.
 sub estimate_nutriscore_2021_milk_percent_from_ingredients ($product_ref) {
 
 	return estimate_ingredients_matching_function($product_ref, \&is_milk);
+}
+
+=head2 is_red_meat ( $ingredient_id )
+
+Determine if an ingredient should be counted as red meat in Nutriscore 2023 algorithm
+
+=cut
+
+sub is_red_meat ($ingredient_id) {
+
+	my $red_meat_property = get_inherited_property("ingredients", $ingredient_id, "nutriscore_red_meat:en");
+	if ((defined $red_meat_property) and ($red_meat_property eq "yes")) {
+		return 1;
+	}
+	return 0;
+}
+
+=head2 estimate_nutriscore_2023_red_meat_percent_from_ingredients ( product_ref )
+
+This function analyzes the ingredients to estimate the percentage of red meat,
+so that we can determine if the maximum limit of 2 points for proteins
+should be applied in the Nutri-Score 2023 algorithm.
+
+=cut
+
+sub estimate_nutriscore_2023_red_meat_percent_from_ingredients ($product_ref) {
+
+	return estimate_ingredients_matching_function($product_ref, \&is_red_meat);
 }
 
 1;

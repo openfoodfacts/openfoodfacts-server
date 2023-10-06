@@ -1,0 +1,129 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:fruit",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "13050",
+               "id" : "en:apple",
+               "percent" : 20,
+               "percent_estimate" : 20,
+               "percent_max" : 20,
+               "percent_min" : 20,
+               "text" : "apple",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:pear",
+               "percent" : 15,
+               "percent_estimate" : 15,
+               "percent_max" : 15,
+               "percent_min" : 15,
+               "text" : "pear",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "13113",
+               "id" : "en:cranberry",
+               "percent_estimate" : 11.25,
+               "percent_max" : 15,
+               "percent_min" : 7.5,
+               "text" : "cranberry",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:lemon",
+               "percent_estimate" : 3.75,
+               "percent_max" : 7.5,
+               "percent_min" : 0,
+               "text" : "lemon",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "percent" : 50,
+         "percent_estimate" : 50,
+         "percent_max" : 50,
+         "percent_min" : 50,
+         "text" : "fruits",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:sugar",
+         "percent_estimate" : 50,
+         "percent_max" : 50,
+         "percent_min" : 50,
+         "text" : "sugar",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:fruit",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:apple",
+      "en:malaceous-fruit",
+      "en:pear",
+      "en:cranberry",
+      "en:lemon",
+      "en:citrus-fruit"
+   ],
+   "ingredients_n" : 6,
+   "ingredients_n_tags" : [
+      "6",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:fruit",
+      "en:sugar",
+      "en:apple",
+      "en:pear",
+      "en:cranberry",
+      "en:lemon"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:fruit",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:apple",
+      "en:malaceous-fruit",
+      "en:pear",
+      "en:cranberry",
+      "en:lemon",
+      "en:citrus-fruit"
+   ],
+   "ingredients_text" : "fruits 50% (apple 40%, pear 30%, cranberry, lemon), sugar",
+   "ingredients_with_specified_percent_n" : 2,
+   "ingredients_with_specified_percent_sum" : 35,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 65,
+   "ingredients_without_ciqual_codes" : [
+      "en:lemon",
+      "en:pear",
+      "en:sugar"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "known_ingredients_n" : 10,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 50,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 50,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 50
+   },
+   "unknown_ingredients_n" : 0
+}
