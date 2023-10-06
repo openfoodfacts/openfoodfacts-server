@@ -7,9 +7,9 @@
 # first arg should be the path to the import success file 
 # containing a timestamp of last successful import
 # it may not exists yet, in which case we default to one week
-function import_since() {
+function import_since {
     SUCCESS_FILE_PATH=$1
-    if [[ -z "$SUCCESS_FILE_PATH"]]
+    if [[ -z "$SUCCESS_FILE_PATH" ]]
     then
         >&2 echo "ERROR: missing path to success file"
     fi
@@ -29,7 +29,7 @@ function import_since() {
 
 # mark a sucessful run of import by putting current timestamp in success file
 # so that import_since can use it on next run
-function mark_successful_run () {
+function mark_successful_run {
     SUCCESS_FILE_PATH=$1
     if [[ -z "$SUCCESS_FILE_PATH" ]]
     then

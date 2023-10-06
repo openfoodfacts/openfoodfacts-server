@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # do not continue on failure
 set -e
 
@@ -6,7 +6,7 @@ set -e
 . scripts/imports/imports_utils.sh
 
 # this script must be launch from server root (/srv/off-pro)
-export PERL5LIB=lib/ProductOpener:$PERL5LIB
+export PERL5LIB=lib:$PERL5LIB
 
 # load paths
 . <(perl -e 'use ProductOpener::Paths qw/:all/; print base_paths_loading_script()')
@@ -37,6 +37,9 @@ find $OFF_SFTP_HOME_DIR/agena3000/PROD/Fiches/ -mtime -$IMPORT_SINCE -type f -ex
 ./scripts/convert_gs1_json_to_off_csv.pl \
     --input-dir $DATA_TMP_DIR --output $DATA_TMP_DIR/agena3000-data.tsv \
     --confirmation-dir $DATA_TMP_DIR/Ack
+
+# STOP here to test !
+# exit 1
 
 # import CSV file
 ./scripts/import_csv_file.pl \
