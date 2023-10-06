@@ -223,12 +223,10 @@ function display_user_product_preferences(target_selected, target_selection_form
                         checked = ' checked';
                     }
 
-                    attribute_group_html += "<div class='attribute_item'>"
-                    attribute_group_html += "<input class='attribute_radio' id='attribute_" + attribute.id + "_" + preference.id +
+                    attribute_group_html += "<div class='attribute_item'><input class='attribute_radio' id='attribute_" + attribute.id + "_" + preference.id +
                         "' value='" + preference.id + "' type='radio' name='" + attribute.id + "'" + checked + ">" +
                         "<label for='attribute_" + attribute.id + "_" + preference.id + "'>" + preference.name + "</label>" +
-                        "</input>";
-                    attribute_group_html +="</div>"
+                        "</input></div>";
                 });
 
                 if (attribute.description_short) {
