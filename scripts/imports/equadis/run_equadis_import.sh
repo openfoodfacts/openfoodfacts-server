@@ -6,7 +6,7 @@ set -e
 # load utils
 . scripts/imports/imports_utils.sh
 
-# this script must be launch from server root (/srv/off-pro)
+# this script must be launched from server root (/srv/off-pro)
 export PERL5LIB=lib:$PERL5LIB
 
 # load paths
@@ -24,9 +24,9 @@ SUCCESS_FILE_PATH="$OFF_PRIVATE_DATA_DIR/equadis-import-success"
 
 IMPORT_SINCE=$(import_since $SUCCESS_FILE_PATH)
 
-echo "IMPORT_SINCE: $IMPORT_SINCE"
+echo "IMPORT_SINCE: $IMPORT_SINCE days"
 
-# copy files modified in the last succesful run
+# copy files modified in the last successful run
 rm -rf $DATA_TMP_DIR
 mkdir $DATA_TMP_DIR
 find $OFF_SFTP_HOME_DIR/equadis/data/ -mtime -$IMPORT_SINCE -type f -exec cp {} $DATA_TMP_DIR/ \;

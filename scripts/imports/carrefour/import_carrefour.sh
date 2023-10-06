@@ -6,38 +6,64 @@ set -e
 # load utils
 . scripts/imports/imports_utils.sh
 
-# this script must be launch from server root (/srv/off-pro)
-export PERL5LIB=lib/ProductOpener:$PERL5LIB
+# this script must be launched from server root (/srv/off-pro)
+export PERL5LIB=lib:$PERL5LIB
 
 # load paths
 . <(perl -e 'use ProductOpener::Paths qw/:all/; print base_paths_loading_script()')
 
-SCRIPT_DIR=$(dirname "$0")
-SCRIPT_DIR=$(realpath $SCRIPT_DIR)
+if [[ -z "OFF_SFTP_HOME_DIR" ]]
+then
+	    >&2 "SFTP_HOME not defined, exiting"
+fi
 
-cp -a /home/sftp/carrefour/data/*xml /srv/off/imports/carrefour/data/
+DATA_TMP_DIR=$OFF_CACHE_TMP_DIR/carrefour-data
+IMAGES_TMP_DIR=$OFF_CACHE_TMP_DIR/carrefour-images
 
-cd /srv/off/imports/carrefour
+SUCCESS_FILE_PATH="$OFF_PRIVATE_DATA_DIR/carrefour-import-success"
 
-# mv non off files
-grep -Z -l -r '"DPH -' data | xargs --null -I{} mv {} data.obf/
-grep -Z -l -r '"ALI - PRODUITS POUR ANIMAUX' data | xargs --null -I{} mv {} data.opff/
+MPORT_SINCE=$(import_since $SUCCESS_FILE_PATH)
+
+echo "IMPORT_SINCE: $IMPORT_SINCE days"
+
+# copy XML files modified in the last successful run
+rm -rf $DATA_TMP_DIR
+mkdir $DATA_TMP_DIR
+mkdir $DATA_TMP_DIR/data
+find $OFF_SFTP_HOME_DIR/carrefour/data/ -mtime -$IMPORT_SINCE -type f -name "*.xml" -exec cp {} $DATA_TMP_DIR/data/ \;
+
+
+# mv files that are not human food (cosmetics and pet food)
+# TODO: we could in fact just import them in the pro platform, and dispatch them
+# to Open Beauty Facts and Open Pet Food Facts later, as we do for Unilever
+mkdir $DATA_TMP_DIR/data.obf
+mkdir $DATA_TMP_DIR/data.opff
+grep -Z -l -r '"DPH -' $DATA_TMP_DIR/data | xargs --null -I{} mv {} $DATA_TMP_DIR/data.obf/
+grep -Z -l -r '"ALI - PRODUITS POUR ANIMAUX' $DATA_TMP_DIR/data | xargs --null -I{} mv {} $DATA_TMP_DIR/data.opff/
 
 # Warning some Carrefour XML files are broken with 2 <TabNutXMLPF>.*</TabNutXMLPF>
 # fix them by removing the second one:
-cd data
-find . -name "*.xml" -type f -exec sed -i 's/<\/TabNutXMLPF><TabNutXMLPF>.*/<\/TabNutXMLPF>/g' {} \;
+find $DATA_TMP_DIR/data/ -name "*.xml" -type f -exec sed -i 's/<\/TabNutXMLPF><TabNutXMLPF>.*/<\/TabNutXMLPF>/g' {} \;
 
-unzip -o '/home/sftp/carrefour/data/*zip' -d /srv/off/imports/carrefour/images/
+# Unzip images
+# TODO: we get images from time to time in .zip files, but the .xml files we get
+# for products could have images from earlier zip files, so currently we unzip
+# all images we got.
+# Carrefour will soon send us CSV files with images urls, so this process will
+# eventually be replaced (i.e. not worth improving it now)
+mkdir $DATA_TMP_DIR/images
+unzip -o "$OFF_SFTP_HOME_DIR/carrefour/data/*.zip" -d "$DATA_TMP_DIR/images/"
 
-cd $SCRIPT_DIR
+# Convert Carrefour XML files to one OFF csv file
+./scripts/imports/carrefour/convert_carrefour_data.pl $DATA_TMP_DIR/data ./scripts/imports/carrefour/Nomenclature_OpenFoodFacts.csv > $DATA_TMP_DIR/carrefour-data.tsv || exit 101;
 
-export PERL5LIB=../lib
+exit
 
-./convert_carrefour_data_off1.sh
+./scripts/import_csv_file.pl --csv_file $DATA_TMP_DIR/carrefour-data.tsv --user_id carrefour --comment "Import Carrefour" --source_id "carrefour" --source_name "Carrefour" --source_url "https://www.carrefour.fr" --manufacturer --org_id carrefour-test-off2 --define lc=fr 
 
-./import_carrefour_pro_off1.sh
+./scripts/export_csv_file.pl --fields code,nutrition_grades_tags --query editors_tags=carrefour --separator ';' > $OFF_PUBLIC_DATA_DIR/exports/carrefour_nutriscore.csv
 
-./export_csv_file.pl --fields code,nutrition_grades_tags --query editors_tags=carrefour --separator ';' > /srv/off/html/data/exports/carrefour_nutriscore.csv
+./scripts/export_csv_file.pl --fields code,nutrition_grades_tags --separator ';' > $OFF_PUBLIC_DATA_DIR/exports/nutriscore.csv
 
-./export_csv_file.pl --fields code,nutrition_grades_tags --separator ';' > /srv/off/html/data/exports/nutriscore.csv
+# mark successful run
+mark_successful_run $SUCCESS_FILE_PATH
