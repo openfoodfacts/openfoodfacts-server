@@ -562,6 +562,31 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			ingredients_text => "each capsule contains: paracetamol 500 m 5 060198 790 0 mg.",
 		}
 	],
+	# 'and' + processing
+	[
+		"en-ing1-and-ing2-processing",
+		{
+			lc => "en",
+			ingredients_text => "apple,
+non-hydrogenated banana,
+cherry and date,
+hardened elderberry and fig,
+grape and treated huckleberry,
+desalted jackfruit and grilled kiwifruit,
+lemon and unknown_fruit,
+toasted mango and unknown_fruit2,
+nectarine and fried unknown_fruit3,
+puffed orange and caramelized unknown_fruit4.",
+		}
+	],
+	[
+		"en-ing1-and-ing2-processing-parenthesis",
+		{
+			lc => "en",
+			ingredients_text =>
+				"fruits (apple, banana and dried cherry), vegetables (pitted avocado, peeled black radish).",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {
