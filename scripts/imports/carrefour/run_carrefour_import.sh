@@ -12,9 +12,9 @@ export PERL5LIB=lib:$PERL5LIB
 # load paths
 . <(perl -e 'use ProductOpener::Paths qw/:all/; print base_paths_loading_script()')
 
-if [[ -z "OFF_SFTP_HOME_DIR" ]]
+if [[ -z "$OFF_SFTP_HOME_DIR" ]]
 then
-    >&2 "SFTP_HOME not defined, exiting"
+    >&2 "OFF_SFTP_HOME_DIR not defined, exiting"
 fi
 
 DATA_TMP_DIR=$OFF_CACHE_TMP_DIR/carrefour-data
@@ -57,9 +57,9 @@ unzip -o "$OFF_SFTP_HOME_DIR/carrefour/data/*.zip" -d "$DATA_TMP_DIR/images/"
 # Convert Carrefour XML files to one OFF csv file
 ./scripts/imports/carrefour/convert_carrefour_data.pl $DATA_TMP_DIR/data ./scripts/imports/carrefour/Nomenclature_OpenFoodFacts.csv > $DATA_TMP_DIR/carrefour-data.tsv || exit 101;
 
-# For testing: we import products under the carrefour-test-off2 org
+# Note: for testing, we can import products under the carrefour-test-off2 org
 
-./scripts/import_csv_file.pl --csv_file $DATA_TMP_DIR/carrefour-data.tsv --user_id carrefour --comment "Import Carrefour" --source_id "carrefour" --source_name "Carrefour" --source_url "https://www.carrefour.fr" --manufacturer --org_id carrefour-test-off2 --define lc=fr 
+./scripts/import_csv_file.pl --csv_file $DATA_TMP_DIR/carrefour-data.tsv --user_id carrefour --comment "Import Carrefour" --source_id "carrefour" --source_name "Carrefour" --source_url "https://www.carrefour.fr" --manufacturer --org_id carrefour --define lc=fr 
 
 ./scripts/export_csv_file.pl --fields code,nutrition_grades_tags --query editors_tags=carrefour --separator ';' > $OFF_PUBLIC_DATA_DIR/exports/carrefour_nutriscore.csv
 

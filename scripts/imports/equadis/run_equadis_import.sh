@@ -12,9 +12,9 @@ export PERL5LIB=lib:$PERL5LIB
 # load paths
 . <(perl -e 'use ProductOpener::Paths qw/:all/; print base_paths_loading_script()')
 
-if [[ -z "OFF_SFTP_HOME_DIR" ]]
+if [[ -z "$OFF_SFTP_HOME_DIR" ]]
 then
-    >&2 "SFTP_HOME not defined, exiting"
+    >&2 "OFF_SFTP_HOME_DIR not defined, exiting"
 fi
 
 DATA_TMP_DIR=$OFF_CACHE_TMP_DIR/equadis-data
@@ -38,7 +38,7 @@ find $OFF_SFTP_HOME_DIR/equadis/data/ -mtime -$IMPORT_SINCE -type f -exec cp {} 
 ./scripts/convert_gs1_json_to_off_csv.pl --input-dir $DATA_TMP_DIR --output $DATA_TMP_DIR/equadis-data.tsv || exit 101;
 
 # STOP here to test !
-exit 1
+# exit 1
 
 # import CSV file
 ./scripts/import_csv_file.pl \
