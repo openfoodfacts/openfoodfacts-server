@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # do not continue on failure
 set -e
@@ -14,7 +14,7 @@ export PERL5LIB=lib:$PERL5LIB
 
 if [[ -z "OFF_SFTP_HOME_DIR" ]]
 then
-	    >&2 "SFTP_HOME not defined, exiting"
+    >&2 "SFTP_HOME not defined, exiting"
 fi
 
 DATA_TMP_DIR=$OFF_CACHE_TMP_DIR/carrefour-data
@@ -22,7 +22,7 @@ IMAGES_TMP_DIR=$OFF_CACHE_TMP_DIR/carrefour-images
 
 SUCCESS_FILE_PATH="$OFF_PRIVATE_DATA_DIR/carrefour-import-success"
 
-MPORT_SINCE=$(import_since $SUCCESS_FILE_PATH)
+IMPORT_SINCE=$(import_since $SUCCESS_FILE_PATH)
 
 echo "IMPORT_SINCE: $IMPORT_SINCE days"
 
@@ -57,7 +57,7 @@ unzip -o "$OFF_SFTP_HOME_DIR/carrefour/data/*.zip" -d "$DATA_TMP_DIR/images/"
 # Convert Carrefour XML files to one OFF csv file
 ./scripts/imports/carrefour/convert_carrefour_data.pl $DATA_TMP_DIR/data ./scripts/imports/carrefour/Nomenclature_OpenFoodFacts.csv > $DATA_TMP_DIR/carrefour-data.tsv || exit 101;
 
-exit
+# For testing: we import products under the carrefour-test-off2 org
 
 ./scripts/import_csv_file.pl --csv_file $DATA_TMP_DIR/carrefour-data.tsv --user_id carrefour --comment "Import Carrefour" --source_id "carrefour" --source_name "Carrefour" --source_url "https://www.carrefour.fr" --manufacturer --org_id carrefour-test-off2 --define lc=fr 
 
