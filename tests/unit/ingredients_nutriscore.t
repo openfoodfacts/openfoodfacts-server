@@ -33,17 +33,19 @@ foreach my $test_ref (@ingredients) {
 
 my @tests = (
 	[{lc => "fr", ingredients_text => ""}, undef],
-	[{lc => "fr", ingredients_text => "eau, sucre, noisettes"}, 0],
+	[{lc => "fr", ingredients_text => "eau, sucre, noisettes"}, 16.6666666666667],
 	[{lc => "fr", ingredients_text => "banane 50%, fraise 30%, eau"}, 80],
 	[{lc => "fr", ingredients_text => "banane 50%, gâteau (fraise 30%, framboise 5%, farine), eau"}, 85],
-	[{lc => "fr", ingredients_text => "banane, gâteau (fraise 30%, framboise 5%, farine), eau"}, 70],
+	[{lc => "fr", ingredients_text => "banane, gâteau (fraise 30%, framboise 5%, farine), eau"}, 85],
 	[
 		{
 			lc => "fr",
 			ingredients_text =>
 				"Courgette grillée 37,5%, tomate pelée 20%, poivron jaune 17%, oignon rouge grillé 8%, eau, huile d'olive vierge extra 3,9%, oignon, olive noire entière dénoyautée saumurée 2,5% (olive, eau, sel, correcteurs d'acidité : acide citrique, acide lactique), ail, basilic 0,9%, amidon de riz, sel"
 		},
-		89.8
+		# add_fruit() currently matches "olive noire entière dénoyautée saumurée 2,5% (..)" to 2.5% fruit, even though it has sub-ingredients that are not fruits
+		# TODO: investigate on actual product data to see if trying to fix this would have more true positives than false positives
+		93.8
 	],
 );
 
@@ -67,17 +69,20 @@ foreach my $test_ref (@tests) {
 # test the estimate percent of milk
 
 @tests = (
-	[{lc => "fr", ingredients_text => ""}, 0],
+	[{lc => "fr", ingredients_text => ""}, undef],
 	[{lc => "fr", ingredients_text => "lait"}, 100],
 	[{lc => "fr", ingredients_text => "lait entier"}, 100],
 	[{lc => "fr", ingredients_text => "lait frais"}, 100],
 	[{lc => "fr", ingredients_text => "lait de vache"}, 100],
 	[{lc => "fr", ingredients_text => "lait pasteurisé"}, 100],
 	[{lc => "fr", ingredients_text => "lait de coco"}, 0],
-	[{lc => "fr", ingredients_text => "lait, sucre, noisettes"}, 33.3333333333333],
+	[{lc => "fr", ingredients_text => "lait, sucre, noisettes"}, 66.6666666666667],
 	[{lc => "fr", ingredients_text => "lait écrémé 50%, fraise 30%, eau"}, 50],
-	[{lc => "fr", ingredients_text => "banane 50%, gâteau (fraise, framboise, lait demi-écrémé), eau"}, 0],
-	[{lc => "fr", ingredients_text => "lait frais, gâteau (lait 30%, framboise 5%, farine), eau"}, 65],
+	[
+		{lc => "fr", ingredients_text => "banane 50%, gâteau (fraise, framboise, lait demi-écrémé), eau"},
+		7.29166666666666
+	],
+	[{lc => "fr", ingredients_text => "lait frais, gâteau (lait 30%, framboise 5%, farine), eau"}, 80],
 );
 
 foreach my $test_ref (@tests) {
@@ -87,7 +92,7 @@ foreach my $test_ref (@tests) {
 
 	extract_ingredients_from_text($product_ref);
 
-	is(estimate_milk_percent_from_ingredients($product_ref), $expected_milk)
+	is(estimate_nutriscore_2021_milk_percent_from_ingredients($product_ref), $expected_milk)
 		or diag explain $product_ref->{ingredients};
 }
 

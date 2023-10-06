@@ -779,6 +779,7 @@
       "en:milk-and-dairy-products",
       "en:cheese"
    ],
+   "ingredients_lc" : "en",
    "languages" : {},
    "languages_codes" : {},
    "languages_hierarchy" : [],
@@ -846,7 +847,7 @@
          "data" : {
             "energy" : null,
             "fiber" : 0,
-            "fruits_vegetables_legumes" : 0,
+            "fruits_vegetables_legumes" : null,
             "is_beverage" : 0,
             "is_cheese" : 1,
             "is_fat_oil_nuts_seeds" : 0,

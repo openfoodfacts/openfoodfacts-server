@@ -175,7 +175,37 @@ jobs:
           make create_external_volumes && \
           make create_external_networks
 
-    - name: init backend
+    - name: wait for docker images to be available
+      # we sometimes have the images not ready immediately after build, so we prefer to wait for it
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ env.SSH_HOST }}
+        username: ${{ env.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ env.SSH_PROXY_HOST }}
+        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        command_timeout: 25m
+        script_stop: false
+        script: |
+          waited=0
+          for IMAGE_TYPE in frontend backend
+          do
+            image_name=ghcr.io/${{ github.repository }}/$IMAGE_TYPE:sha-${{ github.sha }}
+            # pull image, eventually waiting for it to be available in ghcr.io
+            while ! (docker pull $image_name); do
+              sleep 30
+              waited=$((waited+30))
+              # timeout after 6 minutes (gloablly)
+              if [[ $waited -gt 360 ]]; then
+                echo "Timeout waiting for image $image_name"
+                # Abort the job
+                exit 1
+              fi
+            done
+          done
+
+    - name: initialize the backend
       uses: appleboy/ssh-action@master
       with:
         host: ${{ env.SSH_HOST }}

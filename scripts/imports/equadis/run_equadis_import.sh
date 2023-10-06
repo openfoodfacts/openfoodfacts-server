@@ -15,6 +15,7 @@ export PERL5LIB=lib:$PERL5LIB
 if [[ -z "$OFF_SFTP_HOME_DIR" ]]
 then
     >&2 "OFF_SFTP_HOME_DIR not defined, exiting"
+    exit 10
 fi
 
 DATA_TMP_DIR=$OFF_CACHE_TMP_DIR/equadis-data

@@ -115,6 +115,10 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Por favor, ingresa el nombre de tu organización (nombre de la empresa o marca)."
 
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr ""
+
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 msgstr "Esta cuenta es una cuenta profesional asociada al productor o marca {org}. Tienes acceso a la Plataforma de Productores."
@@ -463,7 +467,7 @@ msgstr "Borrar esta imagen"
 
 msgctxt "delete_user"
 msgid "Delete a user"
-msgstr ""
+msgstr "Eliminar un usuario"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
@@ -471,7 +475,7 @@ msgstr ""
 
 msgctxt "danger_zone"
 msgid "Danger Zone"
-msgstr ""
+msgstr "Zona peligrosa"
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -975,6 +979,10 @@ msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr "Detalles de la foto e información de atribución"
 
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr "Invitar a usuarios"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Productos añadidos por ti que necesitan ser completados"
@@ -1094,7 +1102,7 @@ msgstr "Descargar en la App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/es/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2548,7 +2556,7 @@ msgstr "Productos que no han sido añadidos por %s"
 
 msgctxt "video_tutorials"
 msgid "Video Tutorials"
-msgstr ""
+msgstr "Tutoriales en vídeo"
 
 msgctxt "view"
 msgid "view"
@@ -2588,7 +2596,7 @@ msgstr "Obténgalo de Microsoft"
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
 msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr ""
+msgstr "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2950,7 +2958,7 @@ msgstr "Grupos con más del 5% de miembros que exceden la dosis máxima sin efec
 
 msgctxt "exposure_title_95th"
 msgid "Moderate risk"
-msgstr ""
+msgstr "Riesgo moderado"
 
 msgctxt "exposure_description_95th"
 msgid "5% of people or more"
@@ -2958,7 +2966,7 @@ msgstr ""
 
 msgctxt "exposure_title_mean"
 msgid "High risk"
-msgstr ""
+msgstr "Riesgo alto"
 
 msgctxt "exposure_description_mean"
 msgid "50% of people or more"
@@ -4896,15 +4904,15 @@ msgstr "Sitio oficial"
 
 msgctxt "organization_members"
 msgid "Organization Members"
-msgstr ""
+msgstr "Miembros de la organización"
 
 msgctxt "number_of_members"
 msgid "Number of Members"
-msgstr ""
+msgstr "Número de miembros"
 
 msgctxt "serial_no"
 msgid "S.No"
-msgstr ""
+msgstr "S.No"
 
 msgctxt "contact_form"
 msgid "Contact form"
@@ -6401,7 +6409,7 @@ msgstr "JSON inválido en el cuerpo de la solicitud"
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
-msgstr ""
+msgstr "Código no válido"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6425,7 +6433,7 @@ msgstr "Capo vacío"
 
 msgctxt "api_message_unrecognized_field"
 msgid "Unrecognized field"
-msgstr ""
+msgstr "No se reconoció el campo"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
@@ -6548,6 +6556,14 @@ msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
 msgstr "Por favor ingresa un valor entre 0 y {max}."
 
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr ""
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr "Usuarios añadidos a la organización con éxito:"
+
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
 msgstr "Los azúcares no deben ser más altos que los carbohidratos."
@@ -6558,15 +6574,15 @@ msgstr "La grasa saturada no debe ser más alta que la grasa."
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
-msgstr ""
+msgstr "Materiales del envase"
 
 msgctxt "packaging_weight_total"
 msgid "Packaging weight"
-msgstr ""
+msgstr "Peso del embalaje"
 
 msgctxt "packaging_weight_100g"
 msgid "Packaging weight per 100 g of product"
-msgstr ""
+msgstr "Peso del envase por 100 g del producto"
 
 msgctxt "packaging_weight_100g_mean"
 msgid "Mean packaging weight per 100 g of product"
@@ -6574,7 +6590,7 @@ msgstr "Peso medio del envase por 100 g de producto"
 
 msgctxt "total"
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgctxt "packaging_material_products_percent"
 msgid "% of products containing the material"
@@ -6595,4 +6611,28 @@ msgstr "para productos que contienen el material"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "en relación con todos los productos"
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr "Número de componentes del embalaje"
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr "Número de componentes del embalaje"
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr "Todos los materiales"
+
+msgctxt "weight"
+msgid "Weight"
+msgstr "Peso"
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr "Peso por 100 g de producto"
+
+msgctxt "weight_percent"
+msgid "Weight percent"
+msgstr "Porcentaje de peso"
 

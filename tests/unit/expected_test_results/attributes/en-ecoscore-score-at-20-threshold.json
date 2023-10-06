@@ -780,6 +780,7 @@
    ],
    "food_groups_tags" : [],
    "ingredients_from_palm_oil_tags" : [],
+   "ingredients_lc" : "en",
    "ingredients_text" : "",
    "ingredients_that_may_be_from_palm_oil_tags" : [],
    "languages" : {},
@@ -851,7 +852,7 @@
          "data" : {
             "energy" : null,
             "fiber" : 0,
-            "fruits_vegetables_legumes" : 0,
+            "fruits_vegetables_legumes" : null,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,

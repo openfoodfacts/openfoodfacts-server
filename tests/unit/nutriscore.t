@@ -382,6 +382,23 @@ my @tests = (
 			},
 		}
 	],
+	# potatoes should not count as vegetables
+	[
+		"en-potatoes-category",
+		{
+			lc => "en",
+			categories => "potatoes, vegetables",
+			nutriments => {
+				energy_100g => 182,
+				fat_100g => 0,
+				"saturated-fat_100g" => 0,
+				sugars_100g => 8.9,
+				sodium_100g => 0.2,
+				fiber_100g => 0.5,
+				proteins_100g => 0.2
+			},
+		}
+	],
 
 	# categories without Nutri-Score
 
@@ -427,6 +444,57 @@ my @tests = (
 			ingredients_text => "sugar 94%, strange ingredient",
 		}
 	],
+	# Sweeteners
+	[
+		"en-sweeteners",
+		{
+			lc => "en",
+			categories => "sodas",
+			ingredients_text => "apple juice, water, sugar, aspartame",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 0,
+				"saturated-fat_100g" => 0,
+				sugars_100g => 4.5,
+				sodium_100g => 0.01,
+				proteins_100g => 0,
+			},
+		}
+	],
+	# Erythritol is not counted as a non-nutritive sweetener
+	[
+		"en-sweeteners-erythritol",
+		{
+			lc => "en",
+			categories => "sodas",
+			ingredients_text => "apple juice, water, sugar, erythritol",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 0,
+				"saturated-fat_100g" => 0,
+				sugars_100g => 4.5,
+				sodium_100g => 0.01,
+				proteins_100g => 0,
+			},
+		}
+	],
+	[
+		"fr-ice-tea-with-sweetener",
+		{
+			lc => "fr",
+			categories => "ice teas",
+			ingredients_text =>
+				"Eau, sucre, fructose, acidifiants (acide citrique, acide malique), extrait de the noir (1,2g/l), jus de pêche à base de concentré (0,1%), correcteur d'acidité (citrate trisodique), arômes, antioxydant (acide ascorbique), édulcorant (glycosides de steviol)",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 0,
+				"saturated-fat_100g" => 0,
+				sugars_100g => 4.5,
+				sodium_100g => 0.01,
+				proteins_100g => 0,
+			},
+		}
+	],
 
 );
 
@@ -452,6 +520,7 @@ foreach my $test_ref (@tests) {
 	compute_serving_size_data($product_ref);
 	compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 	extract_ingredients_from_text($product_ref);
+	extract_ingredients_classes_from_text($product_ref);
 	special_process_product($product_ref);
 	diag explain compute_estimated_nutrients($product_ref);
 	compute_nutriscore($product_ref);

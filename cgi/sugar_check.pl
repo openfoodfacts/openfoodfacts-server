@@ -26,7 +26,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use JSON::PP;
-use Digest::SHA1  qw(sha1_hex);
+use Digest::SHA1 qw(sha1_hex);
 
 use ProductOpener::Display qw/single_param/;
 use ProductOpener::Paths qw/:all/;

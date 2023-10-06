@@ -547,6 +547,21 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			ingredients_text => "farine demi-complète de riz, farine de blé demi complet",
 		}
 	],
+	# illegal division by zero
+	[
+		"fr-illegal-division-by-zero",
+		{
+			lc => "fr",
+			ingredients_text => "Analyse moyenne pour 1 00 g: 1472 kJ,",
+		}
+	],
+	[
+		"en-illegal-division-by-zero",
+		{
+			lc => "en",
+			ingredients_text => "each capsule contains: paracetamol 500 m 5 060198 790 0 mg.",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

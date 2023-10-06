@@ -1,4 +1,10 @@
 {
+   "additives_n" : 0,
+   "additives_old_n" : 0,
+   "additives_old_tags" : [],
+   "additives_original_tags" : [],
+   "additives_tags" : [],
+   "amino_acids_tags" : [],
    "categories" : "fruit-nectar",
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
@@ -83,6 +89,9 @@
       "en:vegan",
       "en:vegetarian"
    ],
+   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
       "en:orange",
       "en:fruit",
@@ -122,6 +131,8 @@
       "en:taproot-vegetable"
    ],
    "ingredients_text" : "Orange 47%, Water, Sugar, Carrots 10%",
+   "ingredients_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_that_may_be_from_palm_oil_tags" : [],
    "ingredients_with_specified_percent_n" : 2,
    "ingredients_with_specified_percent_sum" : 57,
    "ingredients_with_unspecified_percent_n" : 2,
@@ -133,17 +144,22 @@
    "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 11,
    "lc" : "en",
+   "minerals_tags" : [],
    "misc_tags" : [
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
+      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-e-2023-e"
    ],
+   "nucleotides_tags" : [],
    "nutriments" : {
       "energy_100g" : 250,
       "fat_100g" : 0,
       "fiber_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 57,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 57,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 57,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 57,
       "nutrition-score-fr" : 17,
@@ -216,9 +232,10 @@
                "sugars",
                "saturated_fat",
                "salt",
-               "sweeteners"
+               "non_nutritive_sweeteners"
             ],
             "negative_points" : 17,
+            "non_nutritive_sweeteners_points" : 0,
             "positive_nutrients" : [
                "fruits_vegetables_legumes",
                "fiber",
@@ -233,8 +250,7 @@
             "saturated_fat_points" : 0,
             "saturated_fat_ratio" : 0,
             "sugars" : 12,
-            "sugars_points" : 10,
-            "sweeteners_points" : 0
+            "sugars_points" : 10
          },
          "grade" : "e",
          "nutrients_available" : 1,
@@ -297,8 +313,11 @@
    ],
    "nutrition_score_beverage" : 1,
    "nutrition_score_debug" : "",
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 57,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 57,
+   "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Beverages",
    "pnns_groups_1_tags" : [
       "beverages",
@@ -309,5 +328,6 @@
       "sweetened-beverages",
       "known"
    ],
-   "unknown_ingredients_n" : 0
+   "unknown_ingredients_n" : 0,
+   "vitamins_tags" : []
 }

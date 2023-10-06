@@ -83,12 +83,12 @@ my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $imagete
 my $display_image_url;
 my $full_image_url;
 if ($id =~ /^\d+$/) {
-	$display_image_url = "/images/products/$path/$id.$display_size.jpg";
-	$full_image_url = "/images/products/$path/$id.jpg";
+	$display_image_url = "$images_subdomain/images/products/$path/$id.$display_size.jpg";
+	$full_image_url = "$images_subdomain/images/products/$path/$id.jpg";
 }
 else {
-	$display_image_url = "/images/products/$path/$id.$rev.$display_size.jpg";
-	$full_image_url = "/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
+	$display_image_url = "$images_subdomain/images/products/$path/$id.$rev.$display_size.jpg";
+	$full_image_url = "$images_subdomain/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
 }
 
 my $photographer = $product_ref->{images}{$id}{uploader};

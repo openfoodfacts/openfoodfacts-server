@@ -336,7 +336,9 @@ sub base_paths_loading_script() {
 	my @outputs = ();
 	foreach my $path_name (keys %paths) {
 		my $value = $paths{$path_name};
-		push @outputs, "export OFF_${path_name}_DIR=$value";
+		if (defined $value) {
+			push @outputs, "export OFF_${path_name}_DIR=$value";
+		}
 	}
 	return (join "\n", @outputs) . "\n";
 }

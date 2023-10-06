@@ -11,6 +11,12 @@ export PERL5LIB=lib:$PERL5LIB
 # load paths
 . <(perl -e 'use ProductOpener::Paths qw/:all/; print base_paths_loading_script()')
 
+if [[ -z "$OFF_SFTP_HOME_DIR" ]]
+then
+    >&2 echo "SFTP_HOME not defined, exiting"
+    exit 10
+fi
+
 # Mirror data from Agena3000's server
 # access needs to be configured in ~/.netrc
 declare -x LFTP_HOME=$OFF_PRIVATE_DATA_DIR/secrets/
@@ -39,7 +45,7 @@ find $OFF_SFTP_HOME_DIR/agena3000/PROD/Fiches/ -mtime -$IMPORT_SINCE -type f -ex
     --confirmation-dir $DATA_TMP_DIR/Ack
 
 # STOP here to test !
-exit 1
+# exit 1
 
 # import CSV file
 ./scripts/import_csv_file.pl \

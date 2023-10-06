@@ -486,6 +486,7 @@
       "ingredients_hierarchy" : [
          "en:apple",
          "en:fruit",
+         "en:malaceous-fruit",
          "en:milk",
          "en:dairy",
          "en:egg",
@@ -494,6 +495,7 @@
          "en:vegetable-oil-and-fat",
          "en:palm-oil-and-fat"
       ],
+      "ingredients_lc" : "en",
       "ingredients_n" : 4,
       "ingredients_n_tags" : [
          "4",
@@ -509,6 +511,7 @@
       "ingredients_tags" : [
          "en:apple",
          "en:fruit",
+         "en:malaceous-fruit",
          "en:milk",
          "en:dairy",
          "en:egg",
@@ -535,7 +538,7 @@
       "ingredients_without_ciqual_codes_n" : 1,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
-      "known_ingredients_n" : 9,
+      "known_ingredients_n" : 10,
       "labels" : "Bio, Max Havelaar",
       "labels_hierarchy" : [
          "en:organic",
@@ -583,6 +586,7 @@
          "en:nutriscore-not-computed",
          "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
          "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+         "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
          "en:packagings-number-of-components-4",
          "en:packagings-not-complete",
          "en:packagings-not-empty-but-not-complete",
@@ -627,8 +631,10 @@
          "fat_serving" : 2.54,
          "fat_unit" : "g",
          "fat_value" : 12.7,
-         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25,
-         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 25,
+         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 62.5,
+         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 62.5,
+         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 62.5,
+         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 62.5,
          "nova-group" : 1,
          "nova-group_100g" : 1,
          "nova-group_serving" : 1,
@@ -659,7 +665,7 @@
             "data" : {
                "energy" : 10,
                "fiber" : 0,
-               "fruits_vegetables_nuts_colza_walnut_olive_oils" : 25,
+               "fruits_vegetables_nuts_colza_walnut_olive_oils" : 62.5,
                "is_beverage" : 0,
                "is_cheese" : 0,
                "is_fat" : 0,
@@ -679,7 +685,7 @@
             "data" : {
                "energy" : 10,
                "fiber" : 0,
-               "fruits_vegetables_legumes" : 25,
+               "fruits_vegetables_legumes" : 62.5,
                "is_beverage" : 0,
                "is_cheese" : 0,
                "is_fat_oil_nuts_seeds" : 0,
@@ -716,8 +722,10 @@
       ],
       "nutrition_score_beverage" : 0,
       "nutrition_score_debug" : "missing saturated-fat_100g",
+      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 62.5,
       "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-      "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 25,
+      "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 62.5,
       "nutrition_score_warning_no_fiber" : 1,
       "origin" : "france",
       "origin_en" : "france",

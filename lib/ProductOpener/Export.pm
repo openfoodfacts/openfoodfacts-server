@@ -460,6 +460,8 @@ sub export_csv ($args_ref) {
 		$worksheet = $workbook->add_worksheet();
 		my $workbook_format = $workbook->add_format();
 		$workbook_format->set_bold();
+		$worksheet->keep_leading_zeros();
+
 		$worksheet->write_row(0, 0, \@sorted_populated_fields, $workbook_format);
 
 		# Set the width of the columns

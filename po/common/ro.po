@@ -115,6 +115,10 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Vă rugăm să introduceți numele organizației dvs. (numele companiei sau marca)."
 
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr "Introduceți adresele de e-mail ale utilizatorilor pentru a invita (separate prin virgulă):"
+
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 msgstr "Acest cont este un cont profesional asociat cu producătorul sau marca {org}. Aveți acces la Platforma pentru Producători."
@@ -974,6 +978,10 @@ msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr "Detalii fotografie și atribuirea informațiilor"
 
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr "Invitați utilizatori"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Produse adăugate de dumneavoastră care trebuie completate"
@@ -1093,7 +1101,7 @@ msgstr "Descărcați în App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/ro/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -6548,6 +6556,14 @@ msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
 msgstr "Vă rugăm să introduceți o valoare între 0 și {max}."
 
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr "Vă rugăm să cereți mai întâi următorilor utilizatori să creeze un cont Open Food Facts:"
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr "Utilizatori adăugați cu succes la organizație:"
+
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
 msgstr "Zaharurile nu trebuie să fie mai mari decât carbohidrații."
@@ -6595,4 +6611,28 @@ msgstr "pentru produsele care conțin în mare parte materialul"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "raportat la toate produsele"
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr ""
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr ""
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr ""
+
+msgctxt "weight"
+msgid "Weight"
+msgstr ""
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr ""
+
+msgctxt "weight_percent"
+msgid "Weight percent"
+msgstr ""
 

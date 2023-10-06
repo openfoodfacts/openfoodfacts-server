@@ -357,6 +357,7 @@
    "informers_tags" : [
       "test-user"
    ],
+   "ingredients_lc" : "en",
    "interface_version_created" : "import_csv_file - version 2019/09/17",
    "lang" : "en",
    "lang_imported" : "en",
@@ -438,7 +439,7 @@
          "data" : {
             "energy" : null,
             "fiber" : 0,
-            "fruits_vegetables_legumes" : 0,
+            "fruits_vegetables_legumes" : null,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,

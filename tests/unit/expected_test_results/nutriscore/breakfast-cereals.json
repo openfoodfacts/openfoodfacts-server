@@ -109,8 +109,7 @@
             "energy_points" : 7,
             "fiber" : 6.9,
             "fiber_points" : 4,
-            "fruits_vegetables_legumes" : 0,
-            "fruits_vegetables_legumes_points" : 0,
+            "fruits_vegetables_legumes" : null,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
@@ -120,7 +119,7 @@
                "sugars",
                "saturated_fat",
                "salt",
-               "sweeteners"
+               "non_nutritive_sweeteners"
             ],
             "negative_points" : 18,
             "positive_nutrients" : [

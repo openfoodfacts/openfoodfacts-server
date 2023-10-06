@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Equadis import
-./scripts/imports/equadis/equadis-import/run_equadis_import.sh
+./scripts/imports/equadis/run_equadis_import.sh
 # Agena import
 ./scripts/imports/agena3000/run_agena3000_import.sh
 # Carrefour

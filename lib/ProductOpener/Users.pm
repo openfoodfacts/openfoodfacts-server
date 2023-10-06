@@ -66,6 +66,7 @@ BEGIN {
 		&retrieve_user
 		&remove_user_by_org_admin
 		&add_users_to_org_by_admin
+		&is_suspicious_name
 
 		&check_session
 
@@ -330,6 +331,13 @@ sub check_user_org ($user_ref, $new_org_id) {
 	return;
 }
 
+sub is_suspicious_name ($value) {
+	# email or xxx.nunsrt are ok
+	my $email_re = qr/^[\w.+-]+(?:@[\w.+-]+)?$/;
+	my $invite_re = qr/(?:click here|wants to meet you|:\/\/|\.[a-z]{2,3}\b)/i;
+	return ((defined $value) and ($value =~ $invite_re) and (not $value =~ $email_re));
+}
+
 =head2 check_user_form($type, $user_ref, $errors_ref)
 
 C<check_user_form()> This method checks and validates the different entries in the user form.
@@ -356,6 +364,26 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 
 	# Allow for sending the 'name' & 'email' as a form parameter instead of a HTTP header, as web based apps may not be able to change the header sent by the browser
 	$user_ref->{name} = remove_tags_and_quote(decode utf8 => single_param('name'));
+
+	# Check for spam
+	my $is_spam = undef;
+	# e.g. name with "Lydia want to meet you! Click here:" + an url or + a .com / .ru
+	if (is_suspicious_name($user_ref->{name})) {
+		$is_spam = 1;
+	}
+	# check for spam, that may have filled the honeypot faxnumber field
+	if (single_param('faxnumber') ne "") {
+		$is_spam = 1;
+	}
+	if ($is_spam) {
+		# log the ip
+		open(my $log, ">>", "$BASE_DIRS{LOGS}/logs/user_spam.log");
+		print $log remote_addr() . "\t" . time() . "\t" . $user_ref->{userid} . "\t" . $user_ref->{name} . "\n";
+		close($log);
+		# bail out, return 200 status code
+		display_error_and_exit("", 200);
+	}
+
 	my $email = remove_tags_and_quote(decode utf8 => single_param('email'));
 
 	$log->debug("check_user_form", {type => $type, user_ref => $user_ref, email => $email}) if $log->is_debug();
@@ -439,20 +467,6 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 	# contributor settings
 	$user_ref->{display_barcode} = !!remove_tags_and_quote(single_param("display_barcode"));
 	$user_ref->{edit_link} = !!remove_tags_and_quote(single_param("edit_link"));
-
-	# Check for spam
-	# e.g. name with "Lydia want to meet you! Click here:" + an url
-
-	foreach my $bad_string ('click here', 'wants to meet you', '://') {
-		if ($user_ref->{name} =~ /$bad_string/i) {
-			# log the ip
-			open(my $log, ">>", "$BASE_DIRS{LOGS}/user_spam.log");
-			print $log remote_addr() . "\t" . time() . "\t" . $user_ref->{name} . "\n";
-			close($log);
-			# bail out, return 200 status code
-			display_error_and_exit("", 200);
-		}
-	}
 
 	# Check input parameters, redisplay if necessary
 
