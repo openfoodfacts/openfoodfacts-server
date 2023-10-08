@@ -138,8 +138,9 @@ use Test::More;
 # U+204D "⁍" (Black Rightwards Bullet)
 # U+2219 "∙" (Bullet Operator )
 # U+22C5 "⋅" (Dot Operator)
+# U+30FB "・" (Katakana Middle Dot)
 my $middle_dot
-	= qr/(?: \N{U+00B7} |\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5})/i;
+	= qr/(?: \N{U+00B7} |\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5}|\N{U+30FB})/i;
 
 # Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
 my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
@@ -458,6 +459,7 @@ my %and_or = (
 	fr => " et | ou | et/ou | et / ou ",
 	is => " og | eða | og/eða | og / eða ",
 	it => " e | o | e/o | e / o",
+	ja => "又は",    # or
 	nl => " en/of | en / of ",
 	nb => " og | eller | og/eller | og / eller ",
 	pl => " i | oraz | lub | albo ",
@@ -1600,7 +1602,7 @@ sub parse_ingredients_text ($product_ref) {
 					# e.g. (Contains milk.) -> Contains milk.
 					$between =~ s/(\s|\.)+$//;
 
-					$debug_ingredients and $log->debug("found sub-ingredients", {between => $between, after => $after})
+					$debug_ingredients and $log->debug("parse_ingredients_text - sub-ingredients found: $between")
 						if $log->is_debug();
 
 					# percent followed by a separator, assume the percent applies to the parent (e.g. tomatoes)
@@ -1625,11 +1627,20 @@ sub parse_ingredients_text ($product_ref) {
 					}
 
 					# sel marin (France, Italie)
-					# -> if we have origins, put "origins:" before
-					if (    ($between =~ $separators)
+					# -> if we have origins, put "origins:" before or "製造" at the end for Japanese
+					if (    ($between =~ /$separators| and /)
 						and (exists_taxonomy_tag("origins", canonicalize_taxonomy_tag($ingredients_lc, "origins", $`))))
 					{
-						$between =~ s/^(.*?$separators)/origins:$1/;
+						$debug_ingredients
+							and $log->debug("parse_ingredients_text - sub-ingredients: $between is origin")
+							if $log->is_debug();
+
+						if ($ingredients_lc eq 'ja') {
+							$between = $between . "製造";
+						}
+						else {
+							$between =~ s/^(.*?$separators)/origins:$1/;
+						}
 					}
 
 					$debug_ingredients and $log->debug(
@@ -1642,20 +1653,22 @@ sub parse_ingredients_text ($product_ref) {
 						}
 					) if $log->is_debug();
 
-					# : is in $separators but we want to keep "origine : France" or "min : 23%"
 					if (    ($between =~ $separators)
-						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
+						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung|産|製造)\s*/i)
 						and ($between !~ /^$percent_or_quantity_regexp$/i))
 					{
 						$between_level = $level + 1;
-						$debug_ingredients and $log->debug("between contains a separator", {between => $between})
-							if $log->is_debug();
+						$log->debug(
+							"parse_ingredients_text - sub-ingredients: between contains a separator and is not origin nor has percent",
+							{between => $between}
+						) if $log->is_debug();
 					}
 					else {
 						# no separator found : 34% ? or single ingredient
-						$debug_ingredients
-							and $log->debug("between does not contain a separator", {between => $between})
-							if $log->is_debug();
+						$log->debug(
+							"parse_ingredients_text - sub-ingredients: between does not contain a separator or is origin or is percent",
+							{between => $between}
+						) if $log->is_debug();
 
 						if ($between =~ /^$percent_or_quantity_regexp(?:$per_100g_regexp)?$/i) {
 
@@ -1678,23 +1691,51 @@ sub parse_ingredients_text ($product_ref) {
 
 							# try to remove the origin and store it as property
 							if ($between
-								=~ /\s*(de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.*)$/i
+								=~ /\s*(.*)(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong|産|製造)\s?:?\s?\b(.*)$/i
 								)
 							{
+								$log->debug("parse_ingredients_text - sub-ingredients: contains origin in $between")
+									if $log->is_debug();
+
 								$between = '';
-								my $origin_string = $2;
+								my $origin_string = "";
+								# rm all occurences at the end of words (ブラジル産、エチオピア産)
+								if ($ingredients_lc eq 'ja') {
+									$log->debug("parse_ingredients_text - sub-ingredients: origin and ja")
+										if $log->is_debug();
+
+									# last occurence has been removed only
+									$origin_string = $1;
+									# remove all occurences (case when there are more than a single origin)
+									$origin_string =~ s/(産|製造)//g;
+									# remove "and more" その他 TODO this is in %ignore_regexps, can the variable be used in next line?
+									$origin_string =~ s/その他//g;
+								}
+								# rm first occurence (origin:)
+								else {
+									$origin_string = $2;
+								}
+								$log->debug("parse_ingredients_text - sub-ingredients: origin_string: $origin_string")
+									if $log->is_debug();
+
 								# d'origine végétale -> not a geographic origin, add en:vegan
 								if ($origin_string =~ /vegetal|végétal/i) {
 									$vegan = "en:yes";
 									$vegetarian = "en:yes";
 								}
 								else {
+									$log->debug("parse_ingredients_text - sub-ingredients: add origin $origin_string")
+										if $log->is_debug();
+
 									$origin = join(",",
 										map {canonicalize_taxonomy_tag($ingredients_lc, "origins", $_)}
-											split(/,/, $origin_string));
+											split(/、|,| and /, $origin_string));    # TODO update to variable
 								}
 							}
 							else {
+								$log->debug(
+									"parse_ingredients_text - sub-ingredients: origin not explicitly written in: $between"
+								) if $log->is_debug();
 
 								# origins:   Fraise (France)
 								my $originid = canonicalize_taxonomy_tag($ingredients_lc, "origins", $between);
@@ -1705,6 +1746,9 @@ sub parse_ingredients_text ($product_ref) {
 										$log->debug("between is an origin", {between => $between, origin => $origin})
 										if $log->is_debug();
 									$between = '';
+									$log->debug(
+										"parse_ingredients_text - sub-ingredients: between is an origin: $between")
+										if $log->is_debug();
 								}
 								# put origins first because the country can be associated with the label "Made in ..."
 								# Skip too short entries (1 or 2 letters) to avoid false positives
@@ -2359,6 +2403,10 @@ sub parse_ingredients_text ($product_ref) {
 							],
 
 							'it' => ['^in proporzion[ei] variabil[ei]$',],
+
+							'ja' => [
+								'その他',    # etc.
+							],
 
 							'nb' => ['^Pakket i beskyttende atmosfære$',],
 

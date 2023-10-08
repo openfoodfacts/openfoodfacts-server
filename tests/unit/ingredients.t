@@ -530,6 +530,24 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			ingredients_text => "砂糖、小麦粉、全粉乳、カカオマス、ショートニング、植物油脂、ココアバター、小麦全粒粉、小麦ふすま、食塩、小麦胚芽 ／ 加工デンプン、乳化剤（大豆由来）、膨脹剤、香料",
 		}
 	],
+	# origins
+	[
+		"ja-origins",
+		{
+			lc => "ja",
+			ingredients_text => "塩(国産), 
+クレームフレーシュ(国内製造), 
+肉(オーストラリア),
+オリーブ油(ブラジル産、エチオピア産),
+白ワインビネガー(オーストラリア又はフィンランド又はその他),
+麦芽(国内製造又は韓国製造),
+糖類(外国製造又は国内製造),
+ココア(輸入又は国産 (5%未満)),
+えだまめ(北海道産).
+パンの実(三陸産),
+クレメンタイン(九州産)"
+		}
+	],
 	# U+00B7 "·" (Middle Dot) is a character found in ingredient forsome countries (Catalan)
 	[
 		"ca-middle-dot",
