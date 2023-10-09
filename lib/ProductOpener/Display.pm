@@ -1514,6 +1514,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
 	my $groupby_tagtype = $request_ref->{groupby_tagtype};
+
 	my $page = $request_ref->{page};
 	# Flag that indicates whether we cache MongoDB results in Memcached
 	# Caching is disabled for crawling bots, as they tend to explore
