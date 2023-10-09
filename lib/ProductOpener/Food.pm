@@ -265,7 +265,7 @@ Assign a value with an unit and an optional modifier (< or ~) to a nutrient in t
 
 =head4 $product_ref
 
-=head4 nid 
+=head4 $nid 
 
 Nutrient id, possibly suffixed with "_prepared"
 
