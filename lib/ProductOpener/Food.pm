@@ -259,7 +259,7 @@ sub default_unit_for_nid ($nid) {
 
 =head2 assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $unit)
 
-Assign a value with an unit and an optional modifier (< or ~) to a nutrient in the nutriments structure.
+Assign a value with a unit and an optional modifier (< or ~) to a nutrient in the nutriments structure.
 
 =head3 Parameters
 
