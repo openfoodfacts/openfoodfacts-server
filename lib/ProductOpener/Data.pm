@@ -52,6 +52,8 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&execute_query
+		&execute_aggregate_tags_query
+		&execute_count_tags_query
 		&get_database
 		&get_collection
 		&get_products_collection
@@ -71,6 +73,7 @@ use ProductOpener::Config qw/:all/;
 
 use MongoDB;
 use Tie::IxHash;
+use JSON::PP;
 use Log::Any qw($log);
 
 use Action::CircuitBreaker;
@@ -114,6 +117,48 @@ sub execute_query ($sub) {
 			# Do not retry the query, as it will make things worse
 		strategy => {Fibonacci => {max_retries_number => 0,}},
 	)->run();
+}
+
+sub execute_aggregate_tags_query ($aggregate_parameters) {
+	return execute_tags_query('aggregate', $aggregate_parameters);
+}
+
+sub execute_count_tags_query ($query_ref) {
+	return execute_tags_query('count', $query_ref);
+}
+
+sub execute_tags_query ($type, $parameters) {
+	if ((defined $query_url) and (length($query_url) > 0)) {
+		$query_url =~ s/^\s+|\s+$//g;
+		my $path = "$query_url/$type";
+		$log->debug('Executing PostgreSQL ' . $type . ' query on ' . $path, {query => $parameters})
+			if $log->is_debug();
+
+		my $ua = LWP::UserAgent->new();
+		my $resp = $ua->post(
+			$path,
+			Content => encode_json($parameters),
+			'Content-Type' => 'application/json; charset=utf-8'
+		);
+		if ($resp->is_success) {
+			return decode_json($resp->decoded_content);
+		}
+		else {
+			$log->warn(
+				"query response not ok",
+				{
+					code => $resp->code,
+					status_line => $resp->status_line,
+					response => $resp
+				}
+			) if $log->is_warn();
+			return;
+		}
+	}
+	else {
+		$log->debug('QUERY_URL not defined') if $log->is_debug();
+		return;
+	}
 }
 
 =head2 get_products_collection( $parameters_ref )
