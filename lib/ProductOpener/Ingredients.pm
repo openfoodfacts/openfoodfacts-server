@@ -3693,16 +3693,46 @@ sub normalize_fr_a_de_b ($a, $b) {
 	}
 }
 
-# English: oil, olive -> olive oil
-# French: huile, olive -> huile d'olive
-# Russian: масло растительное, пальмовое -> масло растительное оливковое
+=head2 normalize_a_of_b ($lc, $a, $b, $of_bool)
+
+
+This function is called by normalize_enumeration()
+
+Given a category ($a) and a type ($b), it will return the ingredient that result from the combination of these two.
+
+English: oil, olive -> olive oil
+Croatian: ječmeni, slad -> ječmeni slad
+French: huile, olive -> huile d'olive
+Russian: масло растительное, пальмовое -> масло растительное оливковое
+
+=head3 Arguments
+
+=head4 lc
+
+language abbreviation (en for English, for example)
+
+=head4 $a
+
+string, category as defined in %ingredients_categories_and_types, example: 'oil' for 'oil (sunflower, olive and palm)'
+
+=head4 $b
+
+string, type as defined in %ingredients_categories_and_types, example: 'sunflower' or 'olive' or 'palm' for 'oil (sunflower, olive and palm)'
+
+=head3 Return value
+
+=head4 combined $a and $b (or $b and $a, depending of the language), that is expected to be an ingredient
+
+string, comma-joined category and type, example: 'palm vegetal oil' or 'sunflower vegetal oil' or 'olive vegetal oil'
+
+=cut
 
 sub normalize_a_of_b ($lc, $a, $b, $of_bool) {
 
 	$a =~ s/\s+$//;
 	$b =~ s/^\s+//;
 
-	if ($lc eq "en") {
+	if (($lc eq "en") or ($lc eq "hr")) {
 		return $b . " " . $a;
 	}
 	elsif ($lc eq "es") {
@@ -3721,29 +3751,60 @@ sub normalize_a_of_b ($lc, $a, $b, $of_bool) {
 			return $a . " " . $b;
 		}
 	}
-	elsif (($lc eq "ru") or ($lc eq "pl")) {
+	elsif (($lc eq "pl") or ($lc eq "ru")) {
 		return $a . " " . $b;
 	}
 }
 
-# Vegetal oil (palm, sunflower and olive)
-# -> palm vegetal oil, sunflower vegetal oil, olive vegetal oil
+=head2 normalize_enumeration ($lc, $category, $types, $of_bool)
 
-sub normalize_enumeration ($lc, $type, $enumeration, $of_bool) {
-	$log->debug("normalize_enumeration", {type => $type, enumeration => $enumeration}) if $log->is_debug();
+
+This function is called by develop_ingredients_categories_and_types()
+
+Some ingredients are specified by an ingredient "category" (e.g. "oil") and a "types" string (e.g. "sunflower, palm").
+
+This function combines the category to all elements of the types string
+$category = "Vegetal oil" and $types = "palm, sunflower and olive"
+will return
+"palm vegetal oil, sunflower vegetal oil, olive vegetal oil"
+
+=head3 Arguments
+
+=head4 lc
+
+language abbreviation (en for English, for example)
+
+=head4 category
+
+string, as defined in %ingredients_categories_and_types, example: 'Vegetal oil' for 'Vegetal oil (sunflower, olive and palm)'
+
+=head4 types
+
+string, as defined in %ingredients_categories_and_types, example: 'sunflower, olive and palm' for 'Vegetal oil (sunflower, olive and palm)'
+
+=head3 Return value
+
+=head4 Transformed ingredients list text
+
+string, comma-joined category with all elements of the types, example: 'sunflower vegetal oil, olive vegetal oil, palm vegetal oil'
+
+=cut
+
+sub normalize_enumeration ($lc, $category, $types, $of_bool) {
+	$log->debug("normalize_enumeration", {category => $category, types => $types}) if $log->is_debug();
 
 	# If there is a trailing space, save it and output it
 	my $trailing_space = "";
-	if ($enumeration =~ /\s+$/) {
+	if ($types =~ /\s+$/) {
 		$trailing_space = " ";
 	}
 
 	# do not match anything if we don't have a translation for "and"
 	my $and = $and{$lc} || " will not match ";
 
-	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $enumeration);
+	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $types);
 
-	return join(", ", map {normalize_a_of_b($lc, $type, $_, $of_bool)} @list) . $trailing_space;
+	return join(", ", map {normalize_a_of_b($lc, $category, $_, $of_bool)} @list) . $trailing_space;
 }
 
 # iodure et hydroxide de potassium
@@ -4825,6 +4886,16 @@ my %ingredients_categories_and_types = (
 		[["piment", "poivron"], ["vert", "jaune", "rouge",], 0,],
 	],
 
+	hr => [
+		# malts
+		[
+			# categories
+			["slad",],
+			# types
+			["ječmeni", "pšenični",]
+		],
+	],
+
 	pl => [
 		# oils and fats
 		[
@@ -4893,11 +4964,11 @@ my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)',
 my $symbols_regexp = join('|', @symbols);
 
 sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
+	$log->debug("develop_ingredients_categories_and_types: start with>$text<") if $log->is_debug();
 
 	if (defined $ingredients_categories_and_types{$ingredients_lc}) {
 
 		foreach my $categories_and_types_ref (@{$ingredients_categories_and_types{$ingredients_lc}}) {
-
 			my $category_regexp = "";
 			foreach my $category (@{$categories_and_types_ref->[0]}) {
 				$category_regexp .= '|' . $category . '|' . $category . 's';
@@ -4956,8 +5027,11 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				$and_or = $and_or{$ingredients_lc};
 			}
 
-			if (($ingredients_lc eq "en") or ($ingredients_lc eq "ru") or ($ingredients_lc eq "pl")) {
-
+			if (   ($ingredients_lc eq "en")
+				or ($ingredients_lc eq "hr")
+				or ($ingredients_lc eq "ru")
+				or ($ingredients_lc eq "pl"))
+			{
 				# vegetable oil (palm, sunflower and olive)
 				$text
 					=~ s/($category_regexp)(?::|\(|\[| | $of )+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
@@ -4967,7 +5041,11 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 				# vegetable oil: palm
 				$text
-					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
+					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
+
+				# ječmeni i pšenični slad (barley and wheat malt)
+				$text
+					=~ s/((?:(?:$type_regexp)(?: |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*($category_regexp)/normalize_enumeration($ingredients_lc,$2,$1,$of_bool)/ieg;
 			}
 			elsif ($ingredients_lc eq "fr") {
 				# arôme naturel de pomme avec d'autres âromes
@@ -4980,6 +5058,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				# Carbonate de magnésium, fer élémentaire -> should not trigger carbonate de fer élémentaire. Bug #3838
 				# TODO 18/07/2020 remove when we have a better solution
 				$text =~ s/fer (é|e)l(é|e)mentaire/fer_élémentaire/ig;
+
 				$text
 					=~ s/($category_regexp)(?::|\(|\[| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 				$text =~ s/fer_élémentaire/fer élémentaire/ig;
@@ -4989,7 +5068,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 				# huile végétale : colza,
 				$text
-					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
+					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 			}
 		}
 
