@@ -13,7 +13,7 @@ remove_all_users();
 wait_application_ready();
 # we need to create spam user log to be able to tail on it
 open(my $log, ">>", "$data_root/logs/user_spam.log");
-$log . close();
+close($log);
 
 my $ua = new_client();
 
