@@ -1,0 +1,48 @@
+{
+   "ingredients" : [],
+   "ingredients_hierarchy" : [],
+   "ingredients_n" : 0,
+   "ingredients_n_tags" : [
+      "0",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [],
+   "ingredients_text" : "Taux minimum de légumes : 30%, teneur minimale en lait de 14% - teneur totale de fruits 15%",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "known_ingredients_n" : 0,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 15,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 15,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 45,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 45
+   },
+   "specific_ingredients" : [
+      {
+         "id" : "en:vegetable",
+         "ingredient" : "légumes",
+         "percent" : 30,
+         "text" : "Taux minimum de légumes : 30%"
+      },
+      {
+         "id" : "en:milk",
+         "ingredient" : "lait",
+         "percent" : 14,
+         "text" : "teneur minimale en lait de 14%"
+      },
+      {
+         "id" : "en:fruit",
+         "ingredient" : "fruits",
+         "percent" : 15,
+         "text" : "teneur totale de fruits 15%"
+      }
+   ],
+   "unknown_ingredients_n" : 0
+}

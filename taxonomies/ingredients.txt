@@ -719,6 +719,7 @@ es:pectina de citricos, pectina cítrica, pectina extraída de cítricos
 fi:sitruspektiini
 fr:pectine d'agrumes
 lt:citrusinių vaisių pektinas
+nl:citruspectine
 sv:citruspektin
 wikidata:en:Q6889398
 wikipedia:en:https://en.wikipedia.org/wiki/Modified_citrus_pectin
@@ -7555,7 +7556,7 @@ eo:Maskarpono
 es:mascarpone
 et:mascarpone
 fa:ماسکارپونه
-fi:mascarpone
+fi:mascarpone, mascarponejuusto
 fr:mascarpone, fromage mascarpone
 gl:Mascarpone
 he:מסקרפונה
@@ -7951,7 +7952,7 @@ es:queso parmesano
 et:Parmesan,parma juust
 eu:Parmigiano-Reggiano
 fa:پنیر پارمیجانو
-fi:parmesaani, parmigiano-reggiano, parmesanjuusto
+fi:parmesaani, parmigiano-reggiano, parmesanjuusto, parmesaanijuusto
 fr:parmesan, parmigiano reggiano, fromage parmigiano reggiano, fromage parmigiano reggiano aop, fromage parmigiano reggiano dop
 gl:Parmesano
 he:פרמזן
@@ -15744,7 +15745,7 @@ en:coconut fat
 bg:кокосова мазнина, кокосова
 ca:greix de coco
 da:kokosfedt
-de:Kokosfett
+de:Kokosfett, Kokosnussfett
 es:Grasa de coco, grasa vegetal de coco,manteca de coco
 et:kookosrasv
 fi:kookosrasva, kookosrasvaa
@@ -22438,12 +22439,11 @@ pl:słód pszenny
 pt:Malte de trigo
 sv:vetemalt, mältade vetekorn
 
-<en:wheat
 <en:vegetable fiber
 en:wheat fiber
 bg:пшенични влакна
 da:hvedefibre
-de:Weizenfasern
+de:Weizenfaser, Weizenfasern
 es:fibras de trigo
 fi:vehnäkuitu
 fr:fibre de blé, fibres de blé
@@ -24349,6 +24349,7 @@ ciqual_food_name:fr:Avoine, crue
 <en:oat
 en:oat grain
 es:granos de avena
+de:Haferkerne
 fi:kauranjyvä, kauranjyviä, kauranjyvät
 fr:grains d'avoine
 hr:zobena prekrup
@@ -25049,7 +25050,6 @@ en:ground rye malt
 de:Roggenmalz gemahlen
 es:malta molida de centeno
 
-<en:rye
 <en:vegetable fiber
 en:rye fiber
 de:Roggen-Ballaststoffe
@@ -26707,11 +26707,11 @@ en:baby corn
 pl:mini kolby kukurydzy, kukurydza baby
 # ingredient/en:baby-corn has 117 products @2023-06-25
 
-<en:corn
+<en:vegetable fiber
 en:corn fiber
 bg:царевични фибри, царевични влакнини
 cs:kukuřičná vláknina
-de:Ballaststoffe aus Maisfaser
+de:Maisfaser
 es:fibra de maiz
 fr:Fibre de maïs
 hr:kukuruzna vlakna
@@ -37890,7 +37890,6 @@ it:fiocchi di mela
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-pomme
 # 46 products in 4 languages @2018-10-04
 
-<en:apple
 <en:vegetable fiber
 en:apple fiber
 de:Apfelfaser
@@ -38082,7 +38081,6 @@ es:boabab fruto
 ###################################################################################################
 
 <en:vegetable fiber
-<en:citrus fruit
 en:citrus fibre, citrus fibres
 bg:цитрусови влакнини
 da:citrusfibre
@@ -38900,7 +38898,6 @@ nl:gesuikerde citroenpuree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-citron-sucrée
 # 41 products @2018-10-01
 
-<en:lemon
 <en:vegetable fiber
 en:lemon fibre
 de:Zitronenfaser
@@ -39211,7 +39208,7 @@ cs:Limetová šťáva, limetková šťáva
 da:Limesaft
 de:Limettensaft
 es:Zumo de lima, jugo de lima
-fi:limettimehu, limetäysmehu, limetinmehu
+fi:limettimehu, limetäysmehu, limetinmehu, limen mehu
 fr:jus de citron vert
 hu:Citromlé
 it:succo di lime
@@ -39256,7 +39253,7 @@ it:scorze di lime
 en:lime leaf, lime leaves
 da:limeblad
 de:Limettenblatt, Limettenblätter
-fi:limetinlehti, limenlehti
+fi:limetinlehti, limenlehti, limen lehti
 fr:feuille de lime, feuille de citron vert
 sv:limeblad
 # ingredient/en:lime-leaf has 8 products in 1 language @2020-05-23
@@ -40287,6 +40284,10 @@ description:fr:Fruit formé de baies noires formant des grappes, pulpeuses, à l
 description:nl:de vrucht (bes) van de Ribes nigrum
 # 3581 in 22 @2021-09-12
 eurocode_2_group_3:en: 9.30.32
+
+<en:blackcurrant
+en:blackcurrant pieces
+de:Schwarze Johannisbeerstücke
 
 #processing:en: en:juice
 #<en:blackcurrant
@@ -43201,7 +43202,6 @@ fr:segments d'ananas
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:segments-d'ananas
 # 36 products in 1 language @2018-09-30
 
-<en:pineapple
 <en:vegetable fiber
 en:pineapple fibre, pineapple fibres
 de:Ananasfasern
@@ -43237,7 +43237,7 @@ ca:Suc de pinya
 da:Ananasjuice
 de:Ananassaft
 es:Zumo de piña, jugo de piña, jugo de ananas, zumo de piña Gold
-fi:ananasmehu
+fi:ananasmehu, ananastäysmehu
 fr:jus d'ananas, jus d'ananas victoria
 # hr:sok od ananasa # see ingredients_processing.txt
 it:succo di ananas
@@ -43642,18 +43642,10 @@ nl:frambozenlikeur
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/raspberry-liqueur
 # 3 products in 2 languages @2018-09-27
 
-<en:raspberry
-en:raspberry jam
-bg:конфитюр от малини
-de:Himbeermarmelade
-fr:confiture de framboise
-wikidata:en:Q11962286
-
 <en:sauce
 en:raspberry sauce
 de:Himbeersauce de:Himbeersoße
 fr:sauce aux framboises, sauce à la framboise, sauce framboise
-
 
 
 ###################################################################################################
@@ -43905,17 +43897,7 @@ es:trozos de fresa, fresa en trozos
 fr:morceaux de fraise
 pl:kawałki truskawek
 
-<en:strawberry
-en:strawberry
-bg:конфитюр от ягоди
-ca:melmelada de maduixa
-de:Erdbeerkonfitüre, Erdbeer-Konfitüre
-es:mermelada de fresa
-fr:Confiture de fraises
-hr:pripavak jagoda
-pl:dżem truskawkowy
-
-<en:strawberry
+#<en:compound
 en:strawberry filling
 bg:ягодов пълнеж, пълнеж от ягоди
 de:Erdbeerfüllung
@@ -46436,7 +46418,6 @@ sv:torkade grönsaker
 <en:vegetable
 fr:légumes verts
 
-<en:vegetable
 <en:vegetable fiber
 fr:fibres de légume
 fi:kasviskuitu
@@ -51960,7 +51941,6 @@ sl:krompirjevi kosmiči
 fr:flocons de pomme de terre réhydratés
 # fr:flocons-de-pomme-de-terre-réhydratés has 71 products in 1 language @2018-10-15
 
-<en:potato
 <en:vegetable fiber
 en:potato fiber, potato fibre
 ca:fibra de patata, fibra vegetal de patata
@@ -52689,7 +52669,7 @@ bg:сок от цвекло
 cs:šťáva z červené řepy
 de:Randensaft
 es:jugo de remolacha
-fi:punajuurimehu
+fi:punajuurimehu, punajuuritäysmehu
 fr:jus de betterave
 hr:sok od cikle
 it:succo di barbabietola
@@ -54696,7 +54676,7 @@ ciqual_food_name:fr:Tomate, concentré, appertisé
 en:double concentrated tomato
 bg:двойно концентрирано доматено пюре
 da:dobbelt tomatkoncentrat, dobbelt koncentreret tomatpuré
-de:Tomatenkonzentrat zweifach konzentriert, Tomatenmark doppelt konzentriert
+de:Tomatenkonzentrat zweifach konzentriert, Tomatenmark 2fach konzentriert, Tomatenmark doppelt konzentriert
 es:tomate doble concentrado, concentrado doble de tomate
 fi:tuplatiivistetty tomaattipyree
 fr:double concentré de tomate, purée de tomates double concentré, purée de tomate double concentrée
@@ -68933,6 +68913,7 @@ eurocode_2_group_2:en: 8.50
 
 <en:plant protein
 en:mushroom proteins
+de:Pilzprotein
 fr:protéine de champignon
 
 <en:mushroom
@@ -81868,6 +81849,9 @@ fr:extraits végétaux à pouvoir colorant
 de:färbende Konzentrate
 fr:concentré colorant
 
+# <en:compound
+de:färbende Frucht- und Pflanzenkonzentrate
+
 # description:en:CONCENTRATE is the form of substance which has had the majority of its base component (in the case of a liquid: the solvent) removed
 
 # <en:part
@@ -82129,7 +82113,7 @@ en:vegetable fiber, vegetable fibers, plant fiber, plant fibre
 bg:растителни влакна, растителни влакнини, растителни фибри
 ca:fibra vegetal
 cs:rostlinná textilní vlákna
-de:pflanzliche Fasern, Pflanzenfaser, Pflanzenfasern
+de:pflanzliche Fasern, Pflanzenfaser, Pflanzenfasern, pflanzliche Ballaststoffe
 eo:planta fibro
 es:fibra vegetal
 fi:kasvikuitu, kasvikuidut
@@ -86246,11 +86230,29 @@ fi:mustaherukkahillo
 
 # <en:compound
 en:jam
-de:Marmelade de:Konfitüre
+de:Marmelade, Konfitüre
+fr:confiture
 pl:dżem
 ru:джем, повидло, варенье
 vegan:en:maybe
 vegetarian:en:maybe
+
+# <en:compound
+<en:jam
+bg:конфитюр от ягоди
+ca:melmelada de maduixa
+de:Erdbeerkonfitüre, Erdbeer-Konfitüre
+es:mermelada de fresa
+fr:Confiture de fraises
+hr:pripavak jagoda
+pl:dżem truskawkowy
+
+# <en:compound
+<en:jamen:raspberry jam
+bg:конфитюр от малини
+de:Himbeermarmelade
+fr:confiture de framboise
+wikidata:en:Q11962286
 
 #<en:compound
 en:cocoa spread, cocoa cream
