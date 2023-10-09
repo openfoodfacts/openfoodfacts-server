@@ -49,6 +49,7 @@ BEGIN {
 
 		$log_emails
 		$robotoff_url
+		$query_url
 		$events_url
 		$events_username
 		$events_password
@@ -354,6 +355,7 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
+$query_url = $ProductOpener::Config2::query_url;
 
 # do we want to send emails
 $log_emails = $ProductOpener::Config2::log_emails;
@@ -461,7 +463,6 @@ my $manifest = {
 };
 $options{manifest} = $manifest;
 
-$options{mongodb_supports_sample} = 0;    # from MongoDB 3.2 onward
 $options{display_random_sample_of_products_after_edits} = 0;    # from MongoDB 3.2 onward
 
 $options{favicons} = <<HTML
@@ -702,6 +703,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 );
 
 # fields for drilldown facet navigation
+# If adding to this list ensure that the tables are being replicated to Postgres in the openfoodfacts-query repo
 
 @drilldown_fields = qw(
 	nutrition_grades
