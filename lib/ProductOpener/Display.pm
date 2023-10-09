@@ -1616,33 +1616,33 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		# or if we are on the producers platform
 		if (can_use_query_cache()) {
 			$results = execute_aggregate_tags_query($aggregate_parameters);
-		}
 
-		if (not defined $results) {
-			eval {
-				$log->debug("Executing MongoDB aggregate query on products_tags collection",
-					{query => $aggregate_parameters})
-					if $log->is_debug();
-				$results = execute_query(
-					sub {
-						return get_products_collection(
-							get_products_collection_request_parameters($request_ref, {tags => 1}))
-							->aggregate($aggregate_parameters, {allowDiskUse => 1});
-					}
-				);
-				# the return value of aggregate has changed from version 0.702
-				# and v1.4.5 of the perl MongoDB module
-				$results = [$results->all] if defined $results;
-			};
-			my $err = $@;
-			if ($err) {
-				$log->warn("MongoDB error", {error => $err}) if $log->is_warn();
-			}
-			else {
-				$log->info("MongoDB query ok", {error => $err}) if $log->is_info();
-			}
+			if (not defined $results) {
+				eval {
+					$log->debug("Executing MongoDB aggregate query on products_tags collection",
+						{query => $aggregate_parameters})
+						if $log->is_debug();
+					$results = execute_query(
+						sub {
+							return get_products_collection(
+								get_products_collection_request_parameters($request_ref, {tags => 1}))
+								->aggregate($aggregate_parameters, {allowDiskUse => 1});
+						}
+					);
+					# the return value of aggregate has changed from version 0.702
+					# and v1.4.5 of the perl MongoDB module
+					$results = [$results->all] if defined $results;
+				};
+				my $err = $@;
+				if ($err) {
+					$log->warn("MongoDB error", {error => $err}) if $log->is_warn();
+				}
+				else {
+					$log->info("MongoDB query ok", {error => $err}) if $log->is_info();
+				}
 
-			$log->debug("MongoDB query done", {error => $err}) if $log->is_debug();
+				$log->debug("MongoDB query done", {error => $err}) if $log->is_debug();
+			}
 		}
 
 		if (not defined $results) {
@@ -1712,20 +1712,20 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 			# or if we are on the producers platform
 			if (can_use_query_cache()) {
 				$count_results = execute_aggregate_tags_query($aggregate_count_parameters);
-			}
 
-			if (not defined $count_results) {
-				eval {
-					$log->debug("Executing MongoDB aggregate count query on products_tags collection",
-						{query => $aggregate_count_parameters})
-						if $log->is_debug();
-					$count_results = execute_query(
-						sub {
-							return get_products_collection(
-								get_products_collection_request_parameters($request_ref, {tags => 1}))
-								->aggregate($aggregate_count_parameters, {allowDiskUse => 1});
-						}
-					);
+				if (not defined $count_results) {
+					eval {
+						$log->debug("Executing MongoDB aggregate count query on products_tags collection",
+							{query => $aggregate_count_parameters})
+							if $log->is_debug();
+						$count_results = execute_query(
+							sub {
+								return get_products_collection(
+									get_products_collection_request_parameters($request_ref, {tags => 1}))
+									->aggregate($aggregate_count_parameters, {allowDiskUse => 1});
+							}
+						);
+					}
 				}
 			}
 
@@ -5545,45 +5545,45 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 			# Count queries are very expensive, if possible, execute them on the postgres cache
 			if (can_use_query_cache()) {
 				$count = execute_count_tags_query($query_ref);
-				$err = $@;
-			}
 
-			if (not defined $count) {
-				# Count queries are very expensive, if possible, execute them on the smaller products_tags collection
-				my $only_tags_filters = 1;
+				if (not defined $count) {
+					# Count queries are very expensive, if possible, execute them on the smaller products_tags collection
+					my $only_tags_filters = 1;
 
-				if ($server_options{producers_platform}) {
-					$only_tags_filters = 0;
-				}
-				else {
+					if ($server_options{producers_platform}) {
+						$only_tags_filters = 0;
+					}
+					else {
 
-					foreach my $field (keys %$query_ref) {
-						if ($field !~ /_tags$/) {
-							$log->debug("non tags field in query filters, cannot use smaller products_tags collection",
-								{field => $field, value => $query_ref->{field}})
-								if $log->is_debug();
-							$only_tags_filters = 0;
-							last;
+						foreach my $field (keys %$query_ref) {
+							if ($field !~ /_tags$/) {
+								$log->debug(
+									"non tags field in query filters, cannot use smaller products_tags collection",
+									{field => $field, value => $query_ref->{field}})
+									if $log->is_debug();
+								$only_tags_filters = 0;
+								last;
+							}
 						}
 					}
-				}
 
-				if (    ($only_tags_filters)
-					and ((not defined single_param("no_cache")) or (single_param("no_cache") == 0)))
-				{
+					if (    ($only_tags_filters)
+						and ((not defined single_param("no_cache")) or (single_param("no_cache") == 0)))
+					{
 
-					$count = execute_query(
-						sub {
-							$log->debug("count_documents on smaller products_tags collection", {key => $key_count})
-								if $log->is_debug();
-							return get_products_collection(
-								get_products_collection_request_parameters($request_ref, {tags => 1}))
-								->count_documents($query_ref);
+						$count = execute_query(
+							sub {
+								$log->debug("count_documents on smaller products_tags collection", {key => $key_count})
+									if $log->is_debug();
+								return get_products_collection(
+									get_products_collection_request_parameters($request_ref, {tags => 1}))
+									->count_documents($query_ref);
+							}
+						);
+						$err = $@;
+						if ($err) {
+							$log->warn("MongoDB error during count", {error => $err}) if $log->is_warn();
 						}
-					);
-					$err = $@;
-					if ($err) {
-						$log->warn("MongoDB error during count", {error => $err}) if $log->is_warn();
 					}
 				}
 			}
