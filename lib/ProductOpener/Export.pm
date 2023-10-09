@@ -217,14 +217,14 @@ sub export_csv ($args_ref) {
 		my $count = get_products_collection({obsolete => $obsolete})->count_documents($query_ref);
 
 		$log->debug("export_csv - documents to export", {count => $count, collection => $collection})
-		if $log->is_debug();
+			if $log->is_debug();
 
 		$cursors{$collection} = get_products_collection({obsolete => $obsolete})->find($query_ref);
 		$cursors{$collection}->immortal(1);
 	}
 
 	# First pass to determine which fields should be exported
-	
+
 	if (defined $fields_ref) {
 		# The fields to export are specified by the fields parameter
 		@sorted_populated_fields = @{$fields_ref};
