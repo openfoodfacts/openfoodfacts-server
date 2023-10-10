@@ -96,7 +96,7 @@ BEGIN {
 
 		&init_origins_regexps
 		&match_ingredient_origin
-		&parse_processing_from_text
+		&parse_processing_from_ingredient
 		&parse_origins_from_text
 
 		&assign_ciqual_codes
@@ -1278,9 +1278,9 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 	return 0;
 }
 
-=head2 parse_processing_from_text ( $ingredients_processing_regexps, $ingredients_lc, $processing, $ingredient, $ingredient_id )
+=head2 parse_processing_from_ingredient ( $ingredients_processing_regexps, $ingredients_lc, $processing, $ingredient, $ingredient_id )
 
-This function extract processing method from ingredient.
+This function extract processing method from one ingredient.
 If processing methods are found and remaining ingredient text exists without the processing method,
 then, it returns:
 	- $processing (concatenate if more than one), 
@@ -1338,161 +1338,166 @@ English first element for that ingredient (en:pear, for example)
 
 =cut
 
-sub parse_processing_from_text ($ingredients_processing_regexps,
+sub parse_processing_from_ingredient ($ingredients_processing_regexps,
 	$ingredients_lc, $processing, $ingredient, $ingredient_id, $and, $ingredient_recognized)
 {
-	my $debug_parse_processing_from_text = 0;
-	my $matches = 0;
-	my $new_ingredient = $ingredient;
-	my $new_processing = '';
-	my $matching = 1;    # remove prefixes / suffixes one by one
-	while ($matching) {
-		$matching = 0;
-		foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$ingredients_lc}}) {
-			my $regexp = $ingredient_processing_regexp_ref->[1];
+	my $debug_parse_processing_from_ingredient = 0;
 
-			$debug_parse_processing_from_text and $log->trace("processing - checking processing regexps",
-				{new_ingredient => $new_ingredient, regexp => $regexp})
-				if $log->is_trace();
+	# return if ingredient exists as is
+	if (exists_taxonomy_tag("ingredients", $ingredient_id)) {
+		$ingredient_recognized = 1;
+	}
+	else {
 
-			if (
-				# match before or after the ingredient, require a space
-				(
-					#($ingredients_lc =~ /^(en|es|it|fr)$/)
+		my $matches = 0;
+		my $new_ingredient = $ingredient;
+		my $new_processing = '';
+		my $matching = 1;    # remove prefixes / suffixes one by one
+		while ($matching) {
+			$matching = 0;
+			foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$ingredients_lc}}) {
+				my $regexp = $ingredient_processing_regexp_ref->[1];
+
+				$debug_parse_processing_from_ingredient and $log->trace("processing - checking processing regexps",
+					{new_ingredient => $new_ingredient, regexp => $regexp})
+					if $log->is_trace();
+
+				if (
+					# match before or after the ingredient, require a space
 					(
-						   ($ingredients_lc eq 'ar')
-						or ($ingredients_lc eq 'bg')
-						or ($ingredients_lc eq 'bs')
-						or ($ingredients_lc eq 'cs')
-						or ($ingredients_lc eq 'el')
-						or ($ingredients_lc eq 'en')
-						or ($ingredients_lc eq 'es')
-						or ($ingredients_lc eq 'fr')
-						or ($ingredients_lc eq 'hr')
-						or ($ingredients_lc eq 'it')
-						or ($ingredients_lc eq 'mk')
-						or ($ingredients_lc eq 'pl')
-						or ($ingredients_lc eq 'sl')
-						or ($ingredients_lc eq 'sr')
+						#($ingredients_lc =~ /^(en|es|it|fr)$/)
+						(
+							   ($ingredients_lc eq 'ar')
+							or ($ingredients_lc eq 'bg')
+							or ($ingredients_lc eq 'bs')
+							or ($ingredients_lc eq 'cs')
+							or ($ingredients_lc eq 'el')
+							or ($ingredients_lc eq 'en')
+							or ($ingredients_lc eq 'es')
+							or ($ingredients_lc eq 'fr')
+							or ($ingredients_lc eq 'hr')
+							or ($ingredients_lc eq 'it')
+							or ($ingredients_lc eq 'mk')
+							or ($ingredients_lc eq 'pl')
+							or ($ingredients_lc eq 'sl')
+							or ($ingredients_lc eq 'sr')
+						)
+						and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i)
 					)
-					and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i)
-				)
 
-				#  match before or after the ingredient, does not require a space
-				or (
-					(
-						   ($ingredients_lc eq 'de')
-						or ($ingredients_lc eq 'hu')
-						or ($ingredients_lc eq 'ja')
-						or ($ingredients_lc eq 'nl')
+					#  match before or after the ingredient, does not require a space
+					or (
+						(
+							   ($ingredients_lc eq 'de')
+							or ($ingredients_lc eq 'hu')
+							or ($ingredients_lc eq 'ja')
+							or ($ingredients_lc eq 'nl')
+						)
+						and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i)
 					)
-					and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i)
-				)
 
-				# match after the ingredient, does not require a space
-				# match before the ingredient, require a space
-				or (
-					(
-						   ($ingredients_lc eq 'da')
-						or ($ingredients_lc eq 'fi')
-						or ($ingredients_lc eq 'nb')
-						or ($ingredients_lc eq 'no')
-						or ($ingredients_lc eq 'nn')
-						or ($ingredients_lc eq 'sv')
+					# match after the ingredient, does not require a space
+					# match before the ingredient, require a space
+					or (
+						(
+							   ($ingredients_lc eq 'da')
+							or ($ingredients_lc eq 'fi')
+							or ($ingredients_lc eq 'nb')
+							or ($ingredients_lc eq 'no')
+							or ($ingredients_lc eq 'nn')
+							or ($ingredients_lc eq 'sv')
+						)
+						and ($new_ingredient =~ /(^($regexp)\b|($regexp)$)/i)
 					)
-					and ($new_ingredient =~ /(^($regexp)\b|($regexp)$)/i)
-				)
-				)
-			{
-				$new_ingredient = $` . $';
+					)
+				{
+					$new_ingredient = $` . $';
 
-				$debug_parse_processing_from_text and $log->debug(
-					"processing - found processing",
-					{
-						ingredient => $ingredient,
-						new_ingredient => $new_ingredient,
-						processing => $ingredient_processing_regexp_ref->[0],
-						regexp => $regexp
-					}
-				) if $log->is_debug();
-
-				$matching = 1;
-				$matches++;
-				if ($new_processing ne "") {
-					$new_processing .= ", " . $ingredient_processing_regexp_ref->[0];
-				}
-				else {
-					$new_processing .= $ingredient_processing_regexp_ref->[0];
-				}
-
-				# remove starting or ending " and "
-				# viande traitée en salaison et cuite -> viande et
-				$new_ingredient =~ s/($and)+$//i;
-				$new_ingredient =~ s/^($and)+//i;
-				# trim leading and trailing whitespaces or hyphens
-				$new_ingredient =~ s/(\s|-)+$//;
-				$new_ingredient =~ s/^(\s|-)+//;
-
-				# Stop if we now have a known ingredient.
-				# e.g. "jambon cru en tranches" -> keep "jambon cru".
-				my $new_ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
-
-				if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
-					$debug_parse_processing_from_text and $log->debug(
-						"processing - found existing ingredient, stop matching",
+					$debug_parse_processing_from_ingredient and $log->debug(
+						"processing - found processing",
 						{
 							ingredient => $ingredient,
 							new_ingredient => $new_ingredient,
-							new_ingredient_id => $new_ingredient_id
+							processing => $ingredient_processing_regexp_ref->[0],
+							regexp => $regexp
 						}
 					) if $log->is_debug();
 
-					$matching = 0;
-				}
-				else {
-					$debug_parse_processing_from_text
-						and
-						$log->debug("processing - NOT found existing ingredient >$new_ingredient_id<, stop matching")
-						if $log->is_debug();
-				}
+					$matching = 1;
+					$matches++;
+					$new_processing .= ", " . $ingredient_processing_regexp_ref->[0];
 
-				last;
+					# remove starting or ending " and "
+					# viande traitée en salaison et cuite -> viande et
+					$new_ingredient =~ s/($and)+$//i;
+					$new_ingredient =~ s/^($and)+//i;
+					# trim leading and trailing whitespaces or hyphens
+					$new_ingredient =~ s/(\s|-)+$//;
+					$new_ingredient =~ s/^(\s|-)+//;
+
+					# Stop if we now have a known ingredient.
+					# e.g. "jambon cru en tranches" -> keep "jambon cru".
+					my $new_ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
+
+					if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
+						$debug_parse_processing_from_ingredient and $log->debug(
+							"processing - found existing ingredient, stop matching",
+							{
+								ingredient => $ingredient,
+								new_ingredient => $new_ingredient,
+								new_ingredient_id => $new_ingredient_id
+							}
+						) if $log->is_debug();
+
+						$matching = 0;
+					}
+					else {
+						$debug_parse_processing_from_ingredient
+							and $log->debug(
+							"processing - NOT found existing ingredient >$new_ingredient_id<, stop matching")
+							if $log->is_debug();
+					}
+
+					last;
+				}
+			}
+		}
+		if ($matches) {
+
+			my $new_ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
+			if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
+				$debug_parse_processing_from_ingredient and $log->debug(
+					"processing - found existing ingredient after removing processing",
+					{
+						ingredient => $ingredient,
+						new_ingredient => $new_ingredient,
+						new_ingredient_id => $new_ingredient_id,
+						new_processing => $new_processing,
+					}
+				) if $log->is_debug();
+				$ingredient = $new_ingredient;
+				$ingredient_id = $new_ingredient_id;
+				$ingredient_recognized = 1;
+				$processing .= $new_processing;
+			}
+			else {
+				$debug_parse_processing_from_ingredient and $log->debug(
+					"processing - did not find existing ingredient after removing processing",
+					{
+						ingredient => $ingredient,
+						new_ingredient => $new_ingredient,
+						new_ingredient_id => $new_ingredient_id,
+						new_processing => $new_processing,
+					}
+				) if $log->is_debug();
 			}
 		}
 	}
-	if ($matches) {
 
-		my $new_ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
-		if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
-			$debug_parse_processing_from_text and $log->debug(
-				"processing - found existing ingredient after removing processing",
-				{
-					ingredient => $ingredient,
-					new_ingredient => $new_ingredient,
-					new_ingredient_id => $new_ingredient_id,
-					new_processing => $new_processing,
-				}
-			) if $log->is_debug();
-			$ingredient = $new_ingredient;
-			$ingredient_id = $new_ingredient_id;
-			$ingredient_recognized = 1;
-			$processing .= $new_processing;
-		}
-		else {
-			$debug_parse_processing_from_text and $log->debug(
-				"processing - did not find existing ingredient after removing processing",
-				{
-					ingredient => $ingredient,
-					new_ingredient => $new_ingredient,
-					new_ingredient_id => $new_ingredient_id,
-					new_processing => $new_processing,
-				}
-			) if $log->is_debug();
-		}
-	}
-
-	$debug_parse_processing_from_text
+	$debug_parse_processing_from_ingredient
 		and $log->debug("processing - return>>>$processing<>$ingredient<>$ingredient_id<>$ingredient_recognized<<<")
+		if $log->is_debug();
+	$log->debug("processing - return>>>$processing<>$ingredient<>$ingredient_id<>$ingredient_recognized<<<")
 		if $log->is_debug();
 
 	return ($processing, $ingredient, $ingredient_id, $ingredient_recognized);
@@ -2062,73 +2067,34 @@ sub parse_ingredients_text ($product_ref) {
 					"parse_ingredient_text - and - whole ingredient >$before< containing 'and' is unknown ingredient")
 					if $log->is_debug();
 
-				# otherwise check the 2 sub ingredients
-				my $canon_ingredient1 = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient1);
-				my $canon_ingredient2 = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient2);
+				my $both_ingredients_recognized = 0;
 
-				# both ingredients are in the taxonomy as is
-				if (    (exists_taxonomy_tag("ingredients", $canon_ingredient1))
-					and (exists_taxonomy_tag("ingredients", $canon_ingredient2)))
-				{
-					$debug_ingredients
-						and $log->debug(
-						"parse_ingredient_text - and - both >$ingredient1_orig< and >$ingredient2_orig< are known")
-						if $log->is_debug();
+				foreach ($ingredient1_orig, $ingredient2_orig) {
+					my $canonicalized_ingredient = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $_);
 
-					push @ingredients, $ingredient1_orig;
-					push @ingredients, $ingredient2_orig;
+					(
+						undef,
+						my $ingredient_orig_without_processing,
+						my $canon_ingredient_without_processing,
+						my $is_recognized
+						)
+						= parse_processing_from_ingredient(\%ingredients_processing_regexps,
+						$ingredients_lc, "", $_, $canonicalized_ingredient, $and, 0);
+
+					if ($is_recognized) {
+						$both_ingredients_recognized += 1;
+					}
+				}
+				if ($both_ingredients_recognized == 2) {
+					foreach ($ingredient1_orig, $ingredient2_orig) {
+						push @ingredients, $_;
+					}
 				}
 				else {
-					# try remove processing from first ingredients
-					if (defined $ingredients_processing_regexps{$ingredients_lc}) {
-						(
-							undef,
-							my $ingredient1_orig_without_processing,
-							my $canon_ingredient1_without_processing, undef
-							)
-							= parse_processing_from_text(\%ingredients_processing_regexps,
-							$ingredients_lc, "", $ingredient1_orig, $canon_ingredient1, $and, 0);
-
-						if (    (exists_taxonomy_tag("ingredients", $canon_ingredient1_without_processing))
-							and (exists_taxonomy_tag("ingredients", $canon_ingredient2)))
-						{
-							$debug_ingredients
-								and $log->debug(
-								"parse_ingredient_text - and - both >$canon_ingredient1_without_processing< (without processing method) and >$ingredient2_orig< are known"
-								) if $log->is_debug();
-
-							push @ingredients, $ingredient1_orig;
-							push @ingredients, $ingredient2_orig;
-						}
-						else {
-							(
-								undef,
-								my $ingredient2_orig_without_processing,
-								my $canon_ingredient2_without_processing, undef
-								)
-								= parse_processing_from_text(\%ingredients_processing_regexps,
-								$ingredients_lc, "", $ingredient2_orig, $canon_ingredient2, $and, 0);
-
-							if (    (exists_taxonomy_tag("ingredients", $canon_ingredient1_without_processing))
-								and (exists_taxonomy_tag("ingredients", $canon_ingredient2_without_processing)))
-							{
-								$debug_ingredients
-									and $log->debug(
-									"parse_ingredient_text - and - both >$canon_ingredient1_without_processing< >$canon_ingredient2_without_processing< are known without processing method"
-									) if $log->is_debug();
-
-								push @ingredients, $ingredient1_orig;
-								push @ingredients, $ingredient2_orig;
-							}
-							else {
-								$debug_ingredients
-									and $log->debug(
-									"parse_ingredient_text - and - both ingredients >$ingredient1_orig< and >$ingredient2_orig< are still unknown after attempt to remove processing methods"
-									) if $log->is_debug();
-							}
-
-						}
-					}
+					$debug_ingredients
+						and $log->debug(
+						"parse_ingredient_text - and - one or both ingredient(s) of >$before< is/are unknown")
+						if $log->is_debug();
 				}
 			}
 		}
@@ -2152,7 +2118,6 @@ sub parse_ingredients_text ($product_ref) {
 			}
 
 			if ($before !~ /^\s*$/) {
-
 				push @ingredients, $before;
 			}
 		}
@@ -2335,8 +2300,12 @@ sub parse_ingredients_text ($product_ref) {
 					# Try to remove ingredients processing "cooked rice" -> "rice"
 					if (defined $ingredients_processing_regexps{$ingredients_lc}) {
 						($processing, $ingredient, $ingredient_id, $ingredient_recognized)
-							= parse_processing_from_text(\%ingredients_processing_regexps,
+							= parse_processing_from_ingredient(\%ingredients_processing_regexps,
 							$ingredients_lc, $processing, $ingredient, $ingredient_id, $and, $ingredient_recognized);
+
+						$log->debug(
+							"benbenbenlog - processing $processing, $ingredient, $ingredient_id $ingredient_recognized")
+							if $log->is_debug();
 					}
 
 					# Unknown ingredient, check if it is a label
@@ -2607,6 +2576,8 @@ sub parse_ingredients_text ($product_ref) {
 				if ($processing ne "") {
 					$processing =~ s/^,\s?//;
 					$ingredient{processing} = $processing;
+					# set $processing to "" because for "a and b" we don't want to reuse for b the same processing as a
+					$processing = "";
 				}
 
 				if ($ingredient ne '') {
