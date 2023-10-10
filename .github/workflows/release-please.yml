@@ -51,7 +51,9 @@ jobs:
         id: create-frontend-dist-tar
         run : |
           # directory to put files in
-          mkdir -p /tmp/frontend-dist
+          mkdir -p /tmp/frontend-dist/html/css/dist
+          mkdir -p /tmp/frontend-dist/html/images/icons/dist
+          mkdir -p /tmp/frontend-dist/html/js/dist
           # download docker image corresponding to the tag
           image_name=ghcr.io/${{ github.repository }}/frontend:${{ env.TAG_NAME }}
           # pull image, eventually waiting for it to be available in ghcr.io
@@ -68,9 +70,9 @@ jobs:
           done
           # extract the dist files, we create a temporary docker container and use docker cp
           id=$(docker create $image_name)
-          docker cp -a $id:/opt/product-opener/html/css/dist/ /tmp/frontend-dist/css/
-          docker cp -a $id:/opt/product-opener/html/images/icons/dist/ /tmp/frontend-dist/icons/
-          docker cp -a $id:/opt/product-opener/html/js/dist/ /tmp/frontend-dist/js/
+          docker cp -a $id:/opt/product-opener/html/css/dist/ /tmp/frontend-dist/html/css/dist/
+          docker cp -a $id:/opt/product-opener/html/images/icons/dist/ /tmp/frontend-dist/html/images/icons/dist/
+          docker cp -a $id:/opt/product-opener/html/js/dist/ /tmp/frontend-dist/html/js/dist/
           docker rm -v $id
           # make a tar
           tar czf /tmp/frontend-dist.tgz -C /tmp/frontend-dist .
