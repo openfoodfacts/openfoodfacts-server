@@ -50,6 +50,7 @@ foreach my $test_ref (@ingredients_tests) {
 # test the estimate percent of fruits and vegetables
 
 my @ingredients_text_tests = (
+	# product fields, expected fruits 2021, expected fruits 2023
 	[{lc => "fr", ingredients_text => ""}, undef, undef],
 	[{lc => "fr", ingredients_text => "eau, sucre, noisettes"}, 16.6666666666667, 0],
 	[{lc => "fr", ingredients_text => "banane 50%, fraise 30%, eau"}, 80, 80],
