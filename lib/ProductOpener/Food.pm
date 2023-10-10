@@ -257,7 +257,29 @@ sub default_unit_for_nid ($nid) {
 	}
 }
 
+=head2 assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $unit)
+
+Assign a value with a unit and an optional modifier (< or ~) to a nutrient in the nutriments structure.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+=head4 $nid 
+
+Nutrient id, possibly suffixed with "_prepared"
+
+=head4 value
+
+=head4 unit
+
+=cut
+
 sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $unit) {
+
+	# Get the nutrient id in the nutrients taxonomy from the nid (without a prefix and possibly suffixed by _prepared)
+	my $nutrient_id = "zz:" . $nid;
+	$nutrient_id =~ s/_prepared$//;
 
 	# We can have only a modifier with value '-' to indicate that we have no value
 
@@ -281,15 +303,16 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 		$product_ref->{nutriments}{$nid . "_value"} = $value;
 		# Convert values passed in international units IU or % of daily value % DV to the default unit for the nutrient
 		if (    ((uc($unit) eq 'IU') or (uc($unit) eq 'UI'))
-			and (defined get_property("nutrients", "zz:$nid", "iu_value:en")))
+			and (defined get_property("nutrients", $nutrient_id, "iu_value:en")))
 		{
-			$value = $value * get_property("nutrients", "zz:$nid", "iu_value:en");
-			$unit = get_property("nutrients", "zz:$nid", "unit:en");
+			$value = $value * get_property("nutrients", $nutrient_id, "iu_value:en");
+			$unit = get_property("nutrients", $nutrient_id, "unit:en");
 		}
-		elsif ((uc($unit) eq '% DV') and (defined get_property("nutrients", "zz:$nid", "dv_value:en"))) {
-			$value = $value / 100 * get_property("nutrients", "zz:$nid", "dv_value:en");
-			$unit = get_property("nutrients", "zz:$nid", "unit:en");
+		elsif ((uc($unit) eq '% DV') and (defined get_property("nutrients", $nutrient_id, "dv_value:en"))) {
+			$value = $value / 100 * get_property("nutrients", $nutrient_id, "dv_value:en");
+			$unit = get_property("nutrients", $nutrient_id, "unit:en");
 		}
+
 		if ($nid =~ /^water-hardness(_prepared)?$/) {
 			$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
 		}
@@ -1097,6 +1120,16 @@ sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($prod
 
 	my $fruits = undef;
 
+	# If the product is in a category that has no unprocessed fruits/vegetables/nuts, return 0
+	my $nutriscore_without_unprocessed_fruits_vegetables_legumes
+		= get_inherited_property_from_categories_tags($product_ref,
+		"nutriscore_without_unprocessed_fruits_vegetables_legumes:en");
+	if (    (defined $nutriscore_without_unprocessed_fruits_vegetables_legumes)
+		and ($nutriscore_without_unprocessed_fruits_vegetables_legumes eq "yes"))
+	{
+		return 0;
+	}
+
 	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"}) {
 		$fruits = 2 * $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"};
 		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-dried");
@@ -1200,6 +1233,16 @@ Differences with the 2021 version:
 =cut
 
 sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref, $prepared) {
+
+	# If the product is in a category that has no unprocessed fruits/vegetables/nuts, return 0
+	my $nutriscore_without_unprocessed_fruits_vegetables_legumes
+		= get_inherited_property_from_categories_tags($product_ref,
+		"nutriscore_without_unprocessed_fruits_vegetables_legumes:en");
+	if (    (defined $nutriscore_without_unprocessed_fruits_vegetables_legumes)
+		and ($nutriscore_without_unprocessed_fruits_vegetables_legumes eq "yes"))
+	{
+		return 0;
+	}
 
 	my $fruits_vegetables_legumes = deep_get($product_ref, "nutriments",
 		"fruits-vegetables-legumes-estimate-from-ingredients" . $prepared . "_100g");

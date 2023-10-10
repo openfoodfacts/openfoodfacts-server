@@ -625,6 +625,59 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			ingredients_text => "tomates (148 g par 100g), porc (200 gr par 100 g de produit fini)",
 		}
 	],
+	[
+		"en-content-of-ingredient",
+		{
+			lc => "en",
+			ingredients_text => "total content of milk 80%, content of fruits 120g per 100g"
+		}
+	],
+	[
+		"en-ingredient-content",
+		{
+			lc => "en",
+			ingredients_text =>
+				"strawberry content: 5%, min cocoa content: 40,3g, total milk content minimum 30%, fruit content: 10%; apples content 50.20g per 100g of product"
+		}
+	],
+	[
+		"en-prepared-with",
+		{
+			lc => "en",
+			ingredients_text => "70g of onions per 100g, prepared with 100g of cucumber per 100g of product,
+				made with 150 g of tomatoes per 100ml, prepared with: 50% of potatoes"
+		}
+	],
+	[
+		"fr-content-of-ingredient",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Taux minimum de légumes : 30%, teneur minimale en lait de 14% - teneur totale de fruits 15%"
+		}
+	],
+	[
+		"fr-prepared-with",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Elaboré avec 50g d'abricots, produit avec 30% d'asperges, fabriquée avec 500g de viande pour 100g, préparé à partir de 140 g de tomates pour 100g de produit"
+		}
+	],
+	# fruits 50% and pear 30% is not a specific ingredient
+	[
+		"en-fruits-sub-ingredients",
+		{lc => "en", ingredients_text => "fruits 50% (apple 40%, pear 30%, cranberry, lemon), sugar"},
+	],
+	# 50g of ingredient
+	[
+		"en-quantity-of-ingredient",
+		{lc => "en", ingredients_text => "50g of tomatoes, 35% garlic, 20cl of water, 10ml of rapeseed oil"}
+	],
+	[
+		"fr-quantity-of-ingredient",
+		{lc => "fr", ingredients_text => "50g de tomates, 35% d'ail, 20cl d'eau, 10ml d'huile de colza"}
+	],
 );
 
 foreach my $test_ref (@tests) {
