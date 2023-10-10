@@ -60,6 +60,7 @@ unzip -o "$OFF_SFTP_HOME_DIR/carrefour/data/*.zip" -d "$DATA_TMP_DIR/images/"
 
 # Note: for testing, we can import products under the carrefour-test-off2 org
 
+# import data
 ./scripts/import_csv_file.pl --csv_file $DATA_TMP_DIR/carrefour-data.tsv --user_id carrefour --comment "Import Carrefour" --source_id "carrefour" --source_name "Carrefour" --source_url "https://www.carrefour.fr" --manufacturer --org_id carrefour --define lc=fr 
 
 ./scripts/export_csv_file.pl --fields code,nutrition_grades_tags --query editors_tags=carrefour --separator ';' > $OFF_PUBLIC_DATA_DIR/exports/carrefour_nutriscore.csv
