@@ -428,7 +428,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : 0,
+                     "epi_score" : "0",
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : null
@@ -2424,6 +2424,7 @@
                "is_beverage" : 0,
                "is_cheese" : 0,
                "is_fat_oil_nuts_seeds" : 0,
+               "is_red_meat_product" : 0,
                "is_water" : 0,
                "proteins" : null,
                "salt" : null,
