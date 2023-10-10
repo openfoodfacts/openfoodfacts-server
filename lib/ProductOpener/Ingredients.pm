@@ -6594,22 +6594,24 @@ can be taken into account, whereas crisps which are thin and completely dehydrat
 
 =cut
 
+my $further_processing_regexp = 'en:candied|en:flour|en:freeze-dried|en:powder';
+
 sub is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ($ingredient_id, $processing = undef) {
 
 	my $nutriscore_fruits_vegetables_nuts
 		= get_inherited_property("ingredients", $ingredient_id, "nutriscore_fruits_vegetables_nuts:en");
 
-	# Check that the ingredient is not processed
-	my $is_a_processed_ingredient = is_a("ingredients", $ingredient_id, "en:flour");
+	# Check that the ingredient is not further processed
+	my $is_a_further_processed_ingredient = is_a("ingredients", $ingredient_id, "en:flour");
 
-	my $processed = ((defined $processing) and ($processing =~ /\b(en:flour|en:freeze-dried|en:powder)\b/));
+	my $further_processed = ((defined $processing) and ($processing =~ /\b($further_processing_regexp)\b/));
 
 	return (
 		(
 					(defined $nutriscore_fruits_vegetables_nuts)
 				and ($nutriscore_fruits_vegetables_nuts eq "yes")
-				and (not $is_a_processed_ingredient)
-				and (not $processed)
+				and (not $is_a_further_processed_ingredient)
+				and (not $further_processed)
 		)
 			or 0
 	);
@@ -6714,10 +6716,10 @@ sub is_fruits_vegetables_legumes ($ingredient_id, $processing = undef) {
 	my $eurocode_2_group_1 = get_inherited_property("ingredients", $ingredient_id, "eurocode_2_group_1:en");
 	my $eurocode_2_group_2 = get_inherited_property("ingredients", $ingredient_id, "eurocode_2_group_2:en");
 
-	# Check that the ingredient is not processed
-	my $is_a_processed_ingredient = is_a("ingredients", $ingredient_id, "en:flour");
+	# Check that the ingredient is not further processed
+	my $is_a_further_processed_ingredient = is_a("ingredients", $ingredient_id, "en:flour");
 
-	my $processed = ((defined $processing) and ($processing =~ /\b(en:flour|en:freeze-dried|en:powder)\b/));
+	my $further_processed = ((defined $processing) and ($processing =~ /\b($further_processing_regexp)\b/));
 
 	return (
 		(
@@ -6729,8 +6731,8 @@ sub is_fruits_vegetables_legumes ($ingredient_id, $processing = undef) {
 					or ((defined $eurocode_2_group_2)
 					and (exists $fruits_vegetables_legumes_eurocodes{$eurocode_2_group_2}))
 			)
-				and (not $is_a_processed_ingredient)
-				and (not $processed)
+				and (not $is_a_further_processed_ingredient)
+				and (not $further_processed)
 		)
 			or 0
 	);
