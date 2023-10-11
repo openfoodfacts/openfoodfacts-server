@@ -627,6 +627,40 @@ my @tests = (
 			},
 		}
 	],
+	# Milk: considered a beverage in 2023 Nutri-Score
+	[
+		"en-milk",
+		{
+			lc => "en",
+			categories => "milk",
+			nutriments => {
+				energy_100g => 195,
+				fat_100g => 1.6,
+				"saturated-fat_100g" => 1,
+				sugars_100g => 4.8,
+				salt_100g => 0.1,
+				proteins_100g => 3.3,
+			},
+		}
+	],
+	# Plant beverages: considered a beverage in 2023 Nutri-Score
+	[
+		"fr-plant-beverages-soy-milk",
+		{
+			lc => "fr",
+			categories => "boissons végétales de soja",
+			ingredients => "Eau, fèves de soja 8%",
+			nutriments => {
+				energy_100g => 178,
+				fat_100g => 2.6,
+				"saturated-fat_100g" => 0.6,
+				sugars_100g => 0.5,
+				salt_100g => 0.03,
+				fiber_100g => 0.5,
+				proteins_100g => 3.9,
+			},
+		}
+	],
 
 );
 

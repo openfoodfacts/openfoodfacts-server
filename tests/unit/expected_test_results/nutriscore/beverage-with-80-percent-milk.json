@@ -103,8 +103,9 @@
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
-      "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-d-2023-d"
+      "en:nutriscore-2021-different-from-2023",
+      "en:nutriscore-2021-better-than-2023",
+      "en:nutriscore-2021-d-2023-e"
    ],
    "nucleotides_tags" : [],
    "nutriments" : {
@@ -168,15 +169,15 @@
       "2023" : {
          "category_available" : 1,
          "data" : {
-            "count_proteins" : 0,
-            "count_proteins_reason" : "negative_points_more_than_11",
+            "count_proteins" : 1,
+            "count_proteins_reason" : "beverage",
             "energy" : 3378,
             "energy_points" : 10,
             "fiber" : 2,
             "fiber_points" : 0,
             "fruits_vegetables_legumes" : 0,
             "fruits_vegetables_legumes_points" : 0,
-            "is_beverage" : 0,
+            "is_beverage" : 1,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
             "is_red_meat_product" : 0,
@@ -188,33 +189,35 @@
                "salt",
                "non_nutritive_sweeteners"
             ],
-            "negative_points" : 16,
+            "negative_points" : 22,
+            "non_nutritive_sweeteners_points" : 0,
             "positive_nutrients" : [
                "fruits_vegetables_legumes",
-               "fiber"
+               "fiber",
+               "proteins"
             ],
-            "positive_points" : 0,
+            "positive_points" : 7,
             "proteins" : 5,
-            "proteins_points" : 2,
+            "proteins_points" : 7,
             "salt" : 0,
             "salt_points" : 0,
             "saturated_fat" : 5,
             "saturated_fat_points" : 4,
             "sugars" : 10,
-            "sugars_points" : 2
+            "sugars_points" : 8
          },
-         "grade" : "d",
+         "grade" : "e",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : 16
+         "score" : 15
       }
    },
    "nutriscore_2021_tags" : [
       "d"
    ],
    "nutriscore_2023_tags" : [
-      "d"
+      "e"
    ],
    "nutriscore_data" : {
       "energy" : 3378,

@@ -3948,9 +3948,11 @@ sub get_taxonomy_tag_synonyms ($target_lc, $tagtype, $tagid) {
 
 sub exists_taxonomy_tag ($tagtype, $tagid) {
 
-	return (    (exists $translations_from{$tagtype})
-			and (exists $translations_from{$tagtype}{$tagid})
-			and not((exists $just_synonyms{$tagtype}) and (exists $just_synonyms{$tagtype}{$tagid})));
+	my $taxonomy = $taxonomy_fields{$tagtype};
+
+	return (    (exists $translations_from{$taxonomy})
+			and (exists $translations_from{$taxonomy}{$tagid})
+			and not((exists $just_synonyms{$taxonomy}) and (exists $just_synonyms{$taxonomy}{$tagid})));
 }
 
 =head2 cached_display_taxonomy_tag ( $target_lc, $tagtype, $canon_tagid )
