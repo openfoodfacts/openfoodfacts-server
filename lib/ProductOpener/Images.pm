@@ -181,7 +181,7 @@ sub display_select_crop ($object_ref, $id_lc, $language) {
 
 	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
 	my $id = $id_lc;
-
+	my $message = $Lang{"protected_image_message"}{$lang};
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
 
@@ -197,13 +197,22 @@ sub display_select_crop ($object_ref, $id_lc, $language) {
 
 	my $label = $Lang{"image_" . $imagetype}{$lang};
 
-	my $html = <<HTML
+	my $html = '';
+	if (is_protected_image($object_ref, $id_lc) and (not $User{moderator}) and (not $admin)) {
+		$html .= <<HTML;
+<p>$message</p>
 <label for="$id">$label (<span class="tab_language">$language</span>)</label>
+<div class=\"select_crop\" id=\"$id\" data-info="protect"></div>
+HTML
+	}
+	else {
+		$html .= <<HTML;
+	<label for="$id">$label (<span class="tab_language">$language</span>)</label>
 $note
 <div class=\"select_crop\" id=\"$id\"></div>
 <hr class="floatclear" />
 HTML
-		;
+	}
 
 	my @fields = qw(imgid x1 y1 x2 y2);
 	foreach my $field (@fields) {
@@ -341,7 +350,7 @@ sub scan_code ($file) {
 				$log->debug("barcode found", {code => $code, type => $type}) if $log->is_debug();
 				print STDERR "scan_code code found: $code\n";
 
-				if (($code !~ /^[0-9]+$/) or ($type eq 'QR-Code')) {
+				if (($code !~ /^\d+|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+$/)) {
 					$code = undef;
 					next;
 				}
@@ -358,7 +367,11 @@ sub scan_code ($file) {
 
 		}
 	}
-	print STDERR "scan_code return code: $code\n";
+
+	if (defined $code) {
+		$code = normalize_code($code);
+		print STDERR "scan_code return code: $code\n";
+	}
 
 	return $code;
 }
@@ -651,7 +664,8 @@ Process an image uploaded to a product (from the web site, from the API, or from
 
 =head4 Image field $imagefield
 
-Indicates what the image is and its language.
+Indicates what the image is and its language, or indicate a path to the image file
+(for imports and when uploading an image with a barcode)
 
 Format: [front|ingredients|nutrition|packaging|other]_[2 letter language code]
 
@@ -700,6 +714,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 	my $extension = 'jpg';
 
 	# Image that was already read by barcode scanner: can't read it again
+	# $image_field can be a path to the image file (for imports and when uploading an image with a barcode)
 	my $tmp_filename;
 	if ($imagefield =~ /\//) {
 		$tmp_filename = $imagefield;
@@ -764,7 +779,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		my $filename = get_string_id_for_lang("no_language", remote_addr() . '_' . $`);
 
 		my $current_product_ref = retrieve_product($product_id);
-		$imgid = $current_product_ref->{max_imgid} + 1;
+		$imgid = ($current_product_ref->{max_imgid} || 0) + 1;
 
 		# if for some reason the images directories were not created at product creation (it can happen if the images directory's permission / ownership are incorrect at some point)
 		# create them
@@ -786,6 +801,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		$log->debug("new imgid: ", {imgid => $imgid, extension => $extension}) if $log->is_debug();
 
 		my $img_orig = "$target_image_dir/$imgid.$extension.orig";
+		$log->debug("writing the original image", {img_orig => $img_orig}) if $log->is_debug();
 		open(my $out, ">", $img_orig)
 			or $log->warn("could not open image path for saving", {path => $img_orig, error => $!});
 		while (my $chunk = <$file>) {

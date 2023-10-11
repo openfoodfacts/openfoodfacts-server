@@ -66,6 +66,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&normalize_code
+		&normalize_code_with_gs1_ai
 		&assign_new_code
 		&split_code
 		&product_id_for_owner
@@ -168,6 +169,8 @@ my $ean_check = CheckDigits('ean');
 
 use Scalar::Util qw(looks_like_number);
 
+use GS1::SyntaxEngine::FFI::GS1Encoder;
+
 =head1 FUNCTIONS
 
 =head2 make_sure_numbers_are_stored_as_numbers ( PRODUCT_REF )
@@ -262,8 +265,9 @@ sub assign_new_code() {
 =head2 normalize_code()
 
 C<normalize_code()> this function normalizes the product code by:
-- Keeps only digits and removes spaces/dashes etc.
-- Normalizes the length by adding leading zeroes or removing the leading zero (in case of 14 digit codes)
+- running the given code through normalization method provided by GS1 to format a GS1 data string, or data URL to a GTIN,
+- keeping only digits and removing spaces/dashes etc.,
+- normalizing the length by adding leading zeroes or removing the leading zero (in case of 14 digit codes)
 
 =head3 Arguments
 
@@ -278,6 +282,37 @@ Normalized version of the code
 sub normalize_code ($code) {
 
 	if (defined $code) {
+		($code, my $gs1_ai_data_str) = &normalize_code_with_gs1_ai($code);
+	}
+	return $code;
+}
+
+=head2 normalize_code_with_gs1_ai()
+
+C<normalize_code_with_gs1_ai()> this function normalizes the product code by:
+- running the given code through normalization method provided by GS1 to format a GS1 data string, or data URI to a GTIN,
+- keeping only digits and removing spaces/dashes etc.,
+- normalizing the length by adding leading zeroes or removing the leading zero (in case of 14 digit codes)
+
+=head3 Arguments
+
+Product Code in the Raw form: $code
+
+=head3 Return Values
+
+Normalized version of the code, and GS1 AI data string of the code, if a valid GS1 string was given as the argument
+
+=cut
+
+sub normalize_code_with_gs1_ai ($code) {
+
+	my $ai_data_str;
+	if (defined $code) {
+		my ($gs1_code, $gs1_ai_data_str) = &_try_normalize_code_gs1($code);
+		if ($gs1_code and $gs1_ai_data_str) {
+			$code = $gs1_code;
+			$ai_data_str = $gs1_ai_data_str;
+		}
 
 		# Keep only digits, remove spaces, dashes and everything else
 		$code =~ s/\D//g;
@@ -302,7 +337,54 @@ sub normalize_code ($code) {
 			$code = $';
 		}
 	}
-	return $code;
+	return ($code, $ai_data_str);
+}
+
+sub _try_normalize_code_gs1 ($code) {
+	my $ai_data_str;
+	eval {
+		$code =~ s/[\N{U+001D}\N{U+241D}]/^/g;    # Replace FNC1/<GS1> with ^ for the GS1Encoder to work
+		if ($code =~ /^\(.+/) {
+			# Code could be a GS1 bracketed AI element string
+			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
+			if ($encoder->ai_data_str($code)) {
+				$ai_data_str = $encoder->ai_data_str();
+			}
+		}
+		elsif ($code =~ /^\^.+/) {
+			# Code could be a GS1 unbracketed AI element string
+			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
+			if ($encoder->data_str($code)) {
+				$ai_data_str = $encoder->ai_data_str();
+			}
+		}
+		elsif ($code =~ /^http?s:\/\/.+/) {
+			# Code could be a GS1 unbracketed AI element string
+			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
+			if ($encoder->data_str($code)) {
+				$ai_data_str = $encoder->ai_data_str();
+			}
+		}
+		elsif ($code =~ /^01(\d{14})/) {
+			# Code could be a GS1 unbracketed AI element string
+			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
+			if ($encoder->data_str("^01$1")) {
+				$ai_data_str = $encoder->ai_data_str();
+			}
+		}
+	};
+	if ($@) {
+		$log->warn("GS1Parser error", {error => $@}) if $log->is_warn();
+		$code = undef;
+		$ai_data_str = undef;
+	}
+
+	if ((defined $code) and (defined $ai_data_str) and ($ai_data_str =~ /^\(01\)(\d{1,14})/)) {
+		return ($1, $ai_data_str);
+	}
+	else {
+		return;
+	}
 }
 
 # - When products are public, the _id is the code, and the path is of the form 123/456/789/0123
@@ -359,7 +441,7 @@ e.g. off:[code]
 
 =head4 Owner id
 
-=head4 Code 
+=head4 Code
 
 Product barcode
 
@@ -626,7 +708,7 @@ sub get_owner_id ($userid, $orgid, $ownerid) {
 
 =head2 init_product ( $userid, $orgid, $code, $countryid )
 
-Initializes and return a $product_ref structure for a new product. 
+Initializes and return a $product_ref structure for a new product.
 If $countryid is defined and is not "en:world", then assign this country for the countries field.
 Otherwise, use the country associated with the ip address of the user.
 
@@ -1709,7 +1791,7 @@ to determine if the change was done through an app, the OFF userid, or an app sp
 
 =head3 Parameters
 
-=head4 $change_ref 
+=head4 $change_ref
 reference to a change record
 
 =head3 Return value
@@ -3360,7 +3442,7 @@ e.g. official producer data that should not be changed by anonymous users throug
 Product data is protected if it has an owner and if the corresponding organization has
 the "protect data" checkbox checked.
 
-=head3 Parameters 
+=head3 Parameters
 
 =head4 $product_ref
 

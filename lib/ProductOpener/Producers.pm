@@ -193,6 +193,10 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 			if ($line =~ /\t/) {
 				$separator = "\t";
 			}
+			# Otherwise, if the first line does not have a separator, check if it is a ;
+			elsif (($line !~ /$separator/) and ($line =~ /;/)) {
+				$separator = ";";
+			}
 		}
 	}
 
@@ -461,7 +465,7 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 	my $products_ref = {};
 
 	# Keep track of the number of lines for each product
-	my %product_lines = {};
+	my %product_lines = ();
 
 	# We may add some output columns if there are products on multiple lines
 	my $extra_output_headers_ref = [];
@@ -496,14 +500,23 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 			my $field = $field_orig;    # Needed in order to be able to modify $field without changing the array content
 			my $col = $output_to_input_columns_ref->{$field};
 
-			# If the field is of the form packaging_1_*
-			# and we have multiple lines per product,
-			# we rename the field to packaging_[current number of lines of the product]_*
+			# If we have multiple lines per product, we need to rename some fields by adding a number
+			# so that the values on multiple lines are saved in multiple columns
 
-			if (($product_lines{$code} > 1) and ($field =~ /^packaging_1_/)) {
-				$field = "packaging_" . $product_lines{$code} . "_" . $';
+			if ($product_lines{$code} > 1) {
 
-				# Add the field to the list of columns in the output file
+				# If the field is of the form packaging_1_*
+				# we rename the field to packaging_[current number of lines of the product]_*
+				if ($field =~ /^packaging_1_/) {
+					$field = "packaging_" . $product_lines{$code} . "_" . $';
+				}
+				# If the field is of the form image_other_url or image_other_type
+				# we rename the field to image_other_(url|type).[current number of lines of the product]
+				elsif (($product_lines{$code} > 1) and ($field =~ /^image_other_/)) {
+					$field .= '.' . $product_lines{$code};
+				}
+
+				# Add the field to the list of columns in the output file if the column does not exist yet
 				if (not exists $output_to_input_columns_ref->{$field}) {
 					$output_to_input_columns_ref->{$field} = undef;
 					push @$extra_output_headers_ref, $field;

@@ -1,0 +1,80 @@
+{
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "20047",
+         "id" : "en:tomato",
+         "percent" : 42.5287356321839,
+         "percent_estimate" : 42.5287356321839,
+         "quantity" : "148 g",
+         "quantity_g" : 148,
+         "text" : "tomatoes",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:pork",
+         "percent" : 57.4712643678161,
+         "percent_estimate" : 57.4712643678161,
+         "quantity" : "200 g",
+         "quantity_g" : 200,
+         "text" : "pork",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:pork"
+      ],
+      "en:non-vegetarian" : [
+         "en:pork"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:tomato",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "en:pork",
+      "en:animal"
+   ],
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:tomato",
+      "en:pork"
+   ],
+   "ingredients_percent_analysis" : -1,
+   "ingredients_tags" : [
+      "en:tomato",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "en:pork",
+      "en:animal"
+   ],
+   "ingredients_text" : "tomatoes (148 g per 100g), pork (200 g per 100 g of finished product)",
+   "ingredients_with_specified_percent_n" : 2,
+   "ingredients_with_specified_percent_sum" : 100,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
+   "ingredients_without_ciqual_codes" : [
+      "en:pork"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "known_ingredients_n" : 5,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 42.5287356321839,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 42.5287356321839,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 42.5287356321839,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 42.5287356321839
+   },
+   "unknown_ingredients_n" : 0
+}

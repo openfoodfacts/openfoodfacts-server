@@ -24464,3 +24464,24 @@ hu:kálium-jodid
 wikipedia:en:https://en.wikipedia.org/wiki/Potassium_iodide
 wikidata:en:Q121874
 
+# Japanese additives can be listed only with their type (e.g. amino acids), without the specific additive name
+
+# Explanation of 「調味料」(flavoring?) https://www.hokeniryo.metro.tokyo.lg.jp/shokuhin/shokuten/chomiryo.html
+# Flavors, as additives, consists of 4 categories:
+# アミノ酸 (amino acids, e.g. sodium L-aspartate),
+# 核酸 (nucleic acids, e.g. disodium inosinate),
+# 有機酸 (organic acids, e.g. calcium citrate),
+# 無機塩 (inorganic salts, e.g. potassium chloride).
+# They are labeled in form of 「調味料({category name})」, or 「調味料({dominant category name}等)」 if more than two categories are included.
+
+en:Amino acids
+ja:アミノ酸, アミノ酸等
+
+en:Nucleic acids
+ja:核酸
+
+en:Organic acids
+ja:有機酸
+
+en:Inorganic salts
+ja:無機塩

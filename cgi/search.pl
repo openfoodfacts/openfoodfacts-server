@@ -139,31 +139,31 @@ if ((not defined $search_terms) or ($search_terms eq '')) {
 }
 
 # check if the search term looks like a barcode
-
 if (    (not defined single_param('json'))
 	and (not defined single_param('jsonp'))
 	and (not defined single_param('jqm'))
 	and (not defined single_param('jqm_loadmore'))
 	and (not defined single_param('xml'))
 	and (not defined single_param('rss'))
-	and ($search_terms =~ /^(\d{4,24})$/))
+	and ($search_terms =~ /^(\d{4,24}|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+)$/))
 {
 
 	my $code = normalize_code($search_terms);
+	if ((defined $code) and (length($code) > 0)) {
+		my $product_id = product_id_for_owner($Owner_id, $code);
 
-	my $product_id = product_id_for_owner($Owner_id, $code);
+		my $product_ref = product_exists($product_id);    # returns 0 if not
 
-	my $product_ref = product_exists($product_id);    # returns 0 if not
+		if ($product_ref) {
+			$log->info("product code exists, redirecting to product page", {code => $code});
+			my $location = product_url($product_ref);
 
-	if ($product_ref) {
-		$log->info("product code exists, redirecting to product page", {code => $code});
-		my $location = product_url($product_ref);
+			my $r = shift;
+			$r->headers_out->set(Location => $location);
+			$r->status(301);
+			return 301;
 
-		my $r = shift;
-		$r->headers_out->set(Location => $location);
-		$r->status(301);
-		return 301;
-
+		}
 	}
 }
 

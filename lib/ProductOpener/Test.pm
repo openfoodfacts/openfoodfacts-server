@@ -359,6 +359,7 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 		my $pretty_json = $json->pretty->encode($object_ref);
 		print $result $pretty_json;
 		close($result);
+		ok(1, "Updated $expected_results_file");
 	}
 	else {
 		# Compare the result with the expected result

@@ -41,6 +41,7 @@ BEGIN {
 		$crowdin_project_identifier
 		$crowdin_project_key
 		$robotoff_url
+		$query_url
 		$events_url
 		$events_username
 		$events_password
@@ -79,6 +80,7 @@ $crowdin_project_key = '';
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = '';
+$query_url = '';
 
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)

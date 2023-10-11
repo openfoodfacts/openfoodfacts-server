@@ -449,13 +449,13 @@ Reference to the response object.
 
 =head3 Return value
 
-Normalized code.
+Normalized code and, if available, GS1 AI data string.
 
 =cut
 
 sub normalize_requested_code ($requested_code, $response_ref) {
 
-	my $code = normalize_code($requested_code);
+	my ($code, $ai_data_str) = &normalize_code_with_gs1_ai($requested_code);
 	$response_ref->{code} = $code;
 
 	# Add a warning if the normalized code is different from the requested code
@@ -470,7 +470,7 @@ sub normalize_requested_code ($requested_code, $response_ref) {
 		);
 	}
 
-	return $code;
+	return ($code, $ai_data_str);
 }
 
 =head2 get_images_to_update($product_ref, $target_lc)
