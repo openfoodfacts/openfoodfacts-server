@@ -2182,6 +2182,12 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 
 	my %changed_by = ();
 
+	# Keep track of product_quantity to see which products have increased or decreased quantity
+	my $product_quantity;
+	my $product_quantity_increased = 0;
+	my $product_quantity_decreased = 0;
+	my %product_quantity_changes = ();
+
 	foreach my $change_ref (@{$changes_ref}) {
 		$revs++;
 		my $rev = $change_ref->{rev};
@@ -2198,6 +2204,28 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 		}
 
 		if (defined $product_ref) {
+
+			# Check if the product quantity changed
+			if ((defined $product_ref->{product_quantity}) and ($product_ref->{product_quantity} > 0)) {
+				if ((defined $product_quantity) and ($product_quantity > 0)) {
+					my $quantity_old_new = $product_quantity . "-" . $product_ref->{product_quantity};
+
+					# We may have the same changes several times, only keep one
+					if (not defined $product_quantity_changes{$quantity_old_new}) {
+						$product_quantity_changes{$quantity_old_new} = 1;
+
+						if ($product_ref->{product_quantity} > $product_quantity) {
+							$product_quantity_increased++;
+							push @{$current_product_ref->{misc_tags}}, "en:quantity-increased-" . $quantity_old_new;
+						}
+						elsif ($product_ref->{product_quantity} < $product_quantity) {
+							$product_quantity_decreased++;
+							push @{$current_product_ref->{misc_tags}}, "en:quantity-decreased-" . $quantity_old_new;
+						}
+					}
+				}
+				$product_quantity = $product_ref->{product_quantity};
+			}
 
 			# fix last_modified_t using the one from change_ref if it greater than the current_product_ref
 
@@ -2292,7 +2320,7 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 					my $number_of_units = $packagings_ref->{number_of_units};
 					my $weight_measured = $packagings_ref->{weight_measured};
 
-					$packagings_data_signature .= "number_of_units:" . $number_of_units . ',';
+					$packagings_data_signature .= "number_of_units:" . ($number_of_units || '') . ',';
 					foreach my $property (qw(shape material recycling quantity_per_unit)) {
 						$packagings_data_signature .= $property . ":" . ($packagings_ref->{$property} || '') . ',';
 					}
@@ -2495,6 +2523,14 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 
 		%last = %{dclone(\%previous)};
 		%previous = %{dclone(\%current)};
+	}
+
+	# Add a misc tags if product quantity increased or decreased
+	if ($product_quantity_increased) {
+		push @{$current_product_ref->{misc_tags}}, "en:quantity-increased";
+	}
+	if ($product_quantity_decreased) {
+		push @{$current_product_ref->{misc_tags}}, "en:quantity-decreased";
 	}
 
 	# Populate the last_image_date_tags field
