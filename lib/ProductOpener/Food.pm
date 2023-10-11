@@ -59,7 +59,8 @@ BEGIN {
 
 		&fix_salt_equivalent
 
-		&is_beverage_for_nutrition_score
+		&is_beverage_for_nutrition_score_2021
+		&is_beverage_for_nutrition_score_2023
 		&is_water_for_nutrition_score
 		&is_cheese_for_nutrition_score
 		&is_fat_for_nutrition_score
@@ -800,16 +801,16 @@ sub canonicalize_nutriment ($target_lc, $nutrient) {
 	return $nid;
 }
 
-=head2 is_beverage_for_nutrition_score( $product_ref )
+=head2 is_beverage_for_nutrition_score_2021 ( $product_ref )
 
 Determines if a product should be considered as a beverage for Nutri-Score computations,
 based on the product categories.
 
-Dairy drinks are not considered as beverages if they have at least 80% of milk.
+2021 Nutri-Score: Dairy drinks are not considered as beverages if they have at least 80% of milk.
 
 =cut
 
-sub is_beverage_for_nutrition_score ($product_ref) {
+sub is_beverage_for_nutrition_score_2021 ($product_ref) {
 
 	my $is_beverage = 0;
 
@@ -817,9 +818,9 @@ sub is_beverage_for_nutrition_score ($product_ref) {
 
 		$is_beverage = 1;
 
-		if (defined $options{categories_not_considered_as_beverages_for_nutriscore}) {
+		if (defined $options{categories_not_considered_as_beverages_for_nutriscore_2021}) {
 
-			foreach my $category_id (@{$options{categories_not_considered_as_beverages_for_nutriscore}}) {
+			foreach my $category_id (@{$options{categories_not_considered_as_beverages_for_nutriscore_2021}}) {
 
 				if (has_tag($product_ref, "categories", $category_id)) {
 					$is_beverage = 0;
@@ -829,8 +830,8 @@ sub is_beverage_for_nutrition_score ($product_ref) {
 		}
 
 		# exceptions
-		if (defined $options{categories_considered_as_beverages_for_nutriscore}) {
-			foreach my $category_id (@{$options{categories_considered_as_beverages_for_nutriscore}}) {
+		if (defined $options{categories_considered_as_beverages_for_nutriscore_2021}) {
+			foreach my $category_id (@{$options{categories_considered_as_beverages_for_nutriscore_2021}}) {
 
 				if (has_tag($product_ref, "categories", $category_id)) {
 					$is_beverage = 1;
@@ -845,6 +846,49 @@ sub is_beverage_for_nutrition_score ($product_ref) {
 		if ((defined $milk_percent) and ($milk_percent >= 80)) {
 			$log->debug("milk >= 80%", {milk_percent => $milk_percent}) if $log->is_debug();
 			$is_beverage = 0;
+		}
+	}
+
+	return $is_beverage;
+}
+
+=head2 is_beverage_for_nutrition_score_2023 ( $product_ref )
+
+Determines if a product should be considered as a beverage for Nutri-Score computations,
+based on the product categories.
+
+2023 Nutri-Score: Milk and dairy drinks are considered beverages.
+
+=cut
+
+sub is_beverage_for_nutrition_score_2023 ($product_ref) {
+
+	my $is_beverage = 0;
+
+	if (has_tag($product_ref, "categories", "en:beverages")) {
+
+		$is_beverage = 1;
+
+		if (defined $options{categories_not_considered_as_beverages_for_nutriscore_2023}) {
+
+			foreach my $category_id (@{$options{categories_not_considered_as_beverages_for_nutriscore_2023}}) {
+
+				if (has_tag($product_ref, "categories", $category_id)) {
+					$is_beverage = 0;
+					last;
+				}
+			}
+		}
+	}
+
+	# exceptions
+	if (defined $options{categories_considered_as_beverages_for_nutriscore_2023}) {
+		foreach my $category_id (@{$options{categories_considered_as_beverages_for_nutriscore_2023}}) {
+
+			if (has_tag($product_ref, "categories", $category_id)) {
+				$is_beverage = 1;
+				last;
+			}
 		}
 	}
 
@@ -1417,7 +1461,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 		my $fruits_vegetables_legumes = compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared);
 
 		my $is_fat_oil_nuts_seeds = is_fat_oil_nuts_seeds_for_nutrition_score($product_ref);
-		my $is_beverage = $product_ref->{nutrition_score_beverage};
+		my $is_beverage = is_beverage_for_nutrition_score_2023($product_ref);
 
 		$nutriscore_data_ref = {
 			is_beverage => $is_beverage,
