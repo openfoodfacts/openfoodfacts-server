@@ -487,7 +487,7 @@ XML
 	;
 
 # Nutriscore: categories that are never considered beverages for Nutri-Score computation
-$options{categories_not_considered_as_beverages_for_nutriscore} = [
+$options{categories_not_considered_as_beverages_for_nutriscore_2021} = [
 	qw(
 		en:plant-milks
 		en:milks
@@ -498,16 +498,40 @@ $options{categories_not_considered_as_beverages_for_nutriscore} = [
 	)
 ];
 
-# categories that are considered as beverages
+$options{categories_not_considered_as_beverages_for_nutriscore_2023} = [
+	qw(
+		en:meal-replacement
+		en:soups
+	)
+];
+
+# categories that are considered as beverages for Nutri-Score 2021
 # unless they have 80% milk (which we will determine through ingredients analysis)
-$options{categories_considered_as_beverages_for_nutriscore} = [
+$options{categories_considered_as_beverages_for_nutriscore_2021} = [
 	qw(
 		en:tea-based-beverages
 		en:iced-teas
 		en:herbal-tea-beverages
 		en:coffee-beverages
 		en:coffee-drinks
+		en:coffees
+		en:herbal-teas
+		en:teas
+	)
+];
 
+# categories that are considered as beverages for Nutri-Score 2023
+$options{categories_considered_as_beverages_for_nutriscore_2023} = [
+	qw(
+		en:milks
+		en:dairy-drinks-substitutes
+		en:dairy-drinks
+		en:plant-based-beverages
+		en:tea-based-beverages
+		en:iced-teas
+		en:herbal-tea-beverages
+		en:coffee-beverages
+		en:coffee-drinks
 		en:coffees
 		en:herbal-teas
 		en:teas
