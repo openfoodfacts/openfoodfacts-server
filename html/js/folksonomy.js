@@ -148,7 +148,7 @@ function displayFolksonomyPropertyValues() {
     //$(".details").before(
     $("div[itemtype='https://schema.org/Product']").append(
         String('<!-- ---- Folksonomy Engine ----- -->' +
-        '<div id="free_properties_1" class="feus row ">' +
+        '<div id="free_properties_1" class="feus row card ">' +
         '<div  class="column large-12 h-space-tiny ">' +
         '<h2>Personalized properties (<span data-tooltip aria-haspopup="true" class="has-tip" data-position="top" data-alignment="left" title="Be aware the data model might be modified. Use at your own risk.">beta</span>)</h2>' +
         '<p id="fe_login_info"></p>' +
