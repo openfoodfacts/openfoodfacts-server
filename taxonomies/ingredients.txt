@@ -87,6 +87,7 @@ stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, ö
 stopwords:id:mengandung
 stopwords:is:úr
 stopwords:it:contiene, nella
+# Japanese stopwords are matched without word boundaries, do not put as stopwords characters or words that could be part of an actual ingredient entry
 stopwords:ja:等, その他
 stopwords:lt:iš, su, su pridėtiniu, mažiausiai, įskaitant
 stopwords:lv:no
@@ -718,6 +719,7 @@ es:pectina de citricos, pectina cítrica, pectina extraída de cítricos
 fi:sitruspektiini
 fr:pectine d'agrumes
 lt:citrusinių vaisių pektinas
+nl:citruspectine
 sv:citruspektin
 wikidata:en:Q6889398
 wikipedia:en:https://en.wikipedia.org/wiki/Modified_citrus_pectin
@@ -7554,7 +7556,7 @@ eo:Maskarpono
 es:mascarpone
 et:mascarpone
 fa:ماسکارپونه
-fi:mascarpone
+fi:mascarpone, mascarponejuusto
 fr:mascarpone, fromage mascarpone
 gl:Mascarpone
 he:מסקרפונה
@@ -7950,7 +7952,7 @@ es:queso parmesano
 et:Parmesan,parma juust
 eu:Parmigiano-Reggiano
 fa:پنیر پارمیجانو
-fi:parmesaani, parmigiano-reggiano, parmesanjuusto
+fi:parmesaani, parmigiano-reggiano, parmesanjuusto, parmesaanijuusto
 fr:parmesan, parmigiano reggiano, fromage parmigiano reggiano, fromage parmigiano reggiano aop, fromage parmigiano reggiano dop
 gl:Parmesano
 he:פרמזן
@@ -10318,6 +10320,14 @@ fr:préparation de viande
 nl:vleesbereiding
 wikidata:en:Q12553507
 
+<en:meat
+en:mechanically separated meat
+fr:viande séparée mécaniquement, viandes séparées mécaniquement
+nova:en:4
+# We also have a "mechanically separated" ingredients_processing, but it currently fails in some languages
+# like French where we can have "viande séparée mécaniquement de poulet" or "viande de poulet séparée mécaniquement"
+# We also currently do not support ingredients_processing for NOVA
+
 #comment:en:Finnish regulatory labeling for meat products
 
 #comment:en:whole meat product: only meat, salt, water, spices, glucose syrup and permitted additives
@@ -10457,6 +10467,7 @@ vegan:en:no
 vegetarian:en:no
 # ingredient/fr:bœuf has 257 products in 7 languages @2019-04-19
 # usage:fr:gélatine (bœuf)
+nutriscore_red_meat:en:yes
 
 <en:beef
 en:Grilled lean beef rib steak
@@ -10533,6 +10544,14 @@ carbon_footprint_fr_foodges_ingredient:fr:Viande de bœuf moyen France
 carbon_footprint_fr_foodges_value:fr:35.8
 ciqual_proxy_food_code:en:6101
 ciqual_proxy_food_name:fr:Boeuf, braisé
+nutriscore_red_meat:en:yes
+
+#process:en: en:mechanically separated
+<en:beef meat
+<en:mechanically separated meat
+# en:processing:mechanically separated
+en:mechanically separated meat of beef
+fr:viande de bœuf séparée mécaniquement, viande séparée mécaniquement de bœuf
 
 <en:beef meat
 en:angus beef
@@ -10826,6 +10845,7 @@ ru:ягнёнок
 # scn:Agneddu
 # sco:lamm
 wikidata:en:Q4575936
+nutriscore_red_meat:en:yes
 
 # description:en:LAMB, hogget and mutton are the meat of domestic sheep (species Ovis aries) at different ages. The meat of a lamb is taken from the animal between one month and one year old, with a carcase (carcass in American English) weight of between 5.5 and 30 kg. This meat generally is more tender than that from older sheep and appears more often on tables in some Western countries.
 # comment:en:The translations of the wikipedia-entry are not clear. They seem to refer to the animal rather than the meat. So they have not been used here.
@@ -11493,6 +11513,7 @@ wikidata:en:Q7368
 wikipedia:en:https://en.wikipedia.org/wiki/Sheep
 # ingredient/fr:mouton has 12 products @2019-04-19
 # usage:fr: mouton (graisse et viande)
+nutriscore_red_meat:en:yes
 
 # description:en:mutton is the meat of domestic sheep (species Ovis aries). The meat of an adult sheep is mutton, a term only used for the meat, not the living animals. Meat from sheep features prominently in several cuisines of the Mediterranean.
 # comment:en:Some wikidata translation seems to refer to lamb and not mutton.
@@ -11637,6 +11658,7 @@ sv:ren
 wikidata:en:Q5410921
 wikipedia:en:https://en.wikipedia.org/wiki/Reindeer
 # ingredient/fr:renne has 1 product in 1 language @2020-06-08
+nutriscore_red_meat:en:yes
 
 <en:venison
 <en:reindeer
@@ -11924,6 +11946,7 @@ zh:马
 wikidata:en:Q726
 wikipedia:en:https://en.wikipedia.org/wiki/Horse
 # ingredient/fr:cheval has 4 products in 1 language @2020-05-21
+nutriscore_red_meat:en:yes
 
 <en:horse
 <en:meat
@@ -12041,6 +12064,7 @@ de:Ziege
 es:cabra
 fr:Chèvre
 pt:Cabra
+nutriscore_red_meat:en:yes
 
 # description:en:GOAT MEAT or goat's meat is the meat of the domestic goat (Capra aegagrus hircus). Goat meat is savory and less sweet than beef[9] but slightly sweeter than lamb. It can be prepared in a variety of ways, such as being stewed, curried, baked, grilled, barbecued, minced, canned, fried, or made into sausage. Goat jerky is also another popular variety.
 
@@ -12102,7 +12126,7 @@ ciqual_food_name:fr:Chevreau, cuit
 #
 ###################################################################################################
 <en:animal
-en:pork
+en:pork, swine
 bg:свинско
 ca:Porc
 cs:Vepřové, vepřová, vepřový
@@ -12126,6 +12150,7 @@ tr:domuz eti
 zh:猪肉
 vegan:en:no
 vegetarian:en:no
+nutriscore_red_meat:en:yes
 
 <en:meat
 <en:pork
@@ -12161,8 +12186,10 @@ carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en:7.4
 
 #process:en: en:mechanically separated
 <en:pork meat
+<en:mechanically separated meat
 # en:processing:mechanically separated
 en:mechanically separated meat of pork
+fr:viande de porc séparée mécaniquement, viande séparée mécaniquement de porc
 pl:mięso oddzielone mechanicznie wieprzowe, wieprzowina oddzialona mechanicznie
 
 <en:pork meat
@@ -13296,6 +13323,7 @@ it:vitello
 nl:kalf
 vegan:en:no
 vegetarian:en:no
+nutriscore_red_meat:en:yes
 
 # <en:bone
 <en:veal
@@ -13796,7 +13824,7 @@ vegetarian:en:yes
 # usage:fr:fécules (dont blé)
 
 <en:starch
-en:modified starch, modified starches, modified food starch, modified food starches, food starch modified
+en:modified starch, modified starches, modified food starch, modified food starches, food starch modified, processed starch
 ar:نشا معدل
 bg:Модифицирано нишесте, модифицирани нишестета, модифицирана скорбяла
 ca:Midó modificat, Midons modificats, Fècula modificada, fècules modificades
@@ -15717,7 +15745,7 @@ en:coconut fat
 bg:кокосова мазнина, кокосова
 ca:greix de coco
 da:kokosfedt
-de:Kokosfett
+de:Kokosfett, Kokosnussfett
 es:Grasa de coco, grasa vegetal de coco,manteca de coco
 et:kookosrasv
 fi:kookosrasva, kookosrasvaa
@@ -20264,6 +20292,10 @@ es:aroma de ciruela
 de:Aroma Koffein
 
 <en:flavouring
+en:natural peanut flavouring
+de:natürliches Erdnussaroma
+
+<en:flavouring
 en:rum flavouring
 hr:aroma rum, rum aroma
 
@@ -22407,12 +22439,11 @@ pl:słód pszenny
 pt:Malte de trigo
 sv:vetemalt, mältade vetekorn
 
-<en:wheat
 <en:vegetable fiber
 en:wheat fiber
 bg:пшенични влакна
 da:hvedefibre
-de:Weizenfasern
+de:Weizenfaser, Weizenfasern
 es:fibras de trigo
 fi:vehnäkuitu
 fr:fibre de blé, fibres de blé
@@ -23879,9 +23910,6 @@ en:extruded buckwheat flour
 hr:ekstrudirano heljdino brašno
 
 <en:buckwheat flour
-fr:galette en blé noir
-
-<en:buckwheat flour
 <en:wholemeal flour
 en:whole grain buckwheat flour
 de:Buchweizenvollkornmehl, Buchweizen-Vollkornmehl
@@ -24321,6 +24349,7 @@ ciqual_food_name:fr:Avoine, crue
 <en:oat
 en:oat grain
 es:granos de avena
+de:Haferkerne
 fi:kauranjyvä, kauranjyviä, kauranjyvät
 fr:grains d'avoine
 hr:zobena prekrup
@@ -25021,7 +25050,6 @@ en:ground rye malt
 de:Roggenmalz gemahlen
 es:malta molida de centeno
 
-<en:rye
 <en:vegetable fiber
 en:rye fiber
 de:Roggen-Ballaststoffe
@@ -26142,6 +26170,7 @@ en:soya flour, soy flour, soybean meal
 bg:соево брашно
 bs:sojino brašno
 ca:Farina de soja
+cs:sójová mouka
 da:Sojamel, sojabønnemel
 de:Sojamehl, Sojabohnenmehl
 es:harina de soja, semola de soja
@@ -26678,11 +26707,11 @@ en:baby corn
 pl:mini kolby kukurydzy, kukurydza baby
 # ingredient/en:baby-corn has 117 products @2023-06-25
 
-<en:corn
+<en:vegetable fiber
 en:corn fiber
 bg:царевични фибри, царевични влакнини
 cs:kukuřičná vláknina
-de:Ballaststoffe aus Maisfaser
+de:Maisfaser
 es:fibra de maiz
 fr:Fibre de maïs
 hr:kukuruzna vlakna
@@ -27094,7 +27123,6 @@ ciqual_proxy_food_name:fr:Riz blanc, cru
 vegan:en:yes
 vegetarian:en:yes
 
-<en:rice
 <en:plant protein
 en:rice protein, rice proteins
 bg:оризов протеин
@@ -28967,7 +28995,7 @@ en:coconut sugar, coconut palm sugar
 bg:кокосова захар
 ca:Sucre de coco
 de:Kokosblütenzucker
-es:Azucar de coco
+es:azúcar de coco, azucar de coco
 fi:kookossokeri, kookospalmusokeri
 fr:sucre de fleur de coco, sucre de fleur de cocotier, sucre de coco
 hu:kókuszcukor
@@ -28988,6 +29016,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Coconut_sugar
 <en:coconut sugar
 nl:biologische kokosbloesem siroop
 # ingredient/nl:biologische-kokosbloesem-siroop has 1 product @2019-05-24
+
+<en:coconut sugar
+es:nectar del brote de la flor del coco
 
 <en:monosaccharide
 en:grape sugar, raisin sugar
@@ -30786,7 +30817,7 @@ en:hydrolysed sunflower protein, hydrolyzed sunflower protein
 pl:hydrolizat białka słonecznikowego, hydrolizowane białko słonecznikowe, hydrolizat białka słonecznika
 
 
-<en:hydrolysed vegetable protein
+<en:plant protein
 en:soy protein
 bg:соев протеин, соев белтък
 ca:proteïna de soja
@@ -30846,11 +30877,12 @@ fr:protéines de soja déshydratées
 hu:dehidratált szójafehérje
 
 <en:soy protein
-en:textured soy protein
+en:textured soy protein, texturised soya protein
 cs:texturovaná sojová bílkovina
-de:texturiertes Sojamehl 
-fr:protéines de soja texturées
-pl:teksturowane białko sojowe, teksturat białka sojowego
+de:texturiertes Sojaprotein, texturiertes Sojaeiweiss
+es:proteina de soja texturizada, proteína texturizada de soja
+fr:protéine de soja texturisée, protéines de soja texturées
+pl:teksturowane białko sojowe, teksturat białka sojowego, teksturowane białko sojowe
 
 <en:dehydrated soy protein
 en:rehydrated soy protein
@@ -30875,6 +30907,7 @@ it:Proteine isolate della soia
 pl:izolowane białko sojowe, izolat białka sojowego
 ru:изолированный белок сои
 
+<en:hydrolysed vegetable protein
 <en:soy protein
 en:hydrolysed soy protein, hydrolyzed soy protein
 da:hydrolyseret sojaprotein
@@ -31431,14 +31464,6 @@ en:highly fat reduced cocoa, highly reduced fat cocoa
 de:Sehr fettarme Kokosnuss
 fr:cacao fortement dégraissé
 
-<en:cocoa
-en:cocoa cream
-de:Kakaocreme, Kakao-Creme
-es:crema de cacao
-fr:Crème de cacao
-pl:krem kakaowy
-pt:creme de cacau
-
 # description:en:COCOA BUTTER is a pale-yellow, edible vegetable fat extracted from the cocoa bean. Cocoa butter is a major ingredient in practically all types of chocolates (white chocolate, milk chocolate, and dark chocolate).
 
 <en:cocoa
@@ -31646,7 +31671,7 @@ bg:обеэмаслено какао на прах, какао на прах с 
 ca:cacau desgreixat en pols, cacau en pols reduït en greix
 cs:Kakaový prášek se sníženým obsahem tuku
 da:fedtfattigt kakaopulver, fedtreduceret kakaopulver, skummet kakaopulver
-de:fettarmes Kakaopulver, Kakaopulver stark entölt, fettreduziertes Kakaopulver, Kakaopulver mit reduziertem Fettgehalt
+de:fettarmes Kakaopulver, Kakaopulver stark entölt, fettreduziertes Kakaopulver, Kakaopulver mit reduziertem Fettgehalt, stark entöltes Kakaopulver
 es:cacao magro en polvo, cacao desgrasado en polvo, cacao en polvo desgrasado, cacao en polvo reducido en grasa, cacao deshidratado rebajado en grasa, cacao en polvo semidesgrasado, cacao semidesgrasado en polvo
 et:lahja kakaopulber, vähendatud rasvasisaldusega kakaopulber
 fi:vähärasvainen kaakaojauhe, vähärasvaista kaakaojauhetta
@@ -33163,16 +33188,6 @@ es:flor de soja
 nl:sojabloemen
 comment:en:This is the actual flower, not flour
 
-<en:soya
-en:texturised soya protein, texturised vegetable protein
-de:texturiertes Sojaprotein, texturiertes Sojaeiweiss
-es:proteina de soja texturizada, proteína texturizada de soja
-fr:Protéine de soja texturisé
-pl:teksturowane białko sojowe
-vegan:en:yes
-vegetarian:en:yes
-wikipedia:en:https://en.wikipedia.org/wiki/Textured_vegetable_protein
-
 #category/soy-beans
 <en:soya
 <en:legume
@@ -33797,6 +33812,7 @@ en:Baker's yeast
 ar:فطريات الخميرة
 bg:хлебна мая, мая хлебна
 ca:Llevat de forner
+cs:pekařské droždí
 de:Backhefe
 el:Μαγιά αρτοποιίας
 es:levadura de panadería
@@ -35555,6 +35571,7 @@ nl:vruchtensapconcentraat
 pl:Koncentrat soku owocowego, zagęszczone soki owocowe
 ru:Концентрат фруктового сока
 sv:fruktjuicekoncentrat
+nova:en:4
 
 <en:fruit juice concentrate
 fr:jus concentré de fruits rouges
@@ -35572,7 +35589,6 @@ pl:sok owocowy z koncentratu, soki owocowe z koncentratu, sok owocowy z koncentr
 sv:fruktjuice från koncentrat, juicer framställd av koncentrat, juice från koncentrat, frukt juice från koncentrat
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruits-à-base-de-concentré
 # 650 products in 7 languages @2018-10-04
-
 
 <en:fruit juice from concentrate
 fr:jus de fruits rouges à base de concentrés
@@ -36175,6 +36191,7 @@ ciqual_food_name:fr:Banane, pulpe, sèche
 ##<en:banana
 #en:banana puree
 #bg:пюре от банани, бананово пюре, пюре от банан
+#cs:banánové pyré
 #de:Bananenpüree, Bananenmark
 #es:Puré de plátano
 #fi:banaanipyree
@@ -37873,7 +37890,6 @@ it:fiocchi di mela
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:flocons-de-pomme
 # 46 products in 4 languages @2018-10-04
 
-<en:apple
 <en:vegetable fiber
 en:apple fiber
 de:Apfelfaser
@@ -38065,7 +38081,6 @@ es:boabab fruto
 ###################################################################################################
 
 <en:vegetable fiber
-<en:citrus fruit
 en:citrus fibre, citrus fibres
 bg:цитрусови влакнини
 da:citrusfibre
@@ -38883,7 +38898,6 @@ nl:gesuikerde citroenpuree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-citron-sucrée
 # 41 products @2018-10-01
 
-<en:lemon
 <en:vegetable fiber
 en:lemon fibre
 de:Zitronenfaser
@@ -39194,7 +39208,7 @@ cs:Limetová šťáva, limetková šťáva
 da:Limesaft
 de:Limettensaft
 es:Zumo de lima, jugo de lima
-fi:limettimehu, limetäysmehu, limetinmehu
+fi:limettimehu, limetäysmehu, limetinmehu, limen mehu
 fr:jus de citron vert
 hu:Citromlé
 it:succo di lime
@@ -39239,7 +39253,7 @@ it:scorze di lime
 en:lime leaf, lime leaves
 da:limeblad
 de:Limettenblatt, Limettenblätter
-fi:limetinlehti, limenlehti
+fi:limetinlehti, limenlehti, limen lehti
 fr:feuille de lime, feuille de citron vert
 sv:limeblad
 # ingredient/en:lime-leaf has 8 products in 1 language @2020-05-23
@@ -40271,6 +40285,10 @@ description:nl:de vrucht (bes) van de Ribes nigrum
 # 3581 in 22 @2021-09-12
 eurocode_2_group_3:en: 9.30.32
 
+<en:blackcurrant
+en:blackcurrant pieces
+de:Schwarze Johannisbeerstücke
+
 #processing:en: en:juice
 #<en:blackcurrant
 #<en:fruit juice
@@ -40464,14 +40482,14 @@ sv:blåbärssaftkoncentrat
 
 <en:blueberry
 en:blueberry juice from concentrate
-de:Heidelbeersaft aus Heidelbeerkonzentrat
+de:Heidelbeersaft aus Heidelbeerkonzentrat, Heidelbeersaft aus Heidelbeersaftkonzentrat
 es:Concentrado de jugo de zarzamora
 fi:mustikkamehu tiivisteestä, mustikkatäysmehu tiivisteestä, mustikkatäysmehua tiivisteestä
 fr:jus de myrtille à base de concentré, jus de myrtille à base de jus concentré
 hr:sok od borovnice od koncentriranog soka borovnice
 sv:blåbärssaft av koncentrat
 
-<en:blueberry
+#<en:compound
 en:blueberry filling
 hr:preljev od borovnica, punilo od borovnice, punjenje od borovnica
 
@@ -41210,12 +41228,12 @@ wikidata:en:Q3342808
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco
 # 1209 products in 11 languages @2018-10-03
 
-<en:coconut
+#<en:compound
 en:coconut cream
 bg:кокосов крем
 ca:crema de coco
-de:Kokosnusscreme, Kokossahne
-es:Crema de coco
+de:Kokosnusscreme, Kokossahne, Kokoscreme
+es:Crema de coco, nata de coco
 fi:kookoskerma
 fr:crème de noix de coco, crème de coco
 it:Crema di noce di cocco
@@ -41287,14 +41305,6 @@ en:natural coconut water
 de:Natürliches Kokosnusswasser
 es:agua de coco natural
 fr:Eau de noix de coco naturelle
-
-<en:coconut water
-en:nata de coco
-de:Nata de coco, Kokosnusssahne
-es:nata de coco
-fr:nata de coco
-wikidata:en:Q1193612
-wikipedia:en:https://en.wikipedia.org/wiki/Nata_de_coco
 
 <en:coconut milk
 en:coconut milk powder, powdered coconut milk
@@ -41450,9 +41460,6 @@ fr:pâte de noix de coco
 hr:pasta od kokosa
 it:pasta di cocco
 nl:kokospuree
-
-<en:coconut
-es:nectar del brote de la flor del coco
 
 
 ###################################################################################################
@@ -43195,7 +43202,6 @@ fr:segments d'ananas
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:segments-d'ananas
 # 36 products in 1 language @2018-09-30
 
-<en:pineapple
 <en:vegetable fiber
 en:pineapple fibre, pineapple fibres
 de:Ananasfasern
@@ -43231,7 +43237,7 @@ ca:Suc de pinya
 da:Ananasjuice
 de:Ananassaft
 es:Zumo de piña, jugo de piña, jugo de ananas, zumo de piña Gold
-fi:ananasmehu
+fi:ananasmehu, ananastäysmehu
 fr:jus d'ananas, jus d'ananas victoria
 # hr:sok od ananasa # see ingredients_processing.txt
 it:succo di ananas
@@ -43636,18 +43642,10 @@ nl:frambozenlikeur
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/raspberry-liqueur
 # 3 products in 2 languages @2018-09-27
 
-<en:raspberry
-en:raspberry jam
-bg:конфитюр от малини
-de:Himbeermarmelade
-fr:confiture de framboise
-wikidata:en:Q11962286
-
 <en:sauce
 en:raspberry sauce
 de:Himbeersauce de:Himbeersoße
 fr:sauce aux framboises, sauce à la framboise, sauce framboise
-
 
 
 ###################################################################################################
@@ -43899,17 +43897,7 @@ es:trozos de fresa, fresa en trozos
 fr:morceaux de fraise
 pl:kawałki truskawek
 
-<en:strawberry
-en:strawberry
-bg:конфитюр от ягоди
-ca:melmelada de maduixa
-de:Erdbeerkonfitüre, Erdbeer-Konfitüre
-es:mermelada de fresa
-fr:Confiture de fraises
-hr:pripavak jagoda
-pl:dżem truskawkowy
-
-<en:strawberry
+#<en:compound
 en:strawberry filling
 bg:ягодов пълнеж, пълнеж от ягоди
 de:Erdbeerfüllung
@@ -46394,7 +46382,8 @@ de:Gemüsepulver
 fr:légumes en poudre
 
 <en:vegetable
-fr:légumes frais
+en:fresh vegetables
+fr:légumes frais, légume frais
 nl:verse groenten
 
 
@@ -46430,7 +46419,6 @@ sv:torkade grönsaker
 <en:vegetable
 fr:légumes verts
 
-<en:vegetable
 <en:vegetable fiber
 fr:fibres de légume
 fi:kasviskuitu
@@ -46973,7 +46961,7 @@ br:pinochez
 bs:Špinat
 ca:espinac,espinacs
 co:spinacciu
-cs:špenát setý
+cs:špenát, špenát setý
 cy:Sbigoglys
 da:spinat
 de:Spinat
@@ -51711,7 +51699,7 @@ bn:আলু
 bo:ཞོ་ཁོག
 bs:krompir
 ca:patata
-cs:brambor
+cs:brambor, brambory
 da:kartoffel, kartofler
 de:Kartoffel, Kartoffeln
 eo:terpomo
@@ -51954,7 +51942,6 @@ sl:krompirjevi kosmiči
 fr:flocons de pomme de terre réhydratés
 # fr:flocons-de-pomme-de-terre-réhydratés has 71 products in 1 language @2018-10-15
 
-<en:potato
 <en:vegetable fiber
 en:potato fiber, potato fibre
 ca:fibra de patata, fibra vegetal de patata
@@ -52683,7 +52670,7 @@ bg:сок от цвекло
 cs:šťáva z červené řepy
 de:Randensaft
 es:jugo de remolacha
-fi:punajuurimehu
+fi:punajuurimehu, punajuuritäysmehu
 fr:jus de betterave
 hr:sok od cikle
 it:succo di barbabietola
@@ -54690,7 +54677,7 @@ ciqual_food_name:fr:Tomate, concentré, appertisé
 en:double concentrated tomato
 bg:двойно концентрирано доматено пюре
 da:dobbelt tomatkoncentrat, dobbelt koncentreret tomatpuré
-de:Tomatenkonzentrat zweifach konzentriert, Tomatenmark doppelt konzentriert
+de:Tomatenkonzentrat zweifach konzentriert, Tomatenmark 2fach konzentriert, Tomatenmark doppelt konzentriert
 es:tomate doble concentrado, concentrado doble de tomate
 fi:tuplatiivistetty tomaattipyree
 fr:double concentré de tomate, purée de tomates double concentré, purée de tomate double concentrée
@@ -55746,6 +55733,7 @@ wikidata:en:Q159753
 
 # description:en:A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse).
 # Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
+<en:vegetable
 en:legume
 af:Peulgewas
 an:Legumbre
@@ -56909,6 +56897,7 @@ pl:namoczona ciecierzyca
 
 <en:chickpea
 en:dried chickpea
+cs:sušená cizrna
 fr:pois chiche secs
 ciqual_food_code:en:20516
 ciqual_food_name:en:Chick pea, dried
@@ -58712,7 +58701,6 @@ description:sv:Pekanträd (Carya illinoiensis) är en valnötsväxtart.
 # ingredient/pecan-nut 4644 in 21 2021-08-21
 
 #<en:compound
-<en:pecan nut
 en:caramelized pecan nuts
 da:karameliserede pekannødder
 de:karamellisierte Pekannüsse
@@ -63532,7 +63520,9 @@ mk:естрагон
 ms:taragon
 nb:estragon
 nl:dragon
-nn:estragon
+nb:estragon, estragonblader
+nn:estragon, estragonblader
+no:estragon, estragonblader
 oc:estragon
 os:мæзæрæу
 pa:ਤਰਖ਼ੋਨ
@@ -67610,7 +67600,7 @@ es:Extracto natural de vainilla
 fi:luontainen vaniljauute
 fr:extrait naturel de vanille
 it:estratto naturale di vaniglia
-ja:天 然パニラエキス
+ja:天然パニラエキス
 nl:natuurlijk vanille-extract
 pt:extracto natural de baunilha
 ro:extract natural de vanilie
@@ -68923,9 +68913,9 @@ ciqual_food_name:en:Mushroom, all types, raw
 ciqual_food_name:fr:Champignon, tout type, cru
 eurocode_2_group_2:en: 8.50
 
-<en:mushroom
-<en:protein
+<en:plant protein
 en:mushroom proteins
+de:Pilzprotein
 fr:protéine de champignon
 
 <en:mushroom
@@ -79561,6 +79551,11 @@ pl:Mięso drobiowe, mięsa drobiowego
 sv:Fjäderfäkött
 
 <en:poultry meat
+<en:mechanically separated meat
+en:mechanically separated poultry meat
+fr:viande de volaille séparée mécaniquement, viande séparée mécaniquement de volaille
+
+<en:poultry meat
 fr:viande de volaille traitée en salaison
 # ingredient/fr:viande-de-volaille-traitée-en-salaison has 30 products in french @2019-04-16
 
@@ -79922,8 +79917,11 @@ pl:ekstrakt mięsa kurzego
 
 #process:en: en:mechanically separated
 <en:chicken meat
+<en:mechanically separated meat
 # en:processing:mechanically separated
 en:mechanically separated meat of chicken
+es:carne de pollo separada mecanimente, carne separada mecanicamente de pollo
+fr:viande de poulet séparée mécaniquement, viande séparée mécaniquement de poulet
 pl:mięso mechanicznie oddzielone z kurczaka, mięso oddzielone mechanicznie z kurczaka, mięso oddzielone mechanicznie z kurcząt
 
 #<en:chicken meat
@@ -80240,6 +80238,11 @@ ciqual_food_name:en:Duck, meat, raw
 ciqual_food_name:fr:Canard, viande, crue
 
 <en:duck meat
+<en:mechanically separated meat
+en:mechanically separated duck meat
+fr:viande de canard séparée mécaniquement, viande séparée mécaniquement de canard
+
+<en:duck meat
 en:duck leg, duck legs
 de:Entenkeule, Entenschenkel, Entenkeulen
 fr:cuisses de canard
@@ -80526,10 +80529,11 @@ carbon_footprint_fr_foodges_ingredient:fr:Blanc de dinde
 carbon_footprint_fr_foodges_value:fr:6.5
 
 <en:turkey meat
+<en:mechanically separated meat
 en:mechanically separated meat of turkey
 de:mechanisch getrenntes Fleisch von Truthahn
 fi:koneellisesti erotettu kalkkunanliha
-fr:viande séparée mécaniquement de dinde
+fr:viande de dinde séparée mécaniquement, viande séparée mécaniquement de dinde
 it:carne di tacchino separata meccanicamente
 pl:mechanicznie oddzielone mięso z indyka, mięso oddzielone mechanicznie z indyka
 # ingredient/fr:viande-séparée-mécaniquement-de-dinde has 80 products in 4 languages @2019-04-16
@@ -81847,6 +81851,9 @@ fr:extraits végétaux à pouvoir colorant
 de:färbende Konzentrate
 fr:concentré colorant
 
+# <en:compound
+de:färbende Frucht- und Pflanzenkonzentrate
+
 # description:en:CONCENTRATE is the form of substance which has had the majority of its base component (in the case of a liquid: the solvent) removed
 
 # <en:part
@@ -82108,7 +82115,7 @@ en:vegetable fiber, vegetable fibers, plant fiber, plant fibre
 bg:растителни влакна, растителни влакнини, растителни фибри
 ca:fibra vegetal
 cs:rostlinná textilní vlákna
-de:pflanzliche Fasern, Pflanzenfaser, Pflanzenfasern
+de:pflanzliche Fasern, Pflanzenfaser, Pflanzenfasern, pflanzliche Ballaststoffe
 eo:planta fibro
 es:fibra vegetal
 fi:kasvikuitu, kasvikuidut
@@ -82644,6 +82651,12 @@ ja:ピザクラスト
 <en:dough
 en:inactive dough
 de:inaktive Hefe
+
+<en:pasta
+en:macaroni
+nb:makaroni
+nn:makaroni
+no:makaroni
 
 <en:pasta
 en:cooked pasta
@@ -86217,12 +86230,48 @@ fi:mustaherukkahillo
 # mainIngredient:en:blackcurrant
 # ingredient/en:blackcurrant-jam has 1 product in 1 language @2020-12-21
 
+# <en:compound
 en:jam
-de:Marmelade de:Konfitüre
+de:Marmelade, Konfitüre
+fr:confiture
 pl:dżem
 ru:джем, повидло, варенье
 vegan:en:maybe
 vegetarian:en:maybe
+
+# <en:compound
+<en:jam
+bg:конфитюр от ягоди
+ca:melmelada de maduixa
+de:Erdbeerkonfitüre, Erdbeer-Konfitüre
+es:mermelada de fresa
+fr:Confiture de fraises
+hr:pripavak jagoda
+pl:dżem truskawkowy
+
+# <en:compound
+<en:jamen:raspberry jam
+bg:конфитюр от малини
+de:Himbeermarmelade
+fr:confiture de framboise
+wikidata:en:Q11962286
+
+#<en:compound
+en:cocoa spread, cocoa cream
+de:Kakaocreme, Kakao-Creme
+es:crema de cacao
+fr:Crème de cacao
+pl:krem kakaowy
+pt:creme de cacau
+
+#<en:compound
+en:hazelnut and cocoa spread
+es:crema de cacao y avellanas
+fr:Pâte à tartiner aux noisettes et au cacao, crème de cacao et de noisette
+
+#<en:compound
+en:hazelnut spread
+fr:pâte à tartiner aux noisettes
 
 ###################################################################################################
 #
@@ -87047,7 +87096,7 @@ en:tamari, tamari sauce, tamari soy sauce
 de:Tamari
 es:tamari
 fi:tamari
-fr:tamari, sauce soja tamari
+fr:tamari, sauce soja tamari, sauce tamari
 he:תמרי
 it:Tamari
 ja:たまり
@@ -88015,4 +88064,61 @@ ja:クリーミングパウダー
 en:creaming agent
 fr:agent de crémage
 
+<en:animal
+en:donkey
+fr:âne
+vegan:en:no
+vegetarian:en:no
+nutriscore_red_meat:en:yes
 
+<en:donkey
+en:donkey meat
+fr:viande d'âne
+
+<en:animal
+en:kangaroo
+fr:kangourou
+vegan:en:no
+vegetarian:en:no
+nutriscore_red_meat:en:yes
+
+<en:kangaroo
+en:kangaroo meat
+fr:viande de kangourou
+
+<en:animal
+en:camel
+fr:chameau
+vegan:en:no
+vegetarian:en:no
+nutriscore_red_meat:en:yes
+
+<en:camel
+en:camel meat
+fr:viande de chameau
+
+<en:animal
+en:wild boar, boar
+fr:sanglier
+vegan:en:no
+vegetarian:en:no
+nutriscore_red_meat:en:yes
+
+<en:wild boar
+en:wild board meat
+fr:viande de sanglier
+
+<en:animal
+en:bull
+fr:taureau
+vegan:en:no
+vegetarian:en:no
+nutriscore_red_meat:en:yes
+
+<en:bull
+en:bull meat
+fr:viande de taureau
+
+en:vegetable pigment, vegetable colour
+fr:colorant végétal
+ja:野菜色素

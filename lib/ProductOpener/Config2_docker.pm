@@ -47,6 +47,7 @@ BEGIN {
 		$crowdin_project_identifier
 		$crowdin_project_key
 		$robotoff_url
+		$query_url
 		$events_url
 		$facets_kp_url
 		$events_username
@@ -104,6 +105,10 @@ $log_emails = $ENV{OFF_LOG_EMAILS} // 0;
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = $ENV{ROBOTOFF_URL};
+
+# Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-query/ to
+# enable product counts and aggregations / facets
+$query_url = $ENV{QUERY_URL};
 
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)

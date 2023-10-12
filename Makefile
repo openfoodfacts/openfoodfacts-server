@@ -201,6 +201,8 @@ refresh_product_tags:
 # get id for mongodb container
 	docker cp scripts/refresh_products_tags.js $(shell docker-compose ps -q mongodb):/data/db
 	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "mongo off /data/db/refresh_products_tags.js"
+	@echo "🥫 Refreshing product data cached in Postgres …"
+	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl ${from}
 
 import_sample_data:
 	@echo "🥫 Importing sample data (~200 products) into MongoDB …"
