@@ -2048,15 +2048,6 @@ sub parse_ingredients_text ($product_ref) {
 			my $ingredient1 = $`;
 			my $ingredient2 = $';
 
-			# Remove percent
-
-			my $ingredient1_orig = $ingredient1;
-			my $ingredient2_orig = $ingredient2;
-
-			$ingredient =~ s/\s$percent_or_quantity_regexp$//i;
-			$ingredient1 =~ s/\s$percent_or_quantity_regexp$//i;
-			$ingredient2 =~ s/\s$percent_or_quantity_regexp$//i;
-
 			# check if the whole ingredient is an ingredient
 			my $canon_ingredient = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $before);
 
@@ -2067,17 +2058,19 @@ sub parse_ingredients_text ($product_ref) {
 					"parse_ingredient_text - and - whole ingredient >$before< containing 'and' is unknown ingredient")
 					if $log->is_debug();
 
+				# we will remove percents to $ingredientX, we will push $ingredientX_orig if it known ingredient without processing
+				my $ingredient1_orig = $ingredient1;
+				my $ingredient2_orig = $ingredient2;
+
 				my $both_ingredients_recognized = 0;
 
-				foreach ($ingredient1_orig, $ingredient2_orig) {
+				foreach ($ingredient1, $ingredient2) {
+					# Remove percent
+					$_ =~ s/\s$percent_or_quantity_regexp$//i;
+					# canonicalize_taxonomy_tag also remove stopwords, etc.
 					my $canonicalized_ingredient = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $_);
 
-					(
-						undef,
-						my $ingredient_orig_without_processing,
-						my $canon_ingredient_without_processing,
-						my $is_recognized
-						)
+					(undef, undef, undef, my $is_recognized)
 						= parse_processing_from_ingredient(\%ingredients_processing_regexps,
 						$ingredients_lc, "", $_, $canonicalized_ingredient, $and, 0);
 
@@ -2302,10 +2295,6 @@ sub parse_ingredients_text ($product_ref) {
 						($processing, $ingredient, $ingredient_id, $ingredient_recognized)
 							= parse_processing_from_ingredient(\%ingredients_processing_regexps,
 							$ingredients_lc, $processing, $ingredient, $ingredient_id, $and, $ingredient_recognized);
-
-						$log->debug(
-							"benbenbenlog - processing $processing, $ingredient, $ingredient_id $ingredient_recognized")
-							if $log->is_debug();
 					}
 
 					# Unknown ingredient, check if it is a label
