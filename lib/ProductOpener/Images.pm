@@ -180,7 +180,7 @@ sub display_select_crop ($object_ref, $id_lc, $language) {
 
 	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
 	my $id = $id_lc;
-
+	my $message = $Lang{"protected_image_message"}{$lang};
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
 
@@ -196,13 +196,22 @@ sub display_select_crop ($object_ref, $id_lc, $language) {
 
 	my $label = $Lang{"image_" . $imagetype}{$lang};
 
-	my $html = <<HTML
+	my $html = '';
+	if (is_protected_image($object_ref, $id_lc) and (not $User{moderator}) and (not $admin)) {
+		$html .= <<HTML;
+<p>$message</p>
 <label for="$id">$label (<span class="tab_language">$language</span>)</label>
+<div class=\"select_crop\" id=\"$id\" data-info="protect"></div>
+HTML
+	}
+	else {
+		$html .= <<HTML;
+	<label for="$id">$label (<span class="tab_language">$language</span>)</label>
 $note
 <div class=\"select_crop\" id=\"$id\"></div>
 <hr class="floatclear" />
 HTML
-		;
+	}
 
 	my @fields = qw(imgid x1 y1 x2 y2);
 	foreach my $field (@fields) {

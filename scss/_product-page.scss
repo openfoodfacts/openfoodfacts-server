@@ -48,13 +48,13 @@ $decalTop:48px;
         display:flex;
     }
     padding:0;
-   
+
     @media (max-width:1024px){
         margin-bottom:50px;
     }
 }
 #attributes_grid {
-    
+
     display: flex;
     flex-wrap: wrap;
     align-content: stretch;
@@ -117,6 +117,28 @@ $decalTop:48px;
         border-radius: 0 0 8px 8px  ;
     }
 }
+// valign arrow only on manages images accordion
+#manage_images_accordion .accordion-navigation {
+  &::after {
+    display: none;
+  }
+  & > a {
+    display: flex;
+    align-items: center;
+
+    &::after {
+      content:"\E5c5";
+      display:block;
+      margin-left: auto;
+      font-family: 'Material Icons', sans-serif;
+      font-size: 24px;
+      pointer-events:none;
+    }
+  }
+  &.active a::after {
+    content:"\e5c7";
+  }
+}
 #preferences_selection_form {
     margin:1rem;
 }
@@ -178,12 +200,12 @@ a.active {
 ////edit
 ////
     .bottom-validation {
-        position: fixed; 
-        bottom: 0; 
+        position: fixed;
+        bottom: 0;
         left:0;
-        width: 100%; 
-        border-top: 1px solid #eee; 
-        z-index: 100; 
+        width: 100%;
+        border-top: 1px solid #eee;
+        z-index: 100;
         padding: 1rem;
 	padding-bottom: 0.5rem;
         pointer-events: none;
@@ -198,7 +220,7 @@ a.active {
             #close {
                 background: $white;
             }
-        } 
+        }
 
 
 .image_box {
