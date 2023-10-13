@@ -425,7 +425,7 @@ hr:emulgator soja lecitin, emulgator sojin lecitin, soja lecitin, emulgatori soj
 hu:szójalecitin, szójalecitinek
 is:sojalesitin
 it:lecitina di soia, lecitine di soia
-lt:sojos lecitinas, sojų lecitinai, sojų pupelių lecitinai
+lt:sojos lecitinas, sojų lecitinai, sojų pupelių lecitinai, emulsikliai sojos lecitinas
 nb:soyalecitin, soyalecitiner
 nl:sojalecithine, soja lecithine, sojalecithinen
 nn:sojalecitin
@@ -3573,6 +3573,7 @@ hu:édesítetlen sűrített tej
 id:Susu evaporasi
 ja:無糖練乳
 ko:무당연유
+lt:nesaldintas kondensuotas pienas
 mk:згуснато млеко
 ms:Susu sejat
 nl:koffiemelk, geëvaporeerde melk
@@ -3918,7 +3919,7 @@ hu:sovány tejpor
 is:undanrennuduft
 it:latte scremato in polvere, latte in polvere scremato
 ja:脱脂粉乳
-lt:nugriebto pieno milteliai
+lt:nugriebto pieno milteliai, lieso pieno milteliai
 lv:sausais vajpiena pulveris
 nb:skummetmelkepulver, skummetmelkpulver
 nl:magere melkpoeder, mageremelkpoeder, mager melkpoeder
@@ -4007,6 +4008,7 @@ fr:lait écrémé réhydraté
 # hr:rekonstituirano obrano mlijeko # see ingredients_processing.txt
 hu:visszaállított sovány tej, feloldott sovány tej
 it:latte scremato reidratato
+lt:regeneruotas nugriebtas pienas
 nl:gerehydrateerde magere melk
 pl:odtworzone odtłuszczone mleko, odtworzone mleko odtłuszczone
 pt:leite magro reconstituído
@@ -12082,6 +12084,7 @@ he:חזיר
 hu:sertés, disznó, malac
 it:suino
 ja:豚, ポーク
+lt:kiauliena
 nb:svin, flesk
 nl:varken
 pl:Wieprzowina, wieprzowy, wieprzowe, wieprzowa
@@ -12109,6 +12112,7 @@ hr:svinjsko meso, svinjetina
 hu:sertéshús, disznóhús
 it:carne di suino, carne di maiale, carne suina
 ja:豚肉
+lt:kiaulienos mėsa
 nb:svinekjøtt, kjøtt av svin
 nl:Varkensvlees
 pl:mięso wieprzowe
@@ -12149,6 +12153,7 @@ es:paleta de cerdo
 fr:épaule de porc
 fi:porsaan lapa
 hr:svinjska lopatica
+lt:kiaulienos mentė, kiaulienos mentis
 pl:mięso wieprzowe z łopatki
 sv:grisbog
 wikidata:en:Q2255700
@@ -13162,6 +13167,7 @@ hu:slanina, sertészsír
 id:lemak babi
 it:grasso di maiale, grasso di suino, grasso suino
 ja:豚脂
+lt:kiaulienos lašiniai
 nl:varkensvet
 no:svinefett
 pl:tłuszcz wieprzowy, tłuszcze wieprzowe, tłuszcz ze świni
@@ -13713,7 +13719,7 @@ kk:Крахмал
 ko:녹말
 la:Amylum
 li:Zètmael
-lt:Krakmolas
+lt:Krakmolas, tirštiklis krakmolas
 lv:Ciete
 mk:Скроб
 ml:അന്നജം
@@ -15262,6 +15268,7 @@ hr:palma, palmina, palmine, palmino
 hu:pálma
 it:palma
 ja:パーム
+lt:palmių
 nb:palme
 nl:palm
 pl:palma
@@ -20093,6 +20100,7 @@ hr:prirodna aroma, prirodne arome
 hu:természetes aroma, természetes aromák, természetazonos aroma, természetazonos aromák
 is:náttúruleg bragðefni
 it:aroma naturale, aromi naturali
+lt:natūralios kvapiosios medžiagos
 lv:dabīgs aromatizētājs
 mk:природна арома
 nb:naturlig aroma
@@ -20937,6 +20945,7 @@ ja:バニリン
 kk:Ванилин
 ko:바닐린
 ky:Ванилин
+lt:vanilinas
 mk:Ванилин
 ms:Vanilin
 nb:vanillin
@@ -21161,6 +21170,7 @@ fi:vanilliiniaromi
 fr:arôme vanilline
 hu:vanillin aroma
 it:aroma vanillina
+lt:kvapioji medžiaga vanilinas, aromatizatorius vanilinas
 pl:aromat wanilinowy
 sv:vanillinarom
 
@@ -34666,7 +34676,7 @@ fr:diphosphate, diphosphates
 hu:Difoszfátok
 it:difosfati
 ja:ピロリン酸塩
-lt:E450
+lt:E450, emulsiklis difosfatai
 lv:E450
 mt:E450
 nl:difosfaten
@@ -35114,6 +35124,7 @@ fi:ammonium- ja natriumkarbonaatit
 fr:carbonates d'ammonium et de sodium
 hr:amonijev bikarbonat
 it:carbonati di ammonio e di sodio
+lt:kildinimo medžiaga amonio karbonatas
 nl:ammonium- en natriumcarbonaten, ammonium carbonaten en natrium
 # ingredient/fr:carbonates-d’ammonium-et-de-sodium has 110 products in 7 languages @2019-04-06
 
@@ -42411,7 +42422,7 @@ ku:Zebeş
 ky:Дарбыз
 la:Citrullus lanatus
 lg:Sekazzi
-lt:Tikrasis arbūzas
+lt:Arbūzas, Tikrasis arbūzas
 lv:arbūzs
 mk:Лубеница
 ml:തണ്ണിമത്തൻ
@@ -42508,6 +42519,14 @@ fr:Pulpe de pastèque
 ciqual_food_code:en:13036
 ciqual_food_name:en:Watermelon, pulp, raw
 ciqual_food_name:fr:Pastèque, pulpe, crue
+
+<en:watermelon
+<en:fruit juices
+en:watermelon juice
+
+<en:watermelon juice
+en:concentrated watermelon juice
+lt:arbūzų sulčių koncentratas
 
 <en:melon
 en:bitter melon, momordic
@@ -49284,6 +49303,7 @@ fi:punajuuri
 fr:betterave rouge, betteraves rouges
 it:barbabietole rosse
 ja:赤ビーツ
+lt:raudonieji burokėliai
 nl:rode biet
 pl:burak czerwony, buraki czerwone, buraków czerwonych, buraka czerwonego, czerwony burak, czerwone buraki, czerwonych buraków, czerwonego buraka
 pt:beterraba vermelha
@@ -50484,11 +50504,13 @@ ciqual_food_name:fr:Carotte, purée
 # fr:concentré de carotte usage as a colour is not always mentioned
 
 <en:carrot
+en:carrot concentrate
 fr:concentré de carotte, concentré de carottes
 de:Karottenkonzentrat
 fi:porkkanatiiviste
 hr:koncentrat mrkve
 it:concentrato di carota, concentrato di carote
+lt:morkų koncentratas, dažiklis morkų koncentratas
 ro:concentrat de morcov
 # fr:concentré-de-carotte has 221 products in 4 languages @2018-10-10
 
@@ -58355,6 +58377,7 @@ fi:paahdettu maapähkinä, paahdetut maapähkinät
 fr:cacahuètes grillées
 it:arachidi tostate
 ja:ローストピーナッツ
+lt:skrudinti žemės riešutai
 nl:geroosterde pinda's, geroosterde pindanoten
 ru:арахис обжаренный
 tr:kavrulmuş yer fıstığı, kavrulmuş yerfıstığı
@@ -59371,6 +59394,7 @@ es:amapola
 fr:pavot
 it:papavero
 la:Papaver somniferum
+lt:aguonos
 pl:mak, makowy, makowa, makowe, maku
 pt:papoila
 sv:vallmo
@@ -80032,6 +80056,7 @@ description:en:Chicken Cutlet is a thin slice of meat from the leg or ribs of ch
 <en:animal protein
 en:chicken protein
 es:proteina de pollo
+lt:vištienos baltymai
 pl:białko z kurczaka
 
 <en:chicken
@@ -81177,6 +81202,7 @@ fr:blanc d'œuf en poudre, blancs d'œufs en poudre, poudre de blanc d’œuf, b
 hr:bjelanjak u prahu, bjelanjak jaja u prahu, bjelanjak jajate u prahu
 hu:porított tojásfehérje, tojásfehérjepor, szárított tojásfehérje
 it:albume d'uovo in polvere, albume in polvere
+lt:kiaušinių baltymų milteliai, kiaušinio baltymo milteliai
 nl:eiwitpoeder, gedroogd ei-eiwit, eiwit in poeder
 pl:sproszkowane białka jajek, białko jaja w proszku, białka jaj w proszku
 pt:clara de ovo em pó
@@ -81690,6 +81716,7 @@ fi:kasvisuute, kasvisuutteet
 fr:extraits végétaux
 hr:biljni ekstrakt, biljni ekstrakti sa svojstvom
 it:estratto vegetale, estratti vegetali
+lt:daržovių ekstraktas
 nl:plantaardig extract, plantaardige extracten
 pl:ekstrakty warzyw, ekstrakt warzyw
 pt:Extrato de vegetais
@@ -84198,6 +84225,7 @@ vegetarian:en:maybe
 <en:coating
 en:cocoa coating
 hr:kakao preljev, kakaov preljev, kakaovog preljeva
+lt:kakavos glaistas
 
 <en:coating
 fr:décor au cacao maigre, decor au cacao maigre, enrobage au cacao maigre
