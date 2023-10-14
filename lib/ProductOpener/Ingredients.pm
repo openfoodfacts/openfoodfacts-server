@@ -1505,7 +1505,7 @@ sub parse_ingredients_text ($product_ref) {
 
 	my $prepared_with = $prepared_with{$ingredients_lc} || '',
 
-	my $min_regexp = $min_regexp{$ingredients_lc} || '';
+		my $min_regexp = $min_regexp{$ingredients_lc} || '';
 
 	my $ignore_strings_after_percent = $ignore_strings_after_percent{$ingredients_lc} || '';
 
