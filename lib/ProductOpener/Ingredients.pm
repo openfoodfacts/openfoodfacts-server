@@ -1639,7 +1639,7 @@ sub parse_ingredients_text ($product_ref) {
 						or ($between =~ /産|製造/)
 						)
 					{
-						$between =~ s/^(.*?($separators| and ))/origins:$1/;
+						$between = "origins:" . $between;
 					}
 
 					$debug_ingredients and $log->debug(
@@ -1690,12 +1690,8 @@ sub parse_ingredients_text ($product_ref) {
 								if $log->is_debug();
 
 							# try to remove the origin and store it as property
-							if (
-								(
-									$between
-									=~ /\s*(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.*)$/i
-									or ($between =~ /\s*(.*)\s*(産|製造)\s*/i)
-								)
+							if ($between
+								=~ /\s*(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.*)$/i
 								)
 							{
 								$log->debug("parse_ingredients_text - sub-ingredients: contains origin in $between")
