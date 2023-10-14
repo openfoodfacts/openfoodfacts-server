@@ -765,7 +765,6 @@ my %min_regexp = (
 	en => "min|min\.|minimum",
 	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
 	fr => "min|min\.|mini|minimum",
-	ja => "未満",
 );
 
 # Words that can be ignored after a percent
@@ -1506,7 +1505,7 @@ sub parse_ingredients_text ($product_ref) {
 
 	my $prepared_with = $prepared_with{$ingredients_lc} || '',
 
-		my $min_regexp = $min_regexp{$ingredients_lc} || '';
+	my $min_regexp = $min_regexp{$ingredients_lc} || '';
 
 	my $ignore_strings_after_percent = $ignore_strings_after_percent{$ingredients_lc} || '';
 
