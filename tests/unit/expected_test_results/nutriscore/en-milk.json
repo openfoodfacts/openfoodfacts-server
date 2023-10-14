@@ -1,0 +1,204 @@
+{
+   "categories" : "milk",
+   "categories_hierarchy" : [
+      "en:dairies",
+      "en:milks"
+   ],
+   "categories_lc" : "en",
+   "categories_properties" : {
+      "agribalyse_proxy_food_code:en" : "19041"
+   },
+   "categories_properties_tags" : [
+      "all-products",
+      "categories-known",
+      "agribalyse-food-code-unknown",
+      "agribalyse-proxy-food-code-19041",
+      "agribalyse-proxy-food-code-known",
+      "ciqual-food-code-unknown",
+      "agribalyse-known",
+      "agribalyse-19041"
+   ],
+   "categories_tags" : [
+      "en:dairies",
+      "en:milks"
+   ],
+   "food_groups" : "en:milk-and-yogurt",
+   "food_groups_tags" : [
+      "en:milk-and-dairy-products",
+      "en:milk-and-yogurt"
+   ],
+   "lc" : "en",
+   "misc_tags" : [
+      "en:nutrition-no-fiber",
+      "en:nutriscore-computed",
+      "en:nutrition-no-fruits-vegetables-nuts",
+      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+      "en:nutriscore-2021-different-from-2023",
+      "en:nutriscore-2021-better-than-2023",
+      "en:nutriscore-2021-a-2023-b"
+   ],
+   "nutriments" : {
+      "energy_100g" : 195,
+      "fat_100g" : 1.6,
+      "nutrition-score-fr" : -1,
+      "nutrition-score-fr_100g" : -1,
+      "proteins_100g" : 3.3,
+      "salt_100g" : 0.1,
+      "salt_value" : 0.1,
+      "saturated-fat_100g" : 1,
+      "sodium" : 0.04,
+      "sodium_100g" : 0.04,
+      "sodium_unit" : "g",
+      "sodium_value" : 0.04,
+      "sugars_100g" : 4.8
+   },
+   "nutriscore" : {
+      "2021" : {
+         "category_available" : 1,
+         "data" : {
+            "energy" : 195,
+            "energy_points" : 0,
+            "energy_value" : 195,
+            "fiber" : 0,
+            "fiber_points" : 0,
+            "fiber_value" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 0,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat" : 0,
+            "is_water" : 0,
+            "negative_points" : 1,
+            "positive_points" : 2,
+            "proteins" : 3.3,
+            "proteins_points" : 2,
+            "proteins_value" : 3.3,
+            "saturated_fat" : 1,
+            "saturated_fat_points" : 0,
+            "saturated_fat_value" : 1,
+            "sodium" : 40,
+            "sodium_points" : 0,
+            "sodium_value" : 40,
+            "sugars" : 4.8,
+            "sugars_points" : 1,
+            "sugars_value" : 4.8
+         },
+         "grade" : "a",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
+         "score" : -1
+      },
+      "2023" : {
+         "category_available" : 1,
+         "data" : {
+            "count_proteins" : 1,
+            "count_proteins_reason" : "beverage",
+            "energy" : 195,
+            "energy_points" : 3,
+            "fiber" : 0,
+            "fiber_points" : 0,
+            "fruits_vegetables_legumes" : null,
+            "is_beverage" : 1,
+            "is_cheese" : 0,
+            "is_fat_oil_nuts_seeds" : 0,
+            "is_red_meat_product" : 0,
+            "is_water" : 0,
+            "negative_nutrients" : [
+               "energy",
+               "sugars",
+               "saturated_fat",
+               "salt",
+               "non_nutritive_sweeteners"
+            ],
+            "negative_points" : 6,
+            "non_nutritive_sweeteners_points" : 0,
+            "positive_nutrients" : [
+               "fruits_vegetables_legumes",
+               "fiber",
+               "proteins"
+            ],
+            "positive_points" : 7,
+            "proteins" : 3.3,
+            "proteins_points" : 7,
+            "salt" : 0.1,
+            "salt_points" : 0,
+            "saturated_fat" : 1,
+            "saturated_fat_points" : 0,
+            "sugars" : 4.8,
+            "sugars_points" : 3
+         },
+         "grade" : "b",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
+         "score" : -1
+      }
+   },
+   "nutriscore_2021_tags" : [
+      "a"
+   ],
+   "nutriscore_2023_tags" : [
+      "b"
+   ],
+   "nutriscore_data" : {
+      "energy" : 195,
+      "energy_points" : 0,
+      "energy_value" : 195,
+      "fiber" : 0,
+      "fiber_points" : 0,
+      "fiber_value" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 0,
+      "grade" : "a",
+      "is_beverage" : 0,
+      "is_cheese" : 0,
+      "is_fat" : 0,
+      "is_water" : 0,
+      "negative_points" : 1,
+      "positive_points" : 2,
+      "proteins" : 3.3,
+      "proteins_points" : 2,
+      "proteins_value" : 3.3,
+      "saturated_fat" : 1,
+      "saturated_fat_points" : 0,
+      "saturated_fat_value" : 1,
+      "score" : -1,
+      "sodium" : 40,
+      "sodium_points" : 0,
+      "sodium_value" : 40,
+      "sugars" : 4.8,
+      "sugars_points" : 1,
+      "sugars_value" : 4.8
+   },
+   "nutriscore_grade" : "a",
+   "nutriscore_score" : -1,
+   "nutriscore_score_opposite" : 1,
+   "nutriscore_tags" : [
+      "a"
+   ],
+   "nutriscore_version" : "2021",
+   "nutrition_data_per" : "100g",
+   "nutrition_data_prepared_per" : "100g",
+   "nutrition_grade_fr" : "a",
+   "nutrition_grades" : "a",
+   "nutrition_grades_tags" : [
+      "a"
+   ],
+   "nutrition_score_beverage" : 0,
+   "nutrition_score_debug" : "",
+   "nutrition_score_warning_no_fiber" : 1,
+   "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
+   "pnns_groups_1" : "Milk and dairy products",
+   "pnns_groups_1_tags" : [
+      "milk-and-dairy-products",
+      "known"
+   ],
+   "pnns_groups_2" : "Milk and yogurt",
+   "pnns_groups_2_tags" : [
+      "milk-and-yogurt",
+      "known"
+   ]
+}

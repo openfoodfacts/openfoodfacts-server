@@ -495,6 +495,59 @@ my @tests = (
 			},
 		}
 	],
+	# vegetables flour / powder etc. do not count as vegetable for the Nutri-Score
+	[
+		"en-soy-beans-processed-and-unprocessed",
+		{
+			lc => "en",
+			categories => "soup",
+			ingredients_text =>
+				"soy beans 30%, cooked soy beans 25%, soy beans powder 20%, cut freeze dried soy beans 15%, soy beans flour 10%",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 0,
+				"saturated-fat_100g" => 0,
+				sugars_100g => 1.5,
+				sodium_100g => 0.01,
+				proteins_100g => 20,
+			},
+		}
+	],
+	# vegetables that are deep fried do not count as vegetables for the Nutri-Score
+	[
+		"en-vegetable-crisps",
+		{
+			lc => "en",
+			categories => "Parsnip Crisps",
+			ingredients_text => "parsnip 70%, red beet 30%",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 0,
+				"saturated-fat_100g" => 0,
+				sugars_100g => 1.5,
+				sodium_100g => 0.01,
+				proteins_100g => 20,
+			},
+		}
+	],
+	# vegetables that are processed (e.g. flour) do not count as vegetables for the Nutri-Score
+	# for some categories, we assume the vegetables are processed (e.g. soy beans in tofu)
+	[
+		"en-tofu",
+		{
+			lc => "en",
+			categories => "tofu",
+			ingredients_text => "soy beans 90%, water 9%, salt 1%",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 0,
+				"saturated-fat_100g" => 0,
+				sugars_100g => 1.5,
+				sodium_100g => 0.01,
+				proteins_100g => 20,
+			},
+		}
+	],
 	# For red meat products, the number of maximum protein points is set at 2 points
 	[
 		"en-red-meat-category-no-ingredients",
@@ -571,6 +624,40 @@ my @tests = (
 				sugars_100g => 0,
 				sodium_100g => 0,
 				proteins_100g => 50,
+			},
+		}
+	],
+	# Milk: considered a beverage in 2023 Nutri-Score
+	[
+		"en-milk",
+		{
+			lc => "en",
+			categories => "milk",
+			nutriments => {
+				energy_100g => 195,
+				fat_100g => 1.6,
+				"saturated-fat_100g" => 1,
+				sugars_100g => 4.8,
+				salt_100g => 0.1,
+				proteins_100g => 3.3,
+			},
+		}
+	],
+	# Plant beverages: considered a beverage in 2023 Nutri-Score
+	[
+		"fr-plant-beverages-soy-milk",
+		{
+			lc => "fr",
+			categories => "boissons végétales de soja",
+			ingredients => "Eau, fèves de soja 8%",
+			nutriments => {
+				energy_100g => 178,
+				fat_100g => 2.6,
+				"saturated-fat_100g" => 0.6,
+				sugars_100g => 0.5,
+				salt_100g => 0.03,
+				fiber_100g => 0.5,
+				proteins_100g => 3.9,
 			},
 		}
 	],

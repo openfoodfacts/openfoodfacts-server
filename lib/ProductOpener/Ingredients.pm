@@ -6582,6 +6582,10 @@ sub detect_allergens_from_text ($product_ref) {
 
 Recursive function to compute the percentage of ingredients that match a specific function.
 
+The match function takes 2 arguments:
+- ingredient id
+- processing (comma separated list of ingredients_processing taxonomy entries)
+
 Used to compute % of fruits and vegetables, % of milk etc. which is needed by some algorithm
 like the Nutri-Score.
 
@@ -6592,7 +6596,7 @@ sub add_ingredients_matching_function ($ingredients_ref, $match_function_ref) {
 	my $count = 0;
 
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
-		my $match = $match_function_ref->($ingredient_ref->{id});
+		my $match = $match_function_ref->($ingredient_ref->{id}, $ingredient_ref->{processing});
 		if ($match) {
 			if (defined $ingredient_ref->{percent}) {
 				$count += $ingredient_ref->{percent};
@@ -6682,19 +6686,46 @@ sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $
 	return $count;
 }
 
-=head2 is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ( $ingredient_id )
+=head2 is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ( $ingredient_id, $processing = undef )
 
 Determine if an ingredient should be counted as "fruits, vegetables, nuts, olive / walnut / rapeseed oils"
 in Nutriscore 2021 algorithm.
 
+- we use the nutriscore_fruits_vegetables_nuts:en property to identify qualifying ingredients
+- we check that the parent of those ingredients is not a flour
+- we check that the ingredient does not have a processing like en:powder
+
+NUTRI-SCORE FREQUENTLY ASKED QUESTIONS - UPDATED 27/09/2022:
+
+"However, fruits, vegetables and pulses that are subject to further processing (e.g. concentrated fruit juice
+sugars, powders, freeze-drying, candied fruits, fruits in stick form, flours leading to loss of water) do not
+count. As an example, corn in the form of popcorn or soy proteins cannot be considered as vegetables.
+Regarding the frying process, fried vegetables which are thick and only partially dehydrated by the process
+can be taken into account, whereas crisps which are thin and completely dehydrated are excluded."
+
 =cut
 
-sub is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ($ingredient_id) {
+my $further_processing_regexp = 'en:candied|en:flour|en:freeze-dried|en:powder';
+
+sub is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ($ingredient_id, $processing = undef) {
 
 	my $nutriscore_fruits_vegetables_nuts
 		= get_inherited_property("ingredients", $ingredient_id, "nutriscore_fruits_vegetables_nuts:en");
 
-	return (((defined $nutriscore_fruits_vegetables_nuts) and ($nutriscore_fruits_vegetables_nuts eq "yes")) or 0);
+	# Check that the ingredient is not further processed
+	my $is_a_further_processed_ingredient = is_a("ingredients", $ingredient_id, "en:flour");
+
+	my $further_processed = ((defined $processing) and ($processing =~ /\b($further_processing_regexp)\b/));
+
+	return (
+		(
+					(defined $nutriscore_fruits_vegetables_nuts)
+				and ($nutriscore_fruits_vegetables_nuts eq "yes")
+				and (not $is_a_further_processed_ingredient)
+				and (not $further_processed)
+		)
+			or 0
+	);
 }
 
 =head2 estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients ( product_ref )
@@ -6718,10 +6749,14 @@ sub estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients ($p
 
 }
 
-=head2 is_fruits_vegetables_legumes ( $ingredient_id )
+=head2 is_fruits_vegetables_legumes ( $ingredient_id, $processing = undef )
 
 Determine if an ingredient should be counted as "fruits, vegetables, legumes"
 in Nutriscore 2023 algorithm.
+
+- we use the eurocode_2_group_1:en and eurocode_2_group_2:en  property to identify qualifying ingredients
+- we check that the parent of those ingredients is not a flour
+- we check that the ingredient does not have a processing like en:powder
 
 1.2.2. Ingredients contributing to the "Fruit, vegetables and legumes" component
 
@@ -6752,6 +6787,16 @@ o 9.60 (Fruit mixtures).
 Pulses groups
 o 7.10 (Pulses).
 
+--
+
+NUTRI-SCORE FREQUENTLY ASKED QUESTIONS - UPDATED 27/09/2022:
+
+"However, fruits, vegetables and pulses that are subject to further processing (e.g. concentrated fruit juice
+sugars, powders, freeze-drying, candied fruits, fruits in stick form, flours leading to loss of water) do not
+count. As an example, corn in the form of popcorn or soy proteins cannot be considered as vegetables.
+Regarding the frying process, fried vegetables which are thick and only partially dehydrated by the process
+can be taken into account, whereas crisps which are thin and completely dehydrated are excluded."
+
 =cut
 
 my %fruits_vegetables_legumes_eurocodes = (
@@ -6777,19 +6822,28 @@ my %fruits_vegetables_legumes_eurocodes = (
 	"7.10" => 1,
 );
 
-sub is_fruits_vegetables_legumes ($ingredient_id) {
+sub is_fruits_vegetables_legumes ($ingredient_id, $processing = undef) {
 
 	my $eurocode_2_group_1 = get_inherited_property("ingredients", $ingredient_id, "eurocode_2_group_1:en");
 	my $eurocode_2_group_2 = get_inherited_property("ingredients", $ingredient_id, "eurocode_2_group_2:en");
 
+	# Check that the ingredient is not further processed
+	my $is_a_further_processed_ingredient = is_a("ingredients", $ingredient_id, "en:flour");
+
+	my $further_processed = ((defined $processing) and ($processing =~ /\b($further_processing_regexp)\b/));
+
 	return (
 		(
-			# All fruits groups
-			# TODO: check that we don't have entries under en:fruits that are in fact not listed in Eurocode 9 "Fruits and fruit products"
-			((defined $eurocode_2_group_1) and ($eurocode_2_group_1 eq "9"))
-				# Vegetables and legumes
-				or ((defined $eurocode_2_group_2)
-				and (exists $fruits_vegetables_legumes_eurocodes{$eurocode_2_group_2}))
+			(
+				# All fruits groups
+				# TODO: check that we don't have entries under en:fruits that are in fact not listed in Eurocode 9 "Fruits and fruit products"
+				((defined $eurocode_2_group_1) and ($eurocode_2_group_1 eq "9"))
+					# Vegetables and legumes
+					or ((defined $eurocode_2_group_2)
+					and (exists $fruits_vegetables_legumes_eurocodes{$eurocode_2_group_2}))
+			)
+				and (not $is_a_further_processed_ingredient)
+				and (not $further_processed)
 		)
 			or 0
 	);
@@ -6813,13 +6867,13 @@ sub estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients 
 	);
 }
 
-=head2 is_milk ( $ingredient_id )
+=head2 is_milk ( $ingredient_id, $processing = undef )
 
 Determine if an ingredient should be counted as milk in Nutriscore 2021 algorithm
 
 =cut
 
-sub is_milk ($ingredient_id) {
+sub is_milk ($ingredient_id, $processing = undef) {
 
 	return is_a("ingredients", $ingredient_id, "en:milk");
 }
@@ -6844,7 +6898,7 @@ Determine if an ingredient should be counted as red meat in Nutriscore 2023 algo
 
 =cut
 
-sub is_red_meat ($ingredient_id) {
+sub is_red_meat ($ingredient_id, $ingredient_processing = undef) {
 
 	my $red_meat_property = get_inherited_property("ingredients", $ingredient_id, "nutriscore_red_meat:en");
 	if ((defined $red_meat_property) and ($red_meat_property eq "yes")) {

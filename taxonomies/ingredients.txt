@@ -7557,7 +7557,7 @@ eo:Maskarpono
 es:mascarpone
 et:mascarpone
 fa:ماسکارپونه
-fi:mascarpone
+fi:mascarpone, mascarponejuusto
 fr:mascarpone, fromage mascarpone
 gl:Mascarpone
 he:מסקרפונה
@@ -7953,7 +7953,7 @@ es:queso parmesano
 et:Parmesan,parma juust
 eu:Parmigiano-Reggiano
 fa:پنیر پارمیجانو
-fi:parmesaani, parmigiano-reggiano, parmesanjuusto
+fi:parmesaani, parmigiano-reggiano, parmesanjuusto, parmesaanijuusto
 fr:parmesan, parmigiano reggiano, fromage parmigiano reggiano, fromage parmigiano reggiano aop, fromage parmigiano reggiano dop
 gl:Parmesano
 he:פרמזן
@@ -39212,7 +39212,7 @@ cs:Limetová šťáva, limetková šťáva
 da:Limesaft
 de:Limettensaft
 es:Zumo de lima, jugo de lima
-fi:limettimehu, limetäysmehu, limetinmehu
+fi:limettimehu, limetäysmehu, limetinmehu, limen mehu
 fr:jus de citron vert
 hu:Citromlé
 it:succo di lime
@@ -39257,7 +39257,7 @@ it:scorze di lime
 en:lime leaf, lime leaves
 da:limeblad
 de:Limettenblatt, Limettenblätter
-fi:limetinlehti, limenlehti
+fi:limetinlehti, limenlehti, limen lehti
 fr:feuille de lime, feuille de citron vert
 sv:limeblad
 # ingredient/en:lime-leaf has 8 products in 1 language @2020-05-23
@@ -43241,7 +43241,7 @@ ca:Suc de pinya
 da:Ananasjuice
 de:Ananassaft
 es:Zumo de piña, jugo de piña, jugo de ananas, zumo de piña Gold
-fi:ananasmehu
+fi:ananasmehu, ananastäysmehu
 fr:jus d'ananas, jus d'ananas victoria
 # hr:sok od ananasa # see ingredients_processing.txt
 it:succo di ananas
@@ -46386,7 +46386,8 @@ de:Gemüsepulver
 fr:légumes en poudre
 
 <en:vegetable
-fr:légumes frais
+en:fresh vegetables
+fr:légumes frais, légume frais
 nl:verse groenten
 
 
@@ -52697,7 +52698,7 @@ bg:сок от цвекло
 cs:šťáva z červené řepy
 de:Randensaft
 es:jugo de remolacha
-fi:punajuurimehu
+fi:punajuurimehu, punajuuritäysmehu
 fr:jus de betterave
 hr:sok od cikle
 it:succo di barbabietola
@@ -55760,6 +55761,7 @@ wikidata:en:Q159753
 
 # description:en:A LEGUME is a plant in the family Fabaceae (or Leguminosae), or the fruit or seed of such a plant (also called a pulse).
 # Legumes are grown agriculturally, primarily for human consumption. Grain legumes include beans, lentils, lupins, peas, and peanuts.
+<en:vegetable
 en:legume
 af:Peulgewas
 an:Legumbre
