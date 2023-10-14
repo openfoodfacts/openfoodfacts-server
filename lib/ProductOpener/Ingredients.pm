@@ -765,6 +765,7 @@ my %min_regexp = (
 	en => "min|min\.|minimum",
 	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
 	fr => "min|min\.|mini|minimum",
+	ja => "未満",
 );
 
 # Words that can be ignored after a percent
@@ -1608,9 +1609,7 @@ sub parse_ingredients_text ($product_ref) {
 					# percent followed by a separator, assume the percent applies to the parent (e.g. tomatoes)
 					# tomatoes (64%, origin: Spain)
 					# tomatoes (145g per 100g of finished product)
-
 					if (($between =~ $separators) and ($` =~ /^$percent_or_quantity_regexp$/i)) {
-
 						$percent_or_quantity_value = $1;
 						$percent_or_quantity_unit = $2;
 						# remove what is before the first separator
@@ -1627,20 +1626,20 @@ sub parse_ingredients_text ($product_ref) {
 					}
 
 					# sel marin (France, Italie)
-					# -> if we have origins, put "origins:" before or "製造" at the end for Japanese
-					if (    ($between =~ /$separators| and /)
-						and (exists_taxonomy_tag("origins", canonicalize_taxonomy_tag($ingredients_lc, "origins", $`))))
+					# -> if we have origins, put "origins:" before
+					if (
+						(
+							($between =~ /$separators| and /)
+							and (
+								exists_taxonomy_tag(
+									"origins", canonicalize_taxonomy_tag($ingredients_lc, "origins", $`)
+								)
+							)
+						)
+						or ($between =~ /産|製造/)
+						)
 					{
-						$debug_ingredients
-							and $log->debug("parse_ingredients_text - sub-ingredients: $between is origin")
-							if $log->is_debug();
-
-						if ($ingredients_lc eq 'ja') {
-							$between = $between . "製造";
-						}
-						else {
-							$between =~ s/^(.*?$separators)/origins:$1/;
-						}
+						$between =~ s/^(.*?($separators| and ))/origins:$1/;
 					}
 
 					$debug_ingredients and $log->debug(
@@ -1654,7 +1653,7 @@ sub parse_ingredients_text ($product_ref) {
 					) if $log->is_debug();
 
 					if (    ($between =~ $separators)
-						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung|産|製造)\s*/i)
+						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
 						and ($between !~ /^$percent_or_quantity_regexp$/i))
 					{
 						$between_level = $level + 1;
@@ -1674,49 +1673,44 @@ sub parse_ingredients_text ($product_ref) {
 
 							$percent_or_quantity_value = $1;
 							$percent_or_quantity_unit = $2;
-							$debug_ingredients
-								and $log->debug(
-								"between is a percent",
+							$log->debug(
+								"parse_ingredients_text - sub-ingredients: between is a percent",
 								{
 									between => $between,
 									percent_or_quantity_value => $percent_or_quantity_value,
 									percent_or_quantity_unit => $percent_or_quantity_unit
 								}
-								) if $log->is_debug();
+							) if $log->is_debug();
 							$between = '';
 						}
 						else {
 							# label? (organic)
 							# origin? (origine : France)
+							$log->debug("parse_ingredients_text - sub-ingredients: label? origin? ($between)")
+								if $log->is_debug();
 
 							# try to remove the origin and store it as property
-							if ($between
-								=~ /\s*(.*)(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong|産|製造)\s?:?\s?\b(.*)$/i
+							if (
+								(
+									$between
+									=~ /\s*(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.*)$/i
+									or ($between =~ /\s*(.*)\s*(産|製造)\s*/i)
+								)
 								)
 							{
 								$log->debug("parse_ingredients_text - sub-ingredients: contains origin in $between")
 									if $log->is_debug();
 
 								$between = '';
-								my $origin_string = "";
-								# rm all occurences at the end of words (ブラジル産、エチオピア産)
-								if ($ingredients_lc eq 'ja') {
-									$log->debug("parse_ingredients_text - sub-ingredients: origin and ja")
-										if $log->is_debug();
-
-									# last occurence has been removed only
-									$origin_string = $1;
-									# remove all occurences (case when there are more than a single origin)
-									$origin_string =~ s/(産|製造)//g;
-									# remove "and more" その他 TODO this is in %ignore_regexps, can the variable be used in next line?
-									$origin_string =~ s/その他//g;
-								}
 								# rm first occurence (origin:)
-								else {
-									$origin_string = $2;
+								my $origin_string = $1;
+
+								if ($ingredients_lc eq 'ja') {
+									# rm all occurences at the end of words (ブラジル産、エチオピア産)
+									$origin_string =~ s/(産|製造)//g;
+									# remove "and more" その他
+									$origin_string =~ s/(?: and )?その他//g;
 								}
-								$log->debug("parse_ingredients_text - sub-ingredients: origin_string: $origin_string")
-									if $log->is_debug();
 
 								# d'origine végétale -> not a geographic origin, add en:vegan
 								if ($origin_string =~ /vegetal|végétal/i) {
@@ -1724,12 +1718,10 @@ sub parse_ingredients_text ($product_ref) {
 									$vegetarian = "en:yes";
 								}
 								else {
-									$log->debug("parse_ingredients_text - sub-ingredients: add origin $origin_string")
-										if $log->is_debug();
 
 									$origin = join(",",
 										map {canonicalize_taxonomy_tag($ingredients_lc, "origins", $_)}
-											split(/、|,| and /, $origin_string));    # TODO update to variable
+											split(/$commas| and /, $origin_string));
 								}
 							}
 							else {
