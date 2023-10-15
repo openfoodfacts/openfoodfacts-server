@@ -1638,6 +1638,7 @@ sub parse_ingredients_text ($product_ref) {
 						or ($between =~ /産|製造/)
 						)
 					{
+						# prepend "origins:" in the beginning of the text, that will be reused below
 						$between = "origins:" . $between;
 					}
 
@@ -1699,6 +1700,10 @@ sub parse_ingredients_text ($product_ref) {
 								$between = '';
 								# rm first occurence (origin:)
 								my $origin_string = $1;
+
+								# rm additional parenthesis and its content that are sub-ingredient of origing (not parsed for now)
+								# example: "トマト (輸入又は国産 (未満 5%))"" (i.e., "Tomatoes (imported or domestically produced (less than 5%)))"")
+								$origin_string =~ s/\s*\([^)]*\)//g;
 
 								if ($ingredients_lc eq 'ja') {
 									# rm all occurences at the end of words (ブラジル産、エチオピア産)
