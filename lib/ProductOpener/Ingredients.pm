@@ -4829,6 +4829,15 @@ my %ingredients_categories_and_types = (
 		[["piment", "poivron"], ["vert", "jaune", "rouge",], 0,],
 	],
 
+	lt =>[
+		#oils
+		[
+			# categories
+			["aliejai", "augaliniai aliejai",],
+			# types
+			["palmių", "rapsų", "saulėgrąžų",],
+		],
+	],
 	pl => [
 		# oils and fats
 		[
