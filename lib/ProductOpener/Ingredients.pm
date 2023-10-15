@@ -2091,6 +2091,7 @@ sub parse_ingredients_text ($product_ref) {
 											or ($ingredients_lc eq 'fr')
 											or ($ingredients_lc eq 'hr')
 											or ($ingredients_lc eq 'it')
+											or ($ingredients_lc eq 'lt')
 											or ($ingredients_lc eq 'mk')
 											or ($ingredients_lc eq 'pl')
 											or ($ingredients_lc eq 'sl')
