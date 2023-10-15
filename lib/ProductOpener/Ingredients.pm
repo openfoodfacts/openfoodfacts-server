@@ -194,7 +194,7 @@ my %may_contain_regexps = (
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
-	lt => "sudėtyje gali būti",
+	lt => "sudėtyje gali būti|gali būti",
 	lv => "var saturēt",
 	nl =>
 		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van",
@@ -4263,6 +4263,10 @@ my %phrases_after_ingredients_list = (
 
 	lt => [
 		'geriausias iki',    # best before
+		'tinka vartoti iki',	# valid until
+		'data ant pakuotės',	#date on package
+		'laikyti sausoje vietoje',	#Keep in dry place
+		'',
 	],
 
 	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnhold', 'kjølevare',],
