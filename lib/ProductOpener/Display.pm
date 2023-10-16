@@ -1441,7 +1441,7 @@ sub display_mission ($request_ref) {
 
 	my $missionid = $request_ref->{missionid};
 
-	open(my $IN, "<:encoding(UTF-8)", "$BASE_DIRS{LANG}/$lang/missions/$missionid.html");
+	open(my $IN, "<:encoding(UTF-8)", "$BASE_DIRS{PUBLIC_DATA}/missions/$lang/$missionid.html");
 	my $html = join('', (<$IN>));
 
 	$request_ref->{content_ref} = \$html;
