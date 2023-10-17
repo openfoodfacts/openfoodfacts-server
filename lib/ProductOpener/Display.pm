@@ -59,6 +59,7 @@ BEGIN {
 		&display_robots_txt_and_exit
 		&display_page
 		&display_text
+		&display_stats
 		&display_points
 		&display_mission
 		&display_tag
@@ -1220,8 +1221,6 @@ sub display_text ($request_ref) {
 
 	my $textid = $request_ref->{text};
 
-	$request_ref->{page_type} = "text";
-
 	if ($textid =~ /open-food-facts-mobile-app|application-mobile-open-food-facts/) {
 		# we want the mobile app landing page to be included in a <div class="row">
 		# so we display it under the `banner` page format, which is the page format
@@ -1238,6 +1237,22 @@ sub display_text ($request_ref) {
 	}
 
 	my $file = "$BASE_DIRS{LANG}/$text_lang/texts/" . $texts{$textid}{$text_lang};
+
+	display_text_content($request_ref, $textid, $text_lang, $file);
+	return;
+}
+
+sub display_stats ($request_ref) {
+	my $textid = $request_ref->{text};
+	my $stats_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/$lang";
+	my $file = "$stats_dir/products_stats_$cc.html";
+	display_text_content($request_ref, $textid, $lang, $file);
+	return;
+}
+
+sub display_text_content ($request_ref, $textid, $text_lang, $file) {
+
+	$request_ref->{page_type} = "text";
 
 	open(my $IN, "<:encoding(UTF-8)", $file);
 	my $html = join('', (<$IN>));
@@ -1283,7 +1298,12 @@ sub display_text ($request_ref) {
 	my $replace_file = sub ($fileid) {
 		($fileid =~ /\.\./) and return '';
 		$fileid =~ s/^texts\///;
-		my $file = "$BASE_DIRS{LANG}/$lc/texts/$fileid";
+		my $text_dir = "$BASE_DIRS{LANG}/$lc/texts/";
+		if ($fileid =~ /products_stats_/) {
+			# special location as this is generated
+			$text_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/$lc/";
+		}
+		my $file = "$text_dir/$fileid";
 		my $html = '';
 		if (-e $file) {
 			open(my $IN, "<:encoding(UTF-8)", "$file");
