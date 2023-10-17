@@ -31808,8 +31808,8 @@ fr:fèves de cacao bio
 nl:bio cacaobonen
 
 <en:cocoa bean
-en:cocoa bean chips, cocoa nibs
-de:kakaobohnenchips, Kakao-Nibs
+en:cocoa nibs, cocoa bean chips
+de:Kakaonibs, Kakao-Nibs, kakaobohnenchips
 es:pepitas de cacao, trozos de habas de cacao, trocitos de pepitas de cacao
 fi:Kaakaopapusipsit
 fr:éclats de fèves de cacao
@@ -31817,7 +31817,7 @@ it:granella di semi di cacao, scaglie di cacao, granella di fave di cacao, grane
 ja:カカオニブ
 # ingredient/fr:éclats-de-fèves-de-cacao has 122 products in 6 languages @2019-05-26
 
-<en:cocoa bean chips
+<en:cocoa nibs
 fr:éclats de fèves de cacao torréfiés
 es:trozos de habas de cacao tostados, trocitos de pepitas de cacao tostadas
 it:granella di fave di cacao tostate
@@ -31825,9 +31825,7 @@ nl:geroosterde schilfers van cacaobonen
 # ingredient/fr:éclats-de-fèves-de-cacao-torréfiés has 34 products in 4 languages @2019-05-25
 # usage:es:trozos de habas de cacao caramelizados (trozos de habas de cacao tostados, azúcar)
 
-fr:cacao minimum
-
-<en:cocoa bean chips
+<en:cocoa nibs
 es:trocitos de pepitas de cacao caramelizadas, pepitas de cacao caramelizadas, trozos de habas de cacao caramelizados
 fr:éclats de fèves de cacao caramélisés
 it:granella caramellata di semi di cacao
@@ -31836,12 +31834,12 @@ nl:gekaramelliseerde schilfers van cacaobonen
 # usage:es:pepitas de cacao caramelizadas (cacao, azúcar)
 
 <en:cocoa
-en:cocoa bar
-hr:kakaova ploča
-
-<en:cocoa
 en:cocoa fiber
 hr:kakaova vlakna
+
+#<en:compound
+en:cocoa bar
+hr:kakaova ploča
 
 # description:en:CHOCOLATE is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods.
 
