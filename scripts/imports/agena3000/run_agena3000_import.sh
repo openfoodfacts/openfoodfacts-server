@@ -27,7 +27,7 @@ lftp -c "set cmd:default-protocol sftp; open sftp-a3dm.agena3000.com:2222; mirro
 # copy files modified since last run
 DATA_TMP_DIR=$OFF_CACHE_TMP_DIR/agena3000-data
 
-SUCCESS_FILE_PATH="$OFF_PRIVATE_DATA_DIR/equadis-import-success"
+SUCCESS_FILE_PATH="$OFF_PRIVATE_DATA_DIR/agena3000-import-success"
 
 IMPORT_SINCE=$(import_since $SUCCESS_FILE_PATH)
 

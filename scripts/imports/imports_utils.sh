@@ -29,7 +29,7 @@ function import_since() {
 
 # mark a sucessful run of import by putting current timestamp in success file
 # so that import_since can use it on next run
-function mark_successful_run () {
+function mark_successful_run() {
     SUCCESS_FILE_PATH=$1
     if [[ -z "$SUCCESS_FILE_PATH" ]]
     then
