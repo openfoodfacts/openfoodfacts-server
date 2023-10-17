@@ -4003,7 +4003,7 @@ my %phrases_before_ingredients_list = (
 
 	lv => ['sast[āäa]v(s|da[ļl]as)',],
 
-	nl => ['ingredi(e|ë)nten', 'samenstelling', 'bestanddelen',],
+	nl => ['(I|i)ngredi(e|ë)nten', 'samenstelling', 'bestanddelen'],
 
 	nb => ['Ingredienser',],
 
