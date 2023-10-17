@@ -377,7 +377,7 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 	}
 	if ($is_spam) {
 		# log the ip
-		open(my $log, ">>", "$BASE_DIRS{LOGS}/logs/user_spam.log");
+		open(my $log, ">>", "$BASE_DIRS{LOGS}/user_spam.log");
 		print $log remote_addr() . "\t" . time() . "\t" . $user_ref->{userid} . "\t" . $user_ref->{name} . "\n";
 		close($log);
 		# bail out, return 200 status code

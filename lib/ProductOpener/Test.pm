@@ -464,9 +464,11 @@ This is so that we can easily see diffs with git diffs:
 
 Tests will pass when this flag is passed, and the new expected results can be diffed / committed in GitHub.
 
+=head4 $test_name - name of test for failure display
+
 =cut
 
-sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $update_expected_results) {
+sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $update_expected_results, $test_name = "") {
 
 	# Read the CSV file
 
@@ -485,18 +487,19 @@ sub compare_csv_file_to_expected_results ($csv_file, $expected_results_dir, $upd
 			push @data, $product_ref;
 		}
 		close($io);
-		compare_array_to_expected_results(\@data, $expected_results_dir . "/rows", $update_expected_results);
+		compare_array_to_expected_results(\@data, $expected_results_dir . "/rows", $update_expected_results,
+			$test_name);
 
 		# If we update the expected results, copy the CSV file so that we can easily see line by line diffs
 		if ($update_expected_results) {
 			my $csv_filename = $csv_file;
 			$csv_filename =~ s/.*\///;
 			copy($csv_file, $expected_results_dir . '/' . $csv_filename)
-				or die "Copy of $csv_file to $expected_results_dir failed: $!";
+				or die "$test_name - Copy of $csv_file to $expected_results_dir failed: $!";
 		}
 	}
 	else {
-		fail("Could not open " . $csv_file . ": $!");
+		fail("$test_name - Could not open " . $csv_file . ": $!");
 	}
 
 	return 1;
@@ -524,9 +527,11 @@ This is so that we can easily see diffs with git diffs:
 Tests will always pass when this flag is passed,
 and the new expected results can be diffed / committed in GitHub.
 
+=head4 $test_name - name of the test for outputs
+
 =cut
 
-sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $update_expected_results) {
+sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $update_expected_results, $test_name = "") {
 
 	ensure_expected_results_dir($expected_results_dir, $update_expected_results);
 
@@ -553,7 +558,7 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 
 			local $/;    #Enable 'slurp' mode
 			my $expected_product_ref = $json->decode(<$expected_result>);
-			is_deeply($product_ref, $expected_product_ref) or diag explain $product_ref;
+			is_deeply($product_ref, $expected_product_ref, "$test_name - $code") or diag explain $product_ref;
 		}
 		else {
 			diag explain $product_ref;
@@ -577,10 +582,10 @@ sub compare_array_to_expected_results ($array_ref, $expected_results_dir, $updat
 		}
 	}
 	if (@missed) {
-		fail("Products " . join(", ", @missed) . " not found in array");
+		fail("$test_name - Products " . join(", ", @missed) . " not found in array");
 	}
 	else {
-		pass("All products found in array");
+		pass("$test_name - All products found in array");
 	}
 
 	return 1;
