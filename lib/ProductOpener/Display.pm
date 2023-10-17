@@ -59,6 +59,7 @@ BEGIN {
 		&display_robots_txt_and_exit
 		&display_page
 		&display_text
+		&display_stats
 		&display_points
 		&display_mission
 		&display_tag
@@ -202,6 +203,7 @@ use Template;
 use Devel::Size qw(size total_size);
 use Data::DeepAccess qw(deep_get);
 use Log::Log4perl;
+use LWP::UserAgent;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
@@ -571,6 +573,12 @@ sub init_request ($request_ref = {}) {
 	# Initialize the request object
 	$request_ref->{referer} = referer();
 	$request_ref->{original_query_string} = $ENV{QUERY_STRING};
+	# Get the cgi script path if the URL was to a /cgi/ script
+	# unset it if it is /cgi/display.pl (default route for non /cgi/ scripts)
+	$request_ref->{script_name} = $ENV{SCRIPT_NAME};
+	if ($request_ref->{script_name} eq "/cgi/display.pl") {
+		delete $request_ref->{script_name};
+	}
 
 	# Depending on web server configuration, we may get or not get a / at the start of the QUERY_STRING environment variable
 	# remove the / to normalize the query string, as we use it to build some redirect urls
@@ -682,10 +690,13 @@ sub init_request ($request_ref = {}) {
 			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country})
 			if $log->is_debug();
 	}
-	elsif ($request_ref->{original_query_string} !~ /^(cgi|api)\//) {
+	elsif ($request_ref->{original_query_string} !~ /^api\//) {
 		# redirect
-		my $redirect_url = get_world_subdomain() . '/' . $request_ref->{original_query_string};
-		$log->info("request could not be matched to a known format, redirecting",
+		my $redirect_url
+			= get_world_subdomain()
+			. ($request_ref->{script_name} ? $request_ref->{script_name} . "?" : '/')
+			. $request_ref->{original_query_string};
+		$log->info("request could not be matched to a known country, redirecting to world",
 			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url})
 			if $log->is_info();
 		redirect_to_url($request_ref, 302, $redirect_url);
@@ -708,11 +719,14 @@ sub init_request ($request_ref = {}) {
 		and ($subdomain ne $cc)
 		and ($subdomain !~ /^(ssl-)?api/)
 		and ($r->method() eq 'GET')
-		and ($request_ref->{original_query_string} !~ /^(cgi|api)\//))
+		and ($request_ref->{original_query_string} !~ /^api\//))
 	{
 		# redirect
 		my $ccdom = format_subdomain($cc);
-		my $redirect_url = $ccdom . '/' . $request_ref->{original_query_string};
+		my $redirect_url
+			= $ccdom
+			. ($request_ref->{script_name} ? $request_ref->{script_name} . "?" : '/')
+			. $request_ref->{original_query_string};
 		$log->info(
 			"lc is equal to first lc of the country, redirecting to countries main domain",
 			{subdomain => $subdomain, lc => $lc, cc => $cc, country => $country, redirect => $redirect_url}
@@ -1207,8 +1221,6 @@ sub display_text ($request_ref) {
 
 	my $textid = $request_ref->{text};
 
-	$request_ref->{page_type} = "text";
-
 	if ($textid =~ /open-food-facts-mobile-app|application-mobile-open-food-facts/) {
 		# we want the mobile app landing page to be included in a <div class="row">
 		# so we display it under the `banner` page format, which is the page format
@@ -1225,6 +1237,22 @@ sub display_text ($request_ref) {
 	}
 
 	my $file = "$BASE_DIRS{LANG}/$text_lang/texts/" . $texts{$textid}{$text_lang};
+
+	display_text_content($request_ref, $textid, $text_lang, $file);
+	return;
+}
+
+sub display_stats ($request_ref) {
+	my $textid = $request_ref->{text};
+	my $stats_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/$lang";
+	my $file = "$stats_dir/products_stats_$cc.html";
+	display_text_content($request_ref, $textid, $lang, $file);
+	return;
+}
+
+sub display_text_content ($request_ref, $textid, $text_lang, $file) {
+
+	$request_ref->{page_type} = "text";
 
 	open(my $IN, "<:encoding(UTF-8)", $file);
 	my $html = join('', (<$IN>));
@@ -1270,7 +1298,12 @@ sub display_text ($request_ref) {
 	my $replace_file = sub ($fileid) {
 		($fileid =~ /\.\./) and return '';
 		$fileid =~ s/^texts\///;
-		my $file = "$BASE_DIRS{LANG}/$lc/texts/$fileid";
+		my $text_dir = "$BASE_DIRS{LANG}/$lc/texts/";
+		if ($fileid =~ /products_stats_/) {
+			# special location as this is generated
+			$text_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/$lc/";
+		}
+		my $file = "$text_dir/$fileid";
 		my $html = '';
 		if (-e $file) {
 			open(my $IN, "<:encoding(UTF-8)", "$file");
@@ -1428,7 +1461,7 @@ sub display_mission ($request_ref) {
 
 	my $missionid = $request_ref->{missionid};
 
-	open(my $IN, "<:encoding(UTF-8)", "$BASE_DIRS{LANG}/$lang/missions/$missionid.html");
+	open(my $IN, "<:encoding(UTF-8)", "$BASE_DIRS{PUBLIC_DATA}/missions/$lang/$missionid.html");
 	my $html = join('', (<$IN>));
 
 	$request_ref->{content_ref} = \$html;
@@ -1498,11 +1531,17 @@ sub set_cache_results ($key, $results) {
 	return;
 }
 
+sub can_use_query_cache() {
+	return (    ((not defined single_param("no_cache")) or (not single_param("no_cache")))
+			and (not $server_options{producers_platform}));
+}
+
 sub query_list_of_tags ($request_ref, $query_ref) {
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
 	my $groupby_tagtype = $request_ref->{groupby_tagtype};
+
 	my $page = $request_ref->{page};
 	# Flag that indicates whether we cache MongoDB results in Memcached
 	# Caching is disabled for crawling bots, as they tend to explore
@@ -1594,13 +1633,41 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	my $results = get_cache_results($key, $request_ref);
 
 	if ((not defined $results) or (ref($results) ne "ARRAY") or (not defined $results->[0])) {
-
-		# do not use the smaller cached products_tags collection if ?no_cache=1
+		$results = undef;
+		# do not use the postgres cache if ?no_cache=1
 		# or if we are on the producers platform
-		if (   ((defined single_param("no_cache")) and (single_param("no_cache")))
-			or ($server_options{producers_platform}))
-		{
+		if (can_use_query_cache()) {
+			$results = execute_aggregate_tags_query($aggregate_parameters);
 
+			if (not defined $results) {
+				eval {
+					$log->debug("Executing MongoDB aggregate query on products_tags collection",
+						{query => $aggregate_parameters})
+						if $log->is_debug();
+					$results = execute_query(
+						sub {
+							return get_products_collection(
+								get_products_collection_request_parameters($request_ref, {tags => 1}))
+								->aggregate($aggregate_parameters, {allowDiskUse => 1});
+						}
+					);
+					# the return value of aggregate has changed from version 0.702
+					# and v1.4.5 of the perl MongoDB module
+					$results = [$results->all] if defined $results;
+				};
+				my $err = $@;
+				if ($err) {
+					$log->warn("MongoDB error", {error => $err}) if $log->is_warn();
+				}
+				else {
+					$log->info("MongoDB query ok", {error => $err}) if $log->is_info();
+				}
+
+				$log->debug("MongoDB query done", {error => $err}) if $log->is_debug();
+			}
+		}
+
+		if (not defined $results) {
 			eval {
 				$log->debug("Executing MongoDB aggregate query on products collection",
 					{query => $aggregate_parameters})
@@ -1611,39 +1678,24 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 							->aggregate($aggregate_parameters, {allowDiskUse => 1});
 					}
 				);
+				# the return value of aggregate has changed from version 0.702
+				# and v1.4.5 of the perl MongoDB module
+				$results = [$results->all] if defined $results;
 			};
-		}
-		else {
+			my $err = $@;
+			if ($err) {
+				$log->warn("MongoDB error", {error => $err}) if $log->is_warn();
+			}
+			else {
+				$log->info("MongoDB query ok", {error => $err}) if $log->is_info();
+			}
 
-			eval {
-				$log->debug("Executing MongoDB aggregate query on products_tags collection",
-					{query => $aggregate_parameters})
-					if $log->is_debug();
-				$results = execute_query(
-					sub {
-						return get_products_collection(
-							get_products_collection_request_parameters($request_ref, {tags => 1}))
-							->aggregate($aggregate_parameters, {allowDiskUse => 1});
-					}
-				);
-			};
+			$log->debug("MongoDB query done", {error => $err}) if $log->is_debug();
 		}
-		if ($@) {
-			$log->warn("MongoDB error", {error => $@}) if $log->is_warn();
-		}
-		else {
-			$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
-		}
-
-		$log->debug("MongoDB query done", {error => $@}) if $log->is_debug();
 
 		$log->trace("aggregate query done") if $log->is_trace();
 
-		# the return value of aggregate has changed from version 0.702
-		# and v1.4.5 of the perl MongoDB module
 		if (defined $results) {
-			$results = [$results->all];
-
 			if (defined $results->[0] and $cache_results_flag) {
 				set_cache_results($key, $results);
 			}
@@ -1678,12 +1730,28 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		if (not defined $results_count) {
 
 			my $count_results;
-
-			# do not use the smaller cached products_tags collection if ?no_cache=1
+			# do not use the smaller postgres cache if ?no_cache=1
 			# or if we are on the producers platform
-			if (   ((defined single_param("no_cache")) and (single_param("no_cache")))
-				or ($server_options{producers_platform}))
-			{
+			if (can_use_query_cache()) {
+				$count_results = execute_aggregate_tags_query($aggregate_count_parameters);
+
+				if (not defined $count_results) {
+					eval {
+						$log->debug("Executing MongoDB aggregate count query on products_tags collection",
+							{query => $aggregate_count_parameters})
+							if $log->is_debug();
+						$count_results = execute_query(
+							sub {
+								return get_products_collection(
+									get_products_collection_request_parameters($request_ref, {tags => 1}))
+									->aggregate($aggregate_count_parameters, {allowDiskUse => 1});
+							}
+						);
+					}
+				}
+			}
+
+			if (not defined $count_results) {
 				eval {
 					$log->debug("Executing MongoDB aggregate count query on products collection",
 						{query => $aggregate_count_parameters})
@@ -1694,25 +1762,11 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 								->aggregate($aggregate_count_parameters, {allowDiskUse => 1});
 						}
 					);
+					$count_results = [$count_results->all]->[0] if defined $count_results;
 				}
 			}
-			else {
-				eval {
-					$log->debug("Executing MongoDB aggregate count query on products_tags collection",
-						{query => $aggregate_count_parameters})
-						if $log->is_debug();
-					$count_results = execute_query(
-						sub {
-							return get_products_collection(
-								get_products_collection_request_parameters($request_ref, {tags => 1}))
-								->aggregate($aggregate_count_parameters, {allowDiskUse => 1});
-						}
-					);
-				}
-			}
-			if ((not $@) and (defined $count_results)) {
 
-				$count_results = [$count_results->all]->[0];
+			if (defined $count_results) {
 				$request_ref->{structured_response}{count} = $count_results->{$groupby_tagtype . "_tags"};
 
 				if ($cache_results_flag) {
@@ -5117,6 +5171,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		# This list should be updated if new attributes are added.
 		$fields_ref = {
 			# generic fields
+			"owner" => 1,    # needed on pro platform to generate the images urls
 			"lc" => 1,
 			"code" => 1,
 			"product_name" => 1,
@@ -5198,133 +5253,18 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 
 		my $cursor;
 		eval {
-			if (($options{mongodb_supports_sample}) and (defined $request_ref->{sample_size})) {
-				$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
-				$count = execute_query(
-					sub {
-						return get_products_collection(
-							get_products_collection_request_parameters($request_ref, {tags => 1}))
-							->count_documents($query_ref);
-					}
-				);
-				$log->info("MongoDB count query ok", {error => $@, count => $count}) if $log->is_info();
+			$count = estimate_result_count($request_ref, $query_ref, $cache_results_flag);
 
-				my $aggregate_parameters
-					= [{"\$match" => $query_ref}, {"\$sample" => {"size" => $request_ref->{sample_size}}}];
-				$log->debug("Executing MongoDB query", {query => $aggregate_parameters}) if $log->is_debug();
-				$cursor = execute_query(
-					sub {
-						return get_products_collection(
-							get_products_collection_request_parameters($request_ref, {tags => 1}))
-							->aggregate($aggregate_parameters, {allowDiskUse => 1});
-					}
-				);
-			}
-			else {
-				$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
-				# test if query_ref is empty
-				if (single_param('no_count')) {
-					# Skip the count if it is not needed
-					# e.g. for some API queries
-					$log->debug("no_count is set, skipping count") if $log->is_debug();
+			$log->debug("Executing MongoDB query",
+				{query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip})
+				if $log->is_debug();
+			$cursor = execute_query(
+				sub {
+					return get_products_collection(get_products_collection_request_parameters($request_ref))
+						->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
 				}
-				elsif (keys %{$query_ref} > 0) {
-					#check if count results is in cache
-					my $key_count = generate_cache_key("search_products_count", $query_ref);
-					$log->debug("MongoDB query key - search_products_count", {key => $key_count}) if $log->is_debug();
-					my $results_count = get_cache_results($key_count, $request_ref);
-					if (not defined $results_count) {
-
-						$log->debug("count not in cache for query", {key => $key_count}) if $log->is_debug();
-
-						# Count queries are very expensive, if possible, execute them on the smaller products_tags collection
-						my $only_tags_filters = 1;
-
-						if ($server_options{producers_platform}) {
-							$only_tags_filters = 0;
-						}
-						else {
-
-							foreach my $field (keys %$query_ref) {
-								if ($field !~ /_tags$/) {
-									$log->debug(
-										"non tags field in query filters, cannot use smaller products_tags collection",
-										{field => $field, value => $query_ref->{field}}
-									) if $log->is_debug();
-									$only_tags_filters = 0;
-									last;
-								}
-							}
-						}
-
-						if (    ($only_tags_filters)
-							and ((not defined single_param("no_cache")) or (single_param("no_cache") == 0)))
-						{
-
-							$count = execute_query(
-								sub {
-									$log->debug("count_documents on smaller products_tags collection",
-										{key => $key_count})
-										if $log->is_debug();
-									return get_products_collection(
-										get_products_collection_request_parameters($request_ref, {tags => 1}))
-										->count_documents($query_ref);
-								}
-							);
-
-						}
-						else {
-
-							$count = execute_query(
-								sub {
-									$log->debug("count_documents on complete products collection", {key => $key_count})
-										if $log->is_debug();
-									return get_products_collection(
-										get_products_collection_request_parameters($request_ref))
-										->count_documents($query_ref);
-								}
-							);
-						}
-						if ($@) {
-							$log->warn("MongoDB error during count", {error => $@}) if $log->is_warn();
-						}
-						elsif ($cache_results_flag) {
-							$log->debug("count query complete, setting cache", {key => $key_count, count => $count})
-								if $log->is_debug();
-							set_cache_results($key_count, $count);
-						}
-					}
-					else {
-						# Cached result
-						$count = $results_count;
-						$log->debug("count in cache for query", {key => $key_count, count => $count})
-							if $log->is_debug();
-					}
-				}
-				else {
-					# if query_ref is empty (root URL world.openfoodfacts.org) use estimated_document_count for better performance
-					$count = execute_query(
-						sub {
-							$log->debug("empty query_ref, use estimated_document_count fot better performance", {})
-								if $log->is_debug();
-							return get_products_collection(get_products_collection_request_parameters($request_ref))
-								->estimated_document_count();
-						}
-					);
-				}
-				$log->info("MongoDB count query done", {error => $@, count => $count}) if $log->is_info();
-
-				$log->debug("Executing MongoDB query",
-					{query => $query_ref, fields => $fields_ref, sort => $sort_ref, limit => $limit, skip => $skip})
-					if $log->is_debug();
-				$cursor = execute_query(
-					sub {
-						return get_products_collection(get_products_collection_request_parameters($request_ref))
-							->query($query_ref)->fields($fields_ref)->sort($sort_ref)->limit($limit)->skip($skip);
-					}
-				);
-				$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
-			}
+			);
+			$log->info("MongoDB query ok", {error => $@}) if $log->is_info();
 		};
 		if ($@) {
 			$log->warn("MongoDB error", {error => $@}) if $log->is_warn();
@@ -5602,6 +5542,116 @@ JS
 	process_template('web/common/includes/list_of_products.tt.html', $template_data_ref, \$html)
 		|| return "template error: " . $tt->error();
 	return $html;
+}
+
+sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
+	my $count;
+	my $err;
+
+	$log->debug("Counting MongoDB documents for query", {query => $query_ref}) if $log->is_debug();
+	# test if query_ref is empty
+	if (single_param('no_count')) {
+		# Skip the count if it is not needed
+		# e.g. for some API queries
+		$log->debug("no_count is set, skipping count") if $log->is_debug();
+	}
+	elsif (keys %{$query_ref} > 0) {
+		#check if count results is in cache
+		my $key_count = generate_cache_key("search_products_count", $query_ref);
+		$log->debug("MongoDB query key - search_products_count", {key => $key_count}) if $log->is_debug();
+		$count = get_cache_results($key_count, $request_ref);
+		if (not defined $count) {
+
+			$log->debug("count not in cache for query", {key => $key_count}) if $log->is_debug();
+
+			# Count queries are very expensive, if possible, execute them on the postgres cache
+			if (can_use_query_cache()) {
+				$count = execute_count_tags_query($query_ref);
+
+				if (not defined $count) {
+					# Count queries are very expensive, if possible, execute them on the smaller products_tags collection
+					my $only_tags_filters = 1;
+
+					if ($server_options{producers_platform}) {
+						$only_tags_filters = 0;
+					}
+					else {
+
+						foreach my $field (keys %$query_ref) {
+							if ($field !~ /_tags$/) {
+								$log->debug(
+									"non tags field in query filters, cannot use smaller products_tags collection",
+									{field => $field, value => $query_ref->{field}})
+									if $log->is_debug();
+								$only_tags_filters = 0;
+								last;
+							}
+						}
+					}
+
+					if (    ($only_tags_filters)
+						and ((not defined single_param("no_cache")) or (single_param("no_cache") == 0)))
+					{
+
+						$count = execute_query(
+							sub {
+								$log->debug("count_documents on smaller products_tags collection", {key => $key_count})
+									if $log->is_debug();
+								return get_products_collection(
+									get_products_collection_request_parameters($request_ref, {tags => 1}))
+									->count_documents($query_ref);
+							}
+						);
+						$err = $@;
+						if ($err) {
+							$log->warn("MongoDB error during count", {error => $err}) if $log->is_warn();
+						}
+					}
+				}
+			}
+
+			if (not defined $count) {
+				$count = execute_query(
+					sub {
+						$log->debug("count_documents on complete products collection", {key => $key_count})
+							if $log->is_debug();
+						return get_products_collection(get_products_collection_request_parameters($request_ref))
+							->count_documents($query_ref);
+					}
+				);
+				$err = $@;
+				if ($err) {
+					$log->warn("MongoDB error during count", {error => $err}) if $log->is_warn();
+				}
+			}
+
+			if ((defined $count) and $cache_results_flag) {
+				$log->debug("count query complete, setting cache", {key => $key_count, count => $count})
+					if $log->is_debug();
+				set_cache_results($key_count, $count);
+			}
+		}
+		else {
+			# Cached result
+			$log->debug("count in cache for query", {key => $key_count, count => $count})
+				if $log->is_debug();
+		}
+	}
+	else {
+		# if query_ref is empty (root URL world.openfoodfacts.org) use estimated_document_count for better performance
+		$count = execute_query(
+			sub {
+				$log->debug("empty query_ref, use estimated_document_count fot better performance", {})
+					if $log->is_debug();
+				return get_products_collection(get_products_collection_request_parameters($request_ref))
+					->estimated_document_count();
+			}
+		);
+		$err = $@;
+	}
+	$log->info("Count query done", {error => $err, count => $count}) if $log->is_info();
+
+	return $count;
 }
 
 =head2 display_pagination( $request_ref , $count , $limit , $page )

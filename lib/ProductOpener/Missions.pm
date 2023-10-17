@@ -54,6 +54,8 @@ sub gen_missions_html() {
 	foreach my $l (keys %Missions_by_lang) {
 
 		$lang = $l;
+		my $mission_lang_dir = "$BASE_DIRS{PUBLIC_DATA}/missions/$lang";
+		ensure_dir_created_or_die($mission_lang_dir);
 
 		my $html = '<ul id="missions" style="list-style-type:none">';
 
@@ -126,15 +128,19 @@ sub gen_missions_html() {
 				. "\">$Lang{all_missions}{$lang}</a></p>";
 
 			$missionid =~ s/(.*)\.//;
-			(-e "$BASE_DIRS{LANG}/$lang/missions") or mkdir("$BASE_DIRS{LANG}/$lang/missions", 0755);
-			open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{LANG}/$lang/missions/$missionid.html");
+			open(my $OUT, ">:encoding(UTF-8)", "$mission_lang_dir/$missionid.html");
 			print $OUT $html2;
 			close $OUT;
 		}
 
 		$html .= "</ul>";
 
-		open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{LANG}/$lang/texts/missions_list.html");
+		# FIXME: to reactivate missions list functionality,
+		# we would need to add a symlink to missions_list in openfoodfacts-web,
+		# or change display_text or display.pl to fetch file in the right directory
+		# for now it's disabled
+		die("FIX: see comment to reactivate missions list functionality");
+		open(my $OUT, ">:encoding(UTF-8)", "$mission_lang_dir/missions_list.html");
 		print $OUT $html;
 		close $OUT;
 	}
