@@ -113,6 +113,12 @@
                                      [% field.label %]
                                 </label>
                             [% END %]
+                        [% ELSIF field.type == 'honeypot' %]
+                            [%# this is a honey pot for spammers, it should be left empty %]
+                            <div style="display:none">
+                                <label for="[% field.field %]">[% field.label %]</label>
+                                <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
+                            </div>
                         [% ELSIF field.type == 'hidden' %]
                             <label for="pro">
                                 <input type="hidden" name="[% field.field %]" value="[% field.value %]">

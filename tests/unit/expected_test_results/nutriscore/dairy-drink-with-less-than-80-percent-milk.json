@@ -1,4 +1,10 @@
 {
+   "additives_n" : 0,
+   "additives_old_n" : 0,
+   "additives_old_tags" : [],
+   "additives_original_tags" : [],
+   "additives_tags" : [],
+   "amino_acids_tags" : [],
    "categories" : "dairy drinks",
    "categories_hierarchy" : [
       "en:beverages",
@@ -55,6 +61,9 @@
       "en:non-vegan",
       "en:vegetarian"
    ],
+   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
       "en:milk",
       "en:dairy",
@@ -80,6 +89,8 @@
       "en:disaccharide"
    ],
    "ingredients_text" : "Milk, sugar",
+   "ingredients_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_that_may_be_from_palm_oil_tags" : [],
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 2,
@@ -91,6 +102,7 @@
    "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 5,
    "lc" : "en",
+   "minerals_tags" : [],
    "misc_tags" : [
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
@@ -99,6 +111,7 @@
       "en:nutriscore-2021-same-as-2023",
       "en:nutriscore-2021-e-2023-e"
    ],
+   "nucleotides_tags" : [],
    "nutriments" : {
       "energy_100g" : 3378,
       "fat_100g" : 10,
@@ -171,15 +184,17 @@
             "is_beverage" : 1,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
+            "is_red_meat_product" : 0,
             "is_water" : 0,
             "negative_nutrients" : [
                "energy",
                "sugars",
                "saturated_fat",
                "salt",
-               "sweeteners"
+               "non_nutritive_sweeteners"
             ],
             "negative_points" : 22,
+            "non_nutritive_sweeteners_points" : 0,
             "positive_nutrients" : [
                "fruits_vegetables_legumes",
                "fiber",
@@ -193,8 +208,7 @@
             "saturated_fat" : 5,
             "saturated_fat_points" : 4,
             "sugars" : 10,
-            "sugars_points" : 8,
-            "sweeteners_points" : 0
+            "sugars_points" : 8
          },
          "grade" : "e",
          "nutrients_available" : 1,
@@ -260,6 +274,7 @@
    "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 0,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
+   "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Beverages",
    "pnns_groups_1_tags" : [
       "beverages",
@@ -270,5 +285,6 @@
       "sweetened-beverages",
       "known"
    ],
-   "unknown_ingredients_n" : 0
+   "unknown_ingredients_n" : 0,
+   "vitamins_tags" : []
 }

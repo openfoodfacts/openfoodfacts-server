@@ -1425,41 +1425,341 @@ agribalyse_proxy_food_name:en:Beer, dark
 agribalyse_proxy_food_name:fr:Bière brune
 
 <en:Beers
-en:India Pale Ale (IPA), IPA ales, India pale ale, India pale ales, IPA beers
-es:Cerveza IPA, IPA
+en:Packaged beers, Beers in a package, Packed beers
+lt:Supakuotas alus, Alus pakuotėje, Alus dėžėje
+xx:Packaged beers
+description:en:Beers that are packed for example: 6x330ml
+
+################################# ALES #################################
+
+<en:Beers
+en:Ales, Ale
+lt:Elis
+wikidata:en:Q208385
+
+<en:Ales
+en:Pale ales, Pale ale
+xx:Pale ales
+
+############ IPA ############
+
+<en:Pale ales
 ca:Cervesa IPA, IPA
-xx:India Pale Ale (IPA)
+en:India Pale Ale (IPA), IPA, IPA ales, India pale ale, India pale ales
+es:Cerveza IPA
+fr:Bières IPA, Bieres IPA, Bière ipa
+xx:India Pale Ale (IPA), IPA, IPA ales, India pale ale, India pale ales
 wikidata:en:Q1543214
 
 <en:India Pale Ale (IPA)
-en:Milkshake IPA, Milkshake India Pale Ale
-wikidata:en:Q103351397
+en:Amber IPA
+xx:Amber IPA
 
 <en:India Pale Ale (IPA)
-en:New England IPA, NEIPA ales, New England India Pale ale
-lt:New England IPA alus, NEIPA alus
+en:American IPA
+xx:American IPA
+lt:Amerikietiškas IPA
+
+<en:India Pale Ale (IPA)
+en:Cornish IPA
+xx:Cornish IPA
+
+<en:India Pale Ale (IPA)
+en:Citra IPA
+xx:Citra IPA
+description:en:IPA made with Citra hops
+
+<en:India Pale Ale (IPA)
+<en:Strong beers
+en:Double IPA, Imperial IPA, Extra IPA, DIPA
+xx:Double IPA, Imperial IPA, Extra IPA, DIPA
+
+<en:India Pale Ale (IPA)
+en:East Coast IPA, East IPA
+xx:East Coast IPA, East IPA
+
+<en:India Pale Ale (IPA)
+en:Hurricane IPA, Tornado IPA
+xx:Hurricane IPA, Tornado IPA
+
+<en:India Pale Ale (IPA)
+en:Hazy IPA
+xx:Hazy IPA
+
+<en:Hazy IPA
+en:New England IPA, NEIPA
+xx:New England IPA, NEIPA
 wikidata:en:Q103350505
 
-<en:India Pale Ale (IPA)
-en:Session IPA, Session India Pale Ale
+<en:Sour beers
+<xx:New England IPA
+en:Sour IPA
+xx:Sour IPA
+description:en: Sour IPA is based from New England IPA with added sour taste
+
+<xx:New England IPA
+en:Milkshake IPA
+xx:Milkshake IPA
 wikidata:en:Q103351397
 
 <en:India Pale Ale (IPA)
-en:West Coast IPA, West Coast India Pale Ale
+en:Punk IPA
+xx:Punk IPA
+
+<en:India Pale Ale (IPA)
+<en:Red ales
+en:Red IPA
+xx:Red IPA
+
+<en:India Pale Ale (IPA)
+<en:Strong beers
+en:Triple IPA
+xx:Triple IPA
+
+<en:India Pale Ale (IPA)
+en:West Coast IPA, West Coast India Pale Ale, West IPA
+xx:West Coast IPA, West Coast India Pale Ale, West IPA
 wikidata:en:Q103352549
 
-<en:Beers
-en:American Pale Ale (APA), APA beers
+<en:India Pale Ale (IPA)
+en:Brut IPA
+xx:Brut IPA
+description:en:Brut is a new style of IPA that is similar to champagne in terms of appearance and sensation.
+
+<en:India Pale Ale (IPA)
+en:Blond IPA, Blonde IPA
+xx:Blond IPA, Blonde IPA
+
+<en:India Pale Ale (IPA)
+en:Cascade IPA
+xx:Cascade IPA
+
+<en:India Pale Ale (IPA)
+en:Dark IPA
+xx:Dark IPA
+
+<en:India Pale Ale (IPA)
+en:Double dry-hopped IPA, DDH IPA
+xx:Double dry-hopped IPA, DDH IPA
+
+<en:India Pale Ale (IPA)
+en:Forest IPA
+xx:Forest IPA
+
+<en:India Pale Ale (IPA)
+en:Fruit IPA, Tropical IPA, Citrus IPA, Passion IPA
+xx:Fruit IPA, Tropical IPA, Citrus IPA, Passion IPA
+
+<en:India Pale Ale (IPA)
+en:Kveik IPA
+xx:Kveik IPA
+description:en:Kveik IPA is a dry-hopped IPA containing Norwegian yeast.
+
+<en:India Pale Ale (IPA)
+en:Matcha IPA
+xx:Matcha IPA
+
+<en:India Pale Ale (IPA)
+en:Rye IPA
+xx:Rye IPA
+wikidata:en:Q25220404
+wikipedia:en:https://en.wikipedia.org/wiki/Rye_IPA
+
+<en:India Pale Ale (IPA)
+en:Session IPA
+xx:Session IPA
+wikidata:en:Q103351397
+
+<en:India Pale Ale (IPA)
+en:Summer IPA
+xx:Summer IPA
+
+<en:India Pale Ale (IPA)
+en:White IPA
+xx:White IPA
+
+############ END OF IPA ############
+
+<en:Pale ales
+en:Saison ales
+xx:Saison ales
+wikidata:en:Q1161714
+wikipedia:en:https://en.wikipedia.org/wiki/Saison
+
+<en:Pale ales
+en:American Pale Ale (APA), APA beers, American Pale Ale
+xx:American Pale Ale
 lt:APA alus
 wikidata:en:Q15940735
+
+<en:Ales
+en:French pale ale
+fr:Bières de garde
+wikidata:en:Q1168351
+
+############ ABBEY ############
+<en:Ales
+en:Abbey ales, Abbey beer, Abbey ale, Abbey beers
+de:Abteibier
+fi:luostariolut
+fr:Bières d'abbayes, Bières d'abbaye, Bières d'abbayes régionales
+hu:Apátsági sör
+it:Birre d'abbazia, Birre trappiste
+nl:Abdijbieren
+agribalyse_food_code:en:5011
+ciqual_food_code:en:5011
+ciqual_food_name:en:Beer, specialty, from abbey or regional (varying alcohol content)
+ciqual_food_name:fr:Bière de spécialités ou d'abbaye, régionales ou d'une brasserie (degré d'alcool variable)
+wikidata:en:Q1050906
+description:en:Abbey - an ale brewed in the style of Trappist beers but not by actual Trappist monks. It is an ale that originated from Belgium. 
+
+<en:Abbey ales
+en:Single ales
+nl:Enkel
+
+<en:Abbey ales
+en:Double ales, Double beer
+de:Doppelte Biere
+fr:Bière double
+hu:Dubbel sör
+it:Birra doppia, doppia birra
+nl:Dubbelgegist bier
+wikidata:en:Q2542177
+
+<en:Abbey ales
+en:Triple ales, Triple beer
+de:Dreifache Biere
+fi:Tripel-olut
+fr:Bière triple
+hu:Tripel sör
+it:Birra tripla, tripla birra
+nl:Tripel bieren
+wikidata:en:Q2719638
+
+<en:Abbey ales
+en:Quadruple ales, Quadruple beer
+de:Vierfache Biere
+fr:Bière quadruple
+hu:Quadrupel sör
+it:Birre quadruple
+nl:Quadrupel bieren
+#wikidata:en:
+
+<en:Ales
+en:Blonde ales, Blonde ale
+es:Cerveza rubia
+fr:Bières blondes, bière blonde
+nl:Blonde bieren
+ro:Beri blonde, Bere blondă, Bere blonda
+wikidata:en:Q2792509
+
+<en:Blonde ales
+<en:Belgian beers
+en:Belgian blonde, Belgian blonde ales
+xx:Belgian blonde
+
+<en:Blonde ales
+<en:American beers
+en:American blonde, American blonde ales
+xx:American blonde
+
+<en:Ales
+en:Dark ales, Dark ale
+lt:Tamsusis elis
+wikidata:en:Q2905033
+
+<en:Dark ales
+en:Stouts, stout
+de:Stouts
+fi:Stout
+fr:Bières brunes, bière brune
+it:Birre scure, Birra scura
+ja:スタウト
+nl:Stout
+pl:Stouty, Piwa ciemne
+zh:烈性黑啤酒
+wikidata:en:Q2905033
+agribalyse_food_code:en:5000
+ciqual_food_code:en:5000
+ciqual_food_name:en:Beer, dark
+ciqual_food_name:fr:Bière brune
+wikipedia:en:https://en.wikipedia.org/wiki/Stout
+
+<en:Stouts
+en:Imperial stouts, imperial stout
+wikidata:en:Q2493192
+
+<en:Stouts
+en:Milk stouts, milk stout
+
+<en:Stouts
+en:Oatmeal stouts, oatmeal stout
+wikidata:en:Q3347894
+
+<en:Stouts
+<en:Irish beers
+en:Irish stouts, Irish stout
+xx:Irish stouts, Irish stout
+
+<en:Dark ales
+en:Porters,Porter, porter beers
+lt:Porteris
+xx:Porters, porter
+wikidata:en:Q954166
+
+<en:Porters
+en:Baltic porter, Baltic porter, Baltic porter beers
+lt:Baltijos porteris
+description:en:Baltic porter is a type of porter. Traditionally made in the countries of Baltic sea region with the majority being produced in Poland. This beer is stronger, 7-8,5% and has less burnt taste compared to Porter.
+
+<en:Ales
+en:Brown ales, brown ale
+lt:Rudasis alus
+wikidata:en:Q900660
+
+<en:Dark ale
+en:Black beers
+de:Schwarzbier
+es:Cervezas negras
+fr:Bières noires
+he:בירות שחורות, בירה שחורה
+it:Birre nere
+lt:Tamsusis alus
+nl:Donkere bieren
+wikidata:en:Q2905055
+
+<en:Ales
+en:Red Ales, Red Ale, Red beers
+de:Rotbier
+fr:Bières rousses, bière rousse
+hu:Vörös sörök
+it:Birre rosse
+zh:红啤酒, 红啤
+wikidata:en:Q2905058
+
+<en:Red Ales
+<en:Irish beers
+en:Irish red ales, Irish red ale
+lt:Iriškas raudonas elis
+xx:Irish red ales, Irish red ale
+
+################################# END OF ALES
+
+<en:Beers
+en:Sour beers
+wikidata:en:Q7565081
+wikipedia:en:https://en.wikipedia.org/wiki/Sour_beer
+description:en:Sour is a type of beer which is intentionally brewed to have sour taste
 
 <en:Beers
 en:Smoked beers, Smoked beer
 de:Rauchbier
 lt:Rūkytas alus
 wikidata:en:Q597787
+wikipedia:en:https://en.wikipedia.org/wiki/Smoked_beer
 
 <en:Beers
+en:Christmas beers
 fr:Bières de Noël
 nl:Kerstbieren
 wikidata:en:Q3621354
@@ -1479,15 +1779,14 @@ nl:Ambachtelijke bieren
 pl:Piwa kraftowe, Piwo kraftowe, Piwa rzemieślnicze, Piwo rzemieślnicze
 ro:Beri artizanale, Bere artizanală
 wikidata:en:Q2905030
+wikipedia:en:https://en.wikipedia.org/wiki/Craft_Beer
 
 <en:Beers
+en:Pure malt beers
 fr:Bières pur malt
 
-<en:Beers
-fr:Bières de garde
-wikidata:en:Q1168351
-
-<fr:Bières pur malt
+<en:Pure malt beers
+en:Pure malt blond beers
 fr:Bières blondes pur malt
 
 <en:Beers
@@ -1516,48 +1815,6 @@ hu:Kézmüves szezek, Kézműves alkohol tartalmú italok
 it:Bevande alcoliche artigianali, Alcolici artigianali
 nl:Ambachtelijke alcoholica
 ro:Băuturi alcoolice artizanale, Bauturi alcoolice artizanale
-
-<en:Beers
-en:Abbey beer, Abbey ale, Abbey beers
-de:Abteibier
-fi:luostariolut
-fr:Bières d'abbayes, Bières d'abbaye, Bières d'abbayes régionales
-hu:Apátsági sör
-it:Birre d'abbazia, Birre trappiste
-nl:Abdijbieren
-agribalyse_food_code:en:5011
-ciqual_food_code:en:5011
-ciqual_food_name:en:Beer, specialty, from abbey or regional (varying alcohol content)
-ciqual_food_name:fr:Bière de spécialités ou d'abbaye, régionales ou d'une brasserie (degré d'alcool variable)
-wikidata:en:Q1050906
-
-<en:Beers
-en:Double beer
-de:Doppelte Biere
-fr:Bière double
-hu:Dubbel sör
-it:Birra doppia, doppia birra
-nl:Dubbelgegist bier
-#wikidata:en:
-
-<en:Beers
-en:Triple beer
-de:Dreifache Biere
-fi:Tripel-olut
-fr:Bière triple
-hu:Tripel sör
-it:Birra tripla, tripla birra
-nl:Tripel bieren
-wikidata:en:Q2719638
-
-<en:Beers
-en:Quadruple beer
-de:Vierfache Biere
-fr:Bière quadruple
-hu:Quadrupel sör
-it:Birre quadruple
-nl:Quadrupel bieren
-#wikidata:en:
 
 <en:Beers
 en:Organic beers
@@ -1600,18 +1857,6 @@ ro:Beri cu fructe, Bere cu fructe
 wikidata:en:Q3510707
 
 <en:Beers with fruits
-en:Cherry kriek beers, Kriek beers, Cherry beers
-de:Kirschbier
-es:Cervezas de cereza
-fr:Bières à la cerise
-hu:Cseresznye ízű sör
-it:Birre alla ciliegia
-lt:Vyšnių kriek alus, vyšnių alus
-nl:Krieken, Kersenbieren
-nl_be:Kriek
-wikidata:en:Q90409424
-
-<en:Beers with fruits
 en:Beers with chestnut
 de:Biere mit Kastanien
 fr:Bières à la chataigne
@@ -1629,6 +1874,7 @@ nl:Peerbieren
 <en:Beers with fruits
 en:Radler beers, radler
 lt:Radleris, Radler alus
+xx:Radler
 description:en:Radler is a type of beer mixed from lager and citrus soda. It is usually 50/50 or 60/40 mixed.
 wikidata:en:Q260417
 
@@ -1652,84 +1898,53 @@ sv:Veteöl, Starköl
 zh:白啤酒, 小麦啤酒
 wikidata:en:Q15079724
 
+################################# LAGERS #################################
+
 <en:Beers
-en:Lagers, lager, Blonde beer
+en:Lagers, lager
 bg:Светла бира
 de:Lager
-es:Cerveza rubia
 fi:Lagerit
-fr:Bières blondes, bière blonde
 he:לאגרים
 hu:Lágerek, Világos sörök
 it:Birre chiare
 ja:ラガービール
 lt:Šviesusis alus
-nl:Lagers, Lager, Blonde bieren
+nl:Lagers, Lager
 pl:Lagery
-ro:Beri blonde, Bere blondă, Bere blonda
-wikidata:en:Q2792509
+xx:Lagers, Lager
+wikidata:en:Q253481
 agribalyse_food_code:en:5001
 ciqual_food_code:en:5001
+wikipedia:en:https://en.wikipedia.org/wiki/Lager
 
 <en:Lagers
-en:Dortmunder export, Dortmunder export beers
-wikidata:en:Q1512528
+<en:Wheat beers
+<en:Unfiltered beers
+en:Hefeweizen, Hefeweizen beers
+xx:Hefeweizen
+description:en:Hefeweizen is a lager that originated from Bavaria. It is unfiltered wheat beer consisting of 50% wheat malt.
+
+<en:Lagers
+en:Märzen
+xx:Märzen
+wikidata:en:Q1760222
+wikipedia:en:https://en.wikipedia.org/wiki/M%C3%A4rzen
 
 <en:Lagers
 en:Pilsners, , Pilsner, Pilsner beers
-lt:Pilsner šviesusis alus
+xx:Pilsners, Pilsner
 wikidata:en:Q152281
+wikipedia:en:https://en.wikipedia.org/wiki/Pilsner
 
 <en:Beers
-en:Dark ales, Dark ale
-lt:Tamsusis elis
-wikidata:en:Q2905033
-
-<en:Dark ales
-en:Stouts, stout, stout beer
-de:Stouts
-fi:Stout
-fr:Bières brunes, bière brune
-it:Birre scure, Birra scura
-ja:スタウト
-nl:Stout
-pl:Stouty, Piwa ciemne
-zh:烈性黑啤酒
-wikidata:en:Q2905033
-agribalyse_food_code:en:5000
-ciqual_food_code:en:5000
-ciqual_food_name:en:Beer, dark
-ciqual_food_name:fr:Bière brune
-
-<en:Stouts
-en:Imperial stouts, imperial stout
-wikidata:en:Q2493192
-
-<en:Dark ales
-en:Porters,Porter, porter beers
-lt:Porteris
-wikidata:en:Q954166
-
-<en:Porters
-en:Baltic porter, Baltic porter, Baltic porter beers
-lt:Baltijos porteris
-description:en:Baltic porter is a type of porter. Traditionally made in the countries of Baltic sea region with the majority being produced in Poland. This beer is stronger, 7-8,5% and has less burnt taste compared to Porter.
+en:Unfiltered beers
+xx:Unfiltered beers
 
 <en:Beers
-en:Brown ales, brown ale
-lt:Rudasis alus
-wikidata:en:Q900660
-
-<en:Dark ale
-en:Black beers
-de:Schwarzbier
-es:Cervezas negras
-fr:Bières noires
-he:בירות שחורות, בירה שחורה
-it:Birre nere
-lt:Tamsusis alus
-nl:Donkere bieren
-wikidata:en:Q2905055
+en:Unpasteurized beers
+xx:Unpasteurized beers
+description:en:Unpasteurized is a live beer containing healthy living micro-organisms: yeast. Due to alcohol and acidity, harmful bacteria are not present.
 
 <en:Beers
 en:Strong beers, 8% beers, Beers with 8° alcohol or more
@@ -1747,15 +1962,7 @@ ciqual_food_code:en:5002
 ciqual_food_name:en:Beer, strong (>8° alcohol)
 ciqual_food_name:fr:Bière forte (>8° alcool)
 wikidata:en:Q1234364
-
-<en:Beers
-en:Red beers
-de:Rotbier
-fr:Bières rousses, bière rousse
-hu:Vörös sörök
-it:Birre rosse
-zh:红啤酒, 红啤
-wikidata:en:Q2905058
+description:en:Beers with 8° alcohol or more
 
 <en:Beers
 <en:Products without gluten
@@ -1778,6 +1985,13 @@ ciqual_food_name:en:Beer, special (5-6° alcohol)
 ciqual_food_name:fr:Bière spéciale (5-6° alcool)
 
 <en:Beers
+en:Trappist beers, Trappist
+xx:Trappist beers, Trappist
+wikidata:en:Q505815
+wikipedia:en:https://en.wikipedia.org/wiki/Trappist_beer
+description:en:A type of beer that is brewed by trappist monks. There is a strict criteria managed by the International Trappist Association that grants Authentic Trappist Product label to breweries that have monks.
+
+<en:Beers
 en:5% beer, Beer with 5° alcohol, Beer with 4° alcohol
 fr:Bière à 4-5° d'alcool, Bière à 4%, Bière à 5%
 it:Birre 5%, Birra 5%
@@ -1793,6 +2007,7 @@ agribalyse_food_code:en:5008
 ciqual_food_code:en:5008
 ciqual_food_name:en:Beer, low alcohol-content (3° alcohol)
 ciqual_food_name:fr:Bière faiblement alcoolisée (3° alcool)
+description:en:Beers with 3° alcohol
 
 ################################# COUNTRY SPECIFIC BEERS #################################
 
@@ -1927,32 +2142,66 @@ ro:Beri belgiene, Beri Belgia, Bere Belgiană, Bere Belgia, Bere Belgiana
 # Disabled for safety: origins:en: en:Belgium
 wikidata:en:Q348229
 
+<en:Beers
+en:Brut des Flandres, Brut beers
+xx:Brut des Flandres, Brut beers
+description:en:Brut des Flandres uses double fermentation method and it takes long time to mature. For the first fermentation process beer yeast is added. For the second - sparkling wine yeast. Origin: Belgium.
+
 <en:Belgian beers
+<en:Red ales
+<en:Sour beers
+en:Flanders red, Flemish red-brown
+xx:Flanders red, Flemish red-brown
+wikipedia:en:https://en.wikipedia.org/wiki/Flanders_red_ale
+wikidata:en:Q2905073
+
+<en:Sour beers
+<en:Wheat beers
 en:Lambic beers
-fr:Lambic, Gueuze-Lambic, Gueuze, Lambiek, Geuze-Lambiek, Geuze
+fr:Lambic, Lambiek
 pl:Lambiki
 protected_name_file_number:en: TSG-BE-0005
 protected_name_type:en: tsg
-origins:en: en:Belgium
 wikidata:en:Q526314
 wikipedia:en:https://en.wikipedia.org/wiki/Lambic
+description:en:A beer style that originates from Belgium. Made from natural yeast that is found in nature.
 
-<en:Belgian beers
-en:Kriek lambic beers
-nl:Kriek, Kriek-Lambic, Framboise-Lambic, Fruit-Lambic, Kriek, Kriekenlambiek, Frambozenlambiek, Vruchtenlambiek
+<en:Lambic beers
+en:Gueuze
+fr:Gueuze-Lambic, Gueuze, Geuze-Lambiek, Geuze
+xx:Gueuze
+wikidata:en:Q1520229
+wikipedia:en:https://en.wikipedia.org/wiki/Gueuze
+description:en:Gueuze is a type of Lambic beer that is a mix of young and old Lambic. The beer undergoes fermentation twice. Second fermentation happens because young Lambic still has sugars. Origin: Belgium
+
+<en:Lambic beers
+en:Cherry Kriek beers, Kriek lambic beers, Kriek beers, Cherry beers
+de:Kirschbier
+es:Cervezas de cereza
+fr:Bières à la cerise
+hu:Cseresznye ízű sör
+it:Birre alla ciliegia
+lt:Vyšnių kriek alus, vyšnių alus
+nl:Kriek, Kriek-Lambic, Fruit-Lambic, Kriekenlambiek, Vruchtenlambiek, Krieken, Kersenbieren
+xx:Kriek beers
 protected_name_file_number:en: TSG-BE-0008
 protected_name_type:en: tsg
-origins:en: en:Belgium
 wikidata:en:Q1756073
 wikipedia:en:https://en.wikipedia.org/wiki/Kriek_lambic
 
-<en:Belgian beers
+<en:Lambic beers
+en:Framboise beers, Framboise lambic beers
+nl:Framboise-Lambic, Frambozenlambiek
+xx:Framboise beers
+wikipedia:en:https://en.wikipedia.org/wiki/Framboise
+
+<en:Lambic beers
 en:Faro beers
 fr:Faro
 protected_name_file_number:en: TSG-BE-0006
 protected_name_type:en: tsg
-origins:en: en:Belgium
 wikidata:en:Q361957
+description:en:Originated and typically made in Belgium. It is a blended Lambic beer that contains Belgian candi sugar. Faro is the sweetest beer out of all Lambic beers.
 
 <en:Belgian beers
 fr:Vieille Gueuze, Vieille Gueuze-Lambic, Vieux Lambic, Oude Geuze, Oude Geuze-Lambiek, Oude Lambiek
@@ -2139,15 +2388,17 @@ protected_name_type:en: pgi
 origins:en: en:Germany
 #wikidata:en:
 
+<en:Lagers
 <en:Beers from Germany
-en:Beers from Dortmund
+en:Beers from Dortmund, Dortmunder export, Dortmunder export beers
 de:Dortmunder Biere, Dortmunder Bier
 hu:Dortmundi sörök
 nl:Dortmunder bieren
 protected_name_file_number:en: PGI-DE-1101
 protected_name_type:en: pgi
 origins:en: en:Germany
-#wikidata:en:
+wikidata:en:Q1512528
+wikipedia:en:https://en.wikipedia.org/wiki/Dortmunder_Export
 
 <en:Beers from Germany
 de:Hofer Biere, Hofer Bier
@@ -2190,9 +2441,26 @@ origins:en: en:Germany
 wikidata:en:Q880640
 
 <en:Country specific beers
+en:Norwegian beers
+lt:Norvegiškas alus
+wikidata:en:Q3655589
+
+<en:Country specific beers
 en:Beers from Poland, Polish beers
 lt:Lenkiškas alus, alus iš Lenkijos
 wikidata:en:Q4880014
+
+<en:Country specific beers
+en:Spanish beers
+fr:Bières espagnoles
+lt:Ispaniškas alus
+wikidata:en:Q4550225
+
+<en:Country specific beers
+en:Swedish beers
+fr:Bières suédoises
+lt:Švediškas alus
+wikidata:en:Q3655894
 
 <en:Country specific beers
 en:Ukrainian beers, Beers from Ukraine
@@ -2202,7 +2470,7 @@ wikidata:en:Q4880025
 <en:Country specific beers
 en:Beers from United Kingdom
 de:Biere aus dem Vereinigten Königreich
-fr:Bières du Royaume Uni
+fr:Bières du Royaume Uni, Bières anglaises
 it:Birre del Regno Unito
 lt:Alus iš Jungtinės Karalystės, Angliškas alus
 nl:Britse bieren
@@ -2227,6 +2495,11 @@ protected_name_file_number:en: PGI-GB-0373
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
 #wikidata:en:
+
+<en:Beers from United Kingdom
+en:Scottish beers
+fr:Bières écossaises
+lt:Škotiškas alus
 
 ################################# Non-alcoholic beers #################################
 
@@ -2280,6 +2553,10 @@ en:Non-alcoholic cherry kriek
 lt:Nealkoholinis vyšnių kriek
 
 <en:Non-alcoholic beers
+en:Non-alcoholic IPA
+lt:Nealkoholinis IPA
+
+<en:Non-alcoholic beers
 en:Non-alcoholic lager beers
 lt:Nealkoholinis šviesusis alus
 
@@ -2287,7 +2564,7 @@ lt:Nealkoholinis šviesusis alus
 en:Non-alcoholic pilsner beers
 lt:Nealkoholinis šviesusis pilsner alus
 
-<en:Beers
+<en:Non-alcoholic beers
 en:Non-alcoholic organic beers
 lt:nealkoholinis ekologiškas alus
 labels:en: en:organic
@@ -2310,6 +2587,7 @@ wikidata:en:Q90409425
 <en:Sodas
 en:Root beers
 wikidata:en:Q36275
+wikipedia:en:https://en.wikipedia.org/wiki/Root_beer
 
 <en:Alcoholic beverages
 en:German liqueur
@@ -5307,7 +5585,7 @@ lt:Energetiniai gėrimai, energetinis gėrimas
 nl:Energiedranken
 pl:Napoje energetyczne, Napoje energetyzujące
 pt:Bebidas energéticas
-ro:Băuturi energizante, Bauturi energizante
+ro:Băuturi energizante, Bauturi energizante, Bautura Energizanta
 ru:Энергетические напитки, Энергетический напиток, Напитки энергетические, Напиток энергетический
 sv:Energidrycker
 tr:Enerji içeceği
@@ -8577,6 +8855,12 @@ fr:Thés en dosettes
 nl:Theecapsules
 
 <en:Capsules
+<en:Cocoa and its products
+<en:Hot beverages
+en:Cocoa capsules
+lt:Kakavos kapsulės
+
+<en:Capsules
 <en:Coffees
 <en:Hot beverages
 en:Coffee capsules, Coffee pads
@@ -8622,19 +8906,21 @@ lt:Nespresso kapsulės
 nl:Nespresso-compatibele Koffiecapsules, Nespresso
 pt:Cápsulas de café compatíveis com Nespresso
 
+#Dolce Gusto can be the, capuccino or hot chocolates
 <en:Coffee capsules
 en:Dolce Gusto-compatible coffee capsules
 de:Dolce Gusto-kompatible Kapseln
 es:Cápsulas de café compatibles con Dolce Gusto
 fr:Cafés en dosettes compatible Dolce Gusto
 it:Capsule di caffè compatibili Dolce Gusto
-lt:Dolce Gusto kapsulės
+lt:Dolce Gusto formato kavos kapsulės
 nl:Dolce Gusto-compatibele Koffiecapsules, Dolce Gusto
 pt:Cápsulas de café compatíveis com Dolce Gusto
 
-#Dolce Gusto can be the, capuccino or hot chocolates
 <en:Capsules
+en:Dolce Gusto-compatible capsules
 fr:Dosettes Dolce Gusto, Capsules Dolce Gusto
+lt:Dolce Gusto formato kapsulės
 
 <en:Coffee capsules
 en:Tassimo-compatible coffee capsules, T-Disc coffee capsules
@@ -34900,6 +35186,7 @@ wikidata:en:Q1163138
 ciqual_food_code:en:31027
 ciqual_food_name:en:Candied fruits
 ciqual_food_name:fr:Fruit confit
+nutriscore_without_unprocessed_fruits_vegetables_legumes:en:yes
 
 <en:Candied fruit
 en:Candied lemon
@@ -35899,6 +36186,7 @@ ja:チョコレートバー, チョコバー
 lt:Šokoladiniai batonėliai
 nl:Chocolade repen
 pt:Barras de chocolate
+ro:Paleuri de ciocolată
 ru:Шоколадные плитки, плитки шоколада, шоколадная плитка, плитка шоколада
 zh:巧克力棒
 wikidata:en:Q1361086
@@ -39579,6 +39867,7 @@ pl:Chipsy, Czipsy
 ru:Чипсы
 th:มันฝรั่งทอด
 zh:薯片
+nutriscore_without_unprocessed_fruits_vegetables_legumes:en:yes
 
 <en:Crisps
 en:Chickpea crisps
@@ -41316,6 +41605,9 @@ fr:Vacherin Mont-d'Or suisse
 fr:Têtes de Moine, Tête de Moine
 de:Tête de Moine
 wikidata:en:Q687579
+agribalyse_proxy_food_code:en:12112
+agribalyse_proxy_food_name:fr:Abondance
+agribalyse_proxy_food_name:en:Abondance cheese, from cow's milk
 
 <en:French cheeses
 <en:Cooked pressed cheeses
@@ -42213,6 +42505,7 @@ wikidata:en:Q517409
 <en:Uncooked pressed cheeses
 <en:Cow cheeses
 en:Morbier, Morbier cheeses, Morbier cheese from cow's milk
+xx:Morbiers
 de:Morbier Käse
 fr:Morbiers
 it:Formaggio Morbier
@@ -49360,7 +49653,7 @@ ciqual_food_name:fr:Crème dessert, rayon frais (aliment moyen)
 <en:Creamy puddings
 en:Double flavour creamy puddings, Double flavour custard dessert
 fr:Crèmes dessert double saveur
-nl:Dubble vla's, Dubbelvla's
+nl:Dubbel vla's, Dubbelvla's
 
 <en:Creamy puddings
 en:Canned creamy puddings, Canned custard desserts
@@ -52591,6 +52884,7 @@ ciqual_food_name:fr:Graisse d'oie
 en:Turkey fat
 bg:Пуешка мас
 fr:Graisse de dinde
+nl:Kalkoenvetten
 agribalyse_food_code:en:16570
 ciqual_food_code:en:16570
 ciqual_food_name:en:Turkey fat
@@ -52619,6 +52913,64 @@ nl:Botervetten
 nl_be:Botervetten
 pt:Gorduras de manteiga
 zh:黄油脂肪
+
+
+# description:en:GHEE is a type of butterfat that originated from the Indian subcontinent.
+
+<en:Butter fat
+en:ghee
+ar:سمن حيواني
+az:sarı yağ
+bg:гхи
+bn:ঘি
+cs:ghí
+da:ghee
+de:ghee
+dv:ދަހީ
+eo:gio
+es:ghee
+fa:روغن کرمانشاهی
+fi:ghi, ghee
+fr:ghi, ghee
+ga:gí
+gu:ઘી
+he:גהי
+hi:घी
+hr:ghee
+hu:ghí, ghí vaj
+id:minyak samin
+is:skírt smjör
+it:ghi
+ja:ギー
+ka:ერბო
+kn:ತುಪ್ಪ
+ko:기
+lt:ghi
+ml:നെയ്യ്
+mr:तूप
+ms:minyak sapi
+nb:ghi, ghee
+ne:घिउ
+nl:ghee, ghi
+nn:ghi, ghee
+pa:ਘਿਉ
+pl:ghi, ghee
+pt:ghi, ghee
+ro:ghee
+ru:Гхи
+sa:घृतम्
+si:ගිතෙල්
+sl:ghee
+sv:ghee
+ta:நெய்
+te:నెయ్యి
+uk:Ґгі, Гхі, Ґі
+ur:گھی
+zh:酥油
+# mai:घी
+# pnb:گھیؤ
+# sco:ghee
+wikidata:en:Q323225
 
 <en:Fish oils
 en:Sardine oils
@@ -55519,6 +55871,7 @@ pt:Farinha
 ru:Мука
 tr:Un
 zh:面粉
+nutriscore_without_unprocessed_fruits_vegetables_legumes:en:yes
 
 <en:Flours
 fr:Farines de souchet
@@ -56610,6 +56963,7 @@ oqali_family:en: fr:Aperitifs a croquer - Pop corn
 agribalyse_proxy_food_code:en:9230
 agribalyse_proxy_food_name:en:Pop-corn or oil popped maize, salted
 agribalyse_proxy_food_name:fr:Pop-corn ou Maïs éclaté, à l'huile, salé
+nutriscore_without_unprocessed_fruits_vegetables_legumes:en:yes
 
 <en:Popcorn
 en:Plain popcorn, Unsalted pop-corn, Unsalted air-popped maize
@@ -65349,6 +65703,41 @@ agribalyse_proxy_food_name:en:Fennel, raw
 agribalyse_proxy_food_name:fr:Fenouil, cru
 
 <en:Spices
+en:asafoetida
+ar:حِلْتِيت‎ 
+de:Teufelsdreck
+es:asafétida
+fa:انگدان‎, انگژد‎, رافه‎, هنگ‎
+fi:hajupihka, pirunpihka
+fr:ase fétide
+gu:હિંગ
+hi:हींग, हीँग, हिंग 
+hu:bűzös husáng, bűzös aszat
+hy:քաղբան, անգուժատ
+is:djöflatað
+it:assafetida
+kn:ಇಂಗು
+kk:кеурексасыр
+lo:ມະຫາຫິງ
+ml:കായം
+mr:हिंग
+my:ရှိန်းခို 
+ne:हिङ 
+nl:asafoetida, duivelsdrek
+ps:انجه‎
+pl:asafetyda, czarcie łajno, smrodzieniec
+pt:assafétida
+sa:हिङ्गु
+sv:dyvelsträck
+tl:inggo, asapetida
+tg:ров
+ta:பெருங்காயம்
+te:ఇంగువ 
+th:มหาหิงคุ์
+tr:şeytantersi, hıthıt
+description:en:A resinous gum from the stem and roots of Ferula species such as Ferula foetida and Ferula assa-foetida, having a strong, unpleasant smell, with culinary and medical uses
+
+<en:Spices
 en:Cardamom, cardamon
 bg:Кардамон
 de:Kardamom
@@ -71315,11 +71704,12 @@ en:Turkey dishes
 fi:Kalkkunaruokalajit
 fr:Plats à la dinde, plats à base de dinde, plats préparés à base de dinde
 lt:Kalakutienos patiekalai
-nl:Kalkoenenvleesmaaltijden
+nl:Kalkoenvleesmaaltijden, Kalkoenenvleesmaaltijden
 
 <en:Turkey dishes
 en:Christmas Turkeys, Xmas Turkeys
 fr:Dindes de Noël, Dinde de Noël
+nl:Kerstkalkoens
 
 <en:Poultry meals
 fr:Poule au pot
@@ -72138,9 +72528,14 @@ ciqual_food_name:en:Soup, minestrone, prepacked, to be reheated
 ciqual_food_name:fr:Soupe minestrone, préemballée à réchauffer
 
 <en:Reheatable vegetable soups
-en:Lentils soup
-fr:Soupe aux lentilles
-lt:Pašildomos lęšių sriubos
+en:Lentil soups, Lentils soup, Soups of lentils
+de:Linsensuppen
+fr:Soupes de lentilles, Soupe aux lentilles
+he:מרקי עדשים, מרק עדשים
+lt:Lęšių sriubos, sriubos su lęšiais, Pašildomos lęšių sriubos
+nl:Linzensoepen
+pt:Sopas de lentilhas
+wikidata:en:Q1827035
 agribalyse_food_code:en:25900
 ciqual_food_code:en:25900
 ciqual_food_name:en:Soup, lentils, prepacked, to be reheated
@@ -72255,16 +72650,6 @@ agribalyse_food_code:en:25954
 ciqual_food_code:en:25954
 ciqual_food_name:en:Soup, pumpkin, dehydrated and reconstituted
 ciqual_food_name:fr:Soupe au potiron, déshydratée reconstituée
-
-<en:Vegetable soups
-en:Soups of lentils
-de:Linsensuppen
-fr:Soupes de lentilles
-he:מרקי עדשים, מרק עדשים
-lt:Lęšių sriubos, sriubos su lęšiais
-nl:Linzensoepen
-pt:Sopas de lentilhas
-wikidata:en:Q1827035
 
 <en:Vegetable soups
 <en:Reheatable soups
@@ -74868,13 +75253,13 @@ pnns_group_2:en:Meat
 
 #Products containing at least 99% meat according to French regulations. Products with lower meat percentage goes in "Ground meat preparations"
 <en:Meats
-<en:Beef
 en:Ground meats
 de:Hackfleisch
 fr:Viandes hachées
 
 #Should contain products with >99% beef only
 <en:Ground meats
+<en:Beef
 en:Ground beef meats
 de:Rinder-Hackfleisch, Rinderhackfleisch
 fr:Viandes hachées pur bœuf, Viandes hachées de bœuf, viandes hachées de boeuf
@@ -75374,6 +75759,7 @@ pt:Bife
 ru:Говядина
 zh:牛肉
 wikidata:en:Q192628
+wco_hs_heading:en: 02.01
 
 <en:Beef
 de:Bayerisches Rindfleisch, Rindfleisch aus Bayern
@@ -76084,6 +76470,7 @@ zh:鲜马肉
 ciqual_food_code:en:6900
 ciqual_food_name:en:Horse, meat, raw
 ciqual_food_name:fr:Cheval, viande, crue
+wco_hs_heading:en: 02.05
 
 <en:Horse fresh meat
 en:Horse steak
@@ -76122,6 +76509,7 @@ fr:Viande de chèvre
 ja:山羊肉, ヤギ肉
 lt:Ožkiena
 wikidata:en:Q449506
+wco_hs_heading:en: 02.04
 
 <en:Fresh meats
 <en:Goat meat
@@ -76742,7 +77130,7 @@ es:Magro de cerdo cocido en conserva
 
 <en:Pork and its products
 <en:Meats
-en:Pork, Pork meat
+en:Pork, Pork meat, swine, swine meat
 bg:Свинско
 ca:Porc, Carn de porc
 da:Svin, svinekød, gris, grisekød
@@ -76762,6 +77150,7 @@ ru:Свинина
 sv:griskött, fläskkött, gris, fläsk
 tr:Domuz eti
 zh:猪肉
+wco_hs_heading:en: 02.03
 
 # TODO map properly
 #<en:meats
@@ -77830,10 +78219,13 @@ ciqual_food_name:fr:Dinde, escalope viennoise ou milanaise ou escalope panée
 en:Turkey preparations
 fr:Préparations à la dinde
 it:Preparati di tacchino
+nl:Kalkoenbereidingen
 
 <en:Turkey preparations
 <en:Meat patties
 en:Turkey patties
+de:Putenfrikadellen
+nl:Kalkoenpasteitjes
 fr:Galettes à la dinde
 
 <en:Poultry nuggets
@@ -78048,6 +78440,7 @@ en:Turkey and its products
 ca:Gall d'indi i derivats
 es:Pavo y sus productos
 fr:Dinde et dérivés
+nl:Kalkoen en afgeleide producten
 
 <en:Turkey and its products
 <en:Poultries
@@ -81159,6 +81552,7 @@ ciqual_food_code:en:21001
 ciqual_food_name:en:Mutton, meat, raw
 ciqual_food_name:fr:Mouton, viande, crue
 wikidata:en:Q14566073
+wco_hs_heading:en: 02.04
 
 <en:sheep meat
 en:Mutton leg
@@ -81207,6 +81601,7 @@ nl:Schapevlezen
 pl:Jagnięcina
 zh:羊肉, 羊, 羊羔, 羊羔肉
 wikidata:en:Q643419
+wco_hs_heading:en: 02.04
 
 <en:Lamb meat
 fr:Souris d'agneau, Souris d'agneau confite
@@ -81795,6 +82190,7 @@ ja:仔牛肉
 nl:Kalfsvlezen
 pl:Cielęcina
 wikidata:en:Q957434
+wco_hs_heading:en: 02.01
 
 <en:Veal meat
 en:veal medallion
@@ -83999,6 +84395,10 @@ en:Pasta stuffed with cheese
 es:Pasta rellena de queso
 fr:Pâtes farcies au fromage
 it:Pasta ripiena di formaggio
+agribalyse_food_code:en:25181
+agribalyse_proxy_food_code:en:25181
+agribalyse_proxy_food_code:en:Fresh pasta, stuffed with cheese (e.g. ravioli), raw
+agribalyse_proxy_food_code:fr:Pâtes fraîches farcies (ex : raviolis, ravioles du Dauphiné), au fromage, crues
 
 <en:Stuffed pastas
 en:Ravioli with ricotta and spinach
@@ -94205,6 +94605,7 @@ origins:en: en:United Kingdom
 <en:Celery
 en:Celery stalk, celery stalk
 fr:Céleris branche
+nl:Bleekselderij
 agribalyse_food_code:en:20023
 ciqual_food_code:en:20023
 ciqual_food_name:en:Celery stalk, raw
@@ -94213,6 +94614,7 @@ ciqual_food_name:fr:Céleri branche, cru
 <en:Celery
 en:Canned celery stalks
 fr:Céleri-branche en conserve, Céleri-branche appertisé, Céleri branche appertisé
+nl:Bleekselderij in blik
 agribalyse_food_code:en:20078
 ciqual_food_code:en:20078
 ciqual_food_name:en:Celery stalk, canned, drained
@@ -95241,7 +95643,7 @@ ciqual_food_name:fr:Poivron rouge, cuit
 <en:Cooked peppers
 en:Cooked sweet Yellow peppers
 fr:Poivrons jaunes cuits
-nl:gekoohte gele paprikas
+nl:Gekookte gele paprikas
 agribalyse_proxy_food_code:en:20088
 agribalyse_proxy_food_name:en:Sweet pepper, red, cooked
 cagribalyse_proxy_food_name:fr:Poivron rouge, cuit
@@ -98531,7 +98933,7 @@ ciqual_food_name:en:Tofu, plain
 ciqual_food_name:fr:Tofu, nature
 nova:en:3
 description:en:Tofu is a food prepared by coagulating soy milk and then pressing the resulting curds into solid white blocks of varying softness. Tofu has very little flavor or smell of its own. Consequently, tofu can be used in both savory or sweet dishes, acting as a bland background for presenting the flavors of the other ingredients used. In order to flavor the tofu it is often marinated in soy sauce, chillis, sesame oil, etc.
-
+nutriscore_without_unprocessed_fruits_vegetables_legumes:en:yes
 
 <en:Tofu
 en:Plain tofu
@@ -102039,6 +102441,9 @@ de:Entenstopflebern am Stück, Ganze Entenstopflebern
 fi:Kokonaiset ankan rasvamaksat
 fr:Foies gras de canard entiers, Foie gras de canard entier
 it:Foie gras di anatra intero
+agribalyse_proxy_food_code:en:40121
+agribalyse_proxy_food_name:en:Liver, duck, raw
+agribalyse_proxy_food_name:fr:Foie, canard, cru
 
 <en:Foies gras from ducks
 <en:Whole foies gras

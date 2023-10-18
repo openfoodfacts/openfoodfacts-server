@@ -106,13 +106,14 @@
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
+            "is_red_meat_product" : 0,
             "is_water" : 0,
             "negative_nutrients" : [
                "energy",
                "sugars",
                "saturated_fat",
                "salt",
-               "sweeteners"
+               "non_nutritive_sweeteners"
             ],
             "negative_points" : 20,
             "positive_nutrients" : [

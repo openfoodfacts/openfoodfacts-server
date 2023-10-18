@@ -109,7 +109,7 @@ class RobotoffAsker extends HTMLElement {
     this.question = this.questions ? this.questions.pop() : null;
     if (!this.question) {
       const serverDomain = getServerDomain();
-      const response = await fetch(`${this.url}/api/v1/questions/${this.code}?lang=${this.lang}&server_domain=${serverDomain}`, { credentials: 'include' });
+      const response = await fetch(`${this.url}/api/v1/questions/${encodeURIComponent(this.code)}?lang=${encodeURIComponent(this.lang)}&server_domain=${encodeURIComponent(serverDomain)}`, { credentials: 'include' });
       const json = await response.json();
       if (!json || json.status !== 'found') {
         this.style.display = 'none';
@@ -172,13 +172,13 @@ class RobotoffAsker extends HTMLElement {
     const shadowRoot = this.attachShadow({mode: 'open'});
     const content = RobotoffAsker.template.content.cloneNode(true);
 
-    const styles = document.querySelectorAll('link[rel="stylesheet"]');
+    const styles = document.querySelectorAll('link[rel="stylesheet"][data-base-layout="true"]');
     for (let i = 0; i < styles.length; ++i) {
       const style = styles[i];
       content.appendChild(style.cloneNode(true));
     }
 
-    const scripts = document.querySelectorAll('script');
+    const scripts = document.querySelectorAll('script[data-base-layout="true"]');
     for (let i = 0; i < scripts.length; ++i) {
       const script = scripts[i];
       content.appendChild(script.cloneNode(true));

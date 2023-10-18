@@ -1,8 +1,8 @@
 {
-   "code" : "200000000034",
+   "code" : "4260392550101",
    "errors" : [],
    "product" : {
-      "_id" : "200000000034",
+      "_id" : "4260392550101",
       "_keywords" : [
          "cookie",
          "organic",
@@ -380,18 +380,19 @@
          "en:biscuits"
       ],
       "checkers_tags" : [],
-      "code" : "200000000034",
+      "code" : "4260392550101",
       "codes_tags" : [
-         "code-12",
-         "200000000xxx",
-         "20000000xxxx",
-         "2000000xxxxx",
-         "200000xxxxxx",
-         "20000xxxxxxx",
-         "2000xxxxxxxx",
-         "200xxxxxxxxx",
-         "20xxxxxxxxxx",
-         "2xxxxxxxxxxx"
+         "code-13",
+         "4260392550xxx",
+         "426039255xxxx",
+         "42603925xxxxx",
+         "4260392xxxxxx",
+         "426039xxxxxxx",
+         "42603xxxxxxxx",
+         "4260xxxxxxxxx",
+         "426xxxxxxxxxx",
+         "42xxxxxxxxxxx",
+         "4xxxxxxxxxxxx"
       ],
       "complete" : 0,
       "completeness" : 0.4,
@@ -427,7 +428,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : 0,
+                     "epi_score" : "0",
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : null
@@ -897,7 +898,7 @@
       },
       "generic_name" : "Tester",
       "generic_name_en" : "Tester",
-      "id" : "200000000034",
+      "id" : "4260392550101",
       "informers_tags" : [
          "tests"
       ],
@@ -2017,10 +2018,10 @@
                                  "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
                               },
                               {
-                                 "text" : "25 %"
+                                 "text" : "62.5 %"
                               },
                               {
-                                 "text" : "25 %"
+                                 "text" : "62.5 %"
                               }
                            ]
                         }
@@ -2385,10 +2386,10 @@
       "nutrient_levels" : {},
       "nutrient_levels_tags" : [],
       "nutriments" : {
-         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 25,
-         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 25,
-         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25,
-         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 25,
+         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 62.5,
+         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 62.5,
+         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 62.5,
+         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 62.5,
          "nova-group" : 3,
          "nova-group_100g" : 3,
          "nova-group_serving" : 3
@@ -2399,7 +2400,7 @@
             "data" : {
                "energy" : null,
                "fiber" : 0,
-               "fruits_vegetables_nuts_colza_walnut_olive_oils" : 25,
+               "fruits_vegetables_nuts_colza_walnut_olive_oils" : 62.5,
                "is_beverage" : 0,
                "is_cheese" : 0,
                "is_fat" : 0,
@@ -2419,10 +2420,11 @@
             "data" : {
                "energy" : null,
                "fiber" : 0,
-               "fruits_vegetables_legumes" : 25,
+               "fruits_vegetables_legumes" : 62.5,
                "is_beverage" : 0,
                "is_cheese" : 0,
                "is_fat_oil_nuts_seeds" : 0,
+               "is_red_meat_product" : 0,
                "is_water" : 0,
                "proteins" : null,
                "salt" : null,
@@ -2456,9 +2458,9 @@
       "nutrition_score_beverage" : 0,
       "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
       "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 25,
+      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 62.5,
       "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-      "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 25,
+      "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 62.5,
       "nutrition_score_warning_no_fiber" : 1,
       "origin" : "france",
       "origin_en" : "france",

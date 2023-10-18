@@ -444,6 +444,223 @@ my @tests = (
 			ingredients_text => "sugar 94%, strange ingredient",
 		}
 	],
+	# Sweeteners
+	[
+		"en-sweeteners",
+		{
+			lc => "en",
+			categories => "sodas",
+			ingredients_text => "apple juice, water, sugar, aspartame",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 0,
+				"saturated-fat_100g" => 0,
+				sugars_100g => 4.5,
+				sodium_100g => 0.01,
+				proteins_100g => 0,
+			},
+		}
+	],
+	# Erythritol is not counted as a non-nutritive sweetener
+	[
+		"en-sweeteners-erythritol",
+		{
+			lc => "en",
+			categories => "sodas",
+			ingredients_text => "apple juice, water, sugar, erythritol",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 0,
+				"saturated-fat_100g" => 0,
+				sugars_100g => 4.5,
+				sodium_100g => 0.01,
+				proteins_100g => 0,
+			},
+		}
+	],
+	[
+		"fr-ice-tea-with-sweetener",
+		{
+			lc => "fr",
+			categories => "ice teas",
+			ingredients_text =>
+				"Eau, sucre, fructose, acidifiants (acide citrique, acide malique), extrait de the noir (1,2g/l), jus de pêche à base de concentré (0,1%), correcteur d'acidité (citrate trisodique), arômes, antioxydant (acide ascorbique), édulcorant (glycosides de steviol)",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 0,
+				"saturated-fat_100g" => 0,
+				sugars_100g => 4.5,
+				sodium_100g => 0.01,
+				proteins_100g => 0,
+			},
+		}
+	],
+	# vegetables flour / powder etc. do not count as vegetable for the Nutri-Score
+	[
+		"en-soy-beans-processed-and-unprocessed",
+		{
+			lc => "en",
+			categories => "soup",
+			ingredients_text =>
+				"soy beans 30%, cooked soy beans 25%, soy beans powder 20%, cut freeze dried soy beans 15%, soy beans flour 10%",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 0,
+				"saturated-fat_100g" => 0,
+				sugars_100g => 1.5,
+				sodium_100g => 0.01,
+				proteins_100g => 20,
+			},
+		}
+	],
+	# vegetables that are deep fried do not count as vegetables for the Nutri-Score
+	[
+		"en-vegetable-crisps",
+		{
+			lc => "en",
+			categories => "Parsnip Crisps",
+			ingredients_text => "parsnip 70%, red beet 30%",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 0,
+				"saturated-fat_100g" => 0,
+				sugars_100g => 1.5,
+				sodium_100g => 0.01,
+				proteins_100g => 20,
+			},
+		}
+	],
+	# vegetables that are processed (e.g. flour) do not count as vegetables for the Nutri-Score
+	# for some categories, we assume the vegetables are processed (e.g. soy beans in tofu)
+	[
+		"en-tofu",
+		{
+			lc => "en",
+			categories => "tofu",
+			ingredients_text => "soy beans 90%, water 9%, salt 1%",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 0,
+				"saturated-fat_100g" => 0,
+				sugars_100g => 1.5,
+				sodium_100g => 0.01,
+				proteins_100g => 20,
+			},
+		}
+	],
+	# For red meat products, the number of maximum protein points is set at 2 points
+	[
+		"en-red-meat-category-no-ingredients",
+		{
+			lc => "en",
+			categories => "beef steaks",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 20,
+				"saturated-fat_100g" => 10,
+				sugars_100g => 0,
+				sodium_100g => 0,
+				proteins_100g => 50,
+			},
+		}
+	],
+	[
+		"en-red-meat-ambiguous-category-no-ingredients",
+		{
+			lc => "en",
+			categories => "sausages",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 20,
+				"saturated-fat_100g" => 10,
+				sugars_100g => 0,
+				sodium_100g => 0,
+				proteins_100g => 50,
+			},
+		}
+	],
+	[
+		"en-red-meat-ambiguous-category-ingredients-with-lots-of-meat",
+		{
+			lc => "en",
+			categories => "sausages",
+			ingredients_text => "pork meat, lamb meat, chicken meat, salt 1%",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 20,
+				"saturated-fat_100g" => 10,
+				sugars_100g => 0,
+				sodium_100g => 0,
+				proteins_100g => 50,
+			},
+		}
+	],
+	[
+		"en-red-meat-ambiguous-category-ingredients-with-no-meat",
+		{
+			lc => "en",
+			categories => "sausages",
+			ingredients_text => "salmon, wheat flour, salt 1%",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 20,
+				"saturated-fat_100g" => 10,
+				sugars_100g => 0,
+				sodium_100g => 0,
+				proteins_100g => 50,
+			},
+		}
+	],
+	[
+		"en-red-meat-ambiguous-category-ingredients-with-very-little-meat",
+		{
+			lc => "en",
+			categories => "sausages",
+			ingredients_text => "eggs, wheat flour, water, rice flour, lamb 2%, salt 1%",
+			nutriments => {
+				energy_100g => 82,
+				fat_100g => 20,
+				"saturated-fat_100g" => 10,
+				sugars_100g => 0,
+				sodium_100g => 0,
+				proteins_100g => 50,
+			},
+		}
+	],
+	# Milk: considered a beverage in 2023 Nutri-Score
+	[
+		"en-milk",
+		{
+			lc => "en",
+			categories => "milk",
+			nutriments => {
+				energy_100g => 195,
+				fat_100g => 1.6,
+				"saturated-fat_100g" => 1,
+				sugars_100g => 4.8,
+				salt_100g => 0.1,
+				proteins_100g => 3.3,
+			},
+		}
+	],
+	# Plant beverages: considered a beverage in 2023 Nutri-Score
+	[
+		"fr-plant-beverages-soy-milk",
+		{
+			lc => "fr",
+			categories => "boissons végétales de soja",
+			ingredients => "Eau, fèves de soja 8%",
+			nutriments => {
+				energy_100g => 178,
+				fat_100g => 2.6,
+				"saturated-fat_100g" => 0.6,
+				sugars_100g => 0.5,
+				salt_100g => 0.03,
+				fiber_100g => 0.5,
+				proteins_100g => 3.9,
+			},
+		}
+	],
 
 );
 
@@ -469,8 +686,9 @@ foreach my $test_ref (@tests) {
 	compute_serving_size_data($product_ref);
 	compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 	extract_ingredients_from_text($product_ref);
+	extract_ingredients_classes_from_text($product_ref);
 	special_process_product($product_ref);
-	diag explain compute_estimated_nutrients($product_ref);
+	compute_estimated_nutrients($product_ref);
 	compute_nutriscore($product_ref);
 
 	compare_to_expected_results($product_ref, "$expected_result_dir/$testid.json", $update_expected_results);
