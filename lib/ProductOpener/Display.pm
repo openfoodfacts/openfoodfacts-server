@@ -142,9 +142,6 @@ BEGIN {
 		$knowledge_panels_options_ref
 
 		&display_nutriscore_calculation_details
-
-		&get_languages
-		&get_countries
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -11676,124 +11673,6 @@ sub generate_select2_options_for_taxonomy_to_json ($target_lc, $tagtype) {
 
 	return decode_utf8(
 		JSON::PP->new->utf8->canonical->encode(generate_select2_options_for_taxonomy($target_lc, $tagtype)));
-}
-
-=head2 language_format($string_to_standardise)
-
-Standardizing a string which represents a language or a country
-
-=head3 Arguments
-
-=head4 $string_to_normalise
-
-String that needs to be standardized
-
-=head3 Return value	
-
-A standardized string of the given string
-
-=cut
-
-sub language_format ($string_to_standardise) {
-	my $result = 0;
-	# If there is the cc in front of the string
-	if ($string_to_standardise =~ qr/$lc\:/) {
-		my $length = length($lc) + 1;
-		$result = substr $string_to_standardise, $length;
-	}
-	# If there is no translation in a givenlanguage, there is "en:" before the string
-	elsif ($string_to_standardise =~ qr/en\:/) {
-		$result = substr $string_to_standardise, length("en:");
-	}
-	# If there is a capital I in front of the string
-	elsif ($string_to_standardise =~ qr/I[A-Z]/) {
-		$result = substr $string_to_standardise, length("I");
-	}
-	# If there is a capital I- in front of the string
-	elsif ($string_to_standardise =~ qr/I\-[A-Z]/) {
-		$result = substr $string_to_standardise, length("I-");
-	}
-	# If there is a motif "Tshi" in front of the string
-	elsif ($string_to_standardise =~ qr/Tshi[A-Z]/) {
-		$result = substr $string_to_standardise, length("Tshi");
-	}
-	# If there is a motif "Isi" in front of the string
-	elsif ($string_to_standardise =~ qr/Isi[A-Z]/) {
-		$result = substr $string_to_standardise, length("Isi");
-	}
-	# If there is a motif "Izi-" in front of the string
-	elsif ($string_to_standardise =~ qr/Isi\-[A-Z]/) {
-		$result = substr $string_to_standardise, length("Isi-");
-	}
-
-	# If the string does not contain a motif that has to be removed return the original string
-	if (!$result) {
-		return $string_to_standardise;
-	}
-	# If the string is modified, return the modified version
-	return $result;
-}
-
-=head2 get_languages()
-
-Generates all the languages in the $lc language
-
-=head3 Arguments
-
-=head3 Return value	
-
-A list with every language written in the $lc language
-
-=cut
-
-sub get_languages() {
-	my @languages_list = ();
-	my @tags_list = get_all_taxonomy_entries("languages");
-	foreach my $tag (@tags_list) {
-		my $language = display_taxonomy_tag($lc, "languages", $tag);
-		# We want to have a normalized string, for instance : French, English, etc... if $lc = en (todo) and reject "Unknown language"
-		my $unknown = 0;
-		if ($language eq "Unknown language") {
-			$unknown = 1;
-		}
-		# Normalise $langage
-		my $normalise_language = language_format($language);
-
-		# Adding to the list the modified string (or not even adding it if equal to "Unknown language")
-		if ($unknown == 0) {
-			push @languages_list, $normalise_language;
-		}
-	}
-	my @sorted_languages_list = sort @languages_list;
-	return @sorted_languages_list;
-}
-
-=head2 get_countries()
-
-Generates all the countries name in the $lc language
-
-=head3 Arguments
-
-=head3 Return value	
-
-A list with every country written in the $lc language
-
-=cut
-
-sub get_countries() {
-	my @countries_list = ();
-	my @tags_list = get_all_taxonomy_entries("countries");
-	foreach my $tag (@tags_list) {
-		my $country = display_taxonomy_tag($lc, "countries", $tag);
-
-		# Normalise $langage
-		my $normalise_country = language_format($country);
-
-		# Adding to the list the modified string
-		push @countries_list, $normalise_country;
-	}
-	my @sorted_countries_list = sort @countries_list;
-	return @sorted_countries_list;
 }
 
 1;
