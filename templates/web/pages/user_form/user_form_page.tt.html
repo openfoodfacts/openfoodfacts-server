@@ -159,7 +159,7 @@
             <p>[% lang("unsubscribe_info") %]</p>
         [% END %]
 
-        [% IF userid and not type == 'add' %]
+        [% IF userid and (type != 'add') %]
             <fieldset>
                 <legend class="text_warning">[% lang("danger_zone") %]</legend>
                 <input type="button" name=".delete" class="button text_warning" value="[% lang("delete_user") %]" onclick="if ('[% userid %]'.localeCompare(prompt('[% lang("delete_confirmation") %]'),undefined,'base') === 0) {document.getElementById('delete_input').value='on';document.getElementById('user_form').submit();}"/>
