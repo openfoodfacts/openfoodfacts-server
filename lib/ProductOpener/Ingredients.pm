@@ -177,7 +177,7 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 my %may_contain_regexps = (
 
 	en =>
-		"it may contain traces of|possible traces|traces|may also contain|also may contain|[m|M]ay contain|may be present|Produced in a factory handling",
+		"it may contain traces of|possible traces|traces|may also contain|also may contain|[may contain|may be present|Produced in a factory handling",
 	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
 	bs => "može da sadrži",
 	cs => "může obsahovat|může obsahovat stopy",
@@ -193,7 +193,7 @@ my %may_contain_regexps = (
 		"mogući sadržaj|mogući tragovi|može sadržavati|može sadržavati alergene u tragovima|može sadržavati tragove|može sadržavati u tragovima|može sadržati|može sadržati tragove|proizvod može sadržavati|proizvod može sadržavati tragove",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
-		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia|Può contenere",
+		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
 	lt => "sudėtyje gali būti",
 	lv => "var saturēt",
 	nl =>
