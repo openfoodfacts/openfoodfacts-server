@@ -212,8 +212,7 @@ function display_user_product_preferences(target_selected, target_selection_form
                 attribute_group_html += "<li id='attribute_" + attribute.id + "' class='attribute'>" +
                     "<fieldset class='fieldset_attribute_group' style='margin:0;padding:0;border:none'>" +
                     "<div class='attribute_img'><div style='width:96px;float:left;margin-right:1em;'><img src='" + attribute.icon_url + "' class='match_icons' alt=''></div>" +
-                    "<span class='attribute_name'>" + attribute.setting_name + "</span></div>";
-                attribute_group_html += "<div class='attribute_group'>"
+                    "<span class='attribute_name'>" + attribute.setting_name + "</span></div><div class='attribute_group'>";
 
                 $.each(preferences, function(key, preference) {
 
