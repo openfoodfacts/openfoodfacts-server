@@ -91,7 +91,7 @@ function generate_preferences_switch_button(preferences_text, checkbox_id) {
 		checked = " checked";
 	}	
 
-	var html = '<div class="flex-grid direction-row toggle_food_preferences" style="margin-right:2rem;margin-bottom:1rem;">' +
+	var html = '<div class="flex-grid direction-row toggle_food_preferences" style="margin-right:2rem;margin-bottom:1rem;align-items: center;">' +
     '<fieldset class="switch round success unmarged" tabindex="0" id="' + checkbox_id +'_switch" style="align-items:center;margin-right:0.5rem;padding-top:0.1rem;padding-bottom:0.1rem;">' +
     '<input class="preferences_checkboxes" id="' + checkbox_id + '" type="checkbox"' + checked + '>' +
     '<label for="' + checkbox_id +'" class="h-space-tiny" style="margin-top:0"></label></fieldset>' +

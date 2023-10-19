@@ -625,6 +625,24 @@ ul.pagination li a {
   display: flex;
   align-items: center;
 }
+
+@media #{$small-only} {
+  .attribute_group {
+    .attribute_item:first-child label {
+      margin-top: 1rem;
+    }
+    .attribute_item label {
+      margin-top: 0;
+    }
+  }
+}
+
+@media #{$medium-up} {
+  .attribute_group .attribute_item label {
+    margin-top: 0;
+  }
+}
+
 @media #{$large-up} {
   .attribute_group {
     display: flex;
