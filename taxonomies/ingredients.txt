@@ -14078,6 +14078,7 @@ de:modifizierte Weizenstärke
 es:almidón de trigo modificado
 fi:muunnettu vehnätärkkelys, muunneltu vehnätärkkelys
 fr:amidon modifié de blé, amidon transformé de blé
+hr:modificirani pšenični škrob
 hu:módosított búzakeményítő
 it:amido modificato di fromento
 nl:gemodificeerd tarwezetmeel
@@ -22058,8 +22059,7 @@ en:hydrolysed cereal, hydrolysed cereals
 fr:céréales hydrolysées
 nova:en:4
 
-<en:cereal
-<en:cocoa
+#<en:compound
 en:cereal with cocoa
 hr:žitarica s kakaom
 
@@ -24368,7 +24368,7 @@ sv:havre korn
 
 <en:oat
 en:wholemeal oat, wholegrain oats, whole grain oats
-de:Vollkornhafer, Vollkorn-Hafer
+de:Vollkornhafer, Vollkorn-Hafer, Hafervollkorn
 el:Βρώμη ολικής άλεσης
 es:Avena integral, Avena entera en grano
 et:täisterakaer
@@ -31563,11 +31563,6 @@ fi:luomu kaakaovoi
 fr:beurre de cacao bio
 # ingredient/fr:beurre-de-cacao-bio has 24 products in 2 languages @2019-05-25
 
-<en:cocoa butter
-fr:beurre de cacao émulsifiant
-# ingredient/fr:beurre-de-cacao-émulsifiant has 35 products in french @2019-05-25
-
-
 <en:cocoa
 en:cocoa paste, cocoa mass, chocolate liquor
 bg:какаова маса, какао маса
@@ -31617,11 +31612,6 @@ de:Bio-Kakaomasse
 fi:luomu kaakaomassa
 fr:pâte de cacao bio
 # ingredient/fr:pate-de-cacao-bio has 24 products 2019-05-23
-
-<en:cocoa paste
-<en:hazelnut paste
-en:cocoa and hazelnuts paste
-hr:pasta s kakaom i lješnjacima
 
 <en:cocoa
 en:cocoa powder
@@ -31817,8 +31807,8 @@ fr:fèves de cacao bio
 nl:bio cacaobonen
 
 <en:cocoa bean
-en:cocoa bean chips, cocoa nibs
-de:kakaobohnenchips
+en:cocoa nibs, cocoa bean chips
+de:Kakaonibs, Kakao-Nibs, kakaobohnenchips
 es:pepitas de cacao, trozos de habas de cacao, trocitos de pepitas de cacao
 fi:Kaakaopapusipsit
 fr:éclats de fèves de cacao
@@ -31826,7 +31816,7 @@ it:granella di semi di cacao, scaglie di cacao, granella di fave di cacao, grane
 ja:カカオニブ
 # ingredient/fr:éclats-de-fèves-de-cacao has 122 products in 6 languages @2019-05-26
 
-<en:cocoa bean chips
+<en:cocoa nibs
 fr:éclats de fèves de cacao torréfiés
 es:trozos de habas de cacao tostados, trocitos de pepitas de cacao tostadas
 it:granella di fave di cacao tostate
@@ -31834,9 +31824,7 @@ nl:geroosterde schilfers van cacaobonen
 # ingredient/fr:éclats-de-fèves-de-cacao-torréfiés has 34 products in 4 languages @2019-05-25
 # usage:es:trozos de habas de cacao caramelizados (trozos de habas de cacao tostados, azúcar)
 
-fr:cacao minimum
-
-<en:cocoa bean chips
+<en:cocoa nibs
 es:trocitos de pepitas de cacao caramelizadas, pepitas de cacao caramelizadas, trozos de habas de cacao caramelizados
 fr:éclats de fèves de cacao caramélisés
 it:granella caramellata di semi di cacao
@@ -31845,12 +31833,12 @@ nl:gekaramelliseerde schilfers van cacaobonen
 # usage:es:pepitas de cacao caramelizadas (cacao, azúcar)
 
 <en:cocoa
-en:cocoa bar
-hr:kakaova ploča
-
-<en:cocoa
 en:cocoa fiber
 hr:kakaova vlakna
+
+#<en:compound
+en:cocoa bar
+hr:kakaova ploča
 
 # description:en:CHOCOLATE is a usually sweet, brown food preparation of roasted and ground cacao seeds that is made in the form of a liquid, paste, or in a block, or used as a flavoring ingredient in other foods.
 
@@ -59144,11 +59132,11 @@ da:anis, anisfrø
 de:Anissamen, anis
 es:semilla de anís,anis,matalahúga
 fi:anis
-fr:graine d'anis vert, anis vert, graine d'anis, anis
+fr:anis, graine d'anis vert, anis vert, graine d'anis
 hr:anis, plod anisa
 it:Anice
 nl:anijszaad, anijs
-pl:anyż, anyżek, anyżu
+pl:anyż, anyżek, anyżu, anyż owoc, anyz owoc
 ru:семена аниса
 sv:anis, anisfrö
 te:సోపు
@@ -60332,7 +60320,7 @@ he:טחינה
 hi:ताहिनी
 hr:tahini
 hy:Թահին
-it:Tahina
+it:Tahina, pasta di semi di sesamo
 ja:芝麻醤
 ko:참깨 소스
 nl:tahin
@@ -60812,6 +60800,41 @@ fr:plantes aromatiques déshydratées
 
 <en:herb
 fr:extraits naturels et aromates
+
+<en:spice
+en:asafoetida
+ar:حِلْتِيت‎ 
+de:Teufelsdreck
+es:asafétida
+fa:انگدان‎, انگژد‎, رافه‎, هنگ‎
+fi:hajupihka, pirunpihka
+fr:ase fétide
+gu:હિંગ
+hi:हींग, हीँग, हिंग 
+hu:bűzös husáng, bűzös aszat
+hy:քաղբան, անգուժատ
+is:djöflatað
+it:assafetida
+kn:ಇಂಗು
+kk:кеурексасыр
+lo:ມະຫາຫິງ
+ml:കായം
+mr:हिंग
+my:ရှိန်းခို 
+ne:हिङ 
+nl:asafoetida, duivelsdrek
+ps:انجه‎
+pl:asafetyda, czarcie łajno, smrodzieniec
+pt:assafétida
+sa:हिङ्गु
+sv:dyvelsträck
+tl:inggo, asapetida
+tg:ров
+ta:பெருங்காயம்
+te:ఇంగువ 
+th:มหาหิงคุ์
+tr:şeytantersi, hıthıt
+description:en:A resinous gum from the stem and roots of Ferula species such as Ferula foetida and Ferula assa-foetida, having a strong, unpleasant smell, with culinary and medical uses
 
 <en:spice
 <en:seed
@@ -86291,6 +86314,7 @@ pt:creme de cacau
 en:hazelnut and cocoa spread
 es:crema de cacao y avellanas
 fr:Pâte à tartiner aux noisettes et au cacao, crème de cacao et de noisette
+hr:pasta s kakaom i lješnjacima
 
 #<en:compound
 en:hazelnut spread
