@@ -3,7 +3,7 @@ Description=Generate %i daily feeds
 
 [Timer]
 # every day
-OnCalendar=2:15
+OnCalendar=1:30
 # service instance name "%i" is off / obf / opff / opf
 Unit=gen_feeds_daily@%i.service
 
