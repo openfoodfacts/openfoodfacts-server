@@ -63,15 +63,19 @@ is($user_ref->{org_id}, "acme-inc", "org_id is correct");
 # remove password for comparison and timestamps
 my $user_cmp_ref = dclone($user_ref);
 normalize_user_for_test_comparison($user_cmp_ref);
-compare_to_expected_results($user_cmp_ref, "$expected_result_dir/user-after-subscription.json",
-	$update_expected_results, {desc => "user after subscription is as expected"});
+compare_to_expected_results(
+	$user_cmp_ref, "$expected_result_dir/user-after-subscription.json",
+	$update_expected_results, {desc => "user after subscription is as expected"}
+);
 
 # Org was created
 my $org_ref = retrieve("$data_root/orgs/acme-inc.sto");
 my $org_cmp_ref = dclone($org_ref);
 normalize_org_for_test_comparison($org_cmp_ref);
-compare_to_expected_results($org_cmp_ref, "$expected_result_dir/org-after-subscription.json",
-	$update_expected_results, {desc => "org after subscription is as expected"});
+compare_to_expected_results(
+	$org_cmp_ref, "$expected_result_dir/org-after-subscription.json",
+	$update_expected_results, {desc => "org after subscription is as expected"}
+);
 
 # Get mails from log
 my @mails = mails_from_log($logs);
@@ -80,8 +84,8 @@ my @mails = mails_from_log($logs);
 # we got three
 is(scalar @mails, 3, "3 mails sent on subscription");
 # compare
-compare_to_expected_results(\@mails, "$expected_result_dir/mails.json", $update_expected_results,
-	{desc => "mail sent after subscription"});
+compare_to_expected_results(\@mails, "$expected_result_dir/mails.json",
+	$update_expected_results, {desc => "mail sent after subscription"});
 
 # the pro moderator got to the org page
 $resp = get_page($moderator_ua, "/cgi/org.pl?type=edit&orgid=org-acme-inc");
