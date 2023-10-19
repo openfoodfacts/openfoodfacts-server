@@ -4264,9 +4264,9 @@ my %phrases_after_ingredients_list = (
 
 	lt => [
 		'geriausias iki',    # best before
-		'tinka vartoti iki',	# valid until
-		'data ant pakuotės',	#date on package
-		'laikyti sausoje vietoje',	#Keep in dry place
+		'tinka vartoti iki',    # valid until
+		'data ant pakuotės',    #date on package
+		'laikyti sausoje vietoje',    #Keep in dry place
 		'',
 	],
 
@@ -4830,7 +4830,7 @@ my %ingredients_categories_and_types = (
 		[["piment", "poivron"], ["vert", "jaune", "rouge",], 0,],
 	],
 
-	lt =>[
+	lt => [
 		#oils
 		[
 			# categories
