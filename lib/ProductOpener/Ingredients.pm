@@ -77,7 +77,7 @@ BEGIN {
 		&extract_ingredients_classes_from_text
 		&extract_ingredients_from_text
 		&preparse_ingredients_text
-		&parse_ingredients_text
+		&parse_ingredients_text_service
 
 		&flatten_sub_ingredients
 		&compute_ingredients_tags
@@ -1354,25 +1354,32 @@ sub get_percent_or_quantity_and_normalized_quantity ($percent_or_quantity_value,
 	return ($percent, $quantity, $quantity_g);
 }
 
-=head2 parse_ingredients_text ( product_ref )
+=head2 parse_ingredients_text_service ( $product_ref, $updated_product_fields_ref )
 
 Parse the ingredients_text field to extract individual ingredients.
 
-=head3 Return values
+This function is a product service that can be run through ProductOpener::ApiProductServices
 
-=head4 ingredients structure
+=head3 Arguments
 
-Nested structure of ingredients and sub-ingredients
+=head4 $product_ref
 
-=head4 
+product object reference
+
+=head4 $updated_product_fields_ref
+
+reference to a hash of product fields that have been created or updated
 
 =cut
 
-sub parse_ingredients_text ($product_ref) {
+sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 	my $debug_ingredients = 0;
 
 	delete $product_ref->{ingredients};
+
+	# and indicate that the service is creating the "ingredients" structure
+	$updated_product_fields_ref->{ingredients} = 1;
 
 	return if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq ""));
 
@@ -2439,6 +2446,8 @@ sub parse_ingredients_text ($product_ref) {
 
 	$analyze_ingredients_function->($analyze_ingredients_function, $product_ref->{ingredients}, 0, $text);
 
+	$log->debug("ingredients: ", {ingredients => $product_ref->{ingredients}}) if $log->is_debug();
+
 	return;
 }
 
@@ -2593,14 +2602,14 @@ sub compute_ingredients_tags ($product_ref) {
 
 This function calls:
 
-- parse_ingredients_text() to parse the ingredients text in the main language of the product
+- parse_ingredients_text_service() to parse the ingredients text in the main language of the product
 to extract individual ingredients and sub-ingredients
 
 - compute_ingredients_percent_min_max_values() to create the ingredients array with nested sub-ingredients arrays
 
 - compute_ingredients_tags() to create a flat array ingredients_original_tags and ingredients_tags (with parents)
 
-- analyze_ingredients() to analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
+- analyze_ingredients_service() to analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 and to compute the resulting value for the complete product
 
 =cut
@@ -2631,7 +2640,7 @@ sub extract_ingredients_from_text ($product_ref) {
 	# Parse the ingredients list to extract individual ingredients and sub-ingredients
 	# to create the ingredients array with nested sub-ingredients arrays
 
-	parse_ingredients_text($product_ref);
+	parse_ingredients_text_service($product_ref, {});
 
 	if (defined $product_ref->{ingredients}) {
 

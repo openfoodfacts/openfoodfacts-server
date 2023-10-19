@@ -728,6 +728,10 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 					last;
 				}
 			}
+			# Also copy the field for the main language if it exists
+			if (defined $product_ref->{$field}) {
+				$customized_product_ref->{$field} = $product_ref->{$field};
+			}
 			next;
 		}
 

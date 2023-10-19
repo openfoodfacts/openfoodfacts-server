@@ -103,24 +103,16 @@ sub echo_service ($product_ref, $updated_product_fields_ref) {
 
 my %service_functions = (
 	echo => \&echo_service,
+	parse_ingredients_text => \&ProductOpener::Ingredients::parse_ingredients_text_service,
 	estimate_ingredients_percent => \&ProductOpener::Ingredients::estimate_ingredients_percent_service,
 	analyze_ingredients => \&ProductOpener::Ingredients::analyze_ingredients_service,
 );
 
-=head2 product_services_api()
 
-Process API v3 product services requests.
-
-=cut
-
-sub product_services_api ($request_ref) {
-
-	$log->debug("product_services_api - start", {request => $request_ref}) if $log->is_debug();
+sub check_product_services_api_input ($request_ref) {
 
 	my $response_ref = $request_ref->{api_response};
 	my $request_body_ref = $request_ref->{body_json};
-
-	$log->debug("product_services_api - body", {request_body => $request_body_ref}) if $log->is_debug();
 
 	my $error = 0;
 
@@ -175,6 +167,25 @@ sub product_services_api ($request_ref) {
 			$response_ref->{services} = $request_body_ref->{services};
 		}
 	}
+	return $error;
+}
+
+=head2 product_services_api()
+
+Process API v3 product services requests.
+
+=cut
+
+sub product_services_api ($request_ref) {
+
+	$log->debug("product_services_api - start", {request => $request_ref}) if $log->is_debug();
+
+	my $response_ref = $request_ref->{api_response};
+	my $request_body_ref = $request_ref->{body_json};
+
+	$log->debug("product_services_api - body", {request_body => $request_body_ref}) if $log->is_debug();
+
+	my $error = check_product_services_api_input ($request_ref) ;
 
 	# If we did not get a fatal error, we can execute the services on the input product object
 	if (not $error) {
@@ -203,7 +214,11 @@ sub product_services_api ($request_ref) {
 		}
 
 		# Select / compute only the fields requested by the caller, default to updated fields
-		my $fields_ref = request_param($request_ref, 'fields') || ["updated"];
+		my $fields_ref = request_param($request_ref, 'fields');
+		if (not defined $fields_ref) {
+			$fields_ref = ["updated"];
+		} 
+		$log->debug("product_services_api - before customize", {fields_ref => $fields_ref, product_ref => $product_ref}) if $log->is_debug();
 		$response_ref->{product} = customize_response_for_product($request_ref, $product_ref, undef, $fields_ref);
 
 		# Echo back the services that were executed

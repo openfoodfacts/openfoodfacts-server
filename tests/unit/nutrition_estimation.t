@@ -40,7 +40,7 @@ foreach my $test_ref (@tests) {
 	my $testid = $test_ref->{id};
 	my $product_ref = $test_ref->{product};
 
-	parse_ingredients_text($product_ref);
+	parse_ingredients_text_service($product_ref, {});
 	if (compute_ingredients_percent_min_max_values(100, 100, $product_ref->{ingredients}) < 0) {
 		delete_ingredients_percent_values($product_ref->{ingredients});
 	}
