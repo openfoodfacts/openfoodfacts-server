@@ -1456,8 +1456,8 @@ en:Amber IPA
 xx:Amber IPA
 
 <en:India Pale Ale (IPA)
-en:American IPA
-xx:American IPA
+en:American-style IPA, American IPA
+xx:American-style IPA, American IPA
 lt:Amerikietiškas IPA
 
 <en:India Pale Ale (IPA)
@@ -1558,6 +1558,7 @@ description:en:Kveik IPA is a dry-hopped IPA containing Norwegian yeast.
 <en:India Pale Ale (IPA)
 en:Matcha IPA
 xx:Matcha IPA
+description:en:This unique Japanese IPA tastes exactly as its name describes. It is brewed with Matcha tea leaves.
 
 <en:India Pale Ale (IPA)
 en:Rye IPA
@@ -1587,17 +1588,23 @@ wikidata:en:Q1161714
 wikipedia:en:https://en.wikipedia.org/wiki/Saison
 
 <en:Pale ales
-en:American Pale Ale (APA), APA beers, American Pale Ale
-xx:American Pale Ale
-lt:APA alus
+en:American-style Pale Ale (APA), American Pale Ale (APA), American Pale Ale, APA
+xx:American-style Pale Ale (APA), American Pale Ale (APA), American Pale Ale, APA
 wikidata:en:Q15940735
 
 <en:Ales
-en:French pale ale
+en:French-style pale ale, French pale ale
 fr:Bières de garde
 wikidata:en:Q1168351
 
-############ ABBEY ############
+############ ABBEY/TRAPPIST ############
+<en:Beers
+en:Trappist beers, Trappist
+xx:Trappist beers, Trappist
+wikidata:en:Q505815
+wikipedia:en:https://en.wikipedia.org/wiki/Trappist_beer
+description:en:A type of beer that is brewed by trappist monks. There is a strict criteria managed by the International Trappist Association that grants Authentic Trappist Product label to breweries that have monks.
+
 <en:Ales
 en:Abbey ales, Abbey beer, Abbey ale, Abbey beers
 de:Abteibier
@@ -1645,8 +1652,10 @@ it:Birre quadruple
 nl:Quadrupel bieren
 #wikidata:en:
 
+########################
+
 <en:Ales
-en:Blonde ales, Blonde ale
+en:Blonde ales, Blonde ale, Blond ale
 es:Cerveza rubia
 fr:Bières blondes, bière blonde
 nl:Blonde bieren
@@ -1654,14 +1663,12 @@ ro:Beri blonde, Bere blondă, Bere blonda
 wikidata:en:Q2792509
 
 <en:Blonde ales
-<en:Belgian beers
-en:Belgian blonde, Belgian blonde ales
-xx:Belgian blonde
+en:Belgian-style blonde ales, Belgian blonde, Belgian blonde ales
+xx:Belgian-style blonde ales, Belgian blonde, Belgian blonde ales
 
 <en:Blonde ales
-<en:American beers
-en:American blonde, American blonde ales
-xx:American blonde
+en:American-style blonde ales, American blonde, American blonde ales
+xx:American-style blonde ales, American blonde, American blonde ales
 
 <en:Ales
 en:Dark ales, Dark ale
@@ -1698,8 +1705,8 @@ wikidata:en:Q3347894
 
 <en:Stouts
 <en:Irish beers
-en:Irish stouts, Irish stout
-xx:Irish stouts, Irish stout
+en:Irish-style stouts, Irish stouts, Irish stout
+xx:Irish-style stouts, Irish stouts, Irish stout
 
 <en:Dark ales
 en:Porters,Porter, porter beers
@@ -1879,7 +1886,7 @@ description:en:Radler is a type of beer mixed from lager and citrus soda. It is 
 wikidata:en:Q260417
 
 <en:Beers
-en:Wheat beers, Wheat beer, White beer, White beers
+en:Wheat beers, Wheat beer, White beer, White beers, Witbier
 de:Weißbier, Weizenbier
 dk:Hvedeöl
 es:Cerveza blanca
@@ -1932,8 +1939,8 @@ wikidata:en:Q1760222
 wikipedia:en:https://en.wikipedia.org/wiki/M%C3%A4rzen
 
 <en:Lagers
-en:Pilsners, , Pilsner, Pilsner beers
-xx:Pilsners, Pilsner
+en:Pilsners, Pilsner, Pilsner beers, Pils
+xx:Pilsners, Pilsner, Pils
 wikidata:en:Q152281
 wikipedia:en:https://en.wikipedia.org/wiki/Pilsner
 
@@ -1983,13 +1990,6 @@ agribalyse_food_code:en:5010
 ciqual_food_code:en:5010
 ciqual_food_name:en:Beer, special (5-6° alcohol)
 ciqual_food_name:fr:Bière spéciale (5-6° alcool)
-
-<en:Beers
-en:Trappist beers, Trappist
-xx:Trappist beers, Trappist
-wikidata:en:Q505815
-wikipedia:en:https://en.wikipedia.org/wiki/Trappist_beer
-description:en:A type of beer that is brewed by trappist monks. There is a strict criteria managed by the International Trappist Association that grants Authentic Trappist Product label to breweries that have monks.
 
 <en:Beers
 en:5% beer, Beer with 5° alcohol, Beer with 4° alcohol
