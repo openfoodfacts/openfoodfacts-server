@@ -1930,6 +1930,17 @@ ciqual_food_code:en:5001
 wikipedia:en:https://en.wikipedia.org/wiki/Lager
 
 <en:Lagers
+en:Dortmunder export, Beers from Dortmund, Dortmunder export beers
+de:Dortmunder Biere, Dortmunder Bier
+hu:Dortmundi sörök
+nl:Dortmunder bieren
+xx:Dortmunder export
+protected_name_file_number:en: PGI-DE-1101
+protected_name_type:en: pgi
+wikidata:en:Q1512528
+wikipedia:en:https://en.wikipedia.org/wiki/Dortmunder_Export
+
+<en:Lagers
 <en:Wheat beers
 <en:Unfiltered beers
 en:Hefeweizen, Hefeweizen beers
@@ -1937,10 +1948,15 @@ xx:Hefeweizen
 description:en:Hefeweizen is a lager that originated from Bavaria. It is unfiltered wheat beer consisting of 50% wheat malt.
 
 <en:Lagers
-en:Märzen
-xx:Märzen
+en:Märzen, Marzen
+xx:Märzen, Marzen
 wikidata:en:Q1760222
 wikipedia:en:https://en.wikipedia.org/wiki/M%C3%A4rzen
+
+<en:Märzen
+en:Oktoberfest beers
+xx:Oktoberfest beers
+description:en:Is a Märzen type of beer that is brewed in March and is aged until September-October specifically for Oktoberfest.
 
 <en:Lagers
 en:Pilsners, Pilsner, Pilsner beers, Pils
@@ -2399,18 +2415,6 @@ protected_name_file_number:en: PGI-DE-0514
 protected_name_type:en: pgi
 origins:en: en:Germany
 #wikidata:en:
-
-<en:Lagers
-<en:Beers from Germany
-en:Beers from Dortmund, Dortmunder export, Dortmunder export beers
-de:Dortmunder Biere, Dortmunder Bier
-hu:Dortmundi sörök
-nl:Dortmunder bieren
-protected_name_file_number:en: PGI-DE-1101
-protected_name_type:en: pgi
-origins:en: en:Germany
-wikidata:en:Q1512528
-wikipedia:en:https://en.wikipedia.org/wiki/Dortmunder_Export
 
 <en:Beers from Germany
 de:Hofer Biere, Hofer Bier
