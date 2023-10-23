@@ -389,20 +389,20 @@ elsif ($action eq 'process') {
 	elsif ($type eq 'admin_status') {
 		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
 			foreach my $user_id (sort keys %{$org_ref->{members}}) {
-				my $checkbox_name = "admin_status_hidden_".$user_id;
+				my $checkbox_name = "admin_status_hidden_" . $user_id;
 				my $is_admin = single_param($checkbox_name) ? 1 : 0;
-                $log->debug("checkbox name",{checkss => $checkbox_name,statuss=>$is_admin}) if $log->is_debug();
- 
+				$log->debug("checkbox name", {checkss => $checkbox_name, statuss => $is_admin}) if $log->is_debug();
+
 				if ($is_admin) {
 					add_user_to_org($org_ref, $user_id, ["admins"]);
-					unless (grep { $_ == $user_id } @admin_status) {
-                    push @admin_status, $user_id;
+					unless (grep {$_ == $user_id} @admin_status) {
+						push @admin_status, $user_id;
 
-				}
+					}
 				}
 				else {
 					remove_user_from_org($org_ref, $user_id, ["admins"]);
-                    @admin_status = grep { $_ != $user_id } @admin_status;
+					@admin_status = grep {$_ != $user_id} @admin_status;
 				}
 				store_org($org_ref);
 			}
@@ -425,7 +425,7 @@ $log->debug("org form - template data", {template_data_ref => $template_data_ref
 my @org_members;
 foreach my $member_id (sort keys %{$org_ref->{members}}) {
 	if (is_user_in_org_group($org_ref, $member_id, "admins")) {
-	push @admin_status, $member_id;
+		push @admin_status, $member_id;
 	}
 	my $member_user_ref = retrieve_user($member_id);
 	push @org_members, $member_user_ref;

@@ -46,7 +46,7 @@
 					[% END %]
 					
 					<input type="checkbox" name="admin_status_[% users.userid %]" value="1" class="admin-checkbox" [% IF user_in_admin_status %]checked[% END %]>
-                    <input type="hidden" name="admin_status_hidden_[% users.userid %]" value="0">
+					<input type="hidden" name="admin_status_hidden_[% users.userid %]" value="0">
 				
 				</td>
 				<td>[% users.userid %]</td>
@@ -73,8 +73,6 @@
 				<input type="hidden" name="action" value="process" />
 				<input type="hidden" name="type" value="admin_status" />
 
-				
-
 				[% FOREACH users IN org_members %]
 				[% SET initial_hidden_value = '0' %]
 				[% FOREACH admin_id IN admin_status %]
@@ -82,12 +80,10 @@
 						[% SET initial_hidden_value = '1' %]
 					[% END %]
 				[% END %]
-                <input type="hidden" name="admin_status_hidden_[% users.userid %]" value="[% initial_hidden_value %]">
+				<input type="hidden" name="admin_status_hidden_[% users.userid %]" value="[% initial_hidden_value %]">
 				[% END %]
 	
-	<input type="submit" name="grant_remove_admin_status" class="button" style="margin-bottom: 10px;" value="[% lang("grant_remove_admin_status") %]"/>
-
-
+				<input type="submit" name="grant_remove_admin_status" class="button" style="margin-bottom: 10px;" value="[% lang("grant_remove_admin_status") %]"/>
 			</form>
 		</div>
 	</div>
