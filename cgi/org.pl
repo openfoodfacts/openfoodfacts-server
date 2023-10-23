@@ -50,6 +50,8 @@ my $request_ref = ProductOpener::Display::init_request();
 
 my $orgid = $Org_id;
 
+my @admin_status;
+
 if (defined single_param('orgid')) {
 	$orgid = get_fileid(single_param('orgid'), 1);
 }
@@ -384,22 +386,23 @@ elsif ($action eq 'process') {
 		}
 	}
 
-	$template_data_ref->{profile_url} = canonicalize_tag_link("editors", "org-" . $orgid);
-	$template_data_ref->{profile_name} = sprintf(lang('user_s_page'), $org_ref->{name});
-
 	elsif ($type eq 'admin_status') {
 		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
 			foreach my $user_id (sort keys %{$org_ref->{members}}) {
-				my $checkbox_name = "admin_status_$user_id";
+				my $checkbox_name = "admin_status_hidden_".$user_id;
 				my $is_admin = single_param($checkbox_name) ? 1 : 0;
-
+                $log->debug("checkbox name",{checkss => $checkbox_name,statuss=>$is_admin}) if $log->is_debug();
+ 
 				if ($is_admin) {
 					add_user_to_org($org_ref, $user_id, ["admins"]);
+					unless (grep { $_ == $user_id } @admin_status) {
+                    push @admin_status, $user_id;
 
+				}
 				}
 				else {
 					remove_user_from_org($org_ref, $user_id, ["admins"]);
-
+                    @admin_status = grep { $_ != $user_id } @admin_status;
 				}
 				store_org($org_ref);
 			}
@@ -407,6 +410,8 @@ elsif ($action eq 'process') {
 			$template_data_ref->{result} = lang("admin_status_updated");
 		}
 	}
+	$template_data_ref->{profile_url} = canonicalize_tag_link("editors", "org-" . $orgid);
+	$template_data_ref->{profile_name} = sprintf(lang('user_s_page'), $org_ref->{name});
 }
 
 $template_data_ref->{orgid} = $orgid;
@@ -420,12 +425,13 @@ $log->debug("org form - template data", {template_data_ref => $template_data_ref
 my @org_members;
 foreach my $member_id (sort keys %{$org_ref->{members}}) {
 	if (is_user_in_org_group($org_ref, $member_id, "admins")) {
-		$template_data_ref->{admin_status}{$member_id} = 1;
+	push @admin_status, $member_id;
 	}
 	my $member_user_ref = retrieve_user($member_id);
 	push @org_members, $member_user_ref;
 }
 $template_data_ref->{org_members} = \@org_members;
+$template_data_ref->{admin_status} = \@admin_status;
 
 $tt->process('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
 	or $html = "<p>template error: " . $tt->error() . "</p>";

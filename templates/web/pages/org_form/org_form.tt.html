@@ -1,5 +1,9 @@
 <!-- start templates/[% template.name %] -->
 
+<script>
+	[% INCLUDE web/pages/org_form/org_form.tt.js %]
+</script>
+
 [% IF action == 'display' || action == 'none' %]
 [% INCLUDE 'web/common/includes/error_list.tt.html' %]
 [% END %]
@@ -34,8 +38,16 @@
 			<tr>
 				<td>[% count %].</td>
 				<td>
-					<input type="checkbox" name="admin_status_[% users.userid %]" value= "1" [% IF admin_status.users.userid %]checked[% END %]>
-					<input type="hidden" name="admin_status_[% users.userid %]" value="0">
+					[% SET user_in_admin_status = 0 %]
+					[% FOREACH admin_id IN admin_status %]
+						[% IF admin_id == users.userid %]
+						  [% SET user_in_admin_status = 1 %]
+ 				        [% END %]
+					[% END %]
+					
+					<input type="checkbox" name="admin_status_[% users.userid %]" value="1" class="admin-checkbox" [% IF user_in_admin_status %]checked[% END %]>
+                    <input type="hidden" name="admin_status_hidden_[% users.userid %]" value="0">
+				
 				</td>
 				<td>[% users.userid %]</td>
 				<td>[% users.name %]</td>
@@ -57,13 +69,25 @@
 		</tbody>
 		</table>
 		<div>
-			<form method="post" action="/cgi/org.pl">
+			<form id='hiddenInputForm' method="post" action="/cgi/org.pl">
 				<input type="hidden" name="action" value="process" />
 				<input type="hidden" name="type" value="admin_status" />
-				<input type="hidden" name="org_id" value="[% orgid %]">
-				<input type="hidden" name="user_id" value="[% users.userid %]">
-				<input type="submit" name="grant_remove_admin_status" class="button" style="margin-bottom: 10px;" value="[% lang("grant_remove_admin_status") %]"/>
+
+				
+
+				[% FOREACH users IN org_members %]
+				[% SET initial_hidden_value = '0' %]
+				[% FOREACH admin_id IN admin_status %]
+					[% IF admin_id == users.userid %]
+						[% SET initial_hidden_value = '1' %]
+					[% END %]
+				[% END %]
+                <input type="hidden" name="admin_status_hidden_[% users.userid %]" value="[% initial_hidden_value %]">
+				[% END %]
 	
+	<input type="submit" name="grant_remove_admin_status" class="button" style="margin-bottom: 10px;" value="[% lang("grant_remove_admin_status") %]"/>
+
+
 			</form>
 		</div>
 	</div>
