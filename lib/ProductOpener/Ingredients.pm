@@ -194,7 +194,7 @@ my %may_contain_regexps = (
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
-	lt => "sudėtyje gali būti",
+	lt => "sudėtyje gali būti|gali būti",
 	lv => "var saturēt",
 	nl =>
 		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van|Geproduceerd in ruimtes waar",
@@ -2091,6 +2091,7 @@ sub parse_ingredients_text ($product_ref) {
 											or ($ingredients_lc eq 'fr')
 											or ($ingredients_lc eq 'hr')
 											or ($ingredients_lc eq 'it')
+											or ($ingredients_lc eq 'lt')
 											or ($ingredients_lc eq 'mk')
 											or ($ingredients_lc eq 'pl')
 											or ($ingredients_lc eq 'sl')
@@ -4324,6 +4325,10 @@ my %phrases_after_ingredients_list = (
 
 	lt => [
 		'geriausias iki',    # best before
+		'tinka vartoti iki',    # valid until
+		'data ant pakuotės',    #date on package
+		'laikyti sausoje vietoje',    #Keep in dry place
+		'',
 	],
 
 	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnhold', 'kjølevare',],
@@ -4884,6 +4889,16 @@ my %ingredients_categories_and_types = (
 		],
 		# peppers
 		[["piment", "poivron"], ["vert", "jaune", "rouge",], 0,],
+	],
+
+	lt => [
+		#oils
+		[
+			# categories
+			["aliejai", "augaliniai aliejai",],
+			# types
+			["palmių", "rapsų", "saulėgrąžų",],
+		],
 	],
 
 	hr => [
