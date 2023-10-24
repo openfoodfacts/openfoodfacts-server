@@ -1408,62 +1408,30 @@ sub check_labels ($product_ref) {
 					if (has_tag($product_ref, "labels", "en:vegan")) {
 						# vegan
 						if (defined $ingredient_ref->{"vegan"}) {
-							if (
-								($ingredient_ref->{"vegan"} eq 'no')
-								&& (
-									!has_tag(
-										$product_ref, 'data_quality_errors',
-										"en:vegan-label-but-non-vegan-ingredient"
-									)
-								)
-								)
-							{
-								push @{$product_ref->{data_quality_errors_tags}},
-									"en:vegan-label-but-non-vegan-ingredient";
+							if ($ingredient_ref->{"vegan"} eq 'no') {
+								add_tag($product_ref, "data_quality_errors", "en:vegan-label-but-non-vegan-ingredient");
 							}
 							# else 'yes', 'maybe'
 						}
 						# no tag
-						elsif (
-							!has_tag(
-								$product_ref, 'data_quality_warnings',
-								"en:vegan-label-but-could-not-confirm-for-all-ingredients"
-							)
-							)
-						{
-							push @{$product_ref->{data_quality_warnings_tags}},
-								"en:vegan-label-but-could-not-confirm-for-all-ingredients";
+						else {
+							add_tag($product_ref, "data_quality_warnings",
+								"en:vegan-label-but-could-not-confirm-for-all-ingredients");
 						}
 					}
 
 					# vegetarian label condition is above
 					if (defined $ingredient_ref->{"vegetarian"}) {
-
-						if (
-							($ingredient_ref->{"vegetarian"} eq 'no')
-							&& (
-								!has_tag(
-									$product_ref, 'data_quality_errors',
-									"en:vegetarian-label-but-non-vegetarian-ingredient"
-								)
-							)
-							)
-						{
-							push @{$product_ref->{data_quality_errors_tags}},
-								"en:vegetarian-label-but-non-vegetarian-ingredient";
+						if ($ingredient_ref->{"vegetarian"} eq 'no') {
+							add_tag($product_ref, "data_quality_errors",
+								"en:vegetarian-label-but-non-vegetarian-ingredient");
 						}
 						# else 'yes', 'maybe'
 					}
 					# no tag
-					elsif (
-						!has_tag(
-							$product_ref, 'data_quality_warnings',
-							"en:vegetarian-label-but-could-not-confirm-for-all-ingredients"
-						)
-						)
-					{
-						push @{$product_ref->{data_quality_warnings_tags}},
-							"en:vegetarian-label-but-could-not-confirm-for-all-ingredients";
+					else {
+						add_tag($product_ref, "data_quality_warnings",
+							"en:vegetarian-label-but-could-not-confirm-for-all-ingredients");
 					}
 				}
 			}
