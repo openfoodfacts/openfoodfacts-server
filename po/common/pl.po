@@ -475,7 +475,7 @@ msgstr "Spowoduje to usunięcie danych użytkownika i zanonimizowanie wszystkich
 
 msgctxt "danger_zone"
 msgid "Danger Zone"
-msgstr ""
+msgstr "Wysokie Ryzko"
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -5174,7 +5174,7 @@ msgstr "Niskie ryzyko wylesiania"
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr ""
+msgstr "Ślad leśny opisuje ryzyko degradacji obszarów leśnych związane z produkcją."
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Very small forest footprint"
@@ -5293,7 +5293,7 @@ msgstr "Usuń wszystkie wartości odżywcze"
 
 msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
-msgstr ""
+msgstr "Trwa usuwanie użytkownika. Proces może potrwać kilka minut."
 
 msgctxt "attribute_ecoscore_not_applicable_title"
 msgid "Eco-Score not yet applicable"
@@ -5338,11 +5338,11 @@ msgstr "Oddzielona przecinkami lista identyfikatorów GS1 GLN w celu wymuszenia 
 
 msgctxt "org_valid_org"
 msgid "Validate organization as a real producer."
-msgstr ""
+msgstr "Zweryfikuj organizacje jako prawdziwego producenta."
 
 msgctxt "org_valid_org_note"
 msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
-msgstr ""
+msgstr "Organizacja potwierdzona przez użytkownika jako istniejący producent, wpis w CRM utworzony."
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
@@ -5658,11 +5658,11 @@ msgstr "Eco-Score został początkowo opracowany dla Francji i jest rozszerzany 
 
 msgctxt "ecoscore_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
-msgstr ""
+msgstr "Wybierz kraj, aby ocenić pełny wpływ procesu transportu."
 
 msgctxt "ecoscore_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
-msgstr ""
+msgstr "Wpływ transportu do Twojego kraju jest obecnie niedostępny."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
@@ -5929,15 +5929,15 @@ msgstr "Potencjalne problemy"
 
 msgctxt "data_quality_warnings_panel_subtitle"
 msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
-msgstr ""
+msgstr "Wykryliśmy pewne problemy lub ulepszenia. Sprawdź, czy któreś z nich mają zastosowanie?"
 
 msgctxt "data_quality_info_panel_title"
 msgid "Data Quality infos"
-msgstr ""
+msgstr "Informacje o jakości danych"
 
 msgctxt "data_quality_info_panel_subtitle"
 msgid "Some infos about data quality on this product"
-msgstr ""
+msgstr "Niektóre informacje o jakości danych tego produktu"
 
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
@@ -6035,7 +6035,7 @@ msgstr "Składniki, które mogą nie być wegańskie"
 
 msgctxt "attribute_vegan_setting_note"
 msgid "To determine whether a product is vegan, we only rely on the list of ingredients."
-msgstr ""
+msgstr "Aby określić, czy produkt jest wegański, polegamy tylko i wyłącznie na liście składników."
 
 msgctxt "non_vegetarian_ingredients"
 msgid "Non-vegetarian ingredients"
@@ -6051,7 +6051,7 @@ msgstr "Składniki, które mogą nie być wegetariańskie"
 
 msgctxt "attribute_vegetarian_setting_note"
 msgid "To determine whether a product is vegetarian, we only rely on the list of ingredients."
-msgstr ""
+msgstr "Aby określić, czy produkt jest wegetariański, polegamy tylko i wyłącznie na liście składników."
 
 msgctxt "palm_oil_ingredients"
 msgid "Ingredients that contain palm oil"
@@ -6067,7 +6067,7 @@ msgstr "Nie wykryto składników zawierających olej palmowy"
 
 msgctxt "attribute_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
-msgstr ""
+msgstr "Aby określić, czy produkt zawiera olej palmowy, polegamy tylko i wyłącznie na liście składników."
 
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
@@ -6182,15 +6182,15 @@ msgstr "Dodaj informacje o wartościach odżywczych"
 
 msgctxt "action_add_origins"
 msgid "Add the origins of ingredients for this product"
-msgstr ""
+msgstr "Dodaj pochodzenie składników dla tego produktu"
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
-msgstr ""
+msgstr "Zrób zdjęcie informacji o recyklingu"
 
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
-msgstr ""
+msgstr "Dodaj składowe opakowania"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
@@ -6220,32 +6220,32 @@ msgstr "Odśwież zdjęcie składników"
 # this is not used yet
 msgctxt "action_refresh_nutrition_image"
 msgid "Refresh the photo of the nutrition facts"
-msgstr ""
+msgstr "Odśwież zdjęcie informacji o składnikach odżywczych"
 
 # this is not used yet
 msgctxt "action_add_packaging_text"
 msgid "Extract and check the recycling information"
-msgstr ""
+msgstr "Znajdź i sprawdź informacje o recyklingu"
 
 # this is not used yet
 msgctxt "action_add_stores"
 msgid "Add the store where you found this product"
-msgstr ""
+msgstr "Dodaj sklep, w którym znalazłeś ten produkt"
 
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "Dodaj dowolną informację znalezioną na opakowaniu produktu"
 
 # this is not used yet
 msgctxt "action_countries"
 msgid "Add the country where you found this product"
-msgstr ""
+msgstr "Dodaj kraj, w którym znalazłeś ten produkt"
 
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "Zrób zdjęcie kodu identyfikacyjnego"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6350,7 +6350,7 @@ msgstr "Poznaj nasz <a href=\"{url}\">Kodeks postępowania</a>"
 # {links} must not be translated, it will be replaced by icons and/or text links
 msgctxt "f_footer_follow_us_links"
 msgid "Follow us: {links}"
-msgstr ""
+msgstr "Obserwuj nas: {links}"
 
 # Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
 msgctxt "footer_install_the_app_exclamation_mark"
@@ -6361,7 +6361,7 @@ msgstr "Zainstaluj aplikację!"
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
 msgctxt "footer_scan_your_everyday_foods"
 msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
-msgstr ""
+msgstr "Zeskanuj swoje <span id=\"everyday\">codzienne</span> <span id=\"foods\">produkty</span>"
 
 msgctxt "nutrition"
 msgid "Nutrition"
@@ -6382,7 +6382,7 @@ msgstr "Oddziaływanie na środowisko"
 
 msgctxt "api_result_failure"
 msgid "Failure"
-msgstr ""
+msgstr "Niepowodzenie"
 
 msgctxt "api_result_product_found"
 msgid "Product found"
@@ -6406,15 +6406,15 @@ msgstr "Nieprawidłowa metoda API"
 
 msgctxt "api_message_empty_request_body"
 msgid "Empty request body"
-msgstr ""
+msgstr "Pusta treść żądania"
 
 msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
-msgstr ""
+msgstr "Niepoprawny JSON w treści zapytania"
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
-msgstr ""
+msgstr "Nieprawidłowy kod"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6422,27 +6422,27 @@ msgstr "Nieprawidłowy typ: musi być obiektem"
 
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
-msgstr ""
+msgstr "Nieprawidłowy typ: wymagana lista/tablica"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
-msgstr ""
+msgstr "Nieprawidłowy typ: wymagana liczba całkowita"
 
 msgctxt "api_message_invalid_type_must_be_number"
 msgid "Invalid type: must be a number"
-msgstr ""
+msgstr "Nieprawidłowy typ: wymagana liczba"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
-msgstr ""
+msgstr "Brakujące pole"
 
 msgctxt "api_message_unrecognized_field"
 msgid "Unrecognized field"
-msgstr ""
+msgstr "Nie rozpoznano pola"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
-msgstr ""
+msgstr "Nie rozpoznano wartości"
 
 msgctxt "api_impact_none"
 msgid "None"
@@ -6454,15 +6454,15 @@ msgstr "Ostrzeżenie"
 
 msgctxt "api_impact_failure"
 msgid "Failure"
-msgstr ""
+msgstr "Niepowodzenie"
 
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
-msgstr ""
+msgstr "Pole pominięte"
 
 msgctxt "api_impact_value_converted"
 msgid "Value converted"
-msgstr ""
+msgstr "Wartość przeliczona"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6472,29 +6472,29 @@ msgstr "Liczba jednostek"
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "Waga jedne pustej jednostki"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "Ilość produktu na jednostke"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
 msgid "Help categorize more {title} on Hunger Games"
-msgstr ""
+msgstr "Pomóż sklasyfikować więcej {title} w Hunger Games"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "Wszystkie składowe opakowania wymienione."
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
-msgstr ""
+msgstr "Nieprawidłowy identyfikator użytkownika i hasło"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
-msgstr ""
+msgstr "Nieprawidłowa wartość: wymagana 0 lub 1"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
@@ -6516,7 +6516,7 @@ msgstr "Wprowadź informacje dotyczące recyklingu tylko wtedy, gdy znajdują si
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
 msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
-msgstr ""
+msgstr "Usuń wszelką zawartość opakowania, umyj je i wysusz przed ważeniem. W miarę możliwości użyj wagi z dokładnością do dziesiętnej lub setnej grama."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
@@ -6525,7 +6525,7 @@ msgstr "Podaj wagę lub objętość produktu netto i uzupełnij jednostkę (na p
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
-msgstr ""
+msgstr "Import i eksport produktów"
 
 msgctxt "add_products"
 msgid "Add products"
@@ -6534,7 +6534,7 @@ msgstr "Dodawaj produkty"
 # Needs to be short (displayed in a menu)
 msgctxt "install_the_app_to_add_products"
 msgid "Install the app to add products"
-msgstr ""
+msgstr "Aby dodać produkty, zainstaluj aplikację mobilną"
 
 msgctxt "search_and_analyze_products"
 msgid "Search and analyze products"
@@ -6542,19 +6542,19 @@ msgstr "Wyszukaj i analizuj produkty"
 
 msgctxt "resources"
 msgid "Resources"
-msgstr ""
+msgstr "Zasoby"
 
 msgctxt "pro_platform_user_guide"
 msgid "Pro platform user guide"
-msgstr ""
+msgstr "Instrukcja użytkowania paltformy Pro"
 
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
-msgstr ""
+msgstr "Najczęściej zadawane pytanie dla producentów"
 
 msgctxt "join_the_next_pros_meet_up"
 msgid "Join the next Pros' Meet-up"
-msgstr ""
+msgstr "Dołącz do kolejnego wydarzenia Pros' Meet-up"
 
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
@@ -6563,19 +6563,19 @@ msgstr "Wprowadź wartość pomiędzy 0 a {max}."
 
 msgctxt "please_ask_users_create_account_first"
 msgid "Please ask the following users to create an Open Food Facts account first:"
-msgstr ""
+msgstr "Najpierw poproś następujących użytkowników o utworzenie konta Open Food Facts:"
 
 msgctxt "users_added_successfully"
 msgid "Users added to the organization successfully:"
-msgstr ""
+msgstr "Użytkownicy dodani pomyślnie do organizacji:"
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
-msgstr ""
+msgstr "Cukry nie powinny mieć wyższej wartości niż całkowita wartość węglowodanów."
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
-msgstr ""
+msgstr "Tłuszcze nasycone nie powinny mieć wyższej wartości niż całkowita wartość tłuszczy."
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
@@ -6595,7 +6595,7 @@ msgstr "Średnia waga opakowania na 100 g produktu"
 
 msgctxt "total"
 msgid "Total"
-msgstr ""
+msgstr "Razem"
 
 msgctxt "packaging_material_products_percent"
 msgid "% of products containing the material"
@@ -6615,15 +6615,15 @@ msgstr "dla produktów zawierających głównie ten materiał"
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
-msgstr ""
+msgstr "w stosunk do wszystkich produktów"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
-msgstr ""
+msgstr "Liczba elementów opakowania"
 
 msgctxt "packagings_n_s"
 msgid "Number of packaging components"
-msgstr ""
+msgstr "Liczba elementów opakowania"
 
 msgctxt "packagings_materials_all"
 msgid "All materials"
@@ -6635,9 +6635,9 @@ msgstr "Waga"
 
 msgctxt "weight_100g"
 msgid "Weight per 100g of product"
-msgstr ""
+msgstr "Waga na 100g produktu"
 
 msgctxt "weight_percent"
 msgid "Weight percent"
-msgstr ""
+msgstr "Procent wagi"
 
