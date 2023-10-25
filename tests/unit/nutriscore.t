@@ -661,6 +661,24 @@ my @tests = (
 			},
 		}
 	],
+	# Coconut milk -> for cooking, not considered a beverage in 2023 Nutri-Score
+	[
+		"fr-coconut-milk",
+		{
+			lc => "fr",
+			categories => "lait de coco",
+			ingredients => "Noix de coco 60%, eau",
+			nutriments => {
+				energy_100g => 178,
+				fat_100g => 2.6,
+				"saturated-fat_100g" => 0.6,
+				sugars_100g => 0.5,
+				salt_100g => 0.03,
+				fiber_100g => 0.5,
+				proteins_100g => 3.9,
+			},
+		}
+	],
 
 );
 
