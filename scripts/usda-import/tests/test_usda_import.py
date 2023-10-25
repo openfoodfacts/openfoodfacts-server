@@ -23,6 +23,21 @@ example_code_tags = [
     '0XXXXXXXXXXXX'
 ]
 
+# from Victor's list of verifiable products.
+# see https://forum.openfoodfacts.org/t/integration-of-usda-foodcentral-data-into-off
+upc_codes = [
+    '4099100028829',
+    '20200129783',
+    '44400176002',
+    '41570094754',
+    '0053000006329',
+    '72745804113',
+    '15800050117',
+    '850229005207',
+    '856481003043',
+    '4099100099157'
+]
+
 class TestUSDAImport(unittest.TestCase):
 
     def test_generate_code_tags_list(self):

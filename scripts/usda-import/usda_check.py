@@ -18,8 +18,10 @@ def arguments():
 def search_via_upc(upc):
 
     usda_url = f"https://api.nal.usda.gov/fdc/v1/foods/search?api_key={cfg['API_KEY']}"
-    # print(f"usda_url: {usda_url}")
     obj = {'query': upc}
+
+    if args.verbose:
+        print(f"fetching {usda_url} with data: {obj}")
 
     resp = requests.post(usda_url, json = obj)
 
@@ -33,7 +35,9 @@ def search_via_upc(upc):
 def fetch_via_fdcid(fdcid):
 
     usda_url = f"https://api.nal.usda.gov/fdc/v1/food/{fdcid}?format=full&api_key={cfg['API_KEY']}"
-    # print(f"usda_url: {usda_url}")
+
+    if args.verbose:
+        print(f"fetching {usda_url}")
 
     resp = requests.get(usda_url)
 
@@ -44,19 +48,45 @@ def fetch_via_fdcid(fdcid):
     return  json.loads(str(resp.text))
 
 
-label_matches = {
-    'fat': 'Total lipid (fat)',
-    'saturatedFat': 'Fatty acids, total saturated',
-    'transFat': 'Fatty acids, total trans',
-    'cholesterol': 'Cholesterol',
-    'sodium': 'Sodium, Na',
-    'carbohydrates': 'Carbohydrate, by difference',
-    'fiber': 'Fiber, total dietary',
-    'sugars': 'Sugars, total including NLEA',
-    'protein': 'Protein',
-    'calcium': 'Calcium, Ca',
-    'iron': 'Iron, Fe',
-    'calories': 'Energy'
+def fetch_via_off(barcode):
+
+    off_url = f"https://world.openfoodfacts.org/api/v3/product/{barcode}"
+
+    if args.verbose:
+        print(f"fetching: {off_url}")
+
+    resp = requests.get(off_url)
+
+    status = resp.status_code
+    if status != 200:
+        return {}
+    else:
+        return json.loads(str(resp.text))
+
+
+off_name_for_usda = {
+    'Calcium, Ca': ['calcium'],
+    'Carbohydrate, by difference': ['carbohydrates'],
+    'Cholesterol': ['cholesterol'],
+    'Energy': ['energy', 'calories'], # 'energy-kcal' ???
+    'Fatty acids, total monounsaturated': ['monounsaturated-fat'],
+    'Fatty acids, total polyunsaturated': ['polyunsaturated-fat'],
+    'Fatty acids, total saturated': ['saturated-fat'],
+    'Fatty acids, total trans': ['trans-fat'],
+    'Fiber, total dietary': ['fiber'],
+    'Iron, Fe': ['iron'],
+    'Pantothenic acid': ['pantothenic-acid'],
+    'Potassium, K': ['potassium'],
+    'Protein': ['protein', 'proteins'],
+    'Sodium, Na': ['sodium'],
+    'Sugars, added': ['addedSugar', 'sugars'],
+    'Sugars, total including NLEA': ['sugars'],
+    'Thiamin': ['thiamin'],
+    'Total lipid (fat)': ['fat'],
+    'Vitamin B-6': ['vitamin-b6'],
+    'Vitamin D (D2 + D3), International Units': ['vitamin-d'],
+    'Vitamin D (D2 + D3)': ['vitamin-d'],
+    'Zinc, Zn': ['zinc']
 }
 
 if __name__ == '__main__':
@@ -66,69 +96,119 @@ if __name__ == '__main__':
 
     args = arguments()
 
-    r1 = search_via_upc(args.upc)
-    if len(r1['foods']) == 0:
-        print(f"\nNo food found in search for ({args.upc})\n")
-        quit()
+    upc = args.upc
+
+    search_response = search_via_upc(args.upc)
 
     if args.verbose:
         print("search response")
-        pprint(r1)
+        pprint(search_response)
 
-    print(f"\nsearch located fdcId: {r1['foods'][0]['fdcId']}\n")
+    if len(search_response['foods']) == 0:
 
-    fdcId = r1['foods'][0]['fdcId']
-    fetch_response = fetch_via_fdcid(fdcId)
+        print(f"\nNo food found in search of USDA for ({args.upc})\n")
+        fdcId = None
+
+    else:
+        print(f"\nsearch located fdcId: {search_response['foods'][0]['fdcId']}\n")
+
+        fdcId = search_response['foods'][0]['fdcId']
+        fetch_response = fetch_via_fdcid(fdcId)
+
+        if args.verbose:
+            print("fetch response")
+            pprint(fetch_response)
+
+        print(f"Serving size = {fetch_response['servingSize']} {fetch_response['servingSizeUnit']}")
+
+        if fetch_response['servingSizeUnit'] == 'GRM':
+            fraction = fetch_response['servingSize'] / 100
+        else:
+            fraction = -1
+
+    off_response = fetch_via_off(upc)
 
     if args.verbose:
-        print("fetch response")
-        pprint(fetch_response)
+        print("off response")
+        pprint(off_response)
 
-    print(f"Serving size = {fetch_response['servingSize']} {fetch_response['servingSizeUnit']}")
-    print(f"Package size = {fetch_response['packageWeight']}")
+    if off_response == {}:
+        print("No OFF product found.")
+
+    if not fdcId:
+        quit()
+
+    off_nutrients = list()
+
+    for key in off_response['product']['nutriments']:
+        if key.endswith('_100g'):
+            off_nutrients.append(key[:-5])
+
+    # if args.verbose:
+    print("off_nutrients:")
+    pprint(off_nutrients)
+
+    extra_off_nutrients = off_nutrients.copy()
+
+    if 'packageWeight' in fetch_response:
+        print(f"Package size = {fetch_response['packageWeight']}")
     print("")
 
-    if fetch_response['servingSizeUnit'] == 'GRM':
-        fraction = fetch_response['servingSize'] / 100
-    else:
-        fraction = -1
+    names = dict()
+    searched = dict()
+    for search_entry in search_response['foods'][0]['foodNutrients']:
+        id = search_entry['nutrientId']
+        searched[id] = dict()
+        searched[id]['name'] = search_entry['nutrientName']
+        searched[id]['unit'] = search_entry['unitName']
+        searched[id]['amount'] = search_entry['value']
+        names[searched[id]['name']] = id
 
-    extra_labels = list(label_matches.keys())
+    fetched = dict()
+    for fetch_entry in fetch_response['foodNutrients']:
+        id = fetch_entry['nutrient']['id']
+        fetched[id] = dict()
+        fetched[id]['name'] = fetch_entry['nutrient']['name']
+        fetched[id]['unit'] = fetch_entry['nutrient']['unitName']
+        fetched[id]['amount'] = fetch_entry['amount']
+        names[fetched[id]['name']] = id
 
-    next_entries = list()
-    for entry in fetch_response['foodNutrients']:
-        next_entry = dict()
-        next_entry['name'] = entry['nutrient']['name']
-        next_entry['unit'] = entry['nutrient']['unitName']
-        next_entry['usda_name'] = 'UNKNOWN'
-        next_entry['usda_amount'] = entry['amount']
-        next_entry['amount'] = 'UNKNOWN'
-        next_entry['calculated'] = False
-        for label_entry_key in fetch_response['labelNutrients']:
-            if label_matches[label_entry_key] == next_entry['name']:
-                next_entry['usda_name'] = label_entry_key
-                next_entry['amount'] = fetch_response['labelNutrients'][label_entry_key]['value']
-                extra_labels.remove(label_entry_key)
-        if fraction > 0 and next_entry['amount'] == 'UNKNOWN':
-            next_entry['amount'] = entry['amount'] * fraction
-            next_entry['calculated'] = True
-        next_entries.append(next_entry)
-
-    print("Nutrients Per 100g:")
-    for entry in fetch_response['foodNutrients']:
-        name = entry['nutrient']['name']
-        unit = entry['nutrient']['unitName']
-        amount = entry['amount']
-        print(f"    {name} - {amount} {unit}")
     print("")
+    print("Nutrient                                             USDA Per 100g         USDA Per Serving       OFF Per Serving")
 
-    print("Nutrients Per Serving (on Label):")
-    for entry in next_entries:
-        if entry['calculated']:
-            print(f"    {entry['name']} ({entry['usda_name']}) - {entry['amount']} {entry['unit']} (C)")
+    snames = sorted(list(names.keys()))
+
+    for name in snames:
+        id = names[name]
+        if id in searched:
+            per100g = f"{searched[id]['amount']} {searched[id]['unit']}"
         else:
-            print(f"    {entry['name']} ({entry['usda_name']}) - {entry['amount']} {entry['unit']}")
-    print("")
+            per100g = "MISSING"
+        if id in fetched:
+            perSrv = f"{fetched[id]['amount']} {fetched[id]['unit']}"
+        else:
+            perSrv = "MISSING"
 
-    print(f"Extra Labels: {extra_labels}")
+        if name in off_name_for_usda:
+            for short_name in off_name_for_usda[name]:
+                # print(f"checking {short_name} in list?")
+                if short_name in off_response['product']['nutriments']:
+                    if short_name in extra_off_nutrients:
+                        extra_off_nutrients.remove(short_name)
+                    amount = off_response['product']['nutriments'][f"{short_name}_value"]
+                    unit = off_response['product']['nutriments'][f"{short_name}_unit"]
+                    perOFF = f"{amount} {unit}"
+                    break
+                else:
+                    perOFF = "NO SHORT NAME"
+                    # print(f"key {short_name} does not appear in list: {list(off_response['product']['nutriments'].keys())}")
+        else:
+            perOFF = "NO LONG NAME"
+
+        print(f"  {name.ljust(50)}| {per100g.ljust(20)}| {perSrv.ljust(20)}| {perOFF.ljust(20)}|")
+        # print(f"  {name.ljust(50)}| {perSrv.ljust(20)}| {perOFF.ljust(20)}|")
+
+    print("")
+    print("Extra OFF Nutrients:")
+    pprint(extra_off_nutrients)
     print("")
