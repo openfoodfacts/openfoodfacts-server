@@ -6912,6 +6912,11 @@ sub map_of_products ($products_iter, $request_ref, $graph_ref) {
 
 	my $html = '';
 
+	# be sure to have packager codes loaded
+	init_emb_codes();
+	init_packager_codes();
+	init_geocode_addresses();
+
 	$graph_ref->{graph_title} = escape_single_quote($graph_ref->{graph_title});
 
 	my $matching_products = 0;
