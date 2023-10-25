@@ -1325,10 +1325,10 @@ English first element for that ingredient (en:pear, for example)
 sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 	my $ingredient_recognized = 0;
 	my @processings = ();
-	my $debug_parse_processing_from_ingredient = 0;
+	my $debug_parse_processing_from_ingredient = 1;
 
 	# do not match anything if we don't have a translation for "and"
-	my $and = $and{$lc} || " will not match ";
+	my $and = $and{$ingredients_lc} || " will not match ";
 
 	# canonicalize_taxonomy_tag also remove stopwords, etc.
 	my $ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient);
