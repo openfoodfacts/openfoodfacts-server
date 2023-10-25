@@ -298,7 +298,7 @@ my @tests = (
 			{
 				'id' => 'en:tomato',
 				'labels' => 'en:organic',
-				'processing' => 'en:cooked, en:sliced, en:cut',
+				'processing' => 'en:cooked,en:sliced,en:cut',
 				'text' => 'Tomates'
 			}
 		]
