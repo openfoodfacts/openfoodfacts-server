@@ -55,6 +55,10 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+
+		&estimate_ingredients_percent_service
+		&analyze_ingredients_service
+
 		&extract_ingredients_from_image
 
 		&separate_additive_class
@@ -71,16 +75,15 @@ BEGIN {
 		&normalize_enumeration
 
 		&extract_ingredients_classes_from_text
-
 		&extract_ingredients_from_text
 		&preparse_ingredients_text
-		&parse_ingredients_text
-		&analyze_ingredients
+		&parse_ingredients_text_service
+
 		&flatten_sub_ingredients
 		&compute_ingredients_tags
 
 		&get_percent_or_quantity_and_normalized_quantity
-		&compute_ingredients_percent_values
+		&compute_ingredients_percent_min_max_values
 		&init_percent_values
 		&set_percent_min_values
 		&set_percent_max_values
@@ -195,7 +198,7 @@ my %may_contain_regexps = (
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
-	lt => "sudėtyje gali būti",
+	lt => "sudėtyje gali būti|gali būti",
 	lv => "var saturēt",
 	nl =>
 		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van",
@@ -1666,25 +1669,32 @@ sub get_percent_or_quantity_and_normalized_quantity ($percent_or_quantity_value,
 	return ($percent, $quantity, $quantity_g);
 }
 
-=head2 parse_ingredients_text ( product_ref )
+=head2 parse_ingredients_text_service ( $product_ref, $updated_product_fields_ref )
 
 Parse the ingredients_text field to extract individual ingredients.
 
-=head3 Return values
+This function is a product service that can be run through ProductOpener::ApiProductServices
 
-=head4 ingredients structure
+=head3 Arguments
 
-Nested structure of ingredients and sub-ingredients
+=head4 $product_ref
 
-=head4 
+product object reference
+
+=head4 $updated_product_fields_ref
+
+reference to a hash of product fields that have been created or updated
 
 =cut
 
-sub parse_ingredients_text ($product_ref) {
+sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 	my $debug_ingredients = 0;
 
 	delete $product_ref->{ingredients};
+
+	# and indicate that the service is creating the "ingredients" structure
+	$updated_product_fields_ref->{ingredients} = 1;
 
 	return if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq ""));
 
@@ -2599,6 +2609,8 @@ sub parse_ingredients_text ($product_ref) {
 
 	$analyze_ingredients_function->($analyze_ingredients_function, $product_ref->{ingredients}, 0, $text);
 
+	$log->debug("ingredients: ", {ingredients => $product_ref->{ingredients}}) if $log->is_debug();
+
 	return;
 }
 
@@ -2753,14 +2765,14 @@ sub compute_ingredients_tags ($product_ref) {
 
 This function calls:
 
-- parse_ingredients_text() to parse the ingredients text in the main language of the product
+- parse_ingredients_text_service() to parse the ingredients text in the main language of the product
 to extract individual ingredients and sub-ingredients
 
-- compute_ingredients_percent_values() to create the ingredients array with nested sub-ingredients arrays
+- compute_ingredients_percent_min_max_values() to create the ingredients array with nested sub-ingredients arrays
 
 - compute_ingredients_tags() to create a flat array ingredients_original_tags and ingredients_tags (with parents)
 
-- analyze_ingredients() to analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
+- analyze_ingredients_service() to analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 and to compute the resulting value for the complete product
 
 =cut
@@ -2791,7 +2803,7 @@ sub extract_ingredients_from_text ($product_ref) {
 	# Parse the ingredients list to extract individual ingredients and sub-ingredients
 	# to create the ingredients array with nested sub-ingredients arrays
 
-	parse_ingredients_text($product_ref);
+	parse_ingredients_text_service($product_ref, {});
 
 	if (defined $product_ref->{ingredients}) {
 
@@ -2801,19 +2813,8 @@ sub extract_ingredients_from_text ($product_ref) {
 		# Obtain Ciqual codes ready for ingredients estimation from nutrients
 		assign_ciqual_codes($product_ref);
 
-		# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
-
-		if (compute_ingredients_percent_values(100, 100, $product_ref->{ingredients}) < 0) {
-
-			# The computation yielded seemingly impossible values, delete the values
-			delete_ingredients_percent_values($product_ref->{ingredients});
-			$product_ref->{ingredients_percent_analysis} = -1;
-		}
-		else {
-			$product_ref->{ingredients_percent_analysis} = 1;
-		}
-
-		compute_ingredients_percent_estimates(100, $product_ref->{ingredients});
+		# Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient
+		estimate_ingredients_percent_service($product_ref, {});
 
 		estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients($product_ref);
 		estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients($product_ref);
@@ -2851,7 +2852,7 @@ sub extract_ingredients_from_text ($product_ref) {
 	# Analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 	# and compute the resulting value for the complete product
 
-	analyze_ingredients($product_ref);
+	analyze_ingredients_service($product_ref, {});
 
 	# Delete specific ingredients if empty
 	if ((exists $product_ref->{specific_ingredients}) and (scalar @{$product_ref->{specific_ingredients}} == 0)) {
@@ -2889,11 +2890,50 @@ sub get_missing_ciqual_codes ($ingredients_ref) {
 	return @ingredients_without_ciqual_codes;
 }
 
+=head2 estimate_ingredients_percent_service ( $product_ref, $updated_product_fields_ref )
+
+Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient.
+
+This function is a product service that can be run through ProductOpener::ApiProductServices
+
+=head3 Arguments
+
+=head4 $product_ref
+
+product object reference
+
+=head4 $updated_product_fields_ref
+
+reference to a hash of product fields that have been created or updated
+
+=cut 
+
+sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_ref) {
+
+	if (compute_ingredients_percent_min_max_values(100, 100, $product_ref->{ingredients}) < 0) {
+
+		# The computation yielded seemingly impossible values, delete the values
+		delete_ingredients_percent_values($product_ref->{ingredients});
+		$product_ref->{ingredients_percent_analysis} = -1;
+	}
+	else {
+		$product_ref->{ingredients_percent_analysis} = 1;
+	}
+
+	compute_ingredients_percent_estimates(100, $product_ref->{ingredients});
+
+	# Indicate which fields were created or updated
+	$updated_product_fields_ref->{ingredients} = 1;
+	$updated_product_fields_ref->{ingredients_percent_analysis} = 1;
+
+	return;
+}
+
 =head2 delete_ingredients_percent_values ( ingredients_ref )
 
 This function deletes the percent_min and percent_max values of all ingredients.
 
-It is called if the compute_ingredients_percent_values() encountered impossible
+It is called if the compute_ingredients_percent_min_max_values() encountered impossible
 values (e.g. "Water, Sugar 80%" -> Water % should be greater than 80%, but the
 total would be more than 100%)
 
@@ -2916,7 +2956,7 @@ sub delete_ingredients_percent_values ($ingredients_ref) {
 	return;
 }
 
-=head2 compute_ingredients_percent_values ( total_min, total_max, ingredients_ref )
+=head2 compute_ingredients_percent_min_max_values ( total_min, total_max, ingredients_ref )
 
 This function computes the possible minimum and maximum ranges for the percent
 values of each ingredient and sub-ingredients.
@@ -2956,7 +2996,7 @@ The return value is the number of times we adjusted min and max values for ingre
 
 =cut
 
-sub compute_ingredients_percent_values ($total_min, $total_max, $ingredients_ref) {
+sub compute_ingredients_percent_min_max_values ($total_min, $total_max, $ingredients_ref) {
 
 	init_percent_values($total_min, $total_max, $ingredients_ref);
 
@@ -2986,7 +3026,7 @@ sub compute_ingredients_percent_values ($total_min, $total_max, $ingredients_ref
 		if ($i > 5) {
 
 			$log->debug(
-				"compute_ingredients_percent_values - too many loops, bail out",
+				"compute_ingredients_percent_min_max_values - too many loops, bail out",
 				{
 					ingredients_ref => $ingredients_ref,
 					total_min => $total_min,
@@ -2999,7 +3039,7 @@ sub compute_ingredients_percent_values ($total_min, $total_max, $ingredients_ref
 	}
 
 	$log->debug(
-		"compute_ingredients_percent_values - done",
+		"compute_ingredients_percent_min_max_values - done",
 		{
 			ingredients_ref => $ingredients_ref,
 			total_min => $total_min,
@@ -3415,7 +3455,7 @@ sub set_percent_sub_ingredients ($ingredients_ref) {
 
 			# Set values for sub-ingredients from ingredient values
 
-			$changed += compute_ingredients_percent_values(
+			$changed += compute_ingredients_percent_min_max_values(
 				$ingredient_ref->{percent_min},
 				$ingredient_ref->{percent_max},
 				$ingredient_ref->{ingredients}
@@ -3454,7 +3494,7 @@ sub set_percent_sub_ingredients ($ingredients_ref) {
 
 This function computes a possible estimate for the percent values of each ingredient and sub-ingredients.
 
-The sum of all estimates must be 100%, and the estimates try to match the min and max constraints computed previously with the compute_ingredients_percent_values() function.
+The sum of all estimates must be 100%, and the estimates try to match the min and max constraints computed previously with the compute_ingredients_percent_min_max_values() function.
 
 =head3 Arguments
 
@@ -3518,21 +3558,38 @@ sub compute_ingredients_percent_estimates ($total, $ingredients_ref) {
 	return;
 }
 
-=head2 analyze_ingredients ( product_ref )
+=head2 analyze_ingredients ( $product_ref, $updated_product_fields_ref )
 
-This function analyzes ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
+Analyzes ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 and computes the resulting value for the complete product.
 
-The results are overrode by labels like "Vegan", "Vegetarian" or "Palm oil free"
+The results are overridden by labels like "Vegan", "Vegetarian" or "Palm oil free"
 
 Results are stored in the ingredients_analysis_tags array.
 
+This function is a product service that can be run through ProductOpener::ApiProductServices
+
+=head3 Arguments
+
+=head4 $product_ref
+
+product object reference
+
+=head4 $updated_product_fields_ref
+
+reference to a hash of product fields that have been created or updated
+
 =cut
 
-sub analyze_ingredients ($product_ref) {
+sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref) {
 
+	# Delete any existing values for the ingredients analysis fields
 	delete $product_ref->{ingredients_analysis};
 	delete $product_ref->{ingredients_analysis_tags};
+
+	# and indicate that the service is creating or updatiing them
+	$updated_product_fields_ref->{ingredients_analysis} = 1;
+	$updated_product_fields_ref->{ingredients_analysis_tags} = 1;
 
 	my @properties = ("from_palm_oil", "vegan", "vegetarian");
 	my %properties_unknown_tags = (
@@ -3783,16 +3840,46 @@ sub normalize_fr_a_de_b ($a, $b) {
 	}
 }
 
-# English: oil, olive -> olive oil
-# French: huile, olive -> huile d'olive
-# Russian: масло растительное, пальмовое -> масло растительное оливковое
+=head2 normalize_a_of_b ($lc, $a, $b, $of_bool)
+
+
+This function is called by normalize_enumeration()
+
+Given a category ($a) and a type ($b), it will return the ingredient that result from the combination of these two.
+
+English: oil, olive -> olive oil
+Croatian: ječmeni, slad -> ječmeni slad
+French: huile, olive -> huile d'olive
+Russian: масло растительное, пальмовое -> масло растительное оливковое
+
+=head3 Arguments
+
+=head4 lc
+
+language abbreviation (en for English, for example)
+
+=head4 $a
+
+string, category as defined in %ingredients_categories_and_types, example: 'oil' for 'oil (sunflower, olive and palm)'
+
+=head4 $b
+
+string, type as defined in %ingredients_categories_and_types, example: 'sunflower' or 'olive' or 'palm' for 'oil (sunflower, olive and palm)'
+
+=head3 Return value
+
+=head4 combined $a and $b (or $b and $a, depending of the language), that is expected to be an ingredient
+
+string, comma-joined category and type, example: 'palm vegetal oil' or 'sunflower vegetal oil' or 'olive vegetal oil'
+
+=cut
 
 sub normalize_a_of_b ($lc, $a, $b, $of_bool) {
 
 	$a =~ s/\s+$//;
 	$b =~ s/^\s+//;
 
-	if ($lc eq "en") {
+	if (($lc eq "en") or ($lc eq "hr")) {
 		return $b . " " . $a;
 	}
 	elsif ($lc eq "es") {
@@ -3811,29 +3898,60 @@ sub normalize_a_of_b ($lc, $a, $b, $of_bool) {
 			return $a . " " . $b;
 		}
 	}
-	elsif (($lc eq "ru") or ($lc eq "pl")) {
+	elsif (($lc eq "pl") or ($lc eq "ru")) {
 		return $a . " " . $b;
 	}
 }
 
-# Vegetal oil (palm, sunflower and olive)
-# -> palm vegetal oil, sunflower vegetal oil, olive vegetal oil
+=head2 normalize_enumeration ($lc, $category, $types, $of_bool)
 
-sub normalize_enumeration ($lc, $type, $enumeration, $of_bool) {
-	$log->debug("normalize_enumeration", {type => $type, enumeration => $enumeration}) if $log->is_debug();
+
+This function is called by develop_ingredients_categories_and_types()
+
+Some ingredients are specified by an ingredient "category" (e.g. "oil") and a "types" string (e.g. "sunflower, palm").
+
+This function combines the category to all elements of the types string
+$category = "Vegetal oil" and $types = "palm, sunflower and olive"
+will return
+"palm vegetal oil, sunflower vegetal oil, olive vegetal oil"
+
+=head3 Arguments
+
+=head4 lc
+
+language abbreviation (en for English, for example)
+
+=head4 category
+
+string, as defined in %ingredients_categories_and_types, example: 'Vegetal oil' for 'Vegetal oil (sunflower, olive and palm)'
+
+=head4 types
+
+string, as defined in %ingredients_categories_and_types, example: 'sunflower, olive and palm' for 'Vegetal oil (sunflower, olive and palm)'
+
+=head3 Return value
+
+=head4 Transformed ingredients list text
+
+string, comma-joined category with all elements of the types, example: 'sunflower vegetal oil, olive vegetal oil, palm vegetal oil'
+
+=cut
+
+sub normalize_enumeration ($lc, $category, $types, $of_bool) {
+	$log->debug("normalize_enumeration", {category => $category, types => $types}) if $log->is_debug();
 
 	# If there is a trailing space, save it and output it
 	my $trailing_space = "";
-	if ($enumeration =~ /\s+$/) {
+	if ($types =~ /\s+$/) {
 		$trailing_space = " ";
 	}
 
 	# do not match anything if we don't have a translation for "and"
 	my $and = $and{$lc} || " will not match ";
 
-	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $enumeration);
+	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $types);
 
-	return join(", ", map {normalize_a_of_b($lc, $type, $_, $of_bool)} @list) . $trailing_space;
+	return join(", ", map {normalize_a_of_b($lc, $category, $_, $of_bool)} @list) . $trailing_space;
 }
 
 # iodure et hydroxide de potassium
@@ -4353,6 +4471,10 @@ my %phrases_after_ingredients_list = (
 
 	lt => [
 		'geriausias iki',    # best before
+		'tinka vartoti iki',    # valid until
+		'data ant pakuotės',    #date on package
+		'laikyti sausoje vietoje',    #Keep in dry place
+		'',
 	],
 
 	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnhold', 'kjølevare',],
@@ -4915,6 +5037,26 @@ my %ingredients_categories_and_types = (
 		[["piment", "poivron"], ["vert", "jaune", "rouge",], 0,],
 	],
 
+	lt => [
+		#oils
+		[
+			# categories
+			["aliejai", "augaliniai aliejai",],
+			# types
+			["palmių", "rapsų", "saulėgrąžų",],
+		],
+	],
+
+	hr => [
+		# malts
+		[
+			# categories
+			["slad",],
+			# types
+			["ječmeni", "pšenični",]
+		],
+	],
+
 	pl => [
 		# oils and fats
 		[
@@ -4983,11 +5125,11 @@ my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)',
 my $symbols_regexp = join('|', @symbols);
 
 sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
+	$log->debug("develop_ingredients_categories_and_types: start with>$text<") if $log->is_debug();
 
 	if (defined $ingredients_categories_and_types{$ingredients_lc}) {
 
 		foreach my $categories_and_types_ref (@{$ingredients_categories_and_types{$ingredients_lc}}) {
-
 			my $category_regexp = "";
 			foreach my $category (@{$categories_and_types_ref->[0]}) {
 				$category_regexp .= '|' . $category . '|' . $category . 's';
@@ -5046,8 +5188,11 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				$and_or = $and_or{$ingredients_lc};
 			}
 
-			if (($ingredients_lc eq "en") or ($ingredients_lc eq "ru") or ($ingredients_lc eq "pl")) {
-
+			if (   ($ingredients_lc eq "en")
+				or ($ingredients_lc eq "hr")
+				or ($ingredients_lc eq "ru")
+				or ($ingredients_lc eq "pl"))
+			{
 				# vegetable oil (palm, sunflower and olive)
 				$text
 					=~ s/($category_regexp)(?::|\(|\[| | $of )+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
@@ -5057,7 +5202,11 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 				# vegetable oil: palm
 				$text
-					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
+					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
+
+				# ječmeni i pšenični slad (barley and wheat malt)
+				$text
+					=~ s/((?:(?:$type_regexp)(?: |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*($category_regexp)/normalize_enumeration($ingredients_lc,$2,$1,$of_bool)/ieg;
 			}
 			elsif ($ingredients_lc eq "fr") {
 				# arôme naturel de pomme avec d'autres âromes
@@ -5070,6 +5219,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				# Carbonate de magnésium, fer élémentaire -> should not trigger carbonate de fer élémentaire. Bug #3838
 				# TODO 18/07/2020 remove when we have a better solution
 				$text =~ s/fer (é|e)l(é|e)mentaire/fer_élémentaire/ig;
+
 				$text
 					=~ s/($category_regexp)(?::|\(|\[| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 				$text =~ s/fer_élémentaire/fer élémentaire/ig;
@@ -5079,7 +5229,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 				# huile végétale : colza,
 				$text
-					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
+					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 			}
 		}
 
@@ -6632,6 +6782,10 @@ sub detect_allergens_from_text ($product_ref) {
 
 Recursive function to compute the percentage of ingredients that match a specific function.
 
+The match function takes 2 arguments:
+- ingredient id
+- processing (comma separated list of ingredients_processing taxonomy entries)
+
 Used to compute % of fruits and vegetables, % of milk etc. which is needed by some algorithm
 like the Nutri-Score.
 
@@ -6642,7 +6796,7 @@ sub add_ingredients_matching_function ($ingredients_ref, $match_function_ref) {
 	my $count = 0;
 
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
-		my $match = $match_function_ref->($ingredient_ref->{id});
+		my $match = $match_function_ref->($ingredient_ref->{id}, $ingredient_ref->{processing});
 		if ($match) {
 			if (defined $ingredient_ref->{percent}) {
 				$count += $ingredient_ref->{percent};
@@ -6732,19 +6886,46 @@ sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $
 	return $count;
 }
 
-=head2 is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ( $ingredient_id )
+=head2 is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ( $ingredient_id, $processing = undef )
 
 Determine if an ingredient should be counted as "fruits, vegetables, nuts, olive / walnut / rapeseed oils"
 in Nutriscore 2021 algorithm.
 
+- we use the nutriscore_fruits_vegetables_nuts:en property to identify qualifying ingredients
+- we check that the parent of those ingredients is not a flour
+- we check that the ingredient does not have a processing like en:powder
+
+NUTRI-SCORE FREQUENTLY ASKED QUESTIONS - UPDATED 27/09/2022:
+
+"However, fruits, vegetables and pulses that are subject to further processing (e.g. concentrated fruit juice
+sugars, powders, freeze-drying, candied fruits, fruits in stick form, flours leading to loss of water) do not
+count. As an example, corn in the form of popcorn or soy proteins cannot be considered as vegetables.
+Regarding the frying process, fried vegetables which are thick and only partially dehydrated by the process
+can be taken into account, whereas crisps which are thin and completely dehydrated are excluded."
+
 =cut
 
-sub is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ($ingredient_id) {
+my $further_processing_regexp = 'en:candied|en:flour|en:freeze-dried|en:powder';
+
+sub is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ($ingredient_id, $processing = undef) {
 
 	my $nutriscore_fruits_vegetables_nuts
 		= get_inherited_property("ingredients", $ingredient_id, "nutriscore_fruits_vegetables_nuts:en");
 
-	return (((defined $nutriscore_fruits_vegetables_nuts) and ($nutriscore_fruits_vegetables_nuts eq "yes")) or 0);
+	# Check that the ingredient is not further processed
+	my $is_a_further_processed_ingredient = is_a("ingredients", $ingredient_id, "en:flour");
+
+	my $further_processed = ((defined $processing) and ($processing =~ /\b($further_processing_regexp)\b/));
+
+	return (
+		(
+					(defined $nutriscore_fruits_vegetables_nuts)
+				and ($nutriscore_fruits_vegetables_nuts eq "yes")
+				and (not $is_a_further_processed_ingredient)
+				and (not $further_processed)
+		)
+			or 0
+	);
 }
 
 =head2 estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients ( product_ref )
@@ -6768,10 +6949,14 @@ sub estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients ($p
 
 }
 
-=head2 is_fruits_vegetables_legumes ( $ingredient_id )
+=head2 is_fruits_vegetables_legumes ( $ingredient_id, $processing = undef )
 
 Determine if an ingredient should be counted as "fruits, vegetables, legumes"
 in Nutriscore 2023 algorithm.
+
+- we use the eurocode_2_group_1:en and eurocode_2_group_2:en  property to identify qualifying ingredients
+- we check that the parent of those ingredients is not a flour
+- we check that the ingredient does not have a processing like en:powder
 
 1.2.2. Ingredients contributing to the "Fruit, vegetables and legumes" component
 
@@ -6802,6 +6987,16 @@ o 9.60 (Fruit mixtures).
 Pulses groups
 o 7.10 (Pulses).
 
+--
+
+NUTRI-SCORE FREQUENTLY ASKED QUESTIONS - UPDATED 27/09/2022:
+
+"However, fruits, vegetables and pulses that are subject to further processing (e.g. concentrated fruit juice
+sugars, powders, freeze-drying, candied fruits, fruits in stick form, flours leading to loss of water) do not
+count. As an example, corn in the form of popcorn or soy proteins cannot be considered as vegetables.
+Regarding the frying process, fried vegetables which are thick and only partially dehydrated by the process
+can be taken into account, whereas crisps which are thin and completely dehydrated are excluded."
+
 =cut
 
 my %fruits_vegetables_legumes_eurocodes = (
@@ -6827,19 +7022,28 @@ my %fruits_vegetables_legumes_eurocodes = (
 	"7.10" => 1,
 );
 
-sub is_fruits_vegetables_legumes ($ingredient_id) {
+sub is_fruits_vegetables_legumes ($ingredient_id, $processing = undef) {
 
 	my $eurocode_2_group_1 = get_inherited_property("ingredients", $ingredient_id, "eurocode_2_group_1:en");
 	my $eurocode_2_group_2 = get_inherited_property("ingredients", $ingredient_id, "eurocode_2_group_2:en");
 
+	# Check that the ingredient is not further processed
+	my $is_a_further_processed_ingredient = is_a("ingredients", $ingredient_id, "en:flour");
+
+	my $further_processed = ((defined $processing) and ($processing =~ /\b($further_processing_regexp)\b/));
+
 	return (
 		(
-			# All fruits groups
-			# TODO: check that we don't have entries under en:fruits that are in fact not listed in Eurocode 9 "Fruits and fruit products"
-			((defined $eurocode_2_group_1) and ($eurocode_2_group_1 eq "9"))
-				# Vegetables and legumes
-				or ((defined $eurocode_2_group_2)
-				and (exists $fruits_vegetables_legumes_eurocodes{$eurocode_2_group_2}))
+			(
+				# All fruits groups
+				# TODO: check that we don't have entries under en:fruits that are in fact not listed in Eurocode 9 "Fruits and fruit products"
+				((defined $eurocode_2_group_1) and ($eurocode_2_group_1 eq "9"))
+					# Vegetables and legumes
+					or ((defined $eurocode_2_group_2)
+					and (exists $fruits_vegetables_legumes_eurocodes{$eurocode_2_group_2}))
+			)
+				and (not $is_a_further_processed_ingredient)
+				and (not $further_processed)
 		)
 			or 0
 	);
@@ -6863,13 +7067,13 @@ sub estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients 
 	);
 }
 
-=head2 is_milk ( $ingredient_id )
+=head2 is_milk ( $ingredient_id, $processing = undef )
 
 Determine if an ingredient should be counted as milk in Nutriscore 2021 algorithm
 
 =cut
 
-sub is_milk ($ingredient_id) {
+sub is_milk ($ingredient_id, $processing = undef) {
 
 	return is_a("ingredients", $ingredient_id, "en:milk");
 }
@@ -6894,7 +7098,7 @@ Determine if an ingredient should be counted as red meat in Nutriscore 2023 algo
 
 =cut
 
-sub is_red_meat ($ingredient_id) {
+sub is_red_meat ($ingredient_id, $ingredient_processing = undef) {
 
 	my $red_meat_property = get_inherited_property("ingredients", $ingredient_id, "nutriscore_red_meat:en");
 	if ((defined $red_meat_property) and ($red_meat_property eq "yes")) {

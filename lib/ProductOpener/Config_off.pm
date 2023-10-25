@@ -49,6 +49,7 @@ BEGIN {
 
 		$log_emails
 		$robotoff_url
+		$query_url
 		$events_url
 		$events_username
 		$events_password
@@ -354,6 +355,7 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
+$query_url = $ProductOpener::Config2::query_url;
 
 # do we want to send emails
 $log_emails = $ProductOpener::Config2::log_emails;
@@ -461,7 +463,6 @@ my $manifest = {
 };
 $options{manifest} = $manifest;
 
-$options{mongodb_supports_sample} = 0;    # from MongoDB 3.2 onward
 $options{display_random_sample_of_products_after_edits} = 0;    # from MongoDB 3.2 onward
 
 $options{favicons} = <<HTML
@@ -486,27 +487,51 @@ XML
 	;
 
 # Nutriscore: categories that are never considered beverages for Nutri-Score computation
-$options{categories_not_considered_as_beverages_for_nutriscore} = [
+$options{categories_not_considered_as_beverages_for_nutriscore_2021} = [
 	qw(
 		en:plant-milks
 		en:milks
 		en:meal-replacement
-		en:dairy-drinks-substitutes
+		en:plant-based-milk-alternatives
 		en:chocolate-powders
 		en:soups
 	)
 ];
 
-# categories that are considered as beverages
+$options{categories_not_considered_as_beverages_for_nutriscore_2023} = [
+	qw(
+		en:meal-replacement
+		en:soups
+	)
+];
+
+# categories that are considered as beverages for Nutri-Score 2021
 # unless they have 80% milk (which we will determine through ingredients analysis)
-$options{categories_considered_as_beverages_for_nutriscore} = [
+$options{categories_considered_as_beverages_for_nutriscore_2021} = [
 	qw(
 		en:tea-based-beverages
 		en:iced-teas
 		en:herbal-tea-beverages
 		en:coffee-beverages
 		en:coffee-drinks
+		en:coffees
+		en:herbal-teas
+		en:teas
+	)
+];
 
+# categories that are considered as beverages for Nutri-Score 2023
+$options{categories_considered_as_beverages_for_nutriscore_2023} = [
+	qw(
+		en:milks
+		en:plant-based-milk-alternatives
+		en:dairy-drinks
+		en:plant-based-beverages
+		en:tea-based-beverages
+		en:iced-teas
+		en:herbal-tea-beverages
+		en:coffee-beverages
+		en:coffee-drinks
 		en:coffees
 		en:herbal-teas
 		en:teas
@@ -557,8 +582,7 @@ $options{categories_exempted_from_nutrient_levels} = [
 		en:coffees
 		en:teas
 		en:yeasts
-		fr:levure
-		fr:levures
+		en:food-additives
 	)
 ];
 
@@ -702,6 +726,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 );
 
 # fields for drilldown facet navigation
+# If adding to this list ensure that the tables are being replicated to Postgres in the openfoodfacts-query repo
 
 @drilldown_fields = qw(
 	nutrition_grades

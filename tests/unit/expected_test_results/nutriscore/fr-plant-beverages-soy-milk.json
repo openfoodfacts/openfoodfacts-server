@@ -1,0 +1,221 @@
+{
+   "categories" : "boissons végétales de soja",
+   "categories_hierarchy" : [
+      "en:plant-based-foods-and-beverages",
+      "en:beverages",
+      "en:plant-based-foods",
+      "en:legumes-and-their-products",
+      "en:dairy-substitutes",
+      "en:milk-substitutes",
+      "en:plant-based-beverages",
+      "en:plant-based-milk-alternatives",
+      "en:legume-based-drinks",
+      "en:soy-based-drinks"
+   ],
+   "categories_lc" : "fr",
+   "categories_properties" : {
+      "agribalyse_food_code:en" : "18900",
+      "ciqual_food_code:en" : "18900"
+   },
+   "categories_properties_tags" : [
+      "all-products",
+      "categories-known",
+      "agribalyse-food-code-18900",
+      "agribalyse-food-code-known",
+      "agribalyse-proxy-food-code-unknown",
+      "ciqual-food-code-18900",
+      "ciqual-food-code-known",
+      "agribalyse-known",
+      "agribalyse-18900"
+   ],
+   "categories_tags" : [
+      "en:plant-based-foods-and-beverages",
+      "en:beverages",
+      "en:plant-based-foods",
+      "en:legumes-and-their-products",
+      "en:dairy-substitutes",
+      "en:milk-substitutes",
+      "en:plant-based-beverages",
+      "en:plant-based-milk-alternatives",
+      "en:legume-based-drinks",
+      "en:soy-based-drinks"
+   ],
+   "food_groups" : "en:plant-based-milk-substitutes",
+   "food_groups_tags" : [
+      "en:beverages",
+      "en:plant-based-milk-substitutes"
+   ],
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:nutriscore-computed",
+      "en:nutrition-no-fruits-vegetables-nuts",
+      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+      "en:nutriscore-2021-different-from-2023",
+      "en:nutriscore-2021-better-than-2023",
+      "en:nutriscore-2021-a-2023-b"
+   ],
+   "nutriments" : {
+      "energy_100g" : 178,
+      "fat_100g" : 2.6,
+      "fiber_100g" : 0.5,
+      "nutrition-score-fr" : -2,
+      "nutrition-score-fr_100g" : -2,
+      "proteins_100g" : 3.9,
+      "salt_100g" : 0.03,
+      "salt_value" : 0.03,
+      "saturated-fat_100g" : 0.6,
+      "sodium" : 0.012,
+      "sodium_100g" : 0.012,
+      "sodium_unit" : "g",
+      "sodium_value" : 0.012,
+      "sugars_100g" : 0.5
+   },
+   "nutriscore" : {
+      "2021" : {
+         "category_available" : 1,
+         "data" : {
+            "energy" : 178,
+            "energy_points" : 0,
+            "energy_value" : 178,
+            "fiber" : 0.5,
+            "fiber_points" : 0,
+            "fiber_value" : 0.5,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 0,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat" : 0,
+            "is_water" : 0,
+            "negative_points" : 0,
+            "positive_points" : 2,
+            "proteins" : 3.9,
+            "proteins_points" : 2,
+            "proteins_value" : 3.9,
+            "saturated_fat" : 0.6,
+            "saturated_fat_points" : 0,
+            "saturated_fat_value" : 0.6,
+            "sodium" : 12,
+            "sodium_points" : 0,
+            "sodium_value" : 12,
+            "sugars" : 0.5,
+            "sugars_points" : 0,
+            "sugars_value" : 0.5
+         },
+         "grade" : "a",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
+         "score" : -2
+      },
+      "2023" : {
+         "category_available" : 1,
+         "data" : {
+            "count_proteins" : 1,
+            "count_proteins_reason" : "beverage",
+            "energy" : 178,
+            "energy_points" : 3,
+            "fiber" : 0.5,
+            "fiber_points" : 0,
+            "fruits_vegetables_legumes" : null,
+            "is_beverage" : 1,
+            "is_cheese" : 0,
+            "is_fat_oil_nuts_seeds" : 0,
+            "is_red_meat_product" : 0,
+            "is_water" : 0,
+            "negative_nutrients" : [
+               "energy",
+               "sugars",
+               "saturated_fat",
+               "salt",
+               "non_nutritive_sweeteners"
+            ],
+            "negative_points" : 3,
+            "non_nutritive_sweeteners_points" : 0,
+            "positive_nutrients" : [
+               "fruits_vegetables_legumes",
+               "fiber",
+               "proteins"
+            ],
+            "positive_points" : 7,
+            "proteins" : 3.9,
+            "proteins_points" : 7,
+            "salt" : 0.03,
+            "salt_points" : 0,
+            "saturated_fat" : 0.6,
+            "saturated_fat_points" : 0,
+            "sugars" : 0.5,
+            "sugars_points" : 0
+         },
+         "grade" : "b",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
+         "score" : -4
+      }
+   },
+   "nutriscore_2021_tags" : [
+      "a"
+   ],
+   "nutriscore_2023_tags" : [
+      "b"
+   ],
+   "nutriscore_data" : {
+      "energy" : 178,
+      "energy_points" : 0,
+      "energy_value" : 178,
+      "fiber" : 0.5,
+      "fiber_points" : 0,
+      "fiber_value" : 0.5,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 0,
+      "grade" : "a",
+      "is_beverage" : 0,
+      "is_cheese" : 0,
+      "is_fat" : 0,
+      "is_water" : 0,
+      "negative_points" : 0,
+      "positive_points" : 2,
+      "proteins" : 3.9,
+      "proteins_points" : 2,
+      "proteins_value" : 3.9,
+      "saturated_fat" : 0.6,
+      "saturated_fat_points" : 0,
+      "saturated_fat_value" : 0.6,
+      "score" : -2,
+      "sodium" : 12,
+      "sodium_points" : 0,
+      "sodium_value" : 12,
+      "sugars" : 0.5,
+      "sugars_points" : 0,
+      "sugars_value" : 0.5
+   },
+   "nutriscore_grade" : "a",
+   "nutriscore_score" : -2,
+   "nutriscore_score_opposite" : 2,
+   "nutriscore_tags" : [
+      "a"
+   ],
+   "nutriscore_version" : "2021",
+   "nutrition_data_per" : "100g",
+   "nutrition_data_prepared_per" : "100g",
+   "nutrition_grade_fr" : "a",
+   "nutrition_grades" : "a",
+   "nutrition_grades_tags" : [
+      "a"
+   ],
+   "nutrition_score_beverage" : 0,
+   "nutrition_score_debug" : "",
+   "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
+   "pnns_groups_1" : "Beverages",
+   "pnns_groups_1_tags" : [
+      "beverages",
+      "known"
+   ],
+   "pnns_groups_2" : "Plant-based milk substitutes",
+   "pnns_groups_2_tags" : [
+      "plant-based-milk-substitutes",
+      "known"
+   ]
+}
