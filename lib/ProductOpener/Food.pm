@@ -1259,6 +1259,10 @@ my @fruits_vegetables_legumes_by_category_sorted = (
 	["en:canned-fruits", 90],
 	["en:frozen-fruits", 90],
 	["en:jams", 50],
+	# for products in the fat/oil/nuts/seeds category
+	["en:avocado-oils", 100],
+	["en:olive-oils", 100],
+
 );
 
 =head2 compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared)
