@@ -1993,6 +1993,33 @@ sub extract_text_with_tesseract {
     }
 }
 
+
+sub perform_google_cloud_vision_ocr($product_ref, $id, $field, $image, $results_ref, $log) {
+		my $json_file = "$www_root/images/products/$path/$filename.json.gz";
+		open(my $gv_logs, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
+		my $cloudvision_ref = send_image_to_cloud_vision($image, $json_file, \@CLOUD_VISION_FEATURES_TEXT, $gv_logs);
+		close $gv_logs;
+
+		if (    (defined $cloudvision_ref->{responses})
+			and (defined $cloudvision_ref->{responses}[0])
+			and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation})
+			and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text}))
+		{
+
+			$log->debug("text found in google cloud vision response") if $log->is_debug();
+
+			$results_ref->{$field} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
+			$results_ref->{$field . "_annotations"} = $cloudvision_ref;
+			$results_ref->{status} = 0;
+			$product_ref->{images}{$id}{ocr} = 1;
+			$product_ref->{images}{$id}{orientation}
+				= compute_orientation_from_cloud_vision_annotations($cloudvision_ref);
+		}
+		else {
+			$product_ref->{images}{$id}{ocr} = 0;
+		}
+	}
+
 =head2 extract_text_from_image( $product_ref, $id, $field, $ocr_engine, $results_ref )
 
 Perform OCR for a specific image (either a source image, or a selected image) and return the results.
@@ -2061,29 +2088,7 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
     	extract_text_with_tesseract($ocr_engine, $lc, $product_ref, $id, $image, $field, $results_ref, $log);
 	}
 	elsif ($ocr_engine eq 'google_cloud_vision') {
-
-		my $json_file = "$www_root/images/products/$path/$filename.json.gz";
-		open(my $gv_logs, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
-		my $cloudvision_ref = send_image_to_cloud_vision($image, $json_file, \@CLOUD_VISION_FEATURES_TEXT, $gv_logs);
-		close $gv_logs;
-
-		if (    (defined $cloudvision_ref->{responses})
-			and (defined $cloudvision_ref->{responses}[0])
-			and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation})
-			and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text}))
-		{
-
-			$log->debug("text found in google cloud vision response") if $log->is_debug();
-
-			$results_ref->{$field} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
-			$results_ref->{$field . "_annotations"} = $cloudvision_ref;
-			$results_ref->{status} = 0;
-			$product_ref->{images}{$id}{ocr} = 1;
-			$product_ref->{images}{$id}{orientation}
-				= compute_orientation_from_cloud_vision_annotations($cloudvision_ref);
-		}
-		else {
-			$product_ref->{images}{$id}{ocr} = 0;
+		perform_google_cloud_vision_ocr($product_ref, $id, $field, $image, $results_ref, $log)
 		}
 	}
 	return;
