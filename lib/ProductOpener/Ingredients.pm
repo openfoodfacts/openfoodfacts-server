@@ -116,6 +116,7 @@ use ProductOpener::URL qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Units qw/:all/;
+use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
 
 use Encode;
 use Clone qw(clone);
@@ -6803,7 +6804,7 @@ sub estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients ($p
 
 }
 
-=head2 is_fruits_vegetables_legumes ( $ingredient_id, $processing = undef )
+=head2 is_fruits_vegetables_legumes ( $ingredient_id, $processing = undef)
 
 Determine if an ingredient should be counted as "fruits, vegetables, legumes"
 in Nutriscore 2023 algorithm.
@@ -6840,6 +6841,9 @@ o 9.50 (Miscellaneous fruit);
 o 9.60 (Fruit mixtures).
 Pulses groups
 o 7.10 (Pulses).
+
+Additionally, in the fats and oils category specifically, oils derived from ingredients in the list qualify
+for the component (e.g. olive and avocado).
 
 --
 
@@ -6903,6 +6907,21 @@ sub is_fruits_vegetables_legumes ($ingredient_id, $processing = undef) {
 	);
 }
 
+sub is_fruits_vegetables_legumes_for_fat_oil_nuts_seed ($ingredient_id, $processing = undef) {
+
+	# for fat/oil/nuts/seeds products, oils of fruits and vegetables count for fruits and vegetables
+	return (
+		is_fruits_vegetables_legumes($ingredient_id, $processing)
+			or (
+			(
+				   ($ingredient_id eq "en:olive-oil")
+				or ($ingredient_id eq "en:avocado-oil")
+			)
+			)
+			or 0
+	);
+}
+
 =head2 estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients ( product_ref )
 
 This function analyzes the ingredients to estimate the minimum percentage of
@@ -6914,10 +6933,17 @@ Results are stored in $product_ref->{nutriments}{"fruits-vegetables-legumes-esti
 
 sub estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients ($product_ref) {
 
-	return estimate_ingredients_matching_function(
-		$product_ref,
-		\&is_fruits_vegetables_legumes,
-		"fruits-vegetables-legumes-estimate-from-ingredients"
+	# For fat/oil/nuts/seeds products, oils of fruits and vegetables count for fruits and vegetables
+	my $matching_function_ref;
+	if (is_fat_oil_nuts_seeds_for_nutrition_score($product_ref)) {
+		$matching_function_ref = \&is_fruits_vegetables_legumes_for_fat_oil_nuts_seed;
+	}
+	else {
+		$matching_function_ref = \&is_fruits_vegetables_legumes;
+	}
+
+	return estimate_ingredients_matching_function($product_ref, $matching_function_ref,
+		"fruits-vegetables-legumes-estimate-from-ingredients",
 	);
 }
 

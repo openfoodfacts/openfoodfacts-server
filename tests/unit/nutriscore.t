@@ -697,6 +697,23 @@ my @tests = (
 			}
 		}
 	],
+	# olive oil, no ingredients specified
+	[
+		"en-olive-oil-no-ingredients",
+		{
+			lc => "en",
+			categories => "olive oil",
+			nutriments => {
+				energy_100g => 3367,
+				fat_100g => 91,
+				"saturated-fat_100g" => 17,
+				sugars_100g => 0,
+				fiber_100g => 0,
+				salt_100g => 0,
+				proteins_100g => 0,
+			}
+		}
+	],
 	# avocado oil
 	[
 		"en-avocado-oil",
@@ -727,6 +744,24 @@ my @tests = (
 				energy_100g => 3700,
 				fat_100g => 100,
 				"saturated-fat_100g" => 9.8,
+				sugars_100g => 0,
+				fiber_100g => 0,
+				salt_100g => 0,
+				proteins_100g => 0,
+			}
+		}
+	],
+	# rapeseed oil
+	[
+		"fr-rapeseed-oil",
+		{
+			lc => "fr",
+			categories => "huile de colza",
+			ingredients_text => "Huile de colza",
+			nutriments => {
+				energy_100g => 3400,
+				fat_100g => 92,
+				"saturated-fat_100g" => 7.3,
 				sugars_100g => 0,
 				fiber_100g => 0,
 				salt_100g => 0,
