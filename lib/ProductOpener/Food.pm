@@ -61,6 +61,7 @@ BEGIN {
 
 		&is_beverage_for_nutrition_score_2021
 		&is_beverage_for_nutrition_score_2023
+		&is_fat_oil_nuts_seeds_for_nutrition_score
 		&is_water_for_nutrition_score
 		&is_cheese_for_nutrition_score
 		&is_fat_for_nutrition_score
@@ -120,6 +121,36 @@ use Data::DeepAccess qw(deep_set deep_get);
 use Storable qw/dclone/;
 
 use Log::Any qw($log);
+
+# Normalize values listed in Config.pm
+
+# Canonicalize the list of categories used to compute Nutri-Score, so that Nutri-Score
+# computation does not change if we change the canonical English name of a category
+
+foreach my $categories_list_id (
+	qw(
+	categories_not_considered_as_beverages_for_nutriscore_2021
+	categories_not_considered_as_beverages_for_nutriscore_2023
+	categories_exempted_from_nutriscore
+	categories_not_exempted_from_nutriscore
+	categories_exempted_from_nutrient_levels
+	)
+	)
+{
+	my $categories_list_ref = $options{$categories_list_id};
+	if (defined $categories_list_ref) {
+		foreach my $category_id (@{$categories_list_ref}) {
+			$category_id = canonicalize_taxonomy_tag("en", "categories", $category_id);
+			# Check that the entry exists
+			if (not exists_taxonomy_tag("categories", $category_id)) {
+				$log->error(
+					"Categoryused in Nutri-Score and listed in Config.pm \$options\{$categories_list_id\} does not exist in the categories taxonomy.",
+					{category_id => $category_id}
+				) if $log->is_error();
+			}
+		}
+	}
+}
 
 # Load nutrient stats for all categories and countries
 # the stats are displayed on category pages and used in product pages,
@@ -1258,6 +1289,10 @@ my @fruits_vegetables_legumes_by_category_sorted = (
 	["en:canned-fruits", 90],
 	["en:frozen-fruits", 90],
 	["en:jams", 50],
+	# for products in the fat/oil/nuts/seeds category
+	["en:avocado-oils", 100],
+	["en:olive-oils", 100],
+
 );
 
 =head2 compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared)
@@ -1486,7 +1521,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 
 		if ($is_fat_oil_nuts_seeds) {
 			# Add the fat and saturated fat / fat ratio
-			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared};
+			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared . "_100g"};
 			$nutriscore_data_ref->{saturated_fat_ratio} = saturated_fat_ratio($nutriments_ref, $prepared);
 			# Compute the energy from saturates
 			if (defined $nutriscore_data_ref->{saturated_fat}) {

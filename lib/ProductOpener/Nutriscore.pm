@@ -45,7 +45,7 @@ of a food product.
 		is_water => 0,
 		is_cheese => 0,
 		is_fat => 1, # for 2021 version
-		is_fat_nuts_seed => 1, # for 2023 version
+		is_fat_oil_nuts_seed => 1, # for 2023 version
 	}
 
 	my ($nutriscore_score, $nutriscore_grade) = compute_nutriscore_score_and_grade(
@@ -351,7 +351,7 @@ sub compute_nutriscore_score_2021 ($nutriscore_data_ref) {
 		}
 	}
 
-	# Special case for sugar: we need to round to 2 digits if we are closed to a threshold defined with 1 digit (e.g. 4.5)
+	# Special case for sugar: we need to round to 2 digits if we are close to a threshold defined with 1 digit (e.g. 4.5)
 	# but if the threshold is defined with 0 digit (e.g. 9) we need to round with 1 digit.
 	if (   (($nutriscore_data_ref->{"sugars_value"} - int($nutriscore_data_ref->{"sugars_value"})) > 0.9)
 		or (($nutriscore_data_ref->{"sugars_value"} - int($nutriscore_data_ref->{"sugars_value"})) < 0.1))
@@ -547,7 +547,8 @@ sub compute_nutriscore_score_and_grade_2023 ($nutriscore_data_ref) {
 	my $nutrition_grade = compute_nutriscore_grade_2023(
 		$nutrition_score,
 		$nutriscore_data_ref->{is_beverage},
-		$nutriscore_data_ref->{is_water}
+		$nutriscore_data_ref->{is_water},
+		$nutriscore_data_ref->{is_fat_oil_nuts_seeds},
 	);
 
 	return ($nutrition_score, $nutrition_grade);
@@ -791,7 +792,7 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 	return $score;
 }
 
-sub compute_nutriscore_grade_2023 ($nutrition_score, $is_beverage, $is_water) {
+sub compute_nutriscore_grade_2023 ($nutrition_score, $is_beverage, $is_water, $is_fat_oil_nuts_seeds) {
 
 	my $grade = "";
 
@@ -799,6 +800,7 @@ sub compute_nutriscore_grade_2023 ($nutrition_score, $is_beverage, $is_water) {
 		return '';
 	}
 
+	# Beverages
 	if ($is_beverage) {
 
 		if ($is_water) {
@@ -817,9 +819,28 @@ sub compute_nutriscore_grade_2023 ($nutrition_score, $is_beverage, $is_water) {
 			$grade = 'e';
 		}
 	}
+	# Fats, oils, nuts and seeds
+	elsif ($is_fat_oil_nuts_seeds) {
+		if ($nutrition_score <= -6) {
+			$grade = 'a';
+		}
+		elsif ($nutrition_score <= 2) {
+			$grade = 'b';
+		}
+		elsif ($nutrition_score <= 10) {
+			$grade = 'c';
+		}
+		elsif ($nutrition_score <= 18) {
+			$grade = 'd';
+		}
+		else {
+			$grade = 'e';
+		}
+	}
+	# Other foods
 	else {
 
-		if ($nutrition_score <= -6) {
+		if ($nutrition_score <= -0) {
 			$grade = 'a';
 		}
 		elsif ($nutrition_score <= 2) {
