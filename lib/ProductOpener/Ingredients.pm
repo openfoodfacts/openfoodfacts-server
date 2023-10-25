@@ -1290,10 +1290,6 @@ If it does not result in known ingredient, then it returns the same but unchange
 
 =head3 Arguments
 
-=head4 ingredients_processing_regexps
-
-list of regexps with each synonyms of all ingredients processes
-
 =head4 ingredients_lc
 
 language abbreviation (en for English, for example)
@@ -1304,7 +1300,7 @@ string ("pear", for example)
 
 =head3 Return values
 
-=head4 processing array reference
+=head4 processings_ref
 
 reference to an array of processings
 
@@ -2287,6 +2283,7 @@ sub parse_ingredients_text ($product_ref) {
 					if (defined $ingredients_processing_regexps{$ingredients_lc}) {
 						(my $new_processings_ref, $ingredient, $ingredient_id, $ingredient_recognized)
 							= parse_processing_from_ingredient($ingredients_lc, $ingredient);
+						# Add the newly extracted processings to possibly already existing processings
 						push @processings, @$new_processings_ref;
 					}
 
