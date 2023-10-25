@@ -200,7 +200,7 @@ TODO: {
 			print STDERR "# Got:\n";
 			print STDERR join("\n", explain $product_ref->{ingredients});
 			print STDERR "# Expected:\n";
-			print STDERR join("\n", explain $expected_ingredients_ref );
+			print STDERR join("\n", explain $expected_ingredients_ref);
 			};
 
 		#			or do {
