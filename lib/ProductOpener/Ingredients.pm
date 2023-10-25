@@ -1324,7 +1324,7 @@ English first element for that ingredient (en:pear, for example)
 sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 	my $ingredient_recognized = 0;
 	my @processings = ();
-	my $debug_parse_processing_from_ingredient = 1;
+	my $debug_parse_processing_from_ingredient = 0;
 
 	# do not match anything if we don't have a translation for "and"
 	my $and = $and{$ingredients_lc} || " will not match ";
