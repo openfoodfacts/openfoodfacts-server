@@ -1309,28 +1309,35 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 		$h = $z;
 	}
 
-	print STDERR
-		"image_crop.pl - imgid: $imgid - crop_size: $crop_size - x1: $x1, y1: $y1, x2: $x2, y2: $y2, w: $w, h: $h\n";
-	$log->trace("calculating geometry",
-		{crop_size => $crop_size, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, w => $w, h => $h})
-		if $log->is_trace();
+	# avoid a potential divide by zero error
+	if (!$w or !$h) {
+		$log->error("Cannot crop image $imgid , crop width or height is 0: $w x $h");
+	}
+	else {
 
-	my $ox1 = int($x1 * $ow / $w);
-	my $oy1 = int($y1 * $oh / $h);
-	my $ox2 = int($x2 * $ow / $w);
-	my $oy2 = int($y2 * $oh / $h);
+		print STDERR
+			"image_crop.pl - imgid: $imgid - crop_size: $crop_size - x1: $x1, y1: $y1, x2: $x2, y2: $y2, w: $w, h: $h\n";
+		$log->trace("calculating geometry",
+			{crop_size => $crop_size, x1 => $x1, y1 => $y1, x2 => $x2, y2 => $y2, w => $w, h => $h})
+			if $log->is_trace();
 
-	my $nw = $ox2 - $ox1;    # new width
-	my $nh = $oy2 - $oy1;
+		my $ox1 = int($x1 * $ow / $w);
+		my $oy1 = int($y1 * $oh / $h);
+		my $ox2 = int($x2 * $ow / $w);
+		my $oy2 = int($y2 * $oh / $h);
 
-	my $geometry = "${nw}x${nh}\+${ox1}\+${oy1}";
-	$log->debug("geometry calculated",
-		{geometry => $geometry, ox1 => $ox1, oy1 => $oy1, ox2 => $ox2, oy2 => $oy2, w => $w, h => $h})
-		if $log->is_debug();
-	if ($nw > 0) {    # image not cropped
-		my $imagemagick_error = $source->Crop(geometry => $geometry);
-		($imagemagick_error)
-			and $log->error("could not crop to geometry", {geometry => $geometry, error => $imagemagick_error});
+		my $nw = $ox2 - $ox1;    # new width
+		my $nh = $oy2 - $oy1;
+
+		my $geometry = "${nw}x${nh}\+${ox1}\+${oy1}";
+		$log->debug("geometry calculated",
+			{geometry => $geometry, ox1 => $ox1, oy1 => $oy1, ox2 => $ox2, oy2 => $oy2, w => $w, h => $h})
+			if $log->is_debug();
+		if ($nw > 0) {    # image not cropped
+			my $imagemagick_error = $source->Crop(geometry => $geometry);
+			($imagemagick_error)
+				and $log->error("could not crop to geometry", {geometry => $geometry, error => $imagemagick_error});
+		}
 	}
 
 	# add auto trim to remove white borders (e.g. from some producers that send us images with white borders)
