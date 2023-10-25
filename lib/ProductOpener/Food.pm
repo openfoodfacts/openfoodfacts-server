@@ -61,6 +61,7 @@ BEGIN {
 
 		&is_beverage_for_nutrition_score_2021
 		&is_beverage_for_nutrition_score_2023
+		&is_fat_oil_nuts_seeds_for_nutrition_score
 		&is_water_for_nutrition_score
 		&is_cheese_for_nutrition_score
 		&is_fat_for_nutrition_score
@@ -1288,6 +1289,10 @@ my @fruits_vegetables_legumes_by_category_sorted = (
 	["en:canned-fruits", 90],
 	["en:frozen-fruits", 90],
 	["en:jams", 50],
+	# for products in the fat/oil/nuts/seeds category
+	["en:avocado-oils", 100],
+	["en:olive-oils", 100],
+
 );
 
 =head2 compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared)
@@ -1516,7 +1521,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 
 		if ($is_fat_oil_nuts_seeds) {
 			# Add the fat and saturated fat / fat ratio
-			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared};
+			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared . "_100g"};
 			$nutriscore_data_ref->{saturated_fat_ratio} = saturated_fat_ratio($nutriments_ref, $prepared);
 			# Compute the energy from saturates
 			if (defined $nutriscore_data_ref->{saturated_fat}) {

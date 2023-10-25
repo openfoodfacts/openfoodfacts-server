@@ -649,7 +649,7 @@ my @tests = (
 		{
 			lc => "fr",
 			categories => "boissons végétales de soja",
-			ingredients => "Eau, fèves de soja 8%",
+			ingredients_text => "Eau, fèves de soja 8%",
 			nutriments => {
 				energy_100g => 178,
 				fat_100g => 2.6,
@@ -659,6 +659,114 @@ my @tests = (
 				fiber_100g => 0.5,
 				proteins_100g => 3.9,
 			},
+		}
+	],
+	# Cherry tomatoes
+	[
+		"en-cherry-tomatoes",
+		{
+			lc => "en",
+			categories => "cherry tomatoes",
+			ingredients_text => "cherry tomatoes",
+			nutriments => {
+				energy_100g => 81,
+				fat_100g => 0.26,
+				"saturated-fat_100g" => 0.056,
+				sugars_100g => 2.48,
+				fiber_100g => 1.2,
+				salt_100g => 0,
+				proteins_100g => 0.86,
+			}
+		}
+	],
+	# olive oil
+	[
+		"en-olive-oil",
+		{
+			lc => "en",
+			categories => "olive oil",
+			ingredients_text => "olive oil",
+			nutriments => {
+				energy_100g => 3367,
+				fat_100g => 91,
+				"saturated-fat_100g" => 17,
+				sugars_100g => 0,
+				fiber_100g => 0,
+				salt_100g => 0,
+				proteins_100g => 0,
+			}
+		}
+	],
+	# olive oil, no ingredients specified
+	[
+		"en-olive-oil-no-ingredients",
+		{
+			lc => "en",
+			categories => "olive oil",
+			nutriments => {
+				energy_100g => 3367,
+				fat_100g => 91,
+				"saturated-fat_100g" => 17,
+				sugars_100g => 0,
+				fiber_100g => 0,
+				salt_100g => 0,
+				proteins_100g => 0,
+			}
+		}
+	],
+	# avocado oil
+	[
+		"en-avocado-oil",
+		{
+			lc => "en",
+			categories => "avocado oil",
+			ingredients_text => "avocado",
+			nutriments => {
+				energy_100g => 3448,
+				fat_100g => 91.6,
+				"saturated-fat_100g" => 16.4,
+				sugars_100g => 0,
+				fiber_100g => 0,
+				salt_100g => 0,
+				proteins_100g => 0,
+			}
+		}
+	],
+	# mixed oil (isio 4 olive)
+	[
+		"fr-mixed-oils-with-olive-oil",
+		{
+			lc => "fr",
+			categories => "huile végétale",
+			ingredients_text =>
+				"Huile de colza 45%, huile de tournesol 30%, huile d'olive vierge extra 20%, huile de lin 5%, vitamine D",
+			nutriments => {
+				energy_100g => 3700,
+				fat_100g => 100,
+				"saturated-fat_100g" => 9.8,
+				sugars_100g => 0,
+				fiber_100g => 0,
+				salt_100g => 0,
+				proteins_100g => 0,
+			}
+		}
+	],
+	# rapeseed oil
+	[
+		"fr-rapeseed-oil",
+		{
+			lc => "fr",
+			categories => "huile de colza",
+			ingredients_text => "Huile de colza",
+			nutriments => {
+				energy_100g => 3400,
+				fat_100g => 92,
+				"saturated-fat_100g" => 7.3,
+				sugars_100g => 0,
+				fiber_100g => 0,
+				salt_100g => 0,
+				proteins_100g => 0,
+			}
 		}
 	],
 	# Coconut milk -> for cooking, not considered a beverage in 2023 Nutri-Score
@@ -679,7 +787,6 @@ my @tests = (
 			},
 		}
 	],
-
 );
 
 my $json = JSON->new->allow_nonref->canonical;
