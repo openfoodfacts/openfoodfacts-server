@@ -55,6 +55,10 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+
+		&estimate_ingredients_percent_service
+		&analyze_ingredients_service
+
 		&extract_ingredients_from_image
 
 		&separate_additive_class
@@ -71,16 +75,15 @@ BEGIN {
 		&normalize_enumeration
 
 		&extract_ingredients_classes_from_text
-
 		&extract_ingredients_from_text
 		&preparse_ingredients_text
-		&parse_ingredients_text
-		&analyze_ingredients
+		&parse_ingredients_text_service
+
 		&flatten_sub_ingredients
 		&compute_ingredients_tags
 
 		&get_percent_or_quantity_and_normalized_quantity
-		&compute_ingredients_percent_values
+		&compute_ingredients_percent_min_max_values
 		&init_percent_values
 		&set_percent_min_values
 		&set_percent_max_values
@@ -1441,25 +1444,32 @@ sub get_percent_or_quantity_and_normalized_quantity ($percent_or_quantity_value,
 	return ($percent, $quantity, $quantity_g);
 }
 
-=head2 parse_ingredients_text ( product_ref )
+=head2 parse_ingredients_text_service ( $product_ref, $updated_product_fields_ref )
 
 Parse the ingredients_text field to extract individual ingredients.
 
-=head3 Return values
+This function is a product service that can be run through ProductOpener::ApiProductServices
 
-=head4 ingredients structure
+=head3 Arguments
 
-Nested structure of ingredients and sub-ingredients
+=head4 $product_ref
 
-=head4 
+product object reference
+
+=head4 $updated_product_fields_ref
+
+reference to a hash of product fields that have been created or updated
 
 =cut
 
-sub parse_ingredients_text ($product_ref) {
+sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 	my $debug_ingredients = 0;
 
 	delete $product_ref->{ingredients};
+
+	# and indicate that the service is creating the "ingredients" structure
+	$updated_product_fields_ref->{ingredients} = 1;
 
 	return if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq ""));
 
@@ -2511,6 +2521,8 @@ sub parse_ingredients_text ($product_ref) {
 
 	$analyze_ingredients_function->($analyze_ingredients_function, $product_ref->{ingredients}, 0, $text);
 
+	$log->debug("ingredients: ", {ingredients => $product_ref->{ingredients}}) if $log->is_debug();
+
 	return;
 }
 
@@ -2665,14 +2677,14 @@ sub compute_ingredients_tags ($product_ref) {
 
 This function calls:
 
-- parse_ingredients_text() to parse the ingredients text in the main language of the product
+- parse_ingredients_text_service() to parse the ingredients text in the main language of the product
 to extract individual ingredients and sub-ingredients
 
-- compute_ingredients_percent_values() to create the ingredients array with nested sub-ingredients arrays
+- compute_ingredients_percent_min_max_values() to create the ingredients array with nested sub-ingredients arrays
 
 - compute_ingredients_tags() to create a flat array ingredients_original_tags and ingredients_tags (with parents)
 
-- analyze_ingredients() to analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
+- analyze_ingredients_service() to analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 and to compute the resulting value for the complete product
 
 =cut
@@ -2703,7 +2715,7 @@ sub extract_ingredients_from_text ($product_ref) {
 	# Parse the ingredients list to extract individual ingredients and sub-ingredients
 	# to create the ingredients array with nested sub-ingredients arrays
 
-	parse_ingredients_text($product_ref);
+	parse_ingredients_text_service($product_ref, {});
 
 	if (defined $product_ref->{ingredients}) {
 
@@ -2713,19 +2725,8 @@ sub extract_ingredients_from_text ($product_ref) {
 		# Obtain Ciqual codes ready for ingredients estimation from nutrients
 		assign_ciqual_codes($product_ref);
 
-		# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
-
-		if (compute_ingredients_percent_values(100, 100, $product_ref->{ingredients}) < 0) {
-
-			# The computation yielded seemingly impossible values, delete the values
-			delete_ingredients_percent_values($product_ref->{ingredients});
-			$product_ref->{ingredients_percent_analysis} = -1;
-		}
-		else {
-			$product_ref->{ingredients_percent_analysis} = 1;
-		}
-
-		compute_ingredients_percent_estimates(100, $product_ref->{ingredients});
+		# Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient
+		estimate_ingredients_percent_service($product_ref, {});
 
 		estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients($product_ref);
 		estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients($product_ref);
@@ -2763,7 +2764,7 @@ sub extract_ingredients_from_text ($product_ref) {
 	# Analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 	# and compute the resulting value for the complete product
 
-	analyze_ingredients($product_ref);
+	analyze_ingredients_service($product_ref, {});
 
 	# Delete specific ingredients if empty
 	if ((exists $product_ref->{specific_ingredients}) and (scalar @{$product_ref->{specific_ingredients}} == 0)) {
@@ -2801,11 +2802,50 @@ sub get_missing_ciqual_codes ($ingredients_ref) {
 	return @ingredients_without_ciqual_codes;
 }
 
+=head2 estimate_ingredients_percent_service ( $product_ref, $updated_product_fields_ref )
+
+Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient.
+
+This function is a product service that can be run through ProductOpener::ApiProductServices
+
+=head3 Arguments
+
+=head4 $product_ref
+
+product object reference
+
+=head4 $updated_product_fields_ref
+
+reference to a hash of product fields that have been created or updated
+
+=cut 
+
+sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_ref) {
+
+	if (compute_ingredients_percent_min_max_values(100, 100, $product_ref->{ingredients}) < 0) {
+
+		# The computation yielded seemingly impossible values, delete the values
+		delete_ingredients_percent_values($product_ref->{ingredients});
+		$product_ref->{ingredients_percent_analysis} = -1;
+	}
+	else {
+		$product_ref->{ingredients_percent_analysis} = 1;
+	}
+
+	compute_ingredients_percent_estimates(100, $product_ref->{ingredients});
+
+	# Indicate which fields were created or updated
+	$updated_product_fields_ref->{ingredients} = 1;
+	$updated_product_fields_ref->{ingredients_percent_analysis} = 1;
+
+	return;
+}
+
 =head2 delete_ingredients_percent_values ( ingredients_ref )
 
 This function deletes the percent_min and percent_max values of all ingredients.
 
-It is called if the compute_ingredients_percent_values() encountered impossible
+It is called if the compute_ingredients_percent_min_max_values() encountered impossible
 values (e.g. "Water, Sugar 80%" -> Water % should be greater than 80%, but the
 total would be more than 100%)
 
@@ -2828,7 +2868,7 @@ sub delete_ingredients_percent_values ($ingredients_ref) {
 	return;
 }
 
-=head2 compute_ingredients_percent_values ( total_min, total_max, ingredients_ref )
+=head2 compute_ingredients_percent_min_max_values ( total_min, total_max, ingredients_ref )
 
 This function computes the possible minimum and maximum ranges for the percent
 values of each ingredient and sub-ingredients.
@@ -2868,7 +2908,7 @@ The return value is the number of times we adjusted min and max values for ingre
 
 =cut
 
-sub compute_ingredients_percent_values ($total_min, $total_max, $ingredients_ref) {
+sub compute_ingredients_percent_min_max_values ($total_min, $total_max, $ingredients_ref) {
 
 	init_percent_values($total_min, $total_max, $ingredients_ref);
 
@@ -2898,7 +2938,7 @@ sub compute_ingredients_percent_values ($total_min, $total_max, $ingredients_ref
 		if ($i > 5) {
 
 			$log->debug(
-				"compute_ingredients_percent_values - too many loops, bail out",
+				"compute_ingredients_percent_min_max_values - too many loops, bail out",
 				{
 					ingredients_ref => $ingredients_ref,
 					total_min => $total_min,
@@ -2911,7 +2951,7 @@ sub compute_ingredients_percent_values ($total_min, $total_max, $ingredients_ref
 	}
 
 	$log->debug(
-		"compute_ingredients_percent_values - done",
+		"compute_ingredients_percent_min_max_values - done",
 		{
 			ingredients_ref => $ingredients_ref,
 			total_min => $total_min,
@@ -3327,7 +3367,7 @@ sub set_percent_sub_ingredients ($ingredients_ref) {
 
 			# Set values for sub-ingredients from ingredient values
 
-			$changed += compute_ingredients_percent_values(
+			$changed += compute_ingredients_percent_min_max_values(
 				$ingredient_ref->{percent_min},
 				$ingredient_ref->{percent_max},
 				$ingredient_ref->{ingredients}
@@ -3366,7 +3406,7 @@ sub set_percent_sub_ingredients ($ingredients_ref) {
 
 This function computes a possible estimate for the percent values of each ingredient and sub-ingredients.
 
-The sum of all estimates must be 100%, and the estimates try to match the min and max constraints computed previously with the compute_ingredients_percent_values() function.
+The sum of all estimates must be 100%, and the estimates try to match the min and max constraints computed previously with the compute_ingredients_percent_min_max_values() function.
 
 =head3 Arguments
 
@@ -3430,21 +3470,38 @@ sub compute_ingredients_percent_estimates ($total, $ingredients_ref) {
 	return;
 }
 
-=head2 analyze_ingredients ( product_ref )
+=head2 analyze_ingredients ( $product_ref, $updated_product_fields_ref )
 
-This function analyzes ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
+Analyzes ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 and computes the resulting value for the complete product.
 
-The results are overrode by labels like "Vegan", "Vegetarian" or "Palm oil free"
+The results are overridden by labels like "Vegan", "Vegetarian" or "Palm oil free"
 
 Results are stored in the ingredients_analysis_tags array.
 
+This function is a product service that can be run through ProductOpener::ApiProductServices
+
+=head3 Arguments
+
+=head4 $product_ref
+
+product object reference
+
+=head4 $updated_product_fields_ref
+
+reference to a hash of product fields that have been created or updated
+
 =cut
 
-sub analyze_ingredients ($product_ref) {
+sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref) {
 
+	# Delete any existing values for the ingredients analysis fields
 	delete $product_ref->{ingredients_analysis};
 	delete $product_ref->{ingredients_analysis_tags};
+
+	# and indicate that the service is creating or updatiing them
+	$updated_product_fields_ref->{ingredients_analysis} = 1;
+	$updated_product_fields_ref->{ingredients_analysis_tags} = 1;
 
 	my @properties = ("from_palm_oil", "vegan", "vegetarian");
 	my %properties_unknown_tags = (
