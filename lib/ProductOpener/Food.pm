@@ -126,22 +126,28 @@ use Log::Any qw($log);
 # Canonicalize the list of categories used to compute Nutri-Score, so that Nutri-Score
 # computation does not change if we change the canonical English name of a category
 
-foreach my $categories_list_id (qw(
+foreach my $categories_list_id (
+	qw(
 	categories_not_considered_as_beverages_for_nutriscore_2021
 	categories_not_considered_as_beverages_for_nutriscore_2023
 	categories_exempted_from_nutriscore
 	categories_not_exempted_from_nutriscore
 	categories_exempted_from_nutrient_levels
-)) {
+	)
+	)
+{
 	my $categories_list_ref = $options{$categories_list_id};
 	if (defined $categories_list_ref) {
 		foreach my $category_id (@{$categories_list_ref}) {
 			$category_id = canonicalize_taxonomy_tag("en", "categories", $category_id);
 			# Check that the entry exists
 			if (not exists_taxonomy_tag("categories", $category_id)) {
-				die("Category $category_id used in Nutri-Score and listed in Config.pm \$options\{$categories_list_id\} does not exist in the categories taxonomy.");
+				$log->error(
+					"Categoryused in Nutri-Score and listed in Config.pm \$options\{$categories_list_id\} does not exist in the categories taxonomy.",
+					{category_id => $category_id}
+				) if $log->is_error();
 			}
-		}		
+		}
 	}
 }
 
