@@ -720,6 +720,7 @@ my %min_regexp = (
 	en => "min|min\.|minimum",
 	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
 	fr => "min|min\.|mini|minimum",
+	hr => "min|min\.|mini|minimum",
 );
 
 # Words that can be ignored after a percent
@@ -4243,6 +4244,7 @@ my %ignore_phrases = (
 	de => [
 		'\d\d?\s?%\sFett\si(\.|,)\s?Tr(\.|,)?',    # 45 % Fett i.Tr.
 		'inklusive',
+		'anderen',
 	],
 	en => ['not applicable',],
 	fr => ['non applicable|non concerné',],
@@ -5335,6 +5337,7 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 			if (defined $allergens_stopwords{$ingredients_lc}) {
 				$stopwords = $allergens_stopwords{$ingredients_lc};
 			}
+			$log->debug("benbenbenlog - stopwords: $stopwords") if $log->is_debug();
 
 			# $contains_or_may_contain_regexp may be the end of a sentence, remove the beginning
 			# e.g. this product has been manufactured in a factory that also uses...

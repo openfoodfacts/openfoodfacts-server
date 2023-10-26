@@ -82,7 +82,7 @@ stopwords:en:added to enhance freshness, added to maintain flavor and freshness,
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter, minimum
-stopwords:hr:i, i/ili, ili, iz, max, min, najmanje, najviše, od, sadržaj, sadrže, sadrži, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima, u tragovima
+stopwords:hr:i, i/ili, ili, iz, max, min, najmanje, najviše, obično poznat kao, od, sadržaj, sadrže, sadrži, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima, u tragovima
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
 stopwords:is:úr
@@ -1403,7 +1403,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Lactobacillus_rhamnosus
 <en:Lactobacillus rhamnosus
 en:Lactobacillus rhamnosus GG
 xx:Lactobacillus rhamnosus GG, LGG
-hr:kultura Lactobacillus rhamnosus, kultura Lactobacillus rhamnosus, LGG, Lactobacillus rhamnosus Gorbach & Goldin ATCC 53103
+hr:kultura Lactobacillus rhamnosus, LGG, Lactobacillus rhamnosus Gorbach & Goldin ATCC 53103
 # ingredient/fi:Lactobacillus-rhamnosus-GG has 1 product in 2 languages @2020-06-08
 
 # description:en:BACILLUS COAGULANS is a lactic acid-forming bacterial species. B. coagulans is often marketed as Lactobacillus sporogenes or a 'sporeforming lactic acid bacterium' probiotic, but this is an outdated name due to taxonomic changes in 1939.
@@ -3649,7 +3649,6 @@ fi:Kondensoitu maito
 fr:lait condensé, lait concentré
 gl:Leite condensado
 he:חלב מרוכז
-hr:ugušćeno zaslađeno mlijeko
 hu:sűrített tej
 hy:Խտացրած կաթ
 id:susu kental
@@ -12897,7 +12896,7 @@ es:Lomo de cerdo
 eu:txerri-solomo
 fr:longe de porc
 gl:lombo de porco
-hr:svinjski but
+hr:svinjski but, svinjsko meso od buta
 it:lonza di maiale
 ko:등심
 pt:lombo
@@ -12949,7 +12948,6 @@ en:pork leg
 bg:свински бут, свинско месо от бут
 de:Schweinekeule, Schweineschenkel
 fr:cuisse de porc
-hr:svinjsko meso od buta, svinjski but
 it:coscia di suino, coscia suina
 
 <en:pork meat
@@ -15671,7 +15669,7 @@ fr:huile de coco vierge biologique, huile vierge de noix de coco bio
 en:extra virgin coconut oil
 es:aceite de coco extra virgen
 fr:huile de coco extra vierge
-hr:ekstradjevičansko kokosovo ulje
+hr:ekstra djevičansko kokosovo ulje
 pl:olej kokosowy extra virgin
 
 <en:coconut oil
@@ -24216,7 +24214,7 @@ gd:coirce
 gl:avea
 he:שיבולת
 hi:जई
-hr:zob, zobd, zobene
+hr:zob, zobi, zobene
 ht:avwàn
 hu:zab
 id:haver
@@ -30693,7 +30691,7 @@ ro:izolat proteic de mazăre
 en:textured pea protein, textured pea proteins
 de:texturiertes Erbseneiweiß
 fr:protéines de pois texturées, protéine de pois texturée
-hr:teksturiranog proteina graška
+hr:teksturirani proteini graška, teksturiranog proteina graška
 pl:teksturat białka grochu, teksturowane białko grochu
 ro:texturat proteic de mazăre
 
@@ -30701,7 +30699,6 @@ ro:texturat proteic de mazăre
 en:rehydrated pea protein
 de:Rehydriertes Erbsenprotein, Erbsenprotein rehydriert
 fi:vedellä turvotettu herneproteiini
-hr:teksturirani proteini graška, teksturiranog proteina graška
 sv:rehydrerat ärtprotein
 # ingredient/fi:vedellä-turvotettu-herneproteiini has 1 product in 1 language @2020-05-25
 
@@ -32073,6 +32070,10 @@ sv:mjölkchokladdroppar
 allergens:en: en:milk
 
 <en:chocolate
+en:sugar free chocolate
+hr:čokolada bez šećera
+
+<en:sugar free chocolate
 en:sugar free chocolate chips
 de:zuckerfreie Schokoladenstücke
 es:chispas de chocolate sin azucar
@@ -32084,7 +32085,7 @@ de:Schokoladenfüllung
 es:Relleno de chocolate, Relleno de cacao, Relleno cacao
 fi:suklaatäyte
 fr:fourrage au chocolat, fourrage chocolat
-hr:keks s kakaom, preljev od čokolade, preljev okusa čokolade, punilo okusa čokolade, punjenje okusa čokolade
+hr:keks s kakaom, punilo okusa čokolade, punjenje okusa čokolade
 it:ripieno al cioccolato
 pl:nadzienie czekoladowe
 # ingredient/fr:fourrage-au-chocolat has 40 products in 4 languages @2019-05-25
@@ -34590,7 +34591,7 @@ fr:gomme arabique, gomme d'acacia
 gl:Goma arábiga
 gu:બાવળ
 he:גומי ערבי
-hr:Arapska guma
+hr:Arapska guma, akacija guma
 hu:Gumiarábikum, Akácmézga
 hy:Արաբական խեժ
 id:Gom arab
@@ -37246,6 +37247,10 @@ en:sloe, sloe plum, blackthorn
 fr:prunelle, épine noire, épines noires
 la:prunus spinosa
 eurocode_2_group_3:en: 9.20.60
+
+<en:plum
+en:plum spread
+hr:namaz od šljiva
 
 ###################################################################################################
 #
@@ -41094,7 +41099,7 @@ fa:انگورک گلوگیر
 fi:marja-aronia
 fr:aronie, aronia
 he:ארוניה
-hr:aronija, aronija plod, aronije
+hr:aronija, aronija plod, aronije, aronie
 hy:արոնիա
 it:aronia
 ja:アロニア属
@@ -41438,6 +41443,7 @@ de:Kokosnusschips, Kokosnuss-Chips, Kokoschips
 es:chips de coco
 fi:kookoslastu, kookoslastut
 fr:Chips de coco
+hr:kokos čips
 it:Scaglie di cocco
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fi:kookoslastu
 # 1 entry @ 2019-10-31
@@ -56054,7 +56060,7 @@ fr:haricot mungo
 gu:મગ
 he:מש
 hi:मूँग
-hr:zlatni grah
+hr:mungo grah, zlatni grah
 hu:mungóbab
 id:kacang hijau
 it:fagioli mung, fagiolo mung
@@ -57492,7 +57498,7 @@ gn:Yvapo
 gv:cro
 he:אגוז
 hi:अखरोट
-hr:orah, orašasto voče
+hr:orah, orašasto voće, orašaste plodove
 ht:Nwa
 hu:diófélék, dióféléket, diofeleket
 hy:ընկույզ
@@ -77265,7 +77271,7 @@ de:Weißbeingarnele, Litopenaeus vannamei
 es:camarón, Litopenaeus vannamei
 fi:valkokatkarapu, Litopenaeus vannamei
 fr:Crevette à pattes blanches, Litopenaeus vannamei
-hr:kozice, penaeus vannamei
+hr:penaeus vannamei
 la:Litopenaeus vannamei, Penaeus vannamei, Litopenaus vanamei
 pl:krewetka białonoga, Litopenaeus vannamei, krewetki białe, krewetka biała
 pt:camarão-de-patas-brancas, Litopenaeus vannamei
@@ -81229,7 +81235,7 @@ ca:ou liquid
 de:Flüssigei, flüssiges Ei
 es:huevo liquido
 fr:Œuf liquide
-hr:tekuća cijela jaja
+hr:tekuća jaja
 ja:液卵
 pl:masa jajowa, masa jajeczna
 
@@ -84348,7 +84354,7 @@ en:chocolate coating
 fr:chocolat de couverture
 ca:cobertura de xocolata, cobertura de cacau
 es:cobertura de chocolate
-hr:čokoladna kuvertura, čokoladni preljev, preljev od čokolade, preljev s čokoladom
+hr:čokoladna kuvertura, čokoladni preljev, preljev od čokolade, preljev s čokoladom, preljev okusa čokolade, 
 pt:chocolate de cobertura
 
 <en:chocolate coating
@@ -84806,7 +84812,7 @@ fr:muesli, müesli, Mueslis croustillants, Granolas
 gl:Muesli
 he:מוזלי
 hi:safad musali
-hr:zitnih pahuljica, Žitne pahuljice s voćem
+hr:muesli, zitnih pahuljica, Žitne pahuljice s voćem
 hu:Müzli, Müzlik
 it:Muesli
 ja:ミューズリー
