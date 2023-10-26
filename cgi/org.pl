@@ -391,7 +391,7 @@ elsif ($action eq 'process') {
 			foreach my $user_id (sort keys %{$org_ref->{members}}) {
 				my $checkbox_name = "admin_status_hidden_" . $user_id;
 				my $is_admin = single_param($checkbox_name) ? 1 : 0;
-				$log->debug("checkbox name", {checkss => $checkbox_name, statuss => $is_admin}) if $log->is_debug();
+				$log->debug("checkbox name", {checkbox_name, => $checkbox_name, is_admin => $is_admin}) if $log->is_debug();
 
 				if ($is_admin) {
 					add_user_to_org($org_ref, $user_id, ["admins"]);
