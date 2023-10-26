@@ -775,7 +775,7 @@ my @tests = (
 		{
 			lc => "fr",
 			categories => "lait de coco",
-			ingredients => "Noix de coco 60%, eau",
+			ingredients_text => "Noix de coco 60%, eau",
 			nutriments => {
 				energy_100g => 178,
 				fat_100g => 2.6,
@@ -786,6 +786,42 @@ my @tests = (
 				proteins_100g => 3.9,
 			},
 		}
+	],
+	# For products that contain water that is not consumed (e.g. canned vegetables)
+	# the % of fruits/vegetables must be estimated on the product without water
+	[
+		"fr-green-beans-beverage",
+		{
+			lc => "fr",
+			ingredients_text => "eau 80%, sucre 10%, haricots verts 10%",
+			categories => "plat préparé",
+			nutriments => {
+				energy_100g => 315,
+				fat_100g => 0.9,
+				"saturated-fat_100g" => 0.1,
+				sugars_100g => 3.6,
+				salt_100g => 0.80,
+				fiber_100g => 5.3,
+				proteins_100g => 5.0,
+			},
+		}
+	],
+	[
+		"fr-canned-green-beans",
+		{
+			lc => "fr",
+			ingredients_text => "eau 80%, sucre 10%, haricots verts 10%",
+			categories => "haricots verts en conserve",
+			nutriments => {
+				energy_100g => 315,
+				fat_100g => 0.9,
+				"saturated-fat_100g" => 0.1,
+				sugars_100g => 3.6,
+				salt_100g => 1.2,
+				fiber_100g => 5.3,
+				proteins_100g => 5.0,
+			},
+		},
 	],
 );
 
