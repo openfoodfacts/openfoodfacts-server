@@ -65,6 +65,8 @@ A basic user.
 	team_1 => "",
 	team_2 => "",
 	team_3 => "",
+	preferred_language => "en",
+	country => "en:united-states",
 	action => "process",
 	type => "add"
 );
