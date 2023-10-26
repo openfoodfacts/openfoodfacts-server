@@ -28729,6 +28729,7 @@ ja:氷砂糖
 en:sugarcane, sugar cane
 bg:захарна тръстика
 fr:canne à sucre, cannes à sucre
+hr:šećerne repice
 vegan:en:yes
 vegetarian:en:yes
 
@@ -34338,6 +34339,7 @@ de:Calciumphosphat
 es:Fosfato de calcio, Fosfato cálcico
 fi:kalsiumfosfaatti
 fr:phosphate de calcium, orthophosphate de calcium
+hr:kalcijev fosfat
 hu:kalcium-foszfát
 it:fosfato di calcio
 nl:calciumfosfaat
@@ -70623,11 +70625,19 @@ nl:visextract
 # ingredient/fr:poudre-de-poisson has 31 products in 2 languages @2019-02-03
 
 <en:fish
+en:fish meat
 bg:месо от риба
-fr:chair de poisson, chair de poissons
 de:Fischfleisch
+fr:chair de poisson, chair de poissons
+hr:meso ribe
 pl:mięso ryb
 # ingredient/fr:chair-de-poisson has 355 products in 2 languages @2018-12-29
+
+<en:fish meat
+<en:white fish
+en:white fish meat
+hr:meso bijele ribe
+
 
 # description:fr:Un fumet de poisson est un fond préparé à partir de poisson.
 
@@ -82064,7 +82074,7 @@ fi:inuliini, inuliinikuitu
 fr:inuline
 gl:Inulina
 he:אינולין
-hr:inulin, prehrambena vlakna Beneo, inulin od cikorije, vlakna inulina
+hr:inulin, prehrambena vlakna Beneo, inulin od cikorije, vlakna inulina, inulinsko vlakno
 hu:Inulin
 hy:Ինուլին
 id:Inulin
