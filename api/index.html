@@ -1035,8 +1035,8 @@
 <h2 id="rate-limits">Rate limits<a class="headerlink" href="#rate-limits" title="Permanent link">#</a></h2>
 <p>To protect our infrastructure, we enforce rate-limits on the API and the website. The following limits apply:</p>
 <ul>
-<li>100 req/s for all read product queries (<code>GET /api/v*/product</code> requests or product page). There is no limit on product write queries.</li>
-<li>10 req/s for all search queries (<code>GET /api/v*/search</code> or <code>GET /cgi/search.pl</code> requests)</li>
+<li>100 req/min for all read product queries (<code>GET /api/v*/product</code> requests or product page). There is no limit on product write queries.</li>
+<li>10 req/min for all search queries (<code>GET /api/v*/search</code> or <code>GET /cgi/search.pl</code> requests)</li>
 </ul>
 <p>If these limits are reached, we reserve the right to deny you the access to the website and the API through IP address ban. If your IP has been banned, feel free to send us an email to explain us the reason why you reached the limits: reverting the ban is possible.</p>
 <p>If your requests come from your users directly (ex: mobile app), the rate limits will apply per user.</p>
