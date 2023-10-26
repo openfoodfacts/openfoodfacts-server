@@ -1,0 +1,147 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:fruit",
+         "ingredients" : [
+            {
+               "ciqual_food_code" : "13050",
+               "id" : "en:apple",
+               "percent_estimate" : 45.8333333333333,
+               "percent_max" : 100,
+               "percent_min" : 16.6666666666667,
+               "text" : "apple",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "13005",
+               "id" : "en:banana",
+               "percent_estimate" : 14.5833333333333,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "banana",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "13008",
+               "id" : "en:cherry",
+               "percent_estimate" : 14.5833333333333,
+               "percent_max" : 33.3333333333333,
+               "percent_min" : 0,
+               "processing" : "en:dried",
+               "text" : "cherry",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "text" : "fruits",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:vegetable",
+         "ingredients" : [
+            {
+               "id" : "en:avocado",
+               "percent_estimate" : 12.5,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "processing" : "en:pitted",
+               "text" : "avocado",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "20089",
+               "id" : "en:black-radish",
+               "percent_estimate" : 12.5,
+               "percent_max" : 25,
+               "percent_min" : 0,
+               "processing" : "en:peeled",
+               "text" : "black radish",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "vegetables",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:fruit",
+      "en:vegetable",
+      "en:apple",
+      "en:malaceous-fruit",
+      "en:banana",
+      "en:cherry",
+      "en:prunus-species-fruit",
+      "en:avocado",
+      "en:fruit-vegetable",
+      "en:black-radish",
+      "en:root-vegetable",
+      "en:taproot-vegetable",
+      "en:radish"
+   ],
+   "ingredients_n" : 7,
+   "ingredients_n_tags" : [
+      "7",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:fruit",
+      "en:vegetable",
+      "en:apple",
+      "en:banana",
+      "en:cherry",
+      "en:avocado",
+      "en:black-radish"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:fruit",
+      "en:vegetable",
+      "en:apple",
+      "en:malaceous-fruit",
+      "en:banana",
+      "en:cherry",
+      "en:prunus-species-fruit",
+      "en:avocado",
+      "en:fruit-vegetable",
+      "en:black-radish",
+      "en:root-vegetable",
+      "en:taproot-vegetable",
+      "en:radish"
+   ],
+   "ingredients_text" : "fruits (apple, banana and dried cherry), vegetables (pitted avocado, peeled black radish).",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 5,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:avocado"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "known_ingredients_n" : 13,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
+   },
+   "unknown_ingredients_n" : 0
+}

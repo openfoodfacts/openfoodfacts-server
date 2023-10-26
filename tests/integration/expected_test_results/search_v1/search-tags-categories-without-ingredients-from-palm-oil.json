@@ -620,9 +620,8 @@
             "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
             "en:nutrition-all-nutriscore-values-known",
             "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
-            "en:nutriscore-2021-different-from-2023",
-            "en:nutriscore-2021-better-than-2023",
-            "en:nutriscore-2021-a-2023-b",
+            "en:nutriscore-2021-same-as-2023",
+            "en:nutriscore-2021-a-2023-a",
             "en:packagings-number-of-components-0",
             "en:packagings-not-complete",
             "en:packagings-empty",
@@ -757,6 +756,7 @@
                   "is_beverage" : 0,
                   "is_cheese" : 0,
                   "is_fat_oil_nuts_seeds" : 0,
+                  "is_red_meat_product" : 0,
                   "is_water" : 0,
                   "negative_nutrients" : [
                      "energy",
@@ -781,7 +781,7 @@
                   "sugars" : 7.575,
                   "sugars_points" : 2
                },
-               "grade" : "b",
+               "grade" : "a",
                "nutrients_available" : 1,
                "nutriscore_applicable" : 1,
                "nutriscore_computed" : 1,
@@ -792,7 +792,7 @@
             "a"
          ],
          "nutriscore_2023_tags" : [
-            "b"
+            "a"
          ],
          "nutriscore_data" : {
             "energy" : 155.25,
@@ -1548,9 +1548,8 @@
             "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
             "en:nutrition-all-nutriscore-values-known",
             "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
-            "en:nutriscore-2021-different-from-2023",
-            "en:nutriscore-2021-better-than-2023",
-            "en:nutriscore-2021-a-2023-b",
+            "en:nutriscore-2021-same-as-2023",
+            "en:nutriscore-2021-a-2023-a",
             "en:packagings-number-of-components-0",
             "en:packagings-not-complete",
             "en:packagings-empty",
@@ -1685,6 +1684,7 @@
                   "is_beverage" : 0,
                   "is_cheese" : 0,
                   "is_fat_oil_nuts_seeds" : 0,
+                  "is_red_meat_product" : 0,
                   "is_water" : 0,
                   "negative_nutrients" : [
                      "energy",
@@ -1709,7 +1709,7 @@
                   "sugars" : 7.575,
                   "sugars_points" : 2
                },
-               "grade" : "b",
+               "grade" : "a",
                "nutrients_available" : 1,
                "nutriscore_applicable" : 1,
                "nutriscore_computed" : 1,
@@ -1720,7 +1720,7 @@
             "a"
          ],
          "nutriscore_2023_tags" : [
-            "b"
+            "a"
          ],
          "nutriscore_data" : {
             "energy" : 155.25,
