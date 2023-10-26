@@ -287,7 +287,7 @@ sub display_knowledge_panel ($product_ref, $panels_ref, $panel_id) {
 }
 
 # cache for languages_options_list
-my %lang_options_cache = {};
+my %lang_options_cache = ();
 
 =head2 get_languages_options_list( $target_lc )
 
@@ -340,6 +340,8 @@ Generates all the countries name in the $target_lc language suitable for an sele
 
 =head4 $target_lc - language code for labels
 
+=head4 $exclude_world - boolean to exclude 'World' from list
+
 =head3 Return value
 
 A reference to a list of hashes with every country code and their label in the $lc language
@@ -347,7 +349,7 @@ A reference to a list of hashes with every country code and their label in the $
 
 =cut
 
-sub get_countries_options_list ($target_lc) {
+sub get_countries_options_list ($target_lc, $exclude_world = 1) {
 	# if already computed send it back
 	if (defined $countries_options_lists{$target_lc}) {
 		return $countries_options_lists{$target_lc};
@@ -356,12 +358,13 @@ sub get_countries_options_list ($target_lc) {
 	my @countries_list = ();
 	my @tags_list = get_all_taxonomy_entries("countries");
 	foreach my $tag (@tags_list) {
-		next if $tag eq 'en:world';
+		next if $exclude_world and ($tag eq 'en:world');
 		my $country = display_taxonomy_tag($target_lc, "countries", $tag);
 		# remove eventual language prefix
-		$country =~ s/^\w\w://;
+		my $country_no_code = $country;
+		$country_no_code =~ s/^\w\w://;
 		# Adding to the list the modified string
-		push @countries_list, {value => $tag, label => $country};
+		push @countries_list, {value => $tag, label => $country_no_code, prefixed => $country};
 	}
 	# sort by name
 	@countries_list = sort {$unicode_collate->cmp($a->{label}, $b->{label})} @countries_list;
