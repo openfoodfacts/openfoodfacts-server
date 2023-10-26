@@ -306,21 +306,19 @@ sub get_languages_options_list ($target_lc) {
 	foreach my $l (@Langs) {
 		my $label = display_taxonomy_tag($target_lc, 'languages', $language_codes{$l});
 		# remove eventual language prefix
-		if ($label =~ /^..:/) {
-			$label = (split(/:/, $label, 2))[1];
-		}
+		$label =~ s/^\w\w://;
 		$lang_labels{$l} = $label;
 	}
 
 	my @lang_values = sort {$unicode_collate->cmp($lang_labels{$a}, $lang_labels{$b})} @Langs;
 
-	foreach my $l (@lang_values) {
+	foreach my $lang_code (@lang_values) {
 
 		push(
 			@lang_options,
 			{
-				value => $l,
-				label => $lang_labels{$l},
+				value => $lang_code,
+				label => $lang_labels{$lang_code},
 			}
 		);
 	}
@@ -336,7 +334,7 @@ my %countries_options_lists = ();
 
 =head2 get_countries_options_list( $target_lc )
 
-Generates all the countries name in the $lc language suitable for an select option list
+Generates all the countries name in the $target_lc language suitable for an select option list
 
 =head3 Arguments
 
@@ -361,9 +359,7 @@ sub get_countries_options_list ($target_lc) {
 		next if $tag eq 'en:world';
 		my $country = display_taxonomy_tag($target_lc, "countries", $tag);
 		# remove eventual language prefix
-		if ($country =~ /^..:/) {
-			$country = (split(/:/, $country, 2))[1];
-		}
+		$country =~ s/^\w\w://;
 		# Adding to the list the modified string
 		push @countries_list, {value => $tag, label => $country};
 	}
