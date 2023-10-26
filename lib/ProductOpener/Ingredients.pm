@@ -6790,33 +6790,55 @@ The match function takes 2 arguments:
 Used to compute % of fruits and vegetables, % of milk etc. which is needed by some algorithm
 like the Nutri-Score.
 
+=head3 Return values
+
+=head4 $percent
+
+Sum of matching ingredients percent.
+
+=head4 $water_percent
+
+Percent of water (used to recompute the percentage for categories of products that are consumed after removing water)
+
 =cut
 
 sub add_ingredients_matching_function ($ingredients_ref, $match_function_ref) {
 
-	my $count = 0;
+	my $percent = 0;
+	my $water_percent = 0;
 
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
-		my $match = $match_function_ref->($ingredient_ref->{id}, $ingredient_ref->{processing});
-		if ($match) {
-			if (defined $ingredient_ref->{percent}) {
-				$count += $ingredient_ref->{percent};
-			}
-			elsif (defined $ingredient_ref->{percent_estimate}) {
-				$count += $ingredient_ref->{percent_estimate};
-			}
-			# We may not have percent_min if the ingredient analysis failed because of seemingly impossible values
-			# in that case, try to get the possible percent values in nested sub ingredients
-			elsif (defined $ingredient_ref->{ingredients}) {
-				$count += add_ingredients_matching_function($ingredient_ref->{ingredients}, $match_function_ref);
-			}
+
+		my $ingredient_percent;
+		if (defined $ingredient_ref->{percent}) {
+			$ingredient_percent = $ingredient_ref->{percent};
 		}
+		elsif (defined $ingredient_ref->{percent_estimate}) {
+			$ingredient_percent = $ingredient_ref->{percent_estimate};
+		}
+
+		my $match = $match_function_ref->($ingredient_ref->{id}, $ingredient_ref->{processing});
+
+		# We have a match and a percent
+		if (($match) and (defined $ingredient_percent)) {
+			$percent += $ingredient_percent;
+		}
+		# The ingredient does not match,
+		# or we don't have percent_estimate if the ingredient analysis failed because of seemingly impossible values
+		# in that case, try to get the possible percent values in nested sub ingredients
 		elsif (defined $ingredient_ref->{ingredients}) {
-			$count += add_ingredients_matching_function($ingredient_ref->{ingredients}, $match_function_ref);
+			my ($sub_ingredients_percent, $sub_ingredients_water_percent)
+				= add_ingredients_matching_function($ingredient_ref->{ingredients}, $match_function_ref);
+			$percent += $sub_ingredients_percent;
+			$water_percent += $sub_ingredients_water_percent;
+		}
+		# Keep track of water
+		elsif (is_a("ingredients", $ingredient_ref->{id}, 'en:water')) {
+			$water_percent += $ingredient_percent;
 		}
 	}
 
-	return $count;
+	return ($percent, $water_percent);
 }
 
 =head2 estimate_ingredients_matching_function ( $product_ref, $match_function_ref, $nutrient_id = undef )
@@ -6844,16 +6866,32 @@ Estimated percentage of ingredients matching the function.
 
 sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $nutrient_id = undef) {
 
-	my $count;
+	my ($percent, $water_percent);
 
 	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
 
-		$count = add_ingredients_matching_function($product_ref->{ingredients}, $match_function_ref);
+		($percent, $water_percent)
+			= add_ingredients_matching_function($product_ref->{ingredients}, $match_function_ref);
+
+		$log->debug("estimate_ingredients_matching_function", {percent => $percent, water_percent => $water_percent})
+			if $log->is_debug();
+
+		# For product categories where water is not consumed (e.g canned vegetables),
+		# we recompute the percent of matching ingredients in the product without water
+		# en:canned-vegetables may be a bit broad, as some canned vegetables are consumed with the sauce/water
+		# en:canned-fruits are not included as those are often in syrup, which is consumed
+		if (    (defined $water_percent)
+			and ($water_percent > 0)
+			and ($water_percent < 100)
+			and (has_tag($product_ref, "categories", "en:canned-vegetables")))
+		{
+			$percent = $percent * 100 / (100 - $water_percent);
+		}
 	}
 
 	# If we have specific ingredients, check if we have a higher fruits / vegetables content
 	if (defined $product_ref->{specific_ingredients}) {
-		my $specific_ingredients_count = 0;
+		my $specific_ingredients_percent = 0;
 		foreach my $ingredient_ref (@{$product_ref->{specific_ingredients}}) {
 			my $ingredient_id = $ingredient_ref->{id};
 			# We can have specific ingredients with % or grams
@@ -6861,22 +6899,22 @@ sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $
 			if (defined $percent_or_quantity_g) {
 
 				if ($match_function_ref->($ingredient_id)) {
-					$specific_ingredients_count += $percent_or_quantity_g;
+					$specific_ingredients_percent += $percent_or_quantity_g;
 				}
 			}
 		}
 
-		if (    ($specific_ingredients_count > 0)
-			and ((not defined $count) or ($specific_ingredients_count > $count)))
+		if (    ($specific_ingredients_percent > 0)
+			and ((not defined $percent) or ($specific_ingredients_percent > $percent)))
 		{
-			$count = $specific_ingredients_count;
+			$percent = $specific_ingredients_percent;
 		}
 	}
 
 	if (defined $nutrient_id) {
-		if (defined $count) {
-			$product_ref->{nutriments}{$nutrient_id . "_100g"} = $count;
-			$product_ref->{nutriments}{$nutrient_id . "_serving"} = $count;
+		if (defined $percent) {
+			$product_ref->{nutriments}{$nutrient_id . "_100g"} = $percent;
+			$product_ref->{nutriments}{$nutrient_id . "_serving"} = $percent;
 		}
 		elsif (defined $product_ref->{nutriments}) {
 			delete $product_ref->{nutriments}{$nutrient_id . "_100g"};
@@ -6884,7 +6922,7 @@ sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $
 		}
 	}
 
-	return $count;
+	return $percent;
 }
 
 =head2 is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ( $ingredient_id, $processing = undef )

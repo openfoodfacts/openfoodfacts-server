@@ -88,16 +88,17 @@ my @ingredients_text_tests = (
 	# the % of fruits/vegetables must be estimated on the product without water
 	[
 		{lc => "fr", ingredients_text => "eau 80%, sucre 10%, haricots verts 10%", categories_tags => ["en:beverages"]},
-		16.6666666666667, 0
+		10,
+		10
 	],
 	[
 		{
 			lc => "fr",
 			ingredients_text => "eau 80%, sucre 10%, haricots verts 10%",
-			categories_tags => ["en:canned-green-beans","en:canned-vegetables"],
+			categories_tags => ["en:canned-green-beans", "en:canned-vegetables"],
 		},
-		16.6666666666667,
-		0
+		50,
+		50
 	],
 );
 
