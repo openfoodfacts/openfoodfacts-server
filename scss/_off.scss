@@ -606,6 +606,53 @@ ul.pagination li a {
   }
 }
 
+@media #{$small-only} {
+  .toggle_food_preferences {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}
+
+.close_food_preferences {
+  margin-bottom: 1rem;
+}
+.fieldset_attribute_group {
+  display: flex;
+  flex-direction: column;
+}
+.attribute_img {
+  display: flex;
+  align-items: center;
+}
+
+@media #{$small-only} {
+  .attribute_group {
+    .attribute_item:first-child label {
+      margin-top: 1rem;
+    }
+    .attribute_item label {
+      margin-top: 0;
+    }
+  }
+}
+
+@media #{$medium-up} {
+  .attribute_group .attribute_item label {
+    margin-top: 0;
+  }
+}
+
+@media #{$large-up} {
+  .attribute_group {
+    display: flex;
+    justify-content: start;
+  }
+  .attribute_group .attribute_item:first-child {
+    padding-left: 8rem;
+  }
+}
+
 html[dir="rtl"] {
   .tab-bar-section.middle {
     left: 0;
@@ -614,6 +661,9 @@ html[dir="rtl"] {
   .share_button,
   .edit_button {
     float: left;
+  }
+  .close_food_preferences {
+    margin-bottom: 1rem;
   }
   .delete_button {
     float: left;
@@ -635,6 +685,8 @@ html[dir="rtl"] {
     }
   }
 }
+
+
 
 .match_icons {
   height: 48px;
@@ -1231,6 +1283,12 @@ $section-cyan: #008c8c;
   }
 }
 
+// Top banner to download mobile app
+#mobile-app-top-banner {
+  margin: 0;
+  border-radius: 0;
+}
+
 .footer_social_icon {
   height: 24px;
   vertical-align: middle;
@@ -1410,6 +1468,17 @@ $section-cyan: #008c8c;
   margin-bottom: 8px;
 }
 
+
+// Contribute and discover footer
+
+#contribute_and_discover_links_block {
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+}
 
 // Title with Plus Jakarta Sans, according to brand guidelines
 .emphasized-title {

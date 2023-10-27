@@ -1409,28 +1409,29 @@ sub check_labels ($product_ref) {
 						# vegan
 						if (defined $ingredient_ref->{"vegan"}) {
 							if ($ingredient_ref->{"vegan"} eq 'no') {
-								push @{$product_ref->{data_quality_errors_tags}},
-									"en:vegan-label-but-non-vegan-ingredient";
+								add_tag($product_ref, "data_quality_errors", "en:vegan-label-but-non-vegan-ingredient");
 							}
 							# else 'yes', 'maybe'
 						}
+						# no tag
 						else {
-							push @{$product_ref->{data_quality_warnings_tags}},
-								"en:vegan-label-but-could-not-confirm-for-all-ingredients";
+							add_tag($product_ref, "data_quality_warnings",
+								"en:vegan-label-but-could-not-confirm-for-all-ingredients");
 						}
 					}
 
-					# vegetarian
+					# vegetarian label condition is above
 					if (defined $ingredient_ref->{"vegetarian"}) {
 						if ($ingredient_ref->{"vegetarian"} eq 'no') {
-							push @{$product_ref->{data_quality_errors_tags}},
-								"en:vegetarian-label-but-non-vegetarian-ingredient";
+							add_tag($product_ref, "data_quality_errors",
+								"en:vegetarian-label-but-non-vegetarian-ingredient");
 						}
 						# else 'yes', 'maybe'
 					}
+					# no tag
 					else {
-						push @{$product_ref->{data_quality_warnings_tags}},
-							"en:vegetarian-label-but-could-not-confirm-for-all-ingredients";
+						add_tag($product_ref, "data_quality_warnings",
+							"en:vegetarian-label-but-could-not-confirm-for-all-ingredients");
 					}
 				}
 			}

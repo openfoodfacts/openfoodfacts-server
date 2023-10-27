@@ -403,6 +403,10 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 		$user_ref->{email} = $email;
 	}
 
+	# Country and preferred language
+	$user_ref->{preferred_language} = remove_tags_and_quote(single_param("preferred_language"));
+	$user_ref->{country} = remove_tags_and_quote(single_param("country"));
+
 	# Is there a checkbox to make a professional account
 	if (defined single_param("pro_checkbox")) {
 
@@ -684,7 +688,8 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 
 		# Fetch the HTML mail template corresponding to the user language, english is the
 		# default if the translation is not available
-		my $email_content = get_html_email_content("user_welcome.html", $user_ref->{initial_lc});
+		my $language = $user_ref->{preferred_language} || $user_ref->{initial_lc};
+		my $email_content = get_html_email_content("user_welcome.html", $language);
 		my $user_name = $user_ref->{name};
 		# Replace placeholders by user values
 		$email_content =~ s/\{\{USERID\}\}/$userid/g;
