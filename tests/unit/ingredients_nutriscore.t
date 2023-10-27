@@ -97,8 +97,7 @@ my @ingredients_text_tests = (
 			ingredients_text => "eau 80%, sucre 10%, haricots verts 10%",
 			categories_tags => ["en:canned-green-beans", "en:canned-vegetables"],
 		},
-		50,
-		50
+		50, 50
 	],
 );
 
