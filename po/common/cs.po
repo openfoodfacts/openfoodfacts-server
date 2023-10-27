@@ -196,7 +196,7 @@ msgstr "https://world-cs.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/cs_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -1463,7 +1463,7 @@ msgstr "Nutriční hodnoty"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr "Průměrné nutriční údaje pro %d produktů z %s kategorie, pro které jsou známy výživové údaje (z %d produktů)."
+msgstr "Průměrné nutriční údaje pro %d produktů z kategorie %s, pro které jsou známy výživové údaje (z %d produktů)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -2623,6 +2623,10 @@ msgstr "Povolte přiblížení pomocí kolečka myši."
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Načíst obrázky s nižším rozlišením (pro pomalá připojení)"
+
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "Obrázek byl zaslán výrobcem. Pokud si myslíte, že je nesprávný nebo neaktuální, prosím kontaktujte nás."
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
@@ -6609,6 +6613,10 @@ msgstr "pro produkty, které daný materiál převážně obsahují"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "vzhledem ke všem produktům"
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr "Preferovaný jazyk"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
