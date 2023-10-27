@@ -196,7 +196,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/ro_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -2625,6 +2625,10 @@ msgstr "Activează zooming cu rotița mouse-ului."
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Încărcați imagini cu rezoluție mai mică (pentru conexiuni lente)"
+
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "O imagine a fost trimisă de producător. Dacă considerați că este incorectă sau nu este la zi, vă rugăm să ne contactați."
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
@@ -6611,6 +6615,10 @@ msgstr "pentru produsele care conțin în mare parte materialul"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "raportat la toate produsele"
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr ""
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
