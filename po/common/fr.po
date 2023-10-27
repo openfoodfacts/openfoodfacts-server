@@ -154,7 +154,7 @@ msgstr "Recherche avancée"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr "Recherche avancée, graphiques et carte"
+msgstr "Recherche avancée et graphiques"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
@@ -2631,6 +2631,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Charger les images en basse résolution (pour les connexions lentes)"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "Une image a été envoyée par le producteur. Si vous pensez qu'il y a une erreur ou que l'information est dépassée, veuillez nous contacter."
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr "Attention : les valeurs nutritionnelles ne sont pas précisées. Elles ont été estimées à partir de la liste des ingrédients."
@@ -4697,10 +4701,6 @@ msgctxt "preference_mandatory"
 msgid "Mandatory"
 msgstr "Obligatoire"
 
-msgctxt "preferred_language"
-msgid "Preferred Language"
-msgstr "Langue préférée"
-
 msgctxt "packaging_alt"
 msgid "Recycling instructions and/or packaging information"
 msgstr "Instruction de recyclage et/ou informations d'emballage"
@@ -6621,27 +6621,31 @@ msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "par rapport à tous les produits"
 
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr "Langue préférée"
+
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
-msgstr ""
+msgstr "Nombre de composants de l'emballage"
 
 msgctxt "packagings_n_s"
 msgid "Number of packaging components"
-msgstr ""
+msgstr "Nombre de composants pour l'emballage"
 
 msgctxt "packagings_materials_all"
 msgid "All materials"
-msgstr ""
+msgstr "Tous les matériaux"
 
 msgctxt "weight"
 msgid "Weight"
-msgstr ""
+msgstr "Poids"
 
 msgctxt "weight_100g"
 msgid "Weight per 100g of product"
-msgstr ""
+msgstr "Poids par 100g de produit"
 
 msgctxt "weight_percent"
 msgid "Weight percent"
-msgstr ""
+msgstr "Pourcentage du poids"
 
