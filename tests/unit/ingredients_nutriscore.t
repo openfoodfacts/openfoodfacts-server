@@ -99,6 +99,14 @@ my @ingredients_text_tests = (
 		},
 		50, 50
 	],
+	[
+		{
+			lc => "fr",
+			ingredients_text => "sauce (eau 80%, vinaigre 5%), haricots verts 10%, sucre 5%",
+			categories_tags => ["en:canned-green-beans", "en:canned-vegetables"],
+		},
+		50, 50
+	],
 );
 
 foreach my $test_ref (@ingredients_text_tests) {

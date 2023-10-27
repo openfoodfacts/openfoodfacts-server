@@ -6809,6 +6809,9 @@ sub add_ingredients_matching_function ($ingredients_ref, $match_function_ref) {
 
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
 
+		my $sub_ingredients_percent = 0;
+		my $sub_ingredients_water_percent = 0;
+
 		my $ingredient_percent;
 		if (defined $ingredient_ref->{percent}) {
 			$ingredient_percent = $ingredient_ref->{percent};
@@ -6827,17 +6830,21 @@ sub add_ingredients_matching_function ($ingredients_ref, $match_function_ref) {
 		# or we don't have percent_estimate if the ingredient analysis failed because of seemingly impossible values
 		# in that case, try to get the possible percent values in nested sub ingredients
 		elsif (defined $ingredient_ref->{ingredients}) {
-			my ($sub_ingredients_percent, $sub_ingredients_water_percent)
+			($sub_ingredients_percent, $sub_ingredients_water_percent)
 				= add_ingredients_matching_function($ingredient_ref->{ingredients}, $match_function_ref);
 			$percent += $sub_ingredients_percent;
-			$water_percent += $sub_ingredients_water_percent;
 		}
 		# Keep track of water
-		elsif (is_a("ingredients", $ingredient_ref->{id}, 'en:water')) {
+		if ((is_a("ingredients", $ingredient_ref->{id}, 'en:water')) and (defined $ingredient_percent)) {
+			# Count water only in the ingredient if we have something like "flavored water 80% (water, flavour)"
 			$water_percent += $ingredient_percent;
 		}
-	}
+		else {
+			# We may have water in sub ingredients
+			$water_percent += $sub_ingredients_water_percent;
+		}
 
+	}
 	return ($percent, $water_percent);
 }
 
