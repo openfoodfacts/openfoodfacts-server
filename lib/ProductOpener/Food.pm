@@ -144,7 +144,7 @@ foreach my $categories_list_id (
 			# Check that the entry exists
 			if (not exists_taxonomy_tag("categories", $category_id)) {
 				$log->error(
-					"Categoryused in Nutri-Score and listed in Config.pm \$options\{$categories_list_id\} does not exist in the categories taxonomy.",
+					"Category used in Nutri-Score and listed in Config.pm \$options\{$categories_list_id\} does not exist in the categories taxonomy.",
 					{category_id => $category_id}
 				) if $log->is_error();
 			}
