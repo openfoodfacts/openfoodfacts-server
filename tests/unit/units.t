@@ -98,6 +98,8 @@ is(g_to_unit(42000, "kg"), 42);
 is(g_to_unit(28.349523125, "oz"), 1);
 is(g_to_unit(30, "fl oz"), 1);
 is(g_to_unit(1, "mcg"), 1000000);
+is(unit_to_g(1, "lb"), 453.59237);
+is(unit_to_g(10, "pounds"), 4535.9237);
 
 is(normalize_quantity("1 г"), 1);
 is(normalize_quantity("1 мг"), 0.001);
@@ -119,6 +121,7 @@ is(normalize_quantity("10 unités de 170g"), 1700);
 is(normalize_quantity("10 unites, 170g"), 170);
 is(normalize_quantity("4 bouteilles en verre de 20cl"), 800);
 is(normalize_quantity("5 bottles of 20cl"), 100 * 10);
+is(normalize_quantity("10 lbs"), 4535.9237);
 
 my @serving_sizes = (
 	["100g", "100"],

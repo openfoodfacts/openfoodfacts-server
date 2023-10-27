@@ -92,8 +92,11 @@ my %unit_conversion_map = (
 	# l = 公升 - gōngshēng = л = liter
 	"\N{U+516C}\N{U+5347}" => 1000,
 	'kg' => 1000,
+	'kgs' => 1000,
 	'кг' => 1000,
 	'l' => 1000,
+	'liter' => 1000,
+	'liters' => 1000,
 	'л' => 1000,
 	# mg = 毫克 - háokè = мг
 	"\N{U+6BEB}\N{U+514B}" => 0.001,
@@ -136,7 +139,11 @@ my %unit_conversion_map = (
 	"\N{U+00B0}fh" => 10.00,
 	"\N{U+00B0}e" => 7.02,
 	"\N{U+00B0}dh" => 5.6,
-	'gpg' => 5.847
+	'gpg' => 5.847,
+	'lb' => 453.59237,
+	'lbs' => 453.59237,
+	'pound' => 453.59237,
+	'pounds' => 453.59237,
 );
 
 sub unit_to_g ($value, $unit) {
@@ -235,7 +242,7 @@ sub mmoll_to_unit ($value, $unit) {
 	return $value + 0;
 }
 
-my $international_units = qr/kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz)/i;
+my $international_units = qr/kg|kgs|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz|lb|lbs)/i;
 # Chinese units: a good start is https://en.wikipedia.org/wiki/Chinese_units_of_measurement#Mass
 my $chinese_units = qr/
 	(?:[\N{U+6BEB}\N{U+516C}]?\N{U+514B})|  # 毫克 or 公克 or 克 or (克 kè is the Chinese word for gram)
@@ -269,14 +276,14 @@ sub normalize_quantity ($quantity) {
 	# 6 bricks de 1 l
 	# 10 unités, 170 g
 	# 4 bouteilles en verre de 20cl
-	if ($quantity =~ /(\d+)(\s(\p{Letter}| )+)?(\s)?( de | of |x|\*)(\s)?((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
+	if ($quantity =~ /(\d+)(\s(\p{Letter}| )+)?(\s)?( de | of |x|\*)(\s)?((\d+)(\.|,)?(\d+)?)(\s)?($units)\s*\b/i) {
 		my $m = $1;
 		$q = lc($7);
 		$u = $12;
 		$q = convert_string_to_number($q);
 		$q = unit_to_g($q * $m, $u);
 	}
-	elsif ($quantity =~ /((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
+	elsif ($quantity =~ /((\d+)(\.|,)?(\d+)?)(\s)?($units)\s*\b/i) {
 		$q = lc($1);
 		$u = $6;
 		$q = convert_string_to_number($q);
