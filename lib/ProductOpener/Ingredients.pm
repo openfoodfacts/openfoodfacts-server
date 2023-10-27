@@ -6886,12 +6886,13 @@ sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $
 
 		# For product categories where water is not consumed (e.g canned vegetables),
 		# we recompute the percent of matching ingredients in the product without water
-		# en:canned-vegetables may be a bit broad, as some canned vegetables are consumed with the sauce/water
+		# en:canned-plant-based-foods may be a bit broad, as some canned vegetables are consumed with the sauce/water
 		# en:canned-fruits are not included as those are often in syrup, which is consumed
 		if (    (defined $water_percent)
 			and ($water_percent > 0)
 			and ($water_percent < 100)
-			and (has_tag($product_ref, "categories", "en:canned-vegetables")))
+			and (has_tag($product_ref, "categories", "en:canned-plant-based-foods"))
+			and not(has_tag($product_ref, "categories", "en:canned-fruits")))
 		{
 			$percent = $percent * 100 / (100 - $water_percent);
 		}
