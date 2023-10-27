@@ -170,7 +170,7 @@ use ProductOpener::Config2;
 
 %admins = map {$_ => 1} qw(
 	alex-off
-    cha-delh
+	cha-delh
 	charlesnepote
 	gala-nafikova
 	hangy
