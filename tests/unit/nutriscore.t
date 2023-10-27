@@ -840,7 +840,7 @@ my @tests = (
 				proteins_100g => 5.0,
 			},
 		},
-	],	
+	],
 );
 
 my $json = JSON->new->allow_nonref->canonical;
