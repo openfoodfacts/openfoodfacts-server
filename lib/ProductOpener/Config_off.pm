@@ -75,6 +75,7 @@ BEGIN {
 
 		%options
 		%server_options
+		%oidc_options
 
 		@product_fields
 		@product_other_fields
@@ -376,6 +377,7 @@ $facets_kp_url = $ProductOpener::Config2::facets_kp_url;
 # server options
 
 %server_options = %ProductOpener::Config2::server_options;
+%oidc_options = %ProductOpener::Config2::oidc_options;
 
 $build_cache_repo = $ProductOpener::Config2::build_cache_repo;
 

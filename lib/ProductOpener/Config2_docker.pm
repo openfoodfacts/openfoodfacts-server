@@ -52,6 +52,7 @@ BEGIN {
 		$facets_kp_url
 		$events_username
 		$events_password
+		%oidc_options
 		$redis_url
 		%server_options
 		$build_cache_repo
@@ -115,6 +116,13 @@ $query_url = $ENV{QUERY_URL};
 $events_url = $ENV{EVENTS_URL};
 $events_username = $ENV{EVENTS_USERNAME};
 $events_password = $ENV{EVENTS_PASSWORD};
+
+%oidc_options = (
+	client_id => 'ProductOpener',
+	client_secret => 'changeit',
+	authorize_uri => 'http://example.org/authorize',
+	access_token_uri => 'http://example.org/token',
+);
 
 # Set this to your instance of https://github.com/openfoodfacts/facets-knowledge-panels
 # Inject facet knowledge panels
