@@ -1748,6 +1748,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 	# $percent_or_quantity_regexp has 2 capturing group: one for the number, and one for the % sign or the unit
 	my $percent_or_quantity_regexp = '(?:' . "(?:$prepared_with )" . ' )?'    # optional produced with
 		. '(?:<|' . $min_regexp . '|\s|\.|:)*'    # optional minimum, and separators
+		. '(?:\d+(?:(?:\,|\.)\d+)?\s*-\s*?)?'    # number+hyphens, first part (10-) of "10-12%"
 		. '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number, possibly with a dot or comma
 		. '(\%|g|gr|mg|kg|ml|cl|dl|l)\s*'    # % or unit
 		. '(?:' . $min_regexp . '|'    # optional minimum
@@ -5395,6 +5396,8 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# transform 0,2% into 0.2%
 	$text =~ s/(\d),(\d+)( )?(\%|g\b)/$1.$2\%/ig;
 	$text =~ s/—/-/g;
+	# transform 0,1-0.2% into 0.1-0.2%
+	$text =~ s/(\d),(\d+( )?-( )?\d)/$1.$2/ig;
 
 	# abbreviations, replace language specific abbreviations first
 	foreach my $abbreviations_lc ($ingredients_lc, "all") {
