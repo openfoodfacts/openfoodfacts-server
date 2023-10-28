@@ -144,7 +144,9 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         # gnu readline
         libreadline-dev \
         # IO::AIO needed by Perl::LanguageServer
-        libperl-dev
+        libperl-dev \
+        # OpenSSL dev needed by OIDC::Lite
+        libssl-dev
 
 # Run www-data user as host user 'off' or developper uid
 ARG USER_UID

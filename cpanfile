@@ -92,6 +92,9 @@ requires 'AnyEvent::Inotify::Simple';
 # GS1 Encoder
 requires 'GS1::SyntaxEngine::FFI';
 
+# OIDC / OAuth
+requires 'OIDC::Lite';
+
 on 'test' => sub {
   requires 'Test::More', '>= 1.302186, < 2.0';
   requires 'Test::MockModule';
