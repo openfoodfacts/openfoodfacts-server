@@ -53,6 +53,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/:all/;
+use ProductOpener::URL qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 
@@ -77,9 +78,9 @@ my $client = OIDC::Lite::Client::WebServer->new(
 # redirect user to authorize page.
 sub start_authorize ($request_ref) {
 	my $redirect_url = $client->uri_to_redirect(
-		redirect_uri => q{http://yourapp/callback},
+		redirect_uri => format_subdomain('world') . '/cgi/oidc-callback.pl',
 		scope => q{photo},
-		state => q{optional_state},
+		state => $request_ref->{query_string},
 	);
 
 	redirect_to_url($request_ref, 302, $redirect_url);
@@ -92,7 +93,7 @@ sub callback ($request_ref) {
 
 	my $access_token = $client->get_access_token(
 		code => $code,
-		redirect_uri => q{http://yourapp/callback},
+		redirect_uri => format_subdomain('world') . '/cgi/oidc-callback.pl',
 	) or die $client->errstr;
 
 	$log->info("got access token", {access_token => $access_token}) if $log->is_info();
