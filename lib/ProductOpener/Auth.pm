@@ -80,7 +80,7 @@ my $client = OIDC::Lite::Client::WebServer->new(
 sub start_authorize ($request_ref) {
 	my $redirect_url = $client->uri_to_redirect(
 		redirect_uri => format_subdomain('world') . '/cgi/oidc-callback.pl',
-		scope => q{photo},
+		scope => q{profile},
 		state => $request_ref->{query_string},
 	);
 
@@ -124,6 +124,8 @@ sub access_to_protected_resource ($request_ref) {
 		refresh_access_token($request_ref);
 		return;
 	}
+
+	$log->info("request is ok", $request_ref) if $log->is_info();
 
 	return;
 }

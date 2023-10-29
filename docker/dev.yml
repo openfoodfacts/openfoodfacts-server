@@ -99,6 +99,22 @@ services:
       - ./html/data:/import
     ports:
       - "127.0.0.1:${MONGO_EXPOSE_PORT:-27017}:27017"
+  keycloak:
+    image: quay.io/keycloak/keycloak:22.0
+    environment:
+      - KEYCLOAK_ADMIN
+      - KEYCLOAK_ADMIN_PASSWORD
+    volumes:
+      - keycloak_data:/opt/keycloak
+    command: start-dev
+    ports:
+      - "127.0.0.1:${KEYCLOAK_EXPOSE_PORT:-8080}:8080"
+    networks:
+        default:
+          aliases:
+            # trick: make it possible for product opener to reach it internally,
+            # using localhost domain
+            - auth.openfoodfacts.localhost
 volumes:
   product_images:
   html_data:
@@ -114,6 +130,7 @@ volumes:
     name: ${PO_COMMON_PREFIX:-}po_podata
   dbdata:
   build_cache:
+  keycloak_data:
 
 networks:
   # this is a specific network to enable pro platform to join the postgres db

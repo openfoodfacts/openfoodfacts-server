@@ -119,9 +119,11 @@ $events_password = $ENV{EVENTS_PASSWORD};
 
 %oidc_options = (
 	client_id => 'ProductOpener',
-	client_secret => 't59ibEIU2JmyOUQfcjMYHU7Z09rezkiI',
-	authorize_uri => 'http://localhost:8080/realms/open-products-facts/protocol/openid-connect/auth',
-	access_token_uri => 'http://localhost:8080/realms/open-products-facts/protocol/openid-connect/token',
+	client_secret => 'Cf4NdSAjZsNO9HLcuXeuvukzFu00roQa',
+	authorize_uri =>
+		"http://auth.$ENV{PRODUCT_OPENER_DOMAIN}:8080/realms/open-products-facts/protocol/openid-connect/auth",
+	access_token_uri =>
+		"http://auth.$ENV{PRODUCT_OPENER_DOMAIN}:8080/realms/open-products-facts/protocol/openid-connect/token",
 );
 
 # Set this to your instance of https://github.com/openfoodfacts/facets-knowledge-panels
