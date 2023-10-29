@@ -7325,11 +7325,10 @@ sub display_page ($request_ref) {
 				$osubdomain = $cc;
 			}
 			if (($olc eq $lc)) {
-				$selected_lang = "<a href=\"" . format_subdomain($osubdomain) . "/\">$Langs{$olc}</a>\n";
+				$selected_lang = "<a>$Langs{$olc}</a>";
 			}
-			else {
-				$langs .= "<li><a href=\"" . format_subdomain($osubdomain) . "/\">$Langs{$olc}</a></li>";
-			}
+
+			$langs .= "<li><a href=\"" . format_subdomain($osubdomain) . "/\">$Langs{$olc}</a></li>";
 		}
 	}
 
