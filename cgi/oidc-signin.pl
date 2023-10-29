@@ -26,12 +26,14 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Auth qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Routing qw/:all/;
 
 use Log::Any qw($log);
 
 $log->info('start') if $log->is_info();
 
-my $request_ref = ProductOpener::Display::init_request();
+my $request_ref = init_request();
+analyze_request($request_ref);
 
 access_to_protected_resource($request_ref);
 
