@@ -3169,6 +3169,10 @@ uk:Коров'яче молоко
 zh:牛奶
 wikipedia:fr:https://fr.wikipedia.org/wiki/Lait_de_vache
 
+<en:milk
+en:milk with 1.0% milk fat
+hr:mlijeko s 1.0% mliječne masti, mlijeko s 1% mliječne masti
+
 # description:en:RAW COW MILK - milk produced by female cows before any treatment
 
 <en:cow's milk
@@ -14499,7 +14503,7 @@ gl:greix
 gu:ચરબી
 he:שומן
 hi:वसा
-hr:masti, masni namaz
+hr:mast, masti, masni namaz
 ht:kò gra
 hu:zsír, zsírok
 id:lemak
@@ -14717,7 +14721,7 @@ es:materia grasa láctea, grasa de leche,grasa lactea,grasa láctea anhidra,mate
 et:piimarasv
 fi:maitorasva
 fr:matière grasse lactique, matière grasse laitière, matière grasse de lait, matière grasse du lait
-hr:mlijecnu mast, mliječna mast, mliječne masti
+hr:mlijecnu mast, mliječna mast, mliječne masti, mliječne masti
 hu:tejzsír
 is:mjólkurfita
 it:grasso del latte
@@ -15028,7 +15032,7 @@ de:gehärtetes Pflanzenfett
 es:Grasa vegetal hidrogenada
 fi:kovetettu kasvirasva, hydrogenoitu kasvirasva
 fr:graisse végétale hydrogénée, matière grasse végétale hydrogénée, graisses végétales hydrogénées
-hr:djelomično hidrogenirane masti
+# hr:djelomično hidrogenirane masti # see ingredients_processings.txt
 hu:hidrogénezett növényi zsír
 it:Grasso vegetale idrogenato
 pt:gordura vegetal hidrogenada
@@ -15041,6 +15045,7 @@ de:komplett hydriertes Pflanzenfett
 es:grasa vegetal totalmente hidrogenada, grasa vegetal fraccionada y totalmente hidrogenada
 fi:kokonaan kovetettu kasvirasva, kokonaan hydrogenoitu kasvirasva
 fr:graisse végétale totalement hydrogénée
+# hr:potpuno hidrogenirane biljne masti # see ingredients_processings.txt
 hu:teljesen hidrogénezett növényi zsír
 it:grassi vegetali totalmente idrogenati
 nl:volledig gehydrogeneerde plantaardig vet
@@ -18396,6 +18401,34 @@ sr:Пелинковац
 wikipedia:en:https://en.wikipedia.org/wiki/Pelinkovac
 wikidata:en:Q2354863
 
+<en:liqueur
+en:Maraschino
+ba:Мараскин
+be:Мараскіна
+ca:Marrasquino
+de:Maraschino
+es:Marrasquino
+eu:Marraskino
+fa:ماراسکینو
+fi:Maraschinolikööri
+fr:Marasquin, maraschino, marrasquino, maraskino
+hr:Maraschino, Maraskino
+hy:Մարասկինո
+io:Maraskino
+it:Maraschino
+ja:マラスキーノ
+ka:მარასკინო
+ko:마라스키노
+nl:Maraskino
+pl:Maraskino
+pt:Marasquino
+ru:Мараскин
+sh:Maraschino
+sv:Maraschino
+uk:Мараскіно
+wikipedia:en:https://en.wikipedia.org/wiki/Maraschino
+wikidata:en:Q1892360
+
 
 #<en:alcohol
 #en:angostura
@@ -20159,7 +20192,7 @@ es:aroma natural, aromas naturales,saborizante natural
 fi:luontainen aromi, luontaiset aromit, luonnollinen aromi, luonnolliset aromit, luontaisia aromeja
 fr:arôme naturel, arômes naturels
 he:חומרי טעם טבעיים
-hr:prirodna aroma, prirodne arome
+hr:prirodna aroma, prirodne arome, arome prirodne
 hu:természetes aroma, természetes aromák, természetazonos aroma, természetazonos aromák
 is:náttúruleg bragðefni
 it:aroma naturale, aromi naturali
@@ -20240,7 +20273,7 @@ de:mit anderen natürlichen Aromen, andere natürliche Aromen
 es:con otros aromas naturales
 fi:muut luontaiset aromit
 fr:avec autres arômes naturels, autres arômes naturels
-hr:sa ostalim prirodnim aromama
+hr:sa ostalim prirodnim aromama, prirodno identične
 is:með öðrum náttúrulegum bragðefnum
 nl:Met andere natuurlijke smaakstoffen
 ru:ароматизатор идентичный натуральному
@@ -25093,7 +25126,7 @@ fr:épeautre
 ga:speilt
 gl:espelta
 he:כוסמין
-hr:pravi pir, pirovo, pir, pira, pirove
+hr:pravi pir, pirovo, pir, pira, pirove, iz pira
 hu:tönkölybúza, tönköly
 io:spelto
 is:spelt
@@ -39391,6 +39424,11 @@ sk:mandarínková kôra
 sl:mandarinina lupina
 sv:mandarinskal
 #22 @2021-10-05
+
+<en:mandarin
+<en:mandarin peel
+en:mandarin with peel
+hr:mandarine s korom
 
 ###################################################################################################
 #
@@ -55632,6 +55670,7 @@ ro:fasole verde pastai taiata
 en:very fine green beans
 de:grüne Bohnen sehr fein
 fr:haricots verts très fins
+hr:grah zeleni sitni
 nl:zeer fijne sperziebonen
 
 #<en:very fine green beans
@@ -55906,6 +55945,7 @@ en:pinto beans
 de:Pinto Bohnen
 es:frijol pinto
 fr:Haricots pinto
+hr:grah crnobijeli
 eurocode_2_group_3:en: 7.10.30
 eurocode_2_group_4:en: 7.10.30.45
 
@@ -55918,6 +55958,7 @@ de:weiße Bohnen
 es:Alubias blancas, judia blanca
 fi:valkoinen papu, valkoiset pavut
 fr:haricots blancs, lingots blancs, haricots lingots, cocos blancs, haricots blancs lingots, haricots coco blancs, haricots cocos blancs, haricots coco, haricots cocos, lingots, haricots blancs dits mogette, haricot plat coco
+hr:grah bijeli
 it:Fagioli bianchi
 nb:hvite bønner
 nl:witte bonen
@@ -58403,37 +58444,51 @@ ru:ядро ореха фундука дробленое
 #
 ###################################################################################################
 <en:plant
-en:maca, lepidium meyenii, peruvian ginseng
-az:Lepidium meyenii
+en:maca
 ba:Ҡандалагөл
-ca:Lepidium meyenii
-cs:Řeřicha peruánská
 de:Maca
 el:Μάκα
-es:Lepidium meyenii
-fa:جینسنگ پرویی
-fi:Andienkrassi
 fr:Maca
 hr:maca
 hu:Maca
-it:Lepidium meyenii
 ja:マカ
 ko:마카
-lt:Peruvinė pipirnė
-nl:Lepidium meyenii
-pt:Lepidium meyenii
 qu:Maka
 ro:Maca
-ru:Мака перуанская
-sk:Žerucha peruánska
 sl:Maca
-sr:Peruanska maka
 sv:Maca
-tr:Lepidium meyenii
-uk:Мака перуанська
 vi:Maca
 zh:印加萝卜
 wikidata:en:Q795158
+
+<en:maca
+en:black maca root
+hr:korijena crne mace 
+
+# A 2015 multi-center study found differences in taxonomy, visual appearance, phytochemical profiles and DNA sequences when comparing L. meyenii and L. peruvianum, suggesting that they are in fact different and that their names should not be considered synonyms
+# source:wikipedia:en:https://en.wikipedia.org/wiki/Lepidium_meyenii
+
+<en:maca
+en:lepidium meyenii
+az:Lepidium meyenii
+ca:Lepidium meyenii
+es:Lepidium meyenii
+fi:Andienkrassi
+it:Lepidium meyenii
+nl:Lepidium meyenii
+pt:Lepidium meyenii
+tr:Lepidium meyenii
+
+<en:maca
+en:lepidium peruvianum, peruvian ginseng
+cs:Řeřicha peruánská
+fa:جینسنگ پرویی
+hr:Lepidium Peruvianum, Lepidium Peruvianum Chacon
+lt:Peruvinė pipirnė
+ru:Мака перуанская
+sk:Žerucha peruánska
+sr:Peruanska maka
+uk:Мака перуанська
 
 ###################################################################################################
 #
@@ -61170,6 +61225,7 @@ eo:Maciso
 es:Macis,maza
 fi:muskotinkukka, muskottikukka
 fr:macis
+hr:macis
 it:Macis
 ko:메이스
 nb:muskatblomme
@@ -67682,7 +67738,7 @@ de:Vanilleschoten
 es:vainas de vainilla, vaina de vainilla
 fi:vaniljatanko, vaniljapapu
 fr:gousse de vanille, gousses de vanille, écorce de vanille
-hr:mahune vanilije
+hr:mahune vanilije, mahuna vanilije
 it:baccelli di vaniglia, bacche di vaniglia
 nl:vanillestokje, vanillestokjes
 pl:laski wanilii, laska wanilii
@@ -81582,7 +81638,7 @@ ga:buíocán
 gd:buidheagan
 he:חלמון
 hi:अंडे की ज़र्दी
-hr:žumanjak, žumanjak jaja, žumanjci
+hr:žumanjak, žumanjak jaja, žumanjci, iz bjelanjka
 hu:tojássárgája
 hy:Ռեբու
 id:kuning telur
@@ -83559,7 +83615,7 @@ gv:arran
 ha:Gurasa
 he:לחם
 hi:डबलरोटी
-hr:kruh, krušne mrvice, krušne
+hr:kruh, krušne, mješavina za izradu kruha 
 ht:pen
 hu:kenyér
 hy:հաց
@@ -84494,6 +84550,7 @@ fi:korppujauho, paneerausjauho, leivite, paneerausseos, maustepaneerausta
 fr:Chapelure, panure, Chapelures
 gl:Pan relado
 he:פירורי לחם
+hr:krušne mrvice
 hu:zsemlemorzsa, kenyérmorzsa
 id:Tepung roti
 io:Raspo-pano
@@ -86296,6 +86353,7 @@ fi:mustaherukkahillo
 en:jam
 de:Marmelade, Konfitüre
 fr:confiture
+hr:marmelada, marmelada miješano voće
 pl:dżem
 ru:джем, повидло, варенье
 vegan:en:maybe

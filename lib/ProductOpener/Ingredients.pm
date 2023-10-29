@@ -771,6 +771,12 @@ my %min_regexp = (
 	hr => "min|min\.|mini|minimum",
 );
 
+my %max_regexp = (
+	en => "max|max\.|maximum",
+	fr => "max|max\.|maxi|maximum",
+	hr => "max|max\.|maxi|maximum",
+);
+
 # Words that can be ignored after a percent
 # e.g. 50% du poids total, 30% of the total weight
 # groups need to be non-capturing: prefixed with (?:
@@ -1495,15 +1501,6 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 			ingredient_recognized => $ingredient_recognized
 		}
 		) if $log->is_debug();
-	$log->debug(
-		"processing - return",
-		{
-			processings => \@processings,
-			ingredient => $ingredient,
-			ingredient_id => $ingredient_id,
-			ingredient_recognized => $ingredient_recognized
-		}
-	) if $log->is_debug();
 
 	return (\@processings, $ingredient, $ingredient_id, $ingredient_recognized);
 }
@@ -1743,15 +1740,17 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 		my $min_regexp = $min_regexp{$ingredients_lc} || '';
 
+	my $max_regexp = $max_regexp{$ingredients_lc} || '';
+
 	my $ignore_strings_after_percent = $ignore_strings_after_percent{$ingredients_lc} || '';
 
 	# Regular expression to find percent or quantities
 	# $percent_or_quantity_regexp has 2 capturing group: one for the number, and one for the % sign or the unit
 	my $percent_or_quantity_regexp = '(?:' . "(?:$prepared_with )" . ' )?'    # optional produced with
-		. '(?:<|' . $min_regexp . '|\s|\.|:)*'    # optional minimum, and separators
+		. '(?:>|' . $max_regexp . '|<|' . $min_regexp . '|\s|\.|:)*'    # optional maximum, minimum, and separators
 		. '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number, possibly with a dot or comma
 		. '(\%|g|gr|mg|kg|ml|cl|dl|l)\s*'    # % or unit
-		. '(?:' . $min_regexp . '|'    # optional minimum
+		. '(?:' . $min_regexp . '|' . $max_regexp . '|'    # optional minimum, optional maximum
 		. $ignore_strings_after_percent . '|\s|\)|\]|\}|\*)*';    # strings that can be ignored
 
 	my $per = $per{$ingredients_lc} || ' per ';
@@ -2447,13 +2446,16 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 							'hr' => [
 								'^u tragovima$',    # in traces
+								'čokolada sadrži biljne masnoće uz kakaov maslac'
+								,    #  Chocolate contains vegetable fats along with cocoa butter
 								'označene podebljano',    # marked in bold
 								'savjet kod alergije',    # allergy advice
+								'u čokoladi kakaovi dijelovi'
+								, # Cocoa parts in chocolate 48%. Usually at the end of the ingredients list. Chocolate can contain many sub-ingredients (cacao, milk, sugar, etc.)
 								'u promjenjivim omjerima|u promjenjivim udjelima|u promijenljivom udjelu'
 								,    # in variable proportions
 								'uključujući žitarice koje sadrže gluten',    # including grains containing gluten
 								'za alergene',    # for allergens
-								'u promjenjivim udjelima'    # in variable proportions
 							],
 
 							'it' => ['^in proporzion[ei] variabil[ei]$',],
@@ -3882,7 +3884,16 @@ sub normalize_a_of_b ($lc, $a, $b, $of_bool) {
 	$b =~ s/^\s+//;
 
 	if (($lc eq "en") or ($lc eq "hr")) {
-		return $b . " " . $a;
+		# start by "with" (example: "mlijeko (s 1.0% mliječne masti)"), in which case it $b should be added after $a
+		# start by "with etc." should be added at the end of the previous ingredient
+		my %with = (hr => '(s | sa )',);
+		my $with = $with{$lc} || " will not match ";
+		if ($b =~ /^(s |sa )/i) {
+			return $a . " " . $b;
+		}
+		else {
+			return $b . " " . $a;
+		}
 	}
 	elsif ($lc eq "es") {
 		return $a . " de " . $b;
@@ -5057,6 +5068,13 @@ my %ingredients_categories_and_types = (
 			# types
 			["ječmeni", "pšenični",]
 		],
+		# milk
+		[
+			# categories
+			["mlijeko",],
+			# types
+			["s 1.0% mliječne masti",]
+		],
 	],
 
 	pl => [
@@ -5195,18 +5213,18 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				or ($ingredients_lc eq "ru")
 				or ($ingredients_lc eq "pl"))
 			{
-				# vegetable oil (palm, sunflower and olive)
+				# vegetable oil (palm, sunflower and olive) -> palm vegetable oil, sunflower vegetable oil, olive vegetable oil
 				$text
 					=~ s/($category_regexp)(?::|\(|\[| | $of )+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 
-				# vegetable oil (palm)
+				# vegetable oil (palm) -> palm vegetable oil
 				$text
 					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
-				# vegetable oil: palm
+				# vegetable oil: palm -> palm vegetable oil
 				$text
 					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 
-				# ječmeni i pšenični slad (barley and wheat malt)
+				# ječmeni i pšenični slad (barley and wheat malt) -> ječmeni slad, pšenični slad
 				$text
 					=~ s/((?:(?:$type_regexp)(?: |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*($category_regexp)/normalize_enumeration($ingredients_lc,$2,$1,$of_bool)/ieg;
 			}

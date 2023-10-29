@@ -639,6 +639,7 @@ my @lists = (
 	["fr", "huile végétale : colza", "huile végétale de colza"],
 	["hr", "ječmeni i pšenični slad", "ječmeni slad, pšenični slad"],
 	["hr", "ječmeni, ječmeni i pšenični slad", "ječmeni slad, ječmeni slad, pšenični slad"],
+	["hr", "Pasterizirano mlijeko (s 1.0% mliječne masti)", "pasterizirano mlijeko s 1.0% mliječne masti"],
 	["en", "Vegetal oil (sunflower, olive and palm)", "sunflower vegetal oil, olive vegetal oil, palm vegetal oil"],
 	["en", "vegetable oil (palm)", "palm vegetable oil"],
 	["en", "vegetable oil: palm", "palm vegetable oil"],
