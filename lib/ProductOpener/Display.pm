@@ -1515,6 +1515,14 @@ sub can_use_query_cache() {
 			and (not $server_options{producers_platform}));
 }
 
+sub generate_query_cache_key ($name, $context_ref) {
+	if (scalar param("obsolete")) {
+		$name .= '_obsolete';
+	}
+	# Generates a cache key taking the obsolete parameter into account
+	return generate_cache_key($name, $context_ref);
+}
+
 sub query_list_of_tags ($request_ref, $query_ref) {
 
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
@@ -1607,7 +1615,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	}
 
 	#get cache results for aggregate query
-	my $key = generate_cache_key("aggregate", $aggregate_parameters);
+	my $key = generate_query_cache_key("aggregate", $aggregate_parameters);
 	$log->debug("MongoDB query key", {key => $key}) if $log->is_debug();
 	my $results = get_cache_results($key, $request_ref);
 
@@ -1702,7 +1710,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	else {
 
 		#get total count for aggregate (without limit) and put result in cache
-		my $key_count = generate_cache_key("aggregate_count", $aggregate_count_parameters);
+		my $key_count = generate_query_cache_key("aggregate_count", $aggregate_count_parameters);
 		$log->debug("MongoDB aggregate count query key", {key => $key_count}) if $log->is_debug();
 		my $results_count = get_cache_results($key_count, $request_ref);
 
@@ -5215,7 +5223,7 @@ sub search_and_display_products ($request_ref, $query_ref, $sort_by, $limit, $pa
 		skip => $skip
 	];
 
-	my $key = generate_cache_key("search_products", $mongodb_query_ref);
+	my $key = generate_query_cache_key("search_products", $mongodb_query_ref);
 
 	$log->debug("MongoDB query key - search_products", {key => $key}) if $log->is_debug();
 
@@ -5536,7 +5544,7 @@ sub estimate_result_count ($request_ref, $query_ref, $cache_results_flag) {
 	}
 	elsif (keys %{$query_ref} > 0) {
 		#check if count results is in cache
-		my $key_count = generate_cache_key("search_products_count", $query_ref);
+		my $key_count = generate_query_cache_key("search_products_count", $query_ref);
 		$log->debug("MongoDB query key - search_products_count", {key => $key_count}) if $log->is_debug();
 		$count = get_cache_results($key_count, $request_ref);
 		if (not defined $count) {
