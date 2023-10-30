@@ -74,6 +74,7 @@ use ProductOpener::Config qw/:all/;
 use MongoDB;
 use Tie::IxHash;
 use JSON::PP;
+use CGI ':cgi-lib';
 use Log::Any qw($log);
 
 use Action::CircuitBreaker;
@@ -119,25 +120,27 @@ sub execute_query ($sub) {
 	)->run();
 }
 
-sub execute_aggregate_tags_query ($aggregate_parameters) {
-	return execute_tags_query('aggregate', $aggregate_parameters);
+sub execute_aggregate_tags_query ($query) {
+	return execute_tags_query('aggregate', $query);
 }
 
-sub execute_count_tags_query ($query_ref) {
-	return execute_tags_query('count', $query_ref);
+sub execute_count_tags_query ($query) {
+	return execute_tags_query('count', $query);
 }
 
-sub execute_tags_query ($type, $parameters) {
+sub execute_tags_query ($type, $query) {
 	if ((defined $query_url) and (length($query_url) > 0)) {
 		$query_url =~ s/^\s+|\s+$//g;
-		my $path = "$query_url/$type";
-		$log->debug('Executing PostgreSQL ' . $type . ' query on ' . $path, {query => $parameters})
+		my $params = Vars();
+		my $url = URI->new("$query_url/$type");
+		$url->query_form($params);
+		$log->debug('Executing PostgreSQL ' . $type . ' query on ' . $url, {query => $query})
 			if $log->is_debug();
 
 		my $ua = LWP::UserAgent->new();
 		my $resp = $ua->post(
-			$path,
-			Content => encode_json($parameters),
+			$url,
+			Content => encode_json($query),
 			'Content-Type' => 'application/json; charset=utf-8'
 		);
 		if ($resp->is_success) {
