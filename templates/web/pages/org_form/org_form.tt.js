@@ -1,11 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var checkboxForm =document.querySelectorAll('.admin-checkbox');
-    var hiddenInputForm = document.getElementById('hiddenInputForm');
-    
-    checkboxForm.forEach(function(checkbox) {
+    var checkboxes = document.querySelectorAll('.admin-checkbox');
+
+    checkboxes.forEach(function(checkbox) {
         checkbox.addEventListener('change', function() {
-            var hiddenInput = hiddenInputForm.querySelector('input[name="admin_status_hidden_' + checkbox.name.split('_')[2] + '"]');
-            hiddenInput.value = checkbox.checked ? '1' : '0';
+            updateCheckedUserIDs(); // Update the array when checkboxes are checked/unchecked
         });
     });
+
+    function updateCheckedUserIDs() {
+        var checkedUserIDs = Array.from(checkboxes)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.name.split('_')[2]); // Extract user ID from checkbox name
+
+        // Update the hidden input field with the updated list of checked user IDs
+        document.querySelector('input[name="checked_user_ids"]').value = checkedUserIDs.join(',');
+    }
 });

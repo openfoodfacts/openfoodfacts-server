@@ -39,6 +39,7 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use Log::Any qw($log);
+use Array::Diff;
 
 my $type = single_param('type') || 'edit';
 my $action = single_param('action') || 'display';
@@ -388,24 +389,23 @@ elsif ($action eq 'process') {
 
 	elsif ($type eq 'admin_status') {
 		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
-			foreach my $user_id (sort keys %{$org_ref->{members}}) {
-				my $checkbox_name = "admin_status_hidden_" . $user_id;
-				my $is_admin = single_param($checkbox_name) ? 1 : 0;
-				$log->debug("checkbox name", {checkbox_name, => $checkbox_name, is_admin => $is_admin}) if $log->is_debug();
+			my $checked_user_ids = param('checked_user_ids');
+my @user_ids = split(',', $checked_user_ids);
+my $diff = Array::Diff->diff(\@admin_status, \@user_ids);
 
-				if ($is_admin) {
-					add_user_to_org($org_ref, $user_id, ["admins"]);
-					unless (grep {$_ == $user_id} @admin_status) {
+ foreach my $user_id ($diff->added) {
+            add_user_to_org($org_ref, $user_id, ["admins"]);
+            $user_is_admin{$user_id} = 1;
+			unless (grep {$_ == $user_id} @admin_status) {
 						push @admin_status, $user_id;
+        }
+ }
 
-					}
-				}
-				else {
-					remove_user_from_org($org_ref, $user_id, ["admins"]);
-					@admin_status = grep {$_ != $user_id} @admin_status;
-				}
-				store_org($org_ref);
-			}
+        foreach my $user_id ($diff->removed) {
+            remove_user_from_org($org_ref, $user_id, ["admins"]);
+            $user_is_admin{$user_id}=0;
+			@admin_status = grep {$_ != $user_id} @admin_status;
+        }
 
 			$template_data_ref->{result} = lang("admin_status_updated");
 		}

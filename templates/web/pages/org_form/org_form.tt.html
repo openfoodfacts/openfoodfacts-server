@@ -38,15 +38,10 @@
 			<tr>
 				<td>[% count %].</td>
 				<td>
-					[% SET user_in_admin_status = 0 %]
-					[% FOREACH admin_id IN admin_status %]
-						[% IF admin_id == users.userid %]
-						  [% SET user_in_admin_status = 1 %]
- 				        [% END %]
-					[% END %]
-					
-					<input type="checkbox" name="admin_status_[% users.userid %]" value="1" class="admin-checkbox" [% IF user_in_admin_status %]checked[% END %]>
-					<input type="hidden" name="admin_status_hidden_[% users.userid %]" value="0">
+					[% SET userid = users.userid %]				
+    [% SET user_in_admin_status = user_is_admin.$userid %]
+    <input type="checkbox" name="admin_status_[% users.userid %]" value="1" class="admin-checkbox" [% IF user_in_admin_status %]checked[% END %]>
+    <input type="hidden" name="admin_status_hidden_[% users.userid %]" value="0">
 				
 				</td>
 				<td>[% users.userid %]</td>
@@ -72,18 +67,21 @@
 			<form id='hiddenInputForm' method="post" action="/cgi/org.pl">
 				<input type="hidden" name="action" value="process" />
 				<input type="hidden" name="type" value="admin_status" />
-
+				[% SET checkedUserIDs = [] %]
 				[% FOREACH users IN org_members %]
-				[% SET initial_hidden_value = '0' %]
-				[% FOREACH admin_id IN admin_status %]
-					[% IF admin_id == users.userid %]
-						[% SET initial_hidden_value = '1' %]
+				]
+				[% SET userid = users.userids %]
+					[% IF user_is_admin.$userid %]
+						
+						[% checkedUserIDs.push(userid) %]
 					[% END %]
+				
+               
 				[% END %]
-				<input type="hidden" name="admin_status_hidden_[% users.userid %]" value="[% initial_hidden_value %]">
-				[% END %]
-	
-				<input type="submit" name="grant_remove_admin_status" class="button" style="margin-bottom: 10px;" value="[% lang("grant_remove_admin_status") %]"/>
+				<input type="hidden" name="checked_user_ids" value="[% checkedUserIDs.join(',') %]">
+	<input type="submit" name="grant_remove_admin_status" class="button" style="margin-bottom: 10px;" value="[% lang("grant_remove_admin_status") %]"/>
+
+
 			</form>
 		</div>
 	</div>
