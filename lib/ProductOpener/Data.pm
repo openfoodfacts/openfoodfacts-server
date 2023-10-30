@@ -27,19 +27,10 @@ ProductOpener::Data - methods to create or get the mongoDB client and fetch "dat
 The module implements the methods required to fetch certain collections from the MongoDB database.
 The functions used in this module are responsible for executing queries, to get connection to database and also to select the collection required.
 
-The module exposes 2 distinct kinds of collections, products and products_tags, returned by the Data::get_products_collections
-and the Data::get_products_tags_collections methods respectively.
-
 The products collection contains a complete document for each product in the OpenFoodFacts database which exposes all
 available information about the product.
 
-The products_tags collection contains a stripped down version of the data in the products collection, where each
-product entry has a select few fields, including fields used in tags. The main purpose of having this copy is to
-improve performance of aggregate queries for an improved user experience and more efficient resource usage. This
-collection was initially proposed in L<issue#1610|https://github.com/openfoodfacts/openfoodfacts-server/issues/1610> on
-GitHub, where some additional context is available.
-
-Obsolete products that have been withdrawn from the market have separate collections: products_obsolete and products_obsolete_tags
+Obsolete products that have been withdrawn from the market have separate collections: products_obsolete
 
 =cut
 
@@ -187,16 +178,6 @@ This is useful when moving products to another flavour
 If set to a true value, the function returns a collection that contains only obsolete products,
 otherwise it returns the collection with products that are not obsolete.
 
-=head4 tags
-
-If set to a true value, the function may return a smaller collection that contains only the *_tags fields,
-in order to speed aggregate queries. The smaller collection is created every night,
-and may therefore contain slightly stale data.
-
-As of 2023/03/13, we return the products_tags collection for non obsolete products.
-For obsolete products, we currently return the products_obsolete collection, but we might
-create a separate products_obsolete_tags collection in the future, if it becomes necessary to create one.
-
 =head3 Return values
 
 Returns a mongoDB collection object.
@@ -208,11 +189,6 @@ sub get_products_collection ($parameters_ref = {}) {
 	my $collection = 'products';
 	if ($parameters_ref->{obsolete}) {
 		$collection .= '_obsolete';
-	}
-	# We don't have a products_obsolete_tags collection at this point
-	# if it changes, the following elsif should be changed to a if
-	elsif ($parameters_ref->{tags}) {
-		$collection .= '_tags';
 	}
 	return get_collection($database, $collection, $parameters_ref->{timeout});
 }

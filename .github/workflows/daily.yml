@@ -66,36 +66,3 @@ jobs:
             # make task fail intentionally
             false
           fi
-
-  refresh-products-tags:
-    runs-on: ubuntu-latest
-    timeout-minutes: 180
-    strategy:
-      matrix:
-        env: [mongo-dev]
-    environment: ${{ matrix.env }}
-    concurrency: ${{ matrix.env }}
-    needs: dev-db-sync
-    steps:
-    - name: Set various variables for the staging (.net) deployment
-      if: matrix.env == 'mongo-dev'
-      run: |
-        # deploy target
-        echo "SSH_HOST=10.1.0.200" >> $GITHUB_ENV
-        echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
-        echo "SSH_USERNAME=off" >> $GITHUB_ENV
-    - name: Refresh MongoDB products_tags collection
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ env.SSH_HOST }}
-        username: ${{ env.SSH_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ env.SSH_PROXY_HOST }}
-        proxy_username: ${{ env.SSH_USERNAME }}
-        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        command_timeout: 180m
-        script_stop: false
-        script: |
-          cd ${{ matrix.env }}
-          make refresh_product_tags
-          make restart_db
