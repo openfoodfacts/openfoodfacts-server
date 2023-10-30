@@ -63692,6 +63692,9 @@ ru:Консервированные фрукты
 tr:Konserve meyve
 who_id:en:16
 
+# dot not rename en:canned-fruits as it is used in Ingredients.pm
+# to check if water should be taken into account when computing % of fruits/vegetables for the Nutri-Score
+
 <en:Canned fruits
 en:Canned pineapples
 bg:Ананас от консерва
@@ -101401,6 +101404,8 @@ pl:Suszone produkty pochodzenia roślinnego
 pt:Alimentos à base de plantas secos
 ru:Сушеные блюда из растений
 
+# dot not rename en:canned-plant-based-foods as it is used in Ingredients.pm
+# to check if water should be taken into account when computing % of fruits/vegetables for the Nutri-Score
 <en:Plant-based foods
 <en:Canned foods
 en:Canned plant-based foods
