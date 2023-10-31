@@ -1517,7 +1517,7 @@ sub can_use_query_cache() {
 
 sub generate_query_cache_key ($name, $context_ref) {
 	# Generates a cache key taking the obsolete parameter into account
-	if (scalar param("obsolete")) {
+	if (scalar request_param("obsolete")) {
 		$name .= '_obsolete';
 	}
 	return generate_cache_key($name, $context_ref);
