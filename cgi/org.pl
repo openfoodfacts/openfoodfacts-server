@@ -40,7 +40,8 @@ use Storable qw/dclone/;
 use Encode;
 use Log::Any qw($log);
 use Array::Diff;
-
+my @org_members;
+my %user_is_admin;
 my $type = single_param('type') || 'edit';
 my $action = single_param('action') || 'display';
 
@@ -389,24 +390,26 @@ elsif ($action eq 'process') {
 
 	elsif ($type eq 'admin_status') {
 		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
-			my $checked_user_ids = param('checked_user_ids');
-my @user_ids = split(',', $checked_user_ids);
-my $diff = Array::Diff->diff(\@admin_status, \@user_ids);
+			my $checked_user_ids = param('checked_user_ids');    # gives strings separated by comma
+			my @user_ids = sort split(',', $checked_user_ids);
+			my @existing_admins = sort grep {is_user_in_org_group($org_ref, $_, "admins")} keys %{$org_ref->{members}};
 
- foreach my $user_id ($diff->added) {
-            add_user_to_org($org_ref, $user_id, ["admins"]);
-            $user_is_admin{$user_id} = 1;
-			unless (grep {$_ == $user_id} @admin_status) {
-						push @admin_status, $user_id;
-        }
- }
+			my $diff = Array::Diff->diff(\@existing_admins, \@user_ids);
 
-        foreach my $user_id ($diff->removed) {
-            remove_user_from_org($org_ref, $user_id, ["admins"]);
-            $user_is_admin{$user_id}=0;
-			@admin_status = grep {$_ != $user_id} @admin_status;
-        }
+			$log->debug("my user ids", {user_ids => @user_ids, difference => $diff, checked => $checked_user_ids})
+				if $log->is_debug();
 
+			foreach my $user_id (@{$diff->added}) {
+				add_user_to_org($org_ref, $user_id, ["admins"]);
+				$user_is_admin{$user_id} = 1;
+			}
+
+			foreach my $user_id (@{$diff->deleted}) {
+				remove_user_from_org($org_ref, $user_id, ["admins"]);
+				$user_is_admin{$user_id} = 0;
+			}
+
+			store_org($org_ref);
 			$template_data_ref->{result} = lang("admin_status_updated");
 		}
 	}
@@ -422,16 +425,19 @@ my $title = lang($type . '_org_title');
 $log->debug("org form - template data", {template_data_ref => $template_data_ref}) if $log->is_debug();
 
 # allow org admins to view the list of users associated with their org
-my @org_members;
+
 foreach my $member_id (sort keys %{$org_ref->{members}}) {
 	if (is_user_in_org_group($org_ref, $member_id, "admins")) {
-		push @admin_status, $member_id;
+		$user_is_admin{$member_id} = 1;
+	}
+	else {
+		$user_is_admin{$member_id} = 0;
 	}
 	my $member_user_ref = retrieve_user($member_id);
 	push @org_members, $member_user_ref;
 }
 $template_data_ref->{org_members} = \@org_members;
-$template_data_ref->{admin_status} = \@admin_status;
+$template_data_ref->{user_is_admin} = \%user_is_admin;
 
 $tt->process('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
 	or $html = "<p>template error: " . $tt->error() . "</p>";
