@@ -77,15 +77,12 @@ sub unit_to_kcal ($value, $unit) {
 	return $value + 0;    # + 0 to make sure the value is treated as number
 }
 
-=head2 unit_to_g($value, $unit)
+=head2 init_units_names()
 
-Converts <xx><unit> into <xx>grams. Eg.:
-unit_to_g(2,kg) => returns 2000
-unit_to_g(520,mg) => returns 0.52
+Create a map of all synonyms in all languages in the units taxonomy to an internal standard unit and conversion factor
+Also create a regexp matching all names.
 
 =cut
-
-# Create a map of all synonyms in all languages in the units taxonomy to an internal standard unit and conversion factor
 
 my %units = ();
 my %units_names = ();
@@ -138,68 +135,13 @@ sub init_units_names() {
 
 init_units_names();
 
-# This is a key:value pairs
-# The keys are the unit names and the values are the multipliers we can use to convert to a standard unit.
-# We can divide by these values to do the reverse ie, Convert from standard to non standard
-my %unit_conversion_map = (
-	# kg = 公斤 - gōngjīn = кг
-	"\N{U+516C}\N{U+65A4}" => 1000,
-	# l = 公升 - gōngshēng = л = liter
-	"\N{U+516C}\N{U+5347}" => 1000,
-	'kg' => 1000,
-	'kgs' => 1000,
-	'кг' => 1000,
-	'l' => 1000,
-	'liter' => 1000,
-	'liters' => 1000,
-	'л' => 1000,
-	# mg = 毫克 - háokè = мг
-	"\N{U+6BEB}\N{U+514B}" => 0.001,
-	'mg' => 0.001,
-	'мг' => 0.001,
-	'mcg' => 0.000001,
-	'µg' => 0.000001,
-	'oz' => 28.349523125,
-	'fl oz' => 30,
-	'dl' => 100,
-	'дл' => 100,
-	'cl' => 10,
-	'кл' => 10,
-	# 斤 - jīn = 500 Grams
-	"\N{U+65A4}" => 500,
-	# Standard units: No conversion units
-	# Value without modification if it's already grams or 克 (kè) or 公克 (gōngkè) or г
-	'g' => 1,
-	'' => 1,
-	' ' => 1,
-	'kj' => 1,
-	'克' => 1,
-	'公克' => 1,
-	'г' => 1,
-	'мл' => 1,
-	'ml' => 1,
-	'mmol/l' => 1,
-	"\N{U+6BEB}\N{U+5347}" => 1,
-	'% vol' => 1,
-	'ph' => 1,
-	'%' => 1,
-	'% dv' => 1,
-	'% vol (alcohol)' => 1,
-	'iu' => 1,
-	# Division factors for "non standard unit" to mmoll conversions
-	'mol/l' => 0.001,
-	'mval/l' => 2,
-	'ppm' => 100,
-	"\N{U+00B0}rh" => 40.080,
-	"\N{U+00B0}fh" => 10.00,
-	"\N{U+00B0}e" => 7.02,
-	"\N{U+00B0}dh" => 5.6,
-	'gpg' => 5.847,
-	'lb' => 453.59237,
-	'lbs' => 453.59237,
-	'pound' => 453.59237,
-	'pounds' => 453.59237,
-);
+=head2 unit_to_g($value, $unit)
+
+Converts <xx><unit> into <xx>grams. Eg.:
+unit_to_g(2,kg) => returns 2000
+unit_to_g(520,mg) => returns 0.52
+
+=cut
 
 sub unit_to_g ($value, $unit) {
 
@@ -282,18 +224,6 @@ sub unit_to_mmoll ($value, $unit) {
 sub mmoll_to_unit ($value, $unit) {
 	return g_to_unit($value, $unit);
 }
-
-my $international_units = qr/kg|kgs|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz|lb|lbs|pound|pounds)/i;
-# Chinese units: a good start is https://en.wikipedia.org/wiki/Chinese_units_of_measurement#Mass
-my $chinese_units = qr/
-	(?:[\N{U+6BEB}\N{U+516C}]?\N{U+514B})|  # 毫克 or 公克 or 克 or (克 kè is the Chinese word for gram)
-	                                        #                      (公克 gōngkè is for "metric gram")
-	(?:\N{U+516C}?\N{U+65A4})|              # 公斤 or 斤 or         (公斤 gōngjīn is a "metric kg")
-	(?:[\N{U+6BEB}\N{U+516C}]?\N{U+5347})|  # 毫升 or 公升 or 升     (升 is liter)
-	\N{U+5428}                              # 吨                    (ton?)
-	/ix;
-my $russian_units = qr/г|мг|кг|л|дл|кл|мл/i;
-my $units = qr/$international_units|$chinese_units|$russian_units/i;
 
 =head2 normalize_quantity($quantity)
 
