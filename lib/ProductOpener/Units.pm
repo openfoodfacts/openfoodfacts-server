@@ -283,7 +283,7 @@ sub mmoll_to_unit ($value, $unit) {
 	return g_to_unit($value, $unit);
 }
 
-my $international_units = qr/kg|kgs|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz|lb|lbs)/i;
+my $international_units = qr/kg|kgs|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz|lb|lbs|pound|pounds)/i;
 # Chinese units: a good start is https://en.wikipedia.org/wiki/Chinese_units_of_measurement#Mass
 my $chinese_units = qr/
 	(?:[\N{U+6BEB}\N{U+516C}]?\N{U+514B})|  # 毫克 or 公克 or 克 or (克 kè is the Chinese word for gram)
