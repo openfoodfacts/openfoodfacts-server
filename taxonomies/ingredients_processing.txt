@@ -96,6 +96,10 @@ de:naturtrüb, naturtrüber
 fr:non filtré, trouble
 lt:nefiltruotas
 
+en:non-homogenized
+hr:non-homogénéisé
+hr:nehomogenizirano
+
 #######################################################################
 #
 #                P A R T S
@@ -482,7 +486,7 @@ af:stukkies
 de:stücke, stücken, stückchen, gestückelt, stück
 es:trozo, troza, trozos, trozas, guarnición
 fr:morceaux, pièces de, en morceaux, morceaux de, morceaux d'
-hr:komadići, komadići od, hrskavi komadići, hrskavi komadići od, komata, komadić, komadiča, posip
+hr:komadići, komadići od, hrskavi komadići, hrskavi komadići od, komata, komadić, komadiča, listići, posip
 hu:darabok, darabolt, darab, darabka
 it:pezzi, in pezzi, a pezzi, pezzi di, pezzi d'
 nl:stukjes
@@ -1183,7 +1187,7 @@ es:extracto, extracto de, extractos
 fi:uute, uutetta, uutteet, pähkinäuute
 fr:extrait de, extrait d'
 #fr:falsePositive:sels mineraux extraits des eaux du bassin de vichy, Sucres extraits de fruits, Extraits naturels et aromates, Extraits végétaux à pouvoir colorant, extrait sec
-hr:ekstrahirane, ekstrakt, ekstrakti, ekstrakata
+hr:ekstrahirane, ekstrahirani, ekstrakt, ekstrakti, ekstrakata
 hu:kivonat, kivonatból
 it:estratto di, estratti di, estratto d', estratti d'
 ja:エキス, 抽出物
@@ -1466,7 +1470,7 @@ en:caramelized, caramelised
 bg:карамелизиран, карамелизирана, карамелизирано, карамелизирани
 bs:karamelizovani
 ca:caramel-litzat
-hr:karamelizirani
+hr:karamelizirani, karameliziranih
 hu:karamellizált
 it:caramellato, caramellata, caramellati, caramellate
 nl:gekarameliseerde, gekaramelliseerde
@@ -1851,6 +1855,32 @@ hr:rafinirano, djelomično rafinirano
 #fr:Dessucré, partiellement dessucré
 #hr:bez šećera, sa smanjenom količinom šećera
 
+en:Homogenization, homogenisation
+ar:تجانس
+az:Homogenləşmə
+cs:Homogenizace
+cy:Homogeneiddio
+da:Homogenisering
+el:Ομογενοποίηση
+es:Homogeneización
+fa:همگن‌سازی
+fi:Homogenointi
+he:המגון
+id:Homogenisasi
+it:Omogeneizzazione
+ka:ჰომოგენიზაცია
+kk:Біртектілендіру
+nl:Homogeniseren
+nn:Homogenisering
+no:Homogenisering
+pl:Homogenizacja
+ru:Гомогенизация
+sv:Homogenisering
+tr:Homojenizasyon
+uk:Гомогенізація середовищ
+wikipedia:en:https://en.wikipedia.org/wiki/Homogenization_(chemistry)
+wikidata:en:Q1165158
+
 #######################################################################
 #
 #                P R E P A R I N G   P R O C E S S E S
@@ -2064,7 +2094,7 @@ de:unhydriertes, ungehärtet, ungehärtetes
 es:no hidrogenado, no hidrogenada
 fi:kovettamaton, hydrogenoimaton
 fr:non hydrogénée
-hr:nehidrogenirani, nehidrogenirana, nehomogenizirano
+hr:nehidrogenirani, nehidrogenirana, nehidrogenizirano
 hu:nem hidrogénezett
 it:non idrogenato, non idrogenati
 nl:niet gehydrogeneerd, niet gehydrogeneerde
