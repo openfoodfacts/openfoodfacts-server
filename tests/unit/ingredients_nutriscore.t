@@ -91,11 +91,20 @@ my @ingredients_text_tests = (
 		10,
 		10
 	],
+	# canned fruits: water is counted as it is consumed
+	[
+		{
+			lc => "fr",
+			ingredients_text => "eau 80%, sucre 10%, pommes 10%",
+			categories_tags => ["en:canned-plant-based-foods", "en:canned-fruits"],
+		},
+		10, 10
+	],
 	[
 		{
 			lc => "fr",
 			ingredients_text => "eau 80%, sucre 10%, haricots verts 10%",
-			categories_tags => ["en:canned-green-beans", "en:canned-vegetables"],
+			categories_tags => ["en:canned-plant-based-foods", "en:canned-green-beans", "en:canned-vegetables"],
 		},
 		50, 50
 	],
@@ -103,7 +112,7 @@ my @ingredients_text_tests = (
 		{
 			lc => "fr",
 			ingredients_text => "sauce (eau 80%, vinaigre 5%), haricots verts 10%, sucre 5%",
-			categories_tags => ["en:canned-green-beans", "en:canned-vegetables"],
+			categories_tags => ["en:canned-plant-based-foods", "en:canned-green-beans", "en:canned-vegetables"],
 		},
 		50, 50
 	],
