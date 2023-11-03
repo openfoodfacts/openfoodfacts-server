@@ -4,18 +4,16 @@ on:
   push:
     branches:
       - crowdin-trigger
-  schedule:
-  - cron: "0 2 * * *"
   
 jobs:         
   synchronize-with-crowdin:
-    name: Synchronize with crowdin
+    name: Synchronize with Crowdin
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: crowdin action
-      uses: crowdin/github-action@v1.11.0
+      uses: crowdin/github-action@v1.14.1
       with:
         upload_translations: false # default is false
         # Use this option to upload translations for a single specified language

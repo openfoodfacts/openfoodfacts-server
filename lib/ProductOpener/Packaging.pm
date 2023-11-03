@@ -50,6 +50,8 @@ BEGIN {
 		&guess_language_of_packaging_text
 		&apply_rules_to_augment_packaging_component_data
 		&aggregate_packaging_by_parent_materials
+		&load_categories_packagings_materials_stats
+		&get_parent_material
 
 		%packaging_taxonomies
 	);    # symbols to export on request
@@ -69,6 +71,31 @@ use ProductOpener::ImportConvert qw/:all/;
 
 use Data::DeepAccess qw(deep_get deep_val);
 use List::Util qw(first);
+
+# We use a global variable in order to load the packaging stats only once
+my $categories_packagings_materials_stats_ref;
+
+sub load_categories_packagings_materials_stats() {
+	if (not defined $categories_packagings_materials_stats_ref) {
+		my $file = "$data_root/data/categories_stats/categories_packagings_materials_stats.all.popular.json";
+		# In dev environments, we provide a sample stats file in the data-default directory
+		# so that we can run tests with meaningful and unchanging data
+		if (!-e $file) {
+			my $default_file
+				= "$data_root/data-default/categories_stats/categories_packagings_materials_stats.all.popular.json";
+			$log->debug("local packaging stats file does not exist, will use default",
+				{file => $file, default_file => $default_file})
+				if $log->is_debug();
+			$file = $default_file;
+		}
+		$log->debug("loading packagings materials stats", {file => $file}) if $log->is_debug();
+		$categories_packagings_materials_stats_ref = retrieve_json($file);
+		if (not defined $categories_packagings_materials_stats_ref) {
+			$log->debug("unable to load packagings materials stats", {file => $file}) if $log->is_debug();
+		}
+	}
+	return $categories_packagings_materials_stats_ref;
+}
 
 =head1 FUNCTIONS
 
@@ -852,6 +879,36 @@ sub set_packaging_misc_tags ($product_ref) {
 	return;
 }
 
+=head2 get_parent_material ($material)
+
+Return the parent material (glass, plastics, metal, paper or cardboard) of a material.
+Return unknown if the material does not match one of the parents, or if not defined.
+
+=cut
+
+# Build a cache of parent materials to speed up lookups
+my %parent_materials = ();
+
+sub get_parent_material ($material) {
+
+	return "en:unknown" if not defined $material;
+
+	# Check if we already computed the parent material
+	my $parent_material = $parent_materials{$material};
+	if (defined $parent_material) {
+		return $parent_material;
+	}
+	else {
+		# take first matching, most harmful first
+		$parent_material = (first {is_a("packaging_materials", $material, $_)}
+				("en:plastic", "en:glass", "en:metal", "en:paper-or-cardboard")) // "en:unknown";
+
+		$parent_materials{$material} = $parent_material;
+
+		return $parent_material;
+	}
+}
+
 =head2 aggregate_packaging_by_parent_materials ($product_ref)
 
 Aggregate the weights of each packaging component by parent material (glass, plastics, metal, paper or cardboard)
@@ -874,12 +931,7 @@ sub aggregate_packaging_by_parent_materials ($product_ref) {
 		foreach my $packaging_ref (@{$product_ref->{packagings}}) {
 
 			# Determine what is the parent material for the component
-			my $material = $packaging_ref->{material};
-			my $parent_material = "en:unknown";
-			if (defined $material) {
-				$parent_material = (first {is_a("packaging_materials", $material, $_)}
-						("en:paper-or-cardboard", "en:plastic", "en:glass", "en:metal")) // "en:unknown";
-			}
+			my $parent_material = get_parent_material($packaging_ref->{material});
 
 			# Initialize the entry for the parent material if needed (even if we have no weight,
 			# it is useful to know that there is some parent material used)
@@ -898,10 +950,37 @@ sub aggregate_packaging_by_parent_materials ($product_ref) {
 				deep_val($packagings_materials_ref, "all", "weight") += $total_weight;
 			}
 		}
+	}
+
+	$product_ref->{packagings_materials} = $packagings_materials_ref;
+
+	return;
+}
+
+=head2 compute_weight_stats_for_parent_materials($product_ref)
+
+Compute stats for the parent materials of a product:
+- % of the weight of a material over the weight of all packaging
+- weight of packaging per 100g of product
+
+Also compute the main parent material.
+
+=cut
+
+sub compute_weight_stats_for_parent_materials ($product_ref) {
+
+	# We will determine which packaging material has the greatest weight
+	my $packagings_materials_main;
+	my $packagings_materials_main_weight = 0;
+
+	my $packagings_materials_ref = $product_ref->{packagings_materials};
+
+	if (defined $packagings_materials_ref) {
 
 		# Iterate over each parent material to compute weight statistics
 		my $total_weight = deep_get($packagings_materials_ref, "all", "weight");
-		foreach my $parent_material_ref (values %$packagings_materials_ref) {
+		foreach my $parent_material_id (sort keys %$packagings_materials_ref) {
+			my $parent_material_ref = $packagings_materials_ref->{$parent_material_id};
 			if (defined $parent_material_ref->{weight}) {
 				if ($total_weight) {
 					$parent_material_ref->{weight_percent} = $parent_material_ref->{weight} / $total_weight * 100;
@@ -910,12 +989,23 @@ sub aggregate_packaging_by_parent_materials ($product_ref) {
 					$parent_material_ref->{weight_100g}
 						= $parent_material_ref->{weight} / $product_ref->{product_quantity} * 100;
 				}
+				if (    ($parent_material_id ne "all")
+					and ($parent_material_ref->{weight} > $packagings_materials_main_weight))
+				{
+					$packagings_materials_main = $parent_material_id;
+					$packagings_materials_main_weight = $parent_material_ref->{weight};
+				}
 			}
 		}
 	}
 
-	$product_ref->{packagings_materials} = $packagings_materials_ref;
-
+	# Record the main packaging material
+	if (defined $packagings_materials_main) {
+		$product_ref->{packagings_materials_main} = $packagings_materials_main;
+	}
+	else {
+		delete $product_ref->{packagings_materials_main};
+	}
 	return;
 }
 
@@ -1037,6 +1127,9 @@ sub analyze_and_combine_packaging_data ($product_ref, $response_ref) {
 
 	# Aggregate data per parent material
 	aggregate_packaging_by_parent_materials($product_ref);
+
+	# Compute stats for each parent material
+	compute_weight_stats_for_parent_materials($product_ref);
 
 	$log->debug("analyze_and_combine_packaging_data - done",
 		{packagings => $product_ref->{packagings}, response => $response_ref})

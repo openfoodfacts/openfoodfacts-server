@@ -68,7 +68,9 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         liblog-any-adapter-log4perl-perl \
         # NB: not available in ubuntu 1804 LTS:
         libgeoip2-perl \
-        libemail-valid-perl \
+        libemail-valid-perl
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
+    apt install -y \
         #
         # cpan dependencies that can be satisfied by apt even if the package itself can't:
         #
@@ -193,7 +195,7 @@ RUN \
     chown www-data:www-data -R /mnt/podata && \
     # Create symlinks of data files that are indeed conf data in /mnt/podata (because we currently mix data and conf data)
     # NOTE: do not changes those links for they are in a volume, or handle migration in entry-point
-    for path in data-default external-data emb_codes ingredients packager-codes po taxonomies templates build-cache; do \
+    for path in data-default external-data emb_codes ingredients madenearme packager-codes po taxonomies templates build-cache; do \
         ln -sf /opt/product-opener/${path} /mnt/podata/${path}; \
     done && \
     # Create some necessary files to ensure permissions in volumes

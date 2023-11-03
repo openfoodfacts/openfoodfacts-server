@@ -40,7 +40,7 @@ it is likely that the MongoDB cursor of products to be updated will expire, and 
 --query some_field=-some_value	match products that don't have some_value for some_field
 --process-ingredients	compute allergens, additives detection
 --clean-ingredients	remove nutrition facts, conservation conditions etc.
---compute-nutrition-score	nutriscore
+--compute-nutriscore	nutriscore
 --compute-serving-size	compute serving size values
 --compute-history	compute history and completeness
 --check-quality	run quality checks
@@ -97,7 +97,7 @@ my $just_print_codes = '', my $pretend = '';
 my $process_ingredients = '';
 my $process_packagings = '';
 my $clean_ingredients = '';
-my $compute_nutrition_score = '';
+my $compute_nutriscore = '';
 my $compute_serving_size = '';
 my $compute_data_sources = '';
 my $compute_nova = '';
@@ -116,6 +116,7 @@ my $run_ocr = '';
 my $autorotate = '';
 my $remove_team = '';
 my $remove_label = '';
+my $remove_category = '';
 my $remove_nutrient = '';
 my $remove_old_carbon_footprint = '';
 my $fix_spanish_ingredientes = '';
@@ -136,6 +137,8 @@ my $compute_main_countries = '';
 my $prefix_packaging_tags_with_language = '';
 my $fix_non_string_ids = '';
 my $assign_ciqual_codes = '';
+my $obsolete = 0;
+my $fix_obsolete;
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -151,7 +154,7 @@ GetOptions(
 	"process-ingredients" => \$process_ingredients,
 	"process-packagings" => \$process_packagings,
 	"assign-categories-properties" => \$assign_categories_properties,
-	"compute-nutrition-score" => \$compute_nutrition_score,
+	"compute-nutriscore" => \$compute_nutriscore,
 	"compute-history" => \$compute_history,
 	"compute-serving-size" => \$compute_serving_size,
 	"reassign-energy-kcal" => \$reassign_energy_kcal,
@@ -175,6 +178,7 @@ GetOptions(
 	"fix-yuka-salt" => \$fix_yuka_salt,
 	"remove-team=s" => \$remove_team,
 	"remove-label=s" => \$remove_label,
+	"remove-category=s" => \$remove_category,
 	"remove-nutrient=s" => \$remove_nutrient,
 	"remove-old-carbon-footprint" => \$remove_old_carbon_footprint,
 	"fix-spanish-ingredientes" => \$fix_spanish_ingredientes,
@@ -190,6 +194,8 @@ GetOptions(
 	"compute-main-countries" => \$compute_main_countries,
 	"prefix-packaging-tags-with-language" => \$prefix_packaging_tags_with_language,
 	"assign-ciqual-codes" => \$assign_ciqual_codes,
+	"obsolete" => \$obsolete,
+	"fix-obsolete" => \$fix_obsolete,
 ) or die("Error in command line arguments:\n\n$usage");
 
 use Data::Dumper;
@@ -222,7 +228,7 @@ if ($unknown_fields > 0) {
 }
 
 if (    (not $process_ingredients)
-	and (not $compute_nutrition_score)
+	and (not $compute_nutriscore)
 	and (not $compute_nova)
 	and (not $clean_ingredients)
 	and (not $delete_old_fields)
@@ -243,6 +249,7 @@ if (    (not $process_ingredients)
 	and (not $fix_non_string_ids)
 	and (not $compute_sort_key)
 	and (not $remove_team)
+	and (not $remove_category)
 	and (not $remove_label)
 	and (not $remove_nutrient)
 	and (not $remove_old_carbon_footprint)
@@ -261,7 +268,8 @@ if (    (not $process_ingredients)
 	and (not $count)
 	and (not $just_print_codes)
 	and (not $prefix_packaging_tags_with_language)
-	and (not $assign_ciqual_codes))
+	and (not $assign_ciqual_codes)
+	and (not $fix_obsolete))
 {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -337,6 +345,10 @@ if ((defined $remove_label) and ($remove_label ne "")) {
 	$query_ref->{labels_tags} = $remove_label;
 }
 
+if ((defined $remove_category) and ($remove_category ne "")) {
+	$query_ref->{categories_tags} = $remove_category;
+}
+
 if (defined $key) {
 	$query_ref->{update_key} = {'$ne' => "$key"};
 }
@@ -352,7 +364,15 @@ use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
 my $socket_timeout_ms = 2 * 60000;    # 2 mins, instead of 30s default, to not die as easily if mongodb is busy.
-my $products_collection = get_products_collection({timeout => $socket_timeout_ms});
+
+# Collection that will be used to iterate products
+my $products_collection = get_products_collection({obsolete => $obsolete, timeout => $socket_timeout_ms});
+
+# Collections for saving current / obsolete products
+my %products_collections = (
+	current => get_products_collection({timeout => $socket_timeout_ms}),
+	obsolete => get_products_collection({obsolete => $obsolete, timeout => $socket_timeout_ms}),
+);
 
 my $products_count = "";
 
@@ -379,6 +399,7 @@ my $n = 0;    # number of products updated
 my $m = 0;    # number of products with a new version created
 
 my $fix_rev_not_incremented_fixed = 0;
+my $fix_obsolete_fixed = 0;
 
 # Used to get stats on fields deleted by an user
 my %deleted_fields = ();
@@ -532,6 +553,12 @@ while (my $product_ref = $cursor->next) {
 			remove_tag($product_ref, "labels", $remove_label);
 			$product_ref->{labels} = join(',', @{$product_ref->{labels_tags}});
 			compute_field_tags($product_ref, $product_ref->{lc}, "labels");
+		}
+
+		if ((defined $remove_category) and ($remove_category ne "")) {
+			remove_tag($product_ref, "categories", $remove_category);
+			$product_ref->{categories} = join(',', @{$product_ref->{categories_tags}});
+			compute_field_tags($product_ref, $product_ref->{lc}, "categories");
 		}
 
 		if ((defined $remove_nutrient) and ($remove_nutrient ne "")) {
@@ -1049,9 +1076,10 @@ while (my $product_ref = $cursor->next) {
 			compute_nova_group($product_ref);
 		}
 
-		if ($compute_nutrition_score) {
+		if ($compute_nutriscore) {
+			$product_ref->{misc_tags} = [];
 			fix_salt_equivalent($product_ref);
-			compute_nutrition_score($product_ref);
+			compute_nutriscore($product_ref);
 			compute_nutrient_levels($product_ref);
 		}
 
@@ -1170,7 +1198,7 @@ while (my $product_ref = $cursor->next) {
 
 					fix_salt_equivalent($product_ref);
 					compute_serving_size_data($product_ref);
-					compute_nutrition_score($product_ref);
+					compute_nutriscore($product_ref);
 					compute_nutrient_levels($product_ref);
 					$product_values_changed = 1;
 				}
@@ -1193,7 +1221,7 @@ while (my $product_ref = $cursor->next) {
 
 				fix_salt_equivalent($product_ref);
 				compute_serving_size_data($product_ref);
-				compute_nutrition_score($product_ref);
+				compute_nutriscore($product_ref);
 				compute_nutrient_levels($product_ref);
 			}
 		}
@@ -1345,7 +1373,25 @@ while (my $product_ref = $cursor->next) {
 				# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
 				$product_ref->{_id} .= '';
 				$product_ref->{code} .= '';
-				$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+				my $collection = "current";
+				if ($product_ref->{obsolete}) {
+					$collection = "obsolete";
+				}
+				$products_collections{$collection}
+					->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+
+				# If the obsolete flag of the product does not
+				# correspond to the collection we are iterating over
+				# delete the product from the collection
+				if (
+					$fix_obsolete
+					and (  ($obsolete and not $product_ref->{obsolete})
+						or ((not $obsolete) and $product_ref->{obsolete}))
+					)
+				{
+					$products_collection->delete_one({"_id" => $product_ref->{_id}});
+					$fix_obsolete_fixed++;
+				}
 			}
 		}
 
@@ -1394,6 +1440,10 @@ if ($prefix_packaging_tags_with_language) {
 }
 
 print "$n products updated (pretend: $pretend) - $m new versions created\n";
+
+if ($fix_obsolete_fixed) {
+	print "$fix_obsolete_fixed removed from wrong collection (obsolete or current)\n";
+}
 
 if ($fix_rev_not_incremented_fixed) {
 	print "$fix_rev_not_incremented_fixed rev fixed\n";

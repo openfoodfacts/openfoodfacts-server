@@ -1,4 +1,4 @@
-name: Documentation
+name: 📖 Documentation
 
 on:
   pull_request:
@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # generating project documentation
       - name: Build documentation with MkDocs
@@ -27,7 +27,7 @@ jobs:
           scripts/build_mkdocs.sh
 
       # generating perl documentation
-      - name: Install Perl requirements
+      - name: 🐪 Install Perl requirements
         run: |
           sudo apt-get update
           sudo apt-get install perl perl-doc cpanminus libmodern-perl-perl
@@ -62,15 +62,9 @@ jobs:
       #       build -o /output/api/ref-v3/index.html api-v3.yml && \
       #     sudo chown $UID -R gh_pages
 
-      # Disabled by alex on 2023-03-09 because of a false positive Error:
-      # "attribute .Product. is not of type `object` (../schemas/product.yaml#/Product)"
-      # because of legit `$ref: ../schemas/product.yaml#/Product` in `get_product_by_barcode.yaml`
-      #
-      # - name: Validate OpenAPI
-      #   run: |
-      #     docker run --rm \
-      #     -v ${PWD}:/local openapitools/openapi-generator-cli validate \
-      #     -i /local/docs/reference/api.yml \
+      - name: Validate OpenAPI
+        run: |
+          make check_openapi
 
       # generate OpenAPI documentation with rapidoc
       # we do this after mkdocs to overwrite api.html file
@@ -85,8 +79,8 @@ jobs:
             > gh_pages/api/ref-v3/index.html
 
 
-      - name: Deploy API documentation to Github Pages
-        uses: JamesIves/github-pages-deploy-action@v4.4.2
+      - name: Deploy API documentation to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.4.3
         # we only deploy on push to main
         if: |
           github.event_name == 'push' && github.event.ref == 'refs/heads/main'

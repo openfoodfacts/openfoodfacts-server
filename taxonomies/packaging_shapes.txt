@@ -115,6 +115,7 @@ fr:Barquette, barquettes, Plateau, plateaux, tablette, tablettes, fond, fonds, c
 hu:Tálca, tálcák
 it:Vaschetta
 nl:Tray
+pl:Tacka
 pt:Tabuleiro, cuvete, tabuleiros, cuvetes, couvete, couvetes
 description:nl:Een open verpakking die onderverdeeld is in verschillende vakjes.
 
@@ -127,6 +128,7 @@ fr:Bocal, bocaux
 hu:Befőttes üveg, befőttes üvegek
 it:Vasetto, Barattolo
 nl:Pot, Potten, Bokaal, Bokaalen
+pl:Słoik
 pt:Jarro, jarros, jarra, jarras
 ro:Borcan
 # suggest:packaging_materials:nl: en:glass
@@ -144,6 +146,7 @@ hr:kutija
 hu:Doboz, dobozok
 it:Scatola, scatole, astuccio, scatoletta
 nl:Doos, doosje, Dozen, Doosjes, Pakje, Pakjes
+pl:Pudełko, Pudło
 pt:Caixa, caixas
 # suggest:packaging_materials:nl: en:paper, en:cardboard
 description:nl:Een veelal kartonnen balkvormige verpakking
@@ -159,7 +162,7 @@ nl:Eierdoos
 fr:Boîte à œufs
 en:egg carton, egg box
 tr:Yumurta kartonu
-pl:wytłaczanka
+pl:Wytłaczanka, Wytłoczka
 ja:卵パック
 de:Eierkarton
 wikidata:en:Q959287
@@ -322,6 +325,7 @@ hr:limenka
 hu:konzervdoboz, konzerv
 it:Lattina, Latta
 nl:Blik, Bus
+pl:Puszka
 pt:Lata, latas
 # suggest:packaging_materials:en: en:unknown metal, en:aluminium, en:steel
 # the line below indicates a default material: en:metal
@@ -340,6 +344,7 @@ fr:Canette, cannette, canettes, cannettes, boîte boisson, boites boissons
 hu:italos konzerv, italkonzerv, konzervital
 it:Lattina per bevande
 nl:Blikje, Blikjes
+pl:Puszka na napoje
 pt:Lata de bebida, latas de bebidas, lata de alumínio, latas de alumínio, lata de refrigerante, latas de refrigerante, lata de refrigerantes, latas de refrigerantes
 wikidata:en:Q3261783
 description:nl:Een cilindervormig afgesloten blikken vaatje voor dranken
@@ -358,6 +363,7 @@ fr:Boîte de conserve, boîtes de conserves
 hu:ételes konzerv, ételkonzerv, konzervétel
 nl:Conservenblik
 it:Lattina di cibo
+pl:Puszka na żywność
 pt:Lata de alimentos, latas de alimentos, lata de alimento, latas de alimento, lata de conserva, lata de conservas, latas de conserva, latas de conservas, lata de comida, latas de comida, lata de comidas, latas de comidas, lata para alimentos, latas para alimentos, lata para alimento, latas para alimento
 description:nl:Een cilindervormig afgesloten blikken vaatje voor groenten, e.d.
 # image:xx:boite-boitier-5.svg (boite de conserve)
@@ -370,10 +376,10 @@ es:Bote, botes, vaso, vasos
 fr:Pot, pots, coupelle, coupelles, verrine, verrines, ravier, raviers, coupe, coupes, coupe / coupelle
 hu:Pohár, fazék, lábas, edény, csésze, kanna
 nl:Kuip, kuipje
-pl:słoik
+pl:Kubek, Kubeczek
 pt:Pote, potes, boião, boiões, copo
 description:nl:Wijd, houten, metalen of plastic vat
-comment:en:Klopt deze vertaling wel? Is het niet meer een pot en moet kuip ergens anders onder gebracht worden?
+comment:nl:Klopt deze vertaling wel? Is het niet meer een pot en moet kuip ergens anders onder gebracht worden?
 
 <en:pot
 en:individual pot, individual cup, individual pots, individual cups
@@ -553,6 +559,7 @@ el:Καπάκι
 fr:Couvercle, couvercles
 hu:Fedél, tető, fedő
 nl:Deksel, deksels
+pl:Nakrętka, Zakrętka, Pokrywka, Wieczko, Wieko
 pt:Tampa, tampas
 # image:xx:couvercle-1.svg (cloche)
 # image:xx:couvercle-2.svg (couvercle)
@@ -566,6 +573,7 @@ bg:Капачка, капачка за бутилка, капачки
 fr:Bouchon, bouchons, Bouchon de bouteille, bouchons de bouteilles, bouchons
 hu:Kupak, borosdugó, dugó
 nl:Dop, Doppen
+pl:Kapsel
 pt:Cápsula de garrafa, cápsulas de garrafa, tampa de garrafa, tampas de garrafa, rolha, rolhas, rolha de garrafa, rolhas de garrafa, rolha de cortiça, rolhas de cortiça, rolha de plástico, rolhas de plástico, carica, caricas, cápsula de rosca, cápsulas de rosca
 wikidata:en:Q1440281
 # image:xx:bouchon-1.svg
@@ -592,6 +600,7 @@ en:Wine cork, wine bottle cork, wine corks, wine bottle corks
 bg:Коркова тапа, Корк за вино
 fr:bouchon de bouteille de vin, bouchons de bouteilles de vin, bouchon de vin
 hr:pluteni čep
+pl:Korek do wina
 nl:Wijnkurk, wijnkurken, Wijn kurk
 wikidata:en:Q86511715
 # image:xx:bouchon-2.svg (wine cork)
@@ -624,6 +633,7 @@ en:Coffee capsule, coffee capsules
 fr:Capsule de café, Capsules de café, capsules café, capsule café
 hu:Kávékapszula, kávé kapszula, kávékapszulák, kávé kapszulák
 nl:Koffiecapsule, Koffiecapsules, Nespressocapsule, Nespresso-capsule
+pl:Kapsułka do kawy
 pt:Cápsula de café, cápsulas de café, cápsula de cafés, cápsulas de cafés
 wikidata:en:Q4236462
 # suggest:packaging_materials:en: en:plastic, en:aluminium
@@ -696,6 +706,7 @@ pt:Talheres, talher
 <en:Eating utensils
 en:Cutlery
 fr:Couverts, couvert
+pl:Sztućce
 
 # keep the plural
 <en:Eating utensils
@@ -706,6 +717,7 @@ de:Essstäbchen
 fr:Baguettes
 hu:evőpálcikák, evőpálkcika
 nl:Stokjes
+pl:Pałeczki
 pt:Pauzinhos chineses, palitinhos, hashi
 wikidata:en:Q81980
 
@@ -718,6 +730,7 @@ fr:Couteau, couteaux
 hr:nož
 hu:kés, kések
 nl:Mes, messen
+pl:Nóż, noże
 pt:Faca, facas
 wikidata:en:Q32489
 
@@ -730,6 +743,7 @@ fr:Fourchette, fourchettes
 hr:vilica
 hu:villa, villák
 nl:Vork, vorken
+pl:Widelec, widelce
 pt:Garfo, garfos
 wikidata:en:Q81881
 
@@ -742,6 +756,7 @@ fr:Cuillère, cuiller, cuillères, cuillers
 hr:žlica
 hu:kanál, kanalak
 nl:lepel, lepels
+pl:Łyżka, łyżki
 pt:Colher, colheres
 wikidata:en:Q81895
 
@@ -750,6 +765,7 @@ en:teaspoon
 bg:чаена лъжичка, чаена лъжица
 fr:cuillère à café
 nl:theelepel
+pl:Łyżeczki, Łyżeczka
 wikidata:en:Q216425
 
 <en:Spoon
@@ -802,6 +818,7 @@ de:Netz
 fr:Filet, filets
 hu:Háló, hálók
 nl:Net, netje, netten, netjes
+pl:Siatka, siatki
 pt:Rede, redes, saco de rede, sacos de rede, sacos de redes, saco de redes
 # suggest:packaging_materials:en: en:metal, en:other
 # related_categories:en: en:Fresh garlic
@@ -889,6 +906,7 @@ el:Μπολ
 fr:Bol, bols
 hu:Tál, tálak
 nl:Schaal, Schaaltje, Schaaltjes, Vlootje, Vlootjes, Bak, Bakje, Bakjes, kom, kommen
+pl:Miska, miski
 pt:Tigela, taça, tigelas, taças
 wikidata:en:Q153988
 # image:xx:bol-coupe-coupelle-1.svg (bol)
@@ -901,6 +919,7 @@ fr:Assiette, assiettes
 hr:tanjur
 hu:tányér, tányérok
 nl:Bord, Borden, Bordje
+pl:Talerz, talerze
 pt:Prato, pratos
 wikidata:en:Q57216
 # suggest:packaging_materials:en: en:plastic, en:cardboard
@@ -930,6 +949,7 @@ de:Etikett, Etiketten
 fr:étiquette, étiquettes
 hu:címke, címkék
 nl:Label, labels
+pl:Etykieta, etykiety
 pt:Etiqueta, etiquetas, rótulo, rótulos
 weight:en:light
 # suggest:packaging_materials:en: en:paper, en:cardboard, en:other
@@ -1231,6 +1251,7 @@ wikidata:en:Q47107
 <en:bucket
 en:small bucket
 nl:emmertje
+pl:wiaderko
 
 # fr:Plat (Bol, Saladier, Terrine, …) in data from Les Mousquetaires
 en:Dish, dishes

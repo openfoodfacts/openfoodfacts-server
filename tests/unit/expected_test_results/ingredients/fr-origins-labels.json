@@ -113,8 +113,10 @@
       "en:orange",
       "en:lemon",
       "en:cocoa",
+      "en:plant",
       "en:cocoa-butter",
-      "en:cherry"
+      "en:cherry",
+      "en:prunus-species-fruit"
    ],
    "ingredients_n" : 9,
    "ingredients_n_tags" : [
@@ -144,8 +146,10 @@
       "en:orange",
       "en:lemon",
       "en:cocoa",
+      "en:plant",
       "en:cocoa-butter",
-      "en:cherry"
+      "en:cherry",
+      "en:prunus-species-fruit"
    ],
    "ingredients_text" : "Fraise origine France, Cassis (origine Afrique du Sud), Framboise (origine : Belgique), Pamplemousse bio, Orange (bio), Citron (issue de l'agriculture biologique), cacao et beurre de cacao (commerce équitable), cerises issues de l'agriculture biologique",
    "ingredients_with_specified_percent_n" : 0,
@@ -159,11 +163,13 @@
       "en:orange"
    ],
    "ingredients_without_ciqual_codes_n" : 4,
-   "known_ingredients_n" : 12,
+   "known_ingredients_n" : 14,
    "lc" : "fr",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 11.1111111111111,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 11.1111111111111
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 98.9583333333333,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 98.9583333333333,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 98.9583333333333,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 98.9583333333333
    },
    "unknown_ingredients_n" : 0
 }

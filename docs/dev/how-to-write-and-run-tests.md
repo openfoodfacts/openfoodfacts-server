@@ -72,11 +72,11 @@ To run a single test you can use:
 
 * for unit test:
    ```bash
-   make unit-test test="filename.t"
+   make test-unit test="filename.t"
    ```
 * for integration test:
    ```bash
-   make int-test test="filename.t"
+   make test-int test="filename.t"
    ```
 
 If you made change that impact stored expected results, you can use:
@@ -86,9 +86,9 @@ If you made change that impact stored expected results, you can use:
   make update_tests_results
   ```
 * or to generate expected results for a single test
-  (here for integration test, `unit-test` otherwise)
+  (here for integration test, `test-unit` otherwise)
   ```bash
-  make int-test="filename.t --update-expected results"
+  make test-int test="filename.t --update-expected-results"
   ```
 
 If you re-generate test results, be sure to look carefully that the changes your commit are expected changes.

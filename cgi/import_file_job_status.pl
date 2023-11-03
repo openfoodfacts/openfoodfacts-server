@@ -97,12 +97,12 @@ else {
 
 if (not $data{error}) {
 
-	my $job = $minion->job($job_id);
+	my $job = get_minion()->job($job_id);
 	# Get Minion::Job object without making any changes to the actual job or return undef if job does not exist.
 
 	# Check job info
 	$log->debug("import_file_job_status.pl - get job_info", {data => \%data}) if $log->is_debug();
-	$data{job_info} = $minion->job($job_id)->info;
+	$data{job_info} = get_minion()->job($job_id)->info;
 }
 
 my $data = encode_json(\%data);

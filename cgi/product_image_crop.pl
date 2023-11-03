@@ -105,16 +105,22 @@ elsif ((defined $User_id) and (($User_id eq 'kiliweb')) or (remote_addr() eq "20
 	# Yuka may not be passing the user_id for the crop, use the ip 207.154.237.7
 
 	# 2019/08/28: accept images if there is already an image selected for the language
-	if ((defined $product_ref) and (defined $product_ref->{images}) and (defined $product_ref->{images}{$imgid})) {
+	if (    (defined $product_ref)
+		and (defined $product_ref->{images})
+		and (defined $product_ref->{images}{$imgid})
+		and (not is_protected_image($product_ref, $id) or $User{moderator}))
+	{
 		$product_ref
 			= process_image_crop($User_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2,
 			$y2, $coordinates_image_size);
 	}
 }
 else {
-	$product_ref
-		= process_image_crop($User_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2, $y2,
-		$coordinates_image_size);
+	if (not is_protected_image($product_ref, $id) or $User{moderator}) {
+		$product_ref
+			= process_image_crop($User_id, $product_id, $id, $imgid, $angle, $normalize, $white_magic, $x1, $y1, $x2,
+			$y2, $coordinates_image_size);
+	}
 }
 
 my $data = encode_json(

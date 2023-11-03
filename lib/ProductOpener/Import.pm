@@ -2272,26 +2272,34 @@ sub import_csv_file ($args_ref) {
 			# image_other_url
 			# image_other_url.2	: a second "other" photo
 
-			next if $field !~ /^image_((front|ingredients|nutrition|packaging|other)(_[a-z]{2})?)_url/;
+			next
+				if $field
+				!~ /^image_((?:front|ingredients|nutrition|packaging|other)(?:_[a-z]{2})?)_url(_[a-z]{2})?(\.[0-9]+)?$/;
 
-			my $imagefield = $1 . $';    # e.g. image_front_url_fr -> front_fr
+			my $imagefield = $1 . ($2 || '');    # e.g. image_front_url_fr or image_front_url_fr -> front_fr
+			my $number = $3;
 
 			# If the imagefield is other, and we have a value for image_other_type, try to identify the imagefield
-			if (    ($imagefield eq "other")
-				and (defined $imported_product_ref->{"image_other_type"})
-				and ($imported_product_ref->{"image_other_type"} ne ""))
-			{
-				my $type_imagefield
-					= get_imagefield_from_string($product_ref->{lc}, $imported_product_ref->{"image_other_type"});
-				$log->debug(
-					"imagefield is other, tried to guess it image_other_type",
-					{
-						imagefield => $imagefield,
-						type_imagefield => $type_imagefield,
-						image_other_type => $imported_product_ref->{"image_other_type"}
-					}
-				) if $log->is_debug();
-				$imagefield = $type_imagefield;
+			if ($imagefield eq "other") {
+				my $image_other_type_field = "image_other_type";
+				if (defined $number) {
+					$image_other_type_field .= $number;
+				}
+
+				if ($imported_product_ref->{$image_other_type_field}) {
+					my $type_imagefield
+						= get_imagefield_from_string($product_ref->{lc},
+						$imported_product_ref->{$image_other_type_field});
+					$log->debug(
+						"imagefield is other, tried to guess with image_other_type",
+						{
+							imagefield => $imagefield,
+							type_imagefield => $type_imagefield,
+							image_other_type => $imported_product_ref->{$image_other_type_field}
+						}
+					) if $log->is_debug();
+					$imagefield = $type_imagefield;
+				}
 			}
 
 			$log->debug("image file",
@@ -2824,14 +2832,12 @@ sub update_export_status_for_csv_file ($args_ref) {
 	my $columns_ref = $csv->getline($io);
 	$csv->column_names(@{deduped_colnames($columns_ref)});
 
-	my $products_collection = get_products_collection();
-
 	while (my $imported_product_ref = $csv->getline_hr($io)) {
 
 		$i++;
 
 		# By default, use the orgid passed in the arguments
-		# it may be overrode later on a per product basis
+		# it may be overridden later on a per product basis
 		my $org_id = $args_ref->{org_id};
 
 		# The option import_owner is used when exporting from the producers database to the public database
@@ -2880,9 +2886,12 @@ sub update_export_status_for_csv_file ($args_ref) {
 			$product_ref->{states} = join(',', @{$product_ref->{states_tags}});
 			compute_field_tags($product_ref, $product_ref->{lc}, "states");
 
+			# Update the product without creating a new revision
 			my $path = product_path($product_ref);
 			store("$data_root/products/$path/product.sto", $product_ref);
 			$product_ref->{code} = $product_ref->{code} . '';
+			# Use the obsolete collection if the product is obsolete
+			my $products_collection = get_products_collection({obsolete => $product_ref->{obsolete}});
 			$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
 		}
 	}
@@ -3026,7 +3035,7 @@ sub import_products_categories_from_public_database ($args_ref) {
 						$log->debug("Food::special_process_product") if $log->is_debug();
 						ProductOpener::Food::special_process_product($product_ref);
 					}
-					compute_nutrition_score($product_ref);
+					compute_nutriscore($product_ref);
 					compute_nova_group($product_ref);
 					compute_nutrient_levels($product_ref);
 					compute_unknown_nutrients($product_ref);

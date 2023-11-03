@@ -8,6 +8,10 @@ location = /faire-un-don-a-open-food-facts {
 	try_files /donate/fr.helloasso.html =404;
 }
 
+location = /donner-a-open-food-facts {
+        try_files /donate/fr.helloasso.html =404;
+}
+
 # bg: даряване-на-openfoodfacts
 # ca: dona a openfoodfacts
 location = /darujte-openfoodfacts {

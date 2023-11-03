@@ -48,8 +48,10 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&send_email
+		&send_html_email
 		&send_email_to_admin
 		&send_email_to_producers_admin
+		&get_html_email_content
 
 		$LOG_EMAIL_START
 		$LOG_EMAIL_END
@@ -127,7 +129,7 @@ sub _send_email ($mail) {
 
 =head2 send_email( USER_REF, SUBJECT, TEXT )
 
-C<send_email()> sends email from the contact email of Open Food Facts to the email passed as an argument.
+C<send_email()> sends a plain text email from the contact email of Open Food Facts to the email passed as an argument.
 
 =head3 Arguments
 
@@ -158,6 +160,76 @@ sub send_email ($user_ref, $subject, $text) {
 	my $mail = Email::Stuffer->from(lang("site_name") . " <$contact_email>")->to($name . " <$email>")->subject($subject)
 		->text_body($text);
 	return _send_email($mail);
+}
+
+=head2 send_html_email( USER_REF, SUBJECT, HTML_CONTENT )
+
+C<send_html_email()> sends an HTML email from the contact email of Open Food Facts to the email passed as an argument.
+
+=head3 Arguments
+
+The first argument is a hash reference. The other two arguments are scalar variables that consist of email subject and HTML content.
+
+=head4 Input keys: user data
+
+The hash must contain values for the following keys:
+
+- email -> user email
+- name -> user name
+
+=head3 Return Values
+
+The function returns a 1 or 0 depending on the evaluation of the email sent or not.
+
+If the function catches any error during evaluation it returns 1 indicating an error.
+On the other hand, if there was no error, it returns 0 indicating that the email has been sent successfully.
+
+=cut
+
+sub send_html_email ($user_ref, $subject, $html_content) {
+	my $email = $user_ref->{email};
+	my $name = $user_ref->{name};
+
+	my $mail = Email::Stuffer->from(lang("site_name") . " <$contact_email>")->to($name . " <$email>")->subject($subject)
+		->html_body($html_content);
+	return _send_email($mail);
+}
+
+=head2 get_html_email_content ($filename, $lang )
+
+Fetch the HTML email content in $DATA_ROOT/lang/emails. If a translation is available
+for the requested language, we provide the translated version otherwise English is the default.
+
+
+=head3 Arguments
+
+=head4 $filename
+
+The HTML file name (ex: user_welcome.html)
+
+=head4 $lang
+
+The 2-letter language code
+
+=head3 Return Values
+
+The HTML string or undef if the file does not exists or is not readable.
+
+=cut
+
+sub get_html_email_content ($filename, $lang) {
+	# if an email does not exist in the local language, use the English version
+	my $file = "$data_root/lang/$lang/emails/$filename";
+
+	if (!-e $file) {
+		$file = "$data_root/lang/en/emails/$filename";
+	}
+
+	open(my $IN, "<:encoding(UTF-8)", $file) or $log->error("Can't open $file for reading");
+	return unless $IN;
+	my $html = join('', (<$IN>));
+	close($IN);
+	return $html;
 }
 
 =head1 FUNCTIONS

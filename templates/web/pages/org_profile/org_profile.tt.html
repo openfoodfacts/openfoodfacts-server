@@ -11,43 +11,8 @@
 [% END %]
 
 [% IF link %]
-	<p>&rarr; <a href="[% link %]">[% lang("official_site") %]</a></p>
+	<p>&rarr; <a href="[% link %]" rel="noopener" target="_blank">[% lang("official_site") %]</a></p>
 [% END %]
-
-[% IF org_members.size %]
-<h2>[% lang("organization_members") %]</h2>
-	<p>[% lang("number_of_members") %][% sep %]: [% org_members.size %]</p>
-	<div style="position:relative">
-	<table>
-		<thead>
-		<tr>
-			<th>[% lang("serial_no") %]</th>
-			<th>[% lang("username") %]</th>
-			<th>[% lang("name") %]</th>
-			<th>[% lang("email") %]</th>
-			<th>[% lang("select_lang") %]</th>
-			<th>[% lang("select_country") %]</th>
-
-		</tr>
-	</thead>
-		<tbody>
-		[% FOREACH users IN org_members %]
-		[% SET count = 1 %]
-		<tr>
-			<td>[% count %].</td>
-			<td>[% users.userid %]</td>
-			<td>[% users.name %]</td>
-			<td>[% users.email %]</td>
-			<td>[% users.initial_lc %]</td>
-			<td>[% users.initial_cc %]</td>
-		</tr>
-		[% SET count = count + 1 %]
-		[% END %]
-	</tbody>
-	</table>
-</div>
-[% END %]
-
 
 <div class="row">
 

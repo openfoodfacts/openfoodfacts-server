@@ -17,9 +17,14 @@ x-backend-conf: &backend-conf
     # (which requires images/product to be empty in git)
     - ./:/opt/product-opener
     # dynamic entrypoint
-    - ./docker/docker-entrypoint.sh:/docker/docker-entrypoint.sh
+    - ./docker/docker-entrypoint.sh:/docker-entrypoint.sh
     # we use this for debugging, from times to times
     - ./debug:/mnt/podata/debug/
+  # Allow the container to connect to the host when using Linux.
+  # This is needed to access other services that are running outside of Docker
+  # e.g. when developing with Robotoff or openfoodfacts-query
+  extra_hosts:
+    - "host.docker.internal:host-gateway"
 
 x-minion-db-network: &minion-db-network
   networks:

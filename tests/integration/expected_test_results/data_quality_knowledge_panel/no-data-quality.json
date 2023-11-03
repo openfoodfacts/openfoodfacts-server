@@ -123,7 +123,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/data-warning.svg",
-               "subtitle" : "We have detected some potential issues or potential improvement, could you check if some apply ?",
+               "subtitle" : "We have detected some potential issues or potential improvements, could you check if some apply ?",
                "title" : "Potential issues"
             },
             "topics" : [
@@ -332,7 +332,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<span>water</span>, <span class=\"text_info unknown_ingredient\">test_ingredient</span>"
+                     "html" : "en: <span>water</span>, <span class=\"text_info unknown_ingredient\">test_ingredient</span>"
                   }
                },
                {

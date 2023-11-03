@@ -21,6 +21,7 @@
          "id" : "en:fruit-juice",
          "percent" : 39.3700787401575,
          "percent_estimate" : 39.3700787401575,
+         "processing" : "en:pure",
          "text" : "jus de fruit",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -54,11 +55,13 @@
    "ingredients_hierarchy" : [
       "en:tomato-puree",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:tomato",
       "en:beef",
       "en:animal",
       "en:fruit-juice",
       "en:fruit",
+      "en:juice",
       "en:oil-and-fat"
    ],
    "ingredients_n" : 4,
@@ -76,11 +79,13 @@
    "ingredients_tags" : [
       "en:tomato-puree",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:tomato",
       "en:beef",
       "en:animal",
       "en:fruit-juice",
       "en:fruit",
+      "en:juice",
       "en:oil-and-fat"
    ],
    "ingredients_text" : "19% purée de tomate, 90% boeuf, 100% pur jus de fruit, 45% de matière grasses",
@@ -94,9 +99,11 @@
       "en:oil-and-fat"
    ],
    "ingredients_without_ciqual_codes_n" : 3,
-   "known_ingredients_n" : 8,
+   "known_ingredients_n" : 10,
    "lc" : "fr",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 46.8503937007874,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 46.8503937007874,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 46.8503937007874,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 46.8503937007874
    },

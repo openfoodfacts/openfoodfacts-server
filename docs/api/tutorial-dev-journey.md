@@ -19,5 +19,5 @@ To identify the potential users' needs, Dave has met with some conscious consume
 []()Dev Journey 2: Finding healthy breakfast cereals for Stefano
 []()Dev Journey 3: Adding missing products
 []()Dev Journey 4: Get the Nutri-Score
-[]()Dev Journey 5 : Get the Eco-Score
+[]()Dev Journey 5: Get the Eco-Score
 []()Dev Journey 6: Get ingredient related analysis on new or existing products (Nova, allergens, additives…)

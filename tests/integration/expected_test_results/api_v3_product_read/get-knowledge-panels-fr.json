@@ -1,5 +1,5 @@
 {
-   "code" : "200000000034",
+   "code" : "4260392550101",
    "errors" : [],
    "product" : {
       "knowledge_panels" : {
@@ -58,7 +58,7 @@
                            "values" : [
                               {
                                  "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-                                 "text" : "Conditionnement"
+                                 "text" : "Emballage"
                               },
                               {
                                  "percent" : 3.820792696782,
@@ -248,7 +248,7 @@
                            "values" : [
                               {
                                  "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
-                                 "text" : "Conditionnement"
+                                 "text" : "Emballage"
                               },
                               {
                                  "percent" : 3.1173493176578,
@@ -534,7 +534,7 @@
                      "panel_ids" : [
                         "packaging_recycling"
                      ],
-                     "title" : "Conditionnement"
+                     "title" : "Emballage"
                   }
                },
                {
@@ -700,7 +700,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<span>apple</span>, <span>milk</span>, <span>eggs</span>, <span>palm oil</span>"
+                     "html" : "en: <span>apple</span>, <span>milk</span>, <span>eggs</span>, <span>palm oil</span>"
                   }
                },
                {
@@ -1006,10 +1006,10 @@
                                  "text" : "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation par analyse de la liste des ingrédients)"
                               },
                               {
-                                 "text" : "25 %"
+                                 "text" : "62,5 %"
                               },
                               {
-                                 "text" : "25 %"
+                                 "text" : "62,5 %"
                               }
                            ]
                         }
@@ -1199,14 +1199,14 @@
                            ]
                         }
                      ],
-                     "title" : "Matières d'emballage"
+                     "title" : "Matériaux d'emballage"
                   }
                }
             ],
             "expanded" : true,
             "level" : "info",
             "title_element" : {
-               "title" : "Matières d'emballage"
+               "title" : "Matériaux d'emballage"
             },
             "topics" : [
                "environment"

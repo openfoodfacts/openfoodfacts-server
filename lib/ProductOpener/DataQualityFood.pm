@@ -668,6 +668,7 @@ sub check_nutrition_data ($product_ref) {
 			}
 		}
 
+		# catch serving_size = "serving", regardless of setting (per 100g or per serving)
 		if (    (defined $product_ref->{serving_size})
 			and ($product_ref->{serving_size} ne "")
 			and ($product_ref->{serving_size} !~ /\d/))
@@ -678,13 +679,15 @@ sub check_nutrition_data ($product_ref) {
 			and (defined $product_ref->{nutrition_data_per})
 			and ($product_ref->{nutrition_data_per} eq 'serving'))
 		{
-
 			if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} eq '')) {
-				push @{$product_ref->{data_quality_warnings_tags}},
-					"en:nutrition-data-per-serving-missing-serving-size";
+				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-missing-serving-size";
+			}
+			elsif ($product_ref->{serving_quantity} eq "0") {
+				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-serving-quantity-is-0";
 			}
 			elsif ($product_ref->{serving_quantity} == 0) {
-				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-serving-quantity-is-0";
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:nutrition-data-per-serving-serving-quantity-is-not-recognized";
 			}
 		}
 	}
@@ -915,6 +918,49 @@ sub check_nutrition_data ($product_ref) {
 				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-1-g-salt";
 			}
 		}
+
+		# some categories have expected nutriscore grade - push data quality error if calculated nutriscore grade differs from expected nutriscore grade or if it is not calculated
+		my $expected_nutriscore_grade
+			= get_inherited_property_from_categories_tags($product_ref, "expected_nutriscore_grade:en");
+
+		# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
+		if ((defined $expected_nutriscore_grade) and ($expected_nutriscore_grade =~ /^([a-e]){1}$/i)) {
+			if (
+				# nutriscore not calculated but should have expected nutriscore grade
+				(not(defined $product_ref->{nutrition_grade_fr}))
+				# nutriscore calculated but unexpected nutriscore grade
+				or (    (defined $product_ref->{nutrition_grade_fr})
+					and ($product_ref->{nutrition_grade_fr} ne $expected_nutriscore_grade))
+				)
+			{
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:nutri-score-grade-from-category-does-not-match-calculated-grade";
+			}
+		}
+
+		# some categories have an expected ingredient - push data quality error if ingredient differs from expected ingredient
+		# note: we currently support only 1 expected ingredient
+		my $expected_ingredients = get_inherited_property_from_categories_tags($product_ref, "expected_ingredients:en");
+
+		if ((defined $expected_ingredients)) {
+			$expected_ingredients = canonicalize_taxonomy_tag("en", "ingredients", $expected_ingredients);
+			my $number_of_ingredients = (defined $product_ref->{ingredients}) ? @{$product_ref->{ingredients}} : 0;
+
+			if ($number_of_ingredients == 0) {
+				push @{$product_ref->{data_quality_warnings_tags}},
+					"en:ingredients-single-ingredient-from-category-missing";
+			}
+			elsif (
+				# more than 1 ingredient
+				($number_of_ingredients > 1)
+				# ingredient different than expected ingredient
+				or not(is_a("ingredients", $product_ref->{ingredients}[0]{id}, $expected_ingredients))
+				)
+			{
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients";
+			}
+		}
 	}
 	$log->debug("has_prepared_data: " . $has_prepared_data) if $log->debug();
 
@@ -1140,7 +1186,7 @@ sub check_ingredients ($product_ref) {
 				}
 
 				# Dutch and other languages can have 4 consecutive consonants
-				if ($display_lc !~ /de|hr|nl/) {
+				if ($display_lc !~ /de|hr|nl|pl/) {
 					if ($product_ref->{$ingredients_text_lc} =~ /[bcdfghjklmnpqrstvwxz]{5}/is) {
 
 						push @{$product_ref->{data_quality_warnings_tags}},
@@ -1322,6 +1368,74 @@ sub check_categories ($product_ref) {
 	# Plant milks should probably not be dairies https://github.com/openfoodfacts/openfoodfacts-server/issues/73
 	if (has_tag($product_ref, "categories", "en:plant-milks") and has_tag($product_ref, "categories", "en:dairies")) {
 		push @{$product_ref->{data_quality_warnings_tags}}, "en:incompatible-categories-plant-milk-and-dairy";
+	}
+
+	return;
+}
+
+=head2 check_labels( PRODUCT_REF )
+
+Checks related to specific product labels.
+
+Vegan label: check that there is no non-vegan ingredient.
+
+Vegetarian label: check that there is no non-vegetarian ingredient.
+
+=cut
+
+sub check_labels ($product_ref) {
+	# this also include en:vegan that is a child of en:vegetarian
+	if (defined $product_ref->{labels_tags} && has_tag($product_ref, "labels", "en:vegetarian")) {
+		if (defined $product_ref->{ingredients}) {
+			my @ingredients = @{$product_ref->{ingredients}};
+
+			while (@ingredients) {
+
+				# Remove and process the first ingredient
+				my $ingredient_ref = shift @ingredients;
+				my $ingredientid = $ingredient_ref->{id};
+
+				# Add sub-ingredients at the beginning of the ingredients array
+				if (defined $ingredient_ref->{ingredients}) {
+
+					unshift @ingredients, @{$ingredient_ref->{ingredients}};
+				}
+
+				# some additives_classes (like thickener, for example) do not have the key-value vegan and vegetarian
+				# it can be additives_classes that contain only vegan/vegetarian additives.
+				# to avoid false-positive - instead of raising a warning (else below) we ignore additives_classes
+				if (!exists_taxonomy_tag("additives_classes", $ingredientid)) {
+					if (has_tag($product_ref, "labels", "en:vegan")) {
+						# vegan
+						if (defined $ingredient_ref->{"vegan"}) {
+							if ($ingredient_ref->{"vegan"} eq 'no') {
+								add_tag($product_ref, "data_quality_errors", "en:vegan-label-but-non-vegan-ingredient");
+							}
+							# else 'yes', 'maybe'
+						}
+						# no tag
+						else {
+							add_tag($product_ref, "data_quality_warnings",
+								"en:vegan-label-but-could-not-confirm-for-all-ingredients");
+						}
+					}
+
+					# vegetarian label condition is above
+					if (defined $ingredient_ref->{"vegetarian"}) {
+						if ($ingredient_ref->{"vegetarian"} eq 'no') {
+							add_tag($product_ref, "data_quality_errors",
+								"en:vegetarian-label-but-non-vegetarian-ingredient");
+						}
+						# else 'yes', 'maybe'
+					}
+					# no tag
+					else {
+						add_tag($product_ref, "data_quality_warnings",
+							"en:vegetarian-label-but-could-not-confirm-for-all-ingredients");
+					}
+				}
+			}
+		}
 	}
 
 	return;
@@ -1526,6 +1640,7 @@ sub check_quality_food ($product_ref) {
 	check_quantity($product_ref);
 	detect_categories($product_ref);
 	check_categories($product_ref);
+	check_labels($product_ref);
 	compare_nutriscore_with_value_from_producer($product_ref);
 	check_ecoscore_data($product_ref);
 	check_food_groups($product_ref);

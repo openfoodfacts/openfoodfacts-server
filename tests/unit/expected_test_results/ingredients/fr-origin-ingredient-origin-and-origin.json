@@ -63,9 +63,7 @@
          "origins" : "en:france",
          "percent" : 2.69353551476456,
          "percent_estimate" : 2.69353551476456,
-         "text" : "Moutarde à l'ancienne",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
+         "text" : "Moutarde à l'ancienne"
       },
       {
          "ciqual_food_code" : "19402",
@@ -83,9 +81,7 @@
          "origins" : "en:france",
          "percent" : 2.69353551476456,
          "percent_estimate" : 2.69353551476456,
-         "text" : "Moutarde de Dijon",
-         "vegan" : "yes",
-         "vegetarian" : "yes"
+         "text" : "Moutarde de Dijon"
       },
       {
          "ciqual_food_code" : "31008",
@@ -138,9 +134,13 @@
          "en:pork"
       ],
       "en:vegan-status-unknown" : [
+         "fr:moutarde-a-l-ancienne",
+         "en:dijon-mustard",
          "en:broth"
       ],
       "en:vegetarian-status-unknown" : [
+         "fr:moutarde-a-l-ancienne",
+         "en:dijon-mustard",
          "en:broth"
       ]
    },
@@ -153,6 +153,7 @@
       "en:potato",
       "en:vegetable",
       "en:root-vegetable",
+      "en:tuber",
       "en:pork",
       "en:animal",
       "en:semi-skimmed-milk",
@@ -163,13 +164,13 @@
       "en:water",
       "en:butter",
       "fr:moutarde-a-l-ancienne",
-      "en:condiment",
-      "en:spice",
       "en:mustard",
       "en:dijon-mustard",
       "en:flower-honey",
       "en:added-sugar",
       "en:honey",
+      "en:spice",
+      "en:condiment",
       "en:broth",
       "en:finegrained-salt",
       "en:salt"
@@ -199,6 +200,7 @@
       "en:potato",
       "en:vegetable",
       "en:root-vegetable",
+      "en:tuber",
       "en:pork",
       "en:animal",
       "en:semi-skimmed-milk",
@@ -209,13 +211,13 @@
       "en:water",
       "en:butter",
       "fr:moutarde-a-l-ancienne",
-      "en:condiment",
-      "en:spice",
       "en:mustard",
       "en:dijon-mustard",
       "en:flower-honey",
       "en:added-sugar",
       "en:honey",
+      "en:spice",
+      "en:condiment",
       "en:broth",
       "en:finegrained-salt",
       "en:salt"
@@ -232,9 +234,11 @@
       "en:spice"
    ],
    "ingredients_without_ciqual_codes_n" : 4,
-   "known_ingredients_n" : 23,
+   "known_ingredients_n" : 24,
    "lc" : "fr",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },

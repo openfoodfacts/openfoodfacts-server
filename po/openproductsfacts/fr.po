@@ -11,7 +11,7 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: fr\n"
-"X-Crowdin-File-ID: 2544\n"
+"X-Crowdin-File-ID: 3129\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -28,16 +28,6 @@ msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/fr/app/open-beauty-facts/id1122926380"
 
-#. make sure the image exists with your country code at https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-XX-178x150.png. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openproductsfacts-logo-en-178x150.png"
-msgstr "openproductsfacts-logo-en-178x150.png"
-
-#. make sure the image exists with your country code at https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-XX-356x300.png. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openproductsfacts-logo-en-356x300.png"
-msgstr "openproductsfacts-logo-en-356x300.png"
-
 msgctxt "site_name"
 msgid "Open Products Facts"
 msgstr "Open Products Facts"
@@ -45,7 +35,7 @@ msgstr "Open Products Facts"
 #. change https://www.microsoft.com/en-us/p/ to https://www.microsoft.com/fr-fr/p/ (for instance) and make sure the url works
 msgctxt "windows_phone_app_link"
 msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr "https://www.microsoft.com/fr-fr/p/openfoodfacts/9nblggh0dkqr"
+msgstr "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 
 msgctxt "tagline"
 msgid "Open Products Facts gathers information and data on products from around the world."
@@ -78,7 +68,7 @@ msgstr "Nike, Apple"
 
 msgctxt "categories_example"
 msgid "Mobile phone, Washing machine powder"
-msgstr "Téléphone portable, poudre pour la machine a laver"
+msgstr "Téléphone portable, poudre à machine à laver"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
@@ -102,7 +92,7 @@ msgstr "https://fr.wiki.openfoodfacts.org"
 
 msgctxt "generic_name_example"
 msgid "Android smartphone"
-msgstr "Smartphone android"
+msgstr "Smartphone Android"
 
 msgctxt "product_name_example"
 msgid "iPod Touch (1st generation)"
@@ -115,7 +105,7 @@ msgstr "https://static.openproductsfacts.org/images/misc/openproductsfacts-logo-
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-product-hunt\">Open Product Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr "C'est <a href=\"/open-product-hunt\">Open Product Hunt</a> sur <site_name> du samedi 21 février au dimanche 1er mars !\n"
+msgstr "C'est <a href=\"/open-product-hunt\">Open Product Hunt</a> sur <<site_name>> du samedi 21 février au dimanche 1er mars !\n"
 "Les contributeurs sont récompensés via des Points Explorateur pour les produits qu'ils ajoutent et des Points Ambassadeur pour les nouveaux contributeurs qu'ils recrutent. Le nombre de points est actualisé toutes les 30 minutes."
 
 msgctxt "product_js_upload_image_note"
