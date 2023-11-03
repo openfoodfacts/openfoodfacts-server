@@ -40,9 +40,7 @@
 				<td>
 					[% SET userid = users.userid %]				
     [% SET user_in_admin_status = user_is_admin.$userid %]
-    <input type="checkbox" name="admin_status_[% users.userid %]" value="1" class="admin-checkbox" [% IF user_in_admin_status %]checked[% END %]>
-    <input type="hidden" name="admin_status_hidden_[% users.userid %]" value="0">
-				
+    <input form="admin_users_form" type="checkbox" name="admin_status_[% users.userid %]" value="1" class="admin-checkbox" [% IF user_in_admin_status %]checked[% END %]>			
 				</td>
 				<td>[% users.userid %]</td>
 				<td>[% users.name %]</td>
@@ -64,24 +62,11 @@
 		</tbody>
 		</table>
 		<div>
-			<form id='hiddenInputForm' method="post" action="/cgi/org.pl">
+			<form id='admin_users_form' method="post" action="/cgi/org.pl">
+				<!-- admin_status_xxxx elements above are also part of it, thanks to form attribute -->
 				<input type="hidden" name="action" value="process" />
 				<input type="hidden" name="type" value="admin_status" />
-				[% SET checkedUserIDs = [] %]
-				[% FOREACH users IN org_members %]
-				]
-				[% SET userid = users.userids %]
-					[% IF user_is_admin.$userid %]
-						
-						[% checkedUserIDs.push(userid) %]
-					[% END %]
-				
-               
-				[% END %]
-				<input type="hidden" name="checked_user_ids" value="[% checkedUserIDs.join(',') %]">
-	<input type="submit" name="grant_remove_admin_status" class="button" style="margin-bottom: 10px;" value="[% lang("grant_remove_admin_status") %]"/>
-
-
+				<input type="submit" name="grant_remove_admin_status" class="button" style="margin-bottom: 10px;" value="[% lang("grant_remove_admin_status") %]"/>
 			</form>
 		</div>
 	</div>

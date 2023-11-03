@@ -389,24 +389,22 @@ elsif ($action eq 'process') {
 	}
 
 	elsif ($type eq 'admin_status') {
+		# verify right to change status
 		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
-			my $checked_user_ids = param('checked_user_ids');    # gives strings separated by comma
-			my @user_ids = sort split(',', $checked_user_ids);
+			# inputs are in the form admin_status_<user_id>, get them among param and extract the user_id
+			my @user_ids = sort map { $_ =~ /^admin_status_/ ? $' : () }  param();
 			my @existing_admins = sort grep {is_user_in_org_group($org_ref, $_, "admins")} keys %{$org_ref->{members}};
-
 			my $diff = Array::Diff->diff(\@existing_admins, \@user_ids);
 
-			$log->debug("my user ids", {user_ids => @user_ids, difference => $diff, checked => $checked_user_ids})
+			$log->debug("my user ids", {user_ids => @user_ids, difference => $diff})
 				if $log->is_debug();
 
 			foreach my $user_id (@{$diff->added}) {
 				add_user_to_org($org_ref, $user_id, ["admins"]);
-				$user_is_admin{$user_id} = 1;
 			}
 
 			foreach my $user_id (@{$diff->deleted}) {
 				remove_user_from_org($org_ref, $user_id, ["admins"]);
-				$user_is_admin{$user_id} = 0;
 			}
 
 			store_org($org_ref);
