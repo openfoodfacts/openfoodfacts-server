@@ -6233,22 +6233,22 @@ msgstr "Витягніть і перевірте інформацію про п�
 # this is not used yet
 msgctxt "action_add_stores"
 msgid "Add the store where you found this product"
-msgstr ""
+msgstr "Додайте магазин, де ви знайшли цей товар"
 
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "Додайте будь-яку етикетку, наявну на цьому товарі"
 
 # this is not used yet
 msgctxt "action_countries"
 msgid "Add the country where you found this product"
-msgstr ""
+msgstr "Додайте країну, де ви знайшли цей продукт"
 
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "Сфотографуйте коди простежуваності"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6329,42 +6329,42 @@ msgstr "Додані товари"
 
 msgctxt "products_edited"
 msgid "Products edited"
-msgstr ""
+msgstr "Відредаговані продукти"
 
 msgctxt "products_photographed"
 msgid "Products photographed"
-msgstr ""
+msgstr "Продукція сфотографована"
 
 # result of the matching with the user preferences: should ne a noun, not a verb
 msgctxt "matching_with_your_preferences"
 msgid "Matching with your preferences"
-msgstr ""
+msgstr "Відповідність вашим уподобанням"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_join_us_on_slack"
 msgid "Join us on <a href=\"{url}\">Slack</a>"
-msgstr ""
+msgstr "Приєднуйтесь до нас на <a href=\"{url}\">Slack</a>"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_discover_our_code_of_conduct"
 msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
-msgstr ""
+msgstr "Ознайомтеся з нашим <a href=\"{url}\">Кодексом поведінки</a>"
 
 # {links} must not be translated, it will be replaced by icons and/or text links
 msgctxt "f_footer_follow_us_links"
 msgid "Follow us: {links}"
-msgstr ""
+msgstr "Слідкуйте за нами: {links}"
 
 # Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
 msgctxt "footer_install_the_app_exclamation_mark"
 msgid "Install the app!"
-msgstr ""
+msgstr "Встановіть додаток!"
 
 # HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
 msgctxt "footer_scan_your_everyday_foods"
 msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
-msgstr ""
+msgstr "Скануйте свої <span id=\"everyday\">щоденні</span> <span id=\"foods\">продукти</span>"
 
 msgctxt "nutrition"
 msgid "Nutrition"
@@ -6373,7 +6373,7 @@ msgstr "Харчова цінність"
 # Note: "criteria" is plural here. So in French for instance: "Vos critères"
 msgctxt "your_criteria"
 msgid "Your criteria"
-msgstr ""
+msgstr "Ваші критерії"
 
 msgctxt "product"
 msgid "Product"
@@ -6385,11 +6385,11 @@ msgstr "Середовище"
 
 msgctxt "api_result_failure"
 msgid "Failure"
-msgstr ""
+msgstr "Збій"
 
 msgctxt "api_result_product_found"
 msgid "Product found"
-msgstr ""
+msgstr "Товар знайдено"
 
 msgctxt "api_result_product_not_found"
 msgid "Product not found"
@@ -6397,55 +6397,55 @@ msgstr "Товар не знайдено"
 
 msgctxt "api_result_product_updated"
 msgid "Product updated"
-msgstr ""
+msgstr "Продукт оновлено"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
-msgstr ""
+msgstr "Неправильна дія API"
 
 msgctxt "api_message_invalid_api_method"
 msgid "Invalid API method"
-msgstr ""
+msgstr "Неправильний метод API"
 
 msgctxt "api_message_empty_request_body"
 msgid "Empty request body"
-msgstr ""
+msgstr "Порожнє тіло запиту"
 
 msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
-msgstr ""
+msgstr "Неправильний JSON в тілі запиту"
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
-msgstr ""
+msgstr "Неправильний код"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
-msgstr ""
+msgstr "Неправильний тип: має бути об'єкт"
 
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
-msgstr ""
+msgstr "Неправильний тип: має бути масив"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
-msgstr ""
+msgstr "Неправильний тип: має бути цілим числом"
 
 msgctxt "api_message_invalid_type_must_be_number"
 msgid "Invalid type: must be a number"
-msgstr ""
+msgstr "Неправильний тип: має бути число"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
-msgstr ""
+msgstr "Пропущене поле"
 
 msgctxt "api_message_unrecognized_field"
 msgid "Unrecognized field"
-msgstr ""
+msgstr "Невизнане поле"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
-msgstr ""
+msgstr "Нерозпізнане значення"
 
 msgctxt "api_impact_none"
 msgid "None"
@@ -6457,15 +6457,15 @@ msgstr "Увага"
 
 msgctxt "api_impact_failure"
 msgid "Failure"
-msgstr ""
+msgstr "Збій"
 
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
-msgstr ""
+msgstr "Поле ігнорується"
 
 msgctxt "api_impact_value_converted"
 msgid "Value converted"
-msgstr ""
+msgstr "Перетворено значення"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6475,29 +6475,29 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "Вага одного порожнього блоку"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "Кількість продукту, що міститься в одиниці"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
 msgid "Help categorize more {title} on Hunger Games"
-msgstr ""
+msgstr "Допоможіть класифікувати більше {title} про Голодні ігри"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "Перераховані всі пакувальні частини продукту."
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
-msgstr ""
+msgstr "Неправильний логін і пароль"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
-msgstr ""
+msgstr "Неприпустиме значення: має бути 0 або 1"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
@@ -6519,7 +6519,7 @@ msgstr "Вказуйте інструкції з утилізації, тіль�
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
 msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
-msgstr ""
+msgstr "Перед зважуванням видаліть залишки їжі, вимийте та висушіть пакувальну частину. Якщо можливо, використовуйте ваги з точністю до 0,1 г або 0,01 г."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
@@ -6528,7 +6528,7 @@ msgstr "Введіть вагу нетто або об'єм нетто і вка
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
-msgstr ""
+msgstr "Імпорт та експорт продукції"
 
 msgctxt "add_products"
 msgid "Add products"
@@ -6537,48 +6537,48 @@ msgstr "Додати продукти"
 # Needs to be short (displayed in a menu)
 msgctxt "install_the_app_to_add_products"
 msgid "Install the app to add products"
-msgstr ""
+msgstr "Встановіть додаток, щоб додавати товари"
 
 msgctxt "search_and_analyze_products"
 msgid "Search and analyze products"
-msgstr ""
+msgstr "Пошук та аналіз продуктів"
 
 msgctxt "resources"
 msgid "Resources"
-msgstr ""
+msgstr "Ресурси"
 
 msgctxt "pro_platform_user_guide"
 msgid "Pro platform user guide"
-msgstr ""
+msgstr "Посібник користувача платформи Pro"
 
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
-msgstr ""
+msgstr "FAQ для виробників"
 
 msgctxt "join_the_next_pros_meet_up"
 msgid "Join the next Pros' Meet-up"
-msgstr ""
+msgstr "Приєднуйтесь до наступної зустрічі профі"
 
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
-msgstr ""
+msgstr "Будь ласка, введіть значення від 0 до {max}."
 
 msgctxt "please_ask_users_create_account_first"
 msgid "Please ask the following users to create an Open Food Facts account first:"
-msgstr ""
+msgstr "Будь ласка, попросіть наступних користувачів спочатку створити обліковий запис Open Food Facts:"
 
 msgctxt "users_added_successfully"
 msgid "Users added to the organization successfully:"
-msgstr ""
+msgstr "Користувачі успішно додані до організації:"
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
-msgstr ""
+msgstr "Цукрів не повинно бути більше, ніж вуглеводів."
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
-msgstr ""
+msgstr "Насичені жири не повинні перевищувати жирність."
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
