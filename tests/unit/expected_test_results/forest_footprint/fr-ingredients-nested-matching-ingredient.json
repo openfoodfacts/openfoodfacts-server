@@ -26,11 +26,13 @@
          "id" : "fr:viande-de-poulet-traitee-en-salaison",
          "ingredients" : [
             {
-               "id" : "fr:kangourou",
+               "id" : "en:kangaroo",
                "percent_estimate" : 66.6666666666667,
                "percent_max" : 100,
                "percent_min" : 33.3333333333333,
-               "text" : "kangourou"
+               "text" : "kangourou",
+               "vegan" : "no",
+               "vegetarian" : "no"
             },
             {
                "ciqual_food_code" : "18066",
@@ -60,25 +62,22 @@
    ],
    "ingredients_analysis" : {
       "en:non-vegan" : [
-         "fr:viande-de-poulet-traitee-en-salaison"
+         "fr:viande-de-poulet-traitee-en-salaison",
+         "en:kangaroo"
       ],
       "en:non-vegetarian" : [
-         "fr:viande-de-poulet-traitee-en-salaison"
-      ],
-      "en:palm-oil-content-unknown" : [
-         "fr:kangourou"
+         "fr:viande-de-poulet-traitee-en-salaison",
+         "en:kangaroo"
       ],
       "en:vegan-status-unknown" : [
-         "fr:kangourou",
          "en:brine"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:kangourou",
          "en:brine"
       ]
    },
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
+      "en:palm-oil-free",
       "en:non-vegan",
       "en:non-vegetarian"
    ],
@@ -88,7 +87,8 @@
       "en:chicken",
       "en:chicken-meat",
       "fr:poulet-traite-en-salaison",
-      "fr:kangourou",
+      "en:kangaroo",
+      "en:animal",
       "en:water",
       "en:brine"
    ],
@@ -99,7 +99,7 @@
    ],
    "ingredients_original_tags" : [
       "fr:viande-de-poulet-traitee-en-salaison",
-      "fr:kangourou",
+      "en:kangaroo",
       "en:water",
       "en:brine"
    ],
@@ -110,7 +110,8 @@
       "en:chicken",
       "en:chicken-meat",
       "fr:poulet-traite-en-salaison",
-      "fr:kangourou",
+      "en:kangaroo",
+      "en:animal",
       "en:water",
       "en:brine"
    ],
@@ -121,10 +122,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:brine",
-      "fr:kangourou"
+      "en:kangaroo"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
-   "known_ingredients_n" : 7,
+   "known_ingredients_n" : 9,
    "lc" : "fr",
    "misc_tags" : [
       "en:forest-footprint-computed",
@@ -136,5 +137,5 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }

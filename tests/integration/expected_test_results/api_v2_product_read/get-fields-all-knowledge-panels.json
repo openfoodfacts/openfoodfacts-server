@@ -2098,6 +2098,7 @@
                "is_beverage" : 0,
                "is_cheese" : 0,
                "is_fat_oil_nuts_seeds" : 0,
+               "is_red_meat_product" : 0,
                "is_water" : 0,
                "proteins" : null,
                "salt" : null,
@@ -2160,13 +2161,13 @@
       "packagings" : [
          {
             "material" : "en:wood",
-            "number_of_units" : 1,
+            "number_of_units" : "1",
             "recycling" : "en:recycle",
             "shape" : "en:box"
          },
          {
             "material" : "en:glass",
-            "number_of_units" : 6,
+            "number_of_units" : "6",
             "quantity_per_unit" : "25cl",
             "quantity_per_unit_unit" : "cl",
             "quantity_per_unit_value" : 25,
@@ -2175,13 +2176,13 @@
          },
          {
             "material" : "en:steel",
-            "number_of_units" : 3,
+            "number_of_units" : "3",
             "recycling" : "en:recycle",
             "shape" : "en:lid"
          },
          {
             "material" : "en:plastic",
-            "number_of_units" : 1,
+            "number_of_units" : "1",
             "recycling" : "en:discard",
             "shape" : "en:film"
          }
@@ -2212,7 +2213,7 @@
       "quantity" : "100 g",
       "removed_countries_tags" : [],
       "rev" : 1,
-      "serving_quantity" : "10",
+      "serving_quantity" : 10,
       "serving_size" : "10 g",
       "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [

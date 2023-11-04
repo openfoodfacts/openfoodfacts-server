@@ -45,8 +45,11 @@
       "en:nutrition-fruits-vegetables-nuts-from-category",
       "en:nutrition-fruits-vegetables-nuts-from-category-en-olive-oils",
       "en:nutrition-all-nutriscore-values-known",
-      "en:nutriscore-2021-same-as-2023",
-      "en:nutriscore-2021-c-2023-c"
+      "en:nutrition-fruits-vegetables-legumes-from-category",
+      "en:nutrition-fruits-vegetables-legumes-from-category-en-olive-oils",
+      "en:nutriscore-2021-different-from-2023",
+      "en:nutriscore-2021-worse-than-2023",
+      "en:nutriscore-2021-c-2023-b"
    ],
    "nutriments" : {
       "energy_100g" : 3460,
@@ -112,13 +115,15 @@
             "energy" : 3460,
             "energy_from_saturated_fat" : 518,
             "energy_from_saturated_fat_points" : 4,
-            "fat" : null,
+            "fat" : 92,
             "fiber" : 0,
             "fiber_points" : 0,
-            "fruits_vegetables_legumes" : null,
+            "fruits_vegetables_legumes" : 100,
+            "fruits_vegetables_legumes_points" : 5,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 1,
+            "is_red_meat_product" : 0,
             "is_water" : 0,
             "negative_nutrients" : [
                "energy_from_saturated_fat",
@@ -133,7 +138,7 @@
                "fiber",
                "proteins"
             ],
-            "positive_points" : 0,
+            "positive_points" : 5,
             "proteins" : 0,
             "proteins_points" : 0,
             "salt" : 0,
@@ -144,18 +149,18 @@
             "sugars" : 0,
             "sugars_points" : 0
          },
-         "grade" : "c",
+         "grade" : "b",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : 5
+         "score" : 0
       }
    },
    "nutriscore_2021_tags" : [
       "c"
    ],
    "nutriscore_2023_tags" : [
-      "c"
+      "b"
    ],
    "nutriscore_data" : {
       "energy" : 3460,
@@ -206,6 +211,8 @@
    ],
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
+   "nutrition_score_warning_fruits_vegetables_legumes_from_category" : "en:olive-oils",
+   "nutrition_score_warning_fruits_vegetables_legumes_from_category_value" : 100,
    "nutrition_score_warning_fruits_vegetables_nuts_from_category" : "en:olive-oils",
    "nutrition_score_warning_fruits_vegetables_nuts_from_category_value" : 100,
    "pnns_groups_1" : "Fat and sauces",
