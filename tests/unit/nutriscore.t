@@ -823,6 +823,24 @@ my @tests = (
 			},
 		},
 	],
+	# canned fruits: water is counted as it is consumed
+	[
+		"fr-canned-pineapple",
+		{
+			lc => "fr",
+			ingredients_text => "eau 80%, sucre 10%, ananas 10%",
+			categories => "ananas en conserve",
+			nutriments => {
+				energy_100g => 315,
+				fat_100g => 0.9,
+				"saturated-fat_100g" => 0.1,
+				sugars_100g => 3.6,
+				salt_100g => 1.2,
+				fiber_100g => 5.3,
+				proteins_100g => 5.0,
+			},
+		},
+	],
 );
 
 my $json = JSON->new->allow_nonref->canonical;
