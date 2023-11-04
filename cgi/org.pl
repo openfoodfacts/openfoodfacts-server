@@ -392,7 +392,7 @@ elsif ($action eq 'process') {
 		# verify right to change status
 		if (is_user_in_org_group($org_ref, $User_id, "admins") or $admin or $User{pro_moderator}) {
 			# inputs are in the form admin_status_<user_id>, get them among param and extract the user_id
-			my @user_ids = sort map { $_ =~ /^admin_status_/ ? $' : () }  param();
+			my @user_ids = sort map {$_ =~ /^admin_status_/ ? $' : ()} param();
 			my @existing_admins = sort grep {is_user_in_org_group($org_ref, $_, "admins")} keys %{$org_ref->{members}};
 			my $diff = Array::Diff->diff(\@existing_admins, \@user_ids);
 
