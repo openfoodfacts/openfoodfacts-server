@@ -4916,11 +4916,11 @@ msgstr "Учасники Організації"
 
 msgctxt "number_of_members"
 msgid "Number of Members"
-msgstr ""
+msgstr "Кількість учасників"
 
 msgctxt "serial_no"
 msgid "S.No"
-msgstr ""
+msgstr "S.No"
 
 msgctxt "contact_form"
 msgid "Contact form"
@@ -5140,7 +5140,7 @@ msgstr "Коефіцієнт товарів, які зазнали змін з �
 
 msgctxt "number_of_products_withdrawn_from_the_market_since_last_export"
 msgid "Number of products withdrawn from the market since last export"
-msgstr ""
+msgstr "Кількість продуктів, вилучених з ринку з моменту останнього експорту"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
@@ -5296,7 +5296,7 @@ msgstr "Видалити всі значення поживних речовин
 
 msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
-msgstr ""
+msgstr "Користувач видаляється. Це може зайняти деякий час."
 
 msgctxt "attribute_ecoscore_not_applicable_title"
 msgid "Eco-Score not yet applicable"
@@ -5313,7 +5313,7 @@ msgstr "Ще не застосовується для категорії: {categ
 
 msgctxt "ecoscore_not_applicable_coming_soon"
 msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr ""
+msgstr "Eco-Score поки що не застосовується для цієї категорії, але ми працюємо над тим, щоб додати її підтримку."
 
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"
@@ -5325,7 +5325,7 @@ msgstr "Невідомий вплив на навколишнє середови
 
 msgctxt "ecoscore_unknown_call_to_help"
 msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
-msgstr ""
+msgstr "Ми не змогли обчислити Eco-Score цього продукту, оскільки не вистачає деяких даних, чи не могли б ви допомогти нам заповнити його?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5341,11 +5341,11 @@ msgstr "Розділений комами список ідентифікато�
 
 msgctxt "org_valid_org"
 msgid "Validate organization as a real producer."
-msgstr ""
+msgstr "Довести, що організація є справжнім виробником."
 
 msgctxt "org_valid_org_note"
 msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
-msgstr ""
+msgstr "Організація перевіряється як реальний виробник людиною, яка також створює запис в CRM."
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
@@ -5661,11 +5661,11 @@ msgstr "Eco-Score спочатку був розроблений для Фран
 
 msgctxt "ecoscore_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
-msgstr ""
+msgstr "Виберіть країну, щоб врахувати повний вплив транспорту."
 
 msgctxt "ecoscore_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
-msgstr ""
+msgstr "Повний вплив транспортування на вашу країну наразі невідомий."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
@@ -5904,7 +5904,7 @@ msgstr "Обов’язково вказати властивості харчо
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "Для розрахунку Nutri-Score необхідно вказати категорію та поживну цінність продукту."
 
 msgctxt "health"
 msgid "Health"
@@ -5912,31 +5912,31 @@ msgstr "Здоров’я"
 
 msgctxt "contribution_panel_title"
 msgid "Contribution"
-msgstr ""
+msgstr "Внесок"
 
 msgctxt "contribution_navigation"
 msgid "Contribution"
-msgstr ""
+msgstr "Внесок"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
-msgstr ""
+msgstr "Виявлені помилки"
 
 msgctxt "data_quality_errors_panel_subtitle"
 msgid "Help us improve quality of our data by contributing fixes"
-msgstr ""
+msgstr "Допоможіть нам покращити якість наших даних, зробивши свій внесок у виправлення"
 
 msgctxt "data_quality_warnings_panel_title"
 msgid "Potential issues"
-msgstr ""
+msgstr "Потенційні проблеми"
 
 msgctxt "data_quality_warnings_panel_subtitle"
 msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
-msgstr ""
+msgstr "Ми виявили деякі потенційні проблеми або потенційні покращення, не могли б ви перевірити, чи застосовні вони?"
 
 msgctxt "data_quality_info_panel_title"
 msgid "Data Quality infos"
-msgstr ""
+msgstr "Інформація про якість даних"
 
 msgctxt "data_quality_info_panel_subtitle"
 msgid "Some infos about data quality on this product"
@@ -6087,7 +6087,7 @@ msgstr "Елементи, які вказують на те, що товар н�
 
 msgctxt "nova_classification_description"
 msgid "Food products are classified into 4 groups according to their degree of processing:"
-msgstr ""
+msgstr "Харчові продукти класифікуються на 4 групи за ступенем обробки:"
 
 msgctxt "nova_classification_how"
 msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
@@ -6185,25 +6185,25 @@ msgstr "Додати інформацію про поживні речовини
 
 msgctxt "action_add_origins"
 msgid "Add the origins of ingredients for this product"
-msgstr ""
+msgstr "Додайте походження інгредієнтів для цього продукту"
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
-msgstr ""
+msgstr "Сфотографуйте інформацію про перероблення"
 
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
-msgstr ""
+msgstr "Додайте пакувальні компоненти"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
-msgstr ""
+msgstr "Додайте основні дані"
 
 # this is not used yet
 msgctxt "action_add_portion_size"
 msgid "Add portion size"
-msgstr ""
+msgstr "Додати розмір порції"
 
 # this is not used yet
 msgctxt "action_add_ingredients_image"
@@ -6218,17 +6218,17 @@ msgstr "Зробити фото складу"
 # this is not used yet
 msgctxt "action_refresh_ingredients_image"
 msgid "Refresh the photo of the ingredients"
-msgstr ""
+msgstr "Оновити фото інгредієнтів"
 
 # this is not used yet
 msgctxt "action_refresh_nutrition_image"
 msgid "Refresh the photo of the nutrition facts"
-msgstr ""
+msgstr "Оновіть фото фактів про харчування"
 
 # this is not used yet
 msgctxt "action_add_packaging_text"
 msgid "Extract and check the recycling information"
-msgstr ""
+msgstr "Витягніть і перевірте інформацію про перероблення"
 
 # this is not used yet
 msgctxt "action_add_stores"
