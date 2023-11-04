@@ -4505,6 +4505,7 @@ my %phrases_after_ingredients_list = (
 		'Voor allergenen: zie ingrediëntenlijst, in vet gemarkeerd',
 		'voorbereidingstips',
 		#'waarvan suikers',
+		'waarvan toegevoegde',
 		'Witte chocolade: ten minste',
 	],
 
