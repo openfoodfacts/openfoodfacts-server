@@ -67,6 +67,7 @@ BEGIN {
 		&remove_user_by_org_admin
 		&add_users_to_org_by_admin
 		&is_suspicious_name
+		&try_retrieve_userid_from_mail
 
 		&check_session
 
@@ -1053,24 +1054,11 @@ sub init_user ($request_ref) {
 		$user_id = remove_tags_and_quote(request_param($request_ref, 'user_id'));
 
 		if ($user_id =~ /\@/) {
-			$log->info("got email while initializing user", {email => $user_id}) if $log->is_info();
-			my $emails_ref = retrieve("$data_root/users/users_emails.sto");
-			if (not defined $emails_ref->{$user_id}) {
-				# not found, try with lower case email
-				$user_id = lc $user_id;
-			}
-			if (not defined $emails_ref->{$user_id}) {
-				$user_id = undef;
-				$log->info("Unknown user e-mail", {email => $user_id}) if $log->is_info();
-				# Trigger an error
+			$user_id = try_retrieve_userid_from_mail($user_id);
+			# Trigger an error
+			unless (defined $user_id) {
 				return ($Lang{error_bad_login_password}{$lang});
 			}
-			else {
-				my @userids = @{$emails_ref->{$user_id}};
-				$user_id = $userids[0];
-			}
-
-			$log->info("corresponding user_id", {userid => $user_id}) if $log->is_info();
 		}
 
 		$log->context->{user_id} = $user_id;
@@ -1370,6 +1358,39 @@ sub check_session ($user_id, $user_session) {
 	$results_ref->{user_id} = $user_id;
 
 	return $results_ref;
+}
+
+=head2 try_retrieve_userid_from_mail()
+
+C<try_retrieve_userid_from_mail()> tries to get a userid from a mail address
+
+=head3 Return values
+
+A user id if matched; otherwise undef.
+
+=cut
+
+sub try_retrieve_userid_from_mail ($email) {
+	$log->info("got email while initializing user", {email => $email}) if $log->is_info();
+	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+	$log->info("emails_ref", {emails_ref => $emails_ref});
+	my $user_id;
+	if (not defined $emails_ref->{$email}) {
+		# not found, try with lower case email
+		$email = lc $email;
+	}
+
+	if (not defined $emails_ref->{$email}) {
+		$user_id = undef;
+		$log->info("Unknown user e-mail", {email => $email}) if $log->is_info();
+	}
+	else {
+		my @userids = @{$emails_ref->{$email}};
+		$user_id = $userids[0];
+	}
+
+	$log->info("corresponding user_id", {userid => $user_id}) if $log->is_info();
+	return $user_id;
 }
 
 1;
