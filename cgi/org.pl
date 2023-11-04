@@ -52,8 +52,6 @@ my $request_ref = ProductOpener::Display::init_request();
 
 my $orgid = $Org_id;
 
-my @admin_status;
-
 if (defined single_param('orgid')) {
 	$orgid = get_fileid(single_param('orgid'), 1);
 }
