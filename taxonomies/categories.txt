@@ -1456,8 +1456,8 @@ en:Amber IPA
 xx:Amber IPA
 
 <en:India Pale Ale (IPA)
-en:American IPA
-xx:American IPA
+en:American-style IPA, American IPA
+xx:American-style IPA, American IPA
 lt:Amerikietiškas IPA
 
 <en:India Pale Ale (IPA)
@@ -1558,6 +1558,7 @@ description:en:Kveik IPA is a dry-hopped IPA containing Norwegian yeast.
 <en:India Pale Ale (IPA)
 en:Matcha IPA
 xx:Matcha IPA
+description:en:This unique Japanese IPA tastes exactly as its name describes. It is brewed with Matcha tea leaves.
 
 <en:India Pale Ale (IPA)
 en:Rye IPA
@@ -1587,17 +1588,23 @@ wikidata:en:Q1161714
 wikipedia:en:https://en.wikipedia.org/wiki/Saison
 
 <en:Pale ales
-en:American Pale Ale (APA), APA beers, American Pale Ale
-xx:American Pale Ale
-lt:APA alus
+en:American-style Pale Ale (APA), American Pale Ale (APA), American Pale Ale, APA
+xx:American-style Pale Ale (APA), American Pale Ale (APA), American Pale Ale, APA
 wikidata:en:Q15940735
 
 <en:Ales
-en:French pale ale
+en:French-style pale ale, French pale ale
 fr:Bières de garde
 wikidata:en:Q1168351
 
-############ ABBEY ############
+############ ABBEY/TRAPPIST ############
+<en:Beers
+en:Trappist beers, Trappist
+xx:Trappist beers, Trappist
+wikidata:en:Q505815
+wikipedia:en:https://en.wikipedia.org/wiki/Trappist_beer
+description:en:A type of beer that is brewed by trappist monks. There is a strict criteria managed by the International Trappist Association that grants Authentic Trappist Product label to breweries that have monks.
+
 <en:Ales
 en:Abbey ales, Abbey beer, Abbey ale, Abbey beers
 de:Abteibier
@@ -1618,13 +1625,15 @@ en:Single ales
 nl:Enkel
 
 <en:Abbey ales
-en:Double ales, Double beer
+en:Belgian-style Dubbel ales, Double ales, Double beer
 de:Doppelte Biere
 fr:Bière double
 hu:Dubbel sör
 it:Birra doppia, doppia birra
 nl:Dubbelgegist bier
+xx:Dubbel
 wikidata:en:Q2542177
+description:en:Belgian-style Dubbel is a quite strong brown ale that originated in Westmalle Abbey in 1856 
 
 <en:Abbey ales
 en:Triple ales, Triple beer
@@ -1634,6 +1643,7 @@ fr:Bière triple
 hu:Tripel sör
 it:Birra tripla, tripla birra
 nl:Tripel bieren
+xx:Tripel
 wikidata:en:Q2719638
 
 <en:Abbey ales
@@ -1645,8 +1655,10 @@ it:Birre quadruple
 nl:Quadrupel bieren
 #wikidata:en:
 
+########################
+
 <en:Ales
-en:Blonde ales, Blonde ale
+en:Blonde ales, Blonde ale, Blond ale
 es:Cerveza rubia
 fr:Bières blondes, bière blonde
 nl:Blonde bieren
@@ -1654,14 +1666,12 @@ ro:Beri blonde, Bere blondă, Bere blonda
 wikidata:en:Q2792509
 
 <en:Blonde ales
-<en:Belgian beers
-en:Belgian blonde, Belgian blonde ales
-xx:Belgian blonde
+en:Belgian-style blonde ales, Belgian blonde, Belgian blonde ales
+xx:Belgian-style blonde ales, Belgian blonde, Belgian blonde ales
 
 <en:Blonde ales
-<en:American beers
-en:American blonde, American blonde ales
-xx:American blonde
+en:American-style blonde ales, American blonde, American blonde ales
+xx:American-style blonde ales, American blonde, American blonde ales
 
 <en:Ales
 en:Dark ales, Dark ale
@@ -1698,8 +1708,8 @@ wikidata:en:Q3347894
 
 <en:Stouts
 <en:Irish beers
-en:Irish stouts, Irish stout
-xx:Irish stouts, Irish stout
+en:Irish-style stouts, Irish stouts, Irish stout
+xx:Irish-style stouts, Irish stouts, Irish stout
 
 <en:Dark ales
 en:Porters,Porter, porter beers
@@ -1714,19 +1724,13 @@ description:en:Baltic porter is a type of porter. Traditionally made in the coun
 
 <en:Ales
 en:Brown ales, brown ale
-lt:Rudasis alus
+lt:Rudasis elis
 wikidata:en:Q900660
 
-<en:Dark ale
-en:Black beers
-de:Schwarzbier
-es:Cervezas negras
-fr:Bières noires
-he:בירות שחורות, בירה שחורה
-it:Birre nere
-lt:Tamsusis alus
-nl:Donkere bieren
-wikidata:en:Q2905055
+<en:Brown ales
+en:Altbier beers, Altbier
+xx:Altbier beers, Altbier
+description:en:Altbier is a German-style brown ale that requires cold formentation and longer time in order to brew this beer.
 
 <en:Ales
 en:Red Ales, Red Ale, Red beers
@@ -1751,10 +1755,16 @@ wikidata:en:Q7565081
 wikipedia:en:https://en.wikipedia.org/wiki/Sour_beer
 description:en:Sour is a type of beer which is intentionally brewed to have sour taste
 
+<en:Sour beers
+en:Catharina Sour beers, Catharina Sour
+xx:Catharina Sour beers, Catharina Sour
+description:en:Catharina sour is a Brazilian origin sour fruit beer.
+
 <en:Beers
 en:Smoked beers, Smoked beer
 de:Rauchbier
 lt:Rūkytas alus
+xx:Rauchbier
 wikidata:en:Q597787
 wikipedia:en:https://en.wikipedia.org/wiki/Smoked_beer
 
@@ -1896,7 +1906,15 @@ pl:Piwa pszeniczne, Piwo pszeniczne
 ro:Beri nefiltrate, Bere nefiltrată, Bere nefiltrata
 sv:Veteöl, Starköl
 zh:白啤酒, 小麦啤酒
+xx:Witbier
 wikidata:en:Q15079724
+
+<en:Wheat beers
+<en:Smoked beers
+<en:Light beers
+en:Grodziskie beers, Grodziskie
+xx:Grodziskie beers, Grodziskie
+description:en:Grodziskie is also called Polish champagne beer. It is a light, oak-smoked wheat beer with a strong smoke flavour and aroma.
 
 ################################# LAGERS #################################
 
@@ -1909,7 +1927,7 @@ he:לאגרים
 hu:Lágerek, Világos sörök
 it:Birre chiare
 ja:ラガービール
-lt:Šviesusis alus
+lt:Lageras, Lageris
 nl:Lagers, Lager
 pl:Lagery
 xx:Lagers, Lager
@@ -1917,25 +1935,111 @@ wikidata:en:Q253481
 agribalyse_food_code:en:5001
 ciqual_food_code:en:5001
 wikipedia:en:https://en.wikipedia.org/wiki/Lager
+description:en:A type of beer that is brewed in low temperatures. This type of beers are most popular and widely available. Lagers can be Pale, Amber or Dark.
+
+<en:Lagers
+en:Dark lagers, Dunkel
+xx:Dark lagers, Dunkel
+
+<en:Dark lagers
+<en:5% beer
+en:Black beers
+de:Schwarzbier
+es:Cervezas negras
+fr:Bières noires
+he:בירות שחורות, בירה שחורה
+it:Birre nere
+nl:Donkere bieren
+xx:Schwarzbier
+wikidata:en:Q2905055
+description:en:Schwarzbier is a dark lager black beer that originates from Germany. It is the darkest of all German lagers: a notch darker than Dunkel and Doppelbock. 5% ABV.
+
+<en:Dark lagers
+<en:Strong beers
+en:Bock beers
+xx:Bock beers
+description:en:Bock beer is a strong dark lager with a high alcohol content made in cold temperatures using bottom-fermenting yeast. 
+
+<en:Bock beers
+en:Doppelbock beers, Doppelbock
+xx:Doppelbock beers, Doppelbock
+description:en:Doppelbock is a Bock-style beer that is stronger and maltier compared to Bock.
+
+<en:Bock beers
+en:Eisbock beers, Eisbock
+xx:Eisbock beers, Eisbock
+description:en:Eisbock is a much stronger Bock-style beer that is made by a freezing process. Water has lower freezing point compared to alcohol, therefore this type of beer is partially frozen to sepparate water from beer. This process is done to enhance alcohol content and flavour.
+
+<en:Bock beers
+en:Maibock beers, Maibock, Helles Bock, Heller Bock
+xx:Maibock beers, Maibock, Helles Bock, Heller Bock
+description:en:Maibock beer also known as Helles Bock is a stronger version of Helles. It is a traditional, strong, malty Bavarian-style lager.
+
+<en:Bock beers
+en:Weizenbock beers, Weizenbock
+xx:Weizenbock beers, Weizenbock
+description:en:Weizenbock is a wheat German-style bock beer and a combination of Weissbier and a Doppelbock.
 
 <en:Lagers
 <en:Wheat beers
 <en:Unfiltered beers
-en:Hefeweizen, Hefeweizen beers
+en:Hefeweizen beers, Hefeweizen
 xx:Hefeweizen
 description:en:Hefeweizen is a lager that originated from Bavaria. It is unfiltered wheat beer consisting of 50% wheat malt.
 
 <en:Lagers
-en:Märzen
-xx:Märzen
+en:Pale lagers
+xx:Pale lagers
+
+<en:Pale lagers
+en:Märzen beers, Märzen, Marzen
+xx:Märzen beers, Märzen, Marzen
 wikidata:en:Q1760222
 wikipedia:en:https://en.wikipedia.org/wiki/M%C3%A4rzen
 
+<en:Pale lagers
+en:Dortmunder export, Beers from Dortmund, Dortmunder export beers
+de:Dortmunder Biere, Dortmunder Bier
+hu:Dortmundi sörök
+nl:Dortmunder bieren
+xx:Dortmunder export
+protected_name_file_number:en: PGI-DE-1101
+protected_name_type:en: pgi
+wikidata:en:Q1512528
+wikipedia:en:https://en.wikipedia.org/wiki/Dortmunder_Export
+description:en:Dortmunder export is a pale lager that originated from Dortmund, Germany in 1873. It combines the sweetness and flavour of Helles and the bitterness of German-style Pilsner.
+
+<en:Pale lagers
+en:Munich Helles beers, Munich Helles, Helles, Münchner Hell
+xx:Munich Helles beers, Munich Helles, Helles, Münchner Hell
+description:en:A traditional German pale lager that is mostly produced in Munich.
+
+<en:Märzen
+en:Oktoberfest beers
+de:Oktoberfestbier
+xx:Oktoberfest beers
+protected_name_file_number:en: PGI-DE-1034
+protected_name_type:en: pgi
+description:en:Is a Märzen type of beer that is brewed in March and is aged until September-October specifically for Oktoberfest.
+
+<en:Oktoberfest beers
+en:Festbier beers, Festbier
+xx:Festbier beers, Festbier
+description:en:Festbier is a German lager that is lighter in color and is considered to be the most popular type of beer at Oktoberfest.
+
 <en:Lagers
-en:Pilsners, , Pilsner, Pilsner beers
-xx:Pilsners, Pilsner
+en:Pilsners, Pilsner, Pilsner beers, Pils
+xx:Pilsners, Pilsner, Pils
 wikidata:en:Q152281
 wikipedia:en:https://en.wikipedia.org/wiki/Pilsner
+
+#################
+
+<en:Beers
+en:Industrial beer, Factory beer
+fr:Bieres industrielles 
+xx:Industrial beer, Factory beer
+description:en:Industrial beer is often made in fully automated process. This type of beer is usually produced by large-scale breweries owned by corporations and is cheeper to produce at the expense of poor taste and quality.
 
 <en:Beers
 en:Unfiltered beers
@@ -1985,13 +2089,6 @@ ciqual_food_name:en:Beer, special (5-6° alcohol)
 ciqual_food_name:fr:Bière spéciale (5-6° alcool)
 
 <en:Beers
-en:Trappist beers, Trappist
-xx:Trappist beers, Trappist
-wikidata:en:Q505815
-wikipedia:en:https://en.wikipedia.org/wiki/Trappist_beer
-description:en:A type of beer that is brewed by trappist monks. There is a strict criteria managed by the International Trappist Association that grants Authentic Trappist Product label to breweries that have monks.
-
-<en:Beers
 en:5% beer, Beer with 5° alcohol, Beer with 4° alcohol
 fr:Bière à 4-5° d'alcool, Bière à 4%, Bière à 5%
 it:Birre 5%, Birra 5%
@@ -2001,7 +2098,7 @@ ciqual_food_name:en:Beer, regular (4-5° alcohol)
 ciqual_food_name:fr:Bière coeur de marché (4-5° alcool)
 
 <en:Beers
-en:Beers with low alcohol-content, 3% beers, Beers with 3° alcohol
+en:Light beers, Beers with low alcohol-content, 3% beers, Beers with 3° alcohol
 fr:Bières faiblement alcoolisées, Bières à 3° d'alcool, Bières à 3%
 agribalyse_food_code:en:5008
 ciqual_food_code:en:5008
@@ -2343,13 +2440,6 @@ ro:Beri germane, Beri Germania, Bere germană, Bere Germania, Bere germana
 wikidata:en:Q21153282
 
 <en:Beers from Germany
-de:Oktoberfestbier
-protected_name_file_number:en: PGI-DE-1034
-protected_name_type:en: pgi
-origins:en: en:Germany
-#wikidata:en:
-
-<en:Beers from Germany
 de:Kulmbacher Bier
 protected_name_file_number:en: PGI-DE-0473
 protected_name_type:en: pgi
@@ -2387,18 +2477,6 @@ protected_name_file_number:en: PGI-DE-0514
 protected_name_type:en: pgi
 origins:en: en:Germany
 #wikidata:en:
-
-<en:Lagers
-<en:Beers from Germany
-en:Beers from Dortmund, Dortmunder export, Dortmunder export beers
-de:Dortmunder Biere, Dortmunder Bier
-hu:Dortmundi sörök
-nl:Dortmunder bieren
-protected_name_file_number:en: PGI-DE-1101
-protected_name_type:en: pgi
-origins:en: en:Germany
-wikidata:en:Q1512528
-wikipedia:en:https://en.wikipedia.org/wiki/Dortmunder_Export
 
 <en:Beers from Germany
 de:Hofer Biere, Hofer Bier
@@ -8667,28 +8745,6 @@ nl:Zuivelvervangers
 pl:Zastępniki nabiału, Substytuty nabiału
 
 <en:Dairy substitutes
-en:Milk substitutes, milk replacements, milk substitute, milk replacement
-bg:Млечни заместители
-ca:Substitutius de la llet
-cs:Náhražky mléka
-da:Mælkeerstatning
-de:Milchersatz
-es:Sustitutos de la leche
-fi:maidon korvike
-fr:Substituts du lait, Substitut du lait
-he:תחליף חלב
-hu:Tejpótlók
-it:Sostituto del latte
-lt:Pieno pakaitalai, Pieno pakaitalas
-nl:Melkvervangers, Melkvervanger
-pl:Zastępniki mleka
-pt:Substitutos do leite
-ru:Заменители молока, заменитель молока
-wikidata:en:Q1626970
-food_groups:en: en:Plant-based milk substitutes
-pnns_group_2:en:Plant-based milk substitutes
-
-<en:Dairy substitutes
 en:Mascarpone substitutes
 fr:Substituts du mascarpone
 
@@ -8696,7 +8752,7 @@ fr:Substituts du mascarpone
 en:Ricotta substitutes
 fr:Substituts de la ricotta
 
-<en:Milk substitute
+<en:Dairy substitutes
 en:Creamer, coffee creamers
 de:Getränkeweißer, Kaffeeweiße, Kaffeeweisser
 it:Additivi per caffè
@@ -31477,7 +31533,7 @@ fr:Cookies fourrés
 fr:Barquettes
 
 <en:Biscuits
-en:Sponge cake biscuits wih fruits covering, Pre-packed sponge cake biscuit with fruits covering
+en:Sponge cake biscuits with fruits covering, Sponge cake biscuits wih fruits covering, Pre-packed sponge cake biscuit with fruits covering
 fr:Barquettes aux fruits, Biscuit sec avec nappage aux fruits, Génoise avec nappage aux fruits, Barquette avec nappage aux fruits
 agribalyse_food_code:en:24678
 ciqual_food_code:en:24678
@@ -46024,6 +46080,18 @@ nl:Plantaardige kookromen
 ro:Smântână vegetală de gătit
 
 <en:Plant-based creams for cooking
+en:Coconut milks and creams, Coconut creams, coconut milks
+de:Kokosmilch, Kokosmilche, Kokosmilchen, Kokosnussmilch, Kokosnussmilche, Kokosnussmilchen
+es:Leches de coco
+fr:Laits et crèmes de coco, Laits de coco, lait de coco, Crèmes de coco, Crème de coco
+it:Latte di cocco
+wikidata:en:Q841779
+agribalyse_food_code:en:18041
+ciqual_food_code:en:18041
+ciqual_food_name:en:Coconut milk or coconut cream
+ciqual_food_name:fr:Lait de coco ou Crème de coco
+
+<en:Plant-based creams for cooking
 en:Almond-based creams for cooking
 de:Mandelbasierte Sahne zum Kochen
 es:Natas vegetales a base de almendra para cocinar
@@ -47464,9 +47532,31 @@ it:Latte ad alta digeribilità
 en:Fermented plant-milk drinks
 fr:Boissons au lait végétal fermentées
 
+<en:Dairy substitutes
+en:Milk substitutes, milk replacements, milk substitute, milk replacement
+bg:Млечни заместители
+ca:Substitutius de la llet
+cs:Náhražky mléka
+da:Mælkeerstatning
+de:Milchersatz
+es:Sustitutos de la leche
+fi:maidon korvike
+fr:Substituts du lait, Substitut du lait
+he:תחליף חלב
+hu:Tejpótlók
+it:Sostituto del latte
+lt:Pieno pakaitalai, Pieno pakaitalas
+nl:Melkvervangers, Melkvervanger
+pl:Zastępniki mleka
+pt:Substitutos do leite
+ru:Заменители молока, заменитель молока
+wikidata:en:Q1626970
+food_groups:en: en:Plant-based milk substitutes
+pnns_group_2:en:Plant-based milk substitutes
+
 <en:Plant-based beverages
-<en:Milk substitute
-en:Plant milks, Vegetable milks, Vegetable drinks, Non-dairy milks
+<en:Milk substitutes
+en:Plant-based milk alternatives, Plant milks, Vegetable milks, Vegetable drinks, Non-dairy milks
 bg:Растителни млека, Растителни напитки
 ca:Begudes vegetals, Begudes no làctiques
 de:Pflanzenmilch, Pflanzenmilche, Pflanzenmilchen
@@ -47486,9 +47576,9 @@ wikidata:en:Q2640574
 food_groups:en: en:Plant-based milk substitutes
 pnns_group_2:en:Plant-based milk substitutes
 
-<en:Plant milks
+<en:Plant-based milk alternatives
 <en:Cereals and their products
-en:Cereal milks, Cereal drinks, Grain milks
+en:Cereal-based drinks, Cereal milks, Cereal drinks, Grain milks
 de:Getreidemilch, Getreidemilche, Getreidemilchen
 es:Bebidas de cereales, Leches de cereales
 fi:kasvimaidot
@@ -47505,8 +47595,8 @@ ciqual_proxy_food_code:en:18905
 ciqual_proxy_food_name:en:Oat-based drink, plain
 ciqual_proxy_food_name:fr:Boisson à base d'avoine, nature
 
-<en:Cereal milks
-en:Amaranth milks, Amaranth drinks
+<en:Cereal-based drinks
+en:Amaranth-based drinks, Amaranth milks, Amaranth drinks
 de:Amaranthmilch, Amaranthmilche, Amaranthmilchen, Amaranth-Drinks, Amaranth-Drink, Amaranthdrink, Amaranthdrinks
 es:Bebidas de amaranto, Leches de amaranto
 fr:Boissons à l'amarante, Laits d'amarante
@@ -47514,8 +47604,8 @@ hu:Bársonyvirág tej
 nl:Amaranthmelken
 #wikidata:en:
 
-<en:Cereal milks
-en:Barley milks, Barley drinks
+<en:Cereal-based drinks
+en:Barley-based drinks, Barley milks, Barley drinks
 de:Gerstemilch, Gerstemilche, Gerstemilchen, Gerste-Drinks, Gerste-Drink, Gerstedrink, Gerstedrinks
 es:Bebidas de cebada, Leches de cebada
 fr:Boissons végétales d'orge, Laits d'orge
@@ -47524,8 +47614,8 @@ lt:Miežių pienas, miežių gėrimai
 nl:Gerstemelken
 #wikidata:en:
 
-<en:Cereal milks
-en:Buckwheat milks, Buckwheat drinks
+<en:Cereal-based drinks
+en:Buckwheat-based drinks, Buckwheat milks, Buckwheat drinks
 de:Buchweizenmilch, Buchweizenmilche, Buchweizenmilchen, Buchweizen-Drinks, Buchweizen-Drink, Buchweizendrink, Buchweizendrinks
 es:Bebidas de trigo sarraceno, Leches de trigo sarraceno
 fr:Boissons au sarrasin, Boissons végétales de sarrasin, Laits de sarrasin
@@ -47533,16 +47623,16 @@ lt:Grikių pienas
 nl:Boekweitdranken
 #wikidata:en:
 
-<en:Cereal milks
-en:Canary grass milks, Canary grass drinks
+<en:Cereal-based drinks
+en:Canary grass-based drinks, Canary grass milks, Canary grass drinks
 de:Kanariengrasmilch, Kanariengrasmilche, Kanariengrasmilchen, Kanariengras-Drinks, Kanariengras-Drink, Kanariengrasdrink, Kanariengrasdrinks
 es:Bebidas de alpiste, Leches de alpiste
 fr:Boissons végétales d'alpiste, Laits d'alpiste
 nl:Kanariegrasdranken
 #wikidata:en:
 
-<en:Cereal milks
-en:Maize milks, Corn milks, Maize drinks, Corn drinks
+<en:Cereal-based drinks
+en:Maize-based drinks, Maize milks, Corn milks, Maize drinks, Corn drinks
 de:Maismilch, Maismilche, Maismilchen, Mais-Drinks, Mais-Drink, Maisdrink, Maisdrinks
 es:Bebidas de maíz, Leches de maíz
 fr:Boissons au maïs, Boissons végétales de maïs, Laits de maïs
@@ -47550,8 +47640,8 @@ it:Latte di mais
 nl:Maisdranken
 #wikidata:en:
 
-<en:Cereal milks
-en:Millet milks, Millet drinks
+<en:Cereal-based drinks
+en:Millet-based drinks, Millet milks, Millet drinks
 de:Hirsemilch, Hirsemilche, Hirsemilchen, Hirse-Drinks, Hirse-Drink, Hirsedrink, Hirsedrinks
 es:Bebidas de mijo, Leches de mijo
 fr:Boissons au millet, Boissons végétales de millet, Laits de millet
@@ -47559,8 +47649,8 @@ it:Latte di miglio
 nl:Gierstdranken
 #wikidata:en:
 
-<en:Cereal milks
-en:Oat milks, Oat drinks, Plain oat-based drinks
+<en:Cereal-based drinks
+en:Oat-based drinks, Oat milks, Oat drinks, Plain oat-based drinks
 ca:Beguda de civada
 de:Hafermilch, Hafermilche, Hafermilchen, Hafer-Drinks, Hafer-Drink, Haferdrink, Haferdrinks
 es:Bebidas de avena, Leches de avena
@@ -47581,24 +47671,24 @@ ciqual_food_name:en:Oat-based drink, plain
 ciqual_food_name:fr:Boisson à base d'avoine, nature
 wikidata:en:Q20972637
 
-<en:Oat milks
-en:Unsweetened natural oat milks
+<en:Oat-based drinks
+en:Unsweetened plain oat-based drinks, Unsweetened natural oat milks
 fr:Boissons végétales d'avoine nature non sucrées
 
-<en:Oat milks
-en:Sweetened natural oat milks
+<en:Oat-based drinks
+en:Sweetened plain oat-based drinks, Sweetened natural oat milks
 fr:Boissons végétales d'avoine nature sucrées
 
-<en:Oat milks
-en:Cocoa oat milks
+<en:Oat-based drinks
+en:Cocoa oat-based drinks, Cocoa oat milks
 fr:Boissons végétales d'avoine au cacao
 
-<en:Oat milks
-en:Vanilla oat milks
+<en:Oat-based drinks
+en:Vanilla oat-based drinks, Vanilla oat milks
 fr:Boissons végétales d'avoine à la vanille
 
-<en:Cereal milks
-en:Quinoa milks, Quinoa drinks
+<en:Cereal-based drinks
+en:Quinoa-based drinks, Quinoa milks, Quinoa drinks
 de:Quinoamilch, Quinoamilche, Quinoamilchen, Quinoa-Drinks, Quinoa-Drink, Quinoadrink, Quinoadrinks
 es:Bebidas de quinoa, Leches de quinoa
 fr:Boissons au quinoa, Boissons végétales de quinoa, Laits de quinoa
@@ -47606,8 +47696,8 @@ nl:Quinoamelken, Quinoadranken
 pt:Bebidas de quinoa
 #wikidata:en:
 
-<en:Cereal milks
-en:Rice milks, Rice drinks
+<en:Cereal-based drinks
+en:Rice-based drinks, Rice milks, Rice drinks
 ca:Beguda d'arròs
 de:Reismilch, Reismilche, Reismilchen, Reis-Drinks, Reis-Drink, Reisdrink, Reisdrinks
 es:Bebidas de arroz, Leches de arroz
@@ -47627,8 +47717,8 @@ ciqual_food_code:en:18904
 ciqual_food_name:en:Rice-based drink, plain
 ciqual_food_name:fr:Boisson à base de riz, nature
 
-<en:Rice milks
-en:Natural rice milks, Natural rice drinks, Plain rice milks, Plain rice drinks, Plain rice-based drinks
+<en:Rice-based drinks
+en:Plain rice-based drinks, Natural rice milks, Natural rice drinks, Plain rice milks, Plain rice drinks, Plain rice-based drinks
 de:Natürliche Reismilch, Natürliche Reisgetränke, Einfache Reismilch, Einfache Reisgetränke
 es:Bebidas de arroz naturales, Leches de arroz naturales
 fr:Boissons végétales de riz nature, Laits de riz nature, Boissons à base de riz nature
@@ -47640,24 +47730,24 @@ ciqual_food_name:en:Rice-based drink, plain
 ciqual_food_name:fr:Boisson à base de riz, nature
 #wikidata:en:
 
-<en:Rice milks
-en:Vanilla rice milks, Vanilla rice drinks
+<en:Rice-based drinks
+en:Vanilla rice-based drinks, Vanilla rice milks, Vanilla rice drinks
 es:Bebidas de arroz con vainilla, Leches de arroz con vainilla
 fr:Boissons végétales de riz à la vanille, Laits de riz à la vanille
 nl:Vanillerijstdranken
 pt:Bebidas de arroz com baunilha
 #wikidata:en:
 
-<en:Rice milks
-en:Cocoa rice milks, Chocolate rice milks, Cocoa rice drinks, Chocolate rice drinks
+<en:Rice-based drinks
+en:Cocoa rice-based drinks, Cocoa rice milks, Chocolate rice milks, Cocoa rice drinks, Chocolate rice drinks
 es:Bebidas de arroz con cacao, Bebidas de arroz con chocolate, Leches de arroz con cacao, Leches de arroz con chocolate
 fr:Boissons végétales de riz au cacao, Boissons végétales de riz au chocolat, Laits de riz au cacao, Laits de riz au chocolat
 nl:Chocoladerijstdranken
 pt:Bebidas de arroz com cacau
 #wikidata:en:
 
-<en:Cereal milks
-en:Sesame milks, Sesame drinks
+<en:Cereal-based drinks
+en:Sesame-based drinks, Sesame milks, Sesame drinks
 de:Sesammilch, Sesammilche, Sesammilchen, Sesam-Drinks, Sesam-Drink, Sesamdrink, Sesamdrinks
 es:Bebidas de sésamo, Leches de sésamo
 fr:Boissons végétales de sésame, Laits de sésame
@@ -47669,16 +47759,16 @@ nl:Sesamzaaddranken
 en:Basil seeds drinks
 #wikidata:en:
 
-<en:Cereal milks
-en:Teff milks, Teff drinks
+<en:Cereal-based drinks
+en:Teff-based drinks, Teff milks, Teff drinks
 de:Zwerghirsemilch, Zwerghirsemilche, Zwerghirsemilchen, Zwerghirse-Drinks, Zwerghirse-Drink, Zwerghirsedrink, Zwerghirsedrinks
 es:Bebidas de teff, Leches de teff
 fr:Boissons végétales de teff, Laits de teff
 nl:Teffdranken
 #wikidata:en:
 
-<en:Cereal milks
-en:Wheat milks, Wheat drinks
+<en:Cereal-based drinks
+en:Wheat-based drinks, Wheat milks, Wheat drinks
 de:Weizenmilch, Weizenmilche, Weizenmilchen, Weizen-Drinks, Weizen-Drink, Weizendrink, Weizendrinks
 es:Bebidas de trigo, Leches de trigo
 fi:Viljajuomat, Viljamaidot
@@ -47689,16 +47779,16 @@ nl:Tarwedranken
 pt:Bebidas de trigo
 #wikidata:en:
 
-<en:Wheat milks
-en:Khorasan wheat milks, Kamut milks, Khorasan wheat drinks, Kamut drinks
+<en:Wheat-based drinks
+en:Khorasan wheat-based drinks, Khorasan wheat milks, Kamut milks, Khorasan wheat drinks, Kamut drinks
 de:Khorasan-Weizen-Milch, Khorasan-Weizen-Milche, Khorasan-Weizen-Milchen, Khorasan-Weizen-Drinks, Khorasan-Weizen-Drink, Kamutmilch, Kamutmilche, Kamutmilchen, Kamut-Drinks, Kamut-Drink, Kamutdrink, Kamutdrinks
 es:Bebidas de trigo de Jorasán, Leches de trigo de Jorasán, Leches de Kamut, Bebidas de Kamut
 fr:Boissons végétales de blé khorasan, Boissons végétales de blé de Khorasan, Boissons végétales de Kamut, Laits de blé de Khorasan, Laits de Kamut
 nl:Kamutdranken
 #wikidata:en:
 
-<en:Wheat milks
-en:Spelt milks, Spelt drinks
+<en:Wheat-based drinks
+en:Spelt-based drinks, Spelt milks, Spelt drinks
 de:Dinkelmilch, Dinkelmilche, Dinkelmilchen, Dinkel-Drinks, Dinkel-Drink, Dinkeldrink, Dinkeldrinks
 es:Bebidas de espelta, Leches de espelta
 fi:Spelttijuomat, Spelttimaidot
@@ -47708,31 +47798,25 @@ nl:Speltdranken
 pt:Bebidas de espelta
 #wikidata:en:
 
-<en:Plant milks
-en:Coconut milks, Coconut drinks, Coconut creams
+<en:Plant-based milk alternatives
+en:Coconut-based drinks, Coconut drinks
 bg:Кокосово мляко
 ca:Beguda de coco
-de:Kokosmilch, Kokosmilche, Kokosmilchen, Kokos-Drinks, Kokos-Drink, Kokosdrink, Kokosdrinks, Kokosnussmilch, Kokosnussmilche, Kokosnussmilchen, Kokosnuss-Drinks, Kokosnuss-Drink, Kokosnussdrink, Kokosnussdrinks
-es:Leches de coco, Bebidas de coco
+de:Kokos-Drinks, Kokos-Drink, Kokosdrink, Kokosdrinks, Kokosnuss-Drinks, Kokosnuss-Drink, Kokosnussdrink, Kokosnussdrinks
+es:Bebidas de coco
 fi:kookosjuomat
-fr:Laits de coco, lait de coco, Crèmes de coco, Crème de coco
+fr:Boissons végétales de coco
 he:חלב קוקוס, חלבי קוקוס, משקאות קוקוס, קרם קוקוס
 hu:Kókusz tej
-it:Latte di cocco
 ja:ココナッツミルク, ココナツミルク
 lt:Kokosų pienas
 nl:Kokosnootmelken
 pl:Mleka kokosowe
 pt:Bebidas de coco
 ru:Кокосовое молоко
-wikidata:en:Q841779
-agribalyse_food_code:en:18041
-ciqual_food_code:en:18041
-ciqual_food_name:en:Coconut milk or coconut cream
-ciqual_food_name:fr:Lait de coco ou Crème de coco
 
-<en:Plant milks
-en:Hemp milks, Hemp seed milks
+<en:Plant-based milk alternatives
+en:Hemp-based drinks, Hemp milks, Hemp seed milks
 de:Hanfmilch, Hanfmilche, Hanfmilchen, Hanf-Drinks, Hanf-Drink, Hanfdrink, Hanfdrinks
 es:Bebidas de cáñamo, Leches de cáñamo
 fr:Boissons végétales de chanvre, Laits de chanvre
@@ -47740,8 +47824,8 @@ nl:Hennepdranken
 wikidata:en:Q13099103
 
 <en:Legumes and their products
-<en:Plant milks
-en:Legume milks, Legume drinks
+<en:Plant-based milk alternatives
+en:Legume-based drinks, Legume milks, Legume drinks
 ca:Begudes de llegums
 de:Hülsenfruchtmilch, Hülsenfruchtgetränke
 es:Leches de leguminosas, Bebidas de leguminosas
@@ -47753,8 +47837,8 @@ pt:Leites de legumes
 nl:Bonendranken
 #wikidata:en:
 
-<en:Legume milks
-en:Soy milks, Soya milks, Soya drinks, Soy drinks
+<en:Legume-based drinks
+en:Soy-based drinks, Soy milks, Soya milks, Soya drinks, Soy drinks
 bg:Соево мляко
 ca:Beguda de soja
 de:Sojamilch, Sojamilche, Sojamilchen, Soja-Drinks, Soja-Drink, Sojadrink, Sojadrinks
@@ -47776,8 +47860,8 @@ ciqual_food_code:en:18900
 ciqual_food_name:en:Soy drink, plain
 ciqual_food_name:fr:Boisson au soja, nature
 
-<en:Soy milks
-en:Unsweetened natural soy milks, Unsweetened natural soy drinks
+<en:Soy-based drinks
+en:Unsweetened plain soy-based drinks, Unsweetened natural soy milks, Unsweetened natural soy drinks
 ca:Beguda de soja sense edulcorar
 de:Ungesüßte natürliche Sojamilch, Ungesüßte natürliche Sojagetränke
 es:Bebidas de soja natural sin azúcar, Leches de soja natural sin azúcar
@@ -47787,16 +47871,16 @@ it:Latte di soia naturale non zuccherato
 nl:Ongezoete sojadranken
 pt:Leites de soja natural não açucarados
 
-<en:Soy milks
-en:Sweetened natural soy milks, Sweetened natural soy drinks
+<en:Soy-based drinks
+en:Sweetened plain soy-based drinks, Sweetened natural soy milks, Sweetened natural soy drinks
 de:Gesüßte natürliche Sojamilch, gesüßte natürliche Sojagetränke
 es:Bebidas de soja natural endulzadas, Leches de soja natural endulzadas
 fr:Boissons de soja nature sucrées, Laits de soja naturel avec du sucre
 nl:Gezoete sojadranken
 pt:Leites de soja natural açucarados
 
-<en:Soy milks
-en:Vanilla soy milks, Vanilla soy drinks
+<en:Soy-based drinks
+en:Vanilla soy-based drinks, Vanilla soy milks, Vanilla soy drinks
 de:Vanille-Soja-Milch, Vanille-Soja-Getränke
 es:Bebidas de soja con vainilla, Leches de soja con vainilla
 fi:Vaniljan makuiset soijajuomat
@@ -47805,8 +47889,8 @@ it:Latti di soia alla vaniglia
 nl:Vanillesojadranken
 pt:Bebidas de soja com baunilha
 
-<en:Soy milks
-en:Chocolate soy milks, Cocoa soy milks, Cocoa soy drinks, Chocolate soy drinks
+<en:Soy-based drinks
+en:Chocolate soy-based drinks, Chocolate soy milks, Cocoa soy milks, Cocoa soy drinks, Chocolate soy drinks
 de:Schokoladensojamilch
 es:Bebidas de soja con cacao, Bebidas de soja con chocolate, Leches de soja con cacao, Leches de soja con chocolate
 fi:Soijakaakaot
@@ -47815,14 +47899,14 @@ it:Latte di soia al cioccolato
 nl:Chocosojadranken
 pt:Bebidas de soja com cacau
 
-<en:Soy milks
-en:Coffee soy milks, Coffee soy drinks
+<en:Soy-based drinks
+en:Coffee soy-based drinks, Coffee soy milks, Coffee soy drinks
 es:Bebidas de soja con café, Leches de soja con café
 fr:Boissons végétales de soja avec du café, Laits de soja avec du café
 nl:Koffiesojadranken
 pt:Bebidas de soja com café
 
-<en:Soy milks
+<en:Soy-based drinks
 en:Soy drinks flavoured with sugar
 fr:Boissons au soja aromatisées sucrées
 agribalyse_food_code:en:18902
@@ -47846,7 +47930,7 @@ ciqual_food_code:en:18903
 ciqual_food_name:en:Soy drink, flavoured, enriched in calcium, w sugar or fruit concentrate
 ciqual_food_name:fr:Boisson au soja, aromatisée, sucrée, enrichie en calcium
 
-<en:Plant milks
+<en:Plant-based milk alternatives
 en:Mixed plant milks, Mixed plant drinks
 es:Mezclas de leches vegetales, Mezclas de bebidas vegetales
 fr:Boissons multivégétaux
@@ -47854,9 +47938,9 @@ it:Latte vegetale misto
 nl:Gemengde plantaardige dranken
 pt:Leites de mistura de plantas
 
-<en:Plant milks
+<en:Plant-based milk alternatives
 <en:Nuts and their products
-en:Nut milks, Nut drinks
+en:Nut-based drinks, Nut milks, Nut drinks
 bg:Ядкови млека, ядково мляко
 ca:Beguda de fruits secs
 de:Nussmilch, Nussmilche, Nussmilchen, Nuss-Drinks, Nuss-Drink, Nussdrink, Nussdrinks
@@ -47876,8 +47960,8 @@ ciqual_proxy_food_name:en:Almond drink
 ciqual_proxy_food_name:fr:Boisson à l'amande
 #wikidata:en:
 
-<en:Nut milks
-en:Almond milks, Almond drinks
+<en:Nut-based drinks
+en:Almond-based drinks, Almond milks, Almond drinks
 bg:Бадемово мляко
 ca:Beguda d'ametlla
 de:Mandelmilch, Mandelmilche, Mandelmilchen, Mandel-Drinks, Mandel-Drink, Mandeldrink, Mandeldrinks
@@ -47902,39 +47986,39 @@ ciqual_food_code:en:18107
 ciqual_food_name:en:Almond drink
 ciqual_food_name:fr:Boisson à l'amande
 
-<en:Almond milks
-en:Unsweetened natural almond milks
+<en:Almond-based drinks
+en:Unsweetened plain almond-based drinks, Unsweetened natural almond milks
 es:Leche de almendras natural sin edulcorar
 fi:Makeuttamattomat luontaiset mantelijuomat
 fr:Laits d'amande natures non sucrés
 pt:Leites de amêncoas naturais não açucarados
 agribalyse_food_code:en:18107
 
-<en:Almond milks
-en:Sweetened natural almond milks
+<en:Almond-based drinks
+en:Sweetened plain almond-based drinks, Sweetened natural almond milks
 fi:Makeutetut luontaiset mantelijuomat
 fr:Laits d'amande natures sucrés
 
-<en:Almond milks
-en:Chocolate almond milks
+<en:Almond-based drinks
+en:Chocolate almond-based drinks, Chocolate almond milks
 fi:Suklaa-mantelijuomat
 fr:Laits d'amande au chocolat
 
-<en:Almond milks
-en:Vanilla almond milks
+<en:Almond-based drinks
+en:Vanilla almond-based drinks, Vanilla almond milks
 fi:Vanilja-mantelijuomat
 fr:Laits d'amande vanille
 
-<en:Nut milks
-en:Chestnut milks, Chestnut drinks
+<en:Nut-based drinks
+en:Chestnut-based drinks, Chestnut milks, Chestnut drinks
 de:Kastanienmilch, Kastanienmilche, Kastanienmilchen, Kastanien-Drinks, Kastanien-Drink, Kastaniendrink, Kastaniendrinks
 es:Leches de castañas, Bebidas de castañas
 fr:Boissons végétales de châtaigne, Boissons végétales de châtaignes, Laits de châtaigne, Laits de châtaignes
 lt:Kaštonų pienas
 nl:Kastanjedranken
 
-<en:Nut milks
-en:Hazelnut milks, Hazelnut drinks
+<en:Nut-based drinks
+en:Hazelnut-based drinks, Hazelnut milks, Hazelnut drinks
 de:Haselnussmilch, Haselnussmilche, Haselnussmilchen, Haselnuss-Drinks, Haselnuss-Drink, Haselnussdrink, Haselnussdrinks
 es:Leches de avellanas, Bebidas de avellanas
 fi:Hasselpähkinäjuomat, Hasselpähkinämaidot
@@ -47944,29 +48028,29 @@ it:Latti di mandorle
 nl:Hazelnootdranken
 wikidata:en:Q47472113
 
-<en:Nut milks
-en:Macadamia nut milks, Macadamia nut drinks
+<en:Nut-based drinks
+en:Macadamia nut-based drinks, Macadamia nut milks, Macadamia nut drinks
 de:Macadamiamilch, Macadamiamilche, Macadamiamilchen, Macadamia-Drinks, Macadamia-Drink, Macadamiadrink, Macadamiadrinks
 es:Leches de nueces de macadamia, Bebidas de nueces de macadamia
 fr:Boissons végétales de noix de macadamia, Laits de noix de macadamia
 nl:Macadamianootdranken
 
-<en:Nut milks
-en:Walnut milks, Walnut drinks
+<en:Nut-based drinks
+en:Walnut-based drinks, Walnut milks, Walnut drinks
 de:Walnussmilch, Walnussmilche, Walnussmilchen, Walnuss-Drinks, Walnuss-Drink, Walnussdrink, Walnussdrinks
 es:Leches de nueces, Bebidas de nueces
 fr:Boissons végétales de noix, Laits de noix
 lt:Graikinių riešutų pienas
 nl:Walnootdranken
 
-<en:Plant milks
-en:Tigernut milks, Tigernut drinks
+<en:Nut-based drinks
+en:Tigernut-based drinks, Tigernut milks, Tigernut drinks
 de:Erdmandelmilch, Erdmandelmilche, Erdmandelmilchen, Erdmandel-Drinks, Erdmandel-Drink, Erdmandeldrink, Erdmandeldrinks, Tigernussmilch, Tigernussmilche, Tigernussmilchen, Tigernuss-Drinks, Tigernuss-Drink, Tigernussdrink, Tigernussdrinks
 es:Leches de chufa, Bebidas de chufa
 fr:Boissons végétales de souchet, Laits de souchet
 nl:Aardamandeldranken, Tijgernootdranken
 
-<en:Tigernut milks
+<en:Tigernut-based drinks
 en:Horchatas de chufa
 de:Horchata de Chufa
 es:Horchatas de chufa
@@ -63607,6 +63691,9 @@ pt:Frutos enlatados
 ru:Консервированные фрукты
 tr:Konserve meyve
 who_id:en:16
+
+# dot not rename en:canned-fruits as it is used in Ingredients.pm
+# to check if water should be taken into account when computing % of fruits/vegetables for the Nutri-Score
 
 <en:Canned fruits
 en:Canned pineapples
@@ -101317,6 +101404,8 @@ pl:Suszone produkty pochodzenia roślinnego
 pt:Alimentos à base de plantas secos
 ru:Сушеные блюда из растений
 
+# dot not rename en:canned-plant-based-foods as it is used in Ingredients.pm
+# to check if water should be taken into account when computing % of fruits/vegetables for the Nutri-Score
 <en:Plant-based foods
 <en:Canned foods
 en:Canned plant-based foods
@@ -104531,10 +104620,10 @@ wikidata:en:Q4820063
 # TODO upstream child proxy
 
 <en:Stuffed vine leaves
-en:Dolmas, Vine leaf stuffed wih rice, Drained vine leaf stuffed wih rice
+en:Dolmas, Vine leaf stuffed with rice, Drained vine leaf stuffed with rice
 fr:Dolmas, Feuille de vigne farcie au riz, Feuille de vigne égouttée farcie au riz
 ciqual_food_code:en:25217
-ciqual_food_name:en:Vine leaf stuffed wih rice or dolmas, drained
+ciqual_food_name:en:Vine leaf stuffed with rice or dolmas, drained
 ciqual_food_name:fr:Feuille de vigne farcie au riz ou dolmas, égouttée
 
 en:Brick sheets, Baked filo pastry sheets without fat, Baked phyllo pastry sheets without fat

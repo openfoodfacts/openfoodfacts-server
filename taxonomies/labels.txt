@@ -999,6 +999,7 @@ ca:Alimentat sense Organismes Modificats Genèticament
 fi:Eläintä on ruokittu GMO-vapaalla rehulla, ruokittu ilman GMO:ita
 fr:Nourri sans OGM, nourris sans OGM, nourries sans OGM, Alimentation sans OGM, Animaux nourris sans OGM, élevage avec une alimentation sans ogm
 it:Alimentati senza OGM
+nl:Zonder OGM voedsel
 pt:Alimentado sem OGM, alimentado sem alimentos geneticamente modificados, alimentado sem alimentos transgênicos, alimentado sem alimentos transgénicos, alimentada sem OGM, alimentada sem alimentos geneticamente modificados, alimentada sem alimentos transgênicos, alimentada sem alimentos transgénicos, alimentados sem OGM, alimentados sem alimentos geneticamente modificados, alimentados sem alimentos transgênicos, alimentados sem alimentos transgénicos, alimentadas sem OGM, alimentadas sem alimentos geneticamente modificados, alimentadas sem alimentos transgênicos, alimentadas sem alimentos transgénicos
 
 <en:Fed without GMOs
@@ -1352,6 +1353,7 @@ es:Rico en fibra, Rico en fibras, Fuente de Fibra, Alto en Fibra, Alto Contenido
 fi:runsaskuituinen, paljon kuituja, kuitupitoinen
 fr:Riche en fibres, Naturellement riches en fibres
 he:עתיר בסיבים תזונתיים
+hr:visoko obogaćena vlaknima
 hu:Rostokban gazdag, Magas rosttartalmú
 it:Ricco di fibre
 nb:Fiberrik, rik på fiber
@@ -1670,7 +1672,7 @@ it:Arricchito con calcio
 nl:verrijkt met calcium
 pt:Enriquecido com cálcio
 
-en:Enriched with vitamins, Enriched wih vitamins
+en:Enriched with vitamins
 ca:Enriquit amb vitamines
 de:Mit Vitaminen angereichert
 es:Enriquecido con vitaminas
@@ -1684,7 +1686,7 @@ pl:Wzbogacane witaminami
 pt:Enriquecido com vitaminas
 sv:Vitaminberikat, Vitaminberikad
 
-en:Enriched with minerals, Enriched wih minerals
+en:Enriched with minerals
 fi:Lisätty kivennäisaineita
 fr:Enrichi en minéraux
 hu:Ásványi anyagokkal dúsított
@@ -2606,7 +2608,7 @@ es:Sin azúcares añadidos, 0% Azúcares añadidos, Sin azúcar añadido
 fi:ei lisättyä sokeria, ilman lisättyä sokeria, ei lisättyjä sokereita
 fr:Sans sucre ajouté, sans sucres ajoutés, sans ajout de sucre
 he:ללא תוספת סוכר
-hr:bez dodanog šećera, bez dodatnih šećera
+hr:bez dodanog šećera, bez dodatnih šećera, bez dodanih šećera, sadrži prirodno prisutne šećere
 hu:Hozzáadott cukor nélkül, Nincs hozzáadott cukor, hozzáadott cukrot nem tartalmaz
 it:Senza zuccheri aggiunti
 nl:Zonder toegevoegde suikers, Geen suiker toegevoegd
@@ -2984,9 +2986,17 @@ sv:Tillverkad i Luxemburg
 country:en:Luxembourg
 label_categories:en: en:Geographic label
 
+# Latvia
+lv:Kvalitatīvs produkts ražots Latvijā
+xx:Kvalitatīvs produkts ražots Latvijā
+description:en:Quality product made in Latvia
+image:lv:kvalitativs-produkts-razots-latvija.123x90.png
+country:en:Latvia
+
 # Lithuania
 lt:Lietuvos metų gaminys
 xx:Lietuvos metų gaminys
+description:en:Lithuanian product of the year
 image:lt:lietuvos-metų-gaminys.173x90.png
 country:en:Lithuania
 
@@ -4405,7 +4415,7 @@ es:Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico,
 fi:Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto, luonnonmukaisesti
 fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédient issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique, issue de l'agriculture biologique controlee
 he:אורגני
-hr:ekološki uzgoj, iz ekološkog uzgoja, iz kontroliranog ekološkog uzgoja, iz kontrolirane ekološke proizvodnje, iz kontroliranog biološkog uzgoja
+hr:ekološki uzgoj, iz ekološkog uzgoja, iz kontroliranog ekološkog uzgoja, iz kontrolirane ekološke proizvodnje, iz kontroliranog biološkog uzgoja, iz kontroliranog organskog uzgoja
 hu:Bio, Öko, Organikus, biogazdálkodásból, ellenőrzött ökológiai gazdálkodásból
 it:Biologico, biologici, da agricoltura biologica
 ko:유기농

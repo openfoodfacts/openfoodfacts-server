@@ -37,8 +37,8 @@ We want to learn what the Open Food Facts data is used for. It is not mandatory,
 
 To protect our infrastructure, we enforce rate-limits on the API and the website. The following limits apply:
 
-- 100 req/s for all read product queries (`GET /api/v*/product` requests or product page). There is no limit on product write queries.
-- 10 req/s for all search queries (`GET /api/v*/search` or `GET /cgi/search.pl` requests)
+- 100 req/min for all read product queries (`GET /api/v*/product` requests or product page). There is no limit on product write queries.
+- 10 req/min for all search queries (`GET /api/v*/search` or `GET /cgi/search.pl` requests)
 
 If these limits are reached, we reserve the right to deny you the access to the website and the API through IP address ban. If your IP has been banned, feel free to send us an email to explain us the reason why you reached the limits: reverting the ban is possible.
 

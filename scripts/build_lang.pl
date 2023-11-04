@@ -40,6 +40,7 @@ print STDERR "Build \%Lang - data_root: $data_root - server_domain: $server_doma
 # Tags.pm builds the %Languages hash of languages from the languages taxonomy
 
 ProductOpener::Lang::build_lang(\%Languages);
+my $tags_ref = ProductOpener::Lang::build_lang_tags();
 
 # use $server_domain in part of the name so that we have different files
 # when 2 instances of Product Opener share the same $data_root
@@ -48,6 +49,7 @@ if (!-e "$data_root/data") {
 	mkdir("$data_root/data", 0755) or die("Could not create target directory $data_root/data : $!\n");
 }
 store("$data_root/data/Lang.${server_domain}.sto", \%Lang);
+store("$data_root/data/Lang_tags.${server_domain}.sto", $tags_ref);
 
 # Generate JSON files for JavaScript I18N
 ProductOpener::Lang::build_json();
