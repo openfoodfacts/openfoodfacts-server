@@ -350,7 +350,7 @@ my %abbreviations = (
 
 	fr => [["vit.", "Vitamine"], ["Mat. Gr.", "Matières Grasses"],],
 
-	hr => [["temp.", "temperaturi"],],
+	hr => [["temp.", "temperaturi"], ["konc.", "koncentrirani"], ["m.m.", "mliječne masti"], ["sv.", "svinjsko"], ["zgrud.", "zgrudnjavanja"],],
 
 	nb => [["bl. a.", "blant annet"], ["inkl.", "inklusive"], ["papr.", "paprika"],],
 
@@ -461,6 +461,7 @@ my %and_or = (
 	es => " y | e | o | y/o | y / o ",
 	fi => " ja | tai | ja/tai | ja / tai ",
 	fr => " et | ou | et/ou | et / ou ",
+	hr => " i | ili | i/ili | i / ili ",
 	is => " og | eða | og/eða | og / eða ",
 	it => " e | o | e/o | e / o",
 	nl => " en/of | en / of ",
@@ -759,7 +760,7 @@ my %prepared_with = (
 	da => "fremstillet af",
 	es => "elabora con",
 	fr => "(?:(?:é|e)labor(?:é|e)|fabriqu(?:é|e)|pr(?:é|e)par(?:é|e)|produit)(?:e)?(?:s)? (?:avec|à partir)",
-	hr => "proizvedeno od",
+	hr => "proizvedeno od|sadrži",
 	nl => "bereid met",
 	sv => "är",
 );
@@ -993,7 +994,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		en => "(?:(?:$minimum_or_total) )?content",
 		es => "contenido(?: (?:$minimum_or_total))",
 		fr => "(?:teneur|taux)(?: (?:$minimum_or_total))?(?: en)?",   # need to have " en" as it's not in the $of regexp
-		hr => "ukupni",
+		hr => "ukupni|udio",
 		sv => "(?:(?:$minimum_or_total) )?mängd",
 	);
 	my $content_of_ingredient = $content_of_ingredient{$ingredients_lc};
@@ -2447,13 +2448,15 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 							'hr' => [
 								'^u tragovima$',    # in traces
+								'minimalno \d{1,3}\s*% mliječne masti i do \d{1,3}\s*% vode'
+								,    # minimum 82% milk fat and up to 16% water
 								'označene podebljano',    # marked in bold
 								'savjet kod alergije',    # allergy advice
 								'u promjenjivim omjerima|u promjenjivim udjelima|u promijenljivom udjelu'
 								,    # in variable proportions
 								'uključujući žitarice koje sadrže gluten',    # including grains containing gluten
 								'za alergene',    # for allergens
-								'u promjenjivim udjelima'    # in variable proportions
+								'u promjenjivim udjelima',    # in variable proportions
 							],
 
 							'it' => ['^in proporzion[ei] variabil[ei]$',],
@@ -5050,12 +5053,75 @@ my %ingredients_categories_and_types = (
 	],
 
 	hr => [
+		# coffees
+		[
+			# categories
+			["kave",],
+			# types
+			["arabica", "robusta",]
+		],
+		# concentrated (juice)
+		[
+			# categories
+			["koncentrat soka", "koncentrati", "koncentrirane kaše", "koncentrirani sok od", "ugośćeni sok",],
+			# types
+			["banana", "biljni", "breskva", "cikle", "crne mrkve", "crnog korijena", "guava", "hibiskusa", "jabuka", "limuna", "mango", "naranče", "voćni",]
+		],
+		# flours
+		[
+			# categories
+			["brašno",],
+			# types
+			["pšenično bijelo tip 550", "pšenično polubijelo tip 850", "pšenično",]
+		],
+		# leaves
+		[
+			# categories
+			["list",],
+			# types
+			["gunpowder", "Camellia sinensis", "folium",]
+		],
 		# malts
 		[
 			# categories
 			["slad",],
 			# types
 			["ječmeni", "pšenični",]
+		],
+		# falvouring
+		[
+			# categories
+			["prirodna aroma", "prirodne arome",],
+			# types
+			["citrusa sa ostalim prirodnim aromama", "limuna", "mente", "mente s drugim prirodnim aromama",]
+		],
+		# meats
+		[
+			# categories
+			["meso",],
+			# types
+			["svinjsko", "goveđe",]
+		],
+		# oils and fats
+		[
+			# categories
+			["biljne masti", "ulja",],
+			# types
+			["koskos", "kukuruzno u različitim omjerima", "palma", "repičino", "sojino", "suncokretovo"]
+		],
+		# seeds
+		[
+			# categories
+			["sjemenke",],
+			# types
+			["lan", "suncokret",]
+		],
+		# starchs
+		[
+			# categories
+			["škrob",],
+			# types
+			["kukuruzni", "krumpirov",]
 		],
 	],
 

@@ -49,7 +49,7 @@ ca:fresc, fresca, frescos, fresques
 de:frisch, frische, frischer, frisches
 es:fresco, fresca, frescos, frescas
 fr:frais, fraîche, fraiche, fraîches, fraiches
-hr:svježe, sviježi, svježi, svježih
+hr:svježe, sviježi, svježi, svježih, svježeg
 hu:friss
 it:fresco, fresca, fresche, freschi
 lt:šviežia, šviežios, švieži
@@ -64,6 +64,7 @@ pt:fresco, fresca, frescos, frescas
 ## da:naturlig
 #de:natürlich, natürliches, naturlich, naturliches, naturbelassen
 #es:natural, natural de, naturales
+#hr:prirodna
 #hu:természetes
 #it:naturale
 #nl:natuurlijk, natuurlijke
@@ -132,7 +133,7 @@ zh:籽
 #de:filet
 #fi:filee
 #fr:filet de
-#hr:fileti
+#hr:fileti, filet
 #it:filetti di
 #nl:filet
 #pl:filet
@@ -253,7 +254,7 @@ de:gehackt, gehackte, gehackter, gehacktes
 es:picada, picado, picadas, picados, trocitos, trocitas, troceado, troceada, troceados, troceadas
 fi:pilkottu, pilkotut
 fr:hâché, hâchée, hâchés, hâchées, haché, hachée, hachés, hachées
-hr:usitnjeni, usitnjena, sjeckani
+hr:usitnjeni, usitnjena, usitnjene, sjeckani
 hu:apróra vágott, aprított, aprítva, apróra vágva
 is:hakkaðar
 ja:刻み
@@ -482,7 +483,7 @@ af:stukkies
 de:stücke, stücken, stückchen, gestückelt, stück
 es:trozo, troza, trozos, trozas, guarnición
 fr:morceaux, pièces de, en morceaux, morceaux de, morceaux d'
-hr:komadići, komadići od, hrskavi komadići, hrskavi komadići od, komata, komadić, komadiča, posip
+hr:komadiča,komadići, komadići od, hrskavi komadići, hrskavi komadići od, komata, komadić, posip
 hu:darabok, darabolt, darab, darabka
 it:pezzi, in pezzi, a pezzi, pezzi di, pezzi d'
 nl:stukjes
@@ -656,7 +657,7 @@ bg:обезкостен, обезкостено, обезкостена, обе�
 ca:desossat, desossats, desossada, desossades, sense os
 es:deshuesado, deshuesada, deshuesados, deshuesadas, sin hueso
 fr:désossé, désossée, désossés, désossées, sans os
-hr:iskošteno, bez kosti, bez kožice
+hr:iskošteno, bez kosti, bez kožice, bez kože
 hu:csontozott, kicsontozott
 it:disossato, disossata, disossati, disossate
 pl:bez kości
@@ -837,7 +838,7 @@ es:jugo, jugo de
 fi:mehu
 fr:jus de, jus d'
 #en:comment:au jus (tomates pelees concassees au jus) is an exception, jus de cuisson, jus cuisiné, jus de poisson, jus de moules
-hr:sok, sok iz, sok od, voćni sok od, od soka
+hr:sok, sok iz, sok od, voćni sok od, od soka, soka
 hu:leve, lé
 it:succo, succo di, succo d', succhi, succhi di, succhi d'
 ja:ジュース, 果汁
@@ -932,6 +933,7 @@ wikidata:en:Q1355665
 
 #<en:for color
 #<en:concentrated
+hr:koncentrat boje iz, koncentrat za bojenje iz
 pl:barwiący koncentrat, koncentrat barwiący, koncentraty barwiące, barwiący koncentrat z, koncentrat barwiący z, koncentraty barwiące z
 
 #<en:concentrated
@@ -1076,6 +1078,10 @@ pt:seco ao ar, seca ao ar, secos ao ar, secas ao ar
 en:spray dried
 de:sprühgetrocknet, sprühgetrocknete, sprühgetrockneter, sprühgetrocknetes
 
+#<en:dried
+en:dry baked
+hr:suhopečeni
+# description:en:dried inside an oven
 
 # en:description:cured means dried, especially in meats
 #<en:dried
@@ -1397,8 +1403,13 @@ en:parboiled
 de:parboiled
 es:parboiled
 fi:parboil-käsitelty
+hr:parboiled
+hu:előfőzött
 it:parboiled
-pt:parboilizado, parboilizada, parboilizados, parboilizadas,
+pt:parboilizado, parboilizada, parboilizados, parboilizadas
+sl:parboiled
+wikidata:en:Q2915299
+wikipedia:en:https://en.wikipedia.org/wiki/Parboiling
 
 # prepare (vegetables) for freezing or further cooking by immersing briefly in boiling water.
 # comment:sometimes it seems to mean "the skin removed", used for almonds. Related to en:bleached?
@@ -1692,6 +1703,11 @@ pl:słodzony, słodzona, słodzone, słodzonych, słodzonej, słodzonego
 pt:adoçado, adoçada, adoçados, adoçadas, adocicado, adocicada, adocicados, adocicadas
 sv:sötad
 
+<en:concentrated
+<en:sweetened
+# en:concentrate for sweetening
+hr:koncentrat za zaslađivanje
+
 en:unsweetened
 de:ungesüßt, ungesüßte, ungesüßter, ungesüßtes
 fr:non sucré, non sucrée
@@ -1757,6 +1773,11 @@ de:geschwefelt, geschwefelte
 de:ungeschwefelt, ungeschwefelte
 pt:sem sulfitos
 
+
+# for milk, adjustment of fat content to a desired value either by adding fat-rich product or by fat-poor product
+en:standardized
+fr:standardisé
+hr:standardizirano
 
 #######################################################################
 #
@@ -1850,6 +1871,13 @@ hr:rafinirano, djelomično rafinirano
 #en:Desugared, partially desugared
 #fr:Dessucré, partiellement dessucré
 #hr:bez šećera, sa smanjenom količinom šećera
+
+#en:description:Sterilization (or sterilisation) refers to any process that removes, kills, or deactivates all forms of life and other biological agents present in or on a specific surface, object, or fluid. Sterilization can be achieved through various means, including heat, chemicals, irradiation, high pressure, and filtration. 
+en:sterilized
+fr:stérilisé
+hr:sterilizirano
+wikidata:en:Q191618
+wikipedia:en:https://en.wikipedia.org/wiki/Sterilization_(microbiology)
 
 #######################################################################
 #
@@ -2038,6 +2066,7 @@ en:not smoked, unsmoked
 #en:fibers
 
 #en:for color, added for color, colored with
+#hr:za bojanje # example koncentrat-cikle-za-bojanje
 #pl:do korekty barwy, barwiący, barwiące
 
 # Geliermittel Pektin (aus Früchten).
@@ -2064,7 +2093,7 @@ de:unhydriertes, ungehärtet, ungehärtetes
 es:no hidrogenado, no hidrogenada
 fi:kovettamaton, hydrogenoimaton
 fr:non hydrogénée
-hr:nehidrogenirani, nehidrogenirana, nehomogenizirano
+hr:nehidrogenirani, nehidrogenirana, nehidrogenizirana, nehomogenizirano
 hu:nem hidrogénezett
 it:non idrogenato, non idrogenati
 nl:niet gehydrogeneerd, niet gehydrogeneerde
@@ -2076,7 +2105,7 @@ sv:ohärdad
 #en:description:Breakdown into simpler chemical constituents by appropriate treatment with water and possibly either enzymes or acid/alkali
 #en:hydrolysed, hydrolized
 #fr:Hydrolisé, hydrolisée
-#hr:hidrolizat, hidrolizirane, hidrolizirano
+#hr:hidrolizat, hidrolizirane, hidrolizirano, hidrolizirani
 #nl:gehydrolyseerd, gehydrolyseerde
 #pl:hydrolizat, hydrolizowane
 
@@ -2088,7 +2117,7 @@ de:Gehärtetes
 es:hidrogenado
 fi:kovetettu, hydrogenoitu
 fr:hydrogénée
-hr:očvrsnuto, skrućeno, djelomično skrućeno
+hr:očvrsnuto, skrućeno, djelomično skrućeno, djelomično očvrsnute
 hu:hidrogénezett
 it:idrogenato, idrogenati, idrogenata, idrogenate
 nl:Gehydrogeneerde
@@ -2103,7 +2132,7 @@ de::ganz gehärtetes, vollständig hydriertes
 es:totalmente hidrogenado, totalmente hidrogenada
 fr:totalement hydrogénée
 fi:kokonaan kovetettu
-hr:potpuno hidrogenirana, potpuno hidrogenirano
+hr:potpuno hidrogenirana, potpuno hidrogenirano, potpuno hidrogenizirana
 nb:fullherdet
 pl:całkowicie uwodorniony, całkowicie uwodorniona, całkowicie uwodornione, całkowicie utwardzony, całkowicie utwardzona, całkowicie utwardzone
 sv:fullhärdad
