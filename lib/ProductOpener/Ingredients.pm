@@ -350,7 +350,13 @@ my %abbreviations = (
 
 	fr => [["vit.", "Vitamine"], ["Mat. Gr.", "Matières Grasses"],],
 
-	hr => [["temp.", "temperaturi"], ["konc.", "koncentrirani"], ["m.m.", "mliječne masti"], ["sv.", "svinjsko"], ["zgrud.", "zgrudnjavanja"],],
+	hr => [
+		["temp.", "temperaturi"],
+		["konc.", "koncentrirani"],
+		["m.m.", "mliječne masti"],
+		["sv.", "svinjsko"],
+		["zgrud.", "zgrudnjavanja"],
+	],
 
 	nb => [["bl. a.", "blant annet"], ["inkl.", "inklusive"], ["papr.", "paprika"],],
 
@@ -5065,7 +5071,11 @@ my %ingredients_categories_and_types = (
 			# categories
 			["koncentrat soka", "koncentrati", "koncentrirane kaše", "koncentrirani sok od", "ugośćeni sok",],
 			# types
-			["banana", "biljni", "breskva", "cikle", "crne mrkve", "crnog korijena", "guava", "hibiskusa", "jabuka", "limuna", "mango", "naranče", "voćni",]
+			[
+				"banana", "biljni", "breskva", "cikle", "crne mrkve", "crnog korijena",
+				"guava", "hibiskusa", "jabuka", "limuna", "mango", "naranče",
+				"voćni",
+			]
 		],
 		# flours
 		[
