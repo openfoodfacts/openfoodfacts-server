@@ -36,13 +36,14 @@ stopwords:nl:bevat,en
 stopwords:nl_be:bevat,en
 stopwords:de:und,mit,von
 
+### Properties for categories entries
+
 # add following tag for category having always same nutriscore grade
 # only 1 letter is allowed
 # expected_nutriscore_grade:en:c
 # add following tag for category having always same ingredient
 # only 1 ingredient tag is allowed (use "en:olive-oil" and not "en:Olive oil")
 # expected_ingredients:en: en:olive-oil
-
 
 # add following tag to ignore "Energy value in kJ does not correspond to the value calculated from the other nutrients error
 # only for categories having nutrients that are not displayed in the nutrition table and contributing to the energy
@@ -58,6 +59,11 @@ stopwords:de:und,mit,von
 # wco_hs_heading:en: 12.04
 # wco_hs_code:en: 1204.00
 # are from https://www.wcoomd.org/en/topics/nomenclature/instrument-and-tools/hs-nomenclature-2022-edition/hs-nomenclature-2022-edition.aspx
+
+# For categories for which we are certain there are no fruits/vegetables/legumes (as defined for Nutri-Score)
+# we put nutriscore_category_override_for_fruits_vegetables_legumes:en: 0
+# And for categories where we are certain there is 100% fruits/vegetables/legumes
+# we put nutriscore_category_override_for_fruits_vegetables_legumes:en: 100
 
 en:Artisan products
 ca:Prouctes artesans
