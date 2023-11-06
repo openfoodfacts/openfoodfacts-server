@@ -102,13 +102,6 @@ sub init_units_names() {
 			symbol => $symbol,
 		};
 
-		if (not defined $standard_unit) {
-			$log->warn("no standard unit for $tagid");
-		}
-		if (not defined $conversion_factor) {
-			$log->warn("no conversion factor for $tagid");
-		}
-
 		# If there is a symbol, add it to the unit names
 		if (defined $symbol) {
 			$units_names{lc($symbol)} = $tagid;
@@ -118,6 +111,8 @@ sub init_units_names() {
 
 			foreach my $synonym (get_taxonomy_tag_synonyms($language, "units", $tagid)) {
 
+				# using lc as we want to match case insensitive
+				# but not using get_string_id_for_lang as we want to keep symbols like %
 				$units_names{lc($synonym)} = $tagid;
 			}
 		}
@@ -131,6 +126,8 @@ sub init_units_names() {
 			sort {(length $b <=> length $a) || ($a cmp $b)}
 			keys %units_names
 	);
+
+	return;
 }
 
 init_units_names();
