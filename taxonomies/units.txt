@@ -1,7 +1,7 @@
 # Units taxonomy
 
 # This taxonomy contains the translations of unit names (singular and plural) and abbreviations
-# The conversion_factor:en: property is the multiplication factor to get the value in the standard unit
+# The conversion_factor:en: property is the multiplication factor to get the value in the standard unit (expressed in standard_unit:en: property)
 # (e.g. for kg, it is 1000 to get values in g)
 
 # The xx: entry is used for the canonical name, with the standard symbol first, if the symbol uses latin letters
