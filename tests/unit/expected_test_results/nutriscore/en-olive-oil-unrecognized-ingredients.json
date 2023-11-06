@@ -1,4 +1,10 @@
 {
+   "additives_n" : 0,
+   "additives_old_n" : 0,
+   "additives_old_tags" : [],
+   "additives_original_tags" : [],
+   "additives_tags" : [],
+   "amino_acids_tags" : [],
    "categories" : "olive oil",
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
@@ -39,7 +45,63 @@
       "en:fats-and-sauces",
       "en:fats"
    ],
+   "ingredients" : [
+      {
+         "id" : "en:some-very-fancy-but-unrecognized-way-of-writing-olive-oil",
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "text" : "some very fancy but unrecognized way of writing olive oil"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "en:some-very-fancy-but-unrecognized-way-of-writing-olive-oil"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:some-very-fancy-but-unrecognized-way-of-writing-olive-oil"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:some-very-fancy-but-unrecognized-way-of-writing-olive-oil"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_tags" : [],
+   "ingredients_hierarchy" : [
+      "en:some-very-fancy-but-unrecognized-way-of-writing-olive-oil"
+   ],
+   "ingredients_n" : 1,
+   "ingredients_n_tags" : [
+      "1",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:some-very-fancy-but-unrecognized-way-of-writing-olive-oil"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:some-very-fancy-but-unrecognized-way-of-writing-olive-oil"
+   ],
+   "ingredients_text" : "some very fancy but unrecognized way of writing olive oil",
+   "ingredients_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_that_may_be_from_palm_oil_tags" : [],
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:some-very-fancy-but-unrecognized-way-of-writing-olive-oil"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "known_ingredients_n" : 0,
    "lc" : "en",
+   "minerals_tags" : [],
    "misc_tags" : [
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-from-category",
@@ -50,10 +112,15 @@
       "en:nutriscore-2021-worse-than-2023",
       "en:nutriscore-2021-c-2023-b"
    ],
+   "nucleotides_tags" : [],
    "nutriments" : {
       "energy_100g" : 3367,
       "fat_100g" : 91,
       "fiber_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
       "nutrition-score-fr" : 7,
       "nutrition-score-fr_100g" : 7,
       "proteins_100g" : 0,
@@ -209,6 +276,7 @@
    ],
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
+   "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Fat and sauces",
    "pnns_groups_1_tags" : [
       "fat-and-sauces",
@@ -218,5 +286,7 @@
    "pnns_groups_2_tags" : [
       "fats",
       "known"
-   ]
+   ],
+   "unknown_ingredients_n" : 1,
+   "vitamins_tags" : []
 }

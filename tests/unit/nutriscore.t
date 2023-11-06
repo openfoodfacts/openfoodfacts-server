@@ -714,6 +714,24 @@ my @tests = (
 			}
 		}
 	],
+	# olive oil, unrecognized ingredients specified
+	[
+		"en-olive-oil-unrecognized-ingredients",
+		{
+			lc => "en",
+			categories => "olive oil",
+			ingredients_text => "some very fancy but unrecognized way of writing olive oil",
+			nutriments => {
+				energy_100g => 3367,
+				fat_100g => 91,
+				"saturated-fat_100g" => 17,
+				sugars_100g => 0,
+				fiber_100g => 0,
+				salt_100g => 0,
+				proteins_100g => 0,
+			}
+		}
+	],
 	# avocado oil
 	[
 		"en-avocado-oil",
