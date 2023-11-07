@@ -190,7 +190,7 @@ conversion_factor:en:0.001
 standard_unit:en:g
 
 # Micrograms
-xx:mcg
+xx:mcg, mcgs
 symbol:en:µg
 en:microgram, micrograms
 ar:ميكروغرام, ميكروغرام
@@ -1043,6 +1043,67 @@ ur:فی ملین حصہ, فی ملین حصہ
 vi:phần triệu, phần triệu
 zh:百万分之, 百万分之
 conversion_factor:en:0.01
+standard_unit:en:mmol/l
+
+# Parts per billion
+xx:ppb, parts per billion
+en:parts per billion
+ar:جزء في البليون
+bg:части на милиард
+bn:প্রতি বিলিয়ন অংশ
+cs:miliarda dílů
+cy:rhanau fesul biliwn
+da:dele pr. miaard
+de:Teile pro Milliarde
+el:μέρη ανά δισεκατομμύριο
+es:partes por mil millones
+et:osakest miljardist
+fa:قسمت در میلیارد
+fi:osaa miljardista
+fil:parts per billion
+fr:parties par milliard
+he:חלקים למיליארד
+hi:प्रति बिलियन भाग
+hr:dijelovi po milijardi
+hu:milliárdodrész
+id:bagian per miliar
+is:hlutar á milljarði
+it:parti per miliardo
+ja:10億分の1
+jv:bagéyan saben miliyar
+ka:ნაწილები მილიარდში
+kk:миллиард бөлшектеріне
+km:ផ្ដល់ចំនួនក្រាមមួយចំនួនប៉ុណ្ណោះ
+ko:10억분의 1
+lt:dalių milijardyje
+lv:daļas uz miljardu
+mk:делови на милијарда
+ml:ബില്യൺ ഭാഗങ്ങൾ
+mr:प्रति बिलियन भाग
+ms:bahagian setiap bilion
+my:စာမျက်နှာတစ်ခုတည်းစီမံပါ
+ne:प्रति बिलियन भाग
+nl:deeltjes per miljard
+no:del per milliard
+pl:części na miliard
+pt:partes por bilhão
+ro:părți la miliard
+ru:частей на миллиард
+sk:častí na miliardu
+sl:delov na milijardo
+sq:pjesë për miliard
+sr:делови на милијарду
+sv:delar per miljard
+sw:sehemu kwa bilioni
+ta:பில்லியன் பகுதிகள்
+te:ప్రతి బిలియన్ భాగాలు
+th:ส่วนต่อพันล้าน
+tr:milyarda bir kısım
+uk:часток на мільярд
+ur:پر بلین حصہ
+vi:phần trên một tỷ
+zh:十亿分之一
+conversion_factor:en:0.00001
 standard_unit:en:mmol/l
 
 xx:mval/l
