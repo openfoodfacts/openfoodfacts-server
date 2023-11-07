@@ -6,7 +6,7 @@
   <div class="donation-banner__content">
   <a
       class="donation-banner__content--button button round white-button"
-      href="[% link %]?utm_source=off&utf_medium=web&utm_campaign=donate-2023&utm_term=en-text-button"
+      href="[% link %]?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button"
   >
     <span class="material-icons">volunteer_activism</span>
     [% lang('donation_cta') %]
@@ -48,11 +48,11 @@
   }
 
   function DonationButton() {
-    setBannerCookie('off-donation-banner', 1, 180);
+    setBannerCookie('off-donation-banner-2023-a', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off-donation-banner') !== '') {
+  if (getBannerCookie('off-donation-banner-2023-a') !== '') {
     bannerID.style.display = 'none';
   } else { 
     bannerID.style.display = 'flex';
@@ -69,15 +69,14 @@
   <div class="donation-banner-footer__content">
   <a
       class="donation-banner-footer__content--button button round white-button"
-      href="[% link %]?utm_source=off&utf_medium=web&utm_campaign=donate-2023&utm_term=en-text-button"
+      href="[% link %]?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button"
   >
     <span class="material-icons">volunteer_activism</span>
     [% lang('donation_cta') %]
   </a>
   <div class="donation-banner-footer__content-paragraphs">
     <p class="donation-banner-footer__content-paragraphs--text">
-      [% f_lang('donation_body_employees', { 'number_of_employees' => '8' }) %] [%
-      f_lang('donation_why_year', { year => '2023' }) %]
+      [% lang("donation_text_2023") %]
     </p>
     <p class="donation-banner-footer__content-paragraphs--thank-you">[% lang('thank_you') %] <span class="material-icons">favorite</span></p>
   </div>
