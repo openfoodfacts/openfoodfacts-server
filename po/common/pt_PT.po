@@ -4005,6 +4005,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Obrigado!"
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "Muito obrigado!"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "Valor para o produto"
@@ -5749,15 +5753,9 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Importante: precisamos da sua ajuda!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "O Open Food Facts é um projeto colaborativo criado por dezenas de milhares de voluntários e gerido por uma organização sem fins lucrativos com {number_of_employees} funcionários."
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "Precisamos dos seus donativos para financiar o orçamento do Open Food Facts de {year} e continuar a desenvolver o projeto."
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
+msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"
