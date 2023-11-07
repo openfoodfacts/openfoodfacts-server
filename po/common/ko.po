@@ -4004,6 +4004,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "감사합니다!"
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "대단히 감사합니다!"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "제품의 가치"
@@ -5749,15 +5753,9 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "중요: 여러분의 지원이 필요합니다!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Open Food Facts는 수만 명의 자원 봉사자가 구축하고 직원이 {number_of_employees} 명인 비영리 조직에서 관리하는 공동 프로젝트입니다."
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "Open Food Facts {year} 예산을 지원하고 프로젝트를 계속 개발하려면 기부가 필요합니다."
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
+msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"
