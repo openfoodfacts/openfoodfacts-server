@@ -4007,6 +4007,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Cảm ơn bạn!"
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "Cảm ơn bạn rất nhiều!"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "Giá trị cho sản phẩm"
@@ -5751,15 +5755,9 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Quan trọng: chúng tôi cần sự hỗ trợ của bạn!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Open Food Facts là một dự ánmang tính cộng tác được xây dựng bởi hàng chục nghìn tình nguyện viên và được quản lý bởi một tổ chức phi lợi nhuận với {number_of_employees} nhân viên."
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "Chúng tôi cần sự đóng góp của bạn để tài trợ cho ngân sách Open Food Facts năm {year} và để tiếp tục phát triển dự án."
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
+msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"
