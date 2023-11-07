@@ -196,7 +196,7 @@ msgstr "crwdns225175:0crwdne225175:0"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "crwdns225177:0crwdne225177:0"
+msgstr "crwdns245750:0crwdne245750:0"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -2609,6 +2609,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "crwdns226359:0crwdne226359:0"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "crwdns245460:0crwdne245460:0"
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr "crwdns226361:0crwdne226361:0"
@@ -3983,6 +3987,10 @@ msgstr "crwdns227027:0crwdne227027:0"
 msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "crwdns227029:0crwdne227029:0"
+
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "crwdns245812:0crwdne245812:0"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -5728,15 +5736,9 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "crwdns227877:0crwdne227877:0"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "crwdns227879:0{number_of_employees}crwdne227879:0"
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "crwdns227881:0{year}crwdne227881:0"
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
+msgstr "crwdns245814:0crwdne245814:0"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6594,6 +6596,10 @@ msgstr "crwdns244913:0crwdne244913:0"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "crwdns228277:0crwdne228277:0"
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr "crwdns245752:0crwdne245752:0"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
