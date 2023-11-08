@@ -84,6 +84,38 @@ my @ingredients_text_tests = (
 	[{lc => "en", ingredients_text => "Cooked soy beans flour"}, 0, 0],
 	[{lc => "en", ingredients_text => "Chickpea flour"}, 0, 0],
 	[{lc => "en", ingredients_text => "Soy proteins"}, 0, 0],
+	# For products that contain water that is not consumed (e.g. canned vegetables)
+	# the % of fruits/vegetables must be estimated on the product without water
+	[
+		{lc => "fr", ingredients_text => "eau 80%, sucre 10%, haricots verts 10%", categories_tags => ["en:beverages"]},
+		10,
+		10
+	],
+	# canned fruits: water is counted as it is consumed
+	[
+		{
+			lc => "fr",
+			ingredients_text => "eau 80%, sucre 10%, pommes 10%",
+			categories_tags => ["en:canned-plant-based-foods", "en:canned-fruits"],
+		},
+		10, 10
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text => "eau 80%, sucre 10%, haricots verts 10%",
+			categories_tags => ["en:canned-plant-based-foods", "en:canned-green-beans", "en:canned-vegetables"],
+		},
+		50, 50
+	],
+	[
+		{
+			lc => "fr",
+			ingredients_text => "sauce (eau 80%, vinaigre 5%), haricots verts 10%, sucre 5%",
+			categories_tags => ["en:canned-plant-based-foods", "en:canned-green-beans", "en:canned-vegetables"],
+		},
+		50, 50
+	],
 );
 
 foreach my $test_ref (@ingredients_text_tests) {

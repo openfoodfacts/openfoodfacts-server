@@ -61,6 +61,7 @@ BEGIN {
 
 		&is_beverage_for_nutrition_score_2021
 		&is_beverage_for_nutrition_score_2023
+		&is_fat_oil_nuts_seeds_for_nutrition_score
 		&is_water_for_nutrition_score
 		&is_cheese_for_nutrition_score
 		&is_fat_for_nutrition_score
@@ -121,6 +122,36 @@ use Data::DeepAccess qw(deep_set deep_get);
 use Storable qw/dclone/;
 
 use Log::Any qw($log);
+
+# Normalize values listed in Config.pm
+
+# Canonicalize the list of categories used to compute Nutri-Score, so that Nutri-Score
+# computation does not change if we change the canonical English name of a category
+
+foreach my $categories_list_id (
+	qw(
+	categories_not_considered_as_beverages_for_nutriscore_2021
+	categories_not_considered_as_beverages_for_nutriscore_2023
+	categories_exempted_from_nutriscore
+	categories_not_exempted_from_nutriscore
+	categories_exempted_from_nutrient_levels
+	)
+	)
+{
+	my $categories_list_ref = $options{$categories_list_id};
+	if (defined $categories_list_ref) {
+		foreach my $category_id (@{$categories_list_ref}) {
+			$category_id = canonicalize_taxonomy_tag("en", "categories", $category_id);
+			# Check that the entry exists
+			if (not exists_taxonomy_tag("categories", $category_id)) {
+				$log->error(
+					"Category used in Nutri-Score and listed in Config.pm \$options\{$categories_list_id\} does not exist in the categories taxonomy.",
+					{category_id => $category_id}
+				) if $log->is_error();
+			}
+		}
+	}
+}
 
 # Load nutrient stats for all categories and countries
 # the stats are displayed on category pages and used in product pages,
@@ -971,10 +1002,10 @@ sub is_fat_oil_nuts_seeds_for_nutrition_score ($product_ref) {
 		return 1;
 	}
 	else {
-		my $hs_heading = get_inherited_property_from_categories_tags($product_ref, "wco_hs_heading:en");
+		my ($hs_heading, $category_id) = get_inherited_property_from_categories_tags($product_ref, "wco_hs_heading:en");
 
 		if (defined $hs_heading) {
-			my $hs_code = get_inherited_property_from_categories_tags($product_ref, "wco_hs_code:en");
+			my ($hs_code, $category_id) = get_inherited_property_from_categories_tags($product_ref, "wco_hs_code:en");
 
 			if (
 				($hs_heading eq "08.01") or ($hs_heading eq "08.02")    # nuts
@@ -1031,7 +1062,7 @@ similar products, and meat extracts and juices)
 sub is_red_meat_product_for_nutrition_score ($product_ref) {
 
 	# Use the category HS code if all the corresponding products are considered red meat
-	my $hs_heading = get_inherited_property_from_categories_tags($product_ref, "wco_hs_heading:en");
+	my ($hs_heading, $category_id) = get_inherited_property_from_categories_tags($product_ref, "wco_hs_heading:en");
 
 	if (defined $hs_heading) {
 
@@ -1166,14 +1197,21 @@ sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($prod
 
 	my $fruits = undef;
 
-	# If the product is in a category that has no unprocessed fruits/vegetables/nuts, return 0
-	my $nutriscore_without_unprocessed_fruits_vegetables_legumes
+	# Check if we have a category override:
+	# - if the product is in a category that has no unprocessed fruits/vegetables/nuts (e.g. crisps), return 0
+	# - if the product is in category that has only ingredients that are consired fruits/vegetables/nuts (e.g. olive oil), return 100
+	my ($nutriscore_category_override_for_fruits_vegetables_legumes, $category_id)
 		= get_inherited_property_from_categories_tags($product_ref,
-		"nutriscore_without_unprocessed_fruits_vegetables_legumes:en");
-	if (    (defined $nutriscore_without_unprocessed_fruits_vegetables_legumes)
-		and ($nutriscore_without_unprocessed_fruits_vegetables_legumes eq "yes"))
-	{
-		return 0;
+		"nutriscore_category_override_for_fruits_vegetables_legumes:en");
+	if (defined $nutriscore_category_override_for_fruits_vegetables_legumes) {
+
+		# We are close to certain that those category overrides (either 0 or 100) are correct,
+		# so we do not add a nutrition_score_warning_fruits_vegetables_legumes_from_category warning
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-from-category");
+		my $category = $category_id;
+		$category =~ s/:/-/;
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-from-category-$category");
+		return $nutriscore_category_override_for_fruits_vegetables_legumes;
 	}
 
 	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"}) {
@@ -1248,7 +1286,7 @@ sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($prod
 
 # estimates by category of products. not exact values. For the Nutri-Score, it's important to distinguish only between the thresholds: 40, 60 and 80
 # first entries match first, so we put potatoes before vegetables
-my @fruits_vegetables_legumes_by_category_sorted = (
+my @fruits_vegetables_legumes_by_category_if_no_ingredients_specified_sorted = (
 	["en:potatoes", 0],
 	["en:sweet-potatoes", 0],
 	["en:fruit-juices", 100],
@@ -1280,14 +1318,21 @@ Differences with the 2021 version:
 
 sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref, $prepared) {
 
-	# If the product is in a category that has no unprocessed fruits/vegetables/nuts, return 0
-	my $nutriscore_without_unprocessed_fruits_vegetables_legumes
+	# Check if we have a category override:
+	# - if the product is in a category that has no unprocessed fruits/vegetables/nuts (e.g. crisps), return 0
+	# - if the product is in category that has only ingredients that are consired fruits/vegetables/nuts (e.g. olive oil), return 100
+	my ($nutriscore_category_override_for_fruits_vegetables_legumes, $category_id)
 		= get_inherited_property_from_categories_tags($product_ref,
-		"nutriscore_without_unprocessed_fruits_vegetables_legumes:en");
-	if (    (defined $nutriscore_without_unprocessed_fruits_vegetables_legumes)
-		and ($nutriscore_without_unprocessed_fruits_vegetables_legumes eq "yes"))
-	{
-		return 0;
+		"nutriscore_category_override_for_fruits_vegetables_legumes:en");
+	if (defined $nutriscore_category_override_for_fruits_vegetables_legumes) {
+		# We are close to certain that those category overrides (either 0 or 100) are correct,
+		# so we do not add a nutrition_score_warning_fruits_vegetables_legumes_from_category warning
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-from-category");
+		my $category = $category_id;
+		$category =~ s/:/-/;
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-from-category-$category");
+		return $nutriscore_category_override_for_fruits_vegetables_legumes
+			+ 0;    # Add 0 to make the property value a number
 	}
 
 	my $fruits_vegetables_legumes = deep_get($product_ref, "nutriments",
@@ -1302,7 +1347,7 @@ sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref, $prepared) 
 	}
 	# if we do not have ingredients, try to use the product category
 	else {
-		foreach my $category_ref (@fruits_vegetables_legumes_by_category_sorted) {
+		foreach my $category_ref (@fruits_vegetables_legumes_by_category_if_no_ingredients_specified_sorted) {
 
 			my $category_id = $category_ref->[0];
 			if (has_tag($product_ref, "categories", $category_id)) {
@@ -1488,7 +1533,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 
 		if ($is_fat_oil_nuts_seeds) {
 			# Add the fat and saturated fat / fat ratio
-			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared};
+			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared . "_100g"};
 			$nutriscore_data_ref->{saturated_fat_ratio} = saturated_fat_ratio($nutriments_ref, $prepared);
 			# Compute the energy from saturates
 			if (defined $nutriscore_data_ref->{saturated_fat}) {

@@ -26,7 +26,7 @@ my $url = construct_test_url("/cgi/user.pl?type=edit&userid=tests", "world");
 my $response = $ua->get($url);
 
 #$DB::single = 1;
-is $response->{_rc}, 200;
+is($response->{_rc}, 200, "Status ok on creation");
 
 #checking whether the preference were well saved
 my @words = ('bob@test.com', $default_user_form{userid}, $default_user_form{name});

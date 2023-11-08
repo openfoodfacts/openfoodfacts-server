@@ -55,6 +55,10 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+
+		&estimate_ingredients_percent_service
+		&analyze_ingredients_service
+
 		&extract_ingredients_from_image
 
 		&separate_additive_class
@@ -71,16 +75,15 @@ BEGIN {
 		&normalize_enumeration
 
 		&extract_ingredients_classes_from_text
-
 		&extract_ingredients_from_text
 		&preparse_ingredients_text
-		&parse_ingredients_text
-		&analyze_ingredients
+		&parse_ingredients_text_service
+
 		&flatten_sub_ingredients
 		&compute_ingredients_tags
 
 		&get_percent_or_quantity_and_normalized_quantity
-		&compute_ingredients_percent_values
+		&compute_ingredients_percent_min_max_values
 		&init_percent_values
 		&set_percent_min_values
 		&set_percent_max_values
@@ -96,6 +99,7 @@ BEGIN {
 
 		&init_origins_regexps
 		&match_ingredient_origin
+		&parse_processing_from_ingredient
 		&parse_origins_from_text
 
 		&assign_ciqual_codes
@@ -116,6 +120,7 @@ use ProductOpener::URL qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Units qw/:all/;
+use ProductOpener::Food qw/is_fat_oil_nuts_seeds_for_nutrition_score/;
 
 use Encode;
 use Clone qw(clone);
@@ -177,27 +182,27 @@ my $separators = qr/($stops\s|$commas|$separators_except_comma)/i;
 my %may_contain_regexps = (
 
 	en =>
-		"it may contain traces of|possible traces|traces|may also contain|also may contain|may contain|may be present",
+		"it may contain traces of|possible traces|traces|may also contain|also may contain|may contain|may be present|Produced in a factory handling",
 	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
 	bs => "može da sadrži",
 	cs => "může obsahovat|může obsahovat stopy",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
-	de => "Kann enthalten|Kann Spuren|Spuren|Kann Anteile|Anteile|Kann auch|Kann",
+	de => "Kann enthalten|Kann Spuren|Spuren|Kann Anteile|Anteile|Kann auch|Kann|Enthält möglicherweise",
 	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
 	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
 	fi =>
 		"saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
 	fr =>
-		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
+		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace|Traces éventuelles de|Peut contenir des traces de",
 	hr =>
 		"mogući sadržaj|mogući tragovi|može sadržavati|može sadržavati alergene u tragovima|može sadržavati tragove|može sadržavati u tragovima|može sadržati|može sadržati tragove|proizvod može sadržavati|proizvod može sadržavati tragove",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
-	lt => "sudėtyje gali būti",
+	lt => "sudėtyje gali būti|gali būti",
 	lv => "var saturēt",
 	nl =>
-		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van",
+		"Dit product kan sporen van|bevat mogelijk sporen van|Kan sporen bevatten van|Kan sporen van|bevat mogelijk|sporen van|Geproduceerd in ruimtes waar",
 	nb =>
 		"kan inneholde spor av|kan forekomme spor av|kan inneholde spor|kan forekomme spor|kan inneholde|kan forekomme",
 	pl => "może zawierać śladowe ilości|produkt może zawierać|może zawierać|możliwa obecność",
@@ -763,6 +768,7 @@ my %min_regexp = (
 	en => "min|min\.|minimum",
 	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
 	fr => "min|min\.|mini|minimum",
+	hr => "min|min\.|mini|minimum",
 );
 
 # Words that can be ignored after a percent
@@ -847,7 +853,7 @@ sub has_specific_ingredient_property ($product_ref, $searched_ingredient_id, $pr
 
 =head2 add_properties_from_specific_ingredients ( product_ref )
 
-Go through the ingredients structure, and ad properties to ingredients that match specific ingredients
+Go through the ingredients structure, and add properties to ingredients that match specific ingredients
 for which we have extra information (e.g. origins from a label).
 
 =cut
@@ -1277,6 +1283,231 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 	return 0;
 }
 
+=head2 parse_processing_from_ingredient ( $ingredients_lc, $ingredient )
+
+This function extract processing method from one ingredient.
+If processing methods are found and remaining ingredient text exists without the processing method,
+then, it returns:
+	- $processing (concatenate if more than one), 
+	- $ingredient (without processing) and 
+	- $ingredient_id (without processing)
+If it does not result in known ingredient, then it returns the same but unchanged.
+
+=head3 Arguments
+
+=head4 ingredients_lc
+
+language abbreviation (en for English, for example)
+
+=head4 ingredient
+
+string ("pear", for example)
+
+=head3 Return values
+
+=head4 processings_ref
+
+reference to an array of processings
+
+=head4 ingredient
+
+updated ingredient without processing methods
+
+=head4 ingredient_id
+
+English first element for that ingredient (en:pear, for example)
+
+=head4 ingredient_recognized
+
+0 or 1
+
+=cut
+
+sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
+	my $ingredient_recognized = 0;
+	my @processings = ();
+	my $debug_parse_processing_from_ingredient = 0;
+
+	# do not match anything if we don't have a translation for "and"
+	my $and = $and{$ingredients_lc} || " will not match ";
+
+	# canonicalize_taxonomy_tag also remove stopwords, etc.
+	my $ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient);
+
+	# return if ingredient exists as is
+	if (exists_taxonomy_tag("ingredients", $ingredient_id)) {
+		$ingredient_recognized = 1;
+	}
+	else {
+
+		my $matches = 0;
+		my $new_ingredient = $ingredient;
+		my @new_processings = ();
+		my $matching = 1;    # remove prefixes / suffixes one by one
+		while ($matching) {
+			$matching = 0;
+			foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$ingredients_lc}}) {
+				my $regexp = $ingredient_processing_regexp_ref->[1];
+
+				$debug_parse_processing_from_ingredient and $log->trace("processing - checking processing regexps",
+					{new_ingredient => $new_ingredient, regexp => $regexp})
+					if $log->is_trace();
+
+				if (
+					# match before or after the ingredient, require a space
+					(
+						#($ingredients_lc =~ /^(en|es|it|fr)$/)
+						(
+							   ($ingredients_lc eq 'ar')
+							or ($ingredients_lc eq 'bg')
+							or ($ingredients_lc eq 'bs')
+							or ($ingredients_lc eq 'cs')
+							or ($ingredients_lc eq 'el')
+							or ($ingredients_lc eq 'en')
+							or ($ingredients_lc eq 'es')
+							or ($ingredients_lc eq 'fr')
+							or ($ingredients_lc eq 'hr')
+							or ($ingredients_lc eq 'it')
+							or ($ingredients_lc eq 'mk')
+							or ($ingredients_lc eq 'pl')
+							or ($ingredients_lc eq 'sl')
+							or ($ingredients_lc eq 'sr')
+						)
+						and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i)
+					)
+
+					#  match before or after the ingredient, does not require a space
+					or (
+						(
+							   ($ingredients_lc eq 'de')
+							or ($ingredients_lc eq 'hu')
+							or ($ingredients_lc eq 'ja')
+							or ($ingredients_lc eq 'nl')
+						)
+						and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i)
+					)
+
+					# match after the ingredient, does not require a space
+					# match before the ingredient, require a space
+					or (
+						(
+							   ($ingredients_lc eq 'da')
+							or ($ingredients_lc eq 'fi')
+							or ($ingredients_lc eq 'nb')
+							or ($ingredients_lc eq 'no')
+							or ($ingredients_lc eq 'nn')
+							or ($ingredients_lc eq 'sv')
+						)
+						and ($new_ingredient =~ /(^($regexp)\b|($regexp)$)/i)
+					)
+					)
+				{
+					$new_ingredient = $` . $';
+
+					$debug_parse_processing_from_ingredient and $log->debug(
+						"processing - found processing",
+						{
+							ingredient => $ingredient,
+							new_ingredient => $new_ingredient,
+							processing => $ingredient_processing_regexp_ref->[0],
+							regexp => $regexp
+						}
+					) if $log->is_debug();
+
+					$matching = 1;
+					$matches++;
+					push @new_processings, $ingredient_processing_regexp_ref->[0];
+
+					# remove starting or ending " and "
+					# viande traitée en salaison et cuite -> viande et
+					$new_ingredient =~ s/($and)+$//i;
+					$new_ingredient =~ s/^($and)+//i;
+					# trim leading and trailing whitespaces or hyphens
+					$new_ingredient =~ s/(\s|-)+$//;
+					$new_ingredient =~ s/^(\s|-)+//;
+
+					# Stop if we now have a known ingredient.
+					# e.g. "jambon cru en tranches" -> keep "jambon cru".
+					my $new_ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
+
+					if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
+						$debug_parse_processing_from_ingredient and $log->debug(
+							"processing - found existing ingredient, stop matching",
+							{
+								ingredient => $ingredient,
+								new_ingredient => $new_ingredient,
+								new_ingredient_id => $new_ingredient_id
+							}
+						) if $log->is_debug();
+
+						$matching = 0;
+					}
+					else {
+						$debug_parse_processing_from_ingredient
+							and $log->debug(
+							"processing - NOT found existing ingredient >$new_ingredient_id<, stop matching")
+							if $log->is_debug();
+					}
+
+					last;
+				}
+			}
+		}
+		if ($matches) {
+
+			my $new_ingredient_id = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
+			if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
+				$debug_parse_processing_from_ingredient and $log->debug(
+					"processing - found existing ingredient after removing processing",
+					{
+						ingredient => $ingredient,
+						new_ingredient => $new_ingredient,
+						new_ingredient_id => $new_ingredient_id,
+						new_processings => \@new_processings,
+					}
+				) if $log->is_debug();
+				$ingredient = $new_ingredient;
+				$ingredient_id = $new_ingredient_id;
+				$ingredient_recognized = 1;
+				@processings = @new_processings;
+			}
+			else {
+				$debug_parse_processing_from_ingredient and $log->debug(
+					"processing - did not find existing ingredient after removing processing",
+					{
+						ingredient => $ingredient,
+						new_ingredient => $new_ingredient,
+						new_ingredient_id => $new_ingredient_id,
+						new_processinsg => \@new_processings,
+					}
+				) if $log->is_debug();
+			}
+		}
+	}
+
+	$debug_parse_processing_from_ingredient
+		and $log->debug(
+		"processing - return",
+		{
+			processings => \@processings,
+			ingredient => $ingredient,
+			ingredient_id => $ingredient_id,
+			ingredient_recognized => $ingredient_recognized
+		}
+		) if $log->is_debug();
+	$log->debug(
+		"processing - return",
+		{
+			processings => \@processings,
+			ingredient => $ingredient,
+			ingredient_id => $ingredient_id,
+			ingredient_recognized => $ingredient_recognized
+		}
+	) if $log->is_debug();
+
+	return (\@processings, $ingredient, $ingredient_id, $ingredient_recognized);
+}
+
 =head2 parse_origins_from_text ( product_ref, $text)
 
 This function parses the origins of ingredients field to extract the origins of specific ingredients.
@@ -1440,25 +1671,32 @@ sub get_percent_or_quantity_and_normalized_quantity ($percent_or_quantity_value,
 	return ($percent, $quantity, $quantity_g);
 }
 
-=head2 parse_ingredients_text ( product_ref )
+=head2 parse_ingredients_text_service ( $product_ref, $updated_product_fields_ref )
 
 Parse the ingredients_text field to extract individual ingredients.
 
-=head3 Return values
+This function is a product service that can be run through ProductOpener::ApiProductServices
 
-=head4 ingredients structure
+=head3 Arguments
 
-Nested structure of ingredients and sub-ingredients
+=head4 $product_ref
 
-=head4 
+product object reference
+
+=head4 $updated_product_fields_ref
+
+reference to a hash of product fields that have been created or updated
 
 =cut
 
-sub parse_ingredients_text ($product_ref) {
+sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 	my $debug_ingredients = 0;
 
 	delete $product_ref->{ingredients};
+
+	# and indicate that the service is creating the "ingredients" structure
+	$updated_product_fields_ref->{ingredients} = 1;
 
 	return if ((not defined $product_ref->{ingredients_text}) or ($product_ref->{ingredients_text} eq ""));
 
@@ -1539,7 +1777,7 @@ sub parse_ingredients_text ($product_ref) {
 		my $labels = undef;
 		my $vegan = undef;
 		my $vegetarian = undef;
-		my $processing = '';
+		my @processings = ();
 
 		$debug_ingredients and $log->debug("analyze_ingredients_function", {string => $s}) if $log->is_debug();
 		# find the first separator or ( or [ or : etc.
@@ -1748,12 +1986,7 @@ sub parse_ingredients_text ($product_ref) {
 											= canonicalize_taxonomy_tag($ingredients_lc, "ingredients_processing",
 											$between);
 										if (exists_taxonomy_tag("ingredients_processing", $processingid)) {
-											if (defined $processing) {
-												$processing .= ", " . $processingid;
-											}
-											else {
-												$processing = ${$processingid};
-											}
+											push @processings, $processingid;
 											$debug_ingredients and $log->debug("between is a processing",
 												{between => $between, processing => $processingid})
 												if $log->is_debug();
@@ -1774,7 +2007,6 @@ sub parse_ingredients_text ($product_ref) {
 					# ! could not find the ending separator
 					$debug_ingredients and $log->debug("could not find an ending separator") if $log->is_debug();
 				}
-
 			}
 			else {
 				# simple separator
@@ -1805,6 +2037,9 @@ sub parse_ingredients_text ($product_ref) {
 
 		# remove ending parenthesis
 		$before =~ s/(\),\],\])*//;
+		# trim leading and trailing whitespaces or hyphens
+		$before =~ s/(\s|-)+$//;
+		$before =~ s/^(\s|-)+//;
 
 		$debug_ingredients and $log->debug("processed first separator",
 			{string => $s, before => $before, between => $between, after => $after})
@@ -1819,44 +2054,41 @@ sub parse_ingredients_text ($product_ref) {
 			my $ingredient1 = $`;
 			my $ingredient2 = $';
 
-			# Remove percent
-
-			my $ingredient1_orig = $ingredient1;
-			my $ingredient2_orig = $ingredient2;
-
-			$ingredient =~ s/\s$percent_or_quantity_regexp$//i;
-			$ingredient1 =~ s/\s$percent_or_quantity_regexp$//i;
-			$ingredient2 =~ s/\s$percent_or_quantity_regexp$//i;
-
 			# check if the whole ingredient is an ingredient
 			my $canon_ingredient = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $before);
 
-			$debug_ingredients and $log->debug(
-				"ingredient contains 'and', checking if it exists",
-				{before => $before, canon_ingredient => $canon_ingredient}
-			) if $log->is_debug();
-
 			if (not exists_taxonomy_tag("ingredients", $canon_ingredient)) {
 
-				# otherwise check the 2 sub ingredients
-				my $canon_ingredient1 = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient1);
-				my $canon_ingredient2 = canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $ingredient2);
+				$debug_ingredients
+					and $log->debug(
+					"parse_ingredient_text - and - whole ingredient >$before< containing 'and' is unknown ingredient")
+					if $log->is_debug();
 
-				$debug_ingredients and $log->debug(
-					"ingredient containing 'and' did not exist. 2 known ingredients?",
-					{
-						before => $before,
-						canon_ingredient => $canon_ingredient,
-						canon_ingredient1 => $canon_ingredient1,
-						canon_ingredient2 => $canon_ingredient2
-					}
-				) if $log->is_debug();
+				# Create a copy of $ingredients1 and $ingredients2, as we will remove percents to $ingredientX,
+				# but we will push $ingredientX_orig if it is a known ingredient after we remove the processing
+				my $ingredient1_orig = $ingredient1;
+				my $ingredient2_orig = $ingredient2;
 
-				if (    (exists_taxonomy_tag("ingredients", $canon_ingredient1))
-					and (exists_taxonomy_tag("ingredients", $canon_ingredient2)))
-				{
-					push @ingredients, $ingredient1_orig;
-					push @ingredients, $ingredient2_orig;
+				my $ingredients_recognized = 0;
+
+				foreach ($ingredient1, $ingredient2) {
+					# Remove percent
+					$_ =~ s/\s$percent_or_quantity_regexp$//i;
+
+					# Check if we recognize the ingredient
+					(undef, undef, undef, my $is_recognized) = parse_processing_from_ingredient($ingredients_lc, $_);
+
+					$ingredients_recognized += $is_recognized;
+				}
+				if ($ingredients_recognized == 2) {
+
+					push @ingredients, ($ingredient1_orig, $ingredient2_orig);
+				}
+				else {
+					$debug_ingredients
+						and $log->debug(
+						"parse_ingredient_text - and - one or both ingredient(s) of >$before< is/are unknown")
+						if $log->is_debug();
 				}
 			}
 		}
@@ -1880,7 +2112,6 @@ sub parse_ingredients_text ($product_ref) {
 			}
 
 			if ($before !~ /^\s*$/) {
-
 				push @ingredients, $before;
 			}
 		}
@@ -2062,143 +2293,10 @@ sub parse_ingredients_text ($product_ref) {
 
 					# Try to remove ingredients processing "cooked rice" -> "rice"
 					if (defined $ingredients_processing_regexps{$ingredients_lc}) {
-						my $matches = 0;
-						my $new_ingredient = $ingredient;
-						my $new_processing = '';
-						my $matching = 1;    # remove prefixes / suffixes one by one
-						while ($matching) {
-							$matching = 0;
-							foreach my $ingredient_processing_regexp_ref (
-								@{$ingredients_processing_regexps{$ingredients_lc}})
-							{
-								my $regexp = $ingredient_processing_regexp_ref->[1];
-								$debug_ingredients and $log->trace("checking processing regexps",
-									{new_ingredient => $new_ingredient, regexp => $regexp})
-									if $log->is_trace();
-
-								if (
-									# match before or after the ingredient, require a space
-									(
-										#($ingredients_lc =~ /^(en|es|it|fr)$/)
-										(
-											   ($ingredients_lc eq 'ar')
-											or ($ingredients_lc eq 'bg')
-											or ($ingredients_lc eq 'bs')
-											or ($ingredients_lc eq 'cs')
-											or ($ingredients_lc eq 'el')
-											or ($ingredients_lc eq 'en')
-											or ($ingredients_lc eq 'es')
-											or ($ingredients_lc eq 'fr')
-											or ($ingredients_lc eq 'hr')
-											or ($ingredients_lc eq 'it')
-											or ($ingredients_lc eq 'mk')
-											or ($ingredients_lc eq 'pl')
-											or ($ingredients_lc eq 'sl')
-											or ($ingredients_lc eq 'sr')
-										)
-										and ($new_ingredient =~ /(^($regexp)\b|\b($regexp)$)/i)
-									)
-
-									#  match before or after the ingredient, does not require a space
-									or (
-										(
-											   ($ingredients_lc eq 'de')
-											or ($ingredients_lc eq 'hu')
-											or ($ingredients_lc eq 'ja')
-											or ($ingredients_lc eq 'nl')
-										)
-										and ($new_ingredient =~ /(^($regexp)|($regexp)$)/i)
-									)
-
-									# match after the ingredient, does not require a space
-									# match before the ingredient, require a space
-									or (
-										(
-											   ($ingredients_lc eq 'da')
-											or ($ingredients_lc eq 'fi')
-											or ($ingredients_lc eq 'nb')
-											or ($ingredients_lc eq 'no')
-											or ($ingredients_lc eq 'nn')
-											or ($ingredients_lc eq 'sv')
-										)
-										and ($new_ingredient =~ /(^($regexp)\b|($regexp)$)/i)
-									)
-									)
-								{
-									$new_ingredient = $` . $';
-
-									$debug_ingredients and $log->debug(
-										"found processing",
-										{
-											ingredient => $ingredient,
-											new_ingredient => $new_ingredient,
-											processing => $ingredient_processing_regexp_ref->[0],
-											regexp => $regexp
-										}
-									) if $log->is_debug();
-
-									$matching = 1;
-									$matches++;
-									$new_processing .= ", " . $ingredient_processing_regexp_ref->[0];
-
-									# remove starting or ending " and "
-									# viande traitée en salaison et cuite -> viande et
-									$new_ingredient =~ s/($and)+$//i;
-									$new_ingredient =~ s/^($and)+//i;
-									$new_ingredient =~ s/(\s|-)+$//;
-									$new_ingredient =~ s/^(\s|-)+//;
-
-									# Stop if we now have a known ingredient.
-									# e.g. "jambon cru en tranches" -> keep "jambon cru".
-									my $new_ingredient_id
-										= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
-
-									if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
-										$debug_ingredients and $log->debug(
-											"found existing ingredient, stop matching",
-											{
-												ingredient => $ingredient,
-												new_ingredient => $new_ingredient,
-												new_ingredient_id => $new_ingredient_id
-											}
-										) if $log->is_debug();
-
-										$matching = 0;
-									}
-
-									last;
-								}
-							}
-						}
-						if ($matches) {
-
-							my $new_ingredient_id
-								= canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $new_ingredient);
-							if (exists_taxonomy_tag("ingredients", $new_ingredient_id)) {
-								$debug_ingredients and $log->debug(
-									"found existing ingredient after removing processing",
-									{
-										ingredient => $ingredient,
-										new_ingredient => $new_ingredient,
-										new_ingredient_id => $new_ingredient_id
-									}
-								) if $log->is_debug();
-								$ingredient = $new_ingredient;
-								$ingredient_id = $new_ingredient_id;
-								$ingredient_recognized = 1;
-								$processing .= $new_processing;
-							}
-							else {
-								$debug_ingredients and $log->debug(
-									"did not find existing ingredient after removing processing",
-									{
-										ingredient => $ingredient,
-										new_ingredient => $new_ingredient,
-										new_ingredient_id => $new_ingredient_id
-									}
-								) if $log->is_debug();
-							}
-						}
+						(my $new_processings_ref, $ingredient, $ingredient_id, $ingredient_recognized)
+							= parse_processing_from_ingredient($ingredients_lc, $ingredient);
+						# Add the newly extracted processings to possibly already existing processings
+						push @processings, @$new_processings_ref;
 					}
 
 					# Unknown ingredient, check if it is a label
@@ -2466,9 +2564,13 @@ sub parse_ingredients_text ($product_ref) {
 					}
 				}
 
-				if ($processing ne "") {
-					$processing =~ s/^,\s?//;
-					$ingredient{processing} = $processing;
+				if (scalar @processings) {
+					# TODO: we could keep the array of processings instead of creating a comma separated list
+					# we should do it together with other fields like origins and labels, and provide backward compatibility
+					# for API v3 and below
+					$ingredient{processing} = join(',', @processings);
+					# reset @processings because for "a and b" we don't want to reuse for b the same processing as a
+					@processings = ();
 				}
 
 				if ($ingredient ne '') {
@@ -2508,6 +2610,8 @@ sub parse_ingredients_text ($product_ref) {
 	};
 
 	$analyze_ingredients_function->($analyze_ingredients_function, $product_ref->{ingredients}, 0, $text);
+
+	$log->debug("ingredients: ", {ingredients => $product_ref->{ingredients}}) if $log->is_debug();
 
 	return;
 }
@@ -2663,14 +2767,14 @@ sub compute_ingredients_tags ($product_ref) {
 
 This function calls:
 
-- parse_ingredients_text() to parse the ingredients text in the main language of the product
+- parse_ingredients_text_service() to parse the ingredients text in the main language of the product
 to extract individual ingredients and sub-ingredients
 
-- compute_ingredients_percent_values() to create the ingredients array with nested sub-ingredients arrays
+- compute_ingredients_percent_min_max_values() to create the ingredients array with nested sub-ingredients arrays
 
 - compute_ingredients_tags() to create a flat array ingredients_original_tags and ingredients_tags (with parents)
 
-- analyze_ingredients() to analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
+- analyze_ingredients_service() to analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 and to compute the resulting value for the complete product
 
 =cut
@@ -2701,7 +2805,7 @@ sub extract_ingredients_from_text ($product_ref) {
 	# Parse the ingredients list to extract individual ingredients and sub-ingredients
 	# to create the ingredients array with nested sub-ingredients arrays
 
-	parse_ingredients_text($product_ref);
+	parse_ingredients_text_service($product_ref, {});
 
 	if (defined $product_ref->{ingredients}) {
 
@@ -2711,19 +2815,8 @@ sub extract_ingredients_from_text ($product_ref) {
 		# Obtain Ciqual codes ready for ingredients estimation from nutrients
 		assign_ciqual_codes($product_ref);
 
-		# Compute minimum and maximum percent ranges for each ingredient and sub ingredient
-
-		if (compute_ingredients_percent_values(100, 100, $product_ref->{ingredients}) < 0) {
-
-			# The computation yielded seemingly impossible values, delete the values
-			delete_ingredients_percent_values($product_ref->{ingredients});
-			$product_ref->{ingredients_percent_analysis} = -1;
-		}
-		else {
-			$product_ref->{ingredients_percent_analysis} = 1;
-		}
-
-		compute_ingredients_percent_estimates(100, $product_ref->{ingredients});
+		# Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient
+		estimate_ingredients_percent_service($product_ref, {});
 
 		estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients($product_ref);
 		estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients($product_ref);
@@ -2761,7 +2854,7 @@ sub extract_ingredients_from_text ($product_ref) {
 	# Analyze ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 	# and compute the resulting value for the complete product
 
-	analyze_ingredients($product_ref);
+	analyze_ingredients_service($product_ref, {});
 
 	# Delete specific ingredients if empty
 	if ((exists $product_ref->{specific_ingredients}) and (scalar @{$product_ref->{specific_ingredients}} == 0)) {
@@ -2799,11 +2892,50 @@ sub get_missing_ciqual_codes ($ingredients_ref) {
 	return @ingredients_without_ciqual_codes;
 }
 
+=head2 estimate_ingredients_percent_service ( $product_ref, $updated_product_fields_ref )
+
+Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient.
+
+This function is a product service that can be run through ProductOpener::ApiProductServices
+
+=head3 Arguments
+
+=head4 $product_ref
+
+product object reference
+
+=head4 $updated_product_fields_ref
+
+reference to a hash of product fields that have been created or updated
+
+=cut 
+
+sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_ref) {
+
+	if (compute_ingredients_percent_min_max_values(100, 100, $product_ref->{ingredients}) < 0) {
+
+		# The computation yielded seemingly impossible values, delete the values
+		delete_ingredients_percent_values($product_ref->{ingredients});
+		$product_ref->{ingredients_percent_analysis} = -1;
+	}
+	else {
+		$product_ref->{ingredients_percent_analysis} = 1;
+	}
+
+	compute_ingredients_percent_estimates(100, $product_ref->{ingredients});
+
+	# Indicate which fields were created or updated
+	$updated_product_fields_ref->{ingredients} = 1;
+	$updated_product_fields_ref->{ingredients_percent_analysis} = 1;
+
+	return;
+}
+
 =head2 delete_ingredients_percent_values ( ingredients_ref )
 
 This function deletes the percent_min and percent_max values of all ingredients.
 
-It is called if the compute_ingredients_percent_values() encountered impossible
+It is called if the compute_ingredients_percent_min_max_values() encountered impossible
 values (e.g. "Water, Sugar 80%" -> Water % should be greater than 80%, but the
 total would be more than 100%)
 
@@ -2826,7 +2958,7 @@ sub delete_ingredients_percent_values ($ingredients_ref) {
 	return;
 }
 
-=head2 compute_ingredients_percent_values ( total_min, total_max, ingredients_ref )
+=head2 compute_ingredients_percent_min_max_values ( total_min, total_max, ingredients_ref )
 
 This function computes the possible minimum and maximum ranges for the percent
 values of each ingredient and sub-ingredients.
@@ -2866,7 +2998,7 @@ The return value is the number of times we adjusted min and max values for ingre
 
 =cut
 
-sub compute_ingredients_percent_values ($total_min, $total_max, $ingredients_ref) {
+sub compute_ingredients_percent_min_max_values ($total_min, $total_max, $ingredients_ref) {
 
 	init_percent_values($total_min, $total_max, $ingredients_ref);
 
@@ -2896,7 +3028,7 @@ sub compute_ingredients_percent_values ($total_min, $total_max, $ingredients_ref
 		if ($i > 5) {
 
 			$log->debug(
-				"compute_ingredients_percent_values - too many loops, bail out",
+				"compute_ingredients_percent_min_max_values - too many loops, bail out",
 				{
 					ingredients_ref => $ingredients_ref,
 					total_min => $total_min,
@@ -2909,7 +3041,7 @@ sub compute_ingredients_percent_values ($total_min, $total_max, $ingredients_ref
 	}
 
 	$log->debug(
-		"compute_ingredients_percent_values - done",
+		"compute_ingredients_percent_min_max_values - done",
 		{
 			ingredients_ref => $ingredients_ref,
 			total_min => $total_min,
@@ -3325,7 +3457,7 @@ sub set_percent_sub_ingredients ($ingredients_ref) {
 
 			# Set values for sub-ingredients from ingredient values
 
-			$changed += compute_ingredients_percent_values(
+			$changed += compute_ingredients_percent_min_max_values(
 				$ingredient_ref->{percent_min},
 				$ingredient_ref->{percent_max},
 				$ingredient_ref->{ingredients}
@@ -3364,7 +3496,7 @@ sub set_percent_sub_ingredients ($ingredients_ref) {
 
 This function computes a possible estimate for the percent values of each ingredient and sub-ingredients.
 
-The sum of all estimates must be 100%, and the estimates try to match the min and max constraints computed previously with the compute_ingredients_percent_values() function.
+The sum of all estimates must be 100%, and the estimates try to match the min and max constraints computed previously with the compute_ingredients_percent_min_max_values() function.
 
 =head3 Arguments
 
@@ -3428,21 +3560,38 @@ sub compute_ingredients_percent_estimates ($total, $ingredients_ref) {
 	return;
 }
 
-=head2 analyze_ingredients ( product_ref )
+=head2 analyze_ingredients ( $product_ref, $updated_product_fields_ref )
 
-This function analyzes ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
+Analyzes ingredients to see the ones that are vegan, vegetarian, from palm oil etc.
 and computes the resulting value for the complete product.
 
-The results are overrode by labels like "Vegan", "Vegetarian" or "Palm oil free"
+The results are overridden by labels like "Vegan", "Vegetarian" or "Palm oil free"
 
 Results are stored in the ingredients_analysis_tags array.
 
+This function is a product service that can be run through ProductOpener::ApiProductServices
+
+=head3 Arguments
+
+=head4 $product_ref
+
+product object reference
+
+=head4 $updated_product_fields_ref
+
+reference to a hash of product fields that have been created or updated
+
 =cut
 
-sub analyze_ingredients ($product_ref) {
+sub analyze_ingredients_service ($product_ref, $updated_product_fields_ref) {
 
+	# Delete any existing values for the ingredients analysis fields
 	delete $product_ref->{ingredients_analysis};
 	delete $product_ref->{ingredients_analysis_tags};
+
+	# and indicate that the service is creating or updatiing them
+	$updated_product_fields_ref->{ingredients_analysis} = 1;
+	$updated_product_fields_ref->{ingredients_analysis_tags} = 1;
 
 	my @properties = ("from_palm_oil", "vegan", "vegetarian");
 	my %properties_unknown_tags = (
@@ -3693,16 +3842,46 @@ sub normalize_fr_a_de_b ($a, $b) {
 	}
 }
 
-# English: oil, olive -> olive oil
-# French: huile, olive -> huile d'olive
-# Russian: масло растительное, пальмовое -> масло растительное оливковое
+=head2 normalize_a_of_b ($lc, $a, $b, $of_bool)
+
+
+This function is called by normalize_enumeration()
+
+Given a category ($a) and a type ($b), it will return the ingredient that result from the combination of these two.
+
+English: oil, olive -> olive oil
+Croatian: ječmeni, slad -> ječmeni slad
+French: huile, olive -> huile d'olive
+Russian: масло растительное, пальмовое -> масло растительное оливковое
+
+=head3 Arguments
+
+=head4 lc
+
+language abbreviation (en for English, for example)
+
+=head4 $a
+
+string, category as defined in %ingredients_categories_and_types, example: 'oil' for 'oil (sunflower, olive and palm)'
+
+=head4 $b
+
+string, type as defined in %ingredients_categories_and_types, example: 'sunflower' or 'olive' or 'palm' for 'oil (sunflower, olive and palm)'
+
+=head3 Return value
+
+=head4 combined $a and $b (or $b and $a, depending of the language), that is expected to be an ingredient
+
+string, comma-joined category and type, example: 'palm vegetal oil' or 'sunflower vegetal oil' or 'olive vegetal oil'
+
+=cut
 
 sub normalize_a_of_b ($lc, $a, $b, $of_bool) {
 
 	$a =~ s/\s+$//;
 	$b =~ s/^\s+//;
 
-	if ($lc eq "en") {
+	if (($lc eq "en") or ($lc eq "hr")) {
 		return $b . " " . $a;
 	}
 	elsif ($lc eq "es") {
@@ -3721,29 +3900,60 @@ sub normalize_a_of_b ($lc, $a, $b, $of_bool) {
 			return $a . " " . $b;
 		}
 	}
-	elsif (($lc eq "ru") or ($lc eq "pl")) {
+	elsif (($lc eq "pl") or ($lc eq "ru")) {
 		return $a . " " . $b;
 	}
 }
 
-# Vegetal oil (palm, sunflower and olive)
-# -> palm vegetal oil, sunflower vegetal oil, olive vegetal oil
+=head2 normalize_enumeration ($lc, $category, $types, $of_bool)
 
-sub normalize_enumeration ($lc, $type, $enumeration, $of_bool) {
-	$log->debug("normalize_enumeration", {type => $type, enumeration => $enumeration}) if $log->is_debug();
+
+This function is called by develop_ingredients_categories_and_types()
+
+Some ingredients are specified by an ingredient "category" (e.g. "oil") and a "types" string (e.g. "sunflower, palm").
+
+This function combines the category to all elements of the types string
+$category = "Vegetal oil" and $types = "palm, sunflower and olive"
+will return
+"palm vegetal oil, sunflower vegetal oil, olive vegetal oil"
+
+=head3 Arguments
+
+=head4 lc
+
+language abbreviation (en for English, for example)
+
+=head4 category
+
+string, as defined in %ingredients_categories_and_types, example: 'Vegetal oil' for 'Vegetal oil (sunflower, olive and palm)'
+
+=head4 types
+
+string, as defined in %ingredients_categories_and_types, example: 'sunflower, olive and palm' for 'Vegetal oil (sunflower, olive and palm)'
+
+=head3 Return value
+
+=head4 Transformed ingredients list text
+
+string, comma-joined category with all elements of the types, example: 'sunflower vegetal oil, olive vegetal oil, palm vegetal oil'
+
+=cut
+
+sub normalize_enumeration ($lc, $category, $types, $of_bool) {
+	$log->debug("normalize_enumeration", {category => $category, types => $types}) if $log->is_debug();
 
 	# If there is a trailing space, save it and output it
 	my $trailing_space = "";
-	if ($enumeration =~ /\s+$/) {
+	if ($types =~ /\s+$/) {
 		$trailing_space = " ";
 	}
 
 	# do not match anything if we don't have a translation for "and"
 	my $and = $and{$lc} || " will not match ";
 
-	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $enumeration);
+	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $types);
 
-	return join(", ", map {normalize_a_of_b($lc, $type, $_, $of_bool)} @list) . $trailing_space;
+	return join(", ", map {normalize_a_of_b($lc, $category, $_, $of_bool)} @list) . $trailing_space;
 }
 
 # iodure et hydroxide de potassium
@@ -3942,7 +4152,7 @@ my %phrases_before_ingredients_list = (
 
 	lv => ['sast[āäa]v(s|da[ļl]as)',],
 
-	nl => ['ingredi(e|ë)nten', 'samenstelling', 'bestanddelen',],
+	nl => ['(I|i)ngredi(e|ë)nten', 'samenstelling', 'bestanddelen'],
 
 	nb => ['Ingredienser',],
 
@@ -4263,6 +4473,10 @@ my %phrases_after_ingredients_list = (
 
 	lt => [
 		'geriausias iki',    # best before
+		'tinka vartoti iki',    # valid until
+		'data ant pakuotės',    #date on package
+		'laikyti sausoje vietoje',    #Keep in dry place
+		'',
 	],
 
 	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnhold', 'kjølevare',],
@@ -4825,6 +5039,26 @@ my %ingredients_categories_and_types = (
 		[["piment", "poivron"], ["vert", "jaune", "rouge",], 0,],
 	],
 
+	lt => [
+		#oils
+		[
+			# categories
+			["aliejai", "augaliniai aliejai",],
+			# types
+			["palmių", "rapsų", "saulėgrąžų",],
+		],
+	],
+
+	hr => [
+		# malts
+		[
+			# categories
+			["slad",],
+			# types
+			["ječmeni", "pšenični",]
+		],
+	],
+
 	pl => [
 		# oils and fats
 		[
@@ -4893,11 +5127,11 @@ my @symbols = ('\*\*\*', '\*\*', '\*', '°°°', '°°', '°', '\(1\)', '\(2\)',
 my $symbols_regexp = join('|', @symbols);
 
 sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
+	$log->debug("develop_ingredients_categories_and_types: start with>$text<") if $log->is_debug();
 
 	if (defined $ingredients_categories_and_types{$ingredients_lc}) {
 
 		foreach my $categories_and_types_ref (@{$ingredients_categories_and_types{$ingredients_lc}}) {
-
 			my $category_regexp = "";
 			foreach my $category (@{$categories_and_types_ref->[0]}) {
 				$category_regexp .= '|' . $category . '|' . $category . 's';
@@ -4956,8 +5190,11 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				$and_or = $and_or{$ingredients_lc};
 			}
 
-			if (($ingredients_lc eq "en") or ($ingredients_lc eq "ru") or ($ingredients_lc eq "pl")) {
-
+			if (   ($ingredients_lc eq "en")
+				or ($ingredients_lc eq "hr")
+				or ($ingredients_lc eq "ru")
+				or ($ingredients_lc eq "pl"))
+			{
 				# vegetable oil (palm, sunflower and olive)
 				$text
 					=~ s/($category_regexp)(?::|\(|\[| | $of )+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
@@ -4967,7 +5204,11 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 				# vegetable oil: palm
 				$text
-					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
+					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
+
+				# ječmeni i pšenični slad (barley and wheat malt)
+				$text
+					=~ s/((?:(?:$type_regexp)(?: |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*($category_regexp)/normalize_enumeration($ingredients_lc,$2,$1,$of_bool)/ieg;
 			}
 			elsif ($ingredients_lc eq "fr") {
 				# arôme naturel de pomme avec d'autres âromes
@@ -4980,6 +5221,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				# Carbonate de magnésium, fer élémentaire -> should not trigger carbonate de fer élémentaire. Bug #3838
 				# TODO 18/07/2020 remove when we have a better solution
 				$text =~ s/fer (é|e)l(é|e)mentaire/fer_élémentaire/ig;
+
 				$text
 					=~ s/($category_regexp)(?::|\(|\[| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 				$text =~ s/fer_élémentaire/fer élémentaire/ig;
@@ -4989,7 +5231,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 				# huile végétale : colza,
 				$text
-					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
+					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
 			}
 		}
 
@@ -6549,33 +6791,62 @@ The match function takes 2 arguments:
 Used to compute % of fruits and vegetables, % of milk etc. which is needed by some algorithm
 like the Nutri-Score.
 
+=head3 Return values
+
+=head4 $percent
+
+Sum of matching ingredients percent.
+
+=head4 $water_percent
+
+Percent of water (used to recompute the percentage for categories of products that are consumed after removing water)
+
 =cut
 
 sub add_ingredients_matching_function ($ingredients_ref, $match_function_ref) {
 
-	my $count = 0;
+	my $percent = 0;
+	my $water_percent = 0;
 
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
-		my $match = $match_function_ref->($ingredient_ref->{id}, $ingredient_ref->{processing});
-		if ($match) {
-			if (defined $ingredient_ref->{percent}) {
-				$count += $ingredient_ref->{percent};
-			}
-			elsif (defined $ingredient_ref->{percent_estimate}) {
-				$count += $ingredient_ref->{percent_estimate};
-			}
-			# We may not have percent_min if the ingredient analysis failed because of seemingly impossible values
-			# in that case, try to get the possible percent values in nested sub ingredients
-			elsif (defined $ingredient_ref->{ingredients}) {
-				$count += add_ingredients_matching_function($ingredient_ref->{ingredients}, $match_function_ref);
-			}
-		}
-		elsif (defined $ingredient_ref->{ingredients}) {
-			$count += add_ingredients_matching_function($ingredient_ref->{ingredients}, $match_function_ref);
-		}
-	}
 
-	return $count;
+		my $sub_ingredients_percent = 0;
+		my $sub_ingredients_water_percent = 0;
+
+		my $ingredient_percent;
+		if (defined $ingredient_ref->{percent}) {
+			$ingredient_percent = $ingredient_ref->{percent};
+		}
+		elsif (defined $ingredient_ref->{percent_estimate}) {
+			$ingredient_percent = $ingredient_ref->{percent_estimate};
+		}
+
+		my $match = $match_function_ref->($ingredient_ref->{id}, $ingredient_ref->{processing});
+
+		# We have a match and a percent
+		if (($match) and (defined $ingredient_percent)) {
+			$percent += $ingredient_percent;
+		}
+		# The ingredient does not match,
+		# or we don't have percent_estimate if the ingredient analysis failed because of seemingly impossible values
+		# in that case, try to get the possible percent values in nested sub ingredients
+		elsif (defined $ingredient_ref->{ingredients}) {
+			($sub_ingredients_percent, $sub_ingredients_water_percent)
+				= add_ingredients_matching_function($ingredient_ref->{ingredients}, $match_function_ref);
+			$percent += $sub_ingredients_percent;
+		}
+		# Keep track of water
+		if ((is_a("ingredients", $ingredient_ref->{id}, 'en:water')) and (defined $ingredient_percent)) {
+			# Count water only in the ingredient if we have something like "flavored water 80% (water, flavour)"
+			$water_percent += $ingredient_percent;
+		}
+		else {
+			# We may have water in sub ingredients
+			$water_percent += $sub_ingredients_water_percent;
+		}
+
+	}
+	return ($percent, $water_percent);
 }
 
 =head2 estimate_ingredients_matching_function ( $product_ref, $match_function_ref, $nutrient_id = undef )
@@ -6603,16 +6874,33 @@ Estimated percentage of ingredients matching the function.
 
 sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $nutrient_id = undef) {
 
-	my $count;
+	my ($percent, $water_percent);
 
 	if ((defined $product_ref->{ingredients}) and ((scalar @{$product_ref->{ingredients}}) > 0)) {
 
-		$count = add_ingredients_matching_function($product_ref->{ingredients}, $match_function_ref);
+		($percent, $water_percent)
+			= add_ingredients_matching_function($product_ref->{ingredients}, $match_function_ref);
+
+		$log->debug("estimate_ingredients_matching_function", {percent => $percent, water_percent => $water_percent})
+			if $log->is_debug();
+
+		# For product categories where water is not consumed (e.g canned vegetables),
+		# we recompute the percent of matching ingredients in the product without water
+		# en:canned-plant-based-foods may be a bit broad, as some canned vegetables are consumed with the sauce/water
+		# en:canned-fruits are not included as those are often in syrup, which is consumed
+		if (    (defined $water_percent)
+			and ($water_percent > 0)
+			and ($water_percent < 100)
+			and (has_tag($product_ref, "categories", "en:canned-plant-based-foods"))
+			and not(has_tag($product_ref, "categories", "en:canned-fruits")))
+		{
+			$percent = $percent * 100 / (100 - $water_percent);
+		}
 	}
 
 	# If we have specific ingredients, check if we have a higher fruits / vegetables content
 	if (defined $product_ref->{specific_ingredients}) {
-		my $specific_ingredients_count = 0;
+		my $specific_ingredients_percent = 0;
 		foreach my $ingredient_ref (@{$product_ref->{specific_ingredients}}) {
 			my $ingredient_id = $ingredient_ref->{id};
 			# We can have specific ingredients with % or grams
@@ -6620,22 +6908,22 @@ sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $
 			if (defined $percent_or_quantity_g) {
 
 				if ($match_function_ref->($ingredient_id)) {
-					$specific_ingredients_count += $percent_or_quantity_g;
+					$specific_ingredients_percent += $percent_or_quantity_g;
 				}
 			}
 		}
 
-		if (    ($specific_ingredients_count > 0)
-			and ((not defined $count) or ($specific_ingredients_count > $count)))
+		if (    ($specific_ingredients_percent > 0)
+			and ((not defined $percent) or ($specific_ingredients_percent > $percent)))
 		{
-			$count = $specific_ingredients_count;
+			$percent = $specific_ingredients_percent;
 		}
 	}
 
 	if (defined $nutrient_id) {
-		if (defined $count) {
-			$product_ref->{nutriments}{$nutrient_id . "_100g"} = $count;
-			$product_ref->{nutriments}{$nutrient_id . "_serving"} = $count;
+		if (defined $percent) {
+			$product_ref->{nutriments}{$nutrient_id . "_100g"} = $percent;
+			$product_ref->{nutriments}{$nutrient_id . "_serving"} = $percent;
 		}
 		elsif (defined $product_ref->{nutriments}) {
 			delete $product_ref->{nutriments}{$nutrient_id . "_100g"};
@@ -6643,7 +6931,7 @@ sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $
 		}
 	}
 
-	return $count;
+	return $percent;
 }
 
 =head2 is_fruits_vegetables_nuts_olive_walnut_rapeseed_oils ( $ingredient_id, $processing = undef )
@@ -6709,7 +6997,7 @@ sub estimate_nutriscore_2021_fruits_vegetables_nuts_percent_from_ingredients ($p
 
 }
 
-=head2 is_fruits_vegetables_legumes ( $ingredient_id, $processing = undef )
+=head2 is_fruits_vegetables_legumes ( $ingredient_id, $processing = undef)
 
 Determine if an ingredient should be counted as "fruits, vegetables, legumes"
 in Nutriscore 2023 algorithm.
@@ -6746,6 +7034,9 @@ o 9.50 (Miscellaneous fruit);
 o 9.60 (Fruit mixtures).
 Pulses groups
 o 7.10 (Pulses).
+
+Additionally, in the fats and oils category specifically, oils derived from ingredients in the list qualify
+for the component (e.g. olive and avocado).
 
 --
 
@@ -6809,6 +7100,21 @@ sub is_fruits_vegetables_legumes ($ingredient_id, $processing = undef) {
 	);
 }
 
+sub is_fruits_vegetables_legumes_for_fat_oil_nuts_seed ($ingredient_id, $processing = undef) {
+
+	# for fat/oil/nuts/seeds products, oils of fruits and vegetables count for fruits and vegetables
+	return (
+		is_fruits_vegetables_legumes($ingredient_id, $processing)
+			or (
+			(
+				   ($ingredient_id eq "en:olive-oil")
+				or ($ingredient_id eq "en:avocado-oil")
+			)
+			)
+			or 0
+	);
+}
+
 =head2 estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients ( product_ref )
 
 This function analyzes the ingredients to estimate the minimum percentage of
@@ -6820,10 +7126,17 @@ Results are stored in $product_ref->{nutriments}{"fruits-vegetables-legumes-esti
 
 sub estimate_nutriscore_2023_fruits_vegetables_legumes_percent_from_ingredients ($product_ref) {
 
-	return estimate_ingredients_matching_function(
-		$product_ref,
-		\&is_fruits_vegetables_legumes,
-		"fruits-vegetables-legumes-estimate-from-ingredients"
+	# For fat/oil/nuts/seeds products, oils of fruits and vegetables count for fruits and vegetables
+	my $matching_function_ref;
+	if (is_fat_oil_nuts_seeds_for_nutrition_score($product_ref)) {
+		$matching_function_ref = \&is_fruits_vegetables_legumes_for_fat_oil_nuts_seed;
+	}
+	else {
+		$matching_function_ref = \&is_fruits_vegetables_legumes;
+	}
+
+	return estimate_ingredients_matching_function($product_ref, $matching_function_ref,
+		"fruits-vegetables-legumes-estimate-from-ingredients",
 	);
 }
 
