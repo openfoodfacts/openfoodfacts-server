@@ -4180,7 +4180,7 @@ my %phrases_before_ingredients_list = (
 
 	th => ['ส่วนประกอบ', 'ส่วนประกอบที่สำคัญ',],
 
-	tr => ['(İ|i)çindekiler',],
+	tr => ['(İ|i)çindekiler', 'içeriği',],
 
 	uz => ['tarkib',],
 
