@@ -11,6 +11,13 @@
 #3
 # Codex Alimentarius:
 # http://www.fao.org/gsfaonline/additives/details.html?id=322
+#
+# The ANSES (French Agency for Food, Environmental and Occupational Health & Safety) has listed 140 "additives of interest" in 2019
+# https://www.anses.fr/fr/content/rapport-oqali-bilan-et-%C3%A9volution-de-lutilisation-des-additifs-dans-les-produits-transform%C3%A9s
+# those additives are tagged here after as follows:
+# anses_additives_of_interest:en:yes
+# with "en:yes" being the only possible value
+
 
 # stopwords for matching more additives
 stopwords:en: of
