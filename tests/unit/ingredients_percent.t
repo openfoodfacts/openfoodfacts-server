@@ -259,11 +259,7 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[1];
 
 	parse_ingredients_text_service($product_ref, {});
-	if (compute_ingredients_percent_min_max_values(100, 100, $product_ref->{ingredients}) < 0) {
-		delete_ingredients_percent_values($product_ref->{ingredients});
-	}
-
-	compute_ingredients_percent_estimates(100, $product_ref->{ingredients});
+	estimate_ingredients_percent_service($product_ref, {});
 
 	compare_to_expected_results(
 		$product_ref->{ingredients},
