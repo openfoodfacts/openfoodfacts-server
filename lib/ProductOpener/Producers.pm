@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -46,7 +46,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
-		$minion
+		&get_minion
 
 		&load_csv_or_excel_file
 
@@ -96,14 +96,30 @@ use Text::CSV();
 use Minion;
 
 # Minion backend
+my $minion;
 
-if (not defined $server_options{minion_backend}) {
+=head2 get_minion()
+Function to get the backend minion
 
-	print STDERR "No Minion backend configured in lib/ProductOpener/Config2.pm\n";
-}
-else {
-	print STDERR "Initializing Minion backend configured in lib/ProductOpener/Config2.pm\n";
-	$minion = Minion->new(%{$server_options{minion_backend}});
+=head3 Arguments
+None
+
+=head3 Return values
+The backend minion $minion
+
+=cut
+
+sub get_minion() {
+	if (not defined $minion) {
+		if (not defined $server_options{minion_backend}) {
+			print STDERR "No Minion backend configured in lib/ProductOpener/Config2.pm\n";
+		}
+		else {
+			print STDERR "Initializing Minion backend configured in lib/ProductOpener/Config2.pm\n";
+			$minion = Minion->new(%{$server_options{minion_backend}});
+		}
+	}
+	return $minion;
 }
 
 =head1 FUNCTIONS
@@ -137,7 +153,7 @@ A reference to an array of rows, containing each an array of column values
 
 sub load_csv_or_excel_file ($file) {    # path and file name
 
-	my $headers_ref;
+	my $input_headers_ref;
 	my $rows_ref = [];
 	my $results_ref = {};
 
@@ -175,6 +191,10 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 			my $line = <$io>;
 			if ($line =~ /\t/) {
 				$separator = "\t";
+			}
+			# Otherwise, if the first line does not have a separator, check if it is a ;
+			elsif (($line !~ /$separator/) and ($line =~ /;/)) {
+				$separator = ";";
 			}
 		}
 	}
@@ -239,9 +259,9 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 
 				if ((defined $new_row[0]) and ($new_row[0] ne "") and (defined $new_row[1]) and ($new_row[1] ne "")) {
 					$seen_header = 1;
-					@{$headers_ref} = @new_row;
+					@{$input_headers_ref} = @new_row;
 
-					$log->debug("seen header", {headers_ref => $headers_ref}) if $log->is_debug();
+					$log->debug("seen header", {input_headers_ref => $input_headers_ref}) if $log->is_debug();
 				}
 
 				# Otherwise skip the line until we see a header
@@ -270,50 +290,27 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 		# If some columns have the same name, add a suffix
 		my %headers = ();
 		my $i = 0;
-		foreach my $header (@{$headers_ref}) {
+		foreach my $header (@{$input_headers_ref}) {
 			if (defined $headers{$header}) {
 				$headers{$header}++;
-				$headers_ref->[$i] = $header . " - " . $headers{$header};
+				$input_headers_ref->[$i] = $header . " - " . $headers{$header};
 			}
 			else {
 				$headers{$header} = 1;
 			}
 			$i++;
 		}
-		$results_ref = {headers => $headers_ref, rows => $rows_ref};
+		$results_ref = {headers => $input_headers_ref, rows => $rows_ref};
 	}
 
 	return $results_ref;
 }
 
-# Convert an uploaded file to OFF CSV format
+# Go through the headers of the input CSV file, determine the match to OFF columns
 
-sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_file) {
-	# $default_values_ref  ->  values for lc, countries
-	# $file  ->  path and file name
-
-	my $load_results_ref = load_csv_or_excel_file($file);
-
-	if ($load_results_ref->{error}) {
-		return ($load_results_ref);
-	}
-
-	my $headers_ref = $load_results_ref->{headers};
-	my $rows_ref = $load_results_ref->{rows};
-
-	my $results_ref = {};
-
-	my $columns_fields_ref = retrieve($columns_fields_file);
-
-	my $csv_out = Text::CSV->new({binary => 1, sep_char => "\t"})    # should set binary attribute.
-		or die "Cannot use CSV: " . Text::CSV->error_diag();
-
-	open(my $out, ">:encoding(UTF-8)", $converted_file) or die("Cannot write $converted_file: $!\n");
-
-	# Output CSV header
-
-	my @headers = ();
-	my %headers_cols = ();
+sub create_off_columns_to_input_columns_match ($default_values_ref, $input_headers_ref, $columns_fields_ref,
+	$output_headers_ref, $output_to_input_columns_ref)
+{
 
 	my $col = 0;
 
@@ -321,7 +318,7 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 	# in which case suffix them with .2 , .3 etc.
 	my %seen_fields = ();
 
-	foreach my $column (@{$headers_ref}) {
+	foreach my $column (@{$input_headers_ref}) {
 
 		my $field;
 
@@ -394,8 +391,8 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 					$seen_fields{$field} = 1;
 				}
 
-				push @headers, $field;
-				$headers_cols{$field} = $col;
+				push @$output_headers_ref, $field;
+				$output_to_input_columns_ref->{$field} = $col;
 			}
 		}
 		else {
@@ -407,36 +404,127 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 
 	# Add headers from default values
 
-	my @default_headers = ();
-	my @default_values = ();
-
 	foreach my $field (sort keys %{$default_values_ref}) {
 
-		if (not defined $headers_cols{$field}) {
-			push @default_headers, $field;
-			push @default_values, $default_values_ref->{$field};
+		if (not defined $seen_fields{$field}) {
+			unshift @$output_headers_ref, $field;
+			$output_to_input_columns_ref->{$field} = undef;
 		}
 	}
 
-	$csv_out->print($out, [@default_headers, @headers]);
-	print $out "\n";
+	return;
+}
 
-	# Fields for clean_fields()
-	@fields = @headers;
+# Convert an uploaded file to OFF CSV format
+# Note: some files sent from producers have the same product code on several lines
+# e.g. with one line for each packaging component, with 1 column for packaging shape, 1 for packaging size etc.
+# instead of having only 1 line for the product with different columns for each packaging component
 
-	# Output CSV product data
+sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_file) {
+
+	# $default_values_ref  ->  values for lc, countries
+	# $file  ->  path and file name
+
+	my $columns_fields_ref = retrieve($columns_fields_file);
+
+	my $load_results_ref = load_csv_or_excel_file($file);
+
+	if ($load_results_ref->{error}) {
+		return ($load_results_ref);
+	}
+
+	my $input_headers_ref = $load_results_ref->{headers};
+	my $rows_ref = $load_results_ref->{rows};
+
+	my $results_ref = {};
+
+	# Output CSV header
+
+	my $output_headers_ref = [];
+	my $output_to_input_columns_ref = {};
+
+	create_off_columns_to_input_columns_match(
+		$default_values_ref, $input_headers_ref, $columns_fields_ref,
+		$output_headers_ref, $output_to_input_columns_ref
+	);
+
+	# If we don't have a column mapped to the barcode, then we cannot use the file
+	if (not defined $output_to_input_columns_ref->{"code"}) {
+		$log->error("no column mapped to code", {output_to_input_columns_ref => $output_to_input_columns_ref})
+			if $log->is_error();
+		$results_ref->{error} = "no_column_mapped_to_code";
+		$results_ref->{status} = "error";
+		return $results_ref;
+	}
+
+	# Read the CSV file line by line and construct a hash of products data
+	# Note that some products may have data on multiple lines
+	# so we need to read all data in memory before writing the converted CSV file
+
+	my $products_ref = {};
+
+	# Keep track of the number of lines for each product
+	my %product_lines = ();
+
+	# We may add some output columns if there are products on multiple lines
+	my $extra_output_headers_ref = [];
 
 	foreach my $row_ref (@{$rows_ref}) {
 
 		$log->debug("convert_file - row", {row_ref => $row_ref}) if $log->is_debug();
 
-		# Go through all fields to populate $product_ref with OFF field names
-		# so that we can run clean_fields() or other OFF functions
+		# First get the barcode of the product
+		my $code = $row_ref->[$output_to_input_columns_ref->{"code"}];
 
-		my $product_ref = {};
-		foreach my $field (@headers) {
-			my $col = $headers_cols{$field};
-			$product_ref->{$field} = $row_ref->[$col];
+		if (not defined $code) {
+			# The line is missing a barcode, we do not know which product it relates to
+			$log->error("ignoring row without a value for the code column",
+				{code_column => $output_to_input_columns_ref->{"code"}, row_ref => $row_ref})
+				if $log->is_error();
+			next;
+		}
+
+		if (not defined $products_ref->{$code}) {
+			$products_ref->{$code} = {};
+			$product_lines{$code} = 1;
+		}
+		else {
+			# this is a line complementing info about a product
+			$product_lines{$code}++;
+		}
+
+		my $product_ref = $products_ref->{$code};
+
+		foreach my $field_orig (@$output_headers_ref) {
+			my $field = $field_orig;    # Needed in order to be able to modify $field without changing the array content
+			my $col = $output_to_input_columns_ref->{$field};
+
+			# If we have multiple lines per product, we need to rename some fields by adding a number
+			# so that the values on multiple lines are saved in multiple columns
+
+			if ($product_lines{$code} > 1) {
+
+				# If the field is of the form packaging_1_*
+				# we rename the field to packaging_[current number of lines of the product]_*
+				if ($field =~ /^packaging_1_/) {
+					$field = "packaging_" . $product_lines{$code} . "_" . $';
+				}
+				# If the field is of the form image_other_url or image_other_type
+				# we rename the field to image_other_(url|type).[current number of lines of the product]
+				elsif (($product_lines{$code} > 1) and ($field =~ /^image_other_/)) {
+					$field .= '.' . $product_lines{$code};
+				}
+
+				# Add the field to the list of columns in the output file if the column does not exist yet
+				if (not exists $output_to_input_columns_ref->{$field}) {
+					$output_to_input_columns_ref->{$field} = undef;
+					push @$extra_output_headers_ref, $field;
+				}
+			}
+
+			if (defined $col) {
+				$product_ref->{$field} = $row_ref->[$col];
+			}
 
 			# If no value specified, use default value
 			if (   (defined $default_values_ref->{$field}) and (not defined $product_ref->{$field})
@@ -445,6 +533,21 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 				$product_ref->{$field} = $default_values_ref->{$field};
 			}
 		}
+	}
+
+	# Output the CSV file
+
+	my $csv_out = Text::CSV->new({binary => 1, sep_char => "\t"})    # should set binary attribute.
+		or die "Cannot use CSV: " . Text::CSV->error_diag();
+
+	open(my $out, ">:encoding(UTF-8)", $converted_file) or die("Cannot write $converted_file: $!\n");
+
+	$csv_out->print($out, [@$output_headers_ref, @$extra_output_headers_ref]);
+	print $out "\n";
+
+	foreach my $code (sort keys %$products_ref) {
+
+		my $product_ref = $products_ref->{$code};
 
 		# Make sure we have a value for lc, as it is needed for clean_fields()
 		# if lc is not a 2 letter code, use the default value
@@ -456,15 +559,20 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 		}
 
 		my @values = ();
-		foreach my $field (@headers) {
+		foreach my $field (@$output_headers_ref, @$extra_output_headers_ref) {
 			push @values, $product_ref->{$field};
+			#print STDERR "$field - $product_ref->{$field} . \n";
 		}
 
-		$csv_out->print($out, [@default_values, @values]);
+		$csv_out->print($out, [@values]);
 		print $out "\n";
 	}
 
 	close($out);
+
+	$results_ref->{status} = "success";
+	$results_ref->{rows} = scalar @{$rows_ref};
+	$results_ref->{products} = scalar keys %$products_ref;
 
 	return $results_ref;
 }
@@ -707,14 +815,20 @@ my %in = (
 
 =head2 init_fields_columns_names_for_lang ( $l )
 
-Populates global $fields_columns_names_for_lang
-for the specified language.
+Populates global $fields_columns_names_for_lang for the specified language.
+
+The function creates a hash of all the possible localized column names
+that we can automatically recognize, and maps them to the corresponding field in OFF.
 
 =head3 Arguments
 
 =head4 $l - required
 
 Language code (string)
+
+=head3 Return value
+
+Reference to the column names hash.
 
 =cut
 
@@ -727,6 +841,7 @@ sub init_fields_columns_names_for_lang ($l) {
 	$fields_columns_names_for_lang{$l} = {};
 
 	init_nutrients_columns_names_for_lang($l);
+	init_packaging_columns_names_for_lang($l);
 	init_other_fields_columns_names_for_lang($l);
 
 	# Other known fields
@@ -745,8 +860,71 @@ sub init_fields_columns_names_for_lang ($l) {
 
 	store("$data_root/debug/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
 
+	return $fields_columns_names_for_lang{$l};
+}
+
+# Generate column names for a language field
+# It populates %fields_columns_names_for_lang
+
+sub add_language_field_column_names ($l, $field) {
+
+	foreach my $field_l ($l, "en") {
+
+		my @synonyms = ($field, $Lang{$field}{$field_l});
+		if ((defined $fields_synonyms{$field_l}) and (defined $fields_synonyms{$field_l}{$field})) {
+			foreach my $synonym (@{$fields_synonyms{$field_l}{$field}}) {
+				push @synonyms, $synonym;
+			}
+		}
+
+		foreach my $synonym (@synonyms) {
+			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)}
+				= {field => $field, lc => $l};
+			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym . " " . $l)}
+				= {field => $field, lc => $l};
+			$fields_columns_names_for_lang{$l}
+				{get_string_id_for_lang("no_language", $synonym . " " . $language_codes{$l})}
+				= {field => $field, lc => $l};
+			$fields_columns_names_for_lang{$l}{
+				get_string_id_for_lang("no_language",
+					$synonym . " " . display_taxonomy_tag($field_l, 'languages', $language_codes{$l}))
+			} = {field => $field, lc => $l};
+		}
+	}
+
 	return;
 }
+
+# Create column names for packaging data in a specific language
+# It populates %fields_columns_names_for_lang
+
+sub init_packaging_columns_names_for_lang ($l) {
+
+	# Language fields
+
+	foreach my $field ("packaging_text", "recycling_instructions_to_recycle", "recycling_instructions_to_discard") {
+		add_language_field_column_names($l, $field);
+	}
+
+	# Packaging components
+
+	for (my $i = 1; $i <= $IMPORT_MAX_PACKAGING_COMPONENTS; $i++) {
+		my $packaging_i = $Lang{"packaging_part_short"}{$l} . " " . $i . " - ";
+		foreach my $property ("number_of_units", "shape", "material", "recycling", "weight", "quantity_per_unit") {
+			my $name = $packaging_i . $Lang{"packaging_" . $property}{$l};
+			my $field = "packaging_${i}_${property}";
+			# If producers send a weight, we assign it to the weight_specified field
+			$field =~ s/_weight$/_weight_specified/g;
+
+			$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $name)} = {field => $field};
+		}
+	}
+
+	return;
+}
+
+# Create column names for all nutrients in a specific language
+# It populates %fields_columns_names_for_lang
 
 sub init_nutrients_columns_names_for_lang ($l) {
 
@@ -1065,30 +1243,7 @@ sub init_other_fields_columns_names_for_lang ($l) {
 					# Liste d'ingrédients / Liste d'ingrédients (fr) /
 					# Ingredients list / Ingredients list (fr) / Ingredients list (French) / Ingredients list (français)
 
-					foreach my $field_l ($l, "en") {
-
-						my @synonyms = ($field, $Lang{$field}{$field_l});
-						if ((defined $fields_synonyms{$field_l}) and (defined $fields_synonyms{$field_l}{$field})) {
-							foreach my $synonym (@{$fields_synonyms{$field_l}{$field}}) {
-								push @synonyms, $synonym;
-							}
-						}
-
-						foreach my $synonym (@synonyms) {
-							$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $synonym)}
-								= {field => $field, lc => $l};
-							$fields_columns_names_for_lang{$l}
-								{get_string_id_for_lang("no_language", $synonym . " " . $l)}
-								= {field => $field, lc => $l};
-							$fields_columns_names_for_lang{$l}
-								{get_string_id_for_lang("no_language", $synonym . " " . $language_codes{$l})}
-								= {field => $field, lc => $l};
-							$fields_columns_names_for_lang{$l}{
-								get_string_id_for_lang("no_language",
-									$synonym . " " . display_taxonomy_tag($field_l, 'languages', $language_codes{$l}))
-							} = {field => $field, lc => $l};
-						}
-					}
+					add_language_field_column_names($l, $field);
 				}
 				else {
 					$fields_columns_names_for_lang{$l}{get_string_id_for_lang("no_language", $field)}
@@ -1193,9 +1348,9 @@ sub match_column_name_to_field ($l, $column_id) {
 
 # Go through all rows to extract examples, compute stats etc.
 
-sub compute_statistics_and_examples ($headers_ref, $rows_ref, $columns_fields_ref) {
+sub compute_statistics_and_examples ($input_headers_ref, $rows_ref, $columns_fields_ref) {
 
-	foreach my $column (@{$headers_ref}) {
+	foreach my $column (@{$input_headers_ref}) {
 		if (not defined $columns_fields_ref->{$column}) {
 			$columns_fields_ref->{$column} = {
 				examples => [],
@@ -1218,7 +1373,7 @@ sub compute_statistics_and_examples ($headers_ref, $rows_ref, $columns_fields_re
 
 		foreach my $value (@{$row_ref}) {
 
-			my $column = $headers_ref->[$col];
+			my $column = $input_headers_ref->[$col];
 
 			# empty value?
 
@@ -1273,7 +1428,7 @@ sub compute_statistics_and_examples ($headers_ref, $rows_ref, $columns_fields_re
 
 # Analyze the headers column names and rows content to pre-assign fields to columns
 
-sub init_columns_fields_match ($headers_ref, $rows_ref) {
+sub init_columns_fields_match ($input_headers_ref, $rows_ref) {
 
 	my $columns_fields_ref = {};
 
@@ -1281,7 +1436,7 @@ sub init_columns_fields_match ($headers_ref, $rows_ref) {
 
 	$log->debug("before compute_statistics_and_examples", {}) if $log->is_debug();
 
-	compute_statistics_and_examples($headers_ref, $rows_ref, $columns_fields_ref);
+	compute_statistics_and_examples($input_headers_ref, $rows_ref, $columns_fields_ref);
 
 	# Load previously assigned fields by the owner
 
@@ -1306,7 +1461,7 @@ sub init_columns_fields_match ($headers_ref, $rows_ref) {
 
 	$log->debug("after init_fields_columns_names_for_lang", {}) if $log->is_debug();
 
-	foreach my $column (@{$headers_ref}) {
+	foreach my $column (@{$input_headers_ref}) {
 
 		my $column_id = get_string_id_for_lang("no_language", normalize_column_name($column));
 
@@ -1415,27 +1570,43 @@ sub generate_import_export_columns_groups_for_select2 ($lcs_ref) {    # array of
 			"identification",
 			[
 				"code", "producer_product_id",
-				"producer_version_id", "lang",
-				"product_name", "generic_name",
+				"producer_version_id", "lc",
+				"product_name", "abbreviated_product_name",
+				"generic_name",
 				"quantity_value_unit", "net_weight_value_unit",
 				"drained_weight_value_unit", "volume_value_unit",
-				"packaging", "brands",
+				"serving_size_value_unit", "packaging",
+				"brands", "brand_owner",
 				"categories", "categories_specific",
 				"labels", "labels_specific",
-				"countries", "stores"
+				"countries", "stores",
+				"obsolete", "obsolete_since_date",
+				"periods_after_opening"    # included for OBF imports via the producers platform
 			]
 		],
-		["origins", ["origins", "origin", "manufacturing_places", "producer", "emb_codes"]],
+		[
+			"origins",
+			["origins", "origin", "manufacturing_places", "producer", "emb_codes"]
+		],
 		["ingredients", ["ingredients_text", "allergens", "traces"]],
 		["nutrition"],
 		["nutrition_other"],
+		["packaging"],
 		[
 			"other",
 			[
-				"conservation_conditions", "warning", "preparation", "recipe_idea",
-				"recycling_instructions_to_recycle",
-				"recycling_instructions_to_discard",
-				"customer_service", "link"
+				"conservation_conditions", "warning",
+				"preparation", "nutriscore_score_producer",
+				"nutriscore_grade_producer", "nova_group_producer",
+				"recipe_idea", "customer_service",
+				"link",
+			]
+		],
+		[
+			"images",
+			[
+				"image_front_url", "image_ingredients_url", "image_nutrition_url", "image_packaging_url",
+				"image_other_url", "image_other_type",
 			]
 		],
 	];
@@ -1556,7 +1727,9 @@ JSON
 					my $property ("number_of_units", "shape", "material", "recycling", "weight", "quantity_per_unit")
 				{
 					my $name = $packaging_i . lang("packaging_" . $property);
-					my $field = "packaging_${i}_{$property}";
+					my $field = "packaging_${i}_${property}";
+					# If producers send a weight, we assign it to the weight_specified field
+					$field =~ s/_weight$/_weight_specified/g;
 					push @{$select2_group_ref->{children}}, {id => "$field", text => ucfirst($name)};
 				}
 			}
@@ -1660,6 +1833,7 @@ sub export_and_import_to_public_database ($args_ref) {
 	$args_ref->{csv_file} = $exported_file;
 	$args_ref->{export_id} = $export_id;
 	$args_ref->{comment} = "Import from producers platform";
+	$args_ref->{include_obsolete_products} = 1;
 	$args_ref->{include_images_paths} = 1;    # Export file paths to images
 	$args_ref->{exported_t} = $started_t;
 
@@ -1695,18 +1869,22 @@ sub export_and_import_to_public_database ($args_ref) {
 	# Local export
 
 	my $local_export_job_id
-		= $minion->enqueue(export_csv_file => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		= get_minion()->enqueue(export_csv_file => [$args_ref] => {queue => $server_options{minion_local_queue}});
 
 	$args_ref->{export_job_id} = $local_export_job_id;
 
 	# Remote import
 
-	my $remote_import_job_id = $minion->enqueue(import_csv_file => [$args_ref] =>
+	my $remote_import_job_id
+		= get_minion()
+		->enqueue(import_csv_file => [$args_ref] =>
 			{queue => $server_options{minion_export_queue}, parents => [$local_export_job_id]});
 
 	# Local export status update
 
-	my $local_export_status_job_id = $minion->enqueue(update_export_status_for_csv_file => [$args_ref] =>
+	my $local_export_status_job_id
+		= get_minion()
+		->enqueue(update_export_status_for_csv_file => [$args_ref] =>
 			{queue => $server_options{minion_local_queue}, parents => [$remote_import_job_id]});
 
 	$exports_ref->{$export_id}{local_export_job_id} = $local_export_job_id;
@@ -1729,7 +1907,7 @@ sub export_and_import_to_public_database ($args_ref) {
 
 =head1 Minion tasks
 
-Minion tasks that can be enqueued by standalone scripts or the web site,
+Minion tasks that can be added to the queue by standalone scripts or the web site,
 that are then executed by the minion-off and minion-off-pro daemons.
 
 The daemons are configured in /etc/systemd/system
@@ -1861,6 +2039,10 @@ sub update_export_status_for_csv_file_task ($job, $args_ref) {
 	$job->finish("done");
 
 	return;
+}
+
+sub queue_job {    ## no critic (Subroutines::RequireArgUnpacking)
+	return get_minion()->enqueue(@_);
 }
 
 1;

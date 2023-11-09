@@ -1,9 +1,5 @@
 <!-- start templates/[% template.name %] -->
 
-<p id="barcode_paragraph"> [% lang("barcode") %]:
-	<span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>
-</p>
-
 [% IF type == "search_or_add" %]
 
     [% IF code.defined %]

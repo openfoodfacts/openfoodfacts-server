@@ -1,14 +1,28 @@
 {
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-4",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty"
    ],
+   "packaging_materials_tags" : [
+      "en:hdpe-2-high-density-polyethylene",
+      "en:paper"
+   ],
+   "packaging_recycling_tags" : [
+      "en:recycle"
+   ],
+   "packaging_shapes_tags" : [
+      "en:bottle",
+      "en:bottle-cap",
+      "en:seal",
+      "en:unknown"
+   ],
    "packaging_text" : "1 bouteille en plastique opaque PE-HD de 1L à recycler\n1 bouchon en plastique opaque PE-HD à recycler\n1 opercule à recycler\n1 machin en papier à recycler",
    "packagings" : [
       {
-         "material" : "en:hdpe-high-density-polyethylene",
+         "material" : "en:hdpe-2-high-density-polyethylene",
          "number_of_units" : 1,
          "quantity_per_unit" : "1l",
          "quantity_per_unit_unit" : "l",
@@ -17,7 +31,7 @@
          "shape" : "en:bottle"
       },
       {
-         "material" : "en:hdpe-high-density-polyethylene",
+         "material" : "en:hdpe-2-high-density-polyethylene",
          "number_of_units" : 1,
          "recycling" : "en:recycle",
          "shape" : "en:bottle-cap"
@@ -32,5 +46,12 @@
          "recycling" : "en:recycle",
          "shape" : "en:unknown"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:paper-or-cardboard" : {},
+      "en:plastic" : {},
+      "en:unknown" : {}
+   },
+   "packagings_n" : 4
 }

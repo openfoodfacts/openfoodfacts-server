@@ -72,8 +72,6 @@
                                 <span class="show-for-large-up"> [% lang('export_product_page') %]</span>
                             </a>
                         </div>
-                        
-                        <p>→ <a href="[% public_product_url %]">[% lang("product_page_on_the_public_database") %]</a></p>
                     [% END %]
                 </div>
             </div> 
@@ -84,10 +82,11 @@
             <div class="large-12">
                <nav id="navbar" class="navbar h-space-tiny">
                     <ul class="inline-list">
-                        <li><a class="nav-link scrollto button small round white-button" href="#product"><span>[% lang("product") %]</span></a></li>
-                        <li><a class="nav-link scrollto button small round white-button" href="#match"><span>[% lang("your_criteria") %]</span></a></li>
-                        <li><a class="nav-link scrollto button small round white-button" href="#health"><span>[% lang("health") %]</span></a></li>
-                        <li><a class="nav-link scrollto button small round white-button" href="#environment"><span>[% lang("environment") %]</span></a></li>
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#product"><span>[% lang("product") %]</span></a></li>
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#match"><span>[% lang("your_criteria") %]</span></a></li>
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#health"><span>[% lang("health") %]</span></a></li>
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>[% lang("environment") %]</span></a></li>
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#contribution"><span>[% lang("contribution_navigation") %]</span></a></li>
                     </ul>
                 </nav><!-- .navbar -->
             </div> 
@@ -111,6 +110,10 @@
 
 
                     <h2 class="title-1" property="food:name" itemprop="name">[% title %]</h1>
+
+                    [% IF server_options_producers_platform %]
+                        <p>→ <a href="[% public_product_url %]">[% lang("product_page_on_the_public_database") %]</a></p>
+                    [% END %]
                     
             <!-- Obsolete product -->
             [% IF product_is_obsolete %]
@@ -260,6 +263,18 @@
     </section>
 [% END %]
 
+<a id="contribution"></a>
+[% IF contribution_card_panel %]
+<section class="row">
+    <div class="large-12 column">
+        <div class="card">
+            <div class="card-section">
+                    [% contribution_card_panel %]
+            </div>
+        </div>
+    </div>
+</section>
+[% END %]
 
 <section class="row" >
     <div class="large-12 column">

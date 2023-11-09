@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -131,7 +131,7 @@ sub check_quality ($product_ref) {
 			foreach my $value (@{$product_ref->{"data_quality_" . $level . "_tags"}}) {
 				if (exists_taxonomy_tag("data_quality", $value)) {
 					my $show_on_producers_platform
-						= get_property("data_quality", $value, "show_on_producers_platform:en");
+						= get_inherited_property("data_quality", $value, "show_on_producers_platform:en");
 					if ((defined $show_on_producers_platform) and ($show_on_producers_platform eq "yes")) {
 						push @{$product_ref->{"data_quality_" . $level . "_producers_tags"}}, $value;
 					}
