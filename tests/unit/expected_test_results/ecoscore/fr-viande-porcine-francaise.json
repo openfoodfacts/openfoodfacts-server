@@ -406,6 +406,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_food_code" : "20026",
          "id" : "en:belgian-endive",
          "percent" : 40,
          "percent_estimate" : 40,
@@ -426,6 +427,7 @@
          "vegetarian" : "no"
       },
       {
+         "ciqual_food_code" : "22002",
          "id" : "en:egg-yolk",
          "origins" : "en:france",
          "percent_estimate" : 20,
@@ -436,6 +438,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "percent_estimate" : 10,
          "percent_max" : 20,
@@ -462,6 +465,7 @@
    "ingredients_hierarchy" : [
       "en:belgian-endive",
       "en:vegetable",
+      "en:shoot-vegetable",
       "en:cooked-ham",
       "en:animal",
       "en:meat",
@@ -487,6 +491,7 @@
    "ingredients_tags" : [
       "en:belgian-endive",
       "en:vegetable",
+      "en:shoot-vegetable",
       "en:cooked-ham",
       "en:animal",
       "en:meat",
@@ -502,7 +507,11 @@
    "ingredients_with_specified_percent_sum" : 40,
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 60,
-   "known_ingredients_n" : 11,
+   "ingredients_without_ciqual_codes" : [
+      "en:cooked-ham"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "known_ingredients_n" : 12,
    "labels" : "viande porcine française, oeufs de France",
    "labels_hierarchy" : [
       "en:french-meat",
@@ -517,6 +526,7 @@
    ],
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
@@ -529,10 +539,16 @@
       "en:ecoscore-grade-changed"
    ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 40,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 40,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 40,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 40
    },
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [],
    "packagings" : [],
+   "packagings_materials" : {},
    "specific_ingredients" : [
       {
          "id" : "en:meat",

@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : "18066",
          "id" : "en:water",
          "percent_estimate" : 62,
          "percent_max" : 62,
@@ -105,9 +106,18 @@
    "ingredients_with_specified_percent_sum" : 38,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 62,
+   "ingredients_without_ciqual_codes" : [
+      "en:cane-sugar",
+      "en:e330",
+      "en:guava",
+      "en:some-unknown-ingredient"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
    "known_ingredients_n" : 8,
    "lc" : "en",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 25,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 25,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 25
    },

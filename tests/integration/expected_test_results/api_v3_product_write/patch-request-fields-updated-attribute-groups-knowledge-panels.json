@@ -65,6 +65,7 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/gluten-content-unknown.svg",
                   "id" : "allergens_no_gluten",
                   "name" : "Gluten",
+                  "panel_id" : "ingredients",
                   "status" : "unknown",
                   "title" : "Presence unknown: Gluten"
                },
@@ -74,6 +75,7 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/milk-content-unknown.svg",
                   "id" : "allergens_no_milk",
                   "name" : "Milk",
+                  "panel_id" : "ingredients",
                   "status" : "unknown",
                   "title" : "Presence unknown: Milk"
                },
@@ -83,6 +85,7 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/eggs-content-unknown.svg",
                   "id" : "allergens_no_eggs",
                   "name" : "Eggs",
+                  "panel_id" : "ingredients",
                   "status" : "unknown",
                   "title" : "Presence unknown: Eggs"
                },
@@ -92,6 +95,7 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nuts-content-unknown.svg",
                   "id" : "allergens_no_nuts",
                   "name" : "Nuts",
+                  "panel_id" : "ingredients",
                   "status" : "unknown",
                   "title" : "Presence unknown: Nuts"
                },
@@ -101,6 +105,7 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/peanuts-content-unknown.svg",
                   "id" : "allergens_no_peanuts",
                   "name" : "Peanuts",
+                  "panel_id" : "ingredients",
                   "status" : "unknown",
                   "title" : "Presence unknown: Peanuts"
                },
@@ -110,6 +115,7 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/sesame-seeds-content-unknown.svg",
                   "id" : "allergens_no_sesame_seeds",
                   "name" : "Sesame seeds",
+                  "panel_id" : "ingredients",
                   "status" : "unknown",
                   "title" : "Presence unknown: Sesame seeds"
                },
@@ -119,6 +125,7 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/soybeans-content-unknown.svg",
                   "id" : "allergens_no_soybeans",
                   "name" : "Soybeans",
+                  "panel_id" : "ingredients",
                   "status" : "unknown",
                   "title" : "Presence unknown: Soybeans"
                },
@@ -128,6 +135,7 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/celery-content-unknown.svg",
                   "id" : "allergens_no_celery",
                   "name" : "Celery",
+                  "panel_id" : "ingredients",
                   "status" : "unknown",
                   "title" : "Presence unknown: Celery"
                },
@@ -137,6 +145,7 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/mustard-content-unknown.svg",
                   "id" : "allergens_no_mustard",
                   "name" : "Mustard",
+                  "panel_id" : "ingredients",
                   "status" : "unknown",
                   "title" : "Presence unknown: Mustard"
                },
@@ -146,6 +155,7 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/lupin-content-unknown.svg",
                   "id" : "allergens_no_lupin",
                   "name" : "Lupin",
+                  "panel_id" : "ingredients",
                   "status" : "unknown",
                   "title" : "Presence unknown: Lupin"
                },
@@ -155,6 +165,7 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/fish-content-unknown.svg",
                   "id" : "allergens_no_fish",
                   "name" : "Fish",
+                  "panel_id" : "ingredients",
                   "status" : "unknown",
                   "title" : "Presence unknown: Fish"
                },
@@ -164,6 +175,7 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/crustaceans-content-unknown.svg",
                   "id" : "allergens_no_crustaceans",
                   "name" : "Crustaceans",
+                  "panel_id" : "ingredients",
                   "status" : "unknown",
                   "title" : "Presence unknown: Crustaceans"
                },
@@ -173,6 +185,7 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/molluscs-content-unknown.svg",
                   "id" : "allergens_no_molluscs",
                   "name" : "Molluscs",
+                  "panel_id" : "ingredients",
                   "status" : "unknown",
                   "title" : "Presence unknown: Molluscs"
                },
@@ -182,6 +195,7 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/sulphur-dioxide-and-sulphites-content-unknown.svg",
                   "id" : "allergens_no_sulphur_dioxide_and_sulphites",
                   "name" : "Sulphur dioxide and sulphites",
+                  "panel_id" : "ingredients",
                   "status" : "unknown",
                   "title" : "Presence unknown: Sulphur dioxide and sulphites"
                }
@@ -197,7 +211,7 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/vegan-status-unknown.svg",
                   "id" : "vegan",
                   "name" : "Vegan",
-                  "panel_id" : "ingredients_analysis_en:vegan-status-unknown",
+                  "panel_id" : "ingredients",
                   "status" : "unknown",
                   "title" : "Vegan status unknown"
                },
@@ -206,7 +220,7 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/vegetarian-status-unknown.svg",
                   "id" : "vegetarian",
                   "name" : "Vegetarian",
-                  "panel_id" : "ingredients_analysis_en:vegetarian-status-unknown",
+                  "panel_id" : "ingredients",
                   "status" : "unknown",
                   "title" : "Vegetarian status unknown"
                },
@@ -215,7 +229,7 @@
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/palm-oil-content-unknown.svg",
                   "id" : "palm_oil_free",
                   "name" : "Palm oil free",
-                  "panel_id" : "ingredients_analysis_en:palm-oil-content-unknown",
+                  "panel_id" : "ingredients",
                   "status" : "unknown",
                   "title" : "Palm oil content unknown"
                }
@@ -694,7 +708,7 @@
                "environment"
             ]
          },
-         "packaging_recycling" : {
+         "packaging_components" : {
             "elements" : [
                {
                   "element_type" : "text",
@@ -705,6 +719,78 @@
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
                      "type" : "summary"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Packaging parts"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging_materials" : {
+            "elements" : [
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Material",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "%",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Packaging weight",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "packaging_materials",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Plastic"
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Packaging materials"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Packaging materials"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging_recycling" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_components"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_materials"
                   }
                }
             ],
@@ -745,7 +831,7 @@
                "id" : "en:plastic",
                "lc_name" : "Plastic"
             },
-            "number_of_units" : 1,
+            "number_of_units" : "1",
             "shape" : {
                "id" : "en:bag",
                "lc_name" : "Bag"

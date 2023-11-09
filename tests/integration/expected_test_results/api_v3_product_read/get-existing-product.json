@@ -1,8 +1,8 @@
 {
-   "code" : "200000000034",
+   "code" : "4260392550101",
    "errors" : [],
    "product" : {
-      "_id" : "200000000034",
+      "_id" : "4260392550101",
       "_keywords" : [
          "cookie",
          "organic",
@@ -56,21 +56,22 @@
          "en:biscuits"
       ],
       "checkers_tags" : [],
-      "code" : "200000000034",
+      "code" : "4260392550101",
       "codes_tags" : [
-         "code-12",
-         "200000000xxx",
-         "20000000xxxx",
-         "2000000xxxxx",
-         "200000xxxxxx",
-         "20000xxxxxxx",
-         "2000xxxxxxxx",
-         "200xxxxxxxxx",
-         "20xxxxxxxxxx",
-         "2xxxxxxxxxxx"
+         "code-13",
+         "4260392550xxx",
+         "426039255xxxx",
+         "42603925xxxxx",
+         "4260392xxxxxx",
+         "426039xxxxxxx",
+         "42603xxxxxxxx",
+         "4260xxxxxxxxx",
+         "426xxxxxxxxxx",
+         "42xxxxxxxxxxx",
+         "4xxxxxxxxxxxx"
       ],
       "complete" : 0,
-      "completeness" : 0.5,
+      "completeness" : 0.4,
       "correctors_tags" : [],
       "created_t" : "--ignore--",
       "creator" : "tests",
@@ -103,7 +104,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : "0",
+                     "epi_score" : 0,
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : null
@@ -573,13 +574,13 @@
       },
       "generic_name" : "Tester",
       "generic_name_en" : "Tester",
-      "grades" : {},
-      "id" : "200000000034",
+      "id" : "4260392550101",
       "informers_tags" : [
          "tests"
       ],
       "ingredients" : [
          {
+            "ciqual_food_code" : "13050",
             "id" : "en:apple",
             "percent_estimate" : 62.5,
             "percent_max" : 100,
@@ -598,6 +599,7 @@
             "vegetarian" : "yes"
          },
          {
+            "ciqual_food_code" : "22000",
             "id" : "en:egg",
             "percent_estimate" : 9.375,
             "percent_max" : 33.3333333333333,
@@ -607,6 +609,7 @@
             "vegetarian" : "yes"
          },
          {
+            "ciqual_food_code" : "16129",
             "from_palm_oil" : "yes",
             "id" : "en:palm-oil",
             "percent_estimate" : 9.375,
@@ -637,6 +640,7 @@
       "ingredients_hierarchy" : [
          "en:apple",
          "en:fruit",
+         "en:malaceous-fruit",
          "en:milk",
          "en:dairy",
          "en:egg",
@@ -645,6 +649,7 @@
          "en:vegetable-oil-and-fat",
          "en:palm-oil-and-fat"
       ],
+      "ingredients_lc" : "en",
       "ingredients_n" : 4,
       "ingredients_n_tags" : [
          "4",
@@ -660,6 +665,7 @@
       "ingredients_tags" : [
          "en:apple",
          "en:fruit",
+         "en:malaceous-fruit",
          "en:milk",
          "en:dairy",
          "en:egg",
@@ -678,9 +684,13 @@
       "ingredients_with_specified_percent_sum" : 0,
       "ingredients_with_unspecified_percent_n" : 4,
       "ingredients_with_unspecified_percent_sum" : 100,
+      "ingredients_without_ciqual_codes" : [
+         "en:milk"
+      ],
+      "ingredients_without_ciqual_codes_n" : 1,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
-      "known_ingredients_n" : 9,
+      "known_ingredients_n" : 10,
       "labels" : "organic",
       "labels_hierarchy" : [
          "en:organic"
@@ -712,7 +722,6 @@
       "main_countries_tags" : [],
       "minerals_tags" : [],
       "misc_tags" : [
-         "en:nutriscore-not-computed",
          "en:nutrition-not-enough-data-to-compute-nutrition-score",
          "en:nutriscore-missing-nutrition-data",
          "en:nutriscore-missing-nutrition-data-energy",
@@ -722,6 +731,11 @@
          "en:nutriscore-missing-nutrition-data-sodium",
          "en:nutriscore-missing-nutrition-data-proteins",
          "en:nutrition-no-fiber",
+         "en:nutriscore-not-computed",
+         "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+         "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+         "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
+         "en:packagings-number-of-components-4",
          "en:packagings-not-complete",
          "en:packagings-not-empty-but-not-complete",
          "en:packagings-not-empty",
@@ -754,23 +768,102 @@
       "nutrient_levels" : {},
       "nutrient_levels_tags" : [],
       "nutriments" : {
-         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25,
-         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 25,
+         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 62.5,
+         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 62.5,
+         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 62.5,
+         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 62.5,
          "nova-group" : 3,
          "nova-group_100g" : 3,
          "nova-group_serving" : 3
       },
+      "nutriscore" : {
+         "2021" : {
+            "category_available" : 1,
+            "data" : {
+               "energy" : null,
+               "fiber" : 0,
+               "fruits_vegetables_nuts_colza_walnut_olive_oils" : 62.5,
+               "is_beverage" : 0,
+               "is_cheese" : 0,
+               "is_fat" : 0,
+               "is_water" : 0,
+               "proteins" : null,
+               "saturated_fat" : null,
+               "sodium" : null,
+               "sugars" : null
+            },
+            "grade" : "unknown",
+            "nutrients_available" : 0,
+            "nutriscore_applicable" : 1,
+            "nutriscore_computed" : 0
+         },
+         "2023" : {
+            "category_available" : 1,
+            "data" : {
+               "energy" : null,
+               "fiber" : 0,
+               "fruits_vegetables_legumes" : 62.5,
+               "is_beverage" : 0,
+               "is_cheese" : 0,
+               "is_fat_oil_nuts_seeds" : 0,
+               "is_red_meat_product" : 0,
+               "is_water" : 0,
+               "proteins" : null,
+               "salt" : null,
+               "saturated_fat" : null,
+               "sugars" : null
+            },
+            "grade" : "unknown",
+            "nutrients_available" : 0,
+            "nutriscore_applicable" : 1,
+            "nutriscore_computed" : 0
+         }
+      },
+      "nutriscore_2021_tags" : [
+         "unknown"
+      ],
+      "nutriscore_2023_tags" : [
+         "unknown"
+      ],
+      "nutriscore_grade" : "unknown",
+      "nutriscore_tags" : [
+         "unknown"
+      ],
+      "nutriscore_version" : "2021",
       "nutrition_data_per" : "100g",
       "nutrition_data_prepared_per" : "100g",
+      "nutrition_grade_fr" : "unknown",
+      "nutrition_grades" : "unknown",
       "nutrition_grades_tags" : [
          "unknown"
       ],
       "nutrition_score_beverage" : 0,
-      "nutrition_score_debug" : "missing energy - missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
+      "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 62.5,
+      "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
+      "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 62.5,
       "nutrition_score_warning_no_fiber" : 1,
       "origin" : "france",
       "origin_en" : "france",
       "other_nutritional_substances_tags" : [],
+      "packaging_materials_tags" : [
+         "en:glass",
+         "en:plastic",
+         "en:steel",
+         "en:wood"
+      ],
+      "packaging_recycling_tags" : [
+         "en:discard",
+         "en:recycle",
+         "en:reuse"
+      ],
+      "packaging_shapes_tags" : [
+         "en:bottle",
+         "en:box",
+         "en:film",
+         "en:lid"
+      ],
       "packaging_text" : "1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
       "packaging_text_en" : "1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
       "packagings" : [
@@ -826,6 +919,14 @@
             }
          }
       ],
+      "packagings_materials" : {
+         "all" : {},
+         "en:glass" : {},
+         "en:metal" : {},
+         "en:plastic" : {},
+         "en:unknown" : {}
+      },
+      "packagings_n" : 4,
       "photographers_tags" : [],
       "pnns_groups_1" : "Sugary snacks",
       "pnns_groups_1_tags" : [
@@ -844,13 +945,12 @@
       "quantity" : "100 g",
       "removed_countries_tags" : [],
       "rev" : 1,
-      "scores" : {},
       "serving_quantity" : "10",
       "serving_size" : "10 g",
-      "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+      "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [
          "en:to-be-completed",
-         "en:nutrition-facts-completed",
+         "en:nutrition-facts-to-be-completed",
          "en:ingredients-completed",
          "en:expiration-date-to-be-completed",
          "en:packaging-code-to-be-completed",
@@ -865,7 +965,7 @@
       ],
       "states_tags" : [
          "en:to-be-completed",
-         "en:nutrition-facts-completed",
+         "en:nutrition-facts-to-be-completed",
          "en:ingredients-completed",
          "en:expiration-date-to-be-completed",
          "en:packaging-code-to-be-completed",

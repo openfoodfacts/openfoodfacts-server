@@ -77,19 +77,18 @@ Data about food is of public interest and has to be open (i.e available to every
 <details><summary><h2>How do I get started? </h2></summary>
 
 * Join us on Slack at <https://openfoodfacts.slack.com/> in the channels: `#api`, `#productopener`, `#dev`.
-* [API Documentation](https://openfoodfacts.github.io/api-documentation/)
-* [NEW API Documentation (WIP)](https://openfoodfacts.github.io/openfoodfacts-server/reference/api/) ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/reference/api.yml))
+* [API v2 Documentation (WIP)](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/) ([source](https://github.com/openfoodfacts/openfoodfacts-server/tree/main/docs/api/ref/api.yml))
 
 * Developer documentation:
   * [Server Documentation](https://openfoodfacts.github.io/openfoodfacts-server/)
-  * [Quick start guide (Docker)](./docs/introduction/dev-environment-quick-start-guide.md)
-  * [Developer guide (Docker)](./docs/how-to-guides/docker-developer-guide.md)
-  * [Developer guide (Gitpod)](./docs/how-to-guides/use-gitpod.md)
+  * [Quick start guide (Docker)](./docs/dev/how-to-quick-start-guide.md)
+  * [Developer guide (Docker)](./docs/dev/how-to-develop-using-docker.md)
+  * [Developer guide (Gitpod)](./docs/dev/how-to-use-gitpod.md)
   * Configuration [TBA]
   * Dependencies [TBA]
   * Database configuration [TBA]
   * How to run tests [TBA]
-  * [Perl modules documentation (POD)](https://openfoodfacts.github.io/reference/perl/)
+  * [Perl modules documentation (POD)](https://openfoodfacts.github.io/dev/ref-perl/)
 
 
 Note: documentation follows the [Diátaxis Framework](https://diataxis.fr/)
@@ -139,7 +138,7 @@ Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com
 
 ## Sponsors
 
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/openfoodfacts-server#sponsor)]
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [Become a sponsor](https://opencollective.com/openfoodfacts-server#sponsor)
 
 <a href="https://opencollective.com/openfoodfacts-server/sponsor/0/website" target="_blank"><img src="https://opencollective.com/openfoodfacts-server/sponsor/0/avatar.svg"></a>
 <a href="https://opencollective.com/openfoodfacts-server/sponsor/1/website" target="_blank"><img src="https://opencollective.com/openfoodfacts-server/sponsor/1/avatar.svg"></a>

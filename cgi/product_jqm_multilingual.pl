@@ -56,6 +56,7 @@ use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::API qw/:all/;
+use ProductOpener::APIProductWrite qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -308,10 +309,6 @@ else {
 		}
 	}
 
-	# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
-	# when the corresponding organization has the protect_data checkbox checked
-	my $protected_data = product_data_is_protected($product_ref);
-
 	foreach my $field (@app_fields, 'nutrition_data_per', 'serving_size', 'traces', 'ingredients_text', 'origin',
 		'packaging_text', 'lang')
 	{
@@ -344,48 +341,48 @@ else {
 					existing_value => $product_ref->{$field}
 				}
 			) if $log->is_debug();
+			next;
 		}
 
-		elsif (defined single_param($field)) {
+		if (defined single_param($field)) {
 
-			# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
-			if (($protected_data) and (defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
-				$log->debug("producer data already exists for field, skip empty value",
-					{field => $field, code => $code, existing_value => $product_ref->{$field}})
-					if $log->is_debug();
+			# Only moderators can update values for fields sent by the producer
+			if (skip_protected_field($product_ref, $field, $User{moderator})) {
+				next;
+			}
+
+			if ($field eq "lang") {
+				my $value = remove_tags_and_quote(decode utf8 => single_param($field));
+
+				# strip variants fr-BE fr_BE
+				$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
+				$value = lc($value);
+
+				# skip unrecognized languages (keep the existing lang & lc value)
+				if (defined $lang_lc{$value}) {
+					$product_ref->{lang} = $value;
+					$product_ref->{lc} = $value;
+				}
 
 			}
+			elsif ($field eq "ecoscore_extended_data") {
+				# we expect a JSON value
+				if (defined single_param($field)) {
+					$product_ref->{$field} = decode_json(single_param($field));
+				}
+			}
 			else {
-				if ($field eq "lang") {
-					my $value = remove_tags_and_quote(decode utf8 => single_param($field));
+				$product_ref->{$field} = preprocess_product_field($field, decode utf8 => single_param($field));
 
-					# strip variants fr-BE fr_BE
-					$value =~ s/^([a-z][a-z])(-|_).*$/$1/i;
-					$value = lc($value);
-
-					# skip unrecognized languages (keep the existing lang & lc value)
-					if (defined $lang_lc{$value}) {
-						$product_ref->{lang} = $value;
-						$product_ref->{lc} = $value;
-					}
-
+				# If we have a language specific field like "ingredients_text" without a language code suffix
+				# we assume it is in the language of the interface
+				if (defined $language_fields{$field}) {
+					my $field_lc = $field . "_" . $lc;
+					$product_ref->{$field_lc} = $product_ref->{$field};
+					delete $product_ref->{$field};
 				}
-				elsif ($field eq "ecoscore_extended_data") {
-					# we expect a JSON value
-					if (defined single_param($field)) {
-						$product_ref->{$field} = decode_json(single_param($field));
-					}
-				}
-				else {
-					$product_ref->{$field} = remove_tags_and_quote(decode utf8 => single_param($field));
 
-					if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
-						my $field_lc = $field . "_" . $product_ref->{lc};
-						$product_ref->{$field_lc} = $product_ref->{$field};
-					}
-
-					compute_field_tags($product_ref, $lc, $field);
-				}
+				compute_field_tags($product_ref, $lc, $field);
 			}
 		}
 
@@ -395,18 +392,13 @@ else {
 				my $field_lc = $field . '_' . $param_lang;
 				if (defined single_param($field_lc)) {
 
-					# Do not allow edits / removal through API for data provided by producers (only additions for non existing fields)
-					if (($protected_data) and (defined $product_ref->{$field_lc}) and ($product_ref->{$field_lc} ne ""))
-					{
-						$log->debug("producer data already exists for field, skip empty value",
-							{field_lc => $field_lc, code => $code, existing_value => $product_ref->{$field_lc}})
-							if $log->is_debug();
+					# Only moderators can update values for fields sent by the producer
+					if (skip_protected_field($product_ref, $field_lc, $User{moderator})) {
+						next;
 					}
-					else {
 
-						$product_ref->{$field_lc} = remove_tags_and_quote(decode utf8 => single_param($field_lc));
-						compute_field_tags($product_ref, $lc, $field_lc);
-					}
+					$product_ref->{$field_lc} = remove_tags_and_quote(decode utf8 => single_param($field_lc));
+					compute_field_tags($product_ref, $lc, $field_lc);
 				}
 			}
 		}
@@ -414,14 +406,7 @@ else {
 
 	# Nutrition data
 
-	# Do not allow nutrition edits through API for data provided by producers
-	if (($protected_data) and (defined $product_ref->{"nutriments"})) {
-		print STDERR
-			"product_jqm_multilingual.pm - code: $code - nutrition data provided by producer exists, skip nutrients\n";
-	}
-	else {
-		assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table);
-	}
+	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table, $User{moderator});
 
 	analyze_and_enrich_product_data($product_ref, $response_ref);
 

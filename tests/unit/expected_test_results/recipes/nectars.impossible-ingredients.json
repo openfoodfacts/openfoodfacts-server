@@ -9,6 +9,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "18066",
          "id" : "en:water",
          "percent_estimate" : 25,
          "text" : "water",
@@ -34,6 +35,7 @@
       "en:orange-juice",
       "en:fruit",
       "en:citrus-fruit",
+      "en:juice",
       "en:fruit-juice",
       "en:orange",
       "en:water",
@@ -56,6 +58,7 @@
       "en:orange-juice",
       "en:fruit",
       "en:citrus-fruit",
+      "en:juice",
       "en:fruit-juice",
       "en:orange",
       "en:water",
@@ -68,9 +71,16 @@
    "ingredients_with_specified_percent_sum" : 80,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 25,
-   "known_ingredients_n" : 9,
+   "ingredients_without_ciqual_codes" : [
+      "en:orange-juice",
+      "en:sugar"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "known_ingredients_n" : 10,
    "lc" : "en",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 50,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 50,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 50
    },

@@ -1,9 +1,19 @@
 {
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-2",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:metal",
+      "en:plastic"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:bottle",
+      "en:box"
    ],
    "packaging_text" : "1 boîte en métal,4 bouteilles (plastique).",
    "packagings" : [
@@ -17,5 +27,11 @@
          "number_of_units" : 4,
          "shape" : "en:bottle"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:metal" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 2
 }

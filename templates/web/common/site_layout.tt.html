@@ -16,8 +16,8 @@
     <meta property="og:description" content="[% canon_description %]">
     [% options_favicons %]
     <link rel="canonical" href="[% canon_url %]">
-    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% lang('text_direction') %].css?v=[% css_timestamp %]">
-    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% lang('text_direction') %].css?v=[% css_timestamp %]" data-base-layout="true">
+    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/select2.min.css">
     <link rel="search" href="[% formatted_subdomain %]/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="[% lang('site_name') %]">
 	[% header %]
@@ -39,23 +39,42 @@
 					<ul class="left">
 
 						<li class="has-dropdown">
-							<a>
+							<a id="menu_link">
 								<span class="material-icons">
 									menu
 								</span>
 							</a>
 							<ul class="dropdown">				
+								[% IF !(server_options_producers_platform) %]
+									<li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
+									<li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
+									<li class="divider"></li>
+									<li><label>[% lang("add_products") %]</label></li>
+									<li><a href="[% lang('get_the_app_link') %]">[% lang('install_the_app_to_add_products') %]</a></li>
+									<li><a href="/cgi/product.pl?type=search_or_add&action=display">[% lang('add_product') %]</a></li>
+								[% ELSE %]
+									<li><label>[% lang("import_and_export_products") %]</label></li>
+									<li><a href="/cgi/import_file_upload.pl">[% lang('import_product_data') %]</a></li>
+									<li><a href="/cgi/import_photos_upload.pl">[% lang('import_product_photos') %]</a></li>
+									<li><a href="/cgi/product.pl?type=search_or_add&action=display">[% lang('add_product') %]</a></li>
+									<li><a href="/cgi/export_products.pl">[% lang('export_product_data_photos') %]</a></li>
+									<li><a href="/cgi/remove_products.pl">[% lang('remove_products_from_producers_platform') %]</a></li>
 
-								<li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
-								<li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
+									<li class="divider"></li>
+
+									<li><label>[% lang("resources") %]</label></li>
+									<ul>[% INCLUDE 'web/common/producers_resources_list.tt.html' %]</ul>
+								[% END %]
+
+								<li class="divider"></li>
+								<li><label>[% lang("search_and_analyze_products") %]</label></li>
+
 								<li>
 									<a href="/cgi/search.pl">[% lang('advanced_search') %]</a>
 								</li>
 								<li>
 									<a href="/cgi/search.pl?graph=1">[% lang('graphs_and_maps') %]</a>
 								</li>
-
-								<li><a href="/cgi/product.pl?type=search_or_add&action=display">[% lang('add_product') %]</a></li>
 							</ul>
 						</li>
 						
@@ -66,14 +85,12 @@
 										<option></option>
 									</select>
 								</li>
-                [% IF langs.match('<a>') %]
-									<li class="has-dropdown">
-										[% selected_lang %]
-										<ul class="dropdown">
-											[% langs %]
-										</ul>
-									</li>
-								[% END %]
+								<li class="has-dropdown">
+									[% selected_lang %]
+									<ul class="dropdown">
+										[% langs %]
+									</ul>
+								</li>
 							</ul>
 						</li>
 					</ul>
@@ -98,12 +115,26 @@
 									[% user.name %]
 								</a>
 								<ul class="dropdown">
-									<li><a href="/cgi/user.pl?type=edit&userid=[% user_id %]"><span class="material-icons">settings</span> Parameters</a></li>
+									<li><a href="/cgi/user.pl?type=edit&userid=[% user_id %]"><span class="material-icons">settings</span> [% lang('edit_user') %]</a></li>
+
+									[% IF org_id %]
+										<li class="divider"></li>			
+										<li><label>[% lang('organization') %]</label></li>
+										[%# No need to show the link to the organization page on the producers platform as there are only products from that organization %]
+										[% IF !server_options_producers_platform %]
+											<li><a id="logged_in_org_id" href="/editor/org-[% org_id %]">[% lang('organization') %][% sep %]: [% IF org_name == '' %][% org_id %][% ELSE %][% org_name %][% END %]</a></li>
+										[% END %]
+										<li><a href="/cgi/org.pl?type=edit&orgid=[% org_id %]"> [% lang('edit_org_profile') %]</a></li>
+									[% END %]
+
+									[%# Do not show individual contributions on the producers platform %]
+									[% IF !(server_options_producers_platform) %]
 									<li class="divider"></li>			
 									<li><label>[% lang('your_contributions') %]</label></li>
 									<li><a href="[% canonicalize_taxonomy_tag_link("users", user_id) %]">[% lang('products_added') %]</a></li>
 									<li><a href="[% canonicalize_taxonomy_tag_link("editors", user_id) %]">[% lang('products_edited') %]</a></li>
 									<li><a href="[% canonicalize_taxonomy_tag_link("photographers", user_id) %]">[% lang('products_photographed') %]</a></li>
+									[% END %]
 									<li class="divider"></li>			
 									<li class="has-form">
 										<form method="post" action="/cgi/session.pl">
@@ -127,9 +158,19 @@
 
 					<ul class="title-area">
 						<li class="name">
-							<a href="/" style="font-size:1rem;"><img id="logo" src="[% static_subdomain %]/images/logos/off-logo-horizontal-light.svg" alt="[% lang('logo_site_name') %]" style="margin:8px;height:48px;width:auto;"></a>
+							<div style="position:relative;max-width:292px;">
+								<a href="/">
+								<img id="logo" src="[% static_subdomain %]/images/logos/off-logo-horizontal-light.svg" alt="[% lang('logo_site_name') %]" style="margin:8px;height:48px;width:auto;">
+								[% IF server_options_producers_platform %]
+								<span id="professionals" style="position:absolute;bottom:2px;right:8px;line-height:1rem;font-size:1.2rem;">professionals</span>
+								[% END %]
+							</a>
+							</div>
 						</li>
 					</ul>
+
+					[%# Show the search bar on the producers platform only when the producer is logged in %]
+					[% IF !(server_options_producers_platform) || (user_id.defined) %]
 					<section class="top-bar-section">
 					
 						<ul class="left small-4" style="margin-right:2rem;">
@@ -152,14 +193,13 @@
 							</li>
 						</ul>
 					<ul class="search_and_links">
-					
-					[% IF !(server_options_producers_platform) %]
 						<li><a href="[% lang('menu_discover_link') %]" class="top-bar-links">[% lang('menu_discover') %]</a></li>
 						<li><a href="[% lang('menu_contribute_link') %]" class="top-bar-links">[% lang('menu_contribute') %]</a></li>
+						<li class="show-for-xlarge-up"><a href="[% lang('footer_producers_link') %]" class="top-bar-links">[% lang('footer_producers') %]</a></li>
 						<li class="flex-grid getapp"><a href="[% lang('get_the_app_link') %]" class="buttonbar button" style="top:0;">[% display_icon('phone_android') %] <span class="bt-text">[% lang('get_the_app') %]</span></a></li>
-					[% END %]
 					</ul>
 					</section>
+					[% END %]
 				</nav>
 			</div>
 		</div>
@@ -201,7 +241,7 @@
 				<!-- full width banner on mobile -->
 				
 				[% IF mobile %]
-					<a href="[% mobile.link %]" class="button large expand success">
+					<a href="[% mobile.link %]" id="mobile-app-top-banner" class="button large expand success">
 					<div class="row collapse">
 						<div class="small-6 columns">
 							[% mobile.text %]
@@ -222,10 +262,21 @@
 
 				<div class="main block_light">
 					<div id="main_column">
-          [% PROCESS 'web/common/includes/donate_banner.tt.html' %]
-          [% banner_main %]
-            [% IF page_format == "banner" %]
-							<!-- banner pages such as product and product edit form have their own h1 title -->
+						[% IF ! server_options_producers_platform %]
+							[%# for now, display the packagings banner in all cases %]
+							[% IF 1 == 0 %]
+								[% INCLUDE 'web/common/includes/offdays_banner.tt.html' %]							
+							[% ELSIF 1 == 2 %]
+								[% INCLUDE 'web/common/includes/packagings_banner.tt.html' %]
+							[% ELSE %]
+								[%# we keep the old code so that we can easily put back the donation banner %]
+          						[% PROCESS 'web/common/includes/donate_banner.tt.html' %]
+								[% banner_main %]
+							[% END %]
+						[% END %]
+            			
+						[% IF page_format == "banner" %]
+							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
 							[% content %]
 						[% ELSIF page_type == "products" %]
 							[% IF schema_org_itemtype.defined %]
@@ -233,17 +284,7 @@
 								<div itemscope itemtype="[% schema_org_itemtype %]">
 									<div class="row">
 										<div class="small-12 column v-space-short">
-											<h1 itemprop="name">[% title %]
-                        <sup>
-                        [% IF request.tagtype == "categories" %]
-                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=category&amp;value_tag=[% request.canon_tagid %]">[% f_lang('f_help_categorize_on_hunger_games', { title => lang('categories').lcfirst } ) %]</a>
-                        [% ELSIF request.tagtype == "labels" %]
-                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=labels&amp;value_tag=[% canonicalize_taxonomy_tag_link("labels", title) %]">[% f_lang('f_help_categorize_on_hunger_games', { title => lang('labels').lcfirst } ) %]</a>
-                        [% ELSIF request.tagtype == "brands" %]
-                          <a class="button tiny round secondary label" href="https://hunger.openfoodfacts.org/questions?type=brands&amp;value_tag=[% canonicalize_taxonomy_tag_link("brands", title) %]">[% f_lang('f_help_categorize_on_hunger_games', { title => lang('brands').lcfirst } ) %]</a>
-                        [% END %]
-                        </sup>
-                  </h1>
+											<h1 itemprop="name">[% title %]</h1>
 										</div>
 									</div>
 								  [% content %]
@@ -293,9 +334,11 @@
 				</div>
 			</div>
 
-      [% PROCESS 'web/common/includes/donate_banner.tt.html' %]
-      [% banner_footer %]
-
+			[% IF ! server_options_producers_platform %]
+      			[% PROCESS 'web/common/includes/donate_banner.tt.html' %]
+				[% banner_footer %]
+			[% END %]
+      		
 			<div class="block_light block_cappucino" id="contribute_and_discover_links_block">
 				<div class="row">
 					<div class="small-12 large-6 columns v-space-normal block_off">
@@ -361,9 +404,9 @@
 
 	</div>
 
-<script src="[% static_subdomain %]/js/dist/modernizr.js"></script>
-<script src="[% static_subdomain %]/js/dist/jquery.js"></script>
-<script src="[% static_subdomain %]/js/dist/jquery-ui.js"></script>
+<script src="[% static_subdomain %]/js/dist/modernizr.js" data-base-layout="true"></script>
+<script src="[% static_subdomain %]/js/dist/jquery.js" data-base-layout="true"></script>
+<script src="[% static_subdomain %]/js/dist/jquery-ui.js" data-base-layout="true"></script>
 <script src="[% static_subdomain %]/js/dist/hc-sticky.js"></script>
 <script src="[% static_subdomain %]/js/dist/display.js"></script>
 <script src="[% static_subdomain %]/js/dist/stikelem.js"></script>
@@ -387,7 +430,7 @@
 <script src="https://support.openfoodfacts.org/assets/chat/chat.min.js"></script>
 [% END %]
 
-<script src="[% static_subdomain %]/js/dist/foundation.js"></script>
+<script src="[% static_subdomain %]/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="[% static_subdomain %]/js/dist/jquery.cookie.js"></script>
 <script src="[% static_subdomain %]/js/dist/select2.min.js"></script>
 [% scripts %]
@@ -430,7 +473,7 @@
 
 [% SET crowdin_languages = ["aa","ar","ber","br","co","fa","ga","hy","iu","kk","lb","me","mr","ne","no","ry","sd","sl","sq","st","tg","tr","tzl","val","wa","zea","zu","ach","as","bg","bs","crs","eo","fi","gd","hi","id","ja","km","ku","lo","mg","ms","nr","pa","qu","sa","sg","sma","sr","sv","th","ts","ug","ve","wo","zh","af","ast","bm","ca","cs","el","fil","gl","hr","ii","jv","kmr","kw","mi","mt","pl","rm","sat","sh","sn","sr_CS","sw","ti","tt","uk","vec","xh","ak","az","bn","ce","cv","et","fo","gu","ht","is","ka","kmr_TR","ky","lt","ml","my","oc","ro","sc","si","so","sr_RS","ta","tl","tw","ur","vi","yi","am","be","bo","chr","cy","eu","ha","hu","kab","kn","la","lv","mn","nb","nn","ru","sco","sk","son","ss","te","tn","ty","uz","vls","yo"] %]
 
-[% IF crowdin_languages.grep("^$lc$").size %]
+[% IF crowdin_languages.grep("^$lc$").size and user_id.defined %]
 <script
   type="text/javascript"
   src="https://crowdin.com/js/crowdjet/crowdjet.js">

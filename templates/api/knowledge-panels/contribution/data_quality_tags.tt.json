@@ -1,0 +1,70 @@
+{
+    "level": "info",
+    "topics": [
+        "contribution"
+    ],
+    [%# only expand errors and info %]
+    [% IF panel.tags_type == "data_quality_errors" %]
+        "expand_for": "large",
+    [% ELSIF panel.tags_type == "data_quality_info" %]
+        "expand_for": "large",
+    [% ELSE %]
+        "expanded": false,
+    [% END %]
+    [% IF panel.tags_type == "data_quality_errors" %]
+        "evaluation": "bad",
+        [% icon_name = "data-error" %]
+    [% ELSIF panel.tags_type == "data_quality_warnings" %]
+        "evaluation": "average",
+        [% icon_name = "data-warning" %]
+    [% ELSE %]
+        "evaluation": "good",
+        [% icon_name = "data-info" %]
+    [% END %]
+    "title_element": {
+        "title": "[% lang(panel.tags_type _ '_panel_title') %]",
+        "subtitle": "[% lang(panel.tags_type _ '_panel_subtitle') %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/[% icon_name %].svg",
+        "icon_color_from_evaluation": true,
+    },
+    "elements": [
+        [% 
+            # we need description_key variable because we can't use ':' in key directly
+            description_key = 'description:en'
+            action_name = "action_$fix_action"
+        %]
+        [% FOREACH action_pair IN panel.quality_actions.pairs %]
+            [%
+                fix_action = action_pair.key
+            %]
+            {
+                "element_type": "text",
+                "text_element": {
+                    "html": `[% FILTER collapse %]
+                        <ul>
+                        [% FOREACH tag_pair IN action_pair.value -%]
+                            <li id="data-error-[% tag_pair.key %]">
+                              [% display_taxonomy_tag(panel.tags_type, tag_pair.key) %]
+                              [% IF tag_pair.value.$description_key.defined %]
+                                  <br><span class="description">[% tag_pair.value.$description_key %]</span>
+                              [% END %]
+                            </li>
+                        [%- END %]
+                        </ul>
+                    [% END %]`
+                },
+            },
+            [% IF fix_action != 'undef' %]
+                {
+                    "element_type": "action",
+                    "action_element": {
+                        "html": `[% lang(action_name) %]`,
+                        "actions": [
+                            "[% fix_action %]",
+                        ]
+                    },
+                },
+            [% END %]
+        [% END %]
+    ]
+}

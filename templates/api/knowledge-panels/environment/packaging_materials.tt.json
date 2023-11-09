@@ -1,0 +1,77 @@
+{
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+    "title_element": {
+        "title": "[% lang('packaging_materials') %]",           
+    },    
+    "expanded": true,
+    "elements": [
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "packaging_materials",
+                "title": "[% lang('packaging_materials') %]",
+                "columns": [                
+                    { 
+                        "text": "[% lang('packaging_material') %]",
+                        "type": "text",
+                    },
+                    { 
+                        "text": "%",
+                        "type": "text",
+                    },                        
+                    { 
+                        "text": "[% lang('packaging_weight_total') %]",
+                        "type": "text",
+                    },
+                    // packaging weight per 100g of product is computed only if we have a quantity
+                    [% IF product.product_quantity %]
+                    { 
+                        "text": "[% lang('packaging_weight_100g') %]",
+                        "type": "text",
+                    },
+                    [% END %]
+                ],
+                "rows": [
+                    // keep a counter of materials so that we don't display the "all" raw if there's only one material
+                    [% SET materials = 0 %]
+                    [% FOREACH parent_material IN ["en:paper-or-cardboard", "en:plastic", "en:glass", "en:metal", "all"] %]
+                        [% IF product.packagings_materials.$parent_material.defined %]
+                            [% IF parent_material != 'all' OR materials > 1 %]
+                                [% SET materials = materials + 1 %]
+                                [% SET parent_material_data = product.packagings_materials.$parent_material %]
+                                {
+                                    [% IF parent_material == 'all' %]
+                                    "style": "font-weight: bold",
+                                    [% END %]
+                                    "values": [
+                                        {
+                                            [% IF parent_material == 'all' %]
+                                            "text": "[% lang('total') %]",
+                                            [% ELSE %]
+                                            "text": "[% display_taxonomy_tag_name('packaging_materials',parent_material) %]"
+                                            [% END %]
+                                        },
+                                        {
+                                            "text": "[% IF parent_material_data.weight_percent %][% round(parent_material_data.weight_percent * 10) / 10 %]%[% END %]",
+                                        },                                        
+                                        {
+                                            "text": "[% IF parent_material_data.weight %][% parent_material_data.weight %] g[% END %]"
+                                        },
+                                        [% IF product.product_quantity %]
+                                        {
+                                            "text": "[% IF parent_material_data.weight_100g %][% round(parent_material_data.weight_100g * 10 ) / 10 %] g[% END %]"
+                                        },
+                                        [% END %]
+                                    ]
+                                },
+                            [% END %]
+                        [% END %]
+                    [% END %]
+                ]
+            }
+        },
+    ]
+}

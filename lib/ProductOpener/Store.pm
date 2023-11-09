@@ -298,7 +298,8 @@ sub sto_iter ($initial_path, $pattern = qr/\.sto$/i) {
 			while ((scalar @files == 0) && (scalar @dirs > 0)) {
 				my $current_dir = shift @dirs;
 				opendir(DIR, "$current_dir") or die "Cannot open $current_dir\n";
-				my @candidates = readdir(DIR);
+				# Sort files so that we always explore them in the same order (useful for tests)
+				my @candidates = sort readdir(DIR);
 				closedir(DIR);
 				foreach my $file (@candidates) {
 					# avoid ..

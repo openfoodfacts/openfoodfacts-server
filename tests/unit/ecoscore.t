@@ -601,12 +601,30 @@ my @tests = (
 		},
 	],
 
-	# Qunioa - has a new category code
+	# Quinoa - has a new category code
 	[
 		'agribalyse-updated-category',
 		{
 			lc => "fr",
 			categories_tags => ["en:quinoa"],
+		},
+	],
+
+	# Skyr
+	[
+		'skyr',
+		{
+			lc => "en",
+			categories_tags => ["en:skyrs"],
+		},
+	],
+
+	# Yogurt
+	[
+		'yogurt',
+		{
+			lc => "en",
+			categories_tags => ["en:yogurts"],
 		},
 	],
 

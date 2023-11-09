@@ -1,41 +1,46 @@
 <!-- start templates/[% template.name %] --> 
-<!--
-<div> 
-  <div class="row"> 
+
+<div class="row">
+  <div class="small-12 columns"> 
     [% IF error %]
       <p>[% error %]</p>
     [% END %]
     [% IF (current_link.defined) && !(jqm.defined) %]
-    [% IF country != 'en:world' %]
-      <p>&rarr; <a href= "[% world_subdomain %][% current_link %]"> [% lang('view_results_from_the_entire_world') %]</a></p> 
-    [% END %] 
-      <p>&rarr; <a href="[% current_link %]">[% lang('search_link') %]</a></p>
-      <br> 
+      [% IF !(server_options_producers_platform) %]
+      [% IF country != 'en:world' %]
+        <p>&rarr; <a href= "[% world_subdomain %][% current_link %]"> [% lang('view_results_from_the_entire_world') %]</a></p>
+      [% END %]
+      [% END %]
+      <!-- display a permalink if the url is for a script that may have POST parameters -->
+      [% IF current_link.match('/(search|search.pl)') %]
+        <p>&rarr; <a href="[% current_link %]">[% lang('search_link') %]</a></p>
+      [% END %]
     [% END %]
     [% IF (current_link_query_edit.defined) && !(jqm.defined) %]
       <p>&rarr; <a href="[% current_link_query_edit %]">[% lang('search_edit') %]</a></p>
-      <br> 
     [% END %]
   </div>
 </div>
+
 [% IF count > 0 %] [% IF (current_link_query_download.defined) && !(jqm.defined) %]
   <div class="row">
-    <p>&rarr;[% lang('search_download_results') %]</p>
-    [% IF count <= export_limit %]
-    <ul>
-      <li>
-        <a href="[% current_link_query_download %]&format=xlsx">[% lang('search_download_xlsx') %]</a>
-        ([% lang('search_download_xlsx_description') %])
-      </li>
-      <li>
-        <a href="[% current_link_query_download %]&format=csv">[% lang('search_download_csv') %]</a>
-        ([% lang('search_download_csv_description') %])
-      </li>
-    </ul>
-    [% END %]
+    <div class="small-12 columns"> 
+      <p>&rarr;[% lang('search_download_results') %]</p>
+      [% IF count <= export_limit %]
+      <ul>
+        <li>
+          <a href="[% current_link_query_download %]&format=xlsx">[% lang('search_download_xlsx') %]</a>
+          ([% lang('search_download_xlsx_description') %])
+        </li>
+        <li>
+          <a href="[% current_link_query_download %]&format=csv">[% lang('search_download_csv') %]</a>
+          ([% lang('search_download_csv_description') %])
+        </li>
+      </ul>
+      [% END %]
+    </div>
   </div>
 [% END %]
--->
 
 <div class="block short block_ristreto">
   <div class="row">

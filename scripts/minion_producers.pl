@@ -68,6 +68,8 @@ app->minion->add_task(
 app->minion->add_task(
 	import_products_categories_from_public_database => \&import_products_categories_from_public_database_task);
 
+app->minion->add_task(delete_user => \&ProductOpener::Users::delete_user_task);
+
 app->config(
 	hypnotoad => {
 		listen => [$server_options{minion_daemon_server_and_port}],

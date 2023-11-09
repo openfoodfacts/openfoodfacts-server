@@ -55,6 +55,8 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Numbers qw/:all/;
+use ProductOpener::Tags qw/:all/;
+use ProductOpener::Text qw/:all/;
 
 =head1 FUNCTIONS
 
@@ -75,6 +77,61 @@ sub unit_to_kcal ($value, $unit) {
 	return $value + 0;    # + 0 to make sure the value is treated as number
 }
 
+=head2 init_units_names()
+
+Create a map of all synonyms in all languages in the units taxonomy to an internal standard unit and conversion factor
+Also create a regexp matching all names.
+
+=cut
+
+my %units = ();
+my %units_names = ();
+my $units_regexp;
+
+sub init_units_names() {
+
+	foreach my $tagid (get_all_taxonomy_entries("units")) {
+
+		my $standard_unit = get_property("units", $tagid, "standard_unit:en");
+		my $conversion_factor = get_property("units", $tagid, "conversion_factor:en");
+		my $symbol = get_property("units", $tagid, "symbol:en");
+
+		$units{$tagid} = {
+			standard_unit => $standard_unit,
+			conversion_factor => $conversion_factor,
+			symbol => $symbol,
+		};
+
+		# If there is a symbol, add it to the unit names
+		if (defined $symbol) {
+			$units_names{lc($symbol)} = $tagid;
+		}
+
+		foreach my $language (sort keys %{$translations_to{"units"}{$tagid}}) {
+
+			foreach my $synonym (get_taxonomy_tag_synonyms($language, "units", $tagid)) {
+
+				# using lc as we want to match case insensitive
+				# but not using get_string_id_for_lang as we want to keep symbols like %
+				$units_names{lc($synonym)} = $tagid;
+			}
+		}
+	}
+
+	# Construct a regexp that match all unit names
+	# We want to match the longest strings first
+
+	$units_regexp = join(
+		'|', map {regexp_escape($_)}
+			sort {(length $b <=> length $a) || ($a cmp $b)}
+			keys %units_names
+	);
+
+	return;
+}
+
+init_units_names();
+
 =head2 unit_to_g($value, $unit)
 
 Converts <xx><unit> into <xx>grams. Eg.:
@@ -83,84 +140,37 @@ unit_to_g(520,mg) => returns 0.52
 
 =cut
 
-# This is a key:value pairs
-# The keys are the unit names and the values are the multipliers we can use to convert to a standard unit.
-# We can divide by these values to do the reverse ie, Convert from standard to non standard
-my %unit_conversion_map = (
-	# kg = 公斤 - gōngjīn = кг
-	"\N{U+516C}\N{U+65A4}" => 1000,
-	# l = 公升 - gōngshēng = л = liter
-	"\N{U+516C}\N{U+5347}" => 1000,
-	'kg' => 1000,
-	'кг' => 1000,
-	'l' => 1000,
-	'л' => 1000,
-	# mg = 毫克 - háokè = мг
-	"\N{U+6BEB}\N{U+514B}" => 0.001,
-	'mg' => 0.001,
-	'мг' => 0.001,
-	'mcg' => 0.000001,
-	'µg' => 0.000001,
-	'oz' => 28.349523125,
-	'fl oz' => 30,
-	'dl' => 100,
-	'дл' => 100,
-	'cl' => 10,
-	'кл' => 10,
-	# 斤 - jīn = 500 Grams
-	"\N{U+65A4}" => 500,
-	# Standard units: No conversion units
-	# Value without modification if it's already grams or 克 (kè) or 公克 (gōngkè) or г
-	'g' => 1,
-	'' => 1,
-	' ' => 1,
-	'kj' => 1,
-	'克' => 1,
-	'公克' => 1,
-	'г' => 1,
-	'мл' => 1,
-	'ml' => 1,
-	'mmol/l' => 1,
-	"\N{U+6BEB}\N{U+5347}" => 1,
-	'% vol' => 1,
-	'ph' => 1,
-	'%' => 1,
-	'% dv' => 1,
-	'% vol (alcohol)' => 1,
-	'iu' => 1,
-	# Division factors for "non standard unit" to mmoll conversions
-	'mol/l' => 0.001,
-	'mval/l' => 2,
-	'ppm' => 100,
-	"\N{U+00B0}rh" => 40.080,
-	"\N{U+00B0}fh" => 10.00,
-	"\N{U+00B0}e" => 7.02,
-	"\N{U+00B0}dh" => 5.6,
-	'gpg' => 5.847
-);
-
 sub unit_to_g ($value, $unit) {
-	$unit = lc($unit);
 
-	if ($unit =~ /^(fl|fluid)(\.| )*(oz|once|ounce)/) {
-		$unit = "fl oz";
-	}
-
-	(not defined $value) and return $value;
+	# Return undef if not passed a defined value
+	not defined $value and return;
 
 	$value =~ s/,/\./;
 	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
-	$value eq '' and return $value;
+	$value =~ /^\s*$/ and return $value;
 
-	if (exists($unit_conversion_map{$unit})) {
-		return $value * $unit_conversion_map{$unit};
+	# Normalize the unit name
+	$unit = lc($unit);
+	my $unit_id = $units_names{$unit};
+
+	if (defined $unit_id) {
+
+		# For kcal, we want to return a rounded value
+		if ($unit eq 'kcal') {
+			return int($value * 4.184 + 0.5);
+		}
+
+		if (defined $units{$unit_id}{conversion_factor}) {
+			return $value * $units{$unit_id}{conversion_factor};
+		}
+	}
+	else {
+		$log->warn("unit not found", {unit => $unit}) if $log->is_warn();
 	}
 
-	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value * 4.184 + 0.5);
-
-	# We return with + 0 to make sure the value is treated as number (needed when outputting json and to store in mongodb as a number)
-	# lets not assume that we have a valid unit
-	return;
+	# If the unit is not recognized, we return with + 0 to make sure the value is treated as number
+	# (needed when outputting json and to store in mongodb as a number)
+	return $value + 0;
 }
 
 =head2 g_to_unit($value, $unit)
@@ -172,80 +182,45 @@ g_to_unit(0.52,mg) => returns 520
 =cut
 
 sub g_to_unit ($value, $unit) {
-	$unit = lc($unit);
 
-	if ((not defined $value) or ($value eq '')) {
-		return "";
-	}
-
-	$unit eq 'fl. oz' and $unit = 'fl oz';
-	$unit eq 'fl.oz' and $unit = 'fl oz';
+	# Return undef if not passed a defined value
+	not defined $value and return;
 
 	$value =~ s/,/\./;
 	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
+	$value =~ /^\s*$/ and return $value;
 
-	$value eq '' and return $value;
+	# Normalize the unit name
+	$unit = lc($unit);
+	my $unit_id = $units_names{$unit};
 
-	# Divide with the values in the hash
-	if (exists($unit_conversion_map{$unit})) {
-		return $value / $unit_conversion_map{$unit};
+	if (defined $unit_id) {
+
+		# For kcal, we want to return a rounded value
+		if ($unit eq 'kcal') {
+			return int($value / 4.184 + 0.5);
+		}
+
+		if (defined $units{$unit_id}{conversion_factor}) {
+			return $value / $units{$unit_id}{conversion_factor};
+		}
+	}
+	else {
+		$log->warn("unit not found", {unit => $unit}) if $log->is_warn();
 	}
 
-	(($unit eq 'kcal') or ($unit eq 'ккал')) and return int($value / 4.184 + 0.5);
-
-	# return value without modification if unit is already grams or 克 (kè) or 公克 (gōngkè) or г
-	return $value + 0;
-	# + 0 to make sure the value is treated as number
+	# If the unit is not recognized, we return with + 0 to make sure the value is treated as number
 	# (needed when outputting json and to store in mongodb as a number)
+	return $value + 0;
 }
 
 sub unit_to_mmoll ($value, $unit) {
-	$unit = lc($unit);
-
-	if ((not defined $value) or ($value eq '')) {
-		return '';
-	}
-
-	$value =~ s/,/\./;
-	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
-
-	# Divide with the values in the hash
-	if (exists($unit_conversion_map{$unit})) {
-		return $value / $unit_conversion_map{$unit};
-	}
-
-	return $value + 0;
+	return unit_to_g($value, $unit);
 }
 
 sub mmoll_to_unit ($value, $unit) {
-	$unit = lc($unit);
-
-	if ((not defined $value) or ($value eq '')) {
-		return '';
-	}
-
-	$value =~ s/,/\./;
-	$value =~ s/^(<|environ|max|maximum|min|minimum)( )?//;
-
-	# Multiply with the values in the hash
-	if (exists($unit_conversion_map{$unit})) {
-		return $value * $unit_conversion_map{$unit};
-	}
-
-	return $value + 0;
+	return g_to_unit($value, $unit);
 }
-
-my $international_units = qr/kg|g|mg|µg|oz|l|dl|cl|ml|(fl(\.?)(\s)?oz)/i;
-# Chinese units: a good start is https://en.wikipedia.org/wiki/Chinese_units_of_measurement#Mass
-my $chinese_units = qr/
-	(?:[\N{U+6BEB}\N{U+516C}]?\N{U+514B})|  # 毫克 or 公克 or 克 or (克 kè is the Chinese word for gram)
-	                                        #                      (公克 gōngkè is for "metric gram")
-	(?:\N{U+516C}?\N{U+65A4})|              # 公斤 or 斤 or         (公斤 gōngjīn is a "metric kg")
-	(?:[\N{U+6BEB}\N{U+516C}]?\N{U+5347})|  # 毫升 or 公升 or 升     (升 is liter)
-	\N{U+5428}                              # 吨                    (ton?)
-	/ix;
-my $russian_units = qr/г|мг|кг|л|дл|кл|мл/i;
-my $units = qr/$international_units|$chinese_units|$russian_units/i;
 
 =head2 normalize_quantity($quantity)
 
@@ -269,16 +244,19 @@ sub normalize_quantity ($quantity) {
 	# 6 bricks de 1 l
 	# 10 unités, 170 g
 	# 4 bouteilles en verre de 20cl
-	if ($quantity =~ /(\d+)(\s(\p{Letter}| )+)?(\s)?( de | of |x|\*)(\s)?((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
-		my $m = $1;
-		$q = lc($7);
-		$u = $12;
+	if ($quantity
+		=~ /(?<number>\d+)(\s(\p{Letter}| )+)?(\s)?( de | of |x|\*)(\s)?(?<quantity>(\d+)(\.|,)?(\d+)?)(\s)?(?<unit>$units_regexp)\b/i
+		)
+	{
+		my $m = $+{number};
+		$q = lc($+{quantity});
+		$u = $+{unit};
 		$q = convert_string_to_number($q);
 		$q = unit_to_g($q * $m, $u);
 	}
-	elsif ($quantity =~ /((\d+)(\.|,)?(\d+)?)(\s)?($units)/i) {
-		$q = lc($1);
-		$u = $6;
+	elsif ($quantity =~ /(?<quantity>(\d+)(\.|,)?(\d+)?)(\s)?(?<unit>$units_regexp)\s*\b/i) {
+		$q = lc($+{quantity});
+		$u = $+{unit};
 		$q = convert_string_to_number($q);
 		$q = unit_to_g($q, $u);
 	}
@@ -298,40 +276,16 @@ sub normalize_serving_size ($serving) {
 
 	# Regex captures any <number>( )?<unit-identifier> group, but leaves allowances for a preceding
 	# token to allow for patterns like "One bag (32g)", "1 small bottle (180ml)" etc
-	if ($serving =~ /^(.*[ \(])?(?<quantity>(\d+)(\.|,)?(\d+)?)( )?(?<unit>\w+)\b/i) {
+	if ($serving =~ /^(.*[ \(])?(?<quantity>(\d+)(\.|,)?(\d+)?)( )?(?<unit>$units_regexp)\b/i) {
 		my $q = $+{quantity};
-		my $u = normalize_unit($+{unit});
+		my $u = $+{unit};
 		$q = convert_string_to_number($q);
 
 		return unit_to_g($q, $u);
 	}
 
 	#$log->trace("serving size normalized", { serving => $serving, q => $q, u => $u }) if $log->is_trace();
-	return 0;
-}
-
-# @todo we should have equivalences for more units if we are supporting this
-my @unit_equivalences_list = (
-	['g', qr/gram(s)?/],
-	['g', qr/gramme(s)?/],    # French
-);
-
-=head2 normalize_unit ( $unit )
-
-Normalizes units to their standard symbolic forms so that we can support unit names and alternative
-representations in our normalization logic.
-
-=cut
-
-sub normalize_unit ($originalUnit) {
-
-	foreach my $unit_name (@unit_equivalences_list) {
-		if ($originalUnit =~ $unit_name->[1]) {
-			return $unit_name->[0];
-		}
-	}
-
-	return $originalUnit;
+	return;
 }
 
 1;

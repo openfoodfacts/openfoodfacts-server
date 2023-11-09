@@ -1,0 +1,47 @@
+type: object
+properties:
+  agribalyse_food_code:
+    type: string
+  co2_agriculture:
+    type: number
+  co2_consumption:
+    type: integer
+  co2_distribution:
+    type: number
+  co2_packaging:
+    type: number
+  co2_processing:
+    type: number
+  co2_total:
+    type: number
+  co2_transportation:
+    type: number
+  code:
+    type: string
+  dqr:
+    type: string
+  ef_agriculture:
+    type: number
+  ef_consumption:
+    type: integer
+  ef_distribution:
+    type: number
+  ef_packaging:
+    type: number
+  ef_processing:
+    type: number
+  ef_total:
+    type: number
+  ef_transportation:
+    type: number
+  is_beverage:
+    type: integer
+  name_en:
+    type: string
+    description: |
+      This can be returned in many other languages
+      like name_fr (for french).
+  score:
+    type: integer
+  version:
+    type: string
