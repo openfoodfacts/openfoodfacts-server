@@ -91126,6 +91126,9 @@ agribalyse_proxy_food_code:en:31024
 ciqual_proxy_food_code:en:31024
 ciqual_proxy_food_name:en:Jam, strawberry
 ciqual_proxy_food_name:fr:Confiture de fraise (extra ou classique)
+gpc_category_code:en:10000217
+gpc_category_name:en:Jams/Marmalades (Shelf Stable)
+gpc_category_description:en:Definition: Includes any products that can be described/observed as a sweet semi firm liquid, usually used as a spread, made by cooking and preserving crushed fruit in sugar, and allowing the mixture to set, often with the addition of setting agents. Includes jams, jellies, and marmalades.Definition Excludes: Excludes products such as Confectionery Based Spreads and Honey and Jams/Marmalades/Fruit Spreads (Perishable).
 # strawberry jam is the worst case in Agribalyse (it is also used by Agribalyse for the "jam, all fruits, reduced sugar" entry)
 # we use it as the default for jams where we don't have other better matches (e.g. plum jams are matched to apricot jam)
 
