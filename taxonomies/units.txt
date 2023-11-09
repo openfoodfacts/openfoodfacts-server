@@ -1,0 +1,1329 @@
+# Units taxonomy
+
+# This taxonomy contains the translations of unit names (singular and plural) and abbreviations
+# The conversion_factor:en: property is the multiplication factor to get the value in the standard unit (expressed in standard_unit:en: property)
+# (e.g. for kg, it is 1000 to get values in g)
+
+# The xx: entry is used for the canonical name, with the standard symbol first, if the symbol uses latin letters
+# Otherwise, we use a symbol:en: property for the symbol
+# e.g. for microgram:
+# xx:mcg
+# symbol:en:µg
+# This is needed because µg in the xx: entry (xx:µg) would be canonicalized to xx:g
+
+xx:g, gr, grs
+ar:جرام, جرامات
+bn:গ্রাম, গ্রামগুলি
+bs:gram, grama
+ca:gram, grams
+cs:gram, gramů
+da:gram, gram
+de:Gramm, Gramm
+el:γραμμάριο, γραμμάρια
+en:gram, grams
+es:gramo, gramos
+et:gramm, grammi
+fa:گرم, گرم‌ها
+fi:gramma, grammaa
+fil:gramo, gramo
+fr:gramme, grammes
+he:גרם, גרמים
+hi:ग्राम, ग्राम
+hr:gram, grama
+hu:gramm, gramm
+id:gram, gram
+it:grammo, grammi
+ja:グラム, グラム
+jv:gram, gram
+ka:გრამი, გრამები
+kk:грамм, граммдар
+km:ក្រាម, ក្រាម
+ko:그램, 그램
+lt:gramas, gramai
+lv:grams, grami
+mk:грам, грамови
+ml:ഗ്രാം, ഗ്രാമങ്ങൾ
+mr:ग्राम, ग्राम
+ms:gram, gram
+my:ဂရမ်, ဂရမ်များ
+ne:ग्राम, ग्रामहरू
+nl:gram, gram
+no:gram, gram
+pl:gram, gramy
+pt:grama, gramas
+ro:gram, grame
+ru:грамм, граммы, г
+sk:gram, gramov
+sl:gram, grami
+sq:gram, gramë
+sr:грам, грамови
+sv:gram, gram
+sw:gramu, gramu
+ta:கிராமம், கிராமங்கள்
+te:గ్రామం, గ్రామాలు
+th:กรัม, กรัม
+tr:gram, gram
+uk:грам, грами
+ur:گرام, گرام
+vi:gam, gam
+zh:克, 克, 公克
+conversion_factor:en:1
+standard_unit:en:g
+
+xx:kg, kgs, kgr
+ar:كيلوغرام, كيلوغرامات
+bn:কেজি, কেজি
+bs:kilogram, kilograma
+ca:kilogram, quilograms
+cs:kilogram, kilogramů
+da:kilogram, kilogram
+de:Kilogramm, Kilogramm
+el:κιλό, κιλά
+en:kilogram, kilograms
+es:kilogramo, kilogramos
+et:kilogramm, kilogrammi
+fa:کیلوگرم, کیلوگرم‌ها
+fi:kilogramma, kilogrammaa
+fil:kilogramo, kilogramo
+fr:kilogramme, kilogrammes
+he:קילוגרם, קילוגרמים
+hi:किलोग्राम, किलोग्राम
+hr:kilogram, kilograma
+hu:kilogramm, kilogramm
+id:kilogram, kilogram
+it:chilogrammo, chilogrammi
+ja:キログラム, キログラム
+jv:kilogram, kilogram
+ka:კილოგრამი, კილოგრამები
+kk:килограмм, килограммдар
+km:គីឡូក្រាម, គីឡូក្រាម
+ko:킬로그램, 킬로그램
+lt:kilogramas, kilogramai
+lv:kilogrami, kilogrami
+mk:килограм, килограми
+ml:കിലോഗ്രാം, കിലോഗ്രാമുകൾ
+mr:किलोग्राम, किलोग्राम
+ms:kilogram, kilogram
+my:ကီလိုဂရမ်, ကီလိုဂရမ်များ
+ne:किलोग्राम, किलोग्रामहरू
+nl:kilogram, kilogram
+no:kilogram, kilogram
+pl:kilogram, kilogramy
+pt:quilograma, quilogramas
+ro:kilogram, kilograme
+ru:килограмм, килограммы, кг
+sk:kilogram, kilogramov
+sl:kilogram, kilogramov
+sq:kilogram, kilogramë
+sr:килограм, килограми
+sv:kilogram, kilogram
+sw:kilogramu, kilogramu
+ta:கிலோகிராம், கிலோகிராம்கள்
+te:కిలోగ్రాం, కిలోగ్రాములు
+th:กิโลกรัม, กิโลกรัม
+tr:kilogram, kilogram
+uk:кілограм, кілограми
+ur:کلوگرام, کلوگرام
+vi:kilôgam, kilôgam
+zh:千克, 千克, 公斤
+conversion_factor:en:1000
+standard_unit:en:g
+
+# Milligrams
+xx:mg, mgs
+ar:ملغ, ملغ
+bn:মিলিগ্রাম, মিলিগ্রাম
+bs:Miligram, Miligrama
+ca:Mil·ligram, mil·ligrams
+cs:Miligram, miligramů
+da:milligram, milligram
+de:Milligramm, Milligramm
+el:χιλιοστόγραμμο, χιλιοστόγραμμα
+en:milligram, milligrams
+es:miligramo, miligramos
+et:milligramm, milligrammi
+fa:میلی‌گرم, میلی‌گرم‌ها
+fi:milligramma, milligrammaa
+fil:milligram, milligram
+fr:milligramme, milligrammes
+he:מיליגרם, מיליגרמים
+hi:मिलीग्राम, मिलीग्राम
+hr:Miligram, Miligrama
+hu:milligramm, milligramm
+id:milligram, miligram
+it:milligrammo, milligrammi
+ja:ミリグラム, ミリグラム
+jv:milligram, miligram
+ka:მილიგრამი, მილიგრამები
+kk:миллиграмм, миллиграммдар
+km:មិល្លីក្រាម, មិល្លីក្រាម
+ko:밀리그램, 밀리그램
+lt:Miligramas, Miligramai
+lv:Miligrami, miligrami
+mk:милиграм, милиграми
+ml:മില്ലിഗ്രാം, മില്ലിഗ്രാമുകൾ
+mr:मिलिग्राम, मिलिग्राम
+ms:Miligram, miligram
+my:မီလီဂရမ်, မီလီဂရမ်များ
+ne:मिलिग्राम, मिलिग्रामहरू
+nl:milligram, milligram
+no:milligram, milligram
+pl:Miligram, miligramy
+pt:miligrama, miligramas
+ro:Miligram, miligrame
+ru:миллиграмм, миллиграммы, мг
+sk:Miligram, miligramov
+sl:Miligram, miligramov
+sq:Miligram, miligramë
+sr:милиграм, милиграми
+sv:milligram, milligram
+sw:Miligramu, miligramu
+ta:மிகிராம், மிகிராம்கள்
+te:మిల్లీగ్రాము, మిల్లీగ్రాములు
+th:มิลลิกรัม, มิลลิกรัม
+tr:Miligram, miligram
+uk:міліграм, міліграми
+ur:ملی گرام, ملی گرام
+vi:Miligam, miligam
+zh:毫克, 毫克
+conversion_factor:en:0.001
+standard_unit:en:g
+
+# Micrograms
+xx:mcg, mcgs
+symbol:en:µg
+en:microgram, micrograms
+ar:ميكروغرام, ميكروغرام
+bn:মাইক্রোগ্রাম, মাইক্রোগ্রাম
+bs:Mikrogram, Mikrograma
+ca:Micrògram, micrògrams
+cs:Mikrogram, mikrogramů
+da:mikrogram, mikrogram
+de:Mikrogramm, Mikrogramm
+el:μικρογραμμάριο, μικρογραμμάρια
+es:microgramo, microgramos
+et:mikrogramm, mikrogrammi
+fa:میکروگرم, میکروگرم‌ها
+fi:mikrogramma, mikrogrammaa
+fil:mikrogram, mikrogram
+fr:microgramme, microgrammes
+he:מיקרוגרם, מיקרוגרמים
+hi:माइक्रोग्राम, माइक्रोग्राम
+hr:Mikrogram, Mikrograma
+hu:mikrogramm, mikrogramm
+id:mikrogram, mikrogram
+it:microgrammo, microgrammi
+ja:マイクログラム, マイクログラム
+jv:mikrogram, mikrogram
+ka:მიკროგრამი, მიკროგრამები
+kk:микрограмм, микрограммдар
+km:ម៉ាយក្រូក្រាម, ម៉ាយក្រូក្រាម
+ko:마이크로그램, 마이크로그램
+lt:Mikrogramas, Mikrogramai
+lv:Mikrogrami, mikrogrami
+mk:микрограм, микрограми
+ml:മൈക്രോഗ്രാം, മൈക്രോഗ്രാംകൾ
+mr:मायक्रोग्राम, मायक्रोग्राम
+ms:Mikrogram, mikrogram
+my:မိုက်ကွဲကိုဂရမ်, မိုက်ကွဲကိုဂရမ်များ
+ne:माइक्रोग्राम, माइक्रोग्रामहरू
+nl:micogram, microgram
+no:mikrogram, mikrogram
+pl:Mikrogram, mikrogramy
+pt:micrograma, microgramas
+ro:Microgram, micrograme
+ru:микрограмм, микрограммы
+sk:Mikrogram, mikrogramov
+sl:Mikrogram, mikrogramov
+sq:Mikrogram, mikrogramë
+sr:микрограм, микрограми
+sv:mikrogram, mikrogram
+sw:Mikrogramu, mikrogramu
+ta:மைக்ரோகிராம், மைக்ரோகிராம்கள்
+te:మైక్రోగ్రాము, మైక్రోగ్రాములు
+th:ไมโครกรัม, ไมโครกรัม
+tr:Mikrogram, mikrogram
+uk:мікрограм, мікрограми
+ur:مائیکرو گرام, مائیکرو گرام
+vi:Microgam, microgam
+zh:微克, 微克
+conversion_factor:en:0.000001
+standard_unit:en:g
+
+# Pounds
+xx:lb, lbs
+ar:رطل, رطل
+bg:паунд, паундове
+bn:পাউন্ড, পাউন্ড
+cs:libra, liber
+cy:punt, pwysau
+da:pund, pund
+de:Pfund, Pfund
+el:λίβρα, λίβρες
+en:pound, pounds
+es:libra, libras
+et:nael, naela
+fa:پوند, پوند
+fi:punti, paunat
+fil:pound, mga pound
+fr:livre, livres
+he:פאונד, פאונדים
+hi:पाउंड, पाउंड
+hr:funt, funte
+hu:font, fontok
+id:pound, pound
+is:pund, pund
+it:libbra, libbre
+ja:ポンド, ポンド
+jv:pound, pound
+ka:ფუნტი, ფუნტები
+kk:фунт, фунттар
+km:ផោន, ផោន
+ko:파운드, 파운드
+lt:svaras, svarai
+lv:mārciņa, mārciņas
+mk:фунта, фунти
+ml:പൗണ്ട്, പൗണ്ടുകൾ
+mr:पाऊंड, पाऊंड
+ms:pound, paun
+my:ပေါင်, ပေါင်များ
+ne:पाउन्ड, पाउन्डहरू
+nl:pound, ponden
+no:pund, pund
+pl:funt, funty
+pt:libra, libras
+ro:liră, lire
+ru:фунт, фунты
+sk:libra, libry
+sl:funt, funti
+sq:pund, paundë
+sr:фунта, фунте
+sv:pund, pund
+sw:pound, pauni
+ta:பவுண்டு, பவுண்டுகள்
+te:పౌండు, పౌండులు
+th:ปอนด์, ปอนด์
+tr:pound, pound
+uk:фунт, фунти
+ur:پاؤنڈ, پاؤنڈز
+vi:pound, pound
+zh:磅, 磅
+conversion_factor:en:453.59237
+standard_unit:en:g
+
+xx:metric-pound
+en:metric pound, metric pounds
+fr:livre métrique, livres métriques
+zh:斤
+conversion_factor:en:500
+standard_unit:en:g
+
+
+# Ounces
+xx:oz, ozs
+ar:أونصة, أونصات
+bg:унция, унции
+bn:ঔঞ্জ, ঔঞ্জ
+cs:unce, unce
+cy:owns, ownsiau
+da:ounce, ounces
+de:Unze, Unzen
+el:ουγγιά, ουγγιές
+es:onza, onzas
+et:unts, untsid
+fa:انس, انس‌ها
+fi:unssi, unssia
+fil:ounce, mga ounce
+fr:once, onces
+he:אונקייה, אונקיות
+hi:औंस, औंस
+hr:unca, unce
+hu:uncia, uncia
+id:ons, ons
+is:únsa, únsur
+it:oncia, once
+ja:オンス, オンス
+jv:ons, ons
+ka:უნცია, უნცები
+kk:унция, унциялар
+km:អ៊ុនស្ករ, អ៊ុនស្ករ
+ko:온스, 온스
+lt:uncia, uncijos
+lv:unces, unces
+mk:унца, унција
+ml:ഓൺസ്, ഓൺസുകൾ
+mr:औंस, औंस
+ms:ons, ons
+my:အောင်စီး, အောင်စီးများ
+ne:औंस, औंसहरू
+nl:ounce, ounces
+no:ounce, ounces
+pl:uncja, uncje
+pt:onça, onças
+ro:uncie, unții
+ru:унция, унции
+sk:uncia, uncie
+sl:unca, unce
+sq:uncë, unca
+sr:унца, унце
+sv:uns, unsar
+sw:ownsi, ownsi
+ta:ஆன்ஸ், ஆன்ஸ்கள்
+te:ఆన్స్, ఆన్సులు
+th:ออนซ์, ออนซ์
+tr:ons, ons
+uk:унція, унції
+ur:اونس, اونسز
+vi:ounce, ounce
+zh:盎司, 盎司
+conversion_factor:en:28.349523125
+standard_unit:en:g
+
+# Liters
+xx:l, ls
+ar:لتر, لترات
+bn:লিটার, লিটার
+bs:Litar, Litara
+ca:Litre, litres
+cs:Litr, litrů
+da:liter, liter
+de:Liter, Liter
+el:λίτρο, λίτρα
+en:liter, liters
+es:litro, litros
+et:liiter, liitrit
+fa:لیتر, لیترها
+fi:litra, litraa
+fil:litro, litro
+fr:litre, litres
+he:ליטר, ליטרים
+hi:लीटर, लीटर
+hr:Litar, Litara
+hu:liter, liter
+id:liter, liter
+it:litro, litri
+ja:リットル, リットル
+jv:liter, liter
+ka:ლიტრი, ლიტრები
+kk:литр, литрлер
+km:លីត្រ, លីត្រ
+ko:리터, 리터
+lt:Litras, litrai
+lv:Litri, litri
+mk:литар, литри
+ml:ലീറ്റർ, ലീറ്റർകൾ
+mr:लिटर, लिटर
+ms:liter, liter
+my:လီတာ, လီတာများ
+ne:लिटर, लिटरहरू
+nl:liter, liter
+no:liter, liter
+pl:Litry, litry
+pt:litro, litros
+ro:Litru, litri
+ru:литр, литры, л
+sk:Liter, litrov
+sl:Liter, litrov
+sq:Liter, litra
+sr:литар, литри
+sv:liter, liter
+sw:Lita, lita
+ta:லிட்டர், லிட்டர்கள்
+te:లీటర్, లీటర్లు
+th:ลิตร, ลิตร
+tr:Litre, litre
+uk:літр, літри
+ur:لیٹر, لیٹر
+vi:Lít, lít
+zh:升, 升, 公升
+conversion_factor:en:1000
+standard_unit:en:ml
+
+xx:dl, dls
+en:deciliter, deciliters
+ar:ديسيلتر, ديسيلترات
+bg:децилитър, децилитри
+bn:ডেসিলিটার, ডেসিলিটার
+cs:decilitr, decilitry
+cy:deciliter, decilitrau
+da:deciliter, decilitre
+de:Deziliter, Deziliter
+el:δεκατόλιτρο, δεκατόλιτρα
+es:decilitro, decilitros
+et:deciliiter, deciliitrit
+fa:دسی لیتر, دسی لیترها
+fi:desilitra, desilitraa
+fil:deciliter, deciliters
+fr:décilitre, décilitres
+he:דציליטר, דציליטרים
+hi:डेसीलीटर, डेसीलीटर
+hr:decilitra, decilitri
+hu:deciliter, deciliter
+id:desiliter, desiliter
+is:desilítill, desilítill
+it:decilitro, decilitri
+ja:デシリットル, デシリットル
+jv:deciliter, decilitra
+ka:დეცილიტრი, დეცილიტრები
+kk:десилитр, десилитрлер
+km:ដែលសីល្លីត្រ, ដែលសីល្លីត្រ
+ko:데시리터, 데시리터
+lt:decilitras, decilitrai
+lv:decilitrs, decilitri
+mk:десилитар, десилитри
+ml:ഡെസിലീറ്റർ, ഡെസിലീറ്റർകൾ
+mr:डेसीलीटर, डेसीलीटर
+ms:deciliter, deciliter
+my:ဒီလီလီတာ, ဒီလီလီတာများ
+ne:डेसिलिटर, डेसिलिटरहरू
+nl:deciliter, deciliters
+no:deciliter, decilitre
+pl:Decylitr, Decylitrów
+pt:decilitro, decilitros
+ro:decilitru, decilitri
+ru:децилитр, децилитры,  дл
+sk:deciliter, decilitre
+sl:deciliter, decilitri
+sq:deciliter, decilitra
+sr:децилитар, децилитри
+sv:deciliter, deciliter
+ta:டெசிலிட்டர், டெசிலிட்டர்கள்
+te:డెసిలిటర్, డెసిలిటర్లు
+th:เดซิลิตร์, เดซิลิตร์
+zh:分升
+conversion_factor:en:100
+standard_unit:en:ml
+
+
+xx:cl, cls
+en:centiliter, centiliters
+ar:سنتيلتر, سنتيلترات
+bg:центилитър, центилитри
+bn:সেন্টিলিটার, সেন্টিলিটার
+cs:centilitr, centilitry
+cy:centiliter, centilitrau
+da:centiliter, centilitre
+de:Zentiliter, Zentiliter
+el:εκατοστόλιτρο, εκατοστόλιτρα
+es:centilitro, centilitros
+et:tsentiliiter, tsentiliitrit
+fa:سانتی لیتر, سانتی لیترها
+fi:senttilitra, senttilitraa
+fil:centiliter, centiliters
+fr:centilitre, centilitres
+he:סנטיליטר, סנטיליטרים
+hi:सेंटीलीटर, सेंटीलीटर
+hr:centilitra, centilitri
+hu:centiliter, centiliter
+is:sentilítill, sentilítill
+it:centilitro, centilitri
+ja:センチリットル, センチリットル
+jv:centiliter, centilitra
+ka:ცენტილიტრი, ცენტილიტრები
+kk:сантилитр, сантилитрлер
+km:សីល្លីត្រក្រឡាប់, សីល្លីត្រក្រឡាប់
+ko:센티리터, 센티리터
+lt:centilitras, centilitrai
+lv:centilitrs, centilitri
+mk:центилитар, центилитри
+ml:സെന്റിലീറ്റർ, സെന്റിലീറ്റർകൾ
+mr:सेंटीलीटर, सेंटीलीटर
+ms:centiliter, centiliter
+my:စင်တီလီလီတာ, စင်တီလီလီတာများ
+ne:सेन्टिलिटर, सेन्टिलिटरहरू
+nl:centiliter, centiliters
+no:centiliter, centilitre
+pl:Centylitr, Centylitrów
+pt:centilitro, centilitros
+ro:centilitru, centilitri
+ru:центилитр, центилитры, кл
+sk:centiliter, centilitre
+sl:centiliter, centilitri
+sq:centiliter, centilitra
+sr:центилитар, центилитри
+sv:centiliter, centiliter
+sw:sentilita, sentilita
+ta:சென்டிலிட்டர், சென்டிலிட்டர்கள்
+te:సెంటిలిటర్, సెంటిలిటర్లు
+th:เซนติลิตร์, เซนติลิตร์
+tr:santilitre, santilitreler
+uk:центилітр, центилітри
+ur:سینٹی لیٹر, سینٹی لیٹرز
+vi:centilit, centilit
+zh:厘升, 厘升
+conversion_factor:en:10
+standard_unit:en:ml
+
+
+xx:ml, mls
+en:milliliter, milliliters
+ar:ملليلتر, ملليلترات
+bg:милилитър, милилитри
+bn:মিলিলিটার, মিলিলিটার
+cs:mililitr, mililitry
+cy:milliliter, millilitrau
+da:milliliter, millilitre
+de:Milliliter, Milliliter
+el:χιλιοστόλιτρο, χιλιοστόλιτρα
+es:millilitro, millilitros
+et:milliliiter, milliliitrit
+fa:میلی لیتر, میلی لیترها
+fi:millilitra, millilitraa
+fil:milliliter, milliliters
+fr:millilitre, millilitres
+he:מיליליטר, מיליליטרים
+hi:मिलीलीटर, मिलीलीटर
+hr:mililitra, mililitri
+hu:milliliter, milliliter
+id:milliliter, milliliter
+is:millilítill, millilítill
+it:millilitro, millilitri
+ja:ミリリットル, ミリリットル
+jv:milliliter, millilitra
+ka:მილილიტრი, მილილიტრები
+kk:миллилитр, миллилитрлер
+km:មិល្លីឡីត្រ, មិល្លីឡីត្រ
+ko:밀리리터, 밀리리터
+lt:millilitras, millilitrai
+lv:mililitrs, mililitri
+mk:миллилитар, миллилитри
+ml:മില്ലിലീറ്റർ, മില്ലിലീറ്റർകൾ
+mr:मिलीलीटर, मिलीलीटर
+ms:milliliter, milliliter
+my:မီလီလီတာ, မီလီလီတာများ
+ne:मिलिलिटर, मिलिलिटरहरू
+nl:milliliter, milliliters
+no:milliliter, millilitre
+pl:Mililitr, Mililitrów
+pt:millilitro, millilitros
+ro:mililitru, mililitri
+ru:миллилитр, миллилитры, мл
+sk:milliliter, millilitre
+sl:milliliter, millilitri
+sq:milliliter, millilitra
+sr:милилитар, милилитри
+sv:milliliter, milliliter
+sw:millilita, millilita
+ta:மில்லிலிட்டர், மில்லிலிட்டர்கள்
+te:మిల్లీలిటర్, మిల్లీలిటర్లు
+th:มิลลิลิตร์, มิลลิลิตร์
+tr:mililitre, mililitreler
+uk:мілілітр, мілілітри
+ur:ملی لیٹر, ملی لیٹرز
+vi:millilit, millilit
+zh:毫升, 毫升, 毫升
+conversion_factor:en:1
+standard_unit:en:ml
+
+# Fluid ounces
+xx:fl oz, floz, fl.oz, fl. oz, fl. oz., fl.oz.
+en:fluid ounce, fluid ounces
+ar:أونصة سائلة, أونصات سائلة
+bg:у. унция, у. унции
+bn:ফ্লুইড আউঞ্জ, ফ্লুইড আউঞ্জ
+cs:unce tekutá, uncí tekutých
+cy:owns lliw, ownsiau lliw
+da:fluid ounce, fluid ounces
+de:Fluidunze, Fluidunzen
+el:υγρού ουγγιάς, υγρές ουγγιές
+es:onza líquida, onzas líquidas
+et:vedelikuunts, vedelikuuntse
+fa:انس برابر, انس برابر
+fi:nestetuumaa, nestetuumaa
+fil:fluid ounce, fluid ounces
+fr:once liquide, onces liquides
+he:אונקיית נוזל, אונקיות נוזל
+hi:फ्लूड औंस, फ्लूड औंस
+hr:tekuća unca, tekuće unce
+hu:fluid uncia, fluid uncia
+id:fluid ounce, fluid ounces
+is:vökvaúnsa, vökvaúnsur
+it:oncia liquida, once liquide
+ja:液量オンス, 液量オンス
+jv:fluid ounce, fluid ounces
+ka:ცივი უნცი, ცივი უნცები
+kk:сұйық унция, сұйық унциялар
+km:អ៊ុនស្ករទឹក, អ៊ុនស្ករទឹក
+ko:액량 온스, 액량 온스
+lt:skystasis uncijas, skystųjų uncijų
+lv:šķidrā unce, šķidrās uncijas
+mk:течна унца, течни унци
+ml:ഫ്ലൂഡ് ഓൺസ്, ഫ്ലൂഡ് ഓൺസുകൾ
+mr:फ्लुइड औंस, फ्लुइड औंस
+ms:fluid ounce, fluid ounces
+my:အရောင်အသွေး, အရောင်အသွေးများ
+ne:फ्लुड औंस, फ्लुड औंसहरू
+nl:fluid ounce, fluid ounces
+no:fluid ounce, fluid ounces
+pl:uncja płynna, uncje płynne
+pt:onça líquida, onças líquidas
+ro:uncie lichide, unții lichide
+ru:жидкая унция, жидкие унции
+sk:fluidová unca, fluidové unce
+sl:tekoča unča, tekoče unče
+sq:uncë e lëngshme, unca e lëngshme
+sr:течна унца, течне унце
+sv:fluid ounce, fluid ounces
+sw:ownsi ya maji, ownsi za maji
+ta:நீரின் ஆன்ஸ், நீரின் ஆன்ஸ்கள்
+te:ఫ్లూడ్ ఆన్స్, ఫ్లూడ్ ఆన్సులు
+th:ออนซ์ของของเหลว, ออนซ์ของของเหลว
+tr:sıvı ons, sıvı ons
+uk:рідка унція, рідкі унції
+ur:فلوڈ آنس, فلوڈ آنسز
+vi:ounce lỏng, ounce lỏng
+zh:液盎司, 液盎司
+conversion_factor:en:29.5735
+standard_unit:en:ml
+
+# Gallons
+xx:gal, gals
+en:gallon, gallons
+ar:غالون, غالونات
+bg:галон, галони
+bn:গ্যালন, গ্যালন
+cs:galon, galony
+cy:galon, galwyn
+da:gallon, gallons
+de:Gallone, Gallonen
+el:γαλόνι, γαλόνια
+es:galón, galones
+et:galloni, galloneid
+fa:گالن, گالن‌ها
+fi:gallona, gallonia
+fil:gallon, mga gallon
+fr:gallon, gallons
+he:גלון, גלונים
+hi:गैलन, गैलन
+hr:galon, galoni
+hu:gallon, gallonok
+id:galon, galon
+is:galloni, gallónur
+it:gallone, galloni
+ja:ガロン, ガロン
+jv:gallon, gallon
+ka:გალონი, გალონები
+kk:галлон, галлондар
+km:ហ្គាឡូន, ហ្គាឡូន
+ko:갤런, 갤런
+lt:galonas, galonai
+lv:gallons, galoni
+mk:галон, галони
+ml:ഗാലൺ, ഗാലൺകൾ
+mr:गॅलन, गॅलन
+ms:galon, galon
+my:ဂါလန်, ဂါလန်များ
+ne:ग्यालन, ग्यालनहरू
+nl:gallon, gallons
+no:gallon, gallons
+pl:galon, galony
+pt:gallon, galões
+ro:galon, galon
+ru:галлон, галлоны
+sk:galon, galóny
+sl:galon, galoni
+sq:gallon, gallonë
+sr:галон, галони
+sv:gallon, gallons
+sw:galloni, galoni
+ta:காலன், காலன்கள்
+te:గాలన్, గాలన్లు
+th:แกลลอน, แกลลอน
+tr:gallon, gallon
+uk:галон, галони
+ur:گیلن, گیلنز
+vi:gallon, gallon
+zh:加仑, 加仑
+conversion_factor:en:3785.41
+standard_unit:en:ml
+
+# Calories / Cal with a capital C is used as a synonym of kilocalories / kcal
+ #Kilocalories and Calories
+xx:kcal, kcals, kilocalories, Cal, Cals, Calories
+en:kilocalorie, kilocalories, Calorie, Calories
+ar:سعرة حرارية، سعرة حرارية، سعرة حرارية، سعرة حرارية
+bg:килокалория, килокалории, калория, калории
+bn:কিলোক্যালোরি, কিলোক্যালোরি, ক্যালোরি, ক্যালোরি
+cs:kilokalorie, kilokalorie, kalorie, kalorie
+cy:cilcalori, cilcaloriau, calori, caloriau
+da:kilokalorie, kilokalorier, kalorie, kalorier
+de:Kilokalorie, Kilokalorien, Kalorie, Kalorien
+el:χιλιοθερμίδα, χιλιοθερμίδες, θερμίδα, θερμίδες
+es:kilocaloría, kilocalorías, caloría, calorías
+et:kilokalor, kilokalorid, kalor, kalorid
+fa:کیلوکالری, کیلوکالری‌ها, کالری, کالری‌ها
+fi:kilokalori, kilokalorit, kalori, kalorit
+fil:kilokaloriya, mga kilokaloriya, kaloriya, mga kaloriya
+fr:kilocalorie, kilocalories, calorie, calories
+he:קילוקלורייה, קילוקלוריות, קלוריה, קלוריות
+hi:किलोकैलोरी, किलोकैलोरी, कैलोरी, कैलोरी
+hr:kilokalorija, kilokalorije, kalorija, kalorije
+hu:kilokalória, kilokalóriák, kalória, kalóriák
+id:kilokalori, kilokalori, kalori, kalori
+is:kílókaloría, kílókaloríur, kaloría, kaloríur
+it:chilocaloria, chilocalorie, caloria, calorie
+ja:キロカロリー, キロカロリー, カロリー, カロリー
+jv:kilokalori, kilokalori, kalori, kalori
+ka:კილოკალორია, კილოკალორიები, კალორია, კალორიები
+kk:килокалория, килокалориялар, калория, калориялар
+km:គីឡូកាឡូរី, គីឡូកាឡូរី, កាឡូរី, កាឡូរី
+ko:킬로칼로리, 킬로칼로리, 칼로리, 칼로리
+lt:kilokalorija, kilokalorijos, kalorija, kalorijos
+lv:kilokalorija, kilokalorijas, kalorija, kalorijas
+mk:килокалорија, килокалории, калорија, калории
+ml:കിലോകാലറി, കിലോകാലറികൾ, കലോറി, കലോറികൾ
+mr:किलोकॅलरी, किलोकॅलरी, कॅलोरी, कॅलोरी
+ms:kilokalori, kilokalori, kalori, kalori
+my:ကီလိုက်ကယ်လိုက်, ကီလိုက်ကယ်လိုက်များ, ကယ်လိုက်, ကယ်လိုက်များ
+ne:किलोक्यालोरी, किलोक्यालोरीहरू, क्यालोरी, क्यालोरीहरू
+nl:kilocalorie, kilocalorieën, calorie, calorieën
+no:kilokalori, kilokalorier, kalori, kalorier
+pl:kilokaloria, kilokalorie, kaloria, kalorie
+pt:kilocaloria, kilocalorias, caloria, calorias
+ro:kilocalorie, kilocalorii, calorii, calorii
+ru:килокалория, килокалории, калория, калории
+sk:kilokalória, kilokalórie, kalória, kalórie
+sl:kilokalorija, kilokalorije, kalorija, kalorije
+sq:kilokalori, kilokalori, kalori, kalori
+sr:килокалорија, килокалорије, калорија, калорије
+sv:kilokalori, kilokalorier, kalori, kalorier
+sw:kilokalori, kilokalori, kalori, kalori
+ta:கிலோகலோரி, கிலோகலோரிகள், கலோரி, கலோரிகள்
+te:కిలోకేలోరీ, కిలోకేలోరీలు, కేలరీ, కేలరీలు
+th:กิโลแคลอรี่, กิโลแคลอรี่, แคลอรี่, แคลอรี่
+tr:kilokalori, kilokalori, kalori, kalori
+uk:килокалорія, кілокалорії, калорія, калорії
+ur:کلوکیلوری, کلوکیلوریز, کیلوری, کیلوریز
+vi:kilôcalo, kilôcalo, calo, calo
+zh:千卡, 千卡, 卡, 卡
+conversion_factor:en:4.184
+standard_unit:en:kj
+
+# Kilojoules
+xx:kJ, kJs
+en:kilojoule, kilojoules
+ar:كيلوجول, كيلوجولات
+bg:килоюл, килоюла
+bn:কিলোজুল, কিলোজুল
+cs:kilojoule, kilojouly
+cy:ciljouls, ciljoulo
+da:kilojoule, kilojoule
+de:Kilojoule, Kilojoule
+el:κιλοτζούλ, κιλοτζούλ
+es:kilojulio, kilojulios
+et:kilojoule, kilojouli
+fa:کیلوژول, کیلوژول
+fi:kilojoule, kilojoulea
+fil:kilojoule, mga kilojoule
+fr:kilojoule, kilojoules
+he:קילוג'ול, קילוג'ולים
+hi:किलोजूल, किलोजूल
+hr:kilojoule, kilojoula
+hu:kilojoule, kilojoule
+id:kilojoule, kilojoule
+is:kílójúll, kílójúlar
+it:chilojoule, chilojoule
+ja:キロジュール, キロジュール
+jv:kilojoule, kilojoule
+ka:კილოჯული, კილოჯულები
+kk:килоджоуль, килоджоульдер
+km:គីឡូជូល, គីឡូជូល
+ko:킬로쥴, 킬로쥴
+lt:kilojaulis, kilojauliai
+lv:kilojouls, kilojouli
+mk:килоџул, килоџули
+ml:കിലോജൂൾ, കിലോജൂൾസ്
+mr:किलोजूल, किलोजूल
+ms:kilojoule, kilojoule
+my:ကီလိုဂျူး, ကီလိုဂျူးများ
+ne:किलोजुल, किलोजुलहरू
+nl:kilojoule, kilojoule
+no:kilojoule, kilojoule
+pl:kilojoule, kilodżule
+pt:kilojoule, kilojoules
+ro:kilojoule, kilojouli
+ru:килоюл, килоюлей
+sk:kilojoule, kilojoule
+sl:kilojoule, kilodžul
+sq:kilojoule, kilojoule
+sr:килоџул, килоџули
+sv:kilojoule, kilojoule
+sw:kilojoule, kilojoule
+ta:கிலோஜூல், கிலோஜூல்கள்
+te:కిలోజూల్, కిలోజూల్స్
+th:กิโลจูล, กิโลจูล
+tr:kilojoule, kilojoule
+uk:кілоджоуль, кілоджоулі
+ur:کلوجول, کلوجولز
+vi:kilôjoule, kilôjoule
+zh:千焦, 千焦
+conversion_factor:en:1
+standard_unit:en:kj
+
+# Millimoles per liter
+xx:mmol/l
+en:mmol/l
+ar:مليمول/لتر
+bg:ммол/л
+bn:মিমি/লি
+cs:mmol/l
+cy:millimol/liter
+da:mmol/l
+de:Millimol pro Liter
+el:χιλιοστόμολ ανά λίτρο
+es:mmol/l
+et:mmol/l
+fa:میلی مول بر لیتر
+fi:mmol/l
+fil:mmol/l
+fr:mmol/l
+he:מילימול לליטר
+hi:मिलीमोल प्रति लीटर
+hr:mmol/l
+hu:mmol/l
+id:mmol/l
+is:mmol/l
+it:mmol/l
+ja:mmol/L
+jv:mmol/l
+ka:მილიმოლი/ლიტრი
+kk:ммоль/л
+km:មិល្លីមក្លូលីត្រ/លីត្រ
+ko:mmol/L
+lt:mmol/l
+lv:mmol/l
+mk:ммол/л
+ml:മില്ലിമോൾ/ലിറ്റർ
+mr:मिलीमोल प्रति लिटर
+ms:mmol/l
+my:မီလီမိုး/လီတာ
+ne:मिलिमोल प्रति लिटर
+nl:mmol/l
+no:mmol/l
+pl:mmol/l
+pt:mmol/l
+ro:mmol/l
+ru:ммоль/л
+sk:mmol/l
+sl:mmol/l
+sq:mmol/l
+sr:ммол/л
+sv:mmol/l
+sw:mmol/l
+ta:மில்லிமோல்/லிட்டர்
+te:మిల్లీమోల్/లీటరు
+th:mmol/L
+tr:mmol/l
+uk:ммоль/л
+ur:ملی مول فی لیٹر
+vi:mmol/l
+zh:毫摩尔/升
+conversion_factor:en:1
+standard_unit:en:mmol/l
+
+# Water hardness units
+# Reference: https://en.wikipedia.org/wiki/Hard_water
+
+# Moles per liter
+xx:mol/l
+en:mol/l
+ar:مول/لتر
+bg:мол/л
+bn:মোল/লিটার
+cs:mol/l
+cy:mol/liter
+da:mol/l
+de:Mol pro Liter
+el:μολ ανά λίτρο
+es:mol/l
+et:mol/l
+fa:مول بر لیتر
+fi:mol/l
+fil:mol/l
+fr:mol/l
+he:מול לליטר
+hi:मोल प्रति लीटर
+hr:mol/l
+hu:mol/l
+id:mol/l
+is:mól/l
+it:mol/l
+ja:モル/リットル
+jv:mol/l
+ka:მოლი/ლიტრი
+kk:моль/л
+km:ម៉ូល/លីត្រ
+ko:몰/리터
+lt:mol/l
+lv:mol/l
+mk:мол/л
+ml:മോൾ/ലിറ്റർ
+mr:मोल प्रति लिटर
+ms:mol/l
+my:မိုလ်/လီတာ
+ne:मोल प्रति लिटर
+nl:mol/l
+no:mol/l
+pl:mol/l
+pt:mol/l
+ro:mol/l
+ru:моль/л
+sk:mol/l
+sl:mol/l
+sq:mol/l
+sr:мол/л
+sv:mol/l
+sw:mol/l
+ta:மோல்/லிட்டர்
+te:మోల్/లీటరు
+th:มอล/ลิตร
+tr:mol/l
+uk:моль/л
+ur:مول فی لیٹر
+vi:mol/l
+zh:摩尔/升
+conversion_factor:en:1000
+standard_unit:en:mol/l
+
+# Parts per million
+xx:ppm, parts per million
+en:parts per million, parts per million
+ar:جزء في المليون, جزء في المليون
+bg:части на милион, части на милион
+bn:পার্টস পার মিলিয়ন, পার্টস পার মিলিয়ন
+cs:částic na milion, částic na milion
+cy:rhanau fesul miliwn, rhanau fesul miliwn
+da:dele pr. million, dele pr. million
+de:Teile pro Million, ppm
+el:μέρη ανά εκατομμύριο, μέρη ανά εκατομμύριο
+es:partes por millón, partes por millón
+et:osakest miljoni kohta, osakest miljoni kohta
+fa:قسمت در میلیون, قسمت در میلیون
+fi:osaa miljoonasta, osaa miljoonasta
+fil:mga bahagi kada milyon, mga bahagi kada milyon
+fr:parties par million, parties par million
+he:חלקים למיליון, חלקים למיליון
+hi:प्रति मिलियन भाग, प्रति मिलियन भाग
+hr:dijelovi na milijun, dijelovi na milijun
+hu:rész millióra, rész millióra
+id:bagian per juta, bagian per juta
+is:hlutar á milljón, hlutar á milljón
+it:parti per milione, parti per milione
+ja:百万分率, 百万分率
+jv:bagéan saben juta, bagéan saben juta
+ka:ნაწილები მილიონზე, ნაწილები მილიონზე
+kk:миллион бөлшектеріне, миллион бөлшектеріне
+km:ផ្ដាច់ក្នុងមួយលាន, ផ្ដាច់ក្នុងមួយលាន
+ko:백만 분율, 백만 분율
+lt:dalių milijono dalimi, dalių milijono dalimi
+lv:daļas uz miljonu, daļas uz miljonu
+mk:делови на милион, делови на милион
+ml:ഒരു മില്ലിയൺ ഭാഗം, ഒരു മില്ലിയൺ ഭാഗം
+mr:प्रति मिलियन भाग, प्रति मिलियन भाग
+ms:bahagian setiap juta, bahagian setiap juta
+ne:प्रति मिलियन भाग, प्रति मिलियन भाग
+nl:delen per miljoen, delen per miljoen
+no:deler per million, deler per million
+pl:części na milion, części na milion
+pt:partes por milhão, partes por milhão
+ro:părți la milion, părți la milion
+ru:частей на миллион, частей на миллион
+sk:častí na milión, častí na milión
+sl:delov na milijon, delov na milijon
+sq:pjesë për milion, pjesë për milion
+sr:delova na milion, delova na milion
+sv:delar per miljon, delar per miljon
+sw:vipande kwa milioni, vipande kwa milioni
+ta:ஒரு மில்லியன் பகுதிகள், ஒரு மில்லியன் பகுதிகள்
+te:ఒక మిలియన్ భాగం, ఒక మిలియన్ భాగం
+th:ส่วนต่อล้าน, ส่วนต่อล้าน
+tr:milyonda bir kısım, milyonda bir kısım
+uk:часток на мільйон, часток на мільйон
+ur:فی ملین حصہ, فی ملین حصہ
+vi:phần triệu, phần triệu
+zh:百万分之, 百万分之
+conversion_factor:en:0.01
+standard_unit:en:mmol/l
+
+# Parts per billion
+xx:ppb, parts per billion
+en:parts per billion
+ar:جزء في البليون
+bg:части на милиард
+bn:প্রতি বিলিয়ন অংশ
+cs:miliarda dílů
+cy:rhanau fesul biliwn
+da:dele pr. miaard
+de:Teile pro Milliarde
+el:μέρη ανά δισεκατομμύριο
+es:partes por mil millones
+et:osakest miljardist
+fa:قسمت در میلیارد
+fi:osaa miljardista
+fil:parts per billion
+fr:parties par milliard
+he:חלקים למיליארד
+hi:प्रति बिलियन भाग
+hr:dijelovi po milijardi
+hu:milliárdodrész
+id:bagian per miliar
+is:hlutar á milljarði
+it:parti per miliardo
+ja:10億分の1
+jv:bagéyan saben miliyar
+ka:ნაწილები მილიარდში
+kk:миллиард бөлшектеріне
+km:ផ្ដល់ចំនួនក្រាមមួយចំនួនប៉ុណ្ណោះ
+ko:10억분의 1
+lt:dalių milijardyje
+lv:daļas uz miljardu
+mk:делови на милијарда
+ml:ബില്യൺ ഭാഗങ്ങൾ
+mr:प्रति बिलियन भाग
+ms:bahagian setiap bilion
+my:စာမျက်နှာတစ်ခုတည်းစီမံပါ
+ne:प्रति बिलियन भाग
+nl:deeltjes per miljard
+no:del per milliard
+pl:części na miliard
+pt:partes por bilhão
+ro:părți la miliard
+ru:частей на миллиард
+sk:častí na miliardu
+sl:delov na milijardo
+sq:pjesë për miliard
+sr:делови на милијарду
+sv:delar per miljard
+sw:sehemu kwa bilioni
+ta:பில்லியன் பகுதிகள்
+te:ప్రతి బిలియన్ భాగాలు
+th:ส่วนต่อพันล้าน
+tr:milyarda bir kısım
+uk:часток на мільярд
+ur:پر بلین حصہ
+vi:phần trên một tỷ
+zh:十亿分之一
+conversion_factor:en:0.00001
+standard_unit:en:mmol/l
+
+xx:mval/l
+ar:مليفولت/لتر
+bg:милливал на литър
+bn:মিলিভাল প্রতি লিটার
+cs:milivalů na litr
+cy:millifoltdyddiau y llif
+da:milival pr. liter
+de:Millival pro Liter
+el:χιλιοστά βαλ/λίτρο
+en:milivals per liter
+es:milivales por litro
+et:milivali liitri kohta
+fa:میلی ولت بر لیتر
+fi:milivaleja litrassa
+fil:mga milivals kada litro
+fr:milivals par litre
+he:מילי וולט לליטר
+hi:प्रति लीटर मिलिवाल
+hr:milivali po litri
+hu:milival literenként
+id:milival per liter
+is:millival á lítra
+it:milivali per litro
+ja:ミリバル毎リットル
+jv:milivals saben juta
+ka:მილივალები ლიტრზე
+kk:милливаль бөлшектеріне
+km:មិនទាន់មាន
+ko:밀리발/리터
+lt:milivalų milijono dalimi
+lv:milivali uz litru
+mk:милливали по литар
+ml:ഒരു മില്ലിവാൽസ് പ്രതിലിറ്റർ
+mr:प्रति मिलिलीटर मिलिवाल
+ms:milival setiap liter
+ne:प्रति लिटर मिलिभाल
+nl:milival per liter
+no:milival per liter
+pl:milivale na litr
+pt:milivales por litro
+ro:milivali pe litru
+ru:милливалов на литр
+sk:milivalov na milión
+sl:milivalov na liter
+sq:milival për litër
+sr:milivali po litru
+sv:milival per miljon
+sw:milivals kwa milioni
+ta:ஒரு மில்லிவால் ஒரு லிட்டரின் முன்னணி
+te:ఒక లీటరు మిలివాల్స్‌లు
+th:มิลลิวอลต์ต่อลิตร
+tr:milival/litre
+uk:міліваль на літр
+ur:فی لیٹر ملی وال
+vi:milival trên mỗi lít
+zh:毫伏每升
+conversion_factor:en:0.5
+standard_unit:en:mmol/l
+
+xx:gpg
+ar:جرام كربونات الكالسيوم في الجالون
+bg:грама въглеродатен калций на галон
+bn:প্রতি গ্যালনে ক্যালসিয়াম কার্বোনেটের গ্রাম
+cs:gramů uhličitanu vápenatého na galon
+cy:gramau carbonad calchfwrdd ym mhob galwyn
+da:gram kalciumkarbonat pr. gallon
+de:Gramm Calciumcarbonat pro Gallone
+el:γραμμάρια ανθρακικού ασβεστίου ανά γαλόνι
+en:grams of calcium carbonate per gallon
+es:gramos de carbonato de calcio por galón
+et:grammi kaltsiumkarbonaati galloni kohta
+fa:گرم کربنات کلسیم در گالن
+fi:grammaa kalsiumkarbonaattia per gallona
+fil:gram ng calcium carbonate kada galon
+fr:grammes de carbonate de calcium par gallon
+he:גרמים של קרבונט סידן לגלון
+hi:प्रति गैलन कैल्शियम कार्बोनेट के ग्राम
+hr:grama kalcijevog karbonata po galonu
+hu:gramm kalcium-karbonát literenként
+id:gram kalsium karbonat per galon
+is:grömm kalsíumkarbónats á galloni
+it:grammi di carbonato di calcio per gallone
+ja:ガロンあたりの炭酸カルシウムのグラム数
+jv:gram kalsium karbonat saben galon
+ka:გრამი კალციუმ-კარბონატი გალონზე
+kk:галлон бойынша кальций карбонаттың граммы
+km:ក្រាមកាល្យស៊ីដ្រាមក្នុងមួយហាង
+ko:갤런당 탄산 칼슘 그램
+lt:gramų kalcio karbonato viename galone
+lv:grami kalcija karbonāta uz galonu
+mk:грама калциум карбонат на галон
+ml:ഗാലൺ കാൽസിയം കാർബോണേറ്റിന്റെ ഗ്രാം
+mr:प्रति गॅलन कॅल्शियम कार्बोनेटचे ग्राम
+ms:gram kalsium karbonat setiap galon
+my:ဂယ်လိုရီကိုဘယ်လိုရောက်လဲ
+ne:प्रति ग्यालन क्याल्सियम कार्बोनेटको ग्राम
+nl:gram calciumcarbonaat per gallon
+no:gram kalsiumkarbonat per gallon
+pl:gram węglanu wapnia na galon
+pt:gramas de carbonato de cálcio por galão
+ro:grame de carbonat de calciu pe galon
+ru:грамм кальция карбоната на галлон
+sk:gramov uhličitanu vápenatého na galón
+sl:gramov kalcijevega karbonata na galon
+sq:gram kalcium karbonati për gallon
+sr:грама калцијум карбоната по галону
+sv:gram kalciumkarbonat per gallon
+sw:gramu la kaboneti ya kalsiamu kwa galoni
+ta:கால்சியம் கார்போனேடு ஒரு கலனில் கிராமங்கள்
+te:గ్యాలన్‌లో కార్బనేట్ కాల్సియం గ్రామాలు
+th:กรัมของแคลเซียมคาร์บอเนตต่อแกลลอน
+tr:gallon başına kalsiyum karbonat gramı
+uk:грам кальцію карбонату на галон
+ur:گیلن فی کیلشیم کاربونیٹ کے گرام
+vi:gram canxi cacbonat trên mỗi galon
+zh:每加仑碳酸钙的克数
+conversion_factor:en:0.171
+standard_unit:en:mmol/l
+
+xx:dGH, °dH, °D
+conversion_factor:en:0.1783
+standard_unit:en:mmol/l
+
+xx:°e, °Clark
+conversion_factor:en:0.1424
+standard_unit:en:mmol/l
+
+xx:°fH, °f, °HF
+conversion_factor:en:0.09991
+standard_unit:en:mmol/l
+
+xx:°rH
+conversion_factor:en:0.025
+standard_unit:en:mmol/l
+
+xx:percent vol
+symbol:en:% vol
+conversion_factor:en:1
+standard_unit:en:% vol
+
+xx:percent vol (alcohol)
+symbol:en:% vol (alcohol)
+conversion_factor:en:1
+standard_unit:en:% vol (alcohol)
+
+xx:percent
+symbol:en:%
+conversion_factor:en:1
+standard_unit:en:%
+
+xx:pH
+conversion_factor:en:1
+standard_unit:en:pH
+
+# % DV - % Daily Value
+xx:percent dv
+symbol:en:% dv
+conversion_factor:en:1
+standard_unit:en:% dv
+
+
+# International unit
+xx:iu
+ar:وحدة دولية
+bg:международна единица
+bn:আন্তর্জাতিক একক
+cs:mezinárodní jednotka
+cy:uned ryngwladol
+da:international enhed
+de:Internationale Einheit
+el:διεθνής μονάδα
+en:international unit
+es:unidad internacional
+et:rahvusvaheline ühik
+fa:واحد بین‌المللی
+fi:kansainvälinen yksikkö
+fil:international unit
+fr:unité internationale
+he:יחידה בינלאומית
+hi:अंतर्राष्ट्रीय इकाई
+hr:međunarodna jedinica
+hu:nemzetközi egység
+id:unit internasional
+is:alþjóðleg eining
+it:unità internazionale
+ja:国際単位
+jv:unit internasional
+ka:საერთაშორისო ერთეული
+kk:Әлемдік бірлік
+km:ឯកតាអន្តរជាតិ
+ko:국제 단위
+lt:tarpinė vienetai
+lv:starptautiskā vienība
+mk:меѓународна единица
+ml:അന്താരാഷ്ട്ര യൂണിറ്റ്
+mr:अंतरराष्ट्रीय एकक
+ms:unit antarabangsa
+my:အပြည်ပြည်ဆိုင်းအခြေအနေ
+ne:अन्तर्राष्ट्रिय इकाई
+nl:internationale eenheid
+no:internasjonal enhet
+pl:jednostka międzynarodowa
+pt:unidade internacional
+ro:unitate internațională
+ru:международная единица
+sk:medzinárodná jednotka
+sl:mednarodna enota
+sq:njësia ndërkombëtare
+sr:међународна јединица
+sv:internationell enhet
+sw:kiwango cha kimataifa
+ta:சர்வதேச அலகு
+te:అంతర్జాతీయ యూనిట్
+th:หน่วยนานาชาติ
+tr:uluslararası birim
+uk:міжнародна одиниця
+ur:بین الاقوامی اکائی
+vi:đơn vị quốc tế
+zh:国际单位
+conversion_factor:en:1
+standard_unit:en:iu
