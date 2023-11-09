@@ -887,41 +887,6 @@ sub add_properties_from_specific_ingredients ($product_ref) {
 	return;
 }
 
-=head2 add_properties_from_specific_ingredients ( product_ref )
-
-Go through the ingredients structure, and add properties to ingredients that match specific ingredients
-for which we have extra information (e.g. origins from a label).
-
-=cut
-
-sub add_properties_from_specific_ingredients ($product_ref) {
-
-	# Traverse the ingredients tree, breadth first
-
-	my @ingredients = @{$product_ref->{ingredients}};
-
-	while (@ingredients) {
-
-		# Remove and process the first ingredient
-		my $ingredient_ref = shift @ingredients;
-		my $ingredientid = $ingredient_ref->{id};
-
-		# Add sub-ingredients at the beginning of the ingredients array
-		if (defined $ingredient_ref->{ingredients}) {
-
-			unshift @ingredients, @{$ingredient_ref->{ingredients}};
-		}
-
-		foreach my $property (qw(origins)) {
-			my $property_value = has_specific_ingredient_property($product_ref, $ingredientid, $property);
-			if ((defined $property_value) and (not defined $ingredient_ref->{$property})) {
-				$ingredient_ref->{$property} = $property_value;
-			}
-		}
-	}
-	return;
-}
-
 =head2 add_percent_max_for_salt_and_sugar_ingredients_from_nutrition_facts ( $product_ref )
 
 Add a percent_max value for salt and sugar ingredients, based on the nutrition facts.
