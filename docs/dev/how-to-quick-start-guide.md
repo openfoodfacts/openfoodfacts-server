@@ -96,6 +96,7 @@ The `.env` file contains ProductOpener default settings:
 | `PRODUCT_OPENER_FLAVOR_SHORT`                                     | can be modified to run different flavors of OpenFoodFacts, amongst `off` (default), `obf`, `oppf`, `opf`.|
 | `PRODUCERS_PLATFORM`                                              | can be set to `1` to build / run the **producer platform**.|
 | `ROBOTOFF_URL`                                                    | can be set to **connect with a Robotoff instance**.|
+| `QUERY_URL`                                                       | can be set to **connect with a Query instance**.|
 | `REDIS_URL` | can be set to **connect with a Redis instance for populating the search index**.|
 | `GOOGLE_CLOUD_VISION_API_KEY`                                     | can be set to **enable OCR using Google Cloud Vision**.|
 | `CROWDIN_PROJECT_IDENTIFIER` and `CROWDIN_PROJECT_KEY`            | can be set to **run translations**.|

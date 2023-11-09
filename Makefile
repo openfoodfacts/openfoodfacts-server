@@ -53,7 +53,7 @@ DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # we also enable the possibility to fake services in po_test_runner
 DOCKER_COMPOSE_TEST=ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker-compose --env-file=${ENV_FILE}
 
-.DEFAULT_GOAL := dev
+.DEFAULT_GOAL := usage
 
 # this target is always to build, see https://www.gnu.org/software/make/manual/html_node/Force-Targets.html
 _FORCE:
@@ -63,6 +63,11 @@ _FORCE:
 #------#
 info:
 	@echo "${NAME} version: ${VERSION}"
+
+usage:
+	@echo "🥫 Welcome to the Open Food Facts project"
+	@echo "🥫 See available commands at docker/README.md"
+	@echo "🥫 or https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-docker-commands/"
 
 hello:
 	@echo "🥫 Welcome to the Open Food Facts dev environment setup!"
@@ -192,10 +197,8 @@ create_mongodb_indexes:
 	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "mongo off /data/db/create_indexes.js"
 
 refresh_product_tags:
-	@echo "🥫 Refreshing products tags (update MongoDB products_tags collection) …"
-# get id for mongodb container
-	docker cp scripts/refresh_products_tags.js $(shell docker-compose ps -q mongodb):/data/db
-	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "mongo off /data/db/refresh_products_tags.js"
+	@echo "🥫 Refreshing product data cached in Postgres …"
+	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl ${from}
 
 import_sample_data:
 	@echo "🥫 Importing sample data (~200 products) into MongoDB …"
@@ -248,11 +251,11 @@ unit_test:
 	@echo "🥫 unit tests success"
 
 integration_test:
-	@echo "🥫 Running unit tests …"
+	@echo "🥫 Running integration tests …"
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
 # this is the place where variables are important
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion
 # note: we need the -T option for ci (non tty environment)
 	${DOCKER_COMPOSE_TEST} exec ${COVER_OPTS}  -T backend prove -l -r tests/integration
 	${DOCKER_COMPOSE_TEST} stop
@@ -271,9 +274,10 @@ test-unit: guard-test
 	${DOCKER_COMPOSE_TEST} run --rm backend perl ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
-test-int: guard-test # usage: make test-one test=test-file.t
+# to update expected results: make test-int test="test-name.t --update-expected-results"
+test-int: guard-test # usage: make test-int test=test-file.t
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion
 	${DOCKER_COMPOSE_TEST} exec backend perl ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_TEST} stop backend

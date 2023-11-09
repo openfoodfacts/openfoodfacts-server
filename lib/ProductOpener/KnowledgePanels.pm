@@ -1146,7 +1146,7 @@ sub create_ingredients_panel ($product_ref, $target_lc, $target_cc, $options_ref
 
 	my $ingredients_text = $product_ref->{ingredients_text};
 	my $ingredients_text_with_allergens = $product_ref->{ingredients_text_with_allergens};
-	my $ingredients_text_lc = $product_ref->{lc};
+	my $ingredients_text_lc = $product_ref->{ingredients_lc};
 
 	if (    (defined $product_ref->{"ingredients_text" . "_" . $target_lc})
 		and ($product_ref->{"ingredients_text" . "_" . $target_lc} ne ''))
@@ -1221,6 +1221,14 @@ sub create_additives_panel ($product_ref, $target_lc, $target_cc, $options_ref) 
 			add_taxonomy_properties_in_target_languages_to_object($additive_panel_data_ref, "additives", $additive,
 				["wikipedia_url", "wikipedia_title", "wikipedia_abstract"],
 				$target_lcs_ref);
+
+			# We check if the knowledge content for this additive (and language/country) is available.
+			# If it is it will be displayed instead of the wikipedia extract
+			my $additive_description = get_knowledge_content("additives", $additive, $target_lc, $target_cc);
+
+			if (defined $additive_description) {
+				$additive_panel_data_ref->{additive_description} = $additive_description;
+			}
 
 			create_panel_from_json_template($additive_panel_id,
 				"api/knowledge-panels/health/ingredients/additive.tt.json",

@@ -305,6 +305,7 @@ my @tests = (
 		{lc => "ru", ingredients_text => "масло растительное (подсолнечное, соевое), Масло (Пальмовое)"},
 		["en:sunflower-oil", "en:soya-oil", "en:palm-oil"]
 	],
+	[{lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, ["en:banana"],],
 
 );
 

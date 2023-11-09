@@ -115,6 +115,10 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Voer de naam van uw organisatie in (bedrijfsnaam of merk)."
 
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr "Voer e-mailadressen in van gebruikers die u wilt uitnodigen (door komma's gescheiden):"
+
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 msgstr "Dit is een professioneel account dat is gekoppeld aan de producent of het merk {org}. Je hebt toegang tot het Platform voor Producenten."
@@ -189,10 +193,10 @@ msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
-msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr "/images/misc/google-play-badge-svg-master/img/nl_get.svg"
+msgid "/images/misc/playstore/img/en_get.svg"
+msgstr "/images/misc/playstore/img/nl_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -975,6 +979,10 @@ msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr "Fotodetail en toeschrijvingsinformatie"
 
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr "Gebruikers uitnodigen"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Producten die je toegevoegd hebt en nog onvolledig zijn"
@@ -1094,7 +1102,7 @@ msgstr "Beschikbaar in de App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -6541,12 +6549,20 @@ msgstr "Veelgestelde vragen voor producenten"
 
 msgctxt "join_the_next_pros_meet_up"
 msgid "Join the next Pros' Meet-up"
-msgstr ""
+msgstr "Neem deel aan de volgende Pros' Meet-up"
 
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
 msgstr "Voer een waarde tussen 0 en {max} in."
+
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr "Vraag de volgende gebruikers om eerst een Open Food Facts-account aan te maken:"
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr "Gebruikers succesvol toegevoegd aan de organisatie:"
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
@@ -6595,4 +6611,28 @@ msgstr "voor producten die voornamelijk het materiaal bevatten"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "ten opzichte van alle producten"
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr "Aantal verpakkingsonderdelen"
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr "Aantal verpakkingsonderdelen"
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr "Alle materialen"
+
+msgctxt "weight"
+msgid "Weight"
+msgstr "Gewicht"
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr "Gewicht per 100 gram product"
+
+msgctxt "weight_percent"
+msgid "Weight percent"
+msgstr "Gewicht percentage"
 

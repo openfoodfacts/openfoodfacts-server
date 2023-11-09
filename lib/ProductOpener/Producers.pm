@@ -46,7 +46,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
-		$minion
+		&get_minion
 
 		&load_csv_or_excel_file
 
@@ -96,14 +96,30 @@ use Text::CSV();
 use Minion;
 
 # Minion backend
+my $minion;
 
-if (not defined $server_options{minion_backend}) {
+=head2 get_minion()
+Function to get the backend minion
 
-	print STDERR "No Minion backend configured in lib/ProductOpener/Config2.pm\n";
-}
-else {
-	print STDERR "Initializing Minion backend configured in lib/ProductOpener/Config2.pm\n";
-	$minion = Minion->new(%{$server_options{minion_backend}});
+=head3 Arguments
+None
+
+=head3 Return values
+The backend minion $minion
+
+=cut
+
+sub get_minion() {
+	if (not defined $minion) {
+		if (not defined $server_options{minion_backend}) {
+			print STDERR "No Minion backend configured in lib/ProductOpener/Config2.pm\n";
+		}
+		else {
+			print STDERR "Initializing Minion backend configured in lib/ProductOpener/Config2.pm\n";
+			$minion = Minion->new(%{$server_options{minion_backend}});
+		}
+	}
+	return $minion;
 }
 
 =head1 FUNCTIONS
@@ -175,6 +191,10 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 			my $line = <$io>;
 			if ($line =~ /\t/) {
 				$separator = "\t";
+			}
+			# Otherwise, if the first line does not have a separator, check if it is a ;
+			elsif (($line !~ /$separator/) and ($line =~ /;/)) {
+				$separator = ";";
 			}
 		}
 	}
@@ -444,7 +464,7 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 	my $products_ref = {};
 
 	# Keep track of the number of lines for each product
-	my %product_lines = {};
+	my %product_lines = ();
 
 	# We may add some output columns if there are products on multiple lines
 	my $extra_output_headers_ref = [];
@@ -479,14 +499,23 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 			my $field = $field_orig;    # Needed in order to be able to modify $field without changing the array content
 			my $col = $output_to_input_columns_ref->{$field};
 
-			# If the field is of the form packaging_1_*
-			# and we have multiple lines per product,
-			# we rename the field to packaging_[current number of lines of the product]_*
+			# If we have multiple lines per product, we need to rename some fields by adding a number
+			# so that the values on multiple lines are saved in multiple columns
 
-			if (($product_lines{$code} > 1) and ($field =~ /^packaging_1_/)) {
-				$field = "packaging_" . $product_lines{$code} . "_" . $';
+			if ($product_lines{$code} > 1) {
 
-				# Add the field to the list of columns in the output file
+				# If the field is of the form packaging_1_*
+				# we rename the field to packaging_[current number of lines of the product]_*
+				if ($field =~ /^packaging_1_/) {
+					$field = "packaging_" . $product_lines{$code} . "_" . $';
+				}
+				# If the field is of the form image_other_url or image_other_type
+				# we rename the field to image_other_(url|type).[current number of lines of the product]
+				elsif (($product_lines{$code} > 1) and ($field =~ /^image_other_/)) {
+					$field .= '.' . $product_lines{$code};
+				}
+
+				# Add the field to the list of columns in the output file if the column does not exist yet
 				if (not exists $output_to_input_columns_ref->{$field}) {
 					$output_to_input_columns_ref->{$field} = undef;
 					push @$extra_output_headers_ref, $field;
@@ -532,7 +561,7 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 		my @values = ();
 		foreach my $field (@$output_headers_ref, @$extra_output_headers_ref) {
 			push @values, $product_ref->{$field};
-			print STDERR "$field - $product_ref->{$field} . \n";
+			#print STDERR "$field - $product_ref->{$field} . \n";
 		}
 
 		$csv_out->print($out, [@values]);
@@ -1840,18 +1869,22 @@ sub export_and_import_to_public_database ($args_ref) {
 	# Local export
 
 	my $local_export_job_id
-		= $minion->enqueue(export_csv_file => [$args_ref] => {queue => $server_options{minion_local_queue}});
+		= get_minion()->enqueue(export_csv_file => [$args_ref] => {queue => $server_options{minion_local_queue}});
 
 	$args_ref->{export_job_id} = $local_export_job_id;
 
 	# Remote import
 
-	my $remote_import_job_id = $minion->enqueue(import_csv_file => [$args_ref] =>
+	my $remote_import_job_id
+		= get_minion()
+		->enqueue(import_csv_file => [$args_ref] =>
 			{queue => $server_options{minion_export_queue}, parents => [$local_export_job_id]});
 
 	# Local export status update
 
-	my $local_export_status_job_id = $minion->enqueue(update_export_status_for_csv_file => [$args_ref] =>
+	my $local_export_status_job_id
+		= get_minion()
+		->enqueue(update_export_status_for_csv_file => [$args_ref] =>
 			{queue => $server_options{minion_local_queue}, parents => [$remote_import_job_id]});
 
 	$exports_ref->{$export_id}{local_export_job_id} = $local_export_job_id;
@@ -2009,7 +2042,7 @@ sub update_export_status_for_csv_file_task ($job, $args_ref) {
 }
 
 sub queue_job {    ## no critic (Subroutines::RequireArgUnpacking)
-	return $minion->enqueue(@_);
+	return get_minion()->enqueue(@_);
 }
 
 1;
