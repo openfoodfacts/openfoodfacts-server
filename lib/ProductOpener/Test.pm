@@ -37,6 +37,7 @@ BEGIN {
 		&capture_ouputs
 		&compare_arr
 		&ensure_expected_results_dir
+		&compare_file_to_expected_results
 		&compare_to_expected_results
 		&compare_array_to_expected_results
 		&compare_csv_file_to_expected_results
@@ -357,6 +358,7 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 		my $pretty_json = $json->pretty->encode($object_ref);
 		print $result $pretty_json;
 		close($result);
+		ok(1, "Updated $expected_results_file");
 	}
 	else {
 		# Compare the result with the expected result
@@ -375,6 +377,65 @@ sub compare_to_expected_results ($object_ref, $expected_results_file, $update_ex
 		else {
 			fail("could not load $expected_results_file");
 			diag(explain $test_ref, explain $object_ref);
+		}
+	}
+
+	return 1;
+}
+
+=head2 compare_file_to_expected_results($content_str, $expected_results_file, $update_expected_results, $test_ref = undef) {
+
+Compare an string (e.g. text or HTML file) to expected results.
+
+The expected result is stored as a plain text file.
+
+This is so that we can easily see diffs with git diffs.
+
+=head3 Arguments
+
+=head4 $content_str - the reference string
+
+=head4 $expected_results_file - path to the file with stored results
+
+=head4 $update_expected_results - flag to indicate to save test results as expected results
+
+Tests will always pass when this flag is passed,
+and the new expected results can be diffed / committed in GitHub.
+
+=head4 $test_ref - an optional reference to an object describing the test case
+
+If the test fail, the test reference will be output in the C<diag>
+
+=cut
+
+sub compare_file_to_expected_results ($content_str, $expected_results_file, $update_expected_results, $test_ref = undef)
+{
+	my $desc = undef;
+	if (defined $test_ref) {
+		$desc = $test_ref->{desc} // $test_ref->{id};
+	}
+
+	if ($update_expected_results) {
+		open(my $result, ">:encoding(UTF-8)", $expected_results_file)
+			or confess("Could not create $expected_results_file: $!");
+		print $result $content_str;
+		close($result);
+	}
+	else {
+		# Compare the result with the expected result
+
+		if (open(my $IN, "<:encoding(UTF-8)", $expected_results_file)) {
+			my $expected_result = join('', (<$IN>));
+			my $title;
+			if ($test_ref && (ref($test_ref) eq "HASH")) {
+				$title = $test_ref->{desc} // $test_ref->{test_case} // $test_ref->{id};
+				$title = undef unless $title;
+			}
+			is($content_str, $expected_result, $title);
+		}
+		else {
+			fail("could not load $expected_results_file");
+			diag(explain $test_ref, explain $content_str);
 		}
 	}
 

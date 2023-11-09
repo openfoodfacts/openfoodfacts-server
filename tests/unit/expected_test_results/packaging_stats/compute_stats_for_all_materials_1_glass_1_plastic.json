@@ -5,61 +5,93 @@
             "all" : {
                "materials" : {
                   "all" : {
-                     "n" : 2,
-                     "products_percent" : {
-                        "mean" : 100,
+                     "contain" : {
+                        "mean" : 1,
                         "n" : 2,
                         "std" : 0,
-                        "sum" : 200,
+                        "sum" : 2,
                         "values" : [
-                           100,
-                           100
+                           1,
+                           1
                         ]
                      },
+                     "contain_n" : 2,
+                     "main" : {
+                        "mean" : 0,
+                        "n" : 2,
+                        "std" : 0,
+                        "sum" : 0,
+                        "values" : [
+                           0,
+                           0
+                        ]
+                     },
+                     "main_n" : 2,
                      "weight_100g" : {
-                        "mean" : 550,
+                        "mean" : 600,
                         "n" : 2,
-                        "std" : 450,
-                        "sum" : 1100,
+                        "std" : 400,
+                        "sum" : 1200,
                         "values" : [
                            1000,
-                           100
+                           200
                         ]
                      },
-                     "weight_100g_material" : {
-                        "mean" : 550,
+                     "weight_100g_contain" : {
+                        "mean" : 600,
                         "n" : 2,
-                        "std" : 450,
-                        "sum" : 1100,
+                        "std" : 400,
+                        "sum" : 1200,
                         "values" : [
                            1000,
-                           100
+                           200
                         ]
                      }
                   },
                   "en:glass" : {
-                     "n" : 1,
-                     "products_percent" : {
-                        "mean" : 50,
+                     "contain" : {
+                        "mean" : 1,
                         "n" : 2,
-                        "std" : 50,
-                        "sum" : 100,
+                        "std" : 0,
+                        "sum" : 2,
                         "values" : [
-                           100,
+                           1,
+                           1
+                        ]
+                     },
+                     "contain_n" : 2,
+                     "main" : {
+                        "mean" : 0.5,
+                        "n" : 2,
+                        "std" : 0.5,
+                        "sum" : 1,
+                        "values" : [
+                           1,
                            0
                         ]
                      },
+                     "main_n" : 2,
                      "weight_100g" : {
-                        "mean" : 500,
+                        "mean" : 520,
                         "n" : 2,
-                        "std" : 500,
-                        "sum" : 1000,
+                        "std" : 480,
+                        "sum" : 1040,
                         "values" : [
                            1000,
-                           0
+                           40
                         ]
                      },
-                     "weight_100g_material" : {
+                     "weight_100g_contain" : {
+                        "mean" : 520,
+                        "n" : 2,
+                        "std" : 480,
+                        "sum" : 1040,
+                        "values" : [
+                           1000,
+                           40
+                        ]
+                     },
+                     "weight_100g_main" : {
                         "mean" : 1000,
                         "n" : 1,
                         "std" : 0,
@@ -70,7 +102,7 @@
                      }
                   },
                   "en:metal" : {
-                     "products_percent" : {
+                     "contain" : {
                         "mean" : 0,
                         "n" : 2,
                         "std" : 0,
@@ -80,6 +112,17 @@
                            0
                         ]
                      },
+                     "main" : {
+                        "mean" : 0,
+                        "n" : 2,
+                        "std" : 0,
+                        "sum" : 0,
+                        "values" : [
+                           0,
+                           0
+                        ]
+                     },
+                     "main_n" : 2,
                      "weight_100g" : {
                         "mean" : 0,
                         "n" : 2,
@@ -92,7 +135,7 @@
                      }
                   },
                   "en:paper-or-cardboard" : {
-                     "products_percent" : {
+                     "contain" : {
                         "mean" : 0,
                         "n" : 2,
                         "std" : 0,
@@ -102,6 +145,17 @@
                            0
                         ]
                      },
+                     "main" : {
+                        "mean" : 0,
+                        "n" : 2,
+                        "std" : 0,
+                        "sum" : 0,
+                        "values" : [
+                           0,
+                           0
+                        ]
+                     },
+                     "main_n" : 2,
                      "weight_100g" : {
                         "mean" : 0,
                         "n" : 2,
@@ -114,39 +168,59 @@
                      }
                   },
                   "en:plastic" : {
-                     "n" : 1,
-                     "products_percent" : {
-                        "mean" : 50,
+                     "contain" : {
+                        "mean" : 0.5,
                         "n" : 2,
-                        "std" : 50,
-                        "sum" : 100,
+                        "std" : 0.5,
+                        "sum" : 1,
                         "values" : [
                            0,
-                           100
+                           1
                         ]
                      },
+                     "contain_n" : 1,
+                     "main" : {
+                        "mean" : 0.5,
+                        "n" : 2,
+                        "std" : 0.5,
+                        "sum" : 1,
+                        "values" : [
+                           0,
+                           1
+                        ]
+                     },
+                     "main_n" : 2,
                      "weight_100g" : {
-                        "mean" : 50,
+                        "mean" : 80,
                         "n" : 2,
-                        "std" : 50,
-                        "sum" : 100,
+                        "std" : 80,
+                        "sum" : 160,
                         "values" : [
                            0,
-                           100
+                           160
                         ]
                      },
-                     "weight_100g_material" : {
-                        "mean" : 100,
+                     "weight_100g_contain" : {
+                        "mean" : 160,
                         "n" : 1,
                         "std" : 0,
-                        "sum" : 100,
+                        "sum" : 160,
                         "values" : [
-                           100
+                           160
+                        ]
+                     },
+                     "weight_100g_main" : {
+                        "mean" : 160,
+                        "n" : 1,
+                        "std" : 0,
+                        "sum" : 160,
+                        "values" : [
+                           160
                         ]
                      }
                   },
                   "en:unknown" : {
-                     "products_percent" : {
+                     "contain" : {
                         "mean" : 0,
                         "n" : 2,
                         "std" : 0,
@@ -156,6 +230,17 @@
                            0
                         ]
                      },
+                     "main" : {
+                        "mean" : 0,
+                        "n" : 2,
+                        "std" : 0,
+                        "sum" : 0,
+                        "values" : [
+                           0,
+                           0
+                        ]
+                     },
+                     "main_n" : 2,
                      "weight_100g" : {
                         "mean" : 0,
                         "n" : 2,

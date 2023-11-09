@@ -71,13 +71,13 @@
     
         <div class="large-6 column">
             [% IF tagid.defined %]
+                [% IF facets_kp_url.defined && ! is_crawl_bot %]
                 <!-- injecting facet-knowledge-panel -->
                 <div id="facet-knowledge-panel" style="margin-left: 70px;">
                     <h2 id="facet_panels_title"></h2>
                     <div id="facet_panels_content"></div>
                 </div>
-                <!-- Fetching facet knowledge panel -->
-                [% IF facets_kp_url.defined %]
+                <!-- Fetching facet knowledge panel -->                
                 <script>
                         let facet_kp = "[% facets_kp_url %]";
                         let params = "?facet_tag=[% tagtype %]&value_tag=[% canon_tagid %]";

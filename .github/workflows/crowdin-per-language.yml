@@ -20,9 +20,9 @@ jobs:
          lc: [ca, uk, it, es, fr, de, id, en, he, da, ko, nl, pt-BR, zh-TW, nl-BE, pt-PT, zh-HK, zh-CN,  aa , ar , ber , br , co , fa , ga , hy , iu , kk , lb , me , mr , ne , no , ry , sd , sl , sq , st , tg , tr , tzl , val , wa , zea , zu , ach , as , bg , bs , crs , eo , fi , gd , hi , id , ja , km , ku , lo , mg , ms , nr , pa , qu , sa , sg , sma , sr , sv , th , ts , ug , ve , wo , zh ,af , ast , bm , ca , cs , el , fil , gl , hr , ii , jv , kmr , kw , mi , mt , pl , rm , sat , sh , sn , sr_CS , sw , ti , tt , uk , vec , xh , ak , az , bn , ce , cv , et , fo , gu , ht , is , ka , kmr_TR , ky , lt , ml , my , oc , ro , sc , si , so , sr_RS , ta , tl , tw , ur , vi , yi , am , be , bo , chr , cy , eu , ha , hu , kab , kn , la , lv , mn , nb , nn , ru , sco , sk , son , ss , te , tn , ty , uz , vls , yo ]
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Matrix
-      uses: crowdin/github-action@v1.12.0
+      uses: crowdin/github-action@v1.14.1
       with:
          upload_translations: false # default is false
          download_translations: true

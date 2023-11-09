@@ -2,11 +2,6 @@ type: object
 description: |
   Nutrition fields of a product
 properties:
-  fruits-vegetables-nuts_100g_estimate:
-    type: integer
-    description: |
-      An estimate, from ingredients list of the percentage of vegetable and nuts.
-      This is an important information for Nutri-Score computation.
   no_nutrition_data:
     type: string
     description: |
@@ -45,8 +40,16 @@ properties:
         type: number
       fat:
         type: number
-      fruits-vegetables-nuts-estimate-from-ingredients_100g:
+      fruits-vegetables-legumes-estimate-from-ingredients:
         type: number
+        description: |
+          An estimate, from the ingredients list of the percentage of fruits, vegetable and legumes.
+          This is an important information for Nutri-Score (2023 version) computation.        
+      fruits-vegetables-nuts-estimate-from-ingredients:
+        type: number
+        description: |
+          An estimate, from the ingredients list of the percentage of fruits, vegetable and nuts.
+          This is an important information for Nutri-Score (2021 version) computation.
       nova-group:
         type: integer
       nutrition-score-fr:
@@ -98,6 +101,7 @@ properties:
 
           [units-module]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Units.html
           [default-unit]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Food.html#default_unit_for_nid_(_%24nid)
+        type: string
         enum: ['公斤', '公升', 'kg', 'кг', 'l', 'л', '毫克', 'mg', 'мг', 'mcg', 'µg', 'oz', 'fl oz', 'dl', 'дл', 'cl', 'кл', '斤', 'g', '', ' ', 'kj', '克', '公克', 'г', 'мл', 'ml', 'mmol/l', '毫升', '% vol', 'ph', '%', '% dv', '% vol (alcohol)', 'iu', 'mol/l', 'mval/l', 'ppm', '�rh', '�fh', '�e', '�dh', 'gpg']
       '(?<nutrient>\w+)_100g':
         description: |

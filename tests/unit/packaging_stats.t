@@ -38,7 +38,8 @@ add_product_materials_to_stats(
 				'weight_100g' => 1000,
 				'weight_percent' => 100
 			}
-		}
+		},
+		packagings_materials_main => "en:glass",
 	}
 );
 
@@ -60,15 +61,21 @@ add_product_materials_to_stats(
 		packagings_materials => {
 			'all' => {
 				'weight' => 50,
-				'weight_100g' => 100,
+				'weight_100g' => 200,
 				'weight_percent' => 100
 			},
 			'en:plastic' => {
-				'weight' => 50,
-				'weight_100g' => 100,
-				'weight_percent' => 100
-			}
-		}
+				'weight' => 40,
+				'weight_100g' => 160,
+				'weight_percent' => 80
+			},
+			'en:glass' => {
+				'weight' => 10,
+				'weight_100g' => 40,
+				'weight_percent' => 20
+			},
+		},
+		packagings_materials_main => "en:plastic",
 	}
 );
 

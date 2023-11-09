@@ -1,5 +1,5 @@
 # .github/workflows/auto-author-assign.yml
-name: 'Assign the author of a PR automatically'
+name: '👩‍💻 Auto-assign Pull Request Author'
 
 on:
   pull_request_target:
@@ -14,6 +14,7 @@ permissions:
 
 jobs:
   assign-author:
+    name: 'Pull request assignment'
     runs-on: ubuntu-latest
     steps:
-      - uses: toshimaru/auto-author-assign@v1.6.2
+      - uses: toshimaru/auto-author-assign@v2.0.1

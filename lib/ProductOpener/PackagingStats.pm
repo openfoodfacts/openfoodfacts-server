@@ -94,6 +94,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::Packaging qw/:all/;
+use ProductOpener::Ecoscore qw/load_agribalyse_data %agribalyse/;
 
 use File::Path qw(mkpath);
 use JSON::PP;
@@ -313,7 +314,8 @@ sub remove_packagings_materials_stats_for_unpopular_categories ($packagings_mate
 
 	foreach my $country_ref (values %{$packagings_materials_stats_ref->{countries}}) {
 		foreach my $category (keys %{$country_ref->{categories}}) {
-			if ((deep_get($country_ref, "categories", $category, "materials", "all", "n") || 0) < $min_products) {
+			if ((deep_get($country_ref, "categories", $category, "materials", "all", "contain_n") || 0) < $min_products)
+			{
 				delete $country_ref->{categories}{$category};
 			}
 		}
@@ -358,6 +360,10 @@ sub store_stats ($name, $packagings_stats_ref, $packagings_materials_stats_ref) 
 		"$www_root/data/categories_stats/categories_packagings_stats.fr.fermented-dairy-desserts.$name.json",
 		$packagings_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"}
 	);
+	store_json(
+		"$www_root/data/categories_stats/categories_packagings_materials_stats.fr.fermented-dairy-desserts.$name.json",
+		$packagings_materials_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"}
+	);
 
 	return;
 }
@@ -377,7 +383,7 @@ Open a file, initialize a Text::CSV object, and output the CSV header for packag
 sub init_products_packaging_components_csv ($name) {
 
 	my $filehandle;
-	my $filename = "$www_root/data/$name.csv";
+	my $filename = "$www_root/data/packagings.$name.csv";
 	open($filehandle, ">:encoding(UTF-8)", $filename)
 		or die("Could not write " . $filename . " : $!\n");
 	my $csv = Text::CSV->new(
@@ -393,9 +399,15 @@ sub init_products_packaging_components_csv ($name) {
 	$csv->print(
 		$filehandle,
 		[
-			"code", "countries_tags", "categories_tags", "number_of_units",
-			"shape", "material", "parent_material", "recycling",
-			"weight", "weight_measured", "weight_specified", "quantity_per_unit"
+			"code", "product_quantity",
+			"countries_tags", "categories_tags",
+			"food_group", "agribalyse_food_code:en",
+			"agribalyse_food_name:en", "agribalyse_food_name:fr",
+			"number_of_units", "shape",
+			"material", "parent_material",
+			"recycling", "weight",
+			"weight_measured", "weight_specified",
+			"quantity_per_unit"
 		]
 	);
 
@@ -423,17 +435,29 @@ sub export_product_packaging_components_to_csv ($csv, $filehandle, $product_ref)
 			$categories_tags = join(",", @{$product_ref->{categories_tags}});
 		}
 
+		# Export the Agribalyse code and name
+		my $agribalyse_food_code = deep_get($product_ref, "categories_properties", "agribalyse_food_code:en");
+		my $agribalyse_food_name_en;
+		my $agribalyse_food_name_fr;
+		if (defined $agribalyse_food_code) {
+			$agribalyse_food_name_en = deep_get(\%agribalyse, $agribalyse_food_code, "name_en");
+			$agribalyse_food_name_fr = deep_get(\%agribalyse, $agribalyse_food_code, "name_fr");
+		}
+
 		foreach my $packaging_ref (@{$product_ref->{packagings}}) {
 
 			my $weight = $packaging_ref->{weight_specified} // $packaging_ref->{weight_measured};
 
 			my @values = (
-				$product_ref->{code}, $countries_tags,
-				$categories_tags, $packaging_ref->{number_of_units},
-				$packaging_ref->{shape}, $packaging_ref->{material},
-				get_parent_material($packaging_ref->{material}), $packaging_ref->{recycling},
-				$weight, $packaging_ref->{weight_measured},
-				$packaging_ref->{weight_specified}, $packaging_ref->{quantity_per_unit},
+				$product_ref->{code}, $product_ref->{product_quantity},
+				$countries_tags, $categories_tags,
+				$product_ref->{food_groups}, $agribalyse_food_code,
+				$agribalyse_food_name_en, $agribalyse_food_name_fr,
+				$packaging_ref->{number_of_units}, $packaging_ref->{shape},
+				$packaging_ref->{material}, get_parent_material($packaging_ref->{material}),
+				$packaging_ref->{recycling}, $weight,
+				$packaging_ref->{weight_measured}, $packaging_ref->{weight_specified},
+				$packaging_ref->{quantity_per_unit},
 			);
 
 			$csv->print($filehandle, \@values);
@@ -446,6 +470,13 @@ sub export_product_packaging_components_to_csv ($csv, $filehandle, $product_ref)
 =head2 add_product_materials_to_stats($name, $packagings_stats_ref, $product_ref)
 
 Add aggregated (by parent materials) data for all packagings of a product to stats for all its countries and categories combinations.
+
+For each material, we record values for those fields:
+- contain: the product contains the material
+- main: the product has the material as its main material
+- weight: weight of the material, even if the product does not contain it (0 otherwise)
+- weight_contain: weight of the material, if the product contains it
+- weight_main: weight of the material, if the product has it as its main material
 
 =cut
 
@@ -473,7 +504,7 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 				# Increment the number of products that have the parent material
 				if (defined $material_ref) {
 					deep_val($packagings_materials_stats_ref,
-						("countries", $country, "categories", $category, "materials", $material, "n"))
+						("countries", $country, "categories", $category, "materials", $material, "contain_n"))
 						+= 1;
 				}
 
@@ -486,21 +517,55 @@ sub add_product_materials_to_stats ($name, $packagings_materials_stats_ref, $pro
 
 					my $weight_100g = deep_get($product_ref, "packagings_materials", $material, "weight_100g");
 
-					# Record if the product has the material (100) or not (0)
-					push @{$packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
-							{$material}{products_percent}{values}}, ($weight_100g ? 100 : 0);
+					# Initialize the stats for the country / category / material if needed
+					defined $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
+						{$material}
+						or $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
+						{$material} = {};
+
+					my $material_stats_ref
+						= $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
+						{$material};
+
+					# Record if the product has the material (1) or not (0): useful to compute percent
+					push @{$material_stats_ref->{contain}{values}}, ($weight_100g ? 1 : 0);
 
 					# Record the weight per 100g of product, for all products, even if they don't contain the material
 					# Useful to say that on average a product of a specific category has X g of glass and Y g of metal
 					# even if most of them are either in glass, or in metal, but not both
-					push @{$packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
-							{$material}{weight_100g}{values}}, ($weight_100g // 0);
+					push @{$material_stats_ref->{weight_100g}{values}}, ($weight_100g // 0);
 
 					# Record the weight per 100g of product, for all products that contain the material
 					# Useful to compare products that do have the material
 					if (defined $weight_100g) {
-						push @{$packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
-								{$material}{weight_100g_material}{values}}, $weight_100g;
+						push @{$material_stats_ref->{weight_100g_contain}{values}}, $weight_100g;
+					}
+
+					# Record if it is the main material of the product
+					if (defined $product_ref->{packagings_materials_main}) {
+
+						# Initialize the stats for the country / category / material if needed
+						(
+							defined $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}
+								{materials}{$material})
+							or $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
+							{$material} = {};
+
+						my $main_material_stats_ref
+							= $packagings_materials_stats_ref->{countries}{$country}{categories}{$category}{materials}
+							{$material};
+
+						# Increment the number of products that have the material as their main material
+						$main_material_stats_ref->{main_n} += 1;
+
+						# Record if the product has the material (1) or not (0): useful to compute percent
+						push @{$main_material_stats_ref->{main}{values}},
+							(($product_ref->{packagings_materials_main} eq $material) ? 1 : 0);
+
+						# Record the weight per 100g of product, for all products that have the material as their main material
+						if (($product_ref->{packagings_materials_main} eq $material) and (defined $weight_100g)) {
+							push @{$main_material_stats_ref->{weight_100g_main}{values}}, $weight_100g;
+						}
 					}
 				}
 			}
@@ -521,7 +586,7 @@ sub compute_stats_for_all_materials ($packagings_materials_stats_ref, $delete_va
 	foreach my $country_ref (values %{$packagings_materials_stats_ref->{countries}}) {
 		foreach my $category_ref (values %{$country_ref->{categories}}) {
 			foreach my $material_ref (values %{$category_ref->{materials}}) {
-				foreach my $field ("products_percent", "weight_100g", "weight_100g_material") {
+				foreach my $field ("contain", "main", "weight_100g", "weight_100g_contain", "weight_100g_main") {
 					if (defined $material_ref->{$field}) {
 						# Compute stats
 						compute_stats_for_values($material_ref->{$field});
@@ -555,6 +620,9 @@ and in JSON format in $www_root/data/categories_stats/
 
 sub generate_packaging_stats_for_query ($name, $query_ref, $quiet = 0) {
 
+	# We need Agribalyse categories names
+	load_agribalyse_data();
+
 	# we will filter out empty and obsolete products
 	$query_ref->{'empty'} = {"\$ne" => 1};
 	$query_ref->{'obsolete'} = {"\$ne" => 1};
@@ -563,9 +631,12 @@ sub generate_packaging_stats_for_query ($name, $query_ref, $quiet = 0) {
 	my $fields_ref = {
 		code => 1,
 		countries_tags => 1,
+		categories_properties => 1,
 		categories_tags => 1,
+		food_groups => 1,
 		packagings => 1,
 		packagings_materials => 1,
+		packagings_materials_main => 1,
 		product_quantity => 1,
 	};
 

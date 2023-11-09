@@ -43,7 +43,7 @@
 						<input type="hidden" name="type" value="user_delete" />
 						<input type="hidden" name="org_id" value="[% orgid %]">
 						<input type="hidden" name="user_id" value="[% users.userid %]">
-						<input type="submit" name="remove_user" class="button small" value="[% lang("remove_user") %]"/ />
+						<input type="submit" name="remove_user" class="button small" value="[% lang("remove_user") %]"/>
 					</form>
 				</td>
 			</tr>
@@ -53,6 +53,15 @@
 		</table>
 	</div>
 	[% END %]
+
+		<form method="post" action="/cgi/org.pl" enctype="multipart/form-data" style="margin-bottom: 20px;">
+		<p>[% lang('enter_email_addresses_of_users') %]</p>
+		<textarea id="email_list" name="email_list" style="height:100px;width:50vw"></textarea>
+		<input type="hidden" name="action" value="process" />
+		<input type="hidden" name="type" value="add_users" />
+		<input type="hidden" name="orgid" value="[% orgid %]" />
+		<input type="submit" name=".submit" class="button" value="[% lang("invite_user") %]"/>
+	</form>
 
     <!-- Start form -->
     
@@ -131,6 +140,25 @@
     <!-- End form -->
 
 [% ELSIF action == 'process' %]
+
+[% IF email_ref.invited.size > 0 %]
+<h3>[% lang('please_ask_users_create_account_first') %]</h3>
+<ul>
+	[% FOREACH email IN email_ref.invited %]
+	<li>[% email %]</li>
+	[% END %]
+</ul>
+[% END %]
+
+[% IF email_ref.added.size > 0 %]
+<h3>[% lang('users_added_successfully') %]</h3>
+<ul>
+	[% FOREACH email IN email_ref.added %]
+	<li>[% email %]</li>
+	[% END %]
+</ul>
+[% END %]
+
     <p>[% result %]</p>
     <p>&rarr; <a href="[% profile_url %]">[% profile_name %]</a></p>
 [% END %]

@@ -1,16 +1,16 @@
 {
-        "code"  : "1234567890013",
-        "debug"  : "product_id: 1234567890013 - user_id:  - imagefield: front_en - size of image file received: 909 - saved jpg: 288 - image too small - width: 4 - height: 4",
-        "error"  : "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself.",
-        "files"  : [
-          {
-            "code"  : "1234567890013",
-            "filename"  : "",
-            "name"  : "1234567890013",
-            "url"  : "/product/1234567890013"
-          }
-        ],
-        "imagefield"  : "front_en",
-        "imgid":  null,
-        "status"  : "status not ok"
+   "code" : "1234567890013",
+   "debug" : "product_id: 1234567890013 - user_id:  - imagefield: front_en - size of image file received: 909 - saved jpg: 288 - image too small - width: 4 - height: 4",
+   "error" : "The picture is too small. Please do not upload pictures found on the Internet and only send photos you have taken yourself.",
+   "files" : [
+      {
+         "code" : "1234567890013",
+         "filename" : "",
+         "name" : "1234567890013",
+         "url" : "/product/1234567890013"
       }
+   ],
+   "imagefield" : "front_en",
+   "imgid" : null,
+   "status" : "status not ok"
+}

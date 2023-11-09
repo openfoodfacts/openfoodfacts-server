@@ -60,6 +60,7 @@
    "ingredients_hierarchy" : [
       "en:belgian-endive",
       "en:vegetable",
+      "en:shoot-vegetable",
       "en:cooked-ham",
       "en:animal",
       "en:meat",
@@ -85,6 +86,7 @@
    "ingredients_tags" : [
       "en:belgian-endive",
       "en:vegetable",
+      "en:shoot-vegetable",
       "en:cooked-ham",
       "en:animal",
       "en:meat",
@@ -104,7 +106,7 @@
       "en:cooked-ham"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "known_ingredients_n" : 11,
+   "known_ingredients_n" : 12,
    "labels" : "viande porcine française, oeufs de France",
    "labels_hierarchy" : [
       "en:french-meat",
@@ -119,6 +121,8 @@
    ],
    "lc" : "fr",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 40,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 40,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 40,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 40
    },

@@ -78,9 +78,11 @@
       "en:blueberry",
       "en:gooseberry",
       "en:white-peach",
+      "en:prunus-species-fruit",
       "en:peach",
       "en:bell-pepper",
-      "en:vegetable"
+      "en:vegetable",
+      "en:fruit-vegetable"
    ],
    "ingredients_n" : 6,
    "ingredients_n_tags" : [
@@ -104,9 +106,11 @@
       "en:blueberry",
       "en:gooseberry",
       "en:white-peach",
+      "en:prunus-species-fruit",
       "en:peach",
       "en:bell-pepper",
-      "en:vegetable"
+      "en:vegetable",
+      "en:fruit-vegetable"
    ],
    "ingredients_text" : "Strawberries (Spain), raspberries, blueberries, gooseberries, white peaches, bell peppers. Origin of bell peppers: Guatemala",
    "ingredients_with_specified_percent_n" : 0,
@@ -118,11 +122,13 @@
       "en:white-peach"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
-   "known_ingredients_n" : 10,
+   "known_ingredients_n" : 12,
    "lc" : "en",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 16.6666666666667,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 16.6666666666667
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
    },
    "origin_en" : "Origin of raspberries: New Caledonia. Blueberries: Canada ; White peaches : Mexico",
    "specific_ingredients" : [

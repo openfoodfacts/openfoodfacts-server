@@ -41,7 +41,7 @@
                "ingredients" : [],
                "percent" : 0.6,
                "percent_estimate" : 0.6,
-               "processing" : "en:pulp, en:concentrated",
+               "processing" : "en:pulp,en:concentrated",
                "text" : "orange",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -362,6 +362,7 @@
       "en:orange",
       "en:pulp",
       "en:concentrated-orange-juice",
+      "en:juice",
       "en:fruit-juice",
       "en:orange-juice",
       "en:gelling-agent",
@@ -372,6 +373,7 @@
       "en:natural-flavouring",
       "en:thickener",
       "en:cocoa-paste",
+      "en:plant",
       "en:cocoa",
       "en:cocoa-butter",
       "en:illipe-oil",
@@ -482,6 +484,7 @@
       "en:orange",
       "en:pulp",
       "en:concentrated-orange-juice",
+      "en:juice",
       "en:fruit-juice",
       "en:orange-juice",
       "en:gelling-agent",
@@ -492,6 +495,7 @@
       "en:natural-flavouring",
       "en:thickener",
       "en:cocoa-paste",
+      "en:plant",
       "en:cocoa",
       "en:cocoa-butter",
       "en:illipe-oil",
@@ -551,11 +555,13 @@
       "en:wheat-flour"
    ],
    "ingredients_without_ciqual_codes_n" : 19,
-   "known_ingredients_n" : 69,
+   "known_ingredients_n" : 71,
    "lc" : "fr",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 6.5,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 6.5
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 6.5,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 6.5,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 7.565625,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 7.565625
    },
    "unknown_ingredients_n" : 0
 }

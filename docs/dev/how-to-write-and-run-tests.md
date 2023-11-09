@@ -88,7 +88,7 @@ If you made change that impact stored expected results, you can use:
 * or to generate expected results for a single test
   (here for integration test, `test-unit` otherwise)
   ```bash
-  make test-int="filename.t --update-expected results"
+  make test-int test="filename.t --update-expected-results"
   ```
 
 If you re-generate test results, be sure to look carefully that the changes your commit are expected changes.

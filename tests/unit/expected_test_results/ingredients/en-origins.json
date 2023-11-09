@@ -76,15 +76,17 @@
       "en:tree-nut",
       "en:peach",
       "en:fruit",
+      "en:prunus-species-fruit",
       "en:black-olive",
-      "en:plant",
+      "en:vegetable",
+      "en:fruit-vegetable",
       "en:olive",
       "en:fresh-tomatoes",
-      "en:vegetable",
       "en:tomato",
       "en:orange",
       "en:citrus-fruit",
       "en:orange-juice",
+      "en:juice",
       "en:fruit-juice"
    ],
    "ingredients_n" : 6,
@@ -107,15 +109,17 @@
       "en:tree-nut",
       "en:peach",
       "en:fruit",
+      "en:prunus-species-fruit",
       "en:black-olive",
-      "en:plant",
+      "en:vegetable",
+      "en:fruit-vegetable",
       "en:olive",
       "en:fresh-tomatoes",
-      "en:vegetable",
       "en:tomato",
       "en:orange",
       "en:citrus-fruit",
       "en:orange-juice",
+      "en:juice",
       "en:fruit-juice"
    ],
    "ingredients_text" : "California almonds, South Carolina peaches, South Carolina black olives, fresh tomatoes (California), Oranges (Florida, USA), orange juice concentrate from Florida",
@@ -130,11 +134,13 @@
       "en:peach"
    ],
    "ingredients_without_ciqual_codes_n" : 4,
-   "known_ingredients_n" : 15,
+   "known_ingredients_n" : 17,
    "lc" : "en",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 16.6666666666667,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 16.6666666666667
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 41.6666666666667,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 41.6666666666667,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
    },
    "unknown_ingredients_n" : 0
 }

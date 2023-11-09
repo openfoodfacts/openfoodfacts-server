@@ -42,6 +42,7 @@
    ],
    "ingredients_hierarchy" : [
       "en:cocoa-paste",
+      "en:plant",
       "en:cocoa",
       "en:cane-sugar",
       "en:added-sugar",
@@ -62,6 +63,7 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:cocoa-paste",
+      "en:plant",
       "en:cocoa",
       "en:cane-sugar",
       "en:added-sugar",
@@ -79,9 +81,11 @@
       "en:cocoa-paste"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
-   "known_ingredients_n" : 7,
+   "known_ingredients_n" : 8,
    "lc" : "fr",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },

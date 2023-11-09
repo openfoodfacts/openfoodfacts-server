@@ -5,7 +5,7 @@
 # file with configuration.  For more information, see:
 # https://github.com/actions/labeler
 
-name: Pull Request Labeler
+name: 🏷️ Pull Request Labeler
 on:
 - pull_request_target
 
@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   label:
-
+    name: Auto-Labelling Pull Request
     runs-on: ubuntu-latest
     permissions:
       contents: read

@@ -43,6 +43,7 @@
       "en:strawberry-juice",
       "en:fruit",
       "en:berries",
+      "en:juice",
       "en:fruit-juice",
       "en:strawberry",
       "en:sugar",
@@ -65,6 +66,7 @@
       "en:strawberry-juice",
       "en:fruit",
       "en:berries",
+      "en:juice",
       "en:fruit-juice",
       "en:strawberry",
       "en:sugar",
@@ -80,9 +82,11 @@
       "en:sugar"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "known_ingredients_n" : 9,
+   "known_ingredients_n" : 10,
    "lc" : "en",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 20,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 20,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 20,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 20
    },
