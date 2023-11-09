@@ -100,7 +100,15 @@ server {
 		gunzip on;
 	}
 
-    include snippets/off.locations-redirects.include;
+	# GoogleAssociationService made 2500 requests/min to assetlinks.json
+	# and much less when caching headers are sent
+	location = /.well-known/assetlinks.json {
+			include snippets/off.cors-headers.include;
+			expires 1d;
+			try_files $uri $uri/ =404;
+	}
+
+	include snippets/off.locations-redirects.include;
 
 	# Dynamically generated files and CGI scripts are passed
 	# to the Apache + mod_perl server running on a different
