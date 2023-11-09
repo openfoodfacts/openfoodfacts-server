@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -107,6 +107,13 @@ if (defined $request_ref->{error_message}) {
 	$log->debug("analyze_request error", {request_ref => $request_ref});
 	display_error($request_ref->{error_message}, $request_ref->{status_code});
 	$log->debug("analyze_request error - return Apache2::Const::OK");
+	return Apache2::Const::OK;
+}
+
+if ($request_ref->{no_index} eq 1) {
+	# The request is made from a known web crawler and the web-page shouldn't be indexed:
+	# return directly a "noindex" empty HTML page
+	display_no_index_page_and_exit();
 	return Apache2::Const::OK;
 }
 

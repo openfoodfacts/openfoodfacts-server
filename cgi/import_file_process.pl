@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -194,7 +194,7 @@ else {
 	$args_ref->{no_source} = 1;
 }
 
-my $job_id = $minion->enqueue(import_csv_file => [$args_ref] => {queue => $server_options{minion_local_queue}});
+my $job_id = get_minion()->enqueue(import_csv_file => [$args_ref] => {queue => $server_options{minion_local_queue}});
 
 $import_files_ref->{$file_id}{imports}{$import_id}{job_id} = $job_id;
 

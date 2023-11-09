@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2021 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -30,6 +30,10 @@ the same structured format for all attributes.
 =head1 DESCRIPTION
 
 See https://wiki.openfoodfacts.org/Product_Attributes
+
+If new attributes are added, make sure *to update the list of fields* fetched from MongoDB
+in Display.pm (in search_and_display_products subroutine).
+
 
 =cut
 
@@ -1316,6 +1320,17 @@ sub compute_attribute_allergen ($product_ref, $target_lc, $attribute_id) {
 			display_taxonomy_tag($target_lc, "allergens", $allergen_id)
 		);
 		$attribute_ref->{icon_url} = "$static_subdomain/images/attributes/$allergen-content-unknown.svg";
+
+		if (not($product_ref->{ingredients_n})) {
+			# If we don't have ingredients,
+			# link to the ingredients panel that will have an action to add ingredients
+			$attribute_ref->{panel_id} = "ingredients";
+		}
+		else {
+			# If we have ingredients, then we have too many ingredients that we did not recognize,
+			# link to the ingredients analysis details
+			$attribute_ref->{panel_id} = "ingredients_analysis_details";
+		}
 	}
 	elsif ($attribute_ref->{match} == 100) {
 		$attribute_ref->{title} = sprintf(
@@ -1463,8 +1478,18 @@ sub compute_attribute_ingredients_analysis ($product_ref, $target_lc, $analysis)
 	# the ingredients_analysis taxonomy contains en:palm-oil and not en:contains-palm-oil
 	$analysis_tag =~ s/contains-(.*)$/$1/;
 
-	# Link to the corresponding knowledge panel (the panel id depends on the value of the property)
-	$attribute_ref->{panel_id} = "ingredients_analysis_en:" . $analysis_tag;
+	# Link to the corresponding knowledge panel
+	if (($status eq "unknown") and not($product_ref->{ingredients_n})) {
+		# If the status is unknown, and we don't have ingredients,
+		# link to the ingredients panel that will have an action to add ingredients
+		# Note that the status may be known (e.g. from labels like "Palm oil free")
+		# even if we don't have ingredients
+		$attribute_ref->{panel_id} = "ingredients";
+	}
+	else {
+		# Otherwise we link to the panel specific to the ingredients analysis property
+		$attribute_ref->{panel_id} = "ingredients_analysis_en:" . $analysis_tag;
+	}
 
 	if ($target_lc ne "data") {
 		$attribute_ref->{title} = display_taxonomy_tag($target_lc, "ingredients_analysis", "en:$analysis_tag");

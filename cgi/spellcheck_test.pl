@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -113,15 +113,9 @@ if ($action eq 'process') {
 $template_data_ref->{action_display} = $action;
 $template_data_ref->{text} = $text;
 
-my $full_width = 1;
-if ($action ne 'display') {
-	$full_width = 0;
-}
-
 process_template('web/pages/spellcheck/spellcheck_test.tt.html', $template_data_ref, \$html) or $html = '';
 $html .= "<p>" . $tt->error() . "</p>";
 
 $request_ref->{title} = "Spellcheck test";
 $request_ref->{content_ref} = \$html;
-$request_ref->{full_width} = $full_width;
 display_page($request_ref);

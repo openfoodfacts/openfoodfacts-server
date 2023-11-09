@@ -47,9 +47,15 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:palm-kernel-fat"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 4,
    "lc" : "fr",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },

@@ -4,6 +4,8 @@ node_modules
 .github
 .vscode
 logs
+debug/
+perl-language-server.log
 
 html/images/misc/openfoodfacts-visual-decision-05-03-13.pdf
 html/images/misc/20130416_QUOz.pdf
@@ -29,4 +31,4 @@ packager-codes/*.csv
 packager-codes/*.tsv
 packager-codes/*.py
 packager-codes/*.json
-taxonomies*/**/*.txt
+taxonomies*/**/*.sto

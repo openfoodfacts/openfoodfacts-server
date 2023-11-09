@@ -58,12 +58,14 @@ my @products = (
 			origin => "france"
 		)
 	},
+	# Note: the following 2 products will have ingredients set in English (language of the interface)
+	# and not in Spanish (main language of the product)
 	{
 		%{dclone(\%default_product_form)},
 		(
 			code => '200000000039',
 			lang => "es",
-			product_name => "Vegan Test Snack",
+			product_name => "Vegan Test Snack with palm oil",
 			generic_name => "Tester",
 			ingredients_text => "apple, water, palm oil",
 			origin => "spain",
@@ -75,14 +77,26 @@ my @products = (
 		(
 			code => '200000000045',
 			lang => "es",
-			product_name => "Vegan Test Snack",
+			product_name => "Vegan breakfast cereals without palm oil",
 			generic_name => "Tester",
 			ingredients_text => "apple, water",
 			origin => "China",
 			packaging_text => "no",
 			categories => "breakfast cereals"
 		)
+	},
+	{
+		%{dclone(\%default_product_form)},
+		(
+			code => '200000000046',
+			product_name => "More vegan breakfast cereals without palm oil",
+			ingredients_text => "apple, water",
+			origin => "UK",
+			countries => "United Kingdom, Ireland",
+			categories => "breakfast cereals"
+		)
 	}
+	#
 );
 
 foreach my $product_ref (@products) {

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -46,6 +46,7 @@ BEGIN {
 
 		&initialize_knowledge_panels_options
 		&create_knowledge_panels
+		&create_panel_from_json_template
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -57,12 +58,14 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
+use ProductOpener::Users qw/$User_id/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::KnowledgePanelsContribution qw/create_contribution_card_panel/;
 
 use JSON::PP;
 use Encode;
@@ -99,6 +102,9 @@ sub initialize_knowledge_panels_options ($knowledge_panels_options_ref, $request
 		}
 	}
 	$knowledge_panels_options_ref->{knowledge_panels_client} = $knowledge_panels_client;
+
+	# some info about users
+	$knowledge_panels_options_ref->{user_logged_in} = defined $User_id;
 
 	return;
 }
@@ -184,17 +190,20 @@ sub create_knowledge_panels ($product_ref, $target_lc, $target_cc, $options_ref)
 		$product_ref->{"knowledge_panels_" . $target_lc}{"tags_brands_nutella_doyouknow"} = $test_panel_ref;
 	}
 
-	# Add knowledge panels
-
 	# Create recommendation panels first, as they will be included in cards such has the health card and environment card
 	create_recommendation_panels($product_ref, $target_lc, $target_cc, $options_ref);
 
 	create_health_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
 	create_environment_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	my $has_contribution_card = create_contribution_card_panel($product_ref, $target_lc, $target_cc, $options_ref);
 
 	# Create the root panel that contains the panels we want to show directly on the product page
-	create_panel_from_json_template("root", "api/knowledge-panels/root.tt.json",
-		{}, $product_ref, $target_lc, $target_cc, $options_ref);
+	create_panel_from_json_template(
+		"root",
+		"api/knowledge-panels/root.tt.json",
+		{has_contribution_card => $has_contribution_card},
+		$product_ref, $target_lc, $target_cc, $options_ref
+	);
 	return;
 }
 
@@ -207,11 +216,13 @@ The function converts the multiline string into a single line string.
 
 sub convert_multiline_string_to_singleline ($line) {
 
+	# Escape " and \ unless they have been escaped already
+	# negative look behind to not convert \n to \\n or \" to \\" or \\ to \\\\
+	$line =~ s/(?<!\\)("|\\)/\\$1/g;
+
 	# \R will match all Unicode newline sequence
 	$line =~ s/\R/\\n/sg;
-	# Escape quotes unless they have been escaped already
-	# negative look behind to not convert \" to \\"
-	$line =~ s/(?<!\\)"/\\"/g;
+
 	return '"' . $line . '"';
 }
 
@@ -482,10 +493,17 @@ sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
 
 		my $score = $product_ref->{ecoscore_data}{score};
 		my $grade = $product_ref->{ecoscore_data}{grade};
+		my $transportation_warning = undef;
 
-		if (defined $product_ref->{ecoscore_data}{"score_" . $cc}) {
-			$score = $product_ref->{ecoscore_data}{"score_" . $cc};
-			$grade = $product_ref->{ecoscore_data}{"grade_" . $cc};
+		if (defined $product_ref->{ecoscore_data}{scores}{$cc}) {
+			$score = $product_ref->{ecoscore_data}{scores}{$cc};
+			$grade = $product_ref->{ecoscore_data}{grades}{$cc};
+			if ($cc eq "world") {
+				$transportation_warning = lang_in_other_lc($target_lc, "ecoscore_warning_transportation_world");
+			}
+		}
+		else {
+			$transportation_warning = lang_in_other_lc($target_lc, "ecoscore_warning_transportation");
 		}
 
 		$log->debug("create ecoscore panel - known", {code => $product_ref->{code}, score => $score, grade => $grade})
@@ -529,6 +547,7 @@ sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
 			"score" => $score,
 			"grade" => $grade,
 			"title" => $title,
+			"transportation_warning" => $transportation_warning,
 		};
 
 		create_panel_from_json_template("ecoscore", "api/knowledge-panels/environment/ecoscore/ecoscore.tt.json",
@@ -684,9 +703,15 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
 
-	# Create panel for packaging recycling
+	# Create panel for packaging components, and packaging materials
 	create_panel_from_json_template("packaging_recycling",
 		"api/knowledge-panels/environment/packaging_recycling.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	create_panel_from_json_template("packaging_materials",
+		"api/knowledge-panels/environment/packaging_materials.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	create_panel_from_json_template("packaging_components",
+		"api/knowledge-panels/environment/packaging_components.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 
 	# Create panel for manufacturing place
@@ -698,7 +723,8 @@ sub create_environment_card_panel ($product_ref, $target_lc, $target_cc, $option
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 
 	# Create the environment_card panel
-	create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
+	$panel_data_ref->{packaging_image} = data_to_display_image($product_ref, "packaging", $target_lc),
+		create_panel_from_json_template("environment_card", "api/knowledge-panels/environment/environment_card.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	return;
 }
@@ -965,7 +991,11 @@ sub create_serving_size_panel ($product_ref, $target_lc, $target_cc, $options_re
 
 	# Generate a panel only for food products that have a serving size
 	if (defined $product_ref->{serving_size}) {
-		my $panel_data_ref = {};
+		my $serving_warning = undef;
+		if (($product_ref->{serving_quantity} <= 5) and ($product_ref->{nutrition_data_per} eq 'serving')) {
+			$serving_warning = lang_in_other_lc($target_lc, "serving_too_small_for_nutrition_analysis");
+		}
+		my $panel_data_ref = {"serving_warning" => $serving_warning,};
 		create_panel_from_json_template("serving_size", "api/knowledge-panels/health/nutrition/serving_size.tt.json",
 			$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
@@ -1116,7 +1146,7 @@ sub create_ingredients_panel ($product_ref, $target_lc, $target_cc, $options_ref
 
 	my $ingredients_text = $product_ref->{ingredients_text};
 	my $ingredients_text_with_allergens = $product_ref->{ingredients_text_with_allergens};
-	my $ingredients_text_lc = $product_ref->{lc};
+	my $ingredients_text_lc = $product_ref->{ingredients_lc};
 
 	if (    (defined $product_ref->{"ingredients_text" . "_" . $target_lc})
 		and ($product_ref->{"ingredients_text" . "_" . $target_lc} ne ''))
@@ -1191,6 +1221,14 @@ sub create_additives_panel ($product_ref, $target_lc, $target_cc, $options_ref) 
 			add_taxonomy_properties_in_target_languages_to_object($additive_panel_data_ref, "additives", $additive,
 				["wikipedia_url", "wikipedia_title", "wikipedia_abstract"],
 				$target_lcs_ref);
+
+			# We check if the knowledge content for this additive (and language/country) is available.
+			# If it is it will be displayed instead of the wikipedia extract
+			my $additive_description = get_knowledge_content("additives", $additive, $target_lc, $target_cc);
+
+			if (defined $additive_description) {
+				$additive_panel_data_ref->{additive_description} = $additive_description;
+			}
 
 			create_panel_from_json_template($additive_panel_id,
 				"api/knowledge-panels/health/ingredients/additive.tt.json",
@@ -1272,6 +1310,26 @@ sub create_ingredients_analysis_panel ($product_ref, $target_lc, $target_cc, $op
 	return;
 }
 
+sub remove_latex_sequences ($string) {
+
+	# Some wikipedia abstracts have chemical formulas like {\\displaystyle \\mathrm {NaNO_{3}} +\\mathrm {Pb} \\to \\mathrm {NaNO_{2}} +\\mathrm {PbO} }
+	# In practice, we remove everything between { }
+
+	$string =~ s/
+        (                   
+        {                   # match an opening {
+            (?:
+                [^{}]++     # one or more non angle brackets, non backtracking
+                  |
+                (?1)        # found { or }, so recurse to capture group 1
+            )*
+        }                   # match a closing }
+        )                   
+        //xg;
+
+	return $string;
+}
+
 =head2 add_taxonomy_properties_in_target_languages_to_object ( $object_ref, $tagtype, $tagid, $properties_ref, $target_lcs_ref )
 
 This function adds to the hash ref $object_ref (for instance a data structure passed to a template) the values
@@ -1314,7 +1372,7 @@ sub add_taxonomy_properties_in_target_languages_to_object ($object_ref, $tagtype
 			}
 		}
 		if (defined $property_value) {
-			$object_ref->{$property} = $property_value;
+			$object_ref->{$property} = remove_latex_sequences($property_value);
 			$object_ref->{$property . "_lc"} = $property_lc;
 			$object_ref->{$property . "_language"}
 				= display_taxonomy_tag($target_lcs_ref->[0], "languages", $language_codes{$property_lc});
