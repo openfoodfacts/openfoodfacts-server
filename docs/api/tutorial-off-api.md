@@ -2,13 +2,13 @@
 
 Welcome to this tutorial on basic usage of Open Food Facts API.
 
-Fist, be sure to see our [Introduction to the API](./index.md).
+First, be sure to see our [Introduction to the API](./index.md).
 
 ## Scan A Product To Get Nutri-score
 
 This basic tutorial shows you can get the Nutri-score of a product, for instance, to display it in a mobile app after scanning the product barcode. Let's use [Nutella Ferrero](https://world.openfoodfacts.net/product/3017624010701/nutella-nutella-ferrero) as the product example for this tutorial.
 
-To get a product nutriscore, send a request to the [Get A Product By Barcode](https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#get-/api/v2/product/-barcode-) endpoint.
+To get a product nutriscore, send a request to the [Get A Product By Barcode](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/product/-barcode-) endpoint.
 
 ### Authentication
 
@@ -106,7 +106,7 @@ The `product` object in the response now contains the extra fields to show how t
 }
 ```
 
-For more details, see the reference documentation for [Get A Product By Barcode](https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#get-/api/v2/product/-barcode-).
+For more details, see the reference documentation for [Get A Product By Barcode](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/product/-barcode-).
 
 <!-- Probably have a conclusion that links to the next possible topic eg filter countries using lc and cc-->
 
@@ -149,11 +149,11 @@ The sample response above for 100% Real Orange Juice `misc_tags` shows that the 
 
 ### Write data to make Nutri-Score computation possible
 
-The WRITE operations in the OFF API require  authentication. Therefore you need a valid `user_id` and `password`  to write the missing nutriment data to 100% Real Orange Juice.
+The WRITE operations in the OFF API require  authentication. Therefore you need a valid `user_id` and `password` to write the missing nutriment data to 100% Real Orange Juice.
 
-> Sign up on the [Open Food Facts App](https://world.openfoodfacts.net/) to get your`user_id` and `password`if you don't have one.
+> Sign up on the [Open Food Facts App](https://world.openfoodfacts.net/) to get your`user_id` and `password` if you don't have one.
 
-To write data to a product, make a `POST` request to the [`Add or Edit A Product`](https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#post-/cgi/product_jqm2.pl) endpoint.
+To write data to a product, make a `POST` request to the [`Add or Edit A Product`](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl) endpoint.
 
 ```text
 https://world.openfoodfacts.net/cgi/product_jqm2.pl
@@ -175,12 +175,12 @@ To write `sodium` and `category` to 100% Real Orange Juice so that the Nutri-Sco
 Using curl:
 
 ```bash
-curl -XPOST -u off:off -x POST https://world.openfoodfacts.net/cgi/product_jqm2.pl \
+curl -XPOST -x POST https://world.openfoodfacts.net/cgi/product_jqm2.pl \
   -F user_id=your_user_id -F password=your_password \
   -F code=0180411000803 -F nutriment_sodium=0.015 -F nutriment_sodium_unit=g -F categories="Orange Juice"
 ```
 
-If the request is succesful, it returns a response that indicated that the fields have been saved.
+If the request is successful, it returns a response that indicates that the fields have been saved.
 
 ```json
 {
@@ -222,7 +222,7 @@ Now, let's check if the Nutri-Score for 100% Real Orange Juice has been computed
 }
 ```
 
-For more details, see the reference documentation for [Add or Edit A Product](https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#post-/cgi/product_jqm2.pl)
+For more details, see the reference documentation for [Add or Edit A Product](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#post-/cgi/product_jqm2.pl)
 
 You can also check the reference cheatsheet to know how to add/edit other types of product data.
 
@@ -230,7 +230,7 @@ You can also check the reference cheatsheet to know how to add/edit other types 
 
 ## Search for a Product by Nutri-score
 
-Using the Open Food Facts API, you can filter products based on different criteria.  To search for products in the Orange Juice category with a nutrition_grade of `c`, query the [Search for Products endpoint](https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#get-/api/v2/search).
+Using the Open Food Facts API, you can filter products based on different criteria.  To search for products in the Orange Juice category with a nutrition_grade of `c`, query the [Search for Products endpoint](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search).
 
 ### Describing the Search Request
 
@@ -353,4 +353,4 @@ The date that each product was last modified is now used to order the product re
 }
 ```
 
-To see other examples of sorting a search response, see the reference documentation for [Search for Products](https://openfoodfacts.github.io/openfoodfacts-server/api/ref/#get-/api/v2/search).
+To see other examples of sorting a search response, see the reference documentation for [Search for Products](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v2/#get-/api/v2/search).

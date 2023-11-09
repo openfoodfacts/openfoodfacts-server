@@ -9,6 +9,7 @@ requires 'LWP::UserAgent'; # libwww-perl
 requires 'Image::Magick'; # libimage-magick-perl
 requires 'XML::Encoding'; # libxml-encoding-perl
 requires 'MIME::Lite'; # libmime-lite-perl
+requires 'MIME::Base32';
 requires 'Cache::Memcached::Fast'; #libcache-memcached-fast-perl
 requires 'JSON'; # libjson-perl
 requires 'JSON::PP'; # libjson-pp-perl
@@ -68,7 +69,7 @@ requires 'Data::DeepAccess';
 requires 'XML::XML2JSON';
 requires 'Redis';
 requires 'Digest::SHA1';
-
+requires 'Data::Difference';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
@@ -83,6 +84,13 @@ requires 'Log::Any::Adapter::Log4perl', '>= 0.09'; # liblog-any-adapter-log4perl
 # Retry
 requires 'Action::CircuitBreaker';
 requires 'Action::Retry'; # deps: libmath-fibonacci-perl
+
+# AnyEvent
+requires 'AnyEvent';
+requires 'AnyEvent::Inotify::Simple';
+
+# GS1 Encoder
+requires 'GS1::SyntaxEngine::FFI';
 
 on 'test' => sub {
   requires 'Test::More', '>= 1.302186, < 2.0';
@@ -100,6 +108,8 @@ on 'test' => sub {
   requires 'Devel::Cover';
   requires 'Devel::Cover::Report::Codecov';
   requires 'Devel::Cover::Report::Codecovbash';
+  requires 'Test::Fake::HTTPD';
+  requires 'URL::Encode';
 };
 
 on 'develop' => sub {

@@ -1,5 +1,7 @@
 # How to use Perl REPL (re.pl)
 
+> **_NOTE:_**  New to Perl? Check [how to learn perl](how-to-learn-perl.md)!
+
 On your local dev instance, the "backend" container
 comes with [Devel::REPL](https://metacpan.org/pod/Devel::REPL) installed.
 
@@ -15,11 +17,17 @@ Also it as the right
 Just run
 
 ```
-docker-compose run --rm docker-compose re.pl
+docker-compose run --rm backend re.pl
 ```
 
 If you want to access external services (like mongodb), do not forget to start them.
 
+**_NOTE:_** If you get "exec: re.pl: not found", it means you may not have dev tools installed.
+Try going in your .env (or [.envrc](./how-to-use-direnv/)) file and add the line:
+```
+CPANMOPTS=--with-develop --with-feature=off_server_dev_tools
+```
+then just make build and retry, you will then be able to run re.pl
 
 ## Testing perl code
 

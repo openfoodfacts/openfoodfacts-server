@@ -9,7 +9,7 @@ See also [Docker best practice at Open Food Facts](https://openfoodfacts.github.
 The docker/ directory contains `docker-compose` overrides for running Product Opener on [Docker](https://docker.com).
 The main docker-compose file [`docker-compose.yml`](../docker-compose.yml) is located in the root of the repository.
 
-The step-by-step guide to setup the Product Opener using Docker is available on [dev environment quick start guide](./docs/dev/how-to-quick-start-guide.md).
+The step-by-step guide to setup the Product Opener using Docker is available on [dev environment quick start guide](../docs/dev/how-to-quick-start-guide.md).
 
 ## Makefile targets
 
@@ -35,4 +35,10 @@ See also [targets to run tests](../docs/dev/how-to-write-and-run-tests.md#runnin
 | `make clean`              | Clean up your dev environment: removes locally bound folders, run `hdown` and `prune`. | Run `make dev` to recreate a fresh dev env afterwards.        |
 | `make import_sample_data` | Load sample data (~100 products) into the MongoDB database.                            |                                                               |
 | `make import_prod_data`   | Load latest prod data (~2M products, 1.7GB) into the MongoDB database.                 | Takes up to 10m. Not recommended for dev setups !             |
+| `make lint`      | Indent and reformat your code[^lint]                       |
+
+[^lint]: If you are having permission issues with `make lint` try writing the following commands :
+`export MSYS_NO_PATHCONV=1
+docker-compose run --rm --no-deps -u root backend chown www-data:www-data -R /opt/product-opener/`
+then run again `make lint` and you should be good to go
 

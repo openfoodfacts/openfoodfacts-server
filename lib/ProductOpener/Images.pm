@@ -56,10 +56,8 @@ Same image saved with a maximum width and height of 100 and 400 pixels. Those th
 
 OCR output from Google Cloud Vision.
 
-When a new image is uploaded, a symbolic link to it is created in /new_images. This triggers a script to generate and save the OCR:
-
-incrontab -l -u off
-/srv/off/new_images IN_ATTRIB,IN_CREATE,IN_MOVED_TO /srv/off/scripts/process_new_image_off.sh $@/$#
+When a new image is uploaded, a symbolic link to it is created in /new_images.
+This triggers a script to generate and save the OCR: C<run_cloud_vision_ocr.pl>.
 
 =item [front|ingredients|nutrition|packaging]_[2 letter language code].[product revision].[full|100|200|400].jpg
 
@@ -95,6 +93,8 @@ BEGIN {
 
 		&get_code_and_imagefield_from_file_name
 		&get_imagefield_from_string
+		&get_selected_image_uploader
+		&is_protected_image
 		&process_image_upload
 		&process_image_move
 
@@ -111,6 +111,11 @@ BEGIN {
 		&display_image_thumb
 
 		&extract_text_from_image
+		&send_image_to_cloud_vision
+		&send_image_to_robotoff
+
+		@CLOUD_VISION_FEATURES_FULL
+		@CLOUD_VISION_FEATURES_TEXT
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -136,7 +141,9 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Text qw/:all/;
+use Data::DeepAccess qw(deep_get);
 
+use IO::Compress::Gzip qw(gzip $GzipError);
 use Log::Any qw($log);
 use Encode;
 use JSON::PP;
@@ -173,7 +180,7 @@ sub display_select_crop ($object_ref, $id_lc, $language) {
 
 	# $id_lc = shift  ->  id_lc = [front|ingredients|nutrition|packaging]_[new_]?[lc]
 	my $id = $id_lc;
-
+	my $message = $Lang{"protected_image_message"}{$lang};
 	my $imagetype = $id_lc;
 	my $display_lc = $lc;
 
@@ -189,13 +196,22 @@ sub display_select_crop ($object_ref, $id_lc, $language) {
 
 	my $label = $Lang{"image_" . $imagetype}{$lang};
 
-	my $html = <<HTML
+	my $html = '';
+	if (is_protected_image($object_ref, $id_lc) and (not $User{moderator}) and (not $admin)) {
+		$html .= <<HTML;
+<p>$message</p>
 <label for="$id">$label (<span class="tab_language">$language</span>)</label>
+<div class=\"select_crop\" id=\"$id\" data-info="protect"></div>
+HTML
+	}
+	else {
+		$html .= <<HTML;
+	<label for="$id">$label (<span class="tab_language">$language</span>)</label>
 $note
 <div class=\"select_crop\" id=\"$id\"></div>
 <hr class="floatclear" />
 HTML
-		;
+	}
 
 	my @fields = qw(imgid x1 y1 x2 y2);
 	foreach my $field (@fields) {
@@ -257,16 +273,18 @@ sub display_select_crop_init ($object_ref) {
 	}
 
 	foreach my $imgid (sort {$object_ref->{images}{$a}{uploaded_t} <=> $object_ref->{images}{$b}{uploaded_t}} @images) {
-		my $admin_fields = '';
-		if ($User{moderator}) {
-			$admin_fields
-				= ", uploader: '"
-				. $object_ref->{images}{$imgid}{uploader}
-				. "', uploaded: '"
-				. display_date($object_ref->{images}{$imgid}{uploaded_t}) . "'";
-		}
+		my $uploader = $object_ref->{images}{$imgid}{uploader};
+		my $uploaded_date = display_date($object_ref->{images}{$imgid}{uploaded_t});
+
 		$images .= <<JS
-{imgid: "$imgid", thumb_url: "$imgid.$thumb_size.jpg", crop_url: "$imgid.$crop_size.jpg", display_url: "$imgid.$display_size.jpg" $admin_fields},
+{
+	imgid: "$imgid",
+	thumb_url: "$imgid.$thumb_size.jpg",
+	crop_url: "$imgid.$crop_size.jpg",
+	display_url: "$imgid.$display_size.jpg",
+	uploader: "$uploader",
+	uploaded: "$uploaded_date",
+},
 JS
 			;
 	}
@@ -278,7 +296,7 @@ JS
 	\$([]).selectcrop('init_images', [
 		$images
 	]);
-	\$(".select_crop").selectcrop('init', {img_path : "/images/products/$path/"});
+	\$(".select_crop").selectcrop('init', {img_path : "//images.$server_domain/images/products/$path/"});
 	\$(".select_crop").selectcrop('show');
 
 HTML
@@ -331,7 +349,7 @@ sub scan_code ($file) {
 				$log->debug("barcode found", {code => $code, type => $type}) if $log->is_debug();
 				print STDERR "scan_code code found: $code\n";
 
-				if (($code !~ /^[0-9]+$/) or ($type eq 'QR-Code')) {
+				if (($code !~ /^\d+|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+$/)) {
 					$code = undef;
 					next;
 				}
@@ -348,7 +366,11 @@ sub scan_code ($file) {
 
 		}
 	}
-	print STDERR "scan_code return code: $code\n";
+
+	if (defined $code) {
+		$code = normalize_code($code);
+		print STDERR "scan_code return code: $code\n";
+	}
 
 	return $code;
 }
@@ -596,6 +618,36 @@ sub get_imagefield_from_string ($l, $filename) {
 	return $imagefield;
 }
 
+sub get_selected_image_uploader ($product_ref, $imagefield) {
+
+	# Retrieve the product's image data
+	my $imgid = deep_get($product_ref, "images", $imagefield, "imgid");
+
+	# Retrieve the uploader of the image
+	if (defined $imgid) {
+		my $uploader = deep_get($product_ref, "images", $imgid, "uploader");
+		return $uploader;
+	}
+
+	return;
+}
+
+sub is_protected_image ($product_ref, $imagefield) {
+
+	my $selected_uploader = get_selected_image_uploader($product_ref, $imagefield);
+	my $owner = $product_ref->{owner};
+
+	if (    (not $server_options{producers_platform})
+		and (defined $owner)
+		and (defined $selected_uploader)
+		and ($selected_uploader eq $owner))
+	{
+		return 1;    #image should be protected
+	}
+
+	return 0;    # image should not be protected
+}
+
 =head2 process_image_upload ( $product_id, $imagefield, $user_id, $time, $comment, $imgid_ref, $debug_string_ref )
 
 Process an image uploaded to a product (from the web site, from the API, or from an import):
@@ -611,7 +663,8 @@ Process an image uploaded to a product (from the web site, from the API, or from
 
 =head4 Image field $imagefield
 
-Indicates what the image is and its language.
+Indicates what the image is and its language, or indicate a path to the image file
+(for imports and when uploading an image with a barcode)
 
 Format: [front|ingredients|nutrition|packaging|other]_[2 letter language code]
 
@@ -621,7 +674,7 @@ Format: [front|ingredients|nutrition|packaging|other]_[2 letter language code]
 
 =head4 Comment $comment
 
-=head4 Reference to an imgid $img_id
+=head4 Reference to an image id $img_id
 
 Used to return the number identifying the image to the caller.
 
@@ -660,6 +713,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 	my $extension = 'jpg';
 
 	# Image that was already read by barcode scanner: can't read it again
+	# $image_field can be a path to the image file (for imports and when uploading an image with a barcode)
 	my $tmp_filename;
 	if ($imagefield =~ /\//) {
 		$tmp_filename = $imagefield;
@@ -724,7 +778,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		my $filename = get_string_id_for_lang("no_language", remote_addr() . '_' . $`);
 
 		my $current_product_ref = retrieve_product($product_id);
-		$imgid = $current_product_ref->{max_imgid} + 1;
+		$imgid = ($current_product_ref->{max_imgid} || 0) + 1;
 
 		# if for some reason the images directories were not created at product creation (it can happen if the images directory's permission / ownership are incorrect at some point)
 		# create them
@@ -751,6 +805,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		$log->debug("new imgid: ", {imgid => $imgid, extension => $extension}) if $log->is_debug();
 
 		my $img_orig = "$product_www_root/images/products/$path/$imgid.$extension.orig";
+		$log->debug("writing the original image", {img_orig => $img_orig}) if $log->is_debug();
 		open(my $out, ">", $img_orig)
 			or $log->warn("could not open image path for saving", {path => $img_orig, error => $!});
 		while (my $chunk = <$file>) {
@@ -1769,21 +1824,21 @@ sub display_image ($product_ref, $id_lc, $size) {
 				# add srcset with 2x image only if the 2x image exists
 				my $srcset = '';
 				if (defined $product_ref->{images}{$id}{sizes}{$display_size}) {
-					$srcset = "srcset=\"/images/products/$path/$id.$rev.$display_size.jpg 2x\"";
+					$srcset = "srcset=\"$images_subdomain/images/products/$path/$id.$rev.$display_size.jpg 2x\"";
 				}
 
 				$html .= <<HTML
-<img class="hide-for-xlarge-up" src="/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
+<img class="hide-for-xlarge-up" src="$images_subdomain/images/products/$path/$id.$rev.$size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
 HTML
 					;
 
 				$srcset = '';
 				if (defined $product_ref->{images}{$id}{sizes}{$zoom_size}) {
-					$srcset = "srcset=\"/images/products/$path/$id.$rev.$zoom_size.jpg 2x\"";
+					$srcset = "srcset=\"$images_subdomain/images/products/$path/$id.$rev.$zoom_size.jpg 2x\"";
 				}
 
 				$html .= <<HTML
-<img class="show-for-xlarge-up" src="/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
+<img class="show-for-xlarge-up" src="$images_subdomain/images/products/$path/$id.$rev.$display_size.jpg" $srcset width="$product_ref->{images}{$id}{sizes}{$display_size}{w}" height="$product_ref->{images}{$id}{sizes}{$display_size}{h}" alt="$alt" itemprop="thumbnail" loading="lazy" />
 HTML
 					;
 
@@ -1791,7 +1846,8 @@ HTML
 
 					my $title = lang($id . '_alt');
 
-					my $full_image_url = "/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
+					my $full_image_url
+						= "$images_subdomain/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
 					my $representative_of_page = '';
 					if ($id eq 'front') {
 						$representative_of_page = 'true';
@@ -1824,7 +1880,7 @@ HTML
 			else {
 				# jquery mobile for Cordova app
 				$html .= <<HTML
-<img src="/images/products/$path/$id.$rev.$size.jpg" width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />
+<img src="$images_subdomain/images/products/$path/$id.$rev.$size.jpg" width="$product_ref->{images}{$id}{sizes}{$size}{w}" height="$product_ref->{images}{$id}{sizes}{$size}{h}" alt="$alt" />
 HTML
 					;
 			}
@@ -1962,7 +2018,7 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 	}
 
 	my $image = "$www_root/images/products/$path/$filename.full.jpg";
-	my $image_url = format_subdomain('static') . "/images/products/$path/$filename.full.jpg";
+	my $image_url = "$images_subdomain/images/products/$path/$filename.full.jpg";
 
 	my $text;
 
@@ -1996,93 +2052,201 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 		else {
 			$log->warn("no available tesseract dictionary", {lc => $lc, lan => $lan, id => $id}) if $log->is_warn();
 		}
-
 	}
 	elsif ($ocr_engine eq 'google_cloud_vision') {
 
-		my $url = "https://vision.googleapis.com/v1/images:annotate?key="
-			. $ProductOpener::Config::google_cloud_vision_api_key;
+		my $json_file = "$www_root/images/products/$path/$filename.json.gz";
+		open(my $gv_logs, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
+		my $cloudvision_ref = send_image_to_cloud_vision($image, $json_file, \@CLOUD_VISION_FEATURES_TEXT, $gv_logs);
+		close $gv_logs;
 
-		my $ua = LWP::UserAgent->new();
+		if (    (defined $cloudvision_ref->{responses})
+			and (defined $cloudvision_ref->{responses}[0])
+			and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation})
+			and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text}))
+		{
 
-		open(my $IMAGE, "<", $image) || die "Could not read $image: $!\n";
-		binmode($IMAGE);
-		local $/;
-		my $image_data = do {local $/; <$IMAGE>};    # https://www.perlmonks.org/?node_id=287647
-		close $IMAGE;
+			$log->debug("text found in google cloud vision response") if $log->is_debug();
 
-		my $api_request_ref = {
-			requests => [
-				{
-					features => [{type => 'TEXT_DETECTION'}],
-					# image => { source => { imageUri => $image_url}}
-					image => {content => encode_base64($image_data)}
-				}
-			]
-		};
-		my $json = encode_json($api_request_ref);
-
-		my $request = HTTP::Request->new(POST => $url);
-		$request->header('Content-Type' => 'application/json');
-		$request->content($json);
-
-		my $res = $ua->request($request);
-		# $log->info("google cloud vision response", { json_response => $res->decoded_content, api_token => $ProductOpener::Config::google_cloud_vision_api_key });
-
-		if ($res->is_success) {
-
-			$log->info("request to google cloud vision was successful") if $log->is_info();
-
-			open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
-			print $OUT "success\t" . $image_url . "\t" . $res->code . "\n";
-			close $OUT;
-
-			my $json_response = $res->decoded_content;
-
-			my $cloudvision_ref = decode_json($json_response);
-
-			my $json_file = "$www_root/images/products/$path/$filename.json";
-
-			$log->info("saving google cloud vision json response to file", {path => $json_file}) if $log->is_info();
-
-			# UTF-8 issue , see https://stackoverflow.com/questions/4572007/perl-lwpuseragent-mishandling-utf-8-response
-			$json_response = decode("utf8", $json_response);
-
-			open($OUT, ">:encoding(UTF-8)", $json_file);
-			print $OUT $json_response;
-			close $OUT;
-
-			if (    (defined $cloudvision_ref->{responses})
-				and (defined $cloudvision_ref->{responses}[0])
-				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation})
-				and (defined $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text}))
-			{
-
-				$log->debug("text found in google cloud vision response") if $log->is_debug();
-
-				$results_ref->{$field} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
-				$results_ref->{$field . "_annotations"} = $cloudvision_ref;
-				$results_ref->{status} = 0;
-				$product_ref->{images}{$id}{ocr} = 1;
-				$product_ref->{images}{$id}{orientation}
-					= compute_orientation_from_cloud_vision_annotations($cloudvision_ref);
-			}
-			else {
-				$product_ref->{images}{$id}{ocr} = 0;
-			}
-
+			$results_ref->{$field} = $cloudvision_ref->{responses}[0]{fullTextAnnotation}{text};
+			$results_ref->{$field . "_annotations"} = $cloudvision_ref;
+			$results_ref->{status} = 0;
+			$product_ref->{images}{$id}{ocr} = 1;
+			$product_ref->{images}{$id}{orientation}
+				= compute_orientation_from_cloud_vision_annotations($cloudvision_ref);
 		}
 		else {
-			$log->warn("google cloud vision request not successful", {code => $res->code, response => $res->message})
-				if $log->is_warn();
-
-			open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
-			print $OUT "error\t" . $image_url . "\t" . $res->code . "\t" . $res->message . "\n";
-			close $OUT;
+			$product_ref->{images}{$id}{ocr} = 0;
 		}
 	}
-
 	return;
+}
+
+@CLOUD_VISION_FEATURES_FULL = (
+	{type => 'TEXT_DETECTION'},
+	{type => 'LOGO_DETECTION'},
+	{type => 'LABEL_DETECTION'},
+	{type => 'SAFE_SEARCH_DETECTION'},
+	{type => 'FACE_DETECTION'},
+);
+
+@CLOUD_VISION_FEATURES_TEXT = ({type => 'TEXT_DETECTION'});
+
+=head2 send_image_to_cloud_vision ($image_path, $json_file, $features_ref, $gv_logs)
+
+Call to Google Cloud vision API
+
+=head3 Arguments
+
+=head4 $image_path - str path to image
+
+=head4 $json_file - str path to the file where we will store OCR result as gzipped JSON
+
+=head4 $features_ref - hash reference - the "features" parameter of Google Cloud Vision
+
+This determine which detection will be performed.
+Remember each feature is a cost.
+
+C<@CLOUD_VISION_FEATURES_FULL> and C<@CLOUD_VISION_FEATURES_TEXT> are two constant you can use.
+
+=head4 $gv_logs - file handle
+
+A file where we write additional logs, specific to the service.
+
+=head3 Response
+
+Return JSON content of the response.
+
+=cut
+
+sub send_image_to_cloud_vision ($image_path, $json_file, $features_ref, $gv_logs) {
+
+	my $url
+		= $ProductOpener::Config::google_cloud_vision_api_url . "?key="
+		. $ProductOpener::Config::google_cloud_vision_api_key;
+	print($gv_logs "CV:sending to $url\n");
+
+	my $ua = LWP::UserAgent->new();
+
+	open(my $IMAGE, "<", $image_path) || die "Could not read $image_path: $!\n";
+	binmode($IMAGE);
+	local $/;
+	my $image_data = do {local $/; <$IMAGE>};    # https://www.perlmonks.org/?node_id=287647
+	close $IMAGE;
+
+	my $api_request_ref = {
+		requests => [
+			{
+				features => $features_ref,
+				# image => { source => { imageUri => $image_url}}
+				image => {content => encode_base64($image_data)},
+			}
+		]
+	};
+	my $json = encode_json($api_request_ref);
+
+	my $request = HTTP::Request->new(POST => $url);
+	$request->header('Content-Type' => 'application/json');
+	$request->content($json);
+
+	my $cloud_vision_response = $ua->request($request);
+	# $log->info("google cloud vision response", { json_response => $cloud_vision_response->decoded_content, api_token => $ProductOpener::Config::google_cloud_vision_api_key });
+
+	my $cloudvision_ref = undef;
+	if ($cloud_vision_response->is_success) {
+
+		$log->info("request to google cloud vision was successful for $image_path") if $log->is_info();
+
+		my $json_response = $cloud_vision_response->decoded_content(charset => 'UTF-8');
+
+		$cloudvision_ref = decode_json($json_response);
+
+		# Adding creation timestamp, to know when the OCR has been generated
+		$cloudvision_ref->{created_at} = time();
+
+		$log->info("saving google cloud vision json response to file", {path => $json_file}) if $log->is_info();
+
+		if (open(my $OUT, ">:raw", $json_file)) {
+			my $gzip_handle = IO::Compress::Gzip->new($OUT)
+				or die "Cannot create gzip filehandle: $GzipError\n";
+			my $encoded_json = encode_json($cloudvision_ref);
+			$gzip_handle->print($encoded_json);
+			$gzip_handle->close;
+
+			print($gv_logs "--> cloud vision success for $image_path\n");
+		}
+		else {
+			$log->error("Cannot write $json_file: $!\n");
+			print($gv_logs "Cannot write $json_file: $!\n");
+		}
+
+	}
+	else {
+		$log->warn(
+			"google cloud vision request not successful",
+			{
+				code => $cloud_vision_response->code,
+				image_path => $image_path,
+				response => $cloud_vision_response->message
+			}
+		) if $log->is_warn();
+		print $gv_logs "error\t"
+			. $image_path . "\t"
+			. $cloud_vision_response->code . "\t"
+			. $cloud_vision_response->message . "\n";
+	}
+	return $cloudvision_ref;
+
+}
+
+=head2 send_image_to_robotoff ($code, $image_url, $json_url, $api_server_domain)
+
+Send a notification about a new image (already gone through OCR) to Robotoff
+
+=head3 Arguments
+
+=head4 $code - product code
+
+=head4 $image_url - public url of the image
+
+=head4 $json_url - public url of OCR result as JSON
+
+=head4 $api_server_domain - the API url for this product opener instance
+
+=head3 Response
+
+Return Robotoff HTTP::Response object.
+
+=cut
+
+sub send_image_to_robotoff ($code, $image_url, $json_url, $api_server_domain) {
+
+	my $ua = LWP::UserAgent->new();
+
+	my $robotoff_response = $ua->post(
+		$robotoff_url . "/api/v1/images/import",
+		{
+			'barcode' => $code,
+			'image_url' => $image_url,
+			'ocr_url' => $json_url,
+			'server_domain' => $api_server_domain,
+		}
+	);
+
+	if ($robotoff_response->is_success) {
+		$log->info("request to robotoff was successful") if $log->is_info();
+	}
+	else {
+		$log->warn(
+			"robotoff request not successful",
+			{
+				code => $robotoff_response->code,
+				response => $robotoff_response->message,
+				status_line => $robotoff_response->status_line
+			}
+		) if $log->is_warn();
+	}
+	return $robotoff_response;
 }
 
 1;

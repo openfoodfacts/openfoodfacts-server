@@ -58,6 +58,7 @@ BEGIN {
 		&generate_gs1_confirmation_message
 		&write_off_csv_file
 		&print_unknown_entries_in_gs1_maps
+		&convert_gs1_xml_file_to_json
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -72,6 +73,7 @@ use ProductOpener::Display qw/$tt process_template display_date_iso/;
 use JSON::PP;
 use boolean;
 use Data::DeepAccess qw(deep_get);
+use XML::XML2JSON;
 
 =head1 GS1 MAPS
 
@@ -744,19 +746,22 @@ my %gs1_product_to_off = (
 									},
 								],
 
-								[
-									"packaging_information:packagingInformationModule",
-									{
-										fields => [
-											[
-												"packaging",
-												{
-													fields => [["packagingTypeCode", "+packaging%packagingTypeCode"],],
-												},
-											],
-										],
-									},
-								],
+								# 20230328: this packaging field is too imprecise, and the packaging field is deprecated,
+								# as we have a new packagings components structure
+								#
+								#								[
+								#									"packaging_information:packagingInformationModule",
+								#									{
+								#										fields => [
+								#											[
+								#												"packaging",
+								#												{
+								#													fields => [["packagingTypeCode", "+packaging%packagingTypeCode"],],
+								#												},
+								#											],
+								#										],
+								#									},
+								#								],
 
 								[
 									"packaging_marking:packagingMarkingModule",
@@ -1919,6 +1924,44 @@ sub print_unknown_entries_in_gs1_maps() {
 	}
 
 	return $unknown_entries;
+}
+
+=head2 convert_gs1_xml_file_to_json ($xml_file, $json_file)
+
+Convert a GS1 XML file to a JSON file
+
+=cut 
+
+sub convert_gs1_xml_file_to_json ($xml_file, $json_file) {
+
+	my $xml2json = XML::XML2JSON->new(module => 'JSON', pretty => 1, force_array => 0, attribute_prefix => "");
+
+	open(my $in, "<:encoding(UTF-8)", $xml_file) or die("Could not read $xml_file: $!");
+	my $xml = join('', (<$in>));
+	close($in);
+
+	my $json = $xml2json->convert($xml);
+
+	# XML2JSON changes the namespace concatenation character from : to $
+	# e.g. "allergen_information$allergenInformationModule":
+	# it is unwanted, turn it back to : so that we can match the expected input of ProductOpener::GS1
+	$json =~ s/([a-z])\$([a-z])/$1:$2/ig;
+
+	# Note: XML2JSON also creates a hash for simple text values. Text values of tags are converted to $t properties.
+	# e.g. <gtin>03449862093657</gtin>
+	#
+	# becomes:
+	#
+	# gtin: {
+	#    $t: "03449865355608"
+	# },
+	#
+	# This is taken care of later by the ProductOpener::GS1::convert_single_text_property_to_direct_value() function
+
+	open(my $out, ">:encoding(UTF-8)", $json_file) or die("Could not write $json_file: $!");
+	print $out $json;
+	close($out);
+	return;
 }
 
 1;

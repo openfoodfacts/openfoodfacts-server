@@ -21,10 +21,9 @@ use ProductOpener::LoadData qw/:all/;
 
 load_data();
 
-my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
+my ($test_id, $test_dir, $expected_results_dir, $update_expected_results) = (init_expected_results(__FILE__));
 my $inputs_dir = "$test_dir/inputs/$test_id/";
-my $outputs_dir = "$test_dir/outputs/$test_id";
-make_path($outputs_dir);
+my $outputs_dir = "$test_dir/outputs/$test_id/";
 
 # fake image download using input directory instead of distant server
 sub fake_download_image ($) {
@@ -33,10 +32,11 @@ sub fake_download_image ($) {
 	my $fname = (split(m|/|, $image_url))[-1];
 	my $image_path = $inputs_dir . $fname;
 	my $response = qobj(
-		is_success => qmeth {return (-e $fname);},
+		is_success => qmeth {return (-e $image_path);},
 		decoded_content => qmeth {
-			open(my $image, "<r", $fname);
-			my $content = <$image>;
+			open(my $image, "<", $image_path);
+			binmode($image);
+			read $image, my $content, -s $image;
 			close $image;
 			return $content;
 		},
@@ -44,16 +44,44 @@ sub fake_download_image ($) {
 	return $response;
 }
 
+my @tests = (
+	{
+		test_case => "test",
+		excel_file => "test.xlsx",
+		columns_fields_json => "test.columns_fields.json",
+		default_values => {lc => "en", countries => "en", brands => "Default brand"},
+	},
+	{
+		test_case => "packagings-mousquetaires",
+		excel_file => "packagings-mousquetaires.xlsx",
+		columns_fields_json => "packagings-mousquetaires.columns_fields.json",
+		default_values => {lc => "fr", countries => "fr"},
+	},
+	{
+		test_case => "carrefour-images",
+		excel_file => "carrefour-images.csv",
+		columns_fields_json => "carrefour-images.columns_fields.json",
+		default_values => {lc => "fr", countries => "fr"},
+	}
+);
+
 # Testing import of a csv file
-{
+foreach my $test_ref (@tests) {
+
 	my $import_module = Test::MockModule->new('ProductOpener::Import');
 
 	# mock download image to fetch image in inputs_dir
 	$import_module->mock('download_image', \&fake_download_image);
 
 	# inputs
-	my $my_excel = $inputs_dir . "test.xlsx";
-	my $columns_fields_json = $inputs_dir . "test.columns_fields.json";
+	my $excel_file = $inputs_dir . $test_ref->{excel_file};
+	my $columns_fields_json = $inputs_dir . $test_ref->{columns_fields_json};
+
+	# expected results
+	my $test_case = $test_ref->{test_case};
+	my $expected_test_results_dir = $expected_results_dir . "/" . $test_case;
+	my $outputs_test_dir = $outputs_dir . "/" . $test_case;
+	make_path($outputs_test_dir);
 
 	# clean data
 	remove_all_products();
@@ -63,27 +91,29 @@ sub fake_download_image ($) {
 	# step1: parse xls
 	my ($out, $err, $csv_result) = capture_ouputs(
 		sub {
-			return scalar load_csv_or_excel_file($my_excel);
+			return scalar load_csv_or_excel_file($excel_file);
 		}
 	);
 	ok(!$csv_result->{error});
 
 	# step2: get columns match
-	my $default_values_ref = {lc => "en", countries => "en"};
+	my $default_values_ref = $test_ref->{default_values} // {};
 
 	# this is the file we need
-	my $columns_fields_file = $outputs_dir . "test.columns_fields.sto";
+	my $columns_fields_file = $outputs_test_dir . "/test.columns_fields.sto";
 	create_sto_from_json($columns_fields_json, $columns_fields_file);
 
 	# step3 convert file
-	my $converted_file = $outputs_dir . "test.converted.csv";
-	my $conv_result;
-	($out, $err, $conv_result) = capture_ouputs(
-		sub {
-			return scalar convert_file($default_values_ref, $my_excel, $columns_fields_file, $converted_file);
-		}
-	);
-	ok(!$conv_result->{error});
+	my $converted_file = $outputs_test_dir . "/test.converted.csv";
+	my $conv_results_ref = convert_file($default_values_ref, $excel_file, $columns_fields_file, $converted_file);
+
+	# Compare the converted CSV file to the expected CSV file
+	ensure_expected_results_dir($expected_test_results_dir . "/converted_csv", $update_expected_results);
+	compare_csv_file_to_expected_results($converted_file, $expected_test_results_dir . "/converted_csv",
+		$update_expected_results);
+	compare_to_expected_results($conv_results_ref,
+		$expected_test_results_dir . "/converted_csv/conversion_results.json",
+		$update_expected_results);
 
 	# step4 import file
 	my $datestring = localtime();
@@ -93,6 +123,7 @@ sub fake_download_image ($) {
 		"owner_id" => "org-test-org",
 		"csv_file" => $converted_file,
 		"exported_t" => $datestring,
+		"images_download_dir" => $outputs_test_dir . "/images",
 	};
 
 	my $stats_ref;
@@ -115,7 +146,7 @@ sub fake_download_image ($) {
 	normalize_products_for_test_comparison(\@products);
 
 	# verify result
-	compare_array_to_expected_results(\@products, $expected_result_dir, $update_expected_results);
+	compare_array_to_expected_results(\@products, $expected_test_results_dir . "/products", $update_expected_results);
 
 	# also verify sto
 	if (!$update_expected_results) {
@@ -124,10 +155,12 @@ sub fake_download_image ($) {
 			push(@sto_products, retrieve_product($product->{code}));
 		}
 		normalize_products_for_test_comparison(\@sto_products);
-		compare_array_to_expected_results(\@products, $expected_result_dir, $update_expected_results);
+		compare_array_to_expected_results(\@products, $expected_test_results_dir . "/products",
+			$update_expected_results);
 	}
 
-	compare_to_expected_results($stats_ref, $expected_result_dir . "/stats.json", $update_expected_results);
+	compare_to_expected_results($stats_ref, $expected_test_results_dir . "/products/stats.json",
+		$update_expected_results);
 
 	# TODO verify images
 	# clean csv and sto

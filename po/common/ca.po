@@ -13,20 +13,15 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ca\n"
-"X-Crowdin-File-ID: 2588\n"
+"X-Crowdin-File-ID: 3123\n"
 
 msgctxt "1_product"
 msgid "1 product"
 msgstr "1_producte"
 
-# leave a space before and after, unless there are no spaces between "A and B" in the target language
-msgctxt "_and_"
-msgid " and "
-msgstr " i "
-
 msgctxt "about"
 msgid "About me"
-msgstr "Quant a mi"
+msgstr "Sobre mi"
 
 msgctxt "add"
 msgid "Add"
@@ -120,41 +115,13 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Introduïu el nom de la vostra organització (nom de l'empresa o marca)."
 
-msgctxt "f_this_is_a_pro_account_for_org"
-msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
 msgstr ""
 
-msgctxt "add_user_email_body"
-msgid "Hello <NAME>,\n\n"
-"Thanks a lot for joining https://openfoodfacts.org\n"
-"Here is your user name:\n\n"
-"User name: <USERID>\n\n"
-"You can now sign in on the site to add and edit products.\n\n"
-"<<site_name>> is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!\n"
-"To discuss between contributors and make the project go forward, we use a very convenient messaging system called Slack: https://slack.openfoodfacts.org\n\n"
-"You can also join the Facebook group for contributors:\n"
-"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
-"New: we are also starting Open Beauty Facts to create a database of cosmetics: soap, toothpaste, makeup etc.\n"
-"https://openbeautyfacts.org\n\n"
-"Thank you very much!\n\n"
-"Stéphane and the Open Food Facts team\n"
-"https://openfoodfacts.org\n"
-"https://twitter.com/OpenFoodFacts\n"
-msgstr "Hola <NAME>,\n\n"
-"Gràcies per unir-vos a https://openfoodfacts.org\n"
-"Aquest és el vostre identificador:\n\n"
-"Identificador: <USERID>\n\n"
-"Ja podeu iniciar sessió per afegir i editar productes.\n\n"
-"<<site_name>> és un projecte col·laboratiu al qual podeu aportar-hi molt més que nous productes: la vostra energia, entusiasme i idees!\n"
-"Per debatre entre persones col·laboradores i fer avançar el projecte, utilitzem un sistema de missatges anomenat Slack: https://slack.openfoodfacts.org\n\n"
-"També us podeu afegir als grups de Facebook per a col·laboradors:\n"
-"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
-"Novetat: també estem iniciant l'Open Beauty Facts per a crear una base de dades de cosmètics: sabé, pasta de dents, maquillatge, etc.\n"
-"https://openbeautyfacts.org\n\n"
-"Moltíssimes gràcies!\n\n"
-"Stéphane i l'equip d'Open Food Facts\n"
-"https://openfoodfacts.org\n"
-"https://twitter.com/OpenFoodFacts\n"
+msgctxt "f_this_is_a_pro_account_for_org"
+msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
+msgstr "Aquest compte és un compte professional associat amb el productor o la marca {org}. Teniu accés a la plataforma per a productors."
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
@@ -226,10 +193,10 @@ msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://es-ca.openfoodfacts.org/files/off.apk"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
-msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr "/images/misc/google-play-badge-svg-master/img/ca_get.svg"
+msgid "/images/misc/playstore/img/en_get.svg"
+msgstr "/images/misc/playstore/img/ca_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -280,7 +247,7 @@ msgstr "També podeu ajudar a finançar el projecte Open Food Facts"
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
+msgstr "Manual d'administrador per productors"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -499,8 +466,16 @@ msgid "Delete the images"
 msgstr "Elimina les imatges"
 
 msgctxt "delete_user"
-msgid "Delete an user"
-msgstr "Elimina un usuari"
+msgid "Delete a user"
+msgstr ""
+
+msgctxt "delete_confirmation"
+msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
+msgstr ""
+
+msgctxt "danger_zone"
+msgid "Danger Zone"
+msgstr ""
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -600,11 +575,11 @@ msgstr "Codis de traçabilitat"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "Codi de traçabilitat"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "Codi de traçabilitat"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -681,11 +656,11 @@ msgstr "El nom d'usuari ha de contenir només lletres sense accentuar, dígits i
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 20 characters)."
-msgstr ""
+msgstr "El nom d'usuari és massa llarg (20 caràcters com a màxim)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr ""
+msgstr "El nom és massa llarg (60 caràcters com a màxim)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
@@ -1005,6 +980,10 @@ msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr "Detalls de la foto i informació d’atribució"
 
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr ""
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Productes que ha afegit que han de ser completats"
@@ -1023,15 +1002,15 @@ msgstr "Ingredients"
 
 msgctxt "no_ingredient"
 msgid "Ingredients are missing"
-msgstr ""
+msgstr "Falten els ingredients"
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
-msgstr ""
+msgstr "1 ingredient"
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
-msgstr ""
+msgstr "{number} ingredients"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -1124,7 +1103,7 @@ msgstr "Descarrega-la a l'App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1566,6 +1545,10 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 msgstr "La taula mostra per defecte nutrients que sovint estan especificats. Deixi el camp en blanc si no està en l'etiqueta. <br/> Podeu afegir nutrients addicionals (vitamines, minerals, colesterol, etc.)\n"
 "escrivint les primeres lletres del seu nom en l'última fila de la taula."
 
+msgctxt "nutrition_data_table_asterisk"
+msgid "Essential nutrients to calculate the Nutri-Score."
+msgstr ""
+
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
 msgstr "Graus de nutrició"
@@ -1774,6 +1757,14 @@ msgstr "Producte afegit"
 msgctxt "product_changes_saved"
 msgid "Changes saved."
 msgstr "S'han desat els canvis."
+
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr ""
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr ""
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2300,9 +2291,13 @@ msgctxt "see_product_page"
 msgid "See the product page"
 msgstr "Veure pàgina del producte"
 
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr ""
+
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "País"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2335,6 +2330,10 @@ msgstr "60 g, 12 oz, 20 cl, 2 fl oz"
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
 msgstr "Si la taula de dades nutricionals conté valors per al producte preparat, indiqueu la mida total de la ració del producte preparat (inclosa l’aigua o la llet afegides)."
+
+msgctxt "serving_too_small_for_nutrition_analysis"
+msgid "Serving size is too small (5 g / 5 ml or less) to calculate 100 g / 100 ml values and perform any further nutritional analysis"
+msgstr ""
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2557,6 +2556,10 @@ msgctxt "users_without_products"
 msgid "Products not added by %s"
 msgstr "Productes no afegits per %s"
 
+msgctxt "video_tutorials"
+msgid "Video Tutorials"
+msgstr ""
+
 msgctxt "view"
 msgid "view"
 msgstr "mostra"
@@ -2576,7 +2579,8 @@ msgstr "Veure el resultat de tot el món"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
-msgstr ""
+msgstr "La informació i les dades han de provenir del paquet i de l’etiqueta del producte (i no d’altres llocs ni del lloc web del fabricant), i heu d’haver fet vosaltres mateixos les fotografies.<br/>\n"
+"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Per què és important</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2593,8 +2597,8 @@ msgstr "Aconseguir-ho de Microsoft"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/ca-es/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
+msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2624,6 +2628,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Carrega imatges de menor resolució (per a connexions lentes)"
 
+msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
+msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
 msgstr "Atenció: la quantitat de fibra no s'especifica, no es tindrà en compte la seva possible contribució positiva en la qualificació."
@@ -2638,15 +2646,15 @@ msgstr "Atenció: no s'ha especificat la quantitat de fruites, verdures i fruits
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "Atenció: la quantitat de fruita, verdura i fruits secs no s'especifica a l'etiqueta però s'ha fet una estimació manual a partir de la llista d'ingredients: %d%"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr ""
+msgstr "Atenció: la quantitat de fruita, verdura i fruits secs no s'especifica a l'etiqueta, s'ha fet una estimació per la categoria (%s) del producte: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "Atenció: la quantitat de fruita, verdura i fruits secs no s'especifica a l'etiqueta, s'ha fet una estimació a partir de la llista d'ingredients: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2895,12 +2903,12 @@ msgid "Risk of overexposure"
 msgstr "Risc de sobreexposició"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
-msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr "L'Autoritat Europea de Seguretat Alimentària (EFSA) ha determinat que alguns grups de població tenen un alt risc de consumir massa %1$s <tag>."
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
+msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
-msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
-msgstr "L'Autoritat Europea de Seguretat Alimentària (EFSA) ha determinat que alguns grups de població tenen un risc moderat de consumir massa %1$s <tag>."
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
+msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -2927,12 +2935,12 @@ msgid "No or very low risk of over exposure"
 msgstr "Cap o molt baix risc de sobreexposició"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
-msgid "Risk of exceeding the acceptable daily intake (ADI)"
-msgstr "Risc de superar la ingesta diària recomanada (IDA)"
+msgid "Risk of reaching or exceeding the acceptable daily intake (ADI)"
+msgstr ""
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
-msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr "Risc de superar la dosi màxima sense efectes adversos (No s'ha observat cap nivell d'efecte advers - NOAEL)"
+msgid "Risk of reaching exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
@@ -2951,20 +2959,20 @@ msgid "Groups with more than 5% of members exceeding the maximum dose without ad
 msgstr "Grups amb més del 5% de membres que superen la dosi màxima sense efectes adversos (No hi ha un nivell d'efecte advers observat - NOAEL)"
 
 msgctxt "exposure_title_95th"
-msgid "Some people"
-msgstr "Algunes persones"
+msgid "Moderate risk"
+msgstr ""
 
 msgctxt "exposure_description_95th"
-msgid "over 5%"
-msgstr "més del 5%"
+msgid "5% of people or more"
+msgstr ""
 
 msgctxt "exposure_title_mean"
-msgid "Most people"
-msgstr "La majoria de la gent"
+msgid "High risk"
+msgstr ""
 
 msgctxt "exposure_description_mean"
-msgid "over 50%"
-msgstr "més del 50%"
+msgid "50% of people or more"
+msgstr ""
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
@@ -3093,6 +3101,10 @@ msgstr "Productes corregits per %s"
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
 msgstr "Productes no corregits per %s"
+
+msgctxt "contributors_products"
+msgid "Products added by %s"
+msgstr "Productes afegits per %s"
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
@@ -3224,31 +3236,31 @@ msgstr "Hi ha massa productes (%d productes, el límit és %d) a exportar, si us
 
 msgctxt "translate_taxonomy_to"
 msgid "Help translate the %s to %s"
-msgstr ""
+msgstr "Ajudeu a traduir %s al %s"
 
 msgctxt "translate_taxonomy_description"
 msgid "You can suggest translations for the entries below that have not yet been translated to your language. The blue link and the black text (both in English) show respectively the non-localized product and the original entry incl. optional synonyms separated by commas. Enter the translation in the text field, incl. optional synonyms, and then click the Save button. Thank you!"
-msgstr ""
+msgstr "Podeu suggerir traduccions per a les entrades següents que encara no s'han traduït al vostre idioma. L'enllaç blau i el text negre (tots dos en anglès) mostren respectivament el producte no localitzat i l'entrada original incloent-hi sinònims opcionals, separats per comes. Introduïu la traducció al camp de text, inclosos sinònims opcionals i, a continuació, feu clic al botó Desar. Gràcies!"
 
 msgctxt "translate_taxonomy_add"
 msgid "Show only entries without pending translations."
-msgstr ""
+msgstr "Mostra només les entrades sense traduccions pendents."
 
 msgctxt "translate_taxonomy_edit"
 msgid "Also show entries with pending translations from you or other users."
-msgstr ""
+msgstr "Mostra també les entrades amb traduccions pendents de tu o d'altres usuaris."
 
 msgctxt "translated"
 msgid "translated"
-msgstr ""
+msgstr "traduït"
 
 msgctxt "to_be_translated"
 msgid "to be translated"
-msgstr ""
+msgstr "pendents de traducció"
 
 msgctxt "current_translation"
 msgid "Current translation"
-msgstr ""
+msgstr "Traducció actual"
 
 msgctxt "button_caption_yes"
 msgid "Yes"
@@ -3264,19 +3276,19 @@ msgstr "Omet"
 
 msgctxt "popularity_s"
 msgid "popularity"
-msgstr ""
+msgstr "popularitat"
 
 msgctxt "popularity_p"
 msgid "popularity"
-msgstr ""
+msgstr "popularitat"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "anàlisi dels ingredients"
 
 msgctxt "ingredients_analysis_s"
 msgid "ingredients analysis"
-msgstr ""
+msgstr "anàlisi dels ingredients"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
@@ -3284,87 +3296,87 @@ msgstr "Anàlisi dels ingredients"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr ""
+msgstr "L'anàlisi es basa únicament en els ingredients enumerats i no té en compte els mètodes de processament."
 
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
-msgstr ""
+msgstr "Està visualitzant una versió antiga d'aquesta pàgina!"
 
 msgctxt "rev_number"
 msgid "Revision number: "
-msgstr ""
+msgstr "Número de revisió: "
 
 msgctxt "rev_contributor"
 msgid "Edited by: "
-msgstr ""
+msgstr "Editat per: "
 
 msgctxt "rev_previous"
 msgid "Previous version"
-msgstr ""
+msgstr "Versió anterior"
 
 msgctxt "rev_next"
 msgid "Next version"
-msgstr ""
+msgstr "Següent versió"
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
+msgstr "Última versió"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_title"
 msgid "Import a product data file"
-msgstr ""
+msgstr "Importa un fitxer de dades de producte"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_description"
 msgid "Upload a spreadsheet file (Excel file or a comma or tab separated UTF-8 encoded CSV file) with product data."
-msgstr ""
+msgstr "Pengeu un fitxer de full de càlcul (fitxer d'Excel o un fitxer CSV codificat amb UTF-8 separat per comes o tabulacions) amb dades del producte."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_format"
 msgid "You can upload a table with the columns Open Food Facts import format, or you can upload a table in any format and then select the columns to import."
-msgstr ""
+msgstr "Podeu carregar una taula amb el format d'importació Open Food Facts de columnes, o podeu carregar una taula en qualsevol format i seleccionar les columnes que voleu importar."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "upload_product_data_file"
 msgid "Upload a file with product data"
-msgstr ""
+msgstr "Pengeu un fitxer amb les dades del producte"
 
 msgctxt "uploading_file"
 msgid "File being uploaded."
-msgstr ""
+msgstr "S'està carregant el fitxer."
 
 msgctxt "upload_error"
 msgid "The file could not be uploaded."
-msgstr ""
+msgstr "No s'ha pogut penjar l'arxiu."
 
 msgctxt "import_data_file_select_format_title"
 msgid "Select and import data"
-msgstr ""
+msgstr "Seleccioneu i importeu dades"
 
 msgctxt "import_data_file_select_format_description"
 msgid "Use the form below to indicate which columns to import and what data they contain."
-msgstr ""
+msgstr "Utilitzeu el formulari següent per indicar quines columnes voleu importar i quines dades contenen."
 
 msgctxt "import_data"
 msgid "Import data"
-msgstr ""
+msgstr "Importar dades"
 
 msgctxt "import_file_rows_columns"
 msgid "The uploaded file contains %s rows and %s columns."
-msgstr ""
+msgstr "El fitxer penjat conté %s fila(es) i %s columna(es)."
 
 msgctxt "import_file_selected_columns"
 msgid "%s columns out of %s have been selected and will be imported."
-msgstr ""
+msgstr "S'han seleccionat i s'importaran %s columnes d' %s."
 
 msgctxt "fields_group_identification"
 msgid "Product identification"
-msgstr ""
+msgstr "Identificació del producte"
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Orígens"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -3376,7 +3388,7 @@ msgstr "Informació nutricional"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
-msgstr ""
+msgstr "Dades nutricionals opcionals"
 
 msgctxt "fields_group_other"
 msgid "Other information"
@@ -3384,200 +3396,204 @@ msgstr "Altres dades"
 
 msgctxt "fields_group_images"
 msgid "Product photos"
-msgstr ""
+msgstr "Fotos del producte"
+
+msgctxt "fields_group_packaging"
+msgid "Packaging"
+msgstr "Empaquetament"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
-msgstr ""
+msgstr "Enllaç a la foto frontal del producte"
 
 msgctxt "image_ingredients_url"
 msgid "Link to ingredients list photo"
-msgstr ""
+msgstr "Enllaç a la foto de la llista d'ingredients"
 
 msgctxt "image_nutrition_url"
 msgid "Link to nutrition facts table photo"
-msgstr ""
+msgstr "Enllaç a la foto de la taula de dades nutricionals"
 
 msgctxt "image_other_url"
 msgid "Link to other product photo"
-msgstr ""
+msgstr "Enllaç a una altra foto del producte"
 
 msgctxt "labels_specific"
 msgid "Specific label"
-msgstr ""
+msgstr "Etiqueta específica"
 
 msgctxt "categories_specific"
 msgid "Specific category"
-msgstr ""
+msgstr "Categoria específica"
 
 msgctxt "sources_fields_specific"
 msgid "Source specific field"
-msgstr ""
+msgstr "Camp específic de la font"
 
 msgctxt "select_a_field"
 msgid "Select a field"
-msgstr ""
+msgstr "Selecciona un camp"
 
 msgctxt "specify"
 msgid "Specify"
-msgstr ""
+msgstr "Especifica"
 
 msgctxt "value_unit_dropdown"
 msgid "In the dropdown menu on the right, specify if the column contains:"
-msgstr ""
+msgstr "Al menú desplegable de la dreta, especifiqueu si la columna conté:"
 
 msgctxt "value_unit_dropdown_value_unit"
 msgid "the value and the unit"
-msgstr ""
+msgstr "el valor i la unitat"
 
 msgctxt "value_unit_dropdown_value_specific_unit"
 msgid "the value in a specific unit"
-msgstr ""
+msgstr "el valor en una unitat concreta"
 
 msgctxt "value_unit_dropdown_value"
 msgid "only the value, with the unit in another column"
-msgstr ""
+msgstr "només el valor, amb la unitat en una altra columna"
 
 msgctxt "value_unit_dropdown_unit"
 msgid "only the unit, with the value in another column"
-msgstr ""
+msgstr "només la unitat, amb el valor en una altra columna"
 
 # Please do not translate Y, Yes and 1
 msgctxt "labels_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific label (e.g. Organic, Fair-Trade) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Seleccioneu aquesta opció si la columna indica la presència d'una etiqueta específica (p. ex. Orgànica, Comerç Just) quan el valor és Y, Yes o 1."
 
 msgctxt "labels_specific_tag_value"
 msgid "Type the name of the label in the text field on the right."
-msgstr ""
+msgstr "Escriviu el nom de l'etiqueta al camp de text de la dreta."
 
 # Please do not translate Y, Yes and 1
 msgctxt "categories_specific_tag"
 msgid "Select this option if the column indicates the presence of a specific category (e.g. Beverages) when the value is either Y, Yes or 1."
-msgstr ""
+msgstr "Seleccioneu aquesta opció si la columna indica la presència d'una categoria específica (p. ex. Begudes) quan el valor és Y, Yes o 1."
 
 msgctxt "categories_specific_tag_value"
 msgid "Type the name of the category in the text field on the right."
-msgstr ""
+msgstr "Escriviu el nom de la categoria al camp de text de la dreta."
 
 # Please do not translate Y, Yes and 1
 msgctxt "sources_fields_specific_tag"
 msgid "Select this option for fields that are specific to the source, and that we want to keep as source specific fields."
-msgstr ""
+msgstr "Seleccioneu aquesta opció per als camps específics de la font i que es volen mantenir com a camps específics de la font."
 
 msgctxt "sources_fields_specific_tag_value"
 msgid "Type the name of the target field in the text field on the right, or leave blank to use the name of the source field."
-msgstr ""
+msgstr "Escriviu el nom del camp de destinació al camp de text de la dreta o deixeu-lo en blanc per utilitzar el nom del camp d'origen."
 
 msgctxt "value"
 msgid "Value"
-msgstr ""
+msgstr "Valor"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
-msgstr ""
+msgstr "Valor + Unitat"
 
 msgctxt "value_in_l"
 msgid "Value in L"
-msgstr ""
+msgstr "Valor en L"
 
 msgctxt "value_in_dl"
 msgid "Value in dl"
-msgstr ""
+msgstr "Valor en dL"
 
 msgctxt "value_in_cl"
 msgid "Value in cl"
-msgstr ""
+msgstr "Valor en cl"
 
 msgctxt "value_in_ml"
 msgid "Value in ml"
-msgstr ""
+msgstr "Valor en ml"
 
 msgctxt "value_in_kg"
 msgid "Value in kg"
-msgstr ""
+msgstr "Valor en kg"
 
 msgctxt "value_in_g"
 msgid "Value in g"
-msgstr ""
+msgstr "Valor en g"
 
 msgctxt "value_in_mg"
 msgid "Value in mg"
-msgstr ""
+msgstr "Valor en mg"
 
 msgctxt "value_in_mcg"
 msgid "Value in μg"
-msgstr ""
+msgstr "Valor en μg"
 
 msgctxt "value_in_iu"
 msgid "Value in IU"
-msgstr ""
+msgstr "Valor en UI"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
-msgstr ""
+msgstr "Valor en kcal"
 
 msgctxt "value_in_kj"
 msgid "Value in kJ"
-msgstr ""
+msgstr "Valor en kJ"
 
 msgctxt "value_in_percent"
 msgid "Value in %"
-msgstr ""
+msgstr "Valor en %"
 
 msgctxt "no_owner_defined"
 msgid "Please log-in to use this feature."
-msgstr ""
+msgstr "Si us plau, inicieu sessió per utilitzar aquesta funció."
 
 msgctxt "organization"
 msgid "Organization"
-msgstr ""
+msgstr "Organització"
 
 msgctxt "column_in_file"
 msgid "Column in file"
-msgstr ""
+msgstr "Columna al fitxer"
 
 msgctxt "field_on_site"
 msgid "Field on %s"
-msgstr ""
+msgstr "Camp a %s"
 
 msgctxt "producers_platform"
 msgid "Platform for producers"
-msgstr ""
+msgstr "Plataforma per a productors"
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_description"
 msgid "The platform for producers allows manufacturers to easily manage their product photos and data on Open Food Facts."
-msgstr ""
+msgstr "La plataforma per a productors permet als fabricants gestionar fàcilment les fotos i les dades dels seus productes a Open Food Facts."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_private_database"
 msgid "The product data and photos you send on the platform for producers are stored in a private database. You will be able to check that all the data is correct before making it available on the public Open Food Facts database."
-msgstr ""
+msgstr "Les dades del producte i les fotos que envieu a la plataforma per als productors s'emmagatzemen en una base de dades privada. Podreu comprovar que totes les dades són correctes abans de posar-les a disposició a la base de dades pública d'Open Food Facts."
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "producers_platform_licence"
 msgid "The product data and photos will become publicly available in the Open Food Facts database, under the <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\">Open Database License</a>. Individual contents of the database are available under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents License</a> and products images are available under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution ShareAlike licence</a>."
-msgstr ""
+msgstr "Les dades i les fotos del producte estaran disponibles públicament a la base de dades Open Food Facts, sota la llicència <a href=\"https://opendatacommons.org/licenses/odbl/1.0/\"> Llicéncia de base de dades oberta </a>. Els continguts individuals de la base de dades estan disponibles sota la <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">llicència de contingut de la base de dades</a> i les imatges dels productes estan disponibles sota la <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">llicència Creative Commons de reconeixement - compartir igual</a>."
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_product_data"
 msgid "Import product data"
-msgstr ""
+msgstr "Importar dades del producte"
 
 # "product photos" in this sentence means data for many products, not just one product
 msgctxt "import_product_photos"
 msgid "Import product photos"
-msgstr ""
+msgstr "Importa fotos del producte"
 
 # "product data and photos" in this sentence means data and photos for many products, not just one product
 msgctxt "export_product_data_photos"
 msgid "Export product data and photos to the public database"
-msgstr ""
+msgstr "Exporta dades i fotos del producte a la base de dades pública"
 
 msgctxt "export_product_data_photos_please_check"
 msgid "Please check that the data on the platform for producers is correct before exporting it to the public database."
-msgstr ""
+msgstr "Si us plau, comproveu que les dades de la plataforma per a productors siguin correctes abans d'exportar-les a la base de dades pública."
 
 msgctxt "export_photos"
 msgid "Export photos to the public database"
@@ -3597,87 +3613,87 @@ msgstr "Canvis reduïts"
 
 msgctxt "data_quality_p"
 msgid "data quality"
-msgstr ""
+msgstr "qualitat de les dades"
 
 msgctxt "data_quality_s"
 msgid "data quality"
-msgstr ""
+msgstr "qualitat de les dades"
 
 msgctxt "data_quality"
 msgid "data quality"
-msgstr ""
+msgstr "qualitat de les dades"
 
 msgctxt "data_quality_bugs_p"
 msgid "data quality bugs"
-msgstr ""
+msgstr "problemes de qualitat de les dades"
 
 msgctxt "data_quality_bugs_s"
 msgid "data quality bug"
-msgstr ""
+msgstr "problema de qualitat de les dades"
 
 msgctxt "data_quality_bugs"
 msgid "data quality bugs"
-msgstr ""
+msgstr "problemes de qualitat de les dades"
 
 msgctxt "data_quality_info_p"
 msgid "data quality info"
-msgstr ""
+msgstr "informació sobre la qualitat de les dades"
 
 msgctxt "data_quality_info_s"
 msgid "data quality info"
-msgstr ""
+msgstr "informació sobre la qualitat de les dades"
 
 msgctxt "data_quality_info"
 msgid "data quality info"
-msgstr ""
+msgstr "informació sobre la qualitat de les dades"
 
 msgctxt "data_quality_warnings_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "advertències sobre la qualitat de les dades"
 
 msgctxt "data_quality_warnings_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "advertència sobre la qualitat de les dades"
 
 msgctxt "data_quality_warnings"
 msgid "data quality warnings"
-msgstr ""
+msgstr "advertències sobre la qualitat de les dades"
 
 msgctxt "data_quality_errors_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "errors de qualitat de les dades"
 
 msgctxt "data_quality_errors_s"
 msgid "data quality error"
-msgstr ""
+msgstr "error de qualitat de les dades"
 
 msgctxt "data_quality_errors"
 msgid "data quality errors"
-msgstr ""
+msgstr "errors de qualitat de les dades"
 
 msgctxt "data_quality_warnings_producers_p"
 msgid "data quality warnings"
-msgstr ""
+msgstr "advertències sobre la qualitat de les dades"
 
 msgctxt "data_quality_warnings_producers_s"
 msgid "data quality warning"
-msgstr ""
+msgstr "advertència sobre la qualitat de les dades"
 
 msgctxt "data_quality_warnings_producers"
 msgid "data quality warnings"
-msgstr ""
+msgstr "advertències sobre la qualitat de les dades"
 
 msgctxt "data_quality_errors_producers_p"
 msgid "data quality errors"
-msgstr ""
+msgstr "errors de qualitat de les dades"
 
 msgctxt "data_quality_errors_producers_s"
 msgid "data quality error"
-msgstr ""
+msgstr "error de qualitat de les dades"
 
 msgctxt "data_quality_errors_producers"
 msgid "data quality errors"
-msgstr ""
+msgstr "errors de qualitat de les dades"
 
 # abbreviation for Minimum
 msgctxt "min"
@@ -3691,172 +3707,172 @@ msgstr "Màxim"
 
 msgctxt "improvements_p"
 msgid "possible improvements"
-msgstr ""
+msgstr "possibles millores"
 
 msgctxt "improvements_s"
 msgid "possible improvement"
-msgstr ""
+msgstr "possible millora"
 
 msgctxt "improvements"
 msgid "possible improvements"
-msgstr ""
+msgstr "possibles millores"
 
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/Importar productes"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
-msgstr ""
+msgstr "Afegiu o actualitzeu productes"
 
 # Formal you
 msgctxt "your_products"
 msgid "Your products"
-msgstr ""
+msgstr "Els teus productes"
 
 # Do not translate the e-mail address
 msgctxt "account_without_org"
 msgid "Your account is not associated with a company yet. Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to activate the free access to the platform for producers."
-msgstr ""
+msgstr "El vostre compte encara no està associat a cap empresa. Envieu un correu electrònic <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> per activar l'accés gratuït a la plataforma per als productors."
 
 msgctxt "import_products"
 msgid "Import products"
-msgstr ""
+msgstr "Importar productes"
 
 msgctxt "empty_column"
 msgid "Empty column"
-msgstr ""
+msgstr "Columna buida"
 
 msgctxt "empty_column_description"
 msgid "The file does not contain any value in this column."
-msgstr ""
+msgstr "El fitxer no conté cap valor en aquesta columna."
 
 msgctxt "import_file_status_title"
 msgid "Data import in progress"
-msgstr ""
+msgstr "Importació de dades en curs"
 
 # "product data" means data for many products
 msgctxt "import_file_status_description"
 msgid "The product data has been received and is going to be imported on the platform for producers."
-msgstr ""
+msgstr "Les dades del producte s'han rebut i s'importaran a la plataforma per a productors."
 
 msgctxt "import_file_status"
 msgid "Status"
-msgstr ""
+msgstr "Estat"
 
 msgctxt "job_status_inactive"
 msgid "Scheduled"
-msgstr ""
+msgstr "Programat"
 
 msgctxt "job_status_active"
 msgid "In progress"
-msgstr ""
+msgstr "En curs"
 
 msgctxt "job_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "Finalitzat"
 
 msgctxt "job_status_failed"
 msgid "Failed"
-msgstr ""
+msgstr "S'ha produït un error"
 
 msgctxt "import_file_result"
 msgid "Import result"
-msgstr ""
+msgstr "Importa resultats"
 
 msgctxt "products_modified"
 msgid "Products modified"
-msgstr ""
+msgstr "Productes modificats"
 
 msgctxt "import_file_result_no_change"
 msgid "There were no product added or modified. The data has probably been already imported previously."
-msgstr ""
+msgstr "No hi ha cap producte afegit ni modificat. Probablement les dades ja s'han importat anteriorment."
 
 msgctxt "import_file_result_products"
 msgid "List of products added or modified"
-msgstr ""
+msgstr "Llista de productes afegits o modificats"
 
 msgctxt "imports_p"
 msgid "imports"
-msgstr ""
+msgstr "importacions"
 
 msgctxt "imports_s"
 msgid "import"
-msgstr ""
+msgstr "importar"
 
 msgctxt "imports"
 msgid "imports"
-msgstr ""
+msgstr "importacions"
 
 msgctxt "number_of_products_with_data_quality_errors_producers"
 msgid "Number of products with data quality errors"
-msgstr ""
+msgstr "Nombre de productes amb errors de qualitat de les dades"
 
 msgctxt "number_of_products_with_data_quality_warnings_producers"
 msgid "Number of products with data quality warnings"
-msgstr ""
+msgstr "Nombre de productes amb avisos de qualitat de les dades"
 
 msgctxt "number_of_products_with_improvements"
 msgid "Number of products with improvement opportunities"
-msgstr ""
+msgstr "Nombre de productes amb possibilitats de millora"
 
 msgctxt "improvements_facet_description_1"
 msgid "This table lists possible opportunities to improve the nutritional quality, the Nutri-Score and the composition of food products."
-msgstr ""
+msgstr "Aquesta taula enumera les possibilitats per millorar la qualitat nutricional, el Nutri-Score i la composició dels productes alimentaris."
 
 msgctxt "improvements_facet_description_2"
 msgid "In order to get relevant results, please make sure the product data is complete (nutrition facts with values for fiber and fruits and vegetables to compute the Nutri-Score, and a precise category to compare each product to similar products)."
-msgstr ""
+msgstr "Per tal d'obtenir resultats rellevants, assegureu-vos que les dades del producte estiguin completes (dates nutricionals amb valors de fibra, fruites i verdures per calcular el Nutri-Score, i una categoria precisa per comparar cada producte amb productes similars)."
 
 # "product photos" in this sentence means photos for many products, not just one product
 msgctxt "import_photos_title"
 msgid "Import product photos"
-msgstr ""
+msgstr "Importa fotos del producte"
 
 msgctxt "import_photos_description"
 msgid "You can use the form below to easily upload photos (front of product, ingredients list and nutrition facts table) for many products."
-msgstr ""
+msgstr "Podeu utilitzar el formulari següent per pujar fàcilment fotos (frontal del producte, llista d'ingredients i taula de dades nutricionals) de molts productes."
 
 msgctxt "import_photos_format_1"
 msgid "Each filename needs to contains the barcode of the product."
-msgstr ""
+msgstr "Cada nom de fitxer ha de contenir el codi de barres del producte."
 
 msgctxt "import_photos_format_2"
 msgid "And you can also specify the type of the photo in the filename:"
-msgstr ""
+msgstr "I també podeu especificar el tipus de foto al nom del fitxer:"
 
 # Do not translate the file name
 msgctxt "import_photos_format_barcode"
 msgid "3001234567890.jpg: front of the product in the current language."
-msgstr ""
+msgstr "3001234567890.jpg: part frontal del producte en l'idioma actual."
 
 # Do not translate the file name
 msgctxt "import_photos_format_front"
 msgid "3001234567890.front_nl.jpg: front of the product in Dutch."
-msgstr ""
+msgstr "3001234567890.front_nl.jpg: part frontal del producte en holandès."
 
 # Do not translate the file name
 msgctxt "import_photos_format_ingredients"
 msgid "3001234567890.ingredients_fr.jpg: ingredients list in French."
-msgstr ""
+msgstr "3001234567890.ingredients_fr.jpg: llista d'ingredients en francès."
 
 # Do not translate the file name
 msgctxt "import_photos_format_nutrition"
 msgid "3001234567890.nutrition_es.jpg: nutrition table in Spanish."
-msgstr ""
+msgstr "3001234567890.nutrition_es.jpg: taula de nutrició en castellà."
 
 msgctxt "add_photos"
 msgid "Add photos..."
-msgstr ""
+msgstr "Afegeix fotos..."
 
 msgctxt "start_upload"
 msgid "Start upload"
-msgstr ""
+msgstr "Començar pujada"
 
 msgctxt "start"
 msgid "Start"
-msgstr ""
+msgstr "Inicia"
 
 msgctxt "close"
 msgid "Close"
@@ -3864,55 +3880,55 @@ msgstr "Tanca"
 
 msgctxt "cancel_upload"
 msgid "Cancel upload"
-msgstr ""
+msgstr "Cancel·lar pujada"
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "Informació"
 
 msgctxt "file_received"
 msgid "File received"
-msgstr ""
+msgstr "S'ha rebut el fitxer"
 
 msgctxt "nutriscore_calculation_details"
 msgid "Details of the calculation of the Nutri-Score"
-msgstr ""
+msgstr "Detalls del càlcul de la Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Aquest producte es considera una beguda per al càlcul de la Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Aquest producte no es considera una beguda per al càlcul de la Nutri-Score."
 
 msgctxt "nutriscore_positive_points"
 msgid "Positive points"
-msgstr ""
+msgstr "Punts positius"
 
 msgctxt "nutriscore_negative_points"
 msgid "Negative points"
-msgstr ""
+msgstr "Punts negatius"
 
 msgctxt "nutriscore_proteins_negative_points_less_than_11"
 msgid "The points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "Els punts per proteïnes es compten perquè els punts negatius són inferiors a 11."
 
 msgctxt "nutriscore_proteins_negative_points_greater_or_equal_to_11"
 msgid "The points for proteins are not counted because the negative points are greater or equal to 11."
-msgstr ""
+msgstr "Els punts per proteïnes no es compten perquè els punts negatius són més o iguals a 11."
 
 msgctxt "nutriscore_proteins_maximum_fruits_points"
 msgid "The points for proteins are counted because the points for the fruits, vegetables, nuts and colza/walnut/olive oils are at the maximum."
-msgstr ""
+msgstr "Els punts de proteïnes es compten perquè els punts de les fruites, verdures, fruits secs i olis de colza/nou/oliva són al màxim."
 
 msgctxt "nutriscore_proteins_is_cheese"
 msgid "The points for proteins are counted because the product is in the cheeses category."
-msgstr ""
+msgstr "Els punts de proteïnes es compten perquè el producte està a la categoria de formatges."
 
 msgctxt "nutriscore_proteins_is_added_fat"
 msgid "The product is in the fats category, the points for saturated fat are replaced by the points for the saturated fat / fat ratio."
-msgstr ""
+msgstr "El producte es troba a la categoria de greixos, els punts de greix saturat es substitueixen pels punts de la relació greix saturat / greix."
 
 msgctxt "nutriscore_points_for_energy"
 msgid "Energy"
@@ -3928,7 +3944,7 @@ msgstr "Greixos saturats"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
-msgstr ""
+msgstr "Relació greixos saturats/greixos"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
@@ -3936,11 +3952,11 @@ msgstr "Sodi"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
-msgstr ""
+msgstr "Fruites, verdures, fruits secs i olis de colza/nou/oliva"
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr ""
+msgstr "Fibra"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -3952,36 +3968,36 @@ msgstr "valor"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
-msgstr ""
+msgstr "valor arrodonit"
 
 msgctxt "nutriscore_score"
 msgid "Nutritional score"
-msgstr ""
+msgstr "Puntuació nutricional"
 
 # Do not translate
 msgctxt "nutriscore_grade"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # This is not the Nutri-Score grade with letters, but the Nutri-Score number score used to compute the grade. Translate score but not Nutri-Score.
 msgctxt "nutriscore_score_producer"
 msgid "Nutri-Score score"
-msgstr ""
+msgstr "Puntuació Nutri-Score"
 
 # Do not translate
 msgctxt "nutriscore_grade_producer"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 # free as in not costing something
 msgctxt "donate_free_and_independent"
 msgid "Open Food Facts is 100% free and independent."
-msgstr ""
+msgstr "Open Food Facts és 100% gratuït i independent."
 
 # leave empty link
 msgctxt "donate_help_and_donations"
 msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
-msgstr ""
+msgstr "<a href=\"\">Necessitem la teva ajuda i donacions</a> per continuar i fer créixer el projecte."
 
 msgctxt "thank_you"
 msgid "Thank you!"
@@ -3989,21 +4005,21 @@ msgstr "Gràcies!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
-msgstr ""
+msgstr "Valor per al producte"
 
 # Do not translate %s, it will be replaced by the category name
 msgctxt "value_for_the_category"
 msgid "Mean value for the %s category"
-msgstr ""
+msgstr "Valor mitjà de la categoria %s"
 
 # Keep the %s
 msgctxt "better_nutriscore"
 msgid "The Nutri-Score can be changed from %s to %s by changing the %s value from %s to %s (%s percent difference)."
-msgstr ""
+msgstr "El Nutri-Score es pot canviar de %s a %s canviant el valor %s de %s a %s (diferència del%s per cent)."
 
 msgctxt "export_products_to_public_database_email"
 msgid "The platform for producers is still under development and we make manual checks before importing products to the public database. Please e-mail us at <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> to update the public database."
-msgstr ""
+msgstr "La plataforma per a productors encara està en desenvolupament i fem comprovacions manuals abans d'importar productes a la base de dades pública. Envieu-nos un correu electrònic a <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> per actualitzar la base de dades pública."
 
 msgctxt "crm_user_id"
 msgid "Id of corresponding contact in CRM"
@@ -4015,7 +4031,7 @@ msgstr ""
 
 msgctxt "user_groups"
 msgid "Groups"
-msgstr ""
+msgstr "Grups"
 
 msgctxt "user_group_producer"
 msgid "Producer"
@@ -4023,39 +4039,39 @@ msgstr "Productor"
 
 msgctxt "user_group_producer_description"
 msgid "Must be checked only for accounts of producers who edit their own products. Product ownership will be attributed to producers when they add or edit a product."
-msgstr ""
+msgstr "Només s'ha de comprovar per als comptes de productors que editen els seus propis productes. La propietat del producte s'atribuirà als productors quan afegeixen o editen un producte."
 
 msgctxt "user_group_database"
 msgid "Database"
-msgstr ""
+msgstr "Base de Dades"
 
 msgctxt "user_group_database_description"
 msgid "For external sources of data. Product ownership of imported products will not change."
-msgstr ""
+msgstr "Per a fonts de dades externes. La propietat dels productes importats no canviarà."
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr ""
+msgstr "Aplicació"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
-msgstr ""
+msgstr "Per a aplicacions."
 
 msgctxt "user_group_bot"
 msgid "Bot"
-msgstr ""
+msgstr "Bot"
 
 msgctxt "user_group_bot_description"
 msgid "For robots, scripts etc."
-msgstr ""
+msgstr "Per a robots, scripts, etc."
 
 msgctxt "user_group_moderator"
 msgid "Moderator"
-msgstr ""
+msgstr "Moderador/a"
 
 msgctxt "user_group_moderator_description"
 msgid "Moderators have access to special features to edit and review products."
-msgstr ""
+msgstr "Els moderadors tenen accés a funcions especials per editar i revisar productes."
 
 msgctxt "user_group_pro_moderator"
 msgid "Moderator for the producers platform"
@@ -4071,15 +4087,15 @@ msgstr "Ja he donat o no m’interessa. Amaga la pancarta."
 
 msgctxt "donation_banner_independant"
 msgid "An independant and citizen-led project for food transparency?"
-msgstr ""
+msgstr "Un projecte independent i ciutadà per a la transparència alimentària?"
 
 msgctxt "donation_banner_public_health"
 msgid "Food product data for research that improves public health?"
-msgstr ""
+msgstr "Dades de productes alimentaris per a investigacions que milloren la salut pública?"
 
 msgctxt "donation_banner_choices"
 msgid "Easier and better food choices according to your own criteria?"
-msgstr ""
+msgstr "Triar entre aliments més fàcilment i millors segons el vostre propi criteri?"
 
 msgctxt "donation_banner_cta"
 msgid "We need your support!"
@@ -4091,15 +4107,16 @@ msgstr "Feu un donatiu"
 
 msgctxt "alcohol_warning"
 msgid "Excessive consumption of alcohol is harmful to health, to be consumed with moderation."
-msgstr ""
+msgstr "El consum excessiu d’alcohol és perjudicial per a la salut, cal consumir-lo amb moderació."
 
 msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Moderació de la plataforma de productors"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "Actualment, esteu veient productes de %s."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr ""
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4111,12 +4128,12 @@ msgstr "Per veure els productes d'una persona o organització en concret, introd
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "Canvia"
+msgid "Switch to another organization"
+msgstr ""
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
-msgstr ""
+msgstr "usuari(user)-abc o organització(org)-xyz"
 
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
@@ -4141,96 +4158,96 @@ msgstr "Importa les categories"
 
 msgctxt "nutri_score_score_from_producer"
 msgid "Nutri-Score score from producer"
-msgstr ""
+msgstr "Puntuació Nutri-Score del productor"
 
 msgctxt "nutri_score_score_calculated"
 msgid "Calculated Nutri-Score score"
-msgstr ""
+msgstr "Puntuació Nutri-Score calculada"
 
 msgctxt "nutri_score_grade_from_producer"
 msgid "Nutri-Score grade from producer"
-msgstr ""
+msgstr "Qualificació Nutri-Score del productor"
 
 msgctxt "nutri_score_grade_calculated"
 msgid "Calculated Nutri-Score grade"
-msgstr ""
+msgstr "Nota Nutri-Score calculada"
 
 msgctxt "scanned_code"
 msgid "Scanned code"
-msgstr ""
+msgstr "Codi escanejat"
 
 msgctxt "code_from_filename"
 msgid "Code from file name"
-msgstr ""
+msgstr "Codi del nom del fitxer"
 
 msgctxt "using_previous_code"
 msgid "Using previous code"
-msgstr ""
+msgstr "Utilitzant el codi anterior"
 
 msgctxt "add_field_values"
 msgid "You can specify field values that will be added to all products for which you will send images."
-msgstr ""
+msgstr "Podeu especificar els valors de camp que s'afegiran a tots els productes per als quals enviareu imatges."
 
 msgctxt "add_tag_field"
 msgid "Add a field"
-msgstr ""
+msgstr "Afegeix un camp"
 
 msgctxt "remove_products"
 msgid "Remove all the products"
-msgstr ""
+msgstr "Elimineu tots els productes"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
-msgstr ""
+msgstr "Elimina tots els teus productes de la plataforma per a productors"
 
 msgctxt "remove_products_from_producers_platform_description"
 msgid "You can remove all your products from the platform for producers, for instance to start with a clean slate if there were some issues with an import. This will not affect your products in the public database."
-msgstr ""
+msgstr "Podeu eliminar tots els vostres productes de la plataforma per als productors, per exemple, per començar des de zero si hi ha hagut algun problema amb una importació. Això no afectarà els vostres productes a la base de dades pública."
 
 msgctxt "this_action_cannot_be_undone"
 msgid "Please note that this action cannot be undone."
-msgstr ""
+msgstr "Tingueu en compte que aquesta acció no es pot desfer."
 
 msgctxt "remove_products_confirm"
 msgid "Warning: this action cannot be undone. Are you sure that you want to remove all your products from the platform for producers?"
-msgstr ""
+msgstr "Avís: aquesta acció no es pot desfer. Esteu segur que voleu eliminar tots els vostres productes de la plataforma per a productors?"
 
 msgctxt "function_not_available"
 msgid "This function is not available."
-msgstr ""
+msgstr "Aquesta funció no està disponible."
 
 msgctxt "remove_products_done"
 msgid "Your products have been removed from the platform for producers."
-msgstr ""
+msgstr "Els vostres productes s'han eliminat de la plataforma per a productors."
 
 msgctxt "ingredients_analysis_details"
 msgid "Details of the analysis of the ingredients"
-msgstr ""
+msgstr "Detalls de l'anàlisi dels ingredients"
 
 msgctxt "some_unknown_ingredients"
 msgid "Some ingredients could not be recognized."
-msgstr ""
+msgstr "Alguns ingredients no s'han pogut reconèixer."
 
 # variable names between { } must not be translated
 msgctxt "f_move_data_and_photos_to_main_language"
 msgid "Move all data and selected photos in {language} to the main language of the product: {main_language}"
-msgstr ""
+msgstr "Mou totes les dades i les fotos seleccionades en {language} a l'idioma principal del producte: {main_language}"
 
 msgctxt "move_data_and_photos_to_main_language_replace"
 msgid "Replace existing values and selected photos"
-msgstr ""
+msgstr "Substitueix els valors existents i les fotos seleccionades"
 
 msgctxt "move_data_and_photos_to_main_language_ignore"
 msgid "Keep existing values and selected photos"
-msgstr ""
+msgstr "Conserva els valors existents i les fotos seleccionades"
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "Fet"
 
 msgctxt "to_do_status"
 msgid "To do"
-msgstr ""
+msgstr "Per fer"
 
 msgctxt "teams"
 msgid "Teams"
@@ -4266,8 +4283,8 @@ msgid "Contributor"
 msgstr "Voluntari/a"
 
 msgctxt "contributor_settings_description"
-msgid "Those settings allow you to personalize some aspect of the website"
-msgstr "Aquesta configuració us permet personalitzar algun aspecte del lloc web"
+msgid "Those settings allow you to personalize some aspects of the website"
+msgstr ""
 
 msgctxt "display_barcode_in_search"
 msgid "Display barcode in search results"
@@ -4276,11 +4293,6 @@ msgstr "Mostreu el codi de barres als resultats de la cerca"
 msgctxt "edit_link_in_search"
 msgid "Add an edit link in search results"
 msgstr "Afegiu un enllaç editable als resultats de la cerca"
-
-# leave the %d, it will be replaced by a number
-msgctxt "n_products_will_be_exported"
-msgid "%d products will be exported."
-msgstr ""
 
 msgctxt "ciqual_food_name"
 msgid "CIQUAL food name"
@@ -4296,7 +4308,7 @@ msgstr "Noms CIQUAL de l'aliment"
 
 msgctxt "we_need_your_help"
 msgid "We need your help!"
-msgstr ""
+msgstr "Necessitem la teva ajuda!"
 
 msgctxt "you_can_help_improve_ingredients_analysis"
 msgid "You can help us recognize more ingredients and better analyze the list of ingredients for this product and others by:"
@@ -4317,7 +4329,7 @@ msgstr "Uniu-vos al canal #ingredients del <a href=\"https://slack.openfoodfacts
 
 msgctxt "footer_producers_link"
 msgid "https://world.pro.openfoodfacts.org/"
-msgstr ""
+msgstr "https://world.pro.openfoodfacts.org/"
 
 msgctxt "footer_producers"
 msgid "Producers"
@@ -4330,68 +4342,68 @@ msgstr "Si aquest producte té una llista d’ingredients en %s, afegiu-lo."
 
 msgctxt "missing_barcode"
 msgid "Missing barcode"
-msgstr ""
+msgstr "Falta el codi de barres"
 
 msgctxt "invalid_barcode"
 msgid "Invalid barcode"
-msgstr ""
+msgstr "Codi de barres invàlid"
 
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
 msgid "ltr"
-msgstr ""
+msgstr "ltr"
 
 msgctxt "separate_values_with_commas"
 msgid "Separate multiple values with commas."
-msgstr ""
+msgstr "Separa valors múltiples amb una coma."
 
 msgctxt "lc_note"
 msgid "If the product's packaging is in multiple languages, indicate the most visible language on the product."
-msgstr ""
+msgstr "Si l'embalatge del producte està en diversos idiomes, indiqueu l'idioma més visible del producte."
 
 msgctxt "obsolete_import_note"
 msgid "Enter Yes, Y or 1 if the product is no longer available in stores."
-msgstr ""
+msgstr "Introduïu Sí, Y o 1 si el producte ja no està disponible a les botigues."
 
 msgctxt "specify_value_and_unit_or_use_default_unit"
 msgid "Specify both the value and unit, or use the default unit: %s"
-msgstr ""
+msgstr "Especifiqueu tant el valor com la unitat, o utilitzeu la unitat per defecte: %s"
 
 msgctxt "specify_value_and_unit"
 msgid "Specify both the value and unit."
-msgstr ""
+msgstr "Especifiqueu tant el valor com la unitat."
 
 msgctxt "download_sample_import_file"
 msgid "Download an XLSX template file for Excel or LibreOffice with the fields that can be imported."
-msgstr ""
+msgstr "Baixeu un fitxer de plantilla XLSX per a Excel o LibreOffice amb els camps que es poden importar."
 
 msgctxt "code_import_note"
 msgid "Barcode as it appears on the product."
-msgstr ""
+msgstr "El Codi de barres tal com apareix al producte."
 
 msgctxt "producer_product_id_import_note"
 msgid "Internal code used by the producer to identify the product, different from the product's barcode."
-msgstr ""
+msgstr "Codi intern utilitzat pel productor per identificar el producte, diferent del codi de barres del producte."
 
 msgctxt "producer_version_id_import_note"
 msgid "Internal code used by the producer to identify a specific version of a product when it changes."
-msgstr ""
+msgstr "Codi intern utilitzat pel productor per identificar una versió específica d'un producte quan canvia."
 
 msgctxt "categories_import_note"
 msgid "Providing a category is very important to make the product easy to search for, and to compute the Nutri-Score"
-msgstr ""
+msgstr "Proporcionar una categoria és molt important per fer que el producte sigui fàcil de cercar i per calcular la Nutri-Score"
 
 msgctxt "labels_import_note"
 msgid "Some labels such as the organic label are used to filter and/or rank search results, so it is strongly recommended to specify them."
-msgstr ""
+msgstr "Algunes etiquetes, com ara l'etiqueta orgànica, s'utilitzen per filtrar i/o classificar els resultats de la cerca, per tant és molt recomanable especificar-les."
 
 msgctxt "origins_import_note"
 msgid "This field must contain only a comma separated list of countries of origin of the ingredients"
-msgstr ""
+msgstr "Aquest camp només ha de contenir una llista separada per comes dels països d'origen dels ingredients"
 
 msgctxt "origin_import_note"
 msgid "Text or sentences that indicate the origin of the product and/or its ingredients."
-msgstr ""
+msgstr "Text o frases que indiquen l'origen del producte i/o els seus ingredients."
 
 msgctxt "nutriscore_grade_producer_note"
 msgid "Nutri-Score grade from A to E displayed on the product label"
@@ -4399,7 +4411,7 @@ msgstr "Nota Nutri-Score de l'A a l'E mostrada a l'etiqueta del producte"
 
 msgctxt "nutriscore_grade_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score grade based on the information provided (nutrition facts and category). If the grade we compute is different from the grade you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr ""
+msgstr "Open Food Facts calcula el grau de Nutri-Score a partir de la informació proporcionada (informació nutricional i categoria). Si el grau que calculem és diferent de la nota que proporcioneu, rebreu una notificació privada a la plataforma de productors perquè es pugui resoldre la diferència."
 
 msgctxt "nutriscore_score_producer_note"
 msgid "Nutri-Score score (numeric value from which the A to E grade is derived)"
@@ -4407,36 +4419,36 @@ msgstr "Puntuació Nutri-Score (valor numèric a partir del qual es deriva la no
 
 msgctxt "nutriscore_score_producer_import_note"
 msgid "Open Food Facts computes the Nutri-Score score based on the information provided (nutrition facts and category). If the score we compute is different from the score you provide, you will get a private notification on the producers platform so that the difference can be resolved."
-msgstr ""
+msgstr "Open Food Facts calcula la nota de Nutri-Score a partir de la informació proporcionada (informació nutricional i categoria). Si la nota que calculem és diferent de la nota que proporcioneu, rebreu una notificació privada a la plataforma de productors perquè es pugui resoldre la diferència."
 
 msgctxt "mandatory_field"
 msgid "Mandatory field"
-msgstr ""
+msgstr "Contingut obligatori"
 
 msgctxt "mandatory_field_note"
 msgid "All products should have this information."
-msgstr ""
+msgstr "Tots els productes han de tenir aquesta informació."
 
 msgctxt "recommended_field"
 msgid "Recommended field"
-msgstr ""
+msgstr "Camp recomanat"
 
 msgctxt "recommended_field_note"
 msgid "If this information exists and is relevant for the product, it is recommended to provide it to make the product easier to search for and the product data more useful."
-msgstr ""
+msgstr "Si aquesta informació existeix i és rellevant per al producte, es recomana proporcionar-la per facilitar la cerca del producte i les dades del producte més útils."
 
 msgctxt "optional_field"
 msgid "Optional field"
-msgstr ""
+msgstr "Camps opcionals"
 
 msgctxt "optional_field_note"
 msgid "If available, this information will be displayed on the product page."
-msgstr ""
+msgstr "Si està disponible, aquesta informació es mostrarà a la pàgina del producte."
 
 # product photos here means photos of multiple products
 msgctxt "images_can_be_provided_separately"
 msgid "Product photos can also be provided separately through the Import product photos function of the platform for producers."
-msgstr ""
+msgstr "Les fotos de productes també es poden proporcionar per separat mitjançant la funció Importa fotos de productes de la plataforma per a productors."
 
 # This is linked to a unit test
 msgctxt "attribute_group_labels_name"
@@ -4445,31 +4457,31 @@ msgstr "Etiquetes"
 
 msgctxt "attribute_labels_organic_name"
 msgid "Organic farming"
-msgstr ""
+msgstr "Granja orgànica"
 
 msgctxt "attribute_labels_organic_yes_title"
 msgid "Organic product"
-msgstr ""
+msgstr "Producte orgànic"
 
 msgctxt "attribute_labels_organic_no_title"
 msgid "Not an organic product"
-msgstr ""
+msgstr "No és un producte orgànic"
 
 msgctxt "attribute_labels_organic_unknown_title"
 msgid "Missing information: organic product?"
-msgstr ""
+msgstr "Falta informació: és un producte orgànic?"
 
 msgctxt "attribute_labels_organic_yes_description_short"
 msgid "Promotes ecological sustainability and biodiversity."
-msgstr ""
+msgstr "Promou la sostenibilitat ecològica i la biodiversitat."
 
 msgctxt "attribute_labels_organic_description_short"
 msgid "Organic products promote ecological sustainability and biodiversity."
-msgstr ""
+msgstr "Els productes orgànics promouen la sostenibilitat ecològica i la biodiversitat."
 
 msgctxt "attribute_labels_organic_description"
 msgid "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives."
-msgstr ""
+msgstr "L'agricultura ecològica té com a objectiu protegir el medi ambient i conservar la biodiversitat mitjançant la prohibició o limitació de l'ús de fertilitzants sintètics, pesticides i additius alimentaris."
 
 msgctxt "attribute_labels_fair_trade_name"
 msgid "Fair trade"
@@ -4481,23 +4493,23 @@ msgstr "Producte de comerç just"
 
 msgctxt "attribute_labels_fair_trade_no_title"
 msgid "Not a fair trade product"
-msgstr ""
+msgstr "No és un producte de comerç just"
 
 msgctxt "attribute_labels_fair_trade_unknown_title"
 msgid "Missing information: fair trade product?"
-msgstr ""
+msgstr "Falta informació: és un producte de comerç just?"
 
 msgctxt "attribute_labels_fair_trade_yes_description_short"
 msgid "Helps producers in developing countries."
-msgstr ""
+msgstr "Ajuda als productors dels països en desenvolupament."
 
 msgctxt "attribute_labels_fair_trade_description_short"
 msgid "Fair trade products help producers in developing countries."
-msgstr ""
+msgstr "Els productes de comerç just ajuden els productors de països en desenvolupament."
 
 msgctxt "attribute_labels_fair_trade_description"
 msgid "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards."
-msgstr ""
+msgstr "Quan compres productes de comerç just, es paga als productors de països en desenvolupament un preu més alt i més just, la qual cosa els ajuda a millorar i mantenir estàndards socials i sovint ambientals, més elevats."
 
 msgctxt "attribute_group_nutritional_quality_name"
 msgid "Nutritional quality"
@@ -4505,7 +4517,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_name"
 msgid "Nutri-Score"
-msgstr ""
+msgstr "Nutri-Score"
 
 msgctxt "attribute_nutriscore_setting_name"
 msgid "Good nutritional quality (Nutri-Score)"
@@ -4518,52 +4530,52 @@ msgstr "El Nutri-Score es calcula i es pot tenir en compte per a tots els produc
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_nutriscore_grade_title"
 msgid "Nutri-Score %s"
-msgstr ""
+msgstr "Nutri-Score %s"
 
 msgctxt "attribute_nutriscore_unknown_title"
 msgid "Nutri-Score unknown"
-msgstr ""
+msgstr "Nutri-Score desconeguda"
 
 msgctxt "attribute_nutriscore_unknown_description_short"
 msgid "Missing data to compute the Nutri-Score"
-msgstr ""
+msgstr "Falten dades per calcular la Nutri-Score"
 
 msgctxt "attribute_nutriscore_not_applicable_title"
 msgid "Nutri-Score not-applicable"
-msgstr ""
+msgstr "Nutri-Score no aplicable"
 
 msgctxt "attribute_nutriscore_not_applicable_description_short"
 msgid "Not-applicable for the category"
-msgstr ""
+msgstr "No aplicable a la categoria"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_nutriscore_not_applicable_description"
 msgid "Not-applicable for the category: {category}"
-msgstr ""
+msgstr "No aplicable a la categoria: {category}"
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
-msgstr ""
+msgstr "Molt bona qualitat nutricional"
 
 msgctxt "attribute_nutriscore_b_description_short"
 msgid "Good nutritional quality"
-msgstr ""
+msgstr "Bona qualitat nutricional"
 
 msgctxt "attribute_nutriscore_c_description_short"
 msgid "Average nutritional quality"
-msgstr ""
+msgstr "Qualitat nutricional mitjana"
 
 msgctxt "attribute_nutriscore_d_description_short"
 msgid "Poor nutritional quality"
-msgstr ""
+msgstr "Poca qualitat nutricional"
 
 msgctxt "attribute_nutriscore_e_description_short"
 msgid "Bad nutritional quality"
-msgstr ""
+msgstr "Mala qualitat nutricional"
 
 msgctxt "attribute_group_processing_name"
 msgid "Food processing"
-msgstr ""
+msgstr "Processament d'aliments"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
@@ -4571,11 +4583,11 @@ msgstr "Grup NOVA"
 
 msgctxt "attribute_nova_unknown_title"
 msgid "NOVA not computed"
-msgstr ""
+msgstr "NOVA no calculada"
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr ""
+msgstr "Nivell de processament d'aliments desconegut"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -4584,7 +4596,7 @@ msgstr "Cap o poc processament d'aliments (grup NOVA)"
 # keep %s, it will be replaced by the group 1, 2, 3 or 4
 msgctxt "attribute_nova_group_title"
 msgid "NOVA %s"
-msgstr ""
+msgstr "NOVA %s"
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
@@ -4600,23 +4612,19 @@ msgstr "Aliments processats"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"
-msgstr ""
+msgstr "Aliments ultra processats"
 
 msgctxt "export_product_page"
 msgid "Export product to public database"
-msgstr ""
-
-msgctxt "one_product_will_be_exported"
-msgid "1 product will be exported."
-msgstr ""
+msgstr "Exporta el producte a la base de dades pública"
 
 msgctxt "no_products_to_export"
 msgid "No products to export."
-msgstr ""
+msgstr "No hi ha productes per exportar."
 
 msgctxt "query_filter"
 msgid "Query filter"
-msgstr ""
+msgstr "Filtre de consulta"
 
 msgctxt "nova_group_producer"
 msgid "NOVA group"
@@ -4624,11 +4632,11 @@ msgstr "Grup NOVA"
 
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
-msgstr ""
+msgstr "Organització desconeguda."
 
 msgctxt "error_unknown_user"
 msgid "Unknown user."
-msgstr ""
+msgstr "Usuari desconegut."
 
 msgctxt "attribute_low_salt_setting_note"
 msgid "The salt level is taken into account by the Nutri-Score. Use this setting only if you are specifically on a low salt diet."
@@ -4662,21 +4670,25 @@ msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
 msgstr "Cap o pocs additius"
 
+msgctxt "attribute_additives_setting_note"
+msgid "Additives are markers of food processing, and excess consumption of some of them have undesirable health impacts."
+msgstr ""
+
 msgctxt "attribute_additives_unknown_title"
 msgid "Additives not computed"
-msgstr ""
+msgstr "Additius no calculats"
 
 msgctxt "preference_not_important"
 msgid "Not important"
-msgstr ""
+msgstr "No es important"
 
 msgctxt "preference_important"
 msgid "Important"
-msgstr ""
+msgstr "Important"
 
 msgctxt "preference_very_important"
 msgid "Very important"
-msgstr ""
+msgstr "Molt important"
 
 msgctxt "preference_mandatory"
 msgid "Mandatory"
@@ -4741,16 +4753,20 @@ msgstr "Entorn"
 
 msgctxt "attribute_ecoscore_name"
 msgid "Eco-Score"
-msgstr ""
+msgstr "Eco-Score"
 
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Eco-Score)"
-msgstr ""
+msgstr "Baix impacte ambiental (Eco-Score)"
+
+msgctxt "attribute_ecoscore_setting_note"
+msgid "The Eco-Score is an environmental score (ecoscore) from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "L'Eco-Score és una puntuació ambiental (ecoscore) de la A a la E que facilita la comparació de l'impacte dels productes alimentaris en el medi ambient."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
 msgid "Eco-Score %s"
-msgstr ""
+msgstr "Eco-puntuació %s"
 
 msgctxt "attribute_ecoscore_a_description_short"
 msgid "Very low environmental impact"
@@ -4794,19 +4810,19 @@ msgstr "Sense %s"
 
 msgctxt "owners_p"
 msgid "owners"
-msgstr ""
+msgstr "propietaris"
 
 msgctxt "owners_s"
 msgid "owner"
-msgstr ""
+msgstr "propietari"
 
 msgctxt "org_profile_description"
 msgid "You can provide information about your company that will be displayed in your organization profile."
-msgstr ""
+msgstr "Podeu proporcionar informació sobre la vostra empresa, es mostrarà al perfil de la vostra organització."
 
 msgctxt "org_profile_description_2"
 msgid "Some of the information like the customer service contact information may also be displayed directly on pages for your products."
-msgstr ""
+msgstr "Part de la informació, com ara la informació de contacte del servei d'atenció al client, també es pot mostrar directament a les pàgines dels vostres productes."
 
 msgctxt "org_name"
 msgid "Name"
@@ -4814,7 +4830,7 @@ msgstr "Nom"
 
 msgctxt "org_link"
 msgid "Link to the official web site"
-msgstr ""
+msgstr "Enllaç al lloc web oficial"
 
 msgctxt "org_customer_service"
 msgid "Customer service"
@@ -4822,19 +4838,19 @@ msgstr "Servei al client"
 
 msgctxt "org_customer_service_description"
 msgid "Customer service information is public and can be shown on the Open Food Facts web site and apps."
-msgstr ""
+msgstr "La informació d'atenció al client és pública i es pot mostrar al lloc web i a les aplicacions d'Open Food Facts."
 
 msgctxt "org_customer_service_note"
 msgid "All fields are optional."
-msgstr ""
+msgstr "Tots els camps són opcionals."
 
 msgctxt "org_commercial_service"
 msgid "Commercial service"
-msgstr ""
+msgstr "Servei comercial"
 
 msgctxt "org_commercial_service_description"
 msgid "Commercial service information is only shown in the organization profile."
-msgstr ""
+msgstr "La informació del servei comercial només es mostra al perfil de l'organització."
 
 msgctxt "contact_name"
 msgid "Name"
@@ -4842,11 +4858,11 @@ msgstr "Nom"
 
 msgctxt "contact_address"
 msgid "Address"
-msgstr ""
+msgstr "Adreça"
 
 msgctxt "contact_phone"
 msgid "Phone number"
-msgstr ""
+msgstr "Número de telèfon"
 
 msgctxt "contact_email"
 msgid "e-mail address"
@@ -4854,7 +4870,7 @@ msgstr "adreça e-mail"
 
 msgctxt "contact_link"
 msgid "Contact form link"
-msgstr ""
+msgstr "Enllaç al formulari de contacte"
 
 msgctxt "contact_info"
 msgid "Other information"
@@ -4862,19 +4878,19 @@ msgstr "Altres dades"
 
 msgctxt "contact_info_note"
 msgid "e.g. opening times"
-msgstr ""
+msgstr "ex. horaris d'obertura"
 
 msgctxt "error_org_does_not_exist"
 msgid "The organization was not found."
-msgstr ""
+msgstr "No s'ha pogut trobar l'organització."
 
 msgctxt "error_missing_org_name"
 msgid "The organization name is missing."
-msgstr ""
+msgstr "Falta el nom de l'organització."
 
 msgctxt "edit_org_title"
 msgid "Organization profile"
-msgstr ""
+msgstr "Perfil de l'organització"
 
 msgctxt "edit_org_result"
 msgid "The organization profile has been updated."
@@ -4882,23 +4898,35 @@ msgstr "El perfil de l'empresa ha estat actualitzat."
 
 msgctxt "delete_org"
 msgid "Delete the organization"
-msgstr ""
+msgstr "Suprimeix l'organització"
 
 msgctxt "official_site"
 msgid "Official site"
+msgstr "Pàgina oficial"
+
+msgctxt "organization_members"
+msgid "Organization Members"
+msgstr ""
+
+msgctxt "number_of_members"
+msgid "Number of Members"
+msgstr ""
+
+msgctxt "serial_no"
+msgid "S.No"
 msgstr ""
 
 msgctxt "contact_form"
 msgid "Contact form"
-msgstr ""
+msgstr "Formulari de contacte"
 
 msgctxt "edit_org_profile"
 msgid "Edit your organization profile"
-msgstr ""
+msgstr "Editeu el perfil de la vostra organització"
 
 msgctxt "edit_user_profile"
 msgid "Edit your user profile"
-msgstr ""
+msgstr "Editeu el vostre perfil d'usuari"
 
 msgctxt "attribute_group_ingredients_analysis_name"
 msgid "Ingredients"
@@ -4907,52 +4935,52 @@ msgstr "Ingredients"
 # keep the %s, it will be replaced by an allergen
 msgctxt "presence_unknown_s"
 msgid "Presence unknown: %s"
-msgstr ""
+msgstr "Presència desconeguda: %s"
 
 msgctxt "environmental_impact"
 msgid "Environmental impact"
-msgstr ""
+msgstr "Impacte ambiental"
 
 # Numerical score for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_score"
 msgid "Eco-score score"
-msgstr ""
+msgstr "Puntuació Eco-Score"
 
 # Letter grade from A to E for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_grade"
 msgid "Eco-score grade"
-msgstr ""
+msgstr "Nota Eco-score"
 
 # do not translate Eco-score
 msgctxt "ecoscore_calculation_details"
 msgid "Details of the calculation of the Eco-score"
-msgstr ""
+msgstr "Detalls del càlcul de l'Eco-score"
 
 # do not translate Eco-score
 msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
-msgstr ""
+msgstr "Informació sobre l'Eco-score"
 
 msgctxt "preferences_edit_your_food_preferences"
 msgid "Edit your food preferences"
-msgstr ""
+msgstr "Editeu les vostres preferències alimentàries"
 
 msgctxt "preferences_your_preferences"
 msgid "Your food preferences"
-msgstr ""
+msgstr "Les vostres preferències alimentàries"
 
 msgctxt "preferences_currently_selected_preferences"
 msgid "Currently selected preferences"
-msgstr ""
+msgstr "Preferències seleccionades ara mateix"
 
 msgctxt "preferences_locally_saved"
 msgid "Your food preferences are kept in your browser and never sent to Open Food Facts or anyone else."
-msgstr ""
+msgstr "Les teves preferències alimentàries es guarden al teu navegador i mai s'envien a Open Food Facts ni a ningú més."
 
 # used in phrases like "salt in unknown quantity"
 msgctxt "unknown_quantity"
 msgid "unknown quantity"
-msgstr ""
+msgstr "quantitat desconeguda"
 
 msgctxt "missing_ingredients_list"
 msgid "Missing ingredients list"
@@ -4960,19 +4988,19 @@ msgstr "Falta llista d'ingredients"
 
 msgctxt "missing_nutrition_facts"
 msgid "Missing nutrition facts"
-msgstr ""
+msgstr "Falten dades nutricionals"
 
 msgctxt "ecoscore_p"
 msgid "Eco-Score"
-msgstr ""
+msgstr "Eco-Score"
 
 msgctxt "ecoscore_s"
 msgid "Eco-Score"
-msgstr ""
+msgstr "Eco-Score"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
-msgstr ""
+msgstr "Peces d'embalatge"
 
 # A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
 msgctxt "packaging_part_short"
@@ -4982,19 +5010,19 @@ msgstr "Empaquetament"
 # Number of packaging parts
 msgctxt "packaging_number"
 msgid "Number"
-msgstr ""
+msgstr "Número"
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr ""
+msgstr "Forma"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
-msgstr ""
+msgstr "Quantitat que conté"
 
 msgctxt "packaging_material"
 msgid "Material"
-msgstr ""
+msgstr "Material"
 
 msgctxt "packaging_recycling"
 msgid "Recycling"
@@ -5002,276 +5030,284 @@ msgstr "Reciclatge"
 
 msgctxt "products_on_this_page_are_sorted_according_to_your_preferences"
 msgid "Products on this page are sorted according to your preferences:"
-msgstr ""
+msgstr "Els productes d'aquesta pàgina s'ordenen segons les vostres preferències:"
 
 msgctxt "choose_which_information_you_prefer_to_see_first"
 msgid "Choose which information you prefer to see first."
-msgstr ""
+msgstr "Trieu quina informació preferiu veure primer."
 
 msgctxt "see_your_preferences"
 msgid "See your preferences"
-msgstr ""
+msgstr "Consulteu les vostres preferències"
 
 msgctxt "delete_all_preferences"
 msgid "Delete all preferences"
-msgstr ""
+msgstr "Suprimeix totes les preferències"
 
 msgctxt "products_are_being_loaded_please_wait"
 msgid "Products are being loaded, please wait."
-msgstr ""
+msgstr "S'estan carregant els productes, espereu."
 
 msgctxt "products_match_all"
 msgid "All products"
-msgstr ""
+msgstr "Tots els productes"
 
 msgctxt "products_match_yes"
 msgid "Products that match your preferences"
-msgstr ""
+msgstr "Productes que coincideixen amb les vostres preferències"
 
 msgctxt "products_match_no"
 msgid "Products that do not match your preferences"
-msgstr ""
+msgstr "Productes que no coincideixen amb les vostres preferències"
 
 msgctxt "products_match_unknown"
 msgid "Products for which we currently miss data to determine if they match your preferences"
-msgstr ""
+msgstr "Productes dels quals ens falten dades per determinar si coincideixen amb les vostres preferències"
 
 msgctxt "forest_footprint"
 msgid "Forest footprint"
-msgstr ""
+msgstr "Petjada forestal"
 
 msgctxt "ingredients_requiring_soy"
 msgid "Ingredients requiring soy"
-msgstr ""
+msgstr "Ingredients que requereixen soja"
 
 msgctxt "type"
 msgid "Type"
-msgstr ""
+msgstr "Tipus"
 
 msgctxt "processing_factor"
 msgid "Processing factor"
-msgstr ""
+msgstr "Factor de processament"
 
 msgctxt "soy_feed_factor"
 msgid "Soy feed factor"
-msgstr ""
+msgstr "Factor d'alimentació de soja"
 
 msgctxt "soy_yield"
 msgid "Soy yield"
-msgstr ""
+msgstr "Quant aporta de soja"
 
 msgctxt "deforestation_risk"
 msgid "Deforestation risk"
-msgstr ""
+msgstr "Risc de desforestació"
 
 msgctxt "total_forest_footprint"
 msgid "Total forest footprint"
-msgstr ""
+msgstr "Petjada forestal total"
 
 msgctxt "square_meters_per_kg_of_food"
 msgid "m² per kg of food"
-msgstr ""
+msgstr "m² per kg d'aliment"
 
 msgctxt "percent_of_food_after_processing"
 msgid "% of food after processing"
-msgstr ""
+msgstr "% dels aliments després del processament"
 
 msgctxt "kg_of_soy_per_kg_of_food"
 msgid "kg of soy per kg of food"
-msgstr ""
+msgstr "kg de soja per kg d'aliment"
 
 msgctxt "kg_of_soy_per_square_meter"
 msgid "kg of soy per m²"
-msgstr ""
+msgstr "kg de soja per m²"
 
 msgctxt "percent_in_product"
 msgid "% in product"
-msgstr ""
+msgstr "% en el producte"
 
 msgctxt "forest_footprint_calculation_details"
 msgid "Details of the calculation of the forest footprint"
-msgstr ""
+msgstr "Detalls del càlcul de la petjada forestal"
 
 msgctxt "you_are_on_the_public_database"
 msgid "You are on the public database."
-msgstr ""
+msgstr "Esteu a la base de dades pública."
 
 msgctxt "manage_your_products_on_the_producers_platform"
 msgid "Manage your products on the platform for producers"
-msgstr ""
+msgstr "Gestioneu els vostres productes a la plataforma per a productors"
 
 msgctxt "number_of_products_with_changes_since_last_export"
 msgid "Number of products with changes since last export"
+msgstr "Nombre de productes amb canvis des de l'última exportació"
+
+msgctxt "number_of_products_withdrawn_from_the_market_since_last_export"
+msgid "Number of products withdrawn from the market since last export"
 msgstr ""
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
-msgstr ""
+msgstr "Exporta només els productes amb canvis"
 
 msgctxt "product_edits_by_producers"
 msgid "Is this your product? If it is, please use our free platform for producers to update it."
-msgstr ""
+msgstr "És aquest el vostre producte? Si és així, utilitzeu la nostra plataforma gratuïta perquè els productors l'actualitzin."
 
 msgctxt "product_edits_by_producers_platform"
 msgid "We encourage manufacturers to add or change data and photos for their products through our free platform for producers so that they can be marked as official and protected from changes by others."
-msgstr ""
+msgstr "Animem als fabricants a afegir o canviar dades i fotos dels seus productes a través de la nostra plataforma gratuïta per a productors perquè es puguin marcar com a oficials i protegir-los dels canvis d'altres."
 
 msgctxt "product_edits_by_producers_import"
 msgid "The platform makes it easy to import product data and photos with an Excel or CSV file in any format."
-msgstr ""
+msgstr "La plataforma facilita la importació de dades i fotos de productes amb un fitxer Excel o CSV en qualsevol format."
 
 msgctxt "product_edits_by_producers_analysis"
 msgid "The platform also provides in-depth analysis of the products."
-msgstr ""
+msgstr "La plataforma també ofereix anàlisis en profunditat dels productes."
 
 # It = the platform
 msgctxt "product_edits_by_producers_indicators"
 msgid "It computes indicators such as the Nutri-Score, NOVA, and the Eco-score, and automatically identifies suggestions to improve them (for instance all products that would get a better Nutri-Score grade with a slight composition change)."
-msgstr ""
+msgstr "Calcula indicadors com ara la Nutri-Score, NOVA i l'Eco-score, i identifica automàticament suggeriments per millorar-los (per exemple, tots els productes que obtindrien una millor nota Nutri-Score amb un lleuger canvi de composició)."
 
 msgctxt "attribute_forest_footprint_name"
 msgid "Forest footprint"
-msgstr ""
+msgstr "Petjada forestal"
 
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest footprint)"
+msgstr "Baix risc de desforestació (petjada forestal)"
+
+msgctxt "attribute_forest_footprint_setting_note"
+msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
 msgstr ""
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Very small forest footprint"
-msgstr ""
+msgstr "Petjada forestal molt petita"
 
 msgctxt "attribute_forest_footprint_b_title"
 msgid "Small forest footprint"
-msgstr ""
+msgstr "Petjada forestal petita"
 
 msgctxt "attribute_forest_footprint_c_title"
 msgid "Medium forest footprint"
-msgstr ""
+msgstr "Petjada forestal mitjana"
 
 msgctxt "attribute_forest_footprint_d_title"
 msgid "Large forest footprint"
-msgstr ""
+msgstr "Petjada forestal gran"
 
 msgctxt "attribute_forest_footprint_e_title"
 msgid "Very large forest footprint"
-msgstr ""
+msgstr "Petjada forestal molt gran"
 
 msgctxt "attribute_forest_footprint_not_computed_title"
 msgid "Forest footprint not computed"
-msgstr ""
+msgstr "No s'ha calculat la petjada forestal"
 
 msgctxt "attribute_forest_footprint_a_description_short"
 msgid "Almost no risk of deforestation"
-msgstr ""
+msgstr "Gairebé cap risc de desforestació"
 
 msgctxt "attribute_forest_footprint_b_description_short"
 msgid "Low risk of deforestation"
-msgstr ""
+msgstr "Risc de desforestació baix"
 
 msgctxt "attribute_forest_footprint_c_description_short"
 msgid "Moderate risk of deforestation"
-msgstr ""
+msgstr "Risc de desforestació moderat"
 
 msgctxt "attribute_forest_footprint_d_description_short"
 msgid "High risk of deforestation"
-msgstr ""
+msgstr "Risc de desforestació alt"
 
 msgctxt "attribute_forest_footprint_e_description_short"
 msgid "Very high risk of deforestation"
-msgstr ""
+msgstr "Risc de desforestació molt alt"
 
 msgctxt "attribute_forest_footprint_not_computed_description_short"
 msgid "Currently only for products with chicken or eggs"
-msgstr ""
+msgstr "Actualment només per a productes amb pollastre o ous"
 
 msgctxt "classify_products_according_to_your_preferences"
 msgid "Classify products according to your preferences"
-msgstr ""
+msgstr "Classifica els productes segons les teves preferències"
 
 # %d will be replaced by the number of products
 msgctxt "classify_the_d_products_below_according_to_your_preferences"
 msgid "Classify the %d products below according to your preferences"
-msgstr ""
+msgstr "Classifica els %d productes a continuació segons les teves preferències"
 
 msgctxt "sort_by_popularity"
 msgid "Most scanned products"
-msgstr ""
+msgstr "Productes més escanejats"
 
 msgctxt "sort_by_nutriscore_score"
 msgid "Products with the best Nutri-Score"
-msgstr ""
+msgstr "Productes amb la millor Nutri-Score"
 
 msgctxt "sort_by_ecoscore_score"
 msgid "Products with the best Eco-Score"
-msgstr ""
+msgstr "Productes amb el millor Eco-Score"
 
 msgctxt "sort_by_created_t"
 msgid "Recently added products"
-msgstr ""
+msgstr "Productes afegits recentment"
 
 msgctxt "sort_by_last_modified_t"
 msgid "Recently modified products"
-msgstr ""
+msgstr "Productes modificats recentment"
 
 # %d will be replaced by the number of products
 msgctxt "d_products_per_page"
 msgid "%d products per page"
-msgstr ""
+msgstr "%d productes per pàgina"
 
 msgctxt "not_applicable"
 msgid "Not applicable"
-msgstr ""
+msgstr "No aplicable"
 
 msgctxt "abbreviated_product_name"
 msgid "Abbreviated product name"
-msgstr ""
+msgstr "Nom del producte abreujat"
 
 msgctxt "abbreviated_product_name_note"
 msgid "Product name with abbreviations shown on receipts"
-msgstr ""
+msgstr "Nom del producte amb abreviatures que es mostren als rebuts"
 
 msgctxt "footer_vision"
 msgid "Vision, Mission, Values and Programs"
-msgstr ""
+msgstr "Visió, missió, valors i programes"
 
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
-msgstr ""
+msgstr "Contrasenya oblidada?"
 
 msgctxt "reset_password_error"
 msgid "We could not reinitialize your password, please contact us for assistance."
-msgstr ""
+msgstr "No hem pogut reiniciar la vostra contrasenya, poseu-vos en contacte amb nosaltres per obtenir ajuda."
 
 msgctxt "remove_all_nutrient_values"
 msgid "Remove all nutrient values"
-msgstr ""
+msgstr "Elimina tots els valors nutritius"
 
 msgctxt "delete_user_process"
-msgid "User deleted."
-msgstr "S'ha suprimit l'usuari."
+msgid "User is being deleted. This may take a few minutes."
+msgstr ""
 
 msgctxt "attribute_ecoscore_not_applicable_title"
 msgid "Eco-Score not yet applicable"
-msgstr ""
+msgstr "L'Eco-Score encara no s'aplica"
 
 msgctxt "attribute_ecoscore_not_applicable_description_short"
 msgid "Not yet applicable for the category"
-msgstr ""
+msgstr "Encara no s'aplica per a la categoria"
 
 # variable names between { } must not be translated
 msgctxt "f_attribute_ecoscore_not_applicable_description"
 msgid "Not yet applicable for the category: {category}"
-msgstr ""
+msgstr "Encara no s'aplica per a la categoria: {category}"
 
 msgctxt "ecoscore_not_applicable_coming_soon"
 msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr ""
+msgstr "L'Eco-Score encara no és aplicable per a aquesta categoria, però estem treballant per fer-ho possible."
 
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"
@@ -5283,19 +5319,19 @@ msgstr "Impacte ambiental desconegut"
 
 msgctxt "ecoscore_unknown_call_to_help"
 msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
-msgstr ""
+msgstr "No hem pogut calcular l'Eco-Score d'aquest producte perquè li falten algunes dades, podríeu ajudar-nos a completar-lo?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
-msgstr ""
+msgstr "Les dades GS1 s'associen automàticament amb un identificador d'organització OFF que correspon al camp GS1 partyName. Per canviar l'identificador de l'organització OFF, podeu assignar directament 1 o més identificadors GS1 GLN."
 
 msgctxt "org_list_of_gs1_gln"
 msgid "List of GS1 GLN identifiers to be associated with the organization"
-msgstr ""
+msgstr "Llista d'identificadors de GS1 GLN que s'han d'associar a l'organització"
 
 msgctxt "org_list_of_gs1_gln_note"
 msgid "A comma separated list of GS1 GLN identifiers to force the association with this organization."
-msgstr ""
+msgstr "Una llista separada per comes d'identificadors GS1 GLN per forçar l'associació amb aquesta organització."
 
 msgctxt "org_valid_org"
 msgid "Validate organization as a real producer."
@@ -5307,121 +5343,121 @@ msgstr ""
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
-msgstr ""
+msgstr "Permet als membres de l'organització exportar manualment dades i fotos del producte a la base de dades pública."
 
 msgctxt "org_enable_manual_export_to_public_platform_note"
 msgid "Manual exports can be enabled once the imported data has been reviewed by an administrator."
-msgstr ""
+msgstr "Les exportacions manuals es poden activar un cop les dades importades hagin estat revisades per un administrador."
 
 msgctxt "org_activate_automated_daily_export_to_public_platform"
 msgid "Activate automated daily exports of product data and photos to the public database."
-msgstr ""
+msgstr "Activeu exportacions diàries automatitzades de dades de productes i fotos a la base de dades pública."
 
 msgctxt "org_activate_automated_daily_export_to_public_platform_note"
 msgid "Automated exports should be activated only for organizations that have automated imports (e.g. through Equadis)."
-msgstr ""
+msgstr "Les exportacions automatitzades només s'han d'activar per a organitzacions que tinguin importacions automatitzades (per exemple, a través d'Equadis)."
 
 msgctxt "org_admin"
 msgid "Administrator fields"
-msgstr ""
+msgstr "Camps de l'administrador"
 
 msgctxt "minion_status_inactive"
 msgid "Queued"
-msgstr ""
+msgstr "En cua"
 
 msgctxt "minion_status_active"
 msgid "In progress"
-msgstr ""
+msgstr "En curs"
 
 msgctxt "minion_status_finished"
 msgid "Finished"
-msgstr ""
+msgstr "Finalitzat"
 
 msgctxt "minion_status_failed"
 msgid "Failed"
-msgstr ""
+msgstr "S'ha produït un error"
 
 # Export: use a noun and not a verb
 msgctxt "export_job_export"
 msgid "Export from the producers platform"
-msgstr ""
+msgstr "Exportació des de la plataforma de productors"
 
 # Import: use a noun and not a verb
 msgctxt "export_job_import"
 msgid "Import to the public database"
-msgstr ""
+msgstr "Importació a la base de dades pública"
 
 # Update: use a noun and not a verb
 msgctxt "export_job_status_update"
 msgid "Update of the import status on the producers platform"
-msgstr ""
+msgstr "Actualització de l'estat d'importació a la plataforma de productors"
 
 msgctxt "export_in_progress"
 msgid "The export has been scheduled. This page can be closed."
-msgstr ""
+msgstr "S'ha programat l'exportació. Aquesta pàgina es pot tancar."
 
 msgctxt "export_products_to_public_database_request_email"
 msgid "Your export has been scheduled. You will receive an e-mail once it is finished."
-msgstr ""
+msgstr "La vostra exportació s'ha programat. Rebràs un correu electrònic un cop hagi acabat."
 
 msgctxt "product_page_on_the_public_database"
 msgid "Product page on the public database"
-msgstr ""
+msgstr "Pàgina del producte a la base de dades pública"
 
 msgctxt "product_does_not_exist_on_the_public_database"
 msgid "The product does not exist yet on the public database"
-msgstr ""
+msgstr "El producte encara no existeix a la base de dades pública"
 
 # product updates = updates to multiple products
 msgctxt "some_product_updates_have_not_been_published_on_the_public_database"
 msgid "Some product updates have not been published on the public database."
-msgstr ""
+msgstr "Algunes actualitzacions dels productes no s'han publicat a la base de dades pública."
 
 msgctxt "org_do_not_import_codeonline"
 msgid "Do not import CodeOnline data."
-msgstr ""
+msgstr "No importeu dades de CodeOnline."
 
 msgctxt "overwrite_owner"
 msgid "Overwrite products that have a different owner on the public platform. Otherwise, products with a different owner will be skipped."
-msgstr ""
+msgstr "Sobreescriu productes que tinguin un propietari diferent de la plataforma pública. En cas contrari, se saltaran els productes que tinguin un propietari diferent."
 
 msgctxt "data_source_database"
 msgid "Some of the data for the products of %s come from %s."
-msgstr ""
+msgstr "Algunes de les dades dels productes de %s provenen de %s."
 
 msgctxt "data_source_database_note_about_the_producers_platform"
 msgid "Manufacturers can use the Open Food Facts <a href=\"<producers_platform_url>\">free plaform for producers</a> to access and complete this data, and to obtain reports, analysis and product improvements opportunities (e.g. better Nutri-Score)."
-msgstr ""
+msgstr "Els fabricants poden utilitzar la plataforma gratuïta Open Food Facts <a href=\"<producers_platform_url>\">per als productors</a> per accedir i completar aquestes dades, i per obtenir informes, anàlisis i oportunitats de millora del producte (per exemple, millor Nutri-Score)."
 
 # variable names between { } must not be translated
 msgctxt "f_data_source_database_provider"
 msgid "The manufacturer {manufacturer} uses {provider} to automatically transmit data and photos for its products."
-msgstr ""
+msgstr "El fabricant {manufacturer} utilitza {provider} per transmetre automàticament dades i fotos dels seus productes."
 
 msgctxt "image_other_type"
 msgid "Type of the product photo"
-msgstr ""
+msgstr "Tipus de fotografia del producte"
 
 # do not translate "front, ingredients, nutrition, packaging"
 msgctxt "image_other_type_description"
 msgid "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
-msgstr ""
+msgstr "Si utilitzeu la mateixa columna en diverses línies per proporcionar URL d'imatges per a un sol producte, podeu utilitzar aquest camp per indicar el tipus d'imatge: frontal, ingredients, nutrició o embalatge."
 
 msgctxt "forest_footprint_one_line_explanation"
 msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
-msgstr ""
+msgstr "La petjada forestal es calcula tenint en compte els ingredients la producció dels quals requereix soja, el cultiu de la qual està lligat a la desforestació."
 
 msgctxt "ecoscore_agribalyse_match_warning"
 msgid "The Eco-Score can only be calculated if the product has a sufficiently precise category."
-msgstr ""
+msgstr "L'Eco-Score només es pot calcular si el producte té una categoria prou precisa."
 
 msgctxt "ecoscore_add_more_precise_category"
 msgid "You can modify the product page to add a more precise category."
-msgstr ""
+msgstr "Podeu modificar la pàgina del producte per afegir una categoria més precisa."
 
 msgctxt "ecoscore_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr ""
+msgstr "Si sou el fabricant d'aquest producte, podeu enviar-nos la informació amb la nostra plataforma gratuïta <a href=\"https://world.pro.openfoodfacts.org\">per a productors</a>."
 
 msgctxt "ecoscore_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
@@ -5429,28 +5465,28 @@ msgstr "Advertiment: no es proporciona part de la informació necessària per ca
 
 msgctxt "ecoscore_add_missing_information"
 msgid "You can edit the product to add the missing information."
-msgstr ""
+msgstr "Podeu editar el producte per afegir la informació que falta."
 
 msgctxt "ecoscore_product_category_reference_score"
 msgid "Baseline score of the product category"
-msgstr ""
+msgstr "Puntuació de referència de la categoria del producte"
 
 msgctxt "ecoscore_panel_lca"
 msgid "Lifecyle Analysis (LCA)"
-msgstr ""
+msgstr "Anàlisi del cicle de vida (LCA)"
 
 # do not translate Agribalyse
 msgctxt "ecoscore_agribalyse_category"
 msgid "Agribalyse category"
-msgstr ""
+msgstr "Categoria Agribalyse"
 
 msgctxt "ecoscore_category_proxy_match"
 msgid "Approximate match with the product category"
-msgstr ""
+msgstr "Coincidència aproximada amb la categoria de producte"
 
 msgctxt "ecoscore_category_exact_match"
 msgid "Exact match with the product category"
-msgstr ""
+msgstr "Coincidència exacta amb la categoria del producte"
 
 msgctxt "ecoscore_pef_environmental_score"
 msgid "PEF environmental score"
@@ -5462,24 +5498,24 @@ msgstr "incloent l'impacte sobre el canvi climàtic"
 
 msgctxt "ecoscore_impact_detail_by_stages"
 msgid "Details of the impacts by stages of the life cycle"
-msgstr ""
+msgstr "Detall dels impactes per etapes del cicle de vida"
 
 # stage meaning step
 msgctxt "ecoscore_stage"
 msgid "Stage"
-msgstr ""
+msgstr "Etapa"
 
 msgctxt "ecoscore_impact"
 msgid "Impact"
-msgstr ""
+msgstr "Impacte"
 
 msgctxt "ecoscore_agriculture"
 msgid "Agriculture"
-msgstr ""
+msgstr "Agricultura"
 
 msgctxt "ecoscore_processing"
 msgid "Processing"
-msgstr ""
+msgstr "Processament"
 
 msgctxt "ecoscore_packaging"
 msgid "Packaging"
@@ -5487,15 +5523,15 @@ msgstr "Empaquetament"
 
 msgctxt "ecoscore_transportation"
 msgid "Transportation"
-msgstr ""
+msgstr "Transport"
 
 msgctxt "ecoscore_distribution"
 msgid "Distribution"
-msgstr ""
+msgstr "Distribució"
 
 msgctxt "ecoscore_consumption"
 msgid "Consumption"
-msgstr ""
+msgstr "Consum"
 
 msgctxt "ecoscore_lca_score_out_of_100"
 msgid "LCA score out of 100"
@@ -5503,15 +5539,15 @@ msgstr "Puntuació LCA sobre 100"
 
 msgctxt "ecoscore_no_agribalyse_category_match"
 msgid "No match between product categories and Agribalyse categories."
-msgstr ""
+msgstr "No hi ha cap coincidència entre les categories de productes i les categories d'Agribalyse."
 
 msgctxt "ecoscore_edit_category_to_more_granular"
 msgid "You can modify the product page to add a more granular category."
-msgstr ""
+msgstr "Podeu modificar la pàgina del producte per afegir una categoria més granular."
 
 msgctxt "ecoscore_additional_bonuses_and_maluses"
 msgid "Additional bonuses and maluses"
-msgstr ""
+msgstr "Bonificacions i punts negatius addicionals"
 
 msgctxt "ecoscore_production_system"
 msgid "Production mode"
@@ -5519,11 +5555,11 @@ msgstr "Mode de producció"
 
 msgctxt "ecoscore_no_labels_taken_into_account"
 msgid "No labels taken into account for the production system."
-msgstr ""
+msgstr "No es tenen en compte etiquetes per al sistema de producció."
 
 msgctxt "ecoscore_please_add_the_labels"
 msgid "If this product has a label characterizing the production system (organic, fair trade, Label Rouge, Bleu Blanc Coeur etc.), you can modify the product sheet to add it."
-msgstr ""
+msgstr "Si aquest producte té una etiqueta que caracteritza el sistema de producció (ecològic, de comerç just, Label Rouge, Bleu Blanc Coeur, etc.), podeu modificar la fitxa del producte per afegir-lo."
 
 msgctxt "ecoscore_origins_of_ingredients"
 msgid "Origins of ingredients"
@@ -5531,11 +5567,11 @@ msgstr "Orígens dels ingredients"
 
 msgctxt "ecoscore_ingredients_not_indicated"
 msgid "The origins of the ingredients of this product are not indicated."
-msgstr ""
+msgstr "L'origen dels ingredients d'aquest producte no està indicat."
 
 msgctxt "ecoscore_please_add_the_ingredients"
 msgid "If they are indicated on the packaging, you can modify the product sheet and add them."
-msgstr ""
+msgstr "Si estan indicats a l'embalatge, podeu modificar la fitxa del producte i afegir-los."
 
 msgctxt "ecoscore_environmental_policy"
 msgid "Environmental policy"
@@ -5543,7 +5579,7 @@ msgstr "Política ambiental"
 
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
-msgstr ""
+msgstr "Espècies amenaçades"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
@@ -5555,11 +5591,11 @@ msgstr "Cap ingredient que amenaci les espècies"
 
 msgctxt "ecoscore_ingredients_unknown"
 msgid "The information on the ingredients of this product has not been given."
-msgstr ""
+msgstr "No s'ha donat la informació sobre els ingredients d'aquest producte."
 
 msgctxt "ecoscore_edit_for_more_precise_ecoscore"
 msgid "For a more precise calculation of the Eco-Score, you can edit the product page and add them."
-msgstr ""
+msgstr "Per a un càlcul més precís de l'Eco-Score, podeu editar la pàgina del producte i afegir-los."
 
 msgctxt "ecoscore_packaging_ratio"
 msgid "ratio"
@@ -5575,47 +5611,47 @@ msgstr "Puntuació de tots els components"
 
 msgctxt "ecoscore_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
-msgstr ""
+msgstr "La informació sobre l'embalatge d'aquest producte no està completada."
 
 msgctxt "ecoscore_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
-msgstr ""
+msgstr "La informació sobre l'embalatge d'aquest producte no és prou precisa (formes i materials exactes de tots els components de l'embalatge)."
 
 msgctxt "ecoscore_edit_for_more_precise_ecoscore"
 msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
-msgstr ""
+msgstr "Per a un càlcul més precís de l'Eco-Score, podeu modificar la pàgina del producte i afegir-los."
 
 msgctxt "ecoscore_final_score"
 msgid "Final score"
-msgstr ""
+msgstr "Puntuació final"
 
 msgctxt "ecoscore_lower_the_score_lower_the_impact"
 msgid "(the lower the score, the lower the impact)"
-msgstr ""
+msgstr "(com més baixa sigui la puntuació, menor serà l'impacte)"
 
 msgctxt "ecoscore_kg_co2_eq_kg_product"
 msgid "kg CO2 eq/kg of product"
-msgstr ""
+msgstr "kg CO₂ eq/kg del producte"
 
 # do not translate the link
 msgctxt "ecoscore_platform_prompt_ecoscore_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr ""
+msgstr "Si sou el fabricant d'aquest producte, podeu enviar-nos la informació amb la nostra plataforma gratuïta <a href=\"https://world.pro.openfoodfacts.org\">per a productors</a>."
 
 # do not translate Eco-Score and the link
 msgctxt "ecoscore_description"
 msgid "The <a href=\"/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
-msgstr ""
+msgstr "El <a href=\"/ecoscore\">Eco-Score</a> és una puntuació experimental que resumeix els impactes ambientals dels productes alimentaris."
 
 # do not translate Eco-Score
 msgctxt "ecoscore_warning_fr"
 msgid "The Eco-Score formula is subject to change as it is regularly improved to make it more precise."
-msgstr ""
+msgstr "La fórmula Eco-Score està subjecta a canvis, ja que es millora regularment per fer-la més precisa."
 
 # do not translate Eco-Score
 msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
-msgstr ""
+msgstr "L'Eco-Score es va desenvolupar inicialment a França i s'està ampliant per a altres països europeus. La fórmula Eco-Score està subjecta a canvis, ja que es millora periòdicament per fer-la més precisa i més adequada per a cada país."
 
 msgctxt "ecoscore_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
@@ -5627,68 +5663,68 @@ msgstr ""
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
-msgstr ""
+msgstr "Escaneja codis de barres per obtenir el Nutri-Score, l'Eco-Score i molt més!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
-msgstr ""
+msgstr "Els noms de producte GS1 d'aquest fabricant estan abreujats."
 
 msgctxt "org_gs1_nutrients_are_unprepared"
 msgid "GS1 prepared nutrients for this manufacturer are in fact for the product as sold."
-msgstr ""
+msgstr "Els nutrients preparats GS1 per a aquest fabricant són, de fet, per al producte tal com es ven."
 
 msgctxt "org_gs1_nutrients_are_unprepared_note"
 msgid "Check that the manufacturer does not make products that really have nutrients for the prepared product."
-msgstr ""
+msgstr "Comproveu que el fabricant no fa productes que realment tinguin nutrients per al producte preparat."
 
 msgctxt "org_gs1_product_name_is_abbreviated_description"
 msgid "Some manufacturers have incorrect values for some fields in GS1. The features below can be used to fix some of them."
-msgstr ""
+msgstr "Alguns fabricants tenen valors incorrectes per a alguns camps dels GS1. Les funcions següents es poden utilitzar per solucionar alguns d'ells."
 
 # do not remove %s, it will be replaced with the source name
 msgctxt "import_source_string"
 msgid "Import data from %s"
-msgstr ""
+msgstr "Importa dades des de %s"
 
 msgctxt "org_protect_data"
 msgid "Protect the data that is provided by the organization."
-msgstr ""
+msgstr "Protegiu les dades proporcionades per l'organització."
 
 msgctxt "org_protect_data_note"
 msgid "Removing or changing the provided data will be possible only by experimented contributors on the web site."
-msgstr ""
+msgstr "L'eliminació o el canvi de les dades proporcionades només seran possibles per col·laboradors experimentats al lloc web."
 
 msgctxt "ecoscore_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr ""
+msgstr "Embalatge d'alt impacte"
 
 msgctxt "ecoscore_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr ""
+msgstr "Embalatge d'impacte mitjà"
 
 msgctxt "ecoscore_packaging_impact_low"
 msgid "Packaging with a low impact"
-msgstr ""
+msgstr "Embalatge de baix impacte"
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "Missing packaging information for this product"
-msgstr ""
+msgstr "Falta informació sobre l'embalatge d'aquest producte"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
-msgstr ""
+msgstr "Orígens dels ingredients amb impacte alt"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_medium"
 msgid "Origins of ingredients with a medium impact"
-msgstr ""
+msgstr "Orígens dels ingredients amb impacte mitjà"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_low"
 msgid "Origins of ingredients with a low impact"
-msgstr ""
+msgstr "Orígens dels ingredients amb baix impacte"
 
 msgctxt "ecoscore_origins_of_ingredients_missing_information"
 msgid "Missing origins of ingredients information"
-msgstr ""
+msgstr "Falta informació sobre l'origen dels ingredients"
 
 msgctxt "percent_of_ingredients"
 msgid "% of ingredients"
@@ -5701,11 +5737,11 @@ msgstr "mitjà"
 
 msgctxt "nutrition_grade_fr_tea_bags_note"
 msgid "Note: the Nutri-Score of teas and herbal teas corresponds to the product prepared with water only, without sugar or milk."
-msgstr ""
+msgstr "Nota: el Nutri-Score de tes i tisanes correspon al producte preparat només amb aigua, sense sucre ni llet."
 
 msgctxt "g_per_100g"
 msgid "%s g / 100 g"
-msgstr ""
+msgstr "%s g / 100 g"
 
 msgctxt "donation_title"
 msgid "Important: we need your support!"
@@ -5714,12 +5750,12 @@ msgstr "Important: ens cal suport!"
 # variable names between { } must not be translated, {number_of_employees} will be a number
 msgctxt "donation_body_employees"
 msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr ""
+msgstr "Open Food Facts és un projecte col·laboratiu creat per desenes de milers de voluntaris i gestionat per una organització sense ànim de lucre amb {number_of_employees} empleats."
 
 # variable names between { } must not be translated, {year} will be the upcoming year
 msgctxt "donation_why_year"
 msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr ""
+msgstr "Necessitem les vostres donacions per finançar el pressupost d'Open Food Facts de l'any {year} i per continuar desenvolupant el projecte."
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -5727,23 +5763,23 @@ msgstr "Feu un donatiu"
 
 msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
-msgstr ""
+msgstr "Sense etiquetes amb beneficis ambientals"
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits"
 msgid "Labels with environmental benefits"
-msgstr ""
+msgstr "Etiquetes amb beneficis ambientals"
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_high"
 msgid "Labels with high environmental benefits"
-msgstr ""
+msgstr "Etiquetes amb alts beneficis ambientals"
 
 msgctxt "ecoscore_production_system_labels_with_environmental_benefits_very_high"
 msgid "Labels with very high environmental benefits"
-msgstr ""
+msgstr "Etiquetes amb beneficis ambientals molt alts"
 
 msgctxt "other"
 msgid "Other"
-msgstr ""
+msgstr "Altres"
 
 # statistical mean
 msgctxt "mean"
@@ -5752,37 +5788,37 @@ msgstr "Mitjana"
 
 msgctxt "recipes_ingredients_statistics"
 msgid "Ingredients statistics for all products"
-msgstr ""
+msgstr "Estadístiques dels ingredients per a tots els productes"
 
 msgctxt "recipes_ingredients_for_each_product"
 msgid "Ingredients for each product"
-msgstr ""
+msgstr "Ingredients per a cada producte"
 
 msgctxt "product_deleted"
 msgid "Product deleted."
-msgstr ""
+msgstr "Producte suprimit."
 
 msgctxt "carbon_footprint"
 msgid "Carbon footprint"
-msgstr ""
+msgstr "Petjada de carboni"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
 msgid "{grams} g CO² per 100g of product"
-msgstr ""
+msgstr "{grams} g de CO² per cada 100 g de producte"
 
 # variable names between { } must not be translated
 msgctxt "f_equal_to_driving_km_in_a_petrol_car"
 msgid "Equal to driving {kilometers} km in a petrol car"
-msgstr ""
+msgstr "Equivalent a conduir {kilometers} km en un cotxe de gasolina"
 
 msgctxt "source_ademe_agribalyse"
 msgid "Source: ADEME Agribalyse Database"
-msgstr ""
+msgstr "Font: Base de dades ADEME Agribalyse"
 
 msgctxt "source_ademe_agribalyse_for_category"
 msgid "The carbon emission figure comes from ADEME's Agribalyse database, for the category:"
-msgstr ""
+msgstr "La xifra d'emissions de carboni prové de la base de dades Agribalyse d'ADEME, per a la categoria:"
 
 msgctxt "environment_card_title"
 msgid "Environment"
@@ -5790,242 +5826,286 @@ msgstr "Entorn"
 
 msgctxt "health_card_title"
 msgid "Nutrition and health"
-msgstr ""
+msgstr "Nutrició i salut"
 
 msgctxt "contains_palm_oil"
 msgid "Contains palm oil"
-msgstr ""
+msgstr "Conté oli de palma"
 
 msgctxt "contains_palm_oil_subtitle"
 msgid "Drives deforestation and threatens species such as the orangutan"
-msgstr ""
+msgstr "Fomenta la desforestació i amenaça espècies com l'orangutan"
 
 msgctxt "contains_palm_oil_description"
 msgid "Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino."
-msgstr ""
+msgstr "Els boscos tropicals d'Àsia, Àfrica i Amèrica Llatina es destrueixen per crear i ampliar les plantacions de palmera d'oli. La desforestació contribueix al canvi climàtic, i posa en perill espècies com l'orangutan, l'elefant pigmeu i el rinoceront de Sumatra."
 
 msgctxt "bonus"
 msgid "Bonus"
-msgstr ""
+msgstr "Bonificació"
 
 msgctxt "malus"
 msgid "Malus"
-msgstr ""
+msgstr "Punts negatius"
 
 msgctxt "life_cycle_analysis"
 msgid "Life cycle analysis"
-msgstr ""
+msgstr "Anàlisi del cicle de vida"
 
 msgctxt "ecoscore_bonuses_and_maluses"
 msgid "Bonuses and maluses"
-msgstr ""
+msgstr "Bonificacions i punts negatius"
 
 msgctxt "ecoscore_for_this_product"
 msgid "Eco-Score for this product"
-msgstr ""
+msgstr "Eco-Score per a aquest producte"
 
 msgctxt "average_impact_of_the_category"
 msgid "Average impact of products of the same category"
-msgstr ""
+msgstr "Impacte mitjà dels productes de la mateixa categoria"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses"
 msgid "Sum of bonuses and maluses"
-msgstr ""
+msgstr "Suma de bonificacions i punts negatius"
 
 msgctxt "ecoscore_sum_of_bonuses_and_maluses_is_capped"
 msgid "The sum of bonuses and maluses is capped at +25."
-msgstr ""
+msgstr "La suma de bonificacions i punts negatius té un límit de 25."
 
 msgctxt "ecoscore_lca_score"
 msgid "Life cycle analysis score"
-msgstr ""
+msgstr "Puntuació de l'anàlisi del cicle de vida"
 
 msgctxt "impact_for_this_product"
 msgid "Impact for this product"
-msgstr ""
+msgstr "Impacte per a aquest producte"
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
-msgstr ""
+msgstr "La puntuació de productes amb materials d'embalatge no reciclables i no biodegradables està limitada a 79 (nota B)."
 
 msgctxt "nutriscore_not_applicable"
 msgid "Nutri-Score not applicable for this product category."
-msgstr ""
+msgstr "Nutri-Score no s'aplica a aquesta categoria de producte."
 
 msgctxt "nutriscore_missing_category"
 msgid "The category of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "S'ha d'especificar la categoria del producte per poder calcular el Nutri-Score."
 
 msgctxt "nutriscore_missing_nutrition_data"
 msgid "The nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "S'han d'especificar les dades nutricionals del producte per calcular el Nutri-Score."
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "S'han d'especificar la categoria i les dades nutricionals del producte per calcular el Nutri-Score."
 
 msgctxt "health"
 msgid "Health"
+msgstr "Salut"
+
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr ""
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr ""
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr ""
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr ""
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr ""
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
+msgstr ""
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr ""
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
 msgstr ""
 
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
-msgstr ""
+msgstr "Comparat amb"
 
 # name of an activity / a sport
 msgctxt "activity_walking"
 msgid "Walking"
-msgstr ""
+msgstr "Caminar"
 
 # name of an activity / a sport
 msgctxt "activity_swimming"
 msgid "Swimming"
-msgstr ""
+msgstr "Natació"
 
 # name of an activity / a sport
 msgctxt "activity_bicycling"
 msgid "Bicycling"
-msgstr ""
+msgstr "Ciclisme"
 
 # name of an activity / a sport
 msgctxt "activity_running"
 msgid "Running"
-msgstr ""
+msgstr "Córrer"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_energy_per_100g"
 msgid "{kj} kJ per 100g"
-msgstr ""
+msgstr "{kj} kJ cada 100 g"
 
 # Don't translate {kj}, it will be replaced by a number
 msgctxt "f_equal_to_walking_minutes_or_steps"
 msgid "Equal to walking {minutes} minutes or {steps} steps"
-msgstr ""
+msgstr "Equivalent a caminar {minutes} minuts fer {steps} passos"
 
 # Don't translate {kg} and {lb}, it will be replaced by a number
 msgctxt "f_energy_expenditure_for_weight_in_kg_lb"
 msgid "Energy expenditure for a person weighting {kg} kg / {lb} lb"
-msgstr ""
+msgstr "Despesa energètica per a una persona que pesa {kg} kg / {lb} lb"
 
 msgctxt "nutriscore_missing_category_short"
 msgid "Missing category"
-msgstr ""
+msgstr "Falta la categoria"
 
 msgctxt "nutriscore_missing_nutrition_data_short"
 msgid "Missing nutrition facts"
-msgstr ""
+msgstr "Falten dades nutricionals"
 
 msgctxt "nutriscore_missing_category_and_nutrition_data_short"
 msgid "Missing category and nutrition facts"
-msgstr ""
+msgstr "Falta la categoria i les dades nutricionals"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_title"
 msgid "Reduce or stop drinking alcohol"
-msgstr ""
+msgstr "Redueix o deixa de beure alcohol"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_subtitle"
 msgid "Less is better"
-msgstr ""
+msgstr "Menys és millor"
 
 msgctxt "recommendation_who_reduce_or_stop_drinking_alcohol_text"
 msgid "This might not be the answer people want to hear, but there is no safe level for drinking alcohol. Of course there is lower-risk drinking, but WHO does not set particular limits, because the evidence shows that the ideal situation for health is to not drink at all. Alcohol is closely related to around 60 different diagnoses and for almost all there is a close dose–response relationship, so the more you drink, the higher your risk of disease. Less is better."
-msgstr ""
+msgstr "Potser no és la resposta que la gent vol escoltar, però no hi ha un nivell segur per beure alcohol. Per descomptat, hi ha consum d'alcohol de menor risc, però l'OMS no posa límits particulars, perquè l'evidència demostra que la situació ideal per a la salut és no beure res. L'alcohol està estretament relacionat amb unes 60 malalties diferents i per a gairebé totes hi ha una estreta relació endre dosi i resposta, de manera que com més es beu, més risc hi ha de patir la malaltia. Menys és millor."
 
 # "source" as in "source of the information"
 msgctxt "source"
 msgid "Source"
-msgstr ""
+msgstr "Origen"
 
 # variable names between { } must not be translated
 msgctxt "f_app_user"
 msgid "A user of the {app_name} app"
-msgstr ""
+msgstr "Un usuari de l'aplicació {app_name}"
 
 msgctxt "food_groups_p"
 msgid "food groups"
-msgstr ""
+msgstr "grups d'aliments"
 
 msgctxt "food_groups_s"
 msgid "food group"
-msgstr ""
+msgstr "grup d'aliments"
 
 msgctxt "non_vegan_ingredients"
 msgid "Non-vegan ingredients"
-msgstr ""
+msgstr "Ingredients no vegans"
 
 msgctxt "vegan_ingredients"
 msgid "No non-vegan ingredients detected"
-msgstr ""
+msgstr "No s'han detectat ingredients no vegans"
 
 msgctxt "maybe_vegan_ingredients"
 msgid "Ingredients that may not be vegan"
+msgstr "Ingredients que potser no són vegans"
+
+msgctxt "attribute_vegan_setting_note"
+msgid "To determine whether a product is vegan, we only rely on the list of ingredients."
 msgstr ""
 
 msgctxt "non_vegetarian_ingredients"
 msgid "Non-vegetarian ingredients"
-msgstr ""
+msgstr "Ingredients no vegetarians"
 
 msgctxt "vegetarian_ingredients"
 msgid "No non-vegetarian ingredients detected"
-msgstr ""
+msgstr "No s'han detectat ingredients no vegetarians"
 
 msgctxt "maybe_vegetarian_ingredients"
 msgid "Ingredients that may not be vegetarian"
+msgstr "Ingredients que potser no són vegetarians"
+
+msgctxt "attribute_vegetarian_setting_note"
+msgid "To determine whether a product is vegetarian, we only rely on the list of ingredients."
 msgstr ""
 
 msgctxt "palm_oil_ingredients"
 msgid "Ingredients that contain palm oil"
-msgstr ""
+msgstr "Ingredients que contenen oli de palma"
 
 msgctxt "may_contain_palm_oil_ingredients"
 msgid "Ingredients that may contain palm oil"
-msgstr ""
+msgstr "Ingredients que poden contenir oli de palma"
 
 msgctxt "palm_oil_free_ingredients"
 msgid "No ingredients containing palm oil detected"
+msgstr "No s'han detectat ingredients que continguin oli de palma"
+
+msgctxt "attribute_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
 msgstr ""
 
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
-msgstr ""
+msgstr "Ingredients no reconeguts"
 
 msgctxt "nova_1_unprocessed_ingredients"
 msgid "The product contains only unprocessed or minimally processed ingredients."
-msgstr ""
+msgstr "El producte només conté ingredients no processats o mínimament processats."
 
 # variable names between { } must not be translated
 msgctxt "f_nova_markers_for_nova_group"
 msgid "Elements that indicate the product is in the {nova_group} group"
-msgstr ""
+msgstr "Elements que indiquen que el producte està al grup {nova_group}"
 
 msgctxt "nova_classification_description"
 msgid "Food products are classified into 4 groups according to their degree of processing:"
-msgstr ""
+msgstr "Els productes alimentaris es classifiquen en 4 grups segons el seu grau de processament:"
 
 msgctxt "nova_classification_how"
 msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
-msgstr ""
+msgstr "La determinació del grup es fa en funció de la categoria del producte i dels ingredients que conté."
 
 msgctxt "nova_classification_learn_more"
 msgid "Learn more about the NOVA classification"
-msgstr ""
+msgstr "Més informació sobre la classificació NOVA"
 
 msgctxt "nova_group_missing_category"
 msgid "The category of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "S'ha d'especificar la categoria del producte per tal de determinar el grup NOVA."
 
 msgctxt "nova_group_missing_ingredients"
 msgid "The ingredients of the product must be specified in order to determine the NOVA group."
-msgstr ""
+msgstr "S'han d'especificar els ingredients del producte per tal de determinar el grup NOVA."
 
 msgctxt "nova_group_too_many_unknown_ingredient"
 msgid "We could not recognize some of the ingredients and determine the NOVA group."
-msgstr ""
+msgstr "No hem pogut reconèixer alguns dels ingredients i per tant, determinar el grup NOVA."
 
 msgctxt "unselect_image"
 msgid "Unselect Image"
-msgstr ""
+msgstr "Desseleccioneu la imatge"
 
 msgctxt "nutriscore_learn_more"
 msgid "Learn more about the Nutri-Score"
@@ -6033,69 +6113,69 @@ msgstr "Apreneu més sobre la Nutri-Score"
 
 msgctxt "ecoscore_learn_more"
 msgid "Learn more about the Eco-Score"
-msgstr ""
+msgstr "Apreneu més sobre l'Eco-Score"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "Molt bona coincidència"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "Bona coincidència"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "Poca coincidència"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "Coincidència desconeguda"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
 msgid "May not match"
-msgstr ""
+msgstr "Podria no coincidir"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "No coincideix"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
-msgstr ""
+msgstr "Utilitzeu les preferències predeterminades"
 
 msgctxt "reset_preferences_details"
 msgid "Nutri-Score, Eco-Score and food processing level (NOVA)"
-msgstr ""
+msgstr "Nutri-Score, Eco-Score i nivell de processament d'aliments (NOVA)"
 
 msgctxt "actions_add_ingredients"
 msgid "Could you add the ingredients list?"
-msgstr ""
+msgstr "Podries afegir la llista d'ingredients?"
 
 msgctxt "actions_to_compute_nutriscore"
 msgid "Could you add the information needed to compute the Nutri-Score?"
-msgstr ""
+msgstr "Podries afegir la informació necessària per calcular el Nutri-Score?"
 
 msgctxt "actions_to_compute_ecoscore"
 msgid "Could you add a precise product category so that we can compute the Eco-Score?"
-msgstr ""
+msgstr "Podries afegir una categoria del producte més precisa perquè puguem calcular l'Eco-Score?"
 
 msgctxt "action_add_ingredients_text"
 msgid "Add the ingredients"
-msgstr ""
+msgstr "Afegir els ingredients"
 
 msgctxt "action_add_categories"
 msgid "Add a category"
-msgstr ""
+msgstr "Afegir una categoria"
 
 msgctxt "action_add_nutrition_facts"
 msgid "Add nutrition facts"
-msgstr ""
+msgstr "Afegir dades nutricionals"
 
 msgctxt "action_add_origins"
 msgid "Add the origins of ingredients for this product"
@@ -6103,6 +6183,10 @@ msgstr ""
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
+msgstr ""
+
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
 msgstr ""
 
 # this is not used yet
@@ -6227,7 +6311,7 @@ msgstr "Inicia la sessió"
 
 msgctxt "sign_out"
 msgid "Sign out"
-msgstr "Tancar la sessió"
+msgstr "Tanca la sessió"
 
 msgctxt "your_contributions"
 msgid "Your contributions"
@@ -6235,7 +6319,7 @@ msgstr "Les vostres aportacions"
 
 msgctxt "products_added"
 msgid "Products added"
-msgstr ""
+msgstr "Productes afegits"
 
 msgctxt "products_edited"
 msgid "Products edited"
@@ -6325,6 +6409,10 @@ msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr ""
 
+msgctxt "api_message_invalid_code"
+msgid "Invalid code"
+msgstr ""
+
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
 msgstr ""
@@ -6345,13 +6433,17 @@ msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr ""
 
+msgctxt "api_message_unrecognized_field"
+msgid "Unrecognized field"
+msgstr ""
+
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
 msgstr ""
 
 msgctxt "api_impact_none"
 msgid "None"
-msgstr ""
+msgstr "Cap"
 
 msgctxt "api_impact_warning"
 msgid "Warning"
@@ -6399,24 +6491,24 @@ msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
-msgstr ""
+msgstr "Valor invàlid: ha de ser 0 o 1"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr ""
+msgstr "Introduïu el nombre d'unitats d'embalatge de la mateixa forma i material que conté el producte."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr ""
+msgstr "Introduïu el nom de la forma que apareix a les instruccions de reciclatge si està disponible o seleccioneu una forma."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr ""
+msgstr "Introduïu el material específic si es pot determinar (hi sol haver un codi de material dins d'un triangle a les peces d'embalatge) o un material genèric (per exemple, plàstic o metall) si no n'esteu segurs."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr ""
+msgstr "Introduïu les instruccions de reciclatge només si apareixen al producte."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6426,5 +6518,123 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Introduïu el pes net o el volum net i indiqueu la unitat (per exemple, g o ml)."
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr ""
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "Afegiu productes"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr ""
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr ""
+
+msgctxt "resources"
+msgid "Resources"
+msgstr ""
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr ""
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
+msgstr ""
+
+msgctxt "join_the_next_pros_meet_up"
+msgid "Join the next Pros' Meet-up"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "product_js_enter_value_between_0_and_max"
+msgid "Please enter a value between 0 and {max}."
+msgstr ""
+
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr ""
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr ""
+
+msgctxt "product_js_sugars_warning"
+msgid "Sugars should not be higher than carbohydrates."
+msgstr ""
+
+msgctxt "product_js_saturated_fat_warning"
+msgid "Saturated fat should not be higher than fat."
+msgstr ""
+
+msgctxt "packaging_materials"
+msgid "Packaging materials"
+msgstr ""
+
+msgctxt "packaging_weight_total"
+msgid "Packaging weight"
+msgstr ""
+
+msgctxt "packaging_weight_100g"
+msgid "Packaging weight per 100 g of product"
+msgstr ""
+
+msgctxt "packaging_weight_100g_mean"
+msgid "Mean packaging weight per 100 g of product"
+msgstr ""
+
+msgctxt "total"
+msgid "Total"
+msgstr ""
+
+msgctxt "packaging_material_products_percent"
+msgid "% of products containing the material"
+msgstr ""
+
+msgctxt "packaging_material_products_percent_main"
+msgid "% of products containing mostly the material"
+msgstr ""
+
+msgctxt "relative_to_products_containing_the_material"
+msgid "for products that contain the material"
+msgstr ""
+
+msgctxt "relative_to_products_containing_mostly_the_material"
+msgid "for products that contain mostly the material"
+msgstr ""
+
+msgctxt "relative_to_all_products"
+msgid "relative to all products"
+msgstr ""
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr ""
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr ""
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr ""
+
+msgctxt "weight"
+msgid "Weight"
+msgstr ""
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr ""
+
+msgctxt "weight_percent"
+msgid "Weight percent"
 msgstr ""
 

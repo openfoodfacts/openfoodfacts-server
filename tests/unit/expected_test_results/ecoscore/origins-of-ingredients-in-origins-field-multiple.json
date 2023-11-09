@@ -425,6 +425,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "2028",
          "id" : "en:lemon-juice",
          "percent_estimate" : 10,
          "percent_max" : 10,
@@ -443,11 +444,13 @@
    "ingredients_hierarchy" : [
       "en:apricot",
       "en:fruit",
+      "en:prunus-species-fruit",
       "en:cane-sugar",
       "en:added-sugar",
       "en:disaccharide",
       "en:sugar",
       "en:lemon-juice",
+      "en:juice",
       "en:fruit-juice"
    ],
    "ingredients_n" : 3,
@@ -464,11 +467,13 @@
    "ingredients_tags" : [
       "en:apricot",
       "en:fruit",
+      "en:prunus-species-fruit",
       "en:cane-sugar",
       "en:added-sugar",
       "en:disaccharide",
       "en:sugar",
       "en:lemon-juice",
+      "en:juice",
       "en:fruit-juice"
    ],
    "ingredients_text" : "60% apricots, 30% cane sugar (Martinique), lemon juice",
@@ -476,9 +481,15 @@
    "ingredients_with_specified_percent_sum" : 90,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 10,
-   "known_ingredients_n" : 8,
+   "ingredients_without_ciqual_codes" : [
+      "en:apricot",
+      "en:cane-sugar"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "known_ingredients_n" : 10,
    "lc" : "en",
    "misc_tags" : [
+      "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
@@ -491,6 +502,8 @@
       "en:ecoscore-grade-changed"
    ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 70,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 70,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 70
    },
@@ -499,6 +512,10 @@
       "en:dordogne",
       "en:belgium"
    ],
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [],
    "packagings" : [],
+   "packagings_materials" : {},
    "unknown_ingredients_n" : 0
 }

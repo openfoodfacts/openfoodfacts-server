@@ -38,7 +38,7 @@
                 "title": "[% lang('ecoscore_packaging') %]",
                 "panel_group_id": "packaging_recycling",
                 "panel_ids": [
-                    "packaging_recycling"
+                    "packaging_recycling",
                 ],
                 [% IF panel.packaging_image.defined %]
                 "image": [% encode_json(panel.packaging_image) %],

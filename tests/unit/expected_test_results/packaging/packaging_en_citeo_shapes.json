@@ -1,9 +1,26 @@
 {
    "lc" : "en",
    "misc_tags" : [
+      "en:packagings-number-of-components-7",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:cardboard",
+      "en:paper",
+      "en:plastic",
+      "en:wood"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:basket",
+      "en:blister",
+      "en:case",
+      "en:crate",
+      "en:individual-dose",
+      "en:string",
+      "en:tumbler"
    ],
    "packaging_text" : "Plastic tumbler; Wooden crate; Cardboard case; Strings; Plastic ties; Plastic blister wrap; paper basket; individual capsules",
    "packagings" : [
@@ -33,5 +50,12 @@
       {
          "shape" : "en:individual-dose"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:paper-or-cardboard" : {},
+      "en:plastic" : {},
+      "en:unknown" : {}
+   },
+   "packagings_n" : 7
 }

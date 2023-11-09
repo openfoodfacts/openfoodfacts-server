@@ -25,7 +25,8 @@
     [% END %]
 
     [% IF errors_index >=0 %]
-        <p>Merci de corriger les erreurs suivantes :</p>
+        <p>[% lang("correct_the_following_errors") %]</p>
+        
         [% FOREACH error IN errors %]
             <p class="error">[% error %]</p><br/>
         [% END %]
@@ -56,7 +57,10 @@
 
         <section id="misc" class="card fieldset">
             <div class="card-section">
-                <p>[% lang("barcode") %]: [% code %]</p>
+                <p id="barcode_paragraph"> [% lang("barcode") %][% sep %]:
+                    <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>
+                </p>
+                
 
         [% IF moderator %]
             <label for="new_code" id="label_new_code">[% label_new_code %]</label>
@@ -152,62 +156,67 @@
         <!--nutrient fieldset-->
         <section class="card fieldset" id="nutrition">
             <div class="card-section">
-            <legend>[% lang('nutrition_data') %]</legend>
-            <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
-            <input type="hidden" name="no_nutrition_data_displayed" value="1" />
-            <input type="checkbox" id="no_nutrition_data" name="no_nutrition_data" [% nutrition_checked %] />
-            <label for="no_nutrition_data" class="checkbox_label">[% lang('no_nutrition_data') %]</label><br/>
-            [% display_tab_nutrition_image %]
-            [% display_field_serving_size %]
-
-            [% FOREACH nutrient IN nutrition_products %]
+                <legend>[% lang('nutrition_data') %]</legend>
                 <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
-                <input type="hidden" name="[% nutrient.nutrition_data %]_displayed" value="1" />
-                <input type="checkbox" id="[% nutrient.nutrition_data %]" name="[% nutrient.nutrition_data %]" [% nutrient.checked %] />
-                <label for="[% nutrient.nutrition_data %]" class="checkbox_label">[% nutrient.nutrition_data_exists %]</label> &nbsp;
-                <input type="radio" id="[% nutrient.nutrition_data_per %]_100g" value="100g" name="[% nutrient.nutrition_data_per %]" [% nutrient.checked_per_100g %] />
-                <label for="[% nutrient.nutrition_data_per %]_100g">[% lang('nutrition_data_per_100g') %]</label>
-                <input type="radio" id="[% nutrient.nutrition_data_per %]_serving" value="serving" name="[% nutrient.nutrition_data_per %]" [% nutrient.checked_per_serving %] />
-                <label for="[%nutrient. nutrition_data_per %]_serving">[% lang('nutrition_data_per_serving') %]</label><br/>
+                <input type="hidden" name="no_nutrition_data_displayed" value="1" />
+                <input type="checkbox" id="no_nutrition_data" name="no_nutrition_data" [% nutrition_checked %] />
+                <label for="no_nutrition_data" class="checkbox_label">[% lang('no_nutrition_data') %]</label><br/>
+                <div id="nutrition_data_div">
+                    [% display_tab_nutrition_image %]
+                    [% display_field_serving_size %]
 
-                [% IF nutrition_data_instructions_check && nutrition_data_instructions_check != '' %]
-                    <p id="[% nutrient.nutrition_data_instructions %]" [% nutrient.hidden %]>[% lang(nutrient.nutrition_data_instructions) %]</p>
-                [% END %]
-            [% END %]
+                    [% FOREACH nutrient IN nutrition_products %]
+                        <!-- extra field suffixed with _displayed to allow detecting when a box is unchecked -->
+                        <input type="hidden" name="[% nutrient.nutrition_data %]_displayed" value="1" />
+                        <input type="checkbox" id="[% nutrient.nutrition_data %]" name="[% nutrient.nutrition_data %]" [% nutrient.checked %] />
+                        <label for="[% nutrient.nutrition_data %]" class="checkbox_label">[% nutrient.nutrition_data_exists %]</label> &nbsp;
+                        <input type="radio" id="[% nutrient.nutrition_data_per %]_100g" value="100g" name="[% nutrient.nutrition_data_per %]" [% nutrient.checked_per_100g %] />
+                        <label for="[% nutrient.nutrition_data_per %]_100g">[% lang('nutrition_data_per_100g') %]</label>
+                        <input type="radio" id="[% nutrient.nutrition_data_per %]_serving" value="serving" name="[% nutrient.nutrition_data_per %]" [% nutrient.checked_per_serving %] />
+                        <label for="[%nutrient. nutrition_data_per %]_serving">[% lang('nutrition_data_per_serving') %]</label><br/>
 
-            <div style="position:relative">
+                        [% IF nutrition_data_instructions_check && nutrition_data_instructions_check != '' %]
+                            <p id="[% nutrient.nutrition_data_instructions %]" [% nutrient.hidden %]>[% lang(nutrient.nutrition_data_instructions) %]</p>
+                        [% END %]
+                    [% END %]
 
-                <table id="nutrition_data_table" class="data_table" style="[% tablestyle %]" aria-label="nutrition table">
-                    <thead class="nutriment_header">
-                        <th id="col_1">
-                            [% lang('nutrition_data_table') %]
-                        </th>
-                        <th id="col_2" class="nutriment_col" [% column_display_style_nutrition_data %]>
-                            [% lang('product_as_sold') %]<br/>
-                            <span id="nutrition_data_100g" [% nutrition_data_100g_style %]>[% lang('nutrition_data_per_100g') %]</span>
-                            <span id="nutrition_data_serving" [% nutrition_data_serving_style %]>[% lang('nutrition_data_per_serving') %]</span>
-                        </th>
-                        <th id="col_3" class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
-                            [% lang('prepared_product') %]<br/>
-                            <span id="nutrition_data_prepared_100g" [% nutrition_data_prepared_100g_style %]>[% lang('nutrition_data_per_100g') %]</span>
-                            <span id="nutrition_data_prepared_serving" [% nutrition_data_prepared_serving_style %]>[% lang('nutrition_data_per_serving') %]</span>
-                        </th>
-                        <th id="col_4">
-                            [% lang('unit') %]
-                        </th>
-                    </thead>
+                    <div style="position:relative">
 
-                    <tbody>
+                        <table id="nutrition_data_table" class="data_table" style="[% tablestyle %]" aria-label="nutrition table">
+                            <thead class="nutriment_header">
+                                <th id="col_1">
+                                    [% lang('nutrition_data_table') %]
+                                </th>
+                                <th id="col_2" class="nutriment_col" [% column_display_style_nutrition_data %]>
+                                    [% lang('product_as_sold') %]<br/>
+                                    <span id="nutrition_data_100g" [% nutrition_data_100g_style %]>[% lang('nutrition_data_per_100g') %]</span>
+                                    <span id="nutrition_data_serving" [% nutrition_data_serving_style %]>[% lang('nutrition_data_per_serving') %]</span>
+                                </th>
+                                <th id="col_3" class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
+                                    [% lang('prepared_product') %]<br/>
+                                    <span id="nutrition_data_prepared_100g" [% nutrition_data_prepared_100g_style %]>[% lang('nutrition_data_per_100g') %]</span>
+                                    <span id="nutrition_data_prepared_serving" [% nutrition_data_prepared_serving_style %]>[% lang('nutrition_data_per_serving') %]</span>
+                                </th>
+                                <th id="col_4">
+                                    [% lang('unit') %]
+                                </th>
+                            </thead>
 
-                        [% FOREACH nutriment IN nutriments %]
+                            <tbody>
 
-                            [% IF nutriment.shown %]
-                                <tr id="nutriment_[% nutriment.enid %]_tr" class="nutriment_[% nutriment.class %]"[% nutriment.display %]>
+                                [% FOREACH nutriment IN nutriments %]
+
+                                    [% IF nutriment.shown %]
+                                        <tr id="nutriment_[% nutriment.enid %]_tr" class="nutriment_[% nutriment.class %]"[% nutriment.display %]>
 
                                     <td>
                                         <!--label starts-->
                                         [% IF nutriment.name.defined %]
+                                        [% IF nutriment.nid == 'energy-kj' || nutriment.nid == 'saturated-fat' || nutriment.nid == 'salt'|| nutriment.nid =='sugars' || nutriment.nid == 'fiber' || nutriment.nid =='fat' || nutriment.nid =='proteins' %]
+                                            <label class="nutriment_label" for="nutriment_[% nutriment.enid %]">[% nutriment.prefix %][% nutriment.name %]*</label>
+                                        [% ELSE %]
                                             <label class="nutriment_label" for="nutriment_[% nutriment.enid %]">[% nutriment.prefix %][% nutriment.name %]</label>
+                                        [% END %] 
                                         [% ELSIF nutriment.label_value.defined %]
                                             <input class="nutriment_label" id="nutriment_[% nutriment.enid %]_label" name="nutriment_[% nutriment.enid %]_label" value="[% nutriment.label_value %]" />
                                         [% ELSE %]
@@ -216,48 +225,52 @@
                                         <!--label ends-->
                                     </td>
 
-                                    <td class="nutriment_col" [% column_display_style_nutrition_data %]>
-                                        <input class="nutriment_value nutriment_value_as_sold" id="nutriment_[% nutriment.enid %]" name="nutriment_[% nutriment.enid %]" value="[% nutriment.value %]" [% nutriment.disabled %] autocomplete="off"/>
-                                    </td>
-                                    <td class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
-                                        <input class="nutriment_value nutriment_value_prepared" id="nutriment_[% nutriment.enidp %]" name="nutriment_[% nutriment.enidp %]" value="[% nutriment.valuep %]" [% nutriment.disabled %] autocomplete="off"/>
-                                    </td>
-
-                                    [% IF nutriment.nid == 'alcohol' || nutriment.nid == 'energy-kj' || nutriment.nid == 'energy-kcal' %]
-                                        <td>
-                                            <span class="nutriment_unit">[% nutriment.nutriment_unit %]</span>
-
-                                    [% ELSE %]
-                                        <td>
-                                            <span class="nutriment_unit_percent" id="nutriment_[% nutriment.enid %]_unit_percent"[% nutriment.hide_percent %]>%</span>
-                                            <select class="nutriment_unit" id="nutriment_[% nutriment.enid %]_unit" name="nutriment_[% nutriment.enid %]_unit"[% nutriment.hide_select %] [% nutriment.nutriment_unit_disabled %]>
-                                                [% FOREACH unit IN nutriment.units_arr %]
-                                                    <option value="[% unit.u %]" [% unit.selected %]>[% unit.label %]</option>
-                                                [% END %]
-                                                </select>
-                                    [% END %]
+                                            <td class="nutriment_col" [% column_display_style_nutrition_data %]>
+                                                <input class="nutriment_value nutriment_value_as_sold soft-background" id="nutriment_[% nutriment.enid %]" name="nutriment_[% nutriment.enid %]" value="[% nutriment.value %]" [% nutriment.disabled %] autocomplete="off"/>
+                                                <span id="nutriment_question_mark_[% nutriment.enid %]" class="question_mark">?</span>
+                                                <span id="nutriment_sugars_warning_[% nutriment.enid %]" class="sugars_warning">Please enter a valid value.</span>
                                             </td>
-                                    </tr>
+                                            <td class="nutriment_col_prepared" [% column_display_style_nutrition_data_prepared %]>
+                                                <input class="nutriment_value nutriment_value_prepared" id="nutriment_[% nutriment.enidp %]" name="nutriment_[% nutriment.enidp %]" value="[% nutriment.valuep %]" [% nutriment.disabled %] autocomplete="off"/>
+                                            </td>
 
-                            [% END %]
+                                            [% IF nutriment.nid == 'alcohol' || nutriment.nid == 'energy-kj' || nutriment.nid == 'energy-kcal' %]
+                                                <td>
+                                                    <span class="nutriment_unit">[% nutriment.nutriment_unit %]</span>
 
-                        [% END %]
+                                            [% ELSE %]
+                                                <td>
+                                                    <span class="nutriment_unit_percent" id="nutriment_[% nutriment.enid %]_unit_percent"[% nutriment.hide_percent %]>%</span>
+                                                    <select class="nutriment_unit" id="nutriment_[% nutriment.enid %]_unit" name="nutriment_[% nutriment.enid %]_unit"[% nutriment.hide_select %] [% nutriment.nutriment_unit_disabled %]>
+                                                        [% FOREACH unit IN nutriment.units_arr %]
+                                                            <option value="[% unit.u %]" [% unit.selected %]>[% unit.label %]</option>
+                                                        [% END %]
+                                                        </select>
+                                            [% END %]
+                                                    </td>
+                                            </tr>
 
-                    </tbody>
-                </table>
+                                    [% END %]
 
-                <input type="hidden" name="new_max" id="new_max" value="1" />
-                <div id="nutrition_image_copy" style="position:absolute;bottom:0"></div>
+                                [% END %]
+
+                            </tbody>
+                        </table>
+
+                        <input type="hidden" name="new_max" id="new_max" value="1" />
+                        <div id="nutrition_image_copy" style="position:absolute;bottom:0;"></div>
+                    </div>
+
+                [% IF moderator %]
+                    <div><a class="small button" onclick="\$('.nutriment_value').val('')">[% lang('remove_all_nutrient_values') %]</a></div>
+                [% END %]
+
+                <p class="asterisk">&rarr;*[% sep %]:[% lang('nutrition_data_table_asterisk') %]</p>
+                <p class="note">&rarr; [% lang('nutrition_data_table_note') %]</p>
+                </div>
+                
             </div>
-
-            [% IF moderator %]
-                <div><a class="small button" onclick="\$('.nutriment_value').val('')">[% lang('remove_all_nutrient_values') %]</a></div>
-            [% END %]
-
-            <p class="note">&rarr; [% lang('nutrition_data_table_note') %]</p>
-
-            </div>
-        </section><!--nutrient field set-->
+    </section><!--nutrient field set-->
 
         <!--packaging field-->
         <section id="packaging_section" class="card fieldset">
@@ -336,4 +349,44 @@
     
 
 </body>
+
+<style>
+.question_mark {
+    display: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #999;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    cursor: help;
+}
+
+.sugars_warning {
+  display: none;
+  position: absolute;
+  left: 16%;
+  transform: translateX(50%);
+  padding: 0.5em;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.8em;
+  white-space: nowrap;
+  margin-top: 1%;
+}
+
+.soft-background {
+    background-color: #f5f5f5;
+}
+
+.question_mark:hover + .sugars_warning {
+    display: inline-block;
+}
+
+.question_mark:hover {
+    opacity: 0.7;
+}
+</style>
 <!-- end templates/[% template.name %] -->

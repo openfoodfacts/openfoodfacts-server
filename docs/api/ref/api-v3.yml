@@ -20,7 +20,7 @@ servers:
   - url: 'https://world.openfoodfacts.org'
     description: prod
   - description: dev
-    url: 'https://off:off@world.openfoodfacts.net'
+    url: 'https://world.openfoodfacts.net'
 paths:
   '/api/v3/product/{barcode}':
     get:
@@ -86,9 +86,9 @@ paths:
         name: barcode
         in: path
         required: true
-        description: Barcode of the product
+        description: 'Barcode of the product to create or update, or "test" to analyze the product data sent without creating or updating a product'
     patch:
-      summary: WRITE Product - Create or update product (API V3 - Implementation in progress)
+      summary: 'WRITE Product - Create or update product, or analyze test product (API V3 - Implementation in progress)'
       operationId: patch-api-v3-product-barcode
       responses:
         '200':
@@ -160,6 +160,8 @@ paths:
                           weight: 80
           headers: {}
       description: |-
+        This API allows to create or update a product (if the product already exists, its data is updated, otherwise it is created), or to analyze a test product (in which case no product is created or updated). To analyze a product, the "barcode" path component needs to contain the value "test" instead of a barcode.
+
         New API to send structured product data in a JSON format instead of in a flattened list of key / value pairs field as-in the current product add / edit API that relies on a multipart/form-data format.
 
         Important: this new Product WRITE API is under development. The initial deployment will support only packaging fields.
@@ -302,9 +304,66 @@ paths:
           in: query
           name: term
           description: Alias for the "string" parameter provided for backward compatibility. "string" takes precedence.
-components:
-  schemas: null
-  parameters: null
+  '/api/v3/tag/{tagtype}/{tag_or_tagid}':
+    parameters:
+      - schema:
+          type: string
+          example: categories
+        name: tagtype
+        in: path
+        required: true
+        description: Type of the tag
+      - schema:
+          type: string
+        name: tag_or_tagid
+        in: path
+        required: true
+        description: 'Tag name (e.g. yogurts) or tag id (e.g. en:yogurts)'
+    get:
+      summary: Get knowledge panels for a tag
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: ./responses/response-status/response_status.yaml
+                  - type: object
+                    properties:
+                      tagtype:
+                        type: string
+                        description: |
+                          Input tagtype
+                      tagid:
+                        type: string
+                        description: |
+                          Input tagid
+                      tag:
+                        type: object
+                        properties:
+                          tagid:
+                            type: string
+                            description: Canonicalized tagid corresponding to the input tag_or_tagid
+                          tagtype:
+                            type: string
+                            description: Canonicalized tagtype
+                          knowledge_panels:
+                            $ref: ./schemas/knowledge_panels/panels.yaml
+                            description: Knowledge panels for the tag
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+      operationId: get-api-v3-tag-tagtype-tag_or_tagid
+      description: |-
+        Return knowledge panels for a tag.
+
+        Currently the knowledge panels returned are:
+
+        Categories:
+        - Packaging stats for a category
 tags:
   - name: Read Requests
   - name: Write Requests

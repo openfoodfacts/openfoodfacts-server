@@ -15,6 +15,8 @@ First setup time estimate is `~10min` with the following specs:
 
 Docker provides an isolated environment, very close to a Virtual Machine. This environment contains everything required to launch the Open Food Facts server. There is **no need to install** Perl, Perl modules, Nginx, nor Apache separately.
 
+> **_NOTE:_**  New to Perl? Check [how to learn perl](how-to-learn-perl.md)!
+
 **Installation steps:**
 - [Install Docker CE](https://docs.docker.com/install/#supported-platforms)
 > If you run e.g. Debian, don't forget to add your user to the `docker` group!
@@ -23,18 +25,20 @@ Docker provides an isolated environment, very close to a Virtual Machine. This e
 
 ### Windows Prerequisites
 
-When running with Windows, install [Docker Desktop](https://www.docker.com/products/docker-desktop/) which will cover all of the above.
+When running with Windows, install [Docker Desktop](https://www.docker.com/products/docker-desktop/) **which will cover all of the above**.
 
 The Make tasks use a number of Linux commands, such as rm and nproc, so it is recommeded to run Make commands from the Git Bash shell. In addition, the following need to be installed and included in the PATH:
 
 - [Make for Windows](http://gnuwin32.sourceforge.net/packages/make.htm)
-- [wget for windows](https://eternallybored.org/misc/wget/) (In order to download the full product database).
+- [wget for windows](https://eternallybored.org/misc/wget/) (In order to download the full product database). If you want to download wget with the executable, copy the wget.exe file to C:/Windows/System32 and you are done.
 
 The process of cloning the repository will create a number of symbolic links which require specific permissions under Windows. In order to do this you can use any one of these alternatives:
 
  - Use an Administrative command prompt for all Git commands
  - Completely disable UAC
  - Specifically grant the [Create symbolic links](https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links) permission to your user
+
+Make sure you also activated the [Developper mode](https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development) on your device.
 
 ## 2. Clone the repository from GitHub
 
@@ -83,6 +87,7 @@ Before running the `docker-compose` deployment, you can review and configure
 Product Opener's environment (`.env` file).
 
 The `.env` file contains ProductOpener default settings:
+
 | Field | Description |
 | ----------------------------------------------------------------- | --- |
 | `PRODUCT_OPENER_DOMAIN`                                           | Can be set to different values based on which **OFF flavor** is run.|
@@ -91,6 +96,7 @@ The `.env` file contains ProductOpener default settings:
 | `PRODUCT_OPENER_FLAVOR_SHORT`                                     | can be modified to run different flavors of OpenFoodFacts, amongst `off` (default), `obf`, `oppf`, `opf`.|
 | `PRODUCERS_PLATFORM`                                              | can be set to `1` to build / run the **producer platform**.|
 | `ROBOTOFF_URL`                                                    | can be set to **connect with a Robotoff instance**.|
+| `QUERY_URL`                                                       | can be set to **connect with a Query instance**.|
 | `REDIS_URL` | can be set to **connect with a Redis instance for populating the search index**.|
 | `GOOGLE_CLOUD_VISION_API_KEY`                                     | can be set to **enable OCR using Google Cloud Vision**.|
 | `CROWDIN_PROJECT_IDENTIFIER` and `CROWDIN_PROJECT_KEY`            | can be set to **run translations**.|
@@ -145,7 +151,7 @@ The command will run 2 subcommands:
 
 * You might not immediately see the test products: create an account, login, and they should appear.
 
-* For a full description of available make targets, see [docker/README.md](../../docker/README.md#makefile-commands)
+* For a full description of available make targets, see [Docker / Makefile commands](ref-docker-commands.md)
 
 **Hosts file:**
 

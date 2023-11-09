@@ -93,7 +93,6 @@ use ProductOpener::Recipes qw(:all);
 use ProductOpener::MainCountries qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
 use ProductOpener::API qw/:all/;
-use ProductOpener::APITest qw/:all/;
 use ProductOpener::APIProductRead qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
 use ProductOpener::APITaxonomySuggestions qw/:all/;
@@ -114,6 +113,8 @@ use ProductOpener::FoodGroups qw/:all/;
 use ProductOpener::Events qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::LoadData qw/:all/;
+use ProductOpener::NutritionCiqual qw/:all/;
+use ProductOpener::NutritionEstimation qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();

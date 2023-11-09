@@ -27,17 +27,10 @@ ProductOpener::Data - methods to create or get the mongoDB client and fetch "dat
 The module implements the methods required to fetch certain collections from the MongoDB database.
 The functions used in this module are responsible for executing queries, to get connection to database and also to select the collection required.
 
-The module exposes 2 distinct kinds of collections, products and products_tags, returned by the Data::get_products_collections
-and the Data::get_products_tags_collections methods respectively.
-
 The products collection contains a complete document for each product in the OpenFoodFacts database which exposes all
 available information about the product.
 
-The products_tags collection contains a stripped down version of the data in the products collection, where each
-product entry has a select few fields, including fields used in tags. The main purpose of having this copy is to
-improve performance of aggregate queries for an improved user experience and more efficient resource usage. This
-collection was initially proposed in L<issue#1610|https://github.com/openfoodfacts/openfoodfacts-server/issues/1610> on
-GitHub, where some additional context is available.
+Obsolete products that have been withdrawn from the market have separate collections: products_obsolete
 
 =cut
 
@@ -50,10 +43,11 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&execute_query
+		&execute_aggregate_tags_query
+		&execute_count_tags_query
 		&get_database
 		&get_collection
 		&get_products_collection
-		&get_products_tags_collection
 		&get_emb_codes_collection
 		&get_recent_changes_collection
 		&remove_documents_by_ids
@@ -70,6 +64,8 @@ use ProductOpener::Config qw/:all/;
 
 use MongoDB;
 use Tie::IxHash;
+use JSON::PP;
+use CGI ':cgi-lib';
 use Log::Any qw($log);
 
 use Action::CircuitBreaker;
@@ -115,15 +111,74 @@ sub execute_query ($sub) {
 	)->run();
 }
 
-=head2 get_products_collection()
+sub execute_aggregate_tags_query ($query) {
+	return execute_tags_query('aggregate', $query);
+}
+
+sub execute_count_tags_query ($query) {
+	return execute_tags_query('count', $query);
+}
+
+sub execute_tags_query ($type, $query) {
+	if ((defined $query_url) and (length($query_url) > 0)) {
+		$query_url =~ s/^\s+|\s+$//g;
+		my $params = Vars();
+		my $url = URI->new("$query_url/$type");
+		$url->query_form($params);
+		$log->debug('Executing PostgreSQL ' . $type . ' query on ' . $url, {query => $query})
+			if $log->is_debug();
+
+		my $ua = LWP::UserAgent->new();
+		# Add a timeout to the HTTP query
+		$ua->timeout(15);
+		my $resp = $ua->post(
+			$url,
+			Content => encode_json($query),
+			'Content-Type' => 'application/json; charset=utf-8'
+		);
+		if ($resp->is_success) {
+			return decode_json($resp->decoded_content);
+		}
+		else {
+			$log->warn(
+				"query response not ok",
+				{
+					code => $resp->code,
+					status_line => $resp->status_line,
+					response => $resp
+				}
+			) if $log->is_warn();
+			return;
+		}
+	}
+	else {
+		$log->debug('QUERY_URL not defined') if $log->is_debug();
+		return;
+	}
+}
+
+=head2 get_products_collection( $parameters_ref )
 
 C<get_products_collection()> establishes a connection to MongoDB and uses timeout as an argument. This then selects a collection
 from within the database.
 
 =head3 Arguments
 
-This method takes in arguments of integer type (user defined timeout in milliseconds).
-It is optional for this subroutine to have an argument.
+This method takes parameters in an optional hash reference with the following keys:
+
+=head4 database MongoDB database name
+
+Defaults to $ProductOpener::Config::mongodb
+
+This is useful when moving products to another flavour
+(e.g. from Open Food Facts (database: off) to Open Beauty Facts (database: obf))
+
+=head4 timeout User defined timeout in milliseconds
+
+=head4 obsolete
+
+If set to a true value, the function returns a collection that contains only obsolete products,
+otherwise it returns the collection with products that are not obsolete.
 
 =head3 Return values
 
@@ -131,27 +186,13 @@ Returns a mongoDB collection object.
 
 =cut
 
-sub get_products_collection ($timeout = undef) {
-	return get_collection($mongodb, 'products', $timeout);
-}
-
-=head2 get_products_tags_collection()
-
-C<get_products_collection()> This selects the product tag collection from within the database.
-
-=head3 Arguments
-
-This method takes in arguments of integer type (user defined timeout in milliseconds).
-It is optional for this subroutine to have an argument.
-
-=head3 Return values
-
-Returns a mongoDB collection.
-
-=cut
-
-sub get_products_tags_collection ($timeout = undef) {
-	return get_collection($mongodb, 'products_tags', $timeout);
+sub get_products_collection ($parameters_ref = {}) {
+	my $database = $parameters_ref->{database} // $mongodb;
+	my $collection = 'products';
+	if ($parameters_ref->{obsolete}) {
+		$collection .= '_obsolete';
+	}
+	return get_collection($database, $collection, $parameters_ref->{timeout});
 }
 
 sub get_emb_codes_collection ($timeout = undef) {

@@ -330,7 +330,7 @@ my @tests = (
 		"ru-russian-oil",
 		{
 			lc => "ru",
-			ingredients_text => "масло растительное (подсолнечное, соевое), Масло (Пальмовое)",
+			ingredients_text => "масло растительное (подсолнечное, соевое), Масло (соевое)",
 		},
 	],
 
@@ -513,9 +513,197 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			ingredients_text => "vitamin a, salt",
 		}
 	],
-);
 
-my $json = JSON->new->allow_nonref->canonical;
+	# test "（" and "）"parenthesis found in some countries (Japan)
+	[
+		"ja-parenthesis",
+		{
+			lc => "ja",
+			ingredients_text => "しょうゆ（本醸造）、糖類（ぶどう糖果糖液糖、水あめ、砂糖）、みりん、食塩、かつお節、さば節、たん白加水分解物混合物、こんぶ、調味料（アミノ酸等）、アルコール",
+		}
+	],
+	# test "／" slash found in some countries (Japan)
+	[
+		"ja-slash",
+		{
+			lc => "ja",
+			ingredients_text => "砂糖、小麦粉、全粉乳、カカオマス、ショートニング、植物油脂、ココアバター、小麦全粒粉、小麦ふすま、食塩、小麦胚芽 ／ 加工デンプン、乳化剤（大豆由来）、膨脹剤、香料",
+		}
+	],
+	# U+00B7 "·" (Middle Dot) is a character found in ingredient forsome countries (Catalan)
+	[
+		"ca-middle-dot",
+		{
+			lc => "ca",
+			ingredients_text =>
+				"Formatge mozzarella (llet de vaca pasteuritzada, sal, ferments làctics i quall) i antiaglomerant (cel·lulosa).",
+		}
+	],
+	# synonyms between demi-complet -> semi-complet
+	[
+		"fr-semi",
+		{
+			lc => "fr",
+			ingredients_text => "farine demi-complète de riz, farine de blé demi complet",
+		}
+	],
+	# illegal division by zero
+	[
+		"fr-illegal-division-by-zero",
+		{
+			lc => "fr",
+			ingredients_text => "Analyse moyenne pour 1 00 g: 1472 kJ,",
+		}
+	],
+	[
+		"en-illegal-division-by-zero",
+		{
+			lc => "en",
+			ingredients_text => "each capsule contains: paracetamol 500 m 5 060198 790 0 mg.",
+		}
+	],
+	# mechanicaly separated meat
+	[
+		"en-mechanicaly-separated-meat",
+		{
+			lc => "en",
+			ingredients_text => "mechanicaly separated poultry meat",
+		}
+	],
+	[
+		"fr-mechanicaly-separated-meat",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"viande de dinde séparée mécaniquement, viande séparée mécaniquement de porc, viande séparée mecaniquement de poulet halal",
+		}
+	],
+	# halal
+	[
+		"fr-halal",
+		{
+			lc => "fr",
+			ingredients_text => "viande halal, gélatine de boeuf halal, collagène halal, foie gras de canard halal",
+		}
+	],
+	# kosher
+	[
+		"en-kosher",
+		{
+			lc => "en",
+			ingredients_text => "kosher sea salt, kosher american cheese, kosher bovine gelatine",
+		}
+	],
+	# nova 4 for fruit juice concentrates
+	[
+		"en-nova-4-fruit-juice-concentrates",
+		{
+			lc => "en",
+			ingredients_text => "apple juice concentrates",
+		}
+	],
+	# Japanese additives
+	[
+		"ja-additives",
+		{
+			lc => "ja",
+			ingredients_text => "増粘剤(加工デンプン、キサンタン)、酢酸Na、トレハロース、加工デンプン、グリシン、調味料(アミノ酸等)、酸化防止剤(V.C,V.E)、着色料(野菜色素)",
+		},
+	],
+	# 148g per 100g
+	[
+		"en-quantity-per-100g",
+		{
+			lc => "en",
+			ingredients_text => "tomatoes (148 g per 100g), pork (200 g per 100 g of finished product)",
+		},
+	],
+	[
+		"fr-quantity-per-100g",
+		{
+			lc => "fr",
+			ingredients_text => "tomates (148 g par 100g), porc (200 gr par 100 g de produit fini)",
+		}
+	],
+	[
+		"en-content-of-ingredient",
+		{
+			lc => "en",
+			ingredients_text => "total content of milk 80%, content of fruits 120g per 100g"
+		}
+	],
+	[
+		"en-ingredient-content",
+		{
+			lc => "en",
+			ingredients_text =>
+				"strawberry content: 5%, min cocoa content: 40,3g, total milk content minimum 30%, fruit content: 10%; apples content 50.20g per 100g of product"
+		}
+	],
+	[
+		"en-prepared-with",
+		{
+			lc => "en",
+			ingredients_text => "70g of onions per 100g, prepared with 100g of cucumber per 100g of product,
+				made with 150 g of tomatoes per 100ml, prepared with: 50% of potatoes"
+		}
+	],
+	[
+		"fr-content-of-ingredient",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Taux minimum de légumes : 30%, teneur minimale en lait de 14% - teneur totale de fruits 15%"
+		}
+	],
+	[
+		"fr-prepared-with",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Elaboré avec 50g d'abricots, produit avec 30% d'asperges, fabriquée avec 500g de viande pour 100g, préparé à partir de 140 g de tomates pour 100g de produit"
+		}
+	],
+	# fruits 50% and pear 30% is not a specific ingredient
+	[
+		"en-fruits-sub-ingredients",
+		{lc => "en", ingredients_text => "fruits 50% (apple 40%, pear 30%, cranberry, lemon), sugar"},
+	],
+	# 50g of ingredient
+	[
+		"en-quantity-of-ingredient",
+		{lc => "en", ingredients_text => "50g of tomatoes, 35% garlic, 20cl of water, 10ml of rapeseed oil"}
+	],
+	[
+		"fr-quantity-of-ingredient",
+		{lc => "fr", ingredients_text => "50g de tomates, 35% d'ail, 20cl d'eau, 10ml d'huile de colza"}
+	],
+	# 'and' + processing
+	[
+		"en-ing1-and-ing2-processing",
+		{
+			lc => "en",
+			ingredients_text => "apple,
+non-hydrogenated banana,
+cherry and date,
+hardened elderberry and fig,
+grape and treated huckleberry,
+desalted jackfruit and grilled kiwifruit,
+lemon and unknown_fruit,
+toasted mango and unknown_fruit2,
+nectarine and fried unknown_fruit3,
+puffed orange and caramelized unknown_fruit4.",
+		}
+	],
+	[
+		"en-ing1-and-ing2-processing-parenthesis",
+		{
+			lc => "en",
+			ingredients_text =>
+				"fruits (apple, banana and dried cherry), vegetables (pitted avocado, peeled black radish).",
+		}
+	],
+);
 
 foreach my $test_ref (@tests) {
 
@@ -525,6 +713,7 @@ foreach my $test_ref (@tests) {
 	# Run the test
 
 	if (defined $product_ref->{labels}) {
+
 		compute_field_tags($product_ref, $product_ref->{lc}, "labels");
 	}
 

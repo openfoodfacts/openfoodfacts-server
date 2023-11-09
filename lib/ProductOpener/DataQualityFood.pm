@@ -591,22 +591,30 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 				$computed_energy += $grams * $energy_per_gram;
 			}
 
-			# Compare to specified energy value with a tolerance of 30% + an additiontal tolerance of 5
-			if (   ($computed_energy < ($specified_energy * 0.7 - 5))
-				or ($computed_energy > ($specified_energy * 1.3 + 5)))
-			{
-				# we have a quality problem
-				push @{$product_ref->{data_quality_errors_tags}},
-					"en:energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
-			}
+			# following error/warning should be ignored for some categories
+			# for example, lemon juices containing organic acid, it is forbidden to display organic acid in nutrition tables but
+			# organic acid contributes to the total energy calculation
+			my ($ignore_energy_calculated_error, $category_id)
+				= get_inherited_property_from_categories_tags($product_ref, "ignore_energy_calculated_error:en");
 
-			# Compare to specified energy value with a tolerance of 15% + an additiontal tolerance of 5
-			if (   ($computed_energy < ($specified_energy * 0.85 - 5))
-				or ($computed_energy > ($specified_energy * 1.15 + 5)))
-			{
-				# we have a quality warning
-				push @{$product_ref->{data_quality_warnings_tags}},
-					"en:energy-value-in-$unit-may-not-match-value-computed-from-other-nutrients";
+			if (not((defined $ignore_energy_calculated_error) and ($ignore_energy_calculated_error eq 'yes'))) {
+				# Compare to specified energy value with a tolerance of 30% + an additiontal tolerance of 5
+				if (   ($computed_energy < ($specified_energy * 0.7 - 5))
+					or ($computed_energy > ($specified_energy * 1.3 + 5)))
+				{
+					# we have a quality problem
+					push @{$product_ref->{data_quality_errors_tags}},
+						"en:energy-value-in-$unit-does-not-match-value-computed-from-other-nutrients";
+				}
+
+				# Compare to specified energy value with a tolerance of 15% + an additiontal tolerance of 5
+				if (   ($computed_energy < ($specified_energy * 0.85 - 5))
+					or ($computed_energy > ($specified_energy * 1.15 + 5)))
+				{
+					# we have a quality warning
+					push @{$product_ref->{data_quality_warnings_tags}},
+						"en:energy-value-in-$unit-may-not-match-value-computed-from-other-nutrients";
+				}
 			}
 
 			$nutriments_ref->{"energy-${unit}_value_computed"} = $computed_energy;
@@ -660,6 +668,7 @@ sub check_nutrition_data ($product_ref) {
 			}
 		}
 
+		# catch serving_size = "serving", regardless of setting (per 100g or per serving)
 		if (    (defined $product_ref->{serving_size})
 			and ($product_ref->{serving_size} ne "")
 			and ($product_ref->{serving_size} !~ /\d/))
@@ -670,13 +679,15 @@ sub check_nutrition_data ($product_ref) {
 			and (defined $product_ref->{nutrition_data_per})
 			and ($product_ref->{nutrition_data_per} eq 'serving'))
 		{
-
 			if ((not defined $product_ref->{serving_size}) or ($product_ref->{serving_size} eq '')) {
-				push @{$product_ref->{data_quality_warnings_tags}},
-					"en:nutrition-data-per-serving-missing-serving-size";
+				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-missing-serving-size";
+			}
+			elsif ($product_ref->{serving_quantity} eq "0") {
+				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-serving-quantity-is-0";
 			}
 			elsif ($product_ref->{serving_quantity} == 0) {
-				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-serving-quantity-is-0";
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:nutrition-data-per-serving-serving-quantity-is-not-recognized";
 			}
 		}
 	}
@@ -701,12 +712,24 @@ sub check_nutrition_data ($product_ref) {
 			# energy in kcal greater than in kj
 			if ($product_ref->{nutriments}{"energy-kcal_value"} > $product_ref->{nutriments}{"energy-kj_value"}) {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-greater-than-in-kj";
+
+				# additionally check if kcal value and kj value are reversed. Exact opposite condition as next error below
+				if (
+					(
+						$product_ref->{nutriments}{"energy-kcal_value"}
+						> 3.7 * $product_ref->{nutriments}{"energy-kj_value"} - 2
+					)
+					and ($product_ref->{nutriments}{"energy-kcal_value"}
+						< 4.7 * $product_ref->{nutriments}{"energy-kj_value"} + 2)
+					)
+				{
+					push @{$product_ref->{data_quality_errors_tags}}, "en:energy-value-in-kcal-and-kj-are-reversed";
+				}
 			}
 
 			# check energy in kcal is ~ 4.2 (+/- 0.5) energy in kj
 			#   +/- 2 to avoid false positives due to rounded values below 2 Kcal.
 			#   Eg. 1.49 Kcal -> 6.26 KJ in reality, can be rounded by the producer to 1 Kcal -> 6 KJ.
-			# TODO: add tests in /tests/unit/dataqualityfood.t
 			if (
 				(
 					$product_ref->{nutriments}{"energy-kj_value"}
@@ -758,7 +781,9 @@ sub check_nutrition_data ($product_ref) {
 
 			$nid_n++;
 
-			if (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')) {
+			if (    (defined $product_ref->{nutriments}{$nid . "_100g"})
+				and (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')))
+			{
 				$total += $product_ref->{nutriments}{$nid . "_100g"};
 			}
 
@@ -891,6 +916,50 @@ sub check_nutrition_data ($product_ref) {
 			}
 			elsif ($product_ref->{nutriments}{"salt_100g"} < 0.1) {
 				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-1-g-salt";
+			}
+		}
+
+		# some categories have expected nutriscore grade - push data quality error if calculated nutriscore grade differs from expected nutriscore grade or if it is not calculated
+		my ($expected_nutriscore_grade, $category_id)
+			= get_inherited_property_from_categories_tags($product_ref, "expected_nutriscore_grade:en");
+
+		# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
+		if ((defined $expected_nutriscore_grade) and ($expected_nutriscore_grade =~ /^([a-e]){1}$/i)) {
+			if (
+				# nutriscore not calculated but should have expected nutriscore grade
+				(not(defined $product_ref->{nutrition_grade_fr}))
+				# nutriscore calculated but unexpected nutriscore grade
+				or (    (defined $product_ref->{nutrition_grade_fr})
+					and ($product_ref->{nutrition_grade_fr} ne $expected_nutriscore_grade))
+				)
+			{
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:nutri-score-grade-from-category-does-not-match-calculated-grade";
+			}
+		}
+
+		# some categories have an expected ingredient - push data quality error if ingredient differs from expected ingredient
+		# note: we currently support only 1 expected ingredient
+		my ($expected_ingredients, $category_id)
+			= get_inherited_property_from_categories_tags($product_ref, "expected_ingredients:en");
+
+		if ((defined $expected_ingredients)) {
+			$expected_ingredients = canonicalize_taxonomy_tag("en", "ingredients", $expected_ingredients);
+			my $number_of_ingredients = (defined $product_ref->{ingredients}) ? @{$product_ref->{ingredients}} : 0;
+
+			if ($number_of_ingredients == 0) {
+				push @{$product_ref->{data_quality_warnings_tags}},
+					"en:ingredients-single-ingredient-from-category-missing";
+			}
+			elsif (
+				# more than 1 ingredient
+				($number_of_ingredients > 1)
+				# ingredient different than expected ingredient
+				or not(is_a("ingredients", $product_ref->{ingredients}[0]{id}, $expected_ingredients))
+				)
+			{
+				push @{$product_ref->{data_quality_errors_tags}},
+					"en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients";
 			}
 		}
 	}
@@ -1118,7 +1187,7 @@ sub check_ingredients ($product_ref) {
 				}
 
 				# Dutch and other languages can have 4 consecutive consonants
-				if ($display_lc !~ /de|hr|nl/) {
+				if ($display_lc !~ /de|hr|nl|pl/) {
 					if ($product_ref->{$ingredients_text_lc} =~ /[bcdfghjklmnpqrstvwxz]{5}/is) {
 
 						push @{$product_ref->{data_quality_warnings_tags}},
@@ -1203,12 +1272,18 @@ Checks related to the quantity and serving quantity.
 
 =cut
 
+# Check quantity values. See https://en.wiki.openfoodfacts.org/Products_quantities
 sub check_quantity ($product_ref) {
 
 	# quantity contains "e" - might be an indicator that the user might have wanted to use "℮" \N{U+212E}
-	if (    (defined $product_ref->{quantity})
-		and ($product_ref->{quantity} =~ /(?:.*e$)|(?:[0-9]+\s*[kmc]?[gl]?\s*e)/i)
-		and (not($product_ref->{quantity} =~ /\N{U+212E}/i)))
+	# example: 650 g e
+	if (
+		(defined $product_ref->{quantity})
+		# contains "kg e", or "g e", or "cl e", etc.
+		and ($product_ref->{quantity} =~ /(?:[0-9]+\s*[kmc]?[gl]\s*e)/i)
+		# contains the "℮" symbol
+		and (not($product_ref->{quantity} =~ /\N{U+212E}/i))
+		)
 	{
 		push @{$product_ref->{data_quality_info_tags}}, "en:quantity-contains-e";
 	}
@@ -1294,6 +1369,74 @@ sub check_categories ($product_ref) {
 	# Plant milks should probably not be dairies https://github.com/openfoodfacts/openfoodfacts-server/issues/73
 	if (has_tag($product_ref, "categories", "en:plant-milks") and has_tag($product_ref, "categories", "en:dairies")) {
 		push @{$product_ref->{data_quality_warnings_tags}}, "en:incompatible-categories-plant-milk-and-dairy";
+	}
+
+	return;
+}
+
+=head2 check_labels( PRODUCT_REF )
+
+Checks related to specific product labels.
+
+Vegan label: check that there is no non-vegan ingredient.
+
+Vegetarian label: check that there is no non-vegetarian ingredient.
+
+=cut
+
+sub check_labels ($product_ref) {
+	# this also include en:vegan that is a child of en:vegetarian
+	if (defined $product_ref->{labels_tags} && has_tag($product_ref, "labels", "en:vegetarian")) {
+		if (defined $product_ref->{ingredients}) {
+			my @ingredients = @{$product_ref->{ingredients}};
+
+			while (@ingredients) {
+
+				# Remove and process the first ingredient
+				my $ingredient_ref = shift @ingredients;
+				my $ingredientid = $ingredient_ref->{id};
+
+				# Add sub-ingredients at the beginning of the ingredients array
+				if (defined $ingredient_ref->{ingredients}) {
+
+					unshift @ingredients, @{$ingredient_ref->{ingredients}};
+				}
+
+				# some additives_classes (like thickener, for example) do not have the key-value vegan and vegetarian
+				# it can be additives_classes that contain only vegan/vegetarian additives.
+				# to avoid false-positive - instead of raising a warning (else below) we ignore additives_classes
+				if (!exists_taxonomy_tag("additives_classes", $ingredientid)) {
+					if (has_tag($product_ref, "labels", "en:vegan")) {
+						# vegan
+						if (defined $ingredient_ref->{"vegan"}) {
+							if ($ingredient_ref->{"vegan"} eq 'no') {
+								add_tag($product_ref, "data_quality_errors", "en:vegan-label-but-non-vegan-ingredient");
+							}
+							# else 'yes', 'maybe'
+						}
+						# no tag
+						else {
+							add_tag($product_ref, "data_quality_warnings",
+								"en:vegan-label-but-could-not-confirm-for-all-ingredients");
+						}
+					}
+
+					# vegetarian label condition is above
+					if (defined $ingredient_ref->{"vegetarian"}) {
+						if ($ingredient_ref->{"vegetarian"} eq 'no') {
+							add_tag($product_ref, "data_quality_errors",
+								"en:vegetarian-label-but-non-vegetarian-ingredient");
+						}
+						# else 'yes', 'maybe'
+					}
+					# no tag
+					else {
+						add_tag($product_ref, "data_quality_warnings",
+							"en:vegetarian-label-but-could-not-confirm-for-all-ingredients");
+					}
+				}
+			}
+		}
 	}
 
 	return;
@@ -1498,6 +1641,7 @@ sub check_quality_food ($product_ref) {
 	check_quantity($product_ref);
 	detect_categories($product_ref);
 	check_categories($product_ref);
+	check_labels($product_ref);
 	compare_nutriscore_with_value_from_producer($product_ref);
 	check_ecoscore_data($product_ref);
 	check_food_groups($product_ref);

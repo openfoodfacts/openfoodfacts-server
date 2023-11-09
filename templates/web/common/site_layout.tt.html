@@ -16,8 +16,8 @@
     <meta property="og:description" content="[% canon_description %]">
     [% options_favicons %]
     <link rel="canonical" href="[% canon_url %]">
-    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% lang('text_direction') %].css?v=[% css_timestamp %]">
-    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% lang('text_direction') %].css?v=[% css_timestamp %]" data-base-layout="true">
+    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/select2.min.css">
     <link rel="search" href="[% formatted_subdomain %]/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="[% lang('site_name') %]">
 	[% header %]
@@ -63,16 +63,7 @@
 									<li class="divider"></li>
 
 									<li><label>[% lang("resources") %]</label></li>
-									<li>
-										<a href="[% IF lc == "fr" %]https://blog.openfoodfacts.org/wp-content/uploads/2023/02/2022-11-FR-Guide-dutilisation-Plateforme-Pro.pdf[% ELSE %]https://blog.openfoodfacts.org/wp-content/uploads/2023/02/2022-11-EN-Pro-Plateform-User-Guide.pdf[% END %]">
-											[% lang('pro_platform_user_guide') %]
-										</a>
-									</li>
-									<li>
-										<a href="[% IF lc == "fr" %]https://support.openfoodfacts.org/help/fr-fr/3-producers[% ELSE %]https://support.openfoodfacts.org/help/en-gb/3-producers[% END %]">
-											[% lang('faq_for_producers') %]
-										</a>
-									</li>
+									<ul>[% INCLUDE 'web/common/producers_resources_list.tt.html' %]</ul>
 								[% END %]
 
 								<li class="divider"></li>
@@ -178,8 +169,8 @@
 						</li>
 					</ul>
 
-					[%# Don't show the search bar on the producers platform %]
-					[% IF !(server_options_producers_platform) %]
+					[%# Show the search bar on the producers platform only when the producer is logged in %]
+					[% IF !(server_options_producers_platform) || (user_id.defined) %]
 					<section class="top-bar-section">
 					
 						<ul class="left small-4" style="margin-right:2rem;">
@@ -204,6 +195,7 @@
 					<ul class="search_and_links">
 						<li><a href="[% lang('menu_discover_link') %]" class="top-bar-links">[% lang('menu_discover') %]</a></li>
 						<li><a href="[% lang('menu_contribute_link') %]" class="top-bar-links">[% lang('menu_contribute') %]</a></li>
+						<li class="show-for-xlarge-up"><a href="[% lang('footer_producers_link') %]" class="top-bar-links">[% lang('footer_producers') %]</a></li>
 						<li class="flex-grid getapp"><a href="[% lang('get_the_app_link') %]" class="buttonbar button" style="top:0;">[% display_icon('phone_android') %] <span class="bt-text">[% lang('get_the_app') %]</span></a></li>
 					</ul>
 					</section>
@@ -249,7 +241,7 @@
 				<!-- full width banner on mobile -->
 				
 				[% IF mobile %]
-					<a href="[% mobile.link %]" class="button large expand success">
+					<a href="[% mobile.link %]" id="mobile-app-top-banner" class="button large expand success">
 					<div class="row collapse">
 						<div class="small-6 columns">
 							[% mobile.text %]
@@ -272,7 +264,9 @@
 					<div id="main_column">
 						[% IF ! server_options_producers_platform %]
 							[%# for now, display the packagings banner in all cases %]
-							[% IF 1 == 1 %]
+							[% IF 1 == 0 %]
+								[% INCLUDE 'web/common/includes/offdays_banner.tt.html' %]							
+							[% ELSIF 1 == 2 %]
 								[% INCLUDE 'web/common/includes/packagings_banner.tt.html' %]
 							[% ELSE %]
 								[%# we keep the old code so that we can easily put back the donation banner %]
@@ -282,7 +276,7 @@
 						[% END %]
             			
 						[% IF page_format == "banner" %]
-							<!-- banner pages such as product and product edit form have their own h1 title -->
+							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
 							[% content %]
 						[% ELSIF page_type == "products" %]
 							[% IF schema_org_itemtype.defined %]
@@ -410,9 +404,9 @@
 
 	</div>
 
-<script src="[% static_subdomain %]/js/dist/modernizr.js"></script>
-<script src="[% static_subdomain %]/js/dist/jquery.js"></script>
-<script src="[% static_subdomain %]/js/dist/jquery-ui.js"></script>
+<script src="[% static_subdomain %]/js/dist/modernizr.js" data-base-layout="true"></script>
+<script src="[% static_subdomain %]/js/dist/jquery.js" data-base-layout="true"></script>
+<script src="[% static_subdomain %]/js/dist/jquery-ui.js" data-base-layout="true"></script>
 <script src="[% static_subdomain %]/js/dist/hc-sticky.js"></script>
 <script src="[% static_subdomain %]/js/dist/display.js"></script>
 <script src="[% static_subdomain %]/js/dist/stikelem.js"></script>
@@ -436,7 +430,7 @@
 <script src="https://support.openfoodfacts.org/assets/chat/chat.min.js"></script>
 [% END %]
 
-<script src="[% static_subdomain %]/js/dist/foundation.js"></script>
+<script src="[% static_subdomain %]/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="[% static_subdomain %]/js/dist/jquery.cookie.js"></script>
 <script src="[% static_subdomain %]/js/dist/select2.min.js"></script>
 [% scripts %]
@@ -479,7 +473,7 @@
 
 [% SET crowdin_languages = ["aa","ar","ber","br","co","fa","ga","hy","iu","kk","lb","me","mr","ne","no","ry","sd","sl","sq","st","tg","tr","tzl","val","wa","zea","zu","ach","as","bg","bs","crs","eo","fi","gd","hi","id","ja","km","ku","lo","mg","ms","nr","pa","qu","sa","sg","sma","sr","sv","th","ts","ug","ve","wo","zh","af","ast","bm","ca","cs","el","fil","gl","hr","ii","jv","kmr","kw","mi","mt","pl","rm","sat","sh","sn","sr_CS","sw","ti","tt","uk","vec","xh","ak","az","bn","ce","cv","et","fo","gu","ht","is","ka","kmr_TR","ky","lt","ml","my","oc","ro","sc","si","so","sr_RS","ta","tl","tw","ur","vi","yi","am","be","bo","chr","cy","eu","ha","hu","kab","kn","la","lv","mn","nb","nn","ru","sco","sk","son","ss","te","tn","ty","uz","vls","yo"] %]
 
-[% IF crowdin_languages.grep("^$lc$").size %]
+[% IF crowdin_languages.grep("^$lc$").size and user_id.defined %]
 <script
   type="text/javascript"
   src="https://crowdin.com/js/crowdjet/crowdjet.js">

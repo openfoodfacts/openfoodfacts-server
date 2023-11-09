@@ -194,7 +194,7 @@ else {
 	$args_ref->{no_source} = 1;
 }
 
-my $job_id = $minion->enqueue(import_csv_file => [$args_ref] => {queue => $server_options{minion_local_queue}});
+my $job_id = get_minion()->enqueue(import_csv_file => [$args_ref] => {queue => $server_options{minion_local_queue}});
 
 $import_files_ref->{$file_id}{imports}{$import_id}{job_id} = $job_id;
 

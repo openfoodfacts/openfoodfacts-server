@@ -61,10 +61,13 @@ use Log::Any qw($log);
 
 use Storable qw(dclone);
 use Text::Fuzzy;
+use Data::DeepAccess qw(deep_exists);
 
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+
+		$IMPORT_MAX_PACKAGING_COMPONENTS
 
 		&import_csv_file
 		&import_products_categories_from_public_database
@@ -89,7 +92,7 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Data qw/:all/;
-use ProductOpener::ImportConvert qw/clean_fields clean_weights assign_quantity_from_field/;
+use ProductOpener::ImportConvert qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Data qw/:all/;
@@ -111,6 +114,9 @@ use DateTime::Format::ISO8601;
 use URI;
 use Digest::MD5 qw(md5_hex);
 use LWP::UserAgent;
+use Data::Difference qw(data_diff);
+
+$IMPORT_MAX_PACKAGING_COMPONENTS = 10;
 
 # private function to import images from dir
 # args:
@@ -270,7 +276,7 @@ sub deduped_colnames ($columns_ref) {
 Do some pre-processing on input field values:
 
 - Fields suffixed with _if_not_existing are loaded only if the product does not have an existing value
-- Tags fields have special behaviours:
+- Special handling of tags fields:
 	- Empty values are skipped
 	- For labels and categories, we can have columns like labels:Bio with values like 1, Y, Yes
 	- [tags type]_if_match_in_taxonomy : contains candidate values that we import only if we have a matching taxonomy entry
@@ -292,7 +298,7 @@ sub preprocess_field ($imported_product_ref, $product_ref, $field, $yes_regexp, 
 			. $imported_product_ref->{$field . "_if_not_existing"} . "\n";
 		$imported_product_ref->{$field} = $imported_product_ref->{$field . "_if_not_existing"};
 	}
-	# if it is a field with a tag behaviour (taxonomized or not)
+	# if it is a tag field (taxonomized or not)
 	# (see %tags_fields in Tags.pm)
 	if (defined $tags_fields{$field}) {
 		foreach my $subfield (sort keys %{$imported_product_ref}) {
@@ -514,6 +520,15 @@ sub set_field_value (
 			$product_ref->{$field} = "";
 			delete $product_ref->{$field . "_tags"};
 		}
+
+		# If we are on the producers platform, replace existing values by producer supplied values for allergens and traces
+		if (deep_exists(\%options, "replace_existing_values_when_importing_those_tags_fields", $field)) {
+			if ($imported_product_ref->{$field} ne "") {
+				$product_ref->{$field} = "";
+				delete $product_ref->{$field . "_tags"};
+			}
+		}
+
 		# existing is the list of already existing tags
 		# that will be completed with more values
 		my %existing = ();
@@ -527,10 +542,8 @@ sub set_field_value (
 
 			my $tagid;
 
-			next if $tag =~ /^(\s|,|-|\%|;|_|°)*$/;
 			next
-				if $tag
-				=~ /^\s*((n(\/|\.)?a(\.)?)|(not applicable)|unknown|inconnu|inconnue|non renseigné|non applicable|nr|n\/r)\s*$/i;
+				if $tag =~ /^\s*($empty_regexp|$unknown_regexp|$not_applicable_regexp)\s*$/i;
 
 			$tag =~ s/^\s+//;
 			$tag =~ s/\s+$//;
@@ -1107,6 +1120,103 @@ sub set_nutrition_data_per_fields ($args_ref, $imported_product_ref, $product_re
 	return;
 }
 
+sub import_packaging_components (
+	$args_ref, $imported_product_ref, $product_ref, $stats_ref,
+	$modified_ref, $modified_fields_ref, $differing_ref, $differing_fields_ref,
+	$packagings_edited_ref, $time
+	)
+{
+
+	my $code = $imported_product_ref->{code};
+
+	# keep a deep copy of the existing packaging components, so that we can check if the resulting components are different
+	my $original_packagings_ref = dclone($product_ref->{packagings} || []);
+
+	# build a list of input packaging components
+	my @input_packagings = ();
+	my $data_is_complete = 0;
+
+	# packaging data is specified in the CSV file in columns named like packaging_1_number_of_units
+	# we currently search up to 10 components
+
+	for (my $i = 1; $i <= $IMPORT_MAX_PACKAGING_COMPONENTS; $i++) {
+		my $input_packaging_ref = {};
+		foreach
+			my $field (qw(number_of_units shape material recycling quantity_per_unit weight_specified weight_measured))
+		{
+			$input_packaging_ref->{$field} = $imported_product_ref->{"packaging_${i}_${field}"};
+		}
+		$log->debug("input_packaging_ref", {i => $i, input_packaging_ref => $input_packaging_ref}) if $log->is_debug();
+
+		# Taxonomize the input packaging component data
+		push @input_packagings,
+			get_checked_and_taxonomized_packaging_component_data($imported_product_ref->{lc}, $input_packaging_ref, {});
+
+		# Record if we have complete input data, with all key fields (for at least 1 component)
+		# not considered a key field (and thus may be lost): recycling instruction, quantity per unit
+		# If we have complete data for one component in an import, we assume the data is reasonably
+		# complete for all components (e.g. we might miss a weight for a very light component)
+		if (
+				(defined $input_packaging_ref->{number_of_units})
+			and (defined $input_packaging_ref->{shape})
+			and (defined $input_packaging_ref->{material})
+			and
+			((defined $input_packaging_ref->{weight_specified}) or (defined $input_packaging_ref->{weight_measured}))
+			)
+		{
+			$data_is_complete = 1;
+		}
+	}
+
+	if ($data_is_complete) {
+		# We seem to have complete data, replace existing data
+		$product_ref->{packagings} = \@input_packagings;
+		# and set the packagings complete checkbox
+		$product_ref->{packagings_complete} = 1;
+	}
+	else {
+		# We have partial data, that may be missing fields like number of units, weight etc.
+		# In that case, we try to merge the input components with the existing components
+		# so that we don't lose user entered data such as weights
+		# This may result in some components being duplicated, if the existing component and
+		# the input component have incompatible fields (e.g. if one is a "tray" and the other a "box",
+		# even though they refer to the same thing)
+
+		foreach my $input_packaging_ref (@input_packagings) {
+			add_or_combine_packaging_component_data($product_ref, $input_packaging_ref, {});
+		}
+	}
+
+	# Check if the packagings data has changed
+	my @diffs = data_diff($original_packagings_ref, $product_ref->{packagings});
+	if (scalar @diffs > 0) {
+		$log->debug(
+			"packagings diff",
+			{
+				original_packagings => $original_packagings_ref,
+				input_packagings => \@input_packagings,
+				new_packagings => $product_ref->{packagings},
+				data_is_complete => $data_is_complete,
+				diffs => \@diffs
+			}
+		) if $log->is_debug();
+		$stats_ref->{products_packagings_updated}{$code} = 1;
+		if (scalar @$original_packagings_ref == 0) {
+			$stats_ref->{products_packagings_created}{$code} = 1;
+		}
+		else {
+			$stats_ref->{products_packagings_changed}{$code} = 1;
+		}
+		$$modified_ref++;
+		$packagings_edited_ref->{$code}++;
+		# push @$modified_fields_ref, "nutrients.$field";
+	}
+
+	# Update the packagings_complete_field
+
+	return;
+}
+
 =head2 import_csv_file ( ARGUMENTS )
 
 C<import_csv_file()> imports product data in the Open Food Facts CSV format
@@ -1315,7 +1425,11 @@ sub import_csv_file ($args_ref) {
 
 	$log->debug("importing products", {}) if $log->is_debug();
 
-	open(my $io, '<:encoding(UTF-8)', $args_ref->{csv_file}) or die("Could not open " . $args_ref->{csv_file} . ": $!");
+	my $io;
+	if (not open($io, '<:encoding(UTF-8)', $args_ref->{csv_file})) {
+		$stats_ref->{error} = "Could not open " . $args_ref->{csv_file} . ": $!";
+		return $stats_ref;
+	}
 
 	# first line contains headers
 	my $columns_ref = $csv->getline($io);
@@ -1330,6 +1444,7 @@ sub import_csv_file ($args_ref) {
 	my @edited = ();
 	my %edited = ();
 	my %nutrients_edited = ();
+	my %packagings_edited = ();
 	my $skip_not_existing = 0;
 	my $skip_no_images = 0;
 
@@ -1344,7 +1459,7 @@ sub import_csv_file ($args_ref) {
 		$i++;
 
 		# By default, use the orgid passed in the arguments
-		# it may be overrode later on a per product basis
+		# it may be overriden later on a per product basis
 		my $org_id = $args_ref->{org_id};
 		my $org_ref;
 
@@ -1573,7 +1688,7 @@ sub import_csv_file ($args_ref) {
 		$Owner_id = get_owner_id($User_id, $Org_id, $args_ref->{owner_id});
 		my $product_id = product_id_for_owner($Owner_id, $code);
 
-		# The userid can be overrode on a per product basis
+		# The userid can be overriden on a per product basis
 		# when we import data from the producers platform to the public platform
 		# we use the orgid as the userid
 		my $user_id = $args_ref->{user_id};
@@ -1932,15 +2047,13 @@ sub import_csv_file ($args_ref) {
 				my $source_field = $';
 				defined $product_ref->{sources_fields} or $product_ref->{sources_fields} = {};
 				defined $product_ref->{sources_fields}{$source_id} or $product_ref->{sources_fields}{$source_id} = {};
-				if ($imported_product_ref->{$field} ne $product_ref->{sources_fields}{$source_id}{$source_field}) {
+				if (   (not defined $product_ref->{sources_fields}{$source_id}{$source_field})
+					or ($imported_product_ref->{$field} ne $product_ref->{sources_fields}{$source_id}{$source_field}))
+				{
 					$modified++;
 					defined $stats_ref->{"products_sources_field_" . $field . "_updated"}
 						or $stats_ref->{"products_sources_field_" . $field . "_updated"} = {};
 					$stats_ref->{"products_sources_field_" . $field . "_updated"}{$code} = 1;
-					print "different sources_field values - field: $field - existing: "
-						. $product_ref->{sources_fields}{$source_id}{$source_field}
-						. " - new: "
-						. $imported_product_ref->{$field} . "\n";
 					$product_ref->{sources_fields}{$source_id}{$source_field} = $imported_product_ref->{$field};
 				}
 			}
@@ -1981,6 +2094,16 @@ sub import_csv_file ($args_ref) {
 		);
 
 		set_nutrition_data_per_fields($args_ref, $imported_product_ref, $product_ref, $stats_ref, \$modified,);
+
+		# Packaging data
+
+		import_packaging_components(
+			$args_ref, $imported_product_ref, $product_ref, $stats_ref,
+			\$modified, \@modified_fields, \$differing, \%differing_fields,
+			\%packagings_edited, $time,
+		);
+
+		# Compute extra stats
 
 		if ((defined $stats_ref->{products_info_added}{$code}) or (defined $stats_ref->{products_info_changed}{$code}))
 		{
@@ -2149,26 +2272,34 @@ sub import_csv_file ($args_ref) {
 			# image_other_url
 			# image_other_url.2	: a second "other" photo
 
-			next if $field !~ /^image_((front|ingredients|nutrition|packaging|other)(_[a-z]{2})?)_url/;
+			next
+				if $field
+				!~ /^image_((?:front|ingredients|nutrition|packaging|other)(?:_[a-z]{2})?)_url(_[a-z]{2})?(\.[0-9]+)?$/;
 
-			my $imagefield = $1 . $';    # e.g. image_front_url_fr -> front_fr
+			my $imagefield = $1 . ($2 || '');    # e.g. image_front_url_fr or image_front_url_fr -> front_fr
+			my $number = $3;
 
 			# If the imagefield is other, and we have a value for image_other_type, try to identify the imagefield
-			if (    ($imagefield eq "other")
-				and (defined $imported_product_ref->{"image_other_type"})
-				and ($imported_product_ref->{"image_other_type"} ne ""))
-			{
-				my $type_imagefield
-					= get_imagefield_from_string($product_ref->{lc}, $imported_product_ref->{"image_other_type"});
-				$log->debug(
-					"imagefield is other, tried to guess it image_other_type",
-					{
-						imagefield => $imagefield,
-						type_imagefield => $type_imagefield,
-						image_other_type => $imported_product_ref->{"image_other_type"}
-					}
-				) if $log->is_debug();
-				$imagefield = $type_imagefield;
+			if ($imagefield eq "other") {
+				my $image_other_type_field = "image_other_type";
+				if (defined $number) {
+					$image_other_type_field .= $number;
+				}
+
+				if ($imported_product_ref->{$image_other_type_field}) {
+					my $type_imagefield
+						= get_imagefield_from_string($product_ref->{lc},
+						$imported_product_ref->{$image_other_type_field});
+					$log->debug(
+						"imagefield is other, tried to guess with image_other_type",
+						{
+							imagefield => $imagefield,
+							type_imagefield => $type_imagefield,
+							image_other_type => $imported_product_ref->{$image_other_type_field}
+						}
+					) if $log->is_debug();
+					$imagefield = $type_imagefield;
+				}
 			}
 
 			$log->debug("image file",
@@ -2701,14 +2832,12 @@ sub update_export_status_for_csv_file ($args_ref) {
 	my $columns_ref = $csv->getline($io);
 	$csv->column_names(@{deduped_colnames($columns_ref)});
 
-	my $products_collection = get_products_collection();
-
 	while (my $imported_product_ref = $csv->getline_hr($io)) {
 
 		$i++;
 
 		# By default, use the orgid passed in the arguments
-		# it may be overrode later on a per product basis
+		# it may be overridden later on a per product basis
 		my $org_id = $args_ref->{org_id};
 
 		# The option import_owner is used when exporting from the producers database to the public database
@@ -2757,9 +2886,12 @@ sub update_export_status_for_csv_file ($args_ref) {
 			$product_ref->{states} = join(',', @{$product_ref->{states_tags}});
 			compute_field_tags($product_ref, $product_ref->{lc}, "states");
 
+			# Update the product without creating a new revision
 			my $path = product_path($product_ref);
 			store("$data_root/products/$path/product.sto", $product_ref);
 			$product_ref->{code} = $product_ref->{code} . '';
+			# Use the obsolete collection if the product is obsolete
+			my $products_collection = get_products_collection({obsolete => $product_ref->{obsolete}});
 			$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
 		}
 	}
@@ -2903,7 +3035,7 @@ sub import_products_categories_from_public_database ($args_ref) {
 						$log->debug("Food::special_process_product") if $log->is_debug();
 						ProductOpener::Food::special_process_product($product_ref);
 					}
-					compute_nutrition_score($product_ref);
+					compute_nutriscore($product_ref);
 					compute_nova_group($product_ref);
 					compute_nutrient_levels($product_ref);
 					compute_unknown_nutrients($product_ref);

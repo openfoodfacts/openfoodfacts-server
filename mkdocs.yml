@@ -19,9 +19,12 @@ theme:
 
 markdown_extensions:
   - footnotes
-  # this one allow to have two space indentation
-  # counts as nested list
+  # support tables
+  - tables
+  # this one allow to have two space indentation counts as nested list, as in github/vscode
   - mdx_truly_sane_lists
+  # this one allow to start a list without first adding a blank line, as in github/vscode
+  - mdx_breakless_lists
   - pymdownx.highlight
   - pymdownx.superfences
   - toc:

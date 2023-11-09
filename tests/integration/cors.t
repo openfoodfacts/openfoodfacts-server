@@ -60,11 +60,23 @@ my $tests_ref = [
 		},
 		expected_type => "html",
 	},
+	# Note: in API v3, we return a 200 status code for OPTIONS, even if the product does not exist
 	{
 		test_case => 'options-api-v3',
 		method => 'OPTIONS',
 		path => '/api/v3/product/0000002',
-		expected_status_code => 404,
+		expected_status_code => 200,
+		headers => {
+			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+		},
+		expected_type => "html",
+	},
+	{
+		test_case => 'options-api-v3-test-product',
+		method => 'OPTIONS',
+		path => '/api/v3/product/test',
+		expected_status_code => 200,
 		headers => {
 			"Access-Control-Allow-Origin" => "*",
 			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",

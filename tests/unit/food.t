@@ -169,7 +169,7 @@ is($product_ref->{nutrition_score_beverage}, 1);
 $product_ref = {
 	lc => "en",
 	categories => "beverages",
-	categories_tags => ["en:beverages", "en:plant-milks"],
+	categories_tags => ["en:beverages", "en:plant-based-milk-alternatives"],
 	ingredients_tags => ["en:water", "en:sugar"],
 	ingredients_text => "water, fruit juice",
 };
@@ -456,6 +456,9 @@ is($value, '20,5');
 is($modifier, '~');
 assign_nid_modifier_value_and_unit($product_ref, "salt_prepared", $modifier, $value, "g");
 
+# Prepared value defined in IU
+assign_nid_modifier_value_and_unit($product_ref, "vitamin-a_prepared", "", 468, "IU");
+
 # test support of traces, as well as "nearly" and prepared values
 compute_serving_size_data($product_ref);
 
@@ -479,7 +482,11 @@ is_deeply(
 			'sugars_100g' => 1,
 			'sugars_modifier' => "\x{2264}",
 			'sugars_unit' => 'g',
-			'sugars_value' => 1
+			'sugars_value' => 1,
+			'vitamin-a_prepared' => '0.0001404',
+			'vitamin-a_prepared_100g' => '0.0001404',
+			'vitamin-a_prepared_unit' => 'IU',
+			'vitamin-a_prepared_value' => 468,
 		},
 		'nutrition_data_per' => '100g',
 		'nutrition_data_prepared_per' => '100g'
@@ -515,6 +522,31 @@ is_deeply(
 			'vitamin-e_value' => 40
 		},
 		'nutrition_data_per' => '100g',
+	}
+) or diag explain $product_ref;
+
+# Test that 100g values are not extrapolated where serving size <=5
+$product_ref = {
+	serving_size => '5 g',
+	nutrition_data_per => 'serving'
+};
+
+assign_nid_modifier_value_and_unit($product_ref, "fat", undef, '1', 'g');
+compute_serving_size_data($product_ref);
+
+is_deeply(
+	$product_ref,
+	{
+		'nutriments' => {
+			'fat' => '1',
+			'fat_serving' => '1',
+			'fat_unit' => 'g',
+			'fat_value' => '1',
+		},
+		'nutrition_data_per' => 'serving',
+		'nutrition_data_prepared_per' => '100g',
+		'serving_quantity' => 5,
+		'serving_size' => '5 g'
 	}
 ) or diag explain $product_ref;
 

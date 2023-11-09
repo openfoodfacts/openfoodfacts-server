@@ -42,12 +42,14 @@ BEGIN {
 		$producers_email
 
 		$google_cloud_vision_api_key
+		$google_cloud_vision_api_url
 
 		$crowdin_project_identifier
 		$crowdin_project_key
 
 		$log_emails
 		$robotoff_url
+		$query_url
 		$events_url
 		$events_username
 		$events_password
@@ -80,6 +82,7 @@ BEGIN {
 		@display_other_fields
 		@drilldown_fields
 		@taxonomy_fields
+		@index_tag_types
 		@export_fields
 
 		%tesseract_ocr_available_languages
@@ -158,15 +161,22 @@ use ProductOpener::Config2;
 		unaccent => 1,
 		lowercase => 1,
 	},
+	# xx: language less entries, also deaccent
+	xx => {
+		unaccent => 1,
+		lowercase => 1,
+	},
 );
 
 %admins = map {$_ => 1} qw(
 	alex-off
+	cha-delh
 	charlesnepote
 	gala-nafikova
 	hangy
 	manoncorneille
 	raphael0202
+	sarazine-ouattara
 	stephane
 	tacinte
 	teolemon
@@ -338,6 +348,7 @@ $conf_root = $ProductOpener::Config2::conf_root;
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
 $google_cloud_vision_api_key = $ProductOpener::Config2::google_cloud_vision_api_key;
+$google_cloud_vision_api_url = $ProductOpener::Config2::google_cloud_vision_api_url;
 
 $crowdin_project_identifier = $ProductOpener::Config2::crowdin_project_identifier;
 $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
@@ -345,6 +356,7 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
+$query_url = $ProductOpener::Config2::query_url;
 
 # do we want to send emails
 $log_emails = $ProductOpener::Config2::log_emails;
@@ -382,15 +394,6 @@ $zoom_size = 800;
 $page_size = 24;
 
 $google_analytics = <<HTML
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQX9SYHB2P&aip=1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('set', 'allow_google_signals', false);
-  gtag('config', 'G-HQX9SYHB2P', {"anonymize_ip": true, 'allow_google_signals': false});
-</script>
 <!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
@@ -461,7 +464,6 @@ my $manifest = {
 };
 $options{manifest} = $manifest;
 
-$options{mongodb_supports_sample} = 0;    # from MongoDB 3.2 onward
 $options{display_random_sample_of_products_after_edits} = 0;    # from MongoDB 3.2 onward
 
 $options{favicons} = <<HTML
@@ -486,27 +488,51 @@ XML
 	;
 
 # Nutriscore: categories that are never considered beverages for Nutri-Score computation
-$options{categories_not_considered_as_beverages_for_nutriscore} = [
+$options{categories_not_considered_as_beverages_for_nutriscore_2021} = [
 	qw(
 		en:plant-milks
 		en:milks
 		en:meal-replacement
-		en:dairy-drinks-substitutes
+		en:plant-based-milk-alternatives
 		en:chocolate-powders
 		en:soups
 	)
 ];
 
-# categories that are considered as beverages
+$options{categories_not_considered_as_beverages_for_nutriscore_2023} = [
+	qw(
+		en:meal-replacement
+		en:soups
+	)
+];
+
+# categories that are considered as beverages for Nutri-Score 2021
 # unless they have 80% milk (which we will determine through ingredients analysis)
-$options{categories_considered_as_beverages_for_nutriscore} = [
+$options{categories_considered_as_beverages_for_nutriscore_2021} = [
 	qw(
 		en:tea-based-beverages
 		en:iced-teas
 		en:herbal-tea-beverages
 		en:coffee-beverages
 		en:coffee-drinks
+		en:coffees
+		en:herbal-teas
+		en:teas
+	)
+];
 
+# categories that are considered as beverages for Nutri-Score 2023
+$options{categories_considered_as_beverages_for_nutriscore_2023} = [
+	qw(
+		en:milks
+		en:plant-based-milk-alternatives
+		en:dairy-drinks
+		en:plant-based-beverages
+		en:tea-based-beverages
+		en:iced-teas
+		en:herbal-tea-beverages
+		en:coffee-beverages
+		en:coffee-drinks
 		en:coffees
 		en:herbal-teas
 		en:teas
@@ -557,10 +583,14 @@ $options{categories_exempted_from_nutrient_levels} = [
 		en:coffees
 		en:teas
 		en:yeasts
-		fr:levure
-		fr:levures
+		en:food-additives
 	)
 ];
+
+$options{replace_existing_values_when_importing_those_tags_fields} = {
+	"allergens" => 1,
+	"traces" => 1,
+};
 
 # fields for which we will load taxonomies
 # note: taxonomies that are used as properties of other taxonomies must be loaded first
@@ -606,6 +636,7 @@ $options{categories_exempted_from_nutrient_levels} = [
 # vitamins
 
 @taxonomy_fields = qw(
+	units
 	languages states countries
 	allergens origins additives_classes ingredients
 	packaging_shapes packaging_materials packaging_recycling packaging
@@ -618,6 +649,9 @@ $options{categories_exempted_from_nutrient_levels} = [
 	data_quality data_quality_bugs data_quality_info data_quality_warnings data_quality_errors data_quality_warnings_producers data_quality_errors_producers
 	improvements
 );
+
+# tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
+@index_tag_types = qw(brands categories labels additives nova_groups ecoscore nutrition_grades products);
 
 # fields in product edit form, above ingredients and nutrition facts
 
@@ -694,6 +728,7 @@ $options{categories_exempted_from_nutrient_levels} = [
 );
 
 # fields for drilldown facet navigation
+# If adding to this list ensure that the tables are being replicated to Postgres in the openfoodfacts-query repo
 
 @drilldown_fields = qw(
 	nutrition_grades
@@ -1000,7 +1035,7 @@ $options{redirect_texts} = {
 $options{display_tag_additives} = [
 	'@additives_classes',
 	'wikipedia',
-	'title:efsa_evaluation_overexposure_risk_title',
+	#'title:efsa_evaluation_overexposure_risk_title',
 	'efsa_evaluation',
 	'efsa_evaluation_overexposure_risk',
 	'efsa_evaluation_exposure_table',

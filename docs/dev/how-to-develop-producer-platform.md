@@ -2,43 +2,51 @@
 
 Here is how to develop for the producers platform using docker.
 
-It suppose [you already have setup docker for dev](how-to-quick-start-guide.md).
+### Prerequisites:
 
-You should have two kind of shell:
-- the shell for openfoodfacts
-- the shell for openfoodfacts-pro, this is a shell where you have source the `setenv-pro.sh`,
-  that is you run `. setenv-pro.sh`.
-  Your prompt, should now contains a `(pro)` to recall you you are in producers environment.
-  (this simply sets some environment variables that will overides the one in .env)
+- Docker should already be [set up for development.](how-to-quick-start-guide.md).
 
-To develop, on producers plateform, you can then us a shell for openfoodfacts-pro and simply do a `make dev` and everything as usual.
+### Shell Setup:
+You will need two types of shells:
+- Shell for OpenFoodFacts:
+  - Use this shell for general development on the OpenFoodFacts platform.
+- Shell for OpenFoodFacts-Pro: Use this shell when working on the OpenFoodFacts-Pro platform.
+  - To set up the shell, source the `setenv-pro.sh` file by running the command: `. setenv-pro.sh`.
+  - Once the shell is set up, your prompt will show `(pro)` to indicate that you are in the producers environment.(this simply sets some environment variables that will overides the one in `.env`)
 
-If you need to work on product import/export, or interacting with public platform,
-you have to start postgres and the minion on off side.
-That is, in a *non pro* shell, run `docker-compose up postgres minion mongodb`.
+### Development Workflow:
+To develop on the producers platform, follow these steps:
 
-Note that the setup does not currently support running the http server for both public and pro platform at the same time.
-So as you need the public platform:
-- in your *pro shell*, run a `docker-compose stop backend`
-- in your *non pro shell*, run a `docker-compose up backend`
-Now `openfoodfacts.localhost` is the public database.
-Of course, do this inside-out to access the pro http server.
+- Open a shell for OpenFoodFacts-Pro.
+- Run the command `make dev` to start the development environment. This command functions as usual.
+  - If you encounter any issues with CSS not showing up, you can run `make build_lang` in the *pro* shell.
 
-Note that if you [use direnv](how-to-use-direnv.md), it should be fine, if you did not redefine variables set by `setenv-pro.sh`.
+### Working with Product Import/Export and Interacting with the Public Platform:
+If you need to work on product import/export or interact with the public platform, you must start the following services: `PostgreSQL`, `MongoDB`, and the `Minion`. Here's how:
+
+- In a *non-pro* shell (OpenFoodFacts shell), run the command `docker-compose up postgres minion mongodb`.
+  - This command starts the necessary services in the background.
+
+#### Note: The setup does not currently support running the http server for both public and pro platform at the same simultaneously. Therefore, to access the public platform, you need to follow these steps:
+
+- in your *pro shell*, run a `docker-compose stop frontend`
+- in your *non pro shell*, run a `docker-compose up frontend`
+Now, the public database can be accessed at `openfoodfacts.localhost`.If you need to access the *pro* HTTP server, reverse these steps.
+
+Note that if you [use direnv](how-to-use-direnv.md), the setup should work seamlessly without redefining the variables set by `setenv-pro.sh`.
 
 An explanation of the setup can be found at [explain-pro-dev-setup.md](explain-pro-dev-setup.md)
 
-If you want to see state of tasks, you can run:
+- If you want to see state of tasks, you can run:
 
 ```
 docker-compose exec minion /opt/product-opener/scripts/minion_producers.pl  minion job
 ```
 (add --help to see all options), or refer to https://docs.mojolicious.org/Minion/Command/minion/job
 
-You may also inspect database by running:
+- You may also inspect database by running:
 ```
 docker-compose exec  postgres psql -U productopener -W minion
 ```
-(password is given by `POSTGRES_PASSWORD` in `.env` and defaults to `productopener`)
-
-Inspecting table minion, should help.
+The password is given by the `POSTGRES_PASSWORD` variable in the `.env` file and defaults to `productopener`. 
+Inspecting the minion table can be helpful in understanding the database structure and contents.
