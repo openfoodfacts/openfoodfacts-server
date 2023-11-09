@@ -1,7 +1,6 @@
 #!/usr/bin/perl -w
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use Test::More;
 #use Log::Any::Adapter 'TAP', filter => "none";
@@ -10,6 +9,9 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
 # Display.pm is currently needed, as we need $lc to be defined for canonicalize_tag2
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Test qw/:all/;
+
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
 init_emb_codes();
 
@@ -282,8 +284,8 @@ is_deeply(
 	\@tags,
 	[
 		'en:added-sugar', 'en:fruit', 'en:citrus-fruit', 'en:disaccharide',
-		'en:sugar', 'en:fruit-juice', 'en:salt', 'en:orange',
-		'en:orange-juice', 'en:concentrated-orange-juice'
+		'en:juice', 'en:sugar', 'en:fruit-juice', 'en:orange',
+		'en:salt', 'en:orange-juice', 'en:concentrated-orange-juice'
 	]
 ) or diag explain(\@tags);
 
@@ -297,9 +299,9 @@ foreach my $tag (@tags) {
 is_deeply(
 	\@tags,
 	[
-		'en:concentrated-orange-juice', 'en:fruit', 'en:citrus-fruit', 'en:fruit-juice',
-		'en:orange', 'en:orange-juice', 'en:sugar', 'en:added-sugar',
-		'en:disaccharide', 'en:salt'
+		'en:concentrated-orange-juice', 'en:fruit', 'en:citrus-fruit', 'en:juice',
+		'en:fruit-juice', 'en:orange', 'en:orange-juice', 'en:sugar',
+		'en:added-sugar', 'en:disaccharide', 'en:salt'
 	]
 ) or diag explain(\@tags);
 
@@ -309,6 +311,19 @@ is(get_property("test", "en:meat", "vegan:en"), "no");
 is($properties{test}{"en:meat"}{"vegan:en"}, "no");
 is(get_inherited_property("test", "en:meat", "vegan:en"), "no");
 is(get_property("test", "en:beef", "vegan:en"), undef);
+is(get_property_with_fallbacks("test", "en:meat", "vegan:en"), "no", "get_property_with_fallback: no need of fallback");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:fr"), "no", "get_property_with_fallback: fallback to en");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:fr", ["de",]),
+	undef, "get_property_with_fallback: fallback to lang with no value");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:fr", []),
+	undef, "get_property_with_fallback: no fallback lang");
+is(get_property_with_fallbacks("test", "en:meat", "vegan:en", "[]"),
+	"no", "get_property_with_fallback: no fallback lang but no need of it");
+is(
+	get_property_with_fallbacks("test", "en:lemon-yogurts", "description:nl", ["fr", "en"]),
+	"un yaourt avec du citron",
+	"get_property_with_fallback: french first"
+);
 is(get_inherited_property("test", "en:beef", "vegan:en"), "no");
 is(get_inherited_property("test", "en:fake-meat", "vegan:en"), "yes");
 is(get_inherited_property("test", "en:fake-duck-meat", "vegan:en"), "yes");
@@ -316,6 +331,79 @@ is(get_inherited_property("test", "en:yogurts", "vegan:en"), undef);
 is(get_inherited_property("test", "en:unknown", "vegan:en"), undef);
 is(get_inherited_property("test", "en:roast-beef", "carbon_footprint_fr_foodges_value:fr"), 15);
 is(get_inherited_property("test", "en:fake-duck-meat", "carbon_footprint_fr_foodges_value:fr"), undef);
+
+is(get_inherited_property("test", "en:fake-duck-meat", "carbon_footprint_fr_foodges_value:fr"), undef);
+
+is_deeply(get_inherited_properties("test", "fr:yaourts-au-citron-alleges", []),
+	{}, "Getting an empty list of property returns an empty hashmap");
+is_deeply(
+	get_inherited_properties("test", "en:fake-meat", ["vegan:en"]),
+	{"vegan:en" => "yes"},
+	"Getting only one property"
+);
+is_deeply(
+	get_inherited_properties("test", "en:lemon-yogurts", ["color:en", "description:fr", "non-existing", "another:fr"]),
+	{"color:en" => "yellow", "description:fr" => "un yaourt avec du citron"},
+	"Getting multiple properties at once"
+);
+is_deeply(
+	get_inherited_properties("test", "fr:yaourts-au-citron-alleges", ["color:en", "description:fr"]),
+	{"color:en" => "yellow", "description:fr" => "for light yogurts with lemon"},
+	"Getting multiple properties with one inherited and one where we use language fallback"
+);
+is_deeply(
+	get_inherited_properties("test", "fr:yaourts-au-fruit-de-la-passion-alleges", ["color:en", "description:fr"]),
+	{"description:fr" => "un yaourt de n'importe quel type"},
+	"Getting multiple properties with one undef in the path and an inherited one"
+);
+
+is_deeply(get_tags_grouped_by_property("test", [], "color:en", ["description:fr"], ["flavour:en"]),
+	{}, "get_tags_grouped_by_property for no tagids gives empty hashmap");
+is_deeply(
+	get_tags_grouped_by_property(
+		"test", ["en:passion-fruit-yogurts", "fr:yaourts-au-citron-alleges"],
+		"color:en", [], []
+	),
+	{
+		'undef' => {
+			'en:passion-fruit-yogurts' => {}
+		},
+		'yellow' => {
+			'fr:yaourts-au-citron-alleges' => {}
+		},
+	},
+	"get_tags_grouped_by_property with grouping on color:en, no additional property"
+);
+is_deeply(
+	get_tags_grouped_by_property(
+		"test",
+		["en:passion-fruit-yogurts", "fr:yaourts-a-la-myrtille", "fr:yaourts-au-citron-alleges", "en:lemon-yogurts"],
+		"color:en", ["description:fr"], ["flavour:en"],
+	),
+	{
+		'undef' => {
+			'en:passion-fruit-yogurts' => {
+				'flavour:en' => 'passion fruit',
+			}
+		},
+		'white' => {
+			'fr:yaourts-a-la-myrtille' => {
+				'flavour:en' => 'blueberry',
+			}
+		},
+		'yellow' => {
+			'en:lemon-yogurts' => {
+				'description:fr' => 'un yaourt avec du citron',
+				'flavour:en' => 'lemon',
+			},
+			'fr:yaourts-au-citron-alleges' => {
+				'description:fr' => 'for light yogurts with lemon',
+				'flavour:en' => 'lemon',
+			}
+		},
+	},
+	"get_tags_grouped_by_property with grouping on color:en"
+);
 
 my $yuka_uuid = "yuka.R452afga432";
 my $tagtype = "editors";
@@ -672,5 +760,103 @@ is(
 	),
 	"fr:un label français inconnu, Ecológico, en:A New English label, Missing language prefix, Comercio justo, en:one-percent-for-the-planet"
 );
+
+# canonicalize_taxonomy_tag can now return 0 or 1 to indicate if the tag matched an existing taxonomy entry
+
+my $exists;
+
+is(canonicalize_taxonomy_tag("fr", "test", "Yaourts au citron", \$exists), "en:lemon-yogurts");
+is($exists, 1);
+
+is(canonicalize_taxonomy_tag("fr", "test", "Yaourts au citron qui n'existe pas", \$exists),
+	"fr:Yaourts au citron qui n'existe pas");
+is($exists, 0);
+
+is(canonicalize_taxonomy_tag('fr', 'categories', 'café'), "en:coffees");
+
+# Tests to verify we match the xx:Ä Märket entry
+is(canonicalize_taxonomy_tag('sv', 'test', 'A Market'), "sv:ä-märket");    # matches the xx: entry which is unaccented
+is(canonicalize_taxonomy_tag('sv', 'test', 'Ä Märket'), "sv:ä-märket");
+is(canonicalize_taxonomy_tag('en', 'test', 'Ä Märket'), "sv:ä-märket");
+is(canonicalize_taxonomy_tag('en', 'test', 'A-MArket'), "sv:ä-märket");
+is(canonicalize_taxonomy_tag('en', 'test', 'en:Ä Märket'), "sv:ä-märket");
+is(canonicalize_taxonomy_tag('en', 'test', 'en:A MArket'), "sv:ä-märket");
+is(canonicalize_taxonomy_tag('en', 'test', 'en:a-market'), "sv:ä-märket");
+is(canonicalize_taxonomy_tag('de', 'test', 'Ä Märket'), "sv:ä-märket")
+	;    # no unaccent in German, but need to deaccent to match the xx: entry
+
+is(display_taxonomy_tag("fr", "test", "sv:ä-märket"), "Ä-märket");
+
+# Tags images
+is(get_tag_image("en", "labels", "en:usda-organic"), "/images/lang/en/labels/usda-organic.90x90.svg");
+is(get_tag_image("sv", "labels", "sv:ä-märket"), "/images/lang/sv/labels/ä-märket.85x90.png");   # file name is accented
+is(get_tag_image("fr", "labels", "fr:commerce-equitable"), "/images/lang/fr/labels/commerce-equitable.96x90.png")
+	;    # file name is unaccented, unaccented language
+is(get_tag_image("fr", "labels", "fi:sydänmerkki"), "/images/lang/fi/labels/sydanmerkki.90x90.png")
+	;    # file name is unaccented, accented language
+
+# strings with multiple tags separated by /
+is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic/PET'), "en:pet-1-polyethylene-terephthalate");
+is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic / other plastics'), "en:o-7-other-plastics");
+is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic/PET'), "en:pet-1-polyethylene-terephthalate");
+is(canonicalize_taxonomy_tag('en', 'packaging_materials', 'Plastic / Metal'), "en:Plastic / Metal"); # Cannot be matched
+is(canonicalize_taxonomy_tag('fr', 'packaging_shapes', 'Ustensiles / couverts / fourchette'), "en:fork");
+# 2023/03/28 - following test does not yet work
+#is(canonicalize_taxonomy_tag('fr', 'packaging_shapes', 'Ustensiles (fourchette, couteau, cuillère)'), "en:utensils");
+is(canonicalize_taxonomy_tag('fr', 'packaging_shapes', 'Plat (Bol, Saladier, Terrine, …)'), "en:dish");
+is(canonicalize_taxonomy_tag('fr', 'packaging_materials', 'Gaz / CO2 - Dioxide de carbone (gaz carbonique)'),
+	"en:co2-carbon-dioxide");
+
+# test the generation of regexps matching tags
+
+my $regexps_ref = generate_regexps_matching_taxonomy_entries("test", "list_of_regexps", {});
+compare_to_expected_results($regexps_ref, "$expected_result_dir/regexps.json", $update_expected_results);
+
+# xx: entries for ingredients should be used to match in all languages
+is(canonicalize_taxonomy_tag('pl', 'ingredients', 'Lactobacillus bulgaricus'), "en:lactobacillus-bulgaricus");
+
+# return the first matching property
+is(get_property_from_tags("test", undef, "vegan:en"), undef);
+is(get_property_from_tags("test", [], "vegan:en"), undef);
+is(get_property_from_tags("test", ["en:vegetable", "en:meat"], "vegan:en"), "yes");
+is_deeply([get_inherited_property_from_tags("test", ["en:something-unknown", "en:beef", "en:vegetable"], "vegan:en")],
+	["no", 'en:beef']);
+is(
+	get_matching_regexp_property_from_tags(
+		"test", ["en:something-unknown", "en:beef", "en:vegetable"],
+		"vegan:en", "yes"
+	),
+	"yes"
+);
+# no entry matches the property (en:beef only has an inherited property)
+is(
+	get_matching_regexp_property_from_tags(
+		"test", ["en:something-unknown", "en:beef", "en:vegetable"],
+		"vegan:en", "no"
+	),
+	undef
+);
+is(
+	get_matching_regexp_property_from_tags(
+		"test", ["en:something-unknown", "en:meat", "en:vegetable"],
+		"vegan:en", "no"
+	),
+	"no"
+);
+
+# Test get_knowledge_content subroutine
+
+# a match is expected here, as lang-default/fr/knowledge_panels/additives/en_e100_world.html exists
+is(
+	get_knowledge_content("additives", "en:e100", "fr", "world"),
+	"<p>La curcumine ne présente pas de risques connus pour la santé.</p>"
+);
+# no content exists for fr country, but we should fallback on world
+is(
+	get_knowledge_content("additives", "en:e100", "fr", "fr"),
+	"<p>La curcumine ne présente pas de risques connus pour la santé.</p>"
+);
+# No content exists for en language, undef is expected
+is(get_knowledge_content("additives", "en:e100", "en", "world"), undef);
 
 done_testing();

@@ -3,7 +3,6 @@
    "errors" : [],
    "product" : {
       "misc_tags" : [
-         "en:nutriscore-not-computed",
          "en:nutriscore-missing-category",
          "en:nutrition-not-enough-data-to-compute-nutrition-score",
          "en:nutriscore-missing-nutrition-data",
@@ -14,11 +13,16 @@
          "en:nutriscore-missing-nutrition-data-sodium",
          "en:nutriscore-missing-nutrition-data-proteins",
          "en:nutrition-no-fiber",
+         "en:nutriscore-not-computed",
+         "en:nutrition-no-fruits-vegetables-nuts",
+         "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+         "en:packagings-number-of-components-2",
          "en:packagings-not-complete",
          "en:packagings-not-empty-but-not-complete",
          "en:packagings-not-empty",
          "en:packagings-with-weights",
-         "en:packagings-not-complete-with-weights",
+         "en:packagings-with-all-weights",
+         "en:packagings-with-all-weights-not-complete",
          "en:ecoscore-extended-data-not-computed",
          "en:ecoscore-not-computed",
          "en:main-countries-new-product"
@@ -26,8 +30,8 @@
       "packagings" : [
          {
             "material" : {
-               "id" : "en:pet-polyethylene-terephthalate",
-               "lc_name" : "PET - Polyethylene terephthalate"
+               "id" : "en:pet-1-polyethylene-terephthalate",
+               "lc_name" : "PET 1 - Polyethylene terephthalate"
             },
             "number_of_units" : 6,
             "quantity_per_unit" : "25cl",
@@ -51,6 +55,9 @@
             },
             "weight_specified" : 25.5
          }
+      ],
+      "weighers_tags" : [
+         "openfoodfacts-contributors"
       ]
    },
    "status" : "success_with_warnings",

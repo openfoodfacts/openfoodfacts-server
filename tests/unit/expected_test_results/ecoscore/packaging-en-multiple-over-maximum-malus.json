@@ -424,6 +424,7 @@
    ],
    "lc" : "en",
    "misc_tags" : [
+      "en:packagings-number-of-components-3",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
@@ -434,6 +435,15 @@
       "en:ecoscore-computed",
       "en:ecoscore-changed",
       "en:ecoscore-grade-changed"
+   ],
+   "packaging_materials_tags" : [
+      "en:plastic"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:bag",
+      "en:box",
+      "en:film"
    ],
    "packaging_text" : "1 plastic box, 1 plastic film wrap, 12 individual plastic bags",
    "packagings" : [
@@ -452,5 +462,10 @@
          "number_of_units" : 12,
          "shape" : "en:bag"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 3
 }

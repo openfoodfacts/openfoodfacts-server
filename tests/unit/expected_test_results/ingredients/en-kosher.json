@@ -1,0 +1,101 @@
+{
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "11082",
+         "id" : "en:sea-salt",
+         "labels" : "en:kosher",
+         "percent_estimate" : 66.6666666666667,
+         "percent_max" : 100,
+         "percent_min" : 33.3333333333333,
+         "text" : "sea salt",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:american-cheese",
+         "labels" : "en:kosher",
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "american cheese",
+         "vegan" : "no",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:beef-gelatin",
+         "labels" : "en:kosher",
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "bovine gelatine",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:american-cheese",
+         "en:beef-gelatin"
+      ],
+      "en:non-vegetarian" : [
+         "en:beef-gelatin"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:sea-salt",
+      "en:salt",
+      "en:american-cheese",
+      "en:dairy",
+      "en:cheese",
+      "en:beef-gelatin",
+      "en:animal",
+      "en:beef",
+      "en:e428"
+   ],
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:sea-salt",
+      "en:american-cheese",
+      "en:beef-gelatin"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:sea-salt",
+      "en:salt",
+      "en:american-cheese",
+      "en:dairy",
+      "en:cheese",
+      "en:beef-gelatin",
+      "en:animal",
+      "en:beef",
+      "en:e428"
+   ],
+   "ingredients_text" : "kosher sea salt, kosher american cheese, kosher bovine gelatine",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:american-cheese",
+      "en:beef-gelatin"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "known_ingredients_n" : 9,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

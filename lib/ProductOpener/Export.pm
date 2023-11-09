@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -159,6 +159,10 @@ for front, ingredients and nutrition in all languages.
 This option is used in particular for exporting from the producers platform
 and importing to the public database.
 
+=head4 include_obsolete_products - optional - Also export obsolete products
+
+Obsolete products are in the products_obsolete collection.
+
 =head4 Return value
 
 Count of the exported documents.
@@ -186,173 +190,222 @@ sub export_csv ($args_ref) {
 
 	$log->debug("export_csv - start", {args_ref => $args_ref}) if $log->is_debug();
 
-	my $count = get_products_collection()->count_documents($query_ref);
+	# We have products in 2 MongoDB collections:
+	# - products: current products
+	# - products_obsolete: obsolete products (withdrawn from the market)
 
-	$log->debug("export_csv - documents to export", {count => $count}) if $log->is_debug();
+	my @collections = ("products");    # products collection
+	if ($args_ref->{include_obsolete_products}) {
+		push @collections, "products_obsolete";
+	}
 
-	my $cursor = get_products_collection()->find($query_ref);
-	$cursor->immortal(1);
-
-	# First pass - go through products to see which fields are populated,
-	# unless the fields to export are specified with the fields parameter.
-
+	# Create a list of the fields that we will export
 	my @sorted_populated_fields;
 
 	my %other_images = ();
 
-	if (not defined $fields_ref) {
+	# We will have one cursor for each collection
+	# We store cursors because we will iterate them twice
+	my %cursors = ();
+
+	if (defined $fields_ref) {
+		# The fields to export are specified by the fields parameter
+		@sorted_populated_fields = @{$fields_ref};
+	}
+	else {
+
+		# First pass - go through products to see which fields are populated,
+		# unless the fields to export are specified with the fields parameter.
 
 		# %populated_fields will contain the field name as the key,
 		# and a sort key as the value so that the CSV columns are in the order of $options{import_export_fields_groups}
 		my %populated_fields = ();
 
-		while (my $product_ref = $cursor->next) {
+		# Loop on collections
+		foreach my $collection (@collections) {
 
-			# Possible fields to export are listed in $options{import_export_fields_groups}
+			my $obsolete = ($collection eq "products_obsolete") ? 1 : 0;
 
-			my @fields_groups = @{$options{import_export_fields_groups}};
+			my $count = get_products_collection({obsolete => $obsolete})->count_documents($query_ref);
 
-			# Add fields computed by OFF if requested
-			if (($export_computed_fields) and (defined $options{off_export_fields_groups})) {
-				push @fields_groups, @{$options{off_export_fields_groups}};
-			}
+			$log->debug("export_csv - documents to export", {count => $count, collection => $collection})
+				if $log->is_debug();
 
-			my $group_number = 0;
+			$cursors{$collection} = get_products_collection({obsolete => $obsolete})->find($query_ref);
+			$cursors{$collection}->immortal(1);
 
-			foreach my $group_ref (@fields_groups) {
+			while (my $product_ref = $cursors{$collection}->next) {
 
-				$group_number++;
-				my $item_number = 0;
+				# Possible fields to export are listed in $options{import_export_fields_groups}
 
-				my $group_id = $group_ref->[0];
+				my @fields_groups = @{$options{import_export_fields_groups}};
 
-				if (($group_id eq "nutrition") or ($group_id eq "nutrition_other")) {
+				# Add fields computed by OFF if requested
+				if (($export_computed_fields) and (defined $options{off_export_fields_groups})) {
+					push @fields_groups, @{$options{off_export_fields_groups}};
+				}
 
-					if ($group_id eq "nutrition") {
-						foreach my $field ("no_nutrition_data", "nutrition_data_per", "nutrition_data_prepared_per") {
-							$item_number++;
-							if ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
-								$populated_fields{$field} = sprintf("%08d", $group_number * 1000 + $item_number);
-							}
-						}
-					}
+				my $group_number = 0;
 
-					next if not defined $product_ref->{nutriments};
+				foreach my $group_ref (@fields_groups) {
 
-					# Go through the nutriment table
-					foreach my $nutriment (@{$nutriments_tables{europe}}) {
+					$group_number++;
+					my $item_number = 0;
 
-						next if $nutriment =~ /^\#/;
-						my $nid = $nutriment;
+					my $group_id = $group_ref->[0];
 
-						# %Food::nutriments_tables ids have an ending - for nutrients that are not displayed by default
+					if (($group_id eq "nutrition") or ($group_id eq "nutrition_other")) {
 
 						if ($group_id eq "nutrition") {
-							if ($nid =~ /-$/) {
-								next;
-							}
-						}
-						else {
-							if ($nid !~ /-$/) {
-								next;
-							}
-						}
-
-						$item_number++;
-						my $field_sort_key = sprintf("%08d", $group_number * 1000 + $item_number);
-
-						$nid =~ s/^(-|!)+//g;
-						$nid =~ s/-$//g;
-
-						# Order of the fields: sugars_value, sugars_unit, sugars_prepared_value, sugars_prepared_unit
-
-						if (    (defined $product_ref->{nutriments}{$nid . "_value"})
-							and ($product_ref->{nutriments}{$nid . "_value"} ne ""))
-						{
-							$populated_fields{$nid . "_value"} = $field_sort_key . "_1";
-							$populated_fields{$nid . "_unit"} = $field_sort_key . "_2";
-						}
-						if (    (defined $product_ref->{nutriments}{$nid . "_prepared_value"})
-							and ($product_ref->{nutriments}{$nid . "_prepared_value"} ne ""))
-						{
-							$populated_fields{$nid . "_prepared_value"} = $field_sort_key . "_3";
-							$populated_fields{$nid . "_prepared_unit"} = $field_sort_key . "_4";
-						}
-					}
-				}
-				elsif ($group_id eq "images") {
-					if ($args_ref->{include_images_paths}) {
-						if (defined $product_ref->{images}) {
-							include_image_paths($product_ref, \%populated_fields, \%other_images);
-						}
-					}
-				}
-				else {
-
-					foreach my $field (@{$group_ref->[1]}) {
-
-						# Prefix fields that are not primary data, but that are computed by OFF, with the "off:" prefix
-						my $group_prefix = "";
-						if ($group_id eq "off") {
-							$group_prefix = "off:";
-						}
-
-						$item_number++;
-						my $field_sort_key = sprintf("%08d", $group_number * 1000 + $item_number);
-
-						if ($field =~ /_value_unit$/) {
-							# Column can contain value + unit, value, or unit for a specific field
-							$field = $`;
-						}
-
-						if (defined $tags_fields{$field}) {
-							if (    (defined $product_ref->{$field . "_tags"})
-								and (scalar @{$product_ref->{$field . "_tags"}} > 0))
+							foreach my $field ("no_nutrition_data", "nutrition_data_per", "nutrition_data_prepared_per")
 							{
-								# Export the tags field in the main language of the product
-								$populated_fields{$group_prefix . $field} = $field_sort_key;
-								# Also possibly export the canonicalized tags
-								if ($export_canonicalized_tags_fields) {
-									$populated_fields{$group_prefix . $field . "_tags"} = $field_sort_key . "_tags";
+								$item_number++;
+								if ((defined $product_ref->{$field}) and ($product_ref->{$field} ne "")) {
+									$populated_fields{$field} = sprintf("%08d", $group_number * 1000 + $item_number);
 								}
 							}
 						}
-						elsif (defined $language_fields{$field}) {
-							if (defined $product_ref->{languages_codes}) {
-								foreach my $l (keys %{$product_ref->{languages_codes}}) {
-									if (    (defined $product_ref->{$field . "_$l"})
-										and ($product_ref->{$field . "_$l"} ne ""))
-									{
-										# Add language code to sort key
-										$populated_fields{$group_prefix . $field . "_$l"} = $field_sort_key . "_$l";
+
+						next if not defined $product_ref->{nutriments};
+
+						# Go through the nutriment table
+						foreach my $nutriment (@{$nutriments_tables{europe}}) {
+
+							next if $nutriment =~ /^\#/;
+							my $nid = $nutriment;
+
+							# %Food::nutriments_tables ids have an ending - for nutrients that are not displayed by default
+
+							if ($group_id eq "nutrition") {
+								if ($nid =~ /-$/) {
+									next;
+								}
+							}
+							else {
+								if ($nid !~ /-$/) {
+									next;
+								}
+							}
+
+							$item_number++;
+							my $field_sort_key = sprintf("%08d", $group_number * 1000 + $item_number);
+
+							$nid =~ s/^(-|!)+//g;
+							$nid =~ s/-$//g;
+
+							# Order of the fields: sugars_value, sugars_unit, sugars_prepared_value, sugars_prepared_unit
+
+							if (    (defined $product_ref->{nutriments}{$nid . "_value"})
+								and ($product_ref->{nutriments}{$nid . "_value"} ne ""))
+							{
+								$populated_fields{$nid . "_value"} = $field_sort_key . "_1";
+								$populated_fields{$nid . "_unit"} = $field_sort_key . "_2";
+							}
+							if (    (defined $product_ref->{nutriments}{$nid . "_prepared_value"})
+								and ($product_ref->{nutriments}{$nid . "_prepared_value"} ne ""))
+							{
+								$populated_fields{$nid . "_prepared_value"} = $field_sort_key . "_3";
+								$populated_fields{$nid . "_prepared_unit"} = $field_sort_key . "_4";
+							}
+						}
+					}
+					elsif ($group_id eq "packaging") {
+						# packaging data will be exported in the CSV file in columns named like packaging_1_number_of_units
+						if (defined $product_ref->{packagings}) {
+							my $i = 0;    # number of the packaging component
+							foreach my $packaging_ref (@{$product_ref->{packagings}}) {
+								$i++;
+								my $j = 0;    # number of the field
+								foreach my $field (
+									qw(number_of_units shape material recycling quantity_per_unit weight_specified weight_measured)
+									)
+								{
+									$j++;
+									if (defined $packaging_ref->{$field}) {
+										# Generate a sort key so that the packaging fields in the CSV file are in this order:
+										# - all fields for packaging component 1, then all fields for packaging component 2
+										# - number_of_units, shape, material etc. (same a for loop above)
+										my $field_sort_key = sprintf("%08d", $group_number * 1000 + $i * 10 + $j);
+										$populated_fields{"packaging_" . $i . "_" . $field} = $field_sort_key;
 									}
 								}
 							}
 						}
-						else {
-							my $key = $field;
-							# Special case for ecoscore_data.adjustments.origins_of_ingredients.value
-							# which is only present if the Eco-Score fields have been localized (done only once after)
-							# we check for .values (with an s) instead
-							if ($field eq "ecoscore_data.adjustments.origins_of_ingredients.value") {
-								$key = $key . "s";
+					}
+					elsif ($group_id eq "images") {
+						if ($args_ref->{include_images_paths}) {
+							if (defined $product_ref->{images}) {
+								include_image_paths($product_ref, \%populated_fields, \%other_images);
 							}
-							# Allow returning fields that are not at the root of the product structure
-							# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}
-							if (deep_exists($product_ref, split(/\./, $key))) {
-								$populated_fields{$group_prefix . $field} = $field_sort_key;
+						}
+					}
+					else {
+
+						foreach my $field (@{$group_ref->[1]}) {
+
+							# Prefix fields that are not primary data, but that are computed by OFF, with the "off:" prefix
+							my $group_prefix = "";
+							if ($group_id eq "off") {
+								$group_prefix = "off:";
+							}
+
+							$item_number++;
+							my $field_sort_key = sprintf("%08d", $group_number * 1000 + $item_number);
+
+							if ($field =~ /_value_unit$/) {
+								# Column can contain value + unit, value, or unit for a specific field
+								$field = $`;
+							}
+
+							if (defined $tags_fields{$field}) {
+								if (    (defined $product_ref->{$field . "_tags"})
+									and (scalar @{$product_ref->{$field . "_tags"}} > 0))
+								{
+									# Export the tags field in the main language of the product
+									$populated_fields{$group_prefix . $field} = $field_sort_key;
+									# Also possibly export the canonicalized tags
+									if ($export_canonicalized_tags_fields) {
+										$populated_fields{$group_prefix . $field . "_tags"} = $field_sort_key . "_tags";
+									}
+								}
+							}
+							elsif (defined $language_fields{$field}) {
+								if (defined $product_ref->{languages_codes}) {
+									foreach my $l (keys %{$product_ref->{languages_codes}}) {
+										if (    (defined $product_ref->{$field . "_$l"})
+											and ($product_ref->{$field . "_$l"} ne ""))
+										{
+											# Add language code to sort key
+											$populated_fields{$group_prefix . $field . "_$l"} = $field_sort_key . "_$l";
+										}
+									}
+								}
+							}
+							else {
+								my $key = $field;
+								# Special case for ecoscore_data.adjustments.origins_of_ingredients.value
+								# which is only present if the Eco-Score fields have been localized (done only once after)
+								# we check for .values (with an s) instead
+								if ($field eq "ecoscore_data.adjustments.origins_of_ingredients.value") {
+									$key = $key . "s";
+								}
+								# Allow returning fields that are not at the root of the product structure
+								# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}
+								if (deep_exists($product_ref, split(/\./, $key))) {
+									$populated_fields{$group_prefix . $field} = $field_sort_key;
+								}
 							}
 						}
 					}
 				}
-			}
 
-			# Source specific fields in the sources_fields hash
-			if (defined $product_ref->{sources_fields}) {
-				foreach my $source_id (sort keys %{$product_ref->{sources_fields}}) {
-					foreach my $field (sort keys %{$product_ref->{sources_fields}{$source_id}}) {
-						$populated_fields{"sources_fields:${source_id}:$field"}
-							= sprintf("%08d", 10 * 1000) . "_${source_id}:$field";
+				# Source specific fields in the sources_fields hash
+				if (defined $product_ref->{sources_fields}) {
+					foreach my $source_id (sort keys %{$product_ref->{sources_fields}}) {
+						foreach my $field (sort keys %{$product_ref->{sources_fields}{$source_id}}) {
+							$populated_fields{"sources_fields:${source_id}:$field"}
+								= sprintf("%08d", 10 * 1000) . "_${source_id}:$field";
+						}
 					}
 				}
 			}
@@ -366,10 +419,6 @@ sub export_csv ($args_ref) {
 			# Always output the "obsolete" field so that obsolete products can be unobsoleted
 			push @sorted_populated_fields, "obsolete";
 		}
-	}
-	else {
-		# The fields to export are specified by the fields parameter
-		@sorted_populated_fields = @{$fields_ref};
 	}
 
 	# Extra fields such as Nova or Nutri-Score that do not originate from users or producers but are computed
@@ -405,6 +454,8 @@ sub export_csv ($args_ref) {
 		$worksheet = $workbook->add_worksheet();
 		my $workbook_format = $workbook->add_format();
 		$workbook_format->set_bold();
+		$worksheet->keep_leading_zeros();
+
 		$worksheet->write_row(0, 0, \@sorted_populated_fields, $workbook_format);
 
 		# Set the width of the columns
@@ -439,171 +490,184 @@ sub export_csv ($args_ref) {
 		$csv->print($filehandle, \@sorted_populated_fields);
 	}
 
-	$cursor->reset();
-
 	my $j = 0;    # Row number
 
-	while (my $product_ref = $cursor->next) {
+	# Go through the products and products_obsolete collections again
 
-		$j++;
-		my @values = ();
+	foreach my $collection (@collections) {
 
-		my $added_images_urls = 0;
-		my $product_path = product_path($product_ref);
+		$cursors{$collection}->reset();
 
-		my $scans_ref;
+		while (my $product_ref = $cursors{$collection}->next) {
 
-		# If an ecoscore_* field is requested, we will localize all the Eco-Score fields once
-		my $ecoscore_localized = 0;
+			$j++;
+			my @values = ();
 
-		foreach my $field (@sorted_populated_fields) {
+			my $added_images_urls = 0;
+			my $product_path = product_path($product_ref);
 
-			my $nutriment_field = 0;
+			my $scans_ref;
 
-			my $value;
+			# If an ecoscore_* field is requested, we will localize all the Eco-Score fields once
+			my $ecoscore_localized = 0;
 
-			# Remove the off: prefix for fields computed by OFF, as we don't have the prefix in the product structure
-			$field =~ s/^off://;
+			foreach my $field (@sorted_populated_fields) {
 
-			# Localize the Eco-Score fields that depend on the country of the request
-			if (($field =~ /^ecoscore/) and (not $ecoscore_localized)) {
-				localize_ecoscore($export_cc, $product_ref);
-				$ecoscore_localized = 1;
-			}
+				my $nutriment_field = 0;
 
-			# Scans must be loaded separately
-			if ($field =~ /^scans_(\d\d\d\d)_(.*)_(\w+)$/) {
+				my $value;
 
-				my ($scan_year, $scan_field, $scan_cc) = ($1, $2, $3);
+				# Remove the off: prefix for fields computed by OFF, as we don't have the prefix in the product structure
+				$field =~ s/^off://;
 
-				if (not defined $scans_ref) {
-					# Load the scan data
-					$scans_ref = retrieve_json("$data_root/products/$product_path/scans.json");
-				}
-				if (not defined $scans_ref) {
-					$scans_ref = {};
-				}
-				if (    (defined $scans_ref->{$scan_year})
-					and (defined $scans_ref->{$scan_year}{$scan_field})
-					and (defined $scans_ref->{$scan_year}{$scan_field}{$scan_cc}))
-				{
-					$value = $scans_ref->{$scan_year}{$scan_field}{$scan_cc};
-				}
-				else {
-					$value = "";
-				}
-			}
-			# Source specific fields
-			elsif ($field =~ /^sources_fields:([a-z0-9-]+):/) {
-				my $source_id = $1;
-				my $source_field = $';
-				if (    (defined $product_ref->{sources_fields})
-					and (defined $product_ref->{sources_fields}{$source_id})
-					and (defined $product_ref->{sources_fields}{$source_id}{$source_field}))
-				{
-					$value = $product_ref->{sources_fields}{$source_id}{$source_field};
-				}
-			}
-			else {
-
-				foreach my $suffix ("_value", "_unit", "_prepared_value", "_prepared_unit") {
-					if ($field =~ /$suffix$/) {
-						my $nid = $`;
-						if (defined $product_ref->{nutriments}) {
-							$value = $product_ref->{nutriments}{$nid . $suffix};
-						}
-						$nutriment_field = 1;
-						last;
-					}
+				# Localize the Eco-Score fields that depend on the country of the request
+				if (($field =~ /^ecoscore/) and (not $ecoscore_localized)) {
+					localize_ecoscore($export_cc, $product_ref);
+					$ecoscore_localized = 1;
 				}
 
-				if (not $nutriment_field) {
+				# Scans must be loaded separately
+				if ($field =~ /^scans_(\d\d\d\d)_(.*)_(\w+)$/) {
 
-					# If we export image fields, we first need to generate the paths to images
+					my ($scan_year, $scan_field, $scan_cc) = ($1, $2, $3);
 
-					if (($field =~ /^image_(.*)_(url|json)/) and (not $added_images_urls)) {
-						add_images_urls_to_product($product_ref, $lc);
-						$added_images_urls = 1;
+					if (not defined $scans_ref) {
+						# Load the scan data
+						$scans_ref = retrieve_json("$data_root/products/$product_path/scans.json");
 					}
-
-					if ($field =~ /^image_(.*)_file/) {
-						# File path for the image on the server, used for exporting from producers platform to public database
-
-						my $imagefield = $1;
-
-						if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
-							$value
-								= "$www_root/images/products/"
-								. $product_path . "/"
-								. $product_ref->{images}{$imagefield}{imgid} . ".jpg";
-						}
-						elsif (defined $other_images{$product_ref->{code} . "." . $imagefield}) {
-							$value
-								= "$www_root/images/products/"
-								. $product_path . "/"
-								. $other_images{$product_ref->{code} . "." . $imagefield}{imgid} . ".jpg";
-						}
+					if (not defined $scans_ref) {
+						$scans_ref = {};
 					}
-					elsif ($field =~ /^image_(.*)_(x1|y1|x2|y2|angle|normalize|white_magic|coordinates_image_size)/) {
-						# Coordinates for image cropping
-						my $imagefield = $1;
-						my $coord = $2;
-
-						if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
-							$value = $product_ref->{images}{$imagefield}{$coord};
-						}
-					}
-					elsif ($field =~ /^image_(ingredients|nutrition|packaging)_json$/) {
-						if (defined $product_ref->{"image_$1_url"}) {
-							$value = $product_ref->{"image_$1_url"};
-							$value =~ s/\.(\d+)\.jpg/.json/;
-						}
-					}
-					elsif ($field =~ /^image_(.*)_full_url$/) {
-						if (defined $product_ref->{"image_$1_url"}) {
-							$value = $product_ref->{"image_$1_url"};
-							$value =~ s/\.(\d+)\.jpg/.full.jpg/;
-						}
-					}
-					elsif (($field =~ /_tags$/) and (defined $product_ref->{$field})) {
-						$value = join(",", @{$product_ref->{$field}});
-					}
-					elsif ((defined $taxonomy_fields{$field}) and (defined $product_ref->{$field . "_hierarchy"})) {
-						# we do not know the language of the current value of $product_ref->{$field}
-						# so regenerate it in the main language of the product
-						# Note: some fields like nova_groups and food_groups do not have a _hierarchy subfield,
-						# but they are not entered directly, but computed from other fields, so we can take their values as is.
-						$value = list_taxonomy_tags_in_language($product_ref->{lc}, $field,
-							$product_ref->{$field . "_hierarchy"});
-					}
-					# Allow returning fields that are not at the root of the product structure
-					# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}
-					elsif ($field =~ /\./) {
-						$value = deep_get($product_ref, split(/\./, $field));
-					}
-					# Fields like "obsolete" : output 1 for true values or 0
-					elsif ($field eq "obsolete") {
-						if ((defined $product_ref->{$field}) and ($product_ref->{$field})) {
-							$value = 1;
-						}
-						else {
-							$value = 0;
-						}
+					if (    (defined $scans_ref->{$scan_year})
+						and (defined $scans_ref->{$scan_year}{$scan_field})
+						and (defined $scans_ref->{$scan_year}{$scan_field}{$scan_cc}))
+					{
+						$value = $scans_ref->{$scan_year}{$scan_field}{$scan_cc};
 					}
 					else {
-						$value = $product_ref->{$field};
+						$value = "";
 					}
 				}
+				# Source specific fields
+				elsif ($field =~ /^sources_fields:([a-z0-9-]+):/) {
+					my $source_id = $1;
+					my $source_field = $';
+					if (    (defined $product_ref->{sources_fields})
+						and (defined $product_ref->{sources_fields}{$source_id})
+						and (defined $product_ref->{sources_fields}{$source_id}{$source_field}))
+					{
+						$value = $product_ref->{sources_fields}{$source_id}{$source_field};
+					}
+				}
+				else {
+
+					foreach my $suffix ("_value", "_unit", "_prepared_value", "_prepared_unit") {
+						if ($field =~ /$suffix$/) {
+							my $nid = $`;
+							if (defined $product_ref->{nutriments}) {
+								$value = $product_ref->{nutriments}{$nid . $suffix};
+							}
+							$nutriment_field = 1;
+							last;
+						}
+					}
+
+					if (not $nutriment_field) {
+
+						# If we export image fields, we first need to generate the paths to images
+
+						if (($field =~ /^image_(.*)_(url|json)/) and (not $added_images_urls)) {
+							add_images_urls_to_product($product_ref, $lc);
+							$added_images_urls = 1;
+						}
+
+						if ($field =~ /^image_(.*)_file/) {
+							# File path for the image on the server, used for exporting from producers platform to public database
+
+							my $imagefield = $1;
+
+							if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
+								$value
+									= "$www_root/images/products/"
+									. $product_path . "/"
+									. $product_ref->{images}{$imagefield}{imgid} . ".jpg";
+							}
+							elsif (defined $other_images{$product_ref->{code} . "." . $imagefield}) {
+								$value
+									= "$www_root/images/products/"
+									. $product_path . "/"
+									. $other_images{$product_ref->{code} . "." . $imagefield}{imgid} . ".jpg";
+							}
+						}
+						elsif ($field =~ /^image_(.*)_(x1|y1|x2|y2|angle|normalize|white_magic|coordinates_image_size)/)
+						{
+							# Coordinates for image cropping
+							my $imagefield = $1;
+							my $coord = $2;
+
+							if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
+								$value = $product_ref->{images}{$imagefield}{$coord};
+							}
+						}
+						elsif ($field =~ /^image_(ingredients|nutrition|packaging)_json$/) {
+							if (defined $product_ref->{"image_$1_url"}) {
+								$value = $product_ref->{"image_$1_url"};
+								$value =~ s/\.(\d+)\.jpg/.json/;
+							}
+						}
+						elsif ($field =~ /^image_(.*)_full_url$/) {
+							if (defined $product_ref->{"image_$1_url"}) {
+								$value = $product_ref->{"image_$1_url"};
+								$value =~ s/\.(\d+)\.jpg/.full.jpg/;
+							}
+						}
+						elsif (($field =~ /_tags$/) and (defined $product_ref->{$field})) {
+							$value = join(",", @{$product_ref->{$field}});
+						}
+						elsif ((defined $taxonomy_fields{$field}) and (defined $product_ref->{$field . "_hierarchy"})) {
+							# we do not know the language of the current value of $product_ref->{$field}
+							# so regenerate it in the main language of the product
+							# Note: some fields like nova_groups and food_groups do not have a _hierarchy subfield,
+							# but they are not entered directly, but computed from other fields, so we can take their values as is.
+							$value = list_taxonomy_tags_in_language($product_ref->{lc}, $field,
+								$product_ref->{$field . "_hierarchy"});
+						}
+						# packagings field of the form packaging_2_number_of_units
+						elsif ($field =~ /^packaging_(\d+)_(.*)$/) {
+							my $index = $1 - 1;
+							my $property = $2;
+							$value = deep_get($product_ref, ("packagings", $index, $property));
+						}
+						# Allow returning fields that are not at the root of the product structure
+						# e.g. ecoscore_data.agribalyse.score  -> $product_ref->{ecoscore_data}{agribalyse}{score}
+						elsif ($field =~ /\./) {
+							$value = deep_get($product_ref, split(/\./, $field));
+						}
+						# Fields like "obsolete" : output 1 for true values or 0
+						elsif ($field eq "obsolete") {
+							if ((defined $product_ref->{$field}) and ($product_ref->{$field})) {
+								$value = 1;
+							}
+							else {
+								$value = 0;
+							}
+						}
+						else {
+							$value = $product_ref->{$field};
+						}
+					}
+				}
+
+				push @values, $value;
 			}
 
-			push @values, $value;
-		}
+			if ($format eq "xlsx") {
+				$worksheet->write_row($j, 0, \@values);
+			}
+			else {
+				$csv->print($filehandle, \@values);
+			}
 
-		if ($format eq "xlsx") {
-			$worksheet->write_row($j, 0, \@values);
-		}
-		else {
-			$csv->print($filehandle, \@values);
 		}
 
 	}

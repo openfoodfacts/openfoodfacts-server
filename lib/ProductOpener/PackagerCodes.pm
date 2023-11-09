@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -39,6 +39,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		%packager_codes
+		@sorted_packager_codes
 		%geocode_addresses
 		&init_packager_codes
 		&init_geocode_addresses
@@ -188,6 +189,7 @@ my %local_ec = (
 	ES => "CE",
 	FI => "EY",
 	FR => "CE",
+	HR => "EU",
 	IT => "CE",
 	NL => "EG",
 	PL => "WE",
@@ -242,6 +244,8 @@ sub init_packager_codes() {
 	if (-e "$data_root/packager-codes/packager_codes.sto") {
 		my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
 		%packager_codes = %{$packager_codes_ref};
+		# Used to display sorted suggestions in TaxonomySuggestions.pm
+		@sorted_packager_codes = sort keys %packager_codes;
 	}
 	return;
 }

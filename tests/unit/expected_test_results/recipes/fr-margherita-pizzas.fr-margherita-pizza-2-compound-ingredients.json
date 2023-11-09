@@ -4,6 +4,7 @@
          "id" : "en:filling",
          "ingredients" : [
             {
+               "ciqual_food_code" : "20047",
                "id" : "en:chopped-tomatoes",
                "percent_estimate" : 46.6666666666667,
                "percent_max" : 70,
@@ -23,11 +24,14 @@
                "vegetarian" : "maybe"
             },
             {
-               "id" : "fr:feuilles-de-basilic",
+               "ciqual_food_code" : "11033",
+               "id" : "en:basil-leaf",
                "percent_estimate" : 11.6666666666667,
                "percent_max" : 23.3333333333333,
                "percent_min" : 0,
-               "text" : "feuilles de basilic"
+               "text" : "feuilles de basilic",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             }
          ],
          "percent" : 70,
@@ -35,8 +39,8 @@
          "percent_max" : 70,
          "percent_min" : 70,
          "text" : "Garniture",
-         "vegan" : "ignore",
-         "vegetarian" : "ignore"
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
          "id" : "en:pizza-dough",
@@ -51,6 +55,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_food_code" : "18066",
                "id" : "en:water",
                "percent_estimate" : 5,
                "percent_max" : 15,
@@ -60,6 +65,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_food_code" : "11058",
                "id" : "en:salt",
                "percent_estimate" : 5,
                "percent_max" : 10,
@@ -80,20 +86,15 @@
       "en:non-vegan" : [
          "en:cheese"
       ],
-      "en:palm-oil-content-unknown" : [
-         "fr:feuilles-de-basilic"
-      ],
       "en:vegan-status-unknown" : [
-         "fr:feuilles-de-basilic",
          "en:pizza-dough"
       ],
       "en:vegetarian-status-unknown" : [
-         "fr:feuilles-de-basilic",
          "en:pizza-dough"
       ]
    },
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
+      "en:palm-oil-free",
       "en:non-vegan",
       "en:vegetarian-status-unknown"
    ],
@@ -103,10 +104,13 @@
       "en:dough",
       "en:chopped-tomatoes",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:tomato",
       "en:cheese",
       "en:dairy",
-      "fr:feuilles-de-basilic",
+      "en:basil-leaf",
+      "en:herb",
+      "en:basil",
       "en:wheat-flour",
       "en:cereal",
       "en:flour",
@@ -125,7 +129,7 @@
       "en:pizza-dough",
       "en:chopped-tomatoes",
       "en:cheese",
-      "fr:feuilles-de-basilic",
+      "en:basil-leaf",
       "en:wheat-flour",
       "en:water",
       "en:salt"
@@ -137,10 +141,13 @@
       "en:dough",
       "en:chopped-tomatoes",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:tomato",
       "en:cheese",
       "en:dairy",
-      "fr:feuilles-de-basilic",
+      "en:basil-leaf",
+      "en:herb",
+      "en:basil",
       "en:wheat-flour",
       "en:cereal",
       "en:flour",
@@ -154,19 +161,26 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 15,
+   "ingredients_without_ciqual_codes" : [
+      "en:cheese",
+      "en:wheat-flour"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "known_ingredients_n" : 19,
    "lc" : "fr",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 23.3333333333333,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 23.3333333333333
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 46.6666666666667,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 46.6666666666667,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 46.6666666666667,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 46.6666666666667
    },
    "recipe" : {
       "en:cheese" : 11.6666666666667,
       "en:flour" : 20,
       "en:tomato" : 46.6666666666667,
       "en:water" : 5,
-      "other" : 5,
-      "unknown" : 11.6666666666667
+      "other" : 16.6666666666667,
+      "unknown" : 0
    },
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 0
 }
