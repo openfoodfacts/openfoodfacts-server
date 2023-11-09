@@ -1962,8 +1962,7 @@ sub compute_orientation_from_cloud_vision_annotations ($annotations_ref) {
 }
 
 
-sub extract_text_with_tesseract {
-    my ($ocr_engine, $lc, $product_ref, $id, $image, $field, $results_ref, $log) = @_;
+sub extract_text_with_tesseract ($ocr_engine, $lc, $product_ref, $id, $image, $field, $results_ref, $log) {
 
     my $lan;
 
