@@ -168,10 +168,6 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
-	location = /robots.txt {
-		try_files $uri $uri/ =404;
-	}
-
 	# Dynamically generated files and CGI scripts are passed
 	# to the Apache + mod_perl server running on a different
 	# port than port 80 (e.g. 8705)

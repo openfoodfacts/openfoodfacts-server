@@ -16,41 +16,40 @@
 		</ul>
 	[% END %]
 
-	<p>[% n_products_will_be_exported %]</p>
-	<p>[% lang('number_of_products_with_changes_since_last_export') %][% sep %]: [% count_to_be_exported %]</p>
+	<ul>
+		<li>[% lang('number_of_products_with_changes_since_last_export') %][% sep %]: [% count_to_be_exported %]</li>
+		<li>[% lang('number_of_products_withdrawn_from_the_market_since_last_export') %][% sep %]: [% count_obsolete_to_be_exported %]</li>
+	</ul>
 
-	[% IF count > 0 %]
-		[% IF allow_submit %]
+	[% IF allow_submit %]
 
-			<label for="export_photos">
-				<input type="checkbox" id="export_photos" name="export_photos" [% export_photos_value %]>
-				[% lang('export_photos') %]
-			</label>
+		<label for="export_photos">
+			<input type="checkbox" id="export_photos" name="export_photos" [% export_photos_value %]>
+			[% lang('export_photos') %]
+		</label>
 
-			<label for="replace_selected_photos">
-				<input type="checkbox" id="replace_selected_photos" name="replace_selected_photos" [% replace_selected_photos_value %]>	
-				[% lang('replace_selected_photos') %]
-			</label>
+		<label for="replace_selected_photos">
+			<input type="checkbox" id="replace_selected_photos" name="replace_selected_photos" [% replace_selected_photos_value %]>	
+			[% lang('replace_selected_photos') %]
+		</label>
 
-			<label for="only_export_products_with_changes">
-				<input type="checkbox" id="only_export_products_with_changes" name="only_export_products_with_changes" [% only_export_products_with_changes_value %]>	
-				[% lang('only_export_products_with_changes') %]
-			</label>
-			
-			[% IF admin %]
-			
-			<label for="overwrite_owner">
-				<input type="checkbox" id="overwrite_owner" name="overwrite_owner" [% overwrite_owner %]>	
-				[% lang('overwrite_owner') %]
-			</label>
-			
-			[% END %]
-		[% END %]
-			
-		<input type="submit" class="button small" value="[% lang('export_product_data_photos') %]">
+		<label for="only_export_products_with_changes">
+			<input type="checkbox" id="only_export_products_with_changes" name="only_export_products_with_changes" [% only_export_products_with_changes_value %]>	
+			[% lang('only_export_products_with_changes') %]
+		</label>
 		
+		[% IF admin %]
+		
+		<label for="overwrite_owner">
+			<input type="checkbox" id="overwrite_owner" name="overwrite_owner" [% overwrite_owner %]>	
+			[% lang('overwrite_owner') %]
+		</label>
+		
+		[% END %]
 	[% END %]
-
+		
+	<input type="submit" class="button small" value="[% lang('export_product_data_photos') %]">
+		
 </form>
 
 <!-- end templates/[% template.name %] -->

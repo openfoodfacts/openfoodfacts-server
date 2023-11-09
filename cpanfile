@@ -9,6 +9,7 @@ requires 'LWP::UserAgent'; # libwww-perl
 requires 'Image::Magick'; # libimage-magick-perl
 requires 'XML::Encoding'; # libxml-encoding-perl
 requires 'MIME::Lite'; # libmime-lite-perl
+requires 'MIME::Base32';
 requires 'Cache::Memcached::Fast'; #libcache-memcached-fast-perl
 requires 'JSON'; # libjson-perl
 requires 'JSON::PP'; # libjson-pp-perl
@@ -67,7 +68,8 @@ requires 'JSON::Parse';
 requires 'Data::DeepAccess';
 requires 'XML::XML2JSON';
 requires 'Redis';
-
+requires 'Digest::SHA1';
+requires 'Data::Difference';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
@@ -83,6 +85,13 @@ requires 'Log::Any::Adapter::Log4perl', '>= 0.09'; # liblog-any-adapter-log4perl
 requires 'Action::CircuitBreaker';
 requires 'Action::Retry'; # deps: libmath-fibonacci-perl
 
+# AnyEvent
+requires 'AnyEvent';
+requires 'AnyEvent::Inotify::Simple';
+
+# GS1 Encoder
+requires 'GS1::SyntaxEngine::FFI';
+
 on 'test' => sub {
   requires 'Test::More', '>= 1.302186, < 2.0';
   requires 'Test::MockModule';
@@ -96,6 +105,11 @@ on 'test' => sub {
   requires 'HTTP::CookieJar::LWP';
   requires 'File::Tail';
   requires 'Test2::Plugin::UTF8';
+  requires 'Devel::Cover';
+  requires 'Devel::Cover::Report::Codecov';
+  requires 'Devel::Cover::Report::Codecovbash';
+  requires 'Test::Fake::HTTPD';
+  requires 'URL::Encode';
 };
 
 on 'develop' => sub {
@@ -104,6 +118,9 @@ on 'develop' => sub {
   requires 'Apache::DB', '>= 0.18, < 1.00'; # old non-working version also available as the Debian package libapache-db-perl 0.14
   requires 'Perl::Tidy';
   requires 'Perl::Critic';
+  requires 'Devel::Cover';
+  requires 'Devel::Cover::Report::Codecov';
+  requires 'Devel::Cover::Report::Codecovbash';
 };
 
 feature "off_server_dev_tools", "Optional development tools" => sub {

@@ -409,6 +409,7 @@
    ],
    "lc" : "en",
    "misc_tags" : [
+      "en:packagings-number-of-components-1",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
@@ -421,11 +422,23 @@
       "en:ecoscore-changed",
       "en:ecoscore-grade-changed"
    ],
+   "packaging_materials_tags" : [
+      "en:metal"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:can"
+   ],
    "packaging_text" : "can",
    "packagings" : [
       {
          "material" : "en:metal",
          "shape" : "en:can"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:metal" : {}
+   },
+   "packagings_n" : 1
 }

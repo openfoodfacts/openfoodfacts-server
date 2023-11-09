@@ -8,11 +8,12 @@ ARG CPANMOPTS=
 ######################
 # Base modperl image stage
 ######################
-FROM bitnami/minideb:buster AS modperl
+FROM debian:bullseye AS modperl
 
 # Install cpm to install cpanfile dependencies
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
-    install_packages \
+    apt update && \
+    apt install -y \
         apache2 \
         apt-utils \
         cpanminus \
@@ -67,12 +68,16 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         liblog-any-adapter-log4perl-perl \
         # NB: not available in ubuntu 1804 LTS:
         libgeoip2-perl \
-        libemail-valid-perl \
+        libemail-valid-perl
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
+    apt install -y \
         #
         # cpan dependencies that can be satisfied by apt even if the package itself can't:
         #
         # Action::Retry
         libmath-fibonacci-perl \
+        # EV - event loop
+        libev-perl \
         # Algorithm::CheckDigits
         libprobe-perl-perl \
         # CLDR::Number
@@ -137,7 +142,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libtest-number-delta-perl \
         libdevel-size-perl \
         gnumeric \
-        incron \
         # for dev
         # gnu readline
         libreadline-dev \
@@ -190,11 +194,13 @@ RUN \
     done && \
     chown www-data:www-data -R /mnt/podata && \
     # Create symlinks of data files that are indeed conf data in /mnt/podata (because we currently mix data and conf data)
-    for path in ecoscore emb_codes forest-footprint ingredients packager-codes po taxonomies templates; do \
+    # NOTE: do not changes those links for they are in a volume, or handle migration in entry-point
+    for path in data-default external-data emb_codes ingredients madenearme packager-codes po taxonomies templates build-cache; do \
         ln -sf /opt/product-opener/${path} /mnt/podata/${path}; \
     done && \
     # Create some necessary files to ensure permissions in volumes
     mkdir -p /opt/product-opener/html/data/ && \
+    mkdir -p /opt/product-opener/html/data/taxonomies/ && \
     mkdir -p /opt/product-opener/html/images/ && \
     chown www-data:www-data -R /opt/product-opener/html/ && \
     # logs dir
@@ -202,10 +208,6 @@ RUN \
     chown www-data:www-data -R /var/log
 # Install Product Opener from the workdir
 COPY --chown=www-data:www-data . /opt/product-opener/
-RUN \
-    # www-data user shall be able to use incron
-    echo www-data >> /etc/incron.allow && \
-    incrontab -u www-data /opt/product-opener/conf/incron.conf
 
 EXPOSE 80
 COPY ./docker/docker-entrypoint.sh /

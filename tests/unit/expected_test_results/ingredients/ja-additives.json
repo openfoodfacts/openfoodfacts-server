@@ -1,0 +1,229 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:thickener",
+         "ingredients" : [
+            {
+               "id" : "en:modified-starch",
+               "percent_estimate" : 31.25,
+               "percent_max" : 100,
+               "percent_min" : 6.25,
+               "text" : "加工デンプン",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:e415",
+               "percent_estimate" : 25,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "キサンタン",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "percent_estimate" : 56.25,
+         "percent_max" : 100,
+         "percent_min" : 12.5,
+         "text" : "増粘剤"
+      },
+      {
+         "id" : "en:e262",
+         "percent_estimate" : 21.875,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "酢酸Na",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:trehalose",
+         "percent_estimate" : 10.9375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "トレハロース",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:modified-starch",
+         "percent_estimate" : 5.46875,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "加工デンプン",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e640i",
+         "percent_estimate" : 2.734375,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "グリシン",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:condiment",
+         "ingredients" : [
+            {
+               "id" : "en:amino-acids",
+               "percent_estimate" : 1.3671875,
+               "percent_max" : 16.6666666666667,
+               "percent_min" : 0,
+               "text" : "アミノ酸等"
+            }
+         ],
+         "percent_estimate" : 1.3671875,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "調味料",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:antioxidant",
+         "ingredients" : [
+            {
+               "id" : "en:vitamin-c",
+               "percent_estimate" : 0.341796875,
+               "percent_max" : 14.2857142857143,
+               "percent_min" : 0,
+               "text" : "V.C"
+            },
+            {
+               "id" : "en:vitamin-e",
+               "percent_estimate" : 0.341796875,
+               "percent_max" : 7.14285714285714,
+               "percent_min" : 0,
+               "text" : "V.E"
+            }
+         ],
+         "percent_estimate" : 0.68359375,
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "text" : "酸化防止剤"
+      },
+      {
+         "id" : "en:colour",
+         "ingredients" : [
+            {
+               "id" : "en:vegetable-pigment",
+               "percent_estimate" : 0.68359375,
+               "percent_max" : 12.5,
+               "percent_min" : 0,
+               "text" : "野菜色素"
+            }
+         ],
+         "percent_estimate" : 0.68359375,
+         "percent_max" : 12.5,
+         "percent_min" : 0,
+         "text" : "着色料"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:vegan-status-unknown" : [
+         "en:vitamin-c",
+         "en:vitamin-e",
+         "en:vegetable-pigment"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:vitamin-c",
+         "en:vitamin-e",
+         "en:vegetable-pigment"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_hierarchy" : [
+      "en:thickener",
+      "en:e262",
+      "en:trehalose",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:sugar",
+      "en:modified-starch",
+      "en:starch",
+      "en:e640i",
+      "en:e640",
+      "en:condiment",
+      "en:antioxidant",
+      "en:colour",
+      "en:e415",
+      "en:amino-acids",
+      "en:vitamin-c",
+      "en:vitamin-e",
+      "en:vegetable-pigment"
+   ],
+   "ingredients_n" : 14,
+   "ingredients_n_tags" : [
+      "14",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "en:thickener",
+      "en:e262",
+      "en:trehalose",
+      "en:modified-starch",
+      "en:e640i",
+      "en:condiment",
+      "en:antioxidant",
+      "en:colour",
+      "en:modified-starch",
+      "en:e415",
+      "en:amino-acids",
+      "en:vitamin-c",
+      "en:vitamin-e",
+      "en:vegetable-pigment"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:thickener",
+      "en:e262",
+      "en:trehalose",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:sugar",
+      "en:modified-starch",
+      "en:starch",
+      "en:e640i",
+      "en:e640",
+      "en:condiment",
+      "en:antioxidant",
+      "en:colour",
+      "en:e415",
+      "en:amino-acids",
+      "en:vitamin-c",
+      "en:vitamin-e",
+      "en:vegetable-pigment"
+   ],
+   "ingredients_text" : "増粘剤(加工デンプン、キサンタン)、酢酸Na、トレハロース、加工デンプン、グリシン、調味料(アミノ酸等)、酸化防止剤(V.C,V.E)、着色料(野菜色素)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 10,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:amino-acids",
+      "en:e262",
+      "en:e415",
+      "en:e640i",
+      "en:modified-starch",
+      "en:trehalose",
+      "en:vegetable-pigment",
+      "en:vitamin-c",
+      "en:vitamin-e"
+   ],
+   "ingredients_without_ciqual_codes_n" : 9,
+   "known_ingredients_n" : 18,
+   "lc" : "ja",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -55,7 +55,6 @@ BEGIN {
 		@Langs
 
 		&lang
-		&lang_sprintf
 		&f_lang
 		&f_lang_in_lc
 		&lang_in_other_lc
@@ -135,42 +134,6 @@ sub lang ($stringid) {
 	}
 	elsif ((defined $short_l) and (defined $Lang{$stringid}{$short_l}) and ($Lang{$stringid}{$short_l} ne '')) {
 		return $Lang{$stringid}{$short_l};
-	}
-	else {
-		return '';
-	}
-}
-
-=head2 lang_sprintf( $stringid, [other arguments] )
-
-Returns a translation for a specific string id with specific arguments
-in the language defined in the $lang global variable.
-
-The translation is stored using the sprintf format (e.g. with %s) and
-lang_sprintf() calls sprintf() to process it.
-
-Warning: if multiple variables need to be interpolated,
-they will be in the same order for all languages.
-
-If a translation is not available, the function returns English.
-
-=head3 Arguments
-
-=head4 string id $stringid
-
-In the .po translation files, we use the msgctxt field for the string id.
-
-=head4 other arguments
-
-Arguments to be interpolated.
-
-=cut
-
-sub lang_sprintf ($stringid) {
-
-	my $translation = lang($stringid);
-	if (defined $translation) {
-		return sprintf($translation, @_);
 	}
 	else {
 		return '';
@@ -291,7 +254,7 @@ sub lang_in_other_lc ($target_lc, $stringid) {
 
 $log->info("initialize", {data_root => $data_root}) if $log->is_info();
 
-# Load stored %Lang from Lang.sto
+# Load stored %Lang from Lang.sto and Lang_tags.sto
 
 my $path = "$data_root/data/Lang.${server_domain}.sto";
 if (-e $path) {
@@ -312,7 +275,6 @@ if (-e $path) {
 	}
 
 	$log->info("Loaded languages", {langs => (scalar @Langs)}) if $log->is_info();
-	sleep(1) if $log->is_info();
 }
 else {
 	$log->warn("Language translation file does not exist, \%Lang will be empty. Run scripts/build_lang.pm to fix this.",
@@ -320,19 +282,42 @@ else {
 		if $log->is_warn();
 }
 
-# Tags types to path components in URLS: in ascii, lowercase, unaccented,
-# transliterated (in Roman characters)
-#
-# Note: a lot of plurals are currently missing below, commented-out are
-# the singulars that need to be changed to plurals
-my ($tag_type_singular_ref, $tag_type_plural_ref)
-	= ProductOpener::I18N::split_tags(ProductOpener::I18N::read_po_files("$data_root/po/tags/"));
-%tag_type_singular = %{$tag_type_singular_ref};
-%tag_type_plural = %{$tag_type_plural_ref};
+$path = "$data_root/data/Lang_tags.${server_domain}.sto";
+if (-e $path) {
 
+	$log->info("Loading tag types <=> singular and plural translated paths", {path => $path}) if $log->is_info();
+	my $tag_type_data_ref = retrieve($path);
+	$log->info("Loaded tag types <=> singular and plural translated paths", {path => $path}) if $log->is_info();
+
+	%tag_type_singular = %{$tag_type_data_ref->{tag_type_singular}};
+	%tag_type_plural = %{$tag_type_data_ref->{tag_type_plural}};
+	%tag_type_from_singular = %{$tag_type_data_ref->{tag_type_from_singular}};
+	%tag_type_from_plural = %{$tag_type_data_ref->{tag_type_from_plural}};
+}
+else {
+	$log->warn("Language translation file for tags does not exist. Run scripts/build_lang.pm to fix this.",
+		{path => $path})
+		if $log->is_warn();
+}
+
+# Taxonomies that can have debug, prev, and next versions
+# (older feature to generate tags using multiple versions of a taxonomy, currently not used)
 my @debug_taxonomies = ("categories", "labels", "additives");
 
-{
+# Build hashes to map a translated tag type (e.g. "catégorie") in singular or plural to the tag type (e.g. "categories")
+
+sub build_lang_tags() {
+
+	# Tags types to path components in URLS: in ascii, lowercase, unaccented,
+	# transliterated (in Roman characters)
+	#
+	# Note: a lot of plurals are currently missing below, commented-out are
+	# the singulars that need to be changed to plurals
+	my ($tag_type_singular_ref, $tag_type_plural_ref)
+		= ProductOpener::I18N::split_tags(ProductOpener::I18N::read_po_files("$data_root/po/tags/"));
+	%tag_type_singular = %{$tag_type_singular_ref};
+	%tag_type_plural = %{$tag_type_plural_ref};
+
 	foreach my $l (@Langs) {
 
 		foreach my $taxonomy (@debug_taxonomies) {
@@ -392,7 +377,14 @@ my @debug_taxonomies = ("categories", "labels", "additives");
 		}
 
 	}
-
+	return (
+		{
+			tag_type_singular => \%tag_type_singular,
+			tag_type_plural => \%tag_type_plural,
+			tag_type_from_singular => \%tag_type_from_singular,
+			tag_type_from_plural => \%tag_type_from_plural
+		}
+	);
 }
 
 # initialize languages values:
@@ -401,6 +393,7 @@ my @debug_taxonomies = ("categories", "labels", "additives");
 
 sub build_lang ($Languages_ref) {
 	# $Languages_ref is a hash of languages with translations initialized from the languages taxonomy by Tags.pm
+	# Note: all .po files must have a corresponding entry in the languages.txt taxonomy
 
 	# Load the strings from the .po files
 	# UI strings, non-Roman characters can be used
