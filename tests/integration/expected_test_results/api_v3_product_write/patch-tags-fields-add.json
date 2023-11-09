@@ -1,0 +1,88 @@
+{
+   "code" : "1234567890100",
+   "errors" : [],
+   "product" : {
+      "categories" : "Plant-based foods and beverages, Plant-based foods, Coffees, en:tea",
+      "categories_hierarchy" : [
+         "en:plant-based-foods-and-beverages",
+         "en:beverages",
+         "en:plant-based-foods",
+         "en:hot-beverages",
+         "en:plant-based-beverages",
+         "en:teas",
+         "en:coffees"
+      ],
+      "categories_tags" : [
+         "en:plant-based-foods-and-beverages",
+         "en:beverages",
+         "en:plant-based-foods",
+         "en:hot-beverages",
+         "en:plant-based-beverages",
+         "en:teas",
+         "en:coffees"
+      ],
+      "categories_tags_en" : [
+         "Plant-based foods and beverages",
+         "Beverages",
+         "Plant-based foods",
+         "Hot beverages",
+         "Plant-based beverages",
+         "Teas",
+         "Coffees"
+      ],
+      "countries" : "Italie, en:spain",
+      "countries_hierarchy" : [
+         "en:italy",
+         "en:spain"
+      ],
+      "countries_tags" : [
+         "en:italy",
+         "en:spain"
+      ],
+      "countries_tags_fr" : [
+         "Italie",
+         "Espagne"
+      ],
+      "labels" : "végétarien,Something unrecognized in French",
+      "labels_hierarchy" : [
+         "en:vegetarian",
+         "fr:Something unrecognized in French"
+      ],
+      "labels_tags" : [
+         "en:vegetarian",
+         "fr:something-unrecognized-in-french"
+      ],
+      "labels_tags_fr" : [
+         "Végétarien",
+         "Something-unrecognized-in-french"
+      ],
+      "stores" : "Carrefour, Mon Ptit magasin",
+      "stores_tags" : [
+         "carrefour",
+         "mon-ptit-magasin"
+      ],
+      "stores_tags_en" : [
+         "Carrefour",
+         "Mon-ptit-magasin"
+      ]
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "default_value" : "en",
+            "id" : "tags_lc"
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      }
+   ]
+}

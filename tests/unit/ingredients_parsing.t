@@ -15,13 +15,13 @@ use ProductOpener::Ingredients qw/:all/;
 
 #use Log::Any::Adapter 'TAP', filter => "none";
 
-is(normalize_a_of_b("en", "oil", "olive"), "olive oil");
-is(normalize_a_of_b("es", "aceta", "oliva"), "aceta de oliva");
-is(normalize_a_of_b("fr", "huile végétale", "olive"), "huile végétale d'olive");
+is(normalize_a_of_b("en", "oil", "olive", 1), "olive oil");
+is(normalize_a_of_b("es", "aceta", "oliva", 1), "aceta de oliva");
+is(normalize_a_of_b("fr", "huile végétale", "olive", 1), "huile végétale d'olive");
 
-is(normalize_enumeration("en", "phosphates", "calcium and sodium"), "calcium phosphates, sodium phosphates");
-is(normalize_enumeration("en", "vegetal oil", "sunflower, palm"), "sunflower vegetal oil, palm vegetal oil");
-is(normalize_enumeration("fr", "huile", "colza, tournesol et olive"),
+is(normalize_enumeration("en", "phosphates", "calcium and sodium", 1), "calcium phosphates, sodium phosphates");
+is(normalize_enumeration("en", "vegetal oil", "sunflower, palm", 1), "sunflower vegetal oil, palm vegetal oil");
+is(normalize_enumeration("fr", "huile", "colza, tournesol et olive", 1),
 	"huile de colza, huile de tournesol, huile d'olive");
 
 is(separate_additive_class("fr", "colorant", " ", "", "naturel"), "colorant ");
@@ -551,7 +551,7 @@ my @lists = (
 	],
 	["fr", "huile végétale : colza", "huile végétale de colza"],
 	["fr", "huile végétale : colza, fraises", "huile végétale de colza, fraises"],
-	["fr", "huile végétale : colza et tomates", "huile végétale : colza et tomates"],
+	["fr", "huile végétale : colza et tomates", "huile végétale de colza et tomates"],
 	["en", "vegetable oil: sunflower", "sunflower vegetable oil"],
 	["en", "vegetable oil (palm)", "palm vegetable oil"],
 	["en", "vegetable oils (palm, olive)", "palm vegetable oils, olive vegetable oils"],
@@ -568,13 +568,81 @@ my @lists = (
 		"sunflower vegetable oils, colza vegetable oils and strawberry"
 	],
 
+	# Polish oils
+	["pl", "oleje roślinne (słonecznikowy)", "oleje roślinne słonecznikowy"],
+	["pl", "oleje roślinne: słonecznikowy", "oleje roślinne słonecznikowy"],
+	["pl", "oleje roślinne (słonecznikowy, rzepakowy)", "oleje roślinne słonecznikowy, oleje roślinne rzepakowy"],
+	[
+		"pl",
+		"oleje roślinne (sojowy, słonecznikowy, kokosowy, rzepakowy) w zmiennych proporcjach",
+		"oleje roślinne sojowy, oleje roślinne słonecznikowy, oleje roślinne kokosowy, oleje roślinne rzepakowy"
+	],
+	[
+		"pl",
+		"tłuszcze roślinne (palmowy nieutwardzony, shea)",
+		"tłuszcze roślinne palmowy nieutwardzony, tłuszcze roślinne shea"
+	],
+	[
+		"pl",
+		"tłuszcze roślinne (kokosowy i palmowy) w zmiennych proporcjach",
+		"tłuszcze roślinne kokosowy, tłuszcze roślinne palmowy"
+	],
+
+	# Polish meats
+	["pl", "mięso (wołowe, wieprzowe, cielęce)", "mięso wołowe, mięso wieprzowe, mięso cielęce"],
+
+	# Polish juices and concentrates
+	["pl", "przeciery z (jabłek, bananów, marchwi)", "przeciery z jabłek, przeciery z bananów, przeciery z marchwi"],
+
 	# Russian oils (more tests needed)
 	["ru", "масло (Подсолнечное)", "масло Подсолнечное"],
 	["ru", "Масло (подсолнечное)", "Масло подсолнечное"],
 	["ru", "масло растительное (подсолнечное, соевое)", "масло растительное подсолнечное, масло растительное соевое"],
 
 	# grammes -> g
-	["fr", "Teneur en fruits: 50gr pour 100 grammes", "Teneur en fruits: 50g pour 100 g"]
+	["fr", "Teneur en fruits: 50gr pour 100 grammes", "Teneur en fruits: 50g pour 100 g"],
+
+	# test conflicts between the word "and" in some languages and additives variants. With letters i or e or a.
+	[
+		"hr",
+		"bojilo: E 150a, tvari za rahljenje: E 500 i E 503, sol.",
+		"bojilo: e150a, tvari za rahljenje: e500, e503, sol."
+	],
+	[
+		"hr",
+		"bojilo: E 150a, tvari za rahljenje: E 500 i, E 503, sol.",
+		"bojilo: e150a, tvari za rahljenje: e500 i, e503, sol."
+	],
+	[
+		"hr",
+		"bojilo: E 150a, tvari za rahljenje: E 500(i), E 503, sol.",
+		"bojilo: e150a, tvari za rahljenje: e500i, e503, sol."
+	],
+	[
+		"hr",
+		"bojilo: E 150a, tvari za rahljenje: E 500i, E 503, sol.",
+		"bojilo: e150a, tvari za rahljenje: e500i, e503, sol."
+	],
+	["it", "formaggio, E 472 e, E470a.", "formaggio, e472 e, e470a."],
+	["it", "formaggio, E 472 e E470a.", "formaggio, e472, e470a."],
+	["sk", "syr, E470 a E470a, mlieko.", "syr, e470, e470a, mlieko."],
+	# normalize category and types
+	["fr", "Piments (vert, rouge, jaune)", "Piments vert, Piments rouge, Piments jaune"],
+	[
+		"fr",
+		"Huiles végétales de palme, de colza et de tournesol",
+		"Huiles végétales de palme, Huiles végétales de colza, Huiles végétales de tournesol"
+	],
+	["fr", "arôme naturel de pomme avec d'autres âromes", "arôme naturel de pomme, âromes"],
+	["fr", "Carbonate de magnésium, fer élémentaire", "Carbonate de magnésium, fer élémentaire"],
+	["fr", "huile végétale (colza)", "huile végétale de colza"],
+	["fr", "huile végétale : colza", "huile végétale de colza"],
+	["hr", "ječmeni i pšenični slad", "ječmeni slad, pšenični slad"],
+	["hr", "ječmeni, ječmeni i pšenični slad", "ječmeni slad, ječmeni slad, pšenični slad"],
+	["en", "Vegetal oil (sunflower, olive and palm)", "sunflower vegetal oil, olive vegetal oil, palm vegetal oil"],
+	["en", "vegetable oil (palm)", "palm vegetable oil"],
+	["en", "vegetable oil: palm", "palm vegetable oil"],
+
 );
 
 foreach my $test_ref (@lists) {

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -72,6 +72,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::Units qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -92,9 +93,10 @@ use ProductOpener::Recipes qw(:all);
 use ProductOpener::MainCountries qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
 use ProductOpener::API qw/:all/;
-use ProductOpener::APITest qw/:all/;
 use ProductOpener::APIProductRead qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::APITaxonomySuggestions qw/:all/;
+use ProductOpener::TaxonomySuggestions qw/:all/;
 use ProductOpener::Routing qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Export qw/:all/;
@@ -111,6 +113,8 @@ use ProductOpener::FoodGroups qw/:all/;
 use ProductOpener::Events qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::LoadData qw/:all/;
+use ProductOpener::NutritionCiqual qw/:all/;
+use ProductOpener::NutritionEstimation qw/:all/;
 
 use Apache2::Const -compile => qw(OK);
 use Apache2::Connection ();

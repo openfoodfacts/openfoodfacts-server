@@ -39,7 +39,7 @@ pt:reciclável, a reciclar, para reciclar
 
 <en:recycle
 en:recycle in glass bin, recycle in glass container, recycle with glass, in glass bin, in glass container
-fr:recycler dans le conteneur à verre, recycler dans le bac à verre, recycler avec le verre, dans le conteneur à verre, avec le verre
+fr:recycler dans le conteneur à verre, recycler dans le bac à verre, recycler avec le verre, dans le conteneur à verre, avec le verre, tri verre, bac verre
 nl:recyclen in de glasbak, Glasbak, in de glasbak, in glasbak
 # comment:en:If the recycling instruction is to recycle in the glass bin, we can assume the material is glass
 packaging_materials:en: en:glass
@@ -74,10 +74,10 @@ packaging_materials:en: en:plastics
 <en:recycle
 en:return to store, deposit
 fr:consigné, consigne, rapporter au magasin, retourner au magasin
-nl:recycle-als-statiegeld
+# nl:recycle-als-statiegeld is already coer
 
 #In the Netherlands PET bottles must be returned in exchange for the deposit, when it has the statiegeldfles logo
-<en:deposit
+<en:return to store
 en:return PET bottle to store, PET deposit bottle
 fr:bouteille en PET consignée, rapporter la bouteille en PET au magasin
 nl:recycle als statiegeldfles, statiegeldfles
@@ -85,7 +85,7 @@ packaging_materials:en: en:pet-polyethylene-terephthalate
 packaging_shapes:en: en:bottle
 
 # In Croatia, there is a specific label for plastic and glass bottle with deposit
-<en:deposit
+<en:return to store
 en:deposit refunds
 hr:povratna naknada
 fr:consigne remboursable
@@ -95,6 +95,11 @@ fr:consigne remboursable
 en:recycle as green waste, compost, green waste
 nl:recycle als GFT, gft
 fr:compostable, à composter
+
+#sorting bin
+<en:recycle
+en:recycle in sorting bin, sorting bin
+fr:bac de tri
 
 en:discard, to discard, throw away, to throw away, non-recyclable, to be thrown away, to be discarded
 de:wegwerfen, nicht recycelbar, zum Wegwerfen

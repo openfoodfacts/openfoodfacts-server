@@ -1,11 +1,25 @@
 {
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-3",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty"
    ],
-   "packaging_text" : "barquette en plastique à jeter;film plastique à jeter; boîte en carton à recycler",
+   "packaging_materials_tags" : [
+      "en:cardboard",
+      "en:plastic"
+   ],
+   "packaging_recycling_tags" : [
+      "en:discard",
+      "en:recycle"
+   ],
+   "packaging_shapes_tags" : [
+      "en:box",
+      "en:film",
+      "en:tray"
+   ],
+   "packaging_text" : "barquette en plastique à jeter; film plastique à jeter; boîte en carton à recycler",
    "packagings" : [
       {
          "material" : "en:plastic",
@@ -22,5 +36,11 @@
          "recycling" : "en:recycle",
          "shape" : "en:box"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:paper-or-cardboard" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 3
 }

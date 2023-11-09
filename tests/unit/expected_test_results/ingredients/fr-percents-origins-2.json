@@ -124,9 +124,19 @@
    "ingredients_with_specified_percent_sum" : 39.5,
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 75,
+   "ingredients_without_ciqual_codes" : [
+      "en:butterfat",
+      "en:flavouring",
+      "en:sugar",
+      "en:sunflower-lecithin",
+      "en:wheat-flour"
+   ],
+   "ingredients_without_ciqual_codes_n" : 5,
    "known_ingredients_n" : 18,
    "lc" : "fr",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },

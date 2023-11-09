@@ -71,6 +71,7 @@
                "icon_url" : "https://server_domain/images/attributes/gluten-content-unknown.svg",
                "id" : "allergens_no_gluten",
                "name" : "Gluten",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Presence unknown: Gluten"
             },
@@ -80,6 +81,7 @@
                "icon_url" : "https://server_domain/images/attributes/milk-content-unknown.svg",
                "id" : "allergens_no_milk",
                "name" : "Milk",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Presence unknown: Milk"
             },
@@ -89,6 +91,7 @@
                "icon_url" : "https://server_domain/images/attributes/eggs-content-unknown.svg",
                "id" : "allergens_no_eggs",
                "name" : "Eggs",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Presence unknown: Eggs"
             },
@@ -98,6 +101,7 @@
                "icon_url" : "https://server_domain/images/attributes/nuts-content-unknown.svg",
                "id" : "allergens_no_nuts",
                "name" : "Nuts",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Presence unknown: Nuts"
             },
@@ -107,6 +111,7 @@
                "icon_url" : "https://server_domain/images/attributes/peanuts-content-unknown.svg",
                "id" : "allergens_no_peanuts",
                "name" : "Peanuts",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Presence unknown: Peanuts"
             },
@@ -116,6 +121,7 @@
                "icon_url" : "https://server_domain/images/attributes/sesame-seeds-content-unknown.svg",
                "id" : "allergens_no_sesame_seeds",
                "name" : "Sesame seeds",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Presence unknown: Sesame seeds"
             },
@@ -125,6 +131,7 @@
                "icon_url" : "https://server_domain/images/attributes/soybeans-content-unknown.svg",
                "id" : "allergens_no_soybeans",
                "name" : "Soybeans",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Presence unknown: Soybeans"
             },
@@ -134,6 +141,7 @@
                "icon_url" : "https://server_domain/images/attributes/celery-content-unknown.svg",
                "id" : "allergens_no_celery",
                "name" : "Celery",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Presence unknown: Celery"
             },
@@ -143,6 +151,7 @@
                "icon_url" : "https://server_domain/images/attributes/mustard-content-unknown.svg",
                "id" : "allergens_no_mustard",
                "name" : "Mustard",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Presence unknown: Mustard"
             },
@@ -152,6 +161,7 @@
                "icon_url" : "https://server_domain/images/attributes/lupin-content-unknown.svg",
                "id" : "allergens_no_lupin",
                "name" : "Lupin",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Presence unknown: Lupin"
             },
@@ -161,6 +171,7 @@
                "icon_url" : "https://server_domain/images/attributes/fish-content-unknown.svg",
                "id" : "allergens_no_fish",
                "name" : "Fish",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Presence unknown: Fish"
             },
@@ -170,6 +181,7 @@
                "icon_url" : "https://server_domain/images/attributes/crustaceans-content-unknown.svg",
                "id" : "allergens_no_crustaceans",
                "name" : "Crustaceans",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Presence unknown: Crustaceans"
             },
@@ -179,6 +191,7 @@
                "icon_url" : "https://server_domain/images/attributes/molluscs-content-unknown.svg",
                "id" : "allergens_no_molluscs",
                "name" : "Molluscs",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Presence unknown: Molluscs"
             },
@@ -188,6 +201,7 @@
                "icon_url" : "https://server_domain/images/attributes/sulphur-dioxide-and-sulphites-content-unknown.svg",
                "id" : "allergens_no_sulphur_dioxide_and_sulphites",
                "name" : "Sulphur dioxide and sulphites",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Presence unknown: Sulphur dioxide and sulphites"
             }
@@ -203,7 +217,7 @@
                "icon_url" : "https://server_domain/images/attributes/vegan-status-unknown.svg",
                "id" : "vegan",
                "name" : "Vegan",
-               "panel_id" : "ingredients_analysis_en:vegan-status-unknown",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Vegan status unknown"
             },
@@ -212,7 +226,7 @@
                "icon_url" : "https://server_domain/images/attributes/vegetarian-status-unknown.svg",
                "id" : "vegetarian",
                "name" : "Vegetarian",
-               "panel_id" : "ingredients_analysis_en:vegetarian-status-unknown",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Vegetarian status unknown"
             },
@@ -221,7 +235,7 @@
                "icon_url" : "https://server_domain/images/attributes/palm-oil-content-unknown.svg",
                "id" : "palm_oil_free",
                "name" : "Palm oil free",
-               "panel_id" : "ingredients_analysis_en:palm-oil-content-unknown",
+               "panel_id" : "ingredients",
                "status" : "unknown",
                "title" : "Palm oil content unknown"
             }
@@ -766,6 +780,7 @@
    ],
    "food_groups_tags" : [],
    "ingredients_from_palm_oil_tags" : [],
+   "ingredients_lc" : "en",
    "ingredients_text" : "",
    "ingredients_that_may_be_from_palm_oil_tags" : [],
    "languages" : {},
@@ -777,7 +792,6 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:nutriscore-not-computed",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
@@ -787,6 +801,10 @@
       "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-proteins",
       "en:nutrition-no-fiber",
+      "en:nutriscore-not-computed",
+      "en:nutrition-no-fruits-vegetables-nuts",
+      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+      "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
@@ -808,16 +826,77 @@
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
    "nutriments" : {},
+   "nutriscore" : {
+      "2021" : {
+         "category_available" : 1,
+         "data" : {
+            "energy" : null,
+            "fiber" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat" : 0,
+            "is_water" : 0,
+            "proteins" : null,
+            "saturated_fat" : null,
+            "sodium" : null,
+            "sugars" : null
+         },
+         "grade" : "unknown",
+         "nutrients_available" : 0,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 0
+      },
+      "2023" : {
+         "category_available" : 1,
+         "data" : {
+            "energy" : null,
+            "fiber" : 0,
+            "fruits_vegetables_legumes" : null,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat_oil_nuts_seeds" : 0,
+            "is_red_meat_product" : 0,
+            "is_water" : 0,
+            "proteins" : null,
+            "salt" : null,
+            "saturated_fat" : null,
+            "sugars" : null
+         },
+         "grade" : "unknown",
+         "nutrients_available" : 0,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 0
+      }
+   },
+   "nutriscore_2021_tags" : [
+      "unknown"
+   ],
+   "nutriscore_2023_tags" : [
+      "unknown"
+   ],
+   "nutriscore_grade" : "unknown",
+   "nutriscore_tags" : [
+      "unknown"
+   ],
+   "nutriscore_version" : "2021",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
+   "nutrition_grade_fr" : "unknown",
+   "nutrition_grades" : "unknown",
    "nutrition_grades_tags" : [
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "missing energy - missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
+   "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
    "nutrition_score_warning_no_fiber" : 1,
+   "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "other_nutritional_substances_tags" : [],
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [],
    "packagings" : [],
+   "packagings_materials" : {},
    "pnns_groups_1" : "unknown",
    "pnns_groups_1_tags" : [
       "unknown",

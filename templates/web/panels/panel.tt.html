@@ -46,6 +46,8 @@
                         class="filter-grey"
                     [% ELSIF panel.evaluation == "unknown" %]
                         class="filter-grey"
+                    [% ELSE %]
+                        class="filter-grey"
                     [% END %]
                 [% END %]
             >
@@ -232,7 +234,7 @@
                     <thead>
                         <tr>
                             [% FOREACH column IN table_element.columns %]
-                            <th scope="col"[% IF column.style.defined %]style="[% column.style %]"[% END %]>
+                            <th scope="col"[% IF column.style.defined %] style="[% column.style %]"[% END %]>
                                 [% column.text %]
                             </th>
                             [% END %]
@@ -240,7 +242,7 @@
                     </thead>
                     <tbody>
                         [% FOREACH row IN table_element.rows %]
-                        <tr[% IF row.id %] id="[% row.id %]"[% END %]>
+                        <tr[% IF row.id %] id="[% row.id %]"[% END %][% IF row.style.defined %] style="[% row.style %]"[% END %]>
                             [% FOREACH value IN row.item('values') %]
                                 <td [% IF value.style.defined %]style="[% value.style %]"[% END %]>
                                     [% IF value.icon_url %]
