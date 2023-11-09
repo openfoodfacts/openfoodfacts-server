@@ -8,52 +8,25 @@
         "title": "[% lang('health') %]",
     },    
     "elements": [
+        [% IF panels.recommendation_health.defined %]
         {
-            "element_type": "panel_group",
-            "panel_group_element": {
-                "title": "[% lang('nutrition') %]",
-                "panel_ids": [
-                    [% IF panels.nutriscore.defined %]
-                        "nutriscore",
-                        [% IF panels.nutriscore_warnings.defined %]
-                            "nutriscore_warnings",
-                        [% END %]
-                    [% END %]
-                    [% IF panels.physical_activities.defined %]
-                        "physical_activities",
-                    [% END %]                    
-                    [% IF panels.nutrition_facts_table.defined %]
-                        "nutrition_facts_table",
-                    [% END %]
-                ],
-            },
-        },
-        [% IF panels.ingredients.defined %]
-        {
-            "element_type": "panel_group",
-            "panel_group_element": {
-                "title": "[% lang('ingredients') %]",
-                "panel_ids": ["ingredients"],
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "recommendation_health",
             },
         },
         [% END %]
-        [% IF panels.allergens.defined %]
-        {
-            "element_type": "panel_group",
-            "panel_group_element": {
-                "title": "[% lang('allergens') %]",
-                "panel_ids": ["allergens"],
-            },
-        },
+
+        [% IF options.knowledge_panels_client == 'web' %]
+
+            [% INCLUDE "api/knowledge-panels/health/ingredients_panels.tt.json" %]
+            [% INCLUDE "api/knowledge-panels/health/nutrition_panels.tt.json" %]
+
+        [% ELSE %]
+
+            [% INCLUDE "api/knowledge-panels/health/nutrition_panels.tt.json" %]
+            [% INCLUDE "api/knowledge-panels/health/ingredients_panels.tt.json" %]
+
         [% END %]
-        [% IF panels.additives.defined %]
-        {
-            "element_type": "panel_group",
-            "panel_group_element": {
-                "title": "[% lang('additives') %]",
-                "panel_ids": ["additives"],
-            },
-        }, 
-        [% END %]   
     ],
 }

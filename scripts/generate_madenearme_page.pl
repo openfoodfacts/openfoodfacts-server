@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
@@ -36,7 +35,6 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::URL qw/:all/;
 
-
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -45,6 +43,53 @@ use JSON::PP;
 use Log::Any qw($log);
 
 use ProductOpener::Lang qw/:all/;
+
+# initialize html
+sub get_initial_html ($cc) {
+	my $html;
+	if (open(my $IN, "<:encoding(UTF-8)", "$data_root/madenearme/madenearme-$cc.html")) {
+
+		$html = join("", (<$IN>));
+		close $IN;
+	}
+	else {
+		die("$data_root/madenearme/madenearme-$cc.html not found\n");
+	}
+	return $html;
+}
+
+# parse the JSONL to find all products for country with emb_codes_tags
+# return an iterator
+sub iter_products_from_jsonl ($jsonl_path, $country) {
+	my $jsonl;
+	if ($jsonl_path =~ /\.gz$/) {
+		open($jsonl, "-|", "gunzip -c $jsonl_path") or die("can’t open pipe to $jsonl_path");
+	}
+	else {
+		open($jsonl, "<:encoding(UTF-8)", $jsonl_path)
+			or die("$jsonl_path not found\n");
+	}
+	my $is_world = $country eq "en:world";
+	# iterator
+	return sub {
+		while (my $line = <$jsonl>) {
+			# quickly verify we have emb_codes_tags without parsing json
+			next unless $line =~ /emb_codes_tags/;
+			my $product_ref;
+			eval {
+				$product_ref = decode_json($line);
+				1;
+			} or next;
+			if (   (defined $product_ref->{emb_codes_tags})
+				&& ($is_world || (grep {$_ eq $country} @{$product_ref->{countries_tags}})))
+			{
+				return $product_ref;
+			}
+		}
+		# end of iteration
+		return;
+	};
+}
 
 $cc = $ARGV[0];
 $lc = $ARGV[1];
@@ -59,47 +104,32 @@ if ((not defined $cc) or (not defined $lc)) {
 	die("Pass country code (or world) and language code as arguments.\n");
 }
 else {
-		if (defined $country_codes{$cc}) {
-			$country = $country_codes{$cc};
-		}
-		else {
-			$country = "en:world";
-		}
+	if (defined $country_codes{$cc}) {
+		$country = $country_codes{$cc};
+	}
+	else {
+		$country = "en:world";
+	}
 
 	print STDERR "Generating map for country code $cc (country: $country) and language code $lc\n";
 }
 
 my $html;
 
-if (open(my $IN, "<:encoding(UTF-8)", "$data_root/madenearme/madenearme-$cc.html")) {
+$html = get_initial_html($cc);
 
-	$html = join("", (<$IN>));
-	close $IN;
-}
-else {
-	die("$data_root/madenearme/madenearme-$cc.html not found\n");
-}
-
-my %map_options =
-(
-uk => "map.setView(new L.LatLng(54.0617609,-3.4433238),6);",
-);
+my %map_options = (uk => "map.setView(new L.LatLng(54.0617609,-3.4433238),6);",);
 
 my $request_ref = {};
-my $query_ref = {};
 my $graph_ref = {};
 
-$log->info("building query", { lc => $lc, cc => $cc, query => $query_ref }) if $log->is_info();
+$log->info("finding products", {lc => $lc, cc => $cc, country => $country}) if $log->is_info();
 
-$query_ref->{lc} = $lc;
-
-# We want products with emb codes
-$query_ref->{"emb_codes_tags"} = { '$exists' => 1 };
+my $jsonl_path = "$www_root/data/openfoodfacts-products.jsonl.gz";
+my $products_iter = iter_products_from_jsonl($jsonl_path, $country);
 
 $request_ref->{map_options} = $map_options{$cc} || "";
-
-my $map_html = search_and_map_products($request_ref, $query_ref, $graph_ref);
-
+my $map_html = map_of_products($products_iter, $request_ref, $graph_ref);
 
 $html =~ s/<HEADER>/$header/;
 $html =~ s/<INITJS>/$initjs/;
@@ -107,5 +137,4 @@ $html =~ s/<CONTENT>/$map_html/;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 print $html;
-
 

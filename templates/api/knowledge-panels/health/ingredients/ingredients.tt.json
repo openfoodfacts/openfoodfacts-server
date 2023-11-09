@@ -3,13 +3,58 @@
     "topics": [
         "health"
     ],
-    "elements": [   
+    "expanded": false,
+    "expand_for": "large",
+    "evaluation": "unknown",
+    "title_element": {
+        "title":"[% panel.title %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/ingredients.svg",
+        "icon_color_from_evaluation": true,
+    },
+    "elements": [
+        // Display the ingredients list if we have one
+        [% IF product.ingredients_n.defined && product.ingredients_n > 0 %]
         {
             "element_type": "text",
             "text_element": {
-                "html": `[ shown only to moderators] -- New knowledge panel coming soon
-                `,
-            }
+                "html": `[% panel.ingredients_text_with_allergens %]`,
+                "lc": "[% panel.ingredients_text_lc %]",
+                "language": "[% panel.ingredients_text_language %]",
+                "edit_field_type": "ingredients_text",
+                "edit_field_id": "ingredients_text_[% panel.ingredients_text_lc %]",
+                "edit_field_value": `[% panel.ingredients_text %]`,
+            },
         },
+        [% ELSE %]
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("actions_add_ingredients") %]`,
+                "actions": [
+                    "add_ingredients_text"
+                ]
+            }
+        },   
+        [% END %]
+        [% IF product.allergens_tags && product.allergens_tags.size %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `<strong>[% lang("allergens_p").ucfirst %][% sep %]:</strong> 
+                    [% display_taxonomy_tags_list("allergens", product.allergens_tags) %]
+                `,
+            },
+        },
+        [% END %]
+        [% IF product.traces_tags && product.traces_tags.size %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `<strong>[% lang("traces_p").ucfirst %][% sep %]:</strong> 
+                    [% display_taxonomy_tags_list("traces", product.traces_tags) %]
+                `,
+            },
+        },
+        [% END %]        
     ]
 }

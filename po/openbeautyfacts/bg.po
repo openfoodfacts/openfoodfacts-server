@@ -5,20 +5,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-12-09 09:06\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: bg\n"
-"X-Crowdin-File: openbeautyfacts.pot\n"
-"X-Crowdin-File-ID: 1810\n"
+"X-Crowdin-File-ID: 3125\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openbeautyfacts.org/images/apps/obf.apk"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org/images/apps/obf.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
@@ -29,23 +27,13 @@ msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/bg/app/open-beauty-facts/id1122926380"
 
-#. make sure the image exists with your country code. https://static.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en-178x150.png Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openbeautyfacts-logo-en-178x150.png"
-msgstr "openbeautyfacts-logo-en-178x150.png"
-
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openbeautyfacts-logo-en-356x300.png"
-msgstr "openbeautyfacts-logo-en-178x150.png"
-
 msgctxt "site_name"
 msgid "Open Beauty Facts"
 msgstr "Open Beauty Facts"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
+msgstr ""
 
 msgctxt "tagline"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
@@ -58,7 +46,7 @@ msgstr "OpenBeautyFacts"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr "Страницата на продукта не е пълна. Можете да помогнете за завършването като я редактирате и добавите повече данни от снимките, които имаме, или като направите повече снимки използвайки приложението за <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Благодарим Ви!"
+msgstr "Тази продуктова страница не е пълна. Можеш да помогнеш, като я редактираш и добавиш повече данни от снимките, които имаме, или като направиш още снимки с помощта на приложението за <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> или <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Благодаря ти!"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -66,31 +54,15 @@ msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><i
 
 msgctxt "donate"
 msgid "Donate to Open Beauty Facts"
-msgstr "Дарете за Open Beauty Facts"
+msgstr "Дари за Open Beauty Facts"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenBeautyFacts"
 msgstr "https://www.facebook.com/OpenBeautyFacts"
 
-msgctxt "footer"
-msgid "<a href=\"https://world.openbeautyfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr "<a href=\"https://world.openbeautyfacts.org/legal\">Правни</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/terms-of-use\">Условия за ползване</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/who-we-are\">Кои сме</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/faq\">Често задавани въпроси</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Идеи Форум</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Блог</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">Преса и блогове</a>\n"
-
 msgctxt "brands_example"
 msgid "Nivea, Nivea Men"
-msgstr "Nivea, Нивеа за мъже"
+msgstr "Nivea, Nivea Men"
 
 msgctxt "categories_example"
 msgid "Anti-dandruff shampoo, Whitening toothpaste"
@@ -106,15 +78,15 @@ msgstr "Съвместна, безплатна и отворена база да
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook group for contributors</a>"
-msgstr "и <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook група за контрибутори</a>"
+msgstr "и <a href=\"https://www.facebook.com/groups/OpenBeautyFacts/\">Facebook групата за сътрудници</a>"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of cosmetic products from around the world."
 msgstr "Съвместна, безплатна и отворена база данни за съставки и информация за козметични продукти от света."
 
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openbeautyfacts.org"
-msgstr "https://en.wiki.openbeautyfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 msgctxt "generic_name_example"
 msgid "Anti-dandruff shampoo"
@@ -137,11 +109,11 @@ msgstr "Това е <a href=\"/open-beauty-hunt\">Търсене на Open Beaut
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr "→ С Chrome, Firefox и Safari можете да изберете множество снимки (продукт, съставки и т. н.), като щракнете върху тях задържайки натиснат клавиша Ctrl, за да ги добавите наведнъж."
+msgstr "→ С Chrome, Firefox и Safari можеш да избереш множество снимки (продукт, съставки и т. н.), като щракнеш върху тях задържайки натиснат клавиша Ctrl, за да ги добавиш наведнъж."
 
 msgctxt "search_description_opensearch"
 msgid "Open Beauty Facts product search"
-msgstr "Open Beauty Facts търсачка продукти"
+msgstr "Open Beauty Facts търсачка за продукти"
 
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
@@ -150,7 +122,7 @@ msgstr "ВОДА, НАТРИЕВ ЛАУРЕТ СУЛФАТ, ДИНАТРИЕВ �
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
 msgid "/open-beauty-facts-mobile-app"
-msgstr ""
+msgstr "/open-beauty-facts-mobile-app"
 
 # Do not translate
 msgctxt "footer_obf"

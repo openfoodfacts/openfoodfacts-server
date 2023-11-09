@@ -1,0 +1,42 @@
+{
+   "code" : "1234567890006",
+   "errors" : [
+      {
+         "field" : {
+            "id" : "packagings_add"
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "invalid_type_must_be_array",
+            "lc_name" : "Invalid type: must be an array",
+            "name" : "Invalid type: must be an array"
+         }
+      }
+   ],
+   "product" : {
+      "packagings" : []
+   },
+   "status" : "success_with_errors",
+   "warnings" : [
+      {
+         "field" : {
+            "default_value" : "en",
+            "id" : "tags_lc"
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      }
+   ]
+}

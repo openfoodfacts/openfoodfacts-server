@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8"?><catalogue_item_notification:catalogueItemNotificationMessage xmlns:catalogue_item_notification="urn:gs1:gdsn:catalogue_item_notification:xsd:3" xmlns:sh="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:gs1:gdsn:catalogue_item_notification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/CatalogueItemNotification.xsd">
+   <sh:StandardBusinessDocumentHeader>
+      <sh:HeaderVersion>1.0</sh:HeaderVersion>
+      <sh:Sender>
+         <sh:Identifier Authority="GS1">3027800020370</sh:Identifier>
+      </sh:Sender>
+      <sh:Receiver>
+         <sh:Identifier Authority="GS1">8888888899990</sh:Identifier>
+      </sh:Receiver>
+      <sh:DocumentIdentification>
+         <sh:Standard>GS1</sh:Standard>
+         <sh:TypeVersion>3.1</sh:TypeVersion>
+         <sh:InstanceIdentifier>3027800020301_CIN4b539c3ae2154f31ab7d09d86a8200b4105</sh:InstanceIdentifier>
+         <sh:Type>catalogueItemNotification</sh:Type>
+         <sh:MultipleType>false</sh:MultipleType>
+         <sh:CreationDateAndTime>2019-08-14T21:45:59+02:00</sh:CreationDateAndTime>
+      </sh:DocumentIdentification>
+   </sh:StandardBusinessDocumentHeader>
+   <transaction>
+      <transactionIdentification>
+         <entityIdentification>3027800020301_CIN4b539c3ae2154f31ab7d09d86a8200b4105_TransactionID</entityIdentification>
+         <contentOwner>
+            <gln>3011780500106</gln>
+         </contentOwner>
+      </transactionIdentification>
+      <documentCommand>
+         <documentCommandHeader type="ADD">
+            <documentCommandIdentification>
+               <entityIdentification>3027800020301_CIN4b539c3ae2154f31ab7d09d86a8200b4105_DocID</entityIdentification>
+               <contentOwner>
+                  <gln>3011780500106</gln>
+               </contentOwner>
+            </documentCommandIdentification>
+         </documentCommandHeader>
+         <catalogue_item_notification:catalogueItemNotification>
+            <creationDateTime>2019-08-14T21:45:59+02:00</creationDateTime>
+            <documentStatusCode>ORIGINAL</documentStatusCode>
+            <catalogueItemNotificationIdentification>
+               <entityIdentification>3027800020301_CIN4b539c3ae2154f31ab7d09d86a8200b4105_CIN</entityIdentification>
+               <contentOwner>
+                  <gln>3011780500106</gln>
+               </contentOwner>
+            </catalogueItemNotificationIdentification>
+            <isReload>false</isReload>
+            <catalogueItem>
+               <dataRecipient>8888888899990</dataRecipient>
+               <sourceDataPool>3027800020370</sourceDataPool>
+               <catalogueItemState>
+                  <catalogueItemStateCode>REGISTERED</catalogueItemStateCode>
+               </catalogueItemState>
+               <tradeItem>
+                  <gtin>08722700360599</gtin>
+                  <additionalTradeItemIdentification additionalTradeItemIdentificationTypeCode="SUPPLIER_ASSIGNED">000</additionalTradeItemIdentification>
+                  <isTradeItemABaseUnit>false</isTradeItemABaseUnit>
+                  <isTradeItemAConsumerUnit>false</isTradeItemAConsumerUnit>
+                  <isTradeItemADespatchUnit>true</isTradeItemADespatchUnit>
+                  <isTradeItemAnInvoiceUnit>false</isTradeItemAnInvoiceUnit>
+                  <isTradeItemAnOrderableUnit>false</isTradeItemAnOrderableUnit>
+                  <isTradeItemAService>false</isTradeItemAService>
+                  <tradeItemUnitDescriptorCode>PALLET</tradeItemUnitDescriptorCode>
+                  <informationProviderOfTradeItem>
+                     <gln>3011780500106</gln>
+                     <partyName>UNILEVER FRANCE GMS</partyName>
+                  </informationProviderOfTradeItem>
+                  <manufacturerOfTradeItem>
+                     <gln>3011780500106</gln>
+                     <partyName>UNILEVER FRANCE GMS</partyName>
+                  </manufacturerOfTradeItem>
+                  <displayUnitInformation>
+                     <isTradeItemADisplayUnit>FALSE</isTradeItemADisplayUnit>
+                  </displayUnitInformation>
+                  <gdsnTradeItemClassification>
+                     <gpcCategoryCode>10000262</gpcCategoryCode>
+                     <gpcCategoryName>Soupes - Préparées (Longue Conservation)</gpcCategoryName>
+                  </gdsnTradeItemClassification>
+                  <nextLowerLevelTradeItemInformation>
+                     <quantityOfChildren>1</quantityOfChildren>
+                     <totalQuantityOfNextLowerLevelTradeItem>85</totalQuantityOfNextLowerLevelTradeItem>
+                     <childTradeItem>
+                        <gtin>03011368578008</gtin>
+                        <quantityOfNextLowerLevelTradeItem>85</quantityOfNextLowerLevelTradeItem>
+                     </childTradeItem>
+                  </nextLowerLevelTradeItemInformation>
+                  <targetMarket>
+                     <targetMarketCountryCode>250</targetMarketCountryCode>
+                  </targetMarket>
+                  <tradeItemInformation>
+                     <tradeItemComponents>
+                        <totalNumberOfComponents>1020</totalNumberOfComponents>
+                     </tradeItemComponents>
+                     <extension><delivery_purchasing_information:deliveryPurchasingInformationModule xmlns:delivery_purchasing_information="urn:gs1:gdsn:delivery_purchasing_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd">
+                           <deliveryPurchasingInformation>
+                              <firstShipDateTime>2011-01-01T00:00:00+01:00</firstShipDateTime>
+                              <isTradeItemReorderable>false</isTradeItemReorderable>
+                              <orderQuantityMinimum>1</orderQuantityMinimum>
+                              <orderQuantityMultiple>1</orderQuantityMultiple>
+                              <startAvailabilityDateTime>2011-01-01T00:00:00+01:00</startAvailabilityDateTime>
+                           </deliveryPurchasingInformation>
+                        </delivery_purchasing_information:deliveryPurchasingInformationModule><marketing_information:marketingInformationModule xmlns:marketing_information="urn:gs1:gdsn:marketing_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:marketing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/MarketingInformationModule.xsd">
+                           <marketingInformation>
+                              <season>
+                                 <isTradeItemSeasonal>FALSE</isTradeItemSeasonal>
+                              </season>
+                           </marketingInformation>
+                        </marketing_information:marketingInformationModule><packaging_information:packagingInformationModule xmlns:packaging_information="urn:gs1:gdsn:packaging_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd">
+                           <packaging>
+                              <packagingTypeCode>PX</packagingTypeCode>
+                              <platformTermsAndConditionsCode>7</platformTermsAndConditionsCode>
+                              <platformTypeCode>11</platformTypeCode>
+                           </packaging>
+                        </packaging_information:packagingInformationModule><packaging_marking:packagingMarkingModule xmlns:packaging_marking="urn:gs1:gdsn:packaging_marking:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd">
+                           <packagingMarking>
+                              <isPackagingMarkedReturnable>false</isPackagingMarkedReturnable>
+                           </packagingMarking>
+                        </packaging_marking:packagingMarkingModule><sales_information:salesInformationModule xmlns:sales_information="urn:gs1:gdsn:sales_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:sales_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/SalesInformationModule.xsd">
+                           <salesInformation/>
+                        </sales_information:salesInformationModule><trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule xmlns:trade_item_data_carrier_and_identification="urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDataCarrierAndIdentificationModule.xsd">
+                           <dataCarrier>
+                              <dataCarrierTypeCode>NO_BARCODE</dataCarrierTypeCode>
+                           </dataCarrier>
+                        </trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule><trade_item_description:tradeItemDescriptionModule xmlns:trade_item_description="urn:gs1:gdsn:trade_item_description:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd">
+                           <tradeItemDescriptionInformation>
+                              <descriptionShort languageCode="fr">KNORR SOUPE SICHUAN 69G</descriptionShort>
+                              <functionalName languageCode="fr">Soupe Déshydratée</functionalName>
+                              <invoiceName languageCode="fr">KNORR SOUPE SICHUAN 69G</invoiceName>
+                              <tradeItemDescription languageCode="fr">Knorr Soupe Déshydratée Chinoise Nouilles et Champignons Noirs Sachet 69g 2 Portions</tradeItemDescription>
+                              <brandNameInformation>
+                                 <brandName>KNORR</brandName>
+                              </brandNameInformation>
+                           </tradeItemDescriptionInformation>
+                        </trade_item_description:tradeItemDescriptionModule><trade_item_handling:tradeItemHandlingModule xmlns:trade_item_handling="urn:gs1:gdsn:trade_item_handling:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_handling:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemHandlingModule.xsd">
+                           <tradeItemHandlingInformation>
+                              <tradeItemStacking>
+                                 <stackingFactor>2</stackingFactor>
+                                 <stackingFactorTypeCode>TRANSPORT_UNSPECIFIED</stackingFactorTypeCode>
+                                 <stackingWeightMaximum measurementUnitCode="KGM">116.290</stackingWeightMaximum>
+                              </tradeItemStacking>
+                           </tradeItemHandlingInformation>
+                        </trade_item_handling:tradeItemHandlingModule><trade_item_hierarchy:tradeItemHierarchyModule xmlns:trade_item_hierarchy="urn:gs1:gdsn:trade_item_hierarchy:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_hierarchy:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemHierarchyModule.xsd">
+                           <tradeItemHierarchy>
+                              <quantityOfCompleteLayersContainedInATradeItem>5</quantityOfCompleteLayersContainedInATradeItem>
+                              <quantityOfTradeItemsContainedInACompleteLayer>17</quantityOfTradeItemsContainedInACompleteLayer>
+                           </tradeItemHierarchy>
+                        </trade_item_hierarchy:tradeItemHierarchyModule><trade_item_measurements:tradeItemMeasurementsModule xmlns:trade_item_measurements="urn:gs1:gdsn:trade_item_measurements:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd">
+                           <tradeItemMeasurements>
+                              <depth measurementUnitCode="MMT">1200</depth>
+                              <height measurementUnitCode="MMT">1065</height>
+                              <width measurementUnitCode="MMT">800</width>
+                              <tradeItemWeight>
+                                 <grossWeight measurementUnitCode="KGM">116.2900</grossWeight>
+                                 <netWeight measurementUnitCode="KGM">70.3800</netWeight>
+                              </tradeItemWeight>
+                           </tradeItemMeasurements>
+                        </trade_item_measurements:tradeItemMeasurementsModule><trade_item_temperature_information:tradeItemTemperatureInformationModule xmlns:trade_item_temperature_information="urn:gs1:gdsn:trade_item_temperature_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd">
+                           <tradeItemTemperatureInformation>
+                              <maximumTemperature temperatureMeasurementUnitCode="CEL">25.0000</maximumTemperature>
+                              <minimumTemperature temperatureMeasurementUnitCode="CEL">0.0000</minimumTemperature>
+                              <temperatureQualifierCode>STORAGE_HANDLING</temperatureQualifierCode>
+                           </tradeItemTemperatureInformation>
+                        </trade_item_temperature_information:tradeItemTemperatureInformationModule><variable_trade_item_information:variableTradeItemInformationModule xmlns:variable_trade_item_information="urn:gs1:gdsn:variable_trade_item_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd">
+                           <variableTradeItemInformation>
+                              <isTradeItemAVariableUnit>false</isTradeItemAVariableUnit>
+                           </variableTradeItemInformation>
+                        </variable_trade_item_information:variableTradeItemInformationModule></extension>
+                  </tradeItemInformation>
+                  <tradeItemSynchronisationDates>
+                     <lastChangeDateTime>2019-08-14T21:45:59+02:00</lastChangeDateTime>
+                     <effectiveDateTime>2011-01-01T00:00:00+01:00</effectiveDateTime>
+                     <publicationDateTime>2019-08-14T21:45:59+02:00</publicationDateTime>
+                  </tradeItemSynchronisationDates>
+                  <avpList/>
+               </tradeItem>
+               <catalogueItemChildItemLink>
+                  <quantity>85</quantity>
+                  <catalogueItem>
+                     <dataRecipient>8888888899990</dataRecipient>
+                     <sourceDataPool>3027800020370</sourceDataPool>
+                     <catalogueItemState>
+                        <catalogueItemStateCode>REGISTERED</catalogueItemStateCode>
+                     </catalogueItemState>
+                     <tradeItem>
+                        <gtin>03011368578008</gtin>
+                        <additionalTradeItemIdentification additionalTradeItemIdentificationTypeCode="SUPPLIER_ASSIGNED">000</additionalTradeItemIdentification>
+                        <isTradeItemABaseUnit>false</isTradeItemABaseUnit>
+                        <isTradeItemAConsumerUnit>false</isTradeItemAConsumerUnit>
+                        <isTradeItemADespatchUnit>true</isTradeItemADespatchUnit>
+                        <isTradeItemAnInvoiceUnit>false</isTradeItemAnInvoiceUnit>
+                        <isTradeItemAnOrderableUnit>false</isTradeItemAnOrderableUnit>
+                        <isTradeItemAService>false</isTradeItemAService>
+                        <tradeItemUnitDescriptorCode>CASE</tradeItemUnitDescriptorCode>
+                        <informationProviderOfTradeItem>
+                           <gln>3011780500106</gln>
+                           <partyName>UNILEVER FRANCE GMS</partyName>
+                        </informationProviderOfTradeItem>
+                        <manufacturerOfTradeItem>
+                           <gln>3011780500106</gln>
+                           <partyName>UNILEVER FRANCE GMS</partyName>
+                        </manufacturerOfTradeItem>
+                        <displayUnitInformation>
+                           <isTradeItemADisplayUnit>FALSE</isTradeItemADisplayUnit>
+                        </displayUnitInformation>
+                        <gdsnTradeItemClassification>
+                           <gpcCategoryCode>10000262</gpcCategoryCode>
+                           <gpcCategoryName>Soupes - Préparées (Longue Conservation)</gpcCategoryName>
+                        </gdsnTradeItemClassification>
+                        <nextLowerLevelTradeItemInformation>
+                           <quantityOfChildren>1</quantityOfChildren>
+                           <totalQuantityOfNextLowerLevelTradeItem>12</totalQuantityOfNextLowerLevelTradeItem>
+                           <childTradeItem>
+                              <gtin>03011360085788</gtin>
+                              <quantityOfNextLowerLevelTradeItem>12</quantityOfNextLowerLevelTradeItem>
+                           </childTradeItem>
+                        </nextLowerLevelTradeItemInformation>
+                        <targetMarket>
+                           <targetMarketCountryCode>250</targetMarketCountryCode>
+                        </targetMarket>
+                        <tradeItemInformation>
+                           <tradeItemComponents>
+                              <totalNumberOfComponents>12</totalNumberOfComponents>
+                           </tradeItemComponents>
+                           <extension><delivery_purchasing_information:deliveryPurchasingInformationModule xmlns:delivery_purchasing_information="urn:gs1:gdsn:delivery_purchasing_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd">
+                                 <deliveryPurchasingInformation>
+                                    <firstShipDateTime>2011-01-01T00:00:00+01:00</firstShipDateTime>
+                                    <isTradeItemReorderable>false</isTradeItemReorderable>
+                                    <orderQuantityMinimum>1</orderQuantityMinimum>
+                                    <orderQuantityMultiple>1</orderQuantityMultiple>
+                                    <startAvailabilityDateTime>2011-01-01T00:00:00+01:00</startAvailabilityDateTime>
+                                 </deliveryPurchasingInformation>
+                              </delivery_purchasing_information:deliveryPurchasingInformationModule><marketing_information:marketingInformationModule xmlns:marketing_information="urn:gs1:gdsn:marketing_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:marketing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/MarketingInformationModule.xsd">
+                                 <marketingInformation>
+                                    <season>
+                                       <isTradeItemSeasonal>FALSE</isTradeItemSeasonal>
+                                    </season>
+                                 </marketingInformation>
+                              </marketing_information:marketingInformationModule><packaging_information:packagingInformationModule xmlns:packaging_information="urn:gs1:gdsn:packaging_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd">
+                                 <packaging>
+                                    <packagingTypeCode>CS</packagingTypeCode>
+                                 </packaging>
+                              </packaging_information:packagingInformationModule><packaging_marking:packagingMarkingModule xmlns:packaging_marking="urn:gs1:gdsn:packaging_marking:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd">
+                                 <packagingMarking>
+                                    <isPackagingMarkedReturnable>false</isPackagingMarkedReturnable>
+                                 </packagingMarking>
+                              </packaging_marking:packagingMarkingModule><sales_information:salesInformationModule xmlns:sales_information="urn:gs1:gdsn:sales_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:sales_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/SalesInformationModule.xsd">
+                                 <salesInformation/>
+                              </sales_information:salesInformationModule><trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule xmlns:trade_item_data_carrier_and_identification="urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDataCarrierAndIdentificationModule.xsd">
+                                 <dataCarrier>
+                                    <dataCarrierTypeCode>ITF_14</dataCarrierTypeCode>
+                                 </dataCarrier>
+                              </trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule><trade_item_description:tradeItemDescriptionModule xmlns:trade_item_description="urn:gs1:gdsn:trade_item_description:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd">
+                                 <tradeItemDescriptionInformation>
+                                    <descriptionShort languageCode="fr">KNORR SOUPE SICHUAN 69G</descriptionShort>
+                                    <functionalName languageCode="fr">Soupe Déshydratée</functionalName>
+                                    <invoiceName languageCode="fr">KNORR SOUPE SICHUAN 69G</invoiceName>
+                                    <tradeItemDescription languageCode="fr">Knorr Soupe Déshydratée Chinoise Nouilles et Champignons Noirs Sachet 69g 2 Portions</tradeItemDescription>
+                                    <brandNameInformation>
+                                       <brandName>KNORR</brandName>
+                                    </brandNameInformation>
+                                 </tradeItemDescriptionInformation>
+                              </trade_item_description:tradeItemDescriptionModule><trade_item_measurements:tradeItemMeasurementsModule xmlns:trade_item_measurements="urn:gs1:gdsn:trade_item_measurements:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd">
+                                 <tradeItemMeasurements>
+                                    <depth measurementUnitCode="MMT">345</depth>
+                                    <height measurementUnitCode="MMT">183</height>
+                                    <width measurementUnitCode="MMT">152</width>
+                                    <tradeItemWeight>
+                                       <grossWeight measurementUnitCode="KGM">1.0740</grossWeight>
+                                       <netWeight measurementUnitCode="KGM">0.8280</netWeight>
+                                    </tradeItemWeight>
+                                 </tradeItemMeasurements>
+                              </trade_item_measurements:tradeItemMeasurementsModule><trade_item_temperature_information:tradeItemTemperatureInformationModule xmlns:trade_item_temperature_information="urn:gs1:gdsn:trade_item_temperature_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd">
+                                 <tradeItemTemperatureInformation>
+                                    <maximumTemperature temperatureMeasurementUnitCode="CEL">25.0000</maximumTemperature>
+                                    <minimumTemperature temperatureMeasurementUnitCode="CEL">0.0000</minimumTemperature>
+                                    <temperatureQualifierCode>STORAGE_HANDLING</temperatureQualifierCode>
+                                 </tradeItemTemperatureInformation>
+                              </trade_item_temperature_information:tradeItemTemperatureInformationModule><variable_trade_item_information:variableTradeItemInformationModule xmlns:variable_trade_item_information="urn:gs1:gdsn:variable_trade_item_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd">
+                                 <variableTradeItemInformation>
+                                    <isTradeItemAVariableUnit>false</isTradeItemAVariableUnit>
+                                 </variableTradeItemInformation>
+                              </variable_trade_item_information:variableTradeItemInformationModule></extension>
+                        </tradeItemInformation>
+                        <tradeItemSynchronisationDates>
+                           <lastChangeDateTime>2019-08-14T21:45:59+02:00</lastChangeDateTime>
+                           <effectiveDateTime>2011-01-01T00:00:00+01:00</effectiveDateTime>
+                           <publicationDateTime>2019-08-14T21:45:59+02:00</publicationDateTime>
+                        </tradeItemSynchronisationDates>
+                        <avpList/>
+                     </tradeItem>
+                     <catalogueItemChildItemLink>
+                        <quantity>12</quantity>
+                        <catalogueItem>
+                           <dataRecipient>8888888899990</dataRecipient>
+                           <sourceDataPool>3027800020370</sourceDataPool>
+                           <catalogueItemState>
+                              <catalogueItemStateCode>REGISTERED</catalogueItemStateCode>
+                           </catalogueItemState>
+                           <tradeItem>
+                              <gtin>03011360085788</gtin>
+                              <isTradeItemABaseUnit>true</isTradeItemABaseUnit>
+                              <isTradeItemAConsumerUnit>true</isTradeItemAConsumerUnit>
+                              <isTradeItemADespatchUnit>false</isTradeItemADespatchUnit>
+                              <isTradeItemAnInvoiceUnit>true</isTradeItemAnInvoiceUnit>
+                              <isTradeItemAnOrderableUnit>true</isTradeItemAnOrderableUnit>
+                              <isTradeItemAService>false</isTradeItemAService>
+                              <tradeItemUnitDescriptorCode>BASE_UNIT_OR_EACH</tradeItemUnitDescriptorCode>
+                              <tradeItemTradeChannelCode>MASS_MERCHANDISING</tradeItemTradeChannelCode>
+                              <informationProviderOfTradeItem>
+                                 <gln>3011780500106</gln>
+                                 <partyName>UNILEVER FRANCE GMS</partyName>
+                              </informationProviderOfTradeItem>
+                              <manufacturerOfTradeItem>
+                                 <gln>3011780500106</gln>
+                                 <partyName>UNILEVER FRANCE GMS</partyName>
+                              </manufacturerOfTradeItem>
+                              <displayUnitInformation>
+                                 <isTradeItemADisplayUnit>FALSE</isTradeItemADisplayUnit>
+                              </displayUnitInformation>
+                              <gdsnTradeItemClassification>
+                                 <gpcCategoryCode>10000262</gpcCategoryCode>
+                                 <gpcCategoryName>Soupes - Préparées (Longue Conservation)</gpcCategoryName>
+                                 <additionalTradeItemClassification>
+                                    <additionalTradeItemClassificationSystemCode>13</additionalTradeItemClassificationSystemCode>
+                                    <additionalTradeItemClassificationValue>
+                                       <additionalTradeItemClassificationCodeValue>06306</additionalTradeItemClassificationCodeValue>
+                                       <additionalTradeItemClassificationCodeDescription>6306 - POTAGES DESHYDRATES A CUIRE</additionalTradeItemClassificationCodeDescription>
+                                    </additionalTradeItemClassificationValue>
+                                 </additionalTradeItemClassification>
+                              </gdsnTradeItemClassification>
+                              <targetMarket>
+                                 <targetMarketCountryCode>250</targetMarketCountryCode>
+                              </targetMarket>
+                              <tradeItemContactInformation>
+                                 <contactTypeCode>BZL</contactTypeCode>
+                                 <contactAddress>Knorr® Relation Consommateurs
+09 69 32 00 60 (appel non surtaxé)
+www.knorr.fr
+Unilever France
+20 rue des Deux Gares
+92842 Rueil-Malmaison Cedex</contactAddress>
+                                 <contactName>Unilever</contactName>
+                              </tradeItemContactInformation>
+                              <tradeItemContactInformation>
+                                 <contactTypeCode>CXC</contactTypeCode>
+                                 <contactAddress>Unilever France, 20 rue des Deux Gares 92842 Rueil-Malmaison Cedex</contactAddress>
+                                 <contactName>Knorr Relation Consommateurs</contactName>
+                              </tradeItemContactInformation>
+                              <tradeItemInformation>
+                                 <productionVariantDescription languageCode="fr">SERVING_SIZE_CU KN DSO SICHUAN 69G POU FR</productionVariantDescription>
+                                 <productionVariantEffectiveDateTime>2015-08-13T00:00:00+02:00</productionVariantEffectiveDateTime>
+                                 <tradeItemComponents/>
+                                 <extension><allergen_information:allergenInformationModule xmlns:allergen_information="urn:gs1:gdsn:allergen_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:allergen_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AllergenInformationModule.xsd">
+                                       <allergenRelatedInformation>
+                                          <allergenSpecificationAgency>EU</allergenSpecificationAgency>
+                                          <allergenSpecificationName>1169/2011</allergenSpecificationName>
+                                          <allergenStatement languageCode="fr">Oeufs, Soja, Blé</allergenStatement>
+                                          <isAllergenRelevantDataProvided>true</isAllergenRelevantDataProvided>
+                                          <allergen>
+                                             <allergenTypeCode>AE</allergenTypeCode>
+                                             <levelOfContainmentCode>CONTAINS</levelOfContainmentCode>
+                                          </allergen>
+                                          <allergen>
+                                             <allergenTypeCode>BM</allergenTypeCode>
+                                             <levelOfContainmentCode>MAY_CONTAIN</levelOfContainmentCode>
+                                          </allergen>
+                                          <allergen>
+                                             <allergenTypeCode>AM</allergenTypeCode>
+                                             <levelOfContainmentCode>MAY_CONTAIN</levelOfContainmentCode>
+                                          </allergen>
+                                          <allergen>
+                                             <allergenTypeCode>AW</allergenTypeCode>
+                                             <levelOfContainmentCode>CONTAINS</levelOfContainmentCode>
+                                          </allergen>
+                                          <allergen>
+                                             <allergenTypeCode>AY</allergenTypeCode>
+                                             <levelOfContainmentCode>CONTAINS</levelOfContainmentCode>
+                                          </allergen>
+                                          <allergen>
+                                             <allergenTypeCode>BC</allergenTypeCode>
+                                             <levelOfContainmentCode>MAY_CONTAIN</levelOfContainmentCode>
+                                          </allergen>
+                                       </allergenRelatedInformation>
+                                    </allergen_information:allergenInformationModule><consumer_instructions:consumerInstructionsModule xmlns:consumer_instructions="urn:gs1:gdsn:consumer_instructions:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:consumer_instructions:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ConsumerInstructionsModule.xsd">
+                                       <consumerInstructions>
+                                          <consumerStorageInstructions languageCode="fr">.</consumerStorageInstructions>
+                                       </consumerInstructions>
+                                    </consumer_instructions:consumerInstructionsModule><delivery_purchasing_information:deliveryPurchasingInformationModule xmlns:delivery_purchasing_information="urn:gs1:gdsn:delivery_purchasing_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd">
+                                       <deliveryPurchasingInformation>
+                                          <consumerFirstAvailabilityDateTime>2012-06-01T00:00:00+02:00</consumerFirstAvailabilityDateTime>
+                                          <firstShipDateTime>2011-01-01T00:00:00+01:00</firstShipDateTime>
+                                          <isTradeItemReorderable>false</isTradeItemReorderable>
+                                          <orderQuantityMinimum>12</orderQuantityMinimum>
+                                          <orderQuantityMultiple>12</orderQuantityMultiple>
+                                          <startAvailabilityDateTime>2011-01-01T00:00:00+01:00</startAvailabilityDateTime>
+                                       </deliveryPurchasingInformation>
+                                    </delivery_purchasing_information:deliveryPurchasingInformationModule><duty_fee_tax_information:dutyFeeTaxInformationModule xmlns:duty_fee_tax_information="urn:gs1:gdsn:duty_fee_tax_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:duty_fee_tax_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DutyFeeTaxInformationModule.xsd">
+                                       <dutyFeeTaxInformation>
+                                          <dutyFeeTaxAgencyCode>65</dutyFeeTaxAgencyCode>
+                                          <dutyFeeTaxTypeCode>2G</dutyFeeTaxTypeCode>
+                                          <dutyFeeTaxTypeDescription languageCode="fr">TAUX REDUIT 5.5 %</dutyFeeTaxTypeDescription>
+                                          <dutyFeeTax>
+                                             <dutyFeeTaxCategoryCode codeListVersion="2">LOW</dutyFeeTaxCategoryCode>
+                                             <dutyFeeTaxRate>5.5</dutyFeeTaxRate>
+                                          </dutyFeeTax>
+                                       </dutyFeeTaxInformation>
+                                    </duty_fee_tax_information:dutyFeeTaxInformationModule><farming_and_processing_information:farmingAndProcessingInformationModule xmlns:farming_and_processing_information="urn:gs1:gdsn:farming_and_processing_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:farming_and_processing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FarmingAndProcessingInformationModule.xsd">
+                                       <rawMaterialIrradiatedCode>FALSE</rawMaterialIrradiatedCode>
+                                       <tradeItemFarmingAndProcessing>
+                                          <irradiatedCode>FALSE</irradiatedCode>
+                                       </tradeItemFarmingAndProcessing>
+                                    </farming_and_processing_information:farmingAndProcessingInformationModule><food_and_beverage_ingredient:foodAndBeverageIngredientModule xmlns:food_and_beverage_ingredient="urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeverageIngredientModule.xsd">
+                                       <ingredientStatement languageCode="fr">Ingrédients : pâte chinoise : 49% (semoule de BLÉ tendre, sel, blanc d'ŒUF), amidon de pomme de terre, viande de poule : 5,7%, sel, arômes, carotte¹ : 4,4%, graisse de palme, champignon noir : 3,2%, chou¹, sucre, poireau¹, oignon¹ : 2,1%, épices : 1,4% (gingembre, cardamome, coriandre, curcuma¹, cumin, piment de Cayenne, cannelle), ail¹, navet¹, chlorure de potassium, jus de citron¹, sirop de glucose, jus d'ananas¹, maltodextrine, sauce soja (graines de SOJA, BLÉ), dextrose, fructose, extrait de levure, antioxydants : E 307 et E 304. Peut contenir : céleri, lait, moutarde. 
+¹Ingrédients issus de l'agriculture durable : 15%.</ingredientStatement>
+                                       <isIngredientRelevantDataProvided>TRUE</isIngredientRelevantDataProvided>
+                                    </food_and_beverage_ingredient:foodAndBeverageIngredientModule><food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule xmlns:food_and_beverage_preparation_serving="urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeveragePreparationServingModule.xsd">
+                                       <servingQuantityInformation>
+                                          <numberOfServingsPerPackage>2</numberOfServingsPerPackage>
+                                       </servingQuantityInformation>
+                                       <preparationServing>
+                                          <preparationInstructions languageCode="fr"> Pour préparer 2 bols généreux1. Faites bouillir 700 ml d'eau. Ramenez à feu doux puis versez le contenu du sachet en remuant avec une cuillère en bois. 2. Laissez mijoter 5 minutes en remuant de temps en temps. Inutile de saler.</preparationInstructions>
+                                       </preparationServing>
+                                    </food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule><health_related_information:healthRelatedInformationModule xmlns:health_related_information="urn:gs1:gdsn:health_related_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:health_related_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/HealthRelatedInformationModule.xsd">
+                                       <healthRelatedInformation>
+                                          <compulsoryAdditiveLabelInformation languageCode="fr">Inutile de saler</compulsoryAdditiveLabelInformation>
+                                       </healthRelatedInformation>
+                                    </health_related_information:healthRelatedInformationModule><marketing_information:marketingInformationModule xmlns:marketing_information="urn:gs1:gdsn:marketing_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:marketing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/MarketingInformationModule.xsd">
+                                       <marketingInformation>
+                                          <tradeItemFeatureBenefit languageCode="fr">Retrouvez la saveur de l'Asie dans cette soupe déshydratée !</tradeItemFeatureBenefit>
+                                          <tradeItemFeatureBenefit languageCode="fr">Cette recette a été préparée sans colorant et sans exhausteur de goût.</tradeItemFeatureBenefit>
+                                          <tradeItemFeatureBenefit languageCode="fr">Inspirée de la recette asiatique !</tradeItemFeatureBenefit>
+                                          <tradeItemFeatureBenefit languageCode="fr">Un plat dépaysant prêt en 5 minutes.</tradeItemFeatureBenefit>
+                                          <tradeItemFeatureBenefit languageCode="fr">Une soupe déshydratée est constituée des mêmes matières premières que celles d’une soupe liquide. Une fois ces matières premières déshydratées, elles sont simplement réduites à l’état de poudre.</tradeItemFeatureBenefit>
+                                          <tradeItemFeatureBenefit languageCode="fr">Découvrez les autres recettes Knorr®.</tradeItemFeatureBenefit>
+                                          <tradeItemMarketingMessage languageCode="fr">Voyagez à travers la Chine en dégustant cette soupe aux délicieuses nouilles de blé ramen accompagnées de champignons noirs et de morceaux de poulet tendres cuisinés dans un bouillon parfumé aux sept épices.
+
+Savez-vous ce qu’est la déshydratation ? La déshydratation  consiste simplement à enlever l’eau d’un aliment. Ce mode de conservation était déjà utilisé il y a plus de 14 000 ans pour conserver des herbes, des racines ou de la viande. Encore aujourd’hui nous consommons des ingrédients déshydratés comme du café, des pâtes, du jambon sec ou de la soupe. Une soupe déshydratée est une soupe constituée des mêmes matières premières  que celles d’une  soupe liquide, mais une fois déshydratées, elles sont réduites à l’état de poudre. On y ajoute alors les autres ingrédients constituant la recette tels que les épices et les aromates. Ensuite, tous ces éléments sont soigneusement mélangés puis mis en sachet. 
+Carl Heinrich Knorr, fondateur de la marque Knorr®, fut l’un des premiers à intégrer ce procédé dans la fabrication de ses soupes, il y a plus de 175 ans. 
+
+En effet, Knorr est née en  1838 d’une seule passion, celle du goût. Tout commence avec des ingrédients soigneusement sélectionnés. Nous mettons tout en œuvre pour que nos légumes soient remplis de saveurs. Ces ingrédients sont ensuite cuisinés par  une kyrielle de chefs passionnés. L’inspiration, ils la puisent dans leurs expériences, issues de leur vécu ou du temps présent, mais aussi dans l’interaction avec d’autres cultures.
+
+Chez Knorr nous sommes également convaincus qu’une utilisation responsable des ressources agricoles contribue à vous offrir des soupes de qualité. C’est pourquoi nous faisons le choix de légumes issus de l’agriculture durable et cultivés en plein champs pour vous préparer nos délicieuses soupes. Pour faire de bons plats, il faut des cultures saines, plantées dans un sol riche et fertile, où un fermier respectueux de la nature s'engage à s'en occuper jusqu'à ce qu’elles arrivent à maturité.</tradeItemMarketingMessage>
+                                          <tradeItemKeyWords languageCode="fr">legume#légume#légumes#potage#potage sachet#potages#soupe#soupe de légumes#soupe deshydratee#soupe déshydratee#soupe déshydratée#soupe légumes#soupe sachet#soupe sachets#soupes</tradeItemKeyWords>
+                                          <brandMarketingDescription languageCode="fr">Knorr est née en  1838 d’une seule passion : celle du goût. Tout commence avec des ingrédients soigneusement sélectionnés. Nous mettons tout en œuvre pour que nos légumes soient remplis de saveurs. 
+Ces ingrédients sont ensuite cuisinés par  une kyrielle de chefs passionnés. L’inspiration, ils la puisent dans leurs expériences, issues de leur vécu ou du temps présent, mais aussi dans l’interaction avec d’autres cultures. Luigi Carola, par exemple, a parcouru 67 pays à la recherche de nouvelles idées, et chacune de ses aventures a influencé sa cuisine. Elles l’ont poussé à avoir du cœur et à nourrir son amour pour la cuisine. 
+
+Chez Knorr nous sommes également convaincus qu’une utilisation responsable des différentes ressources agricoles contribue à vous offrir des soupes de qualité. C’est pourquoi nous faisons le choix de légumes issus de l’agriculture durable et cultivés en plein champs pour vous préparer nos délicieuses soupes. Pour faire de bons plats, il faut des cultures saines, plantées dans un sol riche et fertile, où un fermier respectueux de la nature s'engage à s'en occuper jusqu'à ce qu’elles arrivent à maturité.</brandMarketingDescription>
+                                          <season>
+                                             <isTradeItemSeasonal>FALSE</isTradeItemSeasonal>
+                                          </season>
+                                       </marketingInformation>
+                                    </marketing_information:marketingInformationModule><nutritional_information:nutritionalInformationModule xmlns:nutritional_information="urn:gs1:gdsn:nutritional_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:nutritional_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/NutritionalInformationModule.xsd">
+                                       <isNutrientRelevantDataProvided>true</isNutrientRelevantDataProvided>
+                                       <nutrientHeader>
+                                          <preparationStateCode>PREPARED</preparationStateCode>
+                                          <dailyValueIntakeReference languageCode="fr">AR : Apport de référence pour un adulte-type (8400 kj/2000 kcal)</dailyValueIntakeReference>
+                                          <servingSize measurementUnitCode="MLT">100.0</servingSize>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>ENER-</nutrientTypeCode>
+                                             <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="KJO">145</quantityContained>
+                                          </nutrientDetail>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>ENER-</nutrientTypeCode>
+                                             <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="E14">34</quantityContained>
+                                          </nutrientDetail>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>FAT</nutrientTypeCode>
+                                             <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="GRM">0.5</quantityContained>
+                                          </nutrientDetail>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>FASAT</nutrientTypeCode>
+                                             <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="GRM">0.2</quantityContained>
+                                          </nutrientDetail>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>CHOAVL</nutrientTypeCode>
+                                             <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="GRM">5.8</quantityContained>
+                                          </nutrientDetail>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>SUGAR-</nutrientTypeCode>
+                                             <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="GRM">1</quantityContained>
+                                          </nutrientDetail>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>FIBTG</nutrientTypeCode>
+                                             <measurementPrecisionCode>LESS_THAN</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="GRM">0.5</quantityContained>
+                                          </nutrientDetail>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>PRO-</nutrientTypeCode>
+                                             <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="GRM">1.4</quantityContained>
+                                          </nutrientDetail>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>SALTEQ</nutrientTypeCode>
+                                             <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="GRM">0.75</quantityContained>
+                                          </nutrientDetail>
+                                       </nutrientHeader>
+                                       <nutrientHeader>
+                                          <preparationStateCode>PREPARED</preparationStateCode>
+                                          <dailyValueIntakeReference languageCode="fr">AR : Apport de référence pour un adulte-type (8400 kj/2000 kcal)</dailyValueIntakeReference>
+                                          <servingSize measurementUnitCode="MLT">350.0</servingSize>
+                                          <servingSizeDescription languageCode="fr">350 ml</servingSizeDescription>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>ENER-</nutrientTypeCode>
+                                             <dailyValueIntakePercent>6.00</dailyValueIntakePercent>
+                                             <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="KJO">508</quantityContained>
+                                          </nutrientDetail>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>ENER-</nutrientTypeCode>
+                                             <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="E14">119</quantityContained>
+                                          </nutrientDetail>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>FAT</nutrientTypeCode>
+                                             <dailyValueIntakePercent>3.00</dailyValueIntakePercent>
+                                             <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="GRM">1.8</quantityContained>
+                                          </nutrientDetail>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>FASAT</nutrientTypeCode>
+                                             <dailyValueIntakePercent>3.00</dailyValueIntakePercent>
+                                             <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="GRM">0.7</quantityContained>
+                                          </nutrientDetail>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>CHOAVL</nutrientTypeCode>
+                                             <dailyValueIntakePercent>8.00</dailyValueIntakePercent>
+                                             <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="GRM">20</quantityContained>
+                                          </nutrientDetail>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>SUGAR-</nutrientTypeCode>
+                                             <dailyValueIntakePercent>4.00</dailyValueIntakePercent>
+                                             <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="GRM">3.5</quantityContained>
+                                          </nutrientDetail>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>FIBTG</nutrientTypeCode>
+                                             <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="GRM">1.6</quantityContained>
+                                          </nutrientDetail>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>PRO-</nutrientTypeCode>
+                                             <dailyValueIntakePercent>10.00</dailyValueIntakePercent>
+                                             <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="GRM">4.9</quantityContained>
+                                          </nutrientDetail>
+                                          <nutrientDetail>
+                                             <nutrientTypeCode>SALTEQ</nutrientTypeCode>
+                                             <dailyValueIntakePercent>43.00</dailyValueIntakePercent>
+                                             <measurementPrecisionCode>APPROXIMATELY</measurementPrecisionCode>
+                                             <quantityContained measurementUnitCode="GRM">2.6</quantityContained>
+                                          </nutrientDetail>
+                                       </nutrientHeader>
+                                    </nutritional_information:nutritionalInformationModule><packaging_information:packagingInformationModule xmlns:packaging_information="urn:gs1:gdsn:packaging_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd">
+                                       <packaging>
+                                          <packagingTypeCode>PO</packagingTypeCode>
+                                       </packaging>
+                                    </packaging_information:packagingInformationModule><packaging_marking:packagingMarkingModule xmlns:packaging_marking="urn:gs1:gdsn:packaging_marking:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd">
+                                       <packagingMarking>
+                                          <hasBatchNumber>false</hasBatchNumber>
+                                          <isPackagingMarkedReturnable>false</isPackagingMarkedReturnable>
+                                          <isTradeItemMarkedAsRecyclable>false</isTradeItemMarkedAsRecyclable>
+                                          <packagingMarkedLabelAccreditationCode>GREEN_DOT</packagingMarkedLabelAccreditationCode>
+                                          <packagingDate>
+                                             <tradeItemDateOnPackagingTypeCode>BEST_BEFORE_DATE</tradeItemDateOnPackagingTypeCode>
+                                          </packagingDate>
+                                       </packagingMarking>
+                                    </packaging_marking:packagingMarkingModule><place_of_item_activity:placeOfItemActivityModule xmlns:place_of_item_activity="urn:gs1:gdsn:place_of_item_activity:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:place_of_item_activity:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PlaceOfItemActivityModule.xsd">
+                                       <importClassification>
+                                          <importClassificationTypeCode>CUSTOMS_TARIFF_NUMBER</importClassificationTypeCode>
+                                          <importClassificationValue>21041000</importClassificationValue>
+                                       </importClassification>
+                                       <placeOfProductActivity>
+                                          <countryOfOrigin>
+                                             <countryCode>250</countryCode>
+                                          </countryOfOrigin>
+                                       </placeOfProductActivity>
+                                    </place_of_item_activity:placeOfItemActivityModule><promotional_item_information:promotionalItemInformationModule xmlns:promotional_item_information="urn:gs1:gdsn:promotional_item_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd">
+                                       <isTradeItemAPromotionalUnit>false</isTradeItemAPromotionalUnit>
+                                    </promotional_item_information:promotionalItemInformationModule><referenced_file_detail_information:referencedFileDetailInformationModule xmlns:referenced_file_detail_information="urn:gs1:gdsn:referenced_file_detail_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:referenced_file_detail_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ReferencedFileDetailInformationModule.xsd">
+                                       <referencedFileHeader>
+                                          <referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+                                          <contentDescription languageCode="fr">Produit emballé / Packshot</contentDescription>
+                                          <fileEffectiveStartDateTime>2018-11-27T00:00:00+01:00</fileEffectiveStartDateTime>
+                                          <fileFormatName>png</fileFormatName>
+                                          <fileName>03011360085788_C1R1_s45.png</fileName>
+                                          <uniformResourceIdentifier>https://secure.equadis.com/Equadis/MultimediaFileViewer?file=10144/03011360085788_C1R1_s45.png</uniformResourceIdentifier>
+                                          <isPrimaryFile>FALSE</isPrimaryFile>
+                                          <referencedFileDetail>
+                                             <isFileBackgroundTransparent>TRUE</isFileBackgroundTransparent>
+                                             <fileContentInformation>
+                                                <verticalCameraAngleCode>PARALLEL</verticalCameraAngleCode>
+                                             </fileContentInformation>
+                                             <fileUsageInformation>
+                                                <canFilesBeEdited>TRUE</canFilesBeEdited>
+                                             </fileUsageInformation>
+                                          </referencedFileDetail>
+                                       </referencedFileHeader>
+                                       <referencedFileHeader>
+                                          <referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+                                          <contentDescription languageCode="fr">Produit emballé / Packshot</contentDescription>
+                                          <fileEffectiveStartDateTime>2019-05-16T00:00:00+02:00</fileEffectiveStartDateTime>
+                                          <fileFormatName>png</fileFormatName>
+                                          <fileName>03011360085788_A1N1_s62.png</fileName>
+                                          <uniformResourceIdentifier>https://secure.equadis.com/Equadis/MultimediaFileViewer?file=10144/03011360085788_A1N1_s62.png</uniformResourceIdentifier>
+                                          <isPrimaryFile>TRUE</isPrimaryFile>
+                                          <referencedFileDetail>
+                                             <isFileBackgroundTransparent>TRUE</isFileBackgroundTransparent>
+                                             <fileContentInformation>
+                                                <verticalCameraAngleCode>PARALLEL</verticalCameraAngleCode>
+                                             </fileContentInformation>
+                                             <fileUsageInformation>
+                                                <canFilesBeEdited>TRUE</canFilesBeEdited>
+                                             </fileUsageInformation>
+                                          </referencedFileDetail>
+                                       </referencedFileHeader>
+                                       <referencedFileHeader>
+                                          <referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+                                          <contentDescription languageCode="fr">Mise en situation</contentDescription>
+                                          <fileEffectiveStartDateTime>2019-05-16T00:00:00+02:00</fileEffectiveStartDateTime>
+                                          <fileFormatName>png</fileFormatName>
+                                          <fileName>03011360085788_C1NG_s64.png</fileName>
+                                          <uniformResourceIdentifier>https://secure.equadis.com/Equadis/MultimediaFileViewer?file=10144/03011360085788_C1NG_s64.png</uniformResourceIdentifier>
+                                          <isPrimaryFile>FALSE</isPrimaryFile>
+                                          <referencedFileDetail>
+                                             <isFileBackgroundTransparent>TRUE</isFileBackgroundTransparent>
+                                             <fileContentInformation>
+                                                <verticalCameraAngleCode>PARALLEL</verticalCameraAngleCode>
+                                             </fileContentInformation>
+                                             <fileUsageInformation>
+                                                <canFilesBeEdited>TRUE</canFilesBeEdited>
+                                             </fileUsageInformation>
+                                          </referencedFileDetail>
+                                       </referencedFileHeader>
+                                       <referencedFileHeader>
+                                          <referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+                                          <contentDescription languageCode="fr">Produit emballé / Packshot</contentDescription>
+                                          <fileEffectiveStartDateTime>2019-05-16T00:00:00+02:00</fileEffectiveStartDateTime>
+                                          <fileFormatName>png</fileFormatName>
+                                          <fileName>03011360085788_A1L1_s71.png</fileName>
+                                          <uniformResourceIdentifier>https://secure.equadis.com/Equadis/MultimediaFileViewer?file=10144/03011360085788_A1L1_s71.png</uniformResourceIdentifier>
+                                          <isPrimaryFile>FALSE</isPrimaryFile>
+                                          <referencedFileDetail>
+                                             <isFileBackgroundTransparent>TRUE</isFileBackgroundTransparent>
+                                             <fileContentInformation>
+                                                <verticalCameraAngleCode>PARALLEL</verticalCameraAngleCode>
+                                             </fileContentInformation>
+                                             <fileUsageInformation>
+                                                <canFilesBeEdited>TRUE</canFilesBeEdited>
+                                             </fileUsageInformation>
+                                          </referencedFileDetail>
+                                       </referencedFileHeader>
+                                       <referencedFileHeader>
+                                          <referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+                                          <contentDescription languageCode="fr">Produit emballé / Packshot</contentDescription>
+                                          <fileEffectiveStartDateTime>2019-05-16T00:00:00+02:00</fileEffectiveStartDateTime>
+                                          <fileFormatName>png</fileFormatName>
+                                          <fileName>03011360085788_A7N1_s73.png</fileName>
+                                          <uniformResourceIdentifier>https://secure.equadis.com/Equadis/MultimediaFileViewer?file=10144/03011360085788_A7N1_s73.png</uniformResourceIdentifier>
+                                          <isPrimaryFile>FALSE</isPrimaryFile>
+                                          <referencedFileDetail>
+                                             <isFileBackgroundTransparent>TRUE</isFileBackgroundTransparent>
+                                             <fileContentInformation>
+                                                <verticalCameraAngleCode>PARALLEL</verticalCameraAngleCode>
+                                             </fileContentInformation>
+                                             <fileUsageInformation>
+                                                <canFilesBeEdited>TRUE</canFilesBeEdited>
+                                             </fileUsageInformation>
+                                          </referencedFileDetail>
+                                       </referencedFileHeader>
+                                       <referencedFileHeader>
+                                          <referencedFileTypeCode>PRODUCT_IMAGE</referencedFileTypeCode>
+                                          <contentDescription languageCode="fr">Produit emballé / Packshot</contentDescription>
+                                          <fileEffectiveStartDateTime>2019-05-16T00:00:00+02:00</fileEffectiveStartDateTime>
+                                          <fileFormatName>png</fileFormatName>
+                                          <fileName>03011360085788_C0N1_s67.png</fileName>
+                                          <uniformResourceIdentifier>https://secure.equadis.com/Equadis/MultimediaFileViewer?file=10144/03011360085788_C0N1_s67.png</uniformResourceIdentifier>
+                                          <isPrimaryFile>FALSE</isPrimaryFile>
+                                          <referencedFileDetail>
+                                             <isFileBackgroundTransparent>TRUE</isFileBackgroundTransparent>
+                                             <fileUsageInformation>
+                                                <canFilesBeEdited>TRUE</canFilesBeEdited>
+                                             </fileUsageInformation>
+                                          </referencedFileDetail>
+                                       </referencedFileHeader>
+                                    </referenced_file_detail_information:referencedFileDetailInformationModule><sales_information:salesInformationModule xmlns:sales_information="urn:gs1:gdsn:sales_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:sales_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/SalesInformationModule.xsd">
+                                       <tradeItemPriceInformation>
+                                          <cataloguePrice>
+                                             <tradeItemPrice currencyCode="EUR">1.51</tradeItemPrice>
+                                             <priceBasisQuantity measurementUnitCode="H87">1</priceBasisQuantity>
+                                             <priceEffectiveEndDate>2020-02-29T00:00:00+01:00</priceEffectiveEndDate>
+                                             <priceEffectiveStartDate>2019-03-01T00:00:00+01:00</priceEffectiveStartDate>
+                                          </cataloguePrice>
+                                       </tradeItemPriceInformation>
+                                       <salesInformation>
+                                          <isBasePriceDeclarationRelevant>TRUE</isBasePriceDeclarationRelevant>
+                                          <priceComparisonMeasurement measurementUnitCode="KGM">0.06900</priceComparisonMeasurement>
+                                          <priceComparisonContentTypeCode>PER_KILOGRAM</priceComparisonContentTypeCode>
+                                       </salesInformation>
+                                    </sales_information:salesInformationModule><trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule xmlns:trade_item_data_carrier_and_identification="urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDataCarrierAndIdentificationModule.xsd">
+                                       <dataCarrier>
+                                          <dataCarrierTypeCode>EAN_13</dataCarrierTypeCode>
+                                       </dataCarrier>
+                                    </trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule><trade_item_description:tradeItemDescriptionModule xmlns:trade_item_description="urn:gs1:gdsn:trade_item_description:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd">
+                                       <tradeItemDescriptionInformation>
+                                          <descriptionShort languageCode="fr">KNORR SOUPE SICHUAN 69G</descriptionShort>
+                                          <functionalName languageCode="fr">Soupe Déshydratée</functionalName>
+                                          <invoiceName languageCode="fr">KNORR SOUPE SICHUAN 69G</invoiceName>
+                                          <labelDescription languageCode="fr">fr: Soupe chinoise du Sichuan Nouilles et champignons noirs</labelDescription>
+                                          <regulatedProductName languageCode="fr">Soupe avec de la viande de poule aromatisée déshydratée.</regulatedProductName>
+                                          <tradeItemDescription languageCode="fr">Knorr Soupe Déshydratée Chinoise Nouilles et Champignons Noirs Sachet 69g 2 Portions</tradeItemDescription>
+                                          <variantDescription languageCode="fr">SICHUAN</variantDescription>
+                                          <brandNameInformation>
+                                             <brandName>KNORR</brandName>
+                                          </brandNameInformation>
+                                       </tradeItemDescriptionInformation>
+                                    </trade_item_description:tradeItemDescriptionModule><trade_item_handling:tradeItemHandlingModule xmlns:trade_item_handling="urn:gs1:gdsn:trade_item_handling:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_handling:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemHandlingModule.xsd">
+                                       <tradeItemHandlingInformation/>
+                                    </trade_item_handling:tradeItemHandlingModule><trade_item_lifespan:tradeItemLifespanModule xmlns:trade_item_lifespan="urn:gs1:gdsn:trade_item_lifespan:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_lifespan:xsd:3 http://www.gdsregistry.org/3.1/schemas/gs1/gdsn/TradeItemLifespanModule.xsd">
+                                       <tradeItemLifespan>
+                                          <minimumTradeItemLifespanFromTimeOfArrival>150</minimumTradeItemLifespanFromTimeOfArrival>
+                                          <minimumTradeItemLifespanFromTimeOfProduction>151</minimumTradeItemLifespanFromTimeOfProduction>
+                                       </tradeItemLifespan>
+                                    </trade_item_lifespan:tradeItemLifespanModule><trade_item_measurements:tradeItemMeasurementsModule xmlns:trade_item_measurements="urn:gs1:gdsn:trade_item_measurements:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd">
+                                       <tradeItemMeasurements>
+                                          <depth measurementUnitCode="MMT">24</depth>
+                                          <height measurementUnitCode="MMT">185</height>
+                                          <netContent measurementUnitCode="GRM">69</netContent>
+                                          <width measurementUnitCode="MMT">140</width>
+                                          <tradeItemWeight>
+                                             <grossWeight measurementUnitCode="KGM">0.0750</grossWeight>
+                                             <netWeight measurementUnitCode="KGM">0.0690</netWeight>
+                                          </tradeItemWeight>
+                                       </tradeItemMeasurements>
+                                    </trade_item_measurements:tradeItemMeasurementsModule><trade_item_temperature_information:tradeItemTemperatureInformationModule xmlns:trade_item_temperature_information="urn:gs1:gdsn:trade_item_temperature_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd">
+                                       <tradeItemTemperatureInformation>
+                                          <maximumTemperature temperatureMeasurementUnitCode="CEL">25.0000</maximumTemperature>
+                                          <minimumTemperature temperatureMeasurementUnitCode="CEL">0.0000</minimumTemperature>
+                                          <temperatureQualifierCode>STORAGE_HANDLING</temperatureQualifierCode>
+                                       </tradeItemTemperatureInformation>
+                                    </trade_item_temperature_information:tradeItemTemperatureInformationModule><variable_trade_item_information:variableTradeItemInformationModule xmlns:variable_trade_item_information="urn:gs1:gdsn:variable_trade_item_information:xsd:3" xsi:schemaLocation="urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd">
+                                       <variableTradeItemInformation>
+                                          <isTradeItemAVariableUnit>false</isTradeItemAVariableUnit>
+                                       </variableTradeItemInformation>
+                                    </variable_trade_item_information:variableTradeItemInformationModule></extension>
+                              </tradeItemInformation>
+                              <tradeItemSynchronisationDates>
+                                 <lastChangeDateTime>2019-08-14T21:45:59+02:00</lastChangeDateTime>
+                                 <effectiveDateTime>2011-01-01T00:00:00+01:00</effectiveDateTime>
+                                 <publicationDateTime>2019-08-14T21:45:59+02:00</publicationDateTime>
+                              </tradeItemSynchronisationDates>
+                              <avpList>
+                                 <stringAVP attributeName="countryOfSettlement">250</stringAVP>
+                              </avpList>
+                           </tradeItem>
+                        </catalogueItem>
+                     </catalogueItemChildItemLink>
+                  </catalogueItem>
+               </catalogueItemChildItemLink>
+            </catalogueItem>
+         </catalogue_item_notification:catalogueItemNotification>
+      </documentCommand>
+   </transaction>
+</catalogue_item_notification:catalogueItemNotificationMessage>

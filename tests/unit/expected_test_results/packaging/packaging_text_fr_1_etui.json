@@ -1,0 +1,46 @@
+{
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:packagings-number-of-components-3",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:fsc-cardboard",
+      "en:metal",
+      "en:plastic"
+   ],
+   "packaging_recycling_tags" : [
+      "en:recycle"
+   ],
+   "packaging_shapes_tags" : [
+      "en:sleeve"
+   ],
+   "packaging_text" : "1 étui en carton FSC à recycler, 2 etuis en plastique, 1 etui en métal",
+   "packagings" : [
+      {
+         "material" : "en:fsc-cardboard",
+         "number_of_units" : 1,
+         "recycling" : "en:recycle",
+         "shape" : "en:sleeve"
+      },
+      {
+         "material" : "en:plastic",
+         "number_of_units" : 2,
+         "shape" : "en:sleeve"
+      },
+      {
+         "material" : "en:metal",
+         "number_of_units" : 1,
+         "shape" : "en:sleeve"
+      }
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:metal" : {},
+      "en:paper-or-cardboard" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 3
+}

@@ -1,0 +1,272 @@
+// List of products with cards (e.g. search results, facets)
+$productsGutter:12px;
+$decalTop:48px;
+
+
+#prodHead {
+    padding-bottom :0;
+    .flex-grid {
+        flex-wrap: nowrap;
+    }
+}
+#prodNav {
+    padding-top :$productsGutter;
+    padding-bottom :$decalTop;
+    &.sticky {
+        z-index:100;
+    margin-top: 82px;
+    padding-bottom:0;
+    }
+    .f-dropdown {
+        a {
+            color:$primary-color;
+        }
+    }
+}
+#prodInfos {
+     margin-top :-$decalTop;
+            margin-left:0rem;
+            margin-right:0rem;
+        @media #{$medium-up} {
+            margin-left:1rem;
+            margin-right:1rem;
+        }
+}
+
+.back-to-top {
+    display:none;
+    justify-content:center;
+    align-items:center;
+    border-radius:50rem;
+    width:2rem;
+    height:2rem;
+    position:fixed;
+    z-index:999;
+    bottom:4rem;
+    right:4rem;
+    &.active {
+        display:flex;
+    }
+    padding:0;
+
+    @media (max-width:1024px){
+        margin-bottom:50px;
+    }
+}
+#attributes_grid {
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    }
+.attribute_card {
+    display:flex;
+    flex-direction:column;
+    height: 100%;
+    .attr_card_header {
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        .img_attr {
+            width:90px;
+            height:48px;
+            img {
+                width:100% !important;
+                height:100% !important;
+                object-fit:contain;
+                object-position: center left;
+            }
+        }
+        .attr_text {
+            padding-left:0.5rem;
+        }
+        .attr_title {
+            margin:0;
+            padding:0;
+        }
+    }
+}
+
+
+///accordion-navigation
+.accordion-navigation,.panel .accordion .accordion-navigation  {
+    position:relative;
+    float: left;
+    width: 100%;
+    margin-bottom:1rem !important;
+    &:after {
+        pointer-events:none;
+        display:block;
+        position:absolute;
+        content:"\E5c5";
+        font-family: 'Material Icons', sans-serif;
+        font-size: 24px;
+        right:1rem;
+        top:0;
+        -webkit-font-feature-settings: 'liga';
+    }
+    &.active {
+        &:after {
+        content:"\e5c7";
+        }
+    }
+    > .content.active {
+        //border-bottom:1px solid $primary-color;
+        float:left;
+        width:100%;
+        border-radius: 0 0 8px 8px  ;
+    }
+}
+// valign arrow only on manages images accordion
+#manage_images_accordion .accordion-navigation {
+  &::after {
+    display: none;
+  }
+  & > a {
+    display: flex;
+    align-items: center;
+
+    &::after {
+      content:"\E5c5";
+      display:block;
+      margin-left: auto;
+      font-family: 'Material Icons', sans-serif;
+      font-size: 24px;
+      pointer-events:none;
+    }
+  }
+  &.active a::after {
+    content:"\e5c7";
+  }
+}
+#preferences_selection_form {
+    margin:1rem;
+}
+.buttons_prod {
+    margin-left:auto;
+    > div {
+        margin-left:0.5rem;
+        .button {
+            display:flex;
+            align-items:center;
+            white-space:nowrap;
+            .material-icons {
+                margin-right:0.25rem;
+            }
+        }
+    }
+}
+
+
+// Make active (opened) accordion look like inactive accordion
+// as we use them only for knowledge panel, with only 1 openable element
+// per accordion
+.accordion .accordion-navigation>a,
+.accordion dd>a {
+    background: #ffffff;
+    border-radius: 8px;
+    float:left;
+    width:100%;
+}
+
+.accordion .accordion-navigation.active>a,
+.accordion dd.active>a {
+    background: #ffffff;
+    border-radius: 8px 8px 0 0 ;
+}
+
+.accordion .accordion-navigation>a:hover,
+.accordion dd>a:hover {
+    background: #f0f0f0;
+    text-decoration: none;
+}
+
+
+#navbar {
+li.product-section-button {
+    margin-bottom: .5rem;
+}
+a.active {
+    background-color:#000;
+    color:white;
+}
+}
+.panel_card {
+    float:left;
+    width:100%;
+}
+
+///
+////edit
+////
+    .bottom-validation {
+        position: fixed;
+        bottom: 0;
+        left:0;
+        width: 100%;
+        border-top: 1px solid #eee;
+        z-index: 100;
+        padding: 1rem;
+	padding-bottom: 0.5rem;
+        pointer-events: none;
+        background-color: $primary-color;
+        > div {
+            pointer-events: initial;
+            }
+        }
+
+    robotoff-asker {
+        padding-bottom:1rem;
+            #close {
+                background: $white;
+            }
+        }
+
+
+.image_box {
+	text-align:center;
+	margin-bottom:2rem;
+}
+
+.image_box figure  {
+	position: relative;
+	padding: 0;
+}
+
+.image_box > img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.image_box figure figcaption {
+	position: absolute;
+	right: 0px;
+	bottom: -20px;
+}
+
+html[dir="rtl"] .image_box figure figcaption {
+	right: unset;
+	left: 0px;
+}
+
+.image_box figure figcaption img {
+	width: 16px;
+	height: 16px;
+}
+
+.field_div {
+	display:inline;
+	float:left;
+	margin-right:30px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.field {
+	font-weight:bold;
+}
+
+.allergen {
+	font-weight:bold;
+}

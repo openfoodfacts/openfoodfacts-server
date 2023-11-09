@@ -5,15 +5,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-12-07 09:03\n"
 "Language-Team: Arabic\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ar\n"
-"X-Crowdin-File: openproductsfacts.pot\n"
-"X-Crowdin-File-ID: 1814\n"
+"X-Crowdin-File-ID: 3129\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -30,24 +28,14 @@ msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 
-#. make sure the image exists with your country code at https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-XX-178x150.png. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openproductsfacts-logo-en-178x150.png"
-msgstr "openproductsfacts-logo-en-178x150.png"
-
-#. make sure the image exists with your country code at https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-XX-356x300.png. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openproductsfacts-logo-en-356x300.png"
-msgstr "openproductsfacts-logo-en-356x300.png"
-
 msgctxt "site_name"
 msgid "Open Products Facts"
 msgstr "فتح منتجات الحقائق"
 
 #. change https://www.microsoft.com/en-us/p/ to https://www.microsoft.com/fr-fr/p/ (for instance) and make sure the url works
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
+msgstr ""
 
 msgctxt "tagline"
 msgid "Open Products Facts gathers information and data on products from around the world."
@@ -56,11 +44,12 @@ msgstr "تقوم Open Products Facts بجمع المعلومات والبيان�
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr "OpenFoodFactsAr"
+msgstr "OpenFoodFactsAR"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "صفحة المنتج هذه غير كاملة. يمكنك المساعدة في إكماله بتعديله أو إضافة بيانات أكثر من الصور التي لدينا أو بأخذ صور أكثر باستخدام التطبيق للأندرويد <a href=\"https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner\">\n"
+" أو </a>  <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">الأيفون  الأيباد/<a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\"> . شكرا!"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Products Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Products Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -74,19 +63,9 @@ msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
 msgstr "https://www.facebook.com/OpenFoodFacts"
 
-msgctxt "footer"
-msgid "<a href=\"https://world.openproductsfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
-
 msgctxt "brands_example"
 msgid "Nike, Apple"
-msgstr "نايك ، أبل"
+msgstr "هاي"
 
 msgctxt "categories_example"
 msgid "Mobile phone, Washing machine powder"

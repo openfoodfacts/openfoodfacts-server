@@ -12,6 +12,8 @@
 # and may not refer to a different region / country. (e.g. "Georgia" is a country and a US state)
 
 stopwords:en:agriculture
+stopwords:bg:земеделие
+stopwords:de:Landwirtschaft
 stopwords:fr:agriculture
 stopwords:es:agricultura
 stopwords:hu:mezőgazdaság
@@ -25,99 +27,138 @@ synonyms:en:Western Central, West Central
 
 # Unknown origin: no value has been entered (it's possible that there is one specified on the product but that we don't have the data)
 en:Unknown
+bg:Неизвестно
 ca:Desconegut
 es:Desconocido
 fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
+nl:Onbekend
 tr:Bilinmiyor
 
 en:Unspecified, not specified, non specified, nonspecified, not available, n/a
+bg:Неуточнено, не е налично, не е посочено
 ca:No especificat
 es:No especificado
 fr:Non indiqué, non indiquée, non indiqués, non indiquées, non spécifié, non spécifiée, non spécifiée, non spécifiées, non précisé, non précisée, non précisés, non précisées
 hu:Nincs megadva, kitöltetlen, nem elérhető
+nl:Niet-gespecificeerd
 pt:Não especificado
 
 # World regions
 
 en:Africa
+bg:Африка
 ca:Àfrica
 da:Afrika
 de:Afrika
 es:África
 fr:Afrique
 hu:Afrika
+nl:Afrika
+pl:Afryka
 tr:Afrika
 
 <en:Africa
 en:West Africa
+bg:Западна Африка
 da:Vestafrika
 de:Westafrika
 fr:Afrique de l'Ouest
 hu:Nyugat-Afrika
+nl:West-Afrika
+pl:Afryka Zachodnia
 
 en:Latin America
+bg:Латинска Америка
 ca:Amèrica Llatina
 de:Lateinamerika
 es:America latina
 fr:Amérique Latine
 hu:Latin-Amerika
+nl:Latijns Amerika
+pl:Ameryka Łacińska
 
 en:Central America
+bg:Централна Америка
 de:Zentralamerika
 fr:Amérique centrale
 hu:Közép-Amerika
+nl:Centraal Amerika
+pl:Ameryka Centralna
 
 en:North-America
+bg:Северна Америка
 da:Nordamerika
 de:Nordamerika
 fr:Amérique du Nord
 hu:Észak-Amerika
+nl:Noord-Amerika
+pl:Ameryka Północna
 
 en:South-America
+bg:Южна Америка
 ca:Sud Amèrica
 de:Südamerika
 es:Sudamerica
 fr:Amérique du Sud
 hu:Dél-Amerika
+nl:Zuid-Amerika
+pl:Ameryka Południowa
 
 en:Asia
+bg:Азия
 ca:Àsia
 da:Asien
 de:Asien
 es:Asia
 fr:Asie
 hu:Ázsia
+nl:Azië
+pl:Azja
 pt:Ásia
 tr:Asya
 
 en:Europe
+bg:Европа
 ca:Europa
 da:Europa
 de:Europa
 es:Europa
 fr:Europe
 hu:Európa
+nl:Europa
+pl:Europa
 pt:Europa
 
 en:European Union, EU
+bg:Европейски съюз, ЕС
 da:Den Europæiske Union, EU
 de:Europäische Union, EU
+ee:Euroopa Liit, EL
 es:Unión Europea, UE
+fi:Euroopan unioni, EU
 fr:Union Européenne, UE
+hr:u EU
 hu:Európai Unió, EU
+nl:Europese Unie, EU
 
 en:Non European Union, Non EU
+bg:Извън Европейския съюз, Извън ЕС
 ca:No Unió Europea, No UE
 da:Ikke-EU
 de:Nicht-Europäische Union, Nicht-EU
+ee:mitte EL
+fi:ei-EU
 fr:Non Union Européenne, Non UE
+hr:izvan EU
 hu:Nem Európai Unió, Nem-EU, EU-n kívüli, Európai Unión kívüli
 pt:Fora da União Europeia
 
 en:European Union and Non European Union, EU and non EU, EU non EU
+bg:Европейски съюз и Извън Европейския съюз, ЕС и извън ЕС
 ca:Unió Europea i no Unió Europea, UE i no UE
 fr:Union Européenne et Non Union Européenne, UE et non UE, UE non UE
+hr:u/izvan EU
 hu:EU és Nem-EU, Európai Unió és nem Európai Unió
 
 
@@ -127,23 +168,28 @@ hu:EU és Nem-EU, Európai Unió és nem Európai Unió
 
 <en:france
 en:Alsace
+bg:Елзас
 fr:Alsace
 
 <en:france
 en:Ardèche
+bg:Ардеш
 fr:Ardèche
 
 <en:france
 en:Aquitaine
+bg:Аквитания
 fr:Aquitaine
 
 <en:france
 en:Burgundy
+bg:Бургундия
 fr:Bourgogne
 hu:Burgundia
 
 <en:france
 en:Brittany
+bg:Бретан
 ca:Bretanya
 de:Bretagne
 es:Bretaña
@@ -152,11 +198,13 @@ hu:Bretagne
 
 <en:france
 en:Camargue
+bg:Камарг
 fr:Camargue
 pt:Camarga
 
 <en:france
 en:Corsica
+bg:Корсика
 fr:Corse
 hu:Korzika
 
@@ -174,6 +222,7 @@ fr:Pays de la Loire
 
 <en:france
 en:Auvergne
+bg:Оверн
 fr:Auvergne
 
 <en:france
@@ -182,16 +231,23 @@ fr:Franche-Comté
 
 <en:france
 en:Normandy
+bg:Нормандия
 ca:Normandia
 es:Normandía
 fr:Normandie
 hu:Normandia
+nl:Normandië
 pt:Normandia
 
 <en:france
 en:Provence
+bg:Прованс
 fr:Provence
 hu:Provance
+
+<en:france
+en:Haute Provence
+fr:Haute Provence
 
 <en:france
 en:Savoy
@@ -202,6 +258,7 @@ en:South-western France, South-west of France
 de:Südwestfrankreich
 fr:Sud-ouest de la France, Sud-ouest français
 hu:Délnyugat-Franciaország
+nl:Zuid-Westen van Frankrijk, Zuid-West Frankrijk
 
 <en:france
 en:Loire valley
@@ -295,30 +352,36 @@ fr:Antilles
 
 <en:germany
 en:Baden-Württemberg
+bg:Баден-Вюртемберг
 de:Baden-Württemberg
 
 <en:germany
 en:Bayern
+bg:Бавария
 de:Bayern
 hu:Bajorország
 
 <en:germany
 en:Berlin
+bg:Берлин
 de:Berlin
 xx:Berlin
 
 <en:germany
 en:Brandenburg
+bg:Бранденбург
 de:Brandenburg
 xx:Brandenburg
 
 <en:germany
 en:Bremen
+bg:Бремен
 de:Bremen
 xx:Bremen
 
 <en:germany
 en:Hamburg
+bg:Хамбург
 de:Hamburg
 xx:Hamburg
 
@@ -376,18 +439,22 @@ xx:Thüringen
 
 <en:italy
 en:Sicily
+bg:Сицилия
 fr:Sicile
 hu:Szicília
 it:Sicilia
+nl:Sicilië
 tr:Sicilya
 
 # Spanish regions
 
 <en:spain
 en:Andalusia
+bg:Андалусия
 es:Andalucía
 fr:Andalousie
 hu:Andalúzia
+nl:Andalusië
 
 <en:spain
 en:Castilla-La Mancha
@@ -409,46 +476,69 @@ fr:Navarre
 # UK origins
 
 <en:united-kingdom
+en:Great Britain, Britain
+bg:Великобритания
+fr:Grande Bretagne
+nl:Groot-Britagne
+
+<en:great-britain
 en:England
+bg:Англия
 fr:Angleterre
+nl:Engeland
+pl:Anglia
 
-<en:united-kingdom
+<en:great-britain
 en:Scotland
+bg:Шотландия
 fr:Écosse
+nl:Schotland
+pl:Szkocja
 
-<en:united-kingdom
+<en:great-britain
 en:Wales
+bg:Уелс
 fr:Pays de Galles
+nl:Wales
 
 <en:united-kingdom
 en:Northern Ireland
+bg:Северна Ирландия
 fr:Irlande du Nord
+nl:Noord-Ierland
 
 # US states
 
 <en:united-states
 en:California
+bg:Калифорния
 ca:Califòrnia
 de:Kalifornien
 es:California
 fr:Californie
 hu:Kalifornia
+nl:Californië
 tr:Kaliforniya
 
 <en:united-states
 en:Florida
+bg:Флорида
 fr:Floride
 hu:Florida
+nl:Florida
 
-<en:United States	
-en:South Carolina	
+<en:United States
+en:South Carolina
+bg:Южна Каролина
 fr:Caroline du Sud
 
 # State of Palestine
 
 <en:State of Palestine
 en:Gaza Strip
+bg:Ивица Газа
 fr:Bande de Gaza
+nl:Gazastrook
 
 # Marine zones
 
@@ -461,20 +551,24 @@ xx:FAO 18
 wikidata:en:Q788
 
 en:Atlantic Ocean, Atlantic
+bg:Атлантически океан
 de:Atlantischer Ozean, Atlantik
 fr:Océan Atlantique, Atlantique
 hu:Atlanti-óceán
 it:Oceano Atlantico, Atlantico
+nl:Atlantische Oceaan
 wikidata:en:Q97
 
 <en:Atlantic Ocean
 en:North Atlantic Ocean
 fr:Océan Atlantique Nord
+nl:Noord Atlantische Oceaan
 wikidata:en:Q350134
 
 <en:Atlantic Ocean
 en:South Atlantic Ocean
 fr:Océan Atlantique Sud
+nl:Zuid Atlantische Oceaan
 wikidata:en:Q1482804
 
 <en:Atlantic Ocean
@@ -486,7 +580,7 @@ xx:FAO 21
 en:North-East Atlantic Ocean, North-East Atlantic, Northeast Atlantic
 de:Nordostatlantik
 fr:Océan Atlantique Nord-Est, Atlantique Nord-Est, FAO 27, FAO N°27, Atlantique Du Nord-est
-bg:Североизточните Части На Атлантическия Океан
+bg:Североизточните части на Атлантическият океан
 cs:Severovýchodní Atlantik
 da:Nordøstlige Atlanterhav
 et:Atlandi Ookeani Kirdeosa
@@ -510,8 +604,10 @@ xx:FAO 27
 
 <xx:FAO 27
 en:Barents sea
+bg:Баренцово море
 fr:Mer de Barents
 hu:Barents-tenger
+nl:Barentszzee
 xx:FAO 27.1, FAO zone 27-1, FAO subarea 27-1
 wikidata:en:Q45823
 
@@ -524,6 +620,7 @@ xx:FAO 27.1.b
 # Norwegian Sea, Spitzbergen, and Bear Island (Subarea 27.2)
 <xx:FAO 27
 en:Norwegian Sea
+bg:Норвежко море
 fr:Mer de Norvège
 hu:Norvég tenger
 xx:FAO 27.2, FAO zone 27-2, FAO subarea 27-2
@@ -556,9 +653,6 @@ xx:FAO 27.3
 xx:FAO 27iiid
 
 <xx:FAO 27.3
-xx:FAO 27.3.d
-
-<xx:FAO 27.3
 xx:FAO 27.3.a
 
 <xx:FAO 27.3
@@ -566,6 +660,7 @@ xx:FAO 27.3.d
 
 <xx:FAO 27
 en:North Sea
+bg:Северно море
 de:Nordsee
 fr:Mer du Nord
 hu:Északi-tenger
@@ -775,10 +870,12 @@ en:Antartic Atlantic Ocean
 xx:FAO 48
 
 en:Indian Ocean
+bg:Индийски океан
 de:Indischer Ozean
 es:Océano Indio, Océano Índico
 fr:Océan Indien
 hu:Indiai-óceán
+nl:Indische Oceaan
 wikidata:en:Q1239
 
 <en:Indian Ocean
@@ -822,12 +919,14 @@ en:Antartic and Southern Indian Ocean
 xx:FAO 58
 
 en:Pacific Ocean
+bg:Тихи океан
 ca:Oceà Pacífic
 de:Pazifische Ozean
 es:Océano Pacífico
 fr:Océan Pacifique, Pacifique
 hu:Csendes-óceán
 it:Oceano Pacifico
+nl:Pacifische Oceaan, Grote Oceaan, Stille Oceaan
 wikidata:en:Q98
 
 <en:Pacific Ocean

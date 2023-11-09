@@ -1,0 +1,120 @@
+<!-- start templates/[% template.name %] -->
+<div class="tag">
+    <div class="row">
+        <div class="large-6 column">
+            [% IF not groupby_tagtype.defined %]
+                <div class="tag_navigation">
+                    <a href="[% tagtype_path %]">[% tagtype_name.ucfirst %]</a>
+                    [% sep %]:
+                    <a href="[% tagid_path %]">[% tag_name %]</a>
+
+                    [% IF tagid2.defined %]
+                    <br>
+                    <a href="[% tagtype2_path %]">[% tagtype2_name.ucfirst %]</a>
+                    [% sep %]:
+                    <a href="[% tagid2_path %]">[% tag2_name %]</a>
+                    [% END %]
+                </div>
+
+                [% IF tag_logo %]
+                <div class="tag_logo">
+                    [% tag_logo %]
+                </div>
+                [% END %]
+
+                [% IF canon_url %]
+                <div class="share_button right" style="float:right;margin-top:-10px;margin-left:10px;display:none;">
+                    <a href="[% canon_url %]" class="button small" title="[% title %]">
+                        [% display_icon('share') %]
+                        <span class="show-for-large-up"> [% lang('share') %]</span>
+                    </a>
+                </div>
+                [% END %]
+
+
+                [% IF weblinks and not facets_kp_url.defined %]
+                <div class="weblinks">
+                    [% weblinks %]
+                </div>
+                [% END %]
+
+                [% IF parents_and_children %]
+                <div class="parents_and_children">
+                    [% parents_and_children %]
+                </div>
+                [% END %]
+
+                [% IF description %]
+                <div class="description">
+                    [% description %]
+                </div>
+                [% END %]
+
+                [% IF tag_panels %]
+                <div class="tag_panels">
+                    [% tag_panels %]
+                </div>                
+                [% END %]
+
+            [% END %]
+
+            [% IF country != 'en:world' %]
+            <p>[% lang('countries_s').ucfirst %][% sep %]: [% display_taxonomy_tag("countries", country) %]
+                - <a href="[% world_link_url %]">[% world_link %]</a>
+            </p>
+            [% END %]
+
+            [% IF products_title %]
+            <h2 class="products_title">[% products_title %]</h2>
+            [% END %]
+        </div>
+    
+        <div class="large-6 column">
+            [% IF tagid.defined %]
+                [% IF facets_kp_url.defined && ! is_crawl_bot %]
+                <!-- injecting facet-knowledge-panel -->
+                <div id="facet-knowledge-panel" style="margin-left: 70px;">
+                    <h2 id="facet_panels_title"></h2>
+                    <div id="facet_panels_content"></div>
+                </div>
+                <!-- Fetching facet knowledge panel -->                
+                <script>
+                        let facet_kp = "[% facets_kp_url %]";
+                        let params = "?facet_tag=[% tagtype %]&value_tag=[% canon_tagid %]";
+                        if ("[% tagid2.defined %]") {
+                            params += "&sec_facet_tag=[% tagtype2 %]&sec_value_tag=[% canon_tagid2 %]"
+                        }
+                        // Filtering data for country
+                        if ("[% country_code %]" !== "world") {
+                            // Adding language code to get transalted data
+                            params += "&lang_code=[% lc %]&country=[% cc %]";
+                        }
+
+                        fetch(facet_kp + params)
+                            .then((response) => {
+                                if (response.ok) {
+                                    return response.text();
+                                }
+                                else {
+                                    throw new Error("Network Response Error while fetching facet kp");
+
+                                }
+                            })
+                            .then(data => {
+                                let title = document.getElementById("facet_panels_title");
+                                title.innerHTML = "Facet knowledge panel";
+                                let knowledgepanel = document.getElementById("facet_panels_content");
+                                knowledgepanel.innerHTML = data;
+                                // Keeping Hungergames and Lastedits panel open by default
+                                jQuery("#HungerGames").attr("open", true);
+                                jQuery("#LastEdits").attr("open", true);
+
+                            })
+                </script>
+                [% END %]
+            [% END %]
+        </div>
+    </div>
+</div>
+
+<!-- end templates/[% template.name %] -->

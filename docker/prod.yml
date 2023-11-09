@@ -1,34 +1,53 @@
-﻿version: "3.7"
+version: "3.7"
 services:
   memcached:
     restart: always
+    networks:
+    - webnet
   postgres:
     restart: always
+    networks:
+    - webnet
   backend:
     restart: always
+    networks: 
+    - webnet
   incron:
     restart: always
+    networks:
+    - webnet
   minion:
     restart: always
+    networks:
+    - webnet
   frontend:
     restart: always
+    networks:
+    - webnet
 volumes:
   html_data:
     external: true
+    name: ${COMPOSE_PROJECT_NAME}_html_data
   users:
     external: true
+    name: ${COMPOSE_PROJECT_NAME}_users
   products:
     external: true
+    name: ${COMPOSE_PROJECT_NAME}_products
   orgs:
     external: true
+    name: ${COMPOSE_PROJECT_NAME}_orgs
   product_images:
     external: true
+    name: ${COMPOSE_PROJECT_NAME}_product_images
   podata:
     external: true
+    name: ${COMPOSE_PROJECT_NAME}_podata
+  # not external, for wiping it will avoid keeping too much cached data
+  build_cache:
+    name: ${COMPOSE_PROJECT_NAME}_build_cache
 
 networks:
   webnet:
-    driver: bridge
-    ipam:
-      config:
-      - subnet: 172.30.0.0/16
+    external: true
+    name: ${COMPOSE_PROJECT_NAME}_webnet

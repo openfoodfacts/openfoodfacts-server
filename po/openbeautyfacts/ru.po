@@ -5,15 +5,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-11-25 09:27\n"
 "Language-Team: Russian\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ru\n"
-"X-Crowdin-File: openbeautyfacts.pot\n"
-"X-Crowdin-File-ID: 1810\n"
+"X-Crowdin-File-ID: 3125\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -29,23 +27,13 @@ msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/ru/app/open-beauty-facts/id1122926380"
 
-#. make sure the image exists with your country code. https://static.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en-178x150.png Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openbeautyfacts-logo-en-178x150.png"
-msgstr "openbeautyfacts-logo-ru-178x150.png"
-
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openbeautyfacts-logo-en-356x300.png"
-msgstr "openbeautyfacts-logo-ru-356x300.png"
-
 msgctxt "site_name"
 msgid "Open Beauty Facts"
 msgstr "Open Beauty Facts"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/ru-ru/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
+msgstr ""
 
 msgctxt "tagline"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
@@ -62,7 +50,7 @@ msgstr "Эта страница продукта не завершена. Вы �
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://world-ru.openfoodfacts.org/pozhertvovat-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Помочь Open Beauty Facts\" /></a><p><<site_name>> создан некоммерческой ассоциацией, независимой от отрасли. Это сделано для всех, всеми, и это финансируется всеми. Вы можете поддержать нашу работу, сделав <a href=\"https://world-ru.openfoodfacts.org/pozhertvovat-open-food-facts\">пожертвование на Open Beauty Facts</a> а также <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">используя поисковую систему Lilo</a>.<br/><b>Спасибо!</b></p>"
+msgstr "<a href=\"https://world-ru.openfoodfacts.org/pozhertvovat-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Помочь Open Beauty Facts\" /></a><p><<site_name>> создан некоммерческой ассоциацией, независимой от производителей отрасли. Это сделано для всех, всеми, и финансируется всеми. Вы можете поддержать нашу работу, сделав <a href=\"https://world-ru.openfoodfacts.org/pozhertvovat-open-food-facts\">пожертвование для Open Beauty Facts</a>, а также <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">используя поисковую систему Lilo</a>.<br/><b>Спасибо!</b></p>"
 
 msgctxt "donate"
 msgid "Donate to Open Beauty Facts"
@@ -71,22 +59,6 @@ msgstr "Пожертвовать Open Beauty Facts"
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenBeautyFacts"
 msgstr "https://www.facebook.com/OpenBeautyFacts"
-
-msgctxt "footer"
-msgid "<a href=\"https://world.openbeautyfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr "<a href=\"https://world-ru.openbeautyfacts.org/legal\">Юридическая информация</a> -\n"
-"<a href=\"https://world-ru.openbeautyfacts.org/terms-of-use\">Условия использования</a> -\n"
-"<a href=\"https://world-ru.openbeautyfacts.org/who-we-are\">Кто мы</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/faq\">Часто задаваемые вопросы</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Форум идей</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Блог</a> -\n"
-"<a href=\"https://world-ru.openbeautyfacts.org/press-and-blogs\">Пресса и блоги</a>\n"
 
 msgctxt "brands_example"
 msgid "Nivea, Nivea Men"
@@ -113,8 +85,8 @@ msgid "A collaborative, free and open database of cosmetic products from around 
 msgstr "Совместная, бесплатная и открытая база данных косметики со всего мира."
 
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openbeautyfacts.org"
-msgstr "https://en.wiki.openbeautyfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 msgctxt "generic_name_example"
 msgid "Anti-dandruff shampoo"
@@ -150,7 +122,7 @@ msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
 msgid "/open-beauty-facts-mobile-app"
-msgstr ""
+msgstr "/open-beauty-facts-mobile-app"
 
 # Do not translate
 msgctxt "footer_obf"
@@ -160,5 +132,5 @@ msgstr "Open Food Facts"
 # Do not translate
 msgctxt "footer_obf_link"
 msgid "https://world.openfoodfacts.org"
-msgstr ""
+msgstr "https://ru.openfoodfacts.org"
 

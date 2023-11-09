@@ -73,6 +73,9 @@ function init_select_field_option(col) {
 			if (columns_fields[column]["lc"]) {
 				selected_lc = columns_fields[column]["lc"];
 			}
+			else {
+				columns_fields[column]["lc"] = selected_lc;
+			}
 			\$('#select_field_option_lc_' + col).val(selected_lc);
 
 			// setup a select2 widget

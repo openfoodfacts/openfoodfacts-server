@@ -1,70 +1,105 @@
-synonyms:en:bin,container
+synonyms:fr:conteneur,container,poubelle,benne
 
-synonyms:fr:conteneur,container,poubelle,bac,benne
+stopwords:en:in,the
+stopwords:bg:в,във
+stopwords:fr:le,la,dans
 
-stopwords:fr:le,la
+# comment:en:Instructions for the Netherlands: https://kidv.nl/media/weggooiwijzer/2021_kidv_weggooiwijzer_handleiding_nl_juni_2021.pdf?1.2.2
+# comment:en:Instructions for Belgium: https://www.betersorteren.be/nl/download-de-sorteergidsen-voor-pmd-papier-karton-en-glas
+# comment:en:Instructions for Spain: 
+# https://world.openfoodfacts.org/label/ecoponto-amarelo
+# https://world.openfoodfacts.org/label/ecoponto-azul
+# comment:en:Instructions for France: 
+# comment:en:Instructions for Germany: 
+# comment:en:Instructions for Italy: 
 
-#comment:en:Instructions for the Netherlands: https://kidv.nl/media/weggooiwijzer/2021_kidv_weggooiwijzer_handleiding_nl_juni_2021.pdf?1.2.2
-#comment:en:instructions for Belgium: https://www.betersorteren.be/nl/download-de-sorteergidsen-voor-pmd-papier-karton-en-glas
+# Paper and cardboard
+es:Ecoponto Azul
+
+# Plastic and metal
+es:Ecoponto Amarelo
+
+# Glass
+es:Ecoponto Verde
 
 en:reuse, re-use, to reuse, to re-use,  to be reused, to be re-used, reusable, re-usable, Refillable, refill, to refill, multiple use
+bg:използвай повторно, използвайте повторно
 de:wiederverwenden, wiederverwendbar, nachfüllbar, mehrfach verwendbar, zum Wiederverwenden
-fr:réutiliser, à réutiliser, réutilisable, consigné, usage multiple, réemployer, à réemployer, réemployable
+fr:réutiliser, à réutiliser, réutilisable, usage multiple, réemployer, à réemployer, réemployable
 hu:újrafelhasználható, újrafelhasználásra, újrafelhasználni, többszörhasználatos, többszöri felhasználásra, többször felhasználható, újra felhasználható
 pt:reutilizar, a reutilizar, para reutilizar, para ser reutilizado, a ser reutilizado, reutilizável, tornar a encher, para tornar a encher, reencher, tornar a reencher, para tornar a reencher, para reencher, a reencher
 
 en:recycle, to recycle, to be recycled, recyclable
+bg:за рециклиране, рециклирай, да се рециклира
 de:recyceln, zum Recyceln, recycelbar
 fr:recycler, à recycler, recyclable
 hu:újrahasznosítható, újrahasznosítandó, újrahasznosításra
 pt:reciclável, a reciclar, para reciclar
+# associated_materials: en:glass, en:aluminium, en:steel
 
 <en:recycle
-en:recycle in glass bin, recycle with glass, in glass bin
-fr:recycler dans le conteneur à verre, recycler avec le verre, dans le conteneur à verre, avec le verre
+en:recycle in glass bin, recycle in glass container, recycle with glass, in glass bin, in glass container
+fr:recycler dans le conteneur à verre, recycler dans le bac à verre, recycler avec le verre, dans le conteneur à verre, avec le verre, tri verre, bac verre
 nl:recyclen in de glasbak, Glasbak, in de glasbak, in glasbak
-# If the recycling instruction is to recycle in the glass bin, we can assume the material is glass
+# comment:en:If the recycling instruction is to recycle in the glass bin, we can assume the material is glass
 packaging_materials:en: en:glass
 
 <en:recycle
-en:recycle in paper bin, recycle with paper
-fr:recycler dans le conteneur à papier, recycler avec le papier, dans le conteneur à papier, avec le papier
+en:recycle in paper bin, recycle in paper container, recycle with paper
+fr:recycler dans le conteneur à papier, recycler dans le bac à papier, recycler avec le papier, dans le conteneur à papier, dans le bac à papier, avec le papier
 nl:recyclen bij oud papier, bij oud papier, in papierbak, in de papierbak, papierbak
-# If the recycling instruction is to recycle in the paper bin, we can't assume the material is paper
+# comment:en:If the recycling instruction is to recycle in the paper bin, we can't assume the material is paper
 # it could also be cardboard
 
 # in the Netherlands for recycling of drink cartons
 <en:recycle
 en:recycle with drink cartons
-nl:recycle bij drankencartons, drankencartons
+fr:recycler avec les cartons à boissons
+nl:recycle bij drankencartons, bij drankencartons
 packaging_shapes:en: en:brick
 
 # in Belgium can be used for recycling of metal, plastics and drink cartons
 <en:recycle
 en:recycle with plastics - metal and bricks
 nl:recycle bij Plastic - Metaal en Drankencartons, PMD, wel PMD
+fr:recycler avec les plastiques - métal et briques
 
 <en:recycle
 en:recycle with plastics
+fr:recycler avec le plastique
 nl:recycle bij plastic afval, bij plastic afval, plastic afval
 packaging_materials:en: en:plastics
 
 #packaging that is to be returned to the shop, in exchange for money, might be PET-bottles, meetal cans or glass bottles
 <en:recycle
 en:return to store, deposit
-nl:recycle-als-statiegeld
+fr:consigné, consigne, rapporter au magasin, retourner au magasin
+# nl:recycle-als-statiegeld is already coer
 
 #In the Netherlands PET bottles must be returned in exchange for the deposit, when it has the statiegeldfles logo
-<en:deposit
+<en:return to store
 en:return PET bottle to store, PET deposit bottle
+fr:bouteille en PET consignée, rapporter la bouteille en PET au magasin
 nl:recycle als statiegeldfles, statiegeldfles
 packaging_materials:en: en:pet-polyethylene-terephthalate
 packaging_shapes:en: en:bottle
+
+# In Croatia, there is a specific label for plastic and glass bottle with deposit
+<en:return to store
+en:deposit refunds
+hr:povratna naknada
+fr:consigne remboursable
 
 #This is green waste
 <en:recycle
 en:recycle as green waste, compost, green waste
 nl:recycle als GFT, gft
+fr:compostable, à composter
+
+#sorting bin
+<en:recycle
+en:recycle in sorting bin, sorting bin
+fr:bac de tri
 
 en:discard, to discard, throw away, to throw away, non-recyclable, to be thrown away, to be discarded
 de:wegwerfen, nicht recycelbar, zum Wegwerfen
@@ -72,3 +107,4 @@ fr:jeter, à jeter, non-recyclable
 hu:eldobható, eldobandó, eldobni, kidobható, kidobni, kidobandó, nem újrahasznosítható, szemét
 nl:restafval, bij restafval, niet PMD
 pt:descartar, a descartar, para descartar, não-reciclável, não recicláel
+

@@ -9,7 +9,7 @@
 </h4>
 [% FOREACH level IN nutrient_levels %]
     <img src="[% static_subdomain %]/images/misc/[% level.nutrient_level %].svg" width="30" height="30" style="vertical-align:middle;margin-right:15px;margin-bottom:4px;"
-    alt="[% lang('${level.nutrient_level}_quantity') %]"> [% level.nutriment_prepared %] g [% level.nutriment_quantity %] <br>
+    alt="[% lang('${level.nutrient_level}_quantity') %]"> [% level.nutrient_quantity_in_grams %] g [% level.nutrient_bold_in_quantity %] <br>
 [% END %]
 
 <!-- end templates/[% component.name %] -->

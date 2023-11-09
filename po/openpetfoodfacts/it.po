@@ -5,25 +5,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-12-03 09:47\n"
 "Language-Team: Italian\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: it\n"
-"X-Crowdin-File: openpetfoodfacts.pot\n"
-"X-Crowdin-File-ID: 1816\n"
-
-#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openfoodfacts-logo-en-178x150.png"
-msgstr "openfoodfacts-logo-it-178x150.png"
-
-#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openfoodfacts-logo-en-356x300.png"
-msgstr "openfoodfacts-logo-it-356x300.png"
+"X-Crowdin-File-ID: 3131\n"
 
 # Do not translate Open Pet Food Facts
 msgctxt "site_name"
@@ -74,13 +62,13 @@ msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/it/app/open-beauty-facts/id1122926380"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/it-it/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
+msgstr "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr "OpenFoodFactsIt"
+msgstr "OpenFoodFactsIT"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
@@ -97,16 +85,6 @@ msgstr "Dona a Open Pet Food Facts"
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenPetFoodFacts"
 msgstr "https://www.facebook.com/OpenPetFoodFacts"
-
-msgctxt "footer"
-msgid "<a href=\"https://world.openpetfoodfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openpetfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr "<a href=\"https://world.openpetfoodfacts.org/legal\">Legale</a> - <a href=\"https://world.openpetfoodfacts.org/terms-of-use\">Termini di Utilizzo<a href=\"https://world.openpetfoodfacts.org/who-we-are\">Chi siamo</a> - <a href=\"https://world.openpetfoodfacts.org/faq\">Domande Chieste di Frequente</a> - <a href=\"https://openfoodfacts.uservoice.com/\">Forum Ideas</a> - <a href=\"https://en.blog.openpetfoodfacts.org\">Blog</a> - <a href=\"https://world.openpetfoodfacts.org/press-and-blogs\">Stampa e Blog</a>\n"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"

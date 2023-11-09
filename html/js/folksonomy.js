@@ -55,7 +55,7 @@ function folskonomy_engine_init() {
     // See https://stackoverflow.com/questions/4376431/javascript-heredoc
     const css = `
 /*
- * OFF web app already load jquery-ui.css but it doesn't work properly with "dialog" function.
+ * The Open Food Facts web app already loads jquery-ui.css but it doesn't work properly with the "dialog" function.
  * We add the CSS this way so that the embedded, relatively linked images load correctly.
  * (Use //ajax... so that https or http is selected as appropriate to avoid "mixed content".)
  */
@@ -148,10 +148,11 @@ function displayFolksonomyPropertyValues() {
     //$(".details").before(
     $("div[itemtype='https://schema.org/Product']").append(
         String('<!-- ---- Folksonomy Engine ----- -->' +
-        '<div id="free_properties_1" class="feus">' +
-        '<h2>User properties (<span data-tooltip aria-haspopup="true" class="has-tip" data-position="top" data-alignment="left" title="Be aware the data model might be modified. Use at your own risk.">beta</span>)</h2>' +
+        '<div id="free_properties_1" class="feus row card ">' +
+        '<div  class="column large-12 h-space-tiny ">' +
+        '<h2>Personalized properties (<span data-tooltip aria-haspopup="true" class="has-tip" data-position="top" data-alignment="left" title="Be aware the data model might be modified. Use at your own risk.">beta</span>)</h2>' +
         '<p id="fe_login_info"></p>' +
-        "<p>This properties are created and filed by users for any kind of usages. Feel free to add your own. " +
+        "<p>These properties are created and filed by users for any kind of usages. Feel free to add your own. " +
         "You can dive into <a href='/properties'>the list of properties already used by the community</a> " +
         "or explore the <a href='https://wiki.openfoodfacts.org/Folksonomy/Property'>properties' documentation and its search engine</a>.</p>" +
         "<p>Be aware the data model might be modified. Use at your own risk.</p>" +
@@ -171,7 +172,7 @@ function displayFolksonomyPropertyValues() {
         '<td>' +
         '<input id="fe_form_new_property" name="property" class="text tagify-me" value="" lang="en" placeholder="Enter a property" ></input>' +
             '<small id="fe_prop_eg" >Example: color</small>' +
-            '<small id="fe_prop_err" style="visibility: hidden;"><br>Can countain only minus letters, numbers, "_", and ":"</small>' +
+            '<small id="fe_prop_err" style="visibility: hidden;"><br>Can contain only lower case letters, numbers, "-", "_", and ":"</small>' +
         '</td>' +
         '<td>' +
         '<input id="fe_form_new_value" name="value" placeholder="value" ></input>' +
@@ -181,6 +182,7 @@ function displayFolksonomyPropertyValues() {
         '</tr>' +
         '</table>' +
         '</form>' +
+        '</div>' +
         '</div>' +
         '<!-- ----- /Folksonomy Engine ----- -->');
 
@@ -206,7 +208,7 @@ function displayFolksonomyPropertyValues() {
 
     // Control new property entry
     $("#fe_form_new_property").on("keyup", function() {
-        const kControl = /^[a-z0-9_]+(\\:[a-z0-9_]+)*$/; // a property is made of minus letters + numbers + _ and :
+        const kControl = /^[a-z0-9_-]+(\\:[a-z0-9_-]+)*$/; // a property is made of lower case letters + numbers + - + _ and :
         if ($("#fe_form_new_property").val() && kControl.test($("#fe_form_new_property").val()) === false) {
             console.log("k syntax is bad!");
             $("#fe_prop_err").css("visibility", "visible");
@@ -666,7 +668,7 @@ function updatePropertyValue(_code, _k, _v, _owner, _version) {
 
 
 /**
- * Display all the free properties created and filed by users (product edition mode).
+ * Displays all the free properties created and filed by users (product edition mode).
  * Examples:
  *    * Photo_Front: To be updated
  *
@@ -676,7 +678,7 @@ function displayFolksonomyForm() {
     $(".details").before(
         '<div id="free_properties" style="background-color: ">' +
         '<h2>User properties</h2>' +
-        '<p>This properties are created and filed by users for any kind of usages.</p>' +
+        '<p>These properties are created and filled by users for any kind of usages.</p>' +
         '<div id="product_free_properties" class="fieldset">' +
         '</div>' +
         '</div>');
@@ -747,7 +749,7 @@ function isPageType() {
 
     // Detect page containing a list of products (home page, search results...)
     if ($("body").hasClass("list_of_products_page")) { return "list"; }
-    // Hack for Open Products Facts, Open Beauty Facts, etc.
+    // Hack for Open Products Facts, Open Pet Food Facts, Open Beauty Facts
     if ($(".products")[0]) { return "list"; }
 
     // Detect search form
@@ -768,7 +770,7 @@ function isPageType() {
 
 
 function loginProcess(callback) {
-    // Firstly try to athenticate by the OFF cookie
+    // Try to authenticate using the Open Food Facts cookie first
     var cookie = $.cookie('session') ? $.cookie('session') : "";
     if (cookie) {
         console.log("FEUS - loginProcess(callback) => getCredentialsFromCookie()");
@@ -781,7 +783,7 @@ function loginProcess(callback) {
 
         //return;
     }
-
+    // TODO: Reenable login ?
     // Else display a form
     // const loginWindow =
     //     '<div data-reveal-id="dialog-form" id="fe_login_dialog" title="Dialog Form" aria-hidden="true" role="dialog">' +

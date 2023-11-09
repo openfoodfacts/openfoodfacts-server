@@ -9,46 +9,163 @@ synonyms:fr:coloré,colorée
 
 stopwords:en:100%
 stopwords:fr:100%
+stopwords:xx:100%, RC, Recycling Code
+
+# Note: Recycling codes like "01 PETE" must be put only in the xx: entry
+# They will automatically apply to all languages.
+# The recycling codes must have the text label. e.g. do not put only the number "40" for "40 FE"
+# "40 FE" will also match variants like "40-FE".
+
+# Note on the descriptions:
+# Try to use the wiktionary entry for a basic description
+# use chatGPT with the question "Summarise in 3 sentences the production of material X, how it is used in food packaging and and how it is recycled"
+# use Google Translate for the language you understand.
+# Tweak as needed
+
+# List of recycling codes: https://en.wikipedia.org/wiki/Recycling_codes
+# https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:31997D0129&from=EN
+
 
 en:Unknown
+de:Unbekannt
+bg:Неизвестно
 fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
 nl:Onbekend
 non_recyclable_and_non_biodegradable:en:maybe
+description:de:Art und Herkunft des Materials sind unbekannt und können nicht erkannt werden.
+description:en:The nature and origing of the material is unknown and can not be recognised.
+description:es:La naturaleza y el origen del material son desconocidos y no pueden ser reconocidos.
+description:fr:La nature et l'origine du matériau sont inconnues et ne peuvent pas être reconnues.
+description:it:La natura e l'origine del materiale sono sconosciute e non possono essere riconosciute.
+description:nl:De aard en herkomst van het materiaal is onbekend en niet te achterhalen.
+description:pt:A natureza e a origem do material são desconhecidas e não podem ser reconhecidas.
 
 en:Plastic
+ar:بلاستيك
+be:пластма́са
+bg:Пластмаса
+ca:plàstic
+cs:umělá hmota
 da:Plast
-de:Kunststoff
+de:Kunststoff, Kunstoff, plastik
+el:πλαστικό
+es:Plástico
+et:plast
+fi:Muovi
 fr:Plastique
+he:פלסטיק
+hr:plastika
 hu:Műanyag
+is:plast
 it:Plastica
-nl:Plastic
+ja:プラスチック
+ko:플라스틱
+lt:plastikas
+lv:plastmasa
+mk:пластика
+nl:Plastic, Plastiek
+no:plast
+pl:Plastik, plastikowe
 pt:Plástico
 ru:Пластик
+sk:plast
+sl:plastika
+sv:plast
+tr:plastik
+uk:пластма́са
+zh:塑料
 wikidata:en:Q11474
 non_recyclable_and_non_biodegradable:en:maybe
+description:de:Kunststoff wird aus Erdöl oder Erdgas hergestellt. Kunststoff wird aufgrund seiner Haltbarkeit und geringen Kosten häufig in Lebensmittelverpackungen verwendet. Kunststoffrecycling ist aufgrund der verschiedenen Kunststoffarten und der Notwendigkeit, sie zu sortieren und zu verarbeiten, eine Herausforderung, aber es trägt dazu bei, die Menge an Kunststoffabfällen in der Umwelt zu reduzieren.
+description:en:Plastic is produced from petroleum or natural gas. Plastic is widely used in food packaging due to its durability and low cost. Plastic recycling is challenging due to the different types of plastic, and the need to sort and process them, but it helps to reduce the amount of plastic waste in the environment.
+description:es:El plástico se produce a partir del petróleo o del gas natural. El plástico es ampliamente utilizado en el envasado de alimentos debido a su durabilidad y bajo costo. El reciclaje de plástico es un desafío debido a los diferentes tipos de plástico y la necesidad de clasificarlos y procesarlos, pero ayuda a reducir la cantidad de desechos plásticos en el medio ambiente.
+Description:fr:Le plastique est produit à partir de pétrole ou de gaz naturel. Le plastique est largement utilisé dans les emballages alimentaires en raison de sa durabilité et de son faible coût. Le recyclage du plastique est difficile en raison des différents types de plastique et de la nécessité de les trier et de les traiter, mais il contribue à réduire la quantité de déchets plastiques dans l'environnement.
+descxription:it:La plastica è prodotta dal petrolio o dal gas naturale. La plastica è ampiamente utilizzata negli imballaggi alimentari grazie alla sua durata e al basso costo. Il riciclaggio della plastica è impegnativo a causa dei diversi tipi di plastica e della necessità di selezionarli e lavorarli, ma aiuta a ridurre la quantità di rifiuti di plastica nell'ambiente.
+description:nl:Kunststof wordt geproduceerd uit aardolie of aardgas. Plastic wordt veel gebruikt in voedselverpakkingen vanwege de duurzaamheid en lage kosten. Het recyclen van plastic is een uitdaging vanwege de verschillende soorten plastic en de noodzaak om ze te sorteren en te verwerken, maar het helpt de hoeveelheid plastic afval in het milieu te verminderen.
+description:pt:O plástico é produzido a partir do petróleo ou do gás natural. O plástico é amplamente utilizado em embalagens de alimentos devido à sua durabilidade e baixo custo. A reciclagem de plástico é um desafio devido aos diferentes tipos de plástico e à necessidade de separá-los e processá-los, mas ajuda a reduzir a quantidade de resíduos plásticos no meio ambiente.
+
+en:composite material, Multilayer composite, multilayer, composite, composite materials, polycoat
+ar:مادة مركبة
+ca:Material compost
+da:Kompositmateriale
+de:Verbundwerkstoff, Verbundstoff, Mehrschichtverbund, Mehrschicht, Verbundmaterial, Polycoat
+es:material compuesto
+et:Komposiitmaterjal
+eu:Material konposatu
+fi:komposiittimateriaali
+fr:Composites multicouches, composites multi-couches, Composite Multicouches, composite multi-couches, multi-couches, multicouches
+he:חומר מרוכב
+hr:kompozitni materijal, višeslojne materijale, kompozitne
+hu:kompozit anyag
+it:materiale composito
+ja:複合材料
+ko:복합 재료
+lv:kompozītmateriāli
+mk:композитен материјал
+nl:Composietmateriaal
+nn:kompositt
+pl:Materiał kompozytowy
+pt:Compósito de várias camadas, compósito multi-camada, compósito
+ro:material compozit
+ru:композиционный материал
+sk:kompozitný materiál
+sl:Kompozit
+sq:Material kompozit
+sr:композитни материјал
+sv:Kompositmaterial
+tr:Kompozit malzemeler
+uk:композиційний матеріал
+zh:复合材料
+wikidata:en:Q181790
+non_recyclable_and_non_biodegradable:en:yes
+description:de:Verbundmaterialien werden hergestellt, indem zwei oder mehr Materialien kombiniert werden, um gewünschte Eigenschaften zu erzielen. Sie werden aufgrund ihrer Haltbarkeit, ihres geringen Gewichts und ihrer Feuchtigkeitsbeständigkeit häufig in Lebensmittelverpackungen verwendet. Verbundmaterialien können recycelt werden, aber der Prozess kann aufgrund der Vielfalt der Materialien, die bei ihrer Herstellung verwendet werden, eine Herausforderung darstellen.
+description:en:Composite materials are produced by combining two or more materials to achieve desired properties. They are commonly used in food packaging due to their durability, lightweight and moisture resistance. Composite materials can be recycled, but the process can be challenging due to the variety of materials used in their production.
+description:fr:Les matériaux composites sont produits en combinant deux ou plusieurs matériaux pour obtenir les propriétés souhaitées. Ils sont couramment utilisés dans les emballages alimentaires en raison de leur durabilité, de leur légèreté et de leur résistance à l'humidité. Les matériaux composites peuvent être recyclés, mais le processus peut être difficile en raison de la variété des matériaux utilisés dans leur production.
+description:it:I materiali compositi vengono prodotti combinando due o più materiali per ottenere le proprietà desiderate. Sono comunemente usati negli imballaggi alimentari grazie alla loro durata, leggerezza e resistenza all'umidità. I materiali compositi possono essere riciclati, ma il processo può essere impegnativo a causa della varietà di materiali utilizzati nella loro produzione.
+description:nl:Composietmaterialen worden geproduceerd door twee of meer materialen te combineren om de gewenste eigenschappen te bereiken. Ze worden vaak gebruikt in voedselverpakkingen vanwege hun duurzaamheid, lichtgewicht en vochtbestendigheid. Composietmaterialen kunnen worden gerecycled, maar het proces kan een uitdaging zijn vanwege de verscheidenheid aan materialen die bij de productie ervan worden gebruikt.
+description:pt:Os materiais compósitos são produzidos pela combinação de dois ou mais materiais para obter as propriedades desejadas. Eles são comumente usados em embalagens de alimentos devido à sua durabilidade, leveza e resistência à umidade. Materiais compostos podem ser reciclados, mas o processo pode ser desafiador devido à variedade de materiais usados em sua produção.
 
 en:Recyclable material
+bg:Рециклируем материал
 de:wiederverwertbares Material
+es:material reciclable
 fr:Matériau recyclable
 hu:Újrahasznosítható anyag
 it:Materiale riciclabile
 nl:Recycleerbaar materiaal
 pt:Material reciclável
 wikidata:en:Q57305800
+description:de:Wertstoffe entstehen durch die Sammlung und Verarbeitung von Abfallprodukten. Sie werden bei der Herstellung von Lebensmittelverpackungen als umweltfreundlichere Alternative zu herkömmlichen Materialien verwendet. Ist die Verpackung einmal benutzt, kann sie gesammelt, aufbereitet und wieder in Wertstoffe umgewandelt werden, die später wiederverwendet werden können.
+description:en:Recyclable materials are produced through the collection and processing of waste products. They are used in the production of food packaging as a more environmentally friendly alternative to traditional materials. Once the packaging has been used, it can be collected, processed and transformed back into recyclable material to be used again in the future.
+description:es:Los materiales reciclables se producen a través de la recolección y el procesamiento de productos de desecho. Se utilizan en la producción de envases para alimentos como una alternativa más ecológica a los materiales tradicionales. Una vez que se ha utilizado el embalaje, se puede recoger, procesar y transformar de nuevo en material reciclable para volver a utilizarlo en el futuro.
+description:fr:Les matériaux recyclables sont produits par la collecte et le traitement des déchets. Ils sont utilisés dans la production d'emballages alimentaires comme une alternative plus écologique aux matériaux traditionnels. Une fois l'emballage utilisé, il peut être collecté, traité et retransformé en matériau recyclable pour être réutilisé à l'avenir.
+description:it:I materiali riciclabili sono prodotti attraverso la raccolta e il trattamento dei prodotti di scarto. Sono utilizzati nella produzione di imballaggi alimentari come alternativa più rispettosa dell'ambiente ai materiali tradizionali. Una volta che l'imballaggio è stato utilizzato, può essere raccolto, lavorato e trasformato nuovamente in materiale riciclabile per essere riutilizzato in futuro.
+description:nl:Door de inzameling en verwerking van afvalproducten worden recyclebare materialen geproduceerd. Ze worden gebruikt bij de productie van voedselverpakkingen als een milieuvriendelijker alternatief voor traditionele materialen. Nadat de verpakking is gebruikt, kan deze worden ingezameld, verwerkt en weer worden omgezet in recyclebaar materiaal dat in de toekomst opnieuw kan worden gebruikt.
+description:pt:Os materiais recicláveis são produzidos através da coleta e processamento de resíduos. Eles são usados na produção de embalagens de alimentos como uma alternativa mais ecológica aos materiais tradicionais. Uma vez utilizada, a embalagem pode ser recolhida, processada e transformada novamente em material reciclável para ser reutilizado no futuro.
 
 <en:Recyclable material
 <en:Plastic
 en:Recyclable plastic
+bg:Рециклируема пластмаса
 de:wiederverwertbarer Kunststoff
+es:Plástico reciclable
 fr:Plastique recyclable
 hu:Újrahasznosítható műanyag
 it:Plastica riciclabile
 ja:プラマーク
-nl:Recycleerbaar plastic
+nl:Recycleerbaar plastic, Recycleerbaar plastiek
 pt:Plástico reciclável
+description:de:Recyclebaar plastic wordt geproduceerd uit aardolieproducten en kan worden omgesmolten en opnieuw worden gevormd tot nieuwe plastic producten. Voedselverpakkingen worden veel gebruikt voor recyclebaar plastic en vormen een barrière om voedsel te beschermen tegen besmetting en de houdbaarheid te verlengen. Bij het recyclen van plastic wordt het plastic verzameld en gesorteerd, schoongemaakt en versnipperd en vervolgens omgesmolten om er nieuwe producten of materialen van te maken.
+description:en:Recyclable plastic is produced from petroleum products and can be melted down and re-molded into new plastic products. Food packaging is a common use for recyclable plastic, providing a barrier to protect food from contamination and extend shelf life. Recycling of plastic involves collecting and sorting the plastic, cleaning and shredding it, then melting it down to make new products or materials.
+description:es:El plástico reciclable se produce a partir de productos derivados del petróleo y se puede derretir y volver a moldear en nuevos productos de plástico. El envasado de alimentos es un uso común para el plástico reciclable, ya que proporciona una barrera para proteger los alimentos de la contaminación y prolongar la vida útil. El reciclaje de plástico implica recolectar y clasificar el plástico, limpiarlo y triturarlo, y luego fundirlo para fabricar nuevos productos o materiales.
+description:fr:Le plastique recyclable est produit à partir de produits pétroliers et peut être fondu et remodelé en de nouveaux produits en plastique. Les emballages alimentaires sont une utilisation courante du plastique recyclable, fournissant une barrière pour protéger les aliments de la contamination et prolonger la durée de conservation. Le recyclage du plastique consiste à collecter et à trier le plastique, à le nettoyer et à le déchiqueter, puis à le fondre pour fabriquer de nouveaux produits ou matériaux.
+description:it:La plastica riciclabile è prodotta da prodotti petroliferi e può essere fusa e rimodellata in nuovi prodotti in plastica. L'imballaggio alimentare è un uso comune per la plastica riciclabile, fornendo una barriera per proteggere gli alimenti dalla contaminazione e prolungare la durata di conservazione. Il riciclaggio della plastica comporta la raccolta e lo smistamento della plastica, la pulizia e la triturazione, quindi la fusione per creare nuovi prodotti o materiali.
+description:nl:Recyclebaar plastic wordt geproduceerd uit aardolieproducten en kan worden omgesmolten en opnieuw worden gevormd tot nieuwe plastic producten. Voedselverpakkingen worden veel gebruikt voor recyclebaar plastic en vormen een barrière om voedsel te beschermen tegen besmetting en de houdbaarheid te verlengen. Bij het recyclen van plastic wordt het plastic verzameld en gesorteerd, schoongemaakt en versnipperd en vervolgens omgesmolten om er nieuwe producten of materialen van te maken.
+description:pt:O plástico reciclável é produzido a partir de produtos petrolíferos e pode ser derretido e remodelado em novos produtos plásticos. A embalagem de alimentos é um uso comum para o plástico reciclável, fornecendo uma barreira para proteger os alimentos da contaminação e prolongar a vida útil. A reciclagem de plástico envolve coletar e classificar o plástico, limpá-lo e triturá-lo e, em seguida, derretê-lo para fazer novos produtos ou materiais.
 
 en:Recycled material
+bg:Рециклиран материал
 da:Genbrugsmateriale
 de:wiederverwertetes Material
 fr:Matériau recyclé
@@ -57,300 +174,1070 @@ it:Materiale riciclato
 nl:Hergebruikt materiaal
 pt:Material reciclado
 wikidata:en:Q37328535
+description:de:Recycelte Materialien werden hergestellt, indem Abfallstoffe wie Papier, Glas oder Kunststoff gesammelt und verarbeitet und in neue Produkte umgewandelt werden. Recycelte Materialien können in Lebensmittelverpackungen wie Behältern und Verpackungen verwendet werden, um die Menge an erzeugtem Abfall zu reduzieren und die Auswirkungen auf die Umwelt zu minimieren. Der Prozess des Recyclings hilft, Ressourcen zu schonen, Treibhausgasemissionen zu reduzieren und spart Energie im Vergleich zur Herstellung von Materialien aus Rohstoffen.
+description:en:Recycled materials are produced by collecting and processing waste materials, such as paper, glass, or plastic, and transforming them into new products. Recycled materials can be used in food packaging, such as containers and wraps, to reduce the amount of waste generated and minimize the impact on the environment. The process of recycling helps conserve resources, reduce greenhouse gas emissions, and saves energy compared to producing materials from raw materials.
+description:es:Los materiales reciclados se producen recolectando y procesando materiales de desecho, como papel, vidrio o plástico, y transformándolos en nuevos productos. Los materiales reciclados se pueden utilizar en envases de alimentos, como envases y envolturas, para reducir la cantidad de residuos generados y minimizar el impacto en el medio ambiente. El proceso de reciclaje ayuda a conservar los recursos, reduce las emisiones de gases de efecto invernadero y ahorra energía en comparación con la producción de materiales a partir de materias primas.
+description:fr:Les matériaux recyclés sont produits en collectant et en traitant les déchets, tels que le papier, le verre ou le plastique, et en les transformant en nouveaux produits. Les matériaux recyclés peuvent être utilisés dans les emballages alimentaires, tels que les contenants et les emballages, afin de réduire la quantité de déchets générés et de minimiser l'impact sur l'environnement. Le processus de recyclage permet de conserver les ressources, de réduire les émissions de gaz à effet de serre et d'économiser de l'énergie par rapport à la production de matériaux à partir de matières premières.
+description:it:I materiali riciclati vengono prodotti raccogliendo e trattando materiali di scarto, come carta, vetro o plastica, e trasformandoli in nuovi prodotti. I materiali riciclati possono essere utilizzati negli imballaggi alimentari, come contenitori e involucri, per ridurre la quantità di rifiuti generati e minimizzare l'impatto sull'ambiente. Il processo di riciclaggio aiuta a conservare le risorse, ridurre le emissioni di gas serra e risparmiare energia rispetto alla produzione di materiali da materie prime.
+description:nl:Gerecycleerde materialen worden geproduceerd door afvalmaterialen, zoals papier, glas of plastic, in te zamelen, te verwerken en om te zetten in nieuwe producten. Gerecycleerde materialen kunnen worden gebruikt in voedselverpakkingen, zoals containers en wikkels, om de hoeveelheid geproduceerd afval te verminderen en de impact op het milieu te minimaliseren. Het recyclingproces helpt hulpbronnen te besparen, de uitstoot van broeikasgassen te verminderen en energie te besparen in vergelijking met het produceren van materialen uit grondstoffen.
+description:pt:Materiais reciclados são produzidos coletando e processando resíduos, como papel, vidro ou plástico, e transformando-os em novos produtos. Materiais reciclados podem ser usados em embalagens de alimentos, como recipientes e embalagens, para reduzir a quantidade de resíduos gerados e minimizar o impacto no meio ambiente. O processo de reciclagem ajuda a conservar recursos, reduzir as emissões de gases de efeito estufa e economizar energia em comparação com a produção de materiais a partir de matérias-primas.
 
 <en:Recycled material
 <en:Plastic
 en:Recycled plastic
+bg:Рециклирана пластмаса
 da:Genbrugsplast
 de:wiederverwerteter Kunststoff
+es:Plástico reciclado
 fr:Plastique recyclé
 hu:Újrahasznosított műanyag, Újrahasznosított műanyagból
 it:Plastica riciclata
-nl:Hergebruikt plastic
+nl:Hergebruikt plastic, Hergebruikt plastiek
 pt:Plástico reciclado
+description:de:Gebrauchtes Kunststoff, das verarbeitet und wiederverwendet wurde
+description:en:Used plastic that has been processed and reused
+description:es:Material usado que ha sido procesado y reutilizado
+description:fr:Plastique usagé qui a été traité et réutilisé
+description:it:Plastica usato che è stato lavorato e riutilizzato
+description:nl:Gebruikt plastic dat verwerkt is en opnieuw wordt gebruikt
+description:pt:Plástico usado que foi processado e reutilizado
 
+# Note: cellophane is made from cellulose, it is not a plastic
+# The name cellophane might be misused (by consumers or producers) when there is a clear transparent plastic film
+en:Cellophane
+fr:Cellophane
 
 # Plastics:
 # use the following conventions for plastic:
-# in each language, for the main name, use "abbreviation + name", and put the name as the first synonym
+# in each language, for the main name, use "abbreviation + resin code + ' - ' + name"
+# + abbreviation + name, and name as synonyms
 # all abbreviations, symbols etc. go in the xx: entry, and do not need to be added to the translations in other languages
 # (unless the abbreviation is different: e.g. "PEBD" = "Polyéthylène basse densité" in French instead of PELD)
 
+
+en:Mixed plastics
+fr:Plastiques mixtes
+
 <en:Plastic
-en:PET - Polyethylene terephthalate,Polyethylene terephthalate, 
-xx:PET, RC 1, RC 01, RC1, RC01, PET(E), PETE, PET 1, PET 01, 1 PET, 01 PET, ♳
-de:PET - Polyethylenterephtalat, Polyethylenterephtalat
-fr:PET - Polytéréphtalate d'éthylène, Polytéréphtalate d'éthylène, polyéthylène téréphtalate
-hu:PET - Polietilén-tereftalát, Polietilén-tereftalát
-it:PET - Polietilene tereftalato, Polietilene tereftalato, Polietilentereftalato
-nl:PET - Polyethyleentereftalaat, Polyethyleentereftalaat
-pt:PET - Tereftalato de polietileno, Tereftalato de polietileno
-ru:PET - Полиэтилентерефталат, Полиэтилентерефталат
+en:PET 1 - Polyethylene terephthalate, PET - Polyethylene terephthalate, Polyethylene terephthalate
+xx:PET, PET(E), PETE, PET 1, PET 01, 1 PET, 01 PET, ♳
+bg:PET 1 - Полиетилентерефталат, PET - Полиетилентерефталат, Полиетилен терефталат
+de:PET 1 - Polyethylenterephtalat, PET - Polyethylenterephtalat, Polyethylenterephtalat
+fr:PET 1 - Polytéréphtalate d'éthylène, PET - Polytéréphtalate d'éthylène, Polytéréphtalate d'éthylène, polyéthylène téréphtalate
+hr:PET 1 - polietilen tereftalat, PET - polietilen tereftalat, olietilen tereftalat
+hu:PET 1 - Polietilén-tereftalát, PET - Polietilén-tereftalát, Polietilén-tereftalát
+it:PET 1 - Polietilene tereftalato, PET - Polietilene tereftalato, Polietilene tereftalato, Polietilentereftalato
+nl:PET 1 - Polyethyleentereftalaat, PET - Polyethyleentereftalaat, Polyethyleentereftalaat
+pt:PET 1 - Tereftalato de polietileno, PET - Tereftalato de polietileno, Tereftalato de polietileno
+ru:PET 1 - Полиэтилентерефталат, PET - Полиэтилентерефталат, Полиэтилентерефталат
 wikidata:en:Q145863
 recycling_code:en:1
 non_recyclable_and_non_biodegradable:en:no
+description:de:Polyethylenterephthalat (PET) ist ein Kunststoff, der für Flaschen und andere Lebensmittelverpackungen verwendet wird. PET ist recycelbar.
+description:en:Polyethylene terephthalate (PET) is a plastic used for bottles and other food packaging. PET is recyclable.
+description:es:El tereftalato de polietileno (PET) es un plástico utilizado para botellas y otros envases de alimentos. El PET es reciclable.
+description:fr:Le polyéthylène téréphtalate (PET) est un plastique utilisé pour les bouteilles et autres emballages alimentaires. Le PET est recyclable.
+description:it:Il polietilene tereftalato (PET) è una plastica utilizzata per bottiglie e altri imballaggi alimentari. Il PET è riciclabile.
+description:nl:Polyethyleentereftalaat (PET) is een kunststof die wordt gebruikt voor flessen en andere verpakkingen van voedingsmiddelen. PET is recycleerbaar.
+
+<en:Plastic
+<en:Other plastics
+en:PVDC 7 - Polyvinylidene chloride, PVDC - Polyvinylidene chloride, Polyvinylidene chloride
+de:PVDC 7 - Polyvinylidenchlorid, PVDC - Polyvinylidenchlorid, Polyvinylidenchlorid
+es:PVDC 7 - cloruro de polivinilideno, PVDC - Cloruro de polivinilideno, Cloruro de polivinilideno
+fr:PVDC 7 - Chlorure de polyvinylidène, PVDC - Chlorure de polyvinylidène, Chlorure de polyvinylidène, Polychlorure de vinylidène, PVDC - Polychlorure de vinylidène
+hu:PVDC 7 - polivinilidén-klorid, PVDC - polivinilidén-klorid, polivinilidén-klorid
+it:PVDC 7 - Polivinildencloruro, PVDC - Polivinildencloruro, Polivinildencloruro
+nl:PVDC 7 - Polyvinylidene chloride, PVDC - Polyvinylidene chloride, Polyvinylidene chloride
+nn:PVDC 7 - polyvinylidenklorid, PDVC - polyvinylidenklorid, polyvinylidenklorid
+ru:PVDC 7 - поливинилиденхлорид, PDVC -  поливинилиденхлорид, поливинилиденхлорид
+sv:PVDC 7 - Polyvinylidenklorid, PDVC - Polyvinylidenklorid, Polyvinylidenklorid
+xx:PVDC, 07 PVDC, PVDC 07, 07PVDC, PVDC07, 7 PVDC, PVDC 7, 7PVDC, PVDC7
+wikidata:en:Q146383
+description:de:Polyvinylidenchlorid wird als wasserbasierte Beschichtung auf Folien aus anderen Kunststoffen aufgetragen, was die Haltbarkeit der verpackten Lebensmittel erhöht.
+description:en:Polyvinylidene chloride is applied as a water-based coating to films made of other plastics, which increases the shelf life of the packaged food.
+description:de:Polyvinylidenchlorid wird als wasserbasierte Beschichtung auf Folien aus anderen Kunststoffen aufgetragen, was die Haltbarkeit der verpackten Lebensmittel erhöht.
+description:es:El cloruro de polivinilideno se aplica como recubrimiento a base de agua a películas hechas de otros plásticos, lo que aumenta la vida útil de los alimentos envasados.
+description:fr:Le chlorure de polyvinylidène est appliqué comme revêtement à base d'eau sur des films faits d'autres plastiques, ce qui augmente la durée de conservation des aliments emballés.
+description:it:Il cloruro di polivinilidene viene applicato come rivestimento a base d'acqua su pellicole di altre materie plastiche, il che aumenta la durata di conservazione degli alimenti confezionati.
+description:nl:Polyvinylideenchloride wordt als coating op waterbasis aangebracht op films van andere kunststoffen, waardoor de houdbaarheid van het verpakte voedsel wordt verlengd.
+description:pt:O cloreto de polivinilideno é aplicado como revestimento à base de água em filmes feitos de outros plásticos, o que aumenta a vida útil dos alimentos embalados.
 
 <en:Polyethylene terephthalate
 <en:Recycled plastic
 en:rPET - Recycled Polyethylene terephthalate, Recycled PET, Recycled Polyethylene terephthalate
-xx:rPET
-de:Wiederverwertetes PET, rPET
+xx:rPET, r-PET
+de:rPET - Wiederverwertetes PET
+es:rPET - Tereftalato de polietileno reciclado
 fr:rPET - Polytéréphtalate d'éthylène recyclé, Polytéréphtalate d'éthylène recyclé, PET recyclé
 hu:rPET - Újrahasznosított PET, Újrahasznosított PET, Újrahasznosított polietilén-tereftalát
-it:PET riciclato, Polietilene tereftalato riciclato
-nl:PET - Hergebruikt
+it:rPET - Polietilene tereftalato riciclato, Polietilene tereftalato riciclato
+nl:rPET - Hergebruikt Polyethyleentereftalaat, Hergebruikt Polyethyleentereftalaat
 pt:rPET - Tereftalato de polietileno reciclado, PET reciclado, Tereftalato de polietileno reciclado
+description:en:rPET (recycled polyethylene terephthalate)
+description:de:Recycelter PET-Kunststoff, hauptsächlich auf Basis von Verbraucherflaschen.
+description:es:Plástico PET reciclado, principalmente a base de botellas de consumo.
+description:fr:Plastique PET recyclé, principalement à base de bouteilles de consommation.
+description:it:Plastica PET riciclata, principalmente basata su bottiglie di consumo.
+description:nl:Gerecycleerde PET plastic, voornamelijk gebaseerd op flessen voor consumenten.
+description:pt:Plástico PET reciclado, principalmente baseado em garrafas de consumo.
+
+# Not really PET
+<en:Plastic
+<en:Other plastics
+en:PETG- Polyethylene terephthalate glycol, Polyethylene terephthalate glycol, Glycolized Polyethylene terephthalate, Glycolised Polyethylene terephthalate
+fr:PETG - Polyéthylène téréphtalate glycolisé, Polyéthylène téréphtalate glycolisé
+xx:PETG
+
+# Not exactly a plastic
+# Plastique / Silicone in data from Les Mousquetaires
+en:Silicone
+fr:Silicone, Plastique / Silicone
+
+<en:Plastic
+en:Biobased plastic
+fr:Plastique biosourcé, Plastiques / Autres plastiques Biosourcés (base amidon)
 
 <xx:PET
-en:Biobased PET
-de:Biobasiertes PET
-fr:PET biosourcé
-hu:Biobázisú PET
-pt:Bioplástico PET
+en:bPET - Biobased PET, Biobased PET
+de:bPET - Biobasiertes PET, Biobasiertes PET
+fr:bPET - PET biosourcé, PET biosourcé
+hu:bPET - Biobázisú PET, Biobázisú PET
+nl:bPET - Biobased PET, Biobased PET
+pt:bPET - Bioplástico PET, Bioplástico PET
+xx:bPET, bio-PET
+description:de:Biobasiertes PET ist Kunststoff, der teilweise aus jährlich nachwachsender Biomasse wie verschiedenen Zuckern aus landwirtschaftlichen Aktivitäten hergestellt wird.
+description:en:Biobased PET is plastic partially produced using annually renewable biomass like different sugars obtained from agricultural activities.
+description:es:El PET de base biológica es un plástico producido parcialmente a partir de biomasa renovable anualmente como diferentes azúcares obtenidos de actividades agrícolas.
+description:fr:Le PET biosourcé est un plastique partiellement produit à partir de biomasse renouvelable annuellement comme différents sucres issus d'activités agricoles.
+description:it:Il PET biobased è plastica parzialmente prodotta utilizzando biomassa rinnovabile annualmente come diversi zuccheri ottenuti da attività agricole.
+description:nl:Biobased PET is plastic dat gedeeltelijk wordt geproduceerd met behulp van jaarlijks hernieuwbare biomassa, zoals verschillende suikers die worden verkregen uit landbouwactiviteiten.
+description:pt:O PET de base biológica é um plástico parcialmente produzido usando biomassa renovável anualmente, como diferentes açúcares obtidos de atividades agrícolas.
 
 <xx:PET
-en:Transparent PET
-da:Gennemsigtig PET
-de:Transparentes PET
-fr:PET transparent
-hu:Átlátszó PET
-nl:PET transparant, Transparant PET
-pt:PET transparente
+en:PET - Transparent, Clear PET, transparent PET
+da:Pet - Gennemsigtig
+de:PET - Transparentes
+fr:PET - transparent
+hu:PET - Átlátszó 
+nl:PET - transparant, Transparant PET
+pt:PET - transparente
+description:en:Transparant PET (polyethylene terephthalate)
+description:de:Transparentes PET (Polyethylenterephthalat)
+description:es:PET transparente (tereftalato de polietileno)
+description:fr:PET transparent (polyéthylène téréphtalate)
+description:it:PET trasparente (polietilene tereftalato)
+description:nl:Transparant (doorzichtig) PET (polyethylene terephthalate)
+description:pt:PET transparente (tereftalato de polietileno)
 
 <xx:rPET
-en:Transparent rPET
-da:Gennemsigtig rPET
-de:Transparentes rPET
-fr:rPET transparent, rPET transparente
-hu:Átlátszó rPET
-nl:rPET transparant, Transparant rPET
-pt:rPET transparente
+en:rPET - Transparent, Clear rPET, transparent RPET
+da:rPET - Gennemsigtig 
+de:rPET - Transparentes
+fr:rPET - transparent, rPET transparent, rPET clair
+hu:rPET - Átlátszó 
+nl:rPET - transparant, Transparant rPET
+pt:rPET - transparente
+description:en:Transparant rPET (polyethylene terephthalate)
+description:de:Transparentes rPET (Polyethylenterephthalat)
+description:es:rPET transparente (tereftalato de polietileno)
+description:fr:rPET transparent (polyéthylène téréphtalate)
+description:it:rPET trasparente (polietilene tereftalato)
+description:nl:Transparant (doorzichtig) rPET (polyethylene terephthalate)
+description:pt:rPET transparente (tereftalato de polietileno)
 
 <xx:PET
-en:Colored PET
-da:Farvet PET
-de:Gefärbtes PET
-fr:PET coloré, PET colorée
-hu:Színezett PET, színes PET
-nl:PET gekleurd, Gekleurd PET
-pt:PET colorido
+en:PET - Colored, Colored PET
+da:PET - Farvet 
+de:PET - Gefärbtes, Farbiges PET
+fr:PET - coloré, PET coloré
+hu:PET - Színezet, színes PET
+nl:PET - gekleurd, Gekleurd PET
+pt:PET - colorido
+description:en:Colored PET (polyethylene terephthalate), which requires additional recycling processes
+description:Farbiges PET (Polyethylenterephthalat), das zusätzliche Recyclingprozesse erfordert
+description:es:PET coloreado (tereftalato de polietileno), que requiere procesos de reciclaje adicionales
+description:fr:PET coloré (polyéthylène téréphtalate), qui nécessite des processus de recyclage supplémentaires
+description:PET colorato (polietilene tereftalato), che richiede ulteriori processi di riciclaggio
+description:nl:Gekleurd PET (polyethyleentereftalaat), dat extra recyclingprocessen vereist
+description:pt:PET colorido (tereftalato de polietileno), que requer processos de reciclagem adicionais
+#comment:en:This is banned in India, Japan and South Korea
 
 <xx:PET
-en:Opaque PET
-fr:PET opaque
-nl:PET ondoorzichtig, Ondoorzichtig PET
-pt:PET opaco
+en:PET - Opaque, Opaque PET
+de:PET - Undurchsichtiges, Intransparentes PET
+es:PET - opaco
+fr:PET - opaque
+it:PET - opaco
+nl:PET - ondoorzichtig, Ondoorzichtig PET
+pt:PET - opaco
+description:de:Herkömmliche PET-Flaschen, die durch Zugabe bestimmter Farbpigmente, wie Titandioxid für Weiß, opak gemacht wurden, um eine Lichtbarriere zum Schutz von Flüssigkeiten, wie Milch, zu haben. Dieses Material erfordert einen speziellen Recyclingprozess.
+description:en:Conventional PET bottles that have been made opaque by adding certain colour pigments, such as titanium dioxide for white, in order have a light barrier to protect liquids, such as milk. This material requires a specific recycling process.
+description:es:Botellas de PET convencionales que se han vuelto opacas mediante la adición de ciertos pigmentos de color, como el dióxido de titanio para el blanco, con el fin de tener una barrera de luz para proteger líquidos, como la leche. Este material requiere un proceso de reciclaje específico.
+description:fr:Les bouteilles en PET conventionnelles qui ont été rendues opaques en ajoutant certains pigments de couleur, comme le dioxyde de titane pour le blanc, afin d'avoir une barrière lumineuse pour protéger les liquides, comme le lait. Ce matériau nécessite un processus de recyclage spécifique.
+description:it:Bottiglie in PET convenzionali che sono state rese opache aggiungendo alcuni pigmenti colorati, come il biossido di titanio per il bianco, in modo da avere una barriera luminosa per proteggere i liquidi, come il latte. Questo materiale richiede uno specifico processo di riciclaggio.
+description:nl:Conventionele PET-flessen die ondoorzichtig zijn gemaakt door bepaalde kleurpigmenten toe te voegen, zoals titaniumdioxide voor wit, om een lichtbarrière te hebben om vloeistoffen, zoals melk, te beschermen. Dit materiaal vereist een specifiek recyclingproces.
+description:pt:Garrafas PET convencionais que foram tornadas opacas pela adição de certos pigmentos de cor, como dióxido de titânio para branco, para ter uma barreira à luz para proteger líquidos, como leite. Este material requer um processo específico de reciclagem.
 
 <en:Plastic
-en:HDPE - High-density polyethylene, High-density polyethylene
-xx:HDPE, HD-PE, RC 2, RC 02, RC2, RC02, HDPE 2, 2 HDPE, HDPE 02, 02 HDPE, PEHD, 2 PEHD, PEHD 2, 02 PEHD, PEHD 02, PE-HD, ♴
-de:Polyethylen hoher Dichte
-fr:PEHD - Polyéthylène haute densité, polyéthylène haute densité, 
-hu:HDPE - Nagy sűrűségű polietilén, Nagy sűrűségű polietilén
-it:Polietilene ad alta densità
-nl:HDPE - Hogedichtheidpolyetheen, PE-HD
-pt:HDPE - Polietileno de alta densidade, Polietileno de alta densidade
+en:PE 7 - Polyethylene, PE - Polyethylene, Polyethylene
+bg:PE 7 - Полиетилен, PE - Полиетилен, Полиетилен
+ca:PE 7- polietilè, PE - polietilè, polietilè
+cs:PE 7 - polyethylen, PE - polyethylen, polyethylen
+da:PE 7 - polyethylen, PE - polyethylen, polyethylen
+de:PE 7 - Polyethylen, PE - Polyethylen, Polyethylen
+el:PE 7 - Πολυαιθυλένιο, PE - Πολυαιθυλένιο, Πολυαιθυλένιο
+es:PE 7 - polietileno, PE - polietileno, polietileno
+et:PE 7 - polüeteen, PE - polüeteen, polüeteen
+fi:PE 7 - polyeteeni, PE - polyeteeni, polyeteeni
+fr:PE 7 - Polyéthylène, PE - Polyéthylène, Polyéthylène
+hr:PE 7 - Polietilen, PE - Polietilen, Polietilen
+hu:PE 7 - polietilén, PE - polietilén, polietilén
+is:PE 7 - Fjöletýlen, PE - Fjöletýlen, Fjöletýlen
+it:PE 7 - polietilene, PE - polietilene, polietilene
+lt:PE 7 - Polietilenas, PE - Polietilenas, Polietilenas
+lv:PE 7 - Polietilēns, PE - Polietilēns, Polietilēns
+nb:PE 7 - polyetenpolyeten, PE - polyetenpolyeten, polyeten
+nl:PE 7 - polyetheen, PE - polyetheen, polyetheen
+nn:PE 7 - polyetylen, PE - polyetylen, polyetylen
+pl:PE 7 - polietylen, PE - polietylen, polietylen
+pt:PE 7 - polietileno, PE - polietileno, polietileno
+ro:PE 7 - Polietilenă, PE - Polietilenă, Polietilenă
+ru:PE 7 - полиэтилен, PE - полиэтилен, полиэтилен
+sk:PE 7 - Polyetylén, PE - Polyetylén, Polyetylén
+sl:PE 7 - Polieten, PE - Polieten, Polieten
+sq:PE 7 - Polietileni, PE - Polietileni, Polietileni
+sv:PE 7 - polyeten,  - polyeten, polyeten
+uk:PE 7 - поліетилен, PE - поліетилен, поліетилен
+xx:PE, 07 PE, PE 07, 07PE, PE07, 7 PE, PE 7, 7PE, PE7
+wikidata:en:Q143429
+description:de:Polyethylen ist der am häufigsten verwendete Kunststoff. Es ist gut zu recyceln, weil es eingeschmolzen werden kann. Es kommt als HDPE (High Density) und als LDPE (Low Density) vor.
+description:en:Polyethylene is the most commonly used plastic. It is good to recycle because it can be melted down. It occurs as HDPE (high density) and as LDPE (low density).description:es:El polietileno es el plástico más utilizado. Es bueno reciclar porque se puede derretir. Se presenta como HDPE (alta densidad) y como LDPE (baja densidad).
+description:fr:Le polyéthylène est le plastique le plus couramment utilisé. Il est bon de recycler car il peut être fondu. Il se présente sous forme de HDPE (haute densité) et de LDPE (basse densité).
+description:it:Il polietilene è la plastica più comunemente usata. È bene riciclare perché può essere sciolto. Si presenta come HDPE (alta densità) e come LDPE (bassa densità).
+description:nl:Polyetheen is de meest gebruikte plastic. Het is geod te recycleren, omdat het kan worden omgesmolten. Het komt voor als HDPE (hoge dichtheid) en als LDPE (lage dichtheid).
+description:pt:O polietileno é o plástico mais utilizado. É bom reciclar porque pode ser derretido. Ocorre como HDPE (alta densidade) e como LDPE (baixa densidade).
+
+<xx:PE
+en:bioPE - Biobased, Biobased PE
+de:bioPE - Biobasiertes, Biobasiertes PE
+fr:bioPE - biosourcé, PE biosourcé
+hu:bioPE - Biobázisú, Biobázisú PE
+nl:bioPE - Biobased, Biobased PE
+pt:bioPE - Bioplástico, Bioplástico P
+xx:Bio-PE, bioPE, bPE
+description:de:Biobasierter PE-Kunststoff wird entweder vollständig oder teilweise aus nachwachsenden pflanzlichen Ressourcen wie Zuckerrohr oder Mais oder anderen biologischen Ressourcen hergestellt. Es kann problemlos im selben Strom wie herkömmliche Kunststoffe recycelt werden.
+description:en:Bio-based PE plastic is made either fully or partially from renewable plant-based resources such as sugar cane or corn or other biological resources. It can easily be recycled in the same stream as traditional plastics.
+description:es:El plástico PE de base biológica se fabrica total o parcialmente a partir de recursos renovables de origen vegetal, como la caña de azúcar, el maíz u otros recursos biológicos. Se puede reciclar fácilmente en el mismo flujo que los plásticos tradicionales.
+description:fr:Le plastique PE biosourcé est fabriqué entièrement ou partiellement à partir de ressources végétales renouvelables telles que la canne à sucre ou le maïs ou d'autres ressources biologiques. Il peut facilement être recyclé dans le même flux que les plastiques traditionnels.
+description:it:La plastica PE a base biologica è prodotta interamente o parzialmente da risorse vegetali rinnovabili come la canna da zucchero o il mais o altre risorse biologiche. Può essere facilmente riciclato nello stesso flusso della plastica tradizionale.
+description:nl:Bio-based PE plastic wordt geheel of gedeeltelijk gemaakt van hernieuwbare plantaardige grondstoffen zoals suikerriet of mais of andere biologische grondstoffen. Het kan gemakkelijk worden gerecycled in dezelfde stroom als traditionele kunststoffen.
+description:pt:O plástico PE de base biológica é feito total ou parcialmente de recursos vegetais renováveis, como cana-de-açúcar ou milho ou outros recursos biológicos. Ele pode ser facilmente reciclado no mesmo fluxo que os plásticos tradicionais.
+
+<en:Plastic
+<xx:PE
+en:HDPE 2 - High-density polyethylene, HDPE - High-density polyethylene, High-density polyethylene
+xx:HDPE, 2 HDPE, HDPE 2, 02 HDPE, HDPE 02, PEHD, 2 PEHD, PEHD 2, 02 PEHD, PEHD 02, HD-PE, 2 HD-PE, HD-PE 2, 02 HD-PE, HD-PE 02, PE-HD, 2 PE-HD, PE-HD 2, 02 PE-HD, PE-HD 02, RC 2, RC 02, RC2, RC02, ♴
+ar:HDPE 2 - متعدد إثيلين عالي الكثافة
+bg:HDPE 2 - Полиетилен с висока плътност, HDPE - Полиетилен с висока плътност, Полиетилен с висока плътност
+ca:HDPE 2 - polietilè d'alta densitat, polietilè d'alta densitat
+cs:HDPE 2 - Polyethylen s vysokou hustotou, Polyethylen s vysokou hustotou
+de:HDPE 2 - Polyethylen hoher Dichte, HDPE - Polyethylen hoher Dichte, Polyethylen hoher Dichte
+fi:HDPE 2 - suurtiheyspolyeteeni, suurtiheyspolyeteeni
+fr:PEHD 2 - Polyéthylène haute densité, PEHD - Polyéthylène haute densité, polyéthylène haute densité, HDPE - 2 - Polyéthylène haute densité, Surlyn
+hr:HDPE 2 - polietilen visoke gustoće, HDPE - polietilen visoke gustoće, polietilen visoke gustoće       
+hu:HDPE 2 - Nagy sűrűségű polietilén, Nagy sűrűségű polietilén
+it:HDPE 2 - Polietilene ad alta densità, HDPE - Polietilene ad alta densità, Polietilene ad alta densità
+lt:HDPE 2 - Didelio tankio polietilenas, Didelio tankio polietilenas
+nl:HDPE 2 - Hogedichtheidpolyetheen, HDPE - Hogedichtheidpolyetheen, Hogedichtheidpolyetheen
+nn:HDPE 2 - høgdensitetspolyetylen, høgdensitetspolyetylen
+pl:HDPE 2 - polietylen wysokiej gęstości, polietylen wysokiej gęstości
+pt:HDPE 2 - Polietileno de alta densidade, HDPE - Polietileno de alta densidade, Polietileno de alta densidade
+ru:HDPE 2 - полиэтилен высокой плотности, полиэтилен высокой плотности
+uk:HDPE 2 - Поліетилен високої щільності, Поліетилен високої щільності
 wikidata:en:Q2641430
 non_recyclable_and_non_biodegradable:en:no
+description:de:Polyethylen hoher Dichte (HDPE) wird aus Polyethylen hergestellt, das aus Erdöl gewonnen wird. HDPE wird als Rohstoff für härtere Kunststoffprodukte (Verschlüsse, Flaschen, Beutel) verwendet. HDPE kann als Rohstoff wiederverwendet werden.
+description:en:High-density polyethylene (HDPE) is made from polyethylene that is extracted from petroleum. HDPE is used as a raw material for harder plastic products (caps, bottles, bags). HDPE can be reused as a raw material.
+description:es:El polietileno de alta densidad (HDPE) está hecho de polietileno que se extrae del petróleo. El HDPE se utiliza como materia prima para productos de plástico más duro (tapas, botellas, bolsas). El HDPE se puede reutilizar como materia prima.
+description:fr:Le polyéthylène haute densité (HDPE) est fabriqué à partir de polyéthylène extrait du pétrole. Le HDPE est utilisé comme matière première pour les produits en plastique plus durs (bouchons, bouteilles, sacs). Le PEHD peut être réutilisé comme matière première.
+description:it:Il polietilene ad alta densità (HDPE) è costituito da polietilene estratto dal petrolio. L'HDPE è utilizzato come materia prima per prodotti in plastica più dura (tappi, bottiglie, sacchetti). L'HDPE può essere riutilizzato come materia prima.
+description:nl:Hogedichtheidpolyetheen (HDPE) wordt gemaakt van polyetheen dat uit aardolie wordt gewonnen. HDPE wordt gebruikt als grondstof voor hardere kunststof producten (doppen, flessen, zakken). HDPE kan opnieuw gebruikt worden als grondstof.
+description:pt:O polietileno de alta densidade (PEAD) é feito de polietileno extraído do petróleo. O HDPE é utilizado como matéria-prima para produtos plásticos mais duros (tampas, garrafas, sacolas). O HDPE pode ser reutilizado como matéria-prima.
 
 <xx:HDPE
-en:Biobased HDPE
-fr:PEHD biosourcé
-hu:Biobázisú HDPE
-pt:Bioplástico PEHD
+<xx:Bio-PE
+en:bioHDPE - Biobased HDPE, Biobased PE-HD
+de:bioHDPE - Biobasiertes HDPE, Biobasiertes PE-HD
+fr:bioHDPE - PEHD biosourcé, PEHD biosourcé, HDPE biosourcé
+hu:bioHDPE - Biobázisú HDPE
+nl:bioHDPE - Biologische HDPE
+pt:bioHDPE - Bioplástico PEHD
+xx:Bio-HDPE, bHDPE
+description:de:Das biobasierte HDPE ist dem herkömmlichen Polyethylen strukturell ähnlich, stammt jedoch aus natürlichen und nachwachsenden Rohstoffen. Es kann in den gleichen Kanälen wie Standard-Polyethylen recycelt werden.
+description:en:The biobased HDPE is structurally similar to conventional polyethylene but it comes from natural and renewable resources. It can be recycled in the same channels as standard polyethylene.
+description:es:El HDPE de base biológica es estructuralmente similar al polietileno convencional pero proviene de recursos naturales y renovables. Se puede reciclar en los mismos canales que el polietileno estándar.
+description:fr:Le PEHD biosourcé est structurellement similaire au polyéthylène conventionnel mais il est issu de ressources naturelles et renouvelables. Il peut être recyclé dans les mêmes filières que le polyéthylène standard.
+description:it:L'HDPE biobased è strutturalmente simile al polietilene convenzionale ma proviene da risorse naturali e rinnovabili. Può essere riciclato negli stessi canali del polietilene standard.
+description:nl:Het biobased HDPE is qua structuur vergelijkbaar met conventioneel polyethyleen, maar het is afkomstig van natuurlijke en hernieuwbare bronnen. Het kan worden gerecycled in dezelfde kanalen als standaard polyethyleen.
+description:pt:O HDPE de base biológica é estruturalmente semelhante ao polietileno convencional, mas provém de recursos naturais e renováveis. Pode ser reciclado nos mesmos canais que o polietileno padrão.
 
 <en:Plastic
-en:PVC - Polyvinyl chloride, Polyvinyl chloride
-xx:PVC, 3 PVC, PVC 3, ♵, 03 PVC, PVC 03, 7 V, V 7, ♵
-de:Polyvinylchlorid
-fr:PVC - Polychlorure de vinyle, Polychlorure de vinyle, chlorure de polyvinyle
-hu:PVC - Polivinil-klorid, Polivinil-klorid, polivinilklorid, polivinil klorid
-it:Cloruro di polivinile, polivinilcloruro
-nl:PVC - Polyvinylchloride, polychlooretheen
-pt:PVC - Policloreto de vinil, Policloreto de vinil
-ru:ПВХ, Поливинилхлорид
+en:PVC 3 - Polyvinyl chloride, PVC - Polyvinyl chloride, Polyvinyl chloride
+xx:PVC, 3 PVC, PVC 3, 03 PVC, PVC 03, 7 V, V 7, ♵
+bg:PVC 3 - Поливинил хлорид, PVC - Поливинил хлорид
+ca:PVC 3 - clorur de polivinil, clorur de polivinil
+cs:PVC 3 - polyvinylchlorid, polyvinylchlorid
+da:PVC 3 - Polyvinylchlorid, Polyvinylchlorid
+de:PVC 3 - Polyvinylchlorid, PVC - Polyvinylchlorid, Polyvinylchlorid
+el:PVC 3 - Πολυβινυλοχλωρίδιο, Πολυβινυλοχλωρίδιο
+es:PVC 3 - cloruro de polivinilo, cloruro de polivinilo
+et:PVC 3 - polüvinüülkloriid, polüvinüülkloriid
+fi:PVC 3 - polyvinyylikloridi, polyvinyylikloridi
+fr:PVC 3 - Polychlorure de vinyle, PVC - Polychlorure de vinyle, Polychlorure de vinyle, chlorure de polyvinyle
+ga:PVC 3 - Polaiviniolclóiríd, Polaiviniolclóiríd
+hr:PVC 3 - polivinil-klorid, PVC - polivinil-klorid, polivinilklorid
+hu:PVC 3 - Polivinil-klorid, PVC - Polivinil-klorid, Polivinil-klorid, polivinilklorid, polivinil klorid
+it:PVC 3 - Cloruro di polivinile, PVC - Cloruro di polivinile, polivinilcloruro
+lt:PVC 3 - Polivinilchloridas, Polivinilchloridas
+nl:PVC 3 - Polyvinylchloride, PVC - Polyvinylchloride, polychlooretheen
+pt:PVC 3 - Policloreto de vinil, PVC - Policloreto de vinil, Policloreto de vinil
+ro:PVC 3 - Policlorură de vinil, Policlorură de vinil
+ru:ПВХ 3 - Поливинилхлорид, Поливинилхлорид
+sk:PVC 3 - Polyvinylchlorid, Polyvinylchlorid
+sl:PVC 3 - Polivinil klorid, Polivinil klorid
+sv:PVC 3 - polyvinylklorid, polyvinylklorid
 wikidata:en:Q146368
+description:en:Material from  PVC (Polyvinyl chloride)
+description:de:PVC gehört zu den am häufigsten verwendeten Kunststoffen. Es wird als Folie für frisches Obst und Gemüse sowie Fleischprodukte verwendet. Beim Verbrennen von PVC werden Schadstoffe freigesetzt. Eine Wiederverwendung von Lebensmittelverpackungen findet nicht statt.
+description:en:PVC is one of the most commonly used plastics. It is used as a foil for fresh fruit and vegetables, and meat products. When PVC is burned, harmful substances are released. Reuse of food packaging does not take place.
+descrirption:es:El PVC es uno de los plásticos más utilizados. Se utiliza como lámina para frutas y verduras frescas y productos cárnicos. Cuando se quema el PVC, se liberan sustancias nocivas. No se realiza la reutilización de los envases de alimentos.
+description:fr:Le PVC est l'un des plastiques les plus couramment utilisés. Il est utilisé comme feuille pour les fruits et légumes frais et les produits à base de viande. Lorsque le PVC est brûlé, des substances nocives sont libérées. La réutilisation des emballages alimentaires n'a pas lieu.
+description:it:Il PVC è una delle materie plastiche più comunemente utilizzate. Viene utilizzato come lamina per frutta e verdura fresca e prodotti a base di carne. Quando il PVC viene bruciato, vengono rilasciate sostanze nocive. Il riutilizzo degli imballaggi alimentari non ha luogo.
+description:nl:PVC is een van de meeste gebruikte plastics. Het wordt gebruikt als folie voor verse groente en fruit, en vleesproducten. Bij de verbranding van PVC komen schadelijke stoffen vrij. Hergebruik van levensmiddelenverpakking vindt niet plaats.
+description:pt:O PVC é um dos plásticos mais usados. É usado como folha para frutas e vegetais frescos e produtos à base de carne. Quando o PVC é queimado, substâncias nocivas são liberadas. Não há reaproveitamento de embalagens de alimentos.
 
 <en:Plastic
-en:LDPE - Low-density polyethylene, Low-density polyethylene
-xx:LDPE, PELD, LD-PE, PE-LD, 4 PELD, PELD 4, LDPE, 04 PELD, PELD 04, LDPE 4, LDPE 04, PE-LD 04, ♶
-de:Polyethylen niedriger Dichte
-fr:PEBD - Polyéthylène basse densité, polyéthylène basse densité, PEBD
-hu:LDPE - Kis sűrűségű polietilén, Kis sűrűségű polietilén
-it:Polietilene a bassa densità
-nl:LDPE - Lagedichtheidpolyetheen, lagedichtheidpolyetheen
-pt:LDPE - Polietileno de baixa densidade, Polietileno de baixa densidade
+<xx:PE
+en:LDPE 4 - Low-density polyethylene, LDPE - Low-density polyethylene, Low-density polyethylene
+xx:LDPE, 4 LDPE, LDPE 4, 04 LDPE, LDPE 04, PELD, 4 PELD, PELD 4, 04 PELD, PELD 04, LD-PE, 4 LD-PE, LD-PE 4, 04 LD-PE, LD-PE 04, PE-LD, 4 PE-LD, PE-LD 4, 04 PE-LD, PE-LD 04, ♶
+bg:LDPE 4 - Полиетилен с ниска плътност, LDPE - Полиетилен с ниска плътност
+ca:LDPE 4 - Polietilè de baixa densitat, Polietilè de baixa densitat
+cs:LDPE 4 - Polyethylen s nízkou hustotou, Polyethylen s nízkou hustotou
+de:LDPE 4 - Polyethylen niedriger Dichte, LDPE - Polyethylen niedriger Dichte, Polyethylen niedriger Dichte
+es:LDPE 4 - polietileno de baja densidad, polietileno de baja densidad
+fr:PEBD 4 - Polyéthylène basse densité, PEBD - Polyéthylène basse densité, polyéthylène basse densité, PEBD, PE-BD, PEBDL, PEBDL - Polyethylène basse densité linéaire
+hr:LDPE 4 - polietilen niske gustoće, LDPE - polietilen niske gustoće
+hu:LDPE 4 - Kis sűrűségű polietilén, LDPE - Kis sűrűségű polietilén, Kis sűrűségű polietilén
+it:LDPE 4 - Polietilene a bassa densità, Polietilene a bassa densità
+lt:LDPE 4 - Mažo tankio polietilenas, Mažo tankio polietilenas
+nl:LDPE 4 - Lagedichtheidpolyetheen, LDPE - Lagedichtheidpolyetheen, lagedichtheidpolyetheen
+nn:LDPE 4 - polyeten med låg tettleik, polyeten med låg tettleik
+pl:LDPE 4 - polietylen niskiej gęstości, polietylen niskiej gęstości
+pt:LDPE 4 - Polietileno de baixa densidade, LDPE - Polietileno de baixa densidade, Polietileno de baixa densidade
+ru:LDPE 4 - полиэтилен низкой плотности, полиэтилен низкой плотности
+uk:LDPE 4 - поліетилен низької щільності, поліетилен низької щільності
 wikidata:en:Q2033818
 non_recyclable_and_non_biodegradable:en:no
+description:de:LDPE wird als Folie in Verpackungen verwendet. LDPE kann leicht wiederverwendet werden, um neue Folie herzustellen.
+description:en:LDPE is used as foil in packaging. LDPE can easily be reused to make new foil.
+description:es:El LDPE se utiliza como lámina en el embalaje. El LDPE se puede reutilizar fácilmente para hacer láminas nuevas.
+description:fr:Le LDPE est utilisé comme feuille dans les emballages. Le LDPE peut facilement être réutilisé pour fabriquer une nouvelle feuille.
+description:it:L'LDPE viene utilizzato come pellicola negli imballaggi. L'LDPE può essere facilmente riutilizzato per creare un nuovo foglio.
+description:nl:LDPE wordt gebruikt als folie in verpakkingen. LDPE kan goed hergebruikt worden tot nieuwe folie.
+description:pt:O LDPE é usado como papel alumínio em embalagens. O LDPE pode ser facilmente reutilizado para fazer novas folhas.
+
+<xx:LDPE
+<xx:Bio-PE
+en:Bio-LDPE - Biobased LDPE, Biobased LDPE
+de:Bio-LDPE - Biobasiertes LDPE, Biobasiertes LDPE, Biobasiertes PE-LD
+fr:Bio-PELD - PELD biosourcé, PELD biosourcé, LDPE biosourcé
+hu:Bio-LDPE - Biobázisú LDPE, Biobázisú LDPE
+nl:Bio-LDPE - Biologische LDPE, Biologische LDPE
+pt:Bio-PELD - Bioplástico PELD, Bioplástico PELD
+xx:Bio-LDPE, bLDPE
+description:de:Bio-LDPE oder Low-Density-Polyethylen ist eine Kunststoffart, die aus erneuerbaren Ressourcen wie Zuckerrohr anstelle von fossilen Brennstoffen hergestellt wird. Es wird häufig in Lebensmittelverpackungen verwendet, insbesondere für Produkte wie Brot, Sandwiches und frische Produkte. Da es aus nachwachsenden Rohstoffen hergestellt wird, gilt es als nachhaltiger und umweltfreundlicher als herkömmliches LDPE. Bio-LDPE kann recycelt werden, ist jedoch in Recyclingprogrammen nicht so weit verbreitet wie herkömmliches LDPE, was bedeutet, dass es möglicherweise auf einer Mülldeponie entsorgt werden muss.
+description:en:Bio LDPE, or low-density polyethylene, is a type of plastic made from renewable resources such as sugarcane instead of fossil fuels. It is commonly used in food packaging, particularly for products such as bread, sandwiches, and fresh produce. Because it is made from renewable resources, it is considered more sustainable and environmentally friendly than traditional LDPE. Bio LDPE can be recycled, but it is not as widely accepted in recycling programs as traditional LDPE, meaning it may need to be disposed of in a landfill.
+description:es:El Bio LDPE, o polietileno de baja densidad, es un tipo de plástico fabricado a partir de recursos renovables como la caña de azúcar en lugar de combustibles fósiles. Se usa comúnmente en el empaque de alimentos, particularmente para productos como pan, sándwiches y productos frescos. Debido a que está hecho de recursos renovables, se considera más sostenible y respetuoso con el medio ambiente que el LDPE tradicional. El Bio LDPE se puede reciclar, pero no es tan ampliamente aceptado en los programas de reciclaje como el LDPE tradicional, lo que significa que es posible que deba desecharse en un vertedero.
+description:fr:Le bio LDPE, ou polyéthylène basse densité, est un type de plastique fabriqué à partir de ressources renouvelables telles que la canne à sucre au lieu de combustibles fossiles. Il est couramment utilisé dans les emballages alimentaires, en particulier pour des produits tels que le pain, les sandwichs et les produits frais. Parce qu'il est fabriqué à partir de ressources renouvelables, il est considéré comme plus durable et respectueux de l'environnement que le LDPE traditionnel. Le PEBD bio peut être recyclé, mais il n'est pas aussi largement accepté dans les programmes de recyclage que le PEBD traditionnel, ce qui signifie qu'il peut être nécessaire de le jeter dans une décharge.
+description:it:Il bio LDPE, o polietilene a bassa densità, è un tipo di plastica ricavata da risorse rinnovabili come la canna da zucchero anziché dai combustibili fossili. È comunemente usato negli imballaggi alimentari, in particolare per prodotti come pane, panini e prodotti freschi. Poiché è realizzato con risorse rinnovabili, è considerato più sostenibile e rispettoso dell'ambiente rispetto al tradizionale LDPE. Il bio LDPE può essere riciclato, ma non è così ampiamente accettato nei programmi di riciclaggio come il tradizionale LDPE, il che significa che potrebbe essere necessario smaltirlo in una discarica.
+description:nl:Bio LDPE, of polyethyleen met lage dichtheid, is een soort plastic gemaakt van hernieuwbare bronnen zoals suikerriet in plaats van fossiele brandstoffen. Het wordt veel gebruikt in voedselverpakkingen, met name voor producten zoals brood, sandwiches en verse producten. Omdat het is gemaakt van hernieuwbare bronnen, wordt het als duurzamer en milieuvriendelijker beschouwd dan traditioneel LDPE. Bio-LDPE kan worden gerecycled, maar wordt niet zo algemeen geaccepteerd in recyclingprogramma's als traditioneel LDPE, wat betekent dat het mogelijk moet worden afgevoerd naar een stortplaats.
+description:pt:O Bio LDPE, ou polietileno de baixa densidade, é um tipo de plástico feito de recursos renováveis, como a cana-de-açúcar, em vez de combustíveis fósseis. É comumente usado em embalagens de alimentos, principalmente para produtos como pão, sanduíches e produtos frescos. Por ser feito de recursos renováveis, é considerado mais sustentável e ecologicamente correto do que o LDPE tradicional. O Bio LDPE pode ser reciclado, mas não é tão amplamente aceito em programas de reciclagem quanto o LDPE tradicional, o que significa que pode ser necessário descartá-lo em um aterro sanitário.
 
 <en:Plastic
-en:PP - Polypropylene, Polypropylene
+en:PP 5 - Polypropylene, PP - Polypropylene, Polypropylene
 xx:PP, 5 PP, PP 5, PP 05, 05 PP, ♷
-de:PP - Polypropylen, Polypropylen
-fr:PP - Polypropylène, Polypropylène, polypropène
-hu:PP - Polipropilén, Polipropilén
-it:Polipropilene, polipropene
-nl:PP - Polypropeen, Polypropeen, polypropyleen
-pt:PP - Polipropileno, Polipropileno
-ru:Полипропилен
+bg:PP 5 - Полипропилен, PP - Полипропилен
+ca:PP 5 - polipropilè, polipropilè
+cs:pp 5 - polypropylen, polypropylen
+da:PP 5 - polypropylen, polypropylen
+de:PP 5 - Polypropylen, PP - Polypropylen, Polypropylen
+el:PP 5 - Πολυπροπυλένιο, Πολυπροπυλένιο
+et:PP 5 - polüpropeen, polüpropeen
+fi:PP 5 - polypropeeni, polypropeeni
+fr:PP 5 - Polypropylène, PP - Polypropylène, Polypropylène, polypropène
+ga:PP 5 - Polaprópailéin, Polaprópailéin
+hr:PP 5 - polipropilen, PP - polipropilen, polipropilen
+hu:PP 5 - Polipropilén, PP - Polipropilén, Polipropilén
+is:PP 5 - Fjölprópýlen, Fjölprópýlen
+it:PP 5 - Polipropilene, PP - Polipropilene, Polipropilene, polipropene
+lt:PP 5 - Polipropilenas, Polipropilenas
+nb:PP 5 - polypropen, polypropen
+nl:PP 5 - Polypropeen, PP - Polypropeen, Polypropeen, polypropyleen
+nn:PP 5 - polypropylen, polypropylen
+pl:PP 5 - polipropylen, polipropylen
+pt:PP 5 - Polipropileno, PP - Polipropileno, Polipropileno
+ro:PP 5 - Polipropilenă, Polipropilenă
+ru:ПП 5 - Полипропилен, Полипропилен, PP - Полипропилен
+sk:PP 5 - Polypropylén, Polypropylén
+sr:PP 5 - полипропилен, полипропилен
+sv:PP 5 - polypropen, polypropen
+tr:PP 5 - Polipropilen, Polipropilen
+uk:PP 5 - поліпропілен, поліпропілен
 wikidata:en:Q146174
 non_recyclable_and_non_biodegradable:en:no
+description:de:Polypropylen (PP) ist ein thermoplastisches Polymer, das aus Öl hergestellt wird. Aufgrund seiner Haltbarkeit und Beständigkeit gegen Feuchtigkeit und Chemikalien wird es häufig in Lebensmittelverpackungen verwendet. PP kann durch mechanische Recyclingprozesse recycelt werden, wird jedoch aufgrund mangelnder Nachfrage nach recycelten PP-Produkten häufig nicht zum Recycling gesammelt.
+description:en:Polypropylene (PP) is a thermoplastic polymer that is created from oil. It is commonly used in food packaging due to its durability and resistance to moisture and chemicals. PP can be recycled through mechanical recycling processes, but it is often not collected for recycling due to lack of demand for recycled PP products.
+description:es:El polipropileno (PP) es un polímero termoplástico que se crea a partir del petróleo. Se utiliza comúnmente en el envasado de alimentos debido a su durabilidad y resistencia a la humedad y los productos químicos. El PP se puede reciclar a través de procesos de reciclaje mecánico, pero a menudo no se recolecta para reciclar debido a la falta de demanda de productos de PP reciclados.
+description:fr:Le polypropylène (PP) est un polymère thermoplastique créé à partir de pétrole. Il est couramment utilisé dans les emballages alimentaires en raison de sa durabilité et de sa résistance à l'humidité et aux produits chimiques. Le PP peut être recyclé par des processus de recyclage mécaniques, mais il n'est souvent pas collecté pour être recyclé en raison du manque de demande de produits en PP recyclé.
+description:it:Il polipropilene (PP) è un polimero termoplastico creato dal petrolio. È comunemente usato negli imballaggi alimentari grazie alla sua durata e resistenza all'umidità e agli agenti chimici. Il PP può essere riciclato attraverso processi di riciclaggio meccanico, ma spesso non viene raccolto per il riciclaggio a causa della mancanza di domanda di prodotti in PP riciclato.
+description:nl:Polypropyleen (PP) is een thermoplastisch polymeer dat wordt gemaakt van olie. Het wordt vaak gebruikt in voedselverpakkingen vanwege zijn duurzaamheid en weerstand tegen vocht en chemicaliën. PP kan worden gerecycled via mechanische recyclingprocessen, maar wordt vaak niet ingezameld voor recycling vanwege een gebrek aan vraag naar gerecyclede PP-producten.
+description:pt:O polipropileno (PP) é um polímero termoplástico criado a partir do petróleo. É comumente usado em embalagens de alimentos devido à sua durabilidade e resistência à umidade e produtos químicos. O PP pode ser reciclado por meio de processos de reciclagem mecânica, mas muitas vezes não é coletado para reciclagem devido à falta de demanda por produtos de PP reciclado.
+
+<xx:PP
+en:CPP - Cast PolyPropylen, Cast PolyPropylen
+de:CPP - Ungerecktes Polypropylen, Ungerecktes Polypropylen
+fr:CPP - Polypropylène coulé, Polypropylène coulé
+nl:CPP - Gegoten polypropeen, Gegoten polypropeen
+xx:CPP, PP-C, 05 CPP, CPP 05, 5 CPP, CPP 5, 05CPP, CPP05, 5CPP, CPP5, 05 PP-C, PP-C 05, 5 PP-C, PP-C 5, 05PP-C, PP-C05, 5PP-C, PP-C5
+description:de:CPP oder gegossenes Polypropylen ist eine Kunststoffart, die durch Gießen von geschmolzenem Polypropylen in eine Form hergestellt wird. Es wird häufig in Lebensmittelverpackungen verwendet, da es leicht und langlebig ist und gute Barriereeigenschaften aufweist, um Lebensmittel vor Feuchtigkeit, Licht und anderen Verunreinigungen zu schützen. CPP kann recycelt werden, wird jedoch von den meisten Recyclingprogrammen am Straßenrand nicht allgemein akzeptiert und muss möglicherweise zu einer spezialisierten Einrichtung zur ordnungsgemäßen Verarbeitung gebracht werden.
+description:en:CPP, or cast polypropylene, is a type of plastic that is created by casting molten polypropylene into a mold. It is commonly used in food packaging because it is lightweight, durable, and has good barrier properties to protect food from moisture, light, and other contaminants. CPP can be recycled, but it is not widely accepted in most curbside recycling programs and may need to be taken to a specialized facility for proper processing.
+description:es:CPP, o polipropileno fundido, es un tipo de plástico que se crea al colar polipropileno fundido en un molde. Se usa comúnmente en el empaque de alimentos porque es liviano, duradero y tiene buenas propiedades de barrera para proteger los alimentos de la humedad, la luz y otros contaminantes. El CPP se puede reciclar, pero no es ampliamente aceptado en la mayoría de los programas de reciclaje en la acera y es posible que deba llevarse a una instalación especializada para su procesamiento adecuado.
+description:fr:Le CPP, ou polypropylène coulé, est un type de plastique créé en coulant du polypropylène fondu dans un moule. Il est couramment utilisé dans les emballages alimentaires car il est léger, durable et possède de bonnes propriétés de barrière pour protéger les aliments de l'humidité, de la lumière et d'autres contaminants. Le CPP peut être recyclé, mais il n'est pas largement accepté dans la plupart des programmes de collecte sélective et peut devoir être apporté à une installation spécialisée pour un traitement approprié.
+description:it:Il CPP, o polipropilene fuso, è un tipo di plastica che viene creato colando il polipropilene fuso in uno stampo. È comunemente usato negli imballaggi alimentari perché è leggero, resistente e ha buone proprietà barriera per proteggere gli alimenti da umidità, luce e altri contaminanti. Il CPP può essere riciclato, ma non è ampiamente accettato nella maggior parte dei programmi di riciclaggio sul marciapiede e potrebbe essere necessario portarlo in una struttura specializzata per una corretta elaborazione.
+description:nl:CPP, of gegoten polypropyleen, is een soort plastic dat wordt gemaakt door gesmolten polypropyleen in een mal te gieten. Het wordt vaak gebruikt in voedselverpakkingen omdat het lichtgewicht en duurzaam is en goede barrière-eigenschappen heeft om voedsel te beschermen tegen vocht, licht en andere verontreinigingen. CPP kan worden gerecycled, maar wordt niet algemeen geaccepteerd in de meeste recyclingprogramma's aan de straatkant en moet mogelijk naar een gespecialiseerde faciliteit worden gebracht voor juiste verwerking.
+description:pt:CPP, ou polipropileno fundido, é um tipo de plástico criado pela fundição de polipropileno fundido em um molde. É comumente usado em embalagens de alimentos porque é leve, durável e possui boas propriedades de barreira para proteger os alimentos da umidade, luz e outros contaminantes. O CPP pode ser reciclado, mas não é amplamente aceito na maioria dos programas de reciclagem na calçada e pode precisar ser levado a uma instalação especializada para processamento adequado.
+
+<xx:PP
+en:OPP - Oriented PolyPropylen, Oriented PolyPropylen
+de:OPP - Orientiertes Polypropylen
+fr:OPP - PolyPropylène Orienté, PolyPropylène Orienté
+nl:OPP - Georienteerde polypropeen, Georienteerde polypropeen
+xx:OPP, PP-O, 05 OPP, OPP 05, 5 OPP, OPP 5, 05OPP, OPP05, 5OPP, OPP5, 05 PP-O, PP-O 05, 5 PP-O, PP-O 5, 05PP-O, PP-O05, 5PP-O, PP-O5
+description:de:OPP oder orientiertes Polypropylen ist eine Art Kunststofffolie, die durch Strecken des Materials in eine Richtung entsteht. Dies verleiht ihm Stärke und Klarheit, was es für Lebensmittelverpackungen nützlich macht, insbesondere für Artikel wie Süßigkeiten und Backwaren. OPP ist recycelbar, wird jedoch von den meisten Recyclingprogrammen am Straßenrand nicht gesammelt.
+description:en:OPP, or oriented polypropylene, is a type of plastic film that is created by stretching the material in one direction. This gives it strength and clarity, making it useful for food packaging, particularly for items like candy and baked goods. OPP is recyclable, but it is not commonly collected by most curbside recycling programs.
+description:es:OPP, o polipropileno orientado, es un tipo de película plástica que se crea estirando el material en una dirección. Esto le da fuerza y claridad, lo que lo hace útil para el envasado de alimentos, en particular para artículos como dulces y productos horneados. El OPP es reciclable, pero la mayoría de los programas de reciclaje en la acera no lo recolectan comúnmente.
+description:fr:L'OPP, ou polypropylène orienté, est un type de film plastique créé en étirant le matériau dans une direction. Cela lui donne force et clarté, ce qui le rend utile pour les emballages alimentaires, en particulier pour des articles comme les bonbons et les produits de boulangerie. L'OPP est recyclable, mais il n'est pas couramment collecté par la plupart des programmes de collecte sélective.
+description:it:OPP, o polipropilene orientato, è un tipo di film plastico che viene creato allungando il materiale in una direzione. Ciò gli conferisce forza e chiarezza, rendendolo utile per l'imballaggio alimentare, in particolare per articoli come caramelle e prodotti da forno. L'OPP è riciclabile, ma non viene comunemente raccolto dalla maggior parte dei programmi di riciclaggio sul marciapiede.
+description:nl:OPP, of georiënteerd polypropyleen, is een soort plastic film die wordt gemaakt door het materiaal in één richting uit te rekken. Dit geeft het kracht en duidelijkheid, waardoor het geschikt is voor voedselverpakkingen, met name voor artikelen zoals snoep en gebak. OPP is recyclebaar, maar wordt niet vaak ingezameld door de meeste recyclingprogramma's aan de stoeprand.
+description:pt:OPP, ou polipropileno orientado, é um tipo de filme plástico que é criado esticando o material em uma direção. Isso lhe dá força e clareza, tornando-o útil para embalagens de alimentos, principalmente para itens como doces e assados. O OPP é reciclável, mas não é comumente coletado pela maioria dos programas de reciclagem na calçada.
 
 <en:Plastic
-en:PS - Polystyrene, Polystyrene
-xx:PS, 6 PS, 06 PS, PS 6, PS 06, ♸
-de:PS - Polystyrol, Polystyrol
-fr:PS - Polystyrène, Polystyrène
-hu:PS - Polisztirol, Polisztirol
-it:PS - Polistirene, polistirolo
-nl:PS - Polystyreen, Polystyreen
-pt:PS - Poliestireno, Poliestireno
-ru:PS - Полистирол, Полистирол
+en:PS 6 - Polystyrene, PS - Polystyrene, Polystyrene
+xx:PS, 6 PS, PS 6, 06 PS, PS 06, ♸
+bg:PS 6 - Полистирен, PS - Полистирен, Полистирен
+bs:PS 6 - Polistiren, Polistiren
+ca:PS 6 - poliestirè, poliestirè
+cs:PS 6 - polystyren, polystyren
+da:PS 6 - Polystyren, Polystyren
+de:PS 6 - Polystyrol, PS - Polystyrol, Polystyrol
+el:PS 6 - Πολυστυρένιο, Πολυστυρένιο
+et:PS 6 - Polüstürool, Polüstürool
+fi:PS 6 - Polystyreeni, Polystyreeni
+fr:PS 6 - Polystyrène, PS - Polystyrène, Polystyrène
+ga:PS 6 - Polaistiréin, Polaistiréin
+hr:PS 6 - polistiren, PS - polistiren, Polistiren
+hu:PS 6 - Polisztirol, PS - Polisztirol, Polisztirol
+it:PS 6 - Polistirene, PS - Polistirene, Polistirolo
+lt:PS 6 - Polistirenas, Polistirenas
+lv:PS 6 - polistirols, polistirols
+mk:PS 6 - Полистирен, Полистирен
+nb:PS 6 - polystyren, polystyren
+nl:PS 6 - Polystyreen, PS - Polystyreen, Polystyreen
+nn:PS 6 - polystyren, polystyren
+pl:PS 6 - polistyren, polistyren
+pt:PS 6 - Poliestireno, PS - Poliestireno, Poliestireno
+ro:PS 6 - Polistiren, Polistiren
+ru:PS 6 - Полистирол, PS - Полистирол, Полистирол
+sk:PS 6 - Polystyrén, Polystyrén
+sl:PS 6 - Polistiren, Polistiren
+sv:PS 6 - polystyren, polystyren
+tr:PS 6 - polistiren, polistiren
+uk:PS 6 - полістирол, полістирол
 wikidata:en:Q146243
+description:de:Polystyrol ist ein Kunststoff, der durch Polymerisation von Styrolmonomeren hergestellt wird. Es wird häufig in Lebensmittelverpackungen verwendet, da es leicht und kostengünstig ist und gute Isoliereigenschaften aufweist. Polystyrol ist jedoch nicht leicht recycelbar und das meiste davon landet auf Mülldeponien oder in der Umwelt und schadet der Tierwelt und dem Ökosystem.
+description:en:Polystyrene is a plastic produced through polymerization of styrene monomers. It is widely used in food packaging as it is lightweight, low-cost, and has good insulation properties. However, polystyrene is not easily recyclable and most of it ends up in landfills or the environment, causing harm to wildlife and the ecosystem.
+description:es:El poliestireno es un plástico producido a través de la polimerización de monómeros de estireno. Es ampliamente utilizado en el envasado de alimentos, ya que es liviano, de bajo costo y tiene buenas propiedades de aislamiento. Sin embargo, el poliestireno no es fácilmente reciclable y la mayor parte termina en vertederos o en el medio ambiente, causando daños a la vida silvestre y al ecosistema.
+description:fr:Le polystyrène est un plastique produit par polymérisation de monomères de styrène. Il est largement utilisé dans les emballages alimentaires car il est léger, peu coûteux et possède de bonnes propriétés d'isolation. Cependant, le polystyrène n'est pas facilement recyclable et la majeure partie se retrouve dans les décharges ou dans l'environnement, causant des dommages à la faune et à l'écosystème.
+description:it:Il polistirene è una plastica prodotta attraverso la polimerizzazione di monomeri di stirene. È ampiamente utilizzato negli imballaggi alimentari in quanto è leggero, economico e ha buone proprietà isolanti. Tuttavia, il polistirolo non è facilmente riciclabile e la maggior parte finisce nelle discariche o nell'ambiente, causando danni alla fauna selvatica e all'ecosistema.
+description:nl:Polystyreen is een kunststof die wordt geproduceerd door polymerisatie van styreenmonomeren. Het wordt veel gebruikt in voedselverpakkingen omdat het licht van gewicht is, goedkoop is en goede isolerende eigenschappen heeft. Polystyreen is echter niet gemakkelijk te recyclen en het meeste komt terecht op stortplaatsen of in het milieu, met schade aan dieren in het wild en het ecosysteem tot gevolg.
+description:pt:O poliestireno é um plástico produzido através da polimerização de monômeros de estireno. É amplamente utilizado em embalagens de alimentos, pois é leve, de baixo custo e possui boas propriedades de isolamento. No entanto, o poliestireno não é facilmente reciclável e a maior parte acaba em aterros sanitários ou no meio ambiente, causando danos à vida selvagem e ao ecossistema.
+
+<en:PS 6 - Polystyrene
+en:EPS - Expanded polystyrene, Foamed polystyrene
+fr:PSE - Polystyrène expansé, PSE - Polystyrène expansé / moussé, Polystyrène expansé, Polystyrène moussé
 
 <en:Plastic
-en:Other plastics, All other plastics, other plastic
-xx:7 O, O 7, OTHER 7, 7 OTHER, ♹
-da:Anden plast
-de:Andere Kunststoffe
-fr:Autres plastiques, autre plastique
-hu:Egyéb műanyag, Más műanyag, Minden más műanyag
-it:Altre plastiche
-nl:Andere plastics
-pt:Outros plásticos, Todos os outros plásticos, outro plástico
-ru:Другие пластики, Другие пластмассы
+en:O 7 - Other plastics, O - Other plastics, Other plastics, All other plastics, other plastic
+xx:07 OTHER, OTHER 07, 7 OTHER, OTHER 7, 07 O, O 07, 7 O, O 7, ♹
+bg:O 7 - Други пластмаси, O - Други пластмаси, Други пластмаси
+da:O 7 - Anden plast, O - Anden plast, Anden plast
+de:O 7 - Andere Kunststoffe, O - Andere Kunststoffe, Andere Kunststoffe
+fr:O 7 - Autres plastiques, O - Autres plastiques, Autres plastiques, autre plastique
+hr:O 7 - ostali polimerni materijali, O - ostali polimerni materijali, ostali polimerni materijali
+hu:O 7 - Egyéb műanyag, O - Egyéb műanyag, Egyéb műanyag, Más műanyag, Minden más műanyag
+it:O 7 - Altre plastiche, O - Altre plastiche, Altre plastiche
+nl:O 7 - Andere plastics, O - Andere plastics, Andere plastics
+pl:O 7 - Inne, O - Inne, Inne
+pt:O 7 - Outros plásticos, O - Outros plásticos, Outros plásticos, Todos os outros plásticos, outro plástico
+ru:O 7 - Другие пластики, O - Другие пластики, Другие пластики, Другие пластмассы
 non_recyclable_and_non_biodegradable:en:yes
-
-<en:Plastic
-en:Acrylonitrile butadiene styrene, 09 ABS, ABS, ABS 09, ABS 9, 9 ABS, 9-ABS
-de:ABS, 9 ABS, 9-ABS
-fr:Acrylonitrile butadiène styrène
-hu:ABS-műanyag, Akrilnitril-butadién-sztirol, 09 ABS, ABS, ABS 09, ABS 9, 9 ABS
-nl:Acrylonitril-butadieen-styreen, ABS
-pt:Acrilonitrila butadieno estireno, 09 ABS, ABS, ABS 09, ABS 9, 9 ABS
-xx:09 ABS, ABS, ABS 09, ABS 9, 9 ABS, 9-ABS
+description:en:Unlisted plastics
+description:nl:Plastics die nog niet op de lijst staan.
 
 <en:Plastic
 <en:Other plastics
-en:PLA - Polylactic acid, Polylactic acid, PLA
-de:PLA - Polylactide, PLA, Polylactide
-xx:PLA
+en:PC - Polycarbonate, Polycarbonate
+bg:PC - Поликарбонат, Поликарбонат
+ca:PC - policarbonat, policarbonat
+cs:PC - polykarbonát, polykarbonát
+da:PA - Polykarbonat, Polykarbonat
+de:PC - Polycarbonate, Polycarbonate
+el:PC - πολυανθρακικό, πολυανθρακικό
+et:PC - Polükarbonaadid, Polükarbonaadid
+fi:PC - Polykarbonaatti, Polykarbonaatti
+fr:PC - Polycarbonate, Polycarbonate
+hr:PC - polikarbonati, polikarbonati
+hu:PC - polikarbonát, polikarbonát
+is:PC - Pólýkarbónat, Pólýkarbónat
+it:PC - policarbonato, policarbonato
+lt:PC - Polikarbonatas, Polikarbonatas
+mk:PC - поликарбонат, поликарбонат
+nb:PC - polykarbonat, polykarbonat
+nl:PC - polycarbonaat, polycarbonaat
+nn:PC - polykarbonat, polykarbonat
+pl:PC - poliwęglany, poliwęglany
+pt:PC - policarbonato, policarbonato
+ro:PC - Policarbonat, Policarbonat
+ru:PC - поликарбонаты, поликарбонаты
+sr:PC - поликарбонат, поликарбонат
+sv:PC - Polykarbonat, Polykarbonat
+tr:PC - Polikarbonat, Polikarbonat
+uk:PC - полікарбонат, полікарбонат
+xx:PC, 07 PC, PC 07, 07PC, PC07, 7 PC, PC 7, 7PC, PC7
+wikidata:en:Q62246
+description:de:Polycarbonat wird durch Polymerisation von Bisphenol A mit Phosgen hergestellt. Aufgrund seiner Transparenz, Festigkeit und Hitzebeständigkeit wird es häufig in Lebensmittelverpackungen verwendet. Polycarbonat kann recycelt werden, aber seine niedrige Recyclingrate ist auf die Schwierigkeit zurückzuführen, es von anderen Materialien zu trennen, und auf das Fehlen von Recyclinganlagen für diese Art von Kunststoff.
+description:en:Polycarbonate is produced by polymerizing bisphenol A with phosgene. It is commonly used in food packaging due to its transparency, strength, and resistance to heat. Polycarbonate can be recycled but its low recycling rate is due to the difficulty in separating it from other materials and the lack of recycling facilities for this type of plastic.
+description:es:El policarbonato se produce polimerizando bisfenol A con fosgeno. Se utiliza comúnmente en el envasado de alimentos debido a su transparencia, fuerza y resistencia al calor. El policarbonato se puede reciclar, pero su baja tasa de reciclaje se debe a la dificultad para separarlo de otros materiales y la falta de instalaciones de reciclaje para este tipo de plástico.
+description:fr:Le polycarbonate est produit en polymérisant du bisphénol A avec du phosgène. Il est couramment utilisé dans les emballages alimentaires en raison de sa transparence, de sa solidité et de sa résistance à la chaleur. Le polycarbonate est recyclable mais son faible taux de recyclage est dû à la difficulté de le séparer des autres matériaux et au manque d'installations de recyclage pour ce type de plastique.
+description:it:Il policarbonato è prodotto polimerizzando il bisfenolo A con fosgene. È comunemente usato negli imballaggi alimentari per la sua trasparenza, robustezza e resistenza al calore. Il policarbonato può essere riciclato ma il suo basso tasso di riciclaggio è dovuto alla difficoltà di separarlo da altri materiali e alla mancanza di impianti di riciclaggio per questo tipo di plastica.
+description:nl:Polycarbonaat wordt geproduceerd door bisfenol A te polymeriseren met fosgeen. Het wordt vaak gebruikt in voedselverpakkingen vanwege zijn transparantie, sterkte en weerstand tegen hitte. Polycarbonaat kan worden gerecycled, maar het lage recyclingpercentage is te wijten aan de moeilijkheid om het te scheiden van andere materialen en het gebrek aan recyclingfaciliteiten voor dit soort plastic.
+description:pt:O policarbonato é produzido pela polimerização do bisfenol A com fosgênio. É comumente usado em embalagens de alimentos devido à sua transparência, força e resistência ao calor. O policarbonato pode ser reciclado, mas a sua baixa taxa de reciclagem deve-se à dificuldade em separá-lo de outros materiais e à falta de instalações de reciclagem para este tipo de plástico.
+
+# PA - Polyamide (PA 66 - Nylon) in data from Les Mousquetaires
+<en:Plastic
+<en:Other plastics
+en:PA - Polyamide, Polyamide
+ca:PA - poliamida, poliamida
+cs:PA - polyamid, polyamid
+de:PA - Polyamide, Polyamide
+el:PA - Πολυαμίδιο, Πολυαμίδιο
+es:PA - poliamida, poliamida
+et:PA - Polüamiid, Polüamiid
+fi:PA - Polyamidi, Polyamidi
+fr:PA - Polyamide, Polyamide, PA - Polyamide (PA 66 - Nylon)
+hr:PA - poliamid, poliamidi
+hu:PA - poliamid, poliamid
+it:PA - Poliammide, Poliammide
+lt:PA - Poliamidas, Poliamidas
+nb:PA - polyamid, polyamid
+nl:PA - polyamide, polyamide
+nn:PA - polyamid, polyamid
+pl:PA - poliamidy, poliamidy
+pt:PA - poliamida, poliamida
+ro:PA - Poliamidă, Poliamidă
+ru:PA - Полиамиды, Полиамиды
+sk:PA - Polyamid, Polyamid
+sv:PA - polyamid, polyamid
+tr:PA - Poliamit, Poliamit
+uk:PA - Поліамід, Поліамід
+xx:PA, 07 PA, PA 07, 07PA, PA07, 7 PA, PA 7, 7PA, PA7
+wikidata:en:Q145273
+description:en:Polyamide (PA), also known as nylon, is a synthetic polymer that was first developed in the 1930s by DuPont. It is commonly used in food packaging because it is strong, durable, and heat-resistant. However, it is not easily recyclable and most PA ends up in landfills or the environment.
+
+<en:Plastic
+<en:Other plastics
+en:PU/PUR - Polyurethan, Polyurethan
+fr:PU/PUR - Polyuréthane, Polyuréthane
+xx:PU/PUR,PU,PUR
+
+# 09 is for Alkaline batteries, not sure if 09 ABS exists.
+
+<en:Plastic
+<en:Other plastics
+en:ABS - Acrylonitrile butadiene styrene, Acrylonitrile butadiene styrene
+bg:ABS - Акрилонитрил-бутадиен-стирен, Акрилонитрил-бутадиен-стирен
+ca:ABS - Acrilonitril butadiè estirè, Acrilonitril butadiè estirè
+cs:ABS - Akrylonitrilbutadienstyren, Akrylonitrilbutadienstyren
+de:ABS - Acrylnitril-Butadien-Styrol, Acrylnitril-Butadien-Styrol, Acrylnitril-Butadien-Styrol-Copolymer
+es:ABS - Acrilonitrilo butadieno estireno, Acrilonitrilo butadieno estireno
+fi:ABS - Akryylinitriilibutadieenistyreeni, Akryylinitriilibutadieenistyreeni
+fr:ABS - Acrylonitrile butadiène styrène, Acrylonitrile butadiène styrène
+hu:ABS - Akrilnitril-butadién-sztirol, ABS-műanyag, Akrilnitril-butadién-sztirol
+it:ABS - acrilonitrile butadiene stirene, acrilonitrile butadiene stirene
+nb:ABS - Akrylnitril-butadien-styren, Akrylnitril-butadien-styren
+nl:ABS - Acrylonitrilbutadieenstyreen, Acrylonitril-butadieen-styreen
+nn:ABS - akrylnitrilbutadienstyren, akrylnitrilbutadienstyren
+pt:ABS - Acrilonitrila butadieno estireno, Acrilonitrila butadieno estireno
+ru:ABS - акрилонитрил бутадиен стирол, акрилонитрил бутадиен стирол
+sk:ABS - Akrylonitrilbutadiénstyrén, Akrylonitrilbutadiénstyrén
+sr:ABS - акрилонитрил бутадиен стирен, акрилонитрил бутадиен стирен
+tr:ABS - Akrilonitril bütadien stiren, Akrilonitril bütadien stiren
+xx:ABS, 07 ABS, ABS 07, 07ABS, ABS07, 7 ABS, ABS 7, 7ABS, ABS7, 9 ABS, ABS 9, 09 ABS, ABS 09
+wikidata:en:Q143496
+description:en:ABS (Acrylonitrile Butadiene Styrene) plastic is a thermoplastic polymer that was first developed in the 1930s. It is commonly used in food packaging due to its strength, durability, and heat resistance. ABS is recyclable, but it is not widely recycled due to lack of infrastructure for the collection and processing of the material.
+
+
+
+<en:Plastic
+<en:Other plastics
+en:PMMA - Poly(methyl methacrylate), Poly(methyl methacrylate)
+bg:PMMA - Полиметилметакрилат, Полиметилметакрилат
+ca:PMMA - polimetilmetacrilat, polimetilmetacrilat
+cs:PMMA - Polymethylmethakrylát, Polymethylmethakrylát
+da:PMMA - Akryl, Akryl
+de:PMMA - Polymethylmethacrylat, Polymethylmethacrylat, Acrylglas, Plexiglas
+el:PMMA - Πολυμεθακρυλικό μεθύλιο, Πολυμεθακρυλικό μεθύλιο
+es:PMMA - polimetilmetacrilato, polimetilmetacrilato
+et:PMMA - polümetüülmetakrülaat, polümetüülmetakrülaat
+fi:PMMA - akryyli, akryyli
+fr:PMMA - Polyméthacrylate de méthyle, Poly(méthacrylate de méthyle)
+ga:PMMA - Peirspéacs, Peirspéacs
+hu:PMMA - poli-metil-metakrilát, poli-metil-metakrilát
+it:PMMA - polimetilmetacrilato, polimetilmetacrilato
+nb:PMMA - Polymetylmetakrylat, Polymetylmetakrylat
+nl:PMMA - polymethylmethacrylaat, polymethylmethacrylaat
+nn:PMMA - polymetylmetakrylat, polymetylmetakrylat
+pl:PMMA - polimetakrylan metylu, poli(metakrylan metylu)
+pt:PMMA - acrílico, acrílico
+ru:PMMA - органическое стекло, органическое стекло
+sk:PMMA - Polymetylmetakrylát, Polymetylmetakrylát
+sl:PMMA - polimetilmetaakrilat, polimetilmetaakrilat
+sr:PMMA - плексиглас, плексиглас, pleksiglas
+sv:PMMA - polymetylmetakrylat, polymetylmetakrylat
+tr:PMMA - Pleksi, Pleksi
+uk:PMMA - органічне скло, органічне скло
+xx:PMMA, 07 PMMA, PMMA 07, 07PMMA, PMMA07, 7 PMMA, PMMA 7, 7PMMA, PMMA7
+wikidata:en:Q146123
+description:de:PMMA, auch Acrylglas oder Plexiglas genannt, ist ein transparenter Kunststoff. Da es lebensmittelecht ist, kann es in Lebensmittelverpackungen wie Fleisch und Käse verwendet werden. PMMA kann recycelt werden, aber es wird nicht so häufig recycelt wie einige andere Kunststoffe, da es keine Recyclinganlagen gibt, die es verarbeiten können.
+description:en:PMMA, also known as acrylic or plexiglass, is a transparant plastic. As it is food safe, it can be used in food packaging, such as for meat and cheese. PMMA can be recycled, but it is not as widely recycled as some other plastics due to the lack of recycling facilities that can process it.
+description:es:El PMMA, también conocido como acrílico o plexiglás, es un plástico transparente. Como es apto para alimentos, se puede utilizar en envases de alimentos, como carne y queso. El PMMA se puede reciclar, pero no se recicla tanto como otros plásticos debido a la falta de instalaciones de reciclaje que puedan procesarlo.
+description:fr:Le PMMA, également connu sous le nom d'acrylique ou de plexiglas, est un plastique transparent. Comme il est sans danger pour les aliments, il peut être utilisé dans les emballages alimentaires, comme pour la viande et le fromage. Le PMMA peut être recyclé, mais il n'est pas aussi largement recyclé que certains autres plastiques en raison du manque d'installations de recyclage capables de le traiter.
+description:it:Il PMMA, noto anche come acrilico o plexiglass, è una plastica trasparente. Poiché è sicuro per gli alimenti, può essere utilizzato negli imballaggi alimentari, ad esempio per carne e formaggio. Il PMMA può essere riciclato, ma non è ampiamente riciclato come alcune altre materie plastiche a causa della mancanza di impianti di riciclaggio in grado di elaborarlo.
+description:nl:PMMA, ook wel acryl of plexiglas genoemd, is een doorzichtige kunststof. Omdat het voedselveilig is, kan het worden gebruikt in voedselverpakkingen, zoals voor vlees en kaas. PMMA kan worden gerecycled, maar wordt niet zo breed gerecycled als sommige andere kunststoffen vanwege het gebrek aan recyclingfaciliteiten die het kunnen verwerken.
+description:pt:O PMMA, também conhecido como acrílico ou plexiglass, é um plástico transparente. Por ser seguro para alimentos, pode ser usado em embalagens de alimentos, como carnes e queijos. O PMMA pode ser reciclado, mas não é tão amplamente reciclado quanto alguns outros plásticos devido à falta de instalações de reciclagem que possam processá-lo.
+
+<en:Plastic
+<en:Other plastics
+en:PLA - Polylactic acid, Polylactic acid
+ca:PLA - Acid polilàctic, Acid polilàctic
+cs:PLA - polylaktid, polylaktid
+da:PLA - Polymælkesyre, Polymælkesyre
+de:PLA - Polylactide, Polylactide, Polymilchsäuren
+el:PLA - Πολυγαλακτικό οξύ, Πολυγαλακτικό οξύ
+es:PLA - poliácido láctico, poliácido láctico
+fi:PLA - Polylaktidi, Polylaktidi
 fr:PLA - Acide polylactique, Acide polylactique
 hu:PLA - Politejsav, Politejsav
-nl:PLA - Polymelkzuur
-pt:PLA - Ácido poliláctico, poliácido láctico
+it:PLA - acido polilattico, acido polilattico
+nb:PLA - Polymelkesyre, Polymelkesyre
+nl:PLA - Polymelkzuur, Polymelkzuur
+nn:PLA - polymjølkesyre, polymjølkesyre
+pl:PLA - Polilaktyd, Polilaktyd
+pt:PLA - Ácido poliláctico, Ácido poliláctico, poliácido láctico
+ro:PLA - Acid polilactic, Acid polilactic
+ru:PLA - полимолочная кислота, полимолочная кислота
+sv:PLA - Polylaktid, Polylaktid
+tr:PLA - Polilaktik asit, Polilaktik asit
+uk:PLA - полілактид, полілактид
+xx:PLA, 07 PLA, PLA 07, 07PLA, PLA07, 7 PLA, PLA 7, 7PLA, PLA7
 wikidata:en:Q413769
+description:de:Polymilchsäure (PLA) wird aus Milchsäure landwirtschaftlicher Nutzpflanzen wie Mais oder Zuckerrohr hergestellt und unter anderem für Gläser oder Deckel verwendet. PLA ist unter industriellen Kompostierungsbedingungen kompostierbar.
+description:en:Polylactic acid (PLA) is made from lactic acid originating from agricultural crops, such as corn or sugar cane. PLA is used, among other things, for jars or lids. PLA is compostable under industrial composting conditions.
+description:es:El ácido poliláctico (PLA) se elabora a partir del ácido láctico procedente de cultivos agrícolas, como el maíz o la caña de azúcar, y se utiliza, entre otras cosas, para la elaboración de tarros o tapas. El PLA es compostable en condiciones de compostaje industrial.
+description:fr:L'acide polylactique (PLA) est fabriqué à partir d'acide lactique provenant de cultures agricoles telles que le maïs ou la canne à sucre.Le PLA est utilisé, entre autres, pour les pots ou les couvercles. Le PLA est compostable dans des conditions de compostage industriel.
+description:it:L'acido polilattico (PLA) è ottenuto dall'acido lattico proveniente da colture agricole, come il mais o la canna da zucchero e viene utilizzato, tra l'altro, per barattoli o coperchi. Il PLA è compostabile in condizioni di compostaggio industriale.
+description:nl:Polymelkzuur (PLA) wordt gemaakt uit melkzuur afkomst uit landbouwgewassen, zoals maïs of suikerriet.PLA wordt gebruikt o.a voor potjes of deksels. PLA is composteerbaar onder industriële composteeromstandigheden.
+description:pt:O ácido poliláctico (PLA) é produzido a partir do ácido láctico proveniente de culturas agrícolas, como o milho ou a cana-de-açúcar.O PLA é utilizado, entre outras coisas, para frascos ou tampas. O PLA é compostável em condições de compostagem industrial.
 
-en:Lead–acid battery, 8 Lead, Lead 8
-de:Bleibatterie, 8 Lead, 8-Lead
-hu:Ólom-sav akkumulátor, 8 Lead, Lead 8
+<en:PLA - Polylactic acid
+en:CPLA - Crystallized Polyactic Acid, Crystallized Polyactic Acid
+
+<en:Plastic
+<en:Other plastics
+<xx:PE
+en:LLDPE - Linear low-density polyethylene, Linear low-density polyethylene
+de:LLDPE - Lineares Polyethylen niedriger Dichte, Lineares Polyethylen niedriger Dichte
+fr:LLDPE - Polyéthylène basse densité linéaire, Polyéthylène basse densité linéaire
+it:LLDPE - Polietilene lineare a bassa densità, Polietilene lineare a bassa densità
+nl:LLDPE - Lineair lagedichtheidpolyethyleen, Lineair lagedichtheidpolyethyleen
+nn:LLDPE - lineært polyeten med låg tettleik, lineært polyeten med låg tettleik
+xx:LLDPE, 07 LLDPE, LLDPE 07, 07LLDPE, LLDPE07, 7 LLDPE, LLDPE 7, 7LLDPE, LLDPE7, PE-LLD, 07 PE-LLD, PE-LLD 07, 07PE-LLD, PE-LLD07, 7 PE-LLD, PE-LLD 7, 7PE-LLD, PE-LLD7
+wikidata:en:Q1863987
+description:de:LLDPE oder lineares Polyethylen niedriger Dichte ist eine Kunststoffart, die durch einen Prozess namens Copolymerisation hergestellt wird. Aufgrund seiner Flexibilität und Haltbarkeit wird es häufig in Lebensmittelverpackungen verwendet. Leider kann LLDPE schwierig zu recyceln sein und landet oft auf Deponien, obwohl einige Recyclinglösungen entwickelt werden.
+description:en:LLDPE, or linear low-density polyethylene, is a type of plastic that is produced through a process called copolymerization. It is commonly used in food packaging due to its flexibility and durability. Unfortunately, LLDPE can be difficult to recycle and often ends up in landfills, although some recycling solutions are being developed.
+descrption:es:El LLDPE, o polietileno lineal de baja densidad, es un tipo de plástico que se produce mediante un proceso llamado copolimerización. Se utiliza comúnmente en el envasado de alimentos debido a su flexibilidad y durabilidad. Desafortunadamente, el LLDPE puede ser difícil de reciclar y, a menudo, termina en vertederos, aunque se están desarrollando algunas soluciones de reciclaje.
+description:fr:Le LLDPE, ou polyéthylène linéaire basse densité, est un type de plastique produit par un processus appelé copolymérisation. Il est couramment utilisé dans les emballages alimentaires en raison de sa flexibilité et de sa durabilité. Malheureusement, le LLDPE peut être difficile à recycler et finit souvent dans les décharges, bien que certaines solutions de recyclage soient en cours de développement.
+description:it:LLDPE, o polietilene lineare a bassa densità, è un tipo di plastica che viene prodotta attraverso un processo chiamato copolimerizzazione. È comunemente usato negli imballaggi alimentari grazie alla sua flessibilità e durata. Sfortunatamente, LLDPE può essere difficile da riciclare e spesso finisce nelle discariche, sebbene siano in fase di sviluppo alcune soluzioni di riciclaggio.
+description:nl:LLDPE oder lineares Polyethylen niedriger Dichte ist eine Kunststoffart, die durch einen Prozess namens Copolymerisation hergestellt wird. Aufgrund seiner Flexibilität und Haltbarkeit wird es häufig in Lebensmittelverpackungen verwendet. Leider kann LLDPE schwierig zu recyceln sein und landet oft auf Deponien, obwohl einige Recyclinglösungen entwickelt werden.
+description:pt:LLDPE, ou polietileno linear de baixa densidade, é um tipo de plástico produzido por meio de um processo chamado copolimerização. É comumente usado em embalagens de alimentos devido à sua flexibilidade e durabilidade. Infelizmente, o LLDPE pode ser difícil de reciclar e muitas vezes acaba em aterros sanitários, embora algumas soluções de reciclagem estejam sendo desenvolvidas.
+
+
+<en:Multilayer composite
+<xx:PET
+en:PETmet - Metalized polyethylene terephthalate, Metalized polyethylene terephthalate
+de:PETmet - Metallisiertes Polyethylenterephthalat, Metallisiertes Polyethylenterephthalat
+fr:PETmet - Polyéthylène téréphtalate métallisé
+xx:PETmet, 07 PETmet, PETmet 07, 07PETmet, PETmet07, 7 PETmet, PETmet 7, 7PETmet, PETmet7, met-PET, 07 met-PET, met-PET 07, 07met-PET, met-PET07, 7 met-PET, met-PET 7, 7met-PET, met-PET7
+description:en:Material from PETmet (metallized Polyethylene terephthalate)
+description:nl:Uit PETmet (gemetalliseerd Polyethylene terephthalate) samengesteld materiaal
+
+<en:Multilayer composite
+<xx:PE
+en:PEmet - Metalized polyethylene, Metalized polyethylene
+de:PEmet - Metallisiertes Polyethylen, Metallisiertes Polyethylen
+xx:PEmet, 07 PEmet, PEmet 07, 07PEmet, PEmet07, 7 PEmet, PEmet 7, 7PEmet, PEmet7, met-PE, 07 met-PE, met-PE 07, 07met-PE, met-PE07, 7 met-PE, met-PE 7, 7met-PE, met-PE7
+description:en:PEmet (metallized polyethylene)
+description:de:PEmet (Metallisiertes Polyethylen)
+description:nl:PEmet (gemetalliseerd polyethyleen)
+
+<en:Plastic
+<en:Other plastics
+<xx:PE
+en:MDPE - Medium-density polyethylene, Medium-density polyethylene
+de:MDPE - Polyethylen mittlerer Dichte, Polyethylen mittlerer Dichte
+fr:MDPE - Polyéthylène moyenne densité, Polyéthylène moyenne densité
+nl:MDPE - Gemiddelde dichtheidspolyethyleen, Gemiddelde dichtheidspolyethyleen
+xx:MDPE, 07 MDPE, MDPE 07, 07MDPE, MDPE07, 7 MDPE, MDPE 7, 7MDPE, MDPE7, PE-MD, 07 PE-MD, PE-MD 07, 07PE-MD, PE-MD07, 7 PE-MD, PE-MD 7, 7PE-MD, PE-MD7
+wikidata:en:Q6807106
+description:de:MDPE ist ein Polyethylen mittlerer Dichte, das zur Herstellung flexibler, aber starrer Flaschen geeignet ist; zum Verpacken frittierter Lebensmittel. MDPE kann wiederverwendet werden.
+description:en:MDPE is a medium density polyethylene suitable for making flexible, but rigid bottles; for packaging fried foods. MDPE can be reused.
+description:es:MDPE es un polietileno de densidad media adecuado para fabricar botellas flexibles pero rígidas; para envasar frituras. El MDPE se puede reutilizar.
+descxription:fr:Le MDPE est un polyéthylène de densité moyenne adapté à la fabrication de bouteilles souples mais rigides ; pour l'emballage des aliments frits. Le MDPE peut être réutilisé.
+description:it:L'MDPE è un polietilene a media densità adatto alla realizzazione di bottiglie flessibili, ma rigide; per il confezionamento di cibi fritti. MDPE può essere riutilizzato.
+description:nl:MDPE is een polyethyleen met gemiddelde dichtheid, geschikt voor het maken van flexibele, maar stijve flessen; voor het verpakken van gebakken voedsel. MDPE kan hergebruikt worden.
+description:pt:O MDPE é um polietileno de média densidade adequado para fazer garrafas flexíveis, mas rígidas; para embalar frituras. O MDPE pode ser reutilizado.
+wikipedia:en:https://en.wikipedia.org/wiki/Medium-density_polyethylene
+
+<en:Plastic
+<en:Other plastics
+xx:EVOH, 07 EVOH, EVOH 07, 07EVOH, EVOH07, 7 EVOH, EVOH 7, 7EVOH, EVOH7, EVAL
+en:EVOH - Ethylene vinyl alcohol, Ethylene vinyl alcohol, EVOH - ethylene-vinylalcohol copolymer, ethylene-vinylalcohol copolymer
+de:EVOH - Ethylen-Vinylalkohol-Copolymer, Ethylen-Vinylalkohol-Copolymer
+fr:EVOH - Ethylène alcool vinylique, Ethylène alcool vinylique, Plastiques / EVOH - Ethylène alcool vinylique
+wikidata:en:Q582510
+description:de:EVOH (Ethylene Vinyl Alcohol) ist ein flexibler, durchscheinender und glänzender Kunststoff und dient als Barriere gegen Außenluft für verderbliche Produkte. EVOH ist nicht recycelbar.
+description:en:EVOH (Ethylene Vinyl Alcohol) is a flexible, translucent and shiny plastic and serves as a barrier against outside air for perishable products. EVOH is not recyclable.
+description:es:El EVOH (Etilenvinil Alcohol) es un plástico flexible, translúcido y brillante que sirve como barrera contra el aire exterior para productos perecederos. El EVOH no es reciclable.
+description:fr:L'EVOH (Ethylene Vinyl Alcohol) est un plastique souple, translucide et brillant et sert de barrière contre l'air extérieur pour les produits périssables. L'EVOH n'est pas recyclable.
+description:it:EVOH (Ethylene Vinyl Alcohol) è una plastica flessibile, traslucida e lucida e funge da barriera contro l'aria esterna per i prodotti deperibili. EVOH non è riciclabile.
+description:nl:EVOH (etheen-vinylalcohol) is een flexibele, doorzichtige en glimmende plastic en dient als bescherming tegen buitenlucht voor beperkt houdbare producten. EVOH is niet recycleerbaar. 
+description:pt:O EVOH (Etileno Vinil Álcool) é um plástico flexível, translúcido e brilhante que serve como barreira contra o ar externo para produtos perecíveis. EVOH não é reciclável.
+
+<en:Plastic
+<en:Other plastics
+xx:EVA
+fr:EVA - Éthylène-acétate de vinyle, Éthylène-acétate de vinyle, Plastiques / EVA - Éthylène-acétate de vinyle
+
+<en:Plastic
+<en:Other plastics
+xx:PAN
+fr:PAN - Polyacrylonitrile, Polyacrylonitrile, Plastiques / PAN - Polyacrylonitrile
+
+<en:Plastic
+<en:Other plastics
+xx:PEF
+fr:PEF - Polyethylène Furanoate, Polyethylène Furanoate, Plastiques / PEF - Polyethylène Furanoate
+
+en:Lead–acid battery
+de:Bleibatterie, Blei-Säure-Batterie
+fr:Batterie au plomb
+hu:Ólom-sav akkumulátor
 nl:Lood, Loodaccu
-pt:Bateria de chumbo-ácido, 8 Lead, Lead 8
+pt:Bateria de chumbo-ácido
+xx:08 Lead, Lead 08, 8 Lead, Lead 8
 wikidata:en:Q337724
 
-en:Alkaline battery, 19 Alkaline, 19
-de:Alkalibatterie, 19 Alkaline, 19-Alkaline
+en:Alkaline battery
+bg:Алкална батерия
+ca:pila alcalina
+cs:alkalický článek
+de:Alkalibatterie, Alkaline Batterie, Alkali-Mangan-Zelle
+es:pila alcalina
+et:leelisaku
+fi:alkaliparisto
 fr:Pile alcaline, batterie alcaline, accumulateur alcaline
-hu:Alkáli elem, 19 Alkáli, 19
+hr:alkalni članak
+hu:Alkáli elem, 19 Alkáli
+nb:Alkalisk batteri
 nl:Alkalinebatterij
-pt:Bateria alcalina, pilha alcalina, 19 Alkaline, 19
-xx:19 Alkaline
+pl:bateria alkaliczna
+pt:Bateria alcalina, pilha alcalina
+ro:baterie alcalină
+ru:Щелочной элемент
+sk:alkalický článok
+sr:alkalna baterija
+sv:alkaliskt batteri
+tr:alkalin pil
+uk:Лужна батарейка
+xx:09 Alkaline, Alkaline 09, 9 Alkaline, Alkaline 9
 wikidata:en:Q861345
+description:de:Alkalibatterien enthalten schwere und korrosive Metalle, die die Umwelt schädigen können. Alkalibatterien sind recycelbar und müssen in der Regel separat zurückgegeben werden.
+description:en:Alkaline batteries contain heavy and corrosive metals, which can harm the environment. Alkaline batteries can be recycled and must usually be returned separately.
+description:es:Las pilas alcalinas contienen metales pesados ​​y corrosivos que pueden dañar el medio ambiente. Las pilas alcalinas se pueden reciclar y normalmente se deben devolver por separado.
+description:fr:Les piles alcalines contiennent des métaux lourds et corrosifs, qui peuvent nuire à l'environnement. Les piles alcalines peuvent être recyclées et doivent généralement être retournées séparément.
+description:it:Le batterie alcaline contengono metalli pesanti e corrosivi, che possono danneggiare l'ambiente. Le batterie alcaline possono essere riciclate e di solito devono essere restituite separatamente.
+description:nl:Alkaline batterijen bevatten zware en corrosieve metalen, die schade voor het milieu kunnen opleveren. Alkaline batterijen kunnen recycled worden en dienen meestal gescheiden ingeleverd te worden.
+description:pt:As pilhas alcalinas contêm metais pesados ​​e corrosivos, que podem prejudicar o meio ambiente. As pilhas alcalinas podem ser recicladas e geralmente devem ser devolvidas separadamente.
 
-en:Nickel–cadmium battery, 10 NiCD
-de:Nickel–Cadmium-Batterie, 10 NiCD, 10-NiCD
+en:Nickel–cadmium battery
+bg:Никел-кадмиева батерия
+de:Nickel–Cadmium-Batterie
 fr:Accumulateur nickel-cadmium, batterie nickel-cadmium
-hu:Nikkel-kadmium akkumulátor, 10 NiCD
+hr:nikal-kadmijeva baterija
+hu:Nikkel-kadmium akkumulátor
 nl:Nikkel-cadmium-accu
 pt:Bateria de níquel cádmio, pilha de níquel cádmio, bateria de níquel-cádmio, pilha de níquel-cádmio
-xx:10 NiCD, 10-NiCD
+xx:10 NiCD, NiCD 10, 10 NiCad, NiCad 10
 wikidata:en:Q898377
 
-en:Nickel–metal hydride battery, 11 NiMH
-de:Nickelmetallhydrid Batterie, 11 NiMH, 11-NiMH
+en:Nickel–metal hydride battery
+de:Nickelmetallhydrid Batterie
 fr:Accumulateur nickel-hydrure métallique, batterie nickel-hydrure métallique
-hu:Nikkel-fémhidrid akkumulátor,Nikkel-metál-hidrid akkumulátor, 11 NiMH
+hr:nikal-metal-hibridna baterija
+hu:Nikkel-fémhidrid akkumulátor,Nikkel-metál-hidrid akkumulátor
 nl:nikkel-metaalhydride-accu, NiMH-accu
 pt:Bateria de níquel-hidreto metálico, bateria de hidreto metálico de níquel, pilha de níquel-hidreto metálico, pilha de hidreto metálico de níquel
-xx:11 NiMH, 11-NiMH
+xx:11 NiMH, NiMH 11, 11-NiMH, NiMH-11
 wikidata:en:Q308567
 
-en:Lithium battery, 12 Li
-de:Litiumbatterie, 12 Li, 12-Li
+en:Lithium battery
+bg:Литиева батерия
+de:Lithiumbatterie, Litiumbatterie
 fr:Accumulateur lithium, batterie lithium, batterie au lithium, accumulateur au lithium
-hu:Lítium akkumulátor, 12 Li, 12-Li
+hu:Lítium akkumulátor
 nl:Lithium-ion-accu, Li-ion-accu
 pt:Bateria de lítio, pilha de lítio
-xx:12 Li, 12-Li
+xx:12 Li, Li 12
 wikidata:en:Q899079
 
-en:Silver-oxide battery, 13 SO(Z)
-de:Silberoxidbatterie, 13 SO(Z), 13-SO
-hu:Ezüst-oxid akkumulátor, Ezüst-oxid elem, 13 SO(Z), 13-SO
+en:Silver-oxide battery
+de:Silberoxidbatterie
+hr:srebrov oksid baterija
+hu:Ezüst-oxid akkumulátor, Ezüst-oxid elem
 nl:Zilveroxide batterij
 pt:Bateria de óxido de prata, bateria prata-óxido, pilha de óxido de prata, pilha prata-óxido
-xx:13 SO(Z), 13-SO
+xx:13 SO(Z), 13 SO, SO(Z) 13, SO 13
 wikidata:en:Q900791
 
-en:Zinc–carbon battery, 14 CZ
-de:Zink–Kohle-Batterie, 14 CZ, 14-CZ
-hu:Cink-szén akkumulátor, Szén-cink akkumulátor, Szén-cink elem, 14 CZ
+en:Zinc–carbon battery
+de:Zink–Kohle-Batterie
+hr:cink-ugljik baterija
+hu:Cink-szén akkumulátor, Szén-cink akkumulátor, Szén-cink elem
 nl:Zink-koolstofcel
 pt:Bateria de zinco-carbono, pilha de zinco-carbono
-xx:14 CZ, 14-CZ
+xx:14 CZ, CZ 14
 wikidata:en:Q28765
 
-en:Cardboard, 20 C PAP, 20 C PCB
-da:Pap, 20 C PAP, 20 C PCB
-de:Pappe, Wellpappe, 20 C PAP, 20 C PCB
-fr:Carton, carton ondulé, carton standard, cartonné, cartonnée, cartonnette
-hu:Hullámkarton, Hullámpapír kartondoboz, kartondoboz, 20 C PAP, 20 C PCB
-it:Cartone, cartone ondulato
-nl:Karton, Strokarton, Vouwkarton, Massiefkarton, Golfkarton, Turfkarton, Vormkarton, Kartonnen
-pt:Cartão, cartão ondulado, cartão canelado, cartonado, cartonada, papelão, papel grosso, 20 C PAP, 20 C PCB
-xx:20 C PAP, 20 C PCB
+en:Paper or cardboard
+fr:Papier ou carton
+
+<en:Paper or cardboard
+en:Cardboard, fiberboard, fibreboard
+bg:Картон
+ca:cartó
+cs:lepenka
+da:karton, Pap
+de:Karton, Pappe
+et:papp
+fi:pahvi
+fr:Carton, carton standard, cartonné, cartonnée
+ga:cairtchlár
+hr:karton
+hu:Hullámkarton, Hullámpapír kartondoboz, kartondoboz
+it:Cartone
+lt:Kartonas
+lv:kartons
+mk:картон
+nl:Karton, Strokarton, Vouwkarton, Massiefkarton, Turfkarton, Vormkarton, Kartonnen
+pl:karton
+pt:Cartão, cartão canelado, cartonado, cartonada, papelão, papel grosso
+ro:carton
+ru:картон
+sv:Kartong
+uk:картон
+wikidata:en:Q389782
+description:de:Karton ist ein Oberbegriff für Produkte auf Papierbasis, die aus Holz, Lumpen und Gräsern hergestellt werden. Karton ist langlebig und verhindert, dass Feuchtigkeit in das Lebensmittelprodukt eindringt. Karton ist bis zu 7 Mal recycelbar.
+description:en:Cardboard is a generic term for paper-based products created from woord, rags and grasses. Cardboard is durable and prevents moisture from infiltrating the food product. Cardboard is recyclable up to 7 times.
+description:es:Cartón es un término genérico para productos a base de papel creados a partir de madera, trapos y hierbas. El cartón es duradero y evita que la humedad se infiltre en el producto alimenticio. El cartón es reciclable hasta 7 veces.
+description:fr:Le carton est un terme générique pour les produits à base de papier créés à partir de bois, de chiffons et d'herbes. Le carton est durable et empêche l'humidité de s'infiltrer dans le produit alimentaire. Le carton est recyclable jusqu'à 7 fois.
+description:it:Cartone è un termine generico per prodotti a base di carta creati da legno, stracci ed erba. Il cartone è resistente e impedisce all'umidità di infiltrarsi nel prodotto alimentare. Il cartone è riciclabile fino a 7 volte.
+desription:nl:Karton is een verzamelnaam voor op papier gebaseerde producten gemaakt van hout, vodden en grassen. Karton is duurzaam en voorkomt dat vocht in het voedingsproduct binnendringt. Karton is tot 7 keer recyclebaar.
+description:pt:Papelão é um termo genérico para produtos à base de papel criados a partir de madeira, trapos e gramíneas. O papelão é durável e evita que a umidade se infiltre no produto alimentício. O papelão é reciclável até 7 vezes.
+
+# fr:Cellulosique / Carton ondulé in data from Les Mousquetaires
+<en:cardboard
+en:Corrugated cardboard
+bg:Вълнообразен картон
+ca:Cartró ondulat
+cs:vlnitá lepenka
+de:Wellpappe
+es:cartón ondulado
+fi:aaltopahvi
+fr:Carton ondulé, Cellulosique / Carton ondulé
+hr:valovita ljepenka
+it:cartone ondulato
+nb:Bølgepapp
+nl:golfkarton
+pt:cartão ondulado
+ro:Carton ondulat
+ru:гофрокартон
+sv:wellpapp
+tr:Oluklu mukavva
+uk:гофрокартон
+wikipedia:en:Q7463524
+xx:20 PAP, PAP 20, 20PAP, PAP20, 20 C PAP, 20 C PCB
+description:de:Material, bestehend aus einer oder mehreren Lagen dünner Wellpappe aus Holz, Lumpen und Gräsern (und Recyclingpappe). Wellpappe wird hauptsächlich für Umverpackungen verwendet. Wellpappe ist bis zu 7 Mal recycelbar.
+description:en:Material, consisting of one or more layers of thin, corrugated cardboard made from wood, rags and grasses (and recycled cardboard). Corrugated cardboard is mainly used for outer packaging boxes. Corrugated cardboard is recyclable up to 7 times.
+description:es:Material, que consiste en una o más capas de cartón corrugado delgado hecho de madera, trapos y pastos (y cartón reciclado). El cartón corrugado se utiliza principalmente para cajas de embalaje exterior. El cartón corrugado es reciclable hasta 7 veces.
+description:fr:Matériau, composé d'une ou plusieurs couches de carton ondulé mince fabriqué à partir de bois, de chiffons et d'herbes (et de carton recyclé). Le carton ondulé est principalement utilisé pour les boîtes d'emballage extérieur. Le carton ondulé est recyclable jusqu'à 7 fois.
+description:it:Materiale, costituito da uno o più strati di sottile cartone ondulato ricavato da legno, stracci ed erba (e cartone riciclato). Il cartone ondulato viene utilizzato principalmente per le scatole di imballaggio esterno. Il cartone ondulato è riciclabile fino a 7 volte.
+description:nl:Materiaal, bestaande uit één of meer lagen dun, gegolfd karton gemaakt van hout, vodden en grassen (en hergebruikt karton). Golfkarton wordt vooral gebruikt voor buitenste verpakkingsdozen. Golfkarton is tot 7 keer recyclebaar.
+description:pt:Material, consistindo de uma ou mais camadas de papelão ondulado fino feito de madeira, trapos e gramíneas (e papelão reciclado). O papelão ondulado é usado principalmente para embalagens externas. O papelão ondulado é reciclável até 7 vezes.
+
+<en:cardboard
+en:Non-corrugated cardboard
+de:Ungewellte Pappe, Nicht gewellte Pappe, Sonstige Pappe, Andere Pappe
+bg:Друг картон
+fr:Carton non ondulé, carton plat, Cellulosique / Carton plat
+hr:ravna ljepenka
+xx:21 PAP, PAP 21, 21PAP, PAP21
+
+<en:cardboard
+en:Armed cardboard
+fr:Carton armé, Cellulosique / Carton armé
 
 <en:Cardboard
 <en:Recycled material
 en:Recycled cardboard, 100% recycled cardboard
 da:Genbrugspap
-de:Recycelter Karton, Recyclingkarton
+de:Recycelte Pappe, Recyclingpappe, Recycelter Karton, Recyclingkarton
 fr:Carton recyclé, carton recyclé 100%, carton 100% recyclé
 hu:Újrahasznosított hullámpapír, újrahasznosított karton
 nl:Recycled karton
 pt:Cartão reciclado, cartão ondulado reciclado, cartonado reciclado, cartonada reciclada, papelão reciclado, cartolina reciclada, papel grosso reciclado
+description:de:Recyclingkarton wird aus gebrauchtem und gesammeltem Karton hergestellt und kann für neue Lebensmittelverpackungen verwendet werden. Es kann dann zur Wiederverwendung zurückgegeben werden.
+description:en:Recycled cardboard is made from used and collected cardboard and can be used for new food packaging. It can then be returned for reuse.
+description:es:El cartón reciclado está hecho de cartón usado y recolectado y puede usarse para nuevos envases de alimentos. Luego se puede devolver para su reutilización.
+description:fr:Le carton recyclé est fabriqué à partir de carton usagé et collecté et peut être utilisé pour de nouveaux emballages alimentaires. Il peut ensuite être retourné pour être réutilisé.
+description:it:Il cartone riciclato è realizzato con cartone usato e raccolto e può essere utilizzato per nuovi imballaggi alimentari. Può quindi essere restituito per il riutilizzo.
+description:nl:Recycled karton wordt gemaakt van gebruikt en ingezameld karton, en kan gebruikt worden voor nieuwe voedselverpakkingen. Daarna kan het opnieuw ingeleverd worden voor hertgebruik.
+description:pt:O papelão reciclado é feito de papelão usado e coletado e pode ser usado para novas embalagens de alimentos. Ele pode então ser devolvido para reutilização.
 
 <en:Cardboard
 en:FSC cardboard
-de:FSC-Karton
+de:FSC Karton, FSC Pappe
 fr:Carton FSC
 nl:FSC karton
 pt:Cartão FSC
+# associated_label:en: en:FSC
 
-en:Other paper, 21 PAP
-de:Sonstige Pappe, 21 PAP, 21-PAP
-fr:Autres papiers, autre papier
-hu:Egyéb papír, más papír, 21 PAP, 21-PAP
-nl:Ander karton
-pt:Outro papel, outros papéis, 21 PAP
-xx:21 PAP, 21-PAP
+<en:Cardboard
+en:Grass carton
+de:Graskarton
 
-en:Paper, 22 PAP, PAP 22
-da:Papir, 22 PAP, PAP 22
-de:Papier, 22 PAP, PAP 22
-fr:Papier, papier standard
-hu:Papír, 22 PAP, PAP 22
-nl:Papier, 22 PAP, PAP 22
+<en:Paper or cardboard
+en:Paper
+bg:Хартия
+da:Papir
+de:Papier
+fr:Papier, papier standard, Cellulosique / Papier / Vélin
+hr:papir
+hu:Papír
+it:Carta
+nl:Papier
 ru:Бумага
 ja:紙
-pt:Papel, 22 PAP, PAP 22
-xx:22 PAP, PAP 22
+pl:papier
+pt:Papel
+sv:Papper
+xx:22 PAP, PAP 22, 22PAP, PAP22
 wikidata:en:Q11472
+
+en:baking paper, parchment paper
+bg:Пергаментова хартия
+ca:Paper vegetal
+cs:pečicí papír
+da:bagepapir
+de:Backpapier
+el:λαδόκολλα
+es:papel sulfurizado, papel de horno
+fi:leivinpaperi
+fr:Papier sulfurisé, papier cuisson, papier parchemin
+hu:sütőpapír
+is:Smjörpappír
+it:Carta da forno, cartaforno
+lv:pergamentpapīrs
+nb:bakepapir
+nl:bakpapier
+pl:Papier do pieczenia
+pt:papel vegetal, papel manteiga
+ru:Пергаментная бумага
+sv:Bakplåtspapper
+tr:Fırın kâğıdı
+uk:Пергаментний папір
+wikidata:en:Q798500
+description:de:beschichtetes Papier, das verwendet wird, um das Backgut vor dem Anbacken am Blech oder der Form zu schützen
+description:en:Cellulose-based paper used in baking as a disposable non-stick surface.
+description:es:El papel sulfurizado es un papel vegetal tratado químicamente para tapar los poros de la celulosa y así hacerlo impermeable y para que además sea resistente a las elevadas temperaturas de un horno doméstico.
+description:fr:Papier utilisé entre un plat et la nourriture à cuire pour ne pas qu'elle y adhère
+description:it:La carta da forno evita che i cibi si attacchino alla placca da forno, permette di rinunciare all'uso di grassi come la margarina, il burro e l’olio.
+description:nl:Speciaal geprepareerd papier dat in de oven gebruikt wordt om te bakken etenswaar niet aan de bakplaat of de bakvorm te laten kleven
+description:pt:O papel manteiga[1] é um tipo de papel translúcido e antiaderente, muito utilizado na culinária.
+
+en:Cellulose
+fr:Cellulose, Cellulose moulée, Cellulosique / Cellulose moulée, Cellulosique / Autres fibres cellulosiques / végétales
+
+en:Rubber
+fr:Caoutchouc, Cellulosique / Caoutchouc
+
+# thick cardboard (e.g. book covers)
+<en:cardboard
+en:Paperboard
+# de:Karton
+fi:Kartonki
+fr:Papier cartonné
+hr:ljepenka
+hu:Kartonpapír, Karton, Papírkarton
+it:Cartoncino
+pt:Papel cartonado
+xx:23 PBD, PBD 23, 23 PPB, PPB 23, PPB, PBD
+wikidata:en:Q14934005
+
+
+<en:paper
+en:Other paper
+de:Sonstiges Papier, Anderes Papier
+fr:Autres papiers, autre papier, Cellulosique / Autre papier
+hu:Egyéb papír, más papír
+nl:Ander karton
+pt:Outro papel, outros papéis
 
 <en:paper
 en:Recycled paper, 100% recycled paper
+bg:Рециклирана хартия
 da:Genbrugspapir
-de:Recyclingpapier, Recyceltes Papier
+de:Recyceltes Papier, Recyclingpapier, 100% recyceltes Papier, 100% Recyclingpapier
 fr:Papier recyclé, papier recyclé 100%, papier 100% recyclé
 hu:Újrahasznosított papír
 nl:Recycled papier
@@ -358,86 +1245,201 @@ pt:Papel reciclado, 100% papel reciclado, papel 100% reciclado
 
 <en:paper
 en:FSC paper
+de:FSC Papier
 fr:Papier FSC
 nl:FSC-papier
 pt:Papel FSC
+# We have a en:FSC label - https://world.openfoodfacts.org/label/FSC - https://www.wikidata.org/wiki/Q748367
+# associated_label:en: en:FSC
 
 <en:Paper
 en:Kraft paper, kraft
+bg:Крафт хартия
 de:Kraftpapier
 fr:Papier kraft, kraft
+hr:natronski papir
 nl:Kraft-papier
 pt:Papel kraft, kraft
+wikidata:en:Q1755609
 
 en:Wax
+bg:Восък
+ca:cera
+cs:vosk
 da:Voks
 de:Wachs
+el:κερί
+es:cera
+et:Vahad
+fi:vaha
 fr:Cire
+ga:Céir
+hr:vosak
 hu:Viasz
+is:Vax
+it:cera
+lt:Vaškas
+lv:vaski
+mk:восок
+nb:voks
+nn:voks
 nl:Was
-pt:Papel cera, papel de cera
+pl:woski
+pt:cera
+ro:ceară
+ru:воск
+sk:Vosk
+sl:vosek
+sr:vosak, восак
+sv:vax
+uk:віск
 wikidata:en:Q124695
 
-en:Paperboard, 23 PBD, 23 PPB, PPB, PBD, PBD 23, PPB 23
-de:Karton, 23 PBD, 23 PPB, PPB, PBD, PBD 23, PPB 23, 23-PBD
-fr:Papier cartonné
-hu:Kartonpapír, Karton, Papírkarton, 23 PBD, 23 PPB, PPB, PBD, PBD 23, PPB 23
-it:Cartoncino, PBD
-pt:Papel cartonado, 23 PBD, 23 PPB, PPB, PBD, PBD 23, PPB 23
-xx:23 PBD, 23 PPB, PPB, PBD, PBD 23, PPB 23
-
 en:Metal, Metals
+bg:Метал, метали
 da:Metal, Metaller
 de:Metall, Metalle
-fr:Métal, Métaux
+fr:Métal, Métaux, métallique, métalliques, Autres métaux (dont métaux non magnétiques)
+es:Metal
+hr:metale
 hu:Fém, fémek
-it:Metalli
+it:Metallo, Metalli
 nl:Metaal, Metalen
+pl:Metal, Metale
 pt:Metais
 ru:Металл
+wikidata:en:Q11426
+description:de:Alle Metalle können bei ordnungsgemäßer Rückgabe wiederverwendet werden.
+description:en:All metals can be reused, if returned properly.
+description:es:Todos los metales se pueden reutilizar, si se devuelven correctamente.
+description:fr:Tous les métaux peuvent être réutilisés s'ils sont retournés correctement.
+description:it:Tutti i metalli possono essere riutilizzati, se restituiti correttamente.
+description:nl:Alle metalen kunnen opnieuw hergebruikt worden, mist goed geretourneerd.
+descruiption:pt:Todos os metais podem ser reutilizados, se devolvidos adequadamente.
 
 <en:Metals
 en:Recyclable Metals
-de:Wiederverwertbare Metalle, Wiederverwertbares Metall
+bg:Рециклируеми метали
+de:Wiederverwertbare Metalle, Wiederverwertbares Metall, Recycelbares Metall, Recycelbare Metalle
+es:Metales Reciclables
+fr:Métaux recyclables
 hu:Újrahasznosítható fémek
 it:Metalli riciclabili
 nl:Recyclebaar metaal
+pl:Metal do recyclingu
 pt:Metais recicláveis
+description:de:Alle Metalle können bei ordnungsgemäßer Rückgabe wiederverwendet werden.
+description:en:All metals can be reused, if returned properly.
+description:es:Todos los metales se pueden reutilizar, si se devuelven correctamente.
+description:fr:Tous les métaux peuvent être réutilisés s'ils sont retournés correctement.
+description:it:Tutti i metalli possono essere riutilizzati, se restituiti correttamente.
+description:nl:Alle metalen kunnen opnieuw hergebruikt worden, mist goed geretourneerd.
+descruiption:pt:Todos os metais podem ser reutilizados, se devolvidos adequadamente.
 
+# Adding iron as a synonym of steel, as most "iron" packaging is in fact steel
 <en:Metals
-en:Steel, 40 FE, Recycling Code 40, RC 40, 40, RC Steel
-de:Stahl, 40 FE, 40-FE
-da:Stål, 40 FE, 40-FE
-fr:Acier
-hu:Acél, 40 FE, RC 40, 40
+en:Steel, iron
+bg:Стомана, желязо
+de:Stahl
+da:Stål
+fr:Acier, fer, Métaux / Acier et fer (magnétiques)
+hr:čelik
+hu:Acél
 it:Acciaio
-nl:Staal, 40 FE, RC 40, 40
-pt:Aço, 40 FE, RC 40, 40, RC Steel
+nl:IJzer, Staal
+pl:Żelazo, Stal
+pt:Aço
 ru:Сталь
 ja:スチール
-xx:40 FE, Recycling Code 40, RC 40, RC Steel
+xx:40 FE, FE 40
 wikidata:en:Q11427
+description:de:Alle Metalle können bei ordnungsgemäßer Rückgabe wiederverwendet werden.
+description:en:Alle Metalle können bei ordnungsgemäßer Rückgabe wiederverwendet werden. Stahl ist magnetisch. Wenn Sie sich einem Magneten nähern, sollte dieser im Gegensatz zu Aluminium angezogen werden. Somit kann es leicht aus jeglichen Abfällen extrahiert werden.
+description:es:Todos los metales se pueden reutilizar, si se devuelven correctamente. El acero es magnético. Si te acercas a un imán, debería ser atraído, a diferencia del aluminio. Por lo tanto, se puede extraer fácilmente de cualquier residuo.
+description:fr:Tous les métaux peuvent être réutilisés s'ils sont retournés correctement. L'acier est magnétique. Si vous vous approchez d'un aimant, il doit être attiré, contrairement à l'aluminium. Ainsi, il peut être facilement extrait de n'importe quel déchet.
+description:it:Tutti i metalli possono essere riutilizzati, se restituiti correttamente. L'acciaio è magnetico. Se ti avvicini a un magnete, dovrebbe essere attratto, a differenza dell'alluminio. Così può essere facilmente estratto da qualsiasi rifiuto.
+description:nl:Alle metalen kunnen worden hergebruikt, mits correct geretourneerd. Staal is magnetisch. Als u een magneet nadert, moet deze worden aangetrokken, in tegenstelling tot aluminium. Zo kan het gemakkelijk uit elk afval worden gehaald.
+description:pt:Todos os metais podem ser reutilizados, se devolvidos adequadamente. O aço é magnético. Se você se aproximar de um ímã, ele deve ser atraído, ao contrário do alumínio. Assim, pode ser facilmente extraído de qualquer resíduo.
+
+<en:steel
+en:Tin-plated steel
+ca:Llauna
+de:Weißblech, Weissblech
+es:hojalata
+eu:Latorri
+fr:Fer blanc
+hu:fehérbádog
+it:latta
+nl:blik
+pt:folha de flandres
+ru:жесть
+sv:Bleck
+tr:Teneke
+uk:Бляха
+wikidata:en:Q2556927
+description:de:Für Konservendosen wird verzinnter Stahl (gegen Rost) verwendet. Oft wird auf der Innenseite eine zusätzliche Kunststoffschicht aufgebracht. Verzinnter Stahl ist magnetisch. Wenn Sie einen Magneten hinzufügen, sollte dieser im Gegensatz zu Aluminium angezogen werden. So lässt es sich problemlos aus jedem Abfall entfernen.
+description:en:Steel with a layer of tin (against rust formation) is used for food cans. An extra layer of plastic is often applied to the inside. Tin-coated steel is magnetic. If you add a magnet, it should be attracted, unlike aluminum. So it can be easily removed from any waste.
+description:es:El acero estañado (contra la oxidación) se utiliza para latas de alimentos. A menudo, se aplica una capa adicional de plástico en el interior. El acero estañado es magnético. Si agrega un imán, debe ser atraído, a diferencia del aluminio. Por lo que se puede eliminar fácilmente de cualquier residuo.
+description:fr:L'acier étamé (contre la rouille) est utilisé pour les boîtes de conserve. Souvent, une couche supplémentaire de plastique est appliquée à l'intérieur. L'acier étamé est magnétique. Si vous ajoutez un aimant, il doit être attiré, contrairement à l'aluminium. Ainsi, il peut être facilement retiré de tout déchet.
+description:it:L'acciaio stagnato (contro la ruggine) viene utilizzato per le lattine per alimenti. Spesso all'interno viene applicato uno strato extra di plastica. L'acciaio stagnato è magnetico. Se aggiungi un magnete, dovrebbe essere attratto, a differenza dell'alluminio. Quindi può essere facilmente rimosso da qualsiasi rifiuto.
+description:nl:Staal met een laagje tin (Tegen roestvorming) wordt gebruikt voor conservenblikken. Vaak wordt een extra laag plastic aan de binnenkant aangebracht. Staal met een laagje tin is magnetisch. Als je een magneet erbij doet, moet deze worden aangetrokken, in tegenstelling tot aluminium. Zo kan het gemakkelijk uit elk afval worden gehaald.
+description:pt:Aço estanhado (contra ferrugem) é usado para latas de alimentos. Muitas vezes, uma camada extra de plástico é aplicada no interior. O aço revestido de estanho é magnético. Se você adicionar um ímã, ele deve ser atraído, ao contrário do alumínio. Portanto, pode ser facilmente removido de qualquer resíduo.
 
 <en:Recyclable Metals
 en:Aluminium
+bg:Алуминий
+ca:alumini
+cs:hliník
 da:Aluminium
 de:Aluminium
+el:αργίλιο
+es:aluminio
+et:alumiinium
+fi:alumiini
 fr:Aluminium
+ga:alúmanam
+hr:aluminij
 hu:Alumínium
 it:Alluminio
-nl:Aluminium
-pt:Alumínio
-ru:Алюминий
 ja:アルミ
-xx:41 ALU
+lt:aliuminis
+lv:alumīnijs
+mt:aluminju
+nl:Aluminium
+nn:aluminium
+pl:Aluminium, glin
+pt:Alumínio
+ro:aluminiu
+ru:Алюминий
+sk:hliník
+sl:aluminij
+sv:aluminium
+xx:41 ALU, ALU 41, ALU, ALU41, 41ALU
 wikidata:en:Q663
+description:de:Die Aluminiumproduktion aus Erz hat einen großen CO2-Fußabdruck, aber Recycling kann diesen um das 20-fache verbessern. Aluminium wird beispielsweise als Folie, Schalen oder Dosen verwendet. Aluminium ist gut recycelbar, erfordert aber einen separaten Rücklauf oder eine spezielle Absaugtechnik (nur bei dickem Aluminium).
+description:en:Aluminum production from ore has a large carbon footprint, but recycling can improve this by 20x. For example, aluminum is used as foil, trays or cans. Aluminum is highly recyclable, but requires a separate return flow or special extraction technology (only for thick aluminium).
+description:es:La producción de aluminio a partir de minerales tiene una gran huella de carbono, pero el reciclaje puede mejorarla 20 veces. Por ejemplo, el aluminio se utiliza como papel de aluminio, bandejas o latas. El aluminio es altamente reciclable, pero requiere un flujo de retorno separado o una tecnología de extracción especial (solo para aluminio grueso).
+description:fr:La production d'aluminium à partir de minerai a une empreinte carbone importante, mais le recyclage peut l'améliorer de 20 fois. Par exemple, l'aluminium est utilisé sous forme de papier d'aluminium, de barquettes ou de canettes. L'aluminium est hautement recyclable, mais nécessite un flux de retour séparé ou une technologie d'extraction spéciale (uniquement pour l'aluminium épais).
+description:it:La produzione di alluminio dal minerale ha una grande impronta di carbonio, ma il riciclaggio può migliorarla di 20 volte. Ad esempio, l'alluminio viene utilizzato come pellicola, vassoi o lattine. L'alluminio è altamente riciclabile, ma richiede un flusso di ritorno separato o una speciale tecnologia di estrazione (solo per alluminio spesso).
+description:nl:Aluminiumproductie vanuit erts heeft een grote koolstofvoetafdruk, maar door hergebruik kan dit 20x beter worden. Aluminium wordt bijvoorbeeld gebruikt als folie, bakjes of blikjes. Aluminium is zeer goed recycleerbaar, maar vergt een aparte retourstroom of speciale extractietechnologie (alleen voor dik aluminium).
+description:pt:A produção de alumínio a partir do minério tem uma grande pegada de carbono, mas a reciclagem pode melhorar isso em 20 vezes. Por exemplo, o alumínio é usado como papel alumínio, bandejas ou latas. O alumínio é altamente reciclável, mas requer um fluxo de retorno separado ou tecnologia de extração especial (somente para alumínio espesso).
 
 <en:Aluminium
 en:Heavy aluminium, thick aluminium
 de:Schweres Aluminium, dickes Aluminium
+es:Aluminio grueso, Aluminio pesado
 fr:Aluminium lourd, aluminium épais
-nl:Dik aluminium
+it:Alluminio spesso, Alluminio pesante
+nl:Dik aluminium, Zwaar aluminium
+pl:Grube aluminium, Ciężkie aluminium
 pt:Alumínio pesado, alumínio grosso, alumínio rígido
+description:de:Die Aluminiumproduktion aus Erz hat einen großen CO2-Fußabdruck, aber Recycling kann diesen um das 20-fache verbessern. Dickes Aluminium wird zum Beispiel für Schalen oder Dosen verwendet. Dickes Aluminium lässt sich gut recyceln, erfordert aber einen separaten Rücklauf oder eine spezielle Absaugtechnik.
+description:en:Aluminum production from ore has a large carbon footprint, but recycling can improve this by 20x. Thick aluminum is used, for example, for trays or cans. Thick aluminum is highly recyclable, but requires a separate return flow or special extraction technology.
+description:es:La producción de aluminio a partir de minerales tiene una gran huella de carbono, pero el reciclaje puede mejorarla 20 veces. El aluminio grueso se utiliza, por ejemplo, para bandejas o latas. El aluminio grueso es altamente reciclable, pero requiere un flujo de retorno separado o una tecnología de extracción especial.
+description:fr:La production d'aluminium à partir de minerai a une empreinte carbone importante, mais le recyclage peut l'améliorer de 20 fois. L'aluminium épais est utilisé, par exemple, pour les barquettes ou les canettes. L'aluminium épais est hautement recyclable, mais nécessite un flux de retour séparé ou une technologie d'extraction spéciale.
+description:it:La produzione di alluminio dal minerale ha una grande impronta di carbonio, ma il riciclaggio può migliorarla di 20 volte. L'alluminio spesso viene utilizzato, ad esempio, per vassoi o lattine. L'alluminio spesso è altamente riciclabile, ma richiede un flusso di ritorno separato o una speciale tecnologia di estrazione.
+description:nl:Aluminiumproductie vanuit erts heeft een grote koolstofvoetafdruk, maar door hergebruik kan dit 20x beter worden. Dik aluminium wordt bijvoorbeeld gebruikt voor bakjes of blikjes. Dik aluminium is zeer goed recycleerbaar, maar vergt een aparte retourstroom of speciale extractietechnologie.
+description:pt:A produção de alumínio a partir do minério tem uma grande pegada de carbono, mas a reciclagem pode melhorar isso em 20 vezes. O alumínio grosso é usado, por exemplo, para bandejas ou latas. O alumínio espesso é altamente reciclável, mas requer um fluxo de retorno separado ou tecnologia de extração especial.
 
 # Thin sheets, small things that cannot be easily recycled
 <en:Aluminium
@@ -445,173 +1447,1476 @@ en:Light aluminium, thin aluminium
 de:Leichtes Aluminium, dünnes Aluminium
 fr:Aluminium léger, aluminium fin
 nl:Dun aluminium
+pl:Cienkie aluminium, Lekkie aluminium
 pt:Alumínio leve, alumínio fino, alumínio maleável
+description:de:Die Aluminiumproduktion aus Erz hat einen großen CO2-Fußabdruck, aber Recycling kann diesen um das 20-fache verbessern. Als Folie wird beispielsweise dünnes Aluminium verwendet. Dünnes Aluminium ist schwer zu recyceln, da es nicht aus Abfallströmen gewonnen werden kann.
+description:en:Aluminum production from ore has a large carbon footprint, but recycling can improve this by 20x. For example, thin aluminum is used as a foil. Thin aluminum is difficult to recycle because it cannot be extracted from waste streams.
+description:es:La producción de aluminio a partir de minerales tiene una gran huella de carbono, pero el reciclaje puede mejorarla 20 veces. Por ejemplo, el aluminio delgado se usa como lámina. El aluminio delgado es difícil de reciclar porque no se puede extraer de los flujos de desechos.
+description:fr:La production d'aluminium à partir de minerai a une empreinte carbone importante, mais le recyclage peut l'améliorer de 20 fois. Par exemple, de l'aluminium mince est utilisé comme feuille. L'aluminium mince est difficile à recycler car il ne peut pas être extrait des flux de déchets.
+description:it:La produzione di alluminio dal minerale ha una grande impronta di carbonio, ma il riciclaggio può migliorarla di 20 volte. Ad esempio, l'alluminio sottile viene utilizzato come lamina. L'alluminio sottile è difficile da riciclare perché non può essere estratto dai flussi di rifiuti.
+description:nl:Aluminiumproductie vanuit erts heeft een grote koolstofvoetafdruk, maar door hergebruik kan dit 20x beter worden. Dun aluminium wordt bijvoorbeeld gebruikt als folie. Dun aluminium is moeilijk recycleerbaar, omdat het niet uit afvalstromen kan worden gehaald.
+description:pt:A produção de alumínio a partir do minério tem uma grande pegada de carbono, mas a reciclagem pode melhorar isso em 20 vezes. Por exemplo, alumínio fino é usado como folha. O alumínio fino é difícil de reciclar porque não pode ser extraído dos fluxos de resíduos.
 
-en:Wood, 50 FOR
-da:Træ, 50 FOR
-de:Holz, 50 FOR, 50-FOR
-fr:Bois
-hu:Fa, 50 FOR
+en:Wood, wooden
+bg:Дървесина
+ca:fusta
+cs:dřevo
+da:Træ
+de:Holz
+el:ξύλο
+es:madera
+et:puit
+eu:zur
+fi:puuaines
+fr:Bois, Cellulosique / Bois, Cellulosique / Autre bois
+ga:adhmad
+hr:drvo
+hu:Fa
+is:Viður
 it:Legno
-nl:Hout, 50 FOR
-pt:Madeira, 50 FOR
+lt:Mediena
+lv:koksne
+mk:дрво
+mt:injam
+nb:treverk
+nn:trevirke
+nl:Hout
+pl:Drewno, drewniane
+pt:Madeira
+ro:lemn
 ru:Древесина
-xx:50 FOR, 50-FOR
+sk:drevo
+sl:les
+sq:dru
+sr:дрво
+sv:trä
+tr:tahta
+uk:деревина
+xx:50 FOR, FOR 50
 wikidata:en:Q287
+description:de:Holz ist das innere Material von Bäumen und Sträuchern. Holz kann als Kisten für Obst oder Gemüse und als kleine Behälter verwendet werden. Unbehandeltes Holz kann leicht wiederverwendet werden, aber es gibt oft keine Sammelinfrastruktur.
+description:en:Wood is the inner material of trees and shrubs. Wood can be used as crates for fruit or vegetables, and as small containers. Untreated wood can easily be reused, but there is often no collection infrastructure.
+description:es:La madera es el material interior de árboles y arbustos. La madera se puede utilizar como cajas para frutas o verduras y como pequeños contenedores. La madera sin tratar se puede reutilizar fácilmente, pero a menudo no hay infraestructura de recolección.
+description:fr:Le bois est le matériau intérieur des arbres et arbustes. Le bois peut être utilisé comme caisses pour les fruits ou les légumes, et comme petits contenants. Le bois non traité peut facilement être réutilisé, mais il n'y a souvent pas d'infrastructure de collecte.
+description:it:Il legno è il materiale interno di alberi e arbusti. Il legno può essere utilizzato come cassette per frutta o verdura e come piccoli contenitori. Il legno non trattato può essere facilmente riutilizzato, ma spesso non esiste un'infrastruttura di raccolta.
+description:nl:Hout is het materiaal in het binnenste van bomen en struiken. Hout kan worden gebruikt als kratten voor groente of fruit, en als kleine bakjes. Onbehandeld hout kan makkelijk herbruikt worden, maar er is vaak geen inzamelingsinfrastructuur.
+description:pt:A madeira é o material interno de árvores e arbustos. A madeira pode ser usada como caixotes para frutas ou vegetais e como pequenos recipientes. A madeira não tratada pode ser facilmente reaproveitada, mas muitas vezes não há infraestrutura de coleta.
 
-en:Cork, 51 FOR
-da:Kork, 51 FOR
-de:Kork, 51 FOR, 51-FOR
-fr:Liège
-hu:Parafa, 51 FOR, 51-FOR
-nl:Kurk, 51 FOR, 51-FOR
-pt:Cortiça, 51 FOR, 51-FOR
+en:Cork
+af:kurk
+bg:Корк
+ca:suro
+co:sùvaru
+cs:korek
+da:Kork
+de:Kork
+eo:korko
+es:corcho
+fi:korkki
+fo:tøppur
+fr:Liège, Cellulosique / Liège
+fy:koark
+hr:pluto
+hu:Parafa
+id:gabus
+io:korko
+it:sughero
+nl:Kurk
+oc:siure
+pl:Korek
+pt:Cortiça
 ru:Пробка
-xx:51 FOR, 51-FOR
+sv:kork
+sw:kizibo
+xx:51 FOR, FOR 51
 wikidata:en:Q49444
+descrition:de:Kork ist ein leichtes, elastisches Material, das aus der Rinde der Korkeiche hergestellt wird. Kork wird hauptsächlich als Weinflaschenverschluss verwendet. Weinkorken können für andere Zwecke wiederverwendet werden.
+description:en:Cork is a light, elastic material made from the bark of the cork oak. Cork is mainly used as a wine bottle seal. Wine corks can be reused for other purposes.
+description:es:El corcho es un material ligero y elástico hecho de la corteza del alcornoque. El corcho se utiliza principalmente como sello de botella de vino. Los corchos de vino se pueden reutilizar para otros fines.
+description:fr:Le liège est un matériau léger et élastique fabriqué à partir de l'écorce du chêne-liège. Le liège est principalement utilisé comme sceau de bouteille de vin. Les bouchons de vin peuvent être réutilisés à d'autres fins.
+description:it:Il sughero è un materiale leggero ed elastico ricavato dalla corteccia della quercia da sughero. Il sughero viene utilizzato principalmente come sigillo per bottiglie di vino. I tappi per vino possono essere riutilizzati per altri scopi.
+description:nl:Kurk is een licht, elastisch materiaal, dat wordt gemaakt van de schors van de kurkeik. Kurk wordt voornamelijk gebruikt als afdichting van wijnflessen. Wijnkurken kunnen worden hergebruikt voor andere doeleinden.
+description:pt:A cortiça é um material leve e elástico feito da casca do sobreiro. A cortiça é utilizada principalmente como vedante de garrafas de vinho. As rolhas de vinho podem ser reutilizadas para outros fins.
 
-en:Cotton, 60 COT
-da:Bomuld, 60 COT
-de:Baumwolle, 60 COT, 60-COT
+en:Textile, textiles
+fr:Textile, textiles, fibre textile, fibres textiles
+
+<en:Textile
+en:Cotton
+af:katoen
+ar:قطن
+az:pambıq
+be:бавоўнік
+bg:Памук
+br:koton
+ca:cotó
+cs:bavlna
+da:Bomuld
+de:Baumwolle
+el:βαμβάκι
+eo:kotono
+es:algodón
+et:puuvill
+eu:algodoi
+fa:پنبه
+fi:puuvilla
+fo:bummull
 fr:Coton
-hu:Pamut, 60 COT
-it:Cotone, 60 COT
-nl:Katoen, 60 COT
-pt:Algodão, 60 COT
+fy:ketoen
+he:כותנה
+hr:pamuk
+hu:Pamut
+hy:բամբակենի
+id:kapas
+is:baðmull
+it:Cotone
+ja:綿
+ka:ბამბა
+ko:면화
+lt:medvilnė
+lv:kokvilna
+mn:хөвөн
+mt:qoton
+nl:Katoen
+no:bomull
+pl:bawełna
+pt:Algodão
+ro:bumbac
+sq:pambuk
 ru:Хлопок
-xx:60 COT, 60-COT
+sk:bavlna
+sl:bombaž
+sr:памук
+sv:bomull
+th:ฝ้าย
+tr:pamuk
+uk:бавовна
+vi:bông
+zh:棉花
+xx:60 COT, COT 60, 60 TEX, TEX 60
 wikidata:en:Q8231603
+description:de:Baumwolle ist eine Naturfaser, die hauptsächlich in warmen Klimazonen angebaut und geerntet wird. Es wird häufig bei der Herstellung von Kleidung und Textilien verwendet, kann aber auch bei der Herstellung von Lebensmittelverpackungsmaterialien verwendet werden. Baumwolle kann auch recycelt und zur Herstellung neuer Produkte wie Papier oder Isolierung verwendet werden.
+description:en:Cotton is a natural fiber that is grown and harvested primarily in warm climates. It is commonly used in the production of clothing and textiles, but can also be used in the production of food packaging materials. Cotton can also be recycled and used to create new products, such as paper or insulation.
+description:es:El algodón es una fibra natural que se cultiva y cosecha principalmente en climas cálidos. Se usa comúnmente en la producción de prendas de vestir y textiles, pero también se puede usar en la producción de materiales de envasado de alimentos. El algodón también se puede reciclar y utilizar para crear nuevos productos, como papel o aislamiento.
+description:fr:Le coton est une fibre naturelle qui est cultivée et récoltée principalement dans les climats chauds. Il est couramment utilisé dans la production de vêtements et de textiles, mais peut également être utilisé dans la production de matériaux d'emballage alimentaire. Le coton peut également être recyclé et utilisé pour créer de nouveaux produits, tels que du papier ou de l'isolation.
+description:it:Il cotone è una fibra naturale che viene coltivata e raccolta principalmente in climi caldi. È comunemente utilizzato nella produzione di abbigliamento e tessuti, ma può essere utilizzato anche nella produzione di materiali per l'imballaggio alimentare. Il cotone può anche essere riciclato e utilizzato per creare nuovi prodotti, come carta o materiale isolante.
+description:nl:Katoen is een natuurlijke vezel die voornamelijk in warme klimaten wordt verbouwd en geoogst. Het wordt veel gebruikt bij de productie van kleding en textiel, maar kan ook worden gebruikt bij de productie van voedselverpakkingsmaterialen. Katoen kan ook worden gerecycled en gebruikt om nieuwe producten te maken, zoals papier of isolatiemateriaal.
+description:pt:O algodão é uma fibra natural cultivada e colhida principalmente em climas quentes. É comumente usado na produção de roupas e têxteis, mas também pode ser usado na produção de materiais de embalagem de alimentos. O algodão também pode ser reciclado e usado para criar novos produtos, como papel ou isolamento.
 
-en:Jute, 61 TEX
-de:Jute, 61 TEX, 61-TEX
-hu:Juta, 61 TEX, 61-TEX
-nl:Jute, 61 TEX, 61-TEX
-pt:Juta, 61 TEX, 61-TEX
-ru:Джутовое волокно
-xx:61 TEX, 61-TEX
+<en:Textile
+en:Linen, flax
+fr:Lin, Fibre - Textile / Lin
+
+#<en:Fiber
+en:61 TEX Jute, Jute
+bg:61 TEX юта, юта
+ca:61 TEX jute, jute
+cs:61 TEX Juta, Juta
+da:61 TEX jute, jute
+de:61 TEX Jute, Jute
+el:61 TEX Γιούτα, Γιούτα
+es:61 TEX yute, yute
+et:61 TEX Džuut, Džuut
+fi:61 TEX Juutti, Juutti
+fr:61 TEX jute, jute
+hr:61 TEX juta, juta
+hu:61 TEX juta, juta
+it:61 TEX iuta, iuta
+lt:61 TEX Džiutas, Džiutas
+lv:61 TEX Džuta, Džuta
+mk:61 TEX јута, јута
+nb:61 TEX jute, jute
+nl:61 TEX jute, jute
+nn:61 TEX jute, jute
+pl:61 TEX juta, juta
+pt:61 TEX juta, juta
+ro:61 TEX Iută, Iută
+ru:61 TEX джут, джут
+sk:61 TEX Juta, Juta
+sl:61 TEX juti, juti
+sr:61 TEX jute, jute
+sv:61 TEX jute, jute
+tr:61 TEX Jüt, Jüt
+uk:61 TEX Джут, Джут
+xx:61 TEX, TEX 61
 wikidata:en:Q107211
+biodegradable:en:yes
+description:de:Jute ist eine Naturfaser, die aus dem Stamm der Jutepflanze gewonnen wird. Es wird häufig zur Herstellung von Sackleinen und anderen Arten von groben Stoffen sowie bei der Herstellung von Lebensmittelverpackungsmaterialien verwendet. Jute kann auch recycelt werden, indem sie als Rohstoff für die Herstellung anderer Produkte auf Jutebasis verwendet wird. Jute ist biologisch abbaubar.
+description:en:Jute is a natural fiber that is obtained from the stem of the jute plant. It is commonly used to make burlap and other types of rough fabrics, as well as in the production of food packaging materials. Jute can also be recycled, by being used as a raw material for the production of other jute-based products. Jute is bio-degradable.
+description:es:El yute es una fibra natural que se obtiene del tallo de la planta de yute. Se usa comúnmente para hacer arpillera y otros tipos de telas ásperas, así como en la producción de materiales para empaque de alimentos. El yute también se puede reciclar, utilizándose como materia prima para la producción de otros productos a base de yute. El yute es biodegradable.
+description:fr:Le jute est une fibre naturelle obtenue à partir de la tige de la plante de jute. Il est couramment utilisé pour fabriquer de la toile de jute et d'autres types de tissus rugueux, ainsi que dans la production de matériaux d'emballage alimentaire. Le jute peut également être recyclé, en étant utilisé comme matière première pour la production d'autres produits à base de jute. Le jute est biodégradable.
+description:it:La iuta è una fibra naturale che si ottiene dal fusto della pianta della iuta. È comunemente usato per realizzare juta e altri tipi di tessuti ruvidi, nonché nella produzione di materiali per l'imballaggio alimentare. La iuta può anche essere riciclata, essendo utilizzata come materia prima per la produzione di altri prodotti a base di iuta. La iuta è biodegradabile.
+description:nl:Jute is een natuurlijke vezel die wordt gewonnen uit de stengel van de juteplant. Het wordt vaak gebruikt om jute en andere soorten ruwe stoffen te maken, evenals bij de productie van voedselverpakkingsmaterialen. Jute kan ook worden gerecycled door als grondstof te worden gebruikt voor de productie van andere op jute gebaseerde producten. Jute is biologisch afbreekbaar.
+description:pt:A juta é uma fibra natural obtida do caule da planta de juta. É comumente usado para fazer estopa e outros tipos de tecidos ásperos, bem como na produção de materiais de embalagem de alimentos. A juta também pode ser reciclada, sendo utilizada como matéria-prima para a produção de outros produtos à base de juta. A juta é biodegradável.
 
-en:Other Textiles, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX
-de:Andere Textilien, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX, 62-TEX, 63-TEX, 64-TEX, 65-TEX, 66-TEX, 67-TEX, 68-TEX, 69-TEX
-fr:Autres textiles, autre textile
-hu:Egyéb textilek, Egyéb textil, Egyéb textília, Más textilek, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX
+<en:Textile
+en:Other Textiles
+bg:Друг текстил
+de:Andere Textilien
+es:Otros textiles
+fr:Autres textiles, autre textile, Fibre - Textile / Autre fibre végétale / cellulosique
+hu:Egyéb textilek, Egyéb textil, Egyéb textília, Más textilek
+it:Altri Tessili
 nl:Ander textiel
-pt:Outros têxteis, 62, 63, 64, 65, 66, 67, 68, 69, 62 TEX, 63 TEX, 64 TEX, 65 TEX, 66 TEX, 67 TEX, 68 TEX, 69 TEX, 62-TEX, 63-TEX, 64-TEX, 65-TEX, 66-TEX, 67-TEX, 68-TEX, 69-TEX
+pt:Outros têxteis
+xx:62 TEX, TEX 62, 63 TEX, TEX 63, 64 TEX, TEX 64, 65 TEX, TEX 65, 66 TEX, TEX 66, 67 TEX, TEX 67, 68 TEX, TEX 68, 69 TEX, TEX 69
+description:Elk textiel (uit draden gemaakt materiaal) dat niet jute of katoen is.
 
+# Silicates / Verre (sodo-calcique) in data from Les Mousquetaires
 en:Glass
+bg:Стъкло
+bs:Staklo
+ca:vidre
+cs:sklo
 da:Glas
 de:Glas
-fr:Verre
+el:γυαλί
+es:Vidrio, cristal
+et:klaas
+fi:lasi
+fr:Verre, Silicates / Verre (sodo-calcique), Silicates / Verre autre que sodo-calcique (cristal - pyrex etc.), Silicates / Autre Silicates
+ga:gloine
+hr:staklo
 hu:Üveg
+is:Gler
 it:Vetro
+lt:Stiklas
+lv:stikls
+mk:стакло
+mt:ħġieġ
+nb:glass
+nn:glas
 nl:Glas, Glazen
+pl:szkło
 pt:vidro
+ro:sticlă
+ru:стекло
+sk:sklo
+sl:steklo
+sq:xham
+sr:стакло, staklo
+sv:glas
+tr:Cam
+uk:скло
 wikidata:en:Q11469
+description:de:Glas wird hergestellt, indem eine Mischung aus Kieselsäure, Soda und Kalkstein auf eine hohe Temperatur erhitzt wird, wodurch eine Flüssigkeit entsteht, die in verschiedene Formen geformt werden kann. Glas wird häufig in Lebensmittelverpackungen verwendet, da es ein undurchlässiges Material ist, das Lebensmittel vor Licht, Luft und Bakterien schützen und auch hohen Temperaturen standhalten kann. Glasverpackungen können recycelt werden, wobei das recycelte Glas zur Herstellung neuer Glasprodukte verwendet wird.
+description:en:Glass is produced by heating a mixture of silica, soda ash, and limestone to a high temperature, creating a liquid that can be molded into various shapes. Glass is commonly used in food packaging because it is an impermeable material that can protect food from light, air, and bacteria, and can also withstand high temperatures. Glass packaging can be recycled, with the recycled glass used to create new glass products.
+description:es:El vidrio se produce calentando una mezcla de sílice, carbonato de sodio y piedra caliza a alta temperatura, creando un líquido que se puede moldear en varias formas. El vidrio se usa comúnmente en el empaque de alimentos porque es un material impermeable que puede proteger los alimentos de la luz, el aire y las bacterias, y también puede soportar altas temperaturas. Los envases de vidrio se pueden reciclar y el vidrio reciclado se utiliza para crear nuevos productos de vidrio.
+description:fr:Le verre est produit en chauffant un mélange de silice, de carbonate de soude et de calcaire à haute température, créant ainsi un liquide qui peut être moulé en différentes formes. Le verre est couramment utilisé dans les emballages alimentaires car il s'agit d'un matériau imperméable qui peut protéger les aliments de la lumière, de l'air et des bactéries, et peut également résister à des températures élevées. Les emballages en verre peuvent être recyclés, le verre recyclé étant utilisé pour créer de nouveaux produits en verre.
+description:it:Il vetro viene prodotto riscaldando ad alta temperatura una miscela di silice, carbonato di sodio e calcare, creando un liquido che può essere modellato in varie forme. Il vetro è comunemente utilizzato negli imballaggi alimentari perché è un materiale impermeabile in grado di proteggere gli alimenti dalla luce, dall'aria e dai batteri e può anche resistere alle alte temperature. Gli imballaggi in vetro possono essere riciclati, con il vetro riciclato utilizzato per creare nuovi prodotti in vetro.
+description:nl:Glas wordt geproduceerd door een mengsel van silica, natriumcarbonaat en kalksteen tot een hoge temperatuur te verhitten, waardoor een vloeistof ontstaat die in verschillende vormen kan worden gegoten. Glas wordt vaak gebruikt in voedselverpakkingen omdat het een ondoordringbaar materiaal is dat voedsel kan beschermen tegen licht, lucht en bacteriën, en ook bestand is tegen hoge temperaturen. Glazen verpakkingen kunnen worden gerecycled, waarbij het gerecyclede glas wordt gebruikt om nieuwe glasproducten te maken.
+description:pt:O vidro é produzido pelo aquecimento de uma mistura de sílica, carbonato de sódio e calcário a uma temperatura elevada, criando um líquido que pode ser moldado em várias formas. O vidro é comumente usado em embalagens de alimentos porque é um material impermeável que pode proteger os alimentos da luz, do ar e das bactérias, além de suportar altas temperaturas. As embalagens de vidro podem ser recicladas, com o vidro reciclado usado para criar novos produtos de vidro.
 
 <en:Glass
-en:Mixed Glass Container/Multi-Part Container, 70 GLS
-hu:Vegyes üveg
-nl:Gemengd glas
-pt:Contentor de vidro misturado, 70 GLS
-
-<en:Glass
-en:Clear Glass, 71 GLS, 71-GLS
-da:Klar Glas, 71 GLS, 71-GLS
-de:Klarglas, 71 GLS, 71-GLS
+en:Clear Glass
+bg:Безцветно стъкло
+da:Klar Glas
+de:Klarglas, Farbloses Glas
 fr:Verre transparent
+hr:bezbojno staklo
 hu:Fehér üveg
-nl:transparant glas
-pt:Vidro transparente, 71 GLS, 71-GLS
-xx:71 GLS, 71-GLS
+nl:transparant glas, transparant glazen
+pl:Przezroczyste szkło, Przeźroczyste szkło
+pt:Vidro transparente
+xx:70 GL, GL 70, 70GL, GL70, 70 GLS, GLS 70, 70GLS, GLS70
+wikidata:en:Q28869937
 
 <en:Glass
-en:Green Glass, 72 GLS, 72-GLS
-da:Grønt Glas, 72 GLS, 72-GLS
-de:Grünglas, 72 GLS, 72-GLS
+en:Green Glass
+bg:Зелено стъкло
+da:Grønt Glas
+de:Grünglas, Grünes Glas
 fr:Verre vert
+hr:zeleno staklo
 hu:Zöld üveg
-nl:Groen glas
-pt:Vidro verde, 72 GLS, 72-GLS
-xx:72 GLS, 72-GLS
+nl:Groen glas, groene glazen
+pl:Zielone szkło
+pt:Vidro verde
+xx:71 GL, GL 71, 71GL, GL71, 71 GLS, GLS 71, 71GLS, GLS71
 
 <en:Glass
-en:Dark Sort Glass, 73 GLS
-de:Dunkles Sortierglas, 73 GLS
+en:Brown Glass
+de:Braunglas, Braunes Glas
+bg:Кафяво стъкло
+es:vidrio marrón
+fr:Verre brun
+hr:smeđe staklo
+it:vetro marrone
+nl:Bruin glas, bruine glazen
+pl:Brązowe szkło
+pt:vidro marrom
+xx:72 GL, GL 72, 72GL, GL72, 72 GLS, GLS 72, 72GLS, GLS72
+wikidata:en:Q2184152
+# wikidata is for brown glass bottles
+description:de:Braunglas entsteht durch Zugabe von Eisenoxid zu den bei der Glasherstellung verwendeten Rohstoffen, wodurch es seine charakteristische braune Farbe erhält. Es wird häufig in Lebensmittelverpackungen verwendet, da es Licht und UV-Strahlen effektiv blockiert und so dazu beiträgt, die darin enthaltenen Lebensmittel zu konservieren. Braunglas kann recycelt werden und ist aufgrund seiner weit verbreiteten Verwendung in Lebensmittel- und Getränkeverpackungen eine der am häufigsten recycelten Glasarten.
+description:en:Brown glass is made by adding iron oxide to the raw materials used in glass production, which gives it its characteristic brown color. It is commonly used in food packaging because it effectively blocks out light and UV rays, helping to preserve the food inside. Brown glass can be recycled, and it is one of the most commonly recycled types of glass due to its widespread use in food and beverage packaging.
+description:es:El vidrio marrón se fabrica añadiendo óxido de hierro a las materias primas utilizadas en la producción del vidrio, lo que le confiere su característico color marrón. Se utiliza comúnmente en el envasado de alimentos porque bloquea eficazmente la luz y los rayos UV, lo que ayuda a conservar los alimentos en su interior. El vidrio marrón se puede reciclar y es uno de los tipos de vidrio que se reciclan con mayor frecuencia debido a su uso generalizado en los envases de alimentos y bebidas.
+description:fr:Le verre brun est fabriqué en ajoutant de l'oxyde de fer aux matières premières utilisées dans la production de verre, ce qui lui donne sa couleur brune caractéristique. Il est couramment utilisé dans les emballages alimentaires car il bloque efficacement la lumière et les rayons UV, aidant à préserver les aliments à l'intérieur. Le verre brun peut être recyclé et c'est l'un des types de verre les plus couramment recyclés en raison de son utilisation répandue dans les emballages alimentaires et de boissons.
+description:it:Il vetro marrone viene prodotto aggiungendo ossido di ferro alle materie prime utilizzate nella produzione del vetro, che gli conferisce il caratteristico colore marrone. È comunemente usato negli imballaggi alimentari perché blocca efficacemente la luce e i raggi UV, contribuendo a preservare il cibo all'interno. Il vetro marrone può essere riciclato ed è uno dei tipi di vetro più comunemente riciclati grazie al suo uso diffuso negli imballaggi per alimenti e bevande.
+description:nl:Bruin glas wordt gemaakt door ijzeroxide toe te voegen aan de grondstoffen die bij de glasproductie worden gebruikt, waardoor het zijn karakteristieke bruine kleur krijgt. Het wordt vaak gebruikt in voedselverpakkingen omdat het effectief licht en UV-stralen blokkeert, waardoor het voedsel binnenin beter wordt bewaard. Bruin glas kan worden gerecycled en het is een van de meest gerecyclede glassoorten vanwege het wijdverbreide gebruik in voedsel- en drankverpakkingen.
+description:pt:O vidro marrom é feito adicionando óxido de ferro às matérias-primas usadas na produção de vidro, o que lhe confere sua característica cor marrom. É comumente usado em embalagens de alimentos porque bloqueia efetivamente a luz e os raios ultravioleta, ajudando a preservar os alimentos no interior. O vidro marrom pode ser reciclado e é um dos tipos de vidro mais comumente reciclados devido ao seu uso generalizado em embalagens de alimentos e bebidas.
+
+<en:Glass
+en:Dark Sort Glass
+de:Dunkles Sortierglas
 fr:Verre sombre
+hr:ostalih boja staklo
 hu:Sötét válogatott üveg
-nl:Donker glas
-xx:73 GLS
+nl:Donker glas, donkere glazen
+xx:73 GL, GL 73, 73GL, GL73, 73 GLS, GLS 73, 73GLS, GLS73
 
 <en:Glass
-en:Light Sort Glass, 74 GLS
-de:Helles Sortierglas, 74 GLS
+en:Light Sort Glass
+de:Helles Sortierglas
 fr:Verre clair
 hu:Világos válogatott üveg
 nl:Lichtgekleurd glas
-xx:74 GLS
+xx:74 GL, GL 74, 74GL, GL74, 74 GLS, GLS 74, 74GLS, GLS74
 
 <en:Glass
-en:Light Leaded Glass, 75 GLS
-xx:75 GLS
+en:Light Leaded Glass
+de:Leichtes Bleiglas
+xx:75 GL, GL 75, 75GL, GL75, 75 GLS, GLS 75, 75GLS, GLS75
 
 <en:Glass
-en:Leaded Glass, 76 GLS, 76-GLS
-de:Bleiglas, 76 GLS, 76-GLS
-hu:Ólomüveg
-nl:Loodglas
-pt:Vidro de chumbo, 76 GLS, 76-GLS
-xx:76 GLS, 76-GLS
+en:76 GL - Leaded Glass, Leaded Glass
+ca:76 GL - vidre de plom, vidre de plom
+cs:76 GL - Křišťálové sklo, Křišťálové sklo
+da:76 GL - blyglas, blyglas
+de:76 GL - Bleiglas, Bleiglas
+es:76 GL - vidrio de plomo, vidrio de plomo
+et:76 GL - Pliiklaas, Pliiklaas
+fi:76 GL - Kristalli, Kristalli
+fr:76 GL - cristal, cristal
+hu:76 GL - Ólomüveg, Ólomüveg, kristályüveg
+it:76 GL - vetro cristallo, vetro cristallo
+lt:76 GL - Krištolas, Krištolas
+mk:76 GL - кристал, кристал
+nb:76 GL - Krystallglass, Krystallglass
+nl:76 GL - kristal, kristal,, Loodglas
+nn:76 GL - Krystallglas, Krystallglas
+pl:76 GL - szkło ołowiowe, szkło ołowiowe
+pt:76 GL - Vidro de crits, Vidro de chumbo, Cristal de chumbo
+ro:76 GL - Cristal, Cristal
+ru:76 GL - хрусталь, хрусталь
+sv:76 GL - kristallglas, kristallglas
+uk:76 GL - Кришталь, Кришталь
+xx:76 GL, GL 76, 76GL, GL76, 76 GLS, GLS 76, 76GLS, GLS76
+wikidata:en:Q392551
+comment:en:chatGPT does not provided a sensible answer. 
 
 <en:Glass
-en:Copper Mixed/Copper Backed Glass, 77 GLS
-xx:77 GLS
+en:Copper Mixed/Copper Backed Glass, Copper Mixed Glass, Copper Backed Glass
+de:Kupfer gemischt/Glas mit Kupfer hinterlegt, Kupfer gemischt Glas, Glas mit Kupfer hinterlegt
+xx:77 GL, GL 77, 77GL, GL77, 77 GLS, GLS 77, 77GLS, GLS77
 
 <en:Glass
-en:Silver Mixed/Silver Backed Glass, 78 GLS
-xx:78 GLS
+en:Silver Mixed/Silver Backed Glass, Silver Mixed Glass, Silver Backed Glass
+de:Silber gemischt/Glas mit Silber hinterlegt, Silber gemischt Glas, Glas mit Silber hinterlegt
+xx:78 GL, GL 78, 78GL, GL78, 78 GLS, GLS 78, 78GLS, GLS78
 
 <en:Glass
-en:Gold Mixed/Gold Backed Glass, 79 GLS
-xx:79 GLS
+en:Gold Mixed/Gold Backed Glass, Gold Mixed Glass, Gold Backed Glass
+de:Gold gemischt/Glas mit Gold hinterlegt, Gold gemischt Glas, Glas mit Gold hinterlegt
+xx:79 GL, GL 79, 79GL, GL79, 79 GLS, GLS 79, 79GLS, GLS79
 
-en:Paper and plastic, Paper + Plastic, 81 PapPet
+<en:Multilayer composite
+en:Paper and fibreboard/miscellaneous metals, Paper and fibreboard + miscellaneous metals
+de:Papier und Pappe/verschiedene Metalle, Papier und Pappe + verschiedene Metalle
+hr:papir i karton/raznovrsni metali
+xx:80 C/X, 80 C/*, 80 CX, 80 C*
+
+#<xx:80 C/X
+#xx:80 C/PAP
+#comment:en:This should not exist as 80 by definition contains paper/fibreboard
+
+<xx:80 C/X
+xx:80 C/FE
+comment:en:This should not exist as 80 by definition contains no iron
+
+<xx:80 C/X
+xx:80 C/ALU
+comment:en:This should not exist as 80 by definition contains no aluminium
+
+<en:Multilayer composite
+en:Paper and plastic, Paper + Plastic
+de:Papier und Pappe/Kunststoff, Papier und Pappe + Kunststoff
+bg:Хартия и картон / пластмаси
 fr:Papier et plastique
-hu:Papír és műanyag, 81 PapPet
+hr:papir i karton/plastika
+hu:Papír és műanyag
 nl:Papier en plastic
-pt:Papel e plástico, Papel + plástico, 81 PapPet
-xx:81 PapPet
+pt:Papel e plástico, Papel + plástico
+xx:81 C/X, 81 C/*, 81 CX, 81 C*, 81 PapPet
 
-#en:Paper and cardboard / Plastic / Aluminium, 84 C/PAP, PapAl
-#hu:Papír és karton / Műanyag / Alumínium, 84 C/PAP, PapAl
+<xx:81 C/X
+xx:81 C/PAP
+comment:en:This should not exist as 81 by definition contains paper/fibreboard
+
+<xx:81 C/X
+xx:81 C/PET
+description:en:Composite material with paper, fibreboard and PET (Polyethylene terephthalate) 
+description:nl:Uit paper, karton en PET (Polyethylene terephthalate) samengesteld materiaal
+
+<xx:81 C/X
+xx:81 C/PVDC
+description:en:Composite material with paper, fibreboard and PVDC (polyvinylidene chloride) 
+description:nl:Uit paper, karton en PVDC (polyvinylidene chloride)  samengesteld materiaal
+
+<xx:81 C/X
+xx:81 C/rPET
+description:en:Composite material with paper, fibreboard and rPET (recycled polyethylene terephthalate)
+description:nl:Uit paper, karton en rPET (gerecycleerd polyethylene terephthalate) samengesteld materiaal
+
+<xx:81 C/X
+xx:81 C/HDPE, 81 C/PEHD
+description:en:Composite material with paper, fibreboard and HDPE (high density polyethylene) 
+description:nl:Uit paper, karton en HDPE (high density polyethylene) samengesteld materiaal
+
+<xx:81 C/X
+xx:81 C/PVC
+description:en:Composite material with paper, fibreboard and PVC (Polyvinyl chloride)
+description:nl:Uit paper, karton en PVC (Polyvinyl chloride) samengesteld materiaal
+
+<xx:81 C/X
+xx:81 C/LDPE, 81 C/PELD
+description:en:Composite material with paper, fibreboard and LLDPE (linear low-density polyethylene)
+description:nl:Uit paper, karton en LLDPE (lineair lagedichtheidpolyethyleen) samengesteld materiaal
+
+<xx:81 C/X
+xx:81 C/PP
+description:en:Composite material with paper, fibreboard and PP (polypropylene)
+description:nl:Uit paper, karton en PP (polypropyleen) samengesteld materiaal
+
+<xx:81 C/X
+xx:81 C/CPP
+description:en:Composite material with paper, fibreboard and CPP (cast polypropylene)
+description:nl:Uit papier, karton en CPP (gegoten polypropyleen) samengesteld materiaal
+
+<xx:81 C/X
+xx:81 C/OPP
+description:en:Composite material with paper, fibreboard and OPP (orientated polypropylene)
+description:nl:Uit papier, karton en OPP (georienteerd polypropyleen) samengesteld materiaal
+
+<xx:81 C/X
+xx:81 C/PC
+description:en:Composite material with paper, fibreboard and PC (polycarbonate)
+description:nl:Uit papier, karton en PC (polycarbonaat) samengesteld materiaal
+
+<xx:81 C/X
+xx:81 C/PA
+description:en:Composite material with paper, fibreboard and PA (polyamide)
+description:nl:Uit papier, karton en PA (polyamide) samengesteld materiaal
+
+<xx:81 C/X
+xx:81 C/ABS
+description:en:Composite material with paper, fibreboard and ABS (acrylonitrile butadiene styrene)
+description:nl:Uit papier, karton en ABS (acrylonitril-butadieen-styreen) samengesteld materiaal
+
+<xx:81 C/X
+xx:81 C/PLA
+description:en:Composite material with with paper, fibreboard and PLA (Polylactic acid)
+description:nl:Uit papier, karton en PLA (polymelkzuur) samengesteld materiaal
+
+<xx:81 C/X
+xx:81 C/LLDPE
+description:en:Composite material with paper, fibreboard and LLDPE (linear low-density polyethylene)
+description:nl:Uit papier, karton en LLDPE (lineair lagedichtheidpolyethyleen) samengesteld materiaal
+
+<xx:81 C/X
+xx:81 C/PETmet
+description:en:Composite material with paper, fibreboard and PETmet (metallized Polyethylene terephthalate)
+description:nl:Uit papier, karton en PETmet (gemetalliseerd Polyethylene terephthalate) samengesteld materiaal
+comment:en:This variant is not possible, as it is code 84, due to the metal in PETmet
+
+<xx:81 C/X
+xx:81 C/PEmet
+description:en:Composite material with paper, fibreboard and PEmet (metallized polyethylene)
+description:nl:Uit papier, karton en PEmet (gemetalliseerd polyethyleen) samengesteld materiaal
+comment:en:This variant is not possible, as it is code 84, due to the metal in PETmet
+
+<xx:81 C/X
+xx:81 C/MDPE, 81 C/PEMD
+description:en:Composite material with paper, fibreboard and MDPE (Medium-density polyethylene)
+description:nl:Uit papier, karton en MDPE (middendichtheids polyethyleen) samengesteld materiaal
+
+<xx:81 C/X
+xx:81 C/EVOH
+description:en:Composite material with paper, fibreboard and EVOH (ethylene vinyl alcohol)
+description:nl:Uit papier, karton en EVOH (etheen-vinylalcohol) samengesteld materiaal
+
+<en:Multilayer composite
+en:Paper and fibreboard/aluminium, Paper and fibreboard + aluminium
+de:Papier und Pappe/Aluminium, Papier und Pappe + Aluminium
+hr:papir i karton/aluminij
+xx:82 C/X, 82 C/*, 82 CX, 82 C*
+
+<xx:82 C/X
+xx:82 C/PAP
+comment:en:This should not exist as 82 by definitions contains paper/fibreboard
+
+<xx:82 C/X
+xx:82 C/ALU
+comment:en:This should not exist as 82 by definitions contains aluminium
+
+<en:Multilayer composite
+en:Paper and fibreboard/tinplate, Paper and fibreboard + tinplate
+de:Papier und Pappe/Weißblech, Papier und Pappe + Weißblech, Papier und Pappe/Weissblech, Papier und Pappe + Weissblech
+hr:papir i karton/bijeli lim
+xx:83 C/X, 83 C/*, 83 CX, 83 C*
+
+<xx:83 C/X
+xx:83 C/PAP
+comment:en:This should not exist as 82 by definitions contains paper and fibreboard
+
+<xx:83 C/X
+xx:83 C/FE
+comment:en:This should not exist as 82 by can not contain iron
+
+<en:Multilayer composite
+en:Paper and cardboard / Plastic / Aluminium, Paper and fibreboard/plastic/aluminium, Paper and fibreboard + plastic + aluminium
+de:Papier und Pappe/Kunststoff/Aluminium, Papier und Pappe + Kunststoff + Aluminium
+bg:Хартия и картон / Пластмаси / Алуминий
+hr:papir i karton/plastika/aluminij
+hu:Papír és karton / Műanyag / Alumínium
+xx:84 C/X, 84 C/*, 84 CX, 84 C*, PapAl
+
+<xx:84 C/X
+xx:84 C/PAP
+comment:en:This should not exist as 84 by definitions contains paper and fibreboard
+
+<xx:84 C/X
+xx:84 C/PET
+description:en:Composite material with paper, fibreboard, aluminium and PET (Polyethylene terephthalate) 
+description:nl:Uit paper, karton, aluminium en PET (Polyethylene terephthalate) samengesteld materiaal
+
+<xx:84 C/X
+xx:84 C/PVDC
+description:en:Composite material with paper, fibreboard, aluminium and PVDC (polyvinylidene chloride) 
+description:nl:Uit paper, karton, aluminium en PVDC (polyvinylidene chloride)  samengesteld materiaal
+
+<xx:84 C/X
+xx:84 C/rPET
+description:en:Composite material with paper, fibreboard, aluminium and rPET (recycled polyethylene terephthalate)
+description:nl:Uit paper, karton, aluminium en rPET (gerecycleerd polyethylene terephthalate) samengesteld materiaal
+
+<xx:84 C/X
+xx:84 C/HDPE, 84 C/PEHD
+description:en:Composite material with paper, fibreboard, aluminium and HDPE (high density polyethylene) 
+description:nl:Uit paper, karton, aluminium en HDPE (high density polyethylene) samengesteld materiaal
+
+<xx:84 C/X
+xx:84 C/PVC
+description:en:Composite material with paper, fibreboard, aluminium and PVC (Polyvinyl chloride)
+description:nl:Uit paper, karton, aluminium en PVC (Polyvinyl chloride) samengesteld materiaal
+
+<xx:84 C/X
+xx:84 C/LDPE, 84 C/PELD
+
+<xx:84 C/X
+xx:84 C/PP
+description:en:Composite material with paper, fibreboard, aluminium and PP (polypropylene)
+description:nl:Uit paper, karton, aluminium en PP (polypropyleen) samengesteld materiaal
+
+<xx:84 C/X
+xx:84 C/CPP
+description:en:Composite material with paper, fibreboard, aluminium and CPP (cast polypropylene)
+description:nl:Uit paper, karton, aluminium en CPP (gegoten polypropyleen) samengesteld materiaal
+
+<xx:84 C/X
+xx:84 C/OPP
+description:en:Composite material with paper, fibreboard, aluminium and OPP (orientated polypropylene)
+description:nl:Uit papier, karton, aluminium en OPP (georienteerd polypropyleen) samengesteld materiaal
+
+<xx:84 C/X
+xx:84 C/PC
+description:en:Composite material with paper, fibreboard, aluminium and PC (polycarbonate)
+description:nl:Uit papier, karton, aluminium en PC (polycarbonaat) samengesteld materiaal
+
+<xx:84 C/X
+xx:84 C/PA
+description:en:Composite material with paper, fibreboard, aluminium and PA (polyamide)
+description:nl:Uit papier, karton, aluminium en PA (polyamide) samengesteld materiaal
+
+<xx:84 C/X
+xx:84 C/ABS
+description:en:Composite material with paper, fibreboard, aluminium and ABS (acrylonitrile butadiene styrene)
+description:nl:Uit papier, karton, aluminium en ABS (acrylonitril-butadieen-styreen) samengesteld materiaal
+
+<xx:84 C/X
+xx:84 C/PLA
+description:en:Composite material with with paper, fibreboard, aluminium and PLA (Polylactic acid)
+description:nl:Uit papier, karton, aluminium en PLA (polymelkzuur) samengesteld materiaal
+
+<xx:84 C/X
+xx:84 C/LLDPE
+description:en:Composite material with paper, fibreboard, aluminium and LLDPE (linear low-density polyethylene) 
+description:nl:Uit papier, karton, aluminium en LLDPE (lineair lagedichtheidpolyethyleen) samengesteld materiaal
+
+<xx:84 C/X
+xx:84 C/PETmet
+description:de:Material aus Papier, Pappe, Aluminium und PET mit (metallisiertem Polyethylenterephthalat). Es ist nicht möglich, dieses Material zu recyceln.
+description:en:Material composed of paper, cardboard, aluminum and PET with (metallized Polyethylene terephthalate). It is not possible to recycle this material.
+description:es:Material compuesto por papel, cartón, aluminio y PET con (Polietileno tereftalato metalizado). No es posible reciclar este material.
+description:fr:Matériau composé de papier, carton, aluminium et PET avec (Polyéthylène téréphtalate métallisé). Il n'est pas possible de recycler ce matériau.
+description:it:Materiale composto da carta, cartone, alluminio e PET con (Polietilene tereftalato metallizzato). Non è possibile riciclare questo materiale.
+description:nl:Uit papier, karton, aluminium en PETmet (gemetalliseerd Polyethylene terephthalate) samengesteld materiaal. Het is niet mogelijk dit materiaal te recyclen.
+description:pt:Material composto por papel, papelão, alumínio e PET com (polietileno tereftalato metalizado). Não é possível reciclar este material.
+
+<xx:84 C/X
+xx:84 C/PEmet
+description:de:Material aus Papier, Pappe, Aluminium und PEmet (metallisiertes Polyethylen). Es ist nicht möglich, dieses Material zu recyceln.
+description:en:Material composed of paper, cardboard, aluminum and PEmet (metallized polyethylene). It is not possible to recycle this material.
+description:es:Material compuesto por papel, cartón, aluminio y PEmet (polietileno metalizado). No es posible reciclar este material.
+description:fr:Matériau composé de papier, carton, aluminium et PEmet (polyéthylène métallisé). Il n'est pas possible de recycler ce matériau.
+description:it:Materiale composto da carta, cartone, alluminio e PEmet (polietilene metallizzato). Non è possibile riciclare questo materiale.
+description:nl:Uit papier, karton, aluminium en PEmet (gemetalliseerd polyethyleen) samengesteld materiaal. Het is niet mogelijk dit materiaal te recyclen.
+description:pt:Material composto por papel, papelão, alumínio e PEmet (polietileno metalizado). Não é possível reciclar este material.
+
+<xx:84 C/X
+xx:84 C/MDPE, 84 C/PEMD
+description:en:Composite material with paper, fibreboard, aluminium and MDPE (Medium-density polyethylene)
+description:nl:Uit papier, karton, aluminium en MDPE (middendichtheids polyethyleen) samengesteld materiaal
+
+<xx:84 C/X
+xx:84 C/EVOH
+description:en:Composite material with paper, fibreboard, aluminium and EVOH (ethylene vinyl alcohol)
+description:nl:Uit papier, karton, aluminium en EVOH (etheen-vinylalcohol) samengesteld materiaal
+
+<xx:84 C/X
+xx:84 C/ALU
+
+<en:Multilayer composite
+en:Paper and fibreboard/plastic/aluminium/tinplate, Paper and fibreboard + plastic + aluminium + tinplate
+de:Papier und Pappe/Kunststoff/Aluminium/Weißblech, Papier und Pappe + Kunststoff + Aluminium + Weißblech, Papier und Pappe/Kunststoff/Aluminium/Weissblech, Papier und Pappe + Kunststoff + Aluminium + Weissblech
+hr:papir i karton/plastika/aluminij/bijeli lim
+xx:85 C/X, 85 C/*, 85 CX, 85 C*
+
+<xx:85 C/X
+xx:85 C/PAP
+
+<xx:85 C/X
+xx:85 C/PET
+description:en:Composite material with paper, fibreboard, aluminium, tin plate and PET (Polyethylene terephthalate) 
+description:nl:Uit paper, karton, aluminium, blik en PET (Polyethylene terephthalate) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/PVDC
+description:en:Composite material with paper, fibreboard, aluminium, tin plate and PVDC (polyvinylidene chloride) 
+description:nl:Uit paper, karton, aluminium, blik en PVDC (polyvinylidene chloride) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/rPET
+description:en:Composite material with paper, fibreboard, aluminium, tin plate and rPET (recycled polyethylene terephthalate)
+description:nl:Uit paper, karton, aluminium, blik en rPET (gerecycleerd polyethylene terephthalate) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/HDPE, 85 C/PEHD
+description:en:Composite material with paper, fibreboard, aluminium, tin plate and HDPE (high density polyethylene) 
+description:nl:Uit paper, karton, aluminium, blik en HDPE (high density polyethylene) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/PVC
+description:en:Composite material with paper, fibreboard, aluminium, tin plate and PVC (Polyvinyl chloride)
+description:nl:Uit paper, karton, aluminium, blik en PVC (Polyvinyl chloride) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/LDPE, 85 C/PELD
+description:en:Composite material with paper, fibreboard, aluminium, tin plate and LLDPE (linear low-density polyethylene)
+description:nl:Uit paper, karton, aluminium, blik en LLDPE (lineair lagedichtheidpolyethyleen) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/PP
+description:en:Composite material with paper, fibreboard, aluminium, tin plate and PP (polypropylene)
+description:nl:Uit paper, karton, aluminium, blik en PP (polypropyleen) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/CPP
+description:en:Composite material with paper, fibreboard, aluminium, tin plate and CPP (cast polypropylene)
+description:nl:Uit paper, karton, aluminium, blik en CPP (gegoten polypropyleen) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/OPP
+description:en:Composite material with paper, fibreboard, aluminium, tin plate and OPP (orientated polypropylene)
+description:nl:Uit papier, karton, aluminium, blik en OPP (georienteerd polypropyleen) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/PC
+description:en:Composite material with paper, fibreboard, aluminium, tin plate and PC (polycarbonate)
+description:nl:Uit papier, karton, aluminium, blik en PC (polycarbonaat) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/PA
+description:en:Composite material with paper, fibreboard, aluminium, tin plate and PA (polyamide)
+description:nl:Uit papier, karton, aluminium, blik en PA (polyamide) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/ABS
+description:en:Composite material with paper, fibreboard, aluminium, tin plate and ABS (acrylonitrile butadiene styrene)
+description:nl:Uit papier, karton, aluminium, blik en ABS (acrylonitril-butadieen-styreen) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/PLA
+description:en:Composite material with with paper, fibreboard, aluminium, tin plate and PLA (Polylactic acid)
+description:nl:Uit papier, karton, aluminium, blik en PLA (polymelkzuur) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/LLDPE
+description:en:Composite material with paper, fibreboard, aluminium, tin plate and LLDPE (linear low-density polyethylene)
+description:nl:Uit papier, karton, aluminium, blik en LLDPE (lineair lagedichtheidpolyethyleen) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/PETmet
+description:en:Composite material with paper, fibreboard, aluminium, tin plate and PETmet (metallized Polyethylene terephthalate)
+description:nl:Uit papier, karton, aluminium, blik en PETmet (gemetalliseerd Polyethylene terephthalate) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/PEmet
+description:en:Composite material with paper, fibreboard  and PEmet (metallized polyethylene)
+description:nl:Uit papier, karton en PEmet (gemetalliseerd polyethyleen) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/MDPE, 85 C/PEMD
+description:en:Composite material with paper, fibreboard, aluminium, tin plate and MDPE (Medium-density polyethylene)
+description:nl:Uit papier, karton, aluminium, blik en MDPE (middendichtheids polyethyleen) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/EVOH
+description:en:Composite material with paper, fibreboard, aluminium and EVOH (ethylene vinyl alcohol)
+description:nl:Uit papier, karton, aluminium en EVOH (etheen-vinylalcohol) samengesteld materiaal
+
+<xx:85 C/X
+xx:85 C/ALU
+comment:en:This should not exist as 85 by defition contains aluminium
+
+<xx:85 C/X
+xx:85 C/FE
+comment:en:This should not exist as 85 by defition contains tin plate
 
 <en:Plastic
-en:Biodegradable plastic, Card-stock Laminate, 87
-hu:Lebomló műanyag, Laminált kartonpapír, 87
-nl:Bioloisch afbreekbaar plastic
-pt:Plástico biodegradável, 87
+en:Biodegradable plastic, Card-stock Laminate
+de:Biologisch abbaubarer Kunststoff, Kartonlaminat
+bg:Биоразградима пластмаса
+hu:Lebomló műanyag, Laminált kartonpapír
+nl:Biologisch afbreekbaar plastic, Biologisch afbreekbaar plastiek
+pt:Plástico biodegradável
+xx:87 CSL, CSL 87
+description:en:Biodegradable plastic
+description:nl:Biologisch afbreekbaar plastic
 
+<en:Multilayer composite
+en:Plastic/aluminium, Plastic + aluminium
+de:Kunststoff/Aluminium, Kunststoff + Aluminium
+hr:plastika/aluminij
+xx:90 C/X, 90 C/*, 90 CX, 90 C*, 90 C/ALU
+description:en:Composite material with plastic and aluminium
+description:nl:Uit plastic en aluminium samengesteld materiaal
+
+<xx:90 C/X
+xx:90 C/PET
+description:en:Composite material with PET (Polyethylene terephthalate) and aluminium
+description:nl:Uit PET (Polyethylene terephthalate) en aluminium samengesteld materiaal
+
+<xx:90 C/X
+xx:90 C/PVDC
+description:en:Composite material with  PVDC (polyvinylidene chloride) and aluminium
+description:nl:Uit PVDC (polyvinylidene chloride) en aluminium samengesteld materiaal
+
+<xx:90 C/PET
+xx:90 C/rPET
+description:en:Composite material with rPET (recycled Polyethylene terephthalate) and aluminium
+description:nl:Uit PET (gerecycleerd Polyethylene terephthalate) en aluminium samengesteld materiaal
+
+<xx:90 C/X
+xx:90 C/HDPE, 90 C/PEHD
+description:en:Composite material from HDPE (high density polyethylene) and aluminium
+description:nl:Uit HDPE (high density polyethylene) en aluminium samengesteld materiaal
+
+<xx:90 C/X
+xx:90 C/PVC
+description:en:Composite material from  PVC (Polyvinyl chloride) and aluminium
+description:nl:Uit PVC (Polyvinyl chloride) en aluminium samengesteld materiaal
+
+<xx:90 C/X
+xx:90 C/LDPE, 90 C/PELD
+
+<xx:90 C/X
+xx:90 C/PP
+description:en:Composite material with PP (polypropylene) and aluminium
+description:nl:Uit PP (polypropyleen) en aluminium samengesteld materiaal
+
+<xx:90 C/X
+xx:90 C/CPP
+description:en:Composite material with CPP (cast polypropylene) and aluminium
+description:nl:Uit CPP (gegoten polypropyleen) en aluminium samengesteld materiaal
+
+<xx:90 C/X
+xx:90 C/OPP
+description:en:Composite material with OPP (orientated polypropylene) and aluminium
+description:nl:Uit OPP (georienteerd polypropyleen) en aluminium samengesteld materiaal
+
+<xx:90 C/X
+xx:90 C/PC
+description:en:Composite material with aluminium and PC (polycarbonate)
+description:nl:Uit aluminium en PC (polycarbonaat) samengesteld materiaal
+
+<xx:90 C/X
+xx:90 C/PA
+description:en:Composite material with aluminium and PA (polyamide)
+description:nl:Uit aluminium en PA (polyamide) samengesteld materiaal
+
+<xx:90 C/X
+xx:90 C/ABS
+description:en:Composite material with ABS (acrylonitrile butadiene styrene) and aluminium
+description:nl:Uit ABS (acrylonitril-butadieen-styreen) en aluminium samengesteld materiaal
+
+<xx:90 C/X
+xx:90 C/PLA
+description:en:Composite material with aluminium and PLA (Polylactic acid)
+description:nl:Uit aluminium en PLA (polymelkzuur) samengesteld materiaal
+
+<xx:90 C/X
+xx:90 C/LLDPE
+description:en:Composite material with LLDPE (linear low-density polyethylene) and aluminium
+description:nl:Uit LLDPE (lineair lagedichtheidpolyethyleen) en aluminium samengesteld materiaal
+
+<xx:90 C/X
+xx:90 C/PETmet
+description:en:Composite material with PETmet (metallized Polyethylene terephthalate) and aluminium
+description:nl:Uit PETmet (gemetalliseerd Polyethylene terephthalate) en aluminium samengesteld materiaal
+
+<xx:90 C/X
+xx:90 C/PEmet
+description:en:Composite material with PEmet (metallized polyethylene) and aluminium
+description:nl:Uit PEmet (gemetalliseerd polyethyleen) en aluminium samengesteld materiaal
+#comment:en:This is a bit superfluous as 90 and PEmet is a plastic with metal (ususally aluminium)
+
+<xx:90 C/X
+xx:90 C/MDPE, 90 C/PEMD
+description:en:Composite material with MDPE (Medium-density polyethylene) and aluminium
+description:nl:Uit MDPE (middendichtheids polyethyleen) en aluminium samengesteld materiaal
+
+<xx:90 C/X
+xx:90 C/EVOH
+description:en:Composite material from EVOH (ethylene vinyl alcohol) and aluminium
+description:nl:Uit EVOH (etheen-vinylalcohol) en aluminium samengesteld materiaal
+
+<en:Multilayer composite
+en:Plastic/tinplate, Plastic + tinplate
+de:Kunststoff/Weißblech, Kunststoff + Weißblech, Kunststoff/Weissblech, Kunststoff + Weissblech
+hr:plastika/bijeli lim
+xx:91 C/X, 91 C/*, 91 CX, 91 C*, 91 C/FE
+description:en:Composite material with plastic and tin plate
+description:nl:Uit plastic en blik samengesteld materiaal
+
+<xx:91 C/X
+xx:91 C/PET
+description:en:Composite material with PET (Polyethylene terephthalate) and tin plate
+description:nl:Uit PET (Polyethylene terephthalate) en blik samengesteld materiaal
+
+<xx:91 C/X
+xx:91 C/PVDC
+description:en:Composite material with PVDC (polyvinylidene chloride) and tin plate
+description:nl:Uit PVDC (polyvinylidene chloride) en blik samengesteld materiaal
+
+<xx:91 C/PET
+xx:91 C/rPET
+description:en:Composite material with rPET (recycled polyethylene terephthalate) and tin plate
+description:nl:Uit rPET (gerecycleerd polyethylene terephthalate) en blik samengesteld materiaal
+
+<xx:91 C/X
+xx:91 C/HDPE, 91 C/PEHD
+description:en:Composite material from HDPE (high density polyethylene) and tin plate
+description:nl:Uit HDPE (high density polyethylene) en blik samengesteld materiaal
+
+<xx:91 C/X
+xx:91 C/PVC
+description:en:Composite material from  PVC (Polyvinyl chloride) and tin plate
+description:nl:Uit PVC (Polyvinyl chloride) en blik samengesteld materiaal
+
+<xx:91 C/X
+xx:91 C/LDPE, 91 C/PELD
+
+<xx:91 C/X
+xx:91 C/PP
+description:en:Composite material PP (polypropylene) and tin plate
+description:nl:Uit PP (polypropyleen) en blik samengesteld materiaal
+
+<xx:91 C/X
+xx:91 C/CPP
+description:en:Composite material CPP (cast polypropylene) and tin plate
+description:nl:Uit CPP (gegoten polypropyleen) en blik samengesteld materiaal
+
+<xx:91 C/X
+xx:91 C/OPP
+description:en:Composite material with OPP (orientated polypropylene) and tin plate
+description:nl:Uit blik en OPP (georienteerd polypropyleen) samengesteld materiaal
+
+<xx:91 C/X
+xx:91 C/PC
+description:en:Composite material with tin plate and PC (polycarbonate)
+description:nl:Uit blik en PC (polycarbonaat) samengesteld materiaal
+
+<xx:91 C/X
+xx:91 C/PA
+description:en:Composite material with tin plate and PA (polyamide)
+description:nl:Uit blik en PA (polyamide) samengesteld materiaal
+
+<xx:91 C/X
+xx:91 C/ABS
+description:en:Composite material with ABS (acrylonitrile butadiene styrene) and tin plate
+description:nl:Uit ABS (acrylonitril-butadieen-styreen) en blik samengesteld materiaal
+
+<xx:91 C/X
+xx:91 C/PLA
+description:en:Composite material with tin plate and PLA (Polylactic acid)
+description:nl:Uit blik en PLA (polymelkzuur) samengesteld materiaal
+
+<xx:91 C/X
+xx:91 C/LLDPE
+description:en:Composite material with LLDPE (linear low-density polyethylene) and tin plate
+description:nl:Uit LLDPE (lineair lagedichtheidpolyethyleen) en blik samengesteld materiaal
+
+<xx:91 C/X
+xx:91 C/PETmet
+description:en:Composite material with tin plate and PETmet (metallized Polyethylene terephthalate)
+description:nl:Uit blik en PETmet (gemetalliseerd Polyethylene terephthalate) samengesteld materiaal
+
+<xx:91 C/X
+xx:91 C/PEmet
+description:en:Composite material with PEmet (metallized polyethylene) and tin plate
+description:nl:Uit PEmet (gemetalliseerd polyethyleen) en blik samengesteld materiaal
+comment:en:Is this correct? As PEmet contains another or the same metal as tin plate
+
+<xx:91 C/X
+xx:91 C/MDPE, 91 C/PEMD
+description:en:Composite material with MDPE (Medium-density polyethylene) and tin plate
+description:nl:Uit MDPE (middendichtheids polyethyleen) en blik samengesteld materiaal
+
+<xx:91 C/X
+xx:91 C/EVOH
+description:en:Composite material from EVOH (ethylene vinyl alcohol) and tin plate
+description:nl:Uit EVOH (etheen-vinylalcohol) en blik samengesteld materiaal
+
+<en:Multilayer composite
+en:Plastic/miscellaneous metals, Plastic + miscellaneous metals
+de:Kunststoff/verschiedene Metalle, Kunststoff + verschiedene Metalle
+hr:plastika/raznovrsni metali
+xx:92 C/X, 92 C/*, 92 CX, 92 C*
+description:en:Composite material with plastic and metal
+description:nl:Uit plastic en metaal samengesteld materiaal
+
+<xx:92 C/X
+xx:92 C/PET
+description:en:Composite material with PET (polyethylene terephthalate) and metal
+description:nl:Uit PET (polyethylene terephthalate) en metaal samengesteld materiaal
+
+<xx:92 C/X
+xx:92 C/PVDC
+description:en:Composite material with  PVDC (polyvinylidene chloride) and metal
+description:nl:Uit PVDC (polyvinylidene chloride) en metaal samengesteld materiaal
+
+<xx:92 C/PET
+xx:92 C/rPET
+description:en:Composite material with rPET (recycled polyethylene terephthalate) and metal
+description:nl:Uit rPET (gerecycleerd polyethylene terephthalate) en metaal samengesteld materiaal
+
+<xx:92 C/X
+xx:92 C/HDPE, 92 C/PEHD
+description:en:Composite material from HDPE (high density polyethylene) and metal
+description:nl:Uit HDPE (high density polyethylene) en metaal samengesteld materiaal
+
+<xx:92 C/X
+xx:92 C/PVC
+description:en:Composite material from  PVC (Polyvinyl chloride) and metal
+description:nl:Uit PVC (Polyvinyl chloride) en metaal samengesteld materiaal
+
+<xx:92 C/X
+xx:92 C/LDPE, 92 C/PELD
+
+<xx:92 C/X
+xx:92 C/PP
+description:en:Composite material PP (polypropylene) and metal
+description:nl:Uit PP (polypropyleen) en metaal samengesteld materiaal
+
+<xx:92 C/X
+xx:92 C/CPP
+description:en:Composite material with CPP (cast polypropylene) and metal
+description:nl:Uit PCP (gegoten polypropyleen) en metaal samengesteld materiaal
+
+<xx:92 C/X
+xx:92 C/OPP
+description:en:Composite material with OPP (orientated polypropylene) and metal
+description:nl:Uit metaal en OPP (georienteerd polypropyleen) samengesteld materiaal
+
+<xx:92 C/X
+xx:92 C/PC
+description:en:Composite material with metal and PC (polycarbonate)
+description:nl:Uit metaal en PC (polycarbonaat) samengesteld materiaal
+
+<xx:92 C/X
+xx:92 C/PA
+description:en:Composite material with metal and PA (polyamide)
+description:nl:Uit metaal en PA (polyamide) samengesteld materiaal
+
+<xx:92 C/X
+xx:92 C/ABS
+description:en:Composite material with ABS (acrylonitrile butadiene styrene) and metal
+description:nl:Uit ABS (acrylonitril-butadieen-styreen) en metaal samengesteld materiaal
+
+<xx:92 C/X
+xx:92 C/PLA
+description:en:Composite material with metal and PLA (Polylactic acid)
+description:nl:Uit metaal en PLA (polymelkzuur) samengesteld materiaal
+
+<xx:92 C/X
+xx:92 C/LLDPE
+description:en:Composite material with LLDPE (linear low-density polyethylene) and metal
+description:nl:Uit LLDPE (lineair lagedichtheidpolyethyleen) en metaal samengesteld materiaal
+
+<xx:92 C/X
+xx:92 C/PETmet
+description:en:Composite material with metal and PETmet (metallized Polyethylene terephthalate)
+description:nl:Uit metaal en PETmet (gemetalliseerd Polyethylene terephthalate) samengesteld materiaal
+
+<xx:92 C/X
+xx:92 C/PEmet
+<xx:92 C/X
+xx:92 C/MDPE, 92 C/PEMD
+description:en:Composite material with MDPE (Medium-density polyethylene) and metal
+description:nl:Uit MDPE (middendichtheids polyethyleen) en metaal samengesteld materiaal
+
+<xx:92 C/X
+xx:92 C/EVOH
+description:en:Composite material from EVOH (ethylene vinyl alcohol) and metal
+description:nl:Uit EVOH (etheen-vinylalcohol) en metaal samengesteld materiaal
+
+<xx:92 C/X
+xx:92 C/ALU
+description:en:Composite material with plastic and iron
+description:nl:Uit plastic en ijzer samengesteld materiaal
+comment:en:This should not exist as code 90 is reserved for this
+
+<xx:92 C/X
+xx:92 C/FE
+description:en:Composite plastic with plastic and iron
+description:nl:Uit plastic en ijzer samengesteld materiaal
+
+<en:Multilayer composite
+en:Glass/Plastic, Glass + Plastic
+de:Glas/Kunststoff, Glas + Kunststoff
+hr:staklo/plastika
+xx:95 C/X, 95 C/*, 95 CX, 95 C*
+description:en:Composite material with glass and plastic
+description:nl:Uit glas en aluminium samengesteld materiaal
+
+#<xx:95 C/X
+#xx:95 C/GL
+#comment:en:This can not exist, as 98 is for glass (GL) with a plastic. So what is GL?
+
+<xx:95 C/X
+xx:95 C/PET
+description:en:Composite material with glass and PET (Polyethylene terephthalate)
+description:nl:Uit glas en PET (Polyethylene terephthalate) samengesteld materiaal
+
+<xx:95 C/X
+xx:95 C/PVDC
+description:en:Composite material with glass and PVDC (polyvinylidene chloride)
+description:nl:Uit glas en PVDC (polyvinylidene chloride) samengesteld materiaal
+
+<xx:95 C/PET
+xx:95 C/rPET
+description:en:Composite material with glass and recycled PET (Polyethylene terephthalate)
+description:nl:Uit glas en rPET (gerecycleerd Polyethylene terephthalate) samengesteld materiaal
+
+<xx:95 C/X
+xx:95 C/HDPE, 95 C/PEHD
+description:en:Composite material with glass and HDPE (high density polyethylene)
+description:nl:Uit glas en HDPE (high density polyethylene) samengesteld materiaal
+
+<xx:95 C/X
+xx:95 C/PVC
+description:en:Composite material with glass and PVC (Polyvinyl chloride)
+description:nl:Uit glas en PVC (Polyvinyl chloride) samengesteld materiaal
+
+<xx:95 C/X
+xx:95 C/LDPE, 95 C/PELD
+description:en:Composite material with glass and LDPE (low density polyethylene)
+description:nl:Uit glas en LDPE (low density polyethylene) samengesteld materiaal
+
+<xx:95 C/X
+xx:95 C/PP
+description:en:Composite material with glass and PP (polypropylene)
+description:nl:Uit glas en PP (polypropyleen) samengesteld materiaal
+
+<xx:95 C/PP
+xx:95 C/CPP
+description:en:Composite material with glass and CPP (cast polypropylene)
+description:nl:Uit glas en CPP (cast polypropyleen) samengesteld materiaal
+
+<xx:95 C/PP
+xx:95 C/OPP
+description:en:Composite material with glass and OPP (orientated polypropylene)
+description:nl:Uit glas en OPP (georienteerd polypropyleen) samengesteld materiaal
+
+<xx:95 C/PP
+xx:95 C/BOPP
+description:en:Composite material with glass and BOPP (biaxially orientated polypropylene)
+description:nl:Uit glas en BOPP (biaxially oriented polypropyleen) samengesteld materiaal
+
+<xx:95 C/X
+xx:95 C/PC
+description:en:Composite material with glass and PC (polycarbonate)
+description:nl:Uit glas en PC (polycarbonaat) samengesteld materiaal
+
+<xx:95 C/X
+xx:95 C/PA
+description:en:Composite material with glass and PA (polyamide)
+description:nl:Uit glas en PA (polyamide) samengesteld materiaal
+
+<xx:95 C/X
+xx:95 C/ABS
+description:en:Composite material with glass and ABS (acrylonitrile butadiene styrene)
+description:nl:Uit glas en ABS (acrylonitril-butadieen-styreen) samengesteld materiaal
+
+<xx:95 C/X
+xx:95 C/PLA
+description:en:Composite material with glass and PLA (Polylactic acid)
+description:nl:Uit glas en PLA (polymelkzuur) samengesteld materiaal
+
+<xx:95 C/X
+xx:95 C/LLDPE
+description:en:Composite material with glass and LLDPE (linear low-density polyethylene)
+description:nl:Uit glas en LLDPE (lineair lagedichtheidpolyethyleen) samengesteld materiaal
+
+<xx:95 C/PET
+xx:95 C/PETmet
+description:en:Composite material with glass and PETmet (metallized Polyethylene terephthalate)
+description:nl:Uit glas en PETmet (gemetalliseerd Polyethylene terephthalate) samengesteld materiaal
+
+<xx:95 C/X
+xx:95 C/PEmet
+description:en:Composite material with glass and PEmet (metallized polyethylene)
+description:nl:Uit glas en PEmet (gemetalliseerd polyethyleen) samengesteld materiaal
+
+<xx:95 C/X
+xx:95 C/MDPE, 95 C/PEMD
+description:en:Composite material with glass and MDPE (Medium-density polyethylene)
+description:nl:Uit glas en MDPE (middendichtheids polyethyleen) samengesteld materiaal
+
+<xx:95 C/X
+xx:95 C/EVOH
+description:en:Composite material with glass and EVOH (ethylene vinyl alcohol)
+description:nl:Uit glas en EVOH (etheen-vinylalcohol) samengesteld materiaal
+
+<en:Multilayer composite
+en:Glass/aluminium, Glass + aluminium
+de:Glas/Aluminium, Glas + Aluminium
+hr:staklo/aluminij
+xx:96 C/X, 96 C/*, 96 CX, 96 C*
+description:en:Composite material with glass and aluminium
+description:nl:Uit glas en aluminium samengesteld materiaal
+
+#<xx:96 C/X
+#xx:96 C/GL
+#comment:en:This can not exist, as 98 is for glass with a metal. So what is GL?
+
+<xx:96 C/X
+xx:96 C/ALU
+description:en:Composite material with glass and aluminium
+description:nl:Uit glas en aluminium samengesteld materiaal
+comment:en:This is superfluous, as it is already defined by 96, but maybe C/ALU occurs in the wild
+
+<en:Multilayer composite
+en:Glass/tinplate, Glass + tinplate
+de:Glas/Weißblech, Glas + Weißblech, Glas/Weissblech, Glas + Weissblech
+hr:staklo/bijeli lim
+xx:97 C/X, 97 C/*, 97 CX, 97 C*
+description:en:Composite material with glass and tin plate (steel coated with tin)
+description:nl:Uit glas en blik (vertind plaatstaal) samengesteld materiaal
+
+#<xx:97 C/X
+#xx:97 C/GL
+#comment:en:This can not exist, as 98 is for glass with a metal (GL does not add anything). 97 is reserverd for tinplate
+
+<xx:97 C/X
+xx:97 C/FE
+description:en:Composite material with glass and tin plate (steel coated with tin)
+description:nl:Uit glas en blik (vertind plaatstaal) samengesteld materiaal
+#comment:en:This should not exist, as 97 is for glass with a tin plate (but that is in part also Fe)
+
+<en:Multilayer composite
+en:Glass/miscellaneous metals, Glass + miscellaneous metals
+de:Glas/verschiedene Metalle, Glas + verschiedene Metalle
+hr:staklo/raznovrsni metali
+xx:98 C/X, 98 C/*, 98 CX, 98 C*
+description:en:Composite material with glass and metal
+description:nl:Uit glas en metaal samengesteld materiaal
+
+#<xx:98 C/X
+#xx:98 C/GL
+#comment:en:This can not exist, as 98 is for glass with a metal. So what is GL?
+
+<xx:98 C/X
+xx:98 C/FE
+description:en:Composite material with glass and iron
+description:nl:Uit glas en ijzer samengesteld materiaal
+
+<xx:98 C/X
+xx:98 C/ALU
+description:en:Composite packaging with glass and aluminium (should be 96 C/ALU)
+description:nl:Uit glas en aluminium samengesteld materiaal
+
+#
+# Packaging producers and identifications
+#
+
+en:SIG
+xx:SIG
+wikidata:en:Q1397471
+web:en:https://www.sig.biz/en
+description:en:Producer of packaging
+
+<en:SIG
+en:SIG Combibloc
+xx:SIG Combibloc
+web:en:https://www.sig.biz/en/packaging/packaging-explorer
+description:en:Packaging for fluid foods
+
+<en:Multilayer composite
 en:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 xx:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
 fr:Tetra Pak, Tetra Pak Standard, Brique type Tetra Pak standard
-pt:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack, Standard Tetra Pak
-xx:Tetra Pak, Tetrapak, Tetra Pack, Tetrapack
+packaging_shapes:en: en:brick
+wikidata:en:Q659200
+web:en:https://www.tetrapak.com
+description:en:Producer of packaging for wet (mainly liquid) foods
 
+# This not a real product line but we need it for eco-score
+<en:Tetra Pak
 en:Biobased Tetra Pak
-de:Biobasiertes Tetra Pak
+de:Biobasiertes Tetra Pak, Biobasiertes Tetrapak
 fr:Tetra Pak biosourcé, Brique type Tetra Pak biosourcé
 
-en:Multilayer composite, multilayer, composite composite materials, polycoat
-fr:Composites multicouches, composites multi-couches, Composite Multicouches, composite multi-couches, multi-couches, multicouches
-nl:Composietmateriaal
-pt:Compósito de várias camadas, compósito multi-camada
+<en:Tetra Pak
+en:Tetra Brik
+xx:Tetra Brik
+wikidata:en:Q3822538
+web:en:https://www.tetrapak.com/solutions/packaging/packages/tetra-brik
+description:en:drink cartons in various shapes and with various openings
+
+<en:Tetra Pak
+en:Tetra Brik Aseptic
+xx:Tetra Brik Aseptic
+web:en:https://www.tetrapak.com/solutions/packaging/packages/tetra-brik-aseptic
+description:en:drink cartons in various shapes and with various openings
+
+<en:Tetra Pak
+en:Tetra Rex
+xx:Tetra Rex
+web:en:https://www.tetrapak.com/solutions/packaging/packages/tetra-rex
+description:en:Tetra Rex®Plant-based is manufactured solely from a combination of plastics derived from sugar cane and paperboard. The plant-based plastics used by Tetra Pak are produced by Brazilian chemical company, Braskem, which sources all of its feedstock from sugar cane.
+
+<en:Tetra Pak
+en:Tetra Top
+xx:Tetra Top
+web:en:https://www.tetrapak.com/solutions/packaging/packages/tetra-top
+description:Drink cartons with a large separable top
+
+<en:Tetra Pak
+en:Tetra Stelo Aseptic, Tetra Stelo
+xx:Tetra Stelo Aseptic, Tetra Stelo
+web:en:https://www.tetrapak.com/solutions/packaging/packages/tetra-stelo-aseptic
+description:en:Carton drink cartons
+
+<en:Tetra Pak
+en:Tetra Fino Aseptic, Tetra Fino
+xx:Tetra Fino Aseptic, Tetra Fino
+web:en:https://www.tetrapak.com/solutions/packaging/packages/tetra-fino-aseptic
+description:en:Pillow-shape drink packaging, staw hole optional
+
+<en:Tetra Pak
+en:Tetra Classic Aseptic, Tetra Classic
+xx:Tetra Classic Aseptic, Tetra Classic
+wikidata:en:Q4050869
+web:en:https://www.tetrapak.com/solutions/packaging/packages/tetra-classic-aseptic
+description:en:Packaging with a tetrahedron shape
+
+<en:Tetra Pak
+en:Tetra Gemina Aseptic, Tetra Gemina
+xx:Tetra Gemina Aseptic, Tetra Gemina
+web:en:https://www.tetrapak.com/solutions/packaging/packages/tetra-gemina-aseptic
+description:en:Carton packages, Tetra Gemina Aseptic is made mainly from paper, a renewable source, and is available with FSC certified packaging material
+
+<en:Tetra Pak
+en:Tetra Wedge Aseptic, Tetra Wedge
+xx:Tetra Wedge Aseptic, Tetra Wedge
+web:en:https://www.tetrapak.com/solutions/packaging/packages/tetra-wedge-aseptic
+description:en:Drink cartons with a pre-punched straw hole
+
+<en:Tetra Pak
+en:Tetra Prisma Aseptic, Tetra Prisma
+xx:Tetra Prisma Aseptic, Tetra Prisma
+web:en:https://www.tetrapak.com/solutions/packaging/packages/tetra-prisma-aseptic
+description:en:Drink cartons. Tetra Prisma Aseptic is made mainly from paper, a renewable source & is available with FSC™ (Forest Stewardship Council™) certified packaging material
+
+<en:Tetra Pak
+en:Tetra Recart
+xx:Tetra Recart
+web:en:https://www.tetrapak.com/solutions/packaging/packages/tetra-recart
+description:en:Retortable carton designed for shelf-stable food products, an alternative to cans, glass jars or pouches.
+
+en:Elopak, Elo-Pak
+xx:Elopak, Elo-Pak
+wikidata:en:Q819899
+web:en:https://www.elopak.com/
+description:en:Producer of packaging cartons
+
+<en:Elopak
+<en:Multilayer composite
+en:D-PAK, D-PAK cartons
+xx:D-PAK
+packaging_shapes:en: en:brick
+web:en:https://www.elopak.com/d-pak-cartons/
+description:en:cartons for fluid non-food products, like detergents, softeners, etc.
+
+<en:Elopak
+<en:Multilayer composite
+en:Pure-Pak, PurePak
+xx:Pure-Pak, PurePak
+packaging_shapes:en: en:brick
+description:en:drink cartons for chilled or ambient distribution
+
+<en:Pure-Pak
+en:Pure-Pak Classic, PurePak Classic
+xx:Pure-Pak Classic, PurePak Classic
+web:en:https://www.elopak.com/pure-pak-classic/
+description:en:drink cartons
+
+<en:Pure-Pak
+en:Pure-Pak Sense, PurePak Sense
+xx:Pure-Pak Sense, PurePak Sense
+web:en:https://www.elopak.com/range-of-ambient-packages/
+description:en:drink cartons
+
+<en:Pure-Pak
+en:Pure-Pak Sense Aseptic, PurePak Sense Aseptic
+xx:Pure-Pak Sense Aseptic, PurePak Sense Aseptic
+web:https://www.elopak.com/pure-pak-sense-aseptic-3/
+description:en:drink carton for milk, milk alternatives and juice
+
+<en:Pure-Pak
+en:Pure-Pak eSense, PurePak eSense
+xx:Pure-Pak eSense, PurePak eSense
+web:en:https://www.elopak.com/pure-pak-esense/
+description:en:Pure-Pak eSense is an aseptic carton for low and high acid products which is aluminium-free, made with sustainably sourced paperboard and polyolefin blend barrier
+
+<en:Pure-Pak
+en:Naturally Pure-Pak, Naturally PurePak, Pure-Pak Naturally, PurePak Naturally
+xx:Naturally Pure-Pak, Naturally PurePak, Pure-Pak Naturally, PurePak Naturally
+web:en:https://www.elopak.com/naturally-pure-pak/
+description:en:Cartons made with Natural Brown Board are fully renewable, recyclable and have a lower carbon footprint than cartons made with our standard board.
+
+
+<en:Pure-Pak
+en:Pure-Pak Imagine, PurePak Imagine
+xx:Pure-Pak Imagine, PurePak Imagine
+web:en:https://www.elopak.com/pure-pak-imagine/
+description:en:The Pure-Pak Imagine carton has no plastic screw cap and is 100% forest based made with Natural Brown Board. The carton is fully renewable and carbon neutral, creating the perfect low carbon, circular economy approach.
+
+en:Italpack, Italpack Cartons
+xx:Italpack, Italpack Cartons
+web:en:http://www.italpack.net/en/
+description:en:packaging for for powdery and granular products in pre-made square-bottom paper bags
+
+en:sandstone
+ca:gres
+cs:pískovec
+da:sandsten
+de:Sandstein
+el:ψαμμίτης
+eo:grejso
+es:arenisca
+fi:hiekkakivi
+fr:Grès
+io:greso
+it:gres
+nl:zandsteen
+po:piaskowiec
+ru:песчаник
+sv:sandsten
 non_recyclable_and_non_biodegradable:en:yes
+wikidata:en:Q13085
+description:fr:Glaise mêlée de sable fin, et dont on fait des poteries
+
+en:porcelain
+af:porselein
+da:porcelæn
+de:Porzellan
+eo:porcelano
+es:porcelana
+fr:Porcelaine
+nl:porselein
+no:porselen
+pl:porcelán
+pt:porcelana
+sv:porslin
+non_recyclable_and_non_biodegradable:en:yes
+wikidata:en:Q130693
+description:fr:Céramique blanche, très fine et qui sert à fabriquer des vases, etc.
+description:nl:fijn, geglazuurd aardewerk
 
 en:Ceramic
+bg:Керамика
 da:Keramik
 de:Keramik
 fr:Céramique
-hu:Kerámia, porcelán
+hr:keramika
+hu:Kerámia
 nl:Keramiek
 pt:Cerâmica
 wikidata:en:Q45621
 non_recyclable_and_non_biodegradable:en:yes
+description:nl:materiaal dat noch een metaal noch een polymeer is. Voorbeelden van keramieken zijn bijvoorbeeld aardewerk, steengoed en porselein
+
+en:fabric, fabrics
+de:Stoff, Stoffe, Gewebe
+fr:tissu, tissus
+nl:textiel, stof, stoffen
+wikidata:en:Q28823
+description:nl:uit draden geweven materiaal en daaruit gemaakte voorwerpen
+
+en:adhesive tape
+de:Klebeband
+fr:ruban adhésif
+wikidata:en:Q320441
+comment:en:Should these not be shapes?
+
+<en:adhesive tape
+en:adhesive plastic tape
+de:Kunststoffklebeband
+comment:en:Should these not be shapes?
+
+<en:adhesive tape
+en:washi tape
+de:Washi-Tape
+ja:和紙テープ
+#comment:en:Should these not be shapes?
+
+en:Gas
+fr:Gaz
+
+<en:Gas
+en:CO2 - Carbon dioxide, Carbon dioxide
+fr:CO2 - Dioxide de carbone, CO2, Dioxide de carbone, gaz carbonique
+xx:CO2
+
+<en:Gas
+en:N2 - Azote, Azote
+fr:N2 - Azote, Azote
+xx:N2
+
+<en:Gas
+en:Other gas
+fr:Autre gaz
+

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -49,8 +49,7 @@ convert_csv_file.pl --csv_file path_to_csv_file --images_dir path_to_directory_c
 --define	: allows to define field values that will be applied to all products.
 
 TXT
-;
-
+	;
 
 my $csv_file;
 my $converted_csv_file;
@@ -58,14 +57,13 @@ my $columns_fields_file;
 my $source_id;
 my %global_values = ();
 
-GetOptions (
+GetOptions(
 	"csv_file=s" => \$csv_file,
-    "converted_csv_file=s" => \$converted_csv_file,
-    "columns_fields_file=s" => \$columns_fields_file,
+	"converted_csv_file=s" => \$converted_csv_file,
+	"columns_fields_file=s" => \$columns_fields_file,
 	"define=s%" => \%global_values,
 	"source_id=s" => \$source_id,
-		)
-  or die("Error in command line arguments:\n$\nusage");
+) or die("Error in command line arguments:\n$\nusage");
 
 if (defined $source_id) {
 	$global_values{source_id} = $source_id;

@@ -1,96 +1,131 @@
 [% panel = panels.$panel_id %]
 <!-- start templates/[% template.name %] - panel_id: [% panel_id %] -->
 [% IF (panel.type == "card") OR (panel.type == "inline") %]
-<div class="panel_[% panel.type %]" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:1.5rem;">
-[% ELSE %]
-<ul data-accordion class="panel_accordion accordion" id="[% panel_id | replace(':','-') %]" style="margin-top:0.5rem;margin-bottom:1.5rem;">
-<li class="accordion-navigation">
-[% END %]
-    <a href="#panel_[% panel_id | replace(':','-') %]_content" class="panel_title[% IF panel.title_element.type == "grade" %] grade_[% panel.title_element.grade %][% END %]">
-        [% IF panel.title_element.icon_url.defined %]
-        <img src="[% panel.title_element.icon_url %]"
-            style="[% IF panel.title_element.icon_size == 'small' %]height:36px;[% ELSE %]height:72px;[% END %]float:left;margin-right:1rem;"
-            alt="[% IF panel.title_element.icon_alt.defined %][% panel.title_element.icon_alt %][% ELSE %]icon[% END %]"
-            [% IF panel.title_element.icon_color_from_evaluation %]
-                [% IF panel.evaluation == "good" %]
-                    class="filter-green"
-                [% ELSIF panel.evaluation == "bad" %]
-                    class="filter-red"
-                [% ELSIF panel.evaluation == "average" %]
-                    class="filter-darkorange"                 
-                [% ELSIF panel.evaluation == "neutral" %]
-                    class="filter-grey"
-                [% ELSIF panel.evaluation == "unknown" %]
-                    class="filter-grey"
-                [% END %]    
-            [% END %]
-        >
+<div class="panel_[% panel.type %] radius" id="panel_[% panel_id | replace(':','-') %]"
+    [% IF panel.size == "small" %]
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    [% ELSE %]
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    [% END %]
+>
+    [% IF panel.title_element.defined %]
+        [% IF (panel.type == "card") %]
+            <h2 class="panel_title_[% panel.type %] text-medium">[% panel.title_element.title %]</h2>
+        [% ELSE %]        
+            <h3 class="panel_title_[% panel.type %]">[% panel.title_element.title %]</h3>
         [% END %]
-        <h3 
-            [% IF panel.evaluation == "good" %]
-                style="color:green"
-            [% ELSIF panel.evaluation == "bad" %]
-                style="color:red"
-            [% ELSIF panel.evaluation == "average" %]
-                style="color:darkorange"
-            [% ELSIF panel.evaluation == "neutral" %]
-                style="color:grey"
-            [% ELSIF panel.evaluation == "unknown" %]
-               style="color:grey"
+    [% END %]
+[% ELSE %]
+<ul data-accordion class="panel_accordion accordion" id="panel_[% panel_id | replace(':','-') %]"
+    [% IF panel.size == "small" %]
+        style="margin-top:0.2rem;margin-bottom:0.2rem;"
+    [% ELSE %]
+        style="margin-top:0.5rem;margin-bottom:1.5rem;"
+    [% END %]
+>
+<li class="accordion-navigation">
+
+    [% IF panel.title_element.defined %]
+        <a href="#panel_[% panel_id | replace(':','-') %]_content" class="panel_title[% IF panel.title_element.type == "grade" %] grade_[% panel.title_element.grade %][% END %]"
+            [% IF panel.size == "small" %]
+                style="padding:0.1rem;padding-left:1rem;"
             [% END %]
         >
-            [% IF panel.evaluation AND NOT panel.title_element.icon_url.defined %]
-                [% IF panel.evaluation == "good" %]
-                    <span style="color:green">
+            [% IF panel.title_element.icon_url.defined %]
+            <img src="[% panel.title_element.icon_url %]"
+                style="[% IF panel.title_element.icon_size == 'small' %]height:36px;[% ELSE %]height:72px;[% END %]float:left;margin-right:1rem;"
+                alt="[% IF panel.title_element.icon_alt.defined %][% panel.title_element.icon_alt %][% ELSE %]icon[% END %]"
+                [% IF panel.title_element.icon_color_from_evaluation %]
+                    [% IF panel.evaluation == "good" %]
+                        class="filter-green"
+                    [% ELSIF panel.evaluation == "bad" %]
+                        class="filter-red"
+                    [% ELSIF panel.evaluation == "average" %]
+                        class="filter-orange"
+                    [% ELSIF panel.evaluation == "neutral" %]
+                        class="filter-grey"
+                    [% ELSIF panel.evaluation == "unknown" %]
+                        class="filter-grey"
+                    [% ELSE %]
+                        class="filter-grey"
+                    [% END %]
+                [% END %]
+            >
+            [% END %]
+            <h4 [% IF panel.title_element.type == "grade" %]class="grade_[% panel.title_element.grade %]_title"[% END %]
+                [% IF panel.evaluation.defined %]class="evaluation_[%panel.evaluation %]_title"[% END %]
+                [% IF panel.size == "small" %]style="font-size:1.1rem;"[% END %]
+            >
+                [% IF panel.evaluation AND NOT panel.title_element.icon_url.defined %]
+                    <span class="evaluation_[%panel.evaluation %]_title">
+                    [% IF panel.evaluation == "good" %]
                         [% display_icon("check") %]
-                    </span>
-                [% ELSIF panel.evaluation == "bad" %]
-                    <span style="color:red">
+                    [% ELSIF panel.evaluation == "bad" %]
                         [% display_icon("cancel") %]
-                    </span>
-                [% ELSIF panel.evaluation == "average" %]
-                    <span style="color:darkorange">
+                    [% ELSIF panel.evaluation == "average" %]
                         [% display_icon("check") %]
-                    </span>                    
-                [% ELSIF panel.evaluation == "neutral" %]
-                    <span style="color:grey">
+                    [% ELSIF panel.evaluation == "neutral" %]
                         [% display_icon("check") %]
-                    </span>
-                [% ELSIF panel.evaluation == "unknown" %]
-                    <span style="color:grey">
+                    [% ELSIF panel.evaluation == "unknown" %]
                         [% display_icon("help") %]
+                    [% END %]
                     </span>
                 [% END %]
+                [% panel.title_element.title %]
+            </h4>
+            [% IF panel.title_element.subtitle.defined %]
+                <h5>[% panel.title_element.subtitle %]</h5>
             [% END %]
-            [% panel.title_element.title %]
-        </h3>
-        [% IF panel.title_element.subtitle.defined %]
-            <h4>[% panel.title_element.subtitle %]</h4>
-        [% END %]
-        <hr class="floatclear">
-    </a>
+            <hr class="floatclear">
+        </a>
+    [% END %]
+[% END %]
+
 
     [% IF panel.elements.defined %]
-    <div id="panel_[% panel_id | replace(':','-') %]_content" class="content panel_content[% IF (panel.type == 'card') OR (panel.type == 'inline') %]_[% panel.type %][% END %][% IF panel.expanded %] active[% END %]">
+    <div
+      id="panel_[% panel_id | replace(':','-') %]_content"
+      class="content panel_content[%
+          IF (panel.type == 'card') OR (panel.type == 'inline') %]_[% panel.type %][% END
+        %][%
+          IF (panel.expanded) OR (panel.expand_for == 'large') %] active[% END
+        %]
+        [% IF panel.expand_for %]expand-for-[% panel.expand_for %][% END %]"
+    >
     [% FOREACH element_ref IN panel.elements %]
         [% element_type = element_ref.element_type %]
-       
+
         [% IF element_type == "panel" %]
             [% INCLUDE web/panels/panel.tt.html panel_id = element_ref.panel_element.panel_id %]
         [% ELSIF element_type == "panel_group" %]
             [% panel_group_element = element_ref.panel_group_element %]
             <div class="panel_group">
+
+                [% IF panel_group_element.image.defined %]
+                    <div class="row">
+                        <div class="large-8 small-12 columns">
+                [% END %]
+
                 [% IF panel_group_element.title.defined %]
-                    <h3>[% panel_group_element.title %]</h3>
+                    <h3 [% IF panel_group_element.panel_group_id.defined %]id="panel_group_[% panel_group_element.panel_group_id | replace(':','-') %]"[% END %] class="panel_title_[% panel.type %][% IF panel_group_element.type == 'subcard' %] text-medium[% END %]">[% panel_group_element.title %]</h3>
                 [% END %]
                 [% FOREACH panel_id IN panel_group_element.panel_ids %]
                     [% INCLUDE web/panels/panel.tt.html panel_id = panel_id %]
                 [% END %]
+
+                [% IF panel_group_element.image.defined %]
+                        </div>
+                        <div class="large-4 small-12 columns">
+                            [% INCLUDE web/panels/image.tt.html code = product.code image = panel_group_element.image %]
+                        </div>
+                    </div>
+                [% END %]                
+                
             </div>
         [% ELSE %]
 
             <div style="margin-bottom:0.5rem">
-        
+
             [% IF element_type == "text" %]
                 [% text_element = element_ref.text_element %]
 
@@ -104,12 +139,12 @@
                         [% ELSIF text_element.evaluation == "bad" %]
                             class="filter-red"
                         [% ELSIF text_element.evaluation == "average" %]
-                            class="filter-darkorange"                 
+                            class="filter-orange"
                         [% ELSIF text_element.evaluation == "neutral" %]
                             class="filter-grey"
                         [% ELSIF text_element.evaluation == "unknown" %]
                             class="filter-grey"
-                        [% END %]    
+                        [% END %]
                     [% END %]
                 >
                 <div style="float:left;[% IF text_element.valign == 'middle' %]line-height:72px;[% END %]">
@@ -117,21 +152,43 @@
                 <div>
                 [% END %]
 
-                
+
                 [% IF text_element.type == "h1" %]
                     <h4 class="panel_title">
+                [% ELSIF text_element.type == "quote" %]
+                    <blockquote class="panel_text panel_text_quote">
                 [% ELSIF text_element.type == "note" %]
-                    <div class="panel_text panel_text_note">→ 
+                    <div class="panel_text panel_text_note">→
                 [% ELSIF text_element.type == "warning" %]
-                    <div class="panel_text panel_text_warning">⚠️ 
+                    <div class="panel_text panel_text_warning">⚠️
+                [% ELSIF text_element.type == "callout_info" %]
+                    <div class="panel_text alert-box info">
+                [% ELSIF text_element.type == "callout_warning" %]
+                        <div class="panel_text alert-box warning">⚠️
                 [% ELSE %]
                     <div class="panel_text">
                 [% END %]
+                    [% IF text_element.lc.defined && text_element.lc != lc %]
+                        <!-- text is in a different language than the interface -->
+                        <strong>[% text_element.language %][% sep %]: </strong>
+                    [% END %]
                     [% text_element.html %]
                 [% IF text_element.type == "h1" %]
                     </h4>
+                [% ELSIF text_element.type == "quote" %]
+                    </blockquote>
                 [% ELSE %]
                     </div>
+                [% END %]
+                [% IF text_element.source_url.defined %]
+                    <em>[% lang("source") %][% sep %]:
+                        <a href="[% text_element.source_url %]">[% text_element.source_text %]
+                            [% IF text_element.source_lc.defined && text_element.source_lc != lc %]
+                            <!-- source is in a different language than the interface -->
+                            ([% text_element.source_language %])
+                            [% END %]
+                        </a>
+                    </em>
                 [% END %]
                 </div>
 
@@ -139,11 +196,37 @@
                 <hr class="floatclear">
                 [% END %]
 
+            [% ELSIF element_type == "action" %]
+                <div>
+                [% action_element = element_ref.action_element %]
+
+                [% action_element.html %]
+
+                [% FOREACH action IN action_element.actions %]
+                    <a class="button small action-[% action %]"
+                        href="[% product_action_url(product.code, action) %]">
+                        [% lang("action_$action") %]
+                    </a>
+                [% END %]
+
+                </div>
+
             [% ELSIF element_type == "image" %]
                 [% image_element = element_ref.image_element %]
                 [% IF image_element.link_url.defined %]<a href="[% image_element.link_url %]">[% END %]
                     <img src="[% image_element.url %]" alt="[% image_element.alt %]">
                 [% IF image_element.link_url.defined %]</a>[% END %]
+
+                [% IF image_element.source_url.defined %]
+                <div class="image_source" style="font-style:italic">[% lang("source") %][% sep %]:
+                    <a href="[% image_element.source_url %]">[% image_element.source_text %]
+                        [% IF image_element.source_lc.defined && image_element.source_lc != lc %]
+                        <!-- source is in a different language than the interface -->
+                        ([% image_element.source_language %])
+                        [% END %]
+                    </a>
+                </div>
+            [% END %]
 
             [% ELSIF element_type == "table" %]
                 [% table_element = element_ref.table_element %]
@@ -151,7 +234,7 @@
                     <thead>
                         <tr>
                             [% FOREACH column IN table_element.columns %]
-                            <th scope="col"[% IF column.style.defined %]style="[% column.style %]"[% END %]>
+                            <th scope="col"[% IF column.style.defined %] style="[% column.style %]"[% END %]>
                                 [% column.text %]
                             </th>
                             [% END %]
@@ -159,7 +242,7 @@
                     </thead>
                     <tbody>
                         [% FOREACH row IN table_element.rows %]
-                        <tr[% IF row.id %] id="[% row.id %]"[% END %]>
+                        <tr[% IF row.id %] id="[% row.id %]"[% END %][% IF row.style.defined %] style="[% row.style %]"[% END %]>
                             [% FOREACH value IN row.item('values') %]
                                 <td [% IF value.style.defined %]style="[% value.style %]"[% END %]>
                                     [% IF value.icon_url %]
@@ -196,7 +279,7 @@
                                             [% value.text %]
                                         </span>
                                     [% END %]
-                                </td>                          
+                                </td>
                             [% END %]
                         </tr>
                         [% END %]
@@ -223,7 +306,7 @@
 
                 <!-- end templates/[% template.name %] -->
             [% END %]
-            
+
             </div>
 
         [% END %]
@@ -232,7 +315,7 @@
     [% END %]
 [% IF (panel.type == "card") OR (panel.type == "inline") %]
 </div>
-[% ELSE %]    
+[% ELSE %]
 </li>
 </ul>
 [% END %]

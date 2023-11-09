@@ -1,23 +1,19 @@
 name: Crowdin Sync
-
-#on:
-#  push:
-   # branches: [ * ]
    
 on:
   push:
     branches:
       - crowdin-trigger
-
+  
 jobs:         
   synchronize-with-crowdin:
-    name: Synchronize with crowdin
+    name: Synchronize with Crowdin
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: crowdin action
-      uses: crowdin/github-action@1.4.1
+      uses: crowdin/github-action@v1.14.1
       with:
         upload_translations: false # default is false
         # Use this option to upload translations for a single specified language
@@ -42,14 +38,15 @@ jobs:
         # Download translations with pushing to branch
         # push_translations: # default is true
         # Commit message for download translations
-        commit_message: "New Crowdin translations by Github Action"
+        commit_message: "l10n: New Crowdin translations by Github Action"
         # To download translations to the specified version branch
         localization_branch_name: l10n_main
         pull_request_base_branch_name: main
         # Create pull request after pushing to branch
         # create_pull_request: # default is true
         # The title of the new pull request
-        pull_request_title: "chore: New Crowdin translations to review and merge"
+        pull_request_title: "l10n: New Crowdin translations to review and merge"
+        pull_request_body: '### What\n- Automated pull request pulling in new or updated translations from Crowdin (https://translate.openfoodfacts.org).\n## Checklist\n- [ ] Check that they are no bad translations. If there are, correct them directly in Crowdin so that they are not resynced again. Then you can correct them here as well, or wait 24 hours for the sync to happen automatically.\n- [ ] Put extra attention on Acholi, which is used mistakenly as a sandbox by people discovering the self-service translation button on Open Food Facts\n- [ ] Once you are happy, that automated checks pass, you can approve the PR and merge it.\n### Part of\n- Translations'
         # The contents of the pull request
         # pull_request_body: # optional
         # To add labels for created pull request

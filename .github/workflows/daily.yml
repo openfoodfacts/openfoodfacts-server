@@ -1,4 +1,4 @@
-name: "Daily tasks (cronjobs)"
+name: "🕰️ Daily tasks (cronjobs)"
 
 on:
   schedule:
@@ -16,11 +16,11 @@ jobs:
   #   - name: Backup production database
   #     uses: appleboy/ssh-action@master
   #     with:
-  #       host: ${{ secrets.HOST }}
-  #       username: ${{ secrets.USERNAME }}
+  #       host: ${{ env.SSH_HOST }}
+  #       username: ${{ env.SSH_USERNAME }}
   #       key: ${{ secrets.SSH_PRIVATE_KEY }}
-  #       proxy_host: ${{ secrets.PROXY_HOST }}
-  #       proxy_username: ${{ secrets.USERNAME }}
+  #       proxy_host: ${{ env.SSH_PROXY_HOST }}
+  #       proxy_username: ${{ env.SSH_USERNAME }}
   #       proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
   #       script_stop: false
   #       script: |
@@ -29,54 +29,40 @@ jobs:
 
   dev-db-sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 180
     strategy:
       matrix:
         env: [mongo-dev]
     environment: ${{ matrix.env }}
     concurrency: ${{ matrix.env }}
     steps:
-    - name: Sync prod db data to dev MongoDB
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
-        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        command_timeout: 30m
-        script_stop: false
-        script: |
-          cd ${{ matrix.env }}
-          cp .env ../.env
-          git fetch --depth 1 && git checkout -qf ${{ startsWith(github.ref, 'refs/heads/cron-') && github.sha || 'main' }}
-          cp ../.env .env
-          make import_prod_data
-          make restart_db
+    - name: Set various variables for staging (.net) deployment
+      if: matrix.env == 'mongo-dev'
+      run: |
+        # deploy target
+        echo "SSH_HOST=10.1.0.200" >> $GITHUB_ENV
+        echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
+        echo "SSH_USERNAME=off" >> $GITHUB_ENV
 
-  refresh-products-tags:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        env: [mongo-dev]
-    environment: ${{ matrix.env }}
-    concurrency: ${{ matrix.env }}
-    steps:
-    - name: Refresh MongoDB products_tags collection
+    - name: Sync production database data to the dev MongoDB
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        host: ${{ env.SSH_HOST }}
+        username: ${{ env.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
+        proxy_host: ${{ env.SSH_PROXY_HOST }}
+        proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        command_timeout: 30m
+        command_timeout: 180m
         script_stop: false
         script: |
           cd ${{ matrix.env }}
-          cp .env ../.env
-          git fetch --depth 1 && git checkout -qf ${{ startsWith(github.ref, 'refs/heads/cron-') && github.sha || 'main' }}
-          cp ../.env .env
-          make refresh_product_tags
-          make restart_db
+          # We can put a file to avoid running db update
+          if [[ ! -e ./NO_DAILY ]]
+          then
+            make import_prod_data && \
+            make restart_db
+          else
+            # make task fail intentionally
+            false
+          fi

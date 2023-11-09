@@ -12,4 +12,4 @@ services:
       - ./.stylelintignore:/opt/product-opener/.stylelintignore
       # extra files to lint
       - ./scripts:/opt/product-opener/scripts
-      - ./test:/opt/product-opener/test
+      - ./tests:/opt/product-opener/tests

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -49,9 +48,9 @@ use Log::Any qw($log);
 use Spreadsheet::CSV();
 use Text::CSV();
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
-my $action = param('action') || 'display';
+my $action = single_param('action') || 'display';
 
 my $title = lang("import_products_categories_from_public_database");
 my $html = '';
@@ -59,11 +58,13 @@ my $js = '';
 my $template_data_ref = {};
 
 if (not defined $Owner_id) {
-	display_error(lang("no_owner_defined"), 200);
+	display_error_and_exit(lang("no_owner_defined"), 200);
 }
 
 if ($action eq "display") {
-	process_template('web/pages/import_product_categories/import_product_categories_from_public_database.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
+	process_template('web/pages/import_product_categories/import_product_categories_from_public_database.tt.html',
+		$template_data_ref, \$html)
+		or $html = "<p>" . $tt->error() . "</p>";
 }
 
 elsif ($action eq "process") {
@@ -77,23 +78,29 @@ elsif ($action eq "process") {
 		import_id => $import_id,
 	};
 
-	my $job_id = $minion->enqueue(import_products_categories_from_public_database => [ $args_ref ]
-		=> { queue => $server_options{minion_local_queue}});
+	my $job_id
+		= get_minion()
+		->enqueue(import_products_categories_from_public_database => [$args_ref] =>
+			{queue => $server_options{minion_local_queue}});
 
-	$template_data_ref->{import_id}= $import_id ;
-	$template_data_ref->{job_id}= $job_id;
-	$template_data_ref->{link}= "/cgi/minion_job_status.pl?job_id=$job_id";
+	$template_data_ref->{import_id} = $import_id;
+	$template_data_ref->{job_id} = $job_id;
+	$template_data_ref->{link} = "/cgi/minion_job_status.pl?job_id=$job_id";
 
-	process_template('web/pages/import_product_categories_process/import_product_categories_from_public_database_process.tt.html', $template_data_ref, \$html) or $html = "<p>" . $tt->error() . "</p>";
-	process_template('web/pages/import_product_categories_process/import_product_categories_from_public_database_process.tt.js', $template_data_ref, \$js);
+	process_template(
+		'web/pages/import_product_categories_process/import_product_categories_from_public_database_process.tt.html',
+		$template_data_ref, \$html)
+		or $html = "<p>" . $tt->error() . "</p>";
+	process_template(
+		'web/pages/import_product_categories_process/import_product_categories_from_public_database_process.tt.js',
+		$template_data_ref, \$js);
 	$initjs .= $js;
 
 }
 
-display_page( {
-	title=>$title,
-	content_ref=>\$html,
-});
+$request_ref->{title} = $title;
+$request_ref->{content_ref} = \$html;
+display_page($request_ref);
 
 exit(0);
 

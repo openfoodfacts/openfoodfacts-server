@@ -5,40 +5,28 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: bg\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2021-12-09 09:06\n"
 "Language-Team: Bulgarian\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: bg\n"
-"X-Crowdin-File: openproductsfacts.pot\n"
-"X-Crowdin-File-ID: 1814\n"
+"X-Crowdin-File-ID: 3129\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openproductsfacts.org/images/apps/off.apk"
-msgstr ""
+msgstr "https://world.openproductsfacts.org/images/apps/off.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=bg"
 
 #. change https://apps.apple.com/app/ to https://apps.apple.com/fr/app/ (for instance) and make sure the url works
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/bg/app/open-beauty-facts/id1122926380"
-
-#. make sure the image exists with your country code at https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-XX-178x150.png. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openproductsfacts-logo-en-178x150.png"
-msgstr ""
-
-#. make sure the image exists with your country code at https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-XX-356x300.png. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openproductsfacts-logo-en-356x300.png"
-msgstr "openproductsfacts-logo-en-356x300.png"
 
 msgctxt "site_name"
 msgid "Open Products Facts"
@@ -46,8 +34,8 @@ msgstr "Open Products Facts"
 
 #. change https://www.microsoft.com/en-us/p/ to https://www.microsoft.com/fr-fr/p/ (for instance) and make sure the url works
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/bg-bg/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
+msgstr ""
 
 msgctxt "tagline"
 msgid "Open Products Facts gathers information and data on products from around the world."
@@ -60,29 +48,19 @@ msgstr "OpenFoodFactsBG"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "Тази продуктова страница не е пълна. Можеш да помогнеш, като я редактираш и добавиш повече данни от снимките, които имаме, или като направиш още снимки с помощта на приложението за <a href=\"https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner\">Android</a> или <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Благодаря ти!"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Products Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Products Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Дарете на Open Food Facts\" /></a><p><<site_name>> се прави от сдружение с нестопанска цел, независимо от индустрията. Той е направен за всички, от всички и се финансира от всички. Можете да подкрепите нашата работа, като <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">дарите на Open Food Facts</a> а също и чрез <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">като използвате търсачката Lilo</a>.<br/><b>Благодарям ви!</b></p>"
 
 msgctxt "donate"
 msgid "Donate to Open Products Facts"
-msgstr ""
+msgstr "Дари за Open Products Facts"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
 msgstr "https://www.facebook.com/OpenFoodFacts"
-
-msgctxt "footer"
-msgid "<a href=\"https://world.openproductsfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
 
 msgctxt "brands_example"
 msgid "Nike, Apple"
@@ -98,15 +76,15 @@ msgstr "EMB 53062"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of information on products from around the world"
-msgstr ""
+msgstr "Съвместна, безплатна и отворена база данни за информация за продукти от света"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "и <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">Facebook групата за сътрудници</a>"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of products from around the world."
-msgstr ""
+msgstr "Съвместна, безплатна и отворена база данни за съставки и информация за хранителни продукти от целият свят."
 
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
@@ -114,7 +92,7 @@ msgstr "https://wiki.openfoodfacts.org"
 
 msgctxt "generic_name_example"
 msgid "Android smartphone"
-msgstr ""
+msgstr "Android смартфон"
 
 msgctxt "product_name_example"
 msgid "iPod Touch (1st generation)"
@@ -122,20 +100,21 @@ msgstr "iPod Touch (1-во поколение)"
 
 msgctxt "og_image_url"
 msgid "https://static.openproductsfacts.org/images/misc/openproductsfacts-logo-en-178x150.png"
-msgstr ""
+msgstr "https://static.openproductsfacts.org/images/misc/openproductsfacts-logo-en-178x150.png"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-product-hunt\">Open Product Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr ""
+msgstr "Това е <a href=\"/open-product-hunt\">Лов на Open Product</a> на <<site_name>> от събота, 21 февруари до неделя, 1 март! Сътрудниците получават\n"
+"точки Explorer за продукти, които добавят, и Ambassador точки за нови сътрудници, които наемат. Точките се актуализират на всеки 30 минути."
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr "→ С Chrome, Firefox и Safari можете да изберете множество снимки (продукт, съставки и т. н.), като щракнете върху тях задържайки натиснат клавиша Ctrl, за да ги добавите наведнъж."
+msgstr "→ С Chrome, Firefox и Safari можеш да избереш множество снимки (продукт, съставки и т. н.), като щракнеш върху тях задържайки натиснат клавиша Ctrl, за да ги добавиш наведнъж."
 
 msgctxt "search_description_opensearch"
 msgid "Open Products Facts product search"
-msgstr ""
+msgstr "Отворете търсенето на продукти в Products Facts"
 
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
@@ -144,5 +123,5 @@ msgstr "ВОДА, НАТРИЕВ ЛАУРЕТ СУЛФАТ, ДИНАТРИЕВ �
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
 msgid "/open-products-facts-mobile-app"
-msgstr ""
+msgstr "/open-products-facts-mobile-app"
 

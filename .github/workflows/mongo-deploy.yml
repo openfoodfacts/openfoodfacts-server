@@ -8,6 +8,8 @@ on:
     paths:
     - docker/mongodb.yml
     - .github/workflows/*.yml
+    - Makefile
+    - scripts/*.js
 
 jobs:
   deploy-docker:
@@ -18,14 +20,25 @@ jobs:
     environment: ${{ matrix.env }}
     concurrency: ${{ matrix.env }}
     steps:
+    - name: Set various variable for staging (net) deployment
+      if: matrix.env == 'mongo-dev'
+      run: |
+        # configs
+        echo "MONGODB_CACHE_SIZE=14" >> $GITHUB_ENV
+        echo "MONGODB_HOST=10.1.0.200" >> $GITHUB_ENV
+        # deploy target
+        echo "SSH_HOST=10.1.0.200" >> $GITHUB_ENV
+        echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
+        echo "SSH_USERNAME=off" >> $GITHUB_ENV
+
     - name: Checkout git repository
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        host: ${{ env.SSH_HOST }}
+        username: ${{ env.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
+        proxy_host: ${{ env.SSH_PROXY_HOST }}
+        proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
@@ -44,11 +57,11 @@ jobs:
     - name: Set environment variables
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        host: ${{ env.SSH_HOST }}
+        username: ${{ env.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
+        proxy_host: ${{ env.SSH_PROXY_HOST }}
+        proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
@@ -58,17 +71,17 @@ jobs:
           echo "COMPOSE_PROJECT_NAME=po" >> .env
           echo "COMPOSE_PATH_SEPARATOR=;" >> .env
           echo "COMPOSE_FILE=docker/mongodb.yml" >> .env
-          echo "MONGODB_CACHE_SIZE=${{ secrets.MONGODB_CACHE_SIZE }}" >> .env
-          echo "MONGODB_HOST=${{ secrets.HOST }}" >> .env
+          echo "MONGODB_CACHE_SIZE=${{ env.MONGODB_CACHE_SIZE }}" >> .env
+          echo "MONGODB_HOST=${{ env.MONGODB_HOST }}" >> .env
 
     - name: Create MongoDB Docker volume
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        host: ${{ env.SSH_HOST }}
+        username: ${{ env.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
+        proxy_host: ${{ env.SSH_PROXY_HOST }}
+        proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
@@ -77,26 +90,27 @@ jobs:
     - name: Start services
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        host: ${{ env.SSH_HOST }}
+        username: ${{ env.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
+        proxy_host: ${{ env.SSH_PROXY_HOST }}
+        proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
           cd ${{ matrix.env }}
+          make down
           make up
 
     - name: Check services are up
       uses: appleboy/ssh-action@master
       if: ${{ always() }}
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        host: ${{ env.SSH_HOST }}
+        username: ${{ env.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
+        proxy_host: ${{ env.SSH_PROXY_HOST }}
+        proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
@@ -107,11 +121,11 @@ jobs:
       uses: appleboy/ssh-action@master
       if: ${{ always() }}
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
+        host: ${{ env.SSH_HOST }}
+        username: ${{ env.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        proxy_host: ${{ secrets.PROXY_HOST }}
-        proxy_username: ${{ secrets.USERNAME }}
+        proxy_host: ${{ env.SSH_PROXY_HOST }}
+        proxy_username: ${{ env.SSH_USERNAME }}
         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
         script_stop: false
         script: |
@@ -129,11 +143,11 @@ jobs:
   #     concurrency: ${{ matrix.env }}
   #     uses: appleboy/ssh-action@master
   #     with:
-  #       host: ${{ secrets.HOST }}
-  #       username: ${{ secrets.USERNAME }}
+  #       host: ${{ env.SSH_HOST }}
+  #       username: ${{ env.SSH_USERNAME }}
   #       key: ${{ secrets.SSH_PRIVATE_KEY }}
-  #       proxy_host: ${{ secrets.PROXY_HOST }}
-  #       proxy_username: ${{ secrets.USERNAME }}
+  #       proxy_host: ${{ env.SSH_PROXY_HOST }}
+  #       proxy_username: ${{ env.SSH_USERNAME }}
   #       proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
   #       script_stop: false
   #       script: |
@@ -146,11 +160,11 @@ jobs:
   #       concurrency: ${{ matrix.env }}
   #       uses: appleboy/ssh-action@master
   #       with:
-  #         host: ${{ secrets.HOST }}
-  #         username: ${{ secrets.USERNAME }}
+  #         host: ${{ env.SSH_HOST }}
+  #         username: ${{ env.SSH_USERNAME }}
   #         key: ${{ secrets.SSH_PRIVATE_KEY }}
-  #         proxy_host: ${{ secrets.PROXY_HOST }}
-  #         proxy_username: ${{ secrets.USERNAME }}
+  #         proxy_host: ${{ env.SSH_PROXY_HOST }}
+  #         proxy_username: ${{ env.SSH_USERNAME }}
   #         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
   #         script_stop: false
   #         script: |
@@ -163,11 +177,11 @@ jobs:
   #       concurrency: ${{ matrix.env }}
   #       uses: appleboy/ssh-action@master
   #       with:
-  #         host: ${{ secrets.HOST }}
-  #         username: ${{ secrets.USERNAME }}
+  #         host: ${{ env.SSH_HOST }}
+  #         username: ${{ env.SSH_USERNAME }}
   #         key: ${{ secrets.SSH_PRIVATE_KEY }}
-  #         proxy_host: ${{ secrets.PROXY_HOST }}
-  #         proxy_username: ${{ secrets.USERNAME }}
+  #         proxy_host: ${{ env.SSH_PROXY_HOST }}
+  #         proxy_username: ${{ env.SSH_USERNAME }}
   #         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
   #         script_stop: false
   #         script: |
@@ -182,11 +196,11 @@ jobs:
   #       concurrency: ${{ matrix.env }}
   #       uses: appleboy/ssh-action@master
   #       with:
-  #         host: ${{ secrets.HOST }}
-  #         username: ${{ secrets.USERNAME }}
+  #         host: ${{ env.SSH_HOST }}
+  #         username: ${{ env.SSH_USERNAME }}
   #         key: ${{ secrets.SSH_PRIVATE_KEY }}
-  #         proxy_host: ${{ secrets.PROXY_HOST }}
-  #         proxy_username: ${{ secrets.USERNAME }}
+  #         proxy_host: ${{ env.SSH_PROXY_HOST }}
+  #         proxy_username: ${{ env.SSH_USERNAME }}
   #         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
   #         script_stop: false
   #         script: |

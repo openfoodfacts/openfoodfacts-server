@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -19,7 +19,6 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 
 # See: https://wiki.openfoodfacts.org/Verification/Bots#Checkbot
 
@@ -42,7 +41,7 @@ Only --channel is mandatory.
 --channel: name of the slack channel: #fr, for example, or \@UserName to make tests
 
 TXT
-;
+	;
 # use "--channel=STDIN" to print results on STDIN and not send any message to Slack
 
 use Encode;
@@ -63,7 +62,6 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Data qw/:all/;
 use ProductOpener::Data qw/:all/;
 
-
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -75,7 +73,7 @@ use LWP::UserAgent;
 my $ua = LWP::UserAgent->new;
 
 # Initial settings
-my $max_sendings = 10; # maximum number of alerts sent by the bot
+my $max_sendings = 10;    # maximum number of alerts sent by the bot
 # The bot use "incoming webhooks" of slack
 #   Doc: https://api.slack.com/incoming-webhooks
 #   OFF webhooks settings: https://openfoodfacts.slack.com/services/B033QD1T1
@@ -84,22 +82,19 @@ my $channel;
 my $country = '';
 my $product_order = '';
 
-
 # Beginning
 GetOptions(
 	'max_sendings:i' => \$max_sendings,
-	'country:s'      => \$country,
-	'order:s'        => \$product_order,
-	'channel=s'      => \$channel          # channel is mandatory
+	'country:s' => \$country,
+	'order:s' => \$product_order,
+	'channel=s' => \$channel    # channel is mandatory
 ) or die("Error in command line arguments:\n\n$usage");
 
 if (not defined $channel) {
-	die ("--channel parameter is mandatory.\n\n$usage");
+	die("--channel parameter is mandatory.\n\n$usage");
 }
 
-my $sendings = 0; # Number of alerts sent by the bot
-
-
+my $sendings = 0;    # Number of alerts sent by the bot
 
 sub send_msg($) {
 
@@ -121,7 +116,8 @@ sub send_msg($) {
 
 	# add POST data to HTTP request body
 	#   * tests can be made with "channel": "@YourAccount" instead of "#bots-alert"
-	my $post_data = '{"channel": "' . $channel . '", "username": "checkbot", "text": "' . $msg . '", "icon_emoji": ":hamster:"}';
+	my $post_data
+		= '{"channel": "' . $channel . '", "username": "checkbot", "text": "' . $msg . '", "icon_emoji": ":hamster:"}';
 	$req->content_type("text/plain; charset='utf8'");
 	$req->content(Encode::encode_utf8($post_data));
 
@@ -131,40 +127,33 @@ sub send_msg($) {
 		print "Received reply: $message\n";
 	}
 	else {
-		print "HTTP POST error code: " .  $resp->code . "\n";
+		print "HTTP POST error code: " . $resp->code . "\n";
 		print "HTTP POST error message: " . $resp->message . "\n";
 	}
 
 	return;
 }
 
-
-
 my $query = {};
 
 # If --country is specified, build the query with the country
 if ($country ne "") {
-	$country =~ s/^(en:)?(.*)/en:$2/g; # "en:Country" or "Country" => "en:Country"
-	$query = { 'countries_tags' => $country };
+	$country =~ s/^(en:)?(.*)/en:$2/g;    # "en:Country" or "Country" => "en:Country"
+	$query = {'countries_tags' => $country};
 }
 
 # Select the products in reverse order
 my $products_collection = get_products_collection();
-my $cursor = $products_collection->query($query)->fields({ code => 1 })->sort({code =>-1});
+my $cursor = $products_collection->query($query)->fields({code => 1})->sort({code => -1});
 
 # If --order parameter is random, select all the products again, but in a random order
 if ($product_order eq "random") {
 	my $count = $products_collection->count_documents($query);
-	my $aggregate_parameters = [
-		{ "\$match" => $query },
-		{ "\$sample" => { "size" => $count } }
-	];
+	my $aggregate_parameters = [{"\$match" => $query}, {"\$sample" => {"size" => $count}}];
 	$cursor = $products_collection->aggregate($aggregate_parameters);
 }
 
-
 while (my $product_ref = $cursor->next) {
-
 
 	my $code = $product_ref->{code};
 
@@ -188,10 +177,13 @@ while (my $product_ref = $cursor->next) {
 			foreach my $nid (keys %{$product_ref->{nutriments}}) {
 				next if $nid =~ /_/;
 
-				if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid . "_100g"} > 105)) {
+				if (($nid !~ /energy/) and ($nid !~ /footprint/) and ($product_ref->{nutriments}{$nid . "_100g"} > 105))
+				{
 
-					my $msg = "Product <https://world.openfoodfacts.org/product/$code> ($name / $brands) : *$nid* = "
-					. $product_ref->{nutriments}{$nid . "_100g"} . "g / 100g";
+					my $msg
+						= "Product <https://world.openfoodfacts.org/product/$code> ($name / $brands) : *$nid* = "
+						. $product_ref->{nutriments}{$nid . "_100g"}
+						. "g / 100g";
 
 					print "$code : " . $msg . "\n";
 
@@ -206,7 +198,13 @@ while (my $product_ref = $cursor->next) {
 				my $starch = $product_ref->{nutriments}{"starch_100g"} // 0;
 				if ($sugars + $starch > $product_ref->{nutriments}{"carbohydrates_100g"} + 0.001) {
 
-					my $msg = "Product <https://world.openfoodfacts.org/product/$code> ($name / $brands) : sugars (" . $sugars  . ") + starch (" .  $starch . ") > carbohydrates (" . $product_ref->{nutriments}{"carbohydrates_100g"}  . ")";
+					my $msg
+						= "Product <https://world.openfoodfacts.org/product/$code> ($name / $brands) : sugars ("
+						. $sugars
+						. ") + starch ("
+						. $starch
+						. ") > carbohydrates ("
+						. $product_ref->{nutriments}{"carbohydrates_100g"} . ")";
 
 					print "$code : " . $msg . "\n";
 

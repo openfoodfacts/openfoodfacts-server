@@ -1,0 +1,106 @@
+{
+   "code" : "1234567890007",
+   "errors" : [],
+   "product" : {
+      "misc_tags" : [
+         "en:nutriscore-missing-category",
+         "en:nutrition-not-enough-data-to-compute-nutrition-score",
+         "en:nutriscore-missing-nutrition-data",
+         "en:nutriscore-missing-nutrition-data-energy",
+         "en:nutriscore-missing-nutrition-data-fat",
+         "en:nutriscore-missing-nutrition-data-saturated-fat",
+         "en:nutriscore-missing-nutrition-data-sugars",
+         "en:nutriscore-missing-nutrition-data-sodium",
+         "en:nutriscore-missing-nutrition-data-proteins",
+         "en:nutrition-no-fiber",
+         "en:nutriscore-not-computed",
+         "en:nutrition-no-fruits-vegetables-nuts",
+         "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+         "en:packagings-number-of-components-4",
+         "en:packagings-not-complete",
+         "en:packagings-not-empty-but-not-complete",
+         "en:packagings-not-empty",
+         "en:ecoscore-extended-data-not-computed",
+         "en:ecoscore-not-computed",
+         "en:main-countries-new-product"
+      ],
+      "packagings" : [
+         {
+            "material" : {
+               "id" : "en:plastic",
+               "lc_name" : "Plastique"
+            },
+            "number_of_units" : 2,
+            "recycling" : {
+               "id" : "en:strange value",
+               "lc_name" : "en:strange value"
+            },
+            "shape" : {
+               "id" : "en:bottle",
+               "lc_name" : "Bouteille"
+            }
+         },
+         {
+            "material" : {
+               "id" : "en:cardboard",
+               "lc_name" : "Carton"
+            },
+            "number_of_units" : 1,
+            "recycling" : {
+               "id" : "en:recycle",
+               "lc_name" : "Recycler"
+            },
+            "shape" : {
+               "id" : "en:box",
+               "lc_name" : "Boîte"
+            }
+         },
+         {
+            "material" : {
+               "id" : "en:plastic",
+               "lc_name" : "Plastique"
+            },
+            "number_of_units" : 3,
+            "shape" : {
+               "id" : "en:bottle",
+               "lc_name" : "Bouteille"
+            }
+         },
+         {
+            "material" : {
+               "id" : "en:glass",
+               "lc_name" : "Verre"
+            },
+            "number_of_units" : 4,
+            "recycling" : {
+               "id" : "en:recycle",
+               "lc_name" : "Recycler"
+            },
+            "shape" : {
+               "id" : "en:pot",
+               "lc_name" : "Pot"
+            }
+         }
+      ],
+      "weighers_tags" : []
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "id" : "recycling",
+            "value" : null
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      }
+   ]
+}
