@@ -3003,7 +3003,7 @@ reference to a hash of product fields that have been created or updated
 sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_ref) {
 
 	# Add a percent_max value for salt and sugar ingredients, based on the nutrition facts.
-	add_percent_max_for_salt_and_sugar_ingredients_from_nutrition_facts($product_ref);	
+	add_percent_max_for_salt_and_sugar_ingredients_from_nutrition_facts($product_ref);
 
 	if (compute_ingredients_percent_min_max_values(100, 100, $product_ref->{ingredients}) < 0) {
 
