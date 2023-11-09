@@ -22,30 +22,10 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::ImportConvertCarrefourFrance qw/:all/;
 
-use File::Basename "dirname";
-
-use Getopt::Long;
 use JSON;
 
+my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results(__FILE__));
 
-my $test_id = "import_convert_carrefour_france";
-my $test_dir = dirname(__FILE__);
-my $results_dir = "$test_dir/expected_test_results/$test_id";
-
-my $usage = <<TXT
-
-The expected results of the tests are saved in $results_dir
-
-Use the --update-expected-results option to create or update the test results.
-
-TXT
-;
-
-my $update_expected_results;
-
-GetOptions ("update-expected-results"   => \$update_expected_results)
-  or die("Error in command line arguments.\n\n" . $usage);
-  
 # Remove all products
 
 ProductOpener::Test::remove_all_products();
@@ -65,21 +45,21 @@ if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
 
 my $converted_csv_file = "/tmp/import_convert_carrefour_france.csv";
 
-open (my $converted_csv, ">:encoding(UTF-8)", $converted_csv_file) or die("Could not create $converted_csv_file: $!\n");
+open(my $converted_csv, ">:encoding(UTF-8)", $converted_csv_file) or die("Could not create $converted_csv_file: $!\n");
 
 my @files = ();
-opendir(my $dh, $test_dir . "/inputs/import_convert_carrefour_france") or die("Cannot read $test_dir" . "/inputs/import_convert_carrefour_france");
-foreach my $file (sort { $a cmp $b } readdir($dh)) {
-    
-    if ($file =~ /\.xml$/) {
-        push @files, $test_dir . "/inputs/import_convert_carrefour_france/" . $file;
-    }
+opendir(my $dh, $test_dir . "/inputs/import_convert_carrefour_france")
+	or die("Cannot read $test_dir" . "/inputs/import_convert_carrefour_france");
+foreach my $file (sort {$a cmp $b} readdir($dh)) {
+
+	if ($file =~ /\.xml$/) {
+		push @files, $test_dir . "/inputs/import_convert_carrefour_france/" . $file;
+	}
 }
 
 convert_carrefour_france_files($converted_csv, \@files);
 
 close($converted_csv);
-
 
 my $import_args_ref = {
 	user_id => "carrefour-france",
@@ -87,7 +67,7 @@ my $import_args_ref = {
 	no_source => 1,
 };
 
-my $stats_ref = import_csv_file( $import_args_ref );
+my $stats_ref = import_csv_file($import_args_ref);
 
 # Export products
 
@@ -97,15 +77,15 @@ my $separator = "\t";
 # CSV export
 
 my $exported_csv_file = "/tmp/import_convert_carrefour_france_export.csv";
-open (my $exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not create $exported_csv_file: $!\n");
+open(my $exported_csv, ">:encoding(UTF-8)", $exported_csv_file) or die("Could not create $exported_csv_file: $!\n");
 
-my $export_args_ref = {filehandle=>$exported_csv, separator=>$separator, query=>$query_ref, cc => "fr" };
+my $export_args_ref = {filehandle => $exported_csv, separator => $separator, query => $query_ref, cc => "fr"};
 
 export_csv($export_args_ref);
 
 close($exported_csv);
 
-ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, $results_dir, $update_expected_results);
-
+ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, $expected_result_dir,
+	$update_expected_results);
 
 done_testing();

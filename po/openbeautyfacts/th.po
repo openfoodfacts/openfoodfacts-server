@@ -11,12 +11,12 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: th\n"
-"X-Crowdin-File-ID: 2540\n"
+"X-Crowdin-File-ID: 3125\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openbeautyfacts.org/images/apps/obf.apk"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org/images/apps/obf.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
@@ -25,29 +25,19 @@ msgstr "https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanne
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
-msgstr ""
-
-#. make sure the image exists with your country code. https://static.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en-178x150.png Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openbeautyfacts-logo-en-178x150.png"
-msgstr ""
-
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openbeautyfacts-logo-en-356x300.png"
-msgstr ""
+msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 
 msgctxt "site_name"
 msgid "Open Beauty Facts"
 msgstr ""
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 msgstr ""
 
 msgctxt "tagline"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
-msgstr ""
+msgstr "Open Beauty Facts ได้รวบรวมข่าวสารและข้อมูลเกี่ยวกับผลิตภัณฑ์เครื่องสำอางจากทั่วโลก"
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
@@ -56,7 +46,7 @@ msgstr ""
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "หน้าของผลิตภัณฑ์นี้ยังไม่สมบูรณ์ คุณสามารถช่วยได้โดยการแก้ไขและเพิ่มข้อมูลจากรูปภาพที่เรามี หรือถ่ายรูปเพิ่มเติมผ่านแอปพลิเคชันบน <a href=\"https://play.google.com/store/apps/details?id=org.openbeautyfacts.scanner&hl=en\">Android</a>หรือ<a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a> ขอบคุณเป็นอย่างยิ่ง!"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -64,11 +54,11 @@ msgstr ""
 
 msgctxt "donate"
 msgid "Donate to Open Beauty Facts"
-msgstr ""
+msgstr "บริจาคให้กับ Open Beauty Facts"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenBeautyFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenBeautyFacts"
 
 msgctxt "brands_example"
 msgid "Nivea, Nivea Men"
@@ -95,7 +85,7 @@ msgid "A collaborative, free and open database of cosmetic products from around 
 msgstr ""
 
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openbeautyfacts.org"
+msgid "https://wiki.openfoodfacts.org"
 msgstr ""
 
 msgctxt "generic_name_example"

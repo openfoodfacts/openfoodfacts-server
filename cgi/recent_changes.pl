@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -46,24 +46,22 @@ my $request_ref = ProductOpener::Display::init_request();
 
 my $query_ref = {};
 
-my $limit = 0 + (param('page_size') || $page_size);
+my $limit = 0 + (single_param('page_size') || $page_size);
 if (($limit < 2) or ($limit > 1000)) {
 	$limit = $page_size;
 }
 
-my $page = 0 + (param('page') || 1);
+my $page = 0 + (single_param('page') || 1);
 if (($page < 1) or ($page > 1000)) {
 	$page = 1;
 }
 
-my $request_ref = {
-	current_link_query => ''
-};
+my $request_ref = {current_link_query => ''};
 
 foreach my $parameter ('json') {
 
-	if (defined param($parameter)) {
-		$request_ref->{$parameter} = param($parameter);
+	if (defined single_param($parameter)) {
+		$request_ref->{$parameter} = single_param($parameter);
 	}
 }
 

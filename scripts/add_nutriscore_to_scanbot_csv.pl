@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -52,10 +52,11 @@ use JSON::PP;
 
 my %total = ();
 
-print join("\t", qw(code scans unique_scans found source found_status found_scans found_unique_scans nutriscore_status nutriscore_scans nutriscore_unique_scans)) . "\n";
+print join("\t",
+	qw(code scans unique_scans found source found_status found_scans found_unique_scans nutriscore_status nutriscore_scans nutriscore_unique_scans)
+) . "\n";
 
-while (<STDIN>)
-{
+while (<STDIN>) {
 	$total{products}++;
 	chomp;
 	my ($code, $scans, $unique_scans, $found, $source) = split(/\t/);
@@ -67,10 +68,10 @@ while (<STDIN>)
 	my $found_unique_scans = 0;
 	my $found_status = 0;
 
- 	my $producers_scans = 0;
+	my $producers_scans = 0;
 	my $producers_unique_scans = 0;
 	my $producers_status = 0;
-	
+
 	my $nutriscore_scans = 0;
 	my $nutriscore_unique_scans = 0;
 	my $nutriscore_status = 0;
@@ -79,7 +80,7 @@ while (<STDIN>)
 	my $ecoscore_unique_scans = 0;
 	my $ecoscore_status = 0;
 
- 	if ($source eq "producers") {
+	if ($source eq "producers") {
 		$total{producers_products}++;
 		$producers_status = 1;
 		$producers_scans = $scans;
@@ -98,24 +99,26 @@ while (<STDIN>)
 	}
 
 	if ($found eq "FOUND") {
-		
+
 		$total{found_products}++;
 		$found_status = 1;
 		$found_scans = $scans;
 		$found_unique_scans = $unique_scans;
-		
+
 		my $product_ref = retrieve_product($code);
 		if (defined $product_ref) {
 
-			if ((defined $product_ref->{nutriscore_grade})
-				and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/)) {
+			if (    (defined $product_ref->{nutriscore_grade})
+				and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/))
+			{
 				$nutriscore_scans = $scans;
 				$nutriscore_unique_scans = $unique_scans;
 				$nutriscore_status = 1;
 				$total{nutriscore_products}++;
 			}
-			if ((defined $product_ref->{ecoscore_grade})
-				and ($product_ref->{ecoscore_grade} =~ /^[a-e]$/)) {
+			if (    (defined $product_ref->{ecoscore_grade})
+				and ($product_ref->{ecoscore_grade} =~ /^[a-e]$/))
+			{
 				$ecoscore_scans = $scans;
 				$ecoscore_unique_scans = $unique_scans;
 				$ecoscore_status = 1;
@@ -123,7 +126,7 @@ while (<STDIN>)
 			}
 		}
 	}
-	
+
 	$total{scans} += $scans;
 	$total{unique_scans} += $unique_scans;
 
@@ -138,8 +141,12 @@ while (<STDIN>)
 
 	$total{ecoscore_scans} += $ecoscore_scans;
 	$total{ecoscore_unique_scans} += $ecoscore_unique_scans;
-	
-	print join("\t", $code, $scans, $unique_scans, $found, $source, $found_status, $found_scans, $found_unique_scans, $nutriscore_status, $nutriscore_scans, $nutriscore_unique_scans) . "\n";
+
+	print join("\t",
+		$code, $scans, $unique_scans, $found,
+		$source, $found_status, $found_scans, $found_unique_scans,
+		$nutriscore_status, $nutriscore_scans, $nutriscore_unique_scans)
+		. "\n";
 }
 
 my $found_products_percent = sprintf("%.2f", 100 * $total{found_products} / $total{products});
@@ -181,5 +188,5 @@ ecoscore_scans: $total{ecoscore_scans} - $ecoscore_scans_percent
 ecoscore_unique_scans: $total{ecoscore_unique_scans} - $ecoscore_unique_scans_percent
 
 TXT
-;
+	;
 

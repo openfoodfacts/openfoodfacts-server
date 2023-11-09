@@ -1,10 +1,28 @@
 {
    "lc" : "fr",
+   "misc_tags" : [
+      "en:packagings-number-of-components-1",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:aluminium"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:seal"
+   ],
    "packaging_text" : "opercule en aluminium",
    "packagings" : [
       {
          "material" : "en:aluminium",
          "shape" : "en:seal"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:metal" : {}
+   },
+   "packagings_n" : 1
 }

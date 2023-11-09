@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -36,11 +36,10 @@ through the lang() and lang_sprintf() functions.
 package ProductOpener::Lang;
 
 use ProductOpener::PerlStandards;
-use Exporter    qw< import >;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		$lang
 		$lc
@@ -56,20 +55,18 @@ BEGIN
 		@Langs
 
 		&lang
-		&lang_sprintf
 		&f_lang
 		&f_lang_in_lc
 		&lang_in_other_lc
 		%lang_lc
 
-
 		&separator_before_colon
 
-		);    # symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 use ProductOpener::I18N;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -96,7 +93,7 @@ This function returns a non-breaking space character for those languages.
 
 =cut
 
-sub separator_before_colon($l) {
+sub separator_before_colon ($l) {
 
 	if ($l eq 'fr') {
 		return "\N{U+00A0}";
@@ -105,7 +102,6 @@ sub separator_before_colon($l) {
 		return '';
 	}
 }
-
 
 =head2 lang( $stringid )
 
@@ -121,11 +117,11 @@ In the .po translation files, we use the msgctxt field for the string id.
 
 =cut
 
-sub lang($stringid) {
+sub lang ($stringid) {
 
 	my $short_l = undef;
 	if ($lang =~ /_/) {
-		$short_l = $`;  # pt_pt
+		$short_l = $`;    # pt_pt
 	}
 
 	# English values have been copied to languages that do not have defined values
@@ -143,44 +139,6 @@ sub lang($stringid) {
 		return '';
 	}
 }
-
-
-=head2 lang_sprintf( $stringid, [other arguments] )
-
-Returns a translation for a specific string id with specific arguments
-in the language defined in the $lang global variable.
-
-The translation is stored using the sprintf format (e.g. with %s) and
-lang_sprintf() calls sprintf() to process it.
-
-Warning: if multiple variables need to be interpolated,
-they will be in the same order for all languages.
-
-If a translation is not available, the function returns English.
-
-=head3 Arguments
-
-=head4 string id $stringid
-
-In the .po translation files, we use the msgctxt field for the string id.
-
-=head4 other arguments
-
-Arguments to be interpolated.
-
-=cut
-
-sub lang_sprintf($stringid) {
-
-	my $translation = lang($stringid);
-	if (defined $translation) {
-		return sprintf($translation, @_);
-	}
-	else {
-		return '';
-	}
-}
-
 
 =head2 f_lang( $stringid, $variables_ref )
 
@@ -209,11 +167,10 @@ Reference to a hash that contains values for the variables that will be replaced
 
 =cut
 
-sub f_lang($stringid, $variables_ref) {
+sub f_lang ($stringid, $variables_ref) {
 
 	return f_lang_in_lc($lc, $stringid, $variables_ref);
 }
-
 
 =head2 f_lang_in_lc ( $target_lc, $stringid, $variables_ref )
 
@@ -244,7 +201,7 @@ Reference to a hash that contains values for the variables that will be replaced
 
 =cut
 
-sub f_lang_in_lc($target_lc, $stringid, $variables_ref) {
+sub f_lang_in_lc ($target_lc, $stringid, $variables_ref) {
 
 	my $translation = $Lang{$stringid}{$target_lc};
 	if (defined $translation) {
@@ -257,7 +214,6 @@ sub f_lang_in_lc($target_lc, $stringid, $variables_ref) {
 		return '';
 	}
 }
-
 
 =head2 lang_in_other_lc( $target_lc, $stringid )
 
@@ -275,11 +231,11 @@ In the .po translation files, we use the msgctxt field for the string id.
 
 =cut
 
-sub lang_in_other_lc($target_lc, $stringid) {
+sub lang_in_other_lc ($target_lc, $stringid) {
 
 	my $short_l = undef;
 	if ($target_lc =~ /_/) {
-		$short_l = $`;  # pt_pt
+		$short_l = $`;    # pt_pt
 	}
 
 	if (not defined $Lang{$stringid}) {
@@ -296,50 +252,72 @@ sub lang_in_other_lc($target_lc, $stringid) {
 	}
 }
 
+$log->info("initialize", {data_root => $data_root}) if $log->is_info();
 
-$log->info("initialize", { data_root => $data_root }) if $log->is_info();
-
-# Load stored %Lang from Lang.sto
+# Load stored %Lang from Lang.sto and Lang_tags.sto
 
 my $path = "$data_root/data/Lang.${server_domain}.sto";
 if (-e $path) {
 
-	$log->info("Loading \%Lang", { path => $path }) if $log->is_info();
+	$log->info("Loading \%Lang", {path => $path}) if $log->is_info();
 	my $lang_ref = retrieve($path);
 	%Lang = %{$lang_ref};
-	$log->info("Loaded \%Lang", { path => $path }) if $log->is_info();
+	$log->info("Loaded \%Lang", {path => $path}) if $log->is_info();
 
 	# Initialize @Langs and $lang_lc
-	@Langs = sort keys %{ $Lang{site_name} }; # any existing key can be used, as %Lang should contain values for all languages for all keys
-	%Langs   = ();
+	@Langs = sort keys %{$Lang{site_name}}
+		;    # any existing key can be used, as %Lang should contain values for all languages for all keys
+	%Langs = ();
 	%lang_lc = ();
 	foreach my $l (@Langs) {
 		$lang_lc{$l} = $l;
-		$Langs{$l}   = $Lang{ "language_" . $l }{$l};    # Name of the language in the language itself
+		$Langs{$l} = $Lang{"language_" . $l}{$l};    # Name of the language in the language itself
 	}
 
-	$log->info("Loaded languages", { langs => (scalar @Langs) }) if $log->is_info();
-	sleep(1) if $log->is_info();
+	$log->info("Loaded languages", {langs => (scalar @Langs)}) if $log->is_info();
 }
 else {
-	$log->warn("Language translation file does not exist, \%Lang will be empty. Run scripts/build_lang.pm to fix this.", { path => $path }) if $log->is_warn();
+	$log->warn("Language translation file does not exist, \%Lang will be empty. Run scripts/build_lang.pm to fix this.",
+		{path => $path})
+		if $log->is_warn();
 }
 
+$path = "$data_root/data/Lang_tags.${server_domain}.sto";
+if (-e $path) {
 
-# Tags types to path components in URLS: in ascii, lowercase, unaccented,
-# transliterated (in Roman characters)
-#
-# Note: a lot of plurals are currently missing below, commented-out are
-# the singulars that need to be changed to plurals
-my ($tag_type_singular_ref, $tag_type_plural_ref)
-    = ProductOpener::I18N::split_tags(
-        ProductOpener::I18N::read_po_files("$data_root/po/tags/"));
-%tag_type_singular = %{$tag_type_singular_ref};
-%tag_type_plural   = %{$tag_type_plural_ref};
+	$log->info("Loading tag types <=> singular and plural translated paths", {path => $path}) if $log->is_info();
+	my $tag_type_data_ref = retrieve($path);
+	$log->info("Loaded tag types <=> singular and plural translated paths", {path => $path}) if $log->is_info();
 
+	%tag_type_singular = %{$tag_type_data_ref->{tag_type_singular}};
+	%tag_type_plural = %{$tag_type_data_ref->{tag_type_plural}};
+	%tag_type_from_singular = %{$tag_type_data_ref->{tag_type_from_singular}};
+	%tag_type_from_plural = %{$tag_type_data_ref->{tag_type_from_plural}};
+}
+else {
+	$log->warn("Language translation file for tags does not exist. Run scripts/build_lang.pm to fix this.",
+		{path => $path})
+		if $log->is_warn();
+}
+
+# Taxonomies that can have debug, prev, and next versions
+# (older feature to generate tags using multiple versions of a taxonomy, currently not used)
 my @debug_taxonomies = ("categories", "labels", "additives");
 
-{
+# Build hashes to map a translated tag type (e.g. "catégorie") in singular or plural to the tag type (e.g. "categories")
+
+sub build_lang_tags() {
+
+	# Tags types to path components in URLS: in ascii, lowercase, unaccented,
+	# transliterated (in Roman characters)
+	#
+	# Note: a lot of plurals are currently missing below, commented-out are
+	# the singulars that need to be changed to plurals
+	my ($tag_type_singular_ref, $tag_type_plural_ref)
+		= ProductOpener::I18N::split_tags(ProductOpener::I18N::read_po_files("$data_root/po/tags/"));
+	%tag_type_singular = %{$tag_type_singular_ref};
+	%tag_type_plural = %{$tag_type_plural_ref};
+
 	foreach my $l (@Langs) {
 
 		foreach my $taxonomy (@debug_taxonomies) {
@@ -347,8 +325,8 @@ my @debug_taxonomies = ("categories", "labels", "additives");
 			foreach my $suffix ("prev", "next", "debug") {
 
 				foreach my $field ("", "_s", "_p") {
-					defined $Lang{$taxonomy . "_$suffix" . $field } or $Lang{$taxonomy . "_$suffix" . $field } = {};
-					$Lang{$taxonomy . "_$suffix" . $field }{$l} = get_string_id_for_lang($l, $taxonomy) . "-$suffix";
+					defined $Lang{$taxonomy . "_$suffix" . $field} or $Lang{$taxonomy . "_$suffix" . $field} = {};
+					$Lang{$taxonomy . "_$suffix" . $field}{$l} = get_string_id_for_lang($l, $taxonomy) . "-$suffix";
 				}
 				defined $tag_type_singular{$taxonomy . "_$suffix"} or $tag_type_singular{$taxonomy . "_$suffix"} = {};
 				defined $tag_type_plural{$taxonomy . "_$suffix"} or $tag_type_plural{$taxonomy . "_$suffix"} = {};
@@ -359,7 +337,7 @@ my @debug_taxonomies = ("categories", "labels", "additives");
 
 		my $short_l = undef;
 		if ($l =~ /_/) {
-			$short_l = $`;  # pt_pt
+			$short_l = $`;    # pt_pt
 		}
 
 		foreach my $type (keys %tag_type_singular) {
@@ -399,25 +377,29 @@ my @debug_taxonomies = ("categories", "labels", "additives");
 		}
 
 	}
-
+	return (
+		{
+			tag_type_singular => \%tag_type_singular,
+			tag_type_plural => \%tag_type_plural,
+			tag_type_from_singular => \%tag_type_from_singular,
+			tag_type_from_plural => \%tag_type_from_plural
+		}
+	);
 }
-
-
-
-
 
 # initialize languages values:
 # - load .po files
 # - compute missing values by assigning English values
 
-sub build_lang($Languages_ref) {
+sub build_lang ($Languages_ref) {
 	# $Languages_ref is a hash of languages with translations initialized from the languages taxonomy by Tags.pm
+	# Note: all .po files must have a corresponding entry in the languages.txt taxonomy
 
 	# Load the strings from the .po files
 	# UI strings, non-Roman characters can be used
 	my $path = "$data_root/po/common/";
-	$log->info("Loading common \%Lang", { path => $path });
-	%Lang = %{ ProductOpener::I18N::read_po_files($path) };
+	$log->info("Loading common \%Lang", {path => $path});
+	%Lang = %{ProductOpener::I18N::read_po_files($path)};
 
 	# Initialize %Langs and @Langs and add language names to %Lang
 
@@ -425,9 +407,8 @@ sub build_lang($Languages_ref) {
 	@Langs = sort keys %{$Languages_ref};
 	foreach my $l (@Langs) {
 		$Lang{"language_" . $l} = $Languages_ref->{$l};
-		$Langs{$l} = $Languages_ref->{$l}{$l}; # Name of the language in the language itself
+		$Langs{$l} = $Languages_ref->{$l}{$l};    # Name of the language in the language itself
 	}
-
 
 	# use Data::Dumper::AutoEncode;
 	# use Data::Dumper;
@@ -443,24 +424,23 @@ sub build_lang($Languages_ref) {
 		foreach my $suffix ("prev", "next", "debug") {
 
 			foreach my $field ("", "_s", "_p") {
-				$Lang{$taxonomy . "_$suffix" . $field } = { en => get_string_id_for_lang("no_language",$taxonomy) . "-$suffix" };
+				$Lang{$taxonomy . "_$suffix" . $field}
+					= {en => get_string_id_for_lang("no_language", $taxonomy) . "-$suffix"};
 			}
 		}
 	}
 
+	# Save to file, for debugging and comparing purposes
 
-		# Save to file, for debugging and comparing purposes
-
-		# use Data::Dumper::AutoEncode;
-		# use Data::Dumper;
-		# $Data::Dumper::Sortkeys = 1;
-		# if (! -e "$data_root/po") {
-		#	mkdir ("$data_root/po", 0755);
-		# }
-		# open my $fh, ">", "$data_root/po/translations.debug.${server_domain}" or die "can not create $data_root/po/translations.debug.${server_domain} : $!";
-		# print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
-		# close $fh;
-
+	# use Data::Dumper::AutoEncode;
+	# use Data::Dumper;
+	# $Data::Dumper::Sortkeys = 1;
+	# if (! -e "$data_root/po") {
+	#	mkdir ("$data_root/po", 0755);
+	# }
+	# open my $fh, ">", "$data_root/po/translations.debug.${server_domain}" or die "can not create $data_root/po/translations.debug.${server_domain} : $!";
+	# print $fh "Lang.pm - %Lang\n\n" . eDumper(\%Lang) . "\n";
+	# close $fh;
 
 	# Load site specific overrides
 	# the site-specific directory can be a symlink to openfoodfacts or openbeautyfacts
@@ -470,13 +450,13 @@ sub build_lang($Languages_ref) {
 		# Load overrides from %SiteLang
 		# %SiteLang overrides the general %Lang in Lang.pm
 
-		$log->info("Loading site-specific overrides", { path => $overrides_path });
+		$log->info("Loading site-specific overrides", {path => $overrides_path});
 
-		my %SiteLang = %{ ProductOpener::I18N::read_po_files("$data_root/po/site-specific/") };
+		my %SiteLang = %{ProductOpener::I18N::read_po_files("$data_root/po/site-specific/")};
 
 		foreach my $key (keys %SiteLang) {
-			next if $key =~ /^:/;  # :langname, :langtag
-			$log->debug("Using site specific string", { key => $key }) if $log->is_debug();
+			next if $key =~ /^:/;    # :langname, :langtag
+			$log->debug("Using site specific string", {key => $key}) if $log->is_debug();
 
 			$Lang{$key} = {};
 			foreach my $l (keys %{$SiteLang{$key}}) {
@@ -491,7 +471,7 @@ sub build_lang($Languages_ref) {
 
 				my $short_l = undef;
 				if ($l =~ /_/) {
-					$short_l = $`;  # pt_pt
+					$short_l = $`;    # pt_pt
 				}
 
 				if (not defined $Lang{$key}{$l}) {
@@ -517,7 +497,7 @@ sub build_lang($Languages_ref) {
 
 		foreach my $l (@Langs) {
 			my $value = $Lang{$special_field}{$l};
-			if (not (defined $value)) {
+			if (not(defined $value)) {
 				next;
 			}
 
@@ -534,7 +514,7 @@ sub build_lang($Languages_ref) {
 	my @locale_codes = DateTime::Locale->codes;
 	foreach my $l (@Langs) {
 		my $locale;
-		if ( grep { $_ eq $l } @locale_codes ) {
+		if (grep {$_ eq $l} @locale_codes) {
 			$locale = DateTime::Locale->load($l);
 		}
 		else {
@@ -542,40 +522,43 @@ sub build_lang($Languages_ref) {
 		}
 
 		my @months = ();
-		foreach my $month (1..12) {
-			push @months, DateTime->new( year => 2000, time_zone => 'UTC', month => $month, locale => $locale )->month_name;
+		foreach my $month (1 .. 12) {
+			push @months,
+				DateTime->new(year => 2000, time_zone => 'UTC', month => $month, locale => $locale)->month_name;
 		}
 
 		$Lang{months}{$l} = encode_json(\@months);
 
 		my @weekdays = ();
-		foreach my $weekday (0..6) {
-			push @weekdays, DateTime->new( year => 2000, month => 1, day => (2 + $weekday), time_zone => 'UTC', locale => $locale )->day_name;
+		foreach my $weekday (0 .. 6) {
+			push @weekdays,
+				DateTime->new(year => 2000, month => 1, day => (2 + $weekday), time_zone => 'UTC', locale => $locale)
+				->day_name;
 		}
 
 		$Lang{weekdays}{$l} = encode_json(\@weekdays);
 	}
 
 	return;
-} # build_lang
+}    # build_lang
 
 sub build_json {
 	$log->info("Building I18N JSON") if $log->is_info();
 
 	my $i18n_root = "$www_root/data/i18n";
-	if (! -e $i18n_root) {
+	if (!-e $i18n_root) {
 		mkdir($i18n_root, 0755) or die("Could not create target directory $i18n_root : $!\n");
 	}
 
 	foreach my $l (@Langs) {
 		my $target_dir = "$i18n_root/$l";
-		if (! -e $target_dir) {
+		if (!-e $target_dir) {
 			mkdir($target_dir, 0755) or die("Could not create target directory $target_dir : $!\n");
 		}
 
 		my $short_l = undef;
 		if ($l =~ /_/) {
-			$short_l = $`;  # pt_pt
+			$short_l = $`;    # pt_pt
 		}
 
 		my %result = ();

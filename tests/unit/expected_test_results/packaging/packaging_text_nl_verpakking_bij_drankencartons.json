@@ -1,10 +1,28 @@
 {
    "lc" : "nl",
+   "misc_tags" : [
+      "en:packagings-number-of-components-1",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [
+      "en:recycle-with-drink-cartons"
+   ],
+   "packaging_shapes_tags" : [
+      "en:packaging"
+   ],
    "packaging_text" : "verpakking bij drankencartons",
    "packagings" : [
       {
          "recycling" : "en:recycle-with-drink-cartons",
-         "shape" : "nl:verpakking"
+         "shape" : "en:packaging"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:unknown" : {}
+   },
+   "packagings_n" : 1
 }

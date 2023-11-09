@@ -4,18 +4,16 @@ on:
   push:
     branches:
       - crowdin-trigger
-  schedule:
-  - cron: "0 2 * * *"
   
 jobs:         
   synchronize-with-crowdin:
-    name: Synchronize with crowdin
+    name: Synchronize with Crowdin
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: crowdin action
-      uses: crowdin/github-action@1.4.12
+      uses: crowdin/github-action@v1.14.1
       with:
         upload_translations: false # default is false
         # Use this option to upload translations for a single specified language
@@ -48,6 +46,7 @@ jobs:
         # create_pull_request: # default is true
         # The title of the new pull request
         pull_request_title: "l10n: New Crowdin translations to review and merge"
+        pull_request_body: '### What\n- Automated pull request pulling in new or updated translations from Crowdin (https://translate.openfoodfacts.org).\n## Checklist\n- [ ] Check that they are no bad translations. If there are, correct them directly in Crowdin so that they are not resynced again. Then you can correct them here as well, or wait 24 hours for the sync to happen automatically.\n- [ ] Put extra attention on Acholi, which is used mistakenly as a sandbox by people discovering the self-service translation button on Open Food Facts\n- [ ] Once you are happy, that automated checks pass, you can approve the PR and merge it.\n### Part of\n- Translations'
         # The contents of the pull request
         # pull_request_body: # optional
         # To add labels for created pull request

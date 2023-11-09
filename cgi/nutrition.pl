@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -44,10 +44,10 @@ use Log::Any qw($log);
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $code = normalize_code(param('code'));
-my $id = param('id');
-my $ocr_engine = param('ocr_engine');
-my $annotations = param('annotations') | 0;
+my $code = normalize_code(single_param('code'));
+my $id = single_param('id');
+my $ocr_engine = single_param('ocr_engine');
+my $annotations = single_param('annotations') | 0;
 
 if (not defined $ocr_engine) {
 	$ocr_engine = "tesseract";
@@ -67,7 +67,7 @@ my $product_ref = retrieve_product($product_id);
 
 my $results_ref = {};
 
-if (($id =~ /^nutrition/) and (param('process_image'))) {
+if (($id =~ /^nutrition/) and (single_param('process_image'))) {
 	extract_nutrition_from_image($product_ref, $id, $ocr_engine, $results_ref);
 	if ($results_ref->{status} == 0) {
 		if (not $annotations) {

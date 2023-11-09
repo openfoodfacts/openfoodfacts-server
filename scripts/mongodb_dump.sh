@@ -14,11 +14,17 @@ cd $DIR
 
 mongoexport --collection products --host $HOST --db $DB | gzip > data/$PREFIX-products.jsonl.gz
 
+mongodump --collection products --host $HOST --db $DB --gzip --archive="data/${PREFIX}-mongodbdump.gz"
+
 mongodump --collection products --host $HOST --db $DB
 tar cvfz data/$PREFIX-mongodbdump.tar.gz dump
 pushd data/ > /dev/null
 sha256sum $PREFIX-mongodbdump.tar.gz > sha256sum
 md5sum $PREFIX-mongodbdump.tar.gz > md5sum
+
+sha256sum $PREFIX-mongodbdump.gz > gz-sha256sum
+md5sum $PREFIX-mongodbdump.gz > gz-md5sum
+
 
 # Export delta of products modified in the last 24h or since last run of the script
 mkdir -p delta
@@ -39,6 +45,10 @@ ls -tp products_*.json.gz | grep -v '/$' | tail -n +14 | xargs -I {} rm -- {}
 
 echo $NEWTS > $TSFILE
 ls -tp products_*.json.gz > index.txt
+
+# Export recent changes collection
+# Export all fields but `ip` (contributor ip address)
+mongoexport --collection recent_changes --host $HOST --db $DB --fields=_id,comment,code,userid,rev,countries_tags,t,diffs | gzip -9 > "data/${PREFIX}_recent_changes.jsonl.gz"
 
 popd > /dev/null # data/delta
 popd > /dev/null # data

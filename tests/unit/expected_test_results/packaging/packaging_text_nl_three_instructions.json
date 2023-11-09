@@ -1,5 +1,24 @@
 {
    "lc" : "nl",
+   "misc_tags" : [
+      "en:packagings-number-of-components-3",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:cardboard",
+      "en:plastic"
+   ],
+   "packaging_recycling_tags" : [
+      "en:recycle-in-paper-bin",
+      "en:recycle-with-plastics"
+   ],
+   "packaging_shapes_tags" : [
+      "en:bowl",
+      "en:film",
+      "en:unknown"
+   ],
    "packaging_text" : "schaal bij plastic afval, folie bij plastic afval, karton bij oud papier",
    "packagings" : [
       {
@@ -17,5 +36,11 @@
          "recycling" : "en:recycle-in-paper-bin",
          "shape" : "en:unknown"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:paper-or-cardboard" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 3
 }

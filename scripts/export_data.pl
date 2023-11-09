@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -42,7 +42,6 @@ use CGI qw(:cgi :cgi-lib);
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
 
-
 my $usage = <<TXT
 export_data.pl exports product data from the database of Product Opener.
 
@@ -62,8 +61,7 @@ export_csv_file.pl --query field_name=field_value --query other_field_name=other
 [--fields code,ingredients_texts_fr,categories_tags] [--extra_fields nova_group,nutrition_grade_fr]
 [--include-images-paths] [--query-codes-from-file codes]
 TXT
-;
-
+	;
 
 my %query_fields_values = ();
 my $fields;
@@ -75,7 +73,7 @@ my $format = "csv";
 $cc = "world";
 $lc = "en";
 
-GetOptions (
+GetOptions(
 	"cc=s" => \$cc,
 	"lc=s" => \$lc,
 	"format=s" => \$format,
@@ -85,8 +83,7 @@ GetOptions (
 	"separator=s" => \$separator,
 	"include-images-paths" => \$include_images_paths,
 	"query-codes-from-file=s" => \$query_codes_from_file,
-		)
-  or die("Error in command line arguments:\n$\nusage");
+) or die("Error in command line arguments:\n$\nusage");
 
 print STDERR "export_data.pl
 - format: $format
@@ -119,20 +116,20 @@ foreach my $field (sort keys %{$query_ref}) {
 		$query_ref->{$field} = undef;
 	}
 	if ($query_ref->{$field} eq 'exists') {
-		$query_ref->{$field} = { '$exists' => true };
+		$query_ref->{$field} = {'$exists' => true};
 	}
 }
 
 if (defined $query_codes_from_file) {
 	my @codes = ();
-	open(my $in, "<", "$query_codes_from_file") or die ("Cannot read $query_codes_from_file: $!\n");
+	open(my $in, "<", "$query_codes_from_file") or die("Cannot read $query_codes_from_file: $!\n");
 	while (<$in>) {
 		if ($_ =~ /^(\d+)/) {
 			push @codes, $1;
 		}
 	}
 	close($in);
-	$query_ref->{"code"} = { '$in' => \@codes };
+	$query_ref->{"code"} = {'$in' => \@codes};
 }
 
 use Data::Dumper;

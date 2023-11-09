@@ -37,17 +37,17 @@ server {
                 allow all;
         }
 
-#	return 301 https://world.openfoodfacts.org;
+        # return 301 https://world.openfoodfacts.org;
 }
 
 
 server {
-        listen 443 ssl http2 default_server;
-        listen [::]:443 ssl http2 default_server;
+		listen 443 ssl http2 default_server;
+		listen [::]:443 ssl http2 default_server;
 	server_name _;
 
-        include snippets/ssl.openfoodfacts.org;
-        include snippets/ssl-params.conf;
+		include snippets/ssl.openfoodfacts.org;
+		include snippets/ssl-params.conf;
 
 	return 404;
 }
@@ -78,18 +78,8 @@ server {
 	access_log /srv/off/logs/nginx.access2.log combined buffer=256K flush=1s;
 	error_log /srv/off/logs/nginx.error2.log;
 
-	if ($host = translation.openfoodfacts.org) { return 302 https://translate.openfoodfacts.org/ ; }
-	if ($host = translations.openfoodfacts.org) { return 302 https://translate.openfoodfacts.org/ ; }
-	if ($host = android.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
-        if ($host = androidtest.openfoodfacts.org) { return 302 https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner ; }
-        if ($host = ios.openfoodfacts.org) { return 302 https://apps.apple.com/app/open-food-facts/id588797948 ; }
-        if ($host = iostest.openfoodfacts.org) { return 302 https://apps.apple.com/app/open-food-facts/id588797948 ; }
-        if ($host = slack.openfoodfacts.org) { return 302 https://slack-openfoodfacts.herokuapp.com ; }
-        if ($host = donnez.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
-        if ($host = don.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
-        if ($host = dons.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
-        if ($host = donner.openfoodfacts.org) { return 302 https://fr.openfoodfacts.org/faire-un-don-a-open-food-facts ; }
-        if ($host = donate.openfoodfacts.org) { return 302 https://world.openfoodfacts.org/donate-to-open-food-facts ; }
+        # some redirection for specific subdomains
+        include snippets/off.domain-redirects.include;
 
 	# Redirect GET requests to https. POST requests will be transformed
 	# to GET by most browsers when redirected, and it breaks apps that
@@ -112,45 +102,13 @@ server {
 	gzip on;
 	gzip_min_length 1000;
 
-	# Warning: headers added by add_header are override by
-	# other add_header directives at the same level.
-        #location ~* \.(json|csv)$ {
-        #        add_header Access-Control-Allow-Origin *;
-        #}
-
 	location /data/ {
-     if ($request_method = 'OPTIONS') {
-        add_header Access-Control-Allow-Origin *;
-        add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
-        #
-        # Custom headers and headers various browsers *should* be OK with but aren't
-        #
-        add_header Access-Control-Allow-Headers 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
-        #
-        # Tell client that this pre-flight info is valid for 20 days
-        #
-        add_header Access-Control-Max-Age 1728000;
-        add_header Content-Type 'text/plain; charset=utf-8';
-        add_header Content-Length 0;
-        return 204;
-     }
-     if ($request_method = 'POST') {
-        add_header Access-Control-Allow-Origin *;
-        add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
-        add_header Access-Control-Allow-Headers 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
-        add_header Access-Control-Expose-Headers 'Content-Length,Content-Range';
-     }
-     if ($request_method = 'GET') {
-        add_header Access-Control-Allow-Origin *;
-        add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
-        add_header Access-Control-Allow-Headers 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
-        add_header Access-Control-Expose-Headers 'Content-Length,Content-Range';
-     }
-	include snippets/ssl-headers.conf;
+                include snippets/off.cors-headers.include;
+		include snippets/ssl-headers.conf;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
-}
+	}
 
 	# Add index.php to the list if you are using PHP
 	index index.html index.htm index.nginx-debian.html;
@@ -158,26 +116,22 @@ server {
 	include /etc/nginx/expires-no-json-xml.conf; # 2018-06-18 Moved to the end because of CORS issue with top_translators.csv
 
 	location ~ ^/images/products/ {
+		include snippets/off.cors-headers.include;
 		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
-		add_header Access-Control-Allow-Origin *;
-	        add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
-		add_header Access-Control-Allow-Headers 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match';
-		add_header Access-Control-Expose-Headers 'Content-Length,Content-Range';
 		# optimize gzip compressed content (like OCR .json stored next to .jpg files)
 		gzip_static always;
 		gunzip on;
 	}
 
-        if ($http_referer ~* (jobothoniel.com) ) { return 403; } # blocked since 2021-07-13
+	if ($http_referer ~* (jobothoniel.com) ) { return 403; } # blocked since 2021-07-13
 
 	# the app requests /1.json to get the product count...
 	# the commented code below is to serve a static copy 
 	# if there is a spike of installs
-        location ~ ^/1.json$ {
+		location ~ ^/1.json$ {
                 root /srv/off/html/static;
-                try_files /1.json = 404;
-        }
-
+		try_files /1.json = 404;
+		}
 
 	location ~ ^/(favicon.ico) {
 		# First attempt to serve request as file, then
@@ -187,117 +141,29 @@ server {
 
 	# Static files are served directly by NGINX
 
-	location ~ ^/(.well-known|images|css|js|rss|files|resources|foundation|bower_components)/ {
+	location ~ ^/(.well-known|images|fonts|css|js|rss|files|resources|foundation|bower_components)/ {
+		include snippets/off.cors-headers.include;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		gzip_static always;
 		gunzip on;
 	}
 
-	location = /robots.txt {
-		try_files $uri $uri/ =404;
-	}
-
-	location = /donate-to-open-food-facts {
-                try_files /donate/en.html =404;
+        # GoogleAssociationService made 2500 requests/min to assetlinks.json
+        # and much less when caching headers are sent
+        location = /.well-known/assetlinks.json {
+                include snippets/off.cors-headers.include;
+                expires 1d;
+                try_files $uri $uri/ =404;
         }
 
-	location = /faire-un-don-a-open-food-facts {
-                try_files /donate/fr.helloasso.html =404;
-        }
-
-        location = /dona-a-open-food-facts {
-                try_files /donate/it.html =404;
-        }
-
-        location = /spenden {
-                try_files /donate/de.html =404;
-        }
-
-        location = /doner-til-open-food-facts {
-                try_files /donate/da.html =404;
-        }
-
-        location = /doniraj-k-open-food-facts {
-                try_files /donate/sl.html =404;
-        }
-
-        location = /open-food-factse-bagista-bulununs {
-                try_files /donate/tr.html =404;
-        }
-
-        location = /pozhertvovat-open-food-facts {
-                try_files /donate/ru.html =404;
-        }
-
-        location = /donate-to-open-food-facts-ru {
-                try_files /donate/ru.html =404;
-        }
-
-        location = /donate-to-open-food-facts-he {
-                try_files /donate/he.html =404;
-        }
-
-        location = /fazer-um-donativo-ao-open-food-facts {
-                try_files /donate/pt.html =404;
-        }
-
-        location = /lahjoita-open-food-factsille {
-                try_files /donate/fi.html =404;
-        }
-
-        location = /dar-a-open-food-facts {
-                try_files /donate/es.html =404;
-        }
-
-        location = /haz-su-donacion-a-open-food-facts {
-                try_files /donate/es.html =404;
-        }
-
-	location = /donate-to-open-food-facts-ko {
-		try_files /donate/ko.html =404;
-	}
-
-	location = /hunger-game {
-		return 301 https://hunger.openfoodfacts.org;
-	}
-
-	location = /ecoscore {
-		return 301 https://$host/eco-score-l-impact-environnemental-des-produits-alimentaires;
-	}
-
-	# 2022-06-13 Redirect press pages to blog post about the new Flutter app
-	location = /presse {
-		return 302 https://blog.openfoodfacts.org/fr/communique-de-presse-nouvelle-appli;
-	}
-
-	location = /press {
-		return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
-	}
-
-        location = /prensa {
-                return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
-        }
-
-        location = /stampa {
-                return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
-        }
-
-        location = /press-and-blogs {
-                return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
-        }
-
-        location = /pers {
-                return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
-        }
-
+        include snippets/off.locations-redirects.include;
 
 	# Dynamically generated files and CGI scripts are passed
 	# to the Apache + mod_perl server running on a different
 	# port than port 80 (e.g. 8001)
 
 	location / {
-
 		proxy_set_header Host $host;
 		proxy_set_header X-Real-IP $remote_addr;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -306,7 +172,6 @@ server {
 	}
 
 	location /cgi/ {
-
 		proxy_set_header Host $host;
 		proxy_set_header X-Real-IP $remote_addr;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
