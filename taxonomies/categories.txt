@@ -36,13 +36,14 @@ stopwords:nl:bevat,en
 stopwords:nl_be:bevat,en
 stopwords:de:und,mit,von
 
+### Properties for categories entries
+
 # add following tag for category having always same nutriscore grade
 # only 1 letter is allowed
 # expected_nutriscore_grade:en:c
 # add following tag for category having always same ingredient
 # only 1 ingredient tag is allowed (use "en:olive-oil" and not "en:Olive oil")
 # expected_ingredients:en: en:olive-oil
-
 
 # add following tag to ignore "Energy value in kJ does not correspond to the value calculated from the other nutrients error
 # only for categories having nutrients that are not displayed in the nutrition table and contributing to the energy
@@ -58,6 +59,11 @@ stopwords:de:und,mit,von
 # wco_hs_heading:en: 12.04
 # wco_hs_code:en: 1204.00
 # are from https://www.wcoomd.org/en/topics/nomenclature/instrument-and-tools/hs-nomenclature-2022-edition/hs-nomenclature-2022-edition.aspx
+
+# For categories for which we are certain there are no fruits/vegetables/legumes (as defined for Nutri-Score)
+# we put nutriscore_category_override_for_fruits_vegetables_legumes:en: 0
+# And for categories where we are certain there is 100% fruits/vegetables/legumes
+# we put nutriscore_category_override_for_fruits_vegetables_legumes:en: 100
 
 en:Artisan products
 ca:Prouctes artesans
@@ -1598,8 +1604,10 @@ fr:Bières de garde
 wikidata:en:Q1168351
 
 ############ ABBEY/TRAPPIST ############
-<en:Beers
+<en:Abbey ales
 en:Trappist beers, Trappist
+it:Birre trappiste
+fr:Bières trappistes
 xx:Trappist beers, Trappist
 wikidata:en:Q505815
 wikipedia:en:https://en.wikipedia.org/wiki/Trappist_beer
@@ -1611,7 +1619,7 @@ de:Abteibier
 fi:luostariolut
 fr:Bières d'abbayes, Bières d'abbaye, Bières d'abbayes régionales
 hu:Apátsági sör
-it:Birre d'abbazia, Birre trappiste
+it:Birre d'abbazia
 nl:Abdijbieren
 agribalyse_food_code:en:5011
 ciqual_food_code:en:5011
@@ -35242,7 +35250,7 @@ wikidata:en:Q1163138
 ciqual_food_code:en:31027
 ciqual_food_name:en:Candied fruits
 ciqual_food_name:fr:Fruit confit
-nutriscore_without_unprocessed_fruits_vegetables_legumes:en:yes
+nutriscore_category_override_for_fruits_vegetables_legumes:en: 0
 
 <en:Candied fruit
 en:Candied lemon
@@ -39923,7 +39931,7 @@ pl:Chipsy, Czipsy
 ru:Чипсы
 th:มันฝรั่งทอด
 zh:薯片
-nutriscore_without_unprocessed_fruits_vegetables_legumes:en:yes
+nutriscore_category_override_for_fruits_vegetables_legumes:en: 0
 
 <en:Crisps
 en:Chickpea crisps
@@ -53578,6 +53586,8 @@ agribalyse_food_code:en:17100
 ciqual_food_code:en:17100
 ciqual_food_name:en:Avocado oil
 ciqual_food_name:fr:Huile d'avocat
+# oils from fruits/vegetables/legumes for products in the fats/oils category are counted as fruits/vegetables/legumes for the Nutri-Score 2023
+nutriscore_category_override_for_fruits_vegetables_legumes:en: 100
 
 <en:Fruit and fruit seed oils
 en:Coconut oils
@@ -53914,6 +53924,8 @@ wikidata:en:Q93165
 agribalyse_proxy_food_code:en:17270
 agribalyse_proxy_food_name:en:Olive oil, extra virgin
 agribalyse_proxy_food_name:fr:Huile d'olive vierge extra
+# oils from fruits/vegetables/legumes for products in the fats/oils category are counted as fruits/vegetables/legumes for the Nutri-Score 2023
+nutriscore_category_override_for_fruits_vegetables_legumes:en: 100
 
 <en:Olive oils
 en:Virgin olive oils
@@ -55955,7 +55967,7 @@ pt:Farinha
 ru:Мука
 tr:Un
 zh:面粉
-nutriscore_without_unprocessed_fruits_vegetables_legumes:en:yes
+nutriscore_category_override_for_fruits_vegetables_legumes:en: 0
 
 <en:Flours
 fr:Farines de souchet
@@ -57047,7 +57059,7 @@ oqali_family:en: fr:Aperitifs a croquer - Pop corn
 agribalyse_proxy_food_code:en:9230
 agribalyse_proxy_food_name:en:Pop-corn or oil popped maize, salted
 agribalyse_proxy_food_name:fr:Pop-corn ou Maïs éclaté, à l'huile, salé
-nutriscore_without_unprocessed_fruits_vegetables_legumes:en:yes
+nutriscore_category_override_for_fruits_vegetables_legumes:en: 0
 
 <en:Popcorn
 en:Plain popcorn, Unsalted pop-corn, Unsalted air-popped maize
@@ -99020,7 +99032,7 @@ ciqual_food_name:en:Tofu, plain
 ciqual_food_name:fr:Tofu, nature
 nova:en:3
 description:en:Tofu is a food prepared by coagulating soy milk and then pressing the resulting curds into solid white blocks of varying softness. Tofu has very little flavor or smell of its own. Consequently, tofu can be used in both savory or sweet dishes, acting as a bland background for presenting the flavors of the other ingredients used. In order to flavor the tofu it is often marinated in soy sauce, chillis, sesame oil, etc.
-nutriscore_without_unprocessed_fruits_vegetables_legumes:en:yes
+nutriscore_category_override_for_fruits_vegetables_legumes:en: 0
 
 <en:Tofu
 en:Plain tofu
