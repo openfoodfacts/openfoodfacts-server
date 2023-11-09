@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -66,6 +66,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&normalize_code
+		&normalize_code_with_gs1_ai
 		&assign_new_code
 		&split_code
 		&product_id_for_owner
@@ -74,6 +75,7 @@ BEGIN {
 		&www_root_for_product_id
 		&product_path
 		&product_path_from_id
+		&product_id_from_path
 		&product_exists
 		&product_exists_on_other_server
 		&get_owner_id
@@ -88,7 +90,7 @@ BEGIN {
 		&product_url
 		&product_action_url
 		&normalize_search_terms
-		&index_product
+		&compute_keywords
 		&log_change
 
 		&get_change_userid_or_uuid
@@ -103,6 +105,7 @@ BEGIN {
 		&add_back_field_values_removed_by_user
 
 		&process_product_edit_rules
+		&preprocess_product_field
 		&product_data_is_protected
 
 		&make_sure_numbers_are_stored_as_numbers
@@ -150,18 +153,22 @@ use ProductOpener::DataQuality qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
+use JSON;
 use Log::Any qw($log);
 use Data::DeepAccess qw(deep_get);
 
 use LWP::UserAgent;
 use Storable qw(dclone);
 use File::Copy::Recursive;
+use File::Basename qw/dirname/;
 use ProductOpener::GeoIP;
 
 use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
 
 use Scalar::Util qw(looks_like_number);
+
+use GS1::SyntaxEngine::FFI::GS1Encoder;
 
 =head1 FUNCTIONS
 
@@ -257,8 +264,9 @@ sub assign_new_code() {
 =head2 normalize_code()
 
 C<normalize_code()> this function normalizes the product code by:
-- Keeps only digits and removes spaces/dashes etc.
-- Normalizes the length by adding leading zeroes or removing the leading zero (in case of 14 digit codes)
+- running the given code through normalization method provided by GS1 to format a GS1 data string, or data URL to a GTIN,
+- keeping only digits and removing spaces/dashes etc.,
+- normalizing the length by adding leading zeroes or removing the leading zero (in case of 14 digit codes)
 
 =head3 Arguments
 
@@ -273,6 +281,37 @@ Normalized version of the code
 sub normalize_code ($code) {
 
 	if (defined $code) {
+		($code, my $gs1_ai_data_str) = &normalize_code_with_gs1_ai($code);
+	}
+	return $code;
+}
+
+=head2 normalize_code_with_gs1_ai()
+
+C<normalize_code_with_gs1_ai()> this function normalizes the product code by:
+- running the given code through normalization method provided by GS1 to format a GS1 data string, or data URI to a GTIN,
+- keeping only digits and removing spaces/dashes etc.,
+- normalizing the length by adding leading zeroes or removing the leading zero (in case of 14 digit codes)
+
+=head3 Arguments
+
+Product Code in the Raw form: $code
+
+=head3 Return Values
+
+Normalized version of the code, and GS1 AI data string of the code, if a valid GS1 string was given as the argument
+
+=cut
+
+sub normalize_code_with_gs1_ai ($code) {
+
+	my $ai_data_str;
+	if (defined $code) {
+		my ($gs1_code, $gs1_ai_data_str) = &_try_normalize_code_gs1($code);
+		if ($gs1_code and $gs1_ai_data_str) {
+			$code = $gs1_code;
+			$ai_data_str = $gs1_ai_data_str;
+		}
 
 		# Keep only digits, remove spaces, dashes and everything else
 		$code =~ s/\D//g;
@@ -297,7 +336,54 @@ sub normalize_code ($code) {
 			$code = $';
 		}
 	}
-	return $code;
+	return ($code, $ai_data_str);
+}
+
+sub _try_normalize_code_gs1 ($code) {
+	my $ai_data_str;
+	eval {
+		$code =~ s/[\N{U+001D}\N{U+241D}]/^/g;    # Replace FNC1/<GS1> with ^ for the GS1Encoder to work
+		if ($code =~ /^\(.+/) {
+			# Code could be a GS1 bracketed AI element string
+			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
+			if ($encoder->ai_data_str($code)) {
+				$ai_data_str = $encoder->ai_data_str();
+			}
+		}
+		elsif ($code =~ /^\^.+/) {
+			# Code could be a GS1 unbracketed AI element string
+			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
+			if ($encoder->data_str($code)) {
+				$ai_data_str = $encoder->ai_data_str();
+			}
+		}
+		elsif ($code =~ /^http?s:\/\/.+/) {
+			# Code could be a GS1 unbracketed AI element string
+			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
+			if ($encoder->data_str($code)) {
+				$ai_data_str = $encoder->ai_data_str();
+			}
+		}
+		elsif ($code =~ /^01(\d{14})/) {
+			# Code could be a GS1 unbracketed AI element string
+			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
+			if ($encoder->data_str("^01$1")) {
+				$ai_data_str = $encoder->ai_data_str();
+			}
+		}
+	};
+	if ($@) {
+		$log->warn("GS1Parser error", {error => $@}) if $log->is_warn();
+		$code = undef;
+		$ai_data_str = undef;
+	}
+
+	if ((defined $code) and (defined $ai_data_str) and ($ai_data_str =~ /^\(01\)(\d{1,14})/)) {
+		return ($1, $ai_data_str);
+	}
+	else {
+		return;
+	}
 }
 
 # - When products are public, the _id is the code, and the path is of the form 123/456/789/0123
@@ -354,7 +440,7 @@ e.g. off:[code]
 
 =head4 Owner id
 
-=head4 Code 
+=head4 Code
 
 Product barcode
 
@@ -537,6 +623,28 @@ sub product_path ($product_ref) {
 	}
 }
 
+=head2 product_id_from_path ( $product_path )
+
+Reverse of product_path_from_id.
+
+There is no guarantee the result will be correct... but it's way faster than loading the sto !
+
+=cut
+
+sub product_id_from_path ($product_path) {
+	my $id = $product_path;
+	# only keep dir
+	if ($id =~ /\.sto$/) {
+		$id = dirname($id);
+	}
+	# eventually remove root path
+	my $root = quotemeta("$data_root/products/");
+	$id =~ s/^$root//;
+	# transform to id by simply removing "/"
+	$id =~ s/\///g;
+	return $id;
+}
+
 sub product_exists ($product_id) {
 
 	# deprecated, just use retrieve_product()
@@ -599,7 +707,7 @@ sub get_owner_id ($userid, $orgid, $ownerid) {
 
 =head2 init_product ( $userid, $orgid, $code, $countryid )
 
-Initializes and return a $product_ref structure for a new product. 
+Initializes and return a $product_ref structure for a new product.
 If $countryid is defined and is not "en:world", then assign this country for the countries field.
 Otherwise, use the country associated with the ip address of the user.
 
@@ -729,14 +837,41 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 	return $product_ref;
 }
 
-# Notify robotoff when products are updated
+=head2 send_notification_for_product_change ( $user_id, $product_ref, $action, $comment, $diffs )
 
-sub send_notification_for_product_change ($product_ref, $action) {
+Notify Robotoff when products are updated or deleted.
+
+=head3 Parameters
+
+=head4 $user_id
+
+ID of the user that triggered the update/deletion (String, may be undefined)
+
+=head4 $product_ref
+
+Reference to the updated/deleted product.
+
+=head4 $action
+
+The action performed, either `deleted` or `updated` (String).
+
+=head4 $comment
+
+The update comment (String)
+
+=head4 $diffs
+
+The `diffs` of the update (Hash)
+
+=cut
+
+sub send_notification_for_product_change ($user_id, $product_ref, $action, $comment, $diffs) {
 
 	if ((defined $robotoff_url) and (length($robotoff_url) > 0)) {
 		my $ua = LWP::UserAgent->new();
 		my $endpoint = "$robotoff_url/api/v1/webhook/product";
 		$ua->timeout(2);
+		my $diffs_json_text = encode_json($diffs);
 
 		$log->debug(
 			"send_notif_robotoff_product_update",
@@ -744,7 +879,10 @@ sub send_notification_for_product_change ($product_ref, $action) {
 				endpoint => $endpoint,
 				barcode => $product_ref->{code},
 				action => $action,
-				server_domain => "api." . $server_domain
+				server_domain => "api." . $server_domain,
+				user_id => $user_id,
+				comment => $comment,
+				diffs => $diffs_json_text
 			}
 		) if $log->is_debug();
 		my $response = $ua->post(
@@ -752,7 +890,10 @@ sub send_notification_for_product_change ($product_ref, $action) {
 			{
 				'barcode' => $product_ref->{code},
 				'action' => $action,
-				'server_domain' => "api." . $server_domain
+				'server_domain' => "api." . $server_domain,
+				'user_id' => $user_id,
+				'comment' => $comment,
+				'diffs' => $diffs_json_text
 			}
 		);
 		$log->debug(
@@ -817,7 +958,7 @@ sub retrieve_product ($product_id) {
 	return $product_ref;
 }
 
-sub retrieve_product_or_deleted_product ($product_id, $deleted_ok) {
+sub retrieve_product_or_deleted_product ($product_id, $deleted_ok = 1) {
 
 	my $path = product_path_from_id($product_id);
 	my $product_data_root = data_root_for_product_id($product_id);
@@ -977,6 +1118,16 @@ sub compute_sort_keys ($product_ref) {
 	return;
 }
 
+=head2 store_product ($user_id, $product_ref, $comment)
+
+Save changes of a product:
+- in a new .sto file on the disk
+- in MongoDB (in the products collection, or products_obsolete collection if the product is obsolete)
+
+Before saving, some field values are computed, and product history and completeness is computed.
+
+=cut
+
 sub store_product ($user_id, $product_ref, $comment) {
 
 	my $code = $product_ref->{code};
@@ -984,7 +1135,15 @@ sub store_product ($user_id, $product_ref, $comment) {
 	my $path = product_path($product_ref);
 	my $rev = $product_ref->{rev};
 
-	$log->debug("store_product - start", {code => $code, product_id => $product_id}) if $log->is_debug();
+	$log->debug(
+		"store_product - start",
+		{
+			code => $code,
+			product_id => $product_id,
+			obsolete => $product_ref->{obsolete},
+			was_obsolete => $product_ref->{was_obsolete}
+		}
+	) if $log->is_debug();
 
 	# In case we need to move a product from OFF to OBF etc.
 	# the "new_server" value will be set to off, obf etc.
@@ -997,8 +1156,30 @@ sub store_product ($user_id, $product_ref, $comment) {
 	my $new_data_root = $data_root;
 	my $new_www_root = $www_root;
 
-	my $products_collection = get_products_collection();
-	my $new_products_collection = $products_collection;
+	# We use the was_obsolete flag so that we can remove the product from its old collection
+	# (either products or products_obsolete) if its obsolete status has changed
+	my $previous_products_collection = get_products_collection({obsolete => $product_ref->{was_obsolete}});
+	my $new_products_collection = get_products_collection({obsolete => $product_ref->{obsolete}});
+	my $delete_from_previous_products_collection = 0;
+
+	# the obsolete (and was_obsolete) field is either undef or an empty string, or contains "on"
+	if (   ($product_ref->{was_obsolete} and not $product_ref->{obsolete})
+		or (not $product_ref->{was_obsolete} and $product_ref->{obsolete}))
+	{
+		# The obsolete status changed, we need to remove the product from its previous collection
+		$log->debug(
+			"obsolete status changed",
+			{
+				code => $code,
+				product_id => $product_id,
+				obsolete => $product_ref->{obsolete},
+				was_obsolete => $product_ref->{was_obsolete},
+				previous_products_collection => $previous_products_collection
+			}
+		) if $log->is_debug();
+		$delete_from_previous_products_collection = 1;
+	}
+	delete $product_ref->{was_obsolete};
 
 	if (    (defined $product_ref->{server})
 		and (defined $options{other_servers})
@@ -1007,7 +1188,8 @@ sub store_product ($user_id, $product_ref, $comment) {
 		my $server = $product_ref->{server};
 		$new_data_root = $options{other_servers}{$server}{data_root};
 		$new_www_root = $options{other_servers}{$server}{www_root};
-		$new_products_collection = get_collection($options{other_servers}{$server}{mongodb}, 'products');
+		$new_products_collection = get_products_collection(
+			{database => $options{other_servers}{$server}{mongodb}, obsolete => $product_ref->{obsolete}});
 	}
 
 	if (defined $product_ref->{old_code}) {
@@ -1019,7 +1201,8 @@ sub store_product ($user_id, $product_ref, $comment) {
 			my $new_server = $product_ref->{new_server};
 			$new_data_root = $options{other_servers}{$new_server}{data_root};
 			$new_www_root = $options{other_servers}{$new_server}{www_root};
-			$new_products_collection = get_collection($options{other_servers}{$new_server}{mongodb}, 'products');
+			$new_products_collection = get_products_collection(
+				{database => $options{other_servers}{$new_server}{mongodb}, obsolete => $product_ref->{obsolete}});
 			$product_ref->{server} = $product_ref->{new_server};
 			delete $product_ref->{new_server};
 		}
@@ -1089,7 +1272,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 			execute_query(
 				sub {
-					return $products_collection->delete_one({"_id" => $product_ref->{_id}});
+					return $previous_products_collection->delete_one({"_id" => $product_ref->{_id}});
 				}
 			);
 
@@ -1210,7 +1393,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 	}
 
 	# index for full text search
-	index_product($product_ref);
+	compute_keywords($product_ref);
 
 	# make sure that the _id and code are saved as a string, otherwise mongodb may save them as numbers
 	# for _id , it makes them possibly non unique, and for code, we would lose leading 0s
@@ -1238,6 +1421,10 @@ sub store_product ($user_id, $product_ref, $comment) {
 		#return 0;
 	}
 
+	# First store the product data in a .sto file on disk
+	store("$new_data_root/products/$path/$rev.sto", $product_ref);
+
+	# Also store the product in MongoDB, unless it was marked as deleted
 	if ($product_ref->{deleted}) {
 		$new_products_collection->delete_one({"_id" => $product_ref->{_id}});
 	}
@@ -1245,7 +1432,11 @@ sub store_product ($user_id, $product_ref, $comment) {
 		$new_products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
 	}
 
-	store("$new_data_root/products/$path/$rev.sto", $product_ref);
+	# product that has a changed obsolete status
+	if ($delete_from_previous_products_collection) {
+		$previous_products_collection->delete_one({"_id" => $product_ref->{_id}});
+	}
+
 	# Update link
 	my $link = "$new_data_root/products/$path/product.sto";
 	if (-l $link) {
@@ -1266,7 +1457,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	# Notify Robotoff
 	my $update_type = $product_ref->{deleted} ? "deleted" : "updated";
-	send_notification_for_product_change($product_ref, $update_type);
+	send_notification_for_product_change($user_id, $product_ref, $update_type, $comment, $diffs);
 
 	return 1;
 }
@@ -1287,6 +1478,8 @@ sub compute_data_sources ($product_ref, $changes_ref) {
 
 	if (defined $product_ref->{sources}) {
 		foreach my $source_ref (@{$product_ref->{sources}}) {
+
+			next if not defined $source_ref->{id};
 
 			if ($source_ref->{id} eq 'casino') {
 				$data_sources{"Producers"} = 1;
@@ -1496,8 +1689,15 @@ sub compute_completeness_and_missing_tags ($product_ref, $current_ref, $previous
 		$complete = 0;
 	}
 
-	if (   ((defined $current_ref->{nutriments}) and (scalar keys %{$current_ref->{nutriments}} > 0))
-		or ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')))
+	if (
+		(
+			(
+					(defined $current_ref->{nutriments})
+				and (scalar grep {$_ !~ /^(nova|fruits-vegetables)/} keys %{$current_ref->{nutriments}}) > 0
+			)
+		)
+		or ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on'))
+		)
 	{
 		push @states_tags, "en:nutrition-facts-completed";
 		$notempty++;
@@ -1591,7 +1791,7 @@ to determine if the change was done through an app, the OFF userid, or an app sp
 
 =head3 Parameters
 
-=head4 $change_ref 
+=head4 $change_ref
 reference to a change record
 
 =head3 Return value
@@ -1726,9 +1926,10 @@ we can rename it to a generic user account like openfoodfacts-contributors.
 
 =cut
 
-my @users_fields = qw(editors_tags photographers_tags informers_tags correctors_tags checkers_tags);
+# Fields that contain usernames
+my @users_fields = qw(editors_tags photographers_tags informers_tags correctors_tags checkers_tags weighers_tags);
 
-sub replace_user_id_in_product ($product_id, $user_id, $new_user_id) {
+sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_collection) {
 
 	my $path = product_path_from_id($product_id);
 
@@ -1736,7 +1937,8 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id) {
 
 	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
 	if (not defined $changes_ref) {
-		$changes_ref = [];
+		$log->warn("replace_user_id_in_products - no changes file found for " . $product_id);
+		return;
 	}
 
 	my $most_recent_product_ref;
@@ -1809,7 +2011,6 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id) {
 	}
 
 	if ((defined $most_recent_product_ref) and (not $most_recent_product_ref->{deleted})) {
-		my $products_collection = get_products_collection();
 		$products_collection->replace_one({"_id" => $most_recent_product_ref->{_id}},
 			$most_recent_product_ref, {upsert => 1});
 	}
@@ -1848,39 +2049,59 @@ sub find_and_replace_user_id_in_products ($user_id, $new_user_id) {
 
 	my $query_ref = {'$or' => $or};
 
-	my $products_collection = get_products_collection();
+	my $count = 0;
+	for (my $obsolete = 0; $obsolete <= 1; $obsolete++) {
+		my $products_collection = get_products_collection({obsolete => $obsolete, timeout => 60 * 60 * 1000});
+		my $cursor = $products_collection->query($query_ref)->fields({_id => 1, code => 1, owner => 1});
+		$cursor->immortal(1);
 
-	my $count = $products_collection->count_documents($query_ref);
+		while (my $product_ref = $cursor->next) {
 
-	$log->info(
-		"find_and_replace_user_id_in_products - matching products",
-		{user_id => $user_id, new_user_id => $new_user_id, count => $count}
-	) if $log->is_info();
+			my $product_id = $product_ref->{_id};
 
-	# wait to give time to display the product count
-	sleep(2) if $log->is_debug();
+			# Ignore bogus product that might have been saved in the database
+			next if (not defined $product_id) or ($product_id eq "");
 
-	my $cursor = $products_collection->query($query_ref)->fields({_id => 1, code => 1, owner => 1});
-	$cursor->immortal(1);
+			$log->info("find_and_replace_user_id_in_products - product_id",
+				{user_id => $user_id, new_user_id => $new_user_id, product_id => $product_id})
+				if $log->is_info();
 
-	while (my $product_ref = $cursor->next) {
-
-		my $product_id = $product_ref->{_id};
-
-		# Ignore bogus product that might have been saved in the database
-		next if (not defined $product_id) or ($product_id eq "");
-
-		$log->info("find_and_replace_user_id_in_products - product_id",
-			{user_id => $user_id, new_user_id => $product_id, product_id => $product_id})
-			if $log->is_info();
-
-		replace_user_id_in_product($product_id, $user_id, $new_user_id);
+			replace_user_id_in_product($product_id, $user_id, $new_user_id, $products_collection);
+			$count++;
+		}
 	}
 
 	$log->info("find_and_replace_user_id_in_products - done",
 		{user_id => $user_id, new_user_id => $new_user_id, count => $count})
 		if $log->is_info();
 
+	return;
+}
+
+=head2 record_user_edit_type($users_ref, $user_type, $user_id)
+
+Record that a user has made a change of a specific type to the product.
+
+=head3 Parameters
+
+=head4 $users_ref Structure that holds the records by type
+
+For each type, there is a "list" array, and a "seen" hash
+
+=head4 $user_type e.g. editors, photographers, weighers
+
+=head4 $user_id
+
+=cut
+
+sub record_user_edit_type ($users_ref, $user_type, $user_id) {
+
+	if ((defined $user_id) and ($user_id ne '')) {
+		if (not defined $users_ref->{$user_type}{seen}{$user_id}) {
+			$users_ref->{$user_type}{seen}{$user_id} = 1;
+			push @{$users_ref->{$user_type}{list}}, $user_id;
+		}
+	}
 	return;
 }
 
@@ -1946,14 +2167,16 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 	my %last = %previous;
 	my %current;
 
-	my @photographers = ();
-	my @informers = ();
-	my @correctors = ();
-	my @checkers = ();
-	my %photographers = ();
-	my %informers = ();
-	my %correctors = ();
-	my %checkers = ();
+	# Create a structure that will contain lists of users that have modified the product
+	# in different ways (editors, photographers etc.)
+	my $users_ref;
+
+	foreach my $user_type (keys %users_tags_fields) {
+		$users_ref->{$user_type} = {
+			list => [],    # list of users, ordered by least recent update
+			seen => {},    # hash of users, used to add users only once to the list
+		};
+	}
 
 	my $revs = 0;
 
@@ -1994,7 +2217,8 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 				uploaded_images => {},
 				selected_images => {},
 				fields => {},
-				nutriments => {}
+				nutriments => {},
+				packagings => {},
 			);
 
 			# Uploaded images
@@ -2057,6 +2281,33 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 				}
 			}
 
+			# Packagings components
+			if (defined $product_ref->{packagings}) {
+				# To check if packaging data (shape, materials etc.) and packaging weights have changed
+				# we compute a scalar serialization for them so that it's easy to see if they have changed
+				my $packagings_data_signature = "";
+				my $packagings_weights_signature = "";
+				foreach my $packagings_ref (@{$product_ref->{packagings}}) {
+					# We make a copy of numeric values so that Perl does not turn the value to a string when we concatenate it in the signature
+					my $number_of_units = $packagings_ref->{number_of_units};
+					my $weight_measured = $packagings_ref->{weight_measured};
+
+					$packagings_data_signature .= "number_of_units:" . $number_of_units . ',';
+					foreach my $property (qw(shape material recycling quantity_per_unit)) {
+						$packagings_data_signature .= $property . ":" . ($packagings_ref->{$property} || '') . ',';
+					}
+					$packagings_data_signature .= "\n";
+					$packagings_weights_signature .= ($weight_measured || '') . "\n";
+				}
+				# If the signature is empty or contains only line feeds, we don't have data
+				if ($packagings_data_signature !~ /^\s*$/) {
+					$current{packagings}{data} = $packagings_data_signature;
+				}
+				if ($packagings_weights_signature !~ /^\s*$/) {
+					$current{packagings}{weights_measured} = $packagings_weights_signature;
+				}
+			}
+
 			$current{checked} = $product_ref->{checked};
 			$current{last_checked_t} = $product_ref->{last_checked_t};
 		}
@@ -2072,15 +2323,10 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 		if (    (defined $current{last_checked_t})
 			and ((not defined $previous{last_checked_t}) or ($previous{last_checked_t} != $current{last_checked_t})))
 		{
-			if ((defined $product_ref->{last_checker}) and ($product_ref->{last_checker} ne '')) {
-				if (not defined $checkers{$product_ref->{last_checker}}) {
-					$checkers{$product_ref->{last_checker}} = 1;
-					push @checkers, $product_ref->{last_checker};
-				}
-			}
+			record_user_edit_type($users_ref, "checkers", $product_ref->{last_checker});
 		}
 
-		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments') {
+		foreach my $group ('uploaded_images', 'selected_images', 'fields', 'nutriments', 'packagings') {
 
 			defined $blame_ref->{$group} or $blame_ref->{$group} = {};
 
@@ -2116,6 +2362,9 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 			}
 			elsif ($group eq 'nutriments') {
 				@ids = @{$nutriments_lists{europe}};
+			}
+			elsif ($group eq 'packagings') {
+				@ids = ("data", "weights_measured");
 			}
 			else {
 				my $uniq = sub {
@@ -2216,27 +2465,23 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 
 					}
 
-					if ((defined $userid) and ($userid ne '')) {
+					# Packagings
+					if (    ($group eq 'packagings')
+						and ($id eq 'weights_measured')
+						and (($diff eq 'add') or ($diff eq 'change')))
+					{
+						record_user_edit_type($users_ref, "weighers", $userid);
+					}
 
-						if (($diff eq 'add') and ($group eq 'uploaded_images')) {
-
-							if (not defined $photographers{$userid}) {
-								$photographers{$userid} = 1;
-								push @photographers, $userid;
-							}
-						}
-						elsif ($diff eq 'add') {
-							if (not defined $informers{$userid}) {
-								$informers{$userid} = 1;
-								push @informers, $userid;
-							}
-						}
-						elsif ($diff eq 'change') {
-							if (not defined $correctors{$userid}) {
-								$correctors{$userid} = 1;
-								push @correctors, $userid;
-							}
-						}
+					# Uploaded photos + all fields
+					if (($diff eq 'add') and ($group eq 'uploaded_images')) {
+						record_user_edit_type($users_ref, "photographers", $userid);
+					}
+					elsif ($diff eq 'add') {
+						record_user_edit_type($users_ref, "informers", $userid);
+					}
+					elsif ($diff eq 'change') {
+						record_user_edit_type($users_ref, "correctors", $userid);
 					}
 				}
 			}
@@ -2266,12 +2511,13 @@ sub compute_product_history_and_completeness ($product_data_root, $current_produ
 		delete $current_product_ref->{last_image_dates_tags};
 	}
 
-	$current_product_ref->{editors_tags} = [keys %changed_by];
+	$current_product_ref->{editors_tags} = [sort keys %changed_by];
 
-	$current_product_ref->{photographers_tags} = [@photographers];
-	$current_product_ref->{informers_tags} = [@informers];
-	$current_product_ref->{correctors_tags} = [@correctors];
-	$current_product_ref->{checkers_tags} = [@checkers];
+	$current_product_ref->{photographers_tags} = $users_ref->{photographers}{list};
+	$current_product_ref->{informers_tags} = $users_ref->{informers}{list};
+	$current_product_ref->{correctors_tags} = $users_ref->{correctors}{list};
+	$current_product_ref->{checkers_tags} = $users_ref->{checkers}{list};
+	$current_product_ref->{weighers_tags} = $users_ref->{weighers}{list};
 
 	compute_completeness_and_missing_tags($current_product_ref, \%current, \%last);
 
@@ -2532,9 +2778,15 @@ sub product_action_url ($code, $action) {
 	elsif ($action eq "add_packaging_text") {
 		$url .= "#packaging";
 	}
+	elsif ($action eq "add_packaging_components") {
+		$url .= "#packaging";
+	}
 	# Note: 27/11/2022 - Pierre - The following HTML anchors links will do nothing unless a matching custom HTML anchor is added in the future to the product edition template
 	elsif ($action eq "add_origins") {
 		$url .= "#origins";
+	}
+	elsif ($action eq "add_quantity") {
+		$url .= "#product_characteristics";
 	}
 	elsif ($action eq "add_stores") {
 		$url .= "#stores";
@@ -2556,7 +2808,7 @@ sub product_action_url ($code, $action) {
 	return $url;
 }
 
-sub index_product ($product_ref) {
+sub compute_keywords ($product_ref) {
 
 	my @string_fields = qw(product_name generic_name);
 	my @tag_fields = qw(brands categories origins labels);
@@ -2682,7 +2934,7 @@ sub compute_languages ($product_ref) {
 		}
 	}
 
-	my @languages = keys %languages;
+	my @languages = sort keys %languages;
 	my $n = scalar(@languages);
 
 	my @languages_hierarchy = @languages;    # without multilingual and count
@@ -2700,28 +2952,94 @@ sub compute_languages ($product_ref) {
 	return;
 }
 
-# @edit_rules = (
-#
-# {
-# 	name => "App XYZ",
-# 	conditions => [
-# 		["user_id", "xyz"],
-# 	],
-# 	actions => {
-# 		["ignore_if_existing_ingredients_text_fr"],
-# 		["ignore_if_0_nutriments_fruits-vegetables-nuts"],
-# 		["warn_if_match_nutriments_fruits-vegetables-nuts", 100],
-# 		["ignore_if_regexp_match_packaging", "^(artikel|produit|producto|produkt|produkte)$"],
-# 	},
-# 	notifications => qw (
-# 		stephane@openfoodfacts.org
-# 		slack_channel_edit-alert
-# 		slack_channel_edit-alert-test
-# 	),
-# },
-#
-# );
-#
+=head2 process_product_edit_rules ($product_ref)
+
+Process the edit_rules (see C<@edit_rules> in in Config file).
+
+=head3 where it applies
+
+It applies in all API/form that edit the product.
+It applies to apply an image crop.
+
+It does not block image upload.
+
+=head3 edit_rules structure
+
+=over 1
+=item * name: rule name to identify it in logs and describe it
+=item * conditions: the conditions the product must match, a list of [fieldname, value]
+=item * actions: the actions to take, a list, where each element is a list with a rule name, and eventual arguments
+=item * notifications: also notify, list of email addresses or specific notification rules
+=back
+
+=head4 conditions
+
+Each condition is either a match on C<user_id> or it's contrary C<user_id_not>,
+or C<in_TAG_NAME_tags> for a tag field to match a specific tag id.
+
+Note that conditions are checked before editing the product !
+
+=head4 actions
+
+C<ignore> alone, ignore every edits.
+
+You can also have rules of the form
+C<ignore_FIELD> and C<warn_FIELD> which will ignore (or notify) edits on the specific field.
+
+Note that ignore rules also create a notification.
+
+For nutriments use C<nutriments_NUTRIMENT_NAME> for C<FIELD>.
+
+You can guard the rule on the field with a condition:
+C<ignore_if_CONDITION_FIELD> or C<warn_if_CONDITION_FIELD>
+This time it's to check the value the user want's to add.
+
+C<CONDITION> is one of the following:
+=over 1
+=item * existing - user tries to edit this field with a non empty value
+=item * 0 - user tries to put numerical value 0 in the field
+=item * equal / lesser / greater - comparison of numeric value (requires a value as argument)
+=item * match - comparison to a string (equality, requires a value as argument)
+=item * regexp_match - match against a regexp (requires a regexp value as argument)
+=back
+
+=head4 notifications
+
+Notifications are email addresses to send emails,
+or "slack_CHANNEL_NAME" (B<warning> currently channel name is ignored, we post to I<edit-alerts>)
+
+=head4 Example of an edit rule
+
+=begin text
+{
+	name => "App XYZ",
+	conditions => [
+		["user_id", "xyz"],
+	],
+	actions => [
+		["ignore_if_existing_ingredients_text_fr"],
+		["ignore_if_0_nutriment_fruits-vegetables-nuts"],
+		["warn_if_match_nutriment_fruits-vegetables-nuts", 100],
+		["ignore_if_regexp_match_packaging", "^(artikel|produit|producto|produkt|produkte)$"],
+	],
+	notifications => qw (
+		stephane@openfoodfacts.org
+		slack_channel_edit-alert
+		slack_channel_edit-alert-test
+	),
+},
+=end text
+
+=cut
+
+sub preprocess_product_field ($field, $value) {
+
+	$value = remove_tags_and_quote($value);
+	if ($field ne 'customer_service' && $field ne 'other_information') {
+		$value = remove_email($value);
+	}
+	return $value;
+}
 
 sub process_product_edit_rules ($product_ref) {
 
@@ -2740,12 +3058,12 @@ sub process_product_edit_rules ($product_ref) {
 
 		# Check the conditions
 
-		my $conditions = 1;
+		my $conditions = 1;    # we first imagine conditions are met
 
 		if (defined $rule_ref->{conditions}) {
 			foreach my $condition_ref (@{$rule_ref->{conditions}}) {
-				if ($condition_ref->[0] eq 'user_id') {
-					if ($condition_ref->[1] ne $User_id) {
+				if (($condition_ref->[0] eq 'user_id')) {
+					if ((not defined $User_id) or ($condition_ref->[1] ne $User_id)) {
 						$conditions = 0;
 						$log->debug("condition does not match value",
 							{condition => $condition_ref->[0], expected => $condition_ref->[1], actual => $User_id})
@@ -2754,7 +3072,7 @@ sub process_product_edit_rules ($product_ref) {
 					}
 				}
 				elsif ($condition_ref->[0] eq 'user_id_not') {
-					if ($condition_ref->[1] eq $User_id) {
+					if ((defined $User_id) and ($condition_ref->[1] eq $User_id)) {
 						$conditions = 0;
 						$log->debug("condition does not match value",
 							{condition => $condition_ref->[0], expected => $condition_ref->[1], actual => $User_id})
@@ -2764,7 +3082,7 @@ sub process_product_edit_rules ($product_ref) {
 				}
 				elsif ($condition_ref->[0] =~ /in_(.*)_tags/) {
 					my $tagtype = $1;
-					my $condition = 0;
+					my $condition = 0;    # condition is not met, but if we have a match
 					if (defined $product_ref->{$tagtype . "_tags"}) {
 						foreach my $tagid (@{$product_ref->{$tagtype . "_tags"}}) {
 							if ($tagid eq $condition_ref->[1]) {
@@ -2793,7 +3111,7 @@ sub process_product_edit_rules ($product_ref) {
 			# 	actions => {
 			# 		["ignore_if_existing_ingredients_texts_fr"],
 			# 		["ignore_if_0_nutriments_fruits-vegetables-nuts"],
-			# 		["warn_if_match_nutriments_fruits-vegetables-nuts", 100],
+			# 		["warn_if_equal_nutriments_fruits-vegetables-nuts", 100],
 			# 		["ignore_if_regexp_match_packaging", "^(artikel|produit|producto|produkt|produkte)$"],
 			# 	},
 
@@ -2811,16 +3129,18 @@ sub process_product_edit_rules ($product_ref) {
 
 					my $action_log = "";
 
+					# the simplest rule: ignore everything
 					if ($action eq "ignore") {
 						$log->debug("ignore action => do not proceed with edits") if $log->is_debug();
 						$proceed_with_edit = 0;
 					}
+					# rules with conditions
 					elsif ($action =~ /^(ignore|warn)(_if_(existing|0|greater|lesser|equal|match|regexp_match)_)?(.*)$/)
 					{
 						my ($type, $condition, $field) = ($1, $3, $4);
 						my $default_field = $field;
 
-						my $condition_ok = 1;
+						my $condition_ok = 1;    # consider condition is met
 
 						my $action_log = "";
 
@@ -2830,26 +3150,30 @@ sub process_product_edit_rules ($product_ref) {
 
 						if (defined $condition) {
 
+							my $param_field = undef;
+							if (defined single_param($field)) {
+								# param_field is the new value defined by edit
+								$param_field = remove_tags_and_quote(decode utf8 => single_param($field));
+							}
+							if ($field =~ /_(\w\w)$/) {
+								# localized field ? remove language to get value in request
+								$default_field = $`;
+								if ((!defined $param_field) && (defined single_param($default_field))) {
+									$param_field = remove_tags_and_quote(decode utf8 => single_param($default_field));
+								}
+							}
+
 							# if field is not passed, skip rule
-							if (not defined single_param($field)) {
+							if (not defined $param_field) {
 								$log->debug("no value passed -> skip edit rule") if $log->is_debug();
 								next;
 							}
 
-							my $param_field = remove_tags_and_quote(decode utf8 => single_param($field));
-
 							my $current_value = $product_ref->{$field};
+							# specific rule for nutriments, take the nutriment_name_100g
 							if ($field =~ /^nutriment_(.*)/) {
 								my $nid = $1;
 								$current_value = $product_ref->{nutriments}{$nid . "_100g"};
-							}
-
-							# language fields?
-							if ($field =~ /_(\w\w)$/) {
-								$default_field = $`;
-								if (not defined $param_field) {
-									$param_field = remove_tags_and_quote(decode utf8 => single_param($default_field));
-								}
 							}
 
 							local $log->context->{current_value} = $current_value;
@@ -2910,7 +3234,7 @@ sub process_product_edit_rules ($product_ref) {
 								$log->debug("condition matches") if $log->is_debug();
 								$action_log
 									= "product code $code - https://world.$server_domain/product/$code - edit rule $rule_ref->{name} - type: $type - condition: $condition - field: $field current(field): "
-									. $current_value
+									. ($current_value // "")
 									. " - param(field): "
 									. $param_field . "\n";
 							}
@@ -3118,7 +3442,7 @@ e.g. official producer data that should not be changed by anonymous users throug
 Product data is protected if it has an owner and if the corresponding organization has
 the "protect data" checkbox checked.
 
-=head3 Parameters 
+=head3 Parameters
 
 =head4 $product_ref
 
@@ -3289,6 +3613,9 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	$log->debug("analyze_and_enrich_product_data - start") if $log->is_debug();
 
+	# Initialiaze the misc_tags, they will be populated by functions called by this function
+	$product_ref->{misc_tags} = [];
+
 	if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
 		and ($product_ref->{nutriments}{"carbon-footprint"} ne ''))
 	{
@@ -3315,6 +3642,8 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
 
 	# Ingredients classes
+	# Select best language to parse ingredients
+	$product_ref->{ingredients_lc} = select_ingredients_lc($product_ref);
 	clean_ingredients_text($product_ref);
 	extract_ingredients_from_text($product_ref);
 	extract_ingredients_classes_from_text($product_ref);
@@ -3335,7 +3664,9 @@ sub analyze_and_enrich_product_data ($product_ref, $response_ref) {
 
 	compute_serving_size_data($product_ref);
 
-	compute_nutrition_score($product_ref);
+	compute_estimated_nutrients($product_ref);
+
+	compute_nutriscore($product_ref);
 
 	compute_nova_group($product_ref);
 

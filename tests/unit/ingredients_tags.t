@@ -83,7 +83,7 @@ my @tests = (
 		["en:salt", "en:acid", "en:e330"],
 	],
 
-	[{lc => "fi", ingredients_text => "valkosipulijauhe ja suola"}, ["en:garlic-powder", "en:salt",],],
+	[{lc => "fi", ingredients_text => "valkosipuli ja suola"}, ["en:garlic", "en:salt",],],
 	[
 		{
 			lc => "fi",
@@ -305,6 +305,7 @@ my @tests = (
 		{lc => "ru", ingredients_text => "масло растительное (подсолнечное, соевое), Масло (Пальмовое)"},
 		["en:sunflower-oil", "en:soya-oil", "en:palm-oil"]
 	],
+	[{lc => "fr", ingredients_text => "Banane coupée et cuite au naturel"}, ["en:banana"],],
 
 );
 

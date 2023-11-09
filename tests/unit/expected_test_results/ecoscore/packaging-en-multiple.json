@@ -426,6 +426,7 @@
    ],
    "lc" : "en",
    "misc_tags" : [
+      "en:packagings-number-of-components-3",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
@@ -436,6 +437,17 @@
       "en:ecoscore-computed",
       "en:ecoscore-changed",
       "en:ecoscore-grade-changed"
+   ],
+   "packaging_materials_tags" : [
+      "en:cardboard",
+      "en:plastic",
+      "en:steel"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:box",
+      "en:drink-can",
+      "en:film"
    ],
    "packaging_text" : "1 cardboard box, 1 plastic film wrap, 6 33cl steel beverage cans",
    "packagings" : [
@@ -457,5 +469,12 @@
          "quantity_per_unit_value" : 33,
          "shape" : "en:drink-can"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:metal" : {},
+      "en:paper-or-cardboard" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 3
 }

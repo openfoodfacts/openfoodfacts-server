@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -39,6 +39,7 @@ BEGIN {
 		$crowdin_project_identifier
 		$crowdin_project_key
 		$robotoff_url
+		$query_url
 		$events_url
 		$events_username
 		$events_password
@@ -63,7 +64,7 @@ $data_root = "/home/off";
 
 $geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
 
-$mongodb = "off";
+$mongodb = "off";    # MongoDB database name
 $mongodb_host = "mongodb://localhost";
 $mongodb_timeout_ms = 50000;    # config option max_time_ms/maxTimeMS
 
@@ -75,6 +76,7 @@ $crowdin_project_key = '';
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = '';
+$query_url = '';
 
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)

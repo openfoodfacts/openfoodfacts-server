@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : "18066",
          "id" : "en:water",
          "percent_estimate" : 75,
          "percent_max" : 75,
@@ -10,6 +11,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "13014",
          "id" : "en:strawberry-juice",
          "percent" : 20,
          "percent_estimate" : 20,
@@ -41,6 +43,7 @@
       "en:strawberry-juice",
       "en:fruit",
       "en:berries",
+      "en:juice",
       "en:fruit-juice",
       "en:strawberry",
       "en:sugar",
@@ -63,6 +66,7 @@
       "en:strawberry-juice",
       "en:fruit",
       "en:berries",
+      "en:juice",
       "en:fruit-juice",
       "en:strawberry",
       "en:sugar",
@@ -74,9 +78,15 @@
    "ingredients_with_specified_percent_sum" : 25,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 75,
-   "known_ingredients_n" : 9,
+   "ingredients_without_ciqual_codes" : [
+      "en:sugar"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "known_ingredients_n" : 10,
    "lc" : "en",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 20,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 20,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 20,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 20
    },

@@ -13,6 +13,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_food_code" : "11074",
                "id" : "en:ginger",
                "percent_estimate" : 20.8333333333333,
                "percent_max" : 50,
@@ -22,6 +23,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_food_code" : "20041",
                "id" : "en:spice-or-bell-pepper",
                "percent_estimate" : 10.4166666666667,
                "percent_max" : 33.3333333333333,
@@ -31,6 +33,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_food_code" : "11000",
                "id" : "en:garlic",
                "percent_estimate" : 5.20833333333333,
                "percent_max" : 25,
@@ -49,6 +52,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_food_code" : "11013",
                "id" : "en:mustard-seed",
                "percent_estimate" : 2.60416666666666,
                "percent_max" : 16.6666666666667,
@@ -79,9 +83,11 @@
       "en:ginger",
       "en:spice-or-bell-pepper",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:bell-pepper",
       "en:garlic",
       "en:root-vegetable",
+      "en:onion-family-vegetable",
       "en:coriander",
       "en:herb",
       "en:mustard-seed",
@@ -109,9 +115,11 @@
       "en:ginger",
       "en:spice-or-bell-pepper",
       "en:vegetable",
+      "en:fruit-vegetable",
       "en:bell-pepper",
       "en:garlic",
       "en:root-vegetable",
+      "en:onion-family-vegetable",
       "en:coriander",
       "en:herb",
       "en:mustard-seed",
@@ -122,11 +130,18 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 13,
+   "ingredients_without_ciqual_codes" : [
+      "en:coriander",
+      "en:turmeric"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "known_ingredients_n" : 15,
    "lc" : "fi",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 15.625,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 15.625,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 5.20833333333333,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 5.20833333333333
    },
    "unknown_ingredients_n" : 0
 }

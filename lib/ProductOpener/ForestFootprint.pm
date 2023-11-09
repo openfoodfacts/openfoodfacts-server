@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -84,7 +84,8 @@ sub load_forest_footprint_data() {
 
 	for (my $k = 0; $k <= 1; $k++) {
 
-		my $csv_file = $data_root . "/forest-footprint/envol-vert/Empreinte Forêt - Envol Vert - OFF.csv.$k";
+		my $csv_file
+			= $data_root . "/external-data/forest-footprint/envol-vert/Empreinte Forêt - Envol Vert - OFF.csv.$k";
 		my $encoding = "UTF-8";
 
 		$log->debug("opening forest footprint CSV file", {file => $csv_file}) if $log->is_debug();

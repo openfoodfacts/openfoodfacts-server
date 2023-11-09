@@ -1,9 +1,17 @@
 {
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-1",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:rpet-recycled-polyethylene-terephthalate"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:bottle"
    ],
    "packaging_text" : "bouteille en plastique pet recyclé",
    "packagings" : [
@@ -11,5 +19,10 @@
          "material" : "en:rpet-recycled-polyethylene-terephthalate",
          "shape" : "en:bottle"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 1
 }

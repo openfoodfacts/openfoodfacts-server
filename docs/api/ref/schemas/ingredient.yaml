@@ -1,0 +1,30 @@
+type: array
+description: |
+  This structure gives the different ingredients and some information about them,
+  like estimate on their quantity.
+items:
+  type: object
+  properties:
+    id:
+      type: string
+    ingredients:
+      description: |
+        Sub ingredients composing this ingredients.
+      # self recursive
+      $ref: "#/"
+    percent:
+      type: integer
+    percent_estimate:
+      type:
+        - number
+    percent_max:
+      type:
+        - number
+    percent_min:
+      type: integer
+    text:
+      type: string
+    vegan:
+      type: string
+    vegetarian:
+      type: string

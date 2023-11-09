@@ -4,122 +4,10 @@ use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
-use Test::Number::Delta relative => 1.001;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
-
-# Based on https://de.wikipedia.org/w/index.php?title=Wasserh%C3%A4rte&oldid=160348959#Einheiten_und_Umrechnung
-is(mmoll_to_unit(1, 'mol/l'), 0.001);
-is(mmoll_to_unit('1', 'moll/l'), 1);
-is(mmoll_to_unit(1, 'mmol/l'), 1);
-is(mmoll_to_unit(1, 'mval/l'), 2);
-is(mmoll_to_unit(1, 'ppm'), 100);
-is(mmoll_to_unit(1, "\N{U+00B0}rH"), 40.080);
-is(mmoll_to_unit(1, "\N{U+00B0}fH"), 10.00);
-is(mmoll_to_unit(1, "\N{U+00B0}e"), 7.02);
-is(mmoll_to_unit(1, "\N{U+00B0}dH"), 5.6);
-is(mmoll_to_unit(1, 'gpg'), 5.847);
-
-is(unit_to_mmoll(1, 'mol/l'), 1000);
-is(unit_to_mmoll('1', 'mmol/l'), 1);
-is(unit_to_mmoll(1, 'mmol/l'), 1);
-is(unit_to_mmoll(1, 'mval/l'), 0.5);
-is(unit_to_mmoll(1, 'ppm'), 0.01);
-delta_ok(unit_to_mmoll(1, "\N{U+00B0}rH"), 0.025);
-delta_ok(unit_to_mmoll(1, "\N{U+00B0}fH"), 0.1);
-delta_ok(unit_to_mmoll(1, "\N{U+00B0}e"), 0.142);
-delta_ok(unit_to_mmoll(1, "\N{U+00B0}dH"), 0.1783);
-delta_ok(unit_to_mmoll(1, 'gpg'), 0.171);
-
-is(mmoll_to_unit(unit_to_mmoll(1, 'ppm'), "\N{U+00B0}dH"), 0.056);
-
-# Chinese Measurements Source: http://www.new-chinese.org/lernwortschatz-chinesisch-masseinheiten.html
-# kè - gram - 克
-is(normalize_quantity("42\N{U+514B}"), 42);
-is(normalize_serving_size("42\N{U+514B}"), 42);
-is(unit_to_g(42, "\N{U+514B}"), 42);
-is(g_to_unit(42, "\N{U+514B}"), 42);
-# gōngkè - gram - 公克 (in use at least in Taïwan)
-is(normalize_quantity("42\N{U+516C}\N{U+514B}"), 42);
-is(normalize_serving_size("42\N{U+516C}\N{U+514B}"), 42);
-is(unit_to_g(42, "\N{U+516C}\N{U+514B}"), 42);
-is(g_to_unit(42, "\N{U+516C}\N{U+514B}"), 42);
-# héokè - milligram - 毫克
-is(normalize_quantity("42000\N{U+6BEB}\N{U+514B}"), 42);
-is(normalize_serving_size("42000\N{U+6BEB}\N{U+514B}"), 42);
-is(unit_to_g(42000, "\N{U+6BEB}\N{U+514B}"), 42);
-is(g_to_unit(42, "\N{U+6BEB}\N{U+514B}"), 42000);
-# jīn - pound 500 g - 斤
-is(normalize_quantity("84\N{U+65A4}"), 42000);
-is(normalize_serving_size("84\N{U+65A4}"), 42000);
-is(unit_to_g(84, "\N{U+65A4}"), 42000);
-is(g_to_unit(42000, "\N{U+65A4}"), 84);
-# gōngjīn - kg - 公斤
-is(normalize_quantity("42\N{U+516C}\N{U+65A4}"), 42000);
-is(normalize_serving_size("42\N{U+516C}\N{U+65A4}"), 42000);
-is(unit_to_g(42, "\N{U+516C}\N{U+65A4}"), 42000);
-is(g_to_unit(42000, "\N{U+516C}\N{U+65A4}"), 42);
-# háoshēng - milliliter - 毫升
-is(normalize_quantity("42\N{U+6BEB}\N{U+5347}"), 42);
-is(normalize_serving_size("42\N{U+6BEB}\N{U+5347}"), 42);
-is(unit_to_g(42, "\N{U+6BEB}\N{U+5347}"), 42);
-is(g_to_unit(42, "\N{U+6BEB}\N{U+5347}"), 42);
-# gōngshēng - liter - 公升
-is(normalize_quantity("42\N{U+516C}\N{U+5347}"), 42000);
-is(normalize_serving_size("42\N{U+516C}\N{U+5347}"), 42000);
-is(unit_to_g(42, "\N{U+516C}\N{U+5347}"), 42000);
-is(g_to_unit(42000, "\N{U+516C}\N{U+5347}"), 42);
-
-# Russian units
-
-is(unit_to_g(1, "г"), 1);
-is(unit_to_g(1, "мг"), 0.001);
-
-# unit conversion tests
-# TODO
-# if (!defined(unit_to_g(1, "unknown")))
-# {
-# 	return 1;
-# }
-is(unit_to_g(1, "kj"), 1);
-is(unit_to_g(1, "kcal"), 4);
-is(unit_to_g(1000, "kcal"), 4184);
-is(unit_to_g(1.2345, "kg"), 1234.5);
-is(unit_to_g(1, "kJ"), 1);
-is(unit_to_g(10, ""), 10);
-is(unit_to_g(10, " "), 10);
-is(unit_to_g(10, "% vol"), 10);
-is(unit_to_g(10, "%"), 10);
-is(unit_to_g(10, "% vol"), 10);
-is(unit_to_g(10, "% DV"), 10);
-is(unit_to_g(11, "mL"), 11);
-is(g_to_unit(42000, "kg"), 42);
-is(g_to_unit(28.349523125, "oz"), 1);
-is(g_to_unit(30, "fl oz"), 1);
-is(g_to_unit(1, "mcg"), 1000000);
-
-is(normalize_quantity("1 г"), 1);
-is(normalize_quantity("1 мг"), 0.001);
-is(normalize_quantity("1 кг"), 1000);
-is(normalize_quantity("1 л"), 1000);
-is(normalize_quantity("1 дл"), 100);
-is(normalize_quantity("1 кл"), 10);
-is(normalize_quantity("1 мл"), 1);
-
-is(normalize_quantity("250G"), 250);
-is(normalize_quantity("4 x 25g"), 100);
-is(normalize_quantity("4 x25g"), 100);
-is(normalize_quantity("4 * 25g"), 100);
-is(normalize_quantity("4X2,5L"), 10000);
-is(normalize_quantity("1 barquette de 40g"), 40);
-is(normalize_quantity("2 barquettes de 40g"), 80);
-is(normalize_quantity("6 bouteilles de 33cl"), 6 * 33 * 10);
-is(normalize_quantity("10 unités de 170g"), 1700);
-is(normalize_quantity("10 unites, 170g"), 170);
-is(normalize_quantity("4 bouteilles en verre de 20cl"), 800);
-is(normalize_quantity("5 bottles of 20cl"), 100 * 10);
 
 my $product_ref = {
 	lc => "en",
@@ -281,7 +169,7 @@ is($product_ref->{nutrition_score_beverage}, 1);
 $product_ref = {
 	lc => "en",
 	categories => "beverages",
-	categories_tags => ["en:beverages", "en:plant-milks"],
+	categories_tags => ["en:beverages", "en:plant-based-milk-alternatives"],
 	ingredients_tags => ["en:water", "en:sugar"],
 	ingredients_text => "water, fruit juice",
 };
@@ -568,6 +456,9 @@ is($value, '20,5');
 is($modifier, '~');
 assign_nid_modifier_value_and_unit($product_ref, "salt_prepared", $modifier, $value, "g");
 
+# Prepared value defined in IU
+assign_nid_modifier_value_and_unit($product_ref, "vitamin-a_prepared", "", 468, "IU");
+
 # test support of traces, as well as "nearly" and prepared values
 compute_serving_size_data($product_ref);
 
@@ -591,7 +482,11 @@ is_deeply(
 			'sugars_100g' => 1,
 			'sugars_modifier' => "\x{2264}",
 			'sugars_unit' => 'g',
-			'sugars_value' => 1
+			'sugars_value' => 1,
+			'vitamin-a_prepared' => '0.0001404',
+			'vitamin-a_prepared_100g' => '0.0001404',
+			'vitamin-a_prepared_unit' => 'IU',
+			'vitamin-a_prepared_value' => 468,
 		},
 		'nutrition_data_per' => '100g',
 		'nutrition_data_prepared_per' => '100g'
@@ -627,6 +522,31 @@ is_deeply(
 			'vitamin-e_value' => 40
 		},
 		'nutrition_data_per' => '100g',
+	}
+) or diag explain $product_ref;
+
+# Test that 100g values are not extrapolated where serving size <=5
+$product_ref = {
+	serving_size => '5 g',
+	nutrition_data_per => 'serving'
+};
+
+assign_nid_modifier_value_and_unit($product_ref, "fat", undef, '1', 'g');
+compute_serving_size_data($product_ref);
+
+is_deeply(
+	$product_ref,
+	{
+		'nutriments' => {
+			'fat' => '1',
+			'fat_serving' => '1',
+			'fat_unit' => 'g',
+			'fat_value' => '1',
+		},
+		'nutrition_data_per' => 'serving',
+		'nutrition_data_prepared_per' => '100g',
+		'serving_quantity' => 5,
+		'serving_size' => '5 g'
 	}
 ) or diag explain $product_ref;
 

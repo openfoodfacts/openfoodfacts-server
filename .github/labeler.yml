@@ -1,20 +1,27 @@
 # For reference, please look at https://github.com/actions/labeler
 
+javascript:
+- '**/*.js'
+
 github_actions:
 - .github/**/*
 
 nginx:
 - conf/nginx/**/*
+- conf/nginx.conf
 
 mongodb:
 - conf/mongodb/create_indexes.js
-- scripts/refresh_products_tags.js
 - .github/workflows/mongo-deploy.yml
 - scripts/checkmongodb.pl
 - scripts/update_all_products_from_dir_in_mongodb.pl
 - scripts/update_all_products_revisions_from_dir_in_mongodb.pl
 
-tagline:
+stores:
+- taxonomies/unused/stores.txt
+- scripts/tag_stores_magasins_u.pl
+
+🤳🥫 tagline:
 - html/files/app/tagline/tagline-off-ios.json
 - html/files/tagline-off.json
 - html/files/tagline.txt
@@ -60,7 +67,7 @@ allergens:
 - tests/unit/allergens.t
 - taxonomies/allergens.txt
 
-open pet food facts:
+🐾 Open Pet Food Facts:
 - taxonomies.opff/**/*
 - po/openpetfoodfacts/**/*
 - scripts/gen_opff_leaderboard.pl
@@ -81,7 +88,7 @@ open pet food facts:
 - conf/nginx/snippets/ssl-params-opff.conf
 - taxonomies.opff/categories.txt
 
-open beauty facts:
+🧴 Open Beauty Facts:
 - taxonomies.obf/**/*
 - po/openbeautyfacts/**/*
 - scripts/gen_obf_inci_functions_taxonomy_from_cosing.pl
@@ -120,7 +127,7 @@ open beauty facts:
 - taxonomies.obf/inci_functions.result.sto
 - tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.off.json
 
-open products facts:
+📸 Open Products Facts:
 - taxonomies.opf/**/*
 - po/openproductsfacts/**/*
 - lib/ProductOpener/Config_opf.pm
@@ -135,7 +142,7 @@ open products facts:
 icons:
 - icons/**/*
 
-css:
+CSS:
 - scss/**/*
 
 translations:
@@ -166,7 +173,7 @@ dependencies:
 Template::Toolkit:
 - templates/**/*
 
-scss:
+SCSS:
 - scss/_footer.scss
 
 footer:
@@ -179,10 +186,13 @@ documentation:
 - scripts/generate_perl_html_doc_from_pod.pl
 - po/README.md
 
-docker:
+OpenAPI:
+- docs/assets/api-rapidoc.html
+
+🐋 Docker:
 - docker/**/*
 
-folksonomy project:
+Folksonomy Project:
 - html/js/folksonomy.js
 - templates/web/common/includes/folksonomy_script.tt.html
 
@@ -190,17 +200,18 @@ Attributes:
 - lib/ProductOpener/Attributes.pm
 - tests/unit/attributes.t
 
-data quality:
+Data Quality:
 - lib/ProductOpener/DataQuality.pm
 - lib/ProductOpener/DataQualityCommon.pm
 - lib/ProductOpener/DataQualityFood.pm
 - tests/unit/dataquality.t
 - tests/unit/dataqualityfood.t
+- taxonomies/data_quality.txt
 
 Display:
 - lib/ProductOpener/Display.pm
 
-ecoscore:
+Eco-Score:
 - lib/ProductOpener/Ecoscore.pm
 - ecoscore/**/*
 - tests/unit/ecoscore.t
@@ -226,7 +237,7 @@ ecoscore:
 - templates/api/knowledge-panels/environment/ecoscore/threatened_species.tt.json
 - docs/reference/api-tutorials/get-the-ecoscore.md
 
-agribalyse:
+Agribalyse:
 - scripts/add_agribalyse_food_codes_to_taxonomy.pl
 - templates/api/knowledge-panels/environment/ecoscore/agribalyse.tt.json
 
@@ -241,7 +252,7 @@ Food groups:
 - lib/ProductOpener/FoodGroups.pm
 - tests/unit/food_groups.t
 
-additives:
+Additives:
 - taxonomies/additives.txt
 - scripts/merge_additives_lists.pl
 - scripts/extract_additives.pl
@@ -253,7 +264,7 @@ additives:
 - taxonomies/additives.result.sto
 - taxonomies/additives.result.txt
 
-forest footprint:
+Forest Footprint:
 - lib/ProductOpener/ForestFootprint.pm
 - tests/unit/forest_footprint.t
 
@@ -261,7 +272,7 @@ geolite:
 - lib/ProductOpener/GeoIP.pm
 - scripts/test_geoip.pl
 
-gs1:
+GS1:
 - lib/ProductOpener/GS1.pm
 - tests/unit/import_gs1.t
 - scripts/convert_gs1_json_to_off_csv.pl
@@ -353,7 +364,7 @@ knowledge-panels:
 - templates/api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
-- docs/reference/schemas/knowledge_panels/**
+- docs/api/ref/schemas/knowledge_panels/**
 
 serving size:
 - templates/api/knowledge-panels/health/nutrition/serving_size.tt.json
@@ -373,7 +384,7 @@ MainCountries:
 Numbers:
 - lib/ProductOpener/Numbers.pm
 
-nutriscore:
+Nutri-Score:
 - lib/ProductOpener/Nutriscore.pm
 - templates/web/pages/product/includes/nutriscore.tt.html
 - templates/web/pages/product/includes/nutriscore_details.tt.html
@@ -399,6 +410,7 @@ packager codes:
 - scripts/update_packager_codes_fsa_ratings.pl
 - scripts/test_normalize_packaging_codes.pl
 - scripts/update_emb_codes_in_mongodb.pl
+- packager-codes/**
 
 Packaging:
 - lib/ProductOpener/Packaging.pm
@@ -428,7 +440,8 @@ Packaging:
 - templates/api/knowledge-panels/environment/packaging_recycling.tt.json
 - templates/api/knowledge-panels/environment/ecoscore/packaging.tt.json
 - tests/unit/packaging.t
-- docs/reference/schemas/packagings/**
+- docs/api/ref/schemas/packagings/**
+- scripts/gen_packaging_stats.pl
   
 producers platform:
 - lib/ProductOpener/GS1.pm
@@ -459,14 +472,30 @@ producers platform:
 - scripts/remove_all_private_products_for_owner.pl
 - scripts/gen_pro_users_emails_list.pl
 - cgi/import_products_categories_from_public_database.pl
+- scripts/agena3000/run_agena3000_import.sh
+- scripts/bayard-import/run_bayard_import.sh
+- scripts/codeonline-import/run_codeonline_import.sh
+- scripts/codeonline-import/split_gs1_codeonline_json.pl
+- scripts/codeonline-import/stats_gs1_codeonline_json.pl
+- scripts/equadis-import/run_equadis_import.sh
+
+agena3000:
+- scripts/agena3000/run_agena3000_import.sh
+
+bayard:
+- scripts/bayard-import/run_bayard_import.sh
+
+codeonline:
+- scripts/codeonline-import/run_codeonline_import.sh
+- scripts/codeonline-import/split_gs1_codeonline_json.pl
+- scripts/codeonline-import/stats_gs1_codeonline_json.pl
+
+equadis:
+- scripts/equadis-import/run_equadis_import.sh
 
 store:
 - lib/ProductOpener/Store.pm
 - tests/unit/store.t
-
-codeonline:
-- scripts/codeonline-import/split_gs1_codeonline_json.pl
-- scripts/codeonline-import/stats_gs1_codeonline_json.pl
 
 images:
 - lib/ProductOpener/Images.pm
@@ -476,8 +505,9 @@ images:
 - cgi/product_image_unselect.pl
 - cgi/product_image_upload.pl
 - scripts/delete_old_cropped_images.pl
-- docs/reference/requestBodies/crop_a_photo.yaml
-- docs/reference/requestBodies/add_photo_to_existing_product.yaml
+- docs/ref/api/requestBodies/crop_a_photo.yaml
+- docs/ref/api/requestBodies/add_photo_to_existing_product.yaml
+- docs/api/tutorial-uploading-photo-to-a-product.md
 
 Products:
 - lib/ProductOpener/Products.pm
@@ -502,7 +532,7 @@ Url:
 Web:
 - lib/ProductOpener/Web.pm
 
-Donations:
+🎁 Donations:
 - html/donate/tt.html
 - templates/web/common/includes/donate_banner.tt.html
 - html/donate/fr.helloasso.html
@@ -513,7 +543,7 @@ editing:
 - templates/web/pages/product_edit/display_input_tabs.tt.html
 - templates/web/pages/product_edit/product_edit_form_display.tt.html
 - templates/web/pages/product_edit/product_edit_form_process.tt.html
-- docs/reference/requestBodies/add_or_edit_a_product.yaml
+- docs/api/ref/requestBodies/add_or_edit_a_product.yaml
 
 Product page:
 - templates/web/pages/product/includes/edit_history.tt.html
@@ -575,7 +605,7 @@ Blocks:
 - templates/web/common/includes/display_blocks.tt.html
 - templates/web/common/includes/display_my_block.tt.html
 
-How Much Sugar:
+🍬 How Much Sugar:
 - scripts/gen_sucres.pl
 - scripts/gen_sugar.pl
 - cgi/sucres_check.pl
@@ -588,9 +618,6 @@ Made Near Me:
 
 PAO:
 - scripts/generate_pao_taxonomy.pl
-
-blog:
-- scripts/get_blog_updates.pl
 
 Minion:
 - scripts/minion.pl
@@ -686,6 +713,16 @@ auth:
 
 autosuggest:
 - cgi/suggest.pl
+- tests/integration/api_cgi_suggest.t
+- tests/integration/expected_test_results/api_cgi_suggest/**/*
+- tests/integration/expected_test_results/api_cgi_suggest/categories-no-term.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-string-strawberry.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-fr-cafe-accent.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-fr-frais.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-fr-fraise.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-fraise.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-strawberry.json
+- tests/integration/expected_test_results/api_cgi_suggest/no-tagtype.json
 
 subdomains:
 - scripts/list_subdomains.pl
@@ -713,6 +750,7 @@ unit tests:
 multilingual products:
 - cgi/product_jqm_multilingual.pl
 - cgi/product_multilingual.pl
+- html/js/product-multilingual.js
 
 file import:
 - cgi/import_file_process.pl
@@ -726,14 +764,14 @@ API:
 - scripts/api_stats.pl
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
-- docs/reference/api-v3.yml
+- docs/api/ref-v3.yml
 - lib/ProductOpener/API.pm
 - tests/integration/api_v2_product_read.t
-- docs/reference/requestBodies/lc_cc.yaml
-- docs/reference/requestBodies/fields_tags_lc.yaml
+- docs/api/ref/requestBodies/lc_cc.yaml
+- docs/api/ref/requestBodies/fields_tags_lc.yaml
 
 API v3:
-- docs/reference/api-v3.yml
+- docs/api/ref/api-v3.yml
 - tests/integration/api_v3_product_read.t
 - tests/integration/api_v3_product_write.t
 
@@ -742,9 +780,9 @@ API read:
 
 API write:
 - tests/integration/api_v3_product_write.t
-- docs/reference/requestBodies/add_or_edit_a_product.yaml
-- docs/reference/requestBodies/crop_a_photo.yaml
-- docs/reference/requestBodies/add_photo_to_existing_product.yaml
+- docs/api/ref/requestBodies/add_or_edit_a_product.yaml
+- docs/api/ref/requestBodies/crop_a_photo.yaml
+- docs/api/ref/requestBodies/add_photo_to_existing_product.yaml
   
 monitoring:
 - scripts/api_stats.pl

@@ -448,12 +448,17 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:chicken"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 2,
    "labels_tags" : [
       "en:demeter"
    ],
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-1",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
@@ -465,14 +470,26 @@
       "en:ecoscore-grade-changed"
    ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:bulk"
+   ],
    "packaging_text" : "vrac",
    "packagings" : [
       {
          "shape" : "en:bulk"
       }
    ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:unknown" : {}
+   },
+   "packagings_n" : 1,
    "unknown_ingredients_n" : 0
 }
