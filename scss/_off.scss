@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // Fonts
 
 // From https://google-webfonts-helper.herokuapp.com/fonts/public-sans?subsets=latin,latin-ext,vietnamese :
@@ -23,6 +25,39 @@
       url("/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.svg#PublicSans")
       format("svg"); /* Legacy iOS */
 }
+
+/* plus-jakarta-sans-regular - cyrillic-ext_latin_latin-ext_vietnamese */
+@font-face {
+  font-display: auto;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-regular.woff2') format('woff2'),
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    url('/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-regular.ttf') format('truetype');
+  /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+
+
+/* plus-jakarta-sans-700 - cyrillic-ext_latin_latin-ext_vietnamese */
+@font-face {
+  font-display: auto; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* plus-jakarta-sans-800 - cyrillic-ext_latin_latin-ext_vietnamese */
+@font-face {
+  font-display: auto; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: url('/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
 
 // Font for Material Icons
 // variable to prevent sonar-cloud to complain that there isn't a generic family for the icon font
@@ -83,10 +118,6 @@ $material-icons: "Material Icons";
   background-color: $cappucino;
 }
 
-.block_light_yellow {
-  background-color: #e3f6ff;
-}
-
 .block_main {
   background-color: #fff2df;
 }
@@ -113,7 +144,6 @@ $evaluation-unknown-color: #4f4f4f;
   max-width: 100%;
 }
 
-//
 hr.floatclear {
   background: none;
   border: 0;
@@ -576,6 +606,53 @@ ul.pagination li a {
   }
 }
 
+@media #{$small-only} {
+  .toggle_food_preferences {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}
+
+.close_food_preferences {
+  margin-bottom: 1rem;
+}
+.fieldset_attribute_group {
+  display: flex;
+  flex-direction: column;
+}
+.attribute_img {
+  display: flex;
+  align-items: center;
+}
+
+@media #{$small-only} {
+  .attribute_group {
+    .attribute_item:first-child label {
+      margin-top: 1rem;
+    }
+    .attribute_item label {
+      margin-top: 0;
+    }
+  }
+}
+
+@media #{$medium-up} {
+  .attribute_group .attribute_item label {
+    margin-top: 0;
+  }
+}
+
+@media #{$large-up} {
+  .attribute_group {
+    display: flex;
+    justify-content: start;
+  }
+  .attribute_group .attribute_item:first-child {
+    padding-left: 8rem;
+  }
+}
+
 html[dir="rtl"] {
   .tab-bar-section.middle {
     left: 0;
@@ -584,6 +661,9 @@ html[dir="rtl"] {
   .share_button,
   .edit_button {
     float: left;
+  }
+  .close_food_preferences {
+    margin-bottom: 1rem;
   }
   .delete_button {
     float: left;
@@ -605,6 +685,8 @@ html[dir="rtl"] {
     }
   }
 }
+
+
 
 .match_icons {
   height: 48px;
@@ -677,32 +759,32 @@ html[dir="rtl"] {
 
 .product_banner_does_not_match {
   color: $grade-e-color;
-  background-color: scale-color($grade-e-color, $lightness: 50%);
+  background-color: color.scale($grade-e-color, $lightness: 50%);
 }
 
 .product_banner_may_not_match {
   color: $grade-d-color;
-  background-color: scale-color($grade-d-color, $lightness: 50%);
+  background-color: color.scale($grade-d-color, $lightness: 50%);
 }
 
 .product_banner_unknown_match {
   color: #888;
-  background-color: scale-color(#888, $lightness: 50%);
+  background-color: color.scale(#888, $lightness: 50%);
 }
 
 .product_banner_poor_match {
   color: $grade-c-color;
-  background-color: scale-color($grade-c-color, $lightness: 50%);
+  background-color: color.scale($grade-c-color, $lightness: 50%);
 }
 
 .product_banner_good_match {
   color: $grade-b-color;
-  background-color: scale-color($grade-b-color, $lightness: 50%);
+  background-color: color.scale($grade-b-color, $lightness: 50%);
 }
 
 .product_banner_very_good_match {
   color: $grade-a-color;
-  background-color: scale-color($grade-a-color, $lightness: 50%);
+  background-color: color.scale($grade-a-color, $lightness: 50%);
 }
 
 #match_title {
@@ -736,32 +818,32 @@ html[dir="rtl"] {
 
 .match_status_does_not_match {
   color: $grade-e-color;
-  background-color: scale-color($grade-e-color, $lightness: 75%);
+  background-color: color.scale($grade-e-color, $lightness: 75%);
 }
 
 .match_status_may_not_match {
   color: $grade-d-color;
-  background-color: scale-color($grade-d-color, $lightness: 75%);
+  background-color: color.scale($grade-d-color, $lightness: 75%);
 }
 
 .match_status_unknown_match {
   color: #888;
-  background-color: scale-color(#888, $lightness: 75%);
+  background-color: color.scale(#888, $lightness: 75%);
 }
 
 .match_status_poor_match {
   color: $grade-c-color;
-  background-color: scale-color($grade-c-color, $lightness: 75%);
+  background-color: color.scale($grade-c-color, $lightness: 75%);
 }
 
 .match_status_good_match {
   color: $grade-b-color;
-  background-color: scale-color($grade-b-color, $lightness: 75%);
+  background-color: color.scale($grade-b-color, $lightness: 75%);
 }
 
 .match_status_very_good_match {
   color: $grade-a-color;
-  background-color: scale-color($grade-a-color, $lightness: 75%);
+  background-color: color.scale($grade-a-color, $lightness: 75%);
 }
 
 .match_score_does_not_match {
@@ -1075,7 +1157,6 @@ a.grade_e:hover {
   padding-bottom: 2rem;
 }
 
-@import "cards";
 @include foundation-card;
 
 ////
@@ -1108,6 +1189,7 @@ span.ico-bold {
   font-variation-settings: "wght" 700;
 }
 
+@import "cards";
 @import "topbar";
 @import "footer";
 @import "product-list";
@@ -1171,7 +1253,6 @@ $section-cyan: #008c8c;
         padding: 1rem;
       }
       &--thank-you {
-        font-weight: bold;
         span {
           color: red;
           font-size: 1rem;
@@ -1199,6 +1280,12 @@ $section-cyan: #008c8c;
   &__content {
     @media #{$small-only} { margin-top: 0; }
   }
+}
+
+// Top banner to download mobile app
+#mobile-app-top-banner {
+  margin: 0;
+  border-radius: 0;
 }
 
 .footer_social_icon {
@@ -1258,7 +1345,80 @@ $section-cyan: #008c8c;
         padding: 1rem;
       }
       &--thank-you {
-        font-weight: bold;
+        span {
+          color: red;
+          font-size: 1rem;
+        }
+      }
+    }
+    &-close {
+      align-self: flex-start;
+      cursor: pointer;
+      color: white;
+      opacity: 0.5;
+      margin-right: 1rem;
+      @media #{$small-only} { 
+        position: relative;
+        top: -25px;
+        margin-right: 2rem;
+        align-self: flex-end;
+        order: 1;
+      }
+    }
+  }
+}
+
+// OFF days banner
+
+.offdays-banner {
+  position: relative;
+  display: flex;
+  padding: 2rem 0;
+  background-color: $section-cyan;
+  @media #{$small-only} {
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+  &__image {
+    display: block;
+    content: "";
+    background: no-repeat bottom url(/images/illustrations/you-are-invited.svg);
+    min-width: 150px;
+    height: 90px;
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 0 auto;
+    max-width: 100rem;
+    @media #{$small-only} {
+      flex-direction: column;
+      gap: 0;
+      margin-top: -2rem;
+    }
+    &--button {
+      appearance: button;
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      height: fit-content;
+      margin-bottom: 0;
+      @media #{$small-only} {
+        order: 3;
+      }
+    }
+    &-paragraphs {
+      > p { color: $white; }
+      a { color: #ffffcc; }
+      @media #{$small-only} {
+        text-align: center;
+        order: 2;
+        padding: 1rem;
+      }
+      &--thank-you {
         span {
           color: red;
           font-size: 1rem;
@@ -1305,30 +1465,95 @@ $section-cyan: #008c8c;
   margin-bottom: 8px;
 }
 
-#everyday {
-  line-height: 28px;
+
+// Contribute and discover footer
+
+#contribute_and_discover_links_block {
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Title with Plus Jakarta Sans, according to brand guidelines
+.emphasized-title {
+  font-family: "Plus Jakarta Sans", $font-family-sans-serif;
+  font-weight: 700;
+  // override color as it is not black due to our choice of $dark
+  color: $black !important;
+  font-variant-ligatures: none;
+}
+
+
+// Text spans highlighted with colored labels
+.highlight-label {
+  line-height: 130%;
   font-weight: 800;
   color: #ffffff;
 
   transform: rotate(2.5deg);
-  background-color: #0064c8;
-  border-inline: 5px solid #0064c8;
   border-radius: 5px;
   text-transform: uppercase;
   display: inline-block;
+
+  &.orange {
+    background-color: $off-orange;
+    border-inline: 5px solid $off-orange;
+  }
+
+  &.blue {
+    background-color: $off-blue;
+    border-inline: 5px solid $off-blue;
+  }
+
+  &.turquoise {
+    background-color: $off-turquoise;
+    border-inline: 5px solid $off-turquoise;
+  }
+
+  &.pink {
+    background-color: $off-pink;
+    border-inline: 5px solid $off-pink;
+  }
+
+  &.yellow {
+    color: $black;
+    background-color: $highlight-yellow;
+    border-inline: 5px solid $highlight-yellow;
+  }
+
+  &.dark-green {
+    background-color: $highlight-green;
+    border-inline: 5px solid $highlight-green;
+  }
+
+  &.dark-orange {
+    background-color: $highlight-dark-orange;
+    border-inline: 5px solid $highlight-dark-orange;
+  }
+
+  &.light-blue {
+    background-color: $highlight-light-blue;
+    border-inline: 5px solid $highlight-light-blue;
+  }
+
+  &.rotate-right {
+    transform: rotate(2.5deg);
+  }
+
+  &.rotate-left {
+    transform: rotate(-3deg);
+  }
+}
+
+#everyday {
+  @extend .highlight-label, .rotate-right, .blue;
 }
 
 #foods {
-  line-height: 28px;
-  font-weight: 800;
-  color: #ffffff;
-
-  transform: rotate(-3deg);
-  background-color: #ff8714;
-  border-inline: 5px solid #ff8714;
-  border-radius: 5px;
-  text-transform: uppercase;
-  display: inline-block;
+  @extend .highlight-label, .rotate-left, .orange;
 }
 
 .search_form_accordion_navigation {
@@ -1399,6 +1624,17 @@ $section-cyan: #008c8c;
 .delete_packaging > span {
   line-height: 2.6428571429rem;
 }
+// Eye Icon CSS
+.toggle-password {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 60%;
+  transform: translateY(-50%);
+}
+.password-container {
+  position: relative;
+}
 
 // 1st packaging component is empty and hidden, it is used to add new components
 #packaging_0_row {
@@ -1448,6 +1684,124 @@ a.panel_title {
 }
 
 .button:focus, .button:hover, button:focus, button:hover {
-    background-color: scale-color($button-bg-color, $lightness: -$button-function-factor / 2);
+    background-color: color.scale($button-bg-color, $lightness: $button-function-factor * -0.5);
     color: #fff;
+}
+
+// Tuto video beside user form
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 100rem;
+  @media #{$small-only} {
+    flex-direction: column;
+    gap: 0;
+    margin-top: -2rem;
+  }
+}
+
+// Mobile app landing page
+
+#app-landing-page {
+  // use Plus Jakarta Sans everywhere
+  font-family: "Plus Jakarta Sans", $font-family-sans-serif;
+  font-variant-ligatures: none;
+
+  .highlight-label {
+  // make the highlighted labels smaller
+    font-size: 75%;
+  // set font weight to 800 to make it the same as Playstore visuals
+    font-weight: 800;
+  }
+
+  // Add madding on top and bottom of the first block
+  #download-app-block {
+    @media #{$medium-up} {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  
+    @media #{$large-up} {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+
+  // Make product illustration be next to card bottom
+  #app-card-block {
+    padding-bottom: 0;
+  }
+
+  .column {
+    @media #{$small-only} {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+
+  .block {
+    color: $black;
+
+    @media #{$medium-up} {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  
+    @media #{$large-up} {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    &-blue {
+      background-color: #e3f6ff;
+    }
+    
+    &-seashell {
+      background-color: #fff5f1;
+    }
+    
+    &-yellow {
+      background-color: #fffad1;
+    }
+    
+    &-light-green {
+      background-color: #ebffdf;
+    }
+  
+    &-white {
+      background-color: $white;
+    }
+  }
+
+  .button {
+    font-weight: 700;
+    background-color: $white !important;
+    &:hover { background-color: #F6F6F6 !important; }
+  }
+
+  .paragraph-top-margin {
+    margin-top: 2rem;
+  }
+
+  .testimonial-card {
+    background-color: $latte;
+    border-radius: 20px;
+    padding: 2rem 2rem;
+  }
+
+  .puzzle-illustration {
+    max-height: 185px;
+    transform: rotate(180deg);
+    position: absolute;
+    bottom: 0;
+  }
+
+  #join-food-revolution-row {
+    @media #{$large-up} {
+      margin-bottom: 3rem;
+    }
+  }
 }

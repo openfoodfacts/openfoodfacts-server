@@ -74,6 +74,8 @@ use ProductOpener::Packaging qw/:all/;
 
 use ProductOpener::APIProductRead qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::APIProductServices qw/:all/;
+use ProductOpener::APITagRead qw/:all/;
 use ProductOpener::APITaxonomySuggestions qw/:all/;
 
 use CGI qw(header);
@@ -201,7 +203,7 @@ sub decode_json_request_body ($request_ref) {
 				$request_ref->{api_response},
 				{
 					message => {id => "invalid_json_in_request_body"},
-					field => {id => "body", value => $request_ref->{body}},
+					field => {id => "body", value => $request_ref->{body}, error => $@},
 					impact => {id => "failure"},
 				}
 			);
@@ -387,11 +389,34 @@ sub process_api_request ($request_ref) {
 				add_invalid_method_error($response_ref, $request_ref);
 			}
 		}
+		# Product services
+		elsif ($request_ref->{api_action} eq "product_services") {
+
+			if ($request_ref->{api_method} eq "OPTIONS") {
+				# Just return CORS headers
+			}
+			elsif ($request_ref->{api_method} eq "POST") {
+				product_services_api($request_ref);
+			}
+			else {
+				add_invalid_method_error($response_ref, $request_ref);
+			}
+		}
 		# Taxonomy suggestions
 		elsif ($request_ref->{api_action} eq "taxonomy_suggestions") {
 
 			if ($request_ref->{api_method} =~ /^(GET|HEAD|OPTIONS)$/) {
 				taxonomy_suggestions_api($request_ref);
+			}
+			else {
+				add_invalid_method_error($response_ref, $request_ref);
+			}
+		}
+		# Tag read
+		elsif ($request_ref->{api_action} eq "tag") {
+
+			if ($request_ref->{api_method} =~ /^(GET|HEAD|OPTIONS)$/) {
+				read_tag_api($request_ref);
 			}
 			else {
 				add_invalid_method_error($response_ref, $request_ref);
@@ -438,13 +463,13 @@ Reference to the response object.
 
 =head3 Return value
 
-Normalized code.
+Normalized code and, if available, GS1 AI data string.
 
 =cut
 
 sub normalize_requested_code ($requested_code, $response_ref) {
 
-	my $code = normalize_code($requested_code);
+	my ($code, $ai_data_str) = &normalize_code_with_gs1_ai($requested_code);
 	$response_ref->{code} = $code;
 
 	# Add a warning if the normalized code is different from the requested code
@@ -459,7 +484,7 @@ sub normalize_requested_code ($requested_code, $response_ref) {
 		);
 	}
 
-	return $code;
+	return ($code, $ai_data_str);
 }
 
 =head2 get_images_to_update($product_ref, $target_lc)
@@ -578,7 +603,7 @@ sub customize_packagings ($request_ref, $product_ref) {
 	return $customized_packagings_ref;
 }
 
-=head2 customize_response_for_product ( $request_ref, $product_ref, $fields )
+=head2 customize_response_for_product ( $request_ref, $product_ref, $fields_comma_separated_list, $fields_ref )
 
 Using the fields parameter, API product or search queries can request
 a specific set of fields to be returned.
@@ -597,14 +622,18 @@ Reference to the request object.
 
 Reference to the product object (retrieved from disk or from a MongoDB query)
 
-=head4 $fields (input)
+=head4 $fields_comma_separated_list (input)
 
-Comma separated list of fields, default to none.
+Comma separated list of fields (usually from GET query parameters), default to none.
 
 Special values:
 - none: no fields are returned
 - all: all fields are returned, and special fields (e.g. attributes, knowledge panels) are not computed
 - updated: fields that were updated by a WRITE request
+
+=head4 $fields_ref (input)
+
+Reference to a list of fields (alternative way to provide fields, e.g. from a JSON body).
 
 =head3 Return value
 
@@ -612,31 +641,35 @@ Reference to the customized product object.
 
 =cut
 
-sub customize_response_for_product ($request_ref, $product_ref, $fields) {
+sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_separated_list, $fields_ref = undef) {
+
+	# Fields can be in a comma separated list (if provided as a query parameter)
+	# or in a array reference (if provided in a JSON body)
+
+	my @fields = ();
+	if (defined $fields_comma_separated_list) {
+		push @fields, split(/,/, $fields_comma_separated_list);
+	}
+	if (defined $fields_ref) {
+		push @fields, @$fields_ref;
+	}
 
 	my $customized_product_ref = {};
 
 	my $carbon_footprint_computed = 0;
 
-	if ((not defined $fields) or ($fields eq "none")) {
+	# Special case if fields is empty, or contains only "none" or "raw": we do not need to localize the Eco-Score
+
+	if ((scalar @fields) == 0) {
 		return {};
 	}
-	elsif ($fields eq "raw") {
-		# Return the raw product data, as stored in the .sto files and database
-		return $product_ref;
-	}
-
-	if ($fields =~ /\ball\b/) {
-		# Return all fields of the product, with processing that depends on the API version used
-		# e.g. in API v3, the "packagings" structure is more verbose than the stored version
-		$fields = $` . join(",", sort keys %{$product_ref}) . $';
-	}
-
-	# Callers of the API V3 WRITE product can send fields = updated to get only updated fields
-	if ($fields =~ /\bupdated\b/) {
-		if (defined $request_ref->{updated_product_fields}) {
-			$fields = $` . join(',', sort keys %{$request_ref->{updated_product_fields}}) . $';
-			$log->debug("returning only updated fields", {fields => $fields}) if $log->is_debug();
+	if ((scalar @fields) == 1) {
+		if ($fields[0] eq "none") {
+			return {};
+		}
+		if ($fields[0] eq "raw") {
+			# Return the raw product data, as stored in the .sto files and database
+			return $product_ref;
 		}
 	}
 
@@ -644,29 +677,49 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 	localize_ecoscore($cc, $product_ref);
 
 	# lets compute each requested field
-	foreach my $field (split(/,/, $fields)) {
+	foreach my $field (@fields) {
+
+		if ($field eq 'all') {
+			# Return all fields of the product, with processing that depends on the API version used
+			# e.g. in API v3, the "packagings" structure is more verbose than the stored version
+			push @fields, sort keys %{$product_ref};
+			next;
+		}
+
+		# Callers of the API V3 WRITE product can send fields = updated to get only updated fields
+		if ($field eq "updated") {
+			if (defined $request_ref->{updated_product_fields}) {
+				push @fields, sort keys %{$request_ref->{updated_product_fields}};
+				$log->debug("returning only updated fields", {fields => \@fields}) if $log->is_debug();
+			}
+			next;
+		}
+
 		if ($field eq "product_display_name") {
 			$customized_product_ref->{$field} = remove_tags_and_quote(product_name_brand_quantity($product_ref));
+			next;
 		}
 
 		# Allow apps to request a HTML nutrition table by passing &fields=nutrition_table_html
-		elsif ($field eq "nutrition_table_html") {
+		if ($field eq "nutrition_table_html") {
 			$customized_product_ref->{$field} = display_nutrition_table($product_ref, undef);
+			next;
 		}
 
 		# Eco-Score details in simple HTML
-		elsif ($field eq "ecoscore_details_simple_html") {
+		if ($field eq "ecoscore_details_simple_html") {
 			if ((1 or $show_ecoscore) and (defined $product_ref->{ecoscore_data})) {
 				$customized_product_ref->{$field}
 					= display_ecoscore_calculation_details_simple_html($cc, $product_ref->{ecoscore_data});
 			}
+			next;
 		}
 
 		# fields in %language_fields can have different values by language
 		# by priority, return the first existing value in the language requested,
 		# possibly multiple languages if sent ?lc=fr,nl for instance,
 		# and otherwise fallback on the main language of the product
-		elsif (defined $language_fields{$field}) {
+		if (defined $language_fields{$field}) {
 			foreach my $preferred_lc (@lcs, $product_ref->{lc}) {
 				if (    (defined $product_ref->{$field . "_" . $preferred_lc})
 					and ($product_ref->{$field . "_" . $preferred_lc} ne ''))
@@ -675,10 +728,15 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 					last;
 				}
 			}
+			# Also copy the field for the main language if it exists
+			if (defined $product_ref->{$field}) {
+				$customized_product_ref->{$field} = $product_ref->{$field};
+			}
+			next;
 		}
 
 		# [language_field]_languages : return a value with all existing values for a specific language field
-		elsif ($field =~ /^(.*)_languages$/) {
+		if ($field =~ /^(.*)_languages$/) {
 
 			my $language_field = $1;
 			$customized_product_ref->{$field} = {};
@@ -690,10 +748,11 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 					}
 				}
 			}
+			next;
 		}
 
 		# Taxonomy fields requested in a specific language
-		elsif ($field =~ /^(.*)_tags_([a-z]{2})$/) {
+		if ($field =~ /^(.*)_tags_([a-z]{2})$/) {
 			my $tagtype = $1;
 			my $target_lc = $2;
 			if (defined $product_ref->{$tagtype . "_tags"}) {
@@ -702,13 +761,14 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 					push @{$customized_product_ref->{$field}}, display_taxonomy_tag($target_lc, $tagtype, $tagid);
 				}
 			}
+			next;
 		}
 
 		# Apps can request the full nutriments hash
 		# or specific nutrients:
 		# - saturated-fat_prepared_100g : return field at top level
 		# - nutrients|nutriments.sugars_serving : return field in nutrients / nutriments hash
-		elsif ($field =~ /^((nutrients|nutriments)\.)?((.*)_(100g|serving))$/) {
+		if ($field =~ /^((nutrients|nutriments)\.)?((.*)_(100g|serving))$/) {
 			my $return_hash = $2;
 			my $nutrient = $3;
 			if ((defined $product_ref->{nutriments}) and (defined $product_ref->{nutriments}{$nutrient})) {
@@ -722,39 +782,49 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields) {
 					$customized_product_ref->{$nutrient} = $product_ref->{nutriments}{$nutrient};
 				}
 			}
+			next;
 		}
+
 		# Product attributes requested in a specific language (or data only)
-		elsif ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
+		if ($field =~ /^attribute_groups_([a-z]{2}|data)$/) {
 			my $target_lc = $1;
 			compute_attributes($product_ref, $target_lc, $cc, $attributes_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{$field};
+			next;
 		}
+
 		# Product attributes in the $lc language
-		elsif ($field eq "attribute_groups") {
+		if ($field eq "attribute_groups") {
 			compute_attributes($product_ref, $lc, $cc, $attributes_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{"attribute_groups_" . $lc};
+			next;
 		}
+
 		# Knowledge panels in the $lc language
-		elsif ($field eq "knowledge_panels") {
+		if ($field eq "knowledge_panels") {
 			initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 			create_knowledge_panels($product_ref, $lc, $cc, $knowledge_panels_options_ref);
 			$customized_product_ref->{$field} = $product_ref->{"knowledge_panels_" . $lc};
+			next;
 		}
 
 		# Images to update in a specific language
-		elsif ($field =~ /^images_to_update_([a-z]{2})$/) {
+		if ($field =~ /^images_to_update_([a-z]{2})$/) {
 			my $target_lc = $1;
 			$customized_product_ref->{$field} = get_images_to_update($product_ref, $target_lc);
+			next;
 		}
 
 		# Packagings data
-		elsif ($field eq "packagings") {
+		if ($field eq "packagings") {
 			$customized_product_ref->{$field} = customize_packagings($request_ref, $product_ref);
+			next;
 		}
 
 		# straight fields
-		elsif ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
+		if ((not defined $customized_product_ref->{$field}) and (defined $product_ref->{$field})) {
 			$customized_product_ref->{$field} = $product_ref->{$field};
+			next;
 		}
 
 		# TODO: it would be great to return errors when the caller requests fields that are invalid (e.g. typos)

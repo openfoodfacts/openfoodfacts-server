@@ -293,6 +293,7 @@ hr:iz slobodnog uzgoja, iz štalskog uzgoja, iz štalskog (podnog) uzgoja, iz po
 hu:Szabad tartású tojás
 it:Uova da allevamento all'aperto
 nl:Vrije uitloop eieren
+pl:jaja z chowu na wolnym wybiegu, 1 - jajka z chowu na wolnym wybiegu, 1 - jaja z chowu na wolnym wybiegu
 pt:Ovos de galinhas criadas em liberdade, ovos de galinhas em liberdade, ovos de galinhas livres de gaiolas, ovos de galinhas criadas ao ar livre, ovos de galinhas ao ar livre
 
 <en:Free range eggs
@@ -895,6 +896,11 @@ label_categories:en: en:Social responsibility
 fr:Entreprise du Patrimoine Vivant, EPV
 wikidata:en:Q3214304
 
+fr:PME Plus, PME+, pmeplus
+label_categories:en: en:Social responsibility
+# https://www.label-pmeplus.fr/
+
+
 ############################# FAIR TRADE ######################
 
 en:Fair trade
@@ -904,7 +910,7 @@ cs:Fair trade
 de:Fairer Handel
 es:Comercio justo, Fairtrade-Comercio Justo
 fi:Reilu kauppa
-fr:Commerce équitable, équitable, issu du commerce équitable, issus du commerce équitable, issue du commerce équitable, issues du commerce équitable, ingrédients issus du commerce équitable, produits issus du commerce équitable, ingrédient issu du commerce équitable, Ingrédients conformes aux standards du commerce équitable Fairtrade/Max Havelaar, ingrédients conformes aux standards du commerce équitable
+fr:Commerce équitable, équitable, issu du commerce équitable, issus du commerce équitable, issue du commerce équitable, issues du commerce équitable, ingrédients issus du commerce équitable, produits issus du commerce équitable, ingrédient issu du commerce équitable, Ingrédients conformes aux standards du commerce équitable Fairtrade/Max Havelaar, ingrédients conformes aux standards du commerce équitable,  100% du total des ingrédients d'origine agricole sont conformes aux standards du commerce équitable
 he:סחר הוגן
 hu:Méltányos kereskedelem, Fair trade, becsületes kereskedelem
 it:Commercio equo
@@ -993,6 +999,7 @@ ca:Alimentat sense Organismes Modificats Genèticament
 fi:Eläintä on ruokittu GMO-vapaalla rehulla, ruokittu ilman GMO:ita
 fr:Nourri sans OGM, nourris sans OGM, nourries sans OGM, Alimentation sans OGM, Animaux nourris sans OGM, élevage avec une alimentation sans ogm
 it:Alimentati senza OGM
+nl:Zonder OGM voedsel
 pt:Alimentado sem OGM, alimentado sem alimentos geneticamente modificados, alimentado sem alimentos transgênicos, alimentado sem alimentos transgénicos, alimentada sem OGM, alimentada sem alimentos geneticamente modificados, alimentada sem alimentos transgênicos, alimentada sem alimentos transgénicos, alimentados sem OGM, alimentados sem alimentos geneticamente modificados, alimentados sem alimentos transgênicos, alimentados sem alimentos transgénicos, alimentadas sem OGM, alimentadas sem alimentos geneticamente modificados, alimentadas sem alimentos transgênicos, alimentadas sem alimentos transgénicos
 
 <en:Fed without GMOs
@@ -1322,6 +1329,9 @@ en:First grade TIS 3-1983, Thai Industrial Standard Institute
 ca:Primer grau TIS 3-1983, Institut d'Estandaritzacions Industrials Thai
 wikidata:en:Q15613582
 
+en:isomaltulose is a source of glucose and fructose
+hr:izomaltuloza je izvor glukoze i fruktoze
+
 en:source of fibre
 bg:източник на влакнини
 da:Fiberkilde
@@ -1343,6 +1353,7 @@ es:Rico en fibra, Rico en fibras, Fuente de Fibra, Alto en Fibra, Alto Contenido
 fi:runsaskuituinen, paljon kuituja, kuitupitoinen
 fr:Riche en fibres, Naturellement riches en fibres
 he:עתיר בסיבים תזונתיים
+hr:visoko obogaćena vlaknima
 hu:Rostokban gazdag, Magas rosttartalmú
 it:Ricco di fibre
 nb:Fiberrik, rik på fiber
@@ -1661,7 +1672,7 @@ it:Arricchito con calcio
 nl:verrijkt met calcium
 pt:Enriquecido com cálcio
 
-en:Enriched wih vitamins
+en:Enriched with vitamins
 ca:Enriquit amb vitamines
 de:Mit Vitaminen angereichert
 es:Enriquecido con vitaminas
@@ -1675,7 +1686,7 @@ pl:Wzbogacane witaminami
 pt:Enriquecido com vitaminas
 sv:Vitaminberikat, Vitaminberikad
 
-en:Enriched wih minerals
+en:Enriched with minerals
 fi:Lisätty kivennäisaineita
 fr:Enrichi en minéraux
 hu:Ásványi anyagokkal dúsított
@@ -1732,6 +1743,25 @@ fr:Production intégrée
 pt:Produção integrada
 ru:Интегрированное производство
 wikidata:en:Q1665511
+
+en:Keto, Keto certified, Keto friendly
+ca:Keto
+cs:Keto
+de:Keto
+el:Κετο, Πιστοποιημένο Κετο, Φιλικό για Κετο, κετοφιλικό
+es:Keto, Certificado Keto, Amigable Keto
+fi:Keto
+fr:Cétogène, Certifié Keto, Amical Keto
+he:קטו
+hr:Keto
+hu:Keto
+it:Cheto, Certificato Cheto, Cheto-friendly
+nl:Keto
+pl:Keto
+pt:Keto, Certificado Keto, Amigável Keto
+ru:Кето, Кето-сертифицированный, Подходящий для Кето, кето-дружественный
+th:คีโต, ได้รับการรับรองคีโต, มิตรกับคีโต
+tr:Keto, Keto sertifikalı, Keto dostu
 
 en:Kosher, kasher
 ca:Kosher
@@ -2578,7 +2608,7 @@ es:Sin azúcares añadidos, 0% Azúcares añadidos, Sin azúcar añadido
 fi:ei lisättyä sokeria, ilman lisättyä sokeria, ei lisättyjä sokereita
 fr:Sans sucre ajouté, sans sucres ajoutés, sans ajout de sucre
 he:ללא תוספת סוכר
-hr:bez dodanog šećera, bez dodatnih šećera
+hr:bez dodanog šećera, bez dodatnih šećera, bez dodanih šećera, sadrži prirodno prisutne šećere
 hu:Hozzáadott cukor nélkül, Nincs hozzáadott cukor, hozzáadott cukrot nem tartalmaz
 it:Senza zuccheri aggiunti
 nl:Zonder toegevoegde suikers, Geen suiker toegevoegd
@@ -2955,6 +2985,20 @@ pt:Feito no Luxemburgo, produzido no Luxemburgo, fabricado no Luxemburgo
 sv:Tillverkad i Luxemburg
 country:en:Luxembourg
 label_categories:en: en:Geographic label
+
+# Latvia
+lv:Kvalitatīvs produkts ražots Latvijā
+xx:Kvalitatīvs produkts ražots Latvijā
+description:en:Quality product made in Latvia
+image:lv:kvalitativs-produkts-razots-latvija.123x90.png
+country:en:Latvia
+
+# Lithuania
+lt:Lietuvos metų gaminys
+xx:Lietuvos metų gaminys
+description:en:Lithuanian product of the year
+image:lt:lietuvos-metų-gaminys.173x90.png
+country:en:Lithuania
 
 en:Made in Poland
 bg:Произведено в Полша
@@ -3422,6 +3466,7 @@ en:no fructose syrup
 <en:no glucose syrup
 <en:no fructose syrup
 en:no glucose-fructose syrup
+pl:bez syropu glukozowo-fruktozowego
 
 #instruction:en:Do NOT change the english key.
 en:No additives, without additives
@@ -3787,7 +3832,7 @@ de:Ohne Transfette
 es:Sin ácidos grasos trans, Sin grasas trans, Libre de grasas trans, 0g grasas trans
 fi:transrasvaton, 0% transrasvaa, 0 g transrasvaa, 0g transrasvaa
 fr:Sans acides gras trans, sans graisses trans
-hr:Bez transmasnih kiselina
+hr:bez transmasnih kiselina, bez trans masnih kiselina
 hu:Transzzsírsavmentes, Transzzsírsav nélkül, 0g transzzsírsav, transzzsírsavat nem tartalmaz
 it:Senza grassi trans
 nl:Geen transvetten
@@ -4077,7 +4122,7 @@ hu:Tartósítószermentes, hozzáadott tartósítószer nélkül, tartósítósz
 it:Senza conservanti, Senza aggiunta di conservanti, Senza conservanti aggiunti
 lt:Be konservantų, be pridėtų konservantų
 nl:Conserveermiddelvrij
-pl:Bez konserwantów, bez dodatku konserwantów, bez substancji konserwujących
+pl:Bez konserwantów, bez dodatku konserwantów, bez substancji konserwujących, bez dodatku substancji konserwujących
 pt:Sem conservantes, sem conservantes adicionados, sem conservante, sem conservante adicionado
 ro:Fără conservanți
 ru:Без консервантов
@@ -4085,6 +4130,12 @@ sv:Utan konserveringsmedel
 th:ไม่ใช้วัตถุกันเสีย
 tr:Koruyucu yok, Koruyucu madde içermez
 zh:无防腐剂
+
+#instruction:en:Do NOT change the english key.
+<en:No Trans Fat
+<en:No preservatives
+en:No Trans Fat and preservatives
+hr:bez trans masnih kiselina i konzervansa, bez transmasnih kiselina i konzervansa
 
 #instruction:en:Do NOT change the english key.
 <en:No colorings
@@ -4354,22 +4405,23 @@ nl:Niet geschikt voor kinderen onder 1 jaar
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #en:description:Labels used for identifying products (and ingredients) that have been grown organically.
 
-en:Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture
+en:Organic, organically grown, organically produced, ingredient produced organically, from organic farming, From Organic Agriculture, organic ingredients
 bg:Био, биологично земеделие, биологично
 ca:Orgànic,de cultiu ecologic
 cs:Bio
 da:Økologisk, Økologiske
-de:Bio, Öko, biologisch, biologische, biologischer, biologisches, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau, aus kontrolliert biologischem Anbau, biologisch gewonnen, aus kontrolliert biologischer landwirtschaft, aus kontrolliert ökologischer erzeugung, aus kontrolliert ökologischer landwirtschaft, aus kontrolliert ökologischem anbau, aus kontrolliert ökologischem landbau, aus kontrollierter biologischer landwirtschaft, aus kontrollierter ökologischer landwirtschaft, kontrolliert biologischer anbau
+de:Bio, Öko, biologisch, biologische, biologischer, biologisches, Ökologisch, Kontrolliert biologisch, Kontrolliert ökologisch, biologische Landwirtschaft, aus biologischer Landwirtschaft, ökologische Landwirtschaft, biologischer Landbau, ökologischer Landbau, aus kontrolliert biologischem Anbau, biologisch gewonnen, aus kontrolliert biologischer landwirtschaft, aus kontrolliert ökologischer erzeugung, aus kontrolliert ökologischer landwirtschaft, aus kontrolliert ökologischem anbau, aus kontrolliert ökologischem landbau, aus kontrollierter biologischer landwirtschaft, aus kontrollierter ökologischer landwirtschaft, kontrolliert biologischer anbau
 es:Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico, Orgánico, Producto orgánico, Eco, Bio, Ingredientes ecológicos, Ingrediente ecológico, ingredientes procedentes de la agricultura ecológica, ingrediente procedente de la agricultura ecológica, agricultura ecológica, cumple con el reglamento de agricultura ecológica CE 2092/91, procedentes de la agricultura ecológica, procedente de la agricultura ecológica,de agricultura ecológica,de agricultura ecologica, Procedente e agricultura ecológica, de cultivo ecológico
 fi:Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto, luonnonmukaisesti
 fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédient issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique, issue de l'agriculture biologique controlee
 he:אורגני
-hr:ekološki uzgoj, iz ekološkog uzgoja, iz kontroliranog ekološkog uzgoja
+hr:ekološki uzgoj, iz ekološkog uzgoja, iz kontroliranog ekološkog uzgoja, iz kontrolirane ekološke proizvodnje, iz kontroliranog biološkog uzgoja, iz kontroliranog organskog uzgoja
 hu:Bio, Öko, Organikus, biogazdálkodásból, ellenőrzött ökológiai gazdálkodásból
 it:Biologico, biologici, da agricoltura biologica
 ko:유기농
 lt:Ekologiškas, ekologiškai užaugintas, ekologiškai pagamintas, ingredientas pagamintas ekologiškai, iš ekologiško žemės ūkio, iš ekologiško žemės ūkio
 nl:Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode, van gecontroleerde biologische landbouw
+pl:ekologiczny, bio, ekologiczne, ekologiczna, ekologicznych, ekologicznego
 pt:Orgânico, produção orgânica, produzido de forma orgânica, numa quinta orgânica, de agricultura orgânica, agricultura orgânica
 sv:Ekologisk, Ekologiskt, Ekologiska
 th:ออร์แกนิค
@@ -4745,8 +4797,12 @@ country:en:france
 wikidata:en:Q396709
 
 <en:Organic
+en:Catalan Council of Organic Production, CCPAE
 ca:Consell Català de la Producció Agrària Ecològica, CCPAE
+es:Consejo Catalán de la Producción Agraria Ecológica, CCPAE
 country:en:Spain
+image:ca:ccpae.56x90.png
+website:ca:https://www.ccpae.org/
 
 <en:Organic
 es:Comité de Agricultura Ecologica, comite agricultura ecologica valencia
@@ -6107,6 +6163,16 @@ en:LT-EKO-001
 de:LT-EKO-001
 pt:LT-EKO-001
 xx:LT-EKO-001
+
+<en:EU Organic
+lt:ekologinis žemės ūkis
+xx:ekologinis žemės ūkis
+label_categories:en: en:Environnement
+image:lt:ekologinis-žemės-ūkis.125x90.png
+auth_name:en:Ekoagros
+auth_address:en:K. Donelaičio g. 33, 44240, Kaunas, Lithuania
+auth_url:en:http://www.ekoagros.lt
+country:en:Litnuania
 
 <en:EU Organic
 en:LU-BIO-01
@@ -18688,7 +18754,7 @@ it:Vegano, Vegan
 lt:Veganiškas, Tinkamas veganams, Tinkama vegetarams ir veganams
 nb:Vegan, Vegansk
 nl:Veganistisch, plantaardig, niet dierlijk
-pl:Wegańskie, przyjazne weganom
+pl:Wegańskie, przyjazne weganom, wegański, wegańska
 pt:Vegano, produto vegano, vegan, adequado para veganos, adequado a veganos, adequado a uma dieta vegan, adequado a uma dieta vegana, adequado a vegetarianos e veganos
 sq:vegan
 sv:Vegansk, Passar för veganer
@@ -18707,6 +18773,7 @@ wikidata:en:Q7918273
 en:Non-vegan, not vegan, not suitable for vegans, from animal origin, derived from animals, from animal source
 fr:Non-végétalien, non-végan, non-végétal, ne convient pas aux végétaliens, ne convient pas aux végans, d'origine animale, de source animale
 hr:nije vegansko
+pl:Niewegańskie, niewegański
 pt:Não-vegan, não vegan, não adequado a vegans, não adequado a uma dieta vegan
 opposite:en: en:vegan
 
@@ -18808,6 +18875,7 @@ hr:vegansko društvo
 it:La società vegana
 nl:The Vegan Society
 pl:The Vegan Society, Vegan Society, Towarzystwo Wegańskie
+xx:The Vegan Society, Vegan Society, Vegan Flower
 wikidata:en:Q1855049
 
 <en:Vegan
@@ -19317,6 +19385,14 @@ nl:Kippenwelzijn
 <en:Animal welfare
 fr:Lait de paturage
 nl:Weidemelk
+
+<en:Animal welfare
+en:120 days grass-fed
+fr:120 jours de pâturage
+
+<en:Animal welfare
+en:150 days grass-fed
+fr:150 jours de pâturage
 
 en:Dutch meat
 nl:Nederlands vlees
@@ -21382,7 +21458,7 @@ de:Enthält eine Phenylalaninquelle, Das produkt enthält eine Phenylalaninquell
 es:contiene una fuente de fenilalanina
 fi:Sisältää fenyylialaniinin lähteen
 fr:Contient une source de phénylalanine
-hr:sadrži izvor fenilalanina
+hr:sadrži izvor fenilalanina, izvor fenilalanina
 hu:fenilalanin-forrást tartalmaz
 it:Contiene una fonte di fenilalanina
 nb:Inneholder en fenylalaninkilde

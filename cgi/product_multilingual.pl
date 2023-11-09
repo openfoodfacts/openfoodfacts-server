@@ -1578,10 +1578,8 @@ MAIL
 		initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
 		$knowledge_panels_options_ref->{knowledge_panels_client} = "web";
 		create_contribution_card_panel($product_ref, $lc, $cc, $knowledge_panels_options_ref);
-		if (defined $product_ref->{"knowledge_panels_" . $lc}{data_quality_errors}) {
-			$template_data_ref_process->{contribution_card_panel}
-				= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
-		}
+		$template_data_ref_process->{contribution_card_panel}
+			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
 	}
 	$template_data_ref_process->{code} = $product_ref->{code};
 	process_template('web/pages/product_edit/product_edit_form_process.tt.html', $template_data_ref_process, \$html)

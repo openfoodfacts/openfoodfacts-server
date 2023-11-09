@@ -160,7 +160,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/data-warning.svg",
-               "subtitle" : "We have detected some potential issues or potential improvement, could you check if some apply ?",
+               "subtitle" : "We have detected some potential issues or potential improvements, could you check if some apply ?",
                "title" : "Potential issues"
             },
             "topics" : [
@@ -370,7 +370,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<span>water</span>, <span class=\"text_info unknown_ingredient\">test_ingredient</span>"
+                     "html" : "en: <span>water</span>, <span class=\"text_info unknown_ingredient\">test_ingredient</span>"
                   }
                },
                {
@@ -827,6 +827,55 @@
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
                "subtitle" : "Missing origins of ingredients information",
                "title" : "Origins of ingredients"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging_components" : {
+            "elements" : [],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Packaging parts"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging_materials" : {
+            "elements" : [
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Material",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "%",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Packaging weight",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Packaging weight per 100 g of product",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "packaging_materials",
+                     "rows" : [],
+                     "title" : "Packaging materials"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Packaging materials"
             },
             "topics" : [
                "environment"

@@ -100,6 +100,9 @@ my %countries = ();
 my $total = 0;
 
 my @dates = ('created_t', 'completed_t');
+# country => $date_name.start => first date for this country
+# country => $date_name.end => last date for this country
+# country => $date_name => day (as timestamp) => number of cumulated products at this date
 my %countries_dates = ();
 my %products = ();
 
@@ -107,24 +110,29 @@ my %products = ();
 
 my $l = 'en';
 $lc = $l;
-
+# country => date_type (see @dates) => day (as timestamp) => number of products at this date
+# will help us compute countries_dates
 my %dates = ();
 
 my $fields_ref = {code => 1};
 my %tags = ();
+# $country => $tag_type / "$tagtype"
+# also $country => $tag_type_nutriments / "$tagtype"
 my %countries_tags = ();
-
+# hashmap of all seen codes
 my %codes = ();
+# for each country associate the minimun and maximum found dates (either completed_t or created_t)
+# we start with 0 and 100000000000000000
 my %true_end = ();    # 0;
 my %true_start = ();    # 100000000000000000;
 my $complete = 0;
 
 # Add in $fields_ref all the fields we need to retrieve from MongoDB
-
+# simple tags
 foreach my $tagtype (@fields) {
 	$fields_ref->{$tagtype . "_tags"} = 1;
 }
-
+# initialize country structures
 foreach my $country (keys %{$properties{countries}}, 'en:world') {
 	$countries_tags{$country} = {};
 	foreach my $tagtype (@fields) {
@@ -141,8 +149,9 @@ foreach my $country (keys %{$properties{countries}}, 'en:world') {
 	$true_end{$country} = 0;
 	$true_start{$country} = 100000000000000000;
 }
-
+# we don't need users tags
 delete $fields_ref->{users_tags};
+# more fields to get
 $fields_ref->{creator} = 1;
 $fields_ref->{nutriments} = 1;
 $fields_ref->{created_t} = 1;
@@ -170,6 +179,7 @@ my %countries_counts = ();
 my %countries_points = ();
 my %users_points = ();
 
+# filter on created_t
 my $start_t = 1424476800 - 12 * 3600;
 my $end_t = 1424476800 - 12 * 3600 + 10 * 86400;
 
@@ -515,7 +525,7 @@ foreach my $country (keys %{$properties{countries}}) {
 
 		#print "dates_stats_$country countryid: $country - date: $date - start: $start - end: $end\n";
 
-		my $current = 0;
+		my $current = 0;    # count products
 		for (my $i = $start; $i <= $end; $i++) {
 			$current += ($dates{$country}{$date}{$i} // 0);
 			$countries_dates{$country}{$date}{$i} = $current;

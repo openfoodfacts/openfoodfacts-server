@@ -78,7 +78,9 @@ elsif ($action eq "process") {
 		import_id => $import_id,
 	};
 
-	my $job_id = $minion->enqueue(import_products_categories_from_public_database => [$args_ref] =>
+	my $job_id
+		= get_minion()
+		->enqueue(import_products_categories_from_public_database => [$args_ref] =>
 			{queue => $server_options{minion_local_queue}});
 
 	$template_data_ref->{import_id} = $import_id;

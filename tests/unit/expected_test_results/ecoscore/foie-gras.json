@@ -478,6 +478,8 @@
       "en:ecoscore-grade-changed"
    ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
@@ -503,6 +505,11 @@
          "shape" : "en:lid"
       }
    ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:glass" : {},
+      "en:metal" : {}
+   },
    "packagings_n" : 2,
    "unknown_ingredients_n" : 0
 }

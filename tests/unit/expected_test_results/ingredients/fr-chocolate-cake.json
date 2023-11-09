@@ -176,6 +176,7 @@
       "en:acid",
       "en:salt",
       "en:cocoa-butter",
+      "en:plant",
       "en:cocoa",
       "en:sugar",
       "en:added-sugar",
@@ -229,6 +230,7 @@
       "en:acid",
       "en:salt",
       "en:cocoa-butter",
+      "en:plant",
       "en:cocoa",
       "en:sugar",
       "en:added-sugar",
@@ -263,9 +265,11 @@
       "en:sugar"
    ],
    "ingredients_without_ciqual_codes_n" : 12,
-   "known_ingredients_n" : 24,
+   "known_ingredients_n" : 25,
    "lc" : "fr",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },

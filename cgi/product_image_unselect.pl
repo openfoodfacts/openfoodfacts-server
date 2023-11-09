@@ -49,6 +49,7 @@ my $code = normalize_code(single_param('code'));
 my $id = single_param('id');
 
 my $product_id = product_id_for_owner($Owner_id, $code);
+my $product_ref = retrieve_product($product_id);
 
 $log->debug("start", {code => $code, id => $id}) if $log->is_debug();
 
@@ -57,7 +58,9 @@ if (not defined $code) {
 	exit(0);
 }
 
-my $product_ref = process_image_unselect($User_id, $product_id, $id);
+if (not is_protected_image($product_ref, $id) or $User{moderator}) {
+	$product_ref = process_image_unselect($User_id, $product_id, $id);
+}
 
 my $data = encode_json({status_code => 0, status => 'status ok', imagefield => $id});
 

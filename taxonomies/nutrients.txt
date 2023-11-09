@@ -1173,6 +1173,7 @@ hu:Omega-3 zsírsavak
 it:Acidi grassi Omega 3
 nl:Omega 3-vetzuren
 nl_be:Omega 3-vetzuren
+pl:Kwasy tłuszczowe omega 3
 pt:Ácidos graxos Ômega 3, Ácidos gordos Ómega 3
 pt_pt:Ácidos gordos Ómega 3
 ro:Acizi grași omega-3
@@ -1212,7 +1213,7 @@ nb:alfalinolensyre
 nl:Alfa-linoleenzuur, ALA, Alfa-linolzuur
 nl_be:Alfa-linoleenzuur, ALA
 nn:alfalinolensyre
-pl:kwas α-linolenowy
+pl:kwas α-linolenowy, ALA, kwas alfa-linolenowy
 pt:Ácido alfa-linolênico, Ácido alfalinolênico, Ácido alfa-linolénico, ALA
 pt_pt:Ácido alfa-linolénico, ALA
 ro:Acid alfa-linolenic, ALA
@@ -1262,7 +1263,7 @@ lv:eikozapentaēnskābe
 mt:aċidu ejkosapentenojku
 nl:Eicosapentaeenzuur, EPA
 nl_be:Eicosapentaeenzuur, EPA
-pl:kwas eikozapentaenowy
+pl:kwas eikozapentaenowy, EPA
 pt:Ácido eicosapentaenóico, Ácido eicosapentaenoico, EPA
 ro:Acid eicosapentaenoic, EPA (20: 5 n-3)
 ru:Эйкозапентаеновая кислота, (ЭПК)
@@ -1308,7 +1309,7 @@ lv:Dokozānheksaēnskābe
 mt:aċidu dokosaeżaenojku
 nl:Docosahexaeenzuur, DHA
 nl_be:Docosahexaeenzuur, DHA
-pl:Kwas dokozaheksaenowy
+pl:Kwas dokozaheksaenowy, DHA
 pt:Ácido docosa-hexaenóico, Ácido docosa-hexaenoico, DHA
 ro:Acid docosahexaenoic, DHA
 ru:Докозагексаеновая кислота, (ДГК)
@@ -1340,6 +1341,7 @@ hu:Omega-6 zsírsavak
 it:Acidi grassi Omega 6
 nl:Omega 6-vetzuren
 nl_be:Omega 6-vetzuren
+pl:Kwasy tłuszczowe omega 6
 pt:Ácidos graxos Ômega 6, Ácidos gordos Ómega 6
 pt_pt:Ácidos gordos Ómega 6
 ro:Acizi grași omega-6
@@ -1378,7 +1380,7 @@ lv:linolskābe
 mk:линолна киселина
 nl:Linolzuur, LA
 nl_be:Linolzuur, LA
-pl:kwas linolowy
+pl:kwas linolowy, LA
 pt:Ácido linoleico, LA
 ro:Acid linoleic, LA
 ru:Линолевая кислота, (ЛК)
@@ -1532,6 +1534,7 @@ hu:Omega-9 zsírsavak
 it:Acidi grassi Omega 9
 nl:Omega 9 vetzuren
 nl_be:Omega 9 vetzuren
+pl:Kwasy tłuszczowe omega 9
 pt:Ácidos graxos Ômega 9, Ácidos gordos Ómega 9
 pt_pt:Ácidos gordos Ómega 9
 ro:Acizi grași omega-9
@@ -2509,6 +2512,7 @@ es:Maltodextrinas, maltodextrina
 fi:Maltodekstriinit, Maltodekstriini
 fr:Maltodextrines, maltodextrine, malto-dextrine
 he:מלטודקסטרינים
+hr:maltodekstrini
 hu:Maltodextrin, Maltodextrinek
 it:Maltodestrine, maltodestrina
 ja:マルトデキストリン
@@ -2641,7 +2645,7 @@ lv:Polioli
 mt:Polioli
 nl:Polyolen
 nl_be:Polyolen
-pl:Alkohole wielowodorotlenowe
+pl:Alkohole wielowodorotlenowe, poliole
 pt:Açúcares alcoólicos (poliálcools\, polióis)
 ro:Polioli
 ru:Многоатомные спирты (полиолы)
@@ -3131,7 +3135,7 @@ gu:સોડિયમ
 gv:Sodjum
 he:נתרן
 hi:सोडियम
-hr:Natrij
+hr:natrij, natrijev
 ht:Sodyòm
 hu:Nátrium
 hy:նատրիում
@@ -3783,7 +3787,7 @@ dv_value:en: 1.7
 unit:en: mg
 
 zz:vitamin-pp
-en:Vitamin B3 (Niacin), Vitamin PP (Niacin), Vitamin B3, Vitamin PP, Niacin
+en:Vitamin B3/PP (Niacin), Vitamin PP (Niacin), Vitamin B3, Vitamin PP, Niacin
 xx:Vitamin B3, Vitamin PP (Niacin), Vitamin B3, Vitamin PP, Niacin
 bg:Ниацин, Витамин B3
 de:Vitamin B3, Vitamin PP (Niacin)
@@ -5973,10 +5977,7 @@ zz:ph
 en:pH
 xx:pH
 af:pH
-ar:أس هيدروجيني
-be:Вадародны паказчык
 bg:PH
-bn:পি.এইচ
 bs:pH
 ca:pH
 cs:pH
@@ -5986,10 +5987,10 @@ de:pH-Wert
 el:pH
 eo:pH
 es:pH
-et:PH, Vesinikeksponent
+et:PH
 eu:pH
 fa:پی‌اچ
-fi:pH, Happamuus
+fi:pH
 fr:pH
 ga:PH
 gl:pH
@@ -6002,7 +6003,7 @@ hy:Ջրածնային ցուցիչ
 ia:Potential de hydrogeno
 id:pH
 io:PH
-is:Sýrustig
+is:pH
 it:pH
 ja:pH
 ka:PH
@@ -6091,10 +6092,26 @@ unit:en: %
 zz:fruits-vegetables-nuts-estimate-from-ingredients
 en:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (estimate from ingredients list analysis)
 xx:Fruits\, vegetables\, nuts and rapeseed\, walnut and olive oils (estimate from ingredients list analysis)
+ar:الفواكه \ ، الخضار \ ، المكسرات والبذور \ ، زيوت الجوز والزيتون (تقدير من تحليل قائمة المكونات)
+cs:Ovoce \, zelenina \, ořechy a řepky \, ořechové a olivové oleje (odhad z analýzy seznamu ingrediencí)
 bg:Плодове\, зеленчуци\, ядки и рапица\, орехи и зехтин (оценка от анализ на списъка на съставките)
 de:Obst\, Gemüse und Nüsse (Schätzung aus der Analyse der Zutatenliste)
+el:Fruits \, λαχανικά \, καρύδια και κράμβη \, καρυδιά και ελαιόλαδο (εκτίμηση από την ανάλυση λίστας συστατικών)
+es:Frutas \, verduras \, nueces y colza \, aceites de nuez y oliva (estimación del análisis de la lista de ingredientes)
+fi:Hedelmät \, vihannekset \, pähkinät ja rypäleet \, pähkinä- ja oliiviöljyt (arvio ainesosaluettelon analyysistä)
 fr:Fruits\, légumes\, noix et huiles de colza\, noix et olive (estimation par analyse de la liste des ingrédients)
-it:Frutta\, verdura\, noci e olio di colza\, noci e oliva (stima dall'analisi dell'elenco degli ingredienti)    
+it:Frutta\, verdura\, noci e olio di colza\, noci e oliva (stima dall'analisi dell'elenco degli ingredienti)  
+he:פירות \, ירקות \, אגוזים ונאנס \, שמני אגוז וזית (הערכת מניתוח רשימת החומרים)
+ja:果物\、野菜\、ナッツと菜種\、クルミ\、オリーブオイル（成分リスト分析からの推定）
+ko:과일 \, 야채 \, 견과류 및 유채 \, 호두 및 올리브 오일 (성분 목록 분석에서 추정)
+nl:Vruchten \, groenten \, noten en raapzaad \, walnoot- en olijfolie (schatting van ingrediëntenlijstanalyse)
+ru:Фрукты \, овощи \, орехи и рапса \, ореховые и оливковые масла (оценка из анализа ингредиентов)
+pl:Owoce \, warzywa \, orzechy i rzepak \, orzech orzechowy i oliwek (ocena analizy listy składników)
+pt:Frutas \, vegetais \, nozes e colza \, nogueira e azeite (estimativa da análise da lista de ingredientes)
+ro:Fructe \, legume \, nuci și rapsee \, nuc și uleiuri de măsline (estimare din analiza listei de ingrediente)
+th:ผลไม้ \, ผัก \, ถั่วและเรพซีด \, วอลนัทและน้ำมันมะกอก (ประมาณจากการวิเคราะห์รายการส่วนผสม)
+vi:Trái cây \, rau \, các loại hạt và dầu hạt cải dầu\, gỗ óc chó và dầu ô liu (ước tính từ phân tích danh sách thành phần)
+zh:水果\，蔬菜\，坚果和菜籽油，核桃和橄榄油（根据成分清单分析估算）  
 unit:en: %
 automatically_computed:en: yes
 
@@ -6439,6 +6456,7 @@ fr:inositol
 ga:Ionóisíotól
 gl:Inositol
 hi:इनोसिटॉल
+hr:inozitol
 hu:Inozitol
 hy:Ինոզիտ
 id:Inositol
@@ -6551,3 +6569,17 @@ ca:Aigua
 es:Agua
 fr:Eau
 unit:en: g
+
+zz:acidity
+en:Acidity
+ca:Acidesa
+cs:Kyselost
+de:Säuregrad
+es:Acideze
+fr:Acidité
+hu:Savasság
+is:Sýrustig
+nl:Zuurgraad
+pt:Acidez
+sv:Surhet
+unit:en: % vol

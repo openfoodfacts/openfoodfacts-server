@@ -1003,6 +1003,7 @@
       "en:e102",
       "en:e120"
    ],
+   "ingredients_lc" : "en",
    "ingredients_n" : 11,
    "ingredients_n_tags" : [
       "11",
@@ -1084,9 +1085,13 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
-      "en:nutriscore-computed",
+      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
+      "en:nutriscore-2021-different-from-2023",
+      "en:nutriscore-2021-better-than-2023",
+      "en:nutriscore-2021-c-2023-d",
       "en:packagings-number-of-components-2",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
@@ -1158,8 +1163,10 @@
       "energy_100g" : 800,
       "fat_100g" : 12,
       "fiber_100g" : 3,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 5.68181818181818,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 5.68181818181818,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 7.8125,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 7.8125,
       "nova-group" : 4,
       "nova-group_100g" : 4,
       "nova-group_serving" : 4,
@@ -1171,6 +1178,95 @@
       "sodium_100g" : 0.1,
       "sugars_100g" : 25
    },
+   "nutriscore" : {
+      "2021" : {
+         "category_available" : 1,
+         "data" : {
+            "energy" : 800,
+            "energy_points" : 2,
+            "energy_value" : 800,
+            "fiber" : 3,
+            "fiber_points" : 3,
+            "fiber_value" : 3,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 7.8125,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 7.8,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat" : 0,
+            "is_water" : 0,
+            "negative_points" : 11,
+            "positive_points" : 3,
+            "proteins" : 2,
+            "proteins_points" : 1,
+            "proteins_value" : 2,
+            "saturated_fat" : 4,
+            "saturated_fat_points" : 3,
+            "saturated_fat_value" : 4,
+            "sodium" : 100,
+            "sodium_points" : 1,
+            "sodium_value" : 100,
+            "sugars" : 25,
+            "sugars_points" : 5,
+            "sugars_value" : 25
+         },
+         "grade" : "c",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
+         "score" : 8
+      },
+      "2023" : {
+         "category_available" : 1,
+         "data" : {
+            "count_proteins" : 0,
+            "count_proteins_reason" : "negative_points_more_than_11",
+            "energy" : 800,
+            "energy_points" : 2,
+            "fiber" : 3,
+            "fiber_points" : 0,
+            "fruits_vegetables_legumes" : 5.68181818181818,
+            "fruits_vegetables_legumes_points" : 0,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat_oil_nuts_seeds" : 0,
+            "is_red_meat_product" : 0,
+            "is_water" : 0,
+            "negative_nutrients" : [
+               "energy",
+               "sugars",
+               "saturated_fat",
+               "salt",
+               "non_nutritive_sweeteners"
+            ],
+            "negative_points" : 13,
+            "positive_nutrients" : [
+               "fruits_vegetables_legumes",
+               "fiber"
+            ],
+            "positive_points" : 0,
+            "proteins" : 2,
+            "proteins_points" : 0,
+            "salt" : 0.25,
+            "salt_points" : 1,
+            "saturated_fat" : 4,
+            "saturated_fat_points" : 3,
+            "sugars" : 25,
+            "sugars_points" : 7
+         },
+         "grade" : "d",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
+         "score" : 13
+      }
+   },
+   "nutriscore_2021_tags" : [
+      "c"
+   ],
+   "nutriscore_2023_tags" : [
+      "d"
+   ],
    "nutriscore_data" : {
       "energy" : 800,
       "energy_points" : 2,
@@ -1178,9 +1274,9 @@
       "fiber" : 3,
       "fiber_points" : 3,
       "fiber_value" : 3,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils" : 7.8125,
       "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 7.8,
       "grade" : "c",
       "is_beverage" : 0,
       "is_cheese" : 0,
@@ -1193,9 +1289,6 @@
       "proteins_value" : 2,
       "saturated_fat" : 4,
       "saturated_fat_points" : 3,
-      "saturated_fat_ratio" : 33.3333333333333,
-      "saturated_fat_ratio_points" : 4,
-      "saturated_fat_ratio_value" : 33.3,
       "saturated_fat_value" : 4,
       "score" : 8,
       "sodium" : 100,
@@ -1208,6 +1301,10 @@
    "nutriscore_grade" : "c",
    "nutriscore_score" : 8,
    "nutriscore_score_opposite" : -8,
+   "nutriscore_tags" : [
+      "c"
+   ],
+   "nutriscore_version" : "2021",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "c",
@@ -1217,8 +1314,10 @@
    ],
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 5.68181818181818,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 7.8125,
    "other_nutritional_substances_tags" : [],
    "packaging_materials_tags" : [
       "en:cardboard"
@@ -1238,6 +1337,11 @@
          "shape" : "en:film"
       }
    ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:paper-or-cardboard" : {},
+      "en:unknown" : {}
+   },
    "packagings_n" : 2,
    "pnns_groups_1" : "unknown",
    "pnns_groups_1_tags" : [

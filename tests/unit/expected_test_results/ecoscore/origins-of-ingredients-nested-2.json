@@ -480,6 +480,7 @@
       "en:chocolate",
       "en:salt",
       "en:cocoa",
+      "en:plant",
       "en:cocoa-butter",
       "en:sweetener",
       "en:e951"
@@ -505,6 +506,7 @@
       "en:chocolate",
       "en:salt",
       "en:cocoa",
+      "en:plant",
       "en:cocoa-butter",
       "en:sweetener",
       "en:e951"
@@ -520,7 +522,7 @@
       "en:milk"
    ],
    "ingredients_without_ciqual_codes_n" : 3,
-   "known_ingredients_n" : 8,
+   "known_ingredients_n" : 9,
    "lc" : "en",
    "misc_tags" : [
       "en:packagings-number-of-components-0",
@@ -537,6 +539,8 @@
       "en:ecoscore-grade-changed"
    ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
@@ -544,5 +548,6 @@
    "packaging_recycling_tags" : [],
    "packaging_shapes_tags" : [],
    "packagings" : [],
+   "packagings_materials" : {},
    "unknown_ingredients_n" : 0
 }

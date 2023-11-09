@@ -83,6 +83,12 @@ my $tests_ref = [
 		path => '/cgi/suggest.pl?tagtype=categories&string=Café&lc=fr',
 		expected_status_code => 200,
 	},
+	{
+		test_case => 'synonym-string-fr-dairy-drinks',
+		method => 'GET',
+		path => '/cgi/suggest.pl?tagtype=categories&string=jus de fruits au lait&lc=fr',
+		expected_status_code => 200,
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

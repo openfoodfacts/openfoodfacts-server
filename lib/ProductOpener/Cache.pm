@@ -27,6 +27,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		$memd
+		$max_memcached_object_size
 		&generate_cache_key
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -52,6 +53,9 @@ $memd = Cache::Memcached::Fast->new(
 	}
 );
 
+# Maximum object size that we can store in memcached
+$max_memcached_object_size = 1048576;
+
 my $json = JSON->new->utf8->allow_nonref->canonical;
 
 =head1 FUNCTIONS
@@ -59,7 +63,7 @@ my $json = JSON->new->utf8->allow_nonref->canonical;
 =head2  generate_cache_key($name, $context_ref)
 
 Generate a key to use for caching, that depends on the content of the $context_ref object.
-The key is prependend by the name of the variable we want to store, so that we can set multiple variables for the same context
+The key is prepended by the name of the variable we want to store, so that we can set multiple variables for the same context
 (e.g. a count of search results + the search results themselves)
 
 =head3 Arguments

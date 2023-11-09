@@ -13,16 +13,11 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ko\n"
-"X-Crowdin-File-ID: 2588\n"
+"X-Crowdin-File-ID: 3123\n"
 
 msgctxt "1_product"
 msgid "1 product"
 msgstr "1개의 제품"
-
-# leave a space before and after, unless there are no spaces between "A and B" in the target language
-msgctxt "_and_"
-msgid " and "
-msgstr " 그리고 "
 
 msgctxt "about"
 msgid "About me"
@@ -120,41 +115,13 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "조직의 이름(회사 이름 또는 브랜드)을 입력하십시오."
 
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr ""
+
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 msgstr "이 계정은 생산자 또는 브랜드 {org}과 연결된 전문 계정입니다. 생산자를 위한 플랫폼에 액세스할 수 있습니다."
-
-msgctxt "add_user_email_body"
-msgid "Hello <NAME>,\n\n"
-"Thanks a lot for joining https://openfoodfacts.org\n"
-"Here is your user name:\n\n"
-"User name: <USERID>\n\n"
-"You can now sign in on the site to add and edit products.\n\n"
-"<<site_name>> is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!\n"
-"To discuss between contributors and make the project go forward, we use a very convenient messaging system called Slack: https://slack.openfoodfacts.org\n\n"
-"You can also join the Facebook group for contributors:\n"
-"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
-"New: we are also starting Open Beauty Facts to create a database of cosmetics: soap, toothpaste, makeup etc.\n"
-"https://openbeautyfacts.org\n\n"
-"Thank you very much!\n\n"
-"Stéphane and the Open Food Facts team\n"
-"https://openfoodfacts.org\n"
-"https://twitter.com/OpenFoodFacts\n"
-msgstr "안녕하세요 <NAME>님,\n\n"
-"https://openfoodfacts.org에 가입해주셔서 정말 감사합니다.\n"
-"이 이름으로 가입하셨네요:\n\n"
-"이름: <USERID>\n\n"
-"이제 사이트에서 상품을 등록하거나 수정할 수 있습니다.\n\n"
-"<<site_name>>은 <NAME>님이 더 많은 상품들을 불러올 수 있도록 하는 협업 프로젝트입니다. 더 많은 에너지, 열정 그리고 아이디어를 보여주세요!\n"
-"기여자들과 이야기 하며 프로젝트를 더 발전시키고 싶을 때 저희는 이 슬랙이라는 매우 편리한 프로그램을 사용합니다. https://slack.openfoodfacts.org\n\n"
-"기여자들을 위한 페이스북 그룹도 있으니 참여해보세요.\n"
-"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
-"새 소식: 또한 저희는 비누, 치약, 메이크업과 같은 제품들에 대한 데이터베이스를 만들기 위해 Open Beauty Facts를 시작했습니다.\n"
-"https://openbeautyfacts.org\n\n"
-"감사합니다!\n\n"
-"스테판(Stéphane)과 오픈푸드팩츠 팀(Open Food Facts team)\n"
-"https://openfoodfacts.org\n"
-"https://twitter.com/OpenFoodFacts\n"
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
@@ -226,10 +193,10 @@ msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world-ko.openfoodfacts.org/files/off.apk"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
-msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr "/images/misc/google-play-badge-svg-master/img/ko_get.svg"
+msgid "/images/misc/playstore/img/en_get.svg"
+msgstr "/images/misc/playstore/img/ko_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -498,8 +465,16 @@ msgid "Delete the images"
 msgstr "이미지를 삭제하기"
 
 msgctxt "delete_user"
-msgid "Delete an user"
-msgstr "사용자 삭제"
+msgid "Delete a user"
+msgstr ""
+
+msgctxt "delete_confirmation"
+msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
+msgstr ""
+
+msgctxt "danger_zone"
+msgid "Danger Zone"
+msgstr ""
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -1003,6 +978,10 @@ msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr "사진 상세 및 속성 정보"
 
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr ""
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "끝마쳐야 하는 추가된 제품"
@@ -1122,7 +1101,7 @@ msgstr "앱 스토어에서 다운로드 받을 수 있습니다"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/kr/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2349,6 +2328,10 @@ msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
 msgstr "영양성분표에 준비된 제품의 값이 포함된 경우 준비된 제품의 총 섭취량 (물 또는 우유 포함) 을 표시하십시오."
 
+msgctxt "serving_too_small_for_nutrition_analysis"
+msgid "Serving size is too small (5 g / 5 ml or less) to calculate 100 g / 100 ml values and perform any further nutritional analysis"
+msgstr ""
+
 msgctxt "session_title"
 msgid "Sign-in"
 msgstr "로그인"
@@ -2570,6 +2553,10 @@ msgctxt "users_without_products"
 msgid "Products not added by %s"
 msgstr "%s이 추가하지 않은 제품"
 
+msgctxt "video_tutorials"
+msgid "Video Tutorials"
+msgstr ""
+
 msgctxt "view"
 msgid "view"
 msgstr "보기"
@@ -2608,7 +2595,7 @@ msgstr "Microsoft에서 제공"
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
 msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr "https://www.microsoft.com/ko-kr/p/openfoodfacts/9nblggh0dkqr"
+msgstr ""
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2656,15 +2643,15 @@ msgstr "경고: 과일, 야채, 견과류의 양이 명시되지 않았으며, �
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "경고: 라벨에 과일, 야채 및 견과류의 양이 명시되지 않았으며, 재료 목록에서 다음과 같이 수동으로 추정되었습니다: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr "경고: 라벨에 과일, 야채 및 견과류의 양이 명시되지 않았으며, 제품의 범주(%s)에서 추정되었습니다:%d"
+msgstr "경고: 라벨에 과일, 야채 및 견과류의 양이 명시되지 않았으며, 제품의 범주(%s)에서 추정되었습니다: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr "경고: 라벨에 과일, 야채 및 견과류의 양이 명시되지 않았으며, 재료 목록에서 다음과 같이 추정되었습니다.:%d"
+msgstr "경고: 라벨에 과일, 야채 및 견과류의 양이 명시되지 않았으며, 재료 목록에서 다음과 같이 추정되었습니다: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -2913,12 +2900,12 @@ msgid "Risk of overexposure"
 msgstr "과다 노출에 대한 위험성"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
-msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr "유럽 식품 안전청 (EFSA) 은 일부 집단이 <tag>를 너무 많이 소비하는 고위험군이라고 확인했습니다."
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
+msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
-msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
-msgstr "유럽 식품 안전청 (EFSA) 은 일부 집단이 <tag>를 너무 많이 소비하는 중위험군이라고 확인했습니다."
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
+msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -2945,12 +2932,12 @@ msgid "No or very low risk of over exposure"
 msgstr "과다 노출 위험이 없거나 매우 낮음"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
-msgid "Risk of exceeding the acceptable daily intake (ADI)"
-msgstr "허용되는 일일 섭취량 (ADI) 을 초과 할 위험이 있음"
+msgid "Risk of reaching or exceeding the acceptable daily intake (ADI)"
+msgstr ""
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
-msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr "역효과 없이 최대 복용량을 초과할 위험이 있음 (관찰된 부작용 수준 없음-NOAEL)"
+msgid "Risk of reaching exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgstr ""
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
@@ -2969,20 +2956,20 @@ msgid "Groups with more than 5% of members exceeding the maximum dose without ad
 msgstr "부작용 없이 최대 복용량을 초과하는 회원이 5%이상 있는 그룹 (관찰된 부작용 수준 없음-NOAEL)"
 
 msgctxt "exposure_title_95th"
-msgid "Some people"
-msgstr "어떤 사람들"
+msgid "Moderate risk"
+msgstr ""
 
 msgctxt "exposure_description_95th"
-msgid "over 5%"
-msgstr "5% 이상"
+msgid "5% of people or more"
+msgstr ""
 
 msgctxt "exposure_title_mean"
-msgid "Most people"
-msgstr "대부분의 사람들"
+msgid "High risk"
+msgstr ""
 
 msgctxt "exposure_description_mean"
-msgid "over 50%"
-msgstr "50% 이상"
+msgid "50% of people or more"
+msgstr ""
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
@@ -3111,6 +3098,10 @@ msgstr "%s에 의해 수정된 제품"
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
 msgstr "%s에 의해 수정되지 않은 제품"
+
+msgctxt "contributors_products"
+msgid "Products added by %s"
+msgstr "%s이 추가한 제품"
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
@@ -4289,8 +4280,8 @@ msgid "Contributor"
 msgstr "기여자"
 
 msgctxt "contributor_settings_description"
-msgid "Those settings allow you to personalize some aspect of the website"
-msgstr "이러한 설정을 통해 웹 사이트의 일부 측면을 개인화할 수 있습니다."
+msgid "Those settings allow you to personalize some aspects of the website"
+msgstr ""
 
 msgctxt "display_barcode_in_search"
 msgid "Display barcode in search results"
@@ -4299,11 +4290,6 @@ msgstr "검색 결과에 바코드 표시"
 msgctxt "edit_link_in_search"
 msgid "Add an edit link in search results"
 msgstr "검색 결과에 편집 링크 추가"
-
-# leave the %d, it will be replaced by a number
-msgctxt "n_products_will_be_exported"
-msgid "%d products will be exported."
-msgstr "%d 상품을 내보냅니다."
 
 msgctxt "ciqual_food_name"
 msgid "CIQUAL food name"
@@ -4629,10 +4615,6 @@ msgctxt "export_product_page"
 msgid "Export product to public database"
 msgstr "공개 데이터베이스로 제품 내보내기"
 
-msgctxt "one_product_will_be_exported"
-msgid "1 product will be exported."
-msgstr "1개의 제품이 수출됩니다."
-
 msgctxt "no_products_to_export"
 msgid "No products to export."
 msgstr "내보낼 제품이 없습니다."
@@ -4684,6 +4666,10 @@ msgstr "식품 첨가물"
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
 msgstr "첨가물이 없거나 거의 없음"
+
+msgctxt "attribute_additives_setting_note"
+msgid "Additives are markers of food processing, and excess consumption of some of them have undesirable health impacts."
+msgstr ""
 
 msgctxt "attribute_additives_unknown_title"
 msgid "Additives not computed"
@@ -4770,6 +4756,10 @@ msgstr "친환경 점수"
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Eco-Score)"
 msgstr "낮은 환경 영향(Eco-Score)"
+
+msgctxt "attribute_ecoscore_setting_note"
+msgid "The Eco-Score is an environmental score (ecoscore) from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr ""
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -4911,6 +4901,18 @@ msgstr "조직 삭제"
 msgctxt "official_site"
 msgid "Official site"
 msgstr "공식 사이트"
+
+msgctxt "organization_members"
+msgid "Organization Members"
+msgstr ""
+
+msgctxt "number_of_members"
+msgid "Number of Members"
+msgstr ""
+
+msgctxt "serial_no"
+msgid "S.No"
+msgstr ""
 
 msgctxt "contact_form"
 msgid "Contact form"
@@ -5128,6 +5130,10 @@ msgctxt "number_of_products_with_changes_since_last_export"
 msgid "Number of products with changes since last export"
 msgstr "마지막 내보내기 이후 변경된 제품 수"
 
+msgctxt "number_of_products_withdrawn_from_the_market_since_last_export"
+msgid "Number of products withdrawn from the market since last export"
+msgstr ""
+
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
 msgstr "변경된 제품만 내보내기"
@@ -5160,6 +5166,10 @@ msgstr "숲 발자국"
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest footprint)"
 msgstr "낮은 삼림 벌채 위험(숲 발자국)"
+
+msgctxt "attribute_forest_footprint_setting_note"
+msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Very small forest footprint"
@@ -5277,8 +5287,8 @@ msgid "Remove all nutrient values"
 msgstr "모든 영양소 값 제거"
 
 msgctxt "delete_user_process"
-msgid "User deleted."
-msgstr "사용자 삭제됨"
+msgid "User is being deleted. This may take a few minutes."
+msgstr ""
 
 msgctxt "attribute_ecoscore_not_applicable_title"
 msgid "Eco-Score not yet applicable"
@@ -6018,6 +6028,10 @@ msgctxt "maybe_vegan_ingredients"
 msgid "Ingredients that may not be vegan"
 msgstr "논비건일 수도 있는 성분"
 
+msgctxt "attribute_vegan_setting_note"
+msgid "To determine whether a product is vegan, we only rely on the list of ingredients."
+msgstr ""
+
 msgctxt "non_vegetarian_ingredients"
 msgid "Non-vegetarian ingredients"
 msgstr "비채식 성분"
@@ -6030,6 +6044,10 @@ msgctxt "maybe_vegetarian_ingredients"
 msgid "Ingredients that may not be vegetarian"
 msgstr "비채식일 수도 있는 성분"
 
+msgctxt "attribute_vegetarian_setting_note"
+msgid "To determine whether a product is vegetarian, we only rely on the list of ingredients."
+msgstr ""
+
 msgctxt "palm_oil_ingredients"
 msgid "Ingredients that contain palm oil"
 msgstr "팜유 포함 성분"
@@ -6041,6 +6059,10 @@ msgstr "팜유를 포함할 수도 있는 성분"
 msgctxt "palm_oil_free_ingredients"
 msgid "No ingredients containing palm oil detected"
 msgstr "팜유 포함 성분 감지되지 않음"
+
+msgctxt "attribute_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr ""
 
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
@@ -6523,5 +6545,94 @@ msgstr ""
 
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
+msgstr ""
+
+msgctxt "join_the_next_pros_meet_up"
+msgid "Join the next Pros' Meet-up"
+msgstr ""
+
+# variable names between { } must not be translated
+msgctxt "product_js_enter_value_between_0_and_max"
+msgid "Please enter a value between 0 and {max}."
+msgstr ""
+
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr ""
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr ""
+
+msgctxt "product_js_sugars_warning"
+msgid "Sugars should not be higher than carbohydrates."
+msgstr ""
+
+msgctxt "product_js_saturated_fat_warning"
+msgid "Saturated fat should not be higher than fat."
+msgstr ""
+
+msgctxt "packaging_materials"
+msgid "Packaging materials"
+msgstr ""
+
+msgctxt "packaging_weight_total"
+msgid "Packaging weight"
+msgstr ""
+
+msgctxt "packaging_weight_100g"
+msgid "Packaging weight per 100 g of product"
+msgstr ""
+
+msgctxt "packaging_weight_100g_mean"
+msgid "Mean packaging weight per 100 g of product"
+msgstr ""
+
+msgctxt "total"
+msgid "Total"
+msgstr ""
+
+msgctxt "packaging_material_products_percent"
+msgid "% of products containing the material"
+msgstr ""
+
+msgctxt "packaging_material_products_percent_main"
+msgid "% of products containing mostly the material"
+msgstr ""
+
+msgctxt "relative_to_products_containing_the_material"
+msgid "for products that contain the material"
+msgstr ""
+
+msgctxt "relative_to_products_containing_mostly_the_material"
+msgid "for products that contain mostly the material"
+msgstr ""
+
+msgctxt "relative_to_all_products"
+msgid "relative to all products"
+msgstr ""
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr ""
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr ""
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr ""
+
+msgctxt "weight"
+msgid "Weight"
+msgstr ""
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr ""
+
+msgctxt "weight_percent"
+msgid "Weight percent"
 msgstr ""
 

@@ -4,36 +4,44 @@
          "id" : "en:soy-sauce",
          "ingredients" : [
             {
-               "id" : "ja:本醸造",
+               "ciqual_food_code" : "11104",
+               "id" : "en:honjozo",
                "percent_estimate" : 55,
                "percent_max" : 100,
                "percent_min" : 10,
-               "text" : "本醸造"
+               "text" : "本醸造",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
             }
          ],
          "percent_estimate" : 55,
          "percent_max" : 100,
          "percent_min" : 10,
          "text" : "しょうゆ",
-         "vegan" : "ignore",
-         "vegetarian" : "ignore"
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
          "id" : "ja:糖類",
          "ingredients" : [
             {
-               "id" : "ja:ぶどう糖果糖液糖",
+               "ciqual_food_code" : "31077",
+               "id" : "en:high-fructose-corn-syrup",
                "percent_estimate" : 11.25,
                "percent_max" : 50,
                "percent_min" : 0,
-               "text" : "ぶどう糖果糖液糖"
+               "text" : "ぶどう糖果糖液糖",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
-               "id" : "ja:水あめ",
+               "id" : "en:glucose-syrup",
                "percent_estimate" : 5.625,
                "percent_max" : 25,
                "percent_min" : 0,
-               "text" : "水あめ"
+               "text" : "水あめ",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
             },
             {
                "id" : "en:sugar",
@@ -56,8 +64,8 @@
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "text" : "みりん",
-         "vegan" : "ignore",
-         "vegetarian" : "ignore"
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
          "ciqual_food_code" : "11058",
@@ -70,11 +78,14 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "ja:かつお節",
+         "ciqual_food_code" : "26068",
+         "id" : "en:katsuobushi",
          "percent_estimate" : 2.8125,
          "percent_max" : 20,
          "percent_min" : 0,
-         "text" : "かつお節"
+         "text" : "かつお節",
+         "vegan" : "no",
+         "vegetarian" : "no"
       },
       {
          "id" : "ja:さば節",
@@ -91,17 +102,20 @@
          "text" : "たん白加水分解物混合物"
       },
       {
-         "id" : "ja:こんぶ",
+         "ciqual_food_code" : "20990",
+         "id" : "en:kombu",
          "percent_estimate" : 0.3515625,
          "percent_max" : 12.5,
          "percent_min" : 0,
-         "text" : "こんぶ"
+         "text" : "こんぶ",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "id" : "en:condiment",
          "ingredients" : [
             {
-               "id" : "ja:アミノ酸等",
+               "id" : "en:amino-acids",
                "percent_estimate" : 0.17578125,
                "percent_max" : 11.1111111111111,
                "percent_min" : 0,
@@ -112,8 +126,8 @@
          "percent_max" : 11.1111111111111,
          "percent_min" : 0,
          "text" : "調味料",
-         "vegan" : "ignore",
-         "vegetarian" : "ignore"
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
          "ciqual_food_code" : "1014",
@@ -127,44 +141,32 @@
       }
    ],
    "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:katsuobushi"
+      ],
+      "en:non-vegetarian" : [
+         "en:katsuobushi"
+      ],
       "en:palm-oil-content-unknown" : [
-         "ja:本醸造",
          "ja:糖類",
-         "ja:ぶどう糖果糖液糖",
-         "ja:水あめ",
-         "ja:かつお節",
          "ja:さば節",
-         "ja:たん白加水分解物混合物",
-         "ja:こんぶ",
-         "ja:アミノ酸等"
+         "ja:たん白加水分解物混合物"
       ],
       "en:vegan-status-unknown" : [
-         "ja:本醸造",
          "ja:糖類",
-         "ja:ぶどう糖果糖液糖",
-         "ja:水あめ",
-         "ja:かつお節",
          "ja:さば節",
-         "ja:たん白加水分解物混合物",
-         "ja:こんぶ",
-         "ja:アミノ酸等"
+         "ja:たん白加水分解物混合物"
       ],
       "en:vegetarian-status-unknown" : [
-         "ja:本醸造",
          "ja:糖類",
-         "ja:ぶどう糖果糖液糖",
-         "ja:水あめ",
-         "ja:かつお節",
          "ja:さば節",
-         "ja:たん白加水分解物混合物",
-         "ja:こんぶ",
-         "ja:アミノ酸等"
+         "ja:たん白加水分解物混合物"
       ]
    },
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
    ],
    "ingredients_hierarchy" : [
       "en:soy-sauce",
@@ -172,19 +174,30 @@
       "ja:糖類",
       "en:mirin",
       "en:salt",
-      "ja:かつお節",
+      "en:katsuobushi",
+      "en:fish",
+      "en:tuna",
+      "fr:bonite",
+      "en:skipjack-tuna",
       "ja:さば節",
       "ja:たん白加水分解物混合物",
-      "ja:こんぶ",
+      "en:kombu",
+      "en:algae",
+      "en:seaweed",
       "en:condiment",
       "en:alcohol",
-      "ja:本醸造",
-      "ja:ぶどう糖果糖液糖",
-      "ja:水あめ",
-      "en:sugar",
+      "en:honjozo",
+      "en:high-fructose-corn-syrup",
       "en:added-sugar",
       "en:disaccharide",
-      "ja:アミノ酸等"
+      "en:monosaccharide",
+      "en:fructose",
+      "en:glucose",
+      "en:corn-syrup",
+      "en:glucose-fructose-syrup",
+      "en:glucose-syrup",
+      "en:sugar",
+      "en:amino-acids"
    ],
    "ingredients_n" : 15,
    "ingredients_n_tags" : [
@@ -196,17 +209,17 @@
       "ja:糖類",
       "en:mirin",
       "en:salt",
-      "ja:かつお節",
+      "en:katsuobushi",
       "ja:さば節",
       "ja:たん白加水分解物混合物",
-      "ja:こんぶ",
+      "en:kombu",
       "en:condiment",
       "en:alcohol",
-      "ja:本醸造",
-      "ja:ぶどう糖果糖液糖",
-      "ja:水あめ",
+      "en:honjozo",
+      "en:high-fructose-corn-syrup",
+      "en:glucose-syrup",
       "en:sugar",
-      "ja:アミノ酸等"
+      "en:amino-acids"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
@@ -215,19 +228,30 @@
       "ja:糖類",
       "en:mirin",
       "en:salt",
-      "ja:かつお節",
+      "en:katsuobushi",
+      "en:fish",
+      "en:tuna",
+      "fr:bonite",
+      "en:skipjack-tuna",
       "ja:さば節",
       "ja:たん白加水分解物混合物",
-      "ja:こんぶ",
+      "en:kombu",
+      "en:algae",
+      "en:seaweed",
       "en:condiment",
       "en:alcohol",
-      "ja:本醸造",
-      "ja:ぶどう糖果糖液糖",
-      "ja:水あめ",
-      "en:sugar",
+      "en:honjozo",
+      "en:high-fructose-corn-syrup",
       "en:added-sugar",
       "en:disaccharide",
-      "ja:アミノ酸等"
+      "en:monosaccharide",
+      "en:fructose",
+      "en:glucose",
+      "en:corn-syrup",
+      "en:glucose-fructose-syrup",
+      "en:glucose-syrup",
+      "en:sugar",
+      "en:amino-acids"
    ],
    "ingredients_text" : "しょうゆ（本醸造）、糖類（ぶどう糖果糖液糖、水あめ、砂糖）、みりん、食塩、かつお節、さば節、たん白加水分解物混合物、こんぶ、調味料（アミノ酸等）、アルコール",
    "ingredients_with_specified_percent_n" : 0,
@@ -235,23 +259,21 @@
    "ingredients_with_unspecified_percent_n" : 12,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
+      "en:amino-acids",
+      "en:glucose-syrup",
       "en:mirin",
       "en:sugar",
-      "ja:かつお節",
-      "ja:こんぶ",
       "ja:さば節",
-      "ja:たん白加水分解物混合物",
-      "ja:ぶどう糖果糖液糖",
-      "ja:アミノ酸等",
-      "ja:本醸造",
-      "ja:水あめ"
+      "ja:たん白加水分解物混合物"
    ],
-   "ingredients_without_ciqual_codes_n" : 10,
-   "known_ingredients_n" : 9,
+   "ingredients_without_ciqual_codes_n" : 6,
+   "known_ingredients_n" : 26,
    "lc" : "ja",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0.3515625,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0.3515625,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0.3515625,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0.3515625
    },
-   "unknown_ingredients_n" : 9
+   "unknown_ingredients_n" : 3
 }

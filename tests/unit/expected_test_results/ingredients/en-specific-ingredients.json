@@ -80,6 +80,8 @@
    "known_ingredients_n" : 6,
    "lc" : "en",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
@@ -88,12 +90,13 @@
          "id" : "en:sugar",
          "ingredient" : "Sugar",
          "percent" : 3,
-         "text" : "Sugar content: 3 %."
+         "text" : "Sugar content: 3 %"
       },
       {
          "id" : "en:milk",
          "ingredient" : "milk",
-         "percent" : 75.2,
+         "quantity" : "75.2 g",
+         "quantity_g" : 75.2,
          "text" : "Total milk content: 75.2g"
       }
    ],

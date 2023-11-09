@@ -61,6 +61,8 @@ BEGIN {
 		%ecoscore_countries_enabled
 		@ecoscore_countries_enabled_sorted
 
+		%agribalyse
+
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -78,7 +80,7 @@ use Text::CSV();
 use Math::Round;
 use Data::DeepAccess qw(deep_get deep_exists);
 
-my %agribalyse = ();
+%agribalyse = ();
 
 =head1 VARIABLES
 
@@ -102,7 +104,7 @@ foreach my $country (@ecoscore_countries_enabled_sorted) {
 
 =head1 FUNCTIONS
 
-=head2 load_agribalyse_data( $product_ref )
+=head2 load_agribalyse_data()
 
 Loads the AgriBalyse database.
 
@@ -246,7 +248,11 @@ sub load_ecoscore_data_origins_of_ingredients_distances() {
 			};
 
 			for (my $i = 3; $i < (scalar @{$row_ref}); $i++) {
-				$ecoscore_data{origins}{$origin_id}{"transportation_score_" . $countries[$i]} = $row_ref->[$i];
+				my $value = $row_ref->[$i];
+				if ($value eq "") {
+					$value = 0;
+				}
+				$ecoscore_data{origins}{$origin_id}{"transportation_score_" . $countries[$i]} = $value;
 			}
 
 			$log->debug("ecoscore origins CSV file - row",
@@ -739,6 +745,14 @@ sub compute_ecoscore ($product_ref) {
 		}
 	}
 
+	# Always compute the bonuses and maluses, even for categories that don't have Eco-Score
+	# (e.g. sodas, spring water)
+
+	compute_ecoscore_production_system_adjustment($product_ref);
+	compute_ecoscore_threatened_species_adjustment($product_ref);
+	compute_ecoscore_origins_of_ingredients_adjustment($product_ref);
+	compute_ecoscore_packaging_adjustment($product_ref);
+
 	if ($category_without_ecoscore) {
 		$product_ref->{ecoscore_data}{ecoscore_not_applicable_for_category} = $category_without_ecoscore;
 		$product_ref->{ecoscore_data}{status} = "unknown";
@@ -752,13 +766,6 @@ sub compute_ecoscore ($product_ref) {
 		# Compute the LCA Eco-Score based on AgriBalyse
 
 		compute_ecoscore_agribalyse($product_ref);
-
-		# Compute the bonuses and maluses
-
-		compute_ecoscore_production_system_adjustment($product_ref);
-		compute_ecoscore_threatened_species_adjustment($product_ref);
-		compute_ecoscore_origins_of_ingredients_adjustment($product_ref);
-		compute_ecoscore_packaging_adjustment($product_ref);
 
 		# Compute the final Eco-Score and assign the A to E grade
 

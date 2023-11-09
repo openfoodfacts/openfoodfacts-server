@@ -39,6 +39,7 @@
       "en:orange-juice",
       "en:fruit",
       "en:citrus-fruit",
+      "en:juice",
       "en:fruit-juice",
       "en:orange",
       "en:salmon",
@@ -59,6 +60,7 @@
       "en:orange-juice",
       "en:fruit",
       "en:citrus-fruit",
+      "en:juice",
       "en:fruit-juice",
       "en:orange",
       "en:salmon",
@@ -74,7 +76,7 @@
       "en:orange-juice"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "known_ingredients_n" : 8,
+   "known_ingredients_n" : 9,
    "labels" : "en:no-gluten",
    "labels_hierarchy" : [
       "en:no-gluten"
@@ -85,8 +87,10 @@
    ],
    "lc" : "fi",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 50,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 50
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 75,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 75,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 75,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 75
    },
    "unknown_ingredients_n" : 0
 }

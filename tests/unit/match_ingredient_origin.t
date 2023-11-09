@@ -92,6 +92,23 @@ my @tests = (
 			}
 		],
 	},
+	{
+		desc => 'German ingredient aus origin',
+		lc => 'de',
+		text => 'Zucker aus Deutschland, Bio natives Olivenöl extra aus Spanien',
+		expected => [
+			{
+				'ingredient' => 'Zucker',
+				'matched_text' => 'Zucker aus Deutschland,',
+				'origins' => 'Deutschland'
+			},
+			{
+				'ingredient' => 'Bio natives Olivenöl extra',
+				'matched_text' => '  Bio natives Olivenöl extra aus Spanien',
+				'origins' => 'Spanien'
+			}
+		]
+	}
 );
 
 init_origins_regexps();

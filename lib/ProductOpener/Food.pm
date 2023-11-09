@@ -59,13 +59,15 @@ BEGIN {
 
 		&fix_salt_equivalent
 
-		&is_beverage_for_nutrition_score
+		&is_beverage_for_nutrition_score_2021
+		&is_beverage_for_nutrition_score_2023
+		&is_fat_oil_nuts_seeds_for_nutrition_score
 		&is_water_for_nutrition_score
 		&is_cheese_for_nutrition_score
 		&is_fat_for_nutrition_score
 
 		&compute_nutriscore
-		&compute_nutrition_score
+		&compute_nutriscore
 		&compute_nova_group
 		&compute_serving_size_data
 		&compute_unknown_nutrients
@@ -115,7 +117,40 @@ use URI::Escape::XS;
 
 use CGI qw/:cgi :form escapeHTML/;
 
+use Data::DeepAccess qw(deep_set deep_get);
+use Storable qw/dclone/;
+
 use Log::Any qw($log);
+
+# Normalize values listed in Config.pm
+
+# Canonicalize the list of categories used to compute Nutri-Score, so that Nutri-Score
+# computation does not change if we change the canonical English name of a category
+
+foreach my $categories_list_id (
+	qw(
+	categories_not_considered_as_beverages_for_nutriscore_2021
+	categories_not_considered_as_beverages_for_nutriscore_2023
+	categories_exempted_from_nutriscore
+	categories_not_exempted_from_nutriscore
+	categories_exempted_from_nutrient_levels
+	)
+	)
+{
+	my $categories_list_ref = $options{$categories_list_id};
+	if (defined $categories_list_ref) {
+		foreach my $category_id (@{$categories_list_ref}) {
+			$category_id = canonicalize_taxonomy_tag("en", "categories", $category_id);
+			# Check that the entry exists
+			if (not exists_taxonomy_tag("categories", $category_id)) {
+				$log->error(
+					"Category used in Nutri-Score and listed in Config.pm \$options\{$categories_list_id\} does not exist in the categories taxonomy.",
+					{category_id => $category_id}
+				) if $log->is_error();
+			}
+		}
+	}
+}
 
 # Load nutrient stats for all categories and countries
 # the stats are displayed on category pages and used in product pages,
@@ -254,7 +289,29 @@ sub default_unit_for_nid ($nid) {
 	}
 }
 
+=head2 assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $unit)
+
+Assign a value with a unit and an optional modifier (< or ~) to a nutrient in the nutriments structure.
+
+=head3 Parameters
+
+=head4 $product_ref
+
+=head4 $nid 
+
+Nutrient id, possibly suffixed with "_prepared"
+
+=head4 value
+
+=head4 unit
+
+=cut
+
 sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $unit) {
+
+	# Get the nutrient id in the nutrients taxonomy from the nid (without a prefix and possibly suffixed by _prepared)
+	my $nutrient_id = "zz:" . $nid;
+	$nutrient_id =~ s/_prepared$//;
 
 	# We can have only a modifier with value '-' to indicate that we have no value
 
@@ -278,15 +335,16 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 		$product_ref->{nutriments}{$nid . "_value"} = $value;
 		# Convert values passed in international units IU or % of daily value % DV to the default unit for the nutrient
 		if (    ((uc($unit) eq 'IU') or (uc($unit) eq 'UI'))
-			and (defined get_property("nutrients", "zz:$nid", "iu_value:en")))
+			and (defined get_property("nutrients", $nutrient_id, "iu_value:en")))
 		{
-			$value = $value * get_property("nutrients", "zz:$nid", "iu_value:en");
-			$unit = get_property("nutrients", "zz:$nid", "unit:en");
+			$value = $value * get_property("nutrients", $nutrient_id, "iu_value:en");
+			$unit = get_property("nutrients", $nutrient_id, "unit:en");
 		}
-		elsif ((uc($unit) eq '% DV') and (defined get_property("nutrients", "zz:$nid", "dv_value:en"))) {
-			$value = $value / 100 * get_property("nutrients", "zz:$nid", "dv_value:en");
-			$unit = get_property("nutrients", "zz:$nid", "unit:en");
+		elsif ((uc($unit) eq '% DV') and (defined get_property("nutrients", $nutrient_id, "dv_value:en"))) {
+			$value = $value / 100 * get_property("nutrients", $nutrient_id, "dv_value:en");
+			$unit = get_property("nutrients", $nutrient_id, "unit:en");
 		}
+
 		if ($nid =~ /^water-hardness(_prepared)?$/) {
 			$product_ref->{nutriments}{$nid} = unit_to_mmoll($value, $unit) + 0;
 		}
@@ -333,8 +391,33 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 	hk => "hk",
 );
 
-# http://healthycanadians.gc.ca/eating-nutrition/label-etiquetage/tips-conseils/nutrition-fact-valeur-nutritive-eng.php
+=head2 %nutriments_tables
 
+An array that condition how nutrients are displayed.
+
+It is a list of nutrients names with eventual prefixes and suffixes:
+
+=over
+
+=item C<#nutrient> a leading C<#> indicates a comment and will be ignored
+
+=item C<!nutrient> a leading C<!> indicates an important nutrient, they should always be shown
+
+=item The level of each nutrient is indicated by leading dashes before its id:
+
+=over
+=item C<nutrient> - no dash for top nutrients
+=item C<-sub-nutrient> - for level 2
+=item C<--sub-sub-nutrient> - for level 3, etc.
+=back
+
+=item C<nutrient-> a C<-> at the end indicates that the nutrient should be hidden and only shown if explicitly added.
+
+=back
+
+=cut
+
+# http://healthycanadians.gc.ca/eating-nutrition/label-etiquetage/tips-conseils/nutrition-fact-valeur-nutritive-eng.php
 %nutriments_tables = (
 	europe => [
 		(
@@ -749,16 +832,16 @@ sub canonicalize_nutriment ($target_lc, $nutrient) {
 	return $nid;
 }
 
-=head2 is_beverage_for_nutrition_score( $product_ref )
+=head2 is_beverage_for_nutrition_score_2021 ( $product_ref )
 
 Determines if a product should be considered as a beverage for Nutri-Score computations,
 based on the product categories.
 
-Dairy drinks are not considered as beverages if they have at least 80% of milk.
+2021 Nutri-Score: Dairy drinks are not considered as beverages if they have at least 80% of milk.
 
 =cut
 
-sub is_beverage_for_nutrition_score ($product_ref) {
+sub is_beverage_for_nutrition_score_2021 ($product_ref) {
 
 	my $is_beverage = 0;
 
@@ -766,9 +849,9 @@ sub is_beverage_for_nutrition_score ($product_ref) {
 
 		$is_beverage = 1;
 
-		if (defined $options{categories_not_considered_as_beverages_for_nutriscore}) {
+		if (defined $options{categories_not_considered_as_beverages_for_nutriscore_2021}) {
 
-			foreach my $category_id (@{$options{categories_not_considered_as_beverages_for_nutriscore}}) {
+			foreach my $category_id (@{$options{categories_not_considered_as_beverages_for_nutriscore_2021}}) {
 
 				if (has_tag($product_ref, "categories", $category_id)) {
 					$is_beverage = 0;
@@ -778,8 +861,8 @@ sub is_beverage_for_nutrition_score ($product_ref) {
 		}
 
 		# exceptions
-		if (defined $options{categories_considered_as_beverages_for_nutriscore}) {
-			foreach my $category_id (@{$options{categories_considered_as_beverages_for_nutriscore}}) {
+		if (defined $options{categories_considered_as_beverages_for_nutriscore_2021}) {
+			foreach my $category_id (@{$options{categories_considered_as_beverages_for_nutriscore_2021}}) {
 
 				if (has_tag($product_ref, "categories", $category_id)) {
 					$is_beverage = 1;
@@ -789,11 +872,54 @@ sub is_beverage_for_nutrition_score ($product_ref) {
 		}
 
 		# dairy drinks need to have at least 80% of milk to be considered as food instead of beverages
-		my $milk_percent = estimate_milk_percent_from_ingredients($product_ref);
+		my $milk_percent = estimate_nutriscore_2021_milk_percent_from_ingredients($product_ref);
 
-		if ($milk_percent >= 80) {
+		if ((defined $milk_percent) and ($milk_percent >= 80)) {
 			$log->debug("milk >= 80%", {milk_percent => $milk_percent}) if $log->is_debug();
 			$is_beverage = 0;
+		}
+	}
+
+	return $is_beverage;
+}
+
+=head2 is_beverage_for_nutrition_score_2023 ( $product_ref )
+
+Determines if a product should be considered as a beverage for Nutri-Score computations,
+based on the product categories.
+
+2023 Nutri-Score: Milk and dairy drinks are considered beverages.
+
+=cut
+
+sub is_beverage_for_nutrition_score_2023 ($product_ref) {
+
+	my $is_beverage = 0;
+
+	if (has_tag($product_ref, "categories", "en:beverages")) {
+
+		$is_beverage = 1;
+
+		if (defined $options{categories_not_considered_as_beverages_for_nutriscore_2023}) {
+
+			foreach my $category_id (@{$options{categories_not_considered_as_beverages_for_nutriscore_2023}}) {
+
+				if (has_tag($product_ref, "categories", $category_id)) {
+					$is_beverage = 0;
+					last;
+				}
+			}
+		}
+	}
+
+	# exceptions
+	if (defined $options{categories_considered_as_beverages_for_nutriscore_2023}) {
+		foreach my $category_id (@{$options{categories_considered_as_beverages_for_nutriscore_2023}}) {
+
+			if (has_tag($product_ref, "categories", $category_id)) {
+				$is_beverage = 1;
+				last;
+			}
 		}
 	}
 
@@ -831,14 +957,136 @@ sub is_cheese_for_nutrition_score ($product_ref) {
 
 =head2 is_fat_for_nutrition_score( $product_ref )
 
-Determines if a product should be considered as fat for Nutri-Score computations,
-based on the product categories.
+Determines if a product should be considered as fat
+for Nutri-Score (2021 version) computations, based on the product categories.
 
 =cut
 
 sub is_fat_for_nutrition_score ($product_ref) {
 
 	return has_tag($product_ref, "categories", "en:fats");
+}
+
+=head2 is_fat_oil_nuts_seeds_for_nutrition_score( $product_ref )
+
+Determines if a product should be considered as fats / oils / nuts / seeds
+for Nutri-Score (2023 version) computations, based on the product categories.
+
+From the 2022 main algorithm report update FINAL:
+
+"This category includes fats and oils from plant or animal sources, including cream, margarines,
+butters and oils (as the current situation).
+
+Additionally, the following products are included in this category, using the Harmonized System
+Nomenclature1 codes:
+- Nuts: 0801 0802
+- Processed nuts: 200811 200819
+- Ground nuts: 1202
+- Seeds: 1204 (linseed) 1206 (sunflower)1207 (other seeds)
+
+Of note chestnuts are excluded from the category."
+
+=cut
+
+sub is_fat_oil_nuts_seeds_for_nutrition_score ($product_ref) {
+
+	if (has_tag($product_ref, "categories", "en:chestnuts")) {
+		return 0;
+	}
+	elsif (has_tag($product_ref, "categories", "en:fats")
+		or has_tag($product_ref, "categories", "en:creams")
+		or has_tag($product_ref, "categories", "en:seeds"))
+	{
+		return 1;
+	}
+	else {
+		my ($hs_heading, $category_id) = get_inherited_property_from_categories_tags($product_ref, "wco_hs_heading:en");
+
+		if (defined $hs_heading) {
+			my ($hs_code, $category_id) = get_inherited_property_from_categories_tags($product_ref, "wco_hs_code:en");
+
+			if (
+				($hs_heading eq "08.01") or ($hs_heading eq "08.02")    # nuts
+				or ((defined $hs_code) and (($hs_code eq "2008.11") or ($hs_code eq "2008.19")))    # processed nuts
+				or ($hs_heading eq "12.02")    # peanuts
+				or ($hs_heading eq "12.04") or ($hs_heading eq "12.06") or ($hs_heading eq "12.07")    # nuts
+				)
+
+			{
+				return 1;
+			}
+		}
+	}
+
+	return 0;
+}
+
+=head2 is_red_meat_for_nutrition_score ( $product_ref )
+
+Determines if a product should be considered as red meat for Nutri-Score (2023 version) computations,
+based on the product categories and/or ingredients.
+
+From the 2022 main algorithm report update FINAL:
+
+"Regarding the Codex Alimentarius classifications, the entire group 08.0 (Meat and meat products,
+including poultry and game and all its subgroups) is concerned, though not all food items in the
+individual sub-groups are concerned, only those containing red meat (see above).
+In the Harmonized System Classification, the codes correspond to the following:
+
+Beef:
+o 0201 Meat of bovine animals, fresh or chilled
+o 0202 Meat of bovine animals, frozen
+Pork
+o 0203 Meat of swine, fresh, chilled or frozen
+Lamb:
+o 0204 Meat of sheep or goats, fresh, chilled or frozen
+Horse
+o 0205 Horse and equine meat
+Game and venison
+o 0208903000 Of game, other than of rabbits or hares
+o 02089060 Fresh, chilled or frozen reindeer meat and edible offal thereof
+Offals and processed meat (as red meat)
+o 0206 Edible offal of bovine animals, swine, sheep, goats, horses, asses, mules or
+hinnies, fresh, chilled or frozen
+o 0210 Meat and edible offal, salted, in brine, dried or smoked; edible flours and meals
+of meat or meat offal
+o 1601 sausages
+o 1602 Prepared or preserved meat, meat offal, blood or insects (excl. sausages and
+similar products, and meat extracts and juices)
+▪ All those from swine, lamb or beef even as mixtures"
+
+=cut
+
+sub is_red_meat_product_for_nutrition_score ($product_ref) {
+
+	# Use the category HS code if all the corresponding products are considered red meat
+	my ($hs_heading, $category_id) = get_inherited_property_from_categories_tags($product_ref, "wco_hs_heading:en");
+
+	if (defined $hs_heading) {
+
+		if (   ($hs_heading eq "02.01")
+			or ($hs_heading eq "02.02")
+			or ($hs_heading eq "02.03")
+			or ($hs_heading eq "02.04")
+			or ($hs_heading eq "02.05")
+			or ($hs_heading eq "02.06"))
+		{
+			return 1;
+		}
+	}
+
+	# Count the % of ingredients that is considered red meat
+	# (for products for which we don't have a category, or too broad categories like "sausages" which could be from red meat or from poultry etc.)
+
+	# We use a limit of 10%, in order not to include products that contain very little red meat (e.g. a pizza with cheese),
+	# as it's not clear from the Nutri-Score report update if they should be considered "red meat products":
+	# "Red meat products qualifying for this specific rule are products from beef, veal, swine and lamb"
+	my $red_meat_percent = estimate_nutriscore_2023_red_meat_percent_from_ingredients($product_ref);
+	if ((defined $red_meat_percent) and ($red_meat_percent > 10)) {
+		return 1;
+	}
+
+	return 0;
 }
 
 =head2 special_process_product ( $ingredients_ref )
@@ -892,9 +1140,7 @@ sub fix_salt_equivalent ($product_ref) {
 	return;
 }
 
-# UK FSA scores thresholds
-
-# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
+# estimates by category of products. not exact values. For the Nutri-Score, it's important to distinguish only between the thresholds: 40, 60 and 80
 my %fruits_vegetables_nuts_by_category = (
 	"en:fruit-juices" => 100,
 	"en:vegetable-juices" => 100,
@@ -933,7 +1179,7 @@ my @fruits_vegetables_nuts_by_category_sorted
 	= sort {$fruits_vegetables_nuts_by_category{$b} <=> $fruits_vegetables_nuts_by_category{$a}}
 	keys %fruits_vegetables_nuts_by_category;
 
-=head2 compute_fruit_ratio($product_ref, $prepared)
+=head2 compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil($product_ref, $prepared)
 
 Compute the fruit % according to the Nutri-Score rules
 
@@ -945,17 +1191,34 @@ The fruit ratio
 
 =cut
 
-sub compute_fruit_ratio ($product_ref, $prepared) {
+sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($product_ref, $prepared) {
 
 	my $fruits = undef;
 
+	# Check if we have a category override:
+	# - if the product is in a category that has no unprocessed fruits/vegetables/nuts (e.g. crisps), return 0
+	# - if the product is in category that has only ingredients that are consired fruits/vegetables/nuts (e.g. olive oil), return 100
+	my ($nutriscore_category_override_for_fruits_vegetables_legumes, $category_id)
+		= get_inherited_property_from_categories_tags($product_ref,
+		"nutriscore_category_override_for_fruits_vegetables_legumes:en");
+	if (defined $nutriscore_category_override_for_fruits_vegetables_legumes) {
+
+		# We are close to certain that those category overrides (either 0 or 100) are correct,
+		# so we do not add a nutrition_score_warning_fruits_vegetables_legumes_from_category warning
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-from-category");
+		my $category = $category_id;
+		$category =~ s/:/-/;
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-from-category-$category");
+		return $nutriscore_category_override_for_fruits_vegetables_legumes;
+	}
+
 	if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"}) {
 		$fruits = 2 * $product_ref->{nutriments}{"fruits-vegetables-nuts-dried" . $prepared . "_100g"};
-		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-dried";
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-dried");
 
 		if (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
 			$fruits += $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
-			push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
+			add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts");
 		}
 
 		$fruits
@@ -963,12 +1226,12 @@ sub compute_fruit_ratio ($product_ref, $prepared) {
 	}
 	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"}) {
 		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts" . $prepared . "_100g"};
-		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts";
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts");
 	}
 	elsif (defined $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"}) {
 		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate" . $prepared . "_100g"};
 		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate} = 1;
-		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate";
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-estimate");
 	}
 	# Use the estimate from the ingredients list if we have one
 	elsif (
@@ -980,7 +1243,7 @@ sub compute_fruit_ratio ($product_ref, $prepared) {
 		$fruits = $product_ref->{nutriments}{"fruits-vegetables-nuts-estimate-from-ingredients" . $prepared . "_100g"};
 		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients} = 1;
 		$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value} = $fruits;
-		push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients";
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients");
 	}
 	else {
 		# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
@@ -991,10 +1254,10 @@ sub compute_fruit_ratio ($product_ref, $prepared) {
 				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} = $category_id;
 				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}
 					= $fruits_vegetables_nuts_by_category{$category_id};
-				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category";
+				add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-from-category");
 				my $category = $category_id;
 				$category =~ s/:/-/;
-				push @{$product_ref->{misc_tags}}, "en:nutrition-fruits-vegetables-nuts-from-category-$category";
+				add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-from-category-$category");
 				last;
 			}
 		}
@@ -1003,20 +1266,103 @@ sub compute_fruit_ratio ($product_ref, $prepared) {
 		if (not defined $fruits) {
 			$fruits = 0;
 			$product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts} = 1;
-			push @{$product_ref->{misc_tags}}, "en:nutrition-no-fruits-vegetables-nuts";
+			add_tag($product_ref, "misc", "en:nutrition-no-fruits-vegetables-nuts");
 		}
 	}
 
 	if (   (defined $product_ref->{nutrition_score_warning_no_fiber})
 		or (defined $product_ref->{nutrition_score_warning_no_fruits_vegetables_nuts}))
 	{
-		push @{$product_ref->{misc_tags}}, "en:nutrition-no-fiber-or-fruits-vegetables-nuts";
+		add_tag($product_ref, "misc", "en:nutrition-no-fiber-or-fruits-vegetables-nuts");
 	}
 	else {
-		push @{$product_ref->{misc_tags}}, "en:nutrition-all-nutriscore-values-known";
+		add_tag($product_ref, "misc", "en:nutrition-all-nutriscore-values-known");
 	}
 
 	return $fruits;
+}
+
+# estimates by category of products. not exact values. For the Nutri-Score, it's important to distinguish only between the thresholds: 40, 60 and 80
+# first entries match first, so we put potatoes before vegetables
+my @fruits_vegetables_legumes_by_category_if_no_ingredients_specified_sorted = (
+	["en:potatoes", 0],
+	["en:sweet-potatoes", 0],
+	["en:fruit-juices", 100],
+	["en:vegetable-juices", 100],
+	["en:fruit-sauces", 90],
+	["en:vegetables", 90],
+	["en:fruits", 90],
+	["en:mushrooms", 90],
+	["en:canned-fruits", 90],
+	["en:frozen-fruits", 90],
+	["en:jams", 50],
+);
+
+=head2 compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared)
+
+Compute the % of fruits, vegetables and legumes for the Nutri-Score 2023 algorithm.
+
+Differences with the 2021 version:
+- we use only the estimate from the ingredients or a conservative estimate from the product category
+- we do not use values estimated by users from ingredients list: too difficult to know what should be included or not
+
+=head3 Arguments
+
+=head4 $product_ref - ref to the product
+
+=head4 $prepared - string contains either "" or "-prepared"
+
+=cut
+
+sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref, $prepared) {
+
+	# Check if we have a category override:
+	# - if the product is in a category that has no unprocessed fruits/vegetables/nuts (e.g. crisps), return 0
+	# - if the product is in category that has only ingredients that are consired fruits/vegetables/nuts (e.g. olive oil), return 100
+	my ($nutriscore_category_override_for_fruits_vegetables_legumes, $category_id)
+		= get_inherited_property_from_categories_tags($product_ref,
+		"nutriscore_category_override_for_fruits_vegetables_legumes:en");
+	if (defined $nutriscore_category_override_for_fruits_vegetables_legumes) {
+		# We are close to certain that those category overrides (either 0 or 100) are correct,
+		# so we do not add a nutrition_score_warning_fruits_vegetables_legumes_from_category warning
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-from-category");
+		my $category = $category_id;
+		$category =~ s/:/-/;
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-from-category-$category");
+		return $nutriscore_category_override_for_fruits_vegetables_legumes
+			+ 0;    # Add 0 to make the property value a number
+	}
+
+	my $fruits_vegetables_legumes = deep_get($product_ref, "nutriments",
+		"fruits-vegetables-legumes-estimate-from-ingredients" . $prepared . "_100g");
+
+	# First get a conservative estimate from the ingredients list
+	if (defined $fruits_vegetables_legumes) {
+		$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients} = 1;
+		$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value}
+			= $fruits_vegetables_legumes;
+		add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients");
+	}
+	# if we do not have ingredients, try to use the product category
+	else {
+		foreach my $category_ref (@fruits_vegetables_legumes_by_category_if_no_ingredients_specified_sorted) {
+
+			my $category_id = $category_ref->[0];
+			if (has_tag($product_ref, "categories", $category_id)) {
+				$fruits_vegetables_legumes = $category_ref->[1];
+				$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_from_category} = $category_id;
+				$product_ref->{nutrition_score_warning_fruits_vegetables_legumes_from_category_value}
+					= $fruits_vegetables_legumes;
+				add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-from-category");
+				my $category = $category_id;
+				$category =~ s/:/-/;
+				add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-legumes-from-category-$category");
+				last;
+			}
+		}
+	}
+
+	return $fruits_vegetables_legumes;
 }
 
 =head2 saturated_fat_ratio( $nutriments_ref, $prepared )
@@ -1111,69 +1457,122 @@ Ref to a mapping suitable to call compute_nutriscore_score_and_grade
 
 =cut
 
-sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field) {
+sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $version = "2021") {
 
 	my $nutriments_ref = $product_ref->{$nutriments_field};
 
-	# compute data
-	my $saturated_fat_ratio = saturated_fat_ratio($nutriments_ref, $prepared);
-	my $fruits = compute_fruit_ratio($product_ref, $prepared);
-	my $nutriscore_data = {
-		is_beverage => $product_ref->{nutrition_score_beverage},
-		is_water => is_water_for_nutrition_score($product_ref),
-		is_cheese => is_cheese_for_nutrition_score($product_ref),
-		is_fat => is_fat_for_nutrition_score($product_ref),
+	my $nutriscore_data_ref;
 
-		energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
-		sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
-		saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
-		saturated_fat_ratio => $saturated_fat_ratio,
-		sodium => $nutriments_ref->{"sodium" . $prepared . "_100g"} * 1000,    # in mg,
+	# The 2021 and 2023 version of the Nutri-Score need different nutrients
+	if ($version eq "2021") {
+		# fruits, vegetables, nuts, olive / rapeseed / walnut oils - 2021
+		my $fruits_vegetables_nuts_colza_walnut_olive_oils
+			= compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil($product_ref, $prepared);
 
-		fruits_vegetables_nuts_colza_walnut_olive_oils => $fruits,
-		fiber => (
-			(defined $nutriments_ref->{"fiber" . $prepared . "_100g"})
-			? $nutriments_ref->{"fiber" . $prepared . "_100g"}
-			: 0
-		),
-		proteins => $nutriments_ref->{"proteins" . $prepared . "_100g"},
-	};
+		my $is_fat = is_fat_for_nutrition_score($product_ref);
+
+		$nutriscore_data_ref = {
+			is_beverage => $product_ref->{nutrition_score_beverage},
+			is_water => is_water_for_nutrition_score($product_ref),
+			is_cheese => is_cheese_for_nutrition_score($product_ref),
+			is_fat => $is_fat,
+
+			energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
+			sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
+			saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
+			sodium => (
+				(defined $nutriments_ref->{"sodium" . $prepared . "_100g"})
+				? $nutriments_ref->{"sodium" . $prepared . "_100g"} * 1000
+				: undef
+			),    # in mg,
+
+			fruits_vegetables_nuts_colza_walnut_olive_oils => $fruits_vegetables_nuts_colza_walnut_olive_oils,
+			fiber => (
+				(defined $nutriments_ref->{"fiber" . $prepared . "_100g"})
+				? $nutriments_ref->{"fiber" . $prepared . "_100g"}
+				: 0
+			),
+			proteins => $nutriments_ref->{"proteins" . $prepared . "_100g"},
+		};
+
+		if ($is_fat) {
+			# Add the fat and saturated fat / fat ratio
+			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared . "_100g"};
+			$nutriscore_data_ref->{saturated_fat_ratio} = saturated_fat_ratio($nutriments_ref, $prepared);
+		}
+	}
+	else {
+		# fruits, vegetables, legumes - 2023
+		my $fruits_vegetables_legumes = compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared);
+
+		my $is_fat_oil_nuts_seeds = is_fat_oil_nuts_seeds_for_nutrition_score($product_ref);
+		my $is_beverage = is_beverage_for_nutrition_score_2023($product_ref);
+
+		$nutriscore_data_ref = {
+			is_beverage => $is_beverage,
+			is_water => is_water_for_nutrition_score($product_ref),
+			is_cheese => is_cheese_for_nutrition_score($product_ref),
+			is_fat_oil_nuts_seeds => $is_fat_oil_nuts_seeds,
+			is_red_meat_product => is_red_meat_product_for_nutrition_score($product_ref),
+
+			energy => $nutriments_ref->{"energy" . $prepared . "_100g"},
+			sugars => $nutriments_ref->{"sugars" . $prepared . "_100g"},
+			saturated_fat => $nutriments_ref->{"saturated-fat" . $prepared . "_100g"},
+			salt => $nutriments_ref->{"salt" . $prepared . "_100g"},
+
+			fruits_vegetables_legumes => $fruits_vegetables_legumes,
+			fiber => (
+				(defined $nutriments_ref->{"fiber" . $prepared . "_100g"})
+				? $nutriments_ref->{"fiber" . $prepared . "_100g"}
+				: 0
+			),
+			proteins => $nutriments_ref->{"proteins" . $prepared . "_100g"},
+		};
+
+		if ($is_fat_oil_nuts_seeds) {
+			# Add the fat and saturated fat / fat ratio
+			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared . "_100g"};
+			$nutriscore_data_ref->{saturated_fat_ratio} = saturated_fat_ratio($nutriments_ref, $prepared);
+			# Compute the energy from saturates
+			if (defined $nutriscore_data_ref->{saturated_fat}) {
+				$nutriscore_data_ref->{energy_from_saturated_fat} = $nutriscore_data_ref->{saturated_fat} * 37;
+			}
+		}
+
+		if ($is_beverage) {
+			if (defined $product_ref->{with_non_nutritive_sweeteners}) {
+				$nutriscore_data_ref->{with_non_nutritive_sweeteners} = $product_ref->{with_non_nutritive_sweeteners};
+			}
+		}
+	}
 
 	# tweak data to take into account special cases
 
 	# if sugar is undefined but carbohydrates is 0, set sugars to 0
 	if (sugar_0_because_of_carbohydrates_0($nutriments_ref, $prepared)) {
-		$nutriscore_data->{sugars} = 0;
+		$nutriscore_data_ref->{sugars} = 0;
 	}
 	# if saturated_fat is undefined but fat is 0, set saturated_fat to 0
 	# as well as saturated_fat_ratio
 	if (saturated_fat_0_because_of_fat_0($nutriments_ref, $prepared)) {
-		$nutriscore_data->{saturated_fat} = 0;
-		$nutriscore_data->{saturated_fat_ratio} = 0;
+		$nutriscore_data_ref->{saturated_fat} = 0;
+		$nutriscore_data_ref->{saturated_fat_ratio} = 0;
 	}
 
-	return $nutriscore_data;
+	return $nutriscore_data_ref;
 }
 
-=head2 compute_nutrition_score( $product_ref )
-
-Determines if we have enough data to compute the Nutri-Score (category + nutrition facts),
-and if the Nutri-Score is applicable to the product the category.
-
-Populates the data structure needed to compute the Nutri-Score and computes it.
+=head2 remove_nutriscore_fields ( $product_ref )
 
 =cut
 
-sub compute_nutrition_score ($product_ref) {
+sub remove_nutriscore_fields ($product_ref) {
 
-	# Initialize values
-
-	$product_ref->{nutrition_score_debug} = '';
-
-	# remove reference type fields from the product
+	# remove direct fields from the product
 	remove_fields(
 		$product_ref,
 		[
+			"nutriscore",
 			"nutrition_score_warning_no_fiber",
 			"nutrition_score_warning_fruits_vegetables_nuts_estimate",
 			"nutrition_score_warning_fruits_vegetables_nuts_from_category",
@@ -1181,6 +1580,12 @@ sub compute_nutrition_score ($product_ref) {
 			"nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients",
 			"nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value",
 			"nutrition_score_warning_no_fruits_vegetables_nuts",
+			"nutrition_score_warning_fruits_vegetables_legumes_estimate",
+			"nutrition_score_warning_fruits_vegetables_legumes_from_category",
+			"nutrition_score_warning_fruits_vegetables_legumes_from_category_value",
+			"nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients",
+			"nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value",
+			"nutrition_score_warning_no_fruits_vegetables_legumes",
 			"nutriscore_score",
 			"nutriscore_score_opposite",
 			"nutriscore_grade",
@@ -1188,11 +1593,14 @@ sub compute_nutrition_score ($product_ref) {
 			"nutriscore_points",
 			"nutrition_grade_fr",
 			"nutrition_grades",
-			"nutrition_grades_tags"
+			"nutrition_grades_tags",
+			"nutriscore_tags",
+			"nutriscore_2021_tags",
+			"nutriscore_2023_tags",
 		]
 	);
 
-	# strip score-type fields from the product
+	# strip nutriments / score-type fields from the product
 	remove_fields(
 		$product_ref->{nutriments},
 		[
@@ -1204,49 +1612,45 @@ sub compute_nutrition_score ($product_ref) {
 		]
 	);
 
-	$product_ref->{misc_tags} = ["en:nutriscore-not-computed"];
+	return;
+}
 
-	my $prepared = '';
+=head2 is_nutriscore_applicable_to_the_product_categories($product_ref)
+
+Check that the product has a category, that we know if it is a beverage or not,
+and that it is not in a category for which the Nutri-Score should not be computed
+(e.g. food for babies)
+
+=head3 Return values
+
+=head4 $category_available - 0 or 1
+
+=head4 $nutriscore_applicable - 0 or 1
+
+=head4 $not_applicable_category - undef or category id
+
+=cut
+
+sub is_nutriscore_applicable_to_the_product_categories ($product_ref) {
+
+	my $category_available = 1;
+	my $nutriscore_applicable = 1;
+	my $not_applicable_category = undef;
 
 	# do not compute a score when we don't have a category
 	if ((not defined $product_ref->{categories}) or ($product_ref->{categories} eq '')) {
 		$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 		$product_ref->{nutrition_score_debug} = "no score when the product does not have a category" . " - ";
 		add_tag($product_ref, "misc", "en:nutriscore-missing-category");
+		$category_available = 0;
+		$nutriscore_applicable = 0;
 	}
 
 	if (not defined $product_ref->{nutrition_score_beverage}) {
 		$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 		$product_ref->{nutrition_score_debug} = "did not determine if it was a beverage" . " - ";
 		add_tag($product_ref, "misc", "en:nutriscore-beverage-status-unknown");
-	}
-
-	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, powder milk)
-	# unless we have nutrition data for the prepared product
-	# same for en:chocolate-powders, en:dessert-mixes and en:flavoured-syrups
-
-	foreach my $category_tag (
-		"en:dried-products-to-be-rehydrated", "en:cocoa-and-chocolate-powders",
-		"en:dessert-mixes", "en:flavoured-syrups",
-		"en:instant-beverages"
-		)
-	{
-
-		if (has_tag($product_ref, "categories", $category_tag)) {
-
-			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
-				$product_ref->{nutrition_score_debug}
-					= "using prepared product data for category $category_tag" . " - ";
-				$prepared = '_prepared';
-			}
-			else {
-				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
-				$product_ref->{nutrition_score_debug}
-					= "no score for category $category_tag without data for prepared product" . " - ";
-				add_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data");
-			}
-			last;
-		}
+		$nutriscore_applicable = 0;
 	}
 
 	# do not compute a score for coffee, tea etc. except ice teas etc.
@@ -1272,9 +1676,68 @@ sub compute_nutrition_score ($product_ref) {
 					add_tag($product_ref, "misc", "en:nutriscore-not-applicable");
 					$product_ref->{nutrition_score_debug} = "no nutriscore for category $category_id" . " - ";
 					$product_ref->{nutriscore_data} = {nutriscore_not_applicable_for_category => $category_id};
+					$nutriscore_applicable = 0;
+					$not_applicable_category = $category_id;
 					last;
 				}
 			}
+		}
+	}
+
+	return ($category_available, $nutriscore_applicable, $not_applicable_category);
+}
+
+=head2 check_availability_of_nutrients_needed_for_nutriscore ($product_ref)
+
+Check that we know or can estimate the nutrients needed to compute the Nutri-Score of the product.
+
+=head3 Return values
+
+=head4 $nutrients_available 0 or 1
+
+=head4 $prepared "" or "_prepared"
+
+Suffix to indicate if the Nutri-Score should be computed on prepared values
+
+=head4 $nutriments_field "nutriments" or "nutriments_estimated"
+
+Indicates which nutrients fields were used to compute the Nutri-Score.
+
+=cut
+
+sub check_availability_of_nutrients_needed_for_nutriscore ($product_ref) {
+
+	my $nutrients_available = 1;
+
+	# do not compute a score for dehydrated products to be rehydrated (e.g. dried soups, powder milk)
+	# unless we have nutrition data for the prepared product
+	# same for en:chocolate-powders, en:dessert-mixes and en:flavoured-syrups
+
+	my $prepared = '';
+
+	foreach my $category_tag (
+		"en:dried-products-to-be-rehydrated", "en:cocoa-and-chocolate-powders",
+		"en:dessert-mixes", "en:flavoured-syrups",
+		"en:instant-beverages"
+		)
+	{
+
+		if (has_tag($product_ref, "categories", $category_tag)) {
+
+			if ((defined $product_ref->{nutriments}{"energy_prepared_100g"})) {
+				$product_ref->{nutrition_score_debug}
+					= "using prepared product data for category $category_tag" . " - ";
+				$prepared = '_prepared';
+				add_tag($product_ref, "misc", "en:nutrition-grade-computed-for-prepared-product");
+			}
+			else {
+				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
+				$product_ref->{nutrition_score_debug}
+					= "no score for category $category_tag without data for prepared product" . " - ";
+				add_tag($product_ref, "misc", "en:nutriscore-missing-prepared-nutrition-data");
+				$nutrients_available = 0;
+			}
+			last;
 		}
 	}
 
@@ -1310,9 +1773,10 @@ sub compute_nutrition_score ($product_ref) {
 					);
 				$product_ref->{"nutrition_grades_tags"} = ["unknown"];
 				add_tag($product_ref, "misc", "en:nutrition-not-enough-data-to-compute-nutrition-score");
-				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared . " - ";
+				$product_ref->{nutrition_score_debug} .= "missing " . $nid . $prepared . "_100g - ";
 				add_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data");
 				add_tag($product_ref, "misc", "en:nutriscore-missing-nutrition-data-$nid");
+				$nutrients_available = 0;
 			}
 			else {
 				$key_nutrients++;
@@ -1334,7 +1798,7 @@ sub compute_nutrition_score ($product_ref) {
 	# Remove ending -
 	$product_ref->{nutrition_score_debug} =~ s/ - $//;
 
-	# By default we use the "nutriments" hash as a source (specified nutriements),
+	# By default we use the "nutriments" hash as a source (specified nutrients),
 	# but if we don't have specified nutrients, we can use use the "nutriments_estimated" hash if it exists.
 	# If we have some specified nutrients but are missing required nutrients for the Nutri-Score,
 	# we do not use estimated nutrients, in order to encourage users to complete the nutrition facts
@@ -1356,49 +1820,204 @@ sub compute_nutrition_score ($product_ref) {
 
 		# Delete the warning for missing fiber, as we will get fiber from the estimate
 		delete $product_ref->{nutrition_score_warning_no_fiber};
+
+		$nutrients_available = 1;
 	}
 
-	# If the Nutri-Score is unknown or not applicable, exit the function
-	if (
-		(defined $product_ref->{"nutrition_grades_tags"})
-		and (  ($product_ref->{"nutrition_grades_tags"}[0] eq "unknown")
-			or ($product_ref->{"nutrition_grades_tags"}[0] eq "not-applicable"))
-		)
+	return ($nutrients_available, $prepared, $nutriments_field);
+}
+
+=head2 set_fields_for_current_version_of_nutriscore($product_ref, $current_version, $nutriscore_score, $nutriscore_grade)
+
+We may compute several versions of the Nutri-Score grade and score. One version is considered "current".
+This function sets the product fields for the current version.
+
+=cut
+
+sub set_fields_for_current_version_of_nutriscore ($product_ref, $version, $nutriscore_score, $nutriscore_grade) {
+
+	# Record which version is the current version
+	$product_ref->{nutriscore_version} = $version;
+
+	# Copy the Nutriscore data to nutriscore_data
+	# to easily see diffs with previous Nutri-Score structure
+	# (to be deleted once we are sure everything works,
+	# we will generate the nutriscore_data fields on request
+	# when asked through the API with an old API version)
+	# Before 2023-08-29, we did not create a nutriscore_data structure when the Nutri-Score was not computed
+	# so we do not copy the nutriscore data structure in that case.
+	if ($product_ref->{nutriscore}{$version}{nutriscore_computed}) {
+		$product_ref->{nutriscore_data} = dclone($product_ref->{nutriscore}{$version}{data});
+		# The grade and score fields are now one level up (not in the data section)
+		# copy them for backward compatibility
+		$product_ref->{nutriscore_data}{grade} = $nutriscore_grade;
+		$product_ref->{nutriscore_data}{score} = $nutriscore_score;
+	}
+
+	# Copy the resulting values to the main Nutri-Score fields
+	if (defined $nutriscore_score) {
+		$product_ref->{nutriscore_score} = $nutriscore_score;
+
+		# Fields used to display the Nutri-Score score inside nutrition facts table
+		# and to compute averages etc. for categories
+		$product_ref->{nutriments}{"nutrition-score-fr_100g"} = $nutriscore_score;
+		$product_ref->{nutriments}{"nutrition-score-fr"} = $nutriscore_score;
+
+		# In order to be able to sort by nutrition score in MongoDB,
+		# we create an opposite of the nutrition score
+		# as otherwise, in ascending order on nutriscore_score, we first get products without the nutriscore_score field
+		# instead we can sort on descending order on nutriscore_score_opposite
+		$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;
+	}
+	$product_ref->{nutriscore_grade} = $nutriscore_grade;
+
+	$product_ref->{"nutrition_grades_tags"} = [$nutriscore_grade];
+	$product_ref->{"nutrition_grades"} = $nutriscore_grade;    # needed for the /nutrition-grade/unknown query
+															   # (TODO at some point: remove the nutrition_grades field)
+
+	# Gradually rename nutrition_grades_tags to nutriscore_tags
+	$product_ref->{"nutriscore_tags"} = [$nutriscore_grade];
+
+	# Legacy field, to be removed from the product and returned by the API on request / for older versions
+	$product_ref->{"nutrition_grade_fr"} = $nutriscore_grade;
+
+	return;
+}
+
+=head2 set_fields_comparing_nutriscore_versions($product_ref, $version1, $version2)
+
+When we are migrating from one version of the Nutri-Score to another (e.g. 2021 vs 2023),
+we may compute both version for a time. This function sets temporary fields to ease the comparison
+of both versions.
+
+Once the migration is complete, those fields will no longer be computed.
+
+=cut
+
+sub set_fields_comparing_nutriscore_versions ($product_ref, $version1, $version2) {
+
+	my $nutriscore1 = $product_ref->{nutriscore}{$version1}{grade};
+	my $nutriscore2 = $product_ref->{nutriscore}{$version2}{grade};
+
+	# Set tags fields for both versions
+	$product_ref->{"nutriscore_${version1}_tags"} = [$nutriscore1];
+	$product_ref->{"nutriscore_${version2}_tags"} = [$nutriscore2];
+
+	# Compare both versions, only if Nutri-Score has been computed in at least one version
+	if (   (not $product_ref->{nutriscore}{$version1}{nutriscore_computed})
+		or (not $product_ref->{nutriscore}{$version2}{nutriscore_computed}))
 	{
 		return;
 	}
 
-	if ($prepared ne '') {
-		push @{$product_ref->{misc_tags}}, "en:nutrition-grade-computed-for-prepared-product";
+	if ($nutriscore1 eq $nutriscore2) {
+		add_tag($product_ref, "misc", "en:nutriscore-$version1-same-as-$version2");
+	}
+	else {
+		add_tag($product_ref, "misc", "en:nutriscore-$version1-different-from-$version2");
+		if ($nutriscore1 lt $nutriscore2) {
+			add_tag($product_ref, "misc", "en:nutriscore-$version1-better-than-$version2");
+		}
+		else {
+			add_tag($product_ref, "misc", "en:nutriscore-$version1-worse-than-$version2");
+		}
 	}
 
-	# Populate the data structure that will be passed to Food::Nutriscore
+	add_tag($product_ref, "misc", "en:nutriscore-$version1-$nutriscore1-$version2-$nutriscore2");
 
-	$product_ref->{nutriscore_data} = compute_nutriscore_data($product_ref, $prepared, $nutriments_field);
+	return;
+}
 
-	my ($nutriscore_score, $nutriscore_grade)
-		= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade($product_ref->{nutriscore_data});
+=head2 compute_nutriscore( $product_ref )
 
-	$product_ref->{nutriscore_score} = $nutriscore_score;
-	$product_ref->{nutriscore_grade} = $nutriscore_grade;
+Determines if we have enough data to compute the Nutri-Score (category + nutrition facts),
+and if the Nutri-Score is applicable to the product the category.
 
-	$product_ref->{nutriments}{"nutrition-score-fr_100g"} = $nutriscore_score;
-	$product_ref->{nutriments}{"nutrition-score-fr"} = $nutriscore_score;
+Populates the data structure needed to compute the Nutri-Score and computes it.
 
-	$product_ref->{"nutrition_grade_fr"} = $nutriscore_grade;
+=cut
 
-	$product_ref->{"nutrition_grades_tags"} = [$product_ref->{"nutrition_grade_fr"}];
-	$product_ref->{"nutrition_grades"}
-		= $product_ref->{"nutrition_grade_fr"};    # needed for the /nutrition-grade/unknown query
+sub compute_nutriscore ($product_ref, $current_version = "2021") {
 
-	shift @{$product_ref->{misc_tags}};
-	push @{$product_ref->{misc_tags}}, "en:nutriscore-computed";
+	# Initialize values
 
-	# In order to be able to sort by nutrition score in MongoDB,
-	# we create an opposite of the nutrition score
-	# as otherwise, in ascending order on nutriscore_score, we first get products without the nutriscore_score field
-	# instead we can sort on descending order on nutriscore_score_opposite
-	$product_ref->{nutriscore_score_opposite} = -$nutriscore_score;
+	$product_ref->{nutrition_score_debug} = '';
+
+	# Remove any previously existing Nutri-Score related fields
+	remove_nutriscore_fields($product_ref);
+
+	my ($category_available, $nutriscore_applicable, $not_applicable_category)
+		= is_nutriscore_applicable_to_the_product_categories($product_ref);
+
+	my ($nutrients_available, $prepared, $nutriments_field)
+		= check_availability_of_nutrients_needed_for_nutriscore($product_ref);
+
+	if (not($nutriscore_applicable and $nutrients_available)) {
+		add_tag($product_ref, "misc", "en:nutriscore-not-computed");
+	}
+	else {
+		add_tag($product_ref, "misc", "en:nutriscore-computed");
+	}
+
+	# 2023/08/10: compute both the 2021 and the 2023 versions of the Nutri-Score
+
+	foreach my $version ("2021", "2023") {
+
+		# Record if we have enough data to compute the Nutri-Score and if the Nutri-Score is applicable to the product categories
+		deep_set(
+			$product_ref,
+			"nutriscore",
+			$version,
+			{
+				"category_available" => $category_available,
+				"nutriscore_applicable" => $nutriscore_applicable,
+				"nutrients_available" => $nutrients_available,
+				"nutriscore_computed" => $nutriscore_applicable * $nutrients_available,
+			}
+		);
+
+		if (defined $not_applicable_category) {
+			deep_set($product_ref, "nutriscore", $version, "not_applicable_category", $not_applicable_category);
+		}
+
+		# Populate the data structure that will be passed to Food::Nutriscore
+		deep_set($product_ref, "nutriscore", $version, "data",
+			compute_nutriscore_data($product_ref, $prepared, $nutriments_field, $version));
+
+		# Compute the Nutri-Score
+		my ($nutriscore_score, $nutriscore_grade);
+
+		if (not $category_available) {
+			$nutriscore_grade = "unknown";
+		}
+		elsif (not $nutriscore_applicable) {
+			$nutriscore_grade = "not-applicable";
+		}
+		elsif (not $nutrients_available) {
+			$nutriscore_grade = "unknown";
+		}
+		else {
+			($nutriscore_score, $nutriscore_grade)
+				= ProductOpener::Nutriscore::compute_nutriscore_score_and_grade(
+				$product_ref->{nutriscore}{$version}{data}, $version);
+		}
+
+		# Populate the Nutri-Score fields for the current version
+		if ($version eq $current_version) {
+
+			set_fields_for_current_version_of_nutriscore($product_ref, $current_version, $nutriscore_score,
+				$nutriscore_grade);
+		}
+
+		$product_ref->{nutriscore}{$version}{grade} = $nutriscore_grade;
+		if (defined $nutriscore_score) {
+			$product_ref->{nutriscore}{$version}{score} = $nutriscore_score;
+		}
+	}
+
+	# 2023/08/17: as we are migrating from one version of the Nutri-Score to another, we set temporary fields
+	# to compare both versions.
+	set_fields_comparing_nutriscore_versions($product_ref, "2021", "2023");
 
 	return;
 }
@@ -2435,6 +3054,9 @@ sub compute_estimated_nutrients ($product_ref) {
 		while (my ($nid, $value) = each(%{$results_ref->{nutrients}})) {
 			$product_ref->{nutriments_estimated}{$nid . '_100g'} = $value;
 		}
+	}
+	else {
+		delete $product_ref->{nutriments_estimated};
 	}
 
 	return $results_ref;
