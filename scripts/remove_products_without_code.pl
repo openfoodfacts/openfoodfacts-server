@@ -71,7 +71,7 @@ while (my $product_ref = $cursor->next) {
 
 		#get_products_collection()->delete_one({"code" => $code});
 
-		# index_product($product_ref);
+		# compute_keywords($product_ref);
 
 		# Store
 

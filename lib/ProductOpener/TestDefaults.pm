@@ -31,8 +31,10 @@ BEGIN {
 		%admin_user_form
 		%default_org_edit_form
 		%default_org_edit_admin_form
+		%default_product
 		%default_product_form
 		%default_user_form
+		%moderator_user_form
 		%pro_moderator_user_form
 
 		$test_password
@@ -63,6 +65,8 @@ A basic user.
 	team_1 => "",
 	team_2 => "",
 	team_3 => "",
+	preferred_language => "en",
+	country => "en:united-states",
 	action => "process",
 	type => "add"
 );
@@ -78,20 +82,27 @@ a user which is an admin
 	name => "Admin",
 );
 
-=head2 %pro_moderator_user_form
-a user which is a producers moderator
+=head2 %moderator_user_form and %pro_moderator_user_form
+a user which is a moderator, or a pro platform moderator
 
 NB: must be created by an admin
 =cut
 
-%pro_moderator_user_form = (
+%moderator_user_form = (
 	%{clone(\%default_user_form)},
 	email => 'moderator@openfoodfacts.org',
+	userid => 'moderator',
+	name => "Moderator",
+);
+
+%pro_moderator_user_form = (
+	%{clone(\%default_user_form)},
+	email => 'promoderator@openfoodfacts.org',
 	userid => 'promoderator',
 	name => "Pro Moderator",
 );
 
-%default_product_form = (
+%default_product = (
 	code => '2000000000001',
 	lang => "en",
 	product_name => "test_default",
@@ -102,6 +113,10 @@ NB: must be created by an admin
 	origin => "Germany",
 	categories => "snacks",
 	serving_size => "10 g",
+);
+
+%default_product_form = (
+	%default_product,
 	action => "process",
 	type => "add",
 	".submit" => "submit"

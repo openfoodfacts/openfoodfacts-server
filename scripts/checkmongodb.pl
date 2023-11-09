@@ -40,18 +40,6 @@ sub send_msg($) {
 	return;
 }
 
-my $count;
-
-eval {
-	$count = execute_query(
-		sub {
-			return get_products_tags_collection()->count_documents({});
-		}
-	);
-};
-
-print STDERR "count: $count\n";
-
 if ($@) {
 	my $hostname = `hostname`;
 	my $msg = "Host: $hostname - Mongodb down: $@\n";

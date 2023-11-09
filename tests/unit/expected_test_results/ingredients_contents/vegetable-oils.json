@@ -1,0 +1,105 @@
+{
+   "ingredients" : [
+      {
+         "from_palm_oil" : "no",
+         "id" : "en:olive-oil",
+         "percent" : 40,
+         "percent_estimate" : 40,
+         "percent_max" : 40,
+         "percent_min" : 40,
+         "text" : "olive oil",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "from_palm_oil" : "no",
+         "id" : "en:rapeseed-oil",
+         "percent" : 30,
+         "percent_estimate" : 30,
+         "percent_max" : 30,
+         "percent_min" : 30,
+         "text" : "rapeseed oil",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "17440",
+         "from_palm_oil" : "no",
+         "id" : "en:sunflower-oil",
+         "percent" : 20,
+         "percent_estimate" : 20,
+         "percent_max" : 20,
+         "percent_min" : 20,
+         "text" : "sunflower oil",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "17220",
+         "from_palm_oil" : "no",
+         "id" : "en:walnut-oil",
+         "percent" : 10,
+         "percent_estimate" : 10,
+         "percent_max" : 10,
+         "percent_min" : 10,
+         "text" : "walnut oil",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:olive-oil",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:vegetable-oil",
+      "en:rapeseed-oil",
+      "en:sunflower-oil",
+      "en:walnut-oil"
+   ],
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:olive-oil",
+      "en:rapeseed-oil",
+      "en:sunflower-oil",
+      "en:walnut-oil"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:olive-oil",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:vegetable-oil",
+      "en:rapeseed-oil",
+      "en:sunflower-oil",
+      "en:walnut-oil"
+   ],
+   "ingredients_text" : "olive oil 40%, rapeseed oil 30%, sunflower oil 20%, walnut oil 10%",
+   "ingredients_with_specified_percent_n" : 4,
+   "ingredients_with_specified_percent_sum" : 100,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
+   "ingredients_without_ciqual_codes" : [
+      "en:olive-oil",
+      "en:rapeseed-oil"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "known_ingredients_n" : 7,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 80,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 80
+   },
+   "unknown_ingredients_n" : 0
+}

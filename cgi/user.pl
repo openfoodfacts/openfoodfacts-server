@@ -26,6 +26,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Web qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Orgs qw/:all/;
@@ -106,17 +107,12 @@ if ($action eq 'process') {
 
 	if ($type eq 'edit') {
 		if (single_param('delete') eq 'on') {
-			if ($admin) {
-				$type = 'delete';
-			}
-			else {
-				display_error_and_exit($Lang{error_no_permission}{$lang}, 403);
-			}
+			$type = 'delete';
 		}
 	}
 
 	# change organization
-	if ($type eq 'edit_owner' && $admin) {
+	if ($type eq 'edit_owner') {
 		# only admin and pro moderators can change organization freely
 		if ($admin or $User{pro_moderator}) {
 			ProductOpener::Users::check_edit_owner($user_ref, \@errors);
@@ -174,8 +170,13 @@ if ($action eq 'display') {
 	$template_data_ref->{sections} = [];
 
 	if ($user_ref) {
-		push @{$template_data_ref->{sections}},
-			{
+		my $selected_language = $user_ref->{preferred_language}
+			// (remove_tags_and_quote(single_param('preferred_language')) || "$lc");
+		my $selected_country = $user_ref->{country} // (remove_tags_and_quote(single_param('country')) || $country);
+		if ($selected_country eq "en:world") {
+			$selected_country = "";
+		}
+		push @{$template_data_ref->{sections}}, {
 			id => "user",
 			fields => [
 				{
@@ -199,8 +200,33 @@ if ($action eq 'display') {
 					type => "password",
 					label => "password_confirm"
 				},
+				{
+					field => "preferred_language",
+					type => "select",
+					label => "preferred_language",
+					selected => $selected_language,
+					options => get_languages_options_list($lc),
+				},
+				{
+					field => "country",
+					type => "select",
+					label => "select_country",
+					selected => $selected_country,
+					options => get_countries_options_list($lc),
+				},
+				{
+					# this is a honeypot to detect scripts, that fills every fields
+					# this one is hidden in a div and user won't see it
+					field => "faxnumber",
+					type => "honeypot",
+					label => "Do not enter your fax number",
+				},
 			]
-			};
+		};
+
+		# news letter subscription value
+		my $newsletter = $user_ref->{newsletter} // (remove_tags_and_quote(single_param('newsletter')) || "on");
+		push @{$template_data_ref->{newsletter}}, $newsletter;
 
 		# Professional account
 		push @{$template_data_ref->{sections}},
@@ -256,6 +282,8 @@ if ($action eq 'display') {
 		}
 
 		# Contributor section
+		my $display_barcode = $user_ref->{display_barcode} || remove_tags_and_quote(single_param('display_barcode'));
+		my $edit_link = $user_ref->{edit_link} || remove_tags_and_quote(single_param('edit_link'));
 		my $contributor_section_ref = {
 			id => "contributor_settings",
 			name => lang("contributor_settings") . " (" . lang("optional") . ")",
@@ -265,13 +293,13 @@ if ($action eq 'display') {
 					field => "display_barcode",
 					type => "checkbox",
 					label => display_icon("barcode") . lang("display_barcode_in_search"),
-					value => $user_ref->{display_barcode} && "on",
+					value => $display_barcode && "on",
 				},
 				{
 					field => "edit_link",
 					type => "checkbox",
 					label => display_icon("edit") . lang("edit_link_in_search"),
-					value => $user_ref->{edit_link} && "on",
+					value => $edit_link && "on",
 				},
 			]
 		};
@@ -312,7 +340,11 @@ if ($action eq 'display') {
 
 		$template_data_ref->{accepted_organization} = $user_ref->{org};
 	}
-	elsif ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+	elsif ( (defined $options{product_type})
+		and ($options{product_type} eq "food")
+		and (defined $user_ref->{requested_org})
+		and ($user_ref->{requested_org} ne ""))
+	{
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
 		$template_data_ref->{requested_org_ref} = $requested_org_ref;
 		$template_data_ref->{org_name} = sprintf(lang("add_user_existing_org"), org_name($requested_org_ref));
@@ -385,8 +417,6 @@ elsif ($action eq 'process') {
 
 		$template_data_ref->{user_org} = $user_ref->{org};
 
-		$template_data_ref->{server_options_producers_platform} = $server_options{producers_platform};
-
 		my $pro_url = "https://" . $subdomain . ".pro." . $server_domain . "/";
 		$template_data_ref->{add_user_pro_url} = sprintf(lang("add_user_you_can_edit_pro_promo"), $pro_url);
 
@@ -399,11 +429,6 @@ elsif ($action eq 'process') {
 $template_data_ref->{debug} = $debug;
 $template_data_ref->{userid} = $userid;
 $template_data_ref->{type} = $type;
-
-my $full_width = 1;
-if ($action ne 'display') {
-	$full_width = 0;
-}
 
 if (($type eq "edit_owner") and ($action eq "process")) {
 	$log->info("redirecting to / after changing owner", {}) if $log->is_info();
@@ -424,6 +449,5 @@ else {
 
 	$request_ref->{title} = lang($type . '_user_' . $action);
 	$request_ref->{content_ref} = \$html;
-	$request_ref->{full_width} = $full_width;
 	display_page($request_ref);
 }

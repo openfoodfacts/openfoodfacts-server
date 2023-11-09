@@ -8,21 +8,45 @@ $productsGutter:12;
     li {
         position: relative;
         display: flex;
-        width: calc((100% - ($productsGutter*1px)) / 2);
+        width: calc((100% - ($productsGutter * 1px)) / 2);
         margin-bottom: #{$productsGutter}px;
         @media #{$medium-up} {
-            width: calc((100% - ($productsGutter*2px)) / 3);
+            width: calc((100% - ($productsGutter * 2px)) / 3);
             margin-bottom: #{$productsGutter}px;
         }
         @media #{$large-up} {
-            width: calc((100% - ($productsGutter*3px)) / 4);
+            width: calc((100% - ($productsGutter * 3px)) / 4);
             margin-bottom: #{$productsGutter}px;
         }
         @media #{$xlarge-up} {
-            width: calc((100% - ($productsGutter*5px)) / 6);
+            width: calc((100% - ($productsGutter * 5px)) / 6);
             margin-bottom: #{$productsGutter}px;
         }
     }
+}
+
+.search_results::before {
+  content: none;
+}
+
+.search_results::after {
+  content: "";
+  position: relative;
+  display: flex;
+  width: calc((100% - ($productsGutter * 1px)) / 2);
+  margin-bottom: #{$productsGutter}px;
+  @media #{$medium-up} {
+      width: calc((100% - ($productsGutter * 2px)) / 3);
+      margin-bottom: #{$productsGutter}px;
+  }
+  @media #{$large-up} {
+      width: calc((100% - ($productsGutter * 3px)) / 4);
+      margin-bottom: #{$productsGutter}px;
+  }
+  @media #{$xlarge-up} {
+      width: calc((100% - ($productsGutter * 5px)) / 6);
+      margin-bottom: #{$productsGutter}px;
+  }
 }
 
 .list_product_a {
@@ -128,6 +152,7 @@ $productsGutter:12;
   display: flex;
   align-items: center;
   gap: 1rem;
+  z-index: 1;
   @media #{$small-only} {
     flex-direction: column;
     padding: .5rem;
@@ -170,6 +195,7 @@ $productsGutter:12;
 
 //// pagination
 #pages.pagination {
+    clear:left;
     border-top: 2px solid $bluegrey;
     display: flex;
     align-items: center;
@@ -220,4 +246,98 @@ $productsGutter:12;
     #main_column {
         height: auto !important;
     }
+}
+
+// Greeter CSS
+// ~/lang-default/en/texts/index.html
+
+$greeter-discover-bgcolor: #E3F6FF;
+$greeter-contribute-bgcolor: #FFF2DF;
+
+// RTL Support
+[dir=rtl] .homepage-greeter-wrapper::before {
+  background: linear-gradient(90deg, $greeter-contribute-bgcolor 50%, $greeter-discover-bgcolor 50%) !important;
+}
+
+[dir=rtl] .homepage-greeter__discover,
+[dir=rtl] .homepage-greeter__contribute {
+  flex-direction: row-reverse !important;
+}
+// end of RTL Support
+
+.homepage-greeter {
+  display: inline-grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  margin-top: -.5rem;
+  @media #{$small-only} { grid-template-rows: max-content; width: 100%; }
+  @media #{$large-up} { max-width: 1280px; grid-template-rows: 300px; }
+  & .show-when-logged-in { display: none; }
+  &-wrapper {
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+    &::before {
+      display: inline-block;
+      content: '';
+      position: absolute;
+      margin-top: -.5rem;
+      width: 100vw;
+      height: 100%;
+      max-height: 300px;
+      background: linear-gradient(90deg, $greeter-discover-bgcolor 50%, $greeter-contribute-bgcolor 50%);
+    }
+  }
+  &__discover, 
+  &__contribute {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    &--content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      max-width: 100vw;
+      padding: 2rem;
+      z-index: 1;
+    }
+    &--image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      @media #{$small-only} { display: none; }
+      @media #{$medium-only} { opacity: .25; }
+      img {
+        position: absolute;
+        max-width: none;
+        height: 80%;
+      }
+    }
+  }
+  &__discover { 
+    background-color: $greeter-discover-bgcolor;
+    &--content {
+      @media #{$xlarge-up} { padding-left: 0; }
+    }
+    &--image > img {
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+  &__contribute {
+    background-color: $greeter-contribute-bgcolor;
+    &--image > img {
+      top: 0;
+      right: 0;
+    }
+  }
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    background-color: $white !important;
+    margin-top: 2rem;
+    &:hover { background-color: #F6F6F6 !important; }
+  }
 }

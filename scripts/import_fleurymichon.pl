@@ -40,6 +40,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::Units qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
@@ -876,70 +877,10 @@ XML
 	}
 	#exit;
 
-	# Process the fields
+	$User_id = $editor_user_id;
 
-	# Food category rules for sweeetened/sugared beverages
-	# French PNNS groups from categories
-
-	if ($server_domain =~ /openfoodfacts/) {
-		ProductOpener::Food::special_process_product($product_ref);
-	}
-
-	if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
-		and ($product_ref->{nutriments}{"carbon-footprint"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
-		push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
-	}
-
-	if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:glycemic-index";
-		push @{$product_ref->{"labels_tags"}}, "en:glycemic-index";
-	}
-
-	# Language and language code / subsite
-
-	if (defined $product_ref->{lang}) {
-		$product_ref->{lc} = $product_ref->{lang};
-	}
-
-	if (not defined $lang_lc{$product_ref->{lc}}) {
-		$product_ref->{lc} = 'xx';
-	}
-
-	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
-
-	foreach my $field (keys %language_fields) {
-		if ($field !~ /_image/) {
-			if (defined $product_ref->{$field . "_$product_ref->{lc}"}) {
-				$product_ref->{$field} = $product_ref->{$field . "_$product_ref->{lc}"};
-			}
-		}
-	}
-
-	# Ingredients classes
-	extract_ingredients_from_text($product_ref);
-	extract_ingredients_classes_from_text($product_ref);
-
-	compute_languages($product_ref);    # need languages for allergens detection
-	detect_allergens_from_text($product_ref);
-
-	#"sources": [
-	#{
-	#"id", "usda-ndb",
-	#"url", "https://ndb.nal.usda.gov/ndb/foods/show/58513?format=Abridged&reportfmt=csv&Qv=1" (direct product url if available)
-	#"import_t", "423423" (timestamp of import date)
-	#"fields" : ["product_name","ingredients","nutrients"]
-	#"images" : [ "1", "2", "3" ] (images ids)
-	#},
-	#{
-	#"id", "usda-ndb",
-	#"url", "https://ndb.nal.usda.gov/ndb/foods/show/58513?format=Abridged&reportfmt=csv&Qv=1" (direct product url if available)
-	#"import_t", "523423" (timestamp of import date)
-	#"fields" : ["ingredients","nutrients"]
-	#"images" : [ "4", "5", "6" ] (images ids)
-	#},
+	my $response_ref = {};
+	analyze_and_enrich_product_data($product_ref, $response_ref);
 
 	if (not defined $product_ref->{sources}) {
 		$product_ref->{sources} = [];
@@ -956,24 +897,7 @@ XML
 		images => \@images_ids,
 		};
 
-	$User_id = $editor_user_id;
-
 	if (not $testing) {
-
-		fix_salt_equivalent($product_ref);
-
-		compute_serving_size_data($product_ref);
-
-		compute_nutrition_score($product_ref);
-
-		compute_nutrient_levels($product_ref);
-
-		compute_unknown_nutrients($product_ref);
-
-		#print STDERR "Storing product code $code\n";
-		#				use Data::Dumper;
-		#print STDERR Dumper($product_ref);
-		#exit;
 
 		store_product($User_id, $product_ref, "Editing product (import_fleurymichon_ch.pl bulk import) - " . $comment);
 

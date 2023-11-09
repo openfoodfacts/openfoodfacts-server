@@ -354,7 +354,7 @@ function change_image(imagefield, imgid) {
             )
             .done(function(data) {
                 imagefield_url[imagefield] = data.image.display_url;
-                update_display(imagefield, false);
+                update_display(imagefield, false, false);
                 $('.cropbuttonmsg_' + imagefield).html(lang().product_js_image_saved);
             })
             .fail(function() {
@@ -425,7 +425,7 @@ function update_nutrition_image_copy() {
     }
 }
 
-function update_display(imagefield, first_display) {
+function update_display(imagefield, first_display, protected) {
 
     var display_url = imagefield_url[imagefield];
 
@@ -434,7 +434,10 @@ function update_display(imagefield, first_display) {
         var imagetype = imagefield.replace(/_\w\w$/, '');
 
         var html = lang().product_js_current_image + '<br/><img src="' + img_path + display_url + '" />';
-        html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + lang().product_js_unselect_image + '</button></div>';
+        // handling the display of unselect button
+        if(!protected){
+            html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + lang().product_js_unselect_image + '</button></div>';
+        } 
 
         if (stringStartsWith(imagefield, 'nutrition')) {
             // width big enough to display a copy next to nutrition table?
@@ -509,7 +512,7 @@ function update_display(imagefield, first_display) {
                     } else {
                         $('div[id="unselectbuttondiv_' + imagefield + '"]').html(lang().product_js_unselected_image_nok);
                     }
-                    update_display(imagefield, false);
+                    update_display(imagefield, false, protected);
                     $('div[id="display_' + imagefield + '"]').html('');
                 })
                 .fail(function() {
@@ -544,26 +547,33 @@ function initializeTagifyInput(el) {
     });
 
     let abortController;
+    let debounceTimer;
+    const timeoutWait = 300;
+
     input.on("input", function(event) {
         const value = event.detail.value;
-        input.settings.whitelist = []; // reset the whitelist
+        input.whitelist = null; // reset the whitelist
 
         if (el.dataset.autocomplete && el.dataset.autocomplete !== "") {
-            // https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
-            if (abortController) {
-                abortController.abort();
-            }
+            clearTimeout(debounceTimer);
 
-            abortController = new AbortController();
+            debounceTimer = setTimeout(function(){
+                // https://developer.mozilla.org/en-US/docs/Web/API/AbortController/abort
+                if (abortController) {
+                    abortController.abort();
+                }
 
-            fetch(el.dataset.autocomplete + "term=" + value, {
-                signal: abortController.signal
-            }).
-            then((RES) => RES.json()).
-            then(function(whitelist) {
-                input.settings.whitelist = whitelist;
-                input.dropdown.show.call(input, value); // render the suggestions dropdown
-            });
+                abortController = new AbortController();
+
+                fetch(el.dataset.autocomplete + "&string=" + value, {
+                    signal: abortController.signal
+                }).
+                then((RES) => RES.json()).
+                then(function(json) {
+                    input.whitelist = json.suggestions;
+                    input.dropdown.show(value); // render the suggestions dropdown
+                });
+            }, timeoutWait);
         }
     });
 
@@ -697,24 +707,26 @@ function get_recents(tagfield) {
 
                 var $this = $(this);
                 var id = $this.attr('id');
+                var data_info = $this.attr("data-info");
 
                 var html = '<ul class="ui-selectable single-selectable">';
+                if(typeof data_info === "undefined" || !stringStartsWith(data_info, "protect")) {
+                    $.each(images, function(index, image) {
+                        var selected = '';
+                        imgids[image.imgid] = index;
+                        if (($("input:hidden[name=\"" + id + ".imgid\"]").val()) == image.imgid) {
+                            selected = ' ui-selected';
+                        }
+                        html += '<li id="' + id + '_' + image.imgid + '" class="ui-state-default ui-selectee' + selected + '">';
+                        html += '<img src="' + settings.img_path + image.thumb_url + '" title="' + image.uploaded + ' - ' + image.uploader + '"/>';
 
-                $.each(images, function(index, image) {
-                    var selected = '';
-                    imgids[image.imgid] = index;
-                    if (($("input:hidden[name=\"" + id + ".imgid\"]").val()) == image.imgid) {
-                        selected = ' ui-selected';
-                    }
-                    html += '<li id="' + id + '_' + image.imgid + '" class="ui-state-default ui-selectee' + selected + '">';
-                    html += '<img src="' + settings.img_path + image.thumb_url + '" title="' + image.uploaded + ' - ' + image.uploader + '"/>';
+                        if ((stringStartsWith(id, 'manage')) && (admin)) {
+                            html += '<div class="show_for_manage_images">' + image.uploaded + '<br/>' + image.uploader + '</div>';
+                        }
 
-                    if ((stringStartsWith(id, 'manage')) && (admin)) {
-                        html += '<div class="show_for_manage_images">' + image.uploaded + '<br/>' + image.uploader + '</div>';
-                    }
-
-                    html += '</li>';
-                });
+                        html += '</li>';
+                    });
+                }    
                 html += '</ul>';
 
                 if (!stringStartsWith(id, 'manage')) {
@@ -734,19 +746,24 @@ function get_recents(tagfield) {
                         '</div>' +
                         '<div id="imgsearchmsg_' + id + '" data-alert class="alert-box info" style="display:none">' + lang().product_js_uploading_image +
                         '<a href="#" class="close">&times;</a>' +
-                        '</div>' +
-                        '<div id="imgsearcherror_' + id + '" data-alert class="alert-box alert" style="display:none">' + lang().product_js_image_upload_error +
-                        '<a href="#" class="close">&times;</a>' +
                         '</div>';
 
+ 
+                        if(typeof data_info === "undefined" || !stringStartsWith(data_info, "protect")){
+                            html+= '<div id="imgsearcherror_' + id + '" data-alert class="alert-box alert" style="display:none">' + lang().product_js_image_upload_error +
+                            '<a href="#" class="close">&times;</a>' +
+                            '</div>';
+                            html += '<input type="checkbox" class="use_low_res_images" name="use_low_res_images_' + id + '" id="use_low_res_images_' + id + '">';
+                            html += '<label for="use_low_res_images_' + id + '">' + lang().product_js_use_low_res_images + '</label>';
 
-                    html += '<input type="checkbox" class="use_low_res_images" name="use_low_res_images_' + id + '" id="use_low_res_images_' + id + '">';
-                    html += '<label for="use_low_res_images_' + id + '">' + lang().product_js_use_low_res_images + '</label>';
-
-                    html += '<div class="row">';
-                    html += '<div class="columns small-12 medium-12 large-6 xlarge-8"><div class="cropbox" id="cropbox_' + id + '"></div></div>';
-                    html += '<div class="columns small-12 medium-12 large-6 xlarge-4"><div class="display" id="display_' + id + '"></div></div>';
-                    html += '</div>';
+                            html += '<div class="row">';
+                            html += '<div class="columns small-12 medium-12 large-6 xlarge-8"><div class="cropbox" id="cropbox_' + id + '"></div></div>';
+                            html += '<div class="columns small-12 medium-12 large-6 xlarge-4"><div class="display" id="display_' + id + '"></div></div>';
+                            html += '</div>';
+                        }
+                    else{
+                        html += '<div class="columns small-12 medium-12 large-6 xlarge-4"><div class="display" id="display_' + id + '"></div></div>';
+                    }
                 }
 
                 $this.html(html);
@@ -771,7 +788,14 @@ function get_recents(tagfield) {
 
                 if (!stringStartsWith(id, 'manage')) {
 
-                    update_display(id, true);
+                    // handling the display of unselect button
+                    if(typeof data_info === "undefined" || !stringStartsWith(data_info, "protect")){
+                        update_display(id, true, false);
+                    }
+                    else{
+                        update_display(id, true, true);
+                        
+                    }
 
 
 
@@ -812,6 +836,12 @@ function get_recents(tagfield) {
                             $("#progressbar_" + imagefield).hide();
                             $("#imgsearchbutton_" + imagefield).show();
                             $("#imgsearchmsg_" + imagefield).hide();
+
+                            // showing the message "image recieved" once user uploads the image
+                            if (typeof data_info === "string" && stringStartsWith(data_info, "protect")) {
+                              $("#imgsearchmsg_" + imagefield).html(lang().product_js_image_received);
+                              $("#imgsearchmsg_" + imagefield).show();
+                            }
                             $('.img_input').prop("disabled", false);
                         },
                         start: function() {

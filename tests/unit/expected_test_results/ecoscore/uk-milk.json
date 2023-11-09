@@ -218,8 +218,8 @@
                {
                   "ecoscore_material_score" : 50,
                   "ecoscore_shape_ratio" : 1,
-                  "material" : "en:pet-polyethylene-terephthalate",
-                  "material_shape" : "en:pet-polyethylene-terephthalate.en:bottle",
+                  "material" : "en:pet-1-polyethylene-terephthalate",
+                  "material_shape" : "en:pet-1-polyethylene-terephthalate.en:bottle",
                   "non_recyclable_and_non_biodegradable" : "no",
                   "number_of_units" : 1,
                   "shape" : "en:bottle"
@@ -227,8 +227,8 @@
                {
                   "ecoscore_material_score" : 50,
                   "ecoscore_shape_ratio" : 0.1,
-                  "material" : "en:hdpe-high-density-polyethylene",
-                  "material_shape" : "en:hdpe-high-density-polyethylene.en:bottle-cap",
+                  "material" : "en:hdpe-2-high-density-polyethylene",
+                  "material_shape" : "en:hdpe-2-high-density-polyethylene.en:bottle-cap",
                   "non_recyclable_and_non_biodegradable" : "no",
                   "number_of_units" : 1,
                   "shape" : "en:bottle-cap"
@@ -455,9 +455,14 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:milk"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 2,
    "lc" : "en",
    "misc_tags" : [
+      "en:packagings-number-of-components-2",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
@@ -469,21 +474,37 @@
       "en:ecoscore-grade-changed"
    ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
+   "packaging_materials_tags" : [
+      "en:hdpe-2-high-density-polyethylene",
+      "en:pet-1-polyethylene-terephthalate"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:bottle",
+      "en:bottle-cap"
+   ],
    "packaging_text" : "1 PET plastic bottle, 1 PEHD bottle cap",
    "packagings" : [
       {
-         "material" : "en:pet-polyethylene-terephthalate",
+         "material" : "en:pet-1-polyethylene-terephthalate",
          "number_of_units" : 1,
          "shape" : "en:bottle"
       },
       {
-         "material" : "en:hdpe-high-density-polyethylene",
+         "material" : "en:hdpe-2-high-density-polyethylene",
          "number_of_units" : 1,
          "shape" : "en:bottle-cap"
       }
    ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 2,
    "unknown_ingredients_n" : 0
 }

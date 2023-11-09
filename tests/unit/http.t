@@ -34,12 +34,12 @@ sub fake_headers_in ($fake_arg) {
 	my $expected_base_ref = {
 		"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
 		"Access-Control-Allow-Headers" =>
-			"DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match",
+			"DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,If-None-Match,Authorization",
 		"Access-Control-Expose-Headers" => "Content-Length,Content-Range",
 	};
 
 	my $headers_ref = get_cors_headers();
-	my $expected_ref = {%$expected_base_ref, ("Access-Control-Allow-Origins" => "*")};
+	my $expected_ref = {%$expected_base_ref, ("Access-Control-Allow-Origin" => "*")};
 	is_deeply($headers_ref, $expected_ref);
 
 	# allow credentials from sub domains
@@ -48,7 +48,7 @@ sub fake_headers_in ($fake_arg) {
 	$expected_ref = {
 		%$expected_base_ref,
 		(
-			"Access-Control-Allow-Origins" => "https://fr.openfoodfacts.localhost",
+			"Access-Control-Allow-Origin" => "https://fr.openfoodfacts.localhost",
 			"Access-Control-Allow-Credentials" => "true",
 			"Vary" => "Origin"
 		)
@@ -58,22 +58,21 @@ sub fake_headers_in ($fake_arg) {
 	# but do not allow for alien domains, we do not block request, but do not allow credentials
 	$HEADERS_IN = {"Origin" => "https://fr.example.com"};
 	$headers_ref = get_cors_headers(1);
-	$expected_ref = {%$expected_base_ref, ("Access-Control-Allow-Origins" => "*")};
+	$expected_ref = {%$expected_base_ref, ("Access-Control-Allow-Origin" => "*")};
 	is_deeply($headers_ref, $expected_ref);
 
 	# restrict to subdomain -> allow sub domain
 	$HEADERS_IN = {"Origin" => "https://fr.openfoodfacts.localhost"};
 	$headers_ref = get_cors_headers(0, 1);
 	$expected_ref = {
-		%$expected_base_ref,
-		("Access-Control-Allow-Origins" => "https://fr.openfoodfacts.localhost", "Vary" => "Origin")
+		%$expected_base_ref, ("Access-Control-Allow-Origin" => "https://fr.openfoodfacts.localhost", "Vary" => "Origin")
 	};
 	is_deeply($headers_ref, $expected_ref);
 	$headers_ref = get_cors_headers(1, 1);
 	$expected_ref = {
 		%$expected_base_ref,
 		(
-			"Access-Control-Allow-Origins" => "https://fr.openfoodfacts.localhost",
+			"Access-Control-Allow-Origin" => "https://fr.openfoodfacts.localhost",
 			"Access-Control-Allow-Credentials" => "true",
 			"Vary" => "Origin"
 		)
@@ -84,7 +83,7 @@ sub fake_headers_in ($fake_arg) {
 	$HEADERS_IN = {"Origin" => "https://fr.example.com"};
 	$headers_ref = get_cors_headers(0, 1);
 	$expected_ref = {%$expected_base_ref,
-		("Access-Control-Allow-Origins" => "https://openfoodfacts.localhost", "Vary" => "Origin")};
+		("Access-Control-Allow-Origin" => "https://openfoodfacts.localhost", "Vary" => "Origin")};
 	is_deeply($headers_ref, $expected_ref);
 	$headers_ref = get_cors_headers(1, 1);
 	is_deeply($headers_ref, $expected_ref);

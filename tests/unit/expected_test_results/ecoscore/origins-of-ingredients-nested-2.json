@@ -418,6 +418,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_food_code" : "16030",
                "id" : "en:cocoa-butter",
                "percent_estimate" : 4.16666666666667,
                "percent_max" : 25,
@@ -453,6 +454,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 33.3333333333333,
@@ -478,6 +480,7 @@
       "en:chocolate",
       "en:salt",
       "en:cocoa",
+      "en:plant",
       "en:cocoa-butter",
       "en:sweetener",
       "en:e951"
@@ -503,6 +506,7 @@
       "en:chocolate",
       "en:salt",
       "en:cocoa",
+      "en:plant",
       "en:cocoa-butter",
       "en:sweetener",
       "en:e951"
@@ -512,9 +516,16 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 5,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 8,
+   "ingredients_without_ciqual_codes" : [
+      "en:cocoa",
+      "en:e951",
+      "en:milk"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "known_ingredients_n" : 9,
    "lc" : "en",
    "misc_tags" : [
+      "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
@@ -528,9 +539,15 @@
       "en:ecoscore-grade-changed"
    ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [],
    "packagings" : [],
+   "packagings_materials" : {},
    "unknown_ingredients_n" : 0
 }

@@ -56,7 +56,7 @@ my $path = product_path($code);
 		$product_ref->{code} = $code;
 		$product_ref->{id} = $code;
 		
-		index_product($product_ref);
+		compute_keywords($product_ref);
 
 		# Store
 

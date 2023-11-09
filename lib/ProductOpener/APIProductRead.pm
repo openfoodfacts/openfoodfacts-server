@@ -83,7 +83,7 @@ sub read_product_api ($request_ref) {
 			|| "";
 	}
 
-	my $code = normalize_requested_code($request_ref->{code}, $response_ref);
+	my ($code, $ai_data_string) = &normalize_requested_code($request_ref->{code}, $response_ref);
 
 	my $product_ref;
 	my $product_id;
@@ -96,7 +96,7 @@ sub read_product_api ($request_ref) {
 			$response_ref,
 			{
 				message => {id => "invalid_code"},
-				field => {id => $code, value => $code},
+				field => {id => "code", value => $request_ref->{code}},
 				impact => {id => "failure"},
 			}
 		);
@@ -131,7 +131,7 @@ sub read_product_api ($request_ref) {
 			$response_ref,
 			{
 				message => {id => "product_not_found"},
-				field => {id => $code, value => $code},
+				field => {id => "code", value => $code},
 				impact => {id => "failure"},
 			}
 		);

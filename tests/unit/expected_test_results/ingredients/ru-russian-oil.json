@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : "17440",
          "from_palm_oil" : "no",
          "id" : "en:sunflower-oil",
          "percent_estimate" : 66.6666666666667,
@@ -11,6 +12,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "17420",
          "from_palm_oil" : "no",
          "id" : "en:soya-oil",
          "percent_estimate" : 16.6666666666667,
@@ -21,23 +23,20 @@
          "vegetarian" : "yes"
       },
       {
-         "from_palm_oil" : "yes",
-         "id" : "en:palm-oil",
+         "ciqual_food_code" : "17420",
+         "from_palm_oil" : "no",
+         "id" : "en:soya-oil",
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
-         "text" : "Масло Пальмовое",
+         "text" : "Масло соевое",
          "vegan" : "yes",
          "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {
-      "en:palm-oil" : [
-         "en:palm-oil"
-      ]
-   },
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
-      "en:palm-oil",
+      "en:palm-oil-free",
       "en:vegan",
       "en:vegetarian"
    ],
@@ -46,9 +45,7 @@
       "en:oil-and-fat",
       "en:vegetable-oil-and-fat",
       "en:vegetable-oil",
-      "en:soya-oil",
-      "en:palm-oil",
-      "en:palm-oil-and-fat"
+      "en:soya-oil"
    ],
    "ingredients_n" : 3,
    "ingredients_n_tags" : [
@@ -58,7 +55,7 @@
    "ingredients_original_tags" : [
       "en:sunflower-oil",
       "en:soya-oil",
-      "en:palm-oil"
+      "en:soya-oil"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
@@ -66,18 +63,20 @@
       "en:oil-and-fat",
       "en:vegetable-oil-and-fat",
       "en:vegetable-oil",
-      "en:soya-oil",
-      "en:palm-oil",
-      "en:palm-oil-and-fat"
+      "en:soya-oil"
    ],
-   "ingredients_text" : "масло растительное (подсолнечное, соевое), Масло (Пальмовое)",
+   "ingredients_text" : "масло растительное (подсолнечное, соевое), Масло (соевое)",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 7,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "known_ingredients_n" : 5,
    "lc" : "ru",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },

@@ -54,26 +54,6 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 
-#use Getopt::Long;
-#
-#my @fields_to_update = ();
-#my $key;
-#my $index = '';
-#my $pretend = '';
-#my $process_ingredients = '';
-#my $compute_nutrition_score = '';
-#my $check_quality = '';
-#
-#GetOptions ("key=s"   => \$key,      # string
-#			"fields=s" => \@fields_to_update,
-#			"index" => \$index,
-#			"pretend" => \$pretend,
-#			"process-ingredients" => \$process_ingredients,
-#			"compute-nutrition-score" => \$compute_nutrition_score,
-#			"check-quality" => \$check_quality,
-#			)
-# or die("Error in command line arguments:\n$\nusage");
-
 my $query_ref = {};
 
 my $products_collection = get_products_collection();

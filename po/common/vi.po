@@ -13,16 +13,11 @@ msgstr ""
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: vi\n"
-"X-Crowdin-File-ID: 2588\n"
+"X-Crowdin-File-ID: 3123\n"
 
 msgctxt "1_product"
 msgid "1 product"
 msgstr "1 sản phẩm"
-
-# leave a space before and after, unless there are no spaces between "A and B" in the target language
-msgctxt "_and_"
-msgid " and "
-msgstr " và "
 
 msgctxt "about"
 msgid "About me"
@@ -120,41 +115,13 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Vui lòng nhập tên tổ chức của bạn (tên công ty hoặc thương hiệu)."
 
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr ""
+
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 msgstr "Tài khoản này là tài khoản chuyện nghiệp được liên kết với nhà sản xuất hoặc thương hiệu {org}. Bạn có quyền truy cập vào Nền Tảng dành cho Nhà Sản Xuất."
-
-msgctxt "add_user_email_body"
-msgid "Hello <NAME>,\n\n"
-"Thanks a lot for joining https://openfoodfacts.org\n"
-"Here is your user name:\n\n"
-"User name: <USERID>\n\n"
-"You can now sign in on the site to add and edit products.\n\n"
-"<<site_name>> is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!\n"
-"To discuss between contributors and make the project go forward, we use a very convenient messaging system called Slack: https://slack.openfoodfacts.org\n\n"
-"You can also join the Facebook group for contributors:\n"
-"https://www.facebook.com/groups/OpenFoodFacts/\n\n"
-"New: we are also starting Open Beauty Facts to create a database of cosmetics: soap, toothpaste, makeup etc.\n"
-"https://openbeautyfacts.org\n\n"
-"Thank you very much!\n\n"
-"Stéphane and the Open Food Facts team\n"
-"https://openfoodfacts.org\n"
-"https://twitter.com/OpenFoodFacts\n"
-msgstr "Xin chào <NAME>,\n\n"
-"Cảm ơn rất nhiều vì đã tham gia https://openfoodfacts.org\n"
-"Đây là tên người dùng của bạn:\n\n"
-"Tên người dùng: <USERID>\n\n"
-"Bây giờ bạn có thể đăng nhập trên trang web để thêm và chỉnh sửa sản phẩm.\n\n"
-"<<site_name>> là một dự án cộng tác mà bạn có thể mang lại nhiều hơn các sản phẩm mới: năng lượng, sự nhiệt tình và ý tưởng của bạn!\n"
-"Để thảo luận giữa những người đóng góp và thực hiện dự án, chúng tôi sử dụng một hệ thống nhắn tin rất tiện lợi gọi là Slack: https://slack.openfoodfacts.org\n\n"
-"Bạn cũng có thể tham gia nhóm Facebook cho những người đóng góp:\n"
-"https: //www.facebook.com/groups/OpenFoodFacts/\n\n"
-"New: chúng tôi cũng bắt đầu Open Beauty Facts để tạo cơ sở dữ liệu về mỹ phẩm: xà phòng, kem đánh răng, trang điểm, vv\n"
-"https://openbeautyfacts.org\n\n"
-"Cảm ơn bạn rất nhiều!\n\n"
-"Stéphane và nhóm Open Food Facts mở\n"
-"https://openfoodfacts.org\n"
-"https://twitter.com/OpenFoodFacts\n"
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
@@ -226,10 +193,10 @@ msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
-msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr "/images/misc/google-play-badge-svg-master/img/vi_get.svg"
+msgid "/images/misc/playstore/img/en_get.svg"
+msgstr "/images/misc/playstore/img/vi_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -499,8 +466,16 @@ msgid "Delete the images"
 msgstr "Xóa các hình ảnh"
 
 msgctxt "delete_user"
-msgid "Delete an user"
-msgstr "Xóa người dùng"
+msgid "Delete a user"
+msgstr "Xoá người dùng"
+
+msgctxt "delete_confirmation"
+msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
+msgstr "Thao tác này sẽ xóa chi tiết người dùng của bạn và ẩn danh tất cả các đóng góp của bạn. Vui lòng nhập lại tên người dùng của bạn để xác nhận."
+
+msgctxt "danger_zone"
+msgid "Danger Zone"
+msgstr "Khu vực nguy hiểm"
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -1004,6 +979,10 @@ msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr "Chi tiết hình ảnh và thông tin ghi công"
 
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr ""
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Các sản phẩm bạn đã thêm cần được hoàn thành"
@@ -1123,7 +1102,7 @@ msgstr "Tải về trên App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/vn/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1565,6 +1544,10 @@ msgid "The table lists by default nutriments that are often specified. Leave the
 msgstr "Bảng liệt kê các nutriments mặc định thường được chỉ định. Để trống trường nếu nó không nằm trên nhãn.<br/>Bạn có thể thêm các chất dinh dưỡng phụ (vitamin, khoáng chất, cholesterol, vv)\n"
 "bằng cách gõ các chữ cái đầu tiên của tên của chúng trong hàng cuối cùng của bảng."
 
+msgctxt "nutrition_data_table_asterisk"
+msgid "Essential nutrients to calculate the Nutri-Score."
+msgstr ""
+
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
 msgstr "Các lớp dinh dưỡng"
@@ -1773,6 +1756,14 @@ msgstr "Sản phẩm thêm vào"
 msgctxt "product_changes_saved"
 msgid "Changes saved."
 msgstr "Đã lưu thay đổi."
+
+msgctxt "product_edit_you_contributed"
+msgid "You just helped to improve the world largest open data database."
+msgstr ""
+
+msgctxt "product_edit_thank_you"
+msgid "Thank you so much for joining us in our journey to data transparency!"
+msgstr ""
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2300,6 +2291,10 @@ msgctxt "see_product_page"
 msgid "See the product page"
 msgstr "Xem trang sản phẩm"
 
+msgctxt "re_edit_product_page"
+msgid "Edit the product again"
+msgstr ""
+
 msgctxt "select_country"
 msgid "Country"
 msgstr "Quốc gia"
@@ -2335,6 +2330,10 @@ msgstr "60 g, 12 oz, 20cl, 2 fl oz"
 msgctxt "serving_size_note"
 msgid "If the nutrition facts table contains values for the prepared product, indicate the total serving size of the prepared product (including added water or milk)."
 msgstr "Nếu bảng thành phần dinh dưỡng chứa các giá trị cho sản phẩm đã chuẩn bị, hãy cho biết tổng kích thước phục vụ của sản phẩm đã chuẩn bị (bao gồm cả nước hoặc sữa)."
+
+msgctxt "serving_too_small_for_nutrition_analysis"
+msgid "Serving size is too small (5 g / 5 ml or less) to calculate 100 g / 100 ml values and perform any further nutritional analysis"
+msgstr "Khẩu phần quá nhỏ (5g / 5ml hoặc ít hơn) để tính các giá trị 100g / 100ml và thực hiện các phân tích dinh dưỡng nâng cao hơn"
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2557,6 +2556,10 @@ msgctxt "users_without_products"
 msgid "Products not added by %s"
 msgstr "Sản phẩm không được thêm bởi %s"
 
+msgctxt "video_tutorials"
+msgid "Video Tutorials"
+msgstr "Video Hướng dẫn"
+
 msgctxt "view"
 msgid "view"
 msgstr "lượt xem"
@@ -2594,8 +2597,8 @@ msgstr "Lấy nó từ Microsoft"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/fr-fr/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
+msgstr "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2624,6 +2627,10 @@ msgstr "Bật tính năng thu phóng bằng con lăn chuột."
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Tải hình ảnh có độ phân giải thấp hơn (đối với kết nối chậm)"
+
+msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
+msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
+msgstr ""
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2896,12 +2903,12 @@ msgid "Risk of overexposure"
 msgstr "Rủi ro tiếp xúc"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
-msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of consuming too much <tag>."
-msgstr "Cơ quan an toàn thực phẩm châu Âu (EFSA) đã xác định rằng một số nhóm dân số có nguy cơ tiêu thụ quá cao <tag>."
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
+msgstr "Cơ quan An toàn Thực phẩm Châu Âu (EFSA) đã xác định rằng một số nhóm dân số có nguy cơ cao trong việc đạt hoặc vượt quá Lượng ăn vào hàng ngày được khuyến nghị (ADI) là <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
-msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of consuming too much <tag>."
-msgstr "Cơ quan an toàn thực phẩm châu Âu (EFSA) đã xác định rằng một số nhóm dân số có nguy cơ tiêu thụ quá cao <tag>."
+msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
+msgstr "Cơ quan An toàn Thực phẩm Châu Âu (EFSA) đã xác định rằng một số nhóm dân cư có nguy cơ vừa phải trong việc đạt hoặc vượt quá Lượng ăn vào hàng ngày khuyến nghị (ADI) là <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -2928,11 +2935,11 @@ msgid "No or very low risk of over exposure"
 msgstr "Nguy cơ tiếp xúc quá mức là không có hoặc rất thấp"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
-msgid "Risk of exceeding the acceptable daily intake (ADI)"
-msgstr "Nguy cơ vượt quá lượng tiêu thụ hàng ngày có thể chấp nhận được (ADI)"
+msgid "Risk of reaching or exceeding the acceptable daily intake (ADI)"
+msgstr "Nguy cơ đạt hoặc vượt quá lượng tiêu thụ hàng ngày có thể chấp nhận được (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
-msgid "Risk of exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
+msgid "Risk of reaching exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
 msgstr "Nguy cơ vượt quá liều tối đa mà không có tác dụng phụ (Không quan sát thấy mức độ tác dụng phụ - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
@@ -2952,20 +2959,20 @@ msgid "Groups with more than 5% of members exceeding the maximum dose without ad
 msgstr "Các nhóm có hơn 5% thành viên vượt quá liều tối đa mà không có tác dụng phụ (Không thấy mức độ tác động bất lợi được quan sát - NOAEL)"
 
 msgctxt "exposure_title_95th"
-msgid "Some people"
-msgstr "Một số người"
+msgid "Moderate risk"
+msgstr "Nguy cơ vừa phải"
 
 msgctxt "exposure_description_95th"
-msgid "over 5%"
-msgstr "trên 5%"
+msgid "5% of people or more"
+msgstr "5% số người trở lên"
 
 msgctxt "exposure_title_mean"
-msgid "Most people"
-msgstr "Hầu hết mọi người"
+msgid "High risk"
+msgstr "Nguy cơ cao"
 
 msgctxt "exposure_description_mean"
-msgid "over 50%"
-msgstr "trên 50%"
+msgid "50% of people or more"
+msgstr "50% số người trở lên"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
@@ -3094,6 +3101,10 @@ msgstr "Sản phẩm được điều chỉnh bằng %s"
 msgctxt "correctors_without_products"
 msgid "Products not corrected by %s"
 msgstr "Sản phẩm không được điều chỉnh bởi %s"
+
+msgctxt "contributors_products"
+msgid "Products added by %s"
+msgstr "Sản phẩm được thêm bởi %s"
 
 msgctxt "editors_products"
 msgid "Products edited by %s"
@@ -3386,6 +3397,10 @@ msgstr "Thông tin khác"
 msgctxt "fields_group_images"
 msgid "Product photos"
 msgstr "Ảnh sản phẩm"
+
+msgctxt "fields_group_packaging"
+msgid "Packaging"
+msgstr "Bao bì"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -4098,9 +4113,10 @@ msgctxt "producers_platform_moderation_title"
 msgid "Producers platform moderation"
 msgstr "Kiểm duyệt nền tảng của nhà sản xuất"
 
-msgctxt "pro_moderator_owner_set"
-msgid "You are currently viewing products from %s."
-msgstr "Bạn đang xem sản phẩm từ %s."
+# variable names between { } must not be translated
+msgctxt "f_pro_moderator_owner_set"
+msgid "You are currently viewing products from {organization}."
+msgstr "Bạn đang xem sản phẩm từ {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4112,8 +4128,8 @@ msgstr "Để xem các sản phẩm từ một người dùng hoặc tổ chức
 
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
-msgid "Change"
-msgstr "Thay đổi"
+msgid "Switch to another organization"
+msgstr "Chuyển sang tổ chức khác"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4267,8 +4283,8 @@ msgid "Contributor"
 msgstr "Người đóng góp"
 
 msgctxt "contributor_settings_description"
-msgid "Those settings allow you to personalize some aspect of the website"
-msgstr "Những cài đặt đó cho phép bạn cá nhân hóa một số khía cạnh của trang web"
+msgid "Those settings allow you to personalize some aspects of the website"
+msgstr "Những cài đặt đó sẽ cho phép bạn được cá nhân hóa một số phần của trang web"
 
 msgctxt "display_barcode_in_search"
 msgid "Display barcode in search results"
@@ -4277,11 +4293,6 @@ msgstr "Hiển thị mã vạch trong kết quả tìm kiếm"
 msgctxt "edit_link_in_search"
 msgid "Add an edit link in search results"
 msgstr "Thêm liên kết chỉnh sửa trong kết quả tìm kiếm"
-
-# leave the %d, it will be replaced by a number
-msgctxt "n_products_will_be_exported"
-msgid "%d products will be exported."
-msgstr "%d sản phẩm sẽ được xuất."
 
 msgctxt "ciqual_food_name"
 msgid "CIQUAL food name"
@@ -4607,10 +4618,6 @@ msgctxt "export_product_page"
 msgid "Export product to public database"
 msgstr "Xuất sản phẩm sang cơ sở dữ liệu công khai"
 
-msgctxt "one_product_will_be_exported"
-msgid "1 product will be exported."
-msgstr "1 sản phẩm sẽ được xuất."
-
 msgctxt "no_products_to_export"
 msgid "No products to export."
 msgstr "Không có sản phẩm để xuất."
@@ -4662,6 +4669,10 @@ msgstr "Chất phụ gia"
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
 msgstr "Không hoặc ít chất phụ gia"
+
+msgctxt "attribute_additives_setting_note"
+msgid "Additives are markers of food processing, and excess consumption of some of them have undesirable health impacts."
+msgstr ""
 
 msgctxt "attribute_additives_unknown_title"
 msgid "Additives not computed"
@@ -4747,6 +4758,10 @@ msgstr "Điểm sinh thái"
 msgctxt "attribute_ecoscore_setting_name"
 msgid "Low environmental impact (Eco-Score)"
 msgstr "Tác động môi trường thấp (Eco-Score)"
+
+msgctxt "attribute_ecoscore_setting_note"
+msgid "The Eco-Score is an environmental score (ecoscore) from A to E which makes it easy to compare the impact of food products on the environment."
+msgstr "Eco-Score là điểm số về môi trường (Điểm sinh thái) xếp hạng từ A đến E giúp việc so sánh tác động của các sản phẩm thực phẩm đối với môi trường trở nên dễ dàng."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -4888,6 +4903,18 @@ msgstr "Xóa tổ chức"
 msgctxt "official_site"
 msgid "Official site"
 msgstr "Trang chính thức"
+
+msgctxt "organization_members"
+msgid "Organization Members"
+msgstr "Thành viên tổ chức"
+
+msgctxt "number_of_members"
+msgid "Number of Members"
+msgstr "Số lượng thành viên"
+
+msgctxt "serial_no"
+msgid "S.No"
+msgstr ""
 
 msgctxt "contact_form"
 msgid "Contact form"
@@ -5105,6 +5132,10 @@ msgctxt "number_of_products_with_changes_since_last_export"
 msgid "Number of products with changes since last export"
 msgstr "Số sản phẩm có thay đổi kể từ lần xuất cuối cùng"
 
+msgctxt "number_of_products_withdrawn_from_the_market_since_last_export"
+msgid "Number of products withdrawn from the market since last export"
+msgstr "Số sản phẩm bị rút khỏi thị trường kể từ lần xuất cuối"
+
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
 msgstr "Chỉ xuất những sản phẩm có thay đổi"
@@ -5137,6 +5168,10 @@ msgstr "Dấu chân sinh thái"
 msgctxt "attribute_forest_footprint_setting_name"
 msgid "Low risk of deforestation (Forest footprint)"
 msgstr "Nguy cơ thấp về suy thoái rừng (Dấu chân sinh thái)"
+
+msgctxt "attribute_forest_footprint_setting_note"
+msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
+msgstr ""
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Very small forest footprint"
@@ -5254,8 +5289,8 @@ msgid "Remove all nutrient values"
 msgstr "Loại bỏ tất cả các giá trị dinh dưỡng"
 
 msgctxt "delete_user_process"
-msgid "User deleted."
-msgstr "Người dùng đã bị xóa."
+msgid "User is being deleted. This may take a few minutes."
+msgstr "Người dùng đang bị xóa. Có thể sẽ mất vài phút."
 
 msgctxt "attribute_ecoscore_not_applicable_title"
 msgid "Eco-Score not yet applicable"
@@ -5618,6 +5653,14 @@ msgctxt "ecoscore_warning_international"
 msgid "The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country."
 msgstr "Điểm Sinh Thái ban đầu được phát triển cho riêng nước Pháp và đang dần được mở rộng sang các nước châu Âu khác. Công thức Điểm sinh thái có thể thay đổi do thường xuyên được cải tiến để chính xác hơn và phù hợp hơn với từng quốc gia."
 
+msgctxt "ecoscore_warning_transportation_world"
+msgid "Select a country in order to include the full impact of transportation."
+msgstr "Chọn một quốc gia để bao gồm toàn bộ tác động của vận tải."
+
+msgctxt "ecoscore_warning_transportation"
+msgid "The full impact of transportation to your country is currently unknown."
+msgstr "Hiện chưa rõ tác động đầy đủ của việc vận chuyển đến quốc gia của bạn."
+
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
 msgstr "Quét mã vạch để nhận Điểm dinh dưỡng, Điểm sinh thái và hơn thế nữa!"
@@ -5861,6 +5904,38 @@ msgctxt "health"
 msgid "Health"
 msgstr "Sức khoẻ"
 
+msgctxt "contribution_panel_title"
+msgid "Contribution"
+msgstr ""
+
+msgctxt "contribution_navigation"
+msgid "Contribution"
+msgstr ""
+
+msgctxt "data_quality_errors_panel_title"
+msgid "Detected Errors"
+msgstr ""
+
+msgctxt "data_quality_errors_panel_subtitle"
+msgid "Help us improve quality of our data by contributing fixes"
+msgstr ""
+
+msgctxt "data_quality_warnings_panel_title"
+msgid "Potential issues"
+msgstr ""
+
+msgctxt "data_quality_warnings_panel_subtitle"
+msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
+msgstr ""
+
+msgctxt "data_quality_info_panel_title"
+msgid "Data Quality infos"
+msgstr ""
+
+msgctxt "data_quality_info_panel_subtitle"
+msgid "Some infos about data quality on this product"
+msgstr ""
+
 # will be followed by : and a value. e.g. "Compared to: bananas"
 msgctxt "compared_to"
 msgid "Compared to"
@@ -5955,6 +6030,10 @@ msgctxt "maybe_vegan_ingredients"
 msgid "Ingredients that may not be vegan"
 msgstr "Thành phần có thể không thuần chay"
 
+msgctxt "attribute_vegan_setting_note"
+msgid "To determine whether a product is vegan, we only rely on the list of ingredients."
+msgstr ""
+
 msgctxt "non_vegetarian_ingredients"
 msgid "Non-vegetarian ingredients"
 msgstr "Thành phần không dành cho người ăn chay"
@@ -5967,6 +6046,10 @@ msgctxt "maybe_vegetarian_ingredients"
 msgid "Ingredients that may not be vegetarian"
 msgstr "Thành phần có thể không phải thực phẩm chay"
 
+msgctxt "attribute_vegetarian_setting_note"
+msgid "To determine whether a product is vegetarian, we only rely on the list of ingredients."
+msgstr ""
+
 msgctxt "palm_oil_ingredients"
 msgid "Ingredients that contain palm oil"
 msgstr "Thành phần chứa dầu cọ"
@@ -5978,6 +6061,10 @@ msgstr "Thành có có thể chứa dầu cọ"
 msgctxt "palm_oil_free_ingredients"
 msgid "No ingredients containing palm oil detected"
 msgstr "Không có thành phần chứa dầu cọ"
+
+msgctxt "attribute_palm_oil_setting_note"
+msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
+msgstr ""
 
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
@@ -6096,6 +6183,10 @@ msgstr ""
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
+msgstr ""
+
+msgctxt "action_add_packaging_components"
+msgid "Add packaging components"
 msgstr ""
 
 # this is not used yet
@@ -6318,6 +6409,10 @@ msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
 msgstr "JSON không hợp lệ trong nội dung yêu cầu"
 
+msgctxt "api_message_invalid_code"
+msgid "Invalid code"
+msgstr ""
+
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
 msgstr "Loại không hợp lệ: phải là một đối tượng"
@@ -6330,9 +6425,17 @@ msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
 msgstr "Loại không hợp lệ: phải là số nguyên"
 
+msgctxt "api_message_invalid_type_must_be_number"
+msgid "Invalid type: must be a number"
+msgstr "Loại không hợp lệ: phải là một số"
+
 msgctxt "api_message_missing_field"
 msgid "Missing field"
 msgstr "Trường bị thiếu"
+
+msgctxt "api_message_unrecognized_field"
+msgid "Unrecognized field"
+msgstr ""
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
@@ -6353,6 +6456,10 @@ msgstr "Thất bại"
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
 msgstr "Trường bị bỏ qua"
+
+msgctxt "api_impact_value_converted"
+msgid "Value converted"
+msgstr "Giá trị quy đổi"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6385,4 +6492,149 @@ msgstr ""
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
 msgstr ""
+
+# Unit = element, not unit of measure
+msgctxt "packaging_number_of_units_description"
+msgid "Enter the number of packaging units of the same shape and material contained in the product."
+msgstr "Nhập số lượng đơn vị đóng gói có cùng hình dạng và chất liệu chứa trong sản phẩm."
+
+msgctxt "packaging_shape_description"
+msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
+msgstr "Nhập tên hình dạng được liệt kê trong hướng dẫn tái chế nếu chúng có sẵn, hoặc chọn một hình dạng."
+
+msgctxt "packaging_material_description"
+msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
+msgstr "Nhập vật liệu cụ thể nếu có thể xác định được (mã vật liệu bên trong hình tam giác thường có trên các bộ phận đóng gói) hoặc một loại vật liệu chung (ví dụ: nhựa hoặc kim loại) nếu bạn không chắc chắn."
+
+msgctxt "packaging_recycling_description"
+msgid "Enter recycling instructions only if they are listed on the product."
+msgstr "Chỉ nhập hướng dẫn tái chế nếu chúng được liệt kê trên sản phẩm."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_weight_description"
+msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
+msgstr "Loại bỏ bất kỳ thực phẩm còn sót lại, rửa sạch và làm khô phần đóng gói trước khi cân. Nếu có thể, hãy sử dụng cân có độ chính xác 0,1g hoặc 0,01g."
+
+# Unit = element, not unit of measure
+msgctxt "packaging_quantity_per_unit_description"
+msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
+msgstr "Nhập khối lượng tịnh hoặc thể tích tịnh và cho biết đơn vị (ví dụ g hoặc ml)."
+
+msgctxt "import_and_export_products"
+msgid "Import and export products"
+msgstr "Nhập và xuất sản phẩm"
+
+msgctxt "add_products"
+msgid "Add products"
+msgstr "Thêm sản phẩm"
+
+# Needs to be short (displayed in a menu)
+msgctxt "install_the_app_to_add_products"
+msgid "Install the app to add products"
+msgstr "Cài đặt ứng dụng để thêm sản phẩm"
+
+msgctxt "search_and_analyze_products"
+msgid "Search and analyze products"
+msgstr "Tìm kiếm và phân tích sản phẩm"
+
+msgctxt "resources"
+msgid "Resources"
+msgstr "Tên nguồn"
+
+msgctxt "pro_platform_user_guide"
+msgid "Pro platform user guide"
+msgstr "Hướng dẫn sử dụng nền tảng Pro"
+
+msgctxt "faq_for_producers"
+msgid "FAQ for producers"
+msgstr "FAQ cho các nhà sản xuất"
+
+msgctxt "join_the_next_pros_meet_up"
+msgid "Join the next Pros' Meet-up"
+msgstr "Tham gia Buổi gặp mặt Chuyên gia tiếp theo"
+
+# variable names between { } must not be translated
+msgctxt "product_js_enter_value_between_0_and_max"
+msgid "Please enter a value between 0 and {max}."
+msgstr "Vui lòng nhập giá trị từ 0 đến {max}."
+
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr ""
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr ""
+
+msgctxt "product_js_sugars_warning"
+msgid "Sugars should not be higher than carbohydrates."
+msgstr "Đường không nên cao hơn carbohydrate."
+
+msgctxt "product_js_saturated_fat_warning"
+msgid "Saturated fat should not be higher than fat."
+msgstr "Chất béo bão hòa không nên cao hơn chất béo."
+
+msgctxt "packaging_materials"
+msgid "Packaging materials"
+msgstr ""
+
+msgctxt "packaging_weight_total"
+msgid "Packaging weight"
+msgstr ""
+
+msgctxt "packaging_weight_100g"
+msgid "Packaging weight per 100 g of product"
+msgstr ""
+
+msgctxt "packaging_weight_100g_mean"
+msgid "Mean packaging weight per 100 g of product"
+msgstr ""
+
+msgctxt "total"
+msgid "Total"
+msgstr ""
+
+msgctxt "packaging_material_products_percent"
+msgid "% of products containing the material"
+msgstr ""
+
+msgctxt "packaging_material_products_percent_main"
+msgid "% of products containing mostly the material"
+msgstr ""
+
+msgctxt "relative_to_products_containing_the_material"
+msgid "for products that contain the material"
+msgstr ""
+
+msgctxt "relative_to_products_containing_mostly_the_material"
+msgid "for products that contain mostly the material"
+msgstr ""
+
+msgctxt "relative_to_all_products"
+msgid "relative to all products"
+msgstr ""
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr ""
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr ""
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr ""
+
+msgctxt "weight"
+msgid "Weight"
+msgstr "Cân nặng"
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr "100g/sản phẩm"
+
+msgctxt "weight_percent"
+msgid "Weight percent"
+msgstr "Phần trăm cân nặng"
 
