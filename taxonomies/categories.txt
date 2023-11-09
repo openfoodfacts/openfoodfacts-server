@@ -106636,7 +106636,7 @@ ciqual_food_code:en:36019
 ciqual_food_name:en:Chicken high leg, meat, raw
 ciqual_food_name:fr:Poulet, haut de cuisse, viande, cru
 
-<en:chickens
+<en:Chickens
 en:Chicken eviscerated without offal raw
 fr:Poulet éviscéré sans abats cru
 agribalyse_food_code:en:36020
@@ -106644,7 +106644,7 @@ ciqual_food_code:en:36020
 ciqual_food_name:en:Chicken, eviscerated without offal, raw
 ciqual_food_name:fr:Poulet éviscéré sans abats, cru
 
-<en:chickens
+<en:Chickens
 en:Chicken wing meat and skin raw
 fr:Poulet aile viande et peau cru
 agribalyse_food_code:en:36023
@@ -106652,7 +106652,7 @@ ciqual_food_code:en:36023
 ciqual_food_name:en:Chicken, wing, meat and skin, raw
 ciqual_food_name:fr:Poulet, aile, viande et peau, cru
 
-<en:chickens
+<en:Chickens
 en:Chicken leg meat raw
 fr:Poulet cuisse viande cru
 agribalyse_food_code:en:36024
@@ -106660,10 +106660,15 @@ ciqual_food_code:en:36024
 ciqual_food_name:en:Chicken, leg, meat, raw
 ciqual_food_name:fr:Poulet, cuisse, viande, cru
 
-<en:chickens
+<en:Chickens
 en:Chicken breast meat and skin raw
 fr:Poulet poitrine viande et peau cru
 agribalyse_food_code:en:36029
 ciqual_food_code:en:36029
 ciqual_food_name:en:Chicken, breast, meat and skin, raw
 ciqual_food_name:fr:Poulet, poitrine, viande et peau, cru
+
+en:Prepared/Preserved Foods Variety Packs
+gpc_category_code:en:10000613
+gpc_category_name:en:Prepared/Preserved Foods Variety Packs
+gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Prepared and Preserved Foods sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Prepared and Preserved Foods Family. Includes products such as Chicken Korma and Ice Cream variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Jam and Chocolate Spread variety packs and Chips and Dips variety packs.
