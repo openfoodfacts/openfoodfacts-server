@@ -28,6 +28,8 @@ my @products = (
 	{
 		%{dclone(\%default_product_form)},
 		(
+			lc => "en",
+			lang => "en",
 			code => '200000000034',
 			product_name => "Some product",
 			generic_name => "Tester",
@@ -113,30 +115,48 @@ my $tests_ref = [
 	{
 		test_case => 'get-fields-raw',
 		method => 'GET',
-		path => '/api/v3/product/200000000034',
+		path => '/api/v2/product/200000000034',
 		query_string => '?fields=raw',
 		expected_status_code => 200,
 	},
 	{
 		test_case => 'get-fields-all',
 		method => 'GET',
-		path => '/api/v3/product/200000000034',
+		path => '/api/v2/product/200000000034',
 		query_string => '?fields=all',
 		expected_status_code => 200,
 	},
 	{
 		test_case => 'get-fields-all-knowledge-panels',
 		method => 'GET',
-		path => '/api/v3/product/200000000034',
+		path => '/api/v2/product/200000000034',
 		query_string => '?fields=all,knowledge_panels',
 		expected_status_code => 200,
 	},
 	{
 		test_case => 'get-fields-attribute-groups-all-knowledge-panels',
 		method => 'GET',
-		path => '/api/v3/product/200000000034',
+		path => '/api/v2/product/200000000034',
 		query_string => '?fields=attribute_groups,all,knowledge_panels',
 		expected_status_code => 200,
+	},
+	# Test authentication
+	# (currently not needed for READ requests, but it could in the future, for instance to get personalized results)
+	{
+		test_case => 'get-auth-good-password',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=code,product_name&user_id=tests&password=testtest',
+		expected_status_code => 200,
+	},
+	# When authentification fails for a v2 request, we return a HTML page
+	{
+		test_case => 'get-auth-bad-user-password',
+		method => 'GET',
+		path => '/api/v2/product/200000000034',
+		query_string => '?fields=code,product_name&user_id=tests&password=bad_password',
+		expected_status_code => 403,
+		expected_type => "html",
 	},
 ];
 

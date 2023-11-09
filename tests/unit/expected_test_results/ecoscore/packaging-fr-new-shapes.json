@@ -235,7 +235,7 @@
                   "ecoscore_shape_ratio" : 1,
                   "material" : "en:metal",
                   "number_of_units" : 2,
-                  "shape" : "en:eating-utensils"
+                  "shape" : "en:cutlery"
                },
                {
                   "ecoscore_material_score" : 0,
@@ -472,9 +472,14 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:wheat"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 2,
    "lc" : "fr",
    "misc_tags" : [
+      "en:packagings-number-of-components-5",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
@@ -487,9 +492,25 @@
       "en:ecoscore-grade-changed"
    ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
+   "packaging_materials_tags" : [
+      "en:cardboard",
+      "en:metal",
+      "en:paper",
+      "en:plastic"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:case",
+      "en:cutlery",
+      "en:drinking-straw",
+      "en:envelope",
+      "en:tumbler"
+   ],
    "packaging_text" : "1 caisse en carton, 1 paille, 2 couverts en métal, 1 gobelet en plastique, 1 enveloppe papier",
    "packagings" : [
       {
@@ -504,7 +525,7 @@
       {
          "material" : "en:metal",
          "number_of_units" : 2,
-         "shape" : "en:eating-utensils"
+         "shape" : "en:cutlery"
       },
       {
          "material" : "en:plastic",
@@ -517,5 +538,13 @@
          "shape" : "en:envelope"
       }
    ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:metal" : {},
+      "en:paper-or-cardboard" : {},
+      "en:plastic" : {},
+      "en:unknown" : {}
+   },
+   "packagings_n" : 5,
    "unknown_ingredients_n" : 0
 }

@@ -407,6 +407,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_food_code" : "20009",
          "id" : "en:carrot",
          "percent_estimate" : 100,
          "percent_max" : 100,
@@ -425,7 +426,8 @@
    "ingredients_hierarchy" : [
       "en:carrot",
       "en:vegetable",
-      "en:root-vegetable"
+      "en:root-vegetable",
+      "en:taproot-vegetable"
    ],
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
@@ -439,16 +441,20 @@
    "ingredients_tags" : [
       "en:carrot",
       "en:vegetable",
-      "en:root-vegetable"
+      "en:root-vegetable",
+      "en:taproot-vegetable"
    ],
    "ingredients_text" : "Carrots",
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 3,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "known_ingredients_n" : 4,
    "lc" : "en",
    "misc_tags" : [
+      "en:packagings-number-of-components-1",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
@@ -461,9 +467,18 @@
       "en:ecoscore-grade-changed"
    ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
    },
+   "packaging_materials_tags" : [
+      "en:plastic"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:film"
+   ],
    "packaging_text" : "1 plastic film",
    "packagings" : [
       {
@@ -472,5 +487,10 @@
          "shape" : "en:film"
       }
    ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 1,
    "unknown_ingredients_n" : 0
 }

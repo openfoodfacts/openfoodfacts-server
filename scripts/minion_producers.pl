@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -67,6 +67,8 @@ app->minion->add_task(
 
 app->minion->add_task(
 	import_products_categories_from_public_database => \&import_products_categories_from_public_database_task);
+
+app->minion->add_task(delete_user => \&ProductOpener::Users::delete_user_task);
 
 app->config(
 	hypnotoad => {

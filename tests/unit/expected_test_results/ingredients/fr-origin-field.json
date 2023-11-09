@@ -9,6 +9,7 @@
          "text" : "Coquillettes"
       },
       {
+         "ciqual_food_code" : "12110",
          "id" : "en:comte",
          "percent_estimate" : 22.7272727272727,
          "percent_max" : 50,
@@ -26,6 +27,7 @@
          "text" : "jambon supérieur"
       },
       {
+         "ciqual_food_code" : "1014",
          "id" : "en:white-wine",
          "origins" : "en:europe",
          "percent_estimate" : 5.68181818181818,
@@ -36,6 +38,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "5214",
          "id" : "en:red-wine",
          "origins" : "en:italy",
          "percent_estimate" : 2.84090909090909,
@@ -46,6 +49,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "5216",
          "id" : "en:rose-wine",
          "origins" : "en:spain",
          "percent_estimate" : 1.42045454545455,
@@ -56,6 +60,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "19402",
          "id" : "en:uht-cream",
          "percent_estimate" : 0.710227272727273,
          "percent_max" : 14.2857142857143,
@@ -65,6 +70,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "12120",
          "id" : "en:parmigiano-reggiano",
          "origins" : "en:italy",
          "percent_estimate" : 0.35511363636364,
@@ -75,6 +81,7 @@
          "vegetarian" : "maybe"
       },
       {
+         "ciqual_food_code" : "19585",
          "id" : "en:ricotta",
          "origins" : "en:italy",
          "percent_estimate" : 0.17755681818182,
@@ -85,6 +92,7 @@
          "vegetarian" : "maybe"
       },
       {
+         "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "percent_estimate" : 0.0887784090909065,
          "percent_max" : 10,
@@ -191,9 +199,17 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 11,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:pepper",
+      "fr:coquillettes",
+      "fr:jambon-superieur"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
    "known_ingredients_n" : 15,
    "lc" : "fr",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },

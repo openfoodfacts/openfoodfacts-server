@@ -22,6 +22,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "2028",
          "id" : "en:concentrated-lemon-juice",
          "labels" : "en:organic",
          "percent_estimate" : 9.375,
@@ -63,7 +64,9 @@
       "en:sugar",
       "en:apricot",
       "en:fruit",
+      "en:prunus-species-fruit",
       "en:concentrated-lemon-juice",
+      "en:juice",
       "en:fruit-juice",
       "en:lemon-juice",
       "en:gelling-agent",
@@ -90,7 +93,9 @@
       "en:sugar",
       "en:apricot",
       "en:fruit",
+      "en:prunus-species-fruit",
       "en:concentrated-lemon-juice",
+      "en:juice",
       "en:fruit-juice",
       "en:lemon-juice",
       "en:gelling-agent",
@@ -102,54 +107,41 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 4,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "known_ingredients_n" : 12,
+   "ingredients_without_ciqual_codes" : [
+      "en:apricot",
+      "en:cane-sugar",
+      "en:fruit-pectin"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "known_ingredients_n" : 14,
    "lc" : "fr",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 148.2,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 148.2
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 175.7,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 175.7,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 208.2,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 208.2
    },
    "specific_ingredients" : [
       {
-         "id" : "en:fruit",
-         "ingredient" : "fruits",
-         "percent" : 50,
-         "text" : "Préparée avec 50 g de fruits pour 100g de produit fini."
-      },
-      {
-         "id" : "en:vegetable",
-         "ingredient" : "légumes",
-         "percent" : 32.5,
-         "text" : "Préparé avec 32.5% de légumes - "
-      },
-      {
-         "id" : "en:tomato",
-         "ingredient" : "tomates",
-         "percent" : 25.2,
-         "text" : "Préparés avec 25.2% de tomates."
-      },
-      {
-         "id" : "fr:truc-inconnu",
-         "ingredient" : "TRUC INCONNU",
-         "percent" : 30,
-         "text" : "PREPARE AVEC 30% DE TRUC INCONNU."
-      },
-      {
-         "id" : "en:sugar",
-         "ingredient" : "sucres",
-         "percent" : 60,
-         "text" : "Teneur totale en sucres : 60 g pour 100 g de produit fini."
+         "id" : "en:apricot",
+         "ingredient" : "abricots",
+         "origins" : "en:provence",
+         "quantity" : "60 g",
+         "quantity_g" : 60,
+         "text" : "Origine des abricots: Provence"
       },
       {
          "id" : "en:milk",
          "ingredient" : "lait",
          "percent" : 40,
-         "text" : "Teneur en lait: minimum 40%."
+         "text" : "Teneur en lait: minimum 40%"
       },
       {
          "id" : "en:fruit-juice",
          "ingredient" : "jus de fruits",
-         "percent" : 35,
-         "text" : "Teneur minimum en jus de fruits 35 g pour 100 g de produit fini."
+         "quantity" : "35 g",
+         "quantity_g" : 35,
+         "text" : "Teneur minimum en jus de fruits 35 g pour 100 g de produit fini"
       },
       {
          "id" : "en:lemon",
@@ -158,10 +150,29 @@
          "text" : "Teneur en citron de 5.5%"
       },
       {
-         "id" : "en:apricot",
-         "ingredient" : "abricots",
-         "origins" : "en:provence",
-         "text" : "Origine des abricots: Provence."
+         "id" : "en:fruit",
+         "ingredient" : "fruits",
+         "quantity" : "50 g",
+         "quantity_g" : 50,
+         "text" : "Préparée avec 50 g de fruits pour 100g de produit fini"
+      },
+      {
+         "id" : "en:vegetable",
+         "ingredient" : "légumes",
+         "percent" : 32.5,
+         "text" : "Préparé avec 32.5% de légumes"
+      },
+      {
+         "id" : "en:tomato",
+         "ingredient" : "tomates",
+         "percent" : 25.2,
+         "text" : "Préparés avec 25.2% de tomates"
+      },
+      {
+         "id" : "fr:truc-inconnu",
+         "ingredient" : "TRUC INCONNU",
+         "percent" : 30,
+         "text" : "PREPARE AVEC 30% DE TRUC INCONNU"
       }
    ],
    "unknown_ingredients_n" : 0

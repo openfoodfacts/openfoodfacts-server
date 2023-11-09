@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -100,4 +100,5 @@ $html .= "<p>" . $tt->error() . "</p>";
 
 $request_ref->{title} = lang('translators_title');
 $request_ref->{content_ref} = \$html;
+$request_ref->{canon_url} = '/cgi/top_translators.pl';
 display_page($request_ref);

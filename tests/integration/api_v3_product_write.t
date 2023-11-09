@@ -57,33 +57,26 @@ my $tests_ref = [
 		test_case => 'patch-packagings-add-one-component',
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890007',
-		body => '{"product": {"fields": "updated", "packagings_add": [{"shape": {"lc_name": "bottle"}}]}}'
-	},
-	# Get updated fields + attributes and knowledge panels
-	{
-		test_case => 'patch-packagings-add-one-component',
-		method => 'PATCH',
-		path => '/api/v3/product/1234567890007',
-		body => '{"product": {"fields": "updated", "packagings_add": [{"shape": {"lc_name": "bottle"}}]}}'
+		body => '{"product": { "packagings_add": [{"shape": {"lc_name": "bottle"}}]}}'
 	},
 	# Only the PATCH method is valid, test other methods
 	{
 		test_case => 'post-packagings',
 		method => 'POST',
 		path => '/api/v3/product/1234567890007',
-		body => '{"product": {"fields": "updated", "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
+		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
 	},
 	{
 		test_case => 'put-packagings',
 		method => 'PUT',
 		path => '/api/v3/product/1234567890007',
-		body => '{"product": {"fields": "updated", "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
+		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
 	},
 	{
 		test_case => 'delete-packagings',
 		method => 'DELETE',
 		path => '/api/v3/product/1234567890007',
-		body => '{"product": {"fields": "updated", "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
+		body => '{"product": { "packagings": [{"shape": {"lc_name": "bottle"}}]}}'
 	},
 	{
 		test_case => 'patch-packagings-add-components-to-existing-product',
@@ -114,7 +107,7 @@ my $tests_ref = [
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890007',
 		body => '{
-			"fields": "updated",
+			"fields": "updated,misc_tags,weighers_tags",
 			"tags_lc": "fr",
 			"product": {
 				"packagings_add": [
@@ -138,7 +131,7 @@ my $tests_ref = [
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890008',
 		body => '{
-			"fields": "updated",
+			"fields": "updated,misc_tags,weighers_tags",
 			"tags_lc": "en",
 			"product": {
 				"packagings_add": [
@@ -389,10 +382,11 @@ my $tests_ref = [
 		path => '/api/v3/product/1234567890013',
 		body => '{
 			"tags_lc": "en",
+			"fields": "updated,misc_tags",
 			"product": {
 				"packagings": [
 					{
-						"number_of_units": 1,
+						"number_of_units": 1,			
 						"shape": {"lc_name": "Bottle"},
 						"weight_measured": 0.43
 					},
@@ -405,10 +399,275 @@ my $tests_ref = [
 						"number_of_units": 3,
 						"shape": {"lc_name": "Lid"},
 						"weight_measured": "0,43"
-					}										
+					}								
 				]
 			}
 		}'
+	},
+	# Test authentication
+	{
+		test_case => 'patch-auth-good-password',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890014',
+		body => '{
+			"user_id": "tests",
+			"password": "testtest",
+			"fields": "creator,editors_tags,packagings",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "can"},
+						"recycling": {"lc_name": "recycle"}
+					}
+				]
+			}
+		}'
+	},
+	{
+		test_case => 'patch-auth-bad-user-password',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890015',
+		body => '{
+			"user_id": "tests",
+			"password": "bad password",
+			"fields": "creator,editors_tags,packagings",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "can"},
+						"recycling": {"lc_name": "recycle"}
+					}			
+				]
+			}
+		}',
+		expected_status_code => 200,
+	},
+	# Packaging complete
+	{
+		test_case => 'patch-packagings-complete-0',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890016',
+		body => '{
+			"fields": "packagings,packagings_complete",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "bottle"},
+						"recycling": {"lc_name": "recycle"}
+					}			
+				],
+				"packagings_complete": 0
+			}
+		}'
+	},
+	{
+		test_case => 'patch-packagings-complete-1',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890016',
+		body => '{
+			"fields": "packagings,packagings_complete",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "bottle"},
+						"recycling": {"lc_name": "recycle"}
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "lid"},
+						"recycling": {"lc_name": "recycle"}
+					}								
+				],
+				"packagings_complete": 1
+			}
+		}'
+	},
+	{
+		test_case => 'patch-packagings-complete-2',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890016',
+		body => '{
+			"fields": "packagings,packagings_complete",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "bottle"},
+						"recycling": {"lc_name": "recycle"}
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "lid"},
+						"recycling": {"lc_name": "recycle"}
+					}								
+				],
+				"packagings_complete": 2
+			}
+		}'
+	},
+	# Weights sent as strings (with dot or comma)
+	{
+		test_case => 'patch-packagings-weights-as-strings',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890017',
+		body => '{
+			"fields": "updated,misc_tags,weighers_tags",
+			"tags_lc": "en",
+			"product": {
+				"packagings_add": [
+					{
+						"number_of_units": 6,
+						"shape": {"lc_name": "bottle"},
+						"material": {"lc_name": "PET"},
+						"quantity_per_unit": "25cl",
+						"weight_measured": "10"
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "box"},
+						"material": {"lc_name": "wood"},
+						"weight_specified": "25.5"
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "film"},
+						"material": {"lc_name": "plastic"},
+						"weight_specified": "2,01"
+					}					
+				]
+			}
+		}'
+	},
+	# Weights sent as strings with units
+	{
+		test_case => 'patch-packagings-weights-as-strings-with-units',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890018',
+		body => '{
+			"fields": "updated,misc_tags,weighers_tags",
+			"tags_lc": "en",
+			"product": {
+				"packagings_add": [
+					{
+						"number_of_units": 6,
+						"shape": {"lc_name": "bottle"},
+						"material": {"lc_name": "PET"},
+						"quantity_per_unit": "25cl",
+						"weight_measured": "10 g"
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "box"},
+						"material": {"lc_name": "wood"},
+						"weight_specified": "25.5g"
+					},
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "film"},
+						"material": {"lc_name": "plastic"},
+						"weight_specified": "2,01 grams"
+					}		
+				]
+			}
+		}'
+	},
+	# invalid codes
+	{
+		test_case => 'patch-code-123',
+		method => 'PATCH',
+		path => '/api/v3/product/123',
+		body => '{"product": { "ingredients_text_en": "milk 80%, sugar, cocoa powder"}}',
+	},
+	# code "test" to get results for an empty product without saving anything
+	{
+		test_case => 'patch-code-test',
+		method => 'PATCH',
+		path => '/api/v3/product/test',
+		body => '{"product": { "ingredients_text_en": "milk 80%, sugar, cocoa powder"}}',
+	},
+	{
+		test_case => 'options-code-test',
+		method => 'OPTIONS',
+		path => '/api/v3/product/test',
+		body => '{"product": { "ingredients_text_en": "milk 80%, sugar, cocoa powder"}}',
+		headers => {
+			"Access-Control-Allow-Origin" => "*",
+			"Access-Control-Allow-Methods" => "HEAD, GET, PATCH, POST, PUT, OPTIONS",
+		},
+		expected_type => "html",
+	},
+	{
+		test_case => 'patch-unrecognized-field',
+		method => 'PATCH',
+		path => '/api/v3/product/test',
+		body => '{"product": { "some_unrecognized_field": "some value"}}',
+	},
+	# language specific fields
+	{
+		test_case => 'patch-language-fields',
+		method => 'PATCH',
+		path => '/api/v3/product/test',
+		body => '{
+			"fields" : "updated,ingredients_text,ingredients,lc",
+			"product": { 
+				"ingredients_text_en": "milk 80%, sugar, cocoa powder",
+				"ingredients_text_fr": "lait 80%, sucre, poudre de cacao"
+			}
+		}',
+	},
+	# tags fields
+	{
+		test_case => 'patch-tags-fields',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890100',
+		body => '{
+			"fields" : "updated",
+			"product": { 
+				"categories_tags": ["coffee"],
+				"labels_tags": ["en:organic", "fr:max havelaar", "vegan", "Something unrecognized"],
+				"brands_tags": ["Some brand"],
+				"unknown_tags": ["some value"],
+				"stores_tags": "comma,separated,list"
+			}
+		}',
+	},
+	# add to categories (existing) and stores (empty), replace labels
+	{
+		test_case => 'patch-tags-fields-add',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890100',
+		body => '{
+			"fields" : "updated",
+			"product": { 
+				"categories_tags_add": ["en:tea"],
+				"stores_tags_add": ["Carrefour", "Mon Ptit magasin"],
+				"countries_tags_fr_add": ["Italie", "en:spain"],
+				"labels_tags_fr": ["végétarien", "Something unrecognized in French"]
+			}
+		}',
+	},
+	# nutriscore of a test product
+	{
+		test_case => 'patch-ingredients-categories-to-get-nutriscore',
+		method => 'PATCH',
+		path => '/api/v3/product/test',
+		body => '{
+			"fields" : "updated,ingredients,nutriments,nutriments_estimated,nutriscore_grade,nutriscore_score,nutriscore_data",
+			"product": { 
+				"lang": "fr",
+				"categories_tags_fr": ["confiture"],
+				"ingredients_text_fr": "Sucre 300g, pommes 100g"
+			}
+		}',
 	},
 ];
 

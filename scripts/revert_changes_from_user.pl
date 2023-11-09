@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -43,8 +43,6 @@ and the script will have to be re-run.
 TXT
 	;
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
@@ -69,13 +67,7 @@ use File::Copy;
 
 use Getopt::Long;
 
-my @fields_to_update = ();
-my $key;
-my $index = '';
 my $pretend = '';
-my $process_ingredients = '';
-my $compute_nutrition_score = '';
-my $compute_nova = '';
 my $reverted_user_id = '';
 
 GetOptions(
@@ -90,8 +82,6 @@ GetOptions(
 my $query_ref = {};
 
 $query_ref->{editors_tags} = $reverted_user_id;
-
-print "Update key: $key\n\n";
 
 my $products_collection = get_products_collection();
 

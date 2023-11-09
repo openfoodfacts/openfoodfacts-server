@@ -1,0 +1,288 @@
+{
+   "additives_n" : 0,
+   "additives_old_n" : 0,
+   "additives_old_tags" : [],
+   "additives_original_tags" : [],
+   "additives_tags" : [],
+   "amino_acids_tags" : [],
+   "categories" : "lait de coco",
+   "categories_hierarchy" : [
+      "en:plant-based-foods-and-beverages",
+      "en:plant-based-foods",
+      "en:plant-based-creams",
+      "en:plant-based-creams-for-cooking",
+      "en:coconut-milks-and-creams"
+   ],
+   "categories_lc" : "fr",
+   "categories_properties" : {
+      "agribalyse_food_code:en" : "18041",
+      "ciqual_food_code:en" : "18041"
+   },
+   "categories_properties_tags" : [
+      "all-products",
+      "categories-known",
+      "agribalyse-food-code-18041",
+      "agribalyse-food-code-known",
+      "agribalyse-proxy-food-code-unknown",
+      "ciqual-food-code-18041",
+      "ciqual-food-code-known",
+      "agribalyse-known",
+      "agribalyse-18041"
+   ],
+   "categories_tags" : [
+      "en:plant-based-foods-and-beverages",
+      "en:plant-based-foods",
+      "en:plant-based-creams",
+      "en:plant-based-creams-for-cooking",
+      "en:coconut-milks-and-creams"
+   ],
+   "food_groups_tags" : [],
+   "ingredients" : [
+      {
+         "id" : "en:coconut",
+         "percent" : 60,
+         "percent_estimate" : 60,
+         "percent_max" : 60,
+         "percent_min" : 60,
+         "text" : "Noix de coco",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "18066",
+         "id" : "en:water",
+         "percent_estimate" : 40,
+         "percent_max" : 40,
+         "percent_min" : 40,
+         "text" : "eau",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_tags" : [],
+   "ingredients_hierarchy" : [
+      "en:coconut",
+      "en:fruit",
+      "en:water"
+   ],
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:coconut",
+      "en:water"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:coconut",
+      "en:fruit",
+      "en:water"
+   ],
+   "ingredients_text" : "Noix de coco 60%, eau",
+   "ingredients_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_that_may_be_from_palm_oil_tags" : [],
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 60,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 40,
+   "ingredients_without_ciqual_codes" : [
+      "en:coconut"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "known_ingredients_n" : 3,
+   "lc" : "fr",
+   "minerals_tags" : [],
+   "misc_tags" : [
+      "en:nutriscore-computed",
+      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+      "en:nutrition-all-nutriscore-values-known",
+      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
+      "en:nutriscore-2021-same-as-2023",
+      "en:nutriscore-2021-a-2023-a"
+   ],
+   "nucleotides_tags" : [],
+   "nutriments" : {
+      "energy_100g" : 178,
+      "fat_100g" : 2.6,
+      "fiber_100g" : 0.5,
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 60,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 60,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 60,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 60,
+      "nutrition-score-fr" : -3,
+      "nutrition-score-fr_100g" : -3,
+      "proteins_100g" : 3.9,
+      "salt_100g" : 0.03,
+      "salt_value" : 0.03,
+      "saturated-fat_100g" : 0.6,
+      "sodium" : 0.012,
+      "sodium_100g" : 0.012,
+      "sodium_unit" : "g",
+      "sodium_value" : 0.012,
+      "sugars_100g" : 0.5
+   },
+   "nutriscore" : {
+      "2021" : {
+         "category_available" : 1,
+         "data" : {
+            "energy" : 178,
+            "energy_points" : 0,
+            "energy_value" : 178,
+            "fiber" : 0.5,
+            "fiber_points" : 0,
+            "fiber_value" : 0.5,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 60,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 1,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 60,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat" : 0,
+            "is_water" : 0,
+            "negative_points" : 0,
+            "positive_points" : 3,
+            "proteins" : 3.9,
+            "proteins_points" : 2,
+            "proteins_value" : 3.9,
+            "saturated_fat" : 0.6,
+            "saturated_fat_points" : 0,
+            "saturated_fat_value" : 0.6,
+            "sodium" : 12,
+            "sodium_points" : 0,
+            "sodium_value" : 12,
+            "sugars" : 0.5,
+            "sugars_points" : 0,
+            "sugars_value" : 0.5
+         },
+         "grade" : "a",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
+         "score" : -3
+      },
+      "2023" : {
+         "category_available" : 1,
+         "data" : {
+            "count_proteins" : 1,
+            "count_proteins_reason" : "negative_points_less_than_11",
+            "energy" : 178,
+            "energy_points" : 0,
+            "fiber" : 0.5,
+            "fiber_points" : 0,
+            "fruits_vegetables_legumes" : 60,
+            "fruits_vegetables_legumes_points" : 1,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat_oil_nuts_seeds" : 0,
+            "is_red_meat_product" : 0,
+            "is_water" : 0,
+            "negative_nutrients" : [
+               "energy",
+               "sugars",
+               "saturated_fat",
+               "salt",
+               "non_nutritive_sweeteners"
+            ],
+            "negative_points" : 0,
+            "positive_nutrients" : [
+               "fruits_vegetables_legumes",
+               "fiber",
+               "proteins"
+            ],
+            "positive_points" : 2,
+            "proteins" : 3.9,
+            "proteins_points" : 1,
+            "salt" : 0.03,
+            "salt_points" : 0,
+            "saturated_fat" : 0.6,
+            "saturated_fat_points" : 0,
+            "sugars" : 0.5,
+            "sugars_points" : 0
+         },
+         "grade" : "a",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
+         "score" : -2
+      }
+   },
+   "nutriscore_2021_tags" : [
+      "a"
+   ],
+   "nutriscore_2023_tags" : [
+      "a"
+   ],
+   "nutriscore_data" : {
+      "energy" : 178,
+      "energy_points" : 0,
+      "energy_value" : 178,
+      "fiber" : 0.5,
+      "fiber_points" : 0,
+      "fiber_value" : 0.5,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils" : 60,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 1,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 60,
+      "grade" : "a",
+      "is_beverage" : 0,
+      "is_cheese" : 0,
+      "is_fat" : 0,
+      "is_water" : 0,
+      "negative_points" : 0,
+      "positive_points" : 3,
+      "proteins" : 3.9,
+      "proteins_points" : 2,
+      "proteins_value" : 3.9,
+      "saturated_fat" : 0.6,
+      "saturated_fat_points" : 0,
+      "saturated_fat_value" : 0.6,
+      "score" : -3,
+      "sodium" : 12,
+      "sodium_points" : 0,
+      "sodium_value" : 12,
+      "sugars" : 0.5,
+      "sugars_points" : 0,
+      "sugars_value" : 0.5
+   },
+   "nutriscore_grade" : "a",
+   "nutriscore_score" : -3,
+   "nutriscore_score_opposite" : 3,
+   "nutriscore_tags" : [
+      "a"
+   ],
+   "nutriscore_version" : "2021",
+   "nutrition_data_per" : "100g",
+   "nutrition_data_prepared_per" : "100g",
+   "nutrition_grade_fr" : "a",
+   "nutrition_grades" : "a",
+   "nutrition_grades_tags" : [
+      "a"
+   ],
+   "nutrition_score_beverage" : 0,
+   "nutrition_score_debug" : "",
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 60,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 60,
+   "other_nutritional_substances_tags" : [],
+   "pnns_groups_1" : "unknown",
+   "pnns_groups_1_tags" : [
+      "unknown",
+      "missing-association"
+   ],
+   "pnns_groups_2" : "unknown",
+   "pnns_groups_2_tags" : [
+      "unknown",
+      "missing-association"
+   ],
+   "unknown_ingredients_n" : 0,
+   "vitamins_tags" : []
+}

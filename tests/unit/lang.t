@@ -4,6 +4,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use Test::More;
+use Test2::Plugin::UTF8;
 use Log::Any::Adapter 'TAP';
 
 use ProductOpener::Lang qw/:all/;
@@ -98,5 +99,50 @@ foreach my $stringid (sort keys %Lang) {
 		}
 	}
 }
+
+# Check that some words like Eco-Score and Nutri-Score are not translated
+
+my @words_that_should_not_be_translated = (
+	"Nutri-Score",
+	"Eco-Score",
+	"NOVA",
+	"Open Pet Food Facts",
+	"Open Products Facts",
+	"Open Food Facts",
+	"Open Beauty Facts"
+);
+
+my $words = join('|', @words_that_should_not_be_translated);
+
+# Compute some stats about languages that are concerned,
+# so that we might exclude some if we do want Open Food Facts to be transliterated
+my %failed_languages = ();
+
+foreach my $stringid (sort keys %Lang) {
+	while ($Lang{$stringid}{'en'} =~ /\b($words)\b/g) {
+		my $word = $1;
+		foreach my $l (sort keys %{$Lang{$stringid}}) {
+			if (
+				($Lang{$stringid}{$l} !~ /\b$word\b/)
+
+				# in CJK languages, allow the words to not have a word boundary around them
+				and not(($l =~ /^(ko|ja|zh)$/) and ($Lang{$stringid}{$l} =~ /$word/))
+				)
+			{
+				defined $failed_languages{$l} or $failed_languages{$l} = 0;
+				$failed_languages{$l}++;
+				# As of 2022/12/08, there are 3630 instances where this test fail
+				# We can enable it one language at a time
+				if ($l =~ /^fr$/) {
+					fail(     "string $stringid in language $l does not contain $word "
+							. "(while it should never be translated): "
+							. "$Lang{$stringid}{$l}");
+				}
+			}
+		}
+	}
+}
+
+diag explain \%failed_languages;
 
 done_testing();

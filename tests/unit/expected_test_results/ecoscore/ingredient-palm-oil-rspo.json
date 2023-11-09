@@ -403,6 +403,7 @@
    ],
    "lc" : "en",
    "misc_tags" : [
+      "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
@@ -415,5 +416,9 @@
       "en:ecoscore-changed",
       "en:ecoscore-grade-changed"
    ],
-   "packagings" : []
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [],
+   "packagings" : [],
+   "packagings_materials" : {}
 }

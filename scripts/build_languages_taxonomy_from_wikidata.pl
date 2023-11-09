@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -225,6 +225,10 @@ my @languages = qw(
 	Q9309
 	Q9314
 	Q9610
+	Q34219
+	Q9301
+	Q26245
+	Q8821
 );
 
 #@languages = (55, 189, 399, 213, 205047);
