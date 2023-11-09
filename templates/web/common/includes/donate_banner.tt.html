@@ -1,91 +1,87 @@
-
 <!-- start templates/[% component.name %] -->
 
-[% IF (product_type == 'food') && (cc == 'fr') %]
-<div id="ecoscore_banner" class="row">
-	<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
-		<div id="image_banner" style="margin-bottom:1rem;" class="panel callout">
-			<div class="row">
-				<div class="small-12 large-9 xlarge-10 columns">
-			<h2>Eco-Score, la note environnementale des produits alimentaires</h2>
-			<p style="margin-bottom:0">Depuis le 7 janvier, l'Eco-Score a fait son apparition sur le site et l'app Open Food Facts !<br>
-			&rarr; <a href="https://fr.openfoodfacts.org/eco-score-l-impact-environnemental-des-produits-alimentaires">Découvrir l'Eco-Score</a></p>
-				</div>
-				<div class="show-for-large-up large-3 xlarge-2 columns">
-					<a href="https://fr.openfoodfacts.org/eco-score-l-impact-environnemental-des-produits-alimentaires"><img src="https://static.openfoodfacts.org/images/icons/ecoscore-a.svg" alt="Eco-Score"></a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+[% banner_main = BLOCK %]
+<section id="donation-banner-top" class="donation-banner">
+  <span class="donation-banner__image"></span>
+  <div class="donation-banner__content">
+  <a
+      class="donation-banner__content--button button round white-button"
+      href="[% link %]?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button"
+  >
+    <span class="material-icons">volunteer_activism</span>
+    [% lang('donation_cta') %]
+  </a>
+  <div class="donation-banner__content-paragraphs">
+    <p class="donation-banner__content-paragraphs--text">
+      [% lang("donation_text_2023") %]
+    </p>
+    <p class="donation-banner__content-paragraphs--thank-you">[% lang('thank_you_very_much') %] <span class="material-icons">favorite</span></p>
+  </div>
+  <div class="donation-banner__content-close">
+    <span id="hide-donate-banner" class="donation-banner__content-close--icon material-icons" onclick="DonationButton();">close</span>
+  </div>
+</section>
 
-[% ELSIF banner %]
+<script>
+  let d = new Date();
+  let bannerID = document.getElementById('donation-banner-top');
+  let getDomain = window.location.origin.split('.');
 
-<div id="donate_banner" class="row">
-	<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
-		<div id="image_banner" style="margin-bottom:1rem;" class="panel callout">
-		[% IF lc == ( 'fr' ) %]
-		
-			<h2>Important : nous avons besoin de votre soutien !</h2>
-			<p>Open Food Facts est un projet collaboratif porté par des dizaines de milliers de bénévoles
-			et géré par une association à but non-lucratif avec 3 salariés.<br>
-			Nous avons besoin de vos dons pour <a href="[% link %]?utm_source=off&utm_medium=web&utm_campaign=donate-2020&utm_term=fr-text">financer le budget 2021 d'Open Food Facts</a>
-			et continuer à développer le projet. <strong>Merci ! ❤️</strong></p>
-			<div class="row">
-				<div class="small-12 large-4 columns">
-			<a href="[% link %]?utm_source=off&utm_medium=web&utm_campaign=donate-2020&utm_term=fr-text-button" class="button round" style="margin-bottom:0">
-				Faire un don
-			</a>
-		
-		[% ELSIF lc == ( 'de' ) %]
+  function setBannerCookie(bcname, bcval, bcexdays) {
+    d.setTime(d.getTime() + (bcexdays*60*60*24*1000));
+    let expires = 'expires=' + d.toUTCString();
+    // Apply cookie for every domain contains open...facts
+    let domain = 'domain=.' + getDomain.slice(1).join('.');
+    document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
+  }
+  
+  function getBannerCookie(bcname) {
+    let name = bcname + '=';
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') { c = c.substring(1); }
+      if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+    }
+    return '';
+  }
 
-			<h2>Wichtig: Wir brauchen deine Hilfe!</h2>
-			<p>Open Food Facts ist ein kollaboratives Projekt, welches von zehntausenden Freiwilligen erstellt und von einer Non-Profit-Organisation mit 3 Angestellten gemanagt wird.<br>
-			Wir brauchen eure Spenden, <a href="[% link %]?utm_source=off&utm_medium=web&utm_campaign=donate-2020&utm_term=de-text">um das Open Food Facts Budget 2021 zu finanzieren</a>
-			und das Projekt fortzuführen und weiterzuentwicken. <strong>Danke! ❤️</strong></p>
-			<div class="row">
-				<div class="small-12 large-4 columns">
-			<a href="[% link %]?utm_source=off&utm_medium=web&utm_campaign=donate-2020&utm_term=de-text-button" class="button round" style="margin-bottom:0">
-				Spenden
-			</a>
+  function DonationButton() {
+    setBannerCookie('off-donation-banner-2023-a', 1, 180);
+    bannerID.style.display = 'none';
+  }
 
-		[% ELSIF lc == ( 'fi' ) %]
+  if (getBannerCookie('off-donation-banner-2023-a') !== '') {
+    bannerID.style.display = 'none';
+  } else { 
+    bannerID.style.display = 'flex';
+  }
+</script>
 
-			<h2>Tärkeää: tarvitsemme tukeasi!</h2>
-			<p>Open Food Facts on yhteistyöhanke, jonka ovat rakentaneet kymmenet tuhannet vapaaehtoiset ja sitä johtaa voittoa tavoittelematon järjestö, jossa on 3 työntekijää.<br>
-			Tarvitsemme lahjoituksianne <a href="[% link %]?utm_source=off&utm_medium=web&utm_campaign=donate-2020&utm_term=fi-text">Open Food Facts 2021 -budjetin rahoittamiseen</a>
-			 ja hankkeen kehittämisen jatkamiseen. <strong>Kiitos! ❤️</strong></p>
-			<div class="row">
-				<div class="small-12 large-4 columns">
-			<a href="[% link %]?utm_source=off&utm_medium=web&utm_campaign=donate-2020&utm_term=fi-text-button" class="button round">
-				Lahjoita
-			</a>
+[% END %]
 
-		[% ELSE %]
+<!-- Donation banner @ footer -->
+[% banner_footer = BLOCK %]
 
-			<h2>Important: we need your support!</h2>
-			<p>Open Food Facts is a collaborative project built by tens of thousands of volunteers
-			and managed by a non-profit organization with 3 employees.<br>
-			We need your donations to <a href="[% link %]?utm_source=off&utm_medium=web&utm_campaign=donate-2020&utm_term=en-text">fund the Open Food Facts 2021 budget</a>
-			and to continue to develop the project. <strong>Thank you! ❤️</strong></p>
-			<div class="row">
-				<div class="small-12 large-4 columns">
-			<a href="[% link %]?utm_source=off&utm_medium=web&utm_campaign=donate-2020&utm_term=en-text-button" class="button round" style="margin-bottom:0">
-				Donate
-			</a>
+<section class="donation-banner-footer">
+  <span class="donation-banner-footer__image"></span>
+  <div class="donation-banner-footer__content">
+  <a
+      class="donation-banner-footer__content--button button round white-button"
+      href="[% link %]?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button"
+  >
+    <span class="material-icons">volunteer_activism</span>
+    [% lang('donation_cta') %]
+  </a>
+  <div class="donation-banner-footer__content-paragraphs">
+    <p class="donation-banner-footer__content-paragraphs--text">
+      [% lang("donation_text_2023") %]
+    </p>
+    <p class="donation-banner-footer__content-paragraphs--thank-you">[% lang('thank_you') %] <span class="material-icons">favorite</span></p>
+  </div>
+</section>
 
-		[% END %]
-				</div>
-				<div class="small-12 large-8 columns">
-					<input id="hide_image_banner" type="checkbox" style="margin-top:1.5rem;margin-bottom:0;">
-					<label for="hide_image_banner">
-						<span id="hide_image_banner_hide">[% lang('donation_banner_hide') %]</span>
-					</label>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 [% END %]
 
 <!-- end templates/[% component.name %] -->

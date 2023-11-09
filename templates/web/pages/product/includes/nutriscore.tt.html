@@ -1,0 +1,30 @@
+<!-- start templates/[% component.name %] -->
+
+<h4>[% lang('nutrition_grade_fr_title') %]
+    <a href="/nutriscore" title="[% lang('nutrition_grade_fr_formula') %]">
+        [% display_icon('info') %]</a>
+</h4>
+
+[% IF nutriscore_grade.defined %]
+<a href="/nutriscore" title="[% lang('nutrition_grade_fr_formula') %]">
+    <img src="[% static_subdomain %]/images/attributes/nutriscore-[% nutriscore_grade %].svg" alt="[% lang('nutrition_grade_fr_alt}') %] [% nutriscore_grade | ucfirst %]" style="margin-bottom:1rem;max-width:100%">
+</a>
+<br>
+[% END %]
+
+[% IF nutriscore_details.defined %]
+    <p>
+        <a data-dropdown="nutriscore_drop" aria-controls="nutriscore_drop" aria-expanded="false">[% lang('nutriscore_calculation_details') %] &raquo;</a>
+    </p>
+    <div id="nutriscore_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
+        [% nutriscore_details %]
+    </div>
+[% END %]
+
+[% IF nutriscore_warnings %]
+    [% FOREACH warning IN nutriscore_warnings %]
+        <p class="warning">⚠️ [% warning %]</p>
+    [% END %]
+[% END %]
+
+<!-- end templates/[% component.name %] -->

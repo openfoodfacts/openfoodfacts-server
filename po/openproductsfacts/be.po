@@ -5,15 +5,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: be\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-09-10 13:03\n"
 "Language-Team: Belarusian\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n%100>=11 && n%100<=14 ? 2 : 3);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: be\n"
-"X-Crowdin-File: /master/po/openproductsfacts/openproductsfacts.pot\n"
-"X-Crowdin-File-ID: 1384\n"
+"X-Crowdin-File-ID: 3129\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -28,17 +26,7 @@ msgstr ""
 #. change https://apps.apple.com/app/ to https://apps.apple.com/fr/app/ (for instance) and make sure the url works
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
-msgstr ""
-
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openproductsfacts-logo-en-178x150.png"
-msgstr ""
-
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openproductsfacts-logo-en-356x300.png"
-msgstr ""
+msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 
 msgctxt "site_name"
 msgid "Open Products Facts"
@@ -46,7 +34,7 @@ msgstr ""
 
 #. change https://www.microsoft.com/en-us/p/ to https://www.microsoft.com/fr-fr/p/ (for instance) and make sure the url works
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 msgstr ""
 
 msgctxt "tagline"
@@ -72,17 +60,7 @@ msgstr ""
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
-
-msgctxt "footer"
-msgid "<a href=\"https://world.openproductsfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "brands_example"
 msgid "Nike, Apple"
@@ -94,7 +72,7 @@ msgstr ""
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
-msgstr ""
+msgstr "EMB 53062"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of information on products from around the world"
@@ -131,7 +109,7 @@ msgstr ""
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr ""
+msgstr "→ У Chrome, Firefox і Safari вы можаце выбраць некалькі выяў (прадукт, інгрэдыенты і інш.), пстрыкаючы па іх пры націснутай клавішы Ctrl, каб дадаць іх усе адным здымкам."
 
 msgctxt "search_description_opensearch"
 msgid "Open Products Facts product search"
@@ -139,7 +117,7 @@ msgstr ""
 
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-msgstr ""
+msgstr "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"

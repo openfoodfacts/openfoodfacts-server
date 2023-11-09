@@ -8,20 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="fb:app_id" content="219331381518041" />
-    <meta property="og:type" content="food" />
-    <meta property="og:title" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Help us fund the Open Food Facts 2024 budget!" />
     <meta
       property="og:url"
       content="https://world.openfoodfacts.org/donate-to-openfoodfacts"
     />
-
     <meta
       property="og:image"
-      content="https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+      content="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.png"
     />
     <meta
       property="og:description"
-      content="세계 각국의 식품에 대한 성분, 영양 정보 및 정보의 무료 공개 협업 데이터베이스"
+      content="Open Food Facts는 전 세계 모든 식품에 대한 데이터베이스 중 최대 규모의 무료 공개 데이터베이스입니3다. 저희는 우리가 먹는 식품에 대한 정보가 공공의 정보여야 한다고 생각합니다."
     />
     <link rel="manifest" href="/cgi/manifest.pl" />
     <link
@@ -51,7 +50,7 @@
 
     <link
       rel="stylesheet"
-      href="https://static.openfoodfacts.org/css/dist/app-ltr.css"
+      href="/cgi/css.pl"
     />
     <link
       rel="stylesheet"
@@ -72,6 +71,20 @@
     <style media="all">
       .show-when-logged-in {
         display: none;
+      }
+      .reason img {
+        height: 100px;
+      }
+      p {
+        line-height: 1.3;
+        margin-bottom: 0.8rem;
+      }
+      .wrapper {
+        background-image: url("https://static.openfoodfacts.org/images/misc/2023-donation/background.png");
+        background-size: contain;/**/
+        background-repeat: no-repeat;/**/
+        background-size: 100% 100%;
+        z-index: 0;
       }
     </style>
     <script src="https://static.openfoodfacts.org/js/dist/jquery.js"></script>
@@ -104,27 +117,33 @@ $('iframe').load(function(){
     </script>
   </head>
   <body>
+    <div class="wrapper">
     <div class="hide-for-large-up text-center">
       <img
-        src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg"
+        src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"
         width="178"
         height="156"
         alt="Open Food Facts 로고"
       />
+    </div>
 
-<div class="panel callout" style="margin-top:0.5rem">
-<h3>Open Food Facts 2020 예산에 자금을 댈 수 있도록 도와주세요!</h3>
-<p>Open Food Facts는 100% 무료이며 식품 산업과 무관합니다. 이 프로젝트의 성장 및 유지를 위해 여러분의 도움이 필요합니다.</p>
-</div>
+    <div class="hide-for-medium hide-for-large-up text-center">
+      <div class="panel callout" style="padding-top: 1rem; padding-bottom: 1rem; margin-bottom: 0.4rem;">
+        <h3>Help us fund the 2024 budget!</h3>
+        <p>
+          Open Food Facts는 100% 무료이며 식품 산업과 무관합니다. 
+          이 프로젝트의 성장 및 유지를 위해 여러분의 도움이 필요합니다.
+        </p>
+      </div>
     </div>
 
     <div
       class="row"
-      style="width: 100%; margin-left: auto; margin-right: auto; max-width: initial; margin-top:20px;"
+      style="width: 100%; margin-left: auto; margin-right: auto; max-width: initial; margin-top:10px;"
     >
       <div class="columns large-2 hide-for-medium hide-for-small text-center">
         <img
-          src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg"
+          src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"
           width="178"
           height="156"
           alt="Open Food Facts 로고"
@@ -132,52 +151,80 @@ $('iframe').load(function(){
       </div>
 
       <div
-        class="columns large-5 xlarge-6 xxlarge-7 hide-for-medium hide-for-small"
+        class="columns medium-6 large-5 xlarge-6 xxlarge-7 hide-for-small"
       >
-        <h2 style="margin-bottom:1rem">
-          Open Food Facts 팀에서 온 메시지
-        </h2>
 
-<div class="panel callout" style="margin-top:0.5rem">
-<h3>Open Food Facts 2020 예산에 자금을 댈 수 있도록 도와주세요!</h3>
-<p>Open Food Facts는 100% 무료이며 식품 산업과 무관합니다. 이 프로젝트의 성장 및 유지를 위해 여러분의 도움이 필요합니다.</p>
-</div>
+        <div class="panel callout" style="padding-top: 1rem; padding-bottom: 1rem; margin-bottom: 0.8rem;">
+          <h3>Help us fund the Open Food Facts 2024 budget!</h3>
+          <p>
+            Open Food Facts는 100% 무료이며 식품 산업과 무관합니다. 
+            이 프로젝트의 성장 및 유지를 위해 여러분의 도움이 필요합니다.
+          </p>
+        </div>
 
-        <img
-          src="https://static.openfoodfacts.org/images/svg/crowdsourcing-icon.svg"
-          style="width:240px;float:left;margin-right:5px;"
-          alt="Yes we scan! 로고"
-        />
-
+        <h3>Why donate to Open Food Facts?</h3>
         <p>
           Open Food Facts는 "식품의 위키 백과"라 할 수 있을 정도로 최고 규모의 무료로 오픈된 세계 각국 식품 관련 데이터베이스입니다.
+          We started Open Food Facts because we believe information about what
+          we eat is of public interest and needs to
+          be public, free and open.
         </p>
-        <p>
-          '우리가 먹고 있는 것에 대한 정보는 공익 정보이다'라는 믿음으로 Open Food Facts를 시작했습니다. 그리고 그 결과, 이 프로젝트는 공익적이며 무료로 오픈되어야만 했습니다.
-        </p>
-        <p>
-          우리들이 보유한 데이터는 시민들이 모바일 앱을 통해 더 건강한 음식을 선택하거나 공익 건강 연구원들이 건강에 음식이 미치는 영향을 연구하거나 기자들이 보도하거나 식품 산업이 자신들의 제품을 향상시키는 것에 사용됩니다. 이것이 바로 식품 투명성의 힘이며 모두에게 혜택을 제공합니다!
-        </p>
-        <p>
-          Open Food Facts를 설립 할 때, 모든 작업을 내줌으로써 영향을 극대화하기 위해 완전히 비영리적인 선택을 명확히 했습니다.
-          또한, 식품 산업과 완전히 무관하기위해 미션을 위협할 어떤 자금도 용납하지 않을 확실한 선택을 고집했습니다.
-        </p>
-        <p>
-          그 결과, 우리는 간신히 이 프로젝트를 시작했고 여전히 예산이 빠듯합니다. 2012년 부터 2017년까지 우리는 모두 자원 봉사자들이었고 연간 예산은 1000유로 미만이었습니다! 프로젝트는 많은 성장을 했으나 미션을 계속하기 위해 좀 더 필요합니다.
-        </p>
-        <p>
-          Open Food Facts가 계속 운영되고 성장하기 위해 여러분의 도움이 필요합니다. Open Food Facts를 보호하고 유지하기 위한 기부를 고려해 주세요.
-        </p>
-        <p>감사합니다.</p>
-        <p style="font-weight: bold;">
-          Anca, Florence, Léonore, Sylvia, Charles, Christian, Ludovic, Pierre, Sébastien, Stéphane, Vincent 및 Open Food Facts 팀 모두
-        </p>
+
+        <div class="reasons row">
+          <div class="reason small-12 large-6 columns">
+            <div class="flex-video">
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/W5pOjx6ycX4" 
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="reason small-12 large-6 columns">
+            <p>
+              When we founded Open Food Facts, we made the clear choice to be <strong>totally non-profit</strong> to 
+              <b>maximize our impact</b> by giving away all our work. We also made the clear choice that we 
+              would be totally <b>independent from the industry</b>, and thus to never accept any funding 
+              that could put our mission at risk.
+            </p>
+            <p>
+              We need your help to continue to operate and grow Open Food
+              Facts. Please consider making a donation to protect and sustain Open Food Facts.
+            </p>
+            <p>Thank you,<br/>
+              Anca, Éloïse, Florence, Léonore, Marie, Christian, Ludovic, 
+              Sébastien, Vincent and all the Open Food Facts team.
+            </p>
+          </div>
+        </div>
+        <div class="reasons row">
+          <div class="reason small-12 large-6 columns">
+            <h3>여러분의 기부금이 쓰이는 곳</h3>
+
+            <p>
+              <strong>Technology:</strong> Development, maintenance, servers to keep the database 
+              growing and to add cool new features to the Open Food Facts mobile app and web site.
+            </p>
+
+            <p>
+              <strong>People and projects:</strong> To give our best support to the Open
+              Food Facts community, to work with researchers, and to make our
+              food products data have the biggest impact on our health, our planet, and society.
+            </p>
+          </div>
+          <div class="small-12 large-6 columns">
+            <img src="https://static.openfoodfacts.org/images/misc/group-photo-small.jpg"
+                 alt="Last meeting in Paris"
+            >
+          </div>
+        </div>
+
+
       </div>
 
-      <div class="columns large-5 xlarge-4 xxlarge-3 text-center">
+      <div class="columns small-12 medium-6 large-5 xlarge-4 xxlarge-3 text-center">
         <div style="max-width:425px">
           <div class="loading">
-            <p>기부 양식은 로드 되어 있습니다.<br><a href=" https://donorbox.org/your-donation-to-open-food-facts">여러분은 이곳을 눌러 접속하실 수도 있습니다.</a></p>
+            <p>기부 양식이 로드 되어있습니다.<br><a href="https://donorbox.org/your-donation-to-open-food-facts">여기을 클릭하여</a> 액세스할 수도 있습니다.</p>
           </div>
 
           <script
@@ -185,7 +232,7 @@ $('iframe').load(function(){
             paypalExpress="true"
           ></script>
           <iframe
-            title="Donate via Donorbox"
+            title="Donorbox로 기부하기"
             allowpaymentrequest=""
             height="900px"
             name="donorbox"
@@ -195,19 +242,29 @@ $('iframe').load(function(){
             width="100%"
           ></iframe>
 
-          <div class="text-left">
-            <h3>여러분의 기부금이 쓰이는 곳</h3>
+          <div class="text-center">
+            <img src="https://static.openfoodfacts.org/images/misc/2023-donation/join-the-food-rev.png"
+                 alt="Join the food revolution!" style="margin-top: -15%; margin-bottom: -20%; width:80%"
+            >
+            <!-- h3>Where your donation goes</h3>
 
             <p>
-              <strong>기술:</strong> 개발, 유지, 서버가 있으며 이를 통해 성장 중인 데이터베이스를 유지하거나 Open Food Facts 모바일 앱과 웹 사이트에 멋진 새로운 기능을 추가합니다.
+              <strong>Technology:</strong> Development, maintenance, servers to keep the
+              database growing and to add cool new features to the Open Food
+              Facts mobile app and web site.
             </p>
 
             <p>
-              <strong>People and projects:</strong> Open Food Facts 커뮤니티에 최고의 지원 제공, 연구원 협력, 식품 데이터 제작은 모두 건강, 지구, 사회에 큰 영향을 주고 있습니다.
-            </p>
+              <strong>People and projects:</strong> To give our best support to the Open
+              Food Facts community, to work with researchers, and to make our
+              food products data have the biggest impact on our health, our
+              planet, and society.
+            </p -->
           </div>
         </div>
       </div>
     </div>
+  </div>
+
   </body>
 </html>

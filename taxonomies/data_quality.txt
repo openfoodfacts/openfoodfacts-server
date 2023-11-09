@@ -1,53 +1,2879 @@
 # Data quality taxonomy
 
-en:Nutrition value total over 105
-fr:Total des valeurs nutritionnelles supérieur à 105
-description:en:The sum of nutrient values for 100 g or 100 ml is greater than 100 g. It is very likely that there is at least one value or unit error.
-description:fr:La somme des valeurs nutritionnelles pour 100 g ou 100 ml est supérieure à 100 g. Il est très probable qu'il y a au moins une erreur de valeur ou d'unité.
-show_on_producers_platform:en:yes
+## --------------- Start with data quality errors. See: https://world.openfoodfacts.org/data-quality-errors
 
-en:Nutrition value total over 1000
-fr:Total des valeurs nutritionnelles supérieur à 1000
-description:en:The sum of nutrient values for 100 g or 100 ml is greater than 1000 g. There is at least one value or unit error.
-description:fr:La somme des valeurs nutritionnelles pour 100 g ou 100 ml est supérieure à 1000 g. Il y a au moins une erreur de valeur ou d'unité.
-show_on_producers_platform:en:yes
+# Data quality errors should not contain false positive, as opposed to data quality warnings
+en:Data quality errors
+description:en: Error detected on data
 
-en:Nutrition value over 3800 - Energy
-fr:Valeur nutritionnelle supérieure à 3800 - Energie
-description:en:The energy value per 100 g or 100 ml is greater than 3800 kJ, which is not possible.
-description:fr:La valeur de l'énergie pour 100 g ou 100 ml est supérieure à 3800 kJ, ce qui n'est pas possible.
+<en:Data quality errors
+en:Nutrition errors
+description:en:Error on nutrition data (nutrients)
 show_on_producers_platform:en:yes
+fix_action:en: add_nutrition_facts
+marker_type:en: error
 
-en:Nutrition - Sugars plus starch greater than carbohydrates
-fr:Nutrition - Sucres plus amidon supérieurs aux glucides
-show_on_producers_platform:en:yes
+<en:Nutrition errors
+en:Energy value in kcal does not match value computed from other nutrients
+fr:Valeur énergétique en kcal ne correspondant pas à la valeur calculée à partir des autres nutriments
+description:en:The energy value in kcal does not match value computed from other nutrients. It is often due to an error in the nutrition facts table entered by the users. Sometimes, it's an error coming from the producer.
+description:fr:La valeur énergétique entrée en kcal ne correspond pas à la valeur calculée à partir des autres nutriments. C'est souvent dû à une erreur dans le tableau nutritionel complété par les utilisateurs. Parfois il s'agit d'une erreur sur le packaging.
 
-en:Energy value in kcal greater than in kJ
-fr:La valeur de l'énergie en kcal est plus grande qu'en kJ
-description:en:The energy value in kJ must be about 4.2 times greater than the value in kcal. The values could be inverted.
-description:fr:La valeur de l'énergie en kJ doit être environ 4,2 fois plus grande que la valeur en kcal. Les valeurs sont peut être inversées.
-show_on_producers_platform:en:yes
-
+<en:Nutrition errors
 en:Energy value in kcal does not match value in kJ
+es:El valor energético en kcal no coincide con el valor en kJ
 fr:La valeur de l'énergie en kcal ne correspond pas à la valeur en kJ
 description:en:The energy value in kJ must be about 4.2 times greater than the value in kcal
 description:fr:La valeur de l'énergie en kJ doit être environ 4,2 fois plus grande que la valeur en kcal
+
+<en:Nutrition errors
+en:Energy value in kcal greater than in kJ
+es:Valor energético en kcal mayor que en kJ
+fr:La valeur de l'énergie en kcal est plus grande qu'en kJ
+description:en:The energy value in kJ must be about 4.2 times greater than the value in kcal. The values could be reversed.
+description:fr:La valeur de l'énergie en kJ doit être environ 4,2 fois plus grande que la valeur en kcal. Les valeurs sont peut être inversées.
+
+<en:Nutrition errors
+en:Energy value in kcal and kj are reversed
+description:en:The energy value in kJ must be about 4.2 times greater than the value in kcal. The values seems to be reversed.
+
+<en:Nutrition errors
+en:Energy value in kJ does not match value computed from other nutrients
+fr:Valeur énergétique en kJ ne correspondant pas à la valeur calculée à partir des autres nutriments
+description:en:The energy value in kJ does not match value computed from other nutrients. It is often due to an error in the nutrition facts table entered by the users. Sometimes, it's an error coming from the producer.
+description:fr:La valeur énergétique entrée en kJ ne correspond pas à la valeur calculée à partir des autres nutriments. C'est souvent dû à une erreur dans le tableau nutritionel complété par les utilisateurs. Parfois il s'agit d'une erreur sur le packaging.
+
+<en:Nutrition errors
+en:Nutrition - Sugars plus starch greater than carbohydrates
+es:Nutrición: azúcares más almidón más que los carbohidratos
+fr:Nutrition - Sucres plus amidon supérieurs aux glucides
+
+<en:Nutrition errors
+en:Nutrition - Fructose plus glucose plus maltose plus lactose plus sucrose greater than sugars
+
+<en:Nutrition errors
+en:Nutrition Saturated Fat greater than Fat
+fr:Acides gras saturés supérieurs aux matières grasses
+description:en:Saturated Fat is a sub-section of Fat on the nutrition labels, as a result, it should always be smaller than fat.
+description:fr:Les acides gras saturés sont contenus dans les matières grasses. En conséquence, ils ne doivent jamais être plus élévés que ces dernières.
+
+<en:Nutrition errors
+en:Nutrition data per serving - Missing serving size, serving quantity is unknown
+description:en:"Nutrition facts are specified for the product as sold." is checked. "per serving" is selected. But the serving size is missing.
+
+<en:Nutrition errors
+en:Nutrition data per serving - Serving quantity is not recognized
+description:en: although serving size is given, it cannot be parsed (digit or unit may be missing or unknown)
+
+<en:Nutrition errors
+en:Nutrition data per serving - Serving quantity is 0
+fr:Données nutritionnelles par portion - portion nulle
+description:en:Serving quantity is 0 or is not recognized while nutrition data is per portion.
+description:fr:La portion est nulle ou non reconnue alors que les valeurs nutritionnelles sont données par portion.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Alcohol
+description:en:Alcohol value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Alpha-linolenic acid
+description:en:Alpha-linolenic acid value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Arachidic acid
+description:en:Arachidic acid value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Arachidonic acid
+description:en:Arachidonic acid value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Behenic acid
+description:en:Behenic acid value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Biotin
+description:en:Biotin value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Caffeine
+description:en:Caffeine value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Calcium
+description:en:Calcium value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Caproic acid
+description:en:Caproic acid value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Carbohydrates
+description:en:Carbohydrates value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Casein
+description:en:Casein value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Chloride
+description:en:Chloride value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Cholesterol
+description:en:Cholesterol value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Chromium
+description:en:Chromium value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Copper
+description:en:Copper value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Docosahexaenoic acid
+description:en:Docosahexaenoic acid value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Fat
+description:en:Fat value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Fiber
+description:en:Fiber value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Fluoride
+description:en:Fluoride value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Fruits vegetables nuts estimate from ingredients
+description:en:Fruits vegetables nuts estimate from ingredients value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Gondoic acid
+description:en:Gondoic acid value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Iodine
+description:en:Iodine value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Iron
+description:en:Iron value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Lactose
+description:en:Lactose value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Lauric acid
+description:en:Lauric acid value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Magnesium
+description:en:Magnesium value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Maltodextrins
+description:en:Maltodextrins value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Omega 3 fat
+description:en:Omega 3 fat value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Omega 6 fat
+description:en:Omega 6 fat value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Omega 9 fat
+description:en:Omega 9 fat value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Palmitic acid
+description:en:Palmitic acid value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Phosphorus
+description:en:Phosphorus acid value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Polyols
+description:en:Polyols value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Polyunsaturated fat
+description:en:Polyunsaturated fat value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Potassium
+description:en:Potassium value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Pro vitamin a
+description:en:Pro vitamin a value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Proteins
+description:en:Proteins value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Salt
+description:en:Salt value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Salt prepared
+description:en:Salt prepared value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Saturated fat
+description:en:Saturated fat value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Selenium
+description:en:Selenium value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Serum proteins
+description:en:Serum proteins value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Sodium
+description:en:Sodium value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Sodium prepared
+description:en:Sodium prepared value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Starch
+description:en:Starch value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Sucrose
+description:en:Sucrose value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Sugars
+description:en:Sugars value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Taurine
+description:en:Taurine value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Trans fat
+description:en:Trans fat value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Vitamin B1
+description:en:Vitamin B1 value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Vitamin B12
+description:en:Vitamin B12 value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Vitamin B2
+description:en:Vitamin B2 value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Vitamin B6
+description:en:Vitamin B6 value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Vitamin B9
+description:en:Vitamin B9 value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Vitamin C
+description:en:Vitamin c value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Vitamin a
+description:en:Vitamin a value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Vitamin d
+description:en:Vitamin d value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Vitamin e
+description:en:Vitamin e value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Vitamin k
+description:en:Vitamin k value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Vitamin pp
+description:en:Vitamin pp value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Water hardness
+description:en:Water hardness value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 1000 - Zinc
+description:en:Zinc value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Alcohol
+description:en:Alcohol value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Alpha linolenic acid
+description:en:Alpha linolenic acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Arachidic acid
+description:en:Arachidic acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Arachidonic acid
+description:en:Arachidonic acid are over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Behenic acid
+description:en:Behenic acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Bicarbonate
+description:en:Bicarbonate value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Biotin
+description:en:Biotin value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Butyric acid
+description:en:Butyric acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Caffeine
+description:en:Caffeine value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Calcium
+description:en:Calcium value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Calcium prepared
+description:en:Calcium prepared value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Capric acid
+description:en:Capric acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Caproic acid
+description:en:Caproic acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Carbohydrates
+fr:Valeur nutritionnelle supérieure à 105 - Glucides
+description:en:Carbohydrates value is over 105g per 100g, which is impossible.
+description:fr:Glucides supérieur à 105g pour 100g, ce qui est impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Carbohydrates prepared
+fr:Valeur nutritionnelle supérieure à 105 pour le produit préparé - Glucides
+description:en:Carbohydrates value is over 105g per 100g for the prepared product, which is impossible.
+description:fr:Glucides supérieurs à 105g pour 100g pour le produit préparé, ce qui est impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Casein
+description:en:Casein value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Cerotic acid
+description:en:Cerotic acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Chloride
+description:en:Chloride value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Cholesterol
+description:en:Cholesterol value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Choline
+description:en:Choline value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Chromium
+description:en:Chromium value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Copper
+description:en:Copper value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Docosahexaenoic acid
+description:en:Docosahexaenoic acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition errors
+en:Nutrition value over 105 - Docosahexaenoic acid dha 22 6 n 3
+description:en:Docosahexaenoic acid dha 22 6 n 3 value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - EN vitamin d2
+description:en:EN vitamin d2 value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Eicosapentaenoic acid
+description:en:Eicosapentaenoic acid value is over 1000g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Eicosapentaenoic acid epa 20 5 n 3
+description:en:Eicosapentaenoic acid epa 20 5 n 3 value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Fat
+description:en:Fat value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Fat prepared
+description:en:Fat prepared value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Fiber
+description:en:Fiber value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Fiber prepared
+description:en:Fiber prepared value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Fluoride
+description:en:Fluoride value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Folates
+description:en:Folates value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Fruits vegetables nuts and rapeseed walnut and olive oils
+description:en:Fruits vegetables nuts and rapeseed walnut and olive oils value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Fruits vegetables nuts estimate from ingredients
+description:en:Fruits vegetables nuts estimate from ingredients value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Gondoic acid
+description:en:Gondoic acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Hydrogencarbonat
+description:en:Hydrogencarbonat value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Iodine
+description:en:Iodine value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Iron
+description:en:Iron value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Kohlendioxid
+description:en:Kohlendioxid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Lactose
+description:en:Lactose value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Lauric acid
+description:en:Lauric acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Lignoceric acid
+description:en:Lignoceric acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Linoleic acid
+description:en:Linoleic acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Magnesium
+description:en:Magnesium value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Magnesium 54 7 DE AJR
+description:en:magnesium 54 7 DE AJR is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Maltodextrins
+description:en:Maltodextrins value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Maltose
+description:en: Maltose value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Manganese
+description:en:Manganese value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Melissic acid
+description:en:Melissic acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Molybdenum
+description:en:Molybdenum value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Monounsaturated fat
+description:en:Monounsaturated fat value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Montanic acid
+description:en:Montanic acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Myristic acid
+description:en:Myristic acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - NL droogrest
+description:en:NL droogrest value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - New 1 prepared
+description:en:New 1 prepared value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - New 2 prepared
+description:en:New 2 prepared value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Nucleotides
+description:en:Nucleotides value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Oleic acid
+description:en:Oleic acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Omega 3 fat
+description:en:Omega 3 fat value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Omega 3 fat prepared
+description:en:Omega 3 fat prepared value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Omega 6 fat
+description:en:Omega 6 fat value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Omega 9 fat
+description:en:Omega-9 fats are over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Palmitic acid
+description:en:Palmitic acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Pantothenic acid
+description:en:Pantothenic acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Phosphorus
+description:en:Phosphorus value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Polyols
+description:en:Polyols value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Polyols prepared
+description:en:Polyols prepared value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Polyunsaturated fat
+description:en: Polyunsaturated fat are over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Potassium
+description:en:Potassium value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Pro vitamin a
+description:en:Pro vitamin a value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Proteins
+description:en:Proteins value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Proteins prepared
+description:en:Proteins prepared value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Residu sec
+description:en:Residu sec value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Salt
+description:en:Salt value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Salt prepared
+description:en:Salt prepared value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Saturated fat
+description:en:Saturated fat value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Saturated fat prepared
+description:en:Saturated fat prepared value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Selenium
+description:en:Selenium value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Serum proteins
+description:en:Serum proteins value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Silica
+description:en:Silica value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Sodium
+description:en:Sodium value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Sodium prepared
+description:en:Sodium prepared value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Starch
+description:en:Starch value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Stearic acid
+description:en:Stearic acid value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Sucrose
+description:en:Sucrose value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Sugars
+description:en:Sugars value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Sugars prepared
+description:en:Sugars prepared value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Taurine
+description:en:Taurine value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Till 100 g färdig produkt har x g kött använts
+description:en:Till 100 g färdig produkt har x g kött använts value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Total carbohydrate
+description:en:Total carbohydrate value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Trans fat
+description:en:Trans fat value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Vitamin B1
+description:en:Vitamin B1 value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Vitamin B12
+description:en:Vitamin B12 value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Vitamin B2
+description:en:Vitamin B2 value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Vitamin B6
+description:en:Vitamin B6 value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Vitamin B9
+description:en:Vitamin B9 value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Vitamin D3
+description:en:Vitamin D3 value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Vitamin PP
+description:en:Vitamin PP value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Vitamin a
+description:en:Vitamin a value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Vitamin a prepared
+description:en:Vitamin a prepared value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Vitamin c
+description:en:Vitamin c value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Vitamin d
+description:en:Vitamin d value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Vitamin d prepared
+description:en:Vitamin d prepared value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Vitamin e
+description:en:Vitamin e value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Vitamin k
+description:en:Vitamin k value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Water hardness
+description:en:Water hardness value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 105 - Zinc
+description:en:Zinc value is over 105g per 100g, which is impossible.
+
+<en:Nutrition Error
+en:Nutrition value over 3800 - Energy
+es:Valor nutricional superior a 3800 - Energía
+fr:Valeur nutritionnelle supérieure à 3800 - Energie
+description:en:The energy value per 100 g or 100 ml is greater than 3800 kJ, which is not possible.
+description:fr:La valeur de l'énergie pour 100 g ou 100 ml est supérieure à 3800 kJ, ce qui n'est pas possible.
+
+<en:Nutrition Error
+en:Nutrition value total over 1000
+es:Valor nutricional total superior a 1000
+fr:Total des valeurs nutritionnelles supérieur à 1000
+description:en:The sum of nutrient values for 100 g or 100 ml is greater than 1000 g. There is at least one value or unit error.
+description:fr:La somme des valeurs nutritionnelles pour 100 g ou 100 ml est supérieure à 1000 g. Il y a au moins une erreur de valeur ou d'unité.
+
+<en:Nutrition Error
+en:Nutrition value total over 105
+es:Valor nutricional total superior a 105
+fr:Total des valeurs nutritionnelles supérieur à 105
+description:en:The sum of nutrient values for 100 g or 100 ml is greater than 100 g. It is very likely that there is at least one value or unit error.
+description:fr:La somme des valeurs nutritionnelles pour 100 g ou 100 ml est supérieure à 100 g. Il est très probable qu'il y a au moins une erreur de valeur ou d'unité.
+
+<en:Nutrition Error
+en:Serving size is missing digits
+fr:La taille de portion manque d'un nombre
+description:en:The serving size should be a size with digits. Eg. "10 g", "250 ml", "2 fl oz"...
+description:fr:La taille de portion devrait contenir un nombre. Par exemple : "10 g", "250 ml", "2 biscuits de 30 g", etc.
+
+
+## --------------- Then data quality warnings
+
+en:Data quality warnings
+description:en: Possible error on data detected. Might be a false alert.
+marker_type:en: warning
+
+en:Data quality ok tags
+description:en: Positive appreciations on data quality
+marker_type:en: info
+
+### Eco-Score and packaging
+<en:Data quality warnings
+en:Eco-Score quality warnings
+description:en: Data quality warnings that might affect Eco-Score computation
+
+<en:Data quality warnings
+en:Packaging warnings
+description:en: Packaging data might have issues
+fix_action:en: add_packaging_components
+
+<en:Eco-Score quality warnings
+en:EcoScore origins of ingredients origins are 100 percent unknown
+description:en:Origins of ingredients are one of the Eco-Score components. They are currently extracted from the ingredient list and the Origins field.
+fix_action:en: add_origins
+
+<en:Eco-Score quality warnings
+en:EcoScore - Packaging - Unscored material
+#description:en:
+
+<en:Eco-Score quality warnings
+en:EcoScore - Packaging - Unscored shape
+#description:en:
+
+<en:Eco-Score quality warnings
+en:EcoScore - Extended data - Not computed
+#description:en:
+
+<en:Eco-Score quality warnings
+en:EcoScore - Packaging - Unspecified shape
+#description:en:
+
+<en:Eco-Score quality warnings
+en:EcoScore - extended data computed
+#description:en:
+
+<en:Eco-Score quality warnings
+en:EcoScore - Extended data less precise than Agribalyse
+#description:en:
+
+<en:Eco-Score quality warnings
+en:EcoScore - Packaging - Unspecified material
+#description:en:
+
+<en:Eco-Score quality warnings
+en:EcoScore - production system - no label
+#description:en:
+
+<en:Eco-Score quality warnings
+<en:Packaging warnings
+en:EcoScore - packaging - Packaging data missing
+description:en:No packaging data - Packaging is one of the components of the Eco-Score, and thus it's important to have packaging data.
+
+<en:Eco-Score quality warnings
+en:EcoScore - threatened species - Ingredients missing
+#description:en:Ingredients threatening species are one of the Eco-Score components. They are currently extracted from the ingredient list.
+
+<en:Eco-Score quality warnings
+<en:Packaging warnings
+en:No packaging data
+description:en:No packaging data - Packaging is one of the components of the Eco-Score, and thus it's important to have packaging data.
+
+<en:Eco-Score quality warnings
+<en:Packaging warnings
+en:Packaging data - incomplete
+#description:en:
+
+<en:Data quality ok tags
+en:Packaging data complete
+#description:en:
+
+
+
+
+#### Food groups
+
+<Data quality warnings
+en:Food groups warnings
+description:en: Food groups can't be inferred
+
+<en:Food groups warnings
+en:Food groups 3 unknown
+#description:en:
+
+<en:Food groups warnings
+en:Food groups 2 unknown
+#description:en:
+
+<en:Food groups warnings
+en:Food groups 1 unknown
+#description:en:
+
+<en:Food groups warnings
+en:Food groups 1 known
+#description:en:
+
+<en:Food groups warnings
+en:Food groups 2 known
+#description:en:
+
+<en:Food groups warnings
+en:Food groups 3 known
+#description:en:
+
+<en:Data quality ok tags
+en:Ingredients percent analysis OK
+#description:en:
+
+<en:Data quality warnings
+en:Serving quantity defined but quantity undefined
+#description:en:
+fix_action:en: add_quantity
+
+
+
+### Fibers
+
+<en:Data quality warnings
+en:Fibers warnings
+description:en: There might be an issue with the fibers nutrient
+fix_action:en: add_nutrition_facts
+
+<en:Fibers warnings
+en:Missing nutrition facts - fibers present on photos
+description:en:Fibers are mentioned on photos, but are not present in the inputed nutrition table
+
+<en:Fibers warnings
+en:Missing nutrition facts - fibers present on nutrition photos
+description:en:Fibers are mentioned on nutrition photos, but are not present in the inputed nutrition table
+
+
+## Ingredients
+
+<en:Data quality errors
+en:Ingredients errors
+description:en: There might be an issue with ingredients
+show_on_producers_platform:en:yes
+marker_type:en: error
+
+<en:Ingredients errors
+en:nutri-score-grade-from-category-does-not-match-calculated-grade
+description:en: The calculated nutriscore grade is different than the one expected for this category
+fix_action:en: add_nutrition_facts
+
+<en:Ingredients errors
+en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients
+description:en: This category expect a single and specific ingredient
+fix_action:en: add_ingredients_text
+
+<en:Data quality warnings
+en:Ingredients warnings
+description:en: Potential issue with ingredients
+fix_action:en: add_ingredients_text
+
+<en:Ingredients warnings
+en:All but one ingredient with specified percent
+#description:en:
+
+<en:Ingredients warnings
+en:All ingredients with specified percent
+#description:en:
+
+<en:Ingredients warnings
+en:Ingredients - 100 percent unknown
+description:en:There are 100 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
+
+<en:Ingredients warnings
+en:Ingredients - 50 percent unknown
+description:en:There are 50 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
+
+<en:Ingredients warnings
+en:Ingredients - 60 percent unknown
+description:en:There are 60 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
+
+<en:Ingredients warnings
+en:Ingredients - 70 percent unknown
+description:en:There are 70 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
+
+<en:Ingredients warnings
+en:Ingredients - 80 percent unknown
+description:en:There are 80 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
+
+<en:Ingredients warnings
+en:Ingredients - 90 percent unknown
+description:en:There are 90 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
+
+<en:Ingredients warnings
+en:Ingredients - extracted ingredient from picture with more than 100 percent
+description:en:At least one ingredient has a percentage greater than 100% after extracting the ingredients from the picture
+
+<en:Ingredients warnings
+en:Ingredients - Ingredient tag length greater than 100
+description:en:Having ingredients with a lot of letter might indicate a parsing error. Words with 100 characters are very rare in almost all languages.
+
+<en:Ingredients warnings
+en:Ingredients - Ingredient tag length greater than 200
+description:en:Having ingredients with a lot of letter might indicate a parsing error. Words with 200 characters are very rare in almost all languages.
+
+<en:Ingredients warnings
+en:Ingredients - Number of languages - 2
+#description:en:
+
+<en:Ingredients warnings
+en:Ingredients - Number of languages - 3
+#description:en:
+
+<en:Ingredients warnings
+en:Ingredients - Number of languages - 4
+description:en:There are 4 different languages in one ingredient list. For instance, the ingredient list in French should only include the one language declared, and other languages should moved to an ingredient list for German, Italian…
+
+<en:Ingredients warnings
+en:Ingredients - Number of languages - 5
+description:en:There are 5 different languages in one ingredient list. For instance, the ingredient list in French should only include the one language declared, and other languages should moved to an ingredient list for German, Italian…
+
+<en:Ingredients warnings
+en:Ingredients - Number of languages - 6
+description:en:There are 6 different languages in one ingredient list. For instance, the ingredient list in French should only include the one language declared, and other languages should moved to an ingredient list for German, Italian…
+
+<en:Ingredients warnings
+en:Ingredients - Number of languages - 7
+description:en:There are 7 different languages in one ingredient list. For instance, the ingredient list in French should only include the one language declared, and other languages should moved to an ingredient list for German, Italian…
+
+<en:Ingredients warnings
+en:Ingredients - Number of languages - above 1
+#description:en:
+
+<en:Ingredients warnings
+en:Ingredients - Number of languages - above 2
+#description:en:
+
+<en:Ingredients warnings
+en:Ingredients - Number of languages - above 3
+#description:en:
+
+<en:Ingredients warnings
+en:Ingredients - Number of languages - above 4
+description:en:There are over 4 different languages in one ingredient list. For instance, the ingredient list in French should only include the one language declared, and other languages should moved to an ingredient list for German, Italian…
+
+<en:Ingredients warnings
+en:Ingredients - Number of languages - above 5
+description:en:There are over 5 different languages in one ingredient list. For instance, the ingredient list in French should only include the one language declared, and other languages should moved to an ingredient list for German, Italian…
+
+<en:Ingredients warnings
+en:Ingredients - Percent analysis not OK
+#description:en:
+
+<en:Ingredients warnings
+en:Ingredients - Unknown score above 0
+description:en:There are more than 0 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
+
+<en:Ingredients warnings
+en:Ingredients - Unknown score above 20
+description:en:There are more than 20 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
+
+<en:Ingredients warnings
+en:Ingredients - Unknown score above 30
+description:en:There are more than 30 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
+
+<en:Ingredients warnings
+en:Ingredients - Unknown score above 40
+description:en:There are more than 40 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
+
+<en:Ingredients warnings
+en:Ingredients - Unknown score above 5
+description:en:There are more than 5 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
+
+<en:Ingredients warnings
+en:Ingredients - Unknown score above 50
+description:en:There are more than 50 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
+
+<en:Ingredients warnings
+en:Ingredients - ingredient tag length greater than 50
+description:en:Having ingredients with a lot of letter might indicate a parsing error. Words with 50 characters are rare in almost all languages.
+
+<en:Ingredients warnings
+en:Ingredients AF - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients AR - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients AR - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients AR - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients AR - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients AR - Includes FR instructions
+description:en:The AR ingredient list includes FR preparation instructions, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped. It might also mean that ingredient automatic cleaning is not working well for your language.
+
+<en:Ingredients warnings
+en:Ingredients AR - Includes FR nutrition facts
+description:en:The AR ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients AR - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients AR - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients AR - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients AR - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients BG - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients BG - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients BG - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients BG - Includes FR nutrition facts
+description:en:The BG ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients BG - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients BG - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients BG - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients BG - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients BG - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients CA - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients CA - Includes FR nutrition facts
+description:en:The CA ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients CA - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients CA - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients CS - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients CS - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients CS - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients CS - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients CS - Includes FR nutrition facts
+description:en:The CS ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients CS - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients CS - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients CS - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients CS - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients CS - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients DA - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients DA - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients DA - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients DA - Includes FR nutrition facts
+description:en:The DA ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients DA - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients DA - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients DA - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients DA - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients DE - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients DE - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients DE - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients DE - Includes FR instructions
+description:en:The DE ingredient list includes FR preparation instructions, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped. It might also mean that ingredient automatic cleaning is not working well for your language.
+
+<en:Ingredients warnings
+en:Ingredients DE - Includes FR nutrition facts
+description:en:The DE ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients DE - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients DE - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients DE - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients DE - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients DE - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients EL - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients EL - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients EL - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients EL - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients EL - Includes FR nutrition facts
+description:en:The EL ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients EL - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients EL - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients EL - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients EL - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients EN - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients EN - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients EN - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients EN - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients EN - Includes FR instructions
+description:en:The EN ingredient list includes FR preparation instructions, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped. It might also mean that ingredient automatic cleaning is not working well for your language.
+
+<en:Ingredients warnings
+en:Ingredients EN - Includes FR nutrition facts
+description:en:The EN ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients EN - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients EN - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients EN - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients EN - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients EN - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients ES - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients ES - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients ES - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients ES - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients ES - Includes FR instructions
+description:en:The ES ingredient list includes FR preparation instructions, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped. It might also mean that ingredient automatic cleaning is not working well for your language.
+
+<en:Ingredients warnings
+en:Ingredients ES - Includes FR nutrition facts
+description:en:The ES ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients ES - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients ES - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients ES - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients ES - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients ES - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients FA - Includes FR nutrition facts
+description:en:The fa ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients FA - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients FI - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients FI - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients FI - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients FI - Includes FR nutrition facts
+description:en:The FI ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients FI - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients FI - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients FI - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients FI - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients FR - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients FR - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients FR - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients FR - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients FR - Includes FR instructions
+description:en:The FR ingredient list includes FR preparation instructions, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped. It might also mean that ingredient automatic cleaning is not working well for your language.
+
+<en:Ingredients warnings
+en:Ingredients FR - Includes FR nutrition facts
+description:en:The FR ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients FR - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients FR - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients FR - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients FR - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients FR - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients HE - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients HI - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients HR - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients HR - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients HR - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients HR - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients HR - Includes FR nutrition facts
+description:en:The HR ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients HR - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients HR - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients HR - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients HR - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients HR - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients HU - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients HU - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients HU - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients HU - Includes FR nutrition facts
+description:en:The HU ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients HU - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients HU - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients HU - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients HU - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients HU - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients HY - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients IS - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients IS - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients IT - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients IT - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients IT - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients IT - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients IT - Includes FR instructions
+description:en:The IT ingredient list includes FR preparation instructions, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped. It might also mean that ingredient automatic cleaning is not working well for your language.
+
+<en:Ingredients warnings
+en:Ingredients IT - Includes FR nutrition facts
+description:en:The IT ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients IT - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients IT - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients IT - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients IT - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients IT - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients JA - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients JA - Includes FR nutrition facts
+description:en:The JA ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients JA - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients JA - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients JA - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients JA - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients LT - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients LT - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients LT - Includes FR nutrition facts
+description:en:The LT ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients LT - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients LT - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients LT - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients LT - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients LT - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients LV - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients LV - Includes FR nutrition facts
+description:en:The LV ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients LV - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients LV - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients MS - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients MS - Includes FR nutrition facts
+description:en:The MS ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients MS - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients MT - Includes FR nutrition facts
+description:en:The MT ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients NB - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients NB - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients NB - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients NB - Includes FR nutrition facts
+description:en:The NB ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients NB - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients NB - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients NB - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients NL - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients NL - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients NL - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients NL - Includes FR instructions
+description:en:The NL ingredient list includes FR preparation instructions, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped. It might also mean that ingredient automatic cleaning is not working well for your language.
+
+<en:Ingredients warnings
+en:Ingredients NL - Includes FR nutrition facts
+description:en:The NL ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients NL - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients NL - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients NL - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients NL - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients NL - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients NO - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients NO - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients NO - Includes FR nutrition facts
+description:en:The NO ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients NO - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients NO - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients PL - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients PL - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients PL - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients PL - Includes FR nutrition facts
+description:en:The PL ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients PL - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients PL - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients PL - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients PL - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients PT - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients PT - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients PT - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients PT - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients PT - Includes FR instructions
+description:en:The PT ingredient list includes FR preparation instructions, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped. It might also mean that ingredient automatic cleaning is not working well for your language.
+
+<en:Ingredients warnings
+en:Ingredients PT - Includes FR nutrition facts
+description:en:The PT ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients PT - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients PT - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients PT - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients PT - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients PT - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients RO - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients RO - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients RO - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients RO - Includes FR instructions
+description:en:The RO ingredient list includes FR preparation instructions, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped. It might also mean that ingredient automatic cleaning is not working well for your language.
+
+<en:Ingredients warnings
+en:Ingredients RO - Includes FR nutrition facts
+description:en:The RO ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients RO - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients RO - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients RO - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients RO - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients RO - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients RU - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients RU - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients RU - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients RU - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients RU - Includes FR instructions
+description:en:The RU ingredient list includes FR preparation instructions, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped. It might also mean that ingredient automatic cleaning is not working well for your language.
+
+<en:Ingredients warnings
+en:Ingredients RU - Includes FR nutrition facts
+description:en:The RU ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients RU - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients RU - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients RU - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients RU - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients RU - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients SK - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients SK - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients SK - Includes FR nutrition facts
+description:en:The SK ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients SK - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients SK - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients SK - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients SK - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients SK - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients SL - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients SL - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients SL - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients SL - Includes FR instructions
+description:en:The SL ingredient list includes FR preparation instructions, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped. It might also mean that ingredient automatic cleaning is not working well for your language.
+
+<en:Ingredients warnings
+en:Ingredients SL - Includes FR nutrition facts
+description:en:The SL ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients SL - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients SL - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients SL - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients SQ - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients SQ - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients SQ - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients SQ - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients SQ - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients SQ - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients SR - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients SR - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients SR - Includes FR nutrition facts
+description:en:The SR ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients SR - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients SR - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients SR - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients SV - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients SV - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+language:
+
+<en:Ingredients warnings
+en:Ingredients SV - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients SV - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients SV - Includes FR instructions
+description:en:The SV ingredient list includes FR preparation instructions, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped. It might also mean that ingredient automatic cleaning is not working well for your language.
+
+<en:Ingredients warnings
+en:Ingredients SV - Includes FR nutrition facts
+description:en:The SV ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients SV - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients SV - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients SV - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients SV - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients SV - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients TE - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients TH - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients TH - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients TH - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients TH - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients TH - Includes FR nutrition facts
+description:en:The TH ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients TH - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients TH - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients TH - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients TH - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients TH - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients TR - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients TR - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients TR - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients TR - Includes FR nutrition facts
+description:en:The TR ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients TR - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients TR - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients TR - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients TR - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients TR - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients UK - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients VI - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients VI - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients VI - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients VI - Includes FR nutrition facts
+description:en:The VI ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients VI - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients VI - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients VI - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients XX - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients XX - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients XX - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients XX - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients XX - Includes FR instructions
+description:en:The XX ingredient list includes FR preparation instructions, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped. It might also mean that ingredient automatic cleaning is not working well for your language.
+
+<en:Ingredients warnings
+en:Ingredients XX - Includes FR nutrition facts
+description:en:The XX ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients XX - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients XX - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients XX - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients XX - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients XX - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients ZH - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients ZH - Includes FR nutrition facts
+description:en:The ZH ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients ZH - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients ZH - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients ZH - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients ZH - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients ZH - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients ab - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients bs - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients et - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients et - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients et - Includes FR nutrition facts
+description:en:The et ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients eu - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients fa - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients fa - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients he - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients he - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients hi - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients hy - Includes FR instructions
+description:en:The hy ingredient list includes FR preparation instructions, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped. It might also mean that ingredient automatic cleaning is not working well for your language.
+
+<en:Ingredients warnings
+en:Ingredients id - Includes FR nutrition facts
+description:en:The id ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients id - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients id - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients in - Includes FR nutrition facts
+description:en:The in ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients is - 4 repeated chars
+description:en:This ingredient list contains 4 repeated chars, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients is - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients is - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients ka - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients kk - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients kk - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients kk - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients km - Includes FR nutrition facts
+description:en:The km ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients ko - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients ko - Includes FR nutrition facts
+description:en:The ko ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients ko - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients ko - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients ko - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients la - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients mk - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients mk - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients mk - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients mn - Includes FR nutrition facts
+description:en:The mn ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients ms - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients ms - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients ms - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients mt - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients mt - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients nn - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients over 30 percent digits
+#description:en:
+
+<en:Ingredients warnings
+en:Ingredients so - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients ta - Unexpected Chars - Arobase
+description:en:The ingredients list contains an arobase @ sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients uk - 5 consonants
+description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients uk - 5 vowels
+description:en:This ingredient list contains 5 consecutive vowels, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+
+<en:Ingredients warnings
+en:Ingredients uk - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients uk - Includes FR nutrition facts
+description:en:The uk ingredient list includes FR nutrition facts, which means that there's a language mismatch in the photo, and that the photo is either the wrong one, or badly cropped.
+
+<en:Ingredients warnings
+en:Ingredients uk - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Ingredients uk - Unexpected Chars - Currencies
+description:en:The ingredients list contains a currency sign in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients uk - Unexpected Chars - Exclamation mark
+description:en:The ingredients list contains an exclamation mark in the ingredient list, which is normally unexpected.
+
+<en:Ingredients warnings
+en:Ingredients uk - Unexpected Chars - Question mark
+description:en:The ingredients list contains a question mark in the ingredient list, which is normally unexpected, and is also a convention for contributors when an ingredient is illegible on the photo.
+
+<en:Ingredients warnings
+en:Ingredients unknown score above 10
+description:en:There are more than 10 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
+
+<en:Ingredients warnings
+en:Ingredients uz - Ending comma
+description:en:This ingredient list ends with a comma, which likely means it's been cut in the wrong place, and warrants checking it, and replacing that with a stop.
+
+<en:Ingredients warnings
+en:Ingredients yo - Over 30 percent digits
+description:en:This ingredient list contains over 30 percent digits, which is unlikely, even assuming all percentage of ingredients are mentionned. This might be due to a nutrition table image that was selected as an ingredient image, and then extracted.
+
+<en:Ingredients warnings
+en:Sum of ingredients with specified percent greater than 100
+description:en:Having a sum of ingredients percentages greater than 100 is logically impossible.
+
+<en:Ingredients warnings
+en:Sum of ingredients with unspecified percent lesser than 10
+#description:en:
+
+
+
+
+## GS1
+
+<en: Data quality warnings
+en: GS1 warnings
+description:en: Data quality warnings linked to GS1 format (producers imports)
+
+<en:GS1 warnings
+en:GS1 - Future coupon prefix
+#description:en:
+
+<en:GS1 warnings
+en:GS1 - ISSN prefix
+description:en:The International Standard Serial Number (ISSN) is for serial publications. In other terms, this is not food, and this should be moved to Open Products Facts by inputting OPF in the barcode field at the top of the edit page.
+
+<en:GS1 warnings
+en:GS1 - coupon prefix
+description:en:This product has a barcode which has the format of a GS1 coupon prefix. This is probably a test by someone who scanned a coupon barcode, and added it to Open Food Facts.
+
+<en:GS1 warnings
+en:GS1 - ISBN prefix
+description:en:The International Standard Book Number (ISBN) is for books. In other terms, this is not food, and this should be moved to Open Products Facts by inputting OPF in the barcode field at the top of the edit page.
+
+<en:GS1 warnings
+en:GS1 - refund prefix
+#description:en:
+
+<en:GS1 warnings
+en:GS1 - Coupon common currency area prefix
+#description:en:
+
+
+
+
+## Others
+
+en:Code zero
+#description:en:
+
+en:Main language missing
+description:en:There's no language for this product, which is problematic, since several behaviors around ingredient analysis rely on a main language.
+
+
+en:Main language unknown
+#description:en:
+
+
+
+
+## categories
+
+<en:Data quality warnings
+en: Categories warnings
+description:en: potential issues on categories
+
+<en: Categories warnings
+en:Alcoholic and non alcoholic categories
+#description:en:
+
+<en: Categories warnings
+en:Alcoholic beverages category without alcohol value
+#description:en:All alcoholic beverages should have an alcohol % value
+
+<en: Categories warnings
+en:Cosmetic product
+description:en:This product should be moved to Open Beauty Facts by inputting "obf" in the barcode field at the top of the page in the web version.
+
+<en: Categories warnings
+en:Detected category from brand - Baby Foods
+#description:en:
+
+<en: Categories warnings
+en:Detected category from brand - Cigarettes
+description:en:Those are likely to be cigarettes, based on the brand. There might be some false positives. All cigarettes should be categorized as non-food products, and moved to Open Products Facts by inputting OPF in the barcode field at the top of the edit page.
+fix_action:en: move_to_opf
+show_to:en: moderators
+
+<en: Categories warnings
+en:Detected category from name and ingredients may be missing baby milks
+fix_action:en: add_categories
+#description:en:
+
+<en: Categories warnings
+en:Incompatible categories - Plant milk and dairy
+#description:en:
+
+
+
+
+### Nutrition and Nutri-Score
+
+<en:Data quality warnings
+en:Nutrition warnings
+description:en: Potential issues on nutrition data
+fix_action:en: add_nutrition_facts
+
+<en:Data quality warnings
+en:Nutri-Score warnings
+description:en: Potential issues on Nutri-Score computation
+
+<en:Nutrition warnings
+en:All nutrition values are set to 0
+es:Todos los valores nutricionales se establecen en 0
+fr:Toutes les valeurs nutritionnelles sont définies à 0
+description:en:If nutrition facts are unknown, they should not be specified.
+description:fr:Dans le cas où les informations nutritionnelles sont inconnues, elles ne doivent pas être renseignées.
 show_on_producers_platform:en:yes
 
-en:Nutri-Score score from producer does not match calculated score
-fr:Le score Nutri-Score du producteur ne correspond pas au score calculé
-description:en:The difference may be due to different nutrition facts (for instance if fibers or fruits, vegetables and nuts are not specified).
-description:fr:La différence peut être due à des valeurs nutritionnelles différentes (par exemple si les fibres ou les fruits, légumes et noix ne sont pas indiqués).
-show_on_producers_platform:en:yes
+<en:Nutrition warnings
+en:Missing nutrition data prepared with category dried products to be rehydrated
+#description:en:
 
+<en:Nutrition warnings
+en:No nutrition data
+#description:en:
+
+<en:Data quality ok tags
+en:Nutri-Score computations same grade
+#description:en:
+
+<en:Data quality ok tags
+en:Nutri-Score computations same score
+description:en:The Nutri-Score computations have the same score for the producer provided value and the Open Food Facts recomputed value. It's a good thing and means most of the nutrition facts are exact (those taken into account for Nutri-Score)
+
+<en:Nutri-Score warnings
+en:Nutri-Score grade from label does not match calculated grade
+#description:en:
+
+<en:Nutri-Score warnings
 en:Nutri-Score grade from producer does not match calculated grade
+es:La calificación de Nutri-Score del productor no coincide con la calificación calculada
 fr:La note Nutri-Score du producteur ne correspond pas à la note calculée
 description:en:The difference may be due to different nutrition facts (for instance if fibers or fruits, vegetables and nuts are not specified).
 description:fr:La différence peut être due à des valeurs nutritionnelles différentes (par exemple si les fibres ou les fruits, légumes et noix ne sont pas indiqués).
 show_on_producers_platform:en:yes
 
-en:All nutrition values are set to 0
-fr:Toutes les valeurs nutritionnelles sont définies à 0
-description:en:If nutrition facts are unknown, they should not be specified.
-description:fr:Dans le cas où les informations nutritionnelles sont inconnues, elles ne doivent pas être renseignées.
+<en:Nutri-Score warnings
+en:Nutri-Score grade from producer does not match calculated grade
+description:en:This might be due among other things to incorrect nutrition values, incomplete nutrition values (missing fiber, fruits and vegetables), incorrect fruits and vegetables estimate, incorrect input of diluted/reconstituted values.
+
+<en:Nutri-Score warnings
+en:Nutri-Score score from producer does not match calculated score
+es:La puntuación de Nutri-Score del productor no coincide con la puntuación calculada
+fr:Le score Nutri-Score du producteur ne correspond pas au score calculé
+description:en:The difference may be due to different nutrition facts (for instance if fibers or fruits, vegetables and nuts are not specified).
+description:fr:La différence peut être due à des valeurs nutritionnelles différentes (par exemple si les fibres ou les fruits, légumes et noix ne sont pas indiqués).
 show_on_producers_platform:en:yes
+
+<en:Nutri-Score warnings
+en:Nutri-Score score from producer does not match calculated score
+description:en:This might be due among other things to incorrect nutrition values, incomplete nutrition values (missing fiber, fruits and vegetables), incorrect fruits and vegetables estimate, incorrect input of diluted/reconstituted values.
+
+<en:Nutrition warnings
+en:Nutrition 3 or more values are identical
+description:en:Someone may have entered wrong data because there are 3 identical values in nutrition table and those values are above 1
+
+<en:Nutrition warnings
+en:Nutrition all values zero
+#description:en:
+
+<en:Data quality ok tags
+en:Nutrition Grade FR producer same OK
+#description:en:
+
+<en:Data quality ok tags
+en:Nutrition data - Prepared
+description:en: We have nutrition data for prepared product
+
+<en:Nutrition warnings
+en:Nutrition data - Prepared without category dried products to be rehydrated
+#description:en:
+
+<en:Nutri-Score warnings
+en:Nutrition grade FR producer mismatch NOK
+#description:en:
+
+<en:Nutri-Score warnings
+en:Nutrition score FR producer mismatch nok
+#description:en:
+
+<en:Data quality ok tags
+en:Nutrition score FR producer same OK
+#description:en:
+
+<en:Nutrition warnings
+en:Nutrition value - total over 1000
+#description:en:
+
+<en:Nutrition warnings
+en:Nutrition value under 0,001 g - Salt
+#description:en:
+
+<en:Nutrition warnings
+en:Nutrition value under 0,01 g - Salt
+#description:en:
+
+<en:Nutrition warnings
+en:Nutrition value under 0,1 g salt
+#description:en:
+
+<en:Nutrition warnings
+en:Nutrition value very high for category - Carbohydrates
+description:en:Compared to the category average, the Carbohydrates value is abnormally high.
+
+<en:Nutrition warnings
+en:Nutrition value very high for category - Energy
+description:en:Compared to the category average, the Energy value is abnormally high.
+
+<en:Nutrition warnings
+en:Nutrition value very high for category - Fat
+description:en:Compared to the category average, the Fat value is abnormally high.
+
+<en:Nutrition warnings
+en:Nutrition value very high for category - Fiber
+description:en:Compared to the category average, the Fiber value is abnormally high.
+
+<en:Nutrition warnings
+en:Nutrition value very high for category - Salt
+description:en:Compared to the category average, the Salt value is abnormally high.
+
+<en:Nutrition warnings
+en:Nutrition value very high for category - Saturated fat
+description:en:Compared to the category average, the Saturated fat value is abnormally high.
+
+<en:Nutrition warnings
+en:Nutrition value very high for category - Sugars
+description:en:Compared to the category average, the Sugars value is abnormally high.
+
+<en:Nutrition warnings
+en:Nutrition value very high for category - proteins
+#description:en:
+
+<en:Nutrition warnings
+en:Nutrition value very low for category - Carbohydrates
+description:en:Compared to the category average, the Carbohydrates value is abnormally low.
+
+<en:Nutrition warnings
+en:Nutrition value very low for category - Energy
+description:en:Compared to the category average, the Energy value is abnormally low.
+
+<en:Nutrition warnings
+en:Nutrition value very low for category - Fat
+description:en:Compared to the category average, the Fat value is abnormally low.
+
+<en:Nutrition warnings
+en:Nutrition value very low for category - Fiber
+description:en:Compared to the category average, the Fiber value is abnormally low.Compared to the category average, the fiber value is abnormally low
+
+<en:Nutrition warnings
+en:Nutrition value very low for category - Proteins
+description:en:Compared to the category average, the Proteins value is abnormally low.
+
+<en:Nutrition warnings
+en:Nutrition value very low for category - Salt
+description:en:Compared to the category average, the Salt value is abnormally low.
+
+<en:Nutrition warnings
+en:Nutrition value very low for category - Saturated fat
+description:en:Compared to the category average, the Saturated fat value is abnormally low.
+
+<en:Nutrition warnings
+en:Nutrition value very low for category - Sugars
+description:en:Compared to the category average, the Sugars value is abnormally low.
+
+
+
+
+### Quantity and serving
+
+<en:Data quality warnings
+en:Quantity and serving warnings
+description:en: Potential issues on quantities or serving size
+
+<en:Quantity and serving warnings
+en:Product quantity in mg
+#description:en:The product quantity is in miligrams (mg), which is very unlikely for 99% of food products (exceptions could include aromas)
+
+<en:Quantity and serving warnings
+en:Product quantity over 10kg
+#description:en:
+
+<en:Quantity and serving warnings
+en:Product quantity under 1g
+description:en:Product quantity is under 1 gram, which is a very unlikely quantity for 99% of food products. This might either be due to a parsing error or to a bad value.
+
+<en:Quantity and serving warnings
+en:Quantity contains e
+description:en:The quantity contains e instead of ℮, which is the estimated sign.
+
+<en:Quantity and serving warnings
+en:Quantity not recognized
+description:en:The quantity was not recognized, which does not let us compute nutritional values for the whole product when we have values per 100g.
+
+<en:Quantity and serving warnings
+en:Serving quantity less than product quantity divided by 1000
+description:en:The serving quantity is less than the product quantity divided by 1000. In other terms, a product with a thousand portions is unlikely to exist.
+
+<en:Quantity and serving warnings
+en:Serving quantity over 500g
+description:en:Serving quantity is never that large, since it's supposed to be adapted for daily human consumption
+
+<en:Quantity and serving warnings
+en:Serving quantity over product quantity
+#description:en:
+
+<en:Quantity and serving warnings
+en:Serving quantity under 1g
+#description:en:
+
+<en:Quantity and serving warnings
+en:Serving size in mg
+#description:en:
+
+
+
+
+### Carbon footprint
+
+<en:Data quality warnings
+en:Carbon footprint warnings
+
+<en:Carbon footprint warnings
+en:Carbon footprint from known ingredients but not from meat or fish
+#description:en:
+
+<en:Carbon footprint warnings
+en:Carbon footprint from known ingredients less than from meat or fish
+#description:en:
+
+<en:Carbon footprint warnings
+en:Carbon footprint from known ingredients more than from meat or fish
+#description:en:
+
+
+
+### Labels
+
+<en:Data quality errors
+en:vegan-label-but-non-vegan-ingredient
+description:en:This product has a vegan label but contains non-vegan ingredients.
+
+<en:Data quality errors
+en:vegetarian-label-but-non-vegetarian-ingredient
+description:en:This product has a vegetarian label but contains non-vegetarian ingredients.
+
+<en:Data quality warnings
+en:vegan-label-but-could-not-confirm-for-all-ingredients 
+description:en:This product has a vegan label, however some ingredients are not known as non-vegan in the taxonomy (could be unknown ingredients or missing vegan true/false in the taxonomy).
+
+<en:Data quality warnings
+en:vegetarian-label-but-could-not-confirm-for-all-ingredients 
+description:en:This product has a vegetarian label, however some ingredients are not known as non-vegetarian in the taxonomy (could be unknown ingredients or missing vegetarian true/false in the taxonomy).

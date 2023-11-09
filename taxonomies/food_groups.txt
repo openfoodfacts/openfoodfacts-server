@@ -1,0 +1,323 @@
+# The food groups taxonomy is a hierarchy with up to 3 levels.
+# Food groups are used by researchers (in particular the EREN team that created the Nutri-Score) for studies.
+# Each product can be in only 1 of each food group at each level.
+
+# The groups for each product are determined from its categories, thanks to properties in the categories taxonomy.
+
+# The category taxonomy property "food_group:en: en:Fruits and vegetables" indicates a category is mapped to the food group en:Fruits and vegetables
+
+# The 3 following entries are to be able to easily find products that don't have a food group entry at a given level
+
+en:Unknown food group 1
+
+en:Unknown food group 2
+
+en:Unknown food group 3
+
+# Food groups:
+
+en:Fruits and vegetables
+
+<en:Fruits and vegetables
+en:Fruits
+ja:果物
+nl:Fruit
+
+<en:Fruits and vegetables
+en:Dried fruits
+nl:Gedroogde vruchten, gedroogd fruit
+
+<en:Fruits and vegetables
+en:Vegetables
+ja:野菜
+nl:Groenten
+
+<en:Fruits and vegetables
+en:Soups
+ja:スープ
+nl:Soepen
+
+<en:Fruits and vegetables
+en:Dehydrated Soups
+
+<en:Fruits and vegetables
+en:Fresh soups
+nl:Verse soepen
+
+en:Cereals and potatoes
+
+<en:Cereals and potatoes
+en:Cereals
+ja:穀物
+
+<en:Cereals
+en:Whole grain pasta
+
+<en:Cereals
+en:Whole grain rice
+
+<en:Cereals
+en:White rice
+ja:白米
+nl:Witte rijst
+
+<en:Cereals
+en:White pasta
+nl:Witte pasta
+
+<en:Cereals
+en:Other whole grain cereals
+
+<en:Cereals
+en:Other refined cereals
+
+<en:Cereals and potatoes
+en:Bread
+ja:パン
+nl:Brood
+
+<en:Bread
+en:Whole grain bread
+
+<en:Bread
+en:White bread
+
+<en:Bread
+en:Whole grain soft bread
+
+<en:Bread
+en:White soft bread
+
+<en:Cereals and potatoes
+en:Potatoes
+ja:芋
+nl:Aardappelen
+
+<en:Cereals and potatoes
+en:Legumes
+
+<en:Cereals and potatoes
+en:Breakfast cereals
+nl:Ontbijtgranen
+
+en:Milk and dairy products
+
+<en:Milk and dairy products
+en:Dairy desserts
+
+<en:Milk and dairy products
+en:Cheese
+ja:チーズ
+nl:Kaas
+
+<en:Cheese
+en:Blue cheese
+fr:Fromage persillé
+ja:ブルーチーズ
+
+<en:Cheese
+en:Hard cheese
+fr:Fromage à pâte pressée cuite
+ja:ハードチーズ
+
+<en:Cheese
+en:Soft cheese
+fr:Fromage à pâte molle
+ja:ソフトチーズ
+
+en:Fresh cheese
+fr:Fromage frais ou spécialité laitière fraiche
+
+en:Processed cheese
+fr:Fromage fondu
+
+<en:Milk and dairy products
+en:Ice cream
+ja:アイスクリーム
+nl:Ijs, ijsjes
+
+<en:Milk and dairy products
+en:Milk and yogurt
+
+<en:Milk and yogurt
+en:Plain milk and yogurt
+
+<en:Milk and yogurt
+en:Sweetened milk and yogurt
+
+en:Fish\, Meat\, Eggs
+
+<en:Fish\, Meat\, Eggs
+en:Offals
+ja:もつ
+
+<en:Fish\, Meat\, Eggs
+en:Processed meat
+ja:加工肉
+
+<en:Fish\, Meat\, Eggs
+en:Eggs
+ja:卵
+nl:Eieren
+
+<en:Fish\, Meat\, Eggs
+en:Fish and seafood
+
+<en:Fish and seafood
+en:Lean fish
+
+<en:Fish and seafood
+en:Fatty fish
+
+<en:Fish and seafood
+en:Smoked fish
+
+<en:Fish and seafood
+en:Seafood
+
+<en:Fish\, Meat\, Eggs
+en:Meat
+ja:肉
+nl:Vlees
+
+<en:Meat
+en:Poultry
+nl:Gevogelte
+
+<en:Meat
+en:Meat other than poultry
+
+en:Sugary snacks
+
+<en:Sugary snacks
+en:Chocolate products
+ja:チョコレート製品
+nl:Chocoladeproducten
+
+<en:Chocolate products
+en:Dark chocolate
+ja:ダークチョコレート
+nl:Pure chocolade
+
+<en:Chocolate products
+en:Milk chocolate
+ja:ミルクチョコレート
+nl:Melkchocolade
+
+<en:Chocolate products
+en:White chocolate
+ja:ホワイトチョコレート
+nl:Witte chocolade
+
+<en:Chocolate products
+en:Other chocolate-based products
+
+<en:Sugary snacks
+en:Sweets
+
+<en:Sugary snacks
+en:Biscuits and cakes
+
+<en:Sugary snacks
+en:Pastries
+
+en:Salty snacks
+nl:Zoute snacks
+
+<en:Salty snacks
+en:Nuts
+ja:ナッツ
+nl:Noten
+
+<en:Nuts
+en:Unsalted nuts
+nl:Ongezouten noten
+
+<en:Nuts
+en:Salted nuts
+nl:Gezouten noten
+
+<en:Nuts
+en:Nut butter
+ja:ナッツバター
+
+<en:Salty snacks
+en:Appetizers
+ja:前菜
+
+<en:Salty snacks
+en:Salty and fatty products
+
+en:Fats and sauces
+
+<en:Fats and sauces
+en:Fats
+ja:油脂
+
+<en:Fats
+en:Animal fats
+ja:動物性油脂
+
+<en:Fats
+en:Vegetable oils
+ja:植物油
+
+<en:Fats
+en:Vegetable margarines
+
+<en:Fats and sauces
+en:Dressings and sauces
+
+# (eg mayonnaises, vinaigrettes, etc)
+<en:Dressings and sauces
+en:Dressings
+ja:ドレッシング
+
+# (eg warm sauces (tomato-based))
+<en:Dressings and sauces
+en:Sauces
+ja:ソース
+
+en:Composite foods
+
+<en:Composite foods
+en:Pizza pies and quiches
+
+<en:Composite foods
+en:One-dish meals
+
+<en:Composite foods
+en:Sandwiches
+ja:サンドイッチ
+
+en:Beverages
+ja:飲料
+
+<en:Beverages
+en:Artificially sweetened beverages
+
+<en:Beverages
+en:Unsweetened beverages
+
+<en:Beverages
+en:Sweetened beverages
+
+<en:Beverages
+en:Fruit juices
+
+<en:Beverages
+en:Fruit nectars
+
+<en:Beverages
+en:Waters and flavored waters
+
+<en:Beverages
+en:Teas and herbal teas and coffees
+
+<en:Beverages
+en:Plant-based milk substitutes
+
+# en:Alcoholic beverages level 1 group contains a level 2 entry of the same name,
+# we will deal with it in the code
+en:Alcoholic beverages
+ja:酒, さけ

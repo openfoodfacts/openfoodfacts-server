@@ -1,0 +1,15 @@
+﻿version: "3.7"
+
+# Some tweaks to be able to run npm run lint
+services:
+  dynamicfront:
+    command: ["npm", "run", "lint"]
+    volumes:
+      # linting conf
+      - ./.eslintrc.js:/opt/product-opener/.eslintrc.js
+      - ./.eslintignore:/opt/product-opener/.eslintignore
+      - ./.stylelintrc.json:/opt/product-opener/.stylelintrc.json
+      - ./.stylelintignore:/opt/product-opener/.stylelintignore
+      # extra files to lint
+      - ./scripts:/opt/product-opener/scripts
+      - ./tests:/opt/product-opener/tests

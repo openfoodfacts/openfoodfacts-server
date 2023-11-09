@@ -1,0 +1,816 @@
+# For reference, please look at https://github.com/actions/labeler
+
+javascript:
+- '**/*.js'
+
+github_actions:
+- .github/**/*
+
+nginx:
+- conf/nginx/**/*
+- conf/nginx.conf
+
+mongodb:
+- conf/mongodb/create_indexes.js
+- .github/workflows/mongo-deploy.yml
+- scripts/checkmongodb.pl
+- scripts/update_all_products_from_dir_in_mongodb.pl
+- scripts/update_all_products_revisions_from_dir_in_mongodb.pl
+
+stores:
+- taxonomies/unused/stores.txt
+- scripts/tag_stores_magasins_u.pl
+
+🤳🥫 tagline:
+- html/files/app/tagline/tagline-off-ios.json
+- html/files/tagline-off.json
+- html/files/tagline.txt
+- html/files/tagline-obf.json
+- html/files/tagline-opf.json
+- html/files/tagline-opff.json
+- html/files/tagline-off-ios-v2.json
+- html/files/tagline-off-android-v2.json
+
+taxonomies:
+- taxonomies/**/*
+- scripts/build_tags_taxonomy.pl
+- scripts/test_taxonomies.pl
+- scripts/translate_taxonomy_with_eu_translations.pl
+- scripts/list_taxonomy_entries.pl
+- scripts/sort_languages_in_taxonomy.pl
+- scripts/add_users_translations_to_taxonomy.pl
+- scripts/add_descriptions_to_taxonomy_from_eu_translations.pl
+- cgi/translate_taxonomy.pl
+
+taxonomies rebuild:
+- taxonomies/additives.result.sto
+- taxonomies/additives.result.txt
+- taxonomies/allergens.result.sto
+- taxonomies/allergens.result.txt
+- taxonomies/categories.result.sto
+- taxonomies/categories.result.txt
+- taxonomies/countries.result.sto
+- taxonomies/countries.result.txt
+- taxonomies/ingredients.result.sto
+- taxonomies/ingredients.result.txt
+- taxonomies/states.result.sto
+- taxonomies/states.result.txt
+
+wikidata:
+- scripts/build_countries_taxonomy_from_wikidata.pl
+- scripts/build_languages_taxonomy_from_wikidata.pl
+- scripts/create_wikipedia_properties_for_taxonomy.pl
+
+allergens:
+- taxonomies/allergens.result.sto
+- taxonomies/allergens.result.txt
+- tests/unit/allergens.t
+- taxonomies/allergens.txt
+
+🐾 Open Pet Food Facts:
+- taxonomies.opff/**/*
+- po/openpetfoodfacts/**/*
+- scripts/gen_opff_leaderboard.pl
+- scripts/gen_opff_leaderboard.sh
+- html/files/tagline-opff.json
+- lib/ProductOpener/Config_opff.pm
+- html/images/misc/opff_cat.svg
+- html/images/misc/opff_dog.svg
+- html/images/misc/opff_bird.svg
+- html/images/misc/opff_fish.svg
+- html/images/misc/opff_rabbit.svg
+- html/images/misc/opff-leaderboard.svg
+- conf/nginx/sites-available/opff
+- conf/apache-2.4/sites-available/opff.conf
+- scripts/gen_feeds_opff.sh
+- scripts/gen_feeds_daily_opff.sh
+- lib/ProductOpener/Config_opff.pm
+- conf/nginx/snippets/ssl-params-opff.conf
+- taxonomies.opff/categories.txt
+
+🧴 Open Beauty Facts:
+- taxonomies.obf/**/*
+- po/openbeautyfacts/**/*
+- scripts/gen_obf_inci_functions_taxonomy_from_cosing.pl
+- scripts/gen_obf_ingredients_taxonomy_from_cosing.pl
+- html/files/tagline-obf.json
+- lib/ProductOpener/Config_obf.pm
+- scripts/generate_polyquaternium.pl
+- conf/nginx/sites-available/obf
+- conf/apache-2.4/sites-available/obf.conf
+- scripts/gen_feeds_obf.sh
+- html/files/tagline-obf.json
+- scripts/gen_feeds_daily_obf.sh
+- lib/ProductOpener/Config_obf.pm
+- taxonomies.obf/ingredients-old-obf.txt
+- taxonomies.obf/ingredients-cosing-obf.txt
+- taxonomies.obf/ingredients-cosing-obf.result.sto
+- scripts/gen_obf_ingredients_taxonomy_from_cosing.pl
+- scripts/gen_obf_inci_functions_taxonomy_from_cosing.pl
+- html/images/svg/crowdsourcing-obf-round-smartphones.svg
+- taxonomies.obf/brands.txt
+- taxonomies.obf/labels.txt
+- taxonomies.obf/safety.txt
+- taxonomies.obf/allergens.txt
+- taxonomies.obf/body_parts.txt
+- taxonomies.obf/categories.txt
+- taxonomies.obf/abbreviations.txt
+- taxonomies.obf/labels.result.sto
+- taxonomies.obf/labels.result.txt
+- taxonomies.obf/inci_functions.txt
+- taxonomies.obf/allergens.result.sto
+- taxonomies.obf/allergens.result.txt
+- taxonomies.obf/categories.result.sto
+- taxonomies.obf/categories.result.txt
+- tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.json
+- taxonomies.obf/special_ingredients.txt
+- taxonomies.obf/inci_functions.result.sto
+- tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.off.json
+
+📸 Open Products Facts:
+- taxonomies.opf/**/*
+- po/openproductsfacts/**/*
+- lib/ProductOpener/Config_opf.pm
+- conf/nginx/sites-available/opf
+- conf/apache-2.4/sites-available/opf.conf
+- scripts/gen_feeds_opf.sh
+- html/files/tagline-opf.json
+- scripts/gen_feeds_daily_opf.sh
+- lib/ProductOpener/Config_opf.pm
+- taxonomies.opf/unspsc.txt
+
+icons:
+- icons/**/*
+
+CSS:
+- scss/**/*
+
+translations:
+- po/**/*
+- po/common/**/*
+- po/openfoodfacts/**/*
+- po/openbeautyfacts/**/*
+- po/openpetfoodfacts/**/*
+- po/openproductsfacts/**/*
+- scripts/update_top_translators.pl
+- scripts/check_po_file.pl
+- scripts/print_all_translations.pl
+- scripts/add_users_translations_to_taxonomy.pl
+- scripts/add_descriptions_to_taxonomy_from_eu_translations.pl
+- cgi/top_translators.pl
+- cgi/translate_taxonomy.pl
+
+tests:
+- test/**/*
+- tests/**/*
+- t/**/*
+- lib/ProductOpener/Test.pm
+
+dependencies:
+- package.json
+- package-lock.json
+
+Template::Toolkit:
+- templates/**/*
+
+SCSS:
+- scss/_footer.scss
+
+footer:
+- html/images/illustrations/footer-orange.svg
+- html/images/illustrations/footer-planet.svg
+- scss/_footer.scss
+
+documentation:
+- docs/**/*
+- scripts/generate_perl_html_doc_from_pod.pl
+- po/README.md
+
+OpenAPI:
+- docs/assets/api-rapidoc.html
+
+🐋 Docker:
+- docker/**/*
+
+Folksonomy Project:
+- html/js/folksonomy.js
+- templates/web/common/includes/folksonomy_script.tt.html
+
+Attributes:
+- lib/ProductOpener/Attributes.pm
+- tests/unit/attributes.t
+
+Data Quality:
+- lib/ProductOpener/DataQuality.pm
+- lib/ProductOpener/DataQualityCommon.pm
+- lib/ProductOpener/DataQualityFood.pm
+- tests/unit/dataquality.t
+- tests/unit/dataqualityfood.t
+- taxonomies/data_quality.txt
+
+Display:
+- lib/ProductOpener/Display.pm
+
+Eco-Score:
+- lib/ProductOpener/Ecoscore.pm
+- ecoscore/**/*
+- tests/unit/ecoscore.t
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json
+- templates/web/pages/product/includes/ecoscore_details.tt.html
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json
+- templates/api/knowledge-panels/environment/palm_oil.tt.json
+- templates/api/knowledge-panels/environment/label.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/total.tt.json
+- templates/api/knowledge-panels/environment/carbon_footprint.tt.json
+- templates/api/knowledge-panels/environment/environment_card.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_extended.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/production_system.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/origins_of_ingredients.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_not_applicable.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/packaging.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/agribalyse.tt.json
+- templates/api/knowledge-panels/environment/manufacturing_place.tt.json
+- templates/api/knowledge-panels/environment/packaging_recycling.tt.json
+- templates/api/knowledge-panels/environment/origins_of_ingredients.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/threatened_species.tt.json
+
+Agribalyse:
+- scripts/add_agribalyse_food_codes_to_taxonomy.pl
+- templates/api/knowledge-panels/environment/ecoscore/agribalyse.tt.json
+
+Export:
+- lib/ProductOpener/Export.pm
+- t/expected_test_results/export/**/*
+
+Food.pm:
+- lib/ProductOpener/Food.pm
+
+Food groups:
+- lib/ProductOpener/FoodGroups.pm
+- tests/unit/food_groups.t
+
+Additives:
+- taxonomies/additives.txt
+- scripts/merge_additives_lists.pl
+- scripts/extract_additives.pl
+- scripts/add_efsa_evaluations_to_additives_taxonomy.pl
+- templates/api/knowledge-panels/health/ingredients/additive.tt.json
+- templates/api/knowledge-panels/health/ingredients/additives.tt.json
+- scripts/authorized_additives.pl
+- scripts/check_additives_taxonomy.pl
+- taxonomies/additives.result.sto
+- taxonomies/additives.result.txt
+
+Forest Footprint:
+- lib/ProductOpener/ForestFootprint.pm
+- tests/unit/forest_footprint.t
+
+geolite:
+- lib/ProductOpener/GeoIP.pm
+- scripts/test_geoip.pl
+
+GS1:
+- lib/ProductOpener/GS1.pm
+- tests/unit/import_gs1.t
+- scripts/convert_gs1_json_to_off_csv.pl
+- scripts/convert_gs1_xml_to_json_in_dir.pl
+
+data import:
+- lib/ProductOpener/Import.pm
+- lib/ProductOpener/ImportConvert.pm
+- scripts/convert_csv_file.pl
+
+ingredients:
+- lib/ProductOpener/Ingredients.pm
+- taxonomies/ingredients.txt
+- tests/unit/ingredients.t
+- tests/unit/ingredients_analysis.t
+- tests/unit/ingredients_clean.t
+- tests/unit/ingredients_nesting.t
+- tests/unit/ingredients_parsing.t
+- tests/unit/ingredients_parsing_todo.t
+- tests/unit/ingredients_percent.t
+- tests/unit/ingredients_processing.t
+- tests/unit/ingredients_tags.t
+- scripts/test_ingredient_parser.pl
+
+ingredients analysis:
+- templates/web/pages/product/includes/ingredients_analysis.tt.html
+- templates/api/knowledge-panels/health/ingredients/ingredients_analysis_help.tt.json
+- templates/api/knowledge-panels/health/ingredients/ingredients_analysis_details.tt.json
+- templates/api/knowledge-panels/health/ingredients/ingredients_analysis_property.tt.json
+- templates/api/knowledge-panels/health/ingredients/ingredients_analysis.tt.json
+- cgi/test_ingredients_analysis.pl
+- scripts/test_extract_ingredients_from_text.pl
+- scripts/list_ingredients.pl
+- scripts/extract_individual_ingredients.pl
+- scripts/aggregate_ingredients.pl
+- lib/ProductOpener/Ingredients.pm
+
+labels:
+- taxonomies/labels.txt
+
+categories:
+- taxonomies/categories.txt
+
+origins:
+- taxonomies/origins.txt
+
+knowledge-panels:
+- lib/ProductOpener/KnowledgePanels.pm
+- templates/api/knowledge-panels/**/*
+- templates/web/panels/image.tt.html
+- templates/web/panels/panel.tt.html
+- templates/api/knowledge-panels/root.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json
+- templates/api/knowledge-panels/environment/palm_oil.tt.json
+- templates/api/knowledge-panels/environment/label.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/total.tt.json
+- templates/api/knowledge-panels/environment/carbon_footprint.tt.json
+- templates/api/knowledge-panels/environment/environment_card.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_unknown.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_extended.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/production_system.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/origins_of_ingredients.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/ecoscore_not_applicable.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/packaging.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/agribalyse.tt.json
+- templates/api/knowledge-panels/environment/manufacturing_place.tt.json
+- templates/api/knowledge-panels/environment/packaging_recycling.tt.json
+- templates/api/knowledge-panels/environment/origins_of_ingredients.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/threatened_species.tt.json
+- templates/api/knowledge-panels/recommendations/health/fr/spf_pulses.tt.json
+- templates/api/knowledge-panels/recommendations/health/fr/spf_alcohol.tt.json
+- templates/api/knowledge-panels/recommendations/health/world/who_alcohol.tt.json
+- templates/api/knowledge-panels/health/health_card.tt.json
+- templates/api/knowledge-panels/health/ingredients/nova.tt.json
+- templates/api/knowledge-panels/health/nutrition_panels.tt.json
+- templates/api/knowledge-panels/health/ingredients_panels.tt.json
+- templates/api/knowledge-panels/health/ingredients/additive.tt.json
+- templates/api/knowledge-panels/health/ingredients/additives.tt.json
+- templates/api/knowledge-panels/health/nutriscore/nutriscore.tt.json
+- templates/api/knowledge-panels/health/ingredients/ingredients.tt.json
+- templates/api/knowledge-panels/health/ingredients/ingredients_analysis.tt.json
+- templates/api/knowledge-panels/health/ingredients/ingredients_analysis_help.tt.json
+- templates/api/knowledge-panels/health/ingredients/ingredients_analysis_details.tt.json
+- templates/api/knowledge-panels/health/ingredients/ingredients_analysis_property.tt.json
+- templates/api/knowledge-panels/health/nutrition/serving_size.tt.json
+- templates/api/knowledge-panels/health/nutrition/nutrient_level.tt.json
+- templates/api/knowledge-panels/health/nutrition/physical_activities.tt.json
+- templates/api/knowledge-panels/health/nutrition/nutrition_facts_table.tt.json
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
+- docs/api/ref/schemas/knowledge_panels/**
+
+serving size:
+- templates/api/knowledge-panels/health/nutrition/serving_size.tt.json
+- tests/unit/food_normalize_serving_size.t
+
+lang:
+- lib/ProductOpener/Lang.pm
+
+Mail:
+- lib/ProductOpener/Mail.pm
+- templates/emails/import_csv_file_admin_notification.tt.html
+- templates/emails/user_new_pro_account_admin_notification.tt.html
+
+MainCountries:
+- lib/ProductOpener/MainCountries.pm
+
+Numbers:
+- lib/ProductOpener/Numbers.pm
+
+Nutri-Score:
+- lib/ProductOpener/Nutriscore.pm
+- templates/web/pages/product/includes/nutriscore.tt.html
+- templates/web/pages/product/includes/nutriscore_details.tt.html
+- templates/api/knowledge-panels/health/nutriscore/nutriscore.tt.json
+- tests/unit/nutriscore.t
+- tests/unit/ingredients_nutriscore.t
+- tests/unit/ingredients_nutriscore.t
+- scripts/add_nutriscore_to_scanbot_csv.pl
+
+Orgs:
+- lib/ProductOpener/Orgs.pm
+
+packager codes:
+- lib/ProductOpener/PackagerCodes.pm
+- tests/unit/packager_codes.t
+- scripts/packager-codes/de-packagers-refresh.pl
+- scripts/packager-codes/ee-packagers-xml2tsv.pl
+- scripts/packager-codes/es-packagers-html2csv.pl
+- scripts/packager-codes/fi-packagers-xls2csv.pl
+- scripts/packager-codes/fr-packagers-refresh.pl
+- scripts/packager-codes/se-packagers-html2tsv.pl
+- scripts/update_packager_codes.pl
+- scripts/update_packager_codes_fsa_ratings.pl
+- scripts/test_normalize_packaging_codes.pl
+- scripts/update_emb_codes_in_mongodb.pl
+- packager-codes/**
+
+Packaging:
+- lib/ProductOpener/Packaging.pm
+- taxonomies/packaging_materials.txt
+- t/packaging.t
+- cgi/packaging.pl
+- icons/packaging.svg
+- taxonomies/old/packagings.txt
+- taxonomies/packaging.result.sto
+- taxonomies/packaging.result.txt
+- taxonomies/packaging_shapes.txt
+- taxonomies/packaging_materials.txt
+- taxonomies/packaging_recycling.txt
+- taxonomies/packaging_shapes.result.sto
+- taxonomies/packaging_shapes.result.txt
+- html/images/lang/en/packaging/**/*
+- html/images/icons/packaging-shapes/README
+- taxonomies/packaging_materials.result.sto
+- taxonomies/packaging_materials.result.txt
+- taxonomies/packaging_recycling.result.sto
+- taxonomies/packaging_recycling.result.txt
+- html/images/icons/packaging-shapes/LICENCE
+- html/images/lang/jp/packaging/**/*
+- html/images/lang/de/packaging/**/*
+- t/expected_test_results/packaging/**/*
+- html/images/icons/packaging-shapes/dark-mode/**/*
+- templates/api/knowledge-panels/environment/packaging_recycling.tt.json
+- templates/api/knowledge-panels/environment/ecoscore/packaging.tt.json
+- tests/unit/packaging.t
+- docs/api/ref/schemas/packagings/**
+- scripts/gen_packaging_stats.pl
+  
+producers platform:
+- lib/ProductOpener/GS1.pm
+- lib/ProductOpener/Orgs.pm
+- lib/ProductOpener/Import.pm
+- lib/ProductOpener/ImportConvert.pm
+- lib/ProductOpener/Producers.pm
+- lib/ProductOpener/ProducersFood.pm
+- lib/ProductOpener/Producers.pm
+- scripts/export_producers_platform_data_to_public_database.sh
+- lib/ProductOpener/ProducersFood.pm
+- templates/web/pages/org_form/org_form.tt.html
+- templates/web/pages/org_profile/org_profile.tt.html
+- templates/web/pages/import_file_upload/import_file_upload.tt.html
+- templates/web/pages/export_products/export_products.tt.html
+- templates/web/pages/remove_products/remove_products.tt.html
+- tests/unit/producers.t
+- scripts/import_csv_file.pl
+- scripts/import_fleurymichon.pl
+- scripts/import_systemeu.pl
+- scripts/convert_nestle_nutrition_data.pl
+- scripts/convert_carrefour_data.pl
+- tests/unit/import.t
+- tests/unit/import_convert_carrefour_france.t
+- scripts/tag_stores_magasins_u.pl
+- lib/ProductOpener/ImportConvertCarrefourFrance.pm
+- cgi/remove_products.pl
+- scripts/remove_all_private_products_for_owner.pl
+- scripts/gen_pro_users_emails_list.pl
+- cgi/import_products_categories_from_public_database.pl
+- scripts/agena3000/run_agena3000_import.sh
+- scripts/bayard-import/run_bayard_import.sh
+- scripts/codeonline-import/run_codeonline_import.sh
+- scripts/codeonline-import/split_gs1_codeonline_json.pl
+- scripts/codeonline-import/stats_gs1_codeonline_json.pl
+- scripts/equadis-import/run_equadis_import.sh
+
+agena3000:
+- scripts/agena3000/run_agena3000_import.sh
+
+bayard:
+- scripts/bayard-import/run_bayard_import.sh
+
+codeonline:
+- scripts/codeonline-import/run_codeonline_import.sh
+- scripts/codeonline-import/split_gs1_codeonline_json.pl
+- scripts/codeonline-import/stats_gs1_codeonline_json.pl
+
+equadis:
+- scripts/equadis-import/run_equadis_import.sh
+
+store:
+- lib/ProductOpener/Store.pm
+- tests/unit/store.t
+
+images:
+- lib/ProductOpener/Images.pm
+- cgi/product_image_crop.pl
+- cgi/product_image_move.pl
+- cgi/product_image_rotate.pl
+- cgi/product_image_unselect.pl
+- cgi/product_image_upload.pl
+- scripts/delete_old_cropped_images.pl
+- docs/ref/api/requestBodies/crop_a_photo.yaml
+- docs/ref/api/requestBodies/add_photo_to_existing_product.yaml
+- docs/api/tutorial-uploading-photo-to-a-product.md
+
+Products:
+- lib/ProductOpener/Products.pm
+
+Recipes:
+- lib/ProductOpener/Recipes.pm
+- templates/web/pages/recipes/recipes.tt.html
+- tests/unit/recipes.t
+
+Tags:
+- lib/ProductOpener/Tags.pm
+- templates/web/pages/tags_map/map_of_tags.tt.html
+- scripts/gen_top_tags_per_country.pl
+- lib/ProductOpener/TagsEntries.pm
+
+Text:
+- lib/ProductOpener/Text.pm
+
+Url:
+- lib/ProductOpener/URL.pm
+
+Web:
+- lib/ProductOpener/Web.pm
+
+🎁 Donations:
+- html/donate/tt.html
+- templates/web/common/includes/donate_banner.tt.html
+- html/donate/fr.helloasso.html
+
+editing:
+- templates/web/pages/product_edit/product_edit_form.tt.html
+- templates/web/pages/product_edit/display_input_field.tt.html
+- templates/web/pages/product_edit/display_input_tabs.tt.html
+- templates/web/pages/product_edit/product_edit_form_display.tt.html
+- templates/web/pages/product_edit/product_edit_form_process.tt.html
+- docs/api/ref/requestBodies/add_or_edit_a_product.yaml
+
+Product page:
+- templates/web/pages/product/includes/edit_history.tt.html
+- templates/web/pages/product/product_page.tt.html
+- templates/web/pages/product/includes/product_image.tt.html
+- templates/web/pages/product/includes/ingredients_analysis.tt.html
+- templates/web/pages/product/includes/nutrition_facts_table.tt.html
+
+Password:
+- templates/web/pages/reset_password/reset_password.tt.html
+- templates/web/pages/change_password/change_password.tt.html
+- cgi/reset_password.pl
+- cgi/reset_password_for_user.pl
+
+Spellcheck:
+- templates/web/pages/spellcheck/spellcheck_test.tt.html
+- scripts/test_spellchecker.pl
+- cgi/spellcheck_test.pl
+
+Maps:
+- templates/web/pages/products_map/map_of_products.tt.html
+
+Search:
+- templates/web/pages/search_results/search_results.tt.html
+- templates/web/common/includes/display_search_image_form.tt.html
+- templates/web/common/includes/display_product_search_or_add.tt.html
+- templates/web/pages/search_form/search_form.tt.html
+- cgi/opensearch.pl
+
+Top translators:
+- templates/web/pages/top_translators/top_translators.tt.html
+
+Recent changes:
+- templates/web/common/includes/display_recent_changes.tt.html
+- scripts/update_recent_changes.pl
+- cgi/recent_changes.pl
+
+Nutrient levels:
+- templates/web/pages/product/includes/nutrient_levels.tt.html
+
+Product history:
+- templates/web/pages/product/includes/display_rev_info.tt.html
+- lib/ProductOpener/Version.pm
+
+- templates/web/pages/tag/tag.tt.html
+- templates/web/common/site_layout.tt.html
+
+Lists of products:
+- templates/web/common/includes/list_of_products.tt.html
+
+Error list:
+- templates/web/common/includes/error_list.tt.html
+
+Fields:
+- templates/web/common/includes/display_field.tt.html
+- templates/web/common/includes/display_field_br.tt.html
+
+Blocks:
+- templates/web/common/includes/display_blocks.tt.html
+- templates/web/common/includes/display_my_block.tt.html
+
+🍬 How Much Sugar:
+- scripts/gen_sucres.pl
+- scripts/gen_sugar.pl
+- cgi/sucres_check.pl
+- cgi/sucres_random.pl
+- cgi/sugar_check.pl
+- cgi/sugar_random.pl
+
+Made Near Me:
+- scripts/generate_madenearme_page.pl
+
+PAO:
+- scripts/generate_pao_taxonomy.pl
+
+Minion:
+- scripts/minion.pl
+- scripts/minion_export_test.pl
+- scripts/minion_import.pl
+- scripts/minion_import_test.pl
+- scripts/minion_producers.pl
+- scripts/minion_producers_test.pl
+
+OCR:
+- scripts/run_cloud_vision_ocr.pl
+
+Scanbot:
+- scripts/scanbot.pl
+
+gamification:
+- lib/ProductOpener/Missions.pm
+- lib/ProductOpener/MissionsConfig.pm
+- scripts/compute_missions.pl
+- scripts/compute_missions_for_user.pl
+- scripts/export_battle_food.pl
+- cgi/top_translators.pl
+
+config:
+- lib/ProductOpener/Config2_docker.pm
+- lib/ProductOpener/Config2_sample.pm
+- lib/ProductOpener/Config_off.pm
+- lib/ProductOpener/Config_obf.pm
+- lib/ProductOpener/Config_opf.pm
+- lib/ProductOpener/Config_opff.pm
+
+ingredients processing:
+- tests/unit/ingredients_processing.t
+
+Users:
+- lib/ProductOpener/Users.pm
+- templates/web/common/includes/display_login_register.tt.html
+- templates/web/pages/session/signed_in.tt.html
+- templates/web/pages/session/signed_out.tt.html
+- templates/web/pages/session/sign_in_form.tt.html
+- templates/web/pages/user_form/user_form_page.tt.html
+- templates/web/pages/user_profile/user_profile.tt.html
+- scripts/gen_users_emails.pl
+- scripts/gen_users_emails_list.pl
+- scripts/gen_users_lists.pl
+- scripts/gen_users_names.pl
+- cgi/user.pl
+
+Nova:
+- tests/unit/nova.t
+- templates/api/knowledge-panels/health/ingredients/nova.tt.json
+
+Vitamins:
+- tests/unit/vitamins.t
+
+checkbot:
+- scripts/checkbot.pl
+
+moderation:
+- scripts/delete_products_from_user.pl
+- scripts/delete_spam_users.pl
+- scripts/remove_empty_products.pl
+- scripts/remove_products_without_code.pl
+- scripts/find_and_replace_user_id_in_products.pl
+- cgi/remove_products.pl
+- templates/web/pages/remove_products/remove_products.tt.html
+
+sto:
+- scripts/sto_to_json.pl
+- scripts/sto_to_xml.pl
+- cgi/sto2json.pl
+
+update all products:
+- scripts/update_all_products.pl
+- scripts/update_all_products_from_dir_in_mongodb.pl
+- scripts/update_all_products_revisions_from_dir_in_mongodb.pl
+
+exports:
+- scripts/extract_ingredients_test_set.pl
+- scripts/extract_nutrition_images_and_crop_data.pl
+- scripts/extract_nutrition_test_set.pl
+- scripts/export_and_import_to_public_database.pl
+- scripts/export_csv_file.pl
+- scripts/export_data.pl
+- scripts/export_database.pl
+- scripts/export_products_data_and_images.pl
+- scripts/export_tags_hierarchies.pl
+- scripts/popular_products_images.pl
+
+auth:
+- cgi/auth.pl
+- cgi/sso.pl
+
+autosuggest:
+- cgi/suggest.pl
+- tests/integration/api_cgi_suggest.t
+- tests/integration/expected_test_results/api_cgi_suggest/**/*
+- tests/integration/expected_test_results/api_cgi_suggest/categories-no-term.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-string-strawberry.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-fr-cafe-accent.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-fr-frais.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-fr-fraise.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-fraise.json
+- tests/integration/expected_test_results/api_cgi_suggest/categories-term-strawberry.json
+- tests/integration/expected_test_results/api_cgi_suggest/no-tagtype.json
+
+subdomains:
+- scripts/list_subdomains.pl
+
+integration tests:
+- tests/integration/import_csv_file.t
+- tests/integration/export.t
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
+
+
+unit tests:
+- tests/unit/display.t
+- tests/unit/food.t
+- tests/unit/i18n.t
+- tests/unit/images.t
+- tests/unit/lang.t
+- tests/unit/load_csv_or_excel_file.t
+- tests/unit/numbers.t
+- tests/unit/products.t
+- tests/unit/tags.t
+- tests/unit/templates.t
+- tests/unit/text.t
+
+multilingual products:
+- cgi/product_jqm_multilingual.pl
+- cgi/product_multilingual.pl
+- html/js/product-multilingual.js
+
+file import:
+- cgi/import_file_process.pl
+- cgi/import_file_select_format.pl
+- cgi/import_file_upload.pl
+
+apache:
+- lib/startup_apache2.pl
+
+API:
+- scripts/api_stats.pl
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
+- tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
+- docs/api/ref-v3.yml
+- lib/ProductOpener/API.pm
+- tests/integration/api_v2_product_read.t
+- docs/api/ref/requestBodies/lc_cc.yaml
+- docs/api/ref/requestBodies/fields_tags_lc.yaml
+
+API v3:
+- docs/api/ref/api-v3.yml
+- tests/integration/api_v3_product_read.t
+- tests/integration/api_v3_product_write.t
+
+API read:
+- tests/integration/api_v3_product_read.t
+
+API write:
+- tests/integration/api_v3_product_write.t
+- docs/api/ref/requestBodies/add_or_edit_a_product.yaml
+- docs/api/ref/requestBodies/crop_a_photo.yaml
+- docs/api/ref/requestBodies/add_photo_to_existing_product.yaml
+  
+monitoring:
+- scripts/api_stats.pl
+
+averages by categories:
+- scripts/create_small_categories_nutriments_per_country_for_testing.pl
+
+static content:
+- scripts/copy_text_files.pl
+
+# TODO: find or create proper labels for those
+#- scripts/extract_images.pl
+#- scripts/test_text_fuzzy.pl
+#- cgi/import_file_job_status.pl
+#- cgi/display.pl
+#- lib/ProductOpener/Display.pm
+#- lib/ProductOpener/Cache.pm
+#- lib/ProductOpener/Export.pm
+#- lib/ProductOpener/I18N.pm
+#- lib/ProductOpener/MainCountries.pm
+#- lib/ProductOpener/PerlStandards.pm
+#- lib/ProductOpener/URL.pm
+#- lib/ProductOpener/Data.pm
+#- lib/ProductOpener/Web.pm
+#- lib/ProductOpener/Products.pm
+#- lib/ProductOpener/Index.pm
+#- lib/ProductOpener/Lang.pm
+#- lib/ProductOpener/Text.pm
+#- scripts/build_lang.pl
+#- scripts/check_lang_pm.pl
+#- scripts/check_photos.pl
+#- cgi/import_photos_upload.pl

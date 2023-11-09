@@ -1,0 +1,87 @@
+{
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "20087",
+         "id" : "en:red-bell-pepper",
+         "origins" : "en:spain,en:south-america",
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "text" : "Red peppers",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "20168",
+         "id" : "en:yellow-bell-pepper",
+         "origins" : "en:mexico,en:canada,en:california",
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "yellow peppers",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:red-bell-pepper",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "en:bell-pepper",
+      "en:yellow-bell-pepper"
+   ],
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:red-bell-pepper",
+      "en:yellow-bell-pepper"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:red-bell-pepper",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "en:bell-pepper",
+      "en:yellow-bell-pepper"
+   ],
+   "ingredients_text" : "Red peppers, yellow peppers",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "known_ingredients_n" : 5,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
+   },
+   "origin_en" : "Red peppers: Spain or South America, Yellow peppers: Mexico, Canada and California",
+   "specific_ingredients" : [
+      {
+         "id" : "en:red-bell-pepper",
+         "ingredient" : "Red peppers",
+         "origins" : "en:spain,en:south-america",
+         "text" : "Red peppers: Spain or South America,"
+      },
+      {
+         "id" : "en:yellow-bell-pepper",
+         "ingredient" : "Yellow peppers",
+         "origins" : "en:mexico,en:canada,en:california",
+         "text" : "Yellow peppers: Mexico, Canada and California"
+      }
+   ],
+   "unknown_ingredients_n" : 0
+}

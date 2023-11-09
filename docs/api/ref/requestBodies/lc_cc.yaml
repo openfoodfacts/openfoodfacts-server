@@ -1,0 +1,15 @@
+title: Language and country of the user
+x-stoplight:
+  id: iemwzgz7wc8b9
+type: object
+properties:
+  lc:
+    type: string
+    description: '2 letter code of the language of the interface. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the country of the user (passed through the cc field or inferred by the IP address).'
+  cc:
+    type: string
+    description: '2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request.'
+description: ''
+examples:
+  - lc: fr
+    cc: fr

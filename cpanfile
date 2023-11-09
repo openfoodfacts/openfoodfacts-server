@@ -9,6 +9,7 @@ requires 'LWP::UserAgent'; # libwww-perl
 requires 'Image::Magick'; # libimage-magick-perl
 requires 'XML::Encoding'; # libxml-encoding-perl
 requires 'MIME::Lite'; # libmime-lite-perl
+requires 'MIME::Base32';
 requires 'Cache::Memcached::Fast'; #libcache-memcached-fast-perl
 requires 'JSON'; # libjson-perl
 requires 'JSON::PP'; # libjson-pp-perl
@@ -35,9 +36,12 @@ requires 'Excel::Writer::XLSX', '>= 1.09'; # libexcel-writer-xlsx-perl
 requires 'Pod::Simple::HTMLBatch'; # libpod-simple-perl
 requires 'GeoIP2', '>= 2.006002, < 3.0'; # libgeoip2-perl, deps: libdata-validate-ip-perl libio-compress-perl libjson-maybexs-perl liblist-someutils-perl, libdata-dumper-concise-perl, libdata-printer-perl
 requires 'Email::Valid', '>= 1.202, < 2.0'; # libemail-valid-perl
+requires 'Path::Tiny', '>= 0.118'; # libpath-tiny-perl
 
 # Probably not available as Debian/Ubuntu packages
 requires 'MongoDB', '>= 2.2.2, < 2.3'; # libmongodb-perl has 1.8.1/2.0.3 vs 2.2.2. deps: libauthen-sasl-saslprep-perl, libbson-perl, libauthen-scram-perl, libclass-xsaccessor-perl, libdigest-hmac-perl, libsafe-isa-perl, libconfig-autoconf-perl, libpath-tiny-perl
+# we fix this because MongoDB depends on it, and 0.023 does not install correctly
+requires 'Type::Tiny::XS', '==0.022';
 requires 'Encode::Punycode'; # deps: libnet-idn-encode-perl, libtest-nowarnings-perl
 requires 'GraphViz2'; # deps: libfile-which-perl, libdata-section-simple-perl, libwant-perl, libipc-run3-perl, liblog-handler-perl, libtest-deep-perl
 requires 'Algorithm::CheckDigits'; # libalgorithm-checkdigits-perl has 0.50 vs 1.3.3. deps: libprobe-perl-perl
@@ -54,12 +58,18 @@ requires 'Modern::Perl', '>= 1.20200211'; # libmodern-perl-perl has 1.20170117/1
 requires 'Data::Dumper::AutoEncode'; # deps: libmodule-build-pluggable-perl, libclass-accessor-lite-perl
 requires 'XML::Rules';
 requires 'Text::CSV', '>= 2.01, < 3.0'; # libtext-csv-perl has 1.95/1.99 vs 2.00.
+requires 'Text::CSV_XS';
 requires 'Text::Fuzzy';
 requires 'Spreadsheet::CSV'; # deps: libspreadsheet-parseexcel-perl
 requires 'File::chmod::Recursive'; # deps: libfile-chmod-perl
 requires 'Devel::Size'; # deps: libdevel-size-perl
 requires 'JSON::Create';
 requires 'JSON::Parse';
+requires 'Data::DeepAccess';
+requires 'XML::XML2JSON';
+requires 'Redis';
+requires 'Digest::SHA1';
+requires 'Data::Difference';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
@@ -75,14 +85,51 @@ requires 'Log::Any::Adapter::Log4perl', '>= 0.09'; # liblog-any-adapter-log4perl
 requires 'Action::CircuitBreaker';
 requires 'Action::Retry'; # deps: libmath-fibonacci-perl
 
+# AnyEvent
+requires 'AnyEvent';
+requires 'AnyEvent::Inotify::Simple';
+
+# GS1 Encoder
+requires 'GS1::SyntaxEngine::FFI';
+
 on 'test' => sub {
   requires 'Test::More', '>= 1.302186, < 2.0';
+  requires 'Test::MockModule';
+  requires 'Mock::Quick';
   requires 'Test::Number::Delta'; # libtest-number-delta-perl
+  requires 'Test::Files';
+  requires 'File::Spec';
   requires 'Log::Any::Adapter::TAP'; # liblog-any-adapter-tap-perl
+  requires 'IO::Capture::Stdout::Extended';
+  requires 'IO::Capture::Stderr::Extended';
+  requires 'HTTP::CookieJar::LWP';
+  requires 'File::Tail';
+  requires 'Test2::Plugin::UTF8';
+  requires 'Devel::Cover';
+  requires 'Devel::Cover::Report::Codecov';
+  requires 'Devel::Cover::Report::Codecovbash';
+  requires 'Test::Fake::HTTPD';
+  requires 'URL::Encode';
 };
 
 on 'develop' => sub {
+  requires 'Test::Perl::Critic', '>=1.04', '<2.0'; # perl-critic refuse to install without this explicit deps
   requires 'Perl::Critic', '>= 1.140, < 2.0'; # libperl-critic-perl has 1.132 vs 1.138, and all the depended on packages are old too.
   requires 'Apache::DB', '>= 0.18, < 1.00'; # old non-working version also available as the Debian package libapache-db-perl 0.14
-  recommends 'Term::ReadLine::Gnu', '>= 1.42, < 2.0'; # readline support for the Perl debugger. libterm-readline-gnu-perl is available.
-}
+  requires 'Perl::Tidy';
+  requires 'Perl::Critic';
+  requires 'Devel::Cover';
+  requires 'Devel::Cover::Report::Codecov';
+  requires 'Devel::Cover::Report::Codecovbash';
+};
+
+feature "off_server_dev_tools", "Optional development tools" => sub {
+  # Modules needed to ease development but not need to run CI tasks or automated tests
+  # on GitHub, or for production
+  # For docker, use CPANMOPTS=--with-develop  --with-feature=off_server_dev_tools
+  requires 'Devel::REPL';
+  requires 'Term::ReadLine::Gnu', '>= 1.42, < 2.0'; # readline support for the Perl debugger. libterm-readline-gnu-perl is available.
+  requires 'Perl::LanguageServer';
+  requires 'Hash::SafeKeys';  # Perl::LanguageServer dependency
+};
+

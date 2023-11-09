@@ -29,11 +29,38 @@
 	<label for="nutrition_data_compare_value">[% lang('nutrition_data_compare_value') %]</label>
 
 	<p class="note">&rarr; [% lang('nutrition_data_comparison_with_categories_note') %]</p>
+
+<initjs>
+\$('input:radio[name=nutrition_data_compare_type]').change(function () {
+
+	if (\$('input:radio[name=nutrition_data_compare_type]:checked').val() == 'compare_value') {
+		\$(".compare_percent").hide();
+		\$(".compare_value").show();
+	}
+	else {
+		\$(".compare_value").hide();
+		\$(".compare_percent").show();
+	}
+
+}
+);
+
+
+\$(".show_comparison").change(function () {
+	if (\$(this).prop('checked')) {
+		\$("." + \$(this).attr("id")).show();
+	}
+	else {
+		\$("." + \$(this).attr("id")).hide();
+	}
+}
+);
+</initjs>
+
 [% END %]
 
 <!--  Stats for categories -->
 [% IF category_stats.defined %]
-
 	<div>
 		<input id="show_stats" type="checkbox">
 		<label for="show_stats">
@@ -44,51 +71,76 @@
 		</label>
 	</div>
 
+<initjs>
+if (\$.cookie('show_stats') == '1') {
+	\$('#show_stats').prop('checked',true);
+}
+else {
+	\$('#show_stats').prop('checked',false);
+}
+
+if (\$('#show_stats').prop('checked')) {
+	\$(".stats").show();
+}
+else {
+	\$(".stats").hide();
+}
+
+\$("#show_stats").change(function () {
+	if (\$('#show_stats').prop('checked')) {
+		\$.cookie('show_stats', '1', { expires: 365 });
+		\$(".stats").show();
+	}
+	else {
+		\$.cookie('show_stats', null);
+		\$(".stats").hide();
+	}
+}
+);
+
+</initjs>	
+
 [% END %]
 
-[% FOREACH table IN tables %]
+<table id="[% nutrition_table.id %]_data_table" class="data_table">
+<caption style="display:none">[% nutrition_table.header.name %]</caption>
 
-	<table id="[% table.id %]_data_table" class="data_table">
-    <caption>[% table.header.name %]</caption>
+	<!--  Generating table header -->
+	<thead class="nutriment_header">
+		<tr>
+			<th scope="col">[% nutrition_table.header.name %]</th>
+			[% FOREACH column IN nutrition_table.header.columns %]
+				<th class="nutriment_value [% column.class %]" scope="col">[% column.name %]</th>
+			[% END %]
+		</tr>
+	</thead>
 
-		<!--  Generating table header -->
-		<thead class="nutriment_header">
-			<tr>
-				<th scope="col">[% table.header.name %]</th>
-				[% FOREACH column IN table.header.columns %]
-					<th class="nutriment_value [% column.class %]" scope="col">[% column.name %]</th>
+	<tbody>
+		<!--  Generating table body -->
+		[% FOREACH row IN nutrition_table.rows %]
+
+			<tr id="nutriment_[% row.nid %]_tr" class="[% IF row.level == 0 %]nutriment_main[% ELSIF row.level == 1 %]nutriment_sub[% ELSIF row.level == 2 %]nutriment_sub nutriment_sub_sub[% END %]">
+				<td class="nutriment_label">
+					[% row.name %]
+				</td>
+
+				[% FOREACH column IN row.columns %]
+					[% IF column.type == 'normal' %]
+						<td class="nutriment_value [% column.class %]"[% IF column.rdfa.defined %][% column.rdfa %][% END %]>
+							[% column.value %]
+						</td>
+					[% ELSE %]
+						<td class="nutriment_value [% column.class %]">
+							<span class="compare_percent">[% column.percent %]</span>
+							<span class="compare_value" style="display:none">[% column.value %]</span>
+						</td>
+					[% END %]
 				[% END %]
 			</tr>
-		</thead>
 
-		<tbody>
-			<!--  Generating table body -->
-			[% FOREACH row IN table.rows %]
+		[% END %]
+	</tbody>
 
-				<tr id="nutriment_[% row.nid %]_tr" class="nutriment_[% row.class %]">
-					<td class="nutriment_label">
-						[% row.name %]
-					</td>
-
-					[% FOREACH column IN row.columns %]
-						[% IF column.type == 'normal' %]
-							<td class="nutriment_value [% column.class %]"[% tablevalue.rdfa %]>
-								[% column.value %]
-							</td>
-						[% ELSE %]
-							<td class="nutriment_value [% column.class %]">
-								<span class="compare_percent">[% column.percent %]</span>
-								<span class="compare_value" style="display:none">[% column.value %]</span>
-							</td>
-						[% END %]
-					[% END %]
-				</tr>
-
-			[% END %]
-		</tbody>
-
-	</table>
-
-[% END %]
+</table>
 
 <!-- end templates/[% component.name %] -->

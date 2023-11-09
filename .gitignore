@@ -2,7 +2,11 @@
 lib/ProductOpener/Config.pm
 lib/ProductOpener/Config2.pm
 lib/ProductOpener/SiteLang.pm
-taxonomies/nutrient_levels.txt
+po/site-specific
+
+# tests outputs
+tests/unit/outputs/
+tests/integration/outputs/
 
 # Local files
 .DS_Store?
@@ -12,11 +16,20 @@ taxonomies/nutrient_levels.txt
 ehthumbs.db
 Thumbs.db
 .vstags
+# editors
+.~*
+.*.swo
+.*.swp
+.vscode/launch.json
+.vscode/perl-lang/
+.vscode/settings.json
+.idea/
 
 # Logs
+logs/
+debug/
 Store.debug.txt
 *.log
-logs/modperl_error_log
 nytprof*.out
 
 # Local databases
@@ -24,6 +37,8 @@ data/mongodb
 Lang.open*
 users_emails.sto
 html/data/*
+html/products_countries.js
+products_stats_*.html
 
 # Libraries
 node_modules
@@ -36,6 +51,9 @@ html/js/dist
 html/images/icons/dist
 html/images/attributes/*.svg
 
+# Images
+html/images/products/*
+
 # Don't store helm dependencies in our git repo
 docker/productopener/charts
 docker/logs
@@ -45,3 +63,18 @@ html/js/datatables.*
 html/js/jquery*
 html/js/*nivo-zoom*
 html/js/sigma*
+
+# coverage data
+/cover_db
+
+# Env files
+.env*
+
+# Taxonomies and cache
+cache
+taxonomies/*.sto
+taxonomies/*.result.txt
+taxonomies/*.all.txt
+/build-cache/taxonomies/*.json
+/build-cache/taxonomies/*.sto
+/build-cache/taxonomies/*.result.txt

@@ -26,7 +26,7 @@ if not API_KEY:
     sys.exit("missing Google Cloud CLOUD_VISION_API_KEY as envvar")
 
 
-CLOUD_VISION_URL = "https://alpha-vision.googleapis.com/v1/images:annotate?key={}".format(
+CLOUD_VISION_URL = "https://vision.googleapis.com/v1/images:annotate?key={}".format(
     API_KEY
 )
 

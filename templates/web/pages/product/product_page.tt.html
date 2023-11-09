@@ -10,391 +10,281 @@
     [% END %]
 [% END %]
 
-<!-- Share -->
-<div class="share_button" style="display:none;">
-    <a href="[% request_ref.canon_url %]" class="button small" title="[% title %]">
-        [% display_icon('share') %]
-        <span class="show-for-large-up">[% lang('share') %]</span>
-    </a>
-</div>
 
-<!-- Edit product page -->
-<div class="edit_button">
-    <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small" title="[% lang('edit_product_page') %]">
-        [% display_icon('edit') %]
-        <span class="show-for-large-up">[% lang('edit_product_page') %]</span>
-    </a>
-</div>
-
-[% IF user_moderator %]
-<!-- Delete product page -->
-    <div class="delete_button">
-        <a href="/cgi/product.pl?type=delete&code=[% code %]" class="button small" title="[% lang('delete_product_page') %]">
-            [% display_icon('delete') %]
-            <span class="show-for-large-up"> [% lang('delete_product_page') %]</span>
-        </a>
-    </div>
-[% END %]
-
-[% IF server_options_producers_platform %]
-    <div class="delete_button">
-        <a href="/cgi/export_products.pl?query_code=[% code %]" class="button small" title="[% lang('export_product_page') %]">
-			[% display_icon('publish') %]
-            <span class="show-for-large-up"> [% lang('export_product_page') %]</span>
-        </a>
-    </div>
-    
-    <p>→ <a href="[% public_product_url %]">[% lang("product_page_on_the_public_database") %]</a></p>
-[% END %]
-
-[% IF (user_id.defined) && (robotoff_url.defined) && (robotoff_url.length > 0) %]
+[% IF (robotoff_url.defined) && (robotoff_url.length > 0) %]
+    <!-- Anonymous users will only be able to vote see AnnotationVote in robotoff,
+        the voter uniqueness is based on a hash of its ip address
+    -->
 	<robotoff-asker url='[% robotoff_url %]' code='[% code %]' lang='[% lc %]' style='display: none;' caption-yes='[% lang("button_caption_yes") %]' caption-no='[% lang("button_caption_no") %]' caption-skip='[% lang("button_caption_skip") %]'></robotoff-asker>
 [% END %]
 
-<div itemscope itemtype="[% itemtype %]">
-<h1 property="food:name" itemprop="name">[% title %]</h1>
-
-<!-- Display UPC code if the EAN starts with 0 -->
-[% IF upc_code == 'defined' %]
-    <p id="barcode_paragraph">
-        [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span> [% upc %]
-    </p>
-    <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
-[% END %]
-
-<!-- Obsolete product -->
-[% IF product_is_obsolete %]
-    <div data-alert class="alert-box warn" id="obsolete" style="display: block; background:#ffaa33;color:black;">
-        [% warning %]
-    </div>
-[% END %]
-
-<!-- GS1-Prefixes for restricted circulation numbers within a company - warn for possible conflicts -->
-[% IF gs1_prefixes %]
-    <div data-alert class="alert-box info" id="warning_gs1_company_prefix" style="display: block;">
-        [% lang('warning_gs1_company_prefix') %]
-        <a href="#" class="close">&times;</a></span>
-    </div>
-[% END %]
-
-[% IF rev.defined %]
-    [% display_rev_info %]
-[% ELSIF not_has_tag == "states-en:complete" %]
-    <div data-alert class="alert-box info" id="warning_not_complete" style="display: block;">
-        [% lang("warning_not_complete") %]
-        <a href="#" class="close">&times;</a></span>
-    </div>
-[% END %]
-
-<!-- owner -->
-[% IF owner %]
-	<p>
-		[% FILTER format(lang("sources_manufacturer")) %]<a href="/editor/[% owner %]">[% owner_org.name %]</a>[% END %]
-		
-		[% IF owner_org.customer_service.email || owner_org.customer_service.link || owner_org.customer_service.phone %]
-				 - [% lang("customer_service") %][% sep %]:
-				[% IF owner_org.customer_service.email %]
-					[% display_icon('email') %] <a href="mailto:[% owner_org.customer_service.email %]">[% owner_org.customer_service.email %]</a>
-				[% ELSIF owner_org.customer_service.link %]
-					[% display_icon('email') %] <a href="[% owner_org.customer_service.link %]">[% lang("contact_form") %]</a>
-				[% END %]
-				
-				[% IF owner_org.customer_service.phone %]
-					[% display_icon('phone') %] <span itemprop="telephone"><a href="tel:[% owner_org.customer_service.phone %]">[% owner_org.customer_service.phone %]</a></span>
-				[% END %]
-		[% END %]
-	</p>
-[% END %]
-
-<!-- product summary -->
-
-<div id="product_summary"></div>
-
-<div id="preferences_selected"></div>
-	
-<div id="preferences_selection_form" style="display:none"></div>
-	
-
-<!-- product_characteristics -->
-<h2 id="product_characteristics">[% lang('product_characteristics') %]</h2>
-<div class="row">
-    <div class="hide-for-large-up medium-12 columns">[% front_image %]</div>
-    <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
-        [% product_fields %]
-    </div>
-    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">$[% front_image %]</div>
-</div>
-
-<!-- ingredients -->
-<h2 id="ingredients">[% lang('ingredients') %]</h2>
-<div class="row">
-    <div class="hide-for-large-up medium-12 columns">[% ingredients_image %]</div>
-    <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
-        <p class="note">→ [% lang("ingredients_text_display_note") %]</p>
-        <div><span class="field">[% lang("ingredients_text") %]:</span>
-            [% IF lc != ingredients_text_lang %]
-                <div id="ingredients_list" property="food:ingredientListAsText" lang="[% ingredients_text_lang %]">[% ingredients_text %]</div>
-            [% ELSE %]
-                <div id="ingredients_list" property="food:ingredientListAsText">[% ingredients_text %]</div>
-            [% END %]
-        </div>
-        [% IF User_moderator == 'defined' %]
-            <div class="button_div" id="editingredientsbuttondiv"><button id="editingredients" class="small button" type="button">Edit ingredients ([% ilc %])</div>
-            <div class="button_div" id="saveingredientsbuttondiv_status" style="display:none"></div>
-            <div class="button_div" id="saveingredientsbuttondiv" style="display:none"><button id="saveingredients" class="small button" type="button">Save ingredients ([% ilc %])</div>
-
-            <div class="button_div" id="wipeingredientsbuttondiv"><button id="wipeingredients" class="small button" type="button">Ingredients ([% ilc %]) are completely bogus, erase them.</button></div>
-        [% END %]
-
-         <!-- Offer to add the ingredients in the language of the interface -->
-         [% IF (ingredients_text == "") || (ingredients_text_lang != lc) %]
-            <p>
-                [% display_ingredients_in_lang %]
-                <a href="/cgi/product.pl?type=edit&code=[% code %]#ingredients" class="button tiny">[% display_icon('edit') %] [% lang('edit_product_page') %]</a>
-            </p>
-        [% END %]
-
-        [% display_field_allergens %]
-        [% display_field_traces %]
-        [% display_ingredients_analysis %]
-        [% display_ingredients_analysis_details %]
-
-        [% IF ingredients_classes_n > 0 %]
-            <div class="row">
-                [% html_ingredients_classes %]
-            </div>
-        [% END %]
-
-        <!-- special ingredients tags -->
-        [% IF special_ingredients_tags == 'defined' %]
-            [% IF special_html != "" %]
-                <br><hr class="floatleft">
-                <div>
-                    <strong>[% lang("ingredients_analysis") FILTER ucfirst %]:</strong><br>
-                    <ul id="special_ingredients">[% special_html %]</ul>
-                    <p>[% lang("ingredients_analysis_note") %]</p>
-                </div>
-
-            [% END %]
-        [% END %]
-
-        <!-- NOVA Groups -->
-        [% IF product_nova_group == 'exists' %]
-            <h4>[% lang("nova_groups_s") %]
-                <a href="/nova" title="[% a_title %]">
-                [% display_icon('info') %]</a>
-            </h4>
-            <a href="/nova" title="[% a_title %]"><img src="/images/misc/nova-group-[% group %].svg" alt="[% display %]" style="margin-bottom:1rem;max-width:100%"></a><br>
-            [% display %]
-        [% END %]
-    </div>
-    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% ingredients_image %]</div>
-</div>
-
-<!-- nutrition table -->
-[% IF nutrition_table == 'defined' %]
-    <h2 id="nutrition_data">[% lang("nutrition_data") %]</h2>
-    <div class="row">
-        <div class="hide-for-large-up medium-12 columns">
-            [% nutrition_image %]
-        </div>
-        <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
-            [% display_nutrient_levels %]
-            [% display_field %]
-
-            [% IF no_nutrition_data == 'on' %]
-                <div class='panel callout'>
-                    [% lang("no_nutrition_data") %]
-                </div>
-            [% END %]
-            [% display_nutrition_table %]
-        </div>
-
-        <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">
-            [% nutrition_image %]
-        </div>
-    </div>
-
-    [% IF has_tag == 'categories-en:alcoholic-beverages' %]
-        <p class="panel callout">
-            [% lang('alcohol_warning') %]
-        </p>
-    [% END %]
-[% END %]
-
-<!-- ecoscore -->
-[% IF ecoscore_grade || forest_footprint_data %]
-	<h2 id="environmental_impact">[% lang('environmental_impact') %]</h2>
-[% END %]
-
-[% IF ecoscore_grade %]
-	<h4>Eco-score
-		<a href="[% url_for_text("ecoscore") %]" title="[% lang('ecoscore_information') %]">[% display_icon('info') %]</a>
-	</h4>
-	
-	<p>[% lang("ecoscore_description") %]</p>
-	
-	[% IF cc == "fr" %]
-		<p class="note">→ [% lang("ecoscore_warning_fr") %]</p>
-	[% ELSE %]
-		<p class="note">→ [% lang("ecoscore_warning_international") %]</p>
-	[% END %]
-	
-	<a href="[% url_for_text("ecoscore") %]" title="[% lang('ecoscore_information') %]">
-		<img src="/images/icons/ecoscore-[% ecoscore_grade_lc %].svg" alt="Eco-score [% ecoscore_grade %]" style="margin-bottom:1rem;max-width:100%">
-	</a>
-	<br>
-  
-	[% IF ecoscore_data.missing_agribalyse_match_warning %]
-		<div class="panel warning">
-      <strong>
-      [% lang('ecoscore_agribalyse_match_warning') %]
-      </strong><br><br>
-      [% lang('ecoscore_add_more_precise_category') %]
-      <br><br>
-      [% lang('ecoscore_platform_promo') %]
-		</div>
-	[% ELSIF ecoscore_data.missing_data_warning %]
-		<div class="panel warning">
-      <strong>
-      [% lang('ecoscore_warning_missing_information') %]
-      </strong><br><br>
-      [% lang('ecoscore_add_missing_information') %]
-      <br><br>
-      [% lang('ecoscore_platform_promo') %]
-		</div>
-	[% END %]	
-	[% ecoscore_calculation_details %]
-[% END %]
-
-<!-- forest footprint -->
-[% IF forest_footprint_data %]
-
-<h4>[% lang('forest_footprint') %]</h4>
-
-<a href="/empreinte-foret-des-produits-alimentaires" title="[% lang('forest_footprint_information') %]" style="float:left">
-	<img src="/images/icons/forest-footprint-[% forest_footprint_data.grade %].svg" alt="[% lang('forest_footprint') %]" style="height:130px" >
+<a href="#upNav" class="back-to-top scrollto button">
+    <span class="material-icons size-20 ">
+        arrow_upward
+    </span>
 </a>
-<div>
-	<p><strong>[% lang("attribute_forest_footprint_${forest_footprint_data.grade}_title") %]</strong><br>
-	[% lang("attribute_forest_footprint_${forest_footprint_data.grade}_description_short") %]</p>
-	
-	<p>[% forest_footprint_data.footprint_per_kg FILTER format("%.2f"); %] [% lang("square_meters_per_kg_of_food") %]</p>
-</div>
+<div itemscope itemtype="[% itemtype %]" class="main-product">
+    <div class="block v-space-tiny product_banner_unranked" id="prodHead">
+        <div class="row h-space-normal">
+            <div class="large-12 flex-grid ">
+                <h1 class="title-3" property="food:name" itemprop="name">[% title %]</h1>
+                <div class="buttons_prod">
+                    <!-- Edit product page -->
+                    <div class="edit_button">
+                        <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small white-button round" title="[% lang('edit_product_page') %]">
+                            <span class="material-icons size-20 ">
+                            edit
+                            </span>
+                            <span class="show-for-large-up">[% lang('edit_product_page') %]</span>
+                        </a>
+                    </div>
 
-<p style="clear:left">
-  <a data-dropdown="forest_footprint_drop" aria-controls="forest_footprint_drop" aria-expanded="false">[% lang('forest_footprint_calculation_details') %] &raquo;</a>
-</p>
-<div id="forest_footprint_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
+                    <!-- Share -->
+                    <div class="share_button" style="display:none;">
+                        <a href="[% request_ref.canon_url %]" class="button small" title="[% title %]">
+                            <span class="material-icons size-20 ">
+                            share
+                            </span>
 
-	<h3>[% lang("ingredients_requiring_soy") %]</h3>
-	
-	<p>[% lang("forest_footprint_one_line_explanation") %]</p>
-	
-	[% IF forest_footprint_data.ingredients && forest_footprint_data.ingredients %]
+                            <span class="show-for-large-up">[% lang('share') %]</span>
+                        </a>
+                    </div>
 
-		<table id="forest_footprint_table">
-			<caption style="text-align:left">[% lang("ingredients_requiring_soy") %][% sep %]:</caption>
-			<tr>
-				<th scope="col">[% lang("ingredients_s") FILTER ucfirst %]</th>
-				<th scope="col">[% lang("type") %]</th>
-				<th scope="col">[% lang("percent_in_product") %]</th>
-				<th scope="col">[% lang("processing_factor") %]<br><span style="font-weight:normal">([% lang("percent_of_food_after_processing") %])</span></th>
-				<th scope="col">[% lang("soy_feed_factor") %]<br><span style="font-weight:normal">([% lang("kg_of_soy_per_kg_of_food") %])</span></th>
-				<th scope="col">[% lang("soy_yield") %]<br><span style="font-weight:normal">([% lang("kg_of_soy_per_square_meter") %])</span></th>
-				<th scope="col">[% lang("deforestation_risk") %]<br><span style="font-weight:normal">(%)</span></th>
-				<th scope="col">[% lang("forest_footprint") %]<br><span style="font-weight:normal">([% lang("square_meters_per_kg_of_food") %])</span></th>
-			</tr>
-		[% FOREACH ingredient IN forest_footprint_data.ingredients %]
-			<tr>
-				<td>
-					<span style="border-bottom:1px dotted #ccc" title="[% display_taxonomy_tag(ingredient.tag_type, ingredient.matching_tag_id) %]">
-					[% display_taxonomy_tag(ingredient.tag_type, ingredient.tag_id) %]
-					</span>
-				</td>
-				<td>
-					<span style="border-bottom:1px dotted #ccc" title="
-					[% FOREACH tag IN ingredient.conditions_tags %]
-						[% lang("${tag.0}_s") FILTER ucfirst %] [% display_taxonomy_tag(tag.0, tag.1) %]
-					[% END %]
-					">
-						[% ingredient.type.name %]
-					</span>
-				</td>
-				<td>[% ingredient.percent FILTER format("%.2f"); %]</td>
-				<td>[% ingredient.processing_factor * 100 FILTER format("%d"); %]</td>
-				<td>[% ingredient.type.soy_feed_factor %]</td>
-				<td>[% ingredient.type.soy_yield %]</td>
-				<td>[% ingredient.type.deforestation_risk * 100 FILTER format("%d"); %]</td>
-				<td>[% ingredient.footprint_per_kg FILTER format("%.2f"); %]</td>
-			</tr>
-		[% END %]
-		</table>
-	[% END %]
-	
-	<h3>[% lang("total_forest_footprint") %]</h3>
 
-	<p><strong>[% forest_footprint_data.footprint_per_kg FILTER format("%.2f"); %] [% lang("square_meters_per_kg_of_food") %]</strong></p>
+                    [% IF user_moderator %]
+                    <!-- Delete product page -->
+                        <div class="delete_button">
+                            <a href="/cgi/product.pl?type=delete&code=[% code %]" class="button small alert" title="[% lang('delete_product_page') %]">
+                                <span class="material-icons size-20 ">
+                                delete
+                                </span>
+                                <span class="show-for-large-up"> [% lang('delete_product_page') %]</span>
+                            </a>
+                        </div>
+                    [% END %]
 
-</div>
-
-[% END %]
-
-<!-- packaging -->
-<h2 id="packaging">[% lang('packaging') %]</h2>
-<div class="row">
-    <div class="hide-for-large-up medium-12 columns">[% packaging_image %]</div>
-    <div class="medium-12 large-8 xlarge-8 xxlarge-8 columns">
-        <div><span class="field">[% lang("packaging_text") %][% sep %]:</span>
-            <p id="packaging_text">[% packaging_text %]</p>
+                    [% IF server_options_producers_platform %]
+                        <div class="delete_button">
+                            <a href="/cgi/export_products.pl?query_code=[% code %]" class="button small" title="[% lang('export_product_page') %]">
+                                <span class="material-icons size-20 ">
+                                publish
+                                </span>
+                                <span class="show-for-large-up"> [% lang('export_product_page') %]</span>
+                            </a>
+                        </div>
+                    [% END %]
+                </div>
+            </div> 
         </div>
     </div>
-    <div class="show-for-large-up large-4 xlarge-4 xxlarge-4 columns" style="padding-left:0">[% packaging_image %]</div>
-</div>
+    <div class="block v-space-tiny prod-nav product_banner_unranked" id="prodNav">
+        <div class="row h-space-normal">
+            <div class="large-12">
+               <nav id="navbar" class="navbar h-space-tiny">
+                    <ul class="inline-list">
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#product"><span>[% lang("product") %]</span></a></li>
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#match"><span>[% lang("your_criteria") %]</span></a></li>
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#health"><span>[% lang("health") %]</span></a></li>
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#environment"><span>[% lang("environment") %]</span></a></li>
+                        <li class="product-section-button"><a class="nav-link scrollto button small round white-button" href="#contribution"><span>[% lang("contribution_navigation") %]</span></a></li>
+                    </ul>
+                </nav><!-- .navbar -->
+            </div> 
+        </div>
+    </div>
+<div id="prodInfos">
+    <!-- product_characteristics -->
+    <section class="row" id="product">
+        <div class="large-12 column">
+            
+            <div class="card" style="border-top:none">
+                <div id="prodBanner" style="display:none"></div>
+                <div class="card-section">
+                    [% IF front_image %]
+                        <div class="row">
+                            <div class="medium-4 small-12 columns">
+                                [% INCLUDE web/panels/image.tt.html code = code image = front_image %]
+                            </div>
+                            <div class="medium-8 small-12 columns">
+                    [% END %]   
 
-[% IF packagings && packagings.size %]
-	<table id="packagings_table">
-		<caption style="text-align:left">[% lang("packaging_parts") %][% sep %]:</caption>
-	[% FOREACH property IN ["number", "shape", "material", "recycling"] %]
-		<th scope="col">[% lang("packaging_${property}") %]</th>
-	[% END %]
-	[% FOREACH packaging IN packagings %]
-		<tr>
-			<td>[% packaging.number %]</td>
-			<td>[% display_taxonomy_tag("packaging_shapes",packaging.shape) %]
-				[% IF packaging.quantity %]([% packaging.quantity %])[% END %]
-			</td>
-			<td>[% display_taxonomy_tag("packaging_materials",packaging.material) %]</td>
-			<td>[% display_taxonomy_tag("packaging_recycling",packaging.recycling) %]</td>
-		</tr>
-	[% END %]
-	</table>
-[% END %]
+
+                    <h2 class="title-1" property="food:name" itemprop="name">[% title %]</h1>
+
+                    [% IF server_options_producers_platform %]
+                        <p>→ <a href="[% public_product_url %]">[% lang("product_page_on_the_public_database") %]</a></p>
+                    [% END %]
+                    
+            <!-- Obsolete product -->
+            [% IF product_is_obsolete %]
+                <div data-alert class="alert-box warn" id="obsolete" style="display: block; background:#ffaa33;color:black;">
+                    [% warning %]
+                </div>
+            [% END %]
+
+            <!-- GS1-Prefixes for restricted circulation numbers within a company - warn for possible conflicts -->
+            [% IF gs1_prefixes %]
+                <div data-alert class="alert-box info" id="warning_gs1_company_prefix" style="display: block;">
+                    [% lang('warning_gs1_company_prefix') %]
+                    <a href="#" class="close">&times;</a></span>
+                </div>
+            [% END %]
+
+            [% IF rev.defined %]
+                [% display_rev_info %]
+            [% ELSIF not_has_tag == "states-en:complete" %]
+                <div data-alert class="alert-box info" id="warning_not_complete" style="display: block;">
+                    [% lang("warning_not_complete") %]
+                    <a href="#" class="close">&times;</a></span>
+                </div>
+            [% END %]
+
+            <!-- owner -->
+            [% IF owner %]
+                <p>
+                    [% FILTER format(lang("sources_manufacturer")) %]<a href="/editor/[% owner %]">[% owner_org.name %]</a>[% END %]
+                    
+                    [% IF owner_org.customer_service.email || owner_org.customer_service.link || owner_org.customer_service.phone %]
+                            - [% lang("customer_service") %][% sep %]:
+                            [% IF owner_org.customer_service.email %]
+                                [% display_icon('email') %] <a href="mailto:[% owner_org.customer_service.email %]">[% owner_org.customer_service.email %]</a>
+                            [% ELSIF owner_org.customer_service.link %]
+                                [% display_icon('email') %] <a href="[% owner_org.customer_service.link %]">[% lang("contact_form") %]</a>
+                            [% END %]
+                            
+                            [% IF owner_org.customer_service.phone %]
+                                [% display_icon('phone') %] <span itemprop="telephone"><a href="tel:[% owner_org.customer_service.phone %]">[% owner_org.customer_service.phone %]</a></span>
+                            [% END %]
+                    [% END %]
+                </p>
+            [% END %]                    
+                    
+                    <!-- Display UPC code if the EAN starts with 0 -->
+                        [% IF upc_code == 'defined' %]
+                            <p id="barcode_paragraph">
+                                [% lang("barcode") %]:  <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span> [% upc %]
+                            </p>
+                            <div property="gr:hasEAN_UCC-13" content="[% code %]" datatype="xsd:string"></div>
+                        [% END %]
+                        
+                        [% product_fields %]
+
+                    [% IF front_image.defined %]
+                            </div>
+                        </div>
+                    [% END %]   
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- product summary -->
+    <section class="row" id="match">
+        <div class="large-12 column">
+            
+            <div class="card">
+                <div class="card-section">
+                    <h2 id="match_title">[% lang('matching_with_your_preferences') %]</h2>
+
+                    <div id="match_score_and_status"></div>
+                            
+                    <div id="product_summary" class="v-space-short text-left"></div>
+
+                    <div id="preferences_selected" class="text-left"></div>
+                        
+                    <div id="preferences_selection_form" class="text-left v-space-whide h-space-wide" style="display:none"></div>                   
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="row" id="health">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="card-section">
+                        [% health_card_panel %]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="row" id="environment">
+        <div class="large-12 column">
+            <div class="card">
+                <div class="card-section">
+                        [% environment_card_panel %]
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
 
 <!-- other fields -->
 [% IF other_fields != "" %]
-    <h2 id="product_other_information">[% lang('product_other_information') %]</h2>
-    <div class="row">
-        <div class="small-12 columns">
-            [% other_fields %]
+    <section class="row" id="other">
+    <!-- product_characteristics -->
+        <div class="large-12 column">
+            <div class="card">
+                <div class="card-section">
+                 
+                
+                
+                    <h2 id="product_other_information" class="text-medium">[% lang('product_other_information') %]</h2>
+                    <div class="row">
+                        <div class="small-12 columns">
+                            [% other_fields %]
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-[% END %]
-
-[% IF admin %]
-    [% display_field_environment_infocard %]
-    [% IF carbon_footprint_from_meat_or_fish_debug.defined %]
-        <p>debug: [% carbon_footprint_from_meat_or_fish_debug %] </p>
+    </section>
     [% END %]
-[% END %]
+
+
 
 <!-- Platform for producers: data quality issues and improvements opportunities -->
 [% IF server_options_producers_platform %]
+
+    <section class="row" >
+        <div class="large-12 column">
+            <div class="card">
+                <div class="card-section">
     [% display_data_quality_issues_and_improvement_opportunities %]
+                </div>
+            </div>
+        </div>
+    </section>
 [% END %]
 
+<a id="contribution"></a>
+[% IF contribution_card_panel %]
+<section class="row">
+    <div class="large-12 column">
+        <div class="card">
+            <div class="card-section">
+                    [% contribution_card_panel %]
+            </div>
+        </div>
+    </div>
+</section>
+[% END %]
+
+<section class="row" >
+    <div class="large-12 column">
+        <div class="card">
+            <div class="card-section">
+
+                <h2 id="data_sources" class="text-medium">[% lang('data_sources_p') FILTER ucfirst %]</h2>
 <!-- photos and data sources -->
 [%IF sources %]
+
 	[% lang("list_of_sources") %]
 	<ul>
 	[% FOREACH source IN unique_sources %]
@@ -416,41 +306,61 @@
 [% END %]
 
 <!-- databases data sources -->
-<h2 id="data_sources">[% lang('data_sources_p') FILTER ucfirst %]</h2>
 
-[% IF data_source_database_equadis %]
-	<p>[% data_source_database_equadis %]</p>
-[% ELSIF data_source_database_codeonline %]
-	<p>[% data_source_database_codeonline %]</p>
-	<p>[% data_source_database_note_about_the_producers_platform %]</p>
-[% ELSE %]
-<p>_</p>
-[% END %]
+        [% IF data_source_database_provider %]
+            <p>[% data_source_database_provider %]</p>
+        [% END %]
+        [% IF data_source_database_note_about_the_producers_platform %]
+            <p>[% data_source_database_note_about_the_producers_platform %]</p>
+        [% END %]
 
 
-<p class="details">
-    [% lang('product_added') %] [% created_date %] [% lang('by') %] [% creator %]<br>
-    [% lang('product_last_edited') %] [% last_modified_date %] [% lang('by') %] [% last_editor %].
-    [% other_editors %]
-    [% checked %]
-</p>
+        <p class="details">
+            [% lang('product_added') %] [% created_date %] [% lang('by') %] [% creator %]<br>
+            [% lang('product_last_edited') %] [% last_modified_date %] [% lang('by') %] [% last_editor %].
+            [% other_editors %]
+            [% checked %]
+        </p>
+ 
+            <div class="alert-box info">
+                [% lang('fixme_product') %]
+            </div>
 
-<div class="alert-box info">
-    [% lang('fixme_product') %]
-</div>
-
-</div>
 
 [% IF (user_id.defined) %]
-    [% display_field_states %]
+        [% display_field_states %]
 [% END %]
-[% display_product_history %]
 
-<div class="edit_button right" style="float:right;margin-top:-10px;">
-    <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small">
-        [% display_icon('edit') %]
-        [% lang('edit_product_page') %]
-    </a>
 </div>
+</div>
+</div>
+</section>
+
+<section class="row" >
+    <div class="large-12 column">
+        <div class="card">
+            <div class="card-section">
+
+    <section class="row" >
+        <div class="large-12 column">
+[% display_product_history %]
+        </div>
+    </section>
+
+
+        <div class="edit_button center text-center" >
+            <a href="/cgi/product.pl?type=edit&code=[% code %]" class="button small">
+                [% display_icon('edit') %]
+                [% lang('edit_product_page') %]
+            </a>
+        </div>
+
+
+    </div>
+</div>
+</div>
+</section>
+
+[% INCLUDE web/common/includes/folksonomy_script.tt.html %]
 
 <!-- end templates/[% template.name %] -->

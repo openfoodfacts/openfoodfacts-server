@@ -7,7 +7,7 @@
     <title>[% title %]</title>
     [% meta_description %]
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="fb:app_id" content="[% fb_config %]">
+	<meta property="fb:app_id" content="[% fb_config %]">
     <meta property="og:type" content="[% og_type %]">
     <meta property="og:title" content="[% canon_title %]">
     <meta property="og:url" content="[% canon_url %]">
@@ -16,229 +16,401 @@
     <meta property="og:description" content="[% canon_description %]">
     [% options_favicons %]
     <link rel="canonical" href="[% canon_url %]">
-    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% lang('text_direction') %].css?v=[% css_timestamp %]">
-    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/app-[% lang('text_direction') %].css?v=[% css_timestamp %]" data-base-layout="true">
+    <link rel="stylesheet" href="[% static_subdomain %]/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="[% static_subdomain %]/css/dist/select2.min.css">
     <link rel="search" href="[% formatted_subdomain %]/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="[% lang('site_name') %]">
-    [% header %]
+	[% header %]
     <style media="all">
         [% lang("css") %]
         [% styles %]
     </style>
     [% google_analytics %]
 </head>
-
-
 <body[% bodyabout %] class="[% page_type %]_page">
-<nav class="top-bar" data-topbar id="top-bar">
-	<ul class="title-area">
-		<li class="name">
-			<h2><a href="/" style="font-size:1rem;">[% site_name %]</a></h2>
-		</li>
-		<li class="toggle-topbar menu-icon">
-			<a href="#"><span>Menu</span></a>
-		</li>
-	</ul>
-	<section class="top-bar-section">
-    <label for="select_country" style="display:none">[% lang('select_country') %]</label>
-    <ul class="country_language_selection">
-			<li class="has-form has-dropdown" id="select_country_li">
-				<select id="select_country" style="width:100%" data-placeholder="[% lang('select_country') %]">
-					<option></option>
-				</select>
-			</li>
-      [% IF langs.match('<a') %]
-        <li class="has-dropdown">
-            [% selected_lang %]
-            <ul class="dropdown">
-                [% langs %]
-            </ul>
-        </li>
-      [% END %]
-    </ul>
-    <ul class="search_and_links">
-      <li class="show-for-large-up">
-        <form action="/cgi/search.pl">
-          <div class="row collapse">
-            <div class="small-8 columns">
-              <input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms" value="[% search_terms %]">
-              <input name="search_simple" value="1" type="hidden">
-              <input name="action" value="process" type="hidden">
-            </div>
-            <div class="small-4 columns">
-              <button type="submit" title="[% lang('search') %]">[% display_icon('search') %]</button>
-            </div>
-          </div>
-        </form>
-      </li>
-      <li class="show-for-large-only"><a href="/cgi/search.pl" title="[% lang('advanced_search') %]">[% display_icon('add') %]</a></li>
-      <li class="show-for-xlarge-up"><a href="/cgi/search.pl">[% display_icon('add') %] [% lang('advanced_search') %]</a></li>
-      <li class="show-for-large-only"><a href="/cgi/search.pl?graph=1" title="[% lang('graphs_and_maps') %]">[% display_icon('bar_chart') %]</a></li>
-      <li class="show-for-xlarge-up"><a href="/cgi/search.pl?graph=1">[% display_icon('bar_chart') %] [% lang('graphs_and_maps') %]</a></li>
-      [% IF !(server_options_producers_platform) %]
-        <li class="show-for-large-up divider"></li>
-        <li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
-        <li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
-        <li class="show-for-large"><a href="[% lang('get_the_app_link') %]" title="[% lang('get_the_app') %]" class="button success">[% display_icon('phone_android') %]</a></li>
-        <li class="show-for-xlarge-up"><a href="[% lang('get_the_app_link') %]" class="button success">[% display_icon('phone_android') %] [% lang('get_the_app') %]</a></li>
-      [% END %]
-    </ul>
-	</section>
-</nav>
 
-[% offcanvasposition = 'left' %]
-[% IF lang('text_direction') == 'rtl' %]
-[% offcanvasposition = 'right' %]
-[% END %]
-<nav class="tab-bar show-for-small-only">
-	<div class="[% offcanvasposition %]-small">
-		<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="[% offcanvasposition %]-off-canvas-toggle button postfix [% torso_class %]">
-		[% display_icon('account_box') %]
-		</a>
-	</div>
-	<div class="middle tab-bar-section">
-		<form action="/cgi/search.pl">
-			<div class="row collapse">
-				<div class="small-8 columns">
-					<input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms">
-					<input name="search_simple" value="1" type="hidden">
-					<input name="action" value="process" type="hidden">
-				</div>
-				<div class="small-2 columns">
-					<button type="submit" class="button postfix">[% display_icon('search') %]</button>
-				</div>
-				<div class="small-2 columns">
-					<a href="/cgi/search.pl" title="[% lang('advanced_search') %]">[% display_icon('search') %] [% display_icon('add') %]</a>
-				</div>
-			</div>
-		</form>
-	</div>
-</nav>
-
-<div class="off-canvas-wrap" data-offcanvas>
-	<div class="inner-wrap">
-		<aside class="[% offcanvasposition %]-off-canvas-menu">
-			<div id="aside_column">
-				[% aside_blocks %]
-			</div>
-		</aside>
-		<a class="exit-off-canvas"></a>
-		
-		<!-- full width banner on mobile -->
-		
-		[% IF mobile %]
-			<a href="[% mobile.link %]" class="button large expand success">
-			<div class="row collapse">
-				<div class="small-6 columns">
-					[% mobile.text %]
-				</div>
-				<div class="small-6 columns">
-					[% IF mobile.system == "ios" %]
-							<img src="[% lang('ios_app_icon_url') %]" alt="[% lang('ios_app_icon_alt_text') %]">
-					[% ELSIF mobile.system == "android" %]
-							<img src="[% lang('android_app_icon_url') %]" alt="[% lang('android_app_icon_alt_text') %]">
-					[% ELSIF mobile.system == "windows" %]
-							<img src="[% lang('windows_phone_app_icon_url') %]" alt="[% lang('windows_phone_app_icon_alt_text') %]">
-					[% END %]
+	<div id="page">
+		<div class="upper-nav contain-to-grid"  id="upNav">
+			<nav class="top-bar " data-topbar role="navigation">
 				
+				<section class="top-bar-section">
+					
+					<!-- Left Nav Section -->
+					<ul class="left">
+
+						<li class="has-dropdown">
+							<a id="menu_link">
+								<span class="material-icons">
+									menu
+								</span>
+							</a>
+							<ul class="dropdown">				
+								[% IF !(server_options_producers_platform) %]
+									<li><a href="[% lang('menu_discover_link') %]">[% lang('menu_discover') %]</a></li>
+									<li><a href="[% lang('menu_contribute_link') %]">[% lang('menu_contribute') %]</a></li>
+									<li class="divider"></li>
+									<li><label>[% lang("add_products") %]</label></li>
+									<li><a href="[% lang('get_the_app_link') %]">[% lang('install_the_app_to_add_products') %]</a></li>
+									<li><a href="/cgi/product.pl?type=search_or_add&action=display">[% lang('add_product') %]</a></li>
+								[% ELSE %]
+									<li><label>[% lang("import_and_export_products") %]</label></li>
+									<li><a href="/cgi/import_file_upload.pl">[% lang('import_product_data') %]</a></li>
+									<li><a href="/cgi/import_photos_upload.pl">[% lang('import_product_photos') %]</a></li>
+									<li><a href="/cgi/product.pl?type=search_or_add&action=display">[% lang('add_product') %]</a></li>
+									<li><a href="/cgi/export_products.pl">[% lang('export_product_data_photos') %]</a></li>
+									<li><a href="/cgi/remove_products.pl">[% lang('remove_products_from_producers_platform') %]</a></li>
+
+									<li class="divider"></li>
+
+									<li><label>[% lang("resources") %]</label></li>
+									<ul>[% INCLUDE 'web/common/producers_resources_list.tt.html' %]</ul>
+								[% END %]
+
+								<li class="divider"></li>
+								<li><label>[% lang("search_and_analyze_products") %]</label></li>
+
+								<li>
+									<a href="/cgi/search.pl">[% lang('advanced_search') %]</a>
+								</li>
+								<li>
+									<a href="/cgi/search.pl?graph=1">[% lang('graphs_and_maps') %]</a>
+								</li>
+							</ul>
+						</li>
+						
+						<li>
+							<ul class="country_language_selection">
+								<li class="has-form has-dropdown" id="select_country_li">
+									<select id="select_country" style="width:100%" data-placeholder="[% lang('select_country') %]">
+										<option></option>
+									</select>
+								</li>
+								<li class="has-dropdown">
+									[% selected_lang %]
+									<ul class="dropdown">
+										[% langs %]
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+
+
+					<!-- Right Nav Section -->
+					
+					<ul class="right">
+						[% IF not user_id.defined %]
+							<li class="h-space-tiny has-form">
+								<a href="/cgi/session.pl" class="round button secondary">
+									<span class="material-icons material-symbols-button">account_circle</span>
+									[% lang('sign_in') %]
+								</a>
+							</li>
+						[% ELSE %]
+							<li class="has-dropdown">
+								<a href="#" class="userlink h-space-tiny">
+									<span class="material-icons">
+										account_circle
+									</span>
+									[% user.name %]
+								</a>
+								<ul class="dropdown">
+									<li><a href="/cgi/user.pl?type=edit&userid=[% user_id %]"><span class="material-icons">settings</span> [% lang('edit_user') %]</a></li>
+
+									[% IF org_id %]
+										<li class="divider"></li>			
+										<li><label>[% lang('organization') %]</label></li>
+										[%# No need to show the link to the organization page on the producers platform as there are only products from that organization %]
+										[% IF !server_options_producers_platform %]
+											<li><a id="logged_in_org_id" href="/editor/org-[% org_id %]">[% lang('organization') %][% sep %]: [% IF org_name == '' %][% org_id %][% ELSE %][% org_name %][% END %]</a></li>
+										[% END %]
+										<li><a href="/cgi/org.pl?type=edit&orgid=[% org_id %]"> [% lang('edit_org_profile') %]</a></li>
+									[% END %]
+
+									[%# Do not show individual contributions on the producers platform %]
+									[% IF !(server_options_producers_platform) %]
+									<li class="divider"></li>			
+									<li><label>[% lang('your_contributions') %]</label></li>
+									<li><a href="[% canonicalize_taxonomy_tag_link("users", user_id) %]">[% lang('products_added') %]</a></li>
+									<li><a href="[% canonicalize_taxonomy_tag_link("editors", user_id) %]">[% lang('products_edited') %]</a></li>
+									<li><a href="[% canonicalize_taxonomy_tag_link("photographers", user_id) %]">[% lang('products_photographed') %]</a></li>
+									[% END %]
+									<li class="divider"></li>			
+									<li class="has-form">
+										<form method="post" action="/cgi/session.pl">
+											<input type="hidden" name="length" value="logout">
+											<input type="submit" name=".submit" value="[% lang('sign_out') %]" class="button small">
+										</form>
+									</li>
+								</ul>
+							</li>
+						[% END %]
+					</ul>
+				</section>
+			</nav>
+		</div>
+
+		<div id="main_container" style="position:relative" class="block_latte">
+			
+		<div class="topbarsticky">
+			<div class="contain-to-grid " id="offNav" >
+				<nav class="top-bar" data-topbar role="navigation" >
+
+					<ul class="title-area">
+						<li class="name">
+							<div style="position:relative;max-width:292px;">
+								<a href="/">
+								<img id="logo" src="[% static_subdomain %]/images/logos/off-logo-horizontal-light.svg" alt="[% lang('logo_site_name') %]" style="margin:8px;height:48px;width:auto;">
+								[% IF server_options_producers_platform %]
+								<span id="professionals" style="position:absolute;bottom:2px;right:8px;line-height:1rem;font-size:1.2rem;">professionals</span>
+								[% END %]
+							</a>
+							</div>
+						</li>
+					</ul>
+
+					[%# Show the search bar on the producers platform only when the producer is logged in %]
+					[% IF !(server_options_producers_platform) || (user_id.defined) %]
+					<section class="top-bar-section">
+					
+						<ul class="left small-4" style="margin-right:2rem;">
+							<li class="search-li">
+							
+								<form action="/cgi/search.pl">
+								<div class="row"><div class="small-12">
+								<div class="row collapse postfix-round">
+									<div class="columns">
+									<input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms" value="[% search_terms %]" style="background-color:white">
+									<input name="search_simple" value="1" type="hidden">
+									<input name="action" value="process" type="hidden">
+									</div>
+									<div class="columns">
+									<button type="submit" title="[% lang('search') %]" class="button postfix" style="line-height:normal">[% display_icon('search') %]</button>
+									</div>
+								</div>
+								</div></div>
+								</form>
+							</li>
+						</ul>
+					<ul class="search_and_links">
+						<li><a href="[% lang('menu_discover_link') %]" class="top-bar-links">[% lang('menu_discover') %]</a></li>
+						<li><a href="[% lang('menu_contribute_link') %]" class="top-bar-links">[% lang('menu_contribute') %]</a></li>
+						<li class="show-for-xlarge-up"><a href="[% lang('footer_producers_link') %]" class="top-bar-links">[% lang('footer_producers') %]</a></li>
+						<li class="flex-grid getapp"><a href="[% lang('get_the_app_link') %]" class="buttonbar button" style="top:0;">[% display_icon('phone_android') %] <span class="bt-text">[% lang('get_the_app') %]</span></a></li>
+					</ul>
+					</section>
+					[% END %]
+				</nav>
+			</div>
+		</div>
+
+	[% offcanvasposition = 'left' %]
+	[% IF lang('text_direction') == 'rtl' %]
+	[% offcanvasposition = 'right' %]
+	[% END %]
+		<nav class="tab-bar hide">
+			<div class="[% offcanvasposition %]-small">
+				<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="[% offcanvasposition %]-off-canvas-toggle button postfix [% torso_class %]">
+				[% display_icon('account_box') %]
+				</a>
+			</div>
+			<div class="middle tab-bar-section">
+				<form action="/cgi/search.pl">
+					<div class="row collapse">
+						<div class="small-8 columns">
+							<input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms">
+							<input name="search_simple" value="1" type="hidden">
+							<input name="action" value="process" type="hidden">
+						</div>
+						<div class="small-2 columns">
+							<button type="submit" class="button postfix">[% display_icon('search') %]</button>
+						</div>
+						<div class="small-2 columns">
+							<a href="/cgi/search.pl" title="[% lang('advanced_search') %]">[% display_icon('search') %] [% display_icon('add') %]</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</nav>
+
+		<div id="content" class="off-canvas-wrap block_latte" data-offcanvas>
+			<div class="inner-wrap">
+			
+				<a class="exit-off-canvas"></a>
+				
+				<!-- full width banner on mobile -->
+				
+				[% IF mobile %]
+					<a href="[% mobile.link %]" id="mobile-app-top-banner" class="button large expand success">
+					<div class="row collapse">
+						<div class="small-6 columns">
+							[% mobile.text %]
+						</div>
+						<div class="small-6 columns">
+							[% IF mobile.system == "ios" %]
+									<img src="[% lang('ios_app_icon_url') %]" alt="[% lang('ios_app_icon_alt_text') %]">
+							[% ELSIF mobile.system == "android" %]
+									<img src="[% lang('android_app_icon_url') %]" alt="[% lang('android_app_icon_alt_text') %]">
+							[% ELSIF mobile.system == "windows" %]
+									<img src="[% lang('windows_phone_app_icon_url') %]" alt="[% lang('windows_phone_app_icon_alt_text') %]">
+							[% END %]
+						
+						</div>
+					</div>
+					</a>
+				[% END %]
+
+				<div class="main block_light">
+					<div id="main_column">
+						[% IF ! server_options_producers_platform %]
+							[%# for now, display the packagings banner in all cases %]
+							[% IF 1 == 0 %]
+								[% INCLUDE 'web/common/includes/offdays_banner.tt.html' %]							
+							[% ELSIF 1 == 2 %]
+								[% INCLUDE 'web/common/includes/packagings_banner.tt.html' %]
+							[% ELSE %]
+								[%# we keep the old code so that we can easily put back the donation banner %]
+          						[% PROCESS 'web/common/includes/donate_banner.tt.html' %]
+								[% banner_main %]
+							[% END %]
+						[% END %]
+            			
+						[% IF page_format == "banner" %]
+							<!-- banner pages such as product, product edit form and landing pages have their own h1 title -->
+							[% content %]
+						[% ELSIF page_type == "products" %]
+							[% IF schema_org_itemtype.defined %]
+								<!-- some lists of products for facets (e.g. brands) have microformats data -->
+								<div itemscope itemtype="[% schema_org_itemtype %]">
+									<div class="row">
+										<div class="small-12 column v-space-short">
+											<h1 itemprop="name">[% title %]</h1>
+										</div>
+									</div>
+								  [% content %]
+								</div>
+							[% ELSE %]
+								<div class="row">
+                  <div class="small-12 column"> 
+										<h1 class="if-empty-dnone">[% title %]</h1>
+									</div>
+								</div>
+								[% content %]
+							[% END %]
+						[% ELSE %]
+							<div class="row">
+								<div class="small-12 column">
+									<h1 class="if-empty-dnone">[% title %]</h1>
+									[% content %]
+								</div>
+							</div>
+						[% END %]
+					</div>
 				</div>
 			</div>
-			</a>
-		[% END %]
-		
-		<!-- main row - comment used to remove left column and center content on some pages -->
-		<div id="main_content" class="row full-width" style="max-width: 100% !important;" data-equalizer>
-			<div id="side_content" class="xxlarge-2 xlarge-2 large-3 medium-4 columns hide-for-small" style="background-color:#fafafa;padding-top:1rem;" data-equalizer-watch>
-				<div class="sidebar">
-					<div style="text-align:center">
-						<a href="/"><img id="logo" src="/images/misc/[% lang('logo') %]" srcset="/images/misc/[% lang('logo2x') %] 2x" width="178" height="150" alt="[% lang('logo_site_name') %]" style="margin-bottom:0.5rem"></a>
-					</div>
-          <p id="tagline">[% tagline %]</p>
-					<form action="/cgi/search.pl" class="hide-for-large-up">
-						<div class="row collapse">
-							<div class="small-9 columns">
-								<input type="text" placeholder="[% lang('search_a_product_placeholder') %]" name="search_terms">
-								<input name="search_simple" value="1" type="hidden">
-								<input name="action" value="process" type="hidden">
-							</div>
-							<div class="small-2 columns">
-								<button type="submit" class="button postfix">[% display_icon('search') %]</button>
-							</div>
-							<div class="small-1 columns">
-								<label class="right inline">
-									<a href="/cgi/search.pl" title="[% lang('advanced_search') %]">[% display_icon('add') %]</a>
-								</label>
+		</div>
+		</div>
+
+		<footer>
+			<div class="block_light bg-white" id="install_the_app_block">
+				<div class="row">
+					<div class="small-12 flex-grid v-space-short v-align-center direction-row h-space-tiny">
+						<div class="cell small-100 medium-100 large-50 flex-grid v-align-center direction-row">
+							<img class="cell small-50 v-align-center" src="/images/illustrations/app-icon-in-the-clouds.svg" alt="The Open Food Facts logo in the cloud" style="height:120px">
+							<div class="cell small-50 v-align-center" id="footer_scan" style="display:block">
+								<div id="footer_install_the_app">
+									[% lang("footer_install_the_app_exclamation_mark") %]
+								</div>
+								[% lang("footer_scan_your_everyday_foods") %]
 							</div>
 						</div>
-					</form>
-					[% blocks %]
+						<div class="cell small-100 medium-100 large-50 flex-grid v-align-center direction-row">
+							<a class="cell small-50 medium-25 large-25 h-space-short v-align-center" href="[% lang('ios_app_link') %]"><img src="[% lang('ios_app_icon_url') %]" alt="[% lang('ios_app_icon_alt_text') %]"  loading="lazy" class="full-width"></a>
+							<a class="cell small-50 medium-25 large-25 h-space-short v-align-center" href="[% lang('android_app_link') %]"><img src="https://static.openfoodfacts.org[% lang('android_app_icon_url') %]" alt="[% lang('android_app_icon_alt_text') %]" loading="lazy" class="full-width"></a>
+							<a class="cell small-50 medium-25 large-25 h-space-short v-align-center" href="[% lang('windows_phone_app_link') %]"><img src="[% lang('windows_phone_app_icon_url') %]" alt="[% lang('windows_phone_app_icon_alt_text') %]"  loading="lazy" class="full-width"></a>
+							<a class="cell small-50 medium-25 large-25 h-space-short v-align-center" href="[% lang('android_apk_app_link') %]"><img src="https://static.openfoodfacts.org[% lang('android_apk_app_icon_url') %]" alt="[% lang('android_apk_app_icon_alt_text') %]" loading="lazy" class="full-width"></a>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div id="main_column" class="xxlarge-10 xlarge-10 large-9 medium-8 columns" style="padding-top:1rem" data-equalizer-watch>
-				
-				<!-- main column content - comment used to remove left column and center content on some pages -->
-				
-				[% INCLUDE 'web/common/includes/donate_banner.tt.html' %]
-				
-				[% h1_title %]
 
-				[% content_ref %]
-				
+			[% IF ! server_options_producers_platform %]
+      			[% PROCESS 'web/common/includes/donate_banner.tt.html' %]
+				[% banner_footer %]
+			[% END %]
+      		
+			<div class="block_light block_cappucino" id="contribute_and_discover_links_block">
+				<div class="row">
+					<div class="small-12 large-6 columns v-space-normal block_off">
+						<h3 class="title-5 text-medium">[% lang('footer_join_the_community') %]</h3>
+						<p>[% f_lang('f_discover_our_code_of_conduct', { url => lang('footer_code_of_conduct_link') } ) %]</p>
+						<p>[% f_lang('f_join_us_on_slack', { url => "https://slack.openfoodfacts.org" } ) %]</p>
+						<p><a href="https://forum.openfoodfacts.org/">Forum</a></p>
+						<p id="footer_social_icons">[% f_lang('f_footer_follow_us_links', { links => '
+							<a href="https://twitter.com/openfoodfacts"><img src="/images/icons/dist/twitter.svg" class="footer_social_icon" alt="Twitter"></a>
+							<a href="https://www.facebook.com/OpenFoodFacts"><img src="/images/icons/dist/facebook.svg" class="footer_social_icon" alt="Facebook"></a>
+							<a href="https://www.instagram.com/open.food.facts/"><img src="/images/icons/dist/instagram.svg" class="footer_social_icon" alt="Instagram"></a>
+							'})
+							%]
+						</p>
+						<p><a href="https://link.openfoodfacts.org/newsletter-[% language %]">[% lang('subscribe_to_our_newsletter') %]</a></p>
+					</div>
+					<div class="small-12 large-6 columns project v-space-normal">
+						<h3 class="title-5 text-medium">[% lang('footer_discover_the_project') %]</h3>
+						<ul class="inline-list tags_links v-space-tiny h-space-tiny" >
+							<li><a class="button small white-button radius" href="[% lang('footer_who_we_are_link') %]">[% lang('footer_who_we_are') %]</a></li>
+							<li><a class="button small white-button radius" href="[% lang('footer_vision_link') %]">[% lang('footer_vision') %]</a></li>
+							<li><a class="button small white-button radius" href="[% lang('footer_faq_link') %]">[% lang('footer_faq') %]</a></li>
+							<li><a class="button small white-button radius" href="[% lang('footer_blog_link') %]">[% lang('footer_blog') %]</a></li>
+							<li><a class="button small white-button radius" href="[% lang('footer_press_link') %]">[% lang('footer_press') %]</a></li>
+							<li><a class="button small white-button radius" href="[% lang('footer_wiki_link') %]">[% lang('footer_wiki') %]</a></li>
+							<li><a class="button small white-button radius" href="[% lang('footer_translators_link') %]">[% lang('footer_translators') %]</a></li>
+							<li><a class="button small white-button radius" href="[% lang('footer_partners_link') %]">[% lang('footer_partners') %]</a></li>
+							<li><a class="button small white-button radius" href="[% lang('footer_obf_link') %]">[% lang('footer_obf') %]</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
-        </div>
-	</div>
-</div>
 
-<footer>
-	<div class="small-12 medium-6 large-3 columns off">
-		<div class="title">[% lang('site_name') %]</div>
-		<p>[% lang('footer_tagline') %]</p>
-		<ul>
-			<li><a href="[% lang('footer_legal_link') %]">[% lang('footer_legal') %]</a></li>
-			<li><a href="[% lang('footer_terms_link') %]">[% lang('footer_terms') %]</a></li>
-			<li><a href="[% lang('footer_data_link') %]">[% lang('footer_data') %]</a></li>
-			<li><a href="[% lang('donate_link') %]">[% lang('donate') %]</a></li>
-			<li><a href="[% lang('footer_producers_link') %]">[% lang('footer_producers') %]</a></li>
-		</ul>
-	</div>
-	<div class="small-12 medium-6 large-3 columns app">
-		<div class="title">[% lang('footer_install_the_app') %]</div>
-		<a href="[% lang('ios_app_link') %]"><img src="[% lang('ios_app_icon_url') %]" alt="[% lang('ios_app_icon_alt_text') %]" width="120" height="40" loading="lazy"></a>
-		<a href="[% lang('android_app_link') %]"><img src="https://static.openfoodfacts.org[% lang('android_app_icon_url') %]" alt="[% lang('android_app_icon_alt_text') %]" width="102" height="40" loading="lazy"></a>
-		<a href="[% lang('windows_phone_app_link') %]"><img src="[% lang('windows_phone_app_icon_url') %]" alt="[% lang('windows_phone_app_icon_alt_text') %]" width="109" height="40" loading="lazy"></a>
-		<a href="[% lang('android_apk_app_link') %]"><img src="https://static.openfoodfacts.org[% lang('android_apk_app_icon_url') %]" alt="[% lang('android_apk_app_icon_alt_text') %]" loading="lazy"></a>
-	</div>
-	<div class="small-12 medium-6 large-3 columns project">
-		<div class="title">[% lang('footer_discover_the_project') %]</div>
-		<ul>
-			<li><a href="[% lang('footer_who_we_are_link') %]">[% lang('footer_who_we_are') %]</a></li>
-			<li><a href="[% lang('footer_vision_link') %]">[% lang('footer_vision') %]</a></li>
-			<li><a href="[% lang('footer_faq_link') %]">[% lang('footer_faq') %]</a></li>
-			<li><a href="[% lang('footer_blog_link') %]">[% lang('footer_blog') %]</a></li>
-			<li><a href="[% lang('footer_press_link') %]">[% lang('footer_press') %]</a></li>
-			<li><a href="[% lang('footer_wiki_link') %]">[% lang('footer_wiki') %]</a></li>
-			<li><a href="[% lang('footer_translators_link') %]">[% lang('footer_translators') %]</a></li>
-			<li><a href="[% lang('footer_partners_link') %]">[% lang('footer_partners') %]</a></li>
-			<li><a href="[% lang('footer_obf_link') %]">[% lang('footer_obf') %]</a></li>
-		</ul>
-	</div>
-	<div class="small-12 medium-6 large-3 columns community">
-		<div class="title">[% lang('footer_join_the_community') %]</div>
-		<p>
-			<a href="[% lang('footer_code_of_conduct_link') %]">[% lang('footer_code_of_conduct') %]</a>
-			<br><br>
-			[% join_us_on_slack %]
-			<br>
-			[% lang('footer_and_the_facebook_group') %]
-			[% lang('footer_follow_us') %]
-		</p>
-	</div>
-</footer>
+			<div class="block_off block_dark block_ristreto" id="footer_block">
 
-<script src="[% static_subdomain %]/js/dist/modernizr.js"></script>
-<script src="[% static_subdomain %]/js/dist/jquery.js"></script>
-<script src="[% static_subdomain %]/js/dist/jquery-ui.js"></script>
+				<div id="footer_block_image_banner_outside">
+					<div id="footer_block_image_banner_outside2">
+
+						<div class="row">
+
+							<div class="small-12 text-center v-space-short h-space-large">
+
+								<a href="/" style="font-size:1rem;"><img id="logo" src="[% static_subdomain %]/images/logos/off-logo-horizontal-mono-white.svg" alt="[% lang('logo_site_name') %]" style="margin:8px;height:48px;width:auto;"></a>
+
+								<p>[% lang('footer_tagline') %]</p>
+								
+								<ul class="inline-list text-center text-small">
+									<li><a href="[% lang('footer_legal_link') %]">[% lang('footer_legal') %]</a></li>
+									<li><a href="[% lang('footer_terms_link') %]">[% lang('footer_terms') %]</a></li>
+									<li><a href="[% lang('footer_data_link') %]">[% lang('footer_data') %]</a></li>
+									<li><a href="[% lang('donate_link') %]">[% lang('donate') %]</a></li>
+									<li><a href="[% lang('footer_producers_link') %]">[% lang('footer_producers') %]</a></li>
+									<li><a href="https://link.openfoodfacts.org/newsletter-[% language %]">[% lang('subscribe_to_our_newsletter') %]</a></li>
+								</ul>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+
+<script src="[% static_subdomain %]/js/dist/modernizr.js" data-base-layout="true"></script>
+<script src="[% static_subdomain %]/js/dist/jquery.js" data-base-layout="true"></script>
+<script src="[% static_subdomain %]/js/dist/jquery-ui.js" data-base-layout="true"></script>
+<script src="[% static_subdomain %]/js/dist/hc-sticky.js"></script>
 <script src="[% static_subdomain %]/js/dist/display.js"></script>
+<script src="[% static_subdomain %]/js/dist/stikelem.js"></script>
+<script src="[% static_subdomain %]/js/dist/scrollNav.js"></script>
 
 <script>
 \$(function() {
@@ -258,7 +430,7 @@
 <script src="https://support.openfoodfacts.org/assets/chat/chat.min.js"></script>
 [% END %]
 
-<script src="[% static_subdomain %]/js/dist/foundation.js"></script>
+<script src="[% static_subdomain %]/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="[% static_subdomain %]/js/dist/jquery.cookie.js"></script>
 <script src="[% static_subdomain %]/js/dist/select2.min.js"></script>
 [% scripts %]
@@ -287,15 +459,36 @@
 		"query-input": "required name=search_term_string"
 	}
 }
+</script>
+<script type="application/ld+json">
 {
 	"@context": "https://schema.org/",
 	"@type": "Organization",
 	"url": "[% formatted_subdomain %]",
-	"logo": "/images/misc/[% lang('logo') %]",
+	"logo": "[% static_subdomain %]/images/logos/off-logo-vertical-light.svg",
 	"name": "[% lang('site_name') %]",
 	"sameAs" : [ "[% lang("facebook_page") %]", "https://twitter.com/[% twitter_account %]"]
 }
 </script>
+
+[% SET crowdin_languages = ["aa","ar","ber","br","co","fa","ga","hy","iu","kk","lb","me","mr","ne","no","ry","sd","sl","sq","st","tg","tr","tzl","val","wa","zea","zu","ach","as","bg","bs","crs","eo","fi","gd","hi","id","ja","km","ku","lo","mg","ms","nr","pa","qu","sa","sg","sma","sr","sv","th","ts","ug","ve","wo","zh","af","ast","bm","ca","cs","el","fil","gl","hr","ii","jv","kmr","kw","mi","mt","pl","rm","sat","sh","sn","sr_CS","sw","ti","tt","uk","vec","xh","ak","az","bn","ce","cv","et","fo","gu","ht","is","ka","kmr_TR","ky","lt","ml","my","oc","ro","sc","si","so","sr_RS","ta","tl","tw","ur","vi","yi","am","be","bo","chr","cy","eu","ha","hu","kab","kn","la","lv","mn","nb","nn","ru","sco","sk","son","ss","te","tn","ty","uz","vls","yo"] %]
+
+[% IF crowdin_languages.grep("^$lc$").size and user_id.defined %]
+<script
+  type="text/javascript"
+  src="https://crowdin.com/js/crowdjet/crowdjet.js">
+</script>
+<div
+  id="crowdjet-container"
+  data-project-id="243092"
+  style="bottom: 90px; right: 20px;">
+</div>
+<div
+  id="crowdjet-expand-container"
+  style="bottom: 10px; right: 20px;">
+</div>
+[% END %]
+
 </body>
 </html>
 

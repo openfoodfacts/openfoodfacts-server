@@ -1,5 +1,7 @@
 project_id_env: CROWDIN_PROJECT_ID
 api_token_env: CROWDIN_PERSONAL_TOKEN
+pull_request_title: "l10n: New Crowdin translations to review and merge"
+pull_request_body: '### What\n- Automated pull request pulling in new or updated translations from Crowdin (https://translate.openfoodfacts.org).\n## Checklist\n- [ ] Check that they are no bad translations. If there are, correct them directly in Crowdin so that they are not resynced again. Then you can correct them here as well, or wait 24 hours for the sync to happen automatically.\n- [ ] Put extra attention on Acholi, which is used mistakenly as a sandbox by people discovering the self-service translation button on Open Food Facts\n- [ ] Once you are happy, that automated checks pass, you can approve the PR and merge it.\n### Part of\n- Translations' 
 files:
   - source: /po/common/common.pot
     translation: /po/common/%two_letters_code%.po
@@ -80,6 +82,24 @@ files:
   - source: /po/openpetfoodfacts/openpetfoodfacts.pot
     translation: /po/openpetfoodfacts/%two_letters_code%.po
     ignore: ["/po/openpetfoodfacts/nl.po"]
+    languages_mapping:
+      two_letters_code:
+        zh-HK: zh_HK
+        zh-CN: zh_CN
+        en-AU: en_AU
+        en-GB: en_GB
+        en-US: en_US
+        pt-BR: pt_BR
+        pt-PT: pt_PT
+        nl-BE: nl_BE
+        nl: nl_NL
+        zh-TW: zh_TW
+        sr-CS: sr_CS
+        sr: sr_RS
+        ku : kmr_TR
+        kmr: kmr
+  - source: /html/donate/en.html
+    translation: /html/donate/%two_letters_code%.html
     languages_mapping:
       two_letters_code:
         zh-HK: zh_HK

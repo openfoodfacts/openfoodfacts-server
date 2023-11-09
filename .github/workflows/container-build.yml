@@ -7,43 +7,57 @@ on:
       - deploy-*
     tags: 
       - v*.*.*
+      
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image_name: [
+          "frontend",
+          "backend"
+        ]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 1
-    - name: Publish frontend image to Registry
-      uses: elgohr/Publish-Docker-Github-Action@3.04
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
       with:
-        name: ${{ github.repository }}/frontend
+        version: v0.6.0
+        buildkitd-flags: --debug
+
+    - name: Login to DockerHub
+      uses: docker/login-action@v3 
+      with:
+        registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-        registry: ghcr.io
-        dockerfile: docker/frontend/Dockerfile
-        tag_semver: true
-        tags: "latest,${{ github.sha }}"
-      id: publish_frontend
-    - name: Copy frontend output for backend container
-      run: |
-        CONTAINER=$(docker create ghcr.io/${{ github.repository }}/frontend:${{ github.sha }})
-        docker cp $CONTAINER:/opt/product-opener/html/images/icons/dist - > icons.tar
-        docker cp $CONTAINER:/opt/product-opener/html/js/dist - > js.tar
-        docker cp $CONTAINER:/opt/product-opener/html/css/dist - > css.tar
-        tar -xf icons.tar -C ./html/images/icons/
-        tar -xf js.tar -C ./html/js/
-        tar -xf css.tar -C ./html/css/
-        rm icons.tar js.tar css.tar
-        docker rm -v $CONTAINER
-    - name: Publish backend image to Registry
-      uses: elgohr/Publish-Docker-Github-Action@3.04
+
+    - name: Docker meta
+      id: meta
+      uses: docker/metadata-action@v5
       with:
-        name: ${{ github.repository }}/backend
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-        registry: ghcr.io
-        dockerfile: docker/backend/Dockerfile
-        tag_semver: true
-        tags: "latest,${{ github.sha }}"
+        images: |
+          ghcr.io/${{ github.repository }}/${{ matrix.image_name }}
+        tags: |
+          type=semver,pattern={{version}}
+          type=ref,event=pr
+          type=ref,event=branch
+          type=sha,format=long
+
+    - name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        push: true
+        file: ${{ matrix.image_name == 'frontend' && 'Dockerfile.frontend' || 'Dockerfile' }}
+        cache-from: type=registry,ref=ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:buildcache
+        cache-to: type=registry,ref=ghcr.io/${{ github.repository }}/${{ matrix.image_name }}:buildcache,mode=max
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
