@@ -45,12 +45,15 @@
             "text_element": {
                 "html": `
 <p>[% lang("nova_classification_description") %]</p>
+
 <ol>
-<li>[% IF nova_group == 1 %]<b>[% END %][% lang('attribute_nova_1_description_short') %][% IF nova_group == 1 %]</b>[% END %]</li>
-<li>[% IF nova_group == 2 %]<b>[% END %][% lang('attribute_nova_2_description_short') %][% IF nova_group == 2 %]</b>[% END %]</li>
-<li>[% IF nova_group == 3 %]<b>[% END %][% lang('attribute_nova_3_description_short') %][% IF nova_group == 3 %]</b>[% END %]</li>
-<li>[% IF nova_group == 4 %]<b>[% END %][% lang('attribute_nova_4_description_short') %][% IF nova_group == 4 %]</b>[% END %]</li>
+  [% FOREACH group IN [1, 2, 3, 4] %]
+    <li style="[% IF nova_group == group %]font-weight: bold;[% END %]">
+      [% lang("attribute_nova_" _ group _ "_description_short") %]
+    </li>
+  [% END %]
 </ol>
+          
 <br>
 <p>[% lang("nova_classification_how") %]</p>
 <p>&rarr; <a href="/nova">[% lang("nova_classification_learn_more") %]</a></p>
