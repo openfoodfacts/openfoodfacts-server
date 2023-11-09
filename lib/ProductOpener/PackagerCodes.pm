@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -33,27 +33,27 @@ C<ProductOpener::PackagerCodes> contains functions specific to packager codes fo
 package ProductOpener::PackagerCodes;
 
 use ProductOpener::PerlStandards;
-use Exporter    qw< import >;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		%packager_codes
+		@sorted_packager_codes
 		%geocode_addresses
 		&init_packager_codes
 		&init_geocode_addresses
-		
+
 		$ec_code_regexp
 		&normalize_packager_codes
 		&localize_packager_code
 		&get_canon_local_authority
 
-		);    # symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -61,10 +61,9 @@ use ProductOpener::Lang qw/:all/;
 
 use Log::Any qw($log);
 
-
 $ec_code_regexp = "ce|eec|ec|eg|we|ek|ey|eu|eü";
 
-sub normalize_packager_codes($codes) {
+sub normalize_packager_codes ($codes) {
 
 	$codes = uc($codes);
 
@@ -129,25 +128,30 @@ sub normalize_packager_codes($codes) {
 
 	# CE codes -- FR 67.145.01 CE
 	#$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+)(\.|_|\s|-)?(ce)?\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;	 # without CE, only for FR
-	$codes =~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;
+	$codes
+		=~ s/(^|,|, )(fr)(\s|-|_|\.)?((\d|\.|_|\s|-)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_fr_ce_code->($2,$4)/ieg;
 
-	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.)?((\w|\.|_|\s|-)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;
-	$codes =~ s/(^|,|, )(uk)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;
+	$codes
+		=~ s/(^|,|, )(uk)(\s|-|_|\.)?((\w|\.|_|\s|-)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;
+	$codes
+		=~ s/(^|,|, )(uk)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_uk_ce_code->($2,$4)/ieg;
 
 	# NO-RGSEAA-21-21552-SE -> ES 21.21552/SE
 
-
-	$codes =~ s/(^|,|, )n(o|°|º)?(\s|-|_|\.)?rgseaa(\s|-|_|\.|:|;)*(\d\d)(\s|-|_|\.)?(\d+)(\s|-|_|\.|\/|\\)?(\w+)\b/$1 . $normalize_es_ce_code->('es',$5,$7,$9)/ieg;
-	$codes =~ s/(^|,|, )(es)(\s|-|_|\.)?(\d\d)(\s|-|_|\.|:|;)*(\d+)(\s|-|_|\.|\/|\\)?(\w+)(\.|_|\s|-)?($ec_code_regexp)?(?=,|$)/$1 . $normalize_es_ce_code->('es',$4,$6,$8)/ieg;
+	$codes
+		=~ s/(^|,|, )n(o|°|º)?(\s|-|_|\.)?rgseaa(\s|-|_|\.|:|;)*(\d\d)(\s|-|_|\.)?(\d+)(\s|-|_|\.|\/|\\)?(\w+)\b/$1 . $normalize_es_ce_code->('es',$5,$7,$9)/ieg;
+	$codes
+		=~ s/(^|,|, )(es)(\s|-|_|\.)?(\d\d)(\s|-|_|\.|:|;)*(\d+)(\s|-|_|\.|\/|\\)?(\w+)(\.|_|\s|-)?($ec_code_regexp)?(?=,|$)/$1 . $normalize_es_ce_code->('es',$4,$6,$8)/ieg;
 
 	# LU L-2 --> LU L2
 
-	$codes =~ s/(^|,|, )(lu)(\s|-|_|\.|\/)*(\w)( |-|\.)(\d+)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_lu_ce_code->('lu',$4,$6)/ieg;
+	$codes
+		=~ s/(^|,|, )(lu)(\s|-|_|\.|\/)*(\w)( |-|\.)(\d+)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_lu_ce_code->('lu',$4,$6)/ieg;
 
 	# RS 731 -> RS 731 EC
 	my $start_pat = qr{ (?<start> ^ | [,.] ) }xsm;
-	my $sep_pat   = qr{ \s | - | _ | \. | / }xsm;
-	my $rs_pat    = qr{
+	my $sep_pat = qr{ \s | - | _ | \. | / }xsm;
+	my $rs_pat = qr{
 					   $start_pat
 
 					   rs
@@ -173,7 +177,8 @@ sub normalize_packager_codes($codes) {
 	$codes =~ s{ $rs_pat }
 			   {$+{start} . $normalize_rs_ce_code->('rs', $+{code})}iegxsm;
 
-	$codes =~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_ce_code->($2,$4)/ieg;
+	$codes
+		=~ s/(^|,|, )(\w\w)(\s|-|_|\.|\/)*((\w|\.|_|\s|-|\/)+?)(\.|_|\s|-)?($ec_code_regexp)\b/$1 . $normalize_ce_code->($2,$4)/ieg;
 
 	return $codes;
 }
@@ -184,6 +189,7 @@ my %local_ec = (
 	ES => "CE",
 	FI => "EY",
 	FR => "CE",
+	HR => "EU",
 	IT => "CE",
 	NL => "EG",
 	PL => "WE",
@@ -191,7 +197,7 @@ my %local_ec = (
 	UK => "EC",
 );
 
-sub localize_packager_code($code) {
+sub localize_packager_code ($code) {
 
 	my $local_code = $code;
 
@@ -208,10 +214,9 @@ sub localize_packager_code($code) {
 	return $local_code;
 }
 
-
 # Load geocoded addresses
 
-sub get_canon_local_authority($local_authority) {
+sub get_canon_local_authority ($local_authority) {
 
 	$local_authority =~ s/LB of/London Borough of/;
 	$local_authority =~ s/CC/City Council/;
@@ -223,15 +228,15 @@ sub get_canon_local_authority($local_authority) {
 	$local_authority =~ s/Co (.*)/$1 Council/;
 
 	my $canon_local_authority = $local_authority;
-	$canon_local_authority =~ s/\b(london borough of|city|of|rb|bc|dc|mbc|mdc|cc|borough|metropolitan|district|county|co|council)\b/ /ig;
+	$canon_local_authority
+		=~ s/\b(london borough of|city|of|rb|bc|dc|mbc|mdc|cc|borough|metropolitan|district|county|co|council)\b/ /ig;
 	$canon_local_authority =~ s/ +/ /g;
 	$canon_local_authority =~ s/^ //;
 	$canon_local_authority =~ s/ $//;
-	$canon_local_authority = get_string_id_for_lang("en",$canon_local_authority);
+	$canon_local_authority = get_string_id_for_lang("en", $canon_local_authority);
 
 	return $canon_local_authority;
 }
-
 
 sub init_packager_codes() {
 	return if (%packager_codes);
@@ -239,6 +244,8 @@ sub init_packager_codes() {
 	if (-e "$data_root/packager-codes/packager_codes.sto") {
 		my $packager_codes_ref = retrieve("$data_root/packager-codes/packager_codes.sto");
 		%packager_codes = %{$packager_codes_ref};
+		# Used to display sorted suggestions in TaxonomySuggestions.pm
+		@sorted_packager_codes = sort keys %packager_codes;
 	}
 	return;
 }
@@ -252,12 +259,5 @@ sub init_geocode_addresses() {
 	}
 	return;
 }
-
-# Slow, so only run these when actually executing, not just checking syntax. See also startup_apache2.pl.
-INIT {
-	init_packager_codes();
-	init_geocode_addresses();
-}
-
 
 1;

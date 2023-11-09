@@ -1,7 +1,32 @@
 {
    "lc" : "fr",
-   "packaging" : "Verre, Couvercle, Plastique, Pot, Petit Format, couvercle en plastique, opercule aluminium, pot en verre",
+   "misc_tags" : [
+      "en:packagings-number-of-components-5",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:aluminium",
+      "en:glass",
+      "en:plastic"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:lid",
+      "en:pot",
+      "en:seal"
+   ],
+   "packaging_text" : "Verre; Couvercle; Plastique; Pot; Petit Format; couvercle en plastique; opercule aluminium; pot en verre",
    "packagings" : [
+      {
+         "material" : "en:glass",
+         "shape" : "en:lid"
+      },
+      {
+         "material" : "en:plastic",
+         "shape" : "en:pot"
+      },
       {
          "material" : "en:plastic",
          "shape" : "en:lid"
@@ -14,5 +39,12 @@
          "material" : "en:glass",
          "shape" : "en:pot"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:glass" : {},
+      "en:metal" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 5
 }

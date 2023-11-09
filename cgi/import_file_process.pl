@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -76,11 +76,13 @@ if (defined $import_files_ref->{$file_id}) {
 	$file = "$data_root/import_files/${Owner_id}/$file_id.$extension";
 }
 else {
-	$log->debug("File not found in import_files.sto", { file_id => $file_id }) if $log->is_debug();
+	$log->debug("File not found in import_files.sto", {file_id => $file_id}) if $log->is_debug();
 	display_error_and_exit("File not found.", 404);
 }
 
-$log->debug("File found in import_files.sto", { file_id => $file_id,  file => $file, extension => $extension, import_file => $import_files_ref->{$file_id} }) if $log->is_debug();
+$log->debug("File found in import_files.sto",
+	{file_id => $file_id, file => $file, extension => $extension, import_file => $import_files_ref->{$file_id}})
+	if $log->is_debug();
 
 # Store user columns to OFF fields matches so that they can be reused for the next imports
 
@@ -113,7 +115,9 @@ foreach my $field (keys %$columns_fields_ref) {
 
 	$all_columns_fields_ref->{$column_id} = $columns_fields_ref->{$field};
 
-	$log->debug("Field in columns_field_json", { field => $field, column_id => $column_id, value =>  $columns_fields_ref->{$field}}) if $log->is_debug();
+	$log->debug("Field in columns_field_json",
+		{field => $field, column_id => $column_id, value => $columns_fields_ref->{$field}})
+		if $log->is_debug();
 }
 
 defined $import_files_ref->{$file_id}{imports} or $import_files_ref->{$file_id}{imports} = {};
@@ -170,19 +174,19 @@ if (defined $Org_id) {
 	# everything else as a producers
 	if ($Org_id =~ /^app-/) {
 		$args_ref->{manufacturer} = 0;
-		$args_ref->{global_values} = { data_sources => "Apps, " . $Org_id, imports => $import_id};
+		$args_ref->{global_values} = {data_sources => "Apps, " . $Org_id, imports => $import_id};
 	}
 	if ($Org_id =~ /^database-/) {
 		$args_ref->{manufacturer} = 0;
-		$args_ref->{global_values} = { data_sources => "Databases, " . $Org_id, imports => $import_id};
-	}	
+		$args_ref->{global_values} = {data_sources => "Databases, " . $Org_id, imports => $import_id};
+	}
 	elsif ($Org_id =~ /^label-/) {
 		$args_ref->{manufacturer} = 0;
-		$args_ref->{global_values} = { data_sources => "Labels, " . $Org_id, imports => $import_id};
+		$args_ref->{global_values} = {data_sources => "Labels, " . $Org_id, imports => $import_id};
 	}
 	else {
 		$args_ref->{manufacturer} = 1;
-		$args_ref->{global_values} = { data_sources => "Producers, Producer - " . $Org_id, imports => $import_id};
+		$args_ref->{global_values} = {data_sources => "Producers, Producer - " . $Org_id, imports => $import_id};
 	}
 
 }
@@ -190,7 +194,7 @@ else {
 	$args_ref->{no_source} = 1;
 }
 
-my $job_id = $minion->enqueue(import_csv_file => [$args_ref] => { queue => $server_options{minion_local_queue}});
+my $job_id = get_minion()->enqueue(import_csv_file => [$args_ref] => {queue => $server_options{minion_local_queue}});
 
 $import_files_ref->{$file_id}{imports}{$import_id}{job_id} = $job_id;
 
@@ -209,7 +213,7 @@ $scripts .= <<HTML
 <script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
 <script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
 HTML
-;
+	;
 
 $request_ref->{title} = $title;
 $request_ref->{content_ref} = \$html;

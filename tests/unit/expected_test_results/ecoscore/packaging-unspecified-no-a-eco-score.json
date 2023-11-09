@@ -228,26 +228,27 @@
       },
       "agribalyse" : {
          "agribalyse_food_code" : "7001",
-         "co2_agriculture" : 0.27683119,
+         "co2_agriculture" : 0.38334266,
          "co2_consumption" : 0,
-         "co2_distribution" : 0.0064852108,
-         "co2_packaging" : 0.096327546,
-         "co2_processing" : 0.15668205,
-         "co2_total" : 0.66956768,
-         "co2_transportation" : 0.13323488,
+         "co2_distribution" : 0.0048545734,
+         "co2_packaging" : 0.013482485,
+         "co2_processing" : 0.17862529,
+         "co2_total" : 0.6876839784,
+         "co2_transportation" : 0.10737897,
          "code" : "7001",
          "dqr" : "1.95",
-         "ef_agriculture" : 0.060092513,
+         "ef_agriculture" : 0.054268383,
          "ef_consumption" : 0,
-         "ef_distribution" : 0.0014414118,
-         "ef_packaging" : 0.020603751,
-         "ef_processing" : 0.035781103,
-         "ef_total" : 0.12836245,
-         "ef_transportation" : 0.010443509,
+         "ef_distribution" : 0.00075719707,
+         "ef_packaging" : 0.0023644049,
+         "ef_processing" : 0.035076261,
+         "ef_total" : 0.10100795617,
+         "ef_transportation" : 0.0085417102,
          "is_beverage" : 0,
          "name_en" : "Bread, French bread, baguette",
          "name_fr" : "Pain, baguette, courante",
-         "score" : 95
+         "score" : 97,
+         "version" : "3.1"
       },
       "grade" : "b",
       "grades" : {
@@ -433,22 +434,37 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:wheat"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 2,
    "labels_tags" : [
       "fr:ab-agriculture-biologique"
    ],
    "lc" : "en",
    "misc_tags" : [
+      "en:packagings-number-of-components-0",
+      "en:packagings-not-complete",
+      "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-missing-data-packagings",
       "en:ecoscore-missing-data-no-packagings",
-      "en:ecoscore-computed"
+      "en:ecoscore-computed",
+      "en:ecoscore-changed",
+      "en:ecoscore-grade-changed"
    ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [],
    "packagings" : [],
+   "packagings_materials" : {},
    "unknown_ingredients_n" : 0
 }

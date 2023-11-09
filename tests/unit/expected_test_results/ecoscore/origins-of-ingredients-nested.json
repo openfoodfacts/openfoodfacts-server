@@ -227,26 +227,27 @@
       },
       "agribalyse" : {
          "agribalyse_proxy_food_code" : "12001",
-         "co2_agriculture" : 4.7126103,
-         "co2_consumption" : 0.0047993021,
-         "co2_distribution" : 0.029050683,
-         "co2_packaging" : 0.26662691,
-         "co2_processing" : 0.22452742,
-         "co2_total" : 5.4920327,
-         "co2_transportation" : 0.25844052,
+         "co2_agriculture" : 4.456254,
+         "co2_consumption" : 0.0066875618,
+         "co2_distribution" : 0.03557378,
+         "co2_packaging" : 0.26266115,
+         "co2_processing" : 0.26259642,
+         "co2_total" : 5.2352765418,
+         "co2_transportation" : 0.21150363,
          "code" : "12001",
          "dqr" : "1.81",
-         "ef_agriculture" : 0.41632179,
-         "ef_consumption" : 0.0024293397,
-         "ef_distribution" : 0.0088270864,
-         "ef_packaging" : 0.019721226,
-         "ef_processing" : 0.028839787,
-         "ef_total" : 0.49584622,
-         "ef_transportation" : 0.020064567,
+         "ef_agriculture" : 0.41824056,
+         "ef_consumption" : 0.0024548656,
+         "ef_distribution" : 0.0089382699,
+         "ef_packaging" : 0.021679542,
+         "ef_processing" : 0.027537041,
+         "ef_total" : 0.4954066285,
+         "ef_transportation" : 0.01655635,
          "is_beverage" : 0,
          "name_en" : "Camembert cheese, from cow's milk",
          "name_fr" : "Camembert, sans précision",
-         "score" : 54
+         "score" : 54,
+         "version" : "3.1"
       },
       "grade" : "d",
       "grades" : {
@@ -405,6 +406,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11058",
          "id" : "en:salt",
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 50,
@@ -473,21 +475,37 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:e160b",
+      "en:milk"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 5,
    "lc" : "en",
    "misc_tags" : [
+      "en:packagings-number-of-components-0",
+      "en:packagings-not-complete",
+      "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-missing-data-labels",
       "en:ecoscore-missing-data-origins",
       "en:ecoscore-missing-data-packagings",
       "en:ecoscore-missing-data-no-packagings",
-      "en:ecoscore-computed"
+      "en:ecoscore-computed",
+      "en:ecoscore-changed",
+      "en:ecoscore-grade-changed"
    ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
+   "packaging_materials_tags" : [],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [],
    "packagings" : [],
+   "packagings_materials" : {},
    "unknown_ingredients_n" : 0
 }

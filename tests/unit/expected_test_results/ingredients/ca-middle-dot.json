@@ -1,0 +1,156 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:mozzarella",
+         "ingredients" : [
+            {
+               "id" : "en:pasteurised-cow-s-milk",
+               "percent_estimate" : 43.75,
+               "percent_max" : 100,
+               "percent_min" : 12.5,
+               "text" : "llet de vaca pasteuritzada",
+               "vegan" : "no",
+               "vegetarian" : "yes"
+            },
+            {
+               "ciqual_food_code" : "11058",
+               "id" : "en:salt",
+               "percent_estimate" : 15.625,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "sal",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:lactic-ferments",
+               "percent_estimate" : 7.8125,
+               "percent_max" : 33.3333333333333,
+               "percent_min" : 0,
+               "text" : "ferments làctics",
+               "vegan" : "maybe",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:rennet",
+               "percent_estimate" : 7.8125,
+               "percent_max" : 25,
+               "percent_min" : 0,
+               "text" : "quall",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
+            }
+         ],
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "text" : "Formatge mozzarella",
+         "vegan" : "no",
+         "vegetarian" : "maybe"
+      },
+      {
+         "id" : "en:anti-caking-agent",
+         "ingredients" : [
+            {
+               "id" : "en:e460",
+               "percent_estimate" : 25,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "cel·lulosa",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "antiaglomerant"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:maybe-vegetarian" : [
+         "en:rennet"
+      ],
+      "en:non-vegan" : [
+         "en:mozzarella",
+         "en:pasteurised-cow-s-milk"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:mozzarella",
+      "en:dairy",
+      "en:cheese",
+      "en:anti-caking-agent",
+      "en:pasteurised-cow-s-milk",
+      "en:milk",
+      "en:pasteurised-milk",
+      "en:cow-s-milk",
+      "en:salt",
+      "en:lactic-ferments",
+      "en:ferment",
+      "en:microbial-culture",
+      "en:rennet",
+      "en:enzyme",
+      "en:coagulating-enzyme",
+      "en:e460"
+   ],
+   "ingredients_n" : 7,
+   "ingredients_n_tags" : [
+      "7",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:mozzarella",
+      "en:anti-caking-agent",
+      "en:pasteurised-cow-s-milk",
+      "en:salt",
+      "en:lactic-ferments",
+      "en:rennet",
+      "en:e460"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:mozzarella",
+      "en:dairy",
+      "en:cheese",
+      "en:anti-caking-agent",
+      "en:pasteurised-cow-s-milk",
+      "en:milk",
+      "en:pasteurised-milk",
+      "en:cow-s-milk",
+      "en:salt",
+      "en:lactic-ferments",
+      "en:ferment",
+      "en:microbial-culture",
+      "en:rennet",
+      "en:enzyme",
+      "en:coagulating-enzyme",
+      "en:e460"
+   ],
+   "ingredients_text" : "Formatge mozzarella (llet de vaca pasteuritzada, sal, ferments làctics i quall) i antiaglomerant (cel·lulosa).",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 5,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:e460",
+      "en:lactic-ferments",
+      "en:pasteurised-cow-s-milk",
+      "en:rennet"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
+   "known_ingredients_n" : 16,
+   "lc" : "ca",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

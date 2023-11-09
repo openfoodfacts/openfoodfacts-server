@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2021 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -28,6 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Web qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -35,8 +36,11 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::Units qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
+use ProductOpener::KnowledgePanels qw/:all/;
+use ProductOpener::KnowledgePanelsContribution qw/:all/;
 use ProductOpener::URL qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Ecoscore qw/:all/;
@@ -45,6 +49,8 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Web qw(get_languages_options_list);
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Events qw/:all/;
+use ProductOpener::API qw/:all/;
+use ProductOpener::APIProductWrite qw/:all/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -58,6 +64,104 @@ use Log::Any qw($log);
 use File::Copy qw(move);
 use Data::Dumper;
 
+# Function to display a form to add a product with a specific barcode (either typed in a field, or extracted from a barcode photo)
+# or without a barcode
+
+sub display_search_or_add_form() {
+
+	# Producer platform and no org or not admin: do not offer to add products
+	if (($server_options{producers_platform})
+		and not((defined $Owner_id) and (($Owner_id =~ /^org-/) or ($User{moderator}) or $User{pro_moderator})))
+	{
+		display_error_and_exit(lang("no_owner_defined"), 200);
+	}
+
+	my $html = '';
+	my $template_data_ref_content = {};
+
+	$template_data_ref_content->{display_search_image_form} = display_search_image_form("block_side");
+	process_template('web/common/includes/display_product_search_or_add.tt.html', $template_data_ref_content, \$html)
+		|| ($html = "template error: " . $tt->error());
+
+	# Producers platform: display an addition import products block
+
+	if ($server_options{producers_platform}) {
+		my $html_producer = '';
+		my $template_data_ref_content_producer = {};
+
+		process_template(
+			'web/common/includes/display_product_search_or_add_producer.tt.html',
+			$template_data_ref_content_producer,
+			\$html_producer
+		) || ($html_producer = "template error: " . $tt->error());
+
+		$html .= $html_producer;
+	}
+
+	return $html;
+}
+
+=head2 create_packaging_components_from_request_parameters($product_ref)
+
+Read form parameters related to packaging components, and create the corresponding packagings structure.
+
+=cut
+
+sub create_packaging_components_from_request_parameters ($product_ref) {
+
+	# Check that the form is showing inputs for packaging components
+	if (not defined single_param("packaging_max")) {
+		return;
+	}
+
+	# The form contains packaging inputs, so we reset the packagings structure
+	$product_ref->{packagings} = [];
+
+	# And then we add each packaging component
+	for (my $packaging_id = 1; $packaging_id <= single_param("packaging_max"); $packaging_id++) {
+
+		my $input_packaging_ref = {};
+		my $prefix = "packaging_" . $packaging_id . "_";
+		foreach my $property (
+			"number_of_units", "shape", "material", "recycling",
+			"quantity_per_unit", "weight_measured", "weight_specified"
+			)
+		{
+			$input_packaging_ref->{$property} = remove_tags_and_quote(decode utf8 => single_param($prefix . $property));
+		}
+
+		my $response_ref = {};   # Currently unused, may be used to display warnings in future versions of the interface
+
+		my $packaging_ref
+			= get_checked_and_taxonomized_packaging_component_data($lc, $input_packaging_ref, $response_ref);
+
+		if (defined $packaging_ref) {
+			apply_rules_to_augment_packaging_component_data($product_ref, $packaging_ref);
+
+			push @{$product_ref->{packagings}}, $packaging_ref;
+
+			$log->debug(
+				"added a packaging component",
+				{
+					prefix => $prefix,
+					packaging_id => $packaging_id,
+					input_packaging => $input_packaging_ref,
+					packaging => $packaging_ref
+				}
+			) if $log->is_debug();
+		}
+	}
+
+	if (single_param("packagings_complete")) {
+		$product_ref->{packagings_complete} = 1;
+	}
+	else {
+		$product_ref->{packagings_complete} = 0;
+	}
+
+	return;
+}
+
 my $request_ref = ProductOpener::Display::init_request();
 
 if ($User_id eq 'unwanted-user-french') {
@@ -66,6 +170,11 @@ if ($User_id eq 'unwanted-user-french') {
 		403
 	);
 }
+
+# Response structure to keep track of warnings and errors
+# Note: currently some warnings and errors are added,
+# but we do not yet do anything with them
+my $response_ref = get_initialized_response();
 
 my $type = single_param('type') || 'search_or_add';
 my $action = single_param('action') || 'display';
@@ -87,101 +196,117 @@ local $log->context->{action} = $action;
 
 my $template_data_ref = {};
 
+$log->debug("product_multilingual - start", {code => $code, type => $type, action => $action}) if $log->is_debug();
+
 # Search or add product
 if ($type eq 'search_or_add') {
 
-	# barcode in image?
-	my $filename;
-	if ((not defined $code) or ($code eq "")) {
-		$code = process_search_image_form(\$filename);
-	}
-	elsif ($code !~ /^\d{4,24}$/) {
-		display_error_and_exit($Lang{invalid_barcode}{$lang}, 403);
-	}
+	if ($action eq "display") {
 
-	my $r = Apache2::RequestUtil->request();
-	my $method = $r->method();
-	if (    (not defined $code)
-		and ((not defined single_param("imgupload_search")) or (single_param("imgupload_search") eq ''))
-		and ($method eq 'POST'))
-	{
+		my $title = lang("add_product");
 
-		($code, $product_id) = assign_new_code();
-	}
+		$html = display_search_or_add_form();
 
-	my %data = ();
-	my $location;
-
-	if (defined $code) {
-		$data{code} = $code;
-		$product_id = product_id_for_owner($Owner_id, $code);
-		$log->debug("we have a code", {code => $code, product_id => $product_id}) if $log->is_debug();
-
-		$product_ref = product_exists($product_id);    # returns 0 if not
-
-		if ($product_ref) {
-			$log->info("product exists, redirecting to page", {code => $code}) if $log->is_info();
-			$location = product_url($product_ref);
-
-			# jquery.fileupload ?
-			if (single_param('jqueryfileupload')) {
-
-				$type = 'show';
-			}
-			else {
-				my $r = shift;
-				$r->headers_out->set(Location => $location);
-				$r->status(301);
-				return 301;
-			}
-		}
-		else {
-			$log->info("product does not exist, creating product", {code => $code, product_id => $product_id})
-			  if $log->is_info();
-			$product_ref = init_product($User_id, $Org_id, $code, $country);
-			$product_ref->{interface_version_created} = $interface_version;
-			store_product($User_id, $product_ref, 'product_created');
-
-			$type = 'add';
-			$action = 'display';
-			$location = "/cgi/product.pl?type=add&code=$code";
-
-			# If we got a barcode image, upload it
-			if (defined $filename) {
-				my $imgid;
-				my $debug;
-				process_image_upload($product_ref->{_id}, $filename, $User_id, time(),
-					'image with barcode from web site Add product button',
-					\$imgid, \$debug);
-			}
-		}
-	}
-	else {
-		if (defined single_param("imgupload_search")) {
-			$log->info("no code found in image") if $log->is_info();
-			$data{error} = lang("image_upload_error_no_barcode_found_in_image_short");
-		}
-		else {
-			$log->info("no code found in text") if $log->is_info();
-		}
-	}
-
-	$data{type} = $type;
-	$data{location} = $location;
-
-	# jquery.fileupload ?
-	if (single_param('jqueryfileupload')) {
-
-		my $data = encode_json(\%data);
-
-		$log->debug("jqueryfileupload JSON data output", {data => $data}) if $log->is_debug();
-
-		print header(-type => 'application/json', -charset => 'utf-8') . $data;
+		$request_ref->{title} = lang('add_product');
+		$request_ref->{content_ref} = \$html;
+		display_page($request_ref);
 		exit();
 	}
+	else {
 
-	$template_data_ref->{param_imgupload_search} = single_param("imgupload_search");
+		# barcode in image?
+		my $filename;
+		if ((not defined $code) or ($code eq "")) {
+			$code = process_search_image_form(\$filename);
+		}
+		elsif ($code !~ /^\d{4,24}$/) {
+			display_error_and_exit($Lang{invalid_barcode}{$lang}, 403);
+		}
 
+		my $r = Apache2::RequestUtil->request();
+		my $method = $r->method();
+		if (    (not defined $code)
+			and ((not defined single_param("imgupload_search")) or (single_param("imgupload_search") eq ''))
+			and ($method eq 'POST'))
+		{
+
+			($code, $product_id) = assign_new_code();
+			$log->debug("assigned new code", {code => $code, product_id => $product_id}) if $log->is_debug();
+		}
+
+		my %data = ();
+		my $location;
+
+		if (defined $code) {
+			$data{code} = $code;
+			$product_id = product_id_for_owner($Owner_id, $code);
+			$log->debug("we have a code", {code => $code, product_id => $product_id}) if $log->is_debug();
+
+			$product_ref = product_exists($product_id);    # returns 0 if not
+
+			if ($product_ref) {
+				$log->info("product exists, redirecting to page", {code => $code}) if $log->is_info();
+				$location = product_url($product_ref);
+
+				# jquery.fileupload ?
+				if (single_param('jqueryfileupload')) {
+
+					$type = 'show';
+				}
+				else {
+					my $r = shift;
+					$r->headers_out->set(Location => $location);
+					$r->status(301);
+					return 301;
+				}
+			}
+			else {
+				$log->info("product does not exist, creating product", {code => $code, product_id => $product_id})
+					if $log->is_info();
+				$product_ref = init_product($User_id, $Org_id, $code, $country);
+				$product_ref->{interface_version_created} = $interface_version;
+				store_product($User_id, $product_ref, 'product_created');
+
+				$type = 'add';
+				$action = 'display';
+				$location = "/cgi/product.pl?type=add&code=$code";
+
+				# If we got a barcode image, upload it
+				if (defined $filename) {
+					my $imgid;
+					my $debug;
+					process_image_upload($product_ref->{_id}, $filename, $User_id, time(),
+						'image with barcode from web site Add product button',
+						\$imgid, \$debug);
+				}
+			}
+		}
+		else {
+			if (defined single_param("imgupload_search")) {
+				$log->info("no code found in image") if $log->is_info();
+				$data{error} = lang("image_upload_error_no_barcode_found_in_image_short");
+			}
+			else {
+				$log->info("no code found in text") if $log->is_info();
+			}
+		}
+
+		$data{type} = $type;
+		$data{location} = $location;
+
+		# jquery.fileupload ?
+		if (single_param('jqueryfileupload')) {
+
+			my $data = encode_json(\%data);
+
+			$log->debug("jqueryfileupload JSON data output", {data => $data}) if $log->is_debug();
+
+			print header(-type => 'application/json', -charset => 'utf-8') . $data;
+			exit();
+		}
+
+		$template_data_ref->{param_imgupload_search} = single_param("imgupload_search");
+	}
 }
 
 else {
@@ -230,18 +355,16 @@ if (($type eq 'add') or ($type eq 'edit') or ($type eq 'delete')) {
 $template_data_ref->{user_id} = $User_id;
 $template_data_ref->{code} = $code;
 process_template('web/pages/product_edit/product_edit_form.tt.html', $template_data_ref, \$html)
-  or $html = "<p>" . $tt->error() . "</p>";
+	or $html = "<p>" . $tt->error() . "</p>";
 
 my @fields = @ProductOpener::Config::product_fields;
 
 if ($admin) {
-	push @fields, "environment_impact_level";
 
 	# Let admins edit any other fields
 	if (defined single_param("fields")) {
 		push @fields, split(/,/, single_param("fields"));
 	}
-
 }
 
 if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
@@ -340,7 +463,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 					$log->debug("moving field value?",
 						{from_field => $from_field, from_value => $from_value, to_field => $to_field})
-					  if $log->is_debug();
+						if $log->is_debug();
 
 					if ((defined $from_value) and ($from_value ne "")) {
 
@@ -398,7 +521,7 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 					if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$from_imageid})) {
 
 						$log->debug("moving selected image", {from_imageid => $from_imageid, to_imageid => $to_imageid})
-						  if $log->is_debug();
+							if $log->is_debug();
 
 						if (($mode eq "replace") or (not defined $product_ref->{images}{$to_imageid})) {
 
@@ -411,12 +534,15 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 							foreach my $max ($thumb_size, $small_size, $display_size, "full") {
 								my $from_file
-								  = "$www_root/images/products/$path/"
-								  . $from_imageid . "."
-								  . $rev . "."
-								  . $max . ".jpg";
+									= "$www_root/images/products/$path/"
+									. $from_imageid . "."
+									. $rev . "."
+									. $max . ".jpg";
 								my $to_file
-								  = "$www_root/images/products/$path/" . $to_imageid . "." . $rev . "." . $max . ".jpg";
+									= "$www_root/images/products/$path/"
+									. $to_imageid . "."
+									. $rev . "."
+									. $max . ".jpg";
 								File::Copy::move($from_file, $to_file);
 							}
 						}
@@ -432,22 +558,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 
 		if (defined single_param($field)) {
 
-			# If we are on the public platform, and the field data has been imported from the producer platform
-			# ignore the field changes for non tag fields, unless made by a moderator
-			if (    ((not defined $server_options{private_products}) or (not $server_options{private_products}))
-				and (defined $product_ref->{owner_fields})
-				and (defined $product_ref->{owner_fields}{$field})
-				and (not $User{moderator}))
-			{
-				$log->debug(
-					"skipping field with a value set by the owner",
-					{
-						code => $code,
-						field_name => $field,
-						existing_field_value => $product_ref->{$field},
-						new_field_value => remove_tags_and_quote(decode utf8 => single_param($field))
-					}
-				) if $log->is_debug();
+			# Only moderators can update values for fields sent by the producer
+			if (skip_protected_field($product_ref, $field, $User{moderator})) {
+				next;
 			}
 
 			if ($field eq "lang") {
@@ -470,13 +583,14 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 					$product_ref->{$field} = decode utf8 => single_param($field);
 				}
 				else {
-					$product_ref->{$field} = remove_tags_and_quote(decode utf8 => single_param($field));
+					# Preprocesses fields to remove email values as entries
+					$product_ref->{$field} = preprocess_product_field($field, decode utf8 => single_param($field));
 				}
 			}
 
 			$log->debug("before compute field_tags",
 				{code => $code, field_name => $field, field_value => $product_ref->{$field}})
-			  if $log->is_debug();
+				if $log->is_debug();
 			if ($field =~ /ingredients_text/) {
 				# the ingredients_text_with_allergens[_$lc] will be recomputed after
 				my $ingredients_text_with_allergens = $field;
@@ -492,63 +606,23 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 		}
 	}
 
-	if (    (defined $product_ref->{nutriments}{"carbon-footprint"})
-		and ($product_ref->{nutriments}{"carbon-footprint"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:carbon-footprint";
-		push @{$product_ref->{"labels_tags"}}, "en:carbon-footprint";
-	}
-
-	if ((defined $product_ref->{nutriments}{"glycemic-index"}) and ($product_ref->{nutriments}{"glycemic-index"} ne ''))
-	{
-		push @{$product_ref->{"labels_hierarchy"}}, "en:glycemic-index";
-		push @{$product_ref->{"labels_tags"}}, "en:glycemic-index";
-	}
-
-	# For fields that can have different values in different languages, copy the main language value to the non suffixed field
-
-	foreach my $field (keys %language_fields) {
-		if ($field !~ /_image/) {
-			if (defined $product_ref->{$field . "_$product_ref->{lc}"}) {
-				$product_ref->{$field} = $product_ref->{$field . "_$product_ref->{lc}"};
-			}
-		}
-	}
-
-	$log->debug("compute_languages") if $log->is_debug();
-
-	compute_languages($product_ref);    # need languages for allergens detection and cleaning ingredients
-	$log->debug("clean_ingredients") if $log->is_debug();
-
-	# Ingredients classes
-	clean_ingredients_text($product_ref);
-	$log->debug("extract_ingredients_from_text") if $log->is_debug();
-	extract_ingredients_from_text($product_ref);
-	$log->debug("extract_ingredients_classes_from_text") if $log->is_debug();
-	extract_ingredients_classes_from_text($product_ref);
-	$log->debug("detect_allergens_from_text") if $log->is_debug();
-	detect_allergens_from_text($product_ref);
-	compute_carbon_footprint_from_ingredients($product_ref);
-	compute_carbon_footprint_from_meat_or_fish($product_ref);
-
-	# Food category rules for sweetened/sugared beverages
-	# French PNNS groups from categories
-
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		$log->debug("Food::special_process_product") if $log->is_debug();
-		ProductOpener::Food::special_process_product($product_ref);
-	}
-
 	# Obsolete products
 
+	# We test if the "obsolete_since_date" field is present, as the checkbox field won't be sent if the box is unchecked
 	if (($User{moderator} or $Owner_id) and (defined single_param('obsolete_since_date'))) {
+		# We need to temporarily record if the product was obsolete, so that we can remove it
+		# from the product or product_obsolete collection if its obsolete status changed
+		$product_ref->{was_obsolete} = $product_ref->{obsolete};
 		$product_ref->{obsolete} = remove_tags_and_quote(decode utf8 => single_param("obsolete"));
 		$product_ref->{obsolete_since_date} = remove_tags_and_quote(decode utf8 => single_param("obsolete_since_date"));
 	}
 
 	# Update the nutrients
 
-	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table);
+	assign_nutriments_values_from_request_parameters($product_ref, $nutriment_table, $User{moderator});
+
+	# Process packaging components
+	create_packaging_components_from_request_parameters($product_ref);
 
 	# product check
 
@@ -574,42 +648,9 @@ if (($action eq 'process') and (($type eq 'add') or ($type eq 'edit'))) {
 			delete $product_ref->{last_checker};
 			delete $product_ref->{last_checked_t};
 		}
-
 	}
 
-	# Compute nutrition data per 100g and per serving
-
-	$log->debug("compute nutrition data") if $log->is_debug();
-
-	$log->trace("compute_serving_size_date - start") if $log->is_trace();
-
-	fix_salt_equivalent($product_ref);
-
-	compute_serving_size_data($product_ref);
-
-	compute_nutrition_score($product_ref);
-
-	compute_nova_group($product_ref);
-
-	compute_nutrient_levels($product_ref);
-
-	compute_unknown_nutrients($product_ref);
-
-	# Until we provide an interface to directly change the packaging data structure
-	# erase it before reconstructing it
-	# (otherwise there is no way to remove incorrect entries)
-	$product_ref->{packagings} = [];
-
-	analyze_and_combine_packaging_data($product_ref);
-
-	if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-		compute_ecoscore($product_ref);
-		compute_forest_footprint($product_ref);
-	}
-
-	ProductOpener::DataQuality::check_quality($product_ref);
-
-	$log->trace("end compute_serving_size_date - end") if $log->is_trace();
+	analyze_and_enrich_product_data($product_ref, $response_ref);
 
 	if ($#errors >= 0) {
 		$action = 'display';
@@ -641,7 +682,7 @@ sub display_input_field ($product_ref, $field, $language) {
 	if (defined $tags_fields{$fieldtype}) {
 		$class = "tagify-me";
 		if ((defined $taxonomy_fields{$fieldtype}) or ($fieldtype eq 'emb_codes')) {
-			$autocomplete = "$formatted_subdomain/cgi/suggest.pl?tagtype=$fieldtype&";
+			$autocomplete = "$formatted_subdomain/api/v3/taxonomy_suggestions?tagtype=$fieldtype";
 		}
 	}
 
@@ -652,7 +693,7 @@ sub display_input_field ($product_ref, $field, $language) {
 		and (defined $taxonomy_fields{$field})
 		# if the field was previously not taxonomized, the $field_hierarchy field does not exist
 		and (defined $product_ref->{$field . "_hierarchy"})
-	  )
+		)
 	{
 		$value = display_tags_hierarchy_taxonomy($lc, $field, $product_ref->{$field . "_hierarchy"});
 		# Remove tags
@@ -680,7 +721,7 @@ sub display_input_field ($product_ref, $field, $language) {
 		$value =~ s/\n/ /g;
 	}
 
-	foreach my $note ("_note", "_note_2") {
+	foreach my $note ("_note", "_note_2", "_note_3") {
 		if (defined $Lang{$fieldtype . $note}{$lang}) {
 
 			push(
@@ -706,7 +747,7 @@ sub display_input_field ($product_ref, $field, $language) {
 	}
 
 	process_template('web/pages/product_edit/display_input_field.tt.html', $template_data_ref_field, \$html_field)
-	  or $html_field = "<p>" . $tt->error() . "</p>";
+		or $html_field = "<p>" . $tt->error() . "</p>";
 
 	return $html_field;
 }
@@ -731,9 +772,8 @@ if (($action eq 'display') and (($type eq 'add') or ($type eq 'edit'))) {
 	$header .= <<HTML
 <link rel="stylesheet" type="text/css" href="/css/dist/cropper.css" />
 <link rel="stylesheet" type="text/css" href="/css/dist/tagify.css" />
-<link rel="stylesheet" type="text/css" href="/css/dist/product-multilingual.css?v=$file_timestamps{'css/dist/product-multilingual.css'}" />
 HTML
-	  ;
+		;
 
 	$scripts .= <<HTML
 <script type="text/javascript" src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
@@ -751,7 +791,7 @@ var admin = $moderator;
 <script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{'js/dist/product-multilingual.js'}"></script>
 
 HTML
-	  ;
+		;
 
 	my $thumb_selectable_size = $thumb_size + 20;
 
@@ -774,17 +814,12 @@ HTML
 	height: 180px
 }
 CSS
-	  ;
+		;
 
 	if (    (not((defined $server_options{private_products}) and ($server_options{private_products})))
 		and (defined $Org_id))
 	{
-
 		# Display a link to the producers platform
-
-		my $producers_platform_url = $formatted_subdomain . '/';
-		$producers_platform_url =~ s/\.open/\.pro\.open/;
-
 		$template_data_ref_display->{producers_platform_url} = $producers_platform_url;
 	}
 
@@ -797,7 +832,6 @@ CSS
 	if ($User{moderator}) {
 	}
 
-	$template_data_ref_display->{server_options_private_products} = $server_options{private_products};
 	$template_data_ref_display->{org_id} = $Org_id;
 	$template_data_ref_display->{label_new_code} = $label_new_code;
 	$template_data_ref_display->{owner_id} = $Owner_id;
@@ -813,7 +847,7 @@ CSS
 
 		$template_data_ref_display->{obsolete_checked} = $checked;
 		$template_data_ref_display->{display_field_obsolete}
-		  = display_input_field($product_ref, "obsolete_since_date", undef);
+			= display_input_field($product_ref, "obsolete_since_date", undef);
 
 	}
 
@@ -876,7 +910,7 @@ CSS
 			if ($tabid ne 'new') {
 
 				$language = display_taxonomy_tag($lc, 'languages', $language_codes{$tabid})
-				  ;    # instead of $tabsids_hash_ref->{$tabid}
+					;    # instead of $tabsids_hash_ref->{$tabid}
 				$display_tab_ref->{language} = $language;
 
 				my $display_lc = $tabid;
@@ -899,7 +933,7 @@ CSS
 					}
 					else {
 						$log->debug("display_field", {field_name => $field, field_value => $product_ref->{$field}})
-						  if $log->is_debug();
+							if $log->is_debug();
 						$display_div = display_input_field($product_ref, $field . "_" . $display_lc, $language);
 					}
 
@@ -925,8 +959,8 @@ CSS
 					{
 						language => '<span class="tab_language">' . $language . '</span>',
 						main_language => '<span class="main_language">'
-						  . lang("lang_" . $product_ref->{lc})
-						  . '</span>'
+							. lang("lang_" . $product_ref->{lc})
+							. '</span>'
 					}
 				);
 
@@ -947,20 +981,21 @@ CSS
 
 		my $html_tab = '';
 		process_template('web/pages/product_edit/display_input_tabs.tt.html', $template_data_ref_tab, \$html_tab)
-		  or $html_tab = "<p>" . $tt->error() . "</p>";
+			or $html_tab = "<p>" . $tt->error() . "</p>";
 
 		return $html_tab;
 	}
 
 	$template_data_ref_display->{display_tab_product_picture}
-	  = display_input_tabs($product_ref, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"]);
+		= display_input_tabs($product_ref, "front_image", $product_ref->{sorted_langs}, \%Langs, ["front_image"]);
 	$template_data_ref_display->{display_tab_product_characteristics}
-	  = display_input_tabs($product_ref, "product", $product_ref->{sorted_langs},
+		= display_input_tabs($product_ref, "product", $product_ref->{sorted_langs},
 		\%Langs, ["product_name", "generic_name"]);
 
 	my @display_fields_arr;
 	foreach my $field (@fields) {
-		next if $field eq "origins";    # now displayed below allergens and traces in the ingredients section
+		# hide packaging field & origins are now displayed below allergens and traces in the ingredients section
+		next if $field eq "origins" || $field eq "packaging";
 		$log->debug("display_field", {field_name => $field, field_value => $product_ref->{$field}}) if $log->is_debug();
 		my $display_field = display_input_field($product_ref, $field, undef);
 		push(@display_fields_arr, $display_field);
@@ -980,13 +1015,14 @@ CSS
 
 	$template_data_ref_display->{nutrition_checked} = $checked;
 	$template_data_ref_display->{display_tab_ingredients_image}
-	  = display_input_tabs($product_ref, "ingredients_image", $product_ref->{sorted_langs}, \%Langs,
-		\@ingredients_fields);
+		= display_input_tabs($product_ref, "ingredients_image", $product_ref->{sorted_langs},
+		\%Langs, \@ingredients_fields);
 	$template_data_ref_display->{display_field_allergens} = display_input_field($product_ref, "allergens", undef);
 	$template_data_ref_display->{display_field_traces} = display_input_field($product_ref, "traces", undef);
 	$template_data_ref_display->{display_field_origins} = display_input_field($product_ref, "origins", undef);
 	$template_data_ref_display->{display_tab_nutrition_image}
-	  = display_input_tabs($product_ref, "nutrition_image", $product_ref->{sorted_langs}, \%Langs, ["nutrition_image"]);
+		= display_input_tabs($product_ref, "nutrition_image", $product_ref->{sorted_langs}, \%Langs,
+		["nutrition_image"]);
 	$template_data_ref_display->{display_field_serving_size} = display_input_field($product_ref, "serving_size", undef);
 
 	$initjs .= display_select_crop_init($product_ref);
@@ -1039,7 +1075,7 @@ CSS
 			($product_ref->{$nutrition_data_per} eq 'serving')
 			# display by serving by default for the prepared product
 			or (($product_type eq '_prepared') and (not defined $product_ref->{nutrition_data_prepared_per}))
-		  )
+			)
 		{
 			$checked_per_serving = 'checked="checked"';
 			$checked_per_100g = '';
@@ -1079,14 +1115,14 @@ CSS
 
 	$template_data_ref_display->{column_display_style_nutrition_data} = $column_display_style{"nutrition_data"};
 	$template_data_ref_display->{column_display_style_nutrition_data_prepared}
-	  = $column_display_style{"nutrition_data_prepared"};
+		= $column_display_style{"nutrition_data_prepared"};
 	$template_data_ref_display->{nutrition_data_100g_style} = $nutrition_data_per_display_style{"nutrition_data_100g"};
 	$template_data_ref_display->{nutrition_data_serving_style}
-	  = $nutrition_data_per_display_style{"nutrition_data_serving"};
+		= $nutrition_data_per_display_style{"nutrition_data_serving"};
 	$template_data_ref_display->{nutrition_data_prepared_100g_style}
-	  = $nutrition_data_per_display_style{"nutrition_data_prepared_100g"};
+		= $nutrition_data_per_display_style{"nutrition_data_prepared_100g"};
 	$template_data_ref_display->{nutrition_data_prepared_serving_style}
-	  = $nutrition_data_per_display_style{"nutrition_data_prepared_serving"};
+		= $nutrition_data_per_display_style{"nutrition_data_prepared_serving"};
 
 	$template_data_ref_display->{tablestyle} = $tablestyle;
 
@@ -1142,7 +1178,7 @@ CSS
 				and ($product_ref->{nutriments}{$nid . "_prepared_modifier"} eq '-'))
 			or ($nid eq 'new_0')
 			or ($nid eq 'new_1')
-		  )
+			)
 		{
 			$shown = 1;
 		}
@@ -1176,7 +1212,7 @@ CSS
 			$nutriment_ref->{name} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 			# We may have a unit specific to the country (e.g. US nutrition facts table using the International Unit for this nutrient, and Europe using mg)
 			$unit = get_property("nutrients", "zz:$nid", "unit_$cc:en")
-			  // get_property("nutrients", "zz:$nid", "unit:en") // 'g';
+				// get_property("nutrients", "zz:$nid", "unit:en") // 'g';
 		}
 		else {
 			if (defined $product_ref->{nutriments}{$nid . "_unit"}) {
@@ -1376,12 +1412,12 @@ CSS
 
 			my $other_nutriment_unit = get_property("nutrients", "zz:$nid", "unit:en");
 			$other_nutriments
-			  .= '{ "value" : "'
-			  . $other_nutriment_value
-			  . '", "unit" : "'
-			  . $other_nutriment_unit
-			  . '", "iu": '
-			  . $supports_iu . '  },' . "\n";
+				.= '{ "value" : "'
+				. $other_nutriment_value
+				. '", "unit" : "'
+				. $other_nutriment_unit
+				. '", "iu": '
+				. $supports_iu . '  },' . "\n";
 		}
 		$nutriments .= '"' . $other_nutriment_value . '" : "' . $nid . '",' . "\n";
 	}
@@ -1400,13 +1436,24 @@ $other_nutriments
 </script>
 
 HTML
-	  ;
+		;
 
 	# Packaging photo and data
 	my @packaging_fields = ("packaging_image", "packaging_text");
 
 	$template_data_ref_display->{display_tab_packaging}
-	  = display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs}, \%Langs, \@packaging_fields);
+		= display_input_tabs($product_ref, "packaging_image", $product_ref->{sorted_langs}, \%Langs,
+		\@packaging_fields);
+
+	# Add an empty packaging element to the form, that will be hidden and duplicated when the user adds new packaging items,
+	# and another empty packaging element at the end
+	if (not defined $product_ref->{packagings}) {
+		$product_ref->{packagings} = [];
+	}
+	my $number_of_packaging_components = scalar @{$product_ref->{packagings}};
+
+	unshift(@{$product_ref->{packagings}}, {});
+	push(@{$product_ref->{packagings}}, {});
 
 	# Product check
 
@@ -1430,11 +1477,14 @@ HTML
 	$template_data_ref_display->{type} = $type;
 	$template_data_ref_display->{code} = $code;
 	$template_data_ref_display->{display_product_history} = display_product_history($code, $product_ref);
+	$template_data_ref_display->{product} = $product_ref;
 
 	process_template('web/pages/product_edit/product_edit_form_display.tt.html', $template_data_ref_display, \$html)
-	  or $html = "<p>" . $tt->error() . "</p>";
+		or $html = "<p>" . $tt->error() . "</p>";
 	process_template('web/pages/product_edit/product_edit_form_display.tt.js', $template_data_ref_display, \$js);
 	$initjs .= $js;
+	$request_ref->{page_type} = "product_edit";
+	$request_ref->{page_format} = "banner";
 
 }
 elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
@@ -1449,10 +1499,11 @@ elsif (($action eq 'display') and ($type eq 'delete') and ($User{moderator})) {
 
 	process_template('web/pages/product_edit/product_edit_form_display_user-moderator.tt.html',
 		$template_data_ref_moderator, \$html)
-	  or $html = "<p>" . $tt->error() . "</p>";
+		or $html = "<p>" . $tt->error() . "</p>";
 
 }
 elsif ($action eq 'process') {
+	# process the form
 
 	my $template_data_ref_process = {type => $type};
 
@@ -1460,6 +1511,7 @@ elsif ($action eq 'process') {
 
 	$product_ref->{interface_version_modified} = $interface_version;
 
+	# removal is just putting "on" in delete
 	if (($User{moderator}) and ($type eq 'delete')) {
 		$product_ref->{deleted} = 'on';
 		$comment = lang("deleting_product") . separator_before_colon($lc) . ":";
@@ -1472,71 +1524,71 @@ elsif ($action eq 'process') {
 	$comment = $comment . remove_tags_and_quote(decode utf8 => single_param('comment'));
 	store_product($User_id, $product_ref, $comment);
 
-	my $edited_product_url = product_url($product_ref);
-
+	# now display next page
+	my $url_prefix = "";
 	if (defined $product_ref->{server}) {
 		# product that was moved to OBF from OFF etc.
-		$edited_product_url
-		  = "https://"
-		  . $subdomain . "."
-		  . $options{other_servers}{$product_ref->{server}}{domain}
-		  . product_url($product_ref);
+		$url_prefix = "https://" . $subdomain . "." . $options{other_servers}{$product_ref->{server}}{domain};
 	}
 	elsif ($type eq 'delete') {
-
-		# Notify robotoff
-		send_notification_for_product_change($product_ref, "deleted");
-
 		my $email = <<MAIL
 $User_id $Lang{has_deleted_product}{$lc}:
 
 $html
 
 MAIL
-		  ;
+			;
 		send_email_to_admin(lang("deleting_product"), $email);
-
+		send_event({user_id => $User_id, event_type => "product_removed", barcode => $code, points => 5});
 	}
 	else {
-
-		# Notify robotoff
-		send_notification_for_product_change($product_ref, "updated");
-
 		# Create an event
-		send_event( { user_id => $User_id, event_type => "product_edited", barcode => $code, points => 5});
-
-		$template_data_ref_process->{display_random_sample_of_products_after_edits_options}
-		  = $options{display_random_sample_of_products_after_edits};
-
-		# warning: this option is very slow
-		if (    (defined $options{display_random_sample_of_products_after_edits})
-			and ($options{display_random_sample_of_products_after_edits}))
-		{
-
-			my %request = (
-				'titleid' => get_string_id_for_lang($lc, product_name_brand($product_ref)),
-				'query_string' => $ENV{QUERY_STRING},
-				'referer' => referer(),
-				'code' => $code,
-				'product_changes_saved' => 1,
-				'sample_size' => 10
-			);
-
-			display_product(\%request);
-		}
+		send_event({user_id => $User_id, event_type => "product_edited", barcode => $code, points => 5});
 	}
 
-	$log->debug("product edited", { code => $code }) if $log->is_debug();
+	$log->debug("product edited", {code => $code}) if $log->is_debug();
 
-	$template_data_ref_process->{edited_product_url} = $edited_product_url;
+	$template_data_ref_process->{display_random_sample_of_products_after_edits_options}
+		= $options{display_random_sample_of_products_after_edits};
+	# warning: this option is very slow
+	if (    (defined $options{display_random_sample_of_products_after_edits})
+		and ($options{display_random_sample_of_products_after_edits}))
+	{
+
+		my %request = (
+			'titleid' => get_string_id_for_lang($lc, product_name_brand($product_ref)),
+			'query_string' => $ENV{QUERY_STRING},
+			'referer' => referer(),
+			'code' => $code,
+			'product_changes_saved' => 1,
+			'sample_size' => 10
+		);
+
+		display_product(\%request);
+	}
+
+	$template_data_ref_process->{edited_product_url} = $url_prefix . product_url($product_ref);
+	$template_data_ref_process->{edit_product_url} = $url_prefix . product_action_url($product_ref->{code}, "");
+
+	if ($type ne 'delete') {
+		# adding contribution card
+		# TODO: we should better have a more flexible way to select panels
+		$product_ref->{"knowledge_panels_" . $lc} = {};
+		$knowledge_panels_options_ref = {};
+		initialize_knowledge_panels_options($knowledge_panels_options_ref, $request_ref);
+		$knowledge_panels_options_ref->{knowledge_panels_client} = "web";
+		create_contribution_card_panel($product_ref, $lc, $cc, $knowledge_panels_options_ref);
+		$template_data_ref_process->{contribution_card_panel}
+			= display_knowledge_panel($product_ref, $product_ref->{"knowledge_panels_" . $lc}, "contribution_card");
+	}
+	$template_data_ref_process->{code} = $product_ref->{code};
 	process_template('web/pages/product_edit/product_edit_form_process.tt.html', $template_data_ref_process, \$html)
-	  or $html = "<p>" . $tt->error() . "</p>";
+		or $html = "<p>" . $tt->error() . "</p>";
 
 }
 
 $request_ref->{title} = lang($type . '_product');
 $request_ref->{content_ref} = \$html;
-$request_ref->{full_width} = 1;
 display_page($request_ref);
 
 exit(0);

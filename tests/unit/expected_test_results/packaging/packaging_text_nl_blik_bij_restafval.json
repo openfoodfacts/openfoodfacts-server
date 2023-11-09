@@ -1,9 +1,23 @@
 {
    "lc" : "nl",
+   "misc_tags" : [
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:metal"
+   ],
+   "packaging_recycling_tags" : [
+      "en:discard"
+   ],
+   "packaging_shapes_tags" : [
+      "en:can"
+   ],
    "packaging_text" : "blik bij restafval",
    "packagings" : [
       {
-         "material" : "en:metal",
+         "material" : "en:tin-plated-steel",
          "recycling" : "en:discard",
          "shape" : "en:can"
       }

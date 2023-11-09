@@ -1,7 +1,7 @@
 [% panel = panels.$panel_id %]
 <!-- start templates/[% template.name %] - panel_id: [% panel_id %] -->
 [% IF (panel.type == "card") OR (panel.type == "inline") %]
-<div class="panel_[% panel.type %]" id="panel_[% panel_id | replace(':','-') %]"
+<div class="panel_[% panel.type %] radius" id="panel_[% panel_id | replace(':','-') %]"
     [% IF panel.size == "small" %]
         style="margin-top:0.2rem;margin-bottom:0.2rem;"
     [% ELSE %]
@@ -10,9 +10,9 @@
 >
     [% IF panel.title_element.defined %]
         [% IF (panel.type == "card") %]
-            <h2 class="cpanel_title_[% panel.type %]">[% panel.title_element.title %]</h2>
-        [% ELSE %]
-            <h3 class="cpanel_title_[% panel.type %]">[% panel.title_element.title %]</h3>
+            <h2 class="panel_title_[% panel.type %] text-medium">[% panel.title_element.title %]</h2>
+        [% ELSE %]        
+            <h3 class="panel_title_[% panel.type %]">[% panel.title_element.title %]</h3>
         [% END %]
     [% END %]
 [% ELSE %]
@@ -46,11 +46,13 @@
                         class="filter-grey"
                     [% ELSIF panel.evaluation == "unknown" %]
                         class="filter-grey"
+                    [% ELSE %]
+                        class="filter-grey"
                     [% END %]
                 [% END %]
             >
             [% END %]
-            <h3 [% IF panel.title_element.type == "grade" %]class="grade_[% panel.title_element.grade %]_title"[% END %]
+            <h4 [% IF panel.title_element.type == "grade" %]class="grade_[% panel.title_element.grade %]_title"[% END %]
                 [% IF panel.evaluation.defined %]class="evaluation_[%panel.evaluation %]_title"[% END %]
                 [% IF panel.size == "small" %]style="font-size:1.1rem;"[% END %]
             >
@@ -70,9 +72,9 @@
                     </span>
                 [% END %]
                 [% panel.title_element.title %]
-            </h3>
+            </h4>
             [% IF panel.title_element.subtitle.defined %]
-                <h4>[% panel.title_element.subtitle %]</h4>
+                <h5>[% panel.title_element.subtitle %]</h5>
             [% END %]
             <hr class="floatclear">
         </a>
@@ -98,12 +100,27 @@
         [% ELSIF element_type == "panel_group" %]
             [% panel_group_element = element_ref.panel_group_element %]
             <div class="panel_group">
+
+                [% IF panel_group_element.image.defined %]
+                    <div class="row">
+                        <div class="large-8 small-12 columns">
+                [% END %]
+
                 [% IF panel_group_element.title.defined %]
-                    <h3>[% panel_group_element.title %]</h3>
+                    <h3 [% IF panel_group_element.panel_group_id.defined %]id="panel_group_[% panel_group_element.panel_group_id | replace(':','-') %]"[% END %] class="panel_title_[% panel.type %][% IF panel_group_element.type == 'subcard' %] text-medium[% END %]">[% panel_group_element.title %]</h3>
                 [% END %]
                 [% FOREACH panel_id IN panel_group_element.panel_ids %]
                     [% INCLUDE web/panels/panel.tt.html panel_id = panel_id %]
                 [% END %]
+
+                [% IF panel_group_element.image.defined %]
+                        </div>
+                        <div class="large-4 small-12 columns">
+                            [% INCLUDE web/panels/image.tt.html code = product.code image = panel_group_element.image %]
+                        </div>
+                    </div>
+                [% END %]                
+                
             </div>
         [% ELSE %]
 
@@ -217,7 +234,7 @@
                     <thead>
                         <tr>
                             [% FOREACH column IN table_element.columns %]
-                            <th scope="col"[% IF column.style.defined %]style="[% column.style %]"[% END %]>
+                            <th scope="col"[% IF column.style.defined %] style="[% column.style %]"[% END %]>
                                 [% column.text %]
                             </th>
                             [% END %]
@@ -225,7 +242,7 @@
                     </thead>
                     <tbody>
                         [% FOREACH row IN table_element.rows %]
-                        <tr[% IF row.id %] id="[% row.id %]"[% END %]>
+                        <tr[% IF row.id %] id="[% row.id %]"[% END %][% IF row.style.defined %] style="[% row.style %]"[% END %]>
                             [% FOREACH value IN row.item('values') %]
                                 <td [% IF value.style.defined %]style="[% value.style %]"[% END %]>
                                     [% IF value.icon_url %]

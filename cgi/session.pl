@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -28,6 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 
@@ -48,7 +49,6 @@ $template_data_ref->{user_id} = $User_id;
 if (defined $User_id) {
 
 	$template_data_ref->{user_name} = $User{name};
-	$template_data_ref->{server_options_producers} = $server_options{producers_platform};
 
 	my $next_action = single_param('next_action');
 	my $code = single_param('code');
@@ -66,7 +66,7 @@ if (defined $User_id) {
 	}
 	elsif ( (defined $referer)
 		and ($referer =~ /^https?:\/\/$subdomain\.$server_domain/)
-		and (not($referer =~ /(?:session|user|reset_password)\.pl/)))
+		and (not($referer =~ /(?:login|session|user|reset_password)\.pl/)))
 	{
 		$url = $referer;
 	}
@@ -82,9 +82,6 @@ if (defined $User_id) {
 	}
 }
 
-process_template('web/pages/session/session.tt.html', $template_data_ref, \$html)
-  or $html = "<p>" . $tt->error() . "</p>";
-
 if (single_param('jqm')) {
 
 	my %response;
@@ -97,10 +94,29 @@ if (single_param('jqm')) {
 	}
 	my $data = encode_json(\%response);
 
-	print header(-type => 'application/json', -charset => 'utf-8', -access_control_allow_origin => '*') . $data;
+	write_cors_headers();
+	print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 }
 else {
+	my $template;
+
+	if ((defined param('length')) and (param('length') eq 'logout')) {
+		# The user is signing out
+		$template = "signed_out";
+	}
+	elsif (defined $User_id) {
+		# The user is signed in
+		$template = "signed_in";
+	}
+	else {
+		# The user is signing in: display the login form
+		$template = "sign_in_form";
+	}
+
+	process_template("web/pages/session/$template.tt.html", $template_data_ref, \$html)
+		or $html = "<p>" . $tt->error() . "</p>";
+
 	$request_ref->{title} = lang('session_title');
 	$request_ref->{content_ref} = \$html;
 	display_page($request_ref);

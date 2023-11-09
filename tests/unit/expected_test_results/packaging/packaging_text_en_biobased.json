@@ -1,16 +1,35 @@
 {
    "lc" : "en",
+   "misc_tags" : [
+      "en:packagings-number-of-components-2",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:bpet-biobased-pet"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:bottle",
+      "en:lid"
+   ],
    "packaging_text" : "1 bio-based PET bottle, 1 bio-sourced PET lid",
    "packagings" : [
       {
-         "material" : "en:biobased-pet",
-         "number" : "1",
+         "material" : "en:bpet-biobased-pet",
+         "number_of_units" : 1,
          "shape" : "en:bottle"
       },
       {
-         "material" : "en:biobased-pet",
-         "number" : "1",
+         "material" : "en:bpet-biobased-pet",
+         "number_of_units" : 1,
          "shape" : "en:lid"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 2
 }

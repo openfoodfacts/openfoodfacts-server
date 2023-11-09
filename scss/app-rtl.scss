@@ -1,10 +1,12 @@
-@import "settings-rtl";
-@import "foundation";
 @import "variables";
+@import "settings-rtl";
+@import "sveetoy/f5_settings";
+@import "foundation";
+@import "cards";
+@import "sveetoy";
+@import "jsvectormap";
 @import "off";
-@import "footer";
-
-// Or selectively include components
+ // Or selectively include components
 // @import
 //   "foundation/components/accordion",
 //   "foundation/components/alert-boxes",

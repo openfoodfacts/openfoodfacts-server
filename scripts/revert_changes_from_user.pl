@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2018 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -41,9 +41,7 @@ and the script will have to be re-run.
 
 --pretend	do not actually update products
 TXT
-  ;
-
-use CGI::Carp qw(fatalsToBrowser);
+	;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -69,13 +67,7 @@ use File::Copy;
 
 use Getopt::Long;
 
-my @fields_to_update = ();
-my $key;
-my $index = '';
 my $pretend = '';
-my $process_ingredients = '';
-my $compute_nutrition_score = '';
-my $compute_nova = '';
 my $reverted_user_id = '';
 
 GetOptions(
@@ -90,8 +82,6 @@ GetOptions(
 my $query_ref = {};
 
 $query_ref->{editors_tags} = $reverted_user_id;
-
-print "Update key: $key\n\n";
 
 my $products_collection = get_products_collection();
 
@@ -180,7 +170,7 @@ while (my $product_ref = $cursor->next) {
 				if (not $pretend) {
 					# move revision to reverted folder to keep track
 					move("$data_root/products/$path/$rev.sto", "$data_root/reverted_products/$target")
-					  or die "Could not execute $cmd : $!\n";
+						or die "Could not execute $cmd : $!\n";
 				}
 				# mark revision as removed
 				$deleted_revs{$rev} = 1;
@@ -208,7 +198,7 @@ while (my $product_ref = $cursor->next) {
 		print STDERR "$code - $cmd\n";
 		if (not $pretend) {
 			move("$data_root/products/$path/changes.sto", "$data_root/reverted_products/$target")
-			  or die "Could not execute $cmd : $!\n";
+				or die "Could not execute $cmd : $!\n";
 		}
 		# we had edits prior target user edits, rewind product to those changes
 		if ($previous_rev > 0) {
@@ -217,7 +207,7 @@ while (my $product_ref = $cursor->next) {
 			print STDERR "$code - $cmd\n";
 			if (not $pretend) {
 				symlink("$previous_rev.sto", "$data_root/products/$path/product.sto")
-				  or die "Could not execute $cmd : $!\n";
+					or die "Could not execute $cmd : $!\n";
 			}
 			# restore changes.sto
 			print STDERR "updating $data_root/products/$path/changes.sto\n";

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -41,10 +41,10 @@ my $request_ref = ProductOpener::Display::init_request();
 # This is useful for static HTML files (e.g. donation page translated by CrowdIn)
 
 my $redirect
-  = $static_subdomain
-  . "/css/dist/app-"
-  . lang('text_direction')
-  . ".css?v="
-  . $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
+	= $static_subdomain
+	. "/css/dist/app-"
+	. lang('text_direction')
+	. ".css?v="
+	. $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
 
 redirect_to_url($request_ref, 302, $redirect);

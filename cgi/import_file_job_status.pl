@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -62,7 +62,7 @@ my %data = (
 	import_id => $import_id,
 );
 
-$log->debug("import_file_job_status.pl - start", { data => \%data }) if $log->is_debug();
+$log->debug("import_file_job_status.pl - start", {data => \%data}) if $log->is_debug();
 
 if (not defined $Owner_id) {
 	$data{error} = "no_owner_defined";
@@ -81,7 +81,8 @@ else {
 		$data{error} = "file_id_not_found";
 	}
 	elsif ((not defined $import_files_ref->{$file_id}{imports})
-		or (not defined $import_files_ref->{$file_id}{imports}{$import_id})) {
+		or (not defined $import_files_ref->{$file_id}{imports}{$import_id}))
+	{
 		$data{error} = "import_id_not_found";
 	}
 	elsif (not defined $import_files_ref->{$file_id}{imports}{$import_id}{job_id}) {
@@ -90,23 +91,23 @@ else {
 	else {
 		$job_id = $import_files_ref->{$file_id}{imports}{$import_id}{job_id};
 		$data{job_id} = $job_id;
-		$log->debug("import_file_job_status.pl - found job_id", { data => \%data }) if $log->is_debug();
+		$log->debug("import_file_job_status.pl - found job_id", {data => \%data}) if $log->is_debug();
 	}
 }
 
 if (not $data{error}) {
 
-	my $job = $minion->job($job_id);
+	my $job = get_minion()->job($job_id);
 	# Get Minion::Job object without making any changes to the actual job or return undef if job does not exist.
 
 	# Check job info
-	$log->debug("import_file_job_status.pl - get job_info", { data => \%data }) if $log->is_debug();
-	$data{job_info} = $minion->job($job_id)->info;
+	$log->debug("import_file_job_status.pl - get job_info", {data => \%data}) if $log->is_debug();
+	$data{job_info} = get_minion()->job($job_id)->info;
 }
 
 my $data = encode_json(\%data);
 
-$log->debug("import_file_job_status.pl - done", { data => \%data }) if $log->is_debug();
+$log->debug("import_file_job_status.pl - done", {data => \%data}) if $log->is_debug();
 
-print header( -type => 'application/json', -charset => 'utf-8' ) . $data;
+print header(-type => 'application/json', -charset => 'utf-8') . $data;
 exit();

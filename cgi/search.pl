@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -29,6 +29,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
@@ -70,7 +71,10 @@ if ((defined single_param('search_terms')) and (not defined single_param('action
 	$action = 'process';
 }
 
-foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 'rss') {
+# /cgi/search.pl is "v1" of the search API.
+# The api_version parameter enables clients to request the product data to be returned in the format of a different version
+# For instance api_version=3 enables the new format of the packagings field
+foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 'rss', 'api_version') {
 
 	if (defined single_param($parameter)) {
 		$request_ref->{$parameter} = single_param($parameter);
@@ -78,13 +82,20 @@ foreach my $parameter ('fields', 'json', 'jsonp', 'jqm', 'jqm_loadmore', 'xml', 
 }
 
 # if the query request json or xml, either through the json=1 parameter or a .json extension
-# set the $request_ref->{api} field
+# set the $request_ref->{api} field to indicate that it is an API query
 if ((defined single_param('json')) or (defined single_param('jsonp')) or (defined single_param('xml'))) {
-	$request_ref->{api} = 'v0';
+	if (not defined $request_ref->{api_version}) {
+		$request_ref->{api_version} = 0;
+		$request_ref->{api} = 'v0';
+	}
+	else {
+		$request_ref->{api} = 'v' . $request_ref->{api_version};
+	}
 }
 
 my @search_fields
-  = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries ingredients additives allergens traces nutrition_grades nova_groups languages creator editors states);
+	= qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries
+	ingredients additives allergens traces nutrition_grades nova_groups ecoscore languages creator editors states);
 
 $admin and push @search_fields, "lang";
 
@@ -99,6 +110,8 @@ my %search_tags_fields = (
 	allergens => 1,
 	traces => 1,
 	nutrition_grades => 1,
+	nova_groups => 1,
+	eco_score => 1,
 	purchase_places => 1,
 	stores => 1,
 	countries => 1,
@@ -119,37 +132,37 @@ my $tags_n = 2;
 my $nutriments_n = 2;
 
 my $search_terms
-  = remove_tags_and_quote(decode utf8 => single_param('search_terms2'));    #advanced search takes precedence
+	= remove_tags_and_quote(decode utf8 => single_param('search_terms2'));    #advanced search takes precedence
 if ((not defined $search_terms) or ($search_terms eq '')) {
 	$search_terms = remove_tags_and_quote(decode utf8 => single_param('search_terms'));
 }
 
 # check if the search term looks like a barcode
-
 if (    (not defined single_param('json'))
 	and (not defined single_param('jsonp'))
 	and (not defined single_param('jqm'))
 	and (not defined single_param('jqm_loadmore'))
 	and (not defined single_param('xml'))
 	and (not defined single_param('rss'))
-	and ($search_terms =~ /^(\d{4,24})$/))
+	and ($search_terms =~ /^(\d{4,24}|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+)$/))
 {
 
 	my $code = normalize_code($search_terms);
+	if ((defined $code) and (length($code) > 0)) {
+		my $product_id = product_id_for_owner($Owner_id, $code);
 
-	my $product_id = product_id_for_owner($Owner_id, $code);
+		my $product_ref = product_exists($product_id);    # returns 0 if not
 
-	my $product_ref = product_exists($product_id);    # returns 0 if not
+		if ($product_ref) {
+			$log->info("product code exists, redirecting to product page", {code => $code});
+			my $location = product_url($product_ref);
 
-	if ($product_ref) {
-		$log->info("product code exists, redirecting to product page", {code => $code});
-		my $location = product_url($product_ref);
+			my $r = shift;
+			$r->headers_out->set(Location => $location);
+			$r->status(301);
+			return 301;
 
-		my $r = shift;
-		$r->headers_out->set(Location => $location);
-		$r->status(301);
-		return 301;
-
+		}
 	}
 }
 
@@ -284,12 +297,12 @@ if ($action eq 'display') {
 	for (my $i = 0; ($i < $tags_n) or defined single_param("tagtype_$i"); $i++) {
 
 		push @{$template_data_ref->{criteria}},
-		  {
+			{
 			id => $i,
 			selected_tags_field_value => $search_tags[$i][0],
 			selected_contain_value => $search_tags[$i][1],
 			input_value => $search_tags[$i][2],
-		  };
+			};
 	}
 
 	foreach my $tagtype (@search_ingredient_classes) {
@@ -297,12 +310,12 @@ if ($action eq 'display') {
 		not defined $search_ingredient_classes{$tagtype} and $search_ingredient_classes{$tagtype} = 'indifferent';
 
 		push @{$template_data_ref->{ingredients}},
-		  {
+			{
 			tagtype => $tagtype,
 			search_ingredient_classes_checked_without => $search_ingredient_classes_checked{$tagtype}{without},
 			search_ingredient_classes_checked_with => $search_ingredient_classes_checked{$tagtype}{with},
 			search_ingredient_classes_checked_indifferent => $search_ingredient_classes_checked{$tagtype}{indifferent},
-		  };
+			};
 	}
 
 	# Compute possible fields values
@@ -312,16 +325,28 @@ if ($action eq 'display') {
 		$axis_labels{$nid} = display_taxonomy_tag($lc, "nutrients", "zz:$nid");
 		$log->debug("nutriments", {nid => $nid, value => $axis_labels{$nid}}) if $log->is_debug();
 	}
-	push @axis_values, "additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n";
-	push @axis_values, "fruits-vegetables-nuts-estimate-from-ingredients";
-	push @axis_values, "forest_footprint";
-	$axis_labels{additives_n} = lang("number_of_additives");
-	$axis_labels{ingredients_n} = lang("ingredients_n_s");
-	$axis_labels{known_ingredients_n} = lang("known_ingredients_n_s");
-	$axis_labels{unknown_ingredients_n} = lang("unknown_ingredients_n_s");
+
+	my @other_search_fields = (
+		"additives_n", "ingredients_n", "known_ingredients_n", "unknown_ingredients_n",
+		"fruits-vegetables-nuts-estimate-from-ingredients",
+		"forest_footprint", "product_quantity", "nova_group", 'ecoscore_score',
+	);
+
+	# Add the fields related to packaging
+	foreach my $material ("all", "en:plastic", "en:glass", "en:metal", "en:paper-or-cardboard", "en:unknown") {
+		foreach my $subfield ("weight", "weight_100g", "weight_percent") {
+			push @other_search_fields, "packagings_materials.$material.$subfield";
+		}
+	}
+
 	$axis_labels{search_nutriment} = lang("search_nutriment");
 	$axis_labels{products_n} = lang("number_of_products");
-	$axis_labels{forest_footprint} = lang("forest_footprint");
+
+	foreach my $field (@other_search_fields) {
+		my ($title, $unit, $unit2, $allow_decimals) = get_search_field_title_and_details($field);
+		push @axis_values, $field;
+		$axis_labels{$field} = $title;
+	}
 
 	my @sorted_axis_values = ("", sort({lc($axis_labels{$a}) cmp lc($axis_labels{$b})} @axis_values));
 
@@ -329,10 +354,10 @@ if ($action eq 'display') {
 
 	foreach my $field (@sorted_axis_values) {
 		push @fields_options,
-		  {
+			{
 			value => $field,
 			label => $axis_labels{$field},
-		  };
+			};
 	}
 
 	$template_data_ref->{fields_options} = \@fields_options;
@@ -363,12 +388,12 @@ if ($action eq 'display') {
 	for (my $i = 0; ($i < $nutriments_n) or (defined single_param("nutriment_$i")); $i++) {
 
 		push @{$template_data_ref->{nutriments}},
-		  {
+			{
 			id => $i,
 			selected_field_value => $search_nutriments[$i][0],
 			selected_compare_value => $search_nutriments[$i][1],
 			input_value => $search_nutriments[$i][2],
-		  };
+			};
 	}
 
 	# Different types to display results
@@ -404,10 +429,10 @@ if ($action eq 'display') {
 	$template_data_ref->{axes} = [];
 	foreach my $axis ('x', 'y') {
 		push @{$template_data_ref->{axes}},
-		  {
+			{
 			id => $axis,
 			selected_field_value => $graph_ref->{"axis_" . $axis},
-		  };
+			};
 	}
 
 	foreach my $series (@search_series, "nutrition_grades") {
@@ -419,10 +444,10 @@ if ($action eq 'display') {
 		}
 
 		push @{$template_data_ref->{search_series}},
-		  {
+			{
 			series => $series,
 			checked => $checked,
-		  };
+			};
 
 	}
 
@@ -431,12 +456,12 @@ if ($action eq 'display') {
     max-height: 400px
 }
 CSS
-	  ;
+		;
 
 	$scripts .= <<HTML
 <script type="text/javascript" src="/js/dist/search.js"></script>
 HTML
-	  ;
+		;
 
 	$initjs .= <<JS
 var select2_options = {
@@ -452,7 +477,7 @@ var select2_options = {
 });
 
 JS
-	  ;
+		;
 
 	process_template('web/pages/search_form/search_form.tt.html', $template_data_ref, \$html) or $html = '';
 	$html .= "<p>" . $tt->error() . "</p>";
@@ -487,16 +512,16 @@ elsif ($action eq 'process') {
 			($search_terms !~ /,/)
 			and (  ($search_terms =~ /^(\w\w)(\s|-|\.)?(\d(\s|-|\.)?){5}(\s|-|\.|\d)*C(\s|-|\.)?E/i)
 				or ($search_terms =~ /^(emb|e)(\s|-|\.)?(\d(\s|-|\.)?){5}/i))
-		  )
+			)
 		{
 			$query_ref->{"emb_codes_tags"}
-			  = get_string_id_for_lang("no_language", normalize_packager_codes($search_terms));
+				= get_string_id_for_lang("no_language", normalize_packager_codes($search_terms));
 		}
 		else {
 
 			my %terms = ();
 
-			foreach my $term (split(/,|'|\s/, $search_terms)) {
+			foreach my $term (split(/,|'|’|\s/, $search_terms)) {
 				if (length(get_string_id_for_lang($lc, $term)) >= 2) {
 					$terms{normalize_search_terms(get_string_id_for_lang($lc, $term))} = 1;
 				}
@@ -563,7 +588,7 @@ elsif ($action eq 'process') {
 				}
 
 				$current_link .= "\&tagtype_$i=$tagtype\&tag_contains_$i=$contains\&tag_$i="
-				  . URI::Escape::XS::encodeURIComponent($tag);
+					. URI::Escape::XS::encodeURIComponent($tag);
 
 				# TODO: 2 or 3 criteria on the same field
 				# db.foo.find( { $and: [ { a: 1 }, { a: { $gt: 5 } } ] } ) ?
@@ -619,7 +644,7 @@ elsif ($action eq 'process') {
 				}
 			}
 			$current_link .= "\&nutriment_$i=$nutriment\&nutriment_compare_$i=$compare\&nutriment_value_$i="
-			  . URI::Escape::XS::encodeURIComponent($value);
+				. URI::Escape::XS::encodeURIComponent($value);
 
 			# TODO support range queries: < and > on the same nutriment
 			# my $doc32 = $collection->find({'x' => { '$gte' => 2, '$lt' => 4 }});
@@ -650,13 +675,13 @@ elsif ($action eq 'process') {
 	foreach my $axis ('x', 'y') {
 		if ((defined single_param("axis_$axis")) and (single_param("axis_$axis") ne '')) {
 			$current_link
-			  .= "\&axis_$axis=" . URI::Escape::XS::encodeURIComponent(decode utf8 => single_param("axis_$axis"));
+				.= "\&axis_$axis=" . URI::Escape::XS::encodeURIComponent(decode utf8 => single_param("axis_$axis"));
 		}
 	}
 
 	if ((defined single_param('graph_title')) and (single_param('graph_title') ne '')) {
 		$current_link
-		  .= "\&graph_title=" . URI::Escape::XS::encodeURIComponent(decode utf8 => single_param("graph_title"));
+			.= "\&graph_title=" . URI::Escape::XS::encodeURIComponent(decode utf8 => single_param("graph_title"));
 	}
 
 	if ((defined single_param('map_title')) and (single_param('map_title') ne '')) {
@@ -686,7 +711,7 @@ elsif ($action eq 'process') {
 	my $download = single_param("download") || '';
 
 	open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log_debug");
-	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => single_param('search_terms') . " - map: $map 
+	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => single_param('search_terms') . " - map: $map
 	 - graph: $graph - download: $download - page: $page\n";
 	close($OUT);
 
@@ -705,7 +730,6 @@ elsif ($action eq 'process') {
 		if ($map_title ne '') {
 			$request_ref->{title} = $map_title . " - " . lang("search_map");
 		}
-		$request_ref->{full_width} = 1;
 
 		${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
@@ -714,14 +738,14 @@ elsif ($action eq 'process') {
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
-		  ;
+			;
 
 		display_page($request_ref);
 	}
 	elsif (
 		single_param("generate_graph_scatter_plot")    # old parameter, kept for existing links
 		or single_param("graph")
-	  )
+		)
 	{
 
 		$graph_ref->{type} = "scatter_plot";
@@ -729,13 +753,13 @@ HTML
 
 		# We want existing values for axis fields
 		foreach my $axis ('x', 'y') {
-			if (    ($graph_ref->{"axis_$axis"} ne "")
-				and ($graph_ref->{"axis_$axis"} ne "forest_footprint")
-				and ($graph_ref->{"axis_$axis"} !~ /_n$/))
-			{
-				(defined $query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"})
-				  or $query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"} = {};
-				$query_ref->{"nutriments." . $graph_ref->{"axis_$axis"} . "_100g"}{'$exists'} = 1;
+
+			if ($graph_ref->{"axis_$axis"} ne "") {
+				my $field = $graph_ref->{"axis_$axis"};
+				# Get the field path components
+				my @fields = get_search_field_path_components($field);
+				# Convert to dot notation to get the MongoDB field
+				$query_ref->{join(".", @fields)} = {'$exists' => 1};
 			}
 		}
 
@@ -745,7 +769,6 @@ HTML
 		if ($graph_ref->{graph_title} ne '') {
 			$request_ref->{title} = $graph_ref->{graph_title} . " - " . lang("search_graph");
 		}
-		$request_ref->{full_width} = 1;
 
 		${$request_ref->{content_ref}} .= <<HTML
 <div class="share_button right" style="float:right;margin-top:-10px;display:none;">
@@ -754,7 +777,7 @@ HTML
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
-		  ;
+			;
 
 		display_page($request_ref);
 	}
@@ -773,7 +796,7 @@ HTML
 		$log->debug("displaying results", {current_link => $request_ref->{current_link}}) if $log->is_debug();
 
 		${$request_ref->{content_ref}}
-		  .= $html . search_and_display_products($request_ref, $query_ref, $sort_by, $limit, $page);
+			.= $html . search_and_display_products($request_ref, $query_ref, $sort_by, $limit, $page);
 
 		$request_ref->{title} = lang("search_results") . " - " . display_taxonomy_tag($lc, "countries", $country);
 
@@ -786,7 +809,7 @@ HTML
 	<span class="show-for-large-up"> $share</span>
 </a></div>
 HTML
-			  ;
+				;
 			display_page($request_ref);
 		}
 		else {
@@ -796,15 +819,16 @@ HTML
 
 			my $data = encode_json(\%response);
 
-			print "Content-Type: application/json; charset=UTF-8\r\nAccess-Control-Allow-Origin: *\r\n\r\n" . $data;
+			write_cors_headers();
+			print "Content-Type: application/json; charset=UTF-8\r\n\r\n" . $data;
 		}
 
 		if (single_param('search_terms')) {
 			open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log");
 			print $OUT remote_addr() . "\t"
-			  . time() . "\t"
-			  . decode utf8 => single_param('search_terms')
-			  . "\tpage: $page\n";
+				. time() . "\t"
+				. decode utf8 => single_param('search_terms')
+				. "\tpage: $page\n";
 			close($OUT);
 		}
 	}

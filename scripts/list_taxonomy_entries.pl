@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -41,7 +41,7 @@ list_taxonomy_entries.pl --type ingredients --inherited-property vegan:en=yes
 -> list all ingredients with an inherited value "yes" for the  vegan:en property
 
 TXT
-;
+	;
 
 binmode(STDIN, ":encoding(UTF-8)");
 binmode(STDOUT, ":encoding(UTF-8)");
@@ -54,32 +54,31 @@ use ProductOpener::Tags qw/:all/;
 use Getopt::Long;
 
 my $tagtype;
-my $property_ref = { property=>{}, inherited_property=>{}};
+my $property_ref = {property => {}, inherited_property => {}};
 
-GetOptions ("type=s"   => \$tagtype,      # string
-			"property=s%" => $property_ref->{property},
-			"inherited-property=s%" => $property_ref->{inherited_property},
-			)
-  or die("Error in command line arguments:\n\n$usage\n");
-
+GetOptions(
+	"type=s" => \$tagtype,    # string
+	"property=s%" => $property_ref->{property},
+	"inherited-property=s%" => $property_ref->{inherited_property},
+) or die("Error in command line arguments:\n\n$usage\n");
 
 if (not defined $tagtype) {
-	die ("missing the taxonomy type argument.\n\n$usage\n");
+	die("missing the taxonomy type argument.\n\n$usage\n");
 }
 elsif (defined $translations_to{$tagtype}) {
 	foreach my $tagid (sort keys %{$translations_to{$tagtype}}) {
 		# Skip synonyms
 		next if ((exists $just_synonyms{$tagtype}) and (exists $just_synonyms{$tagtype}{$tagid}));
-		
+
 		my $match = 1;
-		
+
 		foreach my $property_type ("property", "inherited_property") {
-		
+
 			if (defined $property_ref) {
 				foreach my $property (sort keys %{$property_ref->{$property_type}}) {
-					
+
 					my $query = $property_ref->{$property_type}{$property};
-					
+
 					my $value;
 					if ($property_type eq "property") {
 						$value = get_property($tagtype, $tagid, $property);
@@ -87,7 +86,7 @@ elsif (defined $translations_to{$tagtype}) {
 					else {
 						$value = get_inherited_property($tagtype, $tagid, $property);
 					}
-									
+
 					if (($query eq 'null') or ($query eq '')) {
 						if (defined $value) {
 							$match = 0;
@@ -112,19 +111,19 @@ elsif (defined $translations_to{$tagtype}) {
 					}
 				}
 			}
-			
+
 			if (not $match) {
 				last;
 			}
 		}
-		
+
 		if ($match) {
 			print $tagid . "\n";
 		}
 	}
 }
 else {
-	die ("$tagtype is not an existing built taxonomy\n\n$usage\n");
+	die("$tagtype is not an existing built taxonomy\n\n$usage\n");
 }
 
 exit(0);

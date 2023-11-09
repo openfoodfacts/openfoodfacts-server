@@ -1,0 +1,244 @@
+<!-- start templates/[% template.name %] -->
+
+<initjs>
+var packaging_shapes_select2_options = [% generate_select2_options_for_taxonomy_to_json("packaging_shapes") %];
+var packaging_materials_select2_options = [% generate_select2_options_for_taxonomy_to_json("packaging_materials") %];
+var packaging_recycling_select2_options = [% generate_select2_options_for_taxonomy_to_json("packaging_recycling") %];
+</initjs>
+
+<p>[% lang('packaging_parts') %]</p>
+    
+<div id="packagings_components_edit">
+
+    <ul>
+        <li><b>[% lang("packaging_number_of_units") %][% sep %]:</b> [% lang("packaging_number_of_units_description") %]</li>
+        <li><b>[% lang("packaging_shape") %][% sep %]:</b> [% lang("packaging_shape_description") %]</li>
+        <li><b>[% lang("packaging_material") %][% sep %]:</b> [% lang("packaging_material_description") %]</li>
+        <li><b>[% lang("packaging_recycling") %][% sep %]:</b> [% lang("packaging_recycling_description") %]</li>
+        <li><b>[% lang("packaging_weight") %][% sep %]:</b> [% lang("packaging_weight_description") %]</li>
+        <li><b>[% lang("packaging_quantity_per_unit") %][% sep %]:</b> [% lang("packaging_quantity_per_unit_description") %]</li>
+    </ul>
+
+    <!-- header row for large display -->
+    <div class="row show-for-large-up" id="packagings_components_edit_header">
+        <div class="large-1 columns">[% lang("packaging_number_of_units") %]</div>
+        <div class="large-3 columns">[% lang("packaging_shape") %]</div>
+        <div class="large-3 columns">[% lang("packaging_material") %]</div>
+        <div class="large-3 columns">[% lang("packaging_recycling") %]</div>
+        <div class="large-1 columns">[% lang("packaging_weight") %] (g)</div>
+        <div class="large-1 columns">[% lang("packaging_quantity_per_unit") %]</div>
+    </div>
+
+[% FOREACH packaging IN product.packagings %]
+    [% SET packaging_id = "packaging_" _ loop.index() %]
+    <div class="row packagings_components_edit_row" id="[% packaging_id %]_row">
+        <div class="small-12 large-1 columns">
+
+            <!-- label for small displays -->
+            <label class="hide-for-large-up" for="[% packaging_id %]_number_of_units">[% lang("packaging_number_of_units") %]</label>
+
+            <div class="row">
+                <div class="small-12 large-4 columns delete_packaging_column">
+                    <a class="delete_packaging" id="[% packaging_id %]_delete">
+                        <span class="material-icons">
+                            delete
+                        </span>
+                    </a>
+                </div>
+
+                <div class="small-12 large-8 columns">
+                    <input id="[% packaging_id %]_number_of_units" name="[% packaging_id %]_number_of_units" type="text" value="[% packaging.number_of_units %]">
+                </div>
+            </div>
+        </div>
+
+        [% FOREACH property IN ["shape", "material", "recycling"] %]
+
+            [% IF property == "shape" %]
+                [% SET taxonomy = "packaging_shapes" %]
+            [% ELSIF property == "material" %]
+                [% SET taxonomy = "packaging_materials" %]
+            [% ELSIF property == "recycling" %]
+                [% SET taxonomy = "packaging_recycling" %]
+            [% END %]
+
+            [% SET select2_id = packaging_id _ "_$property" %]
+
+            <div class="small-12 large-3 columns">
+                <label class="hide-for-large-up" for="[% select2_id %]">[% lang("packaging_$property") %]</label>
+                <select id="[% select2_id %]" name="[% select2_id %]" class="form-control [% taxonomy %]_select2">
+                    <option></option>
+                </select>
+            </div>
+
+            <!-- row 0 is a template for new row, we do not populate it -->
+            [% IF packaging_max > 0 %]
+                <initjs>
+                    configure_packaging_select2("[% select2_id %]", "[% taxonomy %]", "[% lang("packaging_$property") %]" )
+
+                    [% IF packaging.$property.defined %]
+                    // Set the value, creating a new option if necessary (for non taxonomy values)
+                    var value = "[% display_taxonomy_tag(taxonomy, packaging.$property) %]";
+                    if (\$("#[% select2_id %]").find("option[value='" + value.replace(/'/g, "\\'") + "']").length) {
+                        \$("#[% select2_id %]").val(value).trigger('change');
+                    } else { 
+                        // Create a DOM Option and pre-select by default
+                        var newOption = new Option(value, value, true, true);
+                        // Append it to the select
+                        \$("#[% select2_id %]").append(newOption).trigger('change');
+                    } 
+                    [% END %]
+
+                    \$("#[% packaging_id %]_delete").click(function(event) {
+                        event.stopPropagation();
+                        event.preventDefault();
+                        \$("#[% packaging_id %]_row").remove();
+                    });
+                </initjs>
+            [% END %]
+                
+        [% END %]
+
+        <div class="small-12 large-1 columns">
+            <label class="hide-for-large-up" for="[% packaging_id %]_weight_measured">[% lang("packaging_weight") %] (g)</label>
+            [%# if we have a weight_specified from the manufacturer, we don't show the weight_measured field %]
+            [% IF packaging.weight_specified.defined %]
+                <input id="[% packaging_id %]_weight_specified" name="[% packaging_id %]_weight_specified" type="hidden" value="[% packaging.weight_specified %]" %]">
+                <input id="[% packaging_id %]_weight_measured" name="[% packaging_id %]_weight_measured" type="hidden" value="[% packaging.weight_measured %]" %]">
+            [% packaging.weight_specified %]
+            [% ELSE %]
+                <input id="[% packaging_id %]_weight_measured" name="[% packaging_id %]_weight_measured" type="text" value="[% packaging.weight_measured %]" %]">
+            [% END %]
+        </div>
+
+        <div class="small-12 large-1 columns">
+            <label class="hide-for-large-up" for="[% packaging_id %]_quantity_per_unit">[% lang("packaging_quantity_per_unit") %]</label>
+            <input id="[% packaging_id %]_quantity_per_unit" name="[% packaging_id %]_quantity_per_unit" type="text" value="[% packaging.quantity_per_unit %]" %]">
+        </div>        
+
+    </div>
+
+    [% SET packaging_max = loop.max() %]
+[% END %]
+
+<input type="hidden" name="packaging_max" value="[% packaging_max %]">
+
+<initjs>
+// defined by the FOREACH loop above
+var packaging_max = [% packaging_max %];
+
+/**
+ * Configure the select2 dropdown with autocomplete for shape, material and recycling
+ */
+function configure_packaging_select2(select2_id, taxonomy, placeholder) {
+    
+    \$("#" + select2_id).select2({
+        placeholder: placeholder,
+        allowClear:true,
+        tags: true,
+        ajax: {
+            url: '/api/v3/taxonomy_suggestions?limit=400&tagtype=' + taxonomy,
+            data: function (params) {
+                // tagify has values in a JSON array, parse it and convert it to a commas separated list
+                var categories_json = \$("#categories").val()
+                
+                var query = {
+                    string: params.term,
+                }
+                // If the product has categories, pass them to get better suggestions
+                if (categories_json) {
+                    var categories_array = JSON.parse(categories_json);
+                    query.categories = categories_array.map(item => item.value).join(',');
+                }
+                // If the select2 is for the material, send the corresponding selected shape
+                if (taxonomy == "packaging_materials") {
+                    
+                    var shape_select2_id = select2_id.replace('_material', '_shape');
+                    query.shape = \$("#" + shape_select2_id).val();
+                }
+                return query;
+            },
+            processResults: function (data) {
+                if (data.suggestions) {
+                    return {
+                        // transform the simple array of suggestions in array of objects expected by select2
+                        results: Array.from(data.suggestions, function (element) { return {"id": element, "text": element}; }) 
+                    };
+                }
+            }
+        }
+    });
+}
+
+/**
+ * Add a new row of packaging data
+ */
+function add_packaging() {
+
+    // row that triggers new row addition is no more the last row
+    // remove events and let it be removed
+    \$(this).unbind("select2:select");
+    \$("#packaging_" + packaging_max + "_delete").show();
+
+    packaging_max = packaging_max + 1;
+    \$('input[name="packaging_max"]').val(packaging_max);
+
+    var new_packaging_id = "packaging_" + packaging_max;
+    // row 0 is our template row
+    var new_packaging_html = \$("#packaging_0_row")[0].outerHTML;
+    new_packaging_html = new_packaging_html.replaceAll("packaging_0", new_packaging_id);
+    
+    \$("#packagings_components_edit").append(new_packaging_html);
+
+    [% FOREACH property IN ["shape", "material", "recycling"] %]
+
+        [% IF property == "shape" %]
+            [% SET taxonomy = "packaging_shapes" %]
+        [% ELSIF property == "material" %]
+            [% SET taxonomy = "packaging_materials" %]
+        [% ELSIF property == "recycling" %]
+            [% SET taxonomy = "packaging_recycling" %]
+        [% END %]
+        
+         configure_packaging_select2(new_packaging_id + "_$property", "$taxonomy", "[% lang("packaging_$property") %]");
+
+    [% END %]
+
+    \$("#" + new_packaging_id + "_delete").click(function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        \$("#" + new_packaging_id + "_row").remove();
+    }).hide();    
+
+    \$("#" + new_packaging_id + "_shape").on('select2:select', add_packaging);
+}
+
+[%# packaging_id contains our last row %]
+// last row triggers addition of a new row
+\$("#[% packaging_id %]_shape").on('select2:select', add_packaging);
+// disable removal of last row
+\$("#[% packaging_id %]_delete").hide()
+
+
+/**
+ * select2 auto-open options
+ */
+\$(document).on("focus", ".select2", function (e) {
+    if (e.originalEvent) {
+      var s2element = \$(this).siblings("select:enabled");
+      s2element.select2("open");
+      // Set focus back to select2 element on closing.
+      s2element.on("select2:closing", function () {
+        if (s2element.val()) s2element.select2("focus");
+      });
+    }
+  });
+
+</initjs>
+
+</div>
+
+<input type="checkbox" id="packagings_complete" name="packagings_complete" [% IF product.packagings_complete %]checked[% END %] />
+<label for="packagings_complete" class="checkbox_label">[% lang('packagings_complete') %]</label><br/>
+    
+<!-- end templates/[% template.name %] -->

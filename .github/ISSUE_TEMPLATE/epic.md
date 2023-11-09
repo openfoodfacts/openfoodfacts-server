@@ -3,7 +3,7 @@ name: Epic
 about: Template for epics. Epics group several user stories together into a main piece
   of added value.
 title: ''
-labels: "♞ epic"
+labels: "epic"
 assignees: ''
 
 ---
@@ -18,4 +18,4 @@ assignees: ''
 ### Who for
 
 ### Part of
-- Add the parent issue number preceded by # (that also allows searching by name for similar issues): eg #5529
+- #525 <!-- Please remplace 525 by the most specific parent issue possible -->

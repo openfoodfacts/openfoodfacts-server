@@ -54,6 +54,18 @@
 <p>&rarr; <a href="/nova">[% lang("nova_classification_learn_more") %]</a></p>
 `
             },        
-        },        
+        },
+[% IF product.nova_group_error == 'missing_ingredients' %]
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("action_add_ingredients_image") %]`,
+                "actions": [
+                    "add_ingredients_image"
+                ]
+            }
+        },
+[% END %]
+
     ]
 }

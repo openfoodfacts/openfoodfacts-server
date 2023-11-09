@@ -1,22 +1,22 @@
 #!/usr/bin/perl -w
 
 # This file is part of Product Opener.
-# 
+#
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
-# 
+#
 # Product Opener is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
@@ -32,7 +32,7 @@ Usage:
 update_all_products.pl --dir [target directory to copy images]
 
 TXT
-;
+	;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -58,20 +58,17 @@ use Encode;
 use JSON::PP;
 use JSON::PP;
 
-
 use Getopt::Long;
-
 
 my $target_dir;
 
+GetOptions(
+	"dir=s" => \$target_dir,    # string
+) or die("Error in command line arguments:\n\n$usage");
 
-GetOptions ("dir=s"   => \$target_dir,      # string
-			)
-  or die("Error in command line arguments:\n\n$usage");
-  
 (defined $target_dir) or die("Please specify --dir target directory:\n\n$usage");
 
-if (! -e $target_dir) {
+if (!-e $target_dir) {
 	mkdir($target_dir, 0755) or die("Could not create target directory $target_dir : $!\n");
 }
 
@@ -86,24 +83,23 @@ $cursor->immortal(1);
 
 my $i = 0;
 my $images_copied = 0;
-	
+
 my $n = 0;
-	
+
 while (my $product_ref = $cursor->next) {
-	
+
 	my $code = $product_ref->{code};
 	my $path = product_path($code);
-	
-	$i++;
 
+	$i++;
 
 	$product_ref = retrieve_product($code);
 
 	if (defined $product_ref) {
 
 		my $dir = "$www_root/images/products/$path";
-		
-		next if ! -e $dir;
+
+		next if !-e $dir;
 
 		next if not defined $product_ref->{images};
 
@@ -116,19 +112,19 @@ while (my $product_ref = $cursor->next) {
 			$ingredients_imgid = "ingredients_" . $plc;
 		}
 		elsif (defined $product_ref->{images}{"ingredients"}) {
-                        $ingredients_imgid = "ingredients";
-                }
+			$ingredients_imgid = "ingredients";
+		}
 
 		if (defined $product_ref->{images}{"nutrition_" . $plc}) {
-                        $nutrition_imgid = "nutrition_" . $plc;
-                }
-                elsif (defined $product_ref->{images}{"nutrition"}) {
-                        $nutrition_imgid = "nutrition";
-                }
+			$nutrition_imgid = "nutrition_" . $plc;
+		}
+		elsif (defined $product_ref->{images}{"nutrition"}) {
+			$nutrition_imgid = "nutrition";
+		}
 
 		next if not defined $ingredients_imgid;
 		next if not defined $nutrition_imgid;
-		
+
 		print STDERR "\nproduct code: $code - path: $path\n";
 
 		$product_ref->{ingredients_imgid} = $ingredients_imgid;
@@ -137,26 +133,25 @@ while (my $product_ref = $cursor->next) {
 		my %imgids = ();
 		$imgids{$product_ref->{images}{$ingredients_imgid}{imgid}} = 1;
 		$imgids{$product_ref->{images}{$nutrition_imgid}{imgid}} = 1;
-		
+
 		foreach my $imgid (sort keys %imgids) {
 
-				print STDERR "copying imgid: $imgid\n";
+			print STDERR "copying imgid: $imgid\n";
 
-				require File::Copy;
-				File::Copy::copy( "$dir/$imgid.jpg",
-					"$target_dir/$code" . '_' . $imgid . ".jpg" )
-					or print STDERR ("could not copy: $!\n");
+			require File::Copy;
+			File::Copy::copy("$dir/$imgid.jpg", "$target_dir/$code" . '_' . $imgid . ".jpg")
+				or print STDERR ("could not copy: $!\n");
 
-				$images_copied++;
+			$images_copied++;
 		}
 
 		my $json_file = "$target_dir/$code" . ".json";
-		open (my $OUT, ">:encoding(UTF-8)", "$json_file");
+		open(my $OUT, ">:encoding(UTF-8)", "$json_file");
 		print $OUT encode_json($product_ref);
 		close $OUT;
 
 		$n++;
-#		($n > 10) and last;
+		#		($n > 10) and last;
 	}
 }
 

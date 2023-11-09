@@ -1,33 +1,60 @@
 {
    "lc" : "fr",
+   "misc_tags" : [
+      "en:packagings-number-of-components-4",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty"
+   ],
+   "packaging_materials_tags" : [
+      "en:hdpe-2-high-density-polyethylene",
+      "en:metal",
+      "en:paper"
+   ],
+   "packaging_recycling_tags" : [
+      "en:recycle"
+   ],
+   "packaging_shapes_tags" : [
+      "en:bottle",
+      "en:bottle-cap",
+      "en:label",
+      "en:seal"
+   ],
    "packaging_text" : "1 bouteille en plastique opaque PE-HD de 1L à recycler\n1 bouchon en plastique opaque PE-HD à recycler\n1 opercule en métal à recycler\n1 étiquette en papier à recycler",
    "packagings" : [
       {
-         "material" : "en:hdpe-high-density-polyethylene",
-         "number" : "1",
-         "quantity" : "1l",
-         "quantity_unit" : "l",
-         "quantity_value" : "1",
+         "material" : "en:hdpe-2-high-density-polyethylene",
+         "number_of_units" : 1,
+         "quantity_per_unit" : "1l",
+         "quantity_per_unit_unit" : "l",
+         "quantity_per_unit_value" : 1,
          "recycling" : "en:recycle",
          "shape" : "en:bottle"
       },
       {
-         "material" : "en:hdpe-high-density-polyethylene",
-         "number" : "1",
+         "material" : "en:hdpe-2-high-density-polyethylene",
+         "number_of_units" : 1,
          "recycling" : "en:recycle",
          "shape" : "en:bottle-cap"
       },
       {
          "material" : "en:metal",
-         "number" : "1",
+         "number_of_units" : 1,
          "recycling" : "en:recycle",
          "shape" : "en:seal"
       },
       {
          "material" : "en:paper",
-         "number" : "1",
+         "number_of_units" : 1,
          "recycling" : "en:recycle",
          "shape" : "en:label"
       }
-   ]
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:metal" : {},
+      "en:paper-or-cardboard" : {},
+      "en:plastic" : {}
+   },
+   "packagings_n" : 4
 }
