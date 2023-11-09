@@ -1,6 +1,6 @@
-////////////////
+///////////////////
 //// topbar
-//
+
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] { background-color: $chocolate !important; }
 
@@ -284,9 +284,8 @@
   }
 }
 
-//
 //// end topbar gen
-////////////////
+///////////////////
 
 @media #{$topbar-media-query} {
   #offNav {

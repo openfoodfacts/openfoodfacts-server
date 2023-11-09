@@ -29,6 +29,7 @@ jobs:
         echo "REDIS_URL=searchredis:6379" >> $GITHUB_ENV
         echo "MONGODB_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "ROBOTOFF_URL=https://robotoff.openfoodfacts.net" >> $GITHUB_ENV
+        echo "QUERY_URL=http://10.1.0.200:5511" >> $GITHUB_ENV
         echo "PRODUCT_OPENER_DOMAIN=openfoodfacts.net" >> $GITHUB_ENV
         echo "PRODUCT_OPENER_FLAVOR=openfoodfacts" >> $GITHUB_ENV
         echo "PRODUCT_OPENER_FLAVOR_SHORT=off" >> $GITHUB_ENV
@@ -144,6 +145,7 @@ jobs:
           echo "POSTGRES_USER=${{ env.POSTGRES_USER }}" >> .env
           echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> .env
           echo "ROBOTOFF_URL=${{ env.ROBOTOFF_URL }}" >> .env
+          echo "QUERY_URL=${{ env.QUERY_URL }}" >> .env
           echo "REDIS_URL=${{ env.REDIS_URL }}" >> .env
           echo "FACETS_KP_URL=${{ env.FACETS_KP_URL }}" >> .env
           echo "GOOGLE_CLOUD_VISION_API_KEY=${{ secrets.GOOGLE_CLOUD_VISION_API_KEY }}" >> .env

@@ -89,6 +89,9 @@ requires 'Action::Retry'; # deps: libmath-fibonacci-perl
 requires 'AnyEvent';
 requires 'AnyEvent::Inotify::Simple';
 
+# GS1 Encoder
+requires 'GS1::SyntaxEngine::FFI';
+
 on 'test' => sub {
   requires 'Test::More', '>= 1.302186, < 2.0';
   requires 'Test::MockModule';
