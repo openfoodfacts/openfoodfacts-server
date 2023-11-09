@@ -1,0 +1,96 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:orange-juice",
+         "labels" : "en:no-preservatives",
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "text" : "jus d'orange",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "26036",
+         "id" : "en:salmon",
+         "labels" : "en:sustainable-seafood-msc",
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "saumon",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:salmon"
+      ],
+      "en:non-vegetarian" : [
+         "en:salmon"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:orange-juice",
+      "en:fruit",
+      "en:citrus-fruit",
+      "en:juice",
+      "en:fruit-juice",
+      "en:orange",
+      "en:salmon",
+      "en:fish",
+      "en:oily-fish"
+   ],
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:orange-juice",
+      "en:salmon"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:orange-juice",
+      "en:fruit",
+      "en:citrus-fruit",
+      "en:juice",
+      "en:fruit-juice",
+      "en:orange",
+      "en:salmon",
+      "en:fish",
+      "en:oily-fish"
+   ],
+   "ingredients_text" : "jus d'orange (sans conservateur), saumon (msc), sans gluten",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:orange-juice"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "known_ingredients_n" : 9,
+   "labels" : "en:no-gluten",
+   "labels_hierarchy" : [
+      "en:no-gluten"
+   ],
+   "labels_lc" : "fr",
+   "labels_tags" : [
+      "en:no-gluten"
+   ],
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 75,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 75,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 75,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 75
+   },
+   "unknown_ingredients_n" : 0
+}

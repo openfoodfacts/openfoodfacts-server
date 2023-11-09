@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2021 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -25,7 +25,7 @@ ProductOpener::Food - functions related to food products and nutrition
 =head1 DESCRIPTION
 
 The C<ProductOpener::FoodGroups> module contains functions to determine a product
-food group. Food groups are a 3 level hiearchy of groups that are used by researchers
+food group. Food groups are a 3 level hierarchy of groups that are used by researchers
 (in particular researches from the EREN team that created the Nutri-Score).
 
 In France, food groups are referred to as "PNNS groups" (PNNS stands for "Programme National Nutrition et Santé").
@@ -34,21 +34,19 @@ In France, food groups are referred to as "PNNS groups" (PNNS stands for "Progra
 
 package ProductOpener::FoodGroups;
 
-use utf8;
-use Modern::Perl '2017';
-use Exporter    qw< import >;
+use ProductOpener::PerlStandards;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&compute_food_groups
 
-		);    # symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
@@ -139,9 +137,7 @@ For a time, we will compute both the old PNNS groups and the new food groups, so
 
 =cut
 
-sub compute_pnns_groups($) {
-
-	my $product_ref = shift;
+sub compute_pnns_groups ($product_ref) {
 
 	delete $product_ref->{pnns_groups_1};
 	delete $product_ref->{pnns_groups_1_tags};
@@ -159,28 +155,35 @@ sub compute_pnns_groups($) {
 	# compute PNNS groups 2 and 1
 
 	foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
-		if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{"pnns_group_2:en"})) {
+		if (    (defined $properties{categories}{$categoryid})
+			and (defined $properties{categories}{$categoryid}{"pnns_group_2:en"}))
+		{
 
 			# skip the sweetened / unsweetened if it is alcoholic
-			next if ((has_tag($product_ref, 'categories', 'en:alcoholic-beverages'))
-				and (
-					($categoryid eq 'en:sweetened-beverages')
+			next
+				if (
+				(has_tag($product_ref, 'categories', 'en:alcoholic-beverages'))
+				and (  ($categoryid eq 'en:sweetened-beverages')
 					or ($categoryid eq 'en:artificially-sweetened-beverages')
-					or ($categoryid eq 'en:unsweetened-beverages')
-				)
+					or ($categoryid eq 'en:unsweetened-beverages'))
 				);
 
-
 			# skip the category en:sweetened-beverages if we have the category en:artificially-sweetened-beverages
-			next if (($categoryid eq 'en:sweetened-beverages') and has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'));
+			next
+				if (($categoryid eq 'en:sweetened-beverages')
+				and has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'));
 
 			# skip waters and flavored waters if we have en:artificially-sweetened-beverages or en:sweetened-beverages
-			next if (
-				(($properties{categories}{$categoryid}{"pnns_group_2:en"} eq "Waters and flavored waters")
-				or ($properties{categories}{$categoryid}{"pnns_group_2:en"} eq "Teas and herbal teas and coffees"))
+			next
+				if (
+				(
+					   ($properties{categories}{$categoryid}{"pnns_group_2:en"} eq "Waters and flavored waters")
+					or ($properties{categories}{$categoryid}{"pnns_group_2:en"} eq "Teas and herbal teas and coffees")
+				)
 
-				and ( has_tag($product_ref, 'categories', 'en:sweetened-beverages')
-					or has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages')));
+				and (  has_tag($product_ref, 'categories', 'en:sweetened-beverages')
+					or has_tag($product_ref, 'categories', 'en:artificially-sweetened-beverages'))
+				);
 
 			$product_ref->{pnns_groups_2} = $properties{categories}{$categoryid}{"pnns_group_2:en"};
 			$product_ref->{pnns_groups_2_tags} = [get_string_id_for_lang("en", $product_ref->{pnns_groups_2}), "known"];
@@ -198,7 +201,8 @@ sub compute_pnns_groups($) {
 			$product_ref->{pnns_groups_1_tags} = [get_string_id_for_lang("en", $product_ref->{pnns_groups_1}), "known"];
 		}
 		else {
-			$log->warn("no pnns group 1 for pnns group 2", { pnns_group_2 => $product_ref->{pnns_groups_2} }) if $log->is_warn();
+			$log->warn("no pnns group 1 for pnns group 2", {pnns_group_2 => $product_ref->{pnns_groups_2}})
+				if $log->is_warn();
 		}
 	}
 	else {
@@ -209,8 +213,8 @@ sub compute_pnns_groups($) {
 		$product_ref->{pnns_groups_1} = "unknown";
 		$product_ref->{pnns_groups_1_tags} = ["unknown", "missing-association"];
 	}
+	return;
 }
-
 
 =head2 compute_food_groups ( $product_ref )
 
@@ -228,44 +232,46 @@ All levels food groups are stored in $product_ref->{food_groups_tags}
 
 =cut
 
-sub compute_food_groups($) {
+sub compute_food_groups ($product_ref) {
 
-	my $product_ref = shift;
-
-    $product_ref->{nutrition_score_beverage} = is_beverage_for_nutrition_score($product_ref);
+	$product_ref->{nutrition_score_beverage} = is_beverage_for_nutrition_score_2021($product_ref);
 
 	# Temporarily change categories (backup old one in original_categories_tags)
 	temporarily_change_categories_for_food_groups_computation($product_ref);
 
-    delete $product_ref->{food_groups};
+	delete $product_ref->{food_groups};
 
-    # Find the first category with a defined value for the property
+	# Find the first category with a defined value for the property
 
-    if (defined $product_ref->{categories_tags}) {
-        foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
-            if ((defined $properties{categories}{$categoryid}) and (defined $properties{categories}{$categoryid}{"food_groups:en"})) {
-                $product_ref->{food_groups} = $properties{categories}{$categoryid}{"food_groups:en"};
-				$log->debug("found food group for category", { category_id => $categoryid, food_groups => $product_ref->{food_groups} }) if $log->is_debug();
-                last;
-            }
-        }
-    }
-    
+	if (defined $product_ref->{categories_tags}) {
+		foreach my $categoryid (reverse @{$product_ref->{categories_tags}}) {
+			if (    (defined $properties{categories}{$categoryid})
+				and (defined $properties{categories}{$categoryid}{"food_groups:en"}))
+			{
+				$product_ref->{food_groups} = $properties{categories}{$categoryid}{"food_groups:en"};
+				$log->debug("found food group for category",
+					{category_id => $categoryid, food_groups => $product_ref->{food_groups}})
+					if $log->is_debug();
+				last;
+			}
+		}
+	}
+
 	# Compute the food groups tags, including parents, in food_groups_tags
-	$product_ref->{food_groups_tags} = [ gen_tags_hierarchy_taxonomy("en", "food_groups", $product_ref->{food_groups}) ];
+	$product_ref->{food_groups_tags} = [gen_tags_hierarchy_taxonomy("en", "food_groups", $product_ref->{food_groups})];
 
 	# Compute old PNNS groups tags, for comparison.
 	# Will eventually be removed.
-    compute_pnns_groups($product_ref);
+	compute_pnns_groups($product_ref);
 
 	# Put back the original categories_tags so that they match what is in the taxonomy field
 	# if there is a mistmatch it can cause tags to be added multiple times (e.g. with imports)
 	if (defined $product_ref->{original_categories_tags}) {
 		$product_ref->{categories_tags} = [@{$product_ref->{original_categories_tags}}];
 		delete $product_ref->{original_categories_tags};
-	}	
+	}
+	return;
 }
-
 
 =head2 temporarily_change_categories_for_food_groups_computation ( $product_ref )
 
@@ -290,9 +296,7 @@ Original categories are saved in $product_ref->{original_categories_tags}
 
 =cut
 
-sub temporarily_change_categories_for_food_groups_computation($) {
-
-	my $product_ref = shift;
+sub temporarily_change_categories_for_food_groups_computation ($product_ref) {
 
 	# Only add or remove categories tags temporarily for determining the food groups / PNNS groups
 	# save the original value
@@ -308,13 +312,15 @@ sub temporarily_change_categories_for_food_groups_computation($) {
 	# Those extra categories are also used to determined the French PNNS food groups
 
 	# Note: the code below is the code that was used to compute PNNS groups.
-	
+
 	# A lot of it is outdated and may be simplified, especially when we completely remove PNNS groups
 	# and keep only the new food groups.
 
 	# Some of the code may also be removed if we achieve a similar effect through the upcoming product rules.
 
-	if (($product_ref->{nutrition_score_beverage}) and (not has_tag($product_ref,"categories","en:instant-beverages"))) {
+	if (    ($product_ref->{nutrition_score_beverage})
+		and (not has_tag($product_ref, "categories", "en:instant-beverages")))
+	{
 
 		if (defined $product_ref->{nutriments}{"alcohol_100g"}) {
 			if ($product_ref->{nutriments}{"alcohol_100g"} < 1) {
@@ -337,30 +343,38 @@ sub temporarily_change_categories_for_food_groups_computation($) {
 			}
 		}
 		else {
-			if ((not has_tag($product_ref, "categories", "en:non-alcoholic-beverages"))
-				and (not has_tag($product_ref, "categories", "en:alcoholic-beverages")) ) {
+			if (    (not has_tag($product_ref, "categories", "en:non-alcoholic-beverages"))
+				and (not has_tag($product_ref, "categories", "en:alcoholic-beverages")))
+			{
 				add_tag($product_ref, "categories", "en:non-alcoholic-beverages");
 			}
 		}
 
-		if ((not (has_tag($product_ref,"categories","en:alcoholic-beverages"))
-			or has_tag($product_ref,"categories","en:fruit-juices")
-			or has_tag($product_ref,"categories","en:fruit-nectars") ) ) {
+		if (
+			(
+				   not(has_tag($product_ref, "categories", "en:alcoholic-beverages"))
+				or has_tag($product_ref, "categories", "en:fruit-juices")
+				or has_tag($product_ref, "categories", "en:fruit-nectars")
+			)
+			)
+		{
 
-			if (has_tag($product_ref,"categories","en:sodas") and (not has_tag($product_ref,"categories","en:diet-sodas"))) {
-				if (not has_tag($product_ref,"categories","en:sweetened-beverages"))  {
+			if (has_tag($product_ref, "categories", "en:sodas")
+				and (not has_tag($product_ref, "categories", "en:diet-sodas")))
+			{
+				if (not has_tag($product_ref, "categories", "en:sweetened-beverages")) {
 					add_tag($product_ref, "categories", "en:sweetened-beverages");
 				}
-				if (has_tag($product_ref,"categories","en:unsweetened-beverages")) {
+				if (has_tag($product_ref, "categories", "en:unsweetened-beverages")) {
 					remove_tag($product_ref, "categories", "en:unsweetened-beverages");
 				}
 			}
 
 			if ($product_ref->{with_sweeteners}) {
-				if (not has_tag($product_ref,"categories","en:artificially-sweetened-beverages")) {
+				if (not has_tag($product_ref, "categories", "en:artificially-sweetened-beverages")) {
 					add_tag($product_ref, "categories", "en:artificially-sweetened-beverages");
 				}
-				if (has_tag($product_ref,"categories","en:unsweetened-beverages")) {
+				if (has_tag($product_ref, "categories", "en:unsweetened-beverages")) {
 					remove_tag($product_ref, "categories", "en:unsweetened-beverages");
 				}
 			}
@@ -372,40 +386,42 @@ sub temporarily_change_categories_for_food_groups_computation($) {
 
 			if (
 
-				(has_tag($product_ref, "ingredients", "sucre")
-				or has_tag($product_ref, "ingredients", "sucre-de-canne")
-				or has_tag($product_ref, "ingredients", "sucre-de-canne-roux")
-				or has_tag($product_ref, "ingredients", "sucre-caramelise")
-				or has_tag($product_ref, "ingredients", "sucre-de-canne-bio")
-				or has_tag($product_ref, "ingredients", "sucres")
-				or has_tag($product_ref, "ingredients", "pur-sucre-de-canne")
-				or has_tag($product_ref, "ingredients", "sirop-de-sucre-inverti")
-				or has_tag($product_ref, "ingredients", "sirop-de-sucre-de-canne")
-				or has_tag($product_ref, "ingredients", "sucre-bio")
-				or has_tag($product_ref, "ingredients", "sucre-de-canne-liquide")
-				or has_tag($product_ref, "ingredients", "sucre-de-betterave")
-				or has_tag($product_ref, "ingredients", "sucre-inverti")
-				or has_tag($product_ref, "ingredients", "canne-sucre")
-				or has_tag($product_ref, "ingredients", "sucre-glucose-fructose")
-				or has_tag($product_ref, "ingredients", "glucose-fructose-et-ou-sucre")
-				or has_tag($product_ref, "ingredients", "sirop-de-glucose")
-				or has_tag($product_ref, "ingredients", "glucose")
-				or has_tag($product_ref, "ingredients", "sirop-de-fructose")
-				or has_tag($product_ref, "ingredients", "saccharose")
-				or has_tag($product_ref, "ingredients", "sirop-de-fructose-glucose")
-				or has_tag($product_ref, "ingredients", "sirop-de-glucose-fructose-de-ble-et-ou-de-mais")
-				or has_tag($product_ref, "ingredients", "sugar")
-				or has_tag($product_ref, "ingredients", "sugars")
-				or has_tag($product_ref, "ingredients", "en:sugar")
-				or has_tag($product_ref, "ingredients", "en:glucose")
-				or has_tag($product_ref, "ingredients", "en:fructose")
+				(
+					   has_tag($product_ref, "ingredients", "sucre")
+					or has_tag($product_ref, "ingredients", "sucre-de-canne")
+					or has_tag($product_ref, "ingredients", "sucre-de-canne-roux")
+					or has_tag($product_ref, "ingredients", "sucre-caramelise")
+					or has_tag($product_ref, "ingredients", "sucre-de-canne-bio")
+					or has_tag($product_ref, "ingredients", "sucres")
+					or has_tag($product_ref, "ingredients", "pur-sucre-de-canne")
+					or has_tag($product_ref, "ingredients", "sirop-de-sucre-inverti")
+					or has_tag($product_ref, "ingredients", "sirop-de-sucre-de-canne")
+					or has_tag($product_ref, "ingredients", "sucre-bio")
+					or has_tag($product_ref, "ingredients", "sucre-de-canne-liquide")
+					or has_tag($product_ref, "ingredients", "sucre-de-betterave")
+					or has_tag($product_ref, "ingredients", "sucre-inverti")
+					or has_tag($product_ref, "ingredients", "canne-sucre")
+					or has_tag($product_ref, "ingredients", "sucre-glucose-fructose")
+					or has_tag($product_ref, "ingredients", "glucose-fructose-et-ou-sucre")
+					or has_tag($product_ref, "ingredients", "sirop-de-glucose")
+					or has_tag($product_ref, "ingredients", "glucose")
+					or has_tag($product_ref, "ingredients", "sirop-de-fructose")
+					or has_tag($product_ref, "ingredients", "saccharose")
+					or has_tag($product_ref, "ingredients", "sirop-de-fructose-glucose")
+					or has_tag($product_ref, "ingredients", "sirop-de-glucose-fructose-de-ble-et-ou-de-mais")
+					or has_tag($product_ref, "ingredients", "sugar")
+					or has_tag($product_ref, "ingredients", "sugars")
+					or has_tag($product_ref, "ingredients", "en:sugar")
+					or has_tag($product_ref, "ingredients", "en:glucose")
+					or has_tag($product_ref, "ingredients", "en:fructose")
 				)
-				) {
+				)
+			{
 
-				if (not has_tag($product_ref,"categories","en:sweetened-beverages")) {
+				if (not has_tag($product_ref, "categories", "en:sweetened-beverages")) {
 					add_tag($product_ref, "categories", "en:sweetened-beverages");
 				}
-				if (has_tag($product_ref,"categories","en:unsweetened-beverages")) {
+				if (has_tag($product_ref, "categories", "en:unsweetened-beverages")) {
 					remove_tag($product_ref, "categories", "en:unsweetened-beverages");
 				}
 			}
@@ -413,27 +429,29 @@ sub temporarily_change_categories_for_food_groups_computation($) {
 				# 2019-01-08: adding back the line below which was previously commented
 				# add check that we do have an ingredient list
 				if (
-					(not has_tag($product_ref,"categories","en:sweetened-beverages")) and
-					(not has_tag($product_ref,"categories","en:artificially-sweetened-beverages")) and
-					(not has_tag($product_ref,"quality","en:ingredients-100-percent-unknown")) and
-					(not has_tag($product_ref,"quality","en:ingredients-90-percent-unknown")) and
-					(not has_tag($product_ref,"quality","en:ingredients-80-percent-unknown")) and
-					(not has_tag($product_ref,"quality","en:ingredients-70-percent-unknown")) and
-					(not has_tag($product_ref,"quality","en:ingredients-60-percent-unknown")) and
-					(not has_tag($product_ref,"quality","en:ingredients-50-percent-unknown")) and
-
+						(not has_tag($product_ref, "categories", "en:sweetened-beverages"))
+					and (not has_tag($product_ref, "categories", "en:artificially-sweetened-beverages"))
+					and (not has_tag($product_ref, "quality", "en:ingredients-100-percent-unknown"))
+					and (not has_tag($product_ref, "quality", "en:ingredients-90-percent-unknown"))
+					and (not has_tag($product_ref, "quality", "en:ingredients-80-percent-unknown"))
+					and (not has_tag($product_ref, "quality", "en:ingredients-70-percent-unknown"))
+					and (not has_tag($product_ref, "quality", "en:ingredients-60-percent-unknown"))
+					and (not has_tag($product_ref, "quality", "en:ingredients-50-percent-unknown"))
+					and
 
 					(($product_ref->{lc} eq 'en') or ($product_ref->{lc} eq 'fr'))
-					and ((defined $product_ref->{ingredients_text}) and (length($product_ref->{ingredients_text}) > 3))) {
+					and ((defined $product_ref->{ingredients_text}) and (length($product_ref->{ingredients_text}) > 3))
+					)
+				{
 
-					if (not has_tag($product_ref,"categories","en:unsweetened-beverages")) {
+					if (not has_tag($product_ref, "categories", "en:unsweetened-beverages")) {
 						add_tag($product_ref, "categories", "en:unsweetened-beverages");
 					}
 				}
 				else {
 					# remove unsweetened-beverages category that may have been added before
 					# we cannot trust it if we do not have a correct ingredients list
-					if (has_tag($product_ref,"categories","en:unsweetened-beverages")) {
+					if (has_tag($product_ref, "categories", "en:unsweetened-beverages")) {
 						remove_tag($product_ref, "categories", "en:unsweetened-beverages");
 					}
 				}
@@ -448,16 +466,17 @@ sub temporarily_change_categories_for_food_groups_computation($) {
 		if (has_tag($product_ref, "categories", "en:non-alcoholic-beverages")) {
 			remove_tag($product_ref, "categories", "en:non-alcoholic-beverages");
 		}
-		if (has_tag($product_ref,"categories","en:sweetened-beverages")) {
+		if (has_tag($product_ref, "categories", "en:sweetened-beverages")) {
 			remove_tag($product_ref, "categories", "en:sweetened-beverages");
 		}
-		if (has_tag($product_ref,"categories","en:artificially-sweetened-beverages")) {
+		if (has_tag($product_ref, "categories", "en:artificially-sweetened-beverages")) {
 			remove_tag($product_ref, "categories", "en:artificially-sweetened-beverages");
 		}
-		if (has_tag($product_ref,"categories","en:unsweetened-beverages")) {
+		if (has_tag($product_ref, "categories", "en:unsweetened-beverages")) {
 			remove_tag($product_ref, "categories", "en:unsweetened-beverages");
 		}
 	}
+	return;
 }
 
 1;

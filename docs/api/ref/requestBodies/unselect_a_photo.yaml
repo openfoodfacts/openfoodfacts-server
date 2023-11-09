@@ -1,0 +1,10 @@
+type: object
+properties:
+  code:
+    type: string
+    description: code of the product
+    example: '4251105501381'
+  id:
+    type: string
+    description: image field (image id) of the photo to unselect
+    example: front_fr

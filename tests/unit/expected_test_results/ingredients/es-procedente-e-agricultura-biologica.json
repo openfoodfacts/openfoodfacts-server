@@ -1,0 +1,88 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:pasteurised-whole-cow-s-milk",
+         "labels" : "en:organic",
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "text" : "Leche entera pasteurizada de vaca",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:kefir-lactic-ferments",
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "fermentos lácticos de gránulos de kéfir",
+         "vegan" : "maybe",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:pasteurised-whole-cow-s-milk"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:pasteurised-whole-cow-s-milk",
+      "en:dairy",
+      "en:milk",
+      "en:whole-milk",
+      "en:cow-s-milk",
+      "en:whole-cow-s-milk",
+      "en:kefir-lactic-ferments",
+      "en:ferment",
+      "en:microbial-culture",
+      "en:lactic-ferments",
+      "en:kefir-ferments"
+   ],
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:pasteurised-whole-cow-s-milk",
+      "en:kefir-lactic-ferments"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:pasteurised-whole-cow-s-milk",
+      "en:dairy",
+      "en:milk",
+      "en:whole-milk",
+      "en:cow-s-milk",
+      "en:whole-cow-s-milk",
+      "en:kefir-lactic-ferments",
+      "en:ferment",
+      "en:microbial-culture",
+      "en:lactic-ferments",
+      "en:kefir-ferments"
+   ],
+   "ingredients_text" : "Leche entera pasteurizada de vaca*, fermentos lácticos de gránulos de kéfir. *Procedente e agricultura ecológica.",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:kefir-lactic-ferments",
+      "en:pasteurised-whole-cow-s-milk"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "known_ingredients_n" : 11,
+   "lc" : "es",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

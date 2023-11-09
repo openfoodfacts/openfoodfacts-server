@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -38,15 +38,14 @@ C<ProductOpener::Orgs> contains functions to create and edit organization profil
 
 package ProductOpener::Orgs;
 
-use utf8;
-use Modern::Perl '2017';
-use Exporter    qw< import >;
+use ProductOpener::PerlStandards;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
+		&list_org_ids
 		&retrieve_org
 		&store_org
 		&create_org
@@ -58,19 +57,17 @@ BEGIN
 
 		&org_name
 		&org_url
-		&org_link
 
-		);    # symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
-use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::Cache qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
 
@@ -86,10 +83,11 @@ If it does not exist yet, the directory is created when the module is initialize
 
 =cut
 
-if (! -e "$data_root/orgs") {
-	mkdir("$data_root/orgs", 0755) or $log->warn("Could not create orgs dir", { dir => "$data_root/orgs", error=> $!}) if $log->is_warn();
+if (!-e "$data_root/orgs") {
+	mkdir("$data_root/orgs", 0755)
+		or $log->warn("Could not create orgs dir", {dir => "$data_root/orgs", error => $!})
+		if $log->is_warn();
 }
-
 
 =head1 FUNCTIONS
 
@@ -107,21 +105,44 @@ This function returns a hash ref for the org, or undef if the org does not exist
 
 =cut
 
-sub retrieve_org($) {
+sub retrieve_org ($org_id_or_name) {
 
-	my $org_id_or_name = shift;
-	
 	my $org_id = get_string_id_for_lang("no_language", $org_id_or_name);
 
-	$log->debug("retrieve_org", { org_id_or_name => $org_id_or_name, org_id => $org_id } ) if $log->is_debug();
+	$log->debug("retrieve_org", {org_id_or_name => $org_id_or_name, org_id => $org_id}) if $log->is_debug();
 
-	my $org_ref = retrieve("$data_root/orgs/$org_id.sto");
+	if (defined $org_id and $org_id ne "") {
 
-	return $org_ref;
+		my $org_ref = retrieve("$data_root/orgs/$org_id.sto");
+		return $org_ref;
+	}
+
+	return;
 }
 
+=head1 FUNCTIONS
+
+=head2 list_org_ids()
+
+=head3 Return values
+
+This function returns an array of all existing org ids
+
+=cut
+
+sub list_org_ids () {
+	# all .sto but orgs_glns
+	my @org_files = glob("$data_root/orgs/*.sto");
+	# id is the filename without .sto
+	my @org_ids = map {$_ =~ /\/([^\/]+).sto/;} @org_files;
+	# remove "orgs_glns"
+	@org_ids = grep {!/orgs_glns/} @org_ids;
+	return @org_ids;
+}
 
 =head2 store_org ( $org_ref )
+
+Save changes to an org
 
 =head3 Arguments
 
@@ -135,19 +156,24 @@ None
 
 =cut
 
-sub store_org($) {
-	
-	my $org_ref = shift;
+sub store_org ($org_ref) {
 
-	$log->debug("store_org", { org_ref => $org_ref } ) if $log->is_debug();
-	
+	$log->debug("store_org", {org_ref => $org_ref}) if $log->is_debug();
+
 	defined $org_ref->{org_id} or die("Missing org_id");
+
+	# retrieve eventual previous values
+	my $previous_org_ref = retrieve("$data_root/orgs/" . $org_ref->{org_id} . ".sto");
+
+	if ((defined $previous_org_ref) && !$previous_org_ref->{validated} && $org_ref->{validated}) {
+		# we switched on validated
+		# TODO: create org and its users in Odoo CRM
+	}
 
 	store("$data_root/orgs/" . $org_ref->{org_id} . ".sto", $org_ref);
 
 	return;
 }
-
 
 =head2 create_org ( $creator, $org_id / $org_name, $org_ref )
 
@@ -164,35 +190,40 @@ or an admin that creates an org by assigning an user to it).
 
 Identifier for the org (without the "org-" prefix), or org name.
 
+=head4 boolean $validated
+
+Indicate if the org should be considered validated
+
 =head3 Return values
 
 This function returns a hash ref for the org.
 
 =cut
 
-sub create_org($$) {
+sub create_org ($creator, $org_id_or_name, $validated = 0) {
 
-	my $creator = shift;
-	my $org_id_or_name = shift;
-	
 	my $org_id = get_string_id_for_lang("no_language", $org_id_or_name);
 
-	$log->debug("create_org", { $org_id_or_name => $org_id_or_name, org_id => $org_id } ) if $log->is_debug();
+	$log->debug("create_org", {$org_id_or_name => $org_id_or_name, org_id => $org_id}) if $log->is_debug();
 
 	my $org_ref = {
 		created_t => time(),
-		creator   => $creator,
-		org_id    => $org_id,
-		name  => $org_id_or_name,
-		admins    => {},
-		members   => {},
+		creator => $creator,
+		org_id => $org_id,
+		name => $org_id_or_name,
+		# indicates if the org was manually validated
+		validated => $validated,
+		# by default an org has its data protected
+		# we will remove this only if appears later not to be fair-play
+		protect_data => "on",
+		admins => {},
+		members => {},
 	};
 
 	store_org($org_ref);
 
 	return $org_ref;
 }
-
 
 =head2 retrieve_or_create_org ( $creator, $org_id / $org_name, $org_ref )
 
@@ -215,24 +246,20 @@ This function returns a hash ref for the org.
 
 =cut
 
-sub retrieve_or_create_org($$) {
+sub retrieve_or_create_org ($creator, $org_id_or_name) {
 
-	my $creator = shift;
-	my $org_id_or_name = shift;
-	
 	my $org_id = get_string_id_for_lang("no_language", $org_id_or_name);
 
-	$log->debug("retrieve_or_create_org", { org_id => $org_id } ) if $log->is_debug();
-		
+	$log->debug("retrieve_or_create_org", {org_id => $org_id}) if $log->is_debug();
+
 	my $org_ref = retrieve_org($org_id);
-	
+
 	if (not defined $org_ref) {
 		$org_ref = create_org($creator, $org_id_or_name);
 	}
 
 	return $org_ref;
 }
-
 
 =head2 set_org_gs1_gln ( $org_ref, $list_of_gs1_gln )
 
@@ -255,11 +282,8 @@ This function returns a hash ref for the org.
 
 =cut
 
-sub set_org_gs1_gln($$) {
-	
-	my $org_ref = shift;
-	my $list_of_gs1_gln = shift,
-	
+sub set_org_gs1_gln ($org_ref, $list_of_gs1_gln) {
+
 	# Remove existing GLNs
 	my $glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
 	not defined $glns_ref and $glns_ref = {};
@@ -282,8 +306,8 @@ sub set_org_gs1_gln($$) {
 		}
 	}
 	store("$data_root/orgs/orgs_glns.sto", $glns_ref);
+	return;
 }
-
 
 =head2 add_user_to_org ( $org_id / $org_ref, $user_id, $groups_ref )
 
@@ -305,15 +329,11 @@ Reference to an array of group ids (e.g. ["admins", "members"])
 
 =cut
 
-sub add_user_to_org($$$) {
+sub add_user_to_org ($org_id_or_ref, $user_id, $groups_ref) {
 
-	my $org_id_or_ref = shift;
-	my $user_id = shift;
-	my $groups_ref = shift;
-	
 	my $org_id;
 	my $org_ref;
-	
+
 	if (ref($org_id_or_ref) eq "") {
 		$org_id = $org_id_or_ref;
 		$org_ref = retrieve_org($org_id);
@@ -323,8 +343,10 @@ sub add_user_to_org($$$) {
 		$org_id = $org_ref->{org_id};
 	}
 
-	$log->debug("add_user_to_org", { org_id => $org_id, org_ref => $org_ref, user_id => $user_id, groups_ref => $groups_ref } ) if $log->is_debug();
-		
+	$log->debug("add_user_to_org",
+		{org_id => $org_id, org_ref => $org_ref, user_id => $user_id, groups_ref => $groups_ref})
+		if $log->is_debug();
+
 	foreach my $group (@{$groups_ref}) {
 		(defined $org_ref->{$group}) or $org_ref->{$group} = {};
 		$org_ref->{$group}{$user_id} = 1;
@@ -334,7 +356,6 @@ sub add_user_to_org($$$) {
 
 	return;
 }
-
 
 =head2 remove_user_from_org ( $org_id / $org_ref, $user_id, $groups_ref )
 
@@ -356,15 +377,11 @@ Reference to an array of group ids (e.g. ["admins", "members"])
 
 =cut
 
-sub remove_user_from_org($$$) {
+sub remove_user_from_org ($org_id_or_ref, $user_id, $groups_ref) {
 
-	my $org_id_or_ref = shift;
-	my $user_id = shift;
-	my $groups_ref = shift;
-	
 	my $org_id;
 	my $org_ref;
-	
+
 	if (ref($org_id_or_ref) eq "") {
 		$org_id = $org_id_or_ref;
 		$org_ref = retrieve_org($org_id);
@@ -374,8 +391,10 @@ sub remove_user_from_org($$$) {
 		$org_id = $org_ref->{org_id};
 	}
 
-	$log->debug("remove_user_from_org", { org_id => $org_id, org_ref => $org_ref, user_id => $user_id, groups_ref => $groups_ref } ) if $log->is_debug();
-		
+	$log->debug("remove_user_from_org",
+		{org_id => $org_id, org_ref => $org_ref, user_id => $user_id, groups_ref => $groups_ref})
+		if $log->is_debug();
+
 	foreach my $group (@{$groups_ref}) {
 		if (defined $org_ref->{$group}) {
 			delete $org_ref->{$group}{$user_id};
@@ -387,16 +406,11 @@ sub remove_user_from_org($$$) {
 	return;
 }
 
-
-sub is_user_in_org_group ($$$) {
-	
-	my $org_id_or_ref = shift;
-	my $user_id = shift;
-	my $group_id = shift;
+sub is_user_in_org_group ($org_id_or_ref, $user_id, $group_id) {
 
 	my $org_id;
 	my $org_ref;
-	
+
 	if (ref($org_id_or_ref) eq "") {
 		$org_id = $org_id_or_ref;
 		$org_ref = retrieve_org($org_id);
@@ -405,8 +419,12 @@ sub is_user_in_org_group ($$$) {
 		$org_ref = $org_id_or_ref;
 		$org_id = $org_ref->{org_id};
 	}
-	
-	if ((defined $user_id) and (defined $org_ref) and (defined $org_ref->{$group_id}) and (defined $org_ref->{$group_id}{$user_id})) {
+
+	if (    (defined $user_id)
+		and (defined $org_ref)
+		and (defined $org_ref->{$group_id})
+		and (defined $org_ref->{$group_id}{$user_id}))
+	{
 		return 1;
 	}
 	else {
@@ -414,11 +432,8 @@ sub is_user_in_org_group ($$$) {
 	}
 }
 
+sub org_name ($org_ref) {
 
-sub org_name($) {
-	
-	my $org_ref = shift;
-	
 	if ((defined $org_ref->{name}) and ($org_ref->{name} ne "")) {
 		return $org_ref->{name};
 	}
@@ -427,18 +442,9 @@ sub org_name($) {
 	}
 }
 
-sub org_url($) {
-
-	my $org_ref = shift;
+sub org_url ($org_ref) {
 
 	return canonicalize_tag_link("orgs", $org_ref->{org_id});
-}
-
-sub org_link($) {
-	
-	my $org_ref = shift;
-	
-	return "<a href=\"" . org_url($org_ref) . "\">" . org_name($org_ref) . "</a>";
 }
 
 1;

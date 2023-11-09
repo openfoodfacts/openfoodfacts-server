@@ -5,7 +5,7 @@
         "environment"
     ],
     "title_element": {
-        "title": "[% lang('environment') %]",
+        "title": "[% lang('environment_card_title') %]",
     },    
     "elements": [
         {
@@ -30,15 +30,19 @@
                 "panel_ids": ["carbon_footprint"],
             },
         },
-        [% END %]     
+        [% END %]    
         [% IF panels.packaging_recycling.defined %]
         {
             "element_type": "panel_group",
             "panel_group_element": {
                 "title": "[% lang('ecoscore_packaging') %]",
+                "panel_group_id": "packaging_recycling",
                 "panel_ids": [
-                    "packaging_recycling"
+                    "packaging_recycling",
                 ],
+                [% IF panel.packaging_image.defined %]
+                "image": [% encode_json(panel.packaging_image) %],
+                [% END %]
             },
         },
         [% END %]

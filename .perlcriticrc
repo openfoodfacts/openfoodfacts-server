@@ -1,16 +1,69 @@
-severity        = 5
+# set severity to 1, allowing for everything, then explicitly allow with only
+severity        = 1
 color           = 1
+only 		= 1
 
-[-Subroutines::ProhibitSubroutinePrototypes]
 
-[TestingAndDebugging::RequireUseStrict]
-equivalent_modules = Modern::Perl
-
-[TestingAndDebugging::RequireUseWarnings]
-equivalent_modules = Modern::Perl
+# severity 5:
+[BuiltinFunctions::ProhibitSleepViaSelect]
+[BuiltinFunctions::ProhibitStringyEval]
+[BuiltinFunctions::RequireGlobFunction]
+[ClassHierarchies::ProhibitOneArgBless]
+[ControlStructures::ProhibitMutatingListFunctions]
+[InputOutput::ProhibitBarewordFileHandles]
+[InputOutput::ProhibitInteractiveTest]
+[InputOutput::ProhibitTwoArgOpen]
+[InputOutput::RequireEncodingWithUTF8Layer]
+[Modules::ProhibitEvilModules]
+[Modules::RequireBarewordIncludes]
 
 [-Modules::RequireFilenameMatchesPackage]
+
+[Subroutines::ProhibitExplicitReturnUndef]
+[Subroutines::ProhibitNestedSubs]
+[Subroutines::ProhibitReturnSort]
+
+# This can be included soon now that https://github.com/openfoodfacts/openfoodfacts-server/pull/7009 is merged
+[-Subroutines::ProhibitSubroutinePrototypes]
+
+[TestingAndDebugging::ProhibitNoStrict]
+[TestingAndDebugging::RequireUseStrict]
+equivalent_modules = Modern::Perl # remove this when all updated to ProductOpener::PerlStandards
+equivalent_modules = ProductOpener::PerlStandards
+
+[ValuesAndExpressions::ProhibitLeadingZeros]
+[Variables::ProhibitConditionalDeclarations]
+[Variables::RequireLexicalLoopIterators]
+# /end severity 5
+
+
+# severity 4 was not actually being run because severity was set to 5.
+# severity 4
+[TestingAndDebugging::RequireUseWarnings]
+equivalent_modules = Modern::Perl
+equivalent_modules = ProductOpener::PerlStandards
+[Subroutines::RequireFinalReturn]
+
+[BuiltinFunctions::RequireBlockMap]
+[BuiltinFunctions::RequireBlockGrep]
+[ValuesAndExpressions::ProhibitMixedBooleanOperators]
 
 # Allow `$`', `$&', `$'', because since Perl 5.20.0
 # there are no performance implications any more.
 [-Variables::ProhibitMatchVars]
+# /end severity 4
+
+
+# severity 3
+[ControlStructures::ProhibitDeepNests]
+max_nests = 11
+[ControlStructures::ProhibitCascadingIfElse]
+max_elsif = 13
+[Variables::ProhibitUnusedVariables]
+# /end severity 3
+
+
+# severity 1
+[Documentation::PodSpelling]
+stop_words_file = stop_words.txt
+# /end severity 1

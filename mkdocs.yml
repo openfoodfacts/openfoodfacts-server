@@ -1,0 +1,66 @@
+# Settings for mkdocs
+
+# Where to find documentation
+docs_dir: docs
+
+# Link to Github on every page
+repo_url: https://github.com/openfoodfacts/openfoodfacts-server
+edit_uri: blob/main/docs/
+# add canonical url
+site_url: https://openfoodfacts.github.io/openfoodfacts-server/
+
+site_name: Product Opener (Open Food Facts Server)
+site_dir: gh_pages
+
+# Note see https://hub.docker.com/r/minidocks/mkdocs
+# for available extensions
+theme:
+  name: material
+
+markdown_extensions:
+  - footnotes
+  # support tables
+  - tables
+  # this one allow to have two space indentation counts as nested list, as in github/vscode
+  - mdx_truly_sane_lists
+  # this one allow to start a list without first adding a blank line, as in github/vscode
+  - mdx_breakless_lists
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - toc:
+      # add permalink after titles
+      permalink: "#"
+plugins:
+  # thanks to this plugin, the .pages files will customize navigation entries
+  - awesome-pages
+  - search
+  - exclude:
+      glob:
+        - "*_TODO.md"
+  - redirects:
+      # redirects after we restructured the docs to separate api and dev docs
+      redirect_maps:
+        introduction/knowledge-panels.md: api/explain-knowledge-panels.md
+        how-to-guides/download-images.md: api/how-to-download-images.md
+        introduction/api.md: api/index.md
+        introduction/robotoff.md: api/intro-robotoff.md
+        reference/api-cheatsheet.md: api/ref-cheatsheet.md
+        reference/api-v3.md: api/ref-v3.md
+        reference/api.md: api/ref-v2.md
+        tutorials/using-the-OFF-API-tutorial.md: api/tutorial-off-api.md
+        tutorials/uploading-photo-to-a-product.md: api/tutorial-uploading-photo-to-a-product.md
+        explanations/packaging-data.md: dev/explain-packaging-data.md
+        explanations/pro-dev-setup.md: dev/explain-pro-dev-setup.md
+        explanations/taxonomy_build_cache.md: dev/explain-taxonomy-build-cache.md
+        how-to-guides/deploy.md: dev/how-to-deploy.md
+        how-to-guides/pro-development.md: dev/how-to-develop-producer-platform.md
+        how-to-guides/docker-developer-guide.md: dev/how-to-develop-using-docker.md
+        introduction/dev-environment-quick-start-guide.md: dev/how-to-quick-start-guide.md
+        how-to-guides/ecoscore.md: dev/how-to-update-agribalyse-ecoscore.md
+        how-to-guides/use-direnv.md: dev/how-to-use-direnv.md
+        how-to-guides/use-gitpod.md: dev/how-to-use-gitpod.md
+        how-to-guides/using-pages-from-openfoodfacts-web.md: dev/how-to-use-pages-from-openfoodfacts-web.md
+        how-to-guides/use-repl.md: dev/how-to-use-repl.md
+        how-to-guides/use-vscode.md: dev/how-to-use-vscode.md
+        reference/perl-pod.md: dev/ref-perl-pod.md
+        reference/perl.md: dev/ref-perl.md

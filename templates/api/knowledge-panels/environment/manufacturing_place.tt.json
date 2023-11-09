@@ -8,7 +8,7 @@
     "title_element": {
         "title": "[% lang('manufacturing_places_s') FILTER ucfirst %]",
         [% IF panel.packager_code_data.cc == 'fr' %]
-            "subtitle": "[% panel.packager_code_data.commune %] - [% display_taxonomy_tag('countries', 'en:france') %]",        
+            "subtitle": "[% panel.packager_code_data.commune %] - [% display_taxonomy_tag_name('countries', 'en:france') %]",        
         [% ELSIF panel.packager_code_data.cc == 'ch' %]
             "subtitle": "[% panel.packager_code_data.full_address %]",
         [% ELSIF panel.packager_code_data.cc == 'es' %]

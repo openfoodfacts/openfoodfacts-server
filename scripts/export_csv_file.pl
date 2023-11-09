@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -40,7 +40,6 @@ use CGI qw(:cgi :cgi-lib);
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
 
-
 my $usage = <<TXT
 export_csv_file.pl exports product data from the database of Product Opener.
 
@@ -66,8 +65,7 @@ export_csv_file.pl --query field_name=field_value --query other_field_name=other
 [--include-images-paths] [--query-codes-from-file codes]
 
 TXT
-;
-
+	;
 
 my %query_fields_values = ();
 my $fields;
@@ -78,7 +76,7 @@ my $query_codes_from_file;
 my $export_computed_fields;
 my $export_canonicalized_tags_fields;
 
-GetOptions (
+GetOptions(
 	"fields=s" => \$fields,
 	"extra_fields=s" => \$extra_fields,
 	"query=s%" => \%query_fields_values,
@@ -87,8 +85,7 @@ GetOptions (
 	"query-codes-from-file=s" => \$query_codes_from_file,
 	"export-computed-fields" => \$export_computed_fields,
 	"export-canonicalized-tags-fields" => \$export_canonicalized_tags_fields,
-)
-  or die("Error in command line arguments:\n\n$usage");
+) or die("Error in command line arguments:\n\n$usage");
 
 print STDERR "export_csv_file.pl
 - fields: $fields
@@ -118,20 +115,20 @@ foreach my $field (sort keys %{$query_ref}) {
 		$query_ref->{$field} = undef;
 	}
 	if ($query_ref->{$field} eq 'exists') {
-		$query_ref->{$field} = { '$exists' => true };
+		$query_ref->{$field} = {'$exists' => true};
 	}
 }
 
 if (defined $query_codes_from_file) {
 	my @codes = ();
-	open(my $in, "<", "$query_codes_from_file") or die ("Cannot read $query_codes_from_file: $!\n");
+	open(my $in, "<", "$query_codes_from_file") or die("Cannot read $query_codes_from_file: $!\n");
 	while (<$in>) {
 		if ($_ =~ /^(\d+)/) {
 			push @codes, $1;
 		}
 	}
 	close($in);
-	$query_ref->{"code"} = { '$in' => \@codes };
+	$query_ref->{"code"} = {'$in' => \@codes};
 }
 
 use Data::Dumper;
@@ -139,7 +136,7 @@ print STDERR "MongoDB query:\n" . Dumper($query_ref);
 
 # CSV export
 
-my $args_ref = {filehandle=>*STDOUT, separator=>$separator, query=>$query_ref };
+my $args_ref = {filehandle => *STDOUT, separator => $separator, query => $query_ref};
 
 if ($export_computed_fields) {
 	$args_ref->{export_computed_fields} = 1;
