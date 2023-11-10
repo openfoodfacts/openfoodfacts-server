@@ -36,7 +36,7 @@ server {
   client_max_body_size 20M;
 
   # logs location
-	access_log /srv/opf/logs/nginx.access2.log;
+	access_log /srv/opf/logs/nginx.access2.log buffer=256K flush=1s;
 	error_log /srv/opf/logs/nginx.error2.log;
 
 	location /data/ {
@@ -79,6 +79,14 @@ server {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
+	}
+
+	# GoogleAssociationService made 2500 requests/min to assetlinks.json
+	# and much less when caching headers are sent
+	location = /.well-known/assetlinks.json {
+			include snippets/off.cors-headers.include;
+			expires 1d;
+			try_files $uri $uri/ =404;
 	}
 
 	location = /robots.txt {
