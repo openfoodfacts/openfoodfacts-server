@@ -145,6 +145,7 @@ is(normalize_quantity("2 kilogrammes"), 2000);
 is(normalize_quantity(".33L"), 330);
 is(normalize_quantity(".33 l"), 330);
 is(normalize_serving_size(".33L"), 330);
+is(normalize_serving_size(".33 l"), 330);
 is(normalize_serving_size("5 bottles (.33L)"), 330);
 is(normalize_serving_size("5 bottles .33L"), 330);
 is(normalize_serving_size("5 bottles2.33L"), undef);    # Broken string, missing word separator before number
