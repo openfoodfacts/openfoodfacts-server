@@ -245,7 +245,7 @@ sub normalize_quantity ($quantity) {
 	# 10 unités, 170 g
 	# 4 bouteilles en verre de 20cl
 	if ($quantity
-		=~ /(?<number>\d+)(\s(\p{Letter}| )+)?(\s)?( de | of |x|\*)(\s)?(?<quantity>(\d+)(\.|,)?(\d+)?)(\s)?(?<unit>$units_regexp)\b/i
+		=~ /(?<number>\d+)(\s(\p{Letter}| )+)?(\s)?( de | of |x|\*)(\s)?(?<quantity>$number_regexp)(\s)?(?<unit>$units_regexp)\b/i
 		)
 	{
 		my $m = $+{number};
@@ -254,7 +254,7 @@ sub normalize_quantity ($quantity) {
 		$q = convert_string_to_number($q);
 		$q = unit_to_g($q * $m, $u);
 	}
-	elsif ($quantity =~ /(?<quantity>(\d+)(\.|,)?(\d+)?)(\s)?(?<unit>$units_regexp)\s*\b/i) {
+	elsif ($quantity =~ /(?<quantity>$number_regexp)(\s)?(?<unit>$units_regexp)\s*\b/i) {
 		$q = lc($+{quantity});
 		$u = $+{unit};
 		$q = convert_string_to_number($q);
@@ -276,7 +276,7 @@ sub normalize_serving_size ($serving) {
 
 	# Regex captures any <number>( )?<unit-identifier> group, but leaves allowances for a preceding
 	# token to allow for patterns like "One bag (32g)", "1 small bottle (180ml)" etc
-	if ($serving =~ /^(.*[ \(])?(?<quantity>(\d+)(\.|,)?(\d+)?)( )?(?<unit>$units_regexp)\b/i) {
+	if ($serving =~ /^(.*[ \(])?(?<quantity>$number_regexp)( )?(?<unit>$units_regexp)\b/i) {
 		my $q = $+{quantity};
 		my $u = $+{unit};
 		$q = convert_string_to_number($q);
