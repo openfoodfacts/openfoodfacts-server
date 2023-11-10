@@ -762,7 +762,7 @@ msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr ""
+msgstr "Descubre o proxecto"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
@@ -775,7 +775,7 @@ msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr ""
+msgstr "Tradutores"
 
 # Do not translate
 msgctxt "footer_translators_link"
@@ -835,7 +835,7 @@ msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
-msgstr ""
+msgstr "Quen somos"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
@@ -854,7 +854,7 @@ msgstr ""
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr ""
+msgstr "Open Beauty Facts - Cosméticos"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
@@ -1378,7 +1378,7 @@ msgstr ""
 
 msgctxt "next"
 msgid "Next"
-msgstr ""
+msgstr "Seguinte"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
@@ -2261,7 +2261,7 @@ msgstr ""
 
 msgctxt "search_value"
 msgid "value"
-msgstr ""
+msgstr "valor"
 
 msgctxt "search_with"
 msgid "With"
@@ -2281,7 +2281,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "País"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2611,6 +2611,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr ""
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr ""
@@ -2798,7 +2802,7 @@ msgstr ""
 
 msgctxt "footer_partners"
 msgid "Partners"
-msgstr ""
+msgstr "Socios"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
@@ -3255,15 +3259,15 @@ msgstr "Non"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "Saltar"
 
 msgctxt "popularity_s"
 msgid "popularity"
-msgstr ""
+msgstr "popularidade"
 
 msgctxt "popularity_p"
 msgid "popularity"
-msgstr ""
+msgstr "popularidade"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
@@ -3470,7 +3474,7 @@ msgstr ""
 
 msgctxt "value"
 msgid "Value"
-msgstr ""
+msgstr "Valor"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
@@ -3588,7 +3592,7 @@ msgstr ""
 
 msgctxt "cancel"
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
@@ -3947,7 +3951,7 @@ msgstr "Proteínas"
 
 msgctxt "nutriscore_source_value"
 msgid "value"
-msgstr ""
+msgstr "valor"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
@@ -3984,6 +3988,10 @@ msgstr ""
 
 msgctxt "thank_you"
 msgid "Thank you!"
+msgstr ""
+
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
 msgstr ""
 
 msgctxt "value_for_the_product"
@@ -5057,7 +5065,7 @@ msgstr ""
 
 msgctxt "type"
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 msgctxt "processing_factor"
 msgid "Processing factor"
@@ -5252,7 +5260,7 @@ msgstr ""
 
 msgctxt "footer_vision"
 msgid "Vision, Mission, Values and Programs"
-msgstr ""
+msgstr "Visión, Misión, Valores e Programas"
 
 # Do not translate
 msgctxt "footer_vision_link"
@@ -5730,14 +5738,8 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr ""
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr ""
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
 msgstr ""
 
 msgctxt "donation_cta"
@@ -6595,6 +6597,10 @@ msgstr ""
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
+msgstr ""
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
 msgstr ""
 
 msgctxt "packagings_n_p"
