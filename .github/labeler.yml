@@ -56,7 +56,7 @@ taxonomies rebuild:
 - taxonomies/states.result.sto
 - taxonomies/states.result.txt
 
-wikidata:
+WikiData:
 - scripts/build_countries_taxonomy_from_wikidata.pl
 - scripts/build_languages_taxonomy_from_wikidata.pl
 - scripts/create_wikipedia_properties_for_taxonomy.pl
@@ -181,7 +181,7 @@ footer:
 - html/images/illustrations/footer-planet.svg
 - scss/_footer.scss
 
-documentation:
+📚 Documentation:
 - docs/**/*
 - scripts/generate_perl_html_doc_from_pod.pl
 - po/README.md
@@ -192,7 +192,7 @@ OpenAPI:
 🐋 Docker:
 - docker/**/*
 
-Folksonomy Project:
+🏷️ Folksonomy Project:
 - html/js/folksonomy.js
 - templates/web/common/includes/folksonomy_script.tt.html
 
@@ -263,11 +263,11 @@ Additives:
 - taxonomies/additives.result.sto
 - taxonomies/additives.result.txt
 
-Forest Footprint:
+🌳 Forest Footprint:
 - lib/ProductOpener/ForestFootprint.pm
 - tests/unit/forest_footprint.t
 
-geolite:
+📍 geolite:
 - lib/ProductOpener/GeoIP.pm
 - scripts/test_geoip.pl
 
@@ -309,16 +309,16 @@ ingredients analysis:
 - scripts/aggregate_ingredients.pl
 - lib/ProductOpener/Ingredients.pm
 
-labels:
+Labels:
 - taxonomies/labels.txt
 
-categories:
+Categories:
 - taxonomies/categories.txt
 
-origins:
+📍 origins:
 - taxonomies/origins.txt
 
-knowledge-panels:
+📖 Knowledge panels:
 - lib/ProductOpener/KnowledgePanels.pm
 - templates/api/knowledge-panels/**/*
 - templates/web/panels/image.tt.html
@@ -372,7 +372,7 @@ serving size:
 lang:
 - lib/ProductOpener/Lang.pm
 
-Mail:
+📨 Mail:
 - lib/ProductOpener/Mail.pm
 - templates/emails/import_csv_file_admin_notification.tt.html
 - templates/emails/user_new_pro_account_admin_notification.tt.html
@@ -383,7 +383,7 @@ MainCountries:
 Numbers:
 - lib/ProductOpener/Numbers.pm
 
-Nutri-Score:
+🚦 Nutri-Score:
 - lib/ProductOpener/Nutriscore.pm
 - templates/web/pages/product/includes/nutriscore.tt.html
 - templates/web/pages/product/includes/nutriscore_details.tt.html
@@ -396,7 +396,7 @@ Nutri-Score:
 Orgs:
 - lib/ProductOpener/Orgs.pm
 
-packager codes:
+Packager Codes:
 - lib/ProductOpener/PackagerCodes.pm
 - tests/unit/packager_codes.t
 - scripts/packager-codes/de-packagers-refresh.pl
@@ -411,7 +411,7 @@ packager codes:
 - scripts/update_emb_codes_in_mongodb.pl
 - packager-codes/**
 
-Packaging:
+📦 Packaging:
 - lib/ProductOpener/Packaging.pm
 - taxonomies/packaging_materials.txt
 - t/packaging.t
@@ -442,7 +442,7 @@ Packaging:
 - docs/api/ref/schemas/packagings/**
 - scripts/gen_packaging_stats.pl
   
-producers platform:
+🏭 Producers Platform:
 - lib/ProductOpener/GS1.pm
 - lib/ProductOpener/Orgs.pm
 - lib/ProductOpener/Import.pm
@@ -478,18 +478,18 @@ producers platform:
 - scripts/codeonline-import/stats_gs1_codeonline_json.pl
 - scripts/equadis-import/run_equadis_import.sh
 
-agena3000:
+🏭 AGENA3000:
 - scripts/agena3000/run_agena3000_import.sh
 
-bayard:
+🏭 Bayard:
 - scripts/bayard-import/run_bayard_import.sh
 
-codeonline:
+🏭 CodeOnline:
 - scripts/codeonline-import/run_codeonline_import.sh
 - scripts/codeonline-import/split_gs1_codeonline_json.pl
 - scripts/codeonline-import/stats_gs1_codeonline_json.pl
 
-equadis:
+🏭 EQUADIS:
 - scripts/equadis-import/run_equadis_import.sh
 
 store:
@@ -525,7 +525,7 @@ Tags:
 Text:
 - lib/ProductOpener/Text.pm
 
-Url:
+URL:
 - lib/ProductOpener/URL.pm
 
 Web:
@@ -562,10 +562,10 @@ Spellcheck:
 - scripts/test_spellchecker.pl
 - cgi/spellcheck_test.pl
 
-Maps:
+🗺️ Maps:
 - templates/web/pages/products_map/map_of_products.tt.html
 
-Search:
+🔎 Search:
 - templates/web/pages/search_results/search_results.tt.html
 - templates/web/common/includes/display_search_image_form.tt.html
 - templates/web/common/includes/display_product_search_or_add.tt.html
@@ -612,7 +612,7 @@ Blocks:
 - cgi/sugar_check.pl
 - cgi/sugar_random.pl
 
-Made Near Me:
+🗺️ Made Near Me:
 - scripts/generate_madenearme_page.pl
 
 PAO:
@@ -632,7 +632,7 @@ OCR:
 Scanbot:
 - scripts/scanbot.pl
 
-gamification:
+Gamification:
 - lib/ProductOpener/Missions.pm
 - lib/ProductOpener/MissionsConfig.pm
 - scripts/compute_missions.pl
@@ -651,7 +651,7 @@ config:
 ingredients processing:
 - tests/unit/ingredients_processing.t
 
-Users:
+👥 Users:
 - lib/ProductOpener/Users.pm
 - templates/web/common/includes/display_login_register.tt.html
 - templates/web/pages/session/signed_in.tt.html
@@ -665,7 +665,7 @@ Users:
 - scripts/gen_users_names.pl
 - cgi/user.pl
 
-Nova:
+NOVA:
 - tests/unit/nova.t
 - templates/api/knowledge-panels/health/ingredients/nova.tt.json
 
@@ -706,7 +706,7 @@ exports:
 - scripts/export_tags_hierarchies.pl
 - scripts/popular_products_images.pl
 
-auth:
+🔐 Auth:
 - cgi/auth.pl
 - cgi/sso.pl
 
@@ -756,7 +756,7 @@ file import:
 - cgi/import_file_select_format.pl
 - cgi/import_file_upload.pl
 
-apache:
+🪶 Apache:
 - lib/startup_apache2.pl
 
 API:
@@ -774,10 +774,10 @@ API v3:
 - tests/integration/api_v3_product_read.t
 - tests/integration/api_v3_product_write.t
 
-API read:
+API READ:
 - tests/integration/api_v3_product_read.t
 
-API write:
+API WRITE:
 - tests/integration/api_v3_product_write.t
 - docs/api/ref/requestBodies/add_or_edit_a_product.yaml
 - docs/api/ref/requestBodies/crop_a_photo.yaml
