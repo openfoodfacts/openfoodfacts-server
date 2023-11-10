@@ -31,8 +31,8 @@ server {
 	client_max_body_size 20M;
  
 	# logs location
-	access_log /var/log/nginx/obf-access.log proxied_requests;
-  error_log /var/log/nginx/obf-error.log;
+	access_log /var/log/nginx/obf-access.log proxied_requests buffer=256K flush=1s;
+	error_log /var/log/nginx/obf-error.log;
 
 	gzip on;
 	gzip_min_length 1000;
@@ -73,6 +73,14 @@ server {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
+	}
+
+	# GoogleAssociationService made 2500 requests/min to assetlinks.json
+	# and much less when caching headers are sent
+	location = /.well-known/assetlinks.json {
+			include snippets/off.cors-headers.include;
+			expires 1d;
+			try_files $uri $uri/ =404;
 	}
 
 	location = /robots.txt {
