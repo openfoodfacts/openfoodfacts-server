@@ -1,0 +1,40 @@
+name: Update assets
+
+on:
+  # Allow to be run manually
+  workflow_dispatch:
+  schedule:
+  - cron: "0 19 * * *"
+
+jobs:
+  update-assets:
+    if: github.repository_owner == 'openfoodfacts'
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Upgrade assets
+      run: chmod +x scripts/packager_codes/update_all_packager_codes.sh && scripts/packager_codes/update_all_packager_codes.sh
+
+    - name: Check for uncommitted changes
+      id: check-changes
+      uses: mskri/check-uncommitted-changes-action@v1.0.1
+      
+    - name: Create Pull Request
+      if: steps.check-changes.outputs.outcome == failure()
+      id: cpr
+      uses: peter-evans/create-pull-request@v5
+      with:
+        base: develop
+        commit-message: Update assets
+        committer: GitHub <noreply@github.com>
+        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+        signoff: false
+        branch: auto-update-assets
+        delete-branch: true
+        title: 'chore: Update assets'
+        body: |
+          Automated update of asset cache
