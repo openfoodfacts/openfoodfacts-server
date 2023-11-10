@@ -594,7 +594,7 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 			# following error/warning should be ignored for some categories
 			# for example, lemon juices containing organic acid, it is forbidden to display organic acid in nutrition tables but
 			# organic acid contributes to the total energy calculation
-			my $ignore_energy_calculated_error
+			my ($ignore_energy_calculated_error, $category_id)
 				= get_inherited_property_from_categories_tags($product_ref, "ignore_energy_calculated_error:en");
 
 			if (not((defined $ignore_energy_calculated_error) and ($ignore_energy_calculated_error eq 'yes'))) {
@@ -920,7 +920,7 @@ sub check_nutrition_data ($product_ref) {
 		}
 
 		# some categories have expected nutriscore grade - push data quality error if calculated nutriscore grade differs from expected nutriscore grade or if it is not calculated
-		my $expected_nutriscore_grade
+		my ($expected_nutriscore_grade, $category_id)
 			= get_inherited_property_from_categories_tags($product_ref, "expected_nutriscore_grade:en");
 
 		# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
@@ -940,7 +940,8 @@ sub check_nutrition_data ($product_ref) {
 
 		# some categories have an expected ingredient - push data quality error if ingredient differs from expected ingredient
 		# note: we currently support only 1 expected ingredient
-		my $expected_ingredients = get_inherited_property_from_categories_tags($product_ref, "expected_ingredients:en");
+		my ($expected_ingredients, $category_id)
+			= get_inherited_property_from_categories_tags($product_ref, "expected_ingredients:en");
 
 		if ((defined $expected_ingredients)) {
 			$expected_ingredients = canonicalize_taxonomy_tag("en", "ingredients", $expected_ingredients);

@@ -187,7 +187,7 @@ my %may_contain_regexps = (
 	bs => "može da sadrži",
 	cs => "může obsahovat|může obsahovat stopy",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
-	de => "Kann enthalten|Kann Spuren|Spuren|Kann Anteile|Anteile|Kann auch|Kann",
+	de => "Kann enthalten|Kann Spuren|Spuren|Kann Anteile|Anteile|Kann auch|Kann|Enthält möglicherweise",
 	es => "puede contener huellas de|puede contener trazas de|puede contener|trazas|traza",
 	et => "võib sisaldada vähesel määral|võib sisaldada|võib sisalda",
 	fi =>
@@ -6953,12 +6953,13 @@ sub estimate_ingredients_matching_function ($product_ref, $match_function_ref, $
 
 		# For product categories where water is not consumed (e.g canned vegetables),
 		# we recompute the percent of matching ingredients in the product without water
-		# en:canned-vegetables may be a bit broad, as some canned vegetables are consumed with the sauce/water
+		# en:canned-plant-based-foods may be a bit broad, as some canned vegetables are consumed with the sauce/water
 		# en:canned-fruits are not included as those are often in syrup, which is consumed
 		if (    (defined $water_percent)
 			and ($water_percent > 0)
 			and ($water_percent < 100)
-			and (has_tag($product_ref, "categories", "en:canned-vegetables")))
+			and (has_tag($product_ref, "categories", "en:canned-plant-based-foods"))
+			and not(has_tag($product_ref, "categories", "en:canned-fruits")))
 		{
 			$percent = $percent * 100 / (100 - $water_percent);
 		}
