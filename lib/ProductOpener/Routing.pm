@@ -345,14 +345,6 @@ sub analyze_request ($request_ref) {
 		$request_ref->{missionid} = $components[1];
 	}
 
-	# https://github.com/openfoodfacts/openfoodfacts-server/issues/4140
-	elsif ((scalar(@components) == 2) and ($components[0] eq '.well-known') and ($components[1] eq 'change-password')) {
-		$request_ref->{redirect} = $formatted_subdomain . '/cgi/change_password.pl';
-		$log->info('well-known password change page - redirecting', {redirect => $request_ref->{redirect}})
-			if $log->is_info();
-		redirect_to_url($request_ref, 307, $request_ref->{redirect});
-	}
-
 	elsif ($#components == -1) {
 		# Main site
 	}
