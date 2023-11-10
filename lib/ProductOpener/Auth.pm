@@ -45,6 +45,7 @@ BEGIN {
 	@EXPORT_OK = qw(
 		&access_to_protected_resource
 		&callback
+		&password_signin
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -71,6 +72,7 @@ use Storable qw(dclone);
 use Encode;
 use LWP::UserAgent;
 use HTTP::Request;
+use URI::Escape::XS qw/uri_escape/;
 
 # Initialize some constants
 
@@ -129,16 +131,7 @@ sub callback ($request_ref) {
 		display_error_and_exit('Invalid Nonce during OIDC login', 500);
 	}
 
-	my $userinfo = get_userinfo($access_token);
-
-	unless ($userinfo->{'email_verified'}) {
-		display_error_and_exit('User email is not verified.', 500);
-	}
-
-	my $verified_email = $userinfo->{'email'};
-	$log->info('userinfo', {userinfo => $userinfo}) if $log->is_info();
-
-	my $user_id = try_retrieve_userid_from_mail($verified_email);
+	my $user_id = get_user_id_using_token($access_token->access_token);
 	unless (defined $user_id) {
 		display_error_and_exit('Unknown user', 404);
 	}
@@ -151,9 +144,39 @@ sub callback ($request_ref) {
 	return $cookie_ref{'return_url'};
 }
 
+sub password_signin ($username, $password) {
+	unless ($username and $password) {
+		return;
+	}
+
+	my $access_token = get_token_using_password_credentials($username, $password);
+	unless ($access_token) {
+		return;
+	}
+
+	my $user_id = get_user_id_using_token($access_token->{access_token});
+	# TODO: Store access_token, expires_at, refresh_token in session instead
+	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
+	return $user_id;
+}
+
+sub get_user_id_using_token ($access_token) {
+	my $userinfo = get_userinfo($access_token);
+
+	unless ($userinfo->{'email_verified'}) {
+		$log->info('User email is not verified.', {email => $userinfo->{'email'}}) if $log->is_info();
+		return;
+	}
+
+	my $verified_email = $userinfo->{'email'};
+	$log->info('userinfo', {userinfo => $userinfo}) if $log->is_info();
+
+	return try_retrieve_userid_from_mail($verified_email);
+}
+
 sub get_userinfo ($access_token) {
 	my $userinfo_request = HTTP::Request->new(GET => $oidc_options{userinfo_endpoint});
-	$userinfo_request->header(Authorization => 'Bearer ' . $access_token->access_token);
+	$userinfo_request->header(Authorization => 'Bearer ' . $access_token);
 	my $userinfo_response = LWP::UserAgent->new->request($userinfo_request);
 	unless ($userinfo_response->is_success) {
 		display_error_and_exit(
@@ -196,6 +219,48 @@ sub access_to_protected_resource ($request_ref) {
 	$log->info('request is ok', $request_ref) if $log->is_info();
 
 	return;
+}
+
+=head2 get_token_using_password_credentials($username, $password)
+
+Gets a token for the user.
+
+Method uses the Resource Owner Password Credentials Grant to
+with the given credentials, and pre-configured Client ID,
+and Client Secret.
+
+=head3 Arguments
+
+=head4 Name of the user $usersname
+
+=head4 Password given at sign-in $password
+
+=head3 Return values
+
+Open ID Access token, or undefined if sign-in wasn't successful.
+
+=cut
+
+sub get_token_using_password_credentials ($username, $password) {
+	my $token_request = HTTP::Request->new(POST => $oidc_options{access_token_uri});
+	$token_request->header('Content-Type' => 'application/x-www-form-urlencoded');
+	$token_request->content('grant_type=password&client_id='
+			. uri_escape($oidc_options{client_id})
+			. '&client_secret='
+			. uri_escape($oidc_options{client_secret})
+			. '&username='
+			. uri_escape($username)
+			. '&password='
+			. uri_escape($password));
+	my $token_response = LWP::UserAgent->new->request($token_request);
+	unless ($token_response->is_success) {
+		$log->info('bad password - no token returned from IdP') if $log->is_info();
+		return;
+	}
+
+	my $access_token = decode_json($token_response->content);
+	$log->info('got access token', {access_token => $access_token}) if $log->is_info();
+	return $access_token;
 }
 
 =head2 generate_signin_cookie($user_id, $user_session)

@@ -87,6 +87,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/:all/;
+use ProductOpener::Auth qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
@@ -1075,14 +1076,12 @@ sub init_user ($request_ref) {
 				$user_id = $user_ref->{'userid'};
 				$log->context->{user_id} = $user_id;
 
-				my $hash_is_correct
-					= check_password_hash(encode_utf8(decode utf8 => request_param($request_ref, 'password')),
-					$user_ref->{'encrypted_password'});
+				my $oidc_user_id = password_signin($user_id, decode utf8 => request_param($request_ref, 'password'));
 				# We don't have the right password
-				if (not $hash_is_correct) {
+				if (not $oidc_user_id) {
 					$user_id = undef;
 					$log->info(
-						"bad password - input does not match stored hash",
+						'bad password - input does not match stored hash',
 						{encrypted_password => $user_ref->{'encrypted_password'}}
 					) if $log->is_info();
 					# Trigger an error
@@ -1092,6 +1091,8 @@ sub init_user ($request_ref) {
 				elsif (
 					not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
 				{
+					$user_id = $oidc_user_id;
+
 					$log->info("correct password for user provided") if $log->is_info();
 
 					migrate_password_hash($user_ref);
