@@ -1,9 +1,11 @@
 #!/bin/bash
 
+SCRIPTS_DIR=$(dirname "$0")
+
 # Define a function for running a script with exception handling
 run_script() {
     echo "🚀 Starting $1..."
-    if ./$1; then
+    if $SCRIPTS_DIR/$1; then
         echo "✅ Successfully executed $1."
     else
         echo "❌ Error occurred in $1."

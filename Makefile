@@ -395,7 +395,7 @@ create_external_networks:
 
 update_all_packager_codes:
 	@echo "🥫 Dowloading packager codes (production only) …"
-	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/packager_codes/update_all_packager_codes.sh
+	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/packager-codes/update_all_packager_codes.sh
 
 #---------#
 # Cleanup #

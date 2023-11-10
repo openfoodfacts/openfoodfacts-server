@@ -1,4 +1,4 @@
-#!/usr/bin/env perl -w
+#!/usr/bin/env -S perl -w
 # fi-packagers-xls2cvs.pl --
 
 # This file is part of Product Opener.

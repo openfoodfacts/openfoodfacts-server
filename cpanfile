@@ -11,10 +11,12 @@ requires 'XML::Encoding'; # libxml-encoding-perl
 requires 'MIME::Lite'; # libmime-lite-perl
 requires 'MIME::Base32';
 requires 'Cache::Memcached::Fast'; #libcache-memcached-fast-perl
+requires 'CHI';
 requires 'JSON'; # libjson-perl
 requires 'JSON::PP'; # libjson-pp-perl
 requires 'Clone'; # libclone-perl
 requires 'Crypt::PasswdMD5'; # libcrypt-passwdmd5-perl
+requires 'Data::Table'; # libdata-table-perl
 requires 'Encode::Detect'; # libencode-detect-perl
 requires 'Graphics::Color::RGB'; # libgraphics-color-perl
 requires 'Graphics::Color::HSL'; # libgraphics-color-perl
@@ -37,6 +39,7 @@ requires 'Pod::Simple::HTMLBatch'; # libpod-simple-perl
 requires 'GeoIP2', '>= 2.006002, < 3.0'; # libgeoip2-perl, deps: libdata-validate-ip-perl libio-compress-perl libjson-maybexs-perl liblist-someutils-perl, libdata-dumper-concise-perl, libdata-printer-perl
 requires 'Email::Valid', '>= 1.202, < 2.0'; # libemail-valid-perl
 requires 'Path::Tiny', '>= 0.118'; # libpath-tiny-perl
+requires 'XML::LibXSLT'; # libxml-libxslt-perl
 
 # Probably not available as Debian/Ubuntu packages
 requires 'MongoDB', '>= 2.2.2, < 2.3'; # libmongodb-perl has 1.8.1/2.0.3 vs 2.2.2. deps: libauthen-sasl-saslprep-perl, libbson-perl, libauthen-scram-perl, libclass-xsaccessor-perl, libdigest-hmac-perl, libsafe-isa-perl, libconfig-autoconf-perl, libpath-tiny-perl
