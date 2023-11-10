@@ -1,10 +1,10 @@
-name: Update assets
+name: Packager codes refresh
 
 on:
   # Allow to be run manually
   workflow_dispatch:
   schedule:
-  - cron: "0 19 * * *"
+  - cron: "0 19 1 * *"
 
 jobs:
   update-assets:
@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Upgrade assets
-      run: chmod +x scripts/packager_codes/update_all_packager_codes.sh && scripts/packager_codes/update_all_packager_codes.sh
+      run: make update_all_packager_codes
 
     - name: Check for uncommitted changes
       id: check-changes
