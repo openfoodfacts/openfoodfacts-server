@@ -1,23 +1,23 @@
 # For reference, please look at https://github.com/actions/labeler
 
-javascript:
+JavaScript:
 - '**/*.js'
 
-github_actions:
+GitHub Actions:
 - .github/**/*
 
-nginx:
+NGINX:
 - conf/nginx/**/*
 - conf/nginx.conf
 
-mongodb:
+MongoDB:
 - conf/mongodb/create_indexes.js
 - .github/workflows/mongo-deploy.yml
 - scripts/checkmongodb.pl
 - scripts/update_all_products_from_dir_in_mongodb.pl
 - scripts/update_all_products_revisions_from_dir_in_mongodb.pl
 
-stores:
+Stores:
 - taxonomies/unused/stores.txt
 - scripts/tag_stores_magasins_u.pl
 
@@ -31,7 +31,7 @@ stores:
 - html/files/tagline-off-ios-v2.json
 - html/files/tagline-off-android-v2.json
 
-taxonomies:
+Taxonomies:
 - taxonomies/**/*
 - scripts/build_tags_taxonomy.pl
 - scripts/test_taxonomies.pl
@@ -42,7 +42,7 @@ taxonomies:
 - scripts/add_descriptions_to_taxonomy_from_eu_translations.pl
 - cgi/translate_taxonomy.pl
 
-taxonomies rebuild:
+Taxonomies - Rebuild:
 - taxonomies/additives.result.sto
 - taxonomies/additives.result.txt
 - taxonomies/allergens.result.sto
@@ -61,7 +61,7 @@ WikiData:
 - scripts/build_languages_taxonomy_from_wikidata.pl
 - scripts/create_wikipedia_properties_for_taxonomy.pl
 
-allergens:
+Allergens:
 - taxonomies/allergens.result.sto
 - taxonomies/allergens.result.txt
 - tests/unit/allergens.t
@@ -139,13 +139,13 @@ allergens:
 - lib/ProductOpener/Config_opf.pm
 - taxonomies.opf/unspsc.txt
 
-icons:
+Icons:
 - icons/**/*
 
 CSS:
 - scss/**/*
 
-translations:
+Translations:
 - po/**/*
 - po/common/**/*
 - po/openfoodfacts/**/*
@@ -160,7 +160,7 @@ translations:
 - cgi/top_translators.pl
 - cgi/translate_taxonomy.pl
 
-tests:
+🧪 Tests:
 - test/**/*
 - tests/**/*
 - t/**/*
@@ -200,7 +200,7 @@ Attributes:
 - lib/ProductOpener/Attributes.pm
 - tests/unit/attributes.t
 
-Data Quality:
+🧽 Data Quality:
 - lib/ProductOpener/DataQuality.pm
 - lib/ProductOpener/DataQualityCommon.pm
 - lib/ProductOpener/DataQualityFood.pm
@@ -251,7 +251,7 @@ Food groups:
 - lib/ProductOpener/FoodGroups.pm
 - tests/unit/food_groups.t
 
-Additives:
+🧪 Additives:
 - taxonomies/additives.txt
 - scripts/merge_additives_lists.pl
 - scripts/extract_additives.pl
@@ -393,7 +393,7 @@ Numbers:
 - tests/unit/ingredients_nutriscore.t
 - scripts/add_nutriscore_to_scanbot_csv.pl
 
-Orgs:
+🏭 Orgs:
 - lib/ProductOpener/Orgs.pm
 
 Packager Codes:
@@ -536,7 +536,7 @@ Web:
 - templates/web/common/includes/donate_banner.tt.html
 - html/donate/fr.helloasso.html
 
-editing:
+✏️ Editing:
 - templates/web/pages/product_edit/product_edit_form.tt.html
 - templates/web/pages/product_edit/display_input_field.tt.html
 - templates/web/pages/product_edit/display_input_tabs.tt.html
@@ -551,7 +551,7 @@ Product page:
 - templates/web/pages/product/includes/ingredients_analysis.tt.html
 - templates/web/pages/product/includes/nutrition_facts_table.tt.html
 
-Password:
+🔐 Password:
 - templates/web/pages/reset_password/reset_password.tt.html
 - templates/web/pages/change_password/change_password.tt.html
 - cgi/reset_password.pl
@@ -587,7 +587,10 @@ Product history:
 - templates/web/pages/product/includes/display_rev_info.tt.html
 - lib/ProductOpener/Version.pm
 
+Tags:
 - templates/web/pages/tag/tag.tt.html
+
+Site layout:
 - templates/web/common/site_layout.tt.html
 
 Lists of products:
@@ -648,7 +651,7 @@ config:
 - lib/ProductOpener/Config_opf.pm
 - lib/ProductOpener/Config_opff.pm
 
-ingredients processing:
+Ingredients processing:
 - tests/unit/ingredients_processing.t
 
 👥 Users:
@@ -675,7 +678,7 @@ Vitamins:
 checkbot:
 - scripts/checkbot.pl
 
-moderation:
+👮 Moderation:
 - scripts/delete_products_from_user.pl
 - scripts/delete_spam_users.pl
 - scripts/remove_empty_products.pl
@@ -710,7 +713,7 @@ exports:
 - cgi/auth.pl
 - cgi/sso.pl
 
-autosuggest:
+✏️ Editing - Auto Suggest:
 - cgi/suggest.pl
 - tests/integration/api_cgi_suggest.t
 - tests/integration/expected_test_results/api_cgi_suggest/**/*
@@ -726,14 +729,13 @@ autosuggest:
 subdomains:
 - scripts/list_subdomains.pl
 
-integration tests:
+🧪 integration tests:
 - tests/integration/import_csv_file.t
 - tests/integration/export.t
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
 
-
-unit tests:
+🧪 Unit tests:
 - tests/unit/display.t
 - tests/unit/food.t
 - tests/unit/i18n.t
