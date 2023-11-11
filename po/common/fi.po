@@ -117,7 +117,7 @@ msgstr "Anna organisaatiosi nimi (yrityksen nimi tai tuotemerkki)."
 
 msgctxt "enter_email_addresses_of_users"
 msgid "Enter email addresses of users to invite (comma-separated):"
-msgstr ""
+msgstr "Syötä kutsuttavien sähköpostiosoitteet pilkuin erotettuina:"
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
@@ -196,7 +196,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/fi_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -740,7 +740,7 @@ msgstr "<<site_name>> blogi"
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://blog.openfoodfacts.org/en/"
-msgstr ""
+msgstr "https://blog.openfoodfacts.org/en/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -980,7 +980,7 @@ msgstr "Valokuvan tiedot ja attribuutiotiedot"
 
 msgctxt "invite_user"
 msgid "Invite Users"
-msgstr ""
+msgstr "Kutsu käyttäjiä"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -2625,6 +2625,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Lataa pienemmän tarkkuuden kuvat (hitaille yhteyksille)"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "Valmistaja on lähettänyt kuvan. Jos se on vääränlainen tai vanhentunut, ota yhteyttä."
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr "Varoitus: ravintosisältöä ei ole määritelty. Se on arvioitu ainesosaluettelosta."
@@ -3953,7 +3957,7 @@ msgstr "Hedelmät, kasvikset, pähkinät ja rypsi-, maapähkinä- ja oliiviöljy
 
 msgctxt "nutriscore_points_for_fiber"
 msgid "Fiber"
-msgstr ""
+msgstr "Kuitu"
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
@@ -3999,6 +4003,10 @@ msgstr "<a href=\"\">Tarvitsemme apua ja lahjoituksia</a> hankkeen jatkamiseksi 
 msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Kiitos!"
+
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "Paljon kiitoksia!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -5272,7 +5280,7 @@ msgstr "Visio, missio, arvot ja ohjelmat"
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr ""
+msgstr "https://world-fi.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -5745,15 +5753,9 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Tärkeää: tarvitsemme tukeasi!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Open Food Facts on kymmenien tuhansien vapaaehtoisten rakentama yhteistyöprojekti, jota johtaa voittoa tavoittelematon järjestö, jolla on {number_of_employees} työntekijää."
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "Tarvitsemme lahjoituksianne Open Food Factsin vuoden {year} budjetin rahoittamiseksi ja jatkaaksemme hankkeen kehittämistä."
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
+msgstr "Auta tekemään elintarvikkeitten läpinäkyvyydestä normi! Yleishyödyllisenä yhdistyksenä olemme lahjoituksista riippuvainen, eli tarvitsemme lahjoituksia kertomaan kuluttajille, mitä he syövät. Liity ruokavallankumoukseen lahjoittamalla."
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6558,11 +6560,11 @@ msgstr "Anna arvo väliltä 0 ja {max}."
 
 msgctxt "please_ask_users_create_account_first"
 msgid "Please ask the following users to create an Open Food Facts account first:"
-msgstr ""
+msgstr "Pyydä seuraavia käyttäjiä tekemään Open Food Facts -tili:"
 
 msgctxt "users_added_successfully"
 msgid "Users added to the organization successfully:"
-msgstr ""
+msgstr "Seuraavat käyttäjät lisätty organisaatioon:"
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
@@ -6612,6 +6614,10 @@ msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "suhteessa kaikkiin tuotteisiin"
 
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr "Ensisijainen kieli"
+
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
 msgstr ""
@@ -6622,17 +6628,17 @@ msgstr ""
 
 msgctxt "packagings_materials_all"
 msgid "All materials"
-msgstr ""
+msgstr "Kaikki materiaalit"
 
 msgctxt "weight"
 msgid "Weight"
-msgstr ""
+msgstr "Massa"
 
 msgctxt "weight_100g"
 msgid "Weight per 100g of product"
-msgstr ""
+msgstr "Massa per 100 grammaa"
 
 msgctxt "weight_percent"
 msgid "Weight percent"
-msgstr ""
+msgstr "Massaprosentti"
 
