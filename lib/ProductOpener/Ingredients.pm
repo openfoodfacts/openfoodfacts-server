@@ -4643,6 +4643,13 @@ my %ingredients_categories_and_types = (
 		],
 	],
 
+	de => [
+		[
+			["pflanzliches Fett", ],
+			["Kokosnuss", "Palmkern", "Raps",],
+		],
+	],
+
 	fr => [
 		# huiles
 		[
