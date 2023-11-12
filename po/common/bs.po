@@ -258,7 +258,7 @@ msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "Brendovi"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -274,7 +274,7 @@ msgstr ""
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "brend"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -298,7 +298,7 @@ msgstr ""
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "Kategorije"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -318,7 +318,7 @@ msgstr ""
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "kategorija"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
@@ -864,7 +864,7 @@ msgstr ""
 
 msgctxt "front_alt"
 msgid "Product"
-msgstr ""
+msgstr "Proizvod"
 
 msgctxt "generic_name"
 msgid "Common name"
@@ -1130,7 +1130,7 @@ msgstr ""
 
 msgctxt "labels_s"
 msgid "label"
-msgstr ""
+msgstr "oznaka"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -2427,7 +2427,7 @@ msgstr ""
 
 msgctxt "tag_contains"
 msgid "Contains:"
-msgstr ""
+msgstr "Sadrži:"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
@@ -2607,6 +2607,10 @@ msgstr ""
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
+msgstr ""
+
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
 msgstr ""
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
@@ -3984,6 +3988,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr ""
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr ""
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr ""
@@ -4261,7 +4269,7 @@ msgstr ""
 
 msgctxt "contributor_settings"
 msgid "Contributor"
-msgstr ""
+msgstr "Saradnik"
 
 msgctxt "contributor_settings_description"
 msgid "Those settings allow you to personalize some aspects of the website"
@@ -4536,7 +4544,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
-msgstr ""
+msgstr "Vrlo dobar nutritivni kvalitet"
 
 msgctxt "attribute_nutriscore_b_description_short"
 msgid "Good nutritional quality"
@@ -4755,7 +4763,7 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_b_description_short"
 msgid "Low environmental impact"
-msgstr ""
+msgstr "Nizak uticaj na životnu sredinu"
 
 msgctxt "attribute_ecoscore_c_description_short"
 msgid "Moderate environmental impact"
@@ -5728,14 +5736,8 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr ""
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr ""
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
 msgstr ""
 
 msgctxt "donation_cta"
@@ -6352,7 +6354,7 @@ msgstr ""
 
 msgctxt "product"
 msgid "Product"
-msgstr ""
+msgstr "Proizvod"
 
 msgctxt "environment"
 msgid "Environment"
@@ -6593,6 +6595,10 @@ msgstr ""
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
+msgstr ""
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
 msgstr ""
 
 msgctxt "packagings_n_p"
