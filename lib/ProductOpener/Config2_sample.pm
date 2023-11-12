@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -22,12 +22,10 @@ package ProductOpener::Config2;
 
 use utf8;
 use Modern::Perl '2017';
-use Exporter    qw< import >;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-	@EXPORT = qw();
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		$server_domain
 		@ssl_subdomains
@@ -36,25 +34,28 @@ BEGIN
 		$geolite2_path
 		$mongodb
 		$mongodb_host
+		$mongodb_timeout_ms
 		$memd_servers
-		$facebook_app_id
-		$facebook_app_secret
 		$crowdin_project_identifier
 		$crowdin_project_key
 		$robotoff_url
-
+		$query_url
+		$events_url
+		$events_username
+		$events_password
+		$redis_url
 		%server_options
 
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
-use vars @EXPORT_OK ; # no 'my' keyword for these
+use vars @EXPORT_OK;    # no 'my' keyword for these
 
 # server constants
 $server_domain = "openfoodfacts.org";
 
 @ssl_subdomains = qw(
-*
+	*
 );
 
 # server paths
@@ -63,13 +64,11 @@ $data_root = "/home/off";
 
 $geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
 
-$mongodb = "off";
+$mongodb = "off";    # MongoDB database name
 $mongodb_host = "mongodb://localhost";
+$mongodb_timeout_ms = 50000;    # config option max_time_ms/maxTimeMS
 
-$memd_servers = [ "127.0.0.1:11211" ];
-
-$facebook_app_id = "";
-$facebook_app_secret = "";
+$memd_servers = ["127.0.0.1:11211"];
 
 $crowdin_project_identifier = '';
 $crowdin_project_key = '';
@@ -77,14 +76,22 @@ $crowdin_project_key = '';
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = '';
+$query_url = '';
+
+# Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
+# enable creating events for some actions (e.g. when a product is edited)
+$events_url = '';
+$events_username = '';
+$events_password = '';
+
+$redis_url = '';
 
 %server_options = (
 
-        cookie_domain => "openfoodfacts.dev",   # if not set, default to $server _domain
-        private_products => 1,  # Make products visible only to the owner
-        export_servers => { public => "off", experiment => "off-exp" },
-		ip_whitelist_session_cookie => [ "172.19.0.1" ],
+	cookie_domain => "openfoodfacts.dev",    # if not set, default to $server _domain
+	private_products => 1,    # Make products visible only to the owner
+	export_servers => {public => "off", experiment => "off-exp"},
+	ip_whitelist_session_cookie => ["172.19.0.1"],
 );
-
 
 1;

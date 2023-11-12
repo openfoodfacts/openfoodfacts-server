@@ -1,0 +1,24 @@
+<!-- start templates/[% template.name %] -->
+
+[% IF !server_options_producers_platform %]
+  [% display_search_image_form %]
+[% END %]
+
+<form method="post" action="/cgi/product.pl" enctype="multipart/form-data">
+
+    <div class="row">
+        <div class="small-9 columns">
+          <input type="text" name="code" placeholder="[% lang('or').remove('|\W?:') %] [% lang('barcode') %]">
+        </div>
+        <div class="small-3 columns">
+           <input type="submit" value="[% lang('add') %]" class="button postfix">
+        </div>
+    </div>
+
+	<input type="submit" value="[% lang('no_barcode') %]" class="button tiny">
+  <input type="hidden" name="action" value="process">
+  <input type="hidden" name="type" value="search_or_add">
+
+</form>
+
+<!-- end templates/[% template.name %] -->

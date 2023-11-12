@@ -1,0 +1,166 @@
+<!-- start templates/[% template.name %] -->
+
+[% IF action == 'display' || action == 'none' %]
+[% INCLUDE 'web/common/includes/error_list.tt.html' %]
+[% END %]
+
+[% IF action == 'display' %]
+
+	[% IF org_does_not_exist %]
+		<div class="panel" style="background-color:#ffdddd">The organization <strong>[% orgid %]</strong> does not exist yet. It will be created if you submit the form.</div>
+	[% END %]
+
+	[% IF org_members.size %]
+	<h2>[% lang("organization_members") %]</h2>
+		<p>[% lang("number_of_members") %][% sep %]: [% org_members.size %]</p>
+		<div style="position:relative">
+		<table>
+			<thead>
+			<tr>
+				<th>[% lang("serial_no") %]</th>
+				<th>[% lang("username") %]</th>
+				<th>[% lang("name") %]</th>
+				<th>[% lang("email") %]</th>
+				<th>[% lang("select_lang") %]</th>
+				<th>[% lang("select_country") %]</th>
+				<th>[% lang("delete_user") %]</th>
+	
+			</tr>
+		</thead>
+			<tbody>
+			[% SET count = 1 %]
+			[% FOREACH users IN org_members %]
+			<tr>
+				<td>[% count %].</td>
+				<td>[% users.userid %]</td>
+				<td>[% users.name %]</td>
+				<td>[% users.email %]</td>
+				<td>[% users.initial_lc %]</td>
+				<td>[% users.initial_cc %]</td>
+				<td>
+					<form method="post" action="/cgi/org.pl" onsubmit="return confirm('Are you sure you want to remove this user?')">
+						<input type="hidden" name="action" value="process" />
+						<input type="hidden" name="type" value="user_delete" />
+						<input type="hidden" name="org_id" value="[% orgid %]">
+						<input type="hidden" name="user_id" value="[% users.userid %]">
+						<input type="submit" name="remove_user" class="button small" value="[% lang("remove_user") %]"/>
+					</form>
+				</td>
+			</tr>
+			[% SET count = count + 1 %]
+			[% END %]
+		</tbody>
+		</table>
+	</div>
+	[% END %]
+
+		<form method="post" action="/cgi/org.pl" enctype="multipart/form-data" style="margin-bottom: 20px;">
+		<p>[% lang('enter_email_addresses_of_users') %]</p>
+		<textarea id="email_list" name="email_list" style="height:100px;width:50vw"></textarea>
+		<input type="hidden" name="action" value="process" />
+		<input type="hidden" name="type" value="add_users" />
+		<input type="hidden" name="orgid" value="[% orgid %]" />
+		<input type="submit" name=".submit" class="button" value="[% lang("invite_user") %]"/>
+	</form>
+
+    <!-- Start form -->
+    
+    <p>[% lang('org_profile_description') %]</p>
+    <p>[% lang('org_profile_description_2') %]</p>
+
+    <form method="post" action="/cgi/org.pl" enctype="multipart/form-data">
+
+		[% IF admin %]
+			<div class="panel callout">
+				<label>
+					<input type="checkbox" name="delete" value="on" />
+					[% lang("delete_org") %]
+				</label>
+			</div>
+		[% END %]
+		
+		[% FOREACH section IN sections %]
+		
+			[% IF admin OR section.id != "admin" %]
+		
+				[% IF section.name %]
+					<fieldset[% IF section.id == "admin" %] class="panel callout"[% END %]>
+						<legend>[% section.name %]</legend>
+				[% END %]
+				
+				[% IF section.description %]
+					<p>[% section.description %]</p>
+				[% END %]
+				[% IF section.note %]
+					<p>[% section.note %]</p>
+				[% END %]
+
+				[% FOREACH field IN section.fields %]
+
+					[% IF field.description %]
+						<p>[% field.description %]</p>
+					[% END %]								
+
+					[% IF field.type == 'text' %]
+						<label for="[% field.field %]">[% field.label %]</label>
+						<input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" />
+					[% ELSIF field.type == 'textarea' %]
+						<label for="[% field.field %]">[% field.label %]</label>
+						<textarea id="[% field.field %]" name="[% field.field %]" style="height:100px;">[% field.value %]</textarea>
+					[% ELSIF field.type == 'checkbox' %]
+						<label for="[% field.field %]">
+							<input type="checkbox" id="[% field.field %]" name="[% field.field %]" [% IF field.value == 'on' %]checked="checked"[% END %] />
+							[% field.label %]
+						</label>
+					[% END %]
+					
+					[% IF field.note %]
+						<p style="font-size:.8em">&rarr; [% field.note %]</p>
+					[% END %]
+
+				[% END %]
+				
+				[% IF section.name %]
+					</fieldset>
+					[% IF section.name == "admin" %]
+						</div>
+					[% END %]
+				[% END %]
+			
+			[% END %]
+
+		[% END %]
+
+		<input type="hidden" name="action" value="process" />
+		<input type="hidden" name="type" value="[% type %]" />
+		<input type="hidden" name="orgid" value="[% orgid %]" />
+		<input type="submit" name=".submit" class="button" value="[% lang("save") %]"/>
+    </form>
+
+    <!-- End form -->
+
+[% ELSIF action == 'process' %]
+
+[% IF email_ref.invited.size > 0 %]
+<h3>[% lang('please_ask_users_create_account_first') %]</h3>
+<ul>
+	[% FOREACH email IN email_ref.invited %]
+	<li>[% email %]</li>
+	[% END %]
+</ul>
+[% END %]
+
+[% IF email_ref.added.size > 0 %]
+<h3>[% lang('users_added_successfully') %]</h3>
+<ul>
+	[% FOREACH email IN email_ref.added %]
+	<li>[% email %]</li>
+	[% END %]
+</ul>
+[% END %]
+
+    <p>[% result %]</p>
+    <p>&rarr; <a href="[% profile_url %]">[% profile_name %]</a></p>
+[% END %]
+
+<!-- end templates/[% template.name %] -->

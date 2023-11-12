@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -52,8 +52,8 @@ my $creator = $ARGV[1];
 
 print "assigning product code $code to $creator\n";
 
-my	$product_ref = retrieve_product($code);
-		
+my $product_ref = retrieve_product($code);
+
 		if (not defined $product_ref) {
 			print "product code $code not found\n";
 		}
@@ -61,7 +61,7 @@ my	$product_ref = retrieve_product($code);
 			my $path = product_path($code);
 			$product_ref->{creator} = $creator;
 
-			store("$data_root/products/$path/product.sto", $product_ref);		
+			store( "$data_root/products/$path/product.sto", $product_ref );
 			get_products_collection()->save($product_ref);
 		}
 	

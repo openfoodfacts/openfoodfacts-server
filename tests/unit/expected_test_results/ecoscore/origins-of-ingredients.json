@@ -1,0 +1,91 @@
+{
+   "categories_tags" : [
+      "en:fruit-james"
+   ],
+   "ecoscore_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               [
+                  "en:france",
+                  60
+               ],
+               [
+                  "en:martinique",
+                  40
+               ]
+            ],
+            "origins_from_origins_field" : [
+               "en:world"
+            ]
+         },
+         "production_system" : {},
+         "threatened_species" : {}
+      },
+      "agribalyse" : {},
+      "missing" : {
+         "agb_category" : 1
+      },
+      "status" : "unknown"
+   },
+   "ingredients" : [
+      {
+         "id" : "en:apricot",
+         "origins" : "en:france",
+         "percent" : 60,
+         "percent_estimate" : 60,
+         "percent_max" : 60,
+         "percent_min" : 60,
+         "rank" : 1,
+         "text" : "apricots",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:cane-sugar",
+         "origins" : "en:martinique",
+         "percent" : "40",
+         "percent_estimate" : 40,
+         "percent_max" : 40,
+         "percent_min" : 40,
+         "rank" : 2,
+         "text" : "cane sugar",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:apricot",
+      "en:fruit",
+      "en:cane-sugar",
+      "en:sugar"
+   ],
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:apricot",
+      "en:cane-sugar"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:apricot",
+      "en:fruit",
+      "en:cane-sugar",
+      "en:sugar"
+   ],
+   "ingredients_text" : "60% apricots (France), 40% cane sugar (Martinique)",
+   "known_ingredients_n" : 4,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 60
+   },
+   "unknown_ingredients_n" : 0
+}

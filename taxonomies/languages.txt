@@ -1,3 +1,11 @@
+# NOTE: 1. Just translate the name of the language, for example, in "Abkhaz language" translate only "Abkhaz"
+#          because if the resulting translation is "Língua abcázia" (example in Portuguese) when you are editing a product
+#          in Open Food Facts website and you press the key "A" in the field using this translation, it will jump right
+#          to the language translation beginning with "A" and not "Língua abcázia" because this one begins with "L".
+#       2. Only the first string is shown in the interface until "," so if there is need to show the name of the language in other language
+#          variation use "/", for example "Color / colour", "Pastó / afegão" or "Tcheco / checo". Try to keep short and only use very
+#          common names, the first one should be the one with more speakers using it, and not the one technically more correct.
+
 en:Abkhaz, Abkhaz language, Abkhazian, ab, ab, abk
 ab:Аҧсуа бызшәа
 ady:Абхъазыбзэ
@@ -64,8 +72,8 @@ os:Абхазаг æвзаг
 pa:ਆਬਖ਼ਾਜ਼ ਭਾਸ਼ਾ
 pl:Język abchaski
 pms:Lenga Abkhaz
-pt:Língua abecásia
-pt-br:Língua abecásia
+pt:Abcázio
+pt-br:Abcázio
 ro:Limba abhază
 ru:абхазский язык
 rw:Icyabukaziyani
@@ -137,7 +145,8 @@ nl:Afar
 nn:Afar
 pl:Język afar
 pms:Lenga Afar
-pt:Língua afar
+pt:Afar
+pt-br:Afar
 ru:Афарский язык
 sh:Afarski jezik
 simple:Afar language
@@ -247,8 +256,8 @@ pap:Afrikaans
 pl:język afrikaans
 pms:Lenga afrikaans
 pnb:افریقان
-pt:língua africâner, africâner
-pt-br:língua africâner, africâner, africânder
+pt:Africâner
+pt-br:Africâner
 qu:Afrikans simi
 ro:limba afrikaans
 ru:африкаанс, бурский язык
@@ -333,7 +342,8 @@ nn:Akan
 oc:Àkan
 pl:Język akan
 pms:Lenga Akan
-pt:Língua akan
+pt:Acã, Akan
+pt-br:Acã, Akan
 qu:Akan simi
 ru:акан, аканский язык
 simple:Akan language
@@ -444,8 +454,8 @@ pa:ਅਲਬੇਨਿਆਈ ਬੋਲੀ
 pih:Elbanyan
 pl:język albański
 pnb:البانوی
-pt:Língua albanesa
-pt-br:língua albanesa, albanês
+pt:Albanês
+pt-br:Albanês
 qu:Albanya simi
 ro:Limba albaneză
 ru:албанский язык
@@ -561,8 +571,8 @@ pa:ਅਮਹਾਰੀ ਭਾਸ਼ਾ
 pl:Język amharski
 pms:Lenga amàrica
 pnb:امہارک بولی
-pt:Língua amárica
-pt-br:língua amárica, amárico
+pt:Amárico
+pt-br:Amárico
 qu:Amhara simi
 ro:limba amharică
 ru:амхарский язык
@@ -748,8 +758,8 @@ pl:język arabski
 pms:Lenga aràbica
 pnb:عربی
 ps:عربي
-pt:língua árabe, árabe, idioma árabe, linguagem árabe
-pt-br:língua árabe, árabe
+pt:Árabe
+pt-br:Árabe
 qu:Arabya simi
 ro:limba arabă
 ru:арабский язык
@@ -883,8 +893,8 @@ pam:Amanung Aragones
 pl:Język aragoński
 pms:Lenga aragonèisa
 pnb:اراغونی بولی
-pt:Língua aragonesa
-pt-br:Língua aragonesa
+pt:Aragonês
+pt-br:Aragonês
 ro:Limba aragoneză
 ru:арагонский язык
 rw:Icyaragoneze
@@ -1007,8 +1017,8 @@ pam:Amanung Armenyu
 pl:język ormiański
 pms:Lenga armen-a
 pnb:آرمینیائی
-pt:língua arménia
-pt-br:língua arménia
+pt:Armênio / arménio, Arménio
+pt-br:Armênio
 qu:Arminya simi
 ro:limba armeană
 ru:армянский язык, армянский
@@ -1030,7 +1040,7 @@ szl:Uormjańsko godka
 ta:அருமேனிய மொழி
 tg:Забони арманӣ
 th:ภาษาอาร์มีเนีย
-tr:ermenice
+tr:Ermenice
 tt:әрмән теле
 udm:Армян кыл
 ug:ئەرمەن تىلى
@@ -1111,7 +1121,8 @@ pa:ਆਸਾਮੀ ਭਾਸ਼ਾ
 pl:język asamski
 pms:Lenga assamèisa
 pnb:اسامی بولی
-pt:língua assamesa
+pt:Assamês
+pt-br:Assamês
 qu:Asam simi
 ro:Limba assameză
 ru:ассамский язык
@@ -1128,7 +1139,7 @@ ta:அசாமிய மொழி
 te:అస్సామీ భాష
 th:ภาษาอัสสัม
 tl:Wikang Asames
-tr:assam dili
+tr:Assamca
 uk:асамська мова
 ur:آسامی زبان
 vi:tiếng Assam
@@ -1191,7 +1202,8 @@ os:Солиаг æвзаг
 pa:ਅਵਾਰ ਭਾਸ਼ਾ
 pl:Język awarski
 pms:Lenga Avar
-pt:Língua avar
+pt:Avar
+pt-br:Avar
 ru:аварский язык
 sah:Аваар тыла
 simple:Avar language
@@ -1266,7 +1278,8 @@ os:Авестæйы æвзаг
 pa:ਅਵੇਸਤਨ ਭਾਸ਼ਾ
 pl:Język awestyjski
 pms:Avéstich
-pt:Língua avéstica
+pt:Avéstico
+pt-br:Avéstico
 ro:Limba avestică
 ru:Авестийский язык
 sco:Avestan
@@ -1278,7 +1291,7 @@ tg:Забони авестоӣ
 th:ภาษาอเวสตะ
 tk:Awesta dili
 tl:Wikang Avestan
-tr:Zentçe
+tr:Avestaca
 uk:Авестійська мова
 ur:اوستائی زبان
 zh:阿維斯陀語
@@ -1348,7 +1361,8 @@ os:Аймараг æвзаг
 pl:Język ajmara
 pms:Lenga aymara sentral
 pnb:آیمارا
-pt:Língua aimará
+pt:Aimará
+pt-br:Aimará
 qu:Aymara simi, Aymar aru, Aymar shimi, Aymar simi
 ro:limba aimara, Limba aymara
 ru:аймара, Язык Аймара, Аймарский язык
@@ -1361,7 +1375,7 @@ sr:ајмара
 stq:Aymara
 sv:Aymara
 ta:ஐமர மொழி, அய்மாரா மொழி
-tr:Aymaraca, Aymara dili
+tr:Aymaraca
 uk:Аймара, Мови аймара
 uz:Aymara tili
 vep:Aimar
@@ -1472,8 +1486,8 @@ pl:Język azerski
 pms:Lenga Azerbaijan setentrional
 pnb:آذری بولی
 ps:آزربايجاني
-pt:Língua azeri
-pt-br:língua azeri, azerbaidjanês, azeri
+pt:Azeri, Azerbaijano
+pt-br:Azeri, Azerbaidjanês
 qu:Asar simi
 rm:Lingua aserbeidschanica
 ro:Limba azeră, Limba azeri-turcă, Azeri-turca, Limba azerbaidjaneză, Azerbaidjaneza
@@ -1554,7 +1568,8 @@ nn:Bambara
 pl:Język bambara, Język bamana
 pms:Lenga Bamanankan
 pnb:بمبارا
-pt:Língua bambara
+pt:Bambara
+pt-br:Bambara
 qu:Bambara simi
 ru:Бамана, Бамананкан, Язык бамбара, Бамбара язык, Бамбара
 se:Bambaragiella
@@ -1633,8 +1648,8 @@ pa:ਬਸ਼ਕੀਰ ਭਾਸ਼ਾ
 pl:Język baszkirski
 pms:Lenga bashkir
 pnb:بشکیر بولی
-pt:Língua bashkir
-pt-br:Língua bashkir
+pt:Basquir
+pt-br:Basquir
 ro:Limba bașchiră
 ru:башкирский язык
 sah:Башкиир тыла
@@ -1750,8 +1765,8 @@ pam:Amanung Basku
 pl:Język baskijski
 pms:Lenga basca
 pnb:باسک
-pt:língua basca, basco, idioma basco, linguagem basca, euskara, euskera
-pt-br:língua basca, basco
+pt:Basco
+pt-br:Basco
 qu:Yuskara simi
 ro:limba bască
 ru:баскский язык
@@ -1888,8 +1903,8 @@ pa:ਬੇਲਾਰੂਸੀ ਭਾਸ਼ਾ
 pl:język białoruski
 pms:Lenga bielorussa
 pnb:بیلاروسی
-pt:Língua bielorrussa
-pt-br:língua bielorrussa, bielorrusso
+pt:Bielorrusso
+pt-br:Bielorrusso
 qu:Bilurusu simi
 ro:Limba bielorusă
 ru:белорусский язык, беларуская мова
@@ -2037,8 +2052,8 @@ pa:ਬੰਗਾਲੀ ਭਾਸ਼ਾ
 pl:język bengalski
 pms:Lenga bengali
 pnb:بنگالی
-pt:língua bengali
-pt-br:língua bengali
+pt:Bengali
+pt-br:Bengali
 qu:Banla simi
 ro:limba bengaleză
 roa-tara:Lènga bengalese
@@ -2065,7 +2080,7 @@ tg:Забони банголӣ
 th:ภาษาเบงกาลี
 tl:Wikang Bengali
 tokipona:toki Panla
-tr:bengalce
+tr:Bengalce
 tt:бенгаль теле
 ug:بېنگال تىلى
 uk:бенгальська мова
@@ -2122,7 +2137,8 @@ nl:Bihari
 nn:biharispråk, Bihari
 pl:bihari
 pnb:بہاری
-pt:línguas biaris, Língua bihari, Língua biari, Línguas biari
+pt:Biari
+pt-br:Biari
 ru:бихарские языки, Бихарский язык
 ta:பீகாரி மொழிகள்
 ug:بىھارى تىلى, Bihari tili
@@ -2181,7 +2197,8 @@ nn:Bislama
 oc:Bislama
 pl:Język bislama
 pms:Lenga bislama
-pt:Língua bislamá, Bislamá, Língua bislama, Bislama
+pt:Bislamá
+pt-br:Bislamá
 ru:бислама, бислама язык
 sh:Bislama jezik, Bislama
 sk:bislamčina
@@ -2256,8 +2273,8 @@ pl:Bokmål
 pms:Lenga norvegèisa
 pnb:بکمال
 ps:بوکمول
-pt:Bokmål
-pt-br:Bokmål
+pt:Bokmål norueguês
+pt-br:Bokmål norueguês
 ro:Bokmål
 ru:букмол
 scn:Bokmål
@@ -2346,8 +2363,8 @@ oc:Bosnian
 pl:język bośniacki
 pms:Lenga bosnian-a
 pnb:بوسنیائی
-pt:Língua bósnia
-pt-br:língua bósnia, bósnio
+pt:Bósnio
+pt-br:Bósnio
 qu:Busna simi
 ro:limba bosniacă
 ru:боснийский язык
@@ -2467,8 +2484,8 @@ pdc:Bretonisch
 pl:język bretoński
 pms:Lenga breton-a
 pnb:بریطانی
-pt:Língua bretã
-pt-br:Língua bretã
+pt:Bretão
+pt-br:Bretão
 qu:Britun simi
 rm:Lingua bretona
 ro:Limba bretonă
@@ -2488,7 +2505,7 @@ sv:Bretonska
 ta:பிரித்தானி மொழி
 th:ภาษาเบรอตง
 tokipona:toki Peson
-tr:Bretonca
+tr:Britonca
 ug:برېتون تىلى
 uk:Бретонська мова
 vec:Łéngoa brètona
@@ -2602,8 +2619,8 @@ pl:język bułgarski
 pms:Lenga bùlgara
 pnb:بلغاری
 ps:بلغاريايي ژبه
-pt:língua búlgara, idioma búlgaro, linguagem búlgara, búlgaro, български
-pt-br:língua búlgara, búlgaro
+pt:Búlgaro
+pt-br:Búlgaro
 qu:Bulgarya simi
 rmy:bulgarikani chib
 ro:limba bulgară
@@ -2629,7 +2646,7 @@ th:ภาษาบัลแกเรีย
 tl:Wikang Bulgaro
 tokipona:toki Pokasi
 tpi:Tok Balgeria
-tr:bulgarca
+tr:Bulgarca
 tt:болгар теле
 udm:Болгар кыл
 ug:بۇلغارىيە تىلى
@@ -2708,8 +2725,8 @@ pa:ਬਰਮੀ ਭਾਸ਼ਾ
 pl:Język birmański
 pms:Lenga Burmese
 pnb:برمی بولی
-pt:língua birmanesa, birmanês
-pt-br:Língua birmanesa
+pt:Birmanês
+pt-br:Birmanês
 qu:Birmanu simi
 ro:Limba birmană
 ru:бирманский язык
@@ -2841,8 +2858,8 @@ pih:Katalan
 pl:język kataloński
 pms:Lenga catalan-a
 pnb:کیٹلونی
-pt:língua catalã, catalão, idioma catalão, linguagem catalã
-pt-br:língua catalã, catalão
+pt:Catalão
+pt-br:Catalão
 qu:Katalan simi
 rm:Lingua catalana
 ro:Limba catalană
@@ -2936,7 +2953,8 @@ nn:Chamorro
 oc:Chamorro
 pl:Język czamorro
 pms:Lenga Chamorro
-pt:Língua chamorro, Chamorro
+pt:Chamorro
+pt-br:Chamorro
 ru:Чаморро, Язык чаморро
 sco:Chamorro leid
 sh:Chamorro jezik, Čamoro jezik, Čamoroanski jezik
@@ -3007,7 +3025,8 @@ oc:Chechèn
 os:Цæцæйнаг æвзаг
 pl:Język czeczeński
 pms:Lenga Chechen
-pt:checheno, Língua chechena
+pt:Tchetcheno / checheno, Checheno
+pt-br:Tchetcheno
 ro:limba cecenă
 ru:чеченский язык, нохчийн мотт, нохчийн, чеченский
 rw:Igiceceni
@@ -3075,7 +3094,8 @@ nso:Sechichewa, Chichewa
 ny:Chilankhulo cha Chichewa, Chicheŵa, Chi-Chewa, Chichewa
 pl:język cziczewa, Język cziniandża, Język chinyanja, Język chichewa, Język niandża
 pms:Lenga Nyanja
-pt:língua nianja, Cinianja, Língua cinianja, CiNyanja, Nianja, Língua chinianja, Chichewa
+pt:Nianja, Cinianja, Chichewa
+pt-br:Nianja, Cinianja, Chichewa
 qu:Chichewa simi, Chichiwa simi, Chichewa, Nyanja, Nyanja simi, Chichiwa
 ru:ньянджа, Чичева, Чиньянджа, Ньянджа язык, Чева
 rw:Igicewa, Gicewa, Ikinyanja, Igicicewa
@@ -3088,7 +3108,7 @@ sr-el:nijandža
 sv:chichewa, Nyanja
 sw:Kinyanja
 ta:நியாஞ்ச மொழி
-tr:chewa dili, Nyanja, Chichewa
+tr:Çevaca
 uk:ньянджа
 vec:Chewa
 zh:齐切瓦语, 齊切瓦語, 尼揚賈語, 尼扬贾语, 奇契瓦语, 齊佩瓦語
@@ -3221,8 +3241,8 @@ pcd:Kinos, Kinoé, Chinoé
 pl:język chiński
 pnb:چینی
 ps:چيني
-pt:língua chinesa
-pt-br:língua chinesa
+pt:Chinês
+pt-br:Chinês
 qu:Chun simi
 ro:limba chineză
 ru:китайский язык
@@ -3314,7 +3334,8 @@ nb:Kirkeslavisk, Gammelslavisk, Kirkeslavisk språk, Gammalslavisk, Paleoslavisk
 nl:Kerkslavisch
 nn:Kyrkjeslavisk
 pl:Język cerkiewnosłowiański, Cs., Język cerkiewno-słowiański
-pt:eslavo eclesiástico, Eslavónio eclesiástico, Antigo eslavônico, Língua eslavônica eclesiástica, Eslavônico eclesiástico, Eslavônio eclesiástico
+pt:Eslavo eclesiástico, Antigo eslavónico, Eslavónico eclesiástico
+pt-br:Eslavo eclesiástico, Antigo eslavônico, Eslavônico eclesiástico
 ro:Limba slavonă, Slavona, Limba slavona, Slavona bisericească, Slavonă
 ru:церковнославянский язык, церковнославянский, церковно-славянский алфавит, церковно-славянский язык
 scn:slavu ecclisiàsticu, lingua slava ecclisiàstica
@@ -3323,7 +3344,7 @@ sk:Cirkevná slovančina, Cirkevnoslovanský jazyk
 sl:Cerkvenoslovanščina, Cerkvena slovanščina
 sr:Црквенословенски језик, Црквено-словенски језик
 sv:Kyrkslaviska, Kyrkoslaviska
-tr:Eski Kilise Slavcası, Kilise Slavcası
+tr:Kilise Slavcası
 uk:церковнослов'янська мова, церковно-слов'янська мова, церковносло'вянська мова
 zh:教會斯拉夫語, 教会斯拉夫语
 language_code_2:en:cu
@@ -3389,8 +3410,8 @@ nn:tsjuvasjisk, Tsjuvansk språk, Tsjuvasjisk språk
 pl:Język czuwaski
 pms:Lenga chuvash
 pnb:شواش
-pt:língua tchuvache, Língua chuvache
-pt-br:Língua tchuvache
+pt:Tchuvache / chuvache, Chuvache
+pt-br:Tchuvache
 qu:Chuwash simi, Chuwasyu simi, Chuwas simi, Chuwasya simi
 ro:limba ciuvașă, Limba ciuvaşă
 ru:чувашский язык, Чувашский
@@ -3406,7 +3427,7 @@ szl:Czuwaskŏ gŏdka
 ta:சுவாசு மொழி
 th:ภาษาชูวัช, ภาษาชูวาส
 tk:Çuwaş dili
-tr:çuvaşça, Çuvaşistan Türkçesi, Çuvaşca, Çuvaş Türkçesi
+tr:Çuvaşça
 tt:çuaş tele, Çuaşça
 udm:Чуваш кыл
 ug:چۇۋاش تىلى, Chuwash tili
@@ -3492,7 +3513,8 @@ os:Корнаг æвзаг
 pam:Cornish
 pl:Język kornijski, Język kornicki, Język kornwalijski
 pms:Lenga còrnica
-pt:Língua córnica, Língua cornualesa, Córnico
+pt:Córnico
+pt-br:Córnico
 rm:Lingua cornica, Cornic
 ro:Limba cornică
 ru:корнский язык, Корнваллийский язык, Корнваллийский, Корнский, Корнуэльский, Корнуэльский язык
@@ -3579,7 +3601,8 @@ pam:Amanung Korsu
 pl:Język korsykański, Dialekt korsykański
 pms:Lenga còrsa
 pnb:کورسی بولی
-pt:Língua corsa, Língua córsica, Córsico
+pt:Córsico
+pt-br:Córsico
 ro:Limba corsicană
 ru:корсиканский язык
 sc:Limba corsicana
@@ -3636,13 +3659,14 @@ nl:Cree, Montagnais
 nn:Cree-montagnais-naskapi-språket, Cree-montagnais(-naskapi)-språket
 oc:Cree
 pl:Język kri, Język kriski
-pt:Língua cree
+pt:Cree
+pt-br:Cree
 qu:Kri simi, Kriy simi
 ru:кри
 sv:Cree, Nehiyawewin, Nēhiyawēwin, Nihithawiwin, Nîhithawîwin
 ta:கிறீ மொழி
 th:ภาษาครี
-tr:Krice, Cree dili
+tr:Krice
 uk:Мова крі
 zh:克里语
 language_code_2:en:cr
@@ -3764,8 +3788,8 @@ pdc:Kroaatischi Schprooch
 pl:Język chorwacki
 pms:Lenga croata
 pnb:کروٹ
-pt:Língua croata
-pt-br:língua croata, croata
+pt:Croata
+pt-br:Croata
 qu:Hurwat simi
 ro:Limba croată
 ru:хорватский язык
@@ -3931,8 +3955,8 @@ pl:język czeski
 pms:Lenga ceca
 pnb:چیک بولی
 ps:چيکی ژبه
-pt:língua checa, língua checa, idioma checo, checo, linguagem checa
-pt-br:língua tcheca, tcheco
+pt:Tcheco / checo, Checo
+pt-br:Tcheco
 qu:Chiku simi
 rm:Lingua tscheca
 ro:Limba cehă
@@ -4094,8 +4118,8 @@ pcd:Danoé
 pl:Język duński
 pms:Lenga danèisa
 pnb:ڈنمارکی
-pt:língua dinamarquesa, dinamarquês, idioma dinamarquês, linguagem dinamarquesa, dansk
-pt-br:língua dinamarquesa, dinamarquês
+pt:Dinamarquês
+pt-br:Dinamarquês
 qu:Dan simi
 ro:Limba daneză
 ru:датский язык
@@ -4263,8 +4287,8 @@ pl:język niderlandzki
 pms:Lenga neerlandèisa
 pnb:ڈچ
 ps:نېدرلنډي, نېدرلنډي ژبه
-pt:língua neerlandesa, neerlandês, idioma neerlandês, linguagem neerlandesa, língua holandesa, holandês, idioma holandês, linguagem holandesa
-pt-br:língua neerlandesa, neerlandês, língua holandesa, holandês
+pt:Neerlandês, holandês
+pt-br:Neerlandês, holandês
 qu:Urasuyu simi
 rm:lingua neerlandaisa
 ro:limba neerlandeză
@@ -4378,8 +4402,8 @@ pl:Dzongkha
 pms:Lenga Dzongkha
 pnb:جونگکا
 ps:ژونگخا
-pt:língua butanesa
-pt-br:Língua butanesa
+pt:Butanês, Dzonga
+pt-br:Butanês, Dzonga
 qu:Dzonkha simi
 ru:Дзонг-кэ
 sco:Dzongkha
@@ -4594,8 +4618,8 @@ pl:język angielski
 pms:Lenga anglèisa
 pnb:انگریزی
 ps:انگليسي
-pt:língua inglesa, inglês, idioma inglês, linguagem inglesa
-pt-br:língua inglesa, inglês
+pt:Inglês
+pt-br:Inglês
 qu:Inlish simi
 rm:Lingua englaisa
 ro:limba engleză
@@ -4809,8 +4833,8 @@ pfl:Eschberando
 pl:Esperanto, Lingvo Internacia
 pms:Lenga esperanto
 pnb:اسپرانتو
-pt:esperanto
-pt-br:esperanto
+pt:Esperanto
+pt-br:Esperanto
 qu:Esperanto simi
 rm:Esperanto
 rn:Kiseperanto
@@ -4977,8 +5001,8 @@ pa:ਏਸਟੋਨਿਆਈ ਭਾਸ਼ਾ
 pl:Język estoński
 pms:Lenga Estonian
 pnb:اسٹونی
-pt:estónio, estónio, idioma estónio, linguagem estónia, estoniano, língua estoniana, idioma estoniano, linguagem estoniana, estónico, linguagem estónica, língua estónica, idioma estónico, eesti keel, língua estónia
-pt-br:língua estônia, estoniano, estônio
+pt:Estoniano, Estónio
+pt-br:Estoniano, Estônio
 qu:Istunya simi
 ro:limba estonă
 ru:эстонский язык
@@ -5054,7 +5078,8 @@ oc:Ewe
 pa:ਏਬੀ ਭਾਸ਼ਾ
 pl:Język ewe
 pms:Lenga Ewe
-pt:Língua ewe
+pt:Ewe
+pt-br:Ewe
 qu:Ewe simi
 ro:Limba ewe
 ru:эве
@@ -5146,7 +5171,8 @@ os:Фарераг æвзаг, Фарерагау
 pl:Język farerski, Farerski
 pms:Lenga faroèisa
 pnb:فیروئی بولی
-pt:Língua feroesa, Língua faroesa, Feroês, Língua faroense, Língua feróica
+pt:Feroês, Faroesa, Faroense, Feróica, Islandês das Ilhas Faroé
+pt-br:Feroês, Faroesa, Faroense, Feróica, Islandês das Ilhas Faroé
 ro:Limba feroeză, Limba faroeză
 ru:фарерский язык, Føroyskt, Faroese, Фарерский, Ферейский язык
 rw:Igifero, Gifero
@@ -5165,7 +5191,7 @@ sv:färöiska, Føroyskt, Färiska
 ta:பரோசு மொழி
 tg:Алифбои фароесӣ
 th:ภาษาแฟโร, Faroese language, ภาษาฟาโร
-tr:Faroece, Faroe dili
+tr:Faroece
 tt:Фарер теле
 ug:فائېروس تىل, Faéros til, فاروي ئاراللىرى
 uk:Фарерська мова
@@ -5220,7 +5246,8 @@ nn:Fijiansk
 pl:Język fidżyjski, Język fidżi
 pms:Lenga Figian-a
 pnb:فجی بولی
-pt:Língua fidjiana, Língua fijiana, Fijiano, Língua vitiana
+pt:Fidjiano / fijiano, Fijiano, Vitiano
+pt-br:Fidjiano, Vitiano
 qu:Phiyi simi
 ru:фиджийский язык, Фиджийские языки, Восточнофиджийский язык, Фиджи
 rw:Igifijiyani, Igifiji, Gifijiyani
@@ -5228,7 +5255,7 @@ sco:Fijian leid
 sv:Fijianska, Fiji
 ta:விசிய மொழி, பிசிய மொழி, பிஜி மொழி, விட்டிய மொழி
 th:ภาษาฟิจิ
-tr:Fiji dili
+tr:Fijice
 uk:Фіджійська мова
 vi:Tiếng Fiji
 xmf:ფიჯური ნინა
@@ -5346,8 +5373,8 @@ pa:ਫ਼ਿਨੀ ਭਾਸ਼ਾ
 pl:Język fiński
 pms:Lenga finlandèisa
 pnb:فنی
-pt:língua finlandesa, finlandês, idioma finlandês, linguagem finlandesa, suomi
-pt-br:língua finlandesa, finlandês
+pt:Finlandês
+pt-br:Finlandês
 qu:Phinis simi
 rm:Lingua finlandaisa
 ro:limba finlandeză
@@ -5570,8 +5597,8 @@ pl:język francuski, Francuski
 pms:Lenga fransèisa
 pnb:فرانسیسی
 ps:فرانسوي
-pt:língua francesa, francês, linguagem francesa, idioma francês
-pt-br:língua francesa, francês
+pt:Francês
+pt-br:Francês
 qu:Ransis simi
 rm:lingua franzosa
 ro:limba franceză
@@ -5612,7 +5639,7 @@ tk:Fransuz dili
 tl:Wikang Pranses
 tokipona:toki Kanse
 tpi:Tok Frens
-tr:fransızca
+tr:Fransızca
 tt:француз теле
 ty:Reo farāni
 udm:Француз кыл
@@ -5681,7 +5708,8 @@ nb:Fulfulde, Fulfulde språk, Fula
 nl:Fula, Pulaar, Pular, Fulfulde
 nn:Fulfulde
 pl:Język ful, Język fulani, Język fulfulde, Język fula
-pt:Língua fula, Língua fulah
+pt:Fula
+pt-br:Fula
 qu:Fula simi, Fulfulde, Phula simi, Phula, Fulfulde simi, Fula
 ru:фула, язык фула, фула язык, пулар-фульфульде, пулар, фулани, фульбе, фулах, фульфульде
 sco:Fula leid
@@ -5780,8 +5808,8 @@ pam:Amanung Galyegu
 pl:język galicyjski
 pms:Lenga galissian-a
 pnb:گلیکیائی
-pt:língua galega, galego, idioma galego, linguagem galega
-pt-br:língua galega, galego
+pt:Galego
+pt-br:Galego
 qu:Galligu simi
 ro:limba galiciană
 ru:галисийский язык
@@ -5802,7 +5830,7 @@ ta:கலீசிய மொழி
 tet:Lia-galegu
 th:ภาษากาลิเซีย
 tl:Wikang Galisyano
-tr:galiçyaca
+tr:Galiçyaca
 ug:گالىسىيەچە
 uk:галісійська мова
 uz:Galisiyaliklar tili, Galisiyaliklar Tili
@@ -5903,8 +5931,8 @@ pl:Język gruziński
 pms:Lenga georgian-a
 pnb:جارجیائی
 ps:گرجی ژبه
-pt:Língua georgiana
-pt-br:língua georgiana, georgiano
+pt:Georgiano
+pt-br:Georgiano
 qu:Kartul simi
 ro:limba georgiană
 ru:грузинский язык
@@ -6106,8 +6134,8 @@ pl:język niemiecki
 pms:Lenga tedësca
 pnb:جرمن
 ps:آلماني ژبه
-pt:língua alemã, alemão
-pt-br:língua alemã, alemão, Deutsch
+pt:Alemão
+pt-br:Alemão
 qu:Aliman simi
 rm:Lingua tudestga
 rmy:Jermanikani chib
@@ -6217,8 +6245,8 @@ oc:Gikuyu
 pa:ਕਿਕਿਊ ਭਾਸ਼ਾ
 pl:Język kikuju, Język gikuju, Język kuju, Język gikuyu, Język kikuyu
 pms:Lenga Gikuyu
-pt:Língua kikuyu
-pt-br:Língua kikuyu
+pt:Quicuio, Kikuyu
+pt-br:Quicuio, Kikuyu
 qu:Kikuyu simi
 ru:Кикуйю, Гикуйю
 rw:Igikuyu, Kikuyu, Ikikuyu, Gikuyu
@@ -6285,7 +6313,8 @@ nl:Groenlands, Kalaallisut
 nn:Grønlandsk, Grønlandsk språk
 pl:Język grenlandzki, Kalaallisut
 pms:Lenga inuktitut
-pt:groenlandês, Língua kalaallisut, Língua gronelandesa, Groenlandês, Gronelandês, Kalaallisut, Língua groenlandesa
+pt:Groenlandês, Groelandês, Gronelandês
+pt-br:Groenlandês, Groelandês
 qu:Kalalit simi, Kalaallisut
 ru:гренландский язык, Гренландский, Kalaallisut
 scn:groenlannisi, groenlannisi, lingua groenlannisa, groenlandisi, lingua groenlanisa
@@ -6374,8 +6403,8 @@ oc:Guaraní
 pl:Język guarani
 pms:Lenga guaraní
 pnb:گورانی
-pt:língua guarani
-pt-br:Língua guarani
+pt:Guarani
+pt-br:Guarani
 qu:Waraniyi simi, Guaraní simi, Warani simi, Guarani simi
 ro:limba guarani, Limba guaraní
 ru:гуарани, Язык гуарани
@@ -6468,8 +6497,8 @@ pa:ਗੁਜਰਾਤੀ ਭਾਸ਼ਾ, ਗੁਜਰਾਤੀ ਬੋਲੀ, Gu
 pl:Język gudźarati
 pms:Lenga gujarati
 pnb:گجراتی
-pt:Língua gujarati
-pt-br:Língua gujarati
+pt:Gujarati
+pt-br:Gujarati
 qu:Gujarati simi
 ro:Limba gujarati
 ru:гуджарати
@@ -6488,7 +6517,7 @@ ta:குஜராத்தி
 te:గుజరాతి భాష
 tg:Забони гуҷаратӣ
 th:ภาษาคุชราต
-tr:Gucaratça
+tr:Guceratça
 ug:گۇجارات تىل
 uk:Гуджараті
 ur:گجراتی زبان
@@ -6546,7 +6575,8 @@ pap:Idioma Krioyo Haitiano, Kreyol
 pl:Język kreolski haitański, Język haitański, Kreolski haitański
 pms:Lenga haitian creole french, Lenga haitian-a
 pnb:کریول
-pt:Crioulo haitiano, Língua Crioula Haitiana, Língua haitiana
+pt:Crioulo haitiano
+pt-br:Crioulo haitiano
 ro:limba creolă haitiană, Creola haitiană
 ru:гаитянский креольский язык, Гаитянский язык, Аисьен, Гаитийский креольский язык, Гаитянский креольский
 simple:Haitian Creole language
@@ -6619,8 +6649,8 @@ om:Hawussaa
 pa:ਹੌਸਾ ਭਾਸ਼ਾ
 pl:Język hausa
 pms:Lenga Hausa
-pt:Língua haúça, Língua hausa, Língua Haússa, Língua hauçá
-pt-br:língua hauçá, língua haúça, língua haússa
+pt:Hauçá, Haúça
+pt-br:Hauçá, Haúça
 qu:Hawsa simi, Hawsa, Hausa, Hausa simi
 ru:Хауса, Хауса язык, Язык хауса
 rw:Igihawusa, Gihawusa
@@ -6633,7 +6663,7 @@ sw:Kihausa
 ta:ஹவுசா மொழி, ஹௌசா மொழி
 tg:Забони хауса
 tokipona:toki Awasa
-tr:Hausa dili
+tr:Hausaca
 uk:Хауса, Гауса, Мова гауса
 ur:ھاوسا زبان, ھاوسا
 vi:Tiếng Hausa
@@ -6770,8 +6800,8 @@ pih:Hiibruu
 pl:język hebrajski
 pms:Lenga ebréa antica
 pnb:عبرانی
-pt:língua hebraica
-pt-br:Língua hebraica
+pt:Hebraico
+pt-br:Hebraico
 qu:Iwriyu simi
 ro:limba ebraică
 ru:иврит
@@ -6859,8 +6889,8 @@ nl:Herero
 nn:Herero
 pl:Język herero
 pms:Lenga Herero
-pt:hereró, Língua herero, Língua hereró
-pt-br:Língua hereró
+pt:Herero
+pt-br:Herero
 ro:Limba herero, Herero
 ru:Гереро, Гереро язык
 rw:Igiherero, Giherero
@@ -6868,7 +6898,7 @@ sv:Herero, Otjiherero
 sw:Kiherero
 ta:எரேரோ மொழி
 th:ภาษาเฮเรโร
-tr:Herero dili
+tr:Hereroca
 uk:Гереро
 language_code_2:en:hz
 language_code_3:en:her
@@ -6991,8 +7021,8 @@ pl:język hindi
 pms:Lenga hindi
 pnb:ہندی
 ps:هندي
-pt:língua hindi
-pt-br:língua hindi
+pt:Hindi
+pt-br:Hindi
 qu:Hindi simi
 ro:limba hindi
 ru:хинди
@@ -7017,7 +7047,7 @@ tg:Забони ҳиндӣ
 th:ภาษาฮินดี
 tl:Wikang Hindi
 tokipona:toki Insi
-tr:hintçe
+tr:Hintçe
 tt:һинд теле
 ug:ھىندى تىلى
 uk:гінді
@@ -7075,7 +7105,8 @@ nl:Hiri Motu
 nn:Hiri motu
 pl:Hiri motu, Język hiri motu
 pms:Lenga hiri motu, Lenga motu
-pt:Hiri Motu
+pt:Hiri motu
+pt-br:Hiri motu
 ro:Hiri motu, Hiri motou
 ru:Хири-моту, Хиримоту, Хири моту
 sco:Hiri Motu leid
@@ -7186,8 +7217,8 @@ pa:ਮਗਯਾਰ
 pl:język węgierski
 pms:Lenga ungherèisa
 pnb:مگیار
-pt:língua húngara, húngaro, idioma húngaro, linguagem húngara, magiar, magyar
-pt-br:língua húngara, língua magiar, húngaro
+pt:Húngaro, Magiar
+pt-br:Húngaro, Magiar
 qu:Unriya simi
 rm:Lingua ungaraisa
 rmy:Ungarikani chib
@@ -7332,8 +7363,8 @@ os:Исландиаг æвзаг
 pl:język islandzki
 pms:Lenga islandèisa
 pnb:آئیسلینڈی
-pt:língua islandesa, islandês, idioma islandês, linguagem islandesa
-pt-br:língua islandesa, islandês
+pt:Islandês
+pt-br:Islandês
 qu:Islandya simi
 ro:Limba islandeză
 ru:исландский язык
@@ -7451,8 +7482,8 @@ pcd:Ido
 pl:Ido, Esperanto reformita, Język ido
 pms:Ido
 pnb:آئیڈو
-pt:ido, Língua ido
-pt-br:língua ido, ido
+pt:Ido
+pt-br:Ido
 qu:Ido
 rm:Ido
 ro:Ido, Limba ido
@@ -7526,7 +7557,8 @@ oc:Igbo
 pa:ਇਗਬੋ ਭਾਸ਼ਾ
 pl:Język igbo, Język ibo
 pms:Lenga Igbo
-pt:Língua igbo
+pt:Ibo, Igbo
+pt-br:Ibo, Igbo
 qu:Igbo simi, Igbo, Ibo simi, Ibo
 ro:Limba igbo
 ru:игбо, Язык игбо
@@ -7539,6 +7571,7 @@ sv:Igbo, Ibo, Igbo språk
 sw:Kiigbo
 ta:இக்போ மொழி
 tokipona:toki Ipo
+tr:İgboca
 uk:Ігбо
 wa:Igbo
 yo:Èdè Ígbò, Igbo language, Èdè Igbo, Ede Igbo
@@ -7625,8 +7658,8 @@ pa:ਇੰਡੋਨੇਸ਼ੀ ਬੋਲੀ
 pl:Język indonezyjski
 pms:Lenga Indonesian
 pnb:انڈونیشی
-pt:língua indonésia, indonésio, idioma indonésio, linguagem indonésia, Bahasa Indonesia
-pt-br:língua indonésia, indonésio
+pt:Indonésio
+pt-br:Indonésio
 qu:Indunisya simi
 ro:Limba indoneziană
 ru:индонезийский язык
@@ -7741,8 +7774,8 @@ pih:Interlingua
 pl:Interlingua, Postacie interlinguy, Język interlingua, Postacie interlingwy
 pms:Antërlenga, Interlingua, Lenga interlingua
 pnb:انٹرلنگوا
-pt:Interlíngua, Interlingua, Interlingua de IALA
-pt-br:interlíngua
+pt:Interlíngua
+pt-br:Interlíngua
 qu:Interlingua
 rm:Interlingua
 ro:Interlingua
@@ -7791,7 +7824,7 @@ et:Interlingue, Oktsidentaal
 fa:زبان غربی
 fi:Interlingue, Occidental
 fr:occidental, Interlingue, Règle de Wahl, ie
-ga:An Interlingua, Interlingua
+ga:Interlingue
 gl:Lingua occidental, Interlingue
 hu:Occidental nyelv
 ia:Interlingue, Occidental Interlingue
@@ -7809,7 +7842,8 @@ nl:Interlingue, Occidental
 nov:Interlingue (Occidental) lingue, Occidental lingue, Interlingue
 oc:Interlingue, Occidental
 pl:Occidental, Interlingue
-pt:Interlingue, Língua occidental
+pt:Interlingue, Occidental
+pt-br:Interlingue, Occidental
 ru:окциденталь, оксиденталь, окциденталь язык, интерлингве, интерлингвэ, оксидэнталь
 stq:Interlingue
 sv:Occidental, Interlingue
@@ -7866,7 +7900,8 @@ nn:Inuktitut, Inuktitut språk
 oc:Inuktitut
 pl:Inuktitut, Alfabet inuicki, Pismo inuickie, Język inuktitut, Język inukitut, Język inuicki, Inupik, Język eskimoski
 pms:Lenga inuktitut, eastern canadian
-pt:Língua inuktitut, Inuctitut, Inuktitut
+pt:Inuctitute
+pt-br:Inuctitute
 qu:Inuyt simi, Inuk simi, Inuktitut simi, Inuyt rimaykuna, Inuktitut, Inuit simi, Inuyt rimay
 ru:Инуктитут, Инуктитут язык
 scn:inùktitut, lingua inùktikut
@@ -7912,7 +7947,8 @@ nl:Inupiak
 nn:Iñupiaq, Inupiaq, Inupiak
 pl:Język inupiak
 pms:Lenga inupiatun, nòrd alaskan
-pt:Língua inupiat
+pt:Inupiaque
+pt-br:Inupiaque
 ru:аляскинско-инуитские языки, Инюпиак, Инупиак, Аляскинско-инуитский язык
 sv:Iñupiaq, Inupiaq, Iñupiak, Inupiak
 ta:இனுபிக்கு மொழி
@@ -8017,8 +8053,8 @@ pag:Salitan Irish
 pl:Język irlandzki
 pms:Lenga irlandèisa
 pnb:آئرش
-pt:língua irlandesa, irlandês, idioma irlandês, linguagem irlandesa, gaélico irlandês, gaélico, gaeilge
-pt-br:língua irlandesa, irlandês, gaélico irlandês, gaélico
+pt:Irlandês
+pt-br:Irlandês
 qu:Ilanda simi
 rm:Lingua irlandaisa
 ro:Limba irlandeză
@@ -8199,8 +8235,8 @@ pih:Italiian
 pl:język włoski
 pms:Lenga italian-a
 pnb:اطالوی
-pt:italiano, idioma italiano, linguagem italiana, língua italiana
-pt-br:língua italiana, italiano
+pt:Italiano
+pt-br:Italiano
 qu:Italya simi
 rm:Lingua taliana
 ro:limba italiană
@@ -8397,8 +8433,8 @@ pl:język japoński, Jap., Japoński
 pms:Lenga giaponèisa
 pnb:جاپانی, جپانی
 ps:د ياماتو ژبه
-pt:língua japonesa, 日本語, idioma japonês, nihongo, japonês
-pt-br:língua japonesa, Nihongo
+pt:Japonês
+pt-br:Japonês
 qu:Nihun simi, Hapunis simi, Hapun simi
 ro:limba japoneză, Japoneză, Japoneza, Limba japoneza
 roa-tara:Lènga giapponese, Lènga giappunise
@@ -8430,7 +8466,7 @@ tk:Ýapon dili, Yaponça
 tl:Wikang Hapones, Wikang Haponés, Wikang Hapón, 日本語, Salitang hapones, Hapon, Wikang Hapon, Salitang hapon, Nihongo, Wikang Haponesa, Japanese language, Hapones language, Niponggo, Wikang Japanese
 tokipona:toki Nijon
 tpi:Tokples Siapan, Tok Siapan
-tr:Japonca, 日本語
+tr:Japonca
 tt:Япон теле
 ty:Reo Tāpōnē
 ug:ياپون تىلى, Yapon tili
@@ -8527,8 +8563,8 @@ pa:ਜਾਵਾਨੀ ਬੋਲੀ, ਜਵਾਨੀਜ ਭਾਸ਼ਾ
 pl:Język jawajski, Basa Jawa
 pms:Lenga giavanèisa, Lenga Javanese
 pnb:جاوانی
-pt:Língua javanesa
-pt-br:Língua javanesa
+pt:Javanês
+pt-br:Javanês
 qu:Yawa simi
 ro:limba javaneză
 ru:яванский язык, Basa Jawa
@@ -8544,7 +8580,7 @@ sw:Kijava
 ta:சாவகம், யவானிய மொழி, சாவக மொழி
 tg:Забони явагӣ
 th:ภาษาชวา
-tr:cava dili, Cava, Cavaca
+tr:Cavaca
 tt:Яван теле
 ug:ياۋا تىلى, Yawa tili
 uk:Яванська мова
@@ -8626,7 +8662,8 @@ pa:ਕੰਨੜ ਭਾਸ਼ਾ, ਕੰਨੜ
 pl:Język kannada, Kannada, Język kannadyjski, Kannara
 pms:Lenga Kannada
 pnb:کناڈا
-pt:Língua canaresa, Canarês, Língua Kannada, Canará, Lingua kannada, Língua canada, Kannada, Língua canará
+pt:Canarês
+pt-br:Canarês
 qu:Kannada simi
 ro:Limba kannada
 ru:каннада
@@ -8641,7 +8678,7 @@ sw:Kikannada
 ta:கன்னடம், கன்னட மொழி, கன்னடம் மொழி
 te:కన్నడ భాష, కన్నడము, కన్నడ, కన్నడం
 th:ภาษากันนาดา, ภาษากันนฑะ, ภาษากานนาดา
-tr:Kannada dili
+tr:Kannadaca
 ug:كانناداچە, Kannadache
 uk:каннада, мова каннада
 ur:کنڑا
@@ -8671,7 +8708,7 @@ fa:زبان کنوری, کانوریایی
 fi:Kanurin kieli, Kanuri
 fr:kanouri, Kanouri, kr
 gl:Lingua canuri
-hi:कनूरी भाषा, 
+hi:कनूरी भाषा
 hif:Kanuri bhasa, Kanuri language
 id:Bahasa Kanuri
 it:kanuri, lingua kanuri
@@ -8686,11 +8723,12 @@ oc:Kanuri
 pa:ਕਨੂਰੀ ਭਾਸ਼ਾ
 pl:Język kanuri
 pms:Lenga Kanuri sentral
-pt:Língua kanuri, Língua canúri
+pt:Canúri
+pt-br:Canúri
 ru:Канури
 sw:Kikanuri
 ta:கனுரி மொழி
-tr:Kanuri dili
+tr:Kanurice
 uk:Канурі
 vep:Kanuri
 yo:Èdè Kánúrí, Kanuri language, Ede Kanuri
@@ -8752,8 +8790,8 @@ pa:ਕਸ਼ਮੀਰੀ ਭਾਸ਼ਾ
 pl:Język kaszmirski
 pms:Lenga kashmiri
 pnb:کشمیری
-pt:Língua caxemira, Caxemiriano, Língua kashmiri
-pt-br:Língua caxemira
+pt:Caxemiriano, Caxemira, Caxemíri
+pt-br:Caxemiriano, Caxemira, Caxemíri
 ru:кашмирский язык, Кашмири, Язык кашмири
 sa:कश्मीरी, कश्‍मीरी, काश्मीरी
 scn:kashmiri, lingua kashmiri
@@ -8854,8 +8892,8 @@ pa:ਕਜ਼ਾਖ ਭਾਸ਼ਾ
 pl:język kazachski
 pms:Lenga kazaka
 pnb:قازق
-pt:língua cazaque
-pt-br:língua cazaque, cazaquês
+pt:Cazaque
+pt-br:Cazaque, cazaquês
 qu:Qasaq simi
 ro:limba kazahă
 ru:казахский язык
@@ -8875,7 +8913,7 @@ szl:Kazachsko godka
 ta:காசாக்கு மொழி
 tg:Забони қазоқӣ
 th:ภาษาคาซัค
-tr:kazakça
+tr:Kazakça
 tt:Казакъ теле
 udm:Казах кыл
 ug:قازاق تىلى
@@ -8949,8 +8987,8 @@ pa:ਖਮੇਰ ਭਾਸ਼ਾ
 pl:Język khmerski
 pms:Lenga khmer sentral
 pnb:کھمیر
-pt:Língua khmer
-pt-br:Língua khmer
+pt:Quemer
+pt-br:Quemer
 qu:Khimir simi
 ro:Limba khmeră
 ru:кхмерский язык
@@ -9017,7 +9055,8 @@ nso:Sekinyarwanda
 oc:Kinyarwanda
 pl:Język ruanda-rundi, Kinyarwanda, Języki ruanda-rundi, Język kinyarwanda
 pms:Lenga Rwanda, Lenga kinyarwanda
-pt:Língua kinyarwanda, Língua ruanda, Kinyarwanda
+pt:Quiniaruanda, Kinyarwanda, Kruanda, Rwanda
+pt-br:Quiniaruanda, Kinyarwanda, Kruanda, Rwanda
 qu:Rwanda simi, Kinyarwanda, Kinyarwanda simi
 rn:Ikinyarwanda, Kinyarwanda
 ru:Руанда, Руандийский язык, Киньяруанда, Язык руанда
@@ -9073,7 +9112,8 @@ nov:Rundum
 oc:Kirundi
 pl:Język rundi, Język kirundi
 pms:Lenga Rundi
-pt:Língua kirundi, Kirundi, Rundi
+pt:Kirundi, Rundi
+pt-br:Kirundi, Rundi
 qu:Rundi simi, Kirundi, Kirundi simi
 rn:Ikirundi, Kirundi
 ru:рунди, Кирунди, Язык Кирунди
@@ -9083,7 +9123,7 @@ se:Kirundigiella
 sv:Kirundi, Rundi
 sw:Kirundi
 ta:கிருண்டி மொழி
-tr:Rundice, Kirundi
+tr:Rundice
 udm:Рунди кыл
 uk:Кірунді, Рунді
 zh:基隆迪语, 克倫地語
@@ -9137,7 +9177,8 @@ os:Коми, Комиаг æвзаг
 pl:język komi, Język zyriański, Język komi-zyriański
 pms:Lenga Komi-Permyak
 pnb:کومی بولی
-pt:língua komi, Linguagem komi
+pt:Komi
+pt-br:Komi
 ru:коми, Общекоми-язык, Язык Коми, Зырянский язык, Коми язык, Коми языки
 se:Komigiella
 sgs:Kuomiu kalba
@@ -9189,14 +9230,15 @@ nn:Kikongo
 nov:Kongum
 pl:Język kongo, Kikongo, Język kikongo
 pms:Lenga Koongo
-pt:Kikongo, Língua quicongo, Kikongo language, Língua Kikongo, Quicongo
+pt:Quicongo, Kikongo
+pt-br:Quicongo, Kikongo
 qu:Kongo simi, Kikongo, Kungu simi, Kituba simi, Kikongo simi, Kituba
 ru:Конго, Киконго
 sk:konžština
 sv:Kikongo, Kongo, Koongo
 sw:Kikoongo, Kikongo
 ta:கோங்கோ மொழி
-tr:Kongo Dili
+tr:Kongoca
 uk:Конго, Кіконго
 ur:کانگو زبان
 wa:Kicongo
@@ -9311,8 +9353,8 @@ pam:Amanung Koreanu
 pl:język koreański
 pms:Lenga corean
 pnb:کوریائی
-pt:coreano, língua coreana
-pt-br:Língua coreana
+pt:Coreano
+pt-br:Coreano
 qu:Kuryu simi
 ro:Limba coreeană
 ru:корейский язык
@@ -9441,8 +9483,8 @@ pa:ਕੁਰਦਿਸ਼ ਭਾਸ਼ਾ
 pl:Język kurdyjski, Kurdyjski język, Kurd.
 pnb:کردی
 ps:کوردي ژبه
-pt:língua curda
-pt-br:língua curda
+pt:Curdo
+pt-br:Curdo
 qu:Kurdi simi, Kurdu simi, Kurda simi
 ro:Limba kurdă
 ru:курдские языки, Kurdî, курдский, курдский язык
@@ -9458,7 +9500,7 @@ sw:Kikurdi
 ta:குர்தி மொழி, குருதீசிய மொழி, குர்திய மொழி, குர்டிய மொழி
 tg:Забони курдӣ
 th:ภาษาเคิร์ด
-tr:Kürtçe, Kürt Dilleri, Kürtçe dili, Kürt dili, Kurtce, Kürtce
+tr:Kürtçe
 tt:Көрд теле
 ug:كۇرد تىلى, Kurd tili
 uk:курдська мова
@@ -9494,7 +9536,8 @@ ms:Bahasa Kwanyama
 nl:Kwanyama
 pl:Język kwanyama
 pms:Lenga Kwanyama
-pt:Oshikwanyama, Língua kwanyama, Língua cuanhama, Ochi-kwanyama
+pt:Cuanhama, Oshikwanyama
+pt-br:Cuanhama, Oshikwanyama
 ru:кваньяма, киньяма, ошикваньяма
 sv:Kwanyama
 sw:Kikwanyama, Oshiwambo, Oshivambo
@@ -9574,8 +9617,8 @@ pa:ਕਿਰਗੀਜ਼ ਭਾਸ਼ਾ
 pl:Język kirgiski
 pms:Lenga kirghiz
 pnb:کرغیز
-pt:Língua quirguiz
-pt-br:Língua quirguiz
+pt:Quirguiz
+pt-br:Quirguiz
 qu:Kirkis simi
 ro:limba kirghiză
 ru:киргизский язык
@@ -9655,8 +9698,8 @@ nl:Laotiaans
 nn:Laotisk
 pl:Język laotański
 pms:Lenga lao
-pt:Língua laociana
-pt-br:Língua laociana
+pt:Laociano
+pt-br:Laociano
 qu:Law simi
 ro:Limba laoțiană
 ru:лаосский язык
@@ -9837,8 +9880,8 @@ pl:Łacina, język łaciński
 pms:Lenga latin-a
 pnb:لاطینی
 ps:لاتين ژبه
-pt:latim
-pt-br:latim
+pt:Latim
+pt-br:Latim
 qu:Latin simi
 rm:Latin
 ro:limba latină
@@ -9990,8 +10033,8 @@ pih:Latwyan
 pl:język łotewski
 pms:Lenga leton-a
 pnb:لٹویائی
-pt:língua letã, idioma letão, letão, linguagem letã, latviešu
-pt-br:língua letã, letão
+pt:Letão
+pt-br:Letão
 qu:Litunya simi
 ro:limba letonă
 ru:латышский язык, латвийский язык
@@ -10076,7 +10119,8 @@ pfl:Limburgisch
 pl:język limburski, Dialekt limburski
 pms:Lenga limburghèisa
 pnb:لمبرگی
-pt:língua limburguesa, Limburgio, Limburguês
+pt:Limburguês
+pt-br:Limburguês
 ro:limba limburgheză, Limburgheză
 ru:лимбургский язык, Лимбургские диалекты, Limburgs, Лимбургский диалект, Лимбургское наречие, Лимбургский диалект нидерландского языка, Южнонижнефранкский диалект, Южно-нижнефранкский диалект
 sco:Limburgish leid
@@ -10138,7 +10182,8 @@ oc:Lingala
 pl:Język lingala, Język ngala, Język kingala
 pms:Lenga Lingala
 pnb:لنگالا
-pt:Língua lingala, Lingala
+pt:Lingala
+pt-br:Lingala
 qu:Lingala simi, Ngala simi
 ru:Лингала, Язык лингала, Нгала
 rw:Ilingala, Lingala
@@ -10253,8 +10298,8 @@ pih:Lithyuanyan
 pl:język litewski
 pms:Lenga lituan-a
 pnb:لتھوانی
-pt:língua lituana, lituano, idioma lituano, linguagem lituana, lietuvių kalba
-pt-br:língua lituana
+pt:Lituano
+pt-br:Lituano
 qu:Lituwa simi
 ro:limba lituaniană
 ru:литовский язык
@@ -10319,6 +10364,8 @@ kg:Kiluba
 ln:Kiluba
 nl:Luba-Katanga
 pms:Lenga Luba-katanga
+pt:Kiluba
+pt-br:Kiluba
 ru:Луба-катанга
 rw:Ikiluba, Kiluba
 sw:Kiluba-Katanga
@@ -10355,7 +10402,8 @@ nn:Luganda
 oc:Luganda
 pl:Język luganda, Język ganda
 pms:Lenga Ganda
-pt:Língua luganda, Luganda
+pt:Luganda, Ganda
+pt-br:Luganda, Ganda
 qu:Ganda simi, Luganda simi, Luganda
 ro:Ganda
 ru:Луганда, Луганда язык, Ганда
@@ -10445,8 +10493,8 @@ pa:ਲਕਸਮਬਰਗੀ ਭਾਸ਼ਾ
 pl:Język luksemburski
 pms:Lenga lussemborghèisa
 pnb:لکسمبورگی
-pt:Língua luxemburguesa
-pt-br:Língua luxemburguesa
+pt:Luxemburguês
+pt-br:Luxemburguês
 ro:Limba luxemburgheză
 ru:люксембургский язык
 scn:lussimburghisi, lingua lussimburghisa
@@ -10559,8 +10607,8 @@ oc:Macedonian
 pl:Język macedoński
 pms:Lenga macedonèisa
 pnb:مقدونی
-pt:língua macedônia
-pt-br:Língua macedônia
+pt:Macedônio / macedónio, Macedónio
+pt-br:Macedônio
 qu:Makidunya simi
 ro:Limba macedoneană
 ru:македонский язык
@@ -10656,8 +10704,8 @@ nn:Gassisk
 pl:Język malgaski
 pms:Malgass
 pnb:مالاگاسی
-pt:Língua malgaxe
-pt-br:Língua malgaxe
+pt:Malgaxe
+pt-br:Malgaxe
 qu:Malagasi simi
 ro:Limba malgașă
 ru:малагасийский язык, мальгашский язык
@@ -10757,8 +10805,8 @@ oc:Malai
 pl:Język malajski
 pms:Lenga Malay
 pnb:مالائی
-pt:Língua malaia
-pt-br:língua malaia, malaio
+pt:Malaio
+pt-br:Malaio
 qu:Malaya simi
 ro:limba malaieză
 ru:малайский язык, малайский
@@ -10852,7 +10900,8 @@ pa:ਮਲਿਆਲਮ ਭਾਸ਼ਾ, ਮਲਿਆਲਮ
 pl:Język malajalam, Malajalam, Język malajalamski
 pms:Lenga Malayalam
 pnb:ملیالم
-pt:malaiala, Malayalam, Malayalama, Língua malayalam, língua malaiala
+pt:Malaiala
+pt-br:Malaiala
 qu:Malayalam simi
 ro:Limba malayalam
 ru:малаялам, малайалам, малайялам, язык малаялам, язык малайалам, малаяламский язык
@@ -10869,6 +10918,7 @@ szl:Malajalamskŏ gŏdka
 ta:மலையாளம், மலையாளம் மொழி
 te:మలయాళ భాష, మళయాళం, మళయాళం భాష, మలయాళము, మళయాలం, మళయాళము, మళయాళ భాష, మలయాళం
 th:ภาษามาลายาลัม
+tr:Malayalamca
 ug:مالايالامچە
 uk:малаялам
 ur:ملیالم, Malayalam
@@ -10932,8 +10982,8 @@ pa:ਦਿਵੇਹੀ ਭਾਸ਼ਾ
 pl:Język malediwski
 pms:Lenga maldivian-a
 pnb:دیوہی بولی
-pt:Língua divehi
-pt-br:Língua divehi
+pt:Diveí, Maldivense, Maldivano, Maldiviano, Maldivo
+pt-br:Diveí, Maldivense, Maldivano, Maldiviano, Maldivo
 ru:мальдивский язык, Dhivehi, дхивехи, дивехи
 si:දිවෙහි භාෂාව
 simple:Dhivehi
@@ -11034,8 +11084,8 @@ pa:ਮਾਲਟਾਈ ਭਾਸ਼ਾ
 pl:Język maltański
 pms:Lenga maltèisa
 pnb:مالٹی
-pt:maltês, lingua maltesa
-pt-br:língua maltesa, maltês
+pt:Maltês
+pt-br:Maltês
 qu:Malta simi
 ro:Limba malteză
 ru:мальтийский язык
@@ -11146,7 +11196,8 @@ os:Мэнаг æвзаг
 pl:Język manx
 pms:Lenga manèisa
 pnb:مانکس بولی
-pt:Língua manesa
+pt:Manês, Manx, Manquês
+pt-br:Manês, Manx, Manquês
 ro:Limba manx
 ru:мэнский язык
 scn:mannisi, lingua mannisi, manx, lingua manx
@@ -11164,7 +11215,7 @@ sv:Manx
 szl:Godka manx
 ta:மான்சு மொழி
 tl:Wikang Manx
-tr:Man dili
+tr:Manca
 uk:Менська мова
 vep:Menan kel'
 vi:Tiếng Manx
@@ -11244,8 +11295,8 @@ pa:ਮਰਾਠੀ ਭਾਸ਼ਾ
 pl:język marathi
 pms:Lenga marathi
 pnb:مراٹھی
-pt:marata, lingua marata
-pt-br:Língua marata
+pt:Marata
+pt-br:Marata
 qu:Marathi simi
 ro:limba marathi, Marathi
 ru:маратхи
@@ -11262,7 +11313,7 @@ sw:Kimarathi
 ta:மராத்தி
 te:మరాఠీ భాష
 th:ภาษามราฐี
-tr:marathi
+tr:Maratice
 ug:ماراتىچە
 uk:маратхі
 ur:مراٹھی زبان
@@ -11309,7 +11360,8 @@ nl:Marshallees, Marshallisch
 nn:Marshallesisk
 pl:Język marszalski
 pms:Lenga Marshalèisa, Lenga Marshallese
-pt:Língua marshalesa, Marshalês
+pt:Marshalês
+pt-br:Marshalês
 ru:маршалльский язык, маршалльский, маршальский язык
 rw:Ikimarishali, Kimarishali
 sh:Maršalski jezik
@@ -11317,6 +11369,7 @@ sm:Gagana Marshallese
 sq:Gjuha marshalleze
 sv:Marshallesiska, Marshalliska
 ta:கயின மொழி
+tr:Marşalca
 uk:маршальська мова, Маршалезька мова
 vi:Tiếng Marshall
 zh:马绍尔语
@@ -11324,50 +11377,53 @@ language_code_2:en:mh
 language_code_3:en:mah
 wikidata:en:Q36280
 
-en:Modern Greek, Modern Greek language, el, el, gre
-be:Новагрэчаская мова
+en:Greek, Greek language, Modern Greek, Modern Greek language, el, el, gre
+be:Грэчаская мова, Новагрэчаская мова
 ca:Grec demòtic
 chr:ᎠᏂᎪᎢ ᎧᏬᏂᎯᏍᏗ
-cs:Novořečtina, Moderní řečtina
-da:Nygræsk
-de:Neugriechisch, Modernes Griechisch, Neugriechische Sprache
-el:Νέα ελληνική γλώσσα, Νέα ελληνική, Νεοελληνική, Νεοελληνική Γλώσσα, Νέα ελληνικά
+cs:Řečtina, Novořečtina, Moderní řečtina
+da:Græsk, Nygræsk
+de:Griechisch, Griechische Sprache, Neugriechisch, Modernes Griechisch, Neugriechische Sprache
+el:Ελληνικά, Ελληνική γλώσσα, Νέα ελληνική γλώσσα, Νέα ελληνική, Νεοελληνική, Νεοελληνική Γλώσσα, Νέα ελληνικά
 es:griego moderno, Idioma griego moderno
-fi:Nykykreikka
-fo:Nýgrikskt mál
-fr:grec moderne, Romaïque, el
-frr:Neigriichisk
+fi:Kreikka, Kreikan kieli, Nykykreikka
+fo:Grikskt mál, Nýgrikskt mál
+fr:Grec, grec moderne, Romaïque, el
+frr:Griichisk spriak, Neigriichisk
 gl:Grego moderno
 got:𐌽𐌹𐌿𐌾𐌰𐌺𐍂𐌴𐌺𐌹𐍃𐌺𐌰𐍂𐌰𐌶𐌳𐌰
 he:יוונית מודרנית
-hi:आधुनिक यूनानी भाषा
-hr:Novogrčki jezik, Novogrčki
-hy:նոր հունարեն
-ilo:Moderno a Griego
-it:greco moderno, Neoellenico, Lingua neogreca, Grammatica greca moderna, lingua greca moderna
+hi:यूनानी, आधुनिक यूनानी भाषा
+hr:Grčki jezik, Novogrčki jezik, Novogrčki
+hy:Հունարեն, նոր հունարեն
+ilo:Griego, Moderno a Griego
+it:Greco, Lingua greca, Greco moderno, Lingua greca moderna, Neoellenico, Lingua neogreca
 kab:Tayunanit
-ko:현대 그리스어
-la:Lingua Neograeca, Neograeca, Lingua Graeca moderna, Neograece, Lingua Graeca hodierna
+ko:그리스어, 현대 그리스어
+la:Lingua Graeca, Lingua Neograeca, Neograeca, Lingua Graeca moderna, Neograece, Lingua Graeca hodierna
 ln:Ligreki lya lɛlɔ́
-lv:Jaungrieķu valoda
-mk:новогрчки јазик, современ грчки јазик
-nb:Nygresk, Nygresk språk
+lv:Grieķu valoda, Jaungrieķu valoda
+mk:Грчки јазик, новогрчки јазик, современ грчки јазик
+nb:Gresk, Nygresk, Nygresk språk
 nds:Neegreeksche Spraak, Neegreeksche Sprake, Neegreeksch, Niegreeksche Spraak
-nl:Nieuwgrieks, Gemeenschappelijke Nieuw-Griekse taal, Nieuw-Grieks, Kini neo-elliniki glossa, Modern Grieks
+nl:Grieks, Nieuwgrieks, Gemeenschappelijke Nieuw-Griekse taal, Nieuw-Grieks, Kini neo-elliniki glossa, Modern Grieks
 om:Afaan Giriik
-pl:język nowogrecki, Demotyk, Dimotiki, Nowogr., Nowożytna greka, Nwgr., Język grecki współczesny, Język grecki nowożytny, Greka nowożytna, Greka współczesna
-pt:grego moderno, Demótico, Língua grega moderna
+pl:Język grecki, język nowogrecki, Demotyk, Dimotiki, Nowogr., Nowożytna greka, Nwgr., Język grecki współczesny, Język grecki nowożytny, Greka nowożytna, Greka współczesna
+pt:Grego
+pt-br:Grego
 ro:Limba greacă modernă, Limba neogreacă
-ru:новогреческий язык
+ru:Греческий язык, новогреческий язык
 scn:Lingua greca muderna, Grecu mudernu
-sk:Novogréčtina, Nová gréčtina
-sv:Nygrekiska, Modern grekiska
+sk:Grécke jazyky, Novogréčtina, Nová gréčtina
+sv:Grekiska, Nygrekiska, Modern grekiska
 tl:Modernong Griyego
-uk:Новогрецька мова
-zh:现代希腊语
+tr:Yunanca, Çağdaş Yunanca
+uk:Грецька мова, Новогрецька мова
+zh:希腊语, 现代希腊语
 language_code_2:en:el
 language_code_3:en:gre
 wikidata:en:Q36510
+wikidata:en:Q9129
 
 en:Moldovan, Moldovan language, mo
 af:Moldawies
@@ -11410,8 +11466,8 @@ nl:Moldavisch, Moldovisch
 nn:Moldovsk
 oc:Moldau
 pl:Język mołdawski
-pt:Língua moldávia, Língua moldava
-pt-br:língua moldávia, língua moldava, moldavo
+pt:Moldavo, Moldávio
+pt-br:Moldavo, Moldávio
 ro:Limba moldovenească, Româna moldovenească, Idiomul moldovenesc, Limba moldoveneasca, Româna moldovenească estică, Idiomul moldoveneasc, Limba română în Republica Moldova, Moldovenească
 ru:молдавский язык, молдавский
 sah:Молдаваан тыла
@@ -11438,6 +11494,261 @@ zh:摩爾多瓦語, 摩達維亞語, 摩尔多瓦文, 摩尔多瓦语, 摩尔达
 language_code_2:en:mo
 language_code_3:en:rum
 wikidata:en:Q36392
+
+en:Mongolian, Mongolian Language, Mongol, Khalka, mn, mon
+ab:Амонгол бызшәа
+af:Mongolies
+am:ሞንጎልኛ
+an:Idioma mongol
+ar:المغولية, منغولية
+arz:لغه مونجولى
+ast:Idioma mongol
+az:Monqol dili
+azb:موغول دیلی
+ba:Монгол теле
+be:Мангольская мова
+be-tarask:Мангольская мова, мангольская
+bg:Монголски език
+bho:मंगोलियन भाषा
+bn:মঙ্গোলীয় ভাষা
+bo:སོག་པོའི་སྐད།
+br:mongoleg
+bxr:Монгол хэлэн
+ca:mongol
+cdo:Mūng-gū-ngṳ̄
+ckb:زمانی مۆنگۆلی
+crh:moğol tili
+cs:mongolština
+cv:Монгол чĕлхи
+cy:Mongoleg
+da:Mongolsk
+de:Mongolisch, Mongolische Sprache
+de-ch:Mongolische Sprache
+diq:Moğolki
+el:Μογγολική γλώσσα
+en-ca:Mongolian
+en-gb:Mongolian
+eo:mongola lingvo
+es:mongol
+et:mongoli keel
+eu:Mongoliera
+fa:زبان مغولی
+fi:mongoli, mongolin kieli
+fr:mongol, mn
+fy:Mongoalsk
+ga:An Mhongóilis
+gl:Lingua mongol
+hak:Mùng-kú-ngî
+he:מונגולית
+hi:मंगोल भाषा और साहित्य, मंगोलियन भाषा
+hif:Mongolian bhasa
+hsb:Mongolšćina
+hu:mongol
+hy:մոնղոլերեն
+id:Bahasa Mongol
+io:Mongoliana linguo
+is:Mongólska
+it:mongolo, lingua mongola
+ja:モンゴル語
+ka:მონღოლური ენა
+kaa:Mongol tili
+kk:Моңғол тілі
+kl:Mongoliamiutut
+ko:몽골어
+ku:Zimanê mongolî
+kv:Монгол кыв
+ky:Моңгол тили
+la:lingua Mongolica
+lb:Mongolesch
+lez:Монгол чӀал
+lfn:mongol
+li:Mongools
+lt:Mongolų kalba
+lv:Mongoļu valoda
+lzh:蒙古語
+mk:Монголски јазик
+ml:മംഗോളിയൻ ഭാഷ
+mn:Монгол хэл, ᠮᠣᠨᠭᠭᠣᠯ ᠬᠡᠯᠡ
+mr:मंगोलियन भाषा
+ms:Bahasa Mongolia
+mt:Mongoljan
+my:မွန်ဂိုးလီးယားဘာသာစကား
+na:Dorerin Mongoriya
+nah:Mongollahtōlli
+nan:Bông-kó͘-gí
+nb:mongolsk
+new:मंगोल भाषा
+nl:Mongools
+nn:mongolsk
+no:Mongolsk
+oc:Mongòl
+pa:ਮੰਗੋਲ ਭਾਸ਼ਾ
+pam:Amanung Monggol
+pl:język mongolski
+pnb:منگولی
+ps:مغولي ژبه
+pt:Mongol
+pt-br:Mongol
+qu:Muñgul simi
+ro:Limba mongolă
+ru:монгольский язык, монгольский, монгол хэл
+sah:Монгуол тыла
+scn:mòngulu, lingua mòngula
+sco:Mongolie leid
+sh:Mongolski jezik
+simple:Mongolian language
+sk:Mongolčina
+sq:Gjuha mongoleze
+sr:монголски језик
+sv:mongoliska
+szl:Mōngolskŏ gŏdka
+ta:மங்கோலிய மொழி
+tg:Забони муғулӣ
+th:ภาษามองโกเลีย
+tk:Mongol dili
+tl:Wikang Monggol
+tr:Moğolca
+ts:Mongolia
+tt:монгол теле, маңгул теле, монголчә, маңгулча, монг., маңг.
+tt-cyrl:монгол теле, маңгул теле, монголчә, маңгулча, монг., маңг.
+tyv:Моол дыл
+ug:موڭغۇل تىلى
+uk:монгольська мова, монгольська
+ur:منگولیائی زبان
+uz:Mongol tili, Moʻgʻul tili, Mongol Tili, Moʻgʻul Tili, Mo‘g‘ul tili, Mo‘g‘ul Tili, Mo`g`ul tili, Mo`g`ul Tili, Mo'g'ul tili, Mo'g'ul Tili
+vec:Łéngua móngoła
+vi:tiếng Mông Cổ, tiếng Mông
+vo:Mongolänapük
+vro:Mongoli kiil
+wuu:蒙古语
+xal:Моңһлмудин келн
+xmf:მონღოლური ნინა
+yi:מאנגאליש
+yue:蒙古話
+zh:蒙古语
+language_code_2:en:mn
+language_code_3:en:mon
+wikidata:en:Q9246
+
+en:Montenegrin, cnr, Montenegrin language, cnr
+aeb-arab:المونتنڨري
+af:Montenegryns
+an:Idioma montenegrín
+anp:मोंटेनेग्रिन भाषा
+ar:المونتنغرية, لغة مونتنغرية, اللغة المونتنغرية, مونتنغرية
+ary:لمونطينيݣرية
+arz:المونتنغريه
+ast:montenegrín
+av:ЧIегIермегIер мацI
+avk:Cernagorava
+az:Çernoqor dili, cnr
+be:чарнагорская мова
+be-tarask:чарнагорская мова
+bg:Черногорски език
+bs:crnogorski jezik, црногорски језик
+bxr:Черногори хэлэн
+ca:montenegrí
+ce:Ӏаьржаламанхойн мотт
+co:Lingua montinigrina
+cs:černohorština
+cy:Montenegreg
+da:montenegrinsk
+de:Montenegrinisch, montenegrinische Sprache, cnr
+de-at:Montenegrinisch, montenegrinische Sprache, cnr
+de-ch:Montenegrinische Sprache, montenegrinische Sprache, cnr
+dsb:Carnogórska rěc
+el:Μαυροβουνιακή γλώσσα
+en-ca:Montenegrin
+en-gb:Montenegrin
+eo:montenegra lingvo, cnr
+es:montenegrino
+et:Montenegro keel
+eu:montenegroera
+fa:زبان مونته‌نگروئی
+fi:montenegro, montenegron kieli
+fr:monténégrin, cnr
+frp:Montènègrin
+frr:Montenegriins spriak
+ga:An Mhontainéigris
+gl:Lingua montenegrina
+gn:Montenégyro ñe'ẽ
+he:מונטנגרית
+hi:मोंटेनीग्रिन भाषा
+hr:crnogorski jezik
+hsb:Čornohoršćina
+hu:montenegrói
+hy:չեռնոգորերեն
+hyw:Չեռնոգորերէն
+id:Bahasa Montenegro
+ilo:Pagsasao a Montenegrino
+io:Montenegrana linguo
+is:Svartfellska
+it:montenegrino, lingua montenegrina, dialetto montenegrino
+ja:モンテネグロ語
+ka:ჩერნოგორული ენა
+ko:몬테네그로어
+krc:Черногор тил
+kv:Черногор кыв
+lb:Montenegrinesch
+lfn:tsernagorsce, montenegrin
+lij:Lengua môntenegrinn-a
+lmo:Lengua montenegrina
+lt:Juodkalniečių kalba
+lv:melnkalniešu valoda
+mk:црногорски јазик
+mr:माँटेनिग्रिन भाषा
+ms:Bahasa Montenegro
+nan:Montenegro-gí
+nb:montenegrinsk, cnr
+nl:Montenegrijns
+nn:montenegrinsk, cnr
+os:черногориаг æвзаг
+pa:ਮਾਂਟੇਨੀਗਰਿਨ ਭਾਸ਼ਾ
+pl:język czarnogórski
+pms:Lenga montneigrin-a
+pt:língua montenegrina
+pt-br:língua montenegrina, montenegrino
+ro:Limba muntenegreană
+ru:черногорский язык
+rue:Чорногорьскый язык
+scn:muntinigrinu, lingua muntinigrina, dialettu muntinigrinu
+sco:Montenegrin leid
+se:montenegrogiella
+sgs:Joudkalnėitiu kalba
+sh:Crnogorski jezik
+sk:Čiernohorčina
+sl:črnogorščina, črnogorski jezik
+sm:Gagana Montenegro
+smn:montenegrokielâ
+sms:montenegroǩiõll
+sq:Gjuha malazeze
+sr:црногорски језик, црногорски, cnr
+sv:montenegrinska
+szl:Czŏrnogōrskŏ gŏdka
+th:ภาษามอนเตเนโกร
+tr:Karadağca, Karadağlıca
+tt:каратау теле
+uk:чорногорська мова
+ur:مونٹینیگری زبان
+vec:montenegrin
+vi:tiếng Montenegro
+vo:Montenegränapük
+wuu:黑山语
+xmf:მონტენეგრული ნინა
+yue:黑山文
+zh:蒙特內哥羅語, 蒙特内哥罗语, 黑山语, 黑山語
+zh-cn:黑山语
+zh-hans:黑山语
+zh-hant:蒙特內哥羅語
+zh-hk:黑山語
+zh-mo:黑山語
+zh-my:黑山语
+zh-sg:黑山语
+zh-tw:蒙特內哥羅語
+# "me" is not in the wikidata entry, but it is used by Crowdin
+language_code_2:en:me
+language_code_3:en:cnr
+wikidata:en:Q8821
 
 en:Māori, Maori language, Maori, mi, Māori language, Te Reo, mi, mao
 af:Maori, Maori taal
@@ -11504,8 +11815,8 @@ pam:Amanung Maori
 pl:Język maori, Maori, Język maoryjski, Język maoryski
 pms:Lenga Maori
 pnb:ماوری
-pt:língua maori, Língua māori, Linguagem maori
-pt-br:língua maori
+pt:Maori
+pt-br:Maori
 qu:Mawri simi
 ro:Limba maori
 ru:Маори, Язык маори, Маори язык, Маорийский язык
@@ -11518,7 +11829,7 @@ sv:Maori, Māori
 sw:Kimaori
 ta:மாவோரி மொழி, மௌரி
 tl:Wikang Māori, Wikang Maori
-tr:Maori dili
+tr:Maorice
 uk:Маорі, Маорійська мова, Маорська мова, Мова маорі
 vi:Tiếng Maori
 vro:Maoori kiil
@@ -11572,8 +11883,8 @@ nn:Naurisk
 oc:Nauruan
 pl:Język naurański
 pms:Lenga Nauruan
-pt:Língua nauruana
-pt-br:Língua nauruana
+pt:Nauruano
+pt-br:Nauruano
 rm:Lingua nauruaisa
 ru:науруанский язык, Ekakairũ Naoero, наурийский язык, язык науру, науру (язык), науруский язык, Dorerin Naoero
 sv:Nauruanska
@@ -11634,8 +11945,8 @@ oc:Navajo
 pl:język nawaho
 pms:Lenga navajo
 pnb:نواجو بولی
-pt:Língua navaja
-pt-br:Língua navaja
+pt:Navajo
+pt-br:Navajo
 qu:Diné simi
 ro:Limba navajo
 ru:навахо
@@ -11671,7 +11982,8 @@ ng:Ndonga
 nl:Ndonga
 pl:Język ndonga, Język ambo
 pms:Lenga Ndonga
-pt:Ndonga, Língua ndonga
+pt:Ndonga, Xindonga
+pt-br:Ndonga, Xindonga
 ru:Ндонга
 sv:Ndonga
 sw:Kindonga
@@ -11743,7 +12055,8 @@ pa:ਨੇਪਾਲੀ ਭਾਸ਼ਾ
 pl:język nepalski, Nepali, Język nepali, Nep.
 pms:Lenga nepali
 pnb:نیپالی
-pt:língua nepali, Nepali, Nepalês, Língua nepalesa
+pt:Nepalês, Nepali
+pt-br:Nepalês, Nepali
 qu:Nipali simi, Nepali simi
 ro:limba nepaleză
 ru:непальский язык, Непали, язык непали, непальский
@@ -11759,7 +12072,7 @@ ta:நேபாளி மொழி, நேபாள மொழி, நேப்�
 te:నేపాలీ భాష, నేపాలీ
 tg:Забони непалӣ
 th:ภาษาเนปาล, ภาษาเนปาลี
-tr:nepali, Nepal dili
+tr:Nepalce
 ug:نېپال تىلى, Népal tili, نېپالچە
 uk:непальська мова, Непалська мова, Непалі
 uz:Nepal tili
@@ -11796,7 +12109,8 @@ nb:nordndebele, nord-ndebele, Nord-ndebele
 nl:Noord-Ndebele, IsiNdbele, IsiNdebele
 pl:Język ndebele północny, Język sindebele
 pms:Lenga Ndebele
-pt:língua ndebele do norte, Matabele, Sindebele, Ndebele do norte, Sindbele, Isindebele
+pt:Ndebele do norte, Matabele, Sindebele, Sindbele, Isindebele
+pt-br:Ndebele do norte, Matabele, Sindebele, Sindbele, Isindebele
 ru:северный ндебеле
 sv:Nordndebele, Nord-ndebele
 uk:Північна ндебеле
@@ -11848,7 +12162,8 @@ nn:nordsamisk, Nord-samisk, Nordsamisk språk
 pl:język północnolapoński
 pms:Lenga Saami setentrional
 pnb:اتلی سامی
-pt:língua sami setentrional, Sami setentrional
+pt:Lapão setentrional, Sami setentrional
+pt-br:Lapão setentrional, Sami setentrional
 ru:северносаамский язык, Северо-саамский язык, Северносаамский, Северосаамский язык, Северно-саамский язык, Северносаам.
 sco:Northren Sami leid
 se:davvisámegiella, Sámegiella, Northern Sami
@@ -11858,7 +12173,7 @@ sk:severná saamčina, Severná sámčina, Severná lapončina
 sr:севернолапонски језик, Северни сами језик, Северносамски језик, Северни сами
 sv:nordsamiska
 ta:வட சமி மொழி
-tr:kuzeylapça, Kuzeylapça dili
+tr:Kuzey Lapça
 uk:північносаамська мова, Північно-саамська мова, Північносаамська
 vi:tiếng Bắc Sami, Ngôn ngữ Northern Sami
 vro:Põh'asaami kiil
@@ -11919,7 +12234,6 @@ hif:Norwegian bhasa
 hil:Ninorwego
 hr:Norveški jezik
 hu:norvég
-hy:նորվեգերեն
 id:Bahasa Norwegia
 ilo:Pagsasao a Norwego
 io:Norvegiana linguo
@@ -11966,8 +12280,8 @@ os:Норвегиаг æвзаг
 pa:ਨਾਰਵੇਈ ਭਾਸ਼ਾ
 pl:język norweski
 ps:ناروېژي ژبه
-pt:Língua norueguesa
-pt-br:língua norueguesa, norueguês
+pt:Norueguês
+pt-br:Norueguês
 qu:Nurwiga simi
 rm:Lingua norvegiaisa
 ro:limba norvegiană
@@ -12033,6 +12347,8 @@ kv:Носу
 mk:носу, ји
 pl:Język nuosu
 pms:Lenga Yi
+pt:Nuosu
+pt-br:Nuosu
 ru:Носу, И языки, Языки и
 ta:நுவோசு மொழி
 uk:Носу
@@ -12067,7 +12383,6 @@ gl:Nynorsk
 hak:Sîn Nò-vî-ngî
 he:נורבגית חדשה
 hr:Nynorsk
-hy:Նորվեգերեն
 id:Nynorsk
 ilo:Nynorsk
 is:Nýnorska
@@ -12094,6 +12409,7 @@ pms:Lenga norvegèisa
 pnb:نائنورسک
 ps:نينورشک
 pt:Novo norueguês
+pt-br:Novo norueguês
 ro:Nynorsk
 ru:Нюнорск
 scn:Nynorsk
@@ -12210,8 +12526,8 @@ pih:Occitan
 pl:Język oksytański
 pms:Lenga ossitan-a
 pnb:اوکیٹان
-pt:Língua occitana
-pt-br:Língua occitana
+pt:Occitano, Occitânico
+pt-br:Occitano, Occitânico
 qu:Uqsitan simi
 rm:Lingua occitana
 ro:Limba occitană
@@ -12307,7 +12623,8 @@ or:ଓଡ଼ିଆ, ଓଡିଆ, Oriya language, Odia language
 pa:ਉੜੀਆ ਭਾਸ਼ਾ
 pl:język orija, Orija
 pms:Lenga oriya
-pt:língua oriá, Oriá, Oriya
+pt:Oriá
+pt-br:Oriá
 qu:Oriya simi
 ro:Limba oriya
 ru:ория, Ория язык, Язык ория
@@ -12323,7 +12640,7 @@ sw:Kioriya
 ta:ஒடியா மொழி, ஒரிய மொழி, ஒடியா, ஒரியா, ஒரியா எழுத்து, ஒரியா எழுத்துமுறை, ஒரியா மொழி
 te:ఒరియా భాష, ఒరియా, ఒడియా
 th:ภาษาโอริยา, ภาษาโอริยะ
-tr:oriya dili
+tr:Oriyaca
 ug:ئورىياچە, Oriyache
 uk:орія
 ur:اڑیہ زبان
@@ -12358,7 +12675,8 @@ nl:Ojibwe, Anishinaabemowin, Ojibwemowin
 nn:Ojibwe-språket
 pa:ਓਜੀਬਵੇ ਭਾਸ਼ਾ
 pl:Język odżibwe, Język odżibwa, Języki odżibwe, Języki odżibue, Język odżibua, Języki odżibua, Język odżibue, Języki odżibwa
-pt:Língua ojíbua
+pt:Ojíbua
+pt-br:Ojíbua
 qu:Anishinapay simi, Anishinawi simi, Anishinapi simi
 ru:Оджибве, Оджибва, Собственно оджибва, Язык оджибве, Анишинаабе, Центрально-южный оджибва
 sv:Ojibwa, Anishinabemowin, Anishinaabemovin, Anishinabemovin, Anishinaabemowin, Ojibwe
@@ -12419,7 +12737,8 @@ nov:Oldi kirkeslavum
 oc:Eslavon
 pl:Język staro-cerkiewno-słowiański, Język starosłoweński, Język starobułgarski, Starocerkiewnosłowiański, Staro-cerkiewno-słowiański, Język słowianobułgarski, Scs., Język starosłowiański, Język starocerkiewnosłowiański, Język s-c-s
 pms:Lenga antich slav ëd Gesia
-pt:antigo eslavo eclesiástico, Antigo eslavônico eclesiástico
+pt:Antigo eslavo eclesiástico
+pt-br:Antigo eslavo eclesiástico, Antigo eslavônico eclesiástico
 ro:Limba slavă veche
 ru:старославянский язык, старославянский, словѣ́ньскъ ѩꙁꙑ́къ, древнеславянский язык, старослав, древнецерковнославянский язык, старо-славянский язык, староболгарский язык, древнеболгарский язык
 rue:Старославяньскый язык, Старославянчіна, Старословєнчіна, Старословєньскый язык
@@ -12475,7 +12794,8 @@ oc:Oromo
 om:Afaan Oromoo, Afan Oromo, Afaan Oromo
 pa:ਓਰੋਮ ਭਾਸ਼ਾ
 pl:Język oromo, Język oromski, Język galla
-pt:Língua oromo
+pt:Oromo
+pt-br:Oromo
 qu:Oromo simi
 ru:оромо, галла
 rw:Icyoromo, Cyoromo
@@ -12484,6 +12804,7 @@ se:Oromogiella
 so:Af-Oromo
 sv:Oromo, Qubee, Ge'ez abugida, Oromiffa, Afan oromo, Afaan oromoo, Oromospråket, Oromigna
 ta:ஒரோமோ மொழி
+tr:Oromoca
 uk:оромо, Оромо мова
 uz:Oromo tili, Oromo Tili
 zh:奧羅莫語, 奥洛莫语, 奥罗莫语, 阿芳·奥洛莫语, 奧洛莫語
@@ -12556,7 +12877,8 @@ os:Ирон æвзаг, Литературон ирон æвзаг, Иронау
 pl:Język osetyjski, Język osetyński
 pms:Lenga Osetin-a, Lenga Osetin
 pnb:اوسیشین
-pt:Língua osseta, Osseto, Иронау
+pt:Osseto, Osseta
+pt-br:Osseto, Osseta
 qu:Usit simi
 ro:Limba osetă
 ru:осетинский язык, Иронау
@@ -12642,7 +12964,8 @@ pi:पालि Pāli
 pl:Język pali, Język palijski, Pāli
 pms:Lenga pali
 pnb:پالی
-pt:Páli, Língua páli, Pāli, Pali
+pt:Páli
+pt-br:Páli
 ro:Limba pali
 ru:пали
 sa:पालिभाषा
@@ -12657,7 +12980,7 @@ sw:Kipali
 ta:பாளி, பாளி மொழி
 te:పాళీ భాష, పాళీ
 th:ภาษาบาลี, ภาษามาคธี, บาลี
-tr:Pali, Pali dili, Pāli
+tr:Pali, Pali dili, Pāli, Palice
 uk:Палі
 ur:پالی
 vi:Tiếng Pali, Nam Phạn, Pali, Pāli, Tiếng Nam Phạn, Tiếng Pāli
@@ -12741,8 +13064,8 @@ pl:Język paszto, Język pasztuński, Język afgański, Paszto
 pms:Lenga Pashto sentral
 pnb:پشتو
 ps:پښتو ژبه, پښتو
-pt:Língua pachto, Língua pachtun, Língua pashto, Pashtoe, Língua pushtun, Língua pastó, Pukhto, Afghan, Pashto, Pushtun, Língua pushtu, Pashtu, Pushto, Língua pashtu, Pushtu, Pachto, Língua afegã
-pt-br:Língua pachto
+pt:Pastó / afegão, Pachto, Afegane
+pt-br:Pastó / afegão, Pachto, Afegane
 qu:Pashtu simi, Pastu simi
 ro:Limba paștună, Limba paștu, Limba paştună
 ru:Пушту, Афганский язык, Язык пушту, Пашто, Пуштунский язык, Пушту язык, Авганский язык
@@ -12757,7 +13080,7 @@ szl:Gŏdka pasztŏ
 ta:பஷ்தூ மொழி, பாஷ்தூ மொழி
 tg:Забони пушту, Забони пашту
 th:ภาษาพัชโต, ภาษาพาชโต, ภาษาพาซตู, Pashto language, ภาษาพัชตู
-tr:Peştuca, Paştu, Afganca
+tr:Peştuca
 ug:پاشتوچە, Pashtoche
 uk:Пушту, Пашто, Афганська мова
 ur:پشتو, Pashto, پشتو زبان, Pushto
@@ -12878,8 +13201,8 @@ pl:język perski
 pms:Lenga Farsi ossidental
 pnb:فارسی
 ps:پارسي
-pt:língua persa, farsi
-pt-br:Língua persa
+pt:Persa
+pt-br:Persa
 qu:Pharsi simi
 ro:Limba persană
 roa-tara:Lènga persiane
@@ -13052,8 +13375,8 @@ pih:Poelish
 pl:język polski, polszczyzna
 pms:Lenga polonèisa
 pnb:پولی
-pt:língua polaca, idioma polaco, polaco, polonês, língua polonesa, idioma polonês, język polski, polszczyzna
-pt-br:língua polonesa, polonês
+pt:Polonês / polaco, Polaco
+pt-br:Polonês
 qu:Pulaku simi
 ro:limba polonă, polona, poloneza, pl
 ru:польский язык
@@ -13254,8 +13577,8 @@ pih:Porchuguees
 pl:język portugalski, Port., Portugalski
 pms:Lenga portughèisa
 pnb:پرتگالی
-pt:língua portuguesa, português, idioma português, linguagem portuguesa
-pt-br:língua portuguesa, português
+pt:Português
+pt-br:Português
 qu:Purtuyis simi, Purtuguis simi, Purtugual simi, Purtugal simi
 rm:Lingua portugaisa
 ro:Limba portugheză, Portugheză, Portugheza, Limba portugheza
@@ -13286,7 +13609,7 @@ tg:Забони португалӣ
 th:ภาษาโปรตุเกส, Portuguese language
 tl:Wikang Portuges, Wika sa Portugal, Português, Salitang Portuges, Portuguese language, Wikang Portugal, Wikang Portuguese
 tokipona:toki Potuke
-tr:Portekizce, Português, Portekizce Dili
+tr:Portekizce
 tt:Португал теле, Португаль теле
 ty:Reo Pōtītī
 ug:پورتۇگال تىلى, Portugal tili
@@ -13384,7 +13707,8 @@ pl:Język pendżabski, Pendżabski, Język wschodniopendżabski, Pańdźabi, Pen
 pms:Lenga panjabi oriental
 pnb:پنجابی
 ps:پنجابي
-pt:Língua panjabi, Língua punjabi, Punjabi, Língua punjabe, Panjabi
+pt:Panjábi, Punjábi
+pt-br:Panjábi, Punjábi
 qu:Panyabi simi, Punyabi simi, Punyabi, Punjabi simi, Panjabi, Panyabi, Punjabi, Panjabi simi
 ro:Limba punjabă
 ru:панджаби, пенджаби, пенджабский язык, восточный панджаби, язык панджаби, пенджабский, западный пенджабский язык
@@ -13486,7 +13810,7 @@ oc:quíchoa, Qechua
 pl:język keczua
 pms:Lenghe quechuan
 pnb:کیوچوا
-pt:quíchua
+pt:Quíchua
 pt-br:Quíchua
 qu:Qhichwa simi
 rm:quechua
@@ -13503,7 +13827,7 @@ sr:кечуа језик
 sv:quechua
 ta:கெச்வா மொழிகள்
 th:ภาษาเกชัว
-tr:keçuva dilleri
+tr:Keçuva Dilleri, Keçuvaca
 ug:كۋېچۇئا تىلى
 uk:кечуа
 vep:Kečua
@@ -13619,8 +13943,8 @@ pl:język rumuński
 pms:Lenga rumen-a
 pnb:رومانی
 ps:رومانيايي ژبه
-pt:Língua romena
-pt-br:língua romena, romeno
+pt:Romeno
+pt-br:Romeno
 qu:Rumanya simi
 rm:Lingua rumena
 rmy:Rumunikani chhib
@@ -13743,8 +14067,8 @@ os:Романшаг æвзаг
 pl:Język romansz
 pms:Lenga rumantsch-grischun
 pnb:رومانش بولی
-pt:Língua romanche
-pt-br:língua romanche, reto-romanche, rético
+pt:Romanche, Grisão
+pt-br:Romanche, Grisão
 rm:Rumantsch dal Grischun
 ro:Limba retoromană
 ru:романшский язык, Rumantsch, граубюндер, курваль, швейцарский ретороманский язык, романшский, urhjihtnthjvfycrbq
@@ -13938,8 +14262,8 @@ pl:język rosyjski
 pms:Lenga russa
 pnb:روسی
 ps:روسي
-pt:língua russa, russo, linguagem russa, idioma russo, русский
-pt-br:língua russa, russo
+pt:Russo
+pt-br:Russo
 qu:Rusu simi
 rm:lingua russa
 rmy:rusikani chhib
@@ -13977,7 +14301,7 @@ tk:Rus dili
 tl:Wikang Ruso
 tokipona:toki Losi
 tpi:Tok Rasia
-tr:rusça
+tr:Rusça
 tt:урыс теле
 ty:Reo Rūtia
 tyv:Орус дыл
@@ -14009,6 +14333,107 @@ zu:IsiRashiya
 language_code_2:en:ru
 language_code_3:en:rus
 wikidata:en:Q7737
+
+en:Rusyn, rue, Rusin language, Rusnak language, Carpatho-Ruthene language, Carpatho-Ruthenian language, Rusyn language, sla
+aeb-arab:الروسيني
+af:Rusyn
+ar:الروسينية, لغة روسينية, اللغة الروسينية, روسينية
+arz:الروسينيه
+ast:rusín
+avk:Rusinava
+az:Rusin dili
+azb:روسین دیلی
+be:русінская мова
+be-tarask:русінская мова
+bg:Русински език
+bs:rusinski jezik
+ca:rutè modern, Ruté, Rusyn, russí
+crh:Rusin tili
+cs:rusínština
+csb:Rusynsczi jãzëk
+cu:Карпатьскороусьскъ ѩꙁꙑкъ, Карпа́тьскороу́сьскъ ѩꙁꙑ́къ, Карпатьско-рѹсьcкъ ѩзыкъ, Карпатьско-рѹсьскъ ѩзыкъ, Карпатьско-рѹськъ ѩзыкъ, Карпа́тьскороу́сьскъ ѩзыкъ, Карпатьско-роусьскъ ѩзыкъ
+cv:Русин чĕлхи
+da:Rusinsk, Rutensk
+de:Russinisch, Rusinisch, Ruthenisch, rusinische Sprache, russinisch Sprache
+de-ch:Russinisch
+dsb:Rusińska rěc
+el:Ρουθηνικά
+en-ca:Rusyn
+en-gb:Rusyn
+eo:rusina lingvo, Rusine, rutena lingvo, rutena
+es:rusino, Idioma rusino
+et:Russiini keel
+eu:Rusinera, Ruteniera
+fa:زبان روسینی, روسین, روسینی, زبان روسین
+fi:ruteeni, ruteenin kieli
+fr:rusyn, Ruthène pannonien, rue
+frr:Ruteensk
+fy:Roeteensk
+gag:Rusyn dili
+gl:Lingua rutena
+hak:Lû-sêm-nì-â-ngî
+he:רוסינית, רותנית
+hr:Rusinski jezik, Rusinski
+hsb:Rusinšćina
+hu:ruszin, rutén
+id:Bahasa Rusyn
+it:ruteno, russino, lingua rutena
+ja:ルシン語, ルシーン語
+ka:რუსინული ენა
+kab:Tutlayt tarusint
+ko:루신어
+krj:Rinusino, Rinosino, Rinusinhën, Rinosinhun
+kv:Русин кыв
+la:lingua Ruthena
+lb:Russinesch
+li:Rusyn
+lij:Lengua rutenn-a
+lmo:Lengua rutena
+lt:Rusinų kalba, Rusinų (tautos) kalba
+lv:rusīnu valoda
+mk:русински јазик
+mwl:Lhéngua russina
+nb:rusinsk, rusyn språk, rusinsk språk
+nl:Roetheens
+nn:Rusinsk
+oc:Rusyn
+pa:ਰੁਸਿਨ
+pam:Rusínu, amánung Rusínu
+pl:Język rusiński, Język łemkowski, Gwara łemkowska
+pms:Lenga Rusyn
+pt:Língua rusyn
+pt-br:Língua rusyn
+ro:Limba rusină, Limba ruteană
+ru:русинский язык, русиньскый, карпаторусинский микроязык, югославско-русинский язык, русинские языки
+rue:Русиньскый язык, rue
+sat:ᱨᱩᱥᱤᱱ ᱯᱟ.ᱨᱥᱤ
+sc:Limba rutena
+sco:Rusyn leid
+sgs:Rosienu kalba, Rosėnu kalba
+sh:Istočnorusinski jezik
+sk:rusínčina, rusínsky jazyk
+sl:rusinščina, rusinski jezik
+sr:источнорусински језик
+sr-ec:источнорусински језик
+sr-el:istočnorusinski jezik
+sv:rusinska, ISO 639:rue, rusynska
+szl:Ruśińsko godka
+th:ภาษารูซึน
+tr:Rusince
+tt:Русин теле
+udm:Русин кыл
+uk:русинська мова, русинська говірка
+vec:ruten
+vi:tiếng Rusyn
+vo:Rutenänapük
+vro:Russiini kiil
+wuu:卢森尼亚语
+yue:盧森尼亞文
+zh:卢森尼亚语, 盧森尼亞語, 羅塞尼亞語
+# "ry" is not in the wikidata entry, but it is used by Crowdin
+language_code_2:en:ry
+language_code_3:en:sla
+wikidata:en:Q26245
 
 en:Samoan, Samoan language, sm, sm, smo
 af:Samoaans
@@ -14052,7 +14477,8 @@ nn:Samoansk, Samoisk
 oc:Samoan
 pl:Język samoański, Język samoa
 pms:Lenga Samoan
-pt:Língua samoana, Samoano
+pt:Samoano
+pt-br:Samoano
 qu:Samwa simi
 ro:Limba samoană
 ru:самоанский язык, Самоанский, Самоа
@@ -14064,6 +14490,7 @@ sm:Gagana fa'a Sāmoa, Gagana fa'a Samoa, Gagana Sāmoa, Gagana Samoa, Gagana Fa
 sv:Samoanska, Samoiska
 ta:சமோவ மொழி
 to:Lea fakahaʻamoa
+tr:Samoaca
 uk:Самоанська мова
 uz:Samoa
 vi:Tiếng Samoa
@@ -14102,12 +14529,12 @@ nso:Sango
 oc:sango
 pl:Język sango
 pms:Lenga sango
-pt:Língua sango, Sangho, Sango
-pt-br:Língua sango
+pt:Sango, Sangho
+pt-br:Sango, Sangho
 ru:санго, санго, язык
 sg:Sängö
 ta:சாங்கோ மொழி
-tr:Sango, Sango dili
+tr:Sangoca
 uk:санго
 zh:桑戈语
 zh-cn:桑戈语
@@ -14230,6 +14657,7 @@ pms:Sànscrit
 pnb:سنسکرت
 ps:سانسګریت ژبه
 pt:Sânscrito
+pt-br:Sânscrito
 qu:Sanskrit simi
 ro:limba sanscrită
 roa-tara:Lènga sanscrite
@@ -14337,7 +14765,8 @@ pam:Amanung Sardu
 pl:Język sardyński
 pms:Lenga sarda, Sard
 pnb:سارڈینی
-pt:Língua sarda, Sardo
+pt:Sardo, Sardenho
+pt-br:Sardo, Sardenho
 ro:Limba sardă
 ru:сардинский язык, Сардский язык, Сардинский
 sc:Limba sarda, Sardu
@@ -14445,8 +14874,8 @@ os:Шотландиаг æвзаг
 pl:Język gaelicki szkocki
 pms:Lenga gaélica scossèisa
 pnb:سکاٹ گالی
-pt:Língua gaélica escocesa
-pt-br:Língua gaélica escocesa
+pt:Gaélico escocês
+pt-br:Gaélico escocês
 qu:Iskut kilta simi
 ro:Limba scoțiană
 ru:шотландский язык, гэльский язык, гаэльский язык, шотландский язык (кельтский)
@@ -14573,8 +15002,8 @@ pih:Serbyan
 pl:język serbski
 pms:Lenga serba
 pnb:سربی
-pt:língua sérvia
-pt-br:língua sérvia, sérvio
+pt:Sérvio
+pt-br:Sérvio
 qu:Sirbya simi
 ro:Limba sârbă
 ru:сербский язык
@@ -14613,6 +15042,143 @@ language_code_2:en:sr
 language_code_3:en:srp
 wikidata:en:Q9299
 
+en:Serbo-Croatian, sh, BHS, Serbo-Croat, Serbo-Croat-Bosnian, Bosnian-Croatian-Serbian, Bosnian-Croatian-Montenegrin-Serbian, Serbo-Croatian language, sh
+aeb-arab:الصربي الكرواتي
+af:Serwo-Kroaties
+an:Idioma serbocrovate
+ar:الصربية الكرواتية
+ary:الصربية لكرواتية
+arz:صربى- كرواتى
+ast:serbocroata, sh
+az:Serb-xorvat dili
+azb:صیرب-کرووات دیلی
+ba:Серб-хорват теле
+be:Сербскахарвацкая мова
+be-tarask:сэрбскахарвацкая мова, сэрбска-харвацкая мова
+bg:сърбохърватски език
+bn:সার্বো-ক্রোয়েশীয়-বসনীয় ভাষা
+br:serbeg-ha-kroateg
+bs:srpskohrvatski jezik, sh, BHS, srpskohrvatski, BHSM, bosanskohrvatskosrpski, bosanskohrvatskocrnogorskosrpski, bosanski, hrvatski, srpski, crnogorski, hrvatskosrpski
+ca:serbocroat
+ce:сербийнхорватийн мотт
+cs:srbochorvatština
+csb:Serbòchòrwacczi jãzëk
+cu:Срьбьскохръватьско ѩꙁꙑчьно събраниѥ
+cy:Serbo-Croateg, sh, Serbo-Croat, Serbeg-Croateg
+da:serbokroatisk
+de:Serbokroatisch, Kroatoserbisch, Bosnisch/Kroatisch/Serbisch, B/K/S, sh, bs, hr, sr
+dsb:Serbisko-chorwatska rěc
+el:Σερβοκροατική γλώσσα
+eml:Sèrb-Cruàt
+en-ca:Serbo-Croatian
+en-gb:Serbo-Croatian
+eo:serbokroata lingvo, sh
+es:serbocroata, croatoserbio, yugoslavo
+et:serbia-horvaadi keel
+eu:Serbokroaziera
+fa:زبان صربی کرواتی, صرب‌وکرواتی, صرب‌وکروات, صرب-کروات-بوسنیایی, بوسنیایی-کروات-صربی, بوسنیایی-کروات-مونته‌نگروئی, زبان صرب‌وکرواتی
+fi:serbokroaatti, serbokroaatin kieli
+fr:serbo-croate, croato-serbe, yougoslave
+frr:Serbokroatisk spriak
+ga:An tSeirbea-Chróitis
+gd:An t-Sèirb-Chròthaisis
+gl:Lingua serbocroata
+gu:સર્બો-ક્રોએશિયન, સર્બો-ક્રોએશિયન ભાષા
+hak:Set-ngì-vì-â Khiet-lò-thi-â-ngî
+he:סרבו-קרואטית
+hi:सर्बी क्रोएशियन भाषा
+hif:Serbo-Croatian
+hr:srpskohrvatski jezik, srpskohrvatski
+hsb:Serbiskochorwatšćina
+hu:szerbhorvát, közép-délszláv diarendszer, horvátszerb, horvát vagy szerb, szerb vagy horvát
+hy:սերբախորվաթերեն
+hyw:Սերպօ - Խրուաթերէն
+ia:serbocroato, lingua serbocroate
+id:Bahasa Serbo-Kroasia
+ilo:Serbo-Kroata
+is:Serbókróatíska
+it:serbo-croato, serbocroato, lingua serbo-croata, lingua serbocroata
+ja:セルビア・クロアチア語
+jv:Basa Srêbiyah Khrêvatskah
+ka:სერბულ-ხორვატული ენა
+ko:세르보크로아트어
+kv:Серб-хорват кыв
+ky:Серб-хорват тили
+la:lingua Serbocroatica
+lad:Lingua Serbo-Kroatia
+lb:Serbokroatesch
+lfn:Bosansce, corvatsce e serbsce
+li:Servokroatisch
+lmo:Lengua serbo-croatta
+lt:Serbų-kroatų kalba
+lv:serbhorvātu valoda
+mg:Fiteny serbô-krôatiana
+mk:српскохрватски јазик, хрватскосрпски јазик
+ml:സെർബോ-ക്രൊയേഷ്യൻ
+mni:ꯁꯔꯕꯣ-ꯀ꯭ꯔꯣꯑꯦꯁꯤꯌꯥꯟ ꯂꯣꯟ
+mr:सर्बो-क्रोएशियन भाषा
+ms:Bahasa Serbo-Croatia
+mt:Serbo-Kroat
+nb:serbokroatisk, Serbokroatisk
+nds:Serbokroaatsch
+new:सर्बियन क्रोएशियन भाषा
+nl:Servo-Kroatisch
+nn:serbokroatisk
+oc:sèrbocroat
+pa:ਸਰਬੋ-ਕ੍ਰੋਏਸ਼ੀਅਨ
+pam:Amanung Serbu-kroatu, Pamiyalitang Serbo-Kroatu
+pl:język serbsko-chorwacki, język serbochorwacki
+pnb:سرب کروشیائی
+pt:Língua servo-croata
+pt-br:Língua servo-croata
+qu:Sirbu hurwat rimay
+ro:limba sârbocroată, limba sârbo-croată, sârbo-croată, sârbocroată, sh, sârbo-croata, sârbocroata, limba sîrbo-croată, limba sîrbocroată, sîrbocroata, sîrbo-croata, sîrbocroată, sîrbo-croată
+ru:сербохорватский язык, сербохорватский, сербскохорватский язык, хорватскосербский язык, хорватско-сербский язык, хорватосербский язык, хорвато-сербский язык, сербо-хорватский язык, югославский язык, боснийско-хорватско-сербский язык, боснийско-хорватско-черногорско-сербский язык
+rue:Серьбохорватьскый язык
+sat:ᱥᱟᱨᱵᱳ-ᱠᱨᱳᱭᱮᱥᱤᱭᱟᱱ
+sc:Limba serbocroata
+scn:serbu-cruatu, lingua serbu-cruata
+sco:Serbo-Croatie
+se:serbokroatiagiella
+sh:srpskohrvatski jezik, srpskohrvatski, српскохрватски, sh
+sk:srbochorvátčina
+sl:srbohrvaščina
+smn:serbokroatiakielâ
+sms:serbokroatiaǩiõll
+sq:serbokroatisht, Gjuha serbokroate
+sr:српскохрватски језик, српскохрватски, сх., БХС, БХСМ, српскохрватскобосански, босанскохрватскосрпски, босанскохрватскоцрногорскосрпски, хрватскосрпски
+sr-ec:српскохрватски језик
+sr-el:srpskohrvatski jezik
+sv:serbokroatiska
+sw:Kiserbokroatia
+ta:செருபோகுரோவாசிய மொழி
+tg:забони сербу хорватӣ
+th:ภาษาบอสเนีย-โครเอเชีย-มอนเตเนโกร-เซอร์เบีย, ภาษาบอสเนีย-โครเอเชีย-เซอร์เบีย, ภาษาเซิร์บ-โครแอต-บอสเนีย, ภาษาเซอร์เบีย-โครเอเชีย, ภาษาโครเอเชีย-เซอร์เบีย, ภาษาเซิร์บ-โครแอต, ภาษาโครแอต-เซิร์บ
+tl:Wikang Serbo-Kroato, Salitang Serbo-Kroato
+tr:Sırp-Hırvatça
+tt:Сербохорват теле
+udm:Сербохорват кыл
+ug:سېربو-كرودىيىلىكلەر تىلى
+uk:сербохорватська мова
+ur:سربی کروشیائی
+uz:Serb-xorvat tili
+vec:serbocroato
+vi:tiếng Serbia-Croatia
+wuu:塞尔维亚-克罗地亚语
+xmf:სერბულ-ხორვატული ნინა, სერბულ-ხორვატული, ხორვატულ-სერბული ნინა, ბოსნიურ-ხორვატულ-მონტენეგრულ-სერბული ნინა, იუგოსლავიური ნინა, ბოსნიურ-ხორვატულ-სერბული ნინა
+yi:סערבא-קראאטיש
+yue:塞爾維亞-克羅地亞文
+zh:塞尔维亚-克罗地亚语, 塞爾維亞語
+zh-cn:塞尔维亚-克罗地亚语, 塞尔维亚语
+zh-hans:塞尔维亚-克罗地亚语
+zh-hant:塞爾維亞-克羅地亞語, 塞爾維亞語
+zh-hk:塞爾維亞-克羅地亞語
+zh-mo:塞爾維亞-克羅地亞語
+zh-sg:塞尔维亚-克罗地亚语
+zh-tw:塞爾維亞-克羅埃西亞語
+language_code_2:en:sh
+wikidata:en:Q9301
+
 en:Shona, Shona language, sn, sn, sna
 af:Sjona
 ar:لغة الشونا
@@ -14650,7 +15216,8 @@ nov:Shonum
 oc:Shona
 pl:Język shona, Język chishona, Język szona, Język cziszona
 pms:Lenga Shona
-pt:Língua chona, Língua chixona, SiShona, Xishona, Língua xichona, Língua xona, XiChona, ChiShona, Shona
+pt:Xona
+pt-br:Xona
 qu:Shona simi
 ru:шона, ChiShona, чишона, шона (язык), каранга
 sco:Shona leid
@@ -14661,6 +15228,7 @@ sr-el:šona
 sv:Shona
 sw:Kishona
 ta:சோனா மொழி, ஷோனா மொழி
+tr:Şonaca
 ug:شونا تىلى, Shona tili
 uk:Шонська мова, Шона
 yue:修納話
@@ -14725,7 +15293,8 @@ pl:sindhi, Język sindhi
 pms:Lenga sindhi
 pnb:سندھی, سندی
 ps:سيندي ژبه
-pt:língua sindi, Lìngua sindi
+pt:Sindi
+pt-br:Sindi
 qu:Sindi simi, Sindhi simi, Sindhi
 ru:синдхи, язык синдхи, синдху, синдхи язык
 scn:sindhi, lingua sindhi
@@ -14809,8 +15378,8 @@ pa:ਸਿੰਹਾਲਾ ਭਾਸ਼ਾ
 pl:Język syngaleski
 pms:Lenga sinhalèisa
 pnb:سنہالا بولی
-pt:Língua cingalesa
-pt-br:Língua cingalesa
+pt:Cingalês
+pt-br:Cingalês
 qu:Sinhala simi
 ro:Limba singaleză
 ru:сингальский язык
@@ -14924,8 +15493,8 @@ pih:Slowarkyan
 pl:Język słowacki
 pms:Lenga slovaca
 pnb:سلواک
-pt:língua eslovaca, eslovaco, linguagem eslovaca, idioma eslovaco, slovenčina, slovenský jazyk
-pt-br:língua eslovaca, eslovaco
+pt:Eslovaco
+pt-br:Eslovaco
 qu:Isluwakya simi
 ro:Limba slovacă
 ru:словацкий язык
@@ -15060,8 +15629,8 @@ oc:Eslovèn
 pl:Język słoweński
 pms:Lenga sloven-a
 pnb:سلوون
-pt:língua eslovena, esloveno, idioma esloveno, linguagem eslovena, slovenščina
-pt-br:língua eslovena, esloveno
+pt:Esloveno
+pt-br:Esloveno
 qu:Isluwinya simi
 ro:limba slovenă
 ru:словенский язык
@@ -15159,8 +15728,8 @@ oc:Somali
 pl:język somalijski
 pms:Lenga sòmala
 pnb:صومالی
-pt:Língua somali
-pt-br:Língua somali
+pt:Somali
+pt-br:Somali
 qu:Sumali simi
 ro:limba somaleză
 ru:сомалийский язык
@@ -15231,8 +15800,8 @@ nov:Sutum
 nso:Sesotho
 pl:Język sotho, Język sesotho, Język sesuto
 pms:Lenga Sotho meridional
-pt:língua soto do sul, Sesotho, Língua sesotho
-pt-br:língua soto, soto
+pt:Sesoto, Soto do sul, Sesotho
+pt-br:Sesoto, Soto do sul, Sesotho
 qu:Sesotho simi, Sisuthu, Sotho simi, Sesotho, Suthu simi
 ro:Limba sotho
 ru:сесото, сото южный язык, сесото язык, сото, южный сото язык
@@ -15243,7 +15812,7 @@ su:Basa Sotho, Basa Sesotho, Sesotho
 sv:Sesotho, Syd-Sotho, Sotho, Sydlig sotho, Basuto, Sydsotho
 sw:Kisotho-Kusini, Kisotho
 ta:சோத்தோ மொழி
-tr:Sotho dili, Güney Sotho dili, Sesotho
+tr:Sotoca
 ug:سېسوتوچە, Sésotoche
 uk:Сесото, Південне сото
 ve:SeSotho
@@ -15290,8 +15859,8 @@ nn:Sørndebele
 nso:Sendebele
 pl:Język ndebele południowy
 pms:Lenga Ndebele meridional
-pt:língua ndebele, Ndebele
-pt-br:língua ndebele, ndebele
+pt:Ndebele do sul
+pt-br:Ndebele do sul
 ru:южный ндебеле
 sq:Gjuha ndebele
 sv:Sydndebele
@@ -15468,8 +16037,8 @@ pl:język hiszpański
 pms:Lenga spagneula
 pnb:ہسپانوی
 ps:هسپاني
-pt:língua castelhana, espanhol, castelhano, Idioma espanhol, língua espanhola, idioma castelhano, linguagem espanhola, linguagem castelhana
-pt-br:língua castelhana, castelhano, língua espanhola, espanhol, Idioma espanhol, idioma castelhano
+pt:Espanhol / castelhano, Castelhano
+pt-br:Espanhol / castelhano, Castelhano
 qu:Kastilla simi
 rm:Lingua spagnola
 ro:Limba spaniolă
@@ -15591,7 +16160,8 @@ nn:sunda
 pl:język sundajski
 pms:Lenga sunda
 pnb:سنڈانی
-pt:língua sundanesa
+pt:Sundanês
+pt-br:Sundanês
 qu:Sunda simi
 ru:сунданский язык, Сунданский, Basa Sunda
 se:Sundagiella
@@ -15601,7 +16171,7 @@ sv:sundanesiska, Basa Sunda
 sw:Kisunda
 ta:சுண்டா மொழி, சுந்தானிய மொழி
 th:ภาษาซุนดา
-tr:sunda dili
+tr:Sundaca
 ug:سۇندا تىلى, Sunda tili
 uk:сунданська мова, Сунда
 uz:Sundan tili
@@ -15714,8 +16284,8 @@ pa:ਸਵਾਹਿਲੀ
 pl:Suahili
 pms:Lenga swahili
 pnb:سواحلی
-pt:Língua suaíli
-pt-br:língua suaíli, suaíli, suaíle
+pt:Suaíli
+pt-br:Suaíli
 qu:Swahili simi
 ro:limba swahili
 roa-tara:Lènga swahili
@@ -15739,7 +16309,7 @@ ta:சுவாகிலி மொழி
 te:స్వాహిలి భాష
 tg:Забони своҳилӣ
 th:ภาษาสวาฮีลี
-tr:Svahili
+tr:Svahilice
 ug:سۋاھىلىچە
 uk:Суахілі
 ur:سواحلی زبان
@@ -15794,8 +16364,8 @@ nov:Swatum
 nso:Seswati
 pl:Język suazi, SiSwati, Język seswati, Język siswati, Język swati, Język swazi
 pms:Lenga Swati
-pt:língua suázi, SiSwati, Língua swazi, Swati, Língua suazi, Phuthi, Tekela
-pt-br:língua suázi, suázi
+pt:Suázi
+pt-br:Suázi
 qu:Swasi simi
 ru:свати, SiSwati, свази, свати язык
 ss:SiSwati, Siswazi, Swati, Tekeza, Swazi, Seswati, Thithiza, Phuthi, Isiswazi, Yeyeza, Tekela
@@ -15937,8 +16507,8 @@ pam:Amanung Sweku
 pl:język szwedzki
 pms:Lenga svedèisa
 pnb:سونسکا
-pt:língua sueca, sueco, idioma sueco, linguagem sueca, svenska
-pt-br:língua sueca, sueco
+pt:Sueco
+pt-br:Sueco
 qu:Suwiri simi
 rm:Lingua svedaisa
 ro:Limba suedeză
@@ -16059,8 +16629,8 @@ pam:Amanung Tagalug
 pl:język tagalski, Tagalog, Język tagalog
 pms:Lenga Tagalog
 pnb:ٹیگالگ
-pt:língua tagalo, Tagalog, Tagalo, Língua tagalog, Tagal, Língua tagala
-pt-br:Língua tagalo
+pt:Tagalo, Tagalog, Tagalogue, Filipino
+pt-br:Tagalo, Tagalog, Tagalogue, Filipino
 qu:Tagalu simi, Tagalog simi, Tagalog, Tagalo simi, Taqaluq simi, Philipinu simi
 ro:Limba tagalog
 ru:тагальский язык, Филипино, Тагальский, Тагалог
@@ -16074,7 +16644,7 @@ sw:Kitagalog
 ta:தகலாகு மொழி, டகாலொக் மொழி
 th:ภาษาตากาล็อก, Tagalog language
 tl:Wikang Tagalog, Itagalog, Tagalog language, Isatagalog, Magtagalog, Tumagalog, Pagsasatagalog, Pananagalog, Managalog, Mananagalog, Tl, Wikang Pilipino, Tagalog
-tr:tagalogca, Tagalog dili, Takalotça, Tagalog
+tr:Tagalogca, Takalotça
 ug:تاگالوگ تىلى, Tagalog tili, تاگالا تىلى
 uk:тагальська мова, Таґальська мова
 uz:Tagal tili
@@ -16129,13 +16699,15 @@ oc:Tahitian
 pih:Tahityan
 pl:Język tahitański, Język tahiti
 pms:Lenga Tahitian-a, Lenga Tahitian
-pt:Língua taitiana, Taitiano
+pt:Taitiano
+pt-br:Taitiano
 qu:Tahiti simi
 ru:таитянский язык, Таитянский, Таити
 sr:тахићански језик
 sv:Tahitiska, Reo Tahiti
 sw:Kitahiti
 ta:தயீத்திய மொழி
+tr:Tahitice
 ty:reo tahiti
 uk:Таїтянська мова
 vi:Tiếng Tahiti
@@ -16209,8 +16781,8 @@ pl:Język tadżycki
 pms:Lenga Tajiki
 pnb:تاجک
 ps:تاجکي ژبه
-pt:Língua tadjique
-pt-br:Língua tadjique
+pt:Tajique / tadjique
+pt-br:Tajique / tadjique
 qu:Tayik simi
 ro:Limba tadjică
 ru:таджикский язык
@@ -16324,8 +16896,8 @@ pa:ਤਾਮਿਲ ਭਾਸ਼ਾ, ਤਾਮਿਲ, ਤਮਿਲ, ਤਮਿਲ 
 pl:Język tamilski
 pms:Lenga Tamil
 pnb:تامل
-pt:Língua tâmil
-pt-br:língua tâmil, tâmil
+pt:Tâmil
+pt-br:Tâmil
 qu:Tamil simi
 rmy:Tamilikani chhib
 ro:limba tamilă
@@ -16448,8 +17020,8 @@ pa:ਤਤਾਰ ਭਾਸ਼ਾ
 pl:Język tatarski
 pms:Lenga tatar
 pnb:تاتاری بولی
-pt:Língua tártara, Língua tatar
-pt-br:Língua tártara
+pt:Tártaro
+pt-br:Tártaro
 ro:limba tătară, Tătară, Limba tatară
 ru:татарский язык, Татарча, Tatarça, Татар теле, Tatar tele
 sah:Татаар тыла, Татар тыла, Татар теле
@@ -16554,8 +17126,8 @@ pa:ਤੇਲੁਗੂ ਭਾਸ਼ਾ
 pl:Język telugu
 pms:Lenga Telugu
 pnb:تلوگو
-pt:Língua telugu
-pt-br:Língua telugu
+pt:Telugo, Télugo
+pt-br:Telugo, Télugo
 qu:Telugu simi
 ro:Limba telugu
 ru:телугу
@@ -16572,7 +17144,7 @@ sw:Kitelugu
 ta:தெலுங்கு
 te:తెలుగు, తెలుగు భాష, తెలుఁగు, తెనుగు
 th:ภาษาเตลูกู
-tr:Telugu dili
+tr:Teluguca
 ug:تېلۇگۇ تىلى
 uk:Телуґу
 ur:تیلگو زبان
@@ -16658,8 +17230,8 @@ pa:ਥਾਈ ਭਾਸ਼ਾ
 pl:Język tajski
 pms:Lenga thai
 pnb:تھائی
-pt:Língua tailandesa
-pt-br:Língua tailandesa
+pt:Tailandês
+pt-br:Tailandês
 qu:Thay simi
 ro:Limba thailandeză
 ru:тайский язык
@@ -16761,8 +17333,8 @@ nn:Tibetansk, Tibetansk språk
 oc:Tibetan
 pa:ਤਿੱਬਤੀ ਭਾਸ਼ਾ
 pl:Język tybetański, Tyb.
-pt:Língua tibetana, Tibetano, Tibetano padrão, Idioma tibetano, Tibetano central
-pt-br:Língua tibetana
+pt:Tibetano
+pt-br:Tibetano
 qu:Tibet simi, Pui simi
 ro:Limba tibetană, Tibetană
 ru:тибетский язык, Тибетский
@@ -16776,7 +17348,7 @@ sw:Kitibeti
 ta:திபெத்திய மொழி
 tg:Забони тибетӣ
 th:ภาษาทิเบต
-tr:Tibetçe, Tibet dili
+tr:Tibetçe
 tyv:Төвүт дыл
 ug:زاڭزۇ تىلى, Zangzu tili
 uk:Тибетська мова
@@ -16838,7 +17410,8 @@ nn:Tigrinja, Tigrinya
 pa:ਟਿਗਰੀਨਿਆ ਬੋਲੀ, ਟਿਗਰੀਨਿਆ ਭਾਸ਼ਾ
 pl:Język tigrinia, Język tigrynia, Język tigrinja, Język tigrina, Język tigrinya
 pms:Lenga Tigrigna
-pt:Língua tigrínia, Língua tigrina, Tigrinya, Língua tigrinya, Tigrínia, Tigrigna
+pt:Tigrínia, Tigrinha
+pt-br:Tigrínia, Tigrinha
 ro:Limba tigrinya
 ru:тигринья, тигринэ, тиграй
 sco:Tigrinya
@@ -16850,7 +17423,7 @@ sw:Kitigrinya, Lugha ya Tigrigna
 ta:திகுரிஞா மொழி, திகுரீனிய மொழி
 th:ภาษาตึกรึญญา, ภาษาทิกรินยา, ภาษาทิกรีนยา, ภาษาทิกริญญา, ภาษาติกริญญา
 ti:ትግርኛ ፊደል, Tigrigna
-tr:Tigrinya dili, Tigrinyaca, Tigrinya
+tr:Tigrinyaca
 ug:تىگرىنىيەچە, Tigriniyeche
 uk:Тигринья
 vi:Tiếng Tigrinya
@@ -16899,7 +17472,8 @@ nn:Tongansk, Tongansk språk
 pl:Język tonga, Język tongijski, Język tongański
 pms:Lenga Tongan
 pnb:ٹونگا بولی
-pt:Língua tonganesa, Tonganês
+pt:Tonganês
+pt-br:Tonganês
 qu:Tonga simi, Tunqa simi, Tunga simi
 ru:тонганский язык, Тонга
 sh:Tonganski jezik
@@ -16910,6 +17484,7 @@ sw:Kitonga
 ta:தோங்க மொழி
 th:ภาษาตองกา
 to:Lea fakatonga
+tr:Tongaca
 ug:تونگاچە, Ton'gache
 uk:Тонганська мова
 vi:Tiếng Tonga, Ngôn ngữ Tonga
@@ -16954,8 +17529,6 @@ nso:Setsonga
 oc:Tsonga
 pl:Język tsonga, Język czitsonga, Język chitsonga
 pms:Lenga Tsonga
-pt:língua tsonga, ChiTsonga, Xangana, Changana, Língua changana, Xitsonga, Língua chitsonga, XiChangana
-pt-br:língua tsonga, tsongo
 ru:тсонга, шангаан, тсонга язык
 simple:Tsonga language
 sq:Gjuha tsonga
@@ -17016,8 +17589,8 @@ nso:Setswana
 oc:Tswana
 pl:Język tswana, Język setswana
 pms:Lenga Tswana
-pt:língua tswana, SeTswana, Língua SeTswana, Língua tsuana
-pt-br:língua tswana, tswano, tsuano
+pt:Tsuana, Tswana
+pt-br:Tsuana, Tswana
 qu:Tswana simi, Setswana simi, Setswana
 ro:Limba tswana
 ru:тсвана, Язык Тсвана, Сетсвана, Тсвана язык
@@ -17164,8 +17737,8 @@ pl:język turecki
 pms:Lenga turca
 pnb:ترک بولی
 ps:ترکي ژبه
-pt:língua turca, turco, idioma turco, linguagem turca
-pt-br:língua turca, turco
+pt:Turco
+pt-br:Turco
 qu:Turku simi
 rm:lingua tirca
 ro:limba turcă
@@ -17195,7 +17768,7 @@ tg:Забони туркӣ
 th:ภาษาตุรกี
 tk:Türk dili
 tl:Wikang Turko
-tr:türkçe
+tr:Türkçe, Türkiye Türkçesi
 tt:Törek tele
 udm:Турок кыл
 ug:تۈرك تىلى
@@ -17285,8 +17858,8 @@ pl:Język turkmeński
 pms:Lenga turkmen-a
 pnb:ترکمن بولی
 ps:ترکمني ژبه
-pt:Língua turcomena
-pt-br:Língua turcomena
+pt:Turcomeno
+pt-br:Turcomeno
 qu:Turkmin simi
 ro:Limba turkmenă
 ru:туркменский язык
@@ -17340,8 +17913,8 @@ nb:Twi
 nl:Twi
 oc:Twi
 pl:Język twi
-pt:Língua twi, Língua axânti, Axânti, Língua ashanti, Twi
-pt-br:Língua twi
+pt:Axante, Axânti, Twi
+pt-br:Axante, Axânti, Twi
 ru:чви, тви
 sh:Twi jezik
 ta:துவி மொழி
@@ -17464,8 +18037,8 @@ pa:ਉਕਰੇਨੀ ਭਾਸ਼ਾ
 pl:język ukraiński
 pms:Lenga ucrain-a
 pnb:یوکرینی
-pt:Língua ucraniana
-pt-br:língua ucraniana, ucraniano
+pt:Ucraniano
+pt-br:Ucraniano
 qu:Ukranya simi
 ro:limba ucraineană
 ru:украинский язык, малорусский язык
@@ -17609,8 +18182,8 @@ pl:Język urdu
 pms:Lenga urdu
 pnb:اردو
 ps:اوردو ژبه
-pt:Língua urdu
-pt-br:Língua urdu
+pt:Urdu
+pt-br:Urdu
 qu:Urdu simi
 ro:limba urdu
 ru:урду
@@ -17706,8 +18279,8 @@ oc:Oigor
 pa:ਉਇਗੁਰ ਭਾਸ਼ਾ
 pl:Język ujgurski
 pms:Lenga uyghur
-pt:Língua uigur
-pt-br:Língua uigur
+pt:Uigur / uigure
+pt-br:Uigur
 qu:Uyq'ur simi
 ru:уйгурский язык
 scn:uiguru, lingua uigura
@@ -17810,8 +18383,8 @@ pa:ਉਜ਼ਬੇਕ ਭਾਸ਼ਾ
 pl:Język uzbecki
 pnb:ازبک
 ps:اوزبکي ژبه
-pt:Língua uzbeque
-pt-br:língua uzbeque
+pt:Usbeque
+pt-br:Usbeque
 qu:Usbik simi
 ro:Limba uzbecă
 ru:узбекский язык, Узбекский разговорник
@@ -17880,8 +18453,8 @@ nso:Sevenda
 oc:Venda
 pl:Język venda
 pms:Lenga Venda
-pt:língua venda
-pt-br:língua venda, vendo
+pt:Venda
+pt-br:Venda
 ru:венда
 rw:Ikivenda
 sh:Venda jezik
@@ -17892,7 +18465,7 @@ st:Sevenda
 sv:Venda
 sw:Kivenda
 ta:வேந்த மொழி
-tr:Venda dili
+tr:Vendaca
 uk:Венда
 ve:TshiVenḓa
 vi:Tiếng Venda
@@ -17987,8 +18560,8 @@ pa:ਵਿਅਤਨਾਮੀ ਭਾਸ਼ਾ
 pl:język wietnamski
 pms:Lenga vietnamèis
 pnb:ویتنامی
-pt:Língua vietnamita
-pt-br:Língua vietnamita
+pt:Vietnamita
+pt-br:Vietnamita
 qu:Witnam simi
 ro:Limba vietnameză
 ru:вьетнамский язык
@@ -18090,7 +18663,8 @@ oc:Volapük
 pl:Volapük, Wolapik, Volapik, Volapuk, Język volapük
 pms:Lenga volapük
 pnb:ولاپک
-pt:Volapuque, Volapuc, Volapük
+pt:Volapuque
+pt-br:Volapuque
 rm:Volapük
 ro:Volapük, Volapuk
 ru:волапюк, Volapuk, Volapük, воляпюк, волапюк язык
@@ -18114,6 +18688,114 @@ zh:沃拉普克语, 沃拉普克語
 language_code_2:en:vo
 language_code_3:en:vol
 wikidata:en:Q36986
+
+en:Walloon, wa, Walloon language, wa, wln
+af:Wallonies
+am:ዋሎንኛ
+an:Idioma valón, Idioma balón
+ar:لغة والون, لغة والونية, لغه والون, والون
+arz:لغه والون
+ast:Valón
+az:Vallon dili
+be:Валонская мова
+be-tarask:Валёнская мова
+bg:Валонски език
+bn:ওয়ালোনীয় ভাষা, ওয়ালোনীয়
+br:walloneg
+ca:való, Walon
+co:Vallone
+cs:valonština
+cy:Walwneg
+da:vallonsk
+de:Wallonisch, Walon, wa, wallonische Sprache
+el:Βαλλωνική γλώσσα
+eml:Valòn
+en-gb:Walloon
+eo:valona lingvo, Valona
+es:valón, idioma valón, lengua valona, walon, walón, valon, idioma valon
+eu:Valoniera, Valoiera, Waloiera, Wallon
+fa:زبان والونی
+fi:Valloni, Vallonin kieli
+fr:wallon, WLN, Langue wallonne, Linguistique wallonne, wa
+frp:Valon
+ga:An Vallúinis, Vallúinis
+gd:Walloon
+gl:Lingua valoa, Valón
+gsw:Wallonischi Sproch, Wallonisch
+gv:Walloonish
+hak:Fà-liùng-ngî
+he:ולונית, ואלונית
+hif:Walloon bhasa, Walloon language
+hr:Valonski jezik, Valonski
+hu:vallon nyelv
+hy:վալոներեն
+ia:wallon, lingua wallon
+id:Bahasa Walloon
+is:Vallónska
+it:vallone, lingua vallone, lingua vallona
+iu:ᐅᐊᓗᓂᑎᑐᑦ
+ja:ワロン語, ヴァロン語
+ko:왈롱어, 왈론어, 왈룬어
+ksh:Waalsche Sprooch
+kv:Валлон кыв
+kw:Wallonek
+la:lingua Vallonica
+lb:Wallounesch
+lfn:ualon
+li:Waols, Welsj, Waals
+lij:Valón
+lmo:Lengua valona, Valun, Valón, Valù, Lengua vallona
+lt:Valonų kalba
+lv:Valoņu valoda, Walon
+mk:Валонски јазик
+mr:वालून भाषा
+mt:Vallon
+mzn:والون
+nan:Wallon-gí
+nap:Léngua vallòna
+nb:vallonsk
+nds:Walloonsch
+nds-nl:Waols, Waals, Woals
+nl:Waals, Waalse taal, wa
+nn:vallonsk
+nrm:Ouallon
+oc:Valon
+pcd:Walon
+pl:język waloński, dialekt waloński
+pms:Lenga valon-a
+pnb:ویلون
+ps:والوني ژبه
+pt:valão, Língua valona
+ro:limba valonă, Limba valona, Limba văleană
+ru:валлонский язык, Валлонский, Walon, Валлонское наречие
+sat:ᱣᱟᱞᱩᱱ ᱯᱟᱹᱨᱥᱤ
+sco:Walloon leid
+se:Vallonagiella
+sgs:Valuonu kalba
+sh:Valonski jezik
+sk:Valónčina
+sl:valonščina
+sr:валонски језик
+sr-ec:валонски језик
+sv:vallonska, wallonska
+ta:வாலோன் மொழி
+th:ภาษาวอลลูน, ภาษาวัลลูน
+tl:Wikang Walloon
+tr:Valonca, Walloon dili, Waloon dili, Waloonca, Walloonca
+uk:валлонська мова
+ur:والون زبان
+vec:vałon
+vi:tiếng Wallon, tiếng Walon
+vls:Woals
+wa:walon, wa, lingaedje walon, walon lingaedje
+wuu:瓦隆语
+yue:華隆文
+zea:Waels
+zh:瓦隆语, 瓦龍語, 華隆語
+zh-cn:瓦隆语
+language_code_2:en:wa
+language_code_3:en:wln
+wikidata:en:Q34219
 
 en:Welsh, Welsh language, Cymric, cy, cy, wel
 af:wallies
@@ -18205,8 +18887,8 @@ os:Валлийаг æвзаг
 pl:Język walijski
 pms:Lenga galèisa
 pnb:ویلزی
-pt:língua galesa, galês
-pt-br:língua galesa, galês
+pt:Galês
+pt-br:Galês
 qu:Kamri simi
 rm:Lingua valisica
 ro:limba galeză
@@ -18286,6 +18968,8 @@ ne:पश्चिमी फ्रिजी
 nl:Westerlauwers Fries, Fries, Frysk, Westlauwers Fries, Nieuwfries, Friese taal
 nn:Vestfrisisk, Vestfrisisk språk
 pl:Język zachodniofryzyjski
+pt:Frísio ocidental
+pt-br:Frísio ocidental
 pms:Lenga frison-a ossidental, Lenga frisian-a ossidental
 pnb:لیندی فریزین
 ru:западнофризский язык
@@ -18342,7 +19026,8 @@ oc:Wolòf
 pl:Język wolof
 pms:Lenga Wolof
 pnb:وولف
-pt:Língua wolof
+pt:Uolofe, uólofe, wolof, jalofo
+pt-br:Uolofe, uólofe, wolof, jalofo
 qu:Wolof simi
 ru:Волоф, Волоф язык, Язык волоф
 sq:Gjuha volof
@@ -18350,6 +19035,7 @@ sv:Wolof
 sw:Kiwolofu, Kiwolof, Wolof
 ta:வோலோஃப் மொழி
 th:ภาษาโวลอฟ
+tr:Volofça
 uk:Волоф
 ur:وولوف زبان
 vi:Tiếng Wolof
@@ -18418,8 +19104,8 @@ oc:Xhosa
 pa:ਕੋਸਾ ਭਾਸ਼ਾ
 pl:Język xhosa
 pms:Lenga Xhosa
-pt:língua xhosa
-pt-br:língua xhosa
+pt:Xossa
+pt-br:Xossa
 qu:Xhosa simi
 ru:коса
 rw:Ikigisosa
@@ -18531,8 +19217,8 @@ pdc:Yiddisch
 pl:jidysz
 pms:Yiddish
 pnb:یدش
-pt:língua iídiche
-pt-br:Língua iídiche
+pt:Iídiche
+pt-br:Iídiche
 ro:limba idiș
 ru:идиш
 sah:Идиш
@@ -18604,7 +19290,8 @@ oc:Ioruba
 pl:Język joruba, Język yoruba
 pms:Lenga Yoruba
 pnb:یوروبا
-pt:Língua iorubá, Língua Yoruba, Língua ioruba, Língua yorubá
+pt:Iorubá
+pt-br:Iorubá
 qu:Yoruba simi, Yoruba, Yuruwa simi, Yuruba simi
 ro:Limba yoruba
 ru:йоруба, Язык йоруба, Йоруба язык
@@ -18615,6 +19302,7 @@ sv:Yoruba, Ede Yorùbá, Yorubaspråket
 sw:Kiyoruba
 ta:யொரூபா மொழி
 tokipona:toki Jolupa
+tr:Yorubaca
 ug:يورۇباچە, Yorubache
 uk:Йоруба
 uz:Yoruba tili
@@ -18660,7 +19348,8 @@ nl:Zhuang
 nn:Zhuang
 pl:Język zhuang
 pms:Lenga zhuang setentrional
-pt:Língua zhuang
+pt:Zhuang
+pt-br:Zhuang
 ru:чжуанский язык
 sco:Zhuang leids
 stq:Zhuang
@@ -18743,8 +19432,8 @@ pl:Język zulu
 pms:Lenga Zulu
 pnb:زولو
 ps:زولو
-pt:língua zulu
-pt-br:língua zulu, zulu
+pt:Zulu
+pt-br:Zulu
 qu:Zulu simi
 ro:Limba zulu
 ru:зулу, зулусский язык
@@ -18780,5 +19469,8 @@ wikidata:en:Q10179
 
 en:unknown language
 fr:langue inconnue
+pt:idioma desconhecido
+pt-br:idioma desconhecido
+tr:bilinmeyen dil
 xx:unknown language
 language_code_2:en:xx

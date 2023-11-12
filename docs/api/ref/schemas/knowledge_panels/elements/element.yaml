@@ -1,0 +1,39 @@
+title: element
+x-stoplight:
+  id: e2ybdrtmx0tme
+type: object
+description: |
+  Each element object contains one specific element object such as a text element or an image element.
+properties:
+  type:
+    element_type: string
+    enum:
+      - text
+      - image
+      - action
+      - panel
+      - panel_group
+      - table
+    description: |
+      The type of the included element object.
+      The type also indicates which field contains the included element object.
+      e.g. if the type is "text", the included element object will be in the "text_element" field.
+
+      Note that in the future, new type of element may be added,
+      so your code should ignore unrecognized types, and unknown properties.
+
+      TODO: add Map type
+  text_element:
+    $ref: ./text_element.yaml
+  image_element:
+    $ref: ./image_element.yaml
+  action_element:
+    type: string
+  panel_element:
+    $ref: ./panel_element.yaml
+  panel_group_element:
+    $ref: ./panel_group_element.yaml
+  table_element:
+    $ref: ./table_element.yaml
+required:
+  - type

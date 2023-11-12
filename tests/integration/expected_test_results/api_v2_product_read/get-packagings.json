@@ -1,0 +1,36 @@
+{
+   "code" : "200000000034",
+   "product" : {
+      "packagings" : [
+         {
+            "material" : "en:wood",
+            "number_of_units" : 1,
+            "recycling" : "en:recycle",
+            "shape" : "en:box"
+         },
+         {
+            "material" : "en:glass",
+            "number_of_units" : 6,
+            "quantity_per_unit" : "25cl",
+            "quantity_per_unit_unit" : "cl",
+            "quantity_per_unit_value" : 25,
+            "recycling" : "en:reuse",
+            "shape" : "en:bottle"
+         },
+         {
+            "material" : "en:steel",
+            "number_of_units" : 3,
+            "recycling" : "en:recycle",
+            "shape" : "en:lid"
+         },
+         {
+            "material" : "en:plastic",
+            "number_of_units" : 1,
+            "recycling" : "en:discard",
+            "shape" : "en:film"
+         }
+      ]
+   },
+   "status" : 1,
+   "status_verbose" : "product found"
+}

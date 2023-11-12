@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -37,7 +37,7 @@ Options:
 --query some_field=some_value (e.g. categories_tags=en:beers)	filter the products
 
 TXT
-;
+	;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -62,37 +62,35 @@ use boolean;
 
 use Getopt::Long;
 
-
-my $query_ref = {};	# filters for mongodb query
+my $query_ref = {};    # filters for mongodb query
 my $days;
 
-GetOptions (
-			"query:s%" => $query_ref,
-			"owner=s" => \$Owner_id,
-			"days:i" => \$days,
-			)
-  or die("Error in command line arguments:\n\n$usage");
-  
+GetOptions(
+	"query:s%" => $query_ref,
+	"owner=s" => \$Owner_id,
+	"days:i" => \$days,
+) or die("Error in command line arguments:\n\n$usage");
+
 if (not defined $Owner_id) {
-	die("--owner is required.\n\n$usage");
+	die("--owner is required. Use 'all' to query all owners.\n\n$usage");
 }
 else {
 	if ($Owner_id =~ /^org-/) {
 		$Org_id = $';
 	}
 }
-	
+
 # First export CSV from the producers platform, then import on the public platform
 
-foreach my $field (sort keys %$query_ref) {
+foreach my $field (sort keys %{$query_ref}) {
 	if ($query_ref->{$field} eq 'null') {
 		# $query_ref->{$field} = { '$exists' => false };
 		$query_ref->{$field} = undef;
 	}
 	elsif ($query_ref->{$field} eq 'exists') {
-		$query_ref->{$field} = { '$exists' => true };
+		$query_ref->{$field} = {'$exists' => true};
 	}
-	elsif ($field =~ /_t$/) {	# created_t, last_modified_t etc.
+	elsif ($field =~ /_t$/) {    # created_t, last_modified_t etc.
 		$query_ref->{$field} += 0;
 	}
 }
@@ -100,14 +98,19 @@ foreach my $field (sort keys %$query_ref) {
 # Add filter on number of days since last modification
 
 if (defined $days) {
-	$query_ref->{last_modified_t} = { '$gt' => time() - $days * 86400 };
+	$query_ref->{last_modified_t} = {'$gt' => time() - $days * 86400};
 }
 
-$query_ref->{owners_tags} = $Owner_id;
-$query_ref->{"data_quality_errors_producers_tags.0"} = { '$exists' => false };
+if ((defined $Owner_id) and ($Owner_id ne 'all')) {
+	$query_ref->{owner} = $Owner_id;
+}
+$query_ref->{"data_quality_errors_producers_tags.0"} = {'$exists' => false};
 
 my $args_ref = {
-	query => $query_ref
+	query => $query_ref,
+	# We need to export the owner from the producers platform, and then import it on the public database
+	export_owner => 1,
+	import_owner => 1,
 };
 
 # Create Minion tasks for export and import

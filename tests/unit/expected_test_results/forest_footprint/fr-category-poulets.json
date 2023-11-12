@@ -1,0 +1,30 @@
+{
+   "categories_tags" : [
+      "en:chickens"
+   ],
+   "forest_footprint_data" : {
+      "footprint_per_kg" : 2.14467408585056,
+      "grade" : "e",
+      "ingredients" : [
+         {
+            "conditions_tags" : [],
+            "footprint_per_kg" : 2.14467408585056,
+            "percent" : 100,
+            "processing_factor" : 1,
+            "tag_id" : "en:chickens",
+            "tag_type" : "categories",
+            "type" : {
+               "deforestation_risk" : 0.71,
+               "name" : "Poulet Importé",
+               "soy_feed_factor" : 0.95,
+               "soy_yield" : 0.3145
+            }
+         }
+      ]
+   },
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:forest-footprint-computed",
+      "en:forest-footprint-e"
+   ]
+}

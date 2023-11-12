@@ -1,0 +1,24 @@
+{
+    "level": "info",
+    "topics": [
+        "health"
+    ],
+    "type": "inline",
+    "expanded": true,
+    "elements": [
+        [% FOREACH property IN product.ingredients_analysis_tags %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "ingredients_analysis_[% property %]",
+            }
+        },            
+        [% END %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `[% lang("ingredients_analysis_disclaimer") %]`,
+            }
+        },
+    ]
+}

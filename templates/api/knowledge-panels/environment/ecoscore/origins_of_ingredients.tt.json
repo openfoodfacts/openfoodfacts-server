@@ -1,0 +1,121 @@
+{
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+[% IF product.ecoscore_data.adjustments.origins_of_ingredients.warning == "origins_are_100_percent_unknown" %]
+    "evaluation": "unknown",
+    "title_element": {
+        "title": "[% lang('ecoscore_origins_of_ingredients_missing_information') %]",
+        "subtitle": "[% lang('malus') %][% sep %]: [% product.ecoscore_data.adjustments.origins_of_ingredients.value %]",
+        "icon_color_from_evaluation": true,
+        "icon_url": "[% static_subdomain %]/images/icons/dist/public.svg",
+        "icon_size": "small",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "warning",
+                "html": `
+                [% lang('ecoscore_ingredients_not_indicated') %]<br><br>
+                [% lang('ecoscore_please_add_the_ingredients') %]<br><br>
+                [% lang('ecoscore_platform_prompt_ecoscore_modal') %]
+                    `
+            }
+        }, 
+[% ELSE %]
+    [% IF product.ecoscore_data.adjustments.origins_of_ingredients.value <= 0 %]
+    "evaluation": "bad",
+    "title_element": {
+        "title": "[% lang('ecoscore_origins_of_ingredients_impact_high') %]",
+    [% ELSIF product.ecoscore_data.adjustments.origins_of_ingredients.value <= 15 %]
+    "evaluation": "average",
+    "title_element": {
+        "title": "[% lang('ecoscore_origins_of_ingredients_impact_medium') %]",    
+    [% ELSE %]
+    "evaluation": "good",
+    "title_element": {
+        "title": "[% lang('ecoscore_origins_of_ingredients_impact_low') %]",
+    [% END %]
+        [% IF product.ecoscore_data.adjustments.origins_of_ingredients.value > 0 %]
+            "subtitle": "[% lang('bonus') %][% sep %]: +[% product.ecoscore_data.adjustments.origins_of_ingredients.value %]",
+        [% ELSE %]
+            "subtitle": "[% lang('malus') %][% sep %]: [% product.ecoscore_data.adjustments.origins_of_ingredients.value %]",
+        [% END %]
+        "icon_color_from_evaluation": true,
+        "icon_url": "[% static_subdomain %]/images/icons/dist/public.svg",
+        "icon_size": "small",
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "default",
+                "html": `
+                <strong>[% lang('ecoscore_environmental_policy') %][% sep %]: [% IF product.ecoscore_data.adjustments.origins_of_ingredients.epi_value > 0 %]+[% END %][% round(product.ecoscore_data.adjustments.origins_of_ingredients.epi_value) %]</strong><br>
+                <strong>[% lang('ecoscore_transportation') %][% sep %]: [% IF product.ecoscore_data.adjustments.origins_of_ingredients.transportation_value > 0 %]+[% END %][% round(product.ecoscore_data.adjustments.origins_of_ingredients.transportation_value) %]</strong><br>
+                `
+            }
+        },        
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "ecoscore_origins_of_ingredients_table",
+                "title": "[% lang('ecoscore_origins_of_ingredients') %]",
+                "columns": [
+                    {
+                        "text": "[% lang('origin') %]",
+                        "type": "text",
+                    },
+                    {
+                        "text": "[% lang('percent_of_ingredients') %]",
+                        "type": "percent",
+                    },
+                    {
+                        "text": "[% lang('ecoscore_impact') %]",
+                        "type": "text",
+                    }
+                ],
+                "rows": [
+                    [% FOREACH origin IN product.ecoscore_data.adjustments.origins_of_ingredients.aggregated_origins %]
+                    {
+                        "values": [
+                            {
+                                "text": "[% display_taxonomy_tag_name("origins",origin.origin) %]",
+                            },
+                            {
+                                "text": "[% round(origin.percent) %] %",
+                                "percent": [% round(origin.percent) %],
+                                // EPI bonus goes from -5 to 5 with the formula bonus = epi_score / 10 - 5
+                                // Transportation bonus goes from 0 to 15 with the formula bonus = transportation_score * 0.15
+                                [% SET score = origin.epi_score / 10 - 5 + origin.transportation_score * 0.15 %]
+                                [% IF score >= 15 %]
+                                    "evaluation": "good",
+                                [% ELSIF score <= 0 %]
+                                    "evaluation": "bad",
+                                [% ELSE %]
+                                    "evaluation": "neutral",
+                                [% END %]                                
+                            },
+                            {
+                                [% IF score >= 15 %]
+                                    "text": "[% lang('low') FILTER ucfirst %]",
+                                    "evaluation": "good",
+                                [% ELSIF score <= 0 %]
+                                    "text": "[% lang('high') FILTER ucfirst %]",
+                                    "evaluation": "bad",
+                                [% ELSE %]
+                                    "text": "[% lang('medium') FILTER ucfirst %]",
+                                    "evaluation": "neutral",
+                                [% END %]
+                            }
+                            ]
+                    },
+                    [% END %]
+                ]
+            }
+        },   
+[% END %]
+    ]
+}

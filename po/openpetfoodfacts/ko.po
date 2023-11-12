@@ -5,25 +5,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-15 08:20\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ko\n"
-"X-Crowdin-File: /master/po/openpetfoodfacts/openpetfoodfacts.pot\n"
-"X-Crowdin-File-ID: 448\n"
-
-#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openfoodfacts-logo-en-178x150.png"
-msgstr "openfoodfacts-logo-kr-178x150.png"
-
-#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openfoodfacts-logo-en-356x300.png"
-msgstr "openfoodfacts-logo-kr-356x300.png"
+"X-Crowdin-File-ID: 3131\n"
 
 # Do not translate Open Pet Food Facts
 msgctxt "site_name"
@@ -74,8 +62,8 @@ msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/kr/app/open-beauty-facts/id1122926380"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
+msgstr ""
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
@@ -97,22 +85,6 @@ msgstr "Open Beauty Facts에게 기부하기"
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenPetFoodFacts"
 msgstr "https://www.facebook.com/OpenPetFoodFacts"
-
-msgctxt "footer"
-msgid "<a href=\"https://world.openpetfoodfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openpetfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr "<a href=\"https://world.openpetfoodfacts.org/legal\">법률 <span class=\"notranslate\"></a> </span>\n"
-"<a href=\"https://world.openpetfoodfacts.org/terms-of-use\">이용 약관</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/who-we-are\">저희는 이런 사람이에요</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/faq\">자주 묻는 질문 (FAQ)</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">아이디어 포럼</a> -\n"
-"<a href=\"https://en.blog.openpetfoodfacts.org\">블로그</a> -\n"
-"<a href=\"https://world.openpetfoodfacts.org/press-and-blogs\">를 누르고 블로그</a>\n"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
@@ -154,6 +126,6 @@ msgstr "Open Pet Food Facts 제품 검색"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-pet-food-facts-mobile-app"
-msgstr "open-pet-food-facts-mobile-app"
+msgid "/open-pet-food-facts-mobile-app"
+msgstr "/open-pet-food-facts-mobile-app"
 

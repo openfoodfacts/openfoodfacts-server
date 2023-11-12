@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -44,71 +43,67 @@ use CGI qw/:cgi :form escapeHTML :cgi-lib/;
 use URI::Escape::XS;
 use Log::Any qw($log);
 
+my $request_ref = ProductOpener::Display::init_request();
 
-ProductOpener::Display::init();
-
-my $action = param('action') || 'display';
+my $action = single_param('action') || 'display';
 
 my $title = lang("remove_products_from_producers_platform");
 my $html = '';
+my $template_data_ref = {};
+
+$template_data_ref->{action} = $action;
 
 if (not $server_options{producers_platform}) {
-	display_error(lang("function_not_available"), 200);
+	display_error_and_exit(lang("function_not_available"), 200);
 }
 
 if ((not defined $Owner_id) or ($Owner_id !~ /^(user|org)-\S+$/)) {
-	display_error(lang("no_owner_defined"), 200);
+	display_error_and_exit(lang("no_owner_defined"), 200);
 }
 
-
 if ($action eq "display") {
-
-	$html .= "<p>" . lang("remove_products_from_producers_platform_description") . "</p>";
-	$html .= "<p>" . lang("this_action_cannot_be_undone") . "</p>";
 
 	my $confirm = lang("remove_products_confirm");
 	$confirm =~ s/'/\'/g;
 
-	$html .= start_multipart_form(-id=>"remove_products_form",
-		-onsubmit=>"return confirm('" . $confirm . "');") ;
-
-	$html .= <<HTML
-<input type="submit" class="button small" value="$Lang{remove_products}{$lc}">
-<input type="hidden" name="action" value="process">
-HTML
-;
-	$html .= end_form();
+	$template_data_ref->{confirm_alert} = $confirm;
 
 }
 
 elsif ($action eq "process") {
 
-	$log->debug("Deleting products for owner in mongodb", { owner_id => $Owner_id }) if $log->is_debug();
+	$log->debug("Deleting products for owner in mongodb", {owner => $Owner_id}) if $log->is_debug();
 
 	my $products_collection = get_products_collection();
 	$products_collection->delete_many({"owner" => $Owner_id});
 
-	use File::Copy::Recursive qw(dirmove);
+	require File::Copy::Recursive;
+	File::Copy::Recursive->import(qw( dirmove ));
 
 	my $deleted_dir = $data_root . "/deleted_private_products/" . $Owner_id . "." . time();
 	(-e $data_root . "/deleted_private_products") or mkdir($data_root . "/deleted_private_products", oct(755));
 
-	$log->debug("Moving data to deleted dir", { owners_tags => $Owner_id, deleted_dir => $deleted_dir }) if $log->is_debug();
+	$log->debug("Moving data to deleted dir", {owner => $Owner_id, deleted_dir => $deleted_dir}) if $log->is_debug();
 
 	mkdir($deleted_dir, oct(755));
 
-	dirmove("$data_root/import_files/$Owner_id", "$deleted_dir/import_files") or print STDERR "Could not move $data_root/import_files/$Owner_id to $deleted_dir/import_files : $!\n";
-	dirmove("$data_root/export_files/$Owner_id", "$deleted_dir/export_files") or print STDERR "Could not move $data_root/export_files/$Owner_id to $deleted_dir/export_files : $!\n";
-	dirmove("$data_root/products/$Owner_id", "$deleted_dir/products") or print STDERR "Could not move $data_root/products/$Owner_id to $deleted_dir/products : $!\n";
-	dirmove("$www_root/images/products/$Owner_id", "$deleted_dir/images") or print STDERR "Could not move $www_root/images/products/$Owner_id to $deleted_dir/images : $!\n";
+	dirmove("$data_root/import_files/$Owner_id", "$deleted_dir/import_files")
+		or print STDERR "Could not move $data_root/import_files/$Owner_id to $deleted_dir/import_files : $!\n";
+	dirmove("$data_root/export_files/$Owner_id", "$deleted_dir/export_files")
+		or print STDERR "Could not move $data_root/export_files/$Owner_id to $deleted_dir/export_files : $!\n";
+	dirmove("$data_root/products/$Owner_id", "$deleted_dir/products")
+		or print STDERR "Could not move $data_root/products/$Owner_id to $deleted_dir/products : $!\n";
+	dirmove("$www_root/images/products/$Owner_id", "$deleted_dir/images")
+		or print STDERR "Could not move $www_root/images/products/$Owner_id to $deleted_dir/images : $!\n";
 
-	$html .= "<p>" . lang("remove_products_done") . "</p>";
 }
 
-display_new( {
-	title=>$title,
-	content_ref=>\$html,
-});
+process_template('web/pages/remove_products/remove_products.tt.html', $template_data_ref, \$html)
+	or $html = "<p>" . $tt->error() . "</p>";
+
+$request_ref->{title} = $title;
+$request_ref->{content_ref} = \$html;
+display_page($request_ref);
 
 exit(0);
 

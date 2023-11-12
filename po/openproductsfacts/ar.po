@@ -5,40 +5,28 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-15 08:10\n"
 "Language-Team: Arabic\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ar\n"
-"X-Crowdin-File: /master/po/openproductsfacts/openproductsfacts.pot\n"
-"X-Crowdin-File-ID: 446\n"
+"X-Crowdin-File-ID: 3129\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
 msgid "https://world.openproductsfacts.org/images/apps/off.apk"
-msgstr ""
+msgstr "https://world.openproductsfacts.org/images/apps/off.apk"
 
 #. change hl=en by hl=fr or hl=de and make sure the url works
 msgctxt "android_app_link"
 msgid "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=en"
-msgstr ""
+msgstr "https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner&hl=ar"
 
 #. change https://apps.apple.com/app/ to https://apps.apple.com/fr/app/ (for instance) and make sure the url works
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
-
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openproductsfacts-logo-en-178x150.png"
-msgstr ""
-
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openproductsfacts-logo-en-356x300.png"
-msgstr ""
 
 msgctxt "site_name"
 msgid "Open Products Facts"
@@ -46,21 +34,22 @@ msgstr "فتح منتجات الحقائق"
 
 #. change https://www.microsoft.com/en-us/p/ to https://www.microsoft.com/fr-fr/p/ (for instance) and make sure the url works
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 msgstr ""
 
 msgctxt "tagline"
 msgid "Open Products Facts gathers information and data on products from around the world."
-msgstr ""
+msgstr "تقوم Open Products Facts بجمع المعلومات والبيانات حول المنتجات من جميع أنحاء العالم."
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
-msgstr "OpenFoodFactsAr"
+msgstr "OpenFoodFactsAR"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "صفحة المنتج هذه غير كاملة. يمكنك المساعدة في إكماله بتعديله أو إضافة بيانات أكثر من الصور التي لدينا أو بأخذ صور أكثر باستخدام التطبيق للأندرويد <a href=\"https://play.google.com/store/apps/details?id=org.openproductsfacts.scanner\">\n"
+" أو </a>  <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">الأيفون  الأيباد/<a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\"> . شكرا!"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Products Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Products Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -68,37 +57,27 @@ msgstr ""
 
 msgctxt "donate"
 msgid "Donate to Open Products Facts"
-msgstr ""
+msgstr "تبرع ل Open Products Facts"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
 msgstr "https://www.facebook.com/OpenFoodFacts"
 
-msgctxt "footer"
-msgid "<a href=\"https://world.openproductsfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
-
 msgctxt "brands_example"
 msgid "Nike, Apple"
-msgstr ""
+msgstr "هاي"
 
 msgctxt "categories_example"
 msgid "Mobile phone, Washing machine powder"
-msgstr ""
+msgstr "الهاتف المحمول، مسحوق غسيل الآلة"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
-msgstr ""
+msgstr "EMB 53062"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of information on products from around the world"
-msgstr ""
+msgstr "قاعدة بيانات تعاونية ومجانية ومفتوحة للمعلومات حول المنتجات من جميع أنحاء العالم"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">Facebook group for contributors</a>"
@@ -106,7 +85,7 @@ msgstr ""
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of products from around the world."
-msgstr ""
+msgstr "قاعدة بيانات تعاونية ومجانية ومفتوحة للمنتجات من جميع أنحاء العالم."
 
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
@@ -114,11 +93,11 @@ msgstr "https://wiki.openfoodfacts.org"
 
 msgctxt "generic_name_example"
 msgid "Android smartphone"
-msgstr ""
+msgstr "هاتف Android الذكي"
 
 msgctxt "product_name_example"
 msgid "iPod Touch (1st generation)"
-msgstr ""
+msgstr "iPod Touch (الجيل الأول)"
 
 msgctxt "og_image_url"
 msgid "https://static.openproductsfacts.org/images/misc/openproductsfacts-logo-en-178x150.png"
@@ -139,10 +118,10 @@ msgstr ""
 
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-msgstr ""
+msgstr "أكوا / ماء ، كبريتات لوريث الصوديوم ، ديسوديوم كوكامفودياسيتات ، جليكول ديستيرات ، كوكاميد أحادي أمين الإيثانول"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-products-facts-mobile-app"
+msgid "/open-products-facts-mobile-app"
 msgstr ""
 

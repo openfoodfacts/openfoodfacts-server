@@ -5,15 +5,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-15 08:26\n"
 "Language-Team: Swedish\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: sv-SE\n"
-"X-Crowdin-File: /master/po/openproductsfacts/openproductsfacts.pot\n"
-"X-Crowdin-File-ID: 446\n"
+"X-Crowdin-File-ID: 3129\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -30,23 +28,13 @@ msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openproductsfacts-logo-en-178x150.png"
-msgstr "openproductsfacts-logo-en-178x150.png"
-
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openproductsfacts-logo-en-356x300.png"
-msgstr "openproductsfacts-logo-en-356x300.png"
-
 msgctxt "site_name"
 msgid "Open Products Facts"
 msgstr "Öppna Produktfakta"
 
 #. change https://www.microsoft.com/en-us/p/ to https://www.microsoft.com/fr-fr/p/ (for instance) and make sure the url works
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 msgstr ""
 
 msgctxt "tagline"
@@ -68,21 +56,11 @@ msgstr ""
 
 msgctxt "donate"
 msgid "Donate to Open Products Facts"
-msgstr "Donera till öppna produkter fakta"
+msgstr "Donera till Open Products Facts"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
 msgstr "https://www.facebook.com/OpenFoodFacts"
-
-msgctxt "footer"
-msgid "<a href=\"https://world.openproductsfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr ""
 
 msgctxt "brands_example"
 msgid "Nike, Apple"
@@ -110,7 +88,7 @@ msgstr "En samlad, fri och öppen databas över produkter från hela världen."
 
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://wiki.openfoodfacts.org"
 
 msgctxt "generic_name_example"
 msgid "Android smartphone"
@@ -122,7 +100,7 @@ msgstr "iPod Touch (1: a generationen)"
 
 msgctxt "og_image_url"
 msgid "https://static.openproductsfacts.org/images/misc/openproductsfacts-logo-en-178x150.png"
-msgstr ""
+msgstr "https://static.openproductsfacts.org/images/misc/openproductsfacts-logo-en-178x150.png"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-product-hunt\">Open Product Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"
@@ -131,7 +109,7 @@ msgstr ""
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr ""
+msgstr "→ Med Chrome, Firefox och Safari kan du välja flera bilder (produkt, ingredienser etc.) genom att klicka på dem samtidigt som du håller ned Ctrl-tangenten för att lägga till alla i en bild."
 
 msgctxt "search_description_opensearch"
 msgid "Open Products Facts product search"
@@ -139,10 +117,10 @@ msgstr "Öppna produktfaktas produktsökning"
 
 msgctxt "ingredients_text_example"
 msgid "AQUA/WATER, SODIUM LAURETH SULFATE, DISODIUM COCOAMPHODIACETATE, GLYCOL DISTEARATE, COCAMIDE MEA"
-msgstr ""
+msgstr "VATTEN/VATTEN, NATRIUMLAURETSULFAT, NATRIUMKOKOAMPFODIACETAT, GLYKOL DISTEARAT, KOKAMIDMEA"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-products-facts-mobile-app"
-msgstr "open-products-facts-mobile-app"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
 

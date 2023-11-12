@@ -1,0 +1,1409 @@
+{
+   "catalogue_item_notification:catalogueItemNotificationMessage" : {
+      "sh:StandardBusinessDocumentHeader" : {
+         "sh:DocumentIdentification" : {
+            "sh:CreationDateAndTime" : {
+               "$t" : "2023-09-06T00:58:37+02:00"
+            },
+            "sh:InstanceIdentifier" : {
+               "$t" : "3027800020301_CINcb1b4e86e32e4f878e93afef34fe4c7b156"
+            },
+            "sh:MultipleType" : {
+               "$t" : "false"
+            },
+            "sh:Standard" : {
+               "$t" : "GS1"
+            },
+            "sh:Type" : {
+               "$t" : "catalogueItemNotification"
+            },
+            "sh:TypeVersion" : {
+               "$t" : "3.1"
+            }
+         },
+         "sh:HeaderVersion" : {
+            "$t" : "1.0"
+         },
+         "sh:Receiver" : {
+            "sh:Identifier" : {
+               "$t" : "8888888899990",
+               "Authority" : "GS1"
+            }
+         },
+         "sh:Sender" : {
+            "sh:Identifier" : {
+               "$t" : "3027800020370",
+               "Authority" : "GS1"
+            }
+         }
+      },
+      "transaction" : {
+         "documentCommand" : {
+            "catalogue_item_notification:catalogueItemNotification" : {
+               "catalogueItem" : {
+                  "catalogueItemState" : {
+                     "catalogueItemStateCode" : {
+                        "$t" : "REGISTERED"
+                     }
+                  },
+                  "dataRecipient" : {
+                     "$t" : "8888888899990"
+                  },
+                  "sourceDataPool" : {
+                     "$t" : "3027800020370"
+                  },
+                  "tradeItem" : {
+                     "additionalTradeItemIdentification" : {
+                        "$t" : "68867774",
+                        "additionalTradeItemIdentificationTypeCode" : "SUPPLIER_ASSIGNED"
+                     },
+                     "avpList" : {
+                        "stringAVP" : {
+                           "$t" : "250",
+                           "attributeName" : "countryOfSettlement"
+                        }
+                     },
+                     "brandOwner" : {
+                        "gln" : {
+                           "$t" : "3016016900101"
+                        },
+                        "partyName" : {
+                           "$t" : "Unilever France"
+                        }
+                     },
+                     "displayUnitInformation" : {
+                        "isTradeItemADisplayUnit" : {
+                           "$t" : "FALSE"
+                        }
+                     },
+                     "gdsnTradeItemClassification" : {
+                        "additionalTradeItemClassification" : {
+                           "additionalTradeItemClassificationValue" : {
+                              "additionalTradeItemClassificationCodeValue" : {
+                                 "$t" : "GS1_FRANCE"
+                              },
+                              "additionalTradeItemClassificationProperty" : {
+                                 "additionalTradeItemClassificationPropertyCode" : {
+                                    "$t" : "brandEnvironmentalValue"
+                                 },
+                                 "additionalTradeItemClassificationPropertyDescription" : {
+                                    "$t" : "Amora® s'engage à proposer des produits plus naturels, plus simples et plus durables. De bons ingrédients pour de bonnes recettes ! C'est à nos ingrédients de qualité, que les recettes Amora® doivent leurs bons goûts de caractère. Amora® s'engage à proposer des produits plus durables, d'abord via des recettes composées d'ingrédients issus de l'agriculture biologique et réalisées grâce à des méthodes de production spécifiques à l'agriculture biologique, mais également via les emballages. Soucieux de notre impact sur la planète, nos emballages en verre et nos bouteilles plastiques sont recyclables. Pensez au tri ! Nos produits bio Amora®, tous porteurs du label bio ! Les nouvelles recettes bio Amora® sont faites avec des ingrédients de qualités et issus de l'agriculture biologique. Nos produits bio Amora® contiennent 95% d'ingrédients d'origine agricole certifiés bio et ne contiennent pas de colorants ni d'arômes artificiels. Nos recettes bio sont sans conservateurs et sans sulfites.",
+                                    "languageCode" : "fr"
+                                 }
+                              }
+                           }
+                        },
+                        "gDSNTradeItemClassificationAttribute" : [
+                           {
+                              "gpcAttributeTypeCode" : {
+                                 "$t" : "20000002"
+                              },
+                              "gpcAttributeTypeName" : {
+                                 "$t" : "Ingrédient Ajouté"
+                              },
+                              "gpcAttributeValueCode" : {
+                                 "$t" : "30002540"
+                              },
+                              "gpcAttributeValueName" : {
+                                 "$t" : "LEGUMES"
+                              }
+                           },
+                           {
+                              "gpcAttributeTypeCode" : {
+                                 "$t" : "20000157"
+                              },
+                              "gpcAttributeTypeName" : {
+                                 "$t" : "Type de Sauces Condimentaires/Condiments/Nappages Salés/Produits à Tartiner Salés ou Marinades"
+                              },
+                              "gpcAttributeValueCode" : {
+                                 "$t" : "30002515"
+                              },
+                              "gpcAttributeValueName" : {
+                                 "$t" : "NON CLASSIFIE"
+                              }
+                           },
+                           {
+                              "gpcAttributeTypeCode" : {
+                                 "$t" : "20000175"
+                              },
+                              "gpcAttributeTypeName" : {
+                                 "$t" : "Indication de Pertinence pour les Végétariens/Végétaliens"
+                              },
+                              "gpcAttributeValueCode" : {
+                                 "$t" : "30002518"
+                              },
+                              "gpcAttributeValueName" : {
+                                 "$t" : "NON IDENTIFIE"
+                              }
+                           },
+                           {
+                              "gpcAttributeTypeCode" : {
+                                 "$t" : "20002962"
+                              },
+                              "gpcAttributeTypeName" : {
+                                 "$t" : "Type de Sauces Condimentaires/Condiments/Nappages Salés/Produits à Tartiner Salés/Marinades"
+                              },
+                              "gpcAttributeValueCode" : {
+                                 "$t" : "30017023"
+                              },
+                              "gpcAttributeValueName" : {
+                                 "$t" : "SAUCE A TREMPER"
+                              }
+                           }
+                        ],
+                        "gpcCategoryCode" : {
+                           "$t" : "10000280"
+                        },
+                        "gpcCategoryName" : {
+                           "$t" : "Autres Sauces Condimentaires/Condiments/Nappages Salés/Produits à Tartiner Salés/Marinades (Longue Conser"
+                        }
+                     },
+                     "gtin" : {
+                        "$t" : "08714100908068"
+                     },
+                     "informationProviderOfTradeItem" : {
+                        "gln" : {
+                           "$t" : "3011780500106"
+                        },
+                        "partyName" : {
+                           "$t" : "UNILEVER FRANCE GMS"
+                        }
+                     },
+                     "isTradeItemABaseUnit" : {
+                        "$t" : "true"
+                     },
+                     "isTradeItemAConsumerUnit" : {
+                        "$t" : "true"
+                     },
+                     "isTradeItemADespatchUnit" : {
+                        "$t" : "false"
+                     },
+                     "isTradeItemAService" : {
+                        "$t" : "false"
+                     },
+                     "isTradeItemAnInvoiceUnit" : {
+                        "$t" : "true"
+                     },
+                     "isTradeItemAnOrderableUnit" : {
+                        "$t" : "true"
+                     },
+                     "manufacturerOfTradeItem" : {
+                        "gln" : {
+                           "$t" : "3011780500106"
+                        },
+                        "partyName" : {
+                           "$t" : "UNILEVER FRANCE GMS"
+                        }
+                     },
+                     "targetMarket" : {
+                        "targetMarketCountryCode" : {
+                           "$t" : "250"
+                        }
+                     },
+                     "tradeItemContactInformation" : [
+                        {
+                           "contactAddress" : {
+                              "$t" : "20 rue des Deux Gares  92842 Rueil-Malmaison Cedex"
+                           },
+                           "contactName" : {
+                              "$t" : "Unilever"
+                           },
+                           "contactTypeCode" : {
+                              "$t" : "BZL"
+                           },
+                           "structuredAddress" : {
+                              "city" : {
+                                 "$t" : "Rueil-Malmaison Cedex"
+                              },
+                              "countryCode" : {
+                                 "$t" : "250"
+                              },
+                              "postalCode" : {
+                                 "$t" : " 92842"
+                              },
+                              "streetAddress" : {
+                                 "$t" : "20 rue des Deux Gares"
+                              }
+                           }
+                        },
+                        {
+                           "contactAddress" : {
+                              "$t" : "20 rue des Deux Gares  92842 Rueil-Malmaison Cedex"
+                           },
+                           "contactName" : {
+                              "$t" : "Amora Relation Consommateurs Unilever France"
+                           },
+                           "contactTypeCode" : {
+                              "$t" : "CXC"
+                           },
+                           "gln" : {
+                              "$t" : "3011780500106"
+                           },
+                           "structuredAddress" : {
+                              "city" : {
+                                 "$t" : "Rueil-Malmaison Cedex"
+                              },
+                              "countryCode" : {
+                                 "$t" : "250"
+                              },
+                              "postalCode" : {
+                                 "$t" : " 92842"
+                              },
+                              "streetAddress" : {
+                                 "$t" : "20 rue des Deux Gares"
+                              }
+                           },
+                           "targetMarketCommunicationChannel" : {
+                              "communicationChannel" : [
+                                 {
+                                    "communicationChannelCode" : {
+                                       "$t" : "TELEPHONE"
+                                    },
+                                    "communicationValue" : {
+                                       "$t" : "09 69 32 00 90 (appel non surtaxé)"
+                                    }
+                                 },
+                                 {
+                                    "communicationChannelCode" : {
+                                       "$t" : "WEBSITE"
+                                    },
+                                    "communicationValue" : {
+                                       "$t" : "https://www.mavieencouleurs.fr/marques/amora"
+                                    }
+                                 }
+                              ]
+                           }
+                        }
+                     ],
+                     "tradeItemInformation" : {
+                        "extension" : {
+                           "allergen_information:allergenInformationModule" : {
+                              "allergenRelatedInformation" : {
+                                 "allergen" : [
+                                    {
+                                       "allergenTypeCode" : {
+                                          "$t" : "AU"
+                                       },
+                                       "levelOfContainmentCode" : {
+                                          "$t" : "CONTAINS"
+                                       }
+                                    },
+                                    {
+                                       "allergenTypeCode" : {
+                                          "$t" : "AE"
+                                       },
+                                       "levelOfContainmentCode" : {
+                                          "$t" : "CONTAINS"
+                                       }
+                                    },
+                                    {
+                                       "allergenTypeCode" : {
+                                          "$t" : "AM"
+                                       },
+                                       "levelOfContainmentCode" : {
+                                          "$t" : "CONTAINS"
+                                       }
+                                    }
+                                 ],
+                                 "allergenSpecificationAgency" : {
+                                    "$t" : "EU"
+                                 },
+                                 "allergenSpecificationName" : {
+                                    "$t" : "1169/2011"
+                                 },
+                                 "allergenStatement" : {
+                                    "$t" : "Oeufs, Sulfite, Beurre",
+                                    "languageCode" : "fr"
+                                 },
+                                 "isAllergenRelevantDataProvided" : {
+                                    "$t" : "true"
+                                 }
+                              },
+                              "xmlns:allergen_information" : "urn:gs1:gdsn:allergen_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:allergen_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/AllergenInformationModule.xsd"
+                           },
+                           "consumer_instructions:consumerInstructionsModule" : {
+                              "consumerInstructions" : {
+                                 "consumerStorageInstructions" : {
+                                    "$t" : "À conserver au réfrigérateur après ouverture.",
+                                    "languageCode" : "fr"
+                                 }
+                              },
+                              "xmlns:consumer_instructions" : "urn:gs1:gdsn:consumer_instructions:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:consumer_instructions:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ConsumerInstructionsModule.xsd"
+                           },
+                           "dangerous_substance_information:dangerousSubstanceInformationModule" : {
+                              "dangerousSubstanceInformation" : {
+                                 "dangerousSubstanceProperties" : {
+                                    "isDangerousSubstance" : {
+                                       "$t" : "FALSE"
+                                    }
+                                 }
+                              },
+                              "xmlns:dangerous_substance_information" : "urn:gs1:gdsn:dangerous_substance_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:dangerous_substance_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DangerousSubstanceInformationModule.xsd"
+                           },
+                           "delivery_purchasing_information:deliveryPurchasingInformationModule" : {
+                              "deliveryPurchasingInformation" : {
+                                 "consumerFirstAvailabilityDateTime" : {
+                                    "$t" : "2017-06-01T00:00:00+02:00"
+                                 },
+                                 "firstShipDateTime" : {
+                                    "$t" : "2017-10-26T00:00:00+02:00"
+                                 },
+                                 "isTradeItemReorderable" : {
+                                    "$t" : "false"
+                                 },
+                                 "orderQuantityMinimum" : {
+                                    "$t" : "12"
+                                 },
+                                 "orderQuantityMultiple" : {
+                                    "$t" : "12"
+                                 },
+                                 "startAvailabilityDateTime" : {
+                                    "$t" : "2017-10-26T00:00:00+02:00"
+                                 }
+                              },
+                              "xmlns:delivery_purchasing_information" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:delivery_purchasing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DeliveryPurchasingInformationModule.xsd"
+                           },
+                           "duty_fee_tax_information:dutyFeeTaxInformationModule" : {
+                              "dutyFeeTaxInformation" : [
+                                 {
+                                    "dutyFeeTax" : {
+                                       "dutyFeeTaxCategoryCode" : {
+                                          "$t" : "LOW",
+                                          "codeListVersion" : "2"
+                                       }
+                                    },
+                                    "dutyFeeTaxAgencyCode" : {
+                                       "$t" : "65"
+                                    },
+                                    "dutyFeeTaxTypeCode" : {
+                                       "$t" : "2G"
+                                    },
+                                    "dutyFeeTaxTypeDescription" : {
+                                       "$t" : "TAUX REDUIT 5.5 %",
+                                       "languageCode" : "fr"
+                                    }
+                                 },
+                                 {
+                                    "dutyFeeTax" : {
+                                       "dutyFeeTaxAmount" : {
+                                          "$t" : "0.00388",
+                                          "currencyCode" : "EUR"
+                                       }
+                                    },
+                                    "dutyFeeTaxAgencyCode" : {
+                                       "$t" : "65"
+                                    },
+                                    "dutyFeeTaxTypeCode" : {
+                                       "$t" : "3001000002282"
+                                    },
+                                    "dutyFeeTaxTypeDescription" : {
+                                       "$t" : "TAXE ECO-EMBALLAGES (FR)",
+                                       "languageCode" : "fr"
+                                    }
+                                 }
+                              ],
+                              "xmlns:duty_fee_tax_information" : "urn:gs1:gdsn:duty_fee_tax_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:duty_fee_tax_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/DutyFeeTaxInformationModule.xsd"
+                           },
+                           "farming_and_processing_information:farmingAndProcessingInformationModule" : {
+                              "rawMaterialIrradiatedCode" : {
+                                 "$t" : "FALSE"
+                              },
+                              "tradeItemFarmingAndProcessing" : {
+                                 "geneticallyModifiedDeclarationCode" : {
+                                    "$t" : "FREE_FROM"
+                                 },
+                                 "irradiatedCode" : {
+                                    "$t" : "FALSE"
+                                 }
+                              },
+                              "tradeItemOrganicInformation" : {
+                                 "organicClaim" : {
+                                    "organicTradeItemCode" : {
+                                       "$t" : "5"
+                                    }
+                                 }
+                              },
+                              "xmlns:farming_and_processing_information" : "urn:gs1:gdsn:farming_and_processing_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:farming_and_processing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FarmingAndProcessingInformationModule.xsd"
+                           },
+                           "food_and_beverage_ingredient:foodAndBeverageIngredientModule" : {
+                              "ingredientStatement" : {
+                                 "$t" : "Ingrédients : huile de colza, eau, vin blanc 12% (dont SULFITES), vinaigre de vin blanc (dont SULFITES), jaune d'ŒUF, BEURRE concentré, sucre, échalote déshydratée 2%, sel, amidon modifié de pomme de terre, estragon 0,6%, acidifiant : acide lactique, jaune d'ŒUF en poudre, épaississants : gomme xanthane et gomme guar, échalote en poudre 0,3%, conservateur : sorbate de potassium, poivre, cerfeuil, persil.",
+                                 "languageCode" : "fr"
+                              },
+                              "isIngredientRelevantDataProvided" : {
+                                 "$t" : "TRUE"
+                              },
+                              "xmlns:food_and_beverage_ingredient" : "urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:food_and_beverage_ingredient:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeverageIngredientModule.xsd"
+                           },
+                           "food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule" : {
+                              "preparationServing" : {
+                                 "preparationInstructions" : {
+                                    "$t" : ".",
+                                    "languageCode" : "fr"
+                                 },
+                                 "preparationTypeCode" : {
+                                    "$t" : "UNSPECIFIED"
+                                 }
+                              },
+                              "servingQuantityInformation" : {
+                                 "numberOfServingsPerPackage" : {
+                                    "$t" : "12"
+                                 }
+                              },
+                              "xmlns:food_and_beverage_preparation_serving" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:food_and_beverage_preparation_serving:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/FoodAndBeveragePreparationServingModule.xsd"
+                           },
+                           "marketing_information:marketingInformationModule" : {
+                              "marketingInformation" : {
+                                 "brandMarketingDescription" : {
+                                    "$t" : "Présente dans le cœur des français depuis 1919, Amora est reconnue et appréciée pour son savoir-faire et la qualité de ses produits. La marque continue de séduire chaque année avec des nouveautés authentiques, pleines de goût et originales. Réalisez des recettes faciles et gourmandes et réinventez vos plats en leur donnant toujours plus de goût avec Amora. Sur le bord de l'assiette, dans vos sandwichs, ou à chaud, les produits Amora assaisonneront tous vos plats et relèveront les saveurs de votre cuisine. Découvrez ainsi le plaisir de partager de délicieux repas en famille ou entre amis. Retrouvez toutes les astuces et les recettes faciles et gourmandes Amora : vous régalerez les grands comme les petits, pour le plaisir de toute la famille !",
+                                    "languageCode" : "fr"
+                                 },
+                                 "season" : {
+                                    "isTradeItemSeasonal" : {
+                                       "$t" : "FALSE"
+                                    }
+                                 },
+                                 "targetConsumer" : {
+                                    "targetConsumerAgeGroupCode" : {
+                                       "$t" : "ALL_AGE"
+                                    },
+                                    "targetConsumerGender" : {
+                                       "$t" : "UNISEX"
+                                    }
+                                 },
+                                 "tradeItemFeatureBenefit" : [
+                                    {
+                                       "$t" : "Découvrez la recette gourmet de la sauce BÉARNAISE Amora.",
+                                       "languageCode" : "fr"
+                                    },
+                                    {
+                                       "$t" : "Une recette de sauce béarnaise rehaussée avec des échalotes et du vin blanc, une texture onctueuse et un goût unique.",
+                                       "languageCode" : "fr"
+                                    },
+                                    {
+                                       "$t" : "La recette de la sauce Gourmet Béarnaise Échalotes Vin Blanc Amora ne contient ni colorants ni arômes artificiels.",
+                                       "languageCode" : "fr"
+                                    },
+                                    {
+                                       "$t" : "Découvrez la sauce Gourmet Béarnaise Amora dans un bocal en verre transparent et moderne, 100 % recyclable.",
+                                       "languageCode" : "fr"
+                                    },
+                                    {
+                                       "$t" : "Une sauce savoureuse et idéale avec de la viande rouge, comme un steak de bœuf, mais aussi du saumon grillé au four ou des légumes rotis.",
+                                       "languageCode" : "fr"
+                                    },
+                                    {
+                                       "$t" : "Avec la sauce Gourmet Béarnaise Échalotes Vin Blanc Amora®, partagez plus qu'un repas !",
+                                       "languageCode" : "fr"
+                                    }
+                                 ],
+                                 "tradeItemKeyWords" : {
+                                    "$t" : "barbecu,barbecue,bbq,béchamel,burger,burgers,frites,hamburger,légumes,poissons,salades,samourai,sauce,sauce à l'Algérienne,sauce au beurre,sauce au poivre,sauce barbecue,sauce barbecue miel,Sauce Béarnaise,sauce béchamel,sauce burger,sauce gourmet,sauce hamburger,sauce roquefort,sauce samourai,sauces,tacos",
+                                    "languageCode" : "fr"
+                                 },
+                                 "tradeItemMarketingMessage" : {
+                                    "$t" : "Découvrez la sauce Gourmet Béarnaise Échalotes Vin Blanc Amora. Cette sauce est faite à partir d'ingrédients soigneusement sélectionnés et ne contient ni colorants ni arômes artificiels. Une recette de béarnaise rehaussée avec des échalotes et du vin blanc, une texture onctueuse et un goût unique. Cette sauce à la saveur équilibrée, est idéale avec de la viande rouge, comme un steak de bœuf, mais aussi du saumon ou un poisson blanc grillé au four. Une sauce Béarnaise qui ravira toute la famille, les petits comme les grands, pour de vrais repas conviviaux ! Le tout dans un bocal en verre transparent de 184 g et 100 % recyclable, que vous serez fier de mettre sur votre table. À conserver au réfrigérateur après ouverture. Les sauces Gourmet Amora ne contiennent ni colorants ni arômes artificiels. Leur goût authentique provient de leurs ingrédients soigneusement sélectionnés, de leurs délicats petits morceaux et de leur texture onctueuse. Avec les sauces de variétés Amora, donnez du goût à vos plats du quotidien (viandes, poissons, légumes, salades). Présente dans le cœur des Français depuis 1919, Amora est reconnue et appréciée pour son savoir-faire et la qualité de ses produits. La marque séduit chaque année avec des recettes pleines de goût, simples et originales. Réalisez des recettes faciles et gourmandes et réinventez vos plats en leur donnant toujours plus de goût avec Amora. Sur le bord de l'assiette, dans vos sandwichs, ou à chaud, les produits Amora assaisonneront tous vos plats et relèveront les saveurs de votre cuisine. Découvrez ainsi le plaisir de partager de délicieux repas en famille ou entre amis. Retrouvez tous les produits Amora et des idées recettes sur www.amora.fr. Vous régalerez les grands comme les petits, pour le plaisir de toutes les papilles !",
+                                    "languageCode" : "fr"
+                                 },
+                                 "tradeItemStory" : {
+                                    "$t" : "Découvrez la sauce Gourmet Béarnaise Échalotes Vin Blanc Amora. Cette sauce est faite à partir d'ingrédients soigneusement sélectionnés et ne contient ni colorants ni arômes artificiels. Une recette de béarnaise rehaussée avec des échalotes et du vin blanc, une texture onctueuse et un goût unique.",
+                                    "languageCode" : "fr"
+                                 }
+                              },
+                              "xmlns:marketing_information" : "urn:gs1:gdsn:marketing_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:marketing_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/MarketingInformationModule.xsd"
+                           },
+                           "nutritional_information:nutritionalInformationModule" : {
+                              "isNutrientRelevantDataProvided" : {
+                                 "$t" : "true"
+                              },
+                              "nutrientHeader" : [
+                                 {
+                                    "dailyValueIntakeReference" : {
+                                       "$t" : "* AR : Apport de référence pour un adulte-type (8400 kj/2000 kcal)",
+                                       "languageCode" : "fr"
+                                    },
+                                    "nutrientDetail" : [
+                                       {
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "ENER-"
+                                          },
+                                          "quantityContained" : [
+                                             {
+                                                "$t" : "1958",
+                                                "measurementUnitCode" : "KJO"
+                                             },
+                                             {
+                                                "$t" : "468",
+                                                "measurementUnitCode" : "E14"
+                                             }
+                                          ]
+                                       },
+                                       {
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "FAT"
+                                          },
+                                          "quantityContained" : {
+                                             "$t" : "47",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "FASAT"
+                                          },
+                                          "quantityContained" : {
+                                             "$t" : "6",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "CHOAVL"
+                                          },
+                                          "quantityContained" : {
+                                             "$t" : "5.9",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "SUGAR-"
+                                          },
+                                          "quantityContained" : {
+                                             "$t" : "3.6",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "FIBTG"
+                                          },
+                                          "quantityContained" : {
+                                             "$t" : "0.6",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "PRO-"
+                                          },
+                                          "quantityContained" : {
+                                             "$t" : "1.1",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "SALTEQ"
+                                          },
+                                          "quantityContained" : {
+                                             "$t" : "1.8",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       }
+                                    ],
+                                    "preparationStateCode" : {
+                                       "$t" : "UNPREPARED"
+                                    },
+                                    "servingSize" : {
+                                       "$t" : "100.0",
+                                       "measurementUnitCode" : "GRM"
+                                    },
+                                    "servingSizeDescription" : {
+                                       "$t" : "100 Gramme Etat initial",
+                                       "languageCode" : "fr"
+                                    }
+                                 },
+                                 {
+                                    "dailyValueIntakeReference" : {
+                                       "$t" : "* AR : Apport de référence pour un adulte-type (8400 kj/2000 kcal)",
+                                       "languageCode" : "fr"
+                                    },
+                                    "nutrientDetail" : [
+                                       {
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "ENER-"
+                                          },
+                                          "quantityContained" : [
+                                             {
+                                                "$t" : "294",
+                                                "measurementUnitCode" : "KJO"
+                                             },
+                                             {
+                                                "$t" : "70",
+                                                "measurementUnitCode" : "E14"
+                                             }
+                                          ]
+                                       },
+                                       {
+                                          "dailyValueIntakePercent" : {
+                                             "$t" : "10.00"
+                                          },
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "FAT"
+                                          },
+                                          "quantityContained" : {
+                                             "$t" : "7.1",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "dailyValueIntakePercent" : {
+                                             "$t" : "5.00"
+                                          },
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "FASAT"
+                                          },
+                                          "quantityContained" : {
+                                             "$t" : "0.9",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "dailyValueIntakePercent" : {
+                                             "$t" : "1.00"
+                                          },
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "CHOAVL"
+                                          },
+                                          "quantityContained" : {
+                                             "$t" : "0.9",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "dailyValueIntakePercent" : {
+                                             "$t" : "1.00"
+                                          },
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "SUGAR-"
+                                          },
+                                          "quantityContained" : {
+                                             "$t" : "0.5",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "LESS_THAN"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "FIBTG"
+                                          },
+                                          "quantityContained" : {
+                                             "$t" : "0.5",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "dailyValueIntakePercent" : {
+                                             "$t" : "1.00"
+                                          },
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "LESS_THAN"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "PRO-"
+                                          },
+                                          "quantityContained" : {
+                                             "$t" : "0.5",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       },
+                                       {
+                                          "dailyValueIntakePercent" : {
+                                             "$t" : "5.00"
+                                          },
+                                          "measurementPrecisionCode" : {
+                                             "$t" : "APPROXIMATELY"
+                                          },
+                                          "nutrientTypeCode" : {
+                                             "$t" : "SALTEQ"
+                                          },
+                                          "quantityContained" : {
+                                             "$t" : "0.27",
+                                             "measurementUnitCode" : "GRM"
+                                          }
+                                       }
+                                    ],
+                                    "preparationStateCode" : {
+                                       "$t" : "UNPREPARED"
+                                    },
+                                    "servingSize" : {
+                                       "$t" : "15.0",
+                                       "measurementUnitCode" : "GRM"
+                                    },
+                                    "servingSizeDescription" : {
+                                       "$t" : "15 Gramme Etat initial",
+                                       "languageCode" : "fr"
+                                    }
+                                 }
+                              ],
+                              "xmlns:nutritional_information" : "urn:gs1:gdsn:nutritional_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:nutritional_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/NutritionalInformationModule.xsd"
+                           },
+                           "packaging_information:packagingInformationModule" : {
+                              "packaging" : {
+                                 "packagingTypeCode" : {
+                                    "$t" : "JR"
+                                 },
+                                 "packagingTypeDescription" : {
+                                    "$t" : "Jar",
+                                    "languageCode" : "fr"
+                                 }
+                              },
+                              "xmlns:packaging_information" : "urn:gs1:gdsn:packaging_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingInformationModule.xsd"
+                           },
+                           "packaging_marking:packagingMarkingModule" : {
+                              "packagingMarking" : {
+                                 "isPackagingMarkedReturnable" : {
+                                    "$t" : "false"
+                                 },
+                                 "isPriceOnPack" : {
+                                    "$t" : "false"
+                                 },
+                                 "isTradeItemMarkedAsRecyclable" : {
+                                    "$t" : "false"
+                                 },
+                                 "packagingDate" : {
+                                    "tradeItemDateOnPackagingTypeCode" : {
+                                       "$t" : "BEST_BEFORE_DATE"
+                                    }
+                                 }
+                              },
+                              "xmlns:packaging_marking" : "urn:gs1:gdsn:packaging_marking:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:packaging_marking:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PackagingMarkingModule.xsd"
+                           },
+                           "place_of_item_activity:placeOfItemActivityModule" : {
+                              "importClassification" : {
+                                 "importClassificationTypeCode" : {
+                                    "$t" : "CUSTOMS_TARIFF_NUMBER"
+                                 },
+                                 "importClassificationValue" : {
+                                    "$t" : "21039090"
+                                 }
+                              },
+                              "placeOfProductActivity" : {
+                                 "countryOfOrigin" : {
+                                    "countryCode" : {
+                                       "$t" : "616"
+                                    }
+                                 },
+                                 "productActivityDetails" : {
+                                    "countryOfActivity" : {
+                                       "countryCode" : {
+                                          "$t" : "616"
+                                       }
+                                    },
+                                    "productActivityTypeCode" : {
+                                       "$t" : "LAST_PROCESSING"
+                                    }
+                                 },
+                                 "provenanceStatement" : {
+                                    "$t" : "Pologne",
+                                    "languageCode" : "fr"
+                                 }
+                              },
+                              "xmlns:place_of_item_activity" : "urn:gs1:gdsn:place_of_item_activity:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:place_of_item_activity:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PlaceOfItemActivityModule.xsd"
+                           },
+                           "product_information:productInformationModule" : {
+                              "productInformationDetail" : {
+                                 "claimDetail" : [
+                                    {
+                                       "claimElementCode" : {
+                                          "$t" : "ARTIFICIAL_COLOUR"
+                                       },
+                                       "claimMarkedOnPackage" : {
+                                          "$t" : "TRUE"
+                                       },
+                                       "claimTypeCode" : {
+                                          "$t" : "FREE_FROM"
+                                       }
+                                    },
+                                    {
+                                       "claimElementCode" : {
+                                          "$t" : "ARTIFICIAL_FLAVOUR"
+                                       },
+                                       "claimMarkedOnPackage" : {
+                                          "$t" : "TRUE"
+                                       },
+                                       "claimTypeCode" : {
+                                          "$t" : "FREE_FROM"
+                                       }
+                                    }
+                                 ]
+                              },
+                              "xmlns:product_information" : "urn:gs1:gdsn:product_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:product_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ProductInformationModule.xsd"
+                           },
+                           "promotional_item_information:promotionalItemInformationModule" : {
+                              "isTradeItemAPromotionalUnit" : {
+                                 "$t" : "false"
+                              },
+                              "xmlns:promotional_item_information" : "urn:gs1:gdsn:promotional_item_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:promotional_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/PromotionalItemInformationModule.xsd"
+                           },
+                           "referenced_file_detail_information:referencedFileDetailInformationModule" : {
+                              "referencedFileHeader" : [
+                                 {
+                                    "contentDescription" : {
+                                       "$t" : "Produit emballé / Packshot",
+                                       "languageCode" : "fr"
+                                    },
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2022-08-18T00:00:00+02:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "png"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "08714100908068_C1R1_s39.png"
+                                    },
+                                    "isPrimaryFile" : {
+                                       "$t" : "FALSE"
+                                    },
+                                    "referencedFileDetail" : {
+                                       "fileContentInformation" : {
+                                          "verticalCameraAngleCode" : {
+                                             "$t" : "PARALLEL"
+                                          }
+                                       },
+                                       "fileUsageInformation" : {
+                                          "canFilesBeEdited" : {
+                                             "$t" : "TRUE"
+                                          }
+                                       },
+                                       "isFileBackgroundTransparent" : {
+                                          "$t" : "TRUE"
+                                       }
+                                    },
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "PRODUCT_IMAGE"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://secure.equadis.com/Equadis/MultimediaFileViewer?key=171476376_9C56D851B27178FAB43D0FDE07C37520&idFile=5324350&file=10144/08714100908068_C1R1_s39.png"
+                                    }
+                                 },
+                                 {
+                                    "contentDescription" : {
+                                       "$t" : "Produit emballé / Packshot",
+                                       "languageCode" : "fr"
+                                    },
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2022-08-12T00:00:00+02:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "png"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "08714100908068_C1N1_s36.png"
+                                    },
+                                    "isPrimaryFile" : {
+                                       "$t" : "TRUE"
+                                    },
+                                    "referencedFileDetail" : {
+                                       "fileContentInformation" : {
+                                          "verticalCameraAngleCode" : {
+                                             "$t" : "PARALLEL"
+                                          }
+                                       },
+                                       "fileUsageInformation" : {
+                                          "canFilesBeEdited" : {
+                                             "$t" : "TRUE"
+                                          }
+                                       },
+                                       "isFileBackgroundTransparent" : {
+                                          "$t" : "TRUE"
+                                       }
+                                    },
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "PRODUCT_IMAGE"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://secure.equadis.com/Equadis/MultimediaFileViewer?key=169026488_2CC9AF30B149BDC8AE085EB0D1AAE711&idFile=5247791&file=10144/08714100908068_C1N1_s36.png"
+                                    }
+                                 },
+                                 {
+                                    "contentDescription" : {
+                                       "$t" : "Produit emballé / Packshot",
+                                       "languageCode" : "fr"
+                                    },
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2022-08-18T00:00:00+02:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "png"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "08714100908068_C1L1_s41.png"
+                                    },
+                                    "isPrimaryFile" : {
+                                       "$t" : "FALSE"
+                                    },
+                                    "referencedFileDetail" : {
+                                       "fileContentInformation" : {
+                                          "verticalCameraAngleCode" : {
+                                             "$t" : "PARALLEL"
+                                          }
+                                       },
+                                       "fileUsageInformation" : {
+                                          "canFilesBeEdited" : {
+                                             "$t" : "TRUE"
+                                          }
+                                       },
+                                       "isFileBackgroundTransparent" : {
+                                          "$t" : "TRUE"
+                                       }
+                                    },
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "PRODUCT_IMAGE"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://secure.equadis.com/Equadis/MultimediaFileViewer?key=171476440_B9C210E000A3335EB5074BF611BA8A6D&idFile=5324352&file=10144/08714100908068_C1L1_s41.png"
+                                    }
+                                 },
+                                 {
+                                    "contentDescription" : {
+                                       "$t" : "Produit emballé / Packshot",
+                                       "languageCode" : "fr"
+                                    },
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2022-08-18T00:00:00+02:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "png"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "08714100908068_C2N1_s42.png"
+                                    },
+                                    "isPrimaryFile" : {
+                                       "$t" : "FALSE"
+                                    },
+                                    "referencedFileDetail" : {
+                                       "fileContentInformation" : {
+                                          "verticalCameraAngleCode" : {
+                                             "$t" : "PARALLEL"
+                                          }
+                                       },
+                                       "fileUsageInformation" : {
+                                          "canFilesBeEdited" : {
+                                             "$t" : "TRUE"
+                                          }
+                                       },
+                                       "isFileBackgroundTransparent" : {
+                                          "$t" : "TRUE"
+                                       }
+                                    },
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "PRODUCT_IMAGE"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://secure.equadis.com/Equadis/MultimediaFileViewer?key=171476472_3FDC87E7D872926277E3ED52C68381B3&idFile=5324353&file=10144/08714100908068_C2N1_s42.png"
+                                    }
+                                 },
+                                 {
+                                    "contentDescription" : {
+                                       "$t" : "Produit emballé / Packshot",
+                                       "languageCode" : "fr"
+                                    },
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2022-08-12T00:00:00+02:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "png"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "08714100908068_C0N1_s37.png"
+                                    },
+                                    "isPrimaryFile" : {
+                                       "$t" : "FALSE"
+                                    },
+                                    "referencedFileDetail" : {
+                                       "fileUsageInformation" : {
+                                          "canFilesBeEdited" : {
+                                             "$t" : "TRUE"
+                                          }
+                                       },
+                                       "isFileBackgroundTransparent" : {
+                                          "$t" : "TRUE"
+                                       }
+                                    },
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "PRODUCT_IMAGE"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://secure.equadis.com/Equadis/MultimediaFileViewer?key=169027224_03B8DE3DCEEA4FF0CD590D499E8F3F44&idFile=5247814&file=10144/08714100908068_C0N1_s37.png"
+                                    }
+                                 },
+                                 {
+                                    "contentDescription" : {
+                                       "$t" : "Produit emballé / Packshot",
+                                       "languageCode" : "fr"
+                                    },
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2022-08-12T00:00:00+02:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "png"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "08714100908068_C7N1_s38.png"
+                                    },
+                                    "isPrimaryFile" : {
+                                       "$t" : "FALSE"
+                                    },
+                                    "referencedFileDetail" : {
+                                       "fileContentInformation" : {
+                                          "verticalCameraAngleCode" : {
+                                             "$t" : "PARALLEL"
+                                          }
+                                       },
+                                       "fileUsageInformation" : {
+                                          "canFilesBeEdited" : {
+                                             "$t" : "TRUE"
+                                          }
+                                       },
+                                       "isFileBackgroundTransparent" : {
+                                          "$t" : "TRUE"
+                                       }
+                                    },
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "PRODUCT_IMAGE"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://secure.equadis.com/Equadis/MultimediaFileViewer?key=169027256_C13013C873598872D579953CDD8FA48C&idFile=5247815&file=10144/08714100908068_C7N1_s38.png"
+                                    }
+                                 },
+                                 {
+                                    "contentDescription" : {
+                                       "$t" : "Produit emballé / Packshot",
+                                       "languageCode" : "fr"
+                                    },
+                                    "fileEffectiveStartDateTime" : {
+                                       "$t" : "2022-08-18T00:00:00+02:00"
+                                    },
+                                    "fileFormatName" : {
+                                       "$t" : "png"
+                                    },
+                                    "fileName" : {
+                                       "$t" : "08714100908068_C8N1_s40.png"
+                                    },
+                                    "isPrimaryFile" : {
+                                       "$t" : "FALSE"
+                                    },
+                                    "referencedFileDetail" : {
+                                       "fileContentInformation" : {
+                                          "verticalCameraAngleCode" : {
+                                             "$t" : "PARALLEL"
+                                          }
+                                       },
+                                       "fileUsageInformation" : {
+                                          "canFilesBeEdited" : {
+                                             "$t" : "TRUE"
+                                          }
+                                       },
+                                       "isFileBackgroundTransparent" : {
+                                          "$t" : "TRUE"
+                                       }
+                                    },
+                                    "referencedFileTypeCode" : {
+                                       "$t" : "PRODUCT_IMAGE"
+                                    },
+                                    "uniformResourceIdentifier" : {
+                                       "$t" : "https://secure.equadis.com/Equadis/MultimediaFileViewer?key=171476408_1D53863B0956C33694D64C15FF44A46E&idFile=5324351&file=10144/08714100908068_C8N1_s40.png"
+                                    }
+                                 }
+                              ],
+                              "xmlns:referenced_file_detail_information" : "urn:gs1:gdsn:referenced_file_detail_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:referenced_file_detail_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/ReferencedFileDetailInformationModule.xsd"
+                           },
+                           "sales_information:salesInformationModule" : {
+                              "salesInformation" : {
+                                 "isBasePriceDeclarationRelevant" : {
+                                    "$t" : "FALSE"
+                                 },
+                                 "priceComparisonContentTypeCode" : {
+                                    "$t" : "PER_KILOGRAM"
+                                 },
+                                 "priceComparisonMeasurement" : {
+                                    "$t" : "0.184",
+                                    "measurementUnitCode" : "KGM"
+                                 },
+                                 "sellingUnitOfMeasure" : {
+                                    "$t" : "H87"
+                                 }
+                              },
+                              "tradeItemPriceInformation" : {
+                                 "cataloguePrice" : {
+                                    "tradeItemPrice" : {
+                                       "$t" : "1.56",
+                                       "currencyCode" : "EUR"
+                                    }
+                                 }
+                              },
+                              "xmlns:sales_information" : "urn:gs1:gdsn:sales_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:sales_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/SalesInformationModule.xsd"
+                           },
+                           "trade_item_data_carrier_and_identification:tradeItemDataCarrierAndIdentificationModule" : {
+                              "dataCarrier" : {
+                                 "dataCarrierTypeCode" : {
+                                    "$t" : "EAN_13"
+                                 }
+                              },
+                              "xmlns:trade_item_data_carrier_and_identification" : "urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_data_carrier_and_identification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDataCarrierAndIdentificationModule.xsd"
+                           },
+                           "trade_item_description:tradeItemDescriptionModule" : {
+                              "tradeItemDescriptionInformation" : {
+                                 "additionalTradeItemDescription" : [
+                                    {
+                                       "$t" : "Amora s'engage en tant qu'acteur majeur sur le marché de l'alimentaire, Amora a conscience des impacts de son activité sur l'environnement et s'engage donc à plusieurs niveaux pour agir et produire de manière durable...Nos mayonnaises aux oeufs de poules élevées en plein air. Nos Ketchup, préparés avec des tomates issues de l'agriculture durable. Amora s'engage à vous donner des sauces salades de qualité, préparées à base de vinaigre et d'huile.",
+                                       "languageCode" : "fr"
+                                    },
+                                    {
+                                       "$t" : "Amora s'engage en tant qu'acteur majeur sur le marché de l'alimentaire, Amora a conscience des impacts de son activité sur l'environnement et s'engage donc à plusieurs niveaux pour agir et produire de manière durable...Nos mayonnaises aux oeufs de poules élevées en plein air. Nos Ketchup, préparés avec des tomates issues de l'agriculture durable. Amora s'engage à vous donner des sauces salades de qualité, préparées à base de vinaigre et d'huile.",
+                                       "languageCode" : "fr"
+                                    }
+                                 ],
+                                 "brandNameInformation" : {
+                                    "brandName" : {
+                                       "$t" : "AMORA"
+                                    }
+                                 },
+                                 "descriptionShort" : {
+                                    "$t" : "AMORA SCE BEARN BCL 184G",
+                                    "languageCode" : "fr"
+                                 },
+                                 "functionalName" : {
+                                    "$t" : "Sauce Gourmet",
+                                    "languageCode" : "fr"
+                                 },
+                                 "invoiceName" : {
+                                    "$t" : "AMORA SCE BEARN BCL 184G",
+                                    "languageCode" : "fr"
+                                 },
+                                 "labelDescription" : {
+                                    "$t" : "Amora BEARNAISE Sauce 184 GR",
+                                    "languageCode" : "fr"
+                                 },
+                                 "regulatedProductName" : {
+                                    "$t" : "Sauce béarnaise.",
+                                    "languageCode" : "fr"
+                                 },
+                                 "tradeItemDescription" : {
+                                    "$t" : "Amora Sauce Gourmet Béarnaise Échalotes Vin Blanc 184g",
+                                    "languageCode" : "fr"
+                                 },
+                                 "variantDescription" : {
+                                    "$t" : "Béarnaise Échalotes Vin Blanc",
+                                    "languageCode" : "fr"
+                                 }
+                              },
+                              "xmlns:trade_item_description" : "urn:gs1:gdsn:trade_item_description:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_description:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemDescriptionModule.xsd"
+                           },
+                           "trade_item_lifespan:tradeItemLifespanModule" : {
+                              "tradeItemLifespan" : {
+                                 "itemPeriodSafeToUseAfterOpening" : {
+                                    "$t" : "1",
+                                    "timeMeasurementUnitCode" : "MON"
+                                 },
+                                 "minimumTradeItemLifespanFromTimeOfArrival" : {
+                                    "$t" : "90"
+                                 },
+                                 "minimumTradeItemLifespanFromTimeOfProduction" : {
+                                    "$t" : "91"
+                                 }
+                              },
+                              "xmlns:trade_item_lifespan" : "urn:gs1:gdsn:trade_item_lifespan:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_lifespan:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemLifespanModule.xsd"
+                           },
+                           "trade_item_measurements:tradeItemMeasurementsModule" : {
+                              "tradeItemMeasurements" : {
+                                 "depth" : {
+                                    "$t" : "68",
+                                    "measurementUnitCode" : "MMT"
+                                 },
+                                 "height" : {
+                                    "$t" : "99",
+                                    "measurementUnitCode" : "MMT"
+                                 },
+                                 "netContent" : {
+                                    "$t" : "184",
+                                    "measurementUnitCode" : "GRM"
+                                 },
+                                 "tradeItemWeight" : {
+                                    "grossWeight" : {
+                                       "$t" : "0.37",
+                                       "measurementUnitCode" : "KGM"
+                                    },
+                                    "netWeight" : {
+                                       "$t" : "0.184",
+                                       "measurementUnitCode" : "KGM"
+                                    }
+                                 },
+                                 "width" : {
+                                    "$t" : "68",
+                                    "measurementUnitCode" : "MMT"
+                                 }
+                              },
+                              "xmlns:trade_item_measurements" : "urn:gs1:gdsn:trade_item_measurements:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_measurements:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemMeasurementsModule.xsd"
+                           },
+                           "trade_item_temperature_information:tradeItemTemperatureInformationModule" : {
+                              "tradeItemTemperatureConditionTypeCode" : {
+                                 "$t" : "AMBIENT"
+                              },
+                              "tradeItemTemperatureInformation" : {
+                                 "maximumTemperature" : {
+                                    "$t" : "25",
+                                    "temperatureMeasurementUnitCode" : "CEL"
+                                 },
+                                 "minimumTemperature" : {
+                                    "$t" : "5",
+                                    "temperatureMeasurementUnitCode" : "CEL"
+                                 },
+                                 "temperatureQualifierCode" : {
+                                    "$t" : "STORAGE_HANDLING"
+                                 }
+                              },
+                              "xmlns:trade_item_temperature_information" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:trade_item_temperature_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/TradeItemTemperatureInformationModule.xsd"
+                           },
+                           "variable_trade_item_information:variableTradeItemInformationModule" : {
+                              "variableTradeItemInformation" : {
+                                 "isTradeItemAVariableUnit" : {
+                                    "$t" : "false"
+                                 }
+                              },
+                              "xmlns:variable_trade_item_information" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3",
+                              "xsi:schemaLocation" : "urn:gs1:gdsn:variable_trade_item_information:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/VariableTradeItemInformationModule.xsd"
+                           }
+                        },
+                        "productionVariantDescription" : {
+                           "$t" : "Amora  BEARNAISE Sauce 184 GR",
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "tradeItemSynchronisationDates" : {
+                        "effectiveDateTime" : {
+                           "$t" : "2018-03-01T00:00:00+01:00"
+                        },
+                        "lastChangeDateTime" : {
+                           "$t" : "2023-09-06T00:58:37+02:00"
+                        },
+                        "publicationDateTime" : {
+                           "$t" : "2023-09-06T00:58:37+02:00"
+                        }
+                     },
+                     "tradeItemTradeChannelCode" : {
+                        "$t" : "MASS_MERCHANDISING"
+                     },
+                     "tradeItemUnitDescriptorCode" : {
+                        "$t" : "BASE_UNIT_OR_EACH"
+                     }
+                  }
+               },
+               "catalogueItemNotificationIdentification" : {
+                  "contentOwner" : {
+                     "gln" : {
+                        "$t" : "3011780500106"
+                     }
+                  },
+                  "entityIdentification" : {
+                     "$t" : "3027800020301_CINcb1b4e86e32e4f878e93afef34fe4c7b156_CIN"
+                  }
+               },
+               "creationDateTime" : {
+                  "$t" : "2023-09-06T00:58:37+02:00"
+               },
+               "documentStatusCode" : {
+                  "$t" : "ORIGINAL"
+               },
+               "isReload" : {
+                  "$t" : "false"
+               }
+            },
+            "documentCommandHeader" : {
+               "documentCommandIdentification" : {
+                  "contentOwner" : {
+                     "gln" : {
+                        "$t" : "3011780500106"
+                     }
+                  },
+                  "entityIdentification" : {
+                     "$t" : "3027800020301_CINcb1b4e86e32e4f878e93afef34fe4c7b156_DocID"
+                  }
+               },
+               "type" : "ADD"
+            }
+         },
+         "transactionIdentification" : {
+            "contentOwner" : {
+               "gln" : {
+                  "$t" : "3011780500106"
+               }
+            },
+            "entityIdentification" : {
+               "$t" : "3027800020301_CINcb1b4e86e32e4f878e93afef34fe4c7b156_TransactionID"
+            }
+         }
+      },
+      "xmlns:catalogue_item_notification" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3",
+      "xmlns:sh" : "http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader",
+      "xmlns:xsi" : "http://www.w3.org/2001/XMLSchema-instance",
+      "xsi:schemaLocation" : "urn:gs1:gdsn:catalogue_item_notification:xsd:3 http://www.gs1globalregistry.net/3.1/schemas/gs1/gdsn/CatalogueItemNotification.xsd"
+   },
+   "encoding" : "UTF-8",
+   "version" : "1.0"
+}

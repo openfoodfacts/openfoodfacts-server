@@ -1,0 +1,68 @@
+name: "🕰️ Daily tasks (cronjobs)"
+
+on:
+  schedule:
+  - cron: "0 0 * * *" # once a day at 00:00
+  push:
+    branches: ["cron-*"]
+
+jobs:
+  # TODO: Uncomment when prod environment is ready
+  # prod-db-backup:
+  #   runs-on: ubuntu-latest
+  #   environment: off-org
+  #   concurrency: off-org
+  #   steps:
+  #   - name: Backup production database
+  #     uses: appleboy/ssh-action@master
+  #     with:
+  #       host: ${{ env.SSH_HOST }}
+  #       username: ${{ env.SSH_USERNAME }}
+  #       key: ${{ secrets.SSH_PRIVATE_KEY }}
+  #       proxy_host: ${{ env.SSH_PROXY_HOST }}
+  #       proxy_username: ${{ env.SSH_USERNAME }}
+  #       proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+  #       script_stop: false
+  #       script: |
+  #         cd ${{ matrix.env }}/
+  #         sudo sh ./scripts/mongodb_dump.sh /mnt/data/ openfoodfacts localhost off
+
+  dev-db-sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      matrix:
+        env: [mongo-dev]
+    environment: ${{ matrix.env }}
+    concurrency: ${{ matrix.env }}
+    steps:
+    - name: Set various variables for staging (.net) deployment
+      if: matrix.env == 'mongo-dev'
+      run: |
+        # deploy target
+        echo "SSH_HOST=10.1.0.200" >> $GITHUB_ENV
+        echo "SSH_PROXY_HOST=ovh1.openfoodfacts.org" >> $GITHUB_ENV
+        echo "SSH_USERNAME=off" >> $GITHUB_ENV
+
+    - name: Sync production database data to the dev MongoDB
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ env.SSH_HOST }}
+        username: ${{ env.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        proxy_host: ${{ env.SSH_PROXY_HOST }}
+        proxy_username: ${{ env.SSH_USERNAME }}
+        proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+        command_timeout: 180m
+        script_stop: false
+        script: |
+          cd ${{ matrix.env }}
+          # We can put a file to avoid running db update
+          if [[ ! -e ./NO_DAILY ]]
+          then
+            make import_prod_data && \
+            make restart_db
+          else
+            # make task fail intentionally
+            false
+          fi

@@ -1,0 +1,31 @@
+<!-- start templates/[% component.name %] -->
+
+<p>
+    <a id="ingredients_analysis_link" data-dropdown="ingredient_analysis_drop" aria-controls="ingredient_analysis_drop" aria-expanded="false">
+        [% lang("ingredients_analysis_details") %] &raquo;
+    </a>
+    [% IF unknown_ingredients %]
+        <strong>[% lang("we_need_your_help") %]</strong>
+    [% END %]
+</p>
+<div id="ingredient_analysis_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
+    [% IF unknown_ingredients %]
+        <p class="unknown_ingredient">[% lang("some_unknown_ingredients") %]</p>
+        <div class="callout panel">
+            <h3>[% lang("we_need_your_help") %]</h3>
+            <p>[% lang("you_can_help_improve_ingredients_analysis") %]</p>
+            <ul>
+                <li>[% lang("help_improve_ingredients_analysis_1") %]</li>
+                <li>[% lang("help_improve_ingredients_analysis_2") %]</li>
+            </ul>
+            <p>[% lang("help_improve_ingredients_analysis_instructions") %]</p>
+        </div>
+    [% END %]
+
+    <p id="ingredients_analysis_ingredients_text">[% ingredients_text %]</p>
+    [% ingredients_list %]
+
+    [% specific_ingredients %]
+</div>
+
+<!-- end templates/[% component.name %] -->

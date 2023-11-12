@@ -5,25 +5,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-06-15 08:15\n"
 "Language-Team: Hebrew\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: he\n"
-"X-Crowdin-File: /master/po/openfoodfacts/openfoodfacts.pot\n"
-"X-Crowdin-File-ID: 444\n"
-
-#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openfoodfacts-logo-en-178x150.png"
-msgstr "openfoodfacts-logo-he-178x150.png"
-
-#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openfoodfacts-logo-en-356x300.png"
-msgstr "openfoodfacts-logo-he-356x300.png"
+"X-Crowdin-File-ID: 3127\n"
 
 msgctxt "tagline"
 msgid "Open Food Facts gathers information and data on food products from around the world."
@@ -31,8 +19,8 @@ msgstr "המיזם Open Food Facts אוסף מידע ונתונים על מוצ�
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-food-facts-mobile-app"
-msgstr "open-food-facts-mobile-app"
+msgid "/open-food-facts-mobile-app"
+msgstr "/open-food-facts-mobile-app"
 
 msgctxt "tagline_2019_nutriscore"
 msgid "Discover the Nutri-Score"

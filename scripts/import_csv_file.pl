@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,7 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use strict;
+use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
@@ -37,6 +37,11 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
 use ProductOpener::Import qw/:all/;
+use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::Packaging qw/:all/;
+use ProductOpener::ForestFootprint qw/:all/;
+use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::LoadData qw/:all/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -69,9 +74,9 @@ import_csv_file.pl --csv_file path_to_csv_file --images_dir path_to_directory_co
 --skip_products_without_info
 --skip_existing_values
 --only_select_not_existing_images
+--use_brand_owner_as_org_name
 TXT
-;
-
+	;
 
 my $csv_file;
 my %global_values = ();
@@ -95,11 +100,12 @@ my $skip_if_not_code;
 my $skip_products_without_info = 0;
 my $skip_existing_values = 0;
 my $only_select_not_existing_images = 0;
+my $use_brand_owner_as_org_name = 0;
 my $user_id;
 my $org_id;
 my $owner_id;
 
-GetOptions (
+GetOptions(
 	"import_lc=s" => \$import_lc,
 	"csv_file=s" => \$csv_file,
 	"images_dir=s" => \$images_dir,
@@ -123,8 +129,8 @@ GetOptions (
 	"skip_products_without_info" => \$skip_products_without_info,
 	"skip_existing_values" => \$skip_existing_values,
 	"only_select_not_existing_images" => \$only_select_not_existing_images,
-		)
-  or die("Error in command line arguments:\n$\nusage");
+	"use_brand_owner_as_org_name" => \$use_brand_owner_as_org_name,
+) or die("Error in command line arguments:\n$\nusage");
 
 print STDERR "import_csv_file.pl
 - user_id: $user_id
@@ -133,6 +139,7 @@ print STDERR "import_csv_file.pl
 - csv_file: $csv_file
 - images_dir: $images_dir
 - skip_products_without_images: $skip_products_without_images
+- use_brand_owner_as_org_name: $use_brand_owner_as_org_name
 - comment: $comment
 - source_id: $source_id
 - source_name: $source_name
@@ -179,7 +186,9 @@ if (not $no_source) {
 
 $missing_arg and exit();
 
-my $stats_ref = import_csv_file( {
+load_data();
+
+my $args_ref = {
 	user_id => $user_id,
 	org_id => $org_id,
 	owner_id => $owner_id,
@@ -202,18 +211,43 @@ my $stats_ref = import_csv_file( {
 	skip_products_without_info => $skip_products_without_info,
 	skip_existing_values => $skip_existing_values,
 	only_select_not_existing_images => $only_select_not_existing_images,
-});
+	use_brand_owner_as_org_name => $use_brand_owner_as_org_name,
+};
+
+my $stats_ref = import_csv_file($args_ref);
 
 print STDERR "\n\nstats:\n\n";
 
-foreach my $stat (sort keys %$stats_ref) {
+foreach my $stat (sort keys %{$stats_ref}) {
 
 	print STDERR $stat . "\t" . (scalar keys %{$stats_ref->{$stat}}) . "\n";
 
-	open (my $out, ">", "$data_root/tmp/import.$stat.txt") or print "Could not create import.$stat.txt : $!\n";
+	open(my $out, ">", "$data_root/tmp/import.$stat.txt") or print "Could not create import.$stat.txt : $!\n";
 
-	foreach my $code ( sort keys %{$stats_ref->{$stat}}) {
+	foreach my $code (sort keys %{$stats_ref->{$stat}}) {
 		print $out $code . "\n";
 	}
 	close($out);
 }
+
+# Send an e-mail notification to admins
+
+my $template_data_ref = {
+	args => $args_ref,
+	stats => $stats_ref,
+};
+
+my $mail = '';
+process_template("emails/import_csv_file_admin_notification.tt.html", $template_data_ref, \$mail)
+	or print STDERR "emails/import_csv_file_admin_notification.tt.html template error: " . $tt->error();
+if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
+	my $subject = $1;
+	my $body = $';
+	$body =~ s/^\n+//;
+
+	send_email_to_producers_admin($subject, $body);
+
+	print "email subject: $subject\n\n";
+	print "email body:\n$body\n\n";
+}
+

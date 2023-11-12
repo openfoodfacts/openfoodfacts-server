@@ -8,20 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="fb:app_id" content="219331381518041" />
-    <meta property="og:type" content="food" />
-    <meta property="og:title" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="נשמח לקבל את עזרתך במימון התקציב של Open Food Facts ל־2024!" />
     <meta
       property="og:url"
-      content="https://world.openfoodfacts.org/donate-to-openfoodfacts"
+      content="https://il.openfoodfacts.org/donate-to-openfoodfacts"
     />
-
     <meta
       property="og:image"
-      content="https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+      content="https://il.openfoodfacts.org/images/logos/off-logo-horizontal-light.png"
     />
     <meta
       property="og:description"
-      content="מסד נתונים שיתופי, חופשי ופתוח של רכיבים, הרכבים תזונתיים ומידע על מוצרי מזון מכל רחבי העולם."
+      content="Open Food Facts הוא מסד נתוני המזון החופשי והפתוח הגדול בעולם. אנו מאמינים שמידע על מה שאנחנו אוכלים מעניין את הציבור."
     />
     <link rel="manifest" href="/cgi/manifest.pl" />
     <link
@@ -51,7 +50,7 @@
 
     <link
       rel="stylesheet"
-      href="https://static.openfoodfacts.org/css/dist/app.css"
+      href="/cgi/css.pl"
     />
     <link
       rel="stylesheet"
@@ -72,6 +71,20 @@
     <style media="all">
       .show-when-logged-in {
         display: none;
+      }
+      .reason img {
+        height: 100px;
+      }
+      p {
+        line-height: 1.3;
+        margin-bottom: 0.8rem;
+      }
+      .wrapper {
+        background-image: url("https://static.openfoodfacts.org/images/misc/2023-donation/background.png");
+        background-size: contain;/**/
+        background-repeat: no-repeat;/**/
+        background-size: 100% 100%;
+        z-index: 0;
       }
     </style>
     <script src="https://static.openfoodfacts.org/js/dist/jquery.js"></script>
@@ -104,27 +117,33 @@ $('iframe').load(function(){
     </script>
   </head>
   <body>
+    <div class="wrapper">
     <div class="hide-for-large-up text-center">
       <img
-        src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg"
+        src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"
         width="178"
         height="156"
         alt="הלוגו של Open Food Facts"
       />
+    </div>
 
-<div class="panel callout" style="margin-top:0.5rem">
-<h3>נשמח לקבל את עזרתך במימון התקציב של Open Food Facts ל־2020!</h3>
-<p>Open Food Facts הוא מיזם חופשי ובלתי תלוי בתעשיית המזון ב־100%. אנו זקוקים לעזרתכם כדי להמשיך ולפתח את המיזם.</p>
-</div>
+    <div class="hide-for-medium hide-for-large-up text-center">
+      <div class="panel callout" style="padding-top: 1rem; padding-bottom: 1rem; margin-bottom: 0.4rem;">
+        <h3>אנו צריכים את עזרתך במימון תקציב 2024!</h3>
+        <p>
+          Open Food Facts הוא מיזם חופשי ובלתי תלוי בתעשיית המזון ב־100%. 
+          אנו זקוקים לעזרתכם כדי להמשיך ולפתח את המיזם.
+        </p>
+      </div>
     </div>
 
     <div
       class="row"
-      style="width: 100%; margin-left: auto; margin-right: auto; max-width: initial; margin-top:20px;"
+      style="width: 100%; margin-left: auto; margin-right: auto; max-width: initial; margin-top:10px;"
     >
       <div class="columns large-2 hide-for-medium hide-for-small text-center">
         <img
-          src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg"
+          src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"
           width="178"
           height="156"
           alt="הלוגו של Open Food Facts"
@@ -132,67 +151,78 @@ $('iframe').load(function(){
       </div>
 
       <div
-        class="columns large-5 xlarge-6 xxlarge-7 hide-for-medium hide-for-small"
+        class="columns medium-6 large-5 xlarge-6 xxlarge-7 hide-for-small"
       >
-        <h2 style="margin-bottom:1rem">
-          A message from the Open Food Facts team
-        </h2>
 
-<div class="panel callout" style="margin-top:0.5rem">
-<h3>נשמח לקבל את עזרתך במימון התקציב של Open Food Facts ל־2020!</h3>
-<p>Open Food Facts הוא מיזם חופשי ובלתי תלוי בתעשיית המזון ב־100%. אנו זקוקים לעזרתכם כדי להמשיך ולפתח את המיזם.</p>
-</div>
+        <div class="panel callout" style="padding-top: 1rem; padding-bottom: 1rem; margin-bottom: 0.8rem;">
+          <h3>נשמח לקבל את עזרתך במימון התקציב של Open Food Facts ל־2024!</h3>
+          <p>
+            Open Food Facts הוא מיזם חופשי ובלתי תלוי בתעשיית המזון ב־100%. 
+            אנו זקוקים לעזרתכם כדי להמשיך ולפתח את המיזם.
+          </p>
+        </div>
 
-        <img
-          src="https://static.openfoodfacts.org/images/svg/crowdsourcing-icon.svg"
-          style="width:240px;float:left;margin-right:5px;"
-          alt="נסרוק את דרכנו לשם! לוגו"
-        />
-
+        <h3>למה לתרום ל־Open Food Facts?</h3>
         <p>
           Open Food Facts היא למעשה ה„ויקיפדיה של המזון”, מסד נתוני מוצרי מזון
           הפתוח הגדול ביותר בעולם.
+          הקמנו את מיזם Open Food Facts כיוון שאנו מאמינים שהמידע על המזון שלנו מעניין את הציבור ועליו להיות ציבורי, חופשי ופתוח.
         </p>
-        <p>
-          הקמנו את Open Food Facts כיוון שאנחנו מאמינים שהמידע על מה שאנחנו
-          אוכלים מעניין את הציבור כולו. וכתוצאה מכך, עליו להיות
-          ציבורי, חופשי ופתוח.
-        </p>
-        <p>
-          הנתונים שלנו משמשים אזרחים לקבלת החלטות בריאות יותר מבחינת מזון תודות
-          ליישומון שלנו לניידים, על ידי חוקרי מזון במגזר הציבורי כדי ללמוד על השפעות
-          המזון על בריאותנו, על ידי עתונאים לטובת הכתבות שלהם ואפילו על ידי
-          תעשיית המזון כדי לשפר את המוצרים המוצעים לקהל. זה הכוח שבשקיפות המזון:
-          הוא פועל לטובת כולם!
-        </p>
-        <p>
-          כשהקמנו את Open Food Facts, קיבלנו את הבחירה הברורה להיות
-          ללא מטרות רווח כדי להגדיל את ההשפעה שלנו על ידי הפצת העבודה שלנו לטובת הכלל.
-          כמו כן, בחרנו בצורה הברורה ביותר להיות עצמאיים לחלוטין מהתעשייה
-          ולכן אף פעם לא נקבל מימון שעשוי לסכן את המטרה שלנו.
-        </p>
-        <p>
-          כתוצאה מכך, הקמנו את המיזם בתקציב מזערי ואנחנו עדיין
-          מנהלים את התקציב בצורה מוקפדת. מ־2012 ועד 2017 היינו מתנדבים בלבד והתקציב
-          השנתי שלנו עמד על פחות מ־1000 אירו! המיזם צמח
-          עם זאת, כעת אנו זקוקים למעט יותר כדי להתמיד במשימתנו.
-        </p>
-        <p>
-          אנו זקוקים לעזרתך להפעיל ולטפח את Open Food
-          Facts. נא לשקול לתרום כדי להגן ולדאוג להמשכיות של Open
-          Food Facts.
-        </p>
-        <p>תודה רבה לך,</p>
-        <p style="font-weight: bold;">
-          אנקה, פלורנס, ליאונור, סילביה, צ׳ארלס, כריסטיאן, לודוביץ׳, פייר,
-          סבסטיאן, סטפן, וינסנט וכל צוות Open Food Facts
-        </p>
+
+        <div class="reasons row">
+          <div class="reason small-12 large-6 columns">
+            <div class="flex-video">
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/W5pOjx6ycX4" 
+            title="נגן סרטוני YouTube" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="reason small-12 large-6 columns">
+            <p>
+              כשייסדנו את Open Food Facts, בחרנו באופן החלטי להיות <strong>לחלוטין ללא מטרות רווח</strong> כדי 
+              <b>להרחיב את מעגל ההשפעה שלנו</b> על ידי הנגשת כל היצירה שלנו לכולם. כמו כן בחרנו באופן החלטי 
+              שנהיה <b>בלתי תלויים בתעשייה</b> לחלוטין, ולא נקבל מימון 
+              שיכול לסכן את היעוד שלנו.
+            </p>
+            <p>
+              אנו זקוקים לעזרתך כדי להמשיך לתפעל ולהצמיח את Open Food Facts. נא לשקול לתרום כדי להגן ולדאוג לקיום של Open Food Facts.
+            </p>
+            <p>תודה רבה,<br/>
+              אנקה, אלואיז, פירנצה, ליאונור, מארי, כריסטיאן, לודוביץ׳, 
+              סבסטיאן, וינסנט וכל צוות Open Food Facts.
+            </p>
+          </div>
+        </div>
+        <div class="reasons row">
+          <div class="reason small-12 large-6 columns">
+            <h3>לאן מופנות התרומות שלך</h3>
+
+            <p>
+              <strong>טכנולוגיה:</strong> פיתוח, תחזוקה ושרתים כדי שמסד הנתונים שלנו 
+              ימשיך לצמוח וגם כדי להוסיף יכולות חדשות ליישומון ולאתר של Open Food Facts.
+            </p>
+
+            <p>
+              <strong>אנשים ומיזמים:</strong> לתמוך בצורה המיטבית בקהילת Open
+              Food Facts, לעבוד עם חוקרים ולהנגיש את הנתונים שלנו על
+              מוצרי מזון כדי להגדיל את ההשפעה על הבריאות, כדור הארץ והחברה שלנו.
+            </p>
+          </div>
+          <div class="small-12 large-6 columns">
+            <img src="https://static.openfoodfacts.org/images/misc/group-photo-small.jpg"
+                 alt="הפגישה האחרונה בפריז"
+            >
+          </div>
+        </div>
+
+
       </div>
 
-      <div class="columns large-5 xlarge-4 xxlarge-3 text-center">
+      <div class="columns small-12 medium-6 large-5 xlarge-4 xxlarge-3 text-center">
         <div style="max-width:425px">
           <div class="loading">
-            <p>טופס התרומה נטען.<br>ניתן גם לגשת אליו ב<a href=" https://donorbox.org/your-donation-to-open-food-facts">לחיצה כאן</a>.</p>
+            <p>טופס התרומה נטען.<br>ניתן גם לגשת אליו ב<a href="https://donorbox.org/your-donation-to-open-food-facts">לחיצה כאן</a>.</p>
           </div>
 
           <script
@@ -200,34 +230,39 @@ $('iframe').load(function(){
             paypalExpress="true"
           ></script>
           <iframe
+            title="תרומה דרך Donorbox"
             allowpaymentrequest=""
-            frameborder="0"
             height="900px"
             name="donorbox"
-            scrolling="no"
             seamless="seamless"
             src="https://donorbox.org/embed/your-donation-to-open-food-facts"
-            style="max-width: 500px; min-width: 310px; max-height:none!important"
+            style="max-width: 500px; min-width: 310px; max-height:none!important;border:0;overflow:hidden;"
             width="100%"
           ></iframe>
 
-          <div class="text-left">
-            <h3>לאן מופנות התרומות שלך</h3>
+          <div class="text-center">
+            <img src="https://static.openfoodfacts.org/images/misc/2023-donation/join-the-food-rev.png"
+                 alt="מזמינים אותך להצטרף למהפכת המזון!" style="margin-top: -15%; margin-bottom: -20%; width:80%"
+            >
+            <!-- h3>Where your donation goes</h3>
 
             <p>
-              <b>טכנולוגיה:</b> פיתוח, תחזוקה, שרתים כדי לתמוך
-              בצמיחת מסד הנתונים ולהוסיף תכונות חדשות ליישומון ולאתר של 
-              Open Food Facts.
+              <strong>Technology:</strong> Development, maintenance, servers to keep the
+              database growing and to add cool new features to the Open Food
+              Facts mobile app and web site.
             </p>
 
             <p>
-              <b>אנשים ומיזמים:</b> לתמוך בצורה הטובה ביותר בקהילת Open
-              Food Facts, לעבוד עם חוקרים ולקדם את השפעת נתוני מוצרי המזון שלנו
-              על הבריאות שלנו, על כדור הארץ שלנו ועל החברה.
-            </p>
+              <strong>People and projects:</strong> To give our best support to the Open
+              Food Facts community, to work with researchers, and to make our
+              food products data have the biggest impact on our health, our
+              planet, and society.
+            </p -->
           </div>
         </div>
       </div>
     </div>
+  </div>
+
   </body>
 </html>

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -81,6 +81,8 @@ sub find_products($$) {
 		}
 	}
 	closedir DH;
+
+	return;
 }
 
 
@@ -156,7 +158,7 @@ foreach my $k (keys %{$product_ref}) {
 			next if ((defined $product_ref->{empty}) and ($product_ref->{empty} == 1));
 			next if ((defined $product_ref->{deleted}) and ($product_ref->{deleted} eq 'on'));
 			print STDERR "updating product $code -- " . $product_ref->{code} . " \n";
-			my $return = $products_collection->save($product_ref , { safe => 1 });		
+			my $return = $products_collection->save($product_ref , { safe => 1 });
 			print STDERR "return $return\n";
 			my $err = $database->last_error();
 			if (defined $err) {

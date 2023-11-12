@@ -1,0 +1,165 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:milk",
+         "percent_estimate" : 56.25,
+         "percent_max" : 100,
+         "percent_min" : 12.5,
+         "text" : "milk",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:some-unknown-ingredient",
+         "percent_estimate" : 21.875,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "some unknown ingredient"
+      },
+      {
+         "id" : "en:another-unknown-ingredient",
+         "percent_estimate" : 10.9375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "another unknown ingredient"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "percent_estimate" : 5.46875,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "salt",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:sugar",
+         "percent_estimate" : 2.734375,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "sugar",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:pepper",
+         "percent_estimate" : 1.3671875,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "pepper",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:spice",
+         "percent_estimate" : 0.68359375,
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "text" : "spices",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "18066",
+         "id" : "en:water",
+         "percent_estimate" : 0.68359375,
+         "percent_max" : 12.5,
+         "percent_min" : 0,
+         "text" : "water",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:milk"
+      ],
+      "en:palm-oil-content-unknown" : [
+         "en:some-unknown-ingredient",
+         "en:another-unknown-ingredient"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:some-unknown-ingredient",
+         "en:another-unknown-ingredient"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:some-unknown-ingredient",
+         "en:another-unknown-ingredient"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_hierarchy" : [
+      "en:milk",
+      "en:dairy",
+      "en:some-unknown-ingredient",
+      "en:another-unknown-ingredient",
+      "en:salt",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:pepper",
+      "en:seed",
+      "en:spice",
+      "en:condiment",
+      "en:water"
+   ],
+   "ingredients_n" : 8,
+   "ingredients_n_tags" : [
+      "8",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:milk",
+      "en:some-unknown-ingredient",
+      "en:another-unknown-ingredient",
+      "en:salt",
+      "en:sugar",
+      "en:pepper",
+      "en:spice",
+      "en:water"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:milk",
+      "en:dairy",
+      "en:some-unknown-ingredient",
+      "en:another-unknown-ingredient",
+      "en:salt",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:pepper",
+      "en:seed",
+      "en:spice",
+      "en:condiment",
+      "en:water"
+   ],
+   "ingredients_text" : "milk, some unknown ingredient, another unknown ingredient, salt, sugar, pepper, spices, water",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 8,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:another-unknown-ingredient",
+      "en:milk",
+      "en:pepper",
+      "en:some-unknown-ingredient",
+      "en:spice",
+      "en:sugar"
+   ],
+   "ingredients_without_ciqual_codes_n" : 6,
+   "known_ingredients_n" : 11,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 2
+}
