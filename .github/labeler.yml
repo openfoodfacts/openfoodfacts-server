@@ -516,12 +516,6 @@ Recipes:
 - templates/web/pages/recipes/recipes.tt.html
 - tests/unit/recipes.t
 
-Tags:
-- lib/ProductOpener/Tags.pm
-- templates/web/pages/tags_map/map_of_tags.tt.html
-- scripts/gen_top_tags_per_country.pl
-- lib/ProductOpener/TagsEntries.pm
-
 Text:
 - lib/ProductOpener/Text.pm
 
@@ -588,6 +582,10 @@ Product history:
 - lib/ProductOpener/Version.pm
 
 Tags:
+- lib/ProductOpener/Tags.pm
+- templates/web/pages/tags_map/map_of_tags.tt.html
+- scripts/gen_top_tags_per_country.pl
+- lib/ProductOpener/TagsEntries.pm
 - templates/web/pages/tag/tag.tt.html
 
 Site layout:
