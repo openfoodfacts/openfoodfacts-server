@@ -4645,8 +4645,8 @@ my %ingredients_categories_and_types = (
 
 	de => [
 		[
-			["pflanzliches Fett", ],
-			["Kokosnuss", "Palmkern", "Raps",],
+			["pflanzliches Fett", "pflanzliche Fett", "pflanzliche Öle und Fette"],
+			["Kokosnuss", "Palm", "Palmkern", "Raps", "Shea", "Sonnenblumen", ],
 		],
 	],
 
