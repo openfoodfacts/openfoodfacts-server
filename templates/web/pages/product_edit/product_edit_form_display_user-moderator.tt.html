@@ -1,0 +1,19 @@
+<!-- start templates/[% template.name %] -->
+
+<form id="product_form" action="/cgi/product.pl" method="POST" enctype="multipart/form-data">
+    <p>
+        [% lang("delete_product_confirm") %] [% lang("product_name") %] : [% product_name %], [% lang("barcode") %] : [% code %]
+    </p>
+
+    <input type="hidden"  name="type" value="[% type %]">
+    <input type="hidden"  name="code" value="[% code %]">
+    <input type="hidden"  name="action" value="process">
+
+    <label for="comment" style="margin-left:10px">[% lang("delete_comment") %]</label>
+    <input type="text" id="comment" name="comment" value="" />
+
+    <input type="submit" name="save" class="button small" value="[% lang('delete_product_page') %]" />
+
+</form>
+
+<!-- end templates/[% template.name %] -->

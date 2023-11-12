@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -222,7 +222,7 @@ while(<$IN>) {
 
 			print "notifying slack: $bot\n";
 
-			use LWP::UserAgent;
+			require LWP::UserAgent;
 
 			my $ua = LWP::UserAgent->new;
 
@@ -268,7 +268,7 @@ if (($changed_products > 0) and ($added_countries > 0)) {
 	my $msg = "\nI added $added_countries countries to $changed_products products\n\n";
 	print $msg;
 
-use LWP::UserAgent;
+	require LWP::UserAgent;
 
 			my $ua = LWP::UserAgent->new;
 

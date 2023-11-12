@@ -1,0 +1,128 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:emulsifier",
+         "ingredients" : [
+            {
+               "from_palm_oil" : "maybe",
+               "id" : "en:e471",
+               "percent_estimate" : 50,
+               "percent_max" : 100,
+               "percent_min" : 25,
+               "text" : "e471",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
+            },
+            {
+               "id" : "en:e477",
+               "percent_estimate" : 25,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "e477",
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
+            }
+         ],
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "text" : "Emulsifying"
+      },
+      {
+         "id" : "en:stabiliser",
+         "ingredients" : [
+            {
+               "id" : "en:e412",
+               "percent_estimate" : 12.5,
+               "percent_max" : 50,
+               "percent_min" : 0,
+               "text" : "e412",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            },
+            {
+               "id" : "en:e410",
+               "percent_estimate" : 12.5,
+               "percent_max" : 25,
+               "percent_min" : 0,
+               "text" : "e410",
+               "vegan" : "yes",
+               "vegetarian" : "yes"
+            }
+         ],
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "Stabilizing Agents"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:may-contain-palm-oil" : [
+         "en:e471"
+      ],
+      "en:maybe-vegan" : [
+         "en:e471",
+         "en:e477"
+      ],
+      "en:maybe-vegetarian" : [
+         "en:e471",
+         "en:e477"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:may-contain-palm-oil",
+      "en:maybe-vegan",
+      "en:maybe-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:emulsifier",
+      "en:stabiliser",
+      "en:e471",
+      "en:e477",
+      "en:e412",
+      "en:e410"
+   ],
+   "ingredients_n" : 6,
+   "ingredients_n_tags" : [
+      "6",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:emulsifier",
+      "en:stabiliser",
+      "en:e471",
+      "en:e477",
+      "en:e412",
+      "en:e410"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:emulsifier",
+      "en:stabiliser",
+      "en:e471",
+      "en:e477",
+      "en:e412",
+      "en:e410"
+   ],
+   "ingredients_text" : "Emulsifying (INS 471, INS 477) & Stabilizing Agents (INS 412, INS 410)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 4,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:e410",
+      "en:e412",
+      "en:e471",
+      "en:e477"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
+   "known_ingredients_n" : 6,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

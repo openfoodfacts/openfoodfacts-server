@@ -1,0 +1,53 @@
+<!-- start templates/[% template.name %] -->
+
+[% IF type == "search_or_add" %]
+
+    [% IF code.defined %]
+    [% ELSE %]
+        [% IF param_imgupload_search.defined %]
+            [% lang('image_upload_error_no_barcode_found_in_image_long') %]
+        [% ELSE %]
+            [% lang('image_upload_error_no_barcode_found_in_text') %]
+        [% END %]
+    [% END %]
+
+[% END %]
+
+[% IF type == 'add' || type == 'edit'  || type == 'delete' %]
+
+    [% IF not user_id.defined %]
+
+        <p>[% lang('login_to_add_products')%]</p>
+        <div style="display: inline;">
+            <form method="post" action="/cgi/session.pl">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <label>[% lang('login_username_email') %]
+                            <input type="text" name="user_id" autocomplete="username" />
+                        </label>
+                    </div>
+                    <div class="small-12 columns">
+                        <label>[% lang('password') %]
+                            <input type="password" name="password" autocomplete="current-password" />
+                        </label>
+                    </div>
+                    <div class="small-12 columns">
+                        <label>
+                            <input type="checkbox" name="remember_me" value="on" />
+                            [% lang('remember_me') %]
+                        </label>
+                    </div>
+                </div>
+                <input type="submit" name=".submit" value="[% lang('login_register_title') %]" class="button small" />
+                <input type="hidden" name="code" value="[% code %]" />
+                <input type="hidden" name="next_action" value="product_[% type %]" />
+                <button type="submit" formaction="/cgi/user.pl" method ="get" class="button small">[% lang('login_create_your_account') %]</button>
+                <input type="hidden" name="prdct_mult" value="True" />
+            </form>
+        </div>
+
+    [% END %]
+
+[% END %]
+
+<!-- end templates/[% template.name %] -->

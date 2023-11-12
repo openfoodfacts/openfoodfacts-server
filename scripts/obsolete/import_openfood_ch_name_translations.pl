@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -1271,7 +1271,6 @@ if (opendir (DH, "$dir/json")) {
 			#print $json;
 			
 			my @modified_fields;
-			my @images_ids;
 			
 			my $openfood_ref = decode_json($json);
 			my $openfood_id = $openfood_ref->{data}{id};
@@ -1297,10 +1296,10 @@ if (opendir (DH, "$dir/json")) {
 					$product_ref->{lc} = $global_params{lc};
 					delete $product_ref->{countries};
 					delete $product_ref->{countries_tags};
-					delete $product_ref->{countries_hierarchy};					
-					#store_product($product_ref, "Creating product (import_openfood_ch.pl bulk upload) - " . $comment );					
-				}				
-				
+					delete $product_ref->{countries_hierarchy};
+					#store_product($product_ref, "Creating product (import_openfood_ch.pl bulk upload) - " . $comment );
+				}
+
 			}
 			else {
 				print "- already exists in OFF\n";
@@ -1324,14 +1323,14 @@ if (opendir (DH, "$dir/json")) {
 				#	de: "Dinkelmehl 89% (Deutschland), Palmfett, Sesam 3% (Ägypten), Meersalz, Gerstenmalzextrakt, Hefe. Oberflächenbehandlung: Natriumhydroxid E 524. ",
 				#	fr: "farine d'epeautre 89% (Allemagne), graisse de palme, sésame 3% (Egypte), sel marin, extrait de malt d'orge, levure. Traitement en surface: hydroxyde de sodium E 524. ",
 				#	it: "farina di spelta 89% (Germania), grasso di palma, sesamo 3% (Egitto), sale marino, estratto di malto di orzo, lievito. Sostanza per il trattamento in superficie: idrossido di sodio E 524"				
-				
+
 				if (defined $openfood_product_ref->{$field}) {
 					$params{$off_field} = $openfood_product_ref->{$field};
 					if (ref ($params{$off_field}) eq 'ARRAY') {
 						$params{$off_field} = join(', ', @{$params{$off_field}});
-					}					
+					}
 					print "set $field to $params{$field}\n";
-					
+
 					if (defined $openfood_product_ref->{$field . "-translations"}) {
 					
 						foreach my $language (@param_sorted_langs) {
@@ -1359,13 +1358,13 @@ if (opendir (DH, "$dir/json")) {
 							}
 						}
 					}
-					
+
 					# override value with main language
 					if (defined $params{$off_field . "_" . $global_params{lc}}) {
 						$params{$off_field} = $params{$off_field . "_" . $global_params{lc}}
 					}
-				}			
-			
+				}
+
 			}
 
 
@@ -1387,13 +1386,13 @@ if (opendir (DH, "$dir/json")) {
 					push @param_fields, $field;
 				}
 			}
-	
-					
-			foreach my $field (@param_fields) {
-				
-				if (defined $params{$field}) {				
 
-				
+
+			foreach my $field (@param_fields) {
+
+				if (defined $params{$field}) {
+
+
 					{
 						# non-tag field
 						my $new_field_value = $params{$field};
@@ -1404,8 +1403,8 @@ if (opendir (DH, "$dir/json")) {
 						if ((defined $product_ref->{$field}) and ($product_ref->{$field} !~ /^\s*$/)) {
 							my $current_value = $product_ref->{$field};
 							$current_value =~ s/\s+$//g;
-							$current_value =~ s/^\s+//g;							
-												
+							$current_value =~ s/^\s+//g;
+
 							if (lc($current_value) ne lc($normalized_new_field_value)) {
 								print "differing value for product code $code - field $field - existing value: $product_ref->{$field} (normalized: $current_value) - new value: $new_field_value - https://world.openfoodfacts.org/product/$code \n";
 								$differing++;
@@ -1429,16 +1428,16 @@ if (opendir (DH, "$dir/json")) {
 									$product_ref->{$field} = $new_field_value;
 									push @modified_fields, $field;
 									$edited_fields{$field}++;
-								}								
+								}
 							}
 						}
 						else {
 							print "setting previously unexisting value for product code $code - field $field - value: $new_field_value\n";
 							$product_ref->{$field} = $new_field_value;
 							push @modified_fields, $field;
-							$edited_fields{$field}++;	
+							$edited_fields{$field}++;
 						}
-					}					
+					}
 				}
 			}
 			
@@ -1446,18 +1445,18 @@ if (opendir (DH, "$dir/json")) {
 			$User_id = $editor_user_id;
 			
 			if ((not $testing) and ((scalar keys @modified_fields) > 0)) {
-			
-			
+
+
 			# For fields that can have different values in different languages, copy the main language value to the non suffixed field
-			
+
 			foreach my $field (keys %language_fields) {
 				if ($field !~ /_image/) {
 					if (defined $product_ref->{$field . "_$product_ref->{lc}"}) {
 						$product_ref->{$field} = $product_ref->{$field . "_$product_ref->{lc}"};
 					}
 				}
-			}			
-			
+			}
+
 				print "Saving product $code\n";
 				store_product($product_ref, "Editing product (import_openfood_ch_name_translations.pl bulk import) - " . $comment );
 				

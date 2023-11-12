@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -136,7 +136,7 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 
 				# look up IP address '24.24.24.24'
 				# returns undef if country is unallocated, or not defined in our database
-				use ProductOpener::GeoIP;
+				require ProductOpener::GeoIP;
 				my $countrycode = ProductOpener::GeoIP::get_country_for_ip($ip);
 				if (defined $countrycode) {
 					$country = canonicalize_taxonomy_tag('en', "countries", $countrycode);

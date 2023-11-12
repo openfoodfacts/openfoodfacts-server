@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -32,7 +32,7 @@ Usage:
 update_all_products.pl --dir [target directory to copy images]
 
 TXT
-;
+	;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -51,7 +51,6 @@ use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Data qw/:all/;
 
-
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -59,36 +58,33 @@ use Encode;
 use JSON::PP;
 use JSON::PP;
 
-
 use Getopt::Long;
-
 
 my $target_dir;
 
-my $query_ref = {};	# filters for mongodb query
+my $query_ref = {};    # filters for mongodb query
 
-GetOptions (
-	"dir=s"   => \$target_dir,      # string
+GetOptions(
+	"dir=s" => \$target_dir,    # string
 	"lc=s" => \$lc,
 	"query=s%" => $query_ref,
-)
-  or die("Error in command line arguments:\n\n$usage");
+) or die("Error in command line arguments:\n\n$usage");
 
 (defined $target_dir) or die("Please specify --dir target directory:\n\n$usage");
 
-if (! -e $target_dir) {
+if (!-e $target_dir) {
 	mkdir($target_dir, 0755) or die("Could not create target directory $target_dir : $!\n");
 }
 
 use boolean;
 
-foreach my $field (sort keys %$query_ref) {
+foreach my $field (sort keys %{$query_ref}) {
 	if ($query_ref->{$field} eq 'null') {
 		# $query_ref->{$field} = { '$exists' => false };
 		$query_ref->{$field} = undef;
 	}
 	if ($query_ref->{$field} eq 'exists') {
-		$query_ref->{$field} = { '$exists' => true };
+		$query_ref->{$field} = {'$exists' => true};
 	}
 }
 
@@ -104,14 +100,14 @@ print STDERR "$count products to extract\n";
 
 sleep(2);
 
-my $cursor = $products_collection->query($query_ref)->fields({ code => 1 });
+my $cursor = $products_collection->query($query_ref)->fields({code => 1});
 $cursor->immortal(1);
 
 my $i = 0;
 
 my $n = 0;
 
-open (my $csv, ">", $target_dir . "/products.csv") or die("Cannot create products.csv: $!\n");
+open(my $csv, ">", $target_dir . "/products.csv") or die("Cannot create products.csv: $!\n");
 
 print $csv join("\t", qw(code angle x1 y1 x2 y2)) . "\n";
 
@@ -131,7 +127,7 @@ while (my $product_ref = $cursor->next) {
 
 		my $dir = "$www_root/images/products/$path";
 
-		next if ! -e $dir;
+		next if !-e $dir;
 
 		# Keep only products with a selected nutrition image
 		next if not defined $product_ref->{images};
@@ -156,7 +152,6 @@ while (my $product_ref = $cursor->next) {
 		not defined $y1 and $y1 = 0;
 		not defined $x2 and $x2 = 0;
 		not defined $y2 and $y2 = 0;
-
 
 		# Crop coordinates
 
@@ -186,7 +181,7 @@ while (my $product_ref = $cursor->next) {
 
 		# image not cropped?
 
-		if ((not defined $x1) or ($x2 == $x1))  {
+		if ((not defined $x1) or ($x2 == $x1)) {
 			$ox1 = 0;
 			$oy1 = 0;
 			$ox2 = $ow;
@@ -199,10 +194,14 @@ while (my $product_ref = $cursor->next) {
 			$oy2 = int($y2 * $oh / $h);
 		}
 
-		use File::Copy;
-		copy("$dir/$imgid.jpg","$target_dir/$code" . '.' . $imageid . ".jpg") or print STDERR ("could not copy $dir/$imgid.jpg : $!\n");
-		copy("$dir/$imageid_lc.$rev.full.jpg","$target_dir/$code" . '.' . $imageid . ".cropped.jpg") or print STDERR ("could not copy $dir/$imageid_lc.$rev.full.jpg : $!\n");
-		copy("$dir/$imageid_lc.$rev.json","$target_dir/$code" . '.' . $imageid . ".cropped.json") or print STDERR ("could not copy $dir/$imageid_lc.$rev.json : $!\n");
+		require File::Copy;
+		File::Copy->import(qw( copy ));
+		copy("$dir/$imgid.jpg", "$target_dir/$code" . '.' . $imageid . ".jpg")
+			or print STDERR ("could not copy $dir/$imgid.jpg : $!\n");
+		copy("$dir/$imageid_lc.$rev.full.jpg", "$target_dir/$code" . '.' . $imageid . ".cropped.jpg")
+			or print STDERR ("could not copy $dir/$imageid_lc.$rev.full.jpg : $!\n");
+		copy("$dir/$imageid_lc.$rev.json", "$target_dir/$code" . '.' . $imageid . ".cropped.json")
+			or print STDERR ("could not copy $dir/$imageid_lc.$rev.json : $!\n");
 
 		foreach my $nid (keys %{$product_ref->{nutriments}}) {
 			$product_ref->{nutriments}{$nid} =~ /nutrition/ and delete $product_ref->{nutriments}{$nid};
@@ -210,15 +209,14 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		my $json_file = "$target_dir/$code" . ".nutriments.json";
-		open (my $OUT, ">:encoding(UTF-8)", "$json_file");
+		open(my $OUT, ">:encoding(UTF-8)", "$json_file");
 		print $OUT encode_json($product_ref->{nutriments});
 		close $OUT;
 
 		print $csv join("\t", $code, $angle, $ox1, $oy1, $ox2, $oy2) . "\n";
 
-
 		$n++;
-#		($n > 10) and last;
+		#		($n > 10) and last;
 	}
 }
 

@@ -1,0 +1,483 @@
+{
+   "tradeItem" : {
+      "brandOwner" : {
+         "gln" : "3502110007360",
+         "partyName" : "PEPSICO"
+      },
+      "gdsnTradeItemClassification" : {
+         "gpcCategoryCode" : "10000177"
+      },
+      "gtin" : "03168930003441",
+      "informationProviderOfTradeItem" : {
+         "gln" : "3502110007360",
+         "partyName" : "PEPSICO FRANCE"
+      },
+      "isTradeItemAConsumerUnit" : "true",
+      "targetMarket" : {
+         "targetMarketCountryCode" : "250"
+      },
+      "tradeItemContactInformation" : [
+         {
+            "contactAddress" : "420, rue d'Estienne d'Orves 92705 Colombes CEDEX",
+            "contactName" : "PepsiCo France SNC",
+            "contactTypeCode" : "BZL"
+         },
+         {
+            "contactAddress" : "420, rue d'Estienne d'Orves 92705 Colombes CEDEX",
+            "contactName" : "PepsiCo France SNC",
+            "contactTypeCode" : "CXC"
+         }
+      ],
+      "tradeItemInformation" : {
+         "extension" : {
+            "allergen_information:allergenInformationModule" : {
+               "allergenRelatedInformation" : [
+                  {
+                     "allergen" : [
+                        {
+                           "allergenTypeCode" : "GB",
+                           "levelOfContainmentCode" : "CONTAINS"
+                        },
+                        {
+                           "allergenTypeCode" : "AM",
+                           "levelOfContainmentCode" : "CONTAINS"
+                        }
+                     ],
+                     "allergenStatement" : {
+                        "#" : "Orge,Lait",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "isAllergenRelevantDataProvided" : "true"
+                  }
+               ]
+            },
+            "consumer_instructions:consumerInstructionsModule" : {
+               "consumerInstructions" : {
+                  "consumerStorageInstructions" : {
+                     "#" : "À conserver à l'abri de la chaleur et de l'humidité",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            },
+            "food_and_beverage_ingredient:foodAndBeverageIngredientModule" : {
+               "ingredientStatement" : {
+                  "#" : "farine de maïs,huile de tournesol (31%),base aromatisante fromage [arômes, poudre de fromage (LAIT), ORGE, ail et oignon en poudre, extrait de paprika, exhausteurs de goût (glutamate monosodique, guanylate disodique, inosinate disodique), chlorure de potassium, poudre de PETIT-LAIT],sucre,sel",
+                  "@" : {
+                     "languageCode" : "fr"
+                  }
+               },
+               "isIngredientRelevantDataProvided" : "TRUE"
+            },
+            "food_and_beverage_preparation_serving:foodAndBeveragePreparationServingModule" : {
+               "preparationServing" : {
+                  "preparationInstructions" : {
+                     "#" : "A consommer sans préparation",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            },
+            "health_related_information:healthRelatedInformationModule" : {
+               "healthRelatedInformation" : {
+                  "compulsoryAdditiveLabelInformation" : {
+                     "#" : "Poids net : 2 x (85 g + 12,75 g Offert) = 195,5 g e",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            },
+            "nutritional_information:nutritionalInformationModule" : {
+               "isNutrientRelevantDataProvided" : "true",
+               "nutrientHeader" : [
+                  {
+                     "dailyValueIntakeReference" : {
+                        "#" : "apport journalier pour un adulte type 8400Kj/2000Kcal",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "nutrientDetail" : [
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "ENER-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "2240",
+                                 "@" : {
+                                    "measurementUnitCode" : "KJO"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "ENER-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "535",
+                                 "@" : {
+                                    "measurementUnitCode" : "E14"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FAT",
+                           "quantityContained" : [
+                              {
+                                 "#" : "32",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FASAT",
+                           "quantityContained" : [
+                              {
+                                 "#" : "2.5",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FAMSCIS",
+                           "quantityContained" : [
+                              {
+                                 "#" : "27",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FAPUCIS",
+                           "quantityContained" : [
+                              {
+                                 "#" : "2.3",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "CHOAVL",
+                           "quantityContained" : [
+                              {
+                                 "#" : "56",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "SUGAR-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "4",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FIBTG",
+                           "quantityContained" : [
+                              {
+                                 "#" : "2.1",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "PRO-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "5.5",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "SALTEQ",
+                           "quantityContained" : [
+                              {
+                                 "#" : "1.98",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        }
+                     ],
+                     "preparationStateCode" : "UNPREPARED",
+                     "servingSize" : {
+                        "#" : "100.0",
+                        "@" : {
+                           "measurementUnitCode" : "GRM"
+                        }
+                     }
+                  },
+                  {
+                     "dailyValueIntakeReference" : {
+                        "#" : "apport journalier pour un adulte type 8400Kj/2000Kcal",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "nutrientDetail" : [
+                        {
+                           "dailyValueIntakePercent" : "8.00",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "ENER-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "672",
+                                 "@" : {
+                                    "measurementUnitCode" : "KJO"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "8.00",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "ENER-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "161",
+                                 "@" : {
+                                    "measurementUnitCode" : "E14"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "14.00",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FAT",
+                           "quantityContained" : [
+                              {
+                                 "#" : "10",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "4.00",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FASAT",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0.8",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FAMSCIS",
+                           "quantityContained" : [
+                              {
+                                 "#" : "8.1",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FAPUCIS",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0.7",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "CHOAVL",
+                           "quantityContained" : [
+                              {
+                                 "#" : "17",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "1.00",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "SUGAR-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "1.2",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "FIBTG",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0.6",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "PRO-",
+                           "quantityContained" : [
+                              {
+                                 "#" : "1.7",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        },
+                        {
+                           "dailyValueIntakePercent" : "10.00",
+                           "measurementPrecisionCode" : "APPROXIMATELY",
+                           "nutrientTypeCode" : "SALTEQ",
+                           "quantityContained" : [
+                              {
+                                 "#" : "0.59",
+                                 "@" : {
+                                    "measurementUnitCode" : "GRM"
+                                 }
+                              }
+                           ]
+                        }
+                     ],
+                     "preparationStateCode" : "UNPREPARED",
+                     "servingSize" : {
+                        "#" : "30.0",
+                        "@" : {
+                           "measurementUnitCode" : "GRM"
+                        }
+                     },
+                     "servingSizeDescription" : {
+                        "#" : "Par Portion de 30 g (2)",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     }
+                  }
+               ]
+            },
+            "packaging_marking:packagingMarkingModule" : {
+               "packagingMarking" : {
+                  "packagingMarkedLabelAccreditationCode" : [
+                     "GREEN_DOT"
+                  ]
+               }
+            },
+            "place_of_item_activity:placeOfItemActivityModule" : {
+               "placeOfProductActivity" : {
+                  "countryOfOrigin" : {
+                     "countryCode" : "056"
+                  }
+               }
+            },
+            "referenced_file_detail_information:referencedFileDetailInformationModule" : {
+               "referencedFileHeader" : [
+                  {
+                     "contentDescription" : {
+                        "#" : "Produit emballé / Packshot",
+                        "@" : {
+                           "languageCode" : "fr"
+                        }
+                     },
+                     "fileEffectiveStartDateTime" : "2019-03-08T00:00:00+01:00",
+                     "isPrimaryFile" : "TRUE",
+                     "referencedFileTypeCode" : "PRODUCT_IMAGE",
+                     "uniformResourceIdentifier" : "https://secure.equadis.com/Equadis/MultimediaFileViewer?file=10203/03168930003441_Z1N1_s05.jpeg"
+                  }
+               ]
+            },
+            "trade_item_description:tradeItemDescriptionModule" : {
+               "tradeItemDescriptionInformation" : {
+                  "brandNameInformation" : {
+                     "brandName" : "BENENUTS",
+                     "subBrand" : "3D's Bugles"
+                  },
+                  "descriptionShort" : {
+                     "#" : "3D'S FROMAGE 2x85G +15% Offert",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  },
+                  "regulatedProductName" : {
+                     "#" : "Produit soufflé à base de maïs goût fromage",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  },
+                  "tradeItemDescription" : {
+                     "#" : "Bénénuts 3D's Bugles goût fromage 2 x 85 g + 15% offert",
+                     "@" : {
+                        "languageCode" : "fr"
+                     }
+                  }
+               }
+            },
+            "trade_item_measurements:tradeItemMeasurementsModule" : {
+               "tradeItemMeasurements" : {
+                  "netContent" : {
+                     "#" : "195",
+                     "@" : {
+                        "measurementUnitCode" : "GRM"
+                     }
+                  }
+               }
+            }
+         }
+      },
+      "tradeItemSynchronisationDates" : {
+         "lastChangeDateTime" : "2019-11-05T18:29:16+01:00"
+      },
+      "tradeItemUnitDescriptorCode" : "BASE_UNIT_OR_EACH"
+   }
+}

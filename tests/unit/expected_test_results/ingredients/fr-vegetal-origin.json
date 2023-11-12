@@ -1,0 +1,87 @@
+{
+   "ingredients" : [
+      {
+         "from_palm_oil" : "maybe",
+         "id" : "en:e471",
+         "percent_estimate" : 66.6666666666667,
+         "percent_max" : 100,
+         "percent_min" : 33.3333333333333,
+         "text" : "mono- et diglycérides d'acides gras",
+         "vegan" : "en:yes",
+         "vegetarian" : "en:yes"
+      },
+      {
+         "from_palm_oil" : "maybe",
+         "id" : "en:oil",
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "huile",
+         "vegan" : "en:yes",
+         "vegetarian" : "en:yes"
+      },
+      {
+         "id" : "en:e428",
+         "percent_estimate" : 16.6666666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "gélatine",
+         "vegan" : "en:yes",
+         "vegetarian" : "en:yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:may-contain-palm-oil" : [
+         "en:e471",
+         "en:oil"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:may-contain-palm-oil",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:e471",
+      "en:oil",
+      "en:oil-and-fat",
+      "en:e428"
+   ],
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:e471",
+      "en:oil",
+      "en:e428"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:e471",
+      "en:oil",
+      "en:oil-and-fat",
+      "en:e428"
+   ],
+   "ingredients_text" : "mono - et diglycérides d'acides gras d'origine végétale, huile d'origine végétale, gélatine (origine végétale)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:e428",
+      "en:e471",
+      "en:oil"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "known_ingredients_n" : 4,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

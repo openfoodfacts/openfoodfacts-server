@@ -1,0 +1,69 @@
+{
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+[% IF NOT (product.ecoscore_data.adjustments.packaging.packagings AND product.ecoscore_data.adjustments.packaging.packagings.size) %]
+    "evaluation": "unknown",
+    "title_element": {
+        "title": "[% lang('ecoscore_packaging_missing_information') %]",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
+        "icon_color_from_evaluation": true,
+        "evaluation": "neutral",                
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "warning",
+                "html": `
+                    [% lang('ecoscore_no_packaging_information') %]
+                    `
+            }
+        },
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("action_add_packaging_image") %]`,
+                "actions": [
+                    "add_packaging_image"
+                ]
+            }
+        },
+    ],
+[% ELSE %]    
+    [% IF product.ecoscore_data.adjustments.packaging.value <= -15 %]
+    "evaluation": "bad",
+    "title_element": {
+        "title": "[% lang('ecoscore_packaging_impact_high') %]",
+    [% ELSIF product.ecoscore_data.adjustments.packaging.value <= -5 %]
+    "evaluation": "average",
+    "title_element": {
+        "title": "[% lang('ecoscore_packaging_impact_medium') %]",    
+    [% ELSE %]
+    "evaluation": "good",
+    "title_element": {
+        "title": "[% lang('ecoscore_packaging_impact_low') %]",
+    [% END %]
+        "icon_url": "[% static_subdomain %]/images/icons/dist/packaging.svg",
+        "icon_color_from_evaluation": true,
+    },        
+    "expanded": true,
+    "elements": [
+        {
+            "element_type": "panel",
+            "panel_element": {
+                    "panel_id": "packaging_components",
+            },
+        },
+        [% IF (product.packagings_materials AND product.packagings_materials.size) %]
+        {
+            "element_type": "panel",
+            "panel_element": {
+                "panel_id": "packaging_materials",
+            },
+        },
+        [% END %]
+    ]
+[% END %]
+}

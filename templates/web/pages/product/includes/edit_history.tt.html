@@ -1,0 +1,14 @@
+<!-- start templates/[% component.name %] -->
+
+<h2 id="history">[% lang('history') %]</h2>
+<ul id="history_list">
+  [% FOREACH revision IN revisions %]
+  <li>
+    [% revision.date %] - [% display_editor_link(revision.userid) %] [% revision.diffs %] [% IF
+    revision.comment %] - [% revision.comment %] [% END %] -
+    <a href="[% this_product_url %]?rev=[% revision.number %]">[% lang('view') %]</a>
+  </li>
+  [% END %]
+</ul>
+
+<!-- end templates/[% component.name %] -->

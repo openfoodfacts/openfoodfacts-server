@@ -5,13 +5,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-26 12:34\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ko\n"
-"X-Crowdin-File: /master/po/openbeautyfacts/openbeautyfacts.pot\n"
+"X-Crowdin-File-ID: 3125\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -27,23 +27,13 @@ msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/kr/app/open-beauty-facts/id1122926380"
 
-#. make sure the image exists with your country code. https://static.openbeautyfacts.org/images/misc/openbeautyfacts-logo-en-178x150.png Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openbeautyfacts-logo-en-178x150.png"
-msgstr "openfoodfacts-logo-kr-178x150.png"
-
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openbeautyfacts-logo-en-356x300.png"
-msgstr "openfoodfacts-logo-kr-356x300.png"
-
 msgctxt "site_name"
 msgid "Open Beauty Facts"
 msgstr "Open Beauty Facts"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
+msgstr ""
 
 msgctxt "tagline"
 msgid "Open Beauty Facts gathers information and data on cosmetic products from around the world."
@@ -70,22 +60,6 @@ msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenBeautyFacts"
 msgstr "https://www.facebook.com/OpenBeautyFacts"
 
-msgctxt "footer"
-msgid "<a href=\"https://world.openbeautyfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr "<a href=\"https://world.openbeautyfacts.org/legal\">법률 </a>\n"
-"<a href=\"https://world.openbeautyfacts.org/terms-of-use\">이용 약관</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/who-we-are\">저희는 이런 사람이에요</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/faq\">자주 묻는 질문</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">아이디어 포럼</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">블로그</a> -\n"
-"<a href=\"https://world.openbeautyfacts.org/press-and-blogs\">기사와 블로그</a>\n"
-
 msgctxt "brands_example"
 msgid "Nivea, Nivea Men"
 msgstr "니베아, 니베아 맨"
@@ -111,8 +85,8 @@ msgid "A collaborative, free and open database of cosmetic products from around 
 msgstr "세계 각국에서의 화장품에 대해 협업하는 무료 오픈 데이터베이스."
 
 msgctxt "footer_wiki_link"
-msgid "https://en.wiki.openbeautyfacts.org"
-msgstr "https://en.wiki.openbeautyfacts.org"
+msgid "https://wiki.openfoodfacts.org"
+msgstr "https://wiki.openfoodfacts.org"
 
 msgctxt "generic_name_example"
 msgid "Anti-dandruff shampoo"
@@ -147,8 +121,8 @@ msgstr "아쿠아 / 워터, 소듐 라우 레스 설페이트, 디소듐 코코�
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-beauty-facts-mobile-app"
-msgstr "open-beauty-facts-mobile-app"
+msgid "/open-beauty-facts-mobile-app"
+msgstr "/open-beauty-facts-mobile-app"
 
 # Do not translate
 msgctxt "footer_obf"
@@ -157,6 +131,6 @@ msgstr "Open Food Facts"
 
 # Do not translate
 msgctxt "footer_obf_link"
-msgid "https://world.openfooodfacts.org"
-msgstr "https://world.openfooodfacts.org"
+msgid "https://world.openfoodfacts.org"
+msgstr "https://world.openfoodfacts.org"
 

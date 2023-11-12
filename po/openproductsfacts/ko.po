@@ -5,13 +5,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ko\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2020-05-26 12:34\n"
 "Language-Team: Korean\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Crowdin-Project: openfoodfacts\n"
+"X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ko\n"
-"X-Crowdin-File: /master/po/openproductsfacts/openproductsfacts.pot\n"
+"X-Crowdin-File-ID: 3129\n"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -28,24 +28,14 @@ msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/kr/app/open-beauty-facts/id1122926380"
 
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openproductsfacts-logo-en-178x150.png"
-msgstr "openproductsfacts-logo-en-178x150.png"
-
-#. make sure the image exists with your country code. Otherwise, ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openproductsfacts-logo-en-356x300.png"
-msgstr "openproductsfacts-logo-en-356x300.png"
-
 msgctxt "site_name"
 msgid "Open Products Facts"
 msgstr "Open Products Facts"
 
 #. change https://www.microsoft.com/en-us/p/ to https://www.microsoft.com/fr-fr/p/ (for instance) and make sure the url works
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/en-us/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
+msgstr ""
 
 msgctxt "tagline"
 msgid "Open Products Facts gathers information and data on products from around the world."
@@ -71,22 +61,6 @@ msgstr "Open Products Facts에게 기부하기"
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
 msgstr "https://www.facebook.com/OpenFoodFacts"
-
-msgctxt "footer"
-msgid "<a href=\"https://world.openproductsfacts.org/legal\">Legal</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/terms-of-use\">Terms of Use</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/who-we-are\">Who we are</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/faq\">Frequently Asked Questions</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">Ideas Forum</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">Blog</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/press-and-blogs\">Press and Blogs</a>\n"
-msgstr "<a href=\"https://world.openproductsfacts.org/legal\">법률 <span class=\"notranslate\"></a> </span>\n"
-"<a href=\"https://world.openproductsfacts.org/terms-of-use\">이용 약관</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/who-we-are\">저희는 이런 사람들이에요</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/faq\">자주 묻는 질문 (FAQ)</a> -\n"
-"<a href=\"https://openfoodfacts.uservoice.com/\">아이디어 포럼</a> -\n"
-"<a href=\"https://en.blog.openfoodfacts.org\">블로그</a> -\n"
-"<a href=\"https://world.openproductsfacts.org/press-and-blogs\">를 누르고 블로그</a>\n"
 
 msgctxt "brands_example"
 msgid "Nike, Apple"
@@ -131,7 +105,7 @@ msgstr "https://static.openproductsfacts.org/images/misc/openproductsfacts-logo-
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-product-hunt\">Open Product Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr "2월 21 일 토요일부터 3 월 1 일 일요일까지 <site_name>에서 < <site_name> >의 <a href=\"/open-product-hunt\">Open Product Hunt</a> 입니다! 기여자에게는 추가 한 제품에 대해 탐험가 점수와, 새로 모집 한 신규 기여자에 대한 대사 점수가 부여됩니다. 포인트는 30 분마다 업데이트됩니다."
+msgstr "2월 21 일 토요일부터 3 월 1 일 일요일까지 에서 <<site_name>>의 <a href=\"/open-product-hunt\">Open Product Hunt</a> 입니다! 기여자에게는 추가 한 제품에 대해 탐험가 점수와, 새로 모집 한 신규 기여자에 대한 대사 점수가 부여됩니다. 포인트는 30 분마다 업데이트됩니다."
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
@@ -147,6 +121,6 @@ msgstr "아쿠아 / 워터, 소듐 라우 레스 설페이트, 디소듐 코코�
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
-msgid "open-products-facts-mobile-app"
-msgstr "open-products-facts-mobile-app"
+msgid "/open-products-facts-mobile-app"
+msgstr "/open-products-facts-mobile-app"
 

@@ -1,0 +1,15 @@
+<!-- start templates/[% component.name %] -->
+
+<p id="ingredients_analysis">
+	<strong>[% lang("ingredients_analysis") %][% sep %]:</strong>
+	<br>
+	[% FOREACH tag IN ingredients_analysis_tags %]
+		<span class="ingredients_analysis">
+			<span style="margin-right: 8px;" class="evaluation_[% tag.evaluation %]_title">[% display_icon(tag.icon) %]</span>[% tag.title %]
+		</span>
+	[% END %]
+	<br>
+	<span class="note">&rarr; [% lang("ingredients_analysis_disclaimer") %]</span>
+</p>
+
+<!-- end templates/[% component.name %] -->

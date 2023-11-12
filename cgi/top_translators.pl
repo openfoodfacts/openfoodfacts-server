@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -34,18 +33,21 @@ use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
+
+# Passing values to the template
+my $template_data_ref = {};
 
 $scripts .= <<SCRIPTS
 <script src="/js/datatables.min.js"></script>
 <script src="/js/dist/papaparse.js"></script>
 SCRIPTS
-;
+	;
 
 $header .= <<HEADER
 <link rel="stylesheet" href="/js/datatables.min.css" />
 HEADER
-;
+	;
 
 my $url = format_subdomain('static') . '/data/top_translators.csv';
 my $js = <<JS
@@ -89,46 +91,14 @@ my $js = <<JS
 		});
 	});
 JS
-;
+	;
 $initjs .= $js;
 
-my $html = '<p>' . lang('translators_lead') . '</p>';
+my $html;
+process_template('web/pages/top_translators/top_translators.tt.html', $template_data_ref, \$html) or $html = '';
+$html .= "<p>" . $tt->error() . "</p>";
 
-my $translators_column_name = lang('translators_column_name');
-my $translators_column_translated_words = lang('translators_column_translated_words');
-my $translators_column_target_words = lang('translators_column_target_words');
-my $translators_column_approved_words = lang('translators_column_approved_words');
-my $translators_column_votes_made = lang('translators_column_votes_made');
-
-$html .= <<HTML
-<table id="top_translators" class="display" cellspacing="0" width="100%">
-	<thead>
-		<tr>
-			<th>$translators_column_name</th>
-			<th>$translators_column_translated_words</th>
-			<th>$translators_column_target_words</th>
-			<th>$translators_column_approved_words</th>
-			<th>$translators_column_votes_made</th>
-		</tr>
-	</thead>
-	<tfoot>
-		<tr>
-			<th>$translators_column_name</th>
-			<th>$translators_column_translated_words</th>
-			<th>$translators_column_target_words</th>
-			<th>$translators_column_approved_words</th>
-			<th>$translators_column_votes_made</th>
-		</tr>
-	</tfoot>
-	<tbody>
-	</tbody>
-</table>
-HTML
-;
-
-$html .= '<p style="font-size: smaller;">' . lang('translators_renewal_notice') . '</p>';
-
-display_new( {
-	title=>lang('translators_title'),
-	content_ref=>\$html
-});
+$request_ref->{title} = lang('translators_title');
+$request_ref->{content_ref} = \$html;
+$request_ref->{canon_url} = '/cgi/top_translators.pl';
+display_page($request_ref);

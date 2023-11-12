@@ -18,18 +18,18 @@
 
 
 server {
-        listen 80 ;
-        listen [::]:80 ;
+		listen 80 ;
+		listen [::]:80 ;
 
-        listen 443 ssl;
-        listen [::]:443 ssl;
+		listen 443 ssl;
+		listen [::]:443 ssl;
 
-        include snippets/ssl.openpetfoodfacts.org;
-        include snippets/ssl-params-opff.conf;
+		include snippets/ssl.openpetfoodfacts.org;
+		include snippets/ssl-params-opff.conf;
 
 
-        server_name openpetfoodfacts.org;
-        return 301 https://world.openpetfoodfacts.org$request_uri;
+		server_name openpetfoodfacts.org;
+		return 301 https://world.openpetfoodfacts.org$request_uri;
 }
 
 server {
@@ -52,10 +52,10 @@ server {
 	# Don't use them in a production server!
 	#
 	# include snippets/snakeoil.conf;
-        #listen [::]:443 ssl default_server;
-        #listen [::]:443 ssl;
-        include snippets/ssl.openpetfoodfacts.org;
-        include snippets/ssl-params-opff.conf;
+	#listen [::]:443 ssl default_server;
+	#listen [::]:443 ssl;
+	include snippets/ssl.openpetfoodfacts.org;
+	include snippets/ssl-params-opff.conf;
 
 
 	root /srv/opff/html;
@@ -63,56 +63,30 @@ server {
 	access_log /srv/opff/logs/nginx.access2.log;
 	error_log /srv/opff/logs/nginx.error2.log;
 
-        # Redirect GET requests to https. POST requests will be transformed
-        # to GET by most browsers when redirected, and it breaks apps that
-        # use the API through http.
+		# Redirect GET requests to https. POST requests will be transformed
+		# to GET by most browsers when redirected, and it breaks apps that
+		# use the API through http.
 
-        if ($scheme = http) {
-                set $test "A";
-        }
-        if ($request_uri !~ "/api/") {
-                set $test "${test}B";
-        }
-        if ($request_method = GET) {
-                set $test "${test}C";
-        }
-        if ($test = ABC) {
-                return 301 https://$host$request_uri;
-        }
+		if ($scheme = http) {
+			set $test "A";
+		}
+		if ($request_uri !~ "/api/") {
+			set $test "${test}B";
+		}
+		if ($request_method = GET) {
+			set $test "${test}C";
+		}
+		if ($test = ABC) {
+			return 301 https://$host$request_uri;
+		}
 
 	location /data/ {
-     if ($request_method = 'OPTIONS') {
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        #
-        # Custom headers and headers various browsers *should* be OK with but aren't
-        #
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range';
-        #
-        # Tell client that this pre-flight info is valid for 20 days
-        #
-        add_header 'Access-Control-Max-Age' 1728000;
-        add_header 'Content-Type' 'text/plain; charset=utf-8';
-        add_header 'Content-Length' 0;
-        return 204;
-     }
-     if ($request_method = 'POST') {
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range';
-        add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';
-     }
-     if ($request_method = 'GET') {
-        add_header 'Access-Control-Allow-Origin' '*';
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range';
-        add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range';
-     }
-	include snippets/ssl-headers.conf;
+		include snippets/off.cors-headers.include;
+		include snippets/ssl-headers.conf;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
-}
+	}
 
 
 	gzip on;
@@ -122,12 +96,16 @@ server {
 	# Add index.php to the list if you are using PHP
 	index index.html index.htm index.nginx-debian.html;
 
-	location ~* \.(json|csv)$ {
-		add_header Access-Control-Allow-Origin *;
+	location ~* \.(eot|ttf|woff|woff2)$ {
+		include snippets/off.cors-headers.include;
 	}
 
 	location ~ ^/images/products/ {
 		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
+		include snippets/off.cors-headers.include;
+		# optimize gzip compressed content (like OCR .json stored next to .jpg files)
+		gzip_static always;
+		gunzip on;
 	}
 
 	location ~ ^/(favicon.ico) {
@@ -137,20 +115,25 @@ server {
 	}
 
 
-	location ~ ^/(.well-known|images|css|js|rss|files|resources|foundation|bower_components)/ {
+	location ~ ^/(.well-known|images|fonts|css|js|rss|files|resources|foundation|bower_components)/ {
+		include snippets/off.cors-headers.include;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
 	}
 
-	location = /robots.txt {
-		try_files $uri $uri/ =404;
-	}
+        # GoogleAssociationService made 2500 requests/min to assetlinks.json
+        # and much less when caching headers are sent
+        location = /.well-known/assetlinks.json {
+                include snippets/off.cors-headers.include;
+                expires 1d;
+                try_files $uri $uri/ =404;
+        }
 
 	location / {
 		proxy_set_header Host $host;
 		proxy_set_header X-Real-IP $remote_addr;
-        	proxy_set_header       X-Forwarded-For $proxy_add_x_forwarded_for;
+			proxy_set_header       X-Forwarded-For $proxy_add_x_forwarded_for;
 
 		proxy_pass http://127.0.0.1:8004/cgi/display.pl?;
 	}

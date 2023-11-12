@@ -1,128 +1,263 @@
 
 
 en:Palm oil
+bg:Палмово масло
 ca:Oli de palma
 de:Palmöl
+es:Aceite de palma
 fi:Palmuöljy
 fr:Huile de palme
 he:שמן דקלים
 hu:Pálmaolaj
 it:Olio di palma
+ja:パーム油
 nl:Bevat palm olie
+pl:olej palmowy
+pt:Óleo de palma
+ru:Пальмовое масло
+sv:Palmolja
+tr:Hurma yağı
 show_ingredients:en:from_palm_oil:yes
 
 en:Palm oil free
+bg:Без палмово масло
 ca:No conté oli de palma
 de:Palmölfrei
+es:Sin aceite de palma
 fi:Ei palmuöljyä
 fr:Sans huile de palme
 he:ללא שמן דקלים
 hu:Pálmaolajmentes
 it:Senza olio di palma
+ja:パームオイルフリー
 nl:Zonder palm olie
+pl:Bez oleju palmowego
+pt:Sem óleo de palma
+ru:Не содержит пальмовое масло
+sv:Palmoljefri, Palmoljefritt
+tr:Hurma yağı yok
 
 en:May contain palm oil
+bg:Може да съдържа палмово масло
 ca:Pot contenir oli de palma
 de:Kann Palmöl enthalten
+es:Puede contener aceite de palma
 fi:Saattaa sisältää palmuöljyä
 fr:Pourrait contenir de l'huile de palme
 he:עשוי להכין שמן דקלים
 hu:Pálmaolajat tartalmazhat
 it:Potrebbe contenere olio di palma
+ja:パーム油を含む可能性あり
 nl:Bevat mogelijk palmolie
+pl:Może zawierać olej palmowy
+pt:Pode conter óleo de palma
+ru:Может содержать пальмовое масло
+sv:Kan innehålla palmolja
+tr:Hurma yağı içerebilir
 show_ingredients:en:from_palm_oil:maybe
 
+# Warning: in some languages "Présence d'huile de palme inconnue" can be interpreted as "Contains unknown palm oil"
+# Try to find a non-ambiguous wording
 en:Palm oil content unknown
+bg:Неизвестно съдържание на палмово масло
 ca:Es desconeix si conté oli de palma
 de:Palmölgehalt unbekannt
+es:Se desconoce si contiene aceite de palma
 fi:Palmuöljysisältö ei ole tiedossa
-fr:Présence d'huile de palme inconnue
+fr:La présence d'huile de palme n'a pas été déterminée
 he:תכולת שמן דקלים לא ידועה
 hu:Pálmaolaj tartalom ismeretlen
-it:Presenza di olio di parla sconosciuta
+it:La presenza di olio di palma non è stata determinata
+ja:パーム油を含むか不明
 nl:Palm olie status onbekend
+pt:Desconhece-se se contém óleo de palma
+ru:Содержание пальмового масла неизвестно
+sv:Palmolja innehåll okänt
+tr:Hurma yağı içeriği bilinmiyor
 
 en:Vegan
+bg:Веган
 ca:Vegà
+cs:Vegan
 de:vegan
+es:Vegano
 fi:Vegaani
 fr:Végétalien
 he:טבעוני
 hu:Vegán
 it:Vegano
+ja:ビーガン
+ko:비건 채식
 nl:Veganistisch
+pl:Wegańskie
+pt:Vegano
+#ro:Vegetarian
+ru:Веганское
+sv:Vegansk
+tr:Vegan
+vi:Thuần chay
 
 en:Maybe vegan
+ar:ربما نباتي
+bg:Може да е веган
 ca:Pot ser vegà
+cs:Možná vegan
 de:Vielleicht vegan
-fi:Mahdollisesti vegaaninen
+es:Quizá vegano, Tal vez vegano
+el:Ίσως vegan
+fi:Mahdollisesti vegaaninen, Ehkä vegaani
 fr:Peut-être végétalien
 he:כנראה טבעוני
 hu:Talán vegán
-it:Potrebbe essere vegano
+it:Potrebbe essere vegano, Forse vegano
+ja:多分ビーガン
+ko:아마 비건 채식
 nl:Mogelijk vegan
+pl:Może wegańskie
+pt:Possivelmente vegano
+ro:Poate vegan
+ru:Возможно веганское
+sv:Kanske Vegansk
+tr:Vegan olabilir
+vi:Có lẽ là thuần chay
+zh:也许是素食主义者
 show_ingredients:en:vegan:maybe
 
 en:Non-vegan
+ar:غير النباتية
+bg:Не е веган
 ca:No és vegà
+cs:Neveganová
 de:Nicht-vegan
+es:No vegano
+el:Μη βέγκαν
 fi:Ei-vegaaninen
 fr:Non végétalien
 he:לא טבעוני
 hu:Nem vegán
 it:Non vegano
+ja:非ビーガン
+ko:비 채식
 nl:Niet veganistisch
+pl:Niewegańskie
+pt:Não vegano
+ru:Не веганское
+ro:Non-vegan
+sv:icke-vegan
+th:ไม่ใช่มังสวิรัติ
+tr:Vegan değil
+vi:Không ăn chay
+zh:非素食
 show_ingredients:en:vegan:no
 
 en:Vegan status unknown
+bg:Неизвестен вегански статус
 ca:Es desconeix si és vegà
 de:Veganer Status unbekannt
+es:Se desconoce si es vegano
 fi:Vegaanisuus ei ole tiedossa
 fr:Caractère végétalien inconnu
 he:מצב טבעוני לא ידוע
 hu:Vegán státusz ismeretlen
 it:Stato vegano sconosciuto
+ja:ビーガンか不明
 nl:Veganistische status onbekend
+pt:Desconhece-se se é vegano
+ru:Веганский статус неизвестен
+sv:Vegansk status okänt
+tr:Vegan durumu bilinmiyor
 
 en:Vegetarian
+ar:نباتي
+bg:Вегетарианско
 ca:Vegetarià
+cs:Vegetariánský
 de:vegetarisch
+el:Χορτοφάγος
+es:Vegetariano
 fi:Vegetaarinen
 fr:Végétarien
 he:צמחוני
 hu:Vegetáriánus
 it:Vegetariano
+ja:ベジタリアン
+ko:채식
 nl:Vegetarisch
+pl:Wegetariańskie
+pt:Vegetariano
+ru:Вегетарианское
+ro:Vegetarian
+sv:Vegetariskt
+tr:Vejetaryen
+th:มังสวิรัติ
+vi:Ăn chay
+zh:素食主义者
 
 en:Maybe vegetarian
+bg:Може да е вегетарианско
 ca:Pot ser vegetarià
+cs:Možná vegetarián
 de:Vielleicht vegetarisch
+el:Ίσως χορτοφάγος
+es:Quizá vegetariano
 fi:Mahdollisesti vegetaarinen
 fr:Peut-être végétarien
 he:כנראה צמחוני
 hu:Talán vegetáriánus
 it:Potrebbe essere vegetariano
+ja:多分ベジタリアン
+ko:어쩌면 채식주의 자
 nl:Mogelijk vegetarisch
+pl:Może wegetariańskie
+pt:Possivelmente vegetariano
+ru:Возможно вегетарианское
+ro:Poate vegetarian
+sv:Kanske Vegetariskt
+tr:Vejetaryen olabilir
+th:อาจจะเป็นมังสวิรัติ
+vi:Có thể ăn chay
 show_ingredients:en:vegetarian:maybe
 
 en:Non-vegetarian
+ar:غير نباتي
+bg:Не е вегетарианско
 ca:No és vegetarià
+cs:Nevegetarián
 de:Nicht-vegetarisch
+el:Μη χορτοφάγος
+es:No vegetariano
 fi:Ei-vegetaarinen
 fr:Non végétarien
 he:לא צמחוני
 hu:Nem vegetáriánus
 it:Non vegetariano
+ja:非菜食主義者
+ko:비 채식주의 자
 nl:Niet vegetarisch
+pl:Niewegetariańskie
+pt:Não vegetariano
+ru:Не вегетарианское
+ro:Non vegetarian
+sv:Icke-vegetarisk
+tr:Vejetaryen değil
+vi:Người không ăn chay
+zh:非素食者
 show_ingredients:en:vegetarian:no
 
 en:Vegetarian status unknown
+bg:Неизвестен вегетариански статус
 ca:Es desconeix si és vegetarià
 de:Vegetarischer Status unbekannt
+es:Se desconoce si es vegetariano
 fi:Vegetaarisuus ei ole tiedossa
 fr:Caractère végétarien inconnu
 he:מצב צמחוני לא ידוע
 hu:Vegetáriánus státusz ismeretlen
 it:Stato vegetariano sconosciuto
-nl:Vegetarische status onbeken
+ja:ベジタリアンか不明
+nl:Vegetarische status onbekend
+pt:Estado vegetariano desconhecido
+ru:Вегетарианский статус неизвестен
+sv:Vegetarisk status okänd
+tr:Vejetaryen durumu bilinmiyor
 

@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -33,17 +33,14 @@ and that are thus run for all products.
 
 package ProductOpener::DataQualityCommon;
 
-use utf8;
-use Modern::Perl '2017';
+use ProductOpener::PerlStandards;
 use Exporter qw(import);
 
-
-BEGIN
-{
-	use vars qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&check_quality_common
-	);	# symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
@@ -51,7 +48,6 @@ use ProductOpener::Store qw(:all);
 use ProductOpener::Tags qw(:all);
 
 use Log::Any qw($log);
-
 
 =head1 FUNCTIONS
 
@@ -61,14 +57,14 @@ Checks related to issues that are due to bugs that exist or existed in the code.
 
 =cut
 
-sub check_bugs($) {
-
-	my $product_ref = shift;
+sub check_bugs ($product_ref) {
 
 	check_bug_missing_or_unknown_main_language($product_ref);
 
 	check_bug_code_missing($product_ref);
 	check_bug_created_t_missing($product_ref);
+
+	return;
 }
 
 =head2 check_bug_missing_or_unknown_main_language( PRODUCT_REF )
@@ -80,28 +76,26 @@ that caused them not to be set in certain conditions.
 
 =cut
 
-sub check_bug_missing_or_unknown_main_language($) {
+sub check_bug_missing_or_unknown_main_language ($product_ref) {
 
-	my $product_ref = shift;
-
-	if ((not (defined $product_ref->{lc}))) {
+	if ((not(defined $product_ref->{lc}))) {
 		push @{$product_ref->{data_quality_bugs_tags}}, "en:main-language-code-missing";
 	}
 
-	if ((not (defined $product_ref->{lang}))) {
+	if ((not(defined $product_ref->{lang}))) {
 		push @{$product_ref->{data_quality_bugs_tags}}, "en:main-language-missing";
 	}
 	elsif ($product_ref->{lang} eq 'xx') {
 		push @{$product_ref->{data_quality_warnings_tags}}, "en:main-language-unknown";
 	}
+
+	return;
 }
 
-sub check_bug_code_missing($) {
-
-	my $product_ref = shift;
+sub check_bug_code_missing ($product_ref) {
 
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/185#issuecomment-364653043
-	if ((not (defined $product_ref->{code}))) {
+	if ((not(defined $product_ref->{code}))) {
 		push @{$product_ref->{data_quality_bugs_tags}}, "en:code-missing";
 	}
 	elsif ($product_ref->{code} eq '') {
@@ -110,19 +104,21 @@ sub check_bug_code_missing($) {
 	elsif ($product_ref->{code} == 0) {
 		push @{$product_ref->{data_quality_bugs_tags}}, "en:code-zero";
 	}
+
+	return;
 }
 
-sub check_bug_created_t_missing($) {
-
-	my $product_ref = shift;
+sub check_bug_created_t_missing ($product_ref) {
 
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/185
-	if ((not (defined $product_ref->{created_t}))) {
+	if ((not(defined $product_ref->{created_t}))) {
 		push @{$product_ref->{data_quality_bugs_tags}}, "en:created-missing";
 	}
 	elsif ($product_ref->{created_t} == 0) {
 		push @{$product_ref->{data_quality_bugs_tags}}, "en:created-zero";
 	}
+
+	return;
 }
 
 =head2 check_codes( PRODUCT_REF )
@@ -131,22 +127,18 @@ Checks related to the barcodes.
 
 =cut
 
-sub check_codes($) {
-
-	my $product_ref = shift;
+sub check_codes ($product_ref) {
 
 	check_code_gs1_prefixes($product_ref);
 
+	return;
 }
 
-sub check_code_gs1_prefixes($) {
+sub check_code_gs1_prefixes ($product_ref) {
 
-	my $product_ref = shift;
-
-	if ((not (defined $product_ref->{code}))) {
+	if ((not(defined $product_ref->{code}))) {
 		return;
 	}
-
 	my $code = $product_ref->{code};
 	# https://github.com/openfoodfacts/openfoodfacts-server/issues/1129
 	if ($code =~ /^99[0-9]{10,11}$/) {
@@ -170,6 +162,50 @@ sub check_code_gs1_prefixes($) {
 	elsif ($code =~ /^3600550[0-9]{6}$/) {
 		push @{$product_ref->{data_quality_warnings_tags}}, 'en:cosmetic-product';
 	}
+
+	return;
+}
+
+=head2 check_packagings( PRODUCT_REF )
+
+Checks related to the packagings information.
+
+=cut
+
+sub check_packagings ($product_ref) {
+
+	if ((not defined $product_ref->{packagings}) or (scalar @{$product_ref->{packagings}} == 0)) {
+		push @{$product_ref->{data_quality_info_tags}}, "en:no-packaging-data";
+	}
+	else {
+		# Loop through every packaging component to check that we have a number of unit, a shape and a material
+		my $complete = 1;
+		foreach my $packaging_ref (@{$product_ref->{packagings}}) {
+			if (
+				not(
+					(
+							(defined $packaging_ref->{number})
+						and (defined $packaging_ref->{shape})
+						and (defined $packaging_ref->{material})
+					)
+					or ((defined $packaging_ref->{shape}) and ($packaging_ref->{shape} eq "en:bulk"))
+				)
+				)
+			{
+				$complete = 0;
+				last;
+			}
+		}
+
+		if ($complete) {
+			push @{$product_ref->{data_quality_info_tags}}, "en:packaging-data-complete";
+		}
+		else {
+			push @{$product_ref->{data_quality_info_tags}}, "en:packaging-data-incomplete";
+		}
+	}
+
+	return;
 }
 
 =head2 check_quality_common( PRODUCT_REF )
@@ -178,12 +214,13 @@ Run all quality checks defined in the module.
 
 =cut
 
-sub check_quality_common($) {
-
-	my $product_ref = shift;
+sub check_quality_common ($product_ref) {
 
 	check_bugs($product_ref);
 	check_codes($product_ref);
+	check_packagings($product_ref);
+
+	return;
 }
 
 1;

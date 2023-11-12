@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -58,8 +58,8 @@ print STDERR "updating product $code\n";
 		
 $product_ref = retrieve_product($code);
 $product_ref->{creator} = 'adeline';
-		
-store("$data_root/products/$path/product.sto", $product_ref);		
+
+store( "$data_root/products/$path/product.sto", $product_ref );
 get_products_collection()->save($product_ref);
 
 exit(0);

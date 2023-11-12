@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,8 +20,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -46,175 +45,47 @@ use Encode;
 use JSON::PP;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
-my $type = param('type') || 'upload';
-my $action = param('action') || 'display';
+my $type = single_param('type') || 'upload';
+my $action = single_param('action') || 'display';
 
 my $title = lang("import_photos_title");
 my $html = '';
+my $js = '';
+my $template_data_ref = {};
 
 local $log->context->{type} = $type;
 local $log->context->{action} = $action;
 
 if (not defined $Owner_id) {
-	display_error(lang("no_owner_defined"), 200);
+	display_error_and_exit(lang("no_owner_defined"), 200);
 }
-
 
 else {
 
-	# Display upload info and form
-
-
-	# Upload a file
-
-	$html .= "<p>" . lang("import_photos_description") . "</p>\n";
-	$html .= "<p>" . lang("import_photos_format_1") . " " . lang("import_photos_format_2") . "</p>\n";
-	$html .= "<ul>"
-	. "<li>" . lang("import_photos_format_barcode") . "</li>"
-	. "<li>" . lang("import_photos_format_front") . "</li>"
-	. "<li>" . lang("import_photos_format_ingredients") . "</li>"
-	. "<li>" . lang("import_photos_format_nutrition") . "</li>"
-	. "</ul>";
-
-	$html .= <<HTML
-      <form
-        id="fileupload"
-        action="/cgi/product_image_upload.pl"
-        method="POST"
-        enctype="multipart/form-data"
-      >
-HTML
-;
-
 	# Enable adding field values for photos uploaded
 
-	my @add_fields = qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries);
+	my @add_fields
+		= qw(brands categories packaging labels origins manufacturing_places emb_codes purchase_places stores countries);
 	my %add_fields_labels = ();
+	my @add_fields_options = {value => 'add_tag', label => lang("add_tag_field")};
+
 	foreach my $field (@add_fields) {
 		$add_fields_labels{$field} = ucfirst(lang($field . "_p"));
+		push(
+			@add_fields_options,
+			{
+				value => $field,
+				label => $add_fields_labels{$field},
+			}
+		);
 	}
 	$add_fields_labels{add_tag} = lang("add_tag_field");
 
-	$html .= <<HTML
-	<p>$Lang{add_field_values}{$lc}</p>
-	<div class="add_field_values_row">
-		<div class="row">
-			<div class="small-12 medium-12 large-5 columns">
-HTML
-;
-
 	my $i = 0;
-
-	$html .= popup_menu(-class=>"tag-add-field", -name=>"tagtype_$i", -id=>"tagtype_$i", -value=> "", -values=>['add_tag', @add_fields], -labels=>\%add_fields_labels);
-
-	$html .= <<HTML
-			</div>
-
-			<div class="small-12 medium-12 large-7 columns tag-add-field-value">
-				<input type="text" id="tag_$i" name="tag_$i" value="" placeholder="$Lang{add_value}{$lc}"/>
-			</div>
-		</div>
-	</div>
-HTML
-;
-
-	$scripts .= <<JS
-
-<script>
-function modifyAddFieldValue(element, field_value_number){
-	// Type of field
-	var typeSelect = \$(element).find("#tagtype_0");
-	typeSelect.attr("name", "tagtype_" + field_value_number);
-	typeSelect.attr("id", "tagtype_" + field_value_number);
-	typeSelect.val();
-
-	// Value
-	var tagContent = \$(element).find("#tag_0");
-	tagContent.attr("name", "tag_" + field_value_number);
-	tagContent.attr("id", "tag_" + field_value_number);
-	tagContent.val("");
-
-	return element;
-}
-
-function addAddFieldValue(target, field_values_number) {
-	var addFieldValue1 = modifyAddFieldValue(\$(".add_field_values_row").first().clone(), field_values_number);
-
-	\$(".add_field_values_row").last().after(addFieldValue1);
-}
-</script>
-JS
-;
-
-	$initjs .= <<JS
-
-	//On tag field value change
-	\$(document).on("change", ".tag-add-field-value > input", function(e){
-		var field_value_number = parseInt(e.target.name.substr(e.target.name.length - 1));
-		//If it's the last field value, add one more
-		if(!isNaN(field_value_number) && \$("#tag_" + (field_value_number + 1).toString()).length === 0){
-			addAddFieldValue(e.target, field_value_number + 1);
-		}
-	});
-	\$(document).on("change", ".tag-add-field > select", function(e){
-		var field_value_number = parseInt(e.target.name.substr(e.target.name.length - 1));
-		//If it's the last field value, add one more
-		if(!isNaN(field_value_number) && \$("#tag_" + (field_value_number + 1).toString()).length === 0){
-			addAddFieldValue(e.target, field_value_number + 1);
-		}
-	});
-JS
-;
-
-	# File upload button
-
-	$html .= <<HTML
-        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
-        <div class="row fileupload-buttonbar">
-          <div class="large-7 columns">
-            <!-- The fileinput-button span is used to style the file input field as button -->
-            <span class="button small btn-success fileinput-button">
-              @{[ display_icon('add') ]}
-              <span>$Lang{add_photos}{$lang}</span>
-              <input type="file" name="files[]" multiple accept="image/*" data-url="/cgi/product_image_import.pl" />
-            </span>
-            <button type="submit" class="button small btn-primary start">
-              @{[ display_icon('arrow_upward') ]}
-              <span>$Lang{start_upload}{$lang}</span>
-            </button>
-            <!-- The global file processing state -->
-            <span class="fileupload-process"></span>
-          </div>
-          <!-- The global progress state -->
-          <div class="large-5 columns fileupload-progress fade">
-            <!-- The global progress bar -->
-            <div
-              class="progress progress-striped active"
-              role="progressbar"
-              aria-valuemin="0"
-              aria-valuemax="100"
-            >
-              <div
-                class="progress-bar progress-bar-success meter"
-                style="width:0%;"
-              ></div>
-            </div>
-            <!-- The extended global progress state -->
-            <div class="progress-extended">&nbsp;</div>
-          </div>
-        </div>
-        <!-- The table listing the files available for upload/download -->
-        <table role="presentation" class="table table-striped">
-          <tbody class="files"></tbody>
-        </table>
-      </form>
-
-	<div id="empty_space_for_equalizer" style="height:200px;width:100px;">&nbsp;</div>
-
-HTML
-;
+	$template_data_ref->{i} = $i;
+	$template_data_ref->{add_fields_options} = \@add_fields_options;
 
 	$scripts .= <<JS
     <!-- The template to display files available for upload -->
@@ -233,20 +104,6 @@ HTML
               <td style="min-width:150px;">
                   <span class="size">Processing...</span><br>
                   <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success meter" style="width:0\%;"></div></div>
-              </td>
-              <td>
-                  {\% if (!i && !o.options.autoUpload) { \%}
-                      <button class="button tiny btn-primary start" disabled>
-                          @{[ display_icon('arrow_upward') ]}
-                          <span>$Lang{start}{$lang}</span>
-                      </button>
-                  {\% } \%}
-                  {\% if (!i) { \%}
-                      <button class="button tiny btn-warning cancel alert">
-                          @{[ display_icon('cancel') ]}
-                          <span>$Lang{cancel}{$lang}</span>
-                      </button>
-                  {\% } \%}
               </td>
           </tr>
       {\% } \%}
@@ -293,25 +150,16 @@ HTML
                       $Lang{file_received}{$lang} </div>
                   {\% } \%}
               </td>
-              <td>
-                  {\% if (file.deleteUrl) { \%}
-                  {\% } else { \%}
-                      <button class="button tiny btn-warning cancel">
-                          @{[ display_icon('cancel') ]}
-                          <span>$Lang{close}{$lang}</span>
-                      </button>
-                  {\% } \%}
-              </td>
           </tr>
       {\% } \%}
     </script>
 
     <!-- The Templates plugin is included to render the upload/download listings -->
-    <script src="/js/dist/tmpl.min.js"></script>
+    <script src="/js/dist/tmpl.js"></script>
     <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
     <script src="/js/dist/load-image.all.min.js"></script>
     <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-    <script src="/js/dist/canvas-to-blob.min.js"></script>
+    <script src="/js/dist/canvas-to-blob.js"></script>
 
     <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
     <script src="/js/dist/jquery.iframe-transport.js"></script>
@@ -326,7 +174,14 @@ HTML
     <!-- The File Upload user interface plugin -->
     <script src="/js/dist/jquery.fileupload-ui.js"></script>
 JS
-;
+		;
+
+	process_template('web/pages/import_photos_upload/import_photos_upload.tt.html', $template_data_ref, \$html)
+		or $html = "<p>" . $tt->error() . "</p>";
+	process_template('web/pages/import_photos_upload/import_photos_upload.tt.js', $template_data_ref, \$js)
+		or $html = "<p>" . $tt->error() . "</p>";
+
+	$initjs .= $js;
 
 	$header .= <<HTML
 <script>
@@ -354,8 +209,10 @@ function waitForPreviousUpload(submitIndex, callback) {
 }
 
 </script>
+
+
 HTML
-;
+		;
 
 	$initjs .= <<JS
 
@@ -377,7 +234,8 @@ HTML
 	sequentialUploads: true,
 	replaceFileInput : false,
 	// Uncomment the following to send cross-domain cookies:
-	xhrFields: {withCredentials: true}
+	xhrFields: {withCredentials: true},
+	autoUpload: true
 });
 
 
@@ -480,7 +338,7 @@ var images_processed = 0;
 });
 
 JS
-;
+		;
 
 	$styles .= <<CSS
 
@@ -575,12 +433,11 @@ JS
 }
 
 CSS
-;
+		;
 
-	display_new( {
-		title=>$title,
-		content_ref=>\$html,
-	});
+	$request_ref->{title} = $title;
+	$request_ref->{content_ref} = \$html;
+	display_page($request_ref);
 }
 
 exit(0);

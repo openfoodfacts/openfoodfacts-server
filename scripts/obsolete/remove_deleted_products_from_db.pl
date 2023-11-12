@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -69,13 +69,13 @@ my $cursor = get_products_collection()->query({})->fields({ code => 1 });;
 				print STDERR "deleted : $product_ref->{deleted} - _id : $product_ref->{_id}\n";
 				get_products_collection()->delete_one({"code" => $code});
 						my $err = $database->last_error();
-		use Data::Dumper;
-		print STDERR Dumper($err);
+		require Data::Dumper;
+		print STDERR Data::Dumper::Dumper($err);
 				# store_product($product_ref, "desindex deleted product");
 			}
 		}
 		
-		# index_product($product_ref);
+		# compute_keywords($product_ref);
 
 		# Store
 

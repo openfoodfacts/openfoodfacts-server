@@ -1,0 +1,25 @@
+{
+   "code" : "1234567890011",
+   "errors" : [],
+   "product" : {
+      "packagings" : [
+         {
+            "material" : {
+               "id" : "en:paper",
+               "lc_name" : "Papier"
+            },
+            "number_of_units" : 2,
+            "recycling" : {
+               "id" : "en:recycle",
+               "lc_name" : "Recycler"
+            },
+            "shape" : {
+               "id" : "en:bag",
+               "lc_name" : "Sachet"
+            }
+         }
+      ]
+   },
+   "status" : "success",
+   "warnings" : []
+}
