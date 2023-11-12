@@ -7,23 +7,54 @@ updates:
     schedule:
       interval: "daily"
     open-pull-requests-limit: 300
+    groups:
+      babel:
+        patterns:
+          - "@babel/*"
+          - "gulp-babel"
+      gulp:
+        patterns:
+          - "@types/gulp*"
+          - "gulp*"
+        exclude-patterns:
+          - "gulp-babel"
+      jquery:
+        patterns:
+          - "@types/jquery*"
+          - "jquery*"
+      leaflet:
+        patterns:
+          - "leaflet*"
+      lint:
+        patterns:
+          - "@typescript-eslint/*"
+          - "eslint*"
+          - "stylelint*"
+      test-dependencies:
+        patterns:
+          - "chai*"
+          - "mocha"
+      typescript:
+        patterns:
+          - "ts-node"
+          - "typescript"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-        interval: "daily"
+      interval: "daily"
     open-pull-requests-limit: 300
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
-        interval: "daily"
+      interval: "daily"
     open-pull-requests-limit: 300
   - package-ecosystem: "docker"
     directory: "/docker/frontend"
     schedule:
-        interval: "daily"
+      interval: "daily"
     open-pull-requests-limit: 300
   - package-ecosystem: "pip"
     directory: "/scripts/packager-codes/non-eu/"
     schedule:
-        interval: "daily"
+      interval: "daily"
     open-pull-requests-limit: 300
