@@ -107,7 +107,7 @@ services:
     volumes:
       - keycloak_data:/opt/keycloak/data
       - ./conf/keycloak:/opt/keycloak/data/import
-    command: start-dev --import-realm
+    command: start-dev --import-realm --features="account3,declarative-user-profile"
     ports:
       - "127.0.0.1:${KEYCLOAK_EXPOSE_PORT:-8080}:8080"
     networks:
