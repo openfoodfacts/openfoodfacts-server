@@ -906,7 +906,7 @@ sub add_percent_max_for_salt_and_sugar_ingredients_from_nutrition_facts ($produc
 		push @ingredient_max_values, {ingredientid => "en:salt", value => $salt_100g};
 	}
 
-	if ((defined $sugars_100g) or (defined $salt_100g)) {
+	if (scalar @ingredient_max_value) {
 
 		foreach my $ingredient_max_value_ref (@ingredient_max_values) {
 
