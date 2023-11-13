@@ -220,6 +220,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"SUGAR" => "sugars",
 		"SUGAR-" => "sugars",
 		"TAU" => "taurine",
+		"UNSATURATED_FAT" => "unsaturated-fat",
 		"THIA" => "vitamin-b1",
 		"THIA-" => "vitamin-b1",
 		"VITA-" => "vitamin-a",
