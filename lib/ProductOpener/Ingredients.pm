@@ -911,7 +911,7 @@ sub add_percent_max_for_salt_and_sugar_ingredients_from_nutrition_facts ($produc
 		# for each max value, we now impact the product ingredients list
 		foreach my $ingredient_max_value_ref (@ingredient_max_values) {
 
-			# Traverse the ingredients tree, breadth first
+			# Traverse the ingredients tree, depth first
 
 			my @ingredients = @{$product_ref->{ingredients}};
 
