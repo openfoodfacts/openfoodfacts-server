@@ -516,6 +516,7 @@ my @labels = (
 	"en:vegetarian", "nl:beter-leven-1-ster",
 	"nl:beter-leven-2-ster", "nl:beter-leven-3-ster",
 	"en:halal", "en:kosher",
+	"en:fed-without-gmos",
 );
 my %labels_regexps = ();
 
