@@ -4320,6 +4320,7 @@ my %phrases_after_ingredients_list = (
 		'cons[eé]rv(ar|ese) en( un)? lug[ae]r (fresco y seco|seco y fresco)',
 		'de los cuates az(u|ü)cares',
 		'de las cuales saturadas',
+		'Mantener en lugar fresco y seco',
 		'protegido de la luz',
 		'conser(y|v)ar entre',
 		'una vez abierto',
