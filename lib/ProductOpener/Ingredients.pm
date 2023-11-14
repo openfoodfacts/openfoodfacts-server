@@ -766,7 +766,7 @@ my %prepared_with = (
 	da => "fremstillet af",
 	es => "elabora con",
 	fr => "(?:(?:é|e)labor(?:é|e)|fabriqu(?:é|e)|pr(?:é|e)par(?:é|e)|produit)(?:e)?(?:s)? (?:avec|à partir)",
-	hr => "proizvedeno od|sadrži",
+	hr => "(?:proizvedeno od|sadrži)",
 	nl => "bereid met",
 	sv => "är",
 );
