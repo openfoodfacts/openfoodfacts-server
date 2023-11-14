@@ -2794,6 +2794,10 @@ description:en:Compared to the category average, the Sugars value is abnormally 
 
 ### Quantity and serving
 
+<en:Quantity and serving errors
+en:Product quantity over 30kg
+description:en:Product quantity is above 30kg, which is very unlikely. 
+
 <en:Data quality warnings
 en:Quantity and serving warnings
 description:en: Potential issues on quantities or serving size
@@ -2804,7 +2808,7 @@ en:Product quantity in mg
 
 <en:Quantity and serving warnings
 en:Product quantity over 10kg
-#description:en:
+description:en:Product quantity is above 10kg, which is unlikely for most of the products
 
 <en:Quantity and serving warnings
 en:Product quantity under 1g
