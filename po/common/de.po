@@ -196,7 +196,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/de_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -2627,6 +2627,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Bilder in geringerer Auflösung laden (für langsame Verbindungen)"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "Der Hersteller hat ein Foto zur Verfügung gestellt. Wenn Sie denken, dass es falsch oder nicht aktuell ist, kontaktieren Sie uns bitte."
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr "Hinweis: Die Nährwertangaben sind nicht angegeben. Sie wurden anhand der Liste der Zutaten geschätzt."
@@ -4000,6 +4004,10 @@ msgstr "<a href=\"\">Wir benötigen Ihre Hilfe und Spenden</a>, um das Projekt f
 
 msgctxt "thank_you"
 msgid "Thank you!"
+msgstr "Vielen Dank!"
+
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
 msgstr "Vielen Dank!"
 
 msgctxt "value_for_the_product"
@@ -5746,15 +5754,9 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Wichtig: Wir benötigen Ihre Unterstützung!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Open Food Facts ist ein gemeinschaftliches Projekt, das von Zehntausenden von Freiwilligen aufgebaut und von einer gemeinnützigen Organisation mit {number_of_employees} Mitarbeitern verwaltet wird."
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "Wir benötigen Ihre Spenden, um das Budget für Open Food Facts {year} zu finanzieren und das Projekt weiter entwickeln zu können."
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
+msgstr "Helfen Sie uns, Lebensmitteltransparenz zur Norm zu machen! Als unabhängige und gemeinnützige Organisation sind wir auf Ihre Spenden angewiesen, um die Verbraucher auf der ganzen Welt weiterhin über das zu informieren, was sie essen. Beteiligen Sie sich an der Lebensmittelrevolution mit einer Spende an die Bewegung."
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6612,6 +6614,10 @@ msgstr "für Produkte, die überwiegend das Material enthalten"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "im Vergleich zu allen Produkten"
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr "Bevorzugte Sprache"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
