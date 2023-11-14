@@ -1221,9 +1221,7 @@ check_quality_and_test_product_has_quality_tag(
 	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 0
 );
 # product quantity warnings and errors
-$product_ref = {
-	product_quantity => "123456789",
-};
+$product_ref = {product_quantity => "123456789",};
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:product-quantity-over-10kg',
@@ -1235,9 +1233,7 @@ check_quality_and_test_product_has_quality_tag(
 	'raise error because the product quantity is above 30000g', 1
 );
 # product quantity warnings and errors
-$product_ref = {
-	product_quantity => "20000",
-};
+$product_ref = {product_quantity => "20000",};
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:product-quantity-over-10kg',
@@ -1257,10 +1253,7 @@ check_quality_and_test_product_has_quality_tag(
 	'en:product-quantity-under-1g',
 	'raise warning because the product quantity is under 1g', 1
 );
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:product-quantity-in-mg',
-	'raise warning because the product quantity is in mg', 1
-);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:product-quantity-in-mg',
+	'raise warning because the product quantity is in mg', 1);
 
 done_testing();
