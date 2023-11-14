@@ -57,7 +57,7 @@ msgstr ""
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
-msgstr ""
+msgstr "Samahan kami sa Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
@@ -105,7 +105,7 @@ msgstr ""
 
 msgctxt "producer_or_brand"
 msgid "Name of producer or name of brand"
-msgstr ""
+msgstr "Pangaln ng manggagawa o pangalan ng tatak"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
@@ -182,7 +182,7 @@ msgstr "Pahina ng produkto ay na-edit din ni"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
-msgstr ""
+msgstr "/images/misc/android-apk.svg"
 
 msgctxt "android_apk_app_icon_alt_text"
 msgid "Android APK"
@@ -286,11 +286,11 @@ msgstr "Mga produkto hindi mula sa %s na tatak"
 
 msgctxt "brand_owner"
 msgid "Brand owner"
-msgstr ""
+msgstr "May-ari ng tatak"
 
 msgctxt "brand_owner_example"
 msgid "The Coca Cola Company"
-msgstr ""
+msgstr "The Coca Cola Company"
 
 msgctxt "by"
 msgid "by"
@@ -603,7 +603,7 @@ msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
+msgstr "Sa Europa, nasa isang habilog ang kodigo na may 2 inisyal ng bansa na sinusundan ng isang numero at CE."
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
@@ -753,7 +753,7 @@ msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "Datos, API at mga SDK"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
@@ -953,7 +953,7 @@ msgstr "Dapat mong lagyan ng mga titik ang barcode o magpadala ng imahe ng produ
 
 msgctxt "image_full_size"
 msgid "Full size"
-msgstr ""
+msgstr "Buong laki"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
@@ -997,15 +997,15 @@ msgstr "Mga sangkap"
 
 msgctxt "no_ingredient"
 msgid "Ingredients are missing"
-msgstr ""
+msgstr "Kulang ang mga sangkap"
 
 msgctxt "one_ingredient"
 msgid "1 ingredient"
-msgstr ""
+msgstr "1 sangkap"
 
 msgctxt "f_ingredients_with_number"
 msgid "{number} ingredients"
-msgstr ""
+msgstr "{number} (na) sangkap"
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
@@ -2619,6 +2619,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr ""
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr ""
@@ -3263,7 +3267,7 @@ msgstr "Hindi"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "Laktawan"
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -3596,7 +3600,7 @@ msgstr ""
 
 msgctxt "cancel"
 msgid "Cancel"
-msgstr ""
+msgstr "Kanselahin"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
@@ -3992,6 +3996,10 @@ msgstr ""
 
 msgctxt "thank_you"
 msgid "Thank you!"
+msgstr ""
+
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
 msgstr ""
 
 msgctxt "value_for_the_product"
@@ -4591,7 +4599,7 @@ msgstr ""
 
 msgctxt "attribute_nova_1_description_short"
 msgid "Unprocessed or minimally processed foods"
-msgstr ""
+msgstr "Mga pagkaing hindi naproseso o bahagyang naproseso"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
@@ -5738,14 +5746,8 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr ""
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr ""
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
 msgstr ""
 
 msgctxt "donation_cta"
@@ -6603,6 +6605,10 @@ msgstr ""
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
+msgstr ""
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
 msgstr ""
 
 msgctxt "packagings_n_p"
