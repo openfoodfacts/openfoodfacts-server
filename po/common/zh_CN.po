@@ -83,6 +83,18 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "您加入的请求正在等待组织管理员批准。"
 
+msgctxt "admin_status_updated"
+msgid "Admin Status Updated"
+msgstr ""
+
+msgctxt "admin_status"
+msgid "Admin Status"
+msgstr ""
+
+msgctxt "grant_remove_admin_status"
+msgid "Grant/Remove Admin status"
+msgstr ""
+
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
 msgstr "如果您有任何疑问，请发送电子邮件至 <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a>"
@@ -4196,6 +4208,10 @@ msgstr "添加一个字段"
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "删除所有产品"
+
+msgctxt "remove_user"
+msgid "Remove user"
+msgstr ""
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
