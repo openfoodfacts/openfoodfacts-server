@@ -196,7 +196,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/nl_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -2627,6 +2627,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Laad afbeeldingen met een lagere resolutie (voor langzame verbindingen)"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "Een afbeelding is ingezonden door de fabrikant. Als je denkt dat deze onjuist of niet up-to-date is, neem dan contact met ons op."
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr "Waarschuwing: de voedingswaarden zijn niet opgegeven. Ze zijn geschat uit de lijst met ingrediënten."
@@ -4002,6 +4006,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Bedankt!"
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "Heel erg bedankt!"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "Waarde voor het product"
@@ -4603,7 +4611,7 @@ msgstr "Onverwerkt of minimaal verwerkt voedsel"
 
 msgctxt "attribute_nova_2_description_short"
 msgid "Processed culinary ingredients"
-msgstr "Berwerkte ingrediënten"
+msgstr "Bewerkte ingrediënten"
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
@@ -5746,15 +5754,9 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Belangrijk: we hebben uw steun nodig!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Open Food Facts is een samenwerkingsproject gebouwd door tienduizenden vrijwilligers en beheerd door een non-profitorganisatie met {number_of_employees} medewerkers."
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "We hebben uw donaties nodig om het Open Food Facts {year} -budget te financieren en om het project verder te ontwikkelen."
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
+msgstr "Help ons voedsel transparant te maken! Als onafhankelijke non-profitorganisatie zijn we afhankelijk van uw donaties om consumenten over de hele wereld te blijven informeren over wat ze eten. Doe mee met de voedselrevolutie met een donatie aan de beweging."
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6612,6 +6614,10 @@ msgstr "voor producten die voornamelijk het materiaal bevatten"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "ten opzichte van alle producten"
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr "Voorkeurstaal"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
