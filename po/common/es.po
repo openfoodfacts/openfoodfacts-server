@@ -1625,7 +1625,7 @@ msgstr "Tipo de envase, formato, material"
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr "envases"
+msgstr "envase"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
@@ -1633,7 +1633,7 @@ msgstr "Productos con envase %s"
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr "envases"
+msgstr "envase"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -2331,7 +2331,7 @@ msgstr "Si la tabla de información nutricional contiene valores para el product
 
 msgctxt "serving_too_small_for_nutrition_analysis"
 msgid "Serving size is too small (5 g / 5 ml or less) to calculate 100 g / 100 ml values and perform any further nutritional analysis"
-msgstr ""
+msgstr "El tamaño de la ración es demasiado pequeño (5 g / 5 ml o menos) para calcular los valores de 100 g / 100 ml y realizar cualquier otro análisis nutricional"
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2626,6 +2626,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Cargar imágenes de baja resolución (para conexiones lentas)"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "Una imagen ha sido enviada por el fabricante. Si cree que es incorrecta o no está actualizada, ponte en contacto con nosotros."
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr "Advertencia: los datos nutricionales no se especifican. Se han estimado a partir de la lista de ingredientes."
@@ -2902,11 +2906,11 @@ msgstr "Riesgo de sobreexposición"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "La Autoridad Europea de Seguridad Alimentaria (AESA) ha determinado que algunos grupos de población presentan un riesgo elevado de alcanzar o superar la ingesta diaria admisible (IDA) de <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "La Autoridad Europea de Seguridad Alimentaria (EFSA) ha determinado que algunos grupos de población tienen un riesgo moderado de alcanzar o superar la Ingesta Diaria Admisible (IDA) de <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -2934,11 +2938,11 @@ msgstr "Riesgo muy bajo o nulo de sobreexposición"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of reaching or exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Riesgo de alcanzar o superar la ingesta diaria aceptable (IDA)"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of reaching exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Riesgo de superar la dosis máxima sin efectos adversos (nivel sin efecto adverso observado - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
@@ -2970,7 +2974,7 @@ msgstr "Riesgo alto"
 
 msgctxt "exposure_description_mean"
 msgid "50% of people or more"
-msgstr ""
+msgstr "50% de las personas o más"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
@@ -3046,7 +3050,7 @@ msgstr "Condiciones de conservación"
 
 msgctxt "warning"
 msgid "Warning"
-msgstr "Atención"
+msgstr "Aviso"
 
 msgctxt "preparation"
 msgid "Preparation"
@@ -3270,7 +3274,7 @@ msgstr "No"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr "Omitir"
+msgstr "Saltar"
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -4001,6 +4005,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "¡Gracias!"
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "¡Muchas gracias!"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "Valor para el producto"
@@ -4282,7 +4290,7 @@ msgstr "Colaborador"
 
 msgctxt "contributor_settings_description"
 msgid "Those settings allow you to personalize some aspects of the website"
-msgstr ""
+msgstr "Estos ajustes te permiten personalizar algunos aspectos del sitio web"
 
 msgctxt "display_barcode_in_search"
 msgid "Display barcode in search results"
@@ -4585,7 +4593,7 @@ msgstr "NOVA no calculado"
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr "Nivel de procesamiento de alimentos desconocido"
+msgstr "Nivel de procesado de alimentos desconocido"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -4670,7 +4678,7 @@ msgstr "Sin o con pocos aditivos"
 
 msgctxt "attribute_additives_setting_note"
 msgid "Additives are markers of food processing, and excess consumption of some of them have undesirable health impacts."
-msgstr ""
+msgstr "Los aditivos son marcadores del procesado de los alimentos, y el consumo excesivo de algunos de ellos tiene repercusiones indeseables para la salud."
 
 msgctxt "attribute_additives_unknown_title"
 msgid "Additives not computed"
@@ -5132,7 +5140,7 @@ msgstr "Número de productos con cambios desde la última exportación"
 
 msgctxt "number_of_products_withdrawn_from_the_market_since_last_export"
 msgid "Number of products withdrawn from the market since last export"
-msgstr ""
+msgstr "Número de productos retirados del mercado desde la última exportación"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
@@ -5169,7 +5177,7 @@ msgstr "Bajo riesgo de deforestación (huella forestal)"
 
 msgctxt "attribute_forest_footprint_setting_note"
 msgid "The forest footprint corresponds to the risk of deforestation associated with its ingredients."
-msgstr ""
+msgstr "La huella forestal corresponde al riesgo de deforestación asociado a sus ingredientes."
 
 msgctxt "attribute_forest_footprint_a_title"
 msgid "Very small forest footprint"
@@ -5288,7 +5296,7 @@ msgstr "Eliminar todos los valores de nutrientes"
 
 msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
-msgstr ""
+msgstr "El usuario está siendo eliminado. Esto puede tardar unos minutos."
 
 msgctxt "attribute_ecoscore_not_applicable_title"
 msgid "Eco-Score not yet applicable"
@@ -5745,15 +5753,9 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Importante: ¡necesitamos tu apoyo!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Open Food Facts es un proyecto colaborativo construido por decenas de miles de voluntarios y administrado por una organización sin fines de lucro con {number_of_employees} empleados."
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "Necesitamos tus donaciones para financiar el presupuesto {year} de Open Food Facts y para continuar desarrollando el proyecto."
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
+msgstr "¡Ayúdanos a que la transparencia alimentaria sea la norma! Como organización independiente sin fines de lucro, dependemos de tus donaciones para seguir informando a los consumidores de todo el mundo acerca de lo que comen. Únete a la revolución alimentaria con una donación a este movimiento."
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6030,7 +6032,7 @@ msgstr "Ingredientes que pueden no ser veganos"
 
 msgctxt "attribute_vegan_setting_note"
 msgid "To determine whether a product is vegan, we only rely on the list of ingredients."
-msgstr ""
+msgstr "Para determinar si un producto es vegano, sólo nos basamos en la lista de ingredientes."
 
 msgctxt "non_vegetarian_ingredients"
 msgid "Non-vegetarian ingredients"
@@ -6046,7 +6048,7 @@ msgstr "Ingredientes que pueden no ser vegetarianos"
 
 msgctxt "attribute_vegetarian_setting_note"
 msgid "To determine whether a product is vegetarian, we only rely on the list of ingredients."
-msgstr ""
+msgstr "Para determinar si un producto es vegetariano, sólo nos basamos en la lista de ingredientes."
 
 msgctxt "palm_oil_ingredients"
 msgid "Ingredients that contain palm oil"
@@ -6062,7 +6064,7 @@ msgstr "No se ha detectado ningún ingrediente que contenga aceite de palma"
 
 msgctxt "attribute_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
-msgstr ""
+msgstr "Para determinar si un producto contiene aceite de palma, sólo nos basamos en la lista de ingredientes."
 
 msgctxt "unrecognized_ingredients"
 msgid "Unrecognized ingredients"
@@ -6445,7 +6447,7 @@ msgstr "Nada"
 
 msgctxt "api_impact_warning"
 msgid "Warning"
-msgstr "Atención"
+msgstr "Aviso"
 
 msgctxt "api_impact_failure"
 msgid "Failure"
@@ -6549,7 +6551,7 @@ msgstr "Preguntas frecuentes para productores"
 
 msgctxt "join_the_next_pros_meet_up"
 msgid "Join the next Pros' Meet-up"
-msgstr ""
+msgstr "Participa en el próximo encuentro de profesionales"
 
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
@@ -6558,7 +6560,7 @@ msgstr "Por favor ingresa un valor entre 0 y {max}."
 
 msgctxt "please_ask_users_create_account_first"
 msgid "Please ask the following users to create an Open Food Facts account first:"
-msgstr ""
+msgstr "Por favor, pide a los siguientes usuarios que creen primero una cuenta Open Food Facts:"
 
 msgctxt "users_added_successfully"
 msgid "Users added to the organization successfully:"
@@ -6611,6 +6613,10 @@ msgstr "para productos que contienen el material"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "en relación con todos los productos"
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr "Idioma preferido"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
