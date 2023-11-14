@@ -196,7 +196,7 @@ msgstr "https://world-hu.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/hu_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -2623,6 +2623,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Alacsonyabb felbontású képek betöltése (lassú kapcsolat esetén)"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr ""
@@ -3997,6 +4001,10 @@ msgstr "A projekt folytatásához és továbbfejlődéséhez <a href=\"\">az Ön
 msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Köszönjük!"
+
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "Nagyon szépen köszönjük!"
 
 msgctxt "value_for_the_product"
 msgid "Value for the product"
@@ -5742,15 +5750,9 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Fontos: szükségünk van az Ön támogatására!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Az Open Food Facts egy több tízezer önkéntes által felépített együttműködési projekt, amelyet egy {number_of_employees} alkalmazottat foglalkoztató non-profit szervezet irányít."
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "Szükségünk van az Ön adományaira az Open Food Facts {year} költségvetés finanszírozásához és a projekt fejlesztésének folytatásához."
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
+msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6607,6 +6609,10 @@ msgstr ""
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
+msgstr ""
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
 msgstr ""
 
 msgctxt "packagings_n_p"
