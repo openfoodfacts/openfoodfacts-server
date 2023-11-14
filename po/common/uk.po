@@ -117,7 +117,7 @@ msgstr "Введіть назву вашої організації (назва 
 
 msgctxt "enter_email_addresses_of_users"
 msgid "Enter email addresses of users to invite (comma-separated):"
-msgstr ""
+msgstr "Введіть email адреси користувачів для запрошення (розділенні комами):"
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
@@ -191,12 +191,12 @@ msgstr "АРК для Android"
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/en_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -251,7 +251,7 @@ msgstr "Управління ручним виробництвом"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> створюється неприбутковою асоціацією, незалежною від індустрії. Вона створена для всіх, усіма, і фінансується всіма. Ви можете підтримати нашу роботу <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">пожертвувати на Open Food Facts</a>а також за допомогою <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">пошукової системи Lilo</a>.<br/><b>Дякую тобі!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -467,15 +467,15 @@ msgstr "Видалити зображення"
 
 msgctxt "delete_user"
 msgid "Delete a user"
-msgstr ""
+msgstr "Видалити користувача"
 
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
-msgstr ""
+msgstr "Це видалить ваші дані користувача та анонімізує всі ваші внески. Будь ласка, введіть своє ім'я користувача ще раз для підтвердження."
 
 msgctxt "danger_zone"
 msgid "Danger Zone"
-msgstr ""
+msgstr "Небезпечна Зона"
 
 msgctxt "diff_add"
 msgid "Added:"
@@ -563,7 +563,7 @@ msgstr "видавець"
 
 msgctxt "email"
 msgid "E-mail address"
-msgstr ""
+msgstr "E-mail адреса"
 
 msgctxt "emb_code_products"
 msgid "Products packaged by the company with traceability code %s"
@@ -741,7 +741,7 @@ msgstr "<<site_name>> блог"
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://blog.openfoodfacts.org/en/"
-msgstr ""
+msgstr "https://blog.openfoodfacts.org/en/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -980,7 +980,7 @@ msgstr "Деталі фото та інформація про спроможн�
 
 msgctxt "invite_user"
 msgid "Invite Users"
-msgstr ""
+msgstr "Запросити користувача"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -1377,7 +1377,7 @@ msgstr "Приєднайтесь до новинної розсилки (мак�
 
 msgctxt "subscribe_to_our_newsletter"
 msgid "Subscribe to our newsletter"
-msgstr ""
+msgstr "Підпишіться на нашу розсилку новин"
 
 msgctxt "next"
 msgid "Next"
@@ -1544,7 +1544,7 @@ msgstr "За замовчуванням у таблиці перерахован
 
 msgctxt "nutrition_data_table_asterisk"
 msgid "Essential nutrients to calculate the Nutri-Score."
-msgstr ""
+msgstr "Основні поживні речовини для розрахунку Nutri-Score."
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1557,13 +1557,14 @@ msgstr "Харчова цінність"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr ""
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
 msgid "<p>To learn more about <<site_name>>, visit <a href=\"https://blog.openfoodfacts.org/en/\">our blog</a>!</p>\n"
 "<p>Recent news:</p>\n"
-msgstr ""
+msgstr "<p>Щоб дізнатися більше про <<site_name>>, відвідуй <a href=\"https://blog.openfoodfacts.org/en/\">наш блог</a>!</p>\n"
+"<p>Останні новини:</p>\n"
 
 msgctxt "on_the_blog_title"
 msgid "News"
@@ -1756,11 +1757,11 @@ msgstr "Зміни збережено."
 
 msgctxt "product_edit_you_contributed"
 msgid "You just helped to improve the world largest open data database."
-msgstr ""
+msgstr "Ви щойно допомогли покращити найбільшу у світі базу відкритих даних."
 
 msgctxt "product_edit_thank_you"
 msgid "Thank you so much for joining us in our journey to data transparency!"
-msgstr ""
+msgstr "Щиро дякуємо, що приєдналися до нашого шляху прозорості даних!"
 
 msgctxt "product_characteristics"
 msgid "Product characteristics"
@@ -2290,7 +2291,7 @@ msgstr "Перегляньте сторінку товару"
 
 msgctxt "re_edit_product_page"
 msgid "Edit the product again"
-msgstr ""
+msgstr "Відредагуйте продукт ще раз"
 
 msgctxt "select_country"
 msgid "Country"
@@ -2330,7 +2331,7 @@ msgstr "Якщо таблиця харчової цінності містить
 
 msgctxt "serving_too_small_for_nutrition_analysis"
 msgid "Serving size is too small (5 g / 5 ml or less) to calculate 100 g / 100 ml values and perform any further nutritional analysis"
-msgstr ""
+msgstr "Розмір порції занадто малий (5 г / 5 мл або менше), щоб розрахувати значення 100 г / 100 мл і виконати будь-який подальший аналіз поживності"
 
 msgctxt "session_title"
 msgid "Sign-in"
@@ -2555,7 +2556,7 @@ msgstr "Товари, які не були додані %s"
 
 msgctxt "video_tutorials"
 msgid "Video Tutorials"
-msgstr ""
+msgstr "Відеоуроки"
 
 msgctxt "view"
 msgid "view"
@@ -2576,7 +2577,8 @@ msgstr "Переглянути результати з усього світу"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
-msgstr ""
+msgstr "Інформація та дані повинні бути взяті з упаковки та етикетки продукту (а не з інших сайтів або сайту виробника), і ви повинні зробити фотографії самостійно.<br/>\n"
+"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Чому це важливо</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -2594,7 +2596,7 @@ msgstr "Завантажити з Мicrosoft"
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
 msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr ""
+msgstr "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2624,9 +2626,13 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Завантажте зображення з меншою роздільною здатністю (для уповільнених з’єднань)"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "Зображення надіслано постачальником. Якщо ви вважаєте, що це неправильно або не актуально, зв’яжіться з нами."
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
-msgstr ""
+msgstr "Попередження: харчова цінність не вказана. Вони були оцінені на основі списку інгредієнтів."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2901,11 +2907,11 @@ msgstr "Ризик передержання"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_high"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a high risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "Європейське агентство з безпеки харчових продуктів (EFSA) визначило, що деякі групи населення мають високий ризик досягти або перевищити допустиму добову норму споживання (ДДВ) для<tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_moderate"
 msgid "The European Food Safety Authority (EFSA) has determined that some population groups have a moderate risk of reaching or exceeding the Acceptable Daily Intake (ADI) for <tag>."
-msgstr ""
+msgstr "Європейське агентство з безпеки харчових продуктів (EFSA) визначило, що деякі групи населення мають помірний ризик досягти або перевищити допустиме добове споживання (ДДВ) для <tag>."
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_description"
 msgid "To evaluate your exposure to the <tag> food additive, you can browse our list of products that contain it. See the list of <nb_products> products with <tag> below."
@@ -2933,11 +2939,11 @@ msgstr "Відсутність або дуже низький ризик над�
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_adi"
 msgid "Risk of reaching or exceeding the acceptable daily intake (ADI)"
-msgstr ""
+msgstr "Ризик досягнення або перевищення допустимого добового споживання (ADI)"
 
 msgctxt "additives_efsa_evaluation_exposure_greater_than_noael"
 msgid "Risk of reaching exceeding the maximum dose without adverse effect (No observed adverse effect level - NOAEL)"
-msgstr ""
+msgstr "Ризик досягнення перевищення максимальної дози без побічної дії (No observed adverse effect level - NOAEL)"
 
 msgctxt "additives_efsa_evaluation_exposure_mean_greater_than_adi"
 msgid "Groups with more than 50% of members exceeding the acceptable daily intake (ADI)"
@@ -2957,19 +2963,19 @@ msgstr "Групи з більше ніж 5% учасників, які не н�
 
 msgctxt "exposure_title_95th"
 msgid "Moderate risk"
-msgstr ""
+msgstr "Помірний ризик"
 
 msgctxt "exposure_description_95th"
 msgid "5% of people or more"
-msgstr ""
+msgstr "5% людей або більше"
 
 msgctxt "exposure_title_mean"
 msgid "High risk"
-msgstr ""
+msgstr "Високий ризик"
 
 msgctxt "exposure_description_mean"
 msgid "50% of people or more"
-msgstr ""
+msgstr "50% людей або більше"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
@@ -3719,7 +3725,7 @@ msgstr "припустимі поліпшення"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/імпорт-товарів"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -4003,6 +4009,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Дякуємо!"
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "Вельми вдячні!"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "Харчова цінність товару"
@@ -4023,11 +4033,11 @@ msgstr "Платформа для виробників ще досі розви�
 
 msgctxt "crm_user_id"
 msgid "Id of corresponding contact in CRM"
-msgstr ""
+msgstr "Ідентифікатор відповідного контакту в CRM"
 
 msgctxt "crm_org_id"
 msgid "Id of corresponding organization in CRM"
-msgstr ""
+msgstr "Ідентифікатор відповідної організації в CRM"
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -4116,7 +4126,7 @@ msgstr "Уповільнення платформи виробників"
 # variable names between { } must not be translated
 msgctxt "f_pro_moderator_owner_set"
 msgid "You are currently viewing products from {organization}."
-msgstr ""
+msgstr "Ви зараз переглядаєте товари від {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4129,7 +4139,7 @@ msgstr "Для того щоб побачити товари конкретно�
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Switch to another organization"
-msgstr ""
+msgstr "Перейти до іншої організації"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4284,7 +4294,7 @@ msgstr "Учасник"
 
 msgctxt "contributor_settings_description"
 msgid "Those settings allow you to personalize some aspects of the website"
-msgstr ""
+msgstr "Ці налаштування дозволяють персоналізувати деякі аспекти вебсайту"
 
 msgctxt "display_barcode_in_search"
 msgid "Display barcode in search results"
@@ -4729,7 +4739,7 @@ msgstr "Постарайтеся бути конкретним наскільк�
 
 msgctxt "packaging_text_note_3"
 msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
-msgstr ""
+msgstr "Дані з цього поля будуть об'єднані з будь-якими даними, наданими для кожної частини упаковки. Можна вказати або одне, або інше, або обидва."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
@@ -4906,15 +4916,15 @@ msgstr "Офіційний сайт"
 
 msgctxt "organization_members"
 msgid "Organization Members"
-msgstr ""
+msgstr "Учасники Організації"
 
 msgctxt "number_of_members"
 msgid "Number of Members"
-msgstr ""
+msgstr "Кількість учасників"
 
 msgctxt "serial_no"
 msgid "S.No"
-msgstr ""
+msgstr "S.No"
 
 msgctxt "contact_form"
 msgid "Contact form"
@@ -5134,7 +5144,7 @@ msgstr "Коефіцієнт товарів, які зазнали змін з �
 
 msgctxt "number_of_products_withdrawn_from_the_market_since_last_export"
 msgid "Number of products withdrawn from the market since last export"
-msgstr ""
+msgstr "Кількість продуктів, вилучених з ринку з моменту останнього експорту"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
@@ -5290,7 +5300,7 @@ msgstr "Видалити всі значення поживних речовин
 
 msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
-msgstr ""
+msgstr "Користувач видаляється. Це може зайняти деякий час."
 
 msgctxt "attribute_ecoscore_not_applicable_title"
 msgid "Eco-Score not yet applicable"
@@ -5307,7 +5317,7 @@ msgstr "Ще не застосовується для категорії: {categ
 
 msgctxt "ecoscore_not_applicable_coming_soon"
 msgid "The Eco-Score is not yet applicable for this category, but we are working on adding support for it."
-msgstr ""
+msgstr "Eco-Score поки що не застосовується для цієї категорії, але ми працюємо над тим, щоб додати її підтримку."
 
 msgctxt "attribute_ecoscore_unknown_title"
 msgid "Eco-Score not computed"
@@ -5319,7 +5329,7 @@ msgstr "Невідомий вплив на навколишнє середови
 
 msgctxt "ecoscore_unknown_call_to_help"
 msgid "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
-msgstr ""
+msgstr "Ми не змогли обчислити Eco-Score цього продукту, оскільки не вистачає деяких даних, чи не могли б ви допомогти нам заповнити його?"
 
 msgctxt "org_list_of_gs1_gln_description"
 msgid "GS1 data is automatically associated with an OFF organization identifier that corresponds to the GS1 partyName field. To change the OFF organization identifier, you can directly assign 1 or more GS1 GLN identifiers."
@@ -5335,11 +5345,11 @@ msgstr "Розділений комами список ідентифікато�
 
 msgctxt "org_valid_org"
 msgid "Validate organization as a real producer."
-msgstr ""
+msgstr "Довести, що організація є справжнім виробником."
 
 msgctxt "org_valid_org_note"
 msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
-msgstr ""
+msgstr "Організація перевіряється як реальний виробник людиною, яка також створює запис в CRM."
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
@@ -5655,11 +5665,11 @@ msgstr "Eco-Score спочатку був розроблений для Фран
 
 msgctxt "ecoscore_warning_transportation_world"
 msgid "Select a country in order to include the full impact of transportation."
-msgstr ""
+msgstr "Виберіть країну, щоб врахувати повний вплив транспорту."
 
 msgctxt "ecoscore_warning_transportation"
 msgid "The full impact of transportation to your country is currently unknown."
-msgstr ""
+msgstr "Повний вплив транспортування на вашу країну наразі невідомий."
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
@@ -5747,15 +5757,9 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Важливо: нам необхідна ваша підтримка!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Open Food Facts – це спільний проект, створений десятками тисяч добровольців і керований некомерційною організацією з {number_of_employees} співробітниками."
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "Нам потрібні ваші пожертви для поповнення бюджету Open Food Facts {year} та продовження розвитку проекту."
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
+msgstr "Допоможіть нам зробити прозорість їжі нормою! Як незалежна некомерційна організація, ми покладаємося на ваші пожертви, щоб продовжувати інформувати споживачів у всьому світі про те, що вони їдять. Приєднайтеся до харчової революції, зробивши пожертву на користь руху."
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -5898,7 +5902,7 @@ msgstr "Обов’язково вказати властивості харчо
 
 msgctxt "nutriscore_missing_category_and_nutrition_data"
 msgid "The category and the nutrition facts of the product must be specified in order to compute the Nutri-Score."
-msgstr ""
+msgstr "Для розрахунку Nutri-Score необхідно вказати категорію та поживну цінність продукту."
 
 msgctxt "health"
 msgid "Health"
@@ -5906,31 +5910,31 @@ msgstr "Здоров’я"
 
 msgctxt "contribution_panel_title"
 msgid "Contribution"
-msgstr ""
+msgstr "Внесок"
 
 msgctxt "contribution_navigation"
 msgid "Contribution"
-msgstr ""
+msgstr "Внесок"
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
-msgstr ""
+msgstr "Виявлені помилки"
 
 msgctxt "data_quality_errors_panel_subtitle"
 msgid "Help us improve quality of our data by contributing fixes"
-msgstr ""
+msgstr "Допоможіть нам покращити якість наших даних, зробивши свій внесок у виправлення"
 
 msgctxt "data_quality_warnings_panel_title"
 msgid "Potential issues"
-msgstr ""
+msgstr "Потенційні проблеми"
 
 msgctxt "data_quality_warnings_panel_subtitle"
 msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
-msgstr ""
+msgstr "Ми виявили деякі потенційні проблеми або потенційні покращення, не могли б ви перевірити, чи застосовні вони?"
 
 msgctxt "data_quality_info_panel_title"
 msgid "Data Quality infos"
-msgstr ""
+msgstr "Інформація про якість даних"
 
 msgctxt "data_quality_info_panel_subtitle"
 msgid "Some infos about data quality on this product"
@@ -6081,7 +6085,7 @@ msgstr "Елементи, які вказують на те, що товар н�
 
 msgctxt "nova_classification_description"
 msgid "Food products are classified into 4 groups according to their degree of processing:"
-msgstr ""
+msgstr "Харчові продукти класифікуються на 4 групи за ступенем обробки:"
 
 msgctxt "nova_classification_how"
 msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
@@ -6179,25 +6183,25 @@ msgstr "Додати інформацію про поживні речовини
 
 msgctxt "action_add_origins"
 msgid "Add the origins of ingredients for this product"
-msgstr ""
+msgstr "Додайте походження інгредієнтів для цього продукту"
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
-msgstr ""
+msgstr "Сфотографуйте інформацію про перероблення"
 
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
-msgstr ""
+msgstr "Додайте пакувальні компоненти"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
 msgid "Add basic details"
-msgstr ""
+msgstr "Додайте основні дані"
 
 # this is not used yet
 msgctxt "action_add_portion_size"
 msgid "Add portion size"
-msgstr ""
+msgstr "Додати розмір порції"
 
 # this is not used yet
 msgctxt "action_add_ingredients_image"
@@ -6212,37 +6216,37 @@ msgstr "Зробити фото складу"
 # this is not used yet
 msgctxt "action_refresh_ingredients_image"
 msgid "Refresh the photo of the ingredients"
-msgstr ""
+msgstr "Оновити фото інгредієнтів"
 
 # this is not used yet
 msgctxt "action_refresh_nutrition_image"
 msgid "Refresh the photo of the nutrition facts"
-msgstr ""
+msgstr "Оновіть фото фактів про харчування"
 
 # this is not used yet
 msgctxt "action_add_packaging_text"
 msgid "Extract and check the recycling information"
-msgstr ""
+msgstr "Витягніть і перевірте інформацію про перероблення"
 
 # this is not used yet
 msgctxt "action_add_stores"
 msgid "Add the store where you found this product"
-msgstr ""
+msgstr "Додайте магазин, де ви знайшли цей товар"
 
 # this is not used yet
 msgctxt "action_labels"
 msgid "Add any label present on this product"
-msgstr ""
+msgstr "Додайте будь-яку етикетку, наявну на цьому товарі"
 
 # this is not used yet
 msgctxt "action_countries"
 msgid "Add the country where you found this product"
-msgstr ""
+msgstr "Додайте країну, де ви знайшли цей продукт"
 
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr ""
+msgstr "Сфотографуйте коди простежуваності"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6323,42 +6327,42 @@ msgstr "Додані товари"
 
 msgctxt "products_edited"
 msgid "Products edited"
-msgstr ""
+msgstr "Відредаговані продукти"
 
 msgctxt "products_photographed"
 msgid "Products photographed"
-msgstr ""
+msgstr "Продукція сфотографована"
 
 # result of the matching with the user preferences: should ne a noun, not a verb
 msgctxt "matching_with_your_preferences"
 msgid "Matching with your preferences"
-msgstr ""
+msgstr "Відповідність вашим уподобанням"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_join_us_on_slack"
 msgid "Join us on <a href=\"{url}\">Slack</a>"
-msgstr ""
+msgstr "Приєднуйтесь до нас на <a href=\"{url}\">Slack</a>"
 
 # HTML tags and variable names between { } must not be translated
 msgctxt "f_discover_our_code_of_conduct"
 msgid "Discover our <a href=\"{url}\">Code of conduct</a>"
-msgstr ""
+msgstr "Ознайомтеся з нашим <a href=\"{url}\">Кодексом поведінки</a>"
 
 # {links} must not be translated, it will be replaced by icons and/or text links
 msgctxt "f_footer_follow_us_links"
 msgid "Follow us: {links}"
-msgstr ""
+msgstr "Слідкуйте за нами: {links}"
 
 # Should be as small as possible, e.g. use "app" instead of "application", don't specify "mobile"
 msgctxt "footer_install_the_app_exclamation_mark"
 msgid "Install the app!"
-msgstr ""
+msgstr "Встановіть додаток!"
 
 # HTML tags must not be translated, keep <span id=\"everyday\"> and <span id=\"foods\"> and put them around the corresponding words in the translation
 # e.g. in French: Scannez les <span id=\"foods\">aliments</span> de votre <span id=\"everyday\">quotidien</span>
 msgctxt "footer_scan_your_everyday_foods"
 msgid "Scan your <span id=\"everyday\">everyday</span> <span id=\"foods\">foods</span>"
-msgstr ""
+msgstr "Скануйте свої <span id=\"everyday\">щоденні</span> <span id=\"foods\">продукти</span>"
 
 msgctxt "nutrition"
 msgid "Nutrition"
@@ -6367,7 +6371,7 @@ msgstr "Харчова цінність"
 # Note: "criteria" is plural here. So in French for instance: "Vos critères"
 msgctxt "your_criteria"
 msgid "Your criteria"
-msgstr ""
+msgstr "Ваші критерії"
 
 msgctxt "product"
 msgid "Product"
@@ -6379,11 +6383,11 @@ msgstr "Середовище"
 
 msgctxt "api_result_failure"
 msgid "Failure"
-msgstr ""
+msgstr "Збій"
 
 msgctxt "api_result_product_found"
 msgid "Product found"
-msgstr ""
+msgstr "Товар знайдено"
 
 msgctxt "api_result_product_not_found"
 msgid "Product not found"
@@ -6391,55 +6395,55 @@ msgstr "Товар не знайдено"
 
 msgctxt "api_result_product_updated"
 msgid "Product updated"
-msgstr ""
+msgstr "Продукт оновлено"
 
 msgctxt "api_message_invalid_api_action"
 msgid "Invalid API action"
-msgstr ""
+msgstr "Неправильна дія API"
 
 msgctxt "api_message_invalid_api_method"
 msgid "Invalid API method"
-msgstr ""
+msgstr "Неправильний метод API"
 
 msgctxt "api_message_empty_request_body"
 msgid "Empty request body"
-msgstr ""
+msgstr "Порожнє тіло запиту"
 
 msgctxt "api_message_invalid_json_in_request_body"
 msgid "Invalid JSON in request body"
-msgstr ""
+msgstr "Неправильний JSON в тілі запиту"
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
-msgstr ""
+msgstr "Неправильний код"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
-msgstr ""
+msgstr "Неправильний тип: має бути об'єкт"
 
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
-msgstr ""
+msgstr "Неправильний тип: має бути масив"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
-msgstr ""
+msgstr "Неправильний тип: має бути цілим числом"
 
 msgctxt "api_message_invalid_type_must_be_number"
 msgid "Invalid type: must be a number"
-msgstr ""
+msgstr "Неправильний тип: має бути число"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
-msgstr ""
+msgstr "Пропущене поле"
 
 msgctxt "api_message_unrecognized_field"
 msgid "Unrecognized field"
-msgstr ""
+msgstr "Невизнане поле"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
-msgstr ""
+msgstr "Нерозпізнане значення"
 
 msgctxt "api_impact_none"
 msgid "None"
@@ -6451,15 +6455,15 @@ msgstr "Увага"
 
 msgctxt "api_impact_failure"
 msgid "Failure"
-msgstr ""
+msgstr "Збій"
 
 msgctxt "api_impact_field_ignored"
 msgid "Field ignored"
-msgstr ""
+msgstr "Поле ігнорується"
 
 msgctxt "api_impact_value_converted"
 msgid "Value converted"
-msgstr ""
+msgstr "Перетворено значення"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units"
@@ -6469,29 +6473,29 @@ msgstr ""
 # Unit = element, not unit of measure
 msgctxt "packaging_weight"
 msgid "Weight of one empty unit"
-msgstr ""
+msgstr "Вага одного порожнього блоку"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit"
 msgid "Quantity of product contained per unit"
-msgstr ""
+msgstr "Кількість продукту, що міститься в одиниці"
 
 # variable names between { } must not be translated
 msgctxt "f_help_categorize_on_hunger_games"
 msgid "Help categorize more {title} on Hunger Games"
-msgstr ""
+msgstr "Допоможіть класифікувати більше {title} про Голодні ігри"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr ""
+msgstr "Перераховані всі пакувальні частини продукту."
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
-msgstr ""
+msgstr "Неправильний логін і пароль"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
-msgstr ""
+msgstr "Неприпустиме значення: має бути 0 або 1"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
@@ -6513,7 +6517,7 @@ msgstr "Вказуйте інструкції з утилізації, тіль�
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
 msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
-msgstr ""
+msgstr "Перед зважуванням видаліть залишки їжі, вимийте та висушіть пакувальну частину. Якщо можливо, використовуйте ваги з точністю до 0,1 г або 0,01 г."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
@@ -6522,7 +6526,7 @@ msgstr "Введіть вагу нетто або об'єм нетто і вка
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
-msgstr ""
+msgstr "Імпорт та експорт продукції"
 
 msgctxt "add_products"
 msgid "Add products"
@@ -6531,48 +6535,48 @@ msgstr "Додати продукти"
 # Needs to be short (displayed in a menu)
 msgctxt "install_the_app_to_add_products"
 msgid "Install the app to add products"
-msgstr ""
+msgstr "Встановіть додаток, щоб додавати товари"
 
 msgctxt "search_and_analyze_products"
 msgid "Search and analyze products"
-msgstr ""
+msgstr "Пошук та аналіз продуктів"
 
 msgctxt "resources"
 msgid "Resources"
-msgstr ""
+msgstr "Ресурси"
 
 msgctxt "pro_platform_user_guide"
 msgid "Pro platform user guide"
-msgstr ""
+msgstr "Посібник користувача платформи Pro"
 
 msgctxt "faq_for_producers"
 msgid "FAQ for producers"
-msgstr ""
+msgstr "FAQ для виробників"
 
 msgctxt "join_the_next_pros_meet_up"
 msgid "Join the next Pros' Meet-up"
-msgstr ""
+msgstr "Приєднуйтесь до наступної зустрічі профі"
 
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
-msgstr ""
+msgstr "Будь ласка, введіть значення від 0 до {max}."
 
 msgctxt "please_ask_users_create_account_first"
 msgid "Please ask the following users to create an Open Food Facts account first:"
-msgstr ""
+msgstr "Будь ласка, попросіть наступних користувачів спочатку створити обліковий запис Open Food Facts:"
 
 msgctxt "users_added_successfully"
 msgid "Users added to the organization successfully:"
-msgstr ""
+msgstr "Користувачі успішно додані до організації:"
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
-msgstr ""
+msgstr "Цукрів не повинно бути більше, ніж вуглеводів."
 
 msgctxt "product_js_saturated_fat_warning"
 msgid "Saturated fat should not be higher than fat."
-msgstr ""
+msgstr "Насичені жири не повинні перевищувати жирність."
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
@@ -6613,6 +6617,10 @@ msgstr "для товарів, що містять здебільшого мат
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "відносно всіх продуктів"
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr "Бажана мова"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
