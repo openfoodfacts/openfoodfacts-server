@@ -196,7 +196,7 @@ msgstr "https://world-cs.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/cs_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -1463,7 +1463,7 @@ msgstr "Nutriční hodnoty"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr "Průměrné nutriční údaje pro %d produktů z %s kategorie, pro které jsou známy výživové údaje (z %d produktů)."
+msgstr "Průměrné nutriční údaje pro %d produktů z kategorie %s, pro které jsou známy výživové údaje (z %d produktů)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
@@ -2624,6 +2624,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Načíst obrázky s nižším rozlišením (pro pomalá připojení)"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "Obrázek byl zaslán výrobcem. Pokud si myslíte, že je nesprávný nebo neaktuální, prosím kontaktujte nás."
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr "Upozornění: nutriční údaje nejsou uvedeny. Byly odhadnuty ze seznamu přísad."
@@ -2798,16 +2802,16 @@ msgstr "U připravovaného produktu jsou uvedeny nutriční údaje."
 
 msgctxt "nova_groups_s"
 msgid "NOVA group"
-msgstr "NOVA třída"
+msgstr "Skupina NOVA"
 
 msgctxt "nova_groups_p"
 msgid "NOVA groups"
-msgstr "NOVA třídy"
+msgstr "Skupiny NOVA"
 
 # Title for the link to the explanation of what a NOVA Group is
 msgctxt "nova_groups_info"
 msgid "NOVA groups for food processing"
-msgstr "NOVA třídy zpracování potravin"
+msgstr "Skupiny NOVA pro zpracování potravin"
 
 msgctxt "footer_partners"
 msgid "Partners"
@@ -3999,6 +4003,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Děkujeme!"
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "Děkujeme mnohokrát!"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "Hodnota za produkt"
@@ -4575,7 +4583,7 @@ msgstr "Průmyslové zpracování"
 
 msgctxt "attribute_nova_name"
 msgid "NOVA group"
-msgstr "NOVA třída"
+msgstr "Skupina NOVA"
 
 msgctxt "attribute_nova_unknown_title"
 msgid "NOVA not computed"
@@ -4624,7 +4632,7 @@ msgstr "Filtr dotazů"
 
 msgctxt "nova_group_producer"
 msgid "NOVA group"
-msgstr "NOVA třída"
+msgstr "Skupina NOVA"
 
 msgctxt "error_unknown_org"
 msgid "Unknown organization."
@@ -5743,15 +5751,9 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Důležité: potřebujeme vaši podporu!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Open Food Facts je společný projekt vytvořený desítkami tisíc dobrovolníků a spravovaný neziskovou organizací s {number_of_employees} zaměstnanci."
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "Potřebujeme vaše dary na financování rozpočtu Open Food Facts {year} a na pokračování v rozvoji projektu."
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
+msgstr "Pomozte nám, aby se transparentnost potravin stala normou! Jako nezávislá nezisková organizace jsme závislí na vašich darech, abychom i nadále informovali spotřebitele po celém světě o tom, co jedí. Připojte se k potravinářské revoluci darem pro posun."
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6609,6 +6611,10 @@ msgstr "pro produkty, které daný materiál převážně obsahují"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "vzhledem ke všem produktům"
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr "Preferovaný jazyk"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
