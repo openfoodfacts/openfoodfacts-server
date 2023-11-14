@@ -34,9 +34,9 @@
 			<tr>
 				<td>[% count %].</td>
 				<td>
-					[% SET userid = users.userid %]				
+	[% SET userid = users.userid %]
     [% SET user_in_admin_status = user_is_admin.$userid %]
-    <input form="admin_users_form" type="checkbox" name="admin_status_[% users.userid %]" value="1" class="admin-checkbox" [% IF user_in_admin_status %]checked[% END %]>			
+	<input form="admin_users_form" type="checkbox" name="admin_status_[% users.userid %]" value="1" class="admin-checkbox" [% IF user_in_admin_status %]checked[% END %] [% IF current_user_id == userid  %]disabled[% END %]>
 				</td>
 				<td>[% users.userid %]</td>
 				<td>[% users.name %]</td>

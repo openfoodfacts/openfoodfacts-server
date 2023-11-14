@@ -402,6 +402,8 @@ elsif ($action eq 'process') {
 			}
 
 			foreach my $user_id (@{$diff->deleted}) {
+				# never remove current user from admin list
+				next if ($user_id eq $User_id);
 				remove_user_from_org($org_ref, $user_id, ["admins"]);
 			}
 
@@ -434,6 +436,7 @@ foreach my $member_id (sort keys %{$org_ref->{members}}) {
 }
 $template_data_ref->{org_members} = \@org_members;
 $template_data_ref->{user_is_admin} = \%user_is_admin;
+$template_data_ref->{current_user_id} = $User_id;
 
 $tt->process('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
 	or $html = "<p>template error: " . $tt->error() . "</p>";
