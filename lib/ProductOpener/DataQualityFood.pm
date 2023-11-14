@@ -787,19 +787,19 @@ sub check_nutrition_data ($product_ref) {
 				$total += $product_ref->{nutriments}{$nid . "_100g"};
 			}
 
-			# variables to check if there are 3 or more duplicates in nutriments
+			# variables to check if there are many duplicates in nutriments
 			if (
-				(
-					   ($nid eq 'fat_100g')
-					or ($nid eq 'saturated-fat_100g')
-					or ($nid eq 'carbohydrates_100g')
-					or ($nid eq 'sugars_100g')
-					or ($nid eq 'fiber_100g')
-					or ($nid eq 'proteins_100g')
-					or ($nid eq 'salt_100g')
-					or ($nid eq 'sodium_100g')
-				)
-				and ($product_ref->{nutriments}{$nid} > 1)
+				# (
+				   ($nid eq 'energy-kj_100g')
+				or ($nid eq 'energy-kcal_100g')
+				or ($nid eq 'fat_100g')
+				or ($nid eq 'saturated-fat_100g')
+				or ($nid eq 'carbohydrates_100g')
+				or ($nid eq 'sugars_100g')
+				or ($nid eq 'fiber_100g')
+				or ($nid eq 'proteins_100g')
+				or ($nid eq 'salt_100g')
+				or ($nid eq 'sodium_100g')
 				)
 			{
 				push(@major_nutriments_values, $product_ref->{nutriments}{$nid});
@@ -807,7 +807,7 @@ sub check_nutrition_data ($product_ref) {
 
 		}
 
-		# create a hash key: nutriment value, value: number of occurence
+		# create a hash key: nutriment value, value: number of occurences
 		foreach my $nutriment_value (@major_nutriments_values) {
 			if (exists($nutriments_values_occurences{$nutriment_value})) {
 				$nutriments_values_occurences{$nutriment_value}++;
@@ -816,12 +816,25 @@ sub check_nutrition_data ($product_ref) {
 				$nutriments_values_occurences{$nutriment_value} = 1;
 			}
 		}
-		# raise warning if there are 3 or more duplicates in nutriments
+		# raise warning if there are 3 or more duplicates in nutriments and nutriment is above 1
 		foreach my $keys (keys %nutriments_values_occurences) {
-			if ($nutriments_values_occurences{$keys} > 2) {
+			if (($nutriments_values_occurences{$keys} > 2) and ($keys > 1)) {
 				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-3-or-more-values-are-identical";
 				last;
 			}
+		}
+
+		# retrieve max number of occurences
+		my $nutriments_values_occurences_max_value = -1;
+		foreach my $key (keys %nutriments_values_occurences) {
+			if ($nutriments_values_occurences{$key} > $nutriments_values_occurences_max_value) {
+				$nutriments_values_occurences_max_value = $nutriments_values_occurences{$key};
+				# $nutriments_values_occurences_max_key = $key;
+			}
+		}
+		# raise error if all values are identical (this can only apply when they are 0 (because salt or sodium are automatically generated from each others))
+		if ($nutriments_values_occurences_max_value == scalar @major_nutriments_values) {
+			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-values-are-all-identical";
 		}
 
 		if ($total > 105) {
