@@ -196,7 +196,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/ar_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -857,7 +857,7 @@ msgstr "Open Beauty Facts - مستحضرات التجميل"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr "https://world.openbeautyfacts.org"
+msgstr "https://world-ar.openbeautyfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -2163,7 +2163,7 @@ msgstr "رابط دائم لهذه النتائج ، قابل للمشاركة �
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
-msgstr "عربية"
+msgstr "النتائج في قائمة من المنتجات"
 
 msgctxt "search_map"
 msgid "Map"
@@ -2624,6 +2624,10 @@ msgstr "تمكين التكبير باستخدام عجلة الفأرة."
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "تحميل صور أقل دقة (للاتصال البطيء)"
+
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr ""
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
@@ -4000,6 +4004,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr ""
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "شكرا جزيلا!"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "قيمة المنتج"
@@ -5271,7 +5279,7 @@ msgstr ""
 # Do not translate
 msgctxt "footer_vision_link"
 msgid "https://world.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
-msgstr ""
+msgstr "https://world-ar.openfoodfacts.org/open-food-facts-vision-mission-values-and-programs"
 
 msgctxt "forgotten_password"
 msgid "Forgotten password?"
@@ -5744,14 +5752,8 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "هام: نحن بحاجة إلى دعمك!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr ""
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
 msgstr ""
 
 msgctxt "donation_cta"
@@ -6609,6 +6611,10 @@ msgstr ""
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
+msgstr ""
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
 msgstr ""
 
 msgctxt "packagings_n_p"
