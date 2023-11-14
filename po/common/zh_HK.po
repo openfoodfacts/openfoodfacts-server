@@ -196,7 +196,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/zh-hk_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -299,7 +299,7 @@ msgstr "由"
 
 msgctxt "categories"
 msgid "Categories"
-msgstr "分類"
+msgstr "類別"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -1456,11 +1456,11 @@ msgstr "產品不包含營養 %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr "營養素表"
+msgstr "營養成分"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr "營養素表"
+msgstr "營養成分"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1532,7 +1532,7 @@ msgstr "標準差"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr "營養素表"
+msgstr "營養成分"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1945,7 +1945,7 @@ msgstr "不售於%s的產品"
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr "分量"
+msgstr "數量"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -2288,7 +2288,7 @@ msgstr ""
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "地區"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -2618,6 +2618,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr ""
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr ""
@@ -2805,7 +2809,7 @@ msgstr ""
 
 msgctxt "footer_partners"
 msgid "Partners"
-msgstr "夥伴"
+msgstr "合作伙伴"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
@@ -3262,15 +3266,15 @@ msgstr "否"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "略過"
 
 msgctxt "popularity_s"
 msgid "popularity"
-msgstr ""
+msgstr "人氣"
 
 msgctxt "popularity_p"
 msgid "popularity"
-msgstr ""
+msgstr "人氣"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
@@ -3374,7 +3378,7 @@ msgstr "成分"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr "營養素表"
+msgstr "營養成分"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3477,7 +3481,7 @@ msgstr ""
 
 msgctxt "value"
 msgid "Value"
-msgstr "數值"
+msgstr "值"
 
 msgctxt "value_unit"
 msgid "Value + Unit"
@@ -3950,7 +3954,7 @@ msgstr ""
 
 msgctxt "nutriscore_points_for_proteins"
 msgid "Proteins"
-msgstr "蛋白质"
+msgstr "蛋白質"
 
 msgctxt "nutriscore_source_value"
 msgid "value"
@@ -3991,6 +3995,10 @@ msgstr "<a href=\"\">我們需要您的幫助和捐款</a>繼續發展此項目�
 
 msgctxt "thank_you"
 msgid "Thank you!"
+msgstr ""
+
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
 msgstr ""
 
 msgctxt "value_for_the_product"
@@ -5064,7 +5072,7 @@ msgstr ""
 
 msgctxt "type"
 msgid "Type"
-msgstr ""
+msgstr "類型"
 
 msgctxt "processing_factor"
 msgid "Processing factor"
@@ -5737,19 +5745,13 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr ""
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr ""
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
 msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"
-msgstr "捐款"
+msgstr "贊助/捐款"
 
 msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
@@ -6602,6 +6604,10 @@ msgstr ""
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
+msgstr ""
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
 msgstr ""
 
 msgctxt "packagings_n_p"
