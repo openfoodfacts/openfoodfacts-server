@@ -196,7 +196,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/ja_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -2627,6 +2627,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "低解像度の画像を読み込む（接続速度が遅い場合）"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "メーカーより画像を送られてきました。間違っている、または最新ではないと思われる場合は、お問い合わせください。"
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr "警告: 栄養成分は指定されていません。それらは成分表から推定されています。"
@@ -4000,6 +4004,10 @@ msgstr "プロジェクトを継続し成長させるためには、<a href=\"\"
 
 msgctxt "thank_you"
 msgid "Thank you!"
+msgstr ""
+
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
 msgstr ""
 
 msgctxt "value_for_the_product"
@@ -5746,15 +5754,9 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "重要：あなたのサポートが必要です！"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Open Food Factsは何万人ものボランティアによって作り上げられ、{number_of_employees} 人の社員を擁する非営利団体によって管理される協同プロジェクトデス。"
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "Open Food Facts {year} の資金を供給し、このプロジェクトの開発を継続するためには皆さまからの寄付が必要です。"
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
+msgstr "食料の透明性を向上させてください！ 独立した非営利団体として、私たちは世界中の消費者に何を食べているかを伝え続けるために、あなたの寄付に頼っています。 運動への寄付で食料革命に参加しましょう。"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6612,6 +6614,10 @@ msgstr ""
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "すべての製品と比較して"
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr "使用言語"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
