@@ -761,7 +761,7 @@ sub check_nutrition_data ($product_ref) {
 
 					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid2";
 				}
-                
+
 				if (($product_ref->{nutriments}{$nid} < 0) and (index($nid, "nutrition-score") == -1)) {
 					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-negative-$nid2";
 				}
