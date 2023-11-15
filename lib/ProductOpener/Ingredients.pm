@@ -516,6 +516,7 @@ my @labels = (
 	"en:vegetarian", "nl:beter-leven-1-ster",
 	"nl:beter-leven-2-ster", "nl:beter-leven-3-ster",
 	"en:halal", "en:kosher",
+	"en:fed-without-gmos",
 );
 my %labels_regexps = ();
 
@@ -6688,6 +6689,10 @@ sub detect_allergens_from_text ($product_ref) {
 			$text =~ s/\b___([^,;_\(\)\[\]]+?)___\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
 			$text =~ s/\b__([^,;_\(\)\[\]]+?)__\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
 			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
+			# _Weizen_eiweiß is not caught in last regex because of \b (word boundary).
+			if ($language eq 'de') {
+				$text =~ s/\b_([^,;_\(\)\[\]]+?)_/replace_allergen($language,$product_ref,$1,$`)/iesg;
+			}
 
 			# allergens in all caps, with other ingredients not in all caps
 

@@ -18,6 +18,7 @@
 			<thead>
 			<tr>
 				<th>[% lang("serial_no") %]</th>
+				<th>[% lang("admin_status") %]</th>
 				<th>[% lang("username") %]</th>
 				<th>[% lang("name") %]</th>
 				<th>[% lang("email") %]</th>
@@ -32,6 +33,11 @@
 			[% FOREACH users IN org_members %]
 			<tr>
 				<td>[% count %].</td>
+				<td>
+	[% SET userid = users.userid %]
+    [% SET user_in_admin_status = user_is_admin.$userid %]
+	<input form="admin_users_form" type="checkbox" name="admin_status_[% users.userid %]" value="1" class="admin-checkbox" [% IF user_in_admin_status %]checked[% END %] [% IF current_user_id == userid  %]disabled[% END %]>
+				</td>
 				<td>[% users.userid %]</td>
 				<td>[% users.name %]</td>
 				<td>[% users.email %]</td>
@@ -51,6 +57,14 @@
 			[% END %]
 		</tbody>
 		</table>
+		<div>
+			<form id='admin_users_form' method="post" action="/cgi/org.pl">
+				<!-- admin_status_xxxx elements above are also part of it, thanks to form attribute -->
+				<input type="hidden" name="action" value="process" />
+				<input type="hidden" name="type" value="admin_status" />
+				<input type="submit" name="grant_remove_admin_status" class="button" style="margin-bottom: 10px;" value="[% lang("grant_remove_admin_status") %]"/>
+			</form>
+		</div>
 	</div>
 	[% END %]
 
