@@ -21,7 +21,7 @@ msgstr "1 producto"
 
 msgctxt "about"
 msgid "About me"
-msgstr "Presentación"
+msgstr "Sobre mí"
 
 msgctxt "add"
 msgid "Add"
@@ -65,15 +65,15 @@ msgstr "%s es un proyecto colaborativo al que puedes aportar mucho más que nuev
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr "Utilizamos un sistema de discusión llamado Slack en el que todos los participantes del proyecto pueden intercambiar y colaborar. ¡Por favor, únete! ¡Estaremos encantados de conocerte!"
+msgstr "Utilizamos un sistema de discusión llamado Slack en el que todos los participantes del proyecto pueden intercambiar ideas y colaborar. ¡Únete! Estaremos encantados de conocerte."
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
-msgstr "Ahora puedes importar fácilmente los datos y fotos de tu producto."
+msgstr "Ahora puedes importar fácilmente los datos y las fotos de tu producto."
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
-msgstr "Ahora puedes añadir y editar tus productos e importar tus datos y fotos en nuestra plataforma gratuita <a href=\"%s\">para productores</a>."
+msgstr "Ahora puedes añadir y editar tus productos e importar tus datos y fotos a través de nuestra plataforma gratuita <a href=\"%s\">para productores</a>."
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
@@ -97,15 +97,15 @@ msgstr ""
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr "Por favor, envíe un correo electrónico a <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> si tienes alguna pregunta."
+msgstr "Si tienes dudas envíanos un correo electrónico a <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a>."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
-msgstr "Si trabajas solo para un productor o marca y solo agregarás o completarás datos para tus propios productos, puedes tener acceso a nuestra Plataforma gratuita para Productores."
+msgstr "Si trabajas para una empresa productora o una marca y solo quieres añadir o completar datos para tus propios productos, puedes acceder a nuestra Plataforma para Productores que es totalmente gratuita."
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
-msgstr "La plataforma para productores permite a los fabricantes importar fácilmente datos y fotos para todos sus productos, etiquetarlos como oficiales, y obtener un análisis gratuito de oportunidades de mejoras en sus productos."
+msgstr "La Plataforma para Productores permite a las empresas productoras importar fácilmente los datos y fotos de todos sus productos y etiquetarlos como oficiales, además de obtener un análisis gratuito de oportunidades de mejoras en sus productos."
 
 msgctxt "pro_account"
 msgid "Professional account"
@@ -113,7 +113,7 @@ msgstr "Cuenta profesional"
 
 msgctxt "this_is_a_pro_account"
 msgid "This is a producer or brand account."
-msgstr "Esta es una cuenta de productor o de marca."
+msgstr "Esta es una cuenta para productores o de marca."
 
 msgctxt "producer_or_brand"
 msgid "Name of producer or name of brand"
@@ -125,11 +125,11 @@ msgstr "Las cuentas profesionales deben tener una organización asociada (nombre
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
-msgstr "Por favor, ingresa el nombre de tu organización (nombre de la empresa o marca)."
+msgstr "Por favor, introduce el nombre de tu organización (nombre de la empresa o marca)."
 
 msgctxt "enter_email_addresses_of_users"
 msgid "Enter email addresses of users to invite (comma-separated):"
-msgstr "Ingrese las direcciones de correo electrónico de los usuarios a invitar (separadas por comas):"
+msgstr "Introduce las direcciones de correo electrónico de los usuarios a invitar (separadas por comas):"
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
@@ -142,15 +142,15 @@ msgstr "Gracias por registrarte en <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr "Aditivos potencialmente peligrosos. Usar con cuidado."
+msgstr "Aditivo potencialmente peligroso. Usar con moderación."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr "Aditivo alimentario con riesgo. A evitar."
+msgstr "Aditivo alimentario peligroso. Evitar su uso."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr "Aditivo alimentario prohibido en Europa. Evítalo completamente."
+msgstr "Aditivo alimentario prohibido en Europa. Evitar su uso por completo."
 
 msgctxt "additives_p"
 msgid "additives"
@@ -170,7 +170,7 @@ msgstr "Búsqueda avanzada y gráficos"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr "El exceso de alcohol es perjudicial para la salud. Consúmelo con moderación."
+msgstr "El exceso de alcohol es perjudicial para la salud."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -222,7 +222,7 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Este producto aún no está en la base de datos de <<site_name>>. ¿Podrías tomar algunas fotos del producto, su código de barras, ingredientes e información nutricional para agregarlo a <a href=\"http://es.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+msgstr "<p>Este producto aún no está en la base de datos de <<site_name>>. ¿Podrías sacar algunas fotos del producto, su código de barras, ingredientes e información nutricional, para añadirlo a <a href=\"http://es.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>¡Gracias de antemano!</p>\n"
 
 msgctxt "app_take_a_picture"
@@ -251,7 +251,7 @@ msgstr "Código de barras"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr "Cifras del código de barras:"
+msgstr "Número del código de barras:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
@@ -732,7 +732,7 @@ msgstr "Explorar productos por..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr "es_US"
+msgstr "es_ES"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
@@ -2049,7 +2049,7 @@ msgstr "Guardar"
 
 msgctxt "saved"
 msgid "Saved."
-msgstr "Los datos han sido guardados."
+msgstr "Guardado."
 
 msgctxt "saving"
 msgid "Saving."
@@ -3825,7 +3825,7 @@ msgstr "Hay algunos productos con errores en la calidad de los datos"
 
 msgctxt "number_of_products_with_data_quality_warnings_producers"
 msgid "Number of products with data quality warnings"
-msgstr "Hay algunos productos con advertencias en la calidad de los datos"
+msgstr "Número de productos con advertencias sobre la calidad de los datos"
 
 msgctxt "number_of_products_with_improvements"
 msgid "Number of products with improvement opportunities"
@@ -4216,7 +4216,7 @@ msgstr "Eliminar todos los productos"
 
 msgctxt "remove_user"
 msgid "Remove user"
-msgstr ""
+msgstr "Eliminar usuario"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -4609,7 +4609,7 @@ msgstr "NOVA no calculado"
 
 msgctxt "attribute_nova_unknown_description_short"
 msgid "Food processing level unknown"
-msgstr "Nivel de procesado de alimentos desconocido"
+msgstr "Nivel de procesado del alimento desconocido"
 
 msgctxt "attribute_nova_setting_name"
 msgid "No or little food processing (NOVA group)"
@@ -4966,12 +4966,12 @@ msgstr "Impacto medioambiental"
 # Numerical score for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_score"
 msgid "Eco-score score"
-msgstr "Puntuación eco-score"
+msgstr "Puntuación Eco-score"
 
 # Letter grade from A to E for the Eco-score (do not translate Eco-score)
 msgctxt "ecoscore_grade"
 msgid "Eco-score grade"
-msgstr "Calificación eco-score"
+msgstr "Calificación Eco-score"
 
 # do not translate Eco-score
 msgctxt "ecoscore_calculation_details"
@@ -4981,7 +4981,7 @@ msgstr "Detalles del cálculo del Eco-score"
 # do not translate Eco-score
 msgctxt "ecoscore_information"
 msgid "Information about the Eco-score"
-msgstr "Información acerca del Eco-score"
+msgstr "Información sobre el Eco-Score"
 
 msgctxt "preferences_edit_your_food_preferences"
 msgid "Edit your food preferences"
@@ -5022,7 +5022,7 @@ msgstr "Eco-Score"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
-msgstr "Piezas del embalaje"
+msgstr "Partes del envase"
 
 # A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
 msgctxt "packaging_part_short"
@@ -5036,7 +5036,7 @@ msgstr "Número"
 
 msgctxt "packaging_shape"
 msgid "Shape"
-msgstr "Forma"
+msgstr "Formato"
 
 msgctxt "packaging_quantity"
 msgid "Quantity contained"
@@ -5537,7 +5537,7 @@ msgstr "Agricultura"
 
 msgctxt "ecoscore_processing"
 msgid "Processing"
-msgstr "Procesando"
+msgstr "Procesado"
 
 msgctxt "ecoscore_packaging"
 msgid "Packaging"
@@ -5685,7 +5685,7 @@ msgstr "El impacto total del transporte hacia tu país es actualmente desconocid
 
 msgctxt "app_banner_text"
 msgid "Scan barcodes to get the Nutri-Score, the Eco-Score and more!"
-msgstr "¡Escanea códigos de barras para obtener el Nutri-Score, el Eco-Score y más!"
+msgstr "¡Escanea códigos de barras para obtener el Nutri-Score, el Eco-Score y mucho más!"
 
 msgctxt "org_gs1_product_name_is_abbreviated"
 msgid "GS1 product names for this manufacturer are abbreviated."
@@ -6076,7 +6076,7 @@ msgstr "Ingredientes que pueden contener aceite de palma"
 
 msgctxt "palm_oil_free_ingredients"
 msgid "No ingredients containing palm oil detected"
-msgstr "No se ha detectado ningún ingrediente que contenga aceite de palma"
+msgstr "No se han detectado ingredientes con aceite de palma"
 
 msgctxt "attribute_palm_oil_setting_note"
 msgid "To determine whether a product contains palm oil, we only rely on the list of ingredients."
@@ -6512,19 +6512,19 @@ msgstr "Valor inválido: debe ser 0 o 1"
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
 msgid "Enter the number of packaging units of the same shape and material contained in the product."
-msgstr "Indique el número de unidades de embalaje de la misma forma y material que contiene el producto."
+msgstr "Introduce el número de unidades de envases con el mismo formato y material."
 
 msgctxt "packaging_shape_description"
 msgid "Enter the shape name listed in the recycling instructions if they are available, or select a shape."
-msgstr "Ingrese el nombre de la forma que aparece en las instrucciones de reciclaje, si están disponibles, o seleccione una forma."
+msgstr "Introduce los formatos indicados en las instrucciones de reciclaje, si están disponibles, o selecciona un formato."
 
 msgctxt "packaging_material_description"
 msgid "Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure."
-msgstr "Ingrese el material específico si se pudiera determinar (a menudo se puede encontrar un código de material dentro de un triángulo en las piezas del empaque), o un material genérico (por ejemplo, plástico o metal) si no está seguro."
+msgstr "Si es posible, introduce el material específico, muchas veces, el código del material viene indicado dentro de un triángulo en el envase. Si tienes dudas, puedes introducir un material genérico (por ejemplo, plástico o metal)."
 
 msgctxt "packaging_recycling_description"
 msgid "Enter recycling instructions only if they are listed on the product."
-msgstr "Ingrese las instrucciones de reciclaje solo si están enumeradas en el producto."
+msgstr "Introduce las instrucciones de reciclaje solo si aparecen en el producto."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
@@ -6534,7 +6534,7 @@ msgstr "Retire cualquier resto de comida y lave y seque la parte del empaque ant
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
 msgid "Enter the net weight or net volume and indicate the unit (for example g or ml)."
-msgstr "Ingrese el peso neto o el volumen neto e indique la unidad (por ejemplo g o ml)."
+msgstr "Introduce el peso neto o el volumen neto y el tipo de unidad (por ejemplo, g o ml)."
 
 msgctxt "import_and_export_products"
 msgid "Import and export products"
@@ -6640,7 +6640,7 @@ msgstr "Número de componentes del embalaje"
 
 msgctxt "packagings_n_s"
 msgid "Number of packaging components"
-msgstr "Número de componentes del embalaje"
+msgstr "Número de componentes del envase"
 
 msgctxt "packagings_materials_all"
 msgid "All materials"
