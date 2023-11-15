@@ -117,11 +117,11 @@ msgstr "Silahkan masukkan nama organisasi Anda (nama atau merek perusahaan)."
 
 msgctxt "enter_email_addresses_of_users"
 msgid "Enter email addresses of users to invite (comma-separated):"
-msgstr ""
+msgstr "Masukkan alamat email pengguna yang akan diundang (dipisahkan dengan koma):"
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Akun ini adalah akun profesional yang terkait dengan produsen atau merek {org}. Anda memiliki akses ke Platform untuk Produsen."
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
@@ -193,10 +193,10 @@ msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
-msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr "/images/misc/google-play-badge-svg-master/img/id_get.svg"
+msgid "/images/misc/playstore/img/en_get.svg"
+msgstr "/images/misc/playstore/img/id_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -247,7 +247,7 @@ msgstr "Anda juga dapat membantu mendanai proyek Open Food Facts"
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
+msgstr "Panduan Admin Produsen"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
@@ -4605,7 +4605,7 @@ msgstr "Bahan - bahan kuliner olahan"
 
 msgctxt "attribute_nova_3_description_short"
 msgid "Processed foods"
-msgstr "Makanan olahan"
+msgstr "Makanan - makanan olahan"
 
 msgctxt "attribute_nova_4_description_short"
 msgid "Ultra processed foods"

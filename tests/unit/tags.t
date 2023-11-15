@@ -819,7 +819,8 @@ is(canonicalize_taxonomy_tag('pl', 'ingredients', 'Lactobacillus bulgaricus'), "
 is(get_property_from_tags("test", undef, "vegan:en"), undef);
 is(get_property_from_tags("test", [], "vegan:en"), undef);
 is(get_property_from_tags("test", ["en:vegetable", "en:meat"], "vegan:en"), "yes");
-is(get_inherited_property_from_tags("test", ["en:something-unknown", "en:beef", "en:vegetable"], "vegan:en"), "no");
+is_deeply([get_inherited_property_from_tags("test", ["en:something-unknown", "en:beef", "en:vegetable"], "vegan:en")],
+	["no", 'en:beef']);
 is(
 	get_matching_regexp_property_from_tags(
 		"test", ["en:something-unknown", "en:beef", "en:vegetable"],
@@ -842,5 +843,20 @@ is(
 	),
 	"no"
 );
+
+# Test get_knowledge_content subroutine
+
+# a match is expected here, as lang-default/fr/knowledge_panels/additives/en_e100_world.html exists
+is(
+	get_knowledge_content("additives", "en:e100", "fr", "world"),
+	"<p>La curcumine ne présente pas de risques connus pour la santé.</p>"
+);
+# no content exists for fr country, but we should fallback on world
+is(
+	get_knowledge_content("additives", "en:e100", "fr", "fr"),
+	"<p>La curcumine ne présente pas de risques connus pour la santé.</p>"
+);
+# No content exists for en language, undef is expected
+is(get_knowledge_content("additives", "en:e100", "en", "world"), undef);
 
 done_testing();
