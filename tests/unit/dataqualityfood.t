@@ -748,7 +748,7 @@ $product_ref = {
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutrition-values-are-all-identical',
-	'all identical values and above 1 in the nutrition table',
+	'all identical values and above 1 in the nutrition table', 1
 );
 
 # sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars
