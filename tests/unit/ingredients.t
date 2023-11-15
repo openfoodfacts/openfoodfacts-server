@@ -711,6 +711,13 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "pflanzliche Öle und Fette (Raps, Palm, Shea, Sonnenblumen)",
 		}
 	],
+	[
+		"fr-viande-de-boeuf-issue-d-animaux-nourris-sans-ogm",
+		{
+			lc => "fr",
+			ingredients_text => "Viande de boeuf issue d'animaux nourris sans OGM",
+		}
+	]
 );
 
 foreach my $test_ref (@tests) {

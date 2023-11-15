@@ -993,11 +993,13 @@ auth_url:en: https://spp.coop/
 en:Fairtrade cocoa, fairtrade cocoa program
 xx:Fairtrade cocoa, fairtrade cocoa program
 
-en:Fed without GMOs, Fed without GMO
+# note: we need full entries like "issu d'animaux nourris sans OGM" even though we have "issu" and "d'" in stopwords
+# in order to cleanly separate ingredient and label in strings like "viande de boeuf issue d'animaux nourris sans OGM"
+en:Fed without GMOs, Fed without GMO, Animals fed without GMOs, Animals fed without GMO, from animals fed without GMOs, from animals fed without GMO
 bg:Хранене без ГМО
 ca:Alimentat sense Organismes Modificats Genèticament
 fi:Eläintä on ruokittu GMO-vapaalla rehulla, ruokittu ilman GMO:ita
-fr:Nourri sans OGM, nourris sans OGM, nourries sans OGM, Alimentation sans OGM, Animaux nourris sans OGM, élevage avec une alimentation sans ogm
+fr:Nourri sans OGM, nourris sans OGM, nourries sans OGM, Alimentation sans OGM, Animaux nourris sans OGM, élevage avec une alimentation sans ogm, issu d'animaux nourris sans OGM, issue d'animaux nourris sans OGM, issus d'animaux nourris sans OGM, issues d'animaux nourris sans OGM
 it:Alimentati senza OGM
 nl:Zonder OGM voedsel
 pt:Alimentado sem OGM, alimentado sem alimentos geneticamente modificados, alimentado sem alimentos transgênicos, alimentado sem alimentos transgénicos, alimentada sem OGM, alimentada sem alimentos geneticamente modificados, alimentada sem alimentos transgênicos, alimentada sem alimentos transgénicos, alimentados sem OGM, alimentados sem alimentos geneticamente modificados, alimentados sem alimentos transgênicos, alimentados sem alimentos transgénicos, alimentadas sem OGM, alimentadas sem alimentos geneticamente modificados, alimentadas sem alimentos transgênicos, alimentadas sem alimentos transgénicos
@@ -18974,6 +18976,7 @@ pt:União Vegetariana Europeia, European Vegetarian Union
 sv:Europeiska Vegetariska Unionen
 wikidata:en:Q443112
 
+
 #https://www.v-label.eu/wp-content/uploads/2017/09/vegetarian_FR_front.png
 <en:European Vegetarian Union
 en:European Vegetarian Union Vegetarian, European Vegetarian Union - Vegetarian, EVU Vegetarian
@@ -18984,6 +18987,8 @@ fr:Union Végétarienne Européenne Végétarien, Union Végétarienne Européen
 pl:V-Label Vegetarian, V-Label wegetariańskie
 pt:União Vegetariana Europeia - Vegetariano, European Vegetarian Union - Vegetarian
 sv:Europeiska Vegetariska Unionen Vegetarisk, Europeiska Vegetariska Unionen - Vegetarisk, EVU Vegetarian
+image:en:european-vegetarian-union-vegetarian.77x90.png
+image:fr:union-vegetarienne-europeenne-vegetarien.77x90.png
 
 #https://www.v-label.eu/wp-content/uploads/2016/07/v-label_vegan_rgb.png
 <en:European Vegetarian Union
@@ -19001,6 +19006,7 @@ nl:Europese Vegetarische Unie Vegan, Europese Vegetarische Unie - Vegan, EVU Veg
 pl:V-Label Vegan, V-Label wegańskie
 pt:União Vegetariana Europeia Vegano, European Vegetarian Union Vegan, União Vegetariana Europeia - Vegano, European Vegetarian Union - Vegan
 sv:Europeiska Vegetariska Unionen Vegan, Europeiska Vegetariska Unionen - Vegan, EVU Vegan
+image:en:european-vegetarian-union-vegan.68x90.png
 
 #https://znakv.pl/wp-content/uploads/2021/08/vivaR.svg
 <en:Vegan
