@@ -17,11 +17,11 @@
 
 
 server {
-		listen 80 ;
-		listen [::]:80 ;
+	listen 80 ;
+	listen [::]:80 ;
 
-		server_name openproductsfacts.org;
-		return 301 https://world.openproductsfacts.org$request_uri;
+	server_name openproductsfacts.org;
+	return 301 https://world.openproductsfacts.org$request_uri;
 }
 
 server {
@@ -31,12 +31,12 @@ server {
 	server_name *.openproductsfacts.org;
 
 	root /srv/opf/html;
-      
-  # enable large uploads
-  client_max_body_size 20M;
 
-  # logs location
-	access_log /srv/opf/logs/nginx.access2.log;
+	# enable large uploads
+	client_max_body_size 20M;
+
+	# logs location
+	access_log /srv/opf/logs/nginx.access2.log proxied_requests buffer=256K flush=1s;
 	error_log /srv/opf/logs/nginx.error2.log;
 
 	location /data/ {
@@ -49,7 +49,7 @@ server {
 
 	gzip on;
 	gzip_min_length 1000;
-  gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript text/csv;
+	gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript text/csv;
 
 
 	# Add index.php to the list if you are using PHP
@@ -79,6 +79,14 @@ server {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
+	}
+
+	# GoogleAssociationService made 2500 requests/min to assetlinks.json
+	# and much less when caching headers are sent
+	location = /.well-known/assetlinks.json {
+			include snippets/off.cors-headers.include;
+			expires 1d;
+			try_files $uri $uri/ =404;
 	}
 
 	location = /robots.txt {
