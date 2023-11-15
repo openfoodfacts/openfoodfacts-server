@@ -633,7 +633,8 @@ my @lists = (
 	[
 		"de", "pflanzliche Öle und Fette (Raps, Palm, Shea, Sonnenblumen)",
 		"Rapsöl, Palmfett, Sheafett, Sonnenblumenfett"
-	] [
+	],
+	[
 		"fr",
 		"Huiles végétales de palme, de colza et de tournesol",
 		"Huiles végétales de palme, Huiles végétales de colza, Huiles végétales de tournesol"

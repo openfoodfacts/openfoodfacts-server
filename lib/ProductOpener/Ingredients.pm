@@ -5128,10 +5128,10 @@ my %ingredients_categories_and_types = (
 
 	hr => [
 		# malts
-		[
+		{
 			categories => ["slad",],
 			types => ["ječmeni", "pšenični",]
-		],
+		},
 	],
 
 	pl => [
