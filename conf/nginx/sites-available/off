@@ -149,6 +149,11 @@ server {
 		gunzip on;
 	}
 
+	# Redirect to the change password form
+	location = /.well-known/change-password {
+		return 307 https://$host/cgi/change_password.pl;
+	}
+
         # GoogleAssociationService made 2500 requests/min to assetlinks.json
         # and much less when caching headers are sent
         location = /.well-known/assetlinks.json {
