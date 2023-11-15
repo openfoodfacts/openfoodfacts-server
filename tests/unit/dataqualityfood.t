@@ -731,6 +731,25 @@ check_quality_and_test_product_has_quality_tag(
 	'en:nutrition-values-are-all-identical',
 	'all identical values and above 1 in the nutrition table', 0
 );
+$product_ref = {
+	nutriments => {
+		"energy-kj_100g" => 0,
+		"energy-kcal_100g" => 0,
+		"fat_100g" => 0,
+		"saturated-fat_100g" => 0,
+		"carbohydrates_100g" => 0,
+		"sugars_100g" => 0,
+		"fibers_100g" => 0,
+		"proteins_100g" => 0,
+		"salt_100g" => 0,
+		"sodium_100g" => 1,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-values-are-all-identical',
+	'all identical values and above 1 in the nutrition table',
+);
 
 # sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars
 $product_ref = {nutriments => {}};
