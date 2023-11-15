@@ -887,13 +887,13 @@ sub add_properties_from_specific_ingredients ($product_ref) {
 	return;
 }
 
-=head2 add_percent_max_for_salt_and_sugar_ingredients_from_nutrition_facts ( $product_ref )
+=head2 add_percent_max_for_ingredients_from_nutrition_facts ( $product_ref )
 
 Add a percent_max value for salt and sugar ingredients, based on the nutrition facts.
 
 =cut
 
-sub add_percent_max_for_salt_and_sugar_ingredients_from_nutrition_facts ($product_ref) {
+sub add_percent_max_for_ingredients_from_nutrition_facts ($product_ref) {
 
 	# Check if we have values for salt and sugar in the nutrition facts
 	my @ingredient_max_values = ();
@@ -906,36 +906,32 @@ sub add_percent_max_for_salt_and_sugar_ingredients_from_nutrition_facts ($produc
 		push @ingredient_max_values, {ingredientid => "en:salt", value => $salt_100g};
 	}
 
-	if (scalar @ingredient_max_value) {
+	if (scalar @ingredient_max_values) {
 
-		# for each max value, we now impact the product ingredients list
-		foreach my $ingredient_max_value_ref (@ingredient_max_values) {
+		# Traverse the ingredients tree, depth first
 
-			# Traverse the ingredients tree, depth first
+		my @ingredients = @{$product_ref->{ingredients}};
 
-			my @ingredients = @{$product_ref->{ingredients}};
+		while (@ingredients) {
 
-			while (@ingredients) {
+			# Remove and process the first ingredient
+			my $ingredient_ref = shift @ingredients;
+			my $ingredientid = $ingredient_ref->{id};
 
-				# Remove and process the first ingredient
-				my $ingredient_ref = shift @ingredients;
-				my $ingredientid = $ingredient_ref->{id};
+			# Add sub-ingredients at the beginning of the ingredients array
+			if (defined $ingredient_ref->{ingredients}) {
 
-				# Add sub-ingredients at the beginning of the ingredients array
-				if (defined $ingredient_ref->{ingredients}) {
+				unshift @ingredients, @{$ingredient_ref->{ingredients}};
+			}
 
-					unshift @ingredients, @{$ingredient_ref->{ingredients}};
-				}
-
-				foreach my $ingredient_max_value_ref (@ingredient_max_values) {
-					my $value = $ingredient_max_value_ref->{value};
-					if (is_a("ingredients", $ingredient_ref->{id}, $ingredient_max_value_ref->{ingredientid})) {
-						if (not defined $ingredient_ref->{percent_max}) {
-							$ingredient_ref->{percent_max} = $value;
-						}
+			foreach my $ingredient_max_value_ref (@ingredient_max_values) {
+				my $value = $ingredient_max_value_ref->{value};
+				if (is_a("ingredients", $ingredient_ref->{id}, $ingredient_max_value_ref->{ingredientid})) {
+					if (not defined $ingredient_ref->{percent_max}) {
+						$ingredient_ref->{percent_max} = $value;
 					}
-
 				}
+
 			}
 		}
 	}
@@ -2969,7 +2965,7 @@ reference to a hash of product fields that have been created or updated
 sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_ref) {
 
 	# Add a percent_max value for salt and sugar ingredients, based on the nutrition facts.
-	add_percent_max_for_salt_and_sugar_ingredients_from_nutrition_facts($product_ref);
+	add_percent_max_for_ingredients_from_nutrition_facts($product_ref);
 
 	if (compute_ingredients_percent_min_max_values(100, 100, $product_ref->{ingredients}) < 0) {
 
