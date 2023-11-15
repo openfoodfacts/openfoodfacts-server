@@ -3884,7 +3884,6 @@ string, comma-joined category and type, example: 'palm vegetal oil' or 'sunflowe
 
 =cut
 
-
 sub normalize_a_of_b ($lc, $a, $b, $of_bool, $alternate_names_ref = undef) {
 
 	$a =~ s/\s+$//;
@@ -3992,7 +3991,8 @@ sub normalize_enumeration ($lc, $category, $types, $of_bool, $alternate_names_re
 
 	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $types);
 
-	return join(", ", map {normalize_a_of_b($lc, $category, $_, $of_bool, $alternate_names_ref)} @list) . $trailing_space;
+	return
+		join(", ", map {normalize_a_of_b($lc, $category, $_, $of_bool, $alternate_names_ref)} @list) . $trailing_space;
 }
 
 # iodure et hydroxide de potassium
@@ -5121,20 +5121,16 @@ my %ingredients_categories_and_types = (
 	lt => [
 		#oils
 		{
-			categories =>
-			["aliejai", "augaliniai aliejai",],
-			 types => 
-			["palmių", "rapsų", "saulėgrąžų",],
+			categories => ["aliejai", "augaliniai aliejai",],
+			types => ["palmių", "rapsų", "saulėgrąžų",],
 		},
 	],
 
 	hr => [
 		# malts
 		[
-			categories =>
-			["slad",],
-			 types => 
-			["ječmeni", "pšenični",]
+			categories => ["slad",],
+			types => ["ječmeni", "pšenični",]
 		],
 	],
 
@@ -5279,14 +5275,14 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 
 				# vegetable oil (palm)
 				$text
-					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names})/ieg;
+					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool,$categories_and_types_ref->{alternate_names})/ieg;
 				# vegetable oil: palm
 				$text
-					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool $categories_and_types_ref->{alternate_names})/ieg;
+					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool,$categories_and_types_ref->{alternate_names})/ieg;
 
 				# ječmeni i pšenični slad (barley and wheat malt)
 				$text
-					=~ s/((?:(?:$type_regexp)(?: |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*($category_regexp)/normalize_enumeration($ingredients_lc,$2,$1,$of_bool $categories_and_types_ref->{alternate_names})/ieg;
+					=~ s/((?:(?:$type_regexp)(?: |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*($category_regexp)/normalize_enumeration($ingredients_lc,$2,$1,$of_bool,$categories_and_types_ref->{alternate_names})/ieg;
 			}
 			elsif ($ingredients_lc eq "fr") {
 				# arôme naturel de pomme avec d'autres âromes

@@ -628,10 +628,12 @@ my @lists = (
 	["sk", "syr, E470 a E470a, mlieko.", "syr, e470, e470a, mlieko."],
 	# normalize category and types
 	["fr", "Piments (vert, rouge, jaune)", "Piments vert, Piments rouge, Piments jaune"],
-	# New feature: 
+	# New feature:
 	["de", "pflanzliches Fett (Kokosnuss, Palmkern)", "Kokosnussfett, Palmkernfett"],
-	["de", "pflanzliche Öle und Fette (Raps, Palm, Shea, Sonnenblumen)", "Rapsöl, Palmfett, Sheafett, Sonnenblumenfett"]
 	[
+		"de", "pflanzliche Öle und Fette (Raps, Palm, Shea, Sonnenblumen)",
+		"Rapsöl, Palmfett, Sheafett, Sonnenblumenfett"
+	] [
 		"fr",
 		"Huiles végétales de palme, de colza et de tournesol",
 		"Huiles végétales de palme, Huiles végétales de colza, Huiles végétales de tournesol"
