@@ -628,6 +628,9 @@ my @lists = (
 	["sk", "syr, E470 a E470a, mlieko.", "syr, e470, e470a, mlieko."],
 	# Piments (vert, rouge, jaune) -> Piments vert, Piments rouge, Piments jaune
 	["fr", "Piments (vert, rouge, jaune)", "Piments vert, Piments rouge, Piments jaune"],
+	# New feature: 
+	["de", "pflanzliches Fett (Kokosnuss, Palmkern)", "Kokosnussfett, Palmkernfett"],
+	["de", "pflanzliche Öle und Fette (Raps, Palm, Shea, Sonnenblumen)", "Rapsöl, Palmfett, Sheafett, Sonnenblumenfett"]
 );
 
 foreach my $test_ref (@lists) {
