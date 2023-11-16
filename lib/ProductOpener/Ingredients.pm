@@ -3929,7 +3929,7 @@ sub normalize_a_of_b ($lc, $a, $b, $of_bool, $alternate_names_ref = undef) {
 		if (not $name_exists) {
 			foreach my $alternate_name (@{$alternate_names_ref}) {
 				my $alternate_name_copy
-					= $alternate_name;    # make a copy so that we can modifyt it without changing the array entry
+					= $alternate_name;    # make a copy so that we can modify it without changing the array entry
 				$alternate_name_copy =~ s/<type>/$b/;
 				my $alternate_name_exists;
 				canonicalize_taxonomy_tag($lc, "ingredients", $alternate_name_copy, \$alternate_name_exists);
