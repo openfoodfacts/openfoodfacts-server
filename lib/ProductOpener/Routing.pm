@@ -408,152 +408,116 @@ sub analyze_request ($request_ref) {
 				if $log->is_debug();
 		}
 
-		if (
+		# Extract tag type / tag value pairs and store them in an array $request_ref->{tags}
+		# e.g. /category/breakfast-cereals/label/organic/brand/monoprix
+
+		$request_ref->{tags} = [];
+
+		while (
 			($#components >= 0)
 			and (  (defined $tag_type_from_singular{$lc}{$components[0]})
 				or (defined $tag_type_from_singular{"en"}{$components[0]}))
 			)
 		{
+			my $tagtype;
+			my $tag_prefix;
+			my $tag;
+			my $tagid;
 
-			$log->debug("request looks like a singular tag", {lc => $lc, tagid => $components[0]}) if $log->is_debug();
+			$log->debug("request looks like a singular tag",
+				{lc => $lc, tagtype => $components[0], tagid => $components[1]})
+				if $log->is_debug();
 
 			# If the first component is a valid singular tag type, use it as the tag type
 			if (defined $tag_type_from_singular{$lc}{$components[0]}) {
-				$request_ref->{tagtype} = $tag_type_from_singular{$lc}{shift @components};
+				$tagtype = $tag_type_from_singular{$lc}{shift @components};
 			}
 			# Otherwise, use "en" as the default language and try again
 			else {
-				$request_ref->{tagtype} = $tag_type_from_singular{"en"}{shift @components};
+				$tagtype = $tag_type_from_singular{"en"}{shift @components};
 			}
 
-			my $tagtype = $request_ref->{tagtype};
-
 			if (($#components >= 0)) {
-				$request_ref->{tag} = shift @components;
+				$tag = shift @components;
 
 				# if there is a leading dash - before the tag, it indicates we want products without it
-				if ($request_ref->{tag} =~ /^-/) {
-					$request_ref->{tag_prefix} = "-";
-					$request_ref->{tag} = $';
+				if ($tag =~ /^-/) {
+					$tag_prefix = "-";
+					$tag = $';
 				}
 				else {
-					$request_ref->{tag_prefix} = "";
+					$tag_prefix = "";
 				}
 				# If the tag type is a valid taxonomy field, try to canonicalize the tag ID
 				if (defined $taxonomy_fields{$tagtype}) {
-					my $parsed_tag = canonicalize_taxonomy_tag_linkeddata($tagtype, $request_ref->{tag});
+					my $parsed_tag = canonicalize_taxonomy_tag_linkeddata($tagtype, $tag);
 					if (not $parsed_tag) {
-						$parsed_tag = canonicalize_taxonomy_tag_weblink($tagtype, $request_ref->{tag});
+						$parsed_tag = canonicalize_taxonomy_tag_weblink($tagtype, $tag);
 					}
 
 					if ($parsed_tag) {
-						$request_ref->{tagid} = $parsed_tag;
+						$tagid = $parsed_tag;
 					}
 					else {
-						if ($request_ref->{tag} !~ /^(\w\w):/) {
-							$request_ref->{tag} = $lc . ":" . $request_ref->{tag};
+						if ($tag !~ /^(\w\w):/) {
+							$tag = $lc . ":" . $tag;
 						}
 
-						$request_ref->{tagid} = get_taxonomyid($lc, $request_ref->{tag});
+						$tagid = get_taxonomyid($lc, $tag);
 					}
 				}
 				else {
 					# Use "no_language" normalization
-					$request_ref->{tagid} = get_string_id_for_lang("no_language", $request_ref->{tag});
+					$tagid = get_string_id_for_lang("no_language", $tag);
 				}
 			}
 
 			$request_ref->{canon_rel_url}
-				.= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $request_ref->{tag_prefix} . $request_ref->{tagid};
+				.= "/" . $tag_type_singular{$tagtype}{$lc} . "/" . $tag_prefix . $tagid;
 
-			# 2nd tag?
+			# Add the tag properties to the list of tags
+			push @{$request_ref->{tags}},
+				{tagtype => $tagtype, tag => $tagid, tagid => $tagid, tag_prefix => $tag_prefix};
 
-			if (
-				($#components >= 0)
-				and (  (defined $tag_type_from_singular{$lc}{$components[0]})
-					or (defined $tag_type_from_singular{"en"}{$components[0]}))
-				)
-			{
+			# Temporarily store the tag properties in %request_ref keys tag, tagid, tagtype, tag_prefix and tag2 etc.
+			# to remain compatible with the rest of the code
+			# TODO: remove this once the rest of the code has been updated
 
-				if (defined $tag_type_from_singular{$lc}{$components[0]}) {
-					$request_ref->{tagtype2} = $tag_type_from_singular{$lc}{shift @components};
-				}
-				else {
-					$request_ref->{tagtype2} = $tag_type_from_singular{"en"}{shift @components};
-				}
-				my $tagtype = $request_ref->{tagtype2};
-
-				if (($#components >= 0)) {
-					$request_ref->{tag2} = shift @components;
-
-					# if there is a leading dash - before the tag, it indicates we want products without it
-					if ($request_ref->{tag2} =~ /^-/) {
-						$request_ref->{tag2_prefix} = "-";
-						$request_ref->{tag2} = $';
-					}
-					else {
-						$request_ref->{tag2_prefix} = "";
-					}
-
-					if (defined $taxonomy_fields{$tagtype}) {
-						my $parsed_tag2 = canonicalize_taxonomy_tag_linkeddata($tagtype, $request_ref->{tag2});
-						if (not $parsed_tag2) {
-							$parsed_tag2 = canonicalize_taxonomy_tag_weblink($tagtype, $request_ref->{tag2});
-						}
-
-						if ($parsed_tag2) {
-							$request_ref->{tagid2} = $parsed_tag2;
-						}
-						else {
-							if ($request_ref->{tag2} !~ /^(\w\w):/) {
-								$request_ref->{tag2} = $lc . ":" . $request_ref->{tag2};
-							}
-
-							$request_ref->{tagid2} = get_taxonomyid($lc, $request_ref->{tag2});
-						}
-					}
-					else {
-						# Use "no_language" normalization
-						$request_ref->{tagid2} = get_string_id_for_lang("no_language", $request_ref->{tag2});
-					}
-				}
-
-				$request_ref->{canon_rel_url}
-					.= "/"
-					. $tag_type_singular{$tagtype}{$lc} . "/"
-					. $request_ref->{tag2_prefix}
-					. $request_ref->{tagid2};
+			if (scalar keys @{$request_ref->{tags}} == 1) {
+				$request_ref->{tag} = $tagid;
+				$request_ref->{tagid} = $tagid;
+				$request_ref->{tagtype} = $tagtype;
+				$request_ref->{tag_prefix} = $tag_prefix;
 			}
-
-			if ((defined $components[0]) and ($components[0] eq 'points')) {
-				$request_ref->{points} = 1;
-				$request_ref->{canon_rel_url} .= "/points";
+			elsif (scalar keys @{$request_ref->{tags}} == 2) {
+				$request_ref->{tag2} = $tagid;
+				$request_ref->{tagid2} = $tagid;
+				$request_ref->{tagtype2} = $tagtype;
+				$request_ref->{tag2_prefix} = $tag_prefix;
 			}
-
 		}
-		elsif ((defined $components[0]) and ($components[0] eq 'points')) {
+
+		# Old Open Food Hunt points
+		if ((defined $components[0]) and ($components[0] eq 'points')) {
 			$request_ref->{points} = 1;
 			$request_ref->{canon_rel_url} .= "/points";
 		}
-		elsif (not defined $request_ref->{groupby_tagtype}) {
+
+		# We may have a page number
+		if ($#components >= 0) {
+			# The last component can be a page number
+			if (($components[-1] =~ /^\d+$/) and ($components[-1] <= 1000)) {
+				$request_ref->{page} = pop @components;
+			}
+		}
+
+		if ($#components >= 0) {
+			# We have a component left, but we don't know what it is
 			$log->warn("invalid address, confused by number of components left", {left_components => $#components})
 				if $log->is_warn();
 			$request_ref->{status_code} = 404;
 			$request_ref->{error_message} = lang("error_invalid_address");
-		}
-
-		# We have a component left
-		if ($#components >= 0) {
-			# The last component can be a page number
-			if ($components[-1] =~ /^\d+$/) {
-				$request_ref->{page} = pop @components;
-			}
-			else {
-				# We have a component left, but we don't know what it is
-				$request_ref->{status_code} = 404;
-				$request_ref->{error_message} = lang("error_invalid_address");
-				return;
-			}
+			return;
 		}
 
 		$request_ref->{canon_rel_url} .= $canon_rel_url_suffix;

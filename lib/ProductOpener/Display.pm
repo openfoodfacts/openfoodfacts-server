@@ -3033,48 +3033,31 @@ sub display_tag ($request_ref) {
 
 	my $title;
 
-	my $tagtype = $request_ref->{tagtype};
-	my $tagid = $request_ref->{tagid};
-	my $display_tag;
-	my $newtagid;
-	my $newtagidpath;
-	my $canon_tagid = undef;
-
-	local $log->context->{tagtype} = $tagtype;
-	local $log->context->{tagid} = $tagid;
-
-	my $tagtype2 = $request_ref->{tagtype2};
-	my $tagid2 = $request_ref->{tagid2};
-	my $display_tag2;
-	my $newtagid2;
-	my $newtagid2path;
-	my $canon_tagid2 = undef;
-
-	local $log->context->{tagtype2} = $tagtype2;
-	local $log->context->{tagid2} = $tagid2;
+	local $log->context->{tags} = $request_ref->{tags};
 
 	init_tags_texts() unless %tags_texts;
 
-	# Add a meta robot noindex for pages related to users
-	if (
-		(
-				(defined $tagtype)
-			and ($tagtype =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/)
-		)
-		or (    (defined $tagtype2)
-			and ($tagtype2 =~ /^(users|correctors|editors|informers|correctors|photographers|checkers)$/))
-		)
-	{
+	$request_ref->{current_link} = '';
+	$request_ref->{world_current_link} = '';
 
-		$header .= '<meta name="robots" content="noindex">' . "\n";
+	my $header_meta_noindex = 0;    # Will be set if one of the tags is related to a user
+	my $redirect_to_canonical_url = 0;    # Will be set if one of the tags is not canonical
 
-	}
+	# Go through the tags filters from the request
 
-	if (defined $tagid) {
+	foreach my $tag_ref (@{$request_ref->{tags}}) {
+
+		my $tagid = $tag_ref->{tagid};
+		my $tagtype = $tag_ref->{tagtype};
+		my $tag_prefix = $tag_ref->{tag_prefix};
+		my $display_tag;
+		my $canon_tagid;
+		my $newtagid;
+		my $newtagidpath;
+
 		if (defined $taxonomy_fields{$tagtype}) {
 			$canon_tagid = canonicalize_taxonomy_tag($lc, $tagtype, $tagid);
 			$display_tag = display_taxonomy_tag($lc, $tagtype, $canon_tagid);
-			$title = $display_tag;
 			$newtagid = get_taxonomyid($lc, $display_tag);
 			$log->info("displaying taxonomy tag", {canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title})
 				if $log->is_info();
@@ -3082,30 +3065,36 @@ sub display_tag ($request_ref) {
 				$newtagid = $lc . ':' . $newtagid;
 			}
 			$newtagidpath = canonicalize_taxonomy_tag_link($lc, $tagtype, $newtagid);
-			$request_ref->{current_link} = $newtagidpath;
-			$request_ref->{world_current_link} = canonicalize_taxonomy_tag_link($lc, $tagtype, $canon_tagid);
+			$request_ref->{current_link} .= $newtagidpath;
+			$request_ref->{world_current_link} .= canonicalize_taxonomy_tag_link($lc, $tagtype, $canon_tagid);
 		}
 		else {
 			$display_tag = canonicalize_tag2($tagtype, $tagid);
 			# Use "no_language" normalization for tags types without a taxonomy
 			$newtagid = get_string_id_for_lang("no_language", $display_tag);
-			$display_tag = display_tag_name($tagtype2, $display_tag);
+			$display_tag = display_tag_name($tagtype, $display_tag);
 			if ($tagtype eq 'emb_codes') {
 				$canon_tagid = $newtagid;
 				$canon_tagid =~ s/-($ec_code_regexp)$/-ec/ie;
 			}
-			$title = $display_tag;
 			$newtagidpath = canonicalize_tag_link($tagtype, $newtagid);
-			$request_ref->{current_link} = $newtagidpath;
+			$request_ref->{current_link} .= $newtagidpath;
 			my $current_lang = $lang;
 			my $current_lc = $lc;
 			$lang = 'en';
 			$lc = 'en';
-			$request_ref->{world_current_link} = canonicalize_tag_link($tagtype, $newtagid);
+			$request_ref->{world_current_link} .= canonicalize_tag_link($tagtype, $newtagid);
 			$lang = $current_lang;
 			$lc = $current_lc;
 			$log->info("displaying normal tag", {canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title})
 				if $log->is_info();
+		}
+
+		if (not defined $title) {
+			$title .= $display_tag;
+		}
+		else {
+			$title .= " - $display_tag";
 		}
 
 		# add back leading dash when a tag is excluded
@@ -3116,76 +3105,16 @@ sub display_tag ($request_ref) {
 			$log->debug("Found tag prefix ", {request => $request_ref}) if $log->is_debug();
 		}
 
-		$request_ref->{canon_tagid} = $canon_tagid;
-	}
-	else {
-		$log->warn("no tagid found") if $log->is_warn();
-	}
+		$tag_ref->{canon_tagid} = $canon_tagid;
+		$tag_ref->{newtagid} = $newtagid;
+		$tag_ref->{newtagidpath} = $newtagidpath;
+		$tag_ref->{display_tag} = $display_tag;
 
-	# 2nd tag?
-	if (defined $tagid2) {
-		if (defined $taxonomy_fields{$tagtype2}) {
-			$canon_tagid2 = canonicalize_taxonomy_tag($lc, $tagtype2, $tagid2);
-			$display_tag2 = display_taxonomy_tag($lc, $tagtype2, $canon_tagid2);
-			$title .= " / " . $display_tag2;
-			$newtagid2 = get_taxonomyid($lc, $display_tag2);
-			$log->info(
-				"2nd level tag is a taxonomy tag",
-				{
-					tagtype2 => $tagtype2,
-					tagid2 => $tagid2,
-					canon_tagid2 => $canon_tagid2,
-					newtagid2 => $newtagid2,
-					title => $title
-				}
-			) if $log->is_info();
-			if ($newtagid2 !~ /^(\w\w):/) {
-				$newtagid2 = $lc . ':' . $newtagid2;
-			}
-			$newtagid2path = canonicalize_taxonomy_tag_link($lc, $tagtype2, $newtagid2);
-			$request_ref->{current_link} .= $newtagid2path;
-			$request_ref->{world_current_link} .= canonicalize_taxonomy_tag_link($lc, $tagtype2, $canon_tagid2);
-		}
-		else {
-			$display_tag2 = canonicalize_tag2($tagtype2, $tagid2);
-			$newtagid2 = get_string_id_for_lang("no_language", $display_tag2);
-			$display_tag2 = display_tag_name($tagtype2, $display_tag2);
-			$title .= " / " . $display_tag2;
-
-			if ($tagtype2 eq 'emb_codes') {
-				$canon_tagid2 = $newtagid2;
-				$canon_tagid2 =~ s/-($ec_code_regexp)$/-ec/ie;
-			}
-			$newtagid2path = canonicalize_tag_link($tagtype2, $newtagid2);
-			$request_ref->{current_link} .= $newtagid2path;
-			my $current_lang = $lang;
-			my $current_lc = $lc;
-			$lang = 'en';
-			$lc = 'en';
-			$request_ref->{world_current_link} .= canonicalize_tag_link($tagtype2, $newtagid2);
-			$lang = $current_lang;
-			$log->info(
-				"2nd level tag is a normal tag",
-				{
-					tagtype2 => $tagtype2,
-					tagid2 => $tagid2,
-					canon_tagid2 => $canon_tagid2,
-					newtagid2 => $newtagid2,
-					title => $title
-				}
-			) if $log->is_info();
-			$lc = $current_lc;
+		# We will redirect if the tag is not canonical
+		if ($newtagid ne $tagid) {
+			$redirect_to_canonical_url = 1;
 		}
 
-		# add back leading dash when a tag is excluded
-		if ((defined $request_ref->{tag2_prefix}) and ($request_ref->{tag2_prefix} ne '')) {
-			my $prefix = $request_ref->{tag2_prefix};
-			$request_ref->{current_link} = add_tag_prefix_to_link($request_ref->{current_link}, $prefix);
-			$request_ref->{world_current_link} = add_tag_prefix_to_link($request_ref->{world_current_link}, $prefix);
-			$log->debug("Found tag prefix 2 ", {request => $request_ref}) if $log->is_debug();
-		}
-
-		$request_ref->{canon_tagid2} = $canon_tagid2;
 	}
 
 	if (defined $request_ref->{groupby_tagtype}) {
@@ -3195,7 +3124,7 @@ sub display_tag ($request_ref) {
 
 	# If the query contained tags in non-canonical form, redirect to the form with the canonical tags
 	# The redirect is temporary (302), as the canonicalization could change if the corresponding taxonomies change
-	if (((defined $newtagid) and ($newtagid ne $tagid)) or ((defined $newtagid2) and ($newtagid2 ne $tagid2))) {
+	if ($redirect_to_canonical_url) {
 		$request_ref->{redirect} = $formatted_subdomain . $request_ref->{current_link};
 		# Re-add file suffix, so that the correct response format is kept. https://github.com/openfoodfacts/openfoodfacts-server/issues/894
 		$request_ref->{redirect} .= '.json' if single_param("json");
@@ -3206,6 +3135,27 @@ sub display_tag ($request_ref) {
 			if $log->is_info();
 		redirect_to_url($request_ref, 302, $request_ref->{redirect});
 	}
+
+	# Ask search engines to not index the page if it is related to a user
+	if ($header_meta_noindex) {
+		$header .= '<meta name="robots" content="noindex">' . "\n";
+	}
+
+	# Refactoring in progress
+	# TODO: some of the following variables may be removed, and instead we could use the $request_ref->{tags} array
+	my $tagtype = deep_get($request_ref, qw(tags 0 tagtype));
+	my $tagid = deep_get($request_ref, qw(tags 0 tagid));
+	my $display_tag = deep_get($request_ref, qw(tags 0 display_tag));
+	my $newtagid = deep_get($request_ref, qw(tags 0 newtagid));
+	my $newtagidpath = deep_get($request_ref, qw(tags 0 newtagidpath));
+	my $canon_tagid = deep_get($request_ref, qw(tags 0 canon_tagid));
+
+	my $tagtype2 = deep_get($request_ref, qw(tags 1 tagtype));
+	my $tagid2 = deep_get($request_ref, qw(tags 1 tagid));
+	my $display_tag2 = deep_get($request_ref, qw(tags 1 display_tag));
+	my $newtagid2 = deep_get($request_ref, qw(tags 1 newtagid));
+	my $newtagid2path = deep_get($request_ref, qw(tags 1 newtagidpath));
+	my $canon_tagid2 = deep_get($request_ref, qw(tags 1 canon_tagid));
 
 	my $weblinks_html = '';
 	my @wikidata_objects = ();
