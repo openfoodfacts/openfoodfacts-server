@@ -22183,7 +22183,7 @@ cs:pšenice
 cv:тулă
 cy:gwenith
 da:hvede
-de:weizen
+de:weizen, weizen art
 dv:ގޮދަން
 el:σιτάρι
 es:trigo
@@ -30974,7 +30974,7 @@ en:wheat protein
 bg:пшеничен протеин
 ca:proteïna de blat
 cs:pšeničná bílkovina, pšeničná bilkovina
-de:Weizenprotein, Weizeneiweiß, Weizeneiweiss
+de:Weizenprotein, Weizeneiweiß, Weizeneiweiss, Weizen eiweiß
 es:Proteina de trigo
 fi:vehnäproteiini
 fr:protéine de blé, protéines de blé, protéines de froment
@@ -34078,6 +34078,7 @@ pl:suszony zakwas pszenny
 
 <en:wheat sourdough
 fr:levain de blé dévitalisé
+nl:geïnactiveerd tarwedesem
 
 <en:sourdough
 en:rye sourdough
@@ -35593,7 +35594,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Juice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-fruits
 # 1687 products in 6 languages @2018-10-04
 
-<en:fruit juice
+# don't put under fruit juice, because concentrate fruit juices that are not reconstituted to 100% of their initial volume don't count for the nutriscore
 en:fruit juice concentrate
 da:Frugtjuicekoncentrat
 de:Fruchtsaftkonzentrat, Fruchtsäfte Konzentrat
@@ -52180,6 +52181,21 @@ fr:Pulpe d'avocat crue
 ciqual_food_code:en:13004
 ciqual_food_name:en:Avocado, pulp, raw
 ciqual_food_name:fr:Avocat, pulpe, cru
+
+<en:avocado
+en:hass avocado, hass avocadoes
+de:hass-avocado, hass-avocados
+es:aguacate Hass, aguacates Hass
+fr:avocat Hass, avocats Hass
+it:avocado hass
+pt:abacate hass, abacates hass
+ja:ハスアボカド
+ko:할아버지 아보카도
+zh:哈斯牛油果
+ru:авокадо Хасс
+uk:авокадо Хасс
+wikidata:en:Q5679460
+wikipedia:en:https://en.wikipedia.org/wiki/Hass_avocado
 
 <en:vegetable
 <en:herb
@@ -87099,7 +87115,7 @@ bn:সয়া সস
 ca:salsa de soia
 cs:sójová omáčka
 da:sojasovs, sojasauce
-de:Sojasauce, Sojasoße, Sojasosse, Soja Sosse, Sojasoßen, Sojasossen, Sojasaucen
+de:Sojasauce, Sojasoße, Sojasosse, Soja Sosse, Sojasoßen, Sojasossen, Sojasaucen, Soja soße
 el:Σάλτσα σόγιας
 eo:sojsaŭco
 es:salsa de soya, salsa de soja,shoyu

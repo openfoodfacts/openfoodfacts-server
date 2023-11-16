@@ -326,7 +326,7 @@ my @lists = (
 	[
 		"fr",
 		"huiles* (tournesol*, olive vierge extra), sel marin. *issus de l'agriculture biologique.",
-		"huiles Bio de tournesol Bio, huiles Bio d'olive vierge extra), sel marin."
+		"huiles Bio de tournesol Bio, huiles Bio d'olive vierge extra, sel marin."
 	],
 	["fr", "riz de Camargue (1), sel. (1): IGP : Indication Géographique Protégée.", "riz de Camargue IGP, sel."],
 	[
@@ -628,6 +628,12 @@ my @lists = (
 	["sk", "syr, E470 a E470a, mlieko.", "syr, e470, e470a, mlieko."],
 	# normalize category and types
 	["fr", "Piments (vert, rouge, jaune)", "Piments vert, Piments rouge, Piments jaune"],
+	# New feature:
+	["de", "pflanzliches Fett (Kokosnuss, Palmkern)", "Kokosnussfett, Palmkernfett"],
+	[
+		"de", "pflanzliche Öle und Fette (Raps, Palm, Shea, Sonnenblumen)",
+		"Rapsöl, Palmfett, Sheafett, Sonnenblumenfett"
+	],
 	[
 		"fr",
 		"Huiles végétales de palme, de colza et de tournesol",
@@ -643,6 +649,8 @@ my @lists = (
 	["en", "Vegetal oil (sunflower, olive and palm)", "sunflower vegetal oil, olive vegetal oil, palm vegetal oil"],
 	["en", "vegetable oil (palm)", "palm vegetable oil"],
 	["en", "vegetable oil: palm", "palm vegetable oil"],
+	# Should not develop the enumeration if it contains unknown types (like "sel" here)
+	["fr", "Piments (vert, rouge, jaune, sel)", "Piments (vert, rouge, jaune, sel)"],
 
 );
 
