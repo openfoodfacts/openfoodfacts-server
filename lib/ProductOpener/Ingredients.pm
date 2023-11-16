@@ -517,7 +517,9 @@ my @labels = (
 	"en:vegetarian", "nl:beter-leven-1-ster",
 	"nl:beter-leven-2-ster", "nl:beter-leven-3-ster",
 	"en:halal", "en:kosher",
-	"en:fed-without-gmos",
+	"en:fed-without-gmos", "fr:crc",
+	"en:without-gluten", "en:sustainable-farming",
+	"en:krav",
 );
 my %labels_regexps = ();
 
@@ -535,6 +537,9 @@ that we want to recognize in ingredients lists, such as organic and fair trade.
 sub init_labels_regexps() {
 
 	foreach my $labelid (@labels) {
+
+		# Canonicalize the label ids in case the normalized id changed
+		$labelid = canonicalize_taxonomy_tag("en", "labels", $labelid);
 
 		foreach my $label_lc (keys %{$translations_to{labels}{$labelid}}) {
 
@@ -2254,20 +2259,42 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 							{ingredient => $ingredient, labelid => $labelid, regexp => $regexp})
 							if $log->is_trace();
 						if ((defined $regexp) and ($ingredient =~ /\b($regexp)\b/i)) {
+
+							my $label = $1;
+
 							if (defined $labels) {
 								$labels .= ", " . $labelid;
 							}
 							else {
 								$labels = $labelid;
 							}
-							$ingredient = $` . ' ' . $';
+
+							# Remove stopwords after or before the label
+							# e.g. "Abricots from sustainable farming" -> "Abricots" + "from" + "sustainable farming" -> "Abricots"
+							my $before_the_label = $`;
+							my $after_the_label = $';
+
+							$before_the_label = remove_stopwords_from_start_or_end_of_string("labels", $ingredients_lc,
+								$before_the_label);
+
+							# Don't remove stopwords on $after_the_label, as it can remove words we want to keep
+							# e.g. "Cacao issu de l'agriculture biologique de Madagascar": need to keep "de" in "Cacao de Madagascar"
+
+							$ingredient = $before_the_label . ' ' . $after_the_label;
 							$ingredient =~ s/\s+/ /g;
 
-							# If the ingredient is just the label + sub ingredients (e.g. "vegan (orange juice)")
-							# then we replace the now empty ingredient by the sub ingredients
-							if (($ingredient =~ /^\s*$/) and (defined $between) and ($between ne "")) {
-								$ingredient = $between;
-								$between = '';
+							# If we matched a label, but no ingredient
+							if ($ingredient =~ /^\s*$/) {
+								# If the ingredient is just the label + sub ingredients (e.g. "vegan (orange juice)")
+								# then we replace the now empty ingredient by the sub ingredients
+								if ((defined $between) and ($between !~ /^\s*$/)) {
+									$ingredient = $between;
+									$between = '';
+								}
+								else {
+									# Otherwise we leave the label in place, so that it can be parsed as a non-ingredient specific label
+									$ingredient = $label;
+								}
 							}
 							$debug_ingredients
 								and $log->debug("found label", {ingredient => $ingredient, labelid => $labelid})
