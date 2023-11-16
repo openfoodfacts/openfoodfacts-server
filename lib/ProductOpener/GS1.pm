@@ -164,6 +164,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"CU" => "copper",
 		"ENER-" => "energy",
 		"ENERSF" => "calories-from-saturated-fat",
+		"ERYTHL" => "erythritol",
 		"F18D2CN6" => "linoleic-acid",
 		"F18D3N3" => "alpha-linolenic-acid",
 		"F20D4" => "arachidonic-acid",
@@ -219,6 +220,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"SUGAR" => "sugars",
 		"SUGAR-" => "sugars",
 		"TAU" => "taurine",
+		"UNSATURATED_FAT" => "unsaturated-fat",
 		"THIA" => "vitamin-b1",
 		"THIA-" => "vitamin-b1",
 		"VITA-" => "vitamin-a",
@@ -232,6 +234,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"WHEY" => "serum-proteins",
 		# skipped X_ entries such as X_ACAI_BERRY_EXTRACT
 		"ZN" => "zinc",
+		"X_FUNS" => "unsaturated-fat",
 	},
 
 	packagingTypeCode => {
@@ -294,6 +297,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"ŒUFS_DE_FRANCE" => "en:french-eggs",
 		"OEUFS_DE_FRANCE" => "en:french-eggs",
 		"ORIGINE_FRANCE_GARANTIE" => "fr:origine-france",
+		"POMMES_DE_TERRES_DE_FRANCE" => "en:potatoes-from-france",
 		"PRODUIT_EN_BRETAGNE" => "en:produced-in-brittany",
 		"PROTECTED_DESIGNATION_OF_ORIGIN" => "en:pdo",
 		"PROTECTED_GEOGRAPHICAL_INDICATION" => "en:pgi",
@@ -305,6 +309,7 @@ my %unknown_entries_in_gs1_maps = ();
 		"TRIMAN" => "fr:triman",
 		"UTZ_CERTIFIED" => "en:utz-certified",
 		"UTZ_CERTIFIED_COCOA" => "en:utz-certified-cocoa",
+		"VIANDE_AGNEAU_FRANCAIS" => "fr:viande-d-agneau-francais",
 		"VIANDE_BOVINE_FRANCAISE" => "en:french-beef",
 		"VOLAILLE_FRANCAISE" => "en:french-poultry",
 	},
