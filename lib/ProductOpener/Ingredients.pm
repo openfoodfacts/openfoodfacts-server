@@ -131,6 +131,7 @@ use JSON::PP;
 use Log::Any qw($log);
 use List::MoreUtils qw(uniq);
 use Test::More;
+use Data::DeepAccess qw(deep_get deep_exists);
 
 # MIDDLE DOT with common substitutes (BULLET variants, BULLET OPERATOR and DOT OPERATOR (multiplication))
 # U+00B7 "·" (Middle Dot). Is a common character in Catalan. To avoid to break ingredients,
@@ -516,6 +517,7 @@ my @labels = (
 	"en:vegetarian", "nl:beter-leven-1-ster",
 	"nl:beter-leven-2-ster", "nl:beter-leven-3-ster",
 	"en:halal", "en:kosher",
+	"en:fed-without-gmos",
 );
 my %labels_regexps = ();
 
@@ -880,6 +882,57 @@ sub add_properties_from_specific_ingredients ($product_ref) {
 			my $property_value = has_specific_ingredient_property($product_ref, $ingredientid, $property);
 			if ((defined $property_value) and (not defined $ingredient_ref->{$property})) {
 				$ingredient_ref->{$property} = $property_value;
+			}
+		}
+	}
+	return;
+}
+
+=head2 add_percent_max_for_ingredients_from_nutrition_facts ( $product_ref )
+
+Add a percent_max value for salt and sugar ingredients, based on the nutrition facts.
+
+=cut
+
+sub add_percent_max_for_ingredients_from_nutrition_facts ($product_ref) {
+
+	# Check if we have values for salt and sugar in the nutrition facts
+	my @ingredient_max_values = ();
+	my $sugars_100g = deep_get($product_ref, qw(nutriments sugars_100g));
+	if (defined $sugars_100g) {
+		push @ingredient_max_values, {ingredientid => "en:sugar", value => $sugars_100g};
+	}
+	my $salt_100g = deep_get($product_ref, qw(nutriments salt_100g));
+	if (defined $salt_100g) {
+		push @ingredient_max_values, {ingredientid => "en:salt", value => $salt_100g};
+	}
+
+	if (scalar @ingredient_max_values) {
+
+		# Traverse the ingredients tree, depth first
+
+		my @ingredients = @{$product_ref->{ingredients}};
+
+		while (@ingredients) {
+
+			# Remove and process the first ingredient
+			my $ingredient_ref = shift @ingredients;
+			my $ingredientid = $ingredient_ref->{id};
+
+			# Add sub-ingredients at the beginning of the ingredients array
+			if (defined $ingredient_ref->{ingredients}) {
+
+				unshift @ingredients, @{$ingredient_ref->{ingredients}};
+			}
+
+			foreach my $ingredient_max_value_ref (@ingredient_max_values) {
+				my $value = $ingredient_max_value_ref->{value};
+				if (is_a("ingredients", $ingredient_ref->{id}, $ingredient_max_value_ref->{ingredientid})) {
+					if (not defined $ingredient_ref->{percent_max}) {
+						$ingredient_ref->{percent_max} = $value;
+					}
+				}
+
 			}
 		}
 	}
@@ -2911,6 +2964,9 @@ reference to a hash of product fields that have been created or updated
 =cut 
 
 sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_ref) {
+
+	# Add a percent_max value for salt and sugar ingredients, based on the nutrition facts.
+	add_percent_max_for_ingredients_from_nutrition_facts($product_ref);
 
 	if (compute_ingredients_percent_min_max_values(100, 100, $product_ref->{ingredients}) < 0) {
 
@@ -6688,6 +6744,10 @@ sub detect_allergens_from_text ($product_ref) {
 			$text =~ s/\b___([^,;_\(\)\[\]]+?)___\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
 			$text =~ s/\b__([^,;_\(\)\[\]]+?)__\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
 			$text =~ s/\b_([^,;_\(\)\[\]]+?)_\b/replace_allergen($language,$product_ref,$1,$`)/iesg;
+			# _Weizen_eiweiß is not caught in last regex because of \b (word boundary).
+			if ($language eq 'de') {
+				$text =~ s/\b_([^,;_\(\)\[\]]+?)_/replace_allergen($language,$product_ref,$1,$`)/iesg;
+			}
 
 			# allergens in all caps, with other ingredients not in all caps
 
