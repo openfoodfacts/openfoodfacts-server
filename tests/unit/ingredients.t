@@ -703,6 +703,14 @@ puffed orange and caramelized unknown_fruit4.",
 				"fruits (apple, banana and dried cherry), vegetables (pitted avocado, peeled black radish).",
 		}
 	],
+	# category / types enumeration
+	[
+		"en-category-types",
+		{
+			lc => "de",
+			ingredients_text => "pflanzliche Öle und Fette (Raps, Palm, Shea, Sonnenblumen)",
+		}
+	],
 	[
 		"fr-viande-de-boeuf-issue-d-animaux-nourris-sans-ogm",
 		{
