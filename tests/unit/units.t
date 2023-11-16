@@ -141,6 +141,15 @@ is(normalize_quantity("2 kgr"), 2000);
 is(normalize_quantity("2 kilogramme"), 2000);
 is(normalize_quantity("2 kilogrammes"), 2000);
 
+# . without a 0 before
+is(normalize_quantity(".33L"), 330);
+is(normalize_quantity(".33 l"), 330);
+is(normalize_serving_size(".33L"), 330);
+is(normalize_serving_size(".33 l"), 330);
+is(normalize_serving_size("5 bottles (.33L)"), 330);
+is(normalize_serving_size("5 bottles .33L"), 330);
+is(normalize_serving_size("5 bottles2.33L"), undef);    # Broken string, missing word separator before number
+
 my @serving_sizes = (
 	["100g", "100"],
 	["250 g", "250"],
@@ -154,7 +163,7 @@ my @serving_sizes = (
 );
 
 foreach my $test_ref (@serving_sizes) {
-	is(normalize_serving_size($test_ref->[0]), $test_ref->[1]);
+	is(normalize_serving_size($test_ref->[0]), $test_ref->[1]) or diag explain $test_ref;
 }
 
 done_testing();
