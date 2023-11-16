@@ -5266,11 +5266,11 @@ my %ingredients_categories_and_types = (
 			categories => ["slad",],
 			types => ["ječmeni", "pšenični",]
 		},
-        # milk
-        {
-            categories => ["mlijeko",],
+		# milk
+		{
+			categories => ["mlijeko",],
 			types => ["s 1.0% mliječne masti",]
-        },
+		},
 	],
 
 	pl => [
