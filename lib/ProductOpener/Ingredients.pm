@@ -2968,6 +2968,7 @@ sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_
 	# Add a percent_max value for salt and sugar ingredients, based on the nutrition facts.
 	add_percent_max_for_ingredients_from_nutrition_facts($product_ref);
 
+	# Compute the min and max range for each ingredient
 	if (compute_ingredients_percent_min_max_values(100, 100, $product_ref->{ingredients}) < 0) {
 
 		# The computation yielded seemingly impossible values, delete the values
@@ -2978,6 +2979,23 @@ sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_
 		$product_ref->{ingredients_percent_analysis} = 1;
 	}
 
+	# Count ingredients with specified percent
+	my ($ingredients_n, $ingredients_with_specified_percent_n, $total_specified_percent)
+		= count_ingredients_with_specified_percent($product_ref->{ingredients});
+	if ($ingredients_with_specified_percent_n > 0) {
+		add_tag($product_ref, "misc", "en:some-ingredients-with-specified-percent");
+		if ($ingredients_with_specified_percent_n == $ingredients_n) {
+			add_tag($product_ref, "misc", "en:all-ingredients-with-specified-percent");
+		}
+		if ($ingredients_with_specified_percent_n >= 5) {
+			add_tag($product_ref, "misc", "en:at-least-5-ingredients-with-specified-percent");
+			if ($ingredients_with_specified_percent_n >= 10) {
+				add_tag($product_ref, "misc", "en:at-least-10-ingredients-with-specified-percent");
+			}
+		}
+	}
+
+	# Estimate the percent values for each ingredient for which we don't have a specified percent
 	compute_ingredients_percent_estimates(100, $product_ref->{ingredients});
 
 	# Indicate which fields were created or updated
@@ -2985,6 +3003,55 @@ sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_
 	$updated_product_fields_ref->{ingredients_percent_analysis} = 1;
 
 	return;
+}
+
+=head2 count_ingredients_with_specified_percent($product_ref)
+
+Count ingredients with specified percent, including sub-ingredients.
+
+=head3 Return values
+
+=head4 $ingredients_n
+
+Number of ingredients.
+
+=head4 $ingredients_with_specified_percent_n
+
+Number of ingredients with a specified percent value.
+
+=head4 $total_specified_percent
+
+Sum of the specified percent values.
+
+Note: this can be greater than 100 if percent values are specified for ingredients and their sub ingredients.
+
+=cut
+
+sub count_ingredients_with_specified_percent ($ingredients_ref) {
+
+	my ($ingredients_n, $ingredients_with_specified_percent_n, $total_specified_percent) = (0, 0, 0);
+
+	if (defined $ingredients_ref) {
+		foreach my $ingredient_ref (@{$ingredients_ref}) {
+			$ingredients_n++;
+			if (defined $ingredient_ref->{percent}) {
+				$ingredients_with_specified_percent_n++;
+				$total_specified_percent += $ingredient_ref->{percent};
+			}
+			if (defined $ingredient_ref->{ingredients}) {
+				my (
+					$sub_ingredients_n,
+					$sub_ingredients_with_specified_percent_n,
+					$sub_ingredients_total_specified_percent
+				) = count_ingredients_with_specified_percent($ingredient_ref->{ingredients});
+				$ingredients_n += $sub_ingredients_n;
+				$ingredients_with_specified_percent_n += $sub_ingredients_with_specified_percent_n;
+				$total_specified_percent += $sub_ingredients_total_specified_percent;
+			}
+		}
+	}
+
+	return ($ingredients_n, $ingredients_with_specified_percent_n, $total_specified_percent);
 }
 
 =head2 delete_ingredients_percent_values ( ingredients_ref )
