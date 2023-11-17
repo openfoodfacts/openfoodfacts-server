@@ -993,12 +993,15 @@ auth_url:en: https://spp.coop/
 en:Fairtrade cocoa, fairtrade cocoa program
 xx:Fairtrade cocoa, fairtrade cocoa program
 
-en:Fed without GMOs, Fed without GMO
+# note: we need full entries like "issu d'animaux nourris sans OGM" even though we have "issu" and "d'" in stopwords
+# in order to cleanly separate ingredient and label in strings like "viande de boeuf issue d'animaux nourris sans OGM"
+en:Fed without GMOs, Fed without GMO, Animals fed without GMOs, Animals fed without GMO, from animals fed without GMOs, from animals fed without GMO
 bg:Хранене без ГМО
 ca:Alimentat sense Organismes Modificats Genèticament
 fi:Eläintä on ruokittu GMO-vapaalla rehulla, ruokittu ilman GMO:ita
-fr:Nourri sans OGM, nourris sans OGM, nourries sans OGM, Alimentation sans OGM, Animaux nourris sans OGM, élevage avec une alimentation sans ogm
+fr:Nourri sans OGM, nourris sans OGM, nourries sans OGM, Alimentation sans OGM, Animaux nourris sans OGM, élevage avec une alimentation sans ogm, issu d'animaux nourris sans OGM, issue d'animaux nourris sans OGM, issus d'animaux nourris sans OGM, issues d'animaux nourris sans OGM
 it:Alimentati senza OGM
+nl:Zonder OGM voedsel
 pt:Alimentado sem OGM, alimentado sem alimentos geneticamente modificados, alimentado sem alimentos transgênicos, alimentado sem alimentos transgénicos, alimentada sem OGM, alimentada sem alimentos geneticamente modificados, alimentada sem alimentos transgênicos, alimentada sem alimentos transgénicos, alimentados sem OGM, alimentados sem alimentos geneticamente modificados, alimentados sem alimentos transgênicos, alimentados sem alimentos transgénicos, alimentadas sem OGM, alimentadas sem alimentos geneticamente modificados, alimentadas sem alimentos transgênicos, alimentadas sem alimentos transgénicos
 
 <en:Fed without GMOs
@@ -1352,6 +1355,7 @@ es:Rico en fibra, Rico en fibras, Fuente de Fibra, Alto en Fibra, Alto Contenido
 fi:runsaskuituinen, paljon kuituja, kuitupitoinen
 fr:Riche en fibres, Naturellement riches en fibres
 he:עתיר בסיבים תזונתיים
+hr:visoko obogaćena vlaknima
 hu:Rostokban gazdag, Magas rosttartalmú
 it:Ricco di fibre
 nb:Fiberrik, rik på fiber
@@ -2606,7 +2610,7 @@ es:Sin azúcares añadidos, 0% Azúcares añadidos, Sin azúcar añadido
 fi:ei lisättyä sokeria, ilman lisättyä sokeria, ei lisättyjä sokereita
 fr:Sans sucre ajouté, sans sucres ajoutés, sans ajout de sucre
 he:ללא תוספת סוכר
-hr:bez dodanog šećera, bez dodatnih šećera
+hr:bez dodanog šećera, bez dodatnih šećera, bez dodanih šećera, sadrži prirodno prisutne šećere
 hu:Hozzáadott cukor nélkül, Nincs hozzáadott cukor, hozzáadott cukrot nem tartalmaz
 it:Senza zuccheri aggiunti
 nl:Zonder toegevoegde suikers, Geen suiker toegevoegd
@@ -2984,9 +2988,17 @@ sv:Tillverkad i Luxemburg
 country:en:Luxembourg
 label_categories:en: en:Geographic label
 
+# Latvia
+lv:Kvalitatīvs produkts ražots Latvijā
+xx:Kvalitatīvs produkts ražots Latvijā
+description:en:Quality product made in Latvia
+image:lv:kvalitativs-produkts-razots-latvija.123x90.png
+country:en:Latvia
+
 # Lithuania
 lt:Lietuvos metų gaminys
 xx:Lietuvos metų gaminys
+description:en:Lithuanian product of the year
 image:lt:lietuvos-metų-gaminys.173x90.png
 country:en:Lithuania
 
@@ -4405,7 +4417,7 @@ es:Ecológico, ecológica, Producto ecológico, Biológico, Producto biológico,
 fi:Luomu, luomutuotanto, luomutuotantoa, luomuraaka-aine, luonnonmukainen tuotanto, luonnonmukaisesti
 fr:Bio, agriculture biologique, biologique, organic, organique, issu de l'agriculture biologique, issus de l'agriculture biologique, issue de l'agriculture biologique, issues de l'agriculture biologique, ingrédient issu de l'agriculture biologique, ingrédients issus de l'agriculture biologique, Les-ingredients-sont-issus-d-une-agriculture-biologique, ingrédients agricoles issus de l'agriculture biologique, produits issus de l'agriculture biologique, produit issu de l'agriculture biologique, ingrédient agricole issu de l'agriculture biologique, tous les ingrédients agricoles sont issus de l'agriculture biologique, les ingrédients agricoles sont issus de l'agriculture biologique, tous les ingrédients sont issus de l'agriculture biologique, ingrédients bio, ingrédients biologiques, ingrédient bio, ingrédient biologique, issue de l'agriculture biologique controlee
 he:אורגני
-hr:ekološki uzgoj, iz ekološkog uzgoja, iz kontroliranog ekološkog uzgoja, iz kontrolirane ekološke proizvodnje, iz kontroliranog biološkog uzgoja
+hr:ekološki uzgoj, iz ekološkog uzgoja, iz kontroliranog ekološkog uzgoja, iz kontrolirane ekološke proizvodnje, iz kontroliranog biološkog uzgoja, iz kontroliranog organskog uzgoja
 hu:Bio, Öko, Organikus, biogazdálkodásból, ellenőrzött ökológiai gazdálkodásból
 it:Biologico, biologici, da agricoltura biologica
 ko:유기농
@@ -18964,6 +18976,7 @@ pt:União Vegetariana Europeia, European Vegetarian Union
 sv:Europeiska Vegetariska Unionen
 wikidata:en:Q443112
 
+
 #https://www.v-label.eu/wp-content/uploads/2017/09/vegetarian_FR_front.png
 <en:European Vegetarian Union
 en:European Vegetarian Union Vegetarian, European Vegetarian Union - Vegetarian, EVU Vegetarian
@@ -18974,6 +18987,8 @@ fr:Union Végétarienne Européenne Végétarien, Union Végétarienne Européen
 pl:V-Label Vegetarian, V-Label wegetariańskie
 pt:União Vegetariana Europeia - Vegetariano, European Vegetarian Union - Vegetarian
 sv:Europeiska Vegetariska Unionen Vegetarisk, Europeiska Vegetariska Unionen - Vegetarisk, EVU Vegetarian
+image:en:european-vegetarian-union-vegetarian.77x90.png
+image:fr:union-vegetarienne-europeenne-vegetarien.77x90.png
 
 #https://www.v-label.eu/wp-content/uploads/2016/07/v-label_vegan_rgb.png
 <en:European Vegetarian Union
@@ -18991,6 +19006,7 @@ nl:Europese Vegetarische Unie Vegan, Europese Vegetarische Unie - Vegan, EVU Veg
 pl:V-Label Vegan, V-Label wegańskie
 pt:União Vegetariana Europeia Vegano, European Vegetarian Union Vegan, União Vegetariana Europeia - Vegano, European Vegetarian Union - Vegan
 sv:Europeiska Vegetariska Unionen Vegan, Europeiska Vegetariska Unionen - Vegan, EVU Vegan
+image:en:european-vegetarian-union-vegan.68x90.png
 
 #https://znakv.pl/wp-content/uploads/2021/08/vivaR.svg
 <en:Vegan
@@ -19186,10 +19202,12 @@ origins:en: en:france
 fr:Blé français, Blé exclusivement cultivé en France, Blé Français sélectionné, Blé cultivé en France, 100% blé de France, Blé 100% Français, Blé de France
 pt:Trigo francês, trigo de França, trigo da França
 origins:en: en:france
+ingredients:en: en:wheat
 
-fr:Farine de blé français
+fr:Farine de blé français, farine de blé de France, farine blé de France, farine de blé française
 pt:Farinha de trigo francesa, farinha de trigo de França, farinha de trigo da França
 origins:en: en:france
+ingredients:en: en:wheat-flour
 
 fr:Soja Français, Soja de France, Filière Soja Français
 pt:Soja francêsa, soja de França, soja da França

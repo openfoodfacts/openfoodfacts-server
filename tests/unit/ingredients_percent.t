@@ -244,6 +244,19 @@ my @tests = (
 			lc => "fr",
 			ingredients_text =>
 				"Lait entier pasteurisé équitable (73,4-74,3%), sucre de canne (9 - 10%), crème (5.1-5.5%), amidon de mais 4-5%, café lyophilisé."
+        },
+    ],
+	# max sugar and salt from nutrition facts
+	[
+		'max-sugar-salt-nutrition-facts',
+		{
+			lc => "en",
+			ingredients_text => "water, sugar, salt",
+			nutrition_data_per => "100g",
+			nutriments => {
+				sugars_100g => 10,
+				salt_100g => 5,
+			},
 		},
 	],
 );
@@ -254,11 +267,7 @@ foreach my $test_ref (@tests) {
 	my $product_ref = $test_ref->[1];
 
 	parse_ingredients_text_service($product_ref, {});
-	if (compute_ingredients_percent_min_max_values(100, 100, $product_ref->{ingredients}) < 0) {
-		delete_ingredients_percent_values($product_ref->{ingredients});
-	}
-
-	compute_ingredients_percent_estimates(100, $product_ref->{ingredients});
+	estimate_ingredients_percent_service($product_ref, {});
 
 	compare_to_expected_results(
 		$product_ref->{ingredients},
