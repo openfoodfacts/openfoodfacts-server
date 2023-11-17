@@ -32174,6 +32174,9 @@ comment:en:This is different from speculoos, which is a sugar-based variant with
 <en:Speculaas
 nl:Kruidnoten, Speculaasnoten
 
+<nl:Sinterklaasproducten
+nl:Taai taai
+
 en:Breaded products
 bg:Панирани продукти
 ca:Productes arrebossats
@@ -33756,7 +33759,7 @@ fi:esipaistetut leivät
 fr:Pains précuits, pain précuit
 it:Pane pre-cotto
 lt:Iškeptos duonos
-nl:Voorgebakken broden, Voorgebakken brood
+nl:Afbakbroden, Voorgebakken broden, Voorgebakken brood
 
 <en:Breads
 en:Special breads
@@ -34911,6 +34914,7 @@ ciqual_food_name:en:Chocolate cake
 <en:Chocolate cakes
 en:Chocolate cake with melting centre
 fr:Moelleux au chocolat
+nl:Chococakes met chocoladevulling
 agribalyse_food_code:en:39234
 ciqual_food_code:en:39234
 ciqual_food_name:en:Chocolate cake w melting centre, refrigerated
@@ -35220,6 +35224,13 @@ sv:Konfekt
 th:ขนมหวาน
 food_groups:en: en:Sweets
 pnns_group_2:en:Sweets
+
+<en:Confectioneries
+fr:Bonbons dragéifiés
+#wikidata:en:
+
+<en:Confectioneries
+en:Fudge
 
 <en:Confectioneries
 en:Compound chocolates, Chocolate substitutes
@@ -36651,6 +36662,10 @@ nl:Drop
 en:Salty liquorice candies
 nl:Zoute drop
 
+<en:Liquorice candies
+en:Sweet liquorice candies
+nl:Zoete drop
+
 <en:French candies
 fr:Bêtises de Cambrai
 wikidata:en:Q915783
@@ -37217,6 +37232,7 @@ nl:Chocoladeletters
 wikidata:en:Q657007
 
 en:Festive foods
+nl:Feestdagenlevensmiddelen
 
 <en:Festive foods
 en:Christmas foods and drinks
@@ -48480,6 +48496,7 @@ agribalyse_proxy_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, 
 <en:Fruit yogurts
 en:Yogurt with fruits and sugar, Yogurt fruit flavoured with sugar, Fermented milk with fruits and sugar, Fermented milk fruit flavoured with sugar, Dairy specialty with fruits and added sugar, Dairy specialty fruit flavoured with sugar
 fr:Yaourt aromatisé sucré, Yaourt aux fruits sucré, Lait fermenté aromatisé sucré, Lait fermenté aux fruits sucré, Spécialité laitière aromatisée sucrée, Spécialité laitière aux fruits sucrée
+nl:Yoghurts met fruit en suiker
 ciqual_food_code:en:19676
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavoured, w sugar (average)
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, sucré (aliment moyen)
@@ -51143,6 +51160,10 @@ agribalyse_food_code:en:38406
 ciqual_food_code:en:38406
 ciqual_food_name:en:Coated peanuts
 ciqual_food_name:fr:Cacahuètes (arachide) enrobées d'un biscuit, pour apéritif
+wikipedia:nl:https://nl.wikipedia.org/wiki/Borrelnootje
+
+<en:Coated peanuts
+nl:Katjang pedis
 
 <en:Peanuts
 en:Peanuts cooked in water with salt, Boiled peanuts with salt
@@ -51151,6 +51172,7 @@ agribalyse_food_code:en:20581
 ciqual_food_code:en:20581
 ciqual_food_name:en:Peanut, boiled/cooked in water, w salt
 ciqual_food_name:fr:Arachide, bouillie/cuite à l'eau, salée
+
 
 <en:Nuts
 en:Roasted nuts
@@ -51618,6 +51640,14 @@ fr:Beurres de noix de macadamia, purées de noix de macadamia
 ja:マカダミアナッツバター
 lt:Makadamijos riešutų sviestai
 nl:Macadamiapasta's
+
+<en:Nut butters
+en:Mixed nut butters
+de:Gemischte Nusspasten
+fr:Purées de noix mélangées
+it:Cremas di noci miste
+nl:Gemengde notenpasta's
+pl:Pastas z orezechow mieszanych
 
 <en:Vegetable fats
 en:Coconut butters, coconut purees, Coconut butter, coconut puree
@@ -57627,7 +57657,7 @@ fr:Farines de blé
 it:Farine di grano
 ja:小麦粉
 lt:Kvietiniai miltai
-nl:Tarwemelen, Tarwebloem
+nl:Tarwemelen, Tarwebloem, Tarwemeel
 pl:Mąki pszenne, Mąka pszenna
 pt:Farinhas de trigo, farinha de trigo
 ru:Мука пшеничная, Пшеничная мука
@@ -57668,7 +57698,7 @@ es:Harinas de trigo blancas
 fi:valkoiset vehnäjauhot
 fr:Farines de blé type T55, Farines de blé T55, Farines de blé type 55, farines blanches de blé, Farine de blé tendre T55 pour pains
 lt:Kvietiniai miltai 550D
-nl:Witte tarwebloem
+nl:Witte tarwebloem 550
 pl:Mąka pszenna typ 550
 agribalyse_food_code:en:9436
 ciqual_food_code:en:9436
@@ -57761,6 +57791,7 @@ nl:Volkoren graanmeel
 
 <en:Wheat flours
 en:White wheat flours
+nl:Witte tarwebloem
 
 <en:Common wheat flours
 <en:Whole wheat flours
@@ -58121,7 +58152,7 @@ de:Hartweizengrieße für Couscous, Hartweizengrieß für Couscous
 es:Sémolas de trigo duro para couscous
 fr:Semoules de blé dur pour couscous
 it:Semolino di grano duro per couscous
-nl:Harde tarwe griesmelen voor couscous
+nl:Couscous griesmelen van harde tarwe, Harde tarwe griesmelen voor couscous
 
 <en:Durum wheat semolinas
 en:Pre-cooked durum wheat whole grain to pan-fry
@@ -58543,7 +58574,7 @@ agribalyse_food_code:en:11046
 ciqual_food_code:en:11046
 ciqual_food_name:en:Baking powder or raising agent
 
-<en:Food additives
+<en:Condiments
 en:Nutritional yeast
 bg:Хранителна мая
 fr:Levure alimentaire
@@ -63994,6 +64025,10 @@ en:Glazes with white vinegar
 fr:Crèmes de vinaigre blanc
 
 <en:Condiments
+en:Tamarind paste
+nl:Tamarinde pasta
+
+<en:Condiments
 <en:Plant-based foods
 en:Culinary plants, condiment plants, edible plants
 ca:Plantes culinàries, condiments vegetals, plantes comestibles
@@ -64439,6 +64474,7 @@ wikidata:en:Q26686
 agribalyse_proxy_food_code:en:11093
 agribalyse_proxy_food_name:en:Dill, fresh
 agribalyse_proxy_food_name:fr:Aneth, frais
+expected_ingredients:en: en:dill
 
 <en:Dill
 <en:Fresh aromatic plants
@@ -64905,6 +64941,10 @@ ciqual_food_code:en:11024
 ciqual_food_name:en:Parsley, dried
 ciqual_food_name:fr:Persil, séché
 
+<en:Dried parsley
+en:Dried flatleaf parsley
+expected_ingredients:en: en:flatleaf parsley
+
 <en:Parsley
 <en:Ground dried aromatic plants
 en:Ground dried parsley, Parsley flakes
@@ -65308,7 +65348,7 @@ ciqual_food_name:en:Molokhia powder (dried jute leaves)
 ciqual_food_name:fr:Meloukhia, feuilles de corète séchées, en poudre
 
 <en:Aromatic plants
-en:Mixtures of aromatic plants
+en:Mixed herbs, Mixtures of aromatic plants
 es:Mezclas de plantas aromáticas
 fi:maustekasvisekoitukset
 fr:Mélanges de plantes aromatiques
@@ -65957,6 +65997,7 @@ nl:Kruidnagelpoeders
 en:Whole cloves
 es:Clavos enteros, Clavo entero
 nl:Hele kruidnagels
+expected_ingredients:en: en:clove
 
 <en:Spices
 en:Curry powder
@@ -66335,7 +66376,7 @@ ciqual_food_name:en:Black pepper, powder
 ciqual_food_name:fr:Poivre noir, poudre
 
 <en:Ground peppers
-en:Grouned grey peppers, Grey pepper powder
+en:Grounded grey peppers, Grey pepper powder, Grouned grey peppers
 fr:Poivre gris moulu, Poivre gris en poudre
 lt:Malti pilkieji pipirai
 agribalyse_proxy_food_code:en:11019
@@ -66525,6 +66566,7 @@ la:Illicium verum
 lt:Žvaigždinis anyžius
 nl:Steranijsthee
 wikidata:en:Q1760637
+expected_ingredients:en: en:star anise
 
 <en:Spices
 en:Sumac, Sumach, Sumak, Soumak, Sumaq
@@ -73380,6 +73422,11 @@ fr:Bouillons de mouton
 lt:Avienos sultiniai
 nl:Schapenbouillon
 
+<en:Broths
+en:Fish broths
+fr:Bouillons de poisson
+nl:Visbouillons
+
 <en:Meals
 en:Bean dishes
 de:Bohnengerichte
@@ -73524,6 +73571,7 @@ agribalyse_proxy_food_name:fr:Choucroute garnie
 
 <en:Sauerkrauts
 fr:Choucroute d'Alsace
+nl:Zuurkolen uit de Elzas
 protected_name_file_number:en: PGI-FR-01066
 protected_name_type:en: pgi
 origins:en: en:France
@@ -73534,6 +73582,7 @@ wikidata:en:Q12699
 en:Sauerkraut with garnish
 fr:Choucroutes garnies, Choucroute garnie
 lt:Rauginti kopūstai su garnyru
+nl:Zuurkolen met garnering
 agribalyse_food_code:en:25003
 ciqual_food_code:en:25003
 ciqual_food_name:en:Sauerkraut, with garnish
@@ -73543,6 +73592,7 @@ ciqual_food_name:fr:Choucroute garnie
 en:Sauerkraut without garnish
 fr:Choucroutes sans garniture
 lt:Rauginti kopūstai be garnyro
+nl:Zuurkolen zonder garnering
 agribalyse_food_code:en:25220
 ciqual_food_code:en:25004
 ciqual_food_name:en:Sauerkraut, without garnish, drained
@@ -73552,6 +73602,7 @@ ciqual_food_name:fr:Choucroute, sans garniture, égouttée
 en:Cooked sauerkraut without garnish
 fr:Choucroute, sans garniture égouttée cuite
 lt:Kepti rauginti kopūstai be garnyro
+nl:Zuurkolen zonder garnering (uitgelekt, gekookt)
 ciqual_food_code:en:25220
 ciqual_food_name:en:Sauerkraut, without garnish, drained, cooked
 ciqual_food_name:fr:Choucroute, sans garniture, égouttée, cuite
@@ -79398,6 +79449,7 @@ wikidata:en:Q1106345
 en:Beef pastrami
 fr:Pastrami de bœuf
 ja:パストラミ
+nl:Rundvleespastrami
 
 <en:Prepared meats
 en:Coppa, Capicola, Capocollo
@@ -90828,6 +90880,7 @@ fr:Substituts de salades d'œufs, Substituts de tartinades d'œufs, Substituts d
 <en:Salted spreads
 en:Vegan vegetable spreads
 fr:Tartinades véganes aux légumes
+nl:Veganistische groentespreads
 
 <en:Spreadable fats
 <en:Plant-based spreads
@@ -94495,6 +94548,7 @@ en:Chinese cabbage, nappa cabbage, Bok choy
 bg:Китайско зеле
 fr:Chou chinois, pak-choi, pé-tsai
 ja:白菜, ハクサイ
+nl:Chinese kolen, Chinese kool
 agribalyse_food_code:en:20167
 ciqual_food_code:en:20167
 ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), raw
@@ -96614,6 +96668,7 @@ de:Frischer Spinat
 es:Espinacas frescas
 fi:Tuoreet pinaatit
 fr:Épinards frais
+nl:Verse spinazies
 season_in_country_fr:en: 1,2,3,4,5,9,10,11,12
 
 <en:Spinachs
@@ -105048,9 +105103,6 @@ ciqual_food_code:en:19579
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w cereals
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux céréales
 
-<en:Confectioneries
-fr:Bonbons dragéifiés
-#wikidata:en:
 
 <en:Flavoured fermented dairy desserts
 <fr:Fromages blancs
@@ -106023,9 +106075,6 @@ en:Blueberry Muffins
 fr:Muffins aux myrtilles
 ciqual_food_code:en:23950
 ciqual_food_name:en:Muffin, with blueberry or chocolate
-
-<en:Confectioneries
-fr:Bonbons dragéifiés
 
 <en:White chocolates
 en:White chocolate bar with dried fruits
