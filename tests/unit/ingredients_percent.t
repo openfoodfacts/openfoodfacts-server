@@ -244,8 +244,8 @@ my @tests = (
 			lc => "fr",
 			ingredients_text =>
 				"Lait entier pasteurisé équitable (73,4-74,3%), sucre de canne (9 - 10%), crème (5.1-5.5%), amidon de mais 4-5%, café lyophilisé."
-        },
-    ],
+		},
+	],
 	# max sugar and salt from nutrition facts
 	[
 		'max-sugar-salt-nutrition-facts',
