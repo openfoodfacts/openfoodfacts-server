@@ -224,6 +224,21 @@ my $tests_ref = [
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
+	# test with 3 facets
+	{
+		test_case => 'category_bananas_label_organic_brand_brand1',
+		method => 'GET',
+		path => '/category/bananas/label/organic/brand/brand1.json?fields=product_name',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
+	{
+		test_case => 'category_bananas_label_organic_brand_-brand1',
+		method => 'GET',
+		path => '/category/bananas/label/organic/brand/-brand1.json?fields=product_name',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
 	# Special unknown value, should match unexisting or empty tags array
 	{
 		test_case => 'brand_unknown',
