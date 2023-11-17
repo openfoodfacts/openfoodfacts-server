@@ -154,6 +154,12 @@ like(display_field($product_ref, 'states'), qr/$expected/);
 
 # should not loose the second facet at the end of the url on redirection
 my $facets_ref = {
+	tags => [
+		{
+			'tagtype' => 'categories',
+			'tagid' => 'en:bread'
+		}
+	],
 	'tagtype' => 'categories',
 	'groupby_tagtype' => 'data_quality',
 	'tagid' => 'en:bread'
