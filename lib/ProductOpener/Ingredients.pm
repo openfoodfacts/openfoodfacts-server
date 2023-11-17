@@ -3965,8 +3965,7 @@ sub normalize_fr_a_de_b ($a, $b) {
 	}
 }
 
-=head2 normalize_a_of_b ($lc, $a, $b, $of_bool)
-
+=head2 normalize_a_of_b ( $lc, $a, $b, $of_bool, $alternate_names_ref )
 
 This function is called by normalize_enumeration()
 
@@ -3991,6 +3990,15 @@ string, category as defined in %ingredients_categories_and_types, example: 'oil'
 
 string, type as defined in %ingredients_categories_and_types, example: 'sunflower' or 'olive' or 'palm' for 'oil (sunflower, olive and palm)'
 
+=head4 $of_bool - indicate if we want to construct entries like "<category> of <type>"
+
+e.g. in French we combine "huile" and "olive" to "huile d'olive"
+but we combine "poivron" and "rouge" to "poivron rouge".
+
+=head4 $alternate_names_ref
+
+Reference to an array of alternate names for the category
+
 =head3 Return value
 
 =head4 combined $a and $b (or $b and $a, depending of the language), that is expected to be an ingredient
@@ -3999,36 +4007,66 @@ string, comma-joined category and type, example: 'palm vegetal oil' or 'sunflowe
 
 =cut
 
-sub normalize_a_of_b ($lc, $a, $b, $of_bool) {
+sub normalize_a_of_b ($lc, $a, $b, $of_bool, $alternate_names_ref = undef) {
 
 	$a =~ s/\s+$//;
 	$b =~ s/^\s+//;
 
+	my $a_of_b;
+
 	if (($lc eq "en") or ($lc eq "hr")) {
-		return $b . " " . $a;
+		$a_of_b = $b . " " . $a;
 	}
 	elsif ($lc eq "es") {
-		return $a . " de " . $b;
+		$a_of_b = $a . " de " . $b;
 	}
 	elsif ($lc eq "fr") {
 		$b =~ s/^(de |d')//;
 
 		if (($b =~ /^(a|e|i|o|u|y|h)/i) && ($of_bool == 1)) {
-			return $a . " d'" . $b;
+			$a_of_b = $a . " d'" . $b;
 		}
 		elsif ($of_bool == 1) {
-			return $a . " de " . $b;
+			$a_of_b = $a . " de " . $b;
 		}
 		else {
-			return $a . " " . $b;
+			$a_of_b = $a . " " . $b;
 		}
 	}
-	elsif (($lc eq "pl") or ($lc eq "ru")) {
-		return $a . " " . $b;
+	elsif (($lc eq "de") or ($lc eq "ru") or ($lc eq "pl")) {
+		$a_of_b = $a . " " . $b;
 	}
+	else {
+		die("unsupported language in normalize_a_of_b: $lc, $a, $b");
+	}
+
+	# If we have alternate categories, check if $a_of_b is an existing taxonomy entry,
+	# otherwise check if we have entries with one of the alternate categories
+
+	if (defined $alternate_names_ref) {
+
+		my $name_exists;
+		canonicalize_taxonomy_tag($lc, "ingredients", $a_of_b, \$name_exists);
+
+		if (not $name_exists) {
+			foreach my $alternate_name (@{$alternate_names_ref}) {
+				my $alternate_name_copy
+					= $alternate_name;    # make a copy so that we can modify it without changing the array entry
+				$alternate_name_copy =~ s/<type>/$b/;
+				my $alternate_name_exists;
+				canonicalize_taxonomy_tag($lc, "ingredients", $alternate_name_copy, \$alternate_name_exists);
+				if ($alternate_name_exists) {
+					$a_of_b = $alternate_name_copy;
+					last;
+				}
+			}
+		}
+	}
+
+	return $a_of_b;
 }
 
-=head2 normalize_enumeration ($lc, $category, $types, $of_bool)
+=head2 normalize_enumeration ($lc, $category, $types, $of_bool, $alternate_names_ref = undef)
 
 
 This function is called by develop_ingredients_categories_and_types()
@@ -4062,7 +4100,7 @@ string, comma-joined category with all elements of the types, example: 'sunflowe
 
 =cut
 
-sub normalize_enumeration ($lc, $category, $types, $of_bool) {
+sub normalize_enumeration ($lc, $category, $types, $of_bool, $alternate_names_ref = undef) {
 	$log->debug("normalize_enumeration", {category => $category, types => $types}) if $log->is_debug();
 
 	# If there is a trailing space, save it and output it
@@ -4076,7 +4114,8 @@ sub normalize_enumeration ($lc, $category, $types, $of_bool) {
 
 	my @list = split(/$obrackets|$cbrackets|\/| \/ | $dashes |$commas |$commas|$and/i, $types);
 
-	return join(", ", map {normalize_a_of_b($lc, $category, $_, $of_bool)} @list) . $trailing_space;
+	return
+		join(", ", map {normalize_a_of_b($lc, $category, $_, $of_bool, $alternate_names_ref)} @list) . $trailing_space;
 }
 
 # iodure et hydroxide de potassium
@@ -5068,23 +5107,60 @@ This function lists each individual ingredient:
 
 =cut
 
-# simple plural (just an additional "s" at the end) will be added in the regexp
+=head3 %ingredients_categories_and_types
+
+For each language, we list the categories and types of ingredients that can be combined when the ingredient list
+contains something like "<category> (<type1>, <type2> and <type3>)"
+
+We can also provide a list of alternate_names, so that we can have a category like "oils and fats" and generate
+entries like "sunflower oil", "cocoa fat" when the ingredients list contains "oils and fats (sunflower, cocoa)".
+
+Alternate names need to contain "<type>" which will be replaced by the type.
+
+This can be especially useful in languages like German where we can create compound words with the type and the category*
+like "Kokosnussöl" or "Sonnenblumenfett":
+
+	de => [
+		{
+			categories => ["pflanzliches Fett", "pflanzliche Öle", "pflanzliche Öle und Fette", "Fett", "Öle"],
+			types => ["Kokosnuss", "Palm", "Palmkern", "Raps", "Shea", "Sonnenblumen",],
+			# Kokosnussöl, Sonnenblumenfett
+			alternate_names => ["<type>fett", "<type>öl"],
+		},
+	],
+
+Simple plural (just an additional "s" at the end) will be added in the regexp.
+
+Note that a "<categories> ([list of types])" enumeration will be developed only if all the types can be matched
+to the specified types in ingredients_categories_and_types.
+
+=cut
+
 my %ingredients_categories_and_types = (
 
 	en => [
 		# oils
-		[
+		{
 			# categories
-			["oil", "vegetable oil", "vegetal oil",],
+			categories => ["oil", "vegetable oil", "vegetal oil",],
 			# types
-			["colza", "olive", "palm", "rapeseed", "sunflower",],
-		],
+			types => ["colza", "olive", "palm", "rapeseed", "sunflower",],
+		},
+	],
+
+	de => [
+		{
+			categories => ["pflanzliches Fett", "pflanzliche Öle", "pflanzliche Öle und Fette", "Fett", "Öle"],
+			types => ["Kokosnuss", "Palm", "Palmkern", "Raps", "Shea", "Sonnenblumen",],
+			# Kokosnussöl, Sonnenblumenfett
+			alternate_names => ["<type>fett", "<type>öl"],
+		},
 	],
 
 	fr => [
 		# huiles
-		[
-			[
+		{
+			categories => [
 				"huile",
 				"huile végétale",
 				"huiles végétales",
@@ -5096,7 +5172,7 @@ my %ingredients_categories_and_types = (
 				"graisse végétale",
 				"graisses végétales",
 			],
-			[
+			types => [
 				"arachide", "avocat", "chanvre", "coco",
 				"colza", "illipe", "karité", "lin",
 				"mangue", "noisette", "noix", "noyaux de mangue",
@@ -5105,28 +5181,31 @@ my %ingredients_categories_and_types = (
 				"sal", "sésame", "soja", "tournesol",
 				"tournesol oléique",
 			]
-		],
+		},
 		# (natural) extract
-		[
-			["extrait", "extrait naturel",],
-			[
+		{
+			categories => ["extrait", "extrait naturel",],
+			types => [
 				"café", "chicorée", "curcuma", "houblon", "levure", "malt",
 				"muscade", "poivre", "poivre noir", "romarin", "thé", "thé vert",
 				"thym",
 			]
-		],
+		},
 		# lecithin
-		[["lécithine",], ["colza", "soja", "soja sans ogm", "tournesol",]],
+		{
+			categories => ["lécithine",],
+			types => ["colza", "soja", "soja sans ogm", "tournesol",]
+		},
 		# natural flavouring
-		[
-			[
+		{
+			categories => [
 				"arôme naturel",
 				"arômes naturels",
 				"arôme artificiel",
 				"arômes artificiels",
 				"arômes naturels et artificiels", "arômes",
 			],
-			[
+			types => [
 				"abricot", "ail", "amande", "amande amère",
 				"agrumes", "aneth", "boeuf", "cacao",
 				"cannelle", "caramel", "carotte", "carthame",
@@ -5146,103 +5225,97 @@ my %ingredients_categories_and_types = (
 				"sauge", "saumon", "sureau", "thé",
 				"thym", "vanille", "vanille de Madagascar", "autres agrumes",
 			]
-		],
+		},
 		# chemical substances
-		[
-			[
+		{
+			categories => [
 				"carbonate", "carbonates acides", "chlorure", "citrate",
 				"iodure", "nitrate", "diphosphate", "diphosphate",
 				"phosphate", "sélénite", "sulfate", "hydroxyde",
 				"sulphate",
 			],
-			[
+			types => [
 				"aluminium", "ammonium", "calcium", "cuivre", "fer", "magnésium",
 				"manganèse", "potassium", "sodium", "zinc",
 			]
-		],
+		},
 		# peppers
-		[["piment", "poivron"], ["vert", "jaune", "rouge",], 0,],
+		{categories => ["piment", "poivron"], types => ["vert", "jaune", "rouge",], of_bool => 0,},
 	],
 
 	lt => [
 		#oils
-		[
-			# categories
-			["aliejai", "augaliniai aliejai",],
-			# types
-			["palmių", "rapsų", "saulėgrąžų",],
-		],
+		{
+			categories => ["aliejai", "augaliniai aliejai",],
+			types => ["palmių", "rapsų", "saulėgrąžų",],
+		},
 	],
 
 	hr => [
 		# malts
-		[
-			# categories
-			["slad",],
-			# types
-			["ječmeni", "pšenični",]
-		],
+		{
+			categories => ["slad",],
+			types => ["ječmeni", "pšenični",]
+		},
 	],
 
 	pl => [
 		# oils and fats
-		[
-			# categories
-			["olej", "olej roślinny", "oleje", "oleje roślinne", "tłuszcze", "tłuszcze roślinne", "tłuszcz roślinny",],
-			# types
-			[
+		{
+			categories => [
+				"olej",
+				"olej roślinny",
+				"oleje",
+				"oleje roślinne",
+				"tłuszcze",
+				"tłuszcze roślinne",
+				"tłuszcz roślinny",
+			],
+			types => [
 				"rzepakowy", "z oliwek", "palmowy", "słonecznikowy",
 				"kokosowy", "sojowy", "shea", "palmowy utwardzony",
 				"palmowy nieutwardzony",
 			],
-		],
+		},
 		# concentrates
-		[
-			# categories
-			[
+		{
+			categories => [
 				"koncentraty",
 				"koncentraty roślinne",
 				"soki z zagęszczonych soków z",
 				"soki owocowe", "przeciery", "przeciery z", "soki owocowe z zagęszczonych soków owocowych",
 			],
-			# types
-			[
+			types => [
 				"jabłek", "pomarańczy", "marchwi", "bananów", "brzoskwiń", "gujawy",
 				"papai", "ananasów", "mango", "marakui", "liczi", "kiwi",
 				"limonek", "jabłkowy", "marchwiowy", "bananowy", "pomarańczowy"
 			],
-		],
+		},
 		# flours
-		[
-			# categories
-			["mąki", "mąka"],
-			# types
-			[
+		{
+			categories => ["mąki", "mąka"],
+			types => [
 				"pszenna", "kukurydziana", "ryżowa", "pszenna pełnoziarnista",
 				"orkiszowa", "żytnia", "jęczmienna", "owsiana",
 				"jaglana", "gryczana",
 			],
-		],
+		},
 		#meat
-		[
-			# categories
-			["mięso", "mięsa"],
-			# types
-			["wieprzowe", "wołowe", "drobiowe", "z kurczaka", "z indyka", "cielęce"],
-		],
+		{
+			categories => ["mięso", "mięsa"],
+			types => ["wieprzowe", "wołowe", "drobiowe", "z kurczaka", "z indyka", "cielęce"],
+		},
 	],
 
 	ru => [
 		# oils
-		[
-			# categories
-			["масло", "масло растительное",],
-			# types
-			[
+		{
+			categories => ["масло", "масло растительное",],
+			types => [
 				"Подсолнечное", "Пальмовое", "Рапсовое", "Кокосовое", "горчицы", "Соевое",
 				"Пальмоядровое", "Оливковое", "пальм",
 			],
-		],
+		},
 	],
 
 );
@@ -5258,7 +5331,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 
 		foreach my $categories_and_types_ref (@{$ingredients_categories_and_types{$ingredients_lc}}) {
 			my $category_regexp = "";
-			foreach my $category (@{$categories_and_types_ref->[0]}) {
+			foreach my $category (@{$categories_and_types_ref->{categories}}) {
 				$category_regexp .= '|' . $category . '|' . $category . 's';
 				my $unaccented_category = unac_string_perl($category);
 				if ($unaccented_category ne $category) {
@@ -5280,7 +5353,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 			}
 
 			my $type_regexp = "";
-			foreach my $type (@{$categories_and_types_ref->[1]}) {
+			foreach my $type (@{$categories_and_types_ref->{types}}) {
 				$type_regexp .= '|' . $type . '|' . $type . 's';
 				my $unaccented_type = unac_string_perl($type);
 				if ($unaccented_type ne $type) {
@@ -5290,8 +5363,8 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 			$type_regexp =~ s/^\|//;
 
 			my $of_bool = 1;
-			if (defined $categories_and_types_ref->[2]) {
-				$of_bool = $categories_and_types_ref->[2];
+			if (defined $categories_and_types_ref->{of_bool}) {
+				$of_bool = $categories_and_types_ref->{of_bool};
 			}
 
 			# arôme naturel de citron-citron vert et d'autres agrumes
@@ -5316,24 +5389,25 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 			}
 
 			if (   ($ingredients_lc eq "en")
+				or ($ingredients_lc eq "de")
 				or ($ingredients_lc eq "hr")
 				or ($ingredients_lc eq "ru")
 				or ($ingredients_lc eq "pl"))
 			{
 				# vegetable oil (palm, sunflower and olive)
 				$text
-					=~ s/($category_regexp)(?::|\(|\[| | $of )+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
+					=~ s/($category_regexp)(?::|\(|\[| | $of )+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names})/ieg;
 
 				# vegetable oil (palm)
 				$text
-					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
+					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool,$categories_and_types_ref->{alternate_names})/ieg;
 				# vegetable oil: palm
 				$text
-					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
+					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool,$categories_and_types_ref->{alternate_names})/ieg;
 
 				# ječmeni i pšenični slad (barley and wheat malt)
 				$text
-					=~ s/((?:(?:$type_regexp)(?: |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*($category_regexp)/normalize_enumeration($ingredients_lc,$2,$1,$of_bool)/ieg;
+					=~ s/((?:(?:$type_regexp)(?: |\/| \/ | - |,|, |$and|$of|$and_of|$and_or)+)+(?:$type_regexp))\s*($category_regexp)/normalize_enumeration($ingredients_lc,$2,$1,$of_bool,$categories_and_types_ref->{alternate_names})/ieg;
 			}
 			elsif ($ingredients_lc eq "fr") {
 				# arôme naturel de pomme avec d'autres âromes
@@ -5342,21 +5416,27 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 				$text
 					=~ s/($category_regexp) et ($category_regexp)(?:$of)?($type_regexp)/normalize_fr_a_et_b_de_c($1, $2, $3)/ieg;
 
-				# Huiles végétales de palme, de colza et de tournesol
 				# Carbonate de magnésium, fer élémentaire -> should not trigger carbonate de fer élémentaire. Bug #3838
 				# TODO 18/07/2020 remove when we have a better solution
 				$text =~ s/fer (é|e)l(é|e)mentaire/fer_élémentaire/ig;
 
+				# $text =~ s/($category_regexp)(?::|\(|\[| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names})/ieg;
+				# Huiles végétales de palme, de colza et de tournesol
 				$text
-					=~ s/($category_regexp)(?::|\(|\[| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
+					=~ s/($category_regexp)(?::| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names})/ieg;
+
+				# Huiles végétales (palme, colza et tournesol)
+				$text
+					=~ s/($category_regexp)(?:\(|\[)(?:de |d')?((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names})/ieg;
+
 				$text =~ s/fer_élémentaire/fer élémentaire/ig;
 
 				# huile végétale (colza)
 				$text
-					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
+					=~ s/($category_regexp)\s?(?:\(|\[)\s?($type_regexp)\b(\s?(\)|\]))/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names})/ieg;
 				# huile végétale : colza,
 				$text
-					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool)/ieg;
+					=~ s/($category_regexp)\s?(?::)\s?($type_regexp)(?=$separators|.|$)/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names})/ieg;
 			}
 		}
 
