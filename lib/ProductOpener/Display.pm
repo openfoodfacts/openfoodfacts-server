@@ -2999,6 +2999,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 		my $tagtype = $tag_ref->{tagtype};
 		my $tag_prefix = $tag_ref->{tag_prefix};
 		my $display_tag;
+		# canonical tag corresponding to tagid
 		my $canon_tagid;
 		my $new_tagid;
 		my $new_tagid_path;
