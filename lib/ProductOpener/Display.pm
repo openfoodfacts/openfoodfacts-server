@@ -4177,110 +4177,25 @@ HTML
 
 	}
 
-	# XYZ
 	# Add parameters corresponding to the tag filters so that they can be added to the query by add_params_to_query()
+
 	foreach my $tag_ref (@{$request_ref->{tags}}) {
-		my $field_name = $tag_ref->{tagtype} . "_tags";
-		my $current_value = param($field_name);
-		my $new_value = ($tag_ref->{tag_prefix} || '') . ($tag_ref->{canon_tagid} || $tag_ref->{tagid});
-		if ($current_value) {
-			$new_value = $current_value . ',' . $new_value;
+		if ($tagtype eq 'users') {
+			param('creator', $tagid);
 		}
-		param($field_name, $new_value);
+		else {
+			my $field_name = $tag_ref->{tagtype} . "_tags";
+			my $current_value = param($field_name);
+			my $new_value = ($tag_ref->{tag_prefix} || '') . ($tag_ref->{canon_tagid} || $tag_ref->{tagid});
+			if ($current_value) {
+				$new_value = $current_value . ',' . $new_value;
+			}
+			param($field_name, $new_value);
+		}
 	}
 
 	my $query_ref = {};
 	my $sort_by;
-	if ($tagtype eq 'users') {
-		$query_ref->{creator} = $tagid;
-		$sort_by = 'last_modified_t';
-	}
-	elsif (defined $canon_tagid) {
-		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} ne '')) {
-			$query_ref->{($tagtype . "_tags")} = {"\$ne" => $canon_tagid};
-		}
-		else {
-			$query_ref->{($tagtype . "_tags")} = $canon_tagid;
-		}
-		$sort_by = 'last_modified_t';
-	}
-	elsif (defined $tagid) {
-		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} ne '')) {
-			$query_ref->{($tagtype . "_tags")} = {"\$ne" => $tagid};
-		}
-		else {
-			$query_ref->{($tagtype . "_tags")} = $tagid;
-		}
-		$sort_by = 'last_modified_t';
-	}
-
-	# db.myCol.find({ mylist: { $ne: 'orange' } })
-
-	# unknown / empty value
-	# warning: unknown is a value for pnns_groups_1 and 2
-	if (
-		(
-			   ($tagid eq get_string_id_for_lang($lc, lang("unknown")))
-			or ($tagid eq ($lc . ":" . get_string_id_for_lang($lc, lang("unknown"))))
-		)
-		and ($tagtype !~ /^pnns_groups_/)
-		)
-	{
-		#$query_ref = { ($tagtype . "_tags") => "[]"};
-		$query_ref = {"\$or" => [{($tagtype) => undef}, {$tagtype => ""}]};
-	}
-
-	if (defined $tagid2) {
-
-		my $field = $tagtype2 . "_tags";
-		my $value = $tagid2;
-		$sort_by = 'last_modified_t';
-
-		if ($tagtype2 eq 'users') {
-			$field = "creator";
-		}
-
-		if (defined $canon_tagid2) {
-			$value = $canon_tagid2;
-		}
-
-		my $tag2_is_negative = (defined $request_ref->{tag2_prefix} and $request_ref->{tag2_prefix} eq '-') ? 1 : 0;
-
-		$log->debug("tag2_is_negative " . $tag2_is_negative) if $log->is_debug();
-		# 2 criteria on the same field?
-		# we need to use the $and MongoDB syntax
-
-		if (defined $query_ref->{$field}) {
-			my $and = [{$field => $query_ref->{$field}}];
-			# fix for issue #2657: negative query on tag2 was not being honored if both tag types are the same
-			if ($tag2_is_negative) {
-				push @{$and}, {$field => {"\$ne" => $value}};
-			}
-			else {
-				push @{$and}, {$field => $value};
-			}
-			delete $query_ref->{$field};
-			$query_ref->{"\$and"} = $and;
-		}
-		# unknown / empty value
-		elsif (
-			(
-				   ($tagid2 eq get_string_id_for_lang($lc, lang("unknown")))
-				or ($tagid2 eq ($lc . ":" . get_string_id_for_lang($lc, lang("unknown"))))
-			)
-			and ($tagtype2 !~ /^pnns_groups_/)
-			)
-		{
-			$query_ref->{"\$or"} = [{($tagtype2) => undef}, {$tagtype2 => ""}];
-		}
-		else {
-			# issue 2285: second tag was not supporting the 'minus' query
-			$query_ref->{$field} = $tag2_is_negative ? {"\$ne" => $value} : $value;
-		}
-	}
-
-	$query_ref = {};
-	$sort_by = undef;
 
 	# Rendering Page tags
 	my $tag_html;
