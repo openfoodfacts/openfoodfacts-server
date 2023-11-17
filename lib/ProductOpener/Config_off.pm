@@ -636,6 +636,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 # vitamins
 
 @taxonomy_fields = qw(
+	units
 	languages states countries
 	allergens origins additives_classes ingredients
 	packaging_shapes packaging_materials packaging_recycling packaging
