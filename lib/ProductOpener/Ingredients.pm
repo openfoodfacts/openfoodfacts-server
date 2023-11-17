@@ -5258,12 +5258,10 @@ my %ingredients_categories_and_types = (
 
 	hr => [
 		# cheeses
-		[
-			# categories
-			["sirevi",],
-			# types
-			["polutvrdi", "meki",]
-		],
+		{
+			categories => ["sirevi",],
+			types => ["polutvrdi", "meki",]
+		},
 		# malts
 		{
 			categories => ["slad",],
