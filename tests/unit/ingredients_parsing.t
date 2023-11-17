@@ -326,7 +326,7 @@ my @lists = (
 	[
 		"fr",
 		"huiles* (tournesol*, olive vierge extra), sel marin. *issus de l'agriculture biologique.",
-		"huiles Bio de tournesol Bio, huiles Bio d'olive vierge extra), sel marin."
+		"huiles Bio de tournesol Bio, huiles Bio d'olive vierge extra, sel marin."
 	],
 	["fr", "riz de Camargue (1), sel. (1): IGP : Indication Géographique Protégée.", "riz de Camargue IGP, sel."],
 	[
@@ -551,7 +551,7 @@ my @lists = (
 	],
 	["fr", "huile végétale : colza", "huile végétale de colza"],
 	["fr", "huile végétale : colza, fraises", "huile végétale de colza, fraises"],
-	["fr", "huile végétale : colza et tomates", "huile végétale : colza et tomates"],
+	["fr", "huile végétale : colza et tomates", "huile végétale de colza et tomates"],
 	["en", "vegetable oil: sunflower", "sunflower vegetable oil"],
 	["en", "vegetable oil (palm)", "palm vegetable oil"],
 	["en", "vegetable oils (palm, olive)", "palm vegetable oils, olive vegetable oils"],
@@ -626,8 +626,31 @@ my @lists = (
 	["it", "formaggio, E 472 e, E470a.", "formaggio, e472 e, e470a."],
 	["it", "formaggio, E 472 e E470a.", "formaggio, e472, e470a."],
 	["sk", "syr, E470 a E470a, mlieko.", "syr, e470, e470a, mlieko."],
-	# Piments (vert, rouge, jaune) -> Piments vert, Piments rouge, Piments jaune
+	# normalize category and types
 	["fr", "Piments (vert, rouge, jaune)", "Piments vert, Piments rouge, Piments jaune"],
+	# New feature:
+	["de", "pflanzliches Fett (Kokosnuss, Palmkern)", "Kokosnussfett, Palmkernfett"],
+	[
+		"de", "pflanzliche Öle und Fette (Raps, Palm, Shea, Sonnenblumen)",
+		"Rapsöl, Palmfett, Sheafett, Sonnenblumenfett"
+	],
+	[
+		"fr",
+		"Huiles végétales de palme, de colza et de tournesol",
+		"Huiles végétales de palme, Huiles végétales de colza, Huiles végétales de tournesol"
+	],
+	["fr", "arôme naturel de pomme avec d'autres âromes", "arôme naturel de pomme, âromes"],
+	["fr", "Carbonate de magnésium, fer élémentaire", "Carbonate de magnésium, fer élémentaire"],
+	["fr", "huile végétale (colza)", "huile végétale de colza"],
+	["fr", "huile végétale : colza", "huile végétale de colza"],
+	["hr", "ječmeni i pšenični slad", "ječmeni slad, pšenični slad"],
+	["hr", "ječmeni, ječmeni i pšenični slad", "ječmeni slad, ječmeni slad, pšenični slad"],
+	["en", "Vegetal oil (sunflower, olive and palm)", "sunflower vegetal oil, olive vegetal oil, palm vegetal oil"],
+	["en", "vegetable oil (palm)", "palm vegetable oil"],
+	["en", "vegetable oil: palm", "palm vegetable oil"],
+	# Should not develop the enumeration if it contains unknown types (like "sel" here)
+	["fr", "Piments (vert, rouge, jaune, sel)", "Piments (vert, rouge, jaune, sel)"],
+
 );
 
 foreach my $test_ref (@lists) {

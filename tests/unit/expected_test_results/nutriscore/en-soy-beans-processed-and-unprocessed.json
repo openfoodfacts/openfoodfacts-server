@@ -75,7 +75,7 @@
          "percent_estimate" : 15,
          "percent_max" : 15,
          "percent_min" : 15,
-         "processing" : "en:cut, en:freeze-dried",
+         "processing" : "en:cut,en:freeze-dried",
          "text" : "soy beans",
          "vegan" : "yes",
          "vegetarian" : "yes"
@@ -142,6 +142,9 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:all-ingredients-with-specified-percent",
+      "en:at-least-5-ingredients-with-specified-percent",
       "en:nutrition-no-fiber",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",

@@ -11,15 +11,15 @@ use ProductOpener::Units qw/:all/;
 
 # Based on https://de.wikipedia.org/w/index.php?title=Wasserh%C3%A4rte&oldid=160348959#Einheiten_und_Umrechnung
 is(mmoll_to_unit(1, 'mol/l'), 0.001);
-is(mmoll_to_unit('1', 'moll/l'), 1);
+is(mmoll_to_unit('1', 'mol/l'), 0.001);
 is(mmoll_to_unit(1, 'mmol/l'), 1);
 is(mmoll_to_unit(1, 'mval/l'), 2);
 is(mmoll_to_unit(1, 'ppm'), 100);
-is(mmoll_to_unit(1, "\N{U+00B0}rH"), 40.080);
-is(mmoll_to_unit(1, "\N{U+00B0}fH"), 10.00);
-is(mmoll_to_unit(1, "\N{U+00B0}e"), 7.02);
-is(mmoll_to_unit(1, "\N{U+00B0}dH"), 5.6);
-is(mmoll_to_unit(1, 'gpg'), 5.847);
+delta_ok(mmoll_to_unit(1, "\N{U+00B0}rH"), 40.080);
+delta_ok(mmoll_to_unit(1, "\N{U+00B0}fH"), 10.00);
+delta_ok(mmoll_to_unit(1, "\N{U+00B0}e"), 7.02);
+delta_ok(mmoll_to_unit(1, "\N{U+00B0}dH"), 5.6);
+delta_ok(mmoll_to_unit(1, 'gpg'), 5.847);
 
 is(unit_to_mmoll(1, 'mol/l'), 1000);
 is(unit_to_mmoll('1', 'mmol/l'), 1);
@@ -32,7 +32,7 @@ delta_ok(unit_to_mmoll(1, "\N{U+00B0}e"), 0.142);
 delta_ok(unit_to_mmoll(1, "\N{U+00B0}dH"), 0.1783);
 delta_ok(unit_to_mmoll(1, 'gpg'), 0.171);
 
-is(mmoll_to_unit(unit_to_mmoll(1, 'ppm'), "\N{U+00B0}dH"), 0.056);
+delta_ok(mmoll_to_unit(unit_to_mmoll(1, 'ppm'), "\N{U+00B0}dH"), 0.056);
 
 # Chinese Measurements Source: http://www.new-chinese.org/lernwortschatz-chinesisch-masseinheiten.html
 # kè - gram - 克
@@ -96,8 +96,11 @@ is(unit_to_g(10, "% DV"), 10);
 is(unit_to_g(11, "mL"), 11);
 is(g_to_unit(42000, "kg"), 42);
 is(g_to_unit(28.349523125, "oz"), 1);
-is(g_to_unit(30, "fl oz"), 1);
+is(g_to_unit(29.5735, "fl oz"), 1);
 is(g_to_unit(1, "mcg"), 1000000);
+is(unit_to_g(1, "lb"), 453.59237);
+is(unit_to_g(10, "pounds"), 4535.9237);
+is(unit_to_g(10, "livres"), 4535.9237);
 
 is(normalize_quantity("1 г"), 1);
 is(normalize_quantity("1 мг"), 0.001);
@@ -119,6 +122,33 @@ is(normalize_quantity("10 unités de 170g"), 1700);
 is(normalize_quantity("10 unites, 170g"), 170);
 is(normalize_quantity("4 bouteilles en verre de 20cl"), 800);
 is(normalize_quantity("5 bottles of 20cl"), 100 * 10);
+is(normalize_quantity("10 lbs"), 4535.9237);
+
+# Match non standard abbreviations + names in different languages
+is(normalize_quantity("2 L"), 2000);
+is(normalize_quantity("1 liter"), 1000);
+is(normalize_quantity("2 liters"), 2000);
+is(normalize_quantity("1 litre"), 1000);
+is(normalize_quantity("2 litres"), 2000);
+is(normalize_quantity("2 litros"), 2000);
+is(normalize_quantity("2 kilograms"), 2000);
+is(normalize_quantity("2 kilogrammes"), 2000);
+is(normalize_quantity("1.5 gramme"), 1.5);
+is(normalize_quantity("2.5 grammes"), 2.5);
+is(normalize_quantity("2 kg"), 2000);
+is(normalize_quantity("2 kgs"), 2000);
+is(normalize_quantity("2 kgr"), 2000);
+is(normalize_quantity("2 kilogramme"), 2000);
+is(normalize_quantity("2 kilogrammes"), 2000);
+
+# . without a 0 before
+is(normalize_quantity(".33L"), 330);
+is(normalize_quantity(".33 l"), 330);
+is(normalize_serving_size(".33L"), 330);
+is(normalize_serving_size(".33 l"), 330);
+is(normalize_serving_size("5 bottles (.33L)"), 330);
+is(normalize_serving_size("5 bottles .33L"), 330);
+is(normalize_serving_size("5 bottles2.33L"), undef);    # Broken string, missing word separator before number
 
 my @serving_sizes = (
 	["100g", "100"],
@@ -133,7 +163,7 @@ my @serving_sizes = (
 );
 
 foreach my $test_ref (@serving_sizes) {
-	is(normalize_serving_size($test_ref->[0]), $test_ref->[1]);
+	is(normalize_serving_size($test_ref->[0]), $test_ref->[1]) or diag explain $test_ref;
 }
 
 done_testing();

@@ -696,6 +696,46 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 		"fr-quantity-of-ingredient",
 		{lc => "fr", ingredients_text => "50g de tomates, 35% d'ail, 20cl d'eau, 10ml d'huile de colza"}
 	],
+	# 'and' + processing
+	[
+		"en-ing1-and-ing2-processing",
+		{
+			lc => "en",
+			ingredients_text => "apple,
+non-hydrogenated banana,
+cherry and date,
+hardened elderberry and fig,
+grape and treated huckleberry,
+desalted jackfruit and grilled kiwifruit,
+lemon and unknown_fruit,
+toasted mango and unknown_fruit2,
+nectarine and fried unknown_fruit3,
+puffed orange and caramelized unknown_fruit4.",
+		}
+	],
+	[
+		"en-ing1-and-ing2-processing-parenthesis",
+		{
+			lc => "en",
+			ingredients_text =>
+				"fruits (apple, banana and dried cherry), vegetables (pitted avocado, peeled black radish).",
+		}
+	],
+	# category / types enumeration
+	[
+		"en-category-types",
+		{
+			lc => "de",
+			ingredients_text => "pflanzliche Öle und Fette (Raps, Palm, Shea, Sonnenblumen)",
+		}
+	],
+	[
+		"fr-viande-de-boeuf-issue-d-animaux-nourris-sans-ogm",
+		{
+			lc => "fr",
+			ingredients_text => "Viande de boeuf issue d'animaux nourris sans OGM",
+		}
+	]
 );
 
 foreach my $test_ref (@tests) {

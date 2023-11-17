@@ -17,10 +17,12 @@ sub check_quality_and_test_product_has_quality_tag($$$$) {
 	my $yesno = shift;
 	ProductOpener::DataQuality::check_quality($product_ref);
 	if ($yesno) {
-		ok(has_tag($product_ref, 'data_quality', $tag), $reason) or diag explain $product_ref;
+		ok(has_tag($product_ref, 'data_quality', $tag), $reason)
+			or diag explain {tag => $tag, yesno => $yesno, product => $product_ref};
 	}
 	else {
-		ok(!has_tag($product_ref, 'data_quality', $tag), $reason) or diag explain $product_ref;
+		ok(!has_tag($product_ref, 'data_quality', $tag), $reason)
+			or diag explain {tag => $tag, yesno => $yesno, product => $product_ref};
 	}
 
 	return;
@@ -1218,4 +1220,40 @@ check_quality_and_test_product_has_quality_tag(
 	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
 	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 0
 );
+# product quantity warnings and errors
+$product_ref = {product_quantity => "123456789",};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:product-quantity-over-10kg',
+	'raise warning because the product quantity is above 10000g', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:product-quantity-over-30kg',
+	'raise error because the product quantity is above 30000g', 1
+);
+# product quantity warnings and errors
+$product_ref = {product_quantity => "20000",};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:product-quantity-over-10kg',
+	'raise warning because the product quantity is above 10000g', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:product-quantity-over-30kg',
+	'raise error because the product quantity is above 30000g', 0
+);
+$product_ref = {
+	product_quantity => "0.001",
+	quantity => "1 mg",
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:product-quantity-under-1g',
+	'raise warning because the product quantity is under 1g', 1
+);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:product-quantity-in-mg',
+	'raise warning because the product quantity is in mg', 1);
+
 done_testing();

@@ -1,7 +1,5 @@
 #!/usr/bin/perl -w
 
-# Tests of Ingredients::compute_ingredients_percent_values()
-
 use Modern::Perl '2017';
 use utf8;
 
@@ -240,6 +238,19 @@ my @tests = (
 				"Lingon 50%*, socker*, vatten, förtjockningsmedel (pektin), surhetsreglerande medel (citronsyra). *KRAV-certifierad ekologisk ingrediens. Fruktmängd: 50g per 100g. Total mängd socker är 35 g per 100 g sylt. Fruktmängd: 52g per 100 g sylt. Bärmängd: 40 g bär per 100g. Total mängd socker: 45g per 100g sylt. Total mängd socker 44 g, varav tillsatt socker 41g per 100g sylt."
 		},
 	],
+	# max sugar and salt from nutrition facts
+	[
+		'max-sugar-salt-nutrition-facts',
+		{
+			lc => "en",
+			ingredients_text => "water, sugar, salt",
+			nutrition_data_per => "100g",
+			nutriments => {
+				sugars_100g => 10,
+				salt_100g => 5,
+			},
+		},
+	],
 );
 
 foreach my $test_ref (@tests) {
@@ -247,13 +258,8 @@ foreach my $test_ref (@tests) {
 	my $testid = $test_ref->[0];
 	my $product_ref = $test_ref->[1];
 
-	parse_ingredients_text($product_ref);
-	if (compute_ingredients_percent_values(100, 100, $product_ref->{ingredients}) < 0) {
-		print STDERR "compute_ingredients_percent_values < 0, delete ingredients percent values\n";
-		delete_ingredients_percent_values($product_ref->{ingredients});
-	}
-
-	compute_ingredients_percent_estimates(100, $product_ref->{ingredients});
+	parse_ingredients_text_service($product_ref, {});
+	estimate_ingredients_percent_service($product_ref, {});
 
 	compare_to_expected_results(
 		$product_ref->{ingredients},
