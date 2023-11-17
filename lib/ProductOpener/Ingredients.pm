@@ -4342,7 +4342,7 @@ my %phrases_before_ingredients_list = (
 
 	th => ['ส่วนประกอบ', 'ส่วนประกอบที่สำคัญ',],
 
-	tr => ['(İ|i)çindekiler',],
+	tr => ['(İ|i)çindekiler', 'içeriği',],
 
 	uz => ['tarkib',],
 
@@ -4482,6 +4482,7 @@ my %phrases_after_ingredients_list = (
 		'cons[eé]rv(ar|ese) en( un)? lug[ae]r (fresco y seco|seco y fresco)',
 		'de los cuates az(u|ü)cares',
 		'de las cuales saturadas',
+		'Mantener en lugar fresco y seco',
 		'protegido de la luz',
 		'conser(y|v)ar entre',
 		'una vez abierto',
@@ -4667,6 +4668,7 @@ my %phrases_after_ingredients_list = (
 		'Voor allergenen: zie ingrediëntenlijst, in vet gemarkeerd',
 		'voorbereidingstips',
 		#'waarvan suikers',
+		'waarvan toegevoegde',
 		'Witte chocolade: ten minste',
 	],
 
