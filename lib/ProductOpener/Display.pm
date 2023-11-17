@@ -83,7 +83,6 @@ BEGIN {
 		&search_and_graph_products
 		&search_and_map_products
 		&display_recent_changes
-		&add_tag_prefix_to_link
 		&display_taxonomy_api
 		&map_of_products
 
@@ -1525,6 +1524,8 @@ sub generate_query_cache_key ($name, $context_ref, $request_ref) {
 
 sub query_list_of_tags ($request_ref, $query_ref) {
 
+	add_params_to_query($request_ref, $query_ref);
+
 	add_country_and_owner_filters_to_query($request_ref, $query_ref);
 
 	my $groupby_tagtype = $request_ref->{groupby_tagtype};
@@ -1827,31 +1828,12 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			. $th_nutriments
 			. "</tr></thead>\n<tbody>\n";
 
-		my $main_link = '';
+		# To get the root link, we remove the facet name from the current link
+		my $main_link = $request_ref->{current_link};
+		$main_link =~ s/\/[^\/]+$//;    # Remove the last / and everything after ir
 		my $nofollow = '';
 		if (defined $request_ref->{tagid}) {
-			local $log->context->{tagtype} = $request_ref->{tagtype};
-			local $log->context->{tagid} = $request_ref->{tagid};
-
-			$log->trace("determining main_link for the tag") if $log->is_trace();
-			if (defined $taxonomy_fields{$request_ref->{tagtype}}) {
-				$main_link = canonicalize_taxonomy_tag_link($lc, $request_ref->{tagtype}, $request_ref->{tagid});
-				$log->debug("main_link determined from the taxonomy tag", {main_link => $main_link})
-					if $log->is_debug();
-			}
-			else {
-				$main_link = canonicalize_tag_link($request_ref->{tagtype}, $request_ref->{tagid});
-				$log->debug("main_link determined from the canonical tag", {main_link => $main_link})
-					if $log->is_debug();
-			}
 			$nofollow = ' rel="nofollow"';
-		}
-
-		# add back leading dash when a tag is excluded
-		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} ne '')) {
-			my $prefix = $request_ref->{tag_prefix};
-			$main_link = add_tag_prefix_to_link($main_link, $prefix);
-			$log->debug("Found tag prefix for main_link", {request => $request_ref}) if $log->is_debug();
 		}
 
 		my %products = ();    # number of products by tag, used for histogram of nutrition grades colors
@@ -2044,7 +2026,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 				}
 			}
 
-			my $product_link = $main_link . $link;
+			my $tag_link = $main_link . $link;
 
 			$html .= "<tr><td>";
 
@@ -2112,13 +2094,13 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 
 			$css_class =~ s/^\s+|\s+$//g;
 			$info .= ' class="' . $css_class . '"';
-			$html .= "<a href=\"$product_link\"$info$nofollow>" . $display . "</a>";
+			$html .= "<a href=\"$tag_link\"$info$nofollow>" . $display . "</a>";
 			$html .= "</td>\n<td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
 
 			my $tagentry = {
 				id => $tagid,
 				name => $display,
-				url => $formatted_subdomain . $product_link,
+				url => $formatted_subdomain . $tag_link,
 				products => $products + 0,    # + 0 to make the value numeric
 				known => $known,    # 1 if the ingredient exists in the taxonomy, 0 if not
 			};
@@ -2156,7 +2138,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 					# In case there are multiple country names and thus links that map to the region
 					# only keep the first one, which has the biggest count (and is likely to be the correct name)
 					if (not defined $countries_map_links->{$region}) {
-						$countries_map_links->{$region} = $product_link;
+						$countries_map_links->{$region} = $tag_link;
 						my $name = $display;
 						$name =~ s/<(.*?)>//g;
 						$countries_map_names->{$region} = $name;
@@ -2883,8 +2865,8 @@ sub display_points ($request_ref) {
 	my $tagtype = $request_ref->{tagtype};
 	my $tagid = $request_ref->{tagid};
 	my $display_tag;
-	my $newtagid;
-	my $newtagidpath;
+	my $new_tagid;
+	my $new_tagid_path;
 	my $canon_tagid = undef;
 
 	local $log->context->{tagtype} = $tagtype;
@@ -2897,62 +2879,59 @@ sub display_points ($request_ref) {
 			$canon_tagid = canonicalize_taxonomy_tag($lc, $tagtype, $tagid);
 			$display_tag = display_taxonomy_tag($lc, $tagtype, $canon_tagid);
 			$title = $display_tag;
-			$newtagid = get_taxonomyid($lc, $display_tag);
+			$new_tagid = get_taxonomyid($lc, $display_tag);
 			$log->debug("displaying points for a taxonomy tag",
-				{canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title})
+				{canon_tagid => $canon_tagid, new_tagid => $new_tagid, title => $title})
 				if $log->is_debug();
-			if ($newtagid !~ /^(\w\w):/) {
-				$newtagid = $lc . ':' . $newtagid;
+			if ($new_tagid !~ /^(\w\w):/) {
+				$new_tagid = $lc . ':' . $new_tagid;
 			}
-			$newtagidpath = canonicalize_taxonomy_tag_link($lc, $tagtype, $newtagid);
-			$request_ref->{current_link} = $newtagidpath;
+			$new_tagid_path = canonicalize_taxonomy_tag_link($lc, $tagtype, $new_tagid);
+			$request_ref->{current_link} = $new_tagid_path;
 			$request_ref->{world_current_link} = canonicalize_taxonomy_tag_link($lc, $tagtype, $canon_tagid);
 		}
 		else {
 			$display_tag = canonicalize_tag2($tagtype, $tagid);
-			$newtagid = get_string_id_for_lang($lc, $display_tag);
+			$new_tagid = get_string_id_for_lang($lc, $display_tag);
 			$display_tag = display_tag_name($tagtype, $display_tag);
 			if ($tagtype eq 'emb_codes') {
-				$canon_tagid = $newtagid;
+				$canon_tagid = $new_tagid;
 				$canon_tagid =~ s/-($ec_code_regexp)$/-ec/ie;
 			}
 			$title = $display_tag;
-			$newtagidpath = canonicalize_tag_link($tagtype, $newtagid);
-			$request_ref->{current_link} = $newtagidpath;
+			$new_tagid_path = canonicalize_tag_link($tagtype, $new_tagid);
+			$request_ref->{current_link} = $new_tagid_path;
 			my $current_lang = $lang;
 			my $current_lc = $lc;
 			$lang = 'en';
 			$lc = 'en';
-			$request_ref->{world_current_link} = canonicalize_tag_link($tagtype, $newtagid);
+			$request_ref->{world_current_link} = canonicalize_tag_link($tagtype, $new_tagid);
 			$lang = $current_lang;
 			$lc = $current_lc;
 			$log->debug("displaying points for a normal tag",
-				{canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title})
+				{canon_tagid => $canon_tagid, new_tagid => $new_tagid, title => $title})
 				if $log->is_debug();
 		}
 	}
 
 	$request_ref->{current_link} .= "/points";
 
-	if ((defined $tagid) and ($newtagid ne $tagid)) {
+	if ((defined $tagid) and ($new_tagid ne $tagid)) {
 		$request_ref->{redirect} = $formatted_subdomain . $request_ref->{current_link};
 		$log->info(
-			"newtagid does not equal the original tagid, redirecting",
-			{newtagid => $newtagid, redirect => $request_ref->{redirect}}
+			"new_tagid does not equal the original tagid, redirecting",
+			{new_tagid => $new_tagid, redirect => $request_ref->{redirect}}
 		) if $log->is_info();
 		redirect_to_url($request_ref, 302, $request_ref->{redirect});
 	}
 
 	my $description = '';
 
-	my $products_title = $display_tag;
-
 	if ($tagtype eq 'users') {
 		my $user_ref = retrieve("$data_root/users/$tagid.sto");
 		if (defined $user_ref) {
 			if ((defined $user_ref->{name}) and ($user_ref->{name} ne '')) {
 				$title = $user_ref->{name} . " ($tagid)";
-				$products_title = $user_ref->{name};
 			}
 		}
 	}
@@ -2996,46 +2975,14 @@ HEADER
 	return;
 }
 
-# See issue 1960
-# a tag prefix, such as a minus sign, can indicate that a tag value should be excluded from a query
-# during processing this prefix may be removed from the current url link
-# this will add the prefix back
-# it will put the prefix before the string following the last forward slash in the link
-sub add_tag_prefix_to_link ($link, $tag_prefix) {
-	$link =~ s/^(.*)\/(.*)$/$1\/$tag_prefix$2/;
-	return $link;
-}
+=head2 canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref)
 
-=head2 display_tag ( $request_ref )
-
-This function is called to display either:
-
-1. Products that have a specific tag:  /category/cakes
-  or that don't have a specific tag /category/-cakes
-  or that have 2 specific tags /category/cake/brand/oreo
-2. List of tags of a given type:  /labels
-  possibly for products that have a specific tag: /category/cakes/labels
-  or 2 specific tags:  /category/cakes/label/organic/additives
-
-When displaying products for a tag, the function generates tag type specific HTML
-that is displayed at the top of the page:
-- tag parents and children
-- maps for tag types that have a location (e.g. packaging codes)
-- special properties for some tag types (e.g. additives)
-
-The function then calls search_and_display_products() to display the paginated list of products.
-
-When displaying a list of tags, the function calls display_list_of_tags().
+This function goes through the tags filters from the request and canonicalizes them.
+If the requested tags are not canonical, we will redirect to the canonical URL.
 
 =cut
 
-sub display_tag ($request_ref) {
-
-	my $title;
-
-	local $log->context->{tags} = $request_ref->{tags};
-
-	init_tags_texts() unless %tags_texts;
+sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 
 	$request_ref->{current_link} = '';
 	$request_ref->{world_current_link} = '';
@@ -3052,69 +2999,56 @@ sub display_tag ($request_ref) {
 		my $tag_prefix = $tag_ref->{tag_prefix};
 		my $display_tag;
 		my $canon_tagid;
-		my $newtagid;
-		my $newtagidpath;
+		my $new_tagid;
+		my $new_tagid_path;
 
 		if (defined $taxonomy_fields{$tagtype}) {
 			$canon_tagid = canonicalize_taxonomy_tag($lc, $tagtype, $tagid);
 			$display_tag = display_taxonomy_tag($lc, $tagtype, $canon_tagid);
-			$newtagid = get_taxonomyid($lc, $display_tag);
-			$log->info("displaying taxonomy tag", {canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title})
+			$new_tagid = get_taxonomyid($lc, $display_tag);
+			$log->info("displaying taxonomy tag", {canon_tagid => $canon_tagid, new_tagid => $new_tagid})
 				if $log->is_info();
-			if ($newtagid !~ /^(\w\w):/) {
-				$newtagid = $lc . ':' . $newtagid;
+			if ($new_tagid !~ /^(\w\w):/) {
+				$new_tagid = $lc . ':' . $new_tagid;
 			}
-			$newtagidpath = canonicalize_taxonomy_tag_link($lc, $tagtype, $newtagid);
-			$request_ref->{current_link} .= $newtagidpath;
-			$request_ref->{world_current_link} .= canonicalize_taxonomy_tag_link($lc, $tagtype, $canon_tagid);
+			$new_tagid_path = canonicalize_taxonomy_tag_link($lc, $tagtype, $new_tagid, $tag_prefix);
+			$request_ref->{current_link} .= $new_tagid_path;
+			$request_ref->{world_current_link}
+				.= canonicalize_taxonomy_tag_link($lc, $tagtype, $canon_tagid, $tag_prefix);
 		}
 		else {
 			$display_tag = canonicalize_tag2($tagtype, $tagid);
 			# Use "no_language" normalization for tags types without a taxonomy
-			$newtagid = get_string_id_for_lang("no_language", $display_tag);
+			$new_tagid = get_string_id_for_lang("no_language", $display_tag);
 			$display_tag = display_tag_name($tagtype, $display_tag);
 			if ($tagtype eq 'emb_codes') {
-				$canon_tagid = $newtagid;
+				$canon_tagid = $new_tagid;
 				$canon_tagid =~ s/-($ec_code_regexp)$/-ec/ie;
 			}
-			$newtagidpath = canonicalize_tag_link($tagtype, $newtagid);
-			$request_ref->{current_link} .= $newtagidpath;
+			$new_tagid_path = canonicalize_tag_link($tagtype, $new_tagid, $tag_prefix);
+			$request_ref->{current_link} .= $new_tagid_path;
 			my $current_lang = $lang;
 			my $current_lc = $lc;
 			$lang = 'en';
 			$lc = 'en';
-			$request_ref->{world_current_link} .= canonicalize_tag_link($tagtype, $newtagid);
+			$request_ref->{world_current_link} .= canonicalize_tag_link($tagtype, $new_tagid, $tag_prefix);
 			$lang = $current_lang;
 			$lc = $current_lc;
-			$log->info("displaying normal tag", {canon_tagid => $canon_tagid, newtagid => $newtagid, title => $title})
+			$log->info("displaying normal tag", {canon_tagid => $canon_tagid, new_tagid => $new_tagid})
 				if $log->is_info();
 		}
 
-		if (not defined $title) {
-			$title .= $display_tag;
-		}
-		else {
-			$title .= " - $display_tag";
-		}
-
-		# add back leading dash when a tag is excluded
-		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} ne '')) {
-			my $prefix = $request_ref->{tag_prefix};
-			$request_ref->{current_link} = add_tag_prefix_to_link($request_ref->{current_link}, $prefix);
-			$request_ref->{world_current_link} = add_tag_prefix_to_link($request_ref->{world_current_link}, $prefix);
-			$log->debug("Found tag prefix ", {request => $request_ref}) if $log->is_debug();
-		}
-
 		$tag_ref->{canon_tagid} = $canon_tagid;
-		$tag_ref->{newtagid} = $newtagid;
-		$tag_ref->{newtagidpath} = $newtagidpath;
+		$tag_ref->{new_tagid} = $new_tagid;
+		$tag_ref->{new_tagid_path} = $new_tagid_path;
 		$tag_ref->{display_tag} = $display_tag;
+		$tag_ref->{tagtype_path} = '/' . $tag_type_plural{$tagtype}{$lc};
+		$tag_ref->{tagtype_name} = lang_in_other_lc($lc, $tagtype . '_s');
 
 		# We will redirect if the tag is not canonical
-		if ($newtagid ne $tagid) {
+		if ($new_tagid ne $tagid) {
 			$redirect_to_canonical_url = 1;
 		}
-
 	}
 
 	if (defined $request_ref->{groupby_tagtype}) {
@@ -3141,20 +3075,581 @@ sub display_tag ($request_ref) {
 		$header .= '<meta name="robots" content="noindex">' . "\n";
 	}
 
+	return;
+}
+
+=head2 generate_title_from_request_tags ($tags_ref)
+
+Generate a title from the tags in the request.
+
+=head3 Parameters
+
+=head4 $tags_ref Array of tag filter objects
+
+=head3 Return value
+
+Title string.
+
+=cut
+
+sub generate_title_from_request_tags ($tags_ref) {
+
+	my $title = join(" / ", map {($_->{tag_prefix} // '') . $_->{display_tag}} @{$tags_ref});
+
+	return $title;
+}
+
+=head2 generate_description_from_display_tag_options ($tagtype, $tagid, $display_tag, $canon_tagid)
+
+Generate a description for some tag types, like additives, if there is a template set in the Config.pm file.
+
+This feature was coded before the introduction of knowledge panels.
+It is in maintenance mode, and should be reimplemented as facets knowledge panels
+(server side, or with client side facets knowledge panels)
+
+=cut
+
+sub generate_description_from_display_tag_options ($tagtype, $tagid, $display_tag, $canon_tagid) {
+
+	my $description = "";
+
+	foreach my $field_orig (@{$options{"display_tag_" . $tagtype}}) {
+
+		my $field = $field_orig;
+
+		$log->debug("display_tag - field", {field => $field}) if $log->is_debug();
+
+		my $array = 0;
+		if ($field =~ /^\@/) {
+			$field = $';
+			$array = 1;
+		}
+
+		# Section title?
+
+		if ($field =~ /^title:/) {
+			$field = $';
+			my $title = lang($tagtype . "_" . $field);
+			($title eq "") and $title = lang($field);
+			$description .= "<h3>" . $title . "</h3>\n";
+			$log->debug("display_tag - section title", {field => $field}) if $log->is_debug();
+			next;
+		}
+
+		# Special processing
+
+		if ($field eq 'efsa_evaluation_exposure_table') {
+
+			$log->debug(
+				"display_tag - efsa_evaluation_exposure_table",
+				{
+					efsa_evaluation_overexposure_risk =>
+						$properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en:"}
+				}
+			) if $log->is_debug();
+
+			if (    (defined $properties{$tagtype})
+				and (defined $properties{$tagtype}{$canon_tagid})
+				and (defined $properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"})
+				and ($properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"} ne 'en:no'))
+			{
+
+				$log->debug("display_tag - efsa_evaluation_exposure_table - yes", {}) if $log->is_debug();
+
+				my @groups = qw(infants toddlers children adolescents adults elderly);
+				my @percentiles = qw(mean 95th);
+				my @doses = qw(noael adi);
+				my %doses = ();
+
+				my %exposure = (mean => {}, '95th' => {});
+
+				# in taxonomy:
+				# efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
+
+				foreach my $dose (@doses) {
+					foreach my $percentile (@percentiles) {
+						my $exposure_property
+							= "efsa_evaluation_exposure_" . $percentile . "_greater_than_" . $dose . ":en";
+						if (!defined $properties{$tagtype}{$canon_tagid}{$exposure_property}) {
+							next;
+						}
+						foreach my $groupid (split(/,/, $properties{$tagtype}{$canon_tagid}{$exposure_property})) {
+							my $group = $groupid;
+							$group =~ s/^\s*en://;
+							$group =~ s/\s+$//;
+
+							# NOAEL has priority over ADI
+							if (exists $exposure{$percentile}{$group}) {
+								next;
+							}
+							$exposure{$percentile}{$group} = $dose;
+							$doses{$dose} = 1;    # to display legend for the dose
+							$log->debug("display_tag - exposure_table ",
+								{group => $group, percentile => $percentile, dose => $dose})
+								if $log->is_debug();
+						}
+					}
+				}
+
+				$styles .= <<CSS
+.exposure_table {
+
+}
+
+.exposure_table td,th {
+	text-align: center;
+	background-color:white;
+	color:black;
+}
+
+CSS
+					;
+
+				my $table = <<HTML
+<div style="overflow-x:auto;">
+<table class="exposure_table">
+<thead>
+<tr>
+<th>&nbsp;</th>
+HTML
+					;
+
+				foreach my $group (@groups) {
+
+					$table .= "<th>" . lang($group) . "</th>";
+				}
+
+				$table .= "</tr>\n</thead>\n<tbody>\n<tr>\n<td>&nbsp;</td>\n";
+
+				foreach my $group (@groups) {
+
+					$table .= '<td style="background-color:black;color:white;">' . lang($group . "_age") . "</td>";
+				}
+
+				$table .= "</tr>\n";
+
+				my %icons = (
+					adi => 'moderate',
+					noael => 'high',
+				);
+
+				foreach my $percentile (@percentiles) {
+
+					$table
+						.= "<tr><th>"
+						. lang("exposure_title_" . $percentile) . "<br>("
+						. lang("exposure_description_" . $percentile)
+						. ")</th>";
+
+					foreach my $group (@groups) {
+
+						$table .= "<td>";
+
+						my $dose = $exposure{$percentile}{$group};
+
+						if (not defined $dose) {
+							$table .= "&nbsp;";
+						}
+						else {
+							$table
+								.= '<img src="/images/misc/'
+								. $icons{$dose}
+								. '.svg" alt="'
+								. lang("additives_efsa_evaluation_exposure_" . $percentile . "_greater_than_" . $dose)
+								. '">';
+						}
+
+						$table .= "</td>";
+					}
+
+					$table .= "</tr>\n";
+				}
+
+				$table .= "</tbody>\n</table>\n</div>";
+
+				$description .= $table;
+
+				foreach my $dose (@doses) {
+					if (exists $doses{$dose}) {
+						$description
+							.= "<p>"
+							. '<img src="/images/misc/'
+							. $icons{$dose}
+							. '.svg" width="30" height="30" style="vertical-align:middle" alt="'
+							. lang("additives_efsa_evaluation_exposure_greater_than_" . $dose)
+							. '"> <span>: '
+							. lang("additives_efsa_evaluation_exposure_greater_than_" . $dose)
+							. "</span></p>\n";
+					}
+				}
+			}
+			next;
+		}
+
+		my $fieldid = get_string_id_for_lang($lc, $field);
+		$fieldid =~ s/-/_/g;
+
+		my %propertyid = ();
+
+		# Check if we have properties in the interface language, otherwise use English
+
+		if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})) {
+
+			$log->debug("display_tag - checking properties",
+				{tagtype => $tagtype, canon_tagid => $canon_tagid, field => $field})
+				if $log->is_debug();
+
+			foreach my $key ('property', 'description', 'abstract', 'url', 'date') {
+
+				my $suffix = "_" . $key;
+				if ($key eq 'property') {
+					$suffix = '';
+				}
+
+				if (defined $properties{$tagtype}{$canon_tagid}{$fieldid . $suffix . ":" . $lc}) {
+					$propertyid{$key} = $fieldid . $suffix . ":" . $lc;
+					$log->debug(
+						"display_tag - property key is defined for lc $lc",
+						{
+							tagtype => $tagtype,
+							canon_tagid => $canon_tagid,
+							field => $field,
+							key => $key,
+							propertyid => $propertyid{$key}
+						}
+					) if $log->is_debug();
+				}
+				elsif (defined $properties{$tagtype}{$canon_tagid}{$fieldid . $suffix . ":" . "en"}) {
+					$propertyid{$key} = $fieldid . $suffix . ":" . "en";
+					$log->debug(
+						"display_tag - property key is defined for en",
+						{
+							tagtype => $tagtype,
+							canon_tagid => $canon_tagid,
+							field => $field,
+							key => $key,
+							propertyid => $propertyid{$key}
+						}
+					) if $log->is_debug();
+				}
+				else {
+					$log->debug(
+						"display_tag - property key is not defined",
+						{
+							tagtype => $tagtype,
+							canon_tagid => $canon_tagid,
+							field => $field,
+							key => $key,
+							propertyid => $propertyid{$key}
+						}
+					) if $log->is_debug();
+				}
+			}
+		}
+
+		$log->debug(
+			"display_tag",
+			{
+				tagtype => $tagtype,
+				canon_tagid => $canon_tagid,
+				field_orig => $field_orig,
+				field => $field,
+				propertyid => $propertyid{property},
+				array => $array
+			}
+		) if $log->is_debug();
+
+		if ((defined $propertyid{property}) or (defined $propertyid{abstract})) {
+
+			# wikipedia abstract?
+
+			if ((defined $propertyid{abstract}) and ($fieldid eq "wikipedia")) {
+
+				my $site = $fieldid;
+
+				$log->debug("display_tag - showing abstract", {site => $site}) if $log->is_debug();
+
+				$description .= "<p>" . $properties{$tagtype}{$canon_tagid}{$propertyid{abstract}};
+
+				if (defined $propertyid{url}) {
+
+					my $lang_site = lang($site);
+					if ((defined $lang_site) and ($lang_site ne "")) {
+						$site = $lang_site;
+					}
+					$description
+						.= ' - <a href="'
+						. $properties{$tagtype}{$canon_tagid}{$propertyid{url}} . '">'
+						. $site . '</a>';
+				}
+
+				$description .= "</p>";
+
+				next;
+			}
+
+			my $title;
+			my $tagtype_field = $tagtype . '_' . $fieldid;
+			# $tagtype_field =~ s/_/-/g;
+			if (exists $Lang{$tagtype_field}{$lc}) {
+				$title = $Lang{$tagtype_field}{$lc};
+			}
+			elsif (exists $Lang{$fieldid}{$lc}) {
+				$title = $Lang{$fieldid}{$lc};
+			}
+
+			$log->debug("display_tag - title", {tagtype => $tagtype, title => $title}) if $log->is_debug();
+
+			$description .= "<p>";
+
+			if (defined $title) {
+				$description .= "<b>" . $title . "</b>" . separator_before_colon($lc) . ": ";
+			}
+
+			my @values = ($properties{$tagtype}{$canon_tagid}{$propertyid{property}});
+
+			if ($array) {
+				@values = split(/,/, $properties{$tagtype}{$canon_tagid}{$propertyid{property}});
+			}
+
+			my $values_display = "";
+
+			foreach my $value_orig (@values) {
+
+				my $value = $value_orig;    # make a copy so that we can modify it inside the foreach loop
+
+				next if $value =~ /^\s*$/;
+
+				$value =~ s/^\s+//;
+				$value =~ s/\s+$//;
+
+				my $property_tagtype = $fieldid;
+
+				$property_tagtype =~ s/-/_/g;
+
+				if (not exists $taxonomy_fields{$property_tagtype}) {
+					# try with an additional s
+					$property_tagtype .= "s";
+				}
+
+				$log->debug("display_tag", {property_tagtype => $property_tagtype, lc => $lc, value => $value})
+					if $log->is_debug();
+
+				my $display = $value;
+
+				if (exists $taxonomy_fields{$property_tagtype}) {
+
+					$display = display_taxonomy_tag($lc, $property_tagtype, $value);
+
+					$log->debug("display_tag - $property_tagtype is a taxonomy", {display => $display})
+						if $log->is_debug();
+
+					if (    (defined $properties{$property_tagtype})
+						and (defined $properties{$property_tagtype}{$value}))
+					{
+
+						# tooltip
+
+						my $tooltip;
+
+						if (defined $properties{$property_tagtype}{$value}{"description:$lc"}) {
+							$tooltip = $properties{$property_tagtype}{$value}{"description:$lc"};
+						}
+						elsif (defined $properties{$property_tagtype}{$value}{"description:en"}) {
+							$tooltip = $properties{$property_tagtype}{$value}{"description:en"};
+						}
+
+						if (defined $tooltip) {
+							$display
+								= '<span data-tooltip aria-haspopup="true" class="has-tip top" style="font-weight:normal" data-disable-hover="false" tabindex="2" title="'
+								. $tooltip . '">'
+								. $display
+								. '</span>';
+						}
+						else {
+							$log->debug("display_tag - no tooltip",
+								{property_tagtype => $property_tagtype, value => $value})
+								if $log->is_debug();
+						}
+
+					}
+					else {
+						$log->debug("display_tag - no property found",
+							{property_tagtype => $property_tagtype, value => $value})
+							if $log->is_debug();
+					}
+				}
+				else {
+					$log->debug("display_tag - not a taxonomy",
+						{property_tagtype => $property_tagtype, value => $value})
+						if $log->is_debug();
+
+					# Do we have a translation for the field?
+
+					my $valueid = $value;
+					$valueid =~ s/^en://;
+
+					# check if the value translate to a field specific value
+
+					if (exists $Lang{$tagtype_field . "_" . $valueid}{$lc}) {
+						$display = $Lang{$tagtype_field . "_" . $valueid}{$lc};
+					}
+
+					# check if we have an icon
+					if (exists $Lang{$tagtype_field . "_icon_alt_" . $valueid}{$lc}) {
+						my $alt = $Lang{$tagtype_field . "_icon_alt_" . $valueid}{$lc};
+						my $iconid = $tagtype_field . "_icon_" . $valueid;
+						$iconid =~ s/_/-/g;
+						$display = <<HTML
+<div class="row">
+<div class="small-2 large-1 columns">
+<img src="/images/misc/$iconid.svg" alt="$alt">
+</div>
+<div class="small-10 large-11 columns">
+$display
+</div>
+</div>
+HTML
+							;
+					}
+
+					# otherwise check if we have a general value
+
+					elsif (exists $Lang{$valueid}{$lc}) {
+						$display = $Lang{$valueid}{$lc};
+					}
+
+					$log->debug("display_tag - display value", {display => $display}) if $log->is_debug();
+
+					# tooltip
+
+					if (exists $Lang{$valueid . "_description"}{$lc}) {
+
+						my $tooltip = $Lang{$valueid . "_description"}{$lc};
+
+						$display
+							= '<span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="2" title="'
+							. $tooltip . '">'
+							. $display
+							. '</span>';
+
+					}
+					else {
+						$log->debug("display_tag - no description", {valueid => $valueid}) if $log->is_debug();
+					}
+
+					# link
+
+					if (exists $propertyid{url}) {
+						$display
+							= '<a href="'
+							. $properties{$tagtype}{$canon_tagid}{$propertyid{url}} . '">'
+							. $display . "</a>";
+					}
+					if (exists $Lang{$valueid . "_url"}{$lc}) {
+						$display = '<a href="' . $Lang{$valueid . "_url"}{$lc} . '">' . $display . "</a>";
+					}
+					else {
+						$log->debug("display_tag - no url", {valueid => $valueid}) if $log->is_debug();
+					}
+
+					# date
+
+					if (exists $propertyid{date}) {
+						$display .= " (" . $properties{$tagtype}{$canon_tagid}{$propertyid{date}} . ")";
+					}
+					if (exists $Lang{$valueid . "_date"}{$lc}) {
+						$display .= " (" . $Lang{$valueid . "_date"}{$lc} . ")";
+					}
+					else {
+						$log->debug("display_tag - no date", {valueid => $valueid}) if $log->is_debug();
+					}
+
+					# abstract
+					if (exists $propertyid{abstract}) {
+						$display
+							.= "<blockquote>"
+							. $properties{$tagtype}{$canon_tagid}{$propertyid{abstract}}
+							. "</blockquote>";
+					}
+
+				}
+
+				$values_display .= $display . ", ";
+			}
+			$values_display =~ s/, $//;
+
+			$description .= $values_display . "</p>\n";
+
+			# Display an optional description of the property
+
+			if (exists $Lang{$tagtype_field . "_description"}{$lc}) {
+				$description .= "<p>" . $Lang{$tagtype_field . "_description"}{$lc} . "</p>";
+			}
+
+		}
+		else {
+			$log->debug("display_tag - property not defined",
+				{tagtype => $tagtype, property_id => $propertyid{property}, canon_tagid => $canon_tagid})
+				if $log->is_debug();
+		}
+	}
+
+	# Remove titles without content
+
+	$description =~ s/<h3>([^<]+)<\/h3>\s*(<h3>)/<h3>/isg;
+	$description =~ s/<h3>([^<]+)<\/h3>\s*$//isg;
+
+	return $description;
+}
+
+=head2 display_tag ( $request_ref )
+
+This function is called to display either:
+
+1. Products that have a specific tag:  /category/cakes
+  or that don't have a specific tag /category/-cakes
+  or that have 2 specific tags /category/cake/brand/oreo
+2. List of tags of a given type:  /labels
+  possibly for products that have a specific tag: /category/cakes/labels
+  or more specific tags:  /category/cakes/label/organic/additives
+
+When displaying products for a tag, the function generates tag type specific HTML
+that is displayed at the top of the page:
+- tag parents and children
+- maps for tag types that have a location (e.g. packaging codes)
+- special properties for some tag types (e.g. additives)
+
+The function then calls search_and_display_products() to display the paginated list of products.
+
+When displaying a list of tags, the function calls display_list_of_tags().
+
+=cut
+
+sub display_tag ($request_ref) {
+
+	local $log->context->{tags} = $request_ref->{tags};
+
+	init_tags_texts() unless %tags_texts;
+
+	canonicalize_request_tags_and_redirect_to_canonical_url($request_ref);
+
+	my $title = generate_title_from_request_tags($request_ref->{tags});
+
 	# Refactoring in progress
 	# TODO: some of the following variables may be removed, and instead we could use the $request_ref->{tags} array
 	my $tagtype = deep_get($request_ref, qw(tags 0 tagtype));
 	my $tagid = deep_get($request_ref, qw(tags 0 tagid));
 	my $display_tag = deep_get($request_ref, qw(tags 0 display_tag));
-	my $newtagid = deep_get($request_ref, qw(tags 0 newtagid));
-	my $newtagidpath = deep_get($request_ref, qw(tags 0 newtagidpath));
+	my $new_tagid = deep_get($request_ref, qw(tags 0 new_tagid));
+	my $new_tagid_path = deep_get($request_ref, qw(tags 0 new_tagid_path));
 	my $canon_tagid = deep_get($request_ref, qw(tags 0 canon_tagid));
 
 	my $tagtype2 = deep_get($request_ref, qw(tags 1 tagtype));
 	my $tagid2 = deep_get($request_ref, qw(tags 1 tagid));
 	my $display_tag2 = deep_get($request_ref, qw(tags 1 display_tag));
-	my $newtagid2 = deep_get($request_ref, qw(tags 1 newtagid));
-	my $newtagid2path = deep_get($request_ref, qw(tags 1 newtagidpath));
+	my $new_tagid2 = deep_get($request_ref, qw(tags 1 new_tagid));
+	my $new_tagid2path = deep_get($request_ref, qw(tags 1 new_tagid_path));
 	my $canon_tagid2 = deep_get($request_ref, qw(tags 1 canon_tagid));
 
 	my $weblinks_html = '';
@@ -3200,8 +3695,6 @@ sub display_tag ($request_ref) {
 
 	my $description = '';
 
-	my $products_title = $display_tag;
-
 	my $icid = $tagid;
 	(defined $icid) and $icid =~ s/^.*://;
 
@@ -3220,498 +3713,7 @@ sub display_tag ($request_ref) {
 
 		if (exists $options{"display_tag_" . $tagtype}) {
 
-			print STDERR "option display_tag_$tagtype\n";
-
-			foreach my $field_orig (@{$options{"display_tag_" . $tagtype}}) {
-
-				my $field = $field_orig;
-
-				$log->debug("display_tag - field", {field => $field}) if $log->is_debug();
-
-				my $array = 0;
-				if ($field =~ /^\@/) {
-					$field = $';
-					$array = 1;
-				}
-
-				# Section title?
-
-				if ($field =~ /^title:/) {
-					$field = $';
-					my $title = lang($tagtype . "_" . $field);
-					($title eq "") and $title = lang($field);
-					$description .= "<h3>" . $title . "</h3>\n";
-					$log->debug("display_tag - section title", {field => $field}) if $log->is_debug();
-					next;
-				}
-
-				# Special processing
-
-				if ($field eq 'efsa_evaluation_exposure_table') {
-
-					$log->debug(
-						"display_tag - efsa_evaluation_exposure_table",
-						{
-							efsa_evaluation_overexposure_risk =>
-								$properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en:"}
-						}
-					) if $log->is_debug();
-
-					if (    (defined $properties{$tagtype})
-						and (defined $properties{$tagtype}{$canon_tagid})
-						and (defined $properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"})
-						and ($properties{$tagtype}{$canon_tagid}{"efsa_evaluation_overexposure_risk:en"} ne 'en:no'))
-					{
-
-						$log->debug("display_tag - efsa_evaluation_exposure_table - yes", {}) if $log->is_debug();
-
-						my @groups = qw(infants toddlers children adolescents adults elderly);
-						my @percentiles = qw(mean 95th);
-						my @doses = qw(noael adi);
-						my %doses = ();
-
-						my %exposure = (mean => {}, '95th' => {});
-
-						# in taxonomy:
-						# efsa_evaluation_exposure_95th_greater_than_adi:en: en:adults, en:elderly, en:adolescents, en:children, en:toddlers, en:infants
-
-						foreach my $dose (@doses) {
-							foreach my $percentile (@percentiles) {
-								my $exposure_property
-									= "efsa_evaluation_exposure_" . $percentile . "_greater_than_" . $dose . ":en";
-								if (!defined $properties{$tagtype}{$canon_tagid}{$exposure_property}) {
-									next;
-								}
-								foreach
-									my $groupid (split(/,/, $properties{$tagtype}{$canon_tagid}{$exposure_property}))
-								{
-									my $group = $groupid;
-									$group =~ s/^\s*en://;
-									$group =~ s/\s+$//;
-
-									# NOAEL has priority over ADI
-									if (exists $exposure{$percentile}{$group}) {
-										next;
-									}
-									$exposure{$percentile}{$group} = $dose;
-									$doses{$dose} = 1;    # to display legend for the dose
-									$log->debug("display_tag - exposure_table ",
-										{group => $group, percentile => $percentile, dose => $dose})
-										if $log->is_debug();
-								}
-							}
-						}
-
-						$styles .= <<CSS
-.exposure_table {
-
-}
-
-.exposure_table td,th {
-	text-align: center;
-	background-color:white;
-	color:black;
-}
-
-CSS
-							;
-
-						my $table = <<HTML
-<div style="overflow-x:auto;">
-<table class="exposure_table">
-<thead>
-<tr>
-<th>&nbsp;</th>
-HTML
-							;
-
-						foreach my $group (@groups) {
-
-							$table .= "<th>" . lang($group) . "</th>";
-						}
-
-						$table .= "</tr>\n</thead>\n<tbody>\n<tr>\n<td>&nbsp;</td>\n";
-
-						foreach my $group (@groups) {
-
-							$table
-								.= '<td style="background-color:black;color:white;">' . lang($group . "_age") . "</td>";
-						}
-
-						$table .= "</tr>\n";
-
-						my %icons = (
-							adi => 'moderate',
-							noael => 'high',
-						);
-
-						foreach my $percentile (@percentiles) {
-
-							$table
-								.= "<tr><th>"
-								. lang("exposure_title_" . $percentile) . "<br>("
-								. lang("exposure_description_" . $percentile)
-								. ")</th>";
-
-							foreach my $group (@groups) {
-
-								$table .= "<td>";
-
-								my $dose = $exposure{$percentile}{$group};
-
-								if (not defined $dose) {
-									$table .= "&nbsp;";
-								}
-								else {
-									$table
-										.= '<img src="/images/misc/'
-										. $icons{$dose}
-										. '.svg" alt="'
-										. lang(
-										"additives_efsa_evaluation_exposure_" . $percentile . "_greater_than_" . $dose)
-										. '">';
-								}
-
-								$table .= "</td>";
-							}
-
-							$table .= "</tr>\n";
-						}
-
-						$table .= "</tbody>\n</table>\n</div>";
-
-						$description .= $table;
-
-						foreach my $dose (@doses) {
-							if (exists $doses{$dose}) {
-								$description
-									.= "<p>"
-									. '<img src="/images/misc/'
-									. $icons{$dose}
-									. '.svg" width="30" height="30" style="vertical-align:middle" alt="'
-									. lang("additives_efsa_evaluation_exposure_greater_than_" . $dose)
-									. '"> <span>: '
-									. lang("additives_efsa_evaluation_exposure_greater_than_" . $dose)
-									. "</span></p>\n";
-							}
-						}
-					}
-					next;
-				}
-
-				my $fieldid = get_string_id_for_lang($lc, $field);
-				$fieldid =~ s/-/_/g;
-
-				my %propertyid = ();
-
-				# Check if we have properties in the interface language, otherwise use English
-
-				if ((defined $properties{$tagtype}) and (defined $properties{$tagtype}{$canon_tagid})) {
-
-					$log->debug("display_tag - checking properties",
-						{tagtype => $tagtype, canon_tagid => $canon_tagid, field => $field})
-						if $log->is_debug();
-
-					foreach my $key ('property', 'description', 'abstract', 'url', 'date') {
-
-						my $suffix = "_" . $key;
-						if ($key eq 'property') {
-							$suffix = '';
-						}
-
-						if (defined $properties{$tagtype}{$canon_tagid}{$fieldid . $suffix . ":" . $lc}) {
-							$propertyid{$key} = $fieldid . $suffix . ":" . $lc;
-							$log->debug(
-								"display_tag - property key is defined for lc $lc",
-								{
-									tagtype => $tagtype,
-									canon_tagid => $canon_tagid,
-									field => $field,
-									key => $key,
-									propertyid => $propertyid{$key}
-								}
-							) if $log->is_debug();
-						}
-						elsif (defined $properties{$tagtype}{$canon_tagid}{$fieldid . $suffix . ":" . "en"}) {
-							$propertyid{$key} = $fieldid . $suffix . ":" . "en";
-							$log->debug(
-								"display_tag - property key is defined for en",
-								{
-									tagtype => $tagtype,
-									canon_tagid => $canon_tagid,
-									field => $field,
-									key => $key,
-									propertyid => $propertyid{$key}
-								}
-							) if $log->is_debug();
-						}
-						else {
-							$log->debug(
-								"display_tag - property key is not defined",
-								{
-									tagtype => $tagtype,
-									canon_tagid => $canon_tagid,
-									field => $field,
-									key => $key,
-									propertyid => $propertyid{$key}
-								}
-							) if $log->is_debug();
-						}
-					}
-				}
-
-				$log->debug(
-					"display_tag",
-					{
-						tagtype => $tagtype,
-						canon_tagid => $canon_tagid,
-						field_orig => $field_orig,
-						field => $field,
-						propertyid => $propertyid{property},
-						array => $array
-					}
-				) if $log->is_debug();
-
-				if ((defined $propertyid{property}) or (defined $propertyid{abstract})) {
-
-					# wikipedia abstract?
-
-					if ((defined $propertyid{abstract}) and ($fieldid eq "wikipedia")) {
-
-						my $site = $fieldid;
-
-						$log->debug("display_tag - showing abstract", {site => $site}) if $log->is_debug();
-
-						$description .= "<p>" . $properties{$tagtype}{$canon_tagid}{$propertyid{abstract}};
-
-						if (defined $propertyid{url}) {
-
-							my $lang_site = lang($site);
-							if ((defined $lang_site) and ($lang_site ne "")) {
-								$site = $lang_site;
-							}
-							$description
-								.= ' - <a href="'
-								. $properties{$tagtype}{$canon_tagid}{$propertyid{url}} . '">'
-								. $site . '</a>';
-						}
-
-						$description .= "</p>";
-
-						next;
-					}
-
-					my $title;
-					my $tagtype_field = $tagtype . '_' . $fieldid;
-					# $tagtype_field =~ s/_/-/g;
-					if (exists $Lang{$tagtype_field}{$lc}) {
-						$title = $Lang{$tagtype_field}{$lc};
-					}
-					elsif (exists $Lang{$fieldid}{$lc}) {
-						$title = $Lang{$fieldid}{$lc};
-					}
-
-					$log->debug("display_tag - title", {tagtype => $tagtype, title => $title}) if $log->is_debug();
-
-					$description .= "<p>";
-
-					if (defined $title) {
-						$description .= "<b>" . $title . "</b>" . separator_before_colon($lc) . ": ";
-					}
-
-					my @values = ($properties{$tagtype}{$canon_tagid}{$propertyid{property}});
-
-					if ($array) {
-						@values = split(/,/, $properties{$tagtype}{$canon_tagid}{$propertyid{property}});
-					}
-
-					my $values_display = "";
-
-					foreach my $value_orig (@values) {
-
-						my $value = $value_orig;    # make a copy so that we can modify it inside the foreach loop
-
-						next if $value =~ /^\s*$/;
-
-						$value =~ s/^\s+//;
-						$value =~ s/\s+$//;
-
-						my $property_tagtype = $fieldid;
-
-						$property_tagtype =~ s/-/_/g;
-
-						if (not exists $taxonomy_fields{$property_tagtype}) {
-							# try with an additional s
-							$property_tagtype .= "s";
-						}
-
-						$log->debug("display_tag", {property_tagtype => $property_tagtype, lc => $lc, value => $value})
-							if $log->is_debug();
-
-						my $display = $value;
-
-						if (exists $taxonomy_fields{$property_tagtype}) {
-
-							$display = display_taxonomy_tag($lc, $property_tagtype, $value);
-
-							$log->debug("display_tag - $property_tagtype is a taxonomy", {display => $display})
-								if $log->is_debug();
-
-							if (    (defined $properties{$property_tagtype})
-								and (defined $properties{$property_tagtype}{$value}))
-							{
-
-								# tooltip
-
-								my $tooltip;
-
-								if (defined $properties{$property_tagtype}{$value}{"description:$lc"}) {
-									$tooltip = $properties{$property_tagtype}{$value}{"description:$lc"};
-								}
-								elsif (defined $properties{$property_tagtype}{$value}{"description:en"}) {
-									$tooltip = $properties{$property_tagtype}{$value}{"description:en"};
-								}
-
-								if (defined $tooltip) {
-									$display
-										= '<span data-tooltip aria-haspopup="true" class="has-tip top" style="font-weight:normal" data-disable-hover="false" tabindex="2" title="'
-										. $tooltip . '">'
-										. $display
-										. '</span>';
-								}
-								else {
-									$log->debug("display_tag - no tooltip",
-										{property_tagtype => $property_tagtype, value => $value})
-										if $log->is_debug();
-								}
-
-							}
-							else {
-								$log->debug("display_tag - no property found",
-									{property_tagtype => $property_tagtype, value => $value})
-									if $log->is_debug();
-							}
-						}
-						else {
-							$log->debug("display_tag - not a taxonomy",
-								{property_tagtype => $property_tagtype, value => $value})
-								if $log->is_debug();
-
-							# Do we have a translation for the field?
-
-							my $valueid = $value;
-							$valueid =~ s/^en://;
-
-							# check if the value translate to a field specific value
-
-							if (exists $Lang{$tagtype_field . "_" . $valueid}{$lc}) {
-								$display = $Lang{$tagtype_field . "_" . $valueid}{$lc};
-							}
-
-							# check if we have an icon
-							if (exists $Lang{$tagtype_field . "_icon_alt_" . $valueid}{$lc}) {
-								my $alt = $Lang{$tagtype_field . "_icon_alt_" . $valueid}{$lc};
-								my $iconid = $tagtype_field . "_icon_" . $valueid;
-								$iconid =~ s/_/-/g;
-								$display = <<HTML
-<div class="row">
-<div class="small-2 large-1 columns">
-<img src="/images/misc/$iconid.svg" alt="$alt">
-</div>
-<div class="small-10 large-11 columns">
-$display
-</div>
-</div>
-HTML
-									;
-							}
-
-							# otherwise check if we have a general value
-
-							elsif (exists $Lang{$valueid}{$lc}) {
-								$display = $Lang{$valueid}{$lc};
-							}
-
-							$log->debug("display_tag - display value", {display => $display}) if $log->is_debug();
-
-							# tooltip
-
-							if (exists $Lang{$valueid . "_description"}{$lc}) {
-
-								my $tooltip = $Lang{$valueid . "_description"}{$lc};
-
-								$display
-									= '<span data-tooltip aria-haspopup="true" class="has-tip top" data-disable-hover="false" tabindex="2" title="'
-									. $tooltip . '">'
-									. $display
-									. '</span>';
-
-							}
-							else {
-								$log->debug("display_tag - no description", {valueid => $valueid}) if $log->is_debug();
-							}
-
-							# link
-
-							if (exists $propertyid{url}) {
-								$display
-									= '<a href="'
-									. $properties{$tagtype}{$canon_tagid}{$propertyid{url}} . '">'
-									. $display . "</a>";
-							}
-							if (exists $Lang{$valueid . "_url"}{$lc}) {
-								$display = '<a href="' . $Lang{$valueid . "_url"}{$lc} . '">' . $display . "</a>";
-							}
-							else {
-								$log->debug("display_tag - no url", {valueid => $valueid}) if $log->is_debug();
-							}
-
-							# date
-
-							if (exists $propertyid{date}) {
-								$display .= " (" . $properties{$tagtype}{$canon_tagid}{$propertyid{date}} . ")";
-							}
-							if (exists $Lang{$valueid . "_date"}{$lc}) {
-								$display .= " (" . $Lang{$valueid . "_date"}{$lc} . ")";
-							}
-							else {
-								$log->debug("display_tag - no date", {valueid => $valueid}) if $log->is_debug();
-							}
-
-							# abstract
-							if (exists $propertyid{abstract}) {
-								$display
-									.= "<blockquote>"
-									. $properties{$tagtype}{$canon_tagid}{$propertyid{abstract}}
-									. "</blockquote>";
-							}
-
-						}
-
-						$values_display .= $display . ", ";
-					}
-					$values_display =~ s/, $//;
-
-					$description .= $values_display . "</p>\n";
-
-					# Display an optional description of the property
-
-					if (exists $Lang{$tagtype_field . "_description"}{$lc}) {
-						$description .= "<p>" . $Lang{$tagtype_field . "_description"}{$lc} . "</p>";
-					}
-
-				}
-				else {
-					$log->debug("display_tag - property not defined",
-						{tagtype => $tagtype, property_id => $propertyid{property}, canon_tagid => $canon_tagid})
-						if $log->is_debug();
-				}
-			}
-
-			# Remove titles without content
-
-			$description =~ s/<h3>([^<]+)<\/h3>\s*(<h3>)/<h3>/isg;
-			$description =~ s/<h3>([^<]+)<\/h3>\s*$//isg;
+			$description = generate_description_from_display_tag_options($tagtype, $tagid, $display_tag, $canon_tagid);
 		}
 		else {
 			# Do we have a description for the tag in the taxonomy?
@@ -3955,7 +3957,6 @@ HTML
 				my $app_user = f_lang("f_app_user", {app_name => $app_name});
 
 				$title = $app_user;
-				$products_title = $app_user;
 				$display_tag = $app_user;
 			}
 			else {
@@ -3973,7 +3974,6 @@ HTML
 
 				if ($user_or_org_ref->{name} ne '') {
 					$title = $user_or_org_ref->{name} || $tagid;
-					$products_title = $user_or_org_ref->{name};
 					$display_tag = $user_or_org_ref->{name};
 				}
 
@@ -4008,15 +4008,15 @@ HTML
 
 					$user_template_data_ref->{links} = [
 						{
-							text => sprintf(lang('contributors_products'), $products_title),
+							text => sprintf(lang('contributors_products'), $user_or_org_ref->{name}),
 							url => canonicalize_tag_link("users", get_string_id_for_lang("no_language", $tagid)),
 						},
 						{
-							text => sprintf(lang('editors_products'), $products_title),
+							text => sprintf(lang('editors_products'), $user_or_org_ref->{name}),
 							url => canonicalize_tag_link("editors", get_string_id_for_lang("no_language", $tagid)),
 						},
 						{
-							text => sprintf(lang('photographers_products'), $products_title),
+							text => sprintf(lang('photographers_products'), $user_or_org_ref->{name}),
 							url =>
 								canonicalize_tag_link("photographers", get_string_id_for_lang("no_language", $tagid)),
 						},
@@ -4067,55 +4067,15 @@ HTML
 			}
 		}
 
-		if ((defined $request_ref->{tag_prefix}) and ($request_ref->{tag_prefix} eq '-')) {
-			$products_title = sprintf(lang($tagtype . '_without_products'), $products_title);
-		}
-		else {
-			$products_title = sprintf(lang($tagtype . '_products'), $products_title);
-		}
+		# Pass template data to generate navigation links
+		# These are variables that ae used to inject data
+		# Used in tag.tt.html
 
-		if (defined $tagid2) {
-			$products_title .= lang("title_separator");
-			if ((defined $request_ref->{tag2_prefix}) and ($request_ref->{tag2_prefix} eq '-')) {
-				$products_title .= sprintf(lang($tagtype2 . '_without_products'), $display_tag2);
-			}
-			else {
-				$products_title .= sprintf(lang($tagtype2 . '_products'), $display_tag2);
-			}
-		}
+		$tag_template_data_ref->{tags} = $request_ref->{tags};
 
 		if (not defined $request_ref->{groupby_tagtype}) {
 
-			# Pass template data to generate navigation links
-			# These are variables that ae used to inject data
-			# Used in tag.tt.html
-			#-------------------------------------------------------
-			# Results of these variables based for category/en:snacks
-			#---- tagtype would return-> categories -----
-			#---- tagtype_path would return-> /categories -----
-			#---- tagtype_name would return-> category -----
-			#---- tagid would return-> en:snacks -----
-			#---- tagid_path would return-> /category/snacks -----
-			#---- tag_name would return-> Snacks -----
-
-			$tag_template_data_ref->{tagtype} = $tagtype;
-			$tag_template_data_ref->{tagtype_path} = '/' . $tag_type_plural{$tagtype}{$lc};
-			$tag_template_data_ref->{tagtype_name} = lang($tagtype . '_s');
-			$tag_template_data_ref->{tagid} = $tagid;
-			$tag_template_data_ref->{tagid_path} = $newtagidpath;
-			$tag_template_data_ref->{tag_name} = $display_tag;
-			$tag_template_data_ref->{canon_tagid} = $canon_tagid // $tagid;
-
-			if (defined $tagid2) {
-				$tag_template_data_ref->{tagtype2} = $tagtype2;
-				$tag_template_data_ref->{tagtype2_path} = '/' . $tag_type_plural{$tagtype2}{$lc};
-				$tag_template_data_ref->{tagtype2_name} = lang($tagtype2 . '_s');
-				$tag_template_data_ref->{tagid2} = $tagid2;
-				$tag_template_data_ref->{tagid2_path} = $newtagid2path;
-				$tag_template_data_ref->{tag2_name} = $display_tag2;
-				$tag_template_data_ref->{canon_tagid2} = $canon_tagid2 // $tagid2;
-			}
-			else {
+			if (not defined $tagid2) {
 
 				# We are on the main page of the tag (not a sub-page with another tag)
 				# so we display more information related to the tag
@@ -4152,10 +4112,7 @@ HTML
 						= display_knowledge_panel($tag_ref, $tag_ref->{"knowledge_panels_" . $lc}, "root");
 				}
 			}
-
-			$tag_template_data_ref->{products_title} = $products_title;
 		}
-
 	}    # end of if (defined $tagtype)
 
 	$tag_template_data_ref->{country} = $country;
@@ -4211,9 +4168,6 @@ HTML
 		}
 		else {
 			${$request_ref->{content_ref}} .= $tag_html . display_list_of_tags($request_ref, $query_ref);
-		}
-		if ($products_title ne '') {
-			$request_ref->{title} .= " " . lang("for") . " " . lcfirst($products_title);
 		}
 		$request_ref->{title} .= lang("title_separator") . display_taxonomy_tag($lc, "countries", $country);
 		$request_ref->{page_type} = "list_of_tags";

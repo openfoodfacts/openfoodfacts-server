@@ -2853,15 +2853,30 @@ sub display_tag_link ($tagtype, $tag) {
 	return $html;
 }
 
-sub canonicalize_taxonomy_tag_link ($target_lc, $tagtype, $tag) {
+=head2 canonicalize_taxonomy_tag_link ($target_lc, $tagtype, $tag, $tag_prefix = undef)
+
+Returns a link to the canonicalized tag
+
+=head3 Arguments
+
+=head4 $tagtype
+
+=head4 $tagid
+
+=head4 $tag_prefix (optional)
+
+Can be - to indicate that the tag is a negative tag
+
+=cut
+
+sub canonicalize_taxonomy_tag_link ($target_lc, $tagtype, $tag, $tag_prefix = undef) {
 
 	$target_lc =~ s/_.*//;
 	$tag = display_taxonomy_tag($target_lc, $tagtype, $tag);
 	my $tagurl = get_taxonomyurl($target_lc, $tag);
 
 	my $path = $tag_type_singular{$tagtype}{$target_lc};
-	$log->info("tax tag 1 /$path/$tagurl") if $log->is_info();
-	return "/$path/$tagurl";
+	return "/$path/" . ($tag_prefix // '') . "$tagurl";
 }
 
 # The display_taxonomy_tag_link function makes many calls to other functions, in particular it calls twice display_taxonomy_tag_link
@@ -4181,7 +4196,23 @@ sub display_taxonomy_tag_name ($target_lc, $tagtype, $canon_tagid) {
 	return $display_value;
 }
 
-sub canonicalize_tag_link ($tagtype, $tagid) {
+=head2 canonicalize_tag_link ($tagtype, $tagid, $tag_prefix = undef)
+
+Return a relative link to a tag page.
+
+=head3 Arguments
+
+=head4 $tagtype
+
+=head4 $tagid
+
+=head4 $tag_prefix (optional)
+
+Can be - to indicate that the tag is a negative tag
+
+=cut
+
+sub canonicalize_tag_link ($tagtype, $tagid, $tag_prefix = undef) {
 
 	if (defined $taxonomy_fields{$tagtype}) {
 		die "ERROR: canonicalize_tag_link called for a taxonomy tagtype: $tagtype - tagid: $tagid - $!";
@@ -4198,7 +4229,7 @@ sub canonicalize_tag_link ($tagtype, $tagid) {
 		$path = $tag_type_singular{$tagtype}{en};
 	}
 
-	my $link = "/$path/" . URI::Escape::XS::encodeURIComponent($tagid);
+	my $link = "/$path/" . ($tag_prefix // '') . URI::Escape::XS::encodeURIComponent($tagid);
 
 	$log->info("canonicalize_tag_link $tagtype $tagid $path $link") if $log->is_info();
 

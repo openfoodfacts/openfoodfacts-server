@@ -2,19 +2,16 @@
 <div class="tag">
     <div class="row">
         <div class="large-6 column">
-            [% IF not groupby_tagtype.defined %]
-                <div class="tag_navigation">
-                    <a href="[% tagtype_path %]">[% tagtype_name.ucfirst %]</a>
-                    [% sep %]:
-                    <a href="[% tagid_path %]">[% tag_name %]</a>
 
-                    [% IF tagid2.defined %]
-                    <br>
-                    <a href="[% tagtype2_path %]">[% tagtype2_name.ucfirst %]</a>
-                    [% sep %]:
-                    <a href="[% tagid2_path %]">[% tag2_name %]</a>
-                    [% END %]
-                </div>
+            <div class="tag_navigation">
+                [% FOREACH tag IN tags %]
+                    <a href="[% tag.tagtype_path %]">[% tag.tagtype_name.ucfirst %]</a>[% sep %]:
+                    <a href="[% tag.new_tagid_path %]">[% tag.tag_prefix %][% tag.display_tag.ucfirst %]</a>
+                    [% IF loop.last %][% ELSE %] / [% END %]
+                [% END %]
+            </div>
+
+            [% IF not groupby_tagtype.defined %]
 
                 [% IF tag_logo %]
                 <div class="tag_logo">
@@ -30,7 +27,6 @@
                     </a>
                 </div>
                 [% END %]
-
 
                 [% IF weblinks and not facets_kp_url.defined %]
                 <div class="weblinks">
