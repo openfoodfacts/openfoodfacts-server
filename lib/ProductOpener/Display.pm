@@ -2997,10 +2997,14 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 		# the tag name requested in url (in $lc language)
 		my $tagid = $tag_ref->{tagid};
 		my $tagtype = $tag_ref->{tagtype};
+		# in URLs, tags can be prefixed with a - (e.g /label/-organic)
+		# to indicate we want to match products without that tag
 		my $tag_prefix = $tag_ref->{tag_prefix};
+		# The tag name displayed in the page (in $lc language)
 		my $display_tag;
 		# canonical tag corresponding to tagid
 		my $canon_tagid;
+		# normalized tagid, in the $lc language
 		my $new_tagid;
 		my $new_tagid_path;
 
