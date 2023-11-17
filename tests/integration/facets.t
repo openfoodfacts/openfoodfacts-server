@@ -26,86 +26,94 @@ create_user($ua, \%create_user_args);
 
 my @products = (
 	{
-		%{dclone(\%default_product_form)},
+		%{dclone(\%empty_product_form)},
 		(
 			code => '200000000001',
-			product_name => "Carrots - Organic - France",
+			product_name => "Carrots - Organic - France - brand1, brand2",
 			categories => "en:carrots",
 			labels => "en:organic",
 			origins => "en:france",
+			brands => 'brand1, brand2',
 		),
 	},
 	{
-		%{dclone(\%default_product_form)},
+		%{dclone(\%empty_product_form)},
 		(
 			code => '200000000002',
-			product_name => "Carrots - Fair trade, Organic - France",
+			product_name => "Carrots - Fair trade, Organic - France - brand1",
 			categories => "en:carrots",
 			labels => "en:organic, en:fair-trade",
 			origins => "en:france",
+			brands => 'brand1',
 		),
 	},
 	{
-		%{dclone(\%default_product_form)},
+		%{dclone(\%empty_product_form)},
 		(
 			code => '200000000003',
-			product_name => "Carrots - No label - Belgium",
+			product_name => "Carrots - No label - Belgium - brand2",
 			categories => "en:carrots",
 			origins => "en:belgium",
+			brands => 'brand2',
 		),
 	},
 	{
-		%{dclone(\%default_product_form)},
+		%{dclone(\%empty_product_form)},
 		(
 			code => '200000000004',
-			product_name => "Carrots - Fair trade - Italy",
+			product_name => "Carrots - Fair trade - Italy - brand1, brand2",
 			categories => "en:carrots",
 			labels => "en:fair-trade",
 			origins => "en:italy",
+			brands => 'brand1, brand2',
 		),
 	},
 	{
-		%{dclone(\%default_product_form)},
+		%{dclone(\%empty_product_form)},
 		(
 			code => '200000000005',
-			product_name => "Bananas - Organic - France",
+			product_name => "Bananas - Organic - France - brand2",
 			categories => "en:bananas",
 			labels => "en:organic",
 			origins => "en:france",
+			brands => 'brand2',
 		),
 	},
 	{
-		%{dclone(\%default_product_form)},
+		%{dclone(\%empty_product_form)},
 		(
 			code => '200000000006',
-			product_name => "Bananas - Organic - Martinique",
+			product_name => "Bananas - Organic - Martinique - brand1",
 			categories => "en:bananas",
 			labels => "en:organic",
 			origins => "en:martinique",
+			brands => 'brand1',
 		),
 	},
 	{
-		%{dclone(\%default_product_form)},
+		%{dclone(\%empty_product_form)},
 		(
 			code => '200000000007',
-			product_name => "Oranges - Organic - Spain",
+			product_name => "Oranges - Organic - Spain - brand1, brand2, brand3",
 			categories => "en:oranges",
 			labels => "en:organic",
 			origins => "en:spain",
+			brands => 'brand1, brand2, brand3',
 		),
 	},
 	{
-		%{dclone(\%default_product_form)},
+		%{dclone(\%empty_product_form)},
 		(
 			code => '200000000008',
-			product_name => "Oranges - Fair trade - Italy",
+			product_name => "Oranges - Fair trade - Italy - brand3",
 			categories => "en:oranges",
 			labels => "en:fair-trade",
 			origins => "en:italy",
+			brands => 'brand3',
 		),
 	},
 	{
-		%{dclone(\%default_product_form)},
+		%{dclone(\%empty_product_form)},
 		(
 			code => '200000000009',
 			product_name => "Apples - Organic - France",
@@ -115,7 +123,7 @@ my @products = (
 		),
 	},
 	{
-		%{dclone(\%default_product_form)},
+		%{dclone(\%empty_product_form)},
 		(
 			code => '200000000010',
 			product_name => "Apples - Organic, Fair trade - France",
@@ -125,7 +133,7 @@ my @products = (
 		),
 	},
 	{
-		%{dclone(\%default_product_form)},
+		%{dclone(\%empty_product_form)},
 		(
 			code => '200000000011',
 			product_name => "Apples - Organic - France, Belgium, Canada",
@@ -135,7 +143,7 @@ my @products = (
 		),
 	},
 	{
-		%{dclone(\%default_product_form)},
+		%{dclone(\%empty_product_form)},
 		(
 			code => '200000000012',
 			product_name => "Chocolate - Organic, Fair trade - Martinique",
@@ -153,6 +161,27 @@ foreach my $product_ref (@products) {
 # Note: expected results are stored in json files, see execute_api_tests
 # We use the API with .json to test facets, in order to easily get the products that are returned
 my $tests_ref = [
+	{
+		test_case => 'brand_brand1',
+		method => 'GET',
+		path => '/brand/brand1.json?fields=product_name',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
+	{
+		test_case => 'brand_-brand1',
+		method => 'GET',
+		path => '/brand/-brand1.json?fields=product_name',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
+	{
+		test_case => 'brand_brand2_brand_-brand1',
+		method => 'GET',
+		path => '/brand/brand2/brand/-brand1.json?fields=product_name',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
 	{
 		test_case => 'category_apples',
 		method => 'GET',
@@ -192,6 +221,21 @@ my $tests_ref = [
 		test_case => 'label_fair-trade_label_-organic',
 		method => 'GET',
 		path => '/label/fair-trade/label/-organic.json?fields=product_name',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
+	# Special unknown value, should match unexisting or empty tags array
+	{
+		test_case => 'brand_unknown',
+		method => 'GET',
+		path => '/brand/unknown.json?fields=product_name',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
+	{
+		test_case => 'brand_-unknown',
+		method => 'GET',
+		path => '/brand/-unknown.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},

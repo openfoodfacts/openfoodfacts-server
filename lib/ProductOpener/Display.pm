@@ -4177,6 +4177,18 @@ HTML
 
 	}
 
+	# XYZ
+	# Add parameters corresponding to the tag filters so that they can be added to the query by add_params_to_query()
+	foreach my $tag_ref (@{$request_ref->{tags}}) {
+		my $field_name = $tag_ref->{tagtype} . "_tags";
+		my $current_value = param($field_name);
+		my $new_value = ($tag_ref->{tag_prefix} || '') . ($tag_ref->{canon_tagid} || $tag_ref->{tagid});
+		if ($current_value) {
+			$new_value = $current_value . ',' . $new_value;
+		}
+		param($field_name, $new_value);
+	}
+
 	my $query_ref = {};
 	my $sort_by;
 	if ($tagtype eq 'users') {
@@ -4266,6 +4278,10 @@ HTML
 			$query_ref->{$field} = $tag2_is_negative ? {"\$ne" => $value} : $value;
 		}
 	}
+
+	$query_ref = {};
+	$sort_by = undef;
+
 	# Rendering Page tags
 	my $tag_html;
 	# TODO: is_crawl_bot should be added directly by process_template(),
@@ -4736,11 +4752,37 @@ sub add_params_to_query ($request_ref, $query_ref) {
 						{field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagid => $tagid})
 						if $log->is_debug();
 
-					if ($not) {
-						$query_ref->{$tagtype . $suffix} = {'$ne' => $tagid};
+					# if the value is "unknown", we need to add a condition on the field being empty
+					# warning: unknown is a value for pnns_groups_1 and 2
+					if (
+						(
+							($tagid eq get_string_id_for_lang($tag_lc, lang("unknown")))
+							or (
+								$tagid eq (
+									$tag_lc . ":"
+										. get_string_id_for_lang($tag_lc, lang_in_other_lc($tag_lc, "unknown"))
+								)
+							)
+						)
+						and ($tagtype !~ /^pnns_groups_/)
+						)
+					{
+						if ($not) {
+							$query_ref->{$tagtype . $suffix} = {'$nin' => [undef, []]};
+						}
+						else {
+							$query_ref->{$tagtype . $suffix} = {'$in' => [undef, []]};
+						}
+
 					}
+					# Normal single value (not unknown)
 					else {
-						$query_ref->{$tagtype . $suffix} = $tagid;
+						if ($not) {
+							$query_ref->{$tagtype . $suffix} = {'$ne' => $tagid};
+						}
+						else {
+							$query_ref->{$tagtype . $suffix} = $tagid;
+						}
 					}
 				}
 
