@@ -239,6 +239,14 @@ my $tests_ref = [
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
+	# Contributor
+	{
+		test_case => 'contributor_tests',
+		method => 'GET',
+		path => '/contributor/tests.json?fields=product_name',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
 ];
 
 # note: we need to execute the tests with bob, because we need authentication
