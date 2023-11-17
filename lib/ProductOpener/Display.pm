@@ -2994,6 +2994,7 @@ sub canonicalize_request_tags_and_redirect_to_canonical_url ($request_ref) {
 
 	foreach my $tag_ref (@{$request_ref->{tags}}) {
 
+		# the tag name requested in url (in $lc language)
 		my $tagid = $tag_ref->{tagid};
 		my $tagtype = $tag_ref->{tagtype};
 		my $tag_prefix = $tag_ref->{tag_prefix};
