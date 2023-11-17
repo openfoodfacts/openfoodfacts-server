@@ -251,6 +251,16 @@ my @tests = (
 			},
 		},
 	],
+
+	# Ingredient A and Ingredient B (81%)
+	[
+		'ingredient-a-and-ingredient-b-and-percent',
+		{lc => "fr", ingredients_text => "Pulpe de tomates et purées de tomates (81%), eau, sel et poivre."},
+	],
+	[
+		'ingredient-a-and-ingredient-b-without-percent',
+		{lc => "fr", ingredients_text => "Pulpe de tomates et purées de tomates, eau, sel et poivre."},
+	],
 );
 
 foreach my $test_ref (@tests) {

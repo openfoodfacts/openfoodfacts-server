@@ -2101,7 +2101,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 		my @ingredients = ();
 
 		# 2 known ingredients separated by "and" ?
-		if ($before =~ /$and/i) {
+		if (($before =~ /$and/i) and (not defined $percent_or_quantity_value)) {
 
 			my $ingredient = $before;
 			my $ingredient1 = $`;
