@@ -852,8 +852,8 @@ sub remove_stopwords_from_start_or_end_of_string ($tagtype, $lc, $string) {
 
 		my $regexp = $stopwords_regexps{$tagtype . '.' . $lc . '.strings'};
 
-		$string =~ s/^(\b($regexp)\s)+//ig;
-		$string =~ s/(\s($regexp)\b)+$//ig;
+		$string =~ s/^(\s*($regexp)\s*\b)+//ig;
+		$string =~ s/(\b\s*($regexp)\s*)+$//ig;
 	}
 	return $string;
 }
