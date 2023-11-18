@@ -703,6 +703,60 @@ puffed orange and caramelized unknown_fruit4.",
 				"fruits (apple, banana and dried cherry), vegetables (pitted avocado, peeled black radish).",
 		}
 	],
+	# category / types enumeration
+	[
+		"en-category-types",
+		{
+			lc => "de",
+			ingredients_text => "pflanzliche Öle und Fette (Raps, Palm, Shea, Sonnenblumen)",
+		}
+	],
+	[
+		"fr-viande-de-boeuf-issue-d-animaux-nourris-sans-ogm",
+		{
+			lc => "fr",
+			ingredients_text => "Viande de boeuf issue d'animaux nourris sans OGM",
+		}
+	],
+	# French ingredient
+	[
+		"fr-oignon-francais-tomate-francaise",
+		{
+			lc => "fr",
+			ingredients_text => "Oignon français, tomate française",
+		}
+	],
+	[
+		'fr-legumes-issus-de-l-agriculture-durable',
+		{
+			lc => "fr",
+			ingredients_text => "Légumes issus de l'agriculture durable",
+		}
+	],
+	[
+		"fr-farines-labels-and-processes",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Farine de blé CRC, farine de maïs fermentée, farine sans gluten, farine de petit épeautre fortifiée",
+		}
+	],
+	# Label in a list of ingredients: the product should have labels organic and gluten-free.
+	[
+		"en-wheat-flour-organic-gluten-free",
+		{
+			lc => "en",
+			ingredients_text => "wheat flour. MSC (fish). organic. gluten-free",
+		}
+	],
+	# Removing a label with stopwords without removing the stopwords in origins
+	[
+		"fr-cacao-issu-de-l-agriculture-biologique-de-madagascar",
+		{
+			lc => "fr",
+			ingredients_text => "cacao issu de l'agriculture biologique de Madagascar",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

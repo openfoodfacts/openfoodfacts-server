@@ -29,6 +29,10 @@ synonyms:fr:semi-complet, demi-complet
 
 synonyms:fr:semi-complète, demi-complète
 
+synonyms:fr:complet, intégral
+
+synonyms:fr:complète, intégrale
+
 synonyms:lt:ląsteliena, skaidulos
 
 synonyms:lt:pilno grūdo, viso grūdo
@@ -22556,6 +22560,15 @@ az:Manna yarması
 pl:kasza manna, kasza manna z pszenicy
 sr:griz
 
+
+# Soft wheat
+
+<en:wheat
+en:soft wheat, tender wheat
+es:trigo blando
+fr:blé tendre
+it:grano tenero
+
 ##################################################################################
 #
 #                        Durum wheat
@@ -22564,7 +22577,7 @@ sr:griz
 # description:en:Durum wheat (Triticum durum or Triticum turgidum subsp. durum) is a tetraploid species of wheat.
 
 <en:wheat
-en:durum wheat
+en:durum wheat, hard wheat
 af:durum
 ar:قمح صلب
 bg:твърда пшеница
@@ -25706,13 +25719,14 @@ nl:biologische tarwemeel
 en:wheat flour type 0, flour type 0
 bg:Бяло брашно тип 0
 de:Weizenmehl Type 0
-fr:Farine blanche type 0
+fr:farine de blé tendre type 0, farine de blé type 0, Farine blanche type 0
 hr:pšenično brašno tip "0"
 it:farina di grano tenero tipo 0, farina di grano tipo 0
 
 <en:wheat flour
 en:wheat flour type 00, flour type 00
 de:Weichweizenmehl Typ 00, Typ 00 Weichweizenmehl, Weizenmehl Typ 00
+fr:farine de blé tendre type 00, farine de blé type 00
 hr:brašno tip 00
 it:farina di grano tenero tipo 00, farina di grano tipo 00
 pl:mąka pszenna typ 00
@@ -25858,9 +25872,10 @@ en:fortified british wheat flour
 de:angereichertes britisches Weizenmehl
 
 <en:wheat flour
+en:soft wheat flour, tender wheat flour
 de:Weichweizenmehl
 fi:hieno vehnäjauho
-fr:farine de blé tendre
+fr:farine de blé tendre, farine de blés tendres
 it:farina di grano tenero
 ciqual_food_code:en:9410
 ciqual_food_name:en:Wheat flour, type 110
@@ -25868,14 +25883,14 @@ ciqual_food_name:fr:Farine de blé tendre ou froment T110
 
 <en:wheat flour
 en:Wheat flour type 150
-fr:Farine de blé tendre T150
+fr:Farine de blé tendre T150, farine de blé T150
 ciqual_food_code:en:9415
 ciqual_food_name:en:Wheat flour, type 150
 ciqual_food_name:fr:Farine de blé tendre ou froment T150
 
 <en:wheat flour
 en:Wheat flour type 110
-fr:Farine de blé tendre T110
+fr:Farine de blé tendre T110, farine de blé t110
 ciqual_food_code:en:9410
 ciqual_food_name:en:Wheat flour, type 110
 ciqual_food_name:fr:Farine de blé tendre ou froment T110
@@ -30934,6 +30949,9 @@ pl:hydrolizat białka sojowego, hydrolizowane białko sojowe
 
 <en:soy protein
 fr:protéines de soja i.p
+
+<en:soy protein
+nl:verwerkt soja-eiwit
 
 <en:plant protein
 en:cereal protein
@@ -47691,6 +47709,9 @@ ciqual_food_code:en:11014
 ciqual_food_name:en:Parsley, fresh
 ciqual_food_name:fr:Persil, frais
 
+<en:parsley
+en:flatleaf parsley
+
 #processing:en: en:dehydrated
 #<en:parsley
 #en:dehydrated parsley
@@ -52147,6 +52168,21 @@ ciqual_food_code:en:13004
 ciqual_food_name:en:Avocado, pulp, raw
 ciqual_food_name:fr:Avocat, pulpe, cru
 
+<en:avocado
+en:hass avocado, hass avocadoes
+de:hass-avocado, hass-avocados
+es:aguacate Hass, aguacates Hass
+fr:avocat Hass, avocats Hass
+it:avocado hass
+pt:abacate hass, abacates hass
+ja:ハスアボカド
+ko:할아버지 아보카도
+zh:哈斯牛油果
+ru:авокадо Хасс
+uk:авокадо Хасс
+wikidata:en:Q5679460
+wikipedia:en:https://en.wikipedia.org/wiki/Hass_avocado
+
 <en:vegetable
 <en:herb
 en:borage
@@ -54173,6 +54209,10 @@ fr:Paprika en poudre
 hr:paprika u prahu
 nl:paprikapoeder
 pl:papryka w proszku, papryka suszona, papryka suszona czerwona, papryka czerwona suszona, papryka mielona
+
+<en:paprika
+en:smoked paprika
+nl:gerookte paprika
 
 <en:paprika
 fr:paprika doux

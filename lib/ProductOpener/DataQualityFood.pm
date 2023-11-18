@@ -940,7 +940,7 @@ sub check_nutrition_data ($product_ref) {
 
 		# some categories have an expected ingredient - push data quality error if ingredient differs from expected ingredient
 		# note: we currently support only 1 expected ingredient
-		my ($expected_ingredients, $category_id)
+		my ($expected_ingredients, $category_id2)
 			= get_inherited_property_from_categories_tags($product_ref, "expected_ingredients:en");
 
 		if ((defined $expected_ingredients)) {
@@ -1298,6 +1298,10 @@ sub check_quantity ($product_ref) {
 	if ((defined $product_ref->{product_quantity}) and ($product_ref->{product_quantity} ne "")) {
 		if ($product_ref->{product_quantity} > 10 * 1000) {
 			push @{$product_ref->{data_quality_warnings_tags}}, "en:product-quantity-over-10kg";
+
+			if ($product_ref->{product_quantity} > 30 * 1000) {
+				push @{$product_ref->{data_quality_errors_tags}}, "en:product-quantity-over-30kg";
+			}
 		}
 		if ($product_ref->{product_quantity} < 1) {
 			push @{$product_ref->{data_quality_warnings_tags}}, "en:product-quantity-under-1g";
