@@ -350,14 +350,14 @@ ok(has_tag($product_ref, 'data_quality', 'en:sum-of-ingredients-with-specified-p
 $product_ref = {
 	nutriments => {
 		"energy-kj_value" => 56,
-		"carbohydrates_value" => 100,
+		"carbohydrates_value" => 10,
 		"fat_value" => 20,
 		"proteins_value" => 30,
 		"fiber_value" => 2,
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
-is($product_ref->{nutriments}{"energy-kj_value_computed"}, 2966);
+is($product_ref->{nutriments}{"energy-kj_value_computed"}, 1436);
 ok(has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
 	'energy not matching nutrients')
 	or diag explain $product_ref;
