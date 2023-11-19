@@ -597,7 +597,14 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 			my ($ignore_energy_calculated_error, $category_id)
 				= get_inherited_property_from_categories_tags($product_ref, "ignore_energy_calculated_error:en");
 
-			if (not((defined $ignore_energy_calculated_error) and ($ignore_energy_calculated_error eq 'yes'))) {
+			if (
+				(
+					not((defined $ignore_energy_calculated_error) and ($ignore_energy_calculated_error eq 'yes'))
+					and (  ($product_ref->{nutriments}{"energy-kj_value"} > 55)
+						or ($product_ref->{nutriments}{"energy-kcal_value"} > 13))
+				)
+				)
+			{
 				# Compare to specified energy value with a tolerance of 30% + an additiontal tolerance of 5
 				if (   ($computed_energy < ($specified_energy * 0.7 - 5))
 					or ($computed_energy > ($specified_energy * 1.3 + 5)))
