@@ -1303,7 +1303,7 @@ my @fruits_vegetables_legumes_by_category_if_no_ingredients_specified_sorted = (
 );
 
 # Canonicalize the entries, in case the canonical entry changed
-foreach my $category_ref (@fruits_vegetables_legumes_by_category_sorted_2023) {
+foreach my $category_ref (@fruits_vegetables_legumes_by_category_if_no_ingredients_specified_sorted) {
 	$category_ref->[0] = canonicalize_taxonomy_tag("en", "categories", $category_ref->[0]);
 }
 
