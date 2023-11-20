@@ -56,6 +56,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/:all/;
 use ProductOpener::URL qw/:all/;
+use ProductOpener::Store qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 
@@ -96,6 +97,8 @@ my $client = OIDC::Lite::Client::WebServer->new(
 # redirect user to authorize page.
 sub start_authorize ($request_ref) {
 	my $nonce = generate_token(64);
+	my $return_url = single_param('return_url');
+	$log->info('FOO', {return_url => $return_url}) if $log->is_info();
 
 	my $redirect_url = $client->uri_to_redirect(
 		redirect_uri => $callback_uri,
@@ -103,7 +106,7 @@ sub start_authorize ($request_ref) {
 		state => $nonce,
 	);
 
-	$request_ref->{cookie} = generate_signin_cookie($nonce, $request_ref->{query_string});
+	$request_ref->{cookie} = generate_signin_cookie($nonce, $return_url);
 	redirect_to_url($request_ref, 302, $redirect_url);
 	return;
 }
@@ -117,6 +120,7 @@ sub callback ($request_ref) {
 
 	my $code = single_param('code');
 	my $state = single_param('state');
+	my $time = time();
 	my $access_token = $client->get_access_token(
 		code => $code,
 		redirect_uri => $callback_uri,
@@ -136,9 +140,24 @@ sub callback ($request_ref) {
 		display_error_and_exit('Unknown user', 404);
 	}
 
-	# TODO: Store access_token, expires_at, refresh_token in session instead
+	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+	unless (-e $user_file) {
+		# TODO: Create User.
+		display_error_and_exit('Not yet created', 404);
+	}
+
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
+	my $user_ref = retrieve($user_file);
+
+	my $user_session = open_user_session(
+		$user_ref,
+		$access_token->{refresh_token},
+		$time + $access_token->{refresh_expires_in},
+		$access_token->{access_token},
+		$time + $access_token->{expires_in}, $request_ref
+	);
 	param('user_id', $user_id);
+	param('user_session', $user_session);
 	init_user($request_ref);
 
 	return $cookie_ref{'return_url'};
@@ -196,30 +215,36 @@ sub get_userinfo ($access_token) {
 	return decode_json($userinfo_response->content);
 }
 
-sub refresh_access_token ($request_ref) {
-	# TODO: Get access_token from session instead
-	my $refresh_token = $request_ref->{refresh_token};
+sub refresh_access_token ($refresh_token) {
+	my $time = time();
 	my $access_token = $client->refresh_access_token(refresh_token => $refresh_token,)
 		or die $client->errstr;
 
 	$log->info('refreshed access token', {access_token => $access_token}) if $log->is_info();
-	return;
+	return (
+		$access_token->{refresh_token}, $time + $access_token->{refresh_expires_in},
+		$access_token->{access_token}, $time + $access_token->{expires_in}
+	);
 }
 
 sub access_to_protected_resource ($request_ref) {
 	# TODO: Get access_token, expires_at, refresh_token from session instead
-	my $access_token = $request_ref->{'access_token'};
-	my $expires_at = $request_ref->{'expires_at'};
-	my $refresh_token = $request_ref->{'refresh_token'};
+	my $access_token = $request_ref->{access_token};
+	my $refresh_expires_at = $request_ref->{refresh_expires_at};
+	my $refresh_token = $request_ref->{refresh_token};
+	my $access_expires_at = $request_ref->{access_expires_at};
 
 	unless ($access_token) {
 		start_authorize($request_ref);
 		return;
 	}
 
-	if ($expires_at < time()) {
-		refresh_access_token($request_ref);
-		return;
+	if ($access_expires_at < time()) {
+		($refresh_token, $refresh_expires_at, $access_token, $access_expires_at) = refresh_access_token($refresh_token);
+		unless ($access_token) {
+			start_authorize($request_ref);
+			return;
+		}
 	}
 
 	$log->info('request is ok', $request_ref) if $log->is_info();

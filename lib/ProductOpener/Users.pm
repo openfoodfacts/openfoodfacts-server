@@ -70,6 +70,7 @@ BEGIN {
 		&try_retrieve_userid_from_mail
 
 		&check_session
+		&open_user_session
 
 		&generate_token
 
@@ -946,7 +947,9 @@ sub open_user_session ($user_ref, $refresh_token, $refresh_expires_at, $access_t
 		ip => remote_addr(),
 		time => time(),
 		refresh_token => $refresh_token,
-		access_token => $access_token
+		refresh_expires_at => $refresh_expires_at,
+		access_token => $access_token,
+		access_expires_at => $access_expires_at
 	};
 
 	# Store user data
@@ -957,7 +960,7 @@ sub open_user_session ($user_ref, $refresh_token, $refresh_expires_at, $access_t
 
 	$request_ref->{cookie} = generate_session_cookie($user_id, $user_session);
 
-	return;
+	return $user_session;
 }
 
 sub retrieve_user ($user_id) {
