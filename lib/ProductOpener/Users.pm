@@ -904,7 +904,7 @@ sub generate_session_cookie ($user_id, $user_session) {
 	return cookie(%$cookie_ref);
 }
 
-=head2 open_user_session($user_ref, $refresh_token, $access_token, $expires_at, $request_ref)
+=head2 open_user_session($user_ref, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $request_ref)
 
 Open a session, store it in the user object, and return a cookie with the session id in the request object.
 
@@ -914,7 +914,11 @@ Open a session, store it in the user object, and return a cookie with the sessio
 
 =head4 OIDC Refresh Token $refresh_token
 
+=head4 Timestamp after which the OIDC Refresh Token cannot be used $refresh_expires_at
+
 =head4 OIDC Access Token $access_token
+
+=head4 Timestamp after which the OIDC Access Token cannot be used $access_expires_at
 
 =head4 Request object $request_ref
 
@@ -924,7 +928,8 @@ The cookie is returned in $request_ref
 
 =cut
 
-sub open_user_session ($user_ref, $refresh_token, $access_token, $request_ref) {
+sub open_user_session ($user_ref, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $request_ref)
+{
 
 	my $user_id = $user_ref->{'userid'};
 
@@ -1082,7 +1087,8 @@ sub init_user ($request_ref) {
 				$user_id = $user_ref->{'userid'};
 				$log->context->{user_id} = $user_id;
 
-				my ($oidc_user_id, $refresh_token, $access_token) = password_signin($user_id, decode utf8 => request_param($request_ref, 'password'));
+				my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at)
+					= password_signin($user_id, decode utf8 => request_param($request_ref, 'password'));
 				# We don't have the right password
 				if (not $oidc_user_id) {
 					$user_id = undef;
@@ -1103,7 +1109,10 @@ sub init_user ($request_ref) {
 
 					migrate_password_hash($user_ref);
 
-					open_user_session($user_ref, $refresh_token, $access_token, $request_ref);
+					open_user_session(
+						$user_ref, $refresh_token, $refresh_expires_at,
+						$access_token, $access_expires_at, $request_ref
+					);
 				}
 			}
 			else {

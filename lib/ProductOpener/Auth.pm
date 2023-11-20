@@ -149,6 +149,7 @@ sub password_signin ($username, $password) {
 		return;
 	}
 
+	my $time = time();
 	my $access_token = get_token_using_password_credentials($username, $password);
 	unless ($access_token) {
 		return;
@@ -156,7 +157,13 @@ sub password_signin ($username, $password) {
 
 	my $user_id = get_user_id_using_token($access_token->{access_token});
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
-	return ($user_id, $access_token->{refresh_token}, $access_token->{access_token});
+	return (
+		$user_id,
+		$access_token->{refresh_token},
+		$time + $access_token->{refresh_expires_in},
+		$access_token->{access_token},
+		$time + $access_token->{expires_in}
+	);
 }
 
 sub get_user_id_using_token ($access_token) {
