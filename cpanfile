@@ -1,6 +1,6 @@
 # Should also be available as Debian packages
 # If a minimum version number is specified, "cpanm --skip-satisfied" will install a newer version than apt if one is available in cpan.
-
+requires 'Array::Diff';
 requires 'CGI', '>= 4.53, < 5.0'; # libcgi-pm-perl
 requires 'Tie::IxHash'; # libtie-ixhash-perl
 requires 'LWP::Authen::Digest'; # libwww-perl

@@ -129,6 +129,8 @@ sub execute_tags_query ($type, $query) {
 			if $log->is_debug();
 
 		my $ua = LWP::UserAgent->new();
+		# Add a timeout to the HTTP query
+		$ua->timeout(15);
 		my $resp = $ua->post(
 			$url,
 			Content => encode_json($query),
