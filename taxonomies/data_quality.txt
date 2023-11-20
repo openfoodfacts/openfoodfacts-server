@@ -2611,6 +2611,17 @@ fix_action:en: add_categories
 en:Incompatible categories - Plant milk and dairy
 #description:en:
 
+<en: Categories warnings
+en:Detected category from brand - Pet Foods
+description:en:Those are likely to be product for Open Pet Food Facts, based on the brand. There might be some false positives. All Pet Food products should be moved to Open Pet Food Facts by inputting OPFF in the barcode field at the top of the edit page.
+fix_action:en: move_to_opff
+show_to:en: moderators
+
+<en: Categories warnings
+en:Detected category from brand - Beauty
+description:en:Those are likely to be product for Open Beauty Facts, based on the brand. There might be some false positives. All Beauty products should be moved to Open Beauty Facts by inputting OBF in the barcode field at the top of the edit page.
+fix_action:en: move_to_obf
+show_to:en: moderators
 
 
 
