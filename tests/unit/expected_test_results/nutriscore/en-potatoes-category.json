@@ -3,9 +3,10 @@
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
-      "en:cereals-and-potatoes",
       "en:fruits-and-vegetables-based-foods",
+      "en:cereals-and-potatoes",
       "en:vegetables-based-foods",
+      "en:vegetables",
       "en:potatoes"
    ],
    "categories_lc" : "en",
@@ -25,9 +26,10 @@
    "categories_tags" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
-      "en:cereals-and-potatoes",
       "en:fruits-and-vegetables-based-foods",
+      "en:cereals-and-potatoes",
       "en:vegetables-based-foods",
+      "en:vegetables",
       "en:potatoes"
    ],
    "food_groups" : "en:potatoes",
@@ -39,20 +41,19 @@
    "misc_tags" : [
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-from-category",
-      "en:nutrition-fruits-vegetables-nuts-from-category-en-vegetables-based-foods",
+      "en:nutrition-fruits-vegetables-nuts-from-category-en-potatoes",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-from-category",
       "en:nutrition-fruits-vegetables-legumes-from-category-en-potatoes",
-      "en:nutriscore-2021-different-from-2023",
-      "en:nutriscore-2021-better-than-2023",
-      "en:nutriscore-2021-a-2023-c"
+      "en:nutriscore-2021-same-as-2023",
+      "en:nutriscore-2021-c-2023-c"
    ],
    "nutriments" : {
       "energy_100g" : 182,
       "fat_100g" : 0,
       "fiber_100g" : 0.5,
-      "nutrition-score-fr" : -2,
-      "nutrition-score-fr_100g" : -2,
+      "nutrition-score-fr" : 3,
+      "nutrition-score-fr_100g" : 3,
       "proteins_100g" : 0.2,
       "salt" : 0.5,
       "salt_100g" : 0.5,
@@ -73,15 +74,15 @@
             "fiber" : 0.5,
             "fiber_points" : 0,
             "fiber_value" : 0.5,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 85,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 5,
-            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 85,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat" : 0,
             "is_water" : 0,
             "negative_points" : 3,
-            "positive_points" : 5,
+            "positive_points" : 0,
             "proteins" : 0.2,
             "proteins_points" : 0,
             "proteins_value" : 0.2,
@@ -95,11 +96,11 @@
             "sugars_points" : 1,
             "sugars_value" : 8.9
          },
-         "grade" : "a",
+         "grade" : "c",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
-         "score" : -2
+         "score" : 3
       },
       "2023" : {
          "category_available" : 1,
@@ -148,7 +149,7 @@
       }
    },
    "nutriscore_2021_tags" : [
-      "a"
+      "c"
    ],
    "nutriscore_2023_tags" : [
       "c"
@@ -160,23 +161,23 @@
       "fiber" : 0.5,
       "fiber_points" : 0,
       "fiber_value" : 0.5,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils" : 85,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 5,
-      "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 85,
-      "grade" : "a",
+      "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 0,
+      "grade" : "c",
       "is_beverage" : 0,
       "is_cheese" : 0,
       "is_fat" : 0,
       "is_water" : 0,
       "negative_points" : 3,
-      "positive_points" : 5,
+      "positive_points" : 0,
       "proteins" : 0.2,
       "proteins_points" : 0,
       "proteins_value" : 0.2,
       "saturated_fat" : 0,
       "saturated_fat_points" : 0,
       "saturated_fat_value" : 0,
-      "score" : -2,
+      "score" : 3,
       "sodium" : 200,
       "sodium_points" : 2,
       "sodium_value" : 200,
@@ -184,26 +185,26 @@
       "sugars_points" : 1,
       "sugars_value" : 8.9
    },
-   "nutriscore_grade" : "a",
-   "nutriscore_score" : -2,
-   "nutriscore_score_opposite" : 2,
+   "nutriscore_grade" : "c",
+   "nutriscore_score" : 3,
+   "nutriscore_score_opposite" : -3,
    "nutriscore_tags" : [
-      "a"
+      "c"
    ],
    "nutriscore_version" : "2021",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
-   "nutrition_grade_fr" : "a",
-   "nutrition_grades" : "a",
+   "nutrition_grade_fr" : "c",
+   "nutrition_grades" : "c",
    "nutrition_grades_tags" : [
-      "a"
+      "c"
    ],
    "nutrition_score_beverage" : 0,
    "nutrition_score_debug" : "",
    "nutrition_score_warning_fruits_vegetables_legumes_from_category" : "en:potatoes",
    "nutrition_score_warning_fruits_vegetables_legumes_from_category_value" : 0,
-   "nutrition_score_warning_fruits_vegetables_nuts_from_category" : "en:vegetables-based-foods",
-   "nutrition_score_warning_fruits_vegetables_nuts_from_category_value" : 85,
+   "nutrition_score_warning_fruits_vegetables_nuts_from_category" : "en:potatoes",
+   "nutrition_score_warning_fruits_vegetables_nuts_from_category_value" : 0,
    "pnns_groups_1" : "Cereals and potatoes",
    "pnns_groups_1_tags" : [
       "cereals-and-potatoes",
