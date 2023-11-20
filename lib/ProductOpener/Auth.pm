@@ -155,9 +155,8 @@ sub password_signin ($username, $password) {
 	}
 
 	my $user_id = get_user_id_using_token($access_token->{access_token});
-	# TODO: Store access_token, expires_at, refresh_token in session instead
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
-	return $user_id;
+	return ($user_id, $access_token->{refresh_token}, $access_token->{access_token});
 }
 
 sub get_user_id_using_token ($access_token) {
