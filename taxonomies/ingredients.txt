@@ -29926,6 +29926,9 @@ nl:oligofructosestroop
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-d'oligofructose
 # 29 products in 3 languages @2018-09-24
 
+<en:oligofructose
+en:glucoligosaccharide
+
 <en:glucose
 <en:fructose
 en:glucose-fructose
@@ -44614,7 +44617,9 @@ ko:포도 주스
 la:Mustum conditum
 nl:druivensap, druivesap
 pl:Sok z winogron, sok winogronowy
-pt:sumo de uva
+pt:sumo de uva, suco de uva
+pt-pt:sumo de uva
+pt-br:suco de uva
 ru:виноградный сок
 sa:द्राक्षाफलरसः
 sq:Lëngu i rrushit
@@ -44631,6 +44636,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Grape_juice
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/grape-juice
 # 701 products in 6 languages @2018-10-02
 
+#<en:grape juice
+#pt:suco de uva integral
 
 #processing:organic
 #<en:grape juice
