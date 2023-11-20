@@ -29878,6 +29878,9 @@ nl:oligofructosestroop
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sirop-d'oligofructose
 # 29 products in 3 languages @2018-09-24
 
+<en:oligofructose
+en:glucoligosaccharide
+
 <en:glucose
 <en:fructose
 en:glucose-fructose
@@ -30931,6 +30934,9 @@ pl:hydrolizat białka sojowego, hydrolizowane białko sojowe
 
 <en:soy protein
 fr:protéines de soja i.p
+
+<en:soy protein
+nl:verwerkt soja-eiwit
 
 <en:plant protein
 en:cereal protein
@@ -47688,6 +47694,9 @@ ciqual_food_code:en:11014
 ciqual_food_name:en:Parsley, fresh
 ciqual_food_name:fr:Persil, frais
 
+<en:parsley
+en:flatleaf parsley
+
 #processing:en: en:dehydrated
 #<en:parsley
 #en:dehydrated parsley
@@ -52144,6 +52153,21 @@ ciqual_food_code:en:13004
 ciqual_food_name:en:Avocado, pulp, raw
 ciqual_food_name:fr:Avocat, pulpe, cru
 
+<en:avocado
+en:hass avocado, hass avocadoes
+de:hass-avocado, hass-avocados
+es:aguacate Hass, aguacates Hass
+fr:avocat Hass, avocats Hass
+it:avocado hass
+pt:abacate hass, abacates hass
+ja:ハスアボカド
+ko:할아버지 아보카도
+zh:哈斯牛油果
+ru:авокадо Хасс
+uk:авокадо Хасс
+wikidata:en:Q5679460
+wikipedia:en:https://en.wikipedia.org/wiki/Hass_avocado
+
 <en:vegetable
 <en:herb
 en:borage
@@ -54170,6 +54194,10 @@ fr:Paprika en poudre
 hr:paprika u prahu
 nl:paprikapoeder
 pl:papryka w proszku, papryka suszona, papryka suszona czerwona, papryka czerwona suszona, papryka mielona
+
+<en:paprika
+en:smoked paprika
+nl:gerookte paprika
 
 <en:paprika
 fr:paprika doux
