@@ -46,6 +46,7 @@ BEGIN {
 		&normalize_org_for_test_comparison
 		&normalize_product_for_test_comparison
 		&normalize_products_for_test_comparison
+		&sort_products_for_test_comparison
 		&normalize_user_for_test_comparison
 		&remove_all_products
 		&remove_all_users
@@ -746,6 +747,24 @@ sub normalize_products_for_test_comparison ($array_ref) {
 	for my $product_ref (@$array_ref) {
 		normalize_product_for_test_comparison($product_ref);
 	}
+	return;
+}
+
+=head2 sort_products_for_test_comparison($array_ref, $sort_field)
+
+Sort products so that they are always in the same order
+
+=head3 Arguments
+
+=head4 array_ref
+
+Array of products
+
+=cut
+
+sub sort_products_for_test_comparison ($array_ref, $sort_field) {
+
+	@$array_ref = sort {$a->{$sort_field} cmp $b->{$sort_field}} @$array_ref;
 	return;
 }
 
