@@ -97,6 +97,10 @@ de:naturtrüb, naturtrüber
 fr:non filtré, trouble
 lt:nefiltruotas
 
+en:non-homogenized
+fr:non-homogénéisé
+hr:nehomogenizirano
+
 #######################################################################
 #
 #                P A R T S
@@ -355,7 +359,7 @@ de:granulat, granuliert, granulierte, granulierter, granuliertes
 es:granulado,granulada,granulados,granuladas
 fi:rae
 fr:en granules, granules de, granules d', granulaire
-hr:u granulama
+hr:u granulama, granulirani
 hu:granulátum, granulált
 it:granulare, in granuli
 pl:granulat, granulat z, granulowany, granulowana, granulowane
@@ -460,7 +464,7 @@ hu:egész, egészben
 it:intero, intera, interi, intere
 ja:全
 pl:całe, w całości, cała, cały
-pt:inteiro, inteira, inteiros, inteiras
+pt:inteiro, inteira, inteiros, inteiras, integral
 sv:hel, hela
 # unclear what the dutch variant is
 
@@ -484,7 +488,7 @@ af:stukkies
 de:stücke, stücken, stückchen, gestückelt, stück
 es:trozo, troza, trozos, trozas, guarnición
 fr:morceaux, pièces de, en morceaux, morceaux de, morceaux d'
-hr:komadiča,komadići, komadići od, hrskavi komadići, hrskavi komadići od, komata, komadić, posip
+hr:komadiča, komadići, komadići od, hrskavi komadići, hrskavi komadići od, komata, komadić, listići, posip
 hu:darabok, darabolt, darab, darabka
 it:pezzi, in pezzi, a pezzi, pezzi di, pezzi d'
 nl:stukjes
@@ -1190,7 +1194,7 @@ es:extracto, extracto de, extractos
 fi:uute, uutetta, uutteet, pähkinäuute
 fr:extrait de, extrait d'
 #fr:falsePositive:sels mineraux extraits des eaux du bassin de vichy, Sucres extraits de fruits, Extraits naturels et aromates, Extraits végétaux à pouvoir colorant, extrait sec
-hr:ekstrahirane, ekstrakt, ekstrakti, ekstrakata
+hr:ekstrahirane, ekstrahirani, ekstrakt, ekstrakti, ekstrakata
 hu:kivonat, kivonatból
 it:estratto di, estratti di, estratto d', estratti d'
 ja:エキス, 抽出物
@@ -1303,7 +1307,7 @@ hr:macerat
 
 #en:description:Modification of starch to improve markedly its swelling properties in cold water
 en:pregelatinisation, starch gelatinization
-hr:preželatinirano, preželatinizirano
+hr:preželatinirano, preželatinizirano, želatiniziranog
 wikidata:en:Q7601513
 
 #en:description:mechanical separation of the component parts of kernel/grain, sometimes after steeping in water, with or without sulphur dioxide, for the extraction of starch
@@ -1477,7 +1481,7 @@ en:caramelized, caramelised
 bg:карамелизиран, карамелизирана, карамелизирано, карамелизирани
 bs:karamelizovani
 ca:caramel-litzat
-hr:karamelizirani
+hr:karamelizirani, karameliziranih
 hu:karamellizált
 it:caramellato, caramellata, caramellati, caramellate
 nl:gekarameliseerde, gekaramelliseerde
@@ -1611,11 +1615,14 @@ en:enriched
 de:angereichert
 es:enriquecida
 #de:comment:Can also appear in combinations: de:Eiweißangereichertes
-fr:enrichi, enrichie, enrichis
+fr:enrichi, enrichie, enrichis, enrichies
 hr:obogačena
 nl:verrijkt
 pl:wzbogacany, wzbogacana, wzbogacane, wzbogacanej, wzbogacanego, wzbogacanych, fortyfikowany, fortyfikowana, fortyfikowane
 pt:enriquecido, enriquecida, enriquecidos, enriquecidas, enriquecido com, enriquecida com, enriquecidos com, enriquecidas com, enriquecido em, enriquecida em, enriquecidos em, enriquecidas em
+
+en:fortified
+fr:fortifié, fortifiée, fortifiés, fortifiées
 
 #<en:unadded
 en:unenriched
@@ -1879,6 +1886,12 @@ hr:sterilizirano
 wikidata:en:Q191618
 wikipedia:en:https://en.wikipedia.org/wiki/Sterilization_(microbiology)
 
+en:Homogenized
+fr:homogénéisé
+hr:homogenizirano
+wikipedia:en:https://en.wikipedia.org/wiki/Homogenization_(chemistry)
+wikidata:en:Q1165158
+
 #######################################################################
 #
 #                P R E P A R I N G   P R O C E S S E S
@@ -1890,6 +1903,7 @@ en:fermented
 bg:ферментирало, ферментирал, ферментирала, ферментирали
 ca:fermentat
 es:fermentado
+fr:fermenté, fermentée, fermentés, fermentées
 hr:fermentirano, fermentirana
 hu:fermentált
 it:fermentato, fermentata, fermentati, fermentate
@@ -2093,7 +2107,7 @@ de:unhydriertes, ungehärtet, ungehärtetes
 es:no hidrogenado, no hidrogenada
 fi:kovettamaton, hydrogenoimaton
 fr:non hydrogénée
-hr:nehidrogenirani, nehidrogenirana, nehidrogenizirana, nehomogenizirano
+hr:nehidrogenirani, nehidrogenirana, nehidrogenizirana, nehidrogenizirano
 hu:nem hidrogénezett
 it:non idrogenato, non idrogenati
 nl:niet gehydrogeneerd, niet gehydrogeneerde
@@ -2103,11 +2117,11 @@ ro:nehidrogenate
 sv:ohärdad
 
 #en:description:Breakdown into simpler chemical constituents by appropriate treatment with water and possibly either enzymes or acid/alkali
-#en:hydrolysed, hydrolized
-#fr:Hydrolisé, hydrolisée
-#hr:hidrolizat, hidrolizirane, hidrolizirano, hidrolizirani
-#nl:gehydrolyseerd, gehydrolyseerde
-#pl:hydrolizat, hydrolizowane
+en:hydrolysed, hydrolized
+fr:Hydrolisé, hydrolisée, hydrolisés, hydrolisées
+hr:hidrolizat, hidrolizirane, hidrolizirano, hidrolizirani
+nl:gehydrolyseerd, gehydrolyseerde
+pl:hydrolizat, hydrolizowane
 
 #en:description:Transformation of unsaturated glycerides into saturated glycerides (of oils and fats)
 en:hydrogenated, hardened, partially hardened
@@ -2132,11 +2146,12 @@ de::ganz gehärtetes, vollständig hydriertes
 es:totalmente hidrogenado, totalmente hidrogenada
 fr:totalement hydrogénée
 fi:kokonaan kovetettu
-hr:potpuno hidrogenirana, potpuno hidrogenirano, potpuno hidrogenizirana
+hr:potpuno hidrogenirana, potpuno hidrogenirane, potpuno hidrogenirano, potpuno hidrogenizirana
 nb:fullherdet
 pl:całkowicie uwodorniony, całkowicie uwodorniona, całkowicie uwodornione, całkowicie utwardzony, całkowicie utwardzona, całkowicie utwardzone
 sv:fullhärdad
 
 #<en:hydrogenated
 en:partially hydrogenated
+hr:djelomično hidrogenirane 
 pl:częściowo uwodorniony, częściowo uwodorniona, częściowo uwodornione, częściowo utwardzony, częściowo utwardzona, częściowo utwardzone
