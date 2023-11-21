@@ -1633,7 +1633,7 @@ msgstr "Fresco, En conserva, Al vacío, Congelado, Botella, Tarro, Caja, Vidrio,
 
 msgctxt "packaging_note"
 msgid "Packaging type, format, material"
-msgstr "Tipo de envase, formato, material"
+msgstr "Tipo de empaque/envase, formato, material"
 
 msgctxt "packaging_p"
 msgid "packaging"
@@ -2371,7 +2371,7 @@ msgstr "Cerrar sesión"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "Ingredientes, información nutricional e información sobre los alimentos del mundo entero en una base de datos libre y abierta"
+msgstr "Ingredientes, información nutricional e información sobre los productos alimenticios del mundo entero en una base de datos libre y abierta"
 
 msgctxt "site_name"
 msgid "Open Food Facts"
@@ -2480,7 +2480,7 @@ msgstr "Leche, gluten, cacahuetes, frutos secos"
 
 msgctxt "traces_note"
 msgid "Indicate ingredients from mentions like \"May contain traces of\", \"Made in a factory that also uses\" etc."
-msgstr "Son los ingredientes que aparecen mencionados como \"Puede contener trazas de\", \"Elaborado en una factoría que también usa\", etc."
+msgstr "Son los ingredientes que aparecen mencionados en frases como «puede contener trazas de», «elaborado en una fábrica que también utiliza», etc."
 
 msgctxt "traces_p"
 msgid "traces"
@@ -2644,7 +2644,7 @@ msgstr "Una imagen ha sido enviada por el fabricante. Si cree que es incorrecta 
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
-msgstr "Advertencia: los datos nutricionales no se especifican. Se han estimado a partir de la lista de ingredientes."
+msgstr "Atención: la información nutricional no se especifica y se ha calculado a partir de la lista de ingredientes."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
@@ -2668,7 +2668,7 @@ msgstr "Atención: la cantidad de frutas, verduras y frutos secos no viene espec
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr "Atención: la cantidad de frutas, verduras y frutos secos no viene especificada en la etiqueta, por lo que se ha hecho una estimación a partir la lista de ingredientes: %d"
+msgstr "Atención: la cantidad de frutas, verduras y frutos secos no viene especificada en la etiqueta, por lo que se ha calculado a partir la lista de ingredientes: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
@@ -3078,7 +3078,7 @@ msgstr "Origen del producto o de sus ingredientes"
 
 msgctxt "origin_note"
 msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
-msgstr "Menciones de empaque que indican el lugar de manufactura o el origen de los ingredientes"
+msgstr "Información en el envase que indica el lugar de fabricación o el origen de los ingredientes."
 
 msgctxt "origin_example"
 msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
@@ -4718,15 +4718,15 @@ msgstr "Necesario"
 
 msgctxt "packaging_alt"
 msgid "Recycling instructions and/or packaging information"
-msgstr "Instrucciones de reciclaje y/o información de embalaje"
+msgstr "Instrucciones de reciclaje o información del empaque/envase"
 
 msgctxt "image_packaging"
 msgid "Recycling instructions and/or packaging information picture"
-msgstr "Imagen con instrucciones de reciclaje y/o información de empaquetado"
+msgstr "Imagen con instrucciones de reciclaje o información del empaque/envase"
 
 msgctxt "image_packaging_url"
 msgid "Link to recycling instructions and/or packaging information photo"
-msgstr "Enlace a la foto con instrucciones de reciclaje y/o información de empaquetado"
+msgstr "Enlace a la foto con instrucciones de reciclaje o información del empaque/envase"
 
 # Do not translate the file name
 msgctxt "import_photos_format_packaging"
@@ -4735,39 +4735,39 @@ msgstr "3001234567890.packaging_es.jpg: instrucciones de reciclaje en español."
 
 msgctxt "packaging_text"
 msgid "Recycling instructions and/or packaging information"
-msgstr "Instrucciones de reciclaje y/o información de embalaje"
+msgstr "Instrucciones de reciclaje o información del empaque/envase"
 
 msgctxt "packaging_text_example"
 msgid "1 plastic film to discard, 1 FSC carboard box to recycle, 6 1.5L transparent PET plastic bottles to recycle, 6 colored opaque plastic caps, 12 33cl aluminium cans"
-msgstr "1 película de plástico para desechar, 1 caja de cartón FSC para reciclar, 6 botellas de plástico PET transparentes de 1,5L para reciclar, 6 tapas opacas de plástico de color, 12 latas de aluminio de 33cl"
+msgstr "1 película de plástico para desechar, 1 caja de cartón FSC para reciclar, 6 botellas de plástico PET transparentes de 1,5 l para reciclar, 6 tapas opacas de plástico de color, 12 latas de aluminio de 33 cl"
 
 msgctxt "packaging_text_note"
 msgid "List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions."
-msgstr "Enumera todas las partes del empaquetado separadas por una coma o salto de línea, con su cantidad (p. ej. 1 ó 6), tipo (p. ej. botella, caja, lata), material (p. ej. plástico, metal, aluminio), su tamaño si está disponible (p.ej. 33cl) e instrucciones de reciclaje."
+msgstr "Enumera todas las partes del empaque o envase separadas por una coma o un salto de línea, con la cantidad (p. ej., 1 o 6), el tipo (p. ej., botella, caja, lata), los materiales (p. ej., plástico, metal, aluminio), su tamaño (p. ej., 33 cl) y, si está disponible, las instrucciones de reciclaje."
 
 msgctxt "packaging_text_note_2"
 msgid "Try to be as specific as possible. For plastic, please indicate if it is opaque or transparent, colored, PET or PEHD."
-msgstr "Intenta ser lo más específico posible. Para el plástico, por favor indica si es opaco o transparente, de color, PET o PEHD."
+msgstr "Intenta añadir información bien detallada. Por ejemplo, para el plástico indica si es opaco o transparente, de color, PET o PEHD."
 
 msgctxt "packaging_text_note_3"
 msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
-msgstr "Los datos de este campo pueden combinarse con cualquier otra información proporcionada por cada parte del emaque. Es posible otorgar una u otra, o ambas."
+msgstr "Los datos de este campo se combinarán con cualquier otra información proporcionada por cada parte del empaque/envase. Es posible otorgar una u otra, o ambas."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
-msgstr "Extrae de la imagen las instrucciones de reciclaje y/o la información de embalaje"
+msgstr "Extrae de la imagen las instrucciones de reciclaje o la información de empaque/envase"
 
 msgctxt "product_js_extracted_packaging_nok"
 msgid "Recycling instructions and/or packaging information text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr "No se pudieron extraer las instrucciones de reciclaje y/o el texto de información de empaquetado. Inténtalo con una imagen más nítida, con mayor resolución o con un mejor encuadre del texto."
+msgstr "No se ha podido extraer las instrucciones de reciclaje o la información del empaque/envase. Inténtalo con una imagen más nítida, con mayor resolución o con un mejor encuadre del texto."
 
 msgctxt "product_js_extracted_packaging_ok"
 msgid "Recycling instructions and/or packaging information text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr "Se han extraído las instrucciones de reciclaje y/o la información de embalaje. El reconocimiento del texto no es perfecto, así que por favor revisa el texto de abajo y corrige los errores si es necesario."
+msgstr "Se han extraído las instrucciones de reciclaje o la información del empaque/envase. El reconocimiento del texto no es perfecto. Revisa el texto y, si es necesario, corrige los posibles errores."
 
 msgctxt "product_js_extracting_packaging"
 msgid "Extracting recycling instructions and/or packaging information"
-msgstr "Extrayendo las instrucciones de reciclaje y/o la información de embalaje"
+msgstr "Extrayendo las instrucciones de reciclaje o la información del empaque/envase"
 
 msgctxt "attribute_group_environment_name"
 msgid "Environment"
@@ -5022,7 +5022,7 @@ msgstr "Eco-Score"
 
 msgctxt "packaging_parts"
 msgid "Packaging parts"
-msgstr "Partes del envase"
+msgstr "Partes del empaque/envase"
 
 # A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
 msgctxt "packaging_part_short"
@@ -5463,7 +5463,7 @@ msgstr "Tipo de imágen del producto"
 # do not translate "front, ingredients, nutrition, packaging"
 msgctxt "image_other_type_description"
 msgid "If you use the same column on multiple lines to provide images URLs for a single product, you can use this field to indicate the type of the image: front, ingredients, nutrition or packaging."
-msgstr "Si utilizas la misma columna en múltiples líneas para subir las URLs de sus imágenes para un único producto, puede especificar en este campo el tipo de imagen que corresponde: ej. frente, ingredientes, nutrición o empaque."
+msgstr "Si utilizas la misma columna en múltiples líneas para subir las URLs de las imágenes de un único producto, puedes indicar en este campo el tipo de imagen al que corresponde: p. ej., frontal, ingredientes, nutrición o empaque/envase."
 
 msgctxt "forest_footprint_one_line_explanation"
 msgid "The forest footprint is calculated by taking into account the ingredients whose production requires soybeans, the cultivation of which is linked to deforestation."
@@ -5633,11 +5633,11 @@ msgstr "Puntuación de todos los componentes"
 
 msgctxt "ecoscore_no_packaging_information"
 msgid "The information about the packaging of this product is not filled in."
-msgstr "La información sobre el empaque de este producto no está completa."
+msgstr "La información sobre el empaque/envase de este producto no está completa."
 
 msgctxt "ecoscore_unprecise_packaging_information"
 msgid "The information about the packaging of this product is not sufficiently precise (exact shapes and materials of all components of the packaging)."
-msgstr "La información sobre el embalaje de este producto no es lo suficientemente precisa (formas y materiales exactos de todos los componentes del embalaje)."
+msgstr "La información sobre el empaque/envase de este producto no es lo suficientemente precisa (formas y materiales exactos de todos los componentes del empque/envase)."
 
 msgctxt "ecoscore_edit_for_more_precise_ecoscore"
 msgid "For a more precise calculation of the Eco-Score, you can modify the product page and add them."
@@ -5718,19 +5718,19 @@ msgstr "Eliminar o cambiar los datos proporcionados solo será posible por los c
 
 msgctxt "ecoscore_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr "Envases de alto impacto"
+msgstr "Empaques y envases de alto impacto"
 
 msgctxt "ecoscore_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr "Envases de impacto medio"
+msgstr "Empaques y envases de impacto medio"
 
 msgctxt "ecoscore_packaging_impact_low"
 msgid "Packaging with a low impact"
-msgstr "Envases de bajo impacto"
+msgstr "Empaques y envases de bajo impacto"
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "Missing packaging information for this product"
-msgstr "Falta información de empaque para este producto"
+msgstr "Falta información de empaque o envase de este producto"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
@@ -5898,7 +5898,7 @@ msgstr "Impacto de este producto"
 
 msgctxt "ecoscore_downgraded_non_recyclable_and_non_biodegradable_materials"
 msgid "The score of products with non-recyclable and non-biodegradable packaging materials is capped at 79 (grade B)."
-msgstr "La puntuación de los productos con materiales de embalaje no reciclables y no biodegradables tiene un límite de 79 (grado B)."
+msgstr "La puntuación de los productos con materiales de empaquetado y envasado no reciclables y no biodegradables tiene un límite de 79 (grado B)."
 
 msgctxt "nutriscore_not_applicable"
 msgid "Nutri-Score not applicable for this product category."
@@ -6203,7 +6203,7 @@ msgstr "Toma una fotografía de la información de reciclaje"
 
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
-msgstr "Añadir un componente del embalaje"
+msgstr "Añadir un componente del empaque o envase"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
@@ -6499,7 +6499,7 @@ msgstr "Ayuda a categorizar más {title} en Los Juegos del Hambre"
 
 msgctxt "packagings_complete"
 msgid "All the packaging parts of the product are listed."
-msgstr "Todas las partes del embalaje del producto están enumeradas."
+msgstr "Todas las partes del empaque o del envase de este producto están enumeradas."
 
 msgctxt "api_message_invalid_user_id_and_password"
 msgid "Invalid user id and password"
