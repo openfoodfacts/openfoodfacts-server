@@ -371,7 +371,7 @@ msgstr "lugares de envasado"
 
 msgctxt "cities_products"
 msgid "Products packaged in the city of %s"
-msgstr "Productos envasados en el lugar %s"
+msgstr "Productos envasados en %s"
 
 msgctxt "cities_s"
 msgid "packaging city"
@@ -379,7 +379,7 @@ msgstr "lugar de envasado"
 
 msgctxt "cities_without_products"
 msgid "Products not packaged in the city of %s"
-msgstr "Productos no envasados en la ciudad de %s"
+msgstr "Productos no envasados en %s"
 
 msgctxt "codes_p"
 msgid "Codes"
@@ -1641,7 +1641,7 @@ msgstr "envase"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
-msgstr "Productos con envase %s"
+msgstr "Productos con envase de %s"
 
 msgctxt "packaging_s"
 msgid "packaging"
@@ -1653,7 +1653,7 @@ msgstr "añadir un tipo, forma o material"
 
 msgctxt "packaging_without_products"
 msgid "Products without a %s packaging"
-msgstr "Productos sin envasado %s"
+msgstr "Productos sin envase de %s"
 
 msgctxt "page_x"
 msgid "Page %d"
@@ -2589,8 +2589,8 @@ msgstr "Ver los resultados de todo el mundo"
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
-msgstr "La información y los datos deben provenir del paquete y la etiqueta del producto (y no de otros sitios o del sitio del fabricante), y usted mismo debe haber tomado las fotografías.<br/>\n"
-"→ <a href=\"https://support.openfoodfacts.org/help/es-es/9/27\">Por qué es importante</a>"
+msgstr "La información y los datos deben provenir del empaque, envase o de la etiqueta del producto, y no de otros sitios o del sitio del fabricante, y tú debes haber sacado las fotografías.<br/>\n"
+"→ <a href=\"https://support.openfoodfacts.org/help/es-es/9/27\">¿Por qué es importante?</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
@@ -3078,7 +3078,7 @@ msgstr "Origen del producto o de sus ingredientes"
 
 msgctxt "origin_note"
 msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
-msgstr "Información en el envase que indica el lugar de fabricación o el origen de los ingredientes."
+msgstr "Información en el empaque o envase que indica el lugar de fabricación o el origen de los ingredientes."
 
 msgctxt "origin_example"
 msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
@@ -4381,7 +4381,7 @@ msgstr "Separa múltiples valores con comas."
 
 msgctxt "lc_note"
 msgid "If the product's packaging is in multiple languages, indicate the most visible language on the product."
-msgstr "Si el embalaje del producto está en varios idiomas, indica el idioma más visible."
+msgstr "Si el empaque o envase del producto está en varios idiomas, indica el idioma más visible."
 
 msgctxt "obsolete_import_note"
 msgid "Enter Yes, Y or 1 if the product is no longer available in stores."
@@ -4682,7 +4682,7 @@ msgstr "Alérgenos"
 
 msgctxt "attribute_group_allergens_warning"
 msgid "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
-msgstr "Siempre existe la posibilidad de que falten datos sobre alérgenos, estén incompletos, sean incorrectos o que la composición del producto haya cambiado. Si es alérgico, siempre compruebe la información en el paquete del producto real."
+msgstr "Existe la posibilidad de que falten datos sobre los alérgenos, o que estos estén incompletos, sean incorrectos o que la composición del producto haya cambiado. Si tienes algún tipo de alergia alimentaria, comprueba Siempre la información del producto real."
 
 msgctxt "attribute_additives_name"
 msgid "Additives"
@@ -5718,19 +5718,19 @@ msgstr "Eliminar o cambiar los datos proporcionados solo será posible por los c
 
 msgctxt "ecoscore_packaging_impact_high"
 msgid "Packaging with a high impact"
-msgstr "Empaques y envases de alto impacto"
+msgstr "Envases de alto impacto"
 
 msgctxt "ecoscore_packaging_impact_medium"
 msgid "Packaging with a medium impact"
-msgstr "Empaques y envases de impacto medio"
+msgstr "Envases de impacto medio"
 
 msgctxt "ecoscore_packaging_impact_low"
 msgid "Packaging with a low impact"
-msgstr "Empaques y envases de bajo impacto"
+msgstr "Envases de bajo impacto"
 
 msgctxt "ecoscore_packaging_missing_information"
 msgid "Missing packaging information for this product"
-msgstr "Falta información de empaque o envase de este producto"
+msgstr "Falta información del empaque o del envase de este producto"
 
 msgctxt "ecoscore_origins_of_ingredients_impact_high"
 msgid "Origins of ingredients with a high impact"
@@ -6199,7 +6199,7 @@ msgstr "Añade los orígenes de los ingredientes para este producto"
 
 msgctxt "action_add_packaging_image"
 msgid "Take a photo of the recycling information"
-msgstr "Toma una fotografía de la información de reciclaje"
+msgstr "Haz una fotografía de la información de reciclaje"
 
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
@@ -6258,7 +6258,7 @@ msgstr "Añadir el país donde encontraste este producto"
 # this is not used yet
 msgctxt "action_packager_codes_image"
 msgid "Take a photo of traceability codes"
-msgstr "Tomar una foto de los códigos de trazabilidad"
+msgstr "Haz una foto a los códigos de trazabilidad"
 
 # Used as a header for key facts
 msgctxt "knowledge_panels_facts"
@@ -6529,7 +6529,7 @@ msgstr "Introduce las instrucciones de reciclaje solo si aparecen en el producto
 # Unit = element, not unit of measure
 msgctxt "packaging_weight_description"
 msgid "Remove any remaining food and wash and dry the packaging part before weighting. If possible, use a scale with 0.1g or 0.01g precision."
-msgstr "Retire cualquier resto de comida y lave y seque la parte del empaque antes de pesarlo. Si es posible, utilice una balanza con una precisión de 0,1g ó 0,01g."
+msgstr "Retira cualquier resto de comida y lava y seca la parte del envase antes de pesarlo. Si es posible, utiliza una balanza con una precisión de 0,1 g o 0,01 g."
 
 # Unit = element, not unit of measure
 msgctxt "packaging_quantity_per_unit_description"
@@ -6592,19 +6592,19 @@ msgstr "La grasa saturada no debe ser más alta que la grasa."
 
 msgctxt "packaging_materials"
 msgid "Packaging materials"
-msgstr "Materiales del envase"
+msgstr "Materiales del empaque/envase"
 
 msgctxt "packaging_weight_total"
 msgid "Packaging weight"
-msgstr "Peso del embalaje"
+msgstr "Peso del empaque/envase"
 
 msgctxt "packaging_weight_100g"
 msgid "Packaging weight per 100 g of product"
-msgstr "Peso del envase por 100 g del producto"
+msgstr "Peso del empaque/envase por 100 g del producto"
 
 msgctxt "packaging_weight_100g_mean"
 msgid "Mean packaging weight per 100 g of product"
-msgstr "Peso medio del envase por 100 g de producto"
+msgstr "Peso medio del empaque/envase por 100 g de producto"
 
 msgctxt "total"
 msgid "Total"
@@ -6636,11 +6636,11 @@ msgstr "Idioma preferido"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
-msgstr "Número de componentes del embalaje"
+msgstr "Número de componentes del empaque"
 
 msgctxt "packagings_n_s"
 msgid "Number of packaging components"
-msgstr "Número de componentes del envase"
+msgstr "Número de componentes del empaque"
 
 msgctxt "packagings_materials_all"
 msgid "All materials"
