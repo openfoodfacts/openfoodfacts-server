@@ -1919,7 +1919,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 					# -> if we have origins, put "origins:" before
 					if (
 						(
-							($between =~ /$separators| and /)
+							($between =~ /$separators|$and/)
 							and (
 								exists_taxonomy_tag(
 									"origins", canonicalize_taxonomy_tag($ingredients_lc, "origins", $`)
@@ -2012,7 +2012,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 									$origin = join(",",
 										map {canonicalize_taxonomy_tag($ingredients_lc, "origins", $_)}
-											split(/$commas| and /, $origin_string));
+											split(/$commas|$and/, $origin_string));
 								}
 							}
 							else {

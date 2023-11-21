@@ -491,6 +491,14 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 		}
 	],
 
+	[
+		"en-origin-and",
+		{
+			lc => "en",
+			ingredients_text => "Tomatoes (France and Italy)",
+		}
+	],
+
 	# Origins : French - X from Y
 	[
 		"fr-origin-ingredient-origin-and-origin",
@@ -503,6 +511,14 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			origin_fr =>
 				"Pomme de Terre de France, Porc de France, Lait demi-écrémé de France, Crème liquide de France, Eau de France, Beurre de France, 
 				Moutarde à l'ancienne de France, Crème de France, Moutarde de Dijon de France, Miel de fleurs de France, Epices : Inde, Bouillon de France, Sel fin de France",
+		}
+	],
+
+	[
+		"fr-origin-and",
+		{
+			lc => "fr",
+			ingredients_text => "Pomme de Terre (France et Italie)",
 		}
 	],
 
@@ -548,6 +564,15 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 クレメンタイン(九州産)"
 		}
 	],
+
+	[
+		"ja-origin-and",
+		{
+			lc => "ja",
+			ingredients_text => "トマト(ときがわ町])",
+		}
+	],
+
 	# U+00B7 "·" (Middle Dot) is a character found in ingredient forsome countries (Catalan)
 	[
 		"ca-middle-dot",
