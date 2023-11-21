@@ -70,6 +70,10 @@ properties:
       product_name_fr (for french).
   product_quantity:
     type: string
+    description: |
+      The size in g or ml for the whole product.
+      It's a normalized version of the quantity field.
+    example: "500"
   quantity:
     type: string
     description: |
