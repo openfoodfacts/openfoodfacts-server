@@ -1786,12 +1786,15 @@ wikidata:en:Q1076110
 
 <en:Kosher
 en:cRc Pareve, Chicago Rabbinical Council Pareve, Chicago Rabbinical Council, cRc
-fr:cRc Pareve, cRc
+fr:cRc Pareve
 
 <en:Kosher
 en:Kof-K
 xx:Kof-K
 wikidata:en:Q85774787
+
+<en:Kosher
+en:Kosher LBD
 
 <en:Kosher
 en:MK Kosher
@@ -17613,8 +17616,6 @@ nb:Debio Ø-merke, Debio økologisk
 image:nb:debio-ø-merke.90x90.svg
 country:en:Norway
 
-<en:Organic
-en:KRAV
 ca:Categoria Extra
 de:Klasse “Extra”, Klasse Extra
 en:“Extra” Class, extra class
@@ -17622,7 +17623,11 @@ es:Categoría “Extra”
 fi:"Ekstra"-luokka
 fr:Catégorie “Extra”, catégorie supérieure, catégorie extra
 it:Classe &quot;Extra&quot;
-sv:KRAV
+
+# Should not be associate with "extra class", "superior quality" etc.
+<en:Organic
+sv:KRAV, KRAV-certifierad ekologisk ingrediens
+xx:KRAV
 image:en:krav.136x90.svg
 country:en:Sweden
 
@@ -18636,14 +18641,14 @@ sl:zajamčena tradicionalna posebnost, ZTP
 sv:garanterad traditionell specialitet, GTS
 wikidata:en:Q2751813
 
-en:Sustainable farming
+en:Sustainable farming, sustainable agriculture
 bg:Устойчиво земеделие
 ca:Agricultura Sostenible
 cs:Udržitelné zemědělství
 de:Nachhaltige Agrikultur
 es:Agricultura sustentable
 fi:Kestävä maatalous
-fr:Agriculture durable
+fr:Agriculture durable, agriculture soutenable, agriculture raisonnée, culture durable, culture soutenable, culture raisonnée
 he:חקלאות בת־קיימא
 hr:održiva poljoprivreda
 hu:Fenntartható gazdálkodás, Fenntartható gazdálkodásból
@@ -18651,6 +18656,13 @@ it:Agricoltura sostenibile
 nl:Duurzame landbouw
 pl:Zrównoważone rolnictwo
 pt:Agricultura sustentável
+
+<en:Sustainable farming
+fr:CRC, Culture raisonnée contrôlée, filière CRC
+origins:en: en:france
+ingredients:en: en:wheat
+
+# https://agriculture.gouv.fr/cereales-francaises-la-filiere-crc-culture-raisonnee-controlee
 
 <en:Sustainable farming
 en:UTZ Certified, UTZ
@@ -19202,10 +19214,12 @@ origins:en: en:france
 fr:Blé français, Blé exclusivement cultivé en France, Blé Français sélectionné, Blé cultivé en France, 100% blé de France, Blé 100% Français, Blé de France
 pt:Trigo francês, trigo de França, trigo da França
 origins:en: en:france
+ingredients:en: en:wheat
 
-fr:Farine de blé français
+fr:Farine de blé français, farine de blé de France, farine blé de France, farine de blé française
 pt:Farinha de trigo francesa, farinha de trigo de França, farinha de trigo da França
 origins:en: en:france
+ingredients:en: en:wheat-flour
 
 fr:Soja Français, Soja de France, Filière Soja Français
 pt:Soja francêsa, soja de França, soja da França

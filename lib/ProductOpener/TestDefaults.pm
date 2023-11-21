@@ -33,6 +33,7 @@ BEGIN {
 		%default_org_edit_admin_form
 		%default_product
 		%default_product_form
+		%empty_product_form
 		%default_user_form
 		%moderator_user_form
 		%pro_moderator_user_form
@@ -115,12 +116,13 @@ NB: must be created by an admin
 	serving_size => "10 g",
 );
 
-%default_product_form = (
-	%default_product,
+%empty_product_form = (
 	action => "process",
 	type => "add",
 	".submit" => "submit"
 );
+
+%default_product_form = (%default_product, %empty_product_form,);
 
 %default_org_edit_form = (
 	orgid => "acme-inc",

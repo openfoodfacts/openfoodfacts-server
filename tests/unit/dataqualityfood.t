@@ -1256,4 +1256,27 @@ check_quality_and_test_product_has_quality_tag(
 check_quality_and_test_product_has_quality_tag($product_ref, 'en:product-quantity-in-mg',
 	'raise warning because the product quantity is in mg', 1);
 
+# Brands - Detected category from brand
+$product_ref = {brands_tags => ["bledina", "camel", "purina", "yves-rocher",],};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:detected-category-from-brand-baby-foods',
+	'Detected category from brand - Baby', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:detected-category-from-brand-cigarettes',
+	'Detected category from brand - Cigarettes', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:detected-category-from-brand-pet-foods',
+	'Detected category from brand - Pet Foods', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:detected-category-from-brand-beauty',
+	'Detected category from brand - Beauty', 1
+);
+
 done_testing();
