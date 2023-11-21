@@ -423,7 +423,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 		(
 			'!energy-kj', '!energy-kcal',
 			'!energy-', '-energy-from-fat-',
-			'!fat', '-!saturated-fat',
+			'!fat', '-saturated-fat',
 			'--butyric-acid-', '--caproic-acid-',
 			'--caprylic-acid-', '--capric-acid-',
 			'--lauric-acid-', '--myristic-acid-',
@@ -443,7 +443,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'--nervonic-acid-', '-trans-fat-',
 			'-cholesterol-', '!carbohydrates',
 			'-starch-', '-polyols-',
-			'-!sugars', '--added-sugars-',
+			'-sugars', '--added-sugars-',
 			'--sucrose-', '--glucose-',
 			'--fructose-', '--lactose-',
 			'--maltose-', '--maltodextrins-',
