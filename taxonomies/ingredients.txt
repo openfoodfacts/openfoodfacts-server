@@ -86,7 +86,8 @@ stopwords:en:added to enhance freshness, added to maintain flavor and freshness,
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter, minimum
-stopwords:hr:i, i/ili, ili, iz, max, min, najmanje, najviše, obično poznat kao, od, sadržaj, sadrže, sadrži, sastojci, sastav, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima, u tragovima
+# example: sojin umak bez glutena
+stopwords:hr:bez glutena, i, i/ili, ili, iz, max, min, najmanje, najviše, obično poznat kao, od, u promjenjivim omjerima, u promjenjivim udjelima, u različitim omjerima, u tragovima
 stopwords:hu:tartalmaz, változó arányban, min, zsírtartalom, összetevő, összetétel, amelyből, amiből
 stopwords:id:mengandung
 stopwords:is:úr
@@ -212,7 +213,7 @@ pl:proszek karmelowy, karmel w proszku
 pt:caramelo em pó
 # ingredient/fr:caramel-en-poudre has 69 products in 5 languages @2019-03-09
 
-<en:E150
+<en:preparation
 en:caramel chocolate preparation
 hr:karamelno čokoladni pripravak
 
@@ -368,7 +369,7 @@ el:εκχύλισμα πάπρικας
 es:extracto de pimentón
 fi:paprikauute
 fr:extrait de paprika, extraits de paprika
-hr:ekstrakt paprike
+# hr:ekstrakt paprike # see ingredients_processing.txt
 hu:paprikakivonat
 it:estratto di paprica
 lt:paprikos ekstraktas
@@ -1238,7 +1239,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bifidobacterium_longum
 en:bifidus actiregularis, b. actiregularis
 xx:bifidus actiregularis, b. actiregularis, actiregularis bifidobacterium
 de:Bifidus ActiRegularis, Bifidus Kultur ActiRegularis
-hr:Bifidus Actiregularis® kultura, Bifidus Actiregularis® kultura (CNCM 1-2494 min 4x109/125g)
+fr:active probiotic culture, bifidobacterium lactis cncm I-2494
+hr:Bifidus Actiregularis® kultura, Bifidus Actiregularis® kultura, CNCM I-2494 min 4x109/125g
 ru:бифидобактерии-actiregularis, бифидобактерии actiregularis
 # ingredient/bifidus-actiregularis has 142 products in 5 languages @2019-07-08
 
@@ -2841,6 +2843,11 @@ ciqual_food_name:fr:Lait écrémé, UHT
 #es:leche desnatada esterilizada UHT ecológica, leche descremada esterilizada ecológica
 #fr:lait écrémé stérilisé uht issu de l'agriculture biologique
 
+<en:lactose-free milk
+<en:skimmed milk
+en:lactose-free skimmed milk
+hr:obrano mlijeko bez laktoze
+
 ################################# SEMI-SKIMMED MILK ############################
 
 # description:en:LAIT DEMI-ECREME has a butterfat percentage of 1.5-1.8% fat by regulation
@@ -3282,9 +3289,9 @@ es:leche de vaca termizada, leche termizada de vaca
 <en:Cow's milk
 fr:lait frais de nos vaches non homogeneise
 
-<en:Cow's milk
-en:unhomogenized pasteurized milk
-hr:nehomogenizirano pasterizirano mlijeko
+# <en:Cow's milk
+# en:unhomogenized pasteurized milk  # see ingredients_processing.txt
+# hr:nehomogenizirano pasterizirano mlijeko  # see ingredients_processing.txt
 
 <en:cow's milk
 en:skimmed cows milk
@@ -10324,13 +10331,18 @@ vegan:en:no
 vegetarian:en:no
 
 
-# <en:compound
+<en:preparation
+<en:meat
 en:meat preparation
 de:Fleischzubereitung
 fi:lihavalmiste
 fr:préparation de viande
 nl:vleesbereiding
 wikidata:en:Q12553507
+
+<en:meat preparation
+en:dried beef preparation
+hr:pripravak sušenog goveđeg mesa
 
 <en:meat
 en:mechanically separated meat
@@ -12176,7 +12188,7 @@ de:Schweinefleisch
 es:carne de cerdo
 fi:sianliha, sianlihaa, porsaanliha, porsaanlihaa, viljaporsaanliha
 fr:viande de porc, viande porc
-hr:svinjsko meso, svinjetina
+hr:svinjsko meso, svinjetina, svinjsko meso I kategorije
 hu:sertéshús, disznóhús
 it:carne di suino, carne di maiale, carne suina
 ja:豚肉
@@ -13962,7 +13974,7 @@ es:Almidón modificado de maiz, almidon de maiz modificado, almidones de maiz mo
 et:modifitseeritud maisitärklis
 fi:muunnettu maissitärkkelys, modifioitu maissitärkkelys, muunneltu maissitärkkelys, muunnettua maissitärkkelystä
 fr:amidon transformé de maïs, amidon de maïs transformé, amidon modifié de maïs, amidon de maïs modifié, amidons modifié de maïs, amidons modifiés de maïs
-hr:modificirani kukuruzni škrob, kukuruzni modificirani škrob
+hr:modificirani kukuruzni škrob, modificirana kukuruzna škrob, kukuruzni modificirani škrob
 hu:módosított kukoricakeményítő
 is:umbreytt maíssterkja
 it:amido modificato di mais, amido di mais modificato
@@ -15064,7 +15076,7 @@ de:teilweise gehärtetes pflanzliches Fett, teilweise hydriertes pflanzliches Fe
 es:grasa vegetal parcialmente hidrogenada
 fi:osittain kovetettu kasvirasva
 fr:graisse végétale partiellement hydrogénée
-hr:djelomično očvrsnuta biljna mast
+hr:djelomično očvrsnuta biljna mast, djelomično hidrogenirana biljna mast
 it:grasso vegetale parzialmente idrogenato
 ro:grăsime vegetală parțial hidrogenată
 sv:delvis härdade vegetabiliska fetter
@@ -15407,7 +15419,7 @@ et:palmirasv
 fi:palmurasva, palmun rasva
 fr:graisse de palme, graisse végétale de palme, matière grasse de palme, matière grasse végétale de palme, Acides gras de palme
 he:שומן דקלים
-hr:palmina mast, mast palmine koštice
+hr:palmina mast, mast palmine koštice, palmina biljna mast, palmine biljne masti
 hu:pálmazsír
 it:grasso di palma, grasso vegetale di palma
 lt:palmių riebalai
@@ -16060,7 +16072,7 @@ et:rapsiõli, rapsiseemneõli, rüpsiõli
 fi:rapsiöljy, rapsirasva, rapsiöljy ja -rasva
 fr:Huile de navette
 he:שמן לפתית
-hr:repičino ulje, repicino ulje, repičina mast
+hr:repičino ulje, repicino ulje, repičina mast, repičina biljna mast, repičino biljna ulja
 hu:repceolaj, repcemagolaj, repcemagolajak, repcemagzsír, repce étolaj
 is:repjuolía
 it:Olio di colza
@@ -16173,7 +16185,8 @@ de:GVO-freies Rapsöl
 es:aceite de canola no modificado genéticamente, aceite de canola no gmo
 fr:Huile de colza sans OGM
 
-# <en:compound
+<en:preparation
+<en:canola oil
 en:canola oil preparation
 fi:rypsiöljyvalmiste
 sv:rypsoljeberedning
@@ -16985,7 +16998,7 @@ fi:auringonkukkaöljy, auringonkukkaöljyä
 fr:huile de tournesol, huile de graines de tournesol, huile tournesol, huile végétale de tournesol, graisses végétales de tournesol
 gl:Aceite de xirasol
 he:שמן חמניות
-hr:suncokretovo ulje, suncokretno ulje, pripravak suncokretovog ulja, ulje suncokreta
+hr:suncokretovo ulje, suncokretno ulje, suncokretovo biljna ulja, pripravak suncokretovog ulja, ulje suncokreta
 hu:napraforgóolaj, napraforgó olaj, napraforgó étolaj
 id:Minyak biji bunga matahari
 is:Sólblómaolía
@@ -20169,6 +20182,7 @@ vegan:en:maybe
 vegetarian:en:maybe
 percent_max:en:5
 
+<en:preparation
 <en:flavouring
 en:flavouring preparation, spice preparation
 de:Gewürzzubereitung, Aromaextrakte
@@ -20353,6 +20367,11 @@ de:natürliches Rum-Aroma, natürliches Rumaroma
 fi:luontainen rommiaromi
 fr:arôme naturel de rhum
 hu:természetes rumaroma, természetes rum aroma
+
+<en:preparation
+<en:rum flavouring
+en:rum flavouring preparation
+hr:pripravak s aromom ruma
 
 <en:natural flavouring
 fr:arôme naturel de champignon
@@ -22478,7 +22497,7 @@ de:Weizenmalz
 es:malta de trigo
 fi:vehnämallas
 fr:malt de blé, malt de froment, blé malté
-hr:pšenični slad
+hr:pšenični slad, pšenično sladno
 hu:búzamaláta
 it:malto di frumento, malto di grano
 lt:kvietinis salyklas
@@ -22722,6 +22741,11 @@ nl:volkoren tarwegriesmeel
 ru:цельно зерновая мука из твердых сортов пшеницы
 #145 in 7 @2021-09-28
 
+<en:durum wheat
+<en:wheat sourdough
+en:durum wheat sourdough
+hr:pšenično durum kiselo tijesto
+
 <en:semolina
 <en:durum wheat
 # <en:Couscous
@@ -22893,6 +22917,7 @@ de:Weizenkeime
 es:germen de trigo
 fi:vehnänalkio, vehnänalkiot
 fr:germe de blé, germes de blé
+hr:pšenična trava
 hu:búzacsíra
 it:germe di frumento, germi di frumento
 nb:hvetekim
@@ -23290,7 +23315,7 @@ gl:cebada
 gv:oarn
 he:שעורה תרבותית
 hi:जौ
-hr:ječam, ječmene, ječmena trava
+hr:ječam, ječmene, ječmena trava, ječma
 ht:òj
 hu:árpa
 hy:սովորական գարի
@@ -23569,7 +23594,7 @@ gd:Braich
 gl:Malte
 he:לתת
 hi:माल्ट
-hr:Slad, slada
+hr:slad, slada, sladni
 hu:maláta
 hy:Ածիկ
 id:Malt
@@ -23623,7 +23648,7 @@ de:Malzextrakt
 es:Extracto de malta
 fi:mallasuute
 fr:extrait de malt
-hr:sladni ekstrakt
+# hr:sladni ekstrakt # see ingredients_processing.txt
 hu:malátakivonat
 it:estratto di malto
 ja:麦芽エキス, モルトエキス
@@ -25780,13 +25805,14 @@ hr:pšenično brašno tip 550, pšenično brašno T-550, pšenično brašno T 55
 
 <en:wheat flour
 en:wheat flour type 850 semi-white
-hr:pšenično brašno tip 850 polubijelo, polubijelo pšenično brašno T-850, pšenično brašno t850, pšenično polubijelo brašno t 850
+hr:pšenično brašno tip 850 polubijelo, pšenično brašno tip-850, polubijelo pšenično brašno T-850, pšenično brašno t850, pšenično polubijelo brašno t 850, pšenično polubijelo tip 850
 
 <en:wheat flour
 en:wheat flour T-1050
 hr:pšenično brašno T-1050
 
 <en:wheat flour
+hr:pšenično brašno 1850
 pl:mąka pszenna typ 1850, mąka pszenna 1850, mąka pszenna graham
 
 <en:wheat flour
@@ -25799,7 +25825,7 @@ de:Hartweizenmehl
 es:harina de trigo duro
 fi:durumvehnäjauho
 fr:farine de blé dur
-hr:durum pšenično brašno
+hr:durum pšenično brašno, pšenično durum brašno
 hu:durumbúzaliszt
 it:farina di grano duro
 nl:durum tarwemeel
@@ -25895,6 +25921,7 @@ de:angereichertes Weizenmehl
 es:Harina de trigo fortificada
 fi:rikastettu vehnäjauho, vitaminoitu vehnäjauho
 fr:farine de blé enrichie
+hr:pšenično bubreno brašno
 it:farina di frumento fortificada
 nl:verrijkt tarwebloem
 pl:Wzbogacona mąka pszenna
@@ -25949,6 +25976,11 @@ de:Weizenbrotmehl, dunkles Weizenmehl, Hefebrotweizenmehl, Hefebrotmehl
 fi:hiivaleipäjauho, tumma vehnäjauho, hiivaleipävehnäjauho, vehnähiivaleipäjauho
 sv:jästbrödsvetemjöl, vetejästbrödmjöl
 # ingredient/fi:hiivaleipäjauho has 1 product in 1 language @2020-06-08
+
+<en:preparation
+<en:wheat flour
+en:wheat flour preparation
+hr:pripravak pšenično brašno, pripravak pšenično brašno 1850
 
 <en:cereal flour
 <en:barley
@@ -26071,7 +26103,7 @@ ciqual_food_name:fr:Farine de seigle T130
 
 <en:rye flour
 en:Rye flour type type 1250
-hr:raženo brašno T1250
+hr:raženo brašno T1250, raženo brašno tip 1250
 
 <en:rye flour
 <en:wholemeal flour
@@ -29457,6 +29489,11 @@ en:melado
 de:Melado
 nl:melado
 
+<en:coating
+<en:sugar
+en:sugar coating
+hr:šećer za dekoraciju
+
 # description:en:SYRUP is a condiment that is a thick, viscous liquid consisting primarily of a solution of sugar in water, containing a large amount of dissolved sugars but showing little tendency to deposit crystals.
 # Warning:the wikipedia translations mixes syrup and glucose syrup
 
@@ -31938,7 +31975,7 @@ gu:ચોકલિટ્
 gv:shocklaid
 he:שוקולד
 hi:चॉकलेट
-hr:Čokolada, čokoladni, čokolade
+hr:Čokolada, čokoladni, čokolade, okusa čokolade
 ht:chokola
 hu:csokoládé
 hy:Շոկոլադ
@@ -32138,6 +32175,10 @@ sv:Choklad bitar, chokladbitar
 en:chocolate paste
 hr:pasta od čokolade
 
+<en:chocolate paste
+en:chocolate-flavored paste with ground cocoa biscuits
+hr:pasta okusa čokolade s mljevenim kakao keksima
+
 <en:chocolate
 en:milk chocolate chips,milk chocolate drops
 da:mælkechokoladestykker
@@ -32170,6 +32211,11 @@ hr:keks s kakaom, punilo okusa čokolade, punjenje okusa čokolade
 it:ripieno al cioccolato
 pl:nadzienie czekoladowe
 # ingredient/fr:fourrage-au-chocolat has 40 products in 4 languages @2019-05-25
+
+<en:chocolate filling
+<en:coconut chips
+en:chocolate flavor filling with pieces of coconut
+hr:punjenje okusa čokolade s komacičima kokosa
 
 <en:chocolate
 en:pure cocoa butter chocolate
@@ -33686,7 +33732,7 @@ gd:Beirm
 gl:Lévedo
 he:שמרים
 hi:खमीर
-hr:kvasac, majčin kvasac
+hr:kvasac, majčin kvasac, kvasca, kvaščev, kvasa
 hu:élesztő
 hy:Խմորասնկեր
 id:Khamir
@@ -33972,7 +34018,7 @@ es:extracto de levadura
 et:pärmiekstrakt
 fi:hiivauute
 fr:extrait de levure, extrait de levures, extraits de levure
-hr:ekstrakt kvasca, kvaščev ekstrakt, ekstrakti kvasca
+# hr:ekstrakt kvasca, kvaščev ekstrakt, ekstrakti kvasca # see ingredients_processing.txt
 hu:élesztőkivonat
 is:gerseyði
 it:estratto di lievito
@@ -35491,7 +35537,8 @@ vegan:en:yes
 vegetarian:en:yes
 nutriscore_fruits_vegetables_nuts:en:yes
 
-# <en:compound
+<en:fruits preparation
+<en:berries
 en:berry preparation
 de:Fruchtzubereitung aus roten Früchten
 fi:marjavalmiste
@@ -35733,6 +35780,7 @@ sv:växtkoncentrat, plantkoncentrat
 
 fr:specialité de fruits pomme poire
 
+<en:preparation
 <en:fruit
 en:fruits preparation
 de:Fruchtzubereitung
@@ -35743,6 +35791,7 @@ sv:fruktberedning
 # usage:de:Fruchtzubereitung (Zucker, Pfirsichsaft aus Pfirsichsaftkonzentrat, Wasser, Pfirsichmark, Maracujasaft aus Maracujasaftkonzentrat, modifizierte Stärke, natürliches Aroma, Säurungsmittel: Citronensäure; Säureregulator: Natriumcitrat)
 
 <en:fruits preparation
+<en:pear
 en:pear preparation
 fi:päärynävalmiste
 fr:préparation de poires
@@ -38130,6 +38179,16 @@ en:apple jam
 de:Apfelmarmelade
 ru:повидло яблочное, яблочное повидло
 
+<en:preparation
+<en:apple
+en:apple preparation
+hr:pripravak s jabukama
+
+<en:filling
+<en:apple
+en:apple filling
+hr:punjenje od jabuke
+
 ###################################################################################################
 #
 #                                Boabab
@@ -38853,7 +38912,7 @@ es:limón,limones
 fi:sitruuna, sitruunaa
 fr:citron, citrons, citron jaune, citrons jaunes
 he:לימון
-hr:limun, limuna, ploda limuna
+hr:limun, limuna, ploda limuna, citrus limon
 hu:citrom
 it:limone
 ja:レモン
@@ -39083,7 +39142,7 @@ de:Zitronenextrakt
 es:extracto de limón
 fi:sitruunauute
 fr:concentré de citron, extrait de citron
-hr:ekstrakt limuna
+# hr:ekstrakt limuna # see ingredients_processing.txt
 it:estratto di limone, concentrato di limone
 nl:citroenconcentraat
 sv:citronextrakt
@@ -39151,6 +39210,23 @@ en:lemon marmalade
 ca:melmelada de llimona
 de:Zitronenmarmelade, Zitronen-Marmelade
 es:mermelada de limón
+
+<en:preparation
+<en:lemon
+en:lemon preparation
+hr:pripravak od limuna
+
+<en:preparation
+<en:lemon
+<en:cake
+<en:honey
+en:lemon cake honey preparation
+hr:pripravak limun kolač med
+
+<en:filling
+<en:lemon
+en:lemon filling
+hr:punjenje s okusom limuna
 
 ###################################################################################################
 #
@@ -39877,7 +39953,7 @@ es:cáscara de naranja, corteza de naranja,ralladura de naranja
 et:apelsinikoor
 fi:appelsiininkuori, appelsiinikuori
 fr:zeste d'orange, zestes d'orange, écorce d'orange, écorces d'orange, écorces d'oranges
-hr:narančina korica, narančina kora, kora od naranča, kora gorke naranče, korica naranče
+hr:narančina korica, narančina kora, kora od naranča, kora gorke naranče, korica naranče, kore naranče
 hu:narancshéj
 it:scorza d'arancia, scorze di arancia, scorze d'arancia, buccla d'arancia
 lt:apelsinų žievelė
@@ -39898,7 +39974,7 @@ hr:bio korica naranče
 de:Orangeschalenextrakt
 fi:appelsiininkuoriuute
 fr:extrait de zeste d'orange
-hr:ekstrakt kore naranče
+# hr:ekstrakt kore naranče # see ingredients_processing.txt
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:extrait-de-zeste-d'orange
 # 54 products in 2 languages @2018-09-28
 
@@ -40324,7 +40400,7 @@ fo:sólber
 fr:cassis, baies de cassis
 ga:grosella
 he:ענבי שועל
-hr:crni ribiz, crnog ribiza, crna ribizla, crni ribizl, crne ribizle
+hr:crni ribiz, crnog ribiza, crna ribizla, crni ribizl, crne ribizle, crni ribiz plod
 hu:fekete ribizli
 io:kasiso
 is:sólber
@@ -40425,6 +40501,12 @@ nl:zwarte bessensap op basis van concentraat
 <en:blackcurrant
 en:pieces and juice of blackcurrant
 hr:komadi i sok crnog ribiza
+
+<en:preparation
+<en:blackcurrant
+<en:cinnamon
+en:black currant cinnamon preparation
+hr:pripravak crni ribiz cimet, emulzija crne ribizle
 
 ###################################################################################################
 #
@@ -40561,7 +40643,7 @@ sv:blåbärssaft av koncentrat
 
 #<en:compound
 en:blueberry filling
-hr:preljev od borovnica, punilo od borovnice, punjenje od borovnica
+hr:punilo od borovnice, punjenje od borovnica
 
 <en:berries
 en:Loganberry, loganberries
@@ -41027,6 +41109,11 @@ hr:sok višnje od koncentriranog soka, sok od višnje od koncentriranog soka
 <en:cherry
 en:glacé cherry, glacé cherries
 
+<en:preparation
+<en:cherry
+en:cherry preparation
+hr:pripravak trešnja
+
 ###################################################################################################
 #
 #                                Cherry (Sweet)
@@ -41121,6 +41208,11 @@ eurocode_2_group_3:en: 9.20.40
 fr:bigarreaux confits
 # ingredient/fr:bigarreaux-confits has 40 products in french @2019-02-22
 # bigarreaux confits  ( bigarreaux ; sucre ; conservateurs :E202, anhydride sulfureux; correcteur d'acidité :acide citrique ; colorant :E127)
+
+<en:preparation
+<en:sweet cherry
+en:sweet cherry preparation
+hr:pripravak višnja
 
 # CERISES CONFITES is a compound ingredient
 <en:cherry
@@ -43973,11 +44065,12 @@ en:strawberry filling
 bg:ягодов пълнеж, пълнеж от ягоди
 de:Erdbeerfüllung
 fi:mansikkatäyte
-fr:nappage à la fraise
-hr:preljev od jagode
 pl:nadzienie truskawkowe, wsad truskawkowy, nadzienie o smaku truskawkowym
-# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:nappage-à-la-fraise
-# 33 products @2018-10-01
+
+<en:preparation
+<en:strawberry
+en:strawberry preparation
+hr:pripravak od jagoda, pripravak od jagode
 
 <en:strawberry
 <en:fruit juice
@@ -44158,7 +44251,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Tamarillo
 # Note that in french often 'raisin' is used to indicate the dried one
 
 <en:fruit
-<en:berry
+<en:berries
 en:grape
 af:druiwe
 am:ወይን
@@ -56570,6 +56663,7 @@ en:dried broad bean
 fr:fève sêche, fèves sèches
 eurocode_2_group_3:en: 7.10.20
 
+<en:preparation
 <en:broad bean
 en:faba bean preparation
 nl:bereiding van tuinbonen
@@ -56825,9 +56919,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pea
 # ingredient/fr:pois has 259 products in 7 languages @2019-05-10
 # usage:fr:amidon (blé, pomme de terre, pois, maïs)
 
-<en:pea
-fr:extrait de pois
-hr:ekstrakt graška
+# <en:pea
+# fr:extrait de pois # see ingredients_processing.txt
+# hr:ekstrakt graška # see ingredients_processing.txt
 
 <en:pea
 en:yellow pea
@@ -57997,6 +58091,12 @@ nl:amandelen-hazelnotenpraliné
 <en:hazelnut
 fr:pâte de praliné
 
+<en:preparation
+<en:almond
+<en:pistachio nuts
+en:almond pistachio preparation
+hr:pripravak badem pistacija
+
 ###################################################################################################
 #
 #                                Brazil nut
@@ -58458,6 +58558,11 @@ sv:hasselnötsmassa, hasselnötspasta
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/hazelnut-paste
 # 965 products in 14 languages @2018-10-06
 
+<en:filling
+<en:hazelnut
+en:hazelnut filling
+hr:punjenje od lješnjaka
+
 # hazelnut praline is a compound product i.e.:(hazelnut, sugar)
 
 <en:hazelnut
@@ -58897,6 +59002,11 @@ fr:morceaux de pistache
 de:Pistazienstücke
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:morceaux-de-pistache
 # 5 products in 2 languages @2018-10-07
+
+<en:filling
+<en:pistachio nuts
+en:pistachio filling
+hr:punjenje od pistacija
 
 ###################################################################################################
 #
@@ -65302,7 +65412,7 @@ fi:humala
 fr:houblon
 ga:Leannlus
 he:כשות
-hr:hmelj, hmelji, hmeljevi
+hr:hmelj, hmelja, hmelji, hmeljevi
 hu:komló, komlo
 id:hopio:Lupulo
 is:Humall
@@ -65341,7 +65451,7 @@ de:Hopfenextrakt
 es:extracto de lupulo
 fi:humalauute, humalauutteet
 fr:extrait de houblon, extraits de houblon
-hr:ekstrakt hmelja
+# hr:ekstrakt hmelja # see ingredients_processing.txt
 it:estratto di luppolo
 nl:hopextract
 pl:ekstrakt z chmielu
@@ -65383,6 +65493,7 @@ sv:humleolja
 en:processed hops
 hr:prerađeni hmelj
 
+<en:preparation
 <en:hops
 en:hop preparation
 hr:pripravak od hmelja
@@ -67670,7 +67781,7 @@ de:Bourbon Vanille, Bourbon-Vanille
 es:Vainilla Bourbon
 fi:bourbon-vanilja
 fr:vanille bourbon, bourbon vanille
-hr:bourbon vanilije
+hr:bourbon vanilije, burbon vanilije
 it:vaniglia Bourbon
 nl:bourbonvanille, Bourbon vanille
 # ingredient/fr:vanille-bourbon has 150 products in 4 languages @2019-02-24
@@ -67708,7 +67819,7 @@ et:vanilliekstrakt
 fi:vaniljauute
 fr:extrait de vanille
 he:תמצית וניל
-hr:ekstrakt vanilije
+# hr:ekstrakt vanilije # see ingredients_processing.txt
 hu:vaníliakivonat, vanília kivonat, vanília-kivonat
 it:estratto di vaniglia
 ja:バニラエキス
@@ -67773,7 +67884,7 @@ de:Bourbon Vanille Extrakt, Vanille-Extrakt Bourbon, Bourbon-Vanille-Extrakt, Bo
 es:extracto de vainilla de Bourbon
 fi:bourbon-vaniljauute
 fr:extrait de vanille bourbon, extrait de vanille de Bourbon
-hr:ekstrakt bourbon vanilije, ekstrakt burbon vanilije
+# hr:ekstrakt bourbon vanilije, ekstrakt burbon vanilije # see ingredients_processing.txt
 it:estratto di vaniglia Bourbon
 nl:Bourbon vanille-extract
 ro:extract de vanilie Bourbon
@@ -67873,9 +67984,10 @@ fr:grains de vanille épuisés, grains de vanille épuisée, graines de vanille 
 it:semi di vaniglia estratti
 # ingredient/fr:grains-de-vanille-épuisés has 31 products in 5 languages @2019-02-24
 
-#<en:compound
+<en:preparation
+<en:vanilla
 en:vanilla preparation
-hr:pripravak vanilija
+hr:pripravak vanilija, puding s okusom vanilije
 
 <en:herbs
 en:za'atar
@@ -70481,7 +70593,7 @@ gv:Eeast
 ha:kifi
 he:דג
 hi:मछली
-hr:Ribe, ribu
+hr:riba, ribe, ribu
 ht:Pwason
 hu:halak, hal
 hy:Ձկնամիս, ձկներ
@@ -70774,6 +70886,10 @@ pl:mięso ryb
 <en:white fish
 en:white fish meat
 hr:meso bijele ribe
+
+<en:fish
+en:fish protein
+hr:riblji proteini
 
 
 # description:fr:Un fumet de poisson est un fond préparé à partir de poisson.
@@ -79045,6 +79161,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Café moulu
 carbon_footprint_fr_foodges_value:fr:15.7
 # ingredient/en:coffee has 1637 products in 10 languages @2018-11-30
 
+<en:preparation
 <en:coffee
 en:coffee preparation
 hr:pripravak kave
@@ -82381,7 +82498,7 @@ gl:Óso
 gn:Kangue
 he:עצם
 hi:अस्थि
-hr:Kost
+hr:kost, kostiju
 ht:Zo
 hu:csont
 hy:Ոսկոր
@@ -82517,6 +82634,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Food_browning
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # Compound ingredients are ingredients that have sub-ingredients. Usually a compound ingredient is followed by a list of other ingredients.
+# the word preparation - like berry preparation, for example - also correspond to previous definition of compound
+en:preparation
 
 # description:en:Stuffing or filling is an edible substance or mixture, normally consisting primarily of small cut-up pieces of bread or a similar starch and served as a side dish or used to fill a cavity in another food item while cooking. Many foods may be stuffed, including eggs, poultry, seafood, mammals, and vegetables, but chickens and turkey are the most common.
 
@@ -82536,7 +82655,7 @@ es:relleno
 et:Hakkliha
 fa:گوشت چرخ کرده
 fi:täyte
-fr:garniture, fourrage, nappage, farce, fourrage blanc, remplissage, nappage blond
+fr:garniture, fourrage, farce, fourrage blanc, remplissage
 gl:Recheo
 he:מלית
 hr:punjenje, punjenje od, punilo, nadjev
@@ -84412,6 +84531,11 @@ fr:morceaux de biscuits, morceaux de biscuit
 en:biscuit flavored paste
 hr:pasta okusa biskvita
 
+<en:preparation
+<en:biscuit
+en:biscuit preparation
+hr:pripravak od keksa, smjesa za biskvit, smjesa za tamni biskvit
+
 <en:biscuit
 en:butter biscuit
 fr:Biscuits au beurre
@@ -84479,7 +84603,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Speculaas
 <en:biscuit
 <en:cocoa
 en:cocoa biscuit
-hr:keks od kakaa, kakov keksa
+hr:keks od kakaa, kakov keksa, kakao keksi
 
 <en:biscuit
 <en:chocolate
@@ -84495,7 +84619,7 @@ de:Beschichtung
 es:envolviendo, sobrimiento,sazonador
 et:kate
 fi:päällyste
-fr:enrobage, enrobant, décor, decor, chemisage
+fr:enrobage, enrobant, décor, decor, chemisage, nappage, nappage blond
 hr:preljev
 hu:bevonat, fűszerezés
 it:rivestimento
@@ -84537,7 +84661,7 @@ pt:chocolate de cobertura
 en:milk chocolate coating, couverture milk chocolate
 de:Milchschokoladenkuvertüre, Milchschokoladenüberzug
 fr:chocolat au lait de couverture, enrobage chocolat au lait
-hr:miliječno čokoladni preljev, preljev okusa mliječne čokolade
+hr:miliječno čokoladni preljev, preljev okusa mliječne čokolade, preljev od mliječne čokalade, preljev mliječne čokolade
 lt:pieniško šokolado glaistas
 sv:mjölkchokladsöverdrag
 # ingredient/en:milk-chocolate-coating has 99 products in 3 languages @2020-12-19
@@ -84564,10 +84688,44 @@ hr:preljev s lješnjacíma
 en:chocolate and hazelnut coating
 hr:preljev s čokoladom i lješnjacima
 
+<en:hazelnut coating
+<en:milk
+en:milk and hazelnut coating
+hr:preljev s mlijekom i lješnjacima
+
 <en:coating
 <en:nougat
 en:nougat coating
 hr:nougat preljev
+
+
+<en:coating
+<en:berries
+en:berry coating
+hr:preljev od bobičastog voća
+
+<en:berry coating
+en:blueberry coating
+hr:preljev od borovnica
+
+<en:berry coating
+en:strawberry coating
+fr:nappage à la fraise
+hr:preljev od jagode
+# openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:nappage-à-la-fraise
+# 33 products @2018-10-01
+
+<en:berry coating
+en:cherry coating
+hr:preljev od višnje, preljev od soka višnje
+
+<en:cherry coating
+en:amarena cherry coating
+hr:preljev s okusom višnje amarena
+
+<en:berry coating
+en:forest berry coating
+hr:preljev od šumskog voća
 
 
 # comment:en:The inside part of an ice cream cone
@@ -85874,7 +86032,8 @@ de:kakaohaltiges Getränkepulver
 
 # description:en:A food product based on soy.
 
-# <en:compound
+<en:preparation
+<en:soya
 en:soy preparation
 de:Sojabereitung, Soja-Produkt, Sojaprodukt, Sojamittel
 es:preparación de soja
@@ -86369,6 +86528,11 @@ fr:Panna cotta rayon frais
 ciqual_food_code:en:19685
 ciqual_food_name:en:Panna cotta, refrigerated
 ciqual_food_name:fr:Panna cotta, rayon frais
+
+<en:preparation
+<en:panna cotta
+en:panna cotta flavor preparation
+hr:pripravak okusa panna cotta
 
 # description:en:LINGONBERRY JAM is a staple food in Northern European cuisine and otherwise highly popular in Central and Eastern Europe.
 
@@ -88137,7 +88301,7 @@ de:Fruchtextrakt, Frucht-Extrakt
 es:extracto de frutas, extracto de fruta
 fi:hedelmäuute
 fr:extrait de fruit
-hr:ekstrakt voća
+# hr:ekstrakt voća # see ingredients_processing.txt
 it:Estratto di frutta
 nl:vruchtenextract
 pt:extrato de fruto, extrato de fruta, extrato de frutos, extrato de frutas

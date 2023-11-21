@@ -196,7 +196,7 @@ my %may_contain_regexps = (
 	fr =>
 		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace|Traces éventuelles de|Peut contenir des traces de",
 	hr =>
-		"mogući sadržaj|mogući tragovi|može sadržavati|može sadržavati alergene u tragovima|može sadržavati tragove|može sadržavati u tragovima|može sadržati|može sadržati tragove|proizvod može sadržavati|proizvod može sadržavati tragove",
+		"mogući ostaci|mogući sadržaj|mogući tragovi|može sadržavati|može sadržavati alergene u tragovima|može sadržavati tragove|može sadržavati u tragovima|može sadržati|može sadržati tragove|proizvod može sadržavati|proizvod može sadržavati tragove",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
 	it =>
 		"Pu[òo] contenere tracce di|pu[òo] contenere|che utilizza anche|possibili tracce|eventuali tracce|possibile traccia|eventuale traccia|tracce|traccia",
@@ -351,7 +351,7 @@ my %abbreviations = (
 
 	fr => [["vit.", "Vitamine"], ["Mat. Gr.", "Matières Grasses"],],
 
-	hr => [["temp.", "temperaturi"],],
+	hr => [["temp.", "temperaturi"], ["regul. kisel.", "regulator kiselosti"], ["reg. kis.", "regulator kiselosti"],],
 
 	nb => [["bl. a.", "blant annet"], ["inkl.", "inklusive"], ["papr.", "paprika"],],
 
@@ -1048,6 +1048,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		en => "min|minimum|total",
 		es => "total",
 		fr => "min|minimum|minimal|minimale|total|totale",
+		hr => "najmanje|najviše",
 		sv => "total",
 	);
 	my $minimum_or_total = $minimum_or_total{$ingredients_lc} || '';
@@ -1057,7 +1058,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		en => "(?:(?:$minimum_or_total) )?content",
 		es => "contenido(?: (?:$minimum_or_total))",
 		fr => "(?:teneur|taux)(?: (?:$minimum_or_total))?(?: en)?",   # need to have " en" as it's not in the $of regexp
-		hr => "ukupni",
+		hr => "ukupni(?: udio)?",
 		sv => "(?:(?:$minimum_or_total) )?mängd",
 	);
 	my $content_of_ingredient = $content_of_ingredient{$ingredients_lc};
@@ -2528,6 +2529,8 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 								'^u tragovima$',    # in traces
 								'čokolada sadrži biljne masnoće uz kakaov maslac'
 								,    #  Chocolate contains vegetable fats along with cocoa butter
+								'može imati štetno djelovanje na aktivnosti pažnju djece'
+								,    # can have a detrimental effect on children's attention activities (E122)
 								'označene podebljano',    # marked in bold
 								'savjet kod alergije',    # allergy advice
 								'u čokoladi kakaovi dijelovi'
@@ -4626,6 +4629,7 @@ my %phrases_after_ingredients_list = (
 		'Čuvati na (hladnom|sobnoj temperaturi|suhom|temperaturi)',    # store in...
 		'Čuvati zatvoreno na',
 		'Čuvati pri sobnoj temperaturi',
+		'Čuvajte u zamrzivaču na',
 		'izvor dijetalnih vlakana',    # source of proteins
 		'najbolje upotrijebiti do',    # best before
 		'nakon otvaranja',    # after opening
@@ -4634,6 +4638,7 @@ my %phrases_after_ingredients_list = (
 		'proizvođač',    # producer
 		'prosječn(a|e) (hranjiva|hranjive|nutritivne) (vrijednost|vrijednosti)',    # Average nutritional value
 		'protresti prije otvaranja',    # shake before opening
+		'suha tvar min',    # dry matter min 9%
 		'upotrijebiti do datuma',    # valid until
 		'upozorenje',    # warning
 		'uputa',    # instructions
@@ -5290,6 +5295,11 @@ my %ingredients_categories_and_types = (
 	],
 
 	hr => [
+		# cheeses
+		{
+			categories => ["sirevi",],
+			types => ["polutvrdi", "meki",]
+		},
 		# malts
 		{
 			categories => ["slad",],
@@ -5299,6 +5309,11 @@ my %ingredients_categories_and_types = (
 		{
 			categories => ["mlijeko",],
 			types => ["s 1.0% mliječne masti",]
+		},
+		# oils and fats
+		{
+			categories => ["biljna mast", "biljne masti", "biljna ulja",],
+			types => ["palmina", "palmine", "repičina", "repičino", "suncokretovo",]
 		},
 	],
 
