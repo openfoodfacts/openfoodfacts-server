@@ -5309,7 +5309,7 @@ my %ingredients_categories_and_types = (
 		{
 			categories => ["mlijeko",],
 			types => ["s 1.0% mliječne masti",]
-        },
+		},
 		# oils and fats
 		{
 			categories => ["biljna mast", "biljne masti", "biljna ulja",],
