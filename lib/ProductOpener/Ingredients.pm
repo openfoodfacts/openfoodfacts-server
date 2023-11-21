@@ -355,8 +355,8 @@ my %abbreviations = (
 		["temp.", "temperaturi"],
 		["konc.", "koncentrirani"],
 		["m.m.", "mliječne masti"],
-        ["regul. kisel.", "regulator kiselosti"], 
-        ["reg. kis.", "regulator kiselosti"],
+		["regul. kisel.", "regulator kiselosti"],
+		["reg. kis.", "regulator kiselosti"],
 		["sv.", "svinjsko"],
 		["zgrud.", "zgrudnjavanja"],
 	],
@@ -5340,6 +5340,7 @@ my %ingredients_categories_and_types = (
 		{
 			categories => ["list",],
 			types => ["gunpowder", "Camellia sinensis", "folium",]
+		},
 		# malts
 		{
 			categories => ["slad",],
@@ -5358,7 +5359,10 @@ my %ingredients_categories_and_types = (
 		# oils and fats
 		{
 			categories => ["biljna mast", "biljna ulja", "biljne masti", "ulja",],
-			types => ["koskos", "kukuruzno u različitim omjerima", "palma", "palmina", "palmine", "repičina", "repičino", "sojino", "suncokretovo"]
+			types => [
+				"koskos", "kukuruzno u različitim omjerima",
+				"palma", "palmina", "palmine", "repičina", "repičino", "sojino", "suncokretovo",
+			]
 		},
 		# seeds
 		{
@@ -5369,6 +5373,7 @@ my %ingredients_categories_and_types = (
 		{
 			categories => ["škrob",],
 			types => ["kukuruzni", "krumpirov",]
+		}
 	],
 
 	pl => [
