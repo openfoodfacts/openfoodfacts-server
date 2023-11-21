@@ -135,19 +135,43 @@ sub callback ($request_ref) {
 		display_error_and_exit('Invalid Nonce during OIDC login', 500);
 	}
 
-	my $user_id = get_user_id_using_token($access_token->access_token);
+	my ($userinfo, $user_id) = get_user_id_using_token($access_token->access_token);
+	my $user_ref;
+	my $user_file;
 	unless (defined $user_id) {
-		display_error_and_exit('Unknown user', 404);
+		$user_ref = {};
+		$user_ref->{email} = $userinfo->{'email'};
+		$user_ref->{userid} = $userinfo->{'sub'};
+		$user_ref->{name} = $userinfo->{'name'};
+
+		$user_id = $user_ref->{userid};
+		$user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+		store($user_file, $user_ref);
+
+		# Store email
+		my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+		my $email = $user_ref->{email};
+
+		if ((defined $email) and ($email =~ /\@/)) {
+			$emails_ref->{$email} = [$user_id];
+		}
+
+		if (defined $user_ref->{old_email}) {
+			delete $emails_ref->{$user_ref->{old_email}};
+			delete $user_ref->{old_email};
+		}
+
+		store("$data_root/users/users_emails.sto", $emails_ref);
 	}
 
-	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+	$user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 	unless (-e $user_file) {
-		# TODO: Create User.
-		display_error_and_exit('Not yet created', 404);
+		$log->info('User file not found', {user_file => $user_file, user_id => $user_id}) if $log->is_info();
+		display_error_and_exit('Internal error', 500);
 	}
 
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
-	my $user_ref = retrieve($user_file);
+	$user_ref = retrieve($user_file);
 
 	my $user_session = open_user_session(
 		$user_ref,
@@ -174,7 +198,7 @@ sub password_signin ($username, $password) {
 		return;
 	}
 
-	my $user_id = get_user_id_using_token($access_token->{access_token});
+	my ($userinfo, $user_id) = get_user_id_using_token($access_token->{access_token});
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
 	return (
 		$user_id,
@@ -196,7 +220,7 @@ sub get_user_id_using_token ($access_token) {
 	my $verified_email = $userinfo->{'email'};
 	$log->info('userinfo', {userinfo => $userinfo}) if $log->is_info();
 
-	return try_retrieve_userid_from_mail($verified_email);
+	return ($userinfo, try_retrieve_userid_from_mail($verified_email));
 }
 
 sub get_userinfo ($access_token) {
@@ -228,6 +252,11 @@ sub refresh_access_token ($refresh_token) {
 }
 
 sub access_to_protected_resource ($request_ref) {
+	unless ($User_id) {
+		start_authorize($request_ref);
+		return;
+	}
+
 	# TODO: Get access_token, expires_at, refresh_token from session instead
 	my $access_token = $request_ref->{access_token};
 	my $refresh_expires_at = $request_ref->{refresh_expires_at};
