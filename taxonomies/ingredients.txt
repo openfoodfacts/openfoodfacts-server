@@ -4487,6 +4487,9 @@ ciqual_food_name:fr:Yaourt à la grecque, nature
 #ciqual_food_name:en:Yogurt, Greek-style, ewe's milk
 #ciqual_food_name:fr:Yaourt à la grecque, au lait de brebis
 
+<en:dairy
+en:skyr
+xx:skyr
 
 # no products in OFF
 # <en:Whey
@@ -8755,7 +8758,7 @@ de:halloumi
 el:χαλλούμι
 eo:halumo
 es:halloumi
-fi:halloumi
+fi:halloumi, halloumijuusto
 fr:halloumi
 he:חלומי
 id:halloumi
@@ -40444,7 +40447,7 @@ eo:mirtelo
 es:arándano
 et:mustikas, mustikad
 fa:بیل‌بری
-fi:puolukat
+fi:mustikka
 fr:myrtille
 hr:borovnica, borovnice, od borovnica, od borovnice
 hu:áfonya
@@ -44525,7 +44528,7 @@ ar:العنب الكشمشي
 bg:султанина
 ca:panses sultanes
 da:sultana
-de:Sultana, Sultanine, Sultanina
+de:Sultana, Sultanine, Sultanina, Sultaninen
 el:σουλτανίνα
 eo:sultanino
 es:sultanina, sultana, pasas sultanas, uvas pasas sultanas
@@ -53644,7 +53647,7 @@ bg:червена чушка, червени чушки, червена капи
 ca:pebrot vermell, pebrot roig, pebrot vermell dolç, pebrots vermells dolços
 cs:červená paprika
 da:rød peberfrugt, rød peber
-de:rote Paprika, roter Paprika
+de:rote Paprika, roter Paprika, Paprika rot
 el:κόκκινη πιπεριά
 es:pimiento rojo, pimiento morrón rojo, pimiento rojo dulce, pimientos rojos dulces
 et:punane paprika
@@ -55990,7 +55993,7 @@ en:baby lima beans
 <en:legume
 <en:pulse
 en:pinto beans
-de:Pinto Bohnen
+de:Pinto Bohnen, Pintobohnen
 es:frijol pinto
 fr:Haricots pinto
 hr:grah crnobijeli
@@ -56043,7 +56046,7 @@ fr:haricots blancs réhydratés
 en:black bean, black beans
 bg:черен боб
 da:sorte bønner
-de:schwarze Bohnen
+de:schwarze Bohnen, Bohnen schwarz
 es:Alubias negras
 fi:mustapapu, mustapavut
 fr:haricot noir, haricots noirs
@@ -57488,7 +57491,7 @@ fr:lentilles noires
 
 <fr:lentilles noires
 en:Beluga lentils
-de:Beluga Linsen
+de:Beluga Linsen, Belugalinsen
 fr:lentilles noires Beluga, lentilles Béluga
 pl:soczewica czarna, soczewica Beluga
 # 8@2019-06-06
