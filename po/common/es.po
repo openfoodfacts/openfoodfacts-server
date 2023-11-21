@@ -29,7 +29,7 @@ msgstr "Añadir"
 
 msgctxt "add_language"
 msgid "Add language"
-msgstr "Agregar idioma"
+msgstr "Añadir idioma"
 
 msgctxt "add_product"
 msgid "Add a product"
@@ -37,11 +37,11 @@ msgstr "Añadir un producto"
 
 msgctxt "add_user"
 msgid "Register"
-msgstr "Registrarse"
+msgstr "Registro"
 
 msgctxt "add_user_display"
 msgid "Register"
-msgstr "Registrarse"
+msgstr "Registro"
 
 msgctxt "add_user_process"
 msgid "Welcome!"
@@ -49,7 +49,7 @@ msgstr "¡Te damos la bienvenida!"
 
 msgctxt "add_user_result"
 msgid "Thank you for joining us!"
-msgstr "Gracias por unirte!"
+msgstr "¡Gracias por unirte!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
@@ -61,7 +61,7 @@ msgstr "Únete a nosotros en Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr "%s es un proyecto colaborativo al que puedes aportar mucho más que nuevos productos: tu energía, entusiasmo e ideas!"
+msgstr "%s es un proyecto colaborativo al que puedes aportar mucho más que nuevos productos: ¡tu energía, tu entusiasmo y tus ideas!"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
@@ -190,7 +190,7 @@ msgstr "alérgeno"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr "La página del producto también ha sido editada por"
+msgstr "La página de este producto también ha sido editada por"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
@@ -927,11 +927,11 @@ msgstr "Imagen frontal del producto"
 
 msgctxt "image_ingredients"
 msgid "Ingredients picture"
-msgstr "Imagen con los ingredientes del producto"
+msgstr "Imagen de los ingredientes del producto"
 
 msgctxt "image_ingredients_note"
 msgid "If the picture is neat enough, the ingredients can be extracted automatically"
-msgstr "Si la imagen es lo suficientemente nítida, los ingredientes se pueden extraer de forma automática"
+msgstr "Si la imagen es lo suficientemente nítida, los ingredientes se podrán extraer de forma automática."
 
 msgctxt "image_nutrition"
 msgid "Nutrition facts picture"
@@ -1089,7 +1089,7 @@ msgstr "Cereales 85.5% (harina de _trigo_, harina de _trigo_ integral 11%), extr
 
 msgctxt "ingredients_text_note"
 msgid "Keep the order, indicate the % when specified, separate with a comma or - , use ( ) for ingredients of an ingredient, surround allergens with _ e.g. _milk_"
-msgstr "Conservar el orden, indicar el % cuando se especifique, separar por una coma y poner entre paréntesis ( ) los ingredientes que componen otro ingrediente"
+msgstr "Mantén el orden, indica el % cuando se especifique, separa con una coma o usa -, utiliza () para los ingredientes de otro ingrediente, coloca _ al principio y al final de los alérgenos, p. ej., _leche_"
 
 msgctxt "ingredients_that_may_be_from_palm_oil_p"
 msgid "ingredients that may be from palm oil"
@@ -1601,7 +1601,7 @@ msgstr "Montilla, Córdoba (provincia), Andalucía, España"
 
 msgctxt "origins_note_xxx"
 msgid "Indicate the origin of ingredients"
-msgstr "Indicar el origen de los ingredientes"
+msgstr "Indica el origen de los ingredientes"
 
 msgctxt "origins_p"
 msgid "origins of ingredients"
@@ -1809,11 +1809,11 @@ msgstr "Extraer los ingredientes de la imagen"
 
 msgctxt "product_js_extracted_ingredients_nok"
 msgid "Ingredients text could not be extracted. Try with a sharper image, with higher resolution or a better framing of the text."
-msgstr "No se puede extraer el texto de los ingredientes. Prueba con una imagen más nítida, con mayor resolución o con un mejor encuadre del texto."
+msgstr "No se pueden extraer los ingredientes. Prueba con una imagen más nítida, con mayor resolución o con un mejor encuadre del texto."
 
 msgctxt "product_js_extracted_ingredients_ok"
 msgid "Ingredients text has been extracted. Text recognition is not perfect, so please check the text below and correct errors if needed."
-msgstr "Se ha extraído el texto de los ingredientes. El reconocimiento de texto no siempre es perfecto. Por favor, revisa el texto extraído y corrige los errores si es necesario."
+msgstr "Se han extraído los ingredientes. El reconocimiento de texto no siempre es perfecto. Por favor, revisa el texto y, si es necesario, corrige los posibles errores."
 
 msgctxt "product_js_extracting_ingredients"
 msgid "Extracting ingredients"
@@ -1889,7 +1889,7 @@ msgstr "Añadir una imagen"
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients, nutrition facts etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr "→ Con Chrome, Firefox y Safari puedes elegir múltiples imágenes (producto, ingredientes, datos de nutrición, etc.) haciendo click mientras mantienes apretada la tecla Ctrl para añadirlos de golpe."
+msgstr "→ Con Chrome, Firefox y Safari puedes elegir varias imágenes (producto, ingredientes, información nutricional, etc.) y añadirlas todas a la vez haciendo clic sobre ellas mientras mantienes apretada la tecla «Ctrl»."
 
 msgctxt "product_js_uploading_image"
 msgid "Uploading image"
@@ -2073,7 +2073,7 @@ msgstr "contiene"
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
-msgstr "Selecciona los productos con marcas específicas, categorías, etiquetas, orígenes de ingredientes, lugares de fabricación, etc."
+msgstr "Selecciona los productos con marcas específicas, categorías, etiquetas, origen de los ingredientes, lugar de fabricación, etc."
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
@@ -2267,7 +2267,7 @@ msgstr "Palabras a buscar"
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
-msgstr "Busca las palabras presentes en el nombre del producto, la denominación general, las marcas, las categorías, los orígenes y las etiquetas"
+msgstr "Busca las palabras presentes en el nombre del producto, en la denominación genérica, las marcas, las categorías, los orígenes y las etiquetas."
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
@@ -3286,7 +3286,7 @@ msgstr "No"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr "Saltar"
+msgstr "Omitir"
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -4302,7 +4302,7 @@ msgstr "Equipo %s"
 
 msgctxt "contributor_settings"
 msgid "Contributor"
-msgstr "Colaborador"
+msgstr "Colaborador/a"
 
 msgctxt "contributor_settings_description"
 msgid "Those settings allow you to personalize some aspects of the website"
@@ -4457,7 +4457,7 @@ msgstr "Campo recomendado"
 
 msgctxt "recommended_field_note"
 msgid "If this information exists and is relevant for the product, it is recommended to provide it to make the product easier to search for and the product data more useful."
-msgstr "Si esta información existe y es relevante para el producto, se recomienda proporcionarlo para que el producto sea más fácil de buscar y sus datos más útiles."
+msgstr "Si esta información existe y es relevante para el producto, es recomendable proporcionarla para que el producto sea más fácil de buscar y sus datos sean más útiles."
 
 msgctxt "optional_field"
 msgid "Optional field"
@@ -5437,7 +5437,7 @@ msgstr "Algunas actualizaciones informativas del producto aún no se han refleja
 
 msgctxt "org_do_not_import_codeonline"
 msgid "Do not import CodeOnline data."
-msgstr "Por favor no importe códigos de barra encontrados en páginas o buscadores web."
+msgstr "No importes datos de CodeOnline."
 
 msgctxt "overwrite_owner"
 msgid "Overwrite products that have a different owner on the public platform. Otherwise, products with a different owner will be skipped."
