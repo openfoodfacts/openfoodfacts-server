@@ -2065,7 +2065,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 					$grade = lang("unknown");
 				}
 				$display
-					= "<img src=\"/images/attributes/nutriscore-$tagid.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} "
+					= "<img src=\"/images/attributes/dist/nutriscore-$tagid.svg\" alt=\"$Lang{nutrition_grade_fr_alt}{$lc} "
 					. $grade
 					. "\" title=\"$Lang{nutrition_grade_fr_alt}{$lc} "
 					. $grade
@@ -2084,7 +2084,7 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 					$grade = lang("unknown");
 				}
 				$display
-					= "<img src=\"/images/attributes/ecoscore-$tagid.svg\" alt=\"$Lang{ecoscore}{$lc} "
+					= "<img src=\"/images/attributes/dist/ecoscore-$tagid.svg\" alt=\"$Lang{ecoscore}{$lc} "
 					. $grade
 					. "\" title=\"$Lang{ecoscore}{$lc} "
 					. $grade

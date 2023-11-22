@@ -80,7 +80,7 @@ local
 /html/css/dist
 /html/js/dist
 /html/images/icons/dist
-/html/images/attributes/*.svg
+/html/images/attributes/dist
 
 # Don't store helm dependencies in our git repo
 docker/productopener/charts
