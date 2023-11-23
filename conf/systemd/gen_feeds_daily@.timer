@@ -8,4 +8,4 @@ OnCalendar=1:30
 Unit=gen_feeds_daily@%i.service
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=timers.target
