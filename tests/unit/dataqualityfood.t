@@ -442,10 +442,9 @@ $product_ref = {
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
-ok(
-	has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
-	'energy not matching nutrients - polyols'
-) or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
+	'energy not matching nutrients - polyols')
+	or diag explain $product_ref;
 
 # Erythritol is a polyol which does not contribute to energy
 $product_ref = {
@@ -496,10 +495,9 @@ $product_ref = {
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
-ok(
-	has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
-	'energy not matching nutrient but lower than 55 kj'
-) or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
+	'energy not matching nutrient but lower than 55 kj')
+	or diag explain $product_ref;
 
 # Erythritol is a polyol which does not contribute to energy
 $product_ref = {
