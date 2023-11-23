@@ -60,6 +60,7 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::Mail qw/$LOG_EMAIL_START $LOG_EMAIL_END/;
@@ -704,7 +705,6 @@ ref to an array of lines of the email
 
 sub normalize_mail_for_comparison ($mail) {
 	# remove boundaries
-	$DB::single = 1;
 	my $text = mail_to_text($mail);
 	my @boundaries = $text =~ m/boundary=([^ ,\n\t]+)/g;
 	foreach my $boundary (@boundaries) {

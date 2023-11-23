@@ -80,6 +80,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -224,7 +225,7 @@ sub delete_user_task ($job, $args_ref) {
 	my $job_id = $job->{id};
 
 	my $log_message = "delete_user_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
-	open(my $minion_log, ">>", "$data_root/logs/minion.log");
+	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
 	print $minion_log $log_message;
 	close($minion_log);
 
@@ -237,17 +238,17 @@ sub delete_user_task ($job, $args_ref) {
 	$log->info("delete_user", {userid => $userid, new_userid => $new_userid}) if $log->is_info();
 
 	# Remove the user file
-	unlink("$data_root/users/$userid.sto");
+	unlink("$BASE_DIRS{USERS}/$userid.sto");
 
 	# Remove the e-mail
-	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
 	my $email = $args_ref->{email};
 
 	if ((defined $email) and ($email =~ /\@/)) {
 
 		if (defined $emails_ref->{$email}) {
 			delete $emails_ref->{$email};
-			store("$data_root/users/users_emails.sto", $emails_ref);
+			store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 		}
 	}
 
@@ -376,7 +377,7 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 	}
 	if ($is_spam) {
 		# log the ip
-		open(my $log, ">>", "$data_root/logs/user_spam.log");
+		open(my $log, ">>", "$BASE_DIRS{LOGS}/user_spam.log");
 		print $log remote_addr() . "\t" . time() . "\t" . $user_ref->{userid} . "\t" . $user_ref->{name} . "\n";
 		close($log);
 		# bail out, return 200 status code
@@ -390,7 +391,7 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 	if ((defined $email) and ($email ne '') and ($user_ref->{email} ne $email)) {
 
 		# check that the email is not already used
-		my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+		my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
 		if ((defined $emails_ref->{$email}) and ($emails_ref->{$email}[0] ne $user_ref->{userid})) {
 			$log->debug("check_user_form - email already in use",
 				{type => $type, email => $email, existing_userid => $emails_ref->{$email}})
@@ -498,7 +499,7 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 		if (length($user_ref->{userid}) < 2) {
 			push @{$errors_ref}, $Lang{error_no_username}{$lang};
 		}
-		elsif (-e "$data_root/users/$userid.sto") {
+		elsif (-e "$BASE_DIRS{USERS}/$userid.sto") {
 			push @{$errors_ref}, $Lang{error_username_not_available}{$lang};
 		}
 		elsif ($user_ref->{userid} !~ /^[a-z0-9]+[a-z0-9\-]*[a-z0-9]+$/) {
@@ -663,10 +664,10 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 	process_user_requested_org($user_ref);
 
 	# save user
-	store("$data_root/users/$userid.sto", $user_ref);
+	store("$BASE_DIRS{USERS}/$userid.sto", $user_ref);
 
 	# Update email
-	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
 	my $email = $user_ref->{email};
 
 	if ((defined $email) and ($email =~ /\@/)) {
@@ -676,7 +677,7 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 		delete $emails_ref->{$user_ref->{old_email}};
 		delete $user_ref->{old_email};
 	}
-	store("$data_root/users/users_emails.sto", $emails_ref);
+	store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 
 	if ($type eq 'add') {
 
@@ -742,7 +743,7 @@ sub check_edit_owner ($user_ref, $errors_ref) {
 	# If the owner id looks like a GLN, see if we have a corresponding org
 
 	if ($user_ref->{pro_moderator_owner} =~ /^\d+$/) {
-		my $glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
+		my $glns_ref = retrieve("$BASE_DIRS{ORGS}/orgs_glns.sto");
 		not defined $glns_ref and $glns_ref = {};
 		if (defined $glns_ref->{$user_ref->{pro_moderator_owner}}) {
 			$user_ref->{pro_moderator_owner} = $glns_ref->{$user_ref->{pro_moderator_owner}};
@@ -760,7 +761,7 @@ sub check_edit_owner ($user_ref, $errors_ref) {
 		my $userid = $';
 		# Add check that organization exists when we add org profiles
 
-		if (!-e "$data_root/users/$userid.sto") {
+		if (!-e "$BASE_DIRS{USERS}/$userid.sto") {
 			push @{$errors_ref}, sprintf($Lang{error_user_does_not_exist}{$lang}, $userid);
 		}
 		else {
@@ -937,7 +938,7 @@ sub open_user_session ($user_ref, $request_ref) {
 	};
 
 	# Store user data
-	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 	store($user_file, $user_ref);
 
 	$log->debug("session initialized and user info stored") if $log->is_debug();
@@ -948,7 +949,7 @@ sub open_user_session ($user_ref, $request_ref) {
 }
 
 sub retrieve_user ($user_id) {
-	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 	my $user_ref;
 	if (-e $user_file) {
 		$user_ref = retrieve($user_file);
@@ -983,7 +984,7 @@ sub remove_user_by_org_admin ($orgid, $user_id) {
 	my $user_ref = retrieve_user($user_id);
 	delete $user_ref->{org};
 	delete $user_ref->{org_id};
-	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 	store($user_file, $user_ref);
 	return;
 }
@@ -1054,7 +1055,7 @@ sub init_user ($request_ref) {
 
 		if ($user_id =~ /\@/) {
 			$log->info("got email while initializing user", {email => $user_id}) if $log->is_info();
-			my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+			my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
 			if (not defined $emails_ref->{$user_id}) {
 				# not found, try with lower case email
 				$user_id = lc $user_id;
@@ -1080,7 +1081,7 @@ sub init_user ($request_ref) {
 		# If the user exists
 		if (defined $user_id) {
 
-			my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+			my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 
 			if (-e $user_file) {
 				$user_ref = retrieve($user_file);
@@ -1140,7 +1141,7 @@ sub init_user ($request_ref) {
 		}
 
 		if (defined $user_id) {
-			my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+			my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 
 			if (-e $user_file) {
 				$user_ref = retrieve($user_file);
@@ -1315,7 +1316,7 @@ sub check_session ($user_id, $user_session) {
 
 	$log->debug("checking session", {user_id => $user_id, users_session => $user_session}) if $log->is_debug();
 
-	my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 
 	my $results_ref = {};
 

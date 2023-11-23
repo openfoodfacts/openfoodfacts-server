@@ -23,6 +23,7 @@
 use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -69,7 +70,7 @@ if (defined single_param('userid')) {
 
 	# The userid looks like an e-mail
 	if ($admin and ($userid =~ /\@/)) {
-		my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+		my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
 		if (defined $emails_ref->{$userid}) {
 			$userid = $emails_ref->{$userid}[0];
 		}
@@ -87,7 +88,7 @@ my $js = '';
 my $user_ref = {};
 
 if ($type =~ /^edit/) {
-	$user_ref = retrieve("$data_root/users/$userid.sto");
+	$user_ref = retrieve("$BASE_DIRS{USERS}/$userid.sto");
 	if (not defined $user_ref) {
 		display_error_and_exit($Lang{error_invalid_user}{$lang}, 404);
 	}
