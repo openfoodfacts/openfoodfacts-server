@@ -4511,7 +4511,7 @@ my %ignore_params = (
 # Parameters that can be query filters
 # It is safer to use a positive list, instead of just the %ignore_params list
 
-my %valid_params = (code => 1,);
+my %valid_params = (code => 1, creator => 1);
 
 sub add_params_to_query ($request_ref, $query_ref) {
 
@@ -4595,6 +4595,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 						}
 						else {
 							$tagid2 = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag2));
+							# EU packager codes are normalized to have -ec at the end
 							if ($tagtype eq 'emb_codes') {
 								$tagid2 =~ s/-($ec_code_regexp)$/-ec/ie;
 							}
@@ -4625,6 +4626,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 					}
 					else {
 						$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
+						# EU packager codes are normalized to have -ec at the end
 						if ($tagtype eq 'emb_codes') {
 							$tagid =~ s/-($ec_code_regexp)$/-ec/ie;
 						}
@@ -4646,6 +4648,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 							)
 						)
 						and ($tagtype !~ /^pnns_groups_/)
+						and ($tagtype ne "creator")
 						)
 					{
 						if ($not) {
