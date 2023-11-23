@@ -4,7 +4,7 @@
         "environment"
     ],
     "title_element": {
-        "icon_url": "[% static_subdomain %]/images/attributes/ecoscore-unknown.svg",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/ecoscore-unknown.svg",
         "title": "[% lang("attribute_ecoscore_unknown_title") %] - [% lang("attribute_ecoscore_unknown_description_short") %]",
         "type": "grade",
         "grade": "unknown",
