@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -107,7 +108,7 @@ my $notfound = 0;
 					else {
 						$products_collection->replace_one({"_id" => $product_ref->{_id}}, $product_ref, { upsert => 1 });
 					}
-					store("$data_root/products/$path/product.sto", $product_ref);
+					store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
 				}
 			}
 		}

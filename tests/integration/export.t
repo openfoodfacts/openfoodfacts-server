@@ -68,7 +68,7 @@ export_csv($export_args_ref);
 close($exported_csv);
 
 ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, $expected_result_dir,
-	$update_expected_results);
+	$update_expected_results, "csv-export");
 
 # Export more fields
 
@@ -84,6 +84,6 @@ export_csv($export_args_ref);
 close($exported_csv);
 
 ProductOpener::Test::compare_csv_file_to_expected_results($exported_csv_file, "${expected_result_dir}_more_fields",
-	$update_expected_results);
+	$update_expected_results, "csv-export-more-fields");
 
 done_testing();

@@ -30,7 +30,7 @@ CLOUD_VISION_URL = "https://vision.googleapis.com/v1/images:annotate?key={}".for
     API_KEY
 )
 
-BASE_IMAGE_DIR = pathlib.Path("/srv2/off/html/images/products")
+BASE_IMAGE_DIR = pathlib.Path("/srv/off/html/images/products")
 session = requests.Session()
 
 
