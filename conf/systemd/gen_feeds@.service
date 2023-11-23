@@ -5,6 +5,8 @@ OnFailure=email-failures@gen_feeds__%i.service
 
 [Service]
 Type=oneshot
+User=off
+Group=off
 Environment=PERL5LIB=/srv/%i/lib/:/usr/local/share/perl/5.32.1/:/usr/lib/perl5
 # service instance name "%i" is off / obf / opff / opf
 ExecStart=/srv/%i/scripts/gen_feeds_%i.sh
