@@ -7,6 +7,7 @@ OnFailure=email-failures@cloud_vision_ocr__%i.service
 [Service]
 Type=simple
 User=off
+Group=off
 WorkingDirectory=/srv/%i/
 Environment="PERL5LIB=/srv/%i/lib"
 ExecStart=/srv/%i/scripts/run_cloud_vision_ocr.pl /srv/%i/new_images

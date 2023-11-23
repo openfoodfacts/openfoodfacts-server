@@ -4,6 +4,8 @@ Description=Generates %i daily feeds
 OnFailure=email-failures@gen_feeds_daily__%i.service
 
 [Service]
+User=off
+Group=off
 Type=oneshot
 # service instance name "%i" is off / obf / opff / opf
 Environment=PERL5LIB=/srv/%i/lib/:/usr/local/share/perl/5.32.1/:/usr/lib/perl5
