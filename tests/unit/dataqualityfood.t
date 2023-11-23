@@ -399,17 +399,19 @@ ok(
 $product_ref = {
 	categories_tags => ['en:sweet-spreads'],
 	nutriments => {
-		"energy-kj_value" => 5,
-		"carbohydrates_value" => 10,
-		"fat_value" => 20,
-		"proteins_value" => 30,
-		"fiber_value" => 2,
+		"energy-kj_value" => 8,
+		"fat_value" => 0.5,
+		"saturated-fat_value" => 0.1,
+		"carbohydrates_value" => 0.5,
+		"sugars_value" => 0.5,
+		"proteins_value" => 0.5,
+		"salt_value" => 0.01,
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 ok(
 	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
-	'energy not matching nutrients but energy is lower tha 55 kj'
+	'energy not matching nutrients but energy is lower than 55 kj'
 ) or diag explain $product_ref;
 
 # energy matches nutrients
@@ -441,7 +443,7 @@ $product_ref = {
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 ok(
-	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
+	has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
 	'energy not matching nutrients - polyols'
 ) or diag explain $product_ref;
 
@@ -495,7 +497,7 @@ $product_ref = {
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 ok(
-	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
+	has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
 	'energy not matching nutrient but lower than 55 kj'
 ) or diag explain $product_ref;
 

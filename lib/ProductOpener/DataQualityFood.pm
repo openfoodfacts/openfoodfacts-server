@@ -601,8 +601,12 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 				(
 					not((defined $ignore_energy_calculated_error) and ($ignore_energy_calculated_error eq 'yes'))
 					# consider only when energy is high enough to minimize false positives (issue #7789)
-					and (  ($product_ref->{nutriments}{"energy-kj_value"} > 55)
-						or ($product_ref->{nutriments}{"energy-kcal_value"} > 13))
+					# consider either computed_energy or energy input by contributor, to avoid when the energy is 5, but it should be 1500
+					and (
+						(($unit eq "kj") and (($specified_energy > 55) or ($computed_energy > 55)))
+						or (    ($unit eq "kcal")
+							and (($specified_energy > 13) or ($computed_energy > 13)))
+					)
 				)
 				)
 			{
