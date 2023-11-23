@@ -410,6 +410,7 @@ Packager Codes:
 - scripts/test_normalize_packaging_codes.pl
 - scripts/update_emb_codes_in_mongodb.pl
 - packager-codes/**
+- tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ec.json
 
 📦 Packaging:
 - lib/ProductOpener/Packaging.pm
