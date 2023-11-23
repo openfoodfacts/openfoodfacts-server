@@ -349,7 +349,7 @@ ok(has_tag($product_ref, 'data_quality', 'en:sum-of-ingredients-with-specified-p
 # energy does not match nutrients
 $product_ref = {
 	nutriments => {
-		"energy-kj_value" => 56,
+		"energy-kj_value" => 5,
 		"carbohydrates_value" => 10,
 		"fat_value" => 20,
 		"proteins_value" => 30,
@@ -366,7 +366,7 @@ ok(has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-v
 $product_ref = {
 	categories_tags => ['en:squeezed-lemon-juices'],
 	nutriments => {
-		"energy-kj_value" => 550,
+		"energy-kj_value" => 5,
 		"carbohydrates_value" => 10,
 		"fat_value" => 20,
 		"proteins_value" => 30,
