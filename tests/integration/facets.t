@@ -130,6 +130,9 @@ my @products = (
 			categories => "en:apples",
 			labels => "en:organic,en:fair-trade",
 			origins => "en:france",
+			emb_codes =>
+				"FR 85.222.003 CE", # EU traceability code to check we normalize and query the code correctly (CE -> EC)
+			countries => "France",
 		),
 	},
 	{
@@ -259,6 +262,21 @@ my $tests_ref = [
 		test_case => 'contributor_tests',
 		method => 'GET',
 		path => '/contributor/tests.json?fields=product_name',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
+	# EU packager code
+	{
+		test_case => 'packager-code_fr-85-222-003-ce',
+		method => 'GET',
+		path => '/packager-code/fr-85-222-003-ce.json?fields=product_name,emb_codes_tags',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
+	{
+		test_case => 'packager-code_fr-85-222-003-ec',    # not normalized code (ec instead of ce)
+		method => 'GET',
+		path => '/packager-code/fr-85-222-003-ce.json?fields=product_name,emb_codes_tags',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},

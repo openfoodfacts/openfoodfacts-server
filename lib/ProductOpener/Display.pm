@@ -3979,7 +3979,7 @@ HTML
 			if (defined $user_or_org_ref) {
 
 				if ($user_or_org_ref->{name} ne '') {
-					$title = $user_or_org_ref->{name} || $tagid;
+					$title = $user_or_org_ref->{name};
 					$display_tag = $user_or_org_ref->{name};
 				}
 
@@ -4149,7 +4149,7 @@ HTML
 		else {
 			my $field_name = $tag_ref->{tagtype} . "_tags";
 			my $current_value = param($field_name);
-			my $new_value = ($tag_ref->{tag_prefix} || '') . ($tag_ref->{canon_tagid} || $tag_ref->{tagid});
+			my $new_value = ($tag_ref->{tag_prefix} // '') . ($tag_ref->{canon_tagid} // $tag_ref->{tagid});
 			if ($current_value) {
 				$new_value = $current_value . ',' . $new_value;
 			}
@@ -4595,6 +4595,9 @@ sub add_params_to_query ($request_ref, $query_ref) {
 						}
 						else {
 							$tagid2 = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag2));
+							if ($tagtype eq 'emb_codes') {
+								$tagid2 =~ s/-($ec_code_regexp)$/-ec/ie;
+							}
 						}
 						push @tagids, $tagid2;
 					}
@@ -4622,6 +4625,9 @@ sub add_params_to_query ($request_ref, $query_ref) {
 					}
 					else {
 						$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
+						if ($tagtype eq 'emb_codes') {
+							$tagid =~ s/-($ec_code_regexp)$/-ec/ie;
+						}
 					}
 					$log->debug("add_params_to_query - tags param - single value",
 						{field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagid => $tagid})
@@ -7072,8 +7078,8 @@ sub display_page ($request_ref) {
 	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
 	$template_data_ref->{css_timestamp} = $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
 	$template_data_ref->{header} = $header;
-	$template_data_ref->{page_type} = $request_ref->{page_type} || "other";
-	$template_data_ref->{page_format} = $request_ref->{page_format} || "normal";
+	$template_data_ref->{page_type} = $request_ref->{page_type} // "other";
+	$template_data_ref->{page_format} = $request_ref->{page_format} // "normal";
 
 	if ($request_ref->{schema_org_itemtype}) {
 		$template_data_ref->{schema_org_itemtype} = $request_ref->{schema_org_itemtype};
@@ -7251,7 +7257,7 @@ sub display_page ($request_ref) {
 	# Replace urls for texts in links like <a href="/ecoscore"> with a localized name
 	$html =~ s/(href=")(\/[^"]+)/$1 . url_for_text($2)/eg;
 
-	my $status_code = $request_ref->{status_code} || 200;
+	my $status_code = $request_ref->{status_code} // 200;
 
 	my $http_headers_ref = {
 		'-status' => $status_code,
@@ -10503,7 +10509,7 @@ sub display_structured_response ($request_ref) {
 			= "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
 			. $xs->XMLout($request_ref->{structured_response});  # noattr -> force nested elements instead of attributes
 
-		my $status_code = $request_ref->{status_code} || "200";
+		my $status_code = $request_ref->{status_code} // "200";
 		write_cors_headers();
 		print header(
 			-status => $status_code,
@@ -10530,7 +10536,7 @@ sub display_structured_response ($request_ref) {
 			$jsonp = single_param('callback');
 		}
 
-		my $status_code = $request_ref->{status_code} || 200;
+		my $status_code = $request_ref->{status_code} // 200;
 
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;
