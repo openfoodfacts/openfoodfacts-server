@@ -4453,13 +4453,13 @@ my %phrases_after_ingredients_list = (
 
 	da => [
 		'(?:gennemsnitlig )?n(æ|ae)rings(?:indhold|værdi|deklaration)',
-		'tilberedning(?:svejledning)?',
+		'beskyttes', 'nettovægt', 'åbnet',
 		'holdbarhed efter åbning',
-		'mindst holdbar til'
+		'mindst holdbar til',
 		'opbevar(?:ing|res)?',
 		'(?:for )?allergener',
 		'produceret af',
-		'beskyttes', 'nettovægt', 'åbnet',
+		'tilberedning(?:svejledning)?',
 	],
 
 	de => [
@@ -4660,16 +4660,16 @@ my %phrases_after_ingredients_list = (
 	is => ['n(æ|ae)ringargildi', 'geymi(st|ð) á', 'eftir opnum', 'aðferð',],
 
 	it => [
-		'valori nutrizionali',
-		'consigli per la preparazione',
-		'di cui zuccheri',
-		'Valori nutritivi',
 		'Conservare in luogo fresco e asciutto',
+		'consigli per la preparazione',
+		'Da consumarsi',    # best before
+		'di cui zuccheri',
 		'MODALITA D\'USO',
 		'MODALITA DI CONSERVAZIONE',
 		'Preparazione:',
 		'Una volta aperto',    # once opened...
-		'Da consumarsi preferibilmente entro',    # best before
+		'Valori nutritivi',
+		'valori nutrizionali',
 	],
 
 	ja => [
