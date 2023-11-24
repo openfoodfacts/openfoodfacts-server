@@ -727,7 +727,7 @@ msgstr "Ang petsa ng pagkawalang bisa ay isang paraan upang subaybayan ang mga b
 
 msgctxt "explore_products_by"
 msgid "Explore products by..."
-msgstr ""
+msgstr "Maghanap ng produkto ayon sa..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
@@ -752,7 +752,7 @@ msgstr "<<site_name>> blog"
 # Do not translate
 msgctxt "footer_blog_link"
 msgid "https://blog.openfoodfacts.org/en/"
-msgstr ""
+msgstr "https://blog.openfoodfacts.org/en/"
 
 msgctxt "footer_code_of_conduct"
 msgid "Code of conduct"
@@ -859,7 +859,7 @@ msgstr "<<site_name>> wiki (en)"
 # Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -868,7 +868,7 @@ msgstr ""
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "for"
 msgid "for"
@@ -957,7 +957,7 @@ msgstr ""
 
 msgctxt "image_upload_error_could_not_read_image"
 msgid "The image could not be read."
-msgstr ""
+msgstr "Hindi mababasa ang larawan."
 
 msgctxt "image_upload_error_no_barcode_found_in_text"
 msgid "You must enter the characters of the barcode or send a product image when the barcode is visible."
@@ -969,7 +969,7 @@ msgstr "Buong laki"
 
 msgctxt "image_attribution_creativecommons"
 msgid "This file was uploaded to product %s and is licensed under the %s license."
-msgstr ""
+msgstr "Naka-upload ang file na ito sa produktong %s and lisensyado sa lisensyang %s."
 
 msgctxt "image_attribution_photographer"
 msgid "Attribution: Photo by %s per %s"
@@ -981,7 +981,7 @@ msgstr ""
 
 msgctxt "image_original_link_text"
 msgid "(Original Image)"
-msgstr ""
+msgstr "(Larawang Orihinal)"
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
@@ -1102,11 +1102,11 @@ msgstr "Mga produkto na hindi naglalaman ng sangkap %s"
 # Please change appstore_US.svg to appstore_XX.svg. check the url https://static.openfoodfacts.org/images/misc/appstore/black/appstore_XX.svg
 msgctxt "ios_app_icon_url"
 msgid "/images/misc/appstore/black/appstore_US.svg"
-msgstr ""
+msgstr "/images/misc/appstore/black/appstore_PH.svg"
 
 msgctxt "ios_app_icon_alt_text"
 msgid "Download on the App Store"
-msgstr ""
+msgstr "I-download sa App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
@@ -2096,7 +2096,7 @@ msgstr ""
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr ""
+msgstr "Excel o LibreOffice"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
@@ -2983,7 +2983,7 @@ msgstr ""
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
-msgstr ""
+msgstr "Wikipedia"
 
 msgctxt "additives_classes"
 msgid "Functions"
@@ -3067,7 +3067,7 @@ msgstr ""
 
 msgctxt "origin"
 msgid "Origin of the product and/or its ingredients"
-msgstr ""
+msgstr "Pinagmulan ng produkto at/o mga sangkap nito"
 
 msgctxt "origin_note"
 msgid "Packaging mentions that indicate the manufacturing place and/or the origins of the ingredients"
@@ -3075,7 +3075,7 @@ msgstr ""
 
 msgctxt "origin_example"
 msgid "Made in France. Tomatoes from Italy. Origin of the rice: India, Thailand."
-msgstr ""
+msgstr "Ginawa sa Pransiya. Mga kamatis mula sa Italiya. Pinagmulan ng bigas: India, Thailand."
 
 msgctxt "customer_service"
 msgid "Customer service"
@@ -3095,11 +3095,11 @@ msgstr ""
 
 msgctxt "checkers_products"
 msgid "Products checked by %s"
-msgstr ""
+msgstr "Mga produktong sinuri ni %s"
 
 msgctxt "checkers_without_products"
 msgid "Products not checked by %s"
-msgstr ""
+msgstr "Mga produktong hindi sinuri ni %s"
 
 msgctxt "correctors_products"
 msgid "Products corrected by %s"
@@ -3139,7 +3139,7 @@ msgstr ""
 
 msgctxt "user_s_page"
 msgid "%s's page"
-msgstr ""
+msgstr "Pahina ni %s"
 
 msgctxt "obsolete"
 msgid "Product taken off the market"
@@ -3151,11 +3151,11 @@ msgstr ""
 
 msgctxt "obsolete_since_date_note"
 msgid "Format: YYYY-MM-DD or YYYY-MM or YYYY"
-msgstr ""
+msgstr "Format: TTTT-BB-AA o TTTT-BB o TTTT"
 
 msgctxt "obsolete_since_date_example"
 msgid "2019-09-30 or 2019-09 or 2019"
-msgstr ""
+msgstr "2019-09-30 o 2019-09 o 2019"
 
 msgctxt "obsolete_warning"
 msgid "Important note: this product is no longer sold. The data is kept for reference only. This product does not appear in regular searches and is not taken into account for statistics."
@@ -3167,19 +3167,19 @@ msgstr ""
 # Use infinitive instead of imperative
 msgctxt "get_the_app"
 msgid "Get the app"
-msgstr ""
+msgstr "Kunin ang app"
 
 msgctxt "get_the_app_android"
 msgid "Get the Android app"
-msgstr ""
+msgstr "Kunin ang app para sa Android"
 
 msgctxt "get_the_app_iphone"
 msgid "Get the iPhone app"
-msgstr ""
+msgstr "Kunin ang app para sa iPhone"
 
 msgctxt "get_the_app_ipad"
 msgid "Get the iPad app"
-msgstr ""
+msgstr "Kunin ang app para sa iPad"
 
 msgctxt "warning_gs1_company_prefix"
 msgid "<em>Ambiguous barcode</em>: This product has a Restricted Circulation Number barcode for products within a company. This means that different producers and stores can use the same barcode for different products."
@@ -3223,7 +3223,7 @@ msgstr ""
 
 msgctxt "methodology"
 msgid "Methodology"
-msgstr ""
+msgstr "Pamamaraan"
 
 msgctxt "carbon_footprint_note_foodges_ademe"
 msgid "Carbon emissions computations rely on the CO<sub>2</sub> per kg values from the FoodGES program by <a href=\"https://www.ademe.fr\">ADEME</a>."
@@ -3303,7 +3303,7 @@ msgstr "Pagsusuri ng sangkap"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
-msgstr ""
+msgstr "Ang pagsusuri ay batay lamang sa mga nakalistang sangkap at hindi isinasaalang-alang ang mga pamamaraan ng pagproseso."
 
 msgctxt "rev_warning"
 msgid "You are viewing an old version of this product page!"
@@ -3315,19 +3315,19 @@ msgstr ""
 
 msgctxt "rev_contributor"
 msgid "Edited by: "
-msgstr ""
+msgstr "Binago ni: "
 
 msgctxt "rev_previous"
 msgid "Previous version"
-msgstr ""
+msgstr "Nakaraang bersyon"
 
 msgctxt "rev_next"
 msgid "Next version"
-msgstr ""
+msgstr "Susunod na bersyon"
 
 msgctxt "rev_latest"
 msgid "Latest version"
-msgstr ""
+msgstr "Pinakabagong bersyon"
 
 # "product data" in this sentence means data for many products, not just one product
 msgctxt "import_data_file_title"
@@ -3403,7 +3403,7 @@ msgstr ""
 
 msgctxt "fields_group_images"
 msgid "Product photos"
-msgstr ""
+msgstr "Mga larawan ng produkto"
 
 msgctxt "fields_group_packaging"
 msgid "Packaging"
@@ -3502,51 +3502,51 @@ msgstr ""
 
 msgctxt "value_in_l"
 msgid "Value in L"
-msgstr ""
+msgstr "Halaga sa L"
 
 msgctxt "value_in_dl"
 msgid "Value in dl"
-msgstr ""
+msgstr "Halaga sa dl"
 
 msgctxt "value_in_cl"
 msgid "Value in cl"
-msgstr ""
+msgstr "Halaga sa cl"
 
 msgctxt "value_in_ml"
 msgid "Value in ml"
-msgstr ""
+msgstr "Halaga sa ml"
 
 msgctxt "value_in_kg"
 msgid "Value in kg"
-msgstr ""
+msgstr "Halaga sa kg"
 
 msgctxt "value_in_g"
 msgid "Value in g"
-msgstr ""
+msgstr "Halaga sa g"
 
 msgctxt "value_in_mg"
 msgid "Value in mg"
-msgstr ""
+msgstr "Halaga sa mg"
 
 msgctxt "value_in_mcg"
 msgid "Value in μg"
-msgstr ""
+msgstr "Halaga sa μg"
 
 msgctxt "value_in_iu"
 msgid "Value in IU"
-msgstr ""
+msgstr "Halaga sa IU"
 
 msgctxt "value_in_kcal"
 msgid "Value in kcal"
-msgstr ""
+msgstr "Halaga sa kcal"
 
 msgctxt "value_in_kj"
 msgid "Value in kJ"
-msgstr ""
+msgstr "Halaga sa kJ"
 
 msgctxt "value_in_percent"
 msgid "Value in %"
-msgstr ""
+msgstr "Halaga sa %"
 
 msgctxt "no_owner_defined"
 msgid "Please log-in to use this feature."
@@ -3999,12 +3999,12 @@ msgstr ""
 # free as in not costing something
 msgctxt "donate_free_and_independent"
 msgid "Open Food Facts is 100% free and independent."
-msgstr ""
+msgstr "Ang Open Food Facts ay 100% libre at malaya."
 
 # leave empty link
 msgctxt "donate_help_and_donations"
 msgid "<a href=\"\">We need your help and donations</a> to continue and to grow the project."
-msgstr ""
+msgstr "<a href=\"\">Kailangan namin ang iyong tulong at mga donasyon</a> upang magpatuloy at mapalago ang proyekto."
 
 msgctxt "thank_you"
 msgid "Thank you!"
@@ -4144,12 +4144,12 @@ msgstr ""
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
-msgstr ""
+msgstr "user-abc o org-xyz"
 
 # keep %s, it is a variable for the name of the user
 msgctxt "error_user_does_not_exist"
 msgid "User %s does not exist"
-msgstr ""
+msgstr "Hindi umiiral ang gumagamit na %s"
 
 msgctxt "error_malformed_owner"
 msgid "The id must be of the form user-abc or org-xyz"
@@ -4366,7 +4366,7 @@ msgstr ""
 # Either 'ltr' for left to right languages like English or 'rtl' for right to left languages like Arabic
 msgctxt "text_direction"
 msgid "ltr"
-msgstr ""
+msgstr "ltr"
 
 msgctxt "separate_values_with_commas"
 msgid "Separate multiple values with commas."
@@ -4821,7 +4821,7 @@ msgstr ""
 # keep the %s, it will be replaced by an allergen
 msgctxt "without_s"
 msgid "Without %s"
-msgstr ""
+msgstr "Walang %s"
 
 msgctxt "owners_p"
 msgid "owners"
@@ -5756,7 +5756,7 @@ msgstr ""
 
 msgctxt "g_per_100g"
 msgid "%s g / 100 g"
-msgstr ""
+msgstr "%s g / 100 g"
 
 msgctxt "donation_title"
 msgid "Important: we need your support!"
