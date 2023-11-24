@@ -4455,6 +4455,7 @@ my %phrases_after_ingredients_list = (
 		'(?:gennemsnitlig )?n(æ|ae)rings(?:indhold|værdi|deklaration)',
 		'tilberedning(?:svejledning)?',
 		'holdbarhed efter åbning',
+		'mindst holdbar til'
 		'opbevar(?:ing|res)?',
 		'(?:for )?allergener',
 		'produceret af',
