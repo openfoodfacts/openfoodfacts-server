@@ -7290,7 +7290,7 @@ sub display_page ($request_ref) {
 	# TODO: remove when not needed
 	if (request_param($request_ref, 'graph_only')) {
 		$html
-			=~ s/(<body[^>]*>).*?(<script src="http:\/\/static.openfoodfacts.(localhost|org)\/js\/dist\/modernizr.js")/$1\n\n<div id="container" style="height: 400px"><\/div>\n\n$2/s;
+			=~ s/(<body[^>]*>).*?(<script src="http(s?):\/\/static.openfoodfacts.(localhost|org)\/js\/dist\/modernizr.js")/$1\n\n<div id="container" style="height: 400px"><\/div>\n\n$2/s;
 	}
 
 	print header(%$http_headers_ref);
