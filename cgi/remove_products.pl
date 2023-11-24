@@ -28,6 +28,7 @@ binmode(STDERR, ":encoding(UTF-8)");
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -80,21 +81,19 @@ elsif ($action eq "process") {
 	require File::Copy::Recursive;
 	File::Copy::Recursive->import(qw( dirmove ));
 
-	my $deleted_dir = $data_root . "/deleted_private_products/" . $Owner_id . "." . time();
-	(-e $data_root . "/deleted_private_products") or mkdir($data_root . "/deleted_private_products", oct(755));
+	my $deleted_dir = $BASE_DIRS{DELETED_PRIVATE_PRODUCTS} . "/" . $Owner_id . "." . time();
+	ensure_dir_created($BASE_DIRS{PRODUCTS_IMAGES}) or display_error_and_exit("Missing path", 503);
 
 	$log->debug("Moving data to deleted dir", {owner => $Owner_id, deleted_dir => $deleted_dir}) if $log->is_debug();
 
-	mkdir($deleted_dir, oct(755));
-
-	dirmove("$data_root/import_files/$Owner_id", "$deleted_dir/import_files")
-		or print STDERR "Could not move $data_root/import_files/$Owner_id to $deleted_dir/import_files : $!\n";
-	dirmove("$data_root/export_files/$Owner_id", "$deleted_dir/export_files")
-		or print STDERR "Could not move $data_root/export_files/$Owner_id to $deleted_dir/export_files : $!\n";
-	dirmove("$data_root/products/$Owner_id", "$deleted_dir/products")
-		or print STDERR "Could not move $data_root/products/$Owner_id to $deleted_dir/products : $!\n";
-	dirmove("$www_root/images/products/$Owner_id", "$deleted_dir/images")
-		or print STDERR "Could not move $www_root/images/products/$Owner_id to $deleted_dir/images : $!\n";
+	dirmove("$BASE_DIRS{IMPORT_FILES}/$Owner_id", "$deleted_dir/import_files")
+		or print STDERR "Could not move $BASE_DIRS{IMPORT_FILES}/$Owner_id to $deleted_dir/import_files : $!\n";
+	dirmove("$BASE_DIRS{EXPORT_FILES}/$Owner_id", "$deleted_dir/export_files")
+		or print STDERR "Could not move $BASE_DIRS{EXPORT_FILES}/$Owner_id to $deleted_dir/export_files : $!\n";
+	dirmove("$BASE_DIRS{PRODUCTS}/$Owner_id", "$deleted_dir/products")
+		or print STDERR "Could not move $BASE_DIRS{PRODUCTS}/$Owner_id to $deleted_dir/products : $!\n";
+	dirmove("$BASE_DIRS{PRODUCTS_IMAGES}/$Owner_id", "$deleted_dir/images")
+		or print STDERR "Could not move $BASE_DIRS{PRODUCTS_IMAGES}/$Owner_id to $deleted_dir/images : $!\n";
 
 }
 

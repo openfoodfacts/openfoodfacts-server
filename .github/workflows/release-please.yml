@@ -70,6 +70,7 @@ jobs:
           id=$(docker create $image_name)
           docker cp -a $id:/opt/product-opener/html/css/dist/ /tmp/frontend-dist/css/
           docker cp -a $id:/opt/product-opener/html/images/icons/dist/ /tmp/frontend-dist/icons/
+          docker cp -a $id:/opt/product-opener/html/images/attributes/dist/ /tmp/frontend-dist/attributes/
           docker cp -a $id:/opt/product-opener/html/js/dist/ /tmp/frontend-dist/js/
           docker rm -v $id
           # make a tar
