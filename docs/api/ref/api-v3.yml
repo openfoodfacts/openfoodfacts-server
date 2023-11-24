@@ -4,8 +4,8 @@ x-stoplight:
 info:
   title: Open Food Facts Open API V3 - under development
   description: |
-    As a developer, the Open Food Facts API allows you to get information 
-    and contribute to the products database. You can create great apps to 
+    As a developer, the Open Food Facts API allows you to get information
+    and contribute to the products database. You can create great apps to
     help people make better food choices and also provide data to enhance the database.
   termsOfService: 'https://openweathermap.org/terms'
   contact:
@@ -58,12 +58,12 @@ paths:
           in: query
           name: fields
           description: |-
-            Comma separated list of fields requested in the response. 
+            Comma separated list of fields requested in the response.
 
-            Special values: 
+            Special values:
             * "none": returns no fields
             * "raw": returns all fields as stored internally in the database
-            * "all": returns all fields except generated fields that need to be explicitly requested such as "knowledge_panels". 
+            * "all": returns all fields except generated fields that need to be explicitly requested such as "knowledge_panels".
 
             Defaults to "all" for READ requests. The "all" value can also be combined with fields like "attribute_groups" and "knowledge_panels".'
       responses:
@@ -245,6 +245,11 @@ paths:
                       suggestions:
                         type: array
                         description: Array of sorted strings suggestions in the language requested in the "lc" field.
+                        items:
+                          type: string
+                      matched_synonyms:
+                        type: array
+                        description: Array of strings, which are the synonyms the search best matched to, with indices corresponding those in the suggestions field, which are the canonical names.
                         items:
                           type: string
       operationId: get-api-v3-taxonomy_suggestions-taxonomy

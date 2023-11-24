@@ -128,7 +128,7 @@ sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $opti
 			search_lc => $search_lc,
 			string => $string,
 			context_ref => $context_ref,
-			options_ref => $options_ref
+			options_ref => $options_ref #TODO: Ignore get_synonyms option since it doesn't change the list
 		}
 	);
 
@@ -314,21 +314,25 @@ sub match_stringids ($stringid, $fuzzystringid, $synonymid) {
 
 sub best_match ($stringid, $fuzzystringid, $synonyms_ids_ref) {
 
-	my $best_match = "none";
+	my $best_type = "none";
+	my $best_id = 0;
 
 	foreach my $synonymid (@$synonyms_ids_ref) {
 		my $match = match_stringids($stringid, $fuzzystringid, $synonymid);
 		if ($match eq "start") {
 			# Best match, we can return without looking at the other synonyms
-			return "start";
+			$best_type = $match;
+			$best_id = $synonymid;
+			last;
 		}
 		elsif (($match eq "inside")
-			or (($match eq "fuzzy") and ($best_match eq "none")))
+			or (($match eq "fuzzy") and ($best_type eq "none")))
 		{
-			$best_match = $match;
+			$best_type = $match;
+			$best_id = $synonymid;
 		}
 	}
-	return $best_match;
+	return {type => $best_type, id => $best_id};
 }
 
 =head2 filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string, $options_ref)
@@ -365,6 +369,8 @@ sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string
 	my $limit = $options_ref->{limit} || 25;
 	# Set a hard limit of 400
 	$limit = min(int($limit), 400);
+	# Whether or not to get synonyms
+	my $get_synonyms = $options_ref->{get_synonyms} || 0;
 
 	$log->debug(
 		"filter_suggestions_matching_string",
@@ -374,7 +380,8 @@ sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string
 			search_lc => $search_lc,
 			string => $string,
 			options_ref => $options_ref,
-			limit => $limit
+			limit => $limit,
+			get_synonyms => $get_synonyms
 		}
 	) if $log->is_debug();
 
@@ -443,20 +450,21 @@ sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string
 				}
 			) if $log->is_debug();
 
+			my $to_add = {tag => $tag, matched_synonym => $best_match->{id}};
 			# matching at start, best matches
-			if ($best_match eq "start") {
-				push @suggestions, $tag;
+			if ($best_match->{type} eq "start") {
+				push @suggestions, $to_add;
 				# count matches at start so that we can return only if we have enough matches
 				$suggestions_count++;
 				last if $suggestions_count >= $limit;
 			}
 			# matching inside
-			elsif ($best_match eq "inside") {
-				push @suggestions_c, $tag;
+			elsif ($best_match->{type} eq "inside") {
+				push @suggestions_c, $to_add;
 			}
 			# fuzzy match
-			elsif ($best_match eq "fuzzy") {
-				push @suggestions_f, $tag;
+			elsif ($best_match->{type} eq "fuzzy") {
+				push @suggestions_f, $to_add;
 			}
 		}
 	}

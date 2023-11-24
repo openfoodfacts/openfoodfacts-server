@@ -437,7 +437,7 @@ function update_display(imagefield, first_display, protected) {
         // handling the display of unselect button
         if(!protected){
             html += '<div class="button_div" id="unselectbuttondiv_' + imagefield + '"><button id="unselectbutton_' + imagefield + '" class="small button" type="button">' + lang().product_js_unselect_image + '</button></div>';
-        } 
+        }
 
         if (stringStartsWith(imagefield, 'nutrition')) {
             // width big enough to display a copy next to nutrition table?
@@ -565,16 +565,29 @@ function initializeTagifyInput(el) {
 
                 abortController = new AbortController();
 
-                fetch(el.dataset.autocomplete + "&string=" + value, {
+                fetch(el.dataset.autocomplete + "&string=" + value + "&get_synonyms=1", {
                     signal: abortController.signal
                 }).
                 then((RES) => RES.json()).
-                then(function(json) {
-                    input.whitelist = json.suggestions;
+                then(function(json)  {
+                    let synonymMap = Object.create(null);
+                    for (let i in json.suggestions) {
+                        synonymMap[json.matched_synonyms[i]] = json.suggestions[i];
+                    }
+                    input.synonymMap = synonymMap;
+                    input.whitelist = json.matched_synonyms;
                     input.dropdown.show(value); // render the suggestions dropdown
                 });
             }, timeoutWait);
         }
+    });
+
+    input.on("dropdown:show", function(event) {
+        if (!input.synonymMap) return;
+        $(input.DOM.dropdown).find("div.tagify__dropdown__item").each(function(_,e) {
+            let canonicalName = input.synonymMap[e.getAttribute("value")];
+            if (canonicalName) e.innerHTML += " (&rarr; <i>" + canonicalName + "</i>)";
+        });
     });
 
     input.on("add", function(event) {
@@ -726,7 +739,7 @@ function get_recents(tagfield) {
 
                         html += '</li>';
                     });
-                }    
+                }
                 html += '</ul>';
 
                 if (!stringStartsWith(id, 'manage')) {
@@ -748,7 +761,7 @@ function get_recents(tagfield) {
                         '<a href="#" class="close">&times;</a>' +
                         '</div>';
 
- 
+
                         if(typeof data_info === "undefined" || !stringStartsWith(data_info, "protect")){
                             html+= '<div id="imgsearcherror_' + id + '" data-alert class="alert-box alert" style="display:none">' + lang().product_js_image_upload_error +
                             '<a href="#" class="close">&times;</a>' +
@@ -794,7 +807,7 @@ function get_recents(tagfield) {
                     }
                     else{
                         update_display(id, true, true);
-                        
+
                     }
 
 

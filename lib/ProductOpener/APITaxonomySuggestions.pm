@@ -91,7 +91,10 @@ sub taxonomy_suggestions_api ($request_ref) {
 	};
 
 	# Options define how many suggestions should be returned, in which format etc.
-	my $options_ref = {limit => request_param($request_ref, 'limit')};
+	my $options_ref = {
+		limit => request_param($request_ref, 'limit'),
+		get_synonyms => request_param($request_ref, 'get_synonyms')
+	};
 
 	# Validate input parameters
 
@@ -123,8 +126,10 @@ sub taxonomy_suggestions_api ($request_ref) {
 	# Generate suggestions
 	else {
 
-		$response_ref->{suggestions}
-			= [get_taxonomy_suggestions($tagtype, $search_lc, $string, $context_ref, $options_ref)];
+		my @suggestions = get_taxonomy_suggestions($tagtype, $search_lc, $string, $context_ref, $options_ref);
+		$log->debug("taxonomy_suggestions_api", @suggestions) if $log->is_debug();
+		$response_ref->{suggestions} = [map {$_->{tag}} @suggestions];
+		$response_ref->{matched_synonyms} = [map {$_->{matched_synonym}} @suggestions] if $options_ref->{get_synonyms};
 	}
 
 	$log->debug("taxonomy_suggestions_api - stop", {request => $request_ref}) if $log->is_debug();
