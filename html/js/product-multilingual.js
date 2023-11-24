@@ -542,7 +542,8 @@ function initializeTagifyInput(el) {
         autocomplete: true,
         whitelist: get_recents(el.id) || [],
         dropdown: {
-            enabled: 0
+            enabled: 0,
+            maxItems: 100
         }
     });
 
