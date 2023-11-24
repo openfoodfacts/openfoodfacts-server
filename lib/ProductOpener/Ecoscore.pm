@@ -1364,7 +1364,7 @@ sub compute_ecoscore_origins_of_ingredients_adjustment ($product_ref) {
 		}
 	}
 
-	# Check of we have categories with an origins:en property (e.g. French wines -> origins:en:france)
+	# Check if we have categories with an origins:en property (e.g. French wines -> origins:en:france)
 	my @origins_from_categories = ();
 
 	if (defined $product_ref->{categories_tags}) {
