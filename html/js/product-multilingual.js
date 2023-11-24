@@ -550,6 +550,13 @@ function initializeTagifyInput(el) {
     let debounceTimer;
     const timeoutWait = 300;
 
+    function updateSuggestions() {
+        let value = input.state.inputText;
+        let lc = /^\w\w:/.exec(value);
+        let term = lc ? value.substring(lc[0].length) : value;
+        input.dropdown.show(term);
+    }
+
     input.on("input", function(event) {
         const value = event.detail.value;
         input.whitelist = null; // reset the whitelist
@@ -570,16 +577,30 @@ function initializeTagifyInput(el) {
                 }).
                 then((RES) => RES.json()).
                 then(function(json)  {
+                    let lc = /^\w\w:/.exec(value);
+                    let synonyms;
+                    let whitelist;
+                    if (lc) {
+                        synonyms = json.matched_synonyms.map(function(e) {return lc + e;});
+                        whitelist = json.matched_synonyms.map(function(e) {return {"value": lc + e, "searchBy": e}});
+                        for (let i in json.matched_synonyms) {
+                            json.matched_synonyms[i] = lc + json.matched_synonyms[i];
+                        }
+                    } else {
+                        synonyms = json.matched_synonyms;
+                        whitelist = json.matched_synonyms;
+                    }
                     let synonymMap = Object.create(null);
                     for (let i in json.suggestions) {
                         synonymMap[json.matched_synonyms[i]] = json.suggestions[i];
                     }
                     input.synonymMap = synonymMap;
-                    input.whitelist = json.matched_synonyms;
-                    input.dropdown.show(value); // render the suggestions dropdown
+                    input.whitelist = whitelist;
+                    updateSuggestions(); // render the suggestions dropdown
                 });
             }, timeoutWait);
         }
+        updateSuggestions();
     });
 
     input.on("dropdown:show", function(event) {
