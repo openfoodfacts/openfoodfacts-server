@@ -643,7 +643,7 @@ my @tests = (
 			ingredients_text => "wine",
 			categories_tags => ["en:calvados"],
 		},
-	],	
+	],
 
 );
 
