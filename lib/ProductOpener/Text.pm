@@ -1,7 +1,7 @@
-﻿# This file is part of Product Opener.
+# This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -43,13 +43,11 @@ The decimal sign could be a '.' (most languages), or it could be a ',' (de - DEC
 
 package ProductOpener::Text;
 
-use utf8;
-use Modern::Perl '2017';
-use Exporter    qw< import >;
+use ProductOpener::PerlStandards;
+use Exporter qw< import >;
 
-BEGIN
-{
-	use vars       qw(@ISA @EXPORT_OK %EXPORT_TAGS);
+BEGIN {
+	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&normalize_percentages
 
@@ -58,17 +56,18 @@ BEGIN
 
 		&remove_tags
 		&remove_tags_and_quote
-		&remove_tags_except_links
-		&xml_escape		
+		&xml_escape
+		&regexp_escape
+		&remove_email
 
-		);    # symbols to export on request
+	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 
- use vars @EXPORT_OK ;
+use vars @EXPORT_OK;
 
- use CLDR::Number;
- use CLDR::Number::Format::Percent;
+use CLDR::Number;
+use CLDR::Number::Format::Percent;
 
 =head1 FUNCTIONS
 
@@ -87,20 +86,23 @@ If text (scalar variable passed as argument) is not defined or percent sign is n
 
 =cut
 
-sub normalize_percentages($$) {
-
-	my ($text, $locale) = @_;
+sub normalize_percentages ($text, $locale) {
 
 	# Bail out of this function if no known percent sign is found.
 	# This is purely for performance reasons: CLDR functions are
 	# comparatively expensive to run.
-	if ((not (defined $text))
-		or (not ((index($text, "\N{U+0025}") > -1)
-		or (index($text, "\N{U+066A}") > -1)
-		or (index($text, "\N{U+FE6A}") > -1)
-		or (index($text, "\N{U+FF05}") > -1)
-		or (index($text, "\N{U+E0025}") > -1)))) {
-			return $text;
+	if (
+		(not(defined $text))
+		or (
+			not(   (index($text, "\N{U+0025}") > -1)
+				or (index($text, "\N{U+066A}") > -1)
+				or (index($text, "\N{U+FE6A}") > -1)
+				or (index($text, "\N{U+FF05}") > -1)
+				or (index($text, "\N{U+E0025}") > -1))
+		)
+		)
+	{
+		return $text;
 	}
 
 	my $cldr = _get_cldr($locale);
@@ -113,9 +115,8 @@ sub normalize_percentages($$) {
 }
 
 %ProductOpener::Text::cldrs = ();
-sub _get_cldr {
 
-	my ($locale) = @_;
+sub _get_cldr ($locale) {
 
 	if (defined $ProductOpener::Text::cldrs{$locale}) {
 		return $ProductOpener::Text::cldrs{$locale};
@@ -145,9 +146,8 @@ The function returns a scalar variable that is formatted on the basis of locale.
 =cut
 
 %ProductOpener::Text::decimal_formatters = ();
-sub get_decimal_formatter {
 
-	my ($locale) = @_;
+sub get_decimal_formatter ($locale) {
 
 	my $decf = $ProductOpener::Text::decimal_formatters{$locale};
 	if (defined $decf) {
@@ -177,13 +177,12 @@ The function returns a scalar variable of percentage value that is formatted by 
 =cut
 
 %ProductOpener::Text::percent_formatters = ();
-sub get_percent_formatter {
 
-	my ($locale, $maximum_fraction_digits) = @_;
+sub get_percent_formatter ($locale, $maximum_fraction_digits) {
 
 	my $formatters_ref = $ProductOpener::Text::percent_formatters{$locale};
 	my %formatters;
-	if (not (defined $formatters_ref)) {
+	if (not(defined $formatters_ref)) {
 		%formatters = ();
 		$formatters_ref = \%formatters;
 		$ProductOpener::Text::percent_formatters{$locale} = $formatters_ref;
@@ -198,16 +197,15 @@ sub get_percent_formatter {
 	}
 
 	my $cldr = _get_cldr($locale);
-	$perf = $cldr->percent_formatter( maximum_fraction_digits => $maximum_fraction_digits );
+	$perf = $cldr->percent_formatter(maximum_fraction_digits => $maximum_fraction_digits);
 	$formatters{$maximum_fraction_digits} = $perf;
 	return $perf;
 
 }
 
 %ProductOpener::Text::regexes = ();
-sub _get_locale_percent_regex {
 
-	my ($cldr, $perf, $locale) = @_;
+sub _get_locale_percent_regex ($cldr, $perf, $locale) {
 
 	if (defined $ProductOpener::Text::regexes{$locale}) {
 		return $ProductOpener::Text::regexes{$locale};
@@ -223,19 +221,17 @@ sub _get_locale_percent_regex {
 	my $regex;
 	if (index($perf->pattern, $perf->percent_sign) == 0) {
 		$regex = qr/(%\h*[$p$m]?(?:\d{1,3}$g)*\d+(?:($d|\.)\d+)*)/;
-    }
-    else {
-        $regex = qr/([$p$m]?(?:\d{1,3}$g)*\d+(?:($d|\.)\d+)*\h*%)/;
-    }
+	}
+	else {
+		$regex = qr/([$p$m]?(?:\d{1,3}$g)*\d+(?:($d|\.)\d+)*\h*%)/;
+	}
 
 	$ProductOpener::Text::regexes{$locale} = $regex;
 	return $regex;
 
 }
 
-sub _format_percentage($$$) {
-
-	my ($value, $cldr, $perf) = @_;
+sub _format_percentage ($value, $cldr, $perf) {
 
 	# this should escape '.' to '\.' to be used in the regex ...
 	my $g = quotemeta($cldr->group_sign);
@@ -245,14 +241,14 @@ sub _format_percentage($$$) {
 	# 1.1 remove % and group sign
 	$value =~ tr/%//d;
 	# if the last group sign is not followed by 3 digits,
-    # assume it is in fact a decimal sign.
-    # e.g. in French 2,50 is the right form, but 2.50 is very common.
-    if ($value !~ /$g(\d{1,2}|\d{4,10})$/) {
-        $value =~ s/$g//g;
-    }
-    else {
-        $value =~ s/$g/\./;
-    }
+	# assume it is in fact a decimal sign.
+	# e.g. in French 2,50 is the right form, but 2.50 is very common.
+	if ($value !~ /$g(\d{1,2}|\d{4,10})$/) {
+		$value =~ s/$g//g;
+	}
+	else {
+		$value =~ s/$g/\./;
+	}
 	# 1.2 remove nbsp
 	$value =~ tr/[\x{a0}]//d;
 	# 1.3 replace decimal sign with a decimal dot
@@ -264,9 +260,7 @@ sub _format_percentage($$$) {
 
 }
 
-sub remove_tags_and_quote($) {
-
-	my $s = shift;
+sub remove_tags_and_quote ($s) {
 
 	if (not defined $s) {
 		$s = "";
@@ -284,9 +278,7 @@ sub remove_tags_and_quote($) {
 	return $s;
 }
 
-sub xml_escape($) {
-
-	my $s = shift;
+sub xml_escape ($s) {
 
 	# Remove tags
 	$s =~ s/<(([^>]|\n)*)>//g;
@@ -302,9 +294,18 @@ sub xml_escape($) {
 
 }
 
-sub remove_tags($) {
+sub regexp_escape ($s) {
+	$s =~ s/(\*|\+|\?|\(|\)|\[|\]|\{|\}|\$|\^|\\|\/|\@|\%)/\\$1/g;
+	return $s;
+}
 
-	my $s = shift;
+sub remove_email ($s) {
+	# Removes email patterns
+	$s =~ s/\b[\w.-]+@[\w.-]+\.[A-Za-z]{2,}\b//g;
+	return $s;
+}
+
+sub remove_tags ($s) {
 
 	# Remove tags
 	$s =~ s/</&lt;/g;
@@ -312,22 +313,5 @@ sub remove_tags($) {
 
 	return $s;
 }
-
-
-sub remove_tags_except_links($) {
-
-	my $s = shift;
-
-	# Transform links
-	$s =~ s/<a href="?'?([^>"' ]+?)"?'?>([^>]+?)<\/a>/\[a href="$1"\]$2\[\/a\]/isg;
-
-	$s = remove_tags($s);
-
-	# Transform back links
-	$s =~ s/\[a href="?'?([^>"' ]+?)"?'?\]([^\]]+?)\[\/a\]/\<a href="$1">$2<\/a>/isg;
-
-	return $s;
-}
-
 
 1;

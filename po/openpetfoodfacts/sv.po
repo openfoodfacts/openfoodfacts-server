@@ -5,25 +5,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-05-11 19:14\n"
 "Language-Team: Swedish\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: sv-SE\n"
-"X-Crowdin-File: openpetfoodfacts.pot\n"
-"X-Crowdin-File-ID: 1816\n"
-
-#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openfoodfacts-logo-en-178x150.png"
-msgstr "openfoodfacts-logo-en-178x150.png"
-
-#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openfoodfacts-logo-en-356x300.png"
-msgstr "openfoodfacts-logo-en-356x300.png"
+"X-Crowdin-File-ID: 3131\n"
 
 # Do not translate Open Pet Food Facts
 msgctxt "site_name"
@@ -33,7 +21,7 @@ msgstr "Öppna Pet Food Facts"
 # Do not translate Open Pet Food Facts
 msgctxt "tagline"
 msgid "Open Pet Food Facts gathers information and data on pet food products from around the world.<br/> <div class=\"flex-video\"><embed width=\"640\" height=\"480\" src=\"https://world.openpetfoodfacts.org/images/misc/opff-leaderboard.svg\"></embed></div>"
-msgstr ""
+msgstr "Open Pet Food Facts samlar information och data om djurfoderprodukter från hela världen.<br/> <div class=\"flex-video\"><embed width=\"640\" height=\"480\" src=\"https://world.openpetfoodfacts.org/images/misc/opff-leaderboard.svg\"></embed></div>"
 
 #. replace by the right country code, and make sure the url works
 msgctxt "android_app_link"
@@ -50,11 +38,11 @@ msgstr "Pro Plan Vuxen, rik på kyckling"
 
 msgctxt "generic_name_example"
 msgid "Complete pet food for adult cats"
-msgstr ""
+msgstr "Komplett djurfoder för vuxna katter"
 
 msgctxt "categories_example"
 msgid "Dry adult cat food"
-msgstr ""
+msgstr "Torrfoder för vuxna katter"
 
 msgctxt "labels_example"
 msgid "No sugar, No colorings"
@@ -62,7 +50,7 @@ msgstr "Inget socker, inga färgämnen"
 
 msgctxt "ingredients_text_example"
 msgid "Cereals 85.5% (_wheat_ flour, whole-_wheat_ flour 11%), malt extract, ascorbic acid"
-msgstr ""
+msgstr "Spannmål 85,5% (_vetemjöl, _fullkornsvetemjöl 11%), maltextrakt, askorbinsyra"
 
 #. do not translate
 msgctxt "android_apk_app_link"
@@ -74,8 +62,8 @@ msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
-msgstr "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
+msgstr ""
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
 msgctxt "twitter_account"
@@ -88,7 +76,7 @@ msgstr ""
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> är skapad av en ideell förening, oberoende av industrin. Den är gjord för allt, av alla och är finansierad av alla. Du kan stödja vårt arbete genom att <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donera till Open Beauty Facts</a> och genom att <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">använda Lilo-sökmotorn</a>.<br/><b>Tack!</b></p>"
 
 msgctxt "donate"
 msgid "Donate to Open Pet Food Facts"

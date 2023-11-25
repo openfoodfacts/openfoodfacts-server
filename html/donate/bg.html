@@ -9,14 +9,14 @@
 
     <meta property="fb:app_id" content="219331381518041" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Помогни ни да финансираме бюджета Open Food Facts 2022!" />
+    <meta property="og:title" content="Помогни ни да финансираме бюджета на Open Food Facts 2024!" />
     <meta
       property="og:url"
-      content="https://world.openfoodfacts.org/donate-to-openfoodfacts"
+      content="https://world-bg.openfoodfacts.org/donate-to-openfoodfacts"
     />
     <meta
       property="og:image"
-      content="https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-en-356.png"
+      content="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.png"
     />
     <meta
       property="og:description"
@@ -75,6 +75,17 @@
       .reason img {
         height: 100px;
       }
+      p {
+        line-height: 1.3;
+        margin-bottom: 0.8rem;
+      }
+      .wrapper {
+        background-image: url("https://static.openfoodfacts.org/images/misc/2023-donation/background.png");
+        background-size: contain;/**/
+        background-repeat: no-repeat;/**/
+        background-size: 100% 100%;
+        z-index: 0;
+      }
     </style>
     <script src="https://static.openfoodfacts.org/js/dist/jquery.js"></script>
     <script type="text/javascript">
@@ -106,9 +117,10 @@ $('iframe').load(function(){
     </script>
   </head>
   <body>
+    <div class="wrapper">
     <div class="hide-for-large-up text-center">
       <img
-        src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg"
+        src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"
         width="178"
         height="156"
         alt="Open Food Facts лого"
@@ -116,8 +128,8 @@ $('iframe').load(function(){
     </div>
 
     <div class="hide-for-medium hide-for-large-up text-center">
-      <div class="panel callout" style="margin-top:0.5rem">
-        <h3>Помогни ни да финансираме бюджета Open Food Facts 2022!</h3>
+      <div class="panel callout" style="padding-top: 1rem; padding-bottom: 1rem; margin-bottom: 0.4rem;">
+        <h3>Помогни ни да финансираме бюджета за 2024 г. !</h3>
         <p>
           Open Food Facts е 100% безплатен и независим от хранителната индустрия. 
           Нуждаем се от твоята помощ, за да продължим и да развиваме проекта.
@@ -127,11 +139,11 @@ $('iframe').load(function(){
 
     <div
       class="row"
-      style="width: 100%; margin-left: auto; margin-right: auto; max-width: initial; margin-top:20px;"
+      style="width: 100%; margin-left: auto; margin-right: auto; max-width: initial; margin-top:10px;"
     >
       <div class="columns large-2 hide-for-medium hide-for-small text-center">
         <img
-          src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg"
+          src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"
           width="178"
           height="156"
           alt="Open Food Facts лого"
@@ -142,14 +154,15 @@ $('iframe').load(function(){
         class="columns medium-6 large-5 xlarge-6 xxlarge-7 hide-for-small"
       >
 
-        <div class="panel callout" style="margin-top:0.5rem">
-          <h3>Помогни ни да финансираме бюджета Open Food Facts 2022!</h3>
+        <div class="panel callout" style="padding-top: 1rem; padding-bottom: 1rem; margin-bottom: 0.8rem;">
+          <h3>Помогни ни да финансираме бюджета на Open Food Facts 2024!</h3>
           <p>
             Open Food Facts е 100% безплатен и независим от хранителната индустрия. 
             Нуждаем се от твоята помощ, за да продължим и да развиваме проекта.
           </p>
         </div>
 
+        <h3>Защо да дариш на Open Food Facts?</h3>
         <p>
           Open Food Facts е "Уикипедия на храната", най-голямата свободна и отворена
           базата данни на хранителни продукти в света.
@@ -158,69 +171,55 @@ $('iframe').load(function(){
           е публична, свободна и отворена.
         </p>
 
-        <div class="reasons row text-center">
+        <div class="reasons row">
           <div class="reason small-12 large-6 columns">
-            <img src="//static.openfoodfacts.org/images/svg/donate/noun_democracy_1734799_red.svg"
-                 alt="Вдигнати ръце"
-            >
-            <h4>Приоритет</h4>
-            <p>
-              Храната е приоритет за здравето и екологията.
-              Чрез прозрачност и образование Open Food Facts създава добродетелен кръг между потребители и производители.
-            </p>
+            <div class="flex-video">
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/W5pOjx6ycX4" 
+            title="YouTube видео плейър" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+            </div>
           </div>
           <div class="reason small-12 large-6 columns">
-            <img src="//static.openfoodfacts.org/images/svg/donate/noun_venn_diagram_98708_green.svg" 
-                 alt="Интересите, които идват заедно с пресечната точка на регионите"
-            >
-            <h4>Общо благо</h4>
             <p>
-              Нашата база данни се използва от повече от 100 мобилни приложения за мащабни научни изследвания.
+              Когато основахме Open Food Facts, направихме ясния избор да бъдем <strong>изцяло с нестопанска цел</strong> до 
+              <b>да увеличим максимално въздействието си</b> като раздадем цялата си работа. Също така направихме ясния избор, че 
+              ще бъдем напълно <b>независими от индустрията</b>и по този начин никога няма да приемаме никакво финансиране 
+               което би могло да изложи мисията ни на риск.
+            </p>
+            <p>
+              Нуждаем се от твоята помощ, за да продължим да работим и да развиваме Open Food
+          Facts. Моля, обмисли да направиш дарение, за да защитиш и поддържаш Open Food Facts.
+            </p>
+            <p>Благодаря ти,<br/>
+              Anca, Éloïse, Florence, Léonore, Marie, Christian, Ludovic, 
+              Sébastien, Vincent и целият екип на Open Food Facts.
             </p>
           </div>
         </div>
-        <div class="reasons row text-center">
+        <div class="reasons row">
           <div class="reason small-12 large-6 columns">
-            <img src="//static.openfoodfacts.org/images/svg/donate/noun_direction_275435_yellow.svg"
-                 alt="Насочващи пътни знаци"
-            >
-            <h4>Достъпно за всички</h4>
+            <h3>Къде отива твоето дарение</h3>
+
             <p>
-              Пионер в предоставянето на публичен достъп до Nutri-Score
-              а сега и Eco-score и персонализирани резултати,
-              ние правим полезна и качествена информация достъпна за всеки.
+              <strong>Технология:</strong> Разработване, поддръжка, сървъри за да поддържаме растежа на базата данни 
+              и за добавяме на страхотни нови функции към мобилното приложение и уеб сайта Open Food Facts.
+            </p>
+
+            <p>
+              <strong>Хора и проекти:</strong> Да дадем най-добрата си подкрепа на общността Open
+              Food Facts, да работим с изследователи и да направим данните за нашите
+              хранителни продукта да имат най-голямо въздействие върху нашето здраве, нашата планета и общество.
             </p>
           </div>
-          <div class="reason small-12 large-6 columns">
-            <img src="//static.openfoodfacts.org/images/svg/donate/noun_together_hand_4275506_blue.svg"
-                 alt="Съединени ръце"
+          <div class="small-12 large-6 columns">
+            <img src="https://static.openfoodfacts.org/images/misc/group-photo-small.jpg"
+                 alt="Последна среща в Париж"
             >
-            <h4>Съучастие</h4>
-            <p>
-              Open Food Facts се създава съвместно от своите потребители.
-              Той гарантира неговата независимост и неговата устойчивост,
-              и гарантира откритост на данните, софтуера и процесите.
-            </p>
           </div>
         </div>
 
-        <p>
-          When we founded Open Food Facts, we made the clear choice to be
-          totally non-profit to maximize our impact by giving away all our work.
-          We also made the clear choice that we would be totally independent
-          from the industry, and thus to never accept any funding that could put
-          our mission at risk.
-        </p>
-        <p>
-          Нуждаем се от твоята помощ, за да продължим да работим и да развиваме Open Food
-          Facts. Моля, обмисли да направиш дарение, за да защитиш и поддържаш Open
-          Food Facts.
-        </p>
-        <p>Благодаря ти,</p>
-        <p style="font-weight: bold;">
-          Alex, Anca, Florence, Léonore, Marie, Sylvia, Charles, Christian, Ludovic, Pierre,
-          Sébastien, Stéphane, Vincent и целият екип на Open Food Facts
-        </p>
+
       </div>
 
       <div class="columns small-12 medium-6 large-5 xlarge-4 xxlarge-3 text-center">
@@ -244,11 +243,16 @@ $('iframe').load(function(){
             width="100%"
           ></iframe>
 
-          <div class="text-left">
-            <h3>Къде отива твоето дарение</h3>
+          <div class="text-center">
+            <img src="https://static.openfoodfacts.org/images/misc/2023-donation/join-the-food-rev.png"
+                 alt="Присъедини се към хранителната революция!" style="margin-top: -15%; margin-bottom: -20%; width:80%"
+            >
+            <!-- h3>Where your donation goes</h3>
 
             <p>
-              <strong>Технология:</strong> Разработка, поддръжка, сървъри за поддържане на растящата база данни и за добавяне на страхотни нови функции към мобилното приложение и уеб сайта на Open Food Facts.
+              <strong>Technology:</strong> Development, maintenance, servers to keep the
+              database growing and to add cool new features to the Open Food
+              Facts mobile app and web site.
             </p>
 
             <p>
@@ -256,10 +260,12 @@ $('iframe').load(function(){
               Food Facts community, to work with researchers, and to make our
               food products data have the biggest impact on our health, our
               planet, and society.
-            </p>
+            </p -->
           </div>
         </div>
       </div>
     </div>
+  </div>
+
   </body>
 </html>

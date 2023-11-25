@@ -4,12 +4,12 @@
         "health"
     ],
     "title_element": {
-        [% IF product.nova_group > 0 %]
+        [% IF product.nova_group.defined && product.nova_group > 0 %]
             [% SET nova_group = product.nova_group %]
-            "icon_url": "[% static_subdomain %]/images/attributes/nova-group-[% product.nova_group %].svg",
+            "icon_url": "[% static_subdomain %]/images/attributes/dist/nova-group-[% product.nova_group %].svg",
             "title": "[% lang('attribute_nova_' _ nova_group _ '_description_short') %]",
         [% ELSE %]
-            "icon_url": "[% static_subdomain %]/images/attributes/nova-group-unknown.svg",
+            "icon_url": "[% static_subdomain %]/images/attributes/dist/nova-group-unknown.svg",
             "title": "[% lang('attribute_nova_unknown_description_short') %]",       
         [% END %]
     },
@@ -29,7 +29,7 @@
             <p>[% f_lang('f_nova_markers_for_nova_group', { 'nova_group' => panel.nova_group_name }) %][% sep %]:</p>
             <ul>
             [% FOREACH marker IN product.nova_groups_markers.$nova_group %]
-                <li>[% lang(marker.0 _ '_s') FILTER ucfirst %][% sep %]: [% display_taxonomy_tag(marker.0, marker.1) %]</li>
+                <li>[% lang(marker.0 _ '_s') FILTER ucfirst %][% sep %]: [% display_taxonomy_tag_name(marker.0, marker.1) %]</li>
             [% END %]
             </ul>
         [% END %]
@@ -54,6 +54,18 @@
 <p>&rarr; <a href="/nova">[% lang("nova_classification_learn_more") %]</a></p>
 `
             },        
-        },        
+        },
+[% IF product.nova_group_error == 'missing_ingredients' %]
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("action_add_ingredients_image") %]`,
+                "actions": [
+                    "add_ingredients_image"
+                ]
+            }
+        },
+[% END %]
+
     ]
 }

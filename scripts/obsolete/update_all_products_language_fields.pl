@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 # 
 # Product Opener
-# Copyright (C) 2011-2019 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 # 
@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -97,9 +98,9 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 						foreach my $size ($thumb_size, $small_size, $display_size, 'full') {
 							# copy images to new name with language
 							
-							(! -e "$www_root/images/products/$path/${field}_$lc.$rev.$size.jpg") and system("cp -a $www_root/images/products/$path/$field.$rev.$size.jpg $www_root/images/products/$path/${field}_$lc.$rev.$size.jpg");
+							(! -e "$BASE_DIRS{PRODUCTS_IMAGES}/$path/${field}_$lc.$rev.$size.jpg") and system("cp -a $BASE_DIRS{PRODUCTS_IMAGES}/$path/$field.$rev.$size.jpg $BASE_DIRS{PRODUCTS_IMAGES}/$path/${field}_$lc.$rev.$size.jpg");
 						}
-						(-e "$www_root/images/products/$path/$field.$rev.full.json") and (! -e "$www_root/images/products/$path/${field}_$lc.$rev.full.json") and system("cp -a $www_root/images/products/$path/$field.$rev.full.json $www_root/images/products/$path/${field}_$lc.$rev.full.json");
+						(-e "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$field.$rev.full.json") and (! -e "$BASE_DIRS{PRODUCTS_IMAGES}/$path/${field}_$lc.$rev.full.json") and system("cp -a $BASE_DIRS{PRODUCTS_IMAGES}/$path/$field.$rev.full.json $BASE_DIRS{PRODUCTS_IMAGES}/$path/${field}_$lc.$rev.full.json");
 						
 					}
 				}
@@ -111,7 +112,7 @@ my $cursor = $products_collection->query({})->fields({ code => 1 });
 		#$User_id = 'fieldbot';
 		#store_product($product_ref, "allow Unicode characters in normalized values of tag fields");
 
-		store( "$data_root/products/$path/product.sto", $product_ref );
+		store( "$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref );
 		$products_collection->save($product_ref);
 
 	}

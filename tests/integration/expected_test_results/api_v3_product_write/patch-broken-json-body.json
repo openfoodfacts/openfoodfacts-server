@@ -1,0 +1,23 @@
+{
+   "errors" : [
+      {
+         "field" : {
+            "error" : "'null' expected, at character offset 0 (before \"not json\") at /opt/product-opener/lib/ProductOpener/API.pm line 199.\n",
+            "id" : "body",
+            "value" : "not json"
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "invalid_json_in_request_body",
+            "lc_name" : "Invalid JSON in request body",
+            "name" : "Invalid JSON in request body"
+         }
+      }
+   ],
+   "status" : "failure",
+   "warnings" : []
+}

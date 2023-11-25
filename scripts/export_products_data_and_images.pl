@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2021 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -24,6 +24,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Export qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -38,10 +39,8 @@ use Getopt::Long;
 use CGI qw(:cgi :cgi-lib);
 use ProductOpener::Data qw/:all/;
 
-
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
-
 
 my $usage = <<TXT
 export_products_data_and_images.pl exports product data and/or images for a sample of products,
@@ -66,7 +65,7 @@ Usage:
 export_products_data_and_images.pl --query field_name=field_value --query other_field_name=other_field_value
 [--products-file=path to .tar.gz file] [--images-file=path to .tar.gz file]
 TXT
-;
+	;
 
 my %query_fields_values = ();
 my $query_codes_from_file;
@@ -74,15 +73,14 @@ my $products_file;
 my $images_file;
 my $sample_mod;
 
-GetOptions (
+GetOptions(
 	"query=s%" => \%query_fields_values,
 	"query-codes-from-file=s" => \$query_codes_from_file,
 	"images-file=s" => \$images_file,
 	"products-file=s" => \$products_file,
 	"sample-mod=s" => \$sample_mod,
-    
-		)
-  or die("Error in command line arguments:\n\n$usage");
+
+) or die("Error in command line arguments:\n\n$usage");
 
 print STDERR "export_products_data_and_images.pl
 - query fields values:
@@ -109,29 +107,29 @@ foreach my $field (sort keys %{$query_ref}) {
 		$query_ref->{$field} = undef;
 	}
 	if ($query_ref->{$field} eq 'exists') {
-		$query_ref->{$field} = { '$exists' => true };
+		$query_ref->{$field} = {'$exists' => true};
 	}
 }
 
 # transform file of code list to a mongodb query
 if (defined $query_codes_from_file) {
 	my @codes = ();
-	open(my $in, "<", "$query_codes_from_file") or die ("Cannot read $query_codes_from_file: $!\n");
+	open(my $in, "<", "$query_codes_from_file") or die("Cannot read $query_codes_from_file: $!\n");
 	while (<$in>) {
 		if ($_ =~ /^(\d+)/) {
 			push @codes, $1;
 		}
 	}
 	close($in);
-	$query_ref->{"code"} = { '$in' => \@codes };
+	$query_ref->{"code"} = {'$in' => \@codes};
 }
 
 # Sample of products whose creation timestamp modulo a divisor is equal to a remainder
 if (defined $sample_mod) {
 	if ($sample_mod =~ /^(\d+),(\d+)$/) {
-		my $divisor = $1 + 0;	# add 0 to turn scalar into number
+		my $divisor = $1 + 0;    # add 0 to turn scalar into number
 		my $remainder = $2 + 0;
-		$query_ref->{"created_t"} = { '$mod' => [ $divisor, $remainder ] };
+		$query_ref->{"created_t"} = {'$mod' => [$divisor, $remainder]};
 	}
 	else {
 		die("--sample-mod argument must be of the form divisor],remainder (e.g. 10,0):\n\n$usage");
@@ -142,11 +140,9 @@ use Data::Dumper;
 print STDERR "MongoDB query:\n" . Dumper($query_ref) . "\n";
 
 # harvest products'code from mongo db
-my $cursor = get_products_collection(3 * 60 * 60 * 1000)
-		->query($query_ref)
-		->fields({ "code" => 1})
-		->sort({code=>1});
-		
+my $cursor = get_products_collection({timeout => 3 * 60 * 60 * 1000})->query($query_ref)->fields({"code" => 1})
+	->sort({code => 1});
+
 $cursor->immortal(1);
 
 # Create a list of directories to be exported
@@ -155,8 +151,8 @@ my $files = "";
 my $i = 0;
 
 while (my $product_ref = $cursor->next) {
-    $files .= product_path_from_id($product_ref->{code}) . "\n";
-    $i++;
+	$files .= product_path_from_id($product_ref->{code}) . "\n";
+	$i++;
 }
 
 print STDERR "$i products to export.\n";
@@ -165,27 +161,27 @@ print STDERR "$i products to export.\n";
 
 my $tmp_file = "/tmp/export_products_data_and_images." . time() . ".txt";
 
-open (my $out, ">", $tmp_file) or die("Could not open $tmp_file for writing: $!\n");
+open(my $out, ">", $tmp_file) or die("Could not open $tmp_file for writing: $!\n");
 print $out $files;
 close($out);
 
 if (defined $products_file) {
-    my $tar_cmd = "cvf";
-    if ($products_file =~ /\.gz$/) {
-        $tar_cmd = "cvfz";
-    }
-    print STDERR "Executing tar command: tar $tar_cmd $products_file -C $data_root/products -T $tmp_file\n";
-    system('tar', $tar_cmd, $products_file, "-C", "$data_root/products", "-T", $tmp_file);
+	my $tar_cmd = "cvf";
+	if ($products_file =~ /\.gz$/) {
+		$tar_cmd = "cvfz";
+	}
+	print STDERR "Executing tar command: tar $tar_cmd $products_file -C $BASE_DIRS{PRODUCTS} -T $tmp_file\n";
+	system('tar', $tar_cmd, $products_file, "-C", $BASE_DIRS{PRODUCTS}, "-T", $tmp_file);
 }
 
 if (defined $images_file) {
-    my $tar_cmd = "cvf";
-    # Probably not a good idea to compress images, but allow it anyway
-    if ($images_file =~ /\.gz$/) {
-        $tar_cmd = "cvfz";
-    }
-    print STDERR "Executing tar command: tar $tar_cmd $images_file -C $www_root/images/products -T $tmp_file\n";
-    system('tar', $tar_cmd, $images_file, "-C", "$www_root/images/products", "-T", $tmp_file);
+	my $tar_cmd = "cvf";
+	# Probably not a good idea to compress images, but allow it anyway
+	if ($images_file =~ /\.gz$/) {
+		$tar_cmd = "cvfz";
+	}
+	print STDERR "Executing tar command: tar $tar_cmd $images_file -C $BASE_DIRS{PRODUCTS_IMAGES} -T $tmp_file\n";
+	system('tar', $tar_cmd, $images_file, "-C", $BASE_DIRS{PRODUCTS_IMAGES}, "-T", $tmp_file);
 }
 
 print STDERR "$i products exported.\n";

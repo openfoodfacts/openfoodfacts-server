@@ -1,8 +1,21 @@
-name: Pull Requests
+name: Pull Request checks
 
 on:
   pull_request:
-    branches: [ main ]
+    # we can't do that, because status are required
+    # see https://stackoverflow.com/questions/66751567/return-passing-status-on-github-workflow-when-using-paths-ignore
+    # paths-ignore:
+    #   - "**.md"
+    #   - ".github/CODEOWNERS"
+    #   - ".github/PULL_REQUEST_TEMPLATE.md"
+    #   - ".editorconfig"
+  push:
+    branches:
+    - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
 
@@ -21,13 +34,14 @@ jobs:
       run: exit 0
 
   lint:
-    name: NPM lint
+    name: 🕵️‍♀️ NPM lint
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v3
+    - uses: actions/setup-node@v4
       with:
         node-version: '12.x'
     - name: gulp build
@@ -35,28 +49,101 @@ jobs:
     - name: lint
       run: make front_lint
 
-  test:
-    name: Perl unit tests
+  # this will build the docker image and upload as an artifact for following jobs
+  build_backend:
+    name: 🏗 Build backend dev image for tests
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 50
-    - name: check perl
-      run: make check_perl
-    - name: rebuild taxonomies
+    - name: build
+      run: make build_backend
+    - name: push backend image as artifact
+      uses: ishworkh/docker-image-artifact-upload@v1
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: Rebuild taxonomies
       # here we first restore dates from git for taxonomies to avoid build them all
       # see https://stackoverflow.com/a/60984318/2886726
       run: |
         git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
-        make build_taxonomies
-    - name: test
-      run: make tests
-    - name: test make dev
+        make build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
+
+  check_perl:
+    name: 🐪 Check Perl
+    needs: build_backend
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 50
+    - name: Download backend image from artifacts
+      uses: ishworkh/docker-image-artifact-download@v1
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: ensure branch origin/main is fetched
+      run: git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin  main
+    - name: build taxonomies (should use cache)
+      run: make build_taxonomies
+    - name: check perltidy
+      run: make check_perltidy
+    - name: check perlcritic
+      run: make check_critic
+    - name: check perl
+      run: make check_perl
+
+  tests:
+    name: 🐪 Perl unit tests
+    needs: build_backend
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 50
+    - name: Download backend image from artifacts
+      uses: ishworkh/docker-image-artifact-download@v1
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: tests
+      run: |
+        make codecov_prepare
+        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' tests
+    - name: generate coverage results
+      # even if tests failed
+      if: always()
+      run: |
+        make coverage_txt
+        make codecov
+    - uses: codecov/codecov-action@v3
+      if: always()
+      with:
+        files: cover_db/codecov.json
+
+  tests_dev:
+    name: 🧪 Test make dev
+    needs: build_backend  # only to avoid building taxonomies
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 50
+    - name: Download backend image from artifacts
+      uses: ishworkh/docker-image-artifact-download@v1
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: set right UID and GID in .envrc
+      run: |
+        rm -f .envrc
+        echo "export USER_UID=$(id -u)" >> .envrc
+        echo "export USER_GID=$(id -g)" >> .envrc
+    - name: Test make dev
       run: |
         make dev
         make status
-    - name: test all is runing
-      run: make livecheck
+    - name: Test all is running
+      run: make livecheck || ( tail -n 300 logs/apache2/*error*log; docker-compose logs; false )
     - name: test clean
       run: make hdown

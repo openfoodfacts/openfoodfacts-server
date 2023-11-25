@@ -1,19 +1,32 @@
-name: Documentation
+name: 📖 Documentation
 
 on:
+  pull_request:
+    # on pull request we just want to build
+    paths:
+    - "docs/**"
+    - ".github/workflows/generate-doc.yml"
+    - "mkdocs.yml"
   push:
-    branches: ["main"]
+    # on merge to main, build and publish
+    branches: [ "main" ]
 
 jobs:
   documentation:
-    name: Generate documentation
+    name: Documentation
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install Perl requirements
+      # generating project documentation
+      - name: Build documentation with MkDocs
+        run: |
+          scripts/build_mkdocs.sh
+
+      # generating perl documentation
+      - name: 🐪 Install Perl requirements
         run: |
           sudo apt-get update
           sudo apt-get install perl perl-doc cpanminus libmodern-perl-perl
@@ -24,11 +37,53 @@ jobs:
 
       - name: Run generate_perl_html_doc_from_pod.pl
         run: |
-          perl -CS -I lib scripts/generate_perl_html_doc_from_pod.pl
+          rm -rf gh_pages/dev/ref-perl-pod && \
+          mkdir gh_pages/dev/ref-perl-pod && \
+          cp docs/assets/simple.min.css gh_pages/dev/ref-perl-pod && \
+          perl -CS -I lib scripts/generate_perl_html_doc_from_pod.pl gh_pages/dev/ref-perl-pod
 
-      - name: Deploy API documentation to Github Pages
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
+      # DISABLED: in favor of rapidoc
+      # generating OpenAPI documentation with redocly
+      # we do this after mkdocs to overwrite api.html file
+      # - name: Generate openapi html with ghcr.io/redocly/redoc/cli:latest
+      #   run : |
+      #     docker run --rm \
+      #       -v $(pwd)/docs/api/ref:/data -v $(pwd)/gh_pages/:/output \
+      #       ghcr.io/redocly/redoc/cli:latest \
+      #       build -o /output/api/ref-v2/index.html api.yml && \
+      #     sudo chown $UID -R gh_pages
+
+      # - name: Generate openapi html for v3 with ghcr.io/redocly/redoc/cli:latest
+      #   run : |
+      #     docker run --rm \
+      #       -v $(pwd)/docs/api/ref:/data -v $(pwd)/gh_pages/:/output \
+      #       ghcr.io/redocly/redoc/cli:latest \
+      #       build -o /output/api/ref-v3/index.html api-v3.yml && \
+      #     sudo chown $UID -R gh_pages
+
+      - name: Validate OpenAPI
+        run: |
+          make check_openapi
+
+      # generate OpenAPI documentation with rapidoc
+      # we do this after mkdocs to overwrite api.html file
+      - name: Generate OpenAPI doc using rapidoc
+        # this is a simple copy of the html file as all is static there
+        run : |
+          # v2 api
+          cp docs/assets/api-rapidoc.html gh_pages/api/ref-v2/index.html
+          # v3 api - change yaml and link to api-v3
+          cat docs/assets/api-rapidoc.html | \
+            sed -e "s/api.yml/api-v3.yml/" -e 's|ref-v3/">API v3|ref-v2/">API v2|' \
+            > gh_pages/api/ref-v3/index.html
+
+
+      - name: Deploy API documentation to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.4.3
+        # we only deploy on push to main
+        if: |
+          github.event_name == 'push' && github.event.ref == 'refs/heads/main'
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: "gh-pages"
-          folder: html/files/doc/perl
+          folder: gh_pages

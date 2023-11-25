@@ -1,0 +1,122 @@
+# Default server configuration - nginx_status
+#
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	server_name _;
+
+	# nginx_status configuration, need for Munin
+	location /nginx_status {
+			stub_status on;
+			access_log   off;
+			allow all;
+	}
+}
+
+server {
+
+	listen 80;
+	listen [::]:80;
+
+	# Product Opener needs a root domain + a wildcard for all subdomains
+	server_name *.pro.openfoodfacts.org;
+
+	root /srv/off-pro/html;
+
+	# Huge files can be uploaded to the Producers platform
+	client_max_body_size 400M;
+	client_body_timeout 1200s;
+	client_header_timeout 1200s;
+
+	proxy_connect_timeout       1200;
+	proxy_send_timeout          1200;
+	proxy_read_timeout          1200;
+	send_timeout                1200;
+
+	# logs location
+	access_log /var/log/nginx/off-access.log proxied_requests;
+	error_log /var/log/nginx/off-error.log;
+
+	gzip on;
+	gzip_min_length 1000;
+	gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript text/csv;
+
+	index index.html index.htm index.nginx-debian.html;
+
+	location /data/ {
+        include snippets/off.cors-headers.include;
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+	}
+
+	include /etc/nginx/snippets/expires-no-json-xml.conf; # 2018-06-18 Moved to the end because of CORS issue with top_translators.csv
+
+	location ~ ^/images/products/ {
+		include snippets/off.cors-headers.include;
+		add_header Link "<http://creativecommons.org/licenses/by-sa/3.0/>; rel='license'; title='CC-BY-SA 3.0'";
+		# optimize gzip compressed content (like OCR .json stored next to .jpg files)
+		gzip_static always;
+		gunzip on;
+	}
+
+	location ~ ^/(favicon.ico) {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+	}
+
+	# Static files are served directly by NGINX
+	location ~ ^/(.well-known|files)/ {
+		include snippets/off.cors-headers.include;
+		# First attempt to serve request from resource, then as file,
+		# then as directory, then fall back to displaying a 404.
+		try_files resources/$uri $uri $uri/ =404;
+		gzip_static always;
+		gunzip on;
+	}
+	location ~ ^/(images|fonts|css|js|rss|foundation|bower_components)/ {
+		include snippets/off.cors-headers.include;
+		# First attempt to serve as file,
+		# then as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+		gzip_static always;
+		gunzip on;
+	}
+
+	# Dynamically generated files and CGI scripts are passed
+	# to the Apache + mod_perl server running on a different
+	# port than port 80 (e.g. 8705)
+
+	location / {
+		proxy_set_header Host $host;
+		# recursive hosts as we are proxying behind a proxy
+		set_real_ip_from 10.0.0.0/8;
+		real_ip_recursive on;
+
+		proxy_pass http://127.0.0.1:8014/cgi/display.pl?;
+	}
+
+	location /cgi/ {
+		proxy_set_header Host $host;
+		# recursive hosts as we are proxying behind a proxy
+		set_real_ip_from 10.0.0.0/8;
+		real_ip_recursive on;
+
+		proxy_pass http://127.0.0.1:8014;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

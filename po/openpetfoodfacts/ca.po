@@ -5,25 +5,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Project-Id-Version: openfoodfacts\n"
-"PO-Revision-Date: 2022-05-11 19:06\n"
 "Language-Team: Catalan\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: openfoodfacts\n"
 "X-Crowdin-Project-ID: 243092\n"
 "X-Crowdin-Language: ca\n"
-"X-Crowdin-File: openpetfoodfacts.pot\n"
-"X-Crowdin-File-ID: 1816\n"
-
-#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
-msgctxt "logo"
-msgid "openfoodfacts-logo-en-178x150.png"
-msgstr "openfoodfacts-logo-ca-178x150.png"
-
-#. make sure the logo exists for your language, otherwise ask @teolemon how to create a translated logo
-msgctxt "logo2x"
-msgid "openfoodfacts-logo-en-356x300.png"
-msgstr "openfoodfacts-logo-ca-356x300.png"
+"X-Crowdin-File-ID: 3131\n"
 
 # Do not translate Open Pet Food Facts
 msgctxt "site_name"
@@ -71,10 +59,10 @@ msgstr "https://world.openfoodfacts.org/images/apps/off.apk"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-beauty-facts/id1122926380"
-msgstr ""
+msgstr "https://apps.apple.com/app/open-beauty-facts/id1122926380"
 
 msgctxt "windows_phone_app_link"
-msgid "https://www.microsoft.com/p/openfoodfacts/9nblggh0dkqr"
+msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 msgstr ""
 
 #. make sure the Twitter account exists for your country. Otherwise, ask @stephane to create it
@@ -84,27 +72,27 @@ msgstr "OpenFoodFacts"
 
 msgctxt "warning_not_complete"
 msgid "This product page is not complete. You can help to complete it by editing it and adding more data from the photos we have, or by taking more photos using the app for <a href=\"https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner\">Android</a> or <a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\">iPhone/iPad</a>. Thank you!"
-msgstr ""
+msgstr "Aquesta pàgina del producte no està completa. Pots ajudar a completar-la editant-la i afegint més dades des de les fotos que tenim, o fent més fotos amb l'aplicació per a Android<a href=\"https://play.google.com/store/apps/details?id=org.openpetfoodfacts.scanner\"></a> o per iPhone/iPad<a href=\"https://apps.apple.com/us/app/open-beauty-facts/id1122926380\"></a>. Gràcies!"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donating to Open Beauty Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Beauty Facts\" /></a><p><<site_name>> està fet per una associació sense ànim de lucre, independent de la indústria. Està fet col·lectivament i per a tothom. Podeu donar-nos suport a <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts\">donant a Open Beauty Facts</a> i també fent <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">amb el motor de cerca Lilo</a>.<br/><b>Gràcies!</b></p>"
 
 msgctxt "donate"
 msgid "Donate to Open Pet Food Facts"
-msgstr ""
+msgstr "Feu un donatiu a Open Pet Food Facts"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenPetFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenPetFoodFacts"
 
 msgctxt "emb_codes_example"
 msgid "EMB 53062"
-msgstr ""
+msgstr "EMB 53062"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on pet food products from around the world"
-msgstr ""
+msgstr "Una base de dades col·laborativa, gratuïta i oberta d'ingredients, dades nutricionals i informació sobre productes alimentaris per a mascotes d'arreu del món"
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">Facebook group for contributors</a>"
@@ -112,7 +100,7 @@ msgstr "i el <a href=\"https://www.facebook.com/groups/OpenFoodFacts/\">grup de 
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of pet food products from around the world."
-msgstr ""
+msgstr "Una base de dades col·laborativa, gratuïta i oberta de productes alimentaris per a mascotes arreu del món."
 
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
@@ -120,23 +108,23 @@ msgstr "https://es-ca.openfoodfacts.org/faq"
 
 msgctxt "og_image_url"
 msgid "https://world.openpetfoodfacts.org/images/misc/openpetfoodfacts-logo-en.png"
-msgstr ""
+msgstr "https://world.openpetfoodfacts.org/images/misc/openpetfoodfacts-logo-en.png"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-beauty-hunt\">Open Pet Food Hunt</a> on <<site_name>> from Saturday February 21st to Sunday March 1st! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr ""
+msgstr "És <a href=\"/open-beauty-hunt\">temporada de caça oberta d'aliments per mascotes</a> del <<site_name>> dissabte 21 de febrer al diumenge 1 de març! Els col·laboradors reben punts d'Explorador pels productes que afegeixen i punts d'Ambaixador per als nous col·laboradors que reclutin. Els punts s'actualitzen cada 30 minuts."
 
 msgctxt "product_js_upload_image_note"
 msgid "→ With Chrome, Firefox and Safari, you can select multiple pictures (product, ingredients etc.) by clicking them while holding the Ctrl key pressed to add them all in one shot."
-msgstr ""
+msgstr "→ Amb Chrome, Firefox i Safari, podeu seleccionar múltiples imatges (productes, ingredients, etc.) fent-hi clic mentre manteniu premuda la tecla Ctrl per afegir-les totes d'una sola vegada."
 
 msgctxt "search_description_opensearch"
 msgid "Open Pet Food Facts product search"
-msgstr ""
+msgstr "Cerca de productes d'Open Pet Food Facts"
 
 #. make sure the text file exists for your language, otherwise ask @teolemon 
 msgctxt "get_the_app_link"
 msgid "/open-pet-food-facts-mobile-app"
-msgstr ""
+msgstr "/open-pet-food-facts-mobile-app"
 

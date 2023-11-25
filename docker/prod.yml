@@ -27,20 +27,26 @@ services:
 volumes:
   html_data:
     external: true
+    name: ${COMPOSE_PROJECT_NAME}_html_data
   users:
     external: true
+    name: ${COMPOSE_PROJECT_NAME}_users
   products:
     external: true
+    name: ${COMPOSE_PROJECT_NAME}_products
   orgs:
     external: true
+    name: ${COMPOSE_PROJECT_NAME}_orgs
   product_images:
     external: true
+    name: ${COMPOSE_PROJECT_NAME}_product_images
   podata:
     external: true
+    name: ${COMPOSE_PROJECT_NAME}_podata
+  export_files:
+    name: ${COMPOSE_PROJECT_NAME}_export_files
 
 networks:
   webnet:
-    driver: bridge
-    ipam:
-      config:
-      - subnet: 172.30.0.0/16
+    external: true
+    name: ${COMPOSE_PROJECT_NAME}_webnet

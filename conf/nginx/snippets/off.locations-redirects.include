@@ -1,0 +1,177 @@
+# Redirects for Open Food Facts
+
+# Donations
+# 100 % translated: fr, bg, ca, zh, cs, da, nl, de, he, id, it, lt, pl, pt, ro, ru, es, tr, uk, vi
+# EN
+location = /donate-to-open-food-facts {
+	try_files /donate/en.html =404;
+}
+
+#FR
+location = /faire-un-don-a-open-food-facts {
+	try_files /donate/fr.helloasso.html =404;
+}
+
+location = /donner-a-open-food-facts {
+        try_files /donate/fr.helloasso.html =404;
+}
+
+# BG: даряване-на-openfoodfacts
+location = /даряване-на-openfoodfacts {
+	try_files /donate/bg.html =404;
+}
+
+# CA: dona a openfoodfacts
+location = /dona-a-openfoodfacts {
+	try_files /donate/ca.html =404;
+}
+
+# CS
+location = /darujte-openfoodfacts {
+	try_files /donate/cs.html =404;
+}
+
+# DA
+location = /doner-til-open-food-facts {
+	try_files /donate/da.html =404;
+}
+
+# DE
+location = /spenden {
+	try_files /donate/de.html =404;
+}
+
+# EL: δωρεά σε openfoodfacts doreá se openfoodfacts - Partial translation
+location = /dorea-se-openfoodfacts {
+	try_files /donate/el.html =404;
+}
+
+# ES
+location = /dar-a-open-food-facts {
+	try_files /donate/es.html =404;
+}
+location = /haz-su-donacion-a-open-food-facts {
+	try_files /donate/es.html =404;
+}
+
+# EE: anneta-to-openfoodfacts
+
+# FI
+location = /lahjoita-open-food-factsille {
+	try_files /donate/fi.html =404;
+}
+
+#HE
+location = /donate-to-open-food-facts-he {
+	try_files /donate/he.html =404;
+}
+
+## ID
+location = /donate-to-open-food-facts-id {
+	try_files /donate/id.html =404;
+}
+
+## IT
+location = /dona-a-open-food-facts {
+	try_files /donate/it.html =404;
+}
+
+## LT
+location = /donate-to-open-food-facts-lt {
+	try_files /donate/lt.html =404;
+}
+
+# KO
+location = /donate-to-open-food-facts-ko {
+	try_files /donate/ko.html =404;
+}
+
+# NL
+location = /doneren-aan-openfoodfacts {
+	try_files /donate/nl.html =404;
+}
+
+# PL: Przekaż darowiznę na openfoodfacts
+location = /pozhertvovat-open-food-facts {
+	try_files /donate/ru.html =404;
+}
+
+# PT
+location = /fazer-um-donativo-ao-open-food-facts {
+	try_files /donate/pt.html =404;
+}
+
+# RO
+location = /donate-to-open-food-facts-ro {
+	try_files /donate/ro.html =404;
+}
+
+# RU
+location = /donate-to-open-food-facts-ru {
+	try_files /donate/ru.html =404;
+}
+
+# SL
+location = /doniraj-k-open-food-facts {
+	try_files /donate/sl.html =404;
+}
+
+# TR
+location = /open-food-factse-bagista-bulununs {
+	try_files /donate/tr.html =404;
+}
+
+# UK
+location = /donate-to-open-food-facts-ua {
+	try_files /donate/uk.html =404;
+}
+
+# VI
+location = /donate-to-open-food-facts-vi {
+	try_files /donate/vi.html =404;
+}
+
+
+# zh-cn: 捐赠给openfoodfacts Juānzèng gěi openfoodfacts
+
+
+location = /hunger-game {
+	return 301 https://hunger.openfoodfacts.org;
+}
+
+location = /ecoscore {
+	if ( $host ~ "^fr\..*" ) {
+	        return 301 https://$host/eco-score-l-impact-environnemental-des-produits-alimentaires;
+	}
+	return 301 https://$host/eco-score-the-environmental-impact-of-food-products;
+}
+
+# 2022-06-13 Redirect press pages to blog post about the new Flutter app
+# FR
+location = /presse {
+	return 302 https://blog.openfoodfacts.org/fr/communique-de-presse-nouvelle-appli;
+}
+
+# EN
+location = /press {
+	return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
+}
+
+# ES
+location = /prensa {
+	    return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
+}
+
+# IT
+location = /stampa {
+	    return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
+}
+
+# EN
+location = /press-and-blogs {
+	return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
+}
+
+location = /pers {
+	return 302 https://blog.openfoodfacts.org/en/press-release-new-mobile-app;
+}

@@ -1,0 +1,1307 @@
+{
+   "code" : "4260392550101",
+   "errors" : [],
+   "product" : {
+      "knowledge_panels" : {
+         "carbon_footprint" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                    <p>The carbon emission figure comes from ADEME's Agribalyse database, for the category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/24000\">Biscuit (cookie)</a>\n                    (Source: ADEME Agribalyse Database)\n                    </p>\n                    ",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Stage",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Impact",
+                           "type" : "percent"
+                        }
+                     ],
+                     "id" : "ecoscore_carbon_impact_by_stages_table",
+                     "rows" : [
+                        {
+                           "id" : "agriculture",
+                           "values" : [
+                              {
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/agriculture.svg",
+                                 "text" : "Agriculture"
+                              },
+                              {
+                                 "percent" : 82.8671225055525,
+                                 "text" : "82.9 %"
+                              }
+                           ]
+                        },
+                        {
+                           "id" : "processing",
+                           "values" : [
+                              {
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/processing.svg",
+                                 "text" : "Processing"
+                              },
+                              {
+                                 "percent" : 7.93602570199329,
+                                 "text" : "7.9 %"
+                              }
+                           ]
+                        },
+                        {
+                           "id" : "packaging",
+                           "values" : [
+                              {
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
+                                 "text" : "Packaging"
+                              },
+                              {
+                                 "percent" : 3.820792696782,
+                                 "text" : "3.8 %"
+                              }
+                           ]
+                        },
+                        {
+                           "id" : "transportation",
+                           "values" : [
+                              {
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/transportation.svg",
+                                 "text" : "Transportation"
+                              },
+                              {
+                                 "percent" : 4.69858334882637,
+                                 "text" : "4.7 %"
+                              }
+                           ]
+                        },
+                        {
+                           "id" : "distribution",
+                           "values" : [
+                              {
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/distribution.svg",
+                                 "text" : "Distribution"
+                              },
+                              {
+                                 "percent" : 0.677475746845858,
+                                 "text" : "0.7 %"
+                              }
+                           ]
+                        },
+                        {
+                           "id" : "consumption",
+                           "values" : [
+                              {
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/consumption.svg",
+                                 "text" : "Consumption"
+                              },
+                              {
+                                 "percent" : 0,
+                                 "text" : "0.0 %"
+                              }
+                           ]
+                        }
+                     ],
+                     "table_type" : "percents",
+                     "title" : "Details of the impacts by stages of the life cycle"
+                  }
+               }
+            ],
+            "evaluation" : "good",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/car.svg",
+               "subtitle" : "288 g CO² per 100g of product",
+               "title" : "Equal to driving 1.5 km in a petrol car"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "ecoscore" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "Select a country in order to include the full impact of transportation.",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "The <a href=\"http://world.openfoodfacts.localhost/ecoscore\">Eco-Score</a> is an experimental score that summarizes the environmental impacts of food products."
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                    \n                        The Eco-Score was initially developped for France and it is being extended to other European countries. The Eco-Score formula is subject to change as it is regularly improved to make it more precise and better suited to each country.\n                                    \n                ",
+                     "type" : "note"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "ecoscore_agribalyse"
+                     ],
+                     "title" : "Life cycle analysis"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "ecoscore_origins_of_ingredients",
+                        "ecoscore_threatened_species",
+                        "ecoscore_packaging"
+                     ],
+                     "title" : "Bonuses and maluses"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "ecoscore_total"
+                     ],
+                     "title" : "Eco-Score for this product"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/eco-score-the-environmental-impact-of-food-products\">Learn more about the Eco-Score</a></p>\n"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "c",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+               "title" : "Eco-Score C - Moderate environmental impact",
+               "type" : "grade"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "ecoscore_agribalyse" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                    <p>Category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/24000\">Biscuit (cookie)</a>\n                    </p>\n                    <ul>\n                        <li>\n                            PEF environmental score: 0.35\n                            (the lower the score, the lower the impact)\n                        </li>\n                        <li>\n                            including impact on climate change: 2.88\n                            kg CO2 eq/kg of product\n                        </li>\n                    </ul>\n                    ",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Stage",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Impact",
+                           "type" : "percent"
+                        }
+                     ],
+                     "id" : "ecoscore_lca_impacts_by_stages_table",
+                     "rows" : [
+                        {
+                           "id" : "agriculture",
+                           "values" : [
+                              {
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/agriculture.svg",
+                                 "text" : "Agriculture"
+                              },
+                              {
+                                 "percent" : 80.5058640542941,
+                                 "text" : "80.5 %"
+                              }
+                           ]
+                        },
+                        {
+                           "id" : "processing",
+                           "values" : [
+                              {
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/processing.svg",
+                                 "text" : "Processing"
+                              },
+                              {
+                                 "percent" : 11.8463286685106,
+                                 "text" : "11.8 %"
+                              }
+                           ]
+                        },
+                        {
+                           "id" : "packaging",
+                           "values" : [
+                              {
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
+                                 "text" : "Packaging"
+                              },
+                              {
+                                 "percent" : 3.1173493176578,
+                                 "text" : "3.1 %"
+                              }
+                           ]
+                        },
+                        {
+                           "id" : "transportation",
+                           "values" : [
+                              {
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/transportation.svg",
+                                 "text" : "Transportation"
+                              },
+                              {
+                                 "percent" : 3.15743624198514,
+                                 "text" : "3.2 %"
+                              }
+                           ]
+                        },
+                        {
+                           "id" : "distribution",
+                           "values" : [
+                              {
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/distribution.svg",
+                                 "text" : "Distribution"
+                              },
+                              {
+                                 "percent" : 1.37302171755234,
+                                 "text" : "1.4 %"
+                              }
+                           ]
+                        },
+                        {
+                           "id" : "consumption",
+                           "values" : [
+                              {
+                                 "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/consumption.svg",
+                                 "text" : "Consumption"
+                              },
+                              {
+                                 "percent" : 0,
+                                 "text" : "0.0 %"
+                              }
+                           ]
+                        }
+                     ],
+                     "table_type" : "percents",
+                     "title" : "Details of the impacts by stages of the life cycle"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "b",
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/lca.svg",
+               "subtitle" : "Category: Biscuit (cookie)",
+               "title" : "Average impact of products of the same category: B (Score: 69/100)",
+               "type" : "grade"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "ecoscore_origins_of_ingredients" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                The origins of the ingredients of this product are not indicated.<br><br>\n                If they are indicated on the packaging, you can modify the product sheet and add them.<br><br>\n                If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>.\n                    ",
+                     "type" : "warning"
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
+               "subtitle" : "Malus: -5",
+               "title" : "Missing origins of ingredients information"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "ecoscore_packaging" : {
+            "elements" : [
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Shape",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Material",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Recycling",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Impact",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "ecoscore_packaging_components",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "text" : "1 Box"
+                              },
+                              {
+                                 "text" : "Wood"
+                              },
+                              {
+                                 "evaluation" : "good",
+                                 "text" : "Recycle"
+                              },
+                              {
+                                 "evaluation" : "neutral",
+                                 "text" : "Medium"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "6 Bottle"
+                              },
+                              {
+                                 "text" : "Glass"
+                              },
+                              {
+                                 "text" : "Reuse"
+                              },
+                              {
+                                 "evaluation" : "good",
+                                 "text" : "Low"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "3 Lid"
+                              },
+                              {
+                                 "text" : "Steel"
+                              },
+                              {
+                                 "evaluation" : "good",
+                                 "text" : "Recycle"
+                              },
+                              {
+                                 "evaluation" : "good",
+                                 "text" : "Low"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "1 Film"
+                              },
+                              {
+                                 "text" : "Plastic"
+                              },
+                              {
+                                 "evaluation" : "bad",
+                                 "text" : "Discard"
+                              },
+                              {
+                                 "evaluation" : "bad",
+                                 "text" : "High"
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Packaging parts"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
+               "subtitle" : "Malus: -8",
+               "title" : "Packaging with a medium impact"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "ecoscore_production_system" : {
+            "evaluation" : "neutral",
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/agriculture.svg",
+               "title" : "No labels with environmental benefits"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "ecoscore_threatened_species" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                        <p><strong>Contains palm oil</strong></p> \n                        <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> \n                        ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "bad",
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/monkey_unhappy.svg",
+               "subtitle" : "Malus: -10",
+               "title" : "Ingredients that threatens species"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "ecoscore_total" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                Life cycle analysis score: 69<br>\n                Sum of bonuses and maluses:\n                    \n                        -23\n                    <br><br>\n                Final score: 46/100\n                \n                ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "c",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
+               "subtitle" : "Product: Some product - 100 g",
+               "title" : "Impact for this product: C (Score: 46/100)",
+               "type" : "grade"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "environment_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ecoscore"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "carbon_footprint"
+                     ],
+                     "title" : "Carbon footprint"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "packaging_recycling",
+                     "panel_ids" : [
+                        "packaging_recycling"
+                     ],
+                     "title" : "Packaging"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "origins_of_ingredients"
+                     ],
+                     "title" : "Transportation"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "palm_oil"
+                     ],
+                     "title" : "Threatened species"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Environment"
+            },
+            "topics" : [
+               "environment"
+            ],
+            "type" : "card"
+         },
+         "health_card" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "nutrition",
+                     "panel_ids" : [
+                        "nutriscore"
+                     ],
+                     "title" : "Nutrition",
+                     "type" : "subcard"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "nutrition_facts_table",
+                        "serving_size"
+                     ],
+                     "title" : ""
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "ingredients",
+                     "panel_ids" : [
+                        "ingredients"
+                     ],
+                     "title" : "Ingredients",
+                     "type" : "subcard"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "nova"
+                     ],
+                     "title" : "Food processing"
+                  }
+               },
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_ids" : [
+                        "ingredients_analysis",
+                        "ingredients_analysis_details"
+                     ],
+                     "title" : "Ingredients analysis"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "title_element" : {
+               "title" : "Health"
+            },
+            "topics" : [
+               "health"
+            ],
+            "type" : "card"
+         },
+         "ingredients" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "edit_field_id" : "ingredients_text_en",
+                     "edit_field_type" : "ingredients_text",
+                     "edit_field_value" : "apple, milk, eggs, palm oil",
+                     "html" : "apple, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
+                     "language" : "English",
+                     "lc" : "en"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<strong>Allergens:</strong> \n                    Eggs, Milk\n                "
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
+            "expand_for" : "large",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/ingredients.svg",
+               "title" : "4 ingredients"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredients_analysis" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredients_analysis_en:palm-oil"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredients_analysis_en:non-vegan"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "ingredients_analysis_en:vegetarian"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "The analysis is based solely on the ingredients listed and does not take into account processing methods."
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "topics" : [
+               "health"
+            ],
+            "type" : "inline"
+         },
+         "ingredients_analysis_details" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "en: <span>apple</span>, <span>milk</span>, <span>eggs</span>, <span>palm oil</span>"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "<ol id=\"ordered_ingredients_list\">\n<li><span>apple</span> -> en:apple - vegan:&nbsp;yes - vegetarian:&nbsp;yes - percent_min:&nbsp;25 - percent_max:&nbsp;100</li>\n<li><span>milk</span> -> en:milk - vegan:&nbsp;no - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;50</li>\n<li><span>eggs</span> -> en:egg - vegan:&nbsp;no - vegetarian:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;33.3333333333333</li>\n<li><span>palm oil</span> -> en:palm-oil - vegan:&nbsp;yes - vegetarian:&nbsp;yes - from_palm_oil:&nbsp;yes - percent_min:&nbsp;0 - percent_max:&nbsp;25</li>\n</ol>\n"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : ""
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/off-magnifying-glass.svg",
+               "title" : "Details of the analysis of the ingredients"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredients_analysis_en:non-vegan" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                \n                    <strong>Non-vegan ingredients:</strong>\n                    Milk, Egg\n                \n                    ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "bad",
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/leaf.svg",
+               "title" : "Non-vegan"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredients_analysis_en:palm-oil" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                \n                    <strong>Ingredients that contain palm oil:</strong>\n                    Palm oil\n                \n                    ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "bad",
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
+               "title" : "Palm oil"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "ingredients_analysis_en:vegetarian" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                \n                    No non-vegetarian ingredients detected\n                    \n                \n                    ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "good",
+            "level" : "info",
+            "size" : "small",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_size" : "small",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/vegetarian.svg",
+               "title" : "Vegetarian"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nova" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n\n    \n        \n            <p>Elements that indicate the product is in the 3 - Processed foods group:</p>\n            <ul>\n            \n                <li>Category: Sweet snacks</li>\n            \n            </ul>\n        \n    \n\n"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>Food products are classified into 4 groups according to their degree of processing:</p>\n<ol>\n<li>Unprocessed or minimally processed foods</li>\n<li>Processed culinary ingredients</li>\n<li>Processed foods</li>\n<li>Ultra processed foods</li>\n</ol>\n<br>\n<p>The determination of the group is based on the category of the product and on the ingredients it contains.</p>\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nova\">Learn more about the NOVA classification</a></p>\n"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
+               "title" : "Processed foods"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutriscore" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "The nutrition facts of the product must be specified in order to compute the Nutri-Score.\n                    ",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_nutrition_facts"
+                     ],
+                     "html" : "Could you add the information needed to compute the Nutri-Score?"
+                  },
+                  "element_type" : "action"
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : ""
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n<p>&rarr; <a href=\"http://world.openfoodfacts.localhost/nutriscore\">Learn more about the Nutri-Score</a></p>\n"
+                  }
+               }
+            ],
+            "level" : "info",
+            "title_element" : {
+               "grade" : "unknown",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown.svg",
+               "subtitle" : "Missing nutrition facts",
+               "title" : "Missing data to compute the Nutri-Score",
+               "type" : "grade"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutrition_facts_table" : {
+            "elements" : [
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "style" : "max-width:15rem",
+                           "text" : "Nutrition facts",
+                           "type" : "text"
+                        },
+                        {
+                           "column_group_id" : "product",
+                           "shown_by_default" : true,
+                           "text" : "As sold<br>for 100 g / 100 ml",
+                           "text_for_small_screens" : "100g",
+                           "type" : "text"
+                        },
+                        {
+                           "column_group_id" : "product",
+                           "shown_by_default" : false,
+                           "text" : "As sold<br>per serving (10 g)",
+                           "text_for_small_screens" : "per serving",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "nutrition_facts_table",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fat"
+                              },
+                              {
+                                 "text" : "?"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 1,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Saturated fat"
+                              },
+                              {
+                                 "text" : "?"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Carbohydrates"
+                              },
+                              {
+                                 "text" : "?"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 1,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Sugars"
+                              },
+                              {
+                                 "text" : "?"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fiber"
+                              },
+                              {
+                                 "text" : "?"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Proteins"
+                              },
+                              {
+                                 "text" : "?"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Salt"
+                              },
+                              {
+                                 "text" : "?"
+                              },
+                              {
+                                 "text" : "?"
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "level" : 0,
+                                 "style" : "max-width:15rem",
+                                 "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
+                              },
+                              {
+                                 "text" : "62.5 %"
+                              },
+                              {
+                                 "text" : "62.5 %"
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Nutrition facts"
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
+            "expand_for" : "large",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/scale-balance.svg",
+               "title" : "Nutrition facts"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "origins_of_ingredients" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                The origins of the ingredients of this product are not indicated.<br><br>\n                If they are indicated on the packaging, you can modify the product sheet and add them.<br><br>\n                If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>.\n                    ",
+                     "type" : "warning"
+                  }
+               },
+               {
+                  "action_element" : {
+                     "actions" : [
+                        "add_origins"
+                     ],
+                     "html" : "Add the origins of ingredients for this product"
+                  },
+                  "element_type" : "action"
+               }
+            ],
+            "evaluation" : "unknown",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/public.svg",
+               "subtitle" : "Missing origins of ingredients information",
+               "title" : "Origins of ingredients"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging_components" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "evaluation" : "good",
+                     "html" : "\n                        \n                            \n                                1 x \n                                <strong>\n                                    Box\n                                    \n                                </strong>\n                                    \n                                        (Wood)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                                3 x \n                                <strong>\n                                    Lid\n                                    \n                                </strong>\n                                    \n                                        (Steel)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                        ",
+                     "icon_alt" : "Recycle",
+                     "icon_color_from_evaluation" : true,
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/recycle-variant.svg",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "evaluation" : "bad",
+                     "html" : "\n                        \n                            \n                        \n                            \n                        \n                            \n                        \n                            \n                                1 x \n                                <strong>\n                                    Film\n                                    \n                                </strong>\n                                    \n                                        (Plastic)\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "icon_alt" : "Discard",
+                     "icon_color_from_evaluation" : true,
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/delete.svg",
+                     "type" : "summary"
+                  }
+               },
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "evaluation" : "neutral",
+                     "html" : "\n                        \n                            \n                        \n                            \n                                6 x \n                                <strong>\n                                    Bottle\n                                    25cl \n                                </strong>\n                                    \n                                        (Glass)\n                                    \n                                    <br>\n                            \n                        \n                            \n                        \n                            \n                        \n                        ",
+                     "icon_alt" : "Unknown",
+                     "icon_color_from_evaluation" : true,
+                     "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/help.svg",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Packaging parts"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging_materials" : {
+            "elements" : [
+               {
+                  "element_type" : "table",
+                  "table_element" : {
+                     "columns" : [
+                        {
+                           "text" : "Material",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "%",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Packaging weight",
+                           "type" : "text"
+                        },
+                        {
+                           "text" : "Packaging weight per 100 g of product",
+                           "type" : "text"
+                        }
+                     ],
+                     "id" : "packaging_materials",
+                     "rows" : [
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Plastic"
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Glass"
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              }
+                           ]
+                        },
+                        {
+                           "values" : [
+                              {
+                                 "text" : "Metal"
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              }
+                           ]
+                        },
+                        {
+                           "style" : "font-weight: bold",
+                           "values" : [
+                              {
+                                 "text" : "Total"
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              },
+                              {
+                                 "text" : ""
+                              }
+                           ]
+                        }
+                     ],
+                     "title" : "Packaging materials"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "title" : "Packaging materials"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "packaging_recycling" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_components"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "packaging_materials"
+                  }
+               }
+            ],
+            "evaluation" : "average",
+            "expanded" : true,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/packaging.svg",
+               "title" : "Packaging with a medium impact"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "palm_oil" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                    <p>Tropical forests in Asia, Africa and Latin America are destroyed to create and expand oil palm tree plantations. The deforestation contributes to climate change, and it endangers species such as the orangutan, the pigmy elephant and the Sumatran rhino.</p> \n                    ",
+                     "type" : "summary"
+                  }
+               }
+            ],
+            "evaluation" : "bad",
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/palm-oil.svg",
+               "subtitle" : "Drives deforestation and threatens species such as the orangutan",
+               "title" : "Contains palm oil"
+            },
+            "topics" : [
+               "environment"
+            ]
+         },
+         "root" : {
+            "elements" : [
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "health_card"
+                  }
+               },
+               {
+                  "element_type" : "panel",
+                  "panel_element" : {
+                     "panel_id" : "environment_card"
+                  }
+               }
+            ],
+            "expanded" : true,
+            "type" : "root"
+         },
+         "serving_size" : {
+            "elements" : [
+               {
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "\n                    <strong>Serving size:</strong>\n                    10 g\n                "
+                  }
+               }
+            ],
+            "expanded" : true,
+            "level" : "info",
+            "topics" : [
+               "health"
+            ],
+            "type" : "inline"
+         }
+      }
+   },
+   "result" : {
+      "id" : "product_found",
+      "lc_name" : "Product found",
+      "name" : "Product found"
+   },
+   "status" : "success",
+   "warnings" : []
+}

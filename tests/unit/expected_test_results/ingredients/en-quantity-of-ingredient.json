@@ -1,0 +1,114 @@
+{
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "20047",
+         "id" : "en:tomato",
+         "percent_estimate" : 50,
+         "percent_max" : 65,
+         "percent_min" : 35,
+         "quantity" : "50 g",
+         "quantity_g" : 50,
+         "text" : "tomatoes",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11000",
+         "id" : "en:garlic",
+         "percent" : 35,
+         "percent_estimate" : 35,
+         "percent_max" : 35,
+         "percent_min" : 35,
+         "text" : "garlic",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "18066",
+         "id" : "en:water",
+         "percent_estimate" : 7.5,
+         "percent_max" : 30,
+         "percent_min" : 0,
+         "quantity" : "20 cl",
+         "quantity_g" : 200,
+         "text" : "water",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "from_palm_oil" : "no",
+         "id" : "en:rapeseed-oil",
+         "percent_estimate" : 7.5,
+         "percent_max" : 15,
+         "percent_min" : 0,
+         "quantity" : "10 ml",
+         "quantity_g" : 10,
+         "text" : "rapeseed oil",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:tomato",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "en:garlic",
+      "en:root-vegetable",
+      "en:onion-family-vegetable",
+      "en:water",
+      "en:rapeseed-oil",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat"
+   ],
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:tomato",
+      "en:garlic",
+      "en:water",
+      "en:rapeseed-oil"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:tomato",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "en:garlic",
+      "en:root-vegetable",
+      "en:onion-family-vegetable",
+      "en:water",
+      "en:rapeseed-oil",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat"
+   ],
+   "ingredients_text" : "50g of tomatoes, 35% garlic, 20cl of water, 10ml of rapeseed oil",
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 35,
+   "ingredients_with_unspecified_percent_n" : 3,
+   "ingredients_with_unspecified_percent_sum" : 65,
+   "ingredients_without_ciqual_codes" : [
+      "en:rapeseed-oil"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "known_ingredients_n" : 10,
+   "lc" : "en",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent"
+   ],
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 85,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 85,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 92.5,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 92.5
+   },
+   "unknown_ingredients_n" : 0
+}

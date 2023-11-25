@@ -4,12 +4,21 @@
         "environment"
     ],
     "title_element": {
-        "icon_url": "[% static_subdomain %]/images/attributes/ecoscore-[% panel.grade %].svg",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/ecoscore-[% panel.grade %].svg",
         "title": "[% panel.title %]",
         "type": "grade",
         "grade": "[% panel.grade %]",
     },
-    "elements": [           
+    "elements": [
+        [% IF panel.transportation_warning.defined %]
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "warning",
+                "html": `[% panel.transportation_warning %]`,
+            }
+        },
+        [% END %]
         {
             "element_type": "text",
             "text_element": {

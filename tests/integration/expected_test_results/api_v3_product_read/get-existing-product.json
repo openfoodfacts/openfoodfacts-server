@@ -1,0 +1,1001 @@
+{
+   "code" : "4260392550101",
+   "errors" : [],
+   "product" : {
+      "_id" : "4260392550101",
+      "_keywords" : [
+         "cookie",
+         "organic",
+         "product",
+         "some",
+         "tester"
+      ],
+      "added_countries_tags" : [],
+      "additives_n" : 0,
+      "additives_old_n" : 0,
+      "additives_old_tags" : [],
+      "additives_original_tags" : [],
+      "additives_tags" : [],
+      "allergens" : "",
+      "allergens_from_ingredients" : "en:milk, milk, eggs",
+      "allergens_from_user" : "(en) ",
+      "allergens_hierarchy" : [
+         "en:eggs",
+         "en:milk"
+      ],
+      "allergens_tags" : [
+         "en:eggs",
+         "en:milk"
+      ],
+      "amino_acids_tags" : [],
+      "categories" : "cookies",
+      "categories_hierarchy" : [
+         "en:snacks",
+         "en:sweet-snacks",
+         "en:biscuits-and-cakes",
+         "en:biscuits"
+      ],
+      "categories_lc" : "en",
+      "categories_properties" : {
+         "agribalyse_proxy_food_code:en" : "24000"
+      },
+      "categories_properties_tags" : [
+         "all-products",
+         "categories-known",
+         "agribalyse-food-code-unknown",
+         "agribalyse-proxy-food-code-24000",
+         "agribalyse-proxy-food-code-known",
+         "ciqual-food-code-unknown",
+         "agribalyse-known",
+         "agribalyse-24000"
+      ],
+      "categories_tags" : [
+         "en:snacks",
+         "en:sweet-snacks",
+         "en:biscuits-and-cakes",
+         "en:biscuits"
+      ],
+      "checkers_tags" : [],
+      "code" : "4260392550101",
+      "codes_tags" : [
+         "code-13",
+         "4260392550xxx",
+         "426039255xxxx",
+         "42603925xxxxx",
+         "4260392xxxxxx",
+         "426039xxxxxxx",
+         "42603xxxxxxxx",
+         "4260xxxxxxxxx",
+         "426xxxxxxxxxx",
+         "42xxxxxxxxxxx",
+         "4xxxxxxxxxxxx"
+      ],
+      "complete" : 0,
+      "completeness" : 0.4,
+      "correctors_tags" : [],
+      "created_t" : "--ignore--",
+      "creator" : "tests",
+      "data_quality_bugs_tags" : [],
+      "data_quality_errors_tags" : [],
+      "data_quality_info_tags" : [
+         "en:packaging-data-incomplete",
+         "en:ingredients-percent-analysis-ok",
+         "en:ecoscore-extended-data-not-computed",
+         "en:food-groups-1-known",
+         "en:food-groups-2-known",
+         "en:food-groups-3-unknown"
+      ],
+      "data_quality_tags" : [
+         "en:packaging-data-incomplete",
+         "en:ingredients-percent-analysis-ok",
+         "en:ecoscore-extended-data-not-computed",
+         "en:food-groups-1-known",
+         "en:food-groups-2-known",
+         "en:food-groups-3-unknown",
+         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
+         "en:ecoscore-production-system-no-label"
+      ],
+      "data_quality_warnings_tags" : [
+         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
+         "en:ecoscore-production-system-no-label"
+      ],
+      "ecoscore_data" : {
+         "adjustments" : {
+            "origins_of_ingredients" : {
+               "aggregated_origins" : [
+                  {
+                     "epi_score" : 0,
+                     "origin" : "en:unknown",
+                     "percent" : 100,
+                     "transportation_score" : null
+                  }
+               ],
+               "epi_score" : 0,
+               "epi_value" : -5,
+               "origins_from_categories" : [
+                  "en:unknown"
+               ],
+               "origins_from_origins_field" : [
+                  "en:unknown"
+               ],
+               "transportation_score" : 0,
+               "transportation_scores" : {
+                  "ad" : 0,
+                  "al" : 0,
+                  "at" : 0,
+                  "ax" : 0,
+                  "ba" : 0,
+                  "be" : 0,
+                  "bg" : 0,
+                  "ch" : 0,
+                  "cy" : 0,
+                  "cz" : 0,
+                  "de" : 0,
+                  "dk" : 0,
+                  "dz" : 0,
+                  "ee" : 0,
+                  "eg" : 0,
+                  "es" : 0,
+                  "fi" : 0,
+                  "fo" : 0,
+                  "fr" : 0,
+                  "gg" : 0,
+                  "gi" : 0,
+                  "gr" : 0,
+                  "hr" : 0,
+                  "hu" : 0,
+                  "ie" : 0,
+                  "il" : 0,
+                  "im" : 0,
+                  "is" : 0,
+                  "it" : 0,
+                  "je" : 0,
+                  "lb" : 0,
+                  "li" : 0,
+                  "lt" : 0,
+                  "lu" : 0,
+                  "lv" : 0,
+                  "ly" : 0,
+                  "ma" : 0,
+                  "mc" : 0,
+                  "md" : 0,
+                  "me" : 0,
+                  "mk" : 0,
+                  "mt" : 0,
+                  "nl" : 0,
+                  "no" : 0,
+                  "pl" : 0,
+                  "ps" : 0,
+                  "pt" : 0,
+                  "ro" : 0,
+                  "rs" : 0,
+                  "se" : 0,
+                  "si" : 0,
+                  "sj" : 0,
+                  "sk" : 0,
+                  "sm" : 0,
+                  "sy" : 0,
+                  "tn" : 0,
+                  "tr" : 0,
+                  "ua" : 0,
+                  "uk" : 0,
+                  "us" : 0,
+                  "va" : 0,
+                  "world" : 0,
+                  "xk" : 0
+               },
+               "transportation_value" : 0,
+               "transportation_values" : {
+                  "ad" : 0,
+                  "al" : 0,
+                  "at" : 0,
+                  "ax" : 0,
+                  "ba" : 0,
+                  "be" : 0,
+                  "bg" : 0,
+                  "ch" : 0,
+                  "cy" : 0,
+                  "cz" : 0,
+                  "de" : 0,
+                  "dk" : 0,
+                  "dz" : 0,
+                  "ee" : 0,
+                  "eg" : 0,
+                  "es" : 0,
+                  "fi" : 0,
+                  "fo" : 0,
+                  "fr" : 0,
+                  "gg" : 0,
+                  "gi" : 0,
+                  "gr" : 0,
+                  "hr" : 0,
+                  "hu" : 0,
+                  "ie" : 0,
+                  "il" : 0,
+                  "im" : 0,
+                  "is" : 0,
+                  "it" : 0,
+                  "je" : 0,
+                  "lb" : 0,
+                  "li" : 0,
+                  "lt" : 0,
+                  "lu" : 0,
+                  "lv" : 0,
+                  "ly" : 0,
+                  "ma" : 0,
+                  "mc" : 0,
+                  "md" : 0,
+                  "me" : 0,
+                  "mk" : 0,
+                  "mt" : 0,
+                  "nl" : 0,
+                  "no" : 0,
+                  "pl" : 0,
+                  "ps" : 0,
+                  "pt" : 0,
+                  "ro" : 0,
+                  "rs" : 0,
+                  "se" : 0,
+                  "si" : 0,
+                  "sj" : 0,
+                  "sk" : 0,
+                  "sm" : 0,
+                  "sy" : 0,
+                  "tn" : 0,
+                  "tr" : 0,
+                  "ua" : 0,
+                  "uk" : 0,
+                  "us" : 0,
+                  "va" : 0,
+                  "world" : 0,
+                  "xk" : 0
+               },
+               "value" : -5,
+               "values" : {
+                  "ad" : -5,
+                  "al" : -5,
+                  "at" : -5,
+                  "ax" : -5,
+                  "ba" : -5,
+                  "be" : -5,
+                  "bg" : -5,
+                  "ch" : -5,
+                  "cy" : -5,
+                  "cz" : -5,
+                  "de" : -5,
+                  "dk" : -5,
+                  "dz" : -5,
+                  "ee" : -5,
+                  "eg" : -5,
+                  "es" : -5,
+                  "fi" : -5,
+                  "fo" : -5,
+                  "fr" : -5,
+                  "gg" : -5,
+                  "gi" : -5,
+                  "gr" : -5,
+                  "hr" : -5,
+                  "hu" : -5,
+                  "ie" : -5,
+                  "il" : -5,
+                  "im" : -5,
+                  "is" : -5,
+                  "it" : -5,
+                  "je" : -5,
+                  "lb" : -5,
+                  "li" : -5,
+                  "lt" : -5,
+                  "lu" : -5,
+                  "lv" : -5,
+                  "ly" : -5,
+                  "ma" : -5,
+                  "mc" : -5,
+                  "md" : -5,
+                  "me" : -5,
+                  "mk" : -5,
+                  "mt" : -5,
+                  "nl" : -5,
+                  "no" : -5,
+                  "pl" : -5,
+                  "ps" : -5,
+                  "pt" : -5,
+                  "ro" : -5,
+                  "rs" : -5,
+                  "se" : -5,
+                  "si" : -5,
+                  "sj" : -5,
+                  "sk" : -5,
+                  "sm" : -5,
+                  "sy" : -5,
+                  "tn" : -5,
+                  "tr" : -5,
+                  "ua" : -5,
+                  "uk" : -5,
+                  "us" : -5,
+                  "va" : -5,
+                  "world" : -5,
+                  "xk" : -5
+               },
+               "warning" : "origins_are_100_percent_unknown"
+            },
+            "packaging" : {
+               "non_recyclable_and_non_biodegradable_materials" : 0,
+               "packagings" : [
+                  {
+                     "ecoscore_material_score" : 50,
+                     "ecoscore_shape_ratio" : 1,
+                     "material" : "en:wood",
+                     "number_of_units" : 1,
+                     "recycling" : "en:recycle",
+                     "shape" : "en:box"
+                  },
+                  {
+                     "ecoscore_material_score" : 81,
+                     "ecoscore_shape_ratio" : 1,
+                     "material" : "en:glass",
+                     "number_of_units" : 6,
+                     "quantity_per_unit" : "25cl",
+                     "quantity_per_unit_unit" : "cl",
+                     "quantity_per_unit_value" : 25,
+                     "recycling" : "en:reuse",
+                     "shape" : "en:bottle"
+                  },
+                  {
+                     "ecoscore_material_score" : 76,
+                     "ecoscore_shape_ratio" : 0.2,
+                     "material" : "en:steel",
+                     "number_of_units" : 3,
+                     "recycling" : "en:recycle",
+                     "shape" : "en:lid"
+                  },
+                  {
+                     "ecoscore_material_score" : 0,
+                     "ecoscore_shape_ratio" : 0.1,
+                     "material" : "en:plastic",
+                     "non_recyclable_and_non_biodegradable" : "maybe",
+                     "number_of_units" : 1,
+                     "recycling" : "en:discard",
+                     "shape" : "en:film"
+                  }
+               ],
+               "score" : 16.2,
+               "value" : -8
+            },
+            "production_system" : {
+               "labels" : [],
+               "value" : 0,
+               "warning" : "no_label"
+            },
+            "threatened_species" : {
+               "ingredient" : "en:palm-oil",
+               "value" : -10
+            }
+         },
+         "agribalyse" : {
+            "agribalyse_proxy_food_code" : "24000",
+            "co2_agriculture" : 2.3889426,
+            "co2_consumption" : 0,
+            "co2_distribution" : 0.019530673,
+            "co2_packaging" : 0.11014808,
+            "co2_processing" : 0.22878446,
+            "co2_total" : 2.882859363,
+            "co2_transportation" : 0.13545355,
+            "code" : "24000",
+            "dqr" : "2.14",
+            "ef_agriculture" : 0.28329233,
+            "ef_consumption" : 0,
+            "ef_distribution" : 0.0048315303,
+            "ef_packaging" : 0.01096965,
+            "ef_processing" : 0.041686082,
+            "ef_total" : 0.3518903043,
+            "ef_transportation" : 0.011110712,
+            "is_beverage" : 0,
+            "name_en" : "Biscuit (cookie)",
+            "name_fr" : "Biscuit sec, sans précision",
+            "score" : 69,
+            "version" : "3.1"
+         },
+         "grade" : "c",
+         "grades" : {
+            "ad" : "c",
+            "al" : "c",
+            "at" : "c",
+            "ax" : "c",
+            "ba" : "c",
+            "be" : "c",
+            "bg" : "c",
+            "ch" : "c",
+            "cy" : "c",
+            "cz" : "c",
+            "de" : "c",
+            "dk" : "c",
+            "dz" : "c",
+            "ee" : "c",
+            "eg" : "c",
+            "es" : "c",
+            "fi" : "c",
+            "fo" : "c",
+            "fr" : "c",
+            "gg" : "c",
+            "gi" : "c",
+            "gr" : "c",
+            "hr" : "c",
+            "hu" : "c",
+            "ie" : "c",
+            "il" : "c",
+            "im" : "c",
+            "is" : "c",
+            "it" : "c",
+            "je" : "c",
+            "lb" : "c",
+            "li" : "c",
+            "lt" : "c",
+            "lu" : "c",
+            "lv" : "c",
+            "ly" : "c",
+            "ma" : "c",
+            "mc" : "c",
+            "md" : "c",
+            "me" : "c",
+            "mk" : "c",
+            "mt" : "c",
+            "nl" : "c",
+            "no" : "c",
+            "pl" : "c",
+            "ps" : "c",
+            "pt" : "c",
+            "ro" : "c",
+            "rs" : "c",
+            "se" : "c",
+            "si" : "c",
+            "sj" : "c",
+            "sk" : "c",
+            "sm" : "c",
+            "sy" : "c",
+            "tn" : "c",
+            "tr" : "c",
+            "ua" : "c",
+            "uk" : "c",
+            "us" : "c",
+            "va" : "c",
+            "world" : "c",
+            "xk" : "c"
+         },
+         "missing" : {
+            "labels" : 1,
+            "origins" : 1
+         },
+         "missing_data_warning" : 1,
+         "score" : 46,
+         "scores" : {
+            "ad" : 46,
+            "al" : 46,
+            "at" : 46,
+            "ax" : 46,
+            "ba" : 46,
+            "be" : 46,
+            "bg" : 46,
+            "ch" : 46,
+            "cy" : 46,
+            "cz" : 46,
+            "de" : 46,
+            "dk" : 46,
+            "dz" : 46,
+            "ee" : 46,
+            "eg" : 46,
+            "es" : 46,
+            "fi" : 46,
+            "fo" : 46,
+            "fr" : 46,
+            "gg" : 46,
+            "gi" : 46,
+            "gr" : 46,
+            "hr" : 46,
+            "hu" : 46,
+            "ie" : 46,
+            "il" : 46,
+            "im" : 46,
+            "is" : 46,
+            "it" : 46,
+            "je" : 46,
+            "lb" : 46,
+            "li" : 46,
+            "lt" : 46,
+            "lu" : 46,
+            "lv" : 46,
+            "ly" : 46,
+            "ma" : 46,
+            "mc" : 46,
+            "md" : 46,
+            "me" : 46,
+            "mk" : 46,
+            "mt" : 46,
+            "nl" : 46,
+            "no" : 46,
+            "pl" : 46,
+            "ps" : 46,
+            "pt" : 46,
+            "ro" : 46,
+            "rs" : 46,
+            "se" : 46,
+            "si" : 46,
+            "sj" : 46,
+            "sk" : 46,
+            "sm" : 46,
+            "sy" : 46,
+            "tn" : 46,
+            "tr" : 46,
+            "ua" : 46,
+            "uk" : 46,
+            "us" : 46,
+            "va" : 46,
+            "world" : 46,
+            "xk" : 46
+         },
+         "status" : "known"
+      },
+      "ecoscore_grade" : "c",
+      "ecoscore_score" : 46,
+      "ecoscore_tags" : [
+         "c"
+      ],
+      "editors_tags" : [
+         "tests"
+      ],
+      "entry_dates_tags" : "--ignore--",
+      "food_groups" : "en:biscuits-and-cakes",
+      "food_groups_tags" : [
+         "en:sugary-snacks",
+         "en:biscuits-and-cakes"
+      ],
+      "forest_footprint_data" : {
+         "footprint_per_kg" : 0.00145833333333333,
+         "grade" : "a",
+         "ingredients" : [
+            {
+               "conditions_tags" : [
+                  [
+                     "labels",
+                     "en:organic"
+                  ]
+               ],
+               "footprint_per_kg" : 0.00145833333333333,
+               "matching_tag_id" : "en:egg",
+               "percent" : 9.375,
+               "percent_estimate" : 9.375,
+               "processing_factor" : 1,
+               "tag_id" : "en:egg",
+               "tag_type" : "ingredients",
+               "type" : {
+                  "deforestation_risk" : 0.1,
+                  "name" : "Oeufs Bio",
+                  "soy_feed_factor" : 0.028,
+                  "soy_yield" : 0.18
+               }
+            }
+         ]
+      },
+      "generic_name" : "Tester",
+      "generic_name_en" : "Tester",
+      "id" : "4260392550101",
+      "informers_tags" : [
+         "tests"
+      ],
+      "ingredients" : [
+         {
+            "ciqual_food_code" : "13050",
+            "id" : "en:apple",
+            "percent_estimate" : 62.5,
+            "percent_max" : 100,
+            "percent_min" : 25,
+            "text" : "apple",
+            "vegan" : "yes",
+            "vegetarian" : "yes"
+         },
+         {
+            "id" : "en:milk",
+            "percent_estimate" : 18.75,
+            "percent_max" : 50,
+            "percent_min" : 0,
+            "text" : "milk",
+            "vegan" : "no",
+            "vegetarian" : "yes"
+         },
+         {
+            "ciqual_food_code" : "22000",
+            "id" : "en:egg",
+            "percent_estimate" : 9.375,
+            "percent_max" : 33.3333333333333,
+            "percent_min" : 0,
+            "text" : "eggs",
+            "vegan" : "no",
+            "vegetarian" : "yes"
+         },
+         {
+            "ciqual_food_code" : "16129",
+            "from_palm_oil" : "yes",
+            "id" : "en:palm-oil",
+            "percent_estimate" : 9.375,
+            "percent_max" : 25,
+            "percent_min" : 0,
+            "text" : "palm oil",
+            "vegan" : "yes",
+            "vegetarian" : "yes"
+         }
+      ],
+      "ingredients_analysis" : {
+         "en:non-vegan" : [
+            "en:milk",
+            "en:egg"
+         ],
+         "en:palm-oil" : [
+            "en:palm-oil"
+         ]
+      },
+      "ingredients_analysis_tags" : [
+         "en:palm-oil",
+         "en:non-vegan",
+         "en:vegetarian"
+      ],
+      "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
+      "ingredients_from_palm_oil_n" : 0,
+      "ingredients_from_palm_oil_tags" : [],
+      "ingredients_hierarchy" : [
+         "en:apple",
+         "en:fruit",
+         "en:malaceous-fruit",
+         "en:milk",
+         "en:dairy",
+         "en:egg",
+         "en:palm-oil",
+         "en:oil-and-fat",
+         "en:vegetable-oil-and-fat",
+         "en:palm-oil-and-fat"
+      ],
+      "ingredients_lc" : "en",
+      "ingredients_n" : 4,
+      "ingredients_n_tags" : [
+         "4",
+         "1-10"
+      ],
+      "ingredients_original_tags" : [
+         "en:apple",
+         "en:milk",
+         "en:egg",
+         "en:palm-oil"
+      ],
+      "ingredients_percent_analysis" : 1,
+      "ingredients_tags" : [
+         "en:apple",
+         "en:fruit",
+         "en:malaceous-fruit",
+         "en:milk",
+         "en:dairy",
+         "en:egg",
+         "en:palm-oil",
+         "en:oil-and-fat",
+         "en:vegetable-oil-and-fat",
+         "en:palm-oil-and-fat"
+      ],
+      "ingredients_text" : "apple, milk, eggs, palm oil",
+      "ingredients_text_en" : "apple, milk, eggs, palm oil",
+      "ingredients_text_with_allergens" : "apple, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
+      "ingredients_text_with_allergens_en" : "apple, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
+      "ingredients_that_may_be_from_palm_oil_n" : 0,
+      "ingredients_that_may_be_from_palm_oil_tags" : [],
+      "ingredients_with_specified_percent_n" : 0,
+      "ingredients_with_specified_percent_sum" : 0,
+      "ingredients_with_unspecified_percent_n" : 4,
+      "ingredients_with_unspecified_percent_sum" : 100,
+      "ingredients_without_ciqual_codes" : [
+         "en:milk"
+      ],
+      "ingredients_without_ciqual_codes_n" : 1,
+      "interface_version_created" : "20150316.jqm2",
+      "interface_version_modified" : "20150316.jqm2",
+      "known_ingredients_n" : 10,
+      "labels" : "organic",
+      "labels_hierarchy" : [
+         "en:organic"
+      ],
+      "labels_lc" : "en",
+      "labels_tags" : [
+         "en:organic"
+      ],
+      "lang" : "en",
+      "languages" : {
+         "en:english" : 5
+      },
+      "languages_codes" : {
+         "en" : 5
+      },
+      "languages_hierarchy" : [
+         "en:english"
+      ],
+      "languages_tags" : [
+         "en:english",
+         "en:1"
+      ],
+      "last_edit_dates_tags" : "--ignore--",
+      "last_editor" : "tests",
+      "last_modified_by" : "tests",
+      "last_modified_t" : "--ignore--",
+      "lc" : "en",
+      "link" : "http://world.openfoodfacts.org/",
+      "main_countries_tags" : [],
+      "minerals_tags" : [],
+      "misc_tags" : [
+         "en:nutrition-not-enough-data-to-compute-nutrition-score",
+         "en:nutriscore-missing-nutrition-data",
+         "en:nutriscore-missing-nutrition-data-energy",
+         "en:nutriscore-missing-nutrition-data-fat",
+         "en:nutriscore-missing-nutrition-data-saturated-fat",
+         "en:nutriscore-missing-nutrition-data-sugars",
+         "en:nutriscore-missing-nutrition-data-sodium",
+         "en:nutriscore-missing-nutrition-data-proteins",
+         "en:nutrition-no-fiber",
+         "en:nutriscore-not-computed",
+         "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+         "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+         "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
+         "en:packagings-number-of-components-4",
+         "en:packagings-not-complete",
+         "en:packagings-not-empty-but-not-complete",
+         "en:packagings-not-empty",
+         "en:ecoscore-extended-data-not-computed",
+         "en:ecoscore-missing-data-warning",
+         "en:ecoscore-missing-data-labels",
+         "en:ecoscore-missing-data-origins",
+         "en:ecoscore-computed",
+         "en:ecoscore-changed",
+         "en:ecoscore-grade-changed",
+         "en:forest-footprint-computed",
+         "en:forest-footprint-a",
+         "en:main-countries-new-product"
+      ],
+      "nova_group" : 3,
+      "nova_group_debug" : "",
+      "nova_groups" : "3",
+      "nova_groups_markers" : {
+         "3" : [
+            [
+               "categories",
+               "en:sweet-snacks"
+            ]
+         ]
+      },
+      "nova_groups_tags" : [
+         "en:3-processed-foods"
+      ],
+      "nucleotides_tags" : [],
+      "nutrient_levels" : {},
+      "nutrient_levels_tags" : [],
+      "nutriments" : {
+         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 62.5,
+         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 62.5,
+         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 62.5,
+         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 62.5,
+         "nova-group" : 3,
+         "nova-group_100g" : 3,
+         "nova-group_serving" : 3
+      },
+      "nutriscore" : {
+         "2021" : {
+            "category_available" : 1,
+            "data" : {
+               "energy" : null,
+               "fiber" : 0,
+               "fruits_vegetables_nuts_colza_walnut_olive_oils" : 62.5,
+               "is_beverage" : 0,
+               "is_cheese" : 0,
+               "is_fat" : 0,
+               "is_water" : 0,
+               "proteins" : null,
+               "saturated_fat" : null,
+               "sodium" : null,
+               "sugars" : null
+            },
+            "grade" : "unknown",
+            "nutrients_available" : 0,
+            "nutriscore_applicable" : 1,
+            "nutriscore_computed" : 0
+         },
+         "2023" : {
+            "category_available" : 1,
+            "data" : {
+               "energy" : null,
+               "fiber" : 0,
+               "fruits_vegetables_legumes" : 62.5,
+               "is_beverage" : 0,
+               "is_cheese" : 0,
+               "is_fat_oil_nuts_seeds" : 0,
+               "is_red_meat_product" : 0,
+               "is_water" : 0,
+               "proteins" : null,
+               "salt" : null,
+               "saturated_fat" : null,
+               "sugars" : null
+            },
+            "grade" : "unknown",
+            "nutrients_available" : 0,
+            "nutriscore_applicable" : 1,
+            "nutriscore_computed" : 0
+         }
+      },
+      "nutriscore_2021_tags" : [
+         "unknown"
+      ],
+      "nutriscore_2023_tags" : [
+         "unknown"
+      ],
+      "nutriscore_grade" : "unknown",
+      "nutriscore_tags" : [
+         "unknown"
+      ],
+      "nutriscore_version" : "2021",
+      "nutrition_data_per" : "100g",
+      "nutrition_data_prepared_per" : "100g",
+      "nutrition_grade_fr" : "unknown",
+      "nutrition_grades" : "unknown",
+      "nutrition_grades_tags" : [
+         "unknown"
+      ],
+      "nutrition_score_beverage" : 0,
+      "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 62.5,
+      "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
+      "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 62.5,
+      "nutrition_score_warning_no_fiber" : 1,
+      "origin" : "france",
+      "origin_en" : "france",
+      "other_nutritional_substances_tags" : [],
+      "packaging_materials_tags" : [
+         "en:glass",
+         "en:plastic",
+         "en:steel",
+         "en:wood"
+      ],
+      "packaging_recycling_tags" : [
+         "en:discard",
+         "en:recycle",
+         "en:reuse"
+      ],
+      "packaging_shapes_tags" : [
+         "en:bottle",
+         "en:box",
+         "en:film",
+         "en:lid"
+      ],
+      "packaging_text" : "1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
+      "packaging_text_en" : "1 wooden box to recycle, 6 25cl glass bottles to reuse, 3 steel lids to recycle, 1 plastic film to discard",
+      "packagings" : [
+         {
+            "material" : {
+               "id" : "en:wood"
+            },
+            "number_of_units" : 1,
+            "recycling" : {
+               "id" : "en:recycle"
+            },
+            "shape" : {
+               "id" : "en:box"
+            }
+         },
+         {
+            "material" : {
+               "id" : "en:glass"
+            },
+            "number_of_units" : 6,
+            "quantity_per_unit" : "25cl",
+            "quantity_per_unit_unit" : "cl",
+            "quantity_per_unit_value" : 25,
+            "recycling" : {
+               "id" : "en:reuse"
+            },
+            "shape" : {
+               "id" : "en:bottle"
+            }
+         },
+         {
+            "material" : {
+               "id" : "en:steel"
+            },
+            "number_of_units" : 3,
+            "recycling" : {
+               "id" : "en:recycle"
+            },
+            "shape" : {
+               "id" : "en:lid"
+            }
+         },
+         {
+            "material" : {
+               "id" : "en:plastic"
+            },
+            "number_of_units" : 1,
+            "recycling" : {
+               "id" : "en:discard"
+            },
+            "shape" : {
+               "id" : "en:film"
+            }
+         }
+      ],
+      "packagings_materials" : {
+         "all" : {},
+         "en:glass" : {},
+         "en:metal" : {},
+         "en:plastic" : {},
+         "en:unknown" : {}
+      },
+      "packagings_n" : 4,
+      "photographers_tags" : [],
+      "pnns_groups_1" : "Sugary snacks",
+      "pnns_groups_1_tags" : [
+         "sugary-snacks",
+         "known"
+      ],
+      "pnns_groups_2" : "Biscuits and cakes",
+      "pnns_groups_2_tags" : [
+         "biscuits-and-cakes",
+         "known"
+      ],
+      "popularity_key" : 0,
+      "product_name" : "Some product",
+      "product_name_en" : "Some product",
+      "product_quantity" : "100",
+      "quantity" : "100 g",
+      "removed_countries_tags" : [],
+      "rev" : 1,
+      "serving_quantity" : "10",
+      "serving_size" : "10 g",
+      "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
+      "states_hierarchy" : [
+         "en:to-be-completed",
+         "en:nutrition-facts-to-be-completed",
+         "en:ingredients-completed",
+         "en:expiration-date-to-be-completed",
+         "en:packaging-code-to-be-completed",
+         "en:characteristics-to-be-completed",
+         "en:origins-to-be-completed",
+         "en:categories-completed",
+         "en:brands-to-be-completed",
+         "en:packaging-to-be-completed",
+         "en:quantity-completed",
+         "en:product-name-completed",
+         "en:photos-to-be-uploaded"
+      ],
+      "states_tags" : [
+         "en:to-be-completed",
+         "en:nutrition-facts-to-be-completed",
+         "en:ingredients-completed",
+         "en:expiration-date-to-be-completed",
+         "en:packaging-code-to-be-completed",
+         "en:characteristics-to-be-completed",
+         "en:origins-to-be-completed",
+         "en:categories-completed",
+         "en:brands-to-be-completed",
+         "en:packaging-to-be-completed",
+         "en:quantity-completed",
+         "en:product-name-completed",
+         "en:photos-to-be-uploaded"
+      ],
+      "traces" : "",
+      "traces_from_ingredients" : "",
+      "traces_from_user" : "(en) ",
+      "traces_hierarchy" : [],
+      "traces_tags" : [],
+      "unknown_ingredients_n" : 0,
+      "unknown_nutrients_tags" : [],
+      "vitamins_tags" : [],
+      "weighers_tags" : []
+   },
+   "result" : {
+      "id" : "product_found",
+      "lc_name" : "Product found",
+      "name" : "Product found"
+   },
+   "status" : "success",
+   "warnings" : []
+}

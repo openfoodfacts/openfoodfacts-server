@@ -9,20 +9,27 @@ x-backend-conf: &backend-conf
     args:
       USER_UID: ${USER_UID:-1000}
       USER_GID: ${USER_GID:-1000}
-      CPANMOPTS: "--with-develop"
+      CPANMOPTS: "${CPANMOPTS:---with-develop}"
   volumes:
     # mount local folder for reload on dev changes.
     # Note that this means /opt/product-opener/html/images/product wont be connected to product_images volume
     # Sadly, there is no sane way to do this, while retaining compatibility with prod
     # (which requires images/product to be empty in git)
     - ./:/opt/product-opener
+    # dynamic entrypoint
+    - ./docker/docker-entrypoint.sh:/docker-entrypoint.sh
     # we use this for debugging, from times to times
     - ./debug:/mnt/podata/debug/
+  # Allow the container to connect to the host when using Linux.
+  # This is needed to access other services that are running outside of Docker
+  # e.g. when developing with Robotoff or openfoodfacts-query
+  extra_hosts:
+    - "host.docker.internal:host-gateway"
 
 x-minion-db-network: &minion-db-network
   networks:
     # we need to be on default, but also on a dedicated network (ease sharing with pro in dev)
-    # see also docs/explanations/pro-dev-setup.md
+    # see also docs/dev/explain-pro-dev-setup.md
     minion_db:
     default:
 
@@ -33,15 +40,14 @@ services:
     profiles: ["off"]
     <<: *minion-db-network
   backend:
-    <<: *backend-conf
-    <<: *minion-db-network
+    <<: [*backend-conf, *minion-db-network] 
   incron: *backend-conf
   minion:
-    <<: *backend-conf
-    <<: *minion-db-network
+    <<: [*backend-conf, *minion-db-network]
   # in dev we want to use watch assets and recompile on the fly
   # also we want to build at start time in case some files changed, as we want to avoid recreating volumes
   dynamicfront:
+    image: openfoodfacts-server/dynamicfront:dev
     build:
       context: .
       target: builder
@@ -61,7 +67,7 @@ services:
       - ./html:/opt/product-opener/html
       - ./icons:/opt/product-opener/icons
       - ./scss:/opt/product-opener/scss
-      - ./gulpfile.js:/opt/product-opener/gulpfile.js
+      - ./gulpfile.ts:/opt/product-opener/gulpfile.ts
   frontend:
     image: openfoodfacts-server/frontend:dev
     build:
@@ -74,27 +80,41 @@ services:
       - ./html:/opt/product-opener/html/
       - ./icons:/opt/product-opener/icons
       - ./scss:/opt/product-opener/scss
-      - ./gulpfile.js:/opt/product-opener/
+      - ./gulpfile.ts:/opt/product-opener/
       - ./snyk:/opt/product-opener/
+    networks:
+        default:
+          aliases:
+            # trick: make it possible for robotoff to reach it internally, 
+            # using localhost domain
+            - world.openfoodfacts.localhost
+            - static.openfoodfacts.localhost
+            - images.openfoodfacts.localhost
   mongodb:
     # Note: keep it as close a possible to mongodb.yml
     image: mongo:4.4
     command: mongod --wiredTigerCacheSizeGB ${MONGODB_CACHE_SIZE}
+    volumes:
+      - dbdata:/data/db
+      - ./html/data:/import
     ports:
       - "127.0.0.1:${MONGO_EXPOSE_PORT:-27017}:27017"
 volumes:
   product_images:
   html_data:
+  other_servers:
   products:
   # those one are volumes shared between off and pro, so we assign hard-coded names
-  # see docs/explanations/pro-dev-setup.md
-  # PO_COMMON_PREFIX is there to separate env, eg. for tests
+  # see docs/dev/explain-pro-dev-setup.md
+  # PO_COMMON_PREFIX is there to separate envs, eg. for tests
   users:
     name: ${PO_COMMON_PREFIX:-}po_users
   orgs:
     name: ${PO_COMMON_PREFIX:-}po_orgs
-  podata:  # we also need to share it because users_emails and orgs... are not separated yet
-    name: ${PO_COMMON_PREFIX:-}po_podata
+  export_files:
+    name: ${PO_COMMON_PREFIX:-}po_export_files
+  podata:
+  dbdata:
 
 networks:
   # this is a specific network to enable pro platform to join the postgres db

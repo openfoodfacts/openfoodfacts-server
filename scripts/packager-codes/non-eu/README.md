@@ -1,6 +1,6 @@
 # Non-EU Packager Codes
 
-A Python application to download and manage non-EU packager codes, as listed on the official page: https://webgate.ec.europa.eu/sanco/traces/output/non_eu_listsPerCountry_en.htm.
+A Python application to download and manage non-EU packager codes, as listed on [the official page](https://webgate.ec.europa.eu/sanco/traces/output/non_eu_listsPerCountry_en.htm).
 
 ## Setup
 
@@ -24,17 +24,11 @@ Simply run `python packager_codes.py --help` to see the main help.
 To download or update packager code files in the directory `packager_codes_data`:
 
 ```shell script
-python packager_codes.py sync packager_codes_data
+python packager_codes.py sync
 ```
 
 To display the status of the locally downloaded files as compared to the remote:
 
 ````shell script
-python packager_codes.py status packager_codes_data
-````
-
-To extract codes
-````
-find . -name "*.pdf"
-python ./pdf_extraction.py    
+python packager_codes.py status
 ````

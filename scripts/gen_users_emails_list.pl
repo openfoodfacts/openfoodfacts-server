@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -19,7 +19,6 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 
 =head1 NAME
 
@@ -37,7 +36,7 @@ gen_users_emails_list.pl - lists Open Food Facts users
 
 =item B<--all>
 
-Export all the users, not just the ones registred to Open Food Facts newsletter.
+Export all the users, not just the ones registered to Open Food Facts newsletter.
 
 =back
 
@@ -57,11 +56,9 @@ It contains:
 
 Each field is separated by a tab (TSV).
 
-By default, the list is restricted to users registred to Open Food Facts newsletter.
+By default, the list is restricted to users registered to Open Food Facts newsletter.
 
 =cut
-
-
 
 use Modern::Perl '2017';
 use utf8;
@@ -69,26 +66,26 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 
 my @userids;
 my $arg = $ARGV[0] || "";
 
 if (scalar $#userids < 0) {
-	opendir DH, "$data_root/users" or die "Couldn't open the current directory: $!";
+	opendir DH, $BASE_DIRS{USERS} or die "Couldn't open the current directory: $!";
 	@userids = sort(readdir(DH));
 	closedir(DH);
 }
 
-foreach my $userid (@userids)
-{
+foreach my $userid (@userids) {
 	next if $userid eq "." or $userid eq "..";
 	next if $userid eq 'all';
 
-	my $user_ref = retrieve("$data_root/users/$userid");
+	my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid");
 
 	my $first = '';
-	if (! exists $user_ref->{discussion}) {
+	if (!exists $user_ref->{discussion}) {
 		$first = 'first';
 	}
 
@@ -104,8 +101,14 @@ foreach my $userid (@userids)
 		my $userid = $user_ref->{userid} || "";
 		my $newsletter = $user_ref->{newsletter} || "";
 		my $moderator = $user_ref->{moderator} || "";
-		print lc($user_ref->{email}) . "\t" . $lc . "\t" .  $cc . "\t" . $t . "\t"
-			. $country . "\t" . $userid . "\t" . $newsletter . "\t" . $moderator . "\n";
+		print lc($user_ref->{email}) . "\t"
+			. $lc . "\t"
+			. $cc . "\t"
+			. $t . "\t"
+			. $country . "\t"
+			. $userid . "\t"
+			. $newsletter . "\t"
+			. $moderator . "\n";
 	}
 
 }

@@ -4,7 +4,7 @@
         "health"
     ],
     "title_element": {
-        "icon_url": "[% static_subdomain %]/images/attributes/nutriscore-[% panel.nutriscore_grade %].svg",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/nutriscore-[% panel.nutriscore_grade %].svg",
         [% IF panel.nutriscore_unknown_reason_short %]
             "subtitle": "[% panel.nutriscore_unknown_reason_short %]",
         [% END %]
@@ -13,6 +13,7 @@
         "grade": "[% panel.nutriscore_grade %]",
     },
     "elements": [
+        // First display warnings
         [% IF panel.nutriscore_warnings %]
             [% FOREACH warning IN panel.nutriscore_warnings %]
             {
@@ -24,7 +25,26 @@
                 }
             },
             [% END %]
-        [% END %]            
+        [% END %]
+        // Display actions if we are missing data to compute the Nutri-Score
+        [% IF panel.nutriscore_unknown_reason %]
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("actions_to_compute_nutriscore") %]`,
+                "actions": [
+                    [% IF panel.nutriscore_unknown_reason == "missing_category" %]
+                        "add_categories"
+                    [% ELSIF panel.nutriscore_unknown_reason == "missing_nutrition_data" %]
+                        "add_nutrition_facts"
+                    [% ELSIF panel.nutriscore_unknown_reason == "missing_category_and_nutrition_data" %]
+                        "add_categories",
+                        "add_nutrition_facts"
+                    [% END %]
+                ]
+            }
+        },        
+        [% END %]         
         {
             "element_type": "text",
             "text_element": {
