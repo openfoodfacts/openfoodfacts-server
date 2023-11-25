@@ -4453,7 +4453,9 @@ my %phrases_after_ingredients_list = (
 
 	da => [
 		'(?:gennemsnitlig )?n(æ|ae)rings(?:indhold|værdi|deklaration)',
-		'beskyttes', 'nettovægt', 'åbnet',
+		'beskyttes',
+		'nettovægt',
+		'åbnet',
 		'holdbarhed efter åbning',
 		'mindst holdbar til',
 		'opbevar(?:ing|res)?',
