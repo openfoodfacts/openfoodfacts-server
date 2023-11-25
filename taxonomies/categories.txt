@@ -2189,7 +2189,7 @@ bg:Френска бира
 de:Französische Biere
 es:Cervezas francesas, Cervezas de Francia
 fi:ranskalaiset oluet
-fr:Bières françaises, Bières de France
+fr:Bières françaises, Bières de France, bière française, bière de France
 hu:Francia sörök
 it:Birre francesi, birre dalla Francia
 lt:Prancūziškas alus
@@ -3833,6 +3833,7 @@ agribalyse_food_code:en:1023
 ciqual_food_code:en:1023
 ciqual_food_name:en:Spirit made from wine, armagnac or cognac type
 ciqual_food_name:fr:Eau de vie de vin, type armagnac, cognac
+origins:en: en:France
 
 <en:Armagnac
 en:Armagnac-Ténarèze
@@ -3907,6 +3908,7 @@ agribalyse_food_code:en:1023
 ciqual_food_code:en:1023
 ciqual_food_name:en:Spirit made from wine, armagnac or cognac type
 ciqual_food_name:fr:Eau de vie de vin, type armagnac, cognac
+origins:en: en:France
 
 <en:Eaux de vie
 en:Swiss Eaux-de-vie
@@ -3915,6 +3917,7 @@ fr:Eaux-de-vie suisses, Eau-de-vie suisse, Eaux-de-vie de Suisse, Eau-de-vie de 
 it:Acquaviti svizzere, Acquaviti della Svizzera
 nl:Zwitserse eau-de-vies
 #wikidata:en:
+origins:en: en:Switzerland
 
 <en:Eaux de vie
 en:French Eaux-de-vie
@@ -3923,6 +3926,7 @@ fr:Eaux-de-vie françaises, Eau-de-vie française, Eaux-de-vie de France, Eau-de
 it:Acquaviti francesi, Acquaviti della Francia
 nl:Franse eau-de-vies
 #wikidata:en:
+origins:en: en:France
 
 <en:French Eaux-de-vie
 en:French cider eau-de-vies
@@ -10599,7 +10603,7 @@ ca:Vi francès
 de:französische Weine
 es:Vinos de Francia, vinos franceses
 fi:ranskalaiset viinit
-fr:Vins français, vin français
+fr:Vins français, vin français, vins de France, vin de France
 he:יינות מצרפת
 hu:Francia borok
 it:Vini francesi
@@ -10613,6 +10617,7 @@ wikidata:en:Q630531
 agribalyse_proxy_food_code:en:5215
 agribalyse_proxy_food_name:en:Wine, white, dry
 agribalyse_proxy_food_name:fr:Vin blanc sec
+origins:en: en:France
 
 <en:Wines from France
 fr:Agenais
@@ -31992,6 +31997,10 @@ agribalyse_food_code:en:24071
 ciqual_food_code:en:24071
 ciqual_food_name:en:Shortbread pastry biscuit
 ciqual_food_name:fr:Sablé pâtissier
+
+<en:Shortbread cookies
+en:Shortbread cookies from Brittany
+fr:Galettes bretonnes au beurre
 
 <en:Shortbread cookies
 fr:Palets, Palet, Palets sablés, Palet sablé, Palet breton, Palets bretons
@@ -74788,6 +74797,7 @@ ciqual_food_name:en:Pizza, ham cheese and mushrooms
 ciqual_food_name:fr:Pizza jambon fromage champignons ou pizza royale, reine ou regina
 
 <en:Pizzas
+<en:Vegetarian pizzas
 en:Cheese and mushrooms pizza
 fr:Pizza champignons fromage
 lt:Picos su sūriu ir grybais
@@ -74797,6 +74807,7 @@ ciqual_food_name:en:Pizza, cheese and mushrooms
 ciqual_food_name:fr:Pizza champignons fromage
 
 <en:Pizzas
+<en:Vegetarian pizzas
 en:Margherita Pizza, Cheese and tomato pizza
 de:Pizza Margherita
 es:Pizza margherita
@@ -74811,6 +74822,22 @@ agribalyse_food_code:en:25404
 ciqual_food_code:en:25404
 ciqual_food_name:en:Pizza, cheese and tomato or Margherita pizza
 ciqual_food_name:fr:Pizza au fromage ou Pizza margherita
+
+<en:Pizzas
+en:Vegetarian pizzas
+fr:Pizzas végétariennes, pizza végétarienne
+agribalyse_proxy_food_code:en:25472
+ciqual_proxy_food_code:en:25472
+ciqual_proxy_food_name:en:Pizza, vegetables or pizza 4 seasons
+ciqual_proxy_food_name:fr:Pizza aux légumes ou Pizza 4 saisons
+
+<en:Pizzas
+en:Plant-based pizzas, Vegetal pizzas, vegan pizzas
+fr:Pizzas végétales, pizzas végétaliennes, pizzas véganes, pizza végétale, pizza végétalienne, pizza végane
+agribalyse_proxy_food_code:en:25472
+ciqual_proxy_food_code:en:25472
+ciqual_proxy_food_name:en:Pizza, vegetables or pizza 4 seasons
+ciqual_proxy_food_name:fr:Pizza aux légumes ou Pizza 4 saisons
 
 <en:Pizzas
 <en:Pork meals
@@ -74976,10 +75003,11 @@ ciqual_food_name:en:Pizza, kebab
 ciqual_food_name:fr:Pizza kebab
 
 <en:Pizzas
+<en:Vegetarian pizzas
 en:Vegetable pizza, Four seasons pizza, Pizza quattro stagioni
 es:Pizzas de verduras
 fi:Kasvispizza, Quattro stagioni -pizza
-fr:Pizza aux légumes, Pizza 4 saisons, Pizza quatre saisons
+fr:Pizzas aux légumes, Pizza 4 saisons, Pizza quatre saisons, pizza aux légumes, pizzas 4 saisons, pizza quatre saisons
 lt:Picos su daržovėmis, Keturių sezonų picos
 nl:Groentepizza, Groentenpizza
 agribalyse_food_code:en:25472
@@ -74988,6 +75016,7 @@ ciqual_food_name:en:Pizza, vegetables or pizza 4 seasons
 ciqual_food_name:fr:Pizza aux légumes ou Pizza 4 saisons
 
 <en:Pizzas
+<en:Vegetarian pizzas
 en:Cheese pizzas
 bg:Пица със сирена
 de:Käsepizzas
@@ -93058,6 +93087,7 @@ fr:Panela en poudre
 
 <en:Sugars
 en:Palm sugars
+fr:Sucres de palme, sucre de palme
 
 <en:Palm sugars
 km:ស្ករត្នោតកំពង់ស្ពឺ
@@ -93084,6 +93114,14 @@ agribalyse_proxy_food_code:en:31017
 ciqual_proxy_food_code:en:31017
 ciqual_proxy_food_name:en:Sugar, brown
 ciqual_proxy_food_name:fr:Sucre roux
+
+<en:sugars
+en:Beet sugars, beetroot sugars
+fr:Sucres de betterave, sucre de betterave
+agribalyse_proxy_food_code:en:31016
+ciqual_proxy_food_code:en:31016
+ciqual_proxy_food_name:en:Sugar, white
+ciqual_proxy_food_name:fr:Sucre blanc
 
 <en:Sugars
 en:Coconut sugar
@@ -97887,7 +97925,7 @@ bg:Сушени домати
 de:Getrocknete Tomaten
 es:Tomates secos, Tomates deshidratados, Tomates desecados
 fi:kuivatut tomaatit
-fr:Tomate séchée, Tomates séchées
+fr:Tomates séchées, Tomate séchée
 it:Pomodori essiccati
 nl:Gedroogde tomaten
 agribalyse_food_code:en:20189
@@ -97906,7 +97944,7 @@ en:Dried tomato in oil, Dried tomatoes in oil, Sun-Dried tomato in oil, Sun-Drie
 de:getrocknete Tomaten in Öl
 es:Tomates secos en aceite, Tomates secos rehidratados en aceite
 fi:kuivattuja tomaatteja öljyssä
-fr:Tomate séchée à l'huile, Tomates séchées à l'huile, Tomates séchées réhydratées à l'huile
+fr:Tomates séchées à l'huile, Tomate séchée à l'huile, Tomates séchées réhydratées à l'huile
 it:Pomodoro essiccato sott'olio
 nl:Gedroogde tomaten op olie
 agribalyse_food_code:en:20256
@@ -98686,6 +98724,7 @@ agribalyse_proxy_food_name:en:Lentil, blond, dried
 agribalyse_proxy_food_name:fr:Lentille blonde, sèche
 
 <en:Blonde lentils
+<en:Dried lentils
 en:Dried blond lentils
 fr:Lentilles blondes sèches
 agribalyse_food_code:en:20586
@@ -98721,6 +98760,7 @@ agribalyse_proxy_food_name:en:Lentil, pink or red, dried
 agribalyse_proxy_food_name:fr:Lentille corail, sèche
 
 <en:Red lentils
+<en:Dried lentils
 en:Dried pink lentils, Dried red lentils
 fr:Lentilles corail sèches
 agribalyse_food_code:en:20535
@@ -98784,6 +98824,7 @@ ciqual_food_name:en:-
 ciqual_food_name:fr:Lentille verte, cuite
 
 <en:Green lentils
+<en:Dried lentils
 en:Dried green lentils
 de:Getrocknete grüne Linsen
 fr:Lentilles vertes sèches
@@ -98806,7 +98847,6 @@ nl:Rode linzen
 <en:Lentils
 fr:lentilles rosées de Champagne, lentillon de Champagne
 origins:en: en:France, fr:Champagne
-
 
 <en:Pulses
 en:Lupin beans, Lupins, Lupini beans
@@ -104244,12 +104284,27 @@ ciqual_food_name:en:Potato, cooked (average food)
 ciqual_food_name:fr:Pomme de terre, cuite (aliment moyen)
 
 <en:Prepared potatoes
-en:Boiled potatoes, Potatoes cooked in water
-fr:Pommes de terre bouillies, Pommes de terre cuites à l'eau
+en:Boiled or steamed potatoes, Potatoes cooked in water or steam
+fr:Pommes de terre bouillies ou à la vapeur, Pommes de terre cuites à l'eau ou à la vapeur
+agribalyse_proxy_food_code:en:4014
+ciqual_proxy_food_code:en:4014
+ciqual_proxy_food_name:en:Potato, steamed, vacuum-packed
+ciqual_proxy_food_name:fr:Pomme de terre vapeur, sous vide
+
+<en:Boiled or steamed potatoes
+fr:Pommes de terre bouillies, Pommes de terre cuites à l'eau, pommes de terre à l'eau
 agribalyse_food_code:en:4003
 ciqual_food_code:en:4003
 ciqual_food_name:en:Potato, boiled/cooked in water
 ciqual_food_name:fr:Pomme de terre, bouillie/cuite à l'eau
+
+<en:Boiled or steamed potatoes
+en:Steamed potatoes, steamed cooked potatoes
+fr:Pommes de terre cuites à la vapeur, Pommes de terre à la vapeur
+agribalyse_proxy_food_code:en:4014
+ciqual_proxy_food_code:en:4014
+ciqual_proxy_food_name:en:Potato, steamed, vacuum-packed
+ciqual_proxy_food_name:fr:Pomme de terre vapeur, sous vide
 
 <en:Prepared potatoes
 en:Boiled peeled ware potatoes, Peeled ware potatoes cooked in water
@@ -104308,6 +104363,7 @@ ciqual_food_name:en:Potato, sautéed/pan-fried, with goose fat
 ciqual_food_name:fr:Pomme de terre sautée/poêlée à la graisse de canard
 
 <en:Prepared potatoes
+<en:Steamed potatoes
 en:Vacuum-packed steamed potatoes
 fr:Pommes de terre vapeur sous vide
 agribalyse_food_code:en:4014
@@ -104355,6 +104411,15 @@ pnns_group_2:en:Potatoes
 ciqual_food_code:en:4047
 ciqual_food_name:en:Mashed potatoes (average)
 ciqual_food_name:fr:Pomme de terre, purée (aliment moyen)
+
+# without milk, cream, butter
+<en:Mashed potatoes
+en:Pure mashed potatoes, Mashed potatoes 100%
+fr:Purées de pommes de terres pures, Purées de pommes de terre 100%, purée de pommes de terre 100%
+agribalyse_proxy_food_code:en:4003
+ciqual_proxy_food_code:en:4003
+ciqual_proxy_food_name:en:Potato, boiled/cooked in water
+ciqual_proxy_food_name:fr:Pomme de terre, bouillie/cuite à l'eau
 
 <fr:Purées
 <en:Prepared vegetables
