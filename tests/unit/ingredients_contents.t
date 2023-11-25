@@ -1,7 +1,5 @@
 #!/usr/bin/perl -w
 
-# Tests of Ingredients::compute_ingredients_percent_values()
-
 use Modern::Perl '2017';
 use utf8;
 

@@ -83,6 +83,18 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Your request to join the organization is pending approval of the organization administrator."
 
+msgctxt "admin_status_updated"
+msgid "Admin Status Updated"
+msgstr "Admin Status Updated"
+
+msgctxt "admin_status"
+msgid "Admin Status"
+msgstr "Admin Status"
+
+msgctxt "grant_remove_admin_status"
+msgid "Grant/Remove Admin status"
+msgstr "Grant/Remove Admin status"
+
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
 msgstr "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
@@ -193,10 +205,10 @@ msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
-msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr "/images/misc/google-play-badge-svg-master/img/en_get.svg"
+msgid "/images/misc/playstore/img/en_get.svg"
+msgstr "/images/misc/playstore/img/en_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -2629,6 +2641,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Load lower resolution images (for slow connections)"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
@@ -4004,6 +4020,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Thank you!"
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "Thank you very much!"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "Value for the product"
@@ -4196,6 +4216,10 @@ msgstr "Add a field"
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "Remove all the products"
+
+msgctxt "remove_user"
+msgid "Remove user"
+msgstr "Remove user"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -5748,15 +5772,9 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Important: we need your support!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgctxt "donation_text_2023"
+msgid "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
+msgstr "Help us make food transparency the norm! As an independent non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat. Join the food revolution with a donation to the movement."
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6615,6 +6633,10 @@ msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "relative to all products"
 
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr "Preferred Language"
+
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
 msgstr "Numbers of packaging components"
@@ -6625,7 +6647,7 @@ msgstr "Number of packaging components"
 
 msgctxt "packagings_materials_all"
 msgid "All materials"
-msgstr "All materials"
+msgstr ""
 
 msgctxt "weight"
 msgid "Weight"

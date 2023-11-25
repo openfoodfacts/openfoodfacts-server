@@ -108,6 +108,9 @@
                ],
                "epi_score" : 0,
                "epi_value" : -5,
+               "origins_from_categories" : [
+                  "en:unknown"
+               ],
                "origins_from_origins_field" : [
                   "en:unknown"
                ],
@@ -761,10 +764,10 @@
       "nutrient_levels" : {},
       "nutrient_levels_tags" : [],
       "nutriments" : {
-         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 25,
-         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 25,
-         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25,
-         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 25,
+         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 62.5,
+         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 62.5,
+         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 62.5,
+         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 62.5,
          "nova-group" : 3,
          "nova-group_100g" : 3,
          "nova-group_serving" : 3
@@ -775,7 +778,7 @@
             "data" : {
                "energy" : null,
                "fiber" : 0,
-               "fruits_vegetables_nuts_colza_walnut_olive_oils" : 25,
+               "fruits_vegetables_nuts_colza_walnut_olive_oils" : 62.5,
                "is_beverage" : 0,
                "is_cheese" : 0,
                "is_fat" : 0,
@@ -795,10 +798,11 @@
             "data" : {
                "energy" : null,
                "fiber" : 0,
-               "fruits_vegetables_legumes" : 25,
+               "fruits_vegetables_legumes" : 62.5,
                "is_beverage" : 0,
                "is_cheese" : 0,
                "is_fat_oil_nuts_seeds" : 0,
+               "is_red_meat_product" : 0,
                "is_water" : 0,
                "proteins" : null,
                "salt" : null,
@@ -832,9 +836,9 @@
       "nutrition_score_beverage" : 0,
       "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
       "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 25,
+      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 62.5,
       "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-      "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 25,
+      "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 62.5,
       "nutrition_score_warning_no_fiber" : 1,
       "origin" : "france",
       "origin_en" : "france",

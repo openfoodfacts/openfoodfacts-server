@@ -8,12 +8,13 @@ use ProductOpener::Test qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Users qw/:all/;
+use ProductOpener::Paths qw/:all/;
 
 remove_all_users();
 wait_application_ready();
 # we need to create spam user log to be able to tail on it
-open(my $log, ">>", "$data_root/logs/user_spam.log");
-$log . close();
+open(my $log, ">>", "$BASE_DIRS{LOGS}/user_spam.log");
+close($log);
 
 my $ua = new_client();
 
@@ -25,7 +26,7 @@ my $url = construct_test_url("/cgi/user.pl?type=edit&userid=tests", "world");
 my $response = $ua->get($url);
 
 #$DB::single = 1;
-is $response->{_rc}, 200;
+is($response->{_rc}, 200, "Status ok on creation");
 
 #checking whether the preference were well saved
 my @words = ('bob@test.com', $default_user_form{userid}, $default_user_form{name});
@@ -48,7 +49,7 @@ foreach my $args_ref (["name", "click http://test.com"], ["faxnumber", "0"]) {
 	my $userid = "bob$testnum";
 	my %create_user_args
 		= (%default_user_form, ($arg_name => $arg_value, "userid" => $userid, email => "bob$testnum\@test.com"));
-	my $logid = tail_log_start("$data_root//logs/user_spam.log");
+	my $logid = tail_log_start("$BASE_DIRS{LOGS}/user_spam.log");
 	$response = create_user($ua, \%create_user_args);
 	my $logged = tail_log_read($logid);
 	like($response->content, qr/class="error_page"/, "Error in the page - $testnum");

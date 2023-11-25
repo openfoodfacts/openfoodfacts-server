@@ -1,4 +1,10 @@
 {
+   "additives_n" : 0,
+   "additives_old_n" : 0,
+   "additives_old_tags" : [],
+   "additives_original_tags" : [],
+   "additives_tags" : [],
+   "amino_acids_tags" : [],
    "categories" : "apples",
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
@@ -53,6 +59,9 @@
       "en:vegan",
       "en:vegetarian"
    ],
+   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
       "en:apple",
       "en:fruit",
@@ -73,6 +82,8 @@
       "en:malaceous-fruit"
    ],
    "ingredients_text" : "apples",
+   "ingredients_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_that_may_be_from_palm_oil_tags" : [],
    "ingredients_with_specified_percent_n" : 0,
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
@@ -81,6 +92,7 @@
    "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 3,
    "lc" : "en",
+   "minerals_tags" : [],
    "misc_tags" : [
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
@@ -96,10 +108,10 @@
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
-      "en:nutriscore-2021-different-from-2023",
-      "en:nutriscore-2021-better-than-2023",
-      "en:nutriscore-2021-a-2023-b"
+      "en:nutriscore-2021-same-as-2023",
+      "en:nutriscore-2021-a-2023-a"
    ],
+   "nucleotides_tags" : [],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
@@ -207,13 +219,14 @@
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
+            "is_red_meat_product" : 0,
             "is_water" : 0,
             "negative_nutrients" : [
                "energy",
                "sugars",
                "saturated_fat",
                "salt",
-               "sweeteners"
+               "non_nutritive_sweeteners"
             ],
             "negative_points" : 3,
             "positive_nutrients" : [
@@ -231,7 +244,7 @@
             "sugars" : 10.1,
             "sugars_points" : 3
          },
-         "grade" : "b",
+         "grade" : "a",
          "nutrients_available" : 1,
          "nutriscore_applicable" : 1,
          "nutriscore_computed" : 1,
@@ -242,7 +255,7 @@
       "a"
    ],
    "nutriscore_2023_tags" : [
-      "b"
+      "a"
    ],
    "nutriscore_data" : {
       "energy" : 207,
@@ -296,6 +309,7 @@
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 100,
    "nutrition_score_warning_nutriments_estimated" : 1,
+   "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Fruits and vegetables",
    "pnns_groups_1_tags" : [
       "fruits-and-vegetables",
@@ -306,5 +320,6 @@
       "fruits",
       "known"
    ],
-   "unknown_ingredients_n" : 0
+   "unknown_ingredients_n" : 0,
+   "vitamins_tags" : []
 }

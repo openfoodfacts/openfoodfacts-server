@@ -26,6 +26,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -138,31 +139,31 @@ if ((not defined $search_terms) or ($search_terms eq '')) {
 }
 
 # check if the search term looks like a barcode
-
 if (    (not defined single_param('json'))
 	and (not defined single_param('jsonp'))
 	and (not defined single_param('jqm'))
 	and (not defined single_param('jqm_loadmore'))
 	and (not defined single_param('xml'))
 	and (not defined single_param('rss'))
-	and ($search_terms =~ /^(\d{4,24})$/))
+	and ($search_terms =~ /^(\d{4,24}|(?:[\^(\N{U+001D}\N{U+241D}]|https?:\/\/).+)$/))
 {
 
 	my $code = normalize_code($search_terms);
+	if ((defined $code) and (length($code) > 0)) {
+		my $product_id = product_id_for_owner($Owner_id, $code);
 
-	my $product_id = product_id_for_owner($Owner_id, $code);
+		my $product_ref = product_exists($product_id);    # returns 0 if not
 
-	my $product_ref = product_exists($product_id);    # returns 0 if not
+		if ($product_ref) {
+			$log->info("product code exists, redirecting to product page", {code => $code});
+			my $location = product_url($product_ref);
 
-	if ($product_ref) {
-		$log->info("product code exists, redirecting to product page", {code => $code});
-		my $location = product_url($product_ref);
+			my $r = shift;
+			$r->headers_out->set(Location => $location);
+			$r->status(301);
+			return 301;
 
-		my $r = shift;
-		$r->headers_out->set(Location => $location);
-		$r->status(301);
-		return 301;
-
+		}
 	}
 }
 
@@ -710,7 +711,7 @@ elsif ($action eq 'process') {
 	my $graph = single_param("graph") || '';
 	my $download = single_param("download") || '';
 
-	open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log_debug");
+	open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log_debug");
 	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => single_param('search_terms') . " - map: $map
 	 - graph: $graph - download: $download - page: $page\n";
 	close($OUT);
@@ -824,7 +825,7 @@ HTML
 		}
 
 		if (single_param('search_terms')) {
-			open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log");
+			open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log");
 			print $OUT remote_addr() . "\t"
 				. time() . "\t"
 				. decode utf8 => single_param('search_terms')

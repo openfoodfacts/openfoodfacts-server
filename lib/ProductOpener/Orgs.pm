@@ -66,6 +66,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -78,16 +79,12 @@ use Log::Any qw($log);
 
 =head1 DATA
 
-Organization profile data is kept in files in the $data_root/orgs directory.
+Organization profile data is kept in files in the $BASE_DIRS{ORGS} directory.
 If it does not exist yet, the directory is created when the module is initialized.
 
 =cut
 
-if (!-e "$data_root/orgs") {
-	mkdir("$data_root/orgs", 0755)
-		or $log->warn("Could not create orgs dir", {dir => "$data_root/orgs", error => $!})
-		if $log->is_warn();
-}
+ensure_dir_created($BASE_DIRS{ORGS});
 
 =head1 FUNCTIONS
 
@@ -111,9 +108,12 @@ sub retrieve_org ($org_id_or_name) {
 
 	$log->debug("retrieve_org", {org_id_or_name => $org_id_or_name, org_id => $org_id}) if $log->is_debug();
 
-	my $org_ref = retrieve("$data_root/orgs/$org_id.sto");
+	if (defined $org_id and $org_id ne "") {
+		my $org_ref = retrieve("$BASE_DIRS{ORGS}/$org_id.sto");
+		return $org_ref;
+	}
 
-	return $org_ref;
+	return;
 }
 
 =head1 FUNCTIONS
@@ -128,7 +128,7 @@ This function returns an array of all existing org ids
 
 sub list_org_ids () {
 	# all .sto but orgs_glns
-	my @org_files = glob("$data_root/orgs/*.sto");
+	my @org_files = glob("$BASE_DIRS{ORGS}/*.sto");
 	# id is the filename without .sto
 	my @org_ids = map {$_ =~ /\/([^\/]+).sto/;} @org_files;
 	# remove "orgs_glns"
@@ -159,14 +159,14 @@ sub store_org ($org_ref) {
 	defined $org_ref->{org_id} or die("Missing org_id");
 
 	# retrieve eventual previous values
-	my $previous_org_ref = retrieve("$data_root/orgs/" . $org_ref->{org_id} . ".sto");
+	my $previous_org_ref = retrieve("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto");
 
 	if ((defined $previous_org_ref) && !$previous_org_ref->{validated} && $org_ref->{validated}) {
 		# we switched on validated
 		# TODO: create org and its users in Odoo CRM
 	}
 
-	store("$data_root/orgs/" . $org_ref->{org_id} . ".sto", $org_ref);
+	store("$BASE_DIRS{ORGS}/" . $org_ref->{org_id} . ".sto", $org_ref);
 
 	return;
 }
@@ -281,7 +281,7 @@ This function returns a hash ref for the org.
 sub set_org_gs1_gln ($org_ref, $list_of_gs1_gln) {
 
 	# Remove existing GLNs
-	my $glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
+	my $glns_ref = retrieve("$BASE_DIRS{ORGS}/orgs_glns.sto");
 	not defined $glns_ref and $glns_ref = {};
 	if (defined $org_ref->{list_of_gs1_gln}) {
 		foreach my $gln (split(/,| /, $org_ref->{list_of_gs1_gln})) {
@@ -301,7 +301,7 @@ sub set_org_gs1_gln ($org_ref, $list_of_gs1_gln) {
 			}
 		}
 	}
-	store("$data_root/orgs/orgs_glns.sto", $glns_ref);
+	store("$BASE_DIRS{ORGS}/orgs_glns.sto", $glns_ref);
 	return;
 }
 

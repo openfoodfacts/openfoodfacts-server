@@ -1,0 +1,56 @@
+[
+   {
+      "id" : "en:blackcurrant",
+      "percent" : 40,
+      "percent_estimate" : 40,
+      "percent_max" : 40,
+      "percent_min" : 40,
+      "text" : "solbær"
+   },
+   {
+      "id" : "en:sugar",
+      "percent_estimate" : 27.5,
+      "percent_max" : 40,
+      "percent_min" : 15,
+      "text" : "sukker"
+   },
+   {
+      "id" : "en:water",
+      "percent_estimate" : 19.5833333333333,
+      "percent_max" : 33.3333333333333,
+      "percent_min" : 6.66666666666667,
+      "text" : "vand"
+   },
+   {
+      "id" : "en:gelling-agent",
+      "ingredients" : [
+         {
+            "id" : "en:e440a",
+            "percent_estimate" : 6.45833333333334,
+            "percent_max" : 22.5,
+            "percent_min" : 0,
+            "text" : "e440"
+         }
+      ],
+      "percent_estimate" : 6.45833333333334,
+      "percent_max" : 22.5,
+      "percent_min" : 0,
+      "text" : "geleringsmiddel"
+   },
+   {
+      "id" : "en:preservative",
+      "ingredients" : [
+         {
+            "id" : "en:e202",
+            "percent_estimate" : 6.45833333333334,
+            "percent_max" : 15,
+            "percent_min" : 0,
+            "text" : "e202"
+         }
+      ],
+      "percent_estimate" : 6.45833333333334,
+      "percent_max" : 15,
+      "percent_min" : 0,
+      "text" : "konserveringsmiddel"
+   }
+]

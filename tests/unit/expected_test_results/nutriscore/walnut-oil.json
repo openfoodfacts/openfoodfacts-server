@@ -114,20 +114,21 @@
             "energy" : 3378,
             "energy_from_saturated_fat" : 370,
             "energy_from_saturated_fat_points" : 3,
-            "fat" : null,
+            "fat" : 100,
             "fiber" : 0,
             "fiber_points" : 0,
             "fruits_vegetables_legumes" : null,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 1,
+            "is_red_meat_product" : 0,
             "is_water" : 0,
             "negative_nutrients" : [
                "energy_from_saturated_fat",
                "sugars",
                "saturated_fat_ratio",
                "salt",
-               "sweeteners"
+               "non_nutritive_sweeteners"
             ],
             "negative_points" : 4,
             "positive_nutrients" : [

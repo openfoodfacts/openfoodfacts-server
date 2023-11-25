@@ -1,6 +1,6 @@
 # Should also be available as Debian packages
 # If a minimum version number is specified, "cpanm --skip-satisfied" will install a newer version than apt if one is available in cpan.
-
+requires 'Array::Diff';
 requires 'CGI', '>= 4.53, < 5.0'; # libcgi-pm-perl
 requires 'Tie::IxHash'; # libtie-ixhash-perl
 requires 'LWP::Authen::Digest'; # libwww-perl
@@ -88,6 +88,12 @@ requires 'Action::Retry'; # deps: libmath-fibonacci-perl
 # AnyEvent
 requires 'AnyEvent';
 requires 'AnyEvent::Inotify::Simple';
+
+# more Apache stuff
+requires 'Apache::Bootstrap';  # needed by Apache2::Connection::XForwardedFor
+requires 'Apache2::Connection::XForwardedFor';
+# GS1 Encoder
+requires 'GS1::SyntaxEngine::FFI';
 
 on 'test' => sub {
   requires 'Test::More', '>= 1.302186, < 2.0';

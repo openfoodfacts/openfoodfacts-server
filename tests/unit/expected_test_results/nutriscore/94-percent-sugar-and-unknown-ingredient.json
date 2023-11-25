@@ -1,4 +1,10 @@
 {
+   "additives_n" : 0,
+   "additives_old_n" : 0,
+   "additives_old_tags" : [],
+   "additives_original_tags" : [],
+   "additives_tags" : [],
+   "amino_acids_tags" : [],
    "categories" : "sugars",
    "categories_hierarchy" : [
       "en:sweeteners",
@@ -62,6 +68,9 @@
       "en:vegan-status-unknown",
       "en:vegetarian-status-unknown"
    ],
+   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
       "en:sugar",
       "en:added-sugar",
@@ -85,6 +94,8 @@
       "en:strange-ingredient"
    ],
    "ingredients_text" : "sugar 94%, strange ingredient",
+   "ingredients_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_that_may_be_from_palm_oil_tags" : [],
    "ingredients_with_specified_percent_n" : 1,
    "ingredients_with_specified_percent_sum" : 94,
    "ingredients_with_unspecified_percent_n" : 1,
@@ -96,7 +107,9 @@
    "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 3,
    "lc" : "en",
+   "minerals_tags" : [],
    "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
@@ -111,6 +124,7 @@
       "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients"
    ],
+   "nucleotides_tags" : [],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
@@ -147,6 +161,7 @@
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
+            "is_red_meat_product" : 0,
             "is_water" : 0,
             "proteins" : null,
             "salt" : null,
@@ -184,6 +199,7 @@
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
    "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 0,
    "nutrition_score_warning_no_fiber" : 1,
+   "other_nutritional_substances_tags" : [],
    "pnns_groups_1" : "Sugary snacks",
    "pnns_groups_1_tags" : [
       "sugary-snacks",
@@ -194,5 +210,6 @@
       "sweets",
       "known"
    ],
-   "unknown_ingredients_n" : 1
+   "unknown_ingredients_n" : 1,
+   "vitamins_tags" : []
 }

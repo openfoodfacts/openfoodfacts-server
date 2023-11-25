@@ -105,6 +105,9 @@
             ],
             "epi_score" : 50,
             "epi_value" : 0,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
             "origins_from_origins_field" : [
                "en:martinique"
             ],
@@ -535,6 +538,7 @@
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
+            "is_red_meat_product" : 0,
             "is_water" : 0,
             "proteins" : 1.06,
             "salt" : 0.0063,

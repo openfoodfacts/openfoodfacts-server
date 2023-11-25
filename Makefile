@@ -89,6 +89,11 @@ dev: hello build init_backend _up import_sample_data create_mongodb_indexes refr
 edit_etc_hosts:
 	@grep -qxF -- "${HOSTS}" /etc/hosts || echo "${HOSTS}" >> /etc/hosts
 
+create_folders:
+# create some folders to avoid having them owned by root (when created by docker compose)
+	@echo "🥫 Creating folders before docker-compose use them."
+	mkdir -p logs/apache2 logs/nginx debug || ( whoami; ls -l . ; false )
+
 # TODO: Figure out events => actions and implement live reload
 # live_reload:
 # 	@echo "🥫 Installing when-changed …"
@@ -119,7 +124,7 @@ _up:
 	${DOCKER_COMPOSE} up -d 2>&1
 	@echo "🥫 started service at http://openfoodfacts.localhost"
 
-up: build _up
+up: build create_folders _up
 
 down:
 	@echo "🥫 Bringing down containers …"
@@ -156,7 +161,7 @@ tail:
 	@echo "🥫 Reading logs (Apache2, Nginx) …"
 	tail -f logs/**/*
 
-codecov_prepare:
+codecov_prepare: create_folders
 	@echo "🥫 Preparing to run code coverage…"
 	mkdir -p cover_db
 	${DOCKER_COMPOSE_TEST} run --rm backend cover -delete
@@ -173,13 +178,13 @@ coverage_txt:
 #----------#
 # Services #
 #----------#
-build_lang:
+build_lang: create_folders
 	@echo "🥫 Rebuild language"
     # Run build_lang.pl
     # Languages may build taxonomies on-the-fly so include GITHUB_TOKEN so results can be cached
 	${DOCKER_COMPOSE} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
-build_lang_test:
+build_lang_test: create_folders
 # Run build_lang.pl in test env
 	${DOCKER_COMPOSE_TEST} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
@@ -197,10 +202,8 @@ create_mongodb_indexes:
 	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "mongo off /data/db/create_indexes.js"
 
 refresh_product_tags:
-	@echo "🥫 Refreshing products tags (update MongoDB products_tags collection) …"
-# get id for mongodb container
-	docker cp scripts/refresh_products_tags.js $(shell docker-compose ps -q mongodb):/data/db
-	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "mongo off /data/db/refresh_products_tags.js"
+	@echo "🥫 Refreshing product data cached in Postgres …"
+	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl ${from}
 
 import_sample_data:
 	@echo "🥫 Importing sample data (~200 products) into MongoDB …"
@@ -245,14 +248,14 @@ lint: lint_perltidy
 tests: build_lang_test unit_test integration_test
 
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
-unit_test:
+unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
-integration_test:
+integration_test: create_folders
 	@echo "🥫 Running integration tests …"
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
@@ -270,14 +273,15 @@ test-stop:
 
 # usage:  make test-unit test=test-name.t
 # you can add args= to pass options, like args="-d" to debug
-test-unit: guard-test
+test-unit: guard-test create_folders
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run --rm backend perl ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
 # to update expected results: make test-int test="test-name.t --update-expected-results"
-test-int: guard-test # usage: make test-int test=test-file.t
+# you can add args= to pass options, like args="-d" to debug
+test-int: guard-test create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion
 	${DOCKER_COMPOSE_TEST} exec backend perl ${args} tests/integration/${test}
@@ -388,6 +392,9 @@ create_external_volumes:
 # local data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/data ${COMPOSE_PROJECT_NAME}_html_data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata ${COMPOSE_PROJECT_NAME}_podata
+# note for this one, it should be shared with pro instance in the future
+	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/export_files ${COMPOSE_PROJECT_NAME}_export_files
+
 
 create_external_networks:
 	@echo "🥫 Creating external networks (production only) …"

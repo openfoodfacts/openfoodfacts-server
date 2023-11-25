@@ -52,6 +52,7 @@ fr:frais, fraîche, fraiche, fraîches, fraiches
 hr:svježe, sviježi, svježi, svježih
 hu:friss
 it:fresco, fresca, fresche, freschi
+lt:šviežia, šviežios, švieži
 # de:frisch is found in front and in the ingredients
 nl:verse, vers
 pl:świeży, świeża, świeże
@@ -76,6 +77,7 @@ es:pura, puro
 fr:pur
 hr:pasiran, pasirana, pasirani, pureće, pire, pire od
 it:puro, puri, pura, pure
+lt:grynas
 
 en:selected
 fr:sélectionnées, sélectionnée
@@ -92,6 +94,11 @@ fr:sélectionnées, sélectionnée
 en:unfiltered
 de:naturtrüb, naturtrüber
 fr:non filtré, trouble
+lt:nefiltruotas
+
+en:non-homogenized
+fr:non-homogénéisé
+hr:nehomogenizirano
 
 #######################################################################
 #
@@ -115,6 +122,7 @@ it:semi, grani
 ja:の実, の種
 jv:Wiji
 ko:양귀비 씨
+lt:sėkla, sėklų
 nb:frø
 nl:zaad, zaden
 pl:ziarna, pestki, nasiona, ziarno
@@ -147,6 +155,7 @@ hr:list, listovi, folium
 hu:levél
 it:foglie, in foglie
 ja:の葉
+lt:lapas, lapai
 nl:blad, bladeren
 pl:natka, liść, liście, nać, liście z
 ro:frunze de
@@ -276,7 +285,7 @@ en:diced
 bg:на кубчета, кубчета от
 ca:a daus, a dauets
 de:würfel, gewürfelt, gewürfelte, in würfel geschnitten, in würfel
-es:en cubitos, encuadritos
+es:en cubitos, encuadritos, en dados, a dados
 fi:kuutioitu, kuutioidut
 fr:en dés, en cubes, en julienne, cubes de, dés de, cubes d', dès d'
 hu:kockázott, kockázva, kockára vágva, kockára vágott
@@ -312,6 +321,7 @@ hr:aglomerirani, peleta, peletirano
 en:rolled
 de:gerollt, gerollte, gerollter, gerolltes
 es:arrollada,arrollado
+nl:geplet, geplette
 pt:enrolado, enrolada, enrolados, enroladas
 
 # en:description:Produced by grating; grate: to shred (things, usually foodstuffs), by rubbing across a grater.
@@ -327,6 +337,7 @@ hr:naribani, ribana, ribani
 hu:reszelt, reszelve
 it:grattugiato, grattugiata, grattugiati, grattugiate
 ja:おろし
+lt:tarkuotų, tarkuoti, tarkuotos
 nl:geraspt, geraspte
 pl:tarty, tarta, tarte
 pt:ralado, ralada, ralados, raladas
@@ -347,7 +358,7 @@ de:granulat, granuliert, granulierte, granulierter, granuliertes
 es:granulado,granulada,granulados,granuladas
 fi:rae
 fr:en granules, granules de, granules d', granulaire
-hr:u granulama
+hr:u granulama, granulirani
 hu:granulátum, granulált
 it:granulare, in granuli
 pl:granulat, granulat z, granulowany, granulowana, granulowane
@@ -370,6 +381,7 @@ fr:moulu, moulue, moulus, moulues
 hr:mljeveni, mljevena, mljevene, mljevenih
 hu:őrölt, őrölve, darált, darálva
 is:muldar
+lt:malta, maltos, malti
 nl:gemalen
 pl:mielony, mielone, mielona, mielonego, mielonej, mielonych, zmielony, zmielone, zmielona, zmielonego, zmielonej, zmielonych
 pt:moído, moída, moídos, moídas
@@ -451,7 +463,7 @@ hu:egész, egészben
 it:intero, intera, interi, intere
 ja:全
 pl:całe, w całości, cała, cały
-pt:inteiro, inteira, inteiros, inteiras
+pt:inteiro, inteira, inteiros, inteiras, integral
 sv:hel, hela
 # unclear what the dutch variant is
 
@@ -475,7 +487,7 @@ af:stukkies
 de:stücke, stücken, stückchen, gestückelt, stück
 es:trozo, troza, trozos, trozas, guarnición
 fr:morceaux, pièces de, en morceaux, morceaux de, morceaux d'
-hr:komadići, komadići od, hrskavi komadići, hrskavi komadići od, komata, komadić, komadiča, posip
+hr:komadići, komadići od, hrskavi komadići, hrskavi komadići od, komata, komadić, komadiča, listići, posip
 hu:darabok, darabolt, darab, darabka
 it:pezzi, in pezzi, a pezzi, pezzi di, pezzi d'
 nl:stukjes
@@ -610,7 +622,7 @@ hu:liszt
 is:mjöl
 it:farina di, farina d'
 ja:粉, フラワー
-lt:miltai
+lt:miltai, miltų
 lv:milti
 nb:mel
 nl:bloem, meel
@@ -834,6 +846,7 @@ hr:sok, sok iz, sok od, voćni sok od, od soka
 hu:leve, lé
 it:succo, succo di, succo d', succhi, succhi di, succhi d'
 ja:ジュース, 果汁
+lt: sultys, sulčių
 nb:juice
 nl:sap
 nn:juice
@@ -910,6 +923,7 @@ hu:sűrítmény, sűrített, koncentrátum
 it:concentrato, concentrato di, concentrato d', concentrati, concentrata, concentrate
 ja:濃縮
 ko:농축물
+lt:koncentratas, koncentrato, koncentruotos, koncentruotų
 mk:концентриран, концентрирана
 nl:concentraten, concentraat, geconcentreerd, geconcentreerde
 pl:koncentrat, koncentraty, koncentrat z, skoncentrowany, skoncentrowana, skoncentrowane, zagęszczony, zagęszczone, zagęszczona, zagęszczonych, zagęszczonego, zagęszczonej, koncentraty z
@@ -980,7 +994,7 @@ hr:koncentrirane, koncentrirano, na koncentrat, od koncentrirana soka, od koncen
 hu:sűrítményből, koncentrátumból, sűrítményekből, koncentrátumokból
 it:da concentrato
 ja:濃縮還元
-lt:iš koncentrąto
+lt:iš koncentrato
 nl:uit concentraat, van concentraat, op basis van concentraat
 pl:z koncentratu, z zagęszczonego, z zagęszczonych, z koncentratu z
 pt:a partir de concentrado, à base de concentrado
@@ -1006,7 +1020,7 @@ hr:sušena, sušene, sušeni, sušeno, suha, suhe, suhi, suho, suhog
 hu:szárított
 it:secco, secca, secchi, secche, essiccato, essiccati, essiccata, essiccate
 ja:ドライ, 乾燥
-lt:džiovinti
+lt:džiovinti, džiovinta
 lv:žāvēti
 nb:tørkede
 nl:gedroogd, gedroogde
@@ -1035,7 +1049,7 @@ en:freeze dried
 de:gefriergetrocknet, gefriergetrocknete, gefriergetrockneter, gefriergetrocknetes
 fi:pakkaskuivattu, pakkaskuivatut, pakastekuivattu
 fr:lyophilisé, lyophilisée, lyophilisés, lyophilisées
-hr:liofilizirane, liofiliziran, liofilizirana, liofilizirani, liofiliziranih, liofilizacijom
+hr:liofilizirane, liofiliziran, liofilizirana, liofilizirani, liofiliziranih, liofilizacijom, sušeno smrzavanjem
 hu:fagyasztva szárított
 it:liofilizzata, liofilizzate, liofilizzato, liofilizzati
 nb:frysetørkede
@@ -1155,6 +1169,7 @@ en:reconstituted
 ca:reconstituida
 fr:reconstitué, reconstituée, reconstitués, reconstituées
 hr:rekonstituirano
+lt:regeneruotas
 pl:odtworzony, odtworzone, odtworzona, odtworzonego, odtworzonej, odtworzonych
 pt:reconstituído, reconstituída, reconstituídos, reconstituídas
 
@@ -1173,7 +1188,7 @@ es:extracto, extracto de, extractos
 fi:uute, uutetta, uutteet, pähkinäuute
 fr:extrait de, extrait d'
 #fr:falsePositive:sels mineraux extraits des eaux du bassin de vichy, Sucres extraits de fruits, Extraits naturels et aromates, Extraits végétaux à pouvoir colorant, extrait sec
-hr:ekstrahirane, ekstrakt, ekstrakti, ekstrakata
+hr:ekstrahirane, ekstrahirani, ekstrakt, ekstrakti, ekstrakata
 hu:kivonat, kivonatból
 it:estratto di, estratti di, estratto d', estratti d'
 ja:エキス, 抽出物
@@ -1261,14 +1276,16 @@ en:first cold pressed
 de:erste kalte pressung
 fr:première pression à froid, 1ère pression à froid, de première pression à froid
 
+# Used for meat
 en:mechanically separated
 bg:механично отделено, механично отделен, механично отделена, механично отделени
-es:separada mecánicamente
-fr:séparée mécaniquement
+es:separada mecánicamente, separadas mecánicamente
+fr:séparée mécaniquement, séparées mécaniquement
 hu:mechanikai úton leválasztott
 pl:oddzielone mechanicznie, oddzielona mechanicznie, oddzielane mechanicznie, oddzielana mechanicznie
 pt:separado mecanicamente, separada mecanicamente, separados mecanicamente, separadas mecanicamente
 sv:maskinurbenat
+# currently not well supported, so we also have entries for "mechanically separated meat" in the ingredients taxonomy
 
 en:solids
 da:tørstof
@@ -1284,7 +1301,7 @@ hr:macerat
 
 #en:description:Modification of starch to improve markedly its swelling properties in cold water
 en:pregelatinisation, starch gelatinization
-hr:preželatinirano, preželatinizirano
+hr:preželatinirano, preželatinizirano, želatiniziranog
 wikidata:en:Q7601513
 
 #en:description:mechanical separation of the component parts of kernel/grain, sometimes after steeping in water, with or without sulphur dioxide, for the extraction of starch
@@ -1454,7 +1471,7 @@ en:caramelized, caramelised
 bg:карамелизиран, карамелизирана, карамелизирано, карамелизирани
 bs:karamelizovani
 ca:caramel-litzat
-hr:karamelizirani
+hr:karamelizirani, karameliziranih
 hu:karamellizált
 it:caramellato, caramellata, caramellati, caramellate
 nl:gekarameliseerde, gekaramelliseerde
@@ -1588,11 +1605,14 @@ en:enriched
 de:angereichert
 es:enriquecida
 #de:comment:Can also appear in combinations: de:Eiweißangereichertes
-fr:enrichi, enrichie, enrichis
+fr:enrichi, enrichie, enrichis, enrichies
 hr:obogačena
 nl:verrijkt
 pl:wzbogacany, wzbogacana, wzbogacane, wzbogacanej, wzbogacanego, wzbogacanych, fortyfikowany, fortyfikowana, fortyfikowane
 pt:enriquecido, enriquecida, enriquecidos, enriquecidas, enriquecido com, enriquecida com, enriquecidos com, enriquecidas com, enriquecido em, enriquecida em, enriquecidos em, enriquecidas em
+
+en:fortified
+fr:fortifié, fortifiée, fortifiés, fortifiées
 
 #<en:unadded
 en:unenriched
@@ -1839,6 +1859,12 @@ hr:rafinirano, djelomično rafinirano
 #fr:Dessucré, partiellement dessucré
 #hr:bez šećera, sa smanjenom količinom šećera
 
+en:Homogenized
+fr:homogénéisé
+hr:homogenizirano
+wikipedia:en:https://en.wikipedia.org/wiki/Homogenization_(chemistry)
+wikidata:en:Q1165158
+
 #######################################################################
 #
 #                P R E P A R I N G   P R O C E S S E S
@@ -1850,6 +1876,7 @@ en:fermented
 bg:ферментирало, ферментирал, ферментирала, ферментирали
 ca:fermentat
 es:fermentado
+fr:fermenté, fermentée, fermentés, fermentées
 hr:fermentirano, fermentirana
 hu:fermentált
 it:fermentato, fermentata, fermentati, fermentate
@@ -2052,7 +2079,7 @@ de:unhydriertes, ungehärtet, ungehärtetes
 es:no hidrogenado, no hidrogenada
 fi:kovettamaton, hydrogenoimaton
 fr:non hydrogénée
-hr:nehidrogenirani, nehidrogenirana, nehomogenizirano
+hr:nehidrogenirani, nehidrogenirana, nehidrogenizirano
 hu:nem hidrogénezett
 it:non idrogenato, non idrogenati
 nl:niet gehydrogeneerd, niet gehydrogeneerde
@@ -2062,11 +2089,11 @@ ro:nehidrogenate
 sv:ohärdad
 
 #en:description:Breakdown into simpler chemical constituents by appropriate treatment with water and possibly either enzymes or acid/alkali
-#en:hydrolysed, hydrolized
-#fr:Hydrolisé, hydrolisée
-#hr:hidrolizat, hidrolizirane, hidrolizirano
-#nl:gehydrolyseerd, gehydrolyseerde
-#pl:hydrolizat, hydrolizowane
+en:hydrolysed, hydrolized
+fr:Hydrolisé, hydrolisée, hydrolisés, hydrolisées
+hr:hidrolizat, hidrolizirane, hidrolizirano
+nl:gehydrolyseerd, gehydrolyseerde
+pl:hydrolizat, hydrolizowane
 
 #en:description:Transformation of unsaturated glycerides into saturated glycerides (of oils and fats)
 en:hydrogenated, hardened, partially hardened
@@ -2091,11 +2118,12 @@ de::ganz gehärtetes, vollständig hydriertes
 es:totalmente hidrogenado, totalmente hidrogenada
 fr:totalement hydrogénée
 fi:kokonaan kovetettu
-hr:potpuno hidrogenirana, potpuno hidrogenirano
+hr:potpuno hidrogenirana, potpuno hidrogenirano, potpuno hidrogenirane
 nb:fullherdet
 pl:całkowicie uwodorniony, całkowicie uwodorniona, całkowicie uwodornione, całkowicie utwardzony, całkowicie utwardzona, całkowicie utwardzone
 sv:fullhärdad
 
 #<en:hydrogenated
 en:partially hydrogenated
+hr:djelomično hidrogenirane 
 pl:częściowo uwodorniony, częściowo uwodorniona, częściowo uwodornione, częściowo utwardzony, częściowo utwardzona, częściowo utwardzone

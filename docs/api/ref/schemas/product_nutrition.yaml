@@ -2,11 +2,6 @@ type: object
 description: |
   Nutrition fields of a product
 properties:
-  fruits-vegetables-nuts_100g_estimate:
-    type: integer
-    description: |
-      An estimate, from ingredients list of the percentage of vegetable and nuts.
-      This is an important information for Nutri-Score computation.
   no_nutrition_data:
     type: string
     description: |
@@ -45,8 +40,16 @@ properties:
         type: number
       fat:
         type: number
-      fruits-vegetables-nuts-estimate-from-ingredients_100g:
+      fruits-vegetables-legumes-estimate-from-ingredients:
         type: number
+        description: |
+          An estimate, from the ingredients list of the percentage of fruits, vegetable and legumes.
+          This is an important information for Nutri-Score (2023 version) computation.        
+      fruits-vegetables-nuts-estimate-from-ingredients:
+        type: number
+        description: |
+          An estimate, from the ingredients list of the percentage of fruits, vegetable and nuts.
+          This is an important information for Nutri-Score (2021 version) computation.
       nova-group:
         type: integer
       nutrition-score-fr:

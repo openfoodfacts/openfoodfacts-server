@@ -110,6 +110,9 @@
                ],
                "epi_score" : 0,
                "epi_value" : -5,
+               "origins_from_categories" : [
+                  "en:unknown"
+               ],
                "origins_from_origins_field" : [
                   "en:unknown"
                ],
@@ -871,7 +874,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                "title" : "Eco-Score C - Moderate environmental impact",
                "type" : "grade"
             },
@@ -1187,7 +1190,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                "subtitle" : "Product: Some product - 100 g",
                "title" : "Impact for this product: C (Score: 46/100)",
                "type" : "grade"
@@ -1501,7 +1504,7 @@
             ],
             "level" : "info",
             "title_element" : {
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nova-group-3.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                "title" : "Processed foods"
             },
             "topics" : [
@@ -1542,7 +1545,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nutriscore-unknown.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown.svg",
                "subtitle" : "Missing nutrition facts",
                "title" : "Missing data to compute the Nutri-Score",
                "type" : "grade"
@@ -1692,10 +1695,10 @@
                                  "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
                               },
                               {
-                                 "text" : "25 %"
+                                 "text" : "62.5 %"
                               },
                               {
-                                 "text" : "25 %"
+                                 "text" : "62.5 %"
                               }
                            ]
                         }
@@ -2060,10 +2063,10 @@
       "nutrient_levels" : {},
       "nutrient_levels_tags" : [],
       "nutriments" : {
-         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 25,
-         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 25,
-         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25,
-         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 25,
+         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 62.5,
+         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 62.5,
+         "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 62.5,
+         "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 62.5,
          "nova-group" : 3,
          "nova-group_100g" : 3,
          "nova-group_serving" : 3
@@ -2074,7 +2077,7 @@
             "data" : {
                "energy" : null,
                "fiber" : 0,
-               "fruits_vegetables_nuts_colza_walnut_olive_oils" : 25,
+               "fruits_vegetables_nuts_colza_walnut_olive_oils" : 62.5,
                "is_beverage" : 0,
                "is_cheese" : 0,
                "is_fat" : 0,
@@ -2094,10 +2097,11 @@
             "data" : {
                "energy" : null,
                "fiber" : 0,
-               "fruits_vegetables_legumes" : 25,
+               "fruits_vegetables_legumes" : 62.5,
                "is_beverage" : 0,
                "is_cheese" : 0,
                "is_fat_oil_nuts_seeds" : 0,
+               "is_red_meat_product" : 0,
                "is_water" : 0,
                "proteins" : null,
                "salt" : null,
@@ -2131,9 +2135,9 @@
       "nutrition_score_beverage" : 0,
       "nutrition_score_debug" : "missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
       "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
-      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 25,
+      "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 62.5,
       "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
-      "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 25,
+      "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 62.5,
       "nutrition_score_warning_no_fiber" : 1,
       "origin" : "france",
       "origin_en" : "france",
@@ -2160,13 +2164,13 @@
       "packagings" : [
          {
             "material" : "en:wood",
-            "number_of_units" : 1,
+            "number_of_units" : "1",
             "recycling" : "en:recycle",
             "shape" : "en:box"
          },
          {
             "material" : "en:glass",
-            "number_of_units" : 6,
+            "number_of_units" : "6",
             "quantity_per_unit" : "25cl",
             "quantity_per_unit_unit" : "cl",
             "quantity_per_unit_value" : 25,
@@ -2175,13 +2179,13 @@
          },
          {
             "material" : "en:steel",
-            "number_of_units" : 3,
+            "number_of_units" : "3",
             "recycling" : "en:recycle",
             "shape" : "en:lid"
          },
          {
             "material" : "en:plastic",
-            "number_of_units" : 1,
+            "number_of_units" : "1",
             "recycling" : "en:discard",
             "shape" : "en:film"
          }
@@ -2212,7 +2216,7 @@
       "quantity" : "100 g",
       "removed_countries_tags" : [],
       "rev" : 1,
-      "serving_quantity" : "10",
+      "serving_quantity" : 10,
       "serving_size" : "10 g",
       "states" : "en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [

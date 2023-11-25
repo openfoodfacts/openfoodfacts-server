@@ -23,9 +23,11 @@
 use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
+use ProductOpener::Web qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Orgs qw/:all/;
@@ -68,7 +70,7 @@ if (defined single_param('userid')) {
 
 	# The userid looks like an e-mail
 	if ($admin and ($userid =~ /\@/)) {
-		my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+		my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
 		if (defined $emails_ref->{$userid}) {
 			$userid = $emails_ref->{$userid}[0];
 		}
@@ -86,7 +88,7 @@ my $js = '';
 my $user_ref = {};
 
 if ($type =~ /^edit/) {
-	$user_ref = retrieve("$data_root/users/$userid.sto");
+	$user_ref = retrieve("$BASE_DIRS{USERS}/$userid.sto");
 	if (not defined $user_ref) {
 		display_error_and_exit($Lang{error_invalid_user}{$lang}, 404);
 	}
@@ -169,6 +171,12 @@ if ($action eq 'display') {
 	$template_data_ref->{sections} = [];
 
 	if ($user_ref) {
+		my $selected_language = $user_ref->{preferred_language}
+			// (remove_tags_and_quote(single_param('preferred_language')) || "$lc");
+		my $selected_country = $user_ref->{country} // (remove_tags_and_quote(single_param('country')) || $country);
+		if ($selected_country eq "en:world") {
+			$selected_country = "";
+		}
 		push @{$template_data_ref->{sections}}, {
 			id => "user",
 			fields => [
@@ -194,6 +202,20 @@ if ($action eq 'display') {
 					label => "password_confirm"
 				},
 				{
+					field => "preferred_language",
+					type => "select",
+					label => "preferred_language",
+					selected => $selected_language,
+					options => get_languages_options_list($lc),
+				},
+				{
+					field => "country",
+					type => "select",
+					label => "select_country",
+					selected => $selected_country,
+					options => get_countries_options_list($lc),
+				},
+				{
 					# this is a honeypot to detect scripts, that fills every fields
 					# this one is hidden in a div and user won't see it
 					field => "faxnumber",
@@ -202,6 +224,10 @@ if ($action eq 'display') {
 				},
 			]
 		};
+
+		# news letter subscription value
+		my $newsletter = $user_ref->{newsletter} // (remove_tags_and_quote(single_param('newsletter')) || "on");
+		push @{$template_data_ref->{newsletter}}, $newsletter;
 
 		# Professional account
 		push @{$template_data_ref->{sections}},
@@ -257,6 +283,8 @@ if ($action eq 'display') {
 		}
 
 		# Contributor section
+		my $display_barcode = $user_ref->{display_barcode} || remove_tags_and_quote(single_param('display_barcode'));
+		my $edit_link = $user_ref->{edit_link} || remove_tags_and_quote(single_param('edit_link'));
 		my $contributor_section_ref = {
 			id => "contributor_settings",
 			name => lang("contributor_settings") . " (" . lang("optional") . ")",
@@ -266,13 +294,13 @@ if ($action eq 'display') {
 					field => "display_barcode",
 					type => "checkbox",
 					label => display_icon("barcode") . lang("display_barcode_in_search"),
-					value => $user_ref->{display_barcode} && "on",
+					value => $display_barcode && "on",
 				},
 				{
 					field => "edit_link",
 					type => "checkbox",
 					label => display_icon("edit") . lang("edit_link_in_search"),
-					value => $user_ref->{edit_link} && "on",
+					value => $edit_link && "on",
 				},
 			]
 		};
@@ -313,7 +341,11 @@ if ($action eq 'display') {
 
 		$template_data_ref->{accepted_organization} = $user_ref->{org};
 	}
-	elsif ((defined $options{product_type}) and ($options{product_type} eq "food")) {
+	elsif ( (defined $options{product_type})
+		and ($options{product_type} eq "food")
+		and (defined $user_ref->{requested_org})
+		and ($user_ref->{requested_org} ne ""))
+	{
 		my $requested_org_ref = retrieve_org($user_ref->{requested_org});
 		$template_data_ref->{requested_org_ref} = $requested_org_ref;
 		$template_data_ref->{org_name} = sprintf(lang("add_user_existing_org"), org_name($requested_org_ref));

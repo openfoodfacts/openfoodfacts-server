@@ -108,15 +108,17 @@
             "is_beverage" : 1,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 0,
+            "is_red_meat_product" : 0,
             "is_water" : 0,
             "negative_nutrients" : [
                "energy",
                "sugars",
                "saturated_fat",
                "salt",
-               "sweeteners"
+               "non_nutritive_sweeteners"
             ],
             "negative_points" : 11,
+            "non_nutritive_sweeteners_points" : 0,
             "positive_nutrients" : [
                "fruits_vegetables_legumes",
                "fiber",
@@ -130,8 +132,7 @@
             "saturated_fat" : 0,
             "saturated_fat_points" : 0,
             "sugars" : 3,
-            "sugars_points" : 2,
-            "sweeteners_points" : 0
+            "sugars_points" : 2
          },
          "grade" : "e",
          "nutrients_available" : 1,

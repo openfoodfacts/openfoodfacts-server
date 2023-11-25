@@ -193,10 +193,10 @@ msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
-msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr "/images/misc/google-play-badge-svg-master/img/lt_get.svg"
+msgid "/images/misc/playstore/img/en_get.svg"
+msgstr "/images/misc/playstore/img/lt_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -1460,11 +1460,11 @@ msgstr "Produktai, kurių sudėtyje nėra %s maistinės medžiagos"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Maistingumas"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Maistingumas"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1536,7 +1536,7 @@ msgstr "Standartinis nuokrypis"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Maistingumas"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -2295,7 +2295,7 @@ msgstr "Redaguoti produktą dar kartą"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Šalis"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -3382,7 +3382,7 @@ msgstr "Sudėtis"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Maistingumas"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3938,7 +3938,7 @@ msgstr "Cukrus"
 
 msgctxt "nutriscore_points_for_saturated_fat"
 msgid "Saturated fat"
-msgstr ""
+msgstr "Sotieji riebalai"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
@@ -3946,7 +3946,7 @@ msgstr "Sočiųjų riebalų ir riebalų santykis"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
-msgstr ""
+msgstr "Natris"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
@@ -6524,7 +6524,7 @@ msgstr "Importuoti ir eksportuoti produktus"
 
 msgctxt "add_products"
 msgid "Add products"
-msgstr ""
+msgstr "Pridėk produktus"
 
 # Needs to be short (displayed in a menu)
 msgctxt "install_the_app_to_add_products"

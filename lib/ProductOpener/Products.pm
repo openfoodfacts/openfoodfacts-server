@@ -66,6 +66,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&normalize_code
+		&normalize_code_with_gs1_ai
 		&assign_new_code
 		&split_code
 		&product_id_for_owner
@@ -128,6 +129,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Lang qw/:all/;
@@ -166,6 +168,8 @@ use Algorithm::CheckDigits;
 my $ean_check = CheckDigits('ean');
 
 use Scalar::Util qw(looks_like_number);
+
+use GS1::SyntaxEngine::FFI::GS1Encoder;
 
 =head1 FUNCTIONS
 
@@ -238,20 +242,20 @@ sub assign_new_code() {
 
 	my $code = 2000000000001;    # Codes beginning with 2 are for internal use
 
-	my $internal_code_ref = retrieve("$data_root/products/internal_code.sto");
+	my $internal_code_ref = retrieve("$BASE_DIRS{PRODUCTS}/internal_code.sto");
 	if ((defined $internal_code_ref) and (${$internal_code_ref} > $code)) {
 		$code = ${$internal_code_ref};
 	}
 
 	my $product_id = product_id_for_owner($Owner_id, $code);
 
-	while (-e ("$data_root/products/" . product_path_from_id($product_id))) {
+	while (-e ("$BASE_DIRS{PRODUCTS}/" . product_path_from_id($product_id))) {
 
 		$code++;
 		$product_id = product_id_for_owner($Owner_id, $code);
 	}
 
-	store("$data_root/products/internal_code.sto", \$code);
+	store("$BASE_DIRS{PRODUCTS}/internal_code.sto", \$code);
 
 	$log->debug("assigning a new code", {code => $code, lc => $lc}) if $log->is_debug();
 
@@ -261,8 +265,9 @@ sub assign_new_code() {
 =head2 normalize_code()
 
 C<normalize_code()> this function normalizes the product code by:
-- Keeps only digits and removes spaces/dashes etc.
-- Normalizes the length by adding leading zeroes or removing the leading zero (in case of 14 digit codes)
+- running the given code through normalization method provided by GS1 to format a GS1 data string, or data URL to a GTIN,
+- keeping only digits and removing spaces/dashes etc.,
+- normalizing the length by adding leading zeroes or removing the leading zero (in case of 14 digit codes)
 
 =head3 Arguments
 
@@ -277,6 +282,37 @@ Normalized version of the code
 sub normalize_code ($code) {
 
 	if (defined $code) {
+		($code, my $gs1_ai_data_str) = &normalize_code_with_gs1_ai($code);
+	}
+	return $code;
+}
+
+=head2 normalize_code_with_gs1_ai()
+
+C<normalize_code_with_gs1_ai()> this function normalizes the product code by:
+- running the given code through normalization method provided by GS1 to format a GS1 data string, or data URI to a GTIN,
+- keeping only digits and removing spaces/dashes etc.,
+- normalizing the length by adding leading zeroes or removing the leading zero (in case of 14 digit codes)
+
+=head3 Arguments
+
+Product Code in the Raw form: $code
+
+=head3 Return Values
+
+Normalized version of the code, and GS1 AI data string of the code, if a valid GS1 string was given as the argument
+
+=cut
+
+sub normalize_code_with_gs1_ai ($code) {
+
+	my $ai_data_str;
+	if (defined $code) {
+		my ($gs1_code, $gs1_ai_data_str) = &_try_normalize_code_gs1($code);
+		if ($gs1_code and $gs1_ai_data_str) {
+			$code = $gs1_code;
+			$ai_data_str = $gs1_ai_data_str;
+		}
 
 		# Keep only digits, remove spaces, dashes and everything else
 		$code =~ s/\D//g;
@@ -301,7 +337,54 @@ sub normalize_code ($code) {
 			$code = $';
 		}
 	}
-	return $code;
+	return ($code, $ai_data_str);
+}
+
+sub _try_normalize_code_gs1 ($code) {
+	my $ai_data_str;
+	eval {
+		$code =~ s/[\N{U+001D}\N{U+241D}]/^/g;    # Replace FNC1/<GS1> with ^ for the GS1Encoder to work
+		if ($code =~ /^\(.+/) {
+			# Code could be a GS1 bracketed AI element string
+			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
+			if ($encoder->ai_data_str($code)) {
+				$ai_data_str = $encoder->ai_data_str();
+			}
+		}
+		elsif ($code =~ /^\^.+/) {
+			# Code could be a GS1 unbracketed AI element string
+			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
+			if ($encoder->data_str($code)) {
+				$ai_data_str = $encoder->ai_data_str();
+			}
+		}
+		elsif ($code =~ /^http?s:\/\/.+/) {
+			# Code could be a GS1 unbracketed AI element string
+			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
+			if ($encoder->data_str($code)) {
+				$ai_data_str = $encoder->ai_data_str();
+			}
+		}
+		elsif ($code =~ /^01(\d{14})/) {
+			# Code could be a GS1 unbracketed AI element string
+			my $encoder = GS1::SyntaxEngine::FFI::GS1Encoder->new();
+			if ($encoder->data_str("^01$1")) {
+				$ai_data_str = $encoder->ai_data_str();
+			}
+		}
+	};
+	if ($@) {
+		$log->warn("GS1Parser error", {error => $@}) if $log->is_warn();
+		$code = undef;
+		$ai_data_str = undef;
+	}
+
+	if ((defined $code) and (defined $ai_data_str) and ($ai_data_str =~ /^\(01\)(\d{1,14})/)) {
+		return ($1, $ai_data_str);
+	}
+	else {
+		return;
+	}
 }
 
 # - When products are public, the _id is the code, and the path is of the form 123/456/789/0123
@@ -358,7 +441,7 @@ e.g. off:[code]
 
 =head4 Owner id
 
-=head4 Code 
+=head4 Code
 
 Product barcode
 
@@ -556,7 +639,7 @@ sub product_id_from_path ($product_path) {
 		$id = dirname($id);
 	}
 	# eventually remove root path
-	my $root = quotemeta("$data_root/products/");
+	my $root = quotemeta("$BASE_DIRS{PRODUCTS}/");
 	$id =~ s/^$root//;
 	# transform to id by simply removing "/"
 	$id =~ s/\///g;
@@ -625,7 +708,7 @@ sub get_owner_id ($userid, $orgid, $ownerid) {
 
 =head2 init_product ( $userid, $orgid, $code, $countryid )
 
-Initializes and return a $product_ref structure for a new product. 
+Initializes and return a $product_ref structure for a new product.
 If $countryid is defined and is not "en:world", then assign this country for the countries field.
 Otherwise, use the country associated with the ip address of the user.
 
@@ -1139,13 +1222,8 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 		$log->debug("creating product directories", {path => $path, prefix_path => $prefix_path}) if $log->is_debug();
 		# Create the directories for the product
-		foreach my $current_dir ($new_data_root . "/products", $new_www_root . "/images/products") {
-			(-e "$current_dir") or mkdir($current_dir, 0755) or die("could not create $current_dir: $!\n");
-			foreach my $component (split("/", $prefix_path)) {
-				$current_dir .= "/$component";
-				(-e "$current_dir") or mkdir($current_dir, 0755) or die("could not create $current_dir: $!\n");
-			}
-		}
+		ensure_dir_created_or_die("$new_data_root/products/$prefix_path");
+		ensure_dir_created_or_die("$new_www_root/images/products/$prefix_path");
 
 		if (    (!-e "$new_data_root/products/$path")
 			and (!-e "$new_www_root/images/products/$path"))
@@ -1165,21 +1243,26 @@ sub store_product ($user_id, $product_ref, $comment) {
 			File::Copy::Recursive->import(qw( dirmove ));
 
 			$log->debug("moving product data",
-				{source => "$data_root/products/$old_path", destination => "$data_root/products/$path"})
+				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path"})
 				if $log->is_debug();
-			dirmove("$data_root/products/$old_path", "$new_data_root/products/$path")
-				or $log->error("could not move product data",
-				{source => "$data_root/products/$old_path", destination => "$data_root/products/$path", error => $!});
+			dirmove("$BASE_DIRS{PRODUCTS}/$old_path", "$new_data_root/products/$path")
+				or $log->error(
+				"could not move product data",
+				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path", error => $!}
+				);
 
 			$log->debug(
 				"moving product images",
-				{source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path"}
+				{
+					source => "$BASE_DIRS{PRODUCTS_IMAGES}/$old_path",
+					destination => "$new_www_root/images/products/$path"
+				}
 			) if $log->is_debug();
-			dirmove("$www_root/images/products/$old_path", "$new_www_root/images/products/$path")
+			dirmove("$BASE_DIRS{PRODUCTS_IMAGES}/$old_path", "$new_www_root/images/products/$path")
 				or $log->error(
 				"could not move product images",
 				{
-					source => "$www_root/images/products/$old_path",
+					source => "$BASE_DIRS{PRODUCTS_IMAGES}/$old_path",
 					destination => "$new_www_root/images/products/$path",
 					error => $!
 				}
@@ -1200,11 +1283,15 @@ sub store_product ($user_id, $product_ref, $comment) {
 		else {
 			(-e "$new_data_root/products/$path")
 				and $log->error("cannot move product data, because the destination already exists",
-				{source => "$data_root/products/$old_path", destination => "$data_root/products/$path"});
-			(-e "$new_www_root/products/$path") and $log->error(
+				{source => "$BASE_DIRS{PRODUCTS}/$old_path", destination => "$BASE_DIRS{PRODUCTS}/$path"});
+			(-e "$new_www_root/products/$path")
+				and $log->error(
 				"cannot move product images data, because the destination already exists",
-				{source => "$www_root/images/products/$old_path", destination => "$new_www_root/images/products/$path"}
-			);
+				{
+					source => "$BASE_DIRS{PRODUCTS_IMAGES}/$old_path",
+					destination => "$new_www_root/images/products/$path"
+				}
+				);
 		}
 
 		$comment .= " - barcode changed from $old_code to $code by $user_id";
@@ -1212,13 +1299,8 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	if ($rev < 1) {
 		# Create the directories for the product
-		foreach my $current_dir ($new_data_root . "/products", $new_www_root . "/images/products") {
-			(-e "$current_dir") or mkdir($current_dir, 0755);
-			foreach my $component (split("/", $path)) {
-				$current_dir .= "/$component";
-				(-e "$current_dir") or mkdir($current_dir, 0755);
-			}
-		}
+		ensure_dir_created_or_die("$new_data_root/products/$path");
+		ensure_dir_created_or_die("$new_www_root/images/products/$path");
 	}
 
 	# Check lock and previous version
@@ -1709,7 +1791,7 @@ to determine if the change was done through an app, the OFF userid, or an app sp
 
 =head3 Parameters
 
-=head4 $change_ref 
+=head4 $change_ref
 reference to a change record
 
 =head3 Return value
@@ -1853,7 +1935,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 
 	# List of changes
 
-	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 	if (not defined $changes_ref) {
 		$log->warn("replace_user_id_in_products - no changes file found for " . $product_id);
 		return;
@@ -1876,7 +1958,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 		if (not defined $rev) {
 			$rev = $revs;    # was not set before June 2012
 		}
-		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
+		my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
 
 		if (defined $product_ref) {
 
@@ -1921,7 +2003,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 			# Save product
 
 			if ($changes) {
-				store("$data_root/products/$path/$rev.sto", $product_ref);
+				store("$BASE_DIRS{PRODUCTS}/$path/$rev.sto", $product_ref);
 			}
 		}
 
@@ -1933,7 +2015,7 @@ sub replace_user_id_in_product ($product_id, $user_id, $new_user_id, $products_c
 			$most_recent_product_ref, {upsert => 1});
 	}
 
-	store("$data_root/products/$path/changes.sto", $changes_ref);
+	store("$BASE_DIRS{PRODUCTS}/$path/changes.sto", $changes_ref);
 
 	return;
 }
@@ -2478,7 +2560,7 @@ sub add_back_field_values_removed_by_user ($current_product_ref, $changes_ref, $
 		if (not defined $rev) {
 			$rev = $revs;    # was not set before June 2012
 		}
-		my $product_ref = retrieve("$data_root/products/$path/$rev.sto");
+		my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/$rev.sto");
 
 		# if not found, we may be be updating the product, with the latest rev not set yet
 		if ((not defined $product_ref) or ($rev == $current_product_ref->{rev})) {
@@ -2770,7 +2852,7 @@ sub compute_codes ($product_ref) {
 		if (product_exists('0' . $code)) {
 			push @codes, "conflict-with-ean-13";
 		}
-		elsif (-e ("$data_root/products/" . product_path_from_id("0" . $code))) {
+		elsif (-e ("$BASE_DIRS{PRODUCTS}/" . product_path_from_id("0" . $code))) {
 			push @codes, "conflict-with-deleted-ean-13";
 		}
 	}
@@ -3360,7 +3442,7 @@ e.g. official producer data that should not be changed by anonymous users throug
 Product data is protected if it has an owner and if the corresponding organization has
 the "protect data" checkbox checked.
 
-=head3 Parameters 
+=head3 Parameters
 
 =head4 $product_ref
 

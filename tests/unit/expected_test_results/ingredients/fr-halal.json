@@ -1,0 +1,120 @@
+{
+   "ingredients" : [
+      {
+         "id" : "en:meat",
+         "labels" : "en:halal",
+         "percent_estimate" : 62.5,
+         "percent_max" : 100,
+         "percent_min" : 25,
+         "text" : "viande",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "id" : "en:beef-gelatin",
+         "labels" : "en:halal",
+         "percent_estimate" : 18.75,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "gélatine de boeuf",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "id" : "en:collagen",
+         "labels" : "en:halal",
+         "percent_estimate" : 9.375,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "collagène",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "ciqual_food_code" : "40121",
+         "id" : "en:duck-foie-gras",
+         "labels" : "en:halal",
+         "percent_estimate" : 9.375,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "foie gras de canard",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:meat",
+         "en:beef-gelatin",
+         "en:collagen",
+         "en:duck-foie-gras"
+      ],
+      "en:non-vegetarian" : [
+         "en:meat",
+         "en:beef-gelatin",
+         "en:collagen",
+         "en:duck-foie-gras"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:meat",
+      "en:beef-gelatin",
+      "en:animal",
+      "en:beef",
+      "en:e428",
+      "en:collagen",
+      "en:duck-foie-gras",
+      "en:poultry",
+      "en:duck",
+      "en:duck-liver"
+   ],
+   "ingredients_n" : 4,
+   "ingredients_n_tags" : [
+      "4",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:meat",
+      "en:beef-gelatin",
+      "en:collagen",
+      "en:duck-foie-gras"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:meat",
+      "en:beef-gelatin",
+      "en:animal",
+      "en:beef",
+      "en:e428",
+      "en:collagen",
+      "en:duck-foie-gras",
+      "en:poultry",
+      "en:duck",
+      "en:duck-liver"
+   ],
+   "ingredients_text" : "viande halal, gélatine de boeuf halal, collagène halal, foie gras de canard halal",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 4,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:beef-gelatin",
+      "en:collagen",
+      "en:meat"
+   ],
+   "ingredients_without_ciqual_codes_n" : 3,
+   "known_ingredients_n" : 10,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

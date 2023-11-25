@@ -17,10 +17,12 @@ sub check_quality_and_test_product_has_quality_tag($$$$) {
 	my $yesno = shift;
 	ProductOpener::DataQuality::check_quality($product_ref);
 	if ($yesno) {
-		ok(has_tag($product_ref, 'data_quality', $tag), $reason) or diag explain $product_ref;
+		ok(has_tag($product_ref, 'data_quality', $tag), $reason)
+			or diag explain {tag => $tag, yesno => $yesno, product => $product_ref};
 	}
 	else {
-		ok(!has_tag($product_ref, 'data_quality', $tag), $reason) or diag explain $product_ref;
+		ok(!has_tag($product_ref, 'data_quality', $tag), $reason)
+			or diag explain {tag => $tag, yesno => $yesno, product => $product_ref};
 	}
 
 	return;
@@ -1093,6 +1095,188 @@ check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients',
 	'We expect the ingredient given in the taxonomy for this product', 0
+);
+# vegan label but non-vegan ingredients
+# unknown ingredient -> warnings
+$product_ref = {
+	labels_tags => ["en:vegetarian", "en:vegan",],
+	ingredients => [
+		{
+			id => "en:lentils",
+			vegan => "yes",
+			vegetarian => "yes"
+		},
+		{
+			id => "en:green-bell-pepper",
+			vegan => "yes",
+			vegetarian => "yes"
+		},
+		{
+			id => "en:totoro",
+		}
+	],
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegan-label-but-non-vegan-ingredient',
+	'raise error only when vegan is no and label is vegan', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegetarian-label-but-non-vegetarian-ingredient',
+	'raise error only when vegetarian is no and label is vegan', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegan-label-but-could-not-confirm-for-all-ingredients',
+	'raise warning because vegan or non-vegan is unknown for an ingredient', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
+	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 1
+);
+# non-vegan/non-vegetarian ingredient -> error
+$product_ref = {
+	labels_tags => ["en:vegetarian", "en:vegan",],
+	ingredients => [
+		{
+			id => "en:lentils",
+			vegan => "yes",
+			vegetarian => "yes"
+		},
+		{
+			id => "en:green-bell-pepper",
+			vegan => "yes",
+			vegetarian => "yes"
+		},
+		{
+			id => "en:chicken",
+			vegan => "no",
+			vegetarian => "no"
+		}
+	],
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegan-label-but-non-vegan-ingredient',
+	'raise error only when vegan is no and label is vegan', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegetarian-label-but-non-vegetarian-ingredient',
+	'raise error only when vegetarian is no and label is vegan', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegan-label-but-could-not-confirm-for-all-ingredients',
+	'raise warning because vegan or non-vegan is unknown for an ingredient', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
+	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 0
+);
+# non-vegan/vegatarian ingredient -> error
+$product_ref = {
+	labels_tags => ["en:vegetarian", "en:vegan",],
+	ingredients => [
+		{
+			id => "en:lentils",
+			vegan => "yes",
+			vegetarian => "yes"
+		},
+		{
+			id => "en:green-bell-pepper",
+			vegan => "yes",
+			vegetarian => "yes"
+		},
+		{
+			id => "en:honey",
+			vegan => "no",
+			vegetarian => "yes"
+		}
+	],
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegan-label-but-non-vegan-ingredient',
+	'raise error only when vegan is no and label is vegan', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegetarian-label-but-non-vegetarian-ingredient',
+	'raise error only when vegetarian is no and label is vegan', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegan-label-but-could-not-confirm-for-all-ingredients',
+	'raise warning because vegan or non-vegan is unknown for an ingredient', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
+	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 0
+);
+# product quantity warnings and errors
+$product_ref = {product_quantity => "123456789",};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:product-quantity-over-10kg',
+	'raise warning because the product quantity is above 10000g', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:product-quantity-over-30kg',
+	'raise error because the product quantity is above 30000g', 1
+);
+# product quantity warnings and errors
+$product_ref = {product_quantity => "20000",};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:product-quantity-over-10kg',
+	'raise warning because the product quantity is above 10000g', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:product-quantity-over-30kg',
+	'raise error because the product quantity is above 30000g', 0
+);
+$product_ref = {
+	product_quantity => "0.001",
+	quantity => "1 mg",
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:product-quantity-under-1g',
+	'raise warning because the product quantity is under 1g', 1
+);
+check_quality_and_test_product_has_quality_tag($product_ref, 'en:product-quantity-in-mg',
+	'raise warning because the product quantity is in mg', 1);
+
+# Brands - Detected category from brand
+$product_ref = {brands_tags => ["bledina", "camel", "purina", "yves-rocher",],};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:detected-category-from-brand-baby-foods',
+	'Detected category from brand - Baby', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:detected-category-from-brand-cigarettes',
+	'Detected category from brand - Cigarettes', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:detected-category-from-brand-pet-foods',
+	'Detected category from brand - Pet Foods', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:detected-category-from-brand-beauty',
+	'Detected category from brand - Beauty', 1
 );
 
 done_testing();

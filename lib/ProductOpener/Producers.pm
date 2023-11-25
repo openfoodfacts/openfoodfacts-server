@@ -73,6 +73,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -191,6 +192,10 @@ sub load_csv_or_excel_file ($file) {    # path and file name
 			my $line = <$io>;
 			if ($line =~ /\t/) {
 				$separator = "\t";
+			}
+			# Otherwise, if the first line does not have a separator, check if it is a ;
+			elsif (($line !~ /$separator/) and ($line =~ /;/)) {
+				$separator = ";";
 			}
 		}
 	}
@@ -460,7 +465,7 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 	my $products_ref = {};
 
 	# Keep track of the number of lines for each product
-	my %product_lines = {};
+	my %product_lines = ();
 
 	# We may add some output columns if there are products on multiple lines
 	my $extra_output_headers_ref = [];
@@ -495,14 +500,23 @@ sub convert_file ($default_values_ref, $file, $columns_fields_file, $converted_f
 			my $field = $field_orig;    # Needed in order to be able to modify $field without changing the array content
 			my $col = $output_to_input_columns_ref->{$field};
 
-			# If the field is of the form packaging_1_*
-			# and we have multiple lines per product,
-			# we rename the field to packaging_[current number of lines of the product]_*
+			# If we have multiple lines per product, we need to rename some fields by adding a number
+			# so that the values on multiple lines are saved in multiple columns
 
-			if (($product_lines{$code} > 1) and ($field =~ /^packaging_1_/)) {
-				$field = "packaging_" . $product_lines{$code} . "_" . $';
+			if ($product_lines{$code} > 1) {
 
-				# Add the field to the list of columns in the output file
+				# If the field is of the form packaging_1_*
+				# we rename the field to packaging_[current number of lines of the product]_*
+				if ($field =~ /^packaging_1_/) {
+					$field = "packaging_" . $product_lines{$code} . "_" . $';
+				}
+				# If the field is of the form image_other_url or image_other_type
+				# we rename the field to image_other_(url|type).[current number of lines of the product]
+				elsif (($product_lines{$code} > 1) and ($field =~ /^image_other_/)) {
+					$field .= '.' . $product_lines{$code};
+				}
+
+				# Add the field to the list of columns in the output file if the column does not exist yet
 				if (not exists $output_to_input_columns_ref->{$field}) {
 					$output_to_input_columns_ref->{$field} = undef;
 					push @$extra_output_headers_ref, $field;
@@ -839,13 +853,9 @@ sub init_fields_columns_names_for_lang ($l) {
 	}
 	$fields_columns_names_for_lang{$l}{"kj"} = {field => "energy-kj_100g_value_unit", value_unit => "value_in_kj"};
 
-	if (!-e "$data_root/debug") {
-		mkdir("$data_root/debug", 0755)
-			or $log->warn("Could not create debug dir", {dir => "$data_root/debug", error => $!})
-			if $log->is_warn();
-	}
+	ensure_dir_created($BASE_DIRS{CACHE_DEBUG});
 
-	store("$data_root/debug/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
+	store("$BASE_DIRS{CACHE_DEBUG}/fields_columns_names_$l.sto", $fields_columns_names_for_lang{$l});
 
 	return $fields_columns_names_for_lang{$l};
 }
@@ -1430,7 +1440,7 @@ sub init_columns_fields_match ($input_headers_ref, $rows_ref) {
 	my $all_columns_fields_ref = {};
 
 	if (defined $Owner_id) {
-		$all_columns_fields_ref = retrieve("$data_root/import_files/${Owner_id}/all_columns_fields.sto");
+		$all_columns_fields_ref = retrieve("$BASE_DIRS{IMPORT_FILES}/${Owner_id}/all_columns_fields.sto");
 	}
 
 	# Match known column names to OFF fields
@@ -1787,12 +1797,12 @@ sub export_and_import_to_public_database ($args_ref) {
 	my $started_t = time();
 	my $export_id = $started_t;
 
-	my $exports_ref = retrieve("$data_root/export_files/${Owner_id}/exports.sto");
+	my $exports_ref = retrieve("$BASE_DIRS{EXPORT_FILES}/${Owner_id}/exports.sto");
 	if (not defined $exports_ref) {
 		$exports_ref = {};
 	}
 
-	my $exported_file = "$data_root/export_files/${Owner_id}/export.$export_id.exported.csv";
+	my $exported_file = "$BASE_DIRS{EXPORT_FILES}/${Owner_id}/export.$export_id.exported.csv";
 
 	$exports_ref->{$export_id} = {
 		started_t => $started_t,
@@ -1878,10 +1888,9 @@ sub export_and_import_to_public_database ($args_ref) {
 	$exports_ref->{$export_id}{remote_import_job_id} = $remote_import_job_id;
 	$exports_ref->{$export_id}{local_export_status_job_id} = $local_export_status_job_id;
 
-	(-e "$data_root/export_files") or mkdir("$data_root/export_files", 0755);
-	(-e "$data_root/export_files/${Owner_id}") or mkdir("$data_root/export_files/${Owner_id}", 0755);
+	ensure_dir_created_or_die("$BASE_DIRS{EXPORT_FILES}/${Owner_id}");
 
-	store("$data_root/export_files/${Owner_id}/exports.sto", $exports_ref);
+	store("$BASE_DIRS{EXPORT_FILES}/${Owner_id}/exports.sto", $exports_ref);
 
 	return {
 		export_id => $export_id,
@@ -1924,7 +1933,7 @@ sub import_csv_file_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	open(my $log, ">>", "$data_root/logs/minion.log");
+	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
 	print $log "import_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
 	close($log);
 
@@ -1945,7 +1954,7 @@ sub export_csv_file_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	open(my $minion_log, ">>", "$data_root/logs/minion.log");
+	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
 	print $minion_log "export_csv_file_task - job: $job_id started - args: " . encode_json($args_ref) . "\n";
 	close($minion_log);
 
@@ -1965,7 +1974,7 @@ sub export_csv_file_task ($job, $args_ref) {
 
 	print STDERR "export_csv_file_task - job: $job_id - done\n";
 
-	open(my $log, ">>", "$data_root/logs/minion.log");
+	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
 	print $log "export_csv_file_task - job: $job_id done\n";
 	close($log);
 
@@ -1980,7 +1989,7 @@ sub import_products_categories_from_public_database_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	open(my $minion_log, ">>", "$data_root/logs/minion.log");
+	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
 	print $minion_log "import_products_categories_from_public_database_file_task - job: $job_id started - args: "
 		. encode_json($args_ref) . "\n";
 	close($minion_log);
@@ -1992,7 +2001,7 @@ sub import_products_categories_from_public_database_task ($job, $args_ref) {
 
 	print STDERR "import_products_categories_from_public_database_file_task - job: $job_id - done\n";
 
-	open(my $log, ">>", "$data_root/logs/minion.log");
+	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
 	print $log "import_products_categories_from_public_database_file_task - job: $job_id done\n";
 	close($log);
 
@@ -2007,7 +2016,7 @@ sub update_export_status_for_csv_file_task ($job, $args_ref) {
 
 	my $job_id = $job->{id};
 
-	open(my $minion_log, ">>", "$data_root/logs/minion.log");
+	open(my $minion_log, ">>", "$BASE_DIRS{LOGS}/minion.log");
 	print $minion_log "update_export_status_for_csv_file_task - job: $job_id started - args: "
 		. encode_json($args_ref) . "\n";
 	close($minion_log);
@@ -2019,7 +2028,7 @@ sub update_export_status_for_csv_file_task ($job, $args_ref) {
 
 	print STDERR "update_export_status_for_csv_file_task - job: $job_id - done\n";
 
-	open(my $log, ">>", "$data_root/logs/minion.log");
+	open(my $log, ">>", "$BASE_DIRS{LOGS}/minion.log");
 	print $log "update_export_status_file_task - job: $job_id done\n";
 	close($log);
 

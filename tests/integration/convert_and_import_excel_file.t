@@ -14,6 +14,7 @@ use File::Path qw/make_path remove_tree/;
 use ProductOpener::Config '$data_root';
 use ProductOpener::Data qw/execute_query get_products_collection/;
 use ProductOpener::Producers qw/load_csv_or_excel_file convert_file/;
+use ProductOpener::Paths qw/%BASE_DIRS/;
 use ProductOpener::Products "retrieve_product";
 use ProductOpener::Store "store";
 use ProductOpener::Test qw/:all/;
@@ -32,10 +33,11 @@ sub fake_download_image ($) {
 	my $fname = (split(m|/|, $image_url))[-1];
 	my $image_path = $inputs_dir . $fname;
 	my $response = qobj(
-		is_success => qmeth {return (-e $fname);},
+		is_success => qmeth {return (-e $image_path);},
 		decoded_content => qmeth {
-			open(my $image, "<r", $fname);
-			my $content = <$image>;
+			open(my $image, "<", $image_path);
+			binmode($image);
+			read $image, my $content, -s $image;
 			close $image;
 			return $content;
 		},
@@ -45,15 +47,21 @@ sub fake_download_image ($) {
 
 my @tests = (
 	{
-		test_case => "test",
+		id => "test",
 		excel_file => "test.xlsx",
 		columns_fields_json => "test.columns_fields.json",
 		default_values => {lc => "en", countries => "en", brands => "Default brand"},
 	},
 	{
-		test_case => "packagings-mousquetaires",
+		id => "packagings-mousquetaires",
 		excel_file => "packagings-mousquetaires.xlsx",
 		columns_fields_json => "packagings-mousquetaires.columns_fields.json",
+		default_values => {lc => "fr", countries => "fr"},
+	},
+	{
+		id => "carrefour-images",
+		excel_file => "carrefour-images.csv",
+		columns_fields_json => "carrefour-images.columns_fields.json",
 		default_values => {lc => "fr", countries => "fr"},
 	}
 );
@@ -71,7 +79,7 @@ foreach my $test_ref (@tests) {
 	my $columns_fields_json = $inputs_dir . $test_ref->{columns_fields_json};
 
 	# expected results
-	my $test_case = $test_ref->{test_case};
+	my $test_case = $test_ref->{id};
 	my $expected_test_results_dir = $expected_results_dir . "/" . $test_case;
 	my $outputs_test_dir = $outputs_dir . "/" . $test_case;
 	make_path($outputs_test_dir);
@@ -103,10 +111,10 @@ foreach my $test_ref (@tests) {
 	# Compare the converted CSV file to the expected CSV file
 	ensure_expected_results_dir($expected_test_results_dir . "/converted_csv", $update_expected_results);
 	compare_csv_file_to_expected_results($converted_file, $expected_test_results_dir . "/converted_csv",
-		$update_expected_results);
+		$update_expected_results, "$test_case - convert csv");
 	compare_to_expected_results($conv_results_ref,
 		$expected_test_results_dir . "/converted_csv/conversion_results.json",
-		$update_expected_results);
+		$update_expected_results, {id => "$test_case - convert"});
 
 	# step4 import file
 	my $datestring = localtime();
@@ -116,7 +124,11 @@ foreach my $test_ref (@tests) {
 		"owner_id" => "org-test-org",
 		"csv_file" => $converted_file,
 		"exported_t" => $datestring,
+		"images_download_dir" => $outputs_test_dir . "/images",
 	};
+
+	# we need to put $outputs_test_dir in base paths to have ensure_dir_created working
+	$BASE_DIRS{TEST_DL_IMAGES_DIR} = $outputs_dir;
 
 	my $stats_ref;
 
@@ -138,7 +150,8 @@ foreach my $test_ref (@tests) {
 	normalize_products_for_test_comparison(\@products);
 
 	# verify result
-	compare_array_to_expected_results(\@products, $expected_test_results_dir . "/products", $update_expected_results);
+	compare_array_to_expected_results(\@products, $expected_test_results_dir . "/products",
+		$update_expected_results, "$test_case - import");
 
 	# also verify sto
 	if (!$update_expected_results) {
@@ -148,11 +161,11 @@ foreach my $test_ref (@tests) {
 		}
 		normalize_products_for_test_comparison(\@sto_products);
 		compare_array_to_expected_results(\@products, $expected_test_results_dir . "/products",
-			$update_expected_results);
+			$update_expected_results, "$test_case - import sto");
 	}
 
 	compare_to_expected_results($stats_ref, $expected_test_results_dir . "/products/stats.json",
-		$update_expected_results);
+		$update_expected_results, {id => "$test_case - import stats"});
 
 	# TODO verify images
 	# clean csv and sto
@@ -160,5 +173,7 @@ foreach my $test_ref (@tests) {
 	unlink $inputs_dir . "test.columns_fields.sto";
 	rmdir remove_tree($outputs_dir);
 }
+
+delete($BASE_DIRS{TEST_DL_IMAGES_DIR});
 
 done_testing();

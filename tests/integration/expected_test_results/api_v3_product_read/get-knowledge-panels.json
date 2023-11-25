@@ -1,5 +1,5 @@
 {
-   "code" : "200000000034",
+   "code" : "4260392550101",
    "errors" : [],
    "product" : {
       "knowledge_panels" : {
@@ -185,7 +185,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                "title" : "Eco-Score C - Moderate environmental impact",
                "type" : "grade"
             },
@@ -501,7 +501,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                "subtitle" : "Product: Some product - 100 g",
                "title" : "Impact for this product: C (Score: 46/100)",
                "type" : "grade"
@@ -815,7 +815,7 @@
             ],
             "level" : "info",
             "title_element" : {
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nova-group-3.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                "title" : "Processed foods"
             },
             "topics" : [
@@ -856,7 +856,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nutriscore-unknown.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown.svg",
                "subtitle" : "Missing nutrition facts",
                "title" : "Missing data to compute the Nutri-Score",
                "type" : "grade"
@@ -1006,10 +1006,10 @@
                                  "text" : "Fruits‚ vegetables‚ nuts and rapeseed‚ walnut and olive oils (estimate from ingredients list analysis)"
                               },
                               {
-                                 "text" : "25 %"
+                                 "text" : "62.5 %"
                               },
                               {
-                                 "text" : "25 %"
+                                 "text" : "62.5 %"
                               }
                            ]
                         }

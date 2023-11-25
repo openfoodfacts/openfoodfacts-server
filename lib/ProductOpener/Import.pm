@@ -79,6 +79,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -166,7 +167,7 @@ sub import_images_from_dir ($image_dir, $stats) {
 
 	$log->debug("opening images_dir", {images_dir => $image_dir}) if $log->is_debug();
 
-	if (opendir(DH, "$image_dir")) {
+	if (opendir(DH, $image_dir)) {
 		foreach my $file (sort {$a cmp $b} readdir(DH)) {
 
 			# apply image rules to the file name to assign front/ingredients/nutrition
@@ -1368,7 +1369,7 @@ sub import_csv_file ($args_ref) {
 		if $log->is_debug();
 
 	# Load GS1 GLNs so that we can map products to the owner orgs
-	my $glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
+	my $glns_ref = retrieve("$BASE_DIRS{ORGS}/orgs_glns.sto");
 	not defined $glns_ref and $glns_ref = {};
 
 	my %global_values = ();
@@ -1677,7 +1678,7 @@ sub import_csv_file ($args_ref) {
 							= $imported_product_ref->{"sources_fields:org-gs1:partyName"};
 					}
 					set_org_gs1_gln($org_ref, $imported_product_ref->{"sources_fields:org-gs1:gln"});
-					$glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
+					$glns_ref = retrieve("$BASE_DIRS{ORGS}/orgs_glns.sto");
 				}
 
 				store_org($org_ref);
@@ -2272,26 +2273,34 @@ sub import_csv_file ($args_ref) {
 			# image_other_url
 			# image_other_url.2	: a second "other" photo
 
-			next if $field !~ /^image_((front|ingredients|nutrition|packaging|other)(_[a-z]{2})?)_url/;
+			next
+				if $field
+				!~ /^image_((?:front|ingredients|nutrition|packaging|other)(?:_[a-z]{2})?)_url(_[a-z]{2})?(\.[0-9]+)?$/;
 
-			my $imagefield = $1 . $';    # e.g. image_front_url_fr -> front_fr
+			my $imagefield = $1 . ($2 || '');    # e.g. image_front_url_fr or image_front_url_fr -> front_fr
+			my $number = $3;
 
 			# If the imagefield is other, and we have a value for image_other_type, try to identify the imagefield
-			if (    ($imagefield eq "other")
-				and (defined $imported_product_ref->{"image_other_type"})
-				and ($imported_product_ref->{"image_other_type"} ne ""))
-			{
-				my $type_imagefield
-					= get_imagefield_from_string($product_ref->{lc}, $imported_product_ref->{"image_other_type"});
-				$log->debug(
-					"imagefield is other, tried to guess it image_other_type",
-					{
-						imagefield => $imagefield,
-						type_imagefield => $type_imagefield,
-						image_other_type => $imported_product_ref->{"image_other_type"}
-					}
-				) if $log->is_debug();
-				$imagefield = $type_imagefield;
+			if ($imagefield eq "other") {
+				my $image_other_type_field = "image_other_type";
+				if (defined $number) {
+					$image_other_type_field .= $number;
+				}
+
+				if ($imported_product_ref->{$image_other_type_field}) {
+					my $type_imagefield
+						= get_imagefield_from_string($product_ref->{lc},
+						$imported_product_ref->{$image_other_type_field});
+					$log->debug(
+						"imagefield is other, tried to guess with image_other_type",
+						{
+							imagefield => $imagefield,
+							type_imagefield => $type_imagefield,
+							image_other_type => $imported_product_ref->{$image_other_type_field}
+						}
+					) if $log->is_debug();
+					$imagefield = $type_imagefield;
+				}
 			}
 
 			$log->debug("image file",
@@ -2331,7 +2340,7 @@ sub import_csv_file ($args_ref) {
 						if (not -d $images_download_dir) {
 							$log->debug("Creating images_download_dir", {images_download_dir => $images_download_dir})
 								if $log->is_debug();
-							mkdir($images_download_dir, 0755)
+							ensure_dir_created($images_download_dir)
 								or $log->warn("Could not create images_download_dir",
 								{images_download_dir => $images_download_dir, error => $!})
 								if $log->is_warn();
@@ -2880,7 +2889,7 @@ sub update_export_status_for_csv_file ($args_ref) {
 
 			# Update the product without creating a new revision
 			my $path = product_path($product_ref);
-			store("$data_root/products/$path/product.sto", $product_ref);
+			store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
 			$product_ref->{code} = $product_ref->{code} . '';
 			# Use the obsolete collection if the product is obsolete
 			my $products_collection = get_products_collection({obsolete => $product_ref->{obsolete}});

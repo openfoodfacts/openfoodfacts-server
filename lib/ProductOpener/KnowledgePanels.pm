@@ -55,6 +55,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -355,11 +356,10 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 			my $json_decode_error = $@;
 
 			# Save the JSON file so that it can be more easily debugged, and that we can monitor issues
-			my $target_file = "/files/debug/knowledge_panels/$panel_id." . $product_ref->{code} . ".json";
-			(-e "$www_root/files") or mkdir("$www_root/files", 0755);
-			(-e "$www_root/files/debug") or mkdir("$www_root/files/debug", 0755);
-			(-e "$www_root/files/debug/knowledge_panels") or mkdir("$www_root/files/debug/knowledge_panels", 0755);
-			open(my $out, ">:encoding(UTF-8)", $www_root . $target_file) or die "cannot open $www_root/$target_file";
+			my $target_dir = "$BASE_DIRS{PUBLIC_FILES}/debug/knowledge_panels/";
+			my $target_file = "$target_dir/$panel_id." . $product_ref->{code} . ".json";
+			ensure_dir_created_or_die($target_dir);
+			open(my $out, ">:encoding(UTF-8)", $target_file) or die "cannot open $target_file";
 			print $out $panel_json;
 			close($out);
 
@@ -1221,6 +1221,14 @@ sub create_additives_panel ($product_ref, $target_lc, $target_cc, $options_ref) 
 			add_taxonomy_properties_in_target_languages_to_object($additive_panel_data_ref, "additives", $additive,
 				["wikipedia_url", "wikipedia_title", "wikipedia_abstract"],
 				$target_lcs_ref);
+
+			# We check if the knowledge content for this additive (and language/country) is available.
+			# If it is it will be displayed instead of the wikipedia extract
+			my $additive_description = get_knowledge_content("additives", $additive, $target_lc, $target_cc);
+
+			if (defined $additive_description) {
+				$additive_panel_data_ref->{additive_description} = $additive_description;
+			}
 
 			create_panel_from_json_template($additive_panel_id,
 				"api/knowledge-panels/health/ingredients/additive.tt.json",
