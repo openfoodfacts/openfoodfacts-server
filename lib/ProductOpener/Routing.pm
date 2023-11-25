@@ -42,6 +42,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
@@ -430,7 +431,7 @@ sub analyze_request ($request_ref) {
 	}
 
 	# Graph of the products?
-	# $data_root/lang/$lang/texts/products_stats_$cc.html
+	# $BASE_DIRS{LANG}/$lang/texts/products_stats_$cc.html
 	#elsif (($components[0] eq $tag_type_plural{products}{$lc}) and (not defined $components[1])) {
 	#	$request_ref->{text} = "products_stats_$cc";
 	#	$request_ref->{canon_rel_url} = "/" . $components[0];

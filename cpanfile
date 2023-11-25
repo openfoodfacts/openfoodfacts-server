@@ -89,6 +89,9 @@ requires 'Action::Retry'; # deps: libmath-fibonacci-perl
 requires 'AnyEvent';
 requires 'AnyEvent::Inotify::Simple';
 
+# more Apache stuff
+requires 'Apache::Bootstrap';  # needed by Apache2::Connection::XForwardedFor
+requires 'Apache2::Connection::XForwardedFor';
 # GS1 Encoder
 requires 'GS1::SyntaxEngine::FFI';
 

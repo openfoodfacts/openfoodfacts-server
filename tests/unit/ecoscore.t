@@ -628,6 +628,23 @@ my @tests = (
 		},
 	],
 
+	# Calvados with no ingredients, Eco-Score should pick up origins from the category en:calvados origins:en property
+	[
+		'calvados-no-ingredients-no-origins',
+		{
+			lc => "en",
+			categories_tags => ["en:calvados"],
+		},
+	],
+	[
+		'calvados-ingredients-no-origins',
+		{
+			lc => "en",
+			ingredients_text => "wine",
+			categories_tags => ["en:calvados"],
+		},
+	],
+
 );
 
 my $json = JSON->new->allow_nonref->canonical;

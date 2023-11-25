@@ -9,7 +9,7 @@
         "subtitle": "[% lang("front_alt") %][% sep %]: [% product_name_brand_quantity(product) %]",
         "type": "grade",
         "grade": "[% panel.grade %]",
-        "icon_url": "[% static_subdomain %]/images/attributes/ecoscore-[% panel.grade %].svg",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/ecoscore-[% panel.grade %].svg",
     },
     "elements": [
         {

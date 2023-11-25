@@ -516,7 +516,7 @@ my @tests = (
 				'text' => 'raakamaito'
 			},
 			{
-				'id' => 'en:bilberry',
+				'id' => 'en:blueberry',
 				'processing' => 'en:powder',
 				'text' => 'mustikka'
 			},
