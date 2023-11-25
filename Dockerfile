@@ -17,17 +17,27 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         apache2 \
         apt-utils \
         cpanminus \
+        # being able to build things
         g++ \
         gcc \
         less \
         libapache2-mod-perl2 \
-        # libexpat1-dev \
         make \
         gettext \
         wget \
+        # images processing
         imagemagick \
         graphviz \
         tesseract-ocr \
+        # ftp client
+        lftp \
+        # some compression utils
+        gzip \
+        tar \
+        unzip \
+        zip \
+        # useful to send mail
+        mailutils \
         # perlmagick \
         #
         # Packages from ./cpanfile:
@@ -147,6 +157,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libreadline-dev \
         # IO::AIO needed by Perl::LanguageServer
         libperl-dev \
+        # needed to build Apache2::Connection::XForwardedFor
+        libapache2-mod-perl2-dev \
         # Imager::zxing - build deps
         cmake \
         pkg-config \
@@ -191,7 +203,11 @@ WORKDIR /tmp
 COPY ./cpanfile* /tmp/
 # Add ProductOpener runtime dependencies from cpan
 RUN --mount=type=cache,id=cpanm-cache,target=/root/.cpanm \
-    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps .
+    # first install some dependencies that are not well handled
+    cpanm --notest --quiet --skip-satisfied --local-lib /tmp/local/ "Apache::Bootstrap" && \
+    cpanm $CPANMOPTS --notest --quiet --skip-satisfied --local-lib /tmp/local/ --installdeps . \
+    # in case of errors show build.log, but still, fail
+    || ( for f in /root/.cpanm/work/*/build.log;do echo $f"= start =============";cat $f; echo $f"= end ============="; done; false )
 
 ######################
 # backend production image stage
@@ -214,20 +230,25 @@ RUN \
 RUN \
     mkdir -p var/run/apache2/ && \
     chown www-data:www-data var/run/apache2/ && \
-    for path in data html_data users products product_images orgs new_images logs tmp; do \
+    for path in data html_data users products product_images orgs logs new_images deleted_products_images reverted_products deleted_private_products translate deleted_products deleted.images import_files tmp build-cache/taxonomies debug; do \
         mkdir -p /mnt/podata/${path}; \
     done && \
     chown www-data:www-data -R /mnt/podata && \
     # Create symlinks of data files that are indeed conf data in /mnt/podata (because we currently mix data and conf data)
     # NOTE: do not changes those links for they are in a volume, or handle migration in entry-point
-    for path in data-default external-data emb_codes ingredients madenearme packager-codes po taxonomies templates build-cache; do \
+    for path in data-default external-data emb_codes ingredients madenearme packager-codes po taxonomies templates; do \
         ln -sf /opt/product-opener/${path} /mnt/podata/${path}; \
     done && \
     # Create some necessary files to ensure permissions in volumes
     mkdir -p /opt/product-opener/html/data/ && \
     mkdir -p /opt/product-opener/html/data/taxonomies/ && \
-    mkdir -p /opt/product-opener/html/images/ && \
+    mkdir -p /opt/product-opener/html/images/products && \
     chown www-data:www-data -R /opt/product-opener/html/ && \
+    # inter services directories (until we get a real solution)
+    for service in obf off opf opff; do \
+        mkdir -p /srv/$service; \
+        chown www-data:www-data -R /srv/$service; \
+    done && \
     # logs dir
     mkdir -p /var/log/apache2/ && \
     chown www-data:www-data -R /var/log

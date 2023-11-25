@@ -224,7 +224,7 @@ my @tests = (
 				energy_100g => 3378,
 				fat_100g => 10,
 				"saturated-fat_100g" => 5,
-				sugars_100g => 10,
+				sugars_100g => 20,
 				sodium_100g => 0,
 				fiber_100g => 2,
 				proteins_100g => 5
@@ -242,7 +242,7 @@ my @tests = (
 				energy_100g => 3378,
 				fat_100g => 10,
 				"saturated-fat_100g" => 5,
-				sugars_100g => 10,
+				sugars_100g => 20,
 				sodium_100g => 0,
 				fiber_100g => 2,
 				proteins_100g => 5
@@ -703,6 +703,24 @@ my @tests = (
 		{
 			lc => "en",
 			categories => "olive oil",
+			nutriments => {
+				energy_100g => 3367,
+				fat_100g => 91,
+				"saturated-fat_100g" => 17,
+				sugars_100g => 0,
+				fiber_100g => 0,
+				salt_100g => 0,
+				proteins_100g => 0,
+			}
+		}
+	],
+	# olive oil, unrecognized ingredients specified
+	[
+		"en-olive-oil-unrecognized-ingredients",
+		{
+			lc => "en",
+			categories => "olive oil",
+			ingredients_text => "some very fancy but unrecognized way of writing olive oil",
 			nutriments => {
 				energy_100g => 3367,
 				fat_100g => 91,

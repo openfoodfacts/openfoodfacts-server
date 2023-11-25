@@ -32,6 +32,7 @@ use JSON;
 use Getopt::Long;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::GS1 qw/:all/;
 use ProductOpener::Food qw/:all/;
 

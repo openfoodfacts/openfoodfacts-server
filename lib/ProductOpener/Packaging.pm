@@ -61,6 +61,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
@@ -77,12 +78,12 @@ my $categories_packagings_materials_stats_ref;
 
 sub load_categories_packagings_materials_stats() {
 	if (not defined $categories_packagings_materials_stats_ref) {
-		my $file = "$data_root/data/categories_stats/categories_packagings_materials_stats.all.popular.json";
+		my $file = "$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_packagings_materials_stats.all.popular.json";
 		# In dev environments, we provide a sample stats file in the data-default directory
 		# so that we can run tests with meaningful and unchanging data
 		if (!-e $file) {
 			my $default_file
-				= "$data_root/data-default/categories_stats/categories_packagings_materials_stats.all.popular.json";
+				= "$BASE_DIRS{PRIVATE_DATA}-default/categories_stats/categories_packagings_materials_stats.all.popular.json";
 			$log->debug("local packaging stats file does not exist, will use default",
 				{file => $file, default_file => $default_file})
 				if $log->is_debug();
