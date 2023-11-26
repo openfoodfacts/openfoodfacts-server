@@ -348,6 +348,7 @@ foreach (@{$nutriments_tables{europe}}) {
 	next if $nid =~ /^#/;
 
 	$nid =~ s/^!//;
+	$nid =~ s/^-!//;
 	$nid =~ s/^-+//;
 	$nid =~ s/-+$//;
 
