@@ -64,6 +64,7 @@ use ProductOpener::Lang qw/:all/;
 use OIDC::Lite;
 use OIDC::Lite::Client::WebServer;
 use OIDC::Lite::Model::IDToken;
+use Crypt::JWT qw(decode_jwt);
 
 use CGI qw/:cgi :form escapeHTML/;
 use Apache2::RequestIO();
@@ -125,7 +126,7 @@ sub callback ($request_ref) {
 	my $access_token = $client->get_access_token(
 		code => $code,
 		redirect_uri => $callback_uri,
-	) or die $client->errstr;
+	) or display_error_and_exit($client->errstr, 500);
 	$log->info('got access token', {access_token => $access_token}) if $log->is_info();
 
 	my %cookie_ref = cookie($cookie_name);
@@ -135,9 +136,11 @@ sub callback ($request_ref) {
 		display_error_and_exit('Invalid Nonce during OIDC login', 500);
 	}
 
-	my $id_token = OIDC::Lite::Model::IDToken->load($access_token->id_token);
-	my $verified_id_token = $id_token->verify();
-	$log->debug('id_token found', {id_token => $id_token, verified_id_token => $verified_id_token}) if $log->is_debug();
+	my $id_token = verify_id_token($access_token->id_token);
+	unless ($id_token) {
+		$log->info('id token did not verify') if $log->is_info();
+		display_error_and_exit('Authentication error', 401);
+	}
 
 	my ($userinfo, $user_id) = get_user_id_using_token($access_token->access_token);
 	my $user_ref;
@@ -202,9 +205,10 @@ sub password_signin ($username, $password) {
 		return;
 	}
 
-	my $id_token = OIDC::Lite::Model::IDToken->load($access_token->{id_token});
-	my $verified_id_token = $id_token->verify();
-	$log->debug('id_token found', {id_token => $id_token, verified_id_token => $verified_id_token}) if $log->is_debug();
+	my $id_token = verify_id_token($access_token->{id_token});
+	unless ($id_token) {
+		return;
+	}
 
 	my ($userinfo, $user_id) = get_user_id_using_token($access_token->{access_token});
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
@@ -366,6 +370,17 @@ sub generate_signin_cookie ($nonce, $return_url) {
 	};
 
 	return cookie(%$cookie_ref);
+}
+
+sub verify_id_token ($id_token_string) {
+	my $id_token = OIDC::Lite::Model::IDToken->load($id_token_string);
+	my $id_token_verified = decode_jwt(token => $id_token_string, kid_keys => $oidc_options{keys});
+	$log->debug('id_token found', {id_token => $id_token, id_token_verified => $id_token_verified}) if $log->is_debug();
+	unless ($id_token_verified) {
+		return;
+	}
+
+	return $id_token;
 }
 
 1;

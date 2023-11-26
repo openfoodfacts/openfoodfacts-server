@@ -97,6 +97,7 @@ requires 'GS1::SyntaxEngine::FFI';
 
 # OIDC / OAuth
 requires 'OIDC::Lite';
+requires 'Crypt::JWT';
 
 on 'test' => sub {
   requires 'Test::More', '>= 1.302186, < 2.0';
