@@ -46,6 +46,7 @@ BEGIN {
 		&access_to_protected_resource
 		&callback
 		&password_signin
+		&verify_id_token
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }

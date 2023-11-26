@@ -52,6 +52,7 @@ BEGIN {
 		&decode_json_request_body
 		&normalize_requested_code
 		&customize_response_for_product
+		&process_auth_header
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -61,6 +62,7 @@ use vars @EXPORT_OK;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/:all/;
+use ProductOpener::Auth qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -831,6 +833,77 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	}
 
 	return $customized_product_ref;
+}
+
+=head2 process_auth_header ( $request_ref, $r )
+
+Using the Authorization HTTP header, check if we have a valid user.
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $r (input)
+
+Reference to the Apache2 request object
+
+=head3 Return value
+
+None
+
+=cut
+
+sub process_auth_header ($request_ref, $r) {
+	my $token = _read_auth_header($request_ref, $r);
+	unless ($token) {
+		return;
+	}
+
+	my $id_token = verify_id_token($token);
+	unless ($id_token) {
+		add_error(
+			$request_ref->{api_response},
+			{
+				message => {id => "invalid_token"},
+				impact => {id => "failure"},
+			}
+		);
+		return;
+	}
+
+	return;
+}
+
+=head2 _read_auth_header ( $request_ref, $r )
+
+Using the Authorization HTTP header, check if it looks like a 
+Bearer token, and if it odes, copy it to the request_ref
+
+=head3 Parameters
+
+=head4 $request_ref (input)
+
+Reference to the request object.
+
+=head4 $r (input)
+
+Reference to the Apache2 request object
+
+=head3 Return value
+
+None
+
+=cut
+
+sub _read_auth_header ($request_ref, $r) {
+	my $authorization = $r->headers_in->{Authorization};
+	if ((defined $authorization) and ($authorization =~ /^Bearer (?<token>.+)$/)) {
+		return $+{token};
+	}
+
+	return;
 }
 
 1;
