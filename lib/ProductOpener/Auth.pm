@@ -102,7 +102,7 @@ sub start_authorize ($request_ref) {
 
 	my $redirect_url = $client->uri_to_redirect(
 		redirect_uri => $callback_uri,
-		scope => q{profile},
+		scope => q{openid profile offline_access},
 		state => $nonce,
 	);
 
@@ -125,7 +125,6 @@ sub callback ($request_ref) {
 		code => $code,
 		redirect_uri => $callback_uri,
 	) or die $client->errstr;
-
 	$log->info('got access token', {access_token => $access_token}) if $log->is_info();
 
 	my %cookie_ref = cookie($cookie_name);
@@ -135,13 +134,17 @@ sub callback ($request_ref) {
 		display_error_and_exit('Invalid Nonce during OIDC login', 500);
 	}
 
+	my $id_token = OIDC::Lite::Model::IDToken->load($access_token->id_token);
+	my $verified_id_token = $id_token->verify();
+	$log->debug('id_token found', {id_token => $id_token, verified_id_token => $verified_id_token}) if $log->is_debug();
+
 	my ($userinfo, $user_id) = get_user_id_using_token($access_token->access_token);
 	my $user_ref;
 	my $user_file;
 	unless (defined $user_id) {
 		$user_ref = {};
 		$user_ref->{email} = $userinfo->{'email'};
-		$user_ref->{userid} = $userinfo->{'sub'};
+		$user_ref->{userid} = $userinfo->{'preferred_username'};
 		$user_ref->{name} = $userinfo->{'name'};
 
 		$user_id = $user_ref->{userid};
@@ -197,6 +200,10 @@ sub password_signin ($username, $password) {
 	unless ($access_token) {
 		return;
 	}
+
+	my $id_token = OIDC::Lite::Model::IDToken->load($access_token->{id_token});
+	my $verified_id_token = $id_token->verify();
+	$log->debug('id_token found', {id_token => $id_token, verified_id_token => $verified_id_token}) if $log->is_debug();
 
 	my ($userinfo, $user_id) = get_user_id_using_token($access_token->{access_token});
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
@@ -268,13 +275,16 @@ sub access_to_protected_resource ($request_ref) {
 		return;
 	}
 
-	if ($access_expires_at < time()) {
+	if ((defined $access_expires_at) and ($access_expires_at < time())) {
 		($refresh_token, $refresh_expires_at, $access_token, $access_expires_at) = refresh_access_token($refresh_token);
 		unless ($access_token) {
 			start_authorize($request_ref);
 			return;
 		}
 	}
+
+	# ID Token validation
+	#my $id_token = OIDC::Lite::Model::IDToken->load($token->id_token);
 
 	$log->info('request is ok', $request_ref) if $log->is_info();
 
@@ -311,7 +321,8 @@ sub get_token_using_password_credentials ($username, $password) {
 			. '&username='
 			. uri_escape($username)
 			. '&password='
-			. uri_escape($password));
+			. uri_escape($password)
+			. "&scope=openid%20profile%20offline_access");
 	my $token_response = LWP::UserAgent->new->request($token_request);
 	unless ($token_response->is_success) {
 		$log->info('bad password - no token returned from IdP') if $log->is_info();
