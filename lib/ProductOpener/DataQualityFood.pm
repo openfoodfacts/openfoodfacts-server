@@ -2271,17 +2271,19 @@ sub check_labels ($product_ref) {
 					)
 				{
 					add_tag($product_ref, "data_quality_warnings",
-						"en:" . substr($vit_or_min_label, 3) . "-label-claim-but-$vit_or_min-below-$vitamins_and_minerals_labelling{europe}{$vit_or_min}{$vit_or_min_label}"
+							  "en:"
+							. substr($vit_or_min_label, 3)
+							. "-label-claim-but-$vit_or_min-below-$vitamins_and_minerals_labelling{europe}{$vit_or_min}{$vit_or_min_label}"
 					);
 				}
 			}
 		}
 
 		# In EU, a claim that a food is a source of omega-3 may only be made where the product contains
-		# at least 0,3 g alpha-linolenic acid per 100 g 
-        #   not handled: and per 100 kcal, or
-		# at least 40 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g 
-        #   not handled: and per 100 kcal.
+		# at least 0,3 g alpha-linolenic acid per 100 g
+		#   not handled: and per 100 kcal, or
+		# at least 40 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g
+		#   not handled: and per 100 kcal.
 		if (
 			(has_tag($product_ref, "labels", "en:source-of-omega-3"))
 			and (

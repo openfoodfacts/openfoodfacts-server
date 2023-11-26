@@ -153,8 +153,6 @@ check_quality_and_test_product_has_quality_tag(
 	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 0
 );
 
-
-
 # labels claim vs input nutrition data, based on EU regulation: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
 # TODO TESTS WITH CATEGORIES AND ALL LABELS IN CASE TAXO CHANGE OVER TIME, SO THAT IT IS DETECTED WHEN RUNNING TESTS
 # product quantity warnings and errors
@@ -163,112 +161,85 @@ check_quality_and_test_product_has_quality_tag(
 
 # non-EU countries, should not raise facet
 $product_ref = {
-    countries_tags => ["en:united-states",],
+	countries_tags => ["en:united-states",],
 	labels_tags => ["en:low-energy",],
-    nutriments => {
-        "energy-kcal_value" => 100, # is above limitation
-        "energy-kj_value" => 420, # is not above limitation
-    },
-    quantity => "500 mg",
-},
-check_quality_and_test_product_has_quality_tag(
+	nutriments => {
+		"energy-kcal_value" => 100,    # is above limitation
+		"energy-kj_value" => 420,    # is not above limitation
+	},
+	quantity => "500 mg",
+	},
+	check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:low-energy-label-claim-but-energy-above-limitation',
-	'non-EU countries, should not raise facet', 0
-);
+	'non-EU countries, should not raise facet',
+	0
+	);
 
 # solid
 $product_ref = {
-    countries_tags => ["en:croatia",],
+	countries_tags => ["en:croatia",],
 	labels_tags => [
-        "en:low-energy", 
-        "en:energy-free",
-        "en:low-fat",
-        "en:no-fat",
-        "en:high-monounsaturated-fat",
-        "en:rich-in-polyunsaturated-fatty-acids",
-        "en:low-sugar",
-        "en:no-sugar",
-        "en:low-sodium",
-        "en:low-salt",
-        "en:very-low-sodium",
-        "en:very-low-salt",
-        "en:no-sodium",
-        "en:no-salt",
-        "en:no-added-sodium",
-        "en:no-added-salt",
-        "en:source-of-fibre",
-        "en:high-fibres",
-        "en:vitamin-a-source",
-        "en:rich-in-vitamin-a",
-        "en:vitamin-d-source",
-        "en:rich-in-vitamin-d",
-        "en:vitamin-e-source",
-        "en:rich-in-vitamin-e",
-        "en:vitamin-c-source",
-        "en:rich-in-vitamin-c",
-        "en:vitamin-b1-source",
-        "en:rich-in-vitamin-b1",
-        "en:vitamin-b2-source",
-        "en:rich-in-vitamin-b2",
-        "en:vitamin-b3-source",
-        "en:rich-in-vitamin-b3",
-        "en:vitamin-b6-source",
-        "en:rich-in-vitamin-b6",
-        "en:vitamin-b9-source",
-        "en:rich-in-vitamin-b9",
-        "en:vitamin-b12-source",
-        "en:rich-in-vitamin-b12",
-        "en:source-of-biotin",
-        "en:high-in-biotin",
-        "en:source-of-pantothenic-acid",
-        "en:high-in-pantothenic-acid",
-        "en:calcium-source",
-        "en:high-in-calcium",
-        "en:phosphore-source",
-        "en:high-in-phosphore",
-        "en:iron-source",
-        "en:high-in-iron",
-        "en:magnesium-source",
-        "en:high-in-magnesium",
-        "en:zinc-source",
-        "en:high-in-zinc",
-        "en:iodine-source",
-        "en:high-in-iodine",
-        "en:source-of-omega-3",
-        "en:high-in-omega-3",
-    ],
-    nutriments => {
-        "energy-kcal_value" => 100, # is above 40 and 4
-        "energy-kj_value" => 420, # is above 170 and 17
-        fat_100g => 4,  # is above 3 and 0.5
-        "monounsaturated-fat_100g" => 1, # less than 45% of the fat
-        "polyunsaturated-fat_100g" => 1, # less than 45% of the fat
-        sugars_100g => 6, # above 5 and 0.5
-        sodium_100g => 0.4, # above 0.12 and 0.04 and 0.005
-        salt_100g => 1, # above 0.3 and 0.1 and 0.0125
-        fiber_100g => 2, # below 3 and 6
-        "vitamin-a_100g" => 0.0007, # below 0.0008 and 0.0016
-        "vitamin-d_100g" => 0.000004, # below 0.000005 and 0.00001
-        "vitamin-e_100g" => 0.009, # below 0.01 and 0.02
-        "vitamin-c_100g" => 0.05, # below 0.06 and 0.12
-        "vitamin-b1_100g" => 0.0013, # below 0.0014 and 0.0028
-        "vitamin-b2_100g" => 0.0015, # below 0.0016 and 0.0032
-        "vitamin-b3_100g" => 0.017, # below 0.018 and 0.036
-        "vitamin-b6_100g" => 0.001, # below 0.002 and 0.004
-        "vitamin-b9_100g" => 0.0001, # below 0.0002 and 0.0004
-        "vitamin-b12_100g" => 0.0000009, # below 0.000001 and 0.000002
-        "biotin_100g" => 0.00014, # below 0.00015 and 0.0003
-        "pantothenic-acid_100g" => 0.005, # below 0.006 and 0.012
-        "calcium_100g" => 0.7, # below 0.8 and 1.6
-        "phosphorus_100g" => 0.7, # below 0.8 and 1.6
-        "iron_100g" => 0.013, # below 0.014 and 0.028
-        "magnesium_100g" => 0.2, # below 0.3 and 0.6
-        "zinc_100g" => 0.014, # below 0.015 and 0.03
-        "iodine_100g" => 0.00014, # below 0.00015 and 0.0003
-        "alpha-linolenic-acid_100g" => 0.2 # below 0.3 and 0.6
-    },
-    quantity => "500 mg",
+		"en:low-energy", "en:energy-free",
+		"en:low-fat", "en:no-fat",
+		"en:high-monounsaturated-fat", "en:rich-in-polyunsaturated-fatty-acids",
+		"en:low-sugar", "en:no-sugar",
+		"en:low-sodium", "en:low-salt",
+		"en:very-low-sodium", "en:very-low-salt",
+		"en:no-sodium", "en:no-salt",
+		"en:no-added-sodium", "en:no-added-salt",
+		"en:source-of-fibre", "en:high-fibres",
+		"en:vitamin-a-source", "en:rich-in-vitamin-a",
+		"en:vitamin-d-source", "en:rich-in-vitamin-d",
+		"en:vitamin-e-source", "en:rich-in-vitamin-e",
+		"en:vitamin-c-source", "en:rich-in-vitamin-c",
+		"en:vitamin-b1-source", "en:rich-in-vitamin-b1",
+		"en:vitamin-b2-source", "en:rich-in-vitamin-b2",
+		"en:vitamin-b3-source", "en:rich-in-vitamin-b3",
+		"en:vitamin-b6-source", "en:rich-in-vitamin-b6",
+		"en:vitamin-b9-source", "en:rich-in-vitamin-b9",
+		"en:vitamin-b12-source", "en:rich-in-vitamin-b12",
+		"en:source-of-biotin", "en:high-in-biotin",
+		"en:source-of-pantothenic-acid", "en:high-in-pantothenic-acid",
+		"en:calcium-source", "en:high-in-calcium",
+		"en:phosphore-source", "en:high-in-phosphore",
+		"en:iron-source", "en:high-in-iron",
+		"en:magnesium-source", "en:high-in-magnesium",
+		"en:zinc-source", "en:high-in-zinc",
+		"en:iodine-source", "en:high-in-iodine",
+		"en:source-of-omega-3", "en:high-in-omega-3",
+	],
+	nutriments => {
+		"energy-kcal_value" => 100,    # is above 40 and 4
+		"energy-kj_value" => 420,    # is above 170 and 17
+		fat_100g => 4,    # is above 3 and 0.5
+		"monounsaturated-fat_100g" => 1,    # less than 45% of the fat
+		"polyunsaturated-fat_100g" => 1,    # less than 45% of the fat
+		sugars_100g => 6,    # above 5 and 0.5
+		sodium_100g => 0.4,    # above 0.12 and 0.04 and 0.005
+		salt_100g => 1,    # above 0.3 and 0.1 and 0.0125
+		fiber_100g => 2,    # below 3 and 6
+		"vitamin-a_100g" => 0.0007,    # below 0.0008 and 0.0016
+		"vitamin-d_100g" => 0.000004,    # below 0.000005 and 0.00001
+		"vitamin-e_100g" => 0.009,    # below 0.01 and 0.02
+		"vitamin-c_100g" => 0.05,    # below 0.06 and 0.12
+		"vitamin-b1_100g" => 0.0013,    # below 0.0014 and 0.0028
+		"vitamin-b2_100g" => 0.0015,    # below 0.0016 and 0.0032
+		"vitamin-b3_100g" => 0.017,    # below 0.018 and 0.036
+		"vitamin-b6_100g" => 0.001,    # below 0.002 and 0.004
+		"vitamin-b9_100g" => 0.0001,    # below 0.0002 and 0.0004
+		"vitamin-b12_100g" => 0.0000009,    # below 0.000001 and 0.000002
+		"biotin_100g" => 0.00014,    # below 0.00015 and 0.0003
+		"pantothenic-acid_100g" => 0.005,    # below 0.006 and 0.012
+		"calcium_100g" => 0.7,    # below 0.8 and 1.6
+		"phosphorus_100g" => 0.7,    # below 0.8 and 1.6
+		"iron_100g" => 0.013,    # below 0.014 and 0.028
+		"magnesium_100g" => 0.2,    # below 0.3 and 0.6
+		"zinc_100g" => 0.014,    # below 0.015 and 0.03
+		"iodine_100g" => 0.00014,    # below 0.00015 and 0.0003
+		"alpha-linolenic-acid_100g" => 0.2    # below 0.3 and 0.6
+	},
+	quantity => "500 mg",
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
@@ -329,7 +300,8 @@ check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:very-low-sodium-or-very-low-salt-label-claim-but-sodium-or-salt-above-limitation',
 	'above limitation for very low salt label', 1
-);check_quality_and_test_product_has_quality_tag(
+);
+check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:sodium-free-or-salt-free-label-claim-but-sodium-or-salt-above-limitation',
 	'above limitation for no sodium label', 1
@@ -550,24 +522,21 @@ check_quality_and_test_product_has_quality_tag(
 ## due to monounsaturated providing less than 20% of total energy
 ## same for poly-
 $product_ref = {
-    countries_tags => ["en:croatia",],
-	labels_tags => [
-        "en:high-monounsaturated-fat",
-        "en:rich-in-polyunsaturated-fatty-acids",
-    ],
-    nutriments => {
-        "energy-kcal_value" => 200, # needed to calculate computed energy values
-        "energy-kj_value" => 840, # needed to calculate computed energy values
-        fat_100g => 4,
-        fat_value => 4,  # needed to calculate computed energy values
-        "monounsaturated-fat_100g" => 3, # more than 45% of the fat
-        "polyunsaturated-fat_100g" => 3, # more than 45% of the fat
-        "carbohydrates_value" => 10, # needed to calculate computed energy values
-        "proteins_value" => 40, # needed to calculate computed energy values
-        # "energy-kcal_value_computed" => 276, # for information only
-        # "energy-kj_value_computed" => 1168, # for information only
-    },
-    quantity => "500 mg",
+	countries_tags => ["en:croatia",],
+	labels_tags => ["en:high-monounsaturated-fat", "en:rich-in-polyunsaturated-fatty-acids",],
+	nutriments => {
+		"energy-kcal_value" => 200,    # needed to calculate computed energy values
+		"energy-kj_value" => 840,    # needed to calculate computed energy values
+		fat_100g => 4,
+		fat_value => 4,    # needed to calculate computed energy values
+		"monounsaturated-fat_100g" => 3,    # more than 45% of the fat
+		"polyunsaturated-fat_100g" => 3,    # more than 45% of the fat
+		"carbohydrates_value" => 10,    # needed to calculate computed energy values
+		"proteins_value" => 40,    # needed to calculate computed energy values
+								   # "energy-kcal_value_computed" => 276, # for information only
+								   # "energy-kj_value_computed" => 1168, # for information only
+	},
+	quantity => "500 mg",
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
@@ -581,22 +550,19 @@ check_quality_and_test_product_has_quality_tag(
 );
 ## same as previous for fibres
 $product_ref = {
-    countries_tags => ["en:croatia",],
-	labels_tags => [
-        "en:source-of-fibre",
-        "en:high-fibres",
-    ],
-    nutriments => {
-        "energy-kcal_value" => 400, # needed to calculate computed energy values
-        "energy-kj_value" => 1800, # needed to calculate computed energy values
-        fat_value => 60,  # needed to calculate computed energy values
-        "carbohydrates_value" => 60, # needed to calculate computed energy values
-        "proteins_value" => 60, # needed to calculate computed energy values
-        # "energy-kcal_value_computed" => 1020, # for information only
-        # "energy-kj_value_computed" => 4260, # for information only
-        fiber_100g => 7, # above 6
-    },
-    quantity => "500 mg",
+	countries_tags => ["en:croatia",],
+	labels_tags => ["en:source-of-fibre", "en:high-fibres",],
+	nutriments => {
+		"energy-kcal_value" => 400,    # needed to calculate computed energy values
+		"energy-kj_value" => 1800,    # needed to calculate computed energy values
+		fat_value => 60,    # needed to calculate computed energy values
+		"carbohydrates_value" => 60,    # needed to calculate computed energy values
+		"proteins_value" => 60,    # needed to calculate computed energy values
+								   # "energy-kcal_value_computed" => 1020, # for information only
+								   # "energy-kj_value_computed" => 4260, # for information only
+		fiber_100g => 7,    # above 6
+	},
+	quantity => "500 mg",
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
@@ -610,22 +576,19 @@ check_quality_and_test_product_has_quality_tag(
 );
 ## same as previous for proteins
 $product_ref = {
-    countries_tags => ["en:croatia",],
-	labels_tags => [
-        "en:source-of-proteins",
-        "en:high-proteins",
-    ],
-    nutriments => {
-        "energy-kcal_value" => 400, # needed to calculate computed energy values
-        "energy-kj_value" => 1800, # needed to calculate computed energy values
-        fat_value => 60,  # needed to calculate computed energy values
-        "carbohydrates_value" => 60, # needed to calculate computed energy values
-        "proteins_value" => 21, # needed to calculate computed energy values
-        # "energy-kcal_value_computed" => 864, # for information only
-        # "energy-kj_value_computed" => 3597, # for information only
-        proteins_100g => 21, # above 20 and 12
-    },
-    quantity => "500 mg",
+	countries_tags => ["en:croatia",],
+	labels_tags => ["en:source-of-proteins", "en:high-proteins",],
+	nutriments => {
+		"energy-kcal_value" => 400,    # needed to calculate computed energy values
+		"energy-kj_value" => 1800,    # needed to calculate computed energy values
+		fat_value => 60,    # needed to calculate computed energy values
+		"carbohydrates_value" => 60,    # needed to calculate computed energy values
+		"proteins_value" => 21,    # needed to calculate computed energy values
+								   # "energy-kcal_value_computed" => 864, # for information only
+								   # "energy-kj_value_computed" => 3597, # for information only
+		proteins_100g => 21,    # above 20 and 12
+	},
+	quantity => "500 mg",
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
@@ -641,19 +604,10 @@ check_quality_and_test_product_has_quality_tag(
 ## no added sugar but added sugar ingredients
 ## same for salt, sodium
 $product_ref = {
-    countries_tags => ["en:croatia",],
-	labels_tags => [
-        "en:no-added-sugar",
-        "en:no-added-sodium",
-        "en:no-added-salt",
-    ],
-    quantity => "500 mg",
-    ingredients_tags => [
-        "en:cane-sugar", 
-        "en:added-sugar", 
-        "en:disaccharide",
-        "en:salt",
-    ],
+	countries_tags => ["en:croatia",],
+	labels_tags => ["en:no-added-sugar", "en:no-added-sodium", "en:no-added-salt",],
+	quantity => "500 mg",
+	ingredients_tags => ["en:cane-sugar", "en:added-sugar", "en:disaccharide", "en:salt",],
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
@@ -673,16 +627,13 @@ check_quality_and_test_product_has_quality_tag(
 
 ## omega-3, trigger with sum of epa and dha instead of ala
 $product_ref = {
-    countries_tags => ["en:croatia",],
-	labels_tags => [
-        "en:source-of-omega-3",
-        "en:high-in-omega-3",
-    ],
-    nutriments => {
-        "eicosapentaenoic-acid_100g" => 0.01,
-        "docosahexaenoic-acid_100g" => 0.01, # sum is below 0.04 and 0.08
-    },
-    quantity => "500 mg",
+	countries_tags => ["en:croatia",],
+	labels_tags => ["en:source-of-omega-3", "en:high-in-omega-3",],
+	nutriments => {
+		"eicosapentaenoic-acid_100g" => 0.01,
+		"docosahexaenoic-acid_100g" => 0.01,    # sum is below 0.04 and 0.08
+	},
+	quantity => "500 mg",
 };
 
 check_quality_and_test_product_has_quality_tag(
@@ -697,19 +648,16 @@ check_quality_and_test_product_has_quality_tag(
 	'under limitation for high in omega-3 label', 1
 );
 
-
 # liquid
 ## low-fat + semi-skimmed-milk
 $product_ref = {
-    countries_tags => ["en:croatia",],
-	labels_tags => [
-        "en:low-fat",
-    ],
-    nutriments => {
-        fat_100g => 1.6,  # is above 1.5 (default limit) but below 1.8 (limit for skimmed-milk)
-    },
-    quantity => "1L",
-    categories_tags => ["en:semi-skimmed-milks"],
+	countries_tags => ["en:croatia",],
+	labels_tags => ["en:low-fat",],
+	nutriments => {
+		fat_100g => 1.6,    # is above 1.5 (default limit) but below 1.8 (limit for skimmed-milk)
+	},
+	quantity => "1L",
+	categories_tags => ["en:semi-skimmed-milks"],
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
@@ -719,13 +667,10 @@ check_quality_and_test_product_has_quality_tag(
 
 ## This claim shall not be used for natural mineral waters and other waters.
 $product_ref = {
-    countries_tags => ["en:croatia",],
-	labels_tags => [
-        "en:very-low-sodium",
-        "en:very-low-salt",
-    ],
-    quantity => "1,5 L",
-    categories_tags => ["en:waters"],
+	countries_tags => ["en:croatia",],
+	labels_tags => ["en:very-low-sodium", "en:very-low-salt",],
+	quantity => "1,5 L",
+	categories_tags => ["en:waters"],
 };
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
