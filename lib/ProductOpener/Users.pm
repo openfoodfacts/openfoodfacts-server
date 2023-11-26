@@ -976,13 +976,13 @@ sub retrieve_user ($user_id) {
 sub is_email_has_off_account ($email) {
 
 	# First, check if the email exists in the users_emails.sto file
-	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
 
 	if (defined $emails_ref->{$email}) {
 		my $user_id = $emails_ref->{$email}[0];
 
 		# Next, check if the user file exists and has the 'userid' field
-		my $user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+		my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 		if (-e $user_file) {
 			my $user_ref = retrieve($user_file);
 			return $user_ref->{userid} if defined $user_ref->{userid};
@@ -1392,7 +1392,7 @@ A user id if matched; otherwise undef.
 
 sub try_retrieve_userid_from_mail ($email) {
 	$log->info("got email while initializing user", {email => $email}) if $log->is_info();
-	my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
 	$log->info("emails_ref", {emails_ref => $emails_ref});
 	my $user_id;
 	if (not defined $emails_ref->{$email}) {
