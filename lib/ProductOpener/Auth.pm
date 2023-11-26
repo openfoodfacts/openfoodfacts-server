@@ -53,6 +53,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/:all/;
 use ProductOpener::URL qw/:all/;
@@ -148,11 +149,11 @@ sub callback ($request_ref) {
 		$user_ref->{name} = $userinfo->{'name'};
 
 		$user_id = $user_ref->{userid};
-		$user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+		$user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 		store($user_file, $user_ref);
 
 		# Store email
-		my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+		my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
 		my $email = $user_ref->{email};
 
 		if ((defined $email) and ($email =~ /\@/)) {
@@ -164,10 +165,10 @@ sub callback ($request_ref) {
 			delete $user_ref->{old_email};
 		}
 
-		store("$data_root/users/users_emails.sto", $emails_ref);
+		store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 	}
 
-	$user_file = "$data_root/users/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+	$user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 	unless (-e $user_file) {
 		$log->info('User file not found', {user_file => $user_file, user_id => $user_id}) if $log->is_info();
 		display_error_and_exit('Internal error', 500);
