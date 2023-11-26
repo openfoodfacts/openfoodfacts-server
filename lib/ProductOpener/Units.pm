@@ -47,6 +47,7 @@ BEGIN {
 
 		&normalize_serving_size
 		&normalize_quantity
+		&extract_standard_unit
 
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -222,6 +223,47 @@ sub mmoll_to_unit ($value, $unit) {
 	return g_to_unit($value, $unit);
 }
 
+=head2 parse_quantity_unit($quantity)
+
+Returns the quantity ($q), the multiplicator ($m, optional) and the unit ($u)
+that may be found in the quantity field entered by contributors
+
+parse_quantity_unit(1 barquette de 40g) returns (40, 1, g)
+parse_quantity_unit(20 tranches 500g)   returns (500, 20, g)
+parse_quantity_unit(6x90g)              returns (90, 6, g)
+parse_quantity_unit(2kg)                returns (2, undef, kg)
+
+Returns (undef, undef, undef) if no quantity was detected.
+
+=cut
+
+sub parse_quantity_unit ($quantity, $standard_unit_bool = undef) {
+
+	my $q = undef;
+	my $m = undef;
+	my $u = undef;
+
+	# 12 pots x125 g
+	# 6 bouteilles de 33 cl
+	# 6 bricks de 1 l
+	# 10 unités, 170 g
+	# 4 bouteilles en verre de 20cl
+	if ($quantity
+		=~ /(?<number>\d+)(\s(\p{Letter}| )+)?(\s)?( de | of |x|\*)(\s)?(?<quantity>$number_regexp)(\s)?(?<unit>$units_regexp)\b/i
+		)
+	{
+		$m = $+{number};
+		$q = lc($+{quantity});
+		$u = $+{unit};
+	}
+	elsif ($quantity =~ /(?<quantity>$number_regexp)(\s)?(?<unit>$units_regexp)\s*\b/i) {
+		$q = lc($+{quantity});
+		$u = $+{unit};
+	}
+
+	return ($q, $m, $u);
+}
+
 =head2 normalize_quantity($quantity)
 
 Returns the size in g or ml for the whole product. Eg.:
@@ -234,34 +276,40 @@ Returns undef if no quantity was detected.
 
 =cut
 
-sub normalize_quantity ($quantity) {
+sub normalize_quantity ($quantity_field) {
+	my ($quantity, $multiplier, $unit) = parse_quantity_unit($quantity_field);
 
-	my $q = undef;
-	my $u = undef;
+	$quantity = convert_string_to_number($quantity);
 
-	# 12 pots x125 g
-	# 6 bouteilles de 33 cl
-	# 6 bricks de 1 l
-	# 10 unités, 170 g
-	# 4 bouteilles en verre de 20cl
-	if ($quantity
-		=~ /(?<number>\d+)(\s(\p{Letter}| )+)?(\s)?( de | of |x|\*)(\s)?(?<quantity>$number_regexp)(\s)?(?<unit>$units_regexp)\b/i
-		)
-	{
-		my $m = $+{number};
-		$q = lc($+{quantity});
-		$u = $+{unit};
-		$q = convert_string_to_number($q);
-		$q = unit_to_g($q * $m, $u);
+	if (defined $multiplier) {
+		$quantity = unit_to_g($quantity * $multiplier, $unit);
 	}
-	elsif ($quantity =~ /(?<quantity>$number_regexp)(\s)?(?<unit>$units_regexp)\s*\b/i) {
-		$q = lc($+{quantity});
-		$u = $+{unit};
-		$q = convert_string_to_number($q);
-		$q = unit_to_g($q, $u);
+	else {
+		$quantity = unit_to_g($quantity, $unit);
 	}
+	return $quantity;
+}
 
-	return $q;
+=head2 extract_standard_unit($quantity)
+
+Returns the standard_unit corresponding to the extracted unit
+
+extract_standard_unit(1 barquette de 40g, 1) returns g
+extract_standard_unit(2kg)                   returns g
+extract_standard_unit(33cl)                  returns ml
+
+Returns undef if no unit was detected.
+
+=cut
+
+sub extract_standard_unit ($quantity_field) {
+	my (undef, undef, $unit) = parse_quantity_unit($quantity_field);
+
+	# search in the map of all synonyms in all languages ($units_names)
+	$unit = lc($unit);
+	my $unit_id = $units_names{$unit};    # $unit_id can be undefined
+
+	return $units{$unit_id}{standard_unit};    # standard_unit can be undefined
 }
 
 =head2 normalize_serving_size($serving)

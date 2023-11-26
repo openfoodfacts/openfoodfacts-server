@@ -2896,3 +2896,232 @@ description:en:This product has a vegan label, however some ingredients are not 
 <en:Data quality warnings
 en:vegetarian-label-but-could-not-confirm-for-all-ingredients 
 description:en:This product has a vegetarian label, however some ingredients are not known as non-vegetarian in the taxonomy (could be unknown ingredients or missing vegetarian true/false in the taxonomy).
+
+
+<en:Data quality warnings
+en:low-energy-label-claim-but-energy-above-limitation
+description:en:In EU, a claim that a food is low in energy may only be made where the product does not contain more than 40 kcal or 170 kJ /100 g for solids or more than 20 kcal or 80 kJ /100 ml for liquids. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:energy-free-label-claim-but-energy-above-limitation
+description:en:In EU, a claim that a food is energy free may only be made where the product does not contain more than 4 kcal or 17 kJ /100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:low-fat-label-claim-but-fat-above-limitation
+description:en:In EU, a claim that a food is low fat may only be made where the product contains no more than 3 g of fat per 100 g for solids or 1,5 g of fat per 100 ml for liquids. 1,8 g of fat per 100 ml for semi-skimmed milk. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:en:no-fat-label-claim-but-fat-above-0.5
+description:en:In EU, a claim that a food is fat free may only be made where the product contains no more than 0,5 g of fat per 100 g or 100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:low-saturated-fat-label-claim-but-fat-above-limitation
+description:en:In EU, a claim that a food is fat free may only be made if the sum of saturated fatty acids and trans-fatty acids in the product does not exceed 1,5 g per 100 g for solids or 0,75 g/100 ml for liquids and in either case the sum of saturated fatty acids and trans-fatty acids must not provide more than 10 % of energy. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:saturated-fat-free-label-claim-but-fat-above-0.1
+description:en:In EU, a claim that a food does not contain sturated fat may only be made where the sum of saturated fat and trans-fatty acids does not exceed 0,1 g of saturated fat per 100 g or 100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:low-sugar-label-claim-but-sugar-above-limitation
+description:en:In EU, a claim that a food is low sugar may only be made where the product contains no more than 5 g of sugars per 100 g for solids or 2,5 g of sugars per 100 ml for liquids. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:sugar-free-label-claim-but-sugar-above-limitation
+description:en:In EU, a claim that a food is sugar-free may only be made where the product contains no more than 0,5 g of sugars per 100 g or 100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:no-added-sugar-label-claim-but-contains-added-sugar
+description:en:In EU, a claim that a food is with no added sugars may only be made where the product does not contain any added mono- or disaccharides or any other food used for its sweetening properties. If sugars are naturally present in the food, the following indication should also appear on the label: ‘CONTAINS NATURALLY OCCURRING SUGARS’. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:low-sodium-or-low-salt-label-claim-but-sodium-or-salt-above-limitation
+description:en:In EU, a claim that a food is low sodium or low salt may only be made where the product contains no more than 0,12 g of sodium, or the equivalent value for salt, per 100 g or per 100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:very-low-sodium-or-very-low-salt-label-claim-but-sodium-or-salt-above-limitation
+description:en:In EU, a claim that a food is very low in sodium/salt may only be made where the product contains no more than 0,04 g of sodium, or the equivalent value for salt, per 100 g or per 100 ml. This claim shall not be used for natural mineral waters and other waters. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:no-added-sodium-or-no-added-salt-label-claim-but-sodium-or-salt-above-limitation
+description:en:In EU, a claim that sodium/salt has not been added to a food may only be made where the product does not contain any added sodium/salt or any other ingredient containing added sodium/salt and the product contains no more than 0,12 g sodium, or the equivalent value for salt, per 100 g or 100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:source-of-fibre-label-claim-but-fibre-below-limitation
+description:en:In EU, a claim that a food is a source of fibre may only be made where the product contains at least 3 g of fibre per 100 g or at least 1,5 g of fibre per 100 kcal. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:high-fibres-label-claim-but-fibre-below-limitation
+description:en:In EU, a claim that a food is high in fibre may only be made where the product contains at least 6 g of fibre per 100 g or at least 3 g of fibre per 100 kcal. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:source-of-proteins-label-claim-but-proteins-below-limitation
+description:en:In EU, a claim that a food is a source of protein may only be made where at least 12 % of the energy value of the food is provided by protein. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:high-proteins-label-claim-but-proteins-below-limitation
+description:en:In EU, a claim that a food is high in protein may only be made where at least 20 % of the energy value of the food is provided by protein. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:vitamin-a-source-label-claim-but-vitamin-a-below-0.0008
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-a-label-claim-but-vitamin-a-below-0.0016
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-d-source-label-claim-but-vitamin-d-below-5e-06
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-d-label-claim-but-vitamin-d-below-1e-05
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-e-source-label-claim-but-vitamin-e-below-0.01
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-e-label-claim-but-vitamin-e-below-0.02
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-c-source-label-claim-but-vitamin-c-below-0.06
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-c-label-claim-but-vitamin-c-below-0.12
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-b1-source-label-claim-but-vitamin-b1-below-0.0014
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-b1-label-claim-but-vitamin-b1-below-0.0028
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-b2-source-label-claim-but-vitamin-b2-below-0.0016
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-b2-label-claim-but-vitamin-b2-below-0.0032
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-b3-source-label-claim-but-vitamin-b3-below-0.018
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-b3-label-claim-but-vitamin-b3-below-0.036
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-b6-source-label-claim-but-vitamin-b6-below-0.002
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-b6-label-claim-but-vitamin-b6-below-0.004
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-b9-source-label-claim-but-vitamin-b9-below-0.0002
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-b9-label-claim-but-vitamin-b9-below-0.0004
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-b12-source-label-claim-but-vitamin-b12-below-1e-06
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-b12-label-claim-but-vitamin-b12-below-2e-06
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:source-of-biotin-label-claim-but-biotin-below-0.00015
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:high-in-biotin-label-claim-but-biotin-below-0.0003
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:source-of-pantothenic-acid-label-claim-but-pantothenic-acid-below-0.006
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:high-in-pantothenic-acid-label-claim-but-pantothenic-acid-below-0.012
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:calcium-source-label-claim-but-calcium-below-0.8
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:high-in-calcium-label-claim-but-calcium-below-1.6
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:phosphore-source-label-claim-but-phosphorus-below-0.8
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:high-in-phosphore-label-claim-but-phosphorus-below-1.6
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:iron-source-label-claim-but-iron-below-0.014
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:high-in-iron-label-claim-but-iron-below-0.028
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:magnesium-source-label-claim-but-magnesium-below-0.3
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:high-in-magnesium-label-claim-but-magnesium-below-0.6
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:zinc-source-label-claim-but-zinc-below-0.015
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:high-in-zinc-label-claim-but-zinc-below-0.03
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:iodine-source-label-claim-but-iodine-below-0.00015
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:high-in-iodine-label-claim-but-iodine-below-0.0003
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:source-of-omega-3-label-claim-but-ala-or-sum-of-epa-and-dha-below-limitation
+description:en:In EU, a claim that a food is a source of omega-3 may only be made where the product contains at least 0,3 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 40 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:high-in-omega-3-label-claim-but-ala-or-sum-of-epa-and-dha-below-limitation
+description:en:In EU, a claim that a food is high in omega-3 may only be made where the product contains at least 0,6 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 80 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:high-monounsaturated-fat-label-claim-but-monounsaturated-fat-under-limitation
+description:en:In EU, a claim that a food is high in monounsaturated fat may only be made where at least 45 % of the fatty acids present in the product derive from monounsaturated fat under the condition that monounsaturated fat provides more than 20 % of energy of the product. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:rich-in-polyunsaturated-fatty-acids-label-claim-but-polyunsaturated-fat-under-limitation
+description:en:In EU, a claim that a food is high in polyunsaturated fat may only be made where at least 45 % of the fatty acids present in the product derive from polyunsaturated fat under the condition that polyunsaturated fat provides more than 20 % of energy of the product. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:rich-in-unsaturated-fatty-acids-label-claim-but-unsaturated-fat-under-limitation
+description:en:In EU, a claim that a food is high in unsaturated fat may only be made where at least 70 % of the fatty acids present in the product derive from unsaturated fat under the condition that unsaturated fat provides more than 20 % of energy of the product. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
