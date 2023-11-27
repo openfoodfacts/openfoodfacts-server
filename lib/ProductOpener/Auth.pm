@@ -47,6 +47,7 @@ BEGIN {
 		&callback
 		&password_signin
 		&verify_id_token
+		&create_user_in_keycloak
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -297,6 +298,46 @@ sub access_to_protected_resource ($request_ref) {
 	return;
 }
 
+sub create_user_in_keycloak ($user_ref, $password) {
+	my $keycloak_users_endpoint = $oidc_options{keycloak_users_endpoint};
+	unless ($keycloak_users_endpoint) {
+		display_error_and_exit('keycloak_users_endpoint not configured', 500);
+	}
+
+	my $token = get_token_using_client_credentials();
+	unless ($token) {
+		display_error_and_exit('Could not get token to manage users with keycloak_users_endpoint', 500);
+	}
+
+	my $api_request_ref = {
+		email => $user_ref->{email},
+		emailverified => $JSON::PP::false,
+		enabled => $JSON::PP::true,
+		username => $user_ref->{userid},
+		name => $user_ref->{name},
+		credentials => [
+			{
+				type => 'password',
+				temporary => $JSON::PP::false,
+				value => $password
+			}
+		]
+	};
+	my $json = encode_json($api_request_ref);
+
+	my $http_request = HTTP::Request->new(POST => $keycloak_users_endpoint);
+	$http_request->header('Content-Type' => 'application/json');
+	$http_request->content($json);
+	my $new_user_response = LWP::UserAgent->new->request($http_request);
+	unless ($new_user_response->is_success) {
+		display_error_and_exit($new_user_response->content, 500);
+	}
+
+	my $json_response = $new_user_response->decoded_content(charset => 'UTF-8');
+	my $created_user = decode_json($json_response);
+	return $created_user;
+}
+
 =head2 get_token_using_password_credentials($username, $password)
 
 Gets a token for the user.
@@ -332,6 +373,42 @@ sub get_token_using_password_credentials ($username, $password) {
 	my $token_response = LWP::UserAgent->new->request($token_request);
 	unless ($token_response->is_success) {
 		$log->info('bad password - no token returned from IdP') if $log->is_info();
+		return;
+	}
+
+	my $access_token = decode_json($token_response->content);
+	$log->info('got access token', {access_token => $access_token}) if $log->is_info();
+	return $access_token;
+}
+
+=head2 get_token_using_client_credentials()
+
+Gets a token for the user.
+
+Method uses the Client Credentials Grant to
+pre-configured Client ID, and Client Secret.
+
+=head3 Arguments
+
+None
+
+=head3 Return values
+
+Open ID Access token, or undefined if sign-in wasn't successful.
+
+=cut
+
+sub get_token_using_client_credentials () {
+	my $token_request = HTTP::Request->new(POST => $oidc_options{access_token_uri});
+	$token_request->header('Content-Type' => 'application/x-www-form-urlencoded');
+	$token_request->content('grant_type=client_credentials&client_id='
+			. uri_escape($oidc_options{client_id})
+			. '&client_secret='
+			. uri_escape($oidc_options{client_secret})
+			. "&scope=openid%20profile%20offline_access");
+	my $token_response = LWP::UserAgent->new->request($token_request);
+	unless ($token_response->is_success) {
+		$log->info('bad client credentials - no token returned from IdP') if $log->is_info();
 		return;
 	}
 

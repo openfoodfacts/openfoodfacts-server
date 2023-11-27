@@ -488,6 +488,12 @@
       "realmRoles": [
         "default-roles-open-products-facts"
       ],
+      "clientRoles": {
+        "realm-management": [
+          "manage-users",
+          "query-users"
+        ]
+      },
       "notBefore": 0,
       "groups": []
     }

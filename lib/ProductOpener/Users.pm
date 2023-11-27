@@ -663,6 +663,11 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 
 	$log->debug("process_user_form", {type => $type, user_ref => $user_ref}) if $log->is_debug();
 
+	if ($type eq 'add') {
+		# Create new user in Keycloak first
+		create_user_in_keycloak($user_ref, single_param('password'));
+	}
+
 	# Professional account with a requested org (existing or new)
 	process_user_requested_org($user_ref);
 
