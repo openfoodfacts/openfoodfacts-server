@@ -314,18 +314,12 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#rate-limits" class="md-nav__link">
     Rate limits
   </a>
   
-    <nav class="md-nav" aria-label="Rate limits">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#if-your-users-do-not-expect-a-result-immediately-eg-inventory-apps" class="md-nav__link">
@@ -913,18 +907,12 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#rate-limits" class="md-nav__link">
     Rate limits
   </a>
   
-    <nav class="md-nav" aria-label="Rate limits">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#if-your-users-do-not-expect-a-result-immediately-eg-inventory-apps" class="md-nav__link">
@@ -1032,7 +1020,7 @@
 <blockquote>
 <p>Generally, the more information we have about a product, the more we can compute it.</p>
 </blockquote>
-<h2 id="rate-limits">Rate limits<a class="headerlink" href="#rate-limits" title="Permanent link">#</a></h2>
+<h3 id="rate-limits">Rate limits<a class="headerlink" href="#rate-limits" title="Permanent link">#</a></h3>
 <p>To protect our infrastructure, we enforce rate-limits on the API and the website. The following limits apply:</p>
 <ul>
 <li>100 req/min for all read product queries (<code>GET /api/v*/product</code> requests or product page). There is no limit on product write queries.</li>
@@ -1062,8 +1050,10 @@
 <p>Consider using the <a href="https://world.openfoodfacts.net">staging environment</a> if you are not in a production scenario.</p>
 <p>While testing your applications, <strong>make all API requests to the staging environment</strong>. This way, we can ensure the product database is safe.</p>
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
+<p>We ask you to <strong>always use a custom User-Agent to identify you</strong> (to not risk being identified as a bot). The User-Agent should be in the form of <code>AppName/Version (ContactEmail)</code>. For example,
+<code>MyApp/1.0 (contact@myapp.com)</code>.</p>
 <ul>
-<li>READ operations (getting info about a product, etc...) do not require authentication, although we <em>ask you to use a custom User-Agent</em> to identify you if you're developing an application (to not risk being identified as a bot)</li>
+<li>READ operations (getting info about a product, etc...) do not require authentication except the custom User-Agent.</li>
 </ul>
 <ul>
 <li>WRITE operations (Editing an Existing Product, Uploading images…) <strong>require authentication</strong>. We do this as another layer of protection against spam.</li>
