@@ -300,6 +300,16 @@
           "attributes": {}
         }
       ],
+      "hoppscotch": [
+        {
+          "id": "512f0e38-1503-4090-baf2-bf363ab0e830",
+          "name": "uma_protection",
+          "composite": false,
+          "clientRole": true,
+          "containerId": "4aa0f015-3b71-4aef-8cc9-6e9ddd814217",
+          "attributes": {}
+        }
+      ],
       "security-admin-console": [],
       "ProductOpener": [
         {
@@ -770,6 +780,104 @@
       "authenticationFlowBindingOverrides": {},
       "fullScopeAllowed": false,
       "nodeReRegistrationTimeout": 0,
+      "defaultClientScopes": [
+        "web-origins",
+        "acr",
+        "profile",
+        "roles",
+        "email"
+      ],
+      "optionalClientScopes": [
+        "address",
+        "phone",
+        "offline_access",
+        "microprofile-jwt"
+      ]
+    },
+    {
+      "id": "4aa0f015-3b71-4aef-8cc9-6e9ddd814217",
+      "clientId": "hoppscotch",
+      "name": "hoppscotch",
+      "description": "",
+      "rootUrl": "https://hoppscotch.io/",
+      "adminUrl": "https://hoppscotch.io/",
+      "baseUrl": "https://hoppscotch.io/",
+      "surrogateAuthRequired": false,
+      "enabled": true,
+      "alwaysDisplayInConsole": false,
+      "clientAuthenticatorType": "client-secret",
+      "redirectUris": [
+        "https://hoppscotch.io/oauth"
+      ],
+      "webOrigins": [
+        "https://hoppscotch.io"
+      ],
+      "notBefore": 0,
+      "bearerOnly": false,
+      "consentRequired": false,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "publicClient": true,
+      "frontchannelLogout": true,
+      "protocol": "openid-connect",
+      "attributes": {
+        "oidc.ciba.grant.enabled": "false",
+        "client.secret.creation.time": "1701004114",
+        "backchannel.logout.session.required": "true",
+        "post.logout.redirect.uris": "https://hoppscotch.io/",
+        "oauth2.device.authorization.grant.enabled": "true",
+        "display.on.consent.screen": "false",
+        "backchannel.logout.revoke.offline.tokens": "false"
+      },
+      "authenticationFlowBindingOverrides": {},
+      "fullScopeAllowed": true,
+      "nodeReRegistrationTimeout": -1,
+      "protocolMappers": [
+        {
+          "id": "6196a19f-9fee-41ce-bc2e-3859ddf460ac",
+          "name": "Client Host",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usersessionmodel-note-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.session.note": "clientHost",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "claim.name": "clientHost",
+            "jsonType.label": "String"
+          }
+        },
+        {
+          "id": "406f0512-2b23-44f0-9678-12122bd33740",
+          "name": "Client ID",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usersessionmodel-note-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.session.note": "client_id",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "claim.name": "client_id",
+            "jsonType.label": "String"
+          }
+        },
+        {
+          "id": "cc918f4f-54d4-4967-a08a-667e92a1658b",
+          "name": "Client IP Address",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usersessionmodel-note-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.session.note": "clientAddress",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "claim.name": "clientAddress",
+            "jsonType.label": "String"
+          }
+        }
+      ],
       "defaultClientScopes": [
         "web-origins",
         "acr",
