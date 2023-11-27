@@ -4529,7 +4529,9 @@ my %ignore_params = (
 	no_count => 1,
 );
 
-# Parameters that can be query filters
+# Parameters that can be query filters passed as parameters
+# (GET query parameters, POST JSON body or from url facets),
+# in addition to tags fields.
 # It is safer to use a positive list, instead of just the %ignore_params list
 
 my %valid_params = (code => 1, creator => 1);

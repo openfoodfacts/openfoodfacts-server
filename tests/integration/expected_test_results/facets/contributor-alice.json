@@ -1,9 +1,18 @@
 {
-   "count" : 10,
+   "count" : 12,
    "page" : 1,
-   "page_count" : 10,
+   "page_count" : 12,
    "page_size" : 24,
    "products" : [
+      {
+         "product_name" : "Apples - Organic - France"
+      },
+      {
+         "product_name" : "Apples - Organic - France, Belgium, Canada"
+      },
+      {
+         "product_name" : "Apples - Organic, Fair trade - France"
+      },
       {
          "product_name" : "Bananas - Organic - France - brand2"
       },
@@ -30,9 +39,6 @@
       },
       {
          "product_name" : "Oranges - Organic - Spain - brand1, brand2, brand3"
-      },
-      {
-         "product_name" : "Yogurt - Organic, Fair trade - Martinique"
       }
    ],
    "skip" : 0

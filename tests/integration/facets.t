@@ -17,10 +17,17 @@ remove_all_products();
 
 wait_application_ready();
 
-my $ua = new_client();
+# First user
 
-my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+my $ua = new_client();
+my %create_user_args = (%default_user_form, (email => 'alice@gmail.com', userid => "alice"));
 create_user($ua, \%create_user_args);
+
+# Second user
+
+my $ua2 = new_client();
+my %create_user_args2 = (%default_user_form, (email => 'bob@gmail.com', userid => "bob"));
+create_user($ua2, \%create_user_args2);
 
 # Create some products to test facets
 
@@ -161,6 +168,22 @@ foreach my $product_ref (@products) {
 	edit_product($ua, $product_ref);
 }
 
+# Create another product with a different contributor
+
+edit_product(
+	$ua2,
+	{
+		%{dclone(\%empty_product_form)},
+		(
+			code => '200000000013',
+			product_name => "Yogurt - Organic, Fair trade - Martinique",
+			categories => "en:yogurt",
+			labels => "en:organic,en:fair-trade",
+			origins => "en:france",
+		),
+	}
+);
+
 # Note: expected results are stored in json files, see execute_api_tests
 # We use the API with .json to test facets, in order to easily get the products that are returned
 my $tests_ref = [
@@ -277,6 +300,21 @@ my $tests_ref = [
 		test_case => 'packager-code_fr-85-222-003-ec',    # not normalized code (ec instead of ce)
 		method => 'GET',
 		path => '/packager-code/fr-85-222-003-ce.json?fields=product_name,emb_codes_tags',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
+	# contributor facet
+	{
+		test_case => 'contributor-alice',
+		method => 'GET',
+		path => '/contributor/alice.json?fields=product_name',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
+	{
+		test_case => 'contributor-bob',
+		method => 'GET',
+		path => '/contributor/bob.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
