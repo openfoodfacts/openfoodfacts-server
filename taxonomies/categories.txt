@@ -58930,16 +58930,6 @@ agribalyse_food_code:en:11046
 ciqual_food_code:en:11046
 ciqual_food_name:en:Baking powder or raising agent
 
-<en:Condiments
-en:Nutritional yeast
-bg:Хранителна мая
-fr:Levure alimentaire
-lt:Maistinės mielės
-pl:Płatki drożdżowe nieaktywne
-agribalyse_food_code:en:11009
-ciqual_food_code:en:11009
-ciqual_food_name:en:Nutritional yeast
-
 <en:Food additives
 fr:Poudres à lever
 agribalyse_proxy_food_code:en:11045
@@ -64422,6 +64412,22 @@ en:Tenderisers
 gpc_category_code:en:10000050
 gpc_category_name:en:Extracts/Salt/Meat Tenderisers (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a liquid, paste, powder, granules or solid made from evaporation or refinement of meat, vegetable, yeast or sodium chloride that is added to season and flavour food, and in specific cases to tenderise meat. Products specifically include refined and unrefined Salt and Monosodium Glutamate, Bouillon, as well as a powdered form of Meat Tenderiser. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as single or pure Perishable or Shelf Stable Herbs and Spices, Gravy Browning, Soup Mixes, and Flavour Shots and Packets for Non-Meat Food and Beverage products.
+
+<en:Condiments
+en:Condiment variety packs
+gpc_category_code:en:10000619
+gpc_category_name:en:Seasonings/Preservatives/Extracts Variety Packs
+gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Seasonings, Preservatives or Extracts sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Seasonings, Preservatives and Extracts Family. Includes products such as Salt and Vinegar variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Salt and Pepper variety packs and Salad Dressing and Salad variety packs.
+
+<en:Condiments
+en:Nutritional yeast
+bg:Хранителна мая
+fr:Levure alimentaire
+lt:Maistinės mielės
+pl:Płatki drożdżowe nieaktywne
+agribalyse_food_code:en:11009
+ciqual_food_code:en:11009
+ciqual_food_name:en:Nutritional yeast
 
 <en:Condiments
 en:Gomasio, Gomashio
