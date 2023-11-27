@@ -17,8 +17,8 @@ mongoexport --collection products --host $HOST --db $DB | gzip > new.$PREFIX-pro
 mv new.$PREFIX-products.jsonl.gz $PREFIX-products.jsonl.gz
 
 mongodump --collection products --host $HOST --db $DB --gzip --archive="new.${PREFIX}-mongodbdump.gz" && \
-sha256sum $PREFIX-mongodbdump.gz > new.gz-sha256sum && \
-md5sum $PREFIX-mongodbdump.gz > new.gz-md5sum && \
+sha256sum new.$PREFIX-mongodbdump.gz > new.gz-sha256sum && \
+md5sum new.$PREFIX-mongodbdump.gz > new.gz-md5sum && \
 mv new.${PREFIX}-mongodbdump.gz ${PREFIX}-mongodbdump.gz && \
 mv new.gz-sha256sum gz-sha256sum && \
 mv new.gz-md5sum gz-md5sum
