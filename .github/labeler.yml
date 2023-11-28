@@ -16,6 +16,7 @@ MongoDB:
 - scripts/checkmongodb.pl
 - scripts/update_all_products_from_dir_in_mongodb.pl
 - scripts/update_all_products_revisions_from_dir_in_mongodb.pl
+- scripts/mongodb_dump.sh
 
 Stores:
 - taxonomies/unused/stores.txt
@@ -244,6 +245,7 @@ Agribalyse:
 Export:
 - lib/ProductOpener/Export.pm
 - t/expected_test_results/export/**/*
+- scripts/mongodb_dump.sh
 
 Food.pm:
 - lib/ProductOpener/Food.pm
