@@ -1214,7 +1214,7 @@ $font-green: #008c8c;
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  padding: 1rem;
+  padding: 1.5rem 1rem; 
   width: 100%;
   gap: 1rem;
   background-color: $section-sand;
@@ -1222,26 +1222,40 @@ $font-green: #008c8c;
     flex-direction: column;
     padding: 1rem 0;
   }
+  &__close {
+    position: absolute;
+    top: .3rem;
+    right: .3rem;
+  }
   &__logo {
     position: absolute;
-    bottom: -30px;
-    left: -20px;
+    bottom: -20px;
+    left: -15px;
     background-image: url(/images/illustrations/half-logo.svg);
     background-repeat: no-repeat;
     background-size: contain;
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
+    @media #{$small-only} {
+      width: 50px;
+      height: 50px;
+      bottom: -15px;
+      left: -10px;
+    }
   }
   &__hand {
     position: absolute;
     transform: rotate(80deg);
     top: -40px;
-    right: 50%;
+    right: 45%;
     background-image: url(/images/illustrations/donate-hearth.svg);
     background-repeat: no-repeat;
     background-size: contain;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
+    @media #{$small-only} {
+      display: none;
+    }
   }
   &__content {
     display: flex;
@@ -1251,7 +1265,7 @@ $font-green: #008c8c;
     padding: 1rem;
   }
   &__main-text {
-    display: inline;
+    display: inline-block;
     text-transform: uppercase;
     font-size: 38px;
     font-weight: 700;
@@ -1259,7 +1273,6 @@ $font-green: #008c8c;
     margin-bottom: 1rem;
     background-color: $background-orange;
     border-radius: 5px;
-    line-height: 4rem;
     color: $white;
     padding: 1rem;
     margin-bottom: 2rem;
@@ -1282,11 +1295,11 @@ $font-green: #008c8c;
     font-size: 13px;
   }
   &__donate {
-    padding: 1rem;
+    padding: .8rem;
     text-transform: uppercase;
     background-color: $font-green;
     color: $white;
-    border-radius: 5px;
+    border-radius: 10px;
     &:hover {
       background-color: darken($font-green, 10%);
       color: $white;
