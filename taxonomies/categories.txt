@@ -42919,7 +42919,7 @@ ko:코티지 치즈
 lt:Grūdėta varškė
 lv:Mājas siers
 ms:Keju kotej
-nl:Hüttenkäsen, Cottage cheeses
+nl:Cottage cheeses, Hüttenkäsen
 nn:Opplagd mjølk
 no:Hytteost
 pl:Cottage cheese
@@ -63195,7 +63195,7 @@ fi:pakastemarjat
 fr:Fruits rouges surgelés
 it:Frutti di bosco surgelati, Frutti di bosco congelati
 lt:Šaldytos uogos
-nl:Bevroren bosvruchten
+nl:Diepvries bosvruchten, Bevroren bosvruchten
 
 <en:Frozen berries
 <en:Blackberries
@@ -63203,7 +63203,7 @@ en:Frozen blackberries
 es:Moras congeladas
 fr:Mûres surgelées, Mûres de ronce surgelées
 lt:Šaldytos gervuogės
-nl:Bevroren bramen
+nl:Bramen (diepvries), Diepvries bramen, Bevroren bramen
 agribalyse_food_code:en:13150
 ciqual_food_code:en:13150
 ciqual_food_name:en:Blackberry, frozen, raw
@@ -63218,7 +63218,7 @@ fi:Pakastemustikat
 fr:Myrtilles surgelées, Myrtille surgelée
 it:Mirtilli surgelati
 lt:Šaldytos mėlynės
-nl:Bevroren bosbessen
+nl:Bosbessen (diepvries), Bevroren bosbessen
 agribalyse_food_code:en:13132
 ciqual_food_code:en:13132
 ciqual_food_name:en:Blueberry, frozen, raw
@@ -63233,7 +63233,7 @@ fi:Pakastevadelmat
 fr:Framboises surgelées
 it:Lamponi congelati
 lt:Šaldytos avietės
-nl:Bevroren frambozen
+nl:Frambozen (diepvries), Bevroren frambozen
 agribalyse_food_code:en:13136
 ciqual_food_code:en:13136
 ciqual_food_name:en:Raspberry, frozen, raw
@@ -63245,7 +63245,7 @@ en:Frozen redcurrants
 es:Grosellas congeladas
 fr:Groseilles surgelées
 lt:Šaldyti raudonieji serbentai
-nl:Bevroren aalbessen
+nl:Aalbessen (diepvries), Bevroren aalbessen
 
 <en:Frozen berries
 <en:Strawberries
@@ -63255,7 +63255,7 @@ es:Fresas congeladas
 fr:Fraises surgelées
 it:Fragole surgelate
 lt:Šaldytos braškės
-nl:Bevroren aardbeien
+nl:Aardbeien (diepvries), Bevroren aardbeien
 
 <en:Frozen fruits
 <en:Citrus
@@ -63263,14 +63263,14 @@ en:Frozen citrus
 es:Cítricos congelados
 fr:Agrumes surgelés
 lt:Šaldyti citrusiniai vaisiai
-nl:Bevroren citrusfruit
+nl:Citrusfruit (diepvries), Bevroren citrusfruit
 
 <en:Frozen fruits
 <en:Pomegranates
 en:Frozen pomegranates
 es:Granadas congeladas
 fr:Grenades surgelées
-nl:Bevroren granaatappels
+nl:Granaatappels (diepvries), Bevroren granaatappels, Diepvries granaatappels,
 lt:Šaldyti granatų vaisiai
 pt:Romãs congeladas
 
@@ -63281,7 +63281,7 @@ de:Gefrorene Tropenfrüchte
 es:Frutas tropicales congeladas
 fr:Fruits tropicaux surgelés, fruits exotiques surgelés
 lt:Šaldyti tropiniai vaisiai
-nl:Bevroren tropische vruchten
+nl:Tropisch fruit (diepvries), Bevroren tropische vruchten
 
 <en:Frozen tropical fruits
 <en:Avocados
@@ -63289,7 +63289,7 @@ en:Frozen avocados
 es:Aguacates congelados
 fr:Avocats surgelés
 lt:Šaldyti avokadai
-nl:Bevroren avocados
+nl:Avocados (diepvries), Bevroren avocados, Diepvries avocados
 
 <en:Frozen tropical fruits
 <en:Pineapple
@@ -63298,7 +63298,11 @@ de:Gefrorene Ananas
 es:Piñas congeladas
 fr:Ananas surgelés
 lt:Šaldyti ananasai
-nl:Bevroren ananas, Diepvriesananas
+nl:Ananas (diepvries), Bevroren ananas, Diepvriesananas
+
+<en:Frozen tropical fruits
+en:Frozen mangos
+nl:Mangos (diepvries), Diepvriesmangos
 
 <en:Frozen fruits
 en:Frozen mixed fruits
@@ -63452,6 +63456,7 @@ en:Medjool dates
 de:Medjool Datteln
 fr:Dattes Medjool, dates medjool
 it:Datteri Medjoul, Datteri Medjool
+nl:Medjoul dadels
 wikidata:en:Q16774413
 
 <en:Dates
@@ -98010,6 +98015,15 @@ wikidata:en:Q15062992
 <en:Black beans
 en:Canned black beans
 fr:Haricots noirs en conserve
+
+<en:Common beans
+en:Field beans, Kapucijner peas
+ca:Tirabec
+es:Bisalto, Tirabeque
+la:Pisum sativum arvense, Pisum sativum subsp. arvense
+nl:Kapucijners, Velderwten
+pl:Groch zwyczajny polny
+sv:Gråärt 
 
 <en:Common beans
 en:Pinto beans
