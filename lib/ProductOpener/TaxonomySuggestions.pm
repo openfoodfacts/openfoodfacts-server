@@ -121,6 +121,8 @@ sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $opti
 	) if $log->is_debug();
 
 	# Check if we have cached suggestions
+	my $options_relavant = {%$options_ref};
+	delete $options_relavant->{get_synonyms};
 	my $key = generate_cache_key(
 		"get_taxonomy_suggestions",
 		{
@@ -128,7 +130,7 @@ sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $opti
 			search_lc => $search_lc,
 			string => $string,
 			context_ref => $context_ref,
-			options_ref => $options_ref #TODO: Ignore get_synonyms option since it doesn't change the list
+			options_ref => $options_relavant
 		}
 	);
 
