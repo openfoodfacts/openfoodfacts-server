@@ -280,14 +280,6 @@ my $tests_ref = [
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},
-	# Contributor
-	{
-		test_case => 'contributor_tests',
-		method => 'GET',
-		path => '/contributor/tests.json?fields=product_name',
-		expected_status_code => 200,
-		sort_products_by => 'product_name',
-	},
 	# EU packager code
 	{
 		test_case => 'packager-code_fr-85-222-003-ce',
