@@ -1203,76 +1203,102 @@ span.ico-bold {
 
 $section-blue: #6d85d9;
 $section-cyan: #008c8c;
+$section-sand: #FFFAF1;
+$background-orange: #FF8714;
+$font-green: #008c8c;
 
 .donation-banner,
 .donation-banner-footer {
+  overflow: hidden;
   position: relative;
   display: flex;
-  padding: 2rem 0;
-  background-color: $section-blue;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 1rem;
+  width: 100%;
+  gap: 1rem;
+  background-color: $section-sand;
   @media #{$small-only} {
     flex-direction: column;
     padding: 1rem 0;
   }
-  &__image {
-    display: block;
-    content: "";
-    background: no-repeat url(/images/illustrations/donate-heart.svg);
-    min-width: 150px;
-    height: 81px;
+  &__logo {
+    position: absolute;
+    bottom: -30px;
+    left: -20px;
+    background-image: url(/images/illustrations/half-logo.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+  }
+  &__hand {
+    position: absolute;
+    transform: rotate(80deg);
+    top: -40px;
+    right: 50%;
+    background-image: url(/images/illustrations/donate-hearth.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 150px;
+    height: 150px;
   }
   &__content {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 5;
+    padding: 1rem;
+  }
+  &__main-text {
+    display: inline;
+    text-transform: uppercase;
+    font-size: 38px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 1rem;
+    background-color: $background-orange;
+    border-radius: 5px;
+    line-height: 4rem;
+    color: $white;
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+  &__aside {
+    display: flex;
     align-items: center;
-    flex-direction: row;
-    gap: 1rem;
-    margin: 0 auto;
-    max-width: 100rem;
-    @media #{$small-only} {
-      flex-direction: column;
-      gap: 0;
-      margin-top: -2rem;
+    gap: .5rem;
+  }
+  &__secondary-text,
+  &__tertiary-text {
+    color: $font-green;
+    font-weight: 700;
+    font-family: 'Farro', sans-serif;
+  }
+  &__secondary-text {
+    font-size: 16px;
+  }
+  &__tertiary-text {
+    font-size: 13px;
+  }
+  &__donate {
+    padding: 1rem;
+    text-transform: uppercase;
+    background-color: $font-green;
+    color: $white;
+    border-radius: 5px;
+    &:hover {
+      background-color: darken($font-green, 10%);
+      color: $white;
     }
-    &--button {
-      appearance: button;
-      display: inline-flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 8px;
-      height: fit-content;
-      margin-bottom: 0;
-      @media #{$small-only} {
-        order: 3;
-      }
-    }
-    &-paragraphs {
-      > p { color: $white; }
-      @media #{$small-only} {
-        text-align: center;
-        order: 2;
-        padding: 1rem;
-      }
-      &--thank-you {
-        span {
-          color: red;
-          font-size: 1rem;
-        }
-      }
-    }
-    &-close {
-      align-self: flex-start;
-      cursor: pointer;
-      color: white;
-      opacity: 0.5;
-      margin-right: 1rem;
-      @media #{$small-only} { 
-        position: relative;
-        top: -25px;
-        margin-right: 2rem;
-        align-self: flex-end;
-        order: 1;
-      }
-    }
+  }
+  &__image {
+    height: 400px;
+    flex: 4;
+    background-image: url(/images/misc/group_photo.jpeg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
   }
 }
 
