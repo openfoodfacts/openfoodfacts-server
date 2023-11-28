@@ -4452,16 +4452,11 @@ my %phrases_after_ingredients_list = (
 	cs => ['doporučeny způsob přípravy', 'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',],
 
 	da => [
-		'(?:gennemsnitlig )?n(æ|ae)rings(?:indhold|værdi|deklaration)',
-		'beskyttes',
-		'nettovægt',
-		'åbnet',
-		'holdbarhed efter åbning',
-		'mindst holdbar til',
-		'opbevar(?:ing|res)?',
-		'(?:for )?allergener',
-		'produceret af',
-		'tilberedning(?:svejledning)?',
+		'(?:gennemsnitlig )?n(æ|ae)rings(?:indhold|værdi|deklaration)', 'beskyttes',
+		'nettovægt', 'åbnet',
+		'holdbarhed efter åbning', 'mindst holdbar til',
+		'opbevar(?:ing|res)?', '(?:for )?allergener',
+		'produceret af', 'tilberedning(?:svejledning)?',
 	],
 
 	de => [
