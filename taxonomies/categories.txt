@@ -56281,12 +56281,12 @@ ciqual_food_name:fr:Céréales pour petit déjeuner, non enrichies en vitamines 
 # Chocapic-type cereals
 <en:Extruded cereals
 <en:Chocolate cereals
-en:Breakfast chocolate cereals with wheat grain flakes, Chocolate wheat shells, chocolate wheat flakes
+en:Chocolate wheat shells, chocolate wheat flakes, Breakfast chocolate cereals with wheat grain flakes
 fr:Pétales de blé chocolatés
 it:Petali di Frumento al cacao
 lt:Sausi pusryčiai šokoladinės kriauklelės
 
-<en:Breakfast chocolate cereals with wheat grain flakes
+<en:Chocolate wheat shells
 en:Breakfast chocolate cereals with wheat grain flakes not fortified with vitamins and chemical elements
 fr:Pétales de blé chocolatés non enrichis en vitamines et minéraux
 lt:Šokoladiniai dribsniai su kviečių grūdų dribsniais nepraturtintais vitaminais ir mineralais
@@ -56896,11 +56896,10 @@ agribalyse_food_code:en:32121
 ciqual_food_code:en:32121
 ciqual_food_name:en:Breakfast cereals, corn flakes, sugar iced, fortified with vitamins and chemical elements
 
-# Oat Flakes
-
+# The most common english appellation is rolled oats, the name of the category should stay "rolled oats" even if it doesn't match with the other category names
 <en:Cereal flakes
 <en:Rolled flakes
-en:Oat flakes, Oatmeal, Oatmeal flakes, Rolled oats
+en:Rolled oats, Oat flakes, Oatmeal, Oatmeal flakes
 bg:Овесени ядки
 de:Haferflocken
 es:Copos de avena
@@ -59686,6 +59685,10 @@ fr:Sorbets à la myrtille
 lt:Mėlynių šerbetai
 
 <en:Sorbets
+en:Blackberry sorbets
+fr:Sorbets à la mûre
+
+<en:Sorbets
 en:Mango sorbets
 de:Mango Sorbets
 es:Sorbetes de mango
@@ -59701,6 +59704,18 @@ fr:Sorbets à l'ananas
 it:Sorbetto all'ananas
 lt:Ananasiniai šerbetai
 nl:Ananassorbet
+
+<en:Sorbets
+en:Banana sorbets
+fr:Sorbets à la banane
+
+<en:Sorbets
+en:Kiwi sorbets
+fr:Sorbets au kiwi
+
+<en:Sorbets
+en:Fig sorbets
+fr:Sorbets à la figue
 
 <en:Sorbets
 en:Plum sorbets
