@@ -817,6 +817,18 @@ zh:HACCP,危害分析重要管制點
 wikidata:en:Q279454
 label_categories:en: en:Food Safety
 
+en:ISO 3632
+xx:ISO 3632
+# https://www.iso.org/standard/44523.html ISO for Saffron category
+
+en:ISO 9000
+xx:ISO 9000
+# The ISO 9000 family is a set of five quality management systems standards by the International Organization for Standardization that help organizations ensure they meet customer and other stakeholder needs within statutory and regulatory requirements related to a product or service.
+
+<en:ISO 9000
+en:ISO 9000-2005
+xx:ISO 9000-2005
+
 en:ISO 9001
 bg:ISO 9001
 es:ISO 9001, ISO 9001, Certificación de calidad ISO 9001
@@ -843,10 +855,42 @@ xx:ISO 9001-2008
 <en:ISO 9001
 <ru:ГОСТ
 ru:ГОСТ Р ИСО 9001-2008, ГОСТ ISO 9001-2011
+xx:ISO 9001-2011
 
 <en:ISO 9001
 <ru:ГОСТ
+en:ISO 9001-2015
 ru:ГОСТ Р ИСО 9001-2015
+xx:ISO 9001-2015
+
+en:ISO 9002
+xx:ISO 9002
+# ISO 9002 : Pour la production, l'installation et l'assistance après vente
+# https://en.wikipedia.org/wiki/ISO_9002
+
+en:ISO 13485
+xx:ISO 13485
+# ISO for traceability of medical devices (supplements) - https://www.iso.org/standard/59752.html
+
+en:ISO 14001
+xx:ISO 14001
+
+<en:ISO 14001
+en:ISO 14001-2008
+xx:ISO 14001-2008
+
+<en:ISO 14001
+en:ISO 14001-2015
+xx:ISO 14001-2015
+
+en:ISO 14067
+xx:ISO 14067
+
+<en:ISO 14067
+en:ISO 14067:2018
+xx:ISO 14067:2018
+# ISO 14067:2018 - Greenhouse gases — Carbon footprint
+# This document specifies principles, requirements and guidelines for the quantification and reporting of the carbon footprint of a product (CFP)
 
 en:ISO 22000
 bg:ISO 22000
@@ -854,8 +898,13 @@ it:ISO 22000
 pl:ISO 22000
 pt:ISO 22000
 ru:ИСО 22000, ISO 22000
+fr:ISO 22000,ISO22000
 xx:ISO 22000
 wikidata:en:Q524143
+# ISO 22000 — Food safety management
+
+<en:ISO 22000
+en:FSSC ISO 22000
 
 <en:ISO 22000
 en:ISO 22000:2005
@@ -866,11 +915,40 @@ xx:ISO 22000:2005
 
 <en:ISO 22000
 en:ISO 22000:2018
+xx:ISO 22000:2018
 # https://en.wikipedia.org/wiki/ISO_22000#History
 
 <en:ISO 22000
 <ru:ГОСТ
+en:ISO 22000-2007
 ru:ГОСТ Р ИСО 22000-2007
+xx:ISO 22000-2007
+# ISO 22000 — Food safety management
+
+en:ISO 22005
+xx:ISO 22005
+# ISO 22005:2007 - Traceability in the feed and food chain
+# ISO 22005:2007 gives the principles and specifies the basic requirements for the design and implementation of a feed and food traceability system.
+
+<en:ISO 22005
+en:ISO 22005:2007
+xx:ISO 22005:2007
+
+en:ISO 22716
+xx:ISO 22716
+# Cosmetics - products with this should be moved to Open Beauty Facts
+
+en:ISO 45001
+xx:ISO 45001
+# ISO 45001 is an International Organization for Standardization standard for management systems of occupational health and safety, published in March 2018. The goal of ISO 45001 is the reduction of occupational injuries and diseases, including promoting and protecting physical and mental health.
+
+en:ISO 50001
+xx:ISO 50001
+# Related to the energy performance of any organisation
+
+<en:ISO 50001
+en:ISO 50001-2011
+xx:ISO 50001-2011
 
 en:Designated Origin Denomination
 de:Ausgewiesene Herkunftsbezeichnung
