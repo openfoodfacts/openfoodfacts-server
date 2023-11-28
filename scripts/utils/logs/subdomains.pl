@@ -1,6 +1,7 @@
 #!/usr//bin/perl -w
 
 use strict;
+use warnings;
 
 my %subdomains = ();
 
@@ -12,7 +13,6 @@ while (<STDIN>) {
 	}
 }
 
-
-foreach my $sd (sort { $subdomains{$b} <=> $subdomains{$a} } keys %subdomains) {
+foreach my $sd (sort {$subdomains{$b} <=> $subdomains{$a}} keys %subdomains) {
 	print $sd . "\t" . $subdomains{$sd} . "\n";
 }
