@@ -8,6 +8,37 @@ po/site-specific
 tests/unit/outputs/
 tests/integration/outputs/
 
+# local configs, most of them are link to files in conf/ depending on instance
+/html/.well-known/apple-*
+/log.conf
+/minion_log.conf
+
+# data dirs - we shall not mix data and git files, as it makes deployments/updates difficult
+/build-cache
+/debug
+/deleted.images
+/dist
+/logs
+/new_images
+/orgs
+/products
+/tmp
+/users
+/imports
+/lang
+/html/dump
+/html/files
+/html/data
+/html/exports
+/deleted_private_products
+/deleted_products
+/deleted_products_images
+/export_files
+
+# Images
+/html/images/products
+
+
 # Local files
 .DS_Store?
 ._*
@@ -47,13 +78,10 @@ html/bower_components
 local
 
 # Front build
-html/css/dist
-html/js/dist
-html/images/icons/dist
-html/images/attributes/*.svg
-
-# Images
-html/images/products/*
+/html/css/dist
+/html/js/dist
+/html/images/icons/dist
+/html/images/attributes/dist
 
 # Don't store helm dependencies in our git repo
 docker/productopener/charts

@@ -37,6 +37,7 @@ TXT
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -97,7 +98,7 @@ while (my $product_ref = $cursor->next) {
 
 	if (defined $product_ref) {
 
-		my $dir = "$www_root/images/products/$path";
+		my $dir = "$BASE_DIRS{PRODUCTS_IMAGES}/$path";
 
 		next if !-e $dir;
 

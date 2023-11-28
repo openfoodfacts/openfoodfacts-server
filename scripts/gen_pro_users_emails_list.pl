@@ -26,6 +26,7 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 
 require ProductOpener::GeoIP;
@@ -33,7 +34,7 @@ require ProductOpener::GeoIP;
 my @userids;
 
 if (scalar $#userids < 0) {
-	opendir DH, "$data_root/users" or die "Couldn't open the current directory: $!";
+	opendir DH, $BASE_DIRS{USERS} or die "Couldn't open the current directory: $!";
 	@userids = sort(readdir(DH));
 	closedir(DH);
 }
@@ -42,7 +43,7 @@ foreach my $userid (@userids) {
 	next if $userid eq "." or $userid eq "..";
 	next if $userid eq 'all';
 
-	my $user_ref = retrieve("$data_root/users/$userid");
+	my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid");
 
 	if ((defined $user_ref->{org}) and ($user_ref->{org} ne "")) {
 		my $country = ProductOpener::GeoIP::get_country_code_for_ip($user_ref->{ip});

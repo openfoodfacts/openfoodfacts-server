@@ -134,11 +134,16 @@ jobs:
       uses: ishworkh/docker-image-artifact-download@v1
       with:
         image: "openfoodfacts-server/backend:dev"
+    - name: set right UID and GID in .envrc
+      run: |
+        rm -f .envrc
+        echo "export USER_UID=$(id -u)" >> .envrc
+        echo "export USER_GID=$(id -g)" >> .envrc
     - name: Test make dev
       run: |
         make dev
         make status
     - name: Test all is running
-      run: make livecheck
+      run: make livecheck || ( tail -n 300 logs/apache2/*error*log; docker-compose logs; false )
     - name: test clean
       run: make hdown

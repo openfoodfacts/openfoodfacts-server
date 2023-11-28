@@ -125,6 +125,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Products qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -479,18 +480,18 @@ sub process_search_image_form ($filename_ref) {
 			my $extension = lc($1);
 			my $filename = get_string_id_for_lang("no_language", remote_addr() . '_' . $`);
 
-			(-e "$data_root/tmp") or mkdir("$data_root/tmp", 0755);
-			open(my $out, ">", "$data_root/tmp/$filename.$extension");
+			ensure_dir_created_or_die($BASE_DIRS{CACHE_TMP});
+			open(my $out, ">", "$BASE_DIRS{CACHE_TMP}/$filename.$extension");
 			while (my $chunk = <$file>) {
 				print $out $chunk;
 			}
 			close($out);
 
-			$code = scan_code("$data_root/tmp/$filename.$extension");
+			$code = scan_code("$BASE_DIRS{CACHE_TMP}/$filename.$extension");
 			if (defined $code) {
 				$code = normalize_code($code);
 			}
-			${$filename_ref} = "$data_root/tmp/$filename.$extension";
+			${$filename_ref} = "$BASE_DIRS{CACHE_TMP}/$filename.$extension";
 		}
 	}
 	return $code;
@@ -784,18 +785,13 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		# create them
 
 		# Create the directories for the product
-		foreach my $current_dir ($product_www_root . "/images/products") {
-			(-e "$current_dir") or mkdir($current_dir, 0755);
-			foreach my $component (split("/", $path)) {
-				$current_dir .= "/$component";
-				(-e "$current_dir") or mkdir($current_dir, 0755);
-			}
-		}
+		my $target_image_dir = "$product_www_root/images/products/$path";
+		ensure_dir_created_or_die($target_image_dir);
 
-		my $lock_path = "$product_www_root/images/products/$path/$imgid.lock";
-		while ((-e $lock_path) or (-e "$product_www_root/images/products/$path/$imgid.jpg")) {
+		my $lock_path = "$target_image_dir/$imgid.lock";
+		while ((-e $lock_path) or (-e "$target_image_dir/$imgid.jpg")) {
 			$imgid++;
-			$lock_path = "$product_www_root/images/products/$path/$imgid.lock";
+			$lock_path = "$target_image_dir/$imgid.lock";
 		}
 
 		mkdir($lock_path, 0755)
@@ -804,7 +800,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		local $log->context->{imgid} = $imgid;
 		$log->debug("new imgid: ", {imgid => $imgid, extension => $extension}) if $log->is_debug();
 
-		my $img_orig = "$product_www_root/images/products/$path/$imgid.$extension.orig";
+		my $img_orig = "$target_image_dir/$imgid.$extension.orig";
 		$log->debug("writing the original image", {img_orig => $img_orig}) if $log->is_debug();
 		open(my $out, ">", $img_orig)
 			or $log->warn("could not open image path for saving", {path => $img_orig, error => $!});
@@ -820,7 +816,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400))
 		{    # ImageMagick returns a string starting with a number greater than 400 for errors
 			$log->error("cannot read image",
-				{path => "$product_www_root/images/products/$path/$imgid.$extension", error => $imagemagick_error});
+				{path => "$target_image_dir/$imgid.$extension", error => $imagemagick_error});
 			$debug .= " - could not read image: $imagemagick_error";
 			${$debug_string_ref} = $debug;
 			return -5;
@@ -839,7 +835,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 			$source = $bg;
 		}
 
-		my $img_jpg = "$product_www_root/images/products/$path/$imgid.jpg";
+		my $img_jpg = "$target_image_dir/$imgid.jpg";
 
 		$source->Set('quality', 95);
 		$imagemagick_error = $source->Write("jpeg:$img_jpg");
@@ -870,12 +866,12 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 			# but we stored original PNG files before they were converted to JPG in [imgid].png
 			# We compare both the sizes of the original files and the converted files
 
-			my @existing_images = ("$product_www_root/images/products/$path/$i.jpg");
-			if (-e "$product_www_root/images/products/$path/$i.$extension.orig") {
-				push @existing_images, "$product_www_root/images/products/$path/$i.$extension.orig";
+			my @existing_images = ("$target_image_dir/$i.jpg");
+			if (-e "$target_image_dir/$i.$extension.orig") {
+				push @existing_images, "$target_image_dir/$i.$extension.orig";
 			}
-			if (($extension ne "jpg") and (-e "$product_www_root/images/products/$path/$i.$extension")) {
-				push @existing_images, "$product_www_root/images/products/$path/$i.$extension";
+			if (($extension ne "jpg") and (-e "$target_image_dir/$i.$extension")) {
+				push @existing_images, "$target_image_dir/$i.$extension";
 			}
 
 			foreach my $existing_image (@existing_images) {
@@ -909,13 +905,12 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 							and (defined $product_ref->{images})
 							and (exists $product_ref->{images}{$i}))
 						{
-							$log->debug(
-								"unlinking image",
-								{imgid => $imgid, file => "$product_www_root/images/products/$path/$imgid.$extension"}
-							) if $log->is_debug();
+							$log->debug("unlinking image",
+								{imgid => $imgid, file => "$target_image_dir/$imgid.$extension"})
+								if $log->is_debug();
 							unlink $img_orig;
 							unlink $img_jpg;
-							rmdir("$product_www_root/images/products/$path/$imgid.lock");
+							rmdir("$target_image_dir/$imgid.lock");
 							${$imgid_ref} = $i;
 							$debug .= " - we already have an image with this file size: $size - imgid: $i";
 							${$debug_string_ref} = $debug;
@@ -936,8 +931,8 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 				or (not defined $options{users_who_can_upload_small_images}{$user_id}))
 			)
 		{
-			unlink "$product_www_root/images/products/$path/$imgid.$extension";
-			rmdir("$product_www_root/images/products/$path/$imgid.lock");
+			unlink "$target_image_dir/$imgid.$extension";
+			rmdir("$target_image_dir/$imgid.lock");
 			$debug .= " - image too small - width: " . $source->Get('width') . " - height: " . $source->Get('height');
 			${$debug_string_ref} = $debug;
 			return -4;
@@ -972,20 +967,20 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 			);
 			_set_magickal_options($img, $w);
 
-			$imagemagick_error = $img->Write("jpeg:$product_www_root/images/products/$path/$imgid.$max.jpg");
+			$imagemagick_error = $img->Write("jpeg:$target_image_dir/$imgid.$max.jpg");
 			if (($imagemagick_error) and ($imagemagick_error =~ /(\d+)/) and ($1 >= 400))
 			{    # ImageMagick returns a string starting with a number greater than 400 for errors
 				$log->warn(
 					"could not write jpeg",
 					{
-						path => "jpeg:$product_www_root/images/products/$path/$imgid.$max.jpg",
+						path => "jpeg:$target_image_dir/$imgid.$max.jpg",
 						error => $imagemagick_error
 					}
 				) if $log->is_warn();
 				last;
 			}
 			else {
-				$log->info("jpeg written", {path => "jpeg:$product_www_root/images/products/$path/$imgid.$max.jpg"})
+				$log->info("jpeg written", {path => "jpeg:$target_image_dir/$imgid.$max.jpg"})
 					if $log->is_info();
 			}
 
@@ -1041,7 +1036,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 			(-e "$product_data_root/new_images") or mkdir("$product_data_root/new_images", 0755);
 			my $code = $product_id;
 			$code =~ s/.*\///;
-			symlink("$product_www_root/images/products/$path/$imgid.jpg",
+			symlink("$target_image_dir/$imgid.jpg",
 				"$product_data_root/new_images/" . time() . "." . $code . "." . $imagefield . "." . $imgid . ".jpg");
 
 			# Save the image file size so that we can skip the image before processing it if it is uploaded again
@@ -1054,7 +1049,7 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 			$imgid = -5;
 		}
 
-		rmdir("$product_www_root/images/products/$path/$imgid.lock");
+		rmdir("$target_image_dir/$imgid.lock");
 
 		# make sure to close the file so that it does not stay in /tmp forever
 		my $tmpfilename = tmpFileName($file);
@@ -1116,7 +1111,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 			if ($move_to =~ /^((off|obf|opf|opff):)?\d+$/) {
 				$ok = process_image_upload(
 					$move_to_id,
-					"$www_root/images/products/$path/$imgid.jpg",
+					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
 					$product_ref->{images}{$imgid}{uploader},
 					$product_ref->{images}{$imgid}{uploaded_t},
 					"image moved from product $code on $server_domain by $user_id -- uploader: $product_ref->{images}{$imgid}{uploader} - time: $product_ref->{images}{$imgid}{uploaded_t}",
@@ -1127,7 +1122,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 					$log->error(
 						"could not move image to other product",
 						{
-							source_path => "$www_root/images/products/$path/$imgid.jpg",
+							source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
 							move_to => $move_to,
 							old_code => $code,
 							ownerid => $ownerid,
@@ -1140,7 +1135,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 					$log->info(
 						"moved image to other product",
 						{
-							source_path => "$www_root/images/products/$path/$imgid.jpg",
+							source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
 							move_to => $move_to,
 							old_code => $code,
 							ownerid => $ownerid,
@@ -1154,7 +1149,7 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 				$log->info(
 					"moved image to trash",
 					{
-						source_path => "$www_root/images/products/$path/$imgid.jpg",
+						source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
 						old_code => $code,
 						ownerid => $ownerid,
 						user_id => $user_id,
@@ -1166,28 +1161,29 @@ sub process_image_move ($user_id, $code, $imgids, $move_to, $ownerid) {
 			# Don't delete images to be moved if they weren't moved correctly
 			if ($ok) {
 				# Delete images (move them to the deleted.images dir
-
-				-e "$data_root/deleted.images" or mkdir("$data_root/deleted.images", 0755);
+				ensure_dir_created_or_die($BASE_DIRS{DELETED_IMAGES});
 
 				File::Copy->import(qw( move ));
 
 				$log->info(
 					"moving source image to deleted images directory",
 					{
-						source_path => "$www_root/images/products/$path/$imgid.jpg",
-						destination_path => "$data_root/deleted.images/product.$code.$imgid.jpg"
+						source_path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
+						destination_path => "$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.jpg"
 					}
 				);
 
-				move("$www_root/images/products/$path/$imgid.jpg",
-					"$data_root/deleted.images/product.$code.$imgid.jpg");
 				move(
-					"$www_root/images/products/$path/$imgid.$thumb_size.jpg",
-					"$data_root/deleted.images/product.$code.$imgid.$thumb_size.jpg"
+					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.jpg",
+					"$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.jpg"
 				);
 				move(
-					"$www_root/images/products/$path/$imgid.$crop_size.jpg",
-					"$data_root/deleted.images/product.$code.$imgid.$crop_size.jpg"
+					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.$thumb_size.jpg",
+					"$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.$thumb_size.jpg"
+				);
+				move(
+					"$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.$crop_size.jpg",
+					"$BASE_DIRS{DELETED_IMAGES}/product.$code.$imgid.$crop_size.jpg"
 				);
 
 				delete $product_ref->{images}{$imgid};
@@ -2017,7 +2013,7 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 		return;
 	}
 
-	my $image = "$www_root/images/products/$path/$filename.full.jpg";
+	my $image = "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$filename.full.jpg";
 	my $image_url = "$images_subdomain/images/products/$path/$filename.full.jpg";
 
 	my $text;
@@ -2055,8 +2051,8 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 	}
 	elsif ($ocr_engine eq 'google_cloud_vision') {
 
-		my $json_file = "$www_root/images/products/$path/$filename.json.gz";
-		open(my $gv_logs, ">>:encoding(UTF-8)", "$data_root/logs/cloud_vision.log");
+		my $json_file = "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$filename.json.gz";
+		open(my $gv_logs, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/cloud_vision.log");
 		my $cloudvision_ref = send_image_to_cloud_vision($image, $json_file, \@CLOUD_VISION_FEATURES_TEXT, $gv_logs);
 		close $gv_logs;
 

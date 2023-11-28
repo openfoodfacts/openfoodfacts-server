@@ -79,6 +79,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -166,7 +167,7 @@ sub import_images_from_dir ($image_dir, $stats) {
 
 	$log->debug("opening images_dir", {images_dir => $image_dir}) if $log->is_debug();
 
-	if (opendir(DH, "$image_dir")) {
+	if (opendir(DH, $image_dir)) {
 		foreach my $file (sort {$a cmp $b} readdir(DH)) {
 
 			# apply image rules to the file name to assign front/ingredients/nutrition
@@ -1368,7 +1369,7 @@ sub import_csv_file ($args_ref) {
 		if $log->is_debug();
 
 	# Load GS1 GLNs so that we can map products to the owner orgs
-	my $glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
+	my $glns_ref = retrieve("$BASE_DIRS{ORGS}/orgs_glns.sto");
 	not defined $glns_ref and $glns_ref = {};
 
 	my %global_values = ();
@@ -1677,7 +1678,7 @@ sub import_csv_file ($args_ref) {
 							= $imported_product_ref->{"sources_fields:org-gs1:partyName"};
 					}
 					set_org_gs1_gln($org_ref, $imported_product_ref->{"sources_fields:org-gs1:gln"});
-					$glns_ref = retrieve("$data_root/orgs/orgs_glns.sto");
+					$glns_ref = retrieve("$BASE_DIRS{ORGS}/orgs_glns.sto");
 				}
 
 				store_org($org_ref);
@@ -2339,7 +2340,7 @@ sub import_csv_file ($args_ref) {
 						if (not -d $images_download_dir) {
 							$log->debug("Creating images_download_dir", {images_download_dir => $images_download_dir})
 								if $log->is_debug();
-							mkdir($images_download_dir, 0755)
+							ensure_dir_created($images_download_dir)
 								or $log->warn("Could not create images_download_dir",
 								{images_download_dir => $images_download_dir, error => $!})
 								if $log->is_warn();
@@ -2888,7 +2889,7 @@ sub update_export_status_for_csv_file ($args_ref) {
 
 			# Update the product without creating a new revision
 			my $path = product_path($product_ref);
-			store("$data_root/products/$path/product.sto", $product_ref);
+			store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
 			$product_ref->{code} = $product_ref->{code} . '';
 			# Use the obsolete collection if the product is obsolete
 			my $products_collection = get_products_collection({obsolete => $product_ref->{obsolete}});

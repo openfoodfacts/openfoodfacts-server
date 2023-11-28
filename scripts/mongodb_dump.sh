@@ -12,18 +12,25 @@ echo "DB $DB"
 
 cd $DIR
 
-mongoexport --collection products --host $HOST --db $DB | gzip > data/$PREFIX-products.jsonl.gz
-
-mongodump --collection products --host $HOST --db $DB --gzip --archive="data/${PREFIX}-mongodbdump.gz"
-
-mongodump --collection products --host $HOST --db $DB
-tar cvfz data/$PREFIX-mongodbdump.tar.gz dump
 pushd data/ > /dev/null
-sha256sum $PREFIX-mongodbdump.tar.gz > sha256sum
-md5sum $PREFIX-mongodbdump.tar.gz > md5sum
+mongoexport --collection products --host $HOST --db $DB | gzip > new.$PREFIX-products.jsonl.gz && \
+mv new.$PREFIX-products.jsonl.gz $PREFIX-products.jsonl.gz
 
-sha256sum $PREFIX-mongodbdump.gz > gz-sha256sum
-md5sum $PREFIX-mongodbdump.gz > gz-md5sum
+mongodump --collection products --host $HOST --db $DB --gzip --archive="new.${PREFIX}-mongodbdump.gz" && \
+sha256sum new.$PREFIX-mongodbdump.gz > new.gz-sha256sum && \
+md5sum new.$PREFIX-mongodbdump.gz > new.gz-md5sum && \
+mv new.${PREFIX}-mongodbdump.gz ${PREFIX}-mongodbdump.gz && \
+mv new.gz-sha256sum gz-sha256sum && \
+mv new.gz-md5sum gz-md5sum
+
+mongodump --collection products --host $HOST --db $DB && \
+tar cvfz new.$PREFIX-mongodbdump.tar.gz dump && \
+sha256sum new.$PREFIX-mongodbdump.tar.gz > new.sha256sum && \
+md5sum new.$PREFIX-mongodbdump.tar.gz > new.md5sum && \
+mv new.$PREFIX-mongodbdump.tar.gz $PREFIX-mongodbdump.tar.gz && \
+mv new.sha256sum sha256sum && \
+mv new.md5sum md5sum
+
 
 
 # Export delta of products modified in the last 24h or since last run of the script
@@ -38,7 +45,8 @@ else
   LASTTS=$(($(date +%s)-24*60*60))
 fi
 NEWTS=$(date +%s)
-mongoexport --collection products --host $HOST --db $DB --query "{ \"last_modified_t\": { \"\$gt\": $LASTTS, \"\$lte\": $NEWTS } }" | gzip -9 > products_${LASTTS}_${NEWTS}.json.gz
+mongoexport --collection products --host $HOST --db $DB --query "{ \"last_modified_t\": { \"\$gt\": $LASTTS, \"\$lte\": $NEWTS } }" | gzip -9 > new.products_${LASTTS}_${NEWTS}.json.gz && \
+mv new.products_${LASTTS}_${NEWTS}.json.gz products_${LASTTS}_${NEWTS}.json.gz
 
 # Delete all but the last 14 delta files - https://stackoverflow.com/a/34862475/11963
 ls -tp products_*.json.gz | grep -v '/$' | tail -n +14 | xargs -I {} rm -- {}
@@ -46,9 +54,11 @@ ls -tp products_*.json.gz | grep -v '/$' | tail -n +14 | xargs -I {} rm -- {}
 echo $NEWTS > $TSFILE
 ls -tp products_*.json.gz > index.txt
 
+popd > /dev/null # data/delta
+
 # Export recent changes collection
 # Export all fields but `ip` (contributor ip address)
-mongoexport --collection recent_changes --host $HOST --db $DB --fields=_id,comment,code,userid,rev,countries_tags,t,diffs | gzip -9 > "data/${PREFIX}_recent_changes.jsonl.gz"
+mongoexport --collection recent_changes --host $HOST --db $DB --fields=_id,comment,code,userid,rev,countries_tags,t,diffs | gzip -9 > "new.${PREFIX}_recent_changes.jsonl.gz" && \
+mv new.${PREFIX}_recent_changes.jsonl.gz ${PREFIX}_recent_changes.jsonl.gz
 
-popd > /dev/null # data/delta
 popd > /dev/null # data
