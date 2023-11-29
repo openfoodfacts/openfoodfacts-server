@@ -1065,8 +1065,14 @@ $(function() {
         var source = from.val().replace(",", ".");
         var regex = /^(.*?)([\d]+(?:\.[\d]+)?)(.*?)$/g;
         var match = regex.exec(source);
+        var target = match[1] + (parseFloat(match[2]) * multiplier) + match[3];
+
         if (match) {
-            var target = match[1] + (parseFloat(match[2]) * multiplier) + match[3];
+            if (match[1] == ".") {
+                var number = "0." +  match[2];
+                target = (parseFloat(number) * multiplier) + match[3];
+            }
+            
             to.val(target);
         } else {
             to.val(from.val());
