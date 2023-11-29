@@ -43257,7 +43257,7 @@ ko:코티지 치즈
 lt:Grūdėta varškė
 lv:Mājas siers
 ms:Keju kotej
-nl:Hüttenkäsen, Cottage cheeses
+nl:Cottage cheeses, Hüttenkäsen
 nn:Opplagd mjølk
 no:Hytteost
 pl:Cottage cheese
@@ -60737,7 +60737,7 @@ en:Belgian fruits
 fr:Fruits belges
 lt:Belgiški vaisiai
 
-<en:Fruits
+<en:Vegetables
 en:Belgian vegetables
 fr:Légumes belges
 lt:Belgiškos daržovės
@@ -60775,7 +60775,7 @@ en:Dutch fruits
 fr:Fruits néerlandais
 lt:Nyderlandiški vaisiai
 
-<en:Fruits
+<en:Vegetables
 en:Dutch vegetables
 fr:Légumes néerlandais
 lt:Nyderlandiškos daržovės
@@ -60869,6 +60869,7 @@ origins:en: en:Austria
 <en:British fruit
 <en:Apples
 en:Armagh Bramley Apples
+fr:Pommes Bramley, Bramley
 protected_name_file_number:en: PGI-GB-0792
 protected_name_type:en: pgi
 origins:en: en:United Kingdom
@@ -60876,6 +60877,7 @@ origins:en: en:United Kingdom
 
 <en:Fruits
 en:German vegetables
+fr:Fruits allemands
 lt:Vokiškos daržovės
 
 <en:German vegetables
@@ -61587,6 +61589,7 @@ ciqual_food_name:fr:Pomme Golden, pulpe et peau, crue
 
 <en:Apples
 en:Elstar apples
+fr:Pommes Elstar, Elstar
 nl:Elstar
 
 <en:Apples
@@ -61758,6 +61761,7 @@ ciqual_food_name:en:Red berries (raspberries, strawberries, red currants, black 
 ciqual_food_name:fr:Fruits rouges, crus (framboises, fraises, groseilles, cassis)
 
 <en:Berries
+<en:blueberries
 en:Bilberries
 nl:Bessen
 lt:Šilauogės
@@ -61769,6 +61773,7 @@ es:Arándanos comunes
 la:Vaccinium myrtillus
 lt:Paprastosios šilauogės
 nl:Blauwe bosbessen
+xx:Vaccinium myrtillus
 
 <en:Bilberries
 en:Bog bilberries, Northern bilberries
@@ -62099,6 +62104,7 @@ ro:Grepfrut, Grepfruturi
 
 <en:Grapefruits
 en:Fresh grapefruits
+fr:Pomélos frais, pomélo frais
 de:Frische Grapefruits
 lt:Švieži greipfrutai
 
@@ -62111,9 +62117,6 @@ ja:ブンタン
 la:Citrus maxima
 lt:Pomelo greipfrutai, Didieji greipfrutai Pomelo
 nl:Grapefruits
-
-<en:Pomelos
-fr:Pomélos frais, Pomelos frais
 
 <en:Fresh pomelos
 en:Corsican pomelos
@@ -62999,6 +63002,7 @@ wikidata:en:Q3899627
 <en:Pears
 en:Conference pears
 nl:Conference peren
+fr:Poires Conférence, Conférence
 
 <en:Pears
 <en:Fresh fruits
@@ -63740,7 +63744,7 @@ fi:pakastemarjat
 fr:Fruits rouges surgelés
 it:Frutti di bosco surgelati, Frutti di bosco congelati
 lt:Šaldytos uogos
-nl:Bevroren bosvruchten
+nl:Diepvries bosvruchten, Bevroren bosvruchten
 
 <en:Frozen berries
 <en:Blackberries
@@ -63748,7 +63752,7 @@ en:Frozen blackberries
 es:Moras congeladas
 fr:Mûres surgelées, Mûres de ronce surgelées
 lt:Šaldytos gervuogės
-nl:Bevroren bramen
+nl:Bramen (diepvries), Diepvries bramen, Bevroren bramen
 agribalyse_food_code:en:13150
 ciqual_food_code:en:13150
 ciqual_food_name:en:Blackberry, frozen, raw
@@ -63763,7 +63767,7 @@ fi:Pakastemustikat
 fr:Myrtilles surgelées, Myrtille surgelée
 it:Mirtilli surgelati
 lt:Šaldytos mėlynės
-nl:Bevroren bosbessen
+nl:Bosbessen (diepvries), Bevroren bosbessen
 agribalyse_food_code:en:13132
 ciqual_food_code:en:13132
 ciqual_food_name:en:Blueberry, frozen, raw
@@ -63778,7 +63782,7 @@ fi:Pakastevadelmat
 fr:Framboises surgelées
 it:Lamponi congelati
 lt:Šaldytos avietės
-nl:Bevroren frambozen
+nl:Frambozen (diepvries), Bevroren frambozen
 agribalyse_food_code:en:13136
 ciqual_food_code:en:13136
 ciqual_food_name:en:Raspberry, frozen, raw
@@ -63790,7 +63794,7 @@ en:Frozen redcurrants
 es:Grosellas congeladas
 fr:Groseilles surgelées
 lt:Šaldyti raudonieji serbentai
-nl:Bevroren aalbessen
+nl:Aalbessen (diepvries), Bevroren aalbessen
 
 <en:Frozen berries
 <en:Strawberries
@@ -63800,7 +63804,7 @@ es:Fresas congeladas
 fr:Fraises surgelées
 it:Fragole surgelate
 lt:Šaldytos braškės
-nl:Bevroren aardbeien
+nl:Aardbeien (diepvries), Bevroren aardbeien
 
 <en:Frozen fruits
 <en:Citrus
@@ -63808,14 +63812,14 @@ en:Frozen citrus
 es:Cítricos congelados
 fr:Agrumes surgelés
 lt:Šaldyti citrusiniai vaisiai
-nl:Bevroren citrusfruit
+nl:Citrusfruit (diepvries), Bevroren citrusfruit
 
 <en:Frozen fruits
 <en:Pomegranates
 en:Frozen pomegranates
 es:Granadas congeladas
 fr:Grenades surgelées
-nl:Bevroren granaatappels
+nl:Granaatappels (diepvries), Bevroren granaatappels, Diepvries granaatappels,
 lt:Šaldyti granatų vaisiai
 pt:Romãs congeladas
 
@@ -63826,7 +63830,7 @@ de:Gefrorene Tropenfrüchte
 es:Frutas tropicales congeladas
 fr:Fruits tropicaux surgelés, fruits exotiques surgelés
 lt:Šaldyti tropiniai vaisiai
-nl:Bevroren tropische vruchten
+nl:Tropisch fruit (diepvries), Bevroren tropische vruchten
 
 <en:Frozen tropical fruits
 <en:Avocados
@@ -63834,7 +63838,7 @@ en:Frozen avocados
 es:Aguacates congelados
 fr:Avocats surgelés
 lt:Šaldyti avokadai
-nl:Bevroren avocados
+nl:Avocados (diepvries), Bevroren avocados, Diepvries avocados
 
 <en:Frozen tropical fruits
 <en:Pineapple
@@ -63843,7 +63847,11 @@ de:Gefrorene Ananas
 es:Piñas congeladas
 fr:Ananas surgelés
 lt:Šaldyti ananasai
-nl:Bevroren ananas, Diepvriesananas
+nl:Ananas (diepvries), Bevroren ananas, Diepvriesananas
+
+<en:Frozen tropical fruits
+en:Frozen mangos
+nl:Mangos (diepvries), Diepvriesmangos
 
 <en:Frozen fruits
 en:Frozen mixed fruits
@@ -63997,6 +64005,7 @@ en:Medjool dates
 de:Medjool Datteln
 fr:Dattes Medjool, dates medjool
 it:Datteri Medjoul, Datteri Medjool
+nl:Medjoul dadels
 wikidata:en:Q16774413
 
 <en:Dates
@@ -79766,7 +79775,7 @@ jv:Pitik
 ka:ქათამი
 kg:Nsusu
 kk:Тауық
-km:کۄکَر
+km:សាច់​មាន់
 kn:ಕೋಳಿ
 ko:닭
 ku:Mirîşk
@@ -84016,7 +84025,7 @@ nl:Gesneden oesterzwammen
 <en:Oyster mushrooms
 en:Whole oyster mushrooms
 es:Setas de ostra enteras
-fr:Pleurotes en huître entiers
+fr:Pleurotes entiers, Pleurotes en huître entiers
 nl:Hele oesterzwammen
 
 <en:Mushrooms
@@ -84227,7 +84236,7 @@ fr:Champignons nameko en conserve, Nameko en conserve, Pholiota nameko en conser
 <en:Canned mushrooms
 en:Canned oyster mushrooms, Canned Pleurotus ostreatus
 es:Setas de ostra en conserva, Setas ostra en conserva, Champiñones ostra en conserva, Gírgolas en conserva, Pleurotus ostreatus en conserva
-fr:Pleurotes en huître en conserve, Pleurotus ostreatus en conserve
+fr:Pleurotes en conserve, Pleurotes en huître en conserve, Pleurotus ostreatus en conserve
 nl:Oesterzwammen in blik/pot
 
 <en:Canned mushrooms
@@ -95298,6 +95307,7 @@ nl:Okras
 <en:Okras
 en:Okra powders
 nl:Okrapoeders
+fr:Poudres de gombo, Gombo en poudre
 
 <en:Vegetables
 en:Jackfruit
@@ -95685,6 +95695,7 @@ season_in_country_fr:en: 1,2,3,10,11,12
 <en:Leaf vegetables
 en:Collard greens, Collard
 ja:カラードグリーン
+fr:Chou cavalier
 wikidata:en:Q14879985
 
 <en:Vegetable rods
@@ -97305,8 +97316,8 @@ ciqual_food_name:fr:Courge melonnette, pulpe, crue
 
 <en:Pumpkins
 en:Pattypan squash
-fr:Pâtisson, Patisson
-de:Patisson
+fr:Pâtissons, Patissons
+de:Patissons
 wikidata:en:Q876892
 agribalyse_proxy_food_code:en:20136
 agribalyse_proxy_food_name:fr:Courge melonnette, pulpe, crue
@@ -97314,7 +97325,7 @@ agribalyse_proxy_food_name:fr:Courge melonnette, pulpe, crue
 <en:Pumpkins
 <en:Cooked vegetables
 en:Cooked pumpkins
-fr:Potirons cuits
+fr:Potirons cuits, potiron cuit
 agribalyse_food_code:en:20096
 ciqual_food_code:en:20096
 ciqual_food_name:en:Pumpkin, cooked
@@ -97331,7 +97342,7 @@ ciqual_food_name:fr:Potiron, appertisé, égoutté
 <en:Pumpkins
 <en:Fresh vegetables
 en:Fresh pumpkins
-en:Courges fraîches
+fr:Citrouilles fraîches, citrouille fraîche
 season_in_country_fr:en: 1,9,10,11,12
 
 <en:Pumpkins
@@ -97349,7 +97360,7 @@ ciqual_food_name:fr:Courge doubeurre (butternut), pulpe, crue
 <en:Pumpkins
 en:Spaghetti squashes, Spaghetti squash
 es:Calabazas espagueti, Calabazas spaghetti
-fr:Courges spaghetti
+fr:Courges spaghetti, courge spaghetti
 nl:Spaghettipompoenen
 wikidata:en:Q2142043
 
@@ -99037,6 +99048,15 @@ wikidata:en:Q15062992
 <en:Black beans
 en:Canned black beans
 fr:Haricots noirs en conserve
+
+<en:Common beans
+en:Field beans, Kapucijner peas
+ca:Tirabec
+es:Bisalto, Tirabeque
+la:Pisum sativum arvense, Pisum sativum subsp. arvense
+nl:Kapucijners, Velderwten
+pl:Groch zwyczajny polny
+sv:Gråärt 
 
 <en:Common beans
 en:Pinto beans
