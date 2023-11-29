@@ -1300,7 +1300,7 @@ $font-green: #008c8c;
     color: $white;
     border-radius: 10px;
     &:hover {
-      background-color: darken($font-green, 10%);
+      opacity: 0.9;
       color: $white;
     }
   }
