@@ -46132,10 +46132,16 @@ gpc_category_name:en:Cream (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as dairy cream (the fatty part of fresh milk that rises to the top if allowed to stand). These products have been treated or packaged in such a way as to extend their consumable life. Products include cream with added flavouring or ingredients, such as fruit and chocolate and frothy style beverage toppings Definition Excludes: Excludes products such as Frozen and Perishable Cream and all Cream Substitutes.
 
 <en:Creams
-en:Fresh creams
+en:Refrigerated creams
 gpc_category_code:en:10000189
 gpc_category_name:en:Cream (Perishable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as dairy cream (the fatty part of fresh milk that rises to the top if allowed to stand).  These products must be refrigerated to extend their consumable life. These products can have added flavouring or ingredients, such as fruit and chocolate. Definition Excludes: Excludes products such as Frozen and Shelf Stable Cream and all Cream Substitutes.
+
+<en:Creams
+en:Frozen creams
+gpc_category_code:en:10000188
+gpc_category_name:en:Cream (Frozen)
+gpc_category_description:en:Definition: Includes any products that can be described/observed as frozen dairy cream (the fatty part of fresh milk that rises to the top if allowed to stand). These products must be frozen to extend their consumable life. Products include cream with added flavouring or ingredients, such as fruit and chocolate. Definition Excludes: Excludes products such as Shelf Stable and Perishable Cream and all Cream Substitutes.
 
 <en:Creams
 en:Lactose-free creams
