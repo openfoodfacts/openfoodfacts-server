@@ -31554,6 +31554,12 @@ gpc_category_name:en:Biscuits/Cookies (Perishable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a thin, unleavened or unleavened, baked, cereal-based product. Products may be sweet or savoury and are available in a variety of shapes and sizes These products can be refrigerated to extend their consumable life. Includes products such as crackers, cookies, oatcakes. Definition Excludes: Excludes products such as Frozen and Shelf-Stable Biscuits and Cookies, all Dried Breads.
 
 <en:Biscuits
+en:Biscuits or cookies variety packs
+gpc_category_code:en:10000596
+gpc_category_name:en:Biscuits/Cookies Variety Packs
+gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Biscuits, Cookies or Dried Breads sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Biscuits and Cookies class. Includes products such as Cookies and Breadsticks sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Cookies and Chocolate variety packs.
+
+<en:Biscuits
 en:Assortments of biscuits, Assortment of miniature sweets and biscuits, Assorted biscuits
 fr:Assortiments de biscuits, Assortiment de petits biscuits secs
 agribalyse_food_code:en:24011
@@ -107503,7 +107509,7 @@ ciqual_food_code:en:20126
 ciqual_food_name:en:Lima bean, raw
 ciqual_food_name:fr:Haricot de Lima, cru
 
-<en:biscuits
+<en:Biscuits
 en:Biscuit (cookie) vitamins content guaranteed
 fr:Biscuit sec à teneur garantie en vitamines
 agribalyse_food_code:en:24002
@@ -107511,7 +107517,7 @@ ciqual_food_code:en:24002
 ciqual_food_name:en:Biscuit (cookie) vitamins content guaranteed
 ciqual_food_name:fr:Biscuit sec à teneur garantie en vitamines
 
-<en:biscuits
+<en:Biscuits
 en:Biscuit (cookie) vitamins and chemical elements content guaranteed
 fr:Biscuit sec à teneur garantie en vitamines et minéraux
 agribalyse_food_code:en:24003
@@ -107519,7 +107525,7 @@ ciqual_food_code:en:24003
 ciqual_food_name:en:Biscuit (cookie) vitamins and chemical elements content guaranteed
 ciqual_food_name:fr:Biscuit sec à teneur garantie en vitamines et minéraux
 
-<en:biscuits
+<en:Biscuits
 en:Biscuit (cookie) snack w chocolate filling
 fr:Goûter sec fourré (sandwiché) parfum chocolat
 agribalyse_food_code:en:24231
