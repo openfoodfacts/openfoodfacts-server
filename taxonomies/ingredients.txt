@@ -143,6 +143,7 @@ wikidata:en:Q421576
 wikipedia:en:https://en.wikipedia.org/wiki/Enilconazole
 # ingredient/fr:imazalil has 23 products @2019-05-29
 
+en:frying
 fr:friture
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -331,7 +332,7 @@ hy:Կարոտին
 id:Karotena
 io:Karotino
 it:Carotene
-ja:カロテン
+ja:カロテン, カロテン色素
 kk:Каротин
 ko:카로틴
 lt:karotinas
@@ -10480,6 +10481,7 @@ fr:bœuf, boeuf, Boeufs
 hr:goveđa, govedi, govedina
 hu:marha
 it:manzo
+ja:ビーフ
 nb:storfekjøtt
 pl:Wołowina, wołowe, wołowa, wołowy
 pt:Carne bovina
@@ -13021,6 +13023,7 @@ bg:свински бульон
 de:Schweinefleischbrühe
 es:caldo de cerdo
 fr:bouillon de porc
+ja:ポークブイヨン
 
 # <en:bone
 fr:os et viande de porc
@@ -13454,6 +13457,7 @@ bg:хидролизиран колаген
 de:kollagen-hydrolysat
 es:colágeno hidrolizado
 hr:hidrolizat kolagena
+ja:たん白加水分解物, 蛋白加水分解物
 pl:hydrolizat kolagenu
 sv:kollagenpeptider
 vi:collagen peptide
@@ -13795,7 +13799,7 @@ id:Amilum
 io:Amilo
 is:Sterkja
 it:Amido, amidi, fecola
-ja:デンプン, でん粉
+ja:デンプン, でん粉, 澱粉
 ka:სახამებელი
 kk:Крахмал
 ko:녹말
@@ -17600,7 +17604,7 @@ id:vinegar
 io:vinagro
 is:edik
 it:aceto
-ja:酢
+ja:酢, 醸造酢
 kk:сірке суы
 kn:ವಿನಿಗರ್
 ko:식초
@@ -24333,7 +24337,7 @@ hu:zab
 id:haver
 is:hafrar
 it:avena
-ja:エンバク
+ja:エンバク, オーツ麦
 jv:haver
 ka:შვრია
 kk:екпе сұлы
@@ -28431,7 +28435,7 @@ id:gula
 is:sykur, matarsykur
 it:zucchero, zuccheri
 iu:ᓱᑲᒃ
-ja:砂糖
+ja:砂糖, 糖類
 jv:Gula
 ka:შაქარი
 kk:Қант
@@ -43058,7 +43062,7 @@ id:Pepaya
 io:Papayo
 is:sólaldin, papaya
 it:papaia, papaya
-ja:パパイア
+ja:パパイア, パパイヤ
 jv:katès
 kg:dilolo
 kk:papaýya, Папайя, پاپاييا
@@ -51859,6 +51863,30 @@ wikidata:en:Q8047551
 wikipedia:en:https://en.wikipedia.org/wiki/Yam_(vegetable)
 eurocode_2_group_3:en: 8.34.40
 
+<en:yam
+en:chinese yam
+ar:ديسقوريا متعددة السنيبلات
+eo:Dioscorea polystachya
+fa:یم چینی
+fr:Dioscorea polystachya
+hu:Dioscorea polystachya
+it:Dioscorea polystachya
+ja:ナガイモ, 長芋
+ko:마
+lt:Batatinė dioskorėja
+lv:Ķīnas jamss
+ms:Ubi cina
+pl:Pochrzyn chiński
+ru:Диоскорея многокистевая
+sv:Dioscorea polystachya
+th:ฮ่วยซัว
+uk:Китайський ямс
+vi:Dioscorea polystachya
+za:Maenzbya
+zh:薯蕷
+wikidata:en:Q5279593
+
+
 # description:en:The POTATO is a starchy, tuberous crop from the perennial nightshade Solanum tuberosum.
 
 <en:root vegetable
@@ -53851,7 +53879,7 @@ hy:Կարմիր պղպեղ
 id:Cabai
 is:Chilli pipar
 it:peperoncino
-ja:唐辛子
+ja:唐辛子, チリ
 jv:Lombok abang
 ka:წიწაკა
 kn:ಮೆಣಸಿನಕಾಯಿ
@@ -81368,6 +81396,7 @@ fi:kokonainen muna, kokonaiset munat
 fr:œuf entier, œufs entiers, oeuf entier, oeufs entiers
 hu:egész tojás
 it:uova intere
+ja:全卵
 nl:hele eieren, geheel eieren
 pl:Całe jajo
 pt:Ovo inteiro
@@ -84832,6 +84861,21 @@ sc:Panada
 wikidata:en:Q3892955
 # de:comment:Panade (Weizenmehl, Sonnenblumenöl, Salz, Hefe, Gewürz Paprika)
 
+<en:coating
+<en:frying
+en:Tenkasu
+de:Tenkasu
+es:Tenkasu
+fr:Tenkasu
+it:Tenkasu
+ja:天かす
+th:เท็งกาซุ
+wikidata:en:Q783828
+
+<en:Tenkasu
+en:Tenkasu with shrimp
+ja:えび入り天かす
+
 # <en:compound
 fr:pain de mie au blé malté
 # ingredient/fr:pain-de-mie-au-blé-malté has 22 products in french @2019-02-09
@@ -85950,6 +85994,11 @@ sv:köttbuljong, köttfond
 wikidata:en:Q67860017
 # ingredient/fr:bouillon-de-viande has 22 products in 4 languages @2020-06-13
 
+<en:broth
+en:white dashi
+ja:白だし
+wikidata:en:Q11579290
+
 # description:en:LEMONADE can be any one of a variety of sweetened beverages found throughout the world, but which are traditionally all characterized by a lemon flavor.
 
 # <en:compound
@@ -86660,7 +86709,7 @@ id:Saus
 io:Sauco
 is:Sósa
 it:salsa
-ja:ソース
+ja:ソース, ドレッシング
 jv:Saos
 ka:საწებელი
 kk:Соус
