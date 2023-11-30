@@ -279,6 +279,7 @@ foreach my $file (sort keys %file_timestamps) {
 # On demand exports can be very big, limit the number of products
 my $export_limit = 10000;
 
+# TODO: explain why such a high number
 my $tags_page_size = 10000;
 
 if (defined $options{export_limit}) {
@@ -1602,6 +1603,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	}
 
 	# groupby_tagtype
+	my $group_field_name = $groupby_tagtype . "_tags";
 
 	my $aggregate_count_parameters = [
 		{"\$match" => $query_ref},
@@ -1620,14 +1622,24 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 	];
 
 	if ($groupby_tagtype eq 'users') {
+		# we have to change request, it's a match on a single field
 		$aggregate_parameters = [
 			{"\$match" => $query_ref},
 			{"\$group" => {"_id" => ("\$creator"), "count" => {"\$sum" => 1}}},
-			{"\$sort" => {"count" => -1}}
+			{"\$sort" => {"count" => -1}},
+			{"\$skip" => $skip},
+			{"\$limit" => $limit},
 		];
+		$aggregate_count_parameters = [
+			{"\$match" => $query_ref},
+			{"\$group" => {"_id" => ("\$creator")}},
+			{"\$count" => ("creator")}
+		];
+		$group_field_name = 'creator';
 	}
 
 	if (($groupby_tagtype eq 'nutrition_grades') or ($groupby_tagtype eq 'nova_groups')) {
+		# change sorting parameter
 		$aggregate_parameters = [
 			{"\$match" => $query_ref},
 			{"\$unwind" => ("\$" . $groupby_tagtype . "_tags")},
@@ -1734,7 +1746,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 			}
 
 			if (defined $count_results) {
-				$request_ref->{structured_response}{count} = $count_results->{$groupby_tagtype . "_tags"};
+				$request_ref->{structured_response}{count} = $count_results->{$group_field_name};
 
 				if ($cache_results_flag) {
 					set_cache_results($key_count, $request_ref->{structured_response}{count});
@@ -2176,12 +2188,13 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 		}
 
 		$html .= "</tbody></table></div>";
-
 		# if there are more than $tags_page_size lines, add pagination. Except for ?stats=1 and ?filter display
+		$log->info("PAGINATION: BEFORE\n");
 		if (    $request_ref->{structured_response}{count} >= $tags_page_size
 			and not(defined single_param("stats"))
 			and not(defined single_param("filter")))
 		{
+			$log->info("PAGINATION: CALLING\n");
 			$html .= "\n<hr>"
 				. display_pagination($request_ref, $request_ref->{structured_response}{count},
 				$tags_page_size, $request_ref->{page});
@@ -5475,6 +5488,9 @@ sub display_pagination ($request_ref, $count, $limit, $page) {
 	if (not defined $current_link) {
 		$current_link = $request_ref->{world_current_link};
 	}
+	$log->info("PAGINATION: READY\n");
+	my $canon_rel_url = $request_ref->{canon_rel_url} // "UNDEF";
+	$log->info("PAGINATION: current_link: $current_link - canon_rel_url: $canon_rel_url\n");
 
 	$log->info("current link", {current_link => $current_link}) if $log->is_info();
 
@@ -5515,12 +5531,7 @@ sub display_pagination ($request_ref, $count, $limit, $page) {
 
 					if ($current_link !~ /\?/) {
 						$link = $current_link;
-						#check if groupby_tag is used
-						if (defined $request_ref->{groupby_tagtype}) {
-							if (("/" . $request_ref->{groupby_tagtype}) ne $current_link) {
-								$link = $current_link . "/" . $request_ref->{groupby_tagtype};
-							}
-						}
+						# check if groupby_tag is used
 						if ($i > 1) {
 							$link .= "/$i";
 						}
