@@ -16,6 +16,7 @@ MongoDB:
 - scripts/checkmongodb.pl
 - scripts/update_all_products_from_dir_in_mongodb.pl
 - scripts/update_all_products_revisions_from_dir_in_mongodb.pl
+- scripts/mongodb_dump.sh
 
 Stores:
 - taxonomies/unused/stores.txt
@@ -31,7 +32,7 @@ Stores:
 - html/files/tagline-off-ios-v2.json
 - html/files/tagline-off-android-v2.json
 
-Taxonomies:
+🧬 Taxonomies:
 - taxonomies/**/*
 - scripts/build_tags_taxonomy.pl
 - scripts/test_taxonomies.pl
@@ -42,7 +43,7 @@ Taxonomies:
 - scripts/add_descriptions_to_taxonomy_from_eu_translations.pl
 - cgi/translate_taxonomy.pl
 
-Taxonomies - Rebuild:
+🧬 Taxonomies - Rebuild:
 - taxonomies/additives.result.sto
 - taxonomies/additives.result.txt
 - taxonomies/allergens.result.sto
@@ -61,7 +62,7 @@ WikiData:
 - scripts/build_languages_taxonomy_from_wikidata.pl
 - scripts/create_wikipedia_properties_for_taxonomy.pl
 
-Allergens:
+🥜 Allergens:
 - taxonomies/allergens.result.sto
 - taxonomies/allergens.result.txt
 - tests/unit/allergens.t
@@ -145,7 +146,7 @@ Icons:
 CSS:
 - scss/**/*
 
-Translations:
+🌐 Translations:
 - po/**/*
 - po/common/**/*
 - po/openfoodfacts/**/*
@@ -166,7 +167,7 @@ Translations:
 - t/**/*
 - lib/ProductOpener/Test.pm
 
-dependencies:
+Dependencies:
 - package.json
 - package-lock.json
 
@@ -176,7 +177,7 @@ Template::Toolkit:
 SCSS:
 - scss/_footer.scss
 
-footer:
+Footer:
 - html/images/illustrations/footer-orange.svg
 - html/images/illustrations/footer-planet.svg
 - scss/_footer.scss
@@ -186,8 +187,9 @@ footer:
 - scripts/generate_perl_html_doc_from_pod.pl
 - po/README.md
 
-OpenAPI:
+📚 OpenAPI:
 - docs/assets/api-rapidoc.html
+- docs/api/ref/schemas/product_base.yaml
 
 🐋 Docker:
 - docker/**/*
@@ -211,7 +213,7 @@ Attributes:
 Display:
 - lib/ProductOpener/Display.pm
 
-Eco-Score:
+🌱 Eco-Score:
 - lib/ProductOpener/Ecoscore.pm
 - ecoscore/**/*
 - tests/unit/ecoscore.t
@@ -243,6 +245,7 @@ Agribalyse:
 Export:
 - lib/ProductOpener/Export.pm
 - t/expected_test_results/export/**/*
+- scripts/mongodb_dump.sh
 
 Food.pm:
 - lib/ProductOpener/Food.pm
@@ -277,12 +280,12 @@ GS1:
 - scripts/convert_gs1_json_to_off_csv.pl
 - scripts/convert_gs1_xml_to_json_in_dir.pl
 
-data import:
+Data import:
 - lib/ProductOpener/Import.pm
 - lib/ProductOpener/ImportConvert.pm
 - scripts/convert_csv_file.pl
 
-ingredients:
+🥗 Ingredients:
 - lib/ProductOpener/Ingredients.pm
 - taxonomies/ingredients.txt
 - tests/unit/ingredients.t
@@ -296,7 +299,7 @@ ingredients:
 - tests/unit/ingredients_tags.t
 - scripts/test_ingredient_parser.pl
 
-ingredients analysis:
+Ingredients analysis:
 - templates/web/pages/product/includes/ingredients_analysis.tt.html
 - templates/api/knowledge-panels/health/ingredients/ingredients_analysis_help.tt.json
 - templates/api/knowledge-panels/health/ingredients/ingredients_analysis_details.tt.json
@@ -315,7 +318,7 @@ Labels:
 Categories:
 - taxonomies/categories.txt
 
-📍 origins:
+📍 Origins:
 - taxonomies/origins.txt
 
 📖 Knowledge panels:
@@ -365,7 +368,7 @@ Categories:
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
 - docs/api/ref/schemas/knowledge_panels/**
 
-serving size:
+Serving size:
 - templates/api/knowledge-panels/health/nutrition/serving_size.tt.json
 - tests/unit/food_normalize_serving_size.t
 
@@ -396,7 +399,7 @@ Numbers:
 🏭 Orgs:
 - lib/ProductOpener/Orgs.pm
 
-Packager Codes:
+📍🏭 Packager Codes:
 - lib/ProductOpener/PackagerCodes.pm
 - tests/unit/packager_codes.t
 - scripts/packager-codes/de-packagers-refresh.pl
@@ -410,6 +413,8 @@ Packager Codes:
 - scripts/test_normalize_packaging_codes.pl
 - scripts/update_emb_codes_in_mongodb.pl
 - packager-codes/**
+- tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ec.json
+- tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ce.json
 
 📦 Packaging:
 - lib/ProductOpener/Packaging.pm
@@ -492,11 +497,11 @@ Packager Codes:
 🏭 EQUADIS:
 - scripts/equadis-import/run_equadis_import.sh
 
-store:
+Store:
 - lib/ProductOpener/Store.pm
 - tests/unit/store.t
 
-images:
+🖼️ Images:
 - lib/ProductOpener/Images.pm
 - cgi/product_image_crop.pl
 - cgi/product_image_move.pl
@@ -529,6 +534,7 @@ Web:
 - html/donate/tt.html
 - templates/web/common/includes/donate_banner.tt.html
 - html/donate/fr.helloasso.html
+- html/donate/en.html
 
 ✏️ Editing:
 - templates/web/pages/product_edit/product_edit_form.tt.html
@@ -551,7 +557,7 @@ Product page:
 - cgi/reset_password.pl
 - cgi/reset_password_for_user.pl
 
-Spellcheck:
+✔︎ Spellcheck:
 - templates/web/pages/spellcheck/spellcheck_test.tt.html
 - scripts/test_spellchecker.pl
 - cgi/spellcheck_test.pl
@@ -633,7 +639,7 @@ OCR:
 Scanbot:
 - scripts/scanbot.pl
 
-Gamification:
+🕹️ Gamification:
 - lib/ProductOpener/Missions.pm
 - lib/ProductOpener/MissionsConfig.pm
 - scripts/compute_missions.pl
@@ -641,7 +647,7 @@ Gamification:
 - scripts/export_battle_food.pl
 - cgi/top_translators.pl
 
-config:
+Config:
 - lib/ProductOpener/Config2_docker.pm
 - lib/ProductOpener/Config2_sample.pm
 - lib/ProductOpener/Config_off.pm
@@ -673,7 +679,7 @@ NOVA:
 Vitamins:
 - tests/unit/vitamins.t
 
-checkbot:
+Checkbot:
 - scripts/checkbot.pl
 
 👮 Moderation:
@@ -695,7 +701,7 @@ update all products:
 - scripts/update_all_products_from_dir_in_mongodb.pl
 - scripts/update_all_products_revisions_from_dir_in_mongodb.pl
 
-exports:
+Exports:
 - scripts/extract_ingredients_test_set.pl
 - scripts/extract_nutrition_images_and_crop_data.pl
 - scripts/extract_nutrition_test_set.pl
@@ -724,7 +730,7 @@ exports:
 - tests/integration/expected_test_results/api_cgi_suggest/categories-term-strawberry.json
 - tests/integration/expected_test_results/api_cgi_suggest/no-tagtype.json
 
-subdomains:
+Subdomains:
 - scripts/list_subdomains.pl
 
 🧪 integration tests:
@@ -746,7 +752,7 @@ subdomains:
 - tests/unit/templates.t
 - tests/unit/text.t
 
-multilingual products:
+Multilingual products:
 - cgi/product_jqm_multilingual.pl
 - cgi/product_multilingual.pl
 - html/js/product-multilingual.js
@@ -786,10 +792,10 @@ API WRITE:
 monitoring:
 - scripts/api_stats.pl
 
-averages by categories:
+Averages by categories:
 - scripts/create_small_categories_nutriments_per_country_for_testing.pl
 
-static content:
+Static content:
 - scripts/copy_text_files.pl
 
 # TODO: find or create proper labels for those

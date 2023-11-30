@@ -1,24 +1,25 @@
 <!-- start templates/[% component.name %] -->
 
 [% banner_main = BLOCK %]
-<section id="donation-banner-top" class="donation-banner">
-  <span class="donation-banner__image"></span>
+
+<section class="donation-banner">
+  <span class="donation-banner__logo"></span>
+  <span class="donation-banner__hand"></span>
   <div class="donation-banner__content">
-  <a
-      class="donation-banner__content--button button round white-button"
-      href="[% link %]?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button"
-  >
-    <span class="material-icons">volunteer_activism</span>
-    [% lang('donation_cta') %]
-  </a>
-  <div class="donation-banner__content-paragraphs">
-    <p class="donation-banner__content-paragraphs--text">
-      [% lang("donation_text_2023") %]
+    <p class="donation-banner__main-text">
+        [% lang("donation_text_2023_main") %]
     </p>
-    <p class="donation-banner__content-paragraphs--thank-you">[% lang('thank_you_very_much') %] <span class="material-icons">favorite</span></p>
+    <div class="donation-banner__aside">
+      <div>
+        <p class="donation-banner__secondary-text">[% lang("donation_text_2023_secondary") %]</p>
+        <p class="donation-banner__tertiary-text">[% lang("donation_text_2023_tertiary") %]</p>
+      </div>
+      <a class="donation-banner__donate" href="[% link %]?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">[% lang("donation_cta") %]</a>
+    </div>
   </div>
-  <div class="donation-banner__content-close">
-    <span id="hide-donate-banner" class="donation-banner__content-close--icon material-icons" onclick="DonationButton();">close</span>
+  <div class="donation-banner__image"></div>
+  <div class="donation-banner__close">
+    <span id="hide-donate-banner" class="material-icons" onclick="DonationButton();">close</span>
   </div>
 </section>
 
@@ -65,21 +66,21 @@
 [% banner_footer = BLOCK %]
 
 <section class="donation-banner-footer">
-  <span class="donation-banner-footer__image"></span>
+  <span class="donation-banner-footer__logo"></span>
+  <span class="donation-banner-footer__hand"></span>
   <div class="donation-banner-footer__content">
-  <a
-      class="donation-banner-footer__content--button button round white-button"
-      href="[% link %]?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button"
-  >
-    <span class="material-icons">volunteer_activism</span>
-    [% lang('donation_cta') %]
-  </a>
-  <div class="donation-banner-footer__content-paragraphs">
-    <p class="donation-banner-footer__content-paragraphs--text">
-      [% lang("donation_text_2023") %]
+    <p class="donation-banner-footer__main-text">
+        [% lang("donation_text_2023_main") %]
     </p>
-    <p class="donation-banner-footer__content-paragraphs--thank-you">[% lang('thank_you') %] <span class="material-icons">favorite</span></p>
+    <div class="donation-banner-footer__aside">
+      <div>
+        <p class="donation-banner-footer__secondary-text">[% lang("donation_text_2023_secondary") %]</p>
+        <p class="donation-banner-footer__tertiary-text">[% lang("donation_text_2023_tertiary") %]</p>
+      </div>
+      <a class="donation-banner-footer__donate" href="[% link %]?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">[% lang("donation_cta") %]</a>
+    </div>
   </div>
+  <div class="donation-banner-footer__image"></div>
 </section>
 
 [% END %]

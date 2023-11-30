@@ -93,13 +93,11 @@
          "en:food-groups-2-unknown",
          "en:food-groups-3-unknown",
          "en:nutrition-value-under-0-001-g-salt",
-         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:ecoscore-production-system-no-label"
+         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown"
       ],
       "data_quality_warnings_tags" : [
          "en:nutrition-value-under-0-001-g-salt",
-         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
-         "en:ecoscore-production-system-no-label"
+         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown"
       ],
       "debug_param_sorted_langs" : [
          "en",
@@ -118,6 +116,9 @@
                ],
                "epi_score" : 0,
                "epi_value" : -5,
+               "origins_from_categories" : [
+                  "en:unknown"
+               ],
                "origins_from_origins_field" : [
                   "en:unknown"
                ],
@@ -365,9 +366,10 @@
                "value" : -8
             },
             "production_system" : {
-               "labels" : [],
-               "value" : 0,
-               "warning" : "no_label"
+               "labels" : [
+                  "en:fairtrade-international"
+               ],
+               "value" : 10
             },
             "threatened_species" : {
                "ingredient" : "en:palm-oil",
@@ -379,7 +381,6 @@
          },
          "missing" : {
             "agb_category" : 1,
-            "labels" : 1,
             "origins" : 1
          },
          "missing_agribalyse_match_warning" : 1,
@@ -545,14 +546,16 @@
       "known_ingredients_n" : 10,
       "labels" : "Bio, Max Havelaar",
       "labels_hierarchy" : [
-         "en:organic",
          "en:fair-trade",
+         "en:organic",
+         "en:fairtrade-international",
          "en:max-havelaar"
       ],
       "labels_lc" : "fr",
       "labels_tags" : [
-         "en:organic",
          "en:fair-trade",
+         "en:organic",
+         "en:fairtrade-international",
          "en:max-havelaar"
       ],
       "lang" : "en",

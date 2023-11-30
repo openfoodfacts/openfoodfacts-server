@@ -1,0 +1,242 @@
+{
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "origins" : "en:japan",
+         "percent_estimate" : 54.5454545454545,
+         "percent_max" : 100,
+         "percent_min" : 9.09090909090909,
+         "text" : "塩",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "19402",
+         "id" : "en:creme-fraiche",
+         "origins" : "en:japan",
+         "percent_estimate" : 22.7272727272727,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "クレームフレーシュ",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:meat",
+         "origins" : "en:australia",
+         "percent_estimate" : 11.3636363636364,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "肉",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      },
+      {
+         "from_palm_oil" : "no",
+         "id" : "en:olive-oil",
+         "origins" : "en:brazil,en:ethiopia",
+         "percent_estimate" : 5.68181818181818,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "オリーブ油",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11018",
+         "id" : "en:white-wine-vinegar",
+         "origins" : "en:australia,en:finland",
+         "percent_estimate" : 2.84090909090909,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "白ワインビネガー",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:malt",
+         "origins" : "en:japan,en:south-korea",
+         "percent_estimate" : 1.42045454545455,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "麦芽",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:sugar",
+         "origins" : "en:outside-japan,en:japan",
+         "percent_estimate" : 0.710227272727273,
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "text" : "糖類",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:cocoa",
+         "origins" : "en:outside-japan,en:japan",
+         "percent_estimate" : 0.35511363636364,
+         "percent_max" : 12.5,
+         "percent_min" : 0,
+         "text" : "ココア",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "20901",
+         "id" : "en:edamame",
+         "origins" : "en:hokkaido",
+         "percent_estimate" : 0.17755681818182,
+         "percent_max" : 11.1111111111111,
+         "percent_min" : 0,
+         "text" : "えだまめ",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:breadfruit",
+         "origins" : "en:sanriku",
+         "percent_estimate" : 0.0887784090909065,
+         "percent_max" : 10,
+         "percent_min" : 0,
+         "text" : "パンの実",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "13082",
+         "id" : "en:clementine",
+         "origins" : "en:kyushu",
+         "percent_estimate" : 0.0887784090909065,
+         "percent_max" : 9.09090909090909,
+         "percent_min" : 0,
+         "text" : "クレメンタイン",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:creme-fraiche",
+         "en:meat"
+      ],
+      "en:non-vegetarian" : [
+         "en:meat"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:salt",
+      "en:creme-fraiche",
+      "en:dairy",
+      "en:cream",
+      "en:sour-cream",
+      "en:meat",
+      "en:olive-oil",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:vegetable-oil",
+      "en:white-wine-vinegar",
+      "en:vinegar",
+      "en:wine-vinegar",
+      "en:malt",
+      "en:cereal",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:cocoa",
+      "en:plant",
+      "en:edamame",
+      "en:vegetable",
+      "en:legume",
+      "en:pulse",
+      "en:soya",
+      "en:soya-bean",
+      "en:breadfruit",
+      "en:fruit",
+      "en:fruit-vegetable",
+      "en:clementine",
+      "en:citrus-fruit"
+   ],
+   "ingredients_n" : 11,
+   "ingredients_n_tags" : [
+      "11",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "en:salt",
+      "en:creme-fraiche",
+      "en:meat",
+      "en:olive-oil",
+      "en:white-wine-vinegar",
+      "en:malt",
+      "en:sugar",
+      "en:cocoa",
+      "en:edamame",
+      "en:breadfruit",
+      "en:clementine"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:salt",
+      "en:creme-fraiche",
+      "en:dairy",
+      "en:cream",
+      "en:sour-cream",
+      "en:meat",
+      "en:olive-oil",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:vegetable-oil",
+      "en:white-wine-vinegar",
+      "en:vinegar",
+      "en:wine-vinegar",
+      "en:malt",
+      "en:cereal",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:cocoa",
+      "en:plant",
+      "en:edamame",
+      "en:vegetable",
+      "en:legume",
+      "en:pulse",
+      "en:soya",
+      "en:soya-bean",
+      "en:breadfruit",
+      "en:fruit",
+      "en:fruit-vegetable",
+      "en:clementine",
+      "en:citrus-fruit"
+   ],
+   "ingredients_text" : "塩(国産), \nクレームフレーシュ(国内製造), \n肉(オーストラリア),\nオリーブ油(ブラジル産、エチオピア産),\n白ワインビネガー(オーストラリア又はフィンランド又はその他),\n麦芽(国内製造又は韓国製造),\n糖類(外国製造又は国内製造),\nココア(輸入又は国産 (5%未満)),\nえだまめ(北海道産).\nパンの実(三陸産),\nクレメンタイン(九州産)",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 11,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:breadfruit",
+      "en:cocoa",
+      "en:malt",
+      "en:meat",
+      "en:olive-oil",
+      "en:sugar"
+   ],
+   "ingredients_without_ciqual_codes_n" : 6,
+   "known_ingredients_n" : 31,
+   "lc" : "ja",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0.355113636363633,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0.355113636363633,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 6.03693181818181,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 6.03693181818181
+   },
+   "unknown_ingredients_n" : 0
+}
