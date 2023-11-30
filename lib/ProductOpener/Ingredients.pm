@@ -1802,7 +1802,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 	# $percent_or_quantity_regexp has 2 capturing group: one for the number, and one for the % sign or the unit
 	my $percent_or_quantity_regexp = '(?:' . "(?:$prepared_with )" . ' )?'    # optional produced with
 		. '(?:<|' . $min_regexp . '|\s|\.|:)*'    # optional minimum, and separators
-		. '(?:\d+(?:(?:\,|\.)\d+)?\s*-\s*?)?'    # number+hyphens, first part (10-) of "10-12%"
+		. '(?:\d+(?:[,.]\d+)?\s*-\s*?)?'    # number+hyphens, first part (10-) of "10-12%"
 		. '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number, possibly with a dot or comma
 		. '(\%|g|gr|mg|kg|ml|cl|dl|l)\s*'    # % or unit
 		. '(?:' . $min_regexp . '|'    # optional minimum
