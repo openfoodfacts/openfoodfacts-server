@@ -113,8 +113,8 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 			$redis_client->xadd(
 				# name of the Redis stream
 				'product_update',
-				# Only keep approximately 10000 events
-				'MAXLEN', '~', '10000',
+				# We do not add a MAXLEN
+				'MAXLEN', '~', '10000000',
 				# We let Redis generate the id
 				'*',
 				# fields
