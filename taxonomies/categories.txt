@@ -40384,7 +40384,7 @@ wikidata:en:Q3396004
 
 <en:Fries
 en:Takeaway fries
-intake24-code:en:TCHI
+intake24_category_code:en:TCHI
 
 
 # TODO Validate proxy
@@ -42885,6 +42885,7 @@ lt:Švieži sūriai
 nl:Verse kazen
 pt:Queijos frescos
 wikidata:en:Q3323634
+intake24_category_code:en:FFRS
 
 #Polish cheese made of curled milk, then homogenized and thicked with cream. It is popular for breakfast
 <en:Fresh cheeses
@@ -48398,6 +48399,7 @@ who_id:en:7
 agribalyse_proxy_food_code:en:19593
 agribalyse_proxy_food_name:en:Yogurt, fermented milk or dairy specialty, plain
 agribalyse_proxy_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
+intake24_category_code:en:YOGU
 
 <en:Yogurts
 en:Lactose-free yogurts
@@ -48444,6 +48446,7 @@ ru:Питьевые йогурты
 agribalyse_proxy_food_code:en:19508
 agribalyse_proxy_food_name:en:Dairy drink or fermented milk or yogurt, flavoured, with sugar
 agribalyse_proxy_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aromatisé, sucré
+intake24_category_code:en:YOGD
 
 <en:Drinkable yogurts
 en:Vanilla yogurt drinks
@@ -48521,7 +48524,7 @@ agribalyse_proxy_food_code:en:19592
 agribalyse_proxy_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sugar, fortified with vitamin D
 agribalyse_proxy_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré, enrichi en vitamine D
 #wikidata:en:
-intake24-code:en:FTYG
+intake24_category_code:en:FTYG
 
 <en:Fruit yogurts
 en:Yogurt with fruits and sugar, Yogurt fruit flavoured with sugar, Fermented milk with fruits and sugar, Fermented milk fruit flavoured with sugar, Dairy specialty with fruits and added sugar, Dairy specialty fruit flavoured with sugar
@@ -48923,8 +48926,8 @@ nl:Griekse yoghurts
 pt:Iogurtes gregos
 ru:Греческий йогурт
 zh:希腊酸奶
-intake24-code:en
-#wikidata:en:GRSY
+intake24_category_code:en:GRSY
+#wikidata:en:
 
 <en:Greek-style yogurts
 <en:Plain yogurts
@@ -49142,6 +49145,7 @@ agribalyse_proxy_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, 
 #ciqual_food_code:en:19593
 #ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain
 #ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
+intake24_category_code:en:NTYG
 
 en:Desserts
 bg:Десерти
@@ -49185,7 +49189,7 @@ agribalyse_food_code:en:19681
 ciqual_food_code:en:19681
 ciqual_food_name:en:Custard topped with whipped cream (chocolate, coffee, caramel or vanilla custard), refrigerated
 
-<en:Desserts
+<en:Dairy Mousses
 en:Chocolate mousse topped with whipped cream refrigerated, Coffee mousse topped with whipped cream refrigerated, Caramel mousse topped with whipped cream refrigerated, Vanilla mousse topped with whipped cream refrigerated
 fr:mousses liégoises
 agribalyse_food_code:en:39235
@@ -49261,6 +49265,7 @@ zh:巧克力甜品, 巧克力甜点
 wikidata:en:Q47472163
 
 <en:Chocolate desserts
+<en:Dairy Mousses
 en:Chocolate mousses
 de:Mousses au chocolat, Mousse au chocolat
 es:Mousses de chocolate, Mousse de chocolate
@@ -49758,6 +49763,7 @@ fr:Mousses lactées, mousses au lait, mousses à base de lait
 it:Mousse a base di latte
 lt:Pieno putėsiai
 nl:Mousses op basis van melk
+intake24_category_code:en:MOUS
 
 <en:Dairy desserts
 en:Creamy puddings, Dessert creams, Custard desserts
@@ -49909,6 +49915,8 @@ nl:Plantaardige desserts, plantaardige toetjes
 pt:Sobremesas não lácteas
 food_groups:en: en:Sweets
 pnns_group_2:en:Sweets
+intake24_category_code:en:LDFY
+
 
 <en:Desserts
 <en:Dairies
@@ -49930,6 +49938,8 @@ ru:Молочные десерты, Десерты молочные
 zh:奶类甜品
 food_groups:en: en:Dairy desserts
 pnns_group_2:en:Dairy desserts
+intake24_category_code:en:YGRT
+
 
 <en:Dairy desserts
 en:Junkets
@@ -50307,7 +50317,7 @@ lt:Veganiški ryžių pudingai
 en:Vegan semolina puddings
 fr:Semoules au lait végétaliennes
 
-# Shoudn't be under chocolate mousses
+# Shouldn't be under chocolate mousses
 <en:Chocolate desserts
 en:Vegan chocolate mousses
 fr:Mousses au chocolat végétaliennes
@@ -51784,7 +51794,7 @@ ciqual_food_name:en:Chestnut cream, vanilla flavoured, canned
 ciqual_food_name:fr:Crème de marrons vanillée, appertisée
 
 <en:Nuts and their products
-<en:Sweet mousses
+<en:Dairy Mousses
 en:Refrigerated chestnut mousse
 fr:Mousse à la crème de marrons rayon frais
 agribalyse_food_code:en:19852
