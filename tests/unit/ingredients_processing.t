@@ -516,7 +516,7 @@ my @tests = (
 				'text' => 'raakamaito'
 			},
 			{
-				'id' => 'en:bilberry',
+				'id' => 'en:blueberry',
 				'processing' => 'en:powder',
 				'text' => 'mustikka'
 			},
@@ -1624,6 +1624,17 @@ my @tests = (
 					}
 				],
 			},
+		]
+	],
+	# inspired by 3870199003345
+	[
+		{lc => "hr", ingredients_text => "Pasterizirano mlijeko (s 1.0% mliječne masti)"},
+		[
+			{
+				'id' => 'en:milk-with-1-0-milk-fat',
+				'processing' => 'en:pasteurised',
+				'text' => 'mlijeko s 1.0% mliječne masti'
+			}
 		]
 	],
 

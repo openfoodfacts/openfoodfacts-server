@@ -21,6 +21,9 @@
             ],
             "epi_score" : 73.45,
             "epi_value" : 2,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
             "origins_from_origins_field" : [
                "en:france",
                "en:belgium"
@@ -489,6 +492,7 @@
    "known_ingredients_n" : 10,
    "lc" : "en",
    "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
       "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",

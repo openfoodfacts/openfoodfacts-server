@@ -59,7 +59,7 @@ use Log::Any qw($log);
 
 =head1 HARDCODED BRAND LISTS
 
-The module has 2 hardcoded lists of brands: @baby_food_brands and @cigarette_brands.
+The module has 4 hardcoded lists of brands: @baby_food_brands, @cigarette_brands, @petfood_brands and @beauty_brands
 
 We will probably create a brands taxonomy at some point, which will allow us to remove those hardcoded lists.
 
@@ -355,6 +355,331 @@ my @cigarette_brands = qw(
 	Zhongnanhai
 );
 
+my @petfood_brands = qw(
+	Affinity
+	Almo-nature
+	Animonda
+	Brekkies
+	Canaillou
+	Carnilove
+	Cesar
+	Compy
+	Coshida
+	Delikuit
+	Dreamies
+	Edgard-cooper
+	Feringa
+	Feringa-mit-viel-liebe-wie-hausgemacht
+	Fido
+	Friskies
+	Frolic
+	Greenies
+	Hill-s
+	Hills
+	Iams
+	Jacky
+	Josera
+	Juliet
+	Kitekat
+	Luckylou
+	Lycat
+	Lydog
+	Monge
+	Nutrivet
+	Orijen
+	Pedigree
+	Perfect-fit
+	Platinum
+	Premiere
+	Purina
+	Purina-one
+	Purizon
+	Real-nature
+	Riga
+	Rinti
+	Royal-canin
+	Saphir
+	Schesir
+	Select-gold
+	Sheba
+	Tetra
+	Tom-co
+	Trixie
+	Ultima
+	Versele-laga
+	Virbac
+	Vitakraft
+	Waltham
+	Whiskas
+	Wild-freedom
+	Winston
+	Yarrah
+	Zooroyal
+);
+
+my @beauty_brands = qw(
+	A-derma
+	Acorelle
+	Adidas
+	Aleyria-cosmetiques
+	Alix-de-faure
+	Alterra
+	Alverde
+	Alverde-naturkosmetik
+	Aquafresh
+	Aroma-zone
+	Arrow
+	Aussie
+	Aveeno
+	Avene
+	Avon
+	Axe
+	Babylove
+	Balea
+	Balea-med
+	Balea-men
+	Babaria
+	Barnangen
+	Batiste
+	Beiersdorf
+	Bio-naia
+	Biocura
+	Bioderma
+	Biogaran
+	Biolane
+	Biopha
+	Biotherm
+	Blend-a-med
+	Boiron
+	Bourjois
+	Briochin
+	Brut
+	By-u
+	Byphasse
+	Cadum
+	Cattier
+	Caudalie
+	Cd
+	Centifolia
+	Cerave
+	Cetaphil
+	Chanel
+	Cien
+	Clarins
+	Clinique
+	Colgate
+	Colgate-palmolive
+	Cooper
+	Corine-de-farme
+	Coslys
+	Cosmia
+	Cosmia-baby
+	Cosmia-bio
+	Cosmo-naturel
+	Cottage
+	Cream-ly
+	Deliplus
+	Dentalux
+	Dentamyl
+	Dermaclay
+	Dermophil
+	Dessange
+	Dettol
+	Diadermine
+	Dior
+	Dontodent
+	Dop
+	Douce-nature
+	Dove
+	Dr-hauschka
+	Ducray
+	Durex
+	Eau-thermale-avene
+	q
+	Elmex
+	Elseve
+	Energie-fruit
+	Essence
+	Essie
+	Eucerin
+	Eugene-perma
+	Evoluderm
+	Fa
+	Florame
+	Fluocaril
+	For-women
+	Fragonard
+	Franck-provost
+	Fructis
+	Furterer
+	Garnier
+	Garnier-fructis
+	Garnier-skinactive
+	Gemey-maybelline
+	Gillette
+	Gifrer
+	Gsk
+	Guerlain
+	Gum
+	Head-shoulders
+	Henkel
+	Herbal-essences
+	Huggies
+	I-am
+	Inell
+	Instituto-espanol
+	Integral-8
+	John-frieda
+	Johnson
+	Johnson-johnson
+	Jonzac
+	Kiko
+	Keranove
+	Kerastase
+	Kiehl-s
+	Klorane
+	L-arbre-vert
+	L-occitane
+	L-occitane-en-provence
+	L-oreal
+	L-oreal-men-expert
+	L-oreal-paris
+	L-oreal-professionnel
+	La-roche-posay
+	Labell
+	Labello
+	Laboratoires-gilbert
+	Lacura
+	Laino
+	Lascad
+	Lavera
+	Lavera-naturkosmetik
+	Le-chat
+	Le-comptoir-du-bain
+	Le-petit-marseillais
+	Le-petit-olivier
+	Les-cosmetiques
+	Les-cosmetiques-design-paris
+	Les-savons-d-orely
+	Lifebuoy
+	Listerine
+	Logodent
+	Logona
+	Love-beauty-and-planet
+	Loreal
+	Loreal-paris
+	Lovea
+	Lush
+	Maitre-savon-de-marseille
+	Manava
+	Marius-fabre
+	Maybelline
+	Mennen
+	Meridol
+	Mixa
+	Mixa-bebe
+	Mixa-solaire
+	Mkl
+	Monsavon
+	Mustela
+	Mylan
+	N-a-e
+	Narta
+	Natessance
+	Natura-siberica
+	Nectar-of-beauty
+	Nectar-of-nature
+	Neutrogena
+	Nivea
+	Nivea-men
+	Nivea-sun
+	Nocibe
+	Novexpert
+	Nuxe
+	Nyx
+	Ogx
+	Old-spice
+	Ombia
+	Original-source
+	P-g
+	Palette
+	Palmer-s
+	Palmolive
+	Pampers
+	Pantene
+	Pantene-pro-v
+	Parodontax
+	Persavon
+	Persil
+	Petrole-hahn
+	Pierre-fabre
+	Pierre-fabre-oral-care
+	Playboy
+	Pantene
+	Pranarom
+	Procter-gamble
+	Puressentiel
+	Rampal-latour
+	Revlon
+	Revolution
+	Rexona
+	Rexona-men
+	Rimmel
+	Rituals
+	Roge-cavailles
+	Roger-gallet
+	Saforelle
+	Saint-algue
+	Sanex
+	Sanoflore
+	Sanogyl
+	Sanytol
+	Schauma
+	Schmidt-s
+	Scholl
+	Schwarzkopf
+	Schwarzkopf-henkel
+	Sebamed
+	Secrets-de-provence
+	Sensodyne
+	Sephora
+	Shiseido
+	Signal
+	Skip
+	So-bio
+	So-bio-etic
+	Sonett
+	Sooa
+	Sun-dance
+	Sundance
+	Svr
+	Syoss
+	Taft
+	Tahiti
+	Teraxyl
+	The-body-shop
+	The-ordinary
+	Timotei
+	Today
+	Tresemme
+	Ultra-doux
+	Uriage
+	Ushuaia
+	Vademecum
+	Vaseline
+	Veet
+	Venus
+	Vivelle-dop
+	Wella
+	White-now
+	Williams
+	Ysiance
+	Yves-rocher
+	Yves-saint-laurent
+	Zendium
+	Zenzitude
+);
+
 my %baby_food_brands = ();
 
 foreach my $brand (@baby_food_brands) {
@@ -370,6 +695,24 @@ foreach my $brand (@cigarette_brands) {
 
 	my $brandid = get_string_id_for_lang("no_language", $brand);
 	$cigarette_brands{$brandid} = 1;
+
+}
+
+my %petfood_brands = ();
+
+foreach my $brand (@petfood_brands) {
+
+	my $brandid = get_string_id_for_lang("no_language", $brand);
+	$petfood_brands{$brandid} = 1;
+
+}
+
+my %beauty_brands = ();
+
+foreach my $brand (@beauty_brands) {
+
+	my $brandid = get_string_id_for_lang("no_language", $brand);
+	$beauty_brands{$brandid} = 1;
 
 }
 
@@ -410,17 +753,16 @@ sub detect_categories ($product_ref) {
 	if (defined $product_ref->{brands_tags}) {
 		foreach my $brandid (@{$product_ref->{brands_tags}}) {
 			if (defined $baby_food_brands{$brandid}) {
-				push @{$product_ref->{data_quality_info_tags}}, "en:detected-category-from-brand-baby-foods";
-				last;
+				add_tag($product_ref, "data_quality_info", "en:detected-category-from-brand-baby-foods");
 			}
-		}
-	}
-
-	if (defined $product_ref->{brands_tags}) {
-		foreach my $brandid (@{$product_ref->{brands_tags}}) {
 			if (defined $cigarette_brands{$brandid}) {
-				push @{$product_ref->{data_quality_info_tags}}, "en:detected-category-from-brand-cigarettes";
-				last;
+				add_tag($product_ref, "data_quality_info", "en:detected-category-from-brand-cigarettes");
+			}
+			if (defined $petfood_brands{$brandid}) {
+				add_tag($product_ref, "data_quality_info", "en:detected-category-from-brand-pet-foods");
+			}
+			if (defined $beauty_brands{$brandid}) {
+				add_tag($product_ref, "data_quality_info", "en:detected-category-from-brand-beauty");
 			}
 		}
 	}
@@ -597,7 +939,19 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 			my ($ignore_energy_calculated_error, $category_id)
 				= get_inherited_property_from_categories_tags($product_ref, "ignore_energy_calculated_error:en");
 
-			if (not((defined $ignore_energy_calculated_error) and ($ignore_energy_calculated_error eq 'yes'))) {
+			if (
+				(
+					not((defined $ignore_energy_calculated_error) and ($ignore_energy_calculated_error eq 'yes'))
+					# consider only when energy is high enough to minimize false positives (issue #7789)
+					# consider either computed_energy or energy input by contributor, to avoid when the energy is 5, but it should be 1500
+					and (
+						(($unit eq "kj") and (($specified_energy > 55) or ($computed_energy > 55)))
+						or (    ($unit eq "kcal")
+							and (($specified_energy > 13) or ($computed_energy > 13)))
+					)
+				)
+				)
+			{
 				# Compare to specified energy value with a tolerance of 30% + an additiontal tolerance of 5
 				if (   ($computed_energy < ($specified_energy * 0.7 - 5))
 					or ($computed_energy > ($specified_energy * 1.3 + 5)))
@@ -936,7 +1290,7 @@ sub check_nutrition_data ($product_ref) {
 
 		# some categories have an expected ingredient - push data quality error if ingredient differs from expected ingredient
 		# note: we currently support only 1 expected ingredient
-		my ($expected_ingredients, $category_id)
+		my ($expected_ingredients, $category_id2)
 			= get_inherited_property_from_categories_tags($product_ref, "expected_ingredients:en");
 
 		if ((defined $expected_ingredients)) {

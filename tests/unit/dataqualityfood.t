@@ -374,10 +374,44 @@ $product_ref = {
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
+	'energy not matching nutrients but category possesses ignore_energy_calculated_error:en:yes tag'
+) or diag explain $product_ref;
+
+$product_ref = {
+	categories_tags => ['en:sweeteners'],
+	nutriments => {
+		"energy-kj_value" => 550,
+		"carbohydrates_value" => 10,
+		"fat_value" => 20,
+		"proteins_value" => 30,
+		"fiber_value" => 2,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
 is($product_ref->{nutriments}{"energy-kj_value_computed"}, 1436);
 ok(
 	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
 	'energy not matching nutrients but category possesses ignore_energy_calculated_error:en:yes tag'
+) or diag explain $product_ref;
+
+$product_ref = {
+	categories_tags => ['en:sweet-spreads'],
+	nutriments => {
+		"energy-kj_value" => 8,
+		"fat_value" => 0.5,
+		"saturated-fat_value" => 0.1,
+		"carbohydrates_value" => 0.5,
+		"sugars_value" => 0.5,
+		"proteins_value" => 0.5,
+		"salt_value" => 0.01,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
+	'energy not matching nutrients but energy is lower than 55 kj'
 ) or diag explain $product_ref;
 
 # energy matches nutrients
@@ -462,7 +496,7 @@ $product_ref = {
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 ok(has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
-	'energy not matching nutrient')
+	'energy not matching nutrient but lower than 55 kj')
 	or diag explain $product_ref;
 
 # Erythritol is a polyol which does not contribute to energy
@@ -1313,5 +1347,28 @@ check_quality_and_test_product_has_quality_tag(
 );
 check_quality_and_test_product_has_quality_tag($product_ref, 'en:product-quantity-in-mg',
 	'raise warning because the product quantity is in mg', 1);
+
+# Brands - Detected category from brand
+$product_ref = {brands_tags => ["bledina", "camel", "purina", "yves-rocher",],};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:detected-category-from-brand-baby-foods',
+	'Detected category from brand - Baby', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:detected-category-from-brand-cigarettes',
+	'Detected category from brand - Cigarettes', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:detected-category-from-brand-pet-foods',
+	'Detected category from brand - Pet Foods', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:detected-category-from-brand-beauty',
+	'Detected category from brand - Beauty', 1
+);
 
 done_testing();

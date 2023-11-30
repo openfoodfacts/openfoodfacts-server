@@ -28,6 +28,7 @@ binmode(STDERR, ":encoding(UTF-8)");
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -75,7 +76,7 @@ elsif (not defined single_param('import_id')) {
 }
 else {
 
-	$import_files_ref = retrieve("$data_root/import_files/${Owner_id}/import_files.sto");
+	$import_files_ref = retrieve("$BASE_DIRS{IMPORT_FILES}/${Owner_id}/import_files.sto");
 
 	if ((not defined $import_files_ref) or (not defined $import_files_ref->{$file_id})) {
 		$data{error} = "file_id_not_found";

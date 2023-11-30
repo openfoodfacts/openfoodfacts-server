@@ -22,6 +22,9 @@
             ],
             "epi_score" : 77.6,
             "epi_value" : 3,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
             "origins_from_origins_field" : [
                "en:unknown"
             ],
@@ -491,6 +494,7 @@
    "known_ingredients_n" : 10,
    "lc" : "en",
    "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
       "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",

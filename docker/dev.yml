@@ -102,18 +102,19 @@ services:
 volumes:
   product_images:
   html_data:
+  other_servers:
   products:
   # those one are volumes shared between off and pro, so we assign hard-coded names
   # see docs/dev/explain-pro-dev-setup.md
-  # PO_COMMON_PREFIX is there to separate env, eg. for tests
+  # PO_COMMON_PREFIX is there to separate envs, eg. for tests
   users:
     name: ${PO_COMMON_PREFIX:-}po_users
   orgs:
     name: ${PO_COMMON_PREFIX:-}po_orgs
-  podata:  # we also need to share it because users_emails and orgs... are not separated yet
-    name: ${PO_COMMON_PREFIX:-}po_podata
+  export_files:
+    name: ${PO_COMMON_PREFIX:-}po_export_files
+  podata:
   dbdata:
-  build_cache:
 
 networks:
   # this is a specific network to enable pro platform to join the postgres db

@@ -26,6 +26,12 @@ use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use JSON::PP;
+use Digest::SHA1 qw(sha1_hex);
+
+use ProductOpener::Display qw/single_param/;
+use ProductOpener::Paths qw/:all/;
+
+# this script is used by howmuchsugar to log user answers to sugar questions
 
 my $debug = 0;
 
@@ -36,8 +42,9 @@ my $answer = decode utf8 => single_param('answer');
 my $actual = decode utf8 => single_param('actual');
 my $points = decode utf8 => single_param('points');
 
-open(my $OUT, ">>", "/srv/sugar/logs/sugar_log");
-print $OUT remote_addr() . "\t"
+my $current_year = (localtime())[5] + 1900;
+open(my $OUT, ">>", $BASE_DIRS{PRIVATE_DATA} . "/${current_year}_sugar_log");
+print $OUT sha1_hex(remote_addr()) . "\t"
 	. time() . "\t"
 	. $product . "\t"
 	. $code . "\t"
