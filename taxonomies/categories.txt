@@ -40370,6 +40370,7 @@ lt:Bulvytės
 nl:Friet
 zh:薯条
 wikidata:en:Q152088
+intake24_category_code:en:CHIP
 
 <en:Chips and fries
 bg:Картофени ноазети
@@ -40386,7 +40387,6 @@ wikidata:en:Q3396004
 <en:Fries
 en:Takeaway fries
 intake24_category_code:en:TCHI
-
 
 # TODO Validate proxy
 
@@ -82984,6 +82984,7 @@ ciqual_food_code:en:20010
 ciqual_food_name:en:Mushroom, all types, raw
 ciqual_food_name:fr:Champignon, tout type, cru
 wikidata:en:Q654236
+intake24_category_code:en:MSRH
 
 <en:Mushrooms
 <en:Fresh vegetables
@@ -94787,6 +94788,7 @@ agribalyse_food_code:en:20009
 ciqual_food_code:en:20009
 ciqual_food_name:en:Carrot, raw
 ciqual_food_name:fr:Carotte, crue
+intake24_category_code:en:CRTS
 
 <en:Carrots
 <en:Cooked vegetables
@@ -95855,6 +95857,7 @@ agribalyse_food_code:en:20041
 ciqual_food_code:en:20041
 ciqual_food_name:en:Sweet pepper, green, yellow or red, raw
 ciqual_food_name:fr:Poivron, vert, jaune ou rouge, cru
+intake24_category_code:en:PPRS
 
 <en:Sweet peppers
 <en:Fresh vegetables
@@ -96044,6 +96047,7 @@ pnns_group_2:en:Potatoes
 agribalyse_proxy_food_code:en:4008
 agribalyse_proxy_food_name:en:Potato, peeled, raw
 agribalyse_proxy_food_name:fr:Pomme de terre, sans peau, crue
+intake24_category_code:en:POTS
 
 #################### Potato harvest ####################
 
@@ -96923,6 +96927,7 @@ zh:芜菁
 # yue:大頭菜
 wikidata:en:Q3916957
 wikipedia:en:https://en.wikipedia.org/wiki/Turnip
+intake24_category_code:en:TRNP
 description:en:The turnip (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
 comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
 
@@ -97139,6 +97144,7 @@ es:Mezclas de verduras y hortalizas
 fr:Mélanges de légumes
 it:Misti di verdure
 nl:Groentemengsels
+intake24_category_code:en:MXDV   
 
 <en:Fresh vegetables
 <en:Mixed vegetables
@@ -97700,6 +97706,7 @@ agribalyse_food_code:en:20061_1
 ciqual_food_code:en:20061
 ciqual_food_name:en:French bean, raw
 ciqual_food_name:fr:Haricot vert, cru
+intake24_category_code:en:FGRB
 
 <en:Green beans
 en:Green beans not imported by plane
@@ -97824,6 +97831,7 @@ nl:Gedroogde bonen
 pt:Pulsos
 ru:Зернобобовые
 wikidata:en:Q2727662
+intake24_category_code:en:PEAS 
 
 <en:Pulses
 en:Cooked pulses
@@ -100872,7 +100880,7 @@ es:Mezclas para sofrito congelada, Mezcla para sofrito congelada
 <en:Frozen plant-based foods mixes
 es:Parrilladas de verduras congelada, Parrillada de verduras congelada
 
-<en:Frozen plant-based foods mixes
+<en:Roasted potatoes
 en:Frozen baked potatoes
 es:Patatas panadera congeladas
 fr:Pommes de terre cuites surgelées, pommes de terre cuites congelées
@@ -103822,12 +103830,13 @@ fr:Pommes de terres précuites
 nl:Voorgekookte aardappelen
 
 <en:Prepared potatoes
-en:Cooked potatoes
+en:Cooked potatoes, Boiled potatoes
 fr:Pommes de terre cuites
 nl:Gekookte aardappelen
 ciqual_food_code:en:4048
 ciqual_food_name:en:Potato, cooked (average food)
 ciqual_food_name:fr:Pomme de terre, cuite (aliment moyen)
+intake24_category_code:en:BOLP 
 
 <en:Prepared potatoes
 en:Boiled or steamed potatoes, Potatoes cooked in water or steam
@@ -103884,6 +103893,7 @@ agribalyse_food_code:en:4026
 ciqual_food_code:en:4026
 ciqual_food_name:en:Potato, roasted/baked
 ciqual_food_name:fr:Pomme de terre, rôtie/cuite au four
+intake24_category_code:en:BKDP
 
 <en:Prepared potatoes
 en:Sautéed Potatoes, Pan-fried potatoes
@@ -103892,6 +103902,7 @@ agribalyse_food_code:en:4015
 ciqual_food_code:en:4015
 ciqual_food_name:en:Potato, sautéed/pan-fried
 ciqual_food_name:fr:Pomme de terre, sautée/poêlée
+intake24_category_code:en:ROPOT 
 
 <en:Prepared potatoes
 en:Fried potato cubes
@@ -103957,6 +103968,7 @@ pnns_group_2:en:Potatoes
 ciqual_food_code:en:4047
 ciqual_food_name:en:Mashed potatoes (average)
 ciqual_food_name:fr:Pomme de terre, purée (aliment moyen)
+intake24_category_code:en:MASH 
 
 # without milk, cream, butter
 <en:Mashed potatoes
@@ -103976,6 +103988,7 @@ fr:Purées de légumes
 it:Purè di verdure
 nl:Groentepureeën
 ro:Zacusca
+intake24_category_code:en:RVEG 
 
 <en:Mashed vegetables
 en:Mashed carrots, Carrots puree
