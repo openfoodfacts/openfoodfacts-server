@@ -661,7 +661,7 @@ my @tests = (
 			categories_tags => ["en:beverages", "en:orange-juices"],
 			packaging_text => "Tetra-pak"
 		}
-	],	
+	],
 
 );
 
