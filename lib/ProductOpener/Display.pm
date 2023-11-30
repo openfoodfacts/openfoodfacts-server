@@ -610,7 +610,8 @@ sub init_request ($request_ref = {}) {
 	$country = 'en:world';
 
 	$r->headers_out->set(Server => "Product Opener");
-	$r->headers_out->set("X-Frame-Options" => "DENY");
+	# temporarily remove X-Frame-Options: DENY, needed for graphs - 2023/11/23
+	#$r->headers_out->set("X-Frame-Options" => "DENY");
 	$r->headers_out->set("X-Content-Type-Options" => "nosniff");
 	$r->headers_out->set("X-Download-Options" => "noopen");
 	$r->headers_out->set("X-XSS-Protection" => "1; mode=block");
