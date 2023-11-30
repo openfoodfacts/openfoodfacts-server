@@ -18574,14 +18574,20 @@ fr:Pêche française
 ingredients:en: en:fish
 origins:en: en:france
 
+en:fishing method
+fr:Méthode de pêche
+
 # Should not be automatically triggered by the MSC label
 # as we need to differentiate MSC fisheries from more environmentaly friendly fishing methods for the Eco-Score
 # From the Eco-Score documentation: "Techniques de pêche durables : ligne et hameçon, pêche à la canne, casier, pêche à pied. Ces méthodes sont sélectives et sans impact sur les fonds marins et l'habitat."
+<en:fishing method
 <en:Sustainable fishery
 en:Sustainable fishing method, sustainable fishing technique
 fr:Méthode de pêche durable, Technique de pêche durable, Mode de pêche durable, Méthodes de pêche durables, techniques de pêche durables, modes de pêche durables
 nl:Duurzame vismethoden
 
+
+<en:fishing method
 en:Trawl fishing
 ca:Pesca d'arrossegament
 de:Schleppnetzfischerei
@@ -18593,6 +18599,7 @@ it:Pesca a strascico
 pt:Pesca de arrasto, pesca com arrastão, pesca com arrastões, pesca por arrasto, pesca com rede de arrasto, pesca com redes de arrasto
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Seine fishing
 de:Ringwadenfischerei
 es:Pesca al cerco, Pesca con red de jábega
@@ -18623,6 +18630,7 @@ pt:Pesca com armadilha, pesca com armadilhas, pescado com armadilha, pescado com
 wikidata:en:Q2941001
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Pelagic net fishing
 de:Pelagische Netzfischerei
 fi:pelaginen verkkokalastettu
@@ -18630,6 +18638,7 @@ fr:Pêché au filet pélagique, Pêchés au filet pélagique, Pêché aux filets
 pt:Pesca com rede em mar alto, pesca de rede em mar alto, pescado com rede em mar alto
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Dredge fishing
 de:Baggerfischen
 fi:pohjaharakalastettu
@@ -18637,15 +18646,18 @@ fr:Pêché à la drague, Pêchés à la drague, Pêchée à la drague, Pêchées
 pt:Pesca com draga, pesca de draga
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Purse seine fishing
-fr:Pêché à la senne coulissante, Pêchés à la senne coulissante, Pêchée à la senne coulissante, Pêchées à la senne coulissante
+fr:Pêché à la senne coulissante, Pêchés à la senne coulissante, Pêchée à la senne coulissante, Pêchées à la senne coulissante, Senne coulissante
 wikidata:en:Q11997909
 label_categories:en: en:Fishing method
 
+<en:fishing method
 fr:Pêché au filet tournant, Pêchés au filet tournant, Pêché aux filets tournants, Pêchés aux filets tournants, Pêchée au filet tournant, Pêchées au filet tournant
 de:Rotierende Netzfischerei
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Longline fishing
 de:Langleinenfischerei
 fi:Pitkäsiimalla kalastettu
@@ -18653,20 +18665,25 @@ fr:Pêché à la palangre, Pêchés à la palangre, Pêchée à la palangre, Pê
 pt:Pesca com espinel, pesca com espinhel, pesca com trole, Ppesca com palangre, pesca de espinel, pesca de espinhel, pesca de trole, Ppesca de palangre
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Gillnet fishing
 de:Gillnetz-Fischen
 fr:Pêché au filet maillant, Pêchés au filet maillant, Pêché aux filets maillants, Pêchés aux filets maillants, Pêchée au filet maillant, Pêchées au filet maillant
 pt:Pesca com redes de emalhar, pesca com rede de emalhar
 
+<en:fishing method
 fr:Pêché à la bolinche, Pêchés à la bolinche, Pêchée à la bolinche, Pêchées à la bolinche
 label_categories:en: en:Fishing method
 
+<en:fishing method
 nl:ringnetten, ringnet
 label_categories:en: en:Fishing method
 
+<en:fishing method
 nl:kruisnetten, kruisnet
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Lift net fishing, Lifting net fishing
 de:Lift Netz Fischerei
 fr:Pêché au filet soulevé, Pêchés au filet soulevé, Pêché aux filets soulevés, Pêchés aux filets soulevés, Pêchée au filet soulevé, Pêchées au filet soulevé
@@ -18682,6 +18699,7 @@ he:דיג ידני
 pt:Pesca à mão, pesca manual
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Blast fished, blast fishing
 de:Dynamitfischen
 fi:dynamiittikalastettu
@@ -18690,19 +18708,23 @@ pt:Pesca com dinamite, pescado com dinamite
 wikidata:en:Q1269057
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Pair trawling
 fi:Paritroolattu
 fr:Pêché à deux chaluts
 label_categories:en: en:Fishing method
 wikidata:en:Q7125126
 
+<en:fishing method
 fr:Pêché au poison
 pt:Pesca com veneno
 label_categories:en: en:Fishing method
 
+<en:fishing method
 fr:Pêché au toc
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:cormorant fishing
 de:Kormoranfischerei
 eo:Kormorana fiŝkaptado
