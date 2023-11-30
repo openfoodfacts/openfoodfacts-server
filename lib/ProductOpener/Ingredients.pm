@@ -356,7 +356,17 @@ my %abbreviations = (
 
 	hr => [["temp.", "temperaturi"], ["regul. kisel.", "regulator kiselosti"], ["reg. kis.", "regulator kiselosti"],],
 
-	nb => [["bl. a.", "blant annet"], ["inkl.", "inklusive"], ["papr.", "paprika"],],
+	nb => [
+		["bl. a.", "blant annet"],
+		["inkl.", "inklusive"],
+		["papr.", "paprika"],
+		["fullherdet kokos - og rapsolje", "fullherdet kokosolje og fullherdet rapsolje"],
+		["kons.middel", "konserveringsmiddel"],
+		["surhetsreg.midde", "surhetsregulerende middel"],
+		["mod.", "modifisert"],
+		["fort.middel", "fortykningsmiddel"],
+		["veg.", "vegetabilsk"],
+	],
 
 	ru => [
 		["в/с", "высшего сорта"],    # or "высший сорт". = top grade, superfine. applied to flour.
@@ -2585,7 +2595,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 								'その他',    # etc.
 							],
 
-							'nb' => ['^Pakket i beskyttende atmosfære$',],
+							'nb' => ['^Pakket i beskyttende atmosfære$', '^Minst \d+ ?% kakao',],
 
 							'nl' => [
 								'^allergie.informatie$', 'in wisselende verhoudingen',
@@ -4738,7 +4748,7 @@ my %phrases_after_ingredients_list = (
 		'Да се чува на темно место и на температура до',    # Store in a dark place at a temperature of up to
 	],
 
-	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnhold', 'kjølevare',],
+	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnh[oa]ld', 'kjølevare',],
 
 	nl => [
 		'Beter Leven keurmerk 1 ster.',
