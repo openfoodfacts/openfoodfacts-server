@@ -26,6 +26,8 @@ use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -125,7 +127,7 @@ my $graph_ref = {};
 
 $log->info("finding products", {lc => $lc, cc => $cc, country => $country}) if $log->is_info();
 
-my $jsonl_path = "$www_root/data/openfoodfacts-products.jsonl.gz";
+my $jsonl_path = "$BASE_DIRS{PUBLIC_DATA}/openfoodfacts-products.jsonl.gz";
 my $products_iter = iter_products_from_jsonl($jsonl_path, $country);
 
 $request_ref->{map_options} = $map_options{$cc} || "";

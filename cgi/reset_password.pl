@@ -25,6 +25,7 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -69,7 +70,7 @@ if ($action eq 'process') {
 		# Is it an email?
 
 		if ($id =~ /\@/) {
-			my $emails_ref = retrieve("$data_root/users/users_emails.sto");
+			my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
 			if (not defined $emails_ref->{$id}) {
 				# not found, try with lower case email
 				$id = lc $id;
@@ -83,7 +84,7 @@ if ($action eq 'process') {
 		}
 		else {
 			$id = get_string_id_for_lang("no_language", $id);
-			if (!-e "$data_root/users/$id.sto") {
+			if (!-e "$BASE_DIRS{USERS}/$id.sto") {
 				push @errors, $Lang{error_reset_unknown_id}{$lang};
 			}
 			else {
@@ -142,14 +143,14 @@ elsif ($action eq 'process') {
 
 		foreach my $userid (@userids) {
 
-			my $user_ref = retrieve("$data_root/users/$userid.sto");
+			my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid.sto");
 			if (defined $user_ref) {
 
 				$user_ref->{token_t} = time();
 				$user_ref->{token} = generate_token(64);
 				$user_ref->{token_ip} = remote_addr();
 
-				store("$data_root/users/$userid.sto", $user_ref);
+				store("$BASE_DIRS{USERS}/$userid.sto", $user_ref);
 
 				my $url
 					= format_subdomain($subdomain)
@@ -167,7 +168,7 @@ elsif ($action eq 'process') {
 	}
 	elsif ($type eq 'reset') {
 		my $userid = get_string_id_for_lang("no_language", single_param('resetid'));
-		my $user_ref = retrieve("$data_root/users/$userid.sto");
+		my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid.sto");
 
 		$log->debug("resetting password", {userid => $userid}) if $log->is_debug();
 
@@ -190,7 +191,7 @@ elsif ($action eq 'process') {
 
 				delete $user_ref->{token};
 
-				store("$data_root/users/$userid.sto", $user_ref);
+				store("$BASE_DIRS{USERS}/$userid.sto", $user_ref);
 
 			}
 			else {

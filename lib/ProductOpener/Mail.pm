@@ -64,6 +64,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use Email::Stuffer;
 use Log::Any qw($log);
@@ -197,7 +198,7 @@ sub send_html_email ($user_ref, $subject, $html_content) {
 
 =head2 get_html_email_content ($filename, $lang )
 
-Fetch the HTML email content in $DATA_ROOT/lang/emails. If a translation is available
+Fetch the HTML email content in $BASE_DIRS{LANG}/emails. If a translation is available
 for the requested language, we provide the translated version otherwise English is the default.
 
 
@@ -219,10 +220,10 @@ The HTML string or undef if the file does not exists or is not readable.
 
 sub get_html_email_content ($filename, $lang) {
 	# if an email does not exist in the local language, use the English version
-	my $file = "$data_root/lang/$lang/emails/$filename";
+	my $file = "$BASE_DIRS{LANG}/$lang/emails/$filename";
 
 	if (!-e $file) {
-		$file = "$data_root/lang/en/emails/$filename";
+		$file = "$BASE_DIRS{LANG}/en/emails/$filename";
 	}
 
 	open(my $IN, "<:encoding(UTF-8)", $file) or $log->error("Can't open $file for reading");

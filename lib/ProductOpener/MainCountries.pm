@@ -67,6 +67,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -84,7 +85,7 @@ my $all_products_scans_ref;
 
 sub load_scans_data() {
 
-	$all_products_scans_ref = retrieve_json("$data_root/products/all_products_scans.json");
+	$all_products_scans_ref = retrieve_json("$BASE_DIRS{PRODUCTS}/all_products_scans.json");
 	return;
 }
 
@@ -118,7 +119,7 @@ sub compute_main_countries ($product_ref) {
 
 	# Load the scan data
 	my $path = product_path($product_ref);
-	my $scans_ref = retrieve_json("$data_root/products/$path/scans.json");
+	my $scans_ref = retrieve_json("$BASE_DIRS{PRODUCTS}/$path/scans.json");
 
 	if ((defined $all_products_scans_ref) and (defined $scans_ref)) {
 
