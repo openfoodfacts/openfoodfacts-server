@@ -158,7 +158,32 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         # IO::AIO needed by Perl::LanguageServer
         libperl-dev \
         # needed to build Apache2::Connection::XForwardedFor
-        libapache2-mod-perl2-dev
+        libapache2-mod-perl2-dev \
+        # Imager::zxing - build deps
+        cmake \
+        pkg-config \
+        # Imager::zxing - decoders
+        libavif-dev \
+        libde265-dev \
+        libheif-dev \
+        libjpeg-dev \
+        libpng-dev \
+        libwebp-dev \
+        libx265-dev
+
+# Install zxing-cpp from source until 2.1 or higher is available in Debian: https://github.com/openfoodfacts/openfoodfacts-server/pull/8911/files#r1322987464
+RUN set -x && \
+    cd /tmp && \
+    wget https://github.com/zxing-cpp/zxing-cpp/archive/refs/tags/v2.1.0.tar.gz && \
+    tar xfz v2.1.0.tar.gz && \
+    cmake -S zxing-cpp-2.1.0 -B zxing-cpp.release \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DBUILD_WRITERS=OFF -DBUILD_READERS=ON -DBUILD_EXAMPLES=OFF && \
+    cmake --build zxing-cpp.release -j8 && \
+    cmake --install zxing-cpp.release && \
+    cd / && \
+    rm -rf /tmp/v2.1.0.tar.gz /tmp/zxing-cpp*
 
 # Run www-data user as host user 'off' or developper uid
 ARG USER_UID

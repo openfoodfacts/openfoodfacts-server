@@ -33,7 +33,7 @@ We want to learn what the Open Food Facts data is used for. It is not mandatory,
 
 > Generally, the more information we have about a product, the more we can compute it.
 
-## Rate limits
+### Rate limits
 
 To protect our infrastructure, we enforce rate-limits on the API and the website. The following limits apply:
 
@@ -71,7 +71,10 @@ While testing your applications, **make all API requests to the staging environm
 
 ## Authentication
 
-- READ operations (getting info about a product, etc...) do not require authentication, although we _ask you to use a custom User-Agent_ to identify you if you're developing an application (to not risk being identified as a bot)
+We ask you to **always use a custom User-Agent to identify you** (to not risk being identified as a bot). The User-Agent should be in the form of `AppName/Version (ContactEmail)`. For example,
+`MyApp/1.0 (contact@myapp.com)`.
+
+- READ operations (getting info about a product, etc...) do not require authentication except the custom User-Agent.
 
 - WRITE operations (Editing an Existing Product, Uploading images…) **require authentication**. We do this as another layer of protection against spam.
 

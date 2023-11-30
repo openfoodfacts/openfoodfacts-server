@@ -16,6 +16,7 @@ MongoDB:
 - scripts/checkmongodb.pl
 - scripts/update_all_products_from_dir_in_mongodb.pl
 - scripts/update_all_products_revisions_from_dir_in_mongodb.pl
+- scripts/mongodb_dump.sh
 
 Stores:
 - taxonomies/unused/stores.txt
@@ -188,6 +189,7 @@ Footer:
 
 📚 OpenAPI:
 - docs/assets/api-rapidoc.html
+- docs/api/ref/schemas/product_base.yaml
 
 🐋 Docker:
 - docker/**/*
@@ -243,6 +245,7 @@ Agribalyse:
 Export:
 - lib/ProductOpener/Export.pm
 - t/expected_test_results/export/**/*
+- scripts/mongodb_dump.sh
 
 Food.pm:
 - lib/ProductOpener/Food.pm
@@ -410,6 +413,8 @@ Numbers:
 - scripts/test_normalize_packaging_codes.pl
 - scripts/update_emb_codes_in_mongodb.pl
 - packager-codes/**
+- tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ec.json
+- tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ce.json
 
 📦 Packaging:
 - lib/ProductOpener/Packaging.pm
