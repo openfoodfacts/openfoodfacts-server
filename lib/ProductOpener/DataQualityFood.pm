@@ -1819,7 +1819,7 @@ sub check_labels ($product_ref) {
 			}
 		}
 
-		if (   (defined $product_ref->{nutriments}{"energy-kcal_value"})
+		if (   (defined $product_ref->{nutriments}{"energy-kcal_100g"})
 			or (defined $product_ref->{nutriments}{"energy-kj_value"}))
 		{
 			# In EU, a claim that a food is low in energy may only be made where the product
@@ -1832,13 +1832,13 @@ sub check_labels ($product_ref) {
 				(has_tag($product_ref, "labels", "en:low-energy"))
 				and (
 					(
-						($solid == 1) and (($product_ref->{nutriments}{"energy-kcal_value"} > 40)
-							or ($product_ref->{nutriments}{"energy-kj_value"} > 170))
+						($solid == 1) and (($product_ref->{nutriments}{"energy-kcal_100g"} > 40)
+							or ($product_ref->{nutriments}{"energy-kj_100g"} > 170))
 					)
 					or (
 						($solid == 0)
-						and (  ($product_ref->{nutriments}{"energy-kcal_value"} > 20)
-							or ($product_ref->{nutriments}{"energy-kj_value"} > 80))
+						and (  ($product_ref->{nutriments}{"energy-kcal_100g"} > 20)
+							or ($product_ref->{nutriments}{"energy-kj_100g"} > 80))
 					)
 				)
 				)
@@ -1857,8 +1857,8 @@ sub check_labels ($product_ref) {
 				(has_tag($product_ref, "labels", "en:energy-free"))
 				and (
 					(
-						   ($product_ref->{nutriments}{"energy-kcal_value"} > 4)
-						or ($product_ref->{nutriments}{"energy-kj_value"} > 17)
+						   ($product_ref->{nutriments}{"energy-kcal_100g"} > 4)
+						or ($product_ref->{nutriments}{"energy-kj_100g"} > 17)
 					)
 				)
 				)
