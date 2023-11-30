@@ -645,6 +645,16 @@ my @tests = (
 		},
 	],
 
+	# Tetra pak brick
+	[
+		'packaging-en-tetra-pak-brick',
+		{
+			lc => "en",
+			categories_tags => ["en:beverages", "en:orange-juices"],
+			packaging_text => "Tetra-pak brick"
+		}
+	],
+
 );
 
 my $json = JSON->new->allow_nonref->canonical;
