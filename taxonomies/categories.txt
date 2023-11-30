@@ -70562,7 +70562,7 @@ ja:パッタイ
 pl:Pad thai
 wikidata:en:Q730298
 
-<en:meals
+<en:Meals
 en:Meal replacements, meal substitutes
 de:Ersatzmahlzeiten
 fi:aterian korvikkeet
@@ -73470,6 +73470,7 @@ fr:Plats à base de haricots
 it:Piatti pronti a base di fagioli
 lt:Pupelių patiekalai
 ru:Блюда из бобов
+intake24_category_code:en:BNDS
 
 <en:Bean dishes
 <en:Meals with meat
@@ -73681,6 +73682,7 @@ agribalyse_food_code:en:26259
 ciqual_food_code:en:26259
 ciqual_food_name:en:Coleslaw, w sauce, prepacked
 ciqual_food_name:fr:Salade de chou ou Coleslaw, avec sauce, préemballée
+intake24_category_code:en:COLE
 
 <en:Appetizers
 en:St. Jacques shells, Scallops
@@ -73820,6 +73822,11 @@ ciqual_food_code:en:25511
 ciqual_food_name:en:Stuffed vegetables (excluding tomato)
 ciqual_food_name:fr:Légumes farcis (sauf tomate)
 #wikidata:en:
+
+<en:Meals
+en:Vegetarian meals
+intake24_category_code:en:VGDI
+description:en:Should be distinghuished from vegetable meals, taht might contain meat
 
 <en:Meals
 en:Gratins
@@ -86412,6 +86419,7 @@ it:Hamburger vegetali
 nl:Vegetarische hamburgers
 agribalyse_food_code:en:25415_2
 wikidata:en:Q1884503
+intake24_category_code:en:19VEGB
 
 <en:Sandwiches
 en:Hot dog sandwiches
@@ -93749,6 +93757,7 @@ wikidata:en:Q1365891
 ciqual_proxy_food_code:en:11004
 ciqual_proxy_food_name:en:Gherkin, pickled in vinegar
 ciqual_proxy_food_name:fr:Cornichon, au vinaigre
+intake24_category_code:en:GHRK
 
 # agribalyse_food_code:en:99999
 # TODO Curious code not present in official Agribalyse file. Not sure who added this
@@ -93954,6 +93963,7 @@ nl:Bladgroenten
 nl_be:Bladgewas
 ru:Листовые овощи
 wikidata_category:en:Q7469413
+intake24_category_code:en:C000
 
 <en:Vegetables
 en:Salsifis
@@ -102839,6 +102849,7 @@ nl:Vleeskopieën
 pl:Zastępniki mięsa
 ru:Мясозаменители
 wikidata:en:Q1343997
+intake24_category_code:en:MTST 
 
 <en:Meat analogues
 en:Meat analogues from soy or wheat proteins
@@ -104102,13 +104113,6 @@ ciqual_food_code:en:25608
 ciqual_food_name:en:Tabbouleh, prepacked
 ciqual_food_name:fr:Taboulé ou Salade de couscous, préemballé
 
-<en:Meals
-en:Vegetable fritters
-fr:Beignets de légumes
-agribalyse_food_code:en:25556
-ciqual_food_code:en:25556
-ciqual_food_name:en:Vegetable fritters
-ciqual_food_name:fr:Beignet de légumes
 
 <en:Meals
 en:Filled fritters
@@ -104924,13 +104928,6 @@ ja:バインバオ
 nl:Banh Bao
 wikidata:en:Q564271
 
-<en:Salty snacks
-en:Salty Fritters
-fi:Suolaiset uppopaistokset
-fr:Beignets salés
-it:Frittelle salate
-nl:Hartige gefrituurde producten
-#wikidata:en:
 
 <en:Sweet snacks
 en:Chaat
@@ -106026,9 +106023,20 @@ nl:Banh Bao
 
 <en:Salty snacks
 en:Salty Fritters
-fi:Suolaiset fritit
+fi:Suolaiset uppopaistokset, Suolaiset fritit
 fr:Beignets salés
+it:Frittelle salate
 nl:Hartige gefrituurde producten
+#wikidata:en:
+
+<en:Salty Fritters
+en:Vegetable fritters
+fr:Beignets de légumes
+agribalyse_food_code:en:25556
+ciqual_food_code:en:25556
+ciqual_food_name:en:Vegetable fritters
+ciqual_food_name:fr:Beignet de légumes
+intake24_category_code:en:19VFRIT
 
 <en:Sweet snacks
 en:Sweet Fritters
