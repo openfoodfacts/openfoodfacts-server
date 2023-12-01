@@ -610,7 +610,8 @@ sub init_request ($request_ref = {}) {
 	$country = 'en:world';
 
 	$r->headers_out->set(Server => "Product Opener");
-	$r->headers_out->set("X-Frame-Options" => "DENY");
+	# temporarily remove X-Frame-Options: DENY, needed for graphs - 2023/11/23
+	#$r->headers_out->set("X-Frame-Options" => "DENY");
 	$r->headers_out->set("X-Content-Type-Options" => "nosniff");
 	$r->headers_out->set("X-Download-Options" => "noopen");
 	$r->headers_out->set("X-XSS-Protection" => "1; mode=block");
@@ -1601,6 +1602,26 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		$page = 1;
 	}
 
+	# by default sort tags by descending product count
+	my $default_sort_by = "count";
+
+	# except for scores where we sort alphabetically (A to E, and 1 to 4)
+	if (($groupby_tagtype =~ /^nutriscore|nutrition_grades|ecoscore|nova_groups/)) {
+		$default_sort_by = "tag";
+	}
+
+	# allow sorting by tagname
+	my $sort_by = request_param($request_ref, "sort_by") // $default_sort_by;
+	my $sort_ref;
+
+	if ($sort_by eq "tag") {
+		$sort_ref = {"_id" => 1};
+	}
+	else {
+		$sort_ref = {"count" => -1};
+		$sort_by = "count";
+	}
+
 	# groupby_tagtype
 
 	my $aggregate_count_parameters = [
@@ -1614,7 +1635,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		{"\$match" => $query_ref},
 		{"\$unwind" => ("\$" . $groupby_tagtype . "_tags")},
 		{"\$group" => {"_id" => ("\$" . $groupby_tagtype . "_tags"), "count" => {"\$sum" => 1}}},
-		{"\$sort" => {"count" => -1}},
+		{"\$sort" => $sort_ref},
 		{"\$skip" => $skip},
 		{"\$limit" => $limit}
 	];
@@ -1623,16 +1644,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		$aggregate_parameters = [
 			{"\$match" => $query_ref},
 			{"\$group" => {"_id" => ("\$creator"), "count" => {"\$sum" => 1}}},
-			{"\$sort" => {"count" => -1}}
-		];
-	}
-
-	if (($groupby_tagtype eq 'nutrition_grades') or ($groupby_tagtype eq 'nova_groups')) {
-		$aggregate_parameters = [
-			{"\$match" => $query_ref},
-			{"\$unwind" => ("\$" . $groupby_tagtype . "_tags")},
-			{"\$group" => {"_id" => ("\$" . $groupby_tagtype . "_tags"), "count" => {"\$sum" => 1}}},
-			{"\$sort" => {"_id" => 1}}
+			{"\$sort" => $sort_ref}
 		];
 	}
 
@@ -1757,12 +1769,18 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		}
 	}
 
-	return $results;
+	return ($results, $sort_by);
 }
 
 sub display_list_of_tags ($request_ref, $query_ref) {
 
-	my $results = query_list_of_tags($request_ref, $query_ref);
+	my ($results, $sort_by) = query_list_of_tags($request_ref, $query_ref);
+
+	# Column that will be sorted by using JS
+	my $sort_order = '[[ 1, "desc" ]]';
+	if ($sort_by eq "tag") {
+		$sort_order = '[[ 0, "asc" ]]';
+	}
 
 	my $html = '';
 	my $html_pages = '';
@@ -1886,6 +1904,15 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			$log->debug("missing_property defined", {missing_property => $missing_property});
 		}
 
+		# display_percent parameter: display the percentage of products for each tag
+		# This is useful only for tags that have unique values like Nutri-Score and Eco-Score
+		my $display_percent = single_param("display_percent");
+		foreach my $tagcount_ref (@tags) {
+			my $count = $tagcount_ref->{count};
+			$stats{all_tags}++;
+			$stats{all_tags_products} += $count;
+		}
+
 		foreach my $tagcount_ref (@tags) {
 
 			$i++;
@@ -1906,9 +1933,6 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			}
 
 			$products{$tagid} = $count;
-
-			$stats{all_tags}++;
-			$stats{all_tags_products} += $count;
 
 			my $link;
 			my $products = $count;
@@ -2069,7 +2093,8 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 					. $grade
 					. "\" title=\"$Lang{nutrition_grade_fr_alt}{$lc} "
 					. $grade
-					. "\" style=\"max-height:80px;\">";
+					. "\" style=\"max-height:80px;\"> "
+					. $grade;
 			}
 			elsif ($tagtype eq 'ecoscore') {
 				my $grade;
@@ -2088,7 +2113,8 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 					. $grade
 					. "\" title=\"$Lang{ecoscore}{$lc} "
 					. $grade
-					. "\" style=\"max-height:80px;\">";
+					. "\" style=\"max-height:80px;\"> "
+					. $grade;
 			}
 			elsif ($tagtype eq 'nova_groups') {
 				if ($tagid =~ /^en:(1|2|3|4)/) {
@@ -2113,10 +2139,20 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 				$display = display_tag_name($tagtype, $display);
 			}
 
+			# Display the percent of products for each tag
+			my $percent = '';
+			if (($display_percent) and ($stats{all_tags})) {
+				$percent = ' (' . sprintf("%2.2f", $products / $stats{all_tags_products} * 100) . '%)';
+			}
+
 			$css_class =~ s/^\s+|\s+$//g;
 			$info .= ' class="' . $css_class . '"';
 			$html .= "<a href=\"$tag_link\"$info$nofollow>" . $display . "</a>";
-			$html .= "</td>\n<td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
+			$html
+				.= "</td>\n<td style=\"text-align:right\"><a href=\"$tag_link\"$info$nofollow>${products}${percent}</a></td>"
+				. $td_nutriments
+				. $extra_td
+				. "</tr>\n";
 
 			my $tagentry = {
 				id => $tagid,
@@ -2408,7 +2444,7 @@ oTable = \$('#tagstable').DataTable({
 		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
 	},
 	paging: false,
-	order: [[ 1, "desc" ]],
+	order: $sort_order,
 	columns: [
 		null,
 		{"searchable": false} $extra_column_searchable
@@ -2436,7 +2472,7 @@ HEADER
 
 sub display_list_of_tags_translate ($request_ref, $query_ref) {
 
-	my $results = query_list_of_tags($request_ref, $query_ref);
+	my ($results, $sort_by) = query_list_of_tags($request_ref, $query_ref);
 
 	my $html = '';
 	my $html_pages = '';
@@ -4000,7 +4036,7 @@ HTML
 			if (defined $user_or_org_ref) {
 
 				if ($user_or_org_ref->{name} ne '') {
-					$title = $user_or_org_ref->{name} || $tagid;
+					$title = $user_or_org_ref->{name};
 					$display_tag = $user_or_org_ref->{name};
 				}
 
@@ -4170,7 +4206,7 @@ HTML
 		else {
 			my $field_name = $tag_ref->{tagtype} . "_tags";
 			my $current_value = param($field_name);
-			my $new_value = ($tag_ref->{tag_prefix} || '') . ($tag_ref->{canon_tagid} || $tag_ref->{tagid});
+			my $new_value = ($tag_ref->{tag_prefix} // '') . ($tag_ref->{canon_tagid} // $tag_ref->{tagid});
 			if ($current_value) {
 				$new_value = $current_value . ',' . $new_value;
 			}
@@ -4529,10 +4565,12 @@ my %ignore_params = (
 	no_count => 1,
 );
 
-# Parameters that can be query filters
+# Parameters that can be query filters passed as parameters
+# (GET query parameters, POST JSON body or from url facets),
+# in addition to tags fields.
 # It is safer to use a positive list, instead of just the %ignore_params list
 
-my %valid_params = (code => 1,);
+my %valid_params = (code => 1, creator => 1);
 
 sub add_params_to_query ($request_ref, $query_ref) {
 
@@ -4616,6 +4654,10 @@ sub add_params_to_query ($request_ref, $query_ref) {
 						}
 						else {
 							$tagid2 = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag2));
+							# EU packager codes are normalized to have -ec at the end
+							if ($tagtype eq 'emb_codes') {
+								$tagid2 =~ s/-($ec_code_regexp)$/-ec/ie;
+							}
 						}
 						push @tagids, $tagid2;
 					}
@@ -4643,6 +4685,10 @@ sub add_params_to_query ($request_ref, $query_ref) {
 					}
 					else {
 						$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
+						# EU packager codes are normalized to have -ec at the end
+						if ($tagtype eq 'emb_codes') {
+							$tagid =~ s/-($ec_code_regexp)$/-ec/ie;
+						}
 					}
 					$log->debug("add_params_to_query - tags param - single value",
 						{field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagid => $tagid})
@@ -4661,6 +4707,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 							)
 						)
 						and ($tagtype !~ /^pnns_groups_/)
+						and ($tagtype ne "creator")
 						)
 					{
 						if ($not) {
@@ -7093,8 +7140,8 @@ sub display_page ($request_ref) {
 	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
 	$template_data_ref->{css_timestamp} = $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
 	$template_data_ref->{header} = $header;
-	$template_data_ref->{page_type} = $request_ref->{page_type} || "other";
-	$template_data_ref->{page_format} = $request_ref->{page_format} || "normal";
+	$template_data_ref->{page_type} = $request_ref->{page_type} // "other";
+	$template_data_ref->{page_format} = $request_ref->{page_format} // "normal";
 
 	if ($request_ref->{schema_org_itemtype}) {
 		$template_data_ref->{schema_org_itemtype} = $request_ref->{schema_org_itemtype};
@@ -7272,7 +7319,7 @@ sub display_page ($request_ref) {
 	# Replace urls for texts in links like <a href="/ecoscore"> with a localized name
 	$html =~ s/(href=")(\/[^"]+)/$1 . url_for_text($2)/eg;
 
-	my $status_code = $request_ref->{status_code} || 200;
+	my $status_code = $request_ref->{status_code} // 200;
 
 	my $http_headers_ref = {
 		'-status' => $status_code,
@@ -10532,7 +10579,7 @@ sub display_structured_response ($request_ref) {
 			= "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
 			. $xs->XMLout($request_ref->{structured_response});  # noattr -> force nested elements instead of attributes
 
-		my $status_code = $request_ref->{status_code} || "200";
+		my $status_code = $request_ref->{status_code} // "200";
 		write_cors_headers();
 		print header(
 			-status => $status_code,
@@ -10559,7 +10606,7 @@ sub display_structured_response ($request_ref) {
 			$jsonp = single_param('callback');
 		}
 
-		my $status_code = $request_ref->{status_code} || 200;
+		my $status_code = $request_ref->{status_code} // 200;
 
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;

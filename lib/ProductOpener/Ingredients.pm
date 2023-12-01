@@ -144,8 +144,9 @@ use Data::DeepAccess qw(deep_get deep_exists);
 # U+204D "⁍" (Black Rightwards Bullet)
 # U+2219 "∙" (Bullet Operator )
 # U+22C5 "⋅" (Dot Operator)
+# U+30FB "・" (Katakana Middle Dot)
 my $middle_dot
-	= qr/(?: \N{U+00B7} |\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5})/i;
+	= qr/(?: \N{U+00B7} |\N{U+2022}|\N{U+2023}|\N{U+25E6}|\N{U+2043}|\N{U+204C}|\N{U+204D}|\N{U+2219}|\N{U+22C5}|\N{U+30FB})/i;
 
 # Unicode category 'Punctuation, Dash', SWUNG DASH and MINUS SIGN
 my $dashes = qr/(?:\p{Pd}|\N{U+2053}|\N{U+2212})/i;
@@ -353,9 +354,27 @@ my %abbreviations = (
 
 	fr => [["vit.", "Vitamine"], ["Mat. Gr.", "Matières Grasses"],],
 
-	hr => [["temp.", "temperaturi"], ["regul. kisel.", "regulator kiselosti"], ["reg. kis.", "regulator kiselosti"],],
+	hr => [
+		["temp.", "temperaturi"],
+		["konc.", "koncentrirani"],
+		["m.m.", "mliječne masti"],
+		["regul. kisel.", "regulator kiselosti"],
+		["reg. kis.", "regulator kiselosti"],
+		["sv.", "svinjsko"],
+		["zgrud.", "zgrudnjavanja"],
+	],
 
-	nb => [["bl. a.", "blant annet"], ["inkl.", "inklusive"], ["papr.", "paprika"],],
+	nb => [
+		["bl. a.", "blant annet"],
+		["inkl.", "inklusive"],
+		["papr.", "paprika"],
+		["fullherdet kokos - og rapsolje", "fullherdet kokosolje og fullherdet rapsolje"],
+		["kons.middel", "konserveringsmiddel"],
+		["surhetsreg.midde", "surhetsregulerende middel"],
+		["mod.", "modifisert"],
+		["fort.middel", "fortykningsmiddel"],
+		["veg.", "vegetabilsk"],
+	],
 
 	ru => [
 		["в/с", "высшего сорта"],    # or "высший сорт". = top grade, superfine. applied to flour.
@@ -464,8 +483,10 @@ my %and_or = (
 	es => " y | e | o | y/o | y / o ",
 	fi => " ja | tai | ja/tai | ja / tai ",
 	fr => " et | ou | et/ou | et / ou ",
+	hr => " i | ili | i/ili | i / ili ",
 	is => " og | eða | og/eða | og / eða ",
 	it => " e | o | e/o | e / o",
+	ja => "又は",    # or
 	nl => " en/of | en / of ",
 	nb => " og | eller | og/eller | og / eller ",
 	pl => " i | oraz | lub | albo ",
@@ -768,7 +789,7 @@ my %prepared_with = (
 	da => "fremstillet af",
 	es => "elabora con",
 	fr => "(?:(?:é|e)labor(?:é|e)|fabriqu(?:é|e)|pr(?:é|e)par(?:é|e)|produit)(?:e)?(?:s)? (?:avec|à partir)",
-	hr => "proizvedeno od",
+	hr => "(?:proizvedeno od|sadrži)",
 	nl => "bereid met",
 	sv => "är",
 );
@@ -1060,7 +1081,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		en => "(?:(?:$minimum_or_total) )?content",
 		es => "contenido(?: (?:$minimum_or_total))",
 		fr => "(?:teneur|taux)(?: (?:$minimum_or_total))?(?: en)?",   # need to have " en" as it's not in the $of regexp
-		hr => "ukupni(?: udio)?",
+		hr => "ukupni(?: udio)?|udio",
 		sv => "(?:(?:$minimum_or_total) )?mängd",
 	);
 	my $content_of_ingredient = $content_of_ingredient{$ingredients_lc};
@@ -1898,15 +1919,13 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 					# e.g. (Contains milk.) -> Contains milk.
 					$between =~ s/(\s|\.)+$//;
 
-					$debug_ingredients and $log->debug("found sub-ingredients", {between => $between, after => $after})
+					$debug_ingredients and $log->debug("parse_ingredients_text - sub-ingredients found: $between")
 						if $log->is_debug();
 
 					# percent followed by a separator, assume the percent applies to the parent (e.g. tomatoes)
 					# tomatoes (64%, origin: Spain)
 					# tomatoes (145g per 100g of finished product)
-
 					if (($between =~ $separators) and ($` =~ /^$percent_or_quantity_regexp$/i)) {
-
 						$percent_or_quantity_value = $1;
 						$percent_or_quantity_unit = $2;
 						# remove what is before the first separator
@@ -1924,10 +1943,20 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 					# sel marin (France, Italie)
 					# -> if we have origins, put "origins:" before
-					if (    ($between =~ $separators)
-						and (exists_taxonomy_tag("origins", canonicalize_taxonomy_tag($ingredients_lc, "origins", $`))))
+					if (
+						(
+							($between =~ /$separators|$and/)
+							and (
+								exists_taxonomy_tag(
+									"origins", canonicalize_taxonomy_tag($ingredients_lc, "origins", $`)
+								)
+							)
+						)
+						or ($between =~ /産|製造/)
+						)
 					{
-						$between =~ s/^(.*?$separators)/origins:$1/;
+						# prepend "origins:" in the beginning of the text, that will be reused below
+						$between = "origins:" . $between;
 					}
 
 					$debug_ingredients and $log->debug(
@@ -1940,59 +1969,82 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 						}
 					) if $log->is_debug();
 
-					# : is in $separators but we want to keep "origine : France" or "min : 23%"
 					if (    ($between =~ $separators)
 						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
 						and ($between !~ /^$percent_or_quantity_regexp$/i))
 					{
 						$between_level = $level + 1;
-						$debug_ingredients and $log->debug("between contains a separator", {between => $between})
-							if $log->is_debug();
+						$log->debug(
+							"parse_ingredients_text - sub-ingredients: between contains a separator and is not origin nor has percent",
+							{between => $between}
+						) if $log->is_debug();
 					}
 					else {
 						# no separator found : 34% ? or single ingredient
-						$debug_ingredients
-							and $log->debug("between does not contain a separator", {between => $between})
-							if $log->is_debug();
+						$log->debug(
+							"parse_ingredients_text - sub-ingredients: between does not contain a separator or is origin or is percent",
+							{between => $between}
+						) if $log->is_debug();
 
 						if ($between =~ /^$percent_or_quantity_regexp(?:$per_100g_regexp)?$/i) {
 
 							$percent_or_quantity_value = $1;
 							$percent_or_quantity_unit = $2;
-							$debug_ingredients
-								and $log->debug(
-								"between is a percent",
+							$log->debug(
+								"parse_ingredients_text - sub-ingredients: between is a percent",
 								{
 									between => $between,
 									percent_or_quantity_value => $percent_or_quantity_value,
 									percent_or_quantity_unit => $percent_or_quantity_unit
 								}
-								) if $log->is_debug();
+							) if $log->is_debug();
 							$between = '';
 						}
 						else {
 							# label? (organic)
 							# origin? (origine : France)
+							$log->debug("parse_ingredients_text - sub-ingredients: label? origin? ($between)")
+								if $log->is_debug();
 
 							# try to remove the origin and store it as property
 							if ($between
-								=~ /\s*(de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.*)$/i
+								=~ /\s*(?:de origine|d'origine|origine|origin|origins|alkuperä|ursprung|oorsprong)\s?:?\s?\b(.*)$/i
 								)
 							{
+								$log->debug("parse_ingredients_text - sub-ingredients: contains origin in $between")
+									if $log->is_debug();
+
 								$between = '';
-								my $origin_string = $2;
+								# rm first occurence (origin:)
+								my $origin_string = $1;
+
+								# rm additional parenthesis and its content that are sub-ingredient of origing (not parsed for now)
+								# example: "トマト (輸入又は国産 (未満 5%))"" (i.e., "Tomatoes (imported or domestically produced (less than 5%)))"")
+								$origin_string =~ s/\s*\([^)]*\)//g;
+
+								if ($ingredients_lc eq 'ja') {
+									# rm all occurences at the end of words (ブラジル産、エチオピア産)
+									$origin_string =~ s/(産|製造)//g;
+									# remove "and more" その他
+									$origin_string =~ s/(?: and )?その他//g;
+								}
+
 								# d'origine végétale -> not a geographic origin, add en:vegan
 								if ($origin_string =~ /vegetal|végétal/i) {
 									$vegan = "en:yes";
 									$vegetarian = "en:yes";
 								}
 								else {
+
 									$origin = join(",",
 										map {canonicalize_taxonomy_tag($ingredients_lc, "origins", $_)}
-											split(/,/, $origin_string));
+											split(/$commas|$and/, $origin_string));
 								}
 							}
 							else {
+								$log->debug(
+									"parse_ingredients_text - sub-ingredients: origin not explicitly written in: $between"
+								) if $log->is_debug();
 
 								# origins:   Fraise (France)
 								my $originid = canonicalize_taxonomy_tag($ingredients_lc, "origins", $between);
@@ -2003,6 +2055,9 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 										$log->debug("between is an origin", {between => $between, origin => $origin})
 										if $log->is_debug();
 									$between = '';
+									$log->debug(
+										"parse_ingredients_text - sub-ingredients: between is an origin: $between")
+										if $log->is_debug();
 								}
 								# put origins first because the country can be associated with the label "Made in ..."
 								# Skip too short entries (1 or 2 letters) to avoid false positives
@@ -2531,6 +2586,8 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 								'^u tragovima$',    # in traces
 								'čokolada sadrži biljne masnoće uz kakaov maslac'
 								,    #  Chocolate contains vegetable fats along with cocoa butter
+								'minimalno \d{1,3}\s*% mliječne masti i do \d{1,3}\s*% vode'
+								,    # minimum 82% milk fat and up to 16% water
 								'može imati štetno djelovanje na aktivnosti pažnju djece'
 								,    # can have a detrimental effect on children's attention activities (E122)
 								'označene podebljano',    # marked in bold
@@ -2545,7 +2602,11 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 							'it' => ['^in proporzion[ei] variabil[ei]$',],
 
-							'nb' => ['^Pakket i beskyttende atmosfære$',],
+							'ja' => [
+								'その他',    # etc.
+							],
+
+							'nb' => ['^Pakket i beskyttende atmosfære$', '^Minst \d+ ?% kakao',],
 
 							'nl' => [
 								'^allergie.informatie$', 'in wisselende verhoudingen',
@@ -4456,13 +4517,11 @@ my %phrases_after_ingredients_list = (
 	cs => ['doporučeny způsob přípravy', 'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',],
 
 	da => [
-		'(?:gennemsnitlig )?n(æ|ae)rings(?:indhold|værdi|deklaration)',
-		'tilberedning(?:svejledning)?',
-		'holdbarhed efter åbning',
-		'opbevar(?:ing|res)?',
-		'(?:for )?allergener',
-		'produceret af',
-		'beskyttes', 'nettovægt', 'åbnet',
+		'(?:gennemsnitlig )?n(æ|ae)rings(?:indhold|værdi|deklaration)', 'beskyttes',
+		'nettovægt', 'åbnet',
+		'holdbarhed efter åbning', 'mindst holdbar til',
+		'opbevar(?:ing|res)?', '(?:for )?allergener',
+		'produceret af', 'tilberedning(?:svejledning)?',
 	],
 
 	de => [
@@ -4670,16 +4729,16 @@ my %phrases_after_ingredients_list = (
 	is => ['n(æ|ae)ringargildi', 'geymi(st|ð) á', 'eftir opnum', 'aðferð',],
 
 	it => [
-		'valori nutrizionali',
-		'consigli per la preparazione',
-		'di cui zuccheri',
-		'Valori nutritivi',
 		'Conservare in luogo fresco e asciutto',
+		'consigli per la preparazione',
+		'Da consumarsi',    # best before
+		'di cui zuccheri',
 		'MODALITA D\'USO',
 		'MODALITA DI CONSERVAZIONE',
 		'Preparazione:',
 		'Una volta aperto',    # once opened...
-		'Da consumarsi preferibilmente entro',    # best before
+		'Valori nutritivi',
+		'valori nutrizionali',
 	],
 
 	ja => [
@@ -4700,7 +4759,7 @@ my %phrases_after_ingredients_list = (
 		'Да се чува на темно место и на температура до',    # Store in a dark place at a temperature of up to
 	],
 
-	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnhold', 'kjølevare',],
+	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnh[oa]ld', 'kjølevare',],
 
 	nl => [
 		'Beter Leven keurmerk 1 ster.',
@@ -5328,10 +5387,45 @@ my %ingredients_categories_and_types = (
 			categories => ["sirevi",],
 			types => ["polutvrdi", "meki",]
 		},
+		# coffees
+		{
+			categories => ["kave",],
+			types => ["arabica", "robusta",]
+		},
+		# concentrated (juice)
+		{
+			categories =>
+				["koncentrat soka", "koncentrati", "koncentrirane kaše", "koncentrirani sok od", "ugośćeni sok",],
+			types => [
+				"banana", "biljni", "breskva", "cikle", "crne mrkve", "crnog korijena",
+				"guava", "hibiskusa", "jabuka", "limuna", "mango", "naranče",
+				"voćni",
+			]
+		},
+		# falvouring
+		{
+			categories => ["prirodna aroma", "prirodne arome",],
+			types => ["citrusa sa ostalim prirodnim aromama", "limuna", "mente", "mente s drugim prirodnim aromama",]
+		},
+		# flours
+		{
+			categories => ["brašno",],
+			types => ["pšenično bijelo tip 550", "pšenično polubijelo tip 850", "pšenično",]
+		},
+		# leaves
+		{
+			categories => ["list",],
+			types => ["gunpowder", "Camellia sinensis", "folium",]
+		},
 		# malts
 		{
 			categories => ["slad",],
 			types => ["ječmeni", "pšenični",]
+		},
+		# meats
+		{
+			categories => ["meso",],
+			types => ["svinjsko", "goveđe",]
 		},
 		# milk
 		{
@@ -5340,9 +5434,22 @@ my %ingredients_categories_and_types = (
 		},
 		# oils and fats
 		{
-			categories => ["biljna mast", "biljne masti", "biljna ulja",],
-			types => ["palmina", "palmine", "repičina", "repičino", "suncokretovo",]
+			categories => ["biljna mast", "biljna ulja", "biljne masti", "ulja",],
+			types => [
+				"koskos", "kukuruzno u različitim omjerima",
+				"palma", "palmina", "palmine", "repičina", "repičino", "sojino", "suncokretovo",
+			]
 		},
+		# seeds
+		{
+			categories => ["sjemenke",],
+			types => ["lan", "suncokret",]
+		},
+		# starchs
+		{
+			categories => ["škrob",],
+			types => ["kukuruzni", "krumpirov",]
+		}
 	],
 
 	pl => [
