@@ -1384,9 +1384,6 @@ while (my $product_ref = $cursor->next) {
 				# Set last modified time
 				$product_ref->{last_modified_t} = time() + 0;
 
-				# Send to redis
-				push_to_redis_stream('update_all_products', $product_ref, "updated", $comment, {});
-
 				if (!$mongodb_to_mongodb) {
 					# Store data to .sto file
 					store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
@@ -1412,6 +1409,9 @@ while (my $product_ref = $cursor->next) {
 					$products_collection->delete_one({"_id" => $product_ref->{_id}});
 					$fix_obsolete_fixed++;
 				}
+
+				# Send to redis
+				push_to_redis_stream('update_all_products', $product_ref, "updated", $comment, {});
 			}
 
 			$n++;
