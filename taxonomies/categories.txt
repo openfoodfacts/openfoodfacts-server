@@ -49717,7 +49717,15 @@ zh:咖啡甜品, 咖啡甜点
 
 <en:Plant-based spreads
 <en:Fruits based foods
+en:Relish
+xx:Relish
+intake24_category_code:en:RLSH
+
+
+<en:Relish
 en:Chutneys
+xx:Chutneys
+intake24_category_code:en:CHTN
 
 <en:Chutneys
 en:Shelf-stable Chutneys
@@ -64580,10 +64588,24 @@ pt:Condimentos
 zh:调味品, 调料
 #ru:Вкусовые добавки, Приправы, Пряности
 wikidata:en:Q773108
+intake24_category_code:en:COND
 gpc_category_code:en:10006214
 gpc_category_name:en:Extracts/Seasonings/Flavour Enhancers (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a liquid, paste, powder, granules or solid made from evaporation that is added to season or flavour food or beverages. Products specifically include beverage flavour enhancers where the expected benefit is the ability to accurately represent a shot of flavour (such as French vanilla, chocolate, lime, orange, cherry, caramel, etc.) to be added to hot or cold beverages. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as single or pure Perishable or Shelf Stable Herbs and Spices, Gravy Browning, Soup Mixes, Powdered Beverages and Meat Tenderisers.
 
+<en:Condiments
+en:Gravy
+xx:Gravy
+ar:جريفي
+de:Bratensauce
+fr:Sauce au jus de viande
+it:Salsa gravy
+nl:Jus
+pl:Jus
+pt:Molho de carne
+ru:Подливка
+sv:Sky
+intake24_category_code:en:CUBE
 
 <en:Condiments
 en:Comdiments variety packs
@@ -68138,7 +68160,7 @@ wikidata:en:Q1363716
 
 
 <en:Sauces
-en:Salad dressings, dressings, Salad sauce
+en:Salad dressings, dressings, Salad sauce, Salad creams
 ca:Amaniments, Salses per amanides
 de:Salatsoßen, Salatsoße, Salatsaucen, Salatsauce
 es:Aderezos para ensaladas
@@ -68155,6 +68177,7 @@ ciqual_food_code:en:11187
 ciqual_food_name:en:Salad dressing, prepacked
 ciqual_food_name:fr:Sauce crudités ou Sauce salade, préemballée
 wikidata:en:Q1572278
+intake24_category_code:en:SDCM
 
 <en:Salad dressings
 en:Salad dressing with reduced fat, Low fat salad dressing, Light salad dressing
@@ -68220,7 +68243,7 @@ lt:Cezario padažai
 #wikidata:en:
 
 <en:Sauces
-en:Mustard sauce
+en:Mustard, sauces, Mustard sauce
 de:Senfsoßen
 es:Salsa de mostaza
 fr:Sauces moutarde
@@ -68251,6 +68274,7 @@ ciqual_food_code:en:11100
 ciqual_food_name:en:Barbecue sauce, prepacked
 ciqual_food_name:fr:Sauce barbecue, préemballée
 wikidata:en:Q807791
+intake24_category_code:en:BBFS
 
 <en:Sauces
 en:Mint sauces
@@ -68621,7 +68645,7 @@ nl:Groene sauzen
 wikidata:en:Q699382
 
 <en:Sauces
-en:Hot sauces, Chili sauces, Pimented sauces
+en:Hot sauces, Chili sauces, Pimented sauces, Chilli sauces
 de:Scharfe Saucen, Chilisaucen, Chili Saucen, Scharfe Sauce, Piment Soßen
 es:Salsas de chiles, Salsas picadas
 fi:Tuliset kastikkeet
@@ -68634,6 +68658,7 @@ lt:Aštrūs padažai, Čili padažai
 nl:Chilisauzen, Pikante sauzen
 tr:Acı sos
 wikidata:en:Q522171
+intake24_category_code:en:CHIS
 
 <en:Hot sauces
 en:Sriracha sauces
@@ -68711,7 +68736,7 @@ wikidata:en:Q167893
 agribalyse_proxy_food_code:en:11054
 agribalyse_proxy_food_name:en:Mayonnaise (70% fat and more)
 agribalyse_proxy_food_name:fr:Mayonnaise (70% MG min.)
-# TODO For some reason, Mayonnaises still appear unknown
+intake24_category_code:en:MAYN
 gpc_category_code:en:10006319
 gpc_category_name:en:Mayonnaise/Mayonnaise Substitutes (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a Mayonnaise or Mayonnaise Substitute, which is usually used to enhance the flavour, appearance and texture of savoury foods. These products can be blended with other ingredients. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Specifically excludes Mustard/Mustard Substitutes and other Sauces Dipping/Condiments/Savoury Spreads/ Marinades, Ketchup/Ketchup Substitutes. Excludes products such as Cooking Sauces; Dressings and Dips; Frozen and Perishable Sauces Dipping, Condiments, Savoury Toppings, Savoury Spreads and Marinades.
@@ -68824,6 +68849,7 @@ agribalyse_food_code:en:11013
 ciqual_food_code:en:11013
 ciqual_food_name:en:Mustard
 ciqual_food_name:fr:Moutarde
+intake24_category_code:en:MTRD
 gpc_category_code:en:10006322
 gpc_category_name:en:Mustard (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a mustard sauce, which is usually used to enhance the flavour, appearance and texture of savoury foods. These products can be blended with other ingredients. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Specifically excludes Tomato Ketchup/Ketchup Substitutes and other Sauces Dipping/Condiments/Savoury Spreads/ Marinades, Mayonnaise/Mayonnaise Substitutes. Excludes products such as Cooking Sauces; Dressings and Dips; Frozen and Perishable Sauces Dipping, Condiments, Savoury Toppings, Savoury Spreads and Marinades.
@@ -86698,6 +86724,7 @@ th:ผักดอง
 tr:Turşu
 food_groups:en: en:Salty and fatty products
 pnns_group_2:en:Salty and fatty products
+intake24_category_code:en:SWTP
 
 <en:Pickles
 en:Pickles - Relishes - Chutneys - Olives variety pack
@@ -91784,6 +91811,7 @@ ja:ディップ
 nl:Dipsauzen
 ru:провалы
 wikidata:en:Q2046560
+intake24_category_code:en:DIPS
 
 <en:Sauces
 en:Hoisin sauces
@@ -93176,6 +93204,7 @@ fr:Bruschetta de tomates
 
 <en:Plant-based spreads
 <en:Onions and their products
+<en:Chutneys
 en:Onion chutneys
 de:Zwiebelchutneys
 es:Cebolla caramelizada, Cebolla confitada
@@ -100384,6 +100413,7 @@ agribalyse_food_code:en:11018
 ciqual_food_code:en:11018
 ciqual_food_name:en:Vinegar
 ciqual_food_name:fr:Vinaigre
+intake24_category_code:en:VNGR 
 gpc_category_code:en:10000051
 gpc_category_name:en:Vinegars
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a liquid, made from acetic acid derived from the fermentation of alcohol, mixed with water, and used as a flavouring, preservative, or condiment for savoury foods. Products include all varieties of vinegar, such as malt, red wine, white wine and balsamic. Definition Excludes: Excludes products such as Cooking Wines.
