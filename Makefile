@@ -305,6 +305,10 @@ update_tests_results: build_lang_test
 	${DOCKER_COMPOSE_TEST} stop
 
 bash:
+	@echo "🥫 Open a bash shell in the backend container"
+	${DOCKER_COMPOSE} run --rm -w /opt/product-opener backend bash
+
+bash_test:
 	@echo "🥫 Open a bash shell in the test container"
 	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener backend bash
 
