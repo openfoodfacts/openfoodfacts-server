@@ -224,6 +224,7 @@ hu:18 hónapos kortól, Egy és fél éves kortól
 it:Dal 18mo mese, Dal diciottesimo mese, A partire dal diciottesimo mese, A partire dal 18mo mese
 lt:Nuo 18 mėnesių
 nl:Vanaf 18 maanden, Vanaf 18 maand
+intake24_category_code:en:19TODSFD 
 
 <en:Baby foods
 en:From 24 months
@@ -302,7 +303,6 @@ en:Specialised baby drinks
 gpc_category_code:en:10000105
 gpc_category_name:en:Baby/Infant - Specialised Beverages (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a beverage specifically labelled and marketed for a baby or infant. These products have been treated or packaged in such a way as to extend their consumable life. Includes juice, juice drinks, nursery water and dairy based drinks. Definition Excludes: Excludes products such as Formula, Baby and Infant Food, Adult variants of the above.
-
 
 <en:Baby drinks
 en:Plant-based beverage for baby
@@ -75803,7 +75803,7 @@ ru:Готовые салаты
 es:Ensalada rusa
 it:Insalata russa
 wikidata:en:Q281278
-
+e
 <en:Prepared salads
 en:Buddha Bowl
 fr:Buddha Bowl
@@ -92079,6 +92079,7 @@ agribalyse_proxy_food_code:en:31024
 ciqual_proxy_food_code:en:31024
 ciqual_proxy_food_name:en:Jam, strawberry
 ciqual_proxy_food_name:fr:Confiture de fraise (extra ou classique)
+intake24_category_code:en:JAMS
 
 <en:Jams
 en:Shelf-stable jams
@@ -92906,6 +92907,7 @@ pt:Creme para barrar de chocolate
 ru:Шоколадные пасты
 tr:Ekmeğe sürülen çikolata, Sürülebilir çikolata
 wikidata:en:Q1754566
+intake24_category_code:en:CHOS
 
 <fr:Pâtes à tartiner
 en:Almond spreads, almonds spreads
@@ -92957,7 +92959,7 @@ fr:Pâtes à tartiner au caroube
 nl:Carobepastas, Johannesbroodboomvruchtenpastas
 
 <en:Spreads
-en:Salted spreads, salty spreads
+en:Salted spreads, salty spreads, savoury spreads
 bg:Солен крем за мазане
 ca:Productes salats per untar
 de:Gesalzene Aufstriche, salzige Aufstriche
@@ -92972,8 +92974,9 @@ pl:Słone smarowidła, słone pasty do smarowania
 pt:Produtos salgados para barrar
 food_groups:en: en:Salty and fatty products
 pnns_group_2:en:Salty and fatty products
+intake24_category_code:en:PATE
 
-# This product is really popular in Belgium were it is called "Salade d'oeufs". Please don't put in the category "Prepared salads", because it is a spread not a meal
+# This product is really popular in Belgium & Netherlands were it is called "Salade d'oeufs". Please don't put in the category "Prepared salads", because it is a spread not a meal
 <en:Salted spreads
 en:Egg salads, Egg spreads
 lt:Salotos su kiaušiniais
@@ -106306,6 +106309,7 @@ ciqual_food_code:en:8332
 ciqual_food_name:en:Paté (average)
 ciqual_food_name:fr:Pâté (aliment moyen)
 wikidata:en:Q816704
+intake24_category_code:en:PTES
 
 <en:Pâté
 en:Refrigerated Pâtés
