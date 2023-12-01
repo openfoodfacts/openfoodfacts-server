@@ -1201,7 +1201,6 @@ span.ico-bold {
   @include button(10, $white);
 }
 
-$section-blue: #6d85d9;
 $section-cyan: #008c8c;
 $section-sand: #FFFAF1;
 $background-orange: #FF8714;
@@ -1214,47 +1213,33 @@ $font-green: #008c8c;
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  padding: 1.5rem 1rem; 
+  padding: .5rem 2rem; 
   width: 100%;
   gap: 1rem;
   background-color: $section-sand;
   @media #{$small-only} {
     flex-direction: column;
-    padding: 1rem 0;
+    padding: 1rem;
   }
   &__close {
     position: absolute;
     top: .3rem;
     right: .3rem;
-  }
-  &__logo {
-    position: absolute;
-    bottom: -20px;
-    left: -15px;
-    background-image: url(/images/illustrations/half-logo.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 75px;
-    height: 75px;
-    @media #{$small-only} {
-      width: 50px;
-      height: 50px;
-      bottom: -15px;
-      left: -10px;
-    }
+    cursor: pointer;
   }
   &__hand {
     position: absolute;
     transform: rotate(80deg);
-    top: -40px;
-    right: 45%;
+    bottom: -40px;
+    left: 40%;
     background-image: url(/images/illustrations/donate-hearth.svg);
     background-repeat: no-repeat;
     background-size: contain;
     width: 100px;
     height: 100px;
+    transform: rotate(10deg);
     @media #{$small-only} {
-      display: none;
+      left: 65%;
     }
   }
   &__content {
@@ -1265,16 +1250,24 @@ $font-green: #008c8c;
     padding: 1rem;
   }
   &__main-text {
-    display: inline-block;
-    text-transform: uppercase;
-    font-size: 38px;
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
-    background-color: $background-orange;
-    border-radius: 5px;
-    color: $white;
-    padding: 1rem;
-    margin-bottom: 2rem;
+    span {
+      background-color: $background-orange;
+      text-transform: uppercase;
+      color: $white;
+      font-size: 30px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      border-radius: 5px;
+      padding: .7rem .5rem;
+      margin-bottom: 1rem;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      line-height: 3.3rem;
+      @media #{$small-only} {
+        font-size: 20px;
+        line-height: 2.2rem;
+      }
+    }
   }
   &__aside {
     display: flex;
@@ -1288,29 +1281,41 @@ $font-green: #008c8c;
     font-family: 'Farro', sans-serif;
   }
   &__secondary-text {
-    font-size: 16px;
+    font-size: 18px;
+    @media #{$small-only} {
+      font-size: 12px;
+    }
   }
   &__tertiary-text {
-    font-size: 13px;
+    font-size: 16px;
+    @media #{$small-only} {
+      font-size: 12px;
+    }
   }
   &__donate {
-    padding: .8rem;
+    padding: 1rem 1.7rem;
     text-transform: uppercase;
     background-color: $font-green;
     color: $white;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media #{$small-only} {
+      padding: .5rem .85rem;
+    }
     &:hover {
       opacity: 0.9;
       color: $white;
     }
   }
   &__image {
-    height: 400px;
+    height: auto;
     flex: 4;
     background-image: url(/images/misc/group_photo_2023.jpeg);
     background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+    background-size: cover;
+    background-position: center calc(50% + 30px);
   }
 }
 
