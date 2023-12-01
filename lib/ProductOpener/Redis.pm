@@ -95,7 +95,7 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 	if (!$redis_url) {
 		# off search not activated
 		if (!$sent_warning_about_missing_redis_url) {
-			$log->warn("Redis URL not provided for search indexing") if $log->is_warn();
+			$log->warn("Redis URL not provided for streaming") if $log->is_warn();
 			$sent_warning_about_missing_redis_url = 1;
 		}
 		return;
