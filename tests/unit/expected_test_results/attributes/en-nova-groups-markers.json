@@ -843,6 +843,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
          "percent_estimate" : 2.5,
          "percent_max" : "5",
@@ -946,10 +947,9 @@
       "en:cow-s-milk",
       "en:e412",
       "en:garlic-flavouring",
-      "en:microbial-culture",
-      "en:sugar"
+      "en:microbial-culture"
    ],
-   "ingredients_without_ciqual_codes_n" : 5,
+   "ingredients_without_ciqual_codes_n" : 4,
    "known_ingredients_n" : 18,
    "languages" : {},
    "languages_codes" : {},
