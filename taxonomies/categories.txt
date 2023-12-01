@@ -52180,6 +52180,8 @@ ciqual_food_name:en:Peanut butter or peanut paste
 ciqual_food_name:fr:Beurre de cacahuète ou Pâte d'arachide
 wco_hs_heading:en: 20.08
 wco_hs_code:en: 2008.11
+intake24_category_code:en:PNUT
+
 
 <en:Peanut butters
 en:Crunchy peanut butters
@@ -52393,6 +52395,7 @@ nova:en:2
 gpc_category_code:en:10000213
 gpc_category_name:en:Honey (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a sweet spreadable liquid made by honey bees from the nectar of flowers. Includes dried honey, honey spreads, honey with added ingredients and other honey bee products, such as honey bee pollen. Definition Excludes: Excludes products such as Jams, Marmalades, Confitures and Confectionery Based Spreads and Honey Substitutes.
+intake24_category_code:en:HONI
 
 <en:Honeys
 en:Honeys from Belgium, Belgian honeys
@@ -93544,6 +93547,7 @@ agribalyse_proxy_food_code:en:31016
 ciqual_proxy_food_code:en:31016
 ciqual_proxy_food_name:en:Sugar, white
 ciqual_proxy_food_name:fr:Sucre blanc
+intake24_category_code:en:SUGA
 
 <en:Sugars
 en:Brown sugars, Brown sugar
@@ -94008,9 +94012,6 @@ it:Dolcificanti da tavola
 nl:Tafelzoetstoffen
 nl_be:Tafelzoetstoffen
 
-
-#fr:Sirops et Boissons concentrées
-
 #<fr:Sirops et Boissons concentrées
 en:Syrups
 bg:Сироп
@@ -94045,7 +94046,7 @@ en:Thick syrups
 nl:Stropen
 
 <en:Thick syrups
-en:Thick sugar syrup
+en:Thick sugar syrups, Thick sugar syrup
 nl:Suikerstropen, Suikerstroop
 protected_name_file_number:en: TSG-NL-1203
 protected_name_type:en: tsg
@@ -94099,6 +94100,7 @@ he:סירופים פשוטים
 it:Sciroppi semplici
 nl:Basissiropen
 pt:Xaropes simples
+intake24_category_code:en:SYRP
 
 <en:Simple syrups
 en:Agave syrups, Agave nectars
@@ -94110,7 +94112,6 @@ fr:Sirops d'agave
 it:Sciroppi d'agave
 ja:アガベシロップ
 nl:Agavesiropen
-nl_be:Agavesiropen
 wikidata:en:Q392001
 agribalyse_food_code:en:31089
 ciqual_food_code:en:31089
@@ -94122,7 +94123,6 @@ en:Birch syrups
 es:Siropes de abedul, Melazas de abedul, Jarabes de abedul
 fr:Sirops de bouleau
 nl:Berkensiropen
-nl_be:Berkensiropen
 wikidata:en:Q3181931
 
 <en:Simple syrups
@@ -94269,6 +94269,9 @@ agribalyse_food_code:en:31067
 ciqual_food_code:en:31067
 ciqual_food_name:en:Cane molasses
 ciqual_food_name:fr:Mélasse de canne
+
+<en:Simple syrups
+en:Treacle
 
 <en:Fruits and vegetables based foods
 en:Vegetables based foods
@@ -105866,11 +105869,11 @@ nl:Chocoladehagelslag, Chocolade hagel
 wikidata:en:Q152547
 
 <en:Chocolate sprinkles
-en:Dark choclate sprinkles
+en:Dark chocolate sprinkles, Dark choclate sprinkles
 nl:Chocoladehagelslag puur, Chocolade hagel puur
 
 <en:Chocolate sprinkles
-en:Milk choclate sprinkles
+en:Milk chocolate sprinkles, Milk choclate sprinkles
 nl:Chocoladehagelslag melk, Hagelchocolade hagel melk
 
 <en:Festive foods
