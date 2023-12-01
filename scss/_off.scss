@@ -1229,7 +1229,6 @@ $font-green: #008c8c;
   }
   &__hand {
     position: absolute;
-    transform: rotate(80deg);
     bottom: -40px;
     left: 40%;
     background-image: url(/images/illustrations/donate-hearth.svg);
@@ -1237,7 +1236,6 @@ $font-green: #008c8c;
     background-size: contain;
     width: 100px;
     height: 100px;
-    transform: rotate(10deg);
     @media #{$small-only} {
       left: 65%;
     }
