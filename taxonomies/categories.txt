@@ -68291,7 +68291,7 @@ ciqual_food_code:en:11132
 ciqual_food_name:en:Curry sauce, prepacked
 ciqual_food_name:fr:Sauce au curry, préemballée
 wikidata:en:Q610794
-#sauce joppie (Q610794) - sauce à base de mayonnaise, oignons et poudre de curry
+intake24_category_code:en:CURS
 
 <en:Curry sauces
 en:Madras curry sauce
@@ -68479,6 +68479,7 @@ wikidata:en:Q58265
 
 <en:Sauces
 nl:Patatje Joppiesaussmaaksauzen
+#sauce joppie (Q610794) - sauce à base de mayonnaise, oignons et poudre de curry
 
 <en:Sauces
 en:Burger sauces, Sauce burger
@@ -68563,6 +68564,7 @@ agribalyse_food_code:en:11189
 ciqual_food_code:en:11189
 ciqual_food_name:en:Cheese sauce for risotto or pasta, prepacked
 wikidata:en:Q27972032
+intake24_category_code:en:WHTE
 
 <en:Cheese sauces
 fr:Sauces 3 fromages
@@ -69016,6 +69018,7 @@ it:Sughi per pasta
 ja:パスタソース
 lt:Padažai makaronams
 nl:Pastasauzen
+intake24_category_code:en:SAUC
 
 <en:Pasta sauces
 en:Vodka pasta sauces
@@ -69048,6 +69051,7 @@ nl:Pastasauzen met vlees
 agribalyse_food_code:en:11114
 agribalyse_food_name:en:Tomato sauce, with meat or Bolognese sauce, prepacked
 agribalyse_food_name:fr:Sauce tomate à la viande ou Sauce bolognaise, préemballée
+intake24_category_code:en:BOLS
 
 <en:Meat-based pasta sauces
 bg:Аматричана
@@ -70872,6 +70876,7 @@ wikidata:en:Q3596097
 agribalyse_proxy_food_code:en:11107
 agribalyse_proxy_food_name:en:Tomato sauce, with onions, prepacked
 agribalyse_proxy_food_name:fr:Sauce tomate aux oignons, préemballée
+intake24_category_code:en:TOMS
 # only tomato sauces with meat have very different agribalyse values
 # e.g. bolognaise sauce. those have specific agribalyse food codes
 
@@ -73074,6 +73079,8 @@ zh:汤
 ciqual_food_code:en:25969
 ciqual_food_name:en:Soup (average)
 ciqual_food_name:fr:Soupe (aliment moyen)
+intake24_category_code:en:SOUP
+ 
 
 <en:Soups
 en:Soups (prepared) (Shelf Stable)
