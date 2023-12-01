@@ -78,6 +78,7 @@ use ProductOpener::MainCountries qw(:all);
 use ProductOpener::PackagerCodes qw/:all/;
 use ProductOpener::API qw/:all/;
 use ProductOpener::LoadData qw/:all/;
+use ProductOpener::Redis qw/push_to_redis_stream/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -85,6 +86,7 @@ use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 use Data::DeepAccess qw(deep_get deep_exists deep_set);
+use Data::Compare;
 
 use Log::Any::Adapter 'TAP';
 
@@ -396,6 +398,7 @@ else {
 }
 $cursor->immortal(1);
 
+my $l = 0;    # number of products tested
 my $n = 0;    # number of products updated
 my $m = 0;    # number of products with a new version created
 
@@ -424,6 +427,7 @@ if ($prefix_packaging_tags_with_language) {
 }
 
 while (my $product_ref = $cursor->next) {
+	$l++;
 
 	# Response structure to keep track of warnings and errors
 	# Note: currently some warnings and errors are added,
@@ -440,13 +444,10 @@ while (my $product_ref = $cursor->next) {
 	}
 
 	if (not defined $code) {
-		print STDERR "code field undefined for product id: "
-			. $product_ref->{id}
-			. " _id: "
-			. $product_ref->{_id} . "\n";
+		print STDERR "\ncode field undefined for product id: " . $product_ref->{id} . " _id: " . $product_ref->{_id};
 	}
 	else {
-		print STDERR "updating product code: $code $owner_info ($n / $products_count)\n";
+		print STDERR "\nupdating product code: $code $owner_info ($l / $products_count)";
 	}
 
 	next if $just_print_codes;
@@ -457,6 +458,7 @@ while (my $product_ref = $cursor->next) {
 	}
 
 	if ((defined $product_ref) and ($productid ne '')) {
+		my $original_product = dclone($product_ref);
 
 		$lc = $product_ref->{lc};
 
@@ -1347,7 +1349,18 @@ while (my $product_ref = $cursor->next) {
 			assign_ciqual_codes($product_ref);
 		}
 
+		my $any_change = $product_values_changed;
 		if (not $pretend) {
+			if (!$any_change) {
+				# Deep compare with original (if we don't already know that a change has been made)
+				$any_change = !Compare($product_ref, $original_product);
+			}
+			if (!$any_change) {
+				print STDERR ". Skipped";
+			}
+		}
+
+		if ($any_change) {
 			$product_ref->{update_key} = $key;
 
 			# Create a new version of the product and create a new .sto file
@@ -1359,9 +1372,20 @@ while (my $product_ref = $cursor->next) {
 
 			# Otherwise, we silently update the .sto file of the last version
 			else {
-
 				# make sure nutrient values are numbers
 				ProductOpener::Products::make_sure_numbers_are_stored_as_numbers($product_ref);
+
+				# Make sure product _id and code are saved as string and not a number
+				# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
+				# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
+				$product_ref->{_id} .= '';
+				$product_ref->{code} .= '';
+
+				# Set last modified time
+				$product_ref->{last_modified_t} = time() + 0;
+
+				# Send to redis
+				push_to_redis_stream('update_all_products', $product_ref, "updated", $comment, {});
 
 				if (!$mongodb_to_mongodb) {
 					# Store data to .sto file
@@ -1369,11 +1393,6 @@ while (my $product_ref = $cursor->next) {
 				}
 
 				# Store data to mongodb
-				# Make sure product _id and code are saved as string and not a number
-				# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
-				# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
-				$product_ref->{_id} .= '';
-				$product_ref->{code} .= '';
 				my $collection = "current";
 				if ($product_ref->{obsolete}) {
 					$collection = "obsolete";
@@ -1394,15 +1413,16 @@ while (my $product_ref = $cursor->next) {
 					$fix_obsolete_fixed++;
 				}
 			}
-		}
 
-		$n++;
+			$n++;
+		}
 	}
 	else {
-		print STDERR "Unable to load product file for product code $code\n";
+		print STDERR ". Unable to load product file for product code $code";
 	}
-
 }
+
+print STDERR "\n";
 
 if ($prefix_packaging_tags_with_language) {
 
