@@ -643,6 +643,14 @@ check_quality_and_test_product_has_quality_tag(
 	'serving size cannot be parsed', 0
 );
 
+# serving size not recognized (leading to undefined serving quantity)
+$product_ref = {serving_size => "50",};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-serving-quantity-is-not-recognized',
+	'serving size is not recognized', 1
+);
+
 # percentage for ingredient is higher than 100% in extracted ingredients from the picture
 $product_ref = {
 	ingredients => [

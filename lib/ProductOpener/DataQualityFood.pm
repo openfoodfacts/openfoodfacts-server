@@ -1039,10 +1039,6 @@ sub check_nutrition_data ($product_ref) {
 			elsif ($product_ref->{serving_quantity} eq "0") {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-serving-quantity-is-0";
 			}
-			elsif ($product_ref->{serving_quantity} == 0) {
-				push @{$product_ref->{data_quality_errors_tags}},
-					"en:nutrition-data-per-serving-serving-quantity-is-not-recognized";
-			}
 		}
 	}
 
@@ -1690,6 +1686,17 @@ sub check_quantity ($product_ref) {
 		if ($product_ref->{serving_size} =~ /\d\s?mg\b/i) {
 			push @{$product_ref->{data_quality_warnings_tags}}, "en:serving-size-in-mg";
 		}
+	}
+
+	# serving size not recognized (undefined serving quantity)
+	# serving_size = 10g -> serving_quantity = 10
+	# serving_size = 10  -> serving_quantity will be undefined
+	if (    (defined $product_ref->{serving_size})
+		and ($product_ref->{serving_size} ne "")
+		and (!defined $product_ref->{serving_quantity}))
+	{
+		push @{$product_ref->{data_quality_warnings_tags}},
+			"en:nutrition-data-per-serving-serving-quantity-is-not-recognized";
 	}
 
 	return;
