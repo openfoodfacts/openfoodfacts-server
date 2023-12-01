@@ -56,6 +56,8 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
+		&parse_ingredients_text_service
+		&extend_ingredients_service
 		&estimate_ingredients_percent_service
 		&analyze_ingredients_service
 
@@ -77,7 +79,6 @@ BEGIN {
 		&extract_ingredients_classes_from_text
 		&extract_ingredients_from_text
 		&preparse_ingredients_text
-		&parse_ingredients_text_service
 
 		&flatten_sub_ingredients
 		&compute_ingredients_tags
@@ -896,8 +897,9 @@ for which we have extra information (e.g. origins from a label).
 
 sub add_properties_from_specific_ingredients ($product_ref) {
 
-	# Traverse the ingredients tree, breadth first
+	return if not defined $product_ref->{ingredients};
 
+	# Traverse the ingredients tree, breadth first
 	my @ingredients = @{$product_ref->{ingredients}};
 
 	while (@ingredients) {
@@ -2764,6 +2766,41 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 	return;
 }
 
+=head2 extend_ingredients_service ( $product_ref, $updated_product_fields_ref )
+
+After the nested ingredients structure has been built with the parse_ingredients_text_service,
+this service adds some properties to the ingredients:
+
+- Origins, labels etc. that have been extracted from other fields
+- Ciqual codes
+
+=head3 Arguments
+
+=head4 $product_ref
+
+product object reference
+
+=head4 $updated_product_fields_ref
+
+reference to a hash of product fields that have been created or updated
+
+=cut
+
+sub extend_ingredients_service ($product_ref, $updated_product_fields_ref) {
+
+	# and indicate that the service is creating the "ingredients" structure
+	$updated_product_fields_ref->{ingredients} = 1;
+
+	# Add properties like origins from specific ingredients extracted from labels or the end of the ingredients list
+	add_properties_from_specific_ingredients($product_ref);
+
+	# Add Ciqual codes
+	# Used in particular for ingredients estimation from nutrients
+	assign_ciqual_codes($product_ref);
+
+	return;
+}
+
 =head2 flatten_sub_ingredients ( product_ref )
 
 Flatten the nested list of ingredients.
@@ -2957,11 +2994,9 @@ sub extract_ingredients_from_text ($product_ref) {
 
 	if (defined $product_ref->{ingredients}) {
 
-		# Add properties like origins from specific ingredients extracted from labels or the end of the ingredients list
-		add_properties_from_specific_ingredients($product_ref);
-
-		# Obtain Ciqual codes ready for ingredients estimation from nutrients
-		assign_ciqual_codes($product_ref);
+		# - Add properties like origins from specific ingredients extracted from labels or the end of the ingredients list
+		# - Obtain Ciqual codes ready for ingredients estimation from nutrients
+		extend_ingredients_service($product_ref, {});
 
 		# Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient
 		estimate_ingredients_percent_service($product_ref, {});
@@ -3013,25 +3048,55 @@ sub extract_ingredients_from_text ($product_ref) {
 }
 
 sub assign_ciqual_codes ($product_ref) {
+
+	return if not defined $product_ref->{ingredients};
+
 	my @ingredients_without_ciqual_codes = uniq(sort(get_missing_ciqual_codes($product_ref->{ingredients})));
 	$product_ref->{ingredients_without_ciqual_codes} = \@ingredients_without_ciqual_codes;
 	$product_ref->{ingredients_without_ciqual_codes_n} = @ingredients_without_ciqual_codes + 0.0;
 	return;
 }
 
+=head2 get_missing_ciqual_codes ($ingredients_ref)
+
+Assign a ciqual_food_code or a ciqual_proxy_food_code to ingredients and sub ingredients.
+
+=head3 Arguments
+
+=head4 $ingredients_ref
+
+reference to an array of ingredients
+
+=head3 Return values
+
+=head4 @ingredients_without_ciqual_codes
+
+=cut
+
 sub get_missing_ciqual_codes ($ingredients_ref) {
 	my @ingredients_without_ciqual_codes = ();
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
+
+		# Also add sub-ingredients
 		if (defined $ingredient_ref->{ingredients}) {
 			push(@ingredients_without_ciqual_codes, get_missing_ciqual_codes($ingredient_ref->{ingredients}));
 		}
+
+		# Assign a ciqual_food_code or a ciqual_proxy_food_code to the ingredient
+		delete $ingredient_ref->{ciqual_food_code};
+		delete $ingredient_ref->{ciqual_proxy_food_code};
+
+		my $ciqual_food_code = get_inherited_property("ingredients", $ingredient_ref->{id}, "ciqual_food_code:en");
+		if (defined $ciqual_food_code) {
+			$ingredient_ref->{ciqual_food_code} = $ciqual_food_code;
+		}
 		else {
-			my $ciqual_food_code = get_inherited_property("ingredients", $ingredient_ref->{id}, "ciqual_food_code:en");
-			if (defined $ciqual_food_code) {
-				$ingredient_ref->{ciqual_food_code} = $ciqual_food_code;
+			my $ciqual_proxy_food_code
+				= get_inherited_property("ingredients", $ingredient_ref->{id}, "ciqual_proxy_food_code:en");
+			if (defined $ciqual_proxy_food_code) {
+				$ingredient_ref->{ciqual_proxy_food_code} = $ciqual_proxy_food_code;
 			}
 			else {
-				exists $ingredient_ref->{ciqual_food_code} and delete $ingredient_ref->{ciqual_food_code};
 				push(@ingredients_without_ciqual_codes, $ingredient_ref->{id});
 			}
 		}
