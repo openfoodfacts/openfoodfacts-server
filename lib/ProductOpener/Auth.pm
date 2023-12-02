@@ -47,6 +47,7 @@ BEGIN {
 		&callback
 		&password_signin
 		&verify_id_token
+		&get_user_id_using_token
 		&create_user_in_keycloak
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -149,42 +150,19 @@ sub callback ($request_ref) {
 	}
 
 	my $user_id = get_user_id_using_token($id_token);
-	my $user_ref;
-	my $user_file;
 	unless (defined $user_id) {
-		$user_ref = {};
-		$user_ref->{email} = $id_token->{'email'};
-		$user_ref->{userid} = $id_token->{'preferred_username'};
-		$user_ref->{name} = $id_token->{'name'};
-
-		$user_id = $user_ref->{userid};
-		$user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-		store($user_file, $user_ref);
-
-		# Store email
-		my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
-		my $email = $user_ref->{email};
-
-		if ((defined $email) and ($email =~ /\@/)) {
-			$emails_ref->{$email} = [$user_id];
-		}
-
-		if (defined $user_ref->{old_email}) {
-			delete $emails_ref->{$user_ref->{old_email}};
-			delete $user_ref->{old_email};
-		}
-
-		store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
+		$log->info('User not found and not created') if $log->is_info();
+		display_error_and_exit('Internal error', 500);
 	}
 
-	$user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 	unless (-e $user_file) {
 		$log->info('User file not found', {user_file => $user_file, user_id => $user_id}) if $log->is_info();
 		display_error_and_exit('Internal error', 500);
 	}
 
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
-	$user_ref = retrieve($user_file);
+	my $user_ref = retrieve($user_file);
 
 	my $user_session = open_user_session(
 		$user_ref,
@@ -236,7 +214,7 @@ sub get_user_id_using_token ($id_token) {
 
 	my $verified_email = $id_token->{'email'};
 
-	return try_retrieve_userid_from_mail($verified_email);
+	return try_retrieve_userid_from_mail($verified_email) // create_user_in_product_opener($id_token);
 }
 
 sub refresh_access_token ($refresh_token) {
@@ -322,6 +300,37 @@ sub create_user_in_keycloak ($user_ref, $password) {
 	my $json_response = $new_user_response->decoded_content(charset => 'UTF-8');
 	my $created_user = decode_json($json_response);
 	return $created_user;
+}
+
+sub create_user_in_product_opener ($id_token) {
+	unless ($id_token) {
+		return;
+	}
+
+	my $user_ref = {};
+	$user_ref->{email} = $id_token->{'email'};
+	$user_ref->{userid} = $id_token->{'preferred_username'};
+	$user_ref->{name} = $id_token->{'name'};
+
+	my $user_id = $user_ref->{userid};
+	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+	store($user_file, $user_ref);
+
+	# Store email
+	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
+	my $email = $user_ref->{email};
+
+	if ((defined $email) and ($email =~ /\@/)) {
+		$emails_ref->{$email} = [$user_id];
+	}
+
+	if (defined $user_ref->{old_email}) {
+		delete $emails_ref->{$user_ref->{old_email}};
+		delete $user_ref->{old_email};
+	}
+
+	store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
+	return $user_id;
 }
 
 =head2 get_token_using_password_credentials($username, $password)
