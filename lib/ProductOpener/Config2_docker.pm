@@ -126,8 +126,6 @@ $events_password = $ENV{EVENTS_PASSWORD};
 		"http://accounts.$ENV{PRODUCT_OPENER_DOMAIN}:8080/realms/open-products-facts/protocol/openid-connect/auth",
 	access_token_uri =>
 		"http://accounts.$ENV{PRODUCT_OPENER_DOMAIN}:8080/realms/open-products-facts/protocol/openid-connect/token",
-	userinfo_endpoint =>
-		"http://accounts.$ENV{PRODUCT_OPENER_DOMAIN}:8080/realms/open-products-facts/protocol/openid-connect/userinfo",
 	reset_password_endpoint =>
 		"http://accounts.$ENV{PRODUCT_OPENER_DOMAIN}:8080/realms/open-products-facts/login-actions/reset-credentials",
 	account_service_endpoint => "http://accounts.$ENV{PRODUCT_OPENER_DOMAIN}:8080/realms/open-products-facts/account",

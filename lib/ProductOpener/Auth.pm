@@ -148,14 +148,14 @@ sub callback ($request_ref) {
 		display_error_and_exit('Authentication error', 401);
 	}
 
-	my ($userinfo, $user_id) = get_user_id_using_token($access_token->access_token);
+	my $user_id = get_user_id_using_token($id_token);
 	my $user_ref;
 	my $user_file;
 	unless (defined $user_id) {
 		$user_ref = {};
-		$user_ref->{email} = $userinfo->{'email'};
-		$user_ref->{userid} = $userinfo->{'preferred_username'};
-		$user_ref->{name} = $userinfo->{'name'};
+		$user_ref->{email} = $id_token->{'email'};
+		$user_ref->{userid} = $id_token->{'preferred_username'};
+		$user_ref->{name} = $id_token->{'name'};
 
 		$user_id = $user_ref->{userid};
 		$user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
@@ -213,10 +213,11 @@ sub password_signin ($username, $password) {
 
 	my $id_token = verify_id_token($access_token->{id_token});
 	unless ($id_token) {
+		$log->info('id token did not verify') if $log->is_info();
 		return;
 	}
 
-	my ($userinfo, $user_id) = get_user_id_using_token($access_token->{access_token});
+	my $user_id = get_user_id_using_token($id_token);
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
 	return (
 		$user_id,
@@ -227,34 +228,15 @@ sub password_signin ($username, $password) {
 	);
 }
 
-sub get_user_id_using_token ($access_token) {
-	my $userinfo = get_userinfo($access_token);
-
-	unless ($userinfo->{'email_verified'}) {
-		$log->info('User email is not verified.', {email => $userinfo->{'email'}}) if $log->is_info();
+sub get_user_id_using_token ($id_token) {
+	unless ($JSON::PP::true eq $id_token->{'email_verified'}) {
+		$log->info('User email is not verified.', {email => $id_token->{'email'}}) if $log->is_info();
 		return;
 	}
 
-	my $verified_email = $userinfo->{'email'};
-	$log->info('userinfo', {userinfo => $userinfo}) if $log->is_info();
+	my $verified_email = $id_token->{'email'};
 
-	return ($userinfo, try_retrieve_userid_from_mail($verified_email));
-}
-
-sub get_userinfo ($access_token) {
-	my $userinfo_request = HTTP::Request->new(GET => $oidc_options{userinfo_endpoint});
-	$userinfo_request->header(Authorization => 'Bearer ' . $access_token);
-	my $userinfo_response = LWP::UserAgent->new->request($userinfo_request);
-	unless ($userinfo_response->is_success) {
-		display_error_and_exit(
-			'Could not acquire user information: '
-				. $userinfo_response->code . ' ('
-				. $userinfo_response->content . ')',
-			500
-		);
-	}
-
-	return decode_json($userinfo_response->content);
+	return try_retrieve_userid_from_mail($verified_email);
 }
 
 sub refresh_access_token ($refresh_token) {
@@ -462,7 +444,7 @@ sub verify_id_token ($id_token_string) {
 		return;
 	}
 
-	return $id_token;
+	return $id_token_verified;
 }
 
 1;
