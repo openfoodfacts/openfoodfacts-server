@@ -102,7 +102,11 @@ my $client = OIDC::Lite::Client::WebServer->new(
 sub start_authorize ($request_ref) {
 	my $nonce = generate_token(64);
 	my $return_url = single_param('return_url');
-	$log->info('FOO', {return_url => $return_url}) if $log->is_info();
+	if (   (not $return_url)
+		or (not($return_url =~ /^https?:\/\/$subdomain\.$server_domain/)))
+	{
+		$return_url = $formatted_subdomain;
+	}
 
 	my $redirect_url = $client->uri_to_redirect(
 		redirect_uri => $callback_uri,
