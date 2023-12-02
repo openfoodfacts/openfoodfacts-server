@@ -106,7 +106,7 @@ synonyms:ru:долговечно, надежно, ответственно
 synonyms:en:fabrication, production
 synonyms:es:fabricación, producción, elaborado
 synonyms:fi:valmistus
-synonyms:fr:fabrique, fabriqué
+synonyms:fr:fabrique, fabriqué, fabriquée
 synonyms:pt:fabrico, fabricado, produção, elaborado, feito
 synonyms:ru:изготовление, производство
 
@@ -133,6 +133,9 @@ synonyms:pt:antibiótico, anti-biótico, antibióticos, anti-bióticos, antibiot
 synonyms:fr:phase de ponte, période de ponte, la ponte
 
 synonyms:fr:premier, 1er
+
+synonyms:fr:français,francais
+# soja francais sans OGM
 
 en:1% for the planet, 1 percent for the planet, one percent for the planet
 bg:1% за планетата
@@ -266,7 +269,7 @@ pt:Em liberdade, ao ar livre
 ru:свободный выгул, открытый воздух
 label_categories:en: en:Animal welfare
 
-en:French eggs, Eggs from France
+en:French eggs, Eggs from France, Oeufs de France
 bg:Френски яйца
 ca:Ous francesos, Ous de França
 de:Französiche Eier, Eier aus Frankreich
@@ -280,9 +283,11 @@ pt:Ovos franceses, Ovos de França, Ovos originários de França
 ingredients:en: en:egg
 origins:en: en:france
 
+fr:Oeufs origine France
+
 <en:Free range
 en:Free range eggs
-bg:Яйца от свободно отглеждане
+bg:Яйца от свободно отгледани кокошки
 ca:Ous de gallines lliures
 de:Freilandeier, eier aus bodenhaltung
 es:Huevos de gallinas camperas
@@ -439,6 +444,10 @@ label_categories:en: en:Environnment
 <en:Carbon compensated product
 en:Climate Neutral Certified
 xx:Climate Neutral Certified
+
+# en:Climate Neutral
+# de:Klimaneutral
+# 70 Klimaneutral products
 
 en:Carbon Trust
 xx:Carbon Trust
@@ -817,6 +826,18 @@ zh:HACCP,危害分析重要管制點
 wikidata:en:Q279454
 label_categories:en: en:Food Safety
 
+en:ISO 3632
+xx:ISO 3632
+# https://www.iso.org/standard/44523.html ISO for Saffron category
+
+en:ISO 9000
+xx:ISO 9000
+# The ISO 9000 family is a set of five quality management systems standards by the International Organization for Standardization that help organizations ensure they meet customer and other stakeholder needs within statutory and regulatory requirements related to a product or service.
+
+<en:ISO 9000
+en:ISO 9000-2005
+xx:ISO 9000-2005
+
 en:ISO 9001
 bg:ISO 9001
 es:ISO 9001, ISO 9001, Certificación de calidad ISO 9001
@@ -843,10 +864,42 @@ xx:ISO 9001-2008
 <en:ISO 9001
 <ru:ГОСТ
 ru:ГОСТ Р ИСО 9001-2008, ГОСТ ISO 9001-2011
+xx:ISO 9001-2011
 
 <en:ISO 9001
 <ru:ГОСТ
+en:ISO 9001-2015
 ru:ГОСТ Р ИСО 9001-2015
+xx:ISO 9001-2015
+
+en:ISO 9002
+xx:ISO 9002
+# ISO 9002 : Pour la production, l'installation et l'assistance après vente
+# https://en.wikipedia.org/wiki/ISO_9002
+
+en:ISO 13485
+xx:ISO 13485
+# ISO for traceability of medical devices (supplements) - https://www.iso.org/standard/59752.html
+
+en:ISO 14001
+xx:ISO 14001
+
+<en:ISO 14001
+en:ISO 14001-2008
+xx:ISO 14001-2008
+
+<en:ISO 14001
+en:ISO 14001-2015
+xx:ISO 14001-2015
+
+en:ISO 14067
+xx:ISO 14067
+
+<en:ISO 14067
+en:ISO 14067:2018
+xx:ISO 14067:2018
+# ISO 14067:2018 - Greenhouse gases — Carbon footprint
+# This document specifies principles, requirements and guidelines for the quantification and reporting of the carbon footprint of a product (CFP)
 
 en:ISO 22000
 bg:ISO 22000
@@ -854,8 +907,13 @@ it:ISO 22000
 pl:ISO 22000
 pt:ISO 22000
 ru:ИСО 22000, ISO 22000
+fr:ISO 22000,ISO22000
 xx:ISO 22000
 wikidata:en:Q524143
+# ISO 22000 — Food safety management
+
+<en:ISO 22000
+en:FSSC ISO 22000
 
 <en:ISO 22000
 en:ISO 22000:2005
@@ -866,11 +924,40 @@ xx:ISO 22000:2005
 
 <en:ISO 22000
 en:ISO 22000:2018
+xx:ISO 22000:2018
 # https://en.wikipedia.org/wiki/ISO_22000#History
 
 <en:ISO 22000
 <ru:ГОСТ
+en:ISO 22000-2007
 ru:ГОСТ Р ИСО 22000-2007
+xx:ISO 22000-2007
+# ISO 22000 — Food safety management
+
+en:ISO 22005
+xx:ISO 22005
+# ISO 22005:2007 - Traceability in the feed and food chain
+# ISO 22005:2007 gives the principles and specifies the basic requirements for the design and implementation of a feed and food traceability system.
+
+<en:ISO 22005
+en:ISO 22005:2007
+xx:ISO 22005:2007
+
+en:ISO 22716
+xx:ISO 22716
+# Cosmetics - products with this should be moved to Open Beauty Facts
+
+en:ISO 45001
+xx:ISO 45001
+# ISO 45001 is an International Organization for Standardization standard for management systems of occupational health and safety, published in March 2018. The goal of ISO 45001 is the reduction of occupational injuries and diseases, including promoting and protecting physical and mental health.
+
+en:ISO 50001
+xx:ISO 50001
+# Related to the energy performance of any organisation
+
+<en:ISO 50001
+en:ISO 50001-2011
+xx:ISO 50001-2011
 
 en:Designated Origin Denomination
 de:Ausgewiesene Herkunftsbezeichnung
@@ -951,12 +1038,75 @@ ru:Честная торговля, FLO
 wikipedia:en:https://en.wikipedia.org/wiki/Fairtrade_certification
 
 <en:Fair trade
-en:Fairtrade USA
+en:Fairtrade USA, Fairtrade America
 xx:Fairtrade USA
 # web:en:https://www.fairtradecertified.org
 wikipedia:en:https://en.wikipedia.org/wiki/Fair_Trade_USA
 
-<en:Fair trade
+<en:Fairtrade International
+en:Fairtrade Australia and New Zealand
+
+<en:Fairtrade International
+en:Fairtrade Austria
+de:Fairtrade Österreich
+
+<en:Fairtrade International
+en:Fairtrade Belgium
+
+<en:Fairtrade International
+en:Fairtrade Canada
+
+<en:Fairtrade International
+en:The Czech Fairtrade Association
+
+<en:Fairtrade International
+en:Max Havelaar Denmark
+da:Max Havelaar Danmark
+
+<en:Fairtrade International
+en:TransFair Germany
+de:TransFair Deutschland
+
+<en:Fairtrade International
+en:Fairtrade Mark Ireland, Fairtrade Ireland
+
+<en:Fairtrade International
+en:Fairtrade Italia
+
+<en:Fairtrade International
+en:TransFair Japan
+
+<en:Fairtrade International
+en:TransFair-Minka Luxembourg, TransFairLuxembourg
+
+<en:Fairtrade International
+en:Fairtrade Korea
+
+<en:Fairtrade International
+es:Asociación del Sello de Productos de Comercio Justo
+
+<en:Fairtrade International
+en:Fairtrade Norway
+nb:Fairtrade Max Havelaar Norge
+
+<en:Fairtrade International
+en:Fairtrade Sweden
+sv:Fairtrade Sverige
+
+<en:Fairtrade International
+en:The Fairtrade Foundation
+
+<en:Fairtrade International
+en:Fairtrade Taiwan
+
+<en:Fairtrade International
+en:Fairtrade India
+
+<en:Fairtrade International
+en:Fairtrade Poland
+pl:Poland Fundacja „Koalicja Sprawiedliwego Handlu”, Fairtrade Polska 
+
+<en:Fairtrade International
 en:Max Havelaar, Max Havelar, Fairtrade/Max Havelaar
 ca:Max Havelaar, Comerç Just/Max Havelaar
 it:Max Havelaar
@@ -991,7 +1141,9 @@ auth_url:en: https://spp.coop/
 
 <en:Fair trade
 en:Fairtrade cocoa, fairtrade cocoa program
+de:Fairtrade kokoa, Fairtrade cocoa
 xx:Fairtrade cocoa, fairtrade cocoa program
+# 75 occurences of de:fairtrade cocoa
 
 # note: we need full entries like "issu d'animaux nourris sans OGM" even though we have "issu" and "d'" in stopwords
 # in order to cleanly separate ingredient and label in strings like "viande de boeuf issue d'animaux nourris sans OGM"
@@ -1152,6 +1304,10 @@ wikidata:en:Q101542317
 image:en:Sin-tacc.86x90.png
 wikidata:en:Q101542317
 #gluten free certification mark in Argentina
+
+<en:No gluten
+en:GFCO Gluten Free
+# 71 products
 
 <en:No gluten
 en:Crossed Grain Trademark, CGT, Crossed Grain Symbol, Crossed Grain
@@ -1695,6 +1851,9 @@ hu:Ásványi anyagokkal dúsított
 it:Arricchito con minerali
 nl:verrijkt met mineralen
 pt:Enriquecido com minerais
+
+en:Rich in iron
+fr:Riche en fer
 
 en:In braille
 ca:En Braille
@@ -2680,6 +2839,11 @@ label_categories:en: en:Geographic label
 # Made in Australia from at least 96% Australian ingredients
 # Made in Australia from at least 93% Australian ingredients
 
+en:Australian grown
+country:en:Australia
+origins:en: en:Australia
+label_categories:en: en:Geographic label
+
 # Bosnia i Herzegovina
 bs:Proizvodeno u bosni i hercegovinu
 xx:Proizvodeno u bosni i hercegovinu
@@ -2920,6 +3084,10 @@ sv:Tillverkad i Frankrike
 zh:法国制造
 country:en:france
 label_categories:en: en:Geographic label
+
+fr:Torréfié et moulu en France
+label_categories:en: en:Geographic label
+manufacturing_places:en: en:france
 
 en:Cooked in France
 ca:Cuinat a França
@@ -4159,6 +4327,7 @@ nl:Zonder kleurstoffen of bewaarmiddelen
 pt:Sem corantes ou conservantes, sem corante ou conservante, sem corantes nem conservantes, sem corante nem conservante
 ru:Без красителей и консервантов
 th:ไม่เติมสีและวัตถุกันเสีย
+# 57 products in English that are not taxonomized with Without dyes or preservatives
 
 #instruction:en:Do NOT change the english key.
 en:No soy, soy free, without soy
@@ -17885,6 +18054,7 @@ xx:Rainforest Alliance Black Tea
 <en:Rainforest Alliance
 en:Rainforest Alliance Cocoa
 nl:Rainforest Alliance Cacao
+de:Rainforest Alliance Kakao
 xx:Rainforest Alliance Cocoa
 
 <en:Rainforest Alliance
@@ -18404,14 +18574,20 @@ fr:Pêche française
 ingredients:en: en:fish
 origins:en: en:france
 
+en:fishing method
+fr:Méthode de pêche
+
 # Should not be automatically triggered by the MSC label
 # as we need to differentiate MSC fisheries from more environmentaly friendly fishing methods for the Eco-Score
 # From the Eco-Score documentation: "Techniques de pêche durables : ligne et hameçon, pêche à la canne, casier, pêche à pied. Ces méthodes sont sélectives et sans impact sur les fonds marins et l'habitat."
+<en:fishing method
 <en:Sustainable fishery
 en:Sustainable fishing method, sustainable fishing technique
 fr:Méthode de pêche durable, Technique de pêche durable, Mode de pêche durable, Méthodes de pêche durables, techniques de pêche durables, modes de pêche durables
 nl:Duurzame vismethoden
 
+
+<en:fishing method
 en:Trawl fishing
 ca:Pesca d'arrossegament
 de:Schleppnetzfischerei
@@ -18423,6 +18599,7 @@ it:Pesca a strascico
 pt:Pesca de arrasto, pesca com arrastão, pesca com arrastões, pesca por arrasto, pesca com rede de arrasto, pesca com redes de arrasto
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Seine fishing
 de:Ringwadenfischerei
 es:Pesca al cerco, Pesca con red de jábega
@@ -18453,6 +18630,7 @@ pt:Pesca com armadilha, pesca com armadilhas, pescado com armadilha, pescado com
 wikidata:en:Q2941001
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Pelagic net fishing
 de:Pelagische Netzfischerei
 fi:pelaginen verkkokalastettu
@@ -18460,6 +18638,7 @@ fr:Pêché au filet pélagique, Pêchés au filet pélagique, Pêché aux filets
 pt:Pesca com rede em mar alto, pesca de rede em mar alto, pescado com rede em mar alto
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Dredge fishing
 de:Baggerfischen
 fi:pohjaharakalastettu
@@ -18467,15 +18646,18 @@ fr:Pêché à la drague, Pêchés à la drague, Pêchée à la drague, Pêchées
 pt:Pesca com draga, pesca de draga
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Purse seine fishing
-fr:Pêché à la senne coulissante, Pêchés à la senne coulissante, Pêchée à la senne coulissante, Pêchées à la senne coulissante
+fr:Pêché à la senne coulissante, Pêchés à la senne coulissante, Pêchée à la senne coulissante, Pêchées à la senne coulissante, Senne coulissante
 wikidata:en:Q11997909
 label_categories:en: en:Fishing method
 
+<en:fishing method
 fr:Pêché au filet tournant, Pêchés au filet tournant, Pêché aux filets tournants, Pêchés aux filets tournants, Pêchée au filet tournant, Pêchées au filet tournant
 de:Rotierende Netzfischerei
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Longline fishing
 de:Langleinenfischerei
 fi:Pitkäsiimalla kalastettu
@@ -18483,20 +18665,25 @@ fr:Pêché à la palangre, Pêchés à la palangre, Pêchée à la palangre, Pê
 pt:Pesca com espinel, pesca com espinhel, pesca com trole, Ppesca com palangre, pesca de espinel, pesca de espinhel, pesca de trole, Ppesca de palangre
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Gillnet fishing
 de:Gillnetz-Fischen
 fr:Pêché au filet maillant, Pêchés au filet maillant, Pêché aux filets maillants, Pêchés aux filets maillants, Pêchée au filet maillant, Pêchées au filet maillant
 pt:Pesca com redes de emalhar, pesca com rede de emalhar
 
+<en:fishing method
 fr:Pêché à la bolinche, Pêchés à la bolinche, Pêchée à la bolinche, Pêchées à la bolinche
 label_categories:en: en:Fishing method
 
+<en:fishing method
 nl:ringnetten, ringnet
 label_categories:en: en:Fishing method
 
+<en:fishing method
 nl:kruisnetten, kruisnet
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Lift net fishing, Lifting net fishing
 de:Lift Netz Fischerei
 fr:Pêché au filet soulevé, Pêchés au filet soulevé, Pêché aux filets soulevés, Pêchés aux filets soulevés, Pêchée au filet soulevé, Pêchées au filet soulevé
@@ -18512,6 +18699,7 @@ he:דיג ידני
 pt:Pesca à mão, pesca manual
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Blast fished, blast fishing
 de:Dynamitfischen
 fi:dynamiittikalastettu
@@ -18520,19 +18708,23 @@ pt:Pesca com dinamite, pescado com dinamite
 wikidata:en:Q1269057
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:Pair trawling
 fi:Paritroolattu
 fr:Pêché à deux chaluts
 label_categories:en: en:Fishing method
 wikidata:en:Q7125126
 
+<en:fishing method
 fr:Pêché au poison
 pt:Pesca com veneno
 label_categories:en: en:Fishing method
 
+<en:fishing method
 fr:Pêché au toc
 label_categories:en: en:Fishing method
 
+<en:fishing method
 en:cormorant fishing
 de:Kormoranfischerei
 eo:Kormorana fiŝkaptado
@@ -18678,6 +18870,7 @@ nl:UTZ Gecertificeerd
 xx:UTZ Certified
 wikidata:en:Q2305872
 auth_url:en:https://utz.org
+# de: 53 products with UTZ Zertifiziert not taxonomized
 
 <en:UTZ Certified
 en:UTZ Certified Cocoa, UTZ Certified Cacao
@@ -19211,21 +19404,29 @@ it:Raccolto in Francia
 pt:Colhido na França, colhido na França, colhido em França, colhido em França
 origins:en: en:france
 
-fr:Blé français, Blé exclusivement cultivé en France, Blé Français sélectionné, Blé cultivé en France, 100% blé de France, Blé 100% Français, Blé de France
+fr:Blé français, Blé exclusivement cultivé en France, Blé Français sélectionné, Blé cultivé en France, 100% blé de France, Blé 100% Français, Blé de France, Blé 100% origine France
 pt:Trigo francês, trigo de França, trigo da França
 origins:en: en:france
 ingredients:en: en:wheat
 
-fr:Farine de blé français, farine de blé de France, farine blé de France, farine de blé française
+fr:Farine de blé français, farine de blé de France, farine blé de France, farine de blé française, farine origine France
 pt:Farinha de trigo francesa, farinha de trigo de França, farinha de trigo da França
 origins:en: en:france
 ingredients:en: en:wheat-flour
 
-fr:Soja Français, Soja de France, Filière Soja Français
+
+fr:Soja Français, Soja de France, Filière Soja Français, Soja origine France
 pt:Soja francêsa, soja de França, soja da França
 origins:en: en:france
 ingredients:en: en:soy
 label_categories:en: en:Soy
+
+<fr:Soja Français
+fr:Soja bio de France
+origins:en: en:france
+ingredients:en: en:soy
+label_categories:en: en:Soy
+label:en: en:organic
 
 fr:Bleu Blanc Cœur, Filière Qualité Bleu Blanc Cœur, Filière nutrition oméga 3 naturels Association Bleu-Blanc-Cœur, Bleu Blanc Cœur Oméga 3 Naturels, BBC
 auth_url:fr:https://www.bleu-blanc-coeur.org
@@ -19290,6 +19491,13 @@ it:Latte francese
 nl:Franse melk
 pt:Leite francês, leite de França, leite da França
 ingredients:en: en:milk
+origins:en: en:france
+
+fr:Eleveurs laitiers de France
+# on a few yoghurts
+
+fr:Crème origine France
+ingredients:en: en:cream
 origins:en: en:france
 
 en:Produced in Brittany, Produced in Bretagne
@@ -19472,13 +19680,21 @@ pt:Pato francês, pato de França, pato da França
 ingredients:en: en:duck
 origins:en: en:france
 
+fr:Foie gras de France
+origins:en: en:france
+
+en:Duck born and bred in France
+fr:Canard né et elevé en France
+# ingredients:en: en:duck
+# origins:en: en:france
+
 <en:French meat
 en:French pork
 ca:Porc francès
 de:Schweinefleisch aus Frankreich
 es:cerdo frances
 fi:ranskalaista sianlihaa, sianlihan alkuperä Ranska
-fr:Viande Porcine Française, VPF, viande de porc française, Le Porc Français, Porc Origine France, porc français, porc 100% France
+fr:Viande Porcine Française, VPF, viande de porc française, Le Porc Français, Porc Origine France, porc français, porc 100% France, viande de porc origine France, porc né elevé preparé en France
 he:חזיר צרפתי
 it:Maiale francese
 nl:Frans varkensvlees
@@ -19486,6 +19702,11 @@ pl:Francuska wieprzowina
 pt:Porco francês, porco de França, porco da França
 origins:en: en:france
 ingredients:en: en:pork
+
+fr:Les porcs bio de France
+origins:en: en:france
+ingredients:en: en:pork
+label:en: en:organic
 
 <en:French meat
 en:French beef
@@ -19567,6 +19788,15 @@ label_categories:en: en:Quality
 fr:médaille d'or du Concours général agricole
 
 <fr:médaille d'or du Concours général agricole
+fr:Médaille d'or du concours général agricole 2023, Concours général agricole médaille d'or 2023, Médaille d'Or Paris 2023 Concours Général Agricole, Médaille d'or Paris 2023
+
+<fr:médaille d'or du Concours général agricole
+fr:Médaille d'or du concours général agricole 2022, Concours général agricole médaille d'or 2022, Médaille d'Or Paris 2022 Concours Général Agricole, Médaille d'or Paris 2022
+
+<fr:médaille d'or du Concours général agricole
+fr:Médaille d'or du concours général agricole 2021, Concours général agricole médaille d'or 2021, Médaille d'Or Paris 2021 Concours Général Agricole, Médaille d'or Paris 2021
+
+<fr:médaille d'or du Concours général agricole
 fr:Médaille d'or du concours général agricole 2020, Concours général agricole médaille d'or 2020, Médaille d'Or Paris 2020 Concours Général Agricole, Médaille d'or Paris 2020
 
 <fr:médaille d'or du Concours général agricole
@@ -19600,6 +19830,15 @@ fr:Médaille d'or du concours général agricole 2011, Concours général agrico
 fr:médaille d'argent du Concours général agricole
 
 <fr:médaille d'argent du Concours général agricole
+fr:Médaille d'argent du concours général agricole 2023, Concours général agricole médaille d'argent 2023, Médaille d'Argent Paris 2023 Concours Général Agricole, Médaille d'Argent Paris 2023
+
+<fr:médaille d'argent du Concours général agricole
+fr:Médaille d'argent du concours général agricole 2022, Concours général agricole médaille d'argent 2022, Médaille d'Argent Paris 2022 Concours Général Agricole, Médaille d'Argent Paris 2022
+
+<fr:médaille d'argent du Concours général agricole
+fr:Médaille d'argent du concours général agricole 2021, Concours général agricole médaille d'argent 2021, Médaille d'Argent Paris 2021 Concours Général Agricole, Médaille d'Argent Paris 2021
+
+<fr:médaille d'argent du Concours général agricole
 fr:Médaille d'argent du concours général agricole 2020, Concours général agricole médaille d'argent 2020, Médaille d'Argent Paris 2020 Concours Général Agricole, Médaille d'Argent Paris 2020
 
 <fr:médaille d'argent du Concours général agricole
@@ -19631,6 +19870,15 @@ fr:Médaille d'argent du concours général agricole 2011, Concours général ag
 
 <fr:Concours général agricole
 fr:médaille de bronze du Concours général agricole
+
+<fr:médaille de bronze du Concours général agricole
+fr:Médaille de bronze du concours général agricole 2023, Concours général agricole médaille de bronze 2023, Médaille de Bronze Paris 2023 Concours Général Agricole, Médaille de Bronze Paris 2023
+
+<fr:médaille de bronze du Concours général agricole
+fr:Médaille de bronze du concours général agricole 2022, Concours général agricole médaille de bronze 2022, Médaille de Bronze Paris 2022 Concours Général Agricole, Médaille de Bronze Paris 2022
+
+<fr:médaille de bronze du Concours général agricole
+fr:Médaille de bronze du concours général agricole 2021, Concours général agricole médaille de bronze 2021, Médaille de Bronze Paris 2021 Concours Général Agricole, Médaille de Bronze Paris 2021
 
 <fr:médaille de bronze du Concours général agricole
 fr:Médaille de bronze du concours général agricole 2020, Concours général agricole médaille de bronze 2020, Médaille de Bronze Paris 2020 Concours Général Agricole, Médaille de Bronze Paris 2020
@@ -20001,6 +20249,8 @@ pt:Sociedade Agrícola Alemã
 wikidata:en:Q316331
 country:en: en:Germany
 label_categories:en: en:Quality
+
+
 
 <en:German Agricultural Society
 en:Bronze medal of the German Agricultural Society
@@ -20426,7 +20676,8 @@ hr:Zlatna medalja Njemačkog poljoprivrednog društva 2023
 pt:Medalha de ouro da Sociedade Agrícola Alemã de 2023
 
 <en:German Agricultural Society
-de:DLG Jährlich Prämiert
+de:DLG Jährlich Prämiert, DLG Jarhlich Pramiert
+# 74 non taxonomized entries, due to umlaut, probably
 
 de:Typisch Harz
 
@@ -20503,18 +20754,21 @@ pt:TerraSuisse
 country:en: en:Switzerland
 
 en:Natura-Beef, NaturaBeef
+xx:Natura-Beef
 
 en:Natura-Veal, NaturaVeal
 
 en:Naturafarm, Natura-farm
 
 en:Agri Natura, AgriNatura
+xx:Agri Natura
 
 en:NatureSuisse, Nature Suisse
 ca:NatureSuisse, Natura Suïssa
 country:en: en:Switzerland
 
 en:swiss sugar
+fr:sucre suisse
 
 <en:Organic
 en:Bio Suisse, BioSuisse
@@ -20820,6 +21074,7 @@ country:en: en:Switzerland
 <en:Organic
 en:Naturaplan, Natura-plan
 nl:Naturaplan
+xx:Naturaplan
 
 en:Irradiated, Irradiated food
 de:Bestrahlt, bestrahlte Nahrung
@@ -21155,6 +21410,10 @@ pt:Tomates de França, tomate de França, tomate da França, tomates da França
 origins:en: en:france
 ingredients:en: en:tomato
 
+fr:Tomates origine France
+origins:en: en:france
+ingredients:en: en:tomato
+
 <fr:Fruits et Légumes de France
 fr:Fruits de France, fruits français
 pt:Fruta de França, frutas de França, fruta da França, frutas da França, fruta francesa, frutas francesas
@@ -21173,6 +21432,8 @@ pt:Batatas de França, batata de França, batata da França, batatas da França,
 origins:en: en:france
 ingredients:en: en:potato
 
+fr:Pommes de terre origine France
+
 en:Apples from France
 de:Äpfel aus Frankreich
 es:Manzanas de Francia
@@ -21182,6 +21443,8 @@ it:Mele francesi
 pt:Maçãs da França, maçãs de frança, maça francesa, maçãs francesas
 origins:en: en:france
 ingredients:en: en:apple
+
+fr:Pomme origine France
 
 en:Bee Friendly, I protect the bees
 fr:Bee Friendly, Je protège les abeilles
@@ -21811,8 +22074,8 @@ en:May have an adverse effect on activity and attention in children
 fr:Peut avoir des effets indésirables sur l'activité et l'attention chez les enfants, peut avoir des effets indésirables sur l'activité et l'attention des enfants, peuvent avoir des effets indésirables sur l'activité et l'attention chez les enfants, peuvent avoir des effets indésirables sur l'activité et l'attention des enfants
 
 # https://www.bcorporation.net/
-en:Certified B Corporation
-fr:Entreprise B certifiée
+en:Certified B Corporation, B Corp
+fr:Entreprise B certifiée, B Corp
 hr:Certified B Corporation
 wikidata:en:Q16243343
 

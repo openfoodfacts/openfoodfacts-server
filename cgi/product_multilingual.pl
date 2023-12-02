@@ -1184,7 +1184,9 @@ CSS
 			$shown = 1;
 		}
 
-		if (($shown) and ($nutriment =~ /^-/)) {
+		# Nutrients starting with a - are sub-nutrients
+		# They may be prefixed with a ! to indicate that the nutrient is always shown when displaying the nutrition facts table
+		if (($shown) and ($nutriment =~ /^!?-/)) {
 			$class = 'sub';
 			$prefix = $Lang{nutrition_data_table_sub}{$lang} . " ";
 			if ($nutriment =~ /^--/) {

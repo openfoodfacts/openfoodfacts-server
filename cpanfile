@@ -92,8 +92,15 @@ requires 'AnyEvent::Inotify::Simple';
 # more Apache stuff
 requires 'Apache::Bootstrap';  # needed by Apache2::Connection::XForwardedFor
 requires 'Apache2::Connection::XForwardedFor';
-# GS1 Encoder
+
+# GS1 Sunrise 2027
 requires 'GS1::SyntaxEngine::FFI';
+requires 'Imager::zxing';
+requires 'Imager::File::AVIF';
+requires 'Imager::File::HEIF';
+requires 'Imager::File::JPEG';
+requires 'Imager::File::PNG';
+requires 'Imager::File::WEBP';
 
 # OIDC / OAuth
 requires 'OIDC::Lite';
