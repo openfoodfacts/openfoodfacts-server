@@ -25,78 +25,16 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
-use ProductOpener::Paths qw/:all/;
-use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::Lang qw/:all/;
 
-use Apache2::Const -compile => qw(OK);
-use CGI qw/:cgi :form escapeHTML/;
-use URI::Escape::XS;
-use Encode;
-use Log::Any qw($log);
+use URI::Escape::XS qw/uri_escape/;
 
 my $request_ref = ProductOpener::Display::init_request();
 
-my $template_data_ref = {method => $ENV{'REQUEST_METHOD'}};
-
-$log->info('start') if $log->is_info();
-if (not defined $User_id) {
-	my $r = shift;
-	$r->headers_out->set(Location => '/cgi/login.pl?redirect=/cgi/change_password.pl');
-	$r->status(307);
-	return Apache2::Const::OK;
+unless ((defined $oidc_options{client_id}) and (defined $oidc_options{account_service_endpoint})) {
+	display_error_and_exit('File not found.', 404);
 }
 
-my @errors = ();
+my $redirect = $oidc_options{account_service_endpoint};
 
-if ($ENV{'REQUEST_METHOD'} eq 'POST') {
-	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang('no_language', $User_id) . '.sto';
-	my $user_ref = retrieve($user_file);
-	if (not(defined $user_ref)) {
-		push @errors, 'undefined user';
-		$template_data_ref->{success} = 0;
-	}
-
-	my $hash_is_correct = check_password_hash(encode_utf8(decode utf8 => single_param('current_password')),
-		$user_ref->{'encrypted_password'});
-
-	# We don't have the right password
-	if (not $hash_is_correct) {
-		$log->info(
-			'bad password - input does not match stored hash',
-			{encrypted_password => $user_ref->{'encrypted_password'}}
-		) if $log->is_info();
-		push @errors, lang('error_bad_login_password');
-	}
-
-	if (length(single_param('password')) < 6) {
-		push @errors, lang('error_invalid_password');
-	}
-
-	if ((single_param('password')) ne (single_param('confirm_password'))) {
-		push @errors, lang('error_different_passwords');
-	}
-
-	if (scalar(@errors) > 0) {
-		$template_data_ref->{success} = 0;
-	}
-	else {
-		$user_ref->{encrypted_password} = create_password_hash(encode_utf8(decode utf8 => single_param('password')));
-		store("$BASE_DIRS{USERS}/$User_id.sto", $user_ref);
-		$template_data_ref->{success} = 1;
-	}
-}
-
-$template_data_ref->{errors} = \@errors;
-
-my $html;
-process_template('web/pages/change_password/change_password.tt.html', $template_data_ref, \$html) or $html = '';
-if ($tt->error()) {
-	$html .= '<p>' . $tt->error() . '</p>';
-}
-
-$request_ref->{title} = lang('change_password');
-$request_ref->{content_ref} = \$html;
-display_page($request_ref);
+redirect_to_url($request_ref, 302, $redirect);

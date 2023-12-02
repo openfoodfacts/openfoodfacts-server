@@ -546,12 +546,6 @@ Product page:
 - templates/web/pages/product/includes/ingredients_analysis.tt.html
 - templates/web/pages/product/includes/nutrition_facts_table.tt.html
 
-🔐 Password:
-- templates/web/pages/reset_password/reset_password.tt.html
-- templates/web/pages/change_password/change_password.tt.html
-- cgi/reset_password.pl
-- cgi/reset_password_for_user.pl
-
 ✔︎ Spellcheck:
 - templates/web/pages/spellcheck/spellcheck_test.tt.html
 - scripts/test_spellchecker.pl
