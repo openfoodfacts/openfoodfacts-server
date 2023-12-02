@@ -17,6 +17,7 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 =head1 NAME
 
 ProductOpener::Brevo -add users' contact to the Brevo contact list.
@@ -27,15 +28,17 @@ ProductOpener::Brevo -add users' contact to the Brevo contact list.
 
 package ProductOpener::Brevo;
 use ProductOpener::PerlStandards;
+use ProductOpener::Config2;
 use Exporter qw< import >;
 use Log::Any qw($log);
 use JSON;
+
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
-       &add_contact_to_list
-       &get_contact_info
-); #symbols to export on request
+		&add_contact_to_list
+
+	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
 use vars @EXPORT_OK;
@@ -49,73 +52,54 @@ use ProductOpener::API qw/:all/;
 use LWP::UserAgent;
 use HTTP::Request::Common;
 
- my $api_base_url = 'https://api.brevo.com/v3';
- # Brevo API key
- my $api_key = 'API_KEY';
+my $api_base_url = 'https://api.brevo.com/v3';
+# Brevo API key
+my $brevo_api_key = $ProductOpener::Config2::brevo_api_key;
+my $list_id = $ProductOpener::Config2::list_id;
 
-sub add_contact_to_list($email, $username, $cc, $lc) {
-   
-   # Brevo API endpoint for adding a contact to a list
-    my $api_endpoint = '/contacts/add';
+sub add_contact_to_list ($email, $username, $cc, $lc) {
 
-    my $ua = LWP::UserAgent->new;
+	# Brevo API endpoint for adding a contact to a list
+	my $api_endpoint = '/contacts';
 
-    # HTTP request headers
-    my %headers = (
-        'Accept' => 'application/json',
-        'Content-Type' => 'application/json',
-        'Authorization' => "Bearer $api_key",
-    );
+	my $ua = LWP::UserAgent->new;
 
-    my $contact_data = {
-        
-        email => $email,
-        username => $username,
-        cc => $cc,
-        lc => $lc,
-        # Add more contact data fields as needed
-    };
+	# HTTP request headers
+	my %headers = (
+		'Accept' => 'application/json',
+		'Content-Type' => 'application/json',
+		'api-key' => $brevo_api_key,
+	);
 
-    my $json_data = encode_json($contact_data);
+	my $contact_data = {
 
-    my $request = POST("$api_base_url$api_endpoint", %headers, Content => $json_data);
+		email => $email,
+		attributes => {
+			USERNAME => $username,
+			CC => $cc,
+			LC => $lc,
+		},
+		listIds => [$list_id],
 
-    my $response = $ua->request($request);
+	};
 
-    if ($response->is_success) {
-        return 1; # Contact added successfully
-    } else {
-        
-        return 0; # Failed to add contact
-    }
+	my $json_data = encode_json($contact_data);
+
+	my $request = POST("$api_base_url$api_endpoint", %headers, Content => $json_data);
+
+	my $response = $ua->request($request);
+
+	if ($response && $response->is_success) {
+		$log->debug("Contact added successfully! Response: " . $response->content) if $log->is_debug();
+		return 1;    # Contact added successfully
+	}
+	else {
+		$log->error("Failed to add contact. Status: " . $response->status_line . ", Response: " . $response->content)
+			if $log->is_error();
+		return 0;    # Failed to add contact
+	}
+
 }
-
-sub get_contact_info ($contact_id) {
-  
-    # Brevo API endpoint for getting contact info
-    my $api_endpoint = '/contacts/get';
-
-    my $ua = LWP::UserAgent->new;
-
-    # HTTP request headers
-    my %headers = (
-        'Accept' => 'application/json',
-        'Authorization' => "Bearer $api_key",
-    );
-
-    my $request = GET("$api_base_url$api_endpoint/$contact_id", %headers);
-
-    my $response = $ua->request($request);
-
-    if ($response->is_success) {
-        my $contact_data = decode_json($response->content);
-        return $contact_data; # Return the contact information as a hash reference
-    }
-    else {
-        return ; # Failed to get contact info
-    }
-}
-
 
 1;
 

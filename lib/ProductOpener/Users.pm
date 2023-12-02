@@ -717,11 +717,7 @@ EMAIL
 	}
 	# Check if the user subscribed to the newsletter
 	if ($user_ref->{newsletter}) {
-		add_contact_to_list(
-			$user_ref->{email}, $user_ref->{user_id},
-			$user_ref->{initial_lc},
-			$user_ref->{initial_cc}
-		);
+		add_contact_to_list($user_ref->{email}, $user_ref->{user_id}, $user_ref->{initial_cc}, $user_ref->{initial_lc});
 	}
 
 	return $error;
