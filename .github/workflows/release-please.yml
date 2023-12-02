@@ -1,4 +1,4 @@
-name: Run release-please
+name: 🚀 Adding the commit to the next release
 on:
   push:
     branches:
@@ -15,6 +15,7 @@ jobs:
           # So this is a personal access token
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           release-type: simple
+          pull-request-title-pattern: "chore${scope}: 🚀 Open Food Facts Backend - Product Opener - Release${component} ${version}."
           changelog-types: |
             [
               {"type":"feat","section":"Features","hidden":false},
@@ -36,7 +37,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
           intervalSeconds: 10
           timeoutSeconds: 600 # 10m
-      - name: get a stripped version of tag_name
+      - name: Get a stripped version of tag_name
         # only if a new release was created
         if: ${{ steps.release.outputs.release_created }}
         run: |
@@ -44,7 +45,7 @@ jobs:
           # remove eventual initial v
           STRIPPED_TAG_NAME=${TAG_NAME/v/}
           echo "TAG_NAME=$STRIPPED_TAG_NAME" >> $GITHUB_ENV
-      - name: get js dist files to add to the release
+      - name: Get JS dist files to add to the release
         # only if a new release was created
         if: ${{ steps.release.outputs.release_created }}
         id: create-frontend-dist-tar
@@ -53,11 +54,23 @@ jobs:
           mkdir -p /tmp/frontend-dist
           # download docker image corresponding to the tag
           image_name=ghcr.io/${{ github.repository }}/frontend:${{ env.TAG_NAME }}
-          docker pull $image_name
+          # pull image, eventually waiting for it to be available in ghcr.io
+          waited=0
+          while ! (docker pull $image_name); do
+            sleep 30
+            waited=$((waited+30))
+            # timeout after 6 minutes
+            if [[ $waited -gt 360 ]]; then
+              echo "Timeout waiting for image $image_name"
+              # Abort the job
+              exit 1
+            fi
+          done
           # extract the dist files, we create a temporary docker container and use docker cp
           id=$(docker create $image_name)
           docker cp -a $id:/opt/product-opener/html/css/dist/ /tmp/frontend-dist/css/
           docker cp -a $id:/opt/product-opener/html/images/icons/dist/ /tmp/frontend-dist/icons/
+          docker cp -a $id:/opt/product-opener/html/images/attributes/dist/ /tmp/frontend-dist/attributes/
           docker cp -a $id:/opt/product-opener/html/js/dist/ /tmp/frontend-dist/js/
           docker rm -v $id
           # make a tar

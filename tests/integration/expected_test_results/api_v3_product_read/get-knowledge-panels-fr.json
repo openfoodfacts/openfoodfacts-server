@@ -1,5 +1,5 @@
 {
-   "code" : "200000000034",
+   "code" : "4260392550101",
    "errors" : [],
    "product" : {
       "knowledge_panels" : {
@@ -185,7 +185,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                "title" : "Eco-Score C - Impact modéré sur l'environnement",
                "type" : "grade"
             },
@@ -501,7 +501,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                "subtitle" : "Produit : Some product - 100 g",
                "title" : "Impact pour ce produit: C (Score: 46/100)",
                "type" : "grade"
@@ -700,7 +700,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<span>apple</span>, <span>milk</span>, <span>eggs</span>, <span>palm oil</span>"
+                     "html" : "en: <span>apple</span>, <span>milk</span>, <span>eggs</span>, <span>palm oil</span>"
                   }
                },
                {
@@ -815,7 +815,7 @@
             ],
             "level" : "info",
             "title_element" : {
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nova-group-3.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                "title" : "Aliments transformés"
             },
             "topics" : [
@@ -856,7 +856,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nutriscore-unknown.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown.svg",
                "subtitle" : "Données nutritionnelles manquantes",
                "title" : "Données manquantes pour calculer le Nutri-Score",
                "type" : "grade"
@@ -1006,10 +1006,10 @@
                                  "text" : "Fruits‚ légumes‚ noix et huiles de colza‚ noix et olive (estimation par analyse de la liste des ingrédients)"
                               },
                               {
-                                 "text" : "25 %"
+                                 "text" : "62,5 %"
                               },
                               {
-                                 "text" : "25 %"
+                                 "text" : "62,5 %"
                               }
                            ]
                         }

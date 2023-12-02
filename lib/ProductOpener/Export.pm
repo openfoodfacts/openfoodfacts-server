@@ -92,6 +92,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -206,7 +207,23 @@ sub export_csv ($args_ref) {
 
 	# We will have one cursor for each collection
 	# We store cursors because we will iterate them twice
+	# (or only once if the fields to export are specified)
 	my %cursors = ();
+
+	foreach my $collection (@collections) {
+
+		my $obsolete = ($collection eq "products_obsolete") ? 1 : 0;
+
+		my $count = get_products_collection({obsolete => $obsolete})->count_documents($query_ref);
+
+		$log->debug("export_csv - documents to export", {count => $count, collection => $collection})
+			if $log->is_debug();
+
+		$cursors{$collection} = get_products_collection({obsolete => $obsolete})->find($query_ref);
+		$cursors{$collection}->immortal(1);
+	}
+
+	# First pass to determine which fields should be exported
 
 	if (defined $fields_ref) {
 		# The fields to export are specified by the fields parameter
@@ -216,23 +233,12 @@ sub export_csv ($args_ref) {
 
 		# First pass - go through products to see which fields are populated,
 		# unless the fields to export are specified with the fields parameter.
-
 		# %populated_fields will contain the field name as the key,
 		# and a sort key as the value so that the CSV columns are in the order of $options{import_export_fields_groups}
 		my %populated_fields = ();
 
 		# Loop on collections
 		foreach my $collection (@collections) {
-
-			my $obsolete = ($collection eq "products_obsolete") ? 1 : 0;
-
-			my $count = get_products_collection({obsolete => $obsolete})->count_documents($query_ref);
-
-			$log->debug("export_csv - documents to export", {count => $count, collection => $collection})
-				if $log->is_debug();
-
-			$cursors{$collection} = get_products_collection({obsolete => $obsolete})->find($query_ref);
-			$cursors{$collection}->immortal(1);
 
 			while (my $product_ref = $cursors{$collection}->next) {
 
@@ -454,6 +460,8 @@ sub export_csv ($args_ref) {
 		$worksheet = $workbook->add_worksheet();
 		my $workbook_format = $workbook->add_format();
 		$workbook_format->set_bold();
+		$worksheet->keep_leading_zeros();
+
 		$worksheet->write_row(0, 0, \@sorted_populated_fields, $workbook_format);
 
 		# Set the width of the columns
@@ -531,7 +539,7 @@ sub export_csv ($args_ref) {
 
 					if (not defined $scans_ref) {
 						# Load the scan data
-						$scans_ref = retrieve_json("$data_root/products/$product_path/scans.json");
+						$scans_ref = retrieve_json("$BASE_DIRS{PRODUCTS}/$product_path/scans.json");
 					}
 					if (not defined $scans_ref) {
 						$scans_ref = {};
@@ -586,13 +594,13 @@ sub export_csv ($args_ref) {
 
 							if ((defined $product_ref->{images}) and (defined $product_ref->{images}{$imagefield})) {
 								$value
-									= "$www_root/images/products/"
+									= "$BASE_DIRS{PRODUCTS_IMAGES}/"
 									. $product_path . "/"
 									. $product_ref->{images}{$imagefield}{imgid} . ".jpg";
 							}
 							elsif (defined $other_images{$product_ref->{code} . "." . $imagefield}) {
 								$value
-									= "$www_root/images/products/"
+									= "$BASE_DIRS{PRODUCTS_IMAGES}/"
 									. $product_path . "/"
 									. $other_images{$product_ref->{code} . "." . $imagefield}{imgid} . ".jpg";
 							}

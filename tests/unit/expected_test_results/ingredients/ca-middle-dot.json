@@ -69,7 +69,6 @@
    ],
    "ingredients_analysis" : {
       "en:maybe-vegetarian" : [
-         "en:mozzarella",
          "en:rennet"
       ],
       "en:non-vegan" : [
@@ -148,6 +147,8 @@
    "known_ingredients_n" : 16,
    "lc" : "ca",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },

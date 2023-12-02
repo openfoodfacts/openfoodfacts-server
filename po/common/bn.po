@@ -115,6 +115,10 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr ""
 
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr ""
+
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 msgstr ""
@@ -189,10 +193,10 @@ msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
-msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr "/images/misc/google-play-badge-svg-master/img/bn_get.svg"
+msgid "/images/misc/playstore/img/en_get.svg"
+msgstr "/images/misc/playstore/img/bn_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -716,7 +720,7 @@ msgstr ""
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr ""
+msgstr "bn_BD"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
@@ -799,7 +803,7 @@ msgstr ""
 
 msgctxt "footer_legal"
 msgid "Legal"
-msgstr ""
+msgstr "আইনি"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
@@ -857,7 +861,7 @@ msgstr ""
 
 msgctxt "for"
 msgid "for"
-msgstr ""
+msgstr "জন্য"
 
 msgctxt "front_alt"
 msgid "Product"
@@ -889,11 +893,11 @@ msgstr ""
 
 msgctxt "hello"
 msgid "Hello"
-msgstr ""
+msgstr "আশা করি ভালো আছো"
 
 msgctxt "high"
 msgid "high"
-msgstr ""
+msgstr "উচ্চ"
 
 msgctxt "high_quantity"
 msgid "high quantity"
@@ -970,6 +974,10 @@ msgstr ""
 
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
+msgstr ""
+
+msgctxt "invite_user"
+msgid "Invite Users"
 msgstr ""
 
 msgctxt "incomplete_products_you_added"
@@ -1143,7 +1151,7 @@ msgstr ""
 
 msgctxt "language"
 msgid "en-US"
-msgstr ""
+msgstr "bn-BD"
 
 msgctxt "languages_p"
 msgid "languages"
@@ -1222,7 +1230,7 @@ msgstr "ইউজার-নেম অথবা ইমেইল অ্যাড�
 
 msgctxt "low"
 msgid "low"
-msgstr ""
+msgstr "নিম্ন"
 
 msgctxt "low_quantity"
 msgid "low quantity"
@@ -1274,7 +1282,7 @@ msgstr ""
 
 msgctxt "menu"
 msgid "Menu"
-msgstr ""
+msgstr "তালিকা"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
@@ -1296,7 +1304,7 @@ msgstr ""
 
 msgctxt "menu_discover"
 msgid "Discover"
-msgstr "খুঁজুন"
+msgstr "আবিষ্কার করো"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
@@ -1321,7 +1329,7 @@ msgstr ""
 
 msgctxt "mission_goal"
 msgid "Goal:"
-msgstr ""
+msgstr "লক্ষ্য:"
 
 msgctxt "missions"
 msgid "Missions"
@@ -1349,7 +1357,7 @@ msgstr "নাম"
 
 msgctxt "names"
 msgid "Names"
-msgstr ""
+msgstr "নাম"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
@@ -1506,7 +1514,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr ""
+msgstr "গড়"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
@@ -1554,7 +1562,7 @@ msgstr ""
 
 msgctxt "on_the_blog_title"
 msgid "News"
-msgstr ""
+msgstr "খবর"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
@@ -1563,7 +1571,7 @@ msgstr ""
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "বা:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -1987,7 +1995,7 @@ msgstr ""
 
 msgctxt "risk_level"
 msgid "Risk"
-msgstr ""
+msgstr "ঝুঁকি"
 
 msgctxt "risk_level_0"
 msgid "To be completed"
@@ -2091,7 +2099,7 @@ msgstr ""
 
 msgctxt "search_graph"
 msgid "Graph"
-msgstr ""
+msgstr "লেখচিত্র"
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
@@ -2144,7 +2152,7 @@ msgstr ""
 
 msgctxt "search_map"
 msgid "Map"
-msgstr ""
+msgstr "মানচিত্র"
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
@@ -2172,7 +2180,7 @@ msgstr "পুষ্টিসাধকতা"
 
 msgctxt "search_or"
 msgid "or"
-msgstr ""
+msgstr "বা"
 
 msgctxt "search_page_size"
 msgid "Results per page"
@@ -2256,7 +2264,7 @@ msgstr ""
 
 msgctxt "search_with"
 msgid "With"
-msgstr ""
+msgstr "সাথে"
 
 msgctxt "search_without"
 msgid "Without"
@@ -2372,7 +2380,7 @@ msgstr ""
 
 msgctxt "state"
 msgid "State"
-msgstr ""
+msgstr "অবস্থা"
 
 msgctxt "states_p"
 msgid "states"
@@ -2380,7 +2388,7 @@ msgstr ""
 
 msgctxt "states_s"
 msgid "state"
-msgstr ""
+msgstr "অবস্থা"
 
 msgctxt "stores"
 msgid "Stores"
@@ -2537,7 +2545,7 @@ msgstr ""
 
 msgctxt "view"
 msgid "view"
-msgstr ""
+msgstr "দেখো"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
@@ -2676,7 +2684,7 @@ msgstr ""
 
 msgctxt "title_separator"
 msgid " - "
-msgstr ""
+msgstr " - "
 
 msgctxt "recent_changes"
 msgid "Recent Changes"
@@ -2862,7 +2870,7 @@ msgstr ""
 
 msgctxt "infants_age"
 msgid "< 1"
-msgstr ""
+msgstr "< ১"
 
 msgctxt "infants_description"
 msgid "From more than 12 weeks up to and including 11 months of age"
@@ -3672,12 +3680,12 @@ msgstr ""
 # abbreviation for Minimum
 msgctxt "min"
 msgid "Min"
-msgstr ""
+msgstr "ন্যূনতম"
 
 # abbreviation for Maximum
 msgctxt "max"
 msgid "Max"
-msgstr ""
+msgstr "সর্বোচ্চ"
 
 msgctxt "improvements_p"
 msgid "possible improvements"
@@ -3858,7 +3866,7 @@ msgstr ""
 
 msgctxt "info"
 msgid "Info"
-msgstr ""
+msgstr "তথ্য"
 
 msgctxt "file_received"
 msgid "File received"
@@ -4025,7 +4033,7 @@ msgstr ""
 
 msgctxt "user_group_app"
 msgid "App"
-msgstr ""
+msgstr "অ্যাপ"
 
 msgctxt "user_group_app_description"
 msgid "For applications."
@@ -4033,7 +4041,7 @@ msgstr ""
 
 msgctxt "user_group_bot"
 msgid "Bot"
-msgstr ""
+msgstr "বট"
 
 msgctxt "user_group_bot_description"
 msgid "For robots, scripts etc."
@@ -4237,7 +4245,7 @@ msgstr ""
 
 msgctxt "teams_s"
 msgid "team"
-msgstr ""
+msgstr "দল"
 
 msgctxt "teams_description"
 msgid "You can join 1 to 3 teams. Products you add or edit will be credited to you and to your teams. Teams can be changed at any time."
@@ -4888,7 +4896,7 @@ msgstr ""
 
 msgctxt "serial_no"
 msgid "S.No"
-msgstr ""
+msgstr "সি.নাম্বার"
 
 msgctxt "contact_form"
 msgid "Contact form"
@@ -5758,7 +5766,7 @@ msgstr ""
 # statistical mean
 msgctxt "mean"
 msgid "Mean"
-msgstr ""
+msgstr "গড়"
 
 msgctxt "recipes_ingredients_statistics"
 msgid "Ingredients statistics for all products"
@@ -6532,6 +6540,14 @@ msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
 msgstr ""
 
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr ""
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr ""
+
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
 msgstr ""
@@ -6578,5 +6594,29 @@ msgstr ""
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
+msgstr ""
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr ""
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr ""
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr ""
+
+msgctxt "weight"
+msgid "Weight"
+msgstr ""
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr ""
+
+msgctxt "weight_percent"
+msgid "Weight percent"
 msgstr ""
 

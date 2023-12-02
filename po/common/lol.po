@@ -115,6 +115,10 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "crwdns225139:0crwdne225139:0"
 
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr "crwdns244983:0crwdne244983:0"
+
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 msgstr "crwdns225141:0{org}crwdne225141:0"
@@ -189,9 +193,9 @@ msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "crwdns225175:0crwdne225175:0"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
-msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
+msgid "/images/misc/playstore/img/en_get.svg"
 msgstr "crwdns225177:0crwdne225177:0"
 
 msgctxt "android_app_icon_alt_text"
@@ -970,6 +974,10 @@ msgstr "crwdns225555:0crwdne225555:0"
 msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr "crwdns225557:0crwdne225557:0"
+
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr "crwdns244985:0crwdne244985:0"
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
@@ -6531,6 +6539,14 @@ msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
 msgstr "crwdns228257:0{max}crwdne228257:0"
 
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr "crwdns244987:0crwdne244987:0"
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr "crwdns244989:0crwdne244989:0"
+
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
 msgstr "crwdns228259:0crwdne228259:0"
@@ -6578,4 +6594,28 @@ msgstr "crwdns244913:0crwdne244913:0"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "crwdns228277:0crwdne228277:0"
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr "crwdns245269:0crwdne245269:0"
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr "crwdns245271:0crwdne245271:0"
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr "crwdns245273:0crwdne245273:0"
+
+msgctxt "weight"
+msgid "Weight"
+msgstr "crwdns245275:0crwdne245275:0"
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr "crwdns245277:0crwdne245277:0"
+
+msgctxt "weight_percent"
+msgid "Weight percent"
+msgstr "crwdns245279:0crwdne245279:0"
 

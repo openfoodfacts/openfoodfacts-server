@@ -43,10 +43,10 @@ and the script will have to be re-run.
 TXT
 	;
 
-use CGI::Carp qw(fatalsToBrowser);
-
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -69,13 +69,7 @@ use File::Copy;
 
 use Getopt::Long;
 
-my @fields_to_update = ();
-my $key;
-my $index = '';
 my $pretend = '';
-my $process_ingredients = '';
-my $compute_nutrition_score = '';
-my $compute_nova = '';
 my $reverted_user_id = '';
 
 GetOptions(
@@ -90,8 +84,6 @@ GetOptions(
 my $query_ref = {};
 
 $query_ref->{editors_tags} = $reverted_user_id;
-
-print "Update key: $key\n\n";
 
 my $products_collection = get_products_collection();
 
@@ -108,9 +100,7 @@ print STDERR "$count products to revert\n";
 
 sleep(5);
 
-if (!-e "$data_root/reverted_products") {
-	mkdir("$data_root/reverted_products", oct(755)) or die("Could not create $data_root/reverted_products : $!\n");
-}
+ensure_dir_created_or_die($BASE_DIRS{REVERTED_PRODUCTS});
 
 while (my $product_ref = $cursor->next) {
 
@@ -121,12 +111,12 @@ while (my $product_ref = $cursor->next) {
 
 	print STDERR "reverting product $code\n";
 
-	if (!-e "$data_root/products/$path") {
-		print STDERR "$data_root/products/$path does not exist, skipping\n";
+	if (!-e "$BASE_DIRS{PRODUCTS}/$path") {
+		print STDERR "$BASE_DIRS{PRODUCTS}/$path does not exist, skipping\n";
 		next;
 	}
 
-	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 	if (not defined $changes_ref) {
 		$changes_ref = [];
 	}
@@ -175,11 +165,11 @@ while (my $product_ref = $cursor->next) {
 			if (not exists $deleted_revs{$rev}) {
 				my $target = "$path/$rev.sto";
 				$target =~ s/\//_/g;    # substitute "/" by _ to have a filename
-				my $cmd = "mv $data_root/products/$path/$rev.sto $data_root/reverted_products/$target";
+				my $cmd = "mv $BASE_DIRS{PRODUCTS}/$path/$rev.sto $BASE_DIRS{REVERTED_PRODUCTS}/$target";
 				print STDERR "$code - $cmd\n";
 				if (not $pretend) {
 					# move revision to reverted folder to keep track
-					move("$data_root/products/$path/$rev.sto", "$data_root/reverted_products/$target")
+					move("$BASE_DIRS{PRODUCTS}/$path/$rev.sto", "$BASE_DIRS{REVERTED_PRODUCTS}/$target")
 						or die "Could not execute $cmd : $!\n";
 				}
 				# mark revision as removed
@@ -194,35 +184,35 @@ while (my $product_ref = $cursor->next) {
 		my $target = "$path/product.sto";
 		$target =~ s/\//_/g;
 		# keep a copy of current product
-		my $cmd = "mv $data_root/products/$path/product.sto $data_root/reverted_products/$target";
+		my $cmd = "mv $BASE_DIRS{PRODUCTS}/$path/product.sto $BASE_DIRS{REVERTED_PRODUCTS}/$target";
 		print STDERR "$code - $cmd\n";
 		# move does not work for symlinks on different file systems
-		#move("$data_root/products/$path/product.sto", "$data_root/reverted_products/$target") or die "Could not execute $cmd : $!\n";
+		#move("$BASE_DIRS{PRODUCTS}/$path/product.sto", "$BASE_DIRS{REVERTED_PRODUCTS}/$target") or die "Could not execute $cmd : $!\n";
 		if (not $pretend) {
 			(system($cmd) == 0) or die "Could not execute $cmd : $!\n";
 		}
 		# and a copy of changes.sto
 		$target = "$path/changes.sto" . "." . time();
 		$target =~ s/\//_/g;
-		$cmd = "mv $data_root/products/$path/changes.sto $target";
+		$cmd = "mv $BASE_DIRS{PRODUCTS}/$path/changes.sto $target";
 		print STDERR "$code - $cmd\n";
 		if (not $pretend) {
-			move("$data_root/products/$path/changes.sto", "$data_root/reverted_products/$target")
+			move("$BASE_DIRS{PRODUCTS}/$path/changes.sto", "$BASE_DIRS{REVERTED_PRODUCTS}/$target")
 				or die "Could not execute $cmd : $!\n";
 		}
 		# we had edits prior target user edits, rewind product to those changes
 		if ($previous_rev > 0) {
 			# restore revision prior to target user changes
-			$cmd = "ln -s $previous_rev.sto $data_root/products/$path/product.sto";
+			$cmd = "ln -s $previous_rev.sto $BASE_DIRS{PRODUCTS}/$path/product.sto";
 			print STDERR "$code - $cmd\n";
 			if (not $pretend) {
-				symlink("$previous_rev.sto", "$data_root/products/$path/product.sto")
+				symlink("$previous_rev.sto", "$BASE_DIRS{PRODUCTS}/$path/product.sto")
 					or die "Could not execute $cmd : $!\n";
 			}
 			# restore changes.sto
-			print STDERR "updating $data_root/products/$path/changes.sto\n";
+			print STDERR "updating $BASE_DIRS{PRODUCTS}/$path/changes.sto\n";
 			if (not $pretend) {
-				store("$data_root/products/$path/changes.sto", $new_changes_ref);
+				store("$BASE_DIRS{PRODUCTS}/$path/changes.sto", $new_changes_ref);
 			}
 		}
 

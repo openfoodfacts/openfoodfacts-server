@@ -4,8 +4,8 @@ stopwords:da:spor
 stopwords:de:enthalten,von,und,kann,spuren,andere,anderen
 stopwords:es:traza,trazas,y,de,que,contiene,contienen,otros,producto,productos,derivado,derivados,incluido,incluidos,incluida,incluidas,la,una,fuente,contener,puede,con,elaborado,en,linea,donde,se,procesa,granos,posible,posibles,este
 stopwords:fi:ja,muita,muuta,tehtaassa,valmistettu,saattaa,sisältää,pieniä,pienehköjä,määriä,jäämiä,ainesosia
-stopwords:fr:d'autres,autre,autres,ce,produit,est,fabriqué,élaboré,transformé,emballé,dans,un,atelier,une,usine,qui,utilise,aussi,également,céréale,céréales,farine,farines,extrait,extraits,graine,graines,trace,traces,éventuelle,éventuelles,possible,possibles,potentielle,potentielles,peut,pourrait,contenir,contenant,contient,de,des,du,d',l',la,le,les,et,dérivés,à,base,ce,ces,hybrides,ou,produits,y,compris,contiennent
-stopwords:hr:može,sadržavati,sadrži,tragove,u tragovima,mogući tragovi 
+stopwords:fr:d'autres,autre,autres,ce,produit,est,fabriqué,élaboré,transformé,emballé,dans,un,atelier,une,usine,qui,utilise,aussi,également,céréale,céréales,farine,farines,extrait,extraits,graine,graines,trace,traces,éventuelle,éventuelles,possible,possibles,potentielle,potentielles,peut,pourrait,pouvant,contenir,contenant,contient,de,des,du,d',l',la,le,les,et,dérivés,à,base,ce,ces,hybrides,ou,produits,y,compris,contiennent
+stopwords:hr:i,ili,može,sadržavati,sadrži,tragove,u tragovima,mogući tragovi 
 stopwords:is:í,snefilmagni
 stopwords:it:derivanti,del,de,la,e,tracce,contiene,una,fonte,di,puo,contenere,altra,contenenti,a,base,semi
 stopwords:pt:traços,vestígios,vestígio,a,e,uma,em,ou,de,que,com,contém,contêm,possível,eventual,outros,produto,produtos,derivado,derivados,incluido,incluidos,incluida,incluidas,fonte,pode,elaborado,onde,se,processa,grãos,possível,possíveis,este,feito,manofaturado,fabricado,fábrica,também,usa,subproduto,subprodutos,mín,min,mínimo,refinado
@@ -21,13 +21,13 @@ nl:Geen, Allergeenvrij, Zonder allergenen, Zonder, Geen allergenen, 0
 sk:žiadne, bez alergénov, bez, 0
 sr:ništa, nijedan, nijedno, bez alergena, nema alergena, bez, 0
 
-en:gluten, cereals containing gluten, barley, barley malt flour, malted barley, malted barley extract, malted barley flour, kamut, rye, rye flour, spelt, speltflour, wheat, wheat flour, wheatflour, wheat semolina, oats, oat fiber
+en:gluten, cereals containing gluten, other cereals containing gluten, barley, barley malt flour, malted barley, malted barley extract, malted barley flour, kamut, rye, rye flour, spelt, speltflour, wheat, wheat flour, wheatflour, wheat semolina, oats, oat fiber
 ar:غلوتين
 bg:глутен, ечемик, ечемичен, ечемично-малцов, пшеница, пшенично, пшеничено, ръж, овес, спелта, камут, хоросан, вид едра твърда пшеница, лимец, булгур 
 bs:gluten
 cs:lepek, pšenice, žito, ječmen, oves, špalda, kamut, obilovin obsahujících lepe
 da:gluten, hvede, durumhvede, rug, byg, havre, spelt, kamut, bygmalt, bygmaltmel, bygmaltekstrakt, havremel, hvedemel, durumhvedemel, fuldkornshvede, fuldkornshvedemel, havregryn, ruggryn, havreflager, speltflager, hvedeklid, hvedestivelse, hvedegluten, bygmalteddike, kornprodukter som indeholder gluten
-de:Gluten, Weizen, Roggen, Gerste, Hafer, Dinkel, Kamut, Gerstenmehl, Gerstenvollkornmehl, Hafer-Vollkornmehl, Haferflocken, Haferkleie, Hafervollkornflocken, Hafervollkornmehl, Vollkorn-Hafer, Vollkorn-Haferflocken, Vollkorn-Hafermehl, Vollkornhafermehl, Vollkornhafer, Vollkornhaferflocken, Vollkornhaferschrot, Vollkornweizenmehl, Weizenvollkornmehl, Weizenmehl, Weizengluten, Weizensauerteig, Hartweizen, Gluten enthaltendes Getreide, Gluten-enthaltendes-Getreide, Gerstenmalzextrakt, Gerstenmalz, Weizenstärke, Hartweizengriess, Hartweizengrieß, Roggenmehl, Weizenmalzmehl, Dinkelmehl, Gerstenmalzmehl, Weizenmalz, Roggenvollkornmehl, Weizenkleber, Roggenvollkornschrot, Dinkelvollkornmehl, Hafermehl, Weizenflocken, Weizenvollkornflocken, Weizengrieß, Weizengriess, Weizenkleie, Gerstenflocken, Weizenquellmehl, Roggenflocken, Vollkorn-Weizenflocken, Weizenvollkornschrot, Weizenspeisekleie, Weichweizenmehl, Dinkelflocken, Roggenvollkornflocken, Malzmehl, Dinkelvollkornflocken, Dinkelvollkornschrot, Roggenschrot, Gersten, Weizenrostmalzmehl, Vollkornweizen, Haferfaser
+de:Gluten, Weizen, Roggen, Gerste, Hafer, Dinkel, Kamut, Gerstenmehl, Gerstenvollkornmehl, Hafer-Vollkornmehl, Haferflocken, Haferkleie, Hafervollkornflocken, Hafervollkornmehl, Vollkorn-Hafer, Vollkorn-Haferflocken, Vollkorn-Hafermehl, Vollkornhafermehl, Vollkornhafer, Vollkornhaferflocken, Vollkornhaferschrot, Vollkornweizenmehl, Weizenvollkornmehl, Weizenmehl, Weizengluten, Weizensauerteig, Hartweizen, glutenhaltigem Getreide, Gluten enthaltendes Getreide, Gluten-enthaltendes-Getreide, Gerstenmalzextrakt, Gerstenmalz, Weizenstärke, Hartweizengriess, Hartweizengrieß, Roggenmehl, Weizenmalzmehl, Dinkelmehl, Gerstenmalzmehl, Weizenmalz, Roggenvollkornmehl, Weizenkleber, Roggenvollkornschrot, Dinkelvollkornmehl, Hafermehl, Weizenflocken, Weizenvollkornflocken, Weizengrieß, Weizengriess, Weizenkleie, Gerstenflocken, Weizenquellmehl, Roggenflocken, Vollkorn-Weizenflocken, Weizenvollkornschrot, Weizenspeisekleie, Weichweizenmehl, Dinkelflocken, Roggenvollkornflocken, Malzmehl, Dinkelvollkornflocken, Dinkelvollkornschrot, Roggenschrot, Gersten, Weizenrostmalzmehl, Vollkornweizen, Haferfaser
 ee:nisu, odrasiirup, odralinnaseekstrakt
 el:γλουτένη, σιτάρι, σίκαλη, κριθάρι, βρώμη, ντίνκελ, σιτηρό kamut
 es:gluten, trigo, centeno, cebada, espelta, kamut, cereales con gluten, cereales, harina de trigo, trigo de Jorasán Kamut, harina de trigo integral, cereales que contienen gluten
@@ -36,7 +36,7 @@ fi:gluteeni, gluteenia, gluteenista, gluteenit, gluteeneja, gluteeneista, vehnä
 fr:gluten, blé, seigle, orge, épeautre, kamut, son de blé, blé complet, gluten de blé, fibre de blé, malt d'orge, malt, froment, farine de blé, farine de froment, boulgour, petit épeautre, céréales contenant du gluten, blé dur, épeautre, petit épeautre, grand épeautre, farine d'épeautre
 ga:glútan, cruithneacht, seagal, eorna, coirce, speilt, camut, céréeale, céréales
 he:גלוטן, קמח, סמולינה, דורום, חיטה, לתת כשות, מדגנים, דגנים
-hr:gluten, glutena, ječmeni, ječmeni slad, ječam, ječma, ječmeno, ječmenog, psenicu, pšenična, pšenice, pšenične, pšenični, pšenićni gluten, pšenično, pšenično brašno, pšeničnog glutena, pšenični gluten, pšenični gluten u aromi, pšenično pirovo, pšenicu, raži, raženo, zobena, zobene, zobeno, žitarica koje sadrže gluten, žitarice koje sadrže gluten
+hr:gluten, glutena, ječmeni, ječmeni slad, ječam, ječma, ječmeno, ječmenog, psenicu, pšenična, pšenice, pšenične, pšenični, pšenićni gluten, pšenično, pšenično brašno, pšeničnog glutena, pšenični gluten, pšenični gluten u aromi, pšenično pirovo, pšenicu, raži, raženo, zobena, zobene, zobeno, žitarica koje sadrže gluten, žitarice koje sadrže gluten, zeleni krupnik
 hu:glutén, búza, búzaliszt, búzarost, búzadara, búzacsíra, búzafehérje, búzakorpa, búzamaláta, búzapehely, búzakeményítő, búzasikér, tönkölybúza, tönkölybúzaliszt, tönkölybúzapehely, durumbúza, durumbúzaliszt, rozs, rozsliszt, rozspehely, durumrozsliszt, árpa, árpaliszt, árpapehely, árpamaláta, árpadara, árpacsíra, zab, zabliszt, zabpehely, zabkorpa, durumliszt, durum liszt, Grahamliszt, Graham liszt, kenyérliszt, kenyér liszt, rétesliszt, rétes liszt, kamut, alakor, bulgur, glutént, glutént tartalmazó gabona, glutént tartalmazó gabonafélék
 is:glúten
 it:glutine, grano, segale, orzo, farro, kamut, frumento, farina di frumento, farina di frumento integrale
@@ -183,7 +183,7 @@ mt:karawett, arachis hypogaea
 nb:peanøtt, peanøtter
 nl:pinda, aardnoten, pindas, arachis hypogaea
 nl_be:aardnoten, pinda, pindas, arachis hypogaea
-pl:orzeszki ziemne, arachidowe, arachis hypogaea, orzechy ziemne, orzechy arachidowe
+pl:orzeszki ziemne, arachidowe, arachis hypogaea, orzechy ziemne, orzechy arachidowe, orzeszki arachidowe
 pt:amendoins, amendoim, arachis hypogaea, manteiga de amendoim, óleo de amendoim
 ro:arahide, arachis hypogaea
 ru:арахис, arachis hypogaea
@@ -208,7 +208,7 @@ fi:soija, soijaa, soijasta, soijat, soijia, soijista, soijapapu, soijapapua, soi
 fr:soja, soya, soia, sojas, son de soja, lécithine de soja, tonyu, graine de soja, graines de soja, tofu
 ga:pónairí soighe, soighe
 he:סויה, פולי סויה, לציטין סויה, קמח סויה
-hr:soje, sojin, sojina, sojini, sojino, soju, sojin lecitin, sojini lecitini, sojinih proizvoda
+hr:soja, soje, sojin, sojina, sojini, sojino, soju, sojin lecitin, sojini lecitini, sojinih proizvoda
 hu:szója, szójabab, szójalecitin, szójalecitinek, szójatej, szójaliszt, szójafehérje, szójából, szóját
 is:soja
 it:soia, lecitina di soia
@@ -235,7 +235,7 @@ ar:حليبب, لاكتوز
 bg:суроватка, млечна, мляко,  лактоза
 cs:mléko, laktózy
 da:mælk, laktose, mælkepulver, skummetmælk, skummetmælkspulver, sødmælk, sødmælkspulver, komælk, fløde, piskefløde, mælkefedt, mælkeproteiner, mælkesukker, vallepulver, kærnemælk, letmælk, ost, emmentaler, cheddarost, ostepuler
-de:Milch, Bergkäse, Blauschimmelkäse, Butter, Buttermilch, Buttermilchpulver, Butterreinfett, Camembert, Cheddar, Edamer, Edamer-Käse, Emmentaler,  Frischkäse, Gorgonzola, Gouda, Hartkäse, Joghurt, Joghurtpulver, Käse, Käsepulver, Kondensmilch, Kuhmilch, Kuhvollmilch, Laktose, Rohmilch, Milchzucker, Milcheiweiß, Milchpulver, Milcherzeugnisse, Magermilchpulver, Magermilchjoghurt, Magermilchkonzentrat, Magermilchjoghurtpulver, Magermilch, Magerquark, Molkenpulver, Molkenerzeugnis, Molkeneiweißkäse, Milchschokolade,  Mozzarella, Pecorino, Quark, Ricotta, Speisequark, Sahne, Sahnepulver, Sahnejoghurt, Sauermilchquark, Sauerrahm, Rahm, Rahmjoghurt, Sauermilch, Sauerrahmpulver, Schlagsahne,  Süssmolkenpulver, Süßmolkenpulver, Vollmilch, Vollmilchschokolade, Vollmilchpulver, Ziegenmilch, Süßmolke, Süssmolke, Butterfett, Kondensmagermilch, Joghurterzeugnis, Schafsmilch, Schafmilch, Käsereimilch, Milchfett, Milchprotein, Molke, Sauermolke, Molkeneiweiß, Molkeneiweiss, Molkepulver, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Molkenprotein, Buttereinfett, Süßmolkepulver, Süssmolkepulver, Vollmilchschokoladeüberzug
+de:Milch, Bergkäse, Blauschimmelkäse, Butter, Buttermilch, Buttermilchpulver, Butterreinfett, Camembert, Cheddar, Edamer, Edamer-Käse, Emmentaler,  Frischkäse, Gorgonzola, Gouda, Hartkäse, Joghurt, Joghurtpulver, Käse, Käsepulver, Kondensmilch, Kuhmilch, Kuhvollmilch, Laktose, Rohmilch, Milchzucker, Milcheiweiß, Milchpulver, Milcherzeugnisse, Milcherzeugnissen, Magermilchpulver, Magermilchjoghurt, Magermilchkonzentrat, Magermilchjoghurtpulver, Magermilch, Magerquark, Molkenpulver, Molkenerzeugnis, Molkeneiweißkäse, Milchschokolade,  Mozzarella, Pecorino, Quark, Ricotta, Speisequark, Sahne, Sahnepulver, Sahnejoghurt, Sauermilchquark, Sauerrahm, Rahm, Rahmjoghurt, Sauermilch, Sauerrahmpulver, Schlagsahne,  Süssmolkenpulver, Süßmolkenpulver, Vollmilch, Vollmilchschokolade, Vollmilchpulver, Ziegenmilch, Süßmolke, Süssmolke, Butterfett, Kondensmagermilch, Joghurterzeugnis, Schafsmilch, Schafmilch, Käsereimilch, Milchfett, Milchprotein, Molke, Sauermolke, Molkeneiweiß, Molkeneiweiss, Molkepulver, Milcheiweißerzeugnis, Milcheiweisserzeugnis, Magermilchpulverzusatz, Molkenprotein, Buttereinfett, Süßmolkepulver, Süssmolkepulver, Vollmilchschokoladeüberzug
 el:γάλα, λακτόζης
 es:leche,  lactosa, lácteos, derivados lácteos, productos lácteos, leche y derivados, queso, proteína de leche, leche y sus derivados
 et:laktoos, lõssi, piim, piima, piimast
@@ -254,7 +254,7 @@ mt:ħalib, lattosju
 nb:melk, melkepulver, skummet melk, skummetmelkepulver, helmelk, helmelkpulver, helmelkspulver, kumelk, laktose, fløte, melkefett, melkeprotein, melkeproteiner, tørrmelk, ost, ostepulver, geitost, geitmyse, geitfløte, geitmelk, myse, mysepulver, kjernemelk, ferskost, ferskostepulver, skummetmelkyoghurtpulver
 nl:melk, melkpoeder, lactose, boter, karnemelk, room, jogurt, kaas, gouda, edam, yoghurt, melkvet, melkeiwit
 nl_be:melk, melkpoeder, lactose, boter, karnemelk, room, jogurt, kaas, gouda, edam, yoghurt, melkvet, melkeiwit
-pl:mleko, laktozą, mleka, mleczny, laktozę, mleczna, mleczne, serwatka, serwatkowy, serwatkowa, ser, serowy, serowa, serowe
+pl:mleko, laktozą, mleka, mleczny, laktozę, mleczna, mleczne, serwatka, serwatkowy, serwatkowa, ser, serowy, serowa, serowe, łącznie z laktozą
 pt:leite, lactose, soro, lactéos, manteiga, iogurte, queijo, proteína de leite, leite e seus derivados, derivados de leite
 ro:lapte, lactoză
 ru:молоко, лактоза, сливки, молочная сыворотка, йогурт
@@ -265,13 +265,13 @@ sv:mjölk, mjölkpulver, skummjölk, skummjölkspulver, mellanmjölk, mellanmjö
 th:นม,แล็กโทส,ครีม,เนย,นมเปรี้ยว,เนยแข็ง
 zh:乳,乳糖,奶油,鮮奶油,忌廉,黃油,奶油,牛油
 
-en:nuts, almonds, hazelnuts, walnuts, cashews, cashew, pecan nuts, pecan,  Brazil nuts, pistachio nuts, pistachio, macadamia, Macadamia nuts, Queensland nuts, tree nuts, treenuts, other nuts
+en:nuts, almonds, hazelnuts, walnuts, cashews, cashew, pecan nuts, pecan,  Brazil nuts, pistachio nuts, pistachio, macadamia, Macadamia nuts, Queensland nuts, tree nuts, treenuts, other nuts, other tree nuts
 ar:بندقة, الكاجو, المكاداميا, الفستقجوز, لوز
 bg:ядки, бадеми, лешници, орехи, кашу, пеканови ядки,  бразилски орехи, шамфъстък, орехи макадамия, орехи Куинсленд
 bs:bademe, lešnike
 cs:skořápkové plody, skořápko plodů , mandle, lískové ořechy, vlašské ořechy, kešu ořechy, pekanové ořechy,  para ořechy, pistácie, makadamie
 da:nødder, mandel, mandler, hasselnød, hasselnødder, valnødder, cashewnødder, pekannødder, paranødder, pistacienød, pistacienødder, queenslandnødder, macadamianødder, andre nødder
-de:Schalenfrüchte, Schalenfrüchten, Mandel, Mandeln, Mandelkerne, Mandelstücke, Mandelstückchen, Haselnüsse, Haselnüssen, Haselnussmasse, Haselnusskerne, Haselnussmark, Haselnusspaste, Walnüsse, Walnusskerne, Walnussöl, Kaschunüsse, Pecannüsse,  Paranüsse, Paranusskerne, Pistazien, Macadamianüsse, Queenslandnüsse, Cashewkerne, Cashewnüsse, Nüsse, Haselnuss, Haselnussstücke, Erdnussöl, andere Nüsse
+de:Schalenfrüchte, Schalenfrüchten, Mandel, Mandeln, Mandelkerne, Mandelstücke, Mandelstückchen, Haselnüsse, Haselnüssen, Haselnussmasse, Haselnusskerne, Haselnussmark, Haselnusspaste, Walnüsse, Walnusskerne, Walnussöl, Kaschunüsse, Pekannuss, Pekannüsse, Pecannüsse,  Paranüsse, Paranusskerne, Pistazien, Macadamianüsse, Queenslandnüsse, Cashewkerne, Cashewnuss, Cashewnüsse, Nüsse, Haselnuss, Haselnussstücke, Erdnussöl, andere Nüsse, anderen Schalenfrüchten, weitere Schalenfrüchte
 el:καρποί με κέλυφος, αμύγδαλα, φουντούκια, καρύδια, καρύδια κάσιους, καρύδια πεκάν, καρύδια Βραζιλίας, φυστίκια, καρύδια μακαντάμια, καρύδια Κουίνσλαντ
 es:frutos de cáscara, frutos con cáscara, almendras, avellanas, nuez, nueces, anacardos, pacanas, nueces de Brasil, nuez de Brasil, nueces del Amazonas, coquitos, coquito, alfóncigos, nueces macadamia, nueces de macadamia, nueces de Australia, pistacho, pistachos, frutos secos, frutos secos de cáscara, otros frutos secos de cáscara, otros frutos de cáscara, otros frutos secos, frutos de cáscara y derivados, piñones, piñón, castañas, castaña, nueces de árboles, otros nueces
 et:pähklid, mandlid, sarapuupähklid, kreeka pähklid, india pähklid, kašupähklid, pekanipähklid,  brasiilia pähklid, parapähklid, pistaatsiapähklid, makadaamiapähklid
@@ -279,7 +279,7 @@ fi:pähkinät, pähkinä, pähkinää, pähkinästä, pähkinöitä, pähkinöis
 fr:fruits à coque, amandes, noisettes, noix, noix de cajou, noix de pécan, noix du Brésil, pistaches, noix de Macadamia, noix du Queensland, fruits secs, autres fruits secs, autres fruits à coque, fruits secs à coque, fruits à coque dure
 ga:cnónna,  almóinní, cnónna coill, gallchnónna, cnónna caisiú, cnónna peagáin, cnónna Brasaíleacha, cnónna pistéise, cnónna macadaíme, cnónna Thír na Banríona
 he:אגוזים, שקדים, פקאן, אגוז ברזיל, אגוז מלך, פיסטוק, קשיו, ערמונים,מקדמיה
-hr:orašaste plodove, orašastih plodova, orašasto voće, orašastog voća, ostalih orašastih plodova, ostalo orašasto voće, ostalog orašastog voća, drugo orašasto voće, drugog orašastog voća, badem, badema, bademe, bademi, lješnjak, lješnjaka, lješnjake, lješnjaci, pistacije, drugih orašastih plodova, druge orašaste plodove, orah, orah jezgra, orahe
+hr:orašaste plodove, orašastih plodova, orašasto voće, orašasto voče, orašastog voća, ostalih orašastih plodova, ostalo orašasto voće, ostalog orašastog voća, drugo orašasto voće, drugog orašastog voća, badem, badema, bademe, bademi, lješnjak, lješnjaka, lješnjake, lješnjaci, pistacije, drugih orašastih plodova, druge orašaste plodove, orah, orah jezgra, orahe, i ljuske orašastog voća te koštice, i ljeske orašastog voća te koštice, i ostale orašaste plodove
 hu:diófélék, mandula, mogyoró, dió, kesudió, pekándió, brazil dió, pisztácia, makadámia, queenslandi dió, dióféléket
 is:hnetur
 it:frutta a guscio, mandorle, nocciole, noci, noci di acagiù, noci di pecan,  noci del Brasile, pistacchi, noci macadamia, noci del Queensland

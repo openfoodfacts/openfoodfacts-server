@@ -45,7 +45,8 @@
       "en:berries",
       "en:orange",
       "en:citrus-fruit",
-      "en:apple"
+      "en:apple",
+      "en:malaceous-fruit"
    ],
    "ingredients_n" : 3,
    "ingredients_n_tags" : [
@@ -64,7 +65,8 @@
       "en:berries",
       "en:orange",
       "en:citrus-fruit",
-      "en:apple"
+      "en:apple",
+      "en:malaceous-fruit"
    ],
    "ingredients_text" : "Mansikka 12,3% ; Appelsiini 6.5%, Omena (3,5%)",
    "ingredients_with_specified_percent_n" : 3,
@@ -75,9 +77,15 @@
       "en:orange"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
-   "known_ingredients_n" : 6,
+   "known_ingredients_n" : 7,
    "lc" : "fi",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:all-ingredients-with-specified-percent"
+   ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
    },

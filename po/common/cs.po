@@ -115,6 +115,10 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Zadejte prosím název vaší organizace (název společnosti nebo značku)."
 
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr "Zadejte e-mailové adresy uživatelů, které chcete pozvat (oddělte čárkami):"
+
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 msgstr "Tento účet je profesionální účet spojený s výrobcem nebo značkou {org}. Máte přístup k Platformě pro výrobce."
@@ -189,10 +193,10 @@ msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world-cs.openfoodfacts.org/files/off.apk"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
-msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr "/images/misc/google-play-badge-svg-master/img/cs_get.svg"
+msgid "/images/misc/playstore/img/en_get.svg"
+msgstr "/images/misc/playstore/img/cs_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -972,6 +976,10 @@ msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr "Detail fotky a informace o přiřazení"
 
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr "Pozvat uživatele"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Produkty, které jste přidali, a je třeba je dokončit"
@@ -1091,7 +1099,7 @@ msgstr "Stáhnout v App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -2470,7 +2478,7 @@ msgstr "stopy"
 
 msgctxt "twitter"
 msgid "Twitter username (optional)"
-msgstr "Twitter uživatelské jméno (volitelné)"
+msgstr "Twitter přezdívka (volitelné)"
 
 msgctxt "twitter_account"
 msgid "OpenFoodFacts"
@@ -6175,7 +6183,7 @@ msgstr "Vyfoťte informace o recyklaci"
 
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
-msgstr "Přidat komponenty obalu"
+msgstr "Přidat součásti obalu"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
@@ -6546,6 +6554,14 @@ msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
 msgstr "Zadejte hodnotu mezi 0 a {max}."
 
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr "Požádejte prosím následující uživatele, aby si nejprve vytvořili účet Open Food Facts:"
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr "Uživatelé úspěšně přidáni do organizace:"
+
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
 msgstr "Cukry by neměly být vyšší než sacharidy."
@@ -6580,7 +6596,7 @@ msgstr "% výrobků obsahujících daný materiál"
 
 msgctxt "packaging_material_products_percent_main"
 msgid "% of products containing mostly the material"
-msgstr ""
+msgstr "% výrobků obsahujících převážně daný materiál"
 
 msgctxt "relative_to_products_containing_the_material"
 msgid "for products that contain the material"
@@ -6588,9 +6604,33 @@ msgstr "pro produkty, které daný materiál obsahují"
 
 msgctxt "relative_to_products_containing_mostly_the_material"
 msgid "for products that contain mostly the material"
-msgstr ""
+msgstr "pro produkty, které daný materiál převážně obsahují"
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "vzhledem ke všem produktům"
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr "Čísla součástí balení"
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr "Číslo součástí balení"
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr "Všechny materiály"
+
+msgctxt "weight"
+msgid "Weight"
+msgstr "Hmotnost"
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr "Hmotnost na 100 g produktu"
+
+msgctxt "weight_percent"
+msgid "Weight percent"
+msgstr "Procenta hmotnosti"
 

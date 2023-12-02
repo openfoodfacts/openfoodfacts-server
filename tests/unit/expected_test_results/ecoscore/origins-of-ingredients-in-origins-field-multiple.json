@@ -21,6 +21,9 @@
             ],
             "epi_score" : 73.45,
             "epi_value" : 2,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
             "origins_from_origins_field" : [
                "en:france",
                "en:belgium"
@@ -444,6 +447,7 @@
    "ingredients_hierarchy" : [
       "en:apricot",
       "en:fruit",
+      "en:prunus-species-fruit",
       "en:cane-sugar",
       "en:added-sugar",
       "en:disaccharide",
@@ -466,6 +470,7 @@
    "ingredients_tags" : [
       "en:apricot",
       "en:fruit",
+      "en:prunus-species-fruit",
       "en:cane-sugar",
       "en:added-sugar",
       "en:disaccharide",
@@ -484,9 +489,10 @@
       "en:cane-sugar"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
-   "known_ingredients_n" : 9,
+   "known_ingredients_n" : 10,
    "lc" : "en",
    "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
       "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
@@ -500,6 +506,8 @@
       "en:ecoscore-grade-changed"
    ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 70,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 70,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 70,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 70
    },

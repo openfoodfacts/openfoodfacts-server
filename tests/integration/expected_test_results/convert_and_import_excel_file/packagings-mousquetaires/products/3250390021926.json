@@ -97,6 +97,9 @@
             ],
             "epi_score" : 0,
             "epi_value" : -5,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
             "origins_from_origins_field" : [
                "en:unknown"
             ],
@@ -347,6 +350,7 @@
    "informers_tags" : [
       "test-user"
    ],
+   "ingredients_lc" : "fr",
    "interface_version_created" : "import_csv_file - version 2019/09/17",
    "lang" : "fr",
    "lang_imported" : "fr",
@@ -371,7 +375,6 @@
    "lc_imported" : "fr",
    "main_countries_tags" : [],
    "misc_tags" : [
-      "en:nutriscore-not-computed",
       "en:nutriscore-missing-category",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
@@ -382,6 +385,9 @@
       "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-proteins",
       "en:nutrition-no-fiber",
+      "en:nutriscore-not-computed",
+      "en:nutrition-no-fruits-vegetables-nuts",
+      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
       "en:packagings-number-of-components-1",
       "en:packagings-complete",
       "en:packagings-not-empty",
@@ -400,14 +406,71 @@
    "nutrient_levels" : {},
    "nutrient_levels_tags" : [],
    "nutriments" : {},
+   "nutriscore" : {
+      "2021" : {
+         "category_available" : 0,
+         "data" : {
+            "energy" : null,
+            "fiber" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat" : 0,
+            "is_water" : 0,
+            "proteins" : null,
+            "saturated_fat" : null,
+            "sodium" : null,
+            "sugars" : null
+         },
+         "grade" : "unknown",
+         "nutrients_available" : 0,
+         "nutriscore_applicable" : 0,
+         "nutriscore_computed" : 0
+      },
+      "2023" : {
+         "category_available" : 0,
+         "data" : {
+            "energy" : null,
+            "fiber" : 0,
+            "fruits_vegetables_legumes" : null,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat_oil_nuts_seeds" : 0,
+            "is_red_meat_product" : 0,
+            "is_water" : 0,
+            "proteins" : null,
+            "salt" : null,
+            "saturated_fat" : null,
+            "sugars" : null
+         },
+         "grade" : "unknown",
+         "nutrients_available" : 0,
+         "nutriscore_applicable" : 0,
+         "nutriscore_computed" : 0
+      }
+   },
+   "nutriscore_2021_tags" : [
+      "unknown"
+   ],
+   "nutriscore_2023_tags" : [
+      "unknown"
+   ],
+   "nutriscore_grade" : "unknown",
+   "nutriscore_tags" : [
+      "unknown"
+   ],
+   "nutriscore_version" : "2021",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
+   "nutrition_grade_fr" : "unknown",
+   "nutrition_grades" : "unknown",
    "nutrition_grades_tags" : [
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "no score when the product does not have a category - missing energy - missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
+   "nutrition_score_debug" : "no score when the product does not have a category - missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
    "nutrition_score_warning_no_fiber" : 1,
+   "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
    "owner" : "org-test-org",
    "owner_fields" : "--ignore--",
    "owners_tags" : "org-test-org",

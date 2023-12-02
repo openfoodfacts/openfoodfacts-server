@@ -14,6 +14,9 @@
             ],
             "epi_score" : 93,
             "epi_value" : 4,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
             "origins_from_origins_field" : [
                "en:unknown"
             ],
@@ -420,7 +423,8 @@
    "ingredients_hierarchy" : [
       "en:carrot",
       "en:vegetable",
-      "en:root-vegetable"
+      "en:root-vegetable",
+      "en:taproot-vegetable"
    ],
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
@@ -434,7 +438,8 @@
    "ingredients_tags" : [
       "en:carrot",
       "en:vegetable",
-      "en:root-vegetable"
+      "en:root-vegetable",
+      "en:taproot-vegetable"
    ],
    "ingredients_text" : "Carottes (origine France)",
    "ingredients_with_specified_percent_n" : 0,
@@ -443,7 +448,7 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
-   "known_ingredients_n" : 3,
+   "known_ingredients_n" : 4,
    "labels_tags" : [
       "en:demeter"
    ],
@@ -459,6 +464,8 @@
       "en:ecoscore-grade-changed"
    ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
    },

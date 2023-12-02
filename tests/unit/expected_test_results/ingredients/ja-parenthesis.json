@@ -10,19 +10,19 @@
                "percent_max" : 100,
                "percent_min" : 10,
                "text" : "本醸造",
-               "vegan" : "ignore",
-               "vegetarian" : "ignore"
+               "vegan" : "maybe",
+               "vegetarian" : "maybe"
             }
          ],
          "percent_estimate" : 55,
          "percent_max" : 100,
          "percent_min" : 10,
          "text" : "しょうゆ",
-         "vegan" : "ignore",
-         "vegetarian" : "ignore"
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
-         "id" : "ja:糖類",
+         "id" : "en:sugar",
          "ingredients" : [
             {
                "ciqual_food_code" : "31077",
@@ -56,7 +56,9 @@
          "percent_estimate" : 22.5,
          "percent_max" : 50,
          "percent_min" : 0,
-         "text" : "糖類"
+         "text" : "糖類",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       },
       {
          "id" : "en:mirin",
@@ -64,8 +66,8 @@
          "percent_max" : 33.3333333333333,
          "percent_min" : 0,
          "text" : "みりん",
-         "vegan" : "ignore",
-         "vegetarian" : "ignore"
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
          "ciqual_food_code" : "11058",
@@ -115,7 +117,7 @@
          "id" : "en:condiment",
          "ingredients" : [
             {
-               "id" : "ja:アミノ酸等",
+               "id" : "en:amino-acids",
                "percent_estimate" : 0.17578125,
                "percent_max" : 11.1111111111111,
                "percent_min" : 0,
@@ -126,8 +128,8 @@
          "percent_max" : 11.1111111111111,
          "percent_min" : 0,
          "text" : "調味料",
-         "vegan" : "ignore",
-         "vegetarian" : "ignore"
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
       },
       {
          "ciqual_food_code" : "1014",
@@ -148,33 +150,29 @@
          "en:katsuobushi"
       ],
       "en:palm-oil-content-unknown" : [
-         "ja:糖類",
          "ja:さば節",
-         "ja:たん白加水分解物混合物",
-         "ja:アミノ酸等"
+         "ja:たん白加水分解物混合物"
       ],
       "en:vegan-status-unknown" : [
-         "ja:糖類",
          "ja:さば節",
-         "ja:たん白加水分解物混合物",
-         "ja:アミノ酸等"
+         "ja:たん白加水分解物混合物"
       ],
       "en:vegetarian-status-unknown" : [
-         "ja:糖類",
          "ja:さば節",
-         "ja:たん白加水分解物混合物",
-         "ja:アミノ酸等"
+         "ja:たん白加水分解物混合物"
       ]
    },
    "ingredients_analysis_tags" : [
-      "en:palm-oil-content-unknown",
+      "en:palm-oil-free",
       "en:non-vegan",
       "en:non-vegetarian"
    ],
    "ingredients_hierarchy" : [
       "en:soy-sauce",
       "en:sauce",
-      "ja:糖類",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
       "en:mirin",
       "en:salt",
       "en:katsuobushi",
@@ -191,16 +189,13 @@
       "en:alcohol",
       "en:honjozo",
       "en:high-fructose-corn-syrup",
-      "en:added-sugar",
-      "en:disaccharide",
       "en:monosaccharide",
       "en:fructose",
       "en:glucose",
       "en:corn-syrup",
       "en:glucose-fructose-syrup",
       "en:glucose-syrup",
-      "en:sugar",
-      "ja:アミノ酸等"
+      "en:amino-acids"
    ],
    "ingredients_n" : 15,
    "ingredients_n_tags" : [
@@ -209,7 +204,7 @@
    ],
    "ingredients_original_tags" : [
       "en:soy-sauce",
-      "ja:糖類",
+      "en:sugar",
       "en:mirin",
       "en:salt",
       "en:katsuobushi",
@@ -222,13 +217,15 @@
       "en:high-fructose-corn-syrup",
       "en:glucose-syrup",
       "en:sugar",
-      "ja:アミノ酸等"
+      "en:amino-acids"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:soy-sauce",
       "en:sauce",
-      "ja:糖類",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
       "en:mirin",
       "en:salt",
       "en:katsuobushi",
@@ -245,16 +242,13 @@
       "en:alcohol",
       "en:honjozo",
       "en:high-fructose-corn-syrup",
-      "en:added-sugar",
-      "en:disaccharide",
       "en:monosaccharide",
       "en:fructose",
       "en:glucose",
       "en:corn-syrup",
       "en:glucose-fructose-syrup",
       "en:glucose-syrup",
-      "en:sugar",
-      "ja:アミノ酸等"
+      "en:amino-acids"
    ],
    "ingredients_text" : "しょうゆ（本醸造）、糖類（ぶどう糖果糖液糖、水あめ、砂糖）、みりん、食塩、かつお節、さば節、たん白加水分解物混合物、こんぶ、調味料（アミノ酸等）、アルコール",
    "ingredients_with_specified_percent_n" : 0,
@@ -262,19 +256,21 @@
    "ingredients_with_unspecified_percent_n" : 12,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
+      "en:amino-acids",
       "en:glucose-syrup",
       "en:mirin",
       "en:sugar",
       "ja:さば節",
-      "ja:たん白加水分解物混合物",
-      "ja:アミノ酸等"
+      "ja:たん白加水分解物混合物"
    ],
    "ingredients_without_ciqual_codes_n" : 6,
-   "known_ingredients_n" : 25,
+   "known_ingredients_n" : 26,
    "lc" : "ja",
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0.3515625,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0.3515625,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0.3515625,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0.3515625
    },
-   "unknown_ingredients_n" : 4
+   "unknown_ingredients_n" : 2
 }

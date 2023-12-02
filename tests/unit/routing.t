@@ -63,6 +63,14 @@ my @tests = (
 			'tag_prefix' => '',
 			'tagid' => 'en:breads',
 			'tagtype' => 'categories',
+			'tags' => [
+				{
+					'tag' => 'en:breads',
+					'tag_prefix' => '',
+					'tagid' => 'en:breads',
+					'tagtype' => 'categories'
+				},
+			],
 			'no_index' => '0',
 			'is_crawl_bot' => '0'
 		},
@@ -89,6 +97,14 @@ my @tests = (
 			'tag_prefix' => '',
 			'tagid' => 'en:breads',
 			'tagtype' => 'categories',
+			'tags' => [
+				{
+					'tag' => 'en:breads',
+					'tag_prefix' => '',
+					'tagid' => 'en:breads',
+					'tagtype' => 'categories'
+				},
+			],
 			'no_index' => '0',
 			'is_crawl_bot' => '1'
 		},
@@ -115,6 +131,14 @@ my @tests = (
 			'tag_prefix' => '',
 			'tagid' => 'en:breads',
 			'tagtype' => 'categories',
+			'tags' => [
+				{
+					'tag' => 'en:breads',
+					'tag_prefix' => '',
+					'tagid' => 'en:breads',
+					'tagtype' => 'categories'
+				},
+			],
 			'no_index' => '1',
 			'is_crawl_bot' => '1'
 		},
@@ -141,11 +165,71 @@ my @tests = (
 			'tag_prefix' => '',
 			'tagid' => 'en:bread',
 			'tagtype' => 'categories',
+			'tags' => [
+				{
+					'tag' => 'en:bread',
+					'tag_prefix' => '',
+					'tagid' => 'en:bread',
+					'tagtype' => 'categories'
+				},
+			],
 			'no_index' => '0',
 			'is_crawl_bot' => '0'
 		},
 	},
-
+	{
+		desc => "API v3 URL with product code",
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string => 'api/v3/product/03564703999971',
+			no_index => '0',
+			is_crawl_bot => '0'
+		},
+		expected_output_request => {
+			'api' => 'v3',
+			'api_action' => 'product',
+			'api_method' => undef,
+			'api_version' => '3',
+			'cc' => 'world',
+			'lc' => 'en',
+			'original_query_string' => 'api/v3/product/03564703999971',
+			'query_string' => 'api/v3/product/03564703999971',
+			'code' => '03564703999971',
+			'page' => '1',
+			'no_index' => '0',
+			'is_crawl_bot' => '0'
+		},
+	},
+	{
+		desc => "API v3 URL with product GS1 Data URI",
+		lc => "en",
+		input_request => {
+			cc => "world",
+			lc => "en",
+			original_query_string =>
+				'api/v3/product/https%3A%2F%2Fid.gs1.org%2F01%2F03564703999971%2F10%2FABC%2F21%2F123456%3F17%3D211200',
+			no_index => '0',
+			is_crawl_bot => '0'
+		},
+		expected_output_request => {
+			'api' => 'v3',
+			'api_action' => 'product',
+			'api_method' => undef,
+			'api_version' => '3',
+			'cc' => 'world',
+			'lc' => 'en',
+			'original_query_string' =>
+				'api/v3/product/https%3A%2F%2Fid.gs1.org%2F01%2F03564703999971%2F10%2FABC%2F21%2F123456%3F17%3D211200',
+			'query_string' =>
+				'api/v3/product/https%3A%2F%2Fid.gs1.org%2F01%2F03564703999971%2F10%2FABC%2F21%2F123456%3F17%3D211200',
+			'code' => 'https://id.gs1.org/01/03564703999971/10/ABC/21/123456?17=211200',
+			'page' => '1',
+			'no_index' => '0',
+			'is_crawl_bot' => '0'
+		},
+	},
 );
 
 foreach my $test_ref (@tests) {

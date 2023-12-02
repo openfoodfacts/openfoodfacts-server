@@ -59,7 +59,7 @@ use Log::Any qw($log);
 
 =head1 HARDCODED BRAND LISTS
 
-The module has 2 hardcoded lists of brands: @baby_food_brands and @cigarette_brands.
+The module has 4 hardcoded lists of brands: @baby_food_brands, @cigarette_brands, @petfood_brands and @beauty_brands
 
 We will probably create a brands taxonomy at some point, which will allow us to remove those hardcoded lists.
 
@@ -355,6 +355,331 @@ my @cigarette_brands = qw(
 	Zhongnanhai
 );
 
+my @petfood_brands = qw(
+	Affinity
+	Almo-nature
+	Animonda
+	Brekkies
+	Canaillou
+	Carnilove
+	Cesar
+	Compy
+	Coshida
+	Delikuit
+	Dreamies
+	Edgard-cooper
+	Feringa
+	Feringa-mit-viel-liebe-wie-hausgemacht
+	Fido
+	Friskies
+	Frolic
+	Greenies
+	Hill-s
+	Hills
+	Iams
+	Jacky
+	Josera
+	Juliet
+	Kitekat
+	Luckylou
+	Lycat
+	Lydog
+	Monge
+	Nutrivet
+	Orijen
+	Pedigree
+	Perfect-fit
+	Platinum
+	Premiere
+	Purina
+	Purina-one
+	Purizon
+	Real-nature
+	Riga
+	Rinti
+	Royal-canin
+	Saphir
+	Schesir
+	Select-gold
+	Sheba
+	Tetra
+	Tom-co
+	Trixie
+	Ultima
+	Versele-laga
+	Virbac
+	Vitakraft
+	Waltham
+	Whiskas
+	Wild-freedom
+	Winston
+	Yarrah
+	Zooroyal
+);
+
+my @beauty_brands = qw(
+	A-derma
+	Acorelle
+	Adidas
+	Aleyria-cosmetiques
+	Alix-de-faure
+	Alterra
+	Alverde
+	Alverde-naturkosmetik
+	Aquafresh
+	Aroma-zone
+	Arrow
+	Aussie
+	Aveeno
+	Avene
+	Avon
+	Axe
+	Babylove
+	Balea
+	Balea-med
+	Balea-men
+	Babaria
+	Barnangen
+	Batiste
+	Beiersdorf
+	Bio-naia
+	Biocura
+	Bioderma
+	Biogaran
+	Biolane
+	Biopha
+	Biotherm
+	Blend-a-med
+	Boiron
+	Bourjois
+	Briochin
+	Brut
+	By-u
+	Byphasse
+	Cadum
+	Cattier
+	Caudalie
+	Cd
+	Centifolia
+	Cerave
+	Cetaphil
+	Chanel
+	Cien
+	Clarins
+	Clinique
+	Colgate
+	Colgate-palmolive
+	Cooper
+	Corine-de-farme
+	Coslys
+	Cosmia
+	Cosmia-baby
+	Cosmia-bio
+	Cosmo-naturel
+	Cottage
+	Cream-ly
+	Deliplus
+	Dentalux
+	Dentamyl
+	Dermaclay
+	Dermophil
+	Dessange
+	Dettol
+	Diadermine
+	Dior
+	Dontodent
+	Dop
+	Douce-nature
+	Dove
+	Dr-hauschka
+	Ducray
+	Durex
+	Eau-thermale-avene
+	q
+	Elmex
+	Elseve
+	Energie-fruit
+	Essence
+	Essie
+	Eucerin
+	Eugene-perma
+	Evoluderm
+	Fa
+	Florame
+	Fluocaril
+	For-women
+	Fragonard
+	Franck-provost
+	Fructis
+	Furterer
+	Garnier
+	Garnier-fructis
+	Garnier-skinactive
+	Gemey-maybelline
+	Gillette
+	Gifrer
+	Gsk
+	Guerlain
+	Gum
+	Head-shoulders
+	Henkel
+	Herbal-essences
+	Huggies
+	I-am
+	Inell
+	Instituto-espanol
+	Integral-8
+	John-frieda
+	Johnson
+	Johnson-johnson
+	Jonzac
+	Kiko
+	Keranove
+	Kerastase
+	Kiehl-s
+	Klorane
+	L-arbre-vert
+	L-occitane
+	L-occitane-en-provence
+	L-oreal
+	L-oreal-men-expert
+	L-oreal-paris
+	L-oreal-professionnel
+	La-roche-posay
+	Labell
+	Labello
+	Laboratoires-gilbert
+	Lacura
+	Laino
+	Lascad
+	Lavera
+	Lavera-naturkosmetik
+	Le-chat
+	Le-comptoir-du-bain
+	Le-petit-marseillais
+	Le-petit-olivier
+	Les-cosmetiques
+	Les-cosmetiques-design-paris
+	Les-savons-d-orely
+	Lifebuoy
+	Listerine
+	Logodent
+	Logona
+	Love-beauty-and-planet
+	Loreal
+	Loreal-paris
+	Lovea
+	Lush
+	Maitre-savon-de-marseille
+	Manava
+	Marius-fabre
+	Maybelline
+	Mennen
+	Meridol
+	Mixa
+	Mixa-bebe
+	Mixa-solaire
+	Mkl
+	Monsavon
+	Mustela
+	Mylan
+	N-a-e
+	Narta
+	Natessance
+	Natura-siberica
+	Nectar-of-beauty
+	Nectar-of-nature
+	Neutrogena
+	Nivea
+	Nivea-men
+	Nivea-sun
+	Nocibe
+	Novexpert
+	Nuxe
+	Nyx
+	Ogx
+	Old-spice
+	Ombia
+	Original-source
+	P-g
+	Palette
+	Palmer-s
+	Palmolive
+	Pampers
+	Pantene
+	Pantene-pro-v
+	Parodontax
+	Persavon
+	Persil
+	Petrole-hahn
+	Pierre-fabre
+	Pierre-fabre-oral-care
+	Playboy
+	Pantene
+	Pranarom
+	Procter-gamble
+	Puressentiel
+	Rampal-latour
+	Revlon
+	Revolution
+	Rexona
+	Rexona-men
+	Rimmel
+	Rituals
+	Roge-cavailles
+	Roger-gallet
+	Saforelle
+	Saint-algue
+	Sanex
+	Sanoflore
+	Sanogyl
+	Sanytol
+	Schauma
+	Schmidt-s
+	Scholl
+	Schwarzkopf
+	Schwarzkopf-henkel
+	Sebamed
+	Secrets-de-provence
+	Sensodyne
+	Sephora
+	Shiseido
+	Signal
+	Skip
+	So-bio
+	So-bio-etic
+	Sonett
+	Sooa
+	Sun-dance
+	Sundance
+	Svr
+	Syoss
+	Taft
+	Tahiti
+	Teraxyl
+	The-body-shop
+	The-ordinary
+	Timotei
+	Today
+	Tresemme
+	Ultra-doux
+	Uriage
+	Ushuaia
+	Vademecum
+	Vaseline
+	Veet
+	Venus
+	Vivelle-dop
+	Wella
+	White-now
+	Williams
+	Ysiance
+	Yves-rocher
+	Yves-saint-laurent
+	Zendium
+	Zenzitude
+);
+
 my %baby_food_brands = ();
 
 foreach my $brand (@baby_food_brands) {
@@ -370,6 +695,24 @@ foreach my $brand (@cigarette_brands) {
 
 	my $brandid = get_string_id_for_lang("no_language", $brand);
 	$cigarette_brands{$brandid} = 1;
+
+}
+
+my %petfood_brands = ();
+
+foreach my $brand (@petfood_brands) {
+
+	my $brandid = get_string_id_for_lang("no_language", $brand);
+	$petfood_brands{$brandid} = 1;
+
+}
+
+my %beauty_brands = ();
+
+foreach my $brand (@beauty_brands) {
+
+	my $brandid = get_string_id_for_lang("no_language", $brand);
+	$beauty_brands{$brandid} = 1;
 
 }
 
@@ -410,17 +753,16 @@ sub detect_categories ($product_ref) {
 	if (defined $product_ref->{brands_tags}) {
 		foreach my $brandid (@{$product_ref->{brands_tags}}) {
 			if (defined $baby_food_brands{$brandid}) {
-				push @{$product_ref->{data_quality_info_tags}}, "en:detected-category-from-brand-baby-foods";
-				last;
+				add_tag($product_ref, "data_quality_info", "en:detected-category-from-brand-baby-foods");
 			}
-		}
-	}
-
-	if (defined $product_ref->{brands_tags}) {
-		foreach my $brandid (@{$product_ref->{brands_tags}}) {
 			if (defined $cigarette_brands{$brandid}) {
-				push @{$product_ref->{data_quality_info_tags}}, "en:detected-category-from-brand-cigarettes";
-				last;
+				add_tag($product_ref, "data_quality_info", "en:detected-category-from-brand-cigarettes");
+			}
+			if (defined $petfood_brands{$brandid}) {
+				add_tag($product_ref, "data_quality_info", "en:detected-category-from-brand-pet-foods");
+			}
+			if (defined $beauty_brands{$brandid}) {
+				add_tag($product_ref, "data_quality_info", "en:detected-category-from-brand-beauty");
 			}
 		}
 	}
@@ -594,10 +936,22 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 			# following error/warning should be ignored for some categories
 			# for example, lemon juices containing organic acid, it is forbidden to display organic acid in nutrition tables but
 			# organic acid contributes to the total energy calculation
-			my $ignore_energy_calculated_error
+			my ($ignore_energy_calculated_error, $category_id)
 				= get_inherited_property_from_categories_tags($product_ref, "ignore_energy_calculated_error:en");
 
-			if (not((defined $ignore_energy_calculated_error) and ($ignore_energy_calculated_error eq 'yes'))) {
+			if (
+				(
+					not((defined $ignore_energy_calculated_error) and ($ignore_energy_calculated_error eq 'yes'))
+					# consider only when energy is high enough to minimize false positives (issue #7789)
+					# consider either computed_energy or energy input by contributor, to avoid when the energy is 5, but it should be 1500
+					and (
+						(($unit eq "kj") and (($specified_energy > 55) or ($computed_energy > 55)))
+						or (    ($unit eq "kcal")
+							and (($specified_energy > 13) or ($computed_energy > 13)))
+					)
+				)
+				)
+			{
 				# Compare to specified energy value with a tolerance of 30% + an additiontal tolerance of 5
 				if (   ($computed_energy < ($specified_energy * 0.7 - 5))
 					or ($computed_energy > ($specified_energy * 1.3 + 5)))
@@ -920,7 +1274,7 @@ sub check_nutrition_data ($product_ref) {
 		}
 
 		# some categories have expected nutriscore grade - push data quality error if calculated nutriscore grade differs from expected nutriscore grade or if it is not calculated
-		my $expected_nutriscore_grade
+		my ($expected_nutriscore_grade, $category_id)
 			= get_inherited_property_from_categories_tags($product_ref, "expected_nutriscore_grade:en");
 
 		# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
@@ -940,7 +1294,8 @@ sub check_nutrition_data ($product_ref) {
 
 		# some categories have an expected ingredient - push data quality error if ingredient differs from expected ingredient
 		# note: we currently support only 1 expected ingredient
-		my $expected_ingredients = get_inherited_property_from_categories_tags($product_ref, "expected_ingredients:en");
+		my ($expected_ingredients, $category_id2)
+			= get_inherited_property_from_categories_tags($product_ref, "expected_ingredients:en");
 
 		if ((defined $expected_ingredients)) {
 			$expected_ingredients = canonicalize_taxonomy_tag("en", "ingredients", $expected_ingredients);
@@ -1297,6 +1652,10 @@ sub check_quantity ($product_ref) {
 	if ((defined $product_ref->{product_quantity}) and ($product_ref->{product_quantity} ne "")) {
 		if ($product_ref->{product_quantity} > 10 * 1000) {
 			push @{$product_ref->{data_quality_warnings_tags}}, "en:product-quantity-over-10kg";
+
+			if ($product_ref->{product_quantity} > 30 * 1000) {
+				push @{$product_ref->{data_quality_errors_tags}}, "en:product-quantity-over-30kg";
+			}
 		}
 		if ($product_ref->{product_quantity} < 1) {
 			push @{$product_ref->{data_quality_warnings_tags}}, "en:product-quantity-under-1g";
@@ -1368,6 +1727,74 @@ sub check_categories ($product_ref) {
 	# Plant milks should probably not be dairies https://github.com/openfoodfacts/openfoodfacts-server/issues/73
 	if (has_tag($product_ref, "categories", "en:plant-milks") and has_tag($product_ref, "categories", "en:dairies")) {
 		push @{$product_ref->{data_quality_warnings_tags}}, "en:incompatible-categories-plant-milk-and-dairy";
+	}
+
+	return;
+}
+
+=head2 check_labels( PRODUCT_REF )
+
+Checks related to specific product labels.
+
+Vegan label: check that there is no non-vegan ingredient.
+
+Vegetarian label: check that there is no non-vegetarian ingredient.
+
+=cut
+
+sub check_labels ($product_ref) {
+	# this also include en:vegan that is a child of en:vegetarian
+	if (defined $product_ref->{labels_tags} && has_tag($product_ref, "labels", "en:vegetarian")) {
+		if (defined $product_ref->{ingredients}) {
+			my @ingredients = @{$product_ref->{ingredients}};
+
+			while (@ingredients) {
+
+				# Remove and process the first ingredient
+				my $ingredient_ref = shift @ingredients;
+				my $ingredientid = $ingredient_ref->{id};
+
+				# Add sub-ingredients at the beginning of the ingredients array
+				if (defined $ingredient_ref->{ingredients}) {
+
+					unshift @ingredients, @{$ingredient_ref->{ingredients}};
+				}
+
+				# some additives_classes (like thickener, for example) do not have the key-value vegan and vegetarian
+				# it can be additives_classes that contain only vegan/vegetarian additives.
+				# to avoid false-positive - instead of raising a warning (else below) we ignore additives_classes
+				if (!exists_taxonomy_tag("additives_classes", $ingredientid)) {
+					if (has_tag($product_ref, "labels", "en:vegan")) {
+						# vegan
+						if (defined $ingredient_ref->{"vegan"}) {
+							if ($ingredient_ref->{"vegan"} eq 'no') {
+								add_tag($product_ref, "data_quality_errors", "en:vegan-label-but-non-vegan-ingredient");
+							}
+							# else 'yes', 'maybe'
+						}
+						# no tag
+						else {
+							add_tag($product_ref, "data_quality_warnings",
+								"en:vegan-label-but-could-not-confirm-for-all-ingredients");
+						}
+					}
+
+					# vegetarian label condition is above
+					if (defined $ingredient_ref->{"vegetarian"}) {
+						if ($ingredient_ref->{"vegetarian"} eq 'no') {
+							add_tag($product_ref, "data_quality_errors",
+								"en:vegetarian-label-but-non-vegetarian-ingredient");
+						}
+						# else 'yes', 'maybe'
+					}
+					# no tag
+					else {
+						add_tag($product_ref, "data_quality_warnings",
+							"en:vegetarian-label-but-could-not-confirm-for-all-ingredients");
+					}
+				}
+			}
+		}
 	}
 
 	return;
@@ -1572,6 +1999,7 @@ sub check_quality_food ($product_ref) {
 	check_quantity($product_ref);
 	detect_categories($product_ref);
 	check_categories($product_ref);
+	check_labels($product_ref);
 	compare_nutriscore_with_value_from_producer($product_ref);
 	check_ecoscore_data($product_ref);
 	check_food_groups($product_ref);

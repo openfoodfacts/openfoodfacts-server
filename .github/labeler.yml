@@ -1,24 +1,28 @@
 # For reference, please look at https://github.com/actions/labeler
 
-javascript:
+JavaScript:
 - '**/*.js'
 
-github_actions:
+GitHub Actions:
 - .github/**/*
 
-nginx:
+NGINX:
 - conf/nginx/**/*
 - conf/nginx.conf
 
-mongodb:
+MongoDB:
 - conf/mongodb/create_indexes.js
-- scripts/refresh_products_tags.js
 - .github/workflows/mongo-deploy.yml
 - scripts/checkmongodb.pl
 - scripts/update_all_products_from_dir_in_mongodb.pl
 - scripts/update_all_products_revisions_from_dir_in_mongodb.pl
+- scripts/mongodb_dump.sh
 
-tagline:
+Stores:
+- taxonomies/unused/stores.txt
+- scripts/tag_stores_magasins_u.pl
+
+🤳🥫 tagline:
 - html/files/app/tagline/tagline-off-ios.json
 - html/files/tagline-off.json
 - html/files/tagline.txt
@@ -28,7 +32,7 @@ tagline:
 - html/files/tagline-off-ios-v2.json
 - html/files/tagline-off-android-v2.json
 
-taxonomies:
+🧬 Taxonomies:
 - taxonomies/**/*
 - scripts/build_tags_taxonomy.pl
 - scripts/test_taxonomies.pl
@@ -39,7 +43,7 @@ taxonomies:
 - scripts/add_descriptions_to_taxonomy_from_eu_translations.pl
 - cgi/translate_taxonomy.pl
 
-taxonomies rebuild:
+🧬 Taxonomies - Rebuild:
 - taxonomies/additives.result.sto
 - taxonomies/additives.result.txt
 - taxonomies/allergens.result.sto
@@ -53,18 +57,18 @@ taxonomies rebuild:
 - taxonomies/states.result.sto
 - taxonomies/states.result.txt
 
-wikidata:
+WikiData:
 - scripts/build_countries_taxonomy_from_wikidata.pl
 - scripts/build_languages_taxonomy_from_wikidata.pl
 - scripts/create_wikipedia_properties_for_taxonomy.pl
 
-allergens:
+🥜 Allergens:
 - taxonomies/allergens.result.sto
 - taxonomies/allergens.result.txt
 - tests/unit/allergens.t
 - taxonomies/allergens.txt
 
-open pet food facts:
+🐾 Open Pet Food Facts:
 - taxonomies.opff/**/*
 - po/openpetfoodfacts/**/*
 - scripts/gen_opff_leaderboard.pl
@@ -85,7 +89,7 @@ open pet food facts:
 - conf/nginx/snippets/ssl-params-opff.conf
 - taxonomies.opff/categories.txt
 
-open beauty facts:
+🧴 Open Beauty Facts:
 - taxonomies.obf/**/*
 - po/openbeautyfacts/**/*
 - scripts/gen_obf_inci_functions_taxonomy_from_cosing.pl
@@ -124,7 +128,7 @@ open beauty facts:
 - taxonomies.obf/inci_functions.result.sto
 - tests/unit/expected_test_results/import_gs1/equadis_unilever_obf_signal.off.json
 
-open products facts:
+📸 Open Products Facts:
 - taxonomies.opf/**/*
 - po/openproductsfacts/**/*
 - lib/ProductOpener/Config_opf.pm
@@ -136,13 +140,13 @@ open products facts:
 - lib/ProductOpener/Config_opf.pm
 - taxonomies.opf/unspsc.txt
 
-icons:
+Icons:
 - icons/**/*
 
-css:
+CSS:
 - scss/**/*
 
-translations:
+🌐 Translations:
 - po/**/*
 - po/common/**/*
 - po/openfoodfacts/**/*
@@ -157,39 +161,40 @@ translations:
 - cgi/top_translators.pl
 - cgi/translate_taxonomy.pl
 
-tests:
+🧪 Tests:
 - test/**/*
 - tests/**/*
 - t/**/*
 - lib/ProductOpener/Test.pm
 
-dependencies:
+Dependencies:
 - package.json
 - package-lock.json
 
 Template::Toolkit:
 - templates/**/*
 
-scss:
+SCSS:
 - scss/_footer.scss
 
-footer:
+Footer:
 - html/images/illustrations/footer-orange.svg
 - html/images/illustrations/footer-planet.svg
 - scss/_footer.scss
 
-documentation:
+📚 Documentation:
 - docs/**/*
 - scripts/generate_perl_html_doc_from_pod.pl
 - po/README.md
 
-openapi:
+📚 OpenAPI:
 - docs/assets/api-rapidoc.html
+- docs/api/ref/schemas/product_base.yaml
 
-docker:
+🐋 Docker:
 - docker/**/*
 
-folksonomy project:
+🏷️ Folksonomy Project:
 - html/js/folksonomy.js
 - templates/web/common/includes/folksonomy_script.tt.html
 
@@ -197,7 +202,7 @@ Attributes:
 - lib/ProductOpener/Attributes.pm
 - tests/unit/attributes.t
 
-data quality:
+🧽 Data Quality:
 - lib/ProductOpener/DataQuality.pm
 - lib/ProductOpener/DataQualityCommon.pm
 - lib/ProductOpener/DataQualityFood.pm
@@ -208,7 +213,7 @@ data quality:
 Display:
 - lib/ProductOpener/Display.pm
 
-ecoscore:
+🌱 Eco-Score:
 - lib/ProductOpener/Ecoscore.pm
 - ecoscore/**/*
 - tests/unit/ecoscore.t
@@ -233,13 +238,14 @@ ecoscore:
 - templates/api/knowledge-panels/environment/origins_of_ingredients.tt.json
 - templates/api/knowledge-panels/environment/ecoscore/threatened_species.tt.json
 
-agribalyse:
+Agribalyse:
 - scripts/add_agribalyse_food_codes_to_taxonomy.pl
 - templates/api/knowledge-panels/environment/ecoscore/agribalyse.tt.json
 
 Export:
 - lib/ProductOpener/Export.pm
 - t/expected_test_results/export/**/*
+- scripts/mongodb_dump.sh
 
 Food.pm:
 - lib/ProductOpener/Food.pm
@@ -248,7 +254,7 @@ Food groups:
 - lib/ProductOpener/FoodGroups.pm
 - tests/unit/food_groups.t
 
-additives:
+🧪 Additives:
 - taxonomies/additives.txt
 - scripts/merge_additives_lists.pl
 - scripts/extract_additives.pl
@@ -260,26 +266,26 @@ additives:
 - taxonomies/additives.result.sto
 - taxonomies/additives.result.txt
 
-forest footprint:
+🌳 Forest Footprint:
 - lib/ProductOpener/ForestFootprint.pm
 - tests/unit/forest_footprint.t
 
-geolite:
+📍 geolite:
 - lib/ProductOpener/GeoIP.pm
 - scripts/test_geoip.pl
 
-gs1:
+GS1:
 - lib/ProductOpener/GS1.pm
 - tests/unit/import_gs1.t
 - scripts/convert_gs1_json_to_off_csv.pl
 - scripts/convert_gs1_xml_to_json_in_dir.pl
 
-data import:
+Data import:
 - lib/ProductOpener/Import.pm
 - lib/ProductOpener/ImportConvert.pm
 - scripts/convert_csv_file.pl
 
-ingredients:
+🥗 Ingredients:
 - lib/ProductOpener/Ingredients.pm
 - taxonomies/ingredients.txt
 - tests/unit/ingredients.t
@@ -293,7 +299,7 @@ ingredients:
 - tests/unit/ingredients_tags.t
 - scripts/test_ingredient_parser.pl
 
-ingredients analysis:
+Ingredients analysis:
 - templates/web/pages/product/includes/ingredients_analysis.tt.html
 - templates/api/knowledge-panels/health/ingredients/ingredients_analysis_help.tt.json
 - templates/api/knowledge-panels/health/ingredients/ingredients_analysis_details.tt.json
@@ -306,16 +312,16 @@ ingredients analysis:
 - scripts/aggregate_ingredients.pl
 - lib/ProductOpener/Ingredients.pm
 
-labels:
+Labels:
 - taxonomies/labels.txt
 
-categories:
+Categories:
 - taxonomies/categories.txt
 
-origins:
+📍 Origins:
 - taxonomies/origins.txt
 
-knowledge-panels:
+📖 Knowledge panels:
 - lib/ProductOpener/KnowledgePanels.pm
 - templates/api/knowledge-panels/**/*
 - templates/web/panels/image.tt.html
@@ -362,14 +368,14 @@ knowledge-panels:
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
 - docs/api/ref/schemas/knowledge_panels/**
 
-serving size:
+Serving size:
 - templates/api/knowledge-panels/health/nutrition/serving_size.tt.json
 - tests/unit/food_normalize_serving_size.t
 
 lang:
 - lib/ProductOpener/Lang.pm
 
-Mail:
+📨 Mail:
 - lib/ProductOpener/Mail.pm
 - templates/emails/import_csv_file_admin_notification.tt.html
 - templates/emails/user_new_pro_account_admin_notification.tt.html
@@ -380,7 +386,7 @@ MainCountries:
 Numbers:
 - lib/ProductOpener/Numbers.pm
 
-nutriscore:
+🚦 Nutri-Score:
 - lib/ProductOpener/Nutriscore.pm
 - templates/web/pages/product/includes/nutriscore.tt.html
 - templates/web/pages/product/includes/nutriscore_details.tt.html
@@ -390,10 +396,10 @@ nutriscore:
 - tests/unit/ingredients_nutriscore.t
 - scripts/add_nutriscore_to_scanbot_csv.pl
 
-Orgs:
+🏭 Orgs:
 - lib/ProductOpener/Orgs.pm
 
-packager codes:
+📍🏭 Packager Codes:
 - lib/ProductOpener/PackagerCodes.pm
 - tests/unit/packager_codes.t
 - scripts/packager-codes/de-packagers-refresh.pl
@@ -407,8 +413,10 @@ packager codes:
 - scripts/test_normalize_packaging_codes.pl
 - scripts/update_emb_codes_in_mongodb.pl
 - packager-codes/**
+- tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ec.json
+- tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ce.json
 
-Packaging:
+📦 Packaging:
 - lib/ProductOpener/Packaging.pm
 - taxonomies/packaging_materials.txt
 - t/packaging.t
@@ -439,7 +447,7 @@ Packaging:
 - docs/api/ref/schemas/packagings/**
 - scripts/gen_packaging_stats.pl
   
-producers platform:
+🏭 Producers Platform:
 - lib/ProductOpener/GS1.pm
 - lib/ProductOpener/Orgs.pm
 - lib/ProductOpener/Import.pm
@@ -475,25 +483,25 @@ producers platform:
 - scripts/codeonline-import/stats_gs1_codeonline_json.pl
 - scripts/equadis-import/run_equadis_import.sh
 
-agena3000:
+🏭 AGENA3000:
 - scripts/agena3000/run_agena3000_import.sh
 
-bayard:
+🏭 Bayard:
 - scripts/bayard-import/run_bayard_import.sh
 
-codeonline:
+🏭 CodeOnline:
 - scripts/codeonline-import/run_codeonline_import.sh
 - scripts/codeonline-import/split_gs1_codeonline_json.pl
 - scripts/codeonline-import/stats_gs1_codeonline_json.pl
 
-equadis:
+🏭 EQUADIS:
 - scripts/equadis-import/run_equadis_import.sh
 
-store:
+Store:
 - lib/ProductOpener/Store.pm
 - tests/unit/store.t
 
-images:
+🖼️ Images:
 - lib/ProductOpener/Images.pm
 - cgi/product_image_crop.pl
 - cgi/product_image_move.pl
@@ -513,27 +521,22 @@ Recipes:
 - templates/web/pages/recipes/recipes.tt.html
 - tests/unit/recipes.t
 
-Tags:
-- lib/ProductOpener/Tags.pm
-- templates/web/pages/tags_map/map_of_tags.tt.html
-- scripts/gen_top_tags_per_country.pl
-- lib/ProductOpener/TagsEntries.pm
-
 Text:
 - lib/ProductOpener/Text.pm
 
-Url:
+URL:
 - lib/ProductOpener/URL.pm
 
 Web:
 - lib/ProductOpener/Web.pm
 
-Donations:
+🎁 Donations:
 - html/donate/tt.html
 - templates/web/common/includes/donate_banner.tt.html
 - html/donate/fr.helloasso.html
+- html/donate/en.html
 
-editing:
+✏️ Editing:
 - templates/web/pages/product_edit/product_edit_form.tt.html
 - templates/web/pages/product_edit/display_input_field.tt.html
 - templates/web/pages/product_edit/display_input_tabs.tt.html
@@ -548,21 +551,21 @@ Product page:
 - templates/web/pages/product/includes/ingredients_analysis.tt.html
 - templates/web/pages/product/includes/nutrition_facts_table.tt.html
 
-Password:
+🔐 Password:
 - templates/web/pages/reset_password/reset_password.tt.html
 - templates/web/pages/change_password/change_password.tt.html
 - cgi/reset_password.pl
 - cgi/reset_password_for_user.pl
 
-Spellcheck:
+✔︎ Spellcheck:
 - templates/web/pages/spellcheck/spellcheck_test.tt.html
 - scripts/test_spellchecker.pl
 - cgi/spellcheck_test.pl
 
-Maps:
+🗺️ Maps:
 - templates/web/pages/products_map/map_of_products.tt.html
 
-Search:
+🔎 Search:
 - templates/web/pages/search_results/search_results.tt.html
 - templates/web/common/includes/display_search_image_form.tt.html
 - templates/web/common/includes/display_product_search_or_add.tt.html
@@ -584,7 +587,14 @@ Product history:
 - templates/web/pages/product/includes/display_rev_info.tt.html
 - lib/ProductOpener/Version.pm
 
+Tags:
+- lib/ProductOpener/Tags.pm
+- templates/web/pages/tags_map/map_of_tags.tt.html
+- scripts/gen_top_tags_per_country.pl
+- lib/ProductOpener/TagsEntries.pm
 - templates/web/pages/tag/tag.tt.html
+
+Site layout:
 - templates/web/common/site_layout.tt.html
 
 Lists of products:
@@ -601,7 +611,7 @@ Blocks:
 - templates/web/common/includes/display_blocks.tt.html
 - templates/web/common/includes/display_my_block.tt.html
 
-How Much Sugar:
+🍬 How Much Sugar:
 - scripts/gen_sucres.pl
 - scripts/gen_sugar.pl
 - cgi/sucres_check.pl
@@ -609,7 +619,7 @@ How Much Sugar:
 - cgi/sugar_check.pl
 - cgi/sugar_random.pl
 
-Made Near Me:
+🗺️ Made Near Me:
 - scripts/generate_madenearme_page.pl
 
 PAO:
@@ -629,7 +639,7 @@ OCR:
 Scanbot:
 - scripts/scanbot.pl
 
-gamification:
+🕹️ Gamification:
 - lib/ProductOpener/Missions.pm
 - lib/ProductOpener/MissionsConfig.pm
 - scripts/compute_missions.pl
@@ -637,7 +647,7 @@ gamification:
 - scripts/export_battle_food.pl
 - cgi/top_translators.pl
 
-config:
+Config:
 - lib/ProductOpener/Config2_docker.pm
 - lib/ProductOpener/Config2_sample.pm
 - lib/ProductOpener/Config_off.pm
@@ -645,10 +655,10 @@ config:
 - lib/ProductOpener/Config_opf.pm
 - lib/ProductOpener/Config_opff.pm
 
-ingredients processing:
+Ingredients processing:
 - tests/unit/ingredients_processing.t
 
-Users:
+👥 Users:
 - lib/ProductOpener/Users.pm
 - templates/web/common/includes/display_login_register.tt.html
 - templates/web/pages/session/signed_in.tt.html
@@ -662,17 +672,17 @@ Users:
 - scripts/gen_users_names.pl
 - cgi/user.pl
 
-Nova:
+NOVA:
 - tests/unit/nova.t
 - templates/api/knowledge-panels/health/ingredients/nova.tt.json
 
 Vitamins:
 - tests/unit/vitamins.t
 
-checkbot:
+Checkbot:
 - scripts/checkbot.pl
 
-moderation:
+👮 Moderation:
 - scripts/delete_products_from_user.pl
 - scripts/delete_spam_users.pl
 - scripts/remove_empty_products.pl
@@ -691,7 +701,7 @@ update all products:
 - scripts/update_all_products_from_dir_in_mongodb.pl
 - scripts/update_all_products_revisions_from_dir_in_mongodb.pl
 
-exports:
+Exports:
 - scripts/extract_ingredients_test_set.pl
 - scripts/extract_nutrition_images_and_crop_data.pl
 - scripts/extract_nutrition_test_set.pl
@@ -703,11 +713,11 @@ exports:
 - scripts/export_tags_hierarchies.pl
 - scripts/popular_products_images.pl
 
-auth:
+🔐 Auth:
 - cgi/auth.pl
 - cgi/sso.pl
 
-autosuggest:
+✏️ Editing - Auto Suggest:
 - cgi/suggest.pl
 - tests/integration/api_cgi_suggest.t
 - tests/integration/expected_test_results/api_cgi_suggest/**/*
@@ -720,17 +730,16 @@ autosuggest:
 - tests/integration/expected_test_results/api_cgi_suggest/categories-term-strawberry.json
 - tests/integration/expected_test_results/api_cgi_suggest/no-tagtype.json
 
-subdomains:
+Subdomains:
 - scripts/list_subdomains.pl
 
-integration tests:
+🧪 integration tests:
 - tests/integration/import_csv_file.t
 - tests/integration/export.t
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels.json
 - tests/integration/expected_test_results/api_v3_product_read/get-knowledge-panels-fr.json
 
-
-unit tests:
+🧪 Unit tests:
 - tests/unit/display.t
 - tests/unit/food.t
 - tests/unit/i18n.t
@@ -743,7 +752,7 @@ unit tests:
 - tests/unit/templates.t
 - tests/unit/text.t
 
-multilingual products:
+Multilingual products:
 - cgi/product_jqm_multilingual.pl
 - cgi/product_multilingual.pl
 - html/js/product-multilingual.js
@@ -753,7 +762,7 @@ file import:
 - cgi/import_file_select_format.pl
 - cgi/import_file_upload.pl
 
-apache:
+🪶 Apache:
 - lib/startup_apache2.pl
 
 API:
@@ -771,10 +780,10 @@ API v3:
 - tests/integration/api_v3_product_read.t
 - tests/integration/api_v3_product_write.t
 
-API read:
+API READ:
 - tests/integration/api_v3_product_read.t
 
-API write:
+API WRITE:
 - tests/integration/api_v3_product_write.t
 - docs/api/ref/requestBodies/add_or_edit_a_product.yaml
 - docs/api/ref/requestBodies/crop_a_photo.yaml
@@ -783,10 +792,10 @@ API write:
 monitoring:
 - scripts/api_stats.pl
 
-averages by categories:
+Averages by categories:
 - scripts/create_small_categories_nutriments_per_country_for_testing.pl
 
-static content:
+Static content:
 - scripts/copy_text_files.pl
 
 # TODO: find or create proper labels for those

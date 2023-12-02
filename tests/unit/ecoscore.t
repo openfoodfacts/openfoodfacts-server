@@ -601,13 +601,66 @@ my @tests = (
 		},
 	],
 
-	# Qunioa - has a new category code
+	# Quinoa - has a new category code
 	[
 		'agribalyse-updated-category',
 		{
 			lc => "fr",
 			categories_tags => ["en:quinoa"],
 		},
+	],
+
+	# Skyr
+	[
+		'skyr',
+		{
+			lc => "en",
+			categories_tags => ["en:skyrs"],
+		},
+	],
+
+	# Yogurt
+	[
+		'yogurt',
+		{
+			lc => "en",
+			categories_tags => ["en:yogurts"],
+		},
+	],
+
+	# Calvados with no ingredients, Eco-Score should pick up origins from the category en:calvados origins:en property
+	[
+		'calvados-no-ingredients-no-origins',
+		{
+			lc => "en",
+			categories_tags => ["en:calvados"],
+		},
+	],
+	[
+		'calvados-ingredients-no-origins',
+		{
+			lc => "en",
+			ingredients_text => "wine",
+			categories_tags => ["en:calvados"],
+		},
+	],
+
+	# Tetra pak brick
+	[
+		'packaging-en-tetra-pak-brick',
+		{
+			lc => "en",
+			categories_tags => ["en:beverages", "en:orange-juices"],
+			packaging_text => "Tetra-pak brick"
+		}
+	],
+	[
+		'packaging-en-tetra-pak',
+		{
+			lc => "en",
+			categories_tags => ["en:beverages", "en:orange-juices"],
+			packaging_text => "Tetra-pak"
+		}
 	],
 
 );

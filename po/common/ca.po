@@ -115,6 +115,10 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Introduïu el nom de la vostra organització (nom de l'empresa o marca)."
 
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr ""
+
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 msgstr "Aquest compte és un compte professional associat amb el productor o la marca {org}. Teniu accés a la plataforma per a productors."
@@ -189,10 +193,10 @@ msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://es-ca.openfoodfacts.org/files/off.apk"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
-msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr "/images/misc/google-play-badge-svg-master/img/ca_get.svg"
+msgid "/images/misc/playstore/img/en_get.svg"
+msgstr "/images/misc/playstore/img/ca_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -976,6 +980,10 @@ msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr "Detalls de la foto i informació d’atribució"
 
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr ""
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Productes que ha afegit que han de ser completats"
@@ -1095,7 +1103,7 @@ msgstr "Descarrega-la a l'App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -6303,7 +6311,7 @@ msgstr "Inicia la sessió"
 
 msgctxt "sign_out"
 msgid "Sign out"
-msgstr "Tancar la sessió"
+msgstr "Tanca la sessió"
 
 msgctxt "your_contributions"
 msgid "Your contributions"
@@ -6483,7 +6491,7 @@ msgstr ""
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
-msgstr ""
+msgstr "Valor invàlid: ha de ser 0 o 1"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
@@ -6550,6 +6558,14 @@ msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
 msgstr ""
 
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr ""
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr ""
+
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
 msgstr ""
@@ -6596,5 +6612,29 @@ msgstr ""
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
+msgstr ""
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr ""
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr ""
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr ""
+
+msgctxt "weight"
+msgid "Weight"
+msgstr ""
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr ""
+
+msgctxt "weight_percent"
+msgid "Weight percent"
 msgstr ""
 

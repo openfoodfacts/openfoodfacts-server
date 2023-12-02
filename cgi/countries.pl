@@ -27,16 +27,13 @@ use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
-use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
-use ProductOpener::Users qw/:all/;
-use ProductOpener::URL qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Web qw/get_countries_options_list/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
-use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
 
@@ -47,30 +44,17 @@ ProductOpener::Display::init_request();
 
 my $term = decode utf8 => single_param('term');
 
+my @options = @{get_countries_options_list($lang, undef)};
+if (defined $term and $term ne '') {
+	# filter by term
+	@options = grep {$_->{label} =~ /$term/i} @options;
+}
 my %result = ();
-foreach my $country (
-	sort {
-		(          get_string_id_for_lang("no_language", $translations_to{countries}{$a}{$lang})
-				|| get_string_id_for_lang("no_language", $translations_to{countries}{$a}{'en'}))
-			cmp(   get_string_id_for_lang("no_language", $translations_to{countries}{$b}{$lang})
-				|| get_string_id_for_lang("no_language", $translations_to{countries}{$b}{'en'}))
-	}
-	keys %{$properties{countries}}
-	)
-{
-
-	my $cc = country_to_cc($country);
-	if (not(defined $cc)) {
-		next;
-	}
-
-	my $tag = display_taxonomy_tag($lang, 'countries', $country);
-	if (   (not defined $term)
-		or ($term eq '')
-		or ($tag =~ /$term/i))
-	{
-		$result{$cc} = $tag;
-	}
+# transform to simple dict and use codes
+foreach my $option (@options) {
+	my $code = country_to_cc($option->{value});
+	next if not defined $code;
+	$result{$code} = $option->{prefixed};
 }
 
 my $data = encode_json(\%result);

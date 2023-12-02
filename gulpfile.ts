@@ -37,7 +37,7 @@ export function icons() {
 export function attributesIcons() {
   return src("*.svg", { cwd: "./html/images/attributes/src" }).
     pipe(svgmin()).
-    pipe(dest("./html/images/attributes"));
+    pipe(dest("./html/images/attributes/dist"));
 }
 
 export function css() {
@@ -75,8 +75,8 @@ export function copyJs() {
     "./node_modules/jquery-cropper/dist/jquery-cropper.js",
     "./node_modules/jquery-form/src/jquery.form.js",
     "./node_modules/highcharts/highcharts.js",
-    "./node_modules/jvectormap-next/jquery-jvectormap.js",
-    "./node_modules/jvectormap-content/world-mill.js",
+    "./node_modules/jsvectormap/dist/js/jsvectormap.js",
+    "./node_modules/jsvectormap/dist/maps/world-merc.js",
     "./node_modules/select2/dist/js/select2.min.js",
   ]).
     pipe(init()).
@@ -134,7 +134,6 @@ function copyCss() {
     "./node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css",
     "./node_modules/@yaireo/tagify/dist/tagify.css",
     "./node_modules/cropperjs/dist/cropper.css",
-    "./node_modules/jvectormap-next/jquery-jvectormap.css",
     "./node_modules/select2/dist/css/select2.min.css",
   ]).
     pipe(init()).

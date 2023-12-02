@@ -1,0 +1,58 @@
+[
+   {
+      "id" : "en:lingonberry",
+      "labels" : "sv:krav",
+      "percent" : 50,
+      "percent_estimate" : 50,
+      "percent_max" : 50,
+      "percent_min" : 50,
+      "text" : "Lingon"
+   },
+   {
+      "id" : "en:sugar",
+      "labels" : "sv:krav",
+      "percent_estimate" : 31.25,
+      "percent_max" : 50,
+      "percent_min" : 12.5,
+      "text" : "socker"
+   },
+   {
+      "id" : "en:water",
+      "percent_estimate" : 9.375,
+      "percent_max" : 33.3333333333333,
+      "percent_min" : 0,
+      "text" : "vatten"
+   },
+   {
+      "id" : "en:thickener",
+      "ingredients" : [
+         {
+            "id" : "en:e440a",
+            "percent_estimate" : 4.6875,
+            "percent_max" : 18.75,
+            "percent_min" : 0,
+            "text" : "pektin"
+         }
+      ],
+      "percent_estimate" : 4.6875,
+      "percent_max" : 18.75,
+      "percent_min" : 0,
+      "text" : "förtjockningsmedel"
+   },
+   {
+      "id" : "en:acidity-regulator",
+      "ingredients" : [
+         {
+            "id" : "en:e330",
+            "percent_estimate" : 4.6875,
+            "percent_max" : 12.5,
+            "percent_min" : 0,
+            "text" : "citronsyra"
+         }
+      ],
+      "percent_estimate" : 4.6875,
+      "percent_max" : 12.5,
+      "percent_min" : 0,
+      "text" : "surhetsreglerande medel"
+   }
+]

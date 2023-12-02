@@ -41,7 +41,7 @@
                "ingredients" : [],
                "percent" : 0.6,
                "percent_estimate" : 0.6,
-               "processing" : "en:pulp, en:concentrated",
+               "processing" : "en:pulp,en:concentrated",
                "text" : "orange",
                "vegan" : "yes",
                "vegetarian" : "yes"
@@ -557,9 +557,15 @@
    "ingredients_without_ciqual_codes_n" : 19,
    "known_ingredients_n" : 71,
    "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:at-least-5-ingredients-with-specified-percent"
+   ],
    "nutriments" : {
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 6.5,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 6.5
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 6.5,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 6.5,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 7.565625,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 7.565625
    },
    "unknown_ingredients_n" : 0
 }

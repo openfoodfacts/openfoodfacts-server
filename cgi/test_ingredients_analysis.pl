@@ -86,15 +86,9 @@ if ($action eq 'process') {
 	$template_data_ref->{json} = $json;
 }
 
-my $full_width = 1;
-if ($action ne 'display') {
-	$full_width = 0;
-}
-
 process_template('web/pages/test_ingredients/test_ingredients_analysis.tt.html', $template_data_ref, \$html)
 	or $html = '';
 
 $request_ref->{title} = "Ingredients analysis test";
 $request_ref->{content_ref} = \$html;
-$request_ref->{full_width} = $full_width;
 display_page($request_ref);

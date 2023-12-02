@@ -14,6 +14,7 @@ x-backend-conf: &backend-conf
     - POSTGRES_USER
     - POSTGRES_PASSWORD
     - ROBOTOFF_URL
+    - QUERY_URL
     - EVENTS_URL
     - FACETS_KP_URL
     - EVENTS_USERNAME
@@ -35,6 +36,8 @@ x-backend-conf: &backend-conf
     - ${WEB_LANG_PATH}:/mnt/podata/lang
     # Static data (e.g dumps)
     - html_data:/opt/product-opener/html/data
+    # other servers dirs (this is temporary to be able to develop for now)
+    - other_servers:/srv
 
     # Binds from frontend container (read-only)
     - icons_dist:/opt/product-opener/html/images/icons/dist:ro
@@ -49,7 +52,8 @@ x-backend-conf: &backend-conf
     - orgs:/mnt/podata/orgs # .sto
     # build-cache
     - build_cache:/mnt/podata/build-cache
-
+    # export_files folders must be accessible between pro and public instances
+    - export_files:/mnt/podata/export_files
     # all the rest
     - podata:/mnt/podata
 
@@ -118,11 +122,11 @@ services:
       # Nginx, we use templates dir to be able to use environment vars
       - ./conf/nginx.conf:/etc/nginx/templates/default.conf.template
       # cors headers definition as an include
-      - ./conf/nginx/snippets/off.cors-headers.include:/etc/nginx/conf.d/off.cors-headers.include
+      - ./conf/nginx/snippets/off.cors-headers.include:/etc/nginx/snippets/off.cors-headers.include
       # some expires rules
-      - ./conf/nginx/expires-no-json-xml.conf:/etc/nginx/conf.d/expires-no-json-xml.include
+      - ./conf/nginx/snippets/expires-no-json-xml.conf:/etc/nginx/snippets/expires-no-json-xml.conf
       # some redirects
-      - ./conf/nginx/snippets/off.locations-redirects.include:/etc/nginx/conf.d/off.locations-redirects.include
+      - ./conf/nginx/snippets/off.locations-redirects.include:/etc/nginx/snippets/off.locations-redirects.include
     ports:
       - ${PRODUCT_OPENER_EXPOSE}${PRODUCT_OPENER_PORT}:80
 
@@ -132,3 +136,6 @@ volumes:
   js_dist:
   css_dist:
   node_modules:
+  # build_cache does not needs not be external, for wiping it will avoid keeping too much cached data
+  build_cache:
+  other_servers:

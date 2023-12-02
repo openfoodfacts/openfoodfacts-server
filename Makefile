@@ -53,7 +53,7 @@ DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # we also enable the possibility to fake services in po_test_runner
 DOCKER_COMPOSE_TEST=ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker-compose --env-file=${ENV_FILE}
 
-.DEFAULT_GOAL := dev
+.DEFAULT_GOAL := usage
 
 # this target is always to build, see https://www.gnu.org/software/make/manual/html_node/Force-Targets.html
 _FORCE:
@@ -63,6 +63,11 @@ _FORCE:
 #------#
 info:
 	@echo "${NAME} version: ${VERSION}"
+
+usage:
+	@echo "🥫 Welcome to the Open Food Facts project"
+	@echo "🥫 See available commands at docker/README.md"
+	@echo "🥫 or https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-docker-commands/"
 
 hello:
 	@echo "🥫 Welcome to the Open Food Facts dev environment setup!"
@@ -83,6 +88,11 @@ dev: hello build init_backend _up import_sample_data create_mongodb_indexes refr
 
 edit_etc_hosts:
 	@grep -qxF -- "${HOSTS}" /etc/hosts || echo "${HOSTS}" >> /etc/hosts
+
+create_folders:
+# create some folders to avoid having them owned by root (when created by docker compose)
+	@echo "🥫 Creating folders before docker-compose use them."
+	mkdir -p logs/apache2 logs/nginx debug || ( whoami; ls -l . ; false )
 
 # TODO: Figure out events => actions and implement live reload
 # live_reload:
@@ -114,7 +124,7 @@ _up:
 	${DOCKER_COMPOSE} up -d 2>&1
 	@echo "🥫 started service at http://openfoodfacts.localhost"
 
-up: build _up
+up: build create_folders _up
 
 down:
 	@echo "🥫 Bringing down containers …"
@@ -151,30 +161,30 @@ tail:
 	@echo "🥫 Reading logs (Apache2, Nginx) …"
 	tail -f logs/**/*
 
-cover:
-	@echo "🥫 running …"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run --rm backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
-	${DOCKER_COMPOSE_TEST} run --rm -e HARNESS_PERL_SWITCHES="-MDevel::Cover" backend prove -l tests/unit
-	${DOCKER_COMPOSE_TEST} stop
+codecov_prepare: create_folders
+	@echo "🥫 Preparing to run code coverage…"
+	mkdir -p cover_db
+	${DOCKER_COMPOSE_TEST} run --rm backend cover -delete
+	mkdir -p cover_db
 
 codecov:
-	@echo "🥫 running …"
+	@echo "🥫 running cover to generate a report usable by codecov …"
 	${DOCKER_COMPOSE_TEST} run --rm backend cover -report codecovbash
 
 coverage_txt:
+	@echo "🥫 running cover to generate text report …"
 	${DOCKER_COMPOSE_TEST} run --rm backend cover
 
 #----------#
 # Services #
 #----------#
-build_lang:
+build_lang: create_folders
 	@echo "🥫 Rebuild language"
     # Run build_lang.pl
     # Languages may build taxonomies on-the-fly so include GITHUB_TOKEN so results can be cached
 	${DOCKER_COMPOSE} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
-build_lang_test:
+build_lang_test: create_folders
 # Run build_lang.pl in test env
 	${DOCKER_COMPOSE_TEST} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
@@ -192,10 +202,8 @@ create_mongodb_indexes:
 	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "mongo off /data/db/create_indexes.js"
 
 refresh_product_tags:
-	@echo "🥫 Refreshing products tags (update MongoDB products_tags collection) …"
-# get id for mongodb container
-	docker cp scripts/refresh_products_tags.js $(shell docker-compose ps -q mongodb):/data/db
-	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "mongo off /data/db/refresh_products_tags.js"
+	@echo "🥫 Refreshing product data cached in Postgres …"
+	${DOCKER_COMPOSE} run --rm backend perl /opt/product-opener/scripts/refresh_postgres.pl ${from}
 
 import_sample_data:
 	@echo "🥫 Importing sample data (~200 products) into MongoDB …"
@@ -239,21 +247,22 @@ lint: lint_perltidy
 
 tests: build_lang_test unit_test integration_test
 
-unit_test:
+# add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
+unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
-	${DOCKER_COMPOSE_TEST} run -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
+	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
-integration_test:
-	@echo "🥫 Running unit tests …"
+integration_test: create_folders
+	@echo "🥫 Running integration tests …"
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
 # this is the place where variables are important
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion
 # note: we need the -T option for ci (non tty environment)
-	${DOCKER_COMPOSE_TEST} exec -T backend prove -l -r tests/integration
+	${DOCKER_COMPOSE_TEST} exec ${COVER_OPTS}  -T backend prove -l -r tests/integration
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 integration tests success"
 
@@ -264,15 +273,17 @@ test-stop:
 
 # usage:  make test-unit test=test-name.t
 # you can add args= to pass options, like args="-d" to debug
-test-unit: guard-test
+test-unit: guard-test create_folders
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run --rm backend perl ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
-test-int: guard-test # usage: make test-one test=test-file.t
+# to update expected results: make test-int test="test-name.t --update-expected-results"
+# you can add args= to pass options, like args="-d" to debug
+test-int: guard-test create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron
+	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion
 	${DOCKER_COMPOSE_TEST} exec backend perl ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
 	${DOCKER_COMPOSE_TEST} stop backend
@@ -299,13 +310,15 @@ bash:
 
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl: _FORCE
-	if [ -f $@ ]; then perl -c -CS -Ilib $@; else true; fi
+	@if [[ -f $@ ]]; then perl -c -CS -Ilib $@; else true; fi
 
 
 # TO_CHECK look at changed files (compared to main) with extensions .pl, .pm, .t
+# filter out obsolete scripts
 # the ls at the end is to avoid removed files.
+# the first commad is to check we have git (to avoid trying to run this line inside the container on check_perl*)
 # We have to finally filter out "." as this will the output if we have no file
-TO_CHECK=$(shell git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | xargs ls -d 2>/dev/null | grep -v "^.$$" )
+TO_CHECK=$(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -v "scripts/obsolete" | xargs ls -d 2>/dev/null | grep -v "^.$$" )
 
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"
@@ -379,6 +392,9 @@ create_external_volumes:
 # local data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/data ${COMPOSE_PROJECT_NAME}_html_data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata ${COMPOSE_PROJECT_NAME}_podata
+# note for this one, it should be shared with pro instance in the future
+	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/export_files ${COMPOSE_PROJECT_NAME}_export_files
+
 
 create_external_networks:
 	@echo "🥫 Creating external networks (production only) …"

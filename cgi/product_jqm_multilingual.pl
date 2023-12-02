@@ -37,6 +37,7 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -139,8 +140,8 @@ else {
 	my @errors = ();
 
 	# Store parameters for debug purposes
-	(-e "$data_root/debug") or mkdir("$data_root/debug", 0755);
-	open(my $out, ">", "$data_root/debug/product_jqm_multilingual." . time() . "." . $code);
+	ensure_dir_created($BASE_DIRS{CACHE_DEBUG}) or display_error_and_exit("Missing path", 503);
+	open(my $out, ">", "$BASE_DIRS{CACHE_DEBUG}/product_jqm_multilingual." . time() . "." . $code);
 	print $out encode_json(Vars());
 	close $out;
 
@@ -374,9 +375,12 @@ else {
 			else {
 				$product_ref->{$field} = preprocess_product_field($field, decode utf8 => single_param($field));
 
-				if ((defined $language_fields{$field}) and (defined $product_ref->{lc})) {
-					my $field_lc = $field . "_" . $product_ref->{lc};
+				# If we have a language specific field like "ingredients_text" without a language code suffix
+				# we assume it is in the language of the interface
+				if (defined $language_fields{$field}) {
+					my $field_lc = $field . "_" . $lc;
 					$product_ref->{$field_lc} = $product_ref->{$field};
+					delete $product_ref->{$field};
 				}
 
 				compute_field_tags($product_ref, $lc, $field);

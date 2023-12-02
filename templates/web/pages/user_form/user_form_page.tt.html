@@ -88,6 +88,14 @@
                         [% ELSIF field.type == 'email' %]
                             <label for="[% field.field %]">	[% field.label %]</label>
                             <input type="email" id="[% field.field %]" name="[% field.field %]" value = "[% field.value %]" autocomplete="email"/>
+                        [% ELSIF field.type == 'select' %]
+                            <label for="[% field.field %]">	[% lang(field.label) %]</label>
+                            <select name="[% field.field %]" id="[% field.field %]-select">
+                                <option value=""></option>
+                                [% FOREACH item IN field.options %]
+                                    <option value="[% item.value %]" [% IF item.value == field.selected %]selected[% END %]> [% item.label %]</option>
+                                [% END %]
+                            </select>
                         [% ELSIF field.type == 'checkbox' %]
                             [% IF accepted_organization && section.id == "professional" %]
                                 <p>[% f_lang('f_this_is_a_pro_account_for_org', {'org' => accepted_organization}) %]</p>
@@ -97,12 +105,17 @@
                                      [% field.label %]
                                 </label>
                             [% END %]
+                        [% ELSIF field.type == 'honeypot' %]
+                            [%# this is a honey pot for spammers, it should be left empty %]
+                            <div style="display:none">
+                                <label for="[% field.field %]">[% field.label %]</label>
+                                <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]"/>
+                            </div>
                         [% ELSIF field.type == 'hidden' %]
                             <label for="pro">
                                 <input type="hidden" name="[% field.field %]" value="[% field.value %]">
                             </label>
                         [% END %]
-
                     [% END %]
                 </div>
                 <!-- show video about account creation beside user form section-->
@@ -140,13 +153,13 @@
         <!--newsletter subscription-->
         [% IF type == 'add' %]
             <label>
-                <input type="checkbox" name="newsletter" checked="on" />
+                <input type="checkbox" name="newsletter" [% IF newsletter == "on" %]checked="on"[% END %] />
                 [% lang("newsletter_description") %]
             </label>
             <p>[% lang("unsubscribe_info") %]</p>
         [% END %]
 
-        [% IF userid %]
+        [% IF userid and (type != 'add') %]
             <fieldset>
                 <legend class="text_warning">[% lang("danger_zone") %]</legend>
                 <input type="button" name=".delete" class="button text_warning" value="[% lang("delete_user") %]" onclick="if ('[% userid %]'.localeCompare(prompt('[% lang("delete_confirmation") %]'),undefined,'base') === 0) {document.getElementById('delete_input').value='on';document.getElementById('user_form').submit();}"/>

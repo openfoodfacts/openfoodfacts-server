@@ -118,7 +118,6 @@ tr:Kompozit malzemeler
 uk:композиційний матеріал
 zh:复合材料
 wikidata:en:Q181790
-non_recyclable_and_non_biodegradable:en:yes
 description:de:Verbundmaterialien werden hergestellt, indem zwei oder mehr Materialien kombiniert werden, um gewünschte Eigenschaften zu erzielen. Sie werden aufgrund ihrer Haltbarkeit, ihres geringen Gewichts und ihrer Feuchtigkeitsbeständigkeit häufig in Lebensmittelverpackungen verwendet. Verbundmaterialien können recycelt werden, aber der Prozess kann aufgrund der Vielfalt der Materialien, die bei ihrer Herstellung verwendet werden, eine Herausforderung darstellen.
 description:en:Composite materials are produced by combining two or more materials to achieve desired properties. They are commonly used in food packaging due to their durability, lightweight and moisture resistance. Composite materials can be recycled, but the process can be challenging due to the variety of materials used in their production.
 description:fr:Les matériaux composites sont produits en combinant deux ou plusieurs matériaux pour obtenir les propriétés souhaitées. Ils sont couramment utilisés dans les emballages alimentaires en raison de leur durabilité, de leur légèreté et de leur résistance à l'humidité. Les matériaux composites peuvent être recyclés, mais le processus peut être difficile en raison de la variété des matériaux utilisés dans leur production.
@@ -136,6 +135,7 @@ it:Materiale riciclabile
 nl:Recycleerbaar materiaal
 pt:Material reciclável
 wikidata:en:Q57305800
+non_recyclable_and_non_biodegradable:en:no
 description:de:Wertstoffe entstehen durch die Sammlung und Verarbeitung von Abfallprodukten. Sie werden bei der Herstellung von Lebensmittelverpackungen als umweltfreundlichere Alternative zu herkömmlichen Materialien verwendet. Ist die Verpackung einmal benutzt, kann sie gesammelt, aufbereitet und wieder in Wertstoffe umgewandelt werden, die später wiederverwendet werden können.
 description:en:Recyclable materials are produced through the collection and processing of waste products. They are used in the production of food packaging as a more environmentally friendly alternative to traditional materials. Once the packaging has been used, it can be collected, processed and transformed back into recyclable material to be used again in the future.
 description:es:Los materiales reciclables se producen a través de la recolección y el procesamiento de productos de desecho. Se utilizan en la producción de envases para alimentos como una alternativa más ecológica a los materiales tradicionales. Una vez que se ha utilizado el embalaje, se puede recoger, procesar y transformar de nuevo en material reciclable para volver a utilizarlo en el futuro.
@@ -1305,6 +1305,7 @@ hr:metale
 hu:Fém, fémek
 it:Metallo, Metalli
 nl:Metaal, Metalen
+pl:Metal, Metale
 pt:Metais
 ru:Металл
 wikidata:en:Q11426
@@ -1325,6 +1326,7 @@ fr:Métaux recyclables
 hu:Újrahasznosítható fémek
 it:Metalli riciclabili
 nl:Recyclebaar metaal
+pl:Metal do recyclingu
 pt:Metais recicláveis
 description:de:Alle Metalle können bei ordnungsgemäßer Rückgabe wiederverwendet werden.
 description:en:All metals can be reused, if returned properly.
@@ -1345,6 +1347,7 @@ hr:čelik
 hu:Acél
 it:Acciaio
 nl:IJzer, Staal
+pl:Żelazo, Stal
 pt:Aço
 ru:Сталь
 ja:スチール
@@ -1404,7 +1407,7 @@ lv:alumīnijs
 mt:aluminju
 nl:Aluminium
 nn:aluminium
-pl:glin
+pl:Aluminium, glin
 pt:Alumínio
 ro:aluminiu
 ru:Алюминий
@@ -1428,6 +1431,7 @@ es:Aluminio grueso, Aluminio pesado
 fr:Aluminium lourd, aluminium épais
 it:Alluminio spesso, Alluminio pesante
 nl:Dik aluminium, Zwaar aluminium
+pl:Grube aluminium, Ciężkie aluminium
 pt:Alumínio pesado, alumínio grosso, alumínio rígido
 description:de:Die Aluminiumproduktion aus Erz hat einen großen CO2-Fußabdruck, aber Recycling kann diesen um das 20-fache verbessern. Dickes Aluminium wird zum Beispiel für Schalen oder Dosen verwendet. Dickes Aluminium lässt sich gut recyceln, erfordert aber einen separaten Rücklauf oder eine spezielle Absaugtechnik.
 description:en:Aluminum production from ore has a large carbon footprint, but recycling can improve this by 20x. Thick aluminum is used, for example, for trays or cans. Thick aluminum is highly recyclable, but requires a separate return flow or special extraction technology.
@@ -1443,6 +1447,7 @@ en:Light aluminium, thin aluminium
 de:Leichtes Aluminium, dünnes Aluminium
 fr:Aluminium léger, aluminium fin
 nl:Dun aluminium
+pl:Cienkie aluminium, Lekkie aluminium
 pt:Alumínio leve, alumínio fino, alumínio maleável
 description:de:Die Aluminiumproduktion aus Erz hat einen großen CO2-Fußabdruck, aber Recycling kann diesen um das 20-fache verbessern. Als Folie wird beispielsweise dünnes Aluminium verwendet. Dünnes Aluminium ist schwer zu recyceln, da es nicht aus Abfallströmen gewonnen werden kann.
 description:en:Aluminum production from ore has a large carbon footprint, but recycling can improve this by 20x. For example, thin aluminum is used as a foil. Thin aluminum is difficult to recycle because it cannot be extracted from waste streams.
@@ -1476,7 +1481,7 @@ mt:injam
 nb:treverk
 nn:trevirke
 nl:Hout
-pl:drewno
+pl:Drewno, drewniane
 pt:Madeira
 ro:lemn
 ru:Древесина
@@ -1518,6 +1523,7 @@ io:korko
 it:sughero
 nl:Kurk
 oc:siure
+pl:Korek
 pt:Cortiça
 ru:Пробка
 sv:kork
@@ -1710,6 +1716,7 @@ fr:Verre transparent
 hr:bezbojno staklo
 hu:Fehér üveg
 nl:transparant glas, transparant glazen
+pl:Przezroczyste szkło, Przeźroczyste szkło
 pt:Vidro transparente
 xx:70 GL, GL 70, 70GL, GL70, 70 GLS, GLS 70, 70GLS, GLS70
 wikidata:en:Q28869937
@@ -1723,6 +1730,7 @@ fr:Verre vert
 hr:zeleno staklo
 hu:Zöld üveg
 nl:Groen glas, groene glazen
+pl:Zielone szkło
 pt:Vidro verde
 xx:71 GL, GL 71, 71GL, GL71, 71 GLS, GLS 71, 71GLS, GLS71
 
@@ -1735,6 +1743,7 @@ fr:Verre brun
 hr:smeđe staklo
 it:vetro marrone
 nl:Bruin glas, bruine glazen
+pl:Brązowe szkło
 pt:vidro marrom
 xx:72 GL, GL 72, 72GL, GL72, 72 GLS, GLS 72, 72GLS, GLS72
 wikidata:en:Q2184152

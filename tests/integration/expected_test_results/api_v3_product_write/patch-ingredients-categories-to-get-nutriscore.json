@@ -39,6 +39,8 @@
             "percent_estimate" : 75,
             "percent_max" : 75,
             "percent_min" : 75,
+            "quantity" : "300 g",
+            "quantity_g" : 300,
             "text" : "Sucre",
             "vegan" : "yes",
             "vegetarian" : "yes"
@@ -50,6 +52,8 @@
             "percent_estimate" : 25,
             "percent_max" : 25,
             "percent_min" : 25,
+            "quantity" : "100 g",
+            "quantity_g" : 100,
             "text" : "pommes",
             "vegan" : "yes",
             "vegetarian" : "yes"
@@ -58,6 +62,8 @@
       "ingredients_text_fr" : "Sucre 300g, pommes 100g",
       "lang" : "fr",
       "nutriments" : {
+         "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 25,
+         "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 25,
          "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 25,
          "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 25,
          "nova-group" : 3,
@@ -135,9 +141,6 @@
          "proteins_value" : 0.07,
          "saturated_fat" : 0.00525,
          "saturated_fat_points" : 0,
-         "saturated_fat_ratio" : 16.1538461538462,
-         "saturated_fat_ratio_points" : 2,
-         "saturated_fat_ratio_value" : 16.2,
          "saturated_fat_value" : 0,
          "score" : 13,
          "sodium" : 1.6275,

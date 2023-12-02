@@ -52,17 +52,18 @@
       "carrefour-bio",
       "carrefour"
    ],
-   "categories" : "Plant-based foods and beverages, Plant-based foods, Legumes and their products, Cereals and potatoes, Fruits and vegetables based foods, Legumes, Seeds, Legume seeds, Pulses, Lentils, Green lentils",
+   "categories" : "Plant-based foods and beverages, Plant-based foods, Legumes and their products, Cereals and potatoes, Fruits and vegetables based foods, Legumes, Seeds, Legume seeds, Vegetables based foods, Pulses, Lentils, Green lentils",
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
+      "en:fruits-and-vegetables-based-foods",
       "en:legumes-and-their-products",
       "en:cereals-and-potatoes",
-      "en:fruits-and-vegetables-based-foods",
       "en:legumes",
       "en:seeds",
-      "en:legume-seeds",
       "en:vegetables-based-foods",
+      "en:legume-seeds",
+      "en:vegetables",
       "en:pulses",
       "en:lentils",
       "en:green-lentils"
@@ -85,13 +86,14 @@
    "categories_tags" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
+      "en:fruits-and-vegetables-based-foods",
       "en:legumes-and-their-products",
       "en:cereals-and-potatoes",
-      "en:fruits-and-vegetables-based-foods",
       "en:legumes",
       "en:seeds",
-      "en:legume-seeds",
       "en:vegetables-based-foods",
+      "en:legume-seeds",
+      "en:vegetables",
       "en:pulses",
       "en:lentils",
       "en:green-lentils"
@@ -115,7 +117,7 @@
       "3xxxxxxxxxxxx"
    ],
    "complete" : 0,
-   "completeness" : 0.8,
+   "completeness" : 0.8625,
    "correctors_tags" : [],
    "countries" : "France",
    "countries_hierarchy" : [
@@ -166,6 +168,9 @@
             ],
             "epi_score" : 93,
             "epi_value" : 4,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
             "origins_from_origins_field" : [
                "en:france"
             ],
@@ -570,6 +575,57 @@
    "generic_name_fr" : "Lentilles",
    "generic_name_fr_imported" : "Lentilles",
    "id" : "3270190128403",
+   "images" : {
+      "1" : {
+         "sizes" : {
+            "100" : {
+               "h" : 92,
+               "w" : 100
+            },
+            "400" : {
+               "h" : 183,
+               "w" : 200
+            },
+            "full" : {
+               "h" : 183,
+               "w" : 200
+            }
+         },
+         "uploaded_t" : "--ignore--",
+         "uploader" : "test-user"
+      },
+      "front_fr" : {
+         "angle" : 0,
+         "coordinates_image_size" : 400,
+         "geometry" : "0x0--1--1",
+         "imgid" : 1,
+         "normalize" : "false",
+         "rev" : 3,
+         "sizes" : {
+            "100" : {
+               "h" : 92,
+               "w" : 100
+            },
+            "200" : {
+               "h" : 183,
+               "w" : 200
+            },
+            "400" : {
+               "h" : 183,
+               "w" : 200
+            },
+            "full" : {
+               "h" : 183,
+               "w" : 200
+            }
+         },
+         "white_magic" : "false",
+         "x1" : -1,
+         "x2" : -1,
+         "y1" : -1,
+         "y2" : -1
+      }
+   },
    "informers_tags" : [
       "test-user"
    ],
@@ -597,9 +653,12 @@
    "ingredients_from_palm_oil_tags" : [],
    "ingredients_hierarchy" : [
       "en:green-lentils",
+      "en:vegetable",
       "en:legume",
+      "en:pulse",
       "en:lentils"
    ],
+   "ingredients_lc" : "fr",
    "ingredients_n" : 1,
    "ingredients_n_tags" : [
       "1",
@@ -611,7 +670,9 @@
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
       "en:green-lentils",
+      "en:vegetable",
       "en:legume",
+      "en:pulse",
       "en:lentils"
    ],
    "ingredients_text" : "Lentilles vertes issues de l'agriculture biologique.",
@@ -628,7 +689,7 @@
    "ingredients_without_ciqual_codes" : [],
    "ingredients_without_ciqual_codes_n" : 0,
    "interface_version_created" : "import_csv_file - version 2019/09/17",
-   "known_ingredients_n" : 3,
+   "known_ingredients_n" : 5,
    "labels" : "Organic, EU Organic, FR-BIO-01, AB Agriculture Biologique, Agriculture France",
    "labels_hierarchy" : [
       "en:organic",
@@ -651,10 +712,10 @@
    "lang" : "fr",
    "lang_imported" : "fr",
    "languages" : {
-      "en:french" : 5
+      "en:french" : 6
    },
    "languages_codes" : {
-      "fr" : 5
+      "fr" : 6
    },
    "languages_hierarchy" : [
       "en:french"
@@ -665,6 +726,8 @@
    ],
    "last_edit_dates_tags" : "--ignore--",
    "last_editor" : "test-user",
+   "last_image_dates_tags" : "--ignore--",
+   "last_image_t" : "--ignore--",
    "last_modified_by" : "test-user",
    "last_modified_t" : "--ignore--",
    "lc" : "fr",
@@ -680,9 +743,9 @@
       "auvergne",
       "france"
    ],
+   "max_imgid" : "1",
    "minerals_tags" : [],
    "misc_tags" : [
-      "en:nutriscore-not-computed",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-fat",
@@ -691,6 +754,10 @@
       "en:nutriscore-missing-nutrition-data-sodium",
       "en:nutriscore-missing-nutrition-data-proteins",
       "en:nutrition-no-fiber",
+      "en:nutriscore-not-computed",
+      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+      "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
       "en:packagings-number-of-components-1",
       "en:packagings-not-complete",
       "en:packagings-not-empty-but-not-complete",
@@ -724,8 +791,10 @@
       "energy_100g" : 1409,
       "energy_unit" : "kJ",
       "energy_value" : 1409,
-      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
-      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100,
       "nova-group" : 1,
       "nova-group_100g" : 1,
       "nova-group_serving" : 1
@@ -777,14 +846,76 @@
       "water_100g" : 69.6,
       "zinc_100g" : 0.00098
    },
+   "nutriscore" : {
+      "2021" : {
+         "category_available" : 1,
+         "data" : {
+            "energy" : 1409,
+            "fiber" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 100,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat" : 0,
+            "is_water" : 0,
+            "proteins" : null,
+            "saturated_fat" : null,
+            "sodium" : null,
+            "sugars" : null
+         },
+         "grade" : "unknown",
+         "nutrients_available" : 0,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 0
+      },
+      "2023" : {
+         "category_available" : 1,
+         "data" : {
+            "energy" : 1409,
+            "fat" : null,
+            "fiber" : 0,
+            "fruits_vegetables_legumes" : 100,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat_oil_nuts_seeds" : 1,
+            "is_red_meat_product" : 0,
+            "is_water" : 0,
+            "proteins" : null,
+            "salt" : null,
+            "saturated_fat" : null,
+            "saturated_fat_ratio" : 0,
+            "sugars" : null
+         },
+         "grade" : "unknown",
+         "nutrients_available" : 0,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 0
+      }
+   },
+   "nutriscore_2021_tags" : [
+      "unknown"
+   ],
+   "nutriscore_2023_tags" : [
+      "unknown"
+   ],
+   "nutriscore_grade" : "unknown",
+   "nutriscore_tags" : [
+      "unknown"
+   ],
+   "nutriscore_version" : "2021",
    "nutrition_data" : "on",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
+   "nutrition_grade_fr" : "unknown",
+   "nutrition_grades" : "unknown",
    "nutrition_grades_tags" : [
       "unknown"
    ],
    "nutrition_score_beverage" : 0,
-   "nutrition_score_debug" : "missing fat - missing saturated-fat - missing sugars - missing sodium - missing proteins",
+   "nutrition_score_debug" : "missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 100,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 100,
    "nutrition_score_warning_no_fiber" : 1,
    "origins" : "France",
    "origins_hierarchy" : [
@@ -843,7 +974,9 @@
    "periods_after_opening_tags" : [
       "en:48-months"
    ],
-   "photographers_tags" : [],
+   "photographers_tags" : [
+      "test-user"
+   ],
    "pnns_groups_1" : "Fruits and vegetables",
    "pnns_groups_1_tags" : [
       "fruits-and-vegetables",
@@ -854,7 +987,7 @@
       "vegetables",
       "known"
    ],
-   "popularity_key" : 0,
+   "popularity_key" : 12,
    "producer_product_id" : "xb22-a33",
    "producer_product_id_imported" : "xb22-a33",
    "producer_version_id" : "34",
@@ -863,7 +996,7 @@
    "product_name_fr" : "Lentilles vertes Bio",
    "product_name_fr_imported" : "Lentilles vertes Bio",
    "removed_countries_tags" : [],
-   "rev" : 1,
+   "rev" : 3,
    "sources" : [
       {
          "fields" : [
@@ -901,7 +1034,7 @@
          "url" : null
       }
    ],
-   "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-completed, en:characteristics-to-be-completed, en:origins-completed, en:categories-completed, en:brands-completed, en:packaging-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-uploaded",
+   "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-completed, en:characteristics-to-be-completed, en:origins-completed, en:categories-completed, en:brands-completed, en:packaging-completed, en:quantity-to-be-completed, en:product-name-completed, en:photos-to-be-validated, en:packaging-photo-to-be-selected, en:nutrition-photo-to-be-selected, en:ingredients-photo-to-be-selected, en:front-photo-selected, en:photos-uploaded",
    "states_hierarchy" : [
       "en:to-be-completed",
       "en:nutrition-facts-completed",
@@ -915,7 +1048,12 @@
       "en:packaging-completed",
       "en:quantity-to-be-completed",
       "en:product-name-completed",
-      "en:photos-to-be-uploaded"
+      "en:photos-to-be-validated",
+      "en:packaging-photo-to-be-selected",
+      "en:nutrition-photo-to-be-selected",
+      "en:ingredients-photo-to-be-selected",
+      "en:front-photo-selected",
+      "en:photos-uploaded"
    ],
    "states_tags" : [
       "en:to-be-completed",
@@ -930,7 +1068,12 @@
       "en:packaging-completed",
       "en:quantity-to-be-completed",
       "en:product-name-completed",
-      "en:photos-to-be-uploaded"
+      "en:photos-to-be-validated",
+      "en:packaging-photo-to-be-selected",
+      "en:nutrition-photo-to-be-selected",
+      "en:ingredients-photo-to-be-selected",
+      "en:front-photo-selected",
+      "en:photos-uploaded"
    ],
    "stores" : "Carrefour",
    "stores_imported" : "Carrefour",

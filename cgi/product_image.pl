@@ -25,6 +25,7 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Lang qw/:all/;
@@ -82,12 +83,12 @@ my $alt = remove_tags_and_quote($product_ref->{product_name}) . ' - ' . $imagete
 my $display_image_url;
 my $full_image_url;
 if ($id =~ /^\d+$/) {
-	$display_image_url = "/images/products/$path/$id.$display_size.jpg";
-	$full_image_url = "/images/products/$path/$id.jpg";
+	$display_image_url = "$images_subdomain/images/products/$path/$id.$display_size.jpg";
+	$full_image_url = "$images_subdomain/images/products/$path/$id.jpg";
 }
 else {
-	$display_image_url = "/images/products/$path/$id.$rev.$display_size.jpg";
-	$full_image_url = "/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
+	$display_image_url = "$images_subdomain/images/products/$path/$id.$rev.$display_size.jpg";
+	$full_image_url = "$images_subdomain/images/products/$path/$id.$product_ref->{images}{$id}{rev}.full.jpg";
 }
 
 my $photographer = $product_ref->{images}{$id}{uploader};
@@ -103,7 +104,7 @@ if ((defined $original_id) and (defined $product_ref->{images}{$original_id})) {
 }
 
 if (defined $product_ref->{images}{$id}{rev}) {
-	my $changes_ref = retrieve("$data_root/products/$path/changes.sto");
+	my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
 	if (not defined $changes_ref) {
 		$changes_ref = [];
 	}
@@ -175,7 +176,6 @@ $html .= "<p>" . $tt->error() . "</p>";
 
 $request_ref->{title} = $alt;
 $request_ref->{content_ref} = \$html;
-$request_ref->{full_width} = 0;
 display_page($request_ref);
 
 exit(0);

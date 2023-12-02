@@ -33,6 +33,7 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -124,6 +125,7 @@ foreach my $field (@export_fields) {
 	}
 }
 
+$fields_ref->{empty} = 1;
 $fields_ref->{nutriments} = 1;
 $fields_ref->{ingredients} = 1;
 $fields_ref->{images} = 1;
@@ -143,9 +145,9 @@ foreach my $l ("en", "fr") {
 
 	$langs{$l} = 0;
 
-	my $csv_filename = "$www_root/data/$lang.$server_domain.products.csv";
-	my $rdf_filename = "$www_root/data/$lang.$server_domain.products.rdf";
-	my $log_filename = "$www_root/data/$lang.$server_domain.products.bad-chars.log";
+	my $csv_filename = "$BASE_DIRS{PUBLIC_DATA}/$lang.$server_domain.products.csv";
+	my $rdf_filename = "$BASE_DIRS{PUBLIC_DATA}/$lang.$server_domain.products.rdf";
+	my $log_filename = "$BASE_DIRS{PUBLIC_DATA}/$lang.$server_domain.products.bad-chars.log";
 
 	print STDERR "Write file: $csv_filename.temp\n";
 	print STDERR "Write file: $rdf_filename.temp\n";
@@ -280,16 +282,18 @@ XML
 
 		# 300 000 ms timeout so that we can export the whole database
 		# 5mins is not enough, 50k docs were exported
-		my $cursor = $collection->query(
-			{
-				'code' => {"\$ne" => ""},
-				'empty' => {"\$ne" => 1}
-			}
-		)->fields($fields_ref)->sort({code => 1});
+		# Removed sort({code => 1} in order to speed up the MongoDB query and not run into the error
+		# "MongoDB::DatabaseError: Executor error during find command :: caused by :: Sort exceeded memory limit of 104857600 bytes, but did not opt in to external sorting."
+		my $cursor = $collection->query()->fields($fields_ref);
 
 		$cursor->immortal(1);
 
 		while (my $product_ref = $cursor->next) {
+
+			# Skip empty products and products without code
+			# We filter them here instead of in the query
+			next if not $product_ref->{code};
+			next if $product_ref->{empty};
 
 			my $csv = '';
 			my $url = "http://world-$lc.$server_domain" . product_url($product_ref);
@@ -372,9 +376,8 @@ XML
 				}
 				if (defined $taxonomy_fields{$field}) {
 					if (defined $product_ref->{$field . '_tags'}) {
-						$csv
-							.= join(',',
-							map {display_taxonomy_tag($lc, $field, $_)} @{$product_ref->{$field . '_tags'}})
+						$csv .= join(',',
+							map {cached_display_taxonomy_tag($lc, $field, $_)} @{$product_ref->{$field . '_tags'}})
 							. "\t";
 					}
 					else {
@@ -412,7 +415,7 @@ XML
 				$main_cid = $product_ref->{categories_tags}[(scalar @{$product_ref->{categories_tags}}) - 1];
 
 				$main_cid = canonicalize_tag2("categories", $main_cid);
-				$main_cid_lc = display_taxonomy_tag($lc, 'categories', $main_cid);
+				$main_cid_lc = cached_display_taxonomy_tag($lc, 'categories', $main_cid);
 			}
 
 			$csv .= $main_cid . "\t";
@@ -518,14 +521,18 @@ XML
 
 	# only overwrite previous dump if the new one is bigger, to reduce failed runs breaking the dump.
 	my $csv_size_old = (-s $csv_filename) // 0;
-	my $csv_size_new = (-s "$csv_filename.temp") // 0;
+	# Sort lines by code, except header line
+	system("(head -1 $csv_filename.temp && (tail -n +2 $csv_filename.temp | sort)) > $csv_filename.temp2");
+	unlink "$csv_filename.temp";
+	my $csv_size_new = (-s "$csv_filename.temp2") // 0;
+	# guard: we replace target file only if it's big enough (to avoid replacing valid export by a broken one)
 	if ($csv_size_new >= $csv_size_old * 0.99) {
 		unlink $csv_filename;
-		rename "$csv_filename.temp", $csv_filename;
+		rename "$csv_filename.temp2", $csv_filename;
 	}
 	else {
 		print STDERR "Not overwriting previous CSV. Old size = $csv_size_old, new size = $csv_size_new.\n";
-		unlink "$csv_filename.temp";
+		unlink "$csv_filename.temp2";
 	}
 
 	my %links = ();

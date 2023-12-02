@@ -115,6 +115,10 @@ msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
 msgstr "Įveskite savo organizacijos pavadinimą (įmonės pavadinimą ar prekės ženklą)."
 
+msgctxt "enter_email_addresses_of_users"
+msgid "Enter email addresses of users to invite (comma-separated):"
+msgstr "Įveskite naudotojų, kuriuos norite pakviesti, el. pašto adresus (atskirkite kableliais):"
+
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
 msgstr "Ši profesionali paskyra yra susieta su gamintoju arba prekės ženklu {org}. Turite prieigą prie gamintojų platformos."
@@ -189,10 +193,10 @@ msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
-msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr "/images/misc/google-play-badge-svg-master/img/lt_get.svg"
+msgid "/images/misc/playstore/img/en_get.svg"
+msgstr "/images/misc/playstore/img/lt_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -975,6 +979,10 @@ msgctxt "image_attribution_link_title"
 msgid "Photo detail and attribution information"
 msgstr "Informacija apie nuotrauką ir atribucija"
 
+msgctxt "invite_user"
+msgid "Invite Users"
+msgstr "Pakviesti vartotojus"
+
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
 msgstr "Jūsų įkelti produktai, kuriuos reikia užbaigti pildyti"
@@ -1094,7 +1102,7 @@ msgstr "Atsisiųskite iš App Store"
 
 msgctxt "ios_app_link"
 msgid "https://apps.apple.com/app/open-food-facts/id588797948"
-msgstr "https://apps.apple.com/lt/app/open-food-facts/id588797948"
+msgstr ""
 
 msgctxt "known_nutrients_p"
 msgid "known nutrients"
@@ -1452,11 +1460,11 @@ msgstr "Produktai, kurių sudėtyje nėra %s maistinės medžiagos"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Maistingumas"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Maistingumas"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1528,7 +1536,7 @@ msgstr "Standartinis nuokrypis"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Maistingumas"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -2287,7 +2295,7 @@ msgstr "Redaguoti produktą dar kartą"
 
 msgctxt "select_country"
 msgid "Country"
-msgstr ""
+msgstr "Šalis"
 
 msgctxt "select_lang"
 msgid "Language"
@@ -3262,7 +3270,7 @@ msgstr "Ne"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "Praleisti"
 
 msgctxt "popularity_s"
 msgid "popularity"
@@ -3374,7 +3382,7 @@ msgstr "Sudėtis"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Maistingumas"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3595,7 +3603,7 @@ msgstr "Pakeiskite esamas pasirinktas nuotraukas"
 
 msgctxt "cancel"
 msgid "Cancel"
-msgstr ""
+msgstr "Atšaukti"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
@@ -3930,7 +3938,7 @@ msgstr "Cukrus"
 
 msgctxt "nutriscore_points_for_saturated_fat"
 msgid "Saturated fat"
-msgstr ""
+msgstr "Sotieji riebalai"
 
 msgctxt "nutriscore_points_for_saturated_fat_ratio"
 msgid "Saturated fat / fat ratio"
@@ -3938,7 +3946,7 @@ msgstr "Sočiųjų riebalų ir riebalų santykis"
 
 msgctxt "nutriscore_points_for_sodium"
 msgid "Sodium"
-msgstr ""
+msgstr "Natris"
 
 msgctxt "nutriscore_points_for_fruits_vegetables_nuts_colza_walnut_olive_oils"
 msgid "Fruits, vegetables, nuts, and colza/walnut/olive oils"
@@ -6516,7 +6524,7 @@ msgstr "Importuoti ir eksportuoti produktus"
 
 msgctxt "add_products"
 msgid "Add products"
-msgstr ""
+msgstr "Pridėk produktus"
 
 # Needs to be short (displayed in a menu)
 msgctxt "install_the_app_to_add_products"
@@ -6547,6 +6555,14 @@ msgstr "Prisijunkite prie sekančio gamintojų susitikimo"
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
 msgstr "Įveskite reikšmę nuo 0 iki {max}."
+
+msgctxt "please_ask_users_create_account_first"
+msgid "Please ask the following users to create an Open Food Facts account first:"
+msgstr "Pirmiausia paprašykite šių vartotojų susikurti „Open Food Facts“ paskyrą:"
+
+msgctxt "users_added_successfully"
+msgid "Users added to the organization successfully:"
+msgstr "Vartotojai sėkmingai pridėti prie organizacijos:"
 
 msgctxt "product_js_sugars_warning"
 msgid "Sugars should not be higher than carbohydrates."
@@ -6595,4 +6611,28 @@ msgstr "produktams, kurių sudėtyje daugiausia yra medžiagos"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "palyginti su visais produktais"
+
+msgctxt "packagings_n_p"
+msgid "Numbers of packaging components"
+msgstr "Pakuotės sudedamųjų dalių skaičiai"
+
+msgctxt "packagings_n_s"
+msgid "Number of packaging components"
+msgstr "Pakuotės sudedamųjų dalių skaičius"
+
+msgctxt "packagings_materials_all"
+msgid "All materials"
+msgstr "Visos medžiagos"
+
+msgctxt "weight"
+msgid "Weight"
+msgstr "Svoris"
+
+msgctxt "weight_100g"
+msgid "Weight per 100g of product"
+msgstr "Svoris 100 g produkto"
+
+msgctxt "weight_percent"
+msgid "Weight percent"
+msgstr "Procentas pagal masę"
 

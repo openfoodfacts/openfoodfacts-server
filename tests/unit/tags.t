@@ -509,7 +509,7 @@ is_deeply(\@tags, ['en:organic', 'en:no-gmos',]) or diag explain(\@tags);
 
 @tags = gen_tags_hierarchy_taxonomy("fr", "labels", "commerce équitable, label rouge et bio");
 
-is_deeply(\@tags, ['en:organic', 'en:fair-trade', 'fr:label-rouge',]) or diag explain(\@tags);
+is_deeply(\@tags, ['en:fair-trade', 'en:organic', 'fr:label-rouge',]) or diag explain(\@tags);
 
 @tags = gen_tags_hierarchy_taxonomy("fr", "labels", "Déconseillé aux enfants et aux femmes enceintes");
 
@@ -811,5 +811,52 @@ is(canonicalize_taxonomy_tag('fr', 'packaging_materials', 'Gaz / CO2 - Dioxide d
 
 my $regexps_ref = generate_regexps_matching_taxonomy_entries("test", "list_of_regexps", {});
 compare_to_expected_results($regexps_ref, "$expected_result_dir/regexps.json", $update_expected_results);
+
+# xx: entries for ingredients should be used to match in all languages
+is(canonicalize_taxonomy_tag('pl', 'ingredients', 'Lactobacillus bulgaricus'), "en:lactobacillus-bulgaricus");
+
+# return the first matching property
+is(get_property_from_tags("test", undef, "vegan:en"), undef);
+is(get_property_from_tags("test", [], "vegan:en"), undef);
+is(get_property_from_tags("test", ["en:vegetable", "en:meat"], "vegan:en"), "yes");
+is_deeply([get_inherited_property_from_tags("test", ["en:something-unknown", "en:beef", "en:vegetable"], "vegan:en")],
+	["no", 'en:beef']);
+is(
+	get_matching_regexp_property_from_tags(
+		"test", ["en:something-unknown", "en:beef", "en:vegetable"],
+		"vegan:en", "yes"
+	),
+	"yes"
+);
+# no entry matches the property (en:beef only has an inherited property)
+is(
+	get_matching_regexp_property_from_tags(
+		"test", ["en:something-unknown", "en:beef", "en:vegetable"],
+		"vegan:en", "no"
+	),
+	undef
+);
+is(
+	get_matching_regexp_property_from_tags(
+		"test", ["en:something-unknown", "en:meat", "en:vegetable"],
+		"vegan:en", "no"
+	),
+	"no"
+);
+
+# Test get_knowledge_content subroutine
+
+# a match is expected here, as lang-default/fr/knowledge_panels/additives/en_e100_world.html exists
+is(
+	get_knowledge_content("additives", "en:e100", "fr", "world"),
+	"<p>La curcumine ne présente pas de risques connus pour la santé.</p>"
+);
+# no content exists for fr country, but we should fallback on world
+is(
+	get_knowledge_content("additives", "en:e100", "fr", "fr"),
+	"<p>La curcumine ne présente pas de risques connus pour la santé.</p>"
+);
+# No content exists for en language, undef is expected
+is(get_knowledge_content("additives", "en:e100", "en", "world"), undef);
 
 done_testing();

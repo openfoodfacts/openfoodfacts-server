@@ -28,6 +28,7 @@ binmode(STDERR, ":encoding(UTF-8)");
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -75,7 +76,7 @@ elsif (not defined single_param('import_id')) {
 }
 else {
 
-	$import_files_ref = retrieve("$data_root/import_files/${Owner_id}/import_files.sto");
+	$import_files_ref = retrieve("$BASE_DIRS{IMPORT_FILES}/${Owner_id}/import_files.sto");
 
 	if ((not defined $import_files_ref) or (not defined $import_files_ref->{$file_id})) {
 		$data{error} = "file_id_not_found";
@@ -97,12 +98,12 @@ else {
 
 if (not $data{error}) {
 
-	my $job = $minion->job($job_id);
+	my $job = get_minion()->job($job_id);
 	# Get Minion::Job object without making any changes to the actual job or return undef if job does not exist.
 
 	# Check job info
 	$log->debug("import_file_job_status.pl - get job_info", {data => \%data}) if $log->is_debug();
-	$data{job_info} = $minion->job($job_id)->info;
+	$data{job_info} = get_minion()->job($job_id)->info;
 }
 
 my $data = encode_json(\%data);

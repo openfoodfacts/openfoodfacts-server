@@ -120,7 +120,12 @@
       "en:french-pork"
    ],
    "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent"
+   ],
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 40,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 40,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 40,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 40
    },

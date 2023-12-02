@@ -1,0 +1,249 @@
+{
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "13050",
+         "id" : "en:apple",
+         "percent_estimate" : 53.5714285714286,
+         "percent_max" : 100,
+         "percent_min" : 7.14285714285714,
+         "text" : "apple",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "13005",
+         "id" : "en:banana",
+         "percent_estimate" : 23.2142857142857,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "processing" : "en:non-hydrogenated",
+         "text" : "banana",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "13008",
+         "id" : "en:cherry",
+         "percent_estimate" : 11.6071428571429,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "cherry",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "13011",
+         "id" : "en:date",
+         "percent_estimate" : 5.80357142857143,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "date",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "13126",
+         "id" : "en:elderberry",
+         "percent_estimate" : 2.90178571428572,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "processing" : "en:hydrogenated",
+         "text" : "elderberry",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "13012",
+         "id" : "en:fig",
+         "percent_estimate" : 1.45089285714286,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "fig",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "13112",
+         "id" : "en:grape",
+         "percent_estimate" : 0.725446428571431,
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "text" : "grape",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:bilberry",
+         "percent_estimate" : 0.362723214285715,
+         "percent_max" : 12.5,
+         "percent_min" : 0,
+         "processing" : "en:treated",
+         "text" : "huckleberry",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:jackfruit",
+         "percent_estimate" : 0.181361607142861,
+         "percent_max" : 11.1111111111111,
+         "percent_min" : 0,
+         "processing" : "en:desalted",
+         "text" : "jackfruit",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "13021",
+         "id" : "en:kiwi",
+         "percent_estimate" : 0.0906808035714306,
+         "percent_max" : 10,
+         "percent_min" : 0,
+         "processing" : "en:grilled",
+         "text" : "kiwifruit",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:lemon-and-unknown-fruit",
+         "percent_estimate" : 0.0453404017857153,
+         "percent_max" : 9.09090909090909,
+         "percent_min" : 0,
+         "text" : "lemon and unknown_fruit"
+      },
+      {
+         "id" : "en:toasted-mango-and-unknown-fruit2",
+         "percent_estimate" : 0.0226702008928612,
+         "percent_max" : 8.33333333333333,
+         "percent_min" : 0,
+         "text" : "toasted mango and unknown_fruit2"
+      },
+      {
+         "id" : "en:nectarine-and-fried-unknown-fruit3",
+         "percent_estimate" : 0.0113351004464306,
+         "percent_max" : 7.69230769230769,
+         "percent_min" : 0,
+         "text" : "nectarine and fried unknown_fruit3"
+      },
+      {
+         "id" : "en:puffed-orange-and-caramelized-unknown-fruit4",
+         "percent_estimate" : 0.0113351004464306,
+         "percent_max" : 7.14285714285714,
+         "percent_min" : 0,
+         "text" : "puffed orange and caramelized unknown_fruit4"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "en:lemon-and-unknown-fruit",
+         "en:toasted-mango-and-unknown-fruit2",
+         "en:nectarine-and-fried-unknown-fruit3",
+         "en:puffed-orange-and-caramelized-unknown-fruit4"
+      ],
+      "en:vegan-status-unknown" : [
+         "en:lemon-and-unknown-fruit",
+         "en:toasted-mango-and-unknown-fruit2",
+         "en:nectarine-and-fried-unknown-fruit3",
+         "en:puffed-orange-and-caramelized-unknown-fruit4"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:lemon-and-unknown-fruit",
+         "en:toasted-mango-and-unknown-fruit2",
+         "en:nectarine-and-fried-unknown-fruit3",
+         "en:puffed-orange-and-caramelized-unknown-fruit4"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_hierarchy" : [
+      "en:apple",
+      "en:fruit",
+      "en:malaceous-fruit",
+      "en:banana",
+      "en:cherry",
+      "en:prunus-species-fruit",
+      "en:date",
+      "en:elderberry",
+      "en:berries",
+      "en:elder",
+      "en:fig",
+      "en:grape",
+      "en:bilberry",
+      "en:blueberry",
+      "en:jackfruit",
+      "en:kiwi",
+      "en:lemon-and-unknown-fruit",
+      "en:toasted-mango-and-unknown-fruit2",
+      "en:nectarine-and-fried-unknown-fruit3",
+      "en:puffed-orange-and-caramelized-unknown-fruit4"
+   ],
+   "ingredients_n" : 14,
+   "ingredients_n_tags" : [
+      "14",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "en:apple",
+      "en:banana",
+      "en:cherry",
+      "en:date",
+      "en:elderberry",
+      "en:fig",
+      "en:grape",
+      "en:bilberry",
+      "en:jackfruit",
+      "en:kiwi",
+      "en:lemon-and-unknown-fruit",
+      "en:toasted-mango-and-unknown-fruit2",
+      "en:nectarine-and-fried-unknown-fruit3",
+      "en:puffed-orange-and-caramelized-unknown-fruit4"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:apple",
+      "en:fruit",
+      "en:malaceous-fruit",
+      "en:banana",
+      "en:cherry",
+      "en:prunus-species-fruit",
+      "en:date",
+      "en:elderberry",
+      "en:berries",
+      "en:elder",
+      "en:fig",
+      "en:grape",
+      "en:bilberry",
+      "en:blueberry",
+      "en:jackfruit",
+      "en:kiwi",
+      "en:lemon-and-unknown-fruit",
+      "en:toasted-mango-and-unknown-fruit2",
+      "en:nectarine-and-fried-unknown-fruit3",
+      "en:puffed-orange-and-caramelized-unknown-fruit4"
+   ],
+   "ingredients_text" : "apple,\nnon-hydrogenated banana,\ncherry and date,\nhardened elderberry and fig,\ngrape and treated huckleberry,\ndesalted jackfruit and grilled kiwifruit,\nlemon and unknown_fruit,\ntoasted mango and unknown_fruit2,\nnectarine and fried unknown_fruit3,\npuffed orange and caramelized unknown_fruit4.",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 14,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:bilberry",
+      "en:jackfruit",
+      "en:lemon-and-unknown-fruit",
+      "en:nectarine-and-fried-unknown-fruit3",
+      "en:puffed-orange-and-caramelized-unknown-fruit4",
+      "en:toasted-mango-and-unknown-fruit2"
+   ],
+   "ingredients_without_ciqual_codes_n" : 6,
+   "known_ingredients_n" : 16,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 99.9093191964286,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 99.9093191964286,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 99.9093191964286,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 99.9093191964286
+   },
+   "unknown_ingredients_n" : 4
+}

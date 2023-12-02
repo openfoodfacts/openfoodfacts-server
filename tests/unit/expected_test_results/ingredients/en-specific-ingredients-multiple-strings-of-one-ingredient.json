@@ -81,6 +81,8 @@
    "known_ingredients_n" : 6,
    "lc" : "en",
    "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
@@ -88,13 +90,8 @@
       {
          "id" : "en:milk",
          "ingredient" : "milk",
-         "percent" : 88,
-         "text" : "Total milk content: 88%."
-      },
-      {
-         "id" : "en:milk",
-         "ingredient" : "milk",
          "origins" : "en:united-kingdom",
+         "percent" : 88,
          "text" : "Origin of milk: UK"
       }
    ],

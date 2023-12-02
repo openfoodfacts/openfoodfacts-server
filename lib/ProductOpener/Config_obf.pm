@@ -49,6 +49,7 @@ BEGIN {
 		$crowdin_project_key
 
 		$robotoff_url
+		$query_url
 		$events_url
 		$events_username
 		$events_password
@@ -206,6 +207,7 @@ $crowdin_project_key = $ProductOpener::Config2::crowdin_project_key;
 # Set this to your instance of https://github.com/openfoodfacts/robotoff/ to
 # enable an in-site robotoff-asker in the product page
 $robotoff_url = $ProductOpener::Config2::robotoff_url;
+$query_url = $ProductOpener::Config2::query_url;
 
 # Set this to your instance of https://github.com/openfoodfacts/openfoodfacts-events
 # enable creating events for some actions (e.g. when a product is edited)
@@ -240,7 +242,7 @@ HTML
 # fields for which we will load taxonomies
 
 @taxonomy_fields
-	= qw(states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening inci_functions);
+	= qw(units states countries languages labels categories additives allergens traces nutrient_levels ingredients periods_after_opening inci_functions);
 
 # tag types (=facets) that should be indexed by web crawlers, all other tag types are not indexable
 @index_tag_types = qw(brands categories labels additives products);

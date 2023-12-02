@@ -24,6 +24,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Export qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -169,8 +170,8 @@ if (defined $products_file) {
 	if ($products_file =~ /\.gz$/) {
 		$tar_cmd = "cvfz";
 	}
-	print STDERR "Executing tar command: tar $tar_cmd $products_file -C $data_root/products -T $tmp_file\n";
-	system('tar', $tar_cmd, $products_file, "-C", "$data_root/products", "-T", $tmp_file);
+	print STDERR "Executing tar command: tar $tar_cmd $products_file -C $BASE_DIRS{PRODUCTS} -T $tmp_file\n";
+	system('tar', $tar_cmd, $products_file, "-C", $BASE_DIRS{PRODUCTS}, "-T", $tmp_file);
 }
 
 if (defined $images_file) {
@@ -179,8 +180,8 @@ if (defined $images_file) {
 	if ($images_file =~ /\.gz$/) {
 		$tar_cmd = "cvfz";
 	}
-	print STDERR "Executing tar command: tar $tar_cmd $images_file -C $www_root/images/products -T $tmp_file\n";
-	system('tar', $tar_cmd, $images_file, "-C", "$www_root/images/products", "-T", $tmp_file);
+	print STDERR "Executing tar command: tar $tar_cmd $images_file -C $BASE_DIRS{PRODUCTS_IMAGES} -T $tmp_file\n";
+	system('tar', $tar_cmd, $images_file, "-C", $BASE_DIRS{PRODUCTS_IMAGES}, "-T", $tmp_file);
 }
 
 print STDERR "$i products exported.\n";
