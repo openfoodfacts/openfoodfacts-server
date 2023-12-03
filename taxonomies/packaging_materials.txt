@@ -29,6 +29,7 @@ stopwords:xx:100%, RC, Recycling Code
 en:Unknown
 de:Unbekannt
 bg:Неизвестно
+es:Desconocido
 fr:Inconnu, inconnue, inconnus, inconnues
 hu:Ismeretlen
 nl:Onbekend
@@ -1161,6 +1162,7 @@ en:Paper
 bg:Хартия
 da:Papir
 de:Papier
+es:Papel
 fr:Papier, papier standard, Cellulosique / Papier / Vélin
 hr:papir
 hu:Papír
@@ -1181,7 +1183,7 @@ cs:pečicí papír
 da:bagepapir
 de:Backpapier
 el:λαδόκολλα
-es:papel sulfurizado, papel de horno
+es:papel sulfurizado, papel de horno, papel para hornear
 fi:leivinpaperi
 fr:Papier sulfurisé, papier cuisson, papier parchemin
 hu:sütőpapír
@@ -1207,14 +1209,17 @@ description:pt:O papel manteiga[1] é um tipo de papel translúcido e antiaderen
 
 en:Cellulose
 fr:Cellulose, Cellulose moulée, Cellulosique / Cellulose moulée, Cellulosique / Autres fibres cellulosiques / végétales
+es:Celulosa
 
 en:Rubber
+es:Goma
 fr:Caoutchouc, Cellulosique / Caoutchouc
 
 # thick cardboard (e.g. book covers)
 <en:cardboard
 en:Paperboard
 # de:Karton
+es:Cartón duro, cartulina
 fi:Kartonki
 fr:Papier cartonné
 hr:ljepenka
@@ -1228,6 +1233,7 @@ wikidata:en:Q14934005
 <en:paper
 en:Other paper
 de:Sonstiges Papier, Anderes Papier
+es:Otros tipos de papel
 fr:Autres papiers, autre papier, Cellulosique / Autre papier
 hu:Egyéb papír, más papír
 nl:Ander karton
@@ -1238,6 +1244,7 @@ en:Recycled paper, 100% recycled paper
 bg:Рециклирана хартия
 da:Genbrugspapir
 de:Recyceltes Papier, Recyclingpapier, 100% recyceltes Papier, 100% Recyclingpapier
+es:Papel reciclado, 100% papel reciclado
 fr:Papier recyclé, papier recyclé 100%, papier 100% recyclé
 hu:Újrahasznosított papír
 nl:Recycled papier
@@ -1246,6 +1253,7 @@ pt:Papel reciclado, 100% papel reciclado, papel 100% reciclado
 <en:paper
 en:FSC paper
 de:FSC Papier
+es:Papel FSC
 fr:Papier FSC
 nl:FSC-papier
 pt:Papel FSC
@@ -1256,6 +1264,7 @@ pt:Papel FSC
 en:Kraft paper, kraft
 bg:Крафт хартия
 de:Kraftpapier
+es:Papel de saco
 fr:Papier kraft, kraft
 hr:natronski papir
 nl:Kraft-papier
@@ -1342,6 +1351,7 @@ en:Steel, iron
 bg:Стомана, желязо
 de:Stahl
 da:Stål
+es:Acero, hierro
 fr:Acier, fer, Métaux / Acier et fer (magnétiques)
 hr:čelik
 hu:Acél
@@ -1445,6 +1455,7 @@ description:pt:A produção de alumínio a partir do minério tem uma grande peg
 <en:Aluminium
 en:Light aluminium, thin aluminium
 de:Leichtes Aluminium, dünnes Aluminium
+es:Papel de aluminio, hojas finas de aluminio, aluminio fino
 fr:Aluminium léger, aluminium fin
 nl:Dun aluminium
 pl:Cienkie aluminium, Lekkie aluminium
@@ -1712,6 +1723,7 @@ en:Clear Glass
 bg:Безцветно стъкло
 da:Klar Glas
 de:Klarglas, Farbloses Glas
+es:Vidrio transparente
 fr:Verre transparent
 hr:bezbojno staklo
 hu:Fehér üveg
@@ -1726,6 +1738,7 @@ en:Green Glass
 bg:Зелено стъкло
 da:Grønt Glas
 de:Grünglas, Grünes Glas
+es:Vidrio verde
 fr:Verre vert
 hr:zeleno staklo
 hu:Zöld üveg
@@ -1759,6 +1772,7 @@ description:pt:O vidro marrom é feito adicionando óxido de ferro às matérias
 <en:Glass
 en:Dark Sort Glass
 de:Dunkles Sortierglas
+es:Vidrio oscuro
 fr:Verre sombre
 hr:ostalih boja staklo
 hu:Sötét válogatott üveg
@@ -1768,6 +1782,7 @@ xx:73 GL, GL 73, 73GL, GL73, 73 GLS, GLS 73, 73GLS, GLS73
 <en:Glass
 en:Light Sort Glass
 de:Helles Sortierglas
+es:Vidrio claro
 fr:Verre clair
 hu:Világos válogatott üveg
 nl:Lichtgekleurd glas
@@ -1776,6 +1791,7 @@ xx:74 GL, GL 74, 74GL, GL74, 74 GLS, GLS 74, 74GLS, GLS74
 <en:Glass
 en:Light Leaded Glass
 de:Leichtes Bleiglas
+es:Vidrio con un poco de plomo
 xx:75 GL, GL 75, 75GL, GL75, 75 GLS, GLS 75, 75GLS, GLS75
 
 <en:Glass
@@ -1784,7 +1800,7 @@ ca:76 GL - vidre de plom, vidre de plom
 cs:76 GL - Křišťálové sklo, Křišťálové sklo
 da:76 GL - blyglas, blyglas
 de:76 GL - Bleiglas, Bleiglas
-es:76 GL - vidrio de plomo, vidrio de plomo
+es:76 GL - vidrio de plomo, vidrio con plomo
 et:76 GL - Pliiklaas, Pliiklaas
 fi:76 GL - Kristalli, Kristalli
 fr:76 GL - cristal, cristal
