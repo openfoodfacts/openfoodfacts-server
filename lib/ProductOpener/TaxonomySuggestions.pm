@@ -314,27 +314,28 @@ sub match_stringids ($stringid, $fuzzystringid, $synonymid) {
 
 # best_match is used to see how well matches the best matching synonym
 
-sub best_match ($stringid, $fuzzystringid, $synonyms_ids_ref) {
+sub best_match ($search_lc, $stringid, $fuzzystringid, $synonyms_ref) {
 
 	my $best_type = "none";
-	my $best_id = 0;
+	my $best_match = 0;
 
-	foreach my $synonymid (@$synonyms_ids_ref) {
+	foreach my $synonym (@$synonyms_ref) {
+		my $synonymid = get_string_id_for_lang($search_lc, $synonym);
 		my $match = match_stringids($stringid, $fuzzystringid, $synonymid);
 		if ($match eq "start") {
 			# Best match, we can return without looking at the other synonyms
 			$best_type = $match;
-			$best_id = $synonymid;
+			$best_match = $synonym;
 			last;
 		}
 		elsif (($match eq "inside")
 			or (($match eq "fuzzy") and ($best_type eq "none")))
 		{
 			$best_type = $match;
-			$best_id = $synonymid;
+			$best_match = $synonym;
 		}
 	}
-	return {type => $best_type, id => $best_id};
+	return {type => $best_type, match => $best_match};
 }
 
 =head2 filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string, $options_ref)
@@ -433,26 +434,33 @@ sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string
 			my $tag_xx = display_taxonomy_tag("xx", $tagtype, $canon_tagid);
 
 			# Build a list of normalized synonyms in the search language and the wildcard xx: language
-			my @synonyms_ids = map {get_string_id_for_lang($search_lc, $_)} (
+			my @synonyms = (
 				@{deep_get(\%synonyms_for, $tagtype, $search_lc, get_string_id_for_lang($search_lc, $tag)) || []},
 				@{deep_get(\%synonyms_for, $tagtype, "xx", get_string_id_for_lang("xx", $tag_xx)) || []}
 			);
 
 			# check how well the synonyms match the input string
-			my $best_match = best_match($stringid, $fuzzystringid, \@synonyms_ids);
+			my $best_match = best_match($search_lc, $stringid, $fuzzystringid, \@synonyms);
 
 			$log->debug(
-				"synonyms_ids for canon_tagid",
+				"synonyms for canon_tagid",
 				{
 					tagtype => $tagtype,
 					canon_tagid => $canon_tagid,
 					tag => $tag,
-					synonym_ids => \@synonyms_ids,
-					best_match => $best_match
+					synonyms => \@synonyms,
+					best_match => $best_match,
+					# synonyms_ids_pre => \(
+					# 	@{deep_get(\%synonyms_for, $tagtype, $search_lc, get_string_id_for_lang($search_lc, $tag)) || []},
+					# 	@{deep_get(\%synonyms_for, $tagtype, "xx", get_string_id_for_lang("xx", $tag_xx)) || []}
+					# )
 				}
 			) if $log->is_debug();
 
-			my $to_add = {tag => $tag, matched_synonym => $best_match->{id}};
+			my $to_add = {
+				tag => $tag,
+				matched_synonym => $best_match->{match}
+			};
 			# matching at start, best matches
 			if ($best_match->{type} eq "start") {
 				push @suggestions, $to_add;
