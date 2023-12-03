@@ -885,6 +885,7 @@ sub process_auth_header ($request_ref, $r) {
 		return;
 	}
 
+	$request_ref->{oidc_user_id} = $user_id;
 	return;
 }
 

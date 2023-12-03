@@ -1066,6 +1066,38 @@ sub init_user ($request_ref) {
 		);
 	}
 
+	# User was authenticated via OIDC
+	elsif ((defined $request_ref->{oidc_user_id}) and ($request_ref->{oidc_user_id} ne '')) {
+		$user_id = $request_ref->{oidc_user_id};
+
+		$log->context->{user_id} = $user_id;
+		$log->debug("user_id is defined") if $log->is_debug();
+		my $session = undef;
+
+		# If the user exists
+		if (defined $user_id) {
+
+			my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
+
+			if (-e $user_file) {
+				$user_ref = retrieve($user_file);
+				$user_id = $user_ref->{'userid'};
+				$log->context->{user_id} = $user_id;
+
+				if (not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
+				{
+					open_user_session($user_ref, undef, undef, undef, undef, $request_ref);
+				}
+			}
+			else {
+				$user_id = undef;
+				$log->info('bad user') if $log->is_info();
+				# Trigger an error
+				return ($Lang{error_bad_login_password}{$lang});
+			}
+		}
+	}
+
 	# Retrieve user_id and password from form parameters
 	elsif ( (defined request_param($request_ref, 'user_id'))
 		and (request_param($request_ref, 'user_id') ne '')
