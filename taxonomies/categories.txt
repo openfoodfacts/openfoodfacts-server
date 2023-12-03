@@ -46187,6 +46187,7 @@ agribalyse_proxy_food_code:en:19430
 ciqual_proxy_food_code:en:19430
 ciqual_proxy_food_name:en:Liquid cream, light, 15-20% fat, UHT
 ciqual_proxy_food_name:fr:Crème de lait, 15 à 20% MG, légère, semi-épaisse, UHT
+intake24_category_code:en:CREM
 gpc_category_code:en:10000190
 gpc_category_name:en:Cream (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as dairy cream (the fatty part of fresh milk that rises to the top if allowed to stand). These products have been treated or packaged in such a way as to extend their consumable life. Products include cream with added flavouring or ingredients, such as fruit and chocolate and frothy style beverage toppings Definition Excludes: Excludes products such as Frozen and Perishable Cream and all Cream Substitutes.
@@ -47140,6 +47141,7 @@ pnns_group_2:en:Milk and yogurt
 agribalyse_proxy_food_code:en:19041
 agribalyse_proxy_food_name:en:Milk, semi-skimmed, UHT
 agribalyse_proxy_food_name:fr:Lait demi-écrémé, UHT
+intake24_category_code:en:MILK
 
 <en:Milks
 en:Refrigerated milks
@@ -47152,8 +47154,6 @@ Definition Excludes: Specifically excludes all fermented milk (or milk substitut
 en:Milks from Austria, Austrian milks
 fr:Laits autrichiens
 lt:Austriški pienas
-
-
 
 <en:Milks from Austria
 <en:Milks
@@ -47296,6 +47296,7 @@ wikidata:en:Q37159
 agribalyse_proxy_food_code:en:39001
 agribalyse_proxy_food_name:en:Milkshake, from fast foods restaurant
 agribalyse_proxy_food_name:fr:Milk-shake, provenant de fast food
+intake24_category_code:en:SHKS
 
 <en:Milkshakes
 en:Milkshakes from fast foods restaurant, Milk-shakes from fast foods restaurant
@@ -47575,6 +47576,7 @@ tr:Süt tozu
 agribalyse_proxy_food_code:en:19054
 agribalyse_proxy_food_name:en:Milk, powder, skimmed
 agribalyse_proxy_food_name:fr:Lait en poudre, écrémé
+intake24_category_code:en:19POWM
 wikidata:en:Q496696
 
 <en:Dehydrated beverages
@@ -48389,6 +48391,7 @@ agribalyse_proxy_food_code:en:18107
 ciqual_proxy_food_code:en:18107
 ciqual_proxy_food_name:en:Almond drink
 ciqual_proxy_food_name:fr:Boisson à l'amande
+intake24_category_code:en:19NMLK
 #wikidata:en:
 
 <en:Nut-based drinks
@@ -48776,7 +48779,6 @@ who_id:en:7
 agribalyse_proxy_food_code:en:19593
 agribalyse_proxy_food_name:en:Yogurt, fermented milk or dairy specialty, plain
 agribalyse_proxy_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
-intake24_category_code:en:YOGU
 gpc_category_code:en:10000278
 gpc_category_name:en:Yogurt (Perishable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a prepared food made from animal milk thickened by fermentation with lactic bacteria. These products must be refrigerated to extend their consumable life. This includes flavoured yogurts (e.g. flavoured with fruit, vanilla, nuts, honey) or yogurt packaged with a small amount of fruit preserve, nuts, or other accompaniment. Definition Excludes: Excludes products such as Drinking Yogurt, Frozen and Shelf Stable Yogurt and Yogurt Substitutes, Dairy and Dairy Substitute Drinks and Desserts.
@@ -75213,6 +75215,7 @@ wikidata:en:Q177
 ciqual_food_code:en:25516
 ciqual_food_name:en:Pizza (average)
 ciqual_food_name:fr:Pizza (aliment moyen)
+intake24_category_code:en:PZZA
 gpc_category_code:en:10000250
 gpc_category_name:en:Pies/Pastries/Pizzas/Quiches - Savoury (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a pastry, biscuit or crumble based product filled or topped with a mixture of shredded/sliced savoury ingredients, commonly including meat, vegetables, eggs or other additives. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Perishable and Frozen Savoury Pies, Pastries, Pizzas and Quiches, Sweet Pies/Tarts, and Potato Topped Meat Pies.
