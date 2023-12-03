@@ -579,16 +579,13 @@ function initializeTagifyInput(el) {
                 then((RES) => RES.json()).
                 then(function(json)  {
                     let lc = /^\w\w:/.exec(value);
-                    let synonyms;
                     let whitelist;
                     if (lc) {
-                        synonyms = json.matched_synonyms.map(function(e) {return lc + e;});
                         whitelist = json.matched_synonyms.map(function(e) {return {"value": lc + e, "searchBy": e}});
                         for (let i in json.matched_synonyms) {
                             json.matched_synonyms[i] = lc + json.matched_synonyms[i];
                         }
                     } else {
-                        synonyms = json.matched_synonyms;
                         whitelist = json.matched_synonyms;
                     }
                     let synonymMap = Object.create(null);
@@ -607,8 +604,9 @@ function initializeTagifyInput(el) {
     input.on("dropdown:show", function(event) {
         if (!input.synonymMap) return;
         $(input.DOM.dropdown).find("div.tagify__dropdown__item").each(function(_,e) {
-            let canonicalName = input.synonymMap[e.getAttribute("value")];
-            if (canonicalName) e.innerHTML += " (&rarr; <i>" + canonicalName + "</i>)";
+            let synonymName = e.getAttribute("value");
+            let canonicalName = input.synonymMap[synonymName];
+            if (canonicalName && canonicalName !== synonymName) e.innerHTML += " (&rarr; <i>" + canonicalName + "</i>)";
         });
     });
 
