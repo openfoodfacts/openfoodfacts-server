@@ -4164,9 +4164,64 @@ nl:Gazastrook
 
 # Marine zones
 
-xx:FAO 4
+en:FAO fishing areas, FAO major fishing areas, FAO inland waters
+bg:Главните Риболовни Зони ФАО
+cs:Hlavních Rybolovných Oblastí FAO
+da:Overordnede FAO-Fiskeriområder
+de:FAO-Fischereigebiete, FAO major fishing areas
+el:Μείζονες Αλιευτικές Ζώνες FAO
+es:Principales zonas pesqueras de la FAO, Principales áreas de pesca de la FAO
+et:FAO Peamiste Püügipiirkondade
+fi:FAO-Pääkalastusalueista
+fr:Principales zones de pêche de la FAO, Zone de pêche, Zone de pêche FAO
+ga:Mórlimistéir Iascaireachta FAO
+hr:ribolovno područje FAO, FAO, ribolovno područje
+hu:Fő FAO Halászati területek, FAO halászati körzetek
+it:Principali zone di pesca FAO
+lt:FAO Pagrindiniame Žvejybos Rajonu
+lv:FAO Galveno Zvejas Apgabalos
+mt:Taż-żoni Prinċipali Tas-sajd Tal-FAO
+nl:Grote visgebieden van de FAO, FAO major fishing areas
+pl:Głównych Obszarów Połowowych FAO, Obszary połowowe FAO
+pt:Zonas principais de pesca FAO
+ro:Principalele Zone de Pescuit FAO
+sk:FAO Hlavných Oblastí Rybolovu
+sl:Glavnih Ribolovnih Območij FAO
+sv:FAO:s Fiskeregioner
+xx:FAO major fishing areas
+description:en:European Union, FAO major fishing areas
+website:en:https://fish-commercial-names.ec.europa.eu/fish-names/fishing-areas_en#marine-areas
+wikidata:en:Q2783377
+wikipedia:en:https://en.wikipedia.org/wiki/FAO_Major_Fishing_Areas
 
-xx:FAO 05, FAO 5
+<en:FAO fishing areas
+en:FAO 1, FAO 01, FAO inland waters 1
+xx:FAO 1, FAO 01
+
+<en:FAO fishing areas
+en:FAO 2, FAO 02, FAO inland waters 2
+xx:FAO 2, FAO 02
+
+<en:FAO fishing areas
+en:FAO 3, FAO 03, FAO inland waters 3
+xx:FAO 3, FAO 03
+
+<en:FAO fishing areas
+en:FAO 4, FAO 04, FAO inland waters 4
+fr:FAO 4, FAO 04, FAO n°04
+xx:FAO 4, FAO 04
+
+<en:FAO fishing areas
+en:FAO 5, FAO 05, FAO inland waters 5
+xx:FAO 5, FAO 05
+
+<en:FAO fishing areas
+en:FAO 6, FAO 06, FAO inland waters 6
+xx:FAO 6, FAO 06
+
+<en:FAO fishing areas
+en:FAO 8, FAO 08, FAO inland waters 8
+xx:FAO 8, FAO 08
 
 en:Arctic sea
 xx:FAO 18
@@ -4200,14 +4255,14 @@ xx:FAO 21
 
 <en:Atlantic Ocean
 en:North-East Atlantic Ocean, North-East Atlantic, Northeast Atlantic
-de:Nordostatlantik
-fr:Océan Atlantique Nord-Est, Atlantique Nord-Est, FAO 27, FAO N°27, Atlantique Du Nord-est
 bg:Североизточните части на Атлантическият океан
 cs:Severovýchodní Atlantik
 da:Nordøstlige Atlanterhav
+de:Nordostatlantik
 et:Atlandi Ookeani Kirdeosa
 el:Βορειο-ανατολικος Ατλαντικος
 es:Atlántico Nororiental
+fr:Océan Atlantique Nord-Est, Atlantique Nord-Est, FAO 27, FAO N°27, zone FAO 27, Atlantique Du Nord-est
 hr:Sjeveroistočni Atlantik
 it:Atlantico Nord-orientale
 lv:Atlantijas Okeāna Ziemeļaustrumu Daļa
@@ -4434,6 +4489,8 @@ xx:FAO 31
 <en:Atlantic Ocean
 en:Central-East Atlantic Ocean
 fr:Océan Atlantique Centre-Est, FAO 34, FAO N°34
+hr:ribolovno područje FAO 34
+sl:FAO ribolovno območje 34
 xx:FAO 34
 
 <en:Atlantic Ocean
@@ -4502,7 +4559,7 @@ wikidata:en:Q1239
 
 <en:Indian Ocean
 en:Western Indian Ocean
-fr:Océan Indien Ouest
+fr:Océan Indien Ouest, zone de pêche FAO N051, Zone FAO N051, Océan Indien Occidental
 xx:FAO 51
 
 <en:Western Indian Ocean
@@ -4572,7 +4629,7 @@ xx:FAO 67
 wikidata:en:Q63860551
 
 <en:Pacific Ocean
-en:West Central Pacific Ocean
+en:West Central Pacific Ocean, fao area 71
 ca:Oceà Pacífic central-oest
 fr:Océan Pacifique Centre-Ouest, FAO 71, FAO N°71
 xx:FAO 71
@@ -4594,7 +4651,7 @@ fr:Océan Pacifique Sud-Ouest, FAO 81, FAO N°81
 xx:FAO 81
 
 <en:Southern Pacific Ocean
-en:Southeast Pacific Ocean
+en:Southeast Pacific Ocean, FAO 87
 fr:Océan Pacifique Sud-Est, FAO 87, FAO N°87
 xx:FAO 87
 
