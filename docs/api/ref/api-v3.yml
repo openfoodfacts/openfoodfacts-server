@@ -249,7 +249,7 @@ paths:
                           type: string
                       matched_synonyms:
                         type: array
-                        description: Array of strings, which are the synonyms the search best matched to, with indices corresponding those in the suggestions field, which are the canonical names.
+                        description: Array of strings, which are the synonyms the search best matched to, with indices corresponding with the canonical names in the suggestions field.
                         items:
                           type: string
       operationId: get-api-v3-taxonomy_suggestions-taxonomy
