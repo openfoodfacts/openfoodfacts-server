@@ -605,6 +605,8 @@ function initializeTagifyInput(el) {
         if (!input.synonymMap) return;
         $(input.DOM.dropdown).find("div.tagify__dropdown__item").each(function(_,e) {
             let synonymName = e.getAttribute("value");
+            let lc = /^\w\w:/.exec(synonymName);
+            if (lc) synonymName = synonymName.substring(3);
             let canonicalName = input.synonymMap[synonymName];
             if (canonicalName && canonicalName !== synonymName) e.innerHTML += " (&rarr; <i>" + canonicalName + "</i>)";
         });
