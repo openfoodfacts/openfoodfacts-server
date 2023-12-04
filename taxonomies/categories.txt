@@ -34627,7 +34627,12 @@ fr:Génoises en tranches fourrées
 #British dessert made with custard cream, fruit (or fruit jelly, or chocolate) and possibly sponge biscuits
 <en:Desserts
 en:Trifles
+intake24_category_code:en:TRIF 
 wikidata:en:Q616601
+
+<en:Desserts
+en:Sponge puddings
+intake24_category_code:en:SSPD 
 
 #Finnish dessert made with water, rye flour and sugar
 <en:Desserts
@@ -35052,6 +35057,7 @@ ru:Пудинги, Пудинг
 wikidata:en:Q9053
 food_groups:en: en:Dairy desserts
 pnns_group_2:en:Dairy desserts
+intake24_category_code:en:PUDS 
 
 #Do not confound with the fruit preserve called jelly
 <en:Desserts
@@ -35065,6 +35071,7 @@ ja:ゼリー
 lt:Želė desertai, želė desertas, želatinos desertai
 pt:Sobremesas de gelatina
 wikidata:en:Q4545971
+intake24_category_code:en:JLLY 
 
 <en:Jelly desserts
 en:Flavoured milk jelly
@@ -35129,6 +35136,7 @@ agribalyse_food_code:en:19689
 ciqual_food_code:en:19689
 ciqual_food_name:en:Cheesecake, refrigerated
 ciqual_food_name:fr:Cheesecake ou Gâteau au fromage frais, rayon frais
+intake24_category_code:en:CHSK 
 
 <en:Cheesecakes
 en:Plain cheesecakes
@@ -35271,6 +35279,7 @@ agribalyse_food_code:en:39212
 ciqual_food_code:en:39212
 ciqual_food_name:en:Rice pudding, refrigerated
 ciqual_food_name:fr:Riz au lait, rayon frais
+intake
 
 <en:Rice puddings
 en:Rice pudding with caramel sauce
@@ -50204,6 +50213,7 @@ pt:Cremes de sobremesa
 ciqual_food_code:en:39511
 ciqual_food_name:en:Custard dessert, refrigerated or canned (average)
 ciqual_food_name:fr:Crème dessert, rayon frais ou appertisée (aliment moyen)
+intake24_category_code:en:CSTD
 
 #Those puddings seem to be sold only in Spain and Portugal, no need to translate it
 <en:Creamy puddings
@@ -53140,6 +53150,7 @@ nl:Verse eieren
 pt:Ovos frescos
 ru:Сырые яйца
 zh:鲜鸡蛋
+intake24_category_code:en:RWEG
 gpc_category_code:en:10006202
 gpc_category_name:en:In-Shell Nest Run Eggs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as an bird eggs in the shell that have not been sorted for quality. Definition Excludes: Specifically excludes checked and dirty eggs, table eggs, and individually cooked eggs.
@@ -57078,6 +57089,7 @@ lt:Dribsniai košėms
 nl:Pappen
 pl:Owsianka
 sl:kaša
+intake24_category_code:en:UHTCL
 
 <en:Porridge
 <en:Cereals with fruits
@@ -73181,6 +73193,7 @@ pl:Zupy w proszku
 pt:Sopa Instantânea
 ro:Supă instant
 tr:Hazır çorba
+intake24_category_code:en:DSOU
 
 <en:Soups
 <en:Frozen ready-made meals
@@ -74073,6 +74086,7 @@ fr:Bouillons déshydratés, bouillons lyophilisés, court-bouillon
 it:Brodi disidratati
 lt:Dehidratuoti sultiniai
 nl:Gevriesdroogde bouillons
+intake24_category_code:en:GGST
 
 <en:Dehydrated broths
 en:Bouillon cubes, Stock cubes
@@ -78142,6 +78156,7 @@ pt:Carnes frescas
 ru:Свежее мясо
 tr:Taze et
 zh:鲜肉
+intake24_category_code:en:RWMT
 
 <en:Fresh meats
 <en:Steaks
@@ -86768,6 +86783,7 @@ pnns_group_2:en:Pizza pies and quiches
 #TBD should this fall under the pizza pies and ..,?
 # Let's decide
 # or under Bakery products
+# or under desserts
 
 en:Sweet pies, sweet pie
 bg:Сладки пайове
@@ -86779,6 +86795,7 @@ it:Torte dolci
 nl:Zoeten taarten
 food_groups:en: en:Biscuits and cakes
 pnns_group_2:en:Biscuits and cakes
+intake24_category_code:en:PIES
 
 <en:Sweet pies
 en:Shelf-stable sweet pies
@@ -87472,6 +87489,10 @@ fr:Sandwich Reuben
 wikidata:en:Q3180957
 
 <en:Sandwiches
+en:Sandwiches with sweet fillings
+intake24_category_code:en:22STFL 
+
+<en:Sandwiches
 en:Sandwiches with vegetables and mayonnaise
 fr:Sandwichs crudités mayonnaise
 agribalyse_proxy_food_code:en:25530
@@ -87548,11 +87569,12 @@ ciqual_food_name:en:Sandwich made with French bread, turkey, raw vegetables (let
 ciqual_food_name:fr:Sandwich baguette, dinde, crudités (tomate, salade), mayonnaise
 
 <en:Sandwiches
-en:Sandwiches filled with cold cuts
+en:Sandwiches filled with cold cuts, Meat sandwiches
 de:Sandwiche belegt mit Aufschnitt
 fi:voileivät leikkeleillä
 fr:Sandwichs garnis de charcuteries
 nl:Vleeswaren sandwiches
+intake24_category_code:en:22MTSND  
 
 <en:Sandwiches filled with cold cuts
 <en:French bread sandwiches
@@ -87585,10 +87607,6 @@ fr:Sandwichs au bacon
 nl:Speksandwiches
 pt:Sanduíches de bacon
 wikidata:en:Q4839953
-
-<en:Sandwiches
-en:Egg sandwiches
-intake24_category_code:en:22EVSND 
 
 <en:Sandwiches
 en:Horseshoe sandwich
@@ -87866,11 +87884,14 @@ en:Surimi sandwiches
 fr:Sandwichs au surimi
 nl:Surimisandwiches
 
-<en:sandwiches
+<en:Sandwiches
+en:Egg sandwiches
 fr:Sandwich aux œufs
+nl:Sandwiches met ei
 wikidata:en:Q4304396
+intake24_category_code:en:22EVSND 
 
-<en:sandwiches
+<en:Sandwiches
 en:Crisp sandwich
 wikidata:en:Q3002792
 
@@ -87882,7 +87903,7 @@ wikidata:en:Q6813732
 en:Wraps
 fr:Wraps, Wrap, roulade
 nl:Wraps
-nl_be:Wraps
+intake24_category_code:en:22WRFL
 wikidata:en:Q1599125
 
 <en:Wraps
@@ -88989,6 +89010,7 @@ sv:Fiskar, fisk
 tr:Balık
 zh:鱼类
 wikidata:en:Q600396
+intake24_category_code:en:RWFH
 
 <en:Fishes
 en:Shelf-stable unprepared fishes
@@ -104623,8 +104645,8 @@ fi:piirastaikina
 fr:Pâtes à tarte, Pâte à tarte, Pates à tarte fraiches
 it:Impasto per torte
 ja:パイ生地
-nl:Taartdegen
-nl_be:Taartdeeg
+nl:Taartdegen, taartdeeg
+intake24_category_code:en:PSDO 
 
 <en:Pie dough
 en:Shortcrust pastry
@@ -106558,6 +106580,7 @@ fr:Crumbles
 it:Briciole
 nl:Kruimelschotels, Kruimelschotel
 wikidata:en:Q2006073
+intake24_category_code:en:FRTC
 
 <en:Crumbles
 en:Apple crumbles
