@@ -34865,6 +34865,7 @@ ru:Пончики
 agribalyse_proxy_food_code:en:23880
 agribalyse_proxy_food_name:en:Doughnut, plain
 agribalyse_proxy_food_name:fr:Beignet rond moelleux, sans fourrage, saupoudré de sucre
+intake24_category_code:en:DGNT 
 
 <en:Doughnuts
 en:Plain doughnuts, Plain doughnut
@@ -39419,7 +39420,7 @@ wikidata:en:Q161426
 agribalyse_proxy_food_code:en:9101
 agribalyse_proxy_food_name:en:Rice, parboiled, raw
 agribalyse_proxy_food_name:fr:Riz blanc étuvé, cru
-intake24_category_code:en:RICE
+intake24_category_code:en:URICE
 
 <en:Rices
 en:Brown rices
@@ -46620,6 +46621,7 @@ tr:Tereyağı
 wikidata:en:Q34172
 agribalyse_proxy_food_code:en:16400
 agribalyse_proxy_food_name:en:Butter, 82% fat, unsalted
+intake24_category_code:en:BUTR
 gpc_category_code:en:10000168
 gpc_category_name:en:Butter (Perishable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as the fatty portion of animal milk, separated when milk or cream is agitated or churned. These products must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Shelf Stable or Frozen Butter and all Butter Based Substitutes, and all Vegetable and Animal Cooking Oils and Fats.
@@ -53387,6 +53389,7 @@ zh:脂肪
 food_groups:en: en:Fats
 pnns_group_2:en:Fats
 who_id:en:10
+intake24_category_code:en:BTTR
 
 <en:Fats
 en:Animal fats
@@ -53743,6 +53746,7 @@ agribalyse_proxy_food_code:en:16737
 ciqual_proxy_food_code:en:16737
 ciqual_proxy_food_name:en:Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, rich in omega 3
 ciqual_proxy_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, riche en oméga 3
+intake24_category_code:en:MRGN
 # median fat for margarines in France is 58%
 
 <en:Margarines
@@ -60778,6 +60782,7 @@ th:ผลไม้
 tr:Meyveler
 zh:水果
 wikidata:en:Q1364
+intake24_category_code:en:FRTS
 
 <en:Fruits
 en:Fruits (shelf stable)
@@ -60851,6 +60856,7 @@ nl:Vers fruit
 pt:Frutas frescas
 ru:Свежие фрукты
 who_id:en:15
+intake
 
 <en:Fresh fruits
 en:Prepared fresh fruits
@@ -61511,6 +61517,7 @@ wikidata:en:Q89
 agribalyse_proxy_food_code:en:13085
 agribalyse_proxy_food_name:en:Apple, Canada, pulp, raw
 agribalyse_proxy_food_name:fr:Pomme Canada, pulpe, crue
+intake24_category_code:en:APLS
 
 <en:Apples
 it:Mela Rossa Cuneo
@@ -61778,6 +61785,8 @@ agribalyse_food_code:en:13997
 ciqual_food_code:en:13997
 ciqual_food_name:en:Red berries (raspberries, strawberries, red currants, black currants) , raw
 ciqual_food_name:fr:Fruits rouges, crus (framboises, fraises, groseilles, cassis)
+intake24_category_code:en:BERR
+
 
 <en:Berries
 <en:blueberries
@@ -62399,6 +62408,7 @@ nl:Sinaasappels
 pl:Pomarańcza, Pomarańcze
 ru:Апельсины
 tr:Portakal
+intake24_category_code:en:ORNG
 
 <en:Oranges
 <en:Fresh fruits
@@ -62504,6 +62514,7 @@ agribalyse_food_code:en:13112
 ciqual_food_code:en:13112
 ciqual_food_name:en:Grape, raw
 ciqual_food_name:fr:Raisin, cru
+intake24_category_code:en:GRPS
 
 <en:Grapes
 it:Uva di Puglia
@@ -62684,6 +62695,7 @@ it:Pesche
 ja:モモ, もも, 桃
 lt:Persikai
 nl:Perziken
+intake24_category_code:en:PCHS
 
 <en:Peaches
 it:Pesca di Delia
@@ -62779,6 +62791,7 @@ lt:Melionai
 nl:Meloenen en watermeloenen
 ru:Тыквина
 wikidata:en:Q5881191
+intake24_category_code:en:MLNS
 
 <en:Melons
 en:Muskmelons
@@ -63010,6 +63023,7 @@ nl:Peren
 ru:Груши
 tr:Armut
 wikidata:en:Q13099586
+intake24_category_code:en:PEAR
 
 <en:Pears
 it:Pera dell'Emilia Romagna
@@ -63086,6 +63100,7 @@ agribalyse_food_code:en:13100
 ciqual_food_code:en:13100
 ciqual_food_name:en:Plum, raw
 ciqual_food_name:fr:Prune, crue
+intake24_category_code:en:PLUM
 
 <en:Plums
 <en:Fresh fruits
@@ -63737,6 +63752,7 @@ pl:Owoce mrożone
 food_groups:en: en:Fruits
 pnns_group_2:en:Fruits
 who_id:en:15
+intake24_category_code:en:FFRU
 
 <en:Frozen fruits
 en:Unprepared frozen fruits
@@ -63926,7 +63942,7 @@ tr:Kurutulmuş meyve
 food_groups:en: en:Dried fruits
 pnns_group_2:en:Dried fruits
 who_id:en:16
-
+intake24_category_code:en:DRIF
 
 <en:Fruits
 # <en:category:en:Dried fruits
@@ -64348,6 +64364,7 @@ pt:Frutos enlatados
 ru:Консервированные фрукты
 tr:Konserve meyve
 who_id:en:16
+intake24_category_code:en:CAND
 
 # dot not rename en:canned-fruits as it is used in Ingredients.pm
 # to check if water should be taken into account when computing % of fruits/vegetables for the Nutri-Score
@@ -71509,6 +71526,7 @@ pl:Sushi
 zh:寿司
 wikidata:en:Q46383
 wikipedia:en:https://en.wikipedia.org/wiki/Sushi
+intake24_category_code:en:SUSH
 
 <en:Sushis
 en:Salmon sushis
