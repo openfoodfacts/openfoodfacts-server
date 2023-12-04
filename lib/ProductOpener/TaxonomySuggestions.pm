@@ -322,6 +322,8 @@ sub best_match ($search_lc, $stringid, $fuzzystringid, $synonyms_ref) {
 	foreach my $synonym (@$synonyms_ref) {
 		my $synonymid = get_string_id_for_lang($search_lc, $synonym);
 		my $match = match_stringids($stringid, $fuzzystringid, $synonymid);
+		# Prefer to use the earlier ones from the list for when the canonical name has the same match type as a synonym
+		next if $match eq "none" or $match eq $best_type;
 		if ($match eq "start") {
 			# Best match, we can return without looking at the other synonyms
 			$best_type = $match;
