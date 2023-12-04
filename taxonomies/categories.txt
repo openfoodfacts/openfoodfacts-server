@@ -33358,6 +33358,7 @@ ja:ロールパン
 lt:Bandelės
 nl:Broodjes
 sv:Bullars
+intake24_category_code:en:22BSNDR 
 
 <en:Breads
 en:Breadsticks, Grissini, Bread sticks
@@ -38862,6 +38863,7 @@ lt:Javų grūdai
 nl:Graankorrels
 pt:Grãos de cereais
 ru:Злаковое зерно
+intake24_category_code:en:CARB 
 
 <en:Cereal grains
 en:Canary grass
@@ -39408,6 +39410,7 @@ wikidata:en:Q161426
 agribalyse_proxy_food_code:en:9101
 agribalyse_proxy_food_name:en:Rice, parboiled, raw
 agribalyse_proxy_food_name:fr:Riz blanc étuvé, cru
+intake24_category_code:en:RICE
 
 <en:Rices
 en:Brown rices
@@ -71774,6 +71777,7 @@ lt:Ryžių patiekalai
 nl:Rijstschotels
 ru:Блюда из риса
 wikidata:en:Q6636574
+intake24_category_code:en:RIDH
 #Q21976260
 
 <en:Meals
@@ -84564,6 +84568,7 @@ pnns_group_2:en:Cereals
 wikidata:en:Q178
 wikipedia:en:https://en.wikipedia.org/wiki/Pasta
 carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
+intake24_category_code:en:PTNS
 # ingredient/fr:pâtes-alimentaires has 115 products 2019-05-20
 description:en:Pasta is type of noodle typically made from an unleavened dough of durum wheat flour mixed with water or eggs, and formed into sheets or various shapes, then cooked by boiling or baking. Rice flour, or legumes such as beans or lentils, are sometimes used in place of wheat flour to yield a different taste and texture, or as a gluten-free alternative. Pasta is a staple food of Italian cuisine.
 gpc_category_code:en:10000242
@@ -85461,7 +85466,7 @@ agribalyse_food_code:en:9810
 ciqual_food_code:en:9810
 ciqual_food_name:en:Dried pasta, raw
 ciqual_food_name:fr:Pâtes sèches standard, crues
-
+intake24_category_code:en:PTNS
 
 # <en:compound
 <en:Stuffed Pastas
@@ -86000,6 +86005,7 @@ ru:Лапша
 sv:Nudlar
 zh:面条, 面
 wikidata:en:Q192874
+intake24_category_code:en:NDLS
 
 <en:Noodles
 en:Cellophane noodles, Chinese vermicelli, Bean threads, Bean thread noodles, Crystal noodles, Glass noodles
@@ -86201,6 +86207,7 @@ pt:Pratos de massa
 ru:Блюда из макарон
 sv:Pastarätter
 wikidata:en:Q18679685
+intake24_category_code:en:PTDH
 
 <en:Pasta dishes
 en:Pot noodles
@@ -87185,6 +87192,7 @@ nova:en:3
 ciqual_food_code:en:25522
 ciqual_food_name:en:Sandwich (average)
 ciqual_food_name:fr:Sandwich (aliment moyen)
+intake24_category_code:en:SAND
 gpc_category_code:en:10000255
 gpc_category_name:en:Sandwiches/Filled Rolls/Wraps (Perishable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a leavened or unleavened, baked bread product from which slices, or the whole loaf, may be used to wrap or enclose one or more ingredients. These products must be refrigerated to extend their consumable life. Includes ready to eat products and products eaten hot or cold. Definition Excludes: Excludes products such as Frozen Sandwiches Filled Rolls and Wraps.
@@ -87498,6 +87506,7 @@ agribalyse_proxy_food_code:en:25577
 agribalyse_proxy_food_name:en:Sandwich made with wholemeal loaf bread, chicken, raw vegetables and mayonnaise
 agribalyse_proxy_food_name:fr:Sandwich pain de mie complet, poulet, crudités, mayonnaise
 wikidata:en:Q607754
+intake24_category_code:en:22CKSND 
 
 <en:Sandwiches filled with cold cuts
 <en:French bread sandwiches
@@ -87576,6 +87585,10 @@ fr:Sandwichs au bacon
 nl:Speksandwiches
 pt:Sanduíches de bacon
 wikidata:en:Q4839953
+
+<en:Sandwiches
+en:Egg sandwiches
+intake24_category_code:en:22EVSND 
 
 <en:Sandwiches
 en:Horseshoe sandwich
@@ -87684,6 +87697,7 @@ agribalyse_proxy_food_code:en:25518
 agribalyse_proxy_food_name:en:Sandwich made with French bread, camembert cheese and butter
 agribalyse_proxy_food_name:fr:Sandwich baguette, camembert, beurre
 wikidata:en:Q2734068
+intake24_category_code:en:22CHSND 
 
 <en:Cheese sandwiches
 en:Goat cheese sandwiches
@@ -87776,6 +87790,7 @@ it:Panini al pesce, Tramezzini al pesce, Sandwich al pesce
 nl:Vissandwiches
 pt:Sanduíches de peixe
 wikidata:en:Q54423330
+intake24_category_code:en:22FSSND
 
 <en:Fish sandwiches
 en:Tuna sandwiches
