@@ -1039,10 +1039,6 @@ sub check_nutrition_data ($product_ref) {
 			elsif ($product_ref->{serving_quantity} eq "0") {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-serving-quantity-is-0";
 			}
-			elsif ($product_ref->{serving_quantity} == 0) {
-				push @{$product_ref->{data_quality_errors_tags}},
-					"en:nutrition-data-per-serving-serving-quantity-is-not-recognized";
-			}
 		}
 	}
 
@@ -1277,19 +1273,19 @@ sub check_nutrition_data ($product_ref) {
 		my ($expected_nutriscore_grade, $category_id)
 			= get_inherited_property_from_categories_tags($product_ref, "expected_nutriscore_grade:en");
 
-		# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
-		if ((defined $expected_nutriscore_grade) and ($expected_nutriscore_grade =~ /^([a-e]){1}$/i)) {
-			if (
-				# nutriscore not calculated but should have expected nutriscore grade
-				(not(defined $product_ref->{nutrition_grade_fr}))
-				# nutriscore calculated but unexpected nutriscore grade
-				or (    (defined $product_ref->{nutrition_grade_fr})
-					and ($product_ref->{nutrition_grade_fr} ne $expected_nutriscore_grade))
-				)
-			{
-				push @{$product_ref->{data_quality_errors_tags}},
-					"en:nutri-score-grade-from-category-does-not-match-calculated-grade";
-			}
+		if (
+			# exclude error if nutriscore cannot be calculated due to missing nutrients information (see issue #9297)
+			($product_ref->{nutriscore}{2023}{nutrients_available} == 1)
+			# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
+			and (defined $expected_nutriscore_grade)
+			and (($expected_nutriscore_grade =~ /^([a-e]){1}$/i))
+			# nutriscore calculated but unexpected nutriscore grade
+			and (defined $product_ref->{nutrition_grade_fr})
+			and ($product_ref->{nutrition_grade_fr} ne $expected_nutriscore_grade)
+			)
+		{
+			push @{$product_ref->{data_quality_errors_tags}},
+				"en:nutri-score-grade-from-category-does-not-match-calculated-grade";
 		}
 
 		# some categories have an expected ingredient - push data quality error if ingredient differs from expected ingredient
@@ -1690,6 +1686,17 @@ sub check_quantity ($product_ref) {
 		if ($product_ref->{serving_size} =~ /\d\s?mg\b/i) {
 			push @{$product_ref->{data_quality_warnings_tags}}, "en:serving-size-in-mg";
 		}
+	}
+
+	# serving size not recognized (undefined serving quantity)
+	# serving_size = 10g -> serving_quantity = 10
+	# serving_size = 10  -> serving_quantity will be undefined
+	if (    (defined $product_ref->{serving_size})
+		and ($product_ref->{serving_size} ne "")
+		and (!defined $product_ref->{serving_quantity}))
+	{
+		push @{$product_ref->{data_quality_warnings_tags}},
+			"en:nutrition-data-per-serving-serving-quantity-is-not-recognized";
 	}
 
 	return;

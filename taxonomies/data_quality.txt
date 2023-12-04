@@ -62,8 +62,8 @@ en:Nutrition data per serving - Missing serving size, serving quantity is unknow
 description:en:"Nutrition facts are specified for the product as sold." is checked. "per serving" is selected. But the serving size is missing.
 
 <en:Nutrition errors
-en:Nutrition data per serving - Serving quantity is not recognized
-description:en: although serving size is given, it cannot be parsed (digit or unit may be missing or unknown)
+en:Nutrition data per serving - Serving size is not recognized
+description:en:serving size cannot be parsed (digit or unit may be missing or unknown)
 
 <en:Nutrition errors
 en:Nutrition data per serving - Serving quantity is 0
