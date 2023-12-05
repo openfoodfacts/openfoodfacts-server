@@ -643,6 +643,14 @@ check_quality_and_test_product_has_quality_tag(
 	'serving size cannot be parsed', 0
 );
 
+# serving size not recognized (leading to undefined serving quantity)
+$product_ref = {serving_size => "50",};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-serving-quantity-is-not-recognized',
+	'serving size is not recognized', 1
+);
+
 # percentage for ingredient is higher than 100% in extracted ingredients from the picture
 $product_ref = {
 	ingredients => [
@@ -967,7 +975,10 @@ $product_ref = {
 		'en:olive-oils', 'en:virgin-olive-oils',
 		'en:extra-virgin-olive-oils'
 	],
-	nutrition_grade_fr => "d"
+	nutrition_grade_fr => "d",
+	nutriscore => {
+		2023 => {"nutrients_available" => 1,},
+	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
@@ -987,7 +998,10 @@ $product_ref = {
 		"en:ice-cream-tubs", "en:virgin-olive-oils",
 		"en:extra-virgin-olive-oils", "fr:glace-aux-calissons"
 	],
-	nutrition_grade_fr => "d"
+	nutrition_grade_fr => "d",
+	nutriscore => {
+		2023 => {"nutrients_available" => 1,},
+	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
@@ -1004,13 +1018,16 @@ $product_ref = {
 		'en:olive-tree-products', 'en:vegetable-oils',
 		'en:olive-oils', 'en:virgin-olive-oils',
 		'en:extra-virgin-olive-oils'
-	]
+	],
+	nutriscore => {
+		2023 => {"nutrients_available" => 0,},
+	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutri-score-grade-from-category-does-not-match-calculated-grade',
-	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 1
+	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 0
 );
 # category with expected nutriscore grade. Same nutriscore grade as compared to the expected nutriscore grade
 $product_ref = {
@@ -1021,7 +1038,10 @@ $product_ref = {
 		'en:olive-oils', 'en:virgin-olive-oils',
 		'en:extra-virgin-olive-oils'
 	],
-	nutrition_grade_fr => "c"
+	nutrition_grade_fr => "c",
+	nutriscore => {
+		2023 => {"nutrients_available" => 1,},
+	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
