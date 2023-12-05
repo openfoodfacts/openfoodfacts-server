@@ -873,19 +873,7 @@ sub process_auth_header ($request_ref, $r) {
 		return;
 	}
 
-	my $user_id = get_user_id_using_token($id_token);
-	unless ($user_id) {
-		add_error(
-			$request_ref->{api_response},
-			{
-				message => {id => "invalid_user"},
-				impact => {id => "failure"},
-			}
-		);
-		return;
-	}
-
-	$request_ref->{oidc_user_id} = $user_id;
+	$request_ref->{id_token} = $id_token;
 	return;
 }
 

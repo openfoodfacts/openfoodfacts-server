@@ -275,31 +275,45 @@ sub create_user_in_keycloak ($user_ref, $password) {
 
 	my $api_request_ref = {
 		email => $user_ref->{email},
-		emailverified => $JSON::PP::false,
+		emailVerified => $JSON::PP::true,    # TODO: Keep this for compat with current register endpoint?
 		enabled => $JSON::PP::true,
 		username => $user_ref->{userid},
-		name => $user_ref->{name},
 		credentials => [
 			{
 				type => 'password',
 				temporary => $JSON::PP::false,
 				value => $password
 			}
+		],
+		attributes => [
+			name => [$user_ref->{name}],
+			locale => [$user_ref->{initial_lc}],
+			country => [$user_ref->{initial_cc}],
 		]
 	};
 	my $json = encode_json($api_request_ref);
 
-	my $http_request = HTTP::Request->new(POST => $keycloak_users_endpoint);
-	$http_request->header('Content-Type' => 'application/json');
-	$http_request->content($json);
-	my $new_user_response = LWP::UserAgent->new->request($http_request);
+	my $create_user_request = HTTP::Request->new(POST => $keycloak_users_endpoint);
+	$create_user_request->header('Content-Type' => 'application/json');
+	$create_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	$create_user_request->content($json);
+	my $new_user_response = LWP::UserAgent->new->request($create_user_request);
 	unless ($new_user_response->is_success) {
 		display_error_and_exit($new_user_response->content, 500);
 	}
 
-	my $json_response = $new_user_response->decoded_content(charset => 'UTF-8');
-	my $created_user = decode_json($json_response);
-	return $created_user;
+	my $get_user_request = HTTP::Request->new(
+		GET => $keycloak_users_endpoint . '?exact=true&username=' . uri_escape($user_ref->{userid}));
+	$get_user_request->header('Content-Type' => 'application/json');
+	$get_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	my $get_user_response = LWP::UserAgent->new->request($get_user_request);
+	unless ($get_user_response->is_success) {
+		display_error_and_exit($get_user_response->content, 500);
+	}
+
+	my $json_response = $get_user_response->decoded_content(charset => 'UTF-8');
+	my @created_users = decode_json($json_response);
+	return @created_users[0];
 }
 
 sub create_user_in_product_opener ($id_token) {
@@ -399,8 +413,7 @@ sub get_token_using_client_credentials () {
 	$token_request->content('grant_type=client_credentials&client_id='
 			. uri_escape($oidc_options{client_id})
 			. '&client_secret='
-			. uri_escape($oidc_options{client_secret})
-			. "&scope=openid%20profile%20offline_access");
+			. uri_escape($oidc_options{client_secret}));
 	my $token_response = LWP::UserAgent->new->request($token_request);
 	unless ($token_response->is_success) {
 		$log->info('bad client credentials - no token returned from IdP') if $log->is_info();
