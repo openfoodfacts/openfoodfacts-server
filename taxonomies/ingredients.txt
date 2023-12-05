@@ -21855,6 +21855,10 @@ sv:enbärsarom
 en:horseradish flavouring
 de:Meerrettich-Aroma
 fi:piparjuuriaromi
+fr:arôme de raifort
+hr:aroma hrena
+pl:aromat chrzanu
+ru:аромат хрена
 sv:pepparrotsarom
 # ingredient/fi:piparjuuriaromi has 1 product in 1 language @2020-06-08
 
@@ -21877,6 +21881,11 @@ sv:maltarom
 
 <en:flavouring
 en:barley malt flavouring
+de:Gerstenmalzaroma
+es:aroma de malta de cebada
+fi:ohramallasaromi
+fr:arôme de malt d'orge
+sv:kornmaltarom
 
 <en:natural flavouring
 en:natural malt flavouring
@@ -21931,7 +21940,11 @@ sv:champinjonarom
 # ingredient/fr:arome-champignon has 9 products in 1 language @2020-06-12
 
 <en:natural flavouring
+en:natural clove flavoring
+de:natürliches Nelkenaroma
+es:aroma natural de clavo
 fr:arôme naturel de clou de girofle
+it:aroma naturale di chiodo di garofano
 
 <en:natural flavouring
 en:natural flavouring of aromatic plants
@@ -22956,6 +22969,9 @@ fr:semoule blanche de blé dur
 
 <fr:semoule blanche de blé dur
 fr:semoule de blé dur blanche biologique
+fr:semolina di grano duro bianca biologica
+fr:biologische weiße Hartweizengrieß
+fr:sémola de trigo duro blanca orgánica
 
 <fr:semoule de blé dur blanche biologique
 fr:semoule blanche de blé dur biologique de sicile
@@ -23557,11 +23573,35 @@ allergens:en: en:gluten
 
 <en:barley
 en:organic barley
+hr:organski ječam
+pl:jęczmień ekologiczny
+bg:био ечемик
+da:økologisk byg
+de:Bio-Gerste
+es:cebada orgánica
+fi:luomuohra
+hu:bio árpa
 hr:eko ječam
+it:Orzo biologico
+nl:biologische gerst
+nn:økologisk bygg
+pt:cevada orgânica
 
 <en:barley
 en:sprouted barley
+pl:jęczmień kiełkowany
+bg:прораснал ечемик
+da:spiret byg
+de:gekeimte Gerste
+es:cebada germinada
+fi:idätetty ohra
+fr:orge germée
+hu:csíráztatott árpa
+it:Orzo germogliato
+nl:gekiemde gerst
+nn:spiret bygg
 pl:kiełki jęczmienia
+pt:cevada germinada
 
 <en:barley
 en:wholemeal barley
@@ -59403,7 +59443,10 @@ ciqual_food_name:fr:Noix, séchée, cerneaux
 
 <en:walnut
 en:dried walnuts
+de:getrocknete Walnüsse
+es:nueces secas
 fr:noix sèches
+it:noci secche
 
 <en:walnut
 en:walnuts from Grenoble
