@@ -1046,14 +1046,11 @@ sub check_nutrition_data ($product_ref) {
 
 	if (defined $product_ref->{nutriments}) {
 
-		my $nid_n = 0;
-		my $nid_zero = 0;
-		my $nid_non_zero = 0;
-
 		my $total = 0;
 		# variables to check if there are 3 or more duplicates in nutriments
 		my @major_nutriments_values = ();
 		my %nutriments_values_occurences = ();
+		my %nutriments_values = ();
 
 		if (    (defined $product_ref->{nutriments}{"energy-kcal_value"})
 			and (defined $product_ref->{nutriments}{"energy-kj_value"}))
@@ -1114,22 +1111,11 @@ sub check_nutrition_data ($product_ref) {
 
 					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid2";
 				}
-				# fruits vegetables estimate is a computed value, it should not count for empty / non-empty values
-				if ($nid !~ /fruits-vegetables-nuts-estimate-from-ingredients/) {
-					if ($product_ref->{nutriments}{$nid} == 0) {
-						$nid_zero++;
-					}
-					else {
-						$nid_non_zero++;
-					}
-				}
-				# negative value in nutrition table, exclude key containing "nutrition-score" as they can be negative
+
 				if (($product_ref->{nutriments}{$nid} < 0) and (index($nid, "nutrition-score") == -1)) {
 					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-negative-$nid2";
 				}
 			}
-
-			$nid_n++;
 
 			if (    (defined $product_ref->{nutriments}{$nid . "_100g"})
 				and (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')))
@@ -1137,27 +1123,25 @@ sub check_nutrition_data ($product_ref) {
 				$total += $product_ref->{nutriments}{$nid . "_100g"};
 			}
 
-			# variables to check if there are 3 or more duplicates in nutriments
-			if (
-				(
-					   ($nid eq 'fat_100g')
-					or ($nid eq 'saturated-fat_100g')
-					or ($nid eq 'carbohydrates_100g')
-					or ($nid eq 'sugars_100g')
-					or ($nid eq 'fiber_100g')
-					or ($nid eq 'proteins_100g')
-					or ($nid eq 'salt_100g')
-					or ($nid eq 'sodium_100g')
-				)
-				and ($product_ref->{nutriments}{$nid} > 1)
-				)
+			# variables to check if there are many duplicates in nutriments
+			if (   ($nid eq 'energy-kj_100g')
+				or ($nid eq 'energy-kcal_100g')
+				or ($nid eq 'fat_100g')
+				or ($nid eq 'saturated-fat_100g')
+				or ($nid eq 'carbohydrates_100g')
+				or ($nid eq 'sugars_100g')
+				or ($nid eq 'fiber_100g')
+				or ($nid eq 'proteins_100g')
+				or ($nid eq 'salt_100g')
+				or ($nid eq 'sodium_100g'))
 			{
 				push(@major_nutriments_values, $product_ref->{nutriments}{$nid});
+				$nutriments_values{$nid} = $product_ref->{nutriments}{$nid};
 			}
 
 		}
 
-		# create a hash key: nutriment value, value: number of occurence
+		# create a hash key: nutriment value, value: number of occurences
 		foreach my $nutriment_value (@major_nutriments_values) {
 			if (exists($nutriments_values_occurences{$nutriment_value})) {
 				$nutriments_values_occurences{$nutriment_value}++;
@@ -1166,12 +1150,28 @@ sub check_nutrition_data ($product_ref) {
 				$nutriments_values_occurences{$nutriment_value} = 1;
 			}
 		}
-		# raise warning if there are 3 or more duplicates in nutriments
-		foreach my $keys (keys %nutriments_values_occurences) {
-			if ($nutriments_values_occurences{$keys} > 2) {
-				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-3-or-more-values-are-identical";
-				last;
+		# retrieve max number of occurences
+		my $nutriments_values_occurences_max_value = -1;
+		# raise warning if there are 3 or more duplicates in nutriments and nutriment is above 1
+		foreach my $key (keys %nutriments_values_occurences) {
+			if (($nutriments_values_occurences{$key} > 2) and ($key > 1)) {
+				add_tag($product_ref, "data_quality_warnings", "en:nutrition-3-or-more-values-are-identical");
 			}
+			if ($nutriments_values_occurences{$key} > $nutriments_values_occurences_max_value) {
+				$nutriments_values_occurences_max_value = $nutriments_values_occurences{$key};
+			}
+		}
+		# raise error if
+		# all values are identical
+		#  OR
+		# all values but one - because sodium and salt can be automatically calculated one depending on the value of the other - are identical
+		if (
+			($nutriments_values_occurences_max_value == scalar @major_nutriments_values)
+			or (    ($nutriments_values_occurences_max_value >= scalar @major_nutriments_values - 1)
+				and ($nutriments_values{'salt_100g'} != $nutriments_values{'sodium_100g'}))
+			)
+		{
+			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-values-are-all-identical";
 		}
 
 		if ($total > 105) {
@@ -1185,10 +1185,6 @@ sub check_nutrition_data ($product_ref) {
 			and ($product_ref->{nutriments}{"energy_100g"} > 3800))
 		{
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-3800-energy";
-		}
-
-		if (($nid_non_zero == 0) and ($nid_zero > 0) and ($nid_zero == $nid_n)) {
-			push @{$product_ref->{data_quality_errors_tags}}, "en:all-nutrition-values-are-set-to-0";
 		}
 
 		if (
