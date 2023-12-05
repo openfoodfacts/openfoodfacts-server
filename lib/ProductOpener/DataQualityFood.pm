@@ -1241,14 +1241,9 @@ sub check_nutrition_data ($product_ref) {
 				"en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
 		}
 
-		if (
-			(
-				(defined $product_ref->{nutriments}{"saturated-fat_100g"})
-				? $product_ref->{nutriments}{"saturated-fat_100g"}
-				: 0
-			)
-			> (((defined $product_ref->{nutriments}{"fat_100g"}) ? $product_ref->{nutriments}{"fat_100g"} : 0) + 0.001)
-			)
+		if (    (defined $product_ref->{nutriments}{"saturated-fat_100g"})
+			and (defined $product_ref->{nutriments}{"fat_100g"})
+			and ($product_ref->{nutriments}{"saturated-fat_100g"} > ($product_ref->{nutriments}{"fat_100g"} + 0.001)))
 		{
 
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-saturated-fat-greater-than-fat";

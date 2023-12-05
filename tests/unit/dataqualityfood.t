@@ -1018,6 +1018,31 @@ check_quality_and_test_product_has_quality_tag(
 	'1 kcal = 4.184 kJ, value in kcal is between 165*3.7-2=608.5 and 165*4.7+2=777.5', 1
 );
 
+# nutrition - saturated fat is greater than fat
+## trigger the error because saturated-fat_100g is greated than fat
+$product_ref = {
+	nutriments => {
+		fat_100g => 0,
+		"saturated-fat_100g" => 1,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-saturated-fat-greater-than-fat',
+	'saturated fat greater than fat', 1
+);
+## if undefined fat, error should not be triggered
+$product_ref = {
+	nutriments => {
+		"saturated-fat_100g" => 1,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-saturated-fat-greater-than-fat',
+	'saturated fat may be greater than fat but fat is missing', 0
+);
+
 # category with expected nutriscore grade. Prerequisite: "expected_nutriscore_grade:en:c" under "en:Extra-virgin olive oils" category, in the taxonomy
 # category with expected nutriscore grade. Different nutriscore grade as compared to the expected nutriscore grade
 $product_ref = {
