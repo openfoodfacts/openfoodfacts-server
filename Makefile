@@ -112,7 +112,7 @@ create_folders:
 
 build:
 	@echo "🥫 Building containers …"
-	${DOCKER_COMPOSE} build 2>&1
+	${DOCKER_COMPOSE} build ${container} 2>&1
 
 # this is needed for CI
 build_backend:
