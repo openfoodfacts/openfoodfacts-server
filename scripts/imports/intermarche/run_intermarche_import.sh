@@ -81,7 +81,7 @@ for file in $DATA_TMP_DIR/data/*.csv; do
     # Remove it if there is one
     sed -i '1s/^\xEF\xBB\xBF//' $file
     echo "Importing $file"
-    ./scripts/import_csv_file.pl --csv_file $file --user_id perfqual --comment "Import Intermarché" --source_id "les-mousquetaires" --source_name "Les Mousquetaires" --source_url "https://www.intermarche.com/" --manufacturer --org_id les-mousquetaires --define lc=fr --images_dir $IMAGES_TMP_DIR
+    ./scripts/import_csv_file.pl --csv_file $file --user_id perfqual --comment "Import Perfqual" --source_id "les-mousquetaires" --source_name "Les Mousquetaires" --source_url "https://www.intermarche.com/" --manufacturer --org_id les-mousquetaires --define lc=fr --images_dir $IMAGES_TMP_DIR
 done
 
 # mark successful run
