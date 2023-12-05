@@ -5269,6 +5269,13 @@ to the specified types in ingredients_categories_and_types.
 my %ingredients_categories_and_types = (
 
 	en => [
+		# flavours
+		{
+			# categories
+			categories => ["flavouring",],
+			# types
+			types => ["natural", "nature identical",],
+		},
 		# oils
 		{
 			# categories
