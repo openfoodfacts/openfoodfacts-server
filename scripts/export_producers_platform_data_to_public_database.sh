@@ -23,6 +23,8 @@ org-kambly-france
 org-saint-hubert
 org-d-aucy
 org-lea-nature
+org-auchan-apaw
+org-les-mousquetaires
 )
 
 for producer in ${PRODUCERS[@]}
