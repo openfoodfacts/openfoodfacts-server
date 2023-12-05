@@ -1016,8 +1016,6 @@ description:en:Fibers are mentioned on nutrition photos, but are not present in 
 
 ## Ingredients
 
-<<<<<<< Updated upstream
-=======
 <en:Data quality errors
 en:Ingredients errors
 fr:Erreurs d'ingrédients
@@ -1037,7 +1035,6 @@ en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients
 description:en: This category expect a single and specific ingredient
 fix_action:en: add_ingredients_text
 
->>>>>>> Stashed changes
 <en:Data quality warnings
 en:Ingredients warnings
 fr:Avertissements sur les ingrédients
@@ -2859,15 +2856,12 @@ description:en:This might be due among other things to incorrect nutrition value
 en:Nutrition 3 or more values are identical
 description:en:Someone may have entered wrong data because there are 3 identical values in nutrition table and those values are above 1
 
-<<<<<<< Updated upstream
-=======
 <en:Nutrition warnings
 en:Nutrition all values zero
 es:Todas las valores de nutrición son cero
 fr:Toutes les valeurs nutritionnelles sont à zéro
 #description:en:
 
->>>>>>> Stashed changes
 <en:Data quality ok tags
 en:Nutrition Grade FR producer same OK
 #description:en:
@@ -2911,15 +2905,12 @@ fr:Valeur nutritionnelle inférieure à 0,01 g - Sel
 #description:en:
 
 <en:Nutrition warnings
-<<<<<<< Updated upstream
-=======
 en:Nutrition value under 0,1 g salt
 es:Valor nutricional inferior a 0,1 g de sal
 fr:Valeur nutritionnelle inférieure à 0,1 g de sel
 #description:en:
 
 <en:Nutrition warnings
->>>>>>> Stashed changes
 en:Nutrition value very high for category - Carbohydrates
 es:Valor nutricional muy alto para la categoría - Carbohidratos
 fr:Valeur nutritionnelle très élevée pour la catégorie - Glucides
@@ -3085,8 +3076,6 @@ en:Carbon footprint from known ingredients more than from meat or fish
 
 ### Labels
 
-<<<<<<< Updated upstream
-=======
 <en:Data quality errors
 en:vegan-label-but-non-vegan-ingredient
 fr:étiquette végétalienne mais ingrédient non végétalien
@@ -3099,7 +3088,6 @@ fr:étiquette végétarienne mais ingrédient non végétarien
 es:etiqueta vegetariana pero ingrediente no vegetariano
 description:en:This product has a vegetarian label but contains non-vegetarian ingredients.
 
->>>>>>> Stashed changes
 <en:Data quality warnings
 en:vegan-label-but-could-not-confirm-for-all-ingredients 
 description:en:This product has a vegan label, however some ingredients are not known as non-vegan in the taxonomy (could be unknown ingredients or missing vegan true/false in the taxonomy).
