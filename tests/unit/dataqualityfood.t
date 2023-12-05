@@ -856,6 +856,59 @@ check_quality_and_test_product_has_quality_tag(
 	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
 );
 
+# salt_100g is very small warning (may be in mg)
+## lower than 0.001
+$product_ref = {
+	nutriments => {
+		salt_100g => 0.0009,    # lower than 0.001
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-001-g-salt',
+	'value for salt is lower than 0.001g', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-01-g-salt',
+	'value for salt is lower than 0.001g, should not trigger warning for 0.01', 0
+);
+## lower than 0.01
+$product_ref = {
+	nutriments => {
+		salt_100g => 0.009,    # lower than 0.01
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-001-g-salt',
+	'value for salt is above 0.001g', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-01-g-salt',
+	'value for salt is lower than 0.001g, and above 0.01', 1
+);
+## above 0.01
+$product_ref = {
+	nutriments => {
+		salt_100g => 0.02,    # above 0.01
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-001-g-salt',
+	'value for salt is above 0.001g', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-01-g-salt',
+	'value for salt is above 0.001g', 0
+);
+
 # testing of ProductOpener::DataQualityFood::check_quantity subroutine
 $product_ref = {quantity => "300g"};
 ProductOpener::DataQuality::check_quality($product_ref);

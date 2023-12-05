@@ -1256,6 +1256,7 @@ sub check_nutrition_data ($product_ref) {
 		}
 
 		# Too small salt value? (e.g. g entered in mg)
+		# warning for salt < 0.1 was removed because it was leading to too much false positives (see #9346)
 		if ((defined $product_ref->{nutriments}{"salt_100g"}) and ($product_ref->{nutriments}{"salt_100g"} > 0)) {
 
 			if ($product_ref->{nutriments}{"salt_100g"} < 0.001) {
@@ -1263,9 +1264,6 @@ sub check_nutrition_data ($product_ref) {
 			}
 			elsif ($product_ref->{nutriments}{"salt_100g"} < 0.01) {
 				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-01-g-salt";
-			}
-			elsif ($product_ref->{nutriments}{"salt_100g"} < 0.1) {
-				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-1-g-salt";
 			}
 		}
 
