@@ -1413,7 +1413,7 @@ sub import_csv_file ($args_ref) {
 		'orgs_with_gln_but_no_party_name' => {},
 	};
 
-	my $csv = Text::CSV->new({binary => 1, sep_char => "\t"})    # should set binary attribute.
+	my $csv = Text::CSV->new({binary => 1, sep_char => "\t", auto_diag => 1, diag_verbose => 1 })    # should set binary attribute.
 		or die "Cannot use CSV: " . Text::CSV->error_diag();
 
 	my $time = time();
@@ -1424,16 +1424,27 @@ sub import_csv_file ($args_ref) {
 		$images_ref = import_images_from_dir($args_ref->{images_dir}, $stats_ref);
 	}
 
-	$log->debug("importing products", {}) if $log->is_debug();
+	$log->debug("importing products", { csv_file => $args_ref->{csv_file}}) if $log->is_debug();
 
 	my $io;
 	if (not open($io, '<:encoding(UTF-8)', $args_ref->{csv_file})) {
-		$stats_ref->{error} = "Could not open " . $args_ref->{csv_file} . ": $!";
+		$stats_ref->{error} = { error => "Could not open " . $args_ref->{csv_file} . ": $!"};
 		return $stats_ref;
 	}
 
 	# first line contains headers
+	# We use $csv->getline instead of $csv->header so that we can dedupe column names
+	# Unfortunately that means we can't autodetect the BOM using the detect_bom option
+	# of the header method: this will fail if there is a bom
 	my $columns_ref = $csv->getline($io);
+
+	# Check that we were able to read the file
+	if (not defined $columns_ref) {
+		$log->error("unable to read CSV file", { csv_file => $args_ref->{csv_file}, error_input => $csv->error_input , error_diag => $csv->error_diag}) if $log->is_error();
+		$stats_ref->{error} = { error => "Could not read " . $args_ref->{csv_file} . ": $!"};
+		                return $stats_ref;
+						    }
+	
 	$csv->column_names(@{deduped_colnames($columns_ref)});
 
 	my $i = 0;
@@ -1568,7 +1579,7 @@ sub import_csv_file ($args_ref) {
 
 				# For files uploaded through the producers platform, the source_id is org-[id of org]
 
-				if ((defined $args_ref->{source_id}) and ($args_ref->{source_id} ne "org-${org_id}")) {
+				if ((defined $args_ref->{source_id}) and (($args_ref->{source_id} ne $org_id) and ($args_ref->{source_id} ne "org-${org_id}"))) {
 					if (not $org_ref->{"import_source_" . $args_ref->{source_id}}) {
 						$log->debug(
 							"skipping import for org without authorization for the source",
