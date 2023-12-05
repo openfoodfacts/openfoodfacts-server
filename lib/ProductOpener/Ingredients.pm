@@ -4529,7 +4529,7 @@ my %phrases_after_ingredients_list = (
 
 	ca => [
 		'envasat en atmosfera protectora',
-		'conserveu-los en un lloc fresc i sec'.
+		'conserveu-los en un lloc fresc i sec',
 	],
 
 	cs => ['doporučeny způsob přípravy', 'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',],
