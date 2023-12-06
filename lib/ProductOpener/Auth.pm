@@ -49,6 +49,9 @@ BEGIN {
 		&verify_id_token
 		&get_user_id_using_token
 		&create_user_in_keycloak
+
+		$oidc_discover_document
+		$jwks
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -92,12 +95,7 @@ if (defined $server_options{cookie_domain}) {
 
 my $callback_uri = format_subdomain('world') . '/cgi/oidc-callback.pl';
 
-my $client = OIDC::Lite::Client::WebServer->new(
-	id => $oidc_options{client_id},
-	secret => $oidc_options{client_secret},
-	authorize_uri => $oidc_options{authorize_uri},
-	access_token_uri => $oidc_options{access_token_uri},
-);
+my $client = undef;
 
 # redirect user to authorize page.
 sub start_authorize ($request_ref) {
@@ -109,6 +107,7 @@ sub start_authorize ($request_ref) {
 		$return_url = $formatted_subdomain;
 	}
 
+	my $client = _get_client();
 	my $redirect_url = $client->uri_to_redirect(
 		redirect_uri => $callback_uri,
 		scope => q{openid profile offline_access},
@@ -130,6 +129,7 @@ sub callback ($request_ref) {
 	my $code = single_param('code');
 	my $state = single_param('state');
 	my $time = time();
+	my $client = _get_client();
 	my $access_token = $client->get_access_token(
 		code => $code,
 		redirect_uri => $callback_uri,
@@ -219,6 +219,7 @@ sub get_user_id_using_token ($id_token) {
 
 sub refresh_access_token ($refresh_token) {
 	my $time = time();
+	my $client = _get_client();
 	my $access_token = $client->refresh_access_token(refresh_token => $refresh_token,)
 		or die $client->errstr;
 
@@ -368,7 +369,9 @@ Open ID Access token, or undefined if sign-in wasn't successful.
 =cut
 
 sub get_token_using_password_credentials ($username, $password) {
-	my $token_request = HTTP::Request->new(POST => $oidc_options{access_token_uri});
+	_ensure_oidc_is_discovered();
+
+	my $token_request = HTTP::Request->new(POST => $oidc_discover_document->{token_endpoint});
 	$token_request->header('Content-Type' => 'application/x-www-form-urlencoded');
 	$token_request->content('grant_type=password&client_id='
 			. uri_escape($oidc_options{client_id})
@@ -381,7 +384,8 @@ sub get_token_using_password_credentials ($username, $password) {
 			. "&scope=openid%20profile%20offline_access");
 	my $token_response = LWP::UserAgent->new->request($token_request);
 	unless ($token_response->is_success) {
-		$log->info('bad password - no token returned from IdP') if $log->is_info();
+		$log->info('bad password - no token returned from IdP', {content => $token_response->content})
+			if $log->is_info();
 		return;
 	}
 
@@ -408,7 +412,9 @@ Open ID Access token, or undefined if sign-in wasn't successful.
 =cut
 
 sub get_token_using_client_credentials () {
-	my $token_request = HTTP::Request->new(POST => $oidc_options{access_token_uri});
+	_ensure_oidc_is_discovered();
+
+	my $token_request = HTTP::Request->new(POST => $oidc_discover_document->{token_endpoint});
 	$token_request->header('Content-Type' => 'application/x-www-form-urlencoded');
 	$token_request->content('grant_type=client_credentials&client_id='
 			. uri_escape($oidc_options{client_id})
@@ -416,7 +422,8 @@ sub get_token_using_client_credentials () {
 			. uri_escape($oidc_options{client_secret}));
 	my $token_response = LWP::UserAgent->new->request($token_request);
 	unless ($token_response->is_success) {
-		$log->info('bad client credentials - no token returned from IdP') if $log->is_info();
+		$log->info('bad client credentials - no token returned from IdP', {content => $token_response->content})
+			if $log->is_info();
 		return;
 	}
 
@@ -459,14 +466,67 @@ sub generate_signin_cookie ($nonce, $return_url) {
 }
 
 sub verify_id_token ($id_token_string) {
+	_ensure_oidc_is_discovered();
+
 	my $id_token = OIDC::Lite::Model::IDToken->load($id_token_string);
-	my $id_token_verified = decode_jwt(token => $id_token_string, kid_keys => $oidc_options{keys});
+	my $id_token_verified = decode_jwt(token => $id_token_string, kid_keys => $jwks);
 	$log->debug('id_token found', {id_token => $id_token, id_token_verified => $id_token_verified}) if $log->is_debug();
 	unless ($id_token_verified) {
 		return;
 	}
 
 	return $id_token_verified;
+}
+
+sub _get_client () {
+	if ($client) {
+		return $client;
+	}
+
+	_ensure_oidc_is_discovered();
+	$client = OIDC::Lite::Client::WebServer->new(
+		id => $oidc_options{client_id},
+		secret => $oidc_options{client_secret},
+		authorize_uri => $oidc_discover_document->{authorization_endpoint},
+		access_token_uri => $oidc_discover_document->{token_endpoint},
+	);
+	return $client;
+}
+
+sub _ensure_oidc_is_discovered () {
+	if ($jwks) {
+		return;
+	}
+
+	$log->info('Original OIDC configuration', {endpoint_configuration => $oidc_options{endpoint_configuration}})
+		if $log->is_info();
+
+	my $discovery_request = HTTP::Request->new(GET => $oidc_options{endpoint_configuration});
+	my $discovery_response = LWP::UserAgent->new->request($discovery_request);
+	unless ($discovery_response->is_success) {
+		$log->info('Unable to load OIDC data from IdP', {response => $discovery_response->content}) if $log->is_info();
+		return;
+	}
+
+	$oidc_discover_document = decode_json($discovery_response->content);
+	$log->info('got discovery document', {discovery => $oidc_discover_document}) if $log->is_info();
+
+	_load_jwks_configuration_to_oidc_options($oidc_discover_document->{jwks_uri});
+
+	return;
+}
+
+sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
+	my $jwks_request = HTTP::Request->new(GET => $jwks_uri);
+	my $jwks_response = LWP::UserAgent->new->request($jwks_request);
+	unless ($jwks_response->is_success) {
+		$log->info('Unable to load JWKS from IdP', {response => $jwks_response->content}) if $log->is_info();
+		return;
+	}
+
+	$jwks = decode_json($jwks_response->content);
+	$log->info('got JWKS', {jwks => $jwks}) if $log->is_info();
+	return;
 }
 
 1;

@@ -31,10 +31,10 @@ use URI::Escape::XS qw/uri_escape/;
 
 my $request_ref = ProductOpener::Display::init_request();
 
-unless ((defined $oidc_options{client_id}) and (defined $oidc_options{reset_password_endpoint})) {
+unless ((defined $oidc_options{client_id}) and (defined $oidc_options{keycloak_reset_password_endpoint})) {
 	display_error_and_exit('File not found.', 404);
 }
 
-my $redirect = $oidc_options{reset_password_endpoint} . '?client_id=' . uri_escape($oidc_options{client_id});
+my $redirect = $oidc_options{keycloak_reset_password_endpoint} . '?client_id=' . uri_escape($oidc_options{client_id});
 
 redirect_to_url($request_ref, 302, $redirect);
