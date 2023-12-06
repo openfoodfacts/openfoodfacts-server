@@ -643,6 +643,14 @@ check_quality_and_test_product_has_quality_tag(
 	'serving size cannot be parsed', 0
 );
 
+# serving size not recognized (leading to undefined serving quantity)
+$product_ref = {serving_size => "50",};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-serving-quantity-is-not-recognized',
+	'serving size is not recognized', 1
+);
+
 # percentage for ingredient is higher than 100% in extracted ingredients from the picture
 $product_ref = {
 	ingredients => [
@@ -725,6 +733,64 @@ check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutrition-3-or-more-values-are-identical',
 	'3 or more identical values and above 1 in the nutrition table', 1
+);
+# en:nutrition-values-are-all-identical
+$product_ref = {
+	nutriments => {
+		"energy-kj_100g" => 0,
+		"energy-kcal_100g" => 0,
+		"fat_100g" => 0,
+		"saturated-fat_100g" => 0,
+		"carbohydrates_100g" => 0,
+		"sugars_100g" => 0,
+		"fibers_100g" => 0,
+		"proteins_100g" => 0,
+		"salt_100g" => 0,
+		"sodium_100g" => 0,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-values-are-all-identical',
+	'all identical values and above 1 in the nutrition table', 1
+);
+$product_ref = {
+	nutriments => {
+		"energy-kj_100g" => 1,
+		"energy-kcal_100g" => 0,
+		"fat_100g" => 0,
+		"saturated-fat_100g" => 0,
+		"carbohydrates_100g" => 0,
+		"sugars_100g" => 0,
+		"fibers_100g" => 0,
+		"proteins_100g" => 0,
+		"salt_100g" => 0,
+		"sodium_100g" => 0,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-values-are-all-identical',
+	'all identical values and above 1 in the nutrition table', 0
+);
+$product_ref = {
+	nutriments => {
+		"energy-kj_100g" => 0,
+		"energy-kcal_100g" => 0,
+		"fat_100g" => 0,
+		"saturated-fat_100g" => 0,
+		"carbohydrates_100g" => 0,
+		"sugars_100g" => 0,
+		"fibers_100g" => 0,
+		"proteins_100g" => 0,
+		"salt_100g" => 0,
+		"sodium_100g" => 1,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-values-are-all-identical',
+	'all identical values and above 1 in the nutrition table', 1
 );
 
 # sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars
@@ -848,6 +914,59 @@ check_quality_and_test_product_has_quality_tag(
 	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
 );
 
+# salt_100g is very small warning (may be in mg)
+## lower than 0.001
+$product_ref = {
+	nutriments => {
+		salt_100g => 0.0009,    # lower than 0.001
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-001-g-salt',
+	'value for salt is lower than 0.001g', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-01-g-salt',
+	'value for salt is lower than 0.001g, should not trigger warning for 0.01', 0
+);
+## lower than 0.01
+$product_ref = {
+	nutriments => {
+		salt_100g => 0.009,    # lower than 0.01
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-001-g-salt',
+	'value for salt is above 0.001g', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-01-g-salt',
+	'value for salt is lower than 0.001g, and above 0.01', 1
+);
+## above 0.01
+$product_ref = {
+	nutriments => {
+		salt_100g => 0.02,    # above 0.01
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-001-g-salt',
+	'value for salt is above 0.001g', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-01-g-salt',
+	'value for salt is above 0.001g', 0
+);
+
 # testing of ProductOpener::DataQualityFood::check_quantity subroutine
 $product_ref = {quantity => "300g"};
 ProductOpener::DataQuality::check_quality($product_ref);
@@ -957,6 +1076,31 @@ check_quality_and_test_product_has_quality_tag(
 	'1 kcal = 4.184 kJ, value in kcal is between 165*3.7-2=608.5 and 165*4.7+2=777.5', 1
 );
 
+# nutrition - saturated fat is greater than fat
+## trigger the error because saturated-fat_100g is greated than fat
+$product_ref = {
+	nutriments => {
+		fat_100g => 0,
+		"saturated-fat_100g" => 1,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-saturated-fat-greater-than-fat',
+	'saturated fat greater than fat', 1
+);
+## if undefined fat, error should not be triggered
+$product_ref = {
+	nutriments => {
+		"saturated-fat_100g" => 1,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-saturated-fat-greater-than-fat',
+	'saturated fat may be greater than fat but fat is missing', 0
+);
+
 # category with expected nutriscore grade. Prerequisite: "expected_nutriscore_grade:en:c" under "en:Extra-virgin olive oils" category, in the taxonomy
 # category with expected nutriscore grade. Different nutriscore grade as compared to the expected nutriscore grade
 $product_ref = {
@@ -967,7 +1111,10 @@ $product_ref = {
 		'en:olive-oils', 'en:virgin-olive-oils',
 		'en:extra-virgin-olive-oils'
 	],
-	nutrition_grade_fr => "d"
+	nutrition_grade_fr => "d",
+	nutriscore => {
+		2023 => {"nutrients_available" => 1,},
+	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
@@ -987,7 +1134,10 @@ $product_ref = {
 		"en:ice-cream-tubs", "en:virgin-olive-oils",
 		"en:extra-virgin-olive-oils", "fr:glace-aux-calissons"
 	],
-	nutrition_grade_fr => "d"
+	nutrition_grade_fr => "d",
+	nutriscore => {
+		2023 => {"nutrients_available" => 1,},
+	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
@@ -1004,13 +1154,16 @@ $product_ref = {
 		'en:olive-tree-products', 'en:vegetable-oils',
 		'en:olive-oils', 'en:virgin-olive-oils',
 		'en:extra-virgin-olive-oils'
-	]
+	],
+	nutriscore => {
+		2023 => {"nutrients_available" => 0,},
+	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutri-score-grade-from-category-does-not-match-calculated-grade',
-	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 1
+	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 0
 );
 # category with expected nutriscore grade. Same nutriscore grade as compared to the expected nutriscore grade
 $product_ref = {
@@ -1021,7 +1174,10 @@ $product_ref = {
 		'en:olive-oils', 'en:virgin-olive-oils',
 		'en:extra-virgin-olive-oils'
 	],
-	nutrition_grade_fr => "c"
+	nutrition_grade_fr => "c",
+	nutriscore => {
+		2023 => {"nutrients_available" => 1,},
+	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
