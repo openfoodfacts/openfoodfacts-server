@@ -1039,10 +1039,6 @@ sub check_nutrition_data ($product_ref) {
 			elsif ($product_ref->{serving_quantity} eq "0") {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-serving-quantity-is-0";
 			}
-			elsif ($product_ref->{serving_quantity} == 0) {
-				push @{$product_ref->{data_quality_errors_tags}},
-					"en:nutrition-data-per-serving-serving-quantity-is-not-recognized";
-			}
 		}
 	}
 
@@ -1050,14 +1046,11 @@ sub check_nutrition_data ($product_ref) {
 
 	if (defined $product_ref->{nutriments}) {
 
-		my $nid_n = 0;
-		my $nid_zero = 0;
-		my $nid_non_zero = 0;
-
 		my $total = 0;
 		# variables to check if there are 3 or more duplicates in nutriments
 		my @major_nutriments_values = ();
 		my %nutriments_values_occurences = ();
+		my %nutriments_values = ();
 
 		if (    (defined $product_ref->{nutriments}{"energy-kcal_value"})
 			and (defined $product_ref->{nutriments}{"energy-kj_value"}))
@@ -1118,22 +1111,11 @@ sub check_nutrition_data ($product_ref) {
 
 					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid2";
 				}
-				# fruits vegetables estimate is a computed value, it should not count for empty / non-empty values
-				if ($nid !~ /fruits-vegetables-nuts-estimate-from-ingredients/) {
-					if ($product_ref->{nutriments}{$nid} == 0) {
-						$nid_zero++;
-					}
-					else {
-						$nid_non_zero++;
-					}
-				}
-				# negative value in nutrition table, exclude key containing "nutrition-score" as they can be negative
+
 				if (($product_ref->{nutriments}{$nid} < 0) and (index($nid, "nutrition-score") == -1)) {
 					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-negative-$nid2";
 				}
 			}
-
-			$nid_n++;
 
 			if (    (defined $product_ref->{nutriments}{$nid . "_100g"})
 				and (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')))
@@ -1141,27 +1123,25 @@ sub check_nutrition_data ($product_ref) {
 				$total += $product_ref->{nutriments}{$nid . "_100g"};
 			}
 
-			# variables to check if there are 3 or more duplicates in nutriments
-			if (
-				(
-					   ($nid eq 'fat_100g')
-					or ($nid eq 'saturated-fat_100g')
-					or ($nid eq 'carbohydrates_100g')
-					or ($nid eq 'sugars_100g')
-					or ($nid eq 'fiber_100g')
-					or ($nid eq 'proteins_100g')
-					or ($nid eq 'salt_100g')
-					or ($nid eq 'sodium_100g')
-				)
-				and ($product_ref->{nutriments}{$nid} > 1)
-				)
+			# variables to check if there are many duplicates in nutriments
+			if (   ($nid eq 'energy-kj_100g')
+				or ($nid eq 'energy-kcal_100g')
+				or ($nid eq 'fat_100g')
+				or ($nid eq 'saturated-fat_100g')
+				or ($nid eq 'carbohydrates_100g')
+				or ($nid eq 'sugars_100g')
+				or ($nid eq 'fiber_100g')
+				or ($nid eq 'proteins_100g')
+				or ($nid eq 'salt_100g')
+				or ($nid eq 'sodium_100g'))
 			{
 				push(@major_nutriments_values, $product_ref->{nutriments}{$nid});
+				$nutriments_values{$nid} = $product_ref->{nutriments}{$nid};
 			}
 
 		}
 
-		# create a hash key: nutriment value, value: number of occurence
+		# create a hash key: nutriment value, value: number of occurences
 		foreach my $nutriment_value (@major_nutriments_values) {
 			if (exists($nutriments_values_occurences{$nutriment_value})) {
 				$nutriments_values_occurences{$nutriment_value}++;
@@ -1170,12 +1150,28 @@ sub check_nutrition_data ($product_ref) {
 				$nutriments_values_occurences{$nutriment_value} = 1;
 			}
 		}
-		# raise warning if there are 3 or more duplicates in nutriments
-		foreach my $keys (keys %nutriments_values_occurences) {
-			if ($nutriments_values_occurences{$keys} > 2) {
-				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-3-or-more-values-are-identical";
-				last;
+		# retrieve max number of occurences
+		my $nutriments_values_occurences_max_value = -1;
+		# raise warning if there are 3 or more duplicates in nutriments and nutriment is above 1
+		foreach my $key (keys %nutriments_values_occurences) {
+			if (($nutriments_values_occurences{$key} > 2) and ($key > 1)) {
+				add_tag($product_ref, "data_quality_warnings", "en:nutrition-3-or-more-values-are-identical");
 			}
+			if ($nutriments_values_occurences{$key} > $nutriments_values_occurences_max_value) {
+				$nutriments_values_occurences_max_value = $nutriments_values_occurences{$key};
+			}
+		}
+		# raise error if
+		# all values are identical
+		#  OR
+		# all values but one - because sodium and salt can be automatically calculated one depending on the value of the other - are identical
+		if (
+			($nutriments_values_occurences_max_value == scalar @major_nutriments_values)
+			or (    ($nutriments_values_occurences_max_value >= scalar @major_nutriments_values - 1)
+				and ($nutriments_values{'salt_100g'} != $nutriments_values{'sodium_100g'}))
+			)
+		{
+			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-values-are-all-identical";
 		}
 
 		if ($total > 105) {
@@ -1189,10 +1185,6 @@ sub check_nutrition_data ($product_ref) {
 			and ($product_ref->{nutriments}{"energy_100g"} > 3800))
 		{
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-3800-energy";
-		}
-
-		if (($nid_non_zero == 0) and ($nid_zero > 0) and ($nid_zero == $nid_n)) {
-			push @{$product_ref->{data_quality_errors_tags}}, "en:all-nutrition-values-are-set-to-0";
 		}
 
 		if (
@@ -1245,14 +1237,9 @@ sub check_nutrition_data ($product_ref) {
 				"en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
 		}
 
-		if (
-			(
-				(defined $product_ref->{nutriments}{"saturated-fat_100g"})
-				? $product_ref->{nutriments}{"saturated-fat_100g"}
-				: 0
-			)
-			> (((defined $product_ref->{nutriments}{"fat_100g"}) ? $product_ref->{nutriments}{"fat_100g"} : 0) + 0.001)
-			)
+		if (    (defined $product_ref->{nutriments}{"saturated-fat_100g"})
+			and (defined $product_ref->{nutriments}{"fat_100g"})
+			and ($product_ref->{nutriments}{"saturated-fat_100g"} > ($product_ref->{nutriments}{"fat_100g"} + 0.001)))
 		{
 
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-saturated-fat-greater-than-fat";
@@ -1260,6 +1247,7 @@ sub check_nutrition_data ($product_ref) {
 		}
 
 		# Too small salt value? (e.g. g entered in mg)
+		# warning for salt < 0.1 was removed because it was leading to too much false positives (see #9346)
 		if ((defined $product_ref->{nutriments}{"salt_100g"}) and ($product_ref->{nutriments}{"salt_100g"} > 0)) {
 
 			if ($product_ref->{nutriments}{"salt_100g"} < 0.001) {
@@ -1268,28 +1256,25 @@ sub check_nutrition_data ($product_ref) {
 			elsif ($product_ref->{nutriments}{"salt_100g"} < 0.01) {
 				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-01-g-salt";
 			}
-			elsif ($product_ref->{nutriments}{"salt_100g"} < 0.1) {
-				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-1-g-salt";
-			}
 		}
 
 		# some categories have expected nutriscore grade - push data quality error if calculated nutriscore grade differs from expected nutriscore grade or if it is not calculated
 		my ($expected_nutriscore_grade, $category_id)
 			= get_inherited_property_from_categories_tags($product_ref, "expected_nutriscore_grade:en");
 
-		# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
-		if ((defined $expected_nutriscore_grade) and ($expected_nutriscore_grade =~ /^([a-e]){1}$/i)) {
-			if (
-				# nutriscore not calculated but should have expected nutriscore grade
-				(not(defined $product_ref->{nutrition_grade_fr}))
-				# nutriscore calculated but unexpected nutriscore grade
-				or (    (defined $product_ref->{nutrition_grade_fr})
-					and ($product_ref->{nutrition_grade_fr} ne $expected_nutriscore_grade))
-				)
-			{
-				push @{$product_ref->{data_quality_errors_tags}},
-					"en:nutri-score-grade-from-category-does-not-match-calculated-grade";
-			}
+		if (
+			# exclude error if nutriscore cannot be calculated due to missing nutrients information (see issue #9297)
+			($product_ref->{nutriscore}{2023}{nutrients_available} == 1)
+			# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
+			and (defined $expected_nutriscore_grade)
+			and (($expected_nutriscore_grade =~ /^([a-e]){1}$/i))
+			# nutriscore calculated but unexpected nutriscore grade
+			and (defined $product_ref->{nutrition_grade_fr})
+			and ($product_ref->{nutrition_grade_fr} ne $expected_nutriscore_grade)
+			)
+		{
+			push @{$product_ref->{data_quality_errors_tags}},
+				"en:nutri-score-grade-from-category-does-not-match-calculated-grade";
 		}
 
 		# some categories have an expected ingredient - push data quality error if ingredient differs from expected ingredient
@@ -1690,6 +1675,17 @@ sub check_quantity ($product_ref) {
 		if ($product_ref->{serving_size} =~ /\d\s?mg\b/i) {
 			push @{$product_ref->{data_quality_warnings_tags}}, "en:serving-size-in-mg";
 		}
+	}
+
+	# serving size not recognized (undefined serving quantity)
+	# serving_size = 10g -> serving_quantity = 10
+	# serving_size = 10  -> serving_quantity will be undefined
+	if (    (defined $product_ref->{serving_size})
+		and ($product_ref->{serving_size} ne "")
+		and (!defined $product_ref->{serving_quantity}))
+	{
+		push @{$product_ref->{data_quality_warnings_tags}},
+			"en:nutrition-data-per-serving-serving-quantity-is-not-recognized";
 	}
 
 	return;
