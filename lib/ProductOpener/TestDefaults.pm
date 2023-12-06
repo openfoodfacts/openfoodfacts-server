@@ -49,7 +49,7 @@ use vars @EXPORT_OK;
 The default test password
 =cut
 
-$test_password = "testtest";
+$test_password = "!!!TestTest1!!!";
 
 =head2 %default_user_form
 A basic user.
