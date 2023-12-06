@@ -64832,7 +64832,7 @@ nl:Aromatische planten in pot
 pt:Plantas aromáticas em vaso
 
 <en:Aromatic plants
-en:Aromatic herbs, Herbs, Fresh herbs
+en:Herbs, Aromatic herbs, Fresh herbs
 bg:Ароматични пресни подправки
 ca:Herbes aromàtiques
 de:Kräuter
@@ -64850,6 +64850,7 @@ wikidata:en:Q207123
 ciqual_food_code:en:11080
 ciqual_food_name:en:Herbs, fresh (average)
 ciqual_food_name:fr:Herbes aromatiques fraîches (aliment moyen)
+intake24_category_code:en:HRBS
 
 <en:Aromatic herbs
 en:Basil, Thai basil, Sweet basil
@@ -66473,8 +66474,9 @@ ciqual_food_name:en:Celery salt
 ciqual_food_name:fr:Sel au céleri
 wikidata:en:Q5057832
 
-<en:Plant-based foods
+<en:Condiments
 en:Herbs and spices
+intake24_category_code:en:HRSP
 
 <en:Herbs and spices
 en:Shelf-stable Herbs and Spices
@@ -66528,6 +66530,7 @@ wikidata:en:Q42527
 ciqual_food_code:en:11081
 ciqual_food_name:en:Spice (average)
 ciqual_food_name:fr:Epice (aliment moyen)
+intake24_category_code:en:SPCE
 
 <en:Spices
 <en:Herbal teas
@@ -67019,6 +67022,7 @@ wikidata:en:Q43084
 agribalyse_proxy_food_code:en:11015
 agribalyse_proxy_food_name:en:Black pepper, powder
 agribalyse_proxy_food_name:fr:Poivre noir, poudre
+intake24_category_code:en:PEPR
 
 #<en:Variety packs
 <en:Peppers
@@ -83249,6 +83253,7 @@ ru:Бекон
 sv:Bacon
 zh:培根, 猪培根, 猪肉培根
 wikidata:en:Q11106
+intake24_category_code:en:BCNS
 
 <en:Pork
 en:pig head
@@ -83726,6 +83731,7 @@ en:Game
 de:Wildfleisch, Wild
 fr:Gibiers, Gibier
 wikidata:en:Q19862498
+intake24_category_code:en:GAME
 
 <en:Game
 en:Hare meats
@@ -87384,6 +87390,7 @@ ja:ハンバーガー
 nl:Hamburgers
 ru:Гамбургер
 wikidata:en:Q6663
+intake24_category_code:en:BRGS
 
 <en:Hamburgers
 en:Hamburgers from fast food
@@ -87394,11 +87401,16 @@ ciqual_food_name:en:Hamburger, from fast foods restaurant
 ciqual_food_name:fr:Hamburger, provenant de fast food
 
 <en:Hamburgers
+en:Beef hamburgers
+intake24_category_code:en:BBRG
+
+<en:Hamburgers
 en:Chicken hamburgers, Chicken burger
 fr:Hamburgers au poulet, Burger au poulet
 agribalyse_food_code:en:25502
 ciqual_food_code:en:25502
 ciqual_food_name:en:Chicken burger , fast foods restaurant
+intake24_category_code:en:BRGO
 
 <en:Hamburgers
 en:Fish hamburgers, Fish burgers
