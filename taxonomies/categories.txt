@@ -76440,6 +76440,7 @@ it:Bistecche
 lt:Kepsniai
 nl:Steaks
 zh:肉排
+intake24_category_code:en:STEK
 
 # Don't put this category in meats. All patties, except for some beef ones, contain additional ingredients to prevent the pattie falling appart
 <en:Meat preparations
@@ -78260,6 +78261,8 @@ gpc_category_description:en:Definition: Includes products from animals of the do
 en:Pork preparations
 fr:Préparations au porc
 lt:Kiaulienos gaminiai
+nl:Varkensbereidingen
+intake24_category_code:en:PDSH
 
 <en:Pork preparations
 en:Canned cooked lean pork
@@ -79358,6 +79361,7 @@ en:Turkey preparations
 fr:Préparations à la dinde
 it:Preparati di tacchino
 nl:Kalkoenbereidingen
+intake24_category_code:en:TURK
 gpc_category_code:en:10005784
 gpc_category_name:en:Turkey - Prepared/Processed
 gpc_category_description:en:Definition: Includes products from animals of the species Meleagris gallopavo that have been subjected to one or more further manufacturing processes such as being cooked, dried, cured, ground, or reformed. Definition Excludes: Specifically excludes Meat/Poultry Sausages - Prepared/Processed. Excludes Turkey - Unprepared/Unprocessed.
@@ -80005,6 +80009,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chicken_as_food
 agribalyse_food_code:en:36016
 ciqual_food_code:en:36016
 ciqual_food_name:en:Chicken, meat and skin, raw
+intake24_category_code:en:CHIT
 
 <en:Chickens
 fr:Poulets fermiers
@@ -81258,6 +81263,7 @@ zh:香肠
 ciqual_food_code:en:30780
 ciqual_food_name:en:Sausage (average)
 ciqual_food_name:fr:Saucisse (aliment moyen)
+intake24_category_code:en:SSGS
 
 <en:Sausages
 en:Beef sausages
@@ -87401,6 +87407,7 @@ agribalyse_food_code:en:25413
 ciqual_food_code:en:25413
 ciqual_food_name:en:Hamburger, from fast foods restaurant
 ciqual_food_name:fr:Hamburger, provenant de fast food
+intake24_category_code:en:BRGB
 
 <en:Hamburgers
 en:Beef hamburgers
@@ -103813,6 +103820,7 @@ ja:もつ
 nl:Orgaanvlezen, Orgaanvlees, Slachtafval
 food_groups:en: en:Offals
 pnns_group_2:en:Offals
+intake24_category_code:en:OFFL 
 
 <en:Offals
 en:Cooked offal
