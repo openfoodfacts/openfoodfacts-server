@@ -4,7 +4,7 @@ export PERL5LIB="lib:${PERL5LIB}"
 # run import scripts
 PRODUCERS=(
     equadis
-    agenar3000
+    agena3000
     carrefour
     intermarche
 )
