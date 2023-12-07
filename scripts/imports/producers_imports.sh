@@ -6,7 +6,7 @@ PRODUCERS=(
     equadis
     agenar3000
     carrefour
-    intermarches
+    intermarche
 )
 for PRODUCER in "${PRODUCERS[@]}"
 do
