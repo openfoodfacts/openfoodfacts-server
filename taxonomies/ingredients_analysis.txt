@@ -156,34 +156,33 @@ ar:ربما نباتي
 bg:Може да е веган
 ca:Pot ser vegà
 cs:Možná vegan
+da:Måske vegansk
 de:Vielleicht vegan
-es:Quizá vegano, Tal vez vegano
 el:Ίσως vegan
+es:Quizá vegano, Tal vez vegano
+et:Võib-olla vegan
 fi:Mahdollisesti vegaaninen, Ehkä vegaani
 fr:Peut-être végétalien
 he:כנראה טבעוני
+hr:Možda vegansko
 hu:Talán vegán
 it:Potrebbe essere vegano, Forse vegano
 ja:多分ビーガン
 ko:아마 비건 채식
+lt:Galbūt veganiška
+lv:Varbūt vegāns
 nl:Mogelijk vegan
 pl:Może wegańskie
 pt:Possivelmente vegano
 ro:Poate vegan
 ru:Возможно веганское
+sk:Možno vegánske
+sl:Morda vegansko
+sr:Можда веганско
 sv:Kanske Vegansk
 tr:Vegan olabilir
 vi:Có lẽ là thuần chay
 zh:也许是素食主义者
-da:Måske vegansk
-et:Võib-olla vegan
-hr:Možda vegansko
-lt:Galbūt veganiška
-lv:Varbūt vegāns
-sk:Možno vegánske
-sl:Morda vegansko
-sr:Можда веганско
-uk:Можливо веганське
 show_ingredients:en:vegan:maybe
 
 en:Non-vegan
@@ -191,35 +190,35 @@ ar:غير النباتية
 bg:Не е веган
 ca:No és vegà
 cs:Neveganová
+da:Ikke-vegansk
 de:Nicht-vegan
-es:No vegano
 el:Μη βέγκαν
+es:No vegano
+et:Mittesööjane
 fi:Ei-vegaaninen
 fr:Non végétalien
 he:לא טבעוני
+hr:Nije vegansko
 hu:Nem vegán
 it:Non vegano
 ja:非ビーガン
 ko:비 채식
+lt:Neveganiškas
+lv:Nav vegāns
 nl:Niet veganistisch
 pl:Niewegańskie
 pt:Não vegano
-ru:Не веганское
 ro:Non-vegan
-sv:icke-vegan
-th:ไม่ใช่มังสวิรัติ
-tr:Vegan değil
-vi:Không ăn chay
-zh:非素食
-da:Ikke-vegansk
-et:Mittesööjane
-hr:Nije vegansko
-lt:Neveganiškas
-lv:Nav vegāns
+ru:Не веганское
 sk:Nevegánske
 sl:Nevegansko
 sr:Није веганско
+sv:icke-vegan
+th:ไม่ใช่มังสวิรัติ
+tr:Vegan değil
 uk:Не веганське
+vi:Không ăn chay
+zh:非素食
 show_ingredients:en:vegan:no
 
 en:Vegan status unknown
@@ -233,20 +232,40 @@ he:מצב טבעוני לא ידוע
 hu:Vegán státusz ismeretlen
 it:Stato vegano sconosciuto
 ja:ビーガンか不明
+lt:Vegano statusas nežinomas
+lv:Vegāna statuss nav zināms
 nl:Veganistische status onbekend
 pt:Desconhece-se se é vegano
 ru:Веганский статус неизвестен
-sv:Vegansk status okänt
-tr:Vegan durumu bilinmiyor
-da:Vegansk status ukendt
-et:Vegan staatus teadmata
-hr:Veganski status nepoznat
-lt:Vegano statusas nežinomas
-lv:Vegāna statuss nav zināms
 sk:Vegánsky status neznámy
 sl:Veganski status neznan
 sr:Статус вегана непознат
 uk:Статус вегана невідомий
+ca:Està pendent si és vegà
+cs:Veganský status neznámý
+da:Vegansk status ukendt
+el:Άγνωστη κατάσταση vegan
+et:Vegan staatus teadmata
+fi:Vegaaninen tila tuntematon
+hr:Veganski status nepoznat
+hu:Vegán státusz ismeretlen
+it:Stato vegano sconosciuto
+ja:ビーガンか不明
+ko:비건 상태 알 수 없음
+lt:Vegano statusas nežinomas
+lv:Vegāna statuss nav zināms
+nl:Veganistische status onbekend
+pl:Status wegański nieznany
+pt:Desconhece-se se é vegano
+ro:Starea vegană este necunoscută
+ru:Статус вегана неизвестен
+sk:Vegánsky status neznámy
+sl:Veganski status neznan
+sr:Статус вегана непознат
+sv:Vegansk status okänd
+tr:Vegan durumu bilinmiyor
+uk:Статус вегана невідомий
+zh:未知的素食主义者状态
 
 en:Vegetarian
 ar:نباتي
@@ -263,14 +282,19 @@ hu:Vegetáriánus
 it:Vegetariano
 ja:ベジタリアン
 ko:채식
+lt:Vegetariškas
+lv:Veģetārisks
 nl:Vegetarisch
 pl:Wegetariańskie
 pt:Vegetariano
-ru:Вегетарианское
 ro:Vegetarian
+ru:Вегетарианское
+sk:Vegetariánske
+sl:Vegetarijansko
+sr:Вегетаријанско
 sv:Vegetariskt
 tr:Vejetaryen
-th:มังสวิรัติ
+uk:Вегетаріанське
 vi:Ăn chay
 zh:素食主义者
 
@@ -288,15 +312,22 @@ hu:Talán vegetáriánus
 it:Potrebbe essere vegetariano
 ja:多分ベジタリアン
 ko:어쩌면 채식주의 자
+lt:Galbūt vegetariškas
+lv:Varbūt veģetārisks
 nl:Mogelijk vegetarisch
 pl:Może wegetariańskie
 pt:Possivelmente vegetariano
 ru:Возможно вегетарианское
 ro:Poate vegetarian
+sk:Možno vegetariánske
+sl:Morda vegetarijansko
+sr:Можда је вегетаријанско
 sv:Kanske Vegetariskt
 tr:Vejetaryen olabilir
 th:อาจจะเป็นมังสวิรัติ
+uk:Можливо вегетаріанське
 vi:Có thể ăn chay
+zh:可能是素食的
 show_ingredients:en:vegetarian:maybe
 
 en:Non-vegetarian
@@ -304,23 +335,32 @@ ar:غير نباتي
 bg:Не е вегетарианско
 ca:No és vegetarià
 cs:Nevegetarián
+da:Ikke-vegetarisk
 de:Nicht-vegetarisch
 el:Μη χορτοφάγος
 es:No vegetariano
+et:Mittetaimetoitlane
 fi:Ei-vegetaarinen
 fr:Non végétarien
 he:לא צמחוני
+hr:Nije vegetarijansko
 hu:Nem vegetáriánus
 it:Non vegetariano
 ja:非菜食主義者
 ko:비 채식주의 자
+lt:Nevegetariškas
+lv:Nav veģetārisks
 nl:Niet vegetarisch
 pl:Niewegetariańskie
 pt:Não vegetariano
-ru:Не вегетарианское
 ro:Non vegetarian
+ru:Не вегетарианское
+sk:Nevegetariánske
+sl:Nevegetarijansko
+sr:Није вегетаријанско
 sv:Icke-vegetarisk
 tr:Vejetaryen değil
+uk:Не вегетаріанське
 vi:Người không ăn chay
 zh:非素食者
 show_ingredients:en:vegetarian:no
@@ -328,30 +368,29 @@ show_ingredients:en:vegetarian:no
 en:Vegetarian status unknown
 bg:Неизвестен вегетариански статус
 ca:Es desconeix si és vegetarià
+cs:Stav vegetariánský neznámý
+da:Status for vegetar ukendt
 de:Vegetarischer Status unbekannt
+el:Άγνωστη κατάσταση ως προς το αν είναι χορτοφάγος
 es:Se desconoce si es vegetariano
+et:Taimetoitlase staatus teadmata
 fi:Vegetaarisuus ei ole tiedossa
 fr:Caractère végétarien inconnu
 he:מצב צמחוני לא ידוע
+hr:Nepoznat vegetarijanski status
 hu:Vegetáriánus státusz ismeretlen
 it:Stato vegetariano sconosciuto
 ja:ベジタリアンか不明
-nl:Vegetarische status onbekend
-pt:Estado vegetariano desconhecido
-ru:Вегетарианский статус неизвестен
-sv:Vegetarisk status okänd
-tr:Vejetaryen durumu bilinmiyor
-fr:Statut végétarien inconnu
-el:Άγνωστη κατάσταση ως προς το αν είναι χορτοφάγος
-pl:Nieznany status wegetariański
-ro:Stare vegetariană necunoscută
-cs:Stav vegetariánský neznámý
-da:Status for vegetar ukendt
-et:Taimetoitlase staatus teadmata
-hr:Nepoznat vegetarijanski status
 lt:Nežinomas vegetarų statusas
 lv:Veģetānisks status nav zināms
+nl:Vegetarische status onbekend
+pl:Nieznany status wegetariański
+pt:Estado vegetariano desconhecido
+ro:Stare vegetariană necunoscută
+ru:Вегетарианский статус неизвестен
 sk:Stav vegetariánsky neznámy
 sl:Status vegetarijanca ni znan
+sv:Vegetarisk status okänd
+tr:Vejetaryen durumu bilinmiyor
 uk:Статус вегетаріанський невідомий
 
