@@ -3,20 +3,31 @@
 en:Palm oil
 bg:Палмово масло
 ca:Oli de palma
+cs:Palmový olej
+da:Palmeolie
 de:Palmöl
 es:Aceite de palma
+et:Palmiõli
 fi:Palmuöljy
 fr:Huile de palme
 he:שמן דקלים
+hr:Palmino ulje
 hu:Pálmaolaj
 it:Olio di palma
 ja:パーム油
+lt:Palmių aliejus
+lv:Palmu eļļa
 nl:Bevat palm olie
 pl:olej palmowy
 pt:Óleo de palma
+ro:Ulei de palmier
 ru:Пальмовое масло
+sk:Palmový olej
+sl:Palmino olje
+sr:Палмино масло
 sv:Palmolja
 tr:Hurma yağı
+uk:Пальмова олія
 show_ingredients:en:from_palm_oil:yes
 
 en:Palm oil free
@@ -36,6 +47,17 @@ pt:Sem óleo de palma
 ru:Не содержит пальмовое масло
 sv:Palmoljefri, Palmoljefritt
 tr:Hurma yağı yok
+da:Fri for palmeolie
+el:Χωρίς φοινικέλαιο
+et:Palmiõlivaba
+hr:Bez palminog ulja
+lt:Be palmių aliejaus
+lv:Bez palmu eļļas
+ro:Fără ulei de palmier
+sk:Bez palmového oleja
+sl:Brez palmovega olja
+sr:Без палмовог уља
+uk:Без пальмової олії
 
 en:May contain palm oil
 bg:Може да съдържа палмово масло
@@ -54,6 +76,17 @@ pt:Pode conter óleo de palma
 ru:Может содержать пальмовое масло
 sv:Kan innehålla palmolja
 tr:Hurma yağı içerebilir
+da:Kan indeholde palmeolie
+el:Μπορεί να περιέχει φοινικέλαιο
+et:Võib sisaldada palmiõli
+hr:Može sadržavati palmino ulje
+lt:Gali turėti palmių aliejaus
+lv:Var saturēt palmu eļļu
+ro:Poate conține ulei de palmier
+sk:Môže obsahovať palmový olej
+sl:Lahko vsebuje palmino olje
+sr:Може садржати палмово уље
+uk:Може містити пальмову олію
 show_ingredients:en:from_palm_oil:maybe
 
 # Warning: in some languages "Présence d'huile de palme inconnue" can be interpreted as "Contains unknown palm oil"
@@ -74,6 +107,17 @@ pt:Desconhece-se se contém óleo de palma
 ru:Содержание пальмового масла неизвестно
 sv:Palmolja innehåll okänt
 tr:Hurma yağı içeriği bilinmiyor
+da:Palmolieindhold ukendt
+el:Άγνωστη περιεκτικότητα σε φοινικέλαιο
+et:Palmiõli sisaldus teadmata
+hr:Nepoznata količina palminog ulja
+lt:Nežinoma palmių aliejaus kiekis
+lv:Nezināms palmu eļļas saturs
+ro:Conținutul de ulei de palmier este necunoscut
+sk:Obsah palmového oleja neznámy
+sl:Vsebnost palmovega olja ni znana
+sr:Nepoznata količina palminog ulja
+uk:Невідоме вміст пальмової олії
 
 en:Vegan
 bg:Веган
@@ -91,11 +135,21 @@ ko:비건 채식
 nl:Veganistisch
 pl:Wegańskie
 pt:Vegano
-#ro:Vegetarian
+ro:Vegetarian
 ru:Веганское
 sv:Vegansk
 tr:Vegan
 vi:Thuần chay
+da:Vegansk
+el:Βιγκανικό
+et:Vegan
+hr:Vegansko
+lt:Veganas
+lv:Vegāns
+sk:Vegánske
+sl:Vegansko
+sr:Веганско
+uk:Веганське
 
 en:Maybe vegan
 ar:ربما نباتي
@@ -121,6 +175,15 @@ sv:Kanske Vegansk
 tr:Vegan olabilir
 vi:Có lẽ là thuần chay
 zh:也许是素食主义者
+da:Måske vegansk
+et:Võib-olla vegan
+hr:Možda vegansko
+lt:Galbūt veganiška
+lv:Varbūt vegāns
+sk:Možno vegánske
+sl:Morda vegansko
+sr:Можда веганско
+uk:Можливо веганське
 show_ingredients:en:vegan:maybe
 
 en:Non-vegan
@@ -148,6 +211,15 @@ th:ไม่ใช่มังสวิรัติ
 tr:Vegan değil
 vi:Không ăn chay
 zh:非素食
+da:Ikke-vegansk
+et:Mittesööjane
+hr:Nije vegansko
+lt:Neveganiškas
+lv:Nav vegāns
+sk:Nevegánske
+sl:Nevegansko
+sr:Није веганско
+uk:Не веганське
 show_ingredients:en:vegan:no
 
 en:Vegan status unknown
@@ -166,6 +238,15 @@ pt:Desconhece-se se é vegano
 ru:Веганский статус неизвестен
 sv:Vegansk status okänt
 tr:Vegan durumu bilinmiyor
+da:Vegansk status ukendt
+et:Vegan staatus teadmata
+hr:Veganski status nepoznat
+lt:Vegano statusas nežinomas
+lv:Vegāna statuss nav zināms
+sk:Vegánsky status neznámy
+sl:Veganski status neznan
+sr:Статус вегана непознат
+uk:Статус вегана невідомий
 
 en:Vegetarian
 ar:نباتي
@@ -260,4 +341,17 @@ pt:Estado vegetariano desconhecido
 ru:Вегетарианский статус неизвестен
 sv:Vegetarisk status okänd
 tr:Vejetaryen durumu bilinmiyor
+fr:Statut végétarien inconnu
+el:Άγνωστη κατάσταση ως προς το αν είναι χορτοφάγος
+pl:Nieznany status wegetariański
+ro:Stare vegetariană necunoscută
+cs:Stav vegetariánský neznámý
+da:Status for vegetar ukendt
+et:Taimetoitlase staatus teadmata
+hr:Nepoznat vegetarijanski status
+lt:Nežinomas vegetarų statusas
+lv:Veģetānisks status nav zināms
+sk:Stav vegetariánsky neznámy
+sl:Status vegetarijanca ni znan
+uk:Статус вегетаріанський невідомий
 
