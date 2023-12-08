@@ -753,8 +753,10 @@ ciqual_food_name:fr:Soupe pour bébé légumes, céréales et lait
 
 <en:Main meals for babies
 en:Soup for baby with vegetables and potatoes
+de:Suppe für Baby mit Gemüse und Kartoffeln
+es:Sopa para bebé con verduras y papas
 fr:Soupe pour bébé aux légumes et aux pommes de terre
-nl:Babysoepen met groenten en aardappelen
+nl:Soep voor baby met groenten en aardappelen, Babysoepen met groenten en aardappelen
 agribalyse_food_code:en:20252
 ciqual_food_code:en:20252
 ciqual_food_name:en:Soup for baby, with vegetables and potatoes
@@ -763,7 +765,10 @@ ciqual_food_name:fr:Soupe pour bébé légumes et pomme de terre
 <en:Main meals for babies
 <en:From 6 months
 en:Vegetable dish for babies from 6 months with starch and fish
+es:Plato de verduras para bebés a partir de los 6 meses con almidón y pescado
 fr:Plat avec légumes pour bébés dès 6 mois avec féculents et poisson
+it:Piatto di verdure per bambini dai 6 mesi con amido e pesce
+nl:Groentegerecht voor baby's vanaf 6 maanden met zetmeel en vis
 agribalyse_food_code:en:42603
 ciqual_food_code:en:42603
 ciqual_food_name:en:Vegetable dish for baby, w meat/fish and starch, from 6-8 months
@@ -799,7 +804,10 @@ ciqual_food_name:fr:Plat légumes, avec féculent, dès 6-8 mois
 <en:Main meals for babies
 <en:From 8 months
 en:Vegetable dish for babies from 8 months with starch and fish
+es:Plato de verduras para bebés a partir de los 8 meses con almidón y pescado
 fr:Plat avec légumes pour bébés dès 8 mois avec féculents et poisson
+it:Piatto di verdure per bambini dai 8 mesi con amido e pesce
+nl:Groentegerecht voor baby's vanaf 8 maanden met zetmeel en vis
 agribalyse_food_code:en:42604
 ciqual_food_code:en:42604
 ciqual_food_name:en:Vegetable dish for baby, w meat/fish and starch, from 8-12 months
@@ -1338,15 +1346,25 @@ ciqual_food_name:fr:Panaché préemballé (<1° alc.)
 
 <en:Premixed alcoholic beverages
 en:Rum-based alcoholic beverages
+es:Bebidas alcohólicas a base de ron
 fr:Boissons alcoolisées à base de Rhum
+it:Bevande alcoliche a base di rum
 
 <en:Premixed alcoholic beverages
 en:Vodka-based alcoholic beverages
+es:Bebidas alcohólicas a base de vodka
 fr:Boissons alcoolisées à base de vodka
+it:Bevande alcoliche a base di vodka
+nl:Vodka-gebaseerde alcoholische dranken
+ro:Băuturi alcoolice pe bază de vodcă
 
 <en:Premixed alcoholic beverages
 en:Wine-based alcoholic beverages
+de:Weinbasierte alkoholische Getränke
+es:Bebidas alcohólicas a base de vino
 fr:Boissons alcoolisées à base de vin
+nl:Wijngebaseerde alcoholische dranken
+ro:Băuturi alcoolice pe bază de vin
 
 
 <en:Wine-based alcoholic beverages
@@ -2081,6 +2099,18 @@ description:en:Hefeweizen is a lager that originated from Bavaria. It is unfilte
 
 <en:Lagers
 en:Pale lagers
+bg:Светли лагери
+de:Helle Biere
+es:Cervezas claras
+fi:Vaaleat lagerit
+fr:Lagers blondes
+he:לאגרים בהירים
+hu:Világos sörök
+it:Birre chiare
+ja:ラガービール
+lt:Šviesūs lageriai
+nl:Lichte lagers
+pl:Jasne lagerowe
 xx:Pale lagers
 
 <en:Pale lagers
@@ -2110,6 +2140,10 @@ description:en:A traditional German pale lager that is mostly produced in Munich
 en:Oktoberfest beers
 de:Oktoberfestbier
 xx:Oktoberfest beers
+es:Cervezas de Oktoberfest
+fr:Bières d'Oktoberfest
+it:Birre di Oktoberfest
+nl:Oktoberfestbieren
 protected_name_file_number:en: PGI-DE-1034
 protected_name_type:en: pgi
 description:en:Is a Märzen type of beer that is brewed in March and is aged until September-October specifically for Oktoberfest.
@@ -2129,16 +2163,40 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pilsner
 
 <en:Beers
 en:Industrial beer, Factory beer
+de:Industriebier, Fabrikbier
+es:Cerveza industrial
 fr:Bieres industrielles
+hu:Ipari sör
+it:Birra industriale
+lt:Industriinis alus
+nl:Industrieel bier
+pl:Piwo przemysłowe
 xx:Industrial beer, Factory beer
 description:en:Industrial beer is often made in fully automated process. This type of beer is usually produced by large-scale breweries owned by corporations and is cheeper to produce at the expense of poor taste and quality.
 
 <en:Beers
 en:Unfiltered beers
+de:Ungfiltriertes Bier
+es:Cervezas sin filtrar
+fr:Bières non filtrées
+hu:Szűretlen sörök
+it:Birre non filtrate
+lt:Nefiltruotos alus
+nl:Ongefilterde bieren
+pl:Piwa niefiltrowane
 xx:Unfiltered beers
+description:en:Unfiltered beers are beers that have not undergone the filtration process, resulting in a cloudy appearance and a fuller flavor.
 
 <en:Beers
 en:Unpasteurized beers
+de:Unpasteurisierte Biere
+es:Cervezas sin pasteurizar
+fr:Bières non pasteurisées
+hu:Pasztörizálatlan sörök
+it:Birre non pastorizzate
+lt:Nepasterizuotos alus
+nl:Ongepasteuriseerde bieren
+pl:Piwa niepasteryzowane
 xx:Unpasteurized beers
 description:en:Unpasteurized is a live beer containing healthy living micro-organisms: yeast. Due to alcohol and acidity, harmful bacteria are not present.
 
@@ -2221,8 +2279,11 @@ wikidata:en:Q2247929
 
 <en:Country specific beers
 en:Finnish beers, Beers from Finland
+es:Cervezas finlandesas, Cervezas de Finlandia
 fr:Bières finnoises, bières finlandaises, Bières de Finlande
 lt:Suomiškas alus, alus iš Suomijos
+nl:Finse bieren, Bieren uit Finland
+ru:Финские пива, Пиво из Финляндии
 wikidata:en:Q3655869
 
 <en:Finnish beers
@@ -2298,14 +2359,30 @@ wikidata:en:Q3640378
 
 <en:Country specific beers
 en:Latvian beers, Beers from Latvia
+de:Lettische Biere, Bier aus Lettland
+es:Cervezas letonas, Cervezas de Letonia
+fi:latvialaiset oluet, oluet Latviasta
+fr:Bières lettones, Bières de Lettonie
+hu:Lett sörök, Sörök Lettországból
 lt:Latviškas alus, alus iš Latvijos
+nl:Lettse bieren, Bieren uit Letland
+pl:Piwa łotewskie, Piwa z Łotwy
+ro:Beri letone, Beri din Letonia
 wikidata:en:Q15873100
 
 <en:Country specific beers
 en:Lithuanian beers, Beers from Lithuania
+bg:Литовски бири, Бири от Литва
+de:Litauische Biere
+es:Cervezas lituanas
+fi:liettualaiset oluet
 fr:Bières lituaniennes
-pl:Piwa litewskie
+hu:Litván sörök
+it:Birre lituane, Birre della Lituania
 lt:Lietuviškas alus
+nl:Litouwse bieren, Bieren uit Litouwen
+pl:Piwa litewskie
+ro:Beri lituaniene, Beri Lituania, Bere lituaniană, Bere Lituania, Bere lituană
 wikidata:en:Q5080415
 
 <en:Lithuanian beers
@@ -2619,19 +2696,32 @@ wikidata:en:Q3655589
 
 <en:Country specific beers
 en:Beers from Poland, Polish beers
+de:Biere aus Polen
+fr:Bières polonaises
+it:Birre polacche
 lt:Lenkiškas alus, alus iš Lenkijos
+nl:Bieren uit Polen
+pl:Piwa polskie
+ro:Beri poloneze, Bere poloneză, Bere poloneza
 wikidata:en:Q4880014
 
 <en:Country specific beers
 en:Spanish beers
+de:Spanische Biere
 fr:Bières espagnoles
+it:Birre spagnole
 lt:Ispaniškas alus
+nl:Spaanse bieren
 wikidata:en:Q4550225
 
 <en:Country specific beers
 en:Swedish beers
+de:Schwedische Biere
+es:Cervezas suecas
 fr:Bières suédoises
+it:Birre svedesi
 lt:Švediškas alus
+nl:Zweedse bieren
 wikidata:en:Q3655894
 
 <en:Country specific beers
@@ -2670,8 +2760,12 @@ origins:en: en:United Kingdom
 
 <en:Beers from United Kingdom
 en:Scottish beers
+de:Schottische Biere
+es:Cervezas escocesas
 fr:Bières écossaises
+it:Birre scozzesi
 lt:Škotiškas alus
+nl:Schotse bieren
 
 ################################# Non-alcoholic beers #################################
 
@@ -2769,7 +2863,11 @@ wikipedia:en:https://en.wikipedia.org/wiki/Root_beer
 
 <en:Alcoholic beverages
 en:Pure alcohol
+de:Reiner Alkohol
+es:Alcohol puro
 fr:Alcool pur
+it:Alcool puro
+nl:Pure alcohol
 agribalyse_food_code:en:1014
 ciqual_food_code:en:1014
 ciqual_food_name:en:Pure alcohol
@@ -2797,6 +2895,9 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 
 <en:Spirit drinks
 en:Portuguese spirit drinks
+es:Bebidas espirituosas portuguesas
+fr:Boissons spiritueuses portugaises
+pt:Bebidas espirituosas portuguesas
 wikidata:en:Q13428821
 
 <en:Spirit drinks
@@ -2813,6 +2914,9 @@ wikidata:en:Q685382
 
 <en:Spirit drinks
 en:Croatian spirit drinks
+de:Kroatische Spirituosen
+es:Bebidas espirituosas croatas
+fr:Boissons spiritueuses croates
 
 <en:Croatian spirit drinks
 hr:Hrvatske travarice, Hrvatska travarica
@@ -2848,7 +2952,17 @@ origins:en: en:France
 wikidata:en:Q43013270
 
 <en:Spirit drinks
+de:Deutsche Spirituosen
 en:German spirit drinks
+es:Bebidas espirituosas alemanas
+fr:Boissons spiritueuses allemandes
+hu:Német szeszes italok
+it:Bevande alcoliche tedesche
+lt:Vokietijos spiritiniai gėrimai
+nl:Duitse sterke dranken
+pt:Bebidas espirituosas alemãs
+ru:Немецкие крепкие напитки
+zh:德国烈酒
 
 <en:German spirit drinks
 de:Bayerischer Bärwurz
@@ -8983,7 +9097,10 @@ wikidata:en:Q8486
 
 <en:Coffees
 en:Coffees from the Dominican Republic
+de:Kaffees aus der Dominikanischen Republik
+es:Cafés de la República Dominicana
 fr:Cafés de république dominicaine
+pt:Cafés da República Dominicana
 # Disabled for safety: origins:en: en:Dominican Republic
 
 <en:Coffees from the Dominican Republic
@@ -8995,13 +9112,19 @@ origins:en: en:Dominican Republic
 <en:Coffees
 en:Brazilian coffees, Coffees from Brazil
 de:Brasilianische Kaffees
+es:Café brasileño
 fr:Café brésilien
+it:Caffè brasiliano
+nl:Braziliaanse koffies
 pt:Cafés do Brasil
 origins:en: en:Brazil
 
 <en:Coffees
 en:Vietnamese coffee
+es:Café vietnamita
 fr:Café du Viêt Nam
+it:Caffè vietnamita
+nl:Vietnamese koffie
 origins:en: en:Vietnam
 
 <en:Coffees
@@ -9041,22 +9164,33 @@ origins:en: en:Peru
 
 <en:Coffees
 en:Coffees from Guatemala
+es:Café de Guatemala
 fr:Café du Guatemala
+pt:Café da Guatemala
 origins:en: en:Guatemala
 
 <en:Coffees
 en:Mexiacan coffee
+es:Café mexicano
 fr:Café du Mexique
 origins:en: en:Mexico
 
 <en:Coffees
 en:Coffee from Ouganda
+es:Café de Uganda
 fr:Café d'Ouganda
+it:Caffè dall'Uganda
+nl:Koffie uit Oeganda
+pt:Café de Uganda
 origins:en: en:Uganda
 
 <en:Coffees
 en:Coffee from Ivory Coast
+es:Café de Costa de Marfil
 fr:Café de Côte d'Ivoire
+it:Caffè dalla Costa d'Avorio
+nl:Koffie uit Ivoorkust
+pt:Café da Costa do Marfim
 origins:en: en:Ivory coast
 
 <en:Coffees
@@ -9070,26 +9204,48 @@ fr:Café du Nicaragua
 origins:en: en:Nicaragua
 
 <en:Coffees
+en:Philippine coffee
+es:Café de Filipinas
 fr:Café des Philippines
+it:Caffè delle Filippine
+nl:Koffie uit de Filipijnen
+pt:Café das Filipinas
+origins:en: en:Philippines
 
 <en:Coffees
 en:Venezuelian coffees
+es:Café venezolano
 fr:Café du Venezuela
+it:Caffè venezuelano
+nl:Venezolaanse koffie
+pt:Café venezuelano
 origins:en: en:Venezuela
 
 <en:Coffees
 en:Coffees from Costa Rica
+es:Café de Costa Rica
 fr:Café du Costa Rica
+it:Caffè della Costa Rica
+nl:Koffie uit Costa Rica
+pt:Café da Costa Rica
 origins:en: en:Costa Rica
 
 <en:Coffees
 en:Coffees from Tanzania
+es:Café de Tanzania
 fr:Café de Tanzanie
+it:Caffè di Tanzania
+nl:Koffie uit Tanzania
+pt:Café de Tanzânia
 origins:en: en:Tanzania
 
 <en:Coffees
 en:Coffees from Madagascar
+es:Café de Madagascar
 fr:Café de Madagascar
+it:Caffè di Madagascar
+nl:Koffie uit Madagascar
+pt:Café de Madagascar
 origins:en: en:Madagascar
 
 en:Capsules
@@ -9103,8 +9259,12 @@ pt:Cápsulas
 <en:Capsules
 <en:Teas
 en:Tea capsules
+de:Tee Kapseln
+es:Cápsulas de té
 fr:Thés en dosettes
+it:Capsule di tè
 nl:Theecapsules
+pt:Cápsulas de chá
 
 <en:Capsules
 <en:Cocoa and its products
@@ -9346,6 +9506,7 @@ ciqual_food_code:en:18071
 ciqual_food_name:en:Espresso coffee, not instant coffee, without sugar, ready-to-drink
 ciqual_food_name:fr:Café expresso, non instantané, non sucré, prêt à boire
 
+
 <en:Dairy drinks
 <en:Coffee drinks
 en:Cappuccino, Coffee drinks with milk
@@ -9355,6 +9516,18 @@ lt:Kavos gėrimas su pienu
 nl:Cappuccino, Koffiedranken met melk
 ro:Lapte pentru cafea
 intake24_category_code:en:CAPU
+
+<en:Coffee drinks
+en:Coffee with milk with sugar
+es:Café con leche con azúcar
+fr:Café au lait sucré
+it:Caffè con latte con zucchero
+nl:Koffie met melk met suiker
+pt:Café com leite com açúcar
+
+<en:Coffees
+en:Coffee with milk without sugar
+fr:Café au lait non sucré
 agribalyse_food_code:en:18151
 ciqual_food_code:en:18151
 ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
@@ -9366,7 +9539,11 @@ fr:Café au lait sucré
 
 <en:Coffees
 en:Instant coffee with milk without sugar
+es:Café con leche instantáneo sin azúcar
 fr:Café au lait instantané non sucré
+it:Caffè al latte istantaneo senza zucchero
+nl:Instant koffie met melk zonder suiker
+pt:Café com leite instantâneo sem açúcar
 agribalyse_food_code:en:18151
 ciqual_food_code:en:18151
 ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
@@ -9375,7 +9552,10 @@ ciqual_food_name:fr:Café au lait, café crème ou cappuccino, instantané ou no
 <en:Coffee drinks
 en:Latte, White coffee without sugar
 fr:Café crème non sucré
-nl:Latte, Koffie verkeerd
+nl:Latte, Koffie verkeerd, Witte koffie zonder suiker
+es:Café blanco sin azúcar
+it:Caffè bianco senza zucchero
+pt:Café branco sem açúcar
 agribalyse_food_code:en:18151
 intake24_category_code:en:LATE
 ciqual_food_code:en:18151
@@ -9384,7 +9564,9 @@ ciqual_food_name:fr:Café au lait, café crème ou cappuccino, instantané ou no
 
 <en:Coffees
 en:Instant white coffee without sugar
+es:Café blanco instantáneo sin azúcar
 fr:Café crème instantané non sucré
+it:Caffè bianco istantaneo senza zucchero
 agribalyse_food_code:en:18151
 ciqual_food_code:en:18151
 ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
@@ -9392,7 +9574,9 @@ ciqual_food_name:fr:Café au lait, café crème ou cappuccino, instantané ou no
 
 <en:Coffees
 en:Cappuccino without sugar
+es:Cappuccino sin azúcar
 fr:Cappuccino non sucré
+it:Cappuccino senza zucchero
 agribalyse_food_code:en:18151
 ciqual_food_code:en:18151
 ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
@@ -9400,7 +9584,9 @@ ciqual_food_name:fr:Café au lait, café crème ou cappuccino, instantané ou no
 
 <en:Coffees
 en:Instant cappuccino without sugar
+es:Cappuccino instantáneo sin azúcar
 fr:Cappuccino instantané non sucré
+it:Cappuccino istantaneo senza zucchero
 agribalyse_food_code:en:18151
 ciqual_food_code:en:18151
 ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
@@ -10287,7 +10473,10 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 
 <en:Non-alcoholic beverages
 en:Non-alcoholic ciders, Alcohol-free ciders
+es:Sidras sin alcohol, Sidras no alcohólicas
+fr:Cidres sans alcool, Cidres non alcoolisés
 lt:Nealkoholiniai sidrai, sidrai be alkoholio
+nl:Alcoholvrije cider, Niet-alcoholische cider
 
 <en:Tea-based beverages
 en:Still soft drink with tea extract
@@ -10375,8 +10564,11 @@ fr:Sirops saveur thé glacé
 <en:Flavoured syrups
 en:Orgeat syrups
 de:Mandelsirups
+es:Jarabes de orgeat
 fr:Sirops d’orgeat, sirop d'orgeat
+it:Sciroppi di orzata
 nl:Amandelsiropen, Amandelsiroop
+pt:Xaropes de orgeat
 wikidata:en:Q1939771
 
 <en:Flavoured syrups
@@ -10405,8 +10597,9 @@ nl:Watermeloensiropen, Watermeloensiroop
 pl:Syropy arbuzowe
 
 <en:Flavoured syrups
-fr:Sirops de pamplemousse, Sirops de pamplemousses
 de:Grapefruitsirups
+en:Grapefruit syrups
+fr:Sirops de pamplemousse, Sirops de pamplemousses
 nl:Grapefruitsiropen, Grapefruitsiroop
 
 <en:Flavoured syrups
@@ -35866,6 +36059,11 @@ nl:Chocolade eieren
 <en:Chocolate molds
 <en:Milk chocolates
 en:Milk chocolate molds
+es:Moldes de chocolate con leche
+fr:Moulages en chocolat au lait
+it:Stampi di cioccolato al latte
+lt:Pieniški šokolado formos
+nl:Melkchocoladevormen
 #wikidata:en:
 
 <en:Milk chocolates
@@ -35958,7 +36156,12 @@ tr:Bademli çikolata
 
 <en:Chocolates
 en:Milk chocolate bar with nougat, Toblerone
+es:Barra de chocolate con leche y nougat, Toblerone
 fr:Barre de chocolat au lait avec nougat, Toblerone
+it:Tavoletta di cioccolato al latte con torrone, Toblerone
+lt:Pieno šokolado plytelė su nugatu, Toblerone
+nl:Melkchocoladereep met nougat, Toblerone
+pt:Barra de chocolate de leite com nougat, Toblerone
 agribalyse_food_code:en:31098
 ciqual_food_code:en:31098
 ciqual_food_name:en:Toblerone milk cholcolate bar w nougat
@@ -36004,10 +36207,23 @@ nl:Chocola met gepofte rijst
 
 <en:Chocolates
 en:Cereal chocolates
+bg:Шоколади с житни зърна
+da:Chokolade med korn
+de:Getreideschokolade
+es:Chocolates de cereales
+fi:Viljasuklaatit
 fr:Chocolats aux céréales
+hu:Gabonapehelyes csokoládék
 it:Cioccolato con cereali
+ja:シリアルチョコレート
 lt:Dribsnių šokoladai
 nl:Chocola met granen
+pl:Czekolada zbożowa
+pt:Chocolates com cereais
+ru:Шоколад с злаками
+sv:Choklad med spannmål
+tr:Tahıllı çikolata
+zh:谷物巧克力
 
 <en:Chocolates
 en:White chocolates, White chocolate
@@ -36105,8 +36321,13 @@ en:White chocolate bar with raisins
 lt:Balti šokoladai su razinomis
 
 <en:White chocolate bar with dried fruits
-fr:Chocolat blanc en tablette aux praliné
+de:Weiße Schokolade mit Praliné
 en:White chocolate bar with praline
+es:Tableta de chocolate blanco con praliné
+fr:Chocolat blanc en tablette aux praliné
+it:Tavoletta di cioccolato bianco con praliné
+lt:Baltas šokolado batonėlis su praline
+nl:Witte chocoladereep met praliné
 
 <en:Easter food
 <en:Chocolate molds
@@ -36960,7 +37181,13 @@ ciqual_food_name:fr:Bonbon / bouchée au chocolat fourrage gaufrettes / biscuit
 
 <en:Bonbons
 en:Chocolate covered chickpeas
+de:Schokoladenüberzogene Kichererbsen
+es:Garbanzos cubiertos de chocolate
 fr:Pois chiches enrobés de chocolat
+it:Ceci ricoperti di cioccolato
+lt:Šokoladu aptraukti cicerchiai
+nl:Chocolade bedekte kikkererwten
+pt:Grão-de-bico coberto de chocolate
 
 <en:Bonbons
 fr:Gingembrettes
@@ -36983,13 +37210,23 @@ fr:Orangettes
 
 <en:Chocolate covered fruits
 en:Chocolate-covered figs
+de:Schokoladenüberzogene Feigen
+es:Higos cubiertos de chocolate
+fi:Suklaakuorrutetut viikunat
 fr:Figues enrobées de chocolat
+it:Fichi ricoperti di cioccolato
 lt:Figos šokolade
+nl:Chocolade bedekte vijgen
+pt:Figos cobertos de chocolate
 
 <en:Chocolate covered fruits
 en:Chocolate-covered prune
 de:Pflaumen mit Schokoladenüberzug
+es:Ciruela cubierta de chocolate
 fr:Pruneau recouvert de chocolat, Pruneau au chocolat
+it:Prugna ricoperta di cioccolato
+lt:Šokoladu aptraukti slyvos
+nl:Chocolade bedekte pruim
 wikidata:en:Q16826630
 
 <en:Chocolate covered fruits
@@ -37241,7 +37478,13 @@ nl:Zure gummi snoep
 
 <en:Gummi candies
 en:Acid gummy lassos
+de:Säurehaltige Gummischleifen
+es:Lazos de goma ácidos
 fr:Lassos gélifiés acides
+it:Lacci gommosi acidi
+ja:酸味のあるグミのラッソ
+lt:Rūgščios guminės lassos
+nl:Zure gummi lassos
 
 <en:Gummi candies
 en:Jelly beans
@@ -37403,8 +37646,12 @@ ciqual_food_name:fr:Chewing-gum, sans sucre
 
 <en:Chewing gum
 en:Chewing gum with sugar
+de:Kaugummi mit Zucker
+es:Chicle con azúcar
 fr:Chewing-gum sucré
+it:Gomma da masticare con zucchero
 lt:Kramtomosios gumos su cukrumi
+nl:Kauwgom met suiker
 agribalyse_food_code:en:31007
 ciqual_food_code:en:31007
 ciqual_food_name:en:Chewing gum, with sugar
@@ -37668,8 +37915,13 @@ lt:Pilnaviduriai šokoladiniai kiaušiniai
 <en:Chocolate eggs
 <en:Chocolate molds
 en:Hollow chocolate eggs
+bg:Празни шоколадови яйца
+de:Hohlkörper-Schokoladeneier
+es:Huevos de chocolate huecos
 fr:Œufs en chocolat creux, oeufs en chocolat creux
 lt:Tuščiaviduriai šokoladiniai kiaušiniai
+nl:Holle chocolade-eieren
+ru:Пустые шоколадные яйца
 
 <en:Festive foods
 nl:Sinterklaasproducten
@@ -37685,7 +37937,14 @@ nl:Chocoladeletters
 wikidata:en:Q657007
 
 en:Festive foods
+ca:Aliments festius
+de:Festtagsessen
+es:Alimentos festivos
+fi:Juhlaruoat
+fr:Aliments festifs
+lt:Šventiniai maisto produktai
 nl:Feestdagenproducten
+ru:Праздничные продукты
 
 <en:Festive foods
 en:Christmas foods and drinks
@@ -37714,6 +37973,8 @@ fr:Chocolats de Noël
 it:Cioccolatini di Natale
 lt:Kalėdiniai šokoladai
 nl:Kerstmischocola
+pt:Chocolates de Natal
+ru:Рождественские шоколадные конфеты
 
 <en:Christmas foods and drinks
 en:Yule log, Christmas log cake
@@ -37764,11 +38025,16 @@ ru:Рождественский календарь
 <en:Advent calendars
 <en:Christmas chocolates
 en:Chocolate Advent calendars
+ca:Calendari d'Advent de xocolata
 de:Schokoladen-Adventskalender
+es:Calendarios de Adviento de chocolate
 fi:Suklaajoulukalenterit
 fr:Calendriers de l'avent en chocolat
+it:Calendari dell'Avvento al cioccolato
 lt:Šokoladiniai advento kalendoriai
 nl:Chocolade adventkalenders
+pt:Calendários do Advento de chocolate
+ru:Шоколадные рождественские календари
 
 <en:Christmas foods and drinks
 <en:Confectioneries
@@ -89190,8 +89456,12 @@ ja:ホンホッコクアカエビ
 nl:Pandalis Borealis
 
 <en:Shrimps
+de:Garnelen
 en:Pacific shrimps
+es:Camarones del Pacífico
 fr:Crevettes du Pacifique
+it:Gamberetti del Pacifico
+nl:Stille Oceaan garnalen
 
 <en:Shrimps
 fr:Crevettes décortiquées, Crevettes décortiquées cuites, queues de crevettes décortiquées
@@ -91576,7 +91846,10 @@ ciqual_food_name:fr:Turbot, rôti/cuit au four
 
 <en:Turbot
 en:Wild turbot
+es:Rodaballo salvaje
 fr:Turbot sauvage
+it:Rombo selvaggio
+pt:Tamboril selvagem
 agribalyse_food_code:en:26042
 ciqual_food_code:en:26042
 ciqual_food_name:en:Turbot, raw, wild
@@ -91584,7 +91857,10 @@ ciqual_food_name:fr:Turbot sauvage, cru
 
 <en:Turbot
 en:Farmed turbot
+es:Rodaballo de piscifactoría
 fr:Turbot d'élevage
+it:Rombo allevato
+pt:Tamboril de aquicultura
 agribalyse_food_code:en:26201
 ciqual_food_code:en:26201
 ciqual_food_name:en:Turbot, raw, farmed
@@ -91862,7 +92138,12 @@ ciqual_food_name:fr:Moule commune, crue
 
 <en:Mussels
 en:Mediterranean mussels
+de:Mittelmeer-Muscheln
+es:Mejillones del Mediterráneo
 fr:Moules de Méditerranée
+it:Cozze del Mediterraneo
+nl:Middellandse Zee mosselen
+ru:Средиземноморские мидии
 agribalyse_food_code:en:10026
 ciqual_food_code:en:10026
 ciqual_food_name:en:Mediterranean mussel, raw
@@ -91870,6 +92151,13 @@ ciqual_food_name:fr:Moule de Méditerranée, crue
 
 <en:Mussels
 fr:Moules du Pacifique
+de:Pazifische Miesmuscheln
+es:Mejillones del Pacífico
+it:Cozze del Pacifico
+ja:太平洋ムール貝
+nl:Stille Oceaan mosselen
+ru:Тихоокеанские мидии
+tr:Pasifik midye
 wikidata:en:Q3325554
 
 <en:Mussels
@@ -92164,8 +92452,11 @@ intake24_category_code:en:DIPS
 <en:Sauces
 en:Hoisin sauces
 de:Hoisin Saucen
+es:Salsas hoisin
 fr:Sauces hoisin
 ja:ホイシンソース
+nl:Hoisin sauzen
+ru:Соусы хойсин
 wikidata:en:Q404114
 
 
