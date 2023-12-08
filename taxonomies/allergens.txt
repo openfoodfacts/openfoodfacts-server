@@ -40,7 +40,7 @@ hr:gluten, glutena, ječmeni, ječmeni slad, ječam, ječma, ječmeno, ječmenog
 hu:glutén, búza, búzaliszt, búzarost, búzadara, búzacsíra, búzafehérje, búzakorpa, búzamaláta, búzapehely, búzakeményítő, búzasikér, tönkölybúza, tönkölybúzaliszt, tönkölybúzapehely, durumbúza, durumbúzaliszt, rozs, rozsliszt, rozspehely, durumrozsliszt, árpa, árpaliszt, árpapehely, árpamaláta, árpadara, árpacsíra, zab, zabliszt, zabpehely, zabkorpa, durumliszt, durum liszt, Grahamliszt, Graham liszt, kenyérliszt, kenyér liszt, rétesliszt, rétes liszt, kamut, alakor, bulgur, glutént, glutént tartalmazó gabona, glutént tartalmazó gabonafélék
 is:glúten
 it:glutine, grano, segale, orzo, farro, kamut, frumento, farina di frumento, farina di frumento integrale
-jp:グルテン,コムギ
+jp:グルテン,コムギ,小麦,そば
 lt:avižos, avižų, avižiniai, avižinės, glitimas, glitimo, glitimu, kamutas, kviečiai, kviečių, kvietiniai, kvietinės, miežiai, miežių, miežiniai, miežinės, rugiai, ruginiai, ruginės, rugių, spelta, manų
 lv:auzas, auzu, kvieši, kviešu, lipekli, manna, mieži, miežu, rudzi, speltas kvieši, triticum turgidum polonicum
 mt:glutina, qamħ, segala, barli, ħafur, ispelt, kamut
@@ -74,7 +74,7 @@ ga:crústach, crústaigh
 hr:rakova, rakove
 hu:rákfélék, rák, homár, garnéla, garnélarák
 it:crostacei
-jp:甲殻類,カニ,エビ
+jp:甲殻類,カニ,エビ,えび,かに
 lt:vėžiagyviai, krabai, krabų, omarai, omarų, vėžiai, krevetės, krevečių
 lv:vēžveidīgie
 mt:krustaċej
@@ -141,7 +141,7 @@ he:דג, דגים, טונה, סלמון, קוד, מקרל, ברבוניה, הל�
 hr:riba, ribe, skuša
 hu:hal, halak, tőkehal, tőkehalfilé, makréla, hering, heringfilé, lazac, lazacfilé, pisztráng, tonhal, szardínia, lepényhal, rombuszhal, sprotni, alaszkai tőkehal
 it:pesce
-jp:魚,サバ,サケ
+jp:魚,サバ,サケ,さけ,さば
 lt:žuvis, žuvys, žuvies, žuvų, menkė, menkės, menkių, skumbrė, skumbrės, skumbrių, plekšnė, plekšnės, plekšnių, lašiša, lašišos, lašišų, upėtakis, upėtakiai, upėtakių, tunas, tunu, tuno, sardinės, sardinė, sardinių
 lv:zivis
 mt:ħut
@@ -160,6 +160,43 @@ th:ปลา
 zh:魚
 wikidata:en:Q600396
 
+# <en:fish
+en:red caviar
+jp:いくら
+
+en:orange
+jp:オレンジ
+
+en:kiwi
+jp:キウイフルーツ
+
+en:banana
+jp:バナナ
+
+en:peach
+jp:もも
+
+en:apple
+jp:りんご
+
+en:beef
+jp:牛肉
+
+en:pork
+jp:豚肉
+
+en:chicken
+jp:鶏肉
+
+en:yamaimo
+jp:やまいも
+
+en:gelatin
+jp:ゼラチン
+
+en:matsutake
+jp:まつたけ
+
 en:peanuts, peanut, arachis hypogaea
 ar:فول سوداني
 bg:фъстъци, arachis hypogaea
@@ -176,7 +213,7 @@ he:בוטנים
 hr:kikiriki, kikirikija, orašide, orašida
 hu:földimogyoró, arachis hypogaea
 it:arachidi, arachis hypogaea
-jp:ラッカセイ
+jp:ラッカセイ, 落花生, ピーナッツ
 lt:žemės riešutai, žemės riešutų, arachis hypogaea
 lv:zemesrieksti, arachis hypogaea
 mt:karawett, arachis hypogaea
@@ -283,7 +320,7 @@ hr:orašaste plodove, orašastih plodova, orašasto voće, orašasto voče, ora�
 hu:diófélék, mandula, mogyoró, dió, kesudió, pekándió, brazil dió, pisztácia, makadámia, queenslandi dió, dióféléket
 is:hnetur
 it:frutta a guscio, mandorle, nocciole, noci, noci di acagiù, noci di pecan,  noci del Brasile, pistacchi, noci macadamia, noci del Queensland
-jp:種実類,アーモンド,ヘーゼルナッツ, クルミ, カシューナッツ,ペカン, ブラジルナッツ, ピスタチオ, マカダミアナッツ
+jp:種実類,アーモンド,ヘーゼルナッツ, クルミ, カシューナッツ,ペカン, ブラジルナッツ, ピスタチオ, マカダミアナッツ, くるみ
 lt:riešutai, riešutų, riešutas, riešutais, migdolai, migdolų, migdolas, migdolais, lazdyno riešutai, lazdynų, lazdynas, lazdynais, lazdyno, graikiniai riešutai, graikinių riešutų, graikiniais riešutais, anakardžiai, anakardžių, anakardžiais, Anakardium occidentale, pekaninės karijos, pekaninių karijų,  brazilinės bertoletijos, brazilinių bertoletijų, pistacijos, pistacijų, pistacija, makadamijos, makadamijų, makadamija, Kvinslendo riešutai
 lv:rieksti, mandeles, lazdu rieksti, valrieksti, Indijas rieksti, pekanrieksti,  Brazīlijas rieksti, pistāciju rieksti, makadāmijas, Kvīnslendas rieksti
 mt:ġewż, lewż, ġellewż, ġewż, anakardji, ġewż Amerikan,  ġewż tal-Brażil, pistaċċi, macadamia, Queensland nuts
@@ -387,7 +424,7 @@ he:שומשום, זרעי שומשום, טחינה, שמן שומשום
 hr:sezam, sezama, sjeme sezama, sjemenki sezama
 hu:szezámmag, szezám, szezámmagot
 it:semi di sesamo, sesamo
-jp:ゴマ
+jp:ゴマ,ごま
 lt:sezamo sėklos, sezamo, sezamas, sezamų, sezamai, sezamais, sezamu
 lv:sezama sēklas, sezama
 mt:ġulġlien
@@ -492,7 +529,7 @@ ga:moilisc, breallach, breallaigh
 hr:mekušac, mekušaca
 hu:puhatestűek, kagyló, tintahal
 it:molluschi
-jp:軟体動物,イカ,タコ,カキ,アワビ
+jp:軟体動物,イカ,タコ,カキ,アワビ,あわび,いか
 lt:moliuskai, moliuskas, moliuskų, moliuskais
 lv:gliemji
 mt:molluski
