@@ -364,7 +364,17 @@ my %abbreviations = (
 		["zgrud.", "zgrudnjavanja"],
 	],
 
-	nb => [["bl. a.", "blant annet"], ["inkl.", "inklusive"], ["papr.", "paprika"],],
+	nb => [
+		["bl. a.", "blant annet"],
+		["inkl.", "inklusive"],
+		["papr.", "paprika"],
+		["fullherdet kokos - og rapsolje", "fullherdet kokosolje og fullherdet rapsolje"],
+		["kons.middel", "konserveringsmiddel"],
+		["surhetsreg.midde", "surhetsregulerende middel"],
+		["mod.", "modifisert"],
+		["fort.middel", "fortykningsmiddel"],
+		["veg.", "vegetabilsk"],
+	],
 
 	ru => [
 		["в/с", "высшего сорта"],    # or "высший сорт". = top grade, superfine. applied to flour.
@@ -1820,6 +1830,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 	# $percent_or_quantity_regexp has 2 capturing group: one for the number, and one for the % sign or the unit
 	my $percent_or_quantity_regexp = '(?:' . "(?:$prepared_with )" . ' )?'    # optional produced with
 		. '(?:>|' . $max_regexp . '|<|' . $min_regexp . '|\s|\.|:)*'    # optional maximum, minimum, and separators
+		. '(?:\d+(?:[,.]\d+)?\s*-\s*?)?'    # number+hyphens, first part (10-) of "10-12%"
 		. '(\d+(?:(?:\,|\.)\d+)?)\s*'    # number, possibly with a dot or comma
 		. '(\%|g|gr|mg|kg|ml|cl|dl|l)\s*'    # % or unit
 		. '(?:' . $min_regexp . '|' . $max_regexp . '|'    # optional minimum, optional maximum
@@ -2596,7 +2607,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 								'その他',    # etc.
 							],
 
-							'nb' => ['^Pakket i beskyttende atmosfære$',],
+							'nb' => ['^Pakket i beskyttende atmosfære$', '^Minst \d+ ?% kakao',],
 
 							'nl' => [
 								'^allergie.informatie$', 'in wisselende verhoudingen',
@@ -4749,7 +4760,7 @@ my %phrases_after_ingredients_list = (
 		'Да се чува на темно место и на температура до',    # Store in a dark place at a temperature of up to
 	],
 
-	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnhold', 'kjølevare',],
+	nb => ['netto(?:innhold|vekt)', 'oppbevar(?:ing|es)', 'næringsinnh[oa]ld', 'kjølevare',],
 
 	nl => [
 		'Beter Leven keurmerk 1 ster.',
@@ -5784,6 +5795,8 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 	# transform 0,2% into 0.2%
 	$text =~ s/(\d),(\d+)( )?(\%|g\b)/$1.$2\%/ig;
 	$text =~ s/—/-/g;
+	# transform 0,1-0.2% into 0.1-0.2%
+	$text =~ s/(\d),(\d+( )?-( )?\d)/$1.$2/ig;
 
 	# abbreviations, replace language specific abbreviations first
 	foreach my $abbreviations_lc ($ingredients_lc, "all") {
