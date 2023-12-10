@@ -49,6 +49,7 @@ BEGIN {
 		&verify_id_token
 		&get_user_id_using_token
 		&create_user_in_keycloak
+		&get_token_using_client_credentials
 
 		$oidc_discover_document
 		$jwks

@@ -67,6 +67,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Data qw/execute_query get_products_collection/;
 use ProductOpener::Store "store";
+use ProductOpener::Auth qw/:all/;
 
 use Carp qw/confess/;
 use Data::DeepAccess qw(deep_exists deep_get deep_set);
@@ -237,11 +238,18 @@ sub remove_all_users () {
 	# Important: check we are not on a prod database
 	check_not_production();
 	# clean files
-	# clean files
 	remove_tree($BASE_DIRS{USERS}, {keep_root => 1, error => \my $err});
 	if (@$err) {
 		confess("not able to remove some users directories: " . join(":", @$err));
 	}
+	# clean keycloak
+	my @users = get_users_from_keycloak();
+	foreach (@users) {
+		foreach (@{$_}) {
+			delete_user_from_keycloak($_);
+		}
+	}
+	return;
 }
 
 =head2 remove_all_orgs ()
@@ -838,6 +846,72 @@ sub wait_for ($code, $timeout = 3, $poll_time = 1) {
 	}
 	# last try
 	return $code->();
+}
+
+=head2 get_users_from_keycloak()
+
+Get a list of users registered in our Keycloak realm
+
+=head3 Return values
+
+Returns an array of users in Keycloak.
+
+=cut
+
+sub get_users_from_keycloak () {
+	my $keycloak_users_endpoint = $oidc_options{keycloak_users_endpoint};
+	unless ($keycloak_users_endpoint) {
+		confess('keycloak_users_endpoint not configured');
+	}
+
+	my $token = get_token_using_client_credentials();
+	unless ($token) {
+		confess('Could not get token to manage users with keycloak_users_endpoint');
+	}
+
+	my $get_users_request = HTTP::Request->new(GET => $keycloak_users_endpoint);
+	$get_users_request->header('Accept' => 'application/json');
+	$get_users_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	my $get_users_response = LWP::UserAgent->new->request($get_users_request);
+	unless ($get_users_response->is_success) {
+		confess($get_users_response->content);
+	}
+
+	my @users = decode_json($get_users_response->content);
+	return @users;
+}
+
+=head2 delete_user_from_keycloak($keycloak_user)
+
+Removes the given users from our Keycloak realm
+
+=head3 parameters
+
+=head4 $user - sub
+
+The user that will be deleted from Keycloak
+
+=cut
+
+sub delete_user_from_keycloak ($user) {
+	my $keycloak_users_endpoint = $oidc_options{keycloak_users_endpoint};
+	unless ($keycloak_users_endpoint) {
+		confess('keycloak_users_endpoint not configured');
+	}
+
+	my $token = get_token_using_client_credentials();
+	unless ($token) {
+		confess('Could not get token to manage users with keycloak_users_endpoint');
+	}
+
+	my $delete_user_request = HTTP::Request->new(DELETE => $keycloak_users_endpoint . '/' . $user->{id});
+	$delete_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	my $delete_user_response = LWP::UserAgent->new->request($delete_user_request);
+	unless ($delete_user_response->is_success) {
+		confess($delete_user_response->content);
+	}
+
+	return;
 }
 
 1;
