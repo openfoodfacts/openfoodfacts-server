@@ -1129,7 +1129,7 @@ sub init_user ($request_ref) {
 				$log->context->{user_id} = $user_id;
 
 				my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at)
-					= password_signin($user_id, decode utf8 => request_param($request_ref, 'password'));
+					= password_signin($user_id, encode_utf8(request_param($request_ref, 'password')));
 				# We don't have the right password
 				if (not $oidc_user_id) {
 					$user_id = undef;
