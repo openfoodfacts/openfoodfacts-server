@@ -68,6 +68,7 @@
          "20xxxxxxxxxx",
          "2xxxxxxxxxxx"
       ],
+      "compared_to_category" : "en:sweet-snacks",
       "complete" : 0,
       "completeness" : 0.5,
       "correctors_tags" : [],
@@ -102,7 +103,7 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : "0",
+                     "epi_score" : 0,
                      "origin" : "en:unknown",
                      "percent" : 100,
                      "transportation_score" : null
