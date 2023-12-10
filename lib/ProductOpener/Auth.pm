@@ -303,8 +303,7 @@ sub create_user_in_keycloak ($user_ref, $password) {
 		display_error_and_exit($new_user_response->content, 500);
 	}
 
-	my $get_user_request = HTTP::Request->new(
-		GET => $keycloak_users_endpoint . '?exact=true&username=' . uri_escape($user_ref->{userid}));
+	my $get_user_request = HTTP::Request->new(GET => $new_user_response->header('location'));
 	$get_user_request->header('Content-Type' => 'application/json');
 	$get_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
 	my $get_user_response = LWP::UserAgent->new->request($get_user_request);
@@ -314,7 +313,7 @@ sub create_user_in_keycloak ($user_ref, $password) {
 
 	my $json_response = $get_user_response->decoded_content(charset => 'UTF-8');
 	my @created_users = decode_json($json_response);
-	return @created_users[0];
+	return $created_users[0];
 }
 
 sub create_user_in_product_opener ($id_token) {
