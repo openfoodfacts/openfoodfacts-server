@@ -5,7 +5,7 @@ stopwords:de:enthalten,von,und,kann,spuren,andere,anderen
 stopwords:es:traza,trazas,y,de,que,contiene,contienen,otros,producto,productos,derivado,derivados,incluido,incluidos,incluida,incluidas,la,una,fuente,contener,puede,con,elaborado,en,linea,donde,se,procesa,granos,posible,posibles,este
 stopwords:fi:ja,muita,muuta,tehtaassa,valmistettu,saattaa,sisältää,pieniä,pienehköjä,määriä,jäämiä,ainesosia
 stopwords:fr:d'autres,autre,autres,ce,produit,est,fabriqué,élaboré,transformé,emballé,dans,un,atelier,une,usine,qui,utilise,aussi,également,céréale,céréales,farine,farines,extrait,extraits,graine,graines,trace,traces,éventuelle,éventuelles,possible,possibles,potentielle,potentielles,peut,pourrait,pouvant,contenir,contenant,contient,de,des,du,d',l',la,le,les,et,dérivés,à,base,ce,ces,hybrides,ou,produits,y,compris,contiennent
-stopwords:hr:i,ili,može,sadržavati,sadrži,tragove,u tragovima,mogući tragovi 
+stopwords:hr:i,ili,može,sadržavati,sadrži,tragove,u tragovima,mogući tragovi
 stopwords:is:í,snefilmagni
 stopwords:it:derivanti,del,de,la,e,tracce,contiene,una,fonte,di,puo,contenere,altra,contenenti,a,base,semi
 stopwords:pt:traços,vestígios,vestígio,a,e,uma,em,ou,de,que,com,contém,contêm,possível,eventual,outros,produto,produtos,derivado,derivados,incluido,incluidos,incluida,incluidas,fonte,pode,elaborado,onde,se,processa,grãos,possível,possíveis,este,feito,manofaturado,fabricado,fábrica,também,usa,subproduto,subprodutos,mín,min,mínimo,refinado
@@ -40,7 +40,7 @@ hr:gluten, glutena, ječmeni, ječmeni slad, ječam, ječma, ječmeno, ječmenog
 hu:glutén, búza, búzaliszt, búzarost, búzadara, búzacsíra, búzafehérje, búzakorpa, búzamaláta, búzapehely, búzakeményítő, búzasikér, tönkölybúza, tönkölybúzaliszt, tönkölybúzapehely, durumbúza, durumbúzaliszt, rozs, rozsliszt, rozspehely, durumrozsliszt, árpa, árpaliszt, árpapehely, árpamaláta, árpadara, árpacsíra, zab, zabliszt, zabpehely, zabkorpa, durumliszt, durum liszt, Grahamliszt, Graham liszt, kenyérliszt, kenyér liszt, rétesliszt, rétes liszt, kamut, alakor, bulgur, glutént, glutént tartalmazó gabona, glutént tartalmazó gabonafélék
 is:glúten
 it:glutine, grano, segale, orzo, farro, kamut, frumento, farina di frumento, farina di frumento integrale
-jp:小麦/そば,小麦,グルテン,コムギ,そば
+jp:小麦/そば,小麦,穀物,グルテン,コムギ,そば,ソバ
 lt:avižos, avižų, avižiniai, avižinės, glitimas, glitimo, glitimu, kamutas, kviečiai, kviečių, kvietiniai, kvietinės, miežiai, miežių, miežiniai, miežinės, rugiai, ruginiai, ruginės, rugių, spelta, manų
 lv:auzas, auzu, kvieši, kviešu, lipekli, manna, mieži, miežu, rudzi, speltas kvieši, triticum turgidum polonicum
 mt:glutina, qamħ, segala, barli, ħafur, ispelt, kamut
@@ -106,7 +106,7 @@ he:ביצים, ביצה, חלמון, חלבון, הלבן של הביצה, הצ�
 hr:jaja, bjelanjak, bjelanjka jajeta, žumanjak, iz jaja
 hu:tojás, tojássárgája, tojásfehérje, tojáspor, tyúktojás, tojássárgájapor, tojáslé
 it:uova, uovo
-jp:卵
+jp:卵,玉子,たまご,タマゴ,エッグ,鶏卵,あひる卵,うずら卵
 lt:kiaušiniai, kiaušinis, kiaušinių, kiaušinio, kiaušinio baltymas, kiaušinio baltymai, kiaušinio trynys, kiaušinio tryniai
 lv:olas, ola
 mt:bajd
@@ -141,7 +141,7 @@ he:דג, דגים, טונה, סלמון, קוד, מקרל, ברבוניה, הל�
 hr:riba, ribe, skuša
 hu:hal, halak, tőkehal, tőkehalfilé, makréla, hering, heringfilé, lazac, lazacfilé, pisztráng, tonhal, szardínia, lepényhal, rombuszhal, sprotni, alaszkai tőkehal
 it:pesce
-jp:さけ,魚,サバ,サケ,さば
+jp:さけ/さば,魚,魚類,さけ,鮭,サケ,サーモン,しゃけ,シャケ,さば,鯖,サバ
 lt:žuvis, žuvys, žuvies, žuvų, menkė, menkės, menkių, skumbrė, skumbrės, skumbrių, plekšnė, plekšnės, plekšnių, lašiša, lašišos, lašišų, upėtakis, upėtakiai, upėtakių, tunas, tunu, tuno, sardinės, sardinė, sardinių
 lv:zivis
 mt:ħut
@@ -162,40 +162,40 @@ wikidata:en:Q600396
 
 # <en:fish
 en:red caviar
-jp:いくら
+jp:いくら,イクラ,すじこ,スジコ
 
 en:orange
 jp:オレンジ
 
 en:kiwi
-jp:キウイフルーツ
+jp:キウイフルーツ,キウイ,キウィー,キーウィー,キーウィ,キウィ
 
 en:banana
-jp:バナナ
+jp:バナナ,ばなな
 
 en:peach
-jp:もも
+jp:もも,モモ,桃,ピーチ
 
 en:apple
-jp:りんご
+jp:りんご,リンゴ,アップル
 
 en:beef
-jp:牛肉
+jp:牛肉,牛,ビーフ,ぎゅうにく,ぎゅう肉,牛にく
 
 en:pork
-jp:豚肉
+jp:豚肉,ぶたにく,豚にく,ぶた肉,豚,ポーク
 
 en:chicken
-jp:鶏肉
+jp:鶏肉,とりにく,とり肉,鳥肉,鶏,鳥,とり,チキン
 
 en:yamaimo
-jp:やまいも
+jp:やまいも,山芋,ヤマイモ,山いも
 
 en:gelatin
 jp:ゼラチン
 
 en:matsutake
-jp:まつたけ
+jp:まつたけ,松茸,マツタケ
 
 en:peanuts, peanut, arachis hypogaea
 ar:فول سوداني
@@ -249,7 +249,7 @@ hr:soja, soje, sojin, sojina, sojini, sojino, soju, sojin lecitin, sojini leciti
 hu:szója, szójabab, szójalecitin, szójalecitinek, szójatej, szójaliszt, szójafehérje, szójából, szóját
 is:soja
 it:soia, lecitina di soia
-jp:大豆,ダイズ,醤油
+jp:大豆,だいず,ダイズ,醤油
 lt:sojų pupelės, sojų, soja, sojos, sojos pupelė, sojų miltai, sojų lecitinas, sojų lecitinai, sojos baltymas, sojų baltymai, sojų baltymų izoliatas, sojų produktų, sojos produktų
 lv:sojas pupas, sojas
 mt:soybeans
@@ -284,7 +284,7 @@ hr:laktoza, laktoze, maslac, mlijeka, mlijeko, mliječna, mliječne, mliječno, 
 hu:tej, laktóz, tejsavó, savó, tejtermék, tejtermékek, tejszín, tejfehérje, tejpor, tejsavópor, savópor, tejzsír, tejet, tejcukor, tehéntej, joghurt, joghurtpor, joghurt kultúra, sajt, vaj
 is:mjólk, undanrenna, nýmjólk, léttmjólk
 it:latte, lattosio, parmigiano reggiano, grana padano
-jp:乳,牛乳,クリーム,バター,ヨーグルト,チーズ
+jp:乳,乳成分,牛乳,ミルク,クリーム,バター,バターオイル,ヨーグルト,チーズ,アイスクリーム
 lt:išrūgų, pienas, pieno, pienu, pieniškas, laktozę, laktozė, laktozės, laktoze, sviestas, sviesto, sviestu, pasukos, pasukų, jogurtas, jogurto, grietinė, grietinėlė, pieniškas šokoladas, pieniško šokolado, pieno milteliai, pieno baltymai, pieno baltymas
 lv:laktozi, piena, piens, pilnpiena, vājpiena
 mt:ħalib, lattosju
@@ -320,7 +320,7 @@ hr:orašaste plodove, orašastih plodova, orašasto voće, orašasto voče, ora�
 hu:diófélék, mandula, mogyoró, dió, kesudió, pekándió, brazil dió, pisztácia, makadámia, queenslandi dió, dióféléket
 is:hnetur
 it:frutta a guscio, mandorle, nocciole, noci, noci di acagiù, noci di pecan,  noci del Brasile, pistacchi, noci macadamia, noci del Queensland
-jp:くるみ/アーモンド,くるみ,種実類,アーモンド,ヘーゼルナッツ, クルミ, カシューナッツ,ペカン, ブラジルナッツ, ピスタチオ, マカダミアナッツ
+jp:くるみ/アーモンド,くるみ,種実類,木の実,木の実類,アーモンド,ヘーゼルナッツ, クルミ, カシューナッツ,ペカン, ブラジルナッツ, ピスタチオ, マカダミアナッツ
 lt:riešutai, riešutų, riešutas, riešutais, migdolai, migdolų, migdolas, migdolais, lazdyno riešutai, lazdynų, lazdynas, lazdynais, lazdyno, graikiniai riešutai, graikinių riešutų, graikiniais riešutais, anakardžiai, anakardžių, anakardžiais, Anakardium occidentale, pekaninės karijos, pekaninių karijų,  brazilinės bertoletijos, brazilinių bertoletijų, pistacijos, pistacijų, pistacija, makadamijos, makadamijų, makadamija, Kvinslendo riešutai
 lv:rieksti, mandeles, lazdu rieksti, valrieksti, Indijas rieksti, pekanrieksti,  Brazīlijas rieksti, pistāciju rieksti, makadāmijas, Kvīnslendas rieksti
 mt:ġewż, lewż, ġellewż, ġewż, anakardji, ġewż Amerikan,  ġewż tal-Brażil, pistaċċi, macadamia, Queensland nuts
@@ -424,7 +424,7 @@ he:שומשום, זרעי שומשום, טחינה, שמן שומשום
 hr:sezam, sezama, sjeme sezama, sjemenki sezama
 hu:szezámmag, szezám, szezámmagot
 it:semi di sesamo, sesamo
-jp:ごま,ゴマ
+jp:ごま,ゴマ,胡麻
 lt:sezamo sėklos, sezamo, sezamas, sezamų, sezamai, sezamais, sezamu
 lv:sezama sēklas, sezama
 mt:ġulġlien
