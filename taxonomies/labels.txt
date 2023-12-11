@@ -1466,6 +1466,22 @@ en:Junta Islamica
 <en:Halal
 fr:Société Française de Contrôle de Viande Halal, SFCVH, S-f-c-v-h
 
+<en:Halal
+en:Islamic Food and Nutrition Council of Canada, IFANCC, Halal IFANCC Certified
+
+<en:Halal
+en:Islamic Food and Nutrition Council of America, IFANCA, Halal IFANCA Certified
+auth_url:en:https://ifanca.org/
+
+<en:Halal
+en:Eurohalal
+fr:Eurohalal
+xx:Eurohalal
+auth_url:en:https://www.eurohalal.org/
+
+en:Halal Quality Control, HQC Halal
+xx:HQC Halal
+
 fr:Label Rouge
 xx:Label Rouge
 wikidata:en:Q3214309
@@ -1494,6 +1510,16 @@ wikidata:en:Q15613582
 
 en:isomaltulose is a source of glucose and fructose
 hr:izomaltuloza je izvor glukoze i fruktoze
+bg:изомалтулозата е източник на глюкоза и фруктоза
+da:isomaltulose er en kilde til glucose og fruktose
+de:Isomaltulose ist eine Quelle von Glukose und Fruktose
+es:la isomaltulosa es una fuente de glucosa y fructosa
+fi:isomaltuloosi on glukoosin ja fruktoosin lähde
+fr:l'isomaltulose est une source de glucose et de fructose
+it:la isomaltulosio è una fonte di glucosio e fruttosio
+nl:isomaltulose is een bron van glucose en fructose
+pl:izomaltuloza jest źródłem glukozy i fruktozy
+se:isomaltulos är en källa till glukos och fruktos
 
 en:source of fibre
 bg:източник на влакнини
@@ -1541,6 +1567,7 @@ pl:Omega-3
 pt:Ómega-3, ómega 3
 ru:омега-3 жиры, омега-3
 th:โอเมกา 3
+xx:Omega-3
 wikidata:en:Q191756
 
 <en:Omega-3
@@ -1560,9 +1587,13 @@ pt:Rico em Ómega 3, Rico em Ómega-3
 ru:Обогащено омега-3 жирами
 
 en:Rich in unsaturated fatty acids
-de:reich an ungesättigten fettsäuren
+de:reich an ungesättigten Fettsäuren
 fr:riche en acides gras insaturés
 hr:bogat nezasićenim masnim kiselinama
+es:rico en ácidos grasos insaturados
+it:ricco di acidi grassi insaturi
+nl:rijk aan onverzadigde vetzuren
+pt:rico em ácidos graxos insaturados
 
 en:Rich in polyunsaturated fatty acids
 de:Reich an mehrfach ungesättigten Fettsäuren
@@ -3199,6 +3230,10 @@ label_categories:en: en:Origins, en:Geographic label
 country:en:Poland
 wikitada:en:Q43151531
 
+en:Polish milk
+pl:polskie mleko
+origins:en: en:poland
+
 en:Made in Portugal
 bg:Произведено в Португалия
 de:Hergestellt in Portugal
@@ -3767,6 +3802,19 @@ pt:Sem sabores artificiais, livre de sabor artificial, livre de sabores artifici
 ru:без искусственных ароматизаторов, без добавления искусственных ароматизаторов
 sv:Inga artificiella aromämnen
 th:ไม่เติมกลิ่นสังเคราะห์
+
+fr:Sans arômes ni colorants artificiels
+bg:Без изкуствени аромати и оцветители
+ca:Sense aromes ni colorants artificials
+de:Ohne künstliche Aromen und Farbstoffe
+es:Sin aromas ni colorantes artificiales
+fi:ei keinotekoisia aromeja eikä väriaineita
+he:ללא חומרי טעם וצבע מלאכותיים
+hu:Mesterséges ízesítők és színezékek nélkül
+it:Senza aromi né coloranti artificiali
+nl:Zonder kunstmatige smaakstoffen en kleurstoffen
+pl:Bez sztucznych aromatów i barwników
+pt:Sem aromas nem corantes artificiais
 
 #instruction:en:Do NOT change the english key.
 en:No artificial sweeteners, no sweeteners added
@@ -4878,6 +4926,12 @@ sv:EU-ekologisk
 zh:欧盟有机
 wikidata:en:Q380448
 
+<en:EU organic
+de:EG-Öko-Verordnung, Deutsches Bio-Siegel, Deutsches staatliches Bio-Siegel, Bio-Siegel, eg oko verordnung
+xx:EG-Öko-Verordnung, eg oko verordnung
+country:en:Germany
+image:de:eg-oko-verordnung.110x90.svg
+
 en:non-EU Agriculture
 bg:Земеделие извън ЕС
 ca:Agricultura No-UE
@@ -4962,12 +5016,6 @@ en:Biogarantie BEL, Biogarantie Made in Belgium
 xx:Biogarantie BEL, Biogarantie Made in Belgium
 country:en:Belgium
 image:en:biogarantie-bel.90x90.svg
-
-<en:EU organic
-de:EG-Öko-Verordnung, Deutsches Bio-Siegel, Deutsches staatliches Bio-Siegel, Bio-Siegel, eg oko verordnung
-xx:EG-Öko-Verordnung, eg oko verordnung
-country:en:Germany
-image:de:eg-oko-verordnung.110x90.svg
 
 <en:EU organic
 fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agriculture-biologique, ab certifié, AB France
