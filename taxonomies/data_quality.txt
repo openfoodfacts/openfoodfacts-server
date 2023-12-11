@@ -2560,7 +2560,6 @@ description:en:Having a sum of ingredients percentages greater than 100 is logic
 
 <en:Ingredients warnings
 en:Sum of ingredients with unspecified percent lesser than 10
-#description:en:
 
 
 
@@ -2573,7 +2572,7 @@ description:en: Data quality warnings linked to GS1 format (producers imports)
 
 <en:GS1 warnings
 en:GS1 - Future coupon prefix
-#description:en:
+description:en:This product has a barcode with a GS1 future coupon prefix. This is likely a food data quality error as it indicates that the barcode is associated with a coupon that is not yet valid or has expired, rather than a food product.
 
 <en:GS1 warnings
 en:GS1 - ISSN prefix
@@ -2589,11 +2588,11 @@ description:en:The International Standard Book Number (ISBN) is for books. In ot
 
 <en:GS1 warnings
 en:GS1 - refund prefix
-#description:en:
+description:en:This product has a barcode with a GS1 refund prefix. This is likely a food data quality error as it indicates that the barcode is associated with a refund rather than a food product.
 
 <en:GS1 warnings
 en:GS1 - Coupon common currency area prefix
-#description:en:
+description:en:This product has a barcode with a GS1 coupon common currency area prefix. This is likely a food data quality error as it indicates that the barcode is associated with a coupon rather than a food product.
 
 
 
@@ -2608,7 +2607,7 @@ description:en:There's no language for this product, which is problematic, since
 
 
 en:Main language unknown
-#description:en:
+description:en:The main language of the product is unknown, which can lead to data quality issues in analyzing ingredients and other aspects of the product.
 
 
 
@@ -2878,15 +2877,15 @@ description:en:Serving quantity is never that large, since it's supposed to be a
 
 <en:Quantity and serving warnings
 en:Serving quantity over product quantity
-#description:en:
+description:en:The serving quantity is listed as greater than the product quantity, which is highly unlikely and indicates a data quality error.
 
 <en:Quantity and serving warnings
 en:Serving quantity under 1g
-#description:en:
+description:en:The serving quantity is listed as under 1 gram, which is highly unlikely for 99% of food products. This is likely a data quality error.
 
 <en:Quantity and serving warnings
 en:Serving size in mg
-#description:en:
+description:en:The serving size is listed in milligrams (mg), which is unusual for most food products. It is likely a data quality error.
 
 
 
