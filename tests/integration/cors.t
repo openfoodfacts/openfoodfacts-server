@@ -123,7 +123,7 @@ execute_api_tests(__FILE__, $tests_ref);
 create_user($ua, \%default_user_form);
 
 my $auth_ua = new_client();
-login($auth_ua, "tests", 'testtest');
+login($auth_ua, "tests", $test_password);
 
 $tests_ref = [
 	{

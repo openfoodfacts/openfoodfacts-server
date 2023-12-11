@@ -85,7 +85,7 @@ like($response_contributor->content, qr/Unknown user\./, "the contributor page o
 my $url_login = construct_test_url("/cgi/login.pl", "world");
 my %login_form = (
 	user_id => "tests",
-	password => "testtest",
+	password => $test_password,
 	submit => "Sign in"
 );
 my $response_login = $ua->post($url_login, \%login_form);

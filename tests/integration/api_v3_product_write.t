@@ -411,7 +411,7 @@ my $tests_ref = [
 		path => '/api/v3/product/1234567890014',
 		body => '{
 			"user_id": "tests",
-			"password": "testtest",
+			"password": "' . $test_password . '",
 			"fields": "creator,editors_tags,packagings",
 			"tags_lc": "en",
 			"product": {
