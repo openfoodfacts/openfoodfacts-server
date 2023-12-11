@@ -235,7 +235,6 @@ sub normalize_nutriment_value_and_modifier ($value_ref, $modifier_ref) {
 		${$value_ref} =~ s/(env|environ|about|~|≈|aprox|alrededor)( )?//i;
 		${$modifier_ref} = '~';
 	}
-
 	elsif (${$value_ref} =~ /(trace|traces|traza|trazas)/i) {
 		${$value_ref} = 0;
 		${$modifier_ref} = '~';
