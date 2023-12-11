@@ -48,6 +48,9 @@ my @tests = (
 	[{lc => "en", categories_tags => ["en:waters"]}, 1],
 	[{lc => "en", categories_tags => ["en:flavoured-waters"]}, undef],
 
+	# allergens in parenthesis should not change the nova score but should appear in allergens
+	[{lc => "hr", ingredients_text_hr => "Krupica od durum pšenice (gluten), voda."}, 1],
+
 );
 
 foreach my $test_ref (@tests) {

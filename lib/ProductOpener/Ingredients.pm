@@ -1960,6 +1960,76 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 						$between = "origins:" . $between;
 					}
 
+					# allergens or traces
+					# single allergen in parenthesis, for example: Krupica od durum pšenice (gluten) -> durum wheat semolina (gluten)
+					# more than a single allergen is handle just after
+					# in Japanese, 豚肉を含む (contains (を含む) pork (豚肉))
+					# 一部に卵・小麦・乳成分・大豆を含む (contains (を含む) parts of (一部に), eggs, wheat, milk, soybeans (卵・小麦・乳成分・大豆)
+					if (
+						(
+							($between !~ /$separators|$and/)
+							and (
+								exists_taxonomy_tag(
+									"allergens", canonicalize_taxonomy_tag($ingredients_lc, "allergens", $between)
+								)
+							)
+						)
+						or ($between =~ /を含む/)
+						)
+					{
+						# prepend ">allergens<:" in the beginning of the text, that will be reused below
+						# avoid "allergens:" to avoid false positive (for example, "salt, egg, spice.
+						#   allergen advice: for allergens including cereals containing gluten, see ingredients
+						#   in bold. May contain traces of nuts.")
+						$between = ">allergens<:" . $between;
+
+						$log->debug(
+							"parse_ingredients_text - sub-ingredients: single allergens or keyword for allergen.")
+							if $log->is_debug();
+					}
+
+					# # allergens or traces
+					# # 香料(小麦, 大豆) -> Flavoring (wheat, soybean)
+					# # 1- first occurence is allergen
+					# if (
+					# 	($between =~ /$separators|$and/)
+					# 	and (
+					# 		exists_taxonomy_tag(
+					# 			"allergens", canonicalize_taxonomy_tag($ingredients_lc, "allergens", $`)
+					# 		)
+					# 	)
+					# 	)
+					# {
+					# 	$log->debug("parse_ingredients_text - sub-ingredients: first word is an allergen.")
+					# 		if $log->is_debug();
+
+					# 	# 2- all elements should be allergens
+					# 	# to avoid false positive. Because allergen can be ingredient (eggs, for example)
+					# 	my @between_to_array = split /$separators|$and/, $between;
+					# 	my $all_allergens = 1;
+					# 	my $exist_allergen_bool;
+					# 	foreach my $between_element (@between_to_array) {
+					# 		$exist_allergen_bool = exists_taxonomy_tag("allergens",
+					# 			canonicalize_taxonomy_tag($ingredients_lc, "allergens", $`));
+					# 		if (defined $exist_allergen_bool && !$exist_allergen_bool) {
+					# 			$all_allergens = 0;
+
+					# 			$log->debug(
+					# 				"parse_ingredients_text - sub-ingredients: further words are not all allergens or are not known."
+					# 			) if $log->is_debug();
+					# 		}
+					# 	}
+					# 	if ($all_allergens == 1) {
+					# 		# prepend "allergens:" in the beginning of the text, that will be reused below
+					# 		$between = "allergens:" . $between;
+
+					# 		$log->debug(
+					# 			"parse_ingredients_text - sub-ingredients: further words are allergens as well.")
+					# 			if $log->is_debug();
+					# 	}
+
+					# }
+
 					$debug_ingredients and $log->debug(
 						"initial processing of percent and origins",
 						{
@@ -1972,18 +2042,19 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 
 					if (    ($between =~ $separators)
 						and ($` !~ /\s*(origin|origins|origine|alkuperä|ursprung)\s*/i)
+						and ($` !~ /\s*(allergens)\s*/i)
 						and ($between !~ /^$percent_or_quantity_regexp$/i))
 					{
 						$between_level = $level + 1;
 						$log->debug(
-							"parse_ingredients_text - sub-ingredients: between contains a separator and is not origin nor has percent",
+							"parse_ingredients_text - sub-ingredients: between contains a separator and is not origin nor allergen nor has percent",
 							{between => $between}
 						) if $log->is_debug();
 					}
 					else {
 						# no separator found : 34% ? or single ingredient
 						$log->debug(
-							"parse_ingredients_text - sub-ingredients: between does not contain a separator or is origin or is percent",
+							"parse_ingredients_text - sub-ingredients: between does not contain a separator or is origin or allergen or has percent",
 							{between => $between}
 						) if $log->is_debug();
 
@@ -2004,7 +2075,8 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 						else {
 							# label? (organic)
 							# origin? (origine : France)
-							$log->debug("parse_ingredients_text - sub-ingredients: label? origin? ($between)")
+							# allergens? (豚肉を含む) - (contains (を含む) pork (豚肉)) - in Japanese allergens are not separated from the ingredients list
+							$log->debug("parse_ingredients_text - sub-ingredients: label? origin? allergen? ($between)")
 								if $log->is_debug();
 
 							# try to remove the origin and store it as property
@@ -2042,6 +2114,49 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 											split(/$commas|$and/, $origin_string));
 								}
 							}
+							# try to remove the allergens and store them as allergens
+							# in Japanese allergens are not separated from the ingredients list, instead they are in parenthesis.
+							if ($between =~ /\s*(?:>allergens<:)\s?:?\s?\b(.*)$/i) {
+								$log->debug("parse_ingredients_text - sub-ingredients: contains allergens in $between")
+									if $log->is_debug();
+
+								$between = '';
+								# rm first occurence (allergens:)
+								my $allergen_string = $1;
+
+								if ($ingredients_lc eq 'ja') {
+									# if allergens are listed at the end of ingredients list
+									# it starts by 一部に
+									# it ends by を含む
+									$allergen_string =~ s/(一部に|を含む)//g;
+								}
+
+								$allergens = join(",",
+									map {canonicalize_taxonomy_tag($ingredients_lc, "allergens", $_)}
+										split(/$commas|$and|\N{U+30FB}/, $allergen_string));
+
+								if ((defined $product_ref->{"allergens"}) and ($product_ref->{"allergens"} ne "")) {
+									$product_ref->{"allergens"} = $product_ref->{"allergens"} . ", " . $allergens;
+								}
+								else {
+									$product_ref->{"allergens"} = $allergens;
+								}
+
+								$log->debug("parse_ingredients_text - sub-ingredients: allergens. $allergens")
+									if $log->is_debug();
+
+								$log->debug("parse_ingredients_text - sub-ingredients: allergens in product. ",
+									$product_ref->{"allergens"})
+									if $log->is_debug();
+
+								$log->debug("parse_ingredients_text - sub-ingredients: traces in product. ",
+									$product_ref->{"traces"})
+									if $log->is_debug();
+
+								$between = '';
+
+							}
+
 							else {
 								$log->debug(
 									"parse_ingredients_text - sub-ingredients: origin not explicitly written in: $between"

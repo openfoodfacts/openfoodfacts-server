@@ -174,6 +174,34 @@ my @tests = (
 	# Use the ingredients taxonomy to add allergens
 	[{lc => "fr", ingredients_text => "semoule de blé dur, pousses de soja"}, ["en:gluten"], []],
 
+	# Japanese allergens are in parenthesis
+	[
+		{
+			lc => "ja",
+			ingredients_text => "香料 (ラッカセイ, 種実類,魚)"
+		},
+		["en:peanuts",],    # allergens
+		["en:fish", "en:nuts", "en:peanuts",],    # traces
+	],
+	# Japanese allergens are in parenthesis with specific words
+	[
+		{
+			lc => "ja",
+			ingredients_text => "ミートボール(一部に卵・グルテン・乳成分・大豆を含む)."
+		},
+		["en:eggs", "en:gluten", "en:milk", "en:soybeans",],    # allergens
+		[],    # traces
+	],
+	# allergens in parenthesis should not change the nova score but should appear in allergens
+	[
+		{
+			lc => "hr",
+			ingredients_text => "Krupica od durum pšenice (gluten), voda."
+		},
+		["en:gluten",],    # allergens
+		[],    # traces
+	],
+
 );
 
 foreach my $test_ref (@tests) {
