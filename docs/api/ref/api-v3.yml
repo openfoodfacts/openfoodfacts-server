@@ -307,6 +307,11 @@ paths:
         - schema:
             type: string
           in: query
+          name: get_synonyms
+          description: 'Whether or not to include "matched_synonyms" in the response. Set to 1 to include.'
+        - schema:
+            type: string
+          in: query
           name: term
           description: Alias for the "string" parameter provided for backward compatibility. "string" takes precedence.
   '/api/v3/tag/{tagtype}/{tag_or_tagid}':
