@@ -219,8 +219,11 @@ sub normalize_nutriment_value_and_modifier ($value_ref, $modifier_ref) {
 		${$value_ref} =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
 		${$modifier_ref} = "\N{U+2264}";
 	}
-	elsif (${$value_ref} =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than|menos|menor|inferior)( )?/i) {
-		${$value_ref} =~ s/(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than|menos|menor|inferior)( )?//i;
+	elsif (
+		${$value_ref} =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than|menos|menor|inferior)( )?/i)
+	{
+		${$value_ref}
+			=~ s/(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than|menos|menor|inferior)( )?//i;
 		${$modifier_ref} = '<';
 	}
 	elsif (${$value_ref} =~ /(\&gt;=|>=|\N{U+2265})/) {
