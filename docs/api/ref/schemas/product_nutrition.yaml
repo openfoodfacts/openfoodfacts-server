@@ -11,6 +11,26 @@ properties:
       By doing so, the no_nutrition_data field takes the value "on".
       This case is frequent (thousands of products).
     example: "on"
+  nutrition_data_per:
+    type: string
+    enum:
+    - serving
+    - 100g
+    description: |
+      The nutrition data on the package can be per serving or per 100g.
+
+      This is essential to understand if `<nutrient>_value` and `<nutrient>` 
+      values in `nutriments` applies for a serving or for 100g.
+  nutrition_data_prepared_per:
+    type: string
+    enum:
+    - serving
+    - 100g
+    description: |
+      The nutrition data for prepared product on the package can be per serving or per 100g.
+
+      This is essential to understand if `<nutrient>_prepared_value` and `<nutrient>_prepared` 
+      values in `nutriments` applies for a serving or for 100g.
   nutriments:
     type: object
     description: |
@@ -18,7 +38,10 @@ properties:
 
       Note that each nutrients are declined with a variety of suffixes like `_100g`, `_serving`,
       see patternProperties below.
+
       A specific `_unit` is the unit used to measure the nutrient.
+
+      Beware that some properties are to be interpreted based upon `nutrition_data_per` value.
 
       Also for products that have a nutrition table for prepared product
       (eg. the nutrition facts for a bowl of milk with cocoa powder),
@@ -28,7 +51,8 @@ properties:
     properties:
       alcohol:
         description: |
-          Quantity of alcool per 100g, per serving
+          Quantity of alcohol
+          (per 100g or per serving) in a standard unit (100g or 100ml)
         type: number
       carbohydrates:
         type: number
@@ -82,7 +106,7 @@ properties:
           imports.
         example: 12.5
     patternProperties:
-      '(?<nutrient>\w+)_unit':
+      '(?<nutrient>[\w-]+)_unit':
         description: |
           The unit in which the nutrient for 100g or per serving is measured.
 
@@ -103,43 +127,49 @@ properties:
           [default-unit]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Food.html#default_unit_for_nid_(_%24nid)
         type: string
         enum: ['公斤', '公升', 'kg', 'кг', 'l', 'л', '毫克', 'mg', 'мг', 'mcg', 'µg', 'oz', 'fl oz', 'dl', 'дл', 'cl', 'кл', '斤', 'g', '', ' ', 'kj', '克', '公克', 'г', 'мл', 'ml', 'mmol/l', '毫升', '% vol', 'ph', '%', '% dv', '% vol (alcohol)', 'iu', 'mol/l', 'mval/l', 'ppm', '�rh', '�fh', '�e', '�dh', 'gpg']
-      '(?<nutrient>\w+)_100g':
+      '(?<nutrient>[\w-]+)_100g':
         description: |
           The standardized value of a serving of 100g (or 100ml for liquids)
           for the nutrient.
 
           This is computed from the `nutrient` property,
-          the serving size, and the `nutrient`_unit field.
+          the serving size (if needed), and the `nutrient`_unit field.
+
+          **Note**:
+          If you want to characterize products in a uniform way, this is the value you should use.
         type: number
-      '(?<nutrient>\w+)_serving':
+      '(?<nutrient>[\w-]+)_serving':
         description: |
           The standardized value of a serving for this product.
         type: number
-      '(?<nutrient>\w+)_value':
+      '(?<nutrient>[\w-]+)_value':
         description: |
-          The standardized value of a serving of 100g (or 100ml for liquids)
-          for the nutrient.
+          The value input by the user / displayed on the product for the nutrient.
+
+          * per 100g or serving, depending on `nutrition_data_per`
+          * in the unit of corresponding <nutrient>_unit field.
         type: number
-      '(?<nutrient>\w+)_prepared':
+      '(?<nutrient>[\w-]+)_prepared':
         description: |
           The value for nutrient for **prepared** product.
         type: number
-      '(?<nutrient>\w+)_prepared_unit':
+      '(?<nutrient>[\w-]+)_prepared_unit':
         description: |
-          The unit in which the nutrient for 100g or per serving of **prepared** product is measured.
+          The unit in which the nutrient of **prepared** product is measured.
         type: string
-      '(?<nutrient>\w+)_prepared_100g':
+      '(?<nutrient>[\w-]+)_prepared_100g':
         description: |
           The standardized value of a serving of 100g (or 100ml for liquids)
           for the nutrient, for **prepared** product.
         type: number
-      '(?<nutrient>\w+)_prepared_serving':
+      '(?<nutrient>[\w-]+)_prepared_serving':
         description: |
           The standardized value of a serving for the **prepared** product.
         type: number
-      '(?<nutrient>\w+)_prepared_value':
+      '(?<nutrient>[\w-]+)_prepared_value':
         description: |
-          The standardized value of a serving of 100g (or 100ml for liquids)
+          The standardized value for a serving or 100g (or 100ml for liquids),
+          depending on `nutrition_data_prepared_per`
           for the nutrient for **prepared** product.
         type: number
   nutriscore_data:
