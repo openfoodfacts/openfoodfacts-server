@@ -552,9 +552,9 @@ function initializeTagifyInput(el) {
     const timeoutWait = 300;
 
     function updateSuggestions() {
-        let value = input.state.inputText;
-        let lc = /^\w\w:/.exec(value);
-        let term = lc ? value.substring(lc[0].length) : value;
+        const value = input.state.inputText;
+        const lc = (/^\w\w:/).exec(value);
+        const term = lc ? value.substring(lc[0].length) : value;
         input.dropdown.show(term);
     }
 
@@ -578,18 +578,20 @@ function initializeTagifyInput(el) {
                 }).
                 then((RES) => RES.json()).
                 then(function(json)  {
-                    let lc = /^\w\w:/.exec(value);
+                    const lc = (/^\w\w:/).exec(value);
                     let whitelist;
                     if (lc) {
-                        whitelist = json.matched_synonyms.map(function(e) {return {"value": lc + e, "searchBy": e}});
-                        for (let i in json.matched_synonyms) {
+                        whitelist = json.matched_synonyms.map(function(e) {
+                            return {"value": lc + e, "searchBy": e};
+                        });
+                        for (let i = 0; i < json.matched_synonyms.length; i++) {
                             json.matched_synonyms[i] = lc + json.matched_synonyms[i];
                         }
                     } else {
                         whitelist = json.matched_synonyms;
                     }
-                    let synonymMap = Object.create(null);
-                    for (let i in json.suggestions) {
+                    const synonymMap = Object.create(null);
+                    for (let i = 0; i < json.suggestions.length; i++) {
                         synonymMap[json.matched_synonyms[i]] = json.suggestions[i];
                     }
                     input.synonymMap = synonymMap;
@@ -601,14 +603,20 @@ function initializeTagifyInput(el) {
         updateSuggestions();
     });
 
-    input.on("dropdown:show", function(event) {
-        if (!input.synonymMap) return;
+    input.on("dropdown:show", function() {
+        if (!input.synonymMap) {
+            return;
+        }
         $(input.DOM.dropdown).find("div.tagify__dropdown__item").each(function(_,e) {
             let synonymName = e.getAttribute("value");
-            let lc = /^\w\w:/.exec(synonymName);
-            if (lc) synonymName = synonymName.substring(3);
-            let canonicalName = input.synonymMap[synonymName];
-            if (canonicalName && canonicalName !== synonymName) e.innerHTML += " (&rarr; <i>" + canonicalName + "</i>)";
+            const lc = (/^\w\w:/).exec(synonymName);
+            if (lc) {
+                synonymName = synonymName.substring(3);
+            }
+            const canonicalName = input.synonymMap[synonymName];
+            if (canonicalName && canonicalName !== synonymName) {
+                e.innerHTML += " (&rarr; <i>" + canonicalName + "</i>)";
+            }
         });
     });
 
