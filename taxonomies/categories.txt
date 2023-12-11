@@ -6128,26 +6128,29 @@ ciqual_food_name:fr:Cola, sucré, sans caféine
 <en:Beverages
 <en:Plant-based foods and beverages
 en:Plant-based beverages
-bg:Раститенли напитки
+bg:Растителни напитки
 ca:Begudes amb base vegetal
 da:Plantebaserede drikkevarer
 de:Pflanzliche Getränke
 es:Bebidas de origen vegetal
-fi:kasvipohjaiset juomat
+fi:Kasvipohjaiset juomat
 fr:Boissons à base de végétaux
 he:משקאות מבוססי צמחים
 hu:Növényi alapú italok
 it:Bevande a base di piante
-lt:Augalinės kilmės gėrimai, Augaliniai gėrimai
+lt:Augalinės kilmės gėrimai
 nl:Plantaardige dranken
 nl_be:Plantaardige dranken
-pl:Napoje na bazie roślin, Napoje roślinne
+pl:Napoje na bazie roślin
 pt:Bebidas à base de plantas
 ro:Băuturi din plante
 ru:Напитки из растений
 sv:Växtbaserade drycker
 th:เครื่องดื่มจากพืช
-tr:Bitkisel içecekler, Bitki kaynaklı içecekler, Bitki içecekleri
+tr:Bitkisel içecekler
+zh:植物性饮料
+ja:植物ベースの飲み物
+ko:식물성 음료
 
 <en:Plant-based beverages
 en:Coconut waters, coconut water
@@ -35806,12 +35809,24 @@ wikidata:en:Q749316
 <en:Variety packs
 <en:Snacks
 en:Snacks variety packs
-de:Snacks Mischpackungen
-es:Paquetes variados de aperitivos
-fr:Assortiments d'amuse-gueules
-it:Confezioni miste di snacks
-nl:Snackassortimenten
-pt:Packs variados de aperitivos
+bg:Варианти на закуски
+ca:Assortiments de snacks
+cs:Variety packy svačin
+da:Snacks variationer
+de:Snack-Vielfaltspackungen, Snacks Mischpackungen
+es:Variedades de snacks, Paquetes variados de aperitivos
+fi:Snacksien monipakkaukset
+fr:Assortiments de snacks, Assortiments d'amuse-gueules
+he:אריזות מגוון חטיפים
+hu:Snack választék csomagok
+it:Assortimenti di snack, Confezioni miste di snacks
+lt:Užkandžių įvairovės rinkiniai
+nl:Snacks variatiepakketten, Snackassortimenten
+pl:Wielopaki przekąsek
+pt:Variedades de snacks, Packs variados de aperitivos
+ro:Asortimente de gustări
+ru:Варианты закусок
+sv:Snacks variationer
 gpc_category_code:en:10000612
 gpc_category_name:en:Snacks Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Snacks sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Snacks class. Includes products such as Crisps and Popcorn sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Chips and Dips variety packs.
@@ -35902,7 +35917,10 @@ nutriscore_category_override_for_fruits_vegetables_legumes:en: 0
 <en:Candied fruits
 en:Candied lemon
 de:Kandierte Zitrone
+es:Limón confitado
 fr:Citron confit
+it:Cedro candito
+nl:Gekonfijte citroen
 
 <en:Fruit confectioneries
 en:Filled dates
@@ -45111,6 +45129,7 @@ de:Stracchino
 es:Stracchino
 fr:Stracchino
 it:Stracchino, Crescenza
+xx:Stracchino
 wikidata:en:Q432440
 
 <en:Italian cheeses
@@ -45138,8 +45157,8 @@ origins:en: en:Italy
 wikidata:en:Q896436
 
 <en:Italian cheeses
-bg:Качокавало
 it:Caciocavallo Silano
+bg:Качокавало
 protected_name_file_number:en: PDO-IT-0003
 protected_name_type:en: pdo
 origins:en: en:Italy
@@ -45155,6 +45174,7 @@ wikidata:en:Q3655318
 
 <en:Italian cheeses
 it:Canestrato Pugliese
+xx:Canestrato Pugliese
 protected_name_file_number:en: PDO-IT-0004
 protected_name_type:en: pdo
 origins:en: en:Italy
@@ -45224,6 +45244,7 @@ wikidata:en:Q21272237
 
 <en:Italian cheeses
 it:Salva Cremasco
+xx:Salva Cremasco
 protected_name_file_number:en: PDO-IT-0639
 protected_name_type:en: pdo
 origins:en: en:Italy
@@ -101264,8 +101285,15 @@ nl:Zwarte rijstazijnen
 
 <en:Rice vinegars
 en:Red rice vinegars
+de:Rote Reisessige
+es:Vinagres de arroz rojos
 fr:Vinaigres de riz rouges
+hu:Piros rizsecetek
+it:Aceti di riso rossi
+ja:赤米酢
 nl:Rode rijstazijnen
+pl:Ocet z czerwonego ryżu
+zh:红米醋
 
 <en:Vinegars
 en:Sugarcane vinegars
@@ -101344,7 +101372,9 @@ nl:Umeboshi azijnen
 
 <en:Vinegars
 fr:Vinaigres aromatisés, vinaigre aromatisé
+hu:Aromás ecetek, aromás ecet
 nl:Kruidenazijnen
+pl:Ocet aromatyzowany, ocet aromatyczny
 
 <en:Vinegars
 en:Alcohol vinegars,spirit vinegar
