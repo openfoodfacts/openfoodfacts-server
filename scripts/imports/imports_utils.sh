@@ -4,9 +4,9 @@
 
 # find last run and deduce how many days to fetch
 #
-# first arg should be the path to the import success file 
+# first arg should be the path to the import success file
 # containing a timestamp of last successful import
-# it may not exists yet, in which case we default to one week
+# it may not exists yet, in which case we default to one year
 function import_since() {
     SUCCESS_FILE_PATH=$1
     if [[ -z "$SUCCESS_FILE_PATH" ]]
@@ -21,8 +21,8 @@ function import_since() {
         # 86400 seconds in a day, +1 because we want upper bound
         IMPORT_SINCE=$(( $DIFF / 86400 + 1 ))
     else
-        # defaults to one week
-        IMPORT_SINCE=7
+        # defaults to one year
+        IMPORT_SINCE=365
     fi
     echo $IMPORT_SINCE
 }

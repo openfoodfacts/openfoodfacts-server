@@ -1,11 +1,19 @@
 #!/usr/bin/env bash
+export PERL5LIB="lib:${PERL5LIB}"
 
-# Equadis import
-./scripts/imports/equadis/run_equadis_import.sh
-# Agena import
-./scripts/imports/agena3000/run_agena3000_import.sh
-# Carrefour
-./scripts/imports/carrefour/import_carrefour.sh
+# run import scripts
+PRODUCERS=(
+    equadis
+    agena3000
+    carrefour
+    intermarche
+)
+for PRODUCER in "${PRODUCERS[@]}"
+do
+  script_path="scripts/imports/${PRODUCER}/run_${PRODUCER}_import.sh"
+  [[ -e $script_path ]] || >&2 echo "No script found for $PRODUCER"
+  ./$script_path
+done
 
-# Export
+# export
 ./scripts/export_producers_platform_data_to_public_database.sh

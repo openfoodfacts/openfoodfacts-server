@@ -70,7 +70,7 @@ echo "Convert Carrefour XML files to OFF csv file"
 
 # import data
 echo "Import data"
-./scripts/import_csv_file.pl --csv_file $DATA_TMP_DIR/carrefour-data.tsv --user_id carrefour --comment "Import Carrefour" --source_id "carrefour" --source_name "Carrefour" --source_url "https://www.carrefour.fr" --manufacturer --org_id carrefour-test-off2 --define lc=fr --images_dir $IMAGES_TMP_DIR
+./scripts/import_csv_file.pl --csv_file $DATA_TMP_DIR/carrefour-data.tsv --user_id carrefour --comment "Import Carrefour" --source_id "carrefour" --source_name "Carrefour" --source_url "https://www.carrefour.fr" --manufacturer --org_id carrefour --define lc=fr --images_dir $IMAGES_TMP_DIR
 
 # mark successful run
 mark_successful_run $SUCCESS_FILE_PATH
