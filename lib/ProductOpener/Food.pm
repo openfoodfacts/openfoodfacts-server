@@ -219,23 +219,26 @@ sub normalize_nutriment_value_and_modifier ($value_ref, $modifier_ref) {
 		${$value_ref} =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
 		${$modifier_ref} = "\N{U+2264}";
 	}
-	elsif (${$value_ref} =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than)( )?/i) {
-		${$value_ref} =~ s/(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than)( )?//i;
+	elsif (
+		${$value_ref} =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than|menos|menor|inferior)( )?/i)
+	{
+		${$value_ref}
+			=~ s/(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than|menos|menor|inferior)( )?//i;
 		${$modifier_ref} = '<';
 	}
 	elsif (${$value_ref} =~ /(\&gt;=|>=|\N{U+2265})/) {
 		${$value_ref} =~ s/(\&gt;=|>=|\N{U+2265})( )?//;
 		${$modifier_ref} = "\N{U+2265}";
 	}
-	elsif (${$value_ref} =~ /(\&gt;|>|min|mini|minimum|greater|more|more than)/i) {
-		${$value_ref} =~ s/(\&gt;|>|min|mini|minimum|greater|more|more than)( )?//i;
+	elsif (${$value_ref} =~ /(\&gt;|>|min|mini|minimum|greater|more|more than|más|mayor|superior)/i) {
+		${$value_ref} =~ s/(\&gt;|>|min|mini|minimum|greater|more|more than|más|mayor|superior)( )?//i;
 		${$modifier_ref} = '>';
 	}
-	elsif (${$value_ref} =~ /(env|environ|about|~|≈)/i) {
-		${$value_ref} =~ s/(env|environ|about|~|≈)( )?//i;
+	elsif (${$value_ref} =~ /(env|environ|about|~|≈|aprox|alrededor)/i) {
+		${$value_ref} =~ s/(env|environ|about|~|≈|aprox|alrededor)( )?//i;
 		${$modifier_ref} = '~';
 	}
-	elsif (${$value_ref} =~ /trace|traces/i) {
+	elsif (${$value_ref} =~ /(trace|traces|traza|trazas)/i) {
 		${$value_ref} = 0;
 		${$modifier_ref} = '~';
 	}
@@ -376,7 +379,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 	return;
 }
 
-# For fat, saturated fat, sugars, salt: http://www.diw.de/sixcms/media.php/73/diw_wr_2010-19.pdf
+# For fat, saturated fat, sugars, salt: https://www.diw.de/sixcms/media.php/73/diw_wr_2010-19.pdf
 @nutrient_levels = (['fat', 3, 20], ['saturated-fat', 1.5, 5], ['sugars', 5, 12.5], ['salt', 0.3, 1.5],);
 
 #
@@ -2508,7 +2511,7 @@ sub compare_nutriments ($a_ref, $b_ref) {
 sub compute_nova_group ($product_ref) {
 
 	# compute Nova group
-	# http://archive.wphna.org/wp-content/uploads/2016/01/WN-2016-7-1-3-28-38-Monteiro-Cannon-Levy-et-al-NOVA.pdf
+	# https://archive.wphna.org/wp-content/uploads/2016/01/WN-2016-7-1-3-28-38-Monteiro-Cannon-Levy-et-al-NOVA.pdf
 
 	# remove nova keys.
 	remove_fields(
