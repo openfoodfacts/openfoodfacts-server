@@ -1167,8 +1167,12 @@ sub check_nutrition_data ($product_ref) {
 		# all values but one - because sodium and salt can be automatically calculated one depending on the value of the other - are identical
 		if (
 			($nutriments_values_occurences_max_value == scalar @major_nutriments_values)
-			or (    ($nutriments_values_occurences_max_value >= scalar @major_nutriments_values - 1)
-				and ($nutriments_values{'salt_100g'} != $nutriments_values{'sodium_100g'}))
+			or (
+				($nutriments_values_occurences_max_value >= scalar @major_nutriments_values - 1)
+				and (   (defined $nutriments_values{'salt_100g'})
+					and ($nutriments_values{'sodium_100g'})
+					and ($nutriments_values{'salt_100g'} != $nutriments_values{'sodium_100g'}))
+			)
 			)
 		{
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-values-are-all-identical";
@@ -1187,18 +1191,59 @@ sub check_nutrition_data ($product_ref) {
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-3800-energy";
 		}
 
+		# sugar + starch cannot be greater than carbohydrates
+		# do not raise error if sugar or starch contains "<" symbol (see issue #9267)
 		if (
 			(defined $product_ref->{nutriments}{"carbohydrates_100g"})
 			and (
+				# without "<" symbol, check sum of sugar and starch is not greater than carbohydrates
 				(
 					(
-						(defined $product_ref->{nutriments}{"sugars_100g"}) ? $product_ref->{nutriments}{"sugars_100g"}
-						: 0
-					) + (
-						(defined $product_ref->{nutriments}{"starch_100g"}) ? $product_ref->{nutriments}{"starch_100g"}
-						: 0
+						(
+							(
+								(defined $product_ref->{nutriments}{"sugars_100g"})
+								? $product_ref->{nutriments}{"sugars_100g"}
+								: 0
+							) + (
+								(defined $product_ref->{nutriments}{"starch_100g"})
+								? $product_ref->{nutriments}{"starch_100g"}
+								: 0
+							)
+						) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001
 					)
-				) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001
+					and not(defined $product_ref->{nutriments}{"sugar_modifier"})
+					and not(defined $product_ref->{nutriments}{"starch_modifier"})
+				)
+				or
+				# with "<" symbo, check only that sugar or starch are not greater than carbohydrates
+				(
+					(
+						(
+								(defined $product_ref->{nutriments}{"sugar_modifier"})
+							and ($product_ref->{nutriments}{"sugar_modifier"} eq "<")
+						)
+						and (
+							(
+								(defined $product_ref->{nutriments}{"sugars_100g"})
+								? $product_ref->{nutriments}{"sugars_100g"}
+								: 0
+							) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001
+						)
+					)
+					or (
+						(
+								(defined $product_ref->{nutriments}{"starch_modifier"})
+							and ($product_ref->{nutriments}{"starch_modifier"} eq "<")
+						)
+						and (
+							(
+								(defined $product_ref->{nutriments}{"starch_100g"})
+								? $product_ref->{nutriments}{"starch_100g"}
+								: 0
+							) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001
+						)
+					)
+				)
 			)
 			)
 		{
@@ -1264,7 +1309,10 @@ sub check_nutrition_data ($product_ref) {
 
 		if (
 			# exclude error if nutriscore cannot be calculated due to missing nutrients information (see issue #9297)
-			($product_ref->{nutriscore}{2023}{nutrients_available} == 1)
+			(
+					(defined $product_ref->{nutriscore}{2023}{nutrients_available})
+				and ($product_ref->{nutriscore}{2023}{nutrients_available} == 1)
+			)
 			# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
 			and (defined $expected_nutriscore_grade)
 			and (($expected_nutriscore_grade =~ /^([a-e]){1}$/i))
