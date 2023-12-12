@@ -99,6 +99,13 @@ services:
       - ./html/data:/import
     ports:
       - "127.0.0.1:${MONGO_EXPOSE_PORT:-27017}:27017"
+  # We only add redis in dev for testing, as we have a dedicated redis service in
+  # staging/prod
+  redis:
+    image: redis:7.2-alpine
+    # we want to save every minute to disk, to avoid losing too much data
+    command: redis-server --save 60 1 --loglevel warning
+
 volumes:
   product_images:
   html_data:

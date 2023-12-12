@@ -93,7 +93,7 @@ a hashref of the differences between the previous and new revision of the produc
 sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 
 	if (!$redis_url) {
-		# off search not activated
+		# No Redis URL provided, we can't push to Redis
 		if (!$sent_warning_about_missing_redis_url) {
 			$log->warn("Redis URL not provided for streaming") if $log->is_warn();
 			$sent_warning_about_missing_redis_url = 1;
@@ -104,11 +104,11 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 	my $error = "";
 	if (!defined $redis_client) {
 		# we where deconnected, try again
-		$log->info("Trying to reconnect to redis");
+		$log->info("Trying to reconnect to Redis");
 		init_redis();
 	}
 	if (defined $redis_client) {
-		$log->debug("Pushing to redis", {product_code => $product_ref->{code}}) if $log->is_debug();
+		$log->debug("Pushing product update to Redis", {product_code => $product_ref->{code}}) if $log->is_debug();
 		eval {
 			$redis_client->xadd(
 				# name of the Redis stream
@@ -127,13 +127,17 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 		$error = $@;
 	}
 	else {
-		$error = "Can't connect to redis";
+		$error = "Can't connect to Redis";
 	}
 	if (!($error eq "")) {
-		$log->error("Failed to push to redis", {product_code => $product_ref->{code}, error => $error})
+		$log->error("Failed to push product update to Redis", {product_code => $product_ref->{code}, error => $error})
 			if $log->is_warn();
 		# ask for eventual reconnection for next call
 		$redis_client = undef;
+	}
+	else {
+		$log->debug("Successfully pushed product update to Redis", {product_code => $product_ref->{code}})
+			if $log->is_debug();
 	}
 
 	return;
