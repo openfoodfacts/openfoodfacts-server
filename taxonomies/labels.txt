@@ -18587,9 +18587,12 @@ en:Alimentos de Extremadura
 es:Alimentos de Extremadura
 
 <en:Spanish quality label
-en:Calidad Certificada
-es:Calidad Certificada
-it:Qualità certificata
+en:Calidad Certificada de Andalucía
+ca:Qualitat Certificada d'Andalusia
+es:Calidad Certificada de Andalucía
+country:en:Spain
+image:es:calidad-certificada-andalucia.90x90.png
+website:es:https://www.juntadeandalucia.es/servicios/sede/tramites/procedimientos/detalle/144.html
 
 <en:Spanish quality label
 en:Etiqueta de Calidad Doñana 21
@@ -21922,9 +21925,11 @@ auth_url:fr:https://hve-asso.com
 fr:Produit certifié, CQ Produit Certifié
 en:Certified product
 
-# Note: "es:Calidad Certificada" is a specific Spanish label, it should not be added as a translation of "en:Certified quality"
+# Note: "es:Calidad Certificada" is a specific Spanish label, added as "Calidad Certificada de Andalucía"
 # example product: https://es.openfoodfacts.org/producto/8437002590468/aceite-de-oliva-virgen-extra-iznaoliva
 en:Certified quality
+ca:Qualitat certificada
+es:Calidad certificada
 fr:Qualité certifiée
 
 en:QS certification mark
