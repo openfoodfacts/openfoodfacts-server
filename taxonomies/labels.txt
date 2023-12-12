@@ -13,7 +13,7 @@ stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certi
 stopwords:bg:съставки, земеделие, от, с, контролиран, сертифициран, 100%, натурален, гарантиран, продукт
 stopwords:da:fra, kontrolleret, dyrkning, dyrket, dyrkede, råvarer, landbrug, certificeret
 stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
-stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar
+stopwords:es:por, la, las, los, el, apto, para, con, de, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar, procedente
 stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi, valvottu, valvottua, tuotettu
 stopwords:fr:ingrédient, ingrédients, agricole, agricoles, issu, issue, issus, issues, d', du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
 stopwords:hu:összetevők, mezőgazdaság, ellenőrzött, tanúsított, 100%, természetes, termék, garantált
@@ -61,7 +61,7 @@ synonyms:ru:глутамат, глютамат, глутаминат натри�
 
 synonyms:en:preservatives, conservatives
 synonyms:bg:консерванти
-synonyms:es:conservador, conservadores
+synonyms:es:conservador, conservadores, conservante, conservantes
 synonyms:fi:säilöntäaineita
 synonyms:pt:conservante, conservantes
 synonyms:ru:консерванты, консервантов
@@ -1163,10 +1163,12 @@ pt:Alimentado sem OGM, alimentado sem alimentos geneticamente modificados, alime
 
 <en:Fed without GMOs
 en:Eggs from animals fed without GMOs
+es:Huevos de animales alimentados sin OGM
 fr:Oeufs issus d'animaux nourris sans OGMs, oeufs issus de poules nourries sans OGMs
 pt:Ovos de animais alimentados sem OGM, ovos de animais alimentados sem alimentos geneticamente modificados, ovos de animais alimentados sem transgênicos, ovos de animais alimentados sem transgénicos
 
 en:Fed without soy
+es:Alimentados sin soja, alimentadas sin soja
 fr:Nourri sans soja
 pt:Alimentado sem soja, alimentados sem soja, alimantada sem soja, alimantadas sem soja
 
@@ -1269,6 +1271,7 @@ pt:sem nano-partículas
 en:No wheat, without wheat, Wheat-free
 bg:Без пшеница
 de:Ohne Weizen
+es:Sin trigo, libre de trigo
 nl:Zonder graan
 pt:Sem trigo, livre de trigo, 0% trigo
 
@@ -1413,6 +1416,7 @@ pt:Halal
 ru:Халяль
 th:ฮาลาล
 tr:Helal
+xx:Halal
 wikidata:en:Q177823
 label_categories:en: en:Religious diets, en:Specific diets
 
@@ -1977,6 +1981,7 @@ pt:Kosher
 ru:Кошерное
 th:โคเชอร์
 tr:Koşer
+xx:Kosher
 wikidata:en:Q1076110
 
 <en:Kosher
@@ -2139,6 +2144,7 @@ website:hr:https://www.kaufland.hr/asortiman/nase-najbolje-pase.html
 en:producer labels, labels of producers
 hr:oznaka proizvođača
 fr:label de producteur
+es:etiqueta de productor
 
 <en:producer labels
 hr:100% slavonsko dobro, 100% slavonsko
@@ -2149,6 +2155,7 @@ description:en:Label from the producer Dobro.
 
 en:LEAF, Linking Environment and Farming, LEAF Linking Environment and Farming
 ru:Связанные окружающая среда и сельское хозяйство
+xx:LEAF, Linking Environment and Farming
 
 en:Low or no fat
 ca:Baix o sense greix
@@ -5032,7 +5039,7 @@ image:ca:ccpae.56x90.png
 website:ca:https://www.ccpae.org/
 
 <en:Organic
-es:Comité de Agricultura Ecologica, comite agricultura ecologica valencia
+es:Comité de Agricultura Ecologica
 country:en:Spain
 
 <en:Organic
@@ -5044,7 +5051,7 @@ es:Comité Aragonés de Agricultura Ecologica, comite agricultura ecologica arag
 country:en:Spain
 
 <en:Organic
-es:Comité de Agricultura Ecológica de la Comunitat Valenciana, comite agricultura ecologica comunidad valenciana, CAECV
+es:Comité de Agricultura Ecológica de la Comunitat Valenciana, comite agricultura ecologica comunidad valenciana, CAECV, comite agricultura ecologica valencia
 country:en:Spain
 
 <en:Organic
@@ -19659,6 +19666,8 @@ fr:Saveurs de l'Année 2023, Saveur de l'Année 2023
 
 fr:Triman, tri-man
 xx:Triman, tri-man
+website:en:https://www.ecosistant.eu/en/triman-logo/
+website:de:https://www.ecosistant.eu/triman-logo/
 
 fr:Tidy man, tidyman
 xx:Tidy man, tidyman
@@ -21871,15 +21880,18 @@ opposite:en: en:pasteurized
 
 en:Cold pressed
 fr:Pression à froid, haute pression à froid
+es:Prensado en frío
 nl:Koudgeperst
 
 en:Unfiltered, cloudy
+es:Sin filtrar, turbia
 de:Trüb, Naturtrüb
 opposite:en: en:Filtered
 
 en:Filtered
 de:Klar
 fr:Non filtrée, Clair
+es:Filtrada, filtrado
 opposite:en: en:unfiltered
 
 fr:Haute Valeur Environnementale, HVE
@@ -21892,6 +21904,8 @@ auth_url:fr:https://hve-asso.com
 fr:Produit certifié, CQ Produit Certifié
 en:Certified product
 
+# Note: "es:Calidad Certificada" is a specific Spanish label, it should not be added as a translation of "en:Certified quality"
+# example product: https://es.openfoodfacts.org/producto/8437002590468/aceite-de-oliva-virgen-extra-iznaoliva
 en:Certified quality
 fr:Qualité certifiée
 
@@ -21974,24 +21988,18 @@ xx:GLOBALG.A.P., Global GAP
 # Portuguese recycling containers: https://pt.wikipedia.org/wiki/Ecoponto
 # green container for glass bottles, jars
 pt:Ecoponto verde
-xx:Ecoponto verde
+es:Contenedor verde, Al verde, Contenedor de vidrio, Recicla verde
+xx:Ecoponto verde, Recicla verde
 
 # yellow container for food packages in general, plastic, Tetra Pak, plastic bags, plastic bottles, tins, cans
 pt:Ecoponto amarelo
-xx:Ecoponto amarelo
+es:Contenedor amarillo, Al amarillo, Contenedor de envases, Recicla amarillo
+xx:Ecoponto amarelo, Recicla amarillo
 
 # blue container for paper, cardboard, corrugated cardboard
 pt:Ecoponto azul
-xx:Ecoponto azul
-
-es:Recicla verde
-xx:Recicla verde
-
-es:Recicla amarillo
-xx:Recicla amarillo
-
-es:Recicla azul
-xx:Recicla azul
+es:Contenedor azul, Al azul, Contenedor de papel, Recicla azul
+xx:Ecoponto azul, Recicla azul
 
 en:Portuguese protected product
 pt:Produto protegido de Portugal
