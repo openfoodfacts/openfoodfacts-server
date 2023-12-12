@@ -52,23 +52,45 @@ properties:
       alcohol:
         description: |
           Quantity of alcohol
-          (per 100g or per serving) in a standard unit (100g or 100ml)
+
+          (per 100g or per serving) in a standard unit (g or ml)
         type: number
       carbohydrates:
         type: number
       energy:
         type: number
+        description: |
+          It is the same as `energy-kj` if we have it, or computed from `energy-kcal` otherwise
+
+          (per 100g or per serving) in kj
+      energy_value:
+        type: number
+        description: |
+          energy_value will be equal to energy-kj_value if we have it or to energy-kcal_value otherwise
+      energy_unit:
+        type: string
+        enum: ["kcal", "kj"]
+        description: |
+          Equal to energy-kj_unit if we have it or to energy-kcal_unit otherwise
       energy-kcal:
         type: number
+        description: |
+          energy in kcal, if it is specified
+
+          (per 100g or per serving) in a standard unit (g or ml)
       energy-kj:
         type: number
+        description: |
+          energy in kj, if it is specified
+
+          (per 100g or per serving) in a standard unit (g or ml)
       fat:
         type: number
       fruits-vegetables-legumes-estimate-from-ingredients:
         type: number
         description: |
           An estimate, from the ingredients list of the percentage of fruits, vegetable and legumes.
-          This is an important information for Nutri-Score (2023 version) computation.        
+          This is an important information for Nutri-Score (2023 version) computation.
       fruits-vegetables-nuts-estimate-from-ingredients:
         type: number
         description: |
