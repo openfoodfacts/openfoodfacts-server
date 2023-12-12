@@ -145,6 +145,9 @@ function displayMap(pointers, wikidataObjects) {
   }
 
   for (var i = 0; i < wikidataObjects.length; ++i) {
-    addWikidataObjectToMap(wikidataObjects[i]);
+    const obj = wikidataObjects[i];
+    if (obj !== null) {
+      addWikidataObjectToMap(obj);
+    }
   }
 }
