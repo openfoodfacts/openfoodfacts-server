@@ -39433,7 +39433,7 @@ fr:Riz complet, riz cargo, riz brun, riz semi-complet, Riz complet cru
 it:Riso integrale
 ja:玄米
 lt:Rudieji ryžiai
-nl:Zilverlvliesrijsten, Volkoren rijsten
+nl:Zilverlvliesrijsten, Volkoren rijsten, Volkorenrijsten
 wikidata:en:Q1066624
 agribalyse_food_code:en:9102
 ciqual_food_code:en:9102
@@ -39469,7 +39469,7 @@ fi:Parboiled-riisit
 fr:Riz étuvé
 it:Riso parboiled
 lt:Plikyti ryžiai
-nl:Parboiled rijst, Inkaf gekookte rijst
+nl:Parboiled rijsten, Inkaf gekookte rijst
 wikidata:en:Q732925
 agribalyse_proxy_food_code:en:9101
 agribalyse_proxy_food_name:en:Rice, parboiled, raw
@@ -44845,7 +44845,7 @@ hu:Mozzarella
 it:Mozzarella
 ja:モッツァレラ
 lt:Mocarela
-nl:Mozzarella
+nl:Mozzarellas
 pl:Mozzarella
 ru:Моцарелла
 sv:Mozzarella
@@ -48843,7 +48843,9 @@ pt:Bebidas de iogurte de baunilha
 ciqual_food_code:en:19508
 
 <en:Drinkable yogurts
+en:Raspberry drinkable yogurts
 fr:Yaourts à boire goût framboise
+nl:Framboosdrinkyoghurts
 
 <en:Drinkable yogurts
 fr:Yaourts à boire goût chocolat
@@ -58491,6 +58493,7 @@ en:Bread flours
 de:Brotmehle
 fr:Farines de pain
 ru:Мука хлебопекарная
+nl:Broodmelen
 
 <en:Bread flours
 <en:Wheat flours
@@ -59816,10 +59819,20 @@ es:Helados de palo, Polos de helado, Paletas de helado, Paletas heladas
 fi:jäätelöpuikot
 fr:Bâtonnets glacés, Bâtonnets, battonets, battonnets, eskimos, Glaces Batonnets
 hu:Fagylal szeletek, Fagylaltok pálcikán
-it:Gelati a stecco o in barretta
+it:Gelati a stecco, Gelatti in barretta
 lt:Ledai ant pagaliuko, Ledų batonėliai
-nl:IJsjes, IJscos
+nl:IJsjes, IJscos, Friscos
 nl-BE:Friscos
+
+#<en:Variety packs
+<en:Ice cream bars
+en:Ice cream bar variety packs
+de:Eis am Stiel Mischpackungen
+es:Pacquetes variados de helados de palo
+fr:Assortiments de bâtonnets glacés
+it:Gelati a stecco confezione miste
+nl:Ijsjesassortimenten
+#description:en:A package with icecream bars with bars with different flavours
 
 <en:Ice cream bars
 en:Vanilla ice cream bars, Vanilla ice creams on a stick
@@ -88976,6 +88989,7 @@ fi:Mereneläväpakasteet
 fr:Fruits de mer surgelés
 hr:smrznuti plodovi mora
 it:Frutti di mare surgelati
+nl:Diepvrieszeevruchten
 pt:Frutos do mar congelados
 ru:Замороженые морепродукты
 
@@ -104106,7 +104120,7 @@ es:Quesos vegetales
 fi:vegaanijuustot
 fr:Substituts du fromage, fromages végétaux
 it:Formaggi vegani
-nl:Veganistische kazen
+nl:Veganistische kazen, Kaasvervangers
 pl:Zastępniki sera
 gpc_category_code:en:10006996
 gpc_category_name:en:Cheese Substitutes (Perishable)
@@ -104464,6 +104478,7 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 
 <en:Puffed salty snacks
 en:Cheese doodles
+nl:Kaasflips
 ro:Pufuleți cu brânză
 #wikidata:en:
 
@@ -106060,30 +106075,6 @@ es:Judías verdes enlatadas
 fr:Haricots verts plats en conserve
 nl:Snijbonen in blik/pot
 
-
-<en:Cooking helpers
-en:Toppings
-de:Garnierungen
-fi:päällysteet
-fr:Nappages
-ja:トッピング
-nl:Garnering
-
-<en:Cooking helpers
-en:Madeira wine aspic
-fr:Gelée au madère
-agribalyse_food_code:en:11176
-ciqual_food_code:en:11176
-ciqual_food_name:en:Madeira wine aspic
-ciqual_food_name:fr:Gelée au madère
-
-<en:Cooking helpers
-en:Dehydrated Madeira wine aspic
-fr:Gelée au madère déshydratée
-agribalyse_food_code:en:11175
-ciqual_food_code:en:11175
-ciqual_food_name:en:Madeira wine aspic, dehydrated
-ciqual_food_name:fr:Gelée au madère, déshydratée
 
 <en:Salty snacks
 en:Vegetable cakes, Vegetables cakes

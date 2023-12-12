@@ -12,6 +12,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "13009",
          "id" : "en:lemon",
          "percent_estimate" : 20.8333333333333,
          "percent_max" : 50,
@@ -138,10 +139,9 @@
    "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:lemon",
       "en:raw-milk"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 18,
    "lc" : "fr",
    "nutriments" : {

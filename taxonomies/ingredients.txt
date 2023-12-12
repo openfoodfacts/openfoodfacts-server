@@ -82,7 +82,8 @@ stopwords:ca:i,de
 stopwords:da:av, af, blandt andet, bl a, inklusive, heraf, indeholder, tilsat
 stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderlichen gewichtsanteilen, wenig, min, max
 stopwords:el:περιέχει
-stopwords:en:added to enhance freshness, added to maintain flavor and freshness, assorted, contains, contain, edible, from, including, inter alia, less than 1% of:, minimum, produced with, with, with added, in varying proportions
+# example: "artificial flavouring substances", "natural and nature identical flavouring substances"
+stopwords:en:added to enhance freshness, added to maintain flavor and freshness, assorted, contains, contain, edible, from, including, inter alia, less than 1% of:, minimum, produced with, with, with added, in varying proportions, substances
 stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter, minimum
@@ -20349,6 +20350,10 @@ vegan:en:maybe
 vegetarian:en:maybe
 
 <en:flavouring
+en:nature identical flavouring
+# These substances are chemically purified from an aromatic source or synthesized and have the same chemical composition as natural products.
+
+<en:flavouring
 en:artificial flavouring, artificial flavour, artificial flavor, artificial flavoring
 bg:изкуствен аромат, изкуствен ароматизант
 cs:Umělá příchuť
@@ -33626,22 +33631,19 @@ de:Sojaerzeugnis
 #es:concentrado de soja
 #pt:concentrado de soja
 
-<en:soya bean
-en:soya base
-es:base de soja
-pl:baza sojowa
 
 # fr:Jus de soja is a compound ingredient:soybean + water
 
-<en:soya bean
-en:soy base
+# <en:compound
+en:soy base, soya base
 de:sojabasis
-es:zumo de soja, jugo de soja, jugo de soya
+es:zumo de soja, jugo de soja, jugo de soya, base de soja
 fi:soijapohja
 fr:jus de soja
 hr:pripravak od soje
 ja:大豆ベース
 nl:sojabasis
+pl:baza sojowa
 # it:salsa di soia translation error
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-de-soja
 # 253 products in 7 languages @2018-09-25
