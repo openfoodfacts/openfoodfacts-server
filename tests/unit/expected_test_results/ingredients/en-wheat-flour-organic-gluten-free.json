@@ -1,4 +1,5 @@
 {
+   "allergens" : "en:fish",
    "ingredients" : [
       {
          "id" : "en:wheat-flour",
@@ -10,28 +11,29 @@
          "vegetarian" : "yes"
       },
       {
-         "id" : "en:fish",
+         "id" : "en:msc",
          "labels" : "en:sustainable-seafood-msc",
          "percent_estimate" : 25,
          "percent_max" : 50,
          "percent_min" : 0,
-         "text" : "fish",
-         "vegan" : "no",
-         "vegetarian" : "no"
+         "text" : "MSC"
       }
    ],
    "ingredients_analysis" : {
-      "en:non-vegan" : [
-         "en:fish"
+      "en:palm-oil-content-unknown" : [
+         "en:msc"
       ],
-      "en:non-vegetarian" : [
-         "en:fish"
+      "en:vegan-status-unknown" : [
+         "en:msc"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "en:msc"
       ]
    },
    "ingredients_analysis_tags" : [
-      "en:palm-oil-free",
-      "en:non-vegan",
-      "en:non-vegetarian"
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
    ],
    "ingredients_hierarchy" : [
       "en:wheat-flour",
@@ -39,7 +41,7 @@
       "en:flour",
       "en:wheat",
       "en:cereal-flour",
-      "en:fish"
+      "en:msc"
    ],
    "ingredients_n" : 2,
    "ingredients_n_tags" : [
@@ -48,7 +50,7 @@
    ],
    "ingredients_original_tags" : [
       "en:wheat-flour",
-      "en:fish"
+      "en:msc"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
@@ -57,7 +59,7 @@
       "en:flour",
       "en:wheat",
       "en:cereal-flour",
-      "en:fish"
+      "en:msc"
    ],
    "ingredients_text" : "wheat flour. MSC (fish). organic. gluten-free",
    "ingredients_with_specified_percent_n" : 0,
@@ -65,11 +67,11 @@
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:fish",
+      "en:msc",
       "en:wheat-flour"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
-   "known_ingredients_n" : 6,
+   "known_ingredients_n" : 5,
    "labels" : "Organic, en:no-gluten",
    "labels_hierarchy" : [
       "en:no-gluten",
@@ -87,5 +89,5 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
-   "unknown_ingredients_n" : 0
+   "unknown_ingredients_n" : 1
 }

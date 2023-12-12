@@ -1970,8 +1970,11 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 						(
 							($between !~ /$separators|$and/)
 							and (
-								exists_taxonomy_tag(
-									"allergens", canonicalize_taxonomy_tag($ingredients_lc, "allergens", $between)
+								(
+									exists_taxonomy_tag("allergens",
+										canonicalize_taxonomy_tag($ingredients_lc, "allergens", $between))
+									and (canonicalize_taxonomy_tag($ingredients_lc, "allergens", $between) eq
+										$ingredients_lc . ":" . $between)
 								)
 							)
 						)
