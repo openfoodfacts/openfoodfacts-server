@@ -9,8 +9,8 @@ use ProductOpener::TestDefaults qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Producers qw/:all/;
 
-remove_all_users();
 wait_application_ready();
+remove_all_users();
 
 #new common user agent
 my $ua = new_client();
