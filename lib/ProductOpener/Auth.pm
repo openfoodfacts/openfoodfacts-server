@@ -81,6 +81,7 @@ use Data::DeepAccess qw(deep_get);
 use Storable qw(dclone);
 use Encode;
 use LWP::UserAgent;
+use LWP::UserAgent::Plugin 'Retry';
 use HTTP::Request;
 use URI::Escape::XS qw/uri_escape/;
 
@@ -299,7 +300,7 @@ sub create_user_in_keycloak ($user_ref, $password) {
 	$create_user_request->header('Content-Type' => 'application/json');
 	$create_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
 	$create_user_request->content($json);
-	my $new_user_response = LWP::UserAgent->new->request($create_user_request);
+	my $new_user_response = LWP::UserAgent::Plugin->new->request($create_user_request);
 	unless ($new_user_response->is_success) {
 		display_error_and_exit($new_user_response->content, 500);
 	}
@@ -307,7 +308,7 @@ sub create_user_in_keycloak ($user_ref, $password) {
 	my $get_user_request = HTTP::Request->new(GET => $new_user_response->header('location'));
 	$get_user_request->header('Content-Type' => 'application/json');
 	$get_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
-	my $get_user_response = LWP::UserAgent->new->request($get_user_request);
+	my $get_user_response = LWP::UserAgent::Plugin->new->request($get_user_request);
 	unless ($get_user_response->is_success) {
 		display_error_and_exit($get_user_response->content, 500);
 	}
@@ -382,7 +383,8 @@ sub get_token_using_password_credentials ($username, $password) {
 			. '&password='
 			. uri_escape($password)
 			. "&scope=openid%20profile%20offline_access");
-	my $token_response = LWP::UserAgent->new->request($token_request);
+
+	my $token_response = LWP::UserAgent::Plugin->new->request($token_request);
 	unless ($token_response->is_success) {
 		$log->info('bad password - no token returned from IdP', {content => $token_response->content})
 			if $log->is_info();
@@ -420,7 +422,7 @@ sub get_token_using_client_credentials () {
 			. uri_escape($oidc_options{client_id})
 			. '&client_secret='
 			. uri_escape($oidc_options{client_secret}));
-	my $token_response = LWP::UserAgent->new->request($token_request);
+	my $token_response = LWP::UserAgent::Plugin->new->request($token_request);
 	unless ($token_response->is_success) {
 		$log->info('bad client credentials - no token returned from IdP', {content => $token_response->content})
 			if $log->is_info();
@@ -502,7 +504,7 @@ sub _ensure_oidc_is_discovered () {
 		if $log->is_info();
 
 	my $discovery_request = HTTP::Request->new(GET => $oidc_options{endpoint_configuration});
-	my $discovery_response = LWP::UserAgent->new->request($discovery_request);
+	my $discovery_response = LWP::UserAgent::Plugin->new->request($discovery_request);
 	unless ($discovery_response->is_success) {
 		$log->info('Unable to load OIDC data from IdP', {response => $discovery_response->content}) if $log->is_info();
 		return;
@@ -518,7 +520,7 @@ sub _ensure_oidc_is_discovered () {
 
 sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
 	my $jwks_request = HTTP::Request->new(GET => $jwks_uri);
-	my $jwks_response = LWP::UserAgent->new->request($jwks_request);
+	my $jwks_response = LWP::UserAgent::Plugin->new->request($jwks_request);
 	unless ($jwks_response->is_success) {
 		$log->info('Unable to load JWKS from IdP', {response => $jwks_response->content}) if $log->is_info();
 		return;

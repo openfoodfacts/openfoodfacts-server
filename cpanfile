@@ -84,6 +84,8 @@ requires 'Log::Any::Adapter::Log4perl', '>= 0.09'; # liblog-any-adapter-log4perl
 # Retry
 requires 'Action::CircuitBreaker';
 requires 'Action::Retry'; # deps: libmath-fibonacci-perl
+requires 'LWP::UserAgent::Plugin';
+requires 'LWP::UserAgent::Plugin::Retry';
 
 # AnyEvent
 requires 'AnyEvent';
