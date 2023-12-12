@@ -142,9 +142,10 @@ is(normalize_quantity("2 kilogramme"), 2000);
 is(normalize_quantity("2 kilogrammes"), 2000);
 
 my @quantities = (
-    # eggs in EU have specific weigth depending on categories (XL, L, M, S)
+	# eggs in EU have specific weigth depending on categories (XL, L, M, S)
 	["10 jaja razred M", "580"],
 	["6 jajka kategoria XL", "438"],
+	["10 Яйца категория 1", "599.5"],
 );
 
 foreach my $test_ref (@quantities) {
