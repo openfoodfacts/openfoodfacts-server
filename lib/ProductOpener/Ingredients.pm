@@ -4527,10 +4527,7 @@ my %phrases_after_ingredients_list = (
 		'да се съхранява (в закрити|на сухо)',    # store in ...
 	],
 
-	ca => [
-		'envasat en atmosfera protectora',
-		'conserveu-los en un lloc fresc i sec',
-	],
+	ca => ['envasat en atmosfera protectora', 'conserveu-los en un lloc fresc i sec',],
 
 	cs => ['doporučeny způsob přípravy', 'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',],
 
