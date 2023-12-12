@@ -545,7 +545,8 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
-			'sulphate-', 'nitrate-', 'acidity-',
+			'sulphate-', 'nitrate-',
+			'acidity-',
 		)
 	],
 	ru => [
@@ -607,7 +608,8 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
-			'sulphate-', 'nitrate-', 'acidity-',
+			'sulphate-', 'nitrate-',
+			'acidity-',
 		)
 	],
 	us => [
@@ -667,7 +669,8 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
 			'nutrition-score-fr-', 'nutrition-score-uk-',
 			'glycemic-index-', 'water-hardness-',
-			'sulfate-', 'nitrate-', 'acidity-',
+			'sulfate-', 'nitrate-',
+			'acidity-',
 		)
 	],
 	us_before_2017 => [
@@ -728,7 +731,8 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'water-hardness-', 'choline-',
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
-			'sulfate-', 'nitrate-', 'acidity-',
+			'sulfate-', 'nitrate-',
+			'acidity-',
 		)
 	],
 	hk => [
