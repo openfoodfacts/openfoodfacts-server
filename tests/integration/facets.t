@@ -162,6 +162,18 @@ my @products = (
 			origins => "en:martinique",
 		),
 	},
+	# German product with accents in labels
+	{
+		%{dclone(\%empty_product_form)},
+		(
+			code => '200000000013',
+			product_name => "Chocolate - Organic, Café Label - Martinique",
+			categories => "en:chocolate",
+			labels => "en:organic,en:fair-trade,Café Label",
+			lang => "de",
+			lc => "de",
+		),
+	},
 );
 
 foreach my $product_ref (@products) {
@@ -175,7 +187,7 @@ edit_product(
 	{
 		%{dclone(\%empty_product_form)},
 		(
-			code => '200000000013',
+			code => '200000000101',
 			product_name => "Yogurt - Organic, Fair trade - Martinique",
 			categories => "en:yogurt",
 			labels => "en:organic,en:fair-trade",
@@ -307,6 +319,15 @@ my $tests_ref = [
 		test_case => 'contributor-bob',
 		method => 'GET',
 		path => '/contributor/bob.json?fields=product_name',
+		expected_status_code => 200,
+		sort_products_by => 'product_name',
+	},
+	# accented facet value in German
+	{
+		test_case => 'de-accented-cafe-label',
+		method => 'GET',
+		subdomain => 'world-de',
+		path => '/label/café-label.json?fields=product_name,labels_tags',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
 	},

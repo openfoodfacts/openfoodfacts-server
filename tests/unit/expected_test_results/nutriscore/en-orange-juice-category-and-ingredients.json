@@ -67,6 +67,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
          "percent_estimate" : 4.45,
          "percent_max" : 8.9,
@@ -128,10 +129,9 @@
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 50,
    "ingredients_without_ciqual_codes" : [
-      "en:orange-juice",
-      "en:sugar"
+      "en:orange-juice"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 10,
    "lc" : "en",
    "minerals_tags" : [],
