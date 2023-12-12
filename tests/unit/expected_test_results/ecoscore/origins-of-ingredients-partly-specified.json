@@ -413,6 +413,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:cane-sugar",
          "percent" : 30,
          "percent_estimate" : 30,
@@ -480,10 +481,9 @@
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 10,
    "ingredients_without_ciqual_codes" : [
-      "en:apricot",
-      "en:cane-sugar"
+      "en:apricot"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 10,
    "lc" : "en",
    "misc_tags" : [

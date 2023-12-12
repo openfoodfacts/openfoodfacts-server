@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_food_code" : "19590",
          "id" : "en:mozzarella",
          "ingredients" : [
             {
@@ -138,12 +139,13 @@
    "ingredients_with_unspecified_percent_n" : 5,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
+      "en:anti-caking-agent",
       "en:e460",
       "en:lactic-ferments",
       "en:pasteurised-cow-s-milk",
       "en:rennet"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 5,
    "known_ingredients_n" : 16,
    "lc" : "ca",
    "nutriments" : {
