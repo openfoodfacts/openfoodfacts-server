@@ -66,6 +66,7 @@ use ProductOpener::Test qw/:all/;
 use ProductOpener::Mail qw/$LOG_EMAIL_START $LOG_EMAIL_END/;
 use ProductOpener::Store qw/store retrieve/;
 use ProductOpener::Producers qw/get_minion/;
+use ProductOpener::Config qw/%oidc_options/;
 
 use Test::More;
 use LWP::UserAgent;
@@ -83,6 +84,33 @@ use Minion;
 # Should be used internally only (see: construct_test_url to build urls in tests)
 my $TEST_MAIN_DOMAIN = "openfoodfacts.localhost";
 my $TEST_WEBSITE_URL = "http://world." . $TEST_MAIN_DOMAIN;
+
+=head2 wait_auth()
+
+Wait for authentication server to be ready.
+It's important because the application might fail because of that
+
+=cut
+
+sub wait_auth() {
+
+	# simply try to access front page
+	my $count = 0;
+	my $ua = new_client();
+	my $target_url = construct_test_url("");
+	while (1) {
+		my $response = $ua->get($oidc_options{endpoint_configuration});
+		last if $response->is_success;
+		sleep 1;
+		$count++;
+		if (($count % 3) == 0) {
+			print("Waiting for auth to be ready since more than $count seconds...\n");
+			diag explain({url => $target_url, status => $response->code, response => $response});
+		}
+		confess("Waited too much for auth") if $count > 60;
+	}
+	return;
+}
 
 =head2 wait_dynamic_front()
 
@@ -136,7 +164,7 @@ sub wait_server() {
 
 =head2 wait_application_ready()
 
-Wait for server and dynamic front to be ready.
+Wait for server, dynamic front, and authentication server to be ready.
 Run this at the beginning of every integration test
 
 =cut
@@ -144,6 +172,7 @@ Run this at the beginning of every integration test
 sub wait_application_ready() {
 	wait_server();
 	wait_dynamic_front();
+	wait_auth();
 	return;
 }
 
