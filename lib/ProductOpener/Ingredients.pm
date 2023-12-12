@@ -1977,6 +1977,11 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 					# in Japanese, 豚肉を含む (contains (を含む) pork (豚肉))
 					# 一部に卵・小麦・乳成分・大豆を含む (contains (を含む) parts of (一部に), eggs, wheat, milk, soybeans (卵・小麦・乳成分・大豆)
 					# 香料(乳由来) (Spices (from milk origin))
+					my $cano = canonicalize_taxonomy_tag($ingredients_lc, "allergens", $between);
+					$log->debug("parse_ingredients_text - BEFORE $cano.")
+						if $log->is_debug();
+					$log->debug("parse_ingredients_text - BEFORE2 $ingredients_lc:$between.")
+						if $log->is_debug();
 					if (
 						(
 							($between !~ /$separators|$and/)
@@ -1984,8 +1989,8 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 								(
 									exists_taxonomy_tag("allergens",
 										canonicalize_taxonomy_tag($ingredients_lc, "allergens", $between))
-									and (canonicalize_taxonomy_tag($ingredients_lc, "allergens", $between) eq
-										$ingredients_lc . ":" . $between)
+									and (canonicalize_taxonomy_tag($ingredients_lc, "allergens", $between) eq "en:"
+										. $between)
 								)
 							)
 						)

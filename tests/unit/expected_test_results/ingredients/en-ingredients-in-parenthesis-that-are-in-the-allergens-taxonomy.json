@@ -2,6 +2,7 @@
    "allergens" : "en:milk",
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "16400",
          "id" : "en:butter",
          "percent_estimate" : 75,
          "percent_max" : 100,
@@ -76,7 +77,7 @@
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:butter"
+      "en:cheese"
    ],
    "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 4,

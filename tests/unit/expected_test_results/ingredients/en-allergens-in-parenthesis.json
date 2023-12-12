@@ -2,6 +2,7 @@
    "allergens" : "en:milk, en:fish, en:gluten",
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "16400",
          "id" : "en:butter",
          "percent_estimate" : 62.5,
          "percent_max" : 100,
@@ -20,6 +21,7 @@
          "vegetarian" : "no"
       },
       {
+         "ciqual_proxy_food_code" : "9410",
          "id" : "en:wheat-flour",
          "percent_estimate" : 9.375,
          "percent_max" : 33.3333333333333,
@@ -148,13 +150,12 @@
    "ingredients_with_unspecified_percent_n" : 7,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:butter",
+      "en:dough",
       "en:flour",
       "en:gluten",
-      "en:surimi",
-      "en:wheat-flour"
+      "en:surimi"
    ],
-   "ingredients_without_ciqual_codes_n" : 5,
+   "ingredients_without_ciqual_codes_n" : 4,
    "known_ingredients_n" : 13,
    "lc" : "en",
    "nutriments" : {
