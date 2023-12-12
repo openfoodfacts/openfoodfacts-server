@@ -805,7 +805,8 @@ puffed orange and caramelized unknown_fruit4.",
 		"en-allergens-in-parenthesis",
 		{
 			lc => "en",
-			ingredients_text => "butter (milk), surimi (fish), wheat flour (gluten), dough (flour, gluten, salt, water)",
+			ingredients_text =>
+				"butter (milk), surimi (fish), wheat flour (gluten), dough (flour, gluten, salt, water)",
 		}
 	],
 	# Japanese allergens in parenthesis

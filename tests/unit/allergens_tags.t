@@ -192,6 +192,15 @@ my @tests = (
 		["en:eggs", "en:gluten", "en:milk", "en:soybeans",],    # allergens
 		[],    # traces
 	],
+	# Japanese allergens are in parenthesis with other specific words
+	[
+		{
+			lc => "ja",
+			ingredients_text => "香料(乳由来)."
+		},
+		["en:milk",],    # allergens
+		[],    # traces
+	],
 	# allergens in parenthesis should not change the nova score but should appear in allergens
 	[
 		{

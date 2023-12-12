@@ -1965,6 +1965,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 					# more than a single allergen is handle just after
 					# in Japanese, 豚肉を含む (contains (を含む) pork (豚肉))
 					# 一部に卵・小麦・乳成分・大豆を含む (contains (を含む) parts of (一部に), eggs, wheat, milk, soybeans (卵・小麦・乳成分・大豆)
+					# 香料(乳由来) (Spices (from milk origin))
 					if (
 						(
 							($between !~ /$separators|$and/)
@@ -1974,7 +1975,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 								)
 							)
 						)
-						or ($between =~ /を含む/)
+						or ($between =~ /を含む|由来/)
 						)
 					{
 						# prepend ">allergens<:" in the beginning of the text, that will be reused below
@@ -2128,7 +2129,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 									# if allergens are listed at the end of ingredients list
 									# it starts by 一部に
 									# it ends by を含む
-									$allergen_string =~ s/(一部に|を含む)//g;
+									$allergen_string =~ s/(一部に|を含む|由来)//g;
 								}
 
 								$allergens = join(",",
