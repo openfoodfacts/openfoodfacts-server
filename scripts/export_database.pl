@@ -33,6 +33,7 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -144,9 +145,9 @@ foreach my $l ("en", "fr") {
 
 	$langs{$l} = 0;
 
-	my $csv_filename = "$www_root/data/$lang.$server_domain.products.csv";
-	my $rdf_filename = "$www_root/data/$lang.$server_domain.products.rdf";
-	my $log_filename = "$www_root/data/$lang.$server_domain.products.bad-chars.log";
+	my $csv_filename = "$BASE_DIRS{PUBLIC_DATA}/$lang.$server_domain.products.csv";
+	my $rdf_filename = "$BASE_DIRS{PUBLIC_DATA}/$lang.$server_domain.products.rdf";
+	my $log_filename = "$BASE_DIRS{PUBLIC_DATA}/$lang.$server_domain.products.bad-chars.log";
 
 	print STDERR "Write file: $csv_filename.temp\n";
 	print STDERR "Write file: $rdf_filename.temp\n";

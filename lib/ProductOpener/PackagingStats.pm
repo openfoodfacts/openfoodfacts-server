@@ -88,6 +88,7 @@ use vars @EXPORT_OK;
 use ProductOpener::PerlStandards;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Products qw/:all/;
@@ -333,35 +334,29 @@ Store the stats in JSON format for internal use in Product Opener and store a co
 sub store_stats ($name, $packagings_stats_ref, $packagings_materials_stats_ref) {
 
 	# Create directories for the output if they do not exist yet
+	ensure_dir_created_or_die("$BASE_DIRS{PRIVATE_DATA}/categories_stats");
+	ensure_dir_created_or_die("$BASE_DIRS{PUBLIC_DATA}/categories_stats");
 
-	(-e "$data_root/data")
-		or mkdir("$data_root/data", oct(755))
-		or die("Could not create target directory $data_root/data : $!\n");
-	(-e "$data_root/data/categories_stats")
-		or mkdir("$data_root/data/categories_stats", oct(755))
-		or die("Could not create target directory $data_root/data/categories_stats : $!\n");
-	(-e "$www_root/data/categories_stats")
-		or mkdir("$www_root/data/categories_stats", oct(755))
-		or die("Could not create target directory $www_root/data/categories_stats : $!\n");
+	# Packaging stats for packaging components
+	store_json("$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_packagings_stats.$name.json",
+		$packagings_stats_ref);
+	store_json("$BASE_DIRS{PUBLIC_DATA}/categories_stats/categories_packagings_stats.$name.json",
+		$packagings_stats_ref);
 
-	# Packaging stats for packaging components
-	store_json("$data_root/data/categories_stats/categories_packagings_stats.$name.json", $packagings_stats_ref);
-	store_json("$www_root/data/categories_stats/categories_packagings_stats.$name.json", $packagings_stats_ref);
-
-	# Packaging stats for products
-	store_json("$data_root/data/categories_stats/categories_packagings_materials_stats.$name.json",
+	# Packaging stats for products
+	store_json("$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_packagings_materials_stats.$name.json",
 		$packagings_materials_stats_ref);
-	store_json("$www_root/data/categories_stats/categories_packagings_materials_stats.$name.json",
+	store_json("$BASE_DIRS{PUBLIC_DATA}/categories_stats/categories_packagings_materials_stats.$name.json",
 		$packagings_materials_stats_ref);
 
 	# special export for French yogurts for the "What's around my yogurt?" operation in January 2023
 	# https://fr.openfoodfacts.org/categorie/desserts-lactes-fermentes/misc/en:packagings-with-weights
 	store_json(
-		"$www_root/data/categories_stats/categories_packagings_stats.fr.fermented-dairy-desserts.$name.json",
+		"$BASE_DIRS{PUBLIC_DATA}/categories_stats/categories_packagings_stats.fr.fermented-dairy-desserts.$name.json",
 		$packagings_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"}
 	);
 	store_json(
-		"$www_root/data/categories_stats/categories_packagings_materials_stats.fr.fermented-dairy-desserts.$name.json",
+		"$BASE_DIRS{PUBLIC_DATA}/categories_stats/categories_packagings_materials_stats.fr.fermented-dairy-desserts.$name.json",
 		$packagings_materials_stats_ref->{countries}{"en:france"}{categories}{"en:fermented-dairy-desserts"}
 	);
 
@@ -383,7 +378,7 @@ Open a file, initialize a Text::CSV object, and output the CSV header for packag
 sub init_products_packaging_components_csv ($name) {
 
 	my $filehandle;
-	my $filename = "$www_root/data/packagings.$name.csv";
+	my $filename = "$BASE_DIRS{PUBLIC_DATA}/packagings.$name.csv";
 	open($filehandle, ">:encoding(UTF-8)", $filename)
 		or die("Could not write " . $filename . " : $!\n");
 	my $csv = Text::CSV->new(
@@ -607,8 +602,8 @@ sub compute_stats_for_all_materials ($packagings_materials_stats_ref, $delete_va
 
 Generate packaging stats for products matching a specific query.
 
-Stats are saved in .json format in $data_root/data/categories_stats/
-and in JSON format in $www_root/data/categories_stats/
+Stats are saved in .json format in $BASE_DIRS{PRIVATE_DATA}/categories_stats/
+and in JSON format in $BASE_DIRS{PUBLIC_DATA}/categories_stats/
 
 =head3 Arguments
 

@@ -34,6 +34,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
          "percent_estimate" : 2.734375,
          "percent_max" : 20,
@@ -149,10 +150,9 @@
       "en:milk",
       "en:pepper",
       "en:some-unknown-ingredient",
-      "en:spice",
-      "en:sugar"
+      "en:spice"
    ],
-   "ingredients_without_ciqual_codes_n" : 6,
+   "ingredients_without_ciqual_codes_n" : 5,
    "known_ingredients_n" : 11,
    "lc" : "en",
    "nutriments" : {

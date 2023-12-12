@@ -102,6 +102,9 @@
                   ],
                   "epi_score" : 0,
                   "epi_value" : -5,
+                  "origins_from_categories" : [
+                     "en:unknown"
+                  ],
                   "origins_from_origins_field" : [
                      "en:unknown"
                   ],
@@ -852,6 +855,9 @@
                   ],
                   "epi_score" : 0,
                   "epi_value" : -5,
+                  "origins_from_categories" : [
+                     "en:unknown"
+                  ],
                   "origins_from_origins_field" : [
                      "en:unknown"
                   ],
@@ -1108,6 +1114,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_proxy_food_code" : "9100",
                "id" : "en:rice",
                "percent_estimate" : 25,
                "percent_max" : 50,
@@ -1157,10 +1164,9 @@
          "ingredients_with_unspecified_percent_n" : 2,
          "ingredients_with_unspecified_percent_sum" : 100,
          "ingredients_without_ciqual_codes" : [
-            "en:fruit",
-            "en:rice"
+            "en:fruit"
          ],
-         "ingredients_without_ciqual_codes_n" : 2,
+         "ingredients_without_ciqual_codes_n" : 1,
          "interface_version_created" : "20150316.jqm2",
          "interface_version_modified" : "20150316.jqm2",
          "known_ingredients_n" : 2,
@@ -1470,6 +1476,9 @@
                   ],
                   "epi_score" : 0,
                   "epi_value" : -5,
+                  "origins_from_categories" : [
+                     "en:unknown"
+                  ],
                   "origins_from_origins_field" : [
                      "en:unknown"
                   ],
@@ -2123,6 +2132,9 @@
                   ],
                   "epi_score" : 0,
                   "epi_value" : -5,
+                  "origins_from_categories" : [
+                     "en:unknown"
+                  ],
                   "origins_from_origins_field" : [
                      "en:unknown"
                   ],
@@ -2897,6 +2909,9 @@
                   ],
                   "epi_score" : 0,
                   "epi_value" : -5,
+                  "origins_from_categories" : [
+                     "en:unknown"
+                  ],
                   "origins_from_origins_field" : [
                      "en:unknown"
                   ],
@@ -3824,6 +3839,9 @@
                   ],
                   "epi_score" : 0,
                   "epi_value" : -5,
+                  "origins_from_categories" : [
+                     "en:unknown"
+                  ],
                   "origins_from_origins_field" : [
                      "en:unknown"
                   ],

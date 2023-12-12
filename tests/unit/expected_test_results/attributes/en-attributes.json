@@ -30,7 +30,7 @@
                "description" : "",
                "description_short" : "Average nutritional quality",
                "grade" : "c",
-               "icon_url" : "https://server_domain/images/attributes/nutriscore-c.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/nutriscore-c.svg",
                "id" : "nutriscore",
                "match" : 47.3333333333333,
                "name" : "Nutri-Score",
@@ -41,7 +41,7 @@
             {
                "description_short" : "0.25 g / 100 g",
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/nutrient-level-salt-low.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/nutrient-level-salt-low.svg",
                "id" : "low_salt",
                "match" : 83.3333333333333,
                "name" : "Salt",
@@ -51,7 +51,7 @@
             {
                "description_short" : "12 g / 100 g",
                "grade" : "c",
-               "icon_url" : "https://server_domain/images/attributes/nutrient-level-fat-medium.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/nutrient-level-fat-medium.svg",
                "id" : "low_fat",
                "match" : 48.2352941176471,
                "name" : "Fat",
@@ -61,7 +61,7 @@
             {
                "description_short" : "25 g / 100 g",
                "grade" : "e",
-               "icon_url" : "https://server_domain/images/attributes/nutrient-level-sugars-high.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/nutrient-level-sugars-high.svg",
                "id" : "low_sugars",
                "match" : 0,
                "name" : "Sugars",
@@ -71,7 +71,7 @@
             {
                "description_short" : "4 g / 100 g",
                "grade" : "d",
-               "icon_url" : "https://server_domain/images/attributes/nutrient-level-saturated-fat-medium.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/nutrient-level-saturated-fat-medium.svg",
                "id" : "low_saturated_fat",
                "match" : 37.1428571428571,
                "name" : "Saturated fat",
@@ -87,7 +87,7 @@
             {
                "debug" : "en:gluten in allergens",
                "grade" : "e",
-               "icon_url" : "https://server_domain/images/attributes/contains-gluten.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/contains-gluten.svg",
                "id" : "allergens_no_gluten",
                "match" : 0,
                "name" : "Gluten",
@@ -97,7 +97,7 @@
             {
                "debug" : "11 ingredients (0 unknown)",
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/no-milk.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-milk.svg",
                "id" : "allergens_no_milk",
                "match" : 100,
                "name" : "Milk",
@@ -107,7 +107,7 @@
             {
                "debug" : "11 ingredients (0 unknown)",
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/no-eggs.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-eggs.svg",
                "id" : "allergens_no_eggs",
                "match" : 100,
                "name" : "Eggs",
@@ -117,7 +117,7 @@
             {
                "debug" : "11 ingredients (0 unknown)",
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/no-nuts.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-nuts.svg",
                "id" : "allergens_no_nuts",
                "match" : 100,
                "name" : "Nuts",
@@ -127,7 +127,7 @@
             {
                "debug" : "11 ingredients (0 unknown)",
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/no-peanuts.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-peanuts.svg",
                "id" : "allergens_no_peanuts",
                "match" : 100,
                "name" : "Peanuts",
@@ -137,7 +137,7 @@
             {
                "debug" : "11 ingredients (0 unknown)",
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/no-sesame-seeds.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-sesame-seeds.svg",
                "id" : "allergens_no_sesame_seeds",
                "match" : 100,
                "name" : "Sesame seeds",
@@ -147,7 +147,7 @@
             {
                "debug" : "11 ingredients (0 unknown)",
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/no-soybeans.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-soybeans.svg",
                "id" : "allergens_no_soybeans",
                "match" : 100,
                "name" : "Soybeans",
@@ -157,7 +157,7 @@
             {
                "debug" : "11 ingredients (0 unknown)",
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/no-celery.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-celery.svg",
                "id" : "allergens_no_celery",
                "match" : 100,
                "name" : "Celery",
@@ -167,7 +167,7 @@
             {
                "debug" : "11 ingredients (0 unknown)",
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/no-mustard.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-mustard.svg",
                "id" : "allergens_no_mustard",
                "match" : 100,
                "name" : "Mustard",
@@ -177,7 +177,7 @@
             {
                "debug" : "11 ingredients (0 unknown)",
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/no-lupin.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-lupin.svg",
                "id" : "allergens_no_lupin",
                "match" : 100,
                "name" : "Lupin",
@@ -187,7 +187,7 @@
             {
                "debug" : "11 ingredients (0 unknown)",
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/no-fish.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-fish.svg",
                "id" : "allergens_no_fish",
                "match" : 100,
                "name" : "Fish",
@@ -197,7 +197,7 @@
             {
                "debug" : "11 ingredients (0 unknown)",
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/no-crustaceans.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-crustaceans.svg",
                "id" : "allergens_no_crustaceans",
                "match" : 100,
                "name" : "Crustaceans",
@@ -207,7 +207,7 @@
             {
                "debug" : "11 ingredients (0 unknown)",
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/no-molluscs.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-molluscs.svg",
                "id" : "allergens_no_molluscs",
                "match" : 100,
                "name" : "Molluscs",
@@ -217,7 +217,7 @@
             {
                "debug" : "11 ingredients (0 unknown)",
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/no-sulphur-dioxide-and-sulphites.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg",
                "id" : "allergens_no_sulphur_dioxide_and_sulphites",
                "match" : 100,
                "name" : "Sulphur dioxide and sulphites",
@@ -233,7 +233,7 @@
          "attributes" : [
             {
                "grade" : "e",
-               "icon_url" : "https://server_domain/images/attributes/non-vegan.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/non-vegan.svg",
                "id" : "vegan",
                "match" : 0,
                "name" : "Vegan",
@@ -243,7 +243,7 @@
             },
             {
                "grade" : "e",
-               "icon_url" : "https://server_domain/images/attributes/non-vegetarian.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/non-vegetarian.svg",
                "id" : "vegetarian",
                "match" : 0,
                "name" : "Vegetarian",
@@ -253,7 +253,7 @@
             },
             {
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/palm-oil-free.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/palm-oil-free.svg",
                "id" : "palm_oil_free",
                "match" : 100,
                "name" : "Palm oil free",
@@ -271,7 +271,7 @@
                "description" : "",
                "description_short" : "Ultra processed foods",
                "grade" : "e",
-               "icon_url" : "https://server_domain/images/attributes/nova-group-4.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/nova-group-4.svg",
                "id" : "nova",
                "match" : 0,
                "name" : "NOVA group",
@@ -281,7 +281,7 @@
             },
             {
                "grade" : "c",
-               "icon_url" : "https://server_domain/images/attributes/2-additives.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/2-additives.svg",
                "id" : "additives",
                "match" : 60,
                "name" : "Additives",
@@ -299,7 +299,7 @@
                "description" : "",
                "description_short" : "Low environmental impact",
                "grade" : "b",
-               "icon_url" : "https://server_domain/images/attributes/ecoscore-b.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/ecoscore-b.svg",
                "id" : "ecoscore",
                "match" : 68,
                "name" : "Eco-Score",
@@ -311,7 +311,7 @@
                "description" : "",
                "description_short" : "Almost no risk of deforestation",
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/forest-footprint-a.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/forest-footprint-a.svg",
                "id" : "forest_footprint",
                "match" : 99.9222222222222,
                "name" : "Forest footprint",
@@ -328,7 +328,7 @@
                "description" : "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.",
                "description_short" : "Promotes ecological sustainability and biodiversity.",
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/organic.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/organic.svg",
                "id" : "labels_organic",
                "match" : 100,
                "name" : "Organic farming",
@@ -339,7 +339,7 @@
                "description" : "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards.",
                "description_short" : "Helps producers in developing countries.",
                "grade" : "a",
-               "icon_url" : "https://server_domain/images/attributes/fair-trade.svg",
+               "icon_url" : "https://server_domain/images/attributes/dist/fair-trade.svg",
                "id" : "labels_fair_trade",
                "match" : 100,
                "name" : "Fair trade",
@@ -422,6 +422,9 @@
             ],
             "epi_score" : 52.9090909090909,
             "epi_value" : 0,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
             "origins_from_origins_field" : [
                "en:unknown"
             ],
@@ -846,6 +849,7 @@
    },
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "9410",
          "id" : "en:wheat-flour",
          "origins" : "en:united-kingdom",
          "percent_estimate" : 54.5454545454545,
@@ -856,6 +860,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
          "origins" : "en:paraguay",
          "percent_estimate" : 12.5,
@@ -1066,11 +1071,9 @@
       "en:e102",
       "en:e120",
       "en:milk-proteins",
-      "en:rapeseed-oil",
-      "en:sugar",
-      "en:wheat-flour"
+      "en:rapeseed-oil"
    ],
-   "ingredients_without_ciqual_codes_n" : 6,
+   "ingredients_without_ciqual_codes_n" : 4,
    "known_ingredients_n" : 30,
    "labels_tags" : [
       "en:organic",

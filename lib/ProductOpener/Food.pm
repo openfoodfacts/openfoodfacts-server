@@ -97,6 +97,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -156,12 +157,13 @@ foreach my $categories_list_id (
 # the stats are displayed on category pages and used in product pages,
 # as well as in data quality checks and improvement opportunity detection
 
-if (opendir(my $dh, "$data_root/data/categories_stats")) {
+if (opendir(my $dh, "$BASE_DIRS{PRIVATE_DATA}/categories_stats")) {
 	foreach my $file (readdir($dh)) {
 		if ($file =~ /categories_nutriments_per_country.(\w+).sto$/) {
 			my $country_cc = $1;
 			$categories_nutriments_per_country{$country_cc}
-				= retrieve("$data_root/data/categories_stats/categories_nutriments_per_country.$country_cc.sto");
+				= retrieve(
+				"$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_nutriments_per_country.$country_cc.sto");
 		}
 	}
 	closedir $dh;
@@ -217,23 +219,26 @@ sub normalize_nutriment_value_and_modifier ($value_ref, $modifier_ref) {
 		${$value_ref} =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
 		${$modifier_ref} = "\N{U+2264}";
 	}
-	elsif (${$value_ref} =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than)( )?/i) {
-		${$value_ref} =~ s/(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than)( )?//i;
+	elsif (
+		${$value_ref} =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than|menos|menor|inferior)( )?/i)
+	{
+		${$value_ref}
+			=~ s/(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than|menos|menor|inferior)( )?//i;
 		${$modifier_ref} = '<';
 	}
 	elsif (${$value_ref} =~ /(\&gt;=|>=|\N{U+2265})/) {
 		${$value_ref} =~ s/(\&gt;=|>=|\N{U+2265})( )?//;
 		${$modifier_ref} = "\N{U+2265}";
 	}
-	elsif (${$value_ref} =~ /(\&gt;|>|min|mini|minimum|greater|more|more than)/i) {
-		${$value_ref} =~ s/(\&gt;|>|min|mini|minimum|greater|more|more than)( )?//i;
+	elsif (${$value_ref} =~ /(\&gt;|>|min|mini|minimum|greater|more|more than|más|mayor|superior)/i) {
+		${$value_ref} =~ s/(\&gt;|>|min|mini|minimum|greater|more|more than|más|mayor|superior)( )?//i;
 		${$modifier_ref} = '>';
 	}
-	elsif (${$value_ref} =~ /(env|environ|about|~|≈)/i) {
-		${$value_ref} =~ s/(env|environ|about|~|≈)( )?//i;
+	elsif (${$value_ref} =~ /(env|environ|about|~|≈|aprox|alrededor)/i) {
+		${$value_ref} =~ s/(env|environ|about|~|≈|aprox|alrededor)( )?//i;
 		${$modifier_ref} = '~';
 	}
-	elsif (${$value_ref} =~ /trace|traces/i) {
+	elsif (${$value_ref} =~ /(trace|traces|traza|trazas)/i) {
 		${$value_ref} = 0;
 		${$modifier_ref} = '~';
 	}
@@ -374,7 +379,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 	return;
 }
 
-# For fat, saturated fat, sugars, salt: http://www.diw.de/sixcms/media.php/73/diw_wr_2010-19.pdf
+# For fat, saturated fat, sugars, salt: https://www.diw.de/sixcms/media.php/73/diw_wr_2010-19.pdf
 @nutrient_levels = (['fat', 3, 20], ['saturated-fat', 1.5, 5], ['sugars', 5, 12.5], ['salt', 0.3, 1.5],);
 
 #
@@ -389,6 +394,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 	ru => "ru",
 	us => "us",
 	hk => "hk",
+	jp => "jp",
 );
 
 =head2 %nutriments_tables
@@ -739,6 +745,65 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'vitamin-b12-', '#minerals', 'calcium', 'potassium-',
 			'phosphorus-', 'iron', 'alcohol', 'nutrition-score-fr-',
 			'sulphate-', 'nitrate-',
+		)
+	],
+	jp => [
+		(
+			'!energy-kj-', '!energy-kcal',
+			'!energy-', '-energy-from-fat-',
+			'!proteins', '-casein-',
+			'-serum-proteins-', '-nucleotides-',
+			'!fat', '-saturated-fat-',
+			'--butyric-acid-', '--caproic-acid-',
+			'--caprylic-acid-', '--capric-acid-',
+			'--lauric-acid-', '--myristic-acid-',
+			'--palmitic-acid-', '--stearic-acid-',
+			'--arachidic-acid-', '--behenic-acid-',
+			'--lignoceric-acid-', '--cerotic-acid-',
+			'--montanic-acid-', '--melissic-acid-',
+			'-unsaturated-fat-', '--monounsaturated-fat-',
+			'--polyunsaturated-fat-', '-omega-3-fat-',
+			'--alpha-linolenic-acid-', '--eicosapentaenoic-acid-',
+			'--docosahexaenoic-acid-', '-omega-6-fat-',
+			'--linoleic-acid-', '--arachidonic-acid-',
+			'--gamma-linolenic-acid-', '--dihomo-gamma-linolenic-acid-',
+			'-omega-9-fat-', '--oleic-acid-',
+			'--elaidic-acid-', '--gondoic-acid-',
+			'--mead-acid-', '--erucic-acid-',
+			'--nervonic-acid-', '-trans-fat-',
+			'cholesterol-', '!carbohydrates',
+			'-sugars-', '-fiber-',
+			'-soluble-fiber-', '-insoluble-fiber-',
+			'!salt', '-added-salt-',
+			'#sodium-', 'alcohol',
+			'#vitamins', 'vitamin-a-',
+			'beta-carotene-', 'vitamin-d-',
+			'vitamin-e-', 'vitamin-k-',
+			'vitamin-c-', 'vitamin-b1-',
+			'vitamin-b2-', 'vitamin-pp-',
+			'vitamin-b6-', 'vitamin-b9-',
+			'folates-', 'vitamin-b12-',
+			'biotin-', 'pantothenic-acid-',
+			'#minerals', 'silica-',
+			'bicarbonate-', 'potassium-',
+			'chloride-', 'calcium-',
+			'phosphorus-', 'iron-',
+			'magnesium-', 'zinc-',
+			'copper-', 'manganese-',
+			'fluoride-', 'selenium-',
+			'chromium-', 'molybdenum-',
+			'iodine-', 'caffeine-',
+			'taurine-', 'ph-',
+			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
+			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
+			'nutrition-score-fr-', 'nutrition-score-uk-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-',
 		)
 	],
 );
@@ -2446,7 +2511,7 @@ sub compare_nutriments ($a_ref, $b_ref) {
 sub compute_nova_group ($product_ref) {
 
 	# compute Nova group
-	# http://archive.wphna.org/wp-content/uploads/2016/01/WN-2016-7-1-3-28-38-Monteiro-Cannon-Levy-et-al-NOVA.pdf
+	# https://archive.wphna.org/wp-content/uploads/2016/01/WN-2016-7-1-3-28-38-Monteiro-Cannon-Levy-et-al-NOVA.pdf
 
 	# remove nova keys.
 	remove_fields(

@@ -62,8 +62,8 @@ en:Nutrition data per serving - Missing serving size, serving quantity is unknow
 description:en:"Nutrition facts are specified for the product as sold." is checked. "per serving" is selected. But the serving size is missing.
 
 <en:Nutrition errors
-en:Nutrition data per serving - Serving quantity is not recognized
-description:en: although serving size is given, it cannot be parsed (digit or unit may be missing or unknown)
+en:Nutrition data per serving - Serving size is not recognized
+description:en:serving size cannot be parsed (digit or unit may be missing or unknown)
 
 <en:Nutrition errors
 en:Nutrition data per serving - Serving quantity is 0
@@ -419,368 +419,423 @@ description:en:Docosahexaenoic acid value is over 105g per 100g, which is imposs
 en:Nutrition value over 105 - Docosahexaenoic acid dha 22 6 n 3
 description:en:Docosahexaenoic acid dha 22 6 n 3 value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - EN vitamin d2
 description:en:EN vitamin d2 value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Eicosapentaenoic acid
 description:en:Eicosapentaenoic acid value is over 1000g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Eicosapentaenoic acid epa 20 5 n 3
 description:en:Eicosapentaenoic acid epa 20 5 n 3 value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Fat
 description:en:Fat value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Fat prepared
 description:en:Fat prepared value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Fiber
 description:en:Fiber value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Fiber prepared
 description:en:Fiber prepared value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Fluoride
 description:en:Fluoride value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Folates
 description:en:Folates value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Fruits vegetables nuts and rapeseed walnut and olive oils
 description:en:Fruits vegetables nuts and rapeseed walnut and olive oils value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Fruits vegetables nuts estimate from ingredients
 description:en:Fruits vegetables nuts estimate from ingredients value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Gondoic acid
 description:en:Gondoic acid value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Hydrogencarbonat
 description:en:Hydrogencarbonat value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Iodine
 description:en:Iodine value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Iron
 description:en:Iron value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Kohlendioxid
 description:en:Kohlendioxid value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Lactose
 description:en:Lactose value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Lauric acid
 description:en:Lauric acid value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Lignoceric acid
 description:en:Lignoceric acid value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Linoleic acid
 description:en:Linoleic acid value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Magnesium
 description:en:Magnesium value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Magnesium 54 7 DE AJR
 description:en:magnesium 54 7 DE AJR is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Maltodextrins
 description:en:Maltodextrins value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Maltose
 description:en: Maltose value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Manganese
 description:en:Manganese value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Melissic acid
 description:en:Melissic acid value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Molybdenum
 description:en:Molybdenum value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Monounsaturated fat
 description:en:Monounsaturated fat value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Montanic acid
 description:en:Montanic acid value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Myristic acid
 description:en:Myristic acid value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - NL droogrest
 description:en:NL droogrest value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - New 1 prepared
 description:en:New 1 prepared value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - New 2 prepared
 description:en:New 2 prepared value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Nucleotides
 description:en:Nucleotides value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Oleic acid
 description:en:Oleic acid value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Omega 3 fat
 description:en:Omega 3 fat value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Omega 3 fat prepared
 description:en:Omega 3 fat prepared value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Omega 6 fat
 description:en:Omega 6 fat value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Omega 9 fat
 description:en:Omega-9 fats are over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Palmitic acid
 description:en:Palmitic acid value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Pantothenic acid
 description:en:Pantothenic acid value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Phosphorus
 description:en:Phosphorus value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Polyols
 description:en:Polyols value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Polyols prepared
 description:en:Polyols prepared value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Polyunsaturated fat
 description:en: Polyunsaturated fat are over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Potassium
 description:en:Potassium value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Pro vitamin a
 description:en:Pro vitamin a value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Proteins
 description:en:Proteins value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Proteins prepared
 description:en:Proteins prepared value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Residu sec
 description:en:Residu sec value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Salt
 description:en:Salt value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Salt prepared
 description:en:Salt prepared value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Saturated fat
 description:en:Saturated fat value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Saturated fat prepared
 description:en:Saturated fat prepared value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Selenium
 description:en:Selenium value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Serum proteins
 description:en:Serum proteins value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Silica
 description:en:Silica value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Sodium
 description:en:Sodium value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Sodium prepared
 description:en:Sodium prepared value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Starch
 description:en:Starch value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Stearic acid
 description:en:Stearic acid value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Sucrose
 description:en:Sucrose value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Sugars
 description:en:Sugars value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Sugars prepared
 description:en:Sugars prepared value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Taurine
 description:en:Taurine value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Till 100 g färdig produkt har x g kött använts
 description:en:Till 100 g färdig produkt har x g kött använts value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Total carbohydrate
 description:en:Total carbohydrate value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Trans fat
 description:en:Trans fat value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Vitamin B1
 description:en:Vitamin B1 value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Vitamin B12
 description:en:Vitamin B12 value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Vitamin B2
 description:en:Vitamin B2 value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Vitamin B6
 description:en:Vitamin B6 value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Vitamin B9
 description:en:Vitamin B9 value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Vitamin D3
 description:en:Vitamin D3 value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Vitamin PP
 description:en:Vitamin PP value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Vitamin a
 description:en:Vitamin a value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Vitamin a prepared
 description:en:Vitamin a prepared value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Vitamin c
 description:en:Vitamin c value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Vitamin d
 description:en:Vitamin d value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Vitamin d prepared
 description:en:Vitamin d prepared value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Vitamin e
 description:en:Vitamin e value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Vitamin k
 description:en:Vitamin k value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Water hardness
 description:en:Water hardness value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 105 - Zinc
 description:en:Zinc value is over 105g per 100g, which is impossible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value over 3800 - Energy
 es:Valor nutricional superior a 3800 - Energía
 fr:Valeur nutritionnelle supérieure à 3800 - Energie
 description:en:The energy value per 100 g or 100 ml is greater than 3800 kJ, which is not possible.
 description:fr:La valeur de l'énergie pour 100 g ou 100 ml est supérieure à 3800 kJ, ce qui n'est pas possible.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value total over 1000
 es:Valor nutricional total superior a 1000
 fr:Total des valeurs nutritionnelles supérieur à 1000
 description:en:The sum of nutrient values for 100 g or 100 ml is greater than 1000 g. There is at least one value or unit error.
 description:fr:La somme des valeurs nutritionnelles pour 100 g ou 100 ml est supérieure à 1000 g. Il y a au moins une erreur de valeur ou d'unité.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Nutrition value total over 105
 es:Valor nutricional total superior a 105
 fr:Total des valeurs nutritionnelles supérieur à 105
 description:en:The sum of nutrient values for 100 g or 100 ml is greater than 100 g. It is very likely that there is at least one value or unit error.
 description:fr:La somme des valeurs nutritionnelles pour 100 g ou 100 ml est supérieure à 100 g. Il est très probable qu'il y a au moins une erreur de valeur ou d'unité.
 
-<en:Nutrition Error
+<en:Nutrition errors
 en:Serving size is missing digits
 fr:La taille de portion manque d'un nombre
 description:en:The serving size should be a size with digits. Eg. "10 g", "250 ml", "2 fl oz"...
 description:fr:La taille de portion devrait contenir un nombre. Par exemple : "10 g", "250 ml", "2 biscuits de 30 g", etc.
+
+<en:Nutrition errors
+en:Nutrition values are all identical
+description:en:Nutrition values have to be reviewed because it should not have all same values
+
+
+## Ingredients
+
+<en:Data quality errors
+en:Ingredients errors
+description:en: There might be an issue with ingredients
+show_on_producers_platform:en:yes
+marker_type:en: error
+
+<en:Ingredients errors
+en:nutri-score-grade-from-category-does-not-match-calculated-grade
+description:en: The calculated nutriscore grade is different than the one expected for this category
+fix_action:en: add_nutrition_facts
+
+<en:Ingredients errors
+en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients
+description:en: This category expect a single and specific ingredient
+fix_action:en: add_ingredients_text
+
+
+### Labels
+
+<en:Data quality errors
+en:vegan-label-but-non-vegan-ingredient
+description:en:This product has a vegan label but contains non-vegan ingredients.
+
+<en:Data quality errors
+en:vegetarian-label-but-non-vegetarian-ingredient
+description:en:This product has a vegetarian label but contains non-vegetarian ingredients.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## --------------- Then data quality warnings
@@ -924,22 +979,6 @@ description:en:Fibers are mentioned on nutrition photos, but are not present in 
 
 
 ## Ingredients
-
-<en:Data quality errors
-en:Ingredients errors
-description:en: There might be an issue with ingredients
-show_on_producers_platform:en:yes
-marker_type:en: error
-
-<en:Ingredients errors
-en:nutri-score-grade-from-category-does-not-match-calculated-grade
-description:en: The calculated nutriscore grade is different than the one expected for this category
-fix_action:en: add_nutrition_facts
-
-<en:Ingredients errors
-en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients
-description:en: This category expect a single and specific ingredient
-fix_action:en: add_ingredients_text
 
 <en:Data quality warnings
 en:Ingredients warnings
@@ -2521,7 +2560,6 @@ description:en:Having a sum of ingredients percentages greater than 100 is logic
 
 <en:Ingredients warnings
 en:Sum of ingredients with unspecified percent lesser than 10
-#description:en:
 
 
 
@@ -2534,7 +2572,7 @@ description:en: Data quality warnings linked to GS1 format (producers imports)
 
 <en:GS1 warnings
 en:GS1 - Future coupon prefix
-#description:en:
+description:en:This product has a barcode with a GS1 future coupon prefix. This is likely a food data quality error as it indicates that the barcode is associated with a coupon that is not yet valid or has expired, rather than a food product.
 
 <en:GS1 warnings
 en:GS1 - ISSN prefix
@@ -2550,11 +2588,11 @@ description:en:The International Standard Book Number (ISBN) is for books. In ot
 
 <en:GS1 warnings
 en:GS1 - refund prefix
-#description:en:
+description:en:This product has a barcode with a GS1 refund prefix. This is likely a food data quality error as it indicates that the barcode is associated with a refund rather than a food product.
 
 <en:GS1 warnings
 en:GS1 - Coupon common currency area prefix
-#description:en:
+description:en:This product has a barcode with a GS1 coupon common currency area prefix. This is likely a food data quality error as it indicates that the barcode is associated with a coupon rather than a food product.
 
 
 
@@ -2569,7 +2607,7 @@ description:en:There's no language for this product, which is problematic, since
 
 
 en:Main language unknown
-#description:en:
+description:en:The main language of the product is unknown, which can lead to data quality issues in analyzing ingredients and other aspects of the product.
 
 
 
@@ -2692,10 +2730,6 @@ description:en:This might be due among other things to incorrect nutrition value
 en:Nutrition 3 or more values are identical
 description:en:Someone may have entered wrong data because there are 3 identical values in nutrition table and those values are above 1
 
-<en:Nutrition warnings
-en:Nutrition all values zero
-#description:en:
-
 <en:Data quality ok tags
 en:Nutrition Grade FR producer same OK
 #description:en:
@@ -2730,10 +2764,6 @@ en:Nutrition value under 0,001 g - Salt
 
 <en:Nutrition warnings
 en:Nutrition value under 0,01 g - Salt
-#description:en:
-
-<en:Nutrition warnings
-en:Nutrition value under 0,1 g salt
 #description:en:
 
 <en:Nutrition warnings
@@ -2847,15 +2877,15 @@ description:en:Serving quantity is never that large, since it's supposed to be a
 
 <en:Quantity and serving warnings
 en:Serving quantity over product quantity
-#description:en:
+description:en:The serving quantity is listed as greater than the product quantity, which is highly unlikely and indicates a data quality error.
 
 <en:Quantity and serving warnings
 en:Serving quantity under 1g
-#description:en:
+description:en:The serving quantity is listed as under 1 gram, which is highly unlikely for 99% of food products. This is likely a data quality error.
 
 <en:Quantity and serving warnings
 en:Serving size in mg
-#description:en:
+description:en:The serving size is listed in milligrams (mg), which is unusual for most food products. It is likely a data quality error.
 
 
 
@@ -2880,14 +2910,6 @@ en:Carbon footprint from known ingredients more than from meat or fish
 
 
 ### Labels
-
-<en:Data quality errors
-en:vegan-label-but-non-vegan-ingredient
-description:en:This product has a vegan label but contains non-vegan ingredients.
-
-<en:Data quality errors
-en:vegetarian-label-but-non-vegetarian-ingredient
-description:en:This product has a vegetarian label but contains non-vegetarian ingredients.
 
 <en:Data quality warnings
 en:vegan-label-but-could-not-confirm-for-all-ingredients 

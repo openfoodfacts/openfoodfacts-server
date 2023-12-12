@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -60,7 +61,7 @@ my $path = product_path($code);
 
 		# Store
 
-		store( "$data_root/products/$path/product.sto", $product_ref );
+		store( "$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref );
 		get_products_collection()->save($product_ref);
 	
 
