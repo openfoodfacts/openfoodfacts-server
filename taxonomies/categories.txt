@@ -2477,11 +2477,13 @@ origins:en: en:Czech Republic
 
 <en:Country specific beers
 en:Danish beers, Beers from Denmark
+bg:Датска бира
 lt:Daniškas alus, alus iš Danijos
 wikidata:en:Q3655862
 
 <en:Country specific beers
 en:Estonian beers, Beers from Estonia
+bg:Естонска бира
 fr:Bières estoniennes
 lt:Estiškas alus, alus iš Estijos
 wikidata:en:Q15392318
@@ -39418,7 +39420,7 @@ fr:Riz complet, riz cargo, riz brun, riz semi-complet, Riz complet cru
 it:Riso integrale
 ja:玄米
 lt:Rudieji ryžiai
-nl:Zilverlvliesrijsten, Volkoren rijsten
+nl:Zilverlvliesrijsten, Volkoren rijsten, Volkorenrijsten
 wikidata:en:Q1066624
 agribalyse_food_code:en:9102
 ciqual_food_code:en:9102
@@ -39448,13 +39450,14 @@ fr:Riz paddy
 
 <en:Rices
 en:Parboiled rices
+bg:Бланширан ориз
 de:Gekochter Reis
 es:Arroces vaporizados, Arroces sancochados, Arroces parboiled
 fi:Parboiled-riisit
 fr:Riz étuvé
 it:Riso parboiled
 lt:Plikyti ryžiai
-nl:Parboiled rijst, Inkaf gekookte rijst
+nl:Parboiled rijsten, Inkaf gekookte rijst
 wikidata:en:Q732925
 agribalyse_proxy_food_code:en:9101
 agribalyse_proxy_food_name:en:Rice, parboiled, raw
@@ -39463,6 +39466,7 @@ agribalyse_proxy_food_name:fr:Riz blanc étuvé, cru
 <en:White rices
 <en:Parboiled rices
 en:Parboiled white rices
+bg:Бланширан бял ориз
 fr:Riz blanc étuvé
 agribalyse_food_code:en:9101
 ciqual_food_code:en:9101
@@ -42174,6 +42178,19 @@ origins:en: en:Cyprus
 wikidata:en:Q549793
 
 <en:Cheeses
+en:Bulgarian cheeses, cheeses from Bulgaria
+bg:Български сирена
+fr:Fromages de Bulgarie, Fromages bulgares
+
+<en:Bulgarian cheeses
+en:Bulgarian white brine cheese 
+bg:Българско бяло саламурено сирене
+protected_name_file_number:en: PDO-BG-02656
+protected_name_type:en: pdo
+origins:en: en:Bulgaria
+wikidata:en:
+
+<en:Cheeses
 en:Greek cheeses, cheeses from Greece
 bg:Гръцки сирена
 de:Griechischer Käse
@@ -44829,7 +44846,7 @@ hu:Mozzarella
 it:Mozzarella
 ja:モッツァレラ
 lt:Mocarela
-nl:Mozzarella
+nl:Mozzarellas
 pl:Mozzarella
 ru:Моцарелла
 sv:Mozzarella
@@ -48827,7 +48844,9 @@ pt:Bebidas de iogurte de baunilha
 ciqual_food_code:en:19508
 
 <en:Drinkable yogurts
+en:Raspberry drinkable yogurts
 fr:Yaourts à boire goût framboise
+nl:Framboosdrinkyoghurts
 
 <en:Drinkable yogurts
 fr:Yaourts à boire goût chocolat
@@ -49389,7 +49408,7 @@ ru:Йогурт из овечьего молока, Йогурты из овеч
 
 <en:Yogurts
 en:Goat milk yogurts, Goat yogurts, goat's milk yogurts
-bg:Козе кисело мляко
+bg:Кисело козе мляко
 de:Ziegenmilchjoghurt, Ziegenjoghurt
 es:Yogures de leche de cabra
 fi:Vuohenmaitojogurtti
@@ -49404,6 +49423,7 @@ wikidata:en:Q36175261
 <en:Goat milk yogurts
 <en:Plain yogurts
 en:Plain goat yogurts
+bg:Натурално кисело козе мляко
 fr:Yaourts de chèvre nature
 agribalyse_food_code:en:19556
 ciqual_food_code:en:19556
@@ -49514,6 +49534,14 @@ agribalyse_proxy_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, 
 #ciqual_food_code:en:19593
 #ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain
 #ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
+
+<en:Yogurts
+en:Bulgarian yogurt
+bg:Българско кисело мляко
+protected_name_file_number:en: PDO-BG-02657
+protected_name_type:en: pdo
+origins:en: en:Bulgaria
+wikidata:en:
 
 en:Desserts
 bg:Десерти
@@ -58474,6 +58502,7 @@ en:Bread flours
 de:Brotmehle
 fr:Farines de pain
 ru:Мука хлебопекарная
+nl:Broodmelen
 
 <en:Bread flours
 <en:Wheat flours
@@ -59799,10 +59828,20 @@ es:Helados de palo, Polos de helado, Paletas de helado, Paletas heladas
 fi:jäätelöpuikot
 fr:Bâtonnets glacés, Bâtonnets, battonets, battonnets, eskimos, Glaces Batonnets
 hu:Fagylal szeletek, Fagylaltok pálcikán
-it:Gelati a stecco o in barretta
+it:Gelati a stecco, Gelatti in barretta
 lt:Ledai ant pagaliuko, Ledų batonėliai
-nl:IJsjes, IJscos
+nl:IJsjes, IJscos, Friscos
 nl-BE:Friscos
+
+#<en:Variety packs
+<en:Ice cream bars
+en:Ice cream bar variety packs
+de:Eis am Stiel Mischpackungen
+es:Pacquetes variados de helados de palo
+fr:Assortiments de bâtonnets glacés
+it:Gelati a stecco confezione miste
+nl:Ijsjesassortimenten
+#description:en:A package with icecream bars with bars with different flavours
 
 <en:Ice cream bars
 en:Vanilla ice cream bars, Vanilla ice creams on a stick
@@ -88954,6 +88993,7 @@ fi:Mereneläväpakasteet
 fr:Fruits de mer surgelés
 hr:smrznuti plodovi mora
 it:Frutti di mare surgelati
+nl:Diepvrieszeevruchten
 pt:Frutos do mar congelados
 ru:Замороженые морепродукты
 
@@ -92987,6 +93027,7 @@ fr:Crèmes d'artichaut
 
 <en:Salted spreads
 en:Tapenades, tapenade, Puree of capers pitted black olives anchovy and herbs with olive oil and lemon juice
+bg:Маслинова паста
 ca:Tapenada
 de:Tapenade
 eo:Tapenado
@@ -93012,11 +93053,13 @@ ciqual_food_name:fr:Tapenade
 
 <en:Tapenades
 en:Black tapenades
+bg:Черна маслинова паста
 fr:Tapenades noires, Tapenade noire, Tapenade aux olives noires
 nl:Zwarte tapenades
 
 <en:Tapenades
 en:Green tapenades
+bg:Зелена маслинова паста
 fr:Tapenades vertes, Tapenade verte, Tapenade aux olives vertes
 nl:Groene tapenades
 
@@ -94472,6 +94515,7 @@ nl:Gemarineerde artisjokken in blik/pot
 <en:Canned vegetables
 <en:Beet
 en:Canned beet, Canned beetroots
+bg:Консервирано цвекло
 de:Rote-Bete-Konserven
 es:Remolacha en conserva
 fi:purkitetut punajuuret
@@ -94496,6 +94540,7 @@ ciqual_food_name:fr:Chou de Bruxelles, appertisé, égoutté
 <en:Canned vegetables
 <en:Carrots
 en:Canned carrots
+bg:Консервирани моркови
 de:Karotten in Dosen, Dosenkarotten
 es:Zanahorias en conserva
 fi:purkitetut porkkanat
@@ -94593,6 +94638,7 @@ ciqual_food_name:fr:Salsifis, appertisé, égoutté
 <en:Canned vegetables
 <en:Spinachs
 en:Canned spinachs
+bg:Консервиран спанак
 de:Spinat in Dosen, Dosenspinat
 es:Espinacas en conserva
 fi:purkitetut pinaatit
@@ -94607,7 +94653,7 @@ ciqual_food_name:fr:Épinard, appertisé, égoutté
 <en:Canned vegetables
 <en:Tomatoes
 en:Canned tomatoes
-bg:Домати от консерва
+bg:Консервирани домати
 de:Dosentomaten, Tomaten in Dosen
 es:Tomates en conserva
 fi:purkitetut tomaatit
@@ -95098,7 +95144,7 @@ ciqual_food_name:fr:Asperge, bouillie/cuite à l'eau
 <en:Canned vegetables
 <en:Asparagus
 en:Canned asparagus
-bg:Аспержи в консерва
+bg:Консервирани аспержи
 ca:Espàrrecs en conserva
 de:Spargel in Dosen
 es:Espárragos en conserva
@@ -95113,7 +95159,7 @@ ciqual_food_name:fr:Asperge, appertisée, égouttée
 
 <en:Canned asparagus
 en:Canned green asparagus
-bg:Зелени аспержи в консерва
+bg:Консервирани зелени аспержи
 es:Espárragos verdes en conserva
 fr:Asperges vertes en conserve
 nl:Groene asperges in blik/pot
@@ -95141,7 +95187,7 @@ agribalyse_proxy_food_name:fr:Asperge, blanche ou violette, pelée, crue
 <en:Canned asparagus
 <en:White asparagus
 en:Canned white asparagus
-bg:Бели аспержи в консерва
+bg:Консервирани бели аспержи
 ca:Espàrrecs blancs en conserva
 de:Weißer Spargel in Dosen, Weißer Dosen-Spargel
 es:Espárragos blancos en conserva
@@ -100426,6 +100472,7 @@ wikidata:en:Q37483505
 
 <en:Vinegars
 en:Cider vinegars, apple cider vinegars, Apple cider vinegar
+bg:Ябълков оцет
 de:Apfelessige
 es:Vinagres de manzana, Vinagres de sidra y manzana, Vinagres de sidra
 fi:Siiderietikat, Omenasiiderietikat, Omenasiiderietikka
@@ -102833,6 +102880,7 @@ nl:Graanrepen met abrikozen
 
 <en:Fruits cereal bars
 en:Strawberry cereal bars
+bg:Мюсли бар с ягода
 fr:Barres de céréales aux fraises, Barre de céréales aux fraises
 ro:Batoane de cereale cu căpșuni
 
@@ -102856,6 +102904,7 @@ ro:Batoane de cereale cu mere
 
 <en:Cereal bars
 en:Chocolate cereal bars
+bg:Мюсли бар с шоколад
 de:Müsliriegel mit Schokolade
 es:Barritas de cereales con chocolate
 fi:Suklaiset viljapatukat
@@ -103068,6 +103117,7 @@ nl:Croissants (gevuld)
 
 <en:Filled croissants
 en:Croissant filled with chocolate
+bg:Кроасани с шоколадов пълнеж
 de:Mit Schokolade gefüllte Croissants
 es:Cruasán relleno de chocolate
 fi:Suklaalla täytetyt voisarvet, Suklaalla täytetyt kroisantit, Suklaalla täytetyt croissantit
@@ -104083,7 +104133,7 @@ es:Quesos vegetales
 fi:vegaanijuustot
 fr:Substituts du fromage, fromages végétaux
 it:Formaggi vegani
-nl:Veganistische kazen
+nl:Veganistische kazen, Kaasvervangers
 pl:Zastępniki sera
 gpc_category_code:en:10006996
 gpc_category_name:en:Cheese Substitutes (Perishable)
@@ -104441,6 +104491,7 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 
 <en:Puffed salty snacks
 en:Cheese doodles
+nl:Kaasflips
 ro:Pufuleți cu brânză
 #wikidata:en:
 
@@ -106037,30 +106088,6 @@ es:Judías verdes enlatadas
 fr:Haricots verts plats en conserve
 nl:Snijbonen in blik/pot
 
-
-<en:Cooking helpers
-en:Toppings
-de:Garnierungen
-fi:päällysteet
-fr:Nappages
-ja:トッピング
-nl:Garnering
-
-<en:Cooking helpers
-en:Madeira wine aspic
-fr:Gelée au madère
-agribalyse_food_code:en:11176
-ciqual_food_code:en:11176
-ciqual_food_name:en:Madeira wine aspic
-ciqual_food_name:fr:Gelée au madère
-
-<en:Cooking helpers
-en:Dehydrated Madeira wine aspic
-fr:Gelée au madère déshydratée
-agribalyse_food_code:en:11175
-ciqual_food_code:en:11175
-ciqual_food_name:en:Madeira wine aspic, dehydrated
-ciqual_food_name:fr:Gelée au madère, déshydratée
 
 <en:Salty snacks
 en:Vegetable cakes, Vegetables cakes

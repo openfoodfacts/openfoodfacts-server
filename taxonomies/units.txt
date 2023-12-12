@@ -11,7 +11,7 @@
 # symbol:en:µg
 # This is needed because µg in the xx: entry (xx:µg) would be canonicalized to xx:g
 
-xx:g, gr, grs
+xx:g, gr, grs, grm
 ar:جرام, جرامات
 bn:গ্রাম, গ্রামগুলি
 bs:gram, grama
@@ -50,7 +50,7 @@ ne:ग्राम, ग्रामहरू
 nl:gram, gram
 no:gram, gram
 pl:gram, gramy
-pt:grama, gramas
+pt:grama, gramas, gm
 ro:gram, grame
 ru:грамм, граммы, г
 sk:gram, gramov
@@ -320,7 +320,7 @@ standard_unit:en:g
 
 
 # Ounces
-xx:oz, ozs
+xx:oz, ozs, onz
 ar:أونصة, أونصات
 bg:унция, унции
 bn:ঔঞ্জ, ঔঞ্জ
@@ -613,6 +613,11 @@ ur:ملی لیٹر, ملی لیٹرز
 vi:millilit, millilit
 zh:毫升, 毫升, 毫升
 conversion_factor:en:1
+standard_unit:en:ml
+
+# Metric teaspoon
+en:metric teaspoon
+conversion_factor:en:5
 standard_unit:en:ml
 
 # Fluid ounces

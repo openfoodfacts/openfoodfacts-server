@@ -54,6 +54,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "13009",
          "id" : "en:lemon",
          "labels" : "en:organic",
          "percent_estimate" : 1.38888888888889,
@@ -159,10 +160,9 @@
    "ingredients_without_ciqual_codes" : [
       "en:cocoa",
       "en:grapefruit",
-      "en:lemon",
       "en:orange"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 3,
    "known_ingredients_n" : 14,
    "lc" : "fr",
    "nutriments" : {
