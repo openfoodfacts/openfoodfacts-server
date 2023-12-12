@@ -141,13 +141,13 @@ is(normalize_quantity("2 kgr"), 2000);
 is(normalize_quantity("2 kilogramme"), 2000);
 is(normalize_quantity("2 kilogrammes"), 2000);
 
-my @serving_sizes = (
+my @quantities = (
     # eggs in EU have specific weigth depending on categories (XL, L, M, S)
 	["10 jaja razred M", "580"],
 	["6 jajka kategoria XL", "438"],
 );
 
-foreach my $test_ref (@serving_sizes) {
+foreach my $test_ref (@quantities) {
 	is(normalize_quantity($test_ref->[0]), $test_ref->[1]) or diag explain $test_ref;
 }
 
