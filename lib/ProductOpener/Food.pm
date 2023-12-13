@@ -2920,6 +2920,16 @@ sub assign_categories_properties_to_product ($product_ref) {
 This function reads the nutriment values passed to the product edit form, or the product edit API,
 and assigns them to the product.
 
+=head3 Arguments
+
+=head4 $product_ref
+
+=head4 $nutriment_table
+
+The nutriment table format according to the country as defined in Diplay.pm
+
+=head4 $can_edit_owner_fields
+
 =cut
 
 sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_table, $can_edit_owner_fields = 0) {
@@ -3093,6 +3103,34 @@ sub assign_nutriments_values_from_request_parameters ($product_ref, $nutriment_t
 			delete $product_ref->{nutriments}{$nid . "_unit"};
 			delete $product_ref->{nutriments}{$nid . "_label"};
 		}
+	}
+
+	# Ignore changes if a single nutrient is zero but all others are undefined (see issue #1759)
+	my $ncount = 0;
+	# if salt (sodium) is entered and sodium (salt) is missing,
+	# values are automatically added, leading to 2 values instead of 1 in the nutriments
+	my $salt_or_sodium = 0;
+	foreach my $nid (keys %{$product_ref->{nutriments}}) {
+		# regardless if it is prepared or not
+		# all nutrients (not only majors one) to avoid false positives for food supplements or water
+		# exclude salt (sodium) if sodium (salt) has already been counted
+		if (($nid =~ "_value") && !((($nid eq "salt_value") or ($nid eq "sodium_value")) and ($salt_or_sodium == 1))) {
+			$ncount++;
+			if (($nid eq "salt_value") or ($nid eq "sodium_value")) {
+				$salt_or_sodium++;
+			}
+		}
+
+		# not need to continue if we have at list 2 values
+		if ($ncount > 1) {
+			last;
+		}
+	}
+	if ($ncount < 2) {
+		$log->debug("assign_nutriments_values_from_request_parameters - single nutriment. Empty table.")
+			if $log->is_debug();
+		$product_ref->{nutriments} = {};
+		return;
 	}
 
 	if ((defined $product_ref->{no_nutrition_data}) and ($product_ref->{no_nutrition_data} eq 'on')) {

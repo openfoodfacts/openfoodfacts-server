@@ -550,4 +550,73 @@ is_deeply(
 	}
 ) or diag explain $product_ref;
 
+# Empty nutrition table if a single nutrient has been input only (see #1759)
+## empty nutrition table
+$product_ref = {
+	nutriments => {
+		fat => 3,
+		fat_100g => 3,
+		fat_unit => 'g',
+		fat_value => 3,
+	},
+};
+assign_nutriments_values_from_request_parameters($product_ref, "europe");
+is_deeply(
+	$product_ref,
+	{
+		nutriments => {},
+	}
+) or diag explain $product_ref;
+## empty nutrition table salt and sodium
+$product_ref = {
+	nutriments => {
+		salt => 1,
+		salt_100g => 1,
+		salt_unit => 'g',
+		salt_value => 1,
+		sodium => 0.4,
+		sodium_100g => 0.4,
+		sodium_unit => 'g',
+		sodium_value => 0.4,
+	},
+};
+assign_nutriments_values_from_request_parameters($product_ref, "europe");
+is_deeply(
+	$product_ref,
+	{
+		nutriments => {},
+	}
+) or diag explain $product_ref;
+## does not empty nutrition table
+$product_ref = {
+	nutriments => {
+		fat => 3,
+		fat_100g => 3,
+		fat_unit => 'g',
+		fat_value => 3,
+		"saturated-fat_value" => 3,
+		"saturated-fat" => 3,
+		"saturated-fat_100g" => 3,
+		"saturated-fat_unit" => 'g',
+		"saturated-fat_value" => 3,
+	},
+};
+assign_nutriments_values_from_request_parameters($product_ref, "europe");
+is_deeply(
+	$product_ref,
+	{
+		nutriments => {
+			fat => 3,
+			fat_100g => 3,
+			fat_unit => 'g',
+			fat_value => 3,
+			"saturated-fat_value" => 3,
+			"saturated-fat" => 3,
+			"saturated-fat_100g" => 3,
+			"saturated-fat_unit" => 'g',
+			"saturated-fat_value" => 3,
+		},
+	}
+) or diag explain $product_ref;
+
 done_testing();
