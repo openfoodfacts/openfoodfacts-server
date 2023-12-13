@@ -2586,6 +2586,9 @@ vegan:en:no
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Lait semi-écrémé, pasteurisé
 carbon_footprint_fr_foodges_value:fr:1.2
+ciqual_proxy_food_code:en:19051
+ciqual_proxy_food_name:en:Milk, skimmed, pasteurised
+ciqual_proxy_food_name:fr:Lait écrémé, pasteurisé
 
 <en:milk
 en:milk enriched with cream
@@ -2804,6 +2807,9 @@ zh:脱脂牛奶
 # yue:脫脂奶
 wikidata:en:Q2352187
 wikipedia:en:https://en.wikipedia.org/wiki/Skimmed_milk
+ciqual_proxy_food_code:en:19051
+ciqual_proxy_food_name:en:Milk, skimmed, pasteurised
+ciqual_proxy_food_name:fr:Lait écrémé, pasteurisé
 
 #kept due to ciqual
 <en:skimmed milk
@@ -2888,6 +2894,9 @@ pt:leite meio gordo
 sv:mellanmjölk
 wikidata:en:Q10572454
 wikipedia:fr:https://fr.wikipedia.org/wiki/Lait_demi-écrémé
+ciqual_proxy_food_code:en:19041
+ciqual_proxy_food_name:en:Milk, semi-skimmed, UHT
+ciqual_proxy_food_name:fr:Lait demi-écrémé, UHT
 
 <en:semi-skimmed milk
 fr:lait demi écrémé uht, lait stérilisé u h t demi-écrémé, lait demi-écrémé stérilisé uht, lait stérilisé uht demi-écrémé, lait demi-écrémé stérilisé u.h.t
@@ -3028,6 +3037,9 @@ pt:leite enteiro, leite integral
 ro:lapte integral
 sv:Helmjölk, sötmjölk
 zh:全脂牛奶
+ciqual_food_code:en:19023
+ciqual_food_name:en:Milk, whole, UHT
+ciqual_food_name:fr:Lait entier, UHT
 
 <en:whole milk
 <en:fresh milk
@@ -12311,6 +12323,8 @@ carbon_footprint_fr_foodges_value:fr:7.4
 carbon_footprint_fr_foodges_ingredient_for_net_weight:en:5.9
 # Facteur GES kg CO2 eq / kg d'ingrédient ingéré
 carbon_footprint_fr_foodges_ingredient_for_ingested_weight:en:7.4
+ciqual_proxy_food_code:en:28205
+ciqual_proxy_food_name:en:Pork, meat, cooked (average)
 
 #process:en: en:mechanically separated
 <en:pork meat
@@ -14921,7 +14935,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Butterfat
 vegan:en:no
 vegetarian:en:yes
 # ingredient/butterfat has 9828 products in 35 languages @2019-07-10
-
+ciqual_food_code:en:16401
+ciqual_food_name:en:Butter oil or concentrated butter
 
 # decription:en:CLARIFIED BUTTER is milk fat rendered from butter to separate the milk solids and water from the butterfat
 # comment:en:Not sure if this is really different from butterfat. Maybe the clarification is a special process.
@@ -32443,6 +32458,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Dark_chocolate
 # category/dark-chocolates has 3311 products @2019-05-25
 carbon_footprint_fr_foodges_ingredient:fr:Chocolat en morceau (noir)
 carbon_footprint_fr_foodges_value:fr:4.9
+ciqual_proxy_food_code:en:31074
+ciqual_proxy_food_name:en:Dark chocolate bar, more than 70% cocoa
 
 <en:dark chocolate
 en:belgian dark chocolate, dark belgian chocolate
@@ -51103,6 +51120,9 @@ wikidata:en:Q61046162
 wikipedia:en:https://en.wikipedia.org/wiki/Chives
 # 4350 in 20 @2021-10-19
 eurocode_2_group_3:en: 8.30.50
+ciqual_food_code:en:11003
+ciqual_food_name:en:Chive or spring onion, fresh
+ciqual_food_name:fr:Ciboule ou Ciboulette, fraîche
 
 <en:chives
 en:chive seasoning
