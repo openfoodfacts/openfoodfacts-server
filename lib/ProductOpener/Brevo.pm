@@ -57,8 +57,13 @@ my $api_base_url = 'https://api.brevo.com/v3';
 my $brevo_api_key = $ProductOpener::Config2::brevo_api_key;
 my $list_id = $ProductOpener::Config2::list_id;
 
-sub add_contact_to_list ($email, $username, $cc, $lc) {
+sub add_contact_to_list ($email, $username, $country, $language) {
 
+	# We need a Brevo key to use this API, otherwise we silently fails
+	if (!$brevo_api_key) {
+		$log->debug("No Brevo key, no list subscription.") if $log->is_debug();
+		return -1;
+	}
 	# Brevo API endpoint for adding a contact to a list
 	my $api_endpoint = '/contacts';
 
@@ -76,8 +81,8 @@ sub add_contact_to_list ($email, $username, $cc, $lc) {
 		email => $email,
 		attributes => {
 			USERNAME => $username,
-			CC => $cc,
-			LC => $lc,
+			COUNTRY => $country,
+			LANGUAGE => $language,
 		},
 		listIds => [$list_id],
 

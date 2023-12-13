@@ -10,37 +10,82 @@ use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
 use File::Temp ();
 
-# Mock the LWP::UserAgent module
-my $mocked_ua = Test::MockModule->new('LWP::UserAgent');
-$mocked_ua->mock(
-    'request' => sub {
-        my ($request) = @_;
-        return HTTP::Response->new("200", "OK", HTTP::Headers->new(), '{"status": "success"}');
-    }
-);
-
+my ($brevo_api_key, $email, $username, $country, $language);
 
 # Test the add_contact_to_list function
+{
+	my $request;
 
-    my $email = 'abc@example.com';
-    my $username = 'elly';
-    my $cc = 'world';
-    my $lc = 'english';
+	# Mock $ProductOpener::Brevo::brevo_api_key
+	my $mocked_brevo_api_key = Test::MockModule->new('ProductOpener::Brevo');
+	$mocked_brevo_api_key->mock(
+		'brevo_api_key' => sub {
+			return $brevo_api_key;
+		}
+	);
 
-# my $dump_path = File::Temp->newdir();
-# my @responses = (
-# 	HTTP::Response->new("200", "OK", HTTP::Headers->new(), '{"status": "success"}'),
-# );
-# # start fake server
-# my $httpd = fake_http_server(8881, $dump_path, \@responses);
+	# Mock LWP::UserAgent
+	my $mocked_ua = Test::MockModule->new('LWP::UserAgent');
+	$mocked_ua->mock(
+		'request' => sub {
+			($request) = @_;
+			# diag($request);
+			return HTTP::Response->new("200", "OK", HTTP::Headers->new(), '{"status": "success"}');
+		}
+	);
 
-# Call the function
-my $result = add_contact_to_list($email, $username, $cc, $lc); 
-diag("Result: $result");
+	$brevo_api_key = 'abcdef1234';
+	$email = 'abc@example.com';
+	$username = 'elly';
+	$country = 'world';
+	$language = 'english';
 
-ok($result, 'Contact added successfully');
+	# Call the function
+	my $result = add_contact_to_list($email, $username, $country, $language);
+	diag("Result: $result");
 
-$mocked_ua->unmock_all();
+	is($result, 1, 'Contact added successfully');
+	is($brevo_api_key, 'abcdef1234', 'Verify brevo_api_key');
+
+	my $ua = LWP::UserAgent->new;
+	my $response = $ua->request($request);
+	print to_json(decode_json($response->decoded_content), {pretty => 1});
+	is_deeply(
+		decode_json($response->decoded_content),
+		{status => 'success'},
+		'Verify response body is {"status": "success"}'
+	);
+
+	$mocked_ua->unmock_all();
+	$mocked_brevo_api_key->unmock_all();
+}
+
+# Test with a bad response
+{
+	my $request;
+	my $mocked_ua = Test::MockModule->new('LWP::UserAgent');
+	$mocked_ua->mock(
+		'request' => sub {
+			($request) = @_;
+			return HTTP::Response->new("500", "Internal Server Error", HTTP::Headers->new(), '{"status": "error"}');
+		}
+	);
+
+	# Call the function
+	my $result = add_contact_to_list($email, $username, $country, $language);
+	diag("Result: $result");
+
+	is($result, 0, 'Contact not added due to bad response');
+
+	my $ua = LWP::UserAgent->new;
+	my $response = $ua->request($request);
+	print to_json(decode_json($response->decoded_content), {pretty => 1});
+	is_deeply(
+		decode_json($response->decoded_content),
+		{status => 'error'},
+		'Verify response body is {"status": "error"}'
+	);
+	$mocked_ua->unmock_all();
+}
 
 done_testing();
- 
