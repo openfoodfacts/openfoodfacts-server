@@ -1052,6 +1052,7 @@ th:เครื่องดื่ม
 tr:İçecekler
 zh:饮料, 飲品
 wikidata:en:Q40050
+intake24_category_code:en:DRNK
 
 #<en:Variety packs
 <en:Beverages
@@ -1253,6 +1254,7 @@ th:เครื่องดื่มแอลกอฮอล์
 tr:Alkollü içecekler
 zh:酒, 酒水, 酒饮料
 wikidata:en:Q154
+intake24_category_code:en:ALCL
 food_groups:en: en:Alcoholic beverages
 pnns_group_2:en:Alcoholic beverages
 nova:en:3
@@ -1483,6 +1485,7 @@ nova:en:3
 agribalyse_proxy_food_code:en:5000
 agribalyse_proxy_food_name:en:Beer, dark
 agribalyse_proxy_food_name:fr:Bière brune
+intake24_category_code:en:BEER
 gpc_category_code:en:10000159
 gpc_category_name:en:Beer
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a beer made by the fermentation of cereals, usually barley or hops but also maize, wheat, rice and sorghum, by the addition of yeast and water. These products are differentiated by various brewing techniques and include products described as lager, bitter, ale, stout, lambic and specialty beers.Includes beer mixed drinks. Definition Excludes: Specifically excludes non-alcoholic beer. Excludes products such as Soft drinks that may be labelled as beer, such as Ginger Beer/Ale and Root Beer.
@@ -1996,6 +1999,7 @@ nl:Lagers, Lager
 pl:Lagery
 xx:Lagers, Lager
 wikidata:en:Q253481
+intake24_category_code:en:LAGR
 agribalyse_food_code:en:5001
 ciqual_food_code:en:5001
 wikipedia:en:https://en.wikipedia.org/wiki/Lager
@@ -2746,7 +2750,7 @@ agribalyse_food_code:en:1014
 ciqual_food_code:en:1014
 ciqual_food_name:en:Pure alcohol
 
-#what is the definition of hard liquors?
+#what is the definition of hard liquors? Alcohol percentage?
 <en:Distilled beverages
 en:Hard liquors, liquors, spirits, hard spirits, Spirit drinks
 bg:Твърд алкохол
@@ -2761,6 +2765,7 @@ ro:Băuturi spirtoase
 ru:Крепкие алкогольные напитки
 zh:硬酒
 wikidata:en:Q2832208
+intake24_category_code:en:SPLI
 gpc_category_code:en:10000263
 gpc_category_name:en:Spirits
 gpc_category_description:en:Definition: Includes any products that can be described/observed as an alcoholic beverage distilled from fermented fruit juice, fruit, grains or sugar. Products will normally have a high alcohol content of around 35-40%.Includes products such as brandy, schnapps, gin, rum, tequila, vodka and whisky. Definition Excludes: Specifically excludes non-alcoholic Sprits. Excludes products such as Fortified Wines, Liqueurs, Non Alcoholic Bitters/Mixers, Alcoholic Syrups and Bitters, Wine.
@@ -4755,6 +4760,7 @@ pl:Cydr, Cydry
 ro:Cidru
 wikidata:en:Q167296
 nova:en:3
+intake24_category_code:en:CIDR
 agribalyse_proxy_food_code:en:5006
 agribalyse_proxy_food_name:en:Cider, dry
 agribalyse_proxy_food_name:fr:Cidre brut
@@ -5452,6 +5458,7 @@ th:น้ำอัดลม
 zh:汽水, 软性饮料, 苏打饮料
 wikidata:en:Q147538
 nova:en:3
+intake24_category_code:en:SOFT
 agribalyse_proxy_food_code:en:18340
 ciqual_proxy_food_code:en:18340
 ciqual_proxy_food_name:en:Fruit soft drink, carbonated (less than 10% of fruit juice), without sugar and with artificial sweetener(s)
@@ -5754,6 +5761,7 @@ sv:Energidrycker
 tr:Enerji içeceği
 zh:能量饮料
 wikidata:en:Q215754
+intake24_category_code:en:ENDK
 wikidata_category:en:Q7214078
 agribalyse_proxy_food_code:en:18352
 agribalyse_proxy_food_name:en:Energy drink, with sugar
@@ -6171,6 +6179,7 @@ nl:Smoothies
 nl_be:Smoothies
 pl:Smoothie
 wikidata:en:Q13290
+intake24_category_code:en:SMTH
 agribalyse_food_code:en:2500
 ciqual_food_code:en:2500
 ciqual_food_name:en:Smoothie
@@ -6220,6 +6229,7 @@ tr:Meyve suyu
 zh:水果汁, 果汁
 food_groups:en: en:Fruit juices
 pnns_group_2:en:Fruit juices
+intake24_category_code:en:FJCE
 ciqual_food_code:en:2004
 ciqual_food_name:en:Fruit juice (average)
 ciqual_food_name:fr:Jus de fruits (aliment moyen)
@@ -7515,6 +7525,7 @@ nl:Groentesappen, Groentesap, Groentensap
 pl:Sok warzywny, Soki warzywne
 tr:Sebze suyu
 zh:蔬菜汁
+intake24_category_code:en:VGTJ 
 wikidata:en:Q1501257
 ciqual_food_code:en:2075
 ciqual_food_name:en:Vegetable juice (average)
@@ -8845,13 +8856,6 @@ la:Achillea millefolium
 nl:Duizendblad
 wikidata:en:Q25408
 
-<en:Teas
-en:Brewed tea without sugar
-fr:Thé infusé non sucré
-agribalyse_food_code:en:18020
-ciqual_food_code:en:18020
-ciqual_food_name:en:Tea, brewed, without sugar
-ciqual_food_name:fr:Thé infusé, non sucré
 
 # Note: en:instant-beverages is a category that changes the computation of the Nutri-Score, the canonical name should not be changed without corresponding code changes
 <en:Beverages
@@ -9291,7 +9295,7 @@ gpc_category_code:en:10000115
 gpc_category_name:en:Coffee - Soluble Instant
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a substance made from the ground beans of the coffee tree which makes coffee instantly on the addition of hot water and/or hot milk. Includes products with added dry milk or whitener and both decaffeinated and with caffeine varieties. Definition Excludes: Excludes products such as Ground Coffee, Liquid Coffee and Iced Coffee.
 
-<en:Coffees
+<en:Coffee drinks
 en:Coffee without sugar
 bg:Кафе без захар
 fr:Café non sucré
@@ -9301,7 +9305,7 @@ ciqual_food_code:en:18004
 ciqual_food_name:en:Not instant coffee, without sugar, ready-to-drink
 ciqual_food_name:fr:Café, non instantané, non sucré, prêt à boire
 
-<en:Coffees
+<en:Coffee drinks
 en:Espresso coffee without sugar
 fr:Café expresso non sucré
 agribalyse_food_code:en:18071
@@ -9309,17 +9313,23 @@ ciqual_food_code:en:18071
 ciqual_food_name:en:Espresso coffee, not instant coffee, without sugar, ready-to-drink
 ciqual_food_name:fr:Café expresso, non instantané, non sucré, prêt à boire
 
-<en:Coffees
-en:Coffee with milk with sugar
-fr:Café au lait sucré
-
-<en:Coffees
-en:Coffee with milk without sugar
-fr:Café au lait non sucré
+<en:Dairy drinks
+<en:Coffee drinks
+en:Cappuccino, Coffee drinks with milk
+fr:Boissons lactées au café
+it:Caffè-latte, Latte al caffè
+lt:Kavos gėrimas su pienu
+nl:Cappuccino, Koffiedranken met melk
+ro:Lapte pentru cafea
+intake24_category_code:en:CAPU
 agribalyse_food_code:en:18151
 ciqual_food_code:en:18151
 ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
 ciqual_food_name:fr:Café au lait, café crème ou cappuccino, instantané ou non, non sucré, prêt à boire
+
+<en:Coffee drinks
+en:Coffee with milk with sugar
+fr:Café au lait sucré
 
 <en:Coffees
 en:Instant coffee with milk without sugar
@@ -9329,10 +9339,12 @@ ciqual_food_code:en:18151
 ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
 ciqual_food_name:fr:Café au lait, café crème ou cappuccino, instantané ou non, non sucré, prêt à boire
 
-<en:Coffees
-en:White coffee without sugar
+<en:Coffee drinks
+en:Latte, White coffee without sugar
 fr:Café crème non sucré
+nl:Latte, Koffie verkeerd
 agribalyse_food_code:en:18151
+intake24_category_code:en:LATE
 ciqual_food_code:en:18151
 ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
 ciqual_food_name:fr:Café au lait, café crème ou cappuccino, instantané ou non, non sucré, prêt à boire
@@ -9526,14 +9538,6 @@ fr:Cafés torréfiés, Café torréifié
 nl:Gebrande koffies, Gebrande koffie
 wikidata:en:Q1357168
 
-<en:Waters
-en:Municipal water, Tap water
-fr:Eau du robinet
-ja:水道水
-nl:Kraanwaters
-ciqual_food_code:en:18066
-ciqual_food_name:en:Water, municipal
-ciqual_food_name:fr:Eau du robinet
 
 <en:Beverages
 en:Waters, bottled waters, bottled water
@@ -9572,6 +9576,15 @@ gpc_category_name:en:Packaged Water
 gpc_category_description:en:Definition: Includes any products that can be described/observed as water that has been specifically packaged for human consumption, and which may contain additional minerals or other trace elements including a natural or artificial source of carbon dioxide. Includes slightly flavoured products that are labelled and marketed as water and all mineral waters originating from both natural and drilled sources. These mineral waters are characterized by a guaranteed content of certain mineral salts and original microbiological purity. Also includes waters with added calcium. Definition Excludes: Specifically excludes products that contain sugars or sweeteners. Excludes products such as Tonic Water and Juice Drinks.
 
 <en:Waters
+en:Municipal water, Tap water
+fr:Eau du robinet
+ja:水道水
+nl:Kraanwaters
+ciqual_food_code:en:18066
+ciqual_food_name:en:Water, municipal
+ciqual_food_name:fr:Eau du robinet
+
+<en:Waters
 en:Drinking water
 bg:Питейна вода
 de:Trinkwasser
@@ -9584,6 +9597,7 @@ nl:Drinkwaters, Drinkwater
 ru:Питьевая вода, вода питьевая
 zh:饮用水
 # Wrong match
+intake24_category_code:en:WTRS 
 agribalyse_food_code:en:18430
 ciqual_food_code:en:18430
 ciqual_food_name:en:Water, bottled
@@ -10018,6 +10032,7 @@ tr:Şarap
 zh:葡萄酒
 wikidata:en:Q282
 nova:en:3
+intake24_category_code:en:WINE 
 ciqual_food_code:en:5210
 ciqual_food_name:en:Wine (average)
 ciqual_food_name:fr:Vin (aliment moyen)
@@ -10563,6 +10578,15 @@ gpc_category_code:en:10000118
 gpc_category_name:en:Tea - Liquid/Ready to Drink
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a ready to drink beverage made from the dried leaves of the tea plant, Camellia Sinensis. Includes self-heating products and teas from single tea types such as Assam and Ceylon, and those, which are blends of various teas. Products may also have added flavourings such as lemon and milk or sweeteners. Definition Excludes: Excludes products such as Tea Bags or Loose Tea, Liquid Not Ready to Drink Teas, Teas in Capsules or Pods and Herbal Infusions/Tisanes.
 
+<en:Tea-based beverages
+en:Brewed tea without sugar
+fr:Thé infusé non sucré
+intake24_category_code:en:TEAS 
+agribalyse_food_code:en:18020
+ciqual_food_code:en:18020
+ciqual_food_name:en:Tea, brewed, without sugar
+ciqual_food_name:fr:Thé infusé, non sucré
+
 <en:Beverages
 #Do not put herbal tea beverages under herbal teas
 #<en:Herbal teas
@@ -10655,6 +10679,7 @@ nl:Koffiedranken, Koffiedrank
 food_groups:en: en:Teas and herbal teas and coffees
 pnns_group_2:en:Teas and herbal teas and coffees
 wikidata:en:Q37756327
+intake24_category_code:en:CFFS 
 gpc_category_code:en:10000114
 gpc_category_name:en:Coffee - Liquid/Ready to Drink
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a ready to drink non-carbonated beverage made from coffee beans. Includes products that are consumed cold and those sold in 'self heating' cans, which allow the consumer to heat the coffee prior to consumption. Includes black coffee and coffees with added flavourings (such as mocha), milk or sweeteners. Definition Excludes: Excludes products such as Coffee Substitutes and Not Ready to Drink Coffees.
@@ -34235,7 +34260,6 @@ pl:Kakao i produkty na bazie kakao
 pt:Cacau e derivados
 tr:Kakao ve kakao ürünleri
 
-
 <en:Cocoa and its products
 en:Cocoa beans
 bg:Какаови зърна
@@ -34310,7 +34334,7 @@ fr:Chocolats en poudre, chocolat en poudre, poudres de chocolat, chocolats insta
 it:Cioccolata in polvere
 ja:ココアパウダー
 lt:Šokolado milteliai, tirpūs šokoladiniai gėrimai, greitai paruošiami karšti šokoladai
-nl:Oplospoeder voor chocolademelk, Oploschocoladepoede
+nl:Oplospoeder voor chocolademelk, Oploschocoladepoeder
 pt:Pós de chocolate
 ro:Ciocolată caldă instant, Pudră de ciocolată
 agribalyse_food_code:en:18104
@@ -47269,6 +47293,7 @@ sv:Chokladmjölk
 tr:Çikolatalı sütler
 zh:巧克力奶
 wikidata:en:Q13253
+intake24_category_code:en:DCHO
 agribalyse_proxy_food_code:en:19122
 agribalyse_proxy_food_name:en:Chocolate flavoured milk, with sugar, partially skimmed, fortified with vitamins and chemicals elements
 agribalyse_proxy_food_name:fr:Boisson lactée aromatisée au chocolat, sucrée, au lait partiellement écrémé, enrichie et/ou restaurée en vitamines et/ou minéraux
@@ -47343,15 +47368,6 @@ en:Weight-loss milkshakes
 fr:Milkshakes minceurs
 lt:Pieniški kokteiliai svoriui mesti
 nl:Afslankshakes
-
-<en:Dairy drinks
-<en:Coffee drinks
-en:Coffee drinks with milk
-fr:Boissons lactées au café
-it:Caffè-latte, Latte al caffè
-lt:Kavos gėrimas su pienu
-nl:Koffiedranken met melk
-ro:Lapte pentru cafea
 
 <en:Milks
 en:Semi-skimmed milks, 2% milk
@@ -47784,7 +47800,7 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 de:Kaffeesahne, Kaffeerahm, Kaffeeobers
 wikidata:en:Q1031291
 
-#  is this the same as condesed milks?
+#  is this the same as condensed milks? Often condensed milks are sugared
 <en:Dairies
 en:Evaporated milks, evaporated milk
 ca:Llet evaporada
@@ -47966,7 +47982,7 @@ nl:Lactose-arme melk
 ru:молоко низколактозное, низколактозное молоко
 
 <en:Milks
-en:lactose-free milk
+en:Lactose-free milk
 bg:Мляко без лактоза
 ca:Llet sense lactosa
 de:Laktosefreie Milch
