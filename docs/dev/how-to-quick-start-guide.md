@@ -321,3 +321,15 @@ make: *** [Makefile:126: build_lang] Error 13
 **Solution:**
 
 Use the powershell/cmd to run the make dev commands in windows.
+
+### python tools not matching versions
+
+```🥫 Building containers …
+docker-compose --env-file=.env  build  2>&1
+/usr/lib/python3/dist-packages/requests/__init__.py:87: RequestsDependencyWarning: urllib3 (2.0.7) or chardet (4.0.0) doesn't match a supported version!
+```
+
+**Solution:**
+
+TBD.
+
