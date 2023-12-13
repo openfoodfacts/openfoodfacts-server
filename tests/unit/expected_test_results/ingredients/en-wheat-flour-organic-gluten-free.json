@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "9410",
          "id" : "en:wheat-flour",
          "percent_estimate" : 75,
          "percent_max" : 100,
@@ -65,10 +66,9 @@
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:fish",
-      "en:wheat-flour"
+      "en:fish"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 6,
    "labels" : "Organic, en:no-gluten",
    "labels_hierarchy" : [
