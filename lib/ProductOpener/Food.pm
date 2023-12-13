@@ -486,7 +486,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'choline-', 'phylloquinone-',
 			'beta-glucan-', 'inositol-',
 			'carnitine-', 'sulphate-',
-			'nitrate-',
+			'nitrate-', 'acidity-',
 		)
 	],
 	ca => [
@@ -549,6 +549,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
 			'sulphate-', 'nitrate-',
+			'acidity-',
 		)
 	],
 	ru => [
@@ -611,6 +612,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
 			'sulphate-', 'nitrate-',
+			'acidity-',
 		)
 	],
 	us => [
@@ -671,6 +673,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nutrition-score-fr-', 'nutrition-score-uk-',
 			'glycemic-index-', 'water-hardness-',
 			'sulfate-', 'nitrate-',
+			'acidity-',
 		)
 	],
 	us_before_2017 => [
@@ -732,6 +735,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
 			'sulfate-', 'nitrate-',
+			'acidity-',
 		)
 	],
 	hk => [
@@ -744,7 +748,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'vitamin-pp-', 'vitamin-b6-', 'vitamin-b9-', 'folates-',
 			'vitamin-b12-', '#minerals', 'calcium', 'potassium-',
 			'phosphorus-', 'iron', 'alcohol', 'nutrition-score-fr-',
-			'sulphate-', 'nitrate-',
+			'sulphate-', 'nitrate-', 'acidity-',
 		)
 	],
 	jp => [
@@ -803,7 +807,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'choline-', 'phylloquinone-',
 			'beta-glucan-', 'inositol-',
 			'carnitine-', 'sulphate-',
-			'nitrate-',
+			'nitrate-', 'acidity-',
 		)
 	],
 );
