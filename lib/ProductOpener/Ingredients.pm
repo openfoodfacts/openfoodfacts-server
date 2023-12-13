@@ -56,6 +56,8 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 
+		&parse_ingredients_text_service
+		&extend_ingredients_service
 		&estimate_ingredients_percent_service
 		&analyze_ingredients_service
 
@@ -77,7 +79,6 @@ BEGIN {
 		&extract_ingredients_classes_from_text
 		&extract_ingredients_from_text
 		&preparse_ingredients_text
-		&parse_ingredients_text_service
 
 		&flatten_sub_ingredients
 		&compute_ingredients_tags
@@ -187,6 +188,7 @@ my %may_contain_regexps = (
 		"it may contain traces of|possible traces|traces|may also contain|also may contain|may contain|may be present|Produced in a factory handling",
 	bg => "продуктът може да съдържа следи от|може да съдържа следи от|може да съдържа",
 	bs => "može da sadrži",
+	ca => "pot contenir",
 	cs => "může obsahovat|může obsahovat stopy",
 	da => "produktet kan indeholde|kan indeholde spor af|kan indeholde spor|eventuelle spor|kan indeholde|mulige spor",
 	de => "Kann enthalten|Kann Spuren|Spuren|Kann Anteile|Anteile|Kann auch|Kann|Enthält möglicherweise",
@@ -221,6 +223,7 @@ my %contains_regexps = (
 
 	en => "contains",
 	bg => "съдържа",
+	ca => "conté",
 	da => "indeholder",
 	es => "contiene",
 	et => "sisaldab",
@@ -348,7 +351,9 @@ my %abbreviations = (
 
 	],
 
-	es => [["vit.", "vitamina"],],
+	es => [["vit.", "vitamina"], ["m.g.", "materia grasa"]],
+
+	ca => [["vit.", "vitamina"], ["m.g.", "matèria grassa"]],
 
 	fi => [["mikro.", "mikrobiologinen"], ["mm.", "muun muassa"], ["sis.", "sisältää"], ["n.", "noin"],],
 
@@ -796,6 +801,7 @@ my %prepared_with = (
 
 my %min_regexp = (
 	en => "min|min\.|minimum",
+	ca => "min|min\.|mín|mín\.|mínim|minim",
 	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
 	fr => "min|min\.|mini|minimum",
 	hr => "min|min\.|mini|minimum",
@@ -803,6 +809,8 @@ my %min_regexp = (
 
 my %max_regexp = (
 	en => "max|max\.|maximum",
+	ca => "max|max\.|màxim",
+	es => "max|max\.|máximo",
 	fr => "max|max\.|maxi|maximum",
 	hr => "max|max\.|maxi|maximum",
 );
@@ -896,8 +904,9 @@ for which we have extra information (e.g. origins from a label).
 
 sub add_properties_from_specific_ingredients ($product_ref) {
 
-	# Traverse the ingredients tree, breadth first
+	return if not defined $product_ref->{ingredients};
 
+	# Traverse the ingredients tree, breadth first
 	my @ingredients = @{$product_ref->{ingredients}};
 
 	while (@ingredients) {
@@ -1340,6 +1349,8 @@ sub match_origin_of_the_ingredient_origin ($ingredients_lc, $text_ref, $matched_
 
 	my %origin_of_the_regexp_in_lc = (
 		en => "(?:origin of (?:the )?)",
+		ca => "(?:origen)",
+		es => "(?:origen)",
 		fr => "(?:origine (?:de |du |de la |des |de l'))",
 	);
 
@@ -2765,6 +2776,41 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 	return;
 }
 
+=head2 extend_ingredients_service ( $product_ref, $updated_product_fields_ref )
+
+After the nested ingredients structure has been built with the parse_ingredients_text_service,
+this service adds some properties to the ingredients:
+
+- Origins, labels etc. that have been extracted from other fields
+- Ciqual codes
+
+=head3 Arguments
+
+=head4 $product_ref
+
+product object reference
+
+=head4 $updated_product_fields_ref
+
+reference to a hash of product fields that have been created or updated
+
+=cut
+
+sub extend_ingredients_service ($product_ref, $updated_product_fields_ref) {
+
+	# and indicate that the service is creating the "ingredients" structure
+	$updated_product_fields_ref->{ingredients} = 1;
+
+	# Add properties like origins from specific ingredients extracted from labels or the end of the ingredients list
+	add_properties_from_specific_ingredients($product_ref);
+
+	# Add Ciqual codes
+	# Used in particular for ingredients estimation from nutrients
+	assign_ciqual_codes($product_ref);
+
+	return;
+}
+
 =head2 flatten_sub_ingredients ( product_ref )
 
 Flatten the nested list of ingredients.
@@ -2958,11 +3004,9 @@ sub extract_ingredients_from_text ($product_ref) {
 
 	if (defined $product_ref->{ingredients}) {
 
-		# Add properties like origins from specific ingredients extracted from labels or the end of the ingredients list
-		add_properties_from_specific_ingredients($product_ref);
-
-		# Obtain Ciqual codes ready for ingredients estimation from nutrients
-		assign_ciqual_codes($product_ref);
+		# - Add properties like origins from specific ingredients extracted from labels or the end of the ingredients list
+		# - Obtain Ciqual codes ready for ingredients estimation from nutrients
+		extend_ingredients_service($product_ref, {});
 
 		# Compute minimum and maximum percent ranges and percent estimates for each ingredient and sub ingredient
 		estimate_ingredients_percent_service($product_ref, {});
@@ -3014,25 +3058,55 @@ sub extract_ingredients_from_text ($product_ref) {
 }
 
 sub assign_ciqual_codes ($product_ref) {
+
+	return if not defined $product_ref->{ingredients};
+
 	my @ingredients_without_ciqual_codes = uniq(sort(get_missing_ciqual_codes($product_ref->{ingredients})));
 	$product_ref->{ingredients_without_ciqual_codes} = \@ingredients_without_ciqual_codes;
 	$product_ref->{ingredients_without_ciqual_codes_n} = @ingredients_without_ciqual_codes + 0.0;
 	return;
 }
 
+=head2 get_missing_ciqual_codes ($ingredients_ref)
+
+Assign a ciqual_food_code or a ciqual_proxy_food_code to ingredients and sub ingredients.
+
+=head3 Arguments
+
+=head4 $ingredients_ref
+
+reference to an array of ingredients
+
+=head3 Return values
+
+=head4 @ingredients_without_ciqual_codes
+
+=cut
+
 sub get_missing_ciqual_codes ($ingredients_ref) {
 	my @ingredients_without_ciqual_codes = ();
 	foreach my $ingredient_ref (@{$ingredients_ref}) {
+
+		# Also add sub-ingredients
 		if (defined $ingredient_ref->{ingredients}) {
 			push(@ingredients_without_ciqual_codes, get_missing_ciqual_codes($ingredient_ref->{ingredients}));
 		}
+
+		# Assign a ciqual_food_code or a ciqual_proxy_food_code to the ingredient
+		delete $ingredient_ref->{ciqual_food_code};
+		delete $ingredient_ref->{ciqual_proxy_food_code};
+
+		my $ciqual_food_code = get_inherited_property("ingredients", $ingredient_ref->{id}, "ciqual_food_code:en");
+		if (defined $ciqual_food_code) {
+			$ingredient_ref->{ciqual_food_code} = $ciqual_food_code;
+		}
 		else {
-			my $ciqual_food_code = get_inherited_property("ingredients", $ingredient_ref->{id}, "ciqual_food_code:en");
-			if (defined $ciqual_food_code) {
-				$ingredient_ref->{ciqual_food_code} = $ciqual_food_code;
+			my $ciqual_proxy_food_code
+				= get_inherited_property("ingredients", $ingredient_ref->{id}, "ciqual_proxy_food_code:en");
+			if (defined $ciqual_proxy_food_code) {
+				$ingredient_ref->{ciqual_proxy_food_code} = $ciqual_proxy_food_code;
 			}
 			else {
-				exists $ingredient_ref->{ciqual_food_code} and delete $ingredient_ref->{ciqual_food_code};
 				push(@ingredients_without_ciqual_codes, $ingredient_ref->{id});
 			}
 		}
@@ -4249,6 +4323,7 @@ sub normalize_vitamin ($lc, $a) {
 
 	# does it look like a vitamin code?
 	if ($a =~ /^[a-z][a-z]?-? ?\d?\d?$/i) {
+		($lc eq 'ca') and return "vitamina $a";
 		($lc eq 'es') and return "vitamina $a";
 		($lc eq 'fr') and return "vitamine $a";
 		($lc eq 'fi') and return "$a-vitamiini";
@@ -4278,6 +4353,7 @@ sub normalize_vitamins_enumeration ($lc, $vitamins_list) {
 
 	if ($lc eq 'da' || $lc eq 'nb' || $lc eq 'sv') {$split_vitamins_list = "vitaminer"}
 	elsif ($lc eq 'de' || $lc eq 'it') {$split_vitamins_list = "vitamine"}
+	elsif ($lc eq 'ca') {$split_vitamins_list = "vitamines"}
 	elsif ($lc eq 'es') {$split_vitamins_list = "vitaminas"}
 	elsif ($lc eq 'fr') {$split_vitamins_list = "vitamines"}
 	elsif ($lc eq 'fi') {$split_vitamins_list = "vitamiinit"}
@@ -4463,6 +4539,8 @@ my %phrases_before_ingredients_list_uppercase = (
 
 	en => ['INGREDIENT(S)?',],
 
+	ca => ['INGREDIENT(S)?',],
+
 	cs => ['SLOŽENÍ',],
 
 	da => ['INGREDIENSER',],
@@ -4514,6 +4592,8 @@ my %phrases_after_ingredients_list = (
 	bg => [
 		'да се съхранява (в закрити|на сухо)',    # store in ...
 	],
+
+	ca => ['envasat en atmosfera protectora', 'conserveu-los en un lloc fresc i sec',],
 
 	cs => ['doporučeny způsob přípravy', 'V(ý|y)(ž|z)ivov(e|é) (ú|u)daje ve 100 g',],
 
@@ -4582,20 +4662,20 @@ my %phrases_after_ingredients_list = (
 	es => [
 		'valores nutricionales',
 		'modo de preparacion',
-		'informaci(o|ô)n nutricional',
+		'informaci(o|ó)n nutricional',
 		'valor energ(e|é)tico',
 		'condiciones de conservaci(o|ó)n',
 		#'pa(i|í)s de transformaci(o|ó)n',
 		'cons[eé]rv(ar|ese) en( un)? lug[ae]r (fresco y seco|seco y fresco)',
-		'de los cuates az(u|ü)cares',
+		'contiene azúcares naturalmente presentes',
+		'de los cuales az(u|ú)cares',
 		'de las cuales saturadas',
 		'Mantener en lugar fresco y seco',
 		'protegido de la luz',
 		'conser(y|v)ar entre',
 		'una vez abierto',
 		'conservaci(o|ó)n:',
-		'consumi preferentemente antes del',
-		'consumir preferentemente antes del',
+		'consumir? preferentemente antes del',
 		#Envasado por:
 	],
 
@@ -5270,6 +5350,13 @@ to the specified types in ingredients_categories_and_types.
 my %ingredients_categories_and_types = (
 
 	en => [
+		# flavours
+		{
+			# categories
+			categories => ["flavouring",],
+			# types
+			types => ["natural", "nature identical",],
+		},
 		# oils
 		{
 			# categories

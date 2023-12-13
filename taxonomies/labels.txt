@@ -13,7 +13,7 @@ stopwords:en:ingredients, agricultural, from, with, of, by, the, verified, certi
 stopwords:bg:съставки, земеделие, от, с, контролиран, сертифициран, 100%, натурален, гарантиран, продукт
 stopwords:da:fra, kontrolleret, dyrkning, dyrket, dyrkede, råvarer, landbrug, certificeret
 stopwords:de:Zutaten, von, mit, enthält, kontrolliert, zertifiziert, geprüft, 100%, rein, Produkt, Garantie, garantiert, Standard, während
-stopwords:es:por, la, las, los, el, apto, para, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar
+stopwords:es:por, la, las, los, el, apto, para, con, de, verificado, certificado, aprovado, controlado, registrado, 100%, garantía, garantizado, garantizada, estándar, procedente
 stopwords:fi:ainesosat, vahvistettu, sertifioitu, hyväksytty, 100%, puhdas, tuote, standardi, valvottu, valvottua, tuotettu
 stopwords:fr:ingrédient, ingrédients, agricole, agricoles, issu, issue, issus, issues, d', du, de, l', le, la, convient, peut convenir, au, aux, régime, régimes, conforme, validé, vérifié, certifié, par, un, une, approuvé, 100%, pur, garantie, garanti, produit garanti, produit certifié, sas, en, durant, pendant, phase, période, dès, label, marque, logo, produit issu, produits issus, tous, les, sont, est, issus de la production
 stopwords:hu:összetevők, mezőgazdaság, ellenőrzött, tanúsított, 100%, természetes, termék, garantált
@@ -61,7 +61,7 @@ synonyms:ru:глутамат, глютамат, глутаминат натри�
 
 synonyms:en:preservatives, conservatives
 synonyms:bg:консерванти
-synonyms:es:conservador, conservadores
+synonyms:es:conservador, conservadores, conservante, conservantes
 synonyms:fi:säilöntäaineita
 synonyms:pt:conservante, conservantes
 synonyms:ru:консерванты, консервантов
@@ -1163,10 +1163,12 @@ pt:Alimentado sem OGM, alimentado sem alimentos geneticamente modificados, alime
 
 <en:Fed without GMOs
 en:Eggs from animals fed without GMOs
+es:Huevos de animales alimentados sin OGM
 fr:Oeufs issus d'animaux nourris sans OGMs, oeufs issus de poules nourries sans OGMs
 pt:Ovos de animais alimentados sem OGM, ovos de animais alimentados sem alimentos geneticamente modificados, ovos de animais alimentados sem transgênicos, ovos de animais alimentados sem transgénicos
 
 en:Fed without soy
+es:Alimentados sin soja, alimentadas sin soja
 fr:Nourri sans soja
 pt:Alimentado sem soja, alimentados sem soja, alimantada sem soja, alimantadas sem soja
 
@@ -1269,6 +1271,7 @@ pt:sem nano-partículas
 en:No wheat, without wheat, Wheat-free
 bg:Без пшеница
 de:Ohne Weizen
+es:Sin trigo, libre de trigo
 nl:Zonder graan
 pt:Sem trigo, livre de trigo, 0% trigo
 
@@ -1413,6 +1416,7 @@ pt:Halal
 ru:Халяль
 th:ฮาลาล
 tr:Helal
+xx:Halal
 wikidata:en:Q177823
 label_categories:en: en:Religious diets, en:Specific diets
 
@@ -1466,6 +1470,22 @@ en:Junta Islamica
 <en:Halal
 fr:Société Française de Contrôle de Viande Halal, SFCVH, S-f-c-v-h
 
+<en:Halal
+en:Islamic Food and Nutrition Council of Canada, IFANCC, Halal IFANCC Certified
+
+<en:Halal
+en:Islamic Food and Nutrition Council of America, IFANCA, Halal IFANCA Certified
+auth_url:en:https://ifanca.org/
+
+<en:Halal
+en:Eurohalal
+fr:Eurohalal
+xx:Eurohalal
+auth_url:en:https://www.eurohalal.org/
+
+en:Halal Quality Control, HQC Halal
+xx:HQC Halal
+
 fr:Label Rouge
 xx:Label Rouge
 wikidata:en:Q3214309
@@ -1494,6 +1514,16 @@ wikidata:en:Q15613582
 
 en:isomaltulose is a source of glucose and fructose
 hr:izomaltuloza je izvor glukoze i fruktoze
+bg:изомалтулозата е източник на глюкоза и фруктоза
+da:isomaltulose er en kilde til glucose og fruktose
+de:Isomaltulose ist eine Quelle von Glukose und Fruktose
+es:la isomaltulosa es una fuente de glucosa y fructosa
+fi:isomaltuloosi on glukoosin ja fruktoosin lähde
+fr:l'isomaltulose est une source de glucose et de fructose
+it:la isomaltulosio è una fonte di glucosio e fruttosio
+nl:isomaltulose is een bron van glucose en fructose
+pl:izomaltuloza jest źródłem glukozy i fruktozy
+se:isomaltulos är en källa till glukos och fruktos
 
 en:source of fibre
 bg:източник на влакнини
@@ -1541,6 +1571,7 @@ pl:Omega-3
 pt:Ómega-3, ómega 3
 ru:омега-3 жиры, омега-3
 th:โอเมกา 3
+xx:Omega-3
 wikidata:en:Q191756
 
 <en:Omega-3
@@ -1560,9 +1591,13 @@ pt:Rico em Ómega 3, Rico em Ómega-3
 ru:Обогащено омега-3 жирами
 
 en:Rich in unsaturated fatty acids
-de:reich an ungesättigten fettsäuren
+de:reich an ungesättigten Fettsäuren
 fr:riche en acides gras insaturés
 hr:bogat nezasićenim masnim kiselinama
+es:rico en ácidos grasos insaturados
+it:ricco di acidi grassi insaturi
+nl:rijk aan onverzadigde vetzuren
+pt:rico em ácidos graxos insaturados
 
 en:Rich in polyunsaturated fatty acids
 de:Reich an mehrfach ungesättigten Fettsäuren
@@ -1946,6 +1981,7 @@ pt:Kosher
 ru:Кошерное
 th:โคเชอร์
 tr:Koşer
+xx:Kosher
 wikidata:en:Q1076110
 
 <en:Kosher
@@ -2108,6 +2144,7 @@ website:hr:https://www.kaufland.hr/asortiman/nase-najbolje-pase.html
 en:producer labels, labels of producers
 hr:oznaka proizvođača
 fr:label de producteur
+es:etiqueta de productor
 
 <en:producer labels
 hr:100% slavonsko dobro, 100% slavonsko
@@ -2118,6 +2155,7 @@ description:en:Label from the producer Dobro.
 
 en:LEAF, Linking Environment and Farming, LEAF Linking Environment and Farming
 ru:Связанные окружающая среда и сельское хозяйство
+xx:LEAF, Linking Environment and Farming
 
 en:Low or no fat
 ca:Baix o sense greix
@@ -3199,6 +3237,11 @@ label_categories:en: en:Origins, en:Geographic label
 country:en:Poland
 wikitada:en:Q43151531
 
+en:Polish milk
+bg:Полско мляко
+pl:polskie mleko
+origins:en: en:poland
+
 en:Made in Portugal
 bg:Произведено в Португалия
 de:Hergestellt in Portugal
@@ -3667,6 +3710,7 @@ label_categories:en: en:Health, en:Additives
 opposite:en: en:With additives
 
 en:With additives
+bg:С добавки
 fr:Avec additifs
 nl:Met toevoegingen
 opposite:en: en:No additives
@@ -3768,6 +3812,19 @@ ru:без искусственных ароматизаторов, без доб
 sv:Inga artificiella aromämnen
 th:ไม่เติมกลิ่นสังเคราะห์
 
+fr:Sans arômes ni colorants artificiels
+bg:Без изкуствени аромати и оцветители
+ca:Sense aromes ni colorants artificials
+de:Ohne künstliche Aromen und Farbstoffe
+es:Sin aromas ni colorantes artificiales
+fi:ei keinotekoisia aromeja eikä väriaineita
+he:ללא חומרי טעם וצבע מלאכותיים
+hu:Mesterséges ízesítők és színezékek nélkül
+it:Senza aromi né coloranti artificiali
+nl:Zonder kunstmatige smaakstoffen en kleurstoffen
+pl:Bez sztucznych aromatów i barwników
+pt:Sem aromas nem corantes artificiais
+
 #instruction:en:Do NOT change the english key.
 en:No artificial sweeteners, no sweeteners added
 bg:Без изкуствени подсладители
@@ -3851,6 +3908,7 @@ label_categories:en: en:Health, en:Additives
 
 #instruction:en:Do NOT change the english key.
 en:No emulsifiers, without emulsifiers
+bg:Без емулгатори
 hr:bez emulgatora
 label_categories:en: en:Health, en:Additives
 
@@ -3903,9 +3961,11 @@ label_categories:en: en:Health
 
 #instruction:en:Do NOT change the english key.
 en:with caffeine
+bg:С кофеин
 hr:s kofeinom
 
 en:100% arabica
+bg:100% Арабика
 xx:100% arabica
 
 #instruction:en:Do NOT change the english key.
@@ -3999,6 +4059,7 @@ pt:Sem intensificador de sabor, sem intensificador de sabores, sem intesificador
 label_categories:en: en:Health, en:Additives
 
 en:low content of saturated fat
+bg:Ниско съдържание на наситени мазнини
 fr:faible teneur en graisses saturées
 hr:nizka vsebnost nasičenih maščob
 
@@ -4165,6 +4226,7 @@ xx:Ohne Gentechnik hergestellt, ARGE Gentechnik-frei
 <en:No GMOs
 <fr:Soja Français
 en:French soy without GMOs
+bg:Френска соя без ГМО
 fr:Soja Français sans OGM, Soja Français garanti sans OGM
 pt:Soja francesa sem OGM, soja francesa sem Organismos Geneticamente Modificados
 origins:en: en:france
@@ -4202,6 +4264,7 @@ tr:Laktozsuz
 opposite:en: en:contains-lactose
 
 en:Contains lactose
+bg:Съдържа лактоза
 nl:Bevat melkeiwit, Bevat lactose
 opposite:en: en:no-lactose
 
@@ -4372,11 +4435,13 @@ opposite:en: en:no-soy
 
 #instruction:en:Do NOT change the english key.
 en:No garlic
+bg:Без чесън
 nl:Zonder knoflook, geen knoflook, knoflookvrij
 fr:Sans ail
 
 #instruction:en:Do NOT change the english key.
 en:No onion, onion free
+bg:Без лук
 nl:Zonder ui, geen ui, uivrij
 fr:Sans onion
 
@@ -4531,6 +4596,7 @@ label_categories:en: en:Specific diets
 
 <en:Not advised for specific people
 en:Not advised for pregnant women, not recommended for pregnant women
+bg:Не се препоръчва за бременни жени
 ca:No recomanat per embarassades
 de:Für Schwangere ungeeignet
 es:Desaconsejado para embarazadas, No aconsejado para embarazadas, No aconsejado para mujeres embarazadas, Desaconsejado para mujeres embarazadas, No recomendado para embarazadas, No recomendado para mujeres embarazadas, No recomendado para mujeres embarazadas
@@ -4664,6 +4730,7 @@ wikidata:en:Q847611
 
 <en:Biodynamic agriculture
 en:Demeter
+bg:Demeter
 ca:Demeter
 de:Demeter
 fr:Demeter, Association Demeter, Demeter France, Association Demeter France
@@ -4878,6 +4945,12 @@ sv:EU-ekologisk
 zh:欧盟有机
 wikidata:en:Q380448
 
+<en:EU organic
+de:EG-Öko-Verordnung, Deutsches Bio-Siegel, Deutsches staatliches Bio-Siegel, Bio-Siegel, eg oko verordnung
+xx:EG-Öko-Verordnung, eg oko verordnung
+country:en:Germany
+image:de:eg-oko-verordnung.110x90.svg
+
 en:non-EU Agriculture
 bg:Земеделие извън ЕС
 ca:Agricultura No-UE
@@ -4964,12 +5037,6 @@ country:en:Belgium
 image:en:biogarantie-bel.90x90.svg
 
 <en:EU organic
-de:EG-Öko-Verordnung, Deutsches Bio-Siegel, Deutsches staatliches Bio-Siegel, Bio-Siegel, eg oko verordnung
-xx:EG-Öko-Verordnung, eg oko verordnung
-country:en:Germany
-image:de:eg-oko-verordnung.110x90.svg
-
-<en:EU organic
 fr:AB Agriculture Biologique, AB, Agence Bio, ab bio, bio ab, Ab-certifie-agriculture-biologique, ab certifié, AB France
 xx:AB Agriculture Biologique
 country:en:france
@@ -4984,7 +5051,7 @@ image:ca:ccpae.56x90.png
 website:ca:https://www.ccpae.org/
 
 <en:Organic
-es:Comité de Agricultura Ecologica, comite agricultura ecologica valencia
+es:Comité de Agricultura Ecologica
 country:en:Spain
 
 <en:Organic
@@ -4996,7 +5063,7 @@ es:Comité Aragonés de Agricultura Ecologica, comite agricultura ecologica arag
 country:en:Spain
 
 <en:Organic
-es:Comité de Agricultura Ecológica de la Comunitat Valenciana, comite agricultura ecologica comunidad valenciana, CAECV
+es:Comité de Agricultura Ecológica de la Comunitat Valenciana, comite agricultura ecologica comunidad valenciana, CAECV, comite agricultura ecologica valencia
 country:en:Spain
 
 <en:Organic
@@ -18520,9 +18587,12 @@ en:Alimentos de Extremadura
 es:Alimentos de Extremadura
 
 <en:Spanish quality label
-en:Calidad Certificada
-es:Calidad Certificada
-it:Qualità certificata
+en:Calidad Certificada de Andalucía
+ca:Qualitat Certificada d'Andalusia
+es:Calidad Certificada de Andalucía
+country:en:Spain
+image:es:calidad-certificada-andalucia.90x90.png
+website:es:https://www.juntadeandalucia.es/servicios/sede/tramites/procedimientos/detalle/144.html
 
 <en:Spanish quality label
 en:Etiqueta de Calidad Doñana 21
@@ -19611,6 +19681,8 @@ fr:Saveurs de l'Année 2023, Saveur de l'Année 2023
 
 fr:Triman, tri-man
 xx:Triman, tri-man
+website:en:https://www.ecosistant.eu/en/triman-logo/
+website:de:https://www.ecosistant.eu/triman-logo/
 
 fr:Tidy man, tidyman
 xx:Tidy man, tidyman
@@ -21464,6 +21536,7 @@ fr:Bee Friendly, Je protège les abeilles
 xx:Bee Friendly
 
 en:Honey from France
+bg:Френски мед
 de:Honig aus Frankreich
 fi:hunajaa Ranskasta, hunajan alkuperä Ranska
 fr:Miel de France, miel français
@@ -21547,6 +21620,7 @@ pt:Processado na Hungria
 manufacturing_places:en: en:Hungary
 
 en:Made in Hungary
+bg:Произведено в Унгария
 fi:valmistettu Unkarissa
 hu:Magyarországon készült
 sv:Tillverkad i Ungern
@@ -21650,6 +21724,7 @@ fr:Poules élevées sans antibiotique pendant la phase de ponte, sans traitement
 pt:Poedeiras criadas sem antibióticos durante a fase de postura, galinhas poedeiras criadas sem antibióticos a fase de postura, poedeira criada sem antibióticos a fase de postura, galinha poedeira criada sem antibióticos a fase de postura
 
 en:Without hormones, raised without hormones
+bg:Без хормони, отгледано без хормони
 de:ohne Hormone, Aufzucht ohne Hormone
 fi:hormoniton, kasvatettu ilman hormoneja
 fr:Sans hormone, élevé sans hormone
@@ -21659,6 +21734,7 @@ pt:Sem hormonas, criado sem hormonas, criados sem hormonas, criada sem hormonas,
 <en:No antibiotics
 <en:Without hormones
 en:Without antibiotics or hormones, Without hormones or antibiotics
+bg:Без антибиотици или хормони
 de:ohne Antibiotika oder Hormone, Aufzucht ohne Hormone oder Antibiotika
 fr:Sans antibiotique ni hormone, sans antibiotiques ni hormones
 it:Senza antibiotici né ormoni, senza ormoni né antibiotici
@@ -21823,15 +21899,20 @@ opposite:en: en:pasteurized
 
 en:Cold pressed
 fr:Pression à froid, haute pression à froid
+es:Prensado en frío
 nl:Koudgeperst
 
 en:Unfiltered, cloudy
+bg:Нефилтрирано
+es:Sin filtrar, turbia
 de:Trüb, Naturtrüb
 opposite:en: en:Filtered
 
 en:Filtered
+bg:Филтрирано
 de:Klar
 fr:Non filtrée, Clair
+es:Filtrada, filtrado
 opposite:en: en:unfiltered
 
 fr:Haute Valeur Environnementale, HVE
@@ -21844,7 +21925,11 @@ auth_url:fr:https://hve-asso.com
 fr:Produit certifié, CQ Produit Certifié
 en:Certified product
 
+# Note: "es:Calidad Certificada" is a specific Spanish label, added as "Calidad Certificada de Andalucía"
+# example product: https://es.openfoodfacts.org/producto/8437002590468/aceite-de-oliva-virgen-extra-iznaoliva
 en:Certified quality
+ca:Qualitat certificada
+es:Calidad certificada
 fr:Qualité certifiée
 
 en:QS certification mark
@@ -21926,24 +22011,18 @@ xx:GLOBALG.A.P., Global GAP
 # Portuguese recycling containers: https://pt.wikipedia.org/wiki/Ecoponto
 # green container for glass bottles, jars
 pt:Ecoponto verde
-xx:Ecoponto verde
+es:Contenedor verde, Al verde, Contenedor de vidrio, Recicla verde
+xx:Ecoponto verde, Recicla verde
 
 # yellow container for food packages in general, plastic, Tetra Pak, plastic bags, plastic bottles, tins, cans
 pt:Ecoponto amarelo
-xx:Ecoponto amarelo
+es:Contenedor amarillo, Al amarillo, Contenedor de envases, Recicla amarillo
+xx:Ecoponto amarelo, Recicla amarillo
 
 # blue container for paper, cardboard, corrugated cardboard
 pt:Ecoponto azul
-xx:Ecoponto azul
-
-es:Recicla verde
-xx:Recicla verde
-
-es:Recicla amarillo
-xx:Recicla amarillo
-
-es:Recicla azul
-xx:Recicla azul
+es:Contenedor azul, Al azul, Contenedor de papel, Recicla azul
+xx:Ecoponto azul, Recicla azul
 
 en:Portuguese protected product
 pt:Produto protegido de Portugal
@@ -22098,16 +22177,19 @@ fr:Peut avoir des effets indésirables sur l'activité et l'attention chez les e
 
 # https://www.bcorporation.net/
 en:Certified B Corporation, B Corp
+bg:Certified B Corporation, B Corp
 fr:Entreprise B certifiée, B Corp
 hr:Certified B Corporation
 wikidata:en:Q16243343
 
 # obligation of results: food is tested to see if pesticides are below a set level (usually the limit of quantization)
 en:Without pesticide residues, no pesticide residues
+bg:Без остатъци от пестициди
 fr:Sans résidus de pesticides, sans résidu de pesticide, zéro résidus de pesticides, zéro résidu de pesticide
 
 # obligation of means: cultivated without pesticides (but can be a specific year, or after flowers bloom)
 en:Pesticide-free, without pesticide, no pesticide
+bg:Без пестициди
 fr:Sans pesticides, cultivé sans pesticides
 
 fr:Sans résidus de pesticides collectif nouveaux champs

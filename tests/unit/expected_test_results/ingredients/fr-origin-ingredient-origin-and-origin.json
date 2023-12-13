@@ -49,6 +49,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "16400",
          "id" : "en:butter",
          "origins" : "en:france",
          "percent" : 2.69353551476456,
@@ -58,6 +59,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11013",
          "id" : "fr:moutarde-a-l-ancienne",
          "ingredients" : [],
          "origins" : "en:france",
@@ -76,6 +78,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "11013",
          "id" : "en:dijon-mustard",
          "ingredients" : [],
          "origins" : "en:france",
@@ -228,7 +231,7 @@
    "ingredients_with_unspecified_percent_n" : 0,
    "ingredients_with_unspecified_percent_sum" : 0,
    "ingredients_without_ciqual_codes" : [
-      "en:butter",
+      "en:broth",
       "en:pork",
       "en:semi-skimmed-milk",
       "en:spice"

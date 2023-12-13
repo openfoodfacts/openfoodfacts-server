@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "9410",
          "id" : "en:wheat-flour",
          "labels" : "en:organic",
          "percent_estimate" : 33,
@@ -183,10 +184,9 @@
    "ingredients_without_ciqual_codes" : [
       "en:herb",
       "en:spice",
-      "en:wheat-flour",
       "en:yeast"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 3,
    "known_ingredients_n" : 22,
    "lc" : "fr",
    "misc_tags" : [
