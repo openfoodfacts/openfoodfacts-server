@@ -1360,7 +1360,7 @@ while (my $product_ref = $cursor->next) {
 			}
 		}
 
-		if ($any_change) {
+		if ($any_change and (!$pretend)) {
 			$product_ref->{update_key} = $key;
 
 			# Create a new version of the product and create a new .sto file
