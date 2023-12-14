@@ -5,7 +5,7 @@ OnFailure=email-failures@producers_import__%i.service
 
 [Service]
 Type=oneshot
-# service instance name "%i" is off / obf / opff / opf
+# service instance name "%i" is off-pro
 Environment=PERL5LIB=/srv/%i/lib/:/usr/local/share/perl/5.32.1/:/usr/lib/perl5
 WorkingDirectory=/srv/%i
 ExecStart=/srv/%i/scripts/imports/producers_imports.sh

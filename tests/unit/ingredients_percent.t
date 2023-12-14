@@ -238,6 +238,14 @@ my @tests = (
 				"Lingon 50%*, socker*, vatten, förtjockningsmedel (pektin), surhetsreglerande medel (citronsyra). *KRAV-certifierad ekologisk ingrediens. Fruktmängd: 50g per 100g. Total mängd socker är 35 g per 100 g sylt. Fruktmängd: 52g per 100 g sylt. Bärmängd: 40 g bär per 100g. Total mängd socker: 45g per 100g sylt. Total mängd socker 44 g, varav tillsatt socker 41g per 100g sylt."
 		},
 	],
+	[
+		'percentage-range',
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Lait entier pasteurisé équitable (73,4-74,3%), sucre de canne (9 - 10%), crème (5.1-5.5%), amidon de mais 4-5%, café lyophilisé."
+		},
+	],
 	# max sugar and salt from nutrition facts
 	[
 		'max-sugar-salt-nutrition-facts',

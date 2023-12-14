@@ -269,7 +269,7 @@ jobs:
           cd ${{ matrix.env }} && \
           make prune
 
-    - uses: frankie567/grafana-annotation-action@v1.0.3
+    - uses: basos9/grafana-annotation-action@v1.0.3
       if: ${{ always() }}
       with:
         apiHost: https://grafana.openfoodfacts.org

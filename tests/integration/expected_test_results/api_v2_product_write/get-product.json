@@ -99,12 +99,10 @@
          "en:food-groups-1-known",
          "en:food-groups-2-known",
          "en:food-groups-3-unknown",
-         "en:nutrition-value-under-0-1-g-salt",
          "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:ecoscore-packaging-packaging-data-missing"
       ],
       "data_quality_warnings_tags" : [
-         "en:nutrition-value-under-0-1-g-salt",
          "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
          "en:ecoscore-packaging-packaging-data-missing"
       ],
@@ -524,6 +522,7 @@
       ],
       "ingredients" : [
          {
+            "ciqual_proxy_food_code" : "9410",
             "id" : "en:wheat-flour",
             "percent_estimate" : 62.5,
             "percent_max" : 100,
@@ -553,6 +552,7 @@
             "vegetarian" : "yes"
          },
          {
+            "ciqual_proxy_food_code" : "31016",
             "id" : "en:sugar",
             "percent_estimate" : 9.375,
             "percent_max" : 25,
@@ -618,11 +618,8 @@
       "ingredients_with_specified_percent_sum" : 0,
       "ingredients_with_unspecified_percent_n" : 4,
       "ingredients_with_unspecified_percent_sum" : 100,
-      "ingredients_without_ciqual_codes" : [
-         "en:sugar",
-         "en:wheat-flour"
-      ],
-      "ingredients_without_ciqual_codes_n" : 2,
+      "ingredients_without_ciqual_codes" : [],
+      "ingredients_without_ciqual_codes_n" : 0,
       "interface_version_created" : "20150316.jqm2",
       "interface_version_modified" : "20150316.jqm2",
       "known_ingredients_n" : 10,
