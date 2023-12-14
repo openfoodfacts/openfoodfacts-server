@@ -1016,25 +1016,6 @@ description:en:Fibers are mentioned on nutrition photos, but are not present in 
 
 ## Ingredients
 
-<en:Data quality errors
-en:Ingredients errors
-fr:Erreurs d'ingrédients
-es:Errores de ingredientes
-de:Zutatenfehler
-description:en: There might be an issue with ingredients
-show_on_producers_platform:en:yes
-marker_type:en: error
-
-<en:Ingredients errors
-en:nutri-score-grade-from-category-does-not-match-calculated-grade
-description:en: The calculated nutriscore grade is different than the one expected for this category
-fix_action:en: add_nutrition_facts
-
-<en:Ingredients errors
-en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients
-description:en: This category expect a single and specific ingredient
-fix_action:en: add_ingredients_text
-
 <en:Data quality warnings
 en:Ingredients warnings
 fr:Avertissements sur les ingrédients
