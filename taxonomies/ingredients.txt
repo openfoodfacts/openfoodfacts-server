@@ -20320,6 +20320,21 @@ fr:Rhum blanc agricole
 <en:rum
 en:dark rum
 fr:rhum brun
+bg:тъмен ром
+ca:rom negre
+da:mørk rom
+de:dunkler Rum
+es:ron oscuro
+fi:tumma rommi
+hr:tamni rum
+hu:sötét rum
+it:rum scuro
+ja:ダークラム
+nl:donkere rum
+pl:ciemny rum
+pt:rum escuro
+ru:темный ром
+sv:mörk rom
 
 <en:alcohol
 en:armagnac
@@ -20411,6 +20426,9 @@ bg:оризово вино
 ca:vi d'arròs
 es:vino de arroz
 fr:Alcool de riz
+it:vino di riso
+nl:rijstwijn
+ru:рисовое вино
 ciqual_food_code:en:1026
 ciqual_food_name:en:Sake or rice wine
 ciqual_food_name:fr:Saké ou Alcool de riz
@@ -20422,6 +20440,10 @@ de:wodka
 es:vodka
 fr:vodka
 nl:vodka
+hr:votka
+hu:vodka
+it:vodka
+ru:водка
 wikidata:en:Q374
 wikipedia:en:https://en.wikipedia.org/wiki/Vodka
 ciqual_food_code:en:1008
@@ -20631,11 +20653,17 @@ sv:naturlig citrusarom med andra naturliga aromer
 
 <en:flavouring
 en:salt and vinegar flavour
+de:Salz und Essig Geschmack
+es:sabor a sal y vinagre
+fr:saveur sel et vinaigre
+pl:smak soli i octu
 
 <en:flavouring
 en:brandy flavouring
 de:Brandy-Aroma
 es:aroma de brandy
+fr:arôme de brandy
+pl:aromat brandy
 
 <en:flavouring
 en:plum flavouring
@@ -20668,6 +20696,10 @@ hr:pripravak s aromom ruma
 
 <en:natural flavouring
 fr:arôme naturel de champignon
+de:natürliches Pilzaroma
+es:aroma natural de champiñón
+it:aroma naturale di fungo
+nl:natuurlijk paddenstoelaroma
 
 <en:natural flavouring
 en:pine flavouring
@@ -20745,6 +20777,12 @@ fr:arômes naturels de réglisse
 
 <en:natural flavouring
 fr:arôme naturel de réglisse
+de:natürliches Lakritz-Aroma
+es:aroma natural de regaliz
+it:aroma naturale di liquirizia
+nl:natuurlijk droparoma
+pl:naturalny aromat lukrecji
+sv:naturlig lakritsarom
 
 <en:natural flavouring
 fr:arôme naturel de livèche
@@ -20865,6 +20903,12 @@ hu:természetes gyömbér aroma
 en:ananas flavouring
 fr:arôme d'ananas
 ro:aromă de ananas
+es:aroma de piña
+de:Ananasaroma
+it:Aroma di ananas
+nl:ananasaroma
+fi:ananasaromi
+hu:ananász aroma
 
 <en:flavouring
 en:banana flavouring
@@ -20911,10 +20955,26 @@ hu:bodza aroma
 <en:flavouring
 en:ketchup flavouring
 hr:aroma kečapa
+de:Ketchup-Aroma
+es:aroma de ketchup
+fi:ketsuppiaromi
+fr:arôme de ketchup
+hu:ketchup aroma
+it:aroma di ketchup
+nl:ketchuparoma
+ro:aromă de ketchup
 
 <en:flavouring
 en:tarragon flavouring
 hr:aroma estragona
+de:Tarragon-Aroma
+es:aroma de estragón
+fi:rakuuna-aromi
+fr:arôme d'estragon
+hu:tárkony aroma
+it:aroma di dragoncello
+nl:dragonaroma
+ro:aromă de tarhon
 
 <en:natural flavouring
 en:natural tarragon flavouring
@@ -20965,6 +21025,13 @@ hu:természetes oregánó aroma
 
 <en:natural flavouring
 fr:arôme naturel de sureau
+bg:естествен аромат на бъз
+de:natürliches Holunderaroma
+es:aroma natural de saúco
+fi:luontainen vadelma-aromi
+hr:prirodna aroma bazge
+hu:természetes bodza aroma
+pl:naturalny aromat z czarnego bzu
 
 <en:flavouring
 en:apple flavouring
@@ -20997,6 +21064,9 @@ fi:päärynäaromi
 fr:arôme de poire
 hu:körte aroma
 sv:päronarom
+es:aroma de pera
+it:aroma di pera
+nl:perenaroma
 
 <en:pear flavouring
 <en:natural flavouring
@@ -21034,10 +21104,22 @@ fr:arôme de poivre
 hr:aroma papra
 hu:bors aroma
 pl:aromat pieprzu
+es:aroma de pimienta
+nl:peperaroma
+sv:peppararom
 
 <en:flavouring
 en:paprika flavouring
 pl:aromat papryki, aromat paprykowy
+bg:пипер аромат
+de:Paprika-Aroma
+es:aroma de pimentón
+fi:paprika-aromi
+fr:arôme de paprika
+hr:paprika aroma
+hu:paprika aroma
+nl:paprika-aroma
+sv:paprikaarom
 
 # Two parents due to and/or ingredient
 
@@ -21082,6 +21164,13 @@ pl:aromat truskawkowy
 <en:strawberry flavouring
 en:strawberry flavoured cream
 hr:krema okusa jagode
+es:crema sabor fresa
+fi:mansikkamaustettu kerma
+fr:crème aromatisée à la fraise
+hu:eper ízesítésű krém
+it:crema aromatizzata alla fragola
+nl:aardbeienroom
+pl:śmietanka o smaku truskawkowym
 
 # Question
 
@@ -21188,10 +21277,20 @@ pt:aroma de cacau
 <en:natural flavouring
 fr:arôme naturel de moutarde
 fi:luontainen sinappiaromi
+es:sabor natural de mostaza
+de:natürliches Senfaroma
+hu:természetes mustár aroma
+it:aroma naturale di senape
+nl:natuurlijk mosterd aroma
 
 <en:natural flavouring
 fr:arôme naturel de romarin
 fi:luontainen rosmariiniaromi
+es:sabor natural de romero
+de:natürliches Rosmarinaroma
+hu:természetes rozmaring aroma
+it:aroma naturale di rosmarino
+nl:natuurlijk rozemarijn aroma
 
 <en:natural flavouring
 en:natural basil flavouring
@@ -21228,6 +21327,10 @@ de:natürliches Selleriearoma
 fi:luontainen selleriaromi
 hu:természetes zeller aroma
 nl:natuurlijk selderijaroma
+es:sabor natural de apio
+it:aroma naturale di sedano
+pt:sabor natural de aipo
+pl:naturalny aromat selera
 allergens:en: en:celery
 
 <en:natural flavouring
@@ -21246,6 +21349,16 @@ fr:Arôme d'oignon
 hu:hagyma aroma
 it:Aroma di cipolla
 nl:uiensmaak
+bg:луков аромат
+ca:Sabor de ceba
+cs:Cibulová příchuť
+da:løgsmag
+pl:aromat cebulowy
+pt:Sabor de cebola
+ro:Aromă de ceapă
+ru:луковый аромат
+sv:löksmak
+tr:soğan aroması
 
 <en:onion flavouring
 <en:natural flavouring
@@ -21323,6 +21436,23 @@ pt:aroma natural de baunilha biológica
 <en:Bourbon vanilla
 en:bourbon vanilla flavouring
 hr:aroma bourbon vanilije
+bg:бурбон ванилия ароматизант
+ca:aroma de vainilla de bourbon
+cs:bourbon vanilková příchuť
+da:bourbon vaniljearoma
+de:Bourbon-Vanillearoma
+es:aroma de vainilla de bourbon
+fi:bourbon-vanilja-aromi
+fr:arôme de vanille bourbon
+hu:bourbon vanília aroma
+it:aroma di vaniglia di bourbon
+lt:bourbon vanilės kvapioji medžiaga
+nl:bourbon vanillearoma
+pl:aromat waniliowy bourbon
+pt:aroma de baunilha de bourbon
+ro:aromă de vanilie bourbon
+ru:бурбон ваниль ароматизатор
+sv:bourbon-vaniljarom
 
 <en:natural vanilla flavouring
 en:Bourbon vanilla natural flavouring
@@ -21440,6 +21570,17 @@ it:Aroma di menta
 <en:mint flavouring
 en:natural mint flavouring
 hr:prirodna aroma mente
+bg:естествен аромат мента
+de:natürliches Minzaroma
+es:sabor natural a menta
+fi:luontainen minttuaromi
+fr:arôme naturel de menthe
+hu:természetes menta aroma
+it:aroma naturale di menta
+nl:natuurlijk muntsmaak
+pl:naturalny aromat mięty
+pt:sabor natural de menta
+sv:naturlig mintsmak
 
 <en:flavouring
 en:peppermint flavouring
@@ -21569,6 +21710,21 @@ de:Speckgeschmack
 fi:pekoniaromi
 fr:arôme bacon
 sv:baconarom
+bg:аромат на бекон
+ca:aroma de bacó
+cs:slanina aroma
+da:baconsmag
+es:sabor a tocino
+hr:okus slanine
+hu:szalonna íz
+it:aroma di bacon
+nl:baconaroma
+pl:aromat boczku
+pt:sabor de bacon
+ro:aromă de bacon
+sk:aróma slaniny
+sl:okus slanine
+tr:domuz pastırması aroması
 # ingredient/en:bacon-flavor has 55 products in 1 language @2020-12-20
 
 <en:natural flavouring
@@ -21601,6 +21757,11 @@ sv:vanillinarom
 
 <en:flavouring
 fr:arôme caféine
+es:aroma de cafeína
+de:Koffeinaroma
+it:aroma di caffeina
+nl:cafeïnearoma
+pt:aroma de cafeína
 
 <en:flavouring
 #<en:crustacean
@@ -21736,6 +21897,11 @@ ru:ароматизатор молоко, ароматизатор топлен�
 <en:natural flavouring
 fr:arôme naturel de gentiane
 fi:luontainen katkeroaromi
+es:aroma natural de genciana
+de:natürliches Enzianaroma
+hu:természetes genciana aroma
+it:aroma naturale di genziana
+nl:natuurlijk gentiaanaroma
 
 <en:flavouring
 # derivedFrom:en:coconut
@@ -21852,6 +22018,13 @@ bg:аромат сирене, аромат на сирене
 de:Käsearoma, Käse Aroma
 es:aromas con sabor a queso,aroma queso,aroma de queso
 fr:Goût fromage
+hu:sajt ízesítés
+it:aroma di formaggio
+nl:kaasaroma
+pl:aromat serowy
+pt:sabor a queijo
+ro:aromă de brânză
+sv:ostsmak
 
 <en:natural flavouring
 en:natural cheddar flavouring
@@ -21894,6 +22067,12 @@ fi:tryffeliaromi
 fr:arôme de truffe
 hr:aroma bijelog tartufa
 hu:trüffel aroma
+it:aroma di tartufo
+nl:truffelaroma
+pl:aromat truflowy
+pt:sabor a trufa
+ro:aromă de trufe
+sv:tryffelarom
 
 <en:natural flavouring
 en:natural honey flavouring
@@ -22081,6 +22260,8 @@ de:Garnelenaroma, Garnelen-Aroma
 fi:katkarapuaromi
 fr:arôme de crevette
 sv:räkarom
+es:aroma de camarón
+it:aroma di gamberetto
 # ingredient/fr:arome-de-crevette has 3 products in 1 language @2020-05-28
 
 <en:natural flavouring
@@ -22110,6 +22291,10 @@ sv:champinjonarom
 
 <en:natural flavouring
 fr:arôme naturel de clou de girofle
+en:natural clove flavoring
+de:natürliches Nelkenaroma
+es:aroma natural de clavo
+it:aroma naturale di chiodo di garofano
 
 <en:natural flavouring
 en:natural flavouring of aromatic plants
@@ -28706,6 +28891,11 @@ es:azúcares añadidos, azúcar añadido
 fr:sucre ajouté, sucres ajoutés
 nl:toegevoegde suiker
 pl:cukier dodany, cukry dodane
+pt:açúcar adicionado
+it:zucchero aggiunto
+de:zugesetzter Zucker
+sv:tillsatt socker
+fi:lisätty sokeri
 
 <en:added sugar
 en:monosaccharide
@@ -28714,6 +28904,10 @@ es:monosacáridos
 fr:monosaccharides
 it:monosaccaridi
 nl:monosachariden
+pt:monossacarídeos
+pl:monosacharydy
+ru:моносахариды
+zh:单糖
 
 # description:en:SUGAR is the generic name for sweet-tasting, soluble carbohydrates
 
