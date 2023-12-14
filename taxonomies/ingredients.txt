@@ -16683,6 +16683,10 @@ ciqual_food_name:fr:Huile de sésame
 <en:sesame oil
 en:refined sesame oil
 pl:rafinowany olej sezamowy
+es:aceite de sésamo refinado
+fr:huile de sésame raffinée
+de:raffiniertes Sesamöl
+it:olio di sesamo raffinato
 
 <en:sesame oil
 en:organic sesame oil
@@ -16696,7 +16700,54 @@ nl:olie van biologische sesamzaadjes
 # ingredient/nl:olie-van-biologische-sesamzaadjes has 1 product @2019-05-24
 
 <en:sesame oil
+en: Virgin sesame oil, sesame oil virgin
 fr:huile vierge de sésame, huile de sésame vierge
+ar:زيت سمسم بكر, زيت سمسم طبيعي
+be:віргіннае масла кунжуту, масла кунжуту віргіннае
+bg:нерафинирано сусамово масло, нерафинирано масло от сусам
+ca:oli verge de sèsam, oli de sèsam verge
+cs:panenský sezamový olej, panenský olej ze sezamu
+da:jomfru sesamolie, jomfru olie af sesam
+de:natives Sesamöl, natives Sesam-Öl
+el:παρθένο λάδι σουσαμιού, παρθένο λάδι σησαμιού
+es:aceite de sésamo virgen, aceite de sésamo natural
+et:neitsi seesamiõli, neitsiõli seesamist
+eu:sesamo olio birjina, sesamo olio naturala
+fa:روغن سمسم خام, روغن سمسم طبیعی
+fi:neitsyt seesamiöljy, neitsytöljy seesamista
+gl:aceite de sésamo virxe, aceite de sésamo natural
+he:שמן שומשום טהור, שמן שומשום טבעי
+hi:जंगली तिल का तेल, जंगली तिल का तेल
+hr:djevičansko ulje od sezama, prirodno ulje od sezama
+hu:szezámmagolaj, szűz szezámmagolaj
+hy:անհանգստավոր կունջութի ձեթ, սեզամի ձեթ
+id:minyak wijen murni, minyak wijen alami
+is:óraffinert sesamolía, óraffinert olía úr sesamfræjum
+it:olio di sesamo vergine, olio di sesamo naturale
+ja:純正ごま油, 天然ごま油
+kk:күнжіт майы тамырлас, күнжіт майы табиғатты
+kn:ಪವಿತ್ರ ಎಳ್ಳೆಣ್ಣೆ, ಸೇಸಮ್ ಎಣ್ಣೆ
+ko:순참기름, 천연 참기름
+lt:grynoji sezamų aliejus, natūralusis sezamų aliejus
+ml:പവിത്ര നല്ലെണ്ണ, സെസാമുണ്ണ
+ms:Minyak bijan tulen, Minyak bijan semulajadi
+nb:jomfru sesamolje, naturlig sesamolje
+nl:biologische sesamolie, natuurlijke sesamolie
+nn:jomfru sesamolje, naturleg sesamolje
+os:кунжуты зеты, кунжуты зеты зæгъæгъæй
+pl:olej z pierwszego tłoczenia z sezamu, naturalny olej z sezamu
+pt:óleo de sésamo virgem, óleo de sésamo natural
+ro:ulei de susan virgin, ulei de susan natural
+ru:нерафинированное кунжутное масло, натуральное масло из кунжута
+sl:deviško sezamovo olje, naravno olje iz sezama
+so:saliid macsaro, saliid macsaro dabiiciga ah
+sv:jungfrulig sesamolja, naturlig sesamolja
+ta:பவித எள்ளெண்ணெய், இயற்கை எள்ளெண்ணெய்
+te:పవిత్ర నువ్వుల నూనె, ప్రాకృతిక నువ్వుల నూనె
+tr:soğuk sıkım susam yağı, doğal susam yağı
+uk:нерафінована кунжутна олія, натуральна олія з кунжуту
+vi:dầu mè nguyên chất, dầu mè tự nhiên
+zh:纯正芝麻油, 天然芝麻油
 # ingredient/fr:huile-vierge-de-sesame has 12 products in french @2019-05-29
 
 description:en:SOYBEAN OIL is a vegetable oil extracted from the seeds of the soybean (Glycine max).
@@ -16754,6 +16805,11 @@ ciqual_food_name:fr:Huile de soja
 
 <en:soya oil
 en:non-gmo soybean oil
+fr:huile de soja non-OGM
+es:aceite de soja no transgénico
+de:nicht-GVO-Sojaöl
+it:olio di soia non OGM
+nl:non-gmo sojaolie
 
 <en:soya oil
 en:refined soya oil
@@ -78706,9 +78762,17 @@ fr:miel de romarin du languedoc
 
 <en:honey
 fr:miel de ronce
+it:miele di rovo
+nl:braamhoning
+de:Brombeerhonig
+es:miel de zarza
 
 <en:honey
 fr:miel de sapin
+de:Tannenhonig
+es:miel de abeto
+it:miele di abete
+nl:sparrenhoning
 # ingredient/fr:miel-de-sapin has 11 products in french @2019-05-28
 
 <fr:miel de sapin
@@ -78887,8 +78951,8 @@ de:Honig aus Spanien, spanischer Honig
 fr:miel d'espagne, miel origine Espagne
 
 <en:honey
-en:organic honey from Roumania
-fr:miel-bio-de-roumanie
+en:organic honey from Romania
+fr:miel bio de Roumanie
 
 <en:honey
 en:spring honey
@@ -79730,7 +79794,11 @@ ciqual_proxy_food_code:18003
 ciqual_proxy_food_name:en:Coffee, ground
 
 <en:arabica coffee
+en:Brazilian arabica coffee
 fr:cafe arabica du Brésil
+es:café arábica brasileño
+de:brasilianischer Arabica-Kaffee
+nl:Braziliaanse arabica koffie
 
 <en:arabica coffee
 fr:café Arabica de Colombie en poudre
