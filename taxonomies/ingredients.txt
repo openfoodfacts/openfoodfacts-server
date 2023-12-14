@@ -47509,6 +47509,9 @@ en:spinach powder
 <en:spinach
 fr:épinards déshydratés
 fi:kuivattu pinaatti
+es:espinacas deshidratadas
+it:spinaci disidratati
+nl:gedroogde spinazie
 
 <en:spinach
 en:Cooked spinach
@@ -47527,6 +47530,9 @@ nl:bladspinazie
 <en:spinach
 fr:Épinards hachés
 nl:gehakte spinazie
+de:Gehackter Spinat
+es:espinacas picadas
+it:spinaci tritati
 # ingredient/fr:epinards-haches has 26 products in 2 languages @2019-05-24
 
 <en:spinach
@@ -59923,7 +59929,7 @@ ca:llavor de comí, llavors de comí
 de:Kümmelkörner
 es:semilla de comino, grano de comino
 fi:juustokuminansiemen
-fr:graine de cumin
+fr:graine de cumin, cumin en grains
 he:זרעי כמון
 hr:kim zrno
 hu:köménymag
@@ -59955,6 +59961,10 @@ openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:cumin-moulu
 #en:cumin powder
 #fr:cumin en poudre
 #es:comino en polvo
+#de:Kreuzkümmelpulver
+#it:comino in polvere
+#nl:komijnpoeder
+#pt:cominho em pó
 
 
 <en:seed
@@ -62041,6 +62051,8 @@ yi:קארדעמאן
 # tcy:ಏಲಕ್ಕಿ
 wikipedia:en:https://en.wikipedia.org/wiki/Cardamom
 # en:cardamon has 416 products in 12 languages @2018-10-24
+ciqual_proxy_food_code:11075
+ciqual_proxy_food_name:en:Cardamom, powder
 
 <en:cardamom
 en:green cardamom, elettaria cardamomum
@@ -76417,7 +76429,13 @@ wikidata:en:Q1311395
 wikipedia:en:https://en.wikipedia.org/wiki/Scallop
 
 <en:scallop
+en:Scallop without coral
+de:Jakobsmuschel ohne Koralle
+es:Vieira sin coral
 fr:Noix de Saint-Jacques sans corail
+it:Capasanta senza corallo
+ciqual_food_code:10045
+ciqual_food_name:en:Scallop, without coral, raw
 
 <en:scallop
 en:scallop with coral
@@ -76427,11 +76445,13 @@ ciqual_food_name:en:Scallop, with coral, raw
 ciqual_food_name:fr:Coquille Saint-Jacques, noix et corail, crue
 
 <en:scallop
-en:scallop without coral
+en:scallop with coral
 fr:Coquilles Saint-Jacques avec noix
-ciqual_food_code:en:10045
-ciqual_food_name:en:Scallop, without coral, raw
-ciqual_food_name:fr:Coquille Saint-Jacques, noix, crue
+es:Vieira con coral
+de:Jakobsmuschel mit Koralle
+it:Capasanta con corallo
+ciqual_food_code:10003
+ciqual_food_name:en:Scallop, with coral, raw
 
 
 # en:description:Argopecten irradians, formerly classified as Aequipecten irradians, common names Atlantic bay scallop or bay scallop, is an edible species of saltwater clam, a scallop
