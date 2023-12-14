@@ -23062,6 +23062,8 @@ ro:germeni de grâu
 sv:vetegroddar
 wikipedia:en:https://en.wikipedia.org/wiki/Cereal_germ#Wheat_germ
 # ingredient/fr:germes-de-blé has 498 products in 8 languages @2019-05-12
+ciqual_food_code:9660
+ciqual_food_name:en:Wheat germ
 
 <en:wheat
 en:graham flour, whole grain graham flour
@@ -31108,6 +31110,8 @@ sk:sójová bielkovina
 sl:sojini proteini
 sv:sojaprotein, sojaproteinpeparat
 allergens:en: en:soybeans
+ciqual_food_code:20591
+ciqual_food_name:en:Soy protein, textured, rehydrated
 
 <en:vegetable fiber
 en:soy fiber
@@ -32338,6 +32342,8 @@ pt:raspas de chocolate
 sv:Choklad bitar, chokladbitar
 # ingredient/fr:morceaux-de-chocolat has 63 products in 4 languages @2019-03-11
 # usage:de:Schokoladenstücke 18% (Kakaomasse, Zucker, Emulgator: Sojalecithin, Vanillepulver)
+ciqual_proxy_food_code:31005
+ciqual_proxy_food_name:en:Dark chocolate bar, less than 70% cocoa
 
 <en:chocolate
 en:chocolate paste
@@ -37342,6 +37348,8 @@ pt:Puré de pêra
 # In process de:Birnenpüree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-poires
 # 233 products in 5 langauges @2018-09-28
+ciqual_food_code:13037
+ciqual_food_name:en:Pear, pulp and peel, raw
 
 <en:pear puree
 en:Williams pear puree
@@ -40760,6 +40768,8 @@ wikidata:en:Q5812410
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/blueberry
 # 943 producten in 13 languages @2018-10-01
 eurocode_2_group_3:en: 9.30.46
+ciqual_food_code:13028
+ciqual_food_name:en:Blueberry, raw
 
 #en:the specific names are not seen as ingredient.
 <en:blueberry
@@ -48286,6 +48296,8 @@ carbon_footprint_fr_foodges_ingredient:fr:Chou-Fleur
 carbon_footprint_fr_foodges_value:fr:0.5
 # en:cauliflower has 660 products in 5 languages @2018-10-17
 eurocode_2_group_3:en: 8.15.15
+ciqual_food_code:20016
+ciqual_food_name:en:Cauliflower, raw
 
 <en:cauliflower
 en:cauliflower florets
@@ -49596,6 +49608,8 @@ ja:チコリー
 nl:chicorij
 pl:cykoria, cykorii
 pt:chicória
+ciqual_food_code:20026
+ciqual_food_name:en:Chicory, raw
 
 <en:chicory
 en:chicory root
@@ -51883,6 +51897,16 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sweet_potato
 # ingredient/fr:patate-douce has 327 products in 6 languages @2018-12-22
 nutriscore_fruits_vegetables_nuts:en:no
 eurocode_2_group_3:en: 8.34.30
+ciqual_food_code:4101
+ciqual_food_name:en:Sweet potato, raw
+
+en:Cooked sweet potato
+ciqual_food_code:4102
+ciqual_food_name:en:Sweet potato, cooked
+
+en:Sweet potato puree cooked with cream
+ciqual_food_code:4103
+ciqual_food_name:en:Sweet potato, puree, cooked with cream
 
 <en:sweet potato
 en:organic sweet potato
@@ -85251,6 +85275,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bread_crumbs
 vegan:en:maybe
 vegetarian:en:maybe
 # fr:chapelure has 2441 products in 7 languages @2018-11-12
+ciqual_food_code:7500
+ciqual_food_name:en:Breadcrumbs
 
 <en:breadcrumbs
 en:wheat breadcrumbs
@@ -87341,7 +87367,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Béchamel_sauce
 allergens:en: en:milk
 # ingredient/fr:sauce-béchamel has 89 products in 4 languages @2019-04-04
 # usage:en:Bechamel sauce (water, wheat flour, skimmed milk powder, sunflower oil, whey powder, whole cream, corn starch, salt iodized cooking, butter)
-
+ciqual_food_code:11101
+ciqual_food_name:en:Bechamel sauce, prepacked
 
 #<en:compound
 <en:sauce
@@ -88448,6 +88475,8 @@ description:fr:La sauce béarnaise, ou la béarnaise, est une sauce émulsifiée
 description:it:La salsa bernese o salsa bearnaise o semplicemente la bernese, è una salsa di condimento.
 description:nl:Bearnaisesaus is een saus gemaakt van opgeklopte boter en eigeel met toevoeging van een gastrique, bestaande uit wijn, azijn, dragon, mignonettes, kervel, bouquet garni en sjalotten.
 # 9 in 1 language @2021-09-02
+ciqual_food_code:11102
+ciqual_food_name:en:Bearnaise sauce, prepacked
 
 <en:béarnaise sauce
 en:prepacked Bearnaise sauce
