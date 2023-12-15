@@ -46,6 +46,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "9410",
          "id" : "en:wheat-flour",
          "percent_estimate" : 24.0833333333333,
          "percent_max" : 46.5,
@@ -165,10 +166,9 @@
    "ingredients_with_unspecified_percent_n" : 4,
    "ingredients_with_unspecified_percent_sum" : 95.9791666666667,
    "ingredients_without_ciqual_codes" : [
-      "en:lamb",
-      "en:wheat-flour"
+      "en:lamb"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 13,
    "lc" : "en",
    "minerals_tags" : [],
