@@ -83,18 +83,6 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Votre demande pour rejoindre l'organisation est en attente d'approbation de l'administrateur de l'organisation."
 
-msgctxt "admin_status_updated"
-msgid "Admin Status Updated"
-msgstr "Statut d'administrateur mis à jour"
-
-msgctxt "admin_status"
-msgid "Admin Status"
-msgstr "Statut d'administrateur"
-
-msgctxt "grant_remove_admin_status"
-msgid "Grant/Remove Admin status"
-msgstr "Accorder/Supprimer le statut d'administrateur"
-
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
 msgstr "Merci d'envoyer un e-mail à <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> si vous avez des questions."
@@ -2376,7 +2364,7 @@ msgstr "Se déconnecter"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "Une base de données collaborative, gratuite et ouverte d'ingrédients, de valeurs nutritionnelles et d'informations sur les produits alimentaires du monde entier."
+msgstr "Ingrédients, composition nutritionnelle et information sur les produits alimentaires du monde entier dans une base de données libre et ouverte"
 
 msgctxt "site_name"
 msgid "Open Food Facts"
@@ -4219,10 +4207,6 @@ msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "Supprimer l'intégralité des produits"
 
-msgctxt "remove_user"
-msgid "Remove user"
-msgstr "Supprimer l'utilisateur"
-
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
 msgstr "Retirez tous vos produits de la plateforme pour les producteurs"
@@ -5776,11 +5760,11 @@ msgstr "Important : nous avons besoin de votre soutien !"
 
 msgctxt "donation_text_2023_main"
 msgid "Help us make food transparency the norm!"
-msgstr "Aidez-nous à faire de la transparence alimentaire la norme !"
+msgstr "Aidez-nous à faire de la transparence alimentaire la norme ! "
 
 msgctxt "donation_text_2023_secondary"
 msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
-msgstr "En tant qu'organisation à but non lucratif, nous dépendons de vos dons pour continuer à informer les consommateurs du monde entier sur ce qu'ils mangent."
+msgstr "En tant qu'association à but non lucratif, nous dépendons de vos dons pour continuer à informer les consommateurs du monde entier sur ce qu'ils mangent."
 
 msgctxt "donation_text_2023_tertiary"
 msgid "The food revolution starts with you!"
@@ -5788,7 +5772,7 @@ msgstr "La révolution alimentaire commence avec vous !"
 
 msgctxt "donation_cta"
 msgid "Donate"
-msgstr "Faire un don"
+msgstr "Donner"
 
 msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"

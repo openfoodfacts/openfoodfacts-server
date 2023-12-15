@@ -184,7 +184,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                "title" : "Eco-Score C - Impact modéré sur l'environnement",
                "type" : "grade"
             },
@@ -500,7 +500,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                "subtitle" : "Produit : Some product - 100 g",
                "title" : "Impact pour ce produit: C (Score: 46/100)",
                "type" : "grade"
@@ -814,7 +814,7 @@
             ],
             "level" : "info",
             "title_element" : {
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nova-group-3.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                "title" : "Aliments transformés"
             },
             "topics" : [
@@ -826,23 +826,21 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "Les données nutritionnelles du produit doivent être spécifiées afin de calculer le Nutri-Score.\n                    ",
+                     "html" : "Attention : les valeurs nutritionnelles ne sont pas précisées. Elles ont été estimées à partir de la liste des ingrédients.\n                    ",
                      "type" : "warning"
                   }
                },
                {
-                  "action_element" : {
-                     "actions" : [
-                        "add_nutrition_facts"
-                     ],
-                     "html" : "Pourriez-vous ajouter les informations nécessaires pour calculer le Nutri-Score ?"
-                  },
-                  "element_type" : "action"
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "Avertissement : Le taux de fruits, légumes et noix n'est pas indiqué sur l'étiquette, il a été estimé en fonction de la liste des ingrédients : 62\n                    ",
+                     "type" : "warning"
+                  }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : ""
+                     "html" : "<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>Ce produit n'est pas considéré comme une boisson pour le calcul du Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Points positifs : 3</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Protéines :\n1&nbsp;</strong>/&nbsp;5\n(valeur : 1.974375, \n        valeur arrondie : 1.97)\n      </li>\n    \n      <li>\n        <strong>Fibre :\n0&nbsp;</strong>/&nbsp;5\n(valeur : 0.8125, \n        valeur arrondie : 0.81)\n      </li>\n    \n      <li>\n        <strong>Fruits, légumes, noix et huiles de colza / noix / olive :\n2&nbsp;</strong>/&nbsp;5\n(valeur : 62.5, \n        valeur arrondie : 62.5)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Points négatifs : 6</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Énergie :\n1&nbsp;</strong>/&nbsp;10\n(valeur : 558.75, \n        valeur arrondie : 558.8)\n      </li>\n    \n      <li>\n        <strong>Sucres :\n1&nbsp;</strong>/&nbsp;10\n(valeur : 7.2621875, \n        valeur arrondie : 7.26)\n      </li>\n    \n      <li>\n        <strong>Graisses saturées :\n4&nbsp;</strong>/&nbsp;10\n(valeur : 4.903125, \n        valeur arrondie : 4.9)\n      </li>\n    \n      <li>\n        <strong>Sodium :\n0&nbsp;</strong>/&nbsp;10\n(valeur : 19.725, \n        valeur arrondie : 19.7)\n      </li>\n    \n  </ul>\n\n\n\n<p>Les points pour les protéines sont comptés car les points négatifs sont inférieurs à 11.</p>\n\n<p>\n  <strong>Score nutritionnel : 3</strong>\n  (6 - 3)\n</p>\n<p><strong>Nutri-Score : C</strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
                   }
                },
                {
@@ -854,10 +852,9 @@
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nutriscore-unknown.svg",
-               "subtitle" : "Données nutritionnelles manquantes",
-               "title" : "Données manquantes pour calculer le Nutri-Score",
+               "grade" : "c",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c.svg",
+               "title" : "Qualité nutritionnelle moyenne",
                "type" : "grade"
             },
             "topics" : [

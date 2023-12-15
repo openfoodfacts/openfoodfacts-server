@@ -29,6 +29,7 @@ TXT
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -179,7 +180,7 @@ while (my $product_ref = $cursor->next) {
 
 		if (not $pretend) {
 			$product_ref->{update_key} = $key;
-			store("$data_root/products/$path/product.sto", $product_ref);
+			store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
 
 			# Make sure product code is saved as string and not a number
 			# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077

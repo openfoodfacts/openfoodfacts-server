@@ -146,7 +146,7 @@ function folskonomy_engine_init() {
  */
 function displayFolksonomyPropertyValues() {
     //$(".details").before(
-    $("div[itemtype='https://schema.org/Product']").append(
+    $("div#main-product").append(
         String('<!-- ---- Folksonomy Engine ----- -->' +
         '<div id="free_properties_1" class="feus row card ">' +
         '<div  class="column large-12 h-space-tiny ">' +

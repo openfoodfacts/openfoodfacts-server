@@ -33,7 +33,7 @@ he:אנרגיה - קלוריות (kJ)
 hr:Energija (kJ)
 hu:Energia (kJ)
 it:Energia (kJ)
-ja:エネルギー (kJ)
+ja:エネルギー (kJ), 熱量 (kJ)
 lt:Energinė vertė (kJ)
 lv:Enerģētiskā vērtība (kJ)
 mt:Enerġija (kJ)
@@ -75,7 +75,7 @@ he:אנרגיה - קלוריות (kcal)
 hr:Energija (kcal)
 hu:Energia (kcal)
 it:Energia (kcal)
-ja:エネルギー (kcal)
+ja:エネルギー (kcal), 熱量 (kcal)
 lt:Energinė vertė (kcal)
 lv:Enerģētiskā vērtība (kcal)
 mt:Enerġija (kcal)
@@ -143,7 +143,7 @@ id:Energi
 io:energio
 is:orka
 it:Energia
-ja:エネルギー
+ja:エネルギー, 熱量
 jv:energi
 ka:ენერგია
 kk:энергия
@@ -1948,6 +1948,7 @@ ga:Carbaihiodráit
 he:פחמימות
 hr:Ugljikohidrati
 hu:Szénhidrát
+id:Karbohidrat
 it:Carboidrati
 ja:炭水化物
 lt:Angliavandeniai
@@ -2101,6 +2102,10 @@ bg:Добавена захар
 es:Azucares añadidos
 fr:Sucres ajoutés, sucre ajouté
 nl:Toegevoegde suikers, Toegevoegd suiker
+de:Hinzugefügter Zucker
+it:Zuccheri aggiunti, Zucchero aggiunto
+pt:Açúcares adicionados, Açúcar adicionado
+pl:Cukry dodane, Dodany cukier
 unit:en: g
 evaluation:en: bad
 
@@ -2685,6 +2690,7 @@ ga:Snáithín
 he:סיבים תזונתיים
 hr:vlakna, prehrambena vlakna
 hu:Rost
+id:Serat Pangan
 it:Fibra alimentare
 ja:食物繊維
 lt:Skaidulinių medžiagų
@@ -2805,7 +2811,7 @@ id:Protein
 io:proteino
 is:Prótín
 it:Proteine, proteina
-ja:たんぱく質
+ja:たんぱく質, 蛋白質, タンパク質
 jv:Protein
 ka:ცილები
 kk:Ақуыз
@@ -3022,7 +3028,7 @@ he:מלח
 hi:साधारण नमक
 hr:sol, kuhinjska sol
 hu:Só, Konyhasó
-id:Garam dapur
+id:Garam
 ig:Ńnú
 io:Manjebla salo
 is:Borðsalt, matarsalt
@@ -3093,6 +3099,12 @@ xx:Added salt
 bg:Добавена сол
 fr:Sel ajouté
 nl:Toegevoegd zout
+es:Sal añadida
+it:Sale aggiunto
+pt:Sal adicionado
+de:Hinzugefügtes Salz
+pl:Dodana sól
+ru:Добавленная соль
 unit:en: g
 evaluation:en: bad
 
@@ -3795,10 +3807,11 @@ el:Νιασίνη
 es:Vitamina B3, Vitamina PP (Niacina)
 et:Niatsiin
 fi:B3-vitamiini (Niasiini), B3-vitamiini, Niasiini
-fr:Vitamine B3, Vitamine PP (Niacine), Vitamine B3, Vitamine PP, Niacine, Vitamine B3, PP (Niacine)
+fr:Vitamine B3/PP (Niacine), Vitamine PP (Niacine), Vitamine B3, Vitamine PP, Niacine, Vitamine B3, PP (Niacine)
 ga:Niaicin
 he:ויטמין B3 /ויטמין PP (ניאצין או חומצה ניקוטינית)
-hr:niacin
+hr:Niacin
+id:Niacin
 it:Vitamina B3, Vitamina PP (Niacina)
 ja:ビタミン B3
 lt:Niacinas
@@ -3895,6 +3908,7 @@ ga:Vitimín B9 (Aigéad fólach)
 he:ויטמין B9 (חומצה פולית)
 hr:folna kiselina
 hu:B9-vitamin (Folsav)
+id:Asam folat
 it:Vitamina B9 (Acido folico)
 ja:ビタミン B9 (葉酸)
 lt:Vitaminas B9 (Folio rūgštis)
@@ -4787,7 +4801,7 @@ ht:Fè
 hu:Vas
 hy:երկաթ
 ia:ferro
-id:Besi
+id:Besi, zat besi
 ie:Ferre
 io:fero
 is:járn
@@ -6583,3 +6597,109 @@ nl:Zuurgraad
 pt:Acidez
 sv:Surhet
 unit:en: % vol
+
+zz:dry-residue
+en:Dry residue
+es:Residuo seco
+fr:Résidu sec
+nl:Droogrest
+unit:en: mg
+
+zz:beta-alanine
+en:Beta-Alanine
+xx:Beta-Alanine
+es:Beta-Alanina
+fr:Bêta-Alanine
+unit:en: g
+wikidata:en: Q310919
+wikipedia:en: https://en.wikipedia.org/wiki/%CE%92-Alanine
+
+zz:creatine
+en:Creatine, Creatine Monohydrate
+ca:Creatina, Monohidrat de creatina, Monohidrat Creatina
+es:Creatina, Monohidrato de creatina, Monohidrato Creatina
+fr:Créatine, Monohydrate de Créatine
+xx:Creatine
+unit:en: g
+wikidata:en: Q223600
+wikipedia:en: https://en.wikipedia.org/wiki/Creatine
+
+zz:l-citrulline
+en:L-citrulline, Citrulline
+ca:L-citrul·lina
+es:L-Citrulina, Citrulina
+fr:L-citruline
+xx:L-citrulline, Citrulline
+unit:en: mg
+wikidata:en: Q408641
+wikipedia:en: https://en.wikipedia.org/wiki/Citrulline
+
+zz:l-glutamine
+en:L-Glutamine, Glutamine, Gln
+es:L-Glutamina, Glutamina
+ca:L-Glutamina, Glutamina
+xx:L-Glutamine
+unit:en: mg
+wikidata:en: Q181619
+wikipedia:en: https://en.wikipedia.org/wiki/Glutamine
+
+zz:bcaa
+en:BCAA, BCAAs, Branched-Chain Amino Acid
+xx:BCAA
+unit:en: g
+wikidata:en: Q420726
+wikipedia:en: https://en.wikipedia.org/wiki/Branched-chain_amino_acid
+
+zz:l-valine
+en:L-Valine, Valine
+es:L-Valina, Valina
+ca:L-Valina, Valina
+xx:L-Valine, Valine
+unit:en: mg
+wikidata:en: Q483752
+wikipedia:en: https://en.wikipedia.org/wiki/Valine
+
+zz:l-leucine
+en:L-Leucine, Leucine
+es:L-Leucina, Leucina
+ca:L-Leucina, Leucina
+en:L-Leucine, Leucine
+unit:en: mg
+wikidata:en: Q483745
+wikipedia:en: https://en.wikipedia.org/wiki/Leucine
+
+zz:l-isoleucine
+en:L-Isoleucine, Isoleucine
+es:L-Isoleucina, Isoleucina
+ca:L-Isoleucina, Isoleucina
+en:L-Isoleucine, Isoleucine
+unit:en: mg
+wikidata:en: Q484940
+wikipedia:en: https://en.wikipedia.org/wiki/Isoleucine
+
+zz:l-arginine
+en:L-Arginine, Arginine
+es:L-Arginina, Arginina
+ca:L-Arginina, Arginina
+xx:L-Arginine, Arginine
+unit:en: mg
+wikidata:en: Q173670
+wikipedia:en: https://en.wikipedia.org/wiki/Arginine
+
+zz:l-cysteine
+en:L-Cysteine, Cysteine, Cystein
+es:L-Cisteína, Cisteína
+ca:L-Cisteïna, Cisteïna
+xx:L-Cysteine, Cysteine, Cystein
+unit:en: mg
+wikidata:en: Q186474
+wikipedia:en: https://en.wikipedia.org/wiki/Cysteine
+
+zz:l-Glutathione
+en:L-Glutathione, Glutathione
+es:L-Glutatión, Glutationa
+ca:L-Glutatió, Glutatió
+xx:L-Glutathione, Glutathione
+unit:en: mg
+wikidata:en: Q116907
+wikipedia:en: https://en.wikipedia.org/wiki/Glutathione

@@ -13,6 +13,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:cane-sugar",
          "labels" : "en:fair-trade, en:organic",
          "percent_estimate" : 18.75,
@@ -77,12 +78,14 @@
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 25,
    "ingredients_without_ciqual_codes" : [
-      "en:cane-sugar",
       "en:cocoa-paste"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 8,
    "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent"
+   ],
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,

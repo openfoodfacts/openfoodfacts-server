@@ -97,6 +97,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Images qw/:all/;
@@ -156,12 +157,13 @@ foreach my $categories_list_id (
 # the stats are displayed on category pages and used in product pages,
 # as well as in data quality checks and improvement opportunity detection
 
-if (opendir(my $dh, "$data_root/data/categories_stats")) {
+if (opendir(my $dh, "$BASE_DIRS{PRIVATE_DATA}/categories_stats")) {
 	foreach my $file (readdir($dh)) {
 		if ($file =~ /categories_nutriments_per_country.(\w+).sto$/) {
 			my $country_cc = $1;
 			$categories_nutriments_per_country{$country_cc}
-				= retrieve("$data_root/data/categories_stats/categories_nutriments_per_country.$country_cc.sto");
+				= retrieve(
+				"$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_nutriments_per_country.$country_cc.sto");
 		}
 	}
 	closedir $dh;
@@ -217,23 +219,26 @@ sub normalize_nutriment_value_and_modifier ($value_ref, $modifier_ref) {
 		${$value_ref} =~ s/(\&lt;=|<=|\N{U+2264})( )?//;
 		${$modifier_ref} = "\N{U+2264}";
 	}
-	elsif (${$value_ref} =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than)( )?/i) {
-		${$value_ref} =~ s/(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than)( )?//i;
+	elsif (
+		${$value_ref} =~ /(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than|menos|menor|inferior)( )?/i)
+	{
+		${$value_ref}
+			=~ s/(\&lt;|<|max|maxi|maximum|inf|inférieur|inferieur|less|less than|menos|menor|inferior)( )?//i;
 		${$modifier_ref} = '<';
 	}
 	elsif (${$value_ref} =~ /(\&gt;=|>=|\N{U+2265})/) {
 		${$value_ref} =~ s/(\&gt;=|>=|\N{U+2265})( )?//;
 		${$modifier_ref} = "\N{U+2265}";
 	}
-	elsif (${$value_ref} =~ /(\&gt;|>|min|mini|minimum|greater|more|more than)/i) {
-		${$value_ref} =~ s/(\&gt;|>|min|mini|minimum|greater|more|more than)( )?//i;
+	elsif (${$value_ref} =~ /(\&gt;|>|min|mini|minimum|greater|more|more than|más|mayor|superior)/i) {
+		${$value_ref} =~ s/(\&gt;|>|min|mini|minimum|greater|more|more than|más|mayor|superior)( )?//i;
 		${$modifier_ref} = '>';
 	}
-	elsif (${$value_ref} =~ /(env|environ|about|~|≈)/i) {
-		${$value_ref} =~ s/(env|environ|about|~|≈)( )?//i;
+	elsif (${$value_ref} =~ /(env|environ|about|~|≈|aprox|alrededor)/i) {
+		${$value_ref} =~ s/(env|environ|about|~|≈|aprox|alrededor)( )?//i;
 		${$modifier_ref} = '~';
 	}
-	elsif (${$value_ref} =~ /trace|traces/i) {
+	elsif (${$value_ref} =~ /(trace|traces|traza|trazas)/i) {
 		${$value_ref} = 0;
 		${$modifier_ref} = '~';
 	}
@@ -374,7 +379,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 	return;
 }
 
-# For fat, saturated fat, sugars, salt: http://www.diw.de/sixcms/media.php/73/diw_wr_2010-19.pdf
+# For fat, saturated fat, sugars, salt: https://www.diw.de/sixcms/media.php/73/diw_wr_2010-19.pdf
 @nutrient_levels = (['fat', 3, 20], ['saturated-fat', 1.5, 5], ['sugars', 5, 12.5], ['salt', 0.3, 1.5],);
 
 #
@@ -389,6 +394,7 @@ sub assign_nid_modifier_value_and_unit ($product_ref, $nid, $modifier, $value, $
 	ru => "ru",
 	us => "us",
 	hk => "hk",
+	jp => "jp",
 );
 
 =head2 %nutriments_tables
@@ -480,7 +486,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'choline-', 'phylloquinone-',
 			'beta-glucan-', 'inositol-',
 			'carnitine-', 'sulphate-',
-			'nitrate-',
+			'nitrate-', 'acidity-',
 		)
 	],
 	ca => [
@@ -543,6 +549,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
 			'sulphate-', 'nitrate-',
+			'acidity-',
 		)
 	],
 	ru => [
@@ -605,6 +612,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
 			'sulphate-', 'nitrate-',
+			'acidity-',
 		)
 	],
 	us => [
@@ -665,6 +673,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'nutrition-score-fr-', 'nutrition-score-uk-',
 			'glycemic-index-', 'water-hardness-',
 			'sulfate-', 'nitrate-',
+			'acidity-',
 		)
 	],
 	us_before_2017 => [
@@ -726,6 +735,7 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'phylloquinone-', 'beta-glucan-',
 			'inositol-', 'carnitine-',
 			'sulfate-', 'nitrate-',
+			'acidity-',
 		)
 	],
 	hk => [
@@ -738,7 +748,66 @@ It is a list of nutrients names with eventual prefixes and suffixes:
 			'vitamin-pp-', 'vitamin-b6-', 'vitamin-b9-', 'folates-',
 			'vitamin-b12-', '#minerals', 'calcium', 'potassium-',
 			'phosphorus-', 'iron', 'alcohol', 'nutrition-score-fr-',
-			'sulphate-', 'nitrate-',
+			'sulphate-', 'nitrate-', 'acidity-',
+		)
+	],
+	jp => [
+		(
+			'!energy-kj-', '!energy-kcal',
+			'!energy-', '-energy-from-fat-',
+			'!proteins', '-casein-',
+			'-serum-proteins-', '-nucleotides-',
+			'!fat', '-saturated-fat-',
+			'--butyric-acid-', '--caproic-acid-',
+			'--caprylic-acid-', '--capric-acid-',
+			'--lauric-acid-', '--myristic-acid-',
+			'--palmitic-acid-', '--stearic-acid-',
+			'--arachidic-acid-', '--behenic-acid-',
+			'--lignoceric-acid-', '--cerotic-acid-',
+			'--montanic-acid-', '--melissic-acid-',
+			'-unsaturated-fat-', '--monounsaturated-fat-',
+			'--polyunsaturated-fat-', '-omega-3-fat-',
+			'--alpha-linolenic-acid-', '--eicosapentaenoic-acid-',
+			'--docosahexaenoic-acid-', '-omega-6-fat-',
+			'--linoleic-acid-', '--arachidonic-acid-',
+			'--gamma-linolenic-acid-', '--dihomo-gamma-linolenic-acid-',
+			'-omega-9-fat-', '--oleic-acid-',
+			'--elaidic-acid-', '--gondoic-acid-',
+			'--mead-acid-', '--erucic-acid-',
+			'--nervonic-acid-', '-trans-fat-',
+			'cholesterol-', '!carbohydrates',
+			'-sugars-', '-fiber-',
+			'-soluble-fiber-', '-insoluble-fiber-',
+			'!salt', '-added-salt-',
+			'#sodium-', 'alcohol',
+			'#vitamins', 'vitamin-a-',
+			'beta-carotene-', 'vitamin-d-',
+			'vitamin-e-', 'vitamin-k-',
+			'vitamin-c-', 'vitamin-b1-',
+			'vitamin-b2-', 'vitamin-pp-',
+			'vitamin-b6-', 'vitamin-b9-',
+			'folates-', 'vitamin-b12-',
+			'biotin-', 'pantothenic-acid-',
+			'#minerals', 'silica-',
+			'bicarbonate-', 'potassium-',
+			'chloride-', 'calcium-',
+			'phosphorus-', 'iron-',
+			'magnesium-', 'zinc-',
+			'copper-', 'manganese-',
+			'fluoride-', 'selenium-',
+			'chromium-', 'molybdenum-',
+			'iodine-', 'caffeine-',
+			'taurine-', 'ph-',
+			'fruits-vegetables-nuts-', 'fruits-vegetables-nuts-dried-',
+			'fruits-vegetables-nuts-estimate-', 'collagen-meat-protein-ratio-',
+			'cocoa-', 'chlorophyl-',
+			'carbon-footprint-', 'carbon-footprint-from-meat-or-fish-',
+			'nutrition-score-fr-', 'nutrition-score-uk-',
+			'glycemic-index-', 'water-hardness-',
+			'choline-', 'phylloquinone-',
+			'beta-glucan-', 'inositol-',
+			'carnitine-', 'sulphate-',
+			'nitrate-', 'acidity-',
 		)
 	],
 );
@@ -1141,43 +1210,47 @@ sub fix_salt_equivalent ($product_ref) {
 }
 
 # estimates by category of products. not exact values. For the Nutri-Score, it's important to distinguish only between the thresholds: 40, 60 and 80
-my %fruits_vegetables_nuts_by_category = (
-	"en:fruit-juices" => 100,
-	"en:vegetable-juices" => 100,
-	"en:fruit-sauces" => 90,
-	"en:vegetables" => 90,
-	"en:fruits" => 90,
-	"en:mushrooms" => 90,
-	"en:canned-fruits" => 90,
-	"en:frozen-fruits" => 90,
-	"en:jams" => 50,
-	"en:fruits-based-foods" => 85,
-	"en:vegetables-based-foods" => 85,
+# first entries match first, so we put potatoes before vegetables
+my @fruits_vegetables_nuts_by_category_sorted_2021 = (
+	["en:potatoes", 0],
+	["en:sweet-potatoes", 0],
+	["en:fruit-juices", 100],
+	["en:vegetable-juices", 100],
+	["en:mushrooms", 90],
 	# 2019/08/31: olive oil, walnut oil and colza oil are now considered in the same fruits, vegetables and nuts category
-	"en:olive-oils" => 100,
-	"en:walnut-oils" => 100,
+	["en:olive-oils", 100],
+	["en:walnut-oils", 100],
 	# adding multiple wordings for colza/rapeseed oil in case we change it at some point
-	"en:colza-oils" => 100,
-	"en:rapeseed-oils" => 100,
-	"en:rapeseeds-oils" => 100,
+	["en:colza-oils", 100],
+	["en:rapeseed-oils", 100],
+	["en:rapeseeds-oils", 100],
 	# nuts,
 	# "Les fruits à coque comprennent :
 	# Noix, noisettes, pistaches, noix de cajou, noix de pécan, noix de coco (cf. précisions ci-dessus),
 	# arachides, amandes, châtaigne
-	"en:walnuts" => 100,
-	"en:hazelnuts" => 100,
-	"en:pistachios" => 100,
-	"en:cashew-nuts" => 100,
-	"en:pecan-nuts" => 100,
-	"en:peanuts" => 100,
-	"en:almonds" => 100,
-	"en:chestnuts" => 100,
-	"en:coconuts" => 100,
+	["en:walnuts", 100],
+	["en:hazelnuts", 100],
+	["en:pistachios", 100],
+	["en:cashew-nuts", 100],
+	["en:pecan-nuts", 100],
+	["en:peanuts", 100],
+	["en:almonds", 100],
+	["en:chestnuts", 100],
+	["en:coconuts", 100],
+	["en:jams", 50],
+	["en:fruit-sauces", 90],
+	["en:fruits", 90],
+	["en:vegetables", 90],
+	["en:canned-fruits", 90],
+	["en:frozen-fruits", 90],
+	["en:fruits-based-foods", 85],
+	["en:vegetables-based-foods", 85],
 );
 
-my @fruits_vegetables_nuts_by_category_sorted
-	= sort {$fruits_vegetables_nuts_by_category{$b} <=> $fruits_vegetables_nuts_by_category{$a}}
-	keys %fruits_vegetables_nuts_by_category;
+# Canonicalize the entries, in case the canonical entry changed
+foreach my $category_ref (@fruits_vegetables_nuts_by_category_sorted_2021) {
+	$category_ref->[0] = canonicalize_taxonomy_tag("en", "categories", $category_ref->[0]);
+}
 
 =head2 compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil($product_ref, $prepared)
 
@@ -1247,13 +1320,13 @@ sub compute_nutriscore_2021_fruits_vegetables_nuts_colza_walnut_olive_oil ($prod
 	}
 	else {
 		# estimates by category of products. not exact values. it's important to distinguish only between the thresholds: 40, 60 and 80
-		foreach my $category_id (@fruits_vegetables_nuts_by_category_sorted) {
+		foreach my $category_ref (@fruits_vegetables_nuts_by_category_sorted_2021) {
 
+			my $category_id = $category_ref->[0];
 			if (has_tag($product_ref, "categories", $category_id)) {
-				$fruits = $fruits_vegetables_nuts_by_category{$category_id};
+				$fruits = $category_ref->[1];
 				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category} = $category_id;
-				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value}
-					= $fruits_vegetables_nuts_by_category{$category_id};
+				$product_ref->{nutrition_score_warning_fruits_vegetables_nuts_from_category_value} = $fruits;
 				add_tag($product_ref, "misc", "en:nutrition-fruits-vegetables-nuts-from-category");
 				my $category = $category_id;
 				$category =~ s/:/-/;
@@ -1297,6 +1370,11 @@ my @fruits_vegetables_legumes_by_category_if_no_ingredients_specified_sorted = (
 	["en:frozen-fruits", 90],
 	["en:jams", 50],
 );
+
+# Canonicalize the entries, in case the canonical entry changed
+foreach my $category_ref (@fruits_vegetables_legumes_by_category_if_no_ingredients_specified_sorted) {
+	$category_ref->[0] = canonicalize_taxonomy_tag("en", "categories", $category_ref->[0]);
+}
 
 =head2 compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared)
 
@@ -2437,7 +2515,7 @@ sub compare_nutriments ($a_ref, $b_ref) {
 sub compute_nova_group ($product_ref) {
 
 	# compute Nova group
-	# http://archive.wphna.org/wp-content/uploads/2016/01/WN-2016-7-1-3-28-38-Monteiro-Cannon-Levy-et-al-NOVA.pdf
+	# https://archive.wphna.org/wp-content/uploads/2016/01/WN-2016-7-1-3-28-38-Monteiro-Cannon-Levy-et-al-NOVA.pdf
 
 	# remove nova keys.
 	remove_fields(

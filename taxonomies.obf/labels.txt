@@ -54,11 +54,13 @@ wikidata:en:Q4539
 en:ISO 9001
 it:Iso 9001, Uni en iso 9001, Sistema di qualita certificato iso 9001
 fr:Iso 9001, Certifie iso 9001, La certification qualite iso 9001
+#xx:ISO 9001
 
 <en:ISO 9001
 en:ISO-9001-2008, ISO 9001 2008 certified qms
 it:Iso-9001-2008
 fr:Iso-9001-2008
+#xx:ISO-9001-2008
 
 en:EU Agriculture, European Union agriculture
 es:Agricultura UE, Agricultura Unión Europea
@@ -95,11 +97,17 @@ en:TransFer, TransFer Canada
 en:In braille
 es:En braille, Producto en braille
 fr:Produit en braille
+de:In Brailleschrift
+nl:In braille
+it:In braille
 wikidata:en:Q79894
 
 en:Incorrect data on label, Incorrect data
 fr:Informations incorrectes sur l'emballage, Informations incorrectes
 de:Falsche Angaben auf der Verpackung
+es:Datos incorrectos en la etiqueta, Datos incorrectos
+nl:Onjuiste gegevens op het etiket, Onjuiste gegevens
+it:Dati errati sull'etichetta, Dati errati
 
 
 en:Without paraben, Paraben-free, No paraben, No parabens
@@ -1318,19 +1326,31 @@ de:Grüner punkt
 fr:Point vert
 
 en:Not tested on animals
-fr:Non teste sur les animaux,Non teste sur des animaux
+fr:Non testé sur les animaux, non testé sur des animaux
+es:No testado en animales
+de:Nicht an Tieren getestet
+nl:Niet getest op dieren
 
 en:Neutral pH for the skin, neutral pH, ph skin neutral
 fr:pH neutre pour la peau, pH neutre, pH respectueux
+es:pH neutro para la piel, pH neutro, pH equilibrado para la piel
+de:Neutraler pH-Wert für die Haut, neutraler pH-Wert, pH-Wert neutral für die Haut
+nl:Neutrale pH-waarde voor de huid, neutrale pH-waarde, pH-waarde neutraal voor de huid
 
 en:Dermatologically tested, Dermatologically approved, Tested by dermatologists, Dermo tested
 fr:Testé dermatologiquement, Testé dermatologiquemment, Testé sous controle dermatologique, Tolérance testée sous controle dermatologique, Tolerance-cutanee-testee-dermatologiquement, Tolerance-cutanee-testee-sous-controle-dermatologique, testée dermatologiquement, testées dermatologiquement, Approuvé dermatologiquement, dermato-testé
 
 en:Fully recyclable packaging
 fr:Packaging entièrement recyclable
+es:Embalaje completamente reciclable
+de:Vollständig recycelbare Verpackung
+nl:Volledig recyclebare verpakking
 
 en:Easily flammable
 fr:Facilement inflammable
+es:Fácilmente inflamable
+de:Leicht entflammbar
+nl:Makkelijk ontvlambaar
 
 en:Without phthalates, without phtalates, 0 phthalates
 fr:Sans phtalates, Sans phtalate, 0 phtalate, zero phtalate
@@ -1339,67 +1359,122 @@ en:No colorings, without colorings, no colourings, without colourings, no colour
 fr:Sans colorants, pas de colorants, 0 colorant, zero colorant
 
 fr:Sans colorant de synthese,0 colorant de synthese 
+es:Sin colorante sintético,0 colorante sintético
+de:Ohne synthetische Farbstoffe,0 synthetische Farbstoffe
+nl:Zonder synthetische kleurstoffen,0 synthetische kleurstoffen
 
 en:Without soap, soap free
 fr:Sans savon
+es:Sin jabón
+de:Ohne Seife
+nl:Zonder zeep
 
 en:Without perfume, no perfume, perfume free
 fr:Sans parfum
+es:Sin perfume
+de:Ohne Parfüm
+nl:Zonder parfum
 
 en:Synthetic scent free, free from synthesis fragrance, synthesis fragrance free, free from synthetic fragrances, synthetic fragrances free
 fr:Sans parfum de synthèse
+es:Sin fragancia sintética, libre de fragancia de síntesis, sin fragancias sintéticas
+de:Ohne synthetischen Duft, frei von synthetischen Duftstoffen, synthetische Duftstoffe frei
+nl:Zonder synthetische geur, vrij van synthetische geurstoffen, synthetische geurstoffen vrij
 
 en:Without phenoxyethanol, Phenoxyethanol free
 fr:Sans phenoxyethanol
+es:Sin fenoxietanol
+de:Ohne Phenoxyethanol
+nl:Zonder fenoxyethanol
 
 en:Without aluminium salts
 fr:Sans sels d'aluminium
 de:Ohne Aluminiumsalze
+es:Sin sales de aluminio
+nl:Zonder aluminiumzouten
 
 en:Without silicon, Silicon free
 fr:Sans silicone, 0 silicones, Sans silicones
 de:Ohne Silikon
 nl:Zonder silicone
+es:Sin silicona
+it:Senza silicone
+pt:Sem silicone
 
 en:Without acetone
 fr:Sans acétone
+es:Sin acetona
+de:Ohne Aceton
+nl:Zonder aceton
 
 fr:Sans alcool, Pas d'alcool
 en:No alcohol, 0 alcohol, without alcohol, alcohol free
+es:Sin alcohol, 0 alcohol, sin contenido de alcohol, libre de alcohol
+de:Ohne Alkohol, Kein Alkohol, alkoholfrei
+nl:Zonder alcohol, Geen alcohol, alcoholvrij
 
 en:Without glycol ethers
 fr:Sans ethers de glycol
+es:Sin éteres de glicol
+de:Ohne Glykolether
+nl:Zonder glycolethers
 
-fr:Without formaldehyde
+en:Without formaldehyde
 fr:Sans formaldehyde
+es:Sin formaldehído
+de:Ohne Formaldehyd
+nl:Zonder formaldehyde
 
 en:Sulfate free, No sulfate, Without sulfate
 fr:Sans sulfates, Sans sulphates
+es:Sin sulfatos
+de:Ohne Sulfate
+nl:Zonder sulfaten
 
 en:Without ammonia
 fr:Sans ammoniaque
+es:Sin amoníaco
+de:Ohne Ammoniak
+nl:Zonder ammoniak
 
 en:Without triclosan, Triclosan free, No triclosan
 fr:Sans triclosan
+es:Sin triclosán
+de:Ohne Triclosan
+nl:Zonder triclosan
 
 en:Palm oil free, Without palm oil, No palm oil
 es:Sin aceite de palma
 fr:Sans huile de palme
+de:Ohne Palmöl
+nl:Zonder palmolie
 
 en:Sustainable Palm Oil, Certified Sustainable Palm Oil, RSPO
 fr:Huile de palme durable, Huile de palme certifiée durable, RSPO
+es:Aceite de palma sostenible, Aceite de palma certificado sostenible, RSPO
+de:Nachhaltiges Palmöl, Zertifiziertes nachhaltiges Palmöl, RSPO
+nl:Duurzame palmolie, Gecertificeerde duurzame palmolie, RSPO
 
 fr:Ne pique pas les yeux
 en:Does not sting the eyes, No more tears, No tears, No tears formula
+es:No irrita los ojos, Sin lágrimas, Fórmula sin lágrimas
+de:Brennt nicht in den Augen, Keine Tränen, Tränenfrei, Keine Tränen-Formel
+nl:Prikt niet in de ogen, Geen tranen, Geen tranen formule
 
-fr:Non comédogène
-en:Non comedogenic
+fr:Non comédogène, Non obstruant les pores
+en:Non comedogenic, Non pore-clogging
 
 fr:Sans conservateurs, sans conservateur, 0 conservateur
 en:No preservatives, Preservatives free
+es:Sin conservantes, libre de conservantes
+de:Ohne Konservierungsstoffe, Konservierungsstoffe frei
+nl:Zonder conserveermiddelen, conserveermiddelvrij
 
 fr:Résiste à l'eau, Résistant à l'eau
 en:Waterproof, splashproof, water resistant
+es:Resistente al agua, a prueba de salpicaduras, resistente al agua
+de:Wasserdicht, spritzwassergeschützt, wasserfest
+nl:Waterdicht, spatwaterdicht, waterbestendig
 
 fr:Anti-traces, anti-trace
 
