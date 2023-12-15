@@ -3239,6 +3239,11 @@ it:latte crudo
 ja:生乳
 nl:rauwe melk
 tr:çiğ süt, pastörize edilmemiş süt
+pl:surowe mleko
+pt:leite cru
+ro:lapte crud
+ru:сырое молоко
+zh:生牛奶
 wikipedia:en:https://en.wikipedia.org/wiki/Raw_milk
 
 <en:raw milk
@@ -3246,6 +3251,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Raw_milk
 fr:lait cru entier
 ca:llet crua sencera
 es:leche cruda entera
+it:latte crudo intero
+lt:neapdorotas pilnas pienas
+nl:rauwe volle melk
+pl:surowe mleko pełne
+pt:leite cru integral
+ro:lapte crud integral
 
 ################################## COW MILKS ###################################
 
@@ -3380,6 +3391,8 @@ tr:pastörize inek sütü
 fr:lait de vache thermisé
 ca:llet de vaca termitzada, llet termitzada de vaca
 es:leche de vaca termizada, leche termizada de vaca
+it:latte di mucca termizzato
+nl:gestremde koeienmelk
 
 <en:Cow's milk
 fr:lait frais de nos vaches non homogeneise
@@ -3529,6 +3542,13 @@ ro:lapte de capră pasteurizat, lapte de capra pasteurizat
 <en:pasteurised goat milk
 en:whole goat milk UHT
 fr:Lait de chèvre entier UHT
+bg:пълномаслено козе мляко УХТ
+ca:llet sencer de cabra UHT
+de:Ziegenvollmilch UHT
+es:leche entera de cabra UHT
+fi:vuohen täysmaito UHT
+hu:teljes kecsketej UHT
+nl:volle geitenmelk UHT
 ciqual_food_code:en:19200
 ciqual_food_name:en:Goat milk, whole, UHT
 ciqual_food_name:fr:Lait de chèvre, entier, UHT
@@ -3536,6 +3556,13 @@ ciqual_food_name:fr:Lait de chèvre, entier, UHT
 <en:semi-skimmed goat milk
 en:semi-skimmed pasteurized goat milk UHT
 fr:lait de chèvre demi-écrémé UHT
+bg:полуобезмаслено пастьоризирано козе мляко УХТ
+ca:llet de cabra semidesnatada pasteuritzada UHT
+de:teilentrahmte pasteurisierte Ziegenmilch UHT
+es:leche de cabra semidesnatada pasteurizada UHT
+fi:kevyesti pastöroitu puolirasvainen vuohenmaito UHT
+hu:zsírszegény pasztőrözött kecsketej UHT
+nl:halfvolle gepasteuriseerde geitenmelk UHT
 ciqual_food_code:en:19201
 ciqual_food_name:en:Goat milk, half skimmed, UHT pasteurized
 ciqual_food_name:fr:Lait de chèvre, demi-écrémé, UHT
@@ -3599,6 +3626,10 @@ description:en:Sheep's milk (or ewes' milk) is the milk of domestic sheep.
 <en:goat milk
 en:Sheeps or goat milk
 jv:susu wedhus
+fr:lait de brebis ou de chèvre
+es:leche de oveja o de cabra
+de:Schaf- oder Ziegenmilch
+nl:schapen- of geitenmelk
 
 <en:sheeps milk
 en:whole sheep milk
@@ -3616,6 +3647,14 @@ ciqual_food_name:fr:Lait de brebis, entier
 <en:skimmed milk
 en:skimmed sheeps milk, skimmed sheep milk, semi-skimmed sheeps milk
 fr:lait de brebis partiellement écrémé
+ar:حليب الغنم قليل الدسم
+bg:нискомаслено овче мляко
+ca:llet d'ovella desnatada, llet d'ovella descremada
+de:fettarme Schafmilch, fettreduzierte Schafmilch
+es:leche de oveja desnatada, leche de oveja semidesnatada
+fi:rasvaton lampaanmaito, vähärasvainen lampaanmaito
+hu:zsírszegény juhtej
+nl:mager schapenmelk
 
 #processing:en: en:raw
 #<en:sheeps milk
@@ -3650,6 +3689,8 @@ fr:lait de brebis partiellement écrémé
 fr:lait de brebis thermisé
 ca:llet d'ovella termitzada, llet termitzada d'ovella
 es:leche de oveja termizada, leche termizada de oveja
+it:latte di pecora termizzato
+nl:thermische schapenmelk
 
 
 # <en:aggregate
@@ -29344,6 +29385,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nib_sugar
 
 <en:sugar
 fr:sucre blond
+en:blonde sugar
+es:azúcar rubio
+it:zucchero biondo
+nl:blonde suiker
 
 # description:en:Granulated, familiar as table sugar, with a grain size about 0.5-0.6 mm across.
 # comment:en:"granulated sugar" is generally white sugar, but other sugars can be in granulated form too.
@@ -29398,6 +29443,11 @@ vegetarian:en:yes
 <en:sugarcane
 en:sugarcane juice, cane juice
 fr:jus de canne à sucre, jus de canne
+bg:сок от захарна тръстика
+es:jugo de caña de azúcar
+de:Zuckerrohrsaft
+it:succo di canna da zucchero
+nl:suikerrietsap
 
 <en:sugar
 nl:Arenga bossuiker
@@ -29603,6 +29653,13 @@ it:Zucchero di barbabietola
 nl:suikerbietsuiker
 carbon_footprint_fr_foodges_ingredient:fr:Sucre de betterave
 carbon_footprint_fr_foodges_value:fr:0.7
+
+<en:beetroot
+en:beetroot sugar
+es:azucar de remolacha
+de:Rübenzucker
+nl:bietensuiker
+pt:açúcar de beterraba
 
 <en:sugar
 en:palm sugar
@@ -53674,10 +53731,6 @@ eurocode_2_group_3:en: 8.38.55
 # fr:poudre-de-betterave has 55 products in 1 language @2018-10-22
 
 <en:beetroot
-en:beetroot sugar
-es:azucar de remolacha
-
-<en:beetroot
 en:beetroot syrup
 de:Rote-Beete-Sirup
 es:sirope de remolacha
@@ -53713,6 +53766,20 @@ sk:koncentrát šťavy z cvikly
 
 <en:beetroot
 fr:concentré de betterave
+bg:концентрат от цвекло
+cs:koncentrát z červené řepy
+de:Rote-Bete-Konzentrat
+es:concentrado de remolacha
+fi:punajuuritiiviste
+it:concentrato di barbabietola
+ja:ビーツ濃縮液
+lt:raudonųjų burokėlių koncentratas
+nl:bietensapconcentraat
+pl:koncentrat z buraka
+pt:concentrado de beterraba
+ru:концентрат свеклы
+sk:koncentrát z cvikly
+sv:rödbetskoncentrat
 
 <en:beetroot
 # <en:fibre
@@ -54416,6 +54483,10 @@ fr:salade mélangée verte et rouge
 # <en:compound
 <en:salad
 fr:salade composée
+en:mixed salad
+de:gemischter Salat
+es:ensalada mixta
+it:insalata mista
 # ingredient/fr:salade-composée has 97 products in french @2019-04-16
 # usage:fr: Salade composée 88% : Scarole, carotte râpées, maïs (maïs, sucre, sel), emmental 12%, dés de jambon cuit supérieur 12% (jambon de porc 10,9%, sel, sirop de glucose, dextrose, arômes naturels, antioxydant : ascorbate de sodium, conservateur: nitrite de sodium), frisée, chicorée rouge.
 
@@ -62338,6 +62409,9 @@ uk:куркума
 ur:ہلدی
 vi:nghệ
 zh:薑黃
+ciqual_proxy_food_code:en:11089
+ciqual_proxy_food_name:en:Turmeric, powder
+ciqual_proxy_food_name:fr:Curcuma, poudre
 # ace:kunyèt
 # azb:kurkuma
 # bcl:kalawag
@@ -63918,6 +63992,8 @@ wo:anet
 zh:蒔蘿
 description:en:dill (anethum graveolens) is an annual herb in the celery family apiaceae. dill is widely grown in eurasia where its leaves and seeds are used as a herb or spice for flavouring food.
 comment:en:the wikidata page mixes the common name and latin name
+ciqual_food_code:11093
+ciqual_food_name:en:Dill, fresh
 # aeb-arab:شبت
 # aeb-latn:ch'ebt
 # arz:شبت
@@ -65701,6 +65777,9 @@ sl:origano
 uk:орегано
 xx:oregano
 wikipedia:en:Q92581152
+ciqual_proxy_food_code:en:11035
+ciqual_proxy_food_name:en:Oregano, dried
+ciqual_proxy_food_name:fr:Origan, séché
 #plant: wikipedia:en:Q134283
 # plante:https://fr.wikipedia.org/wiki/Origanum_vulgare
 # 9423 in 29 @2021-09-17
