@@ -404,7 +404,7 @@ my $tests_ref = [
 			}
 		}'
 	},
-	# Test authentication
+	# Test authentication - HTTP Basic Auth
 	{
 		test_case => 'patch-auth-good-password',
 		method => 'PATCH',
@@ -444,6 +444,50 @@ my $tests_ref = [
 				]
 			}
 		}',
+		expected_status_code => 200,
+	},
+	# Test authentication - OAuth token
+	{
+		test_case => 'patch-auth-good-oauth-token',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890014',
+		body => '{
+			"fields": "creator,editors_tags,packagings",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "can"},
+						"recycling": {"lc_name": "recycle"}
+					}
+				]
+			}
+		}',
+		headers_in => {
+			'Authentication' => 'Bearer 4711',
+		},
+	},
+	{
+		test_case => 'patch-auth-bad-oauth-token',
+		method => 'PATCH',
+		path => '/api/v3/product/1234567890015',
+		body => '{
+			"fields": "creator,editors_tags,packagings",
+			"tags_lc": "en",
+			"product": {
+				"packagings": [
+					{
+						"number_of_units": 1,
+						"shape": {"lc_name": "can"},
+						"recycling": {"lc_name": "recycle"}
+					}			
+				]
+			}
+		}',
+		headers_in => {
+			'Authentication' => 'Bearer 4711',
+		},
 		expected_status_code => 200,
 	},
 	# Packaging complete

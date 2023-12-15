@@ -1119,7 +1119,7 @@ sub compute_sort_keys ($product_ref) {
 	return;
 }
 
-=head2 store_product ($user_id, $product_ref, $comment)
+=head2 store_product ($user_id, $product_ref, $comment, $client_id = undef)
 
 Save changes of a product:
 - in a new .sto file on the disk
@@ -1129,7 +1129,7 @@ Before saving, some field values are computed, and product history and completen
 
 =cut
 
-sub store_product ($user_id, $product_ref, $comment) {
+sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 
 	my $code = $product_ref->{code};
 	my $product_id = $product_ref->{_id};
@@ -1327,6 +1327,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	$product_ref->{rev} = $rev;
 	$product_ref->{last_modified_by} = $user_id;
+	$product_ref->{last_modified_by_client} = $client_id;
 	$product_ref->{last_modified_t} = time() + 0;
 	if (not exists $product_ref->{creator}) {
 		my $creator = $user_id;
@@ -1345,6 +1346,7 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	my $change_ref = {
 		userid => $user_id,
+		clientid => $client_id,
 		ip => remote_addr(),
 		t => $product_ref->{last_modified_t},
 		comment => $comment,

@@ -468,7 +468,7 @@ sub write_product_api ($request_ref) {
 			# Save the product
 			if ($code ne "test") {
 				my $comment = $request_body_ref->{comment} || "API v3";
-				store_product($User_id, $product_ref, $comment);
+				store_product($User_id, $product_ref, $comment, $request_ref->{client_id});
 			}
 
 			# Select / compute only the fields requested by the caller, default to updated fields
