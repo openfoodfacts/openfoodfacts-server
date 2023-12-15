@@ -72589,9 +72589,13 @@ sv:torskfilé, filér av torsk
 # ingredient/fr:filet-de-cabillaud has 32 products in french @2018-12-29
 
 <en:cod
+en:smoked cod roe
 fr:oeufs de cabillaud fumés
+es:huevas de bacalao ahumadas
+de:geräucherter Kabeljaukaviar
+it:uova di merluzzo affumicate
 
-<fr:oeufs de cabillaud fumés
+<en:smoked cod roe
 fr:oeufs de cabillaud salés et fumés, œufs de cabillaud fumés et salés, oeufs de cabillaud fumés et salés
 # ingredient/fr:œufs-de-cabillaud-fumés-et-salés has 30 products in french @2018-12-29
 
@@ -73728,6 +73732,8 @@ en:pangas fillet
 de:Pangasiusfilets
 fr:filets de pangas
 it:filetti di pangasio
+es:filetes de pangas
+nl:pangasiusfilets
 
 #description:en:Trisopterus luscus (bib, pout whiting, pout or most commonly pouting) is a seafish belonging to the cod family (Gadidae).
 
@@ -73945,6 +73951,10 @@ de:Roher Lachs
 fr:saumon cru
 nl:rauwe zalm
 pt:Salmão cru
+es:salmon crudo
+it:salmone crudo
+pl:surowy łosoś
+ru:сырая лосось
 # ingredient/raw-salmon has 100 products in 3 languages @2021-08-15
 ciqual_food_code:en:26036
 ciqual_food_name:en:Salmon, raw, farmed
@@ -73954,6 +73964,9 @@ ciqual_food_name:fr:Saumon, cru, élevage
 <en:raw salmon
 en:raw farmed Salmon
 fr:Saumon cru d'élevage
+es:Salmón crudo de piscifactoría
+de:Roher gezüchteter Lachs
+it:Salmone crudo di allevamento
 ciqual_food_code:en:26036
 ciqual_food_name:en:Salmon, raw, farmed
 ciqual_food_name:fr:Saumon, cru, élevage
@@ -73961,6 +73974,9 @@ ciqual_food_name:fr:Saumon, cru, élevage
 <en:raw salmon
 en:raw wild Salmon
 fr:Saumon cru sauvage
+es:Salmón crudo salvaje
+de:Roher wilder Lachs
+it:Salmone crudo selvaggio
 ciqual_food_code:en:26161
 ciqual_food_name:en:Salmon, raw, wild
 ciqual_food_name:fr:Saumon, cru, sauvage
@@ -74026,11 +74042,19 @@ ciqual_food_name:en:Salmon, smoked
 
 <en:smoked salmon
 fr:chutes de saumon fumé
+en:smoked salmon trimmings
+de:geräucherte Lachsschnitte
+es:recortes de salmón ahumado
+it:scarti di salmone affumicato
+nl:gerookte zalmresten
 
 <en:salmon
 en:scottish salmon
 de:schottischer Lachs
 fr:saumon d'écosse
+es:salmon escocés
+it:salmone scozzese
+nl:Schotse zalm
 
 #description:en:The Atlantic salmon (Salmo salar) is a species of ray-finned fish in the family Salmonidae.
 
@@ -74115,6 +74139,9 @@ en:smoked atlantic salmon
 bg:пушена атлантическа сьомга
 de:geräucherter Atlantik-Lachs, geräucherter Atlantiklachs
 fr:saumon Atlantique fumé
+es:salmón atlántico ahumado
+it:salmone atlantico affumicato
+pt:salmão atlântico defumado
 
 
 <en:salmon fillet
@@ -74339,15 +74366,16 @@ ciqual_food_name:fr:Sardine, crue
 # 1553 in 20 @2021-09-15
 
 #processing:en: en:fillet
-#<en:sardine
-#en:sardine fillets
-#de:Sardinenfilets
-#fi:sardiinifilee
-#fr:filets de sardines
-#it:filetti di sardine
-#nl:sardinefilets
-#sk:filety sardiniek
+<en:sardine
+en:sardine fillets
+de:Sardinenfilets
+fi:sardiinifilee
+fr:filets de sardines
+it:filetti di sardine
+nl:sardinefilets
+sk:filety sardiniek
 # 142 in 5 languages @2021-09-21
+# We disabled it because we can catch it in processing, but as a result, it does not inherit the CIQUAL property of sardines
 
 #processing:en: en:pre-cooked
 #<en:sardine fillets
@@ -74422,6 +74450,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Scorpaenidae
 <en:scorpion fish
 en:Steamed spiny scorpionfish
 fr:Rascasse cuite à la vapeur
+es:Rascacio al vapor
+de:Gedämpfter Drachenkopf
+it:Scorfano spinoso al vapore
 ciqual_food_code:en:26148
 ciqual_food_name:en:Spiny scorpionfish, steamed
 ciqual_food_name:fr:Rascasse, cuite à la vapeur
@@ -74453,6 +74484,10 @@ zh:龍脷
 <en:fish
 en:Tonguesole
 fr:sole tropicale, sole langue
+en:tropical sole, tongue sole
+es:lenguado tropical, lenguado lengua
+de:tropische Seezunge, Zungenzunge
+it:sole tropicale, sogliola lingua
 la:Cynoglossus spp
 ciqual_food_code:en:26200
 ciqual_food_name:en:Tonguesole, raw
