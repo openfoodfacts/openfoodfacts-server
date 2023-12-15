@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "19051",
          "id" : "en:milk",
          "percent_estimate" : 56.25,
          "percent_max" : 100,
@@ -147,12 +148,11 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:another-unknown-ingredient",
-      "en:milk",
       "en:pepper",
       "en:some-unknown-ingredient",
       "en:spice"
    ],
-   "ingredients_without_ciqual_codes_n" : 5,
+   "ingredients_without_ciqual_codes_n" : 4,
    "known_ingredients_n" : 11,
    "lc" : "en",
    "nutriments" : {
