@@ -7,7 +7,6 @@ on:
     - "docs/**"
     - ".github/workflows/generate-doc.yml"
     - "mkdocs.yml"
-    - "html/files/doc/perl/**"
   push:
     # on merge to main, build and publish
     branches: [ "main" ]
@@ -38,10 +37,10 @@ jobs:
 
       - name: Run generate_perl_html_doc_from_pod.pl
         run: |
-          perl -CS -I lib scripts/generate_perl_html_doc_from_pod.pl && \
-          # and copy to target directory
           rm -rf gh_pages/dev/ref-perl-pod && \
-          mv html/files/doc/perl gh_pages/dev/ref-perl-pod
+          mkdir gh_pages/dev/ref-perl-pod && \
+          cp docs/assets/simple.min.css gh_pages/dev/ref-perl-pod && \
+          perl -CS -I lib scripts/generate_perl_html_doc_from_pod.pl gh_pages/dev/ref-perl-pod
 
       # DISABLED: in favor of rapidoc
       # generating OpenAPI documentation with redocly
@@ -80,7 +79,7 @@ jobs:
 
 
       - name: Deploy API documentation to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.4.3
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         # we only deploy on push to main
         if: |
           github.event_name == 'push' && github.event.ref == 'refs/heads/main'

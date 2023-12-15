@@ -491,6 +491,14 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 		}
 	],
 
+	[
+		"en-origin-and",
+		{
+			lc => "en",
+			ingredients_text => "Tomatoes (France and Italy)",
+		}
+	],
+
 	# Origins : French - X from Y
 	[
 		"fr-origin-ingredient-origin-and-origin",
@@ -503,6 +511,14 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			origin_fr =>
 				"Pomme de Terre de France, Porc de France, Lait demi-écrémé de France, Crème liquide de France, Eau de France, Beurre de France, 
 				Moutarde à l'ancienne de France, Crème de France, Moutarde de Dijon de France, Miel de fleurs de France, Epices : Inde, Bouillon de France, Sel fin de France",
+		}
+	],
+
+	[
+		"fr-origin-and",
+		{
+			lc => "fr",
+			ingredients_text => "Pomme de Terre (France et Italie)",
 		}
 	],
 
@@ -530,6 +546,33 @@ Origin of peaches: Spain. Origin of some unknown ingredient: France. origin of A
 			ingredients_text => "砂糖、小麦粉、全粉乳、カカオマス、ショートニング、植物油脂、ココアバター、小麦全粒粉、小麦ふすま、食塩、小麦胚芽 ／ 加工デンプン、乳化剤（大豆由来）、膨脹剤、香料",
 		}
 	],
+	# origins
+	[
+		"ja-origins",
+		{
+			lc => "ja",
+			ingredients_text => "塩(国産), 
+クレームフレーシュ(国内製造), 
+肉(オーストラリア),
+オリーブ油(ブラジル産、エチオピア産),
+白ワインビネガー(オーストラリア又はフィンランド又はその他),
+麦芽(国内製造又は韓国製造),
+糖類(外国製造又は国内製造),
+ココア(輸入又は国産 (5%未満)),
+えだまめ(北海道産).
+パンの実(三陸産),
+クレメンタイン(九州産)"
+		}
+	],
+
+	[
+		"ja-origin-and",
+		{
+			lc => "ja",
+			ingredients_text => "トマト(ときがわ町])",
+		}
+	],
+
 	# U+00B7 "·" (Middle Dot) is a character found in ingredient forsome countries (Catalan)
 	[
 		"ca-middle-dot",
@@ -703,13 +746,60 @@ puffed orange and caramelized unknown_fruit4.",
 				"fruits (apple, banana and dried cherry), vegetables (pitted avocado, peeled black radish).",
 		}
 	],
+	# category / types enumeration
+	[
+		"en-category-types",
+		{
+			lc => "de",
+			ingredients_text => "pflanzliche Öle und Fette (Raps, Palm, Shea, Sonnenblumen)",
+		}
+	],
 	[
 		"fr-viande-de-boeuf-issue-d-animaux-nourris-sans-ogm",
 		{
 			lc => "fr",
 			ingredients_text => "Viande de boeuf issue d'animaux nourris sans OGM",
 		}
-	]
+	],
+	# French ingredient
+	[
+		"fr-oignon-francais-tomate-francaise",
+		{
+			lc => "fr",
+			ingredients_text => "Oignon français, tomate française",
+		}
+	],
+	[
+		'fr-legumes-issus-de-l-agriculture-durable',
+		{
+			lc => "fr",
+			ingredients_text => "Légumes issus de l'agriculture durable",
+		}
+	],
+	[
+		"fr-farines-labels-and-processes",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Farine de blé CRC, farine de maïs fermentée, farine sans gluten, farine de petit épeautre fortifiée",
+		}
+	],
+	# Label in a list of ingredients: the product should have labels organic and gluten-free.
+	[
+		"en-wheat-flour-organic-gluten-free",
+		{
+			lc => "en",
+			ingredients_text => "wheat flour. MSC (fish). organic. gluten-free",
+		}
+	],
+	# Removing a label with stopwords without removing the stopwords in origins
+	[
+		"fr-cacao-issu-de-l-agriculture-biologique-de-madagascar",
+		{
+			lc => "fr",
+			ingredients_text => "cacao issu de l'agriculture biologique de Madagascar",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

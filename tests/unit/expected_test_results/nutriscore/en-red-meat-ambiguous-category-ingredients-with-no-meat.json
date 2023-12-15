@@ -46,6 +46,7 @@
          "vegetarian" : "no"
       },
       {
+         "ciqual_proxy_food_code" : "9410",
          "id" : "en:wheat-flour",
          "percent_estimate" : 13.625,
          "percent_max" : 49.5,
@@ -122,14 +123,13 @@
    "ingredients_with_specified_percent_sum" : 1,
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 87.375,
-   "ingredients_without_ciqual_codes" : [
-      "en:wheat-flour"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 9,
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
       "en:nutrition-no-fiber",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",

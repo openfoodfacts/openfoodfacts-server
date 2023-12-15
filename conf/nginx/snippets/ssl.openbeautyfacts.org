@@ -1,4 +1,0 @@
-ssl_certificate /etc/nginx/acme.sh/live/openbeautyfacts.org/fullchain.pem;
-ssl_certificate_key /etc/nginx/acme.sh/live/openbeautyfacts.org/key.pem;
-ssl_trusted_certificate /etc/nginx/acme.sh/live/openbeautyfacts.org/ca.pem;
-

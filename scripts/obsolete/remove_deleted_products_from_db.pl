@@ -26,6 +26,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -64,7 +65,7 @@ my $cursor = get_products_collection()->query({})->fields({ code => 1 });;
 		
 		if (not defined $product_ref) {
 			print STDERR "cannot load product $code\n";
-			my $product_ref = retrieve("$data_root/products/$path/product.sto");
+			my $product_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/product.sto");
 			if (defined $product_ref) {
 				print STDERR "deleted : $product_ref->{deleted} - _id : $product_ref->{_id}\n";
 				get_products_collection()->delete_one({"code" => $code});
@@ -79,7 +80,7 @@ my $cursor = get_products_collection()->query({})->fields({ code => 1 });;
 
 		# Store
 
-		# store("$data_root/products/$path/product.sto", $product_ref);		
+		# store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);		
 		# get_products_collection()->save($product_ref);
 	}
 

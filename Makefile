@@ -52,6 +52,8 @@ DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner
 DOCKER_COMPOSE_TEST=ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker-compose --env-file=${ENV_FILE}
+# Enable Redis only for integration tests
+DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" ${DOCKER_COMPOSE_TEST}
 
 .DEFAULT_GOAL := usage
 
@@ -89,6 +91,11 @@ dev: hello build init_backend _up import_sample_data create_mongodb_indexes refr
 edit_etc_hosts:
 	@grep -qxF -- "${HOSTS}" /etc/hosts || echo "${HOSTS}" >> /etc/hosts
 
+create_folders:
+# create some folders to avoid having them owned by root (when created by docker compose)
+	@echo "🥫 Creating folders before docker-compose use them."
+	mkdir -p logs/apache2 logs/nginx debug || ( whoami; ls -l . ; false )
+
 # TODO: Figure out events => actions and implement live reload
 # live_reload:
 # 	@echo "🥫 Installing when-changed …"
@@ -107,7 +114,7 @@ edit_etc_hosts:
 
 build:
 	@echo "🥫 Building containers …"
-	${DOCKER_COMPOSE} build 2>&1
+	${DOCKER_COMPOSE} build ${container} 2>&1
 
 # this is needed for CI
 build_backend:
@@ -119,7 +126,7 @@ _up:
 	${DOCKER_COMPOSE} up -d 2>&1
 	@echo "🥫 started service at http://openfoodfacts.localhost"
 
-up: build _up
+up: build create_folders _up
 
 down:
 	@echo "🥫 Bringing down containers …"
@@ -156,7 +163,7 @@ tail:
 	@echo "🥫 Reading logs (Apache2, Nginx) …"
 	tail -f logs/**/*
 
-codecov_prepare:
+codecov_prepare: create_folders
 	@echo "🥫 Preparing to run code coverage…"
 	mkdir -p cover_db
 	${DOCKER_COMPOSE_TEST} run --rm backend cover -delete
@@ -173,13 +180,13 @@ coverage_txt:
 #----------#
 # Services #
 #----------#
-build_lang:
+build_lang: create_folders
 	@echo "🥫 Rebuild language"
     # Run build_lang.pl
     # Languages may build taxonomies on-the-fly so include GITHUB_TOKEN so results can be cached
 	${DOCKER_COMPOSE} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
-build_lang_test:
+build_lang_test: create_folders
 # Run build_lang.pl in test env
 	${DOCKER_COMPOSE_TEST} run --rm -e GITHUB_TOKEN=${GITHUB_TOKEN} backend perl -I/opt/product-opener/lib -I/opt/perl/local/lib/perl5 /opt/product-opener/scripts/build_lang.pl
 
@@ -243,22 +250,22 @@ lint: lint_perltidy
 tests: build_lang_test unit_test integration_test
 
 # add COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover"' if you want to trigger code coverage report generation
-unit_test:
+unit_test: create_folders
 	@echo "🥫 Running unit tests …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run ${COVER_OPTS} -T --rm backend prove -l --jobs ${CPU_COUNT} -r tests/unit
 	${DOCKER_COMPOSE_TEST} stop
 	@echo "🥫 unit tests success"
 
-integration_test:
+integration_test: create_folders
 	@echo "🥫 Running integration tests …"
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
 # this is the place where variables are important
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion
+	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
 # note: we need the -T option for ci (non tty environment)
-	${DOCKER_COMPOSE_TEST} exec ${COVER_OPTS}  -T backend prove -l -r tests/integration
-	${DOCKER_COMPOSE_TEST} stop
+	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS}  -T backend prove -l -r tests/integration
+	${DOCKER_COMPOSE_INT_TEST} stop
 	@echo "🥫 integration tests success"
 
 # stop all tests dockers
@@ -268,19 +275,20 @@ test-stop:
 
 # usage:  make test-unit test=test-name.t
 # you can add args= to pass options, like args="-d" to debug
-test-unit: guard-test
+test-unit: guard-test create_folders
 	@echo "🥫 Running test: 'tests/unit/${test}' …"
 	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb
 	${DOCKER_COMPOSE_TEST} run --rm backend perl ${args} tests/unit/${test}
 
 # usage:  make test-int test=test-name.t
 # to update expected results: make test-int test="test-name.t --update-expected-results"
-test-int: guard-test # usage: make test-int test=test-file.t
+# you can add args= to pass options, like args="-d" to debug
+test-int: guard-test create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion
-	${DOCKER_COMPOSE_TEST} exec backend perl ${args} tests/integration/${test}
+	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
+	${DOCKER_COMPOSE_INT_TEST} exec backend perl ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
-	${DOCKER_COMPOSE_TEST} stop backend
+	${DOCKER_COMPOSE_INT_TEST} stop backend
 
 # stop all docker tests containers
 stop_tests:
@@ -299,6 +307,10 @@ update_tests_results: build_lang_test
 	${DOCKER_COMPOSE_TEST} stop
 
 bash:
+	@echo "🥫 Open a bash shell in the backend container"
+	${DOCKER_COMPOSE} run --rm -w /opt/product-opener backend bash
+
+bash_test:
 	@echo "🥫 Open a bash shell in the test container"
 	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener backend bash
 
@@ -386,6 +398,10 @@ create_external_volumes:
 # local data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/data ${COMPOSE_PROJECT_NAME}_html_data
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata ${COMPOSE_PROJECT_NAME}_podata
+# note for this one, it should be shared with pro instance in the future
+	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/export_files ${COMPOSE_PROJECT_NAME}_export_files
+# Create Redis volume
+	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/redis ${COMPOSE_PROJECT_NAME}_redisdata
 
 create_external_networks:
 	@echo "🥫 Creating external networks (production only) …"

@@ -374,10 +374,44 @@ $product_ref = {
 	}
 };
 ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
+	'energy not matching nutrients but category possesses ignore_energy_calculated_error:en:yes tag'
+) or diag explain $product_ref;
+
+$product_ref = {
+	categories_tags => ['en:sweeteners'],
+	nutriments => {
+		"energy-kj_value" => 550,
+		"carbohydrates_value" => 10,
+		"fat_value" => 20,
+		"proteins_value" => 30,
+		"fiber_value" => 2,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
 is($product_ref->{nutriments}{"energy-kj_value_computed"}, 1436);
 ok(
 	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
 	'energy not matching nutrients but category possesses ignore_energy_calculated_error:en:yes tag'
+) or diag explain $product_ref;
+
+$product_ref = {
+	categories_tags => ['en:sweet-spreads'],
+	nutriments => {
+		"energy-kj_value" => 8,
+		"fat_value" => 0.5,
+		"saturated-fat_value" => 0.1,
+		"carbohydrates_value" => 0.5,
+		"sugars_value" => 0.5,
+		"proteins_value" => 0.5,
+		"salt_value" => 0.01,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
+	'energy not matching nutrients but energy is lower than 55 kj'
 ) or diag explain $product_ref;
 
 # energy matches nutrients
@@ -462,7 +496,7 @@ $product_ref = {
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 ok(has_tag($product_ref, 'data_quality', 'en:energy-value-in-kj-does-not-match-value-computed-from-other-nutrients'),
-	'energy not matching nutrient')
+	'energy not matching nutrient but lower than 55 kj')
 	or diag explain $product_ref;
 
 # Erythritol is a polyol which does not contribute to energy
@@ -609,6 +643,14 @@ check_quality_and_test_product_has_quality_tag(
 	'serving size cannot be parsed', 0
 );
 
+# serving size not recognized (leading to undefined serving quantity)
+$product_ref = {serving_size => "50",};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-data-per-serving-serving-quantity-is-not-recognized',
+	'serving size is not recognized', 1
+);
+
 # percentage for ingredient is higher than 100% in extracted ingredients from the picture
 $product_ref = {
 	ingredients => [
@@ -691,6 +733,64 @@ check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutrition-3-or-more-values-are-identical',
 	'3 or more identical values and above 1 in the nutrition table', 1
+);
+# en:nutrition-values-are-all-identical
+$product_ref = {
+	nutriments => {
+		"energy-kj_100g" => 0,
+		"energy-kcal_100g" => 0,
+		"fat_100g" => 0,
+		"saturated-fat_100g" => 0,
+		"carbohydrates_100g" => 0,
+		"sugars_100g" => 0,
+		"fibers_100g" => 0,
+		"proteins_100g" => 0,
+		"salt_100g" => 0,
+		"sodium_100g" => 0,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-values-are-all-identical',
+	'all identical values and above 1 in the nutrition table', 1
+);
+$product_ref = {
+	nutriments => {
+		"energy-kj_100g" => 1,
+		"energy-kcal_100g" => 0,
+		"fat_100g" => 0,
+		"saturated-fat_100g" => 0,
+		"carbohydrates_100g" => 0,
+		"sugars_100g" => 0,
+		"fibers_100g" => 0,
+		"proteins_100g" => 0,
+		"salt_100g" => 0,
+		"sodium_100g" => 0,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-values-are-all-identical',
+	'all identical values and above 1 in the nutrition table', 0
+);
+$product_ref = {
+	nutriments => {
+		"energy-kj_100g" => 0,
+		"energy-kcal_100g" => 0,
+		"fat_100g" => 0,
+		"saturated-fat_100g" => 0,
+		"carbohydrates_100g" => 0,
+		"sugars_100g" => 0,
+		"fibers_100g" => 0,
+		"proteins_100g" => 0,
+		"salt_100g" => 0,
+		"sodium_100g" => 1,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-values-are-all-identical',
+	'all identical values and above 1 in the nutrition table', 1
 );
 
 # sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars
@@ -814,6 +914,59 @@ check_quality_and_test_product_has_quality_tag(
 	'sum of fructose plus glucose plus maltose plus lactose plus sucrose cannot be greater than sugars', 0
 );
 
+# salt_100g is very small warning (may be in mg)
+## lower than 0.001
+$product_ref = {
+	nutriments => {
+		salt_100g => 0.0009,    # lower than 0.001
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-001-g-salt',
+	'value for salt is lower than 0.001g', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-01-g-salt',
+	'value for salt is lower than 0.001g, should not trigger warning for 0.01', 0
+);
+## lower than 0.01
+$product_ref = {
+	nutriments => {
+		salt_100g => 0.009,    # lower than 0.01
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-001-g-salt',
+	'value for salt is above 0.001g', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-01-g-salt',
+	'value for salt is lower than 0.001g, and above 0.01', 1
+);
+## above 0.01
+$product_ref = {
+	nutriments => {
+		salt_100g => 0.02,    # above 0.01
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-001-g-salt',
+	'value for salt is above 0.001g', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-value-under-0-01-g-salt',
+	'value for salt is above 0.001g', 0
+);
+
 # testing of ProductOpener::DataQualityFood::check_quantity subroutine
 $product_ref = {quantity => "300g"};
 ProductOpener::DataQuality::check_quality($product_ref);
@@ -923,6 +1076,31 @@ check_quality_and_test_product_has_quality_tag(
 	'1 kcal = 4.184 kJ, value in kcal is between 165*3.7-2=608.5 and 165*4.7+2=777.5', 1
 );
 
+# nutrition - saturated fat is greater than fat
+## trigger the error because saturated-fat_100g is greated than fat
+$product_ref = {
+	nutriments => {
+		fat_100g => 0,
+		"saturated-fat_100g" => 1,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-saturated-fat-greater-than-fat',
+	'saturated fat greater than fat', 1
+);
+## if undefined fat, error should not be triggered
+$product_ref = {
+	nutriments => {
+		"saturated-fat_100g" => 1,
+	}
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:nutrition-saturated-fat-greater-than-fat',
+	'saturated fat may be greater than fat but fat is missing', 0
+);
+
 # category with expected nutriscore grade. Prerequisite: "expected_nutriscore_grade:en:c" under "en:Extra-virgin olive oils" category, in the taxonomy
 # category with expected nutriscore grade. Different nutriscore grade as compared to the expected nutriscore grade
 $product_ref = {
@@ -933,7 +1111,10 @@ $product_ref = {
 		'en:olive-oils', 'en:virgin-olive-oils',
 		'en:extra-virgin-olive-oils'
 	],
-	nutrition_grade_fr => "d"
+	nutrition_grade_fr => "d",
+	nutriscore => {
+		2023 => {"nutrients_available" => 1,},
+	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
@@ -953,7 +1134,10 @@ $product_ref = {
 		"en:ice-cream-tubs", "en:virgin-olive-oils",
 		"en:extra-virgin-olive-oils", "fr:glace-aux-calissons"
 	],
-	nutrition_grade_fr => "d"
+	nutrition_grade_fr => "d",
+	nutriscore => {
+		2023 => {"nutrients_available" => 1,},
+	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
@@ -970,13 +1154,16 @@ $product_ref = {
 		'en:olive-tree-products', 'en:vegetable-oils',
 		'en:olive-oils', 'en:virgin-olive-oils',
 		'en:extra-virgin-olive-oils'
-	]
+	],
+	nutriscore => {
+		2023 => {"nutrients_available" => 0,},
+	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
 	$product_ref,
 	'en:nutri-score-grade-from-category-does-not-match-calculated-grade',
-	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 1
+	'Calculate nutriscore grade should be the same as the one provided in the taxonomy for this category', 0
 );
 # category with expected nutriscore grade. Same nutriscore grade as compared to the expected nutriscore grade
 $product_ref = {
@@ -987,7 +1174,10 @@ $product_ref = {
 		'en:olive-oils', 'en:virgin-olive-oils',
 		'en:extra-virgin-olive-oils'
 	],
-	nutrition_grade_fr => "c"
+	nutrition_grade_fr => "c",
+	nutriscore => {
+		2023 => {"nutrients_available" => 1,},
+	},
 };
 ProductOpener::DataQuality::check_quality($product_ref);
 check_quality_and_test_product_has_quality_tag(
@@ -1096,130 +1286,6 @@ check_quality_and_test_product_has_quality_tag(
 	'en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients',
 	'We expect the ingredient given in the taxonomy for this product', 0
 );
-# vegan label but non-vegan ingredients
-# unknown ingredient -> warnings
-$product_ref = {
-	labels_tags => ["en:vegetarian", "en:vegan",],
-	ingredients => [
-		{
-			id => "en:lentils",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:green-bell-pepper",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:totoro",
-		}
-	],
-};
-ProductOpener::DataQuality::check_quality($product_ref);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegan-label-but-non-vegan-ingredient',
-	'raise error only when vegan is no and label is vegan', 0
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegetarian-label-but-non-vegetarian-ingredient',
-	'raise error only when vegetarian is no and label is vegan', 0
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegan-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegan or non-vegan is unknown for an ingredient', 1
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 1
-);
-# non-vegan/non-vegetarian ingredient -> error
-$product_ref = {
-	labels_tags => ["en:vegetarian", "en:vegan",],
-	ingredients => [
-		{
-			id => "en:lentils",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:green-bell-pepper",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:chicken",
-			vegan => "no",
-			vegetarian => "no"
-		}
-	],
-};
-ProductOpener::DataQuality::check_quality($product_ref);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegan-label-but-non-vegan-ingredient',
-	'raise error only when vegan is no and label is vegan', 1
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegetarian-label-but-non-vegetarian-ingredient',
-	'raise error only when vegetarian is no and label is vegan', 1
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegan-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegan or non-vegan is unknown for an ingredient', 0
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 0
-);
-# non-vegan/vegatarian ingredient -> error
-$product_ref = {
-	labels_tags => ["en:vegetarian", "en:vegan",],
-	ingredients => [
-		{
-			id => "en:lentils",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:green-bell-pepper",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:honey",
-			vegan => "no",
-			vegetarian => "yes"
-		}
-	],
-};
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegan-label-but-non-vegan-ingredient',
-	'raise error only when vegan is no and label is vegan', 1
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegetarian-label-but-non-vegetarian-ingredient',
-	'raise error only when vegetarian is no and label is vegan', 0
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegan-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegan or non-vegan is unknown for an ingredient', 0
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 0
-);
 # product quantity warnings and errors
 $product_ref = {product_quantity => "123456789",};
 check_quality_and_test_product_has_quality_tag(
@@ -1255,5 +1321,83 @@ check_quality_and_test_product_has_quality_tag(
 );
 check_quality_and_test_product_has_quality_tag($product_ref, 'en:product-quantity-in-mg',
 	'raise warning because the product quantity is in mg', 1);
+
+# Brands - Detected category from brand
+$product_ref = {brands_tags => ["bledina", "camel", "purina", "yves-rocher",],};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:detected-category-from-brand-baby-foods',
+	'Detected category from brand - Baby', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:detected-category-from-brand-cigarettes',
+	'Detected category from brand - Cigarettes', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:detected-category-from-brand-pet-foods',
+	'Detected category from brand - Pet Foods', 1
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:detected-category-from-brand-beauty',
+	'Detected category from brand - Beauty', 1
+);
+
+# Nutrition errors - sugar + starch > carbohydrates
+## without "<" symbol
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 1,
+		"sugars_100g" => 2,
+		"starch_100g" => 3,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
+	'sum of sugars and starch greater carbohydrates')
+	or diag explain $product_ref;
+## with "<" symbol
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 1,
+		"sugars_100g" => 1,
+		"sugars_modifier" => "<",
+		"starch_100g" => 1,
+		"starch_modifier" => "<",
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
+	'sum of sugars and starch greater carbohydrates, presence of "<" symbol,  and sugars or starch is smaller than carbohydrates'
+) or diag explain $product_ref;
+## sugar or starch is greater than carbohydrates, with "<" symbol
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 3,
+		"sugars_100g" => 1,
+		"starch_100g" => 5,
+		"starch_modifier" => "<",
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
+	'sum of sugars and starch greater carbohydrates, presence of "<" symbol, and sugars or starch is greater than carbohydrates'
+) or diag explain $product_ref;
+## should not be triggered
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 3,
+		"sugars_100g" => 2,
+		"starch_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(!has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
+	'sum of sugars and starch greater carbohydrates')
+	or diag explain $product_ref;
 
 done_testing();

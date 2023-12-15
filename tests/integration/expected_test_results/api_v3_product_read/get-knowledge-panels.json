@@ -185,7 +185,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                "title" : "Eco-Score C - Moderate environmental impact",
                "type" : "grade"
             },
@@ -501,7 +501,7 @@
             "level" : "info",
             "title_element" : {
                "grade" : "c",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/ecoscore-c.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                "subtitle" : "Product: Some product - 100 g",
                "title" : "Impact for this product: C (Score: 46/100)",
                "type" : "grade"
@@ -815,7 +815,7 @@
             ],
             "level" : "info",
             "title_element" : {
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nova-group-3.svg",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nova-group-3.svg",
                "title" : "Processed foods"
             },
             "topics" : [
@@ -827,23 +827,21 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "The nutrition facts of the product must be specified in order to compute the Nutri-Score.\n                    ",
+                     "html" : "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients.\n                    ",
                      "type" : "warning"
                   }
                },
                {
-                  "action_element" : {
-                     "actions" : [
-                        "add_nutrition_facts"
-                     ],
-                     "html" : "Could you add the information needed to compute the Nutri-Score?"
-                  },
-                  "element_type" : "action"
+                  "element_type" : "text",
+                  "text_element" : {
+                     "html" : "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: 62\n                    ",
+                     "type" : "warning"
+                  }
                },
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : ""
+                     "html" : "<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Positive points: 3</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Proteins:\n1&nbsp;</strong>/&nbsp;5\n(value: 1.974375, \n        rounded value: 1.97)\n      </li>\n    \n      <li>\n        <strong>Fiber:\n0&nbsp;</strong>/&nbsp;5\n(value: 0.8125, \n        rounded value: 0.81)\n      </li>\n    \n      <li>\n        <strong>Fruits, vegetables, nuts, and colza/walnut/olive oils:\n2&nbsp;</strong>/&nbsp;5\n(value: 62.5, \n        rounded value: 62.5)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Negative points: 6</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Energy:\n1&nbsp;</strong>/&nbsp;10\n(value: 558.75, \n        rounded value: 558.8)\n      </li>\n    \n      <li>\n        <strong>Sugars:\n1&nbsp;</strong>/&nbsp;10\n(value: 7.2621875, \n        rounded value: 7.26)\n      </li>\n    \n      <li>\n        <strong>Saturated fat:\n4&nbsp;</strong>/&nbsp;10\n(value: 4.903125, \n        rounded value: 4.9)\n      </li>\n    \n      <li>\n        <strong>Sodium:\n0&nbsp;</strong>/&nbsp;10\n(value: 19.725, \n        rounded value: 19.7)\n      </li>\n    \n  </ul>\n\n\n\n<p>The points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Nutritional score: 3</strong>\n  (6 - 3)\n</p>\n<p><strong>Nutri-Score: C</strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
                   }
                },
                {
@@ -855,10 +853,9 @@
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "unknown",
-               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/nutriscore-unknown.svg",
-               "subtitle" : "Missing nutrition facts",
-               "title" : "Missing data to compute the Nutri-Score",
+               "grade" : "c",
+               "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c.svg",
+               "title" : "Average nutritional quality",
                "type" : "grade"
             },
             "topics" : [

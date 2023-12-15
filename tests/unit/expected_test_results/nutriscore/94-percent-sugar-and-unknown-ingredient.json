@@ -35,6 +35,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
          "percent" : 94,
          "percent_estimate" : 94,
@@ -101,14 +102,14 @@
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 6,
    "ingredients_without_ciqual_codes" : [
-      "en:strange-ingredient",
-      "en:sugar"
+      "en:strange-ingredient"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 3,
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",
