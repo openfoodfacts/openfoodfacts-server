@@ -80,6 +80,11 @@ services:
       - POSTGRES_DB=minion
     volumes:
       - pgdata:/var/lib/postgresql/data
+  redis:
+    image: redis:7.2-alpine
+    command: redis-server --save 60 1 --loglevel warning
+    volumes:
+      - redisdata:/data
   backend: *backend-conf
   minion:
     <<: *backend-conf
@@ -139,3 +144,4 @@ volumes:
   # build_cache does not needs not be external, for wiping it will avoid keeping too much cached data
   build_cache:
   other_servers:
+  redisdata:

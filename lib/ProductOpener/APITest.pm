@@ -45,6 +45,7 @@ BEGIN {
 		&mail_to_text
 		&new_client
 		&normalize_mail_for_comparison
+		&origin_from_url
 		&post_form
 		&tail_log_start
 		&tail_log_read

@@ -41,6 +41,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "16401",
          "from_palm_oil" : "maybe",
          "id" : "en:butterfat",
          "origins" : "en:france",
@@ -127,12 +128,11 @@
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 75,
    "ingredients_without_ciqual_codes" : [
-      "en:butterfat",
       "en:emulsifier",
       "en:flavouring",
       "en:sunflower-lecithin"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 3,
    "known_ingredients_n" : 18,
    "lc" : "fr",
    "misc_tags" : [

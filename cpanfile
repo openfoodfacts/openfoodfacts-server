@@ -70,6 +70,7 @@ requires 'XML::XML2JSON';
 requires 'Redis';
 requires 'Digest::SHA1';
 requires 'Data::Difference';
+requires 'Data::Compare';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';

@@ -7,15 +7,15 @@
             "attributes" : [
                {
                   "description" : "",
-                  "description_short" : "Missing data to compute the Nutri-Score",
-                  "grade" : "unknown",
-                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown.svg",
+                  "description_short" : "Average nutritional quality",
+                  "grade" : "c",
+                  "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-c.svg",
                   "id" : "nutriscore",
-                  "match" : 0,
+                  "match" : 57.8888888888889,
                   "name" : "Nutri-Score",
                   "panel_id" : "nutriscore",
-                  "status" : "unknown",
-                  "title" : "Nutri-Score unknown"
+                  "status" : "known",
+                  "title" : "Nutri-Score C"
                },
                {
                   "grade" : "unknown",

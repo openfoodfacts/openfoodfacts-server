@@ -116,6 +116,7 @@ services:
             # trick: make it possible for product opener to reach it internally,
             # using localhost domain
             - accounts.openfoodfacts.localhost
+
 volumes:
   product_images:
   html_data:

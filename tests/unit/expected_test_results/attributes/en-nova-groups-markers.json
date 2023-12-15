@@ -797,6 +797,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "19051",
          "id" : "en:cow-s-milk",
          "percent_estimate" : 57.1428571428571,
          "percent_max" : 100,
@@ -944,12 +945,11 @@
    "ingredients_with_unspecified_percent_n" : 7,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:cow-s-milk",
       "en:e412",
       "en:garlic-flavouring",
       "en:microbial-culture"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 3,
    "known_ingredients_n" : 18,
    "languages" : {},
    "languages_codes" : {},

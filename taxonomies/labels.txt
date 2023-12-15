@@ -1537,9 +1537,11 @@ it:Fonte di fibre
 nl:Bron van vezels
 pl:Źródło błonnika
 se:Fiberkälla
+xx:source of fibre
+description:en:In EU, a claim that a food is a source of fibre may only be made where the product contains at least 3 g of fibre per 100 g or at least 1,5 g of fibre per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 <en:source of fibre
-en:High fibres, high fibers, Rich in fiber
+en:High fibres, high fibers, Rich in fiber, high fiber
 ca:Alt en fibra, ric en fibra
 de:ballaststoffreich
 es:Rico en fibra, Rico en fibras, Fuente de Fibra, Alto en Fibra, Alto Contenido en Fibra
@@ -1555,6 +1557,8 @@ pl:wysoka zawartość błonnika
 pt:Rico em fibras, teor elevado de fibras, teor elevado em fibras, alto teor em fibra, alto teor em fibras
 ru:Обогащено клетчаткой
 th:ใยอาหารสูง
+xx:High fibres
+description:en:In EU, a claim that a food is high in fibre may only be made where the product contains at least 6 g of fibre per 100 g or at least 3 g of fibre per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 en:Omega-3
 bg:Омега-3
@@ -1575,7 +1579,12 @@ xx:Omega-3
 wikidata:en:Q191756
 
 <en:Omega-3
-en:High in Omega 3, Rich in Omega 3
+en:source of omega-3, source of omega-3 fatty acids
+xx:source of omega-3
+description:en:In EU, a claim that a food is a source of omega-3 may only be made where the product contains at least 0,3 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 40 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
+
+<en:Omega-3
+en:High in Omega 3, Rich in Omega 3, high omega-3 fatty acids
 bg:Богато на Омега-3
 ca:Alt en Omega 3, Ric en Omega 3
 de:Hoher Omega-3-Gehalt
@@ -1589,17 +1598,26 @@ it:Alto contenuto di Omega 3
 nl:Rijk aan Omega 3
 pt:Rico em Ómega 3, Rico em Ómega-3
 ru:Обогащено омега-3 жирами
+xx:High in Omega 3
+description:en:In EU, a claim that a food is high in omega-3 may only be made where the product contains at least 0,6 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 80 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
-en:Rich in unsaturated fatty acids
-de:reich an ungesättigten Fettsäuren
+en:high monounsaturated fat
+xx:high monounsaturated fat
+description:en:In EU, a claim that a food is high in monounsaturated fat may only be made where at least 45 % of the fatty acids present in the product derive from monounsaturated fat under the condition that monounsaturated fat provides more than 20 % of energy of the product. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
+
+en:Rich in unsaturated fatty acids, high unsaturated fat
+de:reich an ungesättigten fettsäuren
 fr:riche en acides gras insaturés
 hr:bogat nezasićenim masnim kiselinama
 es:rico en ácidos grasos insaturados
 it:ricco di acidi grassi insaturi
 nl:rijk aan onverzadigde vetzuren
 pt:rico em ácidos graxos insaturados
+xx:Rich in unsaturated fatty acids,
+description:en:In EU, a claim that a food is high in polyunsaturated fat may only be made where at least 45 % of the fatty acids present in the product derive from polyunsaturated fat under the condition that polyunsaturated fat provides more than 20 % of energy of the product. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
-en:Rich in polyunsaturated fatty acids
+
+en:Rich in polyunsaturated fatty acids, high polyunsaturated fat
 de:Reich an mehrfach ungesättigten Fettsäuren
 es:Con valiosos ácidos grasos poliinsaturados, Rico en ácidos grasos poliinsaturados, Alto en ácidos grasos poliinsaturados
 fi:Runsaasti monityydyttymättömiä rasvahappoja
@@ -1608,23 +1626,39 @@ hu:Többszörösen telítetlen zsírsavakban gazdag
 it:Ricca di acidi grassi polinsaturi
 nl:Rijk aan poly-onverzadigde vetzuren
 pt:Rico em gordura poli-insaturada
+xx:Rich in polyunsaturated fatty acids
+description:en:In EU, a claim that a food is high in unsaturated fat may only be made where at least 70 % of the fatty acids present in the product derive from unsaturated fat under the condition that unsaturated fat provides more than 20 % of energy of the product. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
-en:High proteins, Source of proteins, source of protein, high protein content
-ca:Alt en proteïnes, Font de proteïna
-de:Proteinreich, proteinquelle, hoher Eiweissgehalt
-es:Fuente de proteínas, Alto en proteinas, Rico en Proteinas
-fi:Runsasproteiininen, Paljon proteiineja, Proteiinin lähde, Proteiinipitoinen, Runsaasti proteiinia
-fr:Riche en protéines, source de protéines
+en:Source of proteins, source of protein
+ca:Font de proteïna
+de:proteinquelle
+es:Fuente de proteínas
+fi:Proteiinin lähde
+fr:source de protéines
+hr:izvor proteina
+it:fonte di proteine
+pt:fonte de proteínas
+xx:Source of proteins
+description:en:In EU, a claim that a food is a source of protein may only be made where at least 12 % of the energy value of the food is provided by protein. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
+
+<en:Source of proteins
+en:High proteins, high protein content
+ca:Alt en proteïnes
+de:Proteinreich, hoher Eiweissgehalt
+es:Alto en proteinas, Rico en Proteinas
+fi:Runsasproteiininen, Paljon proteiineja, Proteiinipitoinen, Runsaasti proteiinia
+fr:Riche en protéines
 he:עשיר בחלבונים
-hr:bogato bjelančevinama, izvor proteina
+hr:bogato bjelančevinama
 hu:Magas fehérjetartalom, Fehérjékben gazdag
-it:Alto contenuto proteico, ricco di proteine, fonte di proteine
 nb:Rik på protein
 nl:Eiwitrijk, Rijk aan protéines, Rijk aan Eiwit
 pl:Wysoka zawartość białka, Bogaty w białko
-pt:Proteínas altas, fonte de proteínas
+pt:Proteínas altas
 ru:Обогащено протеинами
 th:โปรตีนสูง
+xx:High proteins
+description:en:In EU, a claim that a food is high in protein may only be made where at least 20 % of the energy value of the food is provided by protein. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 <en:High proteins
 en:Rich in vegetable protein
@@ -1654,11 +1688,23 @@ pl:Źródło wapnia
 pt:Fonte de cálcio
 ru:источник кальция
 th:แหล่งของแคลเซียม
+xx:Calcium source
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en:magnesium source, source of magnesium
 de:magnesiumquelle
 fr:source de magnésium
 hr:izvor magnezija
+xx:magnesium source
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+en:zinc source, source of zinc
+xx:zinc source
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+en:iodine source, source of iodine
+xx:iodine source
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en:Phosphore source
 bg:Източник на фосфор
@@ -1671,6 +1717,8 @@ hu:Foszforforrás
 it:Fonte di fosforo
 nl:Bron van fosfor
 pt:Fonte de fósforo
+xx:Phosphore source
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en:Vitamin A source, Source of vitamin A
 bg:Източник на витамин А
@@ -1688,6 +1736,8 @@ pl:Źródło witaminy A
 pt:Fonte de vitamina A
 ru:Источник витамина A
 tr:A Vitamini kaynağı
+xx:Vitamin A source
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 wikidata:en:Q18225
 
 en:Vitamin B source, Source of vitamin B
@@ -1718,7 +1768,17 @@ nl:Bron van Vitamine B1
 pl:Źródło witaminy B1
 pt:Fonte de vitamina B1
 ru:Источник витамина B1
+en:Vitamin B1 source
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 wikidata:en:Q83187
+
+en:Vitamin B2 source, Source of vitamin B2
+xx:Vitamin B2 source, Source of vitamin B2
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+en:Vitamin B3 source, Source of vitamin B3
+xx:Vitamin B3 source, Source of vitamin B3
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en:Vitamin B6 source, Source of vitamin B6
 bg:Източник на витамин B6
@@ -1733,6 +1793,8 @@ nl:Bron van Vitamine B6
 pl:Źródło witaminy B6
 pt:Fonte de vitamina B6
 ru:Источник витамина B6
+xx:Vitamin B6 source
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 wikidata:en:Q205130
 
 en:Vitamin B9 source, Source of vitamin B9
@@ -1748,6 +1810,8 @@ nl:Bron van Vitamine B9
 pl:Źródło witaminy B9
 pt:Fonte de vitamina B9
 ru:Источник витамина B9
+xx:Vitamin B9 source
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en:Vitamin B12 source, Source of vitamin B12
 bg:Източник на витамин B12
@@ -1766,6 +1830,16 @@ pl:Źródło witaminy B12
 pt:Fonte de vitamina B12
 ru:Источник витамина B12
 sv:Källa till vitamin B12
+xx:Vitamin B12 source
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+en:source of biotin, Vitamin B7 source
+xx:source of biotin
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+en:source of pantothenic acid, Vitamin B5 source
+xx:source of pantothenic acid
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en:Vitamin C source, Source of vitamin C
 bg:Източник на витамин C
@@ -1783,6 +1857,8 @@ pl:Źródło witaminy C
 pt:Fonte de vitamina C
 ru:Источник витамина C
 tr:C Vitamini kaynağı
+xx:en:Vitamin C source
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en:Vitamin D source, Source of vitamin D
 bg:Източник на витамин D
@@ -1801,6 +1877,8 @@ pt:Fonte de vitamina D
 ru:Источник витамина D
 sv:D-vitaminkälla
 th:แหล่งของวิตามินดี
+xx:Vitamin D source
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en:Vitamin E source, Source of vitamin E
 bg:Източник на витамин E
@@ -1817,8 +1895,10 @@ nl:Bron van Vitamine E
 pl:Źródło witaminy E
 pt:Fonte de vitamina e
 ru:Источник витамина E
+xx:Vitamin E source
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
-en:Source of iron
+en:iron source, Source of iron
 bg:Източник на желязо
 ca:Font de ferro
 de:Eisenquelle
@@ -1831,6 +1911,8 @@ nl:Bron van IJzer, Rijk aan IJzer
 pl:Źródło żelaza
 pt:Fonte de ferro
 tr:Demir Kaynağı
+xx:iron source
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en:Natural source of calcium, Natural calcium source
 ca:Font natural de calci
@@ -1858,6 +1940,8 @@ nl:Rijk aan Calcium
 pt:Rico em cálcio
 ru:Обогащено кальцием
 th:แคลเซียมสูง
+xx:High in calcium
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en:Enriched with calcium
 de:Mit Kalzium angereichert
@@ -2157,6 +2241,19 @@ en:LEAF, Linking Environment and Farming, LEAF Linking Environment and Farming
 ru:Связанные окружающая среда и сельское хозяйство
 xx:LEAF, Linking Environment and Farming
 
+en:low energy
+xx:low energy
+description:en:In EU, a claim that a food is low in energy may only be made where the product does not contain more than 40 kcal (170 kJ)/100 g for solids or more than 20 kcal (80 kJ)/100 ml for liquids. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
+
+en:energy reduced
+xx:energy reduced
+description:en:In EU, a claim that a food is energy reduced may only be made where the energy value is reduced by at least 30 %, with an indication of the characteristic(s) which make(s) the food reduced in its total energy value. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
+
+en:energy free
+xx:energy free
+description:en:In EU, a claim that a food is energy free may only be made where the product does not contain more than 4 kcal (17 kJ)/100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
+
+
 en:Low or no fat
 ca:Baix o sense greix
 de:Niedrig oder kein Fett
@@ -2191,6 +2288,8 @@ pt:Baixo teor de gordura, baixo teor de gorduras, baixo em gorduras
 ru:низкожирный
 sv:Låg fetthalt, Naturligt låg fetthalt
 th:ไขมันต่ำ
+xx:low fat
+description:en:In EU, a claim that a food is low fat may only be made where the product contains no more than 3 g of fat per 100 g for solids or 1,5 g of fat per 100 ml for liquids (1,8 g of fat per 100 ml for semi-skimmed milk). (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 <en:Low fat
 en:Reduced fat, Less fat
@@ -2388,7 +2487,14 @@ nl:Vetvrij, Zonder vet
 pt:Sem gordura, sem gorduras, livre de gordura, livre de gorduras
 ru:Обезжиренный, 0% жира
 th:ไม่มีไขมัน
+xx:no fat
+description:en:In EU, a claim that a food is fat free may only be made where the product contains no more than 0,5 g of fat per 100 g or 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
+en:Low or no Sodium
+xx:Low or no Sodium
+label_categories:en: en:Health
+
+<en:Low or no Sodium
 en:Low Sodium
 ca:Baix en sodi
 de:Natriumarm
@@ -2402,7 +2508,25 @@ nl:Natriumarm
 pt:Baixo teor de sódio, Teor baixo em sódio, teor baixo de sódio
 ru:Низкое содержание натрия
 th:โซเดียมต่ำ
+xx:low sodium
+description:en:In EU, a claim that a food is low sodium or low salt may only be made where the product contains no more than 0,12 g of sodium, or the equivalent value for salt, per 100 g or per 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 label_categories:en: en:Health
+
+<en:Low Sodium
+en:very low sodium
+xx:very low sodium
+description:en:In EU, a claim that a food is very low in sodium/salt may only be made where the product contains no more than 0,04 g of sodium, or the equivalent value for salt, per 100 g or per 100 ml. This claim shall not be used for natural mineral waters and other waters. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
+
+<en:Low or no Sodium
+en:no sodium, sodium-free
+xx:no sodium
+description:en:In EU, a claim that a food is sodium-free/salt-free may only be made where the product contains no more than 0,005 g of sodium, or the equivalent value for salt, per 100 g. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
+
+<en:Low or no Sodium
+en:No added sodium
+xx:No added sodium
+description:en:In EU, a claim that sodium/salt has not been added to a food may only be made where the product does not contain any added sodium/salt or any other ingredient containing added sodium/salt and the product contains no more than 0,12 g sodium, or the equivalent value for salt, per 100 g or 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
+
 
 en:Low or no salt
 ca:Baix o sense sal
@@ -2434,6 +2558,8 @@ nl:Weinig zout
 pt:Baixo teor de sal
 ru:Низкое содержание соли
 th:สูตรลดเกลือ
+description:en:In EU, a claim that a food is low sodium or low salt may only be made where the product contains no more than 0,12 g of sodium, or the equivalent value for salt, per 100 g or per 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
+xx:low salt
 
 <en:Low salt
 en:Reduced salt, Less salt
@@ -2449,6 +2575,11 @@ it:Ridotto contenuto di sale, ridotto sale, meno sale
 nl:Zoutarm
 pt:Sal reduzido, menos sal, teor de sal reduzido, teor de sal baixo, teor baixo de sal, teor reduzido de sal
 th:ลดเกลือ
+
+<en:Low salt
+en:very low salt
+xx:very low salt
+description:en:In EU, a claim that a food is very low in sodium/salt may only be made where the product contains no more than 0,04 g of sodium, or the equivalent value for salt, per 100 g or per 100 ml. This claim shall not be used for natural mineral waters and other waters. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 <en:Reduced salt
 en:10% less salt
@@ -2581,6 +2712,8 @@ pl:Bez dodatku soli, Bez soli
 pt:Sem sal adicionado, sem adição de sal
 ru:Без добавления соли
 th:ไม่เติมเกลือ
+xx:No added salt
+description:en:In EU, a claim that sodium/salt has not been added to a food may only be made where the product does not contain any added sodium/salt or any other ingredient containing added sodium/salt and the product contains no more than 0,12 g sodium, or the equivalent value for salt, per 100 g or 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 #instruction:en:Do NOT change the english key.
 <en:Low or no salt
@@ -2599,7 +2732,8 @@ nl:Zoutloos, Zonder zout, Zoutvrij
 pt:Sem sal
 ru:Без соли, 0% соли
 th:ไม่มีเกลือ
-
+xx:no salt
+description:en:In EU, a claim that a food is sodium-free/salt-free may only be made where the product contains no more than 0,005 g of sodium, or the equivalent value for salt, per 100 g. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 en:Low or no sugar
 ca:Sense o baix en sucre
@@ -2637,6 +2771,8 @@ pl:Niska zawartość cukru, Mała zawartość cukru
 pt:Pouco açúcar
 ru:Низкое содержание сахара
 th:น้ำตาลต่ำหรือไม่มีเลย
+xx:low sugar
+description:en:In EU, a claim that a food is low sugar may only be made where the product contains no more than 5 g of sugars per 100 g for solids or 2,5 g of sugars per 100 ml for liquids. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 <en:Low sugar
 en:Reduced sugar, Less sugar
@@ -2824,6 +2960,8 @@ pt:Sem açúcares adicionados, sem adição de açúcares, sem açúcar adiciona
 sv:Inget tillsat socker, Utan tillsatt socker
 th:ไม่เติมน้ำตาล
 zh:无添糖
+xx:no added sugar
+description:en:In EU, a claim that a food is with no added sugars may only be made where the product does not contain any added mono- or disaccharides or any other food used for its sweetening properties. If sugars are naturally present in the food, the following indication should also appear on the label: ‘CONTAINS NATURALLY OCCURRING SUGARS’. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 <en:Low or no sugar
 en:No sugar, sugar-free
@@ -2843,6 +2981,9 @@ pt:Sem açúcar, sem açúcares
 ru:Без сахара
 th:ไม่มีน้ำตาล
 tr:Şekersiz
+xx:no sugar
+description:en:In EU, a claim that a food is sugar-free may only be made where the product contains no more than 0,5 g of sugars per 100 g or 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
+
 
 en:Lowers cholesterol
 bg:Намалява холестерола
@@ -3238,6 +3379,7 @@ country:en:Poland
 wikitada:en:Q43151531
 
 en:Polish milk
+bg:Полско мляко
 pl:polskie mleko
 origins:en: en:poland
 
@@ -3709,6 +3851,7 @@ label_categories:en: en:Health, en:Additives
 opposite:en: en:With additives
 
 en:With additives
+bg:С добавки
 fr:Avec additifs
 nl:Met toevoegingen
 opposite:en: en:No additives
@@ -3906,6 +4049,7 @@ label_categories:en: en:Health, en:Additives
 
 #instruction:en:Do NOT change the english key.
 en:No emulsifiers, without emulsifiers
+bg:Без емулгатори
 hr:bez emulgatora
 label_categories:en: en:Health, en:Additives
 
@@ -3958,9 +4102,11 @@ label_categories:en: en:Health
 
 #instruction:en:Do NOT change the english key.
 en:with caffeine
+bg:С кофеин
 hr:s kofeinom
 
 en:100% arabica
+bg:100% Арабика
 xx:100% arabica
 
 #instruction:en:Do NOT change the english key.
@@ -4053,9 +4199,16 @@ pl:Bez wzmacniaczy smaku
 pt:Sem intensificador de sabor, sem intensificador de sabores, sem intesificadores de sabores
 label_categories:en: en:Health, en:Additives
 
-en:low content of saturated fat
+en:low saturated fat, low content of saturated fat
+bg:Ниско съдържание на наситени мазнини
 fr:faible teneur en graisses saturées
 hr:nizka vsebnost nasičenih maščob
+xx:low saturated fat
+description:en:In EU, a claim that a food is low in saturated fat may only be made if the sum of saturated fatty acids and trans-fatty acids in the product does not exceed 1,5 g per 100 g for solids or 0,75 g/100 ml for liquids and in either case the sum of saturated fatty acids and trans-fatty acids must not provide more than 10 % of energy. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
+
+en:saturated fat-free
+xx:saturated fat-free
+description:en:In EU, a claim that a food does not contain sturated fat may only be made where the sum of saturated fat and trans-fatty acids does not exceed 0,1 g of saturated fat per 100 g or 100 ml. (see: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213)
 
 #instruction:en:Do NOT change the english key.
 en:No Trans Fat, 0% Trans Fat, 0 g trans fat, 0g trans fat, trans fat free
@@ -4220,6 +4373,7 @@ xx:Ohne Gentechnik hergestellt, ARGE Gentechnik-frei
 <en:No GMOs
 <fr:Soja Français
 en:French soy without GMOs
+bg:Френска соя без ГМО
 fr:Soja Français sans OGM, Soja Français garanti sans OGM
 pt:Soja francesa sem OGM, soja francesa sem Organismos Geneticamente Modificados
 origins:en: en:france
@@ -4257,6 +4411,7 @@ tr:Laktozsuz
 opposite:en: en:contains-lactose
 
 en:Contains lactose
+bg:Съдържа лактоза
 nl:Bevat melkeiwit, Bevat lactose
 opposite:en: en:no-lactose
 
@@ -4427,11 +4582,13 @@ opposite:en: en:no-soy
 
 #instruction:en:Do NOT change the english key.
 en:No garlic
+bg:Без чесън
 nl:Zonder knoflook, geen knoflook, knoflookvrij
 fr:Sans ail
 
 #instruction:en:Do NOT change the english key.
 en:No onion, onion free
+bg:Без лук
 nl:Zonder ui, geen ui, uivrij
 fr:Sans onion
 
@@ -4586,6 +4743,7 @@ label_categories:en: en:Specific diets
 
 <en:Not advised for specific people
 en:Not advised for pregnant women, not recommended for pregnant women
+bg:Не се препоръчва за бременни жени
 ca:No recomanat per embarassades
 de:Für Schwangere ungeeignet
 es:Desaconsejado para embarazadas, No aconsejado para embarazadas, No aconsejado para mujeres embarazadas, Desaconsejado para mujeres embarazadas, No recomendado para embarazadas, No recomendado para mujeres embarazadas, No recomendado para mujeres embarazadas
@@ -4719,6 +4877,7 @@ wikidata:en:Q847611
 
 <en:Biodynamic agriculture
 en:Demeter
+bg:Demeter
 ca:Demeter
 de:Demeter
 fr:Demeter, Association Demeter, Demeter France, Association Demeter France
@@ -18153,6 +18312,8 @@ hr:bogat vitaminom A
 hu:A-vitaminban gazdag
 it:Ricco di vitamina A
 pt:Rico en vitamina A
+xx:Rich in vitamin A
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en:Rich in vitamin B
 de:Reich an Vitamin B
@@ -18175,6 +18336,15 @@ hu:B1-vitaminban gazdag
 it:Ricco di vitamina B1
 nl:rijk aan vitamine B1
 pt:Rico em vitamina B1
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+en:Rich in vitamin B2
+xx:Rich in vitamin B2
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+en:Rich in vitamin B3
+xx:Rich in vitamin B3
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en:Rich in vitamin B6
 de:Reich an Vitamin B6
@@ -18186,6 +18356,36 @@ hr:bogat vitaminom B6
 hu:B6-vitaminban gazdag
 it:Ricco di vitamina B6
 pt:Rico em vitamina B6
+xx:Rich in vitamin B6
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+en:high in biotin, high in vitamin b7
+xx:high in biotin
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+en:high in pantothenic acid, high in vitamin b5
+xx:high in pantothenic acid
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+en:high in phosphore
+xx:high in phosphore
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+en:high in iron
+xx:high in iron
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+en:high in magnesium
+xx:high in magnesium
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+en:high in zinc
+xx:high in zinc
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
+
+en:high in iodine
+xx:high in iodine
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en:Rich in vitamin B9
 de:Reich an Vitamin B9
@@ -18197,6 +18397,8 @@ hr:bogat vitaminom B9
 hu:B9-vitaminban gazdag
 it:Ricco di vitamina B9
 pt:Rico en vitamina B9
+xx:Rich in vitamin B9
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en:Rich in vitamin B12
 de:Reich an Vitamin B12
@@ -18209,6 +18411,8 @@ hu:B12-vitaminban gazdag
 it:Ricco di vitamina B12
 nl:rijk aan vitamine B12
 pt:Rico en vitamina B12
+xx:Rich in vitamin B12
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en:Rich in vitamin C
 ca:Ric en vitamina C
@@ -18223,6 +18427,8 @@ it:Ricco di vitamina C
 nl:Rijk aan vitamine C
 pt:Rico em vitamina C
 th:แหล่งของวิตามินซี
+xx:en:Rich in vitamin C
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en:Rich in vitamin D
 de:Reich an Vitamin D
@@ -18235,6 +18441,8 @@ hu:D-vitaminban gazdag
 it:Ricco di vitamina D
 nl:rijk aan vitamine D
 pt:Rico em vitamina D
+xx:Rich in vitamin D
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 en:Rich in vitamin E
 de:Reich an Vitamin E
@@ -18246,6 +18454,8 @@ hu:E-vitaminban gazdag
 it:Ricco di vitamina E
 nl:rijk aan vitamine E
 pt:Rico em vitamina E
+xx:Rich in vitamin E
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. (https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496)
 
 <en:Rich in vitamin E
 en:naturally rich in vitamin E
@@ -18575,9 +18785,12 @@ en:Alimentos de Extremadura
 es:Alimentos de Extremadura
 
 <en:Spanish quality label
-en:Calidad Certificada
-es:Calidad Certificada
-it:Qualità certificata
+en:Calidad Certificada de Andalucía
+ca:Qualitat Certificada d'Andalusia
+es:Calidad Certificada de Andalucía
+country:en:Spain
+image:es:calidad-certificada-andalucia.90x90.png
+website:es:https://www.juntadeandalucia.es/servicios/sede/tramites/procedimientos/detalle/144.html
 
 <en:Spanish quality label
 en:Etiqueta de Calidad Doñana 21
@@ -21521,6 +21734,7 @@ fr:Bee Friendly, Je protège les abeilles
 xx:Bee Friendly
 
 en:Honey from France
+bg:Френски мед
 de:Honig aus Frankreich
 fi:hunajaa Ranskasta, hunajan alkuperä Ranska
 fr:Miel de France, miel français
@@ -21604,6 +21818,7 @@ pt:Processado na Hungria
 manufacturing_places:en: en:Hungary
 
 en:Made in Hungary
+bg:Произведено в Унгария
 fi:valmistettu Unkarissa
 hu:Magyarországon készült
 sv:Tillverkad i Ungern
@@ -21707,6 +21922,7 @@ fr:Poules élevées sans antibiotique pendant la phase de ponte, sans traitement
 pt:Poedeiras criadas sem antibióticos durante a fase de postura, galinhas poedeiras criadas sem antibióticos a fase de postura, poedeira criada sem antibióticos a fase de postura, galinha poedeira criada sem antibióticos a fase de postura
 
 en:Without hormones, raised without hormones
+bg:Без хормони, отгледано без хормони
 de:ohne Hormone, Aufzucht ohne Hormone
 fi:hormoniton, kasvatettu ilman hormoneja
 fr:Sans hormone, élevé sans hormone
@@ -21716,6 +21932,7 @@ pt:Sem hormonas, criado sem hormonas, criados sem hormonas, criada sem hormonas,
 <en:No antibiotics
 <en:Without hormones
 en:Without antibiotics or hormones, Without hormones or antibiotics
+bg:Без антибиотици или хормони
 de:ohne Antibiotika oder Hormone, Aufzucht ohne Hormone oder Antibiotika
 fr:Sans antibiotique ni hormone, sans antibiotiques ni hormones
 it:Senza antibiotici né ormoni, senza ormoni né antibiotici
@@ -21884,11 +22101,13 @@ es:Prensado en frío
 nl:Koudgeperst
 
 en:Unfiltered, cloudy
+bg:Нефилтрирано
 es:Sin filtrar, turbia
 de:Trüb, Naturtrüb
 opposite:en: en:Filtered
 
 en:Filtered
+bg:Филтрирано
 de:Klar
 fr:Non filtrée, Clair
 es:Filtrada, filtrado
@@ -21904,9 +22123,11 @@ auth_url:fr:https://hve-asso.com
 fr:Produit certifié, CQ Produit Certifié
 en:Certified product
 
-# Note: "es:Calidad Certificada" is a specific Spanish label, it should not be added as a translation of "en:Certified quality"
+# Note: "es:Calidad Certificada" is a specific Spanish label, added as "Calidad Certificada de Andalucía"
 # example product: https://es.openfoodfacts.org/producto/8437002590468/aceite-de-oliva-virgen-extra-iznaoliva
 en:Certified quality
+ca:Qualitat certificada
+es:Calidad certificada
 fr:Qualité certifiée
 
 en:QS certification mark
@@ -22154,16 +22375,19 @@ fr:Peut avoir des effets indésirables sur l'activité et l'attention chez les e
 
 # https://www.bcorporation.net/
 en:Certified B Corporation, B Corp
+bg:Certified B Corporation, B Corp
 fr:Entreprise B certifiée, B Corp
 hr:Certified B Corporation
 wikidata:en:Q16243343
 
 # obligation of results: food is tested to see if pesticides are below a set level (usually the limit of quantization)
 en:Without pesticide residues, no pesticide residues
+bg:Без остатъци от пестициди
 fr:Sans résidus de pesticides, sans résidu de pesticide, zéro résidus de pesticides, zéro résidu de pesticide
 
 # obligation of means: cultivated without pesticides (but can be a specific year, or after flowers bloom)
 en:Pesticide-free, without pesticide, no pesticide
+bg:Без пестициди
 fr:Sans pesticides, cultivé sans pesticides
 
 fr:Sans résidus de pesticides collectif nouveaux champs
