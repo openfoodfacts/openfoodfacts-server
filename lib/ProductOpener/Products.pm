@@ -141,7 +141,7 @@ use ProductOpener::Data qw/:all/;
 use ProductOpener::MainCountries qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Display qw/single_param/;
-use ProductOpener::Redis qw/push_to_search_service/;
+use ProductOpener::Redis qw/push_to_redis_stream/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
@@ -1452,11 +1452,11 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	$log->debug("store_product - done", {code => $code, product_id => $product_id}) if $log->is_debug();
 
-	# index for search service
-	push_to_search_service($product_ref);
+	my $update_type = $product_ref->{deleted} ? "deleted" : "updated";
+	# Publish information about update on Redis stream
+	push_to_redis_stream($user_id, $product_ref, $update_type, $comment, $diffs);
 
 	# Notify Robotoff
-	my $update_type = $product_ref->{deleted} ? "deleted" : "updated";
 	send_notification_for_product_change($user_id, $product_ref, $update_type, $comment, $diffs);
 
 	return 1;

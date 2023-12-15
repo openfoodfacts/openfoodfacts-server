@@ -4,9 +4,9 @@
 
 # find last run and deduce how many days to fetch
 #
-# first arg should be the path to the import success file 
+# first arg should be the path to the import success file
 # containing a timestamp of last successful import
-# it may not exists yet, in which case we default to one week
+# it may not exists yet, in which case we default to one year
 function import_since() {
     SUCCESS_FILE_PATH=$1
     if [[ -z "$SUCCESS_FILE_PATH" ]]

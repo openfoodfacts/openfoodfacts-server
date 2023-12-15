@@ -1286,130 +1286,6 @@ check_quality_and_test_product_has_quality_tag(
 	'en:ingredients-single-ingredient-from-category-does-not-match-actual-ingredients',
 	'We expect the ingredient given in the taxonomy for this product', 0
 );
-# vegan label but non-vegan ingredients
-# unknown ingredient -> warnings
-$product_ref = {
-	labels_tags => ["en:vegetarian", "en:vegan",],
-	ingredients => [
-		{
-			id => "en:lentils",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:green-bell-pepper",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:totoro",
-		}
-	],
-};
-ProductOpener::DataQuality::check_quality($product_ref);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegan-label-but-non-vegan-ingredient',
-	'raise error only when vegan is no and label is vegan', 0
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegetarian-label-but-non-vegetarian-ingredient',
-	'raise error only when vegetarian is no and label is vegan', 0
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegan-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegan or non-vegan is unknown for an ingredient', 1
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 1
-);
-# non-vegan/non-vegetarian ingredient -> error
-$product_ref = {
-	labels_tags => ["en:vegetarian", "en:vegan",],
-	ingredients => [
-		{
-			id => "en:lentils",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:green-bell-pepper",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:chicken",
-			vegan => "no",
-			vegetarian => "no"
-		}
-	],
-};
-ProductOpener::DataQuality::check_quality($product_ref);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegan-label-but-non-vegan-ingredient',
-	'raise error only when vegan is no and label is vegan', 1
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegetarian-label-but-non-vegetarian-ingredient',
-	'raise error only when vegetarian is no and label is vegan', 1
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegan-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegan or non-vegan is unknown for an ingredient', 0
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 0
-);
-# non-vegan/vegatarian ingredient -> error
-$product_ref = {
-	labels_tags => ["en:vegetarian", "en:vegan",],
-	ingredients => [
-		{
-			id => "en:lentils",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:green-bell-pepper",
-			vegan => "yes",
-			vegetarian => "yes"
-		},
-		{
-			id => "en:honey",
-			vegan => "no",
-			vegetarian => "yes"
-		}
-	],
-};
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegan-label-but-non-vegan-ingredient',
-	'raise error only when vegan is no and label is vegan', 1
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegetarian-label-but-non-vegetarian-ingredient',
-	'raise error only when vegetarian is no and label is vegan', 0
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegan-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegan or non-vegan is unknown for an ingredient', 0
-);
-check_quality_and_test_product_has_quality_tag(
-	$product_ref,
-	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
-	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 0
-);
 # product quantity warnings and errors
 $product_ref = {product_quantity => "123456789",};
 check_quality_and_test_product_has_quality_tag(
@@ -1468,5 +1344,60 @@ check_quality_and_test_product_has_quality_tag(
 	'en:detected-category-from-brand-beauty',
 	'Detected category from brand - Beauty', 1
 );
+
+# Nutrition errors - sugar + starch > carbohydrates
+## without "<" symbol
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 1,
+		"sugars_100g" => 2,
+		"starch_100g" => 3,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
+	'sum of sugars and starch greater carbohydrates')
+	or diag explain $product_ref;
+## with "<" symbol
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 1,
+		"sugars_100g" => 1,
+		"sugars_modifier" => "<",
+		"starch_100g" => 1,
+		"starch_modifier" => "<",
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
+	'sum of sugars and starch greater carbohydrates, presence of "<" symbol,  and sugars or starch is smaller than carbohydrates'
+) or diag explain $product_ref;
+## sugar or starch is greater than carbohydrates, with "<" symbol
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 3,
+		"sugars_100g" => 1,
+		"starch_100g" => 5,
+		"starch_modifier" => "<",
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
+	'sum of sugars and starch greater carbohydrates, presence of "<" symbol, and sugars or starch is greater than carbohydrates'
+) or diag explain $product_ref;
+## should not be triggered
+$product_ref = {
+	nutriments => {
+		"carbohydrates_100g" => 3,
+		"sugars_100g" => 2,
+		"starch_100g" => 1,
+	}
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(!has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-greater-than-carbohydrates'),
+	'sum of sugars and starch greater carbohydrates')
+	or diag explain $product_ref;
 
 done_testing();

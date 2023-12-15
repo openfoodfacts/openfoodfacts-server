@@ -200,7 +200,7 @@ use boolean;
 use Excel::Writer::XLSX;
 use Template;
 use Devel::Size qw(size total_size);
-use Data::DeepAccess qw(deep_get);
+use Data::DeepAccess qw(deep_get deep_set);
 use Log::Log4perl;
 use LWP::UserAgent;
 
@@ -529,7 +529,13 @@ A scalar value for the parameter, or undef if the parameter is not defined.
 =cut
 
 sub request_param ($request_ref, $param_name) {
-	return (scalar param($param_name)) || deep_get($request_ref, "body_json", $param_name);
+	my $cgi_param = scalar param($param_name);
+	if (defined $cgi_param) {
+		return decode utf8 => $cgi_param;
+	}
+	else {
+		return deep_get($request_ref, "body_json", $param_name);
+	}
 }
 
 =head2 init_request ()
@@ -4202,16 +4208,16 @@ HTML
 
 	foreach my $tag_ref (@{$request_ref->{tags}}) {
 		if ($tagtype eq 'users') {
-			param('creator', $tagid);
+			deep_set($request_ref, "body_json", "creator", $tagid);
 		}
 		else {
 			my $field_name = $tag_ref->{tagtype} . "_tags";
-			my $current_value = param($field_name);
+			my $current_value = deep_get($request_ref, "body_json", $field_name);
 			my $new_value = ($tag_ref->{tag_prefix} // '') . ($tag_ref->{canon_tagid} // $tag_ref->{tagid});
 			if ($current_value) {
 				$new_value = $current_value . ',' . $new_value;
 			}
-			param($field_name, $new_value);
+			deep_set($request_ref, "body_json", $field_name, $new_value);
 		}
 	}
 
@@ -4291,6 +4297,25 @@ HTML
 	return;
 }
 
+=head2 display_list_of_tags ( $request_ref, $query_ref )
+
+Return an array of names of all request parameters.
+
+=cut
+
+sub list_all_request_params ($request_ref) {
+
+	# CGI params (query string and POST body)
+	my @params = multi_param();
+
+	# Add params from the JSON body if any
+	if (defined $request_ref->{body_json}) {
+		push @params, keys %{$request_ref->{body_json}};
+	}
+
+	return @params;
+}
+
 =head2 display_search_results ( $request_ref )
 
 This function builds the HTML returned by the /search endpoint.
@@ -4318,7 +4343,7 @@ sub display_search_results ($request_ref) {
 
 	my $current_link = '';
 
-	foreach my $field (multi_param()) {
+	foreach my $field (list_all_request_params($request_ref)) {
 		if (
 			   ($field eq "page")
 			or ($field eq "fields")
@@ -4584,7 +4609,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 
 	my $and = $query_ref->{"\$and"};
 
-	foreach my $field (multi_param()) {
+	foreach my $field (list_all_request_params($request_ref)) {
 
 		$log->debug("add_params_to_query - field", {field => $field}) if $log->is_debug();
 
@@ -4616,7 +4641,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 			# xyz_tags=-c	products without the c tag
 			# xyz_tags=a,b,-c,-d
 
-			my $values = remove_tags_and_quote(decode utf8 => single_param($field));
+			my $values = remove_tags_and_quote(request_param($request_ref, $field));
 
 			$log->debug("add_params_to_query - tags param",
 				{field => $field, lc => $lc, tag_lc => $tag_lc, values => $values})
@@ -4748,7 +4773,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 			# We can have multiple conditions, separated with a comma
 			# e.g. sugars_100g=>10,<=20
 
-			my $conditions = single_param($field);
+			my $conditions = request_param($request_ref, $field);
 
 			$log->debug("add_params_to_query - nutrient conditions", {field => $field, conditions => $conditions})
 				if $log->is_debug();
@@ -4766,7 +4791,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 				}
 				else {
 					$operator = '=';
-					$value = single_param($field);
+					$value = request_param($request_ref, $field);
 				}
 
 				$log->debug("add_params_to_query - nutrient condition",
@@ -4796,7 +4821,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 		# Exact match on a specific field (e.g. "code")
 		elsif (defined $valid_params{$field}) {
 
-			my $values = remove_tags_and_quote(decode utf8 => single_param($field));
+			my $values = remove_tags_and_quote(request_param($request_ref, $field));
 
 			# Possible values:
 			# xyz=a
