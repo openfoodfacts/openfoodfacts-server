@@ -73247,7 +73247,7 @@ bs:losos
 ca:salmó
 cs:losos
 da:Laks
-de:Lachse, Lachs
+de:Lachs, Lachse
 eo:Salmo
 es:salmón
 eu:Izokin
@@ -73310,6 +73310,11 @@ ciqual_food_name:fr:Saumon, cru, élevage
 #TODO check proxy
 
 <en:salmon
+en:wild salmon
+de:Wildlachs
+fr:saumon sauvage
+
+<en:salmon
 en:raw salmon
 bg:сурова сьомга
 de:Roher Lachs
@@ -73330,6 +73335,7 @@ ciqual_food_name:en:Salmon, raw, farmed
 ciqual_food_name:fr:Saumon, cru, élevage
 
 <en:raw salmon
+<en:wild salmon
 en:raw wild Salmon
 fr:Saumon cru sauvage
 ciqual_food_code:en:26161
