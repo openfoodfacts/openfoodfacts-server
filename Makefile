@@ -322,7 +322,7 @@ bash:
 
 bash_test:
 	@echo "🥫 Open a bash shell in the test container"
-	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener backend bash
+	${DOCKER_COMPOSE} run --rm -w /opt/product-opener backend bash
 
 # check perl compiles, (pattern rule) / but only for newer files
 %.pm %.pl %.t: _FORCE
