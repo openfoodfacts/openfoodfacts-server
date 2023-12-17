@@ -52,6 +52,8 @@ DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner
 DOCKER_COMPOSE_TEST=ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker-compose --env-file=${ENV_FILE}
+# Enable Redis only for integration tests
+DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" ${DOCKER_COMPOSE_TEST}
 
 .DEFAULT_GOAL := usage
 
@@ -260,10 +262,10 @@ integration_test: create_folders
 # we launch the server and run tests within same container
 # we also need dynamicfront for some assets to exists
 # this is the place where variables are important
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion
+	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
 # note: we need the -T option for ci (non tty environment)
-	${DOCKER_COMPOSE_TEST} exec ${COVER_OPTS}  -T backend prove -l -r tests/integration
-	${DOCKER_COMPOSE_TEST} stop
+	${DOCKER_COMPOSE_INT_TEST} exec ${COVER_OPTS}  -T backend prove -l -r tests/integration
+	${DOCKER_COMPOSE_INT_TEST} stop
 	@echo "🥫 integration tests success"
 
 # stop all tests dockers
@@ -283,10 +285,10 @@ test-unit: guard-test create_folders
 # you can add args= to pass options, like args="-d" to debug
 test-int: guard-test create_folders
 	@echo "🥫 Running test: 'tests/integration/${test}' …"
-	${DOCKER_COMPOSE_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion
-	${DOCKER_COMPOSE_TEST} exec backend perl ${args} tests/integration/${test}
+	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
+	${DOCKER_COMPOSE_INT_TEST} exec backend perl ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
-	${DOCKER_COMPOSE_TEST} stop backend
+	${DOCKER_COMPOSE_INT_TEST} stop backend
 
 # stop all docker tests containers
 stop_tests:
@@ -305,6 +307,10 @@ update_tests_results: build_lang_test
 	${DOCKER_COMPOSE_TEST} stop
 
 bash:
+	@echo "🥫 Open a bash shell in the backend container"
+	${DOCKER_COMPOSE} run --rm -w /opt/product-opener backend bash
+
+bash_test:
 	@echo "🥫 Open a bash shell in the test container"
 	${DOCKER_COMPOSE_TEST} run --rm -w /opt/product-opener backend bash
 
@@ -394,7 +400,8 @@ create_external_volumes:
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/podata ${COMPOSE_PROJECT_NAME}_podata
 # note for this one, it should be shared with pro instance in the future
 	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/export_files ${COMPOSE_PROJECT_NAME}_export_files
-
+# Create Redis volume
+	docker volume create --driver=local -o type=none -o o=bind -o device=${DOCKER_LOCAL_DATA}/redis ${COMPOSE_PROJECT_NAME}_redisdata
 
 create_external_networks:
 	@echo "🥫 Creating external networks (production only) …"

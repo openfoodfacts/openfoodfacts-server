@@ -849,6 +849,7 @@
    },
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "9410",
          "id" : "en:wheat-flour",
          "origins" : "en:united-kingdom",
          "percent_estimate" : 54.5454545454545,
@@ -859,6 +860,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
          "origins" : "en:paraguay",
          "percent_estimate" : 12.5,
@@ -1069,11 +1071,9 @@
       "en:e102",
       "en:e120",
       "en:milk-proteins",
-      "en:rapeseed-oil",
-      "en:sugar",
-      "en:wheat-flour"
+      "en:rapeseed-oil"
    ],
-   "ingredients_without_ciqual_codes_n" : 6,
+   "ingredients_without_ciqual_codes_n" : 4,
    "known_ingredients_n" : 30,
    "labels_tags" : [
       "en:organic",
