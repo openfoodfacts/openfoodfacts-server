@@ -20,9 +20,8 @@
 
 /* eslint-disable max-classes-per-file */
 
-
 function getServerDomain() {
-  const hostname = window.location.href.match(/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i)[1];
+  const hostname = (/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i).exec(window.location.href)[1];
   const splittedHostname = hostname.split('.');
   // shift the first subdomain ('world', 'fr', 'uk',...)
   splittedHostname.shift();
@@ -135,7 +134,7 @@ class RobotoffAsker extends HTMLElement {
     // By convention, ProductOpener creates [imgid].jpg, [imgid].100.jpg, [imgid].400.jpg
     const source_image_url = this.question.source_image_url;
     if (source_image_url) {
-      const matches = source_image_url.match(/^(.*\/[\d]+)(?:\.[\d]+)?(\.jpg)$/i);
+      const matches = (/^(.*\/[\d]+)(?:\.[\d]+)?(\.jpg)$/i).exec(source_image_url);
       if (matches) {
         thumbnailEl.setAttribute('src', `${matches[1]}.100${matches[2]}`);
         zoomEl.setAttribute('src', source_image_url);
@@ -169,18 +168,16 @@ class RobotoffAsker extends HTMLElement {
   constructor() {
     super();
 
-    const shadowRoot = this.attachShadow({mode: 'open'});
+    const shadowRoot = this.attachShadow({ mode: 'open' });
     const content = RobotoffAsker.template.content.cloneNode(true);
 
     const styles = document.querySelectorAll('link[rel="stylesheet"][data-base-layout="true"]');
-    for (let i = 0; i < styles.length; ++i) {
-      const style = styles[i];
+    for (const style of styles) {
       content.appendChild(style.cloneNode(true));
     }
 
     const scripts = document.querySelectorAll('script[data-base-layout="true"]');
-    for (let i = 0; i < scripts.length; ++i) {
-      const script = scripts[i];
+    for (const script of scripts) {
       content.appendChild(script.cloneNode(true));
     }
 
@@ -216,8 +213,7 @@ class RobotoffAsker extends HTMLElement {
     });
 
     const buttons = content.querySelectorAll('a.annotate');
-    for (let i = 0; i < buttons.length; ++i) {
-      const button = buttons[i];
+    for (const button of buttons) {
       button.addEventListener('click', async (e) => {
         await this.annotate(parseInt(e.currentTarget.getAttribute('data-annotation')));
         await this.nextQuestion();
