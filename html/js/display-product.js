@@ -134,7 +134,7 @@ class RobotoffAsker extends HTMLElement {
     // By convention, ProductOpener creates [imgid].jpg, [imgid].100.jpg, [imgid].400.jpg
     const source_image_url = this.question.source_image_url;
     if (source_image_url) {
-      const matches = (/^(.*\/[\d]+)(?:\.[\d]+)?(\.jpg)$/i).exec(source_image_url);
+      const matches = (/^(.*\/\d+)(?:\.\d+)?(\.jpg)$/i).exec(source_image_url);
       if (matches) {
         thumbnailEl.setAttribute('src', `${matches[1]}.100${matches[2]}`);
         zoomEl.setAttribute('src', source_image_url);
