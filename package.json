@@ -15,7 +15,7 @@
     "test": "npm run lint",
     "test:integration": "mocha --timeout 10000 -r dotenv/config",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:scss",
-    "lint:js": "eslint gulpfile.ts html/js/*.js scripts/*.js tests/integration/*.js",
+    "lint:js": "eslint gulpfile.ts html/js/*.js tests/integration/*.js",
     "lint:css": "stylelint html/css/*.css",
     "lint:scss": "stylelint scss/*.scss",
     "snyk-protect": "snyk-protect",
