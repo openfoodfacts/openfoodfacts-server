@@ -37,10 +37,11 @@
   }
   
   function getBannerCookie(bcname) {
-    let name = bcname + '=';
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for (const c of ca) {
+    const name = bcname + '=';
+    const decodedCookies = decodeURIComponent(document.cookie);
+    const cookies = decodedCookies.split(';');
+    for (const cookie of cookies) {
+      let c = cookie;
       while (c.charAt(0) == ' ') { c = c.substring(1); }
       if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
     }
