@@ -18240,6 +18240,11 @@ de:Getreideessig
 fr:Vinaigre de céréales
 it:Aceto di cereali
 
+<en:grain vinegar
+en:corn vinegar
+fr:vinaigre de maïs
+nl:maisazijn
+
 <en:vinegar
 # derivedFrom:en:malt
 en:malt vinegar
@@ -27755,6 +27760,7 @@ fi:riisiproteiini
 fr:protéine de riz, protéines de riz
 hr:bjelančevine riže
 hu:rizsfehérje
+nl:rijsteiwit
 pl:białko ryżowe, białko z ryżu
 
 <en:rice protein
@@ -59084,7 +59090,8 @@ hr:indijski oraščić sirovi
 
 <en:cashew nuts
 en:cashew nut paste
-de:Cashewpaste, Cashewnusspaste
+de:Cashewpaste, Cashewnusspaste, Cashewmus
+fr:pâte de noix de cajou, purée de noix de cajou
 es:pasta de anacardos
 
 ###################################################################################################
@@ -59623,7 +59630,7 @@ bs:kikiriki
 ca:Cacauet, cacauets
 cs:arašídy
 da:jordnødder, jordnød, peanuts
-de:Erdnuss, Erdnüsse, Erdnusse, Erdnusskerne
+de:Erdnuss, Erdnüsse, Erdnüssen, Erdnusse, Erdnusskerne
 el:αραχίδες, αραχίδα, αραπικα φιστικια
 eo:ternukso
 es:cacahuetes, cacahuete, cacahuates, cacahuate,maní
@@ -73949,7 +73956,7 @@ bs:losos
 ca:salmó
 cs:losos
 da:Laks
-de:Lachse, Lachs
+de:Lachs, Lachse
 eo:Salmo
 es:salmón
 eu:Izokin
@@ -74012,6 +74019,11 @@ ciqual_food_name:fr:Saumon, cru, élevage
 #TODO check proxy
 
 <en:salmon
+en:wild salmon
+de:Wildlachs
+fr:saumon sauvage
+
+<en:salmon
 en:raw salmon
 bg:сурова сьомга
 de:Roher Lachs
@@ -74032,6 +74044,7 @@ ciqual_food_name:en:Salmon, raw, farmed
 ciqual_food_name:fr:Saumon, cru, élevage
 
 <en:raw salmon
+<en:wild salmon
 en:raw wild Salmon
 fr:Saumon cru sauvage
 ciqual_food_code:en:26161
