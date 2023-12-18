@@ -18240,6 +18240,11 @@ de:Getreideessig
 fr:Vinaigre de céréales
 it:Aceto di cereali
 
+<en:grain vinegar
+en:corn vinegar
+fr:vinaigre de maïs
+nl:maisazijn
+
 <en:vinegar
 # derivedFrom:en:malt
 en:malt vinegar
@@ -27755,6 +27760,7 @@ fi:riisiproteiini
 fr:protéine de riz, protéines de riz
 hr:bjelančevine riže
 hu:rizsfehérje
+nl:rijsteiwit
 pl:białko ryżowe, białko z ryżu
 
 <en:rice protein
@@ -47450,6 +47456,14 @@ wikidata:en:Q178547
 # ingredient/endive has 125 products @2019-05-22
 eurocode_2_group_3:en: 8.10.10
 
+en:Red endive
+ciqual_food_code:20162
+ciqual_food_name:en:Red endive, raw
+
+en:Green endive
+ciqual_food_code:20163
+ciqual_food_name:en:Green endive, raw
+
 # description:en:RADICCHIO is a perennial cultivated form of leaf chicory (Cichorium intybus, Asteraceae) sometimes known as Italian chicory because of its common use in Italian cuisine.
 
 <en:leaf vegetable
@@ -51681,6 +51695,24 @@ eurocode_2_group_2:en: 8.34
 
 <en:vegetable
 en:taproot vegetable, tap-root vegetable
+ar:خضروات الجذر الرئيسية
+bg:Коренесто зеленчуково растение
+bn:ট্যাপরুট সবজি, ট্যাপ-রুট সবজি
+ca:Verdura de tija principal, verdura de tija arrel
+cs:Kořenová zelenina s hlavním kořenem
+cy:llysieuyn gwreidd-prif
+da:Rodfrugt med hovedrod
+de:Wurzelgemüse mit Hauptwurzel
+el:Λαχανικό με κύρια ρίζα
+eo:Radiklegomo kun ĉefa radiko
+es:verdura de raíz principal, verdura de raíz principal
+et:Põhijuurega juurviljad
+fa:سبزیجات ریشه‌ای با ریشه اصلی
+fi:Pääjuurikas
+fr:légume-racine à racine principale
+he:ירק שורש עם שורש ראשי
+hi:मुख्य जड़वाले सब्जी
+hr:Korjenasto povrće s glavnim korijenom
 eurocode_2_group_2:en: 8.38
 
 # description:en:ROOT VEGETABLES are underground plant parts eaten by humans as food.
@@ -54812,6 +54844,9 @@ it:purea di peperoncino
 en:chili in vinegar
 de:Chilli in Essig
 es:guindillas en vinagre
+fr:piments au vinaigre
+it:peperoncini sott'aceto
+nl:chilipepers in azijn
 
 <en:chili pepper
 en:preserved chili pepper
@@ -55108,6 +55143,9 @@ en:Korean chili pepper
 <en:Korean chili pepper
 en:Korean chili powder, gochugaru
 xx:gochugaru
+de:Koreanisches Chilipulver, Gochugaru
+es:Pimentón coreano en polvo, gochugaru
+fr:Poudre de piment coréen, gochugaru
 
 <en:vegetable
 en:sichuan pepper
@@ -58167,6 +58205,10 @@ nl:groene spliterwten
 <en:green split pea
 fr:Farine de pois cassés
 es:Harina de guisantes partidos
+en:Split pea flour
+de:Erbsenmehl
+it:Farina di piselli spezzati
+nl:Split erwtenmeel
 # 9@2019-06-05
 
 # popular in Latvia
@@ -58303,10 +58345,17 @@ eurocode_2_group_3:en: 7.10.25
 en:pardina lentils
 de:Pardina Linsen
 es:lenteja pardina
+fr:lentilles pardina
+it:lenticchie pardina
+pt:lentilhas pardina
 
 <en:lentils
 en:Dried lentils
 fr:Lentilles sèches
+es:Lentejas secas
+de:Getrocknete Linsen
+it:Lenticchie secche
+pt:Lentilhas secas
 ciqual_food_code:en:20504
 ciqual_food_name:en:Lentil, dried
 ciqual_food_name:fr:Lentille, sèche
@@ -58907,6 +58956,10 @@ pl:pasta z migdałów, pasta migdałowa
 <en:almond
 fr:amandes caramélisées
 pt:amêndoa caramelizada, amêndoas caramelizadas
+es:almendras caramelizadas
+it:mandorle caramellate
+nl:gekarameliseerde amandelen
+de:karamellisierte Mandeln
 
 # fr:praliné aux amandes et aux noisettes is a compound ingredient
 
@@ -59037,7 +59090,8 @@ hr:indijski oraščić sirovi
 
 <en:cashew nuts
 en:cashew nut paste
-de:Cashewpaste, Cashewnusspaste
+de:Cashewpaste, Cashewnusspaste, Cashewmus
+fr:pâte de noix de cajou, purée de noix de cajou
 es:pasta de anacardos
 
 ###################################################################################################
@@ -59131,6 +59185,9 @@ origins:en: en:Europe
 <en:chestnut
 en:chestnut powder
 ja:くりパウダー
+es:polvo de castaña
+fr:poudre de châtaigne
+it:farina di castagne
 
 <en:chestnut
 fr:marron, marrons
@@ -59409,11 +59466,19 @@ sv:hasselnötsmassa, hasselnötspasta
 <en:biscuit
 en:hazelnut paste with pieces of biscuits
 hr:lješnjak punjenje s komadićima Digestive keksa
+es:pasta de avellana con trozos de galletas
+fr:pâte à la noisette avec des morceaux de biscuits
+it:pasta di nocciole con pezzi di biscotti
+nl:hazelnootpasta met stukjes koekjes
 
 <en:filling
 <en:hazelnut
 en:hazelnut filling
 hr:punjenje od lješnjaka
+es:relleno de avellana
+fr:garniture à la noisette
+it:ripieno di nocciole
+nl:hazelnootvulling
 
 # hazelnut praline is a compound product i.e.:(hazelnut, sugar)
 
@@ -59471,7 +59536,12 @@ wikidata:en:Q795158
 
 <en:maca
 en:black maca root
-hr:korijena crne mace 
+hr:korijena crne mace
+es:raíz de maca negra
+fr:racine de maca noire
+it:radice di maca nera
+nl:zwarte maca wortel
+pt:raiz de maca preta
 
 # A 2015 multi-center study found differences in taxonomy, visual appearance, phytochemical profiles and DNA sequences when comparing L. meyenii and L. peruvianum, suggesting that they are in fact different and that their names should not be considered synonyms
 # source:wikipedia:en:https://en.wikipedia.org/wiki/Lepidium_meyenii
@@ -59560,7 +59630,7 @@ bs:kikiriki
 ca:Cacauet, cacauets
 cs:arašídy
 da:jordnødder, jordnød, peanuts
-de:Erdnuss, Erdnüsse, Erdnusse, Erdnusskerne
+de:Erdnuss, Erdnüsse, Erdnüssen, Erdnusse, Erdnusskerne
 el:αραχίδες, αραχίδα, αραπικα φιστικια
 eo:ternukso
 es:cacahuetes, cacahuete, cacahuates, cacahuate,maní
@@ -59622,6 +59692,8 @@ ciqual_food_name:en:Peanut
 en:peanut paste
 de:Erdnusspaste
 hr:pasta od kikirikija, kikiriki pasta
+es:pasta de cacahuete
+it:crema di arachidi
 
 <en:peanut
 en:roasted peanuts
@@ -59679,6 +59751,9 @@ de:Erdnüsse mit Schale
 es:cacahuete con cáscara
 fi:kuorellinen maapähkinä
 fr:cacahuète avec coque
+it:arachidi con guscio
+nl:pinda met schil
+pt:amendoim com casca
 
 <en:peanut
 en:peanut flour
@@ -60001,10 +60076,15 @@ ciqual_food_name:fr:Noix, séchée, cerneaux
 <en:walnut
 en:dried walnuts
 fr:noix sèches
+es:nueces secas
+de:getrocknete Walnüsse
+it:noci secche
 
 <en:walnut
 en:walnuts from Grenoble
 fr:noix de Grenoble
+es:nueces de Grenoble
+it:noci di Grenoble
 
 <en:walnuts from Grenoble
 en:dried walnuts rom Grenoble
@@ -73876,7 +73956,7 @@ bs:losos
 ca:salmó
 cs:losos
 da:Laks
-de:Lachse, Lachs
+de:Lachs, Lachse
 eo:Salmo
 es:salmón
 eu:Izokin
@@ -73939,6 +74019,11 @@ ciqual_food_name:fr:Saumon, cru, élevage
 #TODO check proxy
 
 <en:salmon
+en:wild salmon
+de:Wildlachs
+fr:saumon sauvage
+
+<en:salmon
 en:raw salmon
 bg:сурова сьомга
 de:Roher Lachs
@@ -73959,6 +74044,7 @@ ciqual_food_name:en:Salmon, raw, farmed
 ciqual_food_name:fr:Saumon, cru, élevage
 
 <en:raw salmon
+<en:wild salmon
 en:raw wild Salmon
 fr:Saumon cru sauvage
 ciqual_food_code:en:26161
