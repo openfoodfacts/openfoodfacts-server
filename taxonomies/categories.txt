@@ -8458,7 +8458,7 @@ en:Bergamot flavored black teas
 fr:Thés noirs aromatisés à la bergamote
 nl:Zwarte theeën gearomatiseerd met bergamot, Zwarte thee gearomatiseerd met bergamot
 
-<en:Teas
+<en:Flavored teas
 en:Chaï teas
 de:Chai, Chai Tee
 fr:Thés chaï, thé au lait et aux épices
@@ -8487,7 +8487,7 @@ nl:Gefermenteerde theeën, Gefermenteerde thee
 wikidata:en:Q16241634
 
 <en:Teas
-en:Flavored teas
+en:Flavored teas, Flavoured teas
 de:Aromatisierte Tees
 es:Tés aromatizados
 fi:maustetut teet
@@ -8635,7 +8635,7 @@ de:Geröstete grüne Tees, Geröstete Grüntees
 fr:Thés verts torréfiés, Thé vert torréifié
 nl:Geroosterde groene theeën, Geroosterde groene thee
 
-<en:Teas
+<en:Flavored teas
 en:Lemon teas
 de:Zitronentees
 es:Tés con limón, Té sabor limón
@@ -8647,7 +8647,7 @@ nl:Theeën met citroen, Thee met citroen, Citroentheeën, Citroenthee
 ru:Чаи с лимоном
 zh:柠檬茶
 
-<en:Teas
+<en:Flavored teas
 en:Vanilla teas
 de:Vanilletees
 es:Tés de vainilla
@@ -8657,7 +8657,7 @@ lt:Vanilinės arbatos
 nl:Vanilletheeën, Vanillethee
 zh:香草茶
 
-<en:Teas
+<en:Flavored teas
 en:Mint teas
 de:Minztees, Pfefferminztees
 es:Tés con hierbabuena, Tés a la menta
@@ -8740,14 +8740,14 @@ nl:Shou Mei theeën, SHou Mei thee
 zh:寿眉茶
 wikidata:en:Q4526292
 
-<en:Teas
-en:Yellow teas
-de:Gelbe Tees
-es:Tés amarillos
-fr:Thés jaunes, Thé jaune
-nl:Gele theeën, Gele thee
-zh:黄茶
-wikidata:en:Q824529
+#<en:Teas
+#en:Yellow teas
+#de:Gelbe Tees
+#es:Tés amarillos
+#fr:Thés jaunes, Thé jaune
+#nl:Gele theeën, Gele thee
+#zh:黄茶
+#wikidata:en:Q824529
 
 <en:Herbal teas
 en:Rock teas
@@ -32774,6 +32774,7 @@ origins:en: en:Germany
 #wikidata:en:
 
 <en:German bakery products
+<en:Baumkuchen
 de:Salzwedeler Baumkuchen
 protected_name_file_number:en: PGI-DE-0733
 protected_name_type:en: pgi
@@ -32781,6 +32782,7 @@ origins:en: en:Germany
 #wikidata:en:
 
 <en:German bakery products
+<en:Stollen
 de:Dresdner Christstollen, Dresdner Stollen, Dresdner Weihnachtsstollen
 protected_name_file_number:en: PGI-DE-0704
 protected_name_type:en: pgi
@@ -34599,21 +34601,36 @@ ja:キャロットケーキ
 wikidata:en:Q656071
 
 <en:Cakes
+en:Spit cakes
+de:Spießkuchen, Spiesskuchen
+fr:Gâteaux à la broche, Gâteau à la broche
+wikidata:en:Q21007833
+
+<en:Spit cakes
+<en:Christmas foods and drinks
 en:Baumkuchen
 de:Baumkuchen
 eo:Trunkkuko
-fr:Gâteaux à la broche, Gâteau à la broche
 ja:バウムクーヘン
 lt:Baumkuchenas
 nl:Baumkuchen
 ru:Баумкухен
+xx:Baumkuchen
 wikidata:en:Q3665589
 
-<en:Cakes
-en:Traditional Lithuanian-Polish cakes
-lt:Šakočiai
+<en:Spit cakes
+en:Šakotis
+lt:Šakotis, Šakočiai
 pl:Sękacz
+xx:Šakotis
 wikidata:en:Q6882841
+
+<en:Cakes
+<en:Christmas foods and drinks
+en:Stollen, Christstollen
+de:Stollen, Christstollen
+xx:Stollen, Christstollen
+wikidata:en:Q57223
 
 <en:Cakes
 en:Plum cakes, Plum cake
@@ -35214,9 +35231,14 @@ ciqual_food_code:en:23585
 ciqual_food_name:en:Chocolate cake
 
 <en:Chocolate cakes
-en:Chocolate cake with melting centre
-fr:Moelleux au chocolat
-nl:Chococakes met chocoladevulling
+en:Molten chocolate cakes, Chocolate lava cake, Chocolate cake with melting centre
+ar:لافا كيك
+es:Pastel de chocolate fundido
+fr:Moelleux au chocolat, gâteau fondant au chocolat
+he:עוגת שוקולד מותך
+id:Kue cokelat cair
+nl:Chococlade lava cakes
+zh:熔岩巧克力蛋糕
 agribalyse_food_code:en:39234
 ciqual_food_code:en:39234
 ciqual_food_name:en:Chocolate cake w melting centre, refrigerated
@@ -35559,7 +35581,7 @@ lt:Vaisiniai saldumynai, saldumynai su vaisiais
 
 <en:Confectioneries
 <en:Fruits based foods
-en:Candied fruits
+en:Candied fruits, Candied peel
 de:Kandierte Früchte
 es:Frutas confitadas
 fi:sokeroidut hedelmät
@@ -35581,7 +35603,7 @@ fr:Citron confit
 en:Filled dates
 fr:Dattes fourrées
 
-<en:Confectioneries
+<en:Candied fruits
 en:Candied orange zest
 fr:Zeste d'orange confit
 ciqual_food_code:en:31021
@@ -80105,11 +80127,10 @@ ciqual_food_name:fr:Poulet, cuisse, viande et peau, bouilli/cuit à l'eau
 <en:Cooked poultries
 <en:Chickens
 en:Chicken cutlets
-de:Hähnchenschnitzel
 fi:kanaleikkeleet
 fr:Escalopes de poulet, escalope de poulet
 it:Cotolette di pollo
-nl:Kipschnitzel
+#comment:en:see also the Breaded chicken cutlets if you are looking for schnitzels
 
 <en:Chickens
 en:Chicken breasts
@@ -95694,9 +95715,22 @@ ciqual_food_name:en:Kohlrabi, boiled/cooked in water
 ciqual_food_name:fr:Chou-rave, bouilli/cuit à l'eau
 
 <en:Cabbages
-en:Chinese cabbage, nappa cabbage, Bok choy
+en:Bok choy, pak choi, pok choi
+de:Pak Choi, Pak Choy, Chinesischer Senfkohl
+es:Bok choy, Pak choi
+fr:Pak choï, pak-choi, pé-tsai
+it:Bok choy, Pak-choi, Cavolo cinese
+la:Brassica rapa subsp. chinensis
+nl:Paksoi, Pak-choi
+wikipedia:en:https://en.wikipedia.org/wiki/Bok_choy
+ciqual_food_code:en:20167
+ciqual_food_name:en:Chinese cabbage (nappa cabbage or bok choy), raw
+ciqual_food_name:fr:Chou chinois ou pak-choi ou pé-tsai, cru
+
+<en:Cabbages
+en:Chinese cabbage, nappa cabbage
 bg:Китайско зеле
-fr:Chou chinois, pak-choi, pé-tsai
+fr:Chou chinois
 ja:白菜, ハクサイ
 nl:Chinese kolen, Chinese kool
 agribalyse_food_code:en:20167
@@ -95727,6 +95761,7 @@ ciqual_food_name:fr:Chou frisé, cru
 <en:Cooked vegetables
 en:Cooked curly kale
 fr:Chou frisé cuit
+nl:Gekookte broerenkolen, Gekookte boerenkool
 agribalyse_food_code:en:20219
 ciqual_food_code:en:20219
 ciqual_food_name:en:Curly kale, cooked
@@ -95736,6 +95771,7 @@ ciqual_food_name:fr:Chou frisé, cuit
 en:Fresh cabbages
 bg:Прясно зеле
 fr:Chou frais
+nl:Verse kolen
 season_in_country_fr:en: 1,2,3,10,11,12
 
 <en:Leaf vegetables
