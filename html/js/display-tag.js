@@ -21,19 +21,19 @@
 /*global L osmtogeojson*/
 /*exported displayMap*/
 
-var map;
+let map;
 function ensureMapIsDisplayed() {
   if (map) {
     return;
   }
 
-  var tagDescription = document.getElementById('tag_description');
+  const tagDescription = document.getElementById('tag_description');
   if (tagDescription) {
     tagDescription.classList.remove('large-12');
     tagDescription.classList.add('large-9');
   }
 
-  var tagMap = document.getElementById('tag_map');
+  const tagMap = document.getElementById('tag_map');
   if (tagMap) {
     tagMap.style.display = '';
   }
@@ -47,7 +47,7 @@ function ensureMapIsDisplayed() {
 }
 
 function fitBoundsToAllLayers(mapToUpdate) {
-  var latlngbounds = new L.latLngBounds();
+  const latlngbounds = new L.latLngBounds();
 
   mapToUpdate.eachLayer(function (l) {
     if (typeof l.getBounds === "function") {
@@ -65,13 +65,13 @@ function runCallbackOnJson(callback) {
 
 function addWikidataObjectToMap(id) {
   getOpenStreetMapFromWikidata(id, function (data) {
-    var bindings = data.results.bindings;
+    const bindings = data.results.bindings;
     if (bindings.length === 0) {
       return;
     }
 
-    var binding = bindings[0];
-    var relationId = binding.OpenStreetMap_Relations_ID.value;
+    const binding = bindings[0];
+    const relationId = binding.OpenStreetMap_Relations_ID.value;
     if (!relationId) {
       return;
     }
@@ -88,7 +88,7 @@ function addWikidataObjectToMap(id) {
 }
 
 function getOpenStreetMapFromWikidata(id, callback) {
-  var endpointUrl = 'https://query.wikidata.org/sparql',
+  const endpointUrl = 'https://query.wikidata.org/sparql',
     sparqlQuery = "SELECT ?OpenStreetMap_Relations_ID WHERE {\n" +
       "  wd:" + id + " wdt:P402 ?OpenStreetMap_Relations_ID.\n" +
       "}",
@@ -112,10 +112,9 @@ function getGeoJsonFromOsmRelation(id, callback) {
 
 function displayPointers(pointers) {
   runCallbackOnJson(function (actualMap) {
-    var markers = [];
-    for (var i = 0; i < pointers.length; ++i) {
-      var pointer = pointers[i];
-      var coordinates;
+    const markers = [];
+    for (const pointer of pointers) {
+      let coordinates;
 
       // If pointer is an array, it just contains (lat, lng) geo coordinates
       if (Array.isArray(pointer)) {
@@ -124,10 +123,10 @@ function displayPointers(pointers) {
       // Otherwise we have a structured object
       // e.g. from a map element of a knowledge panel
       else {
-        coordinates = [ pointer.geo.lat, pointer.geo.lng ];
+        coordinates = [pointer.geo.lat, pointer.geo.lng];
       }
 
-      var marker = new L.marker(coordinates);
+      const marker = new L.marker(coordinates);
       markers.push(marker);
     }
 
@@ -144,10 +143,9 @@ function displayMap(pointers, wikidataObjects) {
     displayPointers(pointers);
   }
 
-  for (var i = 0; i < wikidataObjects.length; ++i) {
-    const obj = wikidataObjects[i];
-    if (obj !== null) {
-      addWikidataObjectToMap(obj);
+  for (const wikidataObject of wikidataObjects) {
+    if (wikidataObject !== null) {
+      addWikidataObjectToMap(wikidataObject);
     }
   }
 }
