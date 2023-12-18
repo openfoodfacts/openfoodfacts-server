@@ -77,6 +77,12 @@ my $tests_ref = [
 		path => '/api/v3/taxonomy_suggestions?tagtype=categories&string=Café&lc=fr',
 		expected_status_code => 200,
 	},
+	{
+		test_case => 'allergens-string-fr-o-get-synonyms',
+		method => 'GET',
+		path => '/api/v3/taxonomy_suggestions?tagtype=allergens&string=o&lc=fr&get_synonyms=1',
+		expected_status_code => 200,
+	},
 	# Packaging suggestions return most popular suggestions first
 	{
 		test_case => 'packaging-shapes',
