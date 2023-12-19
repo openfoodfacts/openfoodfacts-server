@@ -42,9 +42,7 @@ rm -rf $DATA_TMP_DIR
 mkdir $DATA_TMP_DIR
 mkdir $DATA_TMP_DIR/data
 
-# user off cannot move files from the sftp
-#find $OFF_SFTP_HOME_DIR/artinformatique/data/intermarche/ -mtime -$IMPORT_SINCE -type f -name "*.csv*" -exec mv {} $DATA_TMP_DIR/data/ \;
-find $OFF_SFTP_HOME_DIR/artinformatique/data/intermarche/ -mtime -$IMPORT_SINCE -type f -name "*.csv*" -exec cp {} $DATA_TMP_DIR/data/ \;
+find $OFF_SFTP_HOME_DIR/artinformatique/data/intermarche/ -mtime -$IMPORT_SINCE -type f -name "*.csv*" -exec mv {} $DATA_TMP_DIR/data/ \;
 
 # The CSV files are in a format like 19-11-2023-intermarche.csv and sometimes they
 # send us files from multiple months
@@ -73,10 +71,7 @@ done
 # Move images
 echo $IMAGES_TMP_DIR
 mkdir -p $IMAGES_TMP_DIR
-# user off cannot move file from the sftp
-#find $OFF_SFTP_HOME_DIR/artinformatique/data/intermarche/ -mtime -$IMPORT_SINCE -type f -name "*.jp*" -exec mv {} $IMAGES_TMP_DIR/ \;
-find $OFF_SFTP_HOME_DIR/artinformatique/data/intermarche/ -mtime -$IMPORT_SINCE -type f -name "*.jp*" -exec cp {} $IMAGES_TMP_DIR/ \;
-
+find $OFF_SFTP_HOME_DIR/artinformatique/data/intermarche/ -mtime -$IMPORT_SINCE -type f -name "*.jp*" -exec mv {} $IMAGES_TMP_DIR/ \;
 
 # import CSV files in alphabetical order (starting by YYYY-MM-DD)
 echo "Import data"
