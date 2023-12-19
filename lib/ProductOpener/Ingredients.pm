@@ -1996,7 +1996,16 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 									# because they contain the allergen milk
 									# but we don't want to turn "cheese (parmigiano)" to "cheese".
 									# The regexp below only contain the main allergen names, not ingredients that contain that allergen
-									and (canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $between) =~ /^en:(celery|crustacean|egg|fish|gluten|lactose|lupin-bean|lupin|milk|mollusc|mustard|nut|peanut|sesame|sesame-seeds|soy|soya|sulfite|e220)$/)
+									and (canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $between)
+										=~ /^en:(celery|crustacean|egg|fish|gluten|lactose|lupin-bean|lupin|milk|mollusc|mustard|nut|peanut|sesame|sesame-seeds|soy|soya|sulfite|e220)$/
+									)
+									# Also check that the parent ingredient is not just a label
+									# so that we don't transform "MSC (fish)" to just "MSC" with a fish allergen.
+									and (
+										not exists_taxonomy_tag(
+											"labels", canonicalize_taxonomy_tag($ingredients_lc, "labels", $before)
+										)
+									)
 								)
 							)
 						)

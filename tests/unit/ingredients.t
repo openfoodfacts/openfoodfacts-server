@@ -834,7 +834,7 @@ puffed orange and caramelized unknown_fruit4.",
 			lc => "fr",
 			ingredients_text => "beurre (lait), fromage (parmesan)",
 		}
-	],	
+	],
 );
 
 foreach my $test_ref (@tests) {
