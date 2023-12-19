@@ -1,19 +1,9 @@
 {
+   "allergens" : "en:milk",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "16400",
          "id" : "en:butter",
-         "ingredients" : [
-            {
-               "id" : "en:milk",
-               "percent_estimate" : 75,
-               "percent_max" : 100,
-               "percent_min" : 50,
-               "text" : "lait",
-               "vegan" : "no",
-               "vegetarian" : "yes"
-            }
-         ],
          "percent_estimate" : 75,
          "percent_max" : 100,
          "percent_min" : 50,
@@ -49,7 +39,6 @@
       ],
       "en:non-vegan" : [
          "en:butter",
-         "en:milk",
          "en:cheese",
          "en:parmigiano-reggiano"
       ]
@@ -63,18 +52,16 @@
       "en:butter",
       "en:dairy",
       "en:cheese",
-      "en:milk",
       "en:parmigiano-reggiano"
    ],
-   "ingredients_n" : 4,
+   "ingredients_n" : 3,
    "ingredients_n_tags" : [
-      "4",
+      "3",
       "1-10"
    ],
    "ingredients_original_tags" : [
       "en:butter",
       "en:cheese",
-      "en:milk",
       "en:parmigiano-reggiano"
    ],
    "ingredients_percent_analysis" : 1,
@@ -82,7 +69,6 @@
       "en:butter",
       "en:dairy",
       "en:cheese",
-      "en:milk",
       "en:parmigiano-reggiano"
    ],
    "ingredients_text" : "beurre (lait), fromage (parmesan)",
@@ -91,11 +77,10 @@
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:cheese",
-      "en:milk"
+      "en:cheese"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
-   "known_ingredients_n" : 5,
+   "ingredients_without_ciqual_codes_n" : 1,
+   "known_ingredients_n" : 4,
    "lc" : "fr",
    "nutriments" : {
       "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
