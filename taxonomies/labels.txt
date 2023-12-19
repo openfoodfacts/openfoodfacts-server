@@ -3809,7 +3809,7 @@ pt:Sem amido modificado, sem amidos modificados
 en:No gelatin, Without gelatin, Gelatinfree, Gelatin-free
 bg:Без желатин, Не съдържа желатин
 ca:Sense gelatina
-de:Ohne Gelatin, Gelatinefrei, Ohne Gelatine
+de:Ohne Gelatine, Ohne Gelatin, Gelatinefrei
 es:Sin gelatina
 fi:gelatiiniton, ei gelatiinia, ilman gelatiinia
 fr:Sans gélatine
@@ -5137,6 +5137,10 @@ ru:EU агрокультура, агрокультура Европейског�
 en:French agriculture
 fr:Agriculture France
 nl:Franse landbouw
+es:Agricultura francesa
+de:Französische Landwirtschaft
+it:Agricoltura francese
+pt:Agricultura francesa
 
 <en:non-EU Agriculture
 <en:EU Agriculture
@@ -18461,6 +18465,9 @@ description:en:In EU, claim that a food is a source of vitamins and/or minerals 
 en:naturally rich in vitamin E
 fr:naturellement riche en vitamine E
 hr:prirodno bogato vitaminom E
+es:ricamente natural en vitamina E
+it:naturalmente ricco di vitamina E
+pt:rico naturalmente em vitamina E
 
 en:with wholemeal flour
 es:con farina integralna
@@ -19025,6 +19032,11 @@ label_categories:en: en:Fishing method
 en:Sustainable
 hr:Održiv
 nl:Duurzaam
+es:Sostenible
+#fr:Durable
+de:Nachhaltig
+it:Sostenibile
+pt:Sustentável
 
 <en:Sustainable
 en:Sustainable fishery, Sustainable fishing, Sustainable Seafood
@@ -19655,6 +19667,11 @@ fr:100% filet
 en:Without brown muscle
 fi:ilman ruskeaa lihasta
 fr:Sans muscle brun, Sans chair brune
+de:Ohne braunen Muskel
+es:Sin músculo marrón
+it:Senza muscolo marrone
+pt:Sem músculo marrom
+nl:Zonder bruine spier
 
 fr:AOC, A.O.C, Appellation d'Origine Contrôlée, Appelation d'Origine Contrôlée, aoc
 protected_name_type:en: aoc
@@ -19811,6 +19828,16 @@ he:מומלח במלח יבש
 pt:Salgado com sal seco
 
 fr:Salage naturel
+en:Naturally salted
+ca:Salat de forma natural
+de:Natürlich gesalzen
+es:Salado de forma natural
+fi:Luonnollisesti suolattu
+he:מומלח באופן טבעי
+hu:Természetesen sózott
+it:Salato in modo naturale
+pt:Salgado de forma natural
+sv:Naturligt saltad
 
 en:No peanuts, without peanuts, Peanut Free
 bg:Без фъстъци
@@ -19900,10 +19927,16 @@ nl:Weidemelk
 <en:Animal welfare
 en:120 days grass-fed
 fr:120 jours de pâturage
+nl:120 dagen grasgevoerd
+de:120 Tage Weidehaltung
+es:120 días alimentados con pasto
 
 <en:Animal welfare
 en:150 days grass-fed
 fr:150 jours de pâturage
+nl:150 dagen grasgevoerd
+de:150 Tage Weidehaltung
+es:150 días alimentados con pasto
 
 en:Dutch meat
 nl:Nederlands vlees
@@ -21681,6 +21714,9 @@ pt:Legumas de França, legumes da França
 origins:en: en:france
 
 fr:concombres cultivés en france
+pt:pepinos cultivados na frança
+es:pepinos cultivados en francia
+it:cetrioli coltivati in francia
 origins:en: en:france
 
 fr:Maïs de France
@@ -22093,6 +22129,9 @@ nl:Flash gepasteuriseerd
 en:Unpasteurized
 fr:Non pasteurisé
 nl:Ongepasteuriseerd
+es:No pasteurizado
+it:Non pastorizzato
+de:Unpasteurisiert
 opposite:en: en:pasteurized
 
 en:Cold pressed
@@ -22129,6 +22168,9 @@ en:Certified quality
 ca:Qualitat certificada
 es:Calidad certificada
 fr:Qualité certifiée
+es:Calidad certificada
+de:Zertifizierte Qualität
+it:Qualità certificata
 
 en:QS certification mark
 de:QS-Prüfzeichen
@@ -22205,22 +22247,6 @@ xx:Eco-Score E
 
 en:GLOBALG.A.P.
 xx:GLOBALG.A.P., Global GAP
-
-# Portuguese recycling containers: https://pt.wikipedia.org/wiki/Ecoponto
-# green container for glass bottles, jars
-pt:Ecoponto verde
-es:Contenedor verde, Al verde, Contenedor de vidrio, Recicla verde
-xx:Ecoponto verde, Recicla verde
-
-# yellow container for food packages in general, plastic, Tetra Pak, plastic bags, plastic bottles, tins, cans
-pt:Ecoponto amarelo
-es:Contenedor amarillo, Al amarillo, Contenedor de envases, Recicla amarillo
-xx:Ecoponto amarelo, Recicla amarillo
-
-# blue container for paper, cardboard, corrugated cardboard
-pt:Ecoponto azul
-es:Contenedor azul, Al azul, Contenedor de papel, Recicla azul
-xx:Ecoponto azul, Recicla azul
 
 en:Portuguese protected product
 pt:Produto protegido de Portugal
@@ -22378,6 +22404,8 @@ en:Certified B Corporation, B Corp
 bg:Certified B Corporation, B Corp
 fr:Entreprise B certifiée, B Corp
 hr:Certified B Corporation
+es:Empresa B certificada, B Corp
+pt:Empresa B certificada, B Corp
 wikidata:en:Q16243343
 
 # obligation of results: food is tested to see if pesticides are below a set level (usually the limit of quantization)

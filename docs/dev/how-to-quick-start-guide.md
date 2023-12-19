@@ -175,7 +175,7 @@ Specific notes are provide on [applying AGRIBALYSE updates to support the Ecosco
 
 ## Visual Studio Code
 
-**WARNING**: for now this is deprecated, some work needs to be done.
+**WARNING**: Devcontainer support is currently experimental. It's recommended to run the normal docker commands before, and stop the containers: `make dev down`. Note that `make dev`, `make test`, and so on may currently conflict with the devcontainer.
 
 This repository comes with a configuration for Visual Studio Code (VS Code) [development containers (devcontainer)](https://code.visualstudio.com/docs/remote/containers). This enables some Perl support in VS Code without the need to install the correct Perl version and modules on your local machine.
 

@@ -3239,6 +3239,11 @@ it:latte crudo
 ja:生乳
 nl:rauwe melk
 tr:çiğ süt, pastörize edilmemiş süt
+pl:surowe mleko
+pt:leite cru
+ro:lapte crud
+ru:сырое молоко
+zh:生牛奶
 wikipedia:en:https://en.wikipedia.org/wiki/Raw_milk
 
 <en:raw milk
@@ -3246,6 +3251,12 @@ wikipedia:en:https://en.wikipedia.org/wiki/Raw_milk
 fr:lait cru entier
 ca:llet crua sencera
 es:leche cruda entera
+it:latte crudo intero
+lt:neapdorotas pilnas pienas
+nl:rauwe volle melk
+pl:surowe mleko pełne
+pt:leite cru integral
+ro:lapte crud integral
 
 ################################## COW MILKS ###################################
 
@@ -3380,6 +3391,8 @@ tr:pastörize inek sütü
 fr:lait de vache thermisé
 ca:llet de vaca termitzada, llet termitzada de vaca
 es:leche de vaca termizada, leche termizada de vaca
+it:latte di mucca termizzato
+nl:gestremde koeienmelk
 
 <en:Cow's milk
 fr:lait frais de nos vaches non homogeneise
@@ -3529,6 +3542,13 @@ ro:lapte de capră pasteurizat, lapte de capra pasteurizat
 <en:pasteurised goat milk
 en:whole goat milk UHT
 fr:Lait de chèvre entier UHT
+bg:пълномаслено козе мляко УХТ
+ca:llet sencer de cabra UHT
+de:Ziegenvollmilch UHT
+es:leche entera de cabra UHT
+fi:vuohen täysmaito UHT
+hu:teljes kecsketej UHT
+nl:volle geitenmelk UHT
 ciqual_food_code:en:19200
 ciqual_food_name:en:Goat milk, whole, UHT
 ciqual_food_name:fr:Lait de chèvre, entier, UHT
@@ -3536,6 +3556,13 @@ ciqual_food_name:fr:Lait de chèvre, entier, UHT
 <en:semi-skimmed goat milk
 en:semi-skimmed pasteurized goat milk UHT
 fr:lait de chèvre demi-écrémé UHT
+bg:полуобезмаслено пастьоризирано козе мляко УХТ
+ca:llet de cabra semidesnatada pasteuritzada UHT
+de:teilentrahmte pasteurisierte Ziegenmilch UHT
+es:leche de cabra semidesnatada pasteurizada UHT
+fi:kevyesti pastöroitu puolirasvainen vuohenmaito UHT
+hu:zsírszegény pasztőrözött kecsketej UHT
+nl:halfvolle gepasteuriseerde geitenmelk UHT
 ciqual_food_code:en:19201
 ciqual_food_name:en:Goat milk, half skimmed, UHT pasteurized
 ciqual_food_name:fr:Lait de chèvre, demi-écrémé, UHT
@@ -3599,6 +3626,10 @@ description:en:Sheep's milk (or ewes' milk) is the milk of domestic sheep.
 <en:goat milk
 en:Sheeps or goat milk
 jv:susu wedhus
+fr:lait de brebis ou de chèvre
+es:leche de oveja o de cabra
+de:Schaf- oder Ziegenmilch
+nl:schapen- of geitenmelk
 
 <en:sheeps milk
 en:whole sheep milk
@@ -3616,6 +3647,14 @@ ciqual_food_name:fr:Lait de brebis, entier
 <en:skimmed milk
 en:skimmed sheeps milk, skimmed sheep milk, semi-skimmed sheeps milk
 fr:lait de brebis partiellement écrémé
+ar:حليب الغنم قليل الدسم
+bg:нискомаслено овче мляко
+ca:llet d'ovella desnatada, llet d'ovella descremada
+de:fettarme Schafmilch, fettreduzierte Schafmilch
+es:leche de oveja desnatada, leche de oveja semidesnatada
+fi:rasvaton lampaanmaito, vähärasvainen lampaanmaito
+hu:zsírszegény juhtej
+nl:mager schapenmelk
 
 #processing:en: en:raw
 #<en:sheeps milk
@@ -3650,6 +3689,8 @@ fr:lait de brebis partiellement écrémé
 fr:lait de brebis thermisé
 ca:llet d'ovella termitzada, llet termitzada d'ovella
 es:leche de oveja termizada, leche termizada de oveja
+it:latte di pecora termizzato
+nl:thermische schapenmelk
 
 
 # <en:aggregate
@@ -5894,6 +5935,8 @@ vegetarian:en:maybe
 vegan:en:no
 nova:en:3
 # en:cheese has 579 products in 10 languages @2018-10-28
+ciqual_proxy_food_code:en:12999
+ciqual_proxy_food_name:en:Cheese (average)
 
 <en:cheese
 en:mixed cheese, cheese blend
@@ -7072,6 +7115,8 @@ nl:verse kaas
 pt:queijo branco
 sl:sveži sir 
 sr:sveži sir
+ciqual_food_code:19501
+ciqual_food_name:en:Quark, plain or fruit (average)
 # en-ca:Fromage blanc
 # en-gb:Fromage blanc
 wikidata:en:Q3323634
@@ -12804,7 +12849,7 @@ nl:varkensnieren
 pt:rins de porco
 hu:sertésvese
 fi:sian munuaiset
-ciqual_food_code:40405
+ciqual_food_code:en:40405
 ciqual_food_name:en:Kidney, pork, cooked
 
 <en:pork meat
@@ -15424,6 +15469,8 @@ sv:Palmolja och fett
 tr:palm yağı, hurma yağı
 uk:Пальмова олія і жири
 from_palm_oil:en:yes
+ciqual_proxy_food_code:en:16129
+ciqual_proxy_food_name:en:Palm oil
 
 <en:palm oil and fat
 en:non hydrogenated palm fat, unhydrogenated palm fat
@@ -15946,6 +15993,8 @@ zh:椰子油
 wikipedia:en:https://en.wikipedia.org/wiki/Coconut_oil
 wikidata:en:Q216235
 from_palm_oil:en:no
+ciqual_food_code:en:16040
+ciqual_food_name:en:Coconut fat or oil
 
 #<en:coconut oil
 #en:organic coconut oil
@@ -16036,6 +16085,8 @@ sv:kokosfett
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:matière-grasse-de-noix-de-coco
 # 36 products in 4 languages @2018-10-03
 from_palm_oil:en:no
+ciqual_food_code:en:16040
+ciqual_food_name:en:Coconut fat or oil
 
 # creamed coconut differs from coconut cream: https://en.wikipedia.org/wiki/Creamed_coconut
 <en:coconut fat
@@ -18239,6 +18290,11 @@ en:grain vinegar
 de:Getreideessig
 fr:Vinaigre de céréales
 it:Aceto di cereali
+
+<en:grain vinegar
+en:corn vinegar
+fr:vinaigre de maïs
+nl:maisazijn
 
 <en:vinegar
 # derivedFrom:en:malt
@@ -23446,7 +23502,7 @@ ro:germeni de grâu
 sv:vetegroddar
 wikipedia:en:https://en.wikipedia.org/wiki/Cereal_germ#Wheat_germ
 # ingredient/fr:germes-de-blé has 498 products in 8 languages @2019-05-12
-ciqual_food_code:9660
+ciqual_food_code:en:9660
 ciqual_food_name:en:Wheat germ
 
 <en:wheat
@@ -26637,6 +26693,9 @@ sv:rågmjöl
 tr:çavdar unu
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/rye-flour
 # 1039 products in 11 languages @2018-09-22
+ciqual_proxy_food_code:en:9532
+ciqual_proxy_food_name:en:Rye flour, type 85
+ciqual_proxy_food_name:fr:Farine de seigle T85
 
 # Question
 
@@ -26687,6 +26746,9 @@ nl:volkoren roggemeel
 pl:mąka żytnia pełnoziarnista, mąka żytnia razowa, pełnoziarnista mąka żytnia
 pt:farinha integral de centeio
 sv:fullkornsrågmjöl, fullkornsmjöl av råg
+ciqual_proxy_food_code:en:9530
+ciqual_proxy_food_name:en:Rye flour, type 170
+ciqual_proxy_food_name:fr:Farine de seigle T170
 
 <en:wholemeal rye flour
 pl:mąka żytnia razowa typ 2000, mąka żytnia razowa 2000, mąka żytnia typ 2000, mąka żytnia typ 2000 razowa
@@ -27788,6 +27850,7 @@ fi:riisiproteiini
 fr:protéine de riz, protéines de riz
 hr:bjelančevine riže
 hu:rizsfehérje
+nl:rijsteiwit
 pl:białko ryżowe, białko z ryżu
 
 <en:rice protein
@@ -29377,6 +29440,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Nib_sugar
 
 <en:sugar
 fr:sucre blond
+en:blonde sugar
+es:azúcar rubio
+it:zucchero biondo
+nl:blonde suiker
 
 # description:en:Granulated, familiar as table sugar, with a grain size about 0.5-0.6 mm across.
 # comment:en:"granulated sugar" is generally white sugar, but other sugars can be in granulated form too.
@@ -29431,6 +29498,11 @@ vegetarian:en:yes
 <en:sugarcane
 en:sugarcane juice, cane juice
 fr:jus de canne à sucre, jus de canne
+bg:сок от захарна тръстика
+es:jugo de caña de azúcar
+de:Zuckerrohrsaft
+it:succo di canna da zucchero
+nl:suikerrietsap
 
 <en:sugar
 nl:Arenga bossuiker
@@ -29626,14 +29698,16 @@ wikidata:en:Q10357458
 wikipedia:en:https://en.wikipedia.org/wiki/Panela
 
 <en:sugar
-en:beet sugar
+en:beet sugar, beetroot sugar
 de:Rübenzucker
+es:azucar de remolacha
 fi:juurikassokeri
 fr:sucre de betterave
 hr:šećer šećerne repe
 hu:répacukor
 it:Zucchero di barbabietola
-nl:suikerbietsuiker
+nl:suikerbietsuiker, bietensuiker
+pt:açúcar de beterraba
 carbon_footprint_fr_foodges_ingredient:fr:Sucre de betterave
 carbon_footprint_fr_foodges_value:fr:0.7
 
@@ -30281,6 +30355,10 @@ tr:glikoz şurubu, glukoz şurubu, glükoz şurubu
 # 32467 products in 29 languages @2018-09-24
 wikipedia:en:https://en.wikipedia.org/wiki/Glucose_syrup
 wikidata:en:Q14770547
+# probably not a very good proxy, but the closest one in Ciqual
+ciqual_proxy_food_code:31089
+ciqual_proxy_food_name:en:Syrup, agave
+
 
 <en:glucose syrup
 en:fructose-free glucose syrup
@@ -30708,6 +30786,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Corn_syrup
 vegan:en:yes
 vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/corn-syrup 19402 products in 7 languages @2018-09-24
+# probably not a very good proxy, but the closest one in Ciqual
+ciqual_proxy_food_code:31089
+ciqual_proxy_food_name:en:Syrup, agave
 
 <en:corn syrup
 en:corn syrup solids
@@ -31091,7 +31172,8 @@ wikidata:en:Q392001
 wikipedia:en:https://en.wikipedia.org/wiki/Agave_nectar
 vegan:en:yes
 vegetarian:en:yes
-# ingredient/agave-syrup has 477 products in 16 languages @2018-12-17
+ciqual_food_code:en:31089
+ciqual_food_name:en:Syrup, agave
 
 <en:agave syrup
 en:organic agave syrup
@@ -31524,7 +31606,7 @@ sk:sójová bielkovina
 sl:sojini proteini
 sv:sojaprotein, sojaproteinpeparat
 allergens:en: en:soybeans
-ciqual_food_code:20591
+ciqual_food_code:en:20591
 ciqual_food_name:en:Soy protein, textured, rehydrated
 
 <en:vegetable fiber
@@ -32229,18 +32311,6 @@ it:Burro cocco puro
 nl:puur cacaoboter
 # ingredient/fr:pur-beurre-de-cacao has 74 products @2019-05-25
 
-<en:cocoa butter
-fr:beurre de cacao cru
-# 9@2019-06-04
-
-<en:cocoa butter
-en:organic cocoa butter
-da:økologisk kakaosmør
-de:Bio-Kakaobutter
-fi:luomu kaakaovoi
-fr:beurre de cacao bio
-# ingredient/fr:beurre-de-cacao-bio has 24 products in 2 languages @2019-05-25
-
 <en:cocoa
 en:cocoa paste, cocoa mass, chocolate liquor
 bg:какаова маса, какао маса
@@ -32276,6 +32346,9 @@ tg:какаои судашуда
 tr:kakao kitlesi
 uz:qirilgan kakao
 # ingredient/cocoa-paste has 14530 products in 32 languages @2019-05-25
+ciqual_proxy_food_code:en:16030
+ciqual_proxy_food_name:en:Cocoa butter
+ciqual_proxy_food_name:fr:Beurre de cacao
 
 <en:cocoa paste
 en:cocoa paste processed with alkali, alkalized cocoa paste
@@ -32737,7 +32810,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Chocolat en poudre non sucré
 carbon_footprint_fr_foodges_value:fr:4.7
 # ingredient/fr:chocolat-en-poudre has 1051 products in 9 languages @2019-05-25
 # usage:en:chocolate powder (sugar, cocoa powder)
-ciqual_food_code:18101
+ciqual_food_code:en:18101
 ciqual_food_name:en:Cocoa or chocolate powder, for beverages, with sugar
 
 <en:chocolate
@@ -37314,7 +37387,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Mangue importée en bateau
 carbon_footprint_fr_foodges_value:fr:0.8
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/mango
 # 1597 products in 10 languages @2018-09-27
-ciqual_food_code:13025
+ciqual_food_code:en:13025
 ciqual_food_name:en:Mango, pulp, raw
 
 <en:mango
@@ -37801,7 +37874,7 @@ pt:Puré de pêra
 # In process de:Birnenpüree
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:purée-de-poires
 # 233 products in 5 langauges @2018-09-28
-ciqual_food_code:13037
+ciqual_food_code:en:13037
 ciqual_food_name:en:Pear, pulp and peel, raw
 
 <en:pear puree
@@ -40388,6 +40461,8 @@ wikipedia:en:https://en.wikipedia.org/wiki/Orange_(fruit)
 wikidata:en:Q13191
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/orange
 # 2121 products in 8 languages @2018-09-28
+ciqual_proxy_food_code:en:13034
+ciqual_proxy_food_name:en:Orange, pulp, raw
 
 <en:orange
 en:eating orange
@@ -40455,6 +40530,8 @@ zh:橙汁
 wikipedia:en:https://en.wikipedia.org/wiki/Orange_juice
 wikidata:en:Q219059
 # orange-juice 1401 products in 9 languages @2018-09-28
+ciqual_proxy_food_code:en:2070
+ciqual_proxy_food_name:en:Orange juice, pure juice
 
 <en:orange juice
 fr:Jus d'orange IGP Valencia
@@ -40541,6 +40618,8 @@ sk:pomarančová šťava z pomarančového koncentrátu
 sl:pomarančni sok iz pomarančnega zgoščenega soka
 sv:apelsinjuice från koncentrat, apelsinsaft av koncentrat, apelsinjuice gjord av apelsinjuicekoncentrat
 # fr:jus-d'orange-à-base-de-concentré 269 products @2018-09-28
+ciqual_food_code:en:2012
+ciqual_food_name:en:Orange juice, reconstituted from a concentrate
 
 <en:orange juice
 en:organic orange juice from orange juice concentrate
@@ -41251,7 +41330,7 @@ wikidata:en:Q5812410
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/blueberry
 # 943 producten in 13 languages @2018-10-01
 eurocode_2_group_3:en: 9.30.46
-ciqual_food_code:13028
+ciqual_food_code:en:13028
 ciqual_food_name:en:Blueberry, raw
 
 #en:the specific names are not seen as ingredient.
@@ -42098,6 +42177,8 @@ wikipedia:fr:https://fr.wikipedia.org/wiki/Noix_de_coco
 wikidata:en:Q3342808
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:noix-de-coco
 # 1209 products in 11 languages @2018-10-03
+ciqual_proxy_food_code:en:15006
+ciqual_proxy_food_name:fr:Coconut, ripe kernel, fresh
 
 #<en:compound
 en:coconut cream
@@ -42170,6 +42251,8 @@ pl:woda kokosowa
 pt:Água de cocô
 wikidata:en:Q633401
 wikipedia:en:https://en.wikipedia.org/wiki/Coconut_water
+ciqual_food_code:en:18011
+ciqual_food_name:en:Coconut water
 
 <en:coconut water
 en:natural coconut water
@@ -44133,7 +44216,7 @@ tr:ananas suyu
 zh:菠萝汁
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:jus-d'ananas
 # 287 products in 6 languages @2018-09-30
-ciqual_food_code:13716
+ciqual_food_code:en:13716
 ciqual_food_name:en:Pineapple, in pineapple juice, canned, drained
 
 <en:pineapple juice
@@ -47483,6 +47566,14 @@ wikidata:en:Q178547
 # ingredient/endive has 125 products @2019-05-22
 eurocode_2_group_3:en: 8.10.10
 
+en:Red endive
+ciqual_food_code:20162
+ciqual_food_name:en:Red endive, raw
+
+en:Green endive
+ciqual_food_code:20163
+ciqual_food_name:en:Green endive, raw
+
 # description:en:RADICCHIO is a perennial cultivated form of leaf chicory (Cichorium intybus, Asteraceae) sometimes known as Italian chicory because of its common use in Italian cuisine.
 
 <en:leaf vegetable
@@ -48632,6 +48723,9 @@ zh:香芹
 # xmf:მაკინდოლი
 # yue:番茜
 wikidata:en:q65522500
+ciqual_proxy_food_code:en:11014
+ciqual_proxy_food_name:en:Parsley, fresh
+ciqual_proxy_food_name:fr:Persil, frais
 # plant: wikidata:en:q25284
 wikipedia:en:https://en.wikipedia.org/wiki/parsley
 # en:22363 in 51 @2021-09-16
@@ -48854,7 +48948,7 @@ carbon_footprint_fr_foodges_ingredient:fr:Chou-Fleur
 carbon_footprint_fr_foodges_value:fr:0.5
 # en:cauliflower has 660 products in 5 languages @2018-10-17
 eurocode_2_group_3:en: 8.15.15
-ciqual_food_code:20016
+ciqual_food_code:en:20016
 ciqual_food_name:en:Cauliflower, raw
 
 <en:cauliflower
@@ -50171,7 +50265,7 @@ ja:チコリー
 nl:chicorij
 pl:cykoria, cykorii
 pt:chicória
-ciqual_food_code:20026
+ciqual_food_code:en:20026
 ciqual_food_name:en:Chicory, raw
 
 <en:chicory
@@ -51714,6 +51808,24 @@ eurocode_2_group_2:en: 8.34
 
 <en:vegetable
 en:taproot vegetable, tap-root vegetable
+ar:خضروات الجذر الرئيسية
+bg:Коренесто зеленчуково растение
+bn:ট্যাপরুট সবজি, ট্যাপ-রুট সবজি
+ca:Verdura de tija principal, verdura de tija arrel
+cs:Kořenová zelenina s hlavním kořenem
+cy:llysieuyn gwreidd-prif
+da:Rodfrugt med hovedrod
+de:Wurzelgemüse mit Hauptwurzel
+el:Λαχανικό με κύρια ρίζα
+eo:Radiklegomo kun ĉefa radiko
+es:verdura de raíz principal, verdura de raíz principal
+et:Põhijuurega juurviljad
+fa:سبزیجات ریشه‌ای با ریشه اصلی
+fi:Pääjuurikas
+fr:légume-racine à racine principale
+he:ירק שורש עם שורש ראשי
+hi:मुख्य जड़वाले सब्जी
+hr:Korjenasto povrće s glavnim korijenom
 eurocode_2_group_2:en: 8.38
 
 # description:en:ROOT VEGETABLES are underground plant parts eaten by humans as food.
@@ -52476,15 +52588,15 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sweet_potato
 # ingredient/fr:patate-douce has 327 products in 6 languages @2018-12-22
 nutriscore_fruits_vegetables_nuts:en:no
 eurocode_2_group_3:en: 8.34.30
-ciqual_food_code:4101
+ciqual_food_code:en:4101
 ciqual_food_name:en:Sweet potato, raw
 
 en:Cooked sweet potato
-ciqual_food_code:4102
+ciqual_food_code:en:4102
 ciqual_food_name:en:Sweet potato, cooked
 
 en:Sweet potato puree cooked with cream
-ciqual_food_code:4103
+ciqual_food_code:en:4103
 ciqual_food_name:en:Sweet potato, puree, cooked with cream
 
 <en:sweet potato
@@ -53171,7 +53283,7 @@ ciqual_food_name:en:Avocado, pulp, raw
 ciqual_food_name:fr:Avocat, pulpe, cru
 
 en:Guacamole
-ciqual_food_code:25620
+ciqual_food_code:en:25620
 ciqual_food_name:en:Guacamole, prepacked
 
 <en:avocado
@@ -53707,10 +53819,6 @@ eurocode_2_group_3:en: 8.38.55
 # fr:poudre-de-betterave has 55 products in 1 language @2018-10-22
 
 <en:beetroot
-en:beetroot sugar
-es:azucar de remolacha
-
-<en:beetroot
 en:beetroot syrup
 de:Rote-Beete-Sirup
 es:sirope de remolacha
@@ -53746,6 +53854,20 @@ sk:koncentrát šťavy z cvikly
 
 <en:beetroot
 fr:concentré de betterave
+bg:концентрат от цвекло
+cs:koncentrát z červené řepy
+de:Rote-Bete-Konzentrat
+es:concentrado de remolacha
+fi:punajuuritiiviste
+it:concentrato di barbabietola
+ja:ビーツ濃縮液
+lt:raudonųjų burokėlių koncentratas
+nl:bietensapconcentraat
+pl:koncentrat z buraka
+pt:concentrado de beterraba
+ru:концентрат свеклы
+sk:koncentrát z cvikly
+sv:rödbetskoncentrat
 
 <en:beetroot
 # <en:fibre
@@ -54449,6 +54571,10 @@ fr:salade mélangée verte et rouge
 # <en:compound
 <en:salad
 fr:salade composée
+en:mixed salad
+de:gemischter Salat
+es:ensalada mixta
+it:insalata mista
 # ingredient/fr:salade-composée has 97 products in french @2019-04-16
 # usage:fr: Salade composée 88% : Scarole, carotte râpées, maïs (maïs, sucre, sel), emmental 12%, dés de jambon cuit supérieur 12% (jambon de porc 10,9%, sel, sirop de glucose, dextrose, arômes naturels, antioxydant : ascorbate de sodium, conservateur: nitrite de sodium), frisée, chicorée rouge.
 
@@ -54845,6 +54971,9 @@ it:purea di peperoncino
 en:chili in vinegar
 de:Chilli in Essig
 es:guindillas en vinagre
+fr:piments au vinaigre
+it:peperoncini sott'aceto
+nl:chilipepers in azijn
 
 <en:chili pepper
 en:preserved chili pepper
@@ -55141,6 +55270,9 @@ en:Korean chili pepper
 <en:Korean chili pepper
 en:Korean chili powder, gochugaru
 xx:gochugaru
+de:Koreanisches Chilipulver, Gochugaru
+es:Pimentón coreano en polvo, gochugaru
+fr:Poudre de piment coréen, gochugaru
 
 <en:vegetable
 en:sichuan pepper
@@ -58200,6 +58332,10 @@ nl:groene spliterwten
 <en:green split pea
 fr:Farine de pois cassés
 es:Harina de guisantes partidos
+en:Split pea flour
+de:Erbsenmehl
+it:Farina di piselli spezzati
+nl:Split erwtenmeel
 # 9@2019-06-05
 
 # popular in Latvia
@@ -58336,10 +58472,17 @@ eurocode_2_group_3:en: 7.10.25
 en:pardina lentils
 de:Pardina Linsen
 es:lenteja pardina
+fr:lentilles pardina
+it:lenticchie pardina
+pt:lentilhas pardina
 
 <en:lentils
 en:Dried lentils
 fr:Lentilles sèches
+es:Lentejas secas
+de:Getrocknete Linsen
+it:Lenticchie secche
+pt:Lentilhas secas
 ciqual_food_code:en:20504
 ciqual_food_name:en:Lentil, dried
 ciqual_food_name:fr:Lentille, sèche
@@ -58940,6 +59083,10 @@ pl:pasta z migdałów, pasta migdałowa
 <en:almond
 fr:amandes caramélisées
 pt:amêndoa caramelizada, amêndoas caramelizadas
+es:almendras caramelizadas
+it:mandorle caramellate
+nl:gekarameliseerde amandelen
+de:karamellisierte Mandeln
 
 # fr:praliné aux amandes et aux noisettes is a compound ingredient
 
@@ -59041,24 +59188,24 @@ sv:cashewnötter, cashewnöt
 tr:kaju
 zh:腰果
 wikidata:en:Q28788216
-ciqual_proxy_food_code:15055
+ciqual_proxy_food_code:en:15055
 ciqual_proxy_food_name:en:Cashew nut, dry-grilled, unsalted
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/cashew-nuts
 # 999 in 12 languages products @2018-10-05
 
 <en:cashew nuts
 en:grilled and salted cashew nut
-ciqual_food_code:15019
+ciqual_food_code:en:15019
 ciqual_food_name:en:Cashew nut, grilled, salted
 
 <en:cashew nuts
 en:grilled and unsalted cashew nut
-ciqual_food_code:15054
+ciqual_food_code:en:15054
 ciqual_food_name:en:Cashew nut, grilled, unsalted
 
 <en:cashew nuts
 en:dry-grilled and unsalted cashew nut
-ciqual_food_code:15055
+ciqual_food_code:en:15055
 ciqual_food_name:en:Cashew nut, dry-grilled, unsalted
 
 <en:cashew nuts
@@ -59070,7 +59217,8 @@ hr:indijski oraščić sirovi
 
 <en:cashew nuts
 en:cashew nut paste
-de:Cashewpaste, Cashewnusspaste
+de:Cashewpaste, Cashewnusspaste, Cashewmus
+fr:pâte de noix de cajou, purée de noix de cajou
 es:pasta de anacardos
 
 ###################################################################################################
@@ -59164,6 +59312,9 @@ origins:en: en:Europe
 <en:chestnut
 en:chestnut powder
 ja:くりパウダー
+es:polvo de castaña
+fr:poudre de châtaigne
+it:farina di castagne
 
 <en:chestnut
 fr:marron, marrons
@@ -59442,11 +59593,19 @@ sv:hasselnötsmassa, hasselnötspasta
 <en:biscuit
 en:hazelnut paste with pieces of biscuits
 hr:lješnjak punjenje s komadićima Digestive keksa
+es:pasta de avellana con trozos de galletas
+fr:pâte à la noisette avec des morceaux de biscuits
+it:pasta di nocciole con pezzi di biscotti
+nl:hazelnootpasta met stukjes koekjes
 
 <en:filling
 <en:hazelnut
 en:hazelnut filling
 hr:punjenje od lješnjaka
+es:relleno de avellana
+fr:garniture à la noisette
+it:ripieno di nocciole
+nl:hazelnootvulling
 
 # hazelnut praline is a compound product i.e.:(hazelnut, sugar)
 
@@ -59504,7 +59663,12 @@ wikidata:en:Q795158
 
 <en:maca
 en:black maca root
-hr:korijena crne mace 
+hr:korijena crne mace
+es:raíz de maca negra
+fr:racine de maca noire
+it:radice di maca nera
+nl:zwarte maca wortel
+pt:raiz de maca preta
 
 # A 2015 multi-center study found differences in taxonomy, visual appearance, phytochemical profiles and DNA sequences when comparing L. meyenii and L. peruvianum, suggesting that they are in fact different and that their names should not be considered synonyms
 # source:wikipedia:en:https://en.wikipedia.org/wiki/Lepidium_meyenii
@@ -59593,7 +59757,7 @@ bs:kikiriki
 ca:Cacauet, cacauets
 cs:arašídy
 da:jordnødder, jordnød, peanuts
-de:Erdnuss, Erdnüsse, Erdnusse, Erdnusskerne
+de:Erdnuss, Erdnüsse, Erdnüssen, Erdnusse, Erdnusskerne
 el:αραχίδες, αραχίδα, αραπικα φιστικια
 eo:ternukso
 es:cacahuetes, cacahuete, cacahuates, cacahuate,maní
@@ -59655,6 +59819,8 @@ ciqual_food_name:en:Peanut
 en:peanut paste
 de:Erdnusspaste
 hr:pasta od kikirikija, kikiriki pasta
+es:pasta de cacahuete
+it:crema di arachidi
 
 <en:peanut
 en:roasted peanuts
@@ -59712,6 +59878,9 @@ de:Erdnüsse mit Schale
 es:cacahuete con cáscara
 fi:kuorellinen maapähkinä
 fr:cacahuète avec coque
+it:arachidi con guscio
+nl:pinda met schil
+pt:amendoim com casca
 
 <en:peanut
 en:peanut flour
@@ -60041,6 +60210,8 @@ it:noci secche
 <en:walnut
 en:walnuts from Grenoble
 fr:noix de Grenoble
+es:nueces de Grenoble
+it:noci di Grenoble
 
 <en:walnuts from Grenoble
 en:dried walnuts rom Grenoble
@@ -61311,6 +61482,8 @@ zh:芝麻
 # zh-tw:胡麻
 allergens:en: en:sesame seeds
 wikidata:en:Q2763698
+ciqual_food_code:15010
+ciqual_food_name:en:Sesame seed
 # ingredient/fr:sésame has 1745 products @2018-10-05
 
 <en:sesame
@@ -62374,6 +62547,9 @@ uk:куркума
 ur:ہلدی
 vi:nghệ
 zh:薑黃
+ciqual_proxy_food_code:en:11089
+ciqual_proxy_food_name:en:Turmeric, powder
+ciqual_proxy_food_name:fr:Curcuma, poudre
 # ace:kunyèt
 # azb:kurkuma
 # bcl:kalawag
@@ -62620,7 +62796,7 @@ yi:קארדעמאן
 # tcy:ಏಲಕ್ಕಿ
 wikipedia:en:https://en.wikipedia.org/wiki/Cardamom
 # en:cardamon has 416 products in 12 languages @2018-10-24
-ciqual_proxy_food_code:11075
+ciqual_proxy_food_code:en:11075
 ciqual_proxy_food_name:en:Cardamom, powder
 
 <en:cardamom
@@ -63954,6 +64130,8 @@ wo:anet
 zh:蒔蘿
 description:en:dill (anethum graveolens) is an annual herb in the celery family apiaceae. dill is widely grown in eurasia where its leaves and seeds are used as a herb or spice for flavouring food.
 comment:en:the wikidata page mixes the common name and latin name
+ciqual_food_code:11093
+ciqual_food_name:en:Dill, fresh
 # aeb-arab:شبت
 # aeb-latn:ch'ebt
 # arz:شبت
@@ -65737,6 +65915,9 @@ sl:origano
 uk:орегано
 xx:oregano
 wikipedia:en:Q92581152
+ciqual_proxy_food_code:en:11035
+ciqual_proxy_food_name:en:Oregano, dried
+ciqual_proxy_food_name:fr:Origan, séché
 #plant: wikipedia:en:Q134283
 # plante:https://fr.wikipedia.org/wiki/Origanum_vulgare
 # 9423 in 29 @2021-09-17
@@ -67186,7 +67367,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Olive
 carbon_footprint_fr_foodges_ingredient:fr:Olives "Pays du Sud" en boite
 carbon_footprint_fr_foodges_value:fr:1.7
 eurocode_2_group_3:en: 8.40.65
-ciqual_food_code:13184
+ciqual_food_code:en:13184
 ciqual_food_name:en:Olive (average)
 
 <en:olive
@@ -67222,7 +67403,7 @@ sv:gröna oliver
 tr:yeşil zeytin
 wikidata:en:Q26879770
 # ingredient/fr:olive-verte has 577 products in 6 languages @2018-12-01
-ciqual_food_code:13033
+ciqual_food_code:en:13033
 ciqual_food_name:en:Olives, green, in brine
 
 <en:green olive
@@ -67267,9 +67448,9 @@ sv:svarta oliver
 tr:siyah zeytin
 wikidata:en:Q56475549
 # ingredient/black-olive has 872 products in 7 languages @2018-12-01
-# ciqual_food_code:13032
+# ciqual_food_code:en:13032
 # ciqual_food_name:en:Olives, black, in brine
-ciqual_food_code:13186
+ciqual_food_code:en:13186
 ciqual_food_name:en:Olives, black (average food)
 
 <en:flavouring
@@ -67322,7 +67503,7 @@ pl:oliwki kalamon całe
 
 <en:black olive
 en:black olives in oil
-ciqual_food_code:13131
+ciqual_food_code:en:13131
 ciqual_food_name:en:Olives, black, in oil (Greek olive)
 
 # <en:compound
@@ -67330,7 +67511,7 @@ ciqual_food_name:en:Olives, black, in oil (Greek olive)
 en:stuffed olives
 de:Gefüllte Oliven
 fr:olives farcies
-ciqual_food_code:13147
+ciqual_food_code:en:13147
 ciqual_food_name:en:Olive, green, stuffed (anchovy, sweet peppers, etc…)
 # usage:fr:Olives farcies  [olives vertes dénoyautées, farce à la pâte d'ail (eau, ail, épaississant : alginate de sodium, conservateur : sorbate de potassium)]
 
@@ -69274,7 +69455,7 @@ vegan:en:yes
 vegetarian:en:yes
 nutriscore_fruits_vegetables_nuts:en:yes
 # ingredient/algae has 135 products in 4 languages @2019-01-27
-ciqual_proxy_food_code:20984
+ciqual_proxy_food_code:en:20984
 ciqual_proxy_food_name:en:Wakame (Undaria pinnatifida), dried or dehydrated
 
 <en:algae
@@ -71755,6 +71936,8 @@ carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage entier
 carbon_footprint_fr_foodges_value:fr:10.2
 carbon_footprint_fr_foodges_ingredient:fr:Poisson sauvage (filet)
 carbon_footprint_fr_foodges_value:fr:11.5
+ciqual_proxy_food_code:en:26140
+ciqual_proxy_food_name:en:Fish, cooked (average)
 
 # Fish are classified as while or oily
 <en:fish
@@ -72625,9 +72808,13 @@ sv:torskfilé, filér av torsk
 # ingredient/fr:filet-de-cabillaud has 32 products in french @2018-12-29
 
 <en:cod
+en:smoked cod roe
 fr:oeufs de cabillaud fumés
+es:huevas de bacalao ahumadas
+de:geräucherter Kabeljaukaviar
+it:uova di merluzzo affumicate
 
-<fr:oeufs de cabillaud fumés
+<en:smoked cod roe
 fr:oeufs de cabillaud salés et fumés, œufs de cabillaud fumés et salés, oeufs de cabillaud fumés et salés
 # ingredient/fr:œufs-de-cabillaud-fumés-et-salés has 30 products in french @2018-12-29
 
@@ -73764,6 +73951,8 @@ en:pangas fillet
 de:Pangasiusfilets
 fr:filets de pangas
 it:filetti di pangasio
+es:filetes de pangas
+nl:pangasiusfilets
 
 #description:en:Trisopterus luscus (bib, pout whiting, pout or most commonly pouting) is a seafish belonging to the cod family (Gadidae).
 
@@ -73912,7 +74101,7 @@ bs:losos
 ca:salmó
 cs:losos
 da:Laks
-de:Lachse, Lachs
+de:Lachs, Lachse
 eo:Salmo
 es:salmón
 eu:Izokin
@@ -73975,12 +74164,21 @@ ciqual_food_name:fr:Saumon, cru, élevage
 #TODO check proxy
 
 <en:salmon
+en:wild salmon
+de:Wildlachs
+fr:saumon sauvage
+
+<en:salmon
 en:raw salmon
 bg:сурова сьомга
 de:Roher Lachs
 fr:saumon cru
 nl:rauwe zalm
 pt:Salmão cru
+es:salmon crudo
+it:salmone crudo
+pl:surowy łosoś
+ru:сырая лосось
 # ingredient/raw-salmon has 100 products in 3 languages @2021-08-15
 ciqual_food_code:en:26036
 ciqual_food_name:en:Salmon, raw, farmed
@@ -73990,13 +74188,20 @@ ciqual_food_name:fr:Saumon, cru, élevage
 <en:raw salmon
 en:raw farmed Salmon
 fr:Saumon cru d'élevage
+es:Salmón crudo de piscifactoría
+de:Roher gezüchteter Lachs
+it:Salmone crudo di allevamento
 ciqual_food_code:en:26036
 ciqual_food_name:en:Salmon, raw, farmed
 ciqual_food_name:fr:Saumon, cru, élevage
 
 <en:raw salmon
+<en:wild salmon
 en:raw wild Salmon
 fr:Saumon cru sauvage
+es:Salmón crudo salvaje
+de:Roher wilder Lachs
+it:Salmone crudo selvaggio
 ciqual_food_code:en:26161
 ciqual_food_name:en:Salmon, raw, wild
 ciqual_food_name:fr:Saumon, cru, sauvage
@@ -74062,11 +74267,19 @@ ciqual_food_name:en:Salmon, smoked
 
 <en:smoked salmon
 fr:chutes de saumon fumé
+en:smoked salmon trimmings
+de:geräucherte Lachsschnitte
+es:recortes de salmón ahumado
+it:scarti di salmone affumicato
+nl:gerookte zalmresten
 
 <en:salmon
 en:scottish salmon
 de:schottischer Lachs
 fr:saumon d'écosse
+es:salmon escocés
+it:salmone scozzese
+nl:Schotse zalm
 
 #description:en:The Atlantic salmon (Salmo salar) is a species of ray-finned fish in the family Salmonidae.
 
@@ -74151,6 +74364,9 @@ en:smoked atlantic salmon
 bg:пушена атлантическа сьомга
 de:geräucherter Atlantik-Lachs, geräucherter Atlantiklachs
 fr:saumon Atlantique fumé
+es:salmón atlántico ahumado
+it:salmone atlantico affumicato
+pt:salmão atlântico defumado
 
 
 <en:salmon fillet
@@ -74375,15 +74591,16 @@ ciqual_food_name:fr:Sardine, crue
 # 1553 in 20 @2021-09-15
 
 #processing:en: en:fillet
-#<en:sardine
-#en:sardine fillets
-#de:Sardinenfilets
-#fi:sardiinifilee
-#fr:filets de sardines
-#it:filetti di sardine
-#nl:sardinefilets
-#sk:filety sardiniek
+<en:sardine
+en:sardine fillets
+de:Sardinenfilets
+fi:sardiinifilee
+fr:filets de sardines
+it:filetti di sardine
+nl:sardinefilets
+sk:filety sardiniek
 # 142 in 5 languages @2021-09-21
+# We disabled it because we can catch it in processing, but as a result, it does not inherit the CIQUAL property of sardines
 
 #processing:en: en:pre-cooked
 #<en:sardine fillets
@@ -74458,6 +74675,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Scorpaenidae
 <en:scorpion fish
 en:Steamed spiny scorpionfish
 fr:Rascasse cuite à la vapeur
+es:Rascacio al vapor
+de:Gedämpfter Drachenkopf
+it:Scorfano spinoso al vapore
 ciqual_food_code:en:26148
 ciqual_food_name:en:Spiny scorpionfish, steamed
 ciqual_food_name:fr:Rascasse, cuite à la vapeur
@@ -74489,6 +74709,10 @@ zh:龍脷
 <en:fish
 en:Tonguesole
 fr:sole tropicale, sole langue
+en:tropical sole, tongue sole
+es:lenguado tropical, lenguado lengua
+de:tropische Seezunge, Zungenzunge
+it:sole tropicale, sogliola lingua
 la:Cynoglossus spp
 ciqual_food_code:en:26200
 ciqual_food_name:en:Tonguesole, raw
@@ -77013,7 +77237,7 @@ de:Jakobsmuschel ohne Koralle
 es:Vieira sin coral
 fr:Noix de Saint-Jacques sans corail
 it:Capasanta senza corallo
-ciqual_food_code:10045
+ciqual_food_code:en:10045
 ciqual_food_name:en:Scallop, without coral, raw
 
 <en:scallop
@@ -77029,7 +77253,7 @@ fr:Coquilles Saint-Jacques avec noix
 es:Vieira con coral
 de:Jakobsmuschel mit Koralle
 it:Capasanta con corallo
-ciqual_food_code:10003
+ciqual_food_code:en:10003
 ciqual_food_name:en:Scallop, with coral, raw
 
 
@@ -80194,7 +80418,7 @@ vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Café moulu
 carbon_footprint_fr_foodges_value:fr:15.7
 # ingredient/en:coffee has 1637 products in 10 languages @2018-11-30
-ciqual_proxy_food_code:18003
+ciqual_proxy_food_code:en:18003
 ciqual_proxy_food_name:en:Coffee, ground
 
 <en:preparation
@@ -80235,13 +80459,13 @@ hr:dekofeinizirani kave
 it:Caffè decaffeinato
 nl:Cafeïnevrije koffie
 # ingredient/fr:cafe-decafeine has 8 products @2019-06-03
-ciqual_food_code:18070
+ciqual_food_code:en:18070
 ciqual_food_name:en:Decaffeinated not instant coffee, without sugar, ready-to-drink
 
 <en:instant coffee
 <en:decaffeinated coffee
 fr:café soluble décaféiné
-ciqual_food_code:18069
+ciqual_food_code:en:18069
 ciqual_food_name:en:Decaffeinated coffee, powder, instant
 
 <en:decaffeinated coffee
@@ -80318,12 +80542,12 @@ zh:小果咖啡
 wikidata:en:Q47685
 wikipedia:en:https://en.wikipedia.org/wiki/Coffea_arabica
 # ingredient/fr:café-arabica has 38 products in 5 languages @2018-11-30
-ciqual_proxy_food_code:18003
+ciqual_proxy_food_code:en:18003
 ciqual_proxy_food_name:en:Coffee, ground
 
 <en:arabica coffee
 fr:mélange de café arabica
-ciqual_proxy_food_code:18003
+ciqual_proxy_food_code:en:18003
 ciqual_proxy_food_name:en:Coffee, ground
 
 <en:arabica coffee
@@ -80771,7 +80995,7 @@ wikidata:en:Q23425
 wikidata:en:Q1365891
 # ingredient/gherkin has 1006 products in 8 languages @2018-12-01
 nutriscore_fruits_vegetables_nuts:en:yes
-ciqual_proxy_food_code:11004
+ciqual_proxy_food_code:en:11004
 ciqual_proxy_food_name:en:Gherkin, pickled in vinegar
 
 <en:gherkin
@@ -80783,7 +81007,7 @@ nl:augurken op azijn
 # fr:cornichons-au-vinaigre has 39 products in 2 languages @2018-12-01
 eurocode_2_group_2:en: 8.70
 eurocode_2_group_3:en: 8.70.40
-ciqual_food_code:11004
+ciqual_food_code:en:11004
 ciqual_food_name:en:Gherkin, pickled in vinegar
 
 # <en:compound
@@ -83891,7 +84115,7 @@ sv:hallonfyllning
 # usage:en:raspberry filling (raspberries, water, granulated sugar, pectin, and citric acid)
 # mainIngredient:en:raspberry
 # ingredient/en:raspberry-filling has 112 products in 1 language @2020-06-13
-ciqual_proxy_food_code:31062
+ciqual_proxy_food_code:en:31062
 ciqual_proxy_food_name:en:Jam, raspberry
 
 <en:filling
@@ -86002,7 +86226,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Bread_crumbs
 vegan:en:maybe
 vegetarian:en:maybe
 # fr:chapelure has 2441 products in 7 languages @2018-11-12
-ciqual_food_code:7500
+ciqual_food_code:en:7500
 ciqual_food_name:en:Breadcrumbs
 
 <en:breadcrumbs
@@ -88094,7 +88318,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Béchamel_sauce
 allergens:en: en:milk
 # ingredient/fr:sauce-béchamel has 89 products in 4 languages @2019-04-04
 # usage:en:Bechamel sauce (water, wheat flour, skimmed milk powder, sunflower oil, whey powder, whole cream, corn starch, salt iodized cooking, butter)
-ciqual_food_code:11101
+ciqual_food_code:en:11101
 ciqual_food_name:en:Bechamel sauce, prepacked
 
 #<en:compound
@@ -89202,7 +89426,7 @@ description:fr:La sauce béarnaise, ou la béarnaise, est une sauce émulsifiée
 description:it:La salsa bernese o salsa bearnaise o semplicemente la bernese, è una salsa di condimento.
 description:nl:Bearnaisesaus is een saus gemaakt van opgeklopte boter en eigeel met toevoeging van een gastrique, bestaande uit wijn, azijn, dragon, mignonettes, kervel, bouquet garni en sjalotten.
 # 9 in 1 language @2021-09-02
-ciqual_food_code:11102
+ciqual_food_code:en:11102
 ciqual_food_name:en:Bearnaise sauce, prepacked
 
 <en:béarnaise sauce
