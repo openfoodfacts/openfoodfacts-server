@@ -22283,6 +22283,10 @@ sv:enbärsarom
 en:horseradish flavouring
 de:Meerrettich-Aroma
 fi:piparjuuriaromi
+fr:arôme de raifort
+hr:aroma hrena
+pl:aromat chrzanu
+ru:аромат хрена
 sv:pepparrotsarom
 # ingredient/fi:piparjuuriaromi has 1 product in 1 language @2020-06-08
 
@@ -22305,6 +22309,11 @@ sv:maltarom
 
 <en:flavouring
 en:barley malt flavouring
+de:Gerstenmalzaroma
+es:aroma de malta de cebada
+fi:ohramallasaromi
+fr:arôme de malt d'orge
+sv:kornmaltarom
 
 <en:natural flavouring
 en:natural malt flavouring
@@ -22361,10 +22370,10 @@ sv:champinjonarom
 # ingredient/fr:arome-champignon has 9 products in 1 language @2020-06-12
 
 <en:natural flavouring
-fr:arôme naturel de clou de girofle
 en:natural clove flavoring
 de:natürliches Nelkenaroma
 es:aroma natural de clavo
+fr:arôme naturel de clou de girofle
 it:aroma naturale di chiodo di garofano
 
 <en:natural flavouring
@@ -23390,6 +23399,9 @@ fr:semoule blanche de blé dur
 
 <fr:semoule blanche de blé dur
 fr:semoule de blé dur blanche biologique
+it:semolina di grano duro bianca biologica
+de:biologische weiße Hartweizengrieß
+es:sémola de trigo duro blanca orgánica
 
 <fr:semoule de blé dur blanche biologique
 fr:semoule blanche de blé dur biologique de sicile
@@ -23993,11 +24005,32 @@ allergens:en: en:gluten
 
 <en:barley
 en:organic barley
-hr:eko ječam
+bg:био ечемик
+da:økologisk byg
+de:Bio-Gerste
+es:cebada orgánica
+fi:luomuohra
+hu:bio árpa
+hr:organski ječam, eko ječam
+it:Orzo biologico
+nl:biologische gerst
+nn:økologisk bygg
+pt:cevada orgânica
 
 <en:barley
 en:sprouted barley
-pl:kiełki jęczmienia
+bg:прораснал ечемик
+da:spiret byg
+de:gekeimte Gerste
+es:cebada germinada
+fi:idätetty ohra
+fr:orge germée
+hu:csíráztatott árpa
+it:Orzo germogliato
+nl:gekiemde gerst
+nn:spiret bygg
+pl:jęczmień kiełkowany, kiełki jęczmienia
+pt:cevada germinada
 
 <en:barley
 en:wholemeal barley
@@ -60169,9 +60202,9 @@ ciqual_food_name:fr:Noix, séchée, cerneaux
 
 <en:walnut
 en:dried walnuts
-fr:noix sèches
-es:nueces secas
 de:getrocknete Walnüsse
+es:nueces secas
+fr:noix sèches
 it:noci secche
 
 <en:walnut
