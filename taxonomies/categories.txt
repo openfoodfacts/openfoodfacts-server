@@ -33387,7 +33387,7 @@ ja:ロールパン
 lt:Bandelės
 nl:Broodjes
 sv:Bullars
-intake24_category_code:en:22BSNDR 
+intake24_category_code:en:BRDR 
 
 <en:Breads
 en:Breadsticks, Grissini, Bread sticks
@@ -33423,6 +33423,7 @@ nl:Bruine broden, Bruinbrood, Bruin brood
 ro:Pâine brună, Pâine neagră
 ru:Цельнозерновой хлеб
 wikidata:en:Q940999
+intake24_category_code:en:BBRD 
 
 <en:Breads
 en:Dried breads
@@ -33554,13 +33555,9 @@ ciqual_food_name:fr:Pain de seigle, et froment
 
 <en:Breads
 en:Pumpernickel
-de:Pumpernickel
-es:Pumpernickel
-fr:Pumpernickel
-it:Pumpernickel
+xx:Pumpernickel
 nl:Pompernikkel
 pl:Pumpernikiel
-pt:Pumpernickel
 wikidata:en:Q837207
 
 <en:Breads
@@ -34035,8 +34032,6 @@ ciqual_food_code:en:7310
 ciqual_food_name:en:Rusk, unsalted
 ciqual_food_name:fr:Biscotte sans adjonction de sel
 
-
-
 <en:Breads
 en:Pains de campagne, Pain de campagne
 de:Landbrot
@@ -34157,7 +34152,7 @@ ciqual_food_code:en:7262
 ciqual_food_name:en:Rolls for hamburger/hotdog (buns), wholemeal, prepacked
 ciqual_food_name:fr:Pain pour hamburger ou hot dog (bun), complet, préemballé
 
-<en:Special breads
+<en:Flatbreads
 en:Naans, Naan
 de:Naans
 es:Naans, Naan
@@ -103322,10 +103317,12 @@ lt:Duona su razinomis, Razinų sluoksniuota tešla, Vienos pyragaičiai, Vienos 
 nl:Rozijnenbroden, Rozijnenbrood
 ro:Pâini cu stafide, Pâine cu stafide
 #Escargot aux raisin a subcategory?
+intake24_category_code:en:FTBD 
 agribalyse_food_code:en:7720
 ciqual_food_code:en:7720
 ciqual_food_name:en:Raisin puff pastry (Viennese pastries)
 ciqual_food_name:fr:Pain aux raisins (viennoiserie)
+#comment:en:issue here on wheteher it based on puff pastry or normal bread
 
 <en:Viennoiseries
 en:Croissants
