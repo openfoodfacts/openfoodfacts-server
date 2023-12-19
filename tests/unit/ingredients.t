@@ -828,6 +828,13 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "butter (milk), cheese (parmigiano reggiano)",
 		}
 	],
+	[
+		"fr-ingredients-in-parenthesis-that-are-in-the-allergens-taxonomy",
+		{
+			lc => "fr",
+			ingredients_text => "beurre (lait), fromage (parmesan)",
+		}
+	],	
 );
 
 foreach my $test_ref (@tests) {
