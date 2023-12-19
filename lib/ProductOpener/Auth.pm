@@ -46,10 +46,13 @@ BEGIN {
 		&access_to_protected_resource
 		&callback
 		&password_signin
+		&verify_access_token
 		&verify_id_token
 		&get_user_id_using_token
 		&create_user_in_keycloak
 		&get_token_using_client_credentials
+		&get_token_using_password_credentials
+		&get_azp
 
 		$oidc_discover_document
 		$jwks
@@ -136,7 +139,7 @@ sub callback ($request_ref) {
 		code => $code,
 		redirect_uri => $callback_uri,
 	) or display_error_and_exit($client->errstr, 500);
-	$log->info('got access token', {access_token => $access_token}) if $log->is_info();
+	$log->info('got access token during callback', {access_token => $access_token}) if $log->is_info();
 
 	my %cookie_ref = cookie($cookie_name);
 	my $nonce = $cookie_ref{'nonce'};
@@ -392,7 +395,7 @@ sub get_token_using_password_credentials ($username, $password) {
 	}
 
 	my $access_token = decode_json($token_response->content);
-	$log->info('got access token', {access_token => $access_token}) if $log->is_info();
+	$log->info('got access token from password credentials', {access_token => $access_token}) if $log->is_info();
 	return $access_token;
 }
 
@@ -430,7 +433,7 @@ sub get_token_using_client_credentials () {
 	}
 
 	my $access_token = decode_json($token_response->content);
-	$log->info('got access token', {access_token => $access_token}) if $log->is_info();
+	$log->info('got access token client credentials', {access_token => $access_token}) if $log->is_info();
 	return $access_token;
 }
 
@@ -467,6 +470,19 @@ sub generate_signin_cookie ($nonce, $return_url) {
 	return cookie(%$cookie_ref);
 }
 
+sub verify_access_token ($access_token_string) {
+	_ensure_oidc_is_discovered();
+
+	my $access_token_verified = decode_jwt(token => $access_token_string, kid_keys => $jwks);
+	$log->debug('access_token found', {access_token => $access_token_string, access_token => $access_token_verified})
+		if $log->is_debug();
+	unless ($access_token_verified) {
+		return;
+	}
+
+	return $access_token_verified;
+}
+
 sub verify_id_token ($id_token_string) {
 	_ensure_oidc_is_discovered();
 
@@ -478,6 +494,44 @@ sub verify_id_token ($id_token_string) {
 	}
 
 	return $id_token_verified;
+}
+
+=head2 get_azp($access_token)
+
+Gets the Client ID of the authorized party
+
+=head3 Arguments
+
+=head4 Access token $access_token
+
+=head3 Return values
+
+The Client ID of the authorized party, given that the
+token is issues by the correct issuer.
+
+=cut
+
+sub get_azp ($access_token) {
+	if (not(defined $access_token)) {
+		return;
+	}
+
+	_ensure_oidc_is_discovered();
+
+	if (not($oidc_discover_document->{iss} eq $access_token->{iss})) {
+		$log->warn(
+			'Given token was not issued by the correct issuer',
+			{
+				actual_iss => $access_token->{iss},
+				expected_iss => $oidc_discover_document->{iss},
+				azp => $access_token->{azp},
+				sub => $access_token->{sub}
+			}
+		) if $log->is_warn();
+		return;
+	}
+
+	return $access_token->{azp};
 }
 
 sub _get_client () {

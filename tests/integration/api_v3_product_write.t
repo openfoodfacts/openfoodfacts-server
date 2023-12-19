@@ -3,13 +3,17 @@
 use ProductOpener::PerlStandards;
 
 use Test::More;
+use Log::Any::Adapter 'TAP';
+use Log::Any qw($log);
+
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::Auth qw/get_token_using_password_credentials/;
 
-use File::Basename "dirname";
+use File::Basename qw/dirname/;
 
-use Storable qw(dclone);
+use Storable qw/dclone/;
 
 wait_application_ready();
 
@@ -21,6 +25,9 @@ my $ua = new_client();
 
 my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
 create_user($ua, \%create_user_args);
+
+my $token = get_token_using_password_credentials('tests', $test_password)->{access_token};
+$log->debug('test token', {token => $token}) if $log->is_debug();
 
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
@@ -450,7 +457,7 @@ my $tests_ref = [
 	{
 		test_case => 'patch-auth-good-oauth-token',
 		method => 'PATCH',
-		path => '/api/v3/product/1234567890014',
+		path => '/api/v3/product/2234567890001',
 		body => '{
 			"fields": "creator,editors_tags,packagings",
 			"tags_lc": "en",
@@ -465,13 +472,13 @@ my $tests_ref = [
 			}
 		}',
 		headers_in => {
-			'Authentication' => 'Bearer 4711',
+			'Authentication' => 'Bearer ' . $token,
 		},
 	},
 	{
 		test_case => 'patch-auth-bad-oauth-token',
 		method => 'PATCH',
-		path => '/api/v3/product/1234567890015',
+		path => '/api/v3/product/2234567890002',
 		body => '{
 			"fields": "creator,editors_tags,packagings",
 			"tags_lc": "en",

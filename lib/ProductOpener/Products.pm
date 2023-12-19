@@ -706,7 +706,7 @@ sub get_owner_id ($userid, $orgid, $ownerid) {
 	return $ownerid;
 }
 
-=head2 init_product ( $userid, $orgid, $code, $countryid )
+=head2 init_product ( $userid, $orgid, $code, $countryid, $client_id = undef )
 
 Initializes and return a $product_ref structure for a new product.
 If $countryid is defined and is not "en:world", then assign this country for the countries field.
@@ -718,7 +718,7 @@ Returns a $product_ref structure
 
 =cut
 
-sub init_product ($userid, $orgid, $code, $countryid) {
+sub init_product ($userid, $orgid, $code, $countryid, $client_id = undef) {
 
 	$log->debug("init_product", {userid => $userid, orgid => $orgid, code => $code, countryid => $countryid})
 		if $log->is_debug();
@@ -748,9 +748,8 @@ sub init_product ($userid, $orgid, $code, $countryid) {
 		rev => 0,
 	};
 
-	if (defined $server) {
-		$product_ref->{server} = $server;
-	}
+	$product_ref->{server} = $server if defined $server;
+	$product_ref->{created_by_client} = $client_id if defined $client_id;
 
 	if ((defined $server_options{private_products}) and ($server_options{private_products})) {
 		my $ownerid = get_owner_id($userid, $orgid, $Owner_id);
@@ -1327,7 +1326,7 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 
 	$product_ref->{rev} = $rev;
 	$product_ref->{last_modified_by} = $user_id;
-	$product_ref->{last_modified_by_client} = $client_id;
+	$product_ref->{last_modified_by_client} = $client_id if defined $client_id;
 	$product_ref->{last_modified_t} = time() + 0;
 	if (not exists $product_ref->{creator}) {
 		my $creator = $user_id;

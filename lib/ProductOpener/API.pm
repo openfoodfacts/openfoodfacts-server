@@ -861,8 +861,8 @@ sub process_auth_header ($request_ref, $r) {
 		return;
 	}
 
-	my $id_token = verify_id_token($token);
-	unless ($id_token) {
+	my $access_token = verify_access_token($token);
+	unless ($access_token) {
 		add_error(
 			$request_ref->{api_response},
 			{
@@ -873,7 +873,7 @@ sub process_auth_header ($request_ref, $r) {
 		return;
 	}
 
-	$request_ref->{id_token} = $id_token;
+	$request_ref->{access_token} = $access_token;
 	return;
 }
 

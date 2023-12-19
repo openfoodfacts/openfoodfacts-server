@@ -53,6 +53,7 @@ use ProductOpener::API qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Auth qw/get_azp/;
 
 use Encode;
 
@@ -422,7 +423,7 @@ sub write_product_api ($request_ref) {
 
 		# The product does not exist yet, or the requested code is "test"
 		if (not defined $product_ref) {
-			$product_ref = init_product($User_id, $Org_id, $code, $country);
+			$product_ref = init_product($User_id, $Org_id, $code, $country, get_azp($request_ref->{access_token}));
 			$product_ref->{interface_version_created} = "20221102/api/v3";
 		}
 
@@ -468,7 +469,7 @@ sub write_product_api ($request_ref) {
 			# Save the product
 			if ($code ne "test") {
 				my $comment = $request_body_ref->{comment} || "API v3";
-				store_product($User_id, $product_ref, $comment, $request_ref->{client_id});
+				store_product($User_id, $product_ref, $comment, get_azp($request_ref->{access_token}));
 			}
 
 			# Select / compute only the fields requested by the caller, default to updated fields
