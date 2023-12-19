@@ -23,6 +23,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_proxy_food_code" : "26140",
                "id" : "en:fish",
                "percent_estimate" : 16.6666666666667,
                "percent_max" : 33.3333333333333,
@@ -83,11 +84,10 @@
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:fish",
       "en:flavouring",
       "en:nut"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 4,
    "lc" : "ja",
    "nutriments" : {

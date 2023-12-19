@@ -12,6 +12,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "26140",
          "id" : "en:surimi",
          "percent_estimate" : 18.75,
          "percent_max" : 50,
@@ -152,10 +153,9 @@
    "ingredients_without_ciqual_codes" : [
       "en:dough",
       "en:flour",
-      "en:gluten",
-      "en:surimi"
+      "en:gluten"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 3,
    "known_ingredients_n" : 13,
    "lc" : "en",
    "nutriments" : {
