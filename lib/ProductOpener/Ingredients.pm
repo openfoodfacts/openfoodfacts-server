@@ -1984,13 +1984,19 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 						if $log->is_debug();
 					if (
 						(
+							# only one sub-ingredient
 							($between !~ /$separators|$and/)
 							and (
 								(
+									# The ingredient in parenthesis is in the allergens taxonomy
 									exists_taxonomy_tag("allergens",
 										canonicalize_taxonomy_tag($ingredients_lc, "allergens", $between))
-									and (canonicalize_taxonomy_tag($ingredients_lc, "allergens", $between) eq "en:"
-										. $between)
+									# The ingredient in parenthesis is the actual allergen, not an ingredient that contains the allergen
+									# e.g. in the allergens taxonomy, "cheese" and "parmigiano" are synonyms of "en:milk"
+									# because they contain the allergen milk
+									# but we don't want to turn "cheese (parmigiano)" to "cheese".
+									# The regexp below only contain the main allergen names, not ingredients that contain that allergen
+									and (canonicalize_taxonomy_tag($ingredients_lc, "ingredients", $between) =~ /^en:(celery|crustacean|egg|fish|gluten|lactose|lupin-bean|lupin|milk|mollusc|mustard|nut|peanut|sesame|sesame-seeds|soy|soya|sulfite|e220)$/)
 								)
 							)
 						)
@@ -2004,7 +2010,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 						$between = ">allergens<:" . $between;
 
 						$log->debug(
-							"parse_ingredients_text - sub-ingredients: single allergens or keyword for allergen.")
+							"parse_ingredients_text - sub-ingredients: single allergen or keyword for allergen.")
 							if $log->is_debug();
 					}
 
