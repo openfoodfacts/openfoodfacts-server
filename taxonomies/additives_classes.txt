@@ -407,6 +407,9 @@ description:sv:Färgämnen: ämnen som tillför eller återställer färg hos li
 en:concentrated plant colour
 de:färbendes Pflanzenkonzentrat, färbende Pflanzenkonzentrate
 es:colorante vegetal concentrado
+fr:colorant végétal concentré
+it:colorante vegetale concentrato
+nl:geconcentreerde plantaardige kleurstof
 
 <en:colour
 en:natural colours
@@ -436,6 +439,12 @@ it:sostanze alimentari coloranti
 
 <en:colour
 fr:colorant de la croûte, colorants de croûte, colorants de la croûte
+en:crust colorant, crust colorants
+de:Krustenfarbstoff, Krustenfarbstoffe
+es:colorante de la corteza, colorantes de corteza
+pt:corante de crosta, corantes de crosta
+it:colorante della crosta, coloranti della crosta
+nl:korstkleurstof, korstkleurstoffen
 # ingredient/fr:colorant-de-la-croûte has 73 products in 2 languages @2019-03-27
 
 # http://www.fao.org/gsfaonline/additives/results.html?techFunction=10&searchBy=tf
@@ -603,7 +612,33 @@ description:sl:Utrjevalci so snovi, ki omogočajo ali ohranjajo čvrstost sadja 
 description:sv:Konsistensmedel: ämnen som gör eller håller frukt eller grönsaker fasta eller spröda eller som reagerar med geleringsmedel och bildar eller förstärker ett gel.
 
 <en:firming agent
-en:natural firming agent
+en: Natural firming agent
+bg: Естествен уплътнител
+ca: Agent de fermesa natural
+cs: Přírodní zpevňující látka
+da: Naturligt konsistensmiddel
+de: Natürliches Festigungsmittel
+el: Φυσικό σκληρυντικό
+es: Agente de endurecimiento natural
+et: Looduslik tardaine
+fi: Luonnollinen kiinteyttämisaine
+fr: Agent de fermeté naturel
+ga: Feidhmíonn nádúrtha
+hr: prirodni učvršćivač
+hu: Természetes szilárdítóanyag
+it: Agente di resistenza naturale
+lt: Natūralus kietiklis
+lv: Dabīgs cietinātājs
+mt: Aġent li jissoda naturali
+nb: Naturlig smaksforsterker
+nl: Natuurlijk verstevigingsmiddel
+pl: Naturalny wzmacniacz smaku
+pt: Agente de endurecimento natural
+ro: Agent de întărire natural
+ru: натуральный уплотнитель
+sk: Prírodné stužovadlo
+sl: Naravni utrjevalec
+sv: Naturligt konsistensmedel
 
 
 # nova:en:flavour-enhancer
@@ -656,6 +691,15 @@ description:pt:Intensificadores de sabor: substâncias que intensificam o sabor 
 description:sk:Zvýrazňovače chuti a arómy sú látky, ktoré zvýrazňujú existujúcu chuť a/alebo vôňu potraviny.
 description:sl:Ojačevalci arome so snovi, ki izboljšajo obstoječi okus in/ali vonj živila.
 description:sv:Smakförstärkare: ämnen som förstärker den existerande smaken och/eller lukten hos ett livsmedel.
+description:bg:Подобрители на вкуса са вещества, които подобряват вкуса и/или аромата на хранителни продукти.
+description:ca:Potenciadors del gust: substàncies que milloren el gust i/o l'olor d'un aliment.
+description:ga:Measaitheoirí blais: substaintí a mhéadaíonn blas agus/nó boladh bia.
+description:hr:pojačivači okusa su tvari koje poboljšavaju okus i/ili miris hrane.
+description:lt:Skonio stiprikliai yra medžiagos, kurios sustiprina maisto produkto skonį ir/arba kvapą.
+description:mt:Tejjieb il-ħwawar huma sostanzi li jtejjbu l-għażla tal-ħwawar u/jew l-riħ ta' ikel.
+description:ru:Усилители вкуса - это вещества, которые усиливают существующий вкус и/или запах пищевого продукта.
+description:sl:Ojačevalci okusa so snovi, ki izboljšujejo obstoječi okus in/ali vonj hrane.
+description:zh:增味劑是指能增強食品現有味道和/或氣味的物質。
 
 
 
@@ -705,6 +749,23 @@ description:pt:Agentes de tratamento da farinha: substâncias, com excepção do
 description:sk:Látky na zlepšenie vlastností múky sú látky iné ako emulgátory, ktoré sa pridávajú do múky alebo do cesta na zlepšenie ich vlastností pri pečení.
 description:sl:Sredstva za obdelavo moke so snovi, razen emulgatorjev, ki so dodane moki ali testu za izboljšanje njunih pecilnih lastnosti.
 description:sv:Mjölbehandlingsmedel: andra ämnen än emulgeringsmedel som tillförs mjöl eller deg för att förbättra dess bakegenskaper.
+description:bg:Вещества за обработка на брашното, различни от емулгаторите, които се добавят към брашното или тестото, за да подобрят неговото печене.
+description:ca:Agents de tractament de la farina: substàncies, diferents dels emulgent, que s'afegeixen a la farina o a la massa per millorar la seva qualitat de cocció.
+description:ga:Ábhair cóireála arán: substaintí, difriúil ón éimhleasaithe, a chuirtear le haran nó le cneáchtán chun a chaighdeán cócaireachta a fheabhsú.
+description:hr:Sredstva za tretiranje brašna su tvari, različite od emulgatora, koje se dodaju brašnu ili tijestu kako bi se poboljšala njegova kvaliteta pečenja.
+description:lt:Aktyviosios medžiagos, išskyrus emulsiklius, dedamos į miltus ar tešlą ir gerinančios miltų ar tešlos kepimo savybes.
+description:lv:Kliņģerīšu apstrādes līdzekļi ir vielas, izņemot emulgatorus, ko pievieno miltiem vai mīklai, lai uzlabotu to cepamīpašības.
+description:mt:Għodda ta' trattament tal-mel huma sostanzi, differenti mill-emulsifikanti, li jiġu żidu għall-mel jew għall-imqaret biex jtejbu l-kwalità tal-ħawar.
+description:nb:Melbehandlingsmidler er stoffer, andre enn emulgatorer, som tilsettes mel eller deig for å forbedre bakekvaliteten.
+description:nl:Meelverbeteraars: stoffen, met uitzondering van emulgatoren, die aan meel of deeg worden toegevoegd om de bakeigenschappen ervan te verbeteren.
+description:pl:Substancje do przetwarzania mąki (polepszacze) to substancje, inne niż emulgatory, dodawane do mąki lub ciasta w celu poprawy ich właściwości wypiekowych.
+description:pt:Agentes de tratamento da farinha: substâncias, com excepção dos emulsionantes, adicionadas à farinha ou à massa para melhorar a qualidade da cozedura.
+description:ro:Substanțele de tratare a făinii sunt substanțe, altele decât emulgatorii, care sunt adăugate la făină sau aluat pentru a îmbunătăți calitatea de coacere.
+description:ru:Вещества для обработки муки, отличные от эмульгаторов, добавляемые в муку или тесто для улучшения качества выпечки.
+description:sk:Látky na zlepšenie vlastností múky sú látky iné ako emulgátory, ktoré sa pridávajú do múky alebo do cesta na zlepšenie ich vlastností pri pečení.
+description:sl:Sredstva za obdelavo moke so snovi, razen emulgatorjev, ki so dodane moki ali testu za izboljšanje njunih pecilnih lastnosti.
+description:sv:Mjölbehandlingsmedel: andra ämnen än emulgeringsmedel som tillförs mjöl eller deg för att förbättra dess bakegenskaper.
+description:zh:面粉处理剂是指除乳化剂外，添加到面粉或面团中以改善其烘焙质量的物质。
 
 
 
@@ -803,6 +864,11 @@ description:pt:Gelificantes: substâncias que dão textura aos géneros aliment�
 description:sk:Želírujúce činidlá sú látky, ktoré vytvorením gélu tvoria textúru potraviny.
 description:sl:Želirna sredstva so snovi, ki dajejo živilu teksturo s tvorbo želeja.
 description:sv:Geleringsmedel: ämnen som ger ett livsmedel struktur genom att bilda ett gel.
+description:ru:Загустители - это вещества, придающие пищевым продуктам текстуру путем образования геля.
+description:ja:ゲル化剤は、ゲルの形成によって食品にテクスチャを与える物質です。
+description:zh:胶凝剂是通过形成凝胶给食品赋予质地的物质。
+description:ko:젤링제는 젤을 형성하여 식품에 질감을 부여하는 물질입니다.
+description:ar:وكلاء التجميد هي المواد التي تعطي للمواد الغذائية قوامًا من خلال تكوين هلام.
 
 
 en: Glazing agent, coating agent, film forming agent, polishing agent, sealing agent, surface-finishing agent
@@ -937,6 +1003,11 @@ it:Gas di confezionamento
 description:en:A food additive gas, which is introduced into a container before, during or after filling with food with the intention to protect the food, for example, from oxidation or spoilage.
 description:es:Aditivos alimentarios gaseosos, introducidos en un envase antes, durante o después de su llenado con un alimento, con la intención de proteger el alimento, por ejemplo, de la oxidación o descomposición.
 description:fr:Additif alimentaire gazeux, qui est introduit dans un conteneur pendant, durant ou après son remplissage avec une denrée alimentaire avec l’intention de protéger l’aliment par exemple de l’oxydation ou de l’altération.
+description:de:Ein gasförmiger Lebensmittelzusatzstoff, der vor, während oder nach dem Befüllen eines Behälters mit Lebensmitteln eingeführt wird, um das Lebensmittel zum Beispiel vor Oxidation oder Verderb zu schützen.
+description:it:Un additivo alimentare gassoso, che viene introdotto in un contenitore prima, durante o dopo il riempimento con il cibo con l'intenzione di proteggere il cibo, ad esempio dall'ossidazione o dall'alterazione.
+description:nl:Een gasvormig voedseladditief dat in een container wordt geïntroduceerd vóór, tijdens of na het vullen met voedsel, met de bedoeling het voedsel te beschermen, bijvoorbeeld tegen oxidatie of bederf.
+description:pt:Um aditivo alimentar gasoso, que é introduzido em um recipiente antes, durante ou após o enchimento com alimentos, com a intenção de proteger o alimento, por exemplo, da oxidação ou deterioração.
+description:sv:En gasformig livsmedelstillsats som införs i en behållare före, under eller efter fyllning med mat med avsikt att skydda maten, till exempel från oxidation eller försämring.
 
 en: Preservative, antimicrobial preservative, antimicrobial synergist, antimould and antirope agent, antimycotic agent, bacteriophage control agent, fungistatic agent, natural mold inhibitor, maintain freshness, protect flavor
 bg: Консервант, консерванти
@@ -1320,10 +1391,37 @@ description:pt:Espessantes: substâncias que aumentam a viscosidade dos géneros
 description:sk:Zahusťovadlá sú látky, ktoré zvyšujú viskozitu potraviny.
 description:sl:Sredstva za zgostitev (gostila) so snovi, ki povečujejo viskoznost živila.
 description:sv:Förtjockningsmedel: ämnen som ökar ett livsmedels viskositet.
+description:bg:Загъстители са вещества, които увеличават вискозитета на хранителни продукти.
+description:ca:Espessidors són substàncies que augmenten la viscositat d'un aliment.
+description:ja:増粘剤は、食品の粘度を増加させる物質です。
+description:ru:Загустители - это вещества, которые увеличивают вязкость пищевого продукта.
+description:zh:增稠剂是增加食品粘度的物质。
 
 <en:thickener
 en:natural thickener
-pl:naturalne substancje zagęszczające, naturalna substancja zagęszczająca
+bg:естествен загъстител
+cs:přírodní zahušťovadlo
+de:natürliches Verdickungsmittel
+el:φυσικό πυκνωτικό μέσο
+es:espesante natural
+et:looduslik paksendaja
+fi:luonnollinen sakeutusaine
+fr:épaississant naturel
+hr:prirodno zgušnjivač
+hu:natúr sűrítőanyag
+it:addensante naturale
+ja:天然増粘剤
+lt:natūralus tirštiklis
+lv:dabīgs biezinātājs
+mt:ħasil naturali
+nl:natuurlijk verdikkingsmiddel
+pl:naturalny zagęszczacz
+pt:espessante natural
+ro:îngroșător natural
+ru:натуральный загуститель
+sk:prírodné zahusťovadlo
+sl:naravno zgoščevalec
+sv:naturligt förtjockningsmedel
 
 en:enriching substances, enriching additives, enriching substance
 pl:substancje wzbogacające, substancja wzbogacająca
@@ -1517,6 +1615,14 @@ fi:Muut ravinnolliset aineet, Muita ravinnollisia aineita
 fr:Autres substances nutritives
 hu:Egyéb táplálkozási anyagok, egyéb tápanyagok
 it:Altre sostanze nutrizionali, altre sostanze nutritive
+ja:その他の栄養物質
+ko:기타 영양 물질
+nl:Overige voedingsstoffen
+pl:Inne substancje odżywcze
+pt:Outras substâncias nutricionais
+ru:Другие питательные вещества
+sv:Andra näringsämnen
+zh:其他营养物质
 
 # See also Firming agent
 en:coagulant, coagulum, coagulating agent, clotting agents
