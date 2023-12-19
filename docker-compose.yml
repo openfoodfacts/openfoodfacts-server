@@ -29,6 +29,7 @@ x-backend-conf: &backend-conf
     - LOG_LEVEL_MONGODB
     - INFLUXDB_HOST
     - BUILD_CACHE_REPO
+    - RATE_LIMITER_BLOCKING_ENABLED
   depends_on:
     - memcached
   volumes:

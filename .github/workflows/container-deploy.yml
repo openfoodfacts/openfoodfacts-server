@@ -27,6 +27,7 @@ jobs:
       run: |
         # direct container access
         echo "REDIS_URL=redis:6379" >> $GITHUB_ENV
+        echo "RATE_LIMITER_BLOCKING_ENABLED=0" >> $GITHUB_ENV
         echo "MONGODB_HOST=10.1.0.200" >> $GITHUB_ENV
         echo "ROBOTOFF_URL=https://robotoff.openfoodfacts.net" >> $GITHUB_ENV
         echo "QUERY_URL=http://10.1.0.200:5511" >> $GITHUB_ENV

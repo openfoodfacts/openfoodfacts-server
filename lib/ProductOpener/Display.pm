@@ -55,6 +55,7 @@ BEGIN {
 		&display_icon
 
 		&display_structured_response
+		&display_too_many_requests_page_and_exit
 		&display_no_index_page_and_exit
 		&display_robots_txt_and_exit
 		&display_page
@@ -1129,6 +1130,27 @@ sub display_no_index_page_and_exit () {
 	$r->status(200);
 	binmode(STDOUT, ":encoding(UTF-8)");
 	print $html;
+	exit();
+}
+
+=head2 display_too_many_requests_page_and_exit ()
+
+Return a page with a 429 status code and a message explaining that the user is sending too many requests.
+
+=cut
+
+sub display_too_many_requests_page_and_exit() {
+	my $http_headers_ref = {
+		'-status' => 429,
+		'-charset' => 'UTF-8',
+	};
+	print header(%$http_headers_ref);
+	my $html
+		= '<!DOCTYPE html><html><head><meta name="robots" content="noindex"></head><body><h1>TOO MANY REQUESTS</h1><p>You are sending too many requests to our servers.</p><p>To know more about the rate limits we enforce, please refer to the <a href="https://openfoodfacts.github.io/openfoodfacts-server/api/#rate-limits">rate-limit section in our documentation</a>.</p><p>If you need to download data about a large number of products, it\'s preferable to <a href="https://world.openfoodfacts.org/data">download a data dump</a>. If this is unexpected, contact us on Slack or write us an email at <a href="mailto:contact@openfoodfacts.org">contact@openfoodfacts.org</a>.</p></body></html>';
+
+	my $r = Apache2::RequestUtil->request();
+	$r->rflush;
+	$r->custom_response(429, $html);
 	exit();
 }
 

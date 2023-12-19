@@ -34,6 +34,7 @@ use Exporter qw< import >;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&check_and_update_rate_limits
 		&analyze_request
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -51,6 +52,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Redis qw/:all/;
 
 use Encode;
 use CGI qw/:cgi :form escapeHTML/;
@@ -552,6 +554,8 @@ sub analyze_request ($request_ref) {
 		$request_ref->{no_index} = 1;
 	}
 
+	check_and_update_rate_limits($request_ref);
+
 	$log->debug("request analyzed", {lc => $lc, lang => $lang, request_ref => $request_ref}) if $log->is_debug();
 
 	return 1;
@@ -606,6 +610,85 @@ sub _component_is_singular_tag_in_specific_lc ($component, $tag) {
 	}
 	else {
 		return 0;
+	}
+}
+
+=head2 set_rate_limit_attributes ($request_ref, $ip)
+
+Set attributes related to rate-limiting in the request object:
+
+- rate_limiter_user_requests: the number of requests performed by the user for the current minute
+- rate_limiter_limit: the maximum number of requests allowed for the current minute
+- rate_limiter_blocking: 1 if the user has reached the rate-limit, 0 otherwise
+
+
+=cut
+
+sub set_rate_limit_attributes ($request_ref, $ip) {
+	$request_ref->{rate_limiter_user_requests} = undef;
+	$request_ref->{rate_limiter_limit} = undef;
+	$request_ref->{rate_limiter_blocking} = 0;
+
+	my $api_action = $request_ref->{api_action};
+	if (not defined $api_action) {
+		# The request is not an API request, we don't need to check the rate-limiter
+		return;
+	}
+	$request_ref->{rate_limiter_user_requests} = get_rate_limit_user_requests($ip, $api_action);
+
+	my $limit;
+	if ($api_action eq "search" or $request_ref->{search} == 1) {
+		$limit = $options{rate_limit_search};
+	}
+	elsif ($api_action eq "product") {
+		$limit = $options{rate_limit_product};
+	}
+	else {
+		# No rate-limit is defined for this API action
+		return;
+	}
+	$request_ref->{rate_limiter_limit} = $limit;
+
+	if (
+		# if $limit is not defined, the rate-limiter is disabled for this API action
+		defined $limit
+		and defined $request_ref->{rate_limiter_user_requests}
+		and $request_ref->{rate_limiter_user_requests} >= $limit)
+	{
+		my $block_message = "Rate-limiter blocking: the user has reached the rate-limit";
+		# Check if rate-limit blocking is enabled
+		if ($rate_limiter_blocking_enabled eq "1") {
+			$request_ref->{rate_limiter_blocking} = 1;
+		}
+		else {
+			# Rate-limit blocking is disabled, we just log a warning
+			$block_message = "Rate-limiter blocking is disabled, but the user has reached the rate-limit";
+		}
+		$log->info(
+			$block_message,
+			{
+				ip => $ip,
+				api_action => $api_action,
+				user_requests => $request_ref->{rate_limiter_user_requests},
+				limit => $limit
+			}
+		) if $log->is_info();
+	}
+	return;
+}
+
+sub check_and_update_rate_limits($request_ref) {
+	# There is no need to check the rate-limiter if we return a no-index page
+	if ($request_ref->{no_index} ne 1) {
+		my $ip_address = remote_addr();
+		# Set rate-limiter related request attributes
+		set_rate_limit_attributes($request_ref, $ip_address);
+		my $api_action = $request_ref->{api_action};
+
+		if (defined $api_action) {
+			# Increment the number of requests performed by the user for the current minute
+			increment_rate_limit_requests($ip_address, $api_action);
+		}
 	}
 }
 

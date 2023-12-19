@@ -55,6 +55,8 @@ BEGIN {
 		$events_username
 		$events_password
 
+		$rate_limiter_blocking_enabled
+
 		$facets_kp_url
 		$redis_url
 
@@ -374,6 +376,10 @@ $redis_url = $ProductOpener::Config2::redis_url;
 
 # Facets knowledge panels url
 $facets_kp_url = $ProductOpener::Config2::facets_kp_url;
+
+# If $rate_limiter_blocking_enabled is set to 1, the rate limiter will block requests
+# by returning a 429 error code instead of a 200 code
+$rate_limiter_blocking_enabled = $ProductOpener::Config2::rate_limiter_blocking_enabled;
 
 # server options
 
@@ -1548,5 +1554,12 @@ $options{sample_product_code} = "093270067481501";    # A good product for you -
 #$options{sample_product_code_country_uk} = "5060042641000"; # Tyrrell's lighty salted chips
 #$options{sample_product_code_language_de} = "20884680"; # Waffeln Sondey
 #$options{sample_product_code_country_at_language_de} = "5411188119098"; # Natur miss kokosnuss Alpro
+
+## Rate limiting ##
+
+# Number of requests per minutes for the search API
+$options{rate_limit_search} = 2;
+# Number of requests per minutes for the product API
+$options{rate_limit_product} = 10;
 
 1;

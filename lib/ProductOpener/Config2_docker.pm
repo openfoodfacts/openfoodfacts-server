@@ -56,6 +56,7 @@ BEGIN {
 		$redis_url
 		%server_options
 		$build_cache_repo
+		$rate_limiter_blocking_enabled
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -141,5 +142,7 @@ $redis_url = $ENV{REDIS_URL};
 );
 
 $build_cache_repo = $ENV{BUILD_CACHE_REPO};
+
+$rate_limiter_blocking_enabled = $ENV{RATE_LIMITER_BLOCKING_ENABLED} // "0";
 
 1;

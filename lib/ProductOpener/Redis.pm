@@ -20,6 +20,8 @@ use JSON::PP;
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&get_rate_limit_user_requests
+		&increment_rate_limit_requests
 		&push_to_redis_stream
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -103,7 +105,7 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 
 	my $error = "";
 	if (!defined $redis_client) {
-		# we where deconnected, try again
+		# we were disconnected, try again
 		$log->info("Trying to reconnect to Redis");
 		init_redis();
 	}
@@ -141,6 +143,132 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 	}
 
 	return;
+}
+
+=head2 get_rate_limit_user_requests ($ip, $api_action)
+
+Return the number of requests performed by the given user for the current minute for the given API route.
+See https://redis.com/glossary/rate-limiting/ for more information.
+
+If the rate-limiter is not configured or if an error occurs, returns undef.
+
+=head3 Arguments
+
+=head4 String $ip
+The IP address of the user who is making the request.
+
+=head4 String $api_action
+The API action that is being requested.
+
+=cut
+
+sub get_rate_limit_user_requests ($ip, $api_action) {
+	if (!$redis_url) {
+		# No Redis URL provided, we can't get the remaining number of requests
+		if (!$sent_warning_about_missing_redis_url) {
+			$log->warn("Redis URL not provided, rate-limiting is disabled") if $log->is_warn();
+			$sent_warning_about_missing_redis_url = 1;
+		}
+		return;
+	}
+
+	my $error = "";
+	if (!defined $redis_client) {
+		# we were disconnected, try again
+		$log->info("Trying to reconnect to Redis");
+		init_redis();
+	}
+	my $resp;
+	if (defined $redis_client) {
+		$log->debug("Getting rate-limit remaining requests", {ip => $ip, api_action => $api_action})
+			if $log->is_debug();
+		my $current_minute = int(time() / 60);
+		eval {$resp = $redis_client->get("po-rate-limit:$ip:$api_action:$current_minute");};
+		$error = $@;
+	}
+	else {
+		$error = "Can't connect to Redis";
+	}
+	if (!($error eq "")) {
+		$log->error("Failed to get remaining number of requests from Redis rate-limiter", {error => $error})
+			if $log->is_warn();
+		# ask for eventual reconnection for next call
+		$redis_client = undef;
+	}
+	else {
+		if (defined $resp) {
+			$resp = int($resp);
+		}
+		else {
+			$resp = 0;
+		}
+		$log->debug("Remaining number of requests from Redis rate-limiter", {remaining_requests => $resp})
+			if $log->is_debug();
+		return $resp;
+	}
+
+	return;
+}
+
+=head2 increment_rate_limit_requests ($ip, $api_action)
+
+Increment the number of requests according to the Redis rate-limiter for the current minute for the given user and API route.
+The expiration of the counter is set to 59 seconds.
+See https://redis.com/glossary/rate-limiting/ for more information.
+
+=head3 Arguments
+
+=head4 String $ip
+The IP address of the user who is making the request.
+
+=head4 String $api_action
+The API action that is being requested.
+=cut
+
+sub increment_rate_limit_requests ($ip, $api_action) {
+	if (!$redis_url) {
+		# No Redis URL provided, we can't increment the number of requests
+		if (!$sent_warning_about_missing_redis_url) {
+			$log->warn("Redis URL not provided, rate-limiting is disabled") if $log->is_warn();
+			$sent_warning_about_missing_redis_url = 1;
+		}
+		return;
+	}
+
+	my $error = "";
+	if (!defined $redis_client) {
+		# we were disconnected, try again
+		$log->info("Trying to reconnect to Redis");
+		init_redis();
+	}
+	if (defined $redis_client) {
+		$log->debug("Incrementing rate-limit requests", {ip => $ip, api_action => $api_action}) if $log->is_debug();
+		my $current_minute = int(time() / 60);
+		eval {
+			# Use a MULTI/EXEC block to increment the counter and set the expiration atomically
+			$redis_client->multi();
+			$redis_client->incr("po-rate-limit:$ip:$api_action:$current_minute");
+			$redis_client->expire("po-rate-limit:$ip:$api_action:$current_minute", 59);
+			$redis_client->exec();
+		};
+		$error = $@;
+	}
+	else {
+		$error = "Can't connect to Redis";
+	}
+	if (!($error eq "")) {
+		$log->error("Failed to increment number of requests from Redis rate-limiter", {error => $error})
+			if $log->is_warn();
+		# ask for eventual reconnection for next call
+		$redis_client = undef;
+	}
+	else {
+		$log->debug("Incremented number of requests from Redis rate-limiter", {ip => $ip, api_action => $api_action})
+			if $log->is_debug();
+	}
+
+	return;
+
 }
 
 1;
