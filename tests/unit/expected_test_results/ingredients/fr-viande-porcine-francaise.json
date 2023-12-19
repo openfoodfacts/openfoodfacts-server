@@ -12,6 +12,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "28205",
          "id" : "en:cooked-ham",
          "origins" : "en:france",
          "percent_estimate" : 30,
@@ -102,10 +103,8 @@
    "ingredients_with_specified_percent_sum" : 40,
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 60,
-   "ingredients_without_ciqual_codes" : [
-      "en:cooked-ham"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 12,
    "labels" : "viande porcine française, oeufs de France",
    "labels_hierarchy" : [

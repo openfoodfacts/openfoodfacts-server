@@ -3288,6 +3288,11 @@ sub estimate_ingredients_percent_service ($product_ref, $updated_product_fields_
 		$product_ref->{ingredients_percent_analysis} = 1;
 	}
 
+	remove_tag($product_ref, "misc", "en:some-ingredients-with-specified-percent");
+	remove_tag($product_ref, "misc", "en:all-ingredients-with-specified-percent");
+	remove_tag($product_ref, "misc", "en:at-least-5-ingredients-with-specified-percent");
+	remove_tag($product_ref, "misc", "en:at-least-10-ingredients-with-specified-percent");
+
 	# Count ingredients with specified percent
 	my ($ingredients_n, $ingredients_with_specified_percent_n, $total_specified_percent)
 		= count_ingredients_with_specified_percent($product_ref->{ingredients});

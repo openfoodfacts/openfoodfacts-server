@@ -32,6 +32,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "16030",
          "id" : "en:cocoa-paste",
          "percent_estimate" : 5.83333333333333,
          "percent_max" : 25,
@@ -249,7 +250,6 @@
    "ingredients_with_unspecified_percent_n" : 15,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:cocoa-paste",
       "en:emulsifier",
       "en:fat",
       "en:flavouring",
