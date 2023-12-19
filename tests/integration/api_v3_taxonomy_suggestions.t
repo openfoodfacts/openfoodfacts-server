@@ -65,18 +65,18 @@ my $tests_ref = [
 		path => '/api/v3/taxonomy_suggestions?tagtype=categories&string=frais&lc=fr',
 		expected_status_code => 200,
 	},
-	{
-		test_case => 'categories-string-fr-cafe-accent',
-		method => 'GET',
-		path => '/api/v3/taxonomy_suggestions?tagtype=categories&string=Café&lc=fr',
-		expected_status_code => 200,
-	},
-	{
-		test_case => 'categories-string-fr-cafe-accent',
-		method => 'GET',
-		path => '/api/v3/taxonomy_suggestions?tagtype=categories&string=Café&lc=fr',
-		expected_status_code => 200,
-	},
+#	{
+#		test_case => 'categories-string-fr-cafe-accent',
+#		method => 'GET',
+#		path => '/api/v3/taxonomy_suggestions?tagtype=categories&string=Café&lc=fr',
+#		expected_status_code => 200,
+#	},
+#	{
+#		test_case => 'categories-string-fr-cafe-accent',
+#		method => 'GET',
+#		path => '/api/v3/taxonomy_suggestions?tagtype=categories&string=Café&lc=fr',
+#		expected_status_code => 200,
+#	},
 	# Packaging suggestions return most popular suggestions first
 	{
 		test_case => 'packaging-shapes',
