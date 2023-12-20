@@ -62,7 +62,7 @@ sub get_initial_html ($cc) {
 
 # parse the JSONL to find all products for country with emb_codes_tags
 # return an iterator
-sub iter_products_from_jsonl ($jsonl_path, $country) {
+sub iter_products_from_jsonl ($jsonl_path, $country, $verbose=undef) {
 	my $jsonl;
 	if ($jsonl_path =~ /\.gz$/) {
 		open($jsonl, "-|", "gunzip -c $jsonl_path") or die("can’t open pipe to $jsonl_path");
@@ -72,19 +72,35 @@ sub iter_products_from_jsonl ($jsonl_path, $country) {
 			or die("$jsonl_path not found\n");
 	}
 	my $is_world = $country eq "en:world";
+	my $line_count = 0;
+	my $product_count = 0;
+	my $start = time();
 	# iterator
 	return sub {
 		while (my $line = <$jsonl>) {
-			# quickly verify we have emb_codes_tags without parsing json
-			next unless $line =~ /emb_codes_tags/;
+			if ($verbose && !($line_count % 10000)) {
+				my $t = time() - $start;
+				print("$line_count lines processed ($product_count products) in $t seconds\n");
+			}
+			$line_count++;
+			# quickly verify we have emb_codes_tags and countries_tags
+			# without parsing json as it is slow
+			my @emb_code_tags = ();
+			my @countries_tags = ();
+			if ($line =~ /emb_codes_tags["'] *: *(\[[^\]]+\])/) {
+				@emb_code_tags = @{decode_json($1)};
+				if ($line =~ /countries_tags["'] *: *(\[[^\]]+\])/) {
+					@countries_tags = @{decode_json($1)};
+				}
+			}
 			my $product_ref;
-			eval {
-				$product_ref = decode_json($line);
-				1;
-			} or next;
-			if (   (defined $product_ref->{emb_codes_tags})
-				&& ($is_world || (grep {$_ eq $country} @{$product_ref->{countries_tags}})))
-			{
+			if ((scalar @emb_code_tags)
+				&& ($is_world || (grep {$_ eq $country} @countries_tags))) {
+				eval {
+					$product_ref = decode_json($line);
+					1;
+				} or next;
+				$product_count++;
 				return $product_ref;
 			}
 		}
@@ -130,12 +146,12 @@ $log->info("finding products", {lc => $lc, cc => $cc, country => $country}) if $
 my $jsonl_path = "$BASE_DIRS{PUBLIC_DATA}/openfoodfacts-products.jsonl.gz";
 my $products_iter = iter_products_from_jsonl($jsonl_path, $country);
 
-$request_ref->{map_options} = $map_options{$cc} || "";
-my $map_html = map_of_products($products_iter, $request_ref, $graph_ref);
+$request_ref->{map_options} = $product_countap_options{$cc} || "";
+my $product_countap_html = map_of_products($products_iter, $request_ref, $graph_ref);
 
 $html =~ s/<HEADER>/$header/;
 $html =~ s/<INITJS>/$initjs/;
-$html =~ s/<CONTENT>/$map_html/;
+$html =~ s/<CONTENT>/$product_countap_html/;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 print $html;
