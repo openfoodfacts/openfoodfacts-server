@@ -62,7 +62,7 @@ sub get_initial_html ($cc) {
 
 # parse the JSONL to find all products for country with emb_codes_tags
 # return an iterator
-sub iter_products_from_jsonl ($jsonl_path, $country, $verbose=undef) {
+sub iter_products_from_jsonl ($jsonl_path, $country, $verbose=1) {
 	my $jsonl;
 	if ($jsonl_path =~ /\.gz$/) {
 		open($jsonl, "-|", "gunzip -c $jsonl_path") or die("can’t open pipe to $jsonl_path");
@@ -143,15 +143,15 @@ my $graph_ref = {};
 
 $log->info("finding products", {lc => $lc, cc => $cc, country => $country}) if $log->is_info();
 
-my $jsonl_path = "$BASE_DIRS{PUBLIC_DATA}/openfoodfacts-products.jsonl.gz";
+my $jsonl_path = "/opt/product-opener/openfoodfacts-products.jsonl.gz"; # "$BASE_DIRS{PUBLIC_DATA}/openfoodfacts-products.jsonl.gz";
 my $products_iter = iter_products_from_jsonl($jsonl_path, $country);
 
-$request_ref->{map_options} = $product_countap_options{$cc} || "";
-my $product_countap_html = map_of_products($products_iter, $request_ref, $graph_ref);
+$request_ref->{map_options} = $map_options{$cc} || "";
+my $map_html = map_of_products($products_iter, $request_ref, $graph_ref);
 
 $html =~ s/<HEADER>/$header/;
 $html =~ s/<INITJS>/$initjs/;
-$html =~ s/<CONTENT>/$product_countap_html/;
+$html =~ s/<CONTENT>/$map_html/;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 print $html;
