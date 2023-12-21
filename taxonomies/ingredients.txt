@@ -7133,8 +7133,34 @@ es:queso blanco fresco
 
 <en:Cheese
 en:cream cheese
+fr:fromage à la crème
 hr:krem sir
 pl:serek śmietankowy
+
+<en:cream cheese
+en:fresh cream cheese
+
+# may need to revisit the soft cheese / cream cheese to see if one should be in another
+#<en:fresh cream cheese
+<en:soft white cheese
+en:Petit suisse, Petits suisses
+fr:Petit suisse, Petits suisses
+xx:Petit suisse
+wikidata:en:Q585246
+agribalyse_proxy_food_code:en:19666
+ciqual_proxy_food_code:en:19666
+ciqual_proxy_food_name:en:Petit-Suisse like fresh cream cheese, plain, around 9% fat
+ciqual_proxy_food_name:fr:Fromage frais type petit suisse, nature, 10% MG environ
+
+#<en:fresh cream cheese
+<en:soft white cheese
+en:Saint-Moret
+fr:Saint-Moret
+xx:Saint-Moret
+agribalyse_proxy_food_code:en:19666
+ciqual_proxy_food_code:en:19666
+ciqual_proxy_food_name:en:Petit-Suisse like fresh cream cheese, plain, around 9% fat
+ciqual_proxy_food_name:fr:Fromage frais type petit suisse, nature, 10% MG environ
 
 <en:cheese
 en:Quark
@@ -38525,7 +38551,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Gala_(apple)
 <en:green apple
 en:Granny apple
 es:manzana Granny
-fr:pomme Granny
+fr:pomme Granny, pomme Granny Smith, pommes Grany, pommes Granny Smith
 it:mela Granny
 nl:Granny Smith, Granny Smith appel, Granny Smith appels
 
@@ -38553,6 +38579,7 @@ en:green apple
 bg:зелена ябълка, зелени ябълки
 de:grüner Apfel, grüne Äpfel
 es:manzana verde, manzanas verdes
+fr:pomme verte, pommes vertes
 
 <en:apple
 en:red apple
@@ -38560,7 +38587,7 @@ bg:червена ябълка, червени ябълки
 de:roter Apfel, rote Äpfel
 es:manzana roja,manzanas rojas
 fi:punakuorinen omena
-fr:Pomme rouge
+fr:Pomme rouge, pommes rouges
 es:manzana roja,manzanas rojas
 
 <en:apple
@@ -39783,13 +39810,17 @@ sv:citronfiber
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/lemon-fibre
 # 59 in 1 language products @2018-10-01
 
+# lemons preserved in salt and water or oil
 <en:lemon
-fr:citron confit
+en:preserved lemon
+fr:citron confit, citrons confits
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:citron-confit
 # 70 products in 1 language @2018-10-01
 
-<fr:citron confit
-fr:zestes de citron confits
+# candied lemon zest in sugar
+<en:lemon
+en:candied lemon zest
+fr:zestes de citron confits, zeste de citron confit
 # Is this the oil from the rind?
 
 <en:lemon
@@ -61998,6 +62029,10 @@ pl:mieszanka przypraw, mieszanka przyprawowa
 ro:amestec de condimente
 sv:kryddblandning, kryddmix
 # ingredient/nl:gemengde-specerijen has 2 products @2019-05-24
+
+<en:mixed spices
+en:zaatar, zaatar blend
+fr:zaatar, mélange zaatar
 
 <en:mixed spices
 en:garam masala
