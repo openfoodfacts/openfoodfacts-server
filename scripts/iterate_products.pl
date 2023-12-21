@@ -32,6 +32,50 @@ use File::Slurp;
 use DateTime;
 
 # Use a PostgreSQL connection string for configuration
+
+# DROP TABLE product."change";
+# DROP TABLE product.image;
+# DROP TABLE product.product;
+# DROP TABLE product.revision;
+# DROP TABLE product.scan;
+
+# CREATE TABLE product."change" (
+# 	code varchar NULL,
+# 	"data" json NULL,
+#   file_last_modified timestamp
+# );
+
+# CREATE TABLE product.image (
+# 	code varchar NULL,
+# 	"data" json NULL,
+#   file_last_modified timestamp
+# );
+
+# CREATE TABLE product.product (
+# 	code varchar NULL,
+# 	"data" json NULL,
+#   file_last_modified timestamp
+# );
+
+# CREATE TABLE product.revision (
+# 	code varchar NULL,
+# 	revision int4 NULL,
+# 	"data" json NULL,
+#   file_last_modified timestamp
+# );
+
+# CREATE TABLE product.scan (
+# 	code varchar NULL,
+# 	"data" json NULL,
+#   file_last_modified timestamp
+# );
+
+# DELETE FROM product."change";
+# DELETE FROM product.image;
+# DELETE FROM product.product;
+# DELETE FROM product.revision;
+# DELETE FROM product.scan;
+
 my $pg = Mojo::Pg->new('postgresql://productopener:productopener@query_postgres/query');
 my $db = $pg->db;
 
@@ -49,35 +93,43 @@ sub find_products {
 	closedir DH;
 	foreach my $file (@files) {
 		next if $file =~ /^\.\.?$/;
-		if (-d "$dir/$file") {
-			find_products("$dir/$file","$code$file");
+		my $file_path = "$dir/$file";
+		if (-d $file_path) {
+			find_products($file_path,"$code$file");
 			next;
-		} 
+		}
+		my $mtime = DateTime->from_epoch(epoch => (stat($file_path))[9])->iso8601();
 		if ($file =~ /.*\.sto$/) {
-			my $data = encode_json(retrieve("$dir/$file"));
+			my $data = encode_json(retrieve($file_path));
 			if ($file eq 'product.sto') {
 				#print "code: $code\n";
-				$db->insert('product.product', {code => $code, data => $data});
+				$db->insert('product.product', {code => $code, data => $data, file_last_modified => $mtime});
 				$count++;
 				if (!($count % 100)) {
 					print DateTime->now->hms . ' ' . $count . "\n";
 				}
 			} 
 			elsif ($file eq 'changes.sto') {
-				$db->insert('product.change', {code => $code, data => $data});
+				$db->insert('product.change', {code => $code, data => $data, file_last_modified => $mtime});
 			} 
 			elsif ($file eq 'images.sto') {
-				$db->insert('product.image', {code => $code, data => $data});
+				$db->insert('product.image', {code => $code, data => $data, file_last_modified => $mtime});
 			} 
-			else {
+			elsif ($file =~ /[0-9]*\.sto$/) {
 				my @parts = split(/\./,$file);
 				#print $file . ' ' . $parts[0] . "\n";
-				$db->insert('product.revision', {code => $code, revision => $parts[0], data => $data});
+				$db->insert('product.revision', {code => $code, revision => $parts[0], data => $data, file_last_modified => $mtime});
+			}
+			else {
+				print "Skipping $file_path\n";
 			}
 		}
-		elsif ($file =~ /.*\.json$/) {
-			my $data = read_file("$dir/$file");
-			$db->insert('product.scan', {code => $code, data => $data});
+		elsif ($file eq 'scans.json') {
+			my $data = read_file($file_path);
+			$db->insert('product.scan', {code => $code, data => $data, file_last_modified => $mtime});
+		}
+		else {
+			print "Skipping $file_path\n";
 		}
 	}
 
