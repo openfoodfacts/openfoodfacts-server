@@ -223,7 +223,7 @@ my @lists = (
 		"arôme naturel de citron, arôme naturel de citron vert, arôme naturel d'agrumes"
 	],
 	["fr", "arômes naturels de citron et de limette", "arômes naturels de citron, arômes naturels de limette"],
-	["fr", "arôme naturel de pomme avec d'autres arômes naturels", "arôme naturel de pomme, arômes naturels"],
+	["fr", "arôme naturel de pomme avec d'autres arômes naturels", "arôme naturel de pomme et arômes naturels"],
 	["fr", "jus de pomme, eau, sucre. Traces de lait.", "jus de pomme, eau, sucre. traces éventuelles : lait."],
 	[
 		"fr",
@@ -639,7 +639,7 @@ my @lists = (
 		"Huiles végétales de palme, de colza et de tournesol",
 		"Huiles végétales de palme, Huiles végétales de colza, Huiles végétales de tournesol"
 	],
-	["fr", "arôme naturel de pomme avec d'autres âromes", "arôme naturel de pomme, âromes"],
+	["fr", "arôme naturel de pomme avec d'autres âromes", "arôme naturel de pomme et âromes"],
 	["fr", "Carbonate de magnésium, fer élémentaire", "Carbonate de magnésium, fer élémentaire"],
 	["fr", "huile végétale (colza)", "huile végétale de colza"],
 	["fr", "huile végétale : colza", "huile végétale de colza"],
@@ -651,7 +651,13 @@ my @lists = (
 	["en", "vegetable oil: palm", "palm vegetable oil"],
 	# Should not develop the enumeration if it contains unknown types (like "sel" here)
 	["fr", "Piments (vert, rouge, jaune, sel)", "Piments (vert, rouge, jaune, sel)"],
-
+	["fr", "Huile de palme, noisettes et tournesol", "huile de palme, huile de noisettes, huile de tournesol"],
+	["fr", "Huile de palme, noisettes", "huile de palme, noisettes"],
+	[
+		"fr",
+		"arôme naturel de citron, citron vert et d'autres agrumes",
+		"arôme naturel de citron, arôme naturel de citron vert, arôme naturel d'agrumes"
+	],
 );
 
 foreach my $test_ref (@lists) {
