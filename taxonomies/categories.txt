@@ -41202,6 +41202,7 @@ agribalyse_proxy_food_code:en:12001
 ciqual_proxy_food_code:en:12001
 ciqual_proxy_food_name:en:Camembert cheese, from cow's milk
 who_id:en:8
+intake24_category_code:en:CHES
 # Most cheeses have the same Agribalyse scores, except specific cheeses for which we added the specific values
 
 <en:Cheeses
@@ -41306,6 +41307,7 @@ fr:Fromages sans lactose
 it:Formaggi senza lattosio
 lt:Sūriai be laktozės
 nl:Lactose-vrije kazen, Lactose-vrije kaas, Kaas zonder lactose
+intake24_category_code:en:19LDFC
 
 <en:Cheeses
 en:Sliced cheeses
@@ -43349,9 +43351,9 @@ en:Brousse
 es:Brousse
 fr:Brousses
 wikidata:en:Q2926318
-
 #note:en: Note that en:Cottage Cheese not the same as en:Brousse. It has a different taste and structure.
 #Cottage cheese is not directly in cheeses to avoid having cottage fruit cottage cheese in cheeses.
+
 <en:Fermented milk products
 en:Cottage cheeses
 af:Maaskaas
@@ -43390,6 +43392,7 @@ uk:Кисломолочний сир
 zh:茅屋起司
 #yue:茅屋芝士
 wikidata:en:Q13221624
+intake24_category_code:en:COTC
 
 <en:Fresh cheeses
 <en:Cottage cheeses
@@ -43419,6 +43422,11 @@ origins:en: en:France
 wikidata:en:Q542046
 
 <en:Cheeses
+en:Soft cheeses
+nl:Zachte kazen
+intake24_category_code:en:SFTC
+
+<en:Soft cheeses
 en:Soft cheeses with bloomy rind, white mold-rind cheese
 ca:Formatges tendres amb crosta florida, Formatges amb crosta emmotllada blanca
 de:Weichkäse
@@ -43430,6 +43438,7 @@ it:Formaggi a crosta fiorita
 lt:Sūriai su baltuoju pelėsiu
 nl:Witschimmelkazen
 wikidata:en:Q1256296
+
 
 <en:Soft cheeses with bloomy rind
 en:Carré de l'Est, Carré de l'Est cheeses, Carré de l'Est cheese from cow's milk
@@ -43451,7 +43460,7 @@ protected_name_file_number:en: PGI-FR-02102
 protected_name_type:en: pgi
 origins:en: en:France
 
-<en:Cheeses
+<en:Soft cheeses
 en:Soft cheese with a natural rind
 de:Weichkäse mit Naturrinde
 fr:Fromages à pâte molle à croûte naturelle
@@ -43460,7 +43469,7 @@ nl:Zachte kazen met natuurlijke korst
 wikidata:en:Q3088326
 
 <en:Cheeses
-en:Cooked pressed cheeses, Hard cheese
+en:Hard cheeses, Cooked pressed cheeses
 ca:Formatges cuinats i premsats
 de:Gekochter gepresster Käse
 es:Quesos cocidos prensados
@@ -43475,6 +43484,7 @@ wikidata:en:Q3088330
 ciqual_food_code:en:12100
 ciqual_food_name:en:Hard cheese (average)
 ciqual_food_name:fr:Fromage à pâte pressée cuite (aliment moyen)
+intake24_category_code:en:HRDC
 
 <en:Cheeses
 en:Half-cooked pressed cheeses
@@ -48787,6 +48797,7 @@ nl:Smeerkazen
 pt:Queijos para barrar
 agribalyse_proxy_food_code:en:12315
 agribalyse_proxy_food_name:en:Uncured soft cheese, spreadable, around 25% fat, in a tub
+intake24_category_code:en:SPRD
 #wikidata:en:
 
 <en:Cheese spreads
