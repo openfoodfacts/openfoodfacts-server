@@ -22,7 +22,10 @@ my @tests = (
 		"args" => ["world", "en"],
 		"matched_products" =>
 			qr/3 products match the search criteria, of which 3 products have a known production place/,
-		"geopoints" => ['"geo":[43.9753575,2.9912097]', '"geo":[50.3792391,3.0399349]', '"geo":[48.71119,10.62904]', '"geo":[48.71119,10.62904]'],
+		"geopoints" => [
+			'"geo":[43.9753575,2.9912097]', '"geo":[50.3792391,3.0399349]',
+			'"geo":[48.71119,10.62904]', '"geo":[48.71119,10.62904]'
+		],
 	},
 	{
 		"testid" => "fr-fr",
