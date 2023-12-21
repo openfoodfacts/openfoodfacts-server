@@ -1,5 +1,52 @@
 # Changelog
 
+## [2.25.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.24.1...v2.25.0) (2023-12-21)
+
+
+### Features
+
+* dq_label_nutrient_levels ([#9410](https://github.com/openfoodfacts/openfoodfacts-server/issues/9410)) ([7c2fb51](https://github.com/openfoodfacts/openfoodfacts-server/commit/7c2fb517898cf30acf499ec1d649e00b0a092da3))
+
+
+### Bug Fixes
+
+* export_producers_platform_data_to_public_database.sh ([#9565](https://github.com/openfoodfacts/openfoodfacts-server/issues/9565)) ([6cf78a2](https://github.com/openfoodfacts/openfoodfacts-server/commit/6cf78a2ba2fb2bd99b3d3fba08479c9c5f778b31))
+* fix small taxonomy encoding issues ([#9560](https://github.com/openfoodfacts/openfoodfacts-server/issues/9560)) ([4857281](https://github.com/openfoodfacts/openfoodfacts-server/commit/4857281cd13a69dc1f4901978f9451769d76d545))
+* more CIQUAL matches and translations ([#9538](https://github.com/openfoodfacts/openfoodfacts-server/issues/9538)) ([2b49db0](https://github.com/openfoodfacts/openfoodfacts-server/commit/2b49db04ea0c5561ca26c760deba2a875d03fb32))
+* parsing of (fr) huile de palme, noisettes ([#9568](https://github.com/openfoodfacts/openfoodfacts-server/issues/9568)) ([02857c0](https://github.com/openfoodfacts/openfoodfacts-server/commit/02857c0e756c1df1f26ef89e2a577af097a645ac))
+* remove Intermarche file from sftp when we import them ([#9536](https://github.com/openfoodfacts/openfoodfacts-server/issues/9536)) ([5404660](https://github.com/openfoodfacts/openfoodfacts-server/commit/5404660271e225865a1b4dd2b1effaf24be139e9))
+* run producer_import as off user ([#9557](https://github.com/openfoodfacts/openfoodfacts-server/issues/9557)) ([b387293](https://github.com/openfoodfacts/openfoodfacts-server/commit/b387293828322012aa51106b82535ae8720a71eb))
+* use Redis streams instead of redis queue ([#9428](https://github.com/openfoodfacts/openfoodfacts-server/issues/9428)) ([b38c4c3](https://github.com/openfoodfacts/openfoodfacts-server/commit/b38c4c33b45a37eacb8919730cfe4d5c661d93f3))
+
+
+### Taxonomy
+
+* Add (gym) protein nutrients ([#9530](https://github.com/openfoodfacts/openfoodfacts-server/issues/9530)) ([c9a51df](https://github.com/openfoodfacts/openfoodfacts-server/commit/c9a51dfda8806e5260d1a4e4bc3d5f6474e78958))
+* add ingredient translations ([#9481](https://github.com/openfoodfacts/openfoodfacts-server/issues/9481)) ([2651bfa](https://github.com/openfoodfacts/openfoodfacts-server/commit/2651bfa190204808bbeea8374217903d8392a5ab))
+* add new cream ingredient ([#9561](https://github.com/openfoodfacts/openfoodfacts-server/issues/9561)) ([67d584c](https://github.com/openfoodfacts/openfoodfacts-server/commit/67d584c6c079cc36c5ab5063be06c33d243a595f))
+* add processing synonyms for Spanish ([#9552](https://github.com/openfoodfacts/openfoodfacts-server/issues/9552)) ([75d2751](https://github.com/openfoodfacts/openfoodfacts-server/commit/75d2751f380fff88a14614e9001f699a00dc05a6))
+* Bulgarian additions ([#9518](https://github.com/openfoodfacts/openfoodfacts-server/issues/9518)) ([2f0cf75](https://github.com/openfoodfacts/openfoodfacts-server/commit/2f0cf7525d2eec6a67cb4f6da460c3e82ef6fb3a))
+* Categories translations for Open Beauty Facts ([#9477](https://github.com/openfoodfacts/openfoodfacts-server/issues/9477)) ([4ecc2bd](https://github.com/openfoodfacts/openfoodfacts-server/commit/4ecc2bdae268e3bc3c1649a0391ac0d117402800))
+* change German label ([#9551](https://github.com/openfoodfacts/openfoodfacts-server/issues/9551)) ([a287160](https://github.com/openfoodfacts/openfoodfacts-server/commit/a287160b78e11be644b18ea89e4872647b4bd931))
+* CIQUAL additions and fixes for ingredients ([#9535](https://github.com/openfoodfacts/openfoodfacts-server/issues/9535)) ([9a7980b](https://github.com/openfoodfacts/openfoodfacts-server/commit/9a7980bc2124e0b609fc1ada06feeb480aa34123))
+* ciqual-ingredients-boost-ben ([#9532](https://github.com/openfoodfacts/openfoodfacts-server/issues/9532)) ([ee8dd5b](https://github.com/openfoodfacts/openfoodfacts-server/commit/ee8dd5bc49f8ee602059f5790a4eeee40b509ec5))
+* data quality translations ([#9480](https://github.com/openfoodfacts/openfoodfacts-server/issues/9480)) ([21d90cd](https://github.com/openfoodfacts/openfoodfacts-server/commit/21d90cd0372f94e2c03ff578dbf08ce783e4a173))
+* german additions ([#9542](https://github.com/openfoodfacts/openfoodfacts-server/issues/9542)) ([35b2a00](https://github.com/openfoodfacts/openfoodfacts-server/commit/35b2a0027752963abf1f3599d433c392e0a903fc))
+* german syn iron gluconate ([#9548](https://github.com/openfoodfacts/openfoodfacts-server/issues/9548)) ([bad1ce5](https://github.com/openfoodfacts/openfoodfacts-server/commit/bad1ce581b1248471da22b666568ac41b25bce48))
+* german syn nuts ([#9543](https://github.com/openfoodfacts/openfoodfacts-server/issues/9543)) ([642caec](https://github.com/openfoodfacts/openfoodfacts-server/commit/642caec2c1371f047e5540bbca92aab8fdd3d392))
+* label Calidad Certificada Andalucia ([#9521](https://github.com/openfoodfacts/openfoodfacts-server/issues/9521)) ([75ffc06](https://github.com/openfoodfacts/openfoodfacts-server/commit/75ffc06feeccbab57d902c427792623509119b27))
+* misc translations ([#9496](https://github.com/openfoodfacts/openfoodfacts-server/issues/9496)) ([44368ea](https://github.com/openfoodfacts/openfoodfacts-server/commit/44368ea48b01cb10e669d28bef136f79bdd2e88e))
+* more german allergens ([#9549](https://github.com/openfoodfacts/openfoodfacts-server/issues/9549)) ([b0a576a](https://github.com/openfoodfacts/openfoodfacts-server/commit/b0a576a0f5144a14a0381b13526450d47524faf1))
+* new ciqual associations for ingredients ([#9523](https://github.com/openfoodfacts/openfoodfacts-server/issues/9523)) ([15e8cea](https://github.com/openfoodfacts/openfoodfacts-server/commit/15e8ceadda3d1e1a8c5dde8ab978b619222ff3ca))
+* new ingredients for the Contribalim project ([#9562](https://github.com/openfoodfacts/openfoodfacts-server/issues/9562)) ([01f36ba](https://github.com/openfoodfacts/openfoodfacts-server/commit/01f36bad3ac4e751916e6dc92b861bafdc87d9f1))
+* origin translations ([#9493](https://github.com/openfoodfacts/openfoodfacts-server/issues/9493)) ([5463fac](https://github.com/openfoodfacts/openfoodfacts-server/commit/5463fac288d61a0c5daa8e5eb9b88ff44711b174))
+* some CIQUAL matches for popular ingredients ([#9529](https://github.com/openfoodfacts/openfoodfacts-server/issues/9529)) ([e1bdfe7](https://github.com/openfoodfacts/openfoodfacts-server/commit/e1bdfe79947f21bc10ba182faaddd55d161f70bb))
+* some Ingredient translations ([#9546](https://github.com/openfoodfacts/openfoodfacts-server/issues/9546)) ([0e4dae1](https://github.com/openfoodfacts/openfoodfacts-server/commit/0e4dae1cd6bae16203066293142c4bcc64d15f91))
+* stollen ([#9550](https://github.com/openfoodfacts/openfoodfacts-server/issues/9550)) ([9fa833b](https://github.com/openfoodfacts/openfoodfacts-server/commit/9fa833b0a8af49f0243c753f10d5295711c03048))
+* Translation of Open Beauty Facts labels ([#9482](https://github.com/openfoodfacts/openfoodfacts-server/issues/9482)) ([0c94c56](https://github.com/openfoodfacts/openfoodfacts-server/commit/0c94c5640c9ad3c62939d304fa28eb5f5a27f6c6))
+* typo in labels taxonomy fegg -&gt; egg ([#9559](https://github.com/openfoodfacts/openfoodfacts-server/issues/9559)) ([add3327](https://github.com/openfoodfacts/openfoodfacts-server/commit/add332737573bae72a77e883867b27acda9732ec))
+* vit. abbreviation for vitamins ([#9567](https://github.com/openfoodfacts/openfoodfacts-server/issues/9567)) ([1c611ec](https://github.com/openfoodfacts/openfoodfacts-server/commit/1c611ec2591f72572df7d4ebf6934c94883f2207))
+
 ## [2.24.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.24.0...v2.24.1) (2023-12-12)
 
 
