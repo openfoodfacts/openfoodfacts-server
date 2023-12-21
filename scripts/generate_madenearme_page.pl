@@ -63,7 +63,7 @@ sub get_initial_html ($cc) {
 
 # parse the JSONL to find all products for country with emb_codes_tags
 # return an iterator
-sub iter_products_from_jsonl ($jsonl_path, $country, $verbose=undef) {
+sub iter_products_from_jsonl ($jsonl_path, $country, $verbose = undef) {
 	my $jsonl;
 	if ($jsonl_path =~ /\.gz$/) {
 		open($jsonl, "-|", "gunzip -c $jsonl_path") or die("can’t open pipe to $jsonl_path");
@@ -95,8 +95,9 @@ sub iter_products_from_jsonl ($jsonl_path, $country, $verbose=undef) {
 				}
 			}
 			my $product_ref;
-			if ((scalar @emb_code_tags)
-				&& ($is_world || (grep {$_ eq $country} @countries_tags))) {
+			if (   (scalar @emb_code_tags)
+				&& ($is_world || (grep {$_ eq $country} @countries_tags)))
+			{
 				eval {
 					$product_ref = decode_json($line);
 					1;
@@ -110,9 +111,9 @@ sub iter_products_from_jsonl ($jsonl_path, $country, $verbose=undef) {
 	};
 }
 
-my $usage="Usage: $0 <country code (or world)> <language code> [--verbose]\n";
+my $usage = "Usage: $0 <country code (or world)> <language code> [--verbose]\n";
 # --verbose option
-my $verbose=undef;
+my $verbose = undef;
 GetOptions("verbose" => \$verbose) or die($usage);
 
 $cc = $ARGV[0];
