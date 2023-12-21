@@ -7133,13 +7133,16 @@ es:queso blanco fresco
 
 <en:Cheese
 en:cream cheese
+fr:fromage à la crème
 hr:krem sir
 pl:serek śmietankowy
 
 <en:cream cheese
 en:fresh cream cheese
 
-<en:fresh cream cheese
+# may need to revisit the soft cheese / cream cheese to see if one should be in another
+#<en:fresh cream cheese
+<en:soft white cheese
 en:Petit suisse, Petits suisses
 fr:Petit suisse, Petits suisses
 xx:Petit suisse
@@ -7149,7 +7152,8 @@ ciqual_proxy_food_code:en:19666
 ciqual_proxy_food_name:en:Petit-Suisse like fresh cream cheese, plain, around 9% fat
 ciqual_proxy_food_name:fr:Fromage frais type petit suisse, nature, 10% MG environ
 
-<en:fresh cream cheese
+#<en:fresh cream cheese
+<en:soft white cheese
 en:Saint-Moret
 fr:Saint-Moret
 xx:Saint-Moret
