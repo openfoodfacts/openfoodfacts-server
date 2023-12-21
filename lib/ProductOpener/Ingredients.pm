@@ -335,14 +335,6 @@ my %abbreviations = (
 		["S. thermophilus", "streptococcus thermophilus"],
 	],
 
-	da => [
-		["bl. a.", "blandt andet"],
-		["inkl.", "inklusive"],
-		["mod.", "modificeret"],
-		["past.", "pasteuriserede"],
-		["pr.", "per"],
-	],
-
 	en => [
 		["w/o", "without"],
 		["w/", "with "],    # note trailing space
@@ -351,9 +343,19 @@ my %abbreviations = (
 
 	],
 
-	es => [["vit.", "vitamina"], ["m.g.", "materia grasa"]],
-
 	ca => [["vit.", "vitamina"], ["m.g.", "matèria grassa"]],
+
+	da => [
+		["bl. a.", "blandt andet"],
+		["inkl.", "inklusive"],
+		["mod.", "modificeret"],
+		["past.", "pasteuriserede"],
+		["pr.", "per"],
+	],
+
+	de => [["vit.", "vitamin"],],
+
+	es => [["vit.", "vitamina"], ["m.g.", "materia grasa"]],
 
 	fi => [["mikro.", "mikrobiologinen"], ["mm.", "muun muassa"], ["sis.", "sisältää"], ["n.", "noin"],],
 
