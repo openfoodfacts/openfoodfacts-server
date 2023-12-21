@@ -116,11 +116,6 @@ build:
 	@echo "🥫 Building containers …"
 	${DOCKER_COMPOSE} build ${container} 2>&1
 
-# this is needed for CI
-build_backend:
-	@echo "🥫 Building backend container …"
-	${DOCKER_COMPOSE} build backend 2>&1
-
 _up:
 	@echo "🥫 Starting containers …"
 	${DOCKER_COMPOSE} up -d 2>&1
