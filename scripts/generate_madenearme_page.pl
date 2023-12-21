@@ -41,6 +41,7 @@ use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
+use Getopt::Long;
 use JSON::MaybeXS;
 use Log::Any qw($log);
 
@@ -62,7 +63,7 @@ sub get_initial_html ($cc) {
 
 # parse the JSONL to find all products for country with emb_codes_tags
 # return an iterator
-sub iter_products_from_jsonl ($jsonl_path, $country, $verbose=1) {
+sub iter_products_from_jsonl ($jsonl_path, $country, $verbose=undef) {
 	my $jsonl;
 	if ($jsonl_path =~ /\.gz$/) {
 		open($jsonl, "-|", "gunzip -c $jsonl_path") or die("can’t open pipe to $jsonl_path");
@@ -78,7 +79,7 @@ sub iter_products_from_jsonl ($jsonl_path, $country, $verbose=1) {
 	# iterator
 	return sub {
 		while (my $line = <$jsonl>) {
-			if ($verbose && !($line_count % 10000)) {
+			if ($verbose && !($line_count % 100000)) {
 				my $t = time() - $start;
 				print("$line_count lines processed ($product_count products) in $t seconds\n");
 			}
@@ -109,6 +110,11 @@ sub iter_products_from_jsonl ($jsonl_path, $country, $verbose=1) {
 	};
 }
 
+my $usage="Usage: $0 <country code (or world)> <language code> [--verbose]\n";
+# --verbose option
+my $verbose=undef;
+GetOptions("verbose" => \$verbose) or die($usage);
+
 $cc = $ARGV[0];
 $lc = $ARGV[1];
 $subdomain = $cc;
@@ -119,7 +125,7 @@ $initjs = "";
 $lang = $lc;
 
 if ((not defined $cc) or (not defined $lc)) {
-	die("Pass country code (or world) and language code as arguments.\n");
+	die("$usage\nError: Pass country code (or world) and language code as arguments.\n");
 }
 else {
 	if (defined $country_codes{$cc}) {
@@ -143,8 +149,8 @@ my $graph_ref = {};
 
 $log->info("finding products", {lc => $lc, cc => $cc, country => $country}) if $log->is_info();
 
-my $jsonl_path = "/opt/product-opener/openfoodfacts-products.jsonl.gz"; # "$BASE_DIRS{PUBLIC_DATA}/openfoodfacts-products.jsonl.gz";
-my $products_iter = iter_products_from_jsonl($jsonl_path, $country);
+my $jsonl_path = "$BASE_DIRS{PUBLIC_DATA}/openfoodfacts-products.jsonl.gz";
+my $products_iter = iter_products_from_jsonl($jsonl_path, $country, $verbose);
 
 $request_ref->{map_options} = $map_options{$cc} || "";
 my $map_html = map_of_products($products_iter, $request_ref, $graph_ref);
