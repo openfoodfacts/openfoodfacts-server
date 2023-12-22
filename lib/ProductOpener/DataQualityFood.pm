@@ -1613,6 +1613,10 @@ sub check_ingredients ($product_ref) {
 						"en:ingredients-" . $display_lc . "-unexpected-chars-question-mark";
 				}
 
+				if ($product_ref->{$ingredients_text_lc} =~ /http/i) {
+					add_tag($product_ref, "data_quality_errors", "en:ingredients-unexpected-url");
+				}
+
 				# French specific
 				#if ($display_lc eq 'fr') {
 

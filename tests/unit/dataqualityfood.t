@@ -1400,4 +1400,33 @@ ok(!has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-great
 	'sum of sugars and starch greater carbohydrates')
 	or diag explain $product_ref;
 
+# unexpected character in ingredients
+$product_ref = {
+	languages_codes => {
+		en => 1
+	},
+	lc => 'en',
+	ingredients_text_en => 'AaaAAa, BbbBBB, $, @, !, ?, Https://,',
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-5-vowels'), '5 vowel in a row')
+	or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-5-consonants'), '5 consonants in a row')
+	or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-4-repeated-chars'), '4 repeated characters')
+	or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-chars-currencies'), '$')
+	or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-chars-arobase'), '@')
+	or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-chars-exclamation-mark'), '!')
+	or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-chars-question-mark'), '?')
+	or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-ending-comma'), ',')
+	or diag explain $product_ref;
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-unexpected-url'), 'detected url')
+	or diag explain $product_ref;
+
 done_testing();
