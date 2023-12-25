@@ -720,7 +720,6 @@
          "42xxxxxxxxxxx",
          "4xxxxxxxxxxxx"
       ],
-      "compared_to_category" : "en:sweet-snacks",
       "complete" : 0,
       "completeness" : 0.5,
       "correctors_tags" : [],
@@ -2227,12 +2226,6 @@
                            "text" : "As sold<br>per serving (10 g)",
                            "text_for_small_screens" : "per serving",
                            "type" : "text"
-                        },
-                        {
-                           "column_group_id" : "comparisons",
-                           "shown_by_default" : true,
-                           "text" : "Compared to: Sweet snacks",
-                           "type" : "text"
                         }
                      ],
                      "id" : "nutrition_facts_table",
@@ -2249,9 +2242,6 @@
                               },
                               {
                                  "text" : "?"
-                              },
-                              {
-                                 "text" : ""
                               }
                            ]
                         },
@@ -2267,9 +2257,6 @@
                               },
                               {
                                  "text" : "?"
-                              },
-                              {
-                                 "text" : ""
                               }
                            ]
                         },
@@ -2285,9 +2272,6 @@
                               },
                               {
                                  "text" : "?"
-                              },
-                              {
-                                 "text" : ""
                               }
                            ]
                         },
@@ -2303,9 +2287,6 @@
                               },
                               {
                                  "text" : "?"
-                              },
-                              {
-                                 "text" : ""
                               }
                            ]
                         },
@@ -2321,9 +2302,6 @@
                               },
                               {
                                  "text" : "?"
-                              },
-                              {
-                                 "text" : ""
                               }
                            ]
                         },
@@ -2339,9 +2317,6 @@
                               },
                               {
                                  "text" : "?"
-                              },
-                              {
-                                 "text" : ""
                               }
                            ]
                         },
@@ -2357,9 +2332,6 @@
                               },
                               {
                                  "text" : "?"
-                              },
-                              {
-                                 "text" : ""
                               }
                            ]
                         },
@@ -2375,9 +2347,6 @@
                               },
                               {
                                  "text" : "62.5 %"
-                              },
-                              {
-                                 "text" : ""
                               }
                            ]
                         }
