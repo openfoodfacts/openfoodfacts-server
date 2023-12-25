@@ -3,7 +3,7 @@ Description=Import producers data for %i
 
 [Timer]
 # every day
-OnCalendar=9:15
+OnCalendar=3:15
 # service instance name "%i" is off / obf / opff / opf
 Unit=producers_import@%i.service
 

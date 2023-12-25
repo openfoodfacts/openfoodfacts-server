@@ -4,10 +4,10 @@
 # list copied from:
 # REGULATION (EU) No 609/2013 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL
 # of 12 June 2013
-# on food intended for infants and young children, food for special medical purposes, 
+# on food intended for infants and young children, food for special medical purposes,
 # and total diet replacement for weight control and repealing Council Directive 92/52/EEC,
 # Commission Directives 96/8/EC, 1999/21/EC, 2006/125/EC and 2006/141/EC,
-# Directive 2009/39/EC of the European Parliament and of the Council and 
+# Directive 2009/39/EC of the European Parliament and of the Council and
 # Commission Regulations (EC) No 41/2009 and (EC) No 953/2009
 # http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32013R0609&from=FR
 
@@ -574,7 +574,7 @@ es:acetato de DL-alfa tocoferilo, acetato de DL-alfa tocoferol
 et:DL-alfa-tokoferüülatsetaat
 fi:DL-alfa-tokoferyyliasetaatti
 fr:acétate de DL-alpha-tocophérol, acétate de DL-alpha-tocophéryle
-hr:DL-alfa-tokoferil acetat, DL-a-tokoferilacetat, DL-alpha-tokoferil acetat, dl-alfa-tokoferil-acetat
+hr:DL-alfa-tokoferil acetat, DL-a-tokoferilacetat, DL-alpha-tokoferil acetat, dl-alfa-tokoferil-acetat, DL-a-tokoferil acetat
 hu:DL-alfa-tokoferil-acetát
 it:acetato di DL-alfa-tocoferile
 lt:DL-alfa-tokoferilacetatas
@@ -671,6 +671,7 @@ et:füllokinoon, fütomenadioon
 fa:فیلوکینون
 fi:fyllokinoni, fytomenadioni, K1-vitamiini
 fr:phylloquinone, phytoménadione, phytonadione, Vitamine K1, K1
+hr:vitamin K1
 hu:fillokinon, fitomenadion, K1-vitamin
 it:fillochinone, fitomenadione, vitamina K1
 ja:フィロキノン, ビタミンK1, ビタミンＫ１, ビタミン K1, ビタミン Ｋ１, V.K1, Ｖ．Ｋ１, V.K₁, V-K1, ＶーＫ１, V-K₁
@@ -1085,7 +1086,7 @@ es:mononitrato de tiamina
 et:tiamiinmononitraat
 fi:tiamiinimononitraatti
 fr:mononitrate de thiamine
-hr:tiamin mononitrat
+hr:tiamin mononitrat, tiaminmononitrat
 hu:tiamin-mononitrát
 it:mononitrato di tiamina
 lt:tiamino mononitratas
@@ -1184,7 +1185,7 @@ sl:nikotinamid
 sv:nikotinamid
 
 en:Vitamin B6, Pyridoxin
-bg:Витамин B6
+bg:Витамин B6, Пиридоксин
 de:Vitamin B6, Pyridoxin
 el:Βιταμίνη B6
 es:Vitamina B6
@@ -1399,7 +1400,7 @@ en:vitamin b12, cobalamin
 af:Vitamien B12
 ar:فيتامين بي 12
 az:B12 vitamini
-bg:витамин В12
+bg:витамин В12, кобаламин
 bn:সায়ানোকোবালেমিন
 bs:Vitamin B12
 ca:cobalamina, vitamina B12, B12
@@ -1522,6 +1523,7 @@ sv:hydroxykobalamin
 
 en:biotin
 bg:Биотин
+de:Biotin, Vitamin B7
 el:Βιοτίνη
 es:Biotina, Vitamina B7
 et:Biotiin
@@ -1549,6 +1551,7 @@ nl:D-biotine
 
 <en:biotin
 en:vitamin b8, B8
+bg:витамин b8,витамин Б8, B8, инозитол
 ca:vitamina B8, B8
 de:Vitamin B8
 es:vitamina b8, B8
@@ -1562,7 +1565,7 @@ pl:witamina B8, B8
 # ingredient/vitamin-b8 has 35 products in 3 languages @2018-11-24
 
 en:Pantothenic Acid, Vitamin B5
-bg:Пантотенова киселина
+bg:Пантотенова киселина, Витамин B5
 cs:Kyselina pantothenová
 da:Pantotensyre, Pantothensyre
 de:Pantothensäure, Pantothenat
@@ -1599,7 +1602,7 @@ fr:D-pantothénate de calcium,D- calcium pantothénate
 hr:kalcijev D-pantotenat
 hu:kalcium-D-pantotenát
 it:D-pantotenato calcio
-jp:パントテン酸ca, パントテン酸カルシウム
+ja:パントテン酸ca, パントテン酸カルシウム
 lt:kalcio D-pantotenatas
 lv:kalcija D-pantotenāts
 mt:D-pantotenat kalċju

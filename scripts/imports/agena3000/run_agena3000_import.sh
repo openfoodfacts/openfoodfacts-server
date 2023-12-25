@@ -21,6 +21,13 @@ fi
 # access needs to be configured in ~/.netrc
 declare -x LFTP_HOME=$OFF_PRIVATE_DATA_DIR/secrets/
 
+# We need to try to connect once manually to identify the host ip address
+# for lftp to work:
+# off@off-pro:~$ ssh sftp-a3dm.agena3000.com -p 2222
+# The authenticity of host '[sftp-a3dm.agena3000.com]:2222 ([185.188.160.42]:2222)' can't be established.
+# RSA key fingerprint is SHA256:VmKrjnTGwGVybZDC4Ha3eC1AmToQlGRuNkDFNBSBR4A.
+# Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+
 # copy files from Agena3000's server (mirroring)
 lftp -c "set cmd:default-protocol sftp; open sftp-a3dm.agena3000.com:2222; mirror --Remove-source-files /PROD/Fiches/ $OFF_SFTP_HOME_DIR/agena3000/PROD/Fiches/"
 

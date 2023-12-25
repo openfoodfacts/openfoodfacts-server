@@ -80,14 +80,14 @@ sub taxonomy_suggestions_api ($request_ref) {
 	# The API accepts a string input in the "string" field or "term" field.
 	# - term is used by the jquery Autocomplete widget: https://api.jqueryui.com/autocomplete/
 	# Use "string" only if both are present.
-	my $string = decode("utf8", (request_param($request_ref, 'string') || request_param($request_ref, 'term')));
+	my $string = request_param($request_ref, 'string') || request_param($request_ref, 'term');
 
 	# We can use the context (e.g. are the suggestions for a specific product sold in a specific country, with specific categories etc.)
 	# to rank higher suggestions that are popular for similar products
 	my $context_ref = {
 		country => $request_ref->{country},
-		categories => decode("utf8", request_param($request_ref, "categories")),    # list of product categories
-		shape => decode("utf8", request_param($request_ref, "shape")),    # packaging shape
+		categories => request_param($request_ref, "categories"),    # list of product categories
+		shape => request_param($request_ref, "shape"),    # packaging shape
 	};
 
 	# Options define how many suggestions should be returned, in which format etc.

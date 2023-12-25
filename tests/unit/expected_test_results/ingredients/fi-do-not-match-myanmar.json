@@ -4,6 +4,7 @@
          "id" : "en:spice",
          "ingredients" : [
             {
+               "ciqual_proxy_food_code" : "11089",
                "id" : "en:turmeric",
                "percent_estimate" : 58.3333333333333,
                "percent_max" : 100,
@@ -132,7 +133,7 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:coriander",
-      "en:turmeric"
+      "en:spice"
    ],
    "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 15,

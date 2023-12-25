@@ -13,6 +13,8 @@ requires 'MIME::Base32';
 requires 'Cache::Memcached::Fast'; #libcache-memcached-fast-perl
 requires 'JSON'; # libjson-perl
 requires 'JSON::PP'; # libjson-pp-perl
+requires 'Cpanel::JSON::XS'; # libcpanel-json-xs-perl - fast parsing
+requires 'JSON::MaybeXS'; # libjson-maybexs-perl
 requires 'Clone'; # libclone-perl
 requires 'Crypt::PasswdMD5'; # libcrypt-passwdmd5-perl
 requires 'Encode::Detect'; # libencode-detect-perl
@@ -70,6 +72,7 @@ requires 'XML::XML2JSON';
 requires 'Redis';
 requires 'Digest::SHA1';
 requires 'Data::Difference';
+requires 'Data::Compare';
 
 # Mojolicious/Minion
 requires 'Mojolicious::Lite';
@@ -92,8 +95,15 @@ requires 'AnyEvent::Inotify::Simple';
 # more Apache stuff
 requires 'Apache::Bootstrap';  # needed by Apache2::Connection::XForwardedFor
 requires 'Apache2::Connection::XForwardedFor';
-# GS1 Encoder
+
+# GS1 Sunrise 2027
 requires 'GS1::SyntaxEngine::FFI';
+requires 'Imager::zxing';
+requires 'Imager::File::AVIF';
+requires 'Imager::File::HEIF';
+requires 'Imager::File::JPEG';
+requires 'Imager::File::PNG';
+requires 'Imager::File::WEBP';
 
 on 'test' => sub {
   requires 'Test::More', '>= 1.302186, < 2.0';

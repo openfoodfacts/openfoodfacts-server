@@ -52,6 +52,7 @@ use ProductOpener::Store qw(:all);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Food qw(:all);
 use ProductOpener::Ecoscore qw(:all);
+use ProductOpener::Units qw(extract_standard_unit);
 
 use Data::DeepAccess qw(deep_exists);
 
@@ -939,7 +940,19 @@ sub check_nutrition_data_energy_computation ($product_ref) {
 			my ($ignore_energy_calculated_error, $category_id)
 				= get_inherited_property_from_categories_tags($product_ref, "ignore_energy_calculated_error:en");
 
-			if (not((defined $ignore_energy_calculated_error) and ($ignore_energy_calculated_error eq 'yes'))) {
+			if (
+				(
+					not((defined $ignore_energy_calculated_error) and ($ignore_energy_calculated_error eq 'yes'))
+					# consider only when energy is high enough to minimize false positives (issue #7789)
+					# consider either computed_energy or energy input by contributor, to avoid when the energy is 5, but it should be 1500
+					and (
+						(($unit eq "kj") and (($specified_energy > 55) or ($computed_energy > 55)))
+						or (    ($unit eq "kcal")
+							and (($specified_energy > 13) or ($computed_energy > 13)))
+					)
+				)
+				)
+			{
 				# Compare to specified energy value with a tolerance of 30% + an additiontal tolerance of 5
 				if (   ($computed_energy < ($specified_energy * 0.7 - 5))
 					or ($computed_energy > ($specified_energy * 1.3 + 5)))
@@ -1027,10 +1040,6 @@ sub check_nutrition_data ($product_ref) {
 			elsif ($product_ref->{serving_quantity} eq "0") {
 				push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-data-per-serving-serving-quantity-is-0";
 			}
-			elsif ($product_ref->{serving_quantity} == 0) {
-				push @{$product_ref->{data_quality_errors_tags}},
-					"en:nutrition-data-per-serving-serving-quantity-is-not-recognized";
-			}
 		}
 	}
 
@@ -1038,14 +1047,11 @@ sub check_nutrition_data ($product_ref) {
 
 	if (defined $product_ref->{nutriments}) {
 
-		my $nid_n = 0;
-		my $nid_zero = 0;
-		my $nid_non_zero = 0;
-
 		my $total = 0;
 		# variables to check if there are 3 or more duplicates in nutriments
 		my @major_nutriments_values = ();
 		my %nutriments_values_occurences = ();
+		my %nutriments_values = ();
 
 		if (    (defined $product_ref->{nutriments}{"energy-kcal_value"})
 			and (defined $product_ref->{nutriments}{"energy-kj_value"}))
@@ -1106,22 +1112,11 @@ sub check_nutrition_data ($product_ref) {
 
 					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-1000-$nid2";
 				}
-				# fruits vegetables estimate is a computed value, it should not count for empty / non-empty values
-				if ($nid !~ /fruits-vegetables-nuts-estimate-from-ingredients/) {
-					if ($product_ref->{nutriments}{$nid} == 0) {
-						$nid_zero++;
-					}
-					else {
-						$nid_non_zero++;
-					}
-				}
-				# negative value in nutrition table, exclude key containing "nutrition-score" as they can be negative
+
 				if (($product_ref->{nutriments}{$nid} < 0) and (index($nid, "nutrition-score") == -1)) {
 					push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-negative-$nid2";
 				}
 			}
-
-			$nid_n++;
 
 			if (    (defined $product_ref->{nutriments}{$nid . "_100g"})
 				and (($nid eq 'fat') or ($nid eq 'carbohydrates') or ($nid eq 'proteins') or ($nid eq 'salt')))
@@ -1129,27 +1124,25 @@ sub check_nutrition_data ($product_ref) {
 				$total += $product_ref->{nutriments}{$nid . "_100g"};
 			}
 
-			# variables to check if there are 3 or more duplicates in nutriments
-			if (
-				(
-					   ($nid eq 'fat_100g')
-					or ($nid eq 'saturated-fat_100g')
-					or ($nid eq 'carbohydrates_100g')
-					or ($nid eq 'sugars_100g')
-					or ($nid eq 'fiber_100g')
-					or ($nid eq 'proteins_100g')
-					or ($nid eq 'salt_100g')
-					or ($nid eq 'sodium_100g')
-				)
-				and ($product_ref->{nutriments}{$nid} > 1)
-				)
+			# variables to check if there are many duplicates in nutriments
+			if (   ($nid eq 'energy-kj_100g')
+				or ($nid eq 'energy-kcal_100g')
+				or ($nid eq 'fat_100g')
+				or ($nid eq 'saturated-fat_100g')
+				or ($nid eq 'carbohydrates_100g')
+				or ($nid eq 'sugars_100g')
+				or ($nid eq 'fiber_100g')
+				or ($nid eq 'proteins_100g')
+				or ($nid eq 'salt_100g')
+				or ($nid eq 'sodium_100g'))
 			{
 				push(@major_nutriments_values, $product_ref->{nutriments}{$nid});
+				$nutriments_values{$nid} = $product_ref->{nutriments}{$nid};
 			}
 
 		}
 
-		# create a hash key: nutriment value, value: number of occurence
+		# create a hash key: nutriment value, value: number of occurences
 		foreach my $nutriment_value (@major_nutriments_values) {
 			if (exists($nutriments_values_occurences{$nutriment_value})) {
 				$nutriments_values_occurences{$nutriment_value}++;
@@ -1158,12 +1151,32 @@ sub check_nutrition_data ($product_ref) {
 				$nutriments_values_occurences{$nutriment_value} = 1;
 			}
 		}
-		# raise warning if there are 3 or more duplicates in nutriments
-		foreach my $keys (keys %nutriments_values_occurences) {
-			if ($nutriments_values_occurences{$keys} > 2) {
-				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-3-or-more-values-are-identical";
-				last;
+		# retrieve max number of occurences
+		my $nutriments_values_occurences_max_value = -1;
+		# raise warning if there are 3 or more duplicates in nutriments and nutriment is above 1
+		foreach my $key (keys %nutriments_values_occurences) {
+			if (($nutriments_values_occurences{$key} > 2) and ($key > 1)) {
+				add_tag($product_ref, "data_quality_warnings", "en:nutrition-3-or-more-values-are-identical");
 			}
+			if ($nutriments_values_occurences{$key} > $nutriments_values_occurences_max_value) {
+				$nutriments_values_occurences_max_value = $nutriments_values_occurences{$key};
+			}
+		}
+		# raise error if
+		# all values are identical
+		#  OR
+		# all values but one - because sodium and salt can be automatically calculated one depending on the value of the other - are identical
+		if (
+			($nutriments_values_occurences_max_value == scalar @major_nutriments_values)
+			or (
+				($nutriments_values_occurences_max_value >= scalar @major_nutriments_values - 1)
+				and (   (defined $nutriments_values{'salt_100g'})
+					and ($nutriments_values{'sodium_100g'})
+					and ($nutriments_values{'salt_100g'} != $nutriments_values{'sodium_100g'}))
+			)
+			)
+		{
+			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-values-are-all-identical";
 		}
 
 		if ($total > 105) {
@@ -1179,22 +1192,59 @@ sub check_nutrition_data ($product_ref) {
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-3800-energy";
 		}
 
-		if (($nid_non_zero == 0) and ($nid_zero > 0) and ($nid_zero == $nid_n)) {
-			push @{$product_ref->{data_quality_errors_tags}}, "en:all-nutrition-values-are-set-to-0";
-		}
-
+		# sugar + starch cannot be greater than carbohydrates
+		# do not raise error if sugar or starch contains "<" symbol (see issue #9267)
 		if (
 			(defined $product_ref->{nutriments}{"carbohydrates_100g"})
 			and (
+				# without "<" symbol, check sum of sugar and starch is not greater than carbohydrates
 				(
 					(
-						(defined $product_ref->{nutriments}{"sugars_100g"}) ? $product_ref->{nutriments}{"sugars_100g"}
-						: 0
-					) + (
-						(defined $product_ref->{nutriments}{"starch_100g"}) ? $product_ref->{nutriments}{"starch_100g"}
-						: 0
+						(
+							(
+								(defined $product_ref->{nutriments}{"sugars_100g"})
+								? $product_ref->{nutriments}{"sugars_100g"}
+								: 0
+							) + (
+								(defined $product_ref->{nutriments}{"starch_100g"})
+								? $product_ref->{nutriments}{"starch_100g"}
+								: 0
+							)
+						) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001
 					)
-				) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001
+					and not(defined $product_ref->{nutriments}{"sugar_modifier"})
+					and not(defined $product_ref->{nutriments}{"starch_modifier"})
+				)
+				or
+				# with "<" symbo, check only that sugar or starch are not greater than carbohydrates
+				(
+					(
+						(
+								(defined $product_ref->{nutriments}{"sugar_modifier"})
+							and ($product_ref->{nutriments}{"sugar_modifier"} eq "<")
+						)
+						and (
+							(
+								(defined $product_ref->{nutriments}{"sugars_100g"})
+								? $product_ref->{nutriments}{"sugars_100g"}
+								: 0
+							) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001
+						)
+					)
+					or (
+						(
+								(defined $product_ref->{nutriments}{"starch_modifier"})
+							and ($product_ref->{nutriments}{"starch_modifier"} eq "<")
+						)
+						and (
+							(
+								(defined $product_ref->{nutriments}{"starch_100g"})
+								? $product_ref->{nutriments}{"starch_100g"}
+								: 0
+							) > ($product_ref->{nutriments}{"carbohydrates_100g"}) + 0.001
+						)
+					)
+				)
 			)
 			)
 		{
@@ -1233,14 +1283,9 @@ sub check_nutrition_data ($product_ref) {
 				"en:nutrition-fructose-plus-glucose-plus-maltose-plus-lactose-plus-sucrose-greater-than-sugars";
 		}
 
-		if (
-			(
-				(defined $product_ref->{nutriments}{"saturated-fat_100g"})
-				? $product_ref->{nutriments}{"saturated-fat_100g"}
-				: 0
-			)
-			> (((defined $product_ref->{nutriments}{"fat_100g"}) ? $product_ref->{nutriments}{"fat_100g"} : 0) + 0.001)
-			)
+		if (    (defined $product_ref->{nutriments}{"saturated-fat_100g"})
+			and (defined $product_ref->{nutriments}{"fat_100g"})
+			and ($product_ref->{nutriments}{"saturated-fat_100g"} > ($product_ref->{nutriments}{"fat_100g"} + 0.001)))
 		{
 
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-saturated-fat-greater-than-fat";
@@ -1248,6 +1293,7 @@ sub check_nutrition_data ($product_ref) {
 		}
 
 		# Too small salt value? (e.g. g entered in mg)
+		# warning for salt < 0.1 was removed because it was leading to too much false positives (see #9346)
 		if ((defined $product_ref->{nutriments}{"salt_100g"}) and ($product_ref->{nutriments}{"salt_100g"} > 0)) {
 
 			if ($product_ref->{nutriments}{"salt_100g"} < 0.001) {
@@ -1256,28 +1302,28 @@ sub check_nutrition_data ($product_ref) {
 			elsif ($product_ref->{nutriments}{"salt_100g"} < 0.01) {
 				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-01-g-salt";
 			}
-			elsif ($product_ref->{nutriments}{"salt_100g"} < 0.1) {
-				push @{$product_ref->{data_quality_warnings_tags}}, "en:nutrition-value-under-0-1-g-salt";
-			}
 		}
 
 		# some categories have expected nutriscore grade - push data quality error if calculated nutriscore grade differs from expected nutriscore grade or if it is not calculated
 		my ($expected_nutriscore_grade, $category_id)
 			= get_inherited_property_from_categories_tags($product_ref, "expected_nutriscore_grade:en");
 
-		# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
-		if ((defined $expected_nutriscore_grade) and ($expected_nutriscore_grade =~ /^([a-e]){1}$/i)) {
-			if (
-				# nutriscore not calculated but should have expected nutriscore grade
-				(not(defined $product_ref->{nutrition_grade_fr}))
-				# nutriscore calculated but unexpected nutriscore grade
-				or (    (defined $product_ref->{nutrition_grade_fr})
-					and ($product_ref->{nutrition_grade_fr} ne $expected_nutriscore_grade))
-				)
-			{
-				push @{$product_ref->{data_quality_errors_tags}},
-					"en:nutri-score-grade-from-category-does-not-match-calculated-grade";
-			}
+		if (
+			# exclude error if nutriscore cannot be calculated due to missing nutrients information (see issue #9297)
+			(
+					(defined $product_ref->{nutriscore}{2023}{nutrients_available})
+				and ($product_ref->{nutriscore}{2023}{nutrients_available} == 1)
+			)
+			# we expect single letter a, b, c, d, e for nutriscore grade in the taxonomy. Case insensitive (/i).
+			and (defined $expected_nutriscore_grade)
+			and (($expected_nutriscore_grade =~ /^([a-e]){1}$/i))
+			# nutriscore calculated but unexpected nutriscore grade
+			and (defined $product_ref->{nutrition_grade_fr})
+			and ($product_ref->{nutrition_grade_fr} ne $expected_nutriscore_grade)
+			)
+		{
+			push @{$product_ref->{data_quality_errors_tags}},
+				"en:nutri-score-grade-from-category-does-not-match-calculated-grade";
 		}
 
 		# some categories have an expected ingredient - push data quality error if ingredient differs from expected ingredient
@@ -1680,6 +1726,17 @@ sub check_quantity ($product_ref) {
 		}
 	}
 
+	# serving size not recognized (undefined serving quantity)
+	# serving_size = 10g -> serving_quantity = 10
+	# serving_size = 10  -> serving_quantity will be undefined
+	if (    (defined $product_ref->{serving_size})
+		and ($product_ref->{serving_size} ne "")
+		and (!defined $product_ref->{serving_quantity}))
+	{
+		push @{$product_ref->{data_quality_warnings_tags}},
+			"en:nutrition-data-per-serving-serving-quantity-is-not-recognized";
+	}
+
 	return;
 }
 
@@ -1724,13 +1781,14 @@ sub check_categories ($product_ref) {
 
 Checks related to specific product labels.
 
-Vegan label: check that there is no non-vegan ingredient.
-
-Vegetarian label: check that there is no non-vegetarian ingredient.
-
 =cut
 
 sub check_labels ($product_ref) {
+	# compare label claim and ingredients
+
+	# Vegan label: check that there is no non-vegan ingredient.
+	# Vegetarian label: check that there is no non-vegetarian ingredient.
+
 	# this also include en:vegan that is a child of en:vegetarian
 	if (defined $product_ref->{labels_tags} && has_tag($product_ref, "labels", "en:vegetarian")) {
 		if (defined $product_ref->{ingredients}) {
@@ -1785,6 +1843,554 @@ sub check_labels ($product_ref) {
 		}
 	}
 
+	# In EU, compare label claim and nutrition
+	# https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+	my @eu_countries = (
+		"en:austria", "en:belgium", "en:bulgaria", "en:croatia", "en:cyprus", "en:czech republic",
+		"en:denmark", "en:france", "en:estonia", "en:finland", "en:germany", "en:greece",
+		"en:hungary", "en:ireland", "en:italy", "en:latvia", "en:lithuania", "en:luxembourg",
+		"en:malta", "en:netherlands", "en:poland", "en:portugal", "en:romania", "en:slovakia",
+		"en:slovenia", "en:spain", "en:sweden"
+	);
+	my $european_product = 0;
+	foreach my $eu_country (@eu_countries) {
+		if (has_tag(($product_ref, "countries", $eu_country))) {
+			$european_product = 1;
+			last;
+		}
+	}
+
+	if (    (defined $product_ref->{nutriments})
+		and (defined $product_ref->{labels_tags})
+		and ($european_product == 1))
+	{
+		# maximal values differs depending if the product is
+		# solid (higher maxmal values) or
+		# liquid (lower maximal values)
+		my $solid = 1;
+		if (defined $product_ref->{quantity}) {
+			my $standard_unit = extract_standard_unit($product_ref->{quantity});
+			if ((defined $standard_unit) and ($standard_unit eq "ml")) {
+				$solid = 0;
+			}
+		}
+
+		if (   (defined $product_ref->{nutriments}{"energy-kcal_100g"})
+			or (defined $product_ref->{nutriments}{"energy-kj_value"}))
+		{
+			# In EU, a claim that a food is low in energy may only be made where the product
+			# does not contain more than 40 kcal (170 kJ)/100 g for solids or
+			# more than 20 kcal (80 kJ)/100 ml for liquids.
+			# (not handled) For table-top sweeteners the limit of 4 kcal (17 kJ)/portion,
+			#   with equivalent sweetening properties to 6 g of sucrose
+			#   (approximately 1 teaspoon of sucrose), applies.
+			if (
+				(has_tag($product_ref, "labels", "en:low-energy"))
+				and (
+					(
+						($solid == 1) and (($product_ref->{nutriments}{"energy-kcal_100g"} > 40)
+							or ($product_ref->{nutriments}{"energy-kj_100g"} > 170))
+					)
+					or (
+						($solid == 0)
+						and (  ($product_ref->{nutriments}{"energy-kcal_100g"} > 20)
+							or ($product_ref->{nutriments}{"energy-kj_100g"} > 80))
+					)
+				)
+				)
+			{
+				add_tag($product_ref, "data_quality_warnings", "en:low-energy-label-claim-but-energy-above-limitation");
+			}
+
+			# TODO: checks label and children - limitation applied on child should not apply on parent in some cases
+
+			# In EU, a claim that a food is energy free may only be made where the product
+			# does not contain more than 4 kcal (17 kJ)/100 ml.
+			# (not handled) For table-top sweeteners the limit of 0,4 kcal (1,7 kJ)/portion,
+			#    with equivalent sweetening properties to 6 g of sucrose
+			#    (approximately 1 teaspoon of sucrose), applies.
+			if (
+				(has_tag($product_ref, "labels", "en:energy-free"))
+				and (
+					(
+						   ($product_ref->{nutriments}{"energy-kcal_100g"} > 4)
+						or ($product_ref->{nutriments}{"energy-kj_100g"} > 17)
+					)
+				)
+				)
+			{
+				add_tag($product_ref, "data_quality_warnings",
+					"en:energy-free-label-claim-but-energy-above-limitation");
+			}
+		}
+
+		if (defined $product_ref->{nutriments}{fat_100g}) {
+			# In EU, a claim that a food is low fat may only be made where the product contains
+			# no more than 3 g of fat per 100 g for solids or
+			# 1,5 g of fat per 100 ml for liquids
+			# (1,8 g of fat per 100 ml for semi-skimmed milk).
+			if (
+				(has_tag($product_ref, "labels", "en:low-fat"))
+				and (
+					(($solid == 1) and ($product_ref->{nutriments}{fat_100g} > 3))
+					or (    ($solid == 0)
+						and ($product_ref->{nutriments}{fat_100g} > 1.5)
+						and (!has_tag($product_ref, "categories", "en:semi-skimmed-milks")))
+					or (    ($solid == 0)
+						and ($product_ref->{nutriments}{fat_100g} > 1.8)
+						and (has_tag($product_ref, "categories", "en:semi-skimmed-milks")))
+				)
+				)
+			{
+				add_tag($product_ref, "data_quality_warnings", "en:low-fat-label-claim-but-fat-above-limitation");
+			}
+
+			# In EU, a claim that a food is fat free may only be made where
+			# the product contains no more than 0,5 g of fat per 100 g or 100 ml.
+			if ((has_tag($product_ref, "labels", "en:no-fat")) && ($product_ref->{nutriments}{fat_100g} > 0.5)) {
+				add_tag($product_ref, "data_quality_warnings", "en:no-fat-label-claim-but-fat-above-0.5");
+			}
+
+			# In EU, a claim that a food is high in monounsaturated fat may only be made where
+			# at least 45 % of the fatty acids present in the product derive from monounsaturated fat
+			# under the condition that monounsaturated fat provides more than 20 % of energy of the product.
+			if (
+					(has_tag($product_ref, "labels", "en:high-monounsaturated-fat"))
+				and (defined $product_ref->{nutriments}{"monounsaturated-fat_100g"})
+				and (
+					(
+						$product_ref->{nutriments}{"monounsaturated-fat_100g"}
+						< ($product_ref->{nutriments}{fat_100g} * 45 / 100)
+					)
+					or (
+						(
+							  $product_ref->{nutriments}{"monounsaturated-fat_100g"}
+							* $energy_from_nutrients{europe}{"fat"}{"kcal"}
+						) < (20 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100)
+					)
+					or (
+						(
+							  $product_ref->{nutriments}{"monounsaturated-fat_100g"}
+							* $energy_from_nutrients{europe}{"fat"}{"kj"}
+						) < (20 * $product_ref->{nutriments}{"energy-kj_value_computed"} / 100)
+					)
+				)
+				)
+			{
+				add_tag($product_ref, "data_quality_warnings",
+					"en:high-monounsaturated-fat-label-claim-but-monounsaturated-fat-under-limitation");
+			}
+
+			# In EU, a claim that a food is high in polyunsaturated fat may only be made where
+			# at least 45 % of the fatty acids present in the product derive from polyunsaturated fat
+			# under the condition that polyunsaturated fat provides more than 20 % of energy of the product.
+			if (
+					(has_tag($product_ref, "labels", "en:rich-in-polyunsaturated-fatty-acids"))
+				and (defined $product_ref->{nutriments}{"polyunsaturated-fat_100g"})
+				and (
+					(
+						$product_ref->{nutriments}{"polyunsaturated-fat_100g"}
+						< ($product_ref->{nutriments}{fat_100g} * 45 / 100)
+					)
+					or (
+						(
+							  $product_ref->{nutriments}{"polyunsaturated-fat_100g"}
+							* $energy_from_nutrients{europe}{"fat"}{"kcal"}
+						) < (20 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100)
+					)
+					or (
+						(
+							  $product_ref->{nutriments}{"polyunsaturated-fat_100g"}
+							* $energy_from_nutrients{europe}{"fat"}{"kj"}
+						) < (20 * $product_ref->{nutriments}{"energy-kj_value_computed"} / 100)
+					)
+				)
+				)
+			{
+				add_tag($product_ref, "data_quality_warnings",
+					"en:rich-in-polyunsaturated-fatty-acids-label-claim-but-polyunsaturated-fat-under-limitation");
+			}
+
+			# In EU, a claim that a food is high in unsaturated fat may only be made where
+			# at least 70 % of the fatty acids present in the product derive from unsaturated fat
+			# under the condition that unsaturated fat provides more than 20 % of energy of the product.
+			if (
+					(has_tag($product_ref, "labels", "en:rich-in-unsaturated-fatty-acids"))
+				and (defined $product_ref->{nutriments}{"unsaturated-fat_100g"})
+				and (
+					(
+						$product_ref->{nutriments}{"unsaturated-fat_100g"}
+						< ($product_ref->{nutriments}{fat_100g} * 45 / 100)
+					)
+					or (
+						(
+							  $product_ref->{nutriments}{"unsaturated-fat_100g"}
+							* $energy_from_nutrients{europe}{"fat"}{"kcal"}
+						) < (20 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100)
+					)
+					or (
+						(     $product_ref->{nutriments}{"unsaturated-fat_100g"}
+							* $energy_from_nutrients{europe}{"fat"}{"kj"})
+						< (20 * $product_ref->{nutriments}{"energy-kj_value_computed"} / 100))
+				)
+				)
+			{
+				add_tag($product_ref, "data_quality_warnings",
+					"en:rich-in-unsaturated-fatty-acids-label-claim-but-unsaturated-fat-under-limitation");
+			}
+
+		}
+
+		if (defined $product_ref->{nutriments}{"saturated-fat_100g"}) {
+			# In EU, a claim that a food is fat free may only be made if
+			# the sum of saturated fatty acids and trans-fatty acids in the product does not exceed 1,5 g per 100 g for solids or
+			# 0,75 g/100 ml for liquids and in either case
+			# the sum of saturated fatty acids and trans-fatty acids must not provide more than 10 % of energy
+
+			# use computed enegy because input energy may be undefined
+			if (
+				(has_tag($product_ref, "labels", "en:low-content-of-saturated-fat"))
+				and (
+					(($solid == 1) and ($product_ref->{nutriments}{"saturated-fat_100g"} > 1.5))
+					or (    ($solid == 0)
+						and ($product_ref->{nutriments}{"saturated-fat_100g"} > 0.75))
+					or (
+						(
+							(
+								(
+									  $product_ref->{nutriments}{"saturated-fat_100g"}
+									+ $product_ref->{nutriments}{"trans-fat_100g"} || 0
+								) * $energy_from_nutrients{europe}{"fat"}{"kj"}
+							) > (10 * $product_ref->{nutriments}{"energy-kj_value_computed"} / 100)
+						)
+						or (
+							(
+								(
+									  $product_ref->{nutriments}{"saturated-fat_100g"}
+									+ $product_ref->{nutriments}{"trans-fat_100g"} || 0
+								) * $energy_from_nutrients{europe}{"fat"}{"kcal"}
+							) > (10 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100)
+						)
+					)
+				)
+				)
+			{
+				add_tag($product_ref, "data_quality_warnings",
+					"en:low-saturated-fat-label-claim-but-fat-above-limitation");
+			}
+
+			# In EU, a claim that a food does not contain sturated fat may only be made where
+			# the sum of saturated fat and trans-fatty acids does not exceed 0,1 g of saturated fat per 100 g or 100 ml.
+			if (    (has_tag($product_ref, "labels", "en:saturated-fat-free"))
+				and (($product_ref->{nutriments}{"saturated-fat_100g"} > 0.1)))
+			{
+				add_tag($product_ref, "data_quality_warnings", "en:saturated-fat-free-label-claim-but-fat-above-0.1");
+			}
+		}
+
+		if (defined $product_ref->{nutriments}{sugars_100g}) {
+			# In EU, a claim that a food is low sugar may only be made where the product contains
+			# no more than 5 g of sugars per 100 g for solids or
+			# 2,5 g of sugars per 100 ml for liquids.
+			if (
+				(has_tag($product_ref, "labels", "en:low-sugar"))
+				and (
+					(($solid == 1) and ($product_ref->{nutriments}{sugars_100g} > 5))
+					or (    ($solid == 0)
+						and ($product_ref->{nutriments}{sugars_100g} > 2.5))
+				)
+				)
+			{
+				add_tag($product_ref, "data_quality_warnings", "en:low-sugar-label-claim-but-sugar-above-limitation");
+			}
+
+			# In EU, a claim that a food is sugar-free may only be made where the product contains
+			# no more than 0,5 g of sugars per 100 g or 100 ml.
+			if (    (has_tag($product_ref, "labels", "en:no-sugar"))
+				and (($product_ref->{nutriments}{sugars_100g} > 0.5)))
+			{
+				add_tag($product_ref, "data_quality_warnings", "en:sugar-free-label-claim-but-sugar-above-limitation");
+			}
+		}
+
+		# In EU, a claim that a food is with no added sugars may only be made where
+		# the product does not contain any added mono- or disaccharides or
+		# any other food used for its sweetening properties.
+		# (not handled) If sugars are naturally present in the food, the following indication should also appear on the label:
+		#    ‘CONTAINS NATURALLY OCCURRING SUGARS’.
+		if (    (has_tag($product_ref, "labels", "en:no-added-sugar"))
+			and (has_tag($product_ref, "ingredients", "en:added-sugar")))
+		{
+			add_tag($product_ref, "data_quality_warnings", "en:no-added-sugar-label-claim-but-contains-added-sugar");
+		}
+
+		# In EU, a claim that a food is low sodium or low salt may only be made where
+		# the product contains no more than 0,12 g of sodium, or the equivalent value for salt, per 100 g or per 100 ml.
+		# (not handled) For waters, other than natural mineral waters falling within the scope of Directive 80/777/EEC,
+		#    this value should not exceed 2 mg of sodium per 100 ml.
+		if (
+			(
+				((defined $product_ref->{nutriments}{sodium_100g}) and ($product_ref->{nutriments}{sodium_100g} > 0.12))
+				or ((defined $product_ref->{nutriments}{salt_100g}) and ($product_ref->{nutriments}{salt_100g} > 0.3))
+			)
+			and (has_tag($product_ref, "labels", "en:low-sodium") or has_tag($product_ref, "labels", "en:low-salt"))
+			)
+		{
+			add_tag($product_ref, "data_quality_warnings",
+				"en:low-sodium-or-low-salt-label-claim-but-sodium-or-salt-above-limitation");
+		}
+
+		# In EU, a claim that a food is very low in sodium/salt may only be made where
+		# the product contains no more than 0,04 g of sodium, or the equivalent value for salt, per 100 g or per 100 ml.
+		# This claim shall not be used for natural mineral waters and other waters.
+		if (
+			(
+				((defined $product_ref->{nutriments}{sodium_100g}) and ($product_ref->{nutriments}{sodium_100g} > 0.04))
+				or ((defined $product_ref->{nutriments}{salt_100g}) and ($product_ref->{nutriments}{salt_100g} > 0.1))
+			)
+			and (  has_tag($product_ref, "labels", "en:very-low-sodium")
+				or has_tag($product_ref, "labels", "en:very-low-salt"))
+			and (!has_tag($product_ref, "categories", "en:waters"))
+			)
+		{
+			add_tag($product_ref, "data_quality_warnings",
+				"en:very-low-sodium-or-very-low-salt-label-claim-but-sodium-or-salt-above-limitation");
+		}
+
+		# In EU, a claim that a food is sodium-free or salt-free may only be made where the product contains
+		# no more than 0,005 g of sodium, or the equivalent value for salt, per 100 g.
+		if (
+			(
+				(       (defined $product_ref->{nutriments}{sodium_100g})
+					and ($product_ref->{nutriments}{sodium_100g} > 0.005))
+				or
+				((defined $product_ref->{nutriments}{salt_100g}) and ($product_ref->{nutriments}{salt_100g} > 0.0125))
+			)
+			and (has_tag($product_ref, "labels", "en:no-sodium") or has_tag($product_ref, "labels", "en:no-salt"))
+			)
+		{
+			add_tag($product_ref, "data_quality_warnings",
+				"en:sodium-free-or-salt-free-label-claim-but-sodium-or-salt-above-limitation");
+		}
+
+		# In EU, a claim that sodium/salt has not been added to a food may only be made where the product
+		# does not contain any added sodium/salt or any other ingredient containing added sodium/salt and
+		# the product contains no more than 0,12 g sodium, or the equivalent value for salt, per 100 g or 100 ml.
+		if (
+			(
+				((defined $product_ref->{nutriments}{sodium_100g}) and ($product_ref->{nutriments}{sodium_100g} > 0.12))
+				or ((defined $product_ref->{nutriments}{salt_100g}) and ($product_ref->{nutriments}{salt_100g} > 0.3))
+				or (has_tag($product_ref, "ingredients", "en:salt"))
+			)
+			and (  has_tag($product_ref, "labels", "en:no-added-sodium")
+				or has_tag($product_ref, "labels", "en:no-added-salt"))
+			)
+		{
+			add_tag($product_ref, "data_quality_warnings",
+				"en:no-added-sodium-or-no-added-salt-label-claim-but-sodium-or-salt-above-limitation");
+		}
+
+		if (defined $product_ref->{nutriments}{fiber_100g}) {
+			# In EU, a claim that a food is a source of fibre may only be made where the product contains
+			# at least 3 g of fibre per 100 g or
+			# at least 1,5 g of fibre per 100 kcal.
+			if (
+				(has_tag($product_ref, "labels", "en:source-of-fibre"))
+				and (  (($solid == 1) and ($product_ref->{nutriments}{fiber_100g} < 3))
+					or ($product_ref->{nutriments}{fiber_100g} * $energy_from_nutrients{europe}{"fiber"}{"kcal"})
+					< (1.5 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100))
+				)
+			{
+				add_tag($product_ref, "data_quality_warnings",
+					"en:source-of-fibre-label-claim-but-fibre-below-limitation");
+			}
+			# In EU, a claim that a food is high in fibre may only be made where the product contains
+			# at least 6 g of fibre per 100 g or
+			# at least 3 g of fibre per 100 kcal.
+			if (
+				(has_tag($product_ref, "labels", "en:high-fibres"))
+				and (  (($solid == 1) and ($product_ref->{nutriments}{fiber_100g} < 6))
+					or ($product_ref->{nutriments}{fiber_100g} * $energy_from_nutrients{europe}{"fiber"}{"kcal"})
+					< (3 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100))
+				)
+			{
+				add_tag($product_ref, "data_quality_warnings", "en:high-fibres-label-claim-but-fibre-below-limitation");
+			}
+		}
+
+		if (defined $product_ref->{nutriments}{proteins_100g}) {
+			# In EU, a claim that a food is a source of protein may only be made where
+			# at least 12 % of the energy value of the food is provided by protein.
+			if (    (has_tag($product_ref, "labels", "en:source-of-proteins"))
+				and ($product_ref->{nutriments}{proteins_100g} * $energy_from_nutrients{europe}{"proteins"}{"kcal"})
+				< (12 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100))
+			{
+				add_tag($product_ref, "data_quality_warnings",
+					"en:source-of-proteins-label-claim-but-proteins-below-limitation");
+			}
+
+			# In EU, a claim that a food is high in protein may only be made where
+			#at least 20 % of the energy value of the food is provided by protein.
+			if (    (has_tag($product_ref, "labels", "en:high-proteins"))
+				and ($product_ref->{nutriments}{proteins_100g} * $energy_from_nutrients{europe}{"proteins"}{"kcal"})
+				< (20 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100))
+			{
+				add_tag($product_ref, "data_quality_warnings",
+					"en:high-proteins-label-claim-but-proteins-below-limitation");
+			}
+		}
+
+		# See annex from: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+		my %vitamins_and_minerals_labelling = (
+			europe => {
+				"vitamin-a" => {
+					"en:vitamin-a-source" => 0.0008,    # 800 µg
+					"en:rich-in-vitamin-a" => 0.0016,
+				},
+				"vitamin-d" => {
+					"en:vitamin-d-source" => 0.000005,    # 5 µg
+					"en:rich-in-vitamin-d" => 0.00001,
+				},
+				"vitamin-e" => {
+					"en:vitamin-e-source" => 0.01,    # 10 mg
+					"en:rich-in-vitamin-e" => 0.02,
+				},
+				"vitamin-c" => {
+					"en:vitamin-c-source" => 0.06,    # 10 mg
+					"en:rich-in-vitamin-c" => 0.12,
+				},
+				"vitamin-b1" => {
+					"en:vitamin-b1-source" => 0.0014,    # 1.4 mg, thiamin
+					"en:rich-in-vitamin-b1" => 0.0028,
+				},
+				"vitamin-b2" => {
+					"en:vitamin-b2-source" => 0.0016,    # 1.6 mg, riboflavin
+					"en:rich-in-vitamin-b2" => 0.0032,
+				},
+				"vitamin-b3" => {
+					"en:vitamin-b3-source" => 0.018,    # 18 mg, niacin
+					"en:rich-in-vitamin-b3" => 0.036,
+				},
+				"vitamin-b6" => {
+					"en:vitamin-b6-source" => 0.002,    # 2 mg
+					"en:rich-in-vitamin-b6" => 0.004,
+				},
+				"vitamin-b9" => {
+					"en:vitamin-b9-source" => 0.0002,    # 200 µg, folacin
+					"en:rich-in-vitamin-b9" => 0.0004,
+				},
+				"vitamin-b12" => {
+					"en:vitamin-b12-source" => 0.000001,    # 1 µg
+					"en:rich-in-vitamin-b12" => 0.000002,
+				},
+				"biotin" => {
+					"en:source-of-biotin" => 0.00015,    # 0.15 mg
+					"en:high-in-biotin" => 0.0003,
+				},
+				"pantothenic-acid" => {
+					"en:source-of-pantothenic-acid" => 0.006,    # 6 mg
+					"en:high-in-pantothenic-acid" => 0.012,
+				},
+				"calcium" => {
+					"en:calcium-source" => 0.8,    # 800 mg
+					"en:high-in-calcium" => 1.6,
+				},
+				"phosphorus" => {
+					"en:phosphore-source" => 0.8,    # 800 mg
+					"en:high-in-phosphore" => 1.6,
+				},
+				"iron" => {
+					"en:iron-source" => 0.014,    # 14 mg
+					"en:high-in-iron" => 0.028,
+				},
+				"magnesium" => {
+					"en:magnesium-source" => 0.3,    # 300 mg
+					"en:high-in-magnesium" => 0.6,
+				},
+				"zinc" => {
+					"en:zinc-source" => 0.015,    # 15 mg
+					"en:high-in-zinc" => 0.03,
+				},
+				"iodine" => {
+					"en:iodine-source" => 0.00015,    # 150 µg
+					"en:high-in-iodine" => 0.0003,
+				},
+			},
+		);
+		foreach my $vit_or_min (keys %{$vitamins_and_minerals_labelling{europe}}) {
+			foreach my $vit_or_min_label (keys %{$vitamins_and_minerals_labelling{europe}{$vit_or_min}}) {
+				if (
+						(defined $product_ref->{nutriments}{$vit_or_min . "_100g"})
+					and (has_tag($product_ref, "labels", $vit_or_min_label))
+					and ($product_ref->{nutriments}{$vit_or_min . "_100g"}
+						< $vitamins_and_minerals_labelling{europe}{$vit_or_min}{$vit_or_min_label})
+					)
+				{
+					add_tag($product_ref, "data_quality_warnings",
+							  "en:"
+							. substr($vit_or_min_label, 3)
+							. "-label-claim-but-$vit_or_min-below-$vitamins_and_minerals_labelling{europe}{$vit_or_min}{$vit_or_min_label}"
+					);
+				}
+			}
+		}
+
+		# In EU, a claim that a food is a source of omega-3 may only be made where the product contains
+		# at least 0,3 g alpha-linolenic acid per 100 g
+		#   not handled: and per 100 kcal, or
+		# at least 40 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g
+		#   not handled: and per 100 kcal.
+		if (
+			(has_tag($product_ref, "labels", "en:source-of-omega-3"))
+			and (
+				(
+						(defined $product_ref->{nutriments}{"alpha-linolenic-acid_100g"})
+					and ($product_ref->{nutriments}{"alpha-linolenic-acid_100g"} < 0.3)
+				)
+				or (
+						(defined $product_ref->{nutriments}{"eicosapentaenoic-acid_100g"})
+					and (defined $product_ref->{nutriments}{"docosahexaenoic-acid_100g"})
+					and (
+						(
+							  $product_ref->{nutriments}{"eicosapentaenoic-acid_100g"}
+							+ $product_ref->{nutriments}{"docosahexaenoic-acid_100g"}
+						) < 0.04
+					)
+				)
+			)
+			)
+		{
+			add_tag($product_ref, "data_quality_warnings",
+				"en:source-of-omega-3-label-claim-but-ala-or-sum-of-epa-and-dha-below-limitation");
+		}
+
+		# In EU, a claim that a food is high in omega-3 may only be made where the product contains
+		# at least 0,6 g alpha-linolenic acid per 100 g and per 100 kcal, or
+		# at least 80 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal.
+		if (
+			(has_tag($product_ref, "labels", "en:high-in-omega-3"))
+			and (
+				(
+						(defined $product_ref->{nutriments}{"alpha-linolenic-acid_100g"})
+					and ($product_ref->{nutriments}{"alpha-linolenic-acid_100g"} < 0.6)
+				)
+				or (
+						(defined $product_ref->{nutriments}{"eicosapentaenoic-acid_100g"})
+					and (defined $product_ref->{nutriments}{"docosahexaenoic-acid_100g"})
+					and (
+						(
+							  $product_ref->{nutriments}{"eicosapentaenoic-acid_100g"}
+							+ $product_ref->{nutriments}{"docosahexaenoic-acid_100g"}
+						) < 0.08
+					)
+				)
+			)
+			)
+		{
+			add_tag($product_ref, "data_quality_warnings",
+				"en:high-in-omega-3-label-claim-but-ala-or-sum-of-epa-and-dha-below-limitation");
+		}
+	}
 	return;
 }
 

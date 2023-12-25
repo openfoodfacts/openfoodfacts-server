@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
          "percent_estimate" : 53.3333333333333,
          "percent_max" : 100,
@@ -10,6 +11,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "9410",
          "id" : "en:wheat-flour",
          "percent_estimate" : 23.3333333333333,
          "percent_max" : 50,
@@ -29,6 +31,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "16030",
          "id" : "en:cocoa-paste",
          "percent_estimate" : 5.83333333333333,
          "percent_max" : 25,
@@ -68,6 +71,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "9410",
          "id" : "en:whole-wheat-flour",
          "percent_estimate" : 0.364583333333329,
          "percent_max" : 12.5,
@@ -259,19 +263,16 @@
    "ingredients_with_unspecified_percent_n" : 15,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:cocoa-paste",
+      "en:emulsifier",
       "en:fat",
       "en:flavouring",
       "en:modified-starch",
       "en:raising-agent",
-      "en:sugar",
       "en:vegetable-oil-and-fat",
-      "en:wheat-flour",
-      "en:whole-wheat-flour",
       "ja:大豆由来",
       "ja:小麦胚芽"
    ],
-   "ingredients_without_ciqual_codes_n" : 11,
+   "ingredients_without_ciqual_codes_n" : 8,
    "known_ingredients_n" : 27,
    "lc" : "ja",
    "nutriments" : {

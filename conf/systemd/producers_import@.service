@@ -1,11 +1,13 @@
 [Unit]
-Description=Generates %i daily feeds
+Description=Import data from producers %i
 # __ will be replaced by @ in email-failures@.service
 OnFailure=email-failures@producers_import__%i.service
 
 [Service]
+User=off
+Group=off
 Type=oneshot
-# service instance name "%i" is off / obf / opff / opf
+# service instance name "%i" is off-pro
 Environment=PERL5LIB=/srv/%i/lib/:/usr/local/share/perl/5.32.1/:/usr/lib/perl5
 WorkingDirectory=/srv/%i
 ExecStart=/srv/%i/scripts/imports/producers_imports.sh

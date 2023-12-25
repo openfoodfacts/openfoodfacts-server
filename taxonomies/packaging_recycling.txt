@@ -6,21 +6,14 @@ stopwords:fr:le,la,dans
 
 # comment:en:Instructions for the Netherlands: https://kidv.nl/media/weggooiwijzer/2021_kidv_weggooiwijzer_handleiding_nl_juni_2021.pdf?1.2.2
 # comment:en:Instructions for Belgium: https://www.betersorteren.be/nl/download-de-sorteergidsen-voor-pmd-papier-karton-en-glas
-# comment:en:Instructions for Spain: 
+# comment:en:Instructions for Portugal: 
 # https://world.openfoodfacts.org/label/ecoponto-amarelo
 # https://world.openfoodfacts.org/label/ecoponto-azul
 # comment:en:Instructions for France: 
 # comment:en:Instructions for Germany: 
 # comment:en:Instructions for Italy: 
 
-# Paper and cardboard
-es:Ecoponto Azul
 
-# Plastic and metal
-es:Ecoponto Amarelo
-
-# Glass
-es:Ecoponto Verde
 
 en:reuse, re-use, to reuse, to re-use,  to be reused, to be re-used, reusable, re-usable, Refillable, refill, to refill, multiple use
 bg:използвай повторно, използвайте повторно
@@ -34,22 +27,26 @@ bg:за рециклиране, рециклирай, да се рециклир
 de:recyceln, zum Recyceln, recycelbar
 fr:recycler, à recycler, recyclable
 hu:újrahasznosítható, újrahasznosítandó, újrahasznosításra
+nb:gjenvinnes
 pt:reciclável, a reciclar, para reciclar
 # associated_materials: en:glass, en:aluminium, en:steel
 
 <en:recycle
 en:recycle in glass bin, recycle in glass container, recycle with glass, in glass bin, in glass container
+es:Contenedor verde, Al verde, Contenedor de vidrio, Recicla verde
 fr:recycler dans le conteneur à verre, recycler dans le bac à verre, recycler avec le verre, dans le conteneur à verre, avec le verre, tri verre, bac verre
 nl:recyclen in de glasbak, Glasbak, in de glasbak, in glasbak
+pt:Ecoponto Verde, Recicla verde
 # comment:en:If the recycling instruction is to recycle in the glass bin, we can assume the material is glass
 packaging_materials:en: en:glass
 
 <en:recycle
 en:recycle in paper bin, recycle in paper container, recycle with paper
+es:Contenedor azul, Al azul, Contenedor de papel, Recicla azul
 fr:recycler dans le conteneur à papier, recycler dans le bac à papier, recycler avec le papier, dans le conteneur à papier, dans le bac à papier, avec le papier
 nl:recyclen bij oud papier, bij oud papier, in papierbak, in de papierbak, papierbak
-# comment:en:If the recycling instruction is to recycle in the paper bin, we can't assume the material is paper
-# it could also be cardboard
+pt:Ecoponto azul, Recicla azul
+# comment:en:If the recycling instruction is to recycle in the paper bin, we can't assume the material is paper, it could also be cardboard
 
 # in the Netherlands for recycling of drink cartons
 <en:recycle
@@ -61,8 +58,10 @@ packaging_shapes:en: en:brick
 # in Belgium can be used for recycling of metal, plastics and drink cartons
 <en:recycle
 en:recycle with plastics - metal and bricks
+es:Contenedor amarillo, Al amarillo, Contenedor de envases, Recicla amarillo
 nl:recycle bij Plastic - Metaal en Drankencartons, PMD, wel PMD
 fr:recycler avec les plastiques - métal et briques
+pt:Ecoponto amarelo, Recicla amarillo
 
 <en:recycle
 en:recycle with plastics
