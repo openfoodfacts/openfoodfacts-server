@@ -584,9 +584,6 @@ function initializeTagifyInput(el) {
                         whitelist = json.matched_synonyms.map(function(e) {
                             return {"value": lc + e, "searchBy": e};
                         });
-                        for (let i = 0; i < json.matched_synonyms.length; i++) {
-                            json.matched_synonyms[i] = lc + json.matched_synonyms[i];
-                        }
                     } else {
                         whitelist = json.matched_synonyms;
                     }
