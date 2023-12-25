@@ -1426,7 +1426,7 @@ ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-chars-que
 	or diag explain $product_ref;
 ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-ending-comma'), ',')
 	or diag explain $product_ref;
-ok(has_tag($product_ref, 'data_quality', 'en:ingredients-unexpected-url'), 'detected url')
+ok(has_tag($product_ref, 'data_quality', 'en:ingredients-en-unexpected-url'), 'detected url')
 	or diag explain $product_ref;
 
 done_testing();

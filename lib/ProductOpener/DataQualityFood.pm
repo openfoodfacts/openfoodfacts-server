@@ -1614,7 +1614,7 @@ sub check_ingredients ($product_ref) {
 				}
 
 				if ($product_ref->{$ingredients_text_lc} =~ /http/i) {
-					add_tag($product_ref, "data_quality_errors", "en:ingredients-unexpected-url");
+					add_tag($product_ref, "data_quality_errors", "en:ingredients-" . $display_lc . "-unexpected-url");
 				}
 
 				# French specific
