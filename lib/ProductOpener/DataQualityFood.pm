@@ -1167,15 +1167,19 @@ sub check_nutrition_data ($product_ref) {
 		#  OR
 		# all values but one - because sodium and salt can be automatically calculated one depending on the value of the other - are identical
 		# and values (check first value only) are above 1 (see issue #9572)
+		# and at least 4 values are input by contributors (see issue #9572)
 		if (
-			($nutriments_values_occurences_max_value == scalar @major_nutriments_values)
-			or (
-				($nutriments_values_occurences_max_value >= scalar @major_nutriments_values - 1)
-				and (   (defined $nutriments_values{'salt_100g'})
-					and ($nutriments_values{'sodium_100g'})
-					and ($nutriments_values{'salt_100g'} != $nutriments_values{'sodium_100g'}))
+			(
+				($nutriments_values_occurences_max_value == scalar @major_nutriments_values)
+				or (
+					($nutriments_values_occurences_max_value >= scalar @major_nutriments_values - 1)
+					and (   (defined $nutriments_values{'salt_100g'})
+						and ($nutriments_values{'sodium_100g'})
+						and ($nutriments_values{'salt_100g'} != $nutriments_values{'sodium_100g'}))
+				)
 			)
 			and (@major_nutriments_values[0] > 1)
+			and (scalar @major_nutriments_values > 3)
 			)
 		{
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-values-are-all-identical";
