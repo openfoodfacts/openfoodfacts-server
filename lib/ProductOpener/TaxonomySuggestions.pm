@@ -451,11 +451,7 @@ sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string
 					canon_tagid => $canon_tagid,
 					tag => $tag,
 					synonyms => \@synonyms,
-					best_match => $best_match,
-					# synonyms_ids_pre => \(
-					# 	@{deep_get(\%synonyms_for, $tagtype, $search_lc, get_string_id_for_lang($search_lc, $tag)) || []},
-					# 	@{deep_get(\%synonyms_for, $tagtype, "xx", get_string_id_for_lang("xx", $tag_xx)) || []}
-					# )
+					best_match => $best_match
 				}
 			) if $log->is_debug();
 
