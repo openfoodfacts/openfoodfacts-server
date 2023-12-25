@@ -775,16 +775,16 @@ check_quality_and_test_product_has_quality_tag(
 );
 $product_ref = {
 	nutriments => {
-		"energy-kj_100g" => 0,
-		"energy-kcal_100g" => 0,
-		"fat_100g" => 0,
-		"saturated-fat_100g" => 0,
-		"carbohydrates_100g" => 0,
-		"sugars_100g" => 0,
-		"fibers_100g" => 0,
-		"proteins_100g" => 0,
-		"salt_100g" => 0,
-		"sodium_100g" => 1,
+		"energy-kj_100g" => 2,
+		"energy-kcal_100g" => 2,
+		"fat_100g" => 2,
+		"saturated-fat_100g" => 2,
+		"carbohydrates_100g" => 2,
+		"sugars_100g" => 2,
+		"fibers_100g" => 2,
+		"proteins_100g" => 2,
+		"salt_100g" => 2,
+		"sodium_100g" => 0.8,
 	}
 };
 check_quality_and_test_product_has_quality_tag(
