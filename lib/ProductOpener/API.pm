@@ -73,6 +73,8 @@ use ProductOpener::Attributes qw/:all/;
 use ProductOpener::KnowledgePanels qw/:all/;
 use ProductOpener::Ecoscore qw/localize_ecoscore/;
 use ProductOpener::Packaging qw/:all/;
+use ProductOpener::Paths qw/:all/;
+use ProductOpener::Store qw/:all/;
 
 use ProductOpener::APIProductRead qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
@@ -80,7 +82,7 @@ use ProductOpener::APIProductServices qw/:all/;
 use ProductOpener::APITagRead qw/:all/;
 use ProductOpener::APITaxonomySuggestions qw/:all/;
 
-use CGI qw(header);
+use CGI qw/:cgi :form escapeHTML/;
 use Apache2::RequestIO();
 use Apache2::RequestRec();
 use JSON::PP;
@@ -874,6 +876,33 @@ sub process_auth_header ($request_ref, $r) {
 	}
 
 	$request_ref->{access_token} = $access_token;
+	my $user_id = get_user_id_using_token($access_token);
+	unless (defined $user_id) {
+		$log->info('User not found and not created') if $log->is_info();
+		display_error_and_exit('Internal error', 500);
+	}
+
+	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang('no_language', $user_id) . '.sto';
+	unless (-e $user_file) {
+		$log->info('User file not found', {user_file => $user_file, user_id => $user_id}) if $log->is_info();
+		display_error_and_exit('Internal error', 500);
+	}
+
+	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
+	my $user_ref = retrieve($user_file);
+
+	my $user_session = open_user_session(
+		$user_ref,
+		undef,
+		undef,
+		$access_token->{access_token},
+		undef,
+		$request_ref
+	);
+	param('user_id', $user_id);
+	param('user_session', $user_session);
+	init_user($request_ref);
+
 	return;
 }
 
