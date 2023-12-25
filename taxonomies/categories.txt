@@ -385,7 +385,14 @@ ciqual_food_name:fr:Boisson infantile céréales lactées pour le petit déjeune
 
 <en:Baby foods
 <en:Baby drinks
+<en:Variety packs
 en:Baby/Infant Foods/Beverages Variety Packs
+de:Baby- / Kleinkindernahrungmischpackungen
+es:Paquetes variados de alimentos para niños/bebés
+fr:Bébés/Nourrissons - assortiments de nourriture
+it:Confezioni miste d'alimenti bambini
+nl:Baby/Peuter levensmiddelassortimenten
+pt:Packs variados de alimentos para infantil
 gpc_category_code:en:10000610
 gpc_category_name:en:Baby/Infant - Foods/Beverages Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Baby and Infant Foods or Beverages sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Baby and Infant - Foods and Beverages class. Includes products such as Baby Formula and jars of Baby Food sold together. Items that are received free with purchases should be removed from the classification decision-making process.Definition Excludes: Excludes products such as Baby Formula and Milk variety packs.
@@ -1054,9 +1061,17 @@ zh:饮料, 飲品
 wikidata:en:Q40050
 intake24_category_code:en:DRNK
 
-#<en:Variety packs
+<en:Variety packs
 <en:Beverages
-en:beverage variety packs
+en:Beverage variety packs
+de:Getränke Mischpackungen
+es:Paquetes variados de bebidas
+fr:Assortiments de boissons
+it:Confezioni miste di bevande 
+nb:Drikker flerpakk
+nl:Drankassortimenten
+pt:Packs variados de bebidas
+sv:Drycker blandförpackningar
 gpc_category_code:en:10000623
 gpc_category_name:en:Beverages Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Beverages sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Beverages Family. Includes products such as Gin with Tonic Water variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Still and Sparkling Wine variety packs and Wine and Chocolate variety packs.
@@ -1272,7 +1287,16 @@ gpc_category_name:en:Alcohol Making Kits
 gpc_category_description:en:Definition: Includes any products that can be described/observed as an alcoholic drink making kit. These products are total units that include most of the necessary ingredients and equipment required to produce various flavours of beer, wine or spirits. Definition Excludes: Excludes products such as Alcohol Making Accessories sold separately, Non-Alcoholic Drink Making Kits, Alcohol Flavouring Kits and Pre-Made Alcohol.
 
 <en:Alcoholic beverages
+<en:Variety packs
 en:Alcoholic beverages variety packs
+de:Alkoholische Getränke Mischpackungen
+es:Paquetes variados de bebidas alcohólicas
+fr:Assortiments de boissons alcoolisées
+it:Confezioni miste di bevande alcoliche 
+nb:Alkoholholdige drikker flerpakk
+nl:Alcoholische drankassortimenten
+pt:Packs variados de bebidas alcoólicas
+sv:Blandförpackningar
 gpc_category_code:en:10000591
 gpc_category_name:en:Alcoholic Beverages Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Alcoholic Beverages sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Alcoholic Beverages class. Includes products such as Still and Sparkling Wine sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Wine and Chocolate variety packs.
@@ -8917,7 +8941,16 @@ wikidata:en:Q1154989
 
 <en:Coffees
 <en:Teas
-en:Coffees or Teas
+<en:Variety packs
+en:Coffee and tea variety packs
+de:Kaffee und Tee Mischpackungen
+es:Paquetes variados de té e café
+fr:Assortiments de cafés et thés
+it:Confezioni miste di caffè e tè 
+nb:Kaffe te flerpakk
+nl:Koffie- en thee-assortimenten
+pt:Packs variados de café e chá
+sv:Kaffe en te blandförpackningar
 gpc_category_code:en:10000592
 gpc_category_name:en:Coffee/Tea/Substitutes Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Coffee, Tea or Substitutes sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Coffee, Tea and Substitutes class. Includes products such as Ground Coffee and Tea Bags sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Coffee and Cream variety packs.
@@ -10225,14 +10258,29 @@ ciqual_food_code:en:18029
 ciqual_food_name:en:Non-alcoholic beverage (average)
 ciqual_food_name:fr:Boisson rafraîchissante sans alcool (aliment moyen)
 
-<en:Non-alcoholic beverages
+<en:Variety packs
+<en:Instant beverages
 en:Non-alcoholic instant beverages variety packs
+de:Alkoholfreie Getränke Mischpackungen - nicht trinkfertig
+es:Packs variados de bebidas instantáneas sin alcohol
+fr:Assortiments de Boissons non alcoolisées instantanés
+it:Confezioni miste di bevande non alcoliche istantanee 
+nl:Assortimenten van niet-alcoholische instantdranken
+pt:Packs variados de bebidas não alcóolicas instantes
+sv:Alkoholfria snabbdrycker olika förpackningar
 gpc_category_code:en:10000593
 gpc_category_name:en:Non Alcoholic Beverages Variety Packs - Not Ready to Drink
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Non Alcoholic Beverages Not Ready to Drink sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Non Alcoholic Beverages - Not Ready to Drink class. Includes products such as powdered Malt and Milkshakes sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as powdered Milkshakes and Sugar Candy variety packs.
 
+<en:Variety packs
 <en:Non-alcoholic beverages
 en:Non-alcoholic beverages variety packs
+de:Alkoholfreie Getränke Mischpackungen
+es:Paquetes variados de bebidas sin alcohol
+fr:Assortiments de boissons non alcoolisées
+it:Confezioni miste di bevande non alcoliche
+nl:Aassortimenten van alcoholvrije dranken
+pt:Packs variados de bebidas não alcóolicas
 gpc_category_code:en:10000594
 gpc_category_name:en:Non Alcoholic Beverages Variety Packs - Ready to Drink
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Non Alcoholic Beverages Ready to Drink sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Non Alcoholic Beverages - Ready to Drink class. Includes products such as ready to drink Cola and Ice sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as ready to drink Cola and Crisps variety packs.
@@ -31588,14 +31636,22 @@ gpc_category_code:en:10000161
 gpc_category_name:en:Biscuits/Cookies (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a thin, unleavened or leavened, baked, cereal-based product. Products may be sweet or savoury and are available in a variety of shapes and sizes. These products have been treated or packaged in such a way as to extend their consumable life. Includes products such as crackers, cookies, oatcakes. Definition Excludes: Excludes products such as Frozen and Perishable Biscuits and Cookies, all Dried Breads.
 
-<en:Biscuits
-en:Biscuits/Cookies (Perishable)
+<en:Biscuits or cookies variety packs
+en:Biscuits or Cookies (Perishable)
+de:Kekse oder Gebäck (leicht verderblich)
 gpc_category_code:en:10000160
 gpc_category_name:en:Biscuits/Cookies (Perishable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a thin, unleavened or unleavened, baked, cereal-based product. Products may be sweet or savoury and are available in a variety of shapes and sizes These products can be refrigerated to extend their consumable life. Includes products such as crackers, cookies, oatcakes. Definition Excludes: Excludes products such as Frozen and Shelf-Stable Biscuits and Cookies, all Dried Breads.
 
+<en:Variety packs
 <en:Biscuits
 en:Biscuits or cookies variety packs
+de:Mischpackungen von Kekse und Gebäck
+es:Paquetes variados de galletas y bizcochos
+fr:Assortiments de gâteaux secs et biscuits
+it:Confezioni Miste di biscotti e crackers 
+nl:Biscuit- en koekjesassortimenten
+pt:Packs variados de biscoitos y bolachas
 gpc_category_code:en:10000596
 gpc_category_name:en:Biscuits/Cookies Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Biscuits, Cookies or Dried Breads sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Biscuits and Cookies class. Includes products such as Cookies and Breadsticks sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Cookies and Chocolate variety packs.
@@ -32579,9 +32635,15 @@ de:Backwaren
 fr:Produits de boulangerie
 nl:Bakkerijproducten
 
-#<en:Variety packs
+<en:Variety packs
 <en:Bakery products
 en:Bakery product variety packs
+de:Mischpackungen von Brot und Backwaren
+es:Paquetes variados de productos de panadería y pan
+fr:Assortiments de pains et produits de boulangerie
+it:Confezioni miste di pane e prodotti da forno 
+nl:Assortimenten van brood- en bakkerijproducten
+pt:Packs variados de pães y produtos de panificação
 gpc_category_code:en:10000598
 gpc_category_name:en:Bread/Bakery Products Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Bread and Bakery Products sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Bread and Bakery Products Family. Includes products such as Pizza with Garlic Bread variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Sponge Cakes and Danish Pastries variety packs and Breadsticks and Dips variety packs.
@@ -35542,8 +35604,15 @@ tr:Atıştırmalıklar
 zh:零食
 wikidata:en:Q749316
 
+<en:Variety packs
 <en:Snacks
 en:Snacks variety packs
+de:Snacks Mischpackungen
+es:Paquetes variados de aperitivos
+fr:Assortiments d'amuse-gueules
+it:Confezioni miste di snacks
+nl:Snackassortimenten
+pt:Packs variados de aperitivos
 gpc_category_code:en:10000612
 gpc_category_name:en:Snacks Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Snacks sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Snacks class. Includes products such as Crisps and Popcorn sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Chips and Dips variety packs.
@@ -38906,8 +38975,15 @@ gpc_category_code:en:10000285
 gpc_category_name:en:Cereals Products - Not Ready to Eat (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a cereal combining all or some of the following ingredients: oats, muesli, wheat, rice, seeds, bran, fruit, nuts, cereal and honey, which has gone through further manufacturing processes such as cooking, milling, drying and reforming, which will require preparation/cooking prior to consumption. Includes products such as porridge oats, couscous and tapioca. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as whole Unprocessed Grains, Flour, Ready to Eat Cereal, Cereal Bars.
 
+<en:Variety packs
 <en:Cereals and their products
 en:Cereal variety packs
+de:Getreidemischpackungen
+es:Paquetes variados de cereales - productos en grano y legumbres
+fr:Assortiments de céréales - grains et légumes secs
+it:Confezioni miste di cereali - grano e legumi
+nl:Graanproductassortimenten
+pt:Pack variados de cereais - grãos - leguminosas secas
 gpc_category_code:en:10000601
 gpc_category_name:en:Cereal/Grain/Pulse Products Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Cereal, Grain and Pulse Products sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Cereal, Grain and Pulse Products Family. Includes products such as Cereal Bars and ready to eat Couscous variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Semolina and not ready to eat Polenta variety packs and Cereal Bars and ready to drink Milkshake variety packs.
@@ -40864,8 +40940,15 @@ gpc_category_code:en:10006728
 gpc_category_name:en:Dairy By-Products
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a by-product made from Milk which is typically used as an ingredient or constituent in other products and not necessarily as a consumable on its own. Definition Excludes: Excludes products such as Milk, Butter, Cream, Yogurt, Cheese, Egg or Substitute products.
 
+<en:Variety packs
 <en:Dairies
 en:Dairy variety packs
+de:Milchproduktemischpackungen
+es:Paquetes variados de productos lácteos
+fr:Assortiments de produits laitiers
+it:Confezioni miste di latticini
+nl:Zuivelproductassortimenten
+pt:Packs variados de laticínios
 gpc_category_code:en:10000607
 gpc_category_name:en:Milk/Butter/Cream/Yogurts/Cheese/Eggs/Substitutes Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Milk, Butter, Cream, Yogurt, Cheese, Egg or Substitute products sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Milk, Butter, Cream, Yogurts, Cheese, Eggs and Substitutes Family. Includes products such as Yogurts with Cream variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Strawberries and Cream variety packs
@@ -51188,8 +51271,15 @@ ru:Орехи и продукты из орехов
 th:ผลิตภัณฑ์จากถั่วเปลือกแข็ง
 tr:Çerez ve çerez ürünleri
 
+<en:Variety packs
 <en:Plant-based foods
 en:Fruits-Nuts-Seed variety packs
+de:Früchte-Nüsse-Samen Mischpackungen
+es:Paquetes variados de combinación de fruta - frutos secos y semillas
+fr:Assortiments de Fruits - Noix et Graines
+it:Confezioni miste di semi/frutta/frutta a guscio mix
+nl:Assortimenten van fruit - noten en zaadjes
+pt:Packs variados de combinações de frutas - nozes y sementes
 gpc_category_code:en:10000604
 gpc_category_name:en:Fruit/Nuts/Seeds Combination Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Fruit, Nut and/or Seed Combination sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Fruit and Nuts and/or Seeds Combination class. Includes products such as packets of dried fruit and unshelled nuts sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Dried Fruit and Yogurt variety packs.
@@ -59941,7 +60031,7 @@ nl:IJsjes, IJscos, Friscos
 nl-BE:Friscos
 intake24_category_code:en:LOLS
 
-#<en:Variety packs
+<en:Variety packs
 <en:Ice cream bars
 en:Ice cream bar variety packs
 de:Eis am Stiel Mischpackungen
@@ -60817,8 +60907,15 @@ tr:Meyve ve sebze kaynaklı gıdalar, Meyve ve sebze kaynaklı yiyecekler, Meyve
 food_groups:en: en:Fruits and vegetables
 pnns_group_1:en:Fruits and vegetables
 
+<en:Variety packs
 <en:Fruits and vegetables based foods
 en:Fruits-vegetables-nuts-seeds variety packs
+de:Obst-Gemüse-Nüsse-Samen - Mischpackungen
+es:Paquetes variados de frutas - verduras - frutos secos y semillas
+fr:Assortiments de Fruits - Légumes - Noix et Graines
+it:Confezioni miste di semi - frutta - verdura e frutta a guscio
+nl:Assortimenten van fruit - groenten - noten en zaadjes
+pt:Packs variados de frutas - legumes - nozes y sementes
 gpc_category_code:en:10000605
 gpc_category_name:en:Fruits/Vegetables/Nuts/Seeds Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Fruits, Vegetables, Nuts and Seeds sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Fruits, Vegetables, Nuts and Seeds Family. Includes products such as Salad and Nuts variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Strawberries and Cream variety packs.
@@ -64746,8 +64843,14 @@ ru:Подливка
 sv:Sky
 intake24_category_code:en:CUBE
 
-<en:Condiments
-en:Comdiments variety packs
+<en:Variety packs
+en:Sauces and Condiments variety packs
+de:Saucen- und Gewürzmittelmischpackungen
+es:Paquetes variados de salsas - productos para untar y condimentos
+fr:Assortiments de sauces et condiments
+it:Confezioni miste di salse e condimenti
+nl:Assortimenten van sauzen en smaakmakers
+pt:Packs Variados de Molhos - Pastas para Barrar - Dips y Condimentos
 gpc_category_code:en:10000617
 gpc_category_name:en:Sauces/Spreads/Dips/Condiments Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Sauces, Spreads, Dips or Condiments sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Sauces, Spreads, Dips and Condiments class. Includes products such as Salad Dressings and Crunchy Savoury Toppings sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Salad Dressing and Salad variety packs.
@@ -64758,8 +64861,15 @@ gpc_category_code:en:10000050
 gpc_category_name:en:Extracts/Salt/Meat Tenderisers (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a liquid, paste, powder, granules or solid made from evaporation or refinement of meat, vegetable, yeast or sodium chloride that is added to season and flavour food, and in specific cases to tenderise meat. Products specifically include refined and unrefined Salt and Monosodium Glutamate, Bouillon, as well as a powdered form of Meat Tenderiser. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as single or pure Perishable or Shelf Stable Herbs and Spices, Gravy Browning, Soup Mixes, and Flavour Shots and Packets for Non-Meat Food and Beverage products.
 
+<en:Variety packs
 <en:Condiments
 en:Condiment variety packs
+de:Gewürzmittelmischpackungen
+es:Paquetes variados de condimentos
+fr:Assortiments d'assaisonnements
+it:Confezioni miste di condimenti
+nl:Kruidenassortimenten
+pt:Packs variados de temperos y extractos
 gpc_category_code:en:10000619
 gpc_category_name:en:Seasonings/Preservatives/Extracts Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Seasonings, Preservatives or Extracts sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Seasonings, Preservatives and Extracts Family. Includes products such as Salt and Vinegar variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Salt and Pepper variety packs and Salad Dressing and Salad variety packs.
@@ -66594,8 +66704,15 @@ gpc_category_code:en:10000212
 gpc_category_name:en:Herbs/Spices (Frozen)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as an aromatic or richly flavoured vegetable or plant or its derivative that is typically added to season or give additional flavour to foods. These products include aromatic seasonings which are obtained from the bark, buds, fruit, roots, seeds or stems of various plant and known as spices, and those, which are obtained from the leafy part of a plant and known as herbs. Products include unprocessed and processed frozen herbs and/or spices or a combination of frozen herbs and spices. These products must be frozen to extend their consumable life. Definition Excludes: Excludes products such as Perishable Herbs and Spices, Salt and Extracts.
 
+<en:Variety packs
 <en:Plant-based foods
 en:Herbs/Spices/Extracts Variety Packs
+de:Kräuter/Gewürze/Extrakte - Mischpackungen
+es:Paquetes variados de hierbas y especias
+fr:Assortiments d'herbes et épices
+it:Confezioni miste di erbe e spezie
+nl:Assortimenten van kruiden en specerijen
+pt:Packs variados de temperos
 gpc_category_code:en:10000615
 gpc_category_name:en:Herbs/Spices/Extracts Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Herbs, Spices or Extracts sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Herbs, Spices and Extracts class. Includes products such as Salt and Pepper sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Marinades and Spices variety packs.
@@ -67122,9 +67239,15 @@ agribalyse_proxy_food_name:en:Black pepper, powder
 agribalyse_proxy_food_name:fr:Poivre noir, poudre
 intake24_category_code:en:PEPR
 
-#<en:Variety packs
+<en:Variety packs
 <en:Peppers
 en:Pepper variety packs
+de:Gemüsepaprikamischpackungen
+es:Surtidos de pimientos
+fr:Assortiments de poivrons et piments
+it:Confezioni miste di peperoni
+nl:Assortimenten van paprika en pepers
+pt:Packs variados de pimentos
 gpc_category_code:en:10006195
 gpc_category_name:en:Pepper Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Peppers sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Pepper class. Includes products such as Chilli Peppers and Hot Peppers sold together, or Chilli Peppers and Flat Sweet Peppers (Tomato Peppers) sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Shelf Stable and Frozen Peppers variety packs.
@@ -71476,8 +71599,15 @@ gpc_category_name:en:Dough Based Products / Meals - Ready to Eat - Savoury (Shel
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a savoury dough-based ready to eat, prepared/processed product, such as Pasta, Gnocchi or Noodles, with other ingredients, such as meat, dairy, eggs, fish, vegetables and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as tuna and salad in a Tuna Pasta Salad. They may or may not contain a sauce. These products may have a main component which is considered a meal without any additional components. These products do not require cooking prior to consumption, but some products can be eaten hot after reheating. These products have been treated or packaged in such a way as to extend their consumable life. Includes ready to eat shelf stable Ready-Made Meals where a Dough Based Product is the primary ingredient.
 Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes pizza, savoury pies, pastries, quiches and bread products.Excludes products such as Perishable Ready to Eat and Not Ready to Eat Dough Based Prepared/Processed Products, Unprepared Pasta and Noodles, Dried Pasta and Noodles.
 
+<en:Variety packs
 <en:Meals
 en:Dough based meals variety packs
+de:Teigbasierte Gerichtemischpackungen
+es:Paquetes surtidos de productos y comidas a base de masa
+fr:Produits à base de pâte
+it:Confezioni miste di piatti a base di pasta
+nl:Assortimenten van maaltijden op basis van deeg 
+pt:Packs variados de produtos y refeições à base de massa culinária
 gpc_category_code:en:10006222
 gpc_category_name:en:Dough Based Products / Meals Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Dough Based products, sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Dough Based Products class. Includes products such as Spaghetti Bolognaise not ready to eat and pasta cheese/sauce ready to eat. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Pasta/Noodles Products.
@@ -86898,8 +87028,15 @@ food_groups:en: en:Salty and fatty products
 pnns_group_2:en:Salty and fatty products
 intake24_category_code:en:SWTP
 
+<en:Variety packs
 <en:Pickles
-en:Pickles - Relishes - Chutneys - Olives variety pack
+en:Pickles - Relishes - Chutneys - Olives variety packs
+de:Eingelegtes Gemüse / Relishes / Chutneys / Oliven - Mischpackungen
+es:Paquetes variados de pepinillos y aceitunas
+fr:Assortiments de conserves au vinaigre et olives
+it:Confezioni miste di sottaceti e olive
+nl:Tafelzurenassortimenten
+pt:Packs variados de pickles - chutneys y azeitonas
 gpc_category_code:en:10000616
 gpc_category_name:en:Pickles/Relishes/Chutneys/Olives Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Pickles, Relish, Chutney or Olives sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Pickles, Relishes, Chutneys and Olives class. Includes products such as Pickles and Relishes sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Mango Chutney and Poppadom variety packs.
@@ -92168,9 +92305,15 @@ tr:Ekmeğe sürülen tatlı ürünler, Tatlı sürülebilir ürünler, Sürüleb
 food_groups:en: en:Sweets
 pnns_group_2:en:Sweets
 
-#<en:Variety packs
+<en:Variety packs
 <en:Sweet spreads
 en:Sweet spread variety packs
+de:Mischpackungen von Süße Brotaufstriche
+es:Paquetes variados de productos dulces para untar
+fr:Assortiments de pâtes à tartiner sucrées
+it:Confezioni miste di dolci spalmabili
+nl:Zoet smeerbelegassortimenten
+pt:Packs variados de doces - geleias y mel
 gpc_category_code:en:10000621
 gpc_category_name:en:Sweet Spreads Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Sweet Spreads sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Sweet Spreads class. Includes products such as Chocolate Spread and Jam sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Jam and Tea variety packs.
@@ -93747,8 +93890,15 @@ gpc_category_code:en:10000043
 gpc_category_name:en:Sugar/Sugar Substitutes (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a sweet substance, obtained from the different stages of refining the juice of the sugar cane/sugar beet/molasses, or an artificial sweet substance that is specifically labelled and marketed to replace natural sugar, which is used as a sweetener and preservative of food and drinks. Products include white sugars such as castor, cubes, loaf, granulated, icing and preserving, coloured sugars such as brown, barbados, demerara and artificial sweeteners, such as saccharin, sorbitol and xylitol. Definition Excludes: Excludes products such as Syrups, Treacle and Molasses, Sugar Candy and Sugar Candy Substitute Confectionery.
 
+<en:Variety packs
 <en:Sweeteners
 en:Sweetener variety packs
+de:Süßstoffemischpackungen
+es:Paquetes variados de endulzantes
+fr:Assortiments de édulcorants
+it:Confezioni miste di zucchero e dolcificanti 
+nl:Zoetstoffenassortimenten
+pt:Packs variados de adoçantes
 gpc_category_code:en:10000603
 gpc_category_name:en:Sugars/Sugar Substitute Products Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Sugars or Sugar Substitutes sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Sugars and Sugar Substitutes Products class. Includes products such as Golden Syrup and Dark Brown Sugar sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Golden Syrup and Sponge Cake variety packs.
@@ -108064,13 +108214,41 @@ ciqual_food_code:en:36029
 ciqual_food_name:en:Chicken, breast, meat and skin, raw
 ciqual_food_name:fr:Poulet, poitrine, viande et peau, cru
 
-en:Foods Variety Packs
+en:Variety packs
+cs:Potraviny smíšená balení
+de:Levensmittel Mischpackungen
+el:Τρόφιμα mικτή συσκευασία
+es:Paquetes variados de alimentos
+fi:Ruoka lajitelmapakkaukset
+fr:Assortiments d'aliments
+hr:Hrana zbirna pakiranja
+hu:Több fajta élelmiszer összecsomagolása
+it:Alimentari confezioni miste
+ja:食品のバラエティパック
+ko:식품 세트
+lv:Pārtikas komplekti
+nb:Mat flerpakk
+nl:Levensmiddelen assortimenten
+pl:Opakowania mix żywność
+pt:Packs Variados de Alimentos
+ru:Наборы из продуктов пищевых
+sk:Potraviny zmiešané balenie
+sr:Hrana pakovanja različitih proizvoda iz ove grupe
+sv:Livsmedel blandförpackningar
+tr:Gıda paket çeşitliliği
 gpc_category_code:en:10000590
 gpc_category_name:en:Food/Beverage/Tobacco Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Food, Beverages and/or Tobacco Products sold together which exist within the schema but belong to different Families, that is two or more products contained within the same pack which cross Families within the Food Beverage and Tobacco Segment. Includes products such as Wine and Chocolate variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Still and Sparkling Wine variety packs and Gin with Tonic Water variety packs.
 
-<en:Foods Variety Packs
-en:Foods Variety Packs (Prepared/Preserved)
+<en:Variety packs
+en:Prepared foods variety packs
+de:Bearbeitete Nahrungsmittel Mischpackungen
+es:Paquetes variados de alimentos en preparados
+fr:Assortiments d'aliments préparés
+it:Confezioni miste d'alimenti pronti 
+nl:Bewerkte levensmiddelassortimenten
+pt:Packs variados de alimentos preparados
+tr:Hazır gıda çeşitlilik paketi
 gpc_category_code:en:10000613
 gpc_category_name:en:Prepared/Preserved Foods Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Prepared and Preserved Foods sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Prepared and Preserved Foods Family. Includes products such as Chicken Korma and Ice Cream variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Jam and Chocolate Spread variety packs and Chips and Dips variety packs.
