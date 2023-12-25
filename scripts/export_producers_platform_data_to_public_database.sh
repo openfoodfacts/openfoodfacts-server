@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # import various producers data to public platform in automated mode
 # this script must be launched in /srv/off-pro/
 
