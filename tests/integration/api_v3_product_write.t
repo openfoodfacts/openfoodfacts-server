@@ -472,7 +472,7 @@ my $tests_ref = [
 			}
 		}',
 		headers_in => {
-			'Authentication' => 'Bearer ' . $token,
+			'Authorization' => 'Bearer ' . $token,
 		},
 	},
 	{
@@ -493,9 +493,9 @@ my $tests_ref = [
 			}
 		}',
 		headers_in => {
-			'Authentication' => 'Bearer 4711',
+			'Authorization' => 'Bearer 4711',
 		},
-		expected_status_code => 200,
+		expected_status_code => 500,
 	},
 	# Packaging complete
 	{
