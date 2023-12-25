@@ -1,42 +1,18 @@
 {
-   "code" : "2234567890002",
-   "errors" : [],
-   "product" : {
-      "creator" : "openfoodfacts-contributors",
-      "editors_tags" : [
-         "openfoodfacts-contributors"
-      ],
-      "packagings" : [
-         {
-            "number_of_units" : 1,
-            "recycling" : {
-               "id" : "en:recycle",
-               "lc_name" : "Recycle"
-            },
-            "shape" : {
-               "id" : "en:can",
-               "lc_name" : "Can"
-            }
-         }
-      ]
-   },
-   "status" : "success_with_warnings",
-   "warnings" : [
+   "errors" : [
       {
-         "field" : {
-            "id" : "material",
-            "value" : null
-         },
          "impact" : {
-            "id" : "field_ignored",
-            "lc_name" : "Field ignored",
-            "name" : "Field ignored"
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
          },
          "message" : {
-            "id" : "missing_field",
-            "lc_name" : "Missing field",
-            "name" : "Missing field"
+            "id" : "invalid_token",
+            "lc_name" : "",
+            "name" : ""
          }
       }
-   ]
+   ],
+   "status" : "failure",
+   "warnings" : []
 }

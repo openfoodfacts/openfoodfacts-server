@@ -495,7 +495,7 @@ my $tests_ref = [
 		headers_in => {
 			'Authorization' => 'Bearer 4711',
 		},
-		expected_status_code => 500,
+		expected_status_code => 200,
 	},
 	# Packaging complete
 	{

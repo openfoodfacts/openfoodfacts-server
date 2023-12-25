@@ -863,13 +863,19 @@ sub process_auth_header ($request_ref, $r) {
 		return;
 	}
 
-	my $access_token = verify_access_token($token);
+	my $access_token;
+	eval {$access_token = verify_access_token($token);};
+	my $error = $@;
+	if ($error) {
+		$log->info('Access token invalid', {token => $token}) if $log->is_info();
+	}
+
 	unless ($access_token) {
 		add_error(
 			$request_ref->{api_response},
 			{
-				message => {id => "invalid_token"},
-				impact => {id => "failure"},
+				message => {id => 'invalid_token'},
+				impact => {id => 'failure'},
 			}
 		);
 		return;
@@ -891,14 +897,7 @@ sub process_auth_header ($request_ref, $r) {
 	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
 	my $user_ref = retrieve($user_file);
 
-	my $user_session = open_user_session(
-		$user_ref,
-		undef,
-		undef,
-		$access_token->{access_token},
-		undef,
-		$request_ref
-	);
+	my $user_session = open_user_session($user_ref, undef, undef, $access_token->{access_token}, undef, $request_ref);
 	param('user_id', $user_id);
 	param('user_session', $user_session);
 	init_user($request_ref);
