@@ -37,3 +37,8 @@ cd /srv/off
 
 ./scripts/export_csv_file.pl --fields code,nutrition_grades_tags --separator ';' > $OFF_PUBLIC_DATA_DIR/exports/nutriscore.csv
 
+# On sunday, generates madenearme
+if [ "$(date +%u)" = "7" ]
+then
+    ./scripts/gen_madenearme_pages.sh
+fi

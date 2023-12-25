@@ -52,7 +52,7 @@ stopwords:de:und,mit,von
 # ignore_energy_calculated_error:en:yes
 
 # World Customs Organizations Harmonized System Nomenclature properties
-# e.g. for Linseed, 
+# e.g. for Linseed,
 # under "SECTION II VEGETABLE PRODUCTS"
 # it corresponds to "12 	Oil seeds and oleaginous fruits; [...]".
 # so, we click on "0212-2022E", we scroll down and we see "12.04 | 1204.00 | Linseed, whether or not broken."
@@ -224,6 +224,7 @@ hu:18 hónapos kortól, Egy és fél éves kortól
 it:Dal 18mo mese, Dal diciottesimo mese, A partire dal diciottesimo mese, A partire dal 18mo mese
 lt:Nuo 18 mėnesių
 nl:Vanaf 18 maanden, Vanaf 18 maand
+intake24_category_code:en:19TODSFD 
 
 <en:Baby foods
 en:From 24 months
@@ -302,7 +303,6 @@ en:Specialised baby drinks
 gpc_category_code:en:10000105
 gpc_category_name:en:Baby/Infant - Specialised Beverages (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a beverage specifically labelled and marketed for a baby or infant. These products have been treated or packaged in such a way as to extend their consumable life. Includes juice, juice drinks, nursery water and dairy based drinks. Definition Excludes: Excludes products such as Formula, Baby and Infant Food, Adult variants of the above.
-
 
 <en:Baby drinks
 en:Plant-based beverage for baby
@@ -385,7 +385,14 @@ ciqual_food_name:fr:Boisson infantile céréales lactées pour le petit déjeune
 
 <en:Baby foods
 <en:Baby drinks
+<en:Variety packs
 en:Baby/Infant Foods/Beverages Variety Packs
+de:Baby- / Kleinkindernahrungmischpackungen
+es:Paquetes variados de alimentos para niños/bebés
+fr:Bébés/Nourrissons - assortiments de nourriture
+it:Confezioni miste d'alimenti bambini
+nl:Baby/Peuter levensmiddelassortimenten
+pt:Packs variados de alimentos para infantil
 gpc_category_code:en:10000610
 gpc_category_name:en:Baby/Infant - Foods/Beverages Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Baby and Infant Foods or Beverages sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Baby and Infant - Foods and Beverages class. Includes products such as Baby Formula and jars of Baby Food sold together. Items that are received free with purchases should be removed from the classification decision-making process.Definition Excludes: Excludes products such as Baby Formula and Milk variety packs.
@@ -398,7 +405,7 @@ es:Postres de frutas para bebe, Postres de frutas para bebes
 fi:Hedelmäjälkiruoat vauvoille
 fr:Desserts au fruit pour bébé
 it:Dessert alla frutta per neonati
-lt:Vaisiniai desertai kūdikiams, Kūdikių vaisiniai desertai, 
+lt:Vaisiniai desertai kūdikiams, Kūdikių vaisiniai desertai,
 nl:Baby-vruchtentoetjes, Baby-vruchtentoetje
 nl_be:Baby fruitdesserts, Fruitdesserts voor babies, Baby vruchtendesserts, Vruchtendesserts voor babies
 pt:Sobremesas de fruta para bebé
@@ -1052,10 +1059,19 @@ th:เครื่องดื่ม
 tr:İçecekler
 zh:饮料, 飲品
 wikidata:en:Q40050
+intake24_category_code:en:DRNK
 
-#<en:Variety packs
+<en:Variety packs
 <en:Beverages
-en:beverage variety packs
+en:Beverage variety packs
+de:Getränke Mischpackungen
+es:Paquetes variados de bebidas
+fr:Assortiments de boissons
+it:Confezioni miste di bevande 
+nb:Drikker flerpakk
+nl:Drankassortimenten
+pt:Packs variados de bebidas
+sv:Drycker blandförpackningar
 gpc_category_code:en:10000623
 gpc_category_name:en:Beverages Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Beverages sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Beverages Family. Includes products such as Gin with Tonic Water variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Still and Sparkling Wine variety packs and Wine and Chocolate variety packs.
@@ -1239,7 +1255,7 @@ fr:Boissons alcoolisées, boisson alcoolisée, alcool, alcools
 he:משקאות אלכוהוליים
 hu:Alkoholos italok, Alkohol tartalmú italok
 it:Bevande alcoliche
-ja:酒, さけ
+ja:酒
 lt:Alkoholiniai gėrimai, gėrimai su alkoholiu, alkoholis
 nl:Alcoholische dranken
 nl_be:Alcoholische dranken
@@ -1253,6 +1269,7 @@ th:เครื่องดื่มแอลกอฮอล์
 tr:Alkollü içecekler
 zh:酒, 酒水, 酒饮料
 wikidata:en:Q154
+intake24_category_code:en:ALCL
 food_groups:en: en:Alcoholic beverages
 pnns_group_2:en:Alcoholic beverages
 nova:en:3
@@ -1270,7 +1287,16 @@ gpc_category_name:en:Alcohol Making Kits
 gpc_category_description:en:Definition: Includes any products that can be described/observed as an alcoholic drink making kit. These products are total units that include most of the necessary ingredients and equipment required to produce various flavours of beer, wine or spirits. Definition Excludes: Excludes products such as Alcohol Making Accessories sold separately, Non-Alcoholic Drink Making Kits, Alcohol Flavouring Kits and Pre-Made Alcohol.
 
 <en:Alcoholic beverages
+<en:Variety packs
 en:Alcoholic beverages variety packs
+de:Alkoholische Getränke Mischpackungen
+es:Paquetes variados de bebidas alcohólicas
+fr:Assortiments de boissons alcoolisées
+it:Confezioni miste di bevande alcoliche 
+nb:Alkoholholdige drikker flerpakk
+nl:Alcoholische drankassortimenten
+pt:Packs variados de bebidas alcoólicas
+sv:Blandförpackningar
 gpc_category_code:en:10000591
 gpc_category_name:en:Alcoholic Beverages Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Alcoholic Beverages sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Alcoholic Beverages class. Includes products such as Still and Sparkling Wine sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Wine and Chocolate variety packs.
@@ -1483,6 +1509,7 @@ nova:en:3
 agribalyse_proxy_food_code:en:5000
 agribalyse_proxy_food_name:en:Beer, dark
 agribalyse_proxy_food_name:fr:Bière brune
+intake24_category_code:en:BEER
 gpc_category_code:en:10000159
 gpc_category_name:en:Beer
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a beer made by the fermentation of cereals, usually barley or hops but also maize, wheat, rice and sorghum, by the addition of yeast and water. These products are differentiated by various brewing techniques and include products described as lager, bitter, ale, stout, lambic and specialty beers.Includes beer mixed drinks. Definition Excludes: Specifically excludes non-alcoholic beer. Excludes products such as Soft drinks that may be labelled as beer, such as Ginger Beer/Ale and Root Beer.
@@ -1683,7 +1710,7 @@ ciqual_food_code:en:5011
 ciqual_food_name:en:Beer, specialty, from abbey or regional (varying alcohol content)
 ciqual_food_name:fr:Bière de spécialités ou d'abbaye, régionales ou d'une brasserie (degré d'alcool variable)
 wikidata:en:Q1050906
-description:en:Abbey - an ale brewed in the style of Trappist beers but not by actual Trappist monks. It is an ale that originated from Belgium. 
+description:en:Abbey - an ale brewed in the style of Trappist beers but not by actual Trappist monks. It is an ale that originated from Belgium.
 
 <en:Abbey ales
 en:Single ales
@@ -1698,7 +1725,7 @@ it:Birra doppia, doppia birra
 nl:Dubbelgegist bier
 xx:Dubbel
 wikidata:en:Q2542177
-description:en:Belgian-style Dubbel is a quite strong brown ale that originated in Westmalle Abbey in 1856 
+description:en:Belgian-style Dubbel is a quite strong brown ale that originated in Westmalle Abbey in 1856
 
 <en:Abbey ales
 en:Triple ales, Triple beer
@@ -1996,6 +2023,7 @@ nl:Lagers, Lager
 pl:Lagery
 xx:Lagers, Lager
 wikidata:en:Q253481
+intake24_category_code:en:LAGR
 agribalyse_food_code:en:5001
 ciqual_food_code:en:5001
 wikipedia:en:https://en.wikipedia.org/wiki/Lager
@@ -2022,7 +2050,7 @@ description:en:Schwarzbier is a dark lager black beer that originates from Germa
 <en:Strong beers
 en:Bock beers
 xx:Bock beers
-description:en:Bock beer is a strong dark lager with a high alcohol content made in cold temperatures using bottom-fermenting yeast. 
+description:en:Bock beer is a strong dark lager with a high alcohol content made in cold temperatures using bottom-fermenting yeast.
 
 <en:Bock beers
 en:Doppelbock beers, Doppelbock
@@ -2101,7 +2129,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Pilsner
 
 <en:Beers
 en:Industrial beer, Factory beer
-fr:Bieres industrielles 
+fr:Bieres industrielles
 xx:Industrial beer, Factory beer
 description:en:Industrial beer is often made in fully automated process. This type of beer is usually produced by large-scale breweries owned by corporations and is cheeper to produce at the expense of poor taste and quality.
 
@@ -2746,7 +2774,7 @@ agribalyse_food_code:en:1014
 ciqual_food_code:en:1014
 ciqual_food_name:en:Pure alcohol
 
-#what is the definition of hard liquors?
+#what is the definition of hard liquors? Alcohol percentage?
 <en:Distilled beverages
 en:Hard liquors, liquors, spirits, hard spirits, Spirit drinks
 bg:Твърд алкохол
@@ -2761,6 +2789,7 @@ ro:Băuturi spirtoase
 ru:Крепкие алкогольные напитки
 zh:硬酒
 wikidata:en:Q2832208
+intake24_category_code:en:SPLI
 gpc_category_code:en:10000263
 gpc_category_name:en:Spirits
 gpc_category_description:en:Definition: Includes any products that can be described/observed as an alcoholic beverage distilled from fermented fruit juice, fruit, grains or sugar. Products will normally have a high alcohol content of around 35-40%.Includes products such as brandy, schnapps, gin, rum, tequila, vodka and whisky. Definition Excludes: Specifically excludes non-alcoholic Sprits. Excludes products such as Fortified Wines, Liqueurs, Non Alcoholic Bitters/Mixers, Alcoholic Syrups and Bitters, Wine.
@@ -4755,6 +4784,7 @@ pl:Cydr, Cydry
 ro:Cidru
 wikidata:en:Q167296
 nova:en:3
+intake24_category_code:en:CIDR
 agribalyse_proxy_food_code:en:5006
 agribalyse_proxy_food_name:en:Cider, dry
 agribalyse_proxy_food_name:fr:Cidre brut
@@ -5452,6 +5482,7 @@ th:น้ำอัดลม
 zh:汽水, 软性饮料, 苏打饮料
 wikidata:en:Q147538
 nova:en:3
+intake24_category_code:en:SOFT
 agribalyse_proxy_food_code:en:18340
 ciqual_proxy_food_code:en:18340
 ciqual_proxy_food_name:en:Fruit soft drink, carbonated (less than 10% of fruit juice), without sugar and with artificial sweetener(s)
@@ -5754,6 +5785,7 @@ sv:Energidrycker
 tr:Enerji içeceği
 zh:能量饮料
 wikidata:en:Q215754
+intake24_category_code:en:ENDK
 wikidata_category:en:Q7214078
 agribalyse_proxy_food_code:en:18352
 agribalyse_proxy_food_name:en:Energy drink, with sugar
@@ -6171,6 +6203,7 @@ nl:Smoothies
 nl_be:Smoothies
 pl:Smoothie
 wikidata:en:Q13290
+intake24_category_code:en:SMTH
 agribalyse_food_code:en:2500
 ciqual_food_code:en:2500
 ciqual_food_name:en:Smoothie
@@ -6220,6 +6253,7 @@ tr:Meyve suyu
 zh:水果汁, 果汁
 food_groups:en: en:Fruit juices
 pnns_group_2:en:Fruit juices
+intake24_category_code:en:FJCE
 ciqual_food_code:en:2004
 ciqual_food_name:en:Fruit juice (average)
 ciqual_food_name:fr:Jus de fruits (aliment moyen)
@@ -7515,6 +7549,7 @@ nl:Groentesappen, Groentesap, Groentensap
 pl:Sok warzywny, Soki warzywne
 tr:Sebze suyu
 zh:蔬菜汁
+intake24_category_code:en:VGTJ 
 wikidata:en:Q1501257
 ciqual_food_code:en:2075
 ciqual_food_name:en:Vegetable juice (average)
@@ -7683,7 +7718,7 @@ agribalyse_proxy_food_code:en:18020
 agribalyse_proxy_food_name:en:Tea, brewed, without sugar
 gpc_category_code:en:10000119
 gpc_category_name:en:Fruit Herbal Infusions/Tisanes - Bags/Loose
-gpc_category_description:en:Definition: Includes any products that can be described/observed as loose fruit or herbal tea, which is derived from the dried leaves of an infusion of dried fruits, herbs, spices and flowers, used specifically to make a long drink. Includes herbal teas of various flavours such as apple, ginseng, jasmine and cinnamon, and bags which contain blends of any of these such as apple and cinnamon. Specifically includes herbal infusions and fruit teas contained in tea bags. Definition Excludes: Excludes products such as Teas, Fruit Herbal Infusions/Tisanes Instant, Fruit Herbal Infusions/Tisanes Capsules and Pods and Liquid Ready to Drink and Not Ready to Drink  Fruit Herbal Infusions/Tisanes. 
+gpc_category_description:en:Definition: Includes any products that can be described/observed as loose fruit or herbal tea, which is derived from the dried leaves of an infusion of dried fruits, herbs, spices and flowers, used specifically to make a long drink. Includes herbal teas of various flavours such as apple, ginseng, jasmine and cinnamon, and bags which contain blends of any of these such as apple and cinnamon. Specifically includes herbal infusions and fruit teas contained in tea bags. Definition Excludes: Excludes products such as Teas, Fruit Herbal Infusions/Tisanes Instant, Fruit Herbal Infusions/Tisanes Capsules and Pods and Liquid Ready to Drink and Not Ready to Drink  Fruit Herbal Infusions/Tisanes.
 
 
 <en:Herbal teas
@@ -8845,13 +8880,6 @@ la:Achillea millefolium
 nl:Duizendblad
 wikidata:en:Q25408
 
-<en:Teas
-en:Brewed tea without sugar
-fr:Thé infusé non sucré
-agribalyse_food_code:en:18020
-ciqual_food_code:en:18020
-ciqual_food_name:en:Tea, brewed, without sugar
-ciqual_food_name:fr:Thé infusé, non sucré
 
 # Note: en:instant-beverages is a category that changes the computation of the Nutri-Score, the canonical name should not be changed without corresponding code changes
 <en:Beverages
@@ -8874,7 +8902,7 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 
 
 <en:Instant beverages
-en:Fruit juice concentrates, concentrated fruit juices 
+en:Fruit juice concentrates, concentrated fruit juices
 fr:Concentrés de jus de fruits, jus de fruits concentrés
 
 <en:Fruit juice concentrates
@@ -8913,7 +8941,16 @@ wikidata:en:Q1154989
 
 <en:Coffees
 <en:Teas
-en:Coffees or Teas
+<en:Variety packs
+en:Coffee and tea variety packs
+de:Kaffee und Tee Mischpackungen
+es:Paquetes variados de té e café
+fr:Assortiments de cafés et thés
+it:Confezioni miste di caffè e tè 
+nb:Kaffe te flerpakk
+nl:Koffie- en thee-assortimenten
+pt:Packs variados de café e chá
+sv:Kaffe en te blandförpackningar
 gpc_category_code:en:10000592
 gpc_category_name:en:Coffee/Tea/Substitutes Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Coffee, Tea or Substitutes sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Coffee, Tea and Substitutes class. Includes products such as Ground Coffee and Tea Bags sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Coffee and Cream variety packs.
@@ -9291,7 +9328,7 @@ gpc_category_code:en:10000115
 gpc_category_name:en:Coffee - Soluble Instant
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a substance made from the ground beans of the coffee tree which makes coffee instantly on the addition of hot water and/or hot milk. Includes products with added dry milk or whitener and both decaffeinated and with caffeine varieties. Definition Excludes: Excludes products such as Ground Coffee, Liquid Coffee and Iced Coffee.
 
-<en:Coffees
+<en:Coffee drinks
 en:Coffee without sugar
 bg:Кафе без захар
 fr:Café non sucré
@@ -9301,7 +9338,7 @@ ciqual_food_code:en:18004
 ciqual_food_name:en:Not instant coffee, without sugar, ready-to-drink
 ciqual_food_name:fr:Café, non instantané, non sucré, prêt à boire
 
-<en:Coffees
+<en:Coffee drinks
 en:Espresso coffee without sugar
 fr:Café expresso non sucré
 agribalyse_food_code:en:18071
@@ -9309,17 +9346,23 @@ ciqual_food_code:en:18071
 ciqual_food_name:en:Espresso coffee, not instant coffee, without sugar, ready-to-drink
 ciqual_food_name:fr:Café expresso, non instantané, non sucré, prêt à boire
 
-<en:Coffees
-en:Coffee with milk with sugar
-fr:Café au lait sucré
-
-<en:Coffees
-en:Coffee with milk without sugar
-fr:Café au lait non sucré
+<en:Dairy drinks
+<en:Coffee drinks
+en:Cappuccino, Coffee drinks with milk
+fr:Boissons lactées au café
+it:Caffè-latte, Latte al caffè
+lt:Kavos gėrimas su pienu
+nl:Cappuccino, Koffiedranken met melk
+ro:Lapte pentru cafea
+intake24_category_code:en:CAPU
 agribalyse_food_code:en:18151
 ciqual_food_code:en:18151
 ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
 ciqual_food_name:fr:Café au lait, café crème ou cappuccino, instantané ou non, non sucré, prêt à boire
+
+<en:Coffee drinks
+en:Coffee with milk with sugar
+fr:Café au lait sucré
 
 <en:Coffees
 en:Instant coffee with milk without sugar
@@ -9329,10 +9372,12 @@ ciqual_food_code:en:18151
 ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
 ciqual_food_name:fr:Café au lait, café crème ou cappuccino, instantané ou non, non sucré, prêt à boire
 
-<en:Coffees
-en:White coffee without sugar
+<en:Coffee drinks
+en:Latte, White coffee without sugar
 fr:Café crème non sucré
+nl:Latte, Koffie verkeerd
 agribalyse_food_code:en:18151
+intake24_category_code:en:LATE
 ciqual_food_code:en:18151
 ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
 ciqual_food_name:fr:Café au lait, café crème ou cappuccino, instantané ou non, non sucré, prêt à boire
@@ -9526,14 +9571,6 @@ fr:Cafés torréfiés, Café torréifié
 nl:Gebrande koffies, Gebrande koffie
 wikidata:en:Q1357168
 
-<en:Waters
-en:Municipal water, Tap water
-fr:Eau du robinet
-ja:水道水
-nl:Kraanwaters
-ciqual_food_code:en:18066
-ciqual_food_name:en:Water, municipal
-ciqual_food_name:fr:Eau du robinet
 
 <en:Beverages
 en:Waters, bottled waters, bottled water
@@ -9572,6 +9609,15 @@ gpc_category_name:en:Packaged Water
 gpc_category_description:en:Definition: Includes any products that can be described/observed as water that has been specifically packaged for human consumption, and which may contain additional minerals or other trace elements including a natural or artificial source of carbon dioxide. Includes slightly flavoured products that are labelled and marketed as water and all mineral waters originating from both natural and drilled sources. These mineral waters are characterized by a guaranteed content of certain mineral salts and original microbiological purity. Also includes waters with added calcium. Definition Excludes: Specifically excludes products that contain sugars or sweeteners. Excludes products such as Tonic Water and Juice Drinks.
 
 <en:Waters
+en:Municipal water, Tap water
+fr:Eau du robinet
+ja:水道水
+nl:Kraanwaters
+ciqual_food_code:en:18066
+ciqual_food_name:en:Water, municipal
+ciqual_food_name:fr:Eau du robinet
+
+<en:Waters
 en:Drinking water
 bg:Питейна вода
 de:Trinkwasser
@@ -9584,6 +9630,7 @@ nl:Drinkwaters, Drinkwater
 ru:Питьевая вода, вода питьевая
 zh:饮用水
 # Wrong match
+intake24_category_code:en:WTRS 
 agribalyse_food_code:en:18430
 ciqual_food_code:en:18430
 ciqual_food_name:en:Water, bottled
@@ -10018,6 +10065,7 @@ tr:Şarap
 zh:葡萄酒
 wikidata:en:Q282
 nova:en:3
+intake24_category_code:en:WINE 
 ciqual_food_code:en:5210
 ciqual_food_name:en:Wine (average)
 ciqual_food_name:fr:Vin (aliment moyen)
@@ -10210,14 +10258,29 @@ ciqual_food_code:en:18029
 ciqual_food_name:en:Non-alcoholic beverage (average)
 ciqual_food_name:fr:Boisson rafraîchissante sans alcool (aliment moyen)
 
-<en:Non-alcoholic beverages
+<en:Variety packs
+<en:Instant beverages
 en:Non-alcoholic instant beverages variety packs
+de:Alkoholfreie Getränke Mischpackungen - nicht trinkfertig
+es:Packs variados de bebidas instantáneas sin alcohol
+fr:Assortiments de Boissons non alcoolisées instantanés
+it:Confezioni miste di bevande non alcoliche istantanee 
+nl:Assortimenten van niet-alcoholische instantdranken
+pt:Packs variados de bebidas não alcóolicas instantes
+sv:Alkoholfria snabbdrycker olika förpackningar
 gpc_category_code:en:10000593
 gpc_category_name:en:Non Alcoholic Beverages Variety Packs - Not Ready to Drink
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Non Alcoholic Beverages Not Ready to Drink sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Non Alcoholic Beverages - Not Ready to Drink class. Includes products such as powdered Malt and Milkshakes sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as powdered Milkshakes and Sugar Candy variety packs.
 
+<en:Variety packs
 <en:Non-alcoholic beverages
 en:Non-alcoholic beverages variety packs
+de:Alkoholfreie Getränke Mischpackungen
+es:Paquetes variados de bebidas sin alcohol
+fr:Assortiments de boissons non alcoolisées
+it:Confezioni miste di bevande non alcoliche
+nl:Aassortimenten van alcoholvrije dranken
+pt:Packs variados de bebidas não alcóolicas
 gpc_category_code:en:10000594
 gpc_category_name:en:Non Alcoholic Beverages Variety Packs - Ready to Drink
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Non Alcoholic Beverages Ready to Drink sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Non Alcoholic Beverages - Ready to Drink class. Includes products such as ready to drink Cola and Ice sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as ready to drink Cola and Crisps variety packs.
@@ -10563,6 +10626,15 @@ gpc_category_code:en:10000118
 gpc_category_name:en:Tea - Liquid/Ready to Drink
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a ready to drink beverage made from the dried leaves of the tea plant, Camellia Sinensis. Includes self-heating products and teas from single tea types such as Assam and Ceylon, and those, which are blends of various teas. Products may also have added flavourings such as lemon and milk or sweeteners. Definition Excludes: Excludes products such as Tea Bags or Loose Tea, Liquid Not Ready to Drink Teas, Teas in Capsules or Pods and Herbal Infusions/Tisanes.
 
+<en:Tea-based beverages
+en:Brewed tea without sugar
+fr:Thé infusé non sucré
+intake24_category_code:en:TEAS 
+agribalyse_food_code:en:18020
+ciqual_food_code:en:18020
+ciqual_food_name:en:Tea, brewed, without sugar
+ciqual_food_name:fr:Thé infusé, non sucré
+
 <en:Beverages
 #Do not put herbal tea beverages under herbal teas
 #<en:Herbal teas
@@ -10655,6 +10727,7 @@ nl:Koffiedranken, Koffiedrank
 food_groups:en: en:Teas and herbal teas and coffees
 pnns_group_2:en:Teas and herbal teas and coffees
 wikidata:en:Q37756327
+intake24_category_code:en:CFFS 
 gpc_category_code:en:10000114
 gpc_category_name:en:Coffee - Liquid/Ready to Drink
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a ready to drink non-carbonated beverage made from coffee beans. Includes products that are consumed cold and those sold in 'self heating' cans, which allow the consumer to heat the coffee prior to consumption. Includes black coffee and coffees with added flavourings (such as mocha), milk or sweeteners. Definition Excludes: Excludes products such as Coffee Substitutes and Not Ready to Drink Coffees.
@@ -31563,14 +31636,22 @@ gpc_category_code:en:10000161
 gpc_category_name:en:Biscuits/Cookies (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a thin, unleavened or leavened, baked, cereal-based product. Products may be sweet or savoury and are available in a variety of shapes and sizes. These products have been treated or packaged in such a way as to extend their consumable life. Includes products such as crackers, cookies, oatcakes. Definition Excludes: Excludes products such as Frozen and Perishable Biscuits and Cookies, all Dried Breads.
 
-<en:Biscuits
-en:Biscuits/Cookies (Perishable)
+<en:Biscuits or cookies variety packs
+en:Biscuits or Cookies (Perishable)
+de:Kekse oder Gebäck (leicht verderblich)
 gpc_category_code:en:10000160
 gpc_category_name:en:Biscuits/Cookies (Perishable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a thin, unleavened or unleavened, baked, cereal-based product. Products may be sweet or savoury and are available in a variety of shapes and sizes These products can be refrigerated to extend their consumable life. Includes products such as crackers, cookies, oatcakes. Definition Excludes: Excludes products such as Frozen and Shelf-Stable Biscuits and Cookies, all Dried Breads.
 
+<en:Variety packs
 <en:Biscuits
 en:Biscuits or cookies variety packs
+de:Mischpackungen von Kekse und Gebäck
+es:Paquetes variados de galletas y bizcochos
+fr:Assortiments de gâteaux secs et biscuits
+it:Confezioni Miste di biscotti e crackers 
+nl:Biscuit- en koekjesassortimenten
+pt:Packs variados de biscoitos y bolachas
 gpc_category_code:en:10000596
 gpc_category_name:en:Biscuits/Cookies Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Biscuits, Cookies or Dried Breads sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Biscuits and Cookies class. Includes products such as Cookies and Breadsticks sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Cookies and Chocolate variety packs.
@@ -32248,6 +32329,12 @@ ciqual_food_name:en:Butter biscuit (cookie), with chocolate
 es:Galletas maría, galletas de tipo maria
 nl:Mariakaakjes, Mariakaakje
 
+<en:Biscuits
+<en:Christmas foods and drinks
+en:Neules
+ca:Neules, Neula
+es:Barquillos, neulas, galletas de barquillo
+
 #There is two type of rosquillas in Spain. Some have the consistancy of doughuts and the others are biscuits. This category regroups the biscuits
 <en:Biscuits
 en:Rousquilles
@@ -32513,6 +32600,7 @@ pnns_group_2:en:Bread
 ciqual_food_code:en:7000
 ciqual_food_name:en:Bread (average)
 ciqual_food_name:fr:Pain (aliment moyen)
+intake24_category_code:en:BRED
 
 <en:Breads
 en:Packaged breads
@@ -32553,9 +32641,15 @@ de:Backwaren
 fr:Produits de boulangerie
 nl:Bakkerijproducten
 
-#<en:Variety packs
+<en:Variety packs
 <en:Bakery products
 en:Bakery product variety packs
+de:Mischpackungen von Brot und Backwaren
+es:Paquetes variados de productos de panadería y pan
+fr:Assortiments de pains et produits de boulangerie
+it:Confezioni miste di pane e prodotti da forno 
+nl:Assortimenten van brood- en bakkerijproducten
+pt:Packs variados de pães y produtos de panificação
 gpc_category_code:en:10000598
 gpc_category_name:en:Bread/Bakery Products Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Bread and Bakery Products sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Bread and Bakery Products Family. Includes products such as Pizza with Garlic Bread variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Sponge Cakes and Danish Pastries variety packs and Breadsticks and Dips variety packs.
@@ -33362,6 +33456,7 @@ ja:ロールパン
 lt:Bandelės
 nl:Broodjes
 sv:Bullars
+intake24_category_code:en:BRDR 
 
 <en:Breads
 en:Breadsticks, Grissini, Bread sticks
@@ -33397,6 +33492,7 @@ nl:Bruine broden, Bruinbrood, Bruin brood
 ro:Pâine brună, Pâine neagră
 ru:Цельнозерновой хлеб
 wikidata:en:Q940999
+intake24_category_code:en:BBRD 
 
 <en:Breads
 en:Dried breads
@@ -33494,6 +33590,7 @@ it:Focacce
 lt:Paplotėliai, Paplotėlis
 nl:Platte broden, Flat breads
 wikidata:en:Q666242
+intake24_category_code:en:FJTA 
 
 <en:Flatbreads
 en:Piadina
@@ -33527,13 +33624,9 @@ ciqual_food_name:fr:Pain de seigle, et froment
 
 <en:Breads
 en:Pumpernickel
-de:Pumpernickel
-es:Pumpernickel
-fr:Pumpernickel
-it:Pumpernickel
+xx:Pumpernickel
 nl:Pompernikkel
 pl:Pumpernikiel
-pt:Pumpernickel
 wikidata:en:Q837207
 
 <en:Breads
@@ -33720,6 +33813,7 @@ nl:Toasts, Toast
 pt:Tostas
 zh:吐司面包
 wikidata:en:Q6128
+intake24_category_code:en:TSTF 
 agribalyse_proxy_food_code:en:7407
 ciqual_proxy_food_code:en:7407
 ciqual_proxy_food_name:en:Wheat swedish toast
@@ -33840,6 +33934,7 @@ ro:Pâini albe, Pâine albă
 ru:Белый хлеб, Хлеб белый
 tr:Beyaz ekmek
 wikidata:en:Q1501889
+intake24_category_code:en:WBRD 
 
 <en:White breads
 en:Bread white from wheat flour of the highest grade GOST 26987-86
@@ -33887,6 +33982,7 @@ uk:грінки
 zh:麵包丁
 wikidata:en:Q1197400
 wikipedia:en:https://en.wikipedia.org/wiki/Crouton
+intake24_category_code:en:CROU 
 # ingredient/fr:croûtons has 107 products in 5 languages @2019-04-21
 # category/croutons has 166 products @2019-05-19
 # usage:en:croutons (wheat flour, vegetable fat, edible salt, maltodextrin, grape sugar, onions, herbs, yeast extract, dehydrated garlic, flavoring, yeast, spice extract)
@@ -34004,8 +34100,6 @@ agribalyse_food_code:en:7310
 ciqual_food_code:en:7310
 ciqual_food_name:en:Rusk, unsalted
 ciqual_food_name:fr:Biscotte sans adjonction de sel
-
-
 
 <en:Breads
 en:Pains de campagne, Pain de campagne
@@ -34127,7 +34221,7 @@ ciqual_food_code:en:7262
 ciqual_food_name:en:Rolls for hamburger/hotdog (buns), wholemeal, prepacked
 ciqual_food_name:fr:Pain pour hamburger ou hot dog (bun), complet, préemballé
 
-<en:Special breads
+<en:Flatbreads
 en:Naans, Naan
 de:Naans
 es:Naans, Naan
@@ -34236,7 +34330,6 @@ pl:Kakao i produkty na bazie kakao
 pt:Cacau e derivados
 tr:Kakao ve kakao ürünleri
 
-
 <en:Cocoa and its products
 en:Cocoa beans
 bg:Какаови зърна
@@ -34311,7 +34404,7 @@ fr:Chocolats en poudre, chocolat en poudre, poudres de chocolat, chocolats insta
 it:Cioccolata in polvere
 ja:ココアパウダー
 lt:Šokolado milteliai, tirpūs šokoladiniai gėrimai, greitai paruošiami karšti šokoladai
-nl:Oplospoeder voor chocolademelk, Oploschocoladepoede
+nl:Oplospoeder voor chocolademelk, Oploschocoladepoeder
 pt:Pós de chocolate
 ro:Ciocolată caldă instant, Pudră de ciocolată
 agribalyse_food_code:en:18104
@@ -34645,7 +34738,12 @@ fr:Génoises en tranches fourrées
 #British dessert made with custard cream, fruit (or fruit jelly, or chocolate) and possibly sponge biscuits
 <en:Desserts
 en:Trifles
+intake24_category_code:en:TRIF 
 wikidata:en:Q616601
+
+<en:Desserts
+en:Sponge puddings
+intake24_category_code:en:SSPD 
 
 #Finnish dessert made with water, rye flour and sugar
 <en:Desserts
@@ -34802,6 +34900,7 @@ lt:Keksai, Keksiukai
 nl:Muffins, Muffin
 zh:松饼
 wikidata:en:Q207220
+intake24_category_code:en:CRUM 
 
 <en:Muffins
 <en:Chocolate cakes
@@ -34878,6 +34977,7 @@ ru:Пончики
 agribalyse_proxy_food_code:en:23880
 agribalyse_proxy_food_name:en:Doughnut, plain
 agribalyse_proxy_food_name:fr:Beignet rond moelleux, sans fourrage, saupoudré de sucre
+intake24_category_code:en:DGNT 
 
 <en:Doughnuts
 en:Plain doughnuts, Plain doughnut
@@ -35070,6 +35170,7 @@ ru:Пудинги, Пудинг
 wikidata:en:Q9053
 food_groups:en: en:Dairy desserts
 pnns_group_2:en:Dairy desserts
+intake24_category_code:en:PUDS 
 
 #Do not confound with the fruit preserve called jelly
 <en:Desserts
@@ -35083,6 +35184,7 @@ ja:ゼリー
 lt:Želė desertai, želė desertas, želatinos desertai
 pt:Sobremesas de gelatina
 wikidata:en:Q4545971
+intake24_category_code:en:JLLY 
 
 <en:Jelly desserts
 en:Flavoured milk jelly
@@ -35147,6 +35249,7 @@ agribalyse_food_code:en:19689
 ciqual_food_code:en:19689
 ciqual_food_name:en:Cheesecake, refrigerated
 ciqual_food_name:fr:Cheesecake ou Gâteau au fromage frais, rayon frais
+intake24_category_code:en:CHSK 
 
 <en:Cheesecakes
 en:Plain cheesecakes
@@ -35294,6 +35397,7 @@ agribalyse_food_code:en:39212
 ciqual_food_code:en:39212
 ciqual_food_name:en:Rice pudding, refrigerated
 ciqual_food_name:fr:Riz au lait, rayon frais
+intake
 
 <en:Rice puddings
 en:Rice pudding with caramel sauce
@@ -35506,8 +35610,15 @@ tr:Atıştırmalıklar
 zh:零食
 wikidata:en:Q749316
 
+<en:Variety packs
 <en:Snacks
 en:Snacks variety packs
+de:Snacks Mischpackungen
+es:Paquetes variados de aperitivos
+fr:Assortiments d'amuse-gueules
+it:Confezioni miste di snacks
+nl:Snackassortimenten
+pt:Packs variados de aperitivos
 gpc_category_code:en:10000612
 gpc_category_name:en:Snacks Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Snacks sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Snacks class. Includes products such as Crisps and Popcorn sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Chips and Dips variety packs.
@@ -35555,6 +35666,7 @@ sv:Konfekt
 th:ขนมหวาน
 food_groups:en: en:Sweets
 pnns_group_2:en:Sweets
+intake24_category_code:en:CONF 
 
 <en:Confectioneries
 fr:Bonbons dragéifiés
@@ -35953,7 +36065,7 @@ en:White chocolates with hazelnuts
 bg:Бели лешникови шоколади, Бели шоколади с лешници
 de:Weiße Schokoladen mit Haselnüssen
 fr:Chocolats blancs aux noisettes
-lt:Balti šokoladai su lazdyno riešutais 
+lt:Balti šokoladai su lazdyno riešutais
 nl:Witte chocola met hazelnoten
 
 <en:White chocolates
@@ -36908,7 +37020,7 @@ wikidata:en:Q1624200
 <en:Bonbons
 en:Chocolate covered nuts, Chocolate confectionery filled with nuts
 de:Mit Schokolade überzogene Nüsse
-es:Frutos de cáscara recubiertos de chocolate
+es:Frutos de cáscara recubiertos de chocolate, Frutos secos recubiertos de chocolate
 fi:Suklaapähkinät
 fr:Fruits à coques enrobés de chocolat, fruits à coque au chocolat, Bouchées au chocolat fourrées aux fruits à coques
 it:Frutta secca ricoperta di cioccolato
@@ -36923,7 +37035,7 @@ ciqual_food_name:fr:Bouchée chocolat fourrage fruits à coques et/ou praliné
 <en:Chocolate covered nuts
 en:Chocolate covered peanuts, Sugar and chocolate coated peanuts
 de:Erdnüsse mit Schokoladenüberzug
-es:Cacahuetes recubiertos de chocolate
+es:Cacahuetes recubiertos de chocolate, Maní recubierto de chocolate
 fi:Suklaalla päällystetyt maapähkinät
 fr:Cacahuètes au chocolat, cacahuètes enrobées de chocolat, cacahuètes enrobées de chocolat type M&M's, Cacahuètes enrobées de chocolat dragéifiées
 hu:Csokoládéval bevont mogyoró
@@ -37064,6 +37176,7 @@ ciqual_food_code:en:31060
 ciqual_food_name:en:Jelly candy
 ciqual_food_name:fr:Bonbon gélifié
 wikidata:en:Q12964402
+intake24_category_code:en:CHEW 
 
 <en:Gummi candies
 en:Gummy crocodiles
@@ -37228,6 +37341,7 @@ agribalyse_food_code:en:31081
 ciqual_food_code:en:31081
 ciqual_food_name:en:Soft caramel candy
 ciqual_food_name:fr:Bonbon au caramel, mou
+intake24_category_code:en:TFFS 
 
 <en:Caramels
 en:Salted butter caramels
@@ -37257,6 +37371,7 @@ pt:Pastilhas elásticas
 ro:Gumă de mestecat
 ru:Жевательная резинка
 wikidata:en:Q130878
+intake24_category_code:en:GUMS 
 ciqual_food_code:en:31121
 ciqual_food_name:en:Chewing gum, sugar level unknown (average)
 ciqual_food_name:fr:Chewing-gum, teneur en sucre inconnue (aliment moyen)
@@ -37463,6 +37578,7 @@ lt:Zefyrai, zefyras, zefyriniai saldainiai, zefyrinis saldainis
 nl:Marshmallows, Zoete Spekjes, Marshmellows
 nn:Marshmallows
 sv:Skum
+intake24_category_code:en:MHMW 
 wikidata:en:Q272198
 agribalyse_food_code:en:31050
 ciqual_food_code:en:31050
@@ -37977,7 +38093,7 @@ wikidata:en:Q3995784
 <en:Turrón
 en:Peanut turrón, Peanuts turrón
 de:Erdnussturrón
-es:Turrones de cacahuete
+es:Turrones de cacahuete, Turrones de maní
 fi:Maapähkinäturrón
 fr:Tourons aux cacahuètes
 lt:Žemės riešutų turrón
@@ -38865,8 +38981,15 @@ gpc_category_code:en:10000285
 gpc_category_name:en:Cereals Products - Not Ready to Eat (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a cereal combining all or some of the following ingredients: oats, muesli, wheat, rice, seeds, bran, fruit, nuts, cereal and honey, which has gone through further manufacturing processes such as cooking, milling, drying and reforming, which will require preparation/cooking prior to consumption. Includes products such as porridge oats, couscous and tapioca. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as whole Unprocessed Grains, Flour, Ready to Eat Cereal, Cereal Bars.
 
+<en:Variety packs
 <en:Cereals and their products
 en:Cereal variety packs
+de:Getreidemischpackungen
+es:Paquetes variados de cereales - productos en grano y legumbres
+fr:Assortiments de céréales - grains et légumes secs
+it:Confezioni miste di cereali - grano e legumi
+nl:Graanproductassortimenten
+pt:Pack variados de cereais - grãos - leguminosas secas
 gpc_category_code:en:10000601
 gpc_category_name:en:Cereal/Grain/Pulse Products Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Cereal, Grain and Pulse Products sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Cereal, Grain and Pulse Products Family. Includes products such as Cereal Bars and ready to eat Couscous variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Semolina and not ready to eat Polenta variety packs and Cereal Bars and ready to drink Milkshake variety packs.
@@ -38886,6 +39009,7 @@ lt:Javų grūdai
 nl:Graankorrels
 pt:Grãos de cereais
 ru:Злаковое зерно
+intake24_category_code:en:CARB 
 
 <en:Cereal grains
 en:Canary grass
@@ -39161,6 +39285,7 @@ la:Zea mays subsp. mays var. rugosa, Zea mays var. saccharata
 lt:Saldieji kukurūzai
 nl:Suikermais
 zh:甜玉米
+intake24_category_code:en:SWTC 
 wikidata:en:Q18966
 
 <en:Sweet Corn
@@ -39431,6 +39556,7 @@ wikidata:en:Q161426
 agribalyse_proxy_food_code:en:9101
 agribalyse_proxy_food_name:en:Rice, parboiled, raw
 agribalyse_proxy_food_name:fr:Riz blanc étuvé, cru
+intake24_category_code:en:URICE
 
 <en:Rices
 en:Brown rices
@@ -40318,6 +40444,7 @@ ru:Чипсы
 th:มันฝรั่งทอด
 zh:薯片
 nutriscore_without_unprocessed_fruits_vegetables_legumes:en:yes
+intake24_category_code:en:CRSP
 gpc_category_code:en:10000177
 gpc_category_name:en:Chips/Crisps/Snack Mixes - Natural/Extruded (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a type of food usually consumed between meals. They can contain, extracts from potatoes or other vegetables, gram flour products, rice, pulses and fruit, which are blended with other ingredients, reconstituted, and pressed into bite size shapes, or sliced products, which are fried in oil or oven-baked. These products are usually packaged in airtight bags, tubes, or plastic containers. Includes products such as Bombay Mix. Definition Excludes: Excludes products such as Popcorn, Cheese and Peanut Doodles/Puffs, Salt Sticks/Mini Pretzels, Prepared and Processed Vegetables and Prepared and Processed Meat, Poultry and Game and hot snacks.
@@ -40402,7 +40529,7 @@ fr:Croquettes aux crevettes
 nl:Garnalenkroketten
 
 <en:Flavoured potato crisps
-en:Prawn cocktail crisps, Prawn crackers
+en:Prawn cocktail crisps
 de:Garnelencocktail Chips
 fr:Chips cocktail de crevettes, Chips de crevette
 lt:Krevečių kokteilių traškučiai, krevečių krekeriai
@@ -40425,9 +40552,11 @@ agribalyse_proxy_food_name:fr:Chips de crevette
 #wikidata:en:
 
 <en:Cassava crisps
+en:Prawn crackers
 fr:Chips de manioc à la crevette, chips de manioc aux crevettes, chips à la crevette au manioc, chips aux crevettes au manioc, chips au manioc à la crevette, chips au manioc aux crevettes
 de:Krabbenchips, Krupuk
 nl:Garnalenkroepoek
+intake24_category_code:en:PMPC
 agribalyse_proxy_food_code:en:38104
 agribalyse_proxy_food_name:en:Prawn crackers
 agribalyse_proxy_food_name:fr:Chips de crevette
@@ -40723,6 +40852,7 @@ lt:Bulvytės
 nl:Friet
 zh:薯条
 wikidata:en:Q152088
+intake24_category_code:en:CHIP
 
 <en:Chips and fries
 bg:Картофени ноазети
@@ -40735,6 +40865,10 @@ agribalyse_proxy_food_code:en:4021
 agribalyse_proxy_food_name:en:Dauphine potato, frozen, cooked
 agribalyse_proxy_food_name:fr:Pomme de terre dauphine, surgelée, cuite
 wikidata:en:Q3396004
+
+<en:Fries
+en:Takeaway fries
+intake24_category_code:en:TCHI
 
 # TODO Validate proxy
 
@@ -40812,8 +40946,15 @@ gpc_category_code:en:10006728
 gpc_category_name:en:Dairy By-Products
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a by-product made from Milk which is typically used as an ingredient or constituent in other products and not necessarily as a consumable on its own. Definition Excludes: Excludes products such as Milk, Butter, Cream, Yogurt, Cheese, Egg or Substitute products.
 
+<en:Variety packs
 <en:Dairies
 en:Dairy variety packs
+de:Milchproduktemischpackungen
+es:Paquetes variados de productos lácteos
+fr:Assortiments de produits laitiers
+it:Confezioni miste di latticini
+nl:Zuivelproductassortimenten
+pt:Packs variados de laticínios
 gpc_category_code:en:10000607
 gpc_category_name:en:Milk/Butter/Cream/Yogurts/Cheese/Eggs/Substitutes Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Milk, Butter, Cream, Yogurt, Cheese, Egg or Substitute products sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Milk, Butter, Cream, Yogurts, Cheese, Eggs and Substitutes Family. Includes products such as Yogurts with Cream variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Strawberries and Cream variety packs
@@ -41131,8 +41272,14 @@ gpc_category_name:en:Cheese (Perishable)
 gpc_category_definition:en:Includes any products that can be described/observed as food made from the curd of milk, separated from the whey, sometimes fermented, and usually pressed, cooked, smoked, matured, or heated and mixed with artificial ingredients, such as emulsifiers, colourings and flavourings. These products must be refrigerated to extend their consumable life. These products include natural, processed cheese, cheese with added ingredients, such as herbs and nuts, in blocks, rolls, slices, grated, cubes, spreadable and portions. Definition Excludes: Excludes products such as Shelf Stable and Frozen Cheeses and all Cheese Substitutes and Cheese-Based/Flavoured Meals.
 
 <en:Cheeses
+en:Cured cheese
+ca:Formatge curat
+es:Queso curado
+
+<en:Cheeses
 en:semi-cured cheese
-es:queso semicurado
+ca:Formatge semicurat
+es:Queso semicurado
 
 <en:Cheeses
 en:Abbaye cheeses
@@ -43257,6 +43404,7 @@ lt:Švieži sūriai
 nl:Verse kazen
 pt:Queijos frescos
 wikidata:en:Q3323634
+intake24_category_code:en:FFRS
 
 #Polish cheese made of curled milk, then homogenized and thicked with cream. It is popular for breakfast
 <en:Fresh cheeses
@@ -45308,7 +45456,7 @@ origins:en: en:Lithuania
 
 <en:Lithuanian cheeses
 en:Lithuanian curd cheese
-lt:Lietuviškas varškės sūris 
+lt:Lietuviškas varškės sūris
 protected_name_file_number:en: PGI-LT-0853
 protected_name_type:en: pgi
 origins:en: en:Lithuania
@@ -46195,10 +46343,10 @@ ciqual_food_name:fr:Spécialité à base de crème légère 8% MG, fluide ou ép
 <en:Dairies
 en:Creams
 bg:Кремове
-ca:Cremes
+ca:Cremes, Nata, Nata per muntar
 cs:Smetany, smetana
 de:Rahm, Sahne
-es:Nata, crema de leche
+es:Nata, crema de leche, Nata para montar
 fi:kermatuotteet
 fr:Crèmes, Crème
 he:שמנות
@@ -46219,6 +46367,7 @@ agribalyse_proxy_food_code:en:19430
 ciqual_proxy_food_code:en:19430
 ciqual_proxy_food_name:en:Liquid cream, light, 15-20% fat, UHT
 ciqual_proxy_food_name:fr:Crème de lait, 15 à 20% MG, légère, semi-épaisse, UHT
+intake24_category_code:en:CREM
 gpc_category_code:en:10000190
 gpc_category_name:en:Cream (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as dairy cream (the fatty part of fresh milk that rises to the top if allowed to stand). These products have been treated or packaged in such a way as to extend their consumable life. Products include cream with added flavouring or ingredients, such as fruit and chocolate and frothy style beverage toppings Definition Excludes: Excludes products such as Frozen and Perishable Cream and all Cream Substitutes.
@@ -46639,6 +46788,7 @@ tr:Tereyağı
 wikidata:en:Q34172
 agribalyse_proxy_food_code:en:16400
 agribalyse_proxy_food_name:en:Butter, 82% fat, unsalted
+intake24_category_code:en:BUTR
 gpc_category_code:en:10000168
 gpc_category_name:en:Butter (Perishable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as the fatty portion of animal milk, separated when milk or cream is agitated or churned. These products must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Shelf Stable or Frozen Butter and all Butter Based Substitutes, and all Vegetable and Animal Cooking Oils and Fats.
@@ -47172,6 +47322,7 @@ pnns_group_2:en:Milk and yogurt
 agribalyse_proxy_food_code:en:19041
 agribalyse_proxy_food_name:en:Milk, semi-skimmed, UHT
 agribalyse_proxy_food_name:fr:Lait demi-écrémé, UHT
+intake24_category_code:en:MILK
 
 <en:Milks
 en:Refrigerated milks
@@ -47184,8 +47335,6 @@ Definition Excludes: Specifically excludes all fermented milk (or milk substitut
 en:Milks from Austria, Austrian milks
 fr:Laits autrichiens
 lt:Austriški pienas
-
-
 
 <en:Milks from Austria
 <en:Milks
@@ -47270,6 +47419,7 @@ sv:Chokladmjölk
 tr:Çikolatalı sütler
 zh:巧克力奶
 wikidata:en:Q13253
+intake24_category_code:en:DCHO
 agribalyse_proxy_food_code:en:19122
 agribalyse_proxy_food_name:en:Chocolate flavoured milk, with sugar, partially skimmed, fortified with vitamins and chemicals elements
 agribalyse_proxy_food_name:fr:Boisson lactée aromatisée au chocolat, sucrée, au lait partiellement écrémé, enrichie et/ou restaurée en vitamines et/ou minéraux
@@ -47328,6 +47478,7 @@ wikidata:en:Q37159
 agribalyse_proxy_food_code:en:39001
 agribalyse_proxy_food_name:en:Milkshake, from fast foods restaurant
 agribalyse_proxy_food_name:fr:Milk-shake, provenant de fast food
+intake24_category_code:en:SHKS
 
 <en:Milkshakes
 en:Milkshakes from fast foods restaurant, Milk-shakes from fast foods restaurant
@@ -47343,15 +47494,6 @@ en:Weight-loss milkshakes
 fr:Milkshakes minceurs
 lt:Pieniški kokteiliai svoriui mesti
 nl:Afslankshakes
-
-<en:Dairy drinks
-<en:Coffee drinks
-en:Coffee drinks with milk
-fr:Boissons lactées au café
-it:Caffè-latte, Latte al caffè
-lt:Kavos gėrimas su pienu
-nl:Koffiedranken met melk
-ro:Lapte pentru cafea
 
 <en:Milks
 en:Semi-skimmed milks, 2% milk
@@ -47607,6 +47749,7 @@ tr:Süt tozu
 agribalyse_proxy_food_code:en:19054
 agribalyse_proxy_food_name:en:Milk, powder, skimmed
 agribalyse_proxy_food_name:fr:Lait en poudre, écrémé
+intake24_category_code:en:19POWM
 wikidata:en:Q496696
 
 <en:Dehydrated beverages
@@ -47783,7 +47926,7 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 de:Kaffeesahne, Kaffeerahm, Kaffeeobers
 wikidata:en:Q1031291
 
-#  is this the same as condesed milks?
+#  is this the same as condensed milks? Often condensed milks are sugared
 <en:Dairies
 en:Evaporated milks, evaporated milk
 ca:Llet evaporada
@@ -47965,7 +48108,7 @@ nl:Lactose-arme melk
 ru:молоко низколактозное, низколактозное молоко
 
 <en:Milks
-en:lactose-free milk
+en:Lactose-free milk
 bg:Мляко без лактоза
 ca:Llet sense lactosa
 de:Laktosefreie Milch
@@ -48407,7 +48550,7 @@ en:Nut-based drinks, Nut milks, Nut drinks
 bg:Ядкови млека, ядково мляко
 ca:Beguda de fruits secs
 de:Nussmilch, Nussmilche, Nussmilchen, Nuss-Drinks, Nuss-Drink, Nussdrink, Nussdrinks
-es:Leches de frutos de cáscara, Bebidas de frutos de cáscara
+es:Leches de frutos de cáscara, Bebidas de frutos de cáscara, Bebidas de frutos secos, Leches de frutos secos
 fi:pähkinäjuomat
 fr:Boissons végétales de fruits à coque, Laits de fruits à coques
 he:חלב אגוזים, משקאות אגוזים
@@ -48421,6 +48564,7 @@ agribalyse_proxy_food_code:en:18107
 ciqual_proxy_food_code:en:18107
 ciqual_proxy_food_name:en:Almond drink
 ciqual_proxy_food_name:fr:Boisson à l'amande
+intake24_category_code:en:19NMLK
 #wikidata:en:
 
 <en:Nut-based drinks
@@ -48651,7 +48795,7 @@ nl:Sojadranken in poedervorm
 <en:Nuts and their products
 <en:Powdered plant milks
 en:Powdered nut milks, Powdered nut drinks
-es:Leches de frutos de cáscara en polvo, Bebidas de frutos de cáscara en polvo
+es:Leches de frutos de cáscara en polvo, Bebidas de frutos de cáscara en polvo, Leches de frutos secos en polvo, Bebidas de frutos secos en polvo
 fr:Boissons végétales de fruits à coque en poudre, Laits de fruits à coques en poudre
 nl:Notendranken in poedervorm
 
@@ -48857,6 +49001,7 @@ ru:Питьевые йогурты
 agribalyse_proxy_food_code:en:19508
 agribalyse_proxy_food_name:en:Dairy drink or fermented milk or yogurt, flavoured, with sugar
 agribalyse_proxy_food_name:fr:Boisson lactée, lait fermenté ou yaourt à boire, aromatisé, sucré
+intake24_category_code:en:YOGD
 
 <en:Drinkable yogurts
 en:Vanilla yogurt drinks
@@ -48936,6 +49081,7 @@ agribalyse_proxy_food_code:en:19592
 agribalyse_proxy_food_name:en:Yogurt, fermented milk or dairy specialty, with fruits, with sugar, fortified with vitamin D
 agribalyse_proxy_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aux fruits, sucré, enrichi en vitamine D
 #wikidata:en:
+intake24_category_code:en:FTYG
 
 <en:Fruit yogurts
 en:Yogurt with fruits and sugar, Yogurt fruit flavoured with sugar, Fermented milk with fruits and sugar, Fermented milk fruit flavoured with sugar, Dairy specialty with fruits and added sugar, Dairy specialty fruit flavoured with sugar
@@ -49337,6 +49483,7 @@ nl:Griekse yoghurts
 pt:Iogurtes gregos
 ru:Греческий йогурт
 zh:希腊酸奶
+intake24_category_code:en:GRSY
 #wikidata:en:
 
 <en:Greek-style yogurts
@@ -49357,7 +49504,7 @@ ciqual_food_code:en:19550
 ciqual_food_name:en:Yogurt, Greek-style, ewe's milk
 
 <en:Fruit yogurts
-en:Yoghurts high in protein on a fruit layer
+en:Yogurts high in protein on a fruit layer, Yoghurts high in protein on a fruit layer
 fr:Yaourts sur lit de fruits, yaourts sur lits de fruits, Yaourts sut lit de fruits, Spécialités laitières sucrées riches en protéines sur lit de fruits
 nl:Yoghurts op een laag fruit
 ciqual_food_code:en:19669
@@ -49556,6 +49703,12 @@ agribalyse_proxy_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, 
 #ciqual_food_code:en:19593
 #ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, plain
 #ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
+intake24_category_code:en:NTYG
+
+<en:Yogurts
+en:Twin-pot yogurts
+intake24_category_code:en:TWIN
+description:en:A yogurt dessert with a separate compartment for a topping
 
 <en:Yogurts
 en:Bulgarian yogurt
@@ -49619,7 +49772,7 @@ agribalyse_food_code:en:19681
 ciqual_food_code:en:19681
 ciqual_food_name:en:Custard topped with whipped cream (chocolate, coffee, caramel or vanilla custard), refrigerated
 
-<en:Desserts
+<en:Dairy Mousses
 en:Chocolate mousse topped with whipped cream refrigerated, Coffee mousse topped with whipped cream refrigerated, Caramel mousse topped with whipped cream refrigerated, Vanilla mousse topped with whipped cream refrigerated
 fr:mousses liégoises
 agribalyse_food_code:en:39235
@@ -49695,6 +49848,7 @@ zh:巧克力甜品, 巧克力甜点
 wikidata:en:Q47472163
 
 <en:Chocolate desserts
+<en:Dairy Mousses
 en:Chocolate mousses
 de:Mousses au chocolat, Mousse au chocolat
 es:Mousses de chocolate, Mousse de chocolate
@@ -49749,7 +49903,15 @@ zh:咖啡甜品, 咖啡甜点
 
 <en:Plant-based spreads
 <en:Fruits based foods
+en:Relish
+xx:Relish
+intake24_category_code:en:RLSH
+
+
+<en:Relish
 en:Chutneys
+xx:Chutneys
+intake24_category_code:en:CHTN
 
 <en:Chutneys
 en:Shelf-stable Chutneys
@@ -49926,6 +50088,7 @@ ciqual_food_name:fr:Pêche melba
 <en:Compotes
 en:Compotes to drink
 de:Trinkkompotte
+es:Compotas para beber
 fi:juotavat kompotit
 fr:Compotes à boire
 it:Composte da bere
@@ -50207,6 +50370,7 @@ fr:Mousses lactées, mousses au lait, mousses à base de lait
 it:Mousse a base di latte
 lt:Pieno putėsiai
 nl:Mousses op basis van melk
+intake24_category_code:en:MOUS
 
 <en:Dairy desserts
 en:Creamy puddings, Dessert creams, Custard desserts
@@ -50222,6 +50386,7 @@ pt:Cremes de sobremesa
 ciqual_food_code:en:39511
 ciqual_food_name:en:Custard dessert, refrigerated or canned (average)
 ciqual_food_name:fr:Crème dessert, rayon frais ou appertisée (aliment moyen)
+intake24_category_code:en:CSTD
 
 #Those puddings seem to be sold only in Spain and Portugal, no need to translate it
 <en:Creamy puddings
@@ -50358,6 +50523,8 @@ nl:Plantaardige desserts, plantaardige toetjes
 pt:Sobremesas não lácteas
 food_groups:en: en:Sweets
 pnns_group_2:en:Sweets
+intake24_category_code:en:LDFY
+
 
 <en:Desserts
 <en:Dairies
@@ -50379,6 +50546,8 @@ ru:Молочные десерты, Десерты молочные
 zh:奶类甜品
 food_groups:en: en:Dairy desserts
 pnns_group_2:en:Dairy desserts
+intake24_category_code:en:YGRT
+
 
 <en:Dairy desserts
 en:Junkets
@@ -50756,7 +50925,7 @@ lt:Veganiški ryžių pudingai
 en:Vegan semolina puddings
 fr:Semoules au lait végétaliennes
 
-# Shoudn't be under chocolate mousses
+# Shouldn't be under chocolate mousses
 <en:Chocolate desserts
 en:Vegan chocolate mousses
 fr:Mousses au chocolat végétaliennes
@@ -51059,6 +51228,8 @@ ru:Диетические напитки
 
 <en:Diet beverages
 en:Dietary drink for sport
+ca:Begudes esportives, begudes per a esportistes, begudes isotònques, begudes rehidratants
+es:Bebidas deportivas, bebidas para deportistas, Bebidas isotónicas, bebidas rehidratantes
 fr:Boisson diététique pour le sport
 lt:Sportiniai dietiniai gėrimai
 ciqual_food_code:en:18350
@@ -51101,7 +51272,7 @@ ca:Fruits secs i derivats
 cs:Ořechy a výrobky z nich
 da:Nødder og nøddeprodukter
 de:Nüsse und Nussprodukte
-es:Frutos de cáscara y derivados, Frutos de cáscara y sus productos
+es:Frutos de cáscara y derivados, Frutos de cáscara y sus productos, Frutos secos y sus productos
 fi:pähkinät ja pähkinätuotteet
 fr:Fruits à coques et dérivés
 he:אגוזים ומוצריהם
@@ -51115,8 +51286,15 @@ ru:Орехи и продукты из орехов
 th:ผลิตภัณฑ์จากถั่วเปลือกแข็ง
 tr:Çerez ve çerez ürünleri
 
+<en:Variety packs
 <en:Plant-based foods
 en:Fruits-Nuts-Seed variety packs
+de:Früchte-Nüsse-Samen Mischpackungen
+es:Paquetes variados de combinación de fruta - frutos secos y semillas
+fr:Assortiments de Fruits - Noix et Graines
+it:Confezioni miste di semi/frutta/frutta a guscio mix
+nl:Assortimenten van fruit - noten en zaadjes
+pt:Packs variados de combinações de frutas - nozes y sementes
 gpc_category_code:en:10000604
 gpc_category_name:en:Fruit/Nuts/Seeds Combination Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Fruit, Nut and/or Seed Combination sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Fruit and Nuts and/or Seeds Combination class. Includes products such as packets of dried fruit and unshelled nuts sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Dried Fruit and Yogurt variety packs.
@@ -51142,7 +51320,7 @@ ca:Fruits secs
 cs:Ořechy
 da:Nødder
 de:Nüsse
-es:Frutos de cáscara
+es:Frutos de cáscara, Frutos secos
 fi:pähkinät
 fr:Fruits à coques, Fruit à coque, Fruits à coque, Fruits à éclacle
 he:אגוזים
@@ -51162,7 +51340,7 @@ zh:坚果
 food_groups:en: en:Nuts
 pnns_group_2:en:Nuts
 wikidata:en:Q11009
-
+intake24_category_code:en:NUTS
 
 <en:Nuts
 <en:Salty snacks
@@ -51205,7 +51383,7 @@ pt:Amendoins com sal
 en:Shelled nuts
 ca:Fuita seca pelada
 de:Nusskerne, geschälte Nüsse, Nüsse ohne Schale
-es:Frutos de cáscara sin cáscara
+es:Frutos de cáscara sin cáscara, Frutos secos sin cáscara
 fi:pähkinät kuoressa
 fr:Fruits à coques décortiqués, Fruits à coques décortiquées
 it:Noci sgusciate
@@ -51666,7 +51844,7 @@ wco_hs_code:en: 1202.41
 <en:Peanuts
 en:Unshelled peanuts
 de:ungeschälte Erdnüsse
-es:Cacahuetes sin cascara
+es:Cacahuetes sin cascara, Maní sin cáscara
 fr:Cacahuètes décortiquées
 hu:Nogyoró héjjal, Héjas földimogyoró
 lt:Negliaudyti žemės riešutai
@@ -51698,7 +51876,7 @@ ciqual_food_name:fr:Arachide, bouillie/cuite à l'eau, salée
 <en:Nuts
 en:Roasted nuts
 de:Geröstete Nüsse
-es:Frutos de cáscara tostados
+es:Frutos de cáscara tostados, Frutos secos tostados
 fi:paahdetut pähkinät
 fr:Fruits à coque grillés
 it:Frutta secca tostata
@@ -51714,7 +51892,7 @@ wco_hs_code:en: 2008.19
 <en:Roasted nuts
 en:Roasted peanuts
 de:Geröstete Erdnüsse
-es:Cacahuetes tostados
+es:Cacahuetes tostados, Maní tostado
 fi:paahdetut maapähkinät
 fr:Cacahuètes grillées
 hu:Pörkölt mogyoró
@@ -51757,7 +51935,7 @@ de:Pekannüsse
 es:Nueces pecanas
 fr:Noix de pécan
 it:Noci pecan
-ja:ピーカンナッツ, ペカンナッツ
+ja:ピーカンナッツ, ペカンナッツ, ペカン
 la:Carya illinoinensis
 lt:Pekano riešutai
 nl:Pecannoten
@@ -52023,7 +52201,7 @@ wco_hs_code:en: 0802.32
 en:Nut flours
 bg:Ядково брашно
 de:Nussmehle
-es:Harinas de frutos de cáscara, Frutos de cáscara en polvo
+es:Harinas de frutos de cáscara, Frutos de cáscara en polvo, Harinas de frutos secos, Frutos secos en polvo
 fi:pähkinäjauhot
 fr:Farines de fruits à coques, Poudres de fruits à coques
 it:Farine di noci
@@ -52186,7 +52364,7 @@ en:Peanut butters, peanut paste
 bg:Фъстъчено масло
 ca:Mantega de cacauet
 de:Erdnussbutter
-es:Mantecas de cacahuete, Cremas de cacahuete
+es:Mantecas de cacahuete, Cremas de cacahuete, Crema de maní
 fi:maapähkinävoit
 fr:Beurres de cacahuètes, beurres d’arachide, Purées de cacahuète, Purée de cacahuète, Purées d'arachide, Purée d'arachide, Pâtes à tartiner aux cacahuètes, beurre de cacahuète, pâte d'arachide
 he:חמאות בוטנים
@@ -52207,6 +52385,8 @@ ciqual_food_name:en:Peanut butter or peanut paste
 ciqual_food_name:fr:Beurre de cacahuète ou Pâte d'arachide
 wco_hs_heading:en: 20.08
 wco_hs_code:en: 2008.11
+intake24_category_code:en:PNUT
+
 
 <en:Peanut butters
 en:Crunchy peanut butters
@@ -52276,7 +52456,7 @@ ciqual_food_name:en:Chestnut cream, vanilla flavoured, canned
 ciqual_food_name:fr:Crème de marrons vanillée, appertisée
 
 <en:Nuts and their products
-<en:Sweet mousses
+<en:Dairy Mousses
 en:Refrigerated chestnut mousse
 fr:Mousse à la crème de marrons rayon frais
 agribalyse_food_code:en:19852
@@ -52288,7 +52468,7 @@ ciqual_food_name:fr:Mousse à la crème de marrons, rayon frais
 <en:Canned plant-based foods
 en:Canned nuts
 de:Nüsse in Dosen
-es:Frutos de cáscara en conserva, Conservas de frutos de cáscara
+es:Frutos de cáscara en conserva, Conservas de frutos de cáscara, Frutos secos en conserva
 fr:Fruits à coques en conserve
 nl:Noten in blik/pot
 
@@ -52296,7 +52476,7 @@ nl:Noten in blik/pot
 <en:Nuts and their products
 en:Nut confectioneries
 de:Nusskonfekt, Nuss Konfekt
-es:Dulces de frutos de cáscara
+es:Dulces de frutos de cáscara, Dulces de frutos secos
 fi:sokerileipomotuotteet pähkinöistä
 fr:Confiseries de fruits à coques
 it:Dolci alla noce
@@ -52313,7 +52493,7 @@ pt:Amêndoas caramelizadas
 
 <en:Nut confectioneries
 en:Caramelized mixed nuts
-es:Mezclas de frutos de cáscara caramelizados
+es:Mezclas de frutos de cáscara caramelizados, Mezclas de frutos secos caramelizados
 fr:Noix mélangées caramélisées
 lt:Karamelizuoti įvairūs riešutai
 nl:Gemengde suikernoten
@@ -52420,6 +52600,7 @@ nova:en:2
 gpc_category_code:en:10000213
 gpc_category_name:en:Honey (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a sweet spreadable liquid made by honey bees from the nectar of flowers. Includes dried honey, honey spreads, honey with added ingredients and other honey bee products, such as honey bee pollen. Definition Excludes: Excludes products such as Jams, Marmalades, Confitures and Confectionery Based Spreads and Honey Substitutes.
+intake24_category_code:en:HONI
 
 <en:Honeys
 en:Honeys from Belgium, Belgian honeys
@@ -53151,6 +53332,7 @@ nl:Verse eieren
 pt:Ovos frescos
 ru:Сырые яйца
 zh:鲜鸡蛋
+intake24_category_code:en:RWEG
 gpc_category_code:en:10006202
 gpc_category_name:en:In-Shell Nest Run Eggs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as an bird eggs in the shell that have not been sorted for quality. Definition Excludes: Specifically excludes checked and dirty eggs, table eggs, and individually cooked eggs.
@@ -53342,7 +53524,9 @@ wikidata:en:Q1568296
 
 <en:Eggs
 en:Egg white
+ca:Clares d'ou
 de:Eiklar, Eiweiß
+es:Claras de huevo, Clara de huevo
 fr:Oeuf blanc, blanc d'oeuf
 ja:卵白
 lt:Kiaušinio baltymas
@@ -53387,6 +53571,7 @@ zh:脂肪
 food_groups:en: en:Fats
 pnns_group_2:en:Fats
 who_id:en:10
+intake24_category_code:en:BTTR
 
 <en:Fats
 en:Animal fats
@@ -53743,6 +53928,7 @@ agribalyse_proxy_food_code:en:16737
 ciqual_proxy_food_code:en:16737
 ciqual_proxy_food_name:en:Vegetable fat (margarine type), spreadable, 50-63% fat, light, unsalted, rich in omega 3
 ciqual_proxy_food_name:fr:Matière grasse végétale (type margarine) à 50-63% MG, allégée, doux, riche en oméga 3
+intake24_category_code:en:MRGN
 # median fat for margarines in France is 58%
 
 <en:Margarines
@@ -54103,7 +54289,7 @@ es:Aceites de sésamo
 fi:seesamiöljyt
 fr:Huiles de sésame
 it:Olio di sesamo, olio di semi di sesamo
-ja:ごま油
+ja:ごま油, ゴマ油, 胡麻油
 lt:Sezamų aliejai
 nl:Sesamoliën
 pt:Óleos de sésamo
@@ -54264,7 +54450,7 @@ zh:豆类油
 <en:Nut oils
 en:Peanut oils
 de:Erdnussöle
-es:Aceites de cacahuete
+es:Aceites de cacahuete, Aceites de maní
 fi:Maapähkinäöljyt
 fr:Huiles d'arachide
 it:Olio di arachide, Olio di semi di arachide
@@ -54335,7 +54521,7 @@ wikidata:en:Q910958
 <en:Nuts and their products
 en:Nut oils
 de:Nussöle
-es:Aceites de frutos de cáscara
+es:Aceites de frutos de cáscara, Aceites de frutos secos
 fi:pähkinäöljyt
 fr:Huiles de fruits à coques
 it:Olio di semi
@@ -54350,7 +54536,7 @@ en:Almond oils
 de:Mandelöle
 es:Aceites de almendras
 fr:Huiles d'amande
-it:Olio di 
+it:Olio di
 ja:アーモンドオイル
 lt:Migdolų aliejai
 nl:Amandeloliën
@@ -56315,6 +56501,7 @@ ciqual_food_name:fr:Huile de colza
 <en:Fats
 en:Butter oil or concentrated butter
 fr:Huile de beurre, Beurre concentré
+ja:バターオイル
 lt:Sviesto aliejus arba koncentruotas sviestas
 nl:Boteroliën
 pt:Óleo de manteiga ou concentrado de manteiga
@@ -56554,12 +56741,19 @@ ru:Мука
 tr:Un
 zh:面粉
 nutriscore_category_override_for_fruits_vegetables_legumes:en: 0
+intake24_category_code:en:FLOR
 gpc_category_code:en:10000203
 gpc_category_name:en:Flour - Cereal/Pulse (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a fine powder derived from grains, roots or tubers. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Specifically excludes products such as Cornflour. Excludes products such as Whole Grains, Bread and Baking Mixes.
 
 <en:Flours
 fr:Farines de souchet
+
+<en:Flours
+fr:farines biscuitières, Farines pour biscuits
+
+<en:Flours
+fr:Farines pâtissières, Farines pour pâtisseries
 
 <en:Flours
 fr:Farines de patate douce
@@ -57089,6 +57283,7 @@ lt:Dribsniai košėms
 nl:Pappen
 pl:Owsianka
 sl:kaša
+intake24_category_code:en:UHTCL
 
 <en:Porridge
 <en:Cereals with fruits
@@ -57645,6 +57840,7 @@ nl:Popcorn
 pt:Pipocas
 ru:Попкорн
 tr:Patlamış mısır
+intake24_category_code:en:POPC
 wikidata:en:Q165112
 oqali_family:en: fr:Aperitifs a croquer - Pop corn
 agribalyse_proxy_food_code:en:9230
@@ -57963,7 +58159,7 @@ fi:tattarijauhoja
 fr:Farines de sarrasin, Farines de blé noir
 hu:Hajdina liszt
 it:Farine di grano saraceno
-ja:そば粉
+ja:そば粉, 蕎麦粉
 lt:Grikių miltai
 nl:Boekweitmelen
 agribalyse_food_code:en:9540
@@ -59527,12 +59723,6 @@ ciqual_food_name:fr:Pomme de terre rissolée, surgelée, cuite
 fr:Croquettes de pommes de terre surgelées
 hr:Smrznuti kroketi od krumpira
 
-en:Hash Browns, hashed browns
-ja:ハッシュポテト
-wikidata:en:Q152981
-
-<en:Hash Browns
-en:hashed brown potatoes, hashed browned potatoes
 
 <en:Frozen fried potatoes
 fr:Quartiers de pommes de terre surgelés
@@ -59585,6 +59775,7 @@ ru:Холодные десерты
 sv:Frysta efterrätter
 tr:Dondurulmuş tatlılar
 zh:冷冻甜点
+intake24_category_code:en:ICED
 gpc_category_code:en:10000196
 gpc_category_name:en:Desserts (Frozen)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a prepared food normally consumed as the last course of a meal. These products must be frozen to extend their consumable life. Products include desserts that are biscuit based, bread based, cake/sponge based, dairy based, pastry based and rice based. Definition Excludes: Excludes products such as Perishable and Shelf Stable Desserts, Ice Cream, Pastries and Cakes, Yogurt.
@@ -59652,6 +59843,7 @@ ciqual_food_code:en:39500
 ciqual_food_name:en:Ice cream or sorbet or ice pop, flavoured (average)
 ciqual_food_name:fr:Glace à l'eau ou sorbet ou crème glacée, tout parfum (aliment moyen)
 who_id:en:5
+intake24_category_code:en:ICEC
 gpc_category_code:en:10000215
 gpc_category_name:en:Ice Cream/Ice Novelties (Frozen)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a sweet prepared food made from animal milk, milk substitute or water, which is frozen, sweetened and often flavoured by the addition of other ingredients, such as chocolate, vanilla and fruit. These products must be frozen to extend their consumable life. Includes ice cream novelties, ice cream cakes and ice cream in various forms such as containers, filled ice cream cones, iced lollies and Popsicles. Definition Excludes: Excludes products such as Shelf Stable Ice Cream and Ice Cream Novelties, and Ice Cream Based Desserts.
@@ -59854,8 +60046,9 @@ it:Gelati a stecco, Gelatti in barretta
 lt:Ledai ant pagaliuko, Ledų batonėliai
 nl:IJsjes, IJscos, Friscos
 nl-BE:Friscos
+intake24_category_code:en:LOLS
 
-#<en:Variety packs
+<en:Variety packs
 <en:Ice cream bars
 en:Ice cream bar variety packs
 de:Eis am Stiel Mischpackungen
@@ -60442,6 +60635,7 @@ ciqual_food_code:en:39526
 ciqual_food_name:en:Ice lolly
 ciqual_food_name:fr:Glace à l'eau
 who_id:en:5
+intake24_category_code:en:ILOL
 
 <en:Frozen desserts
 en:Frozen yogurts, Frozen yoghurts, Frozen yogurt
@@ -60730,8 +60924,15 @@ tr:Meyve ve sebze kaynaklı gıdalar, Meyve ve sebze kaynaklı yiyecekler, Meyve
 food_groups:en: en:Fruits and vegetables
 pnns_group_1:en:Fruits and vegetables
 
+<en:Variety packs
 <en:Fruits and vegetables based foods
 en:Fruits-vegetables-nuts-seeds variety packs
+de:Obst-Gemüse-Nüsse-Samen - Mischpackungen
+es:Paquetes variados de frutas - verduras - frutos secos y semillas
+fr:Assortiments de Fruits - Légumes - Noix et Graines
+it:Confezioni miste di semi - frutta - verdura e frutta a guscio
+nl:Assortimenten van fruit - groenten - noten en zaadjes
+pt:Packs variados de frutas - legumes - nozes y sementes
 gpc_category_code:en:10000605
 gpc_category_name:en:Fruits/Vegetables/Nuts/Seeds Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Fruits, Vegetables, Nuts and Seeds sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Fruits, Vegetables, Nuts and Seeds Family. Includes products such as Salad and Nuts variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Strawberries and Cream variety packs.
@@ -60787,6 +60988,7 @@ th:ผลไม้
 tr:Meyveler
 zh:水果
 wikidata:en:Q1364
+intake24_category_code:en:FRTS
 
 <en:Fruits
 en:Fruits (shelf stable)
@@ -60860,6 +61062,7 @@ nl:Vers fruit
 pt:Frutas frescas
 ru:Свежие фрукты
 who_id:en:15
+intake
 
 <en:Fresh fruits
 en:Prepared fresh fruits
@@ -60936,39 +61139,6 @@ protected_name_type:en: pgi
 origins:en: en:United Kingdom
 #wikidata:en:
 
-<en:Fruits
-en:German vegetables
-fr:Fruits allemands
-lt:Vokiškos daržovės
-
-<en:German vegetables
-de:Salate von der Insel Reichenau
-protected_name_file_number:en: PGI-DE-0317
-protected_name_type:en: pgi
-origins:en: en:Germany
-#wikidata:en:
-
-<en:German vegetables
-de:Feldsalat von der Insel Reichenau
-protected_name_file_number:en: PGI-DE-0318
-protected_name_type:en: pgi
-origins:en: en:Germany
-#wikidata:en:
-
-<en:German vegetables
-<en:Tomatoes
-de:Tomaten von der Insel Reichenau
-protected_name_file_number:en: PGI-DE-0319
-protected_name_type:en: pgi
-origins:en: en:Germany
-#wikidata:en:
-
-<en:German vegetables
-de:Gurken von der Insel Reichenau
-protected_name_file_number:en: PGI-DE-0320
-protected_name_type:en: pgi
-origins:en: en:Germany
-#wikidata:en:
 
 <en:Fruits
 en:Spanish fruits, Fruits from Spain
@@ -61252,6 +61422,7 @@ origins:en: en:Spain
 #wikidata:en:
 
 <en:Spanish vegetables
+<en:Purple garlic
 es:Ajo Morado de Las Pedroñeras
 protected_name_file_number:en: PGI-ES-0228
 protected_name_type:en: pgi
@@ -61542,7 +61713,7 @@ es:Manzanas
 fi:omenat
 fr:Pommes
 it:Mele
-ja:リンゴ, りんご, 林檎
+ja:リンゴ, りんご, 林檎, アップル
 la:Malus domestica
 lt:Obuoliai, Obuolys
 nl:Appels
@@ -61553,6 +61724,7 @@ wikidata:en:Q89
 agribalyse_proxy_food_code:en:13085
 agribalyse_proxy_food_name:en:Apple, Canada, pulp, raw
 agribalyse_proxy_food_name:fr:Pomme Canada, pulpe, crue
+intake24_category_code:en:APLS
 
 <en:Apples
 it:Mela Rossa Cuneo
@@ -61820,6 +61992,8 @@ agribalyse_food_code:en:13997
 ciqual_food_code:en:13997
 ciqual_food_name:en:Red berries (raspberries, strawberries, red currants, black currants) , raw
 ciqual_food_name:fr:Fruits rouges, crus (framboises, fraises, groseilles, cassis)
+intake24_category_code:en:BERR
+
 
 <en:Berries
 <en:blueberries
@@ -62441,6 +62615,7 @@ nl:Sinaasappels
 pl:Pomarańcza, Pomarańcze
 ru:Апельсины
 tr:Portakal
+intake24_category_code:en:ORNG
 
 <en:Oranges
 <en:Fresh fruits
@@ -62546,6 +62721,7 @@ agribalyse_food_code:en:13112
 ciqual_food_code:en:13112
 ciqual_food_name:en:Grape, raw
 ciqual_food_name:fr:Raisin, cru
+intake24_category_code:en:GRPS
 
 <en:Grapes
 it:Uva di Puglia
@@ -62676,7 +62852,7 @@ es:kiwis
 fi:kiivihedelmät
 fr:Kiwis
 it:Kiwi
-ja:キウイフルーツ
+ja:キウイフルーツ,キウイ,キウィー,キーウィー,キーウィ,キウィ
 lt:Kiviai
 nl:Kiwis
 agribalyse_proxy_food_code:en:13021
@@ -62723,9 +62899,10 @@ es:Melocotones
 fi:persikat
 fr:Pêches
 it:Pesche
-ja:モモ, もも, 桃
+ja:モモ, もも, 桃, ピーチ
 lt:Persikai
 nl:Perziken
+intake24_category_code:en:PCHS
 
 <en:Peaches
 it:Pesca di Delia
@@ -62821,6 +62998,7 @@ lt:Melionai
 nl:Meloenen en watermeloenen
 ru:Тыквина
 wikidata:en:Q5881191
+intake24_category_code:en:MLNS
 
 <en:Melons
 en:Muskmelons
@@ -63052,6 +63230,7 @@ nl:Peren
 ru:Груши
 tr:Armut
 wikidata:en:Q13099586
+intake24_category_code:en:PEAR
 
 <en:Pears
 it:Pera dell'Emilia Romagna
@@ -63128,6 +63307,7 @@ agribalyse_food_code:en:13100
 ciqual_food_code:en:13100
 ciqual_food_name:en:Plum, raw
 ciqual_food_name:fr:Prune, crue
+intake24_category_code:en:PLUM
 
 <en:Plums
 <en:Fresh fruits
@@ -63251,7 +63431,7 @@ fi:banaanit
 fr:Bananes
 he:בננות
 it:Banane
-ja:バナナ
+ja:バナナ,ばなな
 lt:Bananai
 nl:Bananen
 pt:Bananas
@@ -63779,6 +63959,7 @@ pl:Owoce mrożone
 food_groups:en: en:Fruits
 pnns_group_2:en:Fruits
 who_id:en:15
+intake24_category_code:en:FFRU
 
 <en:Frozen fruits
 en:Unprepared frozen fruits
@@ -63949,7 +64130,7 @@ ca:Fruita deshidratada
 cs:Sušené ovoce
 da:Tørrede frugter
 de:Dörrobst, Backobst, Trockenobst, Trockenfrüchte, getrocknete Früchte, gedörrte Früchte, gedörrtes Obst, getrocknetes Obst
-es:Frutas deshidratadas, Frutas desecadas, Frutas secas, Frutos secos
+es:Frutas deshidratadas, Frutas desecadas, Frutas secas
 fi:kuivatut hedelmät
 fr:Fruits secs, fruits séchés, fruit sec, fruit séché
 he:פירות יבשים, פירות מיובשים
@@ -63968,7 +64149,7 @@ tr:Kurutulmuş meyve
 food_groups:en: en:Dried fruits
 pnns_group_2:en:Dried fruits
 who_id:en:16
-
+intake24_category_code:en:DRIF
 
 <en:Fruits
 # <en:category:en:Dried fruits
@@ -64375,7 +64556,7 @@ nl:Sultanas
 
 <en:Canned plant-based foods
 en:Canned fruits
-bg:Плодови консерви
+bg:Консервирани плодове
 ca:Fruita en conserva
 da:Frugt på dåse, dåsefrugt
 de:Dosenfrüchte
@@ -64390,13 +64571,14 @@ pt:Frutos enlatados
 ru:Консервированные фрукты
 tr:Konserve meyve
 who_id:en:16
+intake24_category_code:en:CAND
 
 # dot not rename en:canned-fruits as it is used in Ingredients.pm
 # to check if water should be taken into account when computing % of fruits/vegetables for the Nutri-Score
 
 <en:Canned fruits
 en:Canned pineapples
-bg:Ананас от консерва
+bg:Консервиран ананас
 de:Dosenananas
 es:Piña enlatada
 fi:Purkkiananakset
@@ -64408,6 +64590,7 @@ nl:Ananas in blik/pot
 <en:Desserts
 <en:Canned fruits
 en:Fruits in syrup, Canned fruits in syrup
+bg:Плодове в сироп
 de:Früchte in Sirup
 es:Frutas en almíbar, Frutas en conserva en almíbar, Conservas de frutas en almíbar
 fi:hedelmiä sokerisiirapissa
@@ -64420,6 +64603,7 @@ pt:Conservas de frutas em xarope
 
 <en:Fruits in syrup
 en:Apricots in syrup
+bg:Кайсии в сироп
 de:Aprikosen in Sirup
 es:Albaricoques en almíbar
 fr:Abricots au sirop
@@ -64491,6 +64675,7 @@ nl:Litchis op siroop
 
 <en:Fruits in syrup
 en:Mangoes in syrup
+bg:Манго в сироп
 de:Mangos in Sirup
 es:Mangos en almíbar
 fr:Mangues au sirop
@@ -64500,6 +64685,7 @@ nl:Mangos op siroop
 
 <en:Fruits in syrup
 en:Pineapple in syrup
+bg:Ананас в сироп
 de:Ananas in Sirup
 es:Piña en almíbar, Piña en almíbar ligero
 fi:ananasta sokeriliemessä
@@ -64544,6 +64730,7 @@ ciqual_food_name:fr:Ananas au sirop léger, appertisé, non égoutté
 
 <en:Fruits in syrup
 en:Peaches in syrup
+bg:Праскови в сироп
 de:Pfirsische in Sirup
 es:Melocotones en almíbar
 fi:persikoita sokeriliemessä
@@ -64578,6 +64765,7 @@ lt:Mandarinai sirupe
 
 <en:Fruits in syrup
 en:Pears in syrup, Canned pears in light syrup not drained, Canned pears in light syrup, pears in light syrup
+bg:Круши в сироп
 de:Birnen in Sirup
 es:Peras en almíbar
 fi:päärynät sokeriliemessä
@@ -64654,13 +64842,33 @@ pt:Condimentos
 zh:调味品, 调料
 #ru:Вкусовые добавки, Приправы, Пряности
 wikidata:en:Q773108
+intake24_category_code:en:COND
 gpc_category_code:en:10006214
 gpc_category_name:en:Extracts/Seasonings/Flavour Enhancers (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a liquid, paste, powder, granules or solid made from evaporation that is added to season or flavour food or beverages. Products specifically include beverage flavour enhancers where the expected benefit is the ability to accurately represent a shot of flavour (such as French vanilla, chocolate, lime, orange, cherry, caramel, etc.) to be added to hot or cold beverages. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as single or pure Perishable or Shelf Stable Herbs and Spices, Gravy Browning, Soup Mixes, Powdered Beverages and Meat Tenderisers.
 
-
 <en:Condiments
-en:Comdiments variety packs
+en:Gravy
+xx:Gravy
+ar:جريفي
+de:Bratensauce
+fr:Sauce au jus de viande
+it:Salsa gravy
+nl:Jus
+pl:Jus
+pt:Molho de carne
+ru:Подливка
+sv:Sky
+intake24_category_code:en:CUBE
+
+<en:Variety packs
+en:Sauces and Condiments variety packs
+de:Saucen- und Gewürzmittelmischpackungen
+es:Paquetes variados de salsas - productos para untar y condimentos
+fr:Assortiments de sauces et condiments
+it:Confezioni miste di salse e condimenti
+nl:Assortimenten van sauzen en smaakmakers
+pt:Packs Variados de Molhos - Pastas para Barrar - Dips y Condimentos
 gpc_category_code:en:10000617
 gpc_category_name:en:Sauces/Spreads/Dips/Condiments Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Sauces, Spreads, Dips or Condiments sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Sauces, Spreads, Dips and Condiments class. Includes products such as Salad Dressings and Crunchy Savoury Toppings sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Salad Dressing and Salad variety packs.
@@ -64671,8 +64879,15 @@ gpc_category_code:en:10000050
 gpc_category_name:en:Extracts/Salt/Meat Tenderisers (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a liquid, paste, powder, granules or solid made from evaporation or refinement of meat, vegetable, yeast or sodium chloride that is added to season and flavour food, and in specific cases to tenderise meat. Products specifically include refined and unrefined Salt and Monosodium Glutamate, Bouillon, as well as a powdered form of Meat Tenderiser. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as single or pure Perishable or Shelf Stable Herbs and Spices, Gravy Browning, Soup Mixes, and Flavour Shots and Packets for Non-Meat Food and Beverage products.
 
+<en:Variety packs
 <en:Condiments
 en:Condiment variety packs
+de:Gewürzmittelmischpackungen
+es:Paquetes variados de condimentos
+fr:Assortiments d'assaisonnements
+it:Confezioni miste di condimenti
+nl:Kruidenassortimenten
+pt:Packs variados de temperos y extractos
 gpc_category_code:en:10000619
 gpc_category_name:en:Seasonings/Preservatives/Extracts Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Seasonings, Preservatives or Extracts sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Seasonings, Preservatives and Extracts Family. Includes products such as Salt and Vinegar variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Salt and Pepper variety packs and Salad Dressing and Salad variety packs.
@@ -64843,7 +65058,7 @@ nl:Aromatische planten in pot
 pt:Plantas aromáticas em vaso
 
 <en:Aromatic plants
-en:Aromatic herbs, Herbs, Fresh herbs
+en:Herbs, Aromatic herbs, Fresh herbs
 bg:Ароматични пресни подправки
 ca:Herbes aromàtiques
 de:Kräuter
@@ -64861,6 +65076,7 @@ wikidata:en:Q207123
 ciqual_food_code:en:11080
 ciqual_food_name:en:Herbs, fresh (average)
 ciqual_food_name:fr:Herbes aromatiques fraîches (aliment moyen)
+intake24_category_code:en:HRBS
 
 <en:Aromatic herbs
 en:Basil, Thai basil, Sweet basil
@@ -66484,8 +66700,9 @@ ciqual_food_name:en:Celery salt
 ciqual_food_name:fr:Sel au céleri
 wikidata:en:Q5057832
 
-<en:Plant-based foods
+<en:Condiments
 en:Herbs and spices
+intake24_category_code:en:HRSP
 
 <en:Herbs and spices
 en:Shelf-stable Herbs and Spices
@@ -66505,8 +66722,15 @@ gpc_category_code:en:10000212
 gpc_category_name:en:Herbs/Spices (Frozen)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as an aromatic or richly flavoured vegetable or plant or its derivative that is typically added to season or give additional flavour to foods. These products include aromatic seasonings which are obtained from the bark, buds, fruit, roots, seeds or stems of various plant and known as spices, and those, which are obtained from the leafy part of a plant and known as herbs. Products include unprocessed and processed frozen herbs and/or spices or a combination of frozen herbs and spices. These products must be frozen to extend their consumable life. Definition Excludes: Excludes products such as Perishable Herbs and Spices, Salt and Extracts.
 
+<en:Variety packs
 <en:Plant-based foods
 en:Herbs/Spices/Extracts Variety Packs
+de:Kräuter/Gewürze/Extrakte - Mischpackungen
+es:Paquetes variados de hierbas y especias
+fr:Assortiments d'herbes et épices
+it:Confezioni miste di erbe e spezie
+nl:Assortimenten van kruiden en specerijen
+pt:Packs variados de temperos
 gpc_category_code:en:10000615
 gpc_category_name:en:Herbs/Spices/Extracts Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Herbs, Spices or Extracts sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Herbs, Spices and Extracts class. Includes products such as Salt and Pepper sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Marinades and Spices variety packs.
@@ -66539,6 +66763,7 @@ wikidata:en:Q42527
 ciqual_food_code:en:11081
 ciqual_food_name:en:Spice (average)
 ciqual_food_name:fr:Epice (aliment moyen)
+intake24_category_code:en:SPCE
 
 <en:Spices
 <en:Herbal teas
@@ -66558,14 +66783,14 @@ agribalyse_proxy_food_name:fr:Fenouil, cru
 
 <en:Spices
 en:asafoetida
-ar:حِلْتِيت‎ 
+ar:حِلْتِيت‎
 de:Teufelsdreck
 es:asafétida
 fa:انگدان‎, انگژد‎, رافه‎, هنگ‎
 fi:hajupihka, pirunpihka
 fr:ase fétide
 gu:હિંગ
-hi:हींग, हीँग, हिंग 
+hi:हींग, हीँग, हिंग
 hu:bűzös husáng, bűzös aszat
 hy:քաղբան, անգուժատ
 is:djöflatað
@@ -66575,8 +66800,8 @@ kk:кеурексасыр
 lo:ມະຫາຫິງ
 ml:കായം
 mr:हिंग
-my:ရှိန်းခို 
-ne:हिङ 
+my:ရှိန်းခို
+ne:हिङ
 nl:asafoetida, duivelsdrek
 ps:انجه‎
 pl:asafetyda, czarcie łajno, smrodzieniec
@@ -66586,7 +66811,7 @@ sv:dyvelsträck
 tl:inggo, asapetida
 tg:ров
 ta:பெருங்காயம்
-te:ఇంగువ 
+te:ఇంగువ
 th:มหาหิงคุ์
 tr:şeytantersi, hıthıt
 description:en:A resinous gum from the stem and roots of Ferula species such as Ferula foetida and Ferula assa-foetida, having a strong, unpleasant smell, with culinary and medical uses
@@ -67030,10 +67255,17 @@ wikidata:en:Q43084
 agribalyse_proxy_food_code:en:11015
 agribalyse_proxy_food_name:en:Black pepper, powder
 agribalyse_proxy_food_name:fr:Poivre noir, poudre
+intake24_category_code:en:PEPR
 
-#<en:Variety packs
+<en:Variety packs
 <en:Peppers
 en:Pepper variety packs
+de:Gemüsepaprikamischpackungen
+es:Surtidos de pimientos
+fr:Assortiments de poivrons et piments
+it:Confezioni miste di peperoni
+nl:Assortimenten van paprika en pepers
+pt:Packs variados de pimentos
 gpc_category_code:en:10006195
 gpc_category_name:en:Pepper Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Peppers sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Pepper class. Includes products such as Chilli Peppers and Hot Peppers sold together, or Chilli Peppers and Flat Sweet Peppers (Tomato Peppers) sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Shelf Stable and Frozen Peppers variety packs.
@@ -68229,6 +68461,12 @@ ciqual_food_code:en:11187
 ciqual_food_name:en:Salad dressing, prepacked
 ciqual_food_name:fr:Sauce crudités ou Sauce salade, préemballée
 wikidata:en:Q1572278
+intake24_category_code:en:SDRS
+
+<en:Salad dressings
+en:Salad creams
+intake24_category_code:en:SDCM
+description:en:Salad cream is a creamy, pale yellow condiment based on an emulsion of about 25–50 percent oil in water, emulsified by egg yolk and acidulated by spirit
 
 <en:Salad dressings
 en:Salad dressing with reduced fat, Low fat salad dressing, Light salad dressing
@@ -68294,7 +68532,7 @@ lt:Cezario padažai
 #wikidata:en:
 
 <en:Sauces
-en:Mustard sauce
+en:Mustard sauces, Mustard sauce
 de:Senfsoßen
 es:Salsa de mostaza
 fr:Sauces moutarde
@@ -68325,6 +68563,7 @@ ciqual_food_code:en:11100
 ciqual_food_name:en:Barbecue sauce, prepacked
 ciqual_food_name:fr:Sauce barbecue, préemballée
 wikidata:en:Q807791
+intake24_category_code:en:BBFS
 
 <en:Sauces
 en:Mint sauces
@@ -68368,7 +68607,7 @@ ciqual_food_code:en:11132
 ciqual_food_name:en:Curry sauce, prepacked
 ciqual_food_name:fr:Sauce au curry, préemballée
 wikidata:en:Q610794
-#sauce joppie (Q610794) - sauce à base de mayonnaise, oignons et poudre de curry
+intake24_category_code:en:CURS
 
 <en:Curry sauces
 en:Madras curry sauce
@@ -68556,6 +68795,7 @@ wikidata:en:Q58265
 
 <en:Sauces
 nl:Patatje Joppiesaussmaaksauzen
+#sauce joppie (Q610794) - sauce à base de mayonnaise, oignons et poudre de curry
 
 <en:Sauces
 en:Burger sauces, Sauce burger
@@ -68640,6 +68880,7 @@ agribalyse_food_code:en:11189
 ciqual_food_code:en:11189
 ciqual_food_name:en:Cheese sauce for risotto or pasta, prepacked
 wikidata:en:Q27972032
+intake24_category_code:en:WHTE
 
 <en:Cheese sauces
 fr:Sauces 3 fromages
@@ -68693,7 +68934,7 @@ nl:Groene sauzen
 wikidata:en:Q699382
 
 <en:Sauces
-en:Hot sauces, Chili sauces, Pimented sauces
+en:Hot sauces, Chili sauces, Pimented sauces, Chilli sauces
 de:Scharfe Saucen, Chilisaucen, Chili Saucen, Scharfe Sauce, Piment Soßen
 es:Salsas de chiles, Salsas picadas
 fi:Tuliset kastikkeet
@@ -68706,6 +68947,7 @@ lt:Aštrūs padažai, Čili padažai
 nl:Chilisauzen, Pikante sauzen
 tr:Acı sos
 wikidata:en:Q522171
+intake24_category_code:en:CHIS
 
 <en:Hot sauces
 en:Sriracha sauces
@@ -68783,7 +69025,7 @@ wikidata:en:Q167893
 agribalyse_proxy_food_code:en:11054
 agribalyse_proxy_food_name:en:Mayonnaise (70% fat and more)
 agribalyse_proxy_food_name:fr:Mayonnaise (70% MG min.)
-# TODO For some reason, Mayonnaises still appear unknown
+intake24_category_code:en:MAYN
 gpc_category_code:en:10006319
 gpc_category_name:en:Mayonnaise/Mayonnaise Substitutes (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a Mayonnaise or Mayonnaise Substitute, which is usually used to enhance the flavour, appearance and texture of savoury foods. These products can be blended with other ingredients. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Specifically excludes Mustard/Mustard Substitutes and other Sauces Dipping/Condiments/Savoury Spreads/ Marinades, Ketchup/Ketchup Substitutes. Excludes products such as Cooking Sauces; Dressings and Dips; Frozen and Perishable Sauces Dipping, Condiments, Savoury Toppings, Savoury Spreads and Marinades.
@@ -68896,12 +69138,13 @@ agribalyse_food_code:en:11013
 ciqual_food_code:en:11013
 ciqual_food_name:en:Mustard
 ciqual_food_name:fr:Moutarde
+intake24_category_code:en:MTRD
 gpc_category_code:en:10006322
 gpc_category_name:en:Mustard (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a mustard sauce, which is usually used to enhance the flavour, appearance and texture of savoury foods. These products can be blended with other ingredients. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Specifically excludes Tomato Ketchup/Ketchup Substitutes and other Sauces Dipping/Condiments/Savoury Spreads/ Marinades, Mayonnaise/Mayonnaise Substitutes. Excludes products such as Cooking Sauces; Dressings and Dips; Frozen and Perishable Sauces Dipping, Condiments, Savoury Toppings, Savoury Spreads and Marinades.
 
 <en:Sauces
-en:Sauces with mustard, Mustard sauces
+en:Sauces with mustard
 fr:Sauces à la moutarde
 lt:Padažai su garstyčiomis
 
@@ -69093,6 +69336,7 @@ it:Sughi per pasta
 ja:パスタソース
 lt:Padažai makaronams
 nl:Pastasauzen
+intake24_category_code:en:SAUC
 
 <en:Pasta sauces
 en:Vodka pasta sauces
@@ -69125,6 +69369,7 @@ nl:Pastasauzen met vlees
 agribalyse_food_code:en:11114
 agribalyse_food_name:en:Tomato sauce, with meat or Bolognese sauce, prepacked
 agribalyse_food_name:fr:Sauce tomate à la viande ou Sauce bolognaise, préemballée
+intake24_category_code:en:BOLS
 
 <en:Meat-based pasta sauces
 bg:Аматричана
@@ -70923,6 +71168,9 @@ ciqual_food_name:en:Sweet and sour sauce, prepacked
 ciqual_food_name:fr:Sauce aigre douce, préemballée
 
 <en:Sauces
+en:Meal sauces, Stir in sauces
+
+<en:Sauces
 en:Tomato sauces
 bg:Доматен сос
 ca:Salsa de tomàquet
@@ -70949,10 +71197,12 @@ wikidata:en:Q3596097
 agribalyse_proxy_food_code:en:11107
 agribalyse_proxy_food_name:en:Tomato sauce, with onions, prepacked
 agribalyse_proxy_food_name:fr:Sauce tomate aux oignons, préemballée
+intake24_category_code:en:TOMS
 # only tomato sauces with meat have very different agribalyse values
 # e.g. bolognaise sauce. those have specific agribalyse food codes
 
 <en:Tomato sauces
+<en:Meal sauces
 en:Tomato sauces with basil, Tomato basil pasta sauces
 bg:Доматен сос с босилек
 de:Tomatensaucen mit Basilikum
@@ -70963,6 +71213,7 @@ it:Sughi di Pomodoro al Basilico, Sughi di Pomodoro e Basilico
 lt:Pomidorų padažai su baziliku
 
 <en:Tomato sauces
+<en:Meal sauces
 en:Tomato sauces with mushrooms
 bg:Доматен сос с гъби
 fr:Sauces tomates aux champignons
@@ -70973,11 +71224,13 @@ ciqual_food_name:en:Tomato sauce, w mushrooms, prepacked
 ciqual_food_name:fr:Sauce tomate aux champignons, préemballée
 
 <en:Tomato sauces
+<en:Meal sauces
 en:Pimented tomato sauces
 fr:Sauces tomates pimentées
 #wikidata:en:
 
 <en:Tomato sauces
+<en:Meal sauces
 <en:Vegetable sauces
 en:Tomato sauces with vegetables
 de:Tomatensaucen mit Gemüse
@@ -70992,6 +71245,7 @@ ciqual_food_name:fr:Sauce tomate aux petits légumes, préemballée
 #wikidata:en:
 
 <en:Tomato sauces
+<en:Meal sauces
 en:Tomato sauces with olives
 bg:Доматен сос с маслини
 de:Tomatensaucen mit Oliven
@@ -71004,6 +71258,7 @@ ciqual_food_name:en:Tomato sauce, w olives, prepacked
 ciqual_food_name:fr:Sauce tomate aux olives, préemballée
 
 <en:Tomato sauces
+<en:Meal sauces
 en:Tomato sauces with cheese
 de:Tomatensaucen mit Käse
 fr:Sauces tomate au fromage
@@ -71015,17 +71270,20 @@ ciqual_food_name:en:Tomato sauce, w cheese, prepacked
 ciqual_food_name:fr:Sauce tomate au fromage, préemballée
 
 <en:Tomato sauces with cheese
+<en:Meal sauces
 en:Tomato sauces with parmesan cheese
 fr:Sauces tomates au parmesan
 lt:Pomidorų padažai su parmezano sūriu
 
 <en:Tomato sauces with cheese
+<en:Meal sauces
 en:Tomato sauces with ricotta
 bg:Доматен сос с рикота
 fr:Sauces tomates à la ricotta
 lt:Pomidorų padažai su rikota sūriu
 
 <en:Tomato sauces
+<en:Meal sauces
 en:Brava sauce, Salsas bravas, Salsa brava
 es:Salsas bravas, Salsa brava
 fr:Sauces bravas, Sauce brava, Salsas bravas, Salsa brava
@@ -71095,6 +71353,7 @@ nl:Siciliaanse sauzen
 #wikidata:en:
 
 <en:Tomato sauces
+<en:Meal sauces
 en:Fried tomato sauces, Tomate frito
 ca:Salses de tomàquet fregit
 de:Gebratene Tomatensoßen
@@ -71219,7 +71478,7 @@ nl:Tzatzikis
 pl:Tzatziki
 wikidata:en:Q836538
 
-<en:Sauces
+<en:Meal sauces
 en:Vegetable sauces
 de:Gemüsesaucen
 es:Salsas con verduras, Salsas con vegetales
@@ -71252,7 +71511,7 @@ nl:Wasabipastas
 pl:Pasty wasabi
 wikidata:en:Q68437707
 
-<en:Sauces
+<en:Meal sauces
 en:Curry pastes, Curry paste
 de:Currypasten, Currypaste
 es:Pasta de curry
@@ -71304,11 +71563,6 @@ nl:Gele Currypastas
 pl:Żółte pasty curry
 wikidata:en:Q67201117
 
-<en:Flours
-fr:farines biscuitières, Farines pour biscuits
-
-<en:Flours
-fr:Farines pâtissières, Farines pour pâtisseries
 
 en:Meals, Prepared meals, Prepared dishes
 bg:Готови ястия
@@ -71363,8 +71617,15 @@ gpc_category_name:en:Dough Based Products / Meals - Ready to Eat - Savoury (Shel
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a savoury dough-based ready to eat, prepared/processed product, such as Pasta, Gnocchi or Noodles, with other ingredients, such as meat, dairy, eggs, fish, vegetables and/or seasoning. An optional seasoning/flavour packet may be present. These ingredients form a valuable part of the product, such as tuna and salad in a Tuna Pasta Salad. They may or may not contain a sauce. These products may have a main component which is considered a meal without any additional components. These products do not require cooking prior to consumption, but some products can be eaten hot after reheating. These products have been treated or packaged in such a way as to extend their consumable life. Includes ready to eat shelf stable Ready-Made Meals where a Dough Based Product is the primary ingredient.
 Definition Excludes: Excludes Ready-Made Combination Meals. Specifically excludes pizza, savoury pies, pastries, quiches and bread products.Excludes products such as Perishable Ready to Eat and Not Ready to Eat Dough Based Prepared/Processed Products, Unprepared Pasta and Noodles, Dried Pasta and Noodles.
 
+<en:Variety packs
 <en:Meals
 en:Dough based meals variety packs
+de:Teigbasierte Gerichtemischpackungen
+es:Paquetes surtidos de productos y comidas a base de masa
+fr:Produits à base de pâte
+it:Confezioni miste di piatti a base di pasta
+nl:Assortimenten van maaltijden op basis van deeg 
+pt:Packs variados de produtos y refeições à base de massa culinária
 gpc_category_code:en:10006222
 gpc_category_name:en:Dough Based Products / Meals Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Dough Based products, sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Dough Based Products class. Includes products such as Spaghetti Bolognaise not ready to eat and pasta cheese/sauce ready to eat. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Pasta/Noodles Products.
@@ -71400,7 +71661,7 @@ ja:パッタイ
 pl:Pad thai
 wikidata:en:Q730298
 
-<en:meals
+<en:Meals
 en:Meal replacements, meal substitutes
 de:Ersatzmahlzeiten
 fi:aterian korvikkeet
@@ -71515,6 +71776,7 @@ pl:Sushi
 zh:寿司
 wikidata:en:Q46383
 wikipedia:en:https://en.wikipedia.org/wiki/Sushi
+intake24_category_code:en:SUSH
 
 <en:Sushis
 en:Salmon sushis
@@ -71807,6 +72069,7 @@ lt:Ryžių patiekalai
 nl:Rijstschotels
 ru:Блюда из риса
 wikidata:en:Q6636574
+intake24_category_code:en:RIDH
 #Q21976260
 
 <en:Meals
@@ -72003,6 +72266,7 @@ it:Piatti pronti a base di patate
 lt:Bulvių patiekalai
 nl:Aardappelgerechten
 wikidata:en:Q10514020
+intake24_category_code:en:POTD
 
 <en:Meals
 en:Chop suey
@@ -73150,6 +73414,8 @@ zh:汤
 ciqual_food_code:en:25969
 ciqual_food_name:en:Soup (average)
 ciqual_food_name:fr:Soupe (aliment moyen)
+intake24_category_code:en:SOUP
+ 
 
 <en:Soups
 en:Soups (prepared) (Shelf Stable)
@@ -73207,6 +73473,7 @@ pl:Zupy w proszku
 pt:Sopa Instantânea
 ro:Supă instant
 tr:Hazır çorba
+intake24_category_code:en:DSOU
 
 <en:Soups
 <en:Frozen ready-made meals
@@ -74099,6 +74366,7 @@ fr:Bouillons déshydratés, bouillons lyophilisés, court-bouillon
 it:Brodi disidratati
 lt:Dehidratuoti sultiniai
 nl:Gevriesdroogde bouillons
+intake24_category_code:en:GGST
 
 <en:Dehydrated broths
 en:Bouillon cubes, Stock cubes
@@ -74337,6 +74605,7 @@ fr:Plats à base de haricots
 it:Piatti pronti a base di fagioli
 lt:Pupelių patiekalai
 ru:Блюда из бобов
+intake24_category_code:en:BNDS
 
 <en:Bean dishes
 <en:Meals with meat
@@ -74548,6 +74817,7 @@ agribalyse_food_code:en:26259
 ciqual_food_code:en:26259
 ciqual_food_name:en:Coleslaw, w sauce, prepacked
 ciqual_food_name:fr:Salade de chou ou Coleslaw, avec sauce, préemballée
+intake24_category_code:en:COLE
 
 <en:Appetizers
 en:St. Jacques shells, Scallops
@@ -74687,6 +74957,11 @@ ciqual_food_code:en:25511
 ciqual_food_name:en:Stuffed vegetables (excluding tomato)
 ciqual_food_name:fr:Légumes farcis (sauf tomate)
 #wikidata:en:
+
+<en:Meals
+en:Vegetarian meals
+intake24_category_code:en:VGDI
+description:en:Should be distinghuished from vegetable meals, taht might contain meat
 
 <en:Meals
 en:Gratins
@@ -75238,6 +75513,7 @@ wikidata:en:Q177
 ciqual_food_code:en:25516
 ciqual_food_name:en:Pizza (average)
 ciqual_food_name:fr:Pizza (aliment moyen)
+intake24_category_code:en:PZZA
 gpc_category_code:en:10000250
 gpc_category_name:en:Pies/Pastries/Pizzas/Quiches - Savoury (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a pastry, biscuit or crumble based product filled or topped with a mixture of shredded/sliced savoury ingredients, commonly including meat, vegetables, eggs or other additives. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Perishable and Frozen Savoury Pies, Pastries, Pizzas and Quiches, Sweet Pies/Tarts, and Potato Topped Meat Pies.
@@ -75859,7 +76135,7 @@ ru:Готовые салаты
 es:Ensalada rusa
 it:Insalata russa
 wikidata:en:Q281278
-
+e
 <en:Prepared salads
 en:Buddha Bowl
 fr:Buddha Bowl
@@ -76335,6 +76611,7 @@ sv:Kött
 th:ผลิตภัณฑ์จากเนื้อสัตว์
 tr:Et
 zh:肉类, 肉
+intake24_category_code:en:MEAT
 food_groups:en: en:Meat other than poultry
 # Products that are poultry hopefully have the en:Poultries category which will assign the en:Poultry food group
 pnns_group_2:en:Meat
@@ -76410,6 +76687,7 @@ it:Bistecche
 lt:Kepsniai
 nl:Steaks
 zh:肉排
+intake24_category_code:en:STEK
 
 # Don't put this category in meats. All patties, except for some beef ones, contain additional ingredients to prevent the pattie falling appart
 <en:Meat preparations
@@ -76846,7 +77124,7 @@ fr:Bœuf, Viande de bœuf, Viande bovine
 he:בשר בקר
 hu:Marhahús
 it:Manzo
-ja:牛肉
+ja:牛肉,ビーフ,ぎゅうにく,ぎゅう肉,牛にく
 lt:Jautiena, Jautienos mėsa
 nl:Rund, Rundervlees
 pl:Wołowina, mięso wołowe
@@ -78160,6 +78438,7 @@ pt:Carnes frescas
 ru:Свежее мясо
 tr:Taze et
 zh:鲜肉
+intake24_category_code:en:RWMT
 
 <en:Fresh meats
 <en:Steaks
@@ -78229,6 +78508,8 @@ gpc_category_description:en:Definition: Includes products from animals of the do
 en:Pork preparations
 fr:Préparations au porc
 lt:Kiaulienos gaminiai
+nl:Varkensbereidingen
+intake24_category_code:en:PDSH
 
 <en:Pork preparations
 en:Canned cooked lean pork
@@ -78247,7 +78528,7 @@ fr:Porc, Viande de porc, Viandes de porc
 he:בשר חזיר
 hu:Disznóhús
 it:Carne di maiale, Maiale
-ja:豚肉
+ja:豚肉,ぶたにく,豚にく,ぶた肉,ポーク
 lt:Kiauliena
 nl:Varken, Varkensvlezen
 pl:Wieprzowina, mięso wieprzowe
@@ -79270,6 +79551,8 @@ wikidata:en:Q1072190
 agribalyse_food_code:en:36027
 ciqual_food_code:en:36027
 ciqual_food_name:en:Chicken, nugget, breaded croquette
+intake24_category_code:en:MFGR
+
 
 <en:Breaded products
 <en:Meat preparations
@@ -79325,6 +79608,7 @@ en:Turkey preparations
 fr:Préparations à la dinde
 it:Preparati di tacchino
 nl:Kalkoenbereidingen
+intake24_category_code:en:TURK
 gpc_category_code:en:10005784
 gpc_category_name:en:Turkey - Prepared/Processed
 gpc_category_description:en:Definition: Includes products from animals of the species Meleagris gallopavo that have been subjected to one or more further manufacturing processes such as being cooked, dried, cured, ground, or reformed. Definition Excludes: Specifically excludes Meat/Poultry Sausages - Prepared/Processed. Excludes Turkey - Unprepared/Unprocessed.
@@ -79831,7 +80115,7 @@ io:hano
 is:Kjúklingur
 it:Polli, pollo
 iu:ᐊ'ᐊ'ᐋᒃ
-ja:鶏肉
+ja:鶏肉,チキン
 jv:Pitik
 ka:ქათამი
 kg:Nsusu
@@ -79972,6 +80256,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Chicken_as_food
 agribalyse_food_code:en:36016
 ciqual_food_code:en:36016
 ciqual_food_name:en:Chicken, meat and skin, raw
+intake24_category_code:en:CHIT
 
 <en:Chickens
 fr:Poulets fermiers
@@ -81224,6 +81509,7 @@ zh:香肠
 ciqual_food_code:en:30780
 ciqual_food_name:en:Sausage (average)
 ciqual_food_name:fr:Saucisse (aliment moyen)
+intake24_category_code:en:SSGS
 
 <en:Sausages
 en:Beef sausages
@@ -83221,6 +83507,7 @@ ru:Бекон
 sv:Bacon
 zh:培根, 猪培根, 猪肉培根
 wikidata:en:Q11106
+intake24_category_code:en:BCNS
 
 <en:Pork
 en:pig head
@@ -83698,6 +83985,7 @@ en:Game
 de:Wildfleisch, Wild
 fr:Gibiers, Gibier
 wikidata:en:Q19862498
+intake24_category_code:en:GAME
 
 <en:Game
 en:Hare meats
@@ -83910,6 +84198,7 @@ ciqual_food_code:en:20010
 ciqual_food_name:en:Mushroom, all types, raw
 ciqual_food_name:fr:Champignon, tout type, cru
 wikidata:en:Q654236
+intake24_category_code:en:MSRH
 
 <en:Mushrooms
 <en:Fresh vegetables
@@ -84584,6 +84873,7 @@ pnns_group_2:en:Cereals
 wikidata:en:Q178
 wikipedia:en:https://en.wikipedia.org/wiki/Pasta
 carbon_footprint_fr_foodges_ingredient:fr:Pâtes sèches
+intake24_category_code:en:PTNS
 # ingredient/fr:pâtes-alimentaires has 115 products 2019-05-20
 description:en:Pasta is type of noodle typically made from an unleavened dough of durum wheat flour mixed with water or eggs, and formed into sheets or various shapes, then cooked by boiling or baking. Rice flour, or legumes such as beans or lentils, are sometimes used in place of wheat flour to yield a different taste and texture, or as a gluten-free alternative. Pasta is a staple food of Italian cuisine.
 gpc_category_code:en:10000242
@@ -85481,7 +85771,7 @@ agribalyse_food_code:en:9810
 ciqual_food_code:en:9810
 ciqual_food_name:en:Dried pasta, raw
 ciqual_food_name:fr:Pâtes sèches standard, crues
-
+intake24_category_code:en:PTNS
 
 # <en:compound
 <en:Stuffed Pastas
@@ -86020,6 +86310,7 @@ ru:Лапша
 sv:Nudlar
 zh:面条, 面
 wikidata:en:Q192874
+intake24_category_code:en:NDLS
 
 <en:Noodles
 en:Cellophane noodles, Chinese vermicelli, Bean threads, Bean thread noodles, Crystal noodles, Glass noodles
@@ -86221,6 +86512,7 @@ pt:Pratos de massa
 ru:Блюда из макарон
 sv:Pastarätter
 wikidata:en:Q18679685
+intake24_category_code:en:PTDH
 
 <en:Pasta dishes
 en:Pot noodles
@@ -86752,9 +87044,17 @@ th:ผักดอง
 tr:Turşu
 food_groups:en: en:Salty and fatty products
 pnns_group_2:en:Salty and fatty products
+intake24_category_code:en:SWTP
 
+<en:Variety packs
 <en:Pickles
-en:Pickles - Relishes - Chutneys - Olives variety pack
+en:Pickles - Relishes - Chutneys - Olives variety packs
+de:Eingelegtes Gemüse / Relishes / Chutneys / Oliven - Mischpackungen
+es:Paquetes variados de pepinillos y aceitunas
+fr:Assortiments de conserves au vinaigre et olives
+it:Confezioni miste di sottaceti e olive
+nl:Tafelzurenassortimenten
+pt:Packs variados de pickles - chutneys y azeitonas
 gpc_category_code:en:10000616
 gpc_category_name:en:Pickles/Relishes/Chutneys/Olives Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Pickles, Relish, Chutney or Olives sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Pickles, Relishes, Chutneys and Olives class. Includes products such as Pickles and Relishes sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Mango Chutney and Poppadom variety packs.
@@ -86780,6 +87080,7 @@ pnns_group_2:en:Pizza pies and quiches
 #TBD should this fall under the pizza pies and ..,?
 # Let's decide
 # or under Bakery products
+# or under desserts
 
 en:Sweet pies, sweet pie
 bg:Сладки пайове
@@ -86791,6 +87092,7 @@ it:Torte dolci
 nl:Zoeten taarten
 food_groups:en: en:Biscuits and cakes
 pnns_group_2:en:Biscuits and cakes
+intake24_category_code:en:PIES
 
 <en:Sweet pies
 en:Shelf-stable sweet pies
@@ -87204,6 +87506,7 @@ nova:en:3
 ciqual_food_code:en:25522
 ciqual_food_name:en:Sandwich (average)
 ciqual_food_name:fr:Sandwich (aliment moyen)
+intake24_category_code:en:SAND
 gpc_category_code:en:10000255
 gpc_category_name:en:Sandwiches/Filled Rolls/Wraps (Perishable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a leavened or unleavened, baked bread product from which slices, or the whole loaf, may be used to wrap or enclose one or more ingredients. These products must be refrigerated to extend their consumable life. Includes ready to eat products and products eaten hot or cold. Definition Excludes: Excludes products such as Frozen Sandwiches Filled Rolls and Wraps.
@@ -87348,6 +87651,7 @@ ja:ハンバーガー
 nl:Hamburgers
 ru:Гамбургер
 wikidata:en:Q6663
+intake24_category_code:en:BRGS
 
 <en:Hamburgers
 en:Hamburgers from fast food
@@ -87356,6 +87660,11 @@ agribalyse_food_code:en:25413
 ciqual_food_code:en:25413
 ciqual_food_name:en:Hamburger, from fast foods restaurant
 ciqual_food_name:fr:Hamburger, provenant de fast food
+intake24_category_code:en:BRGB
+
+<en:Hamburgers
+en:Beef hamburgers
+intake24_category_code:en:BBRG
 
 <en:Hamburgers
 en:Chicken hamburgers, Chicken burger
@@ -87363,6 +87672,7 @@ fr:Hamburgers au poulet, Burger au poulet
 agribalyse_food_code:en:25502
 ciqual_food_code:en:25502
 ciqual_food_name:en:Chicken burger , fast foods restaurant
+intake24_category_code:en:BRGO
 
 <en:Hamburgers
 en:Fish hamburgers, Fish burgers
@@ -87383,6 +87693,7 @@ it:Hamburger vegetali
 nl:Vegetarische hamburgers
 agribalyse_food_code:en:25415_2
 wikidata:en:Q1884503
+intake24_category_code:en:19VEGB
 
 <en:Sandwiches
 en:Hot dog sandwiches
@@ -87482,6 +87793,10 @@ fr:Sandwich Reuben
 wikidata:en:Q3180957
 
 <en:Sandwiches
+en:Sandwiches with sweet fillings
+intake24_category_code:en:22STFL 
+
+<en:Sandwiches
 en:Sandwiches with vegetables and mayonnaise
 fr:Sandwichs crudités mayonnaise
 agribalyse_proxy_food_code:en:25530
@@ -87516,6 +87831,7 @@ agribalyse_proxy_food_code:en:25577
 agribalyse_proxy_food_name:en:Sandwich made with wholemeal loaf bread, chicken, raw vegetables and mayonnaise
 agribalyse_proxy_food_name:fr:Sandwich pain de mie complet, poulet, crudités, mayonnaise
 wikidata:en:Q607754
+intake24_category_code:en:22CKSND 
 
 <en:Sandwiches filled with cold cuts
 <en:French bread sandwiches
@@ -87557,11 +87873,12 @@ ciqual_food_name:en:Sandwich made with French bread, turkey, raw vegetables (let
 ciqual_food_name:fr:Sandwich baguette, dinde, crudités (tomate, salade), mayonnaise
 
 <en:Sandwiches
-en:Sandwiches filled with cold cuts
+en:Sandwiches filled with cold cuts, Meat sandwiches
 de:Sandwiche belegt mit Aufschnitt
 fi:voileivät leikkeleillä
 fr:Sandwichs garnis de charcuteries
 nl:Vleeswaren sandwiches
+intake24_category_code:en:22MTSND  
 
 <en:Sandwiches filled with cold cuts
 <en:French bread sandwiches
@@ -87702,6 +88019,7 @@ agribalyse_proxy_food_code:en:25518
 agribalyse_proxy_food_name:en:Sandwich made with French bread, camembert cheese and butter
 agribalyse_proxy_food_name:fr:Sandwich baguette, camembert, beurre
 wikidata:en:Q2734068
+intake24_category_code:en:22CHSND 
 
 <en:Cheese sandwiches
 en:Goat cheese sandwiches
@@ -87794,6 +88112,7 @@ it:Panini al pesce, Tramezzini al pesce, Sandwich al pesce
 nl:Vissandwiches
 pt:Sanduíches de peixe
 wikidata:en:Q54423330
+intake24_category_code:en:22FSSND
 
 <en:Fish sandwiches
 en:Tuna sandwiches
@@ -87869,11 +88188,14 @@ en:Surimi sandwiches
 fr:Sandwichs au surimi
 nl:Surimisandwiches
 
-<en:sandwiches
+<en:Sandwiches
+en:Egg sandwiches
 fr:Sandwich aux œufs
+nl:Sandwiches met ei
 wikidata:en:Q4304396
+intake24_category_code:en:22EVSND 
 
-<en:sandwiches
+<en:Sandwiches
 en:Crisp sandwich
 wikidata:en:Q3002792
 
@@ -87885,7 +88207,7 @@ wikidata:en:Q6813732
 en:Wraps
 fr:Wraps, Wrap, roulade
 nl:Wraps
-nl_be:Wraps
+intake24_category_code:en:22WRFL
 wikidata:en:Q1599125
 
 <en:Wraps
@@ -88982,7 +89304,7 @@ he:דגים, דג
 hr:ribe, riba
 hu:Hal, Halak
 it:Pesci, pesce
-ja:魚
+ja:魚,魚類
 nl:Vis
 pl:Ryby, Ryba
 pt:Peixe
@@ -88992,6 +89314,7 @@ sv:Fiskar, fisk
 tr:Balık
 zh:鱼类
 wikidata:en:Q600396
+intake24_category_code:en:RWFH
 
 <en:Fishes
 en:Shelf-stable unprepared fishes
@@ -89814,7 +90137,7 @@ he:סלמון
 hr:losos
 hu:Lazacok
 it:Salmoni
-ja:サケ, サーモン
+ja:サケ, 鮭, しゃけ, シャケ, サーモン
 nl:Zalm
 pt:Salmões, salmão
 ru:Лосось
@@ -91080,6 +91403,7 @@ es:Caballa
 fi:makrillit
 fr:Maquereaux
 it:Sgombro
+ja:サバ, 鯖, さば
 nl:Makreel
 pl:Makrela, Makrele
 ro:Macrou
@@ -91094,7 +91418,6 @@ es:Filetes De Caballa
 fi:Makrillifileet
 fr:Filets de maquereaux
 it:Filetti di sgombro
-ja:サバ, 鯖
 nl:Makreelfilets
 pl:Filety z makreli
 agribalyse_food_code:en:26123
@@ -91838,6 +92161,7 @@ ja:ディップ
 nl:Dipsauzen
 ru:провалы
 wikidata:en:Q2046560
+intake24_category_code:en:DIPS
 
 <en:Sauces
 en:Hoisin sauces
@@ -91999,9 +92323,15 @@ tr:Ekmeğe sürülen tatlı ürünler, Tatlı sürülebilir ürünler, Sürüleb
 food_groups:en: en:Sweets
 pnns_group_2:en:Sweets
 
-#<en:Variety packs
+<en:Variety packs
 <en:Sweet spreads
 en:Sweet spread variety packs
+de:Mischpackungen von Süße Brotaufstriche
+es:Paquetes variados de productos dulces para untar
+fr:Assortiments de pâtes à tartiner sucrées
+it:Confezioni miste di dolci spalmabili
+nl:Zoet smeerbelegassortimenten
+pt:Packs variados de doces - geleias y mel
 gpc_category_code:en:10000621
 gpc_category_name:en:Sweet Spreads Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Sweet Spreads sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Sweet Spreads class. Includes products such as Chocolate Spread and Jam sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Jam and Tea variety packs.
@@ -92090,7 +92420,7 @@ th:ผลไม้แปรรูป
 en:Refrigerated fruit and vegetable preserves
 gpc_category_code:en:10006837
 gpc_category_name:en:Jams/Marmalades/Fruit Spreads (Perishable)
-gpc_category_description:en:Definition: Includes any products that can be described/observed as a sweet semi-firm liquid, usually used as a spread, made by cooking and blending crushed fruit in sugar, and allowing the mixture to set, often with the addition of setting agents. Includes jams, jellies, and marmalades. These products must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Confectionery Based Spreads and Honey, and Jams/Marmalades (Shelf Stable). 
+gpc_category_description:en:Definition: Includes any products that can be described/observed as a sweet semi-firm liquid, usually used as a spread, made by cooking and blending crushed fruit in sugar, and allowing the mixture to set, often with the addition of setting agents. Includes jams, jellies, and marmalades. These products must be refrigerated to extend their consumable life. Definition Excludes: Excludes products such as Confectionery Based Spreads and Honey, and Jams/Marmalades (Shelf Stable).
 
 <en:Fruit and vegetable preserves
 fr:Fruit preserves with chocolate
@@ -92133,6 +92463,7 @@ agribalyse_proxy_food_code:en:31024
 ciqual_proxy_food_code:en:31024
 ciqual_proxy_food_name:en:Jam, strawberry
 ciqual_proxy_food_name:fr:Confiture de fraise (extra ou classique)
+intake24_category_code:en:JAMS
 
 <en:Jams
 en:Shelf-stable jams
@@ -92928,13 +93259,16 @@ fi:Tyrnihyytelöt
 fr:Gelées d'argousiers
 
 <en:Sweet spreads
+# en:Sweet spreads in France
 fr:Pâtes à tartiner, Pâte à tartiner
-es:Cremas para untar, Cremas untables
-it:Crema da spalmare, crema spalmabile
-nl:Smeerpastas
+#es:Cremas para untar en Francia
+#it:Crema da spalmare en Francia
+#nl:Smeerpastas in Frankrijk
 wikidata:en:Q1472481
+description:en:The category "Pâtes à tartiner" is specific to France and is a subset of Sweet spreads. Not sure whether these require translations
 
 <fr:Pâtes à tartiner
+<en:Sweet spreads
 en:Caramel spreads
 de:Karamellaufstriche
 es:Cremas de caramelo
@@ -92943,6 +93277,7 @@ nl:Caramelpastas
 pt:Caramelos para barrar
 
 <fr:Pâtes à tartiner
+<en:Sweet spreads
 en:Chocolate spreads
 bg:течен-шоколад
 ca:Xocolata per untar
@@ -92960,6 +93295,7 @@ pt:Creme para barrar de chocolate
 ru:Шоколадные пасты
 tr:Ekmeğe sürülen çikolata, Sürülebilir çikolata
 wikidata:en:Q1754566
+intake24_category_code:en:CHOS
 
 <fr:Pâtes à tartiner
 en:Almond spreads, almonds spreads
@@ -92972,6 +93308,7 @@ ja:アーモンドスプレッド
 nl:Amandelpastas
 
 <fr:Pâtes à tartiner
+<en:Sweet spreads
 en:Hazelnut spreads, hazelnuts spread
 ca:Crema d'avellanes
 de:Haselnusscremes
@@ -92982,7 +93319,7 @@ hu:Kenhető mogyoró
 it:Crema con nocciole, crema alle nocciole
 ja:ヘーゼルナッツスプレッド
 nl:Hazelnootpastas
-pt:Creme para barrar de avelã 
+pt:Creme para barrar de avelã
 ru:Пасты из лесного ореха
 agribalyse_proxy_food_code:en:31032
 ciqual_proxy_food_code:en:31032
@@ -93005,13 +93342,14 @@ ciqual_food_code:en:31032
 ciqual_food_name:en:Chocolate spread with hazelnuts
 
 <fr:Pâtes à tartiner
+<en:Sweet spreads
 en:Carob spreads
 es:Cremas de algarroba
 fr:Pâtes à tartiner au caroube
 nl:Carobepastas, Johannesbroodboomvruchtenpastas
 
 <en:Spreads
-en:Salted spreads, salty spreads
+en:Salted spreads, salty spreads, savoury spreads
 bg:Солен крем за мазане
 ca:Productes salats per untar
 de:Gesalzene Aufstriche, salzige Aufstriche
@@ -93026,8 +93364,9 @@ pl:Słone smarowidła, słone pasty do smarowania
 pt:Produtos salgados para barrar
 food_groups:en: en:Salty and fatty products
 pnns_group_2:en:Salty and fatty products
+intake24_category_code:en:PATE
 
-# This product is really popular in Belgium were it is called "Salade d'oeufs". Please don't put in the category "Prepared salads", because it is a spread not a meal
+# This product is really popular in Belgium & Netherlands were it is called "Salade d'oeufs". Please don't put in the category "Prepared salads", because it is a spread not a meal
 <en:Salted spreads
 en:Egg salads, Egg spreads
 lt:Salotos su kiaušiniais
@@ -93230,6 +93569,7 @@ fr:Bruschetta de tomates
 
 <en:Plant-based spreads
 <en:Onions and their products
+<en:Chutneys
 en:Onion chutneys
 de:Zwiebelchutneys
 es:Cebolla caramelizada, Cebolla confitada
@@ -93568,8 +93908,15 @@ gpc_category_code:en:10000043
 gpc_category_name:en:Sugar/Sugar Substitutes (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a sweet substance, obtained from the different stages of refining the juice of the sugar cane/sugar beet/molasses, or an artificial sweet substance that is specifically labelled and marketed to replace natural sugar, which is used as a sweetener and preservative of food and drinks. Products include white sugars such as castor, cubes, loaf, granulated, icing and preserving, coloured sugars such as brown, barbados, demerara and artificial sweeteners, such as saccharin, sorbitol and xylitol. Definition Excludes: Excludes products such as Syrups, Treacle and Molasses, Sugar Candy and Sugar Candy Substitute Confectionery.
 
+<en:Variety packs
 <en:Sweeteners
 en:Sweetener variety packs
+de:Süßstoffemischpackungen
+es:Paquetes variados de endulzantes
+fr:Assortiments de édulcorants
+it:Confezioni miste di zucchero e dolcificanti 
+nl:Zoetstoffenassortimenten
+pt:Packs variados de adoçantes
 gpc_category_code:en:10000603
 gpc_category_name:en:Sugars/Sugar Substitute Products Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Sugars or Sugar Substitutes sold together, which exist within the schema belonging to different bricks but to the same class, that is two or more products contained within the same pack which cross bricks within the Sugars and Sugar Substitutes Products class. Includes products such as Golden Syrup and Dark Brown Sugar sold together. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Golden Syrup and Sponge Cake variety packs.
@@ -93604,6 +93951,7 @@ agribalyse_proxy_food_code:en:31016
 ciqual_proxy_food_code:en:31016
 ciqual_proxy_food_name:en:Sugar, white
 ciqual_proxy_food_name:fr:Sucre blanc
+intake24_category_code:en:SUGA
 
 <en:Sugars
 en:Brown sugars, Brown sugar
@@ -94068,9 +94416,6 @@ it:Dolcificanti da tavola
 nl:Tafelzoetstoffen
 nl_be:Tafelzoetstoffen
 
-
-#fr:Sirops et Boissons concentrées
-
 #<fr:Sirops et Boissons concentrées
 en:Syrups
 bg:Сироп
@@ -94105,7 +94450,7 @@ en:Thick syrups
 nl:Stropen
 
 <en:Thick syrups
-en:Thick sugar syrup
+en:Thick sugar syrups, Thick sugar syrup
 nl:Suikerstropen, Suikerstroop
 protected_name_file_number:en: TSG-NL-1203
 protected_name_type:en: tsg
@@ -94159,6 +94504,7 @@ he:סירופים פשוטים
 it:Sciroppi semplici
 nl:Basissiropen
 pt:Xaropes simples
+intake24_category_code:en:SYRP
 
 <en:Simple syrups
 en:Agave syrups, Agave nectars
@@ -94170,7 +94516,6 @@ fr:Sirops d'agave
 it:Sciroppi d'agave
 ja:アガベシロップ
 nl:Agavesiropen
-nl_be:Agavesiropen
 wikidata:en:Q392001
 agribalyse_food_code:en:31089
 ciqual_food_code:en:31089
@@ -94182,7 +94527,6 @@ en:Birch syrups
 es:Siropes de abedul, Melazas de abedul, Jarabes de abedul
 fr:Sirops de bouleau
 nl:Berkensiropen
-nl_be:Berkensiropen
 wikidata:en:Q3181931
 
 <en:Simple syrups
@@ -94330,6 +94674,9 @@ ciqual_food_code:en:31067
 ciqual_food_name:en:Cane molasses
 ciqual_food_name:fr:Mélasse de canne
 
+<en:Simple syrups
+en:Treacle
+
 <en:Fruits and vegetables based foods
 en:Vegetables based foods
 bg:Зеленчукови храни
@@ -94346,7 +94693,7 @@ ja:野菜
 lt:Daržovės ir jų kilmės maisto produktai
 nl:Groente en afgeleide producten
 pl:Produkty na bazie warzyw
-pt:Alimentos à base de vegetais 
+pt:Alimentos à base de vegetais
 ru:блюда из овощей
 th:ผลิตภัณฑ์จากพืช
 tr:Sebze yiyecekler, Sebze gıdaları, Sebze besinleri, Sebze kaynaklı yiyecekler, Sebze kaynaklı gıdalar, Sebze kaynaklı besinler
@@ -94364,6 +94711,41 @@ nl:Groenten, Groente
 pl:warzywa
 pt:Vegetais
 ru:Овощи
+intake24_category_code:en:VTGB
+
+<en:Vegetables
+en:Vegetables from Germany, German vegetables
+fr:Fruits allemands
+lt:Vokiškos daržovės
+
+<en:Vegetables from Germany
+de:Salate von der Insel Reichenau
+protected_name_file_number:en: PGI-DE-0317
+protected_name_type:en: pgi
+origins:en: en:Germany
+#wikidata:en:
+
+<en:Vegetables from Germany
+de:Feldsalat von der Insel Reichenau
+protected_name_file_number:en: PGI-DE-0318
+protected_name_type:en: pgi
+origins:en: en:Germany
+#wikidata:en:
+
+<en:Vegetables from Germany
+<en:Tomatoes
+de:Tomaten von der Insel Reichenau
+protected_name_file_number:en: PGI-DE-0319
+protected_name_type:en: pgi
+origins:en: en:Germany
+#wikidata:en:
+
+<en:Vegetables from Germany
+de:Gurken von der Insel Reichenau
+protected_name_file_number:en: PGI-DE-0320
+protected_name_type:en: pgi
+origins:en: en:Germany
+#wikidata:en:
 
 <en:Vegetables based foods
 <en:Culinary plants
@@ -94713,6 +95095,7 @@ pt:Pickles à base de plantas
 ro:Legume murate
 ru:Маринованные растительные продукты
 sv:Inlagda grönsaker
+intake24_category_code:en:PION
 
 <en:Canned vegetables
 <en:Plant-based pickles
@@ -94801,6 +95184,7 @@ wikidata:en:Q1365891
 ciqual_proxy_food_code:en:11004
 ciqual_proxy_food_name:en:Gherkin, pickled in vinegar
 ciqual_proxy_food_name:fr:Cornichon, au vinaigre
+intake24_category_code:en:GHRK
 
 # agribalyse_food_code:en:99999
 # TODO Curious code not present in official Agribalyse file. Not sure who added this
@@ -95009,6 +95393,7 @@ nl:Bladgroenten
 nl_be:Bladgewas
 ru:Листовые овощи
 wikidata_category:en:Q7469413
+intake24_category_code:en:C000
 
 <en:Vegetables
 en:Salsifis
@@ -95454,6 +95839,7 @@ nl:Rode bieten
 agribalyse_proxy_food_code:en:20091
 agribalyse_proxy_food_name:en:Beetroot, raw
 agribalyse_proxy_food_name:fr:Betterave rouge, crue
+intake24_category_code:en:BEET
 #TOCHECK:wikidata:en:Q99548274
 
 <en:Beet
@@ -95581,6 +95967,7 @@ agribalyse_food_code:en:20057
 ciqual_food_code:en:20057
 ciqual_food_name:en:Broccoli, raw
 ciqual_food_name:fr:Brocoli, cru
+intake24_category_code:en:BRCL
 description:en:Broccoli is an edible green plant in the cabbage family whose large flowering head is eaten as a vegetable
 
 
@@ -95638,6 +96025,7 @@ fr:Choux cabus
 ja:キャベツ
 la:Brassica oleracea var. capitata
 nl:Kolen
+intake24_category_code:en:CBBG 
 
 <en:Cabbages
 en:White cabbage, white cabbage
@@ -95850,6 +96238,7 @@ agribalyse_food_code:en:20009
 ciqual_food_code:en:20009
 ciqual_food_name:en:Carrot, raw
 ciqual_food_name:fr:Carotte, crue
+intake24_category_code:en:CRTS
 
 <en:Carrots
 <en:Cooked vegetables
@@ -96409,6 +96798,11 @@ de:Neapolitanischer Lauch
 fr:Ail Blanc
 wikidata:en:Q1817792
 
+<en:Garlic
+en:Purple garlic
+ca:All morat
+es:Ajo morado
+
 <en:Allium neapolitanum
 fr:Ail blanc de Lomagne
 protected_name_file_number:en: PGI-FR-0470
@@ -96544,6 +96938,7 @@ agribalyse_food_code:en:20039
 ciqual_food_code:en:20039
 ciqual_food_name:en:Leek, raw
 ciqual_food_name:fr:Poireau, cru
+intake24_category_code:en:LEEK
 description:en:The leek is a vegetable, a cultivar of Allium ampeloprasum, the broadleaf wild leek. Leeks have a mild, onion-like taste. In its raw state, the vegetable is crunchy and firm. The edible portions of the leek are the white base of the leaves (above the roots and stem base), the light green parts, and to a lesser extent the dark green parts of the leaves. Leeks are typically chopped into slices 5–10 mm thick. The slices have a tendency to fall apart, due to the layered structure of the leek. The different ways of preparing the vegetable are: boiling, frying or raw.
 
 
@@ -96608,7 +97003,7 @@ gr:Μαρούλι
 gu:Ka'anakyrỹi
 gv:Glassyr
 he:חסה, חסה תרבותית
-hr:Salate, Salata, Zelene salate, Zelena salata 
+hr:Salate, Salata, Zelene salate, Zelena salata
 ht:Leti
 hu:saláta, kerti saláta
 hy:հազար
@@ -96751,7 +97146,7 @@ ciqual_food_name:fr:Batavia, crue
 <en:Culinary plants
 <en:Onions and their products
 #<en:ingredient:en:vegetable
-en:onions, onion
+en:Onions, onion
 bg:Лук
 bn:পিঁয়াজ
 ca:ceba
@@ -96793,6 +97188,7 @@ agribalyse_food_code:en:20034
 ciqual_food_code:en:20034
 ciqual_food_name:en:Onion, raw
 ciqual_food_name:fr:Oignon, cru
+intake24_category_code:en:ONIO
 description:en:The onion (Allium cepa L.), also known as the bulb onion or common onion, is a vegetable that is the most widely cultivated species of the genus Allium. They are usually served cooked, as a vegetable or part of a prepared savoury dish, but can also be eaten raw or used to make pickles or chutneys.
 
 <en:onions
@@ -96925,6 +97321,7 @@ agribalyse_food_code:en:20041
 ciqual_food_code:en:20041
 ciqual_food_name:en:Sweet pepper, green, yellow or red, raw
 ciqual_food_name:fr:Poivron, vert, jaune ou rouge, cru
+intake24_category_code:en:PPRS
 
 <en:Sweet peppers
 <en:Fresh vegetables
@@ -97114,6 +97511,7 @@ pnns_group_2:en:Potatoes
 agribalyse_proxy_food_code:en:4008
 agribalyse_proxy_food_name:en:Potato, peeled, raw
 agribalyse_proxy_food_name:fr:Pomme de terre, sans peau, crue
+intake24_category_code:en:POTS
 
 #################### Potato harvest ####################
 
@@ -97196,7 +97594,7 @@ en:Potatoes for gratin
 fr:Pomme de terre gratin
 
 <en:Potatoes
-en:Potatoes for hash browns
+en:Potatoes for hash browns, hashed brown potatoes, hashed browned potatoes
 fr:Pommes de terre pour pommes de terre rissolées
 
 <en:Potatoes
@@ -97237,7 +97635,7 @@ origins:en: en:France
 #wikidata:en:
 
 <en:Potatoes from Italy
-en:Potatoes from Fucino 
+en:Potatoes from Fucino
 it:Patata del Fucino
 protected_name_file_number:en: PGI-IT-01217-AM01, en: PGI-IT-01217
 protected_name_type:en: pgi
@@ -97261,7 +97659,7 @@ wikidata:en:Q3368654
 #no products on 14/04/23
 
 #<en:Potatoes from Italy
-#en:Potatoes from Bologna 
+#en:Potatoes from Bologna
 #it:Patata di Bologna
 #protected_name_file_number:en: PDO-IT-0349
 #protected_name_type:en: pdo
@@ -97270,7 +97668,7 @@ wikidata:en:Q3368654
 #no products on 14/04/23
 
 <en:Potatoes from Italy
-en:Potatoes from Sila 
+en:Potatoes from Sila
 it:Patata della Sila
 protected_name_file_number:en: PGI-IT-0643
 protected_name_type:en: pgi
@@ -97839,6 +98237,7 @@ agribalyse_food_code:en:20059
 ciqual_food_code:en:20059
 ciqual_food_name:en:Spinach, raw
 ciqual_food_name:fr:Épinard, cru
+intake24_category_code:en:SPNC
 
 <en:Prepared vegetables
 en:Spinach with cream sauce
@@ -97992,6 +98391,7 @@ zh:芜菁
 # yue:大頭菜
 wikidata:en:Q3916957
 wikipedia:en:https://en.wikipedia.org/wiki/Turnip
+intake24_category_code:en:TRNP
 description:en:The turnip (Brassica rapa subsp. rapa) is a root vegetable commonly grown in temperate climates worldwide for its white, fleshy taproot.
 comment:en:Translations are not easy as one has to distinguish between turnip, swede and rutabaga. Sometimes they are all called turnip. Thus some translations might be wrong (taken from wikidata).
 
@@ -98056,6 +98456,7 @@ agribalyse_food_code:en:20047_1
 ciqual_food_code:en:20047
 ciqual_food_name:en:Tomato, raw
 ciqual_food_name:fr:Tomate, crue
+intake24_category_code:en:TMTO
 
 #agribalyse_food_code:en:20047_2
 #ciqual_food_code:en:20047
@@ -98153,6 +98554,7 @@ ja:ズッキーニ
 la:Cucurbita pepo var. Zucchini
 nl:Courgettes
 tr:Kabak
+intake24_category_code:en:COUR 
 
 <en:Zucchini
 en:Prepared zucchini
@@ -98206,6 +98608,7 @@ es:Mezclas de verduras y hortalizas
 fr:Mélanges de légumes
 it:Misti di verdure
 nl:Groentemengsels
+intake24_category_code:en:MXDV   
 
 <en:Fresh vegetables
 <en:Mixed vegetables
@@ -98711,6 +99114,7 @@ sv:ärtväxter, baljväxter
 th:ถั่วเมล็ดแห้ง
 tr:Bakliyat, Baklagiller
 wikidata:en:Q145909
+intake24_category_code:en:BBNS  
 
 <en:Legumes
 <en:Fresh plant-based foods
@@ -98766,6 +99170,7 @@ agribalyse_food_code:en:20061_1
 ciqual_food_code:en:20061
 ciqual_food_name:en:French bean, raw
 ciqual_food_name:fr:Haricot vert, cru
+intake24_category_code:en:FGRB
 
 <en:Green beans
 en:Green beans not imported by plane
@@ -98890,6 +99295,7 @@ nl:Gedroogde bonen
 pt:Pulsos
 ru:Зернобобовые
 wikidata:en:Q2727662
+intake24_category_code:en:PEAS 
 
 <en:Pulses
 en:Cooked pulses
@@ -99138,7 +99544,7 @@ es:Bisalto, Tirabeque
 la:Pisum sativum arvense, Pisum sativum subsp. arvense
 nl:Kapucijners, Velderwten
 pl:Groch zwyczajny polny
-sv:Gråärt 
+sv:Gråärt
 
 <en:Common beans
 en:Pinto beans
@@ -99833,7 +100239,7 @@ de:Soja
 es:Soja
 fi:soija
 fr:Fèves de soja, Soja, Soja graine entière
-ja:大豆, ダイズ
+ja:大豆, ダイズ, だいず
 la:Glycine max
 nl:Soja
 ru:Соя, Семена сои
@@ -100403,6 +100809,7 @@ agribalyse_food_code:en:11018
 ciqual_food_code:en:11018
 ciqual_food_name:en:Vinegar
 ciqual_food_name:fr:Vinaigre
+intake24_category_code:en:VNGR 
 gpc_category_code:en:10000051
 gpc_category_name:en:Vinegars
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a liquid, made from acetic acid derived from the fermentation of alcohol, mixed with water, and used as a flavouring, preservative, or condiment for savoury foods. Products include all varieties of vinegar, such as malt, red wine, white wine and balsamic. Definition Excludes: Excludes products such as Cooking Wines.
@@ -100678,7 +101085,7 @@ wikidata:en:Q4922497
 <en:Pastries
 en:Waffles
 de:Waffeln
-es:Gofres, barquillo
+es:Gofres
 fi:Paksuja vohveleita
 fr:Gaufres
 hr:vafli
@@ -100940,6 +101347,7 @@ pnns_group_2:en:Salty and fatty products
 agribalyse_proxy_food_code:en:13147
 agribalyse_proxy_food_name:en:Olive, green, stuffed (anchovy, sweet peppers, etc…)
 agribalyse_proxy_food_name:fr:Olives vertes, fourrées ou farcies (anchois, poivrons, etc.)
+intake24_category_code:en:OVES 
 gpc_category_code:en:10000239
 gpc_category_name:en:Olives (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as any variety of olive from the olive tree, such as Sevillana, Manzanilla and Ascolane, that may have been prepared by removing the stone. These products can be in a sauce - tomato, curry, BBQ or Cream and have added ingredients or flavourings that may fill (pimento, anchovies) or cover (herbs, sauces) the olive. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Pickles and Perishable Olives.
@@ -101461,7 +101869,7 @@ nl:Gedroogde Mastocarpus stellatus
 en:Hijiki seaweeds, Hijiki, Hiziki
 es:Algas hijiki, Hijiki, Hiziki
 fr:Algues hijiki, Hijiki, Hiziki
-ja:ヒジキ, ひじき, 
+ja:ヒジキ, ひじき,
 la:Sargassum fusiforme
 nl:Hijiki algen
 wikidata:en:Q1204264
@@ -101499,7 +101907,7 @@ nl:Ierse mospoeders
 en:Kombu seaweeds, Kombu
 es:Algas kombu, Kombu
 fr:Algues kombu, Kombu
-jp:昆布
+ja:昆布
 ko:다시마
 nl:Kombu, Konbu
 wikidata:en:Q11261547
@@ -101944,7 +102352,7 @@ es:Mezclas para sofrito congelada, Mezcla para sofrito congelada
 <en:Frozen plant-based foods mixes
 es:Parrilladas de verduras congelada, Parrillada de verduras congelada
 
-<en:Frozen plant-based foods mixes
+<en:Roasted potatoes
 en:Frozen baked potatoes
 es:Patatas panadera congeladas
 fr:Pommes de terre cuites surgelées, pommes de terre cuites congelées
@@ -102665,7 +103073,7 @@ nl:Diepvries gewone boon
 en:Frozen nuts
 bg:Замразени ядки
 de:Gefröhrene Nüsse
-es:Frutos de cáscara congelados
+es:Frutos de cáscara congelados, Frutos secos congelados
 fr:Fruits à coques surgelés
 nl:Diepvriesnoten
 food_groups:en: en:Nuts
@@ -102822,6 +103230,8 @@ en:Garlic breads
 de:Knoblauchbrote
 fr:Pains à l'ail
 ja:ガーリックトースト, ガーリックブレッド
+nl:Knoflookbroden, Knoflookbrood
+intake24_category_code:en:GBRD  
 
 <en:Garlic breads
 en:Garlic baguettes
@@ -103029,7 +103439,7 @@ nl:Cashewnotenrepen
 <en:Nut bars
 en:Peanut bars
 de:Erdnussriegel
-es:Barritas de cacahuetes
+es:Barritas de cacahuetes, Barritas de maní
 fr:Barres de cacahuètes, Barres d'arachides
 he:חטיפי בוטנים
 it:Barrette di arachidi
@@ -103094,10 +103504,12 @@ lt:Duona su razinomis, Razinų sluoksniuota tešla, Vienos pyragaičiai, Vienos 
 nl:Rozijnenbroden, Rozijnenbrood
 ro:Pâini cu stafide, Pâine cu stafide
 #Escargot aux raisin a subcategory?
+intake24_category_code:en:FTBD 
 agribalyse_food_code:en:7720
 ciqual_food_code:en:7720
 ciqual_food_name:en:Raisin puff pastry (Viennese pastries)
 ciqual_food_name:fr:Pain aux raisins (viennoiserie)
+#comment:en:issue here on wheteher it based on puff pastry or normal bread
 
 <en:Viennoiseries
 en:Croissants
@@ -103715,6 +104127,7 @@ ja:もつ
 nl:Orgaanvlezen, Orgaanvlees, Slachtafval
 food_groups:en: en:Offals
 pnns_group_2:en:Offals
+intake24_category_code:en:OFFL 
 
 <en:Offals
 en:Cooked offal
@@ -103928,6 +104341,7 @@ nl:Vleeskopieën
 pl:Zastępniki mięsa
 ru:Мясозаменители
 wikidata:en:Q1343997
+intake24_category_code:en:MTST 
 gpc_category_code:en:10005824
 gpc_category_name:en:Meat Substitutes - Non Animal Based (Perishable)
 gpc_category_description:en:Definition: Includes all products which can be described/observed as a healthy food alternative to meat vegetable and egg proteins. These products are non animal based and an imitation of meat products, meant to simulate the taste and mouthfeel of real meat but are normally made from a combination of non animal based ingredients. Includes products such as soya, fungus, beans, lentils, peas and chickpeas based products. These products must be refrigerated to extend their consumable life. Definition Excludes: Excludes all meat-based products and any other protein rich products such as eggs and pulses that constitute the main recipe ingredients. Also excludes Meat Substitutes - Non Animal based frozen and shelf stable products and Meat Substitutes - Animal based frozen, perishable and shelf stable products.
@@ -104591,8 +105005,8 @@ fi:piirastaikina
 fr:Pâtes à tarte, Pâte à tarte, Pates à tarte fraiches
 it:Impasto per torte
 ja:パイ生地
-nl:Taartdegen
-nl_be:Taartdeeg
+nl:Taartdegen, taartdeeg
+intake24_category_code:en:PSDO 
 
 <en:Pie dough
 en:Shortcrust pastry
@@ -104934,12 +105348,13 @@ fr:Pommes de terres précuites
 nl:Voorgekookte aardappelen
 
 <en:Prepared potatoes
-en:Cooked potatoes
+en:Cooked potatoes, Boiled potatoes
 fr:Pommes de terre cuites
 nl:Gekookte aardappelen
 ciqual_food_code:en:4048
 ciqual_food_name:en:Potato, cooked (average food)
 ciqual_food_name:fr:Pomme de terre, cuite (aliment moyen)
+intake24_category_code:en:BOLP 
 
 <en:Prepared potatoes
 en:Boiled or steamed potatoes, Potatoes cooked in water or steam
@@ -104996,6 +105411,7 @@ agribalyse_food_code:en:4026
 ciqual_food_code:en:4026
 ciqual_food_name:en:Potato, roasted/baked
 ciqual_food_name:fr:Pomme de terre, rôtie/cuite au four
+intake24_category_code:en:BKDP
 
 <en:Prepared potatoes
 en:Sautéed Potatoes, Pan-fried potatoes
@@ -105004,6 +105420,7 @@ agribalyse_food_code:en:4015
 ciqual_food_code:en:4015
 ciqual_food_name:en:Potato, sautéed/pan-fried
 ciqual_food_name:fr:Pomme de terre, sautée/poêlée
+intake24_category_code:en:ROPOT 
 
 <en:Prepared potatoes
 en:Fried potato cubes
@@ -105047,6 +105464,11 @@ ciqual_food_code:en:4039
 ciqual_food_name:en:Rostis or Potatoes cake
 ciqual_food_name:fr:Rostis ou Galette de pomme de terre
 
+<en:Potato preparations
+en:Hash Browns, hashed browns
+ja:ハッシュポテト
+wikidata:en:Q152981
+
 <en:Rostis
 en:Frozen potato rostis
 fr:Röstis de pommes de terre surgelés
@@ -105069,6 +105491,7 @@ pnns_group_2:en:Potatoes
 ciqual_food_code:en:4047
 ciqual_food_name:en:Mashed potatoes (average)
 ciqual_food_name:fr:Pomme de terre, purée (aliment moyen)
+intake24_category_code:en:MASH 
 
 # without milk, cream, butter
 <en:Mashed potatoes
@@ -105088,6 +105511,7 @@ fr:Purées de légumes
 it:Purè di verdure
 nl:Groentepureeën
 ro:Zacusca
+intake24_category_code:en:RVEG 
 
 <en:Mashed vegetables
 en:Mashed carrots, Carrots puree
@@ -105201,13 +105625,6 @@ ciqual_food_code:en:25608
 ciqual_food_name:en:Tabbouleh, prepacked
 ciqual_food_name:fr:Taboulé ou Salade de couscous, préemballé
 
-<en:Meals
-en:Vegetable fritters
-fr:Beignets de légumes
-agribalyse_food_code:en:25556
-ciqual_food_code:en:25556
-ciqual_food_name:en:Vegetable fritters
-ciqual_food_name:fr:Beignet de légumes
 
 <en:Meals
 en:Filled fritters
@@ -105580,6 +105997,7 @@ zh:膳食补充剂
 #ast:Suplementu dietéticu
 #ckb:تەواوکەری خۆراکی
 wikidata:en:Q645858
+intake24_category_code:en:SUPP
 gpc_category_code:en:10000468
 gpc_category_name:en:Nutritional Supplements
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a preparation containing specific ingredients designed to enhance and improve health, to prevent or mitigate various deficiency conditions in the human body or to increase energy levels. Includes products of botanical, animal or marine origin. Definition Excludes: Excludes products such as Nutritional Supplements obtained only by prescription or from a healthcare professional, Vitamins, Minerals and Dietary Aids used to replace meals and Dietary Aids designed to stimulate or suppress the appetite or to control body fat levels.
@@ -105659,6 +106077,7 @@ ja:プロテインパウダー
 nl:Proteinepoeders
 pl:Odżywki białkowe
 wikidata:en:Q87589396
+intake24_category_code:en:SYPR
 
 <en:Bodybuilding supplements
 en:Protein shakes
@@ -105892,11 +106311,11 @@ nl:Chocoladehagelslag, Chocolade hagel
 wikidata:en:Q152547
 
 <en:Chocolate sprinkles
-en:Dark choclate sprinkles
+en:Dark chocolate sprinkles, Dark choclate sprinkles
 nl:Chocoladehagelslag puur, Chocolade hagel puur
 
 <en:Chocolate sprinkles
-en:Milk choclate sprinkles
+en:Milk chocolate sprinkles, Milk choclate sprinkles
 nl:Chocoladehagelslag melk, Hagelchocolade hagel melk
 
 <en:Festive foods
@@ -106058,13 +106477,6 @@ ja:バインバオ
 nl:Banh Bao
 wikidata:en:Q564271
 
-<en:Salty snacks
-en:Salty Fritters
-fi:Suolaiset uppopaistokset
-fr:Beignets salés
-it:Frittelle salate
-nl:Hartige gefrituurde producten
-#wikidata:en:
 
 <en:Sweet snacks
 en:Chaat
@@ -106312,6 +106724,7 @@ ciqual_food_code:en:8332
 ciqual_food_name:en:Paté (average)
 ciqual_food_name:fr:Pâté (aliment moyen)
 wikidata:en:Q816704
+intake24_category_code:en:PTES
 
 <en:Pâté
 en:Refrigerated Pâtés
@@ -106505,6 +106918,7 @@ fr:Crumbles
 it:Briciole
 nl:Kruimelschotels, Kruimelschotel
 wikidata:en:Q2006073
+intake24_category_code:en:FRTC
 
 <en:Crumbles
 en:Apple crumbles
@@ -107126,9 +107540,20 @@ nl:Banh Bao
 
 <en:Salty snacks
 en:Salty Fritters
-fi:Suolaiset fritit
+fi:Suolaiset uppopaistokset, Suolaiset fritit
 fr:Beignets salés
+it:Frittelle salate
 nl:Hartige gefrituurde producten
+#wikidata:en:
+
+<en:Salty Fritters
+en:Vegetable fritters
+fr:Beignets de légumes
+agribalyse_food_code:en:25556
+ciqual_food_code:en:25556
+ciqual_food_name:en:Vegetable fritters
+ciqual_food_name:fr:Beignet de légumes
+intake24_category_code:en:19VFRIT
 
 <en:Sweet snacks
 en:Sweet Fritters
@@ -107812,13 +108237,41 @@ ciqual_food_code:en:36029
 ciqual_food_name:en:Chicken, breast, meat and skin, raw
 ciqual_food_name:fr:Poulet, poitrine, viande et peau, cru
 
-en:Foods Variety Packs
+en:Variety packs
+cs:Potraviny smíšená balení
+de:Levensmittel Mischpackungen
+el:Τρόφιμα mικτή συσκευασία
+es:Paquetes variados de alimentos
+fi:Ruoka lajitelmapakkaukset
+fr:Assortiments d'aliments
+hr:Hrana zbirna pakiranja
+hu:Több fajta élelmiszer összecsomagolása
+it:Alimentari confezioni miste
+ja:食品のバラエティパック
+ko:식품 세트
+lv:Pārtikas komplekti
+nb:Mat flerpakk
+nl:Levensmiddelen assortimenten
+pl:Opakowania mix żywność
+pt:Packs Variados de Alimentos
+ru:Наборы из продуктов пищевых
+sk:Potraviny zmiešané balenie
+sr:Hrana pakovanja različitih proizvoda iz ove grupe
+sv:Livsmedel blandförpackningar
+tr:Gıda paket çeşitliliği
 gpc_category_code:en:10000590
 gpc_category_name:en:Food/Beverage/Tobacco Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Food, Beverages and/or Tobacco Products sold together which exist within the schema but belong to different Families, that is two or more products contained within the same pack which cross Families within the Food Beverage and Tobacco Segment. Includes products such as Wine and Chocolate variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Still and Sparkling Wine variety packs and Gin with Tonic Water variety packs.
 
-<en:Foods Variety Packs
-en:Foods Variety Packs (Prepared/Preserved)
+<en:Variety packs
+en:Prepared foods variety packs
+de:Bearbeitete Nahrungsmittel Mischpackungen
+es:Paquetes variados de alimentos en preparados
+fr:Assortiments d'aliments préparés
+it:Confezioni miste d'alimenti pronti 
+nl:Bewerkte levensmiddelassortimenten
+pt:Packs variados de alimentos preparados
+tr:Hazır gıda çeşitlilik paketi
 gpc_category_code:en:10000613
 gpc_category_name:en:Prepared/Preserved Foods Variety Packs
 gpc_category_description:en:Definition: Includes any products that can be described/observed as two or more distinct Prepared and Preserved Foods sold together which exist within the schema but belong to different classes, that is two or more products contained within the same pack which cross classes within the Prepared and Preserved Foods Family. Includes products such as Chicken Korma and Ice Cream variety packs. Items that are received free with purchases should be removed from the classification decision-making process. Definition Excludes: Excludes products such as Jam and Chocolate Spread variety packs and Chips and Dips variety packs.

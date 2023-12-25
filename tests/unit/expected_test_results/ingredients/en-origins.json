@@ -22,6 +22,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "13186",
          "id" : "en:black-olive",
          "origins" : "en:south-carolina",
          "percent_estimate" : 10.4166666666667,
@@ -43,6 +44,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "13034",
          "id" : "en:orange",
          "origins" : "en:florida,en:united-states",
          "percent_estimate" : 2.60416666666666,
@@ -53,6 +55,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "2070",
          "id" : "en:orange-juice",
          "origins" : "en:florida",
          "percent_estimate" : 2.60416666666666,
@@ -128,12 +131,9 @@
    "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:black-olive",
-      "en:orange",
-      "en:orange-juice",
       "en:peach"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 17,
    "lc" : "en",
    "nutriments" : {

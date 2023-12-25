@@ -12,6 +12,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "12999",
          "id" : "en:american-cheese",
          "labels" : "en:kosher",
          "percent_estimate" : 16.6666666666667,
@@ -85,10 +86,9 @@
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:american-cheese",
       "en:beef-gelatin"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 9,
    "lc" : "en",
    "nutriments" : {

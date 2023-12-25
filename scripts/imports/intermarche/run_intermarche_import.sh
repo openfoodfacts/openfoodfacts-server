@@ -33,16 +33,16 @@ echo "IMPORT_SINCE: $IMPORT_SINCE days"
 # Intermarche prefers that we do not keep already processed files in the sftp
 # directory, so we move them to a different place, but still keep past files
 # in case we need to reprocess them
-echo "Move csv and image files to $OFF_SFTP_HOME_DIR/artinformatique/data/intermarche/"
+echo "Copy csv and image files to $OFF_SFTP_HOME_DIR/artinformatique-backup/data/intermarche/"
 cp -a $OFF_SFTP_HOME_DIR/artinformatique/data/intermarche/* $OFF_SFTP_HOME_DIR/artinformatique-backup/data/intermarche/
 
-# copy CSV files modified since the last successful run
-echo "Copy CSV files modified since the last successful run"
+# move CSV files modified since the last successful run
+echo "Move CSV files modified since the last successful run"
 rm -rf $DATA_TMP_DIR
 mkdir $DATA_TMP_DIR
 mkdir $DATA_TMP_DIR/data
 
-find $OFF_SFTP_HOME_DIR/artinformatique-backup/data/intermarche/ -mtime -$IMPORT_SINCE -type f -name "*.csv*" -exec cp {} $DATA_TMP_DIR/data/ \;
+find $OFF_SFTP_HOME_DIR/artinformatique/data/intermarche/ -mtime -$IMPORT_SINCE -type f -name "*.csv*" -exec mv {} $DATA_TMP_DIR/data/ \;
 
 # The CSV files are in a format like 19-11-2023-intermarche.csv and sometimes they
 # send us files from multiple months
@@ -68,11 +68,10 @@ for filepath in $DATA_TMP_DIR/data/*.csv; do
     fi
 done
 
-# Copy images
+# Move images
 echo $IMAGES_TMP_DIR
 mkdir -p $IMAGES_TMP_DIR
-find $OFF_SFTP_HOME_DIR/artinformatique-backup/data/intermarche/ -mtime -$IMPORT_SINCE -type f -name "*.jp*" -exec cp {} $IMAGES_TMP_DIR/ \;
-
+find $OFF_SFTP_HOME_DIR/artinformatique/data/intermarche/ -mtime -$IMPORT_SINCE -type f -name "*.jp*" -exec mv {} $IMAGES_TMP_DIR/ \;
 
 # import CSV files in alphabetical order (starting by YYYY-MM-DD)
 echo "Import data"
