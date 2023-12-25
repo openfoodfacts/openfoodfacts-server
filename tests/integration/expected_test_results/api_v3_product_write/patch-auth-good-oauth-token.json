@@ -2,10 +2,12 @@
    "code" : "2234567890001",
    "errors" : [],
    "product" : {
+      "created_by_client" : "ProductOpener",
       "creator" : "tests",
       "editors_tags" : [
          "tests"
       ],
+      "last_modified_by_client" : "ProductOpener",
       "packagings" : [
          {
             "number_of_units" : 1,

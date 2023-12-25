@@ -459,7 +459,7 @@ my $tests_ref = [
 		method => 'PATCH',
 		path => '/api/v3/product/2234567890001',
 		body => '{
-			"fields": "creator,editors_tags,packagings",
+			"fields": "creator,editors_tags,packagings,created_by_client,last_modified_by_client",
 			"tags_lc": "en",
 			"product": {
 				"packagings": [
