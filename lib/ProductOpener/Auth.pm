@@ -20,16 +20,11 @@
 
 =head1 NAME
 
-ProductOpener::API - implementation of READ and WRITE APIs
+ProductOpener::Auth - Perl module for OpenID Connect (OIDC) and Keycloak authentication
 
 =head1 DESCRIPTION
 
-This module contains functions that are common to multiple types of API requests.
-
-Specialized functions to process each type of API request is in separate modules like:
-
-APIProductRead.pm : product READ
-APIProductWrite.pm : product WRITE
+This Perl module provides functions for user authentication, token verification, and access to protected resources using OpenID Connect (OIDC) and Keycloak.
 
 =cut
 
@@ -102,7 +97,19 @@ my $callback_uri = format_subdomain('world') . '/cgi/oidc-callback.pl';
 
 my $client = undef;
 
-# redirect user to authorize page.
+=head2 start_authorize($request_ref)
+
+Initiates the authorization process by redirecting the user to the authorization page.
+
+=head3 Arguments
+
+=head4 A reference to a hash containing request information. $request_ref
+
+=head3 Return Values
+
+None
+=cut
+
 sub start_authorize ($request_ref) {
 	my $nonce = generate_token(64);
 	my $return_url = single_param('return_url');
@@ -124,7 +131,19 @@ sub start_authorize ($request_ref) {
 	return;
 }
 
-# this method corresponds to the url 'http://yourapp/callback'
+=head2 callback($request_ref)
+
+Handles the callback after successful authentication, verifies the ID token, and creates or retrieves the user's information.
+
+=head3 Arguments
+
+=head4 A reference to a hash containing request information. $request_ref
+
+=head3 Return values
+
+The return URL after successful authentication.
+=cut
+
 sub callback ($request_ref) {
 	if (not(defined cookie($cookie_name))) {
 		start_authorize($request_ref);
@@ -182,6 +201,20 @@ sub callback ($request_ref) {
 
 	return $cookie_ref{'return_url'};
 }
+
+=head2 password_signin($username, $password)
+
+Signs in the user with a username and password, and returns the user's ID, refresh token, refresh token expiration time, access token, and access token expiration time.
+
+=head3 Arguments
+
+=head4 The username for password-based authentication. $username
+=head4 The password for password-based authentication. $password
+
+=head3 Return Values
+
+A list containing the user's ID, refresh token, refresh token expiration time, access token, and access token expiration time.
+=cut
 
 sub password_signin ($username, $password) {
 	unless ($username and $password) {
@@ -469,6 +502,16 @@ sub generate_signin_cookie ($nonce, $return_url) {
 	return cookie(%$cookie_ref);
 }
 
+=head2 verify_access_token($access_token_string)
+
+Verifies the access token by decoding and validating it using the JSON Web Key Set (JWKS).
+
+Parameters:
+- $access_token_string: The access token to be verified.
+
+Returns: The verified access token or undefined if verification fails.
+=cut
+
 sub verify_access_token ($access_token_string) {
 	_ensure_oidc_is_discovered();
 
@@ -481,6 +524,16 @@ sub verify_access_token ($access_token_string) {
 
 	return $access_token_verified;
 }
+
+=head2 verify_id_token($id_token_string)
+
+Verifies the ID token by decoding and validating it using the JWKS.
+
+Parameters:
+- $id_token_string: The ID token to be verified.
+
+Returns: The verified ID token or undefined if verification fails.
+=cut
 
 sub verify_id_token ($id_token_string) {
 	_ensure_oidc_is_discovered();
@@ -497,17 +550,15 @@ sub verify_id_token ($id_token_string) {
 
 =head2 get_azp($access_token)
 
-Gets the Client ID of the authorized party
+Retrieves the authorized party (client ID) from the access token.
 
 =head3 Arguments
 
-=head4 Access token $access_token
+=head4 The access token. $access_token
 
 =head3 Return values
 
-The Client ID of the authorized party, given that the
-token is issues by the correct issuer.
-
+The authorized party (client ID) or undefined if the token is not issued by the correct issuer.
 =cut
 
 sub get_azp ($access_token) {
