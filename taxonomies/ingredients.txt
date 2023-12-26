@@ -38142,17 +38142,28 @@ en:quince, quinces
 ar:سفرجل
 bg:дюля, дюли
 ca:Codony
+cs:kdoulí
 da:Kvæde, kveder
 de:Quitte, Quitten
-el:Κυδώνι
-es:membrillo
+el:Κυδώνι, κυδώνια
+es:membrillo, membrillos
 et:harilik küdoonia, küdoonia, aiva
-fi:kvitteni
+fi:kvitteni, kvitteniä
 fr:coing, coings
-it:Mele cotogne
-nl:Kweepeer
+hr:dunje
+hu:birsalma
+it:Mele cotogne, cotogne
+lv:cidoniju
+lt:cidonijų
+mt:l-isfarġel
+nl:Kweepeer, kweeperen
 pl:pigwa, pigwy, pigwowy, pigwowca
+pt:marmelos
+ro:gutuilor
 sc:Mela pirongia
+sk:dule
+sl:kutine
+sv:kvitten
 vo:Aiva
 # ang:codæppel
 # pcd:Counhiasse
@@ -39116,6 +39127,39 @@ sv:naturlig citronarom
 
 <en:citrus fruit
 fr:agrumes à base de concentré
+
+###################################################################################################
+#
+#                                cashew apples
+#
+###################################################################################################
+
+# description:en:cashew apple is the fruit of the cashew tree which also produces the cashew nut
+
+<en:fruits
+en:cashew apples
+bg:плодове на кашу
+cs:plodů kešu
+da:kasjufrugt
+de:Kaschuäpfeln
+el:ανακάρδιο
+es:anacardos
+et:akažuuõunte
+fi:cashew-omenaa
+fr:anacardes
+hr:oraščićevu jabuku, kajušku jabuku
+hu:kasualma
+it:pomo di acagiù
+lv:kešjukoka augļiem
+lt:anakardžių
+mt:tuffieħ tal-cashew
+nl:cashewappelen
+pl:owoców nerkowca
+pt:castanhas de caju
+ro:alunelor de caju
+sk:jabĺčka kešu
+sl:granatna jabolka
+sv:cashewäpplen
 
 ###################################################################################################
 #
@@ -41199,34 +41243,38 @@ fr:jus de mûre à base de jus concentré
 ###################################################################################################
 
 <en:berries
-en:blackcurrant, black currant
+en:blackcurrant, black currant, blackcurrants
 af:swartaalbessie
 bg:касис
 ca:riber negre
+cs:černého rybízu
 da:solbær
-de:schwarze Johannisbeere, schwarze Johannisbeeren
-el:φραγκοστάφυλο
+de:schwarze Johannisbeere, schwarze Johannisbeeren, schwarzen Johannisbeeren
+el:φραγκοστάφυλο, μαύρα φραγκοστάφυλα
 es:grosella negra, grosellas negras
-et:must sõstar
+et:must sõstar, mustsõstra
 fi:mustaherukka, mustaherukkaa, mustaviinimarja, mustaviinimarjaa
 fo:sólber
 fr:cassis, baies de cassis
 ga:grosella
 he:ענבי שועל
 hr:crni ribiz, crnog ribiza, crna ribizla, crni ribizl, crne ribizle, crni ribiz plod
-hu:fekete ribizli
+hu:fekete ribizli, feketeribiszke
 io:kasiso
 is:sólber
 it:ribes nero, ribes neri
 ja:カシス
-lv:upene
+lt:juodųjų serbentų
+lv:upene, upeņu
 mk:црна рибизла
 mt:passulina sewda
 nb:solbær
-nl:zwarte bes, cassisbessen
-pl:Czarna porzeczka, czarnej porzeczki, czarne porzeczki, porzeczki czarnej, porzeczki czarne
-pt:groselha negra
+nl:zwarte bes, cassisbessen, zwarte bessen
+pl:Czarna porzeczka, czarnej porzeczki, czarne porzeczki, porzeczki czarnej, porzeczki czarne, czarnych porzeczek
+pt:groselha negra, groselhas negras
+ro:coacăzelor negre
 ru:чёрная сморо́дина
+sk:čierne ríbezle
 sl:črni ribez
 sv:svarta vinbär, svartvinbär, svart vinbär
 sw:tunda bukini jeusi
@@ -42709,8 +42757,29 @@ sv:fläderblomsextrakt
 
 <en:berries
 en:rowanberry, rowanberries
-fr:sorbe
+bg:калина
+cs:jeřabin
+da:rønnebær
+de:Vogelbeeren
+el:καρπούς σορβιάς
+es:serbas
+et:hariliku pihlaka
+fi:pihlajanmarjaa
+fr:sorbe, sorbes
+hr:jarebiku
+hu:madárberkenye
+it:sorbe
 la:sorbus aucaparia
+lv:pīlādžogām
+lt:šermukšnių
+mt:ittut tas-sigra rowan
+nl:lĳsterbessen
+pl:owoców jarzębiny
+pt:sorvas
+ro:scorușelor
+sk:jarabinu
+sl:jerebike
+sv:rönnbär
 eurocode_2_group_3:en: 9.30.54
 
 ###################################################################################################
@@ -44019,32 +44088,35 @@ pl:kandyzowana papaja
 
 <en:fruit
 en:passionfruit, passion fruit, maracuja
-bg:маракуя, пасифлора
+bg:маракуя, пасифлора, плод от пасифлора
 ca:fruita de la passió
-cs:maracuja, maracuji
+cs:maracuja, maracuji, plodů mučenky
 da:passionsfrugt
-de:Passionsfrucht, Maracuja
-el:μαρακούγια, φρούτο του πάθους
+de:Passionsfrucht, Maracuja, Passionsfrüchten
+el:μαρακούγια, φρούτο του πάθους, καρπούς ρολογιάς
 eo:pasifrukto
-es:maracuyá, fruta de la pasion
-fi:passiohedelmä, passionhedelmä, kärsimyshedelmä
+es:maracuyá, fruta de la pasion, granadilla
+et:kannatuslille viljade
+fi:passiohedelmä, passionhedelmä, kärsimyshedelmä, passionhedelmää
 fr:fruit de la passion, passion, fruits de la passion, maracuja
-hr:marakuja, marakuje
-hu:maracuja
-it:frutto della passione, maracuja
+hr:marakuja, marakuje, marakuju
+hu:maracuja, passiógyümölcs
+it:frutto della passione, maracuja, frutto di granadiglia
 jv:markisah
 la:Passiflora
-lt:valgomoji pasiflora
+lt:valgomoji pasiflora, pasiflorų
+lv:pasifloru augļiem
 mk:маракуја
 ms:pokok markisa
+mt:passion fruit
 nb:pasjonsfrukt
-nl:passievrucht, maracuja, markieza
+nl:passievrucht, maracuja, markieza, passievruchten
 pl:marakuja, marakui
-pt:maracujá
-ro:fructul pasiunii
+pt:maracujá, maracujás
+ro:fructul pasiunii, fructelor pasiunii
 ru:маракуйя, маракуйи
-sk:marakujo, marakujová
-sl:marakuja
+sk:marakujo, marakujová, mučenku
+sl:marakuja, pasjonke
 sv:passionsfrukt
 ta:தாட்பூட்
 tr:çarkıfelek meyvesi
@@ -44673,18 +44745,29 @@ fr:sauce aux framboises, sauce à la framboise, sauce framboise
 #category/redcurrants
 <en:berries
 en:redcurrant, red currant
-bg:червен касис
-da:røde bær
-de:rote Johannisbeere, rote Johannisbeeren
+bg:червен касис, френско грозде
+cs:červeného rybízu
+da:røde bær, ribs
+de:rote Johannisbeere, rote Johannisbeeren, roten Johannisbeeren
+el:κόκκινα φραγκοστάφυλα
 es:grosella roja, grosellas rojas
-fi:Punaherukka
+et:punase sõstra
+fi:Punaherukka, punaherukkaa
 fr:groseille, groseilles, groseilles rouges
+hr:crveni ribiz
+hu:piros ribiszke
 it:ribes rosso
-nl:aalbes, rode bes
+lv:sarkanajām jāņogām
+lt:raudonųjų serbentų
+mt:passolina ħamra
+nl:aalbes, rode bes, rode bessen
 pl:czerwona porzeczka, czerwonej porzeczki, czerwonych porzeczek, porzeczki czerwone, czerwone porzeczki
-pt:groselha
-ro:coacaze rosii
+pt:groselha, groselhas vermelhas
+ro:coacaze rosii, coacăzelor roșii
 ru:красная смородина
+sk:červené ríbezle
+sl:rdeči ribez
+sv:röda vinbär
 ciqual_food_code:en:13019
 ciqual_food_name:en:Red currant, raw
 ciqual_food_name:fr:Groseille, crue
@@ -44712,7 +44795,7 @@ eurocode_2_group_3:en: 9.30.36
 # comment:en:There is some confusion in the data & translations between the fruit (rose hip), one of the plants it comes from (Rosa canina), and wild roses in general.
 
 <en:fruit
-en:rose hip, rosehip
+en:rose hip, rosehip, rosehips
 af:Roosbottel
 ar:وردة المسك
 az:İtburnu
@@ -44721,38 +44804,42 @@ bg:Шипка, шипки
 br:Hogan
 bs:Šipurak
 ca:gavarró
-cs:Šípky
+cs:Šípky, šípků
 cv:Шăлан
 da:Hyben
 de:Hagebutte, Hagebutten
-el:καρπός της αγριοτριανταφυλλιάς
+el:καρπός της αγριοτριανταφυλλιάς, κυνόρροδα
 eo:Rozbero
-es:escaramujo
+es:escaramujo, agavanzos
+et:koer-kibuvitsa
 eu:Arkakarats
 fa:میوه گل رز
-fi:Ruusunmarja, kiulukka
-fr:cynorrhodon, fruit de l'églantier
+fi:Ruusunmarja, kiulukka, ruusunmarjaa
+fr:cynorrhodon, fruit de l'églantier, cynorhodons
 ga:mogóir róis
 hr:šipak, šipak plod, plod šipka, plodovi šipka, šipka
 hu:csipkebogyó
 hy:մասուր
-it:Cinorrodo
+it:Cinorrodo, cinorrodi
 ja:ローズヒップ
 jv:Rosehip
 kk:Итмұрын
 ko:로즈힙
 ky:Ит мурун
 lb:Spackelter
-lt:erškėtuogė, Erškėtis
+lt:erškėtuogė, Erškėtis, erškėtuogių
+lv:mežrožu
 ml:റോസ് ഹിപ്
 nb:Nype
-nl:Rozenbottel, rozebottel
+nl:Rozenbottel, rozebottel, rozenbottels
 nn:Nype
 os:Уагъылы
-pt:Cinórrodo
-ro:Măceș
+pl:dzikiej róży
+pt:Cinórrodo, roseira brava
+ro:Măceș, măceșelor
 ru:Шиповник
-sk:šípka, Ruža šipkova
+sk:šípka, Ruža šipkova, šípky
+sl:šipek
 sv:Nypon
 tr:kuşburnu
 uk:Шипшина
@@ -45033,26 +45120,29 @@ wikipedia:en:https://en.wikipedia.org/wiki/Fragaria_vesca
 
 
 <en:berries
-en:sea-buckthorn
+en:sea-buckthorn, sea-buckthorns
 ar:أبو فايس
 az:murdarçayabənzər çaytikanı
 ba:һырғанаҡ
 be:абляпіха крушынападобная
-bg:облепиха
+bg:облепиха, зърнастец
 ca:arç groc
-cs:rakytník řešetlákový
+cs:rakytník řešetlákový, rakytníku
 da:havtorn
 de:sanddorn
+el:ιπποφαές
 eo:ramnoida hipofeo
+es:uva espina
 et:astelpaju, harilik astelpaju
 fa:سنجد تلخ
-fi:tyrni
+fi:tyrni, tyrniä
 fr:argousier
 gl:espiñeiro marítimo
 gv:bugogue varrey
 hr:pasji trn
-hu:európai homoktövis
+hu:európai homoktövis, homoktövis
 hy:չիչխան սովորական
+it:olivello spinoso
 kk:шырғанақ
 ky:сары чычырканак
 lt:dygliuotasis šaltalankis
@@ -45063,9 +45153,11 @@ nl:duindoorn
 nn:tindved
 pl:rokitnik zwyczajny, rokitnik pospolity, rokitnik, rokitnika
 ps:اکبار
-ro:cătină albă
+pt:espinheira das areias
+ro:cătină albă, crușin
 ru:облепиха крушиновидная
-sl:navadni rakitovec
+sk:Hippophae rhamonides
+sl:navadni rakitovec, krhlike
 sr:пасји трн
 sv:havtorn
 tg:ангат
@@ -63474,17 +63566,17 @@ bo:བཅའ་ལྒ།
 br:Jinjebr
 bs:Đumbir
 ca:gingebre
-cs:zázvor, zázvorová
+cs:zázvor, zázvorová, zázvoru
 cy:Sinsir
 da:Ingefær, Ingefær rod
 de:Ingwer
-el:Πιπερόριζα
+el:Πιπερόριζα, ζιγγίβερι
 eo:zingibro
 es:Gengibre, jengibre
-et:Ingver
+et:Ingver, ingveri
 eu:jengibre
 fa:زنجبیل
-fi:inkivääri, inkiväärinjuuri
+fi:inkivääri, inkiväärinjuuri, inkivääriä
 fr:gingembre, racine de gingembre
 ga:Sinséar
 gd:Dinnsear
@@ -63512,12 +63604,13 @@ la:Zingiber officinale, Gingiber
 lg:Ennyingo Okuzimba
 li:Geimer
 ln:Ntángawisi
-lt:Tikrasis imbieras
-lv:ingvers
+lt:Tikrasis imbieras, imbiero
+lv:ingvers, ingvera
 mk:ѓумбир
 ml:ഇഞ്ചി
 mr:आले
 ms:Halia
+mt:ġinġer
 my:ချင်းပင်
 nb:ingefær, ingefærrot
 ne:अदुवा
@@ -63526,16 +63619,16 @@ nn:ingefær
 oc:Gengibre
 or:ଅଦା
 pa:ਅਦਰਕ
-pl:Imbir lekarski, imbir, korzeń imbiru
+pl:Imbir lekarski, imbir, korzeń imbiru, imbiru
 ps:سونډی
 pt:Gengibre
 qu:Awirinri
-ro:Ghimbir
+ro:Ghimbir, ghimbirului
 ru:Имбирь, корень имбиря свежий
 sa:आर्द्रकम्
 sd:ادرڪ
 sh:Đumbir
-sk:Ďumbier
+sk:Ďumbier, zázvor
 sl:Ingver
 sr:ћумбир
 su:Jahé
