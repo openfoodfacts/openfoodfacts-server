@@ -241,7 +241,6 @@ sub access_to_protected_resource ($request_ref) {
 		return;
 	}
 
-	# TODO: Get access_token, expires_at, refresh_token from session instead
 	my $access_token = $request_ref->{access_token};
 	my $refresh_expires_at = $request_ref->{refresh_expires_at};
 	my $refresh_token = $request_ref->{refresh_token};

@@ -1231,6 +1231,14 @@ sub init_user ($request_ref) {
 					$log->debug("user identified", {user_id => $user_id, stocked_user_id => $user_ref->{'userid'}})
 						if $log->is_debug();
 					$user_id = $user_ref->{'userid'};
+
+					my $session_ref = $user_ref->{'user_sessions'}{$user_session};
+					$request_ref->{access_token} = $session_ref->{access_token} if $session_ref->{access_token};
+					$request_ref->{access_expires_at} = $session_ref->{access_expires_at}
+						if $session_ref->{access_expires_at};
+					$request_ref->{refresh_token} = $session_ref->{refresh_token} if $session_ref->{refresh_token};
+					$request_ref->{refresh_expires_at} = $session_ref->{refresh_expires_at}
+						if $session_ref->{refresh_expires_at};
 				}
 			}
 			else {
