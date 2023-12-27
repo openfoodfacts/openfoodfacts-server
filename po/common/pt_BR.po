@@ -85,15 +85,15 @@ msgstr "O seu pedido para se juntar à organização está pendente de aprovaç�
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
-msgstr ""
+msgstr "Status do administrador atualizado"
 
 msgctxt "admin_status"
 msgid "Admin Status"
-msgstr ""
+msgstr "Status do administrador"
 
 msgctxt "grant_remove_admin_status"
 msgid "Grant/Remove Admin status"
-msgstr ""
+msgstr "Conceder/Remover status de administrador"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
@@ -2978,15 +2978,15 @@ msgstr "Riscos moderados"
 
 msgctxt "exposure_description_95th"
 msgid "5% of people or more"
-msgstr ""
+msgstr "5% das pessoas ou mais"
 
 msgctxt "exposure_title_mean"
 msgid "High risk"
-msgstr ""
+msgstr "Alto risco"
 
 msgctxt "exposure_description_mean"
 msgid "50% of people or more"
-msgstr ""
+msgstr "50% das pessoas ou mais"
 
 msgctxt "wikipedia"
 msgid "Wikipedia"
@@ -4134,7 +4134,7 @@ msgstr "Moderação da plataforma de produtores"
 # variable names between { } must not be translated
 msgctxt "f_pro_moderator_owner_set"
 msgid "You are currently viewing products from {organization}."
-msgstr ""
+msgstr "Você está vendo produtos da {organization}."
 
 msgctxt "pro_moderator_owner_not_set"
 msgid "You are currently viewing your own products."
@@ -4147,7 +4147,7 @@ msgstr "Para ver os produtos de um utilizador ou organização específica, intr
 # Action verb "Change" to put on a form button
 msgctxt "pro_moderator_edit_owner"
 msgid "Switch to another organization"
-msgstr ""
+msgstr "Mudar para outra organização"
 
 msgctxt "pro_moderator_edit_owner_placeholder"
 msgid "user-abc or org-xyz"
@@ -4216,7 +4216,7 @@ msgstr "Remover todos os produtos"
 
 msgctxt "remove_user"
 msgid "Remove user"
-msgstr ""
+msgstr "Excluir Usuário"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -4306,7 +4306,7 @@ msgstr "Colaborador"
 
 msgctxt "contributor_settings_description"
 msgid "Those settings allow you to personalize some aspects of the website"
-msgstr ""
+msgstr "Essas configurações permitem que você personalize alguns aspectos do site"
 
 msgctxt "display_barcode_in_search"
 msgid "Display barcode in search results"
@@ -4928,11 +4928,11 @@ msgstr "Site oficial"
 
 msgctxt "organization_members"
 msgid "Organization Members"
-msgstr ""
+msgstr "Membros da organização"
 
 msgctxt "number_of_members"
 msgid "Number of Members"
-msgstr ""
+msgstr "Quantidade de membros"
 
 msgctxt "serial_no"
 msgid "S.No"
@@ -5156,7 +5156,7 @@ msgstr "Número de produtos com alterações desde a última exportação"
 
 msgctxt "number_of_products_withdrawn_from_the_market_since_last_export"
 msgid "Number of products withdrawn from the market since last export"
-msgstr ""
+msgstr "Número de produtos retirados do mercado desde a última exportação"
 
 msgctxt "only_export_products_with_changes"
 msgid "Only export products with changes"
@@ -5312,7 +5312,7 @@ msgstr "Remover todos os valores nutricionais"
 
 msgctxt "delete_user_process"
 msgid "User is being deleted. This may take a few minutes."
-msgstr ""
+msgstr "O usuário está sendo excluído. Isso pode levar alguns minutos."
 
 msgctxt "attribute_ecoscore_not_applicable_title"
 msgid "Eco-Score not yet applicable"
@@ -5938,7 +5938,7 @@ msgstr ""
 
 msgctxt "data_quality_errors_panel_title"
 msgid "Detected Errors"
-msgstr ""
+msgstr "Erros detectados"
 
 msgctxt "data_quality_errors_panel_subtitle"
 msgid "Help us improve quality of our data by contributing fixes"
@@ -5946,7 +5946,7 @@ msgstr ""
 
 msgctxt "data_quality_warnings_panel_title"
 msgid "Potential issues"
-msgstr ""
+msgstr "Problemas em potencial"
 
 msgctxt "data_quality_warnings_panel_subtitle"
 msgid "We have detected some potential issues or potential improvements, could you check if some apply ?"
@@ -5954,7 +5954,7 @@ msgstr ""
 
 msgctxt "data_quality_info_panel_title"
 msgid "Data Quality infos"
-msgstr ""
+msgstr "Informações de Qualidade dos Dados"
 
 msgctxt "data_quality_info_panel_subtitle"
 msgid "Some infos about data quality on this product"
@@ -6435,7 +6435,7 @@ msgstr "JSON inválido no corpo da solicitação"
 
 msgctxt "api_message_invalid_code"
 msgid "Invalid code"
-msgstr ""
+msgstr "Código inválido"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
@@ -6459,7 +6459,7 @@ msgstr "Campos faltando"
 
 msgctxt "api_message_unrecognized_field"
 msgid "Unrecognized field"
-msgstr ""
+msgstr "Campo não reconhecido"
 
 msgctxt "api_message_unrecognized_value"
 msgid "Unrecognized value"
@@ -6515,7 +6515,7 @@ msgstr "ID de usuário e senha inválidos"
 
 msgctxt "api_message_invalid_value_must_be_0_or_1"
 msgid "Invalid value: must be 0 or 1"
-msgstr ""
+msgstr "Valor inválido: deve ser 0 ou 1"
 
 # Unit = element, not unit of measure
 msgctxt "packaging_number_of_units_description"
