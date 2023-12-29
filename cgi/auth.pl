@@ -30,6 +30,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Auth qw/write_auth_deprecated_headers/;
 
 use Apache2::Const -compile => qw(OK);
 use CGI qw/:cgi :form escapeHTML/;

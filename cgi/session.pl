@@ -31,6 +31,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::Auth qw/write_auth_deprecated_headers/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -75,6 +76,7 @@ if (defined $User_id) {
 
 		$log->info("redirecting after login", {url => $url}) if $log->is_info();
 
+		write_auth_deprecated_headers();
 		$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
 		$r->headers_out->set(Location => "$url");
 		$r->status(302);
@@ -95,6 +97,7 @@ if (single_param('jqm')) {
 	my $data = encode_json(\%response);
 
 	write_cors_headers();
+	write_auth_deprecated_headers();
 	print header(-type => 'application/json', -charset => 'utf-8') . $data;
 
 }
@@ -119,6 +122,8 @@ else {
 
 	$request_ref->{title} = lang('session_title');
 	$request_ref->{content_ref} = \$html;
+
+	write_auth_deprecated_headers();
 	display_page($request_ref);
 }
 

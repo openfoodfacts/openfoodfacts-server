@@ -48,6 +48,7 @@ BEGIN {
 		&get_token_using_client_credentials
 		&get_token_using_password_credentials
 		&get_azp
+		&write_auth_deprecated_headers
 
 		$oidc_discover_document
 		$jwks
@@ -632,6 +633,26 @@ sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
 
 	$jwks = decode_json($jwks_response->content);
 	$log->info('got JWKS', {jwks => $jwks}) if $log->is_info();
+	return;
+}
+
+=head2 write_auth_deprecated_headers()
+
+Writes the deprecation notice for old authentication sites as HTTP headers.
+
+=head3 Arguments
+
+None.
+
+=head3 Return values
+
+None.
+=cut
+
+sub write_auth_deprecated_headers() {
+	my $r = Apache2::RequestUtil->request();
+	$r->err_headers_out->set('Deprecation', 'Mon, 01 Apr 2024 00:00:00 GMT');
+	$r->err_headers_out->set('Sunset', 'Tue, 01 Apr 2025 18:00:00 GMT');
 	return;
 }
 
