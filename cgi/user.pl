@@ -32,6 +32,8 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Text qw/:all/;
+use ProductOpener::Routing qw/analyze_request/;
+use ProductOpener::Auth qw/access_to_protected_resource/;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -58,6 +60,8 @@ if (($type eq "add") and (defined single_param('prdct_mult'))) {
 }
 
 my $request_ref = ProductOpener::Display::init_request();
+analyze_request($request_ref);
+access_to_protected_resource($request_ref);
 
 # $userid will contain the user to be edited, possibly different than $User_id
 # if an administrator edits another user
