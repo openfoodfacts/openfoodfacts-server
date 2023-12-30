@@ -27,25 +27,18 @@ use CGI::Carp qw(fatalsToBrowser);
 use ProductOpener::Auth qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Routing qw/:all/;
-use ProductOpener::Users qw/:all/;
 
 use Log::Any qw($log);
+
+if (not($ENV{'REQUEST_METHOD'} eq 'POST')) {
+	display_error_and_exit('Method Not Allowed.', 405);
+}
 
 $log->info('start') if $log->is_info();
 
 my $request_ref = init_request();
 analyze_request($request_ref);
 
-my $return_url = callback($request_ref);
-
-unless (defined $User_id) {
-	display_error_and_exit('Unauthorized', 401);
-}
-
-unless (defined $return_url) {
-	$return_url = format_subdomain('world');
-}
-
-redirect_to_url($request_ref, 302, $return_url);
+start_signout($request_ref);
 
 1;

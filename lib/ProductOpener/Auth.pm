@@ -39,7 +39,8 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&access_to_protected_resource
-		&callback
+		&signin_callback
+		&signout_callback
 		&password_signin
 		&verify_access_token
 		&verify_id_token
@@ -49,6 +50,7 @@ BEGIN {
 		&get_token_using_password_credentials
 		&get_azp
 		&write_auth_deprecated_headers
+		&start_signout
 
 		$oidc_discover_document
 		$jwks
@@ -75,6 +77,7 @@ use Crypt::JWT qw(decode_jwt);
 use CGI qw/:cgi :form escapeHTML/;
 use Apache2::RequestIO();
 use Apache2::RequestRec();
+use MIME::Base64 qw(decode_base64);
 use JSON::PP;
 use Data::DeepAccess qw(deep_get);
 use Storable qw(dclone);
@@ -94,7 +97,8 @@ if (defined $server_options{cookie_domain}) {
 		= '.' . $server_options{cookie_domain};    # e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
 }
 
-my $callback_uri = format_subdomain('world') . '/cgi/oidc-callback.pl';
+my $callback_uri = format_subdomain('world') . '/cgi/oidc-signin-callback.pl';
+my $signout_callback_uri = format_subdomain('world') . '/cgi/oidc-signout-callback.pl';
 
 my $client = undef;
 
@@ -127,12 +131,12 @@ sub start_authorize ($request_ref) {
 		state => $nonce,
 	);
 
-	$request_ref->{cookie} = generate_signin_cookie($nonce, $return_url);
+	$request_ref->{cookie} = generate_oidc_cookie($nonce, $return_url);
 	redirect_to_url($request_ref, 302, $redirect_url);
 	return;
 }
 
-=head2 callback($request_ref)
+=head2 signin_callback($request_ref)
 
 Handles the callback after successful authentication, verifies the ID token, and creates or retrieves the user's information.
 
@@ -145,7 +149,7 @@ Handles the callback after successful authentication, verifies the ID token, and
 The return URL after successful authentication.
 =cut
 
-sub callback ($request_ref) {
+sub signin_callback ($request_ref) {
 	if (not(defined cookie($cookie_name))) {
 		start_authorize($request_ref);
 		return;
@@ -194,7 +198,8 @@ sub callback ($request_ref) {
 		$access_token->{refresh_token},
 		$time + $access_token->{refresh_expires_in},
 		$access_token->{access_token},
-		$time + $access_token->{expires_in}, $request_ref
+		$time + $access_token->{expires_in},
+		$access_token->{id_token}, $request_ref
 	);
 	param('user_id', $user_id);
 	param('user_session', $user_session);
@@ -299,6 +304,85 @@ sub access_to_protected_resource ($request_ref) {
 	$log->info('request is ok', $request_ref) if $log->is_info();
 
 	return;
+}
+
+=head2 start_signout($request_ref)
+
+Initiates the sign-out process by redirecting the user to the authorization page.
+
+=head3 Arguments
+
+=head4 A reference to a hash containing request information. $request_ref
+.
+=head3 Return Values
+
+None
+=cut
+
+sub start_signout ($request_ref) {
+	my $return_url = single_param('return_url');
+	if (   (not $return_url)
+		or (not($return_url =~ /^https?:\/\/$subdomain\.$server_domain/)))
+	{
+		$return_url = $formatted_subdomain;
+	}
+
+	my $id_token = $request_ref->{id_token};
+	unless ($User_id and $id_token) {
+		param('length', 'logout');
+		init_user($request_ref);
+		redirect_to_url($request_ref, 302, $formatted_subdomain);
+		return;
+	}
+
+	_ensure_oidc_is_discovered();
+
+	my $nonce = generate_token(64);
+	my $end_session_endpoint = $oidc_discover_document->{end_session_endpoint};
+	my $redirect_url
+		= $end_session_endpoint
+		. '?post_logout_redirect_uri='
+		. uri_escape($signout_callback_uri)
+		. '&id_token_hint='
+		. uri_escape($id_token)
+		. '&state='
+		. uri_escape($nonce);
+
+	$request_ref->{cookie} = generate_oidc_cookie($nonce, $return_url);
+	redirect_to_url($request_ref, 302, $redirect_url);
+	return;
+}
+
+=head2 signout_callback($request_ref)
+
+Handles the callback after successful sign-out, clears session cookie.
+
+=head3 Arguments
+
+=head4 A reference to a hash containing request information. $request_ref
+
+=head3 Return values
+
+The return URL after successful sign-out.
+=cut
+
+sub signout_callback ($request_ref) {
+	if (not(defined cookie($cookie_name))) {
+		return $formatted_subdomain;
+	}
+
+	my $state = single_param('state');
+	my %cookie_ref = cookie($cookie_name);
+	my $nonce = $cookie_ref{'nonce'};
+	if (not($state eq $nonce)) {
+		$log->info('unexpected nonce', {nonce => $nonce, expected_nonce => $state}) if $log->is_info();
+		display_error_and_exit('Invalid Nonce during OIDC logout', 500);
+	}
+
+	param('length', 'logout');
+	init_user($request_ref);
+
+	return $cookie_ref{'return_url'};
 }
 
 sub create_user_in_keycloak ($user_ref, $password) {
@@ -470,26 +554,26 @@ sub get_token_using_client_credentials () {
 	return $access_token;
 }
 
-=head2 generate_signin_cookie($user_id, $user_session)
+=head2 generate_oidc_cookie($user_id, $user_session)
 
-Generate a sign-in cookie.
+Generate a sign-in/sign-out cookie.
 
-The cookie is used to store information related to the current sign-in
+The cookie is used to store information related to the current sign-in/sign-out
 for validation, and to redirect the user to the correct URL.
 
 =head3 Arguments
 
 =head4 Nonce $nonce
 
-=head4 Return URL after sign-in $return_url
+=head4 Return URL after sign-in/-out $return_url
 
 =head3 Return values
 
-Sign-in cookie.
+Sign-in/sign-out cookie.
 
 =cut
 
-sub generate_signin_cookie ($nonce, $return_url) {
+sub generate_oidc_cookie ($nonce, $return_url) {
 	my $signin_ref = {'nonce' => $nonce, 'return_url' => $return_url};
 
 	my $cookie_ref = {

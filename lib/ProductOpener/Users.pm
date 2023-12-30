@@ -911,7 +911,7 @@ sub generate_session_cookie ($user_id, $user_session) {
 	return cookie(%$cookie_ref);
 }
 
-=head2 open_user_session($user_ref, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $request_ref)
+=head2 open_user_session($user_ref, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token, $request_ref)
 
 Open a session, store it in the user object, and return a cookie with the session id in the request object.
 
@@ -927,6 +927,8 @@ Open a session, store it in the user object, and return a cookie with the sessio
 
 =head4 Timestamp after which the OIDC Access Token cannot be used $access_expires_at
 
+=head4 OIDC ID Token $id_token
+
 =head4 Request object $request_ref
 
 =head3 Return values
@@ -935,7 +937,8 @@ The cookie is returned in $request_ref
 
 =cut
 
-sub open_user_session ($user_ref, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $request_ref)
+sub open_user_session ($user_ref, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token,
+	$request_ref)
 {
 
 	my $user_id = $user_ref->{'userid'};
@@ -955,7 +958,8 @@ sub open_user_session ($user_ref, $refresh_token, $refresh_expires_at, $access_t
 		refresh_token => $refresh_token,
 		refresh_expires_at => $refresh_expires_at,
 		access_token => $access_token,
-		access_expires_at => $access_expires_at
+		access_expires_at => $access_expires_at,
+		id_token => $id_token
 	};
 
 	# Store user data
@@ -1086,7 +1090,7 @@ sub init_user ($request_ref) {
 
 				if (not defined request_param($request_ref, 'no_log')) # no need to store sessions for internal requests
 				{
-					open_user_session($user_ref, undef, undef, undef, undef, $request_ref);
+					open_user_session($user_ref, undef, undef, undef, undef, undef, $request_ref);
 				}
 			}
 			else {
@@ -1128,7 +1132,7 @@ sub init_user ($request_ref) {
 				$user_id = $user_ref->{'userid'};
 				$log->context->{user_id} = $user_id;
 
-				my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at)
+				my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
 					= password_signin($user_id, encode_utf8(request_param($request_ref, 'password')));
 				# We don't have the right password
 				if (not $oidc_user_id) {
@@ -1150,10 +1154,8 @@ sub init_user ($request_ref) {
 
 					migrate_password_hash($user_ref);
 
-					open_user_session(
-						$user_ref, $refresh_token, $refresh_expires_at,
-						$access_token, $access_expires_at, $request_ref
-					);
+					open_user_session($user_ref, $refresh_token, $refresh_expires_at,
+						$access_token, $access_expires_at, $id_token, $request_ref);
 				}
 			}
 			else {
@@ -1239,6 +1241,7 @@ sub init_user ($request_ref) {
 					$request_ref->{refresh_token} = $session_ref->{refresh_token} if $session_ref->{refresh_token};
 					$request_ref->{refresh_expires_at} = $session_ref->{refresh_expires_at}
 						if $session_ref->{refresh_expires_at};
+					$request_ref->{id_token} = $session_ref->{id_token} if $session_ref->{id_token};
 				}
 			}
 			else {
