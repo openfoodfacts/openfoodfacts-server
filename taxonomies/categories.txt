@@ -65,6 +65,12 @@ stopwords:de:und,mit,von
 # And for categories where we are certain there is 100% fruits/vegetables/legumes
 # we put nutriscore_category_override_for_fruits_vegetables_legumes:en: 100
 
+# For categories for which a minimum amount of specific ingredients is required in some countries
+# we put expected_minimal_amount_specific_ingredients:en followed by the specific ingredient, 
+#   the quantity in g and the country where it applis. 
+# additional countries can be added separated by a semi colon (";"). Example for en:fruit, 35g, in EU and en:fruit, 35g in en:other-country:
+# expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu;  en:fruit, 35, en:other-country
+
 en:Artisan products
 ca:Prouctes artesans
 de:Handgefertigte Produkte, Artisanale Produkte, Handgemachte Produkte
@@ -92462,6 +92468,7 @@ ciqual_proxy_food_code:en:31024
 ciqual_proxy_food_name:en:Jam, strawberry
 ciqual_proxy_food_name:fr:Confiture de fraise (extra ou classique)
 intake24_category_code:en:JAMS
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 <en:Jams
 en:Shelf-stable jams
@@ -92621,6 +92628,7 @@ hu:Vörös ribizli lekvár
 it:Confetture di ribes
 nl:Aalbessenjams
 pt:Doces de groselha
+expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
 
 <en:Berry jams
 en:Gooseberries jams, gooseberry jams

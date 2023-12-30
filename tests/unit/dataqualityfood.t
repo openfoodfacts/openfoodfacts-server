@@ -1400,4 +1400,141 @@ ok(!has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-great
 	'sum of sugars and starch greater carbohydrates')
 	or diag explain $product_ref;
 
+# jam and related categories and fruit (specific ingredients) content
+## missing specific ingredients
+$product_ref = {
+	categories_tags => ["en:jams"],
+	countries_tags => ["en:slovenia",],
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(has_tag($product_ref, 'data_quality', 'en:missing-specific-ingredient-for-this-category'),
+	'specific ingredients missing')
+	or diag explain $product_ref;
+## missing specific ingredients for fruit
+$product_ref = {
+	categories_tags => ["en:jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:other",
+			ingredient => "other",
+			quantity => "50 g",
+			quantity_g => 50,
+			text => "other",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(has_tag($product_ref, 'data_quality', 'en:missing-specific-ingredient-for-this-category'),
+	'specific ingredients but en:fruit missing')
+	or diag explain $product_ref;
+## specific ingredients for fruit ok
+$product_ref = {
+	categories_tags => ["en:jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "50 g",
+			quantity_g => 50,
+			text => "Prepared with 50g fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(!has_tag($product_ref, 'data_quality', 'en:missing-fruit-content-for-jams-or-jellies'),
+	'specific ingredients with en:fruit ok')
+	or diag explain $product_ref;
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-jams'
+	),
+	'en:fruit content ok'
+) or diag explain $product_ref;
+## specific ingredients for fruit is given but content is too small
+$product_ref = {
+	categories_tags => ["en:jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "5 g",
+			quantity_g => 5,
+			text => "Prepared with 5g fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(!has_tag($product_ref, 'data_quality', 'en:missing-fruit-content-for-jams-or-jellies'),
+	'specific ingredients with en:fruit ok')
+	or diag explain $product_ref;
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-jams'
+	),
+	'en:fruit content too small'
+) or diag explain $product_ref;
+## specific ingredients for fruit is given but content is too small with more specific category
+$product_ref = {
+	categories_tags => ["en:jams", "en:redcurrants-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "10 g",
+			quantity_g => 10,
+			text => "Prepared with 10 fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-jams'
+	),
+	'en:fruit content too small for jam but has more specific category with smaller threshold'
+) or diag explain $product_ref;
+ok(
+	has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-redcurrants-jams'
+	),
+	'en:fruit content too small'
+) or diag explain $product_ref;
+## specific ingredients for fruit is given but content is too small for jams but high enough for more specific category
+$product_ref = {
+	categories_tags => ["en:jams", "en:redcurrants-jams"],
+	countries_tags => ["en:slovenia",],
+	specific_ingredients => [
+		{
+			id => "en:fruit",
+			ingredient => "fruit",
+			quantity => "30 g",
+			quantity_g => 30,
+			text => "Prepared with 30 fruit per 100g",
+		},
+	]
+};
+ProductOpener::DataQuality::check_quality($product_ref);
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-35-for-category-jams'
+	),
+	'en:fruit content too small for jam but has more specific category with smaller threshold'
+) or diag explain $product_ref;
+ok(
+	!has_tag(
+		$product_ref, 'data_quality',
+		'en:specific-ingredient-fruit-quantity-is-below-the-minimum-value-of-25-for-category-redcurrants-jams'
+	),
+	'en:fruit content too small'
+) or diag explain $product_ref;
+
 done_testing();
