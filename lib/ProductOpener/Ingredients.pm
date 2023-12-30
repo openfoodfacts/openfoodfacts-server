@@ -5417,6 +5417,11 @@ my %ingredients_categories_and_types = (
 				"thym",
 			]
 		},
+  		# plant protein
+		{
+  			categories => ["protéines végétales",],
+	 		types => ["avoine", "blé", "colza", "fève", "pois", "pois chiche", "pomme de terre", "riz" "soja", "tournesol",]
+		},
 		# lecithin
 		{
 			categories => ["lécithine",],
