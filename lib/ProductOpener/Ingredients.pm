@@ -5375,11 +5375,17 @@ my %ingredients_categories_and_types = (
 	],
 
 	de => [
+ 		# oil and fat
 		{
 			categories => ["pflanzliches Fett", "pflanzliche Öle", "pflanzliche Öle und Fette", "Fett", "Öle"],
 			types => ["Kokosnuss", "Palm", "Palmkern", "Raps", "Shea", "Sonnenblumen",],
 			# Kokosnussöl, Sonnenblumenfett
 			alternate_names => ["<type>fett", "<type>öl"],
+		},
+  		# plan protein
+		{
+  			categories => ["pflanzliche Proteine",],
+	 		types => ["Ackerbohnen", "Erbsen", "Hafer", "Kartoffel" "Kichererbsen", "Pilz", "Reis", "Soja", "Sonnenblumen", "Weizen"],
 		},
 	],
 
@@ -5420,7 +5426,7 @@ my %ingredients_categories_and_types = (
   		# plant protein
 		{
   			categories => ["protéines végétales",],
-	 		types => ["avoine", "blé", "colza", "fève", "pois", "pois chiche", "pomme de terre", "riz" "soja", "tournesol",]
+	 		types => ["avoine", "blé", "champignon", "colza", "fève", "pois", "pois chiche", "pomme de terre", "riz" "soja", "tournesol",]
 		},
 		# lecithin
 		{
