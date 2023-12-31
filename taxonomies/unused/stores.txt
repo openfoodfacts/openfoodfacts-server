@@ -90,10 +90,12 @@ country:en: en:France
 # Belgique
 
 fr:Delhaize
-country:en: en:Belgium
+wikidata:en:Q1184173
+country:en: en:Belgium,en:Luxembourg
 
 fr:Colruyt
-country:en: en:Belgium
+wikidata:en:Q2363991
+country:en: en:Belgium,en:France,en:Luxembourg
 
 nl:Bio-Planet
 country:en: en:Belgium
@@ -1246,10 +1248,6 @@ en:Coles Local
 wikidata:en:Q104850818
 country:en: en:Australia
 
-be:Colruyt
-wikidata:en:Q2363991
-country:en: en:Belgium,en:France,en:Luxembourg
-
 de:Combi
 wikidata:en:Q1113618
 country:en: en:Germany
@@ -1404,10 +1402,6 @@ country:en: en:Netherlands
 nl:DekaMarkt
 wikidata:en:Q2489350
 country:en: en:Netherlands
-
-be:Delhaize
-wikidata:en:Q1184173
-country:en: en:Belgium,en:Luxembourg
 
 pl:Delikatesy Centrum
 wikidata:en:Q11693824
@@ -3647,10 +3641,6 @@ country:en: en:Russian Federation
 ru:Лента
 wikidata:en:Q4258608
 country:en: en:Russian Federation
-
-bg:Лидл (България)
-wikidata:en:Q108169047
-country:en: en:Bulgaria
 
 rs:Лидл (Србија)
 wikidata:en:Q114509929
