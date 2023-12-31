@@ -255,6 +255,7 @@ var iso3601_to_language_mappings = {
 };
 
 data["items"].forEach(function (record) {
+  var countryCodes = record.locationSet["include"];
   var countryNames = [];
   countryCodes.forEach(function (code) {
 	if (code == "001") { return; }
@@ -267,7 +268,6 @@ data["items"].forEach(function (record) {
 	}
   });
 
-  var countryCodes = record.locationSet["include"];
   var primaryCountryCode = countryCodes[0].toString().split("-")[0];
   var primaryLanguageCode = primaryCountryCode;
   if (iso3601_to_language_mappings[primaryCountryCode]) {
