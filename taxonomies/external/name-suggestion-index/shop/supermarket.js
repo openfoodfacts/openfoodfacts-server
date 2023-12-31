@@ -275,7 +275,9 @@ data["items"].forEach(function (record) {
   }
 
   process.stdout.write([primaryLanguageCode, record.displayName].join(":") + "\n");
-  process.stdout.write(["wikidata:en", record.tags["brand:wikidata"]].join(":") + "\n");
+  if (record.tags["brand:wikidata"]) {
+    process.stdout.write(["wikidata:en", record.tags["brand:wikidata"]].join(":") + "\n");
+  }
   if (countryNames.length > 0) {
     process.stdout.write(["country:en:", countryNames.join(",")].join(" ") + "\n");
   }
