@@ -17,7 +17,7 @@ Also it as the right
 Just run
 
 ```
-docker-compose run --rm backend re.pl
+docker compose run --rm backend re.pl
 ```
 
 If you want to access external services (like mongodb), do not forget to start them.

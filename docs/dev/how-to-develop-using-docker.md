@@ -59,7 +59,7 @@ log4perl.rootLogger=TRACE, LOGFILE
 Run the following to open a bash shell within the `backend` container:
 
 ```
-docker-compose exec backend bash
+docker compose exec backend bash
 ```
 
 You should see `root@<CONTAINER_ID>:/#` (opened root shell): you are now within the Docker container and can begin typing some commands !
@@ -125,15 +125,15 @@ as it does a full rebuild, which, in dev mode, should only be necessary in a few
 
 On a daily bases you could better run those:
 
-* `docker-compose up` to start and monitor the stack.
-* `docker-compose restart backend` to account for a code change in a `.pm` file
+* `docker compose up` to start and monitor the stack.
+* `docker compose restart backend` to account for a code change in a `.pm` file
   (cgi `pl` files do not need a restart)
-* `docker-compose stop` to stop them all
+* `docker compose stop` to stop them all
 
 If some important file changed (like Dockerfile or cpanfile, etc.), or in case of doubt,
-you can run `docker-compose build` (or maybe it's a good time to use `make up` once)
+you can run `docker compose build` (or maybe it's a good time to use `make up` once)
 
-You should explore the [docker-compose commands](https://docs.docker.com/compose/reference/)
+You should explore the [docker compose commands](https://docs.docker.com/compose/reference/)
 most are useful!
 
 
@@ -142,7 +142,7 @@ To automate the live reload on code changes, you can install the Python package 
 ```
 pip3 install when-changed
 when-changed -r docker/ docker-compose.yml .env -c "make restart"                                         # restart backend container on compose changes
-when-changed -r lib/ -r docker/ docker-compose.yml -c "docker-compose backend restart" # restart Apache on code changes
+when-changed -r lib/ -r docker/ docker-compose.yml -c "docker compose backend restart" # restart Apache on code changes
 when-changed -r html/ Dockerfile Dockerfile.frontend package.json -c "make up" # rebuild containers on asset or Dockerfile changes
 ```
 
@@ -152,7 +152,7 @@ An alternative to `when-changed` is `inotifywait`.
 ## Run queries on MongoDB database
 
 ```
-docker-compose exec mongodb mongo
+docker compose exec mongodb mongo
 ```
 
 The above command will open a MongoDB shell, allowing you to use all the `mongo` 
@@ -182,7 +182,7 @@ To add a new environment variable `TEST`:
 
 The call stack goes like this:
 
-`make up` > `docker-compose` > loads `.env` > pass env variables to the `backend` container > pass to `mod_perl` > initialized in `Config2.pm`.
+`make up` > `docker compose` > loads `.env` > pass env variables to the `backend` container > pass to `mod_perl` > initialized in `Config2.pm`.
 
 ## Managing multiple deployments
 
@@ -191,7 +191,7 @@ there are different possible strategies.
 
 ### a set env script
 
-Docker-compose takes it settings from, in order of priority:
+docker compose takes it settings from, in order of priority:
 * the environment
 * the `.env` file
 
@@ -209,7 +209,7 @@ To use it, open a terminal, where you want to be in pro environment and simply u
 . setenv-pro.sh
 ```
 
-then you can use whatever docker-compose command.
+then you can use whatever docker compose command.
 
 **Note:** This terminal will remain in `pro` mode until you end its session.
 
@@ -236,7 +236,7 @@ You will need:
   so that frontend containers don't port-conflict with each other.
 
 To switch between configurations, set `ENV_FILE` before running `make` commands,
-(or `docker-compose` command):
+(or `docker compose` command):
 
 ```
 ENV_FILE=.env.off-pro make up # starts the OFF Producer's Platform containers.

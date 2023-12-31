@@ -31,7 +31,7 @@ Integration tests are in `tests/integration/`.
 
 Most integration tests issue queries to an open food facts
 
-## Integration with docker-compose
+## Integration with docker compose
 
 Using Makefile targets, tests are run 
 * with a specific `COMPOSE_PROJECT_NAME° to avoid crashing your development data while running tests (as the project name [changes container, network and volumes names](https://docs.docker.com/compose/environment-variables/envvars/#compose_project_name))

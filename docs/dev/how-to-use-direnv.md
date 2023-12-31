@@ -16,7 +16,7 @@ As a quick guide as an openfoodfacts developer:
   that you wan't to
 
 ```
-echo "setting up docker-compose env"
+echo "setting up docker compose env"
 export DOCKER_BUILDKIT=1
 export USER_UID=${UID}
 export USER_UID=$(id -g)
