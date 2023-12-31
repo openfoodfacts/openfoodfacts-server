@@ -225,7 +225,7 @@ var iso3601 = {
   "tz": "Tanzania",
   "ua": "Ukraine",
   "ug": "Uganda",
-  "us": "United States",
+  "us": "United States of America",
   "uy": "Uruguay",
   "uz": "Uzbekistan",
   "va": "Vatican City (Holy See)",
