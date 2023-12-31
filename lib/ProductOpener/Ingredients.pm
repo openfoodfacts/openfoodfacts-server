@@ -1462,6 +1462,7 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 							   ($ingredients_lc eq 'ar')
 							or ($ingredients_lc eq 'bg')
 							or ($ingredients_lc eq 'bs')
+							or ($ingredients_lc eq 'ca')
 							or ($ingredients_lc eq 'cs')
 							or ($ingredients_lc eq 'el')
 							or ($ingredients_lc eq 'en')
