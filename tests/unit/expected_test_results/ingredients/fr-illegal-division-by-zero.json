@@ -1,0 +1,78 @@
+{
+   "ingredients" : [
+      {
+         "id" : "fr:analyse-moyenne-pour-1",
+         "ingredients" : [
+            {
+               "id" : "fr:1472-kj",
+               "percent_estimate" : 100,
+               "percent_max" : 100,
+               "percent_min" : 100,
+               "text" : "1472 kJ"
+            }
+         ],
+         "percent_estimate" : 100,
+         "percent_max" : 100,
+         "percent_min" : 100,
+         "quantity" : "00 g",
+         "quantity_g" : 0,
+         "text" : "Analyse moyenne pour 1"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:palm-oil-content-unknown" : [
+         "fr:analyse-moyenne-pour-1",
+         "fr:1472-kj"
+      ],
+      "en:vegan-status-unknown" : [
+         "fr:analyse-moyenne-pour-1",
+         "fr:1472-kj"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "fr:analyse-moyenne-pour-1",
+         "fr:1472-kj"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-content-unknown",
+      "en:vegan-status-unknown",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_hierarchy" : [
+      "fr:analyse-moyenne-pour-1",
+      "fr:1472-kj"
+   ],
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "fr:analyse-moyenne-pour-1",
+      "fr:1472-kj"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "fr:analyse-moyenne-pour-1",
+      "fr:1472-kj"
+   ],
+   "ingredients_text" : "Analyse moyenne pour 1 00 g: 1472 kJ,",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 1,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "fr:1472-kj",
+      "fr:analyse-moyenne-pour-1"
+   ],
+   "ingredients_without_ciqual_codes_n" : 2,
+   "known_ingredients_n" : 0,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 2
+}

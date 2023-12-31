@@ -1,6 +1,3 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
 # https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
 
 version: 2
@@ -8,19 +5,56 @@ updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
-      interval: "daily"
-  
+      interval: "weekly"
+    open-pull-requests-limit: 300
+    groups:
+      babel:
+        patterns:
+          - "@babel/*"
+          - "gulp-babel"
+      gulp:
+        patterns:
+          - "@types/gulp*"
+          - "gulp*"
+        exclude-patterns:
+          - "gulp-babel"
+      jquery:
+        patterns:
+          - "@types/jquery*"
+          - "jquery*"
+      leaflet:
+        patterns:
+          - "leaflet*"
+      lint:
+        patterns:
+          - "@typescript-eslint/*"
+          - "eslint*"
+          - "stylelint*"
+      test-dependencies:
+        patterns:
+          - "chai*"
+          - "mocha"
+      typescript:
+        patterns:
+          - "ts-node"
+          - "typescript"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-        interval: "daily"
-
+      interval: "weekly"
+    open-pull-requests-limit: 300
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
-        interval: "daily"
-
+      interval: "weekly"
+    open-pull-requests-limit: 300
   - package-ecosystem: "docker"
     directory: "/docker/frontend"
     schedule:
-        interval: "daily"
+      interval: "weekly"
+    open-pull-requests-limit: 300
+  - package-ecosystem: "pip"
+    directory: "/scripts/packager-codes/non-eu/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 300

@@ -1,39 +1,33 @@
-#!/bin/sh
+#!/bin/bash
+# import various producers data to public platform in automated mode
+# this script must be launched in /srv/off-pro/
 
-cd /srv/off-pro/scripts
-export PERL5LIB="../lib:${PERL5LIB}"
+export PERL5LIB="lib:${PERL5LIB}"
 
-./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-barilla-france-sa
+PRODUCERS=(
+org-barilla-france-sa
+org-ferrero-france-commerciale
+org-unilever-france-gms
+org-unilever-france-rhd
+org-nestle-france
+org-panzani-sa
+org-cristalco
+org-materne
+org-garofalo-france
+org-brasseries-kronenbourg
+org-carrefour
+org-lustucru-frais
+org-nestle-waters
+org-kambly
+org-kambly-france
+org-saint-hubert
+org-d-aucy
+org-lea-nature
+org-auchan-apaw
+org-les-mousquetaires
+)
 
-./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-ferrero-france-commerciale
-
-./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-unilever-france-gms
-
-./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-unilever-france-rhd
-
-./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-nestle-france
-
-./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-panzani-sa
-
-./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-cristalco
-
-./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-materne
-
-./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-garofalo-france
-
-./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-brasseries-kronenbourg
-
-./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-carrefour
-
-./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-lustucru-frais
-
-./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-garofalo-france
-
-./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-nestle-waters
-
-./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-kambly
-
-./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-kambly-france
-
-./export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner org-saint-hubert
-
+for producer in ${PRODUCERS[@]}
+do
+    scripts/export_and_import_to_public_database.pl --query states_tags=en:to-be-exported --owner $producer
+done

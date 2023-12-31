@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -20,12 +20,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-use Modern::Perl '2017';
-use utf8;
+use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
@@ -37,19 +37,19 @@ use URI::Escape::XS;
 use Encode;
 use Log::Any qw($log);
 
-ProductOpener::Display::init();
+my $request_ref = ProductOpener::Display::init_request();
 
 my $template_data_ref = {};
 
 $log->info('start') if $log->is_info();
 
 my $r = shift;
-my $redirect = param('redirect');
+my $redirect = single_param('redirect');
 $template_data_ref->{redirect} = $redirect;
 if (defined $User_id) {
-	my $loc = $redirect || $formatted_subdomain;
+	my $loc = $redirect || $formatted_subdomain . "/cgi/session.pl";
 	$r->headers_out->set(Location => $loc);
-	$r->err_headers_out->add('Set-Cookie' => $cookie);
+	$r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
 	$r->status(302);
 	return Apache2::Const::OK;
 }
@@ -57,17 +57,22 @@ if (defined $User_id) {
 my @errors = ();
 
 if ($ENV{'REQUEST_METHOD'} eq 'POST') {
-	my $user_file = "$data_root/users/" . get_string_id_for_lang('no_language', $User_id) . '.sto';
+	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang('no_language', $User_id) . '.sto';
 	my $user_ref = retrieve($user_file);
-	if (not (defined $user_ref)) {
+	if (not(defined $user_ref)) {
 		push @errors, 'undefined user';
 		$template_data_ref->{success} = 0;
 	}
 
-	my $hash_is_correct = check_password_hash(encode_utf8(decode utf8=>param('password')), $user_ref->{'encrypted_password'} );
+	my $hash_is_correct
+		= check_password_hash(encode_utf8(decode utf8 => single_param('password')), $user_ref->{'encrypted_password'});
+
 	# We don't have the right password
 	if (not $hash_is_correct) {
-		$log->info('bad password - input does not match stored hash', { encrypted_password => $user_ref->{'encrypted_password'} }) if $log->is_info();
+		$log->info(
+			'bad password - input does not match stored hash',
+			{encrypted_password => $user_ref->{'encrypted_password'}}
+		) if $log->is_info();
 		push @errors, lang('error_bad_login_password');
 	}
 
@@ -81,13 +86,14 @@ if ($ENV{'REQUEST_METHOD'} eq 'POST') {
 
 $template_data_ref->{errors} = \@errors;
 
+# Display the sign in form
 my $html;
-process_template('web/pages/login_form/login.tt.html', $template_data_ref, \$html) or $html = '';
+process_template('web/pages/session/sign_in_form.tt.html', $template_data_ref, \$html) or $html = '';
 if ($tt->error()) {
 	$html .= '<p>' . $tt->error() . '</p>';
 }
 
-display_page( {
-	title => lang('login_register_title'),
-	content_ref => \$html,
-});
+$request_ref->{title} = lang('login_register_title');
+$request_ref->{content_ref} = \$html;
+display_page($request_ref);
+

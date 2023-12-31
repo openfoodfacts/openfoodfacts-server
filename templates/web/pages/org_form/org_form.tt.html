@@ -10,6 +10,73 @@
 		<div class="panel" style="background-color:#ffdddd">The organization <strong>[% orgid %]</strong> does not exist yet. It will be created if you submit the form.</div>
 	[% END %]
 
+	[% IF org_members.size %]
+	<h2>[% lang("organization_members") %]</h2>
+		<p>[% lang("number_of_members") %][% sep %]: [% org_members.size %]</p>
+		<div style="position:relative">
+		<table>
+			<thead>
+			<tr>
+				<th>[% lang("serial_no") %]</th>
+				<th>[% lang("admin_status") %]</th>
+				<th>[% lang("username") %]</th>
+				<th>[% lang("name") %]</th>
+				<th>[% lang("email") %]</th>
+				<th>[% lang("select_lang") %]</th>
+				<th>[% lang("select_country") %]</th>
+				<th>[% lang("delete_user") %]</th>
+	
+			</tr>
+		</thead>
+			<tbody>
+			[% SET count = 1 %]
+			[% FOREACH users IN org_members %]
+			<tr>
+				<td>[% count %].</td>
+				<td>
+	[% SET userid = users.userid %]
+    [% SET user_in_admin_status = user_is_admin.$userid %]
+	<input form="admin_users_form" type="checkbox" name="admin_status_[% users.userid %]" value="1" class="admin-checkbox" [% IF user_in_admin_status %]checked[% END %] [% IF current_user_id == userid  %]disabled[% END %]>
+				</td>
+				<td>[% users.userid %]</td>
+				<td>[% users.name %]</td>
+				<td>[% users.email %]</td>
+				<td>[% users.initial_lc %]</td>
+				<td>[% users.initial_cc %]</td>
+				<td>
+					<form method="post" action="/cgi/org.pl" onsubmit="return confirm('Are you sure you want to remove this user?')">
+						<input type="hidden" name="action" value="process" />
+						<input type="hidden" name="type" value="user_delete" />
+						<input type="hidden" name="org_id" value="[% orgid %]">
+						<input type="hidden" name="user_id" value="[% users.userid %]">
+						<input type="submit" name="remove_user" class="button small" value="[% lang("remove_user") %]"/>
+					</form>
+				</td>
+			</tr>
+			[% SET count = count + 1 %]
+			[% END %]
+		</tbody>
+		</table>
+		<div>
+			<form id='admin_users_form' method="post" action="/cgi/org.pl">
+				<!-- admin_status_xxxx elements above are also part of it, thanks to form attribute -->
+				<input type="hidden" name="action" value="process" />
+				<input type="hidden" name="type" value="admin_status" />
+				<input type="submit" name="grant_remove_admin_status" class="button" style="margin-bottom: 10px;" value="[% lang("grant_remove_admin_status") %]"/>
+			</form>
+		</div>
+	</div>
+	[% END %]
+
+		<form method="post" action="/cgi/org.pl" enctype="multipart/form-data" style="margin-bottom: 20px;">
+		<p>[% lang('enter_email_addresses_of_users') %]</p>
+		<textarea id="email_list" name="email_list" style="height:100px;width:50vw"></textarea>
+		<input type="hidden" name="action" value="process" />
+		<input type="hidden" name="type" value="add_users" />
+		<input type="hidden" name="orgid" value="[% orgid %]" />
+		<input type="submit" name=".submit" class="button" value="[% lang("invite_user") %]"/>
+	</form>
+
     <!-- Start form -->
     
     <p>[% lang('org_profile_description') %]</p>
@@ -87,6 +154,25 @@
     <!-- End form -->
 
 [% ELSIF action == 'process' %]
+
+[% IF email_ref.invited.size > 0 %]
+<h3>[% lang('please_ask_users_create_account_first') %]</h3>
+<ul>
+	[% FOREACH email IN email_ref.invited %]
+	<li>[% email %]</li>
+	[% END %]
+</ul>
+[% END %]
+
+[% IF email_ref.added.size > 0 %]
+<h3>[% lang('users_added_successfully') %]</h3>
+<ul>
+	[% FOREACH email IN email_ref.added %]
+	<li>[% email %]</li>
+	[% END %]
+</ul>
+[% END %]
+
     <p>[% result %]</p>
     <p>&rarr; <a href="[% profile_url %]">[% profile_name %]</a></p>
 [% END %]

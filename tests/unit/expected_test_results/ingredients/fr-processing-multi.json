@@ -1,0 +1,153 @@
+{
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "20047",
+         "id" : "en:peeled-tomatoes",
+         "percent_estimate" : 58.3333333333333,
+         "percent_max" : 100,
+         "percent_min" : 16.6666666666667,
+         "processing" : "en:cooked",
+         "text" : "tomates pelées",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "13009",
+         "id" : "en:lemon",
+         "percent_estimate" : 20.8333333333333,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "processing" : "en:sliced",
+         "text" : "citron",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "20020",
+         "id" : "en:courgette",
+         "percent_estimate" : 10.4166666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "processing" : "en:diced",
+         "text" : "courgette",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "19051",
+         "id" : "en:raw-milk",
+         "percent_estimate" : 5.20833333333333,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "lait cru",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "20053",
+         "id" : "en:aubergine",
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "processing" : "en:raw",
+         "text" : "aubergines",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "28800",
+         "id" : "en:raw-ham",
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "processing" : "en:sliced",
+         "text" : "jambon cru",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:raw-milk",
+         "en:raw-ham"
+      ],
+      "en:non-vegetarian" : [
+         "en:raw-ham"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:peeled-tomatoes",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "en:tomato",
+      "en:lemon",
+      "en:fruit",
+      "en:citrus-fruit",
+      "en:courgette",
+      "en:raw-milk",
+      "en:dairy",
+      "en:milk",
+      "en:aubergine",
+      "en:raw-ham",
+      "en:animal",
+      "en:meat",
+      "en:pork",
+      "en:pork-meat",
+      "en:ham"
+   ],
+   "ingredients_n" : 6,
+   "ingredients_n_tags" : [
+      "6",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:peeled-tomatoes",
+      "en:lemon",
+      "en:courgette",
+      "en:raw-milk",
+      "en:aubergine",
+      "en:raw-ham"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:peeled-tomatoes",
+      "en:vegetable",
+      "en:fruit-vegetable",
+      "en:tomato",
+      "en:lemon",
+      "en:fruit",
+      "en:citrus-fruit",
+      "en:courgette",
+      "en:raw-milk",
+      "en:dairy",
+      "en:milk",
+      "en:aubergine",
+      "en:raw-ham",
+      "en:animal",
+      "en:meat",
+      "en:pork",
+      "en:pork-meat",
+      "en:ham"
+   ],
+   "ingredients_text" : "tomates pelées cuites, rondelle de citron, dés de courgette, lait cru, aubergines crues, jambon cru en tranches",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 6,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "known_ingredients_n" : 18,
+   "lc" : "fr",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 92.1875,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 92.1875,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 92.1875,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 92.1875
+   },
+   "unknown_ingredients_n" : 0
+}

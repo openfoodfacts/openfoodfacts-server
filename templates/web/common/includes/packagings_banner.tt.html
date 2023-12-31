@@ -1,0 +1,77 @@
+<!-- start templates/[% component.name %] -->
+
+<section id="packagings-banner-top" class="packagings-banner">
+  <span class="packagings-banner__image"></span>
+  <div class="packagings-banner__content">
+  <a
+      class="packagings-banner__content--button button round white-button"
+    [% IF lc == 'fr' %]
+        href="https://blog.openfoodfacts.org/fr/rejoignez-loperation-plein-pot-sur-les-emballages"
+    [% ELSE %]
+        href="https://blog.openfoodfacts.org/en/join-the-tackling-food-packaging-operation"
+    [% END %]
+  >
+    <span class="material-icons">scale</span>
+    [% IF lc == "fr" %]
+        Participer à l'opération emballages
+    [% ELSE %]
+        Join the packaging operation
+    [% END %]
+  </a>
+  <div class="packagings-banner__content-paragraphs">
+    <p class="packagings-banner__content-paragraphs--text">
+        [% IF lc == "fr" %]
+            Aidez-nous à créer la transparence sur les emballages alimentaires avec l'opération
+            <a href="https://blog.openfoodfacts.org/fr/rejoignez-loperation-plein-pot-sur-les-emballages">Plein pot sur les emballages</a>
+            en partenariat avec l'Agence de la transition écologique (ADEME) ! #AVosEmballages
+        [% ELSE %]
+            Help us create transparency on the packaging of food products with the operation
+            <a href="https://blog.openfoodfacts.org/en/join-the-tackling-food-packaging-operation">Tackling Food Packaging</a>
+            in partnership with ADEME, the French Agency for Ecological Transition! #TacklingPackaging            
+        [% END %]
+    </p>
+  </div>
+  <div class="packagings-banner__content-close">
+    <span id="hide-donate-banner" class="packagings-banner__content-close--icon material-icons" onclick="packagingsButton();">close</span>
+  </div>
+</section>
+
+<script>
+  let d = new Date();
+  let bannerID = document.getElementById('packagings-banner-top');
+  let getDomain = window.location.origin.split('.');
+
+  function setBannerCookie(bcname, bcval, bcexdays) {
+    d.setTime(d.getTime() + (bcexdays*60*60*24*1000));
+    let expires = 'expires=' + d.toUTCString();
+    // Apply cookie for every domain contains open...facts
+    let domain = 'domain=.' + getDomain.slice(1).join('.');
+    document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
+  }
+  
+  function getBannerCookie(bcname) {
+    const name = bcname + '=';
+    const decodedCookies = decodeURIComponent(document.cookie);
+    const cookies = decodedCookies.split(';');
+    for (const cookie of cookies) {
+      let c = cookie;
+      while (c.charAt(0) == ' ') { c = c.substring(1); }
+      if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+    }
+    
+    return '';
+  }
+
+  function packagingsButton() {
+    setBannerCookie('off-packagings-banner', 1, 180);
+    bannerID.style.display = 'none';
+  }
+
+  if (getBannerCookie('off-packagings-banner') !== '') {
+    bannerID.style.display = 'none';
+  } else { 
+    bannerID.style.display = 'flex';
+  }
+</script>
+
+<!-- end templates/[% component.name %] -->

@@ -1,0 +1,60 @@
+{
+   "errors" : [],
+   "product" : {
+      "ingredients" : [
+         {
+            "ciqual_proxy_food_code" : "19051",
+            "id" : "en:milk",
+            "percent" : 80,
+            "percent_estimate" : 80,
+            "percent_max" : 80,
+            "percent_min" : 80,
+            "text" : "milk",
+            "vegan" : "no",
+            "vegetarian" : "yes"
+         },
+         {
+            "ciqual_proxy_food_code" : "31016",
+            "id" : "en:sugar",
+            "percent_estimate" : 15,
+            "percent_max" : 20,
+            "percent_min" : 10,
+            "text" : "sugar",
+            "vegan" : "yes",
+            "vegetarian" : "yes"
+         },
+         {
+            "id" : "en:cocoa-powder",
+            "percent_estimate" : 5,
+            "percent_max" : 10,
+            "percent_min" : 0,
+            "text" : "cocoa powder",
+            "vegan" : "yes",
+            "vegetarian" : "yes"
+         }
+      ],
+      "ingredients_text" : "milk 80%, sugar, cocoa powder",
+      "ingredients_text_en" : "milk 80%, sugar, cocoa powder",
+      "ingredients_text_fr" : "lait 80%, sucre, poudre de cacao",
+      "lc" : "en"
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "default_value" : "en",
+            "id" : "tags_lc"
+         },
+         "impact" : {
+            "id" : "warning",
+            "lc_name" : "Warning",
+            "name" : "Warning"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      }
+   ]
+}

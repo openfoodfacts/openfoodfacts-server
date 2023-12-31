@@ -1,7 +1,7 @@
 // This file is part of Product Opener.
 //
 // Product Opener
-// Copyright (C) 2011-2019 Association Open Food Facts
+// Copyright (C) 2011-2023 Association Open Food Facts
 // Contact: contact@openfoodfacts.org
 // Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 //
@@ -20,9 +20,8 @@
 
 /* eslint-disable max-classes-per-file */
 
-
 function getServerDomain() {
-  const hostname = window.location.href.match(/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i)[1];
+  const hostname = (/^https?:\/\/([^/?#]+)(?:[/?#]|$)/i).exec(window.location.href)[1];
   const splittedHostname = hostname.split('.');
   // shift the first subdomain ('world', 'fr', 'uk',...)
   splittedHostname.shift();
@@ -109,7 +108,7 @@ class RobotoffAsker extends HTMLElement {
     this.question = this.questions ? this.questions.pop() : null;
     if (!this.question) {
       const serverDomain = getServerDomain();
-      const response = await fetch(`${this.url}/api/v1/questions/${this.code}?lang=${this.lang}&server_domain=${serverDomain}`, { credentials: 'include' });
+      const response = await fetch(`${this.url}/api/v1/questions/${encodeURIComponent(this.code)}?lang=${encodeURIComponent(this.lang)}&server_domain=${encodeURIComponent(serverDomain)}`, { credentials: 'include' });
       const json = await response.json();
       if (!json || json.status !== 'found') {
         this.style.display = 'none';
@@ -135,7 +134,7 @@ class RobotoffAsker extends HTMLElement {
     // By convention, ProductOpener creates [imgid].jpg, [imgid].100.jpg, [imgid].400.jpg
     const source_image_url = this.question.source_image_url;
     if (source_image_url) {
-      const matches = source_image_url.match(/^(.*\/[\d]+)(?:\.[\d]+)?(\.jpg)$/i);
+      const matches = (/^(.*\/\d+)(?:\.\d+)?(\.jpg)$/i).exec(source_image_url);
       if (matches) {
         thumbnailEl.setAttribute('src', `${matches[1]}.100${matches[2]}`);
         zoomEl.setAttribute('src', source_image_url);
@@ -169,18 +168,16 @@ class RobotoffAsker extends HTMLElement {
   constructor() {
     super();
 
-    const shadowRoot = this.attachShadow({mode: 'open'});
+    const shadowRoot = this.attachShadow({ mode: 'open' });
     const content = RobotoffAsker.template.content.cloneNode(true);
 
-    const styles = document.querySelectorAll('link[rel="stylesheet"]');
-    for (let i = 0; i < styles.length; ++i) {
-      const style = styles[i];
+    const styles = document.querySelectorAll('link[rel="stylesheet"][data-base-layout="true"]');
+    for (const style of styles) {
       content.appendChild(style.cloneNode(true));
     }
 
-    const scripts = document.querySelectorAll('script');
-    for (let i = 0; i < scripts.length; ++i) {
-      const script = scripts[i];
+    const scripts = document.querySelectorAll('script[data-base-layout="true"]');
+    for (const script of scripts) {
       content.appendChild(script.cloneNode(true));
     }
 
@@ -216,8 +213,7 @@ class RobotoffAsker extends HTMLElement {
     });
 
     const buttons = content.querySelectorAll('a.annotate');
-    for (let i = 0; i < buttons.length; ++i) {
-      const button = buttons[i];
+    for (const button of buttons) {
       button.addEventListener('click', async (e) => {
         await this.annotate(parseInt(e.currentTarget.getAttribute('data-annotation')));
         await this.nextQuestion();

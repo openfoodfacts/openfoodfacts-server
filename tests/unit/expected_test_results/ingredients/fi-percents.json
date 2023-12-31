@@ -1,0 +1,92 @@
+{
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "13014",
+         "id" : "en:strawberry",
+         "percent" : 55.1569506726457,
+         "percent_estimate" : 55.1569506726457,
+         "percent_max" : 55.1569506726457,
+         "percent_min" : 55.1569506726457,
+         "text" : "Mansikka",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "13034",
+         "id" : "en:orange",
+         "percent" : 29.1479820627803,
+         "percent_estimate" : 29.1479820627803,
+         "percent_max" : 29.1479820627803,
+         "percent_min" : 29.1479820627803,
+         "text" : "Appelsiini",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "13050",
+         "id" : "en:apple",
+         "percent" : 15.695067264574,
+         "percent_estimate" : 15.695067264574,
+         "percent_max" : 15.695067264574,
+         "percent_min" : 15.695067264574,
+         "text" : "Omena",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:strawberry",
+      "en:fruit",
+      "en:berries",
+      "en:orange",
+      "en:citrus-fruit",
+      "en:apple",
+      "en:malaceous-fruit"
+   ],
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:strawberry",
+      "en:orange",
+      "en:apple"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:strawberry",
+      "en:fruit",
+      "en:berries",
+      "en:orange",
+      "en:citrus-fruit",
+      "en:apple",
+      "en:malaceous-fruit"
+   ],
+   "ingredients_text" : "Mansikka 12,3% ; Appelsiini 6.5%, Omena (3,5%)",
+   "ingredients_with_specified_percent_n" : 3,
+   "ingredients_with_specified_percent_sum" : 100,
+   "ingredients_with_unspecified_percent_n" : 0,
+   "ingredients_with_unspecified_percent_sum" : 0,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "known_ingredients_n" : 7,
+   "lc" : "fi",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
+      "en:all-ingredients-with-specified-percent"
+   ],
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
+   },
+   "unknown_ingredients_n" : 0
+}

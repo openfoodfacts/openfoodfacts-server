@@ -2,8 +2,42 @@
 lib/ProductOpener/Config.pm
 lib/ProductOpener/Config2.pm
 lib/ProductOpener/SiteLang.pm
-taxonomies/nutrient_levels.txt
 po/site-specific
+
+# tests outputs
+tests/unit/outputs/
+tests/integration/outputs/
+
+# local configs, most of them are link to files in conf/ depending on instance
+/html/.well-known/apple-*
+/log.conf
+/minion_log.conf
+
+# data dirs - we shall not mix data and git files, as it makes deployments/updates difficult
+/build-cache
+/debug
+/deleted.images
+/dist
+/logs
+/new_images
+/orgs
+/products
+/tmp
+/users
+/imports
+/lang
+/html/dump
+/html/files
+/html/data
+/html/exports
+/deleted_private_products
+/deleted_products
+/deleted_products_images
+/export_files
+
+# Images
+/html/images/products
+
 
 # Local files
 .DS_Store?
@@ -15,10 +49,16 @@ Thumbs.db
 .vstags
 # editors
 .~*
+.*.swo
 .*.swp
+.vscode/launch.json
+.vscode/perl-lang/
+.vscode/settings.json
+.idea/
 
 # Logs
 logs/
+!scripts/utils/logs
 debug/
 Store.debug.txt
 *.log
@@ -38,13 +78,10 @@ html/bower_components
 local
 
 # Front build
-html/css/dist
-html/js/dist
-html/images/icons/dist
-html/images/attributes/*.svg
-
-# Images
-html/images/products/*
+/html/css/dist
+/html/js/dist
+/html/images/icons/dist
+/html/images/attributes/dist
 
 # Don't store helm dependencies in our git repo
 docker/productopener/charts
@@ -56,5 +93,17 @@ html/js/jquery*
 html/js/*nivo-zoom*
 html/js/sigma*
 
+# coverage data
+/cover_db
+
 # Env files
 .env*
+
+# Taxonomies and cache
+cache
+taxonomies/*.sto
+taxonomies/*.result.txt
+taxonomies/*.all.txt
+/build-cache/taxonomies/*.json
+/build-cache/taxonomies/*.sto
+/build-cache/taxonomies/*.result.txt

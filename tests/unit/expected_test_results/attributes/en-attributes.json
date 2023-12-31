@@ -1,0 +1,1367 @@
+{
+   "additives_n" : 2,
+   "additives_old_n" : 2,
+   "additives_old_tags" : [
+      "en:e102",
+      "en:e120"
+   ],
+   "additives_original_tags" : [
+      "en:e102",
+      "en:e120"
+   ],
+   "additives_tags" : [
+      "en:e102",
+      "en:e120"
+   ],
+   "allergens" : "",
+   "allergens_from_ingredients" : "en:gluten",
+   "allergens_from_user" : "(en) ",
+   "allergens_hierarchy" : [
+      "en:gluten"
+   ],
+   "allergens_tags" : [
+      "en:gluten"
+   ],
+   "amino_acids_tags" : [],
+   "attribute_groups_en" : [
+      {
+         "attributes" : [
+            {
+               "description" : "",
+               "description_short" : "Average nutritional quality",
+               "grade" : "c",
+               "icon_url" : "https://server_domain/images/attributes/dist/nutriscore-c.svg",
+               "id" : "nutriscore",
+               "match" : 47.3333333333333,
+               "name" : "Nutri-Score",
+               "panel_id" : "nutriscore",
+               "status" : "known",
+               "title" : "Nutri-Score C"
+            },
+            {
+               "description_short" : "0.25 g / 100 g",
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/nutrient-level-salt-low.svg",
+               "id" : "low_salt",
+               "match" : 83.3333333333333,
+               "name" : "Salt",
+               "status" : "known",
+               "title" : "Salt in low quantity"
+            },
+            {
+               "description_short" : "12 g / 100 g",
+               "grade" : "c",
+               "icon_url" : "https://server_domain/images/attributes/dist/nutrient-level-fat-medium.svg",
+               "id" : "low_fat",
+               "match" : 48.2352941176471,
+               "name" : "Fat",
+               "status" : "known",
+               "title" : "Fat in moderate quantity"
+            },
+            {
+               "description_short" : "25 g / 100 g",
+               "grade" : "e",
+               "icon_url" : "https://server_domain/images/attributes/dist/nutrient-level-sugars-high.svg",
+               "id" : "low_sugars",
+               "match" : 0,
+               "name" : "Sugars",
+               "status" : "known",
+               "title" : "Sugars in high quantity"
+            },
+            {
+               "description_short" : "4 g / 100 g",
+               "grade" : "d",
+               "icon_url" : "https://server_domain/images/attributes/dist/nutrient-level-saturated-fat-medium.svg",
+               "id" : "low_saturated_fat",
+               "match" : 37.1428571428571,
+               "name" : "Saturated fat",
+               "status" : "known",
+               "title" : "Saturated fat in moderate quantity"
+            }
+         ],
+         "id" : "nutritional_quality",
+         "name" : "Nutritional quality"
+      },
+      {
+         "attributes" : [
+            {
+               "debug" : "en:gluten in allergens",
+               "grade" : "e",
+               "icon_url" : "https://server_domain/images/attributes/dist/contains-gluten.svg",
+               "id" : "allergens_no_gluten",
+               "match" : 0,
+               "name" : "Gluten",
+               "status" : "known",
+               "title" : "Contains: Gluten"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-milk.svg",
+               "id" : "allergens_no_milk",
+               "match" : 100,
+               "name" : "Milk",
+               "status" : "known",
+               "title" : "Does not contain: Milk"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-eggs.svg",
+               "id" : "allergens_no_eggs",
+               "match" : 100,
+               "name" : "Eggs",
+               "status" : "known",
+               "title" : "Does not contain: Eggs"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-nuts.svg",
+               "id" : "allergens_no_nuts",
+               "match" : 100,
+               "name" : "Nuts",
+               "status" : "known",
+               "title" : "Does not contain: Nuts"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-peanuts.svg",
+               "id" : "allergens_no_peanuts",
+               "match" : 100,
+               "name" : "Peanuts",
+               "status" : "known",
+               "title" : "Does not contain: Peanuts"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-sesame-seeds.svg",
+               "id" : "allergens_no_sesame_seeds",
+               "match" : 100,
+               "name" : "Sesame seeds",
+               "status" : "known",
+               "title" : "Does not contain: Sesame seeds"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-soybeans.svg",
+               "id" : "allergens_no_soybeans",
+               "match" : 100,
+               "name" : "Soybeans",
+               "status" : "known",
+               "title" : "Does not contain: Soybeans"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-celery.svg",
+               "id" : "allergens_no_celery",
+               "match" : 100,
+               "name" : "Celery",
+               "status" : "known",
+               "title" : "Does not contain: Celery"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-mustard.svg",
+               "id" : "allergens_no_mustard",
+               "match" : 100,
+               "name" : "Mustard",
+               "status" : "known",
+               "title" : "Does not contain: Mustard"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-lupin.svg",
+               "id" : "allergens_no_lupin",
+               "match" : 100,
+               "name" : "Lupin",
+               "status" : "known",
+               "title" : "Does not contain: Lupin"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-fish.svg",
+               "id" : "allergens_no_fish",
+               "match" : 100,
+               "name" : "Fish",
+               "status" : "known",
+               "title" : "Does not contain: Fish"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-crustaceans.svg",
+               "id" : "allergens_no_crustaceans",
+               "match" : 100,
+               "name" : "Crustaceans",
+               "status" : "known",
+               "title" : "Does not contain: Crustaceans"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-molluscs.svg",
+               "id" : "allergens_no_molluscs",
+               "match" : 100,
+               "name" : "Molluscs",
+               "status" : "known",
+               "title" : "Does not contain: Molluscs"
+            },
+            {
+               "debug" : "11 ingredients (0 unknown)",
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/no-sulphur-dioxide-and-sulphites.svg",
+               "id" : "allergens_no_sulphur_dioxide_and_sulphites",
+               "match" : 100,
+               "name" : "Sulphur dioxide and sulphites",
+               "status" : "known",
+               "title" : "Does not contain: Sulphur dioxide and sulphites"
+            }
+         ],
+         "id" : "allergens",
+         "name" : "Allergens",
+         "warning" : "There is always a possibility that data about allergens may be missing, incomplete, incorrect or that the product's composition has changed. If you are allergic, always check the information on the actual product packaging."
+      },
+      {
+         "attributes" : [
+            {
+               "grade" : "e",
+               "icon_url" : "https://server_domain/images/attributes/dist/non-vegan.svg",
+               "id" : "vegan",
+               "match" : 0,
+               "name" : "Vegan",
+               "panel_id" : "ingredients_analysis_en:non-vegan",
+               "status" : "known",
+               "title" : "Non-vegan"
+            },
+            {
+               "grade" : "e",
+               "icon_url" : "https://server_domain/images/attributes/dist/non-vegetarian.svg",
+               "id" : "vegetarian",
+               "match" : 0,
+               "name" : "Vegetarian",
+               "panel_id" : "ingredients_analysis_en:non-vegetarian",
+               "status" : "known",
+               "title" : "Non-vegetarian"
+            },
+            {
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/palm-oil-free.svg",
+               "id" : "palm_oil_free",
+               "match" : 100,
+               "name" : "Palm oil free",
+               "panel_id" : "ingredients_analysis_en:palm-oil-free",
+               "status" : "known",
+               "title" : "Palm oil free"
+            }
+         ],
+         "id" : "ingredients_analysis",
+         "name" : "Ingredients"
+      },
+      {
+         "attributes" : [
+            {
+               "description" : "",
+               "description_short" : "Ultra processed foods",
+               "grade" : "e",
+               "icon_url" : "https://server_domain/images/attributes/dist/nova-group-4.svg",
+               "id" : "nova",
+               "match" : 0,
+               "name" : "NOVA group",
+               "panel_id" : "nova",
+               "status" : "known",
+               "title" : "NOVA 4"
+            },
+            {
+               "grade" : "c",
+               "icon_url" : "https://server_domain/images/attributes/dist/2-additives.svg",
+               "id" : "additives",
+               "match" : 60,
+               "name" : "Additives",
+               "panel_id" : "additives",
+               "status" : "known",
+               "title" : "2 additives"
+            }
+         ],
+         "id" : "processing",
+         "name" : "Food processing"
+      },
+      {
+         "attributes" : [
+            {
+               "description" : "",
+               "description_short" : "Low environmental impact",
+               "grade" : "b",
+               "icon_url" : "https://server_domain/images/attributes/dist/ecoscore-b.svg",
+               "id" : "ecoscore",
+               "match" : 68,
+               "name" : "Eco-Score",
+               "panel_id" : "ecoscore",
+               "status" : "known",
+               "title" : "Eco-Score B"
+            },
+            {
+               "description" : "",
+               "description_short" : "Almost no risk of deforestation",
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/forest-footprint-a.svg",
+               "id" : "forest_footprint",
+               "match" : 99.9222222222222,
+               "name" : "Forest footprint",
+               "status" : "known",
+               "title" : "Very small forest footprint"
+            }
+         ],
+         "id" : "environment",
+         "name" : "Environment"
+      },
+      {
+         "attributes" : [
+            {
+               "description" : "Organic farming aims to protect the environment and to conserve biodiversity by prohibiting or limiting the use of synthetic fertilizers, pesticides and food additives.",
+               "description_short" : "Promotes ecological sustainability and biodiversity.",
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/organic.svg",
+               "id" : "labels_organic",
+               "match" : 100,
+               "name" : "Organic farming",
+               "status" : "known",
+               "title" : "Organic product"
+            },
+            {
+               "description" : "When you buy fair trade products, producers in developing countries are paid an higher and fairer price, which helps them improve and sustain higher social and often environmental standards.",
+               "description_short" : "Helps producers in developing countries.",
+               "grade" : "a",
+               "icon_url" : "https://server_domain/images/attributes/dist/fair-trade.svg",
+               "id" : "labels_fair_trade",
+               "match" : 100,
+               "name" : "Fair trade",
+               "status" : "known",
+               "title" : "Fair trade product"
+            }
+         ],
+         "id" : "labels",
+         "name" : "Labels"
+      }
+   ],
+   "categories" : "biscuits",
+   "categories_properties" : {
+      "agribalyse_proxy_food_code:en" : "24000"
+   },
+   "categories_properties_tags" : [
+      "all-products",
+      "categories-known",
+      "agribalyse-food-code-unknown",
+      "agribalyse-proxy-food-code-24000",
+      "agribalyse-proxy-food-code-known",
+      "ciqual-food-code-unknown",
+      "agribalyse-known",
+      "agribalyse-24000"
+   ],
+   "categories_tags" : [
+      "en:biscuits"
+   ],
+   "countries_tags" : [
+      "en:united-kingdom",
+      "en:france"
+   ],
+   "data_quality_bugs_tags" : [
+      "en:main-language-missing",
+      "en:code-missing",
+      "en:created-missing"
+   ],
+   "data_quality_errors_tags" : [],
+   "data_quality_info_tags" : [
+      "en:packaging-data-incomplete",
+      "en:ingredients-percent-analysis-ok",
+      "en:ecoscore-extended-data-not-computed",
+      "en:food-groups-1-unknown",
+      "en:food-groups-2-unknown",
+      "en:food-groups-3-unknown"
+   ],
+   "data_quality_tags" : [
+      "en:main-language-missing",
+      "en:code-missing",
+      "en:created-missing",
+      "en:packaging-data-incomplete",
+      "en:ingredients-percent-analysis-ok",
+      "en:ecoscore-extended-data-not-computed",
+      "en:food-groups-1-unknown",
+      "en:food-groups-2-unknown",
+      "en:food-groups-3-unknown",
+      "en:ecoscore-packaging-unspecified-material",
+      "en:ecoscore-production-system-no-label"
+   ],
+   "data_quality_warnings_tags" : [
+      "en:ecoscore-packaging-unspecified-material",
+      "en:ecoscore-production-system-no-label"
+   ],
+   "ecoscore_data" : {
+      "adjustments" : {
+         "origins_of_ingredients" : {
+            "aggregated_origins" : [
+               {
+                  "origin" : "en:united-kingdom",
+                  "percent" : 54.5454545454545
+               },
+               {
+                  "origin" : "en:unknown",
+                  "percent" : 32.9545454545455
+               },
+               {
+                  "origin" : "en:paraguay",
+                  "percent" : 12.5
+               }
+            ],
+            "epi_score" : 52.9090909090909,
+            "epi_value" : 0,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
+            "origins_from_origins_field" : [
+               "en:unknown"
+            ],
+            "transportation_scores" : {
+               "ad" : 28.9090909090909,
+               "al" : 21.8181818181818,
+               "at" : 9.27272727272727,
+               "ax" : 37.0909090909091,
+               "ba" : 9.27272727272727,
+               "be" : 39.8181818181818,
+               "bg" : 10.9090909090909,
+               "ch" : 18.5454545454545,
+               "cy" : 20.7272727272727,
+               "cz" : 15.2727272727273,
+               "de" : 27.8181818181818,
+               "dk" : 15.2727272727273,
+               "dz" : 23.4545454545455,
+               "ee" : 39.2727272727273,
+               "eg" : 18,
+               "es" : 7.09090909090909,
+               "fi" : 38.7272727272727,
+               "fo" : 34.9090909090909,
+               "fr" : 41.4545454545455,
+               "gg" : 43.6363636363636,
+               "gi" : 38.7272727272727,
+               "gr" : 26.1818181818182,
+               "hr" : 4.36363636363636,
+               "hu" : 2.72727272727273,
+               "ie" : 43.0909090909091,
+               "il" : 18,
+               "im" : 44.1818181818182,
+               "is" : 30,
+               "it" : 9.27272727272727,
+               "je" : 42,
+               "lb" : 20.1818181818182,
+               "li" : 18.5454545454545,
+               "lt" : 34.9090909090909,
+               "lu" : 34.3636363636364,
+               "lv" : 39.8181818181818,
+               "ly" : 29.4545454545455,
+               "ma" : 31.6363636363636,
+               "mc" : 11.4545454545455,
+               "md" : 14.7272727272727,
+               "me" : 19.0909090909091,
+               "mk" : 14.7272727272727,
+               "mt" : 30,
+               "nl" : 36.5454545454545,
+               "no" : 5.45454545454546,
+               "pl" : 7.63636363636364,
+               "ps" : 21.8181818181818,
+               "pt" : 36,
+               "ro" : 15.8181818181818,
+               "rs" : 8.72727272727273,
+               "se" : 2.18181818181818,
+               "si" : 8.18181818181818,
+               "sj" : 30,
+               "sk" : 1.63636363636364,
+               "sm" : 5.45454545454546,
+               "sy" : 13.0909090909091,
+               "tn" : 32.1818181818182,
+               "tr" : 2.72727272727273,
+               "ua" : 20.7272727272727,
+               "uk" : 54.5454545454545,
+               "us" : 0,
+               "va" : 12,
+               "world" : 0,
+               "xk" : 14.1818181818182
+            },
+            "transportation_values" : {
+               "ad" : 4,
+               "al" : 3,
+               "at" : 1,
+               "ax" : 6,
+               "ba" : 1,
+               "be" : 6,
+               "bg" : 2,
+               "ch" : 3,
+               "cy" : 3,
+               "cz" : 2,
+               "de" : 4,
+               "dk" : 2,
+               "dz" : 4,
+               "ee" : 6,
+               "eg" : 3,
+               "es" : 1,
+               "fi" : 6,
+               "fo" : 5,
+               "fr" : 6,
+               "gg" : 7,
+               "gi" : 6,
+               "gr" : 4,
+               "hr" : 1,
+               "hu" : 0,
+               "ie" : 6,
+               "il" : 3,
+               "im" : 7,
+               "is" : 5,
+               "it" : 1,
+               "je" : 6,
+               "lb" : 3,
+               "li" : 3,
+               "lt" : 5,
+               "lu" : 5,
+               "lv" : 6,
+               "ly" : 4,
+               "ma" : 5,
+               "mc" : 2,
+               "md" : 2,
+               "me" : 3,
+               "mk" : 2,
+               "mt" : 5,
+               "nl" : 5,
+               "no" : 1,
+               "pl" : 1,
+               "ps" : 3,
+               "pt" : 5,
+               "ro" : 2,
+               "rs" : 1,
+               "se" : 0,
+               "si" : 1,
+               "sj" : 5,
+               "sk" : 0,
+               "sm" : 1,
+               "sy" : 2,
+               "tn" : 5,
+               "tr" : 0,
+               "ua" : 3,
+               "uk" : 8,
+               "us" : 0,
+               "va" : 2,
+               "world" : 0,
+               "xk" : 2
+            },
+            "values" : {
+               "ad" : 4,
+               "al" : 3,
+               "at" : 1,
+               "ax" : 6,
+               "ba" : 1,
+               "be" : 6,
+               "bg" : 2,
+               "ch" : 3,
+               "cy" : 3,
+               "cz" : 2,
+               "de" : 4,
+               "dk" : 2,
+               "dz" : 4,
+               "ee" : 6,
+               "eg" : 3,
+               "es" : 1,
+               "fi" : 6,
+               "fo" : 5,
+               "fr" : 6,
+               "gg" : 7,
+               "gi" : 6,
+               "gr" : 4,
+               "hr" : 1,
+               "hu" : 0,
+               "ie" : 6,
+               "il" : 3,
+               "im" : 7,
+               "is" : 5,
+               "it" : 1,
+               "je" : 6,
+               "lb" : 3,
+               "li" : 3,
+               "lt" : 5,
+               "lu" : 5,
+               "lv" : 6,
+               "ly" : 4,
+               "ma" : 5,
+               "mc" : 2,
+               "md" : 2,
+               "me" : 3,
+               "mk" : 2,
+               "mt" : 5,
+               "nl" : 5,
+               "no" : 1,
+               "pl" : 1,
+               "ps" : 3,
+               "pt" : 5,
+               "ro" : 2,
+               "rs" : 1,
+               "se" : 0,
+               "si" : 1,
+               "sj" : 5,
+               "sk" : 0,
+               "sm" : 1,
+               "sy" : 2,
+               "tn" : 5,
+               "tr" : 0,
+               "ua" : 3,
+               "uk" : 8,
+               "us" : 0,
+               "va" : 2,
+               "world" : 0,
+               "xk" : 2
+            }
+         },
+         "packaging" : {
+            "non_recyclable_and_non_biodegradable_materials" : 0,
+            "packagings" : [
+               {
+                  "ecoscore_material_score" : 92,
+                  "ecoscore_shape_ratio" : 1,
+                  "material" : "en:cardboard",
+                  "shape" : "en:box"
+               },
+               {
+                  "ecoscore_material_score" : 0,
+                  "ecoscore_shape_ratio" : 0.1,
+                  "material" : "en:unknown",
+                  "shape" : "en:film"
+               }
+            ],
+            "score" : 82,
+            "value" : -2,
+            "warning" : "unspecified_material"
+         },
+         "production_system" : {
+            "labels" : [],
+            "value" : 0,
+            "warning" : "no_label"
+         },
+         "threatened_species" : {}
+      },
+      "agribalyse" : {
+         "agribalyse_proxy_food_code" : "24000",
+         "co2_agriculture" : 2.3889426,
+         "co2_consumption" : 0,
+         "co2_distribution" : 0.019530673,
+         "co2_packaging" : 0.11014808,
+         "co2_processing" : 0.22878446,
+         "co2_total" : 2.882859363,
+         "co2_transportation" : 0.13545355,
+         "code" : "24000",
+         "dqr" : "2.14",
+         "ef_agriculture" : 0.28329233,
+         "ef_consumption" : 0,
+         "ef_distribution" : 0.0048315303,
+         "ef_packaging" : 0.01096965,
+         "ef_processing" : 0.041686082,
+         "ef_total" : 0.3518903043,
+         "ef_transportation" : 0.011110712,
+         "is_beverage" : 0,
+         "name_en" : "Biscuit (cookie)",
+         "name_fr" : "Biscuit sec, sans précision",
+         "score" : 69,
+         "version" : "3.1"
+      },
+      "grade" : "b",
+      "grades" : {
+         "ad" : "b",
+         "al" : "b",
+         "at" : "b",
+         "ax" : "b",
+         "ba" : "b",
+         "be" : "b",
+         "bg" : "b",
+         "ch" : "b",
+         "cy" : "b",
+         "cz" : "b",
+         "de" : "b",
+         "dk" : "b",
+         "dz" : "b",
+         "ee" : "b",
+         "eg" : "b",
+         "es" : "b",
+         "fi" : "b",
+         "fo" : "b",
+         "fr" : "b",
+         "gg" : "b",
+         "gi" : "b",
+         "gr" : "b",
+         "hr" : "b",
+         "hu" : "b",
+         "ie" : "b",
+         "il" : "b",
+         "im" : "b",
+         "is" : "b",
+         "it" : "b",
+         "je" : "b",
+         "lb" : "b",
+         "li" : "b",
+         "lt" : "b",
+         "lu" : "b",
+         "lv" : "b",
+         "ly" : "b",
+         "ma" : "b",
+         "mc" : "b",
+         "md" : "b",
+         "me" : "b",
+         "mk" : "b",
+         "mt" : "b",
+         "nl" : "b",
+         "no" : "b",
+         "pl" : "b",
+         "ps" : "b",
+         "pt" : "b",
+         "ro" : "b",
+         "rs" : "b",
+         "se" : "b",
+         "si" : "b",
+         "sj" : "b",
+         "sk" : "b",
+         "sm" : "b",
+         "sy" : "b",
+         "tn" : "b",
+         "tr" : "b",
+         "ua" : "b",
+         "uk" : "b",
+         "us" : "b",
+         "va" : "b",
+         "world" : "b",
+         "xk" : "b"
+      },
+      "missing" : {
+         "labels" : 1,
+         "packagings" : 1
+      },
+      "missing_data_warning" : 1,
+      "score" : 73,
+      "scores" : {
+         "ad" : 71,
+         "al" : 70,
+         "at" : 68,
+         "ax" : 73,
+         "ba" : 68,
+         "be" : 73,
+         "bg" : 69,
+         "ch" : 70,
+         "cy" : 70,
+         "cz" : 69,
+         "de" : 71,
+         "dk" : 69,
+         "dz" : 71,
+         "ee" : 73,
+         "eg" : 70,
+         "es" : 68,
+         "fi" : 73,
+         "fo" : 72,
+         "fr" : 73,
+         "gg" : 74,
+         "gi" : 73,
+         "gr" : 71,
+         "hr" : 68,
+         "hu" : 67,
+         "ie" : 73,
+         "il" : 70,
+         "im" : 74,
+         "is" : 72,
+         "it" : 68,
+         "je" : 73,
+         "lb" : 70,
+         "li" : 70,
+         "lt" : 72,
+         "lu" : 72,
+         "lv" : 73,
+         "ly" : 71,
+         "ma" : 72,
+         "mc" : 69,
+         "md" : 69,
+         "me" : 70,
+         "mk" : 69,
+         "mt" : 72,
+         "nl" : 72,
+         "no" : 68,
+         "pl" : 68,
+         "ps" : 70,
+         "pt" : 72,
+         "ro" : 69,
+         "rs" : 68,
+         "se" : 67,
+         "si" : 68,
+         "sj" : 72,
+         "sk" : 67,
+         "sm" : 68,
+         "sy" : 69,
+         "tn" : 72,
+         "tr" : 67,
+         "ua" : 70,
+         "uk" : 75,
+         "us" : 67,
+         "va" : 69,
+         "world" : 67,
+         "xk" : 69
+      },
+      "status" : "known"
+   },
+   "ecoscore_grade" : "b",
+   "ecoscore_score" : 73,
+   "ecoscore_tags" : [
+      "b"
+   ],
+   "food_groups_tags" : [],
+   "forest_footprint_data" : {
+      "footprint_per_kg" : 0.00194444444444444,
+      "grade" : "a",
+      "ingredients" : [
+         {
+            "conditions_tags" : [
+               [
+                  "labels",
+                  "en:organic"
+               ]
+            ],
+            "footprint_per_kg" : 0.00194444444444444,
+            "matching_tag_id" : "en:egg",
+            "percent" : 12.5,
+            "percent_estimate" : 12.5,
+            "processing_factor" : 1,
+            "tag_id" : "en:egg",
+            "tag_type" : "ingredients",
+            "type" : {
+               "deforestation_risk" : 0.1,
+               "name" : "Oeufs Bio",
+               "soy_feed_factor" : 0.028,
+               "soy_yield" : 0.18
+            }
+         }
+      ]
+   },
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "9410",
+         "id" : "en:wheat-flour",
+         "origins" : "en:united-kingdom",
+         "percent_estimate" : 54.5454545454545,
+         "percent_max" : 100,
+         "percent_min" : 9.09090909090909,
+         "text" : "wheat flour",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "id" : "en:sugar",
+         "origins" : "en:paraguay",
+         "percent_estimate" : 12.5,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "sugar",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "22000",
+         "id" : "en:egg",
+         "percent_estimate" : 12.5,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "eggs",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "13014",
+         "id" : "en:strawberry",
+         "percent_estimate" : 10.2272727272727,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "strawberries",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "31077",
+         "id" : "en:high-fructose-corn-syrup",
+         "percent_estimate" : 5.11363636363636,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "high fructose corn syrup",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "from_palm_oil" : "no",
+         "id" : "en:rapeseed-oil",
+         "percent_estimate" : 2.55681818181818,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "rapeseed oil",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "15027",
+         "id" : "en:macadamia-nut",
+         "percent_estimate" : 1.27840909090909,
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "text" : "macadamia nuts",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:milk-proteins",
+         "percent_estimate" : 0.639204545454547,
+         "percent_max" : 12.5,
+         "percent_min" : 0,
+         "text" : "milk proteins",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "percent_estimate" : 0.125,
+         "percent_max" : 0.25,
+         "percent_min" : 0,
+         "text" : "salt",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e102",
+         "percent_estimate" : 0.125,
+         "percent_max" : 0.25,
+         "percent_min" : 0,
+         "text" : "e102",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:e120",
+         "percent_estimate" : 0.389204545454547,
+         "percent_max" : 0.25,
+         "percent_min" : 0,
+         "text" : "e120",
+         "vegan" : "no",
+         "vegetarian" : "no"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:egg",
+         "en:milk-proteins",
+         "en:e120"
+      ],
+      "en:non-vegetarian" : [
+         "en:e120"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:non-vegetarian"
+   ],
+   "ingredients_from_or_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_n" : 0,
+   "ingredients_from_palm_oil_tags" : [],
+   "ingredients_hierarchy" : [
+      "en:wheat-flour",
+      "en:cereal",
+      "en:flour",
+      "en:wheat",
+      "en:cereal-flour",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:egg",
+      "en:strawberry",
+      "en:fruit",
+      "en:berries",
+      "en:high-fructose-corn-syrup",
+      "en:monosaccharide",
+      "en:fructose",
+      "en:glucose",
+      "en:corn-syrup",
+      "en:glucose-fructose-syrup",
+      "en:rapeseed-oil",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:macadamia-nut",
+      "en:nut",
+      "en:tree-nut",
+      "en:milk-proteins",
+      "en:protein",
+      "en:animal-protein",
+      "en:salt",
+      "en:e102",
+      "en:e120"
+   ],
+   "ingredients_lc" : "en",
+   "ingredients_n" : 11,
+   "ingredients_n_tags" : [
+      "11",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "en:wheat-flour",
+      "en:sugar",
+      "en:egg",
+      "en:strawberry",
+      "en:high-fructose-corn-syrup",
+      "en:rapeseed-oil",
+      "en:macadamia-nut",
+      "en:milk-proteins",
+      "en:salt",
+      "en:e102",
+      "en:e120"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:wheat-flour",
+      "en:cereal",
+      "en:flour",
+      "en:wheat",
+      "en:cereal-flour",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:egg",
+      "en:strawberry",
+      "en:fruit",
+      "en:berries",
+      "en:high-fructose-corn-syrup",
+      "en:monosaccharide",
+      "en:fructose",
+      "en:glucose",
+      "en:corn-syrup",
+      "en:glucose-fructose-syrup",
+      "en:rapeseed-oil",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:macadamia-nut",
+      "en:nut",
+      "en:tree-nut",
+      "en:milk-proteins",
+      "en:protein",
+      "en:animal-protein",
+      "en:salt",
+      "en:e102",
+      "en:e120"
+   ],
+   "ingredients_text" : "wheat flour (origin: UK), sugar (Paraguay), eggs, strawberries, high fructose corn syrup, rapeseed oil, macadamia nuts, milk proteins, salt, E102, E120",
+   "ingredients_that_may_be_from_palm_oil_n" : 0,
+   "ingredients_that_may_be_from_palm_oil_tags" : [],
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 11,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:e102",
+      "en:e120",
+      "en:milk-proteins",
+      "en:rapeseed-oil"
+   ],
+   "ingredients_without_ciqual_codes_n" : 4,
+   "known_ingredients_n" : 30,
+   "labels_tags" : [
+      "en:organic",
+      "en:fair-trade"
+   ],
+   "languages" : {},
+   "languages_codes" : {},
+   "languages_hierarchy" : [],
+   "languages_tags" : [
+      "en:0"
+   ],
+   "lc" : "en",
+   "minerals_tags" : [],
+   "misc_tags" : [
+      "en:nutriscore-computed",
+      "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
+      "en:nutrition-all-nutriscore-values-known",
+      "en:nutrition-fruits-vegetables-legumes-estimate-from-ingredients",
+      "en:nutriscore-2021-different-from-2023",
+      "en:nutriscore-2021-better-than-2023",
+      "en:nutriscore-2021-c-2023-d",
+      "en:packagings-number-of-components-2",
+      "en:packagings-not-complete",
+      "en:packagings-not-empty-but-not-complete",
+      "en:packagings-not-empty",
+      "en:ecoscore-extended-data-not-computed",
+      "en:ecoscore-missing-data-warning",
+      "en:ecoscore-missing-data-labels",
+      "en:ecoscore-missing-data-packagings",
+      "en:ecoscore-computed",
+      "en:ecoscore-changed",
+      "en:ecoscore-grade-changed",
+      "en:forest-footprint-computed",
+      "en:forest-footprint-a"
+   ],
+   "nova_group" : 4,
+   "nova_group_debug" : "",
+   "nova_groups" : "4",
+   "nova_groups_markers" : {
+      "3" : [
+         [
+            "ingredients",
+            "en:salt"
+         ],
+         [
+            "ingredients",
+            "en:sugar"
+         ]
+      ],
+      "4" : [
+         [
+            "additives",
+            "en:e102"
+         ],
+         [
+            "additives",
+            "en:e120"
+         ],
+         [
+            "ingredients",
+            "en:glucose"
+         ],
+         [
+            "ingredients",
+            "en:high-fructose-corn-syrup"
+         ],
+         [
+            "ingredients",
+            "en:milk-proteins"
+         ]
+      ]
+   },
+   "nova_groups_tags" : [
+      "en:4-ultra-processed-food-and-drink-products"
+   ],
+   "nucleotides_tags" : [],
+   "nutrient_levels" : {
+      "fat" : "moderate",
+      "salt" : "low",
+      "saturated-fat" : "moderate",
+      "sugars" : "high"
+   },
+   "nutrient_levels_tags" : [
+      "en:fat-in-moderate-quantity",
+      "en:saturated-fat-in-moderate-quantity",
+      "en:sugars-in-high-quantity",
+      "en:salt-in-low-quantity"
+   ],
+   "nutriments" : {
+      "energy_100g" : 800,
+      "fat_100g" : 12,
+      "fiber_100g" : 3,
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 10.2272727272727,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 10.2272727272727,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 14.0625,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 14.0625,
+      "nova-group" : 4,
+      "nova-group_100g" : 4,
+      "nova-group_serving" : 4,
+      "nutrition-score-fr" : 8,
+      "nutrition-score-fr_100g" : 8,
+      "proteins_100g" : 2,
+      "salt_100g" : 0.25,
+      "saturated-fat_100g" : 4,
+      "sodium_100g" : 0.1,
+      "sugars_100g" : 25
+   },
+   "nutriscore" : {
+      "2021" : {
+         "category_available" : 1,
+         "data" : {
+            "energy" : 800,
+            "energy_points" : 2,
+            "energy_value" : 800,
+            "fiber" : 3,
+            "fiber_points" : 3,
+            "fiber_value" : 3,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils" : 14.0625,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
+            "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 14.1,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat" : 0,
+            "is_water" : 0,
+            "negative_points" : 11,
+            "positive_points" : 3,
+            "proteins" : 2,
+            "proteins_points" : 1,
+            "proteins_value" : 2,
+            "saturated_fat" : 4,
+            "saturated_fat_points" : 3,
+            "saturated_fat_value" : 4,
+            "sodium" : 100,
+            "sodium_points" : 1,
+            "sodium_value" : 100,
+            "sugars" : 25,
+            "sugars_points" : 5,
+            "sugars_value" : 25
+         },
+         "grade" : "c",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
+         "score" : 8
+      },
+      "2023" : {
+         "category_available" : 1,
+         "data" : {
+            "count_proteins" : 0,
+            "count_proteins_reason" : "negative_points_more_than_11",
+            "energy" : 800,
+            "energy_points" : 2,
+            "fiber" : 3,
+            "fiber_points" : 0,
+            "fruits_vegetables_legumes" : 10.2272727272727,
+            "fruits_vegetables_legumes_points" : 0,
+            "is_beverage" : 0,
+            "is_cheese" : 0,
+            "is_fat_oil_nuts_seeds" : 0,
+            "is_red_meat_product" : 0,
+            "is_water" : 0,
+            "negative_nutrients" : [
+               "energy",
+               "sugars",
+               "saturated_fat",
+               "salt",
+               "non_nutritive_sweeteners"
+            ],
+            "negative_points" : 13,
+            "positive_nutrients" : [
+               "fruits_vegetables_legumes",
+               "fiber"
+            ],
+            "positive_points" : 0,
+            "proteins" : 2,
+            "proteins_points" : 0,
+            "salt" : 0.25,
+            "salt_points" : 1,
+            "saturated_fat" : 4,
+            "saturated_fat_points" : 3,
+            "sugars" : 25,
+            "sugars_points" : 7
+         },
+         "grade" : "d",
+         "nutrients_available" : 1,
+         "nutriscore_applicable" : 1,
+         "nutriscore_computed" : 1,
+         "score" : 13
+      }
+   },
+   "nutriscore_2021_tags" : [
+      "c"
+   ],
+   "nutriscore_2023_tags" : [
+      "d"
+   ],
+   "nutriscore_data" : {
+      "energy" : 800,
+      "energy_points" : 2,
+      "energy_value" : 800,
+      "fiber" : 3,
+      "fiber_points" : 3,
+      "fiber_value" : 3,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils" : 14.0625,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_points" : 0,
+      "fruits_vegetables_nuts_colza_walnut_olive_oils_value" : 14.1,
+      "grade" : "c",
+      "is_beverage" : 0,
+      "is_cheese" : 0,
+      "is_fat" : 0,
+      "is_water" : 0,
+      "negative_points" : 11,
+      "positive_points" : 3,
+      "proteins" : 2,
+      "proteins_points" : 1,
+      "proteins_value" : 2,
+      "saturated_fat" : 4,
+      "saturated_fat_points" : 3,
+      "saturated_fat_value" : 4,
+      "score" : 8,
+      "sodium" : 100,
+      "sodium_points" : 1,
+      "sodium_value" : 100,
+      "sugars" : 25,
+      "sugars_points" : 5,
+      "sugars_value" : 25
+   },
+   "nutriscore_grade" : "c",
+   "nutriscore_score" : 8,
+   "nutriscore_score_opposite" : -8,
+   "nutriscore_tags" : [
+      "c"
+   ],
+   "nutriscore_version" : "2021",
+   "nutrition_data_per" : "100g",
+   "nutrition_data_prepared_per" : "100g",
+   "nutrition_grade_fr" : "c",
+   "nutrition_grades" : "c",
+   "nutrition_grades_tags" : [
+      "c"
+   ],
+   "nutrition_score_beverage" : 0,
+   "nutrition_score_debug" : "",
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value" : 10.2272727272727,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients" : 1,
+   "nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value" : 14.0625,
+   "other_nutritional_substances_tags" : [],
+   "packaging_materials_tags" : [
+      "en:cardboard"
+   ],
+   "packaging_recycling_tags" : [],
+   "packaging_shapes_tags" : [
+      "en:box",
+      "en:film"
+   ],
+   "packaging_text" : "Cardboard box, film wrap",
+   "packagings" : [
+      {
+         "material" : "en:cardboard",
+         "shape" : "en:box"
+      },
+      {
+         "shape" : "en:film"
+      }
+   ],
+   "packagings_materials" : {
+      "all" : {},
+      "en:paper-or-cardboard" : {},
+      "en:unknown" : {}
+   },
+   "packagings_n" : 2,
+   "pnns_groups_1" : "unknown",
+   "pnns_groups_1_tags" : [
+      "unknown",
+      "missing-association"
+   ],
+   "pnns_groups_2" : "unknown",
+   "pnns_groups_2_tags" : [
+      "unknown",
+      "missing-association"
+   ],
+   "traces" : "",
+   "traces_from_ingredients" : "",
+   "traces_from_user" : "(en) ",
+   "traces_hierarchy" : [],
+   "traces_tags" : [],
+   "unknown_ingredients_n" : 0,
+   "unknown_nutrients_tags" : [],
+   "vitamins_tags" : []
+}

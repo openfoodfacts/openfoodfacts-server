@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2020 Association Open Food Facts
+# Copyright (C) 2011-2023 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -24,6 +24,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -41,6 +42,7 @@ use ProductOpener::Ecoscore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
+use ProductOpener::LoadData qw/:all/;
 
 use URI::Escape::XS;
 use Storable qw/dclone/;
@@ -75,8 +77,7 @@ import_csv_file.pl --csv_file path_to_csv_file --images_dir path_to_directory_co
 --only_select_not_existing_images
 --use_brand_owner_as_org_name
 TXT
-;
-
+	;
 
 my $csv_file;
 my %global_values = ();
@@ -105,7 +106,7 @@ my $user_id;
 my $org_id;
 my $owner_id;
 
-GetOptions (
+GetOptions(
 	"import_lc=s" => \$import_lc,
 	"csv_file=s" => \$csv_file,
 	"images_dir=s" => \$images_dir,
@@ -130,8 +131,7 @@ GetOptions (
 	"skip_existing_values" => \$skip_existing_values,
 	"only_select_not_existing_images" => \$only_select_not_existing_images,
 	"use_brand_owner_as_org_name" => \$use_brand_owner_as_org_name,
-		)
-  or die("Error in command line arguments:\n$\nusage");
+) or die("Error in command line arguments:\n$\nusage");
 
 print STDERR "import_csv_file.pl
 - user_id: $user_id
@@ -187,16 +187,7 @@ if (not $no_source) {
 
 $missing_arg and exit();
 
-init_emb_codes();
-init_packager_codes();
-init_geocode_addresses();
-init_packaging_taxonomies_regexps();
-
-if ((defined $options{product_type}) and ($options{product_type} eq "food")) {
-	load_agribalyse_data();
-	load_ecoscore_data();
-	load_forest_footprint_data();
-}
+load_data();
 
 my $args_ref = {
 	user_id => $user_id,
@@ -224,7 +215,7 @@ my $args_ref = {
 	use_brand_owner_as_org_name => $use_brand_owner_as_org_name,
 };
 
-my $stats_ref = import_csv_file( $args_ref );
+my $stats_ref = import_csv_file($args_ref);
 
 print STDERR "\n\nstats:\n\n";
 
@@ -232,9 +223,9 @@ foreach my $stat (sort keys %{$stats_ref}) {
 
 	print STDERR $stat . "\t" . (scalar keys %{$stats_ref->{$stat}}) . "\n";
 
-	open (my $out, ">", "$data_root/tmp/import.$stat.txt") or print "Could not create import.$stat.txt : $!\n";
+	open(my $out, ">", "$BASE_DIRS{CACHE_TMP}/import.$stat.txt") or print "Could not create import.$stat.txt : $!\n";
 
-	foreach my $code ( sort keys %{$stats_ref->{$stat}}) {
+	foreach my $code (sort keys %{$stats_ref->{$stat}}) {
 		print $out $code . "\n";
 	}
 	close($out);
@@ -249,15 +240,19 @@ my $template_data_ref = {
 
 my $mail = '';
 process_template("emails/import_csv_file_admin_notification.tt.html", $template_data_ref, \$mail)
-	or print STDERR "emails/import_csv_file_admin_notification.tt.html template error: " .  $tt->error();
+	or print STDERR "emails/import_csv_file_admin_notification.tt.html template error: " . $tt->error();
 if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
 	my $subject = $1;
 	my $body = $';
 	$body =~ s/^\n+//;
-	
+
 	send_email_to_producers_admin($subject, $body);
 
 	print "email subject: $subject\n\n";
 	print "email body:\n$body\n\n";
 }
 
+if ($stats_ref->{error}) {
+	print STDERR "An error occured: " . $stats_ref->{error}{error} . "\n";
+	exit(1);
+}

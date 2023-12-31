@@ -1,0 +1,285 @@
+{
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "id" : "en:sugar",
+         "percent_estimate" : 53.3333333333333,
+         "percent_max" : 100,
+         "percent_min" : 6.66666666666667,
+         "text" : "砂糖",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "9410",
+         "id" : "en:wheat-flour",
+         "percent_estimate" : 23.3333333333333,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "小麦粉",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "19021",
+         "id" : "en:whole-milk-powder",
+         "percent_estimate" : 11.6666666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "全粉乳",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "16030",
+         "id" : "en:cocoa-paste",
+         "percent_estimate" : 5.83333333333333,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "カカオマス",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "from_palm_oil" : "maybe",
+         "id" : "en:fat",
+         "percent_estimate" : 2.91666666666666,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "ショートニング",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      },
+      {
+         "from_palm_oil" : "maybe",
+         "id" : "en:vegetable-oil-and-fat",
+         "percent_estimate" : 1.45833333333333,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "植物油脂",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "16030",
+         "id" : "en:cocoa-butter",
+         "percent_estimate" : 0.729166666666664,
+         "percent_max" : 14.2857142857143,
+         "percent_min" : 0,
+         "text" : "ココアバター",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "9410",
+         "id" : "en:whole-wheat-flour",
+         "percent_estimate" : 0.364583333333329,
+         "percent_max" : 12.5,
+         "percent_min" : 0,
+         "text" : "小麦全粒粉",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "9621",
+         "id" : "en:wheat-bran",
+         "percent_estimate" : 0.182291666666664,
+         "percent_max" : 11.1111111111111,
+         "percent_min" : 0,
+         "text" : "小麦ふすま",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "11058",
+         "id" : "en:salt",
+         "percent_estimate" : 0.0911458333333286,
+         "percent_max" : 10,
+         "percent_min" : 0,
+         "text" : "食塩",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "ja:小麦胚芽",
+         "percent_estimate" : 0.0455729166666643,
+         "percent_max" : 9.09090909090909,
+         "percent_min" : 0,
+         "text" : "小麦胚芽"
+      },
+      {
+         "id" : "en:modified-starch",
+         "percent_estimate" : 0.0227864583333286,
+         "percent_max" : 8.33333333333333,
+         "percent_min" : 0,
+         "text" : "加工デンプン",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:emulsifier",
+         "ingredients" : [
+            {
+               "id" : "ja:大豆由来",
+               "percent_estimate" : 0.0113932291666643,
+               "percent_max" : 7.69230769230769,
+               "percent_min" : 0,
+               "text" : "大豆由来"
+            }
+         ],
+         "percent_estimate" : 0.0113932291666643,
+         "percent_max" : 7.69230769230769,
+         "percent_min" : 0,
+         "text" : "乳化剤"
+      },
+      {
+         "id" : "en:raising-agent",
+         "percent_estimate" : 0.0056966145833286,
+         "percent_max" : 7.14285714285714,
+         "percent_min" : 0,
+         "text" : "膨脹剤"
+      },
+      {
+         "id" : "en:flavouring",
+         "percent_estimate" : 0.0056966145833286,
+         "percent_max" : "5",
+         "percent_min" : 0,
+         "text" : "香料",
+         "vegan" : "maybe",
+         "vegetarian" : "maybe"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:may-contain-palm-oil" : [
+         "en:fat",
+         "en:vegetable-oil-and-fat"
+      ],
+      "en:non-vegan" : [
+         "en:whole-milk-powder"
+      ],
+      "en:vegan-status-unknown" : [
+         "ja:小麦胚芽",
+         "ja:大豆由来"
+      ],
+      "en:vegetarian-status-unknown" : [
+         "ja:小麦胚芽",
+         "ja:大豆由来"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:may-contain-palm-oil",
+      "en:non-vegan",
+      "en:vegetarian-status-unknown"
+   ],
+   "ingredients_hierarchy" : [
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:wheat-flour",
+      "en:cereal",
+      "en:flour",
+      "en:wheat",
+      "en:cereal-flour",
+      "en:whole-milk-powder",
+      "en:dairy",
+      "en:milk-powder",
+      "en:cocoa-paste",
+      "en:plant",
+      "en:cocoa",
+      "en:fat",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:cocoa-butter",
+      "en:whole-wheat-flour",
+      "en:wholemeal-flour",
+      "en:wheat-bran",
+      "en:salt",
+      "ja:小麦胚芽",
+      "en:modified-starch",
+      "en:starch",
+      "en:emulsifier",
+      "en:raising-agent",
+      "en:flavouring",
+      "ja:大豆由来"
+   ],
+   "ingredients_n" : 16,
+   "ingredients_n_tags" : [
+      "16",
+      "11-20"
+   ],
+   "ingredients_original_tags" : [
+      "en:sugar",
+      "en:wheat-flour",
+      "en:whole-milk-powder",
+      "en:cocoa-paste",
+      "en:fat",
+      "en:vegetable-oil-and-fat",
+      "en:cocoa-butter",
+      "en:whole-wheat-flour",
+      "en:wheat-bran",
+      "en:salt",
+      "ja:小麦胚芽",
+      "en:modified-starch",
+      "en:emulsifier",
+      "en:raising-agent",
+      "en:flavouring",
+      "ja:大豆由来"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:wheat-flour",
+      "en:cereal",
+      "en:flour",
+      "en:wheat",
+      "en:cereal-flour",
+      "en:whole-milk-powder",
+      "en:dairy",
+      "en:milk-powder",
+      "en:cocoa-paste",
+      "en:plant",
+      "en:cocoa",
+      "en:fat",
+      "en:oil-and-fat",
+      "en:vegetable-oil-and-fat",
+      "en:cocoa-butter",
+      "en:whole-wheat-flour",
+      "en:wholemeal-flour",
+      "en:wheat-bran",
+      "en:salt",
+      "ja:小麦胚芽",
+      "en:modified-starch",
+      "en:starch",
+      "en:emulsifier",
+      "en:raising-agent",
+      "en:flavouring",
+      "ja:大豆由来"
+   ],
+   "ingredients_text" : "砂糖、小麦粉、全粉乳、カカオマス、ショートニング、植物油脂、ココアバター、小麦全粒粉、小麦ふすま、食塩、小麦胚芽 ／ 加工デンプン、乳化剤（大豆由来）、膨脹剤、香料",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 15,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:emulsifier",
+      "en:fat",
+      "en:flavouring",
+      "en:modified-starch",
+      "en:raising-agent",
+      "en:vegetable-oil-and-fat",
+      "ja:大豆由来",
+      "ja:小麦胚芽"
+   ],
+   "ingredients_without_ciqual_codes_n" : 8,
+   "known_ingredients_n" : 27,
+   "lc" : "ja",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 2
+}

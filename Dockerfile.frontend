@@ -3,7 +3,7 @@
 ARG USER_UID=1000
 ARG USER_GID=1000
 
-FROM node:lts as builder
+FROM node:lts AS builder
 ARG USER_UID
 ARG USER_GID
 RUN usermod --uid $USER_UID node && \
@@ -25,7 +25,7 @@ ENV PATH /opt/product-opener/node_modules/.bin:$PATH
 COPY --chown=node:node html /opt/product-opener/html
 COPY --chown=node:node icons /opt/product-opener/icons
 COPY --chown=node:node scss /opt/product-opener/scss
-COPY --chown=node:node gulpfile.js /opt/product-opener/
+COPY --chown=node:node gulpfile.ts /opt/product-opener/
 COPY --chown=node:node .snyk /opt/product-opener/
 # https://github.com/openfoodfacts/openfoodfacts-server/pull/5544#issuecomment-914221199
 RUN find . -xtype l | xargs -I {} sh -c "origin=\$(readlink {} | tr '\\\\\\\\' '/') && ln -sf \$origin {}"

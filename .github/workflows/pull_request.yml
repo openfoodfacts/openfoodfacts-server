@@ -1,194 +1,149 @@
-name: Pull Requests
+name: Pull Request checks
 
 on:
   pull_request:
-    branches: [ main ]
+    # we can't do that, because status are required
+    # see https://stackoverflow.com/questions/66751567/return-passing-status-on-github-workflow-when-using-paths-ignore
+    # paths-ignore:
+    #   - "**.md"
+    #   - ".github/CODEOWNERS"
+    #   - ".github/PULL_REQUEST_TEMPLATE.md"
+    #   - ".editorconfig"
+  push:
+    branches:
+    - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
+
+  # those are just until we de-activate their mandatory
   gulp:
     name: Gulp
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
-    - uses: actions/setup-node@v2.5.1
-      with:
-        node-version: '12.x'
-    - run: npm install
-    - run: npm run build
+    - name: just finish
+      run: exit 0
+  dev:
+    name: Dev
+    runs-on: ubuntu-latest
+    steps:
+    - name: just finish
+      run: exit 0
 
   lint:
-    name: NPM lint
+    name: 🕵️‍♀️ NPM lint
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 1
-    - uses: actions/setup-node@v2.5.1
+    - uses: actions/setup-node@v4
       with:
         node-version: '12.x'
-    - run: npm install
-    - run: npm run lint
+    - name: gulp build
+      run: make front_build
+    - name: lint
+      run: make front_lint
 
-  test:
-    name: Perl unit tests
+  # this will build the docker image and upload as an artifact for following jobs
+  build_backend:
+    name: 🏗 Build backend dev image for tests
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 50
-    
-    - uses: actions/setup-node@v2.5.1
+    - name: build
+      run: make build_backend
+    - name: push backend image as artifact
+      uses: ishworkh/docker-image-artifact-upload@v1
       with:
-        node-version: '12.x'
-    
-    - run: npm install
-    
-    - name: find changed perl files
-      uses: umani/changed-files@v3.3.0
-      id: changed-perl
-      with:
-        repo-token: ${{ github.token }}
-        pattern: '^(cgi|scripts)/.*\.pl$|^lib/ProductOpener/.*\.pm$'
-        result-encoding: 'string'
-    
-    - name: prepare, build, and test
+        image: "openfoodfacts-server/backend:dev"
+    - name: Rebuild taxonomies
+      # here we first restore dates from git for taxonomies to avoid build them all
+      # see https://stackoverflow.com/a/60984318/2886726
       run: |
-        sudo apt-get update
-        sudo apt-get install -y --no-install-recommends cpanminus tesseract-ocr
-        # apt packages from cpanfile
-        sudo apt-get install -y --no-install-recommends graphviz \
-        gnumeric \
-        libtie-ixhash-perl \
-        libwww-perl \
-        libimage-magick-perl \
-        libxml-encoding-perl \
-        libtext-unaccent-perl \
-        libmime-lite-perl \
-        libcache-memcached-fast-perl \
-        libjson-pp-perl \
-        libclone-perl \
-        libcrypt-passwdmd5-perl \
-        libencode-detect-perl \
-        libgraphics-color-perl \
-        libbarcode-zbar-perl \
-        libxml-feedpp-perl \
-        liburi-find-perl \
-        libxml-simple-perl \
-        libexperimental-perl \
-        libapache2-request-perl \
-        libdigest-md5-perl \
-        libtime-local-perl \
-        libpq-dev \
-        libdbd-pg-perl \
-        libtemplate-perl \
-        liburi-escape-xs-perl \
-        libfile-copy-recursive-perl \
-        libemail-stuffer-perl \
-        liblist-moreutils-perl \
-        libexcel-writer-xlsx-perl \
-        libpod-simple-perl \
-        liblog-any-perl \
-        liblog-log4perl-perl \
-        liblog-any-adapter-log4perl-perl \
-        libemail-valid-perl \
-        libmath-fibonacci-perl \
-        libprobe-perl-perl \
-        libmath-round-perl \
-        libsoftware-license-perl \
-        libtest-differences-perl \
-        libtest-exception-perl \
-        libclass-accessor-lite-perl \
-        libclass-singleton-perl \
-        libfile-sharedir-install-perl \
-        libnet-idn-encode-perl \
-        libtest-nowarnings-perl \
-        libfile-chmod-perl \
-        libdata-dumper-concise-perl \
-        libdata-printer-perl \
-        libdata-validate-ip-perl \
-        libio-compress-perl \
-        libjson-maybexs-perl \
-        liblist-allutils-perl \
-        liblist-someutils-perl \
-        libdata-section-simple-perl \
-        libfile-which-perl \
-        libipc-run3-perl \
-        liblog-handler-perl \
-        libtest-deep-perl \
-        libwant-perl \
-        libfile-find-rule-perl \
-        liblinux-usermod-perl \
-        liblocale-maketext-lexicon-perl \
-        liblog-any-adapter-tap-perl \
-        libcrypt-random-source-perl \
-        libmath-random-isaac-perl \
-        libtest-sharedfork-perl \
-        libtest-warn-perl \
-        libsql-abstract-perl \
-        libauthen-sasl-saslprep-perl \
-        libauthen-scram-perl \
-        libbson-perl \
-        libclass-xsaccessor-perl \
-        libconfig-autoconf-perl \
-        libdigest-hmac-perl \
-        libpath-tiny-perl \
-        libsafe-isa-perl \
-        libspreadsheet-parseexcel-perl \
-        libtest-number-delta-perl
-        
-        # 
-        # Not available in Ubuntu 18.04 LTS
-        # libmath-random-secure-perl
-        # libgeoip2-perl
-        # libmodule-build-pluggable-perl
-        #
-        
-        # setup local::lib
-        cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
-        
-        # install perl dependencies
-        cpanm --quiet --installdeps --notest --skip-satisfied .
-        
-        # Prepare config
-        export BUILD_DIR=`pwd`
-        ln -sf $BUILD_DIR/lib/ProductOpener/Config_off.pm $BUILD_DIR/lib/ProductOpener/Config.pm
-        cp $BUILD_DIR/lib/ProductOpener/Config2_sample.pm $BUILD_DIR/lib/ProductOpener/Config2.pm
-        ln -s $BUILD_DIR/lib/ProductOpener/SiteLang_off.pm $BUILD_DIR/lib/ProductOpener/SiteLang.pm
-        sed -i -e 's|\$server_domain = "openfoodfacts.org";|\$server_domain = "off.travis-ci.org";|g' $BUILD_DIR/lib/ProductOpener/Config2.pm
-        sed -i -e 's|\/home\/off|'$BUILD_DIR'|g' $BUILD_DIR/lib/ProductOpener/Config2.pm
-        
-        # Ensure everything compiles
-        perl -c -CS -Ilib lib/startup_apache2.pl
-        # node scripts/check_perl.js cgi/*.pl
-        # node scripts/check_perl.js scripts/*.pl
-        node scripts/check_perl.js ${{ steps.changed-perl.outputs.files_created }} ${{ steps.changed-perl.outputs.files_updated }}
-        
-        # Rebuild taxonomies
-        perl -CS -I$BUILD_DIR/lib $BUILD_DIR/scripts/build_lang.pl
-        node scripts/refresh_taxonomies.js
-        
-        # Run unit tests
-        prove -l --jobs 2
+        git ls-files taxonomies/ | xargs -I{} git log -1 --date=format:%Y%m%d%H%M.%S --format='touch -t %ad "{}"' "{}" | bash
+        make build_taxonomies GITHUB_TOKEN="${{ secrets.TAXONOMY_CACHE_GITHUB_TOKEN }}"
 
-  dev:
-    name: Run developer workflow
+  check_perl:
+    name: 🐪 Check Perl
+    needs: build_backend
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 50
+    - name: Download backend image from artifacts
+      uses: ishworkh/docker-image-artifact-download@v1
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: ensure branch origin/main is fetched
+      run: git fetch --no-tags --prune --progress --no-recurse-submodules --depth=5 origin  main
+    - name: build taxonomies (should use cache)
+      run: make build_taxonomies
+    - name: check perltidy
+      run: make check_perltidy
+    - name: check perlcritic
+      run: make check_critic
+    - name: check perl
+      run: make check_perl
+
+  tests:
+    name: 🐪 Perl unit tests
+    needs: build_backend
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
-        fetch-depth: 1
-    # - uses: satackey/action-docker-layer-caching@v0.0.11
-    #   continue-on-error: true
-    - run: |
+        fetch-depth: 50
+    - name: Download backend image from artifacts
+      uses: ishworkh/docker-image-artifact-download@v1
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: tests
+      run: |
+        make codecov_prepare
+        make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/"' tests
+    - name: generate coverage results
+      # even if tests failed
+      if: always()
+      run: |
+        make coverage_txt
+        make codecov
+    - uses: codecov/codecov-action@v3
+      if: always()
+      with:
+        files: cover_db/codecov.json
+
+  tests_dev:
+    name: 🧪 Test make dev
+    needs: build_backend  # only to avoid building taxonomies
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 50
+    - name: Download backend image from artifacts
+      uses: ishworkh/docker-image-artifact-download@v1
+      with:
+        image: "openfoodfacts-server/backend:dev"
+    - name: set right UID and GID in .envrc
+      run: |
+        rm -f .envrc
+        echo "export USER_UID=$(id -u)" >> .envrc
+        echo "export USER_GID=$(id -g)" >> .envrc
+    - name: Test make dev
+      run: |
         make dev
         make status
-      env:
-        DOCKER_BUILDKIT: 1
-    # - run: |
-    #     make tests
-    - run: |
-        make livecheck
-    - run: |
-        make hdown
+    - name: Test all is running
+      run: make livecheck || ( tail -n 300 logs/apache2/*error*log; docker-compose logs; false )
+    - name: test clean
+      run: make hdown

@@ -1,0 +1,83 @@
+{
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "19051",
+         "id" : "en:milk",
+         "origins" : "en:belgium,en:spain",
+         "percent_estimate" : 75,
+         "percent_max" : 100,
+         "percent_min" : 50,
+         "text" : "Milk",
+         "vegan" : "no",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "id" : "en:sugar",
+         "percent_estimate" : 25,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "sugar",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {
+      "en:non-vegan" : [
+         "en:milk"
+      ]
+   },
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:non-vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:milk",
+      "en:dairy",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide"
+   ],
+   "ingredients_n" : 2,
+   "ingredients_n_tags" : [
+      "2",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:milk",
+      "en:sugar"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:milk",
+      "en:dairy",
+      "en:sugar",
+      "en:added-sugar",
+      "en:disaccharide"
+   ],
+   "ingredients_text" : "Milk, sugar. Origin of the milk: Belgium, Spain",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "known_ingredients_n" : 5,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "specific_ingredients" : [
+      {
+         "id" : "en:milk",
+         "ingredient" : "milk",
+         "origins" : "en:belgium,en:spain",
+         "text" : "Origin of the milk: Belgium, Spain"
+      }
+   ],
+   "unknown_ingredients_n" : 0
+}

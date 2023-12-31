@@ -8,20 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta property="fb:app_id" content="219331381518041" />
-    <meta property="og:type" content="food" />
-    <meta property="og:title" content="" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Help ons het Open Food Facts 2022 budget te financieren!" />
     <meta
       property="og:url"
       content="https://world.openfoodfacts.org/donate-to-openfoodfacts"
     />
-
     <meta
       property="og:image"
-      content="https://static.openfoodfacts.org/images/misc/openfoodfacts-logo-nl-356.png"
+      content="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.png"
     />
     <meta
       property="og:description"
-      content="Ingrediënten, voedingswaarden en informatie over voedingsproducten uit de hele wereld in een open en vrije databank"
+      content="Open Food Facts is de grootste gratis en open database van voedingsproducten ter wereld. Wij geloven dat informatie over wat we eten informatie van algemeen belang is."
     />
     <link rel="manifest" href="/cgi/manifest.pl" />
     <link
@@ -51,7 +50,7 @@
 
     <link
       rel="stylesheet"
-      href="https://static.openfoodfacts.org/css/dist/app-ltr.css"
+      href="/cgi/css.pl"
     />
     <link
       rel="stylesheet"
@@ -72,6 +71,20 @@
     <style media="all">
       .show-when-logged-in {
         display: none;
+      }
+      .reason img {
+        height: 100px;
+      }
+      p {
+        line-height: 1.3;
+        margin-bottom: 0.8rem;
+      }
+      .wrapper {
+        background-image: url("https://static.openfoodfacts.org/images/misc/2023-donation/background.png");
+        background-size: contain;/**/
+        background-repeat: no-repeat;/**/
+        background-size: 100% 100%;
+        z-index: 0;
       }
     </style>
     <script src="https://static.openfoodfacts.org/js/dist/jquery.js"></script>
@@ -104,27 +117,33 @@ $('iframe').load(function(){
     </script>
   </head>
   <body>
+    <div class="wrapper">
     <div class="hide-for-large-up text-center">
       <img
-        src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg"
+        src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"
         width="178"
         height="156"
         alt="Open Food Facts-logo"
       />
+    </div>
 
-<div class="panel callout" style="margin-top:0.5rem">
-<h3>Help us to fund the Open Food Facts 2022 budget!</h3>
-<p>Open Food Facts is 100% gratis en onafhankelijk van de voedingsindustrie. We hebben je hulp nodig om door te gaan en het project verder te laten groeien.</p>
-</div>
+    <div class="hide-for-medium hide-for-large-up text-center">
+      <div class="panel callout" style="padding-top: 1rem; padding-bottom: 1rem; margin-bottom: 0.4rem;">
+        <h3>Help ons de begroting voor 2024 te financieren!</h3>
+        <p>
+          Open Food Facts is 100% gratis en onafhankelijk van de voedingsindustrie. 
+          We hebben je hulp nodig om door te gaan en het project verder te laten groeien.
+        </p>
+      </div>
     </div>
 
     <div
       class="row"
-      style="width: 100%; margin-left: auto; margin-right: auto; max-width: initial; margin-top:20px;"
+      style="width: 100%; margin-left: auto; margin-right: auto; max-width: initial; margin-top:10px;"
     >
       <div class="columns large-2 hide-for-medium hide-for-small text-center">
         <img
-          src="https://static.openfoodfacts.org/images/svg/openfoodfacts-logo-en.svg"
+          src="https://static.openfoodfacts.org/images/logos/off-logo-horizontal-light.svg"
           width="178"
           height="156"
           alt="Open Food Facts-logo"
@@ -132,64 +151,78 @@ $('iframe').load(function(){
       </div>
 
       <div
-        class="columns large-5 xlarge-6 xxlarge-7 hide-for-medium hide-for-small"
+        class="columns medium-6 large-5 xlarge-6 xxlarge-7 hide-for-small"
       >
-        <h2 style="margin-bottom:1rem">
-          Een bericht van het Open Food Facts-team
-        </h2>
 
-<div class="panel callout" style="margin-top:0.5rem">
-<h3>Help us to fund the Open Food Facts 2022 budget!</h3>
-<p>Open Food Facts is 100% gratis en onafhankelijk van de voedingsindustrie. We hebben je hulp nodig om door te gaan en het project verder te laten groeien.</p>
-</div>
+        <div class="panel callout" style="padding-top: 1rem; padding-bottom: 1rem; margin-bottom: 0.8rem;">
+          <h3>Help ons het Open Food Facts 2022 budget te financieren!</h3>
+          <p>
+            Open Food Facts is 100% gratis en onafhankelijk van de voedingsindustrie. 
+            We hebben je hulp nodig om door te gaan en het project verder te laten groeien.
+          </p>
+        </div>
 
-        <img
-          src="https://static.openfoodfacts.org/images/svg/crowdsourcing-icon.svg"
-          style="width:240px;float:left;margin-right:5px;"
-          alt="Ja we scannen! logo"
-        />
-
+        <h3>Waarom doneren aan Open Food Facts?</h3>
         <p>
           Open Food Facts is de "Wikipedia van levensmiddelen", de grootste gratis en open
           database van levensmiddelen ter wereld.
+          We zijn Open Food Facts gestart omdat we van mening zijn dat informatie over wat we eten van openbaar belang is en openbaar moet zijn. Vrij en open.
         </p>
-        <p>
-          We zijn Open Food Facts gestart omdat we geloven dat informatie over wat
-          we eten informatie van algemeen belang is. Daarom moet het
-          openbaar, gratis en open zijn.
-        </p>
-        <p>
-          Onze gegevens worden gebruikt door burgers om gezondere voedselkeuzes te maken dankzij
-          onze mobiele app, door volksgezondheidonderzoekers om het effect van
-          voedsel op onze gezondheid te bestuderen, door journalisten voor hun verslaglegging, en zelfs door
-          de levensmiddelenindustrie om haar producten te verbeteren. Dat is de kracht van voedsel
-          transparantie: iedereen heeft er baat bij!
-        </p>
-        <p>
-          Bij de oprichting van Open Food Facts, hebben we de duidelijke keuze gemaakt om
-          volledig non-profit te zijn, en omdat al ons werk gratis beschikbaar is, is onze impact maximaal.
-          We hebben ook de duidelijke keuze gemaakt om volledig onafhankelijk van
+
+        <div class="reasons row">
+          <div class="reason small-12 large-6 columns">
+            <div class="flex-video">
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/W5pOjx6ycX4" 
+            title="YouTube videospeler" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="reason small-12 large-6 columns">
+            <p>
+              Toen we Open Food Facts oprichtten, hebben we de duidelijke keuze gemaakt om <strong>volledig non-profit te zijn</strong> om
+              <b>onze impact te maximaliseren</b> door al ons werk weg te geven. We hebben ook de duidelijke keuze gemaakt om volledig onafhankelijk van
           de industrie te zijn, en we accepteren dus nooit financiering die
           onze missie in gevaar zou kunnen brengen.
-        </p>
-        <p>
-          Als gevolg daarvan zijn we het project klein gestart en is ons budget nog steeds (te) beperkt. Van 2012 tot 2017 waren we allemaal vrijwilligers en was ons budget
-         minder dan 1000 euro per jaar! Het project is echter erg
-          gegroeid en we hebben nu meer nodig om onze missie voort te zetten.
-        </p>
-        <p>
-          We hebben jouw hulp nodig om Open Food
-          Facts verder te kunnen ontwikkelen en te kunnen blijven functioneren. Overweeg daarom om een donatie te doen om Open
-          Food Facts te beschermen en te onderhouden.
-        </p>
-        <p>Hartelijk dank,</p>
-        <p style="font-weight: bold;">
-          Anca, Florence, Léonore, Sylvia, Charles, Christian, Ludovic, Pierre,
-          Sébastien, Stéphane, Vincent and the whole Open Food Facts team
-        </p>
+            </p>
+            <p>
+              We hebben jouw hulp nodig om Open Food
+              Facts voort te zetten en te laten groeien. Overweeg alstublieft een donatie te doen om Open
+ Food Facts te beschermen en in stand te houden.
+            </p>
+            <p>Bedankt,<br/>
+              Anca, Éloïse, Florence, Léonore, Marie, Christian, Ludovic, 
+              Sébastien, Vincent en het hele team van Open Food Facts.
+            </p>
+          </div>
+        </div>
+        <div class="reasons row">
+          <div class="reason small-12 large-6 columns">
+            <h3>Waar uw donatie naartoe gaat</h3>
+
+            <p>
+              <strong>Technologie:</strong> Ontwikkeling, onderhoud, servers om de
+              database te laten groeien en om coole nieuwe functies toe te voegen aan de Open Food
+              Facts mobiele app en website.
+            </p>
+
+            <p>
+              <strong> Mensen en projecten: </strong> Om onze beste ondersteuning aan de Open Food Facts gemeenschap te geven, om te werken met onderzoekers, en om onze
+              voedingsproductendata de grootste impact op onze gezondheid, onze
+              planeet, en de maatschappij te laten hebben.
+            </p>
+          </div>
+          <div class="small-12 large-6 columns">
+            <img src="https://static.openfoodfacts.org/images/misc/group-photo-small.jpg"
+                 alt="Laatste vergadering in Parijs"
+            >
+          </div>
+        </div>
+
+
       </div>
 
-      <div class="columns large-5 xlarge-4 xxlarge-3 text-center">
+      <div class="columns small-12 medium-6 large-5 xlarge-4 xxlarge-3 text-center">
         <div style="max-width:425px">
           <div class="loading">
             <p>Het donatieformulier wordt geladen.<br>Je kunt het ook openen door <a href="https://donorbox.org/your-donation-to-open-food-facts">hier te klikken</a>.</p>
@@ -210,23 +243,29 @@ $('iframe').load(function(){
             width="100%"
           ></iframe>
 
-          <div class="text-left">
-            <h3>Waar uw donatie naartoe gaat</h3>
+          <div class="text-center">
+            <img src="https://static.openfoodfacts.org/images/misc/2023-donation/join-the-food-rev.png"
+                 alt="Doe mee met de voedselrevolutie!" style="margin-top: -15%; margin-bottom: -20%; width:80%"
+            >
+            <!-- h3>Where your donation goes</h3>
 
             <p>
-              <strong>Technologie:</strong> Ontwikkeling, onderhoud, servers om de
-              database te laten groeien en coole nieuwe functies toe te voegen aan de Open Food
-              app en website.
+              <strong>Technology:</strong> Development, maintenance, servers to keep the
+              database growing and to add cool new features to the Open Food
+              Facts mobile app and web site.
             </p>
 
             <p>
-              <strong> Mensen en projecten: </strong> Om onze beste ondersteuning aan de Open Food Facts gemeenschap te geven, om te werken met onderzoekers, en om onze
-              voedingsproductendata de grootste impact op onze gezondheid, onze
-              planeet, en de maatschappij te laten hebben.
-            </p>
+              <strong>People and projects:</strong> To give our best support to the Open
+              Food Facts community, to work with researchers, and to make our
+              food products data have the biggest impact on our health, our
+              planet, and society.
+            </p -->
           </div>
         </div>
       </div>
     </div>
+  </div>
+
   </body>
 </html>

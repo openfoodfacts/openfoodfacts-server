@@ -4,12 +4,12 @@
     <a id="ingredients_analysis_link" data-dropdown="ingredient_analysis_drop" aria-controls="ingredient_analysis_drop" aria-expanded="false">
         [% lang("ingredients_analysis_details") %] &raquo;
     </a>
-    [% IF ingredients_text_comp == 'unknown_ingredient' %]
+    [% IF unknown_ingredients %]
         <strong>[% lang("we_need_your_help") %]</strong>
     [% END %]
 </p>
 <div id="ingredient_analysis_drop" data-dropdown-content class="f-dropdown content large" aria-hidden="true" tabindex="-1">
-    [% IF ingredients_text_comp == 'unknown_ingredient' %]
+    [% IF unknown_ingredients %]
         <p class="unknown_ingredient">[% lang("some_unknown_ingredients") %]</p>
         <div class="callout panel">
             <h3>[% lang("we_need_your_help") %]</h3>

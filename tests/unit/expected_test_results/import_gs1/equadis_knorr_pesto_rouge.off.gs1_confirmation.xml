@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<catalogue_item_confirmation:catalogueItemConfirmationMessage xmlns:catalogue_item_confirmation="urn:gs1:gdsn:catalogue_item_confirmation:xsd:3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:gs1:gdsn:catalogue_item_confirmation:xsd:3 http://www.gdsregistry.org/3.1/schemas/gs1/gdsn/CatalogueItemConfirmation.xsd" xmlns:sh="http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader">
+	<sh:StandardBusinessDocumentHeader>
+		<sh:HeaderVersion>1.0</sh:HeaderVersion>
+		<sh:Sender>
+			<sh:Identifier Authority="GS1">3770026870013</sh:Identifier>
+		</sh:Sender>
+		<sh:Receiver>
+			<sh:Identifier Authority="GS1">3034012285008</sh:Identifier>
+		</sh:Receiver>
+		<sh:DocumentIdentification>
+			<sh:Standard>GS1</sh:Standard>
+			<sh:TypeVersion>3.1</sh:TypeVersion>
+			<sh:InstanceIdentifier>3770026870013_07d5903fc55921f293c29309e5e96eb3f01e1c4a6856abcd5fa2eb6974f4</sh:InstanceIdentifier>
+			<sh:Type>catalogueItemConfirmation</sh:Type>
+			<sh:MultipleType>false</sh:MultipleType>
+			<sh:CreationDateAndTime>2022-04-25T18:05:28</sh:CreationDateAndTime>
+		</sh:DocumentIdentification>
+	</sh:StandardBusinessDocumentHeader>
+	<transaction>
+		<transactionIdentification>
+			<entityIdentification>3770026870013_8a98314bca9688af39194f3c59fae537e5d5e9f638fa9f5fada1231fda1d</entityIdentification>
+			<contentOwner>
+				<gln>3770026870013</gln>
+			</contentOwner>
+		</transactionIdentification>
+		<documentCommand>
+			<documentCommandHeader type="ADD">
+				<documentCommandIdentification>
+					<entityIdentification>3770026870013_4b5f24ebe64698fbc037718d6b3674b4a95135f84a1298946c5c7b4c5b51</entityIdentification>
+					<contentOwner>
+						<gln>3770026870013</gln>
+					</contentOwner>
+				</documentCommandIdentification>
+			</documentCommandHeader>
+			<catalogue_item_confirmation:catalogueItemConfirmation>
+				<creationDateTime></creationDateTime>
+				<documentStatusCode>ORIGINAL</documentStatusCode>
+				<catalogueItemConfirmationIdentification>
+					<entityIdentification>3770026870013_9f14fd6c588387e3c545ca9b27042bf8e7c88e6ca5fe4a08081d1d77909a</entityIdentification>
+					<contentOwner>
+						<gln>3770026870013</gln>
+					</contentOwner>
+				</catalogueItemConfirmationIdentification>
+				<catalogueItemConfirmationState>
+					<catalogueItemConfirmationStateCode>RECEIVED</catalogueItemConfirmationStateCode>
+					<recipientGLN>3770026870013</recipientGLN>
+					<recipientDataPool>3027000006006</recipientDataPool>
+				</catalogueItemConfirmationState>
+				<catalogueItemReference>
+					<dataSource>3011780500106</dataSource>
+					<gtin>08722700035237</gtin>
+					<targetMarketCountryCode>250</targetMarketCountryCode>
+				</catalogueItemReference>
+			</catalogue_item_confirmation:catalogueItemConfirmation>
+		</documentCommand>
+	</transaction>
+</catalogue_item_confirmation:catalogueItemConfirmationMessage>

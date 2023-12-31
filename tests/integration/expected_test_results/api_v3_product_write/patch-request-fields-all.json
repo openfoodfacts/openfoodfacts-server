@@ -1,0 +1,543 @@
+{
+   "code" : "1234567890009",
+   "errors" : [],
+   "product" : {
+      "_id" : "1234567890009",
+      "_keywords" : [],
+      "added_countries_tags" : [],
+      "allergens" : "",
+      "allergens_from_ingredients" : "",
+      "allergens_from_user" : "(en) ",
+      "allergens_hierarchy" : [],
+      "allergens_tags" : [],
+      "categories_properties" : {},
+      "categories_properties_tags" : [
+         "all-products",
+         "categories-unknown",
+         "agribalyse-food-code-unknown",
+         "agribalyse-proxy-food-code-unknown",
+         "ciqual-food-code-unknown",
+         "agribalyse-unknown"
+      ],
+      "checkers_tags" : [],
+      "code" : "1234567890009",
+      "codes_tags" : [
+         "code-13",
+         "1234567890xxx",
+         "123456789xxxx",
+         "12345678xxxxx",
+         "1234567xxxxxx",
+         "123456xxxxxxx",
+         "12345xxxxxxxx",
+         "1234xxxxxxxxx",
+         "123xxxxxxxxxx",
+         "12xxxxxxxxxxx",
+         "1xxxxxxxxxxxx"
+      ],
+      "complete" : 0,
+      "completeness" : 0,
+      "correctors_tags" : [],
+      "created_t" : "--ignore--",
+      "creator" : "openfoodfacts-contributors",
+      "data_quality_bugs_tags" : [],
+      "data_quality_errors_tags" : [],
+      "data_quality_info_tags" : [
+         "en:packaging-data-incomplete",
+         "en:ecoscore-extended-data-not-computed",
+         "en:food-groups-1-unknown",
+         "en:food-groups-2-unknown",
+         "en:food-groups-3-unknown"
+      ],
+      "data_quality_tags" : [
+         "en:packaging-data-incomplete",
+         "en:ecoscore-extended-data-not-computed",
+         "en:food-groups-1-unknown",
+         "en:food-groups-2-unknown",
+         "en:food-groups-3-unknown",
+         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
+         "en:ecoscore-production-system-no-label",
+         "en:ecoscore-threatened-species-ingredients-missing"
+      ],
+      "data_quality_warnings_tags" : [
+         "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
+         "en:ecoscore-production-system-no-label",
+         "en:ecoscore-threatened-species-ingredients-missing"
+      ],
+      "ecoscore_data" : {
+         "adjustments" : {
+            "origins_of_ingredients" : {
+               "aggregated_origins" : [
+                  {
+                     "epi_score" : 0,
+                     "origin" : "en:unknown",
+                     "percent" : 100,
+                     "transportation_score" : null
+                  }
+               ],
+               "epi_score" : 0,
+               "epi_value" : -5,
+               "origins_from_categories" : [
+                  "en:unknown"
+               ],
+               "origins_from_origins_field" : [
+                  "en:unknown"
+               ],
+               "transportation_score" : 0,
+               "transportation_scores" : {
+                  "ad" : 0,
+                  "al" : 0,
+                  "at" : 0,
+                  "ax" : 0,
+                  "ba" : 0,
+                  "be" : 0,
+                  "bg" : 0,
+                  "ch" : 0,
+                  "cy" : 0,
+                  "cz" : 0,
+                  "de" : 0,
+                  "dk" : 0,
+                  "dz" : 0,
+                  "ee" : 0,
+                  "eg" : 0,
+                  "es" : 0,
+                  "fi" : 0,
+                  "fo" : 0,
+                  "fr" : 0,
+                  "gg" : 0,
+                  "gi" : 0,
+                  "gr" : 0,
+                  "hr" : 0,
+                  "hu" : 0,
+                  "ie" : 0,
+                  "il" : 0,
+                  "im" : 0,
+                  "is" : 0,
+                  "it" : 0,
+                  "je" : 0,
+                  "lb" : 0,
+                  "li" : 0,
+                  "lt" : 0,
+                  "lu" : 0,
+                  "lv" : 0,
+                  "ly" : 0,
+                  "ma" : 0,
+                  "mc" : 0,
+                  "md" : 0,
+                  "me" : 0,
+                  "mk" : 0,
+                  "mt" : 0,
+                  "nl" : 0,
+                  "no" : 0,
+                  "pl" : 0,
+                  "ps" : 0,
+                  "pt" : 0,
+                  "ro" : 0,
+                  "rs" : 0,
+                  "se" : 0,
+                  "si" : 0,
+                  "sj" : 0,
+                  "sk" : 0,
+                  "sm" : 0,
+                  "sy" : 0,
+                  "tn" : 0,
+                  "tr" : 0,
+                  "ua" : 0,
+                  "uk" : 0,
+                  "us" : 0,
+                  "va" : 0,
+                  "world" : 0,
+                  "xk" : 0
+               },
+               "transportation_value" : 0,
+               "transportation_values" : {
+                  "ad" : 0,
+                  "al" : 0,
+                  "at" : 0,
+                  "ax" : 0,
+                  "ba" : 0,
+                  "be" : 0,
+                  "bg" : 0,
+                  "ch" : 0,
+                  "cy" : 0,
+                  "cz" : 0,
+                  "de" : 0,
+                  "dk" : 0,
+                  "dz" : 0,
+                  "ee" : 0,
+                  "eg" : 0,
+                  "es" : 0,
+                  "fi" : 0,
+                  "fo" : 0,
+                  "fr" : 0,
+                  "gg" : 0,
+                  "gi" : 0,
+                  "gr" : 0,
+                  "hr" : 0,
+                  "hu" : 0,
+                  "ie" : 0,
+                  "il" : 0,
+                  "im" : 0,
+                  "is" : 0,
+                  "it" : 0,
+                  "je" : 0,
+                  "lb" : 0,
+                  "li" : 0,
+                  "lt" : 0,
+                  "lu" : 0,
+                  "lv" : 0,
+                  "ly" : 0,
+                  "ma" : 0,
+                  "mc" : 0,
+                  "md" : 0,
+                  "me" : 0,
+                  "mk" : 0,
+                  "mt" : 0,
+                  "nl" : 0,
+                  "no" : 0,
+                  "pl" : 0,
+                  "ps" : 0,
+                  "pt" : 0,
+                  "ro" : 0,
+                  "rs" : 0,
+                  "se" : 0,
+                  "si" : 0,
+                  "sj" : 0,
+                  "sk" : 0,
+                  "sm" : 0,
+                  "sy" : 0,
+                  "tn" : 0,
+                  "tr" : 0,
+                  "ua" : 0,
+                  "uk" : 0,
+                  "us" : 0,
+                  "va" : 0,
+                  "world" : 0,
+                  "xk" : 0
+               },
+               "value" : -5,
+               "values" : {
+                  "ad" : -5,
+                  "al" : -5,
+                  "at" : -5,
+                  "ax" : -5,
+                  "ba" : -5,
+                  "be" : -5,
+                  "bg" : -5,
+                  "ch" : -5,
+                  "cy" : -5,
+                  "cz" : -5,
+                  "de" : -5,
+                  "dk" : -5,
+                  "dz" : -5,
+                  "ee" : -5,
+                  "eg" : -5,
+                  "es" : -5,
+                  "fi" : -5,
+                  "fo" : -5,
+                  "fr" : -5,
+                  "gg" : -5,
+                  "gi" : -5,
+                  "gr" : -5,
+                  "hr" : -5,
+                  "hu" : -5,
+                  "ie" : -5,
+                  "il" : -5,
+                  "im" : -5,
+                  "is" : -5,
+                  "it" : -5,
+                  "je" : -5,
+                  "lb" : -5,
+                  "li" : -5,
+                  "lt" : -5,
+                  "lu" : -5,
+                  "lv" : -5,
+                  "ly" : -5,
+                  "ma" : -5,
+                  "mc" : -5,
+                  "md" : -5,
+                  "me" : -5,
+                  "mk" : -5,
+                  "mt" : -5,
+                  "nl" : -5,
+                  "no" : -5,
+                  "pl" : -5,
+                  "ps" : -5,
+                  "pt" : -5,
+                  "ro" : -5,
+                  "rs" : -5,
+                  "se" : -5,
+                  "si" : -5,
+                  "sj" : -5,
+                  "sk" : -5,
+                  "sm" : -5,
+                  "sy" : -5,
+                  "tn" : -5,
+                  "tr" : -5,
+                  "ua" : -5,
+                  "uk" : -5,
+                  "us" : -5,
+                  "va" : -5,
+                  "world" : -5,
+                  "xk" : -5
+               },
+               "warning" : "origins_are_100_percent_unknown"
+            },
+            "packaging" : {
+               "non_recyclable_and_non_biodegradable_materials" : 1,
+               "packagings" : [
+                  {
+                     "ecoscore_material_score" : 0,
+                     "ecoscore_shape_ratio" : 1,
+                     "material" : "en:plastic",
+                     "non_recyclable_and_non_biodegradable" : "maybe",
+                     "number_of_units" : 1,
+                     "shape" : "en:bag"
+                  }
+               ],
+               "score" : 0,
+               "value" : -10
+            },
+            "production_system" : {
+               "labels" : [],
+               "value" : 0,
+               "warning" : "no_label"
+            },
+            "threatened_species" : {
+               "warning" : "ingredients_missing"
+            }
+         },
+         "agribalyse" : {
+            "warning" : "missing_agribalyse_match"
+         },
+         "missing" : {
+            "categories" : 1,
+            "ingredients" : 1,
+            "labels" : 1,
+            "origins" : 1
+         },
+         "missing_agribalyse_match_warning" : 1,
+         "scores" : {},
+         "status" : "unknown"
+      },
+      "ecoscore_grade" : "unknown",
+      "ecoscore_tags" : [
+         "unknown"
+      ],
+      "editors_tags" : [
+         "openfoodfacts-contributors"
+      ],
+      "empty" : 1,
+      "entry_dates_tags" : "--ignore--",
+      "food_groups_tags" : [],
+      "id" : "1234567890009",
+      "informers_tags" : [
+         "openfoodfacts-contributors"
+      ],
+      "ingredients_lc" : "en",
+      "interface_version_created" : "20221102/api/v3",
+      "lang" : "en",
+      "languages" : {},
+      "languages_codes" : {},
+      "languages_hierarchy" : [],
+      "languages_tags" : [
+         "en:0"
+      ],
+      "last_edit_dates_tags" : "--ignore--",
+      "last_modified_t" : "--ignore--",
+      "lc" : "en",
+      "main_countries_tags" : [],
+      "misc_tags" : [
+         "en:nutriscore-missing-category",
+         "en:nutrition-not-enough-data-to-compute-nutrition-score",
+         "en:nutriscore-missing-nutrition-data",
+         "en:nutriscore-missing-nutrition-data-energy",
+         "en:nutriscore-missing-nutrition-data-fat",
+         "en:nutriscore-missing-nutrition-data-saturated-fat",
+         "en:nutriscore-missing-nutrition-data-sugars",
+         "en:nutriscore-missing-nutrition-data-sodium",
+         "en:nutriscore-missing-nutrition-data-proteins",
+         "en:nutrition-no-fiber",
+         "en:nutriscore-not-computed",
+         "en:nutrition-no-fruits-vegetables-nuts",
+         "en:nutrition-no-fiber-or-fruits-vegetables-nuts",
+         "en:packagings-number-of-components-1",
+         "en:packagings-not-complete",
+         "en:packagings-not-empty-but-not-complete",
+         "en:packagings-not-empty",
+         "en:ecoscore-extended-data-not-computed",
+         "en:ecoscore-not-computed",
+         "en:main-countries-new-product"
+      ],
+      "nova_group_debug" : "no nova group when the product does not have ingredients",
+      "nova_group_error" : "missing_ingredients",
+      "nova_groups_tags" : [
+         "unknown"
+      ],
+      "nutrient_levels" : {},
+      "nutrient_levels_tags" : [],
+      "nutriments" : {},
+      "nutriscore" : {
+         "2021" : {
+            "category_available" : 0,
+            "data" : {
+               "energy" : null,
+               "fiber" : 0,
+               "fruits_vegetables_nuts_colza_walnut_olive_oils" : 0,
+               "is_beverage" : 0,
+               "is_cheese" : 0,
+               "is_fat" : 0,
+               "is_water" : 0,
+               "proteins" : null,
+               "saturated_fat" : null,
+               "sodium" : null,
+               "sugars" : null
+            },
+            "grade" : "unknown",
+            "nutrients_available" : 0,
+            "nutriscore_applicable" : 0,
+            "nutriscore_computed" : 0
+         },
+         "2023" : {
+            "category_available" : 0,
+            "data" : {
+               "energy" : null,
+               "fiber" : 0,
+               "fruits_vegetables_legumes" : null,
+               "is_beverage" : 0,
+               "is_cheese" : 0,
+               "is_fat_oil_nuts_seeds" : 0,
+               "is_red_meat_product" : 0,
+               "is_water" : 0,
+               "proteins" : null,
+               "salt" : null,
+               "saturated_fat" : null,
+               "sugars" : null
+            },
+            "grade" : "unknown",
+            "nutrients_available" : 0,
+            "nutriscore_applicable" : 0,
+            "nutriscore_computed" : 0
+         }
+      },
+      "nutriscore_2021_tags" : [
+         "unknown"
+      ],
+      "nutriscore_2023_tags" : [
+         "unknown"
+      ],
+      "nutriscore_grade" : "unknown",
+      "nutriscore_tags" : [
+         "unknown"
+      ],
+      "nutriscore_version" : "2021",
+      "nutrition_data_per" : "100g",
+      "nutrition_data_prepared_per" : "100g",
+      "nutrition_grade_fr" : "unknown",
+      "nutrition_grades" : "unknown",
+      "nutrition_grades_tags" : [
+         "unknown"
+      ],
+      "nutrition_score_beverage" : 0,
+      "nutrition_score_debug" : "no score when the product does not have a category - missing energy_100g - missing fat_100g - missing saturated-fat_100g - missing sugars_100g - missing sodium_100g - missing proteins_100g",
+      "nutrition_score_warning_no_fiber" : 1,
+      "nutrition_score_warning_no_fruits_vegetables_nuts" : 1,
+      "packaging_materials_tags" : [
+         "en:plastic"
+      ],
+      "packaging_recycling_tags" : [],
+      "packaging_shapes_tags" : [
+         "en:bag"
+      ],
+      "packagings" : [
+         {
+            "material" : {
+               "id" : "en:plastic",
+               "lc_name" : "Plastic"
+            },
+            "number_of_units" : 1,
+            "shape" : {
+               "id" : "en:bag",
+               "lc_name" : "Bag"
+            }
+         }
+      ],
+      "packagings_materials" : {
+         "all" : {},
+         "en:plastic" : {}
+      },
+      "packagings_n" : 1,
+      "photographers_tags" : [],
+      "pnns_groups_1" : "unknown",
+      "pnns_groups_1_tags" : [
+         "unknown",
+         "missing-category"
+      ],
+      "pnns_groups_2" : "unknown",
+      "pnns_groups_2_tags" : [
+         "unknown",
+         "missing-category"
+      ],
+      "popularity_key" : 0,
+      "removed_countries_tags" : [],
+      "rev" : 5,
+      "states" : "en:empty, en:to-be-completed, en:nutrition-facts-to-be-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-to-be-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-to-be-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
+      "states_hierarchy" : [
+         "en:empty",
+         "en:to-be-completed",
+         "en:nutrition-facts-to-be-completed",
+         "en:ingredients-to-be-completed",
+         "en:expiration-date-to-be-completed",
+         "en:packaging-code-to-be-completed",
+         "en:characteristics-to-be-completed",
+         "en:origins-to-be-completed",
+         "en:categories-to-be-completed",
+         "en:brands-to-be-completed",
+         "en:packaging-to-be-completed",
+         "en:quantity-to-be-completed",
+         "en:product-name-to-be-completed",
+         "en:photos-to-be-uploaded"
+      ],
+      "states_tags" : [
+         "en:empty",
+         "en:to-be-completed",
+         "en:nutrition-facts-to-be-completed",
+         "en:ingredients-to-be-completed",
+         "en:expiration-date-to-be-completed",
+         "en:packaging-code-to-be-completed",
+         "en:characteristics-to-be-completed",
+         "en:origins-to-be-completed",
+         "en:categories-to-be-completed",
+         "en:brands-to-be-completed",
+         "en:packaging-to-be-completed",
+         "en:quantity-to-be-completed",
+         "en:product-name-to-be-completed",
+         "en:photos-to-be-uploaded"
+      ],
+      "traces" : "",
+      "traces_from_ingredients" : "",
+      "traces_from_user" : "(en) ",
+      "traces_hierarchy" : [],
+      "traces_tags" : [],
+      "unknown_nutrients_tags" : [],
+      "weighers_tags" : []
+   },
+   "status" : "success_with_warnings",
+   "warnings" : [
+      {
+         "field" : {
+            "id" : "recycling",
+            "value" : null
+         },
+         "impact" : {
+            "id" : "field_ignored",
+            "lc_name" : "Field ignored",
+            "name" : "Field ignored"
+         },
+         "message" : {
+            "id" : "missing_field",
+            "lc_name" : "Missing field",
+            "name" : "Missing field"
+         }
+      }
+   ]
+}

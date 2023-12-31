@@ -1,50 +1,89 @@
-
 <!-- start templates/[% component.name %] -->
 
-[% IF ('banner' == 'disabled') && (product_type == 'food') && (cc == 'fr') %]
-<div id="ecoscore_banner" class="row">
-	<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
-		<div id="image_banner" style="margin-bottom:1rem;" class="panel callout">
-			<div class="row">
-				<div class="small-12 large-9 xlarge-10 columns">
-			<h2>Eco-Score, la note environnementale des produits alimentaires</h2>
-			<p style="margin-bottom:0">Depuis le 7 janvier, l'Eco-Score a fait son apparition sur le site et l'app Open Food Facts !<br>
-			&rarr; <a href="https://fr.openfoodfacts.org/eco-score-l-impact-environnemental-des-produits-alimentaires">Découvrir l'Eco-Score</a></p>
-				</div>
-				<div class="show-for-large-up large-3 xlarge-2 columns">
-					<a href="https://fr.openfoodfacts.org/eco-score-l-impact-environnemental-des-produits-alimentaires"><img src="https://static.openfoodfacts.org/images/attributes/ecoscore-a.svg" alt="Eco-Score"></a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+[% banner_main = BLOCK %]
 
-[% ELSIF banner %]
+<section id="donation-banner-top" class="donation-banner">
+  <span class="donation-banner__logo"></span>
+  <span class="donation-banner__hand"></span>
+  <div class="donation-banner__content">
+    <p class="donation-banner__main-text">
+        <span>[% lang("donation_text_2023_main") %]</span>
+    </p>
+    <div class="donation-banner__aside">
+      <div>
+        <p class="donation-banner__secondary-text">[% lang("donation_text_2023_secondary") %]</p>
+        <p class="donation-banner__tertiary-text">[% lang("donation_text_2023_tertiary") %]</p>
+      </div>
+      <a class="donation-banner__donate" href="[% link %]?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">[% lang("donation_cta") %]</a>
+    </div>
+  </div>
+  <div class="donation-banner__image"></div>
+  <div class="donation-banner__close">
+    <span id="hide-donate-banner" class="material-icons" onclick="DonationButton();">close</span>
+  </div>
+</section>
 
-<div id="donate_banner" class="row">
-	<div class="small-12 large-12 xlarge-8 xxlarge-7 columns">
-		<div id="image_banner" style="margin-bottom:1rem;" class="panel callout">
-          
-			<h2>[% lang('donation_title') %]</h2>
-			<p>[% f_lang('donation_body_employees', { number_of_employees => '4' }) %]<br>
-			[% f_lang('donation_why_year', { year => '2022' }) %] <strong>[% lang('thank_you') %] <span style="color:red">❤️</span></strong>
-			</p>
-			<div class="row">
-				<div class="small-12 large-4 columns">
-					<a href="[% link %]?utm_source=off&utm_medium=web&utm_campaign=donate-2022&utm_term=en-text-button" class="button round" style="margin-bottom:0">
-						[% lang('donation_cta') %]
-					</a>
-				</div>
-				<div class="small-12 large-8 columns">
-					<input id="hide_image_banner" type="checkbox" style="margin-top:1.5rem;margin-bottom:0;">
-					<label for="hide_image_banner">
-						<span id="hide_image_banner_hide">[% lang('donation_banner_hide') %]</span>
-					</label>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<script>
+  let d = new Date();
+  let bannerID = document.getElementById('donation-banner-top');
+  let getDomain = window.location.origin.split('.');
+
+  function setBannerCookie(bcname, bcval, bcexdays) {
+    d.setTime(d.getTime() + (bcexdays*60*60*24*1000));
+    let expires = 'expires=' + d.toUTCString();
+    // Apply cookie for every domain contains open...facts
+    let domain = 'domain=.' + getDomain.slice(1).join('.');
+    document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
+  }
+  
+  function getBannerCookie(bcname) {
+    const name = bcname + '=';
+    const decodedCookies = decodeURIComponent(document.cookie);
+    const cookies = decodedCookies.split(';');
+    for (const cookie of cookies) {
+      let c = cookie;
+      while (c.charAt(0) == ' ') { c = c.substring(1); }
+      if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
+    }
+    
+    return '';
+  }
+
+  function DonationButton() {
+    setBannerCookie('off-donation-banner-2023-a', 1, 180);
+    bannerID.style.display = 'none';
+  }
+
+  if (getBannerCookie('off-donation-banner-2023-a') !== '') {
+    bannerID.style.display = 'none';
+  } else { 
+    bannerID.style.display = 'flex';
+  }
+</script>
+
+[% END %]
+
+<!-- Donation banner @ footer -->
+[% banner_footer = BLOCK %]
+
+<section class="donation-banner-footer">
+  <span class="donation-banner-footer__logo"></span>
+  <span class="donation-banner-footer__hand"></span>
+  <div class="donation-banner-footer__content">
+    <p class="donation-banner-footer__main-text">
+      <span>[% lang("donation_text_2023_main") %]</span>
+    </p>
+    <div class="donation-banner-footer__aside">
+      <div>
+        <p class="donation-banner-footer__secondary-text">[% lang("donation_text_2023_secondary") %]</p>
+        <p class="donation-banner-footer__tertiary-text">[% lang("donation_text_2023_tertiary") %]</p>
+      </div>
+      <a class="donation-banner-footer__donate" href="[% link %]?utm_source=off&utf_medium=web&utm_campaign=donate-2023-a&utm_term=en-text-button">[% lang("donation_cta") %]</a>
+    </div>
+  </div>
+  <div class="donation-banner-footer__image"></div>
+</section>
+
 [% END %]
 
 <!-- end templates/[% component.name %] -->

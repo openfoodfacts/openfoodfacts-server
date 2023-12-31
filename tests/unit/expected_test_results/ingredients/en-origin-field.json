@@ -1,0 +1,161 @@
+{
+   "ingredients" : [
+      {
+         "ciqual_food_code" : "13014",
+         "id" : "en:strawberry",
+         "origins" : "en:spain",
+         "percent_estimate" : 58.3333333333333,
+         "percent_max" : 100,
+         "percent_min" : 16.6666666666667,
+         "text" : "Strawberries",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "13015",
+         "id" : "en:raspberry",
+         "origins" : "en:new-caledonia",
+         "percent_estimate" : 20.8333333333333,
+         "percent_max" : 50,
+         "percent_min" : 0,
+         "text" : "raspberries",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "13028",
+         "id" : "en:blueberry",
+         "origins" : "en:canada",
+         "percent_estimate" : 10.4166666666667,
+         "percent_max" : 33.3333333333333,
+         "percent_min" : 0,
+         "text" : "blueberries",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "13020",
+         "id" : "en:gooseberry",
+         "percent_estimate" : 5.20833333333333,
+         "percent_max" : 25,
+         "percent_min" : 0,
+         "text" : "gooseberries",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "id" : "en:white-peach",
+         "origins" : "en:mexico",
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 20,
+         "percent_min" : 0,
+         "text" : "white peaches",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "20041",
+         "id" : "en:bell-pepper",
+         "origins" : "en:guatemala",
+         "percent_estimate" : 2.60416666666666,
+         "percent_max" : 16.6666666666667,
+         "percent_min" : 0,
+         "text" : "bell peppers",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:strawberry",
+      "en:fruit",
+      "en:berries",
+      "en:raspberry",
+      "en:blueberry",
+      "en:gooseberry",
+      "en:white-peach",
+      "en:prunus-species-fruit",
+      "en:peach",
+      "en:bell-pepper",
+      "en:vegetable",
+      "en:fruit-vegetable"
+   ],
+   "ingredients_n" : 6,
+   "ingredients_n_tags" : [
+      "6",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:strawberry",
+      "en:raspberry",
+      "en:blueberry",
+      "en:gooseberry",
+      "en:white-peach",
+      "en:bell-pepper"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:strawberry",
+      "en:fruit",
+      "en:berries",
+      "en:raspberry",
+      "en:blueberry",
+      "en:gooseberry",
+      "en:white-peach",
+      "en:prunus-species-fruit",
+      "en:peach",
+      "en:bell-pepper",
+      "en:vegetable",
+      "en:fruit-vegetable"
+   ],
+   "ingredients_text" : "Strawberries (Spain), raspberries, blueberries, gooseberries, white peaches, bell peppers. Origin of bell peppers: Guatemala",
+   "ingredients_with_specified_percent_n" : 0,
+   "ingredients_with_specified_percent_sum" : 0,
+   "ingredients_with_unspecified_percent_n" : 6,
+   "ingredients_with_unspecified_percent_sum" : 100,
+   "ingredients_without_ciqual_codes" : [
+      "en:white-peach"
+   ],
+   "ingredients_without_ciqual_codes_n" : 1,
+   "known_ingredients_n" : 12,
+   "lc" : "en",
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 100,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 100
+   },
+   "origin_en" : "Origin of raspberries: New Caledonia. Blueberries: Canada ; White peaches : Mexico",
+   "specific_ingredients" : [
+      {
+         "id" : "en:raspberry",
+         "ingredient" : "raspberries",
+         "origins" : "en:new-caledonia",
+         "text" : "Origin of raspberries: New Caledonia."
+      },
+      {
+         "id" : "en:blueberry",
+         "ingredient" : "Blueberries",
+         "origins" : "en:canada",
+         "text" : "Blueberries: Canada ;"
+      },
+      {
+         "id" : "en:white-peach",
+         "ingredient" : "White peaches",
+         "origins" : "en:mexico",
+         "text" : "White peaches : Mexico"
+      },
+      {
+         "id" : "en:bell-pepper",
+         "ingredient" : "bell peppers",
+         "origins" : "en:guatemala",
+         "text" : "Origin of bell peppers: Guatemala"
+      }
+   ],
+   "unknown_ingredients_n" : 0
+}

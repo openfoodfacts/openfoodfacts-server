@@ -1,3 +1,149 @@
+@use "sass:color";
+
+// Fonts
+
+// From https://google-webfonts-helper.herokuapp.com/fonts/public-sans?subsets=latin,latin-ext,vietnamese :
+/* public-sans-regular - vietnamese_latin-ext_latin */
+@font-face {
+  font-family: "Public Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */
+      url("/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.woff")
+      format("woff"),
+    /* Modern Browsers */
+      url("/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("/fonts/public-sans-v14-vietnamese_latin-ext_latin-regular.svg#PublicSans")
+      format("svg"); /* Legacy iOS */
+}
+
+/* plus-jakarta-sans-regular - cyrillic-ext_latin_latin-ext_vietnamese */
+@font-face {
+  font-display: auto;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-regular.woff2') format('woff2'),
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    url('/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-regular.ttf') format('truetype');
+  /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+
+
+/* plus-jakarta-sans-700 - cyrillic-ext_latin_latin-ext_vietnamese */
+@font-face {
+  font-display: auto; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* plus-jakarta-sans-800 - cyrillic-ext_latin_latin-ext_vietnamese */
+@font-face {
+  font-display: auto; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: url('/fonts/plus-jakarta-sans-v8-cyrillic-ext_latin_latin-ext_vietnamese-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+// Font for Material Icons
+// variable to prevent sonar-cloud to complain that there isn't a generic family for the icon font
+$material-icons: "Material Icons";
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("/fonts/material-icons-v139.woff2") format("woff2"),
+    url("/fonts/material-icons-v139.ttf") format("truetype");
+}
+
+.material-icons {
+  font-family: $material-icons;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+// OFF colored blocks
+// combine classes block_light or block_dark with a color like block_ristreto
+
+.block_off a {
+  text-decoration: underline;
+}
+
+.block_dark {
+  color: $white;
+}
+
+.block_light {
+  color: $black;
+}
+
+.block_dark.block_off a {
+  color: $white;
+}
+
+.block_ristreto {
+  background-color: $ristreto;
+}
+
+.block_latte {
+  background-color: $latte;
+}
+
+.block_cappucino {
+  background-color: $cappucino;
+}
+
+.block_main {
+  background-color: #fff2df;
+}
+
+// background colors for attributes and panels
+$grade-a-color: #219653;
+$grade-b-color: #60ac0e;
+$grade-c-color: #c88f01;
+$grade-d-color: #e07312;
+$grade-e-color: #eb5757;
+$grade-unknown-color: #4f4f4f;
+$evaluation-good-color: #219653;
+$evaluation-average-color: #f2994a;
+$evaluation-bad-color: #eb5757;
+$evaluation-unknown-color: #4f4f4f;
+//** add options to found5 //
+.row.full-width {
+  width: 100%;
+  max-width: 100%;
+}
+
+.full-width {
+  width: 100%;
+  max-width: 100%;
+}
+
 hr.floatclear {
   background: none;
   border: 0;
@@ -148,6 +294,7 @@ ul.products {
   padding: 10px;
   width: 120px;
   word-wrap: break-word;
+  text-decoration:none !important;
 }
 
 .products div {
@@ -177,22 +324,24 @@ a {
   text-decoration: none;
 }
 
-a,
-a:visited,
-a:hover {
-  color: blue;
+strong {
+  font-weight: 700 !important;
 }
 
 a:hover {
   text-decoration: underline;
 }
 
-a.button {
+// disable rule below, it interferes with the white-button class
+a.disabled_rule_button {
   color: #fff;
+  &.white {
+    color: $primary-color;
+  }
 }
 
 a.button:hover {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .level_3,
@@ -241,21 +390,6 @@ nav.tab-bar > div {
   right: 0;
 }
 
-#aside_column {
-  padding: 1rem;
-}
-
-.side-nav li a:not(.button) {
-  color: blue;
-  margin: 0 -1rem;
-  padding: 0.4375rem 1rem;
-}
-
-.side-nav li a:not(.button):hover,
-.side-nav li a:not(.button):focus {
-  color: blue;
-}
-
 @media only screen and (max-width: 64em) {
   a.button.icon {
     font-size: 1rem;
@@ -283,42 +417,17 @@ nav.tab-bar > div {
   color: #fff;
 }
 
-.top-bar-section .has-dropdown > a:after {
-  border-color: transparent transparent transparent rgba(0, 0, 0, 0.4);
-}
-.top-bar-section ul li > a:hover {
-  text-decoration: none;
-}
-
-@media only screen and (min-width: 40.063em) {
-  .top-bar-section .has-dropdown > a:after {
-    border-color: rgba(0, 0, 0, 0.4) transparent transparent transparent;
-  }
-
-  .top-bar-section ul li {
-    background: inherit;
-  }
-
-  #select_country_li {
-    padding-left: 0;
-  }
-}
-
-#main_column {
-  padding-bottom: 2rem;
-}
-
 .example {
   color: green;
   font-size: 0.8em;
 }
 
-.note {
+.note ,.asterisk {
   font-size: 0.8em;
 }
 
 .example,
-.note {
+.note,.asterisk {
   margin: 4px 0 0 4px;
 }
 
@@ -330,6 +439,7 @@ nav.tab-bar > div {
   height: 400px;
   overflow: auto;
 }
+
 .top-bar-section ul li > a {
   text-decoration: none;
 }
@@ -339,28 +449,40 @@ p.details {
   font-size: 0.8em;
 }
 
-.select2-dropdown.select2-dropdown--below {margin-top: 10px;}
+.select2-dropdown.select2-dropdown--below {
+  margin-top: 10px;
+}
 
-@media only screen and (max-width: 40em) { h2 { font-weight:bold; font-size:1.2em;} }
+@media only screen and (max-width: 40em) {
+  h2 {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+}
 
 details.recent {
   margin-left: 1.5em;
   cursor: pointer;
 }
 
-.top-bar .button, .top-bar button {
-  padding-top:0.4rem;
-  padding-bottom:0.4rem;
+.top-bar .button,
+.top-bar button {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
 }
 
-.button.small, button.small, button.tiny, .button.tiny {
-  padding:0.5rem;
-  padding-left:0.75rem;
-  padding-right:0.75rem;
+.button.small,
+button.small,
+button.tiny,
+.button.tiny {
+  padding: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
-.postfix.button.small, button.postfix.small {
-  padding:0;
+.postfix.button.small,
+button.postfix.small {
+  padding: 0;
 }
 
 .icon {
@@ -369,118 +491,104 @@ details.recent {
   margin-left: 0.25em;
   margin-right: 0.25em;
   overflow: hidden;
-  vertical-align:middle;
-  font-size:18px;
-  width:1em;
-  height:1em;
+  vertical-align: middle;
+  font-size: 18px;
+  width: 1em;
+  height: 1em;
+}
+
+// Style material symbols like the SVG icons
+.material-symbols-button {
+  vertical-align: middle;
+  font-size: 18px;
 }
 
 h3 > .icon {
-  font-size:24px;
+  font-size: 24px;
 }
 
 h4 > .icon {
-  font-size:24px;
+  font-size: 24px;
 }
 
 .ingredients_analysis {
-  color: white;
   font-size: 1rem;
   padding-left: 0.2rem;
   padding-right: 1rem;
-
   .icon {
     width: 32px;
     height: 32px;
     vertical-align: middle;
   }
-
   &.red {
-    background-color: #ec5656;
+    background-color: $evaluation-bad-color;
   }
-
   &.orange {
-    background-color: #f9904c;
+    background-color: $evaluation-average-color;
   }
-
   &.green {
-    background-color: #47a647;
+    background-color: $evaluation-good-color;
   }
-
   &.grey {
-    background-color: #444444;
+    background-color: $evaluation-unknown-color;
   }
 }
 
 .red {
-  color: #ec5656;
+  color: $evaluation-bad-color;
 }
 
 .orange {
-  color: #f9904c;
+  color: $evaluation-average-color;
 }
 
 .green {
-  color: #47a647;
+  color: $evaluation-good-color;
 }
 
 .grey {
-  color: #444444;
+  color: $evaluation-unknown-color;
 }
 
 .percent_bar {
-  background-color:#88bbff;
+  background-color: #88bbff;
 }
 
 .percent_bar.red {
-  background-color: #ec5656;
+  background-color: $evaluation-bad-color;
 }
 
 .percent_bar.orange {
-  background-color: #f9904c;
+  background-color: $evaluation-average-color;
 }
 
 .percent_bar.green {
-  background-color: #47a647;
+  background-color: $evaluation-good-color;
 }
 
-
-
 a[aria-controls="idOfLeftMenu"] {
-
   &.anonymous {
     color: white;
   }
-
   &.loggedin {
     color: #ffe681;
   }
-
   .icon {
     font-size: 1.8rem;
   }
 }
 
-@media #{$small-only} {
-  .products li, ul.pagination li {float: none; display: inline-block;}
-  ul.products, #pages, ul.button-group  {text-align: center;}
-  ul.pagination li:first-child {display: block;}
-  ul.button-group li {margin-top: 3px;margin-bottom: 3px;}
-  #main_column {height: auto !important;}
-}
-
-.share_button,
-.edit_button {
-  float: right;
-  margin-top: -10px;
+ul.pagination li a {
+  color: black;
 }
 
 .delete_button {
   float: right;
-  margin-top: -10px;
   margin-right: 10px;
 }
-
+.buttons_prod {
+  display: flex;
+}
 .country_language_selection {
   float: left;
 }
@@ -493,9 +601,55 @@ a[aria-controls="idOfLeftMenu"] {
   .rev_previous {
     margin-right: 2em;
   }
-
   .rev_next {
     margin-left: 2em;
+  }
+}
+
+@media #{$small-only} {
+  .toggle_food_preferences {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}
+
+.close_food_preferences {
+  margin-bottom: 1rem;
+}
+.fieldset_attribute_group {
+  display: flex;
+  flex-direction: column;
+}
+.attribute_img {
+  display: flex;
+  align-items: center;
+}
+
+@media #{$small-only} {
+  .attribute_group {
+    .attribute_item:first-child label {
+      margin-top: 1rem;
+    }
+    .attribute_item label {
+      margin-top: 0;
+    }
+  }
+}
+
+@media #{$medium-up} {
+  .attribute_group .attribute_item label {
+    margin-top: 0;
+  }
+}
+
+@media #{$large-up} {
+  .attribute_group {
+    display: flex;
+    justify-content: start;
+  }
+  .attribute_group .attribute_item:first-child {
+    padding-left: 8rem;
   }
 }
 
@@ -504,128 +658,250 @@ html[dir="rtl"] {
     left: 0;
     right: $tabbar-icon-width;
   }
-
   .share_button,
   .edit_button {
     float: left;
   }
-
+  .close_food_preferences {
+    margin-bottom: 1rem;
+  }
   .delete_button {
     float: left;
     margin-right: unset;
     margin-left: 10px;
   }
-
   .country_language_selection {
     float: right;
   }
-
   .search_and_links {
     float: left;
   }
-
   .rev_summary {
     .rev_previous {
       margin-left: 2em;
     }
-
     .rev_next {
       margin-right: 2em;
     }
   }
 }
 
+
+
 .match_icons {
-  height:48px;
-  margin-right:4px;
+  height: 48px;
+  margin-right: 4px;
 }
 
-.additives_efsa_evaluation_overexposure_risk_high { color:red }
-.additives_efsa_evaluation_overexposure_risk_moderate { color:#ff6600 }
-
-
-// List of products with cards (e.g. search results, facets)
-
-.list_product_a {
-  border-radius:8px;
-  padding:10px;
-  display:block;
-  background-color:#eee;
+.additives_efsa_evaluation_overexposure_risk_high {
+  color: red;
 }
 
-.list_product_a:hover {
-  background-color:#ddd;
-  text-decoration:none;
+.additives_efsa_evaluation_overexposure_risk_moderate {
+  color: #ff6600;
 }
 
-.list_product_a_match_yes {
-  background-color:#cfc;
+#prodBanner {
+  padding: 5px;
+  display: block;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
 }
 
-.list_product_a_match_yes:hover {
-  background-color:#afa;
+.list_product_banner {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 2px;
+  display: block;
+  color: white;
+  font-size: 0.8rem;
+  text-align: center;
 }
 
-.list_product_a_match_no {
-  background-color:#fcc;
+.list_product_banner_does_not_match {
+  background-color: $grade-e-color;
 }
 
-.list_product_a_match_no:hover {
-  background-color:#faa;
+.list_product_banner_may_not_match {
+  background-color: $grade-d-color;
 }
 
-
-// Horizontally and vertically center images
-.list_product_img_div {
-  height:100px;
-  text-align:center;
-  line-height:100px;
+.list_product_banner_unknown_match {
+  background-color: #888;
 }
 
-.list_product_img {
-  height:auto;
-  display:inline-block;
-  vertical-align:middle;
+.list_product_banner_poor_match {
+  background-color: $grade-c-color;
 }
 
-.list_product_name {
-  margin-top:0.2rem;
-  line-height:20px;
+.list_product_banner_good_match {
+  background-color: $grade-b-color;
 }
 
-.list_product_icons {
-  height:24px;
-  margin-right:0.2rem;
-  margin-top:0.2rem;
+.list_product_banner_very_good_match {
+  background-color: $grade-a-color;
 }
 
-
-// For small screen, cards take the full width, move the image to the left
-@media #{$small-only} { 
-  .list_product_img_div { width:100px;float:left;margin-right:1em; }
-  .list_product_a { min-height:120px; }
-  .list_product_icons { height:36px; }
+.list_product_content {
+  border-radius: 8px;
+  padding: 10px;
+  display: block;
 }
 
-// For medium screen, force the height of the product name so that icons
-// below are vertically aligned with other cards on the same line
-@media #{$medium-up} {
-  .list_product_name {
-    height:80px;
-    overflow:hidden;
-  }
+#product_banner {
+  color: black;
+}
+
+.product_banner_unranked {
+  background-color: #dff4ff;
+}
+
+.product_banner_does_not_match {
+  color: $grade-e-color;
+  background-color: color.scale($grade-e-color, $lightness: 50%);
+}
+
+.product_banner_may_not_match {
+  color: $grade-d-color;
+  background-color: color.scale($grade-d-color, $lightness: 50%);
+}
+
+.product_banner_unknown_match {
+  color: #888;
+  background-color: color.scale(#888, $lightness: 50%);
+}
+
+.product_banner_poor_match {
+  color: $grade-c-color;
+  background-color: color.scale($grade-c-color, $lightness: 50%);
+}
+
+.product_banner_good_match {
+  color: $grade-b-color;
+  background-color: color.scale($grade-b-color, $lightness: 50%);
+}
+
+.product_banner_very_good_match {
+  color: $grade-a-color;
+  background-color: color.scale($grade-a-color, $lightness: 50%);
+}
+
+#match_title {
+  float: left;
+}
+
+#match_score_and_status {
+  float: right;
+}
+
+#product_summary {
+  clear: both;
+}
+
+.match_status {
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 200px;
+}
+
+.match_score {
+  color: white;
+  font-weight: bold;
+  padding: 12px 0px;
+  width: 50px;
+  height: 50px;
+  border-radius: 200px;
+  display: inline-block;
+}
+
+.match_status_does_not_match {
+  color: $grade-e-color;
+  background-color: color.scale($grade-e-color, $lightness: 75%);
+}
+
+.match_status_may_not_match {
+  color: $grade-d-color;
+  background-color: color.scale($grade-d-color, $lightness: 75%);
+}
+
+.match_status_unknown_match {
+  color: #888;
+  background-color: color.scale(#888, $lightness: 75%);
+}
+
+.match_status_poor_match {
+  color: $grade-c-color;
+  background-color: color.scale($grade-c-color, $lightness: 75%);
+}
+
+.match_status_good_match {
+  color: $grade-b-color;
+  background-color: color.scale($grade-b-color, $lightness: 75%);
+}
+
+.match_status_very_good_match {
+  color: $grade-a-color;
+  background-color: color.scale($grade-a-color, $lightness: 75%);
+}
+
+.match_score_does_not_match {
+  background-color: $grade-e-color;
+}
+
+.match_score_may_not_match {
+  background-color: $grade-d-color;
+}
+
+.match_score_unknown_match {
+  background-color: #888;
+}
+
+.match_score_poor_match {
+  background-color: $grade-c-color;
+}
+
+.match_score_good_match {
+  background-color: $grade-b-color;
+}
+
+.match_score_very_good_match {
+  background-color: $grade-a-color;
+}
+
+.search_results .list_display_barcode {
+  color: black;
+  font-size: 0.8em;
+  display: block; // one line for barcode, to keep thing homogeneous
+}
+
+.search_results .list_edit_link img {
+  height: 1em;
+}
+
+.search_results .list_edit_link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 0.5em;
+  border-radius: 0.3em;
+}
+
+.search_results .list_edit_link:hover {
+  background-color: #aaf;
 }
 
 .tabs a:focus {
-  outline:none;
+  outline: none;
 }
 
 .tabs a:hover {
-  text-decoration:none;
+  text-decoration: none;
 }
 
 .tab_products-title.active {
-  border-bottom:1px solid grey;
+  border-bottom: 1px solid grey;
 }
 
 // from https://www.w3.org/WAI/tutorials/forms/labels/
@@ -641,199 +917,932 @@ html[dir="rtl"] {
 }
 
 .f-dropdown {
-  max-width:300px;
+  max-width: 300px;
 }
 
-#preferences_switch input:checked+label {
-  background-color:#4fa125;
+/* smaller text for descriptions */
+.panel_text .description {
+  color: #555;
+  font-size: .8em;
 }
 
 .ecoscore_panel {
-  border-radius:1rem;	
+  border-radius: 1rem;
 }
 
 .ecoscore_panel li:hover {
-  background-color:transparent;
-  cursor:default;
+  background-color: transparent;
+  cursor: default;
 }
 
 .ecoscore_panel ul {
-  list-style-type:none;
+  list-style-type: none;
 }
 
-#ecoscore_panel_lca { background-color:#fafafa; }
-#ecoscore_panel_production_system { background-color:#e1fdd4; }
-#ecoscore_panel_origins { background-color:#d6f5ff; }
-#ecoscore_panel_threatened_species { background-color:#ffe4d1; }
-#ecoscore_panel_packaging { background-color:#fff6d5; }
+#ecoscore_panel_lca {
+  background-color: #fafafa;
+}
+
+#ecoscore_panel_production_system {
+  background-color: #e1fdd4;
+}
+
+#ecoscore_panel_origins {
+  background-color: #d6f5ff;
+}
+
+#ecoscore_panel_threatened_species {
+  background-color: #ffe4d1;
+}
+
+#ecoscore_panel_packaging {
+  background-color: #fff6d5;
+}
 
 .agribalyse_impact_bar {
-  background-color:#ffbb88;height:1.2rem;float:left;
+  background-color: #ffbb88;
+  height: 1.2rem;
+  float: left;
 }
 
 .agribalyse_impact_bar_full {
-  width:200px;
-  background-color:#eeeeee;height:1.2rem;
+  width: 200px;
+  background-color: #eeeeee;
+  height: 1.2rem;
 }
 
 // CSS filters to color SVG images
 // Filters generated from https://codepen.io/sosuke/pen/Pjoqqp
-
 .filter-green {
-  filter: invert(43%) sepia(100%) saturate(320%) hue-rotate(93deg) brightness(89%) contrast(97%);
+  filter: invert(43%) sepia(100%) saturate(320%) hue-rotate(93deg)
+    brightness(89%) contrast(97%);
 }
 
 .filter-red {
   // loss: 4.0, close enough
-  filter: invert(43%) sepia(45%) saturate(992%) hue-rotate(314deg) brightness(99%) contrast(89%);
+  filter: invert(43%) sepia(45%) saturate(992%) hue-rotate(314deg)
+    brightness(99%) contrast(89%);
 }
 
 .filter-orange {
-  filter: invert(83%) sepia(20%) saturate(6233%) hue-rotate(327deg) brightness(101%) contrast(90%);
+  filter: invert(83%) sepia(20%) saturate(6233%) hue-rotate(327deg)
+    brightness(101%) contrast(90%);
 }
 
 .filter-darkorange {
-  filter: invert(47%) sepia(24%) saturate(4013%) hue-rotate(4deg) brightness(98%) contrast(86%);
+  filter: invert(47%) sepia(24%) saturate(4013%) hue-rotate(4deg)
+    brightness(98%) contrast(86%);
 }
 
 .filter-grey {
-  filter: invert(30%) sepia(0%) saturate(0%) hue-rotate(29deg) brightness(97%) contrast(89%);
+  filter: invert(30%) sepia(0%) saturate(0%) hue-rotate(29deg) brightness(97%)
+    contrast(89%);
 }
 
 /* Accessibility: Adding focus styles on the outer-box of the fake checkbox used for the Foundation switch to classify products according to one's preferences */
+
 .switch input[type="checkbox"]:focus + label::after {
-    outline: rgb(59, 153, 252) auto 5px;
+  outline: rgb(59, 153, 252) auto 5px;
 }
 
 // Attributes cards in summary
-
 .attribute_card {
-  border-radius:8px;
-  padding:1rem;min-height:96px;
+  border-radius: 8px;
+  padding: 1rem;
+  min-height: 96px;
+  display: block;
+}
+
+a.attribute_card {
+  color: $body-font-color;
+  text-decoration: none !important;
+}
+
+a.attribute_card:hover {
+  text-decoration: none !important;
 }
 
 // Knowledge panels
-
 // We need a large padding inside panel content so that we can see
 // the hierarchy of panels that contain other panels
 .panel_content {
-  clear:left;
-  margin-top:1rem;
-  padding-left:2rem !important;
-  padding-right:2rem !important;
+  clear: left;
+  margin-top: 1rem;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
 }
 
 .panel_content_card {
-  margin-top:1rem;
+  margin-top: 1rem;
 }
-
-// Make active (opened) accordion look like inactive accordion
-// as we use them only for knowledge panel, with only 1 openable element
-// per accordion
-.accordion .accordion-navigation>a, .accordion dd>a {
-  background:#ffffff;
-  border-radius:8px;
-}
-.accordion .accordion-navigation.active>a, .accordion dd.active>a  {
-  background:#ffffff;
-}
-.accordion .accordion-navigation>a:hover, .accordion dd>a:hover {
-  background:#f0f0f0;
-  text-decoration:none;
-}
-
-// background colors for attributes and panels
-
-$grade-a-color: #219653;
-$grade-b-color: #60ac0e;
-$grade-c-color: #c88f01;
-$grade-d-color: #e07312;
-$grade-e-color: #eb5757;
-$grade-unknown-color: #4f4f4f;
-
-$evaluation-good-color: #219653;
-$evaluation-average-color: #f2994a;
-$evaluation-bad-color: #eb5757;
-$evaluation-unknown-color: #4f4f4f;
-
 
 .evaluation_good_title {
-  color:$evaluation-good-color;
+  color: $evaluation-good-color;
 }
 
 .evaluation_average_title {
-  color:$evaluation-average-color;
+  color: $evaluation-average-color;
 }
 
 .evaluation_bad_title {
-  color:$evaluation-bad-color;
+  color: $evaluation-bad-color;
 }
 
 .evaluation_unknown_title {
-  color:$evaluation-unknown-color;
+  color: $evaluation-unknown-color;
 }
 
 .evaluation_neutral_title {
-  color:$grade-unknown-color;
+  color: $grade-unknown-color;
+}
+
+.text_good {
+  background-color: rgba($evaluation-good-color, 0.1) !important;
+}
+
+.text_average {
+  background-color: rgba($evaluation-average-color, 0.1) !important;
+}
+
+.text_bad {
+  background-color: rgba($evaluation-bad-color, 0.1) !important;
+}
+
+.text_info {
+  background-color: $info-color !important;
+}
+
+.text_warning {
+  background-color: $warning-color !important;
+  color: white;
+}
+
+.text_error {
+  background-color: $alert-color !important;
 }
 
 .grade_unknown {
-  background-color:rgba($grade-unknown-color,0.1) !important;
+  background-color: rgba($grade-unknown-color, 0.1) !important;
 }
+
 a.grade_unknown:hover {
-  background-color:rgba($grade-unknown-color,0.2) !important;
+  background-color: rgba($grade-unknown-color, 0.2) !important;
 }
+
 .grade_unknown_tile {
-  color:$grade-unknown-color;
+  color: $grade-unknown-color;
 }
 
 .grade_a {
-  background-color:rgba($grade-a-color,0.1) !important;
+  background-color: rgba($grade-a-color, 0.1) !important;
 }
+
 a.grade_a:hover {
-  background-color:rgba($grade-a-color,0.2) !important;
+  background-color: rgba($grade-a-color, 0.2) !important;
 }
+
 .grade_a_title {
-  color:$grade-a-color;
+  color: $grade-a-color;
 }
 
 .grade_b {
-  background-color:rgba($grade-b-color,0.1) !important;
+  background-color: rgba($grade-b-color, 0.1) !important;
 }
+
 a.grade_b:hover {
-  background-color:rgba($grade-b-color,0.2) !important;
+  background-color: rgba($grade-b-color, 0.2) !important;
 }
+
 .grade_b_title {
-  color:$grade-b-color;
+  color: $grade-b-color;
 }
 
 .grade_c {
-  background-color:rgba($grade-c-color,0.1) !important;
+  background-color: rgba($grade-c-color, 0.1) !important;
 }
+
 a.grade_c:hover {
-  background-color:rgba($grade-c-color,0.2) !important;
+  background-color: rgba($grade-c-color, 0.2) !important;
 }
+
 .grade_c_title {
-  color:$grade-c-color;
+  color: $grade-c-color;
 }
 
 .grade_d {
-  background-color:rgba($grade-d-color,0.1) !important;
+  background-color: rgba($grade-d-color, 0.1) !important;
 }
+
 a.grade_d:hover {
-  background-color:rgba($grade-d-color,0.2) !important;
+  background-color: rgba($grade-d-color, 0.2) !important;
 }
+
 .grade_d_title {
-  color:$grade-d-color;
+  color: $grade-d-color;
 }
 
 .grade_e {
-  background-color:rgba($grade-e-color,0.1) !important;
-}
-a.grade_e:hover {
-  background-color:rgba($grade-e-color,0.2) !important;
-}
-.grade_e_title {
-  color:$grade-e-color;
+  background-color: rgba($grade-e-color, 0.1) !important;
 }
 
+a.grade_e:hover {
+  background-color: rgba($grade-e-color, 0.2) !important;
+}
+
+.grade_e_title {
+  color: $grade-e-color;
+}
+
+#main_column {
+  padding-bottom: 2rem;
+}
+
+@include foundation-card;
+
+////
+.button {
+  border-radius: $button-radius;
+}
+.align-center {
+  align-items: center;
+}
+
+/* Recommended icon sizes */
+span.size-20 {
+  font-size: 20px;
+  font-variation-settings: "OPSZ" 20;
+}
+span.size-24 {
+  font-size: 24px;
+  font-variation-settings: "OPSZ" 24;
+}
+span.size-40 {
+  font-size: 40px;
+  font-variation-settings: "OPSZ" 40;
+}
+span.size-48 {
+  font-size: 48px;
+  font-variation-settings: "OPSZ" 48;
+}
+
+span.ico-bold {
+  font-variation-settings: "wght" 700;
+}
+
+@import "cards";
+@import "topbar";
+@import "footer";
+@import "product-list";
+@import "product-page";
+@import "product-form";
+@import "inputs_redesign";
+
+.white-button {
+  @include button(10, $white);
+}
+
+$section-cyan: #008c8c;
+$section-sand: #FFFAF1;
+$background-orange: #FF8714;
+$font-green: #008c8c;
+
+.donation-banner,
+.donation-banner-footer {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: .5rem 2rem; 
+  width: 100%;
+  gap: 1rem;
+  background-color: $section-sand;
+  @media #{$small-only} {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  &__close {
+    position: absolute;
+    top: .3rem;
+    right: .3rem;
+    cursor: pointer;
+  }
+  &__hand {
+    position: absolute;
+    bottom: -40px;
+    left: 40%;
+    background-image: url(/images/illustrations/donate-hearth.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    @media #{$small-only} {
+      left: 65%;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 5;
+    padding: 1rem;
+  }
+  &__main-text {
+    span {
+      background-color: $background-orange;
+      text-transform: uppercase;
+      color: $white;
+      font-size: 30px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      border-radius: 5px;
+      padding: .7rem .5rem;
+      margin-bottom: 1rem;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      line-height: 3.3rem;
+      @media #{$small-only} {
+        font-size: 20px;
+        line-height: 2.2rem;
+      }
+    }
+  }
+  &__aside {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+  &__secondary-text,
+  &__tertiary-text {
+    color: $font-green;
+    font-weight: 700;
+    font-family: 'Farro', sans-serif;
+  }
+  &__secondary-text {
+    font-size: 18px;
+    @media #{$small-only} {
+      font-size: 12px;
+    }
+  }
+  &__tertiary-text {
+    font-size: 16px;
+    @media #{$small-only} {
+      font-size: 12px;
+    }
+  }
+  &__donate {
+    padding: 1rem 1.7rem;
+    text-transform: uppercase;
+    background-color: $font-green;
+    color: $white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media #{$small-only} {
+      padding: .5rem .85rem;
+    }
+    &:hover {
+      opacity: 0.9;
+      color: $white;
+    }
+  }
+  &__image {
+    height: auto;
+    flex: 4;
+    background-image: url(/images/misc/group_photo_2023.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center calc(50% + 30px);
+  }
+}
+
+.donation-banner-footer {
+  &__content {
+    @media #{$small-only} { margin-top: 0; }
+  }
+}
+
+// Top banner to download mobile app
+#mobile-app-top-banner {
+  margin: 0;
+  border-radius: 0;
+}
+
+.footer_social_icon {
+  height: 24px;
+  vertical-align: middle;
+}
+
+// Packagings banner
+
+
+.packagings-banner {
+  position: relative;
+  display: flex;
+  padding: 2rem 0;
+  background-color: $section-cyan;
+  @media #{$small-only} {
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+  &__image {
+    display: block;
+    content: "";
+    background: no-repeat bottom url(/images/illustrations/products-scan-2.png);
+    min-width: 150px;
+    height: 81px;
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 0 auto;
+    max-width: 100rem;
+    @media #{$small-only} {
+      flex-direction: column;
+      gap: 0;
+      margin-top: -2rem;
+    }
+    &--button {
+      appearance: button;
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      height: fit-content;
+      margin-bottom: 0;
+      @media #{$small-only} {
+        order: 3;
+      }
+    }
+    &-paragraphs {
+      > p { color: $white; }
+      a { color: #ffffcc; }
+      @media #{$small-only} {
+        text-align: center;
+        order: 2;
+        padding: 1rem;
+      }
+      &--thank-you {
+        span {
+          color: red;
+          font-size: 1rem;
+        }
+      }
+    }
+    &-close {
+      align-self: flex-start;
+      cursor: pointer;
+      color: white;
+      opacity: 0.5;
+      margin-right: 1rem;
+      @media #{$small-only} { 
+        position: relative;
+        top: -25px;
+        margin-right: 2rem;
+        align-self: flex-end;
+        order: 1;
+      }
+    }
+  }
+}
+
+// OFF days banner
+
+.offdays-banner {
+  position: relative;
+  display: flex;
+  padding: 2rem 0;
+  background-color: $section-cyan;
+  @media #{$small-only} {
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+  &__image {
+    display: block;
+    content: "";
+    background: no-repeat bottom url(/images/illustrations/you-are-invited.svg);
+    min-width: 150px;
+    height: 90px;
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 0 auto;
+    max-width: 100rem;
+    @media #{$small-only} {
+      flex-direction: column;
+      gap: 0;
+      margin-top: -2rem;
+    }
+    &--button {
+      appearance: button;
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      height: fit-content;
+      margin-bottom: 0;
+      @media #{$small-only} {
+        order: 3;
+      }
+    }
+    &-paragraphs {
+      > p { color: $white; }
+      a { color: #ffffcc; }
+      @media #{$small-only} {
+        text-align: center;
+        order: 2;
+        padding: 1rem;
+      }
+      &--thank-you {
+        span {
+          color: red;
+          font-size: 1rem;
+        }
+      }
+    }
+    &-close {
+      align-self: flex-start;
+      cursor: pointer;
+      color: white;
+      opacity: 0.5;
+      margin-right: 1rem;
+      @media #{$small-only} { 
+        position: relative;
+        top: -25px;
+        margin-right: 2rem;
+        align-self: flex-end;
+        order: 1;
+      }
+    }
+  }
+}
+
+// Footer: Scan your everyday foods
+
+#footer_scan {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 28px;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #000000;
+}
+
+#footer_install_the_app {
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 30px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+
+// Contribute and discover footer
+
+#contribute_and_discover_links_block {
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Title with Plus Jakarta Sans, according to brand guidelines
+.emphasized-title {
+  font-family: "Plus Jakarta Sans", $font-family-sans-serif;
+  font-weight: 700;
+  // override color as it is not black due to our choice of $dark
+  color: $black !important;
+  font-variant-ligatures: none;
+}
+
+
+// Text spans highlighted with colored labels
+.highlight-label {
+  line-height: 130%;
+  font-weight: 800;
+  color: #ffffff;
+
+  transform: rotate(2.5deg);
+  border-radius: 5px;
+  text-transform: uppercase;
+  display: inline-block;
+
+  &.orange {
+    background-color: $off-orange;
+    border-inline: 5px solid $off-orange;
+  }
+
+  &.blue {
+    background-color: $off-blue;
+    border-inline: 5px solid $off-blue;
+  }
+
+  &.turquoise {
+    background-color: $off-turquoise;
+    border-inline: 5px solid $off-turquoise;
+  }
+
+  &.pink {
+    background-color: $off-pink;
+    border-inline: 5px solid $off-pink;
+  }
+
+  &.yellow {
+    color: $black;
+    background-color: $highlight-yellow;
+    border-inline: 5px solid $highlight-yellow;
+  }
+
+  &.dark-green {
+    background-color: $highlight-green;
+    border-inline: 5px solid $highlight-green;
+  }
+
+  &.dark-orange {
+    background-color: $highlight-dark-orange;
+    border-inline: 5px solid $highlight-dark-orange;
+  }
+
+  &.light-blue {
+    background-color: $highlight-light-blue;
+    border-inline: 5px solid $highlight-light-blue;
+  }
+
+  &.rotate-right {
+    transform: rotate(2.5deg);
+  }
+
+  &.rotate-left {
+    transform: rotate(-3deg);
+  }
+}
+
+#everyday {
+  @extend .highlight-label, .rotate-right, .blue;
+}
+
+#foods {
+  @extend .highlight-label, .rotate-left, .orange;
+}
+
+.search_form_accordion_navigation {
+  margin-top: 1rem;
+}
+
+.search_form_accordion_content {
+  padding: rem-calc(16) !important;
+}
+
+// Grow the content so that the footer is always at the bottom of the page
+
+#page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#main_container {
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+#content {
+  flex-grow: 1;
+}
+
+/* Packaging widget */
+/* **************** */
+#packagings_components_edit input {
+  margin:0;
+}
+
+#packagings_components_edit_header {
+  background-color:$macchiato;
+  border-radius:20px;
+  color:white;
+  font-weight:600;
+  margin:0;
+  padding:1rem;
+}
+
+.packagings_components_edit_row {
+  border-radius:20px;
+  margin:0 !important;
+  padding:1rem;
+}
+.packagings_components_edit_row:nth-of-type(even) {
+  background-color:$latte;
+}
+
+#packagings_components_edit .select2-container .select2-selection--single {
+  height: 2.6428571429rem;
+}
+
+#packagings_components_edit .select2-container .select2-selection--single .select2-selection__rendered {
+  line-height: 2.6428571429rem;
+}
+
+.delete_packaging_column {
+  padding:0 !important;
+}
+
+.delete_packaging {
+  margin:0;
+}
+
+.delete_packaging > span {
+  line-height: 2.6428571429rem;
+}
+// Eye Icon CSS
+.toggle-password {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 60%;
+  transform: translateY(-50%);
+}
+.password-container {
+  position: relative;
+}
+
+// 1st packaging component is empty and hidden, it is used to add new components
+#packaging_0_row {
+  display:none;
+}
+
+.if-empty-dnone:empty { display: none !important; }
+
+// underline links
+#main_container a {
+  text-decoration:underline;
+}
+// except buttons
+a.button {
+  text-decoration:none !important;
+}
+// except product cards etc.
+a.list_product_a {
+  text-decoration:none !important;
+}
+a.tab_language {
+  text-decoration:none !important;
+}
+a.panel_title {
+  text-decoration:none !important;
+}
+.field_value a {
+  text-decoration:none !important;
+}
+.accordion-navigation a {
+  text-decoration:none !important;
+}
+.panel_title a {
+  text-decoration:none !important;
+}
+.panel_text a {
+  text-decoration:underline !important;
+}
+.pagination a {
+  text-decoration:none !important;
+}
+.f-dropdown a {
+  text-decoration:none !important;
+}
+.dataTable a {
+  text-decoration:none !important;
+}
+
+.button:focus, .button:hover, button:focus, button:hover {
+    background-color: color.scale($button-bg-color, $lightness: $button-function-factor * -0.5);
+    color: #fff;
+}
+
+// Tuto video beside user form
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 100rem;
+  @media #{$small-only} {
+    flex-direction: column;
+    gap: 0;
+    margin-top: -2rem;
+  }
+}
+
+// Mobile app landing page
+
+#app-landing-page {
+  // use Plus Jakarta Sans everywhere
+  font-family: "Plus Jakarta Sans", $font-family-sans-serif;
+  font-variant-ligatures: none;
+
+  .highlight-label {
+  // make the highlighted labels smaller
+    font-size: 75%;
+  // set font weight to 800 to make it the same as Playstore visuals
+    font-weight: 800;
+  }
+
+  // Add madding on top and bottom of the first block
+  #download-app-block {
+    @media #{$medium-up} {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  
+    @media #{$large-up} {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+
+  // Make product illustration be next to card bottom
+  #app-card-block {
+    padding-bottom: 0;
+  }
+
+  .column {
+    @media #{$small-only} {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+
+  .block {
+    color: $black;
+
+    @media #{$medium-up} {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  
+    @media #{$large-up} {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    &-blue {
+      background-color: #e3f6ff;
+    }
+    
+    &-seashell {
+      background-color: #fff5f1;
+    }
+    
+    &-yellow {
+      background-color: #fffad1;
+    }
+    
+    &-light-green {
+      background-color: #ebffdf;
+    }
+  
+    &-white {
+      background-color: $white;
+    }
+  }
+
+  .button {
+    font-weight: 700;
+    background-color: $white !important;
+    &:hover { background-color: #F6F6F6 !important; }
+  }
+
+  .paragraph-top-margin {
+    margin-top: 2rem;
+  }
+
+  .testimonial-card {
+    background-color: $latte;
+    border-radius: 20px;
+    padding: 2rem 2rem;
+  }
+
+  .puzzle-illustration {
+    max-height: 185px;
+    transform: rotate(180deg);
+    position: absolute;
+    bottom: 0;
+  }
+
+  #join-food-revolution-row {
+    @media #{$large-up} {
+      margin-bottom: 3rem;
+    }
+  }
+}

@@ -71,13 +71,13 @@
                     {
                         "values": [
                             {
-                                "text": "[% IF packaging.number %][% packaging.number %] [% END %][% display_taxonomy_tag('packaging_shapes',packaging.shape) %][% IF packaging.quantity %] ([% packaging.quantity %])[% END %]"
+                                "text": "[% IF packaging.number_of_units %][% packaging.number_of_units %] [% END %][% display_taxonomy_tag_name('packaging_shapes',packaging.shape) %][% IF packaging.quantity %] ([% packaging.quantity %])[% END %]"
                             },
                             {
-                                "text": "[% display_taxonomy_tag('packaging_materials',packaging.material) %]"
+                                "text": "[% display_taxonomy_tag_name('packaging_materials',packaging.material) %]"
                             },
                             {
-                                "text": "[% display_taxonomy_tag('packaging_recycling',packaging.recycling) %]",
+                                "text": "[% display_taxonomy_tag_name('packaging_recycling',packaging.recycling) %]",
                                 [% IF packaging.recycling == "en:recycle" %]
                                     "evaluation": "good",
                                 [% ELSIF packaging.recycling == "en:discard" %]

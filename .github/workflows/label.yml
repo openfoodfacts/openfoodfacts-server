@@ -5,19 +5,24 @@
 # file with configuration.  For more information, see:
 # https://github.com/actions/labeler
 
-name: Labeler
-on: [pull_request]
+name: 🏷️ Pull Request Labeler
+on:
+- pull_request_target
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   label:
-
+    name: Auto-Labelling Pull Request
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
 
     steps:
-    - uses: actions/labeler@v3.0.2
-      if: ${{ github.repository_owner == 'openfoodfacts' }}
+    - uses: actions/labeler@v4
+      #if: github.event.pull_request.head.repo.full_name == github.repository
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"

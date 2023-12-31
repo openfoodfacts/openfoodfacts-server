@@ -1,14 +1,14 @@
 <!-- start templates/[% template.name %] -->
 
 <!-- Comparison of product nutrition facts to other products of the same category -->
-[% IF tagid.matches('^en:nutrition-(very-)?high/') %]
+[% IF tagid.match('^en:nutrition-(very-)?high') %]
     <p> [% lang("value_for_the_product") %]: [% product_ref_improvements_data_tagid_product_100g %]
         <br> [% display_taxonomy_tag_improvements_data_category %]: [% product_ref_improvements_data_tagid_category_100g %]
     </p>
 [% END %]
 
 <!-- Opportunities to improve the Nutri-Score by slightly changing the nutrients -->
-[% IF tagid.matches('^en:better-nutri-score') %]
+[% IF tagid.match('^en:better-nutri-score') %]
     <p>
         [% nutriscore_sprintf_data %]
     </p>

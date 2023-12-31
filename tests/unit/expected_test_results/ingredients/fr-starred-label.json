@@ -1,0 +1,95 @@
+{
+   "ingredients" : [
+      {
+         "ciqual_proxy_food_code" : "16030",
+         "id" : "en:cocoa-paste",
+         "labels" : "en:fair-trade, en:organic",
+         "origins" : "en:madagascar",
+         "percent" : 75,
+         "percent_estimate" : 75,
+         "percent_max" : 75,
+         "percent_min" : 75,
+         "text" : "pâte de cacao",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_proxy_food_code" : "31016",
+         "id" : "en:cane-sugar",
+         "labels" : "en:fair-trade, en:organic",
+         "percent_estimate" : 18.75,
+         "percent_max" : 25,
+         "percent_min" : 12.5,
+         "text" : "sucre de canne",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      },
+      {
+         "ciqual_food_code" : "16030",
+         "id" : "en:cocoa-butter",
+         "labels" : "en:fair-trade, en:organic",
+         "percent_estimate" : 6.25,
+         "percent_max" : 12.5,
+         "percent_min" : 0,
+         "text" : "beurre de cacao",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
+      }
+   ],
+   "ingredients_analysis" : {},
+   "ingredients_analysis_tags" : [
+      "en:palm-oil-free",
+      "en:vegan",
+      "en:vegetarian"
+   ],
+   "ingredients_hierarchy" : [
+      "en:cocoa-paste",
+      "en:plant",
+      "en:cocoa",
+      "en:cane-sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:sugar",
+      "en:cocoa-butter"
+   ],
+   "ingredients_n" : 3,
+   "ingredients_n_tags" : [
+      "3",
+      "1-10"
+   ],
+   "ingredients_original_tags" : [
+      "en:cocoa-paste",
+      "en:cane-sugar",
+      "en:cocoa-butter"
+   ],
+   "ingredients_percent_analysis" : 1,
+   "ingredients_tags" : [
+      "en:cocoa-paste",
+      "en:plant",
+      "en:cocoa",
+      "en:cane-sugar",
+      "en:added-sugar",
+      "en:disaccharide",
+      "en:sugar",
+      "en:cocoa-butter"
+   ],
+   "ingredients_text" : "pâte de cacao* de Madagascar 75%, sucre de canne*, beurre de cacao*. * issus du commerce équitable et de l'agriculture biologique (100% du poids total).",
+   "ingredients_with_specified_percent_n" : 1,
+   "ingredients_with_specified_percent_sum" : 75,
+   "ingredients_with_unspecified_percent_n" : 2,
+   "ingredients_with_unspecified_percent_sum" : 25,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
+   "known_ingredients_n" : 8,
+   "lc" : "fr",
+   "misc_tags" : [
+      "en:some-ingredients-with-specified-percent"
+   ],
+   "nutriments" : {
+      "fruits-vegetables-legumes-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-legumes-estimate-from-ingredients_serving" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
+      "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
+   },
+   "unknown_ingredients_n" : 0
+}

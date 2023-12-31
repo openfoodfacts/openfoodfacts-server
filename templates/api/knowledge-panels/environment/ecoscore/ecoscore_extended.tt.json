@@ -1,0 +1,95 @@
+[% SET climate_change_ratio_to_category = panel.climate_change / panel.ecoscore_extended_data_for_category.climate_change %]
+
+
+    // "title": "[% f_lang('f_equal_to_driving_km_in_a_petrol_car',  { 'kilometers' => driving_100g_rounded } ) %]",
+{
+    "level" :"info",
+    "topics": [
+        "environment"
+    ],
+    [% IF climate_change_ratio_to_category > 1.20 %]
+    "evaluation": "bad",
+    [% ELSIF climate_change_ratio_to_category  >= 0.80 %]
+    "evaluation": "average",
+    [% ELSE %]
+    "evaluation": "good",
+    [% END %]
+    "title_element": {
+
+        [% IF climate_change_ratio_to_category > 1.1 %]
+            [% SET climate_change_ratio_percent_more = sprintf('%d', (climate_change_ratio_to_category - 1) * 100) %]
+            "title": "Environmental impact of ingredients [% climate_change_ratio_percent_more %]% greater than similar products",
+        [% ELSIF climate_change_ratio_to_category  >= 0.90 %]
+            "title": "Environmental impact of ingredients same as similar products",
+        [% ELSE %]
+            [% SET climate_change_ratio_percent_less = sprintf('%d', (1 - climate_change_ratio_to_category) * 100) %]
+            "title": "Environmental impact of ingredients [% climate_change_ratio_percent_less %]% smaller than similar products",
+        [% END %]
+        "subtitle": "Compared to: [% lang('categories_s') FILTER ucfirst %][% sep %]: [% panel.agribalyse_category_name.dquote %]",
+        "type": "grade",
+        "icon_url": "[% static_subdomain %]/images/icons/dist/scale-balance.svg",
+        "icon_color_from_evaluation": true,        
+    },
+    "elements": [
+        {
+            "element_type": "text",
+            "text_element": {
+                "type": "summary",
+                "html": `<p>Warning: this feature is experimental and under development.</p>
+
+                <p>Estimated impact for this product:</p>
+                <ul>
+                    <li>Climate change score: [% panel.climate_change %]</li>
+                    <li>EF score: [% panel.ef_score %]</li>
+                </ul>
+
+                <br>
+
+                [% IF panel.ecoscore_extended_data_for_category.defined %]
+                <p>Estimated impact for the category ([% display_taxonomy_tag_name("categories",panel.ecoscore_extended_data_for_category.category_id) %]):</p>
+
+                <ul>
+                    <li>Climate change score average: [% panel.ecoscore_extended_data_for_category.climate_change %]</li>
+                    <li>EF score average: [% panel.ecoscore_extended_data_for_category.ef_score %]</li>
+                </ul>
+                [% END %]
+
+                    `
+            }
+        },
+        {
+            "element_type": "table",
+            "table_element": {
+                "id": "ecoscore_extended_estimated_recipe",
+                "table_type": "percents",
+                "title": "Estimated recipe",
+                "columns": [
+                    {
+                        "text": "Ingredients",
+                        "type": "text",
+                    },
+                    {
+                        "text": "Quantity",
+                        "type": "text",
+                    }
+                ],
+                "rows": [
+                    [% FOREACH ingredient IN product.ecoscore_extended_data.impact.max_confidence_recipe %]
+                    {
+                        "id": "[% step %]",
+                        "values": [
+                            {
+                                "text": "[% display_taxonomy_tag_name('ingredients', ingredient.id) %]"
+                            },
+                            {
+                                "text": "[% ingredient.quantity %]",
+                                "percent": [% ingredient.quantity %],
+                            }
+                        ],
+                    },
+                    [% END %]
+                ]
+            }
+        }
+    ]
+}

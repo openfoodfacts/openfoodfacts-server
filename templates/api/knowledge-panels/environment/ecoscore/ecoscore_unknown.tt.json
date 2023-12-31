@@ -4,7 +4,7 @@
         "environment"
     ],
     "title_element": {
-        "icon_url": "[% static_subdomain %]/images/attributes/ecoscore-unknown.svg",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/ecoscore-unknown.svg",
         "title": "[% lang("attribute_ecoscore_unknown_title") %] - [% lang("attribute_ecoscore_unknown_description_short") %]",
         "type": "grade",
         "grade": "unknown",
@@ -14,8 +14,17 @@
             "element_type": "text",
             "text_element": {
                 "type": "summary",
-                "html": "We could not compute the Eco-Score of this product as it is missing some data, could you help complete it?"
+                "html": "[% lang("ecoscore_unknown_call_to_help") %]"
             }
-        },       
+        },
+        {
+            "element_type": "action",
+            "action_element": {
+                "html": `[% lang("actions_to_compute_ecoscore") %]`,
+                "actions": [
+                    "add_categories",
+                ]
+            }
+        },
     ]
 }
