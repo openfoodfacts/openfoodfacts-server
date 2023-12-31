@@ -198,8 +198,8 @@ use Devel::Size qw(size total_size);
 use Data::DeepAccess qw(deep_get deep_set);
 use Log::Log4perl;
 use LWP::UserAgent;
-use OpenTelemetry::Integration 'LWP::UserAgent';
 use Tie::IxHash;
+use OpenTelemetry::Integration 'LWP::UserAgent';
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
