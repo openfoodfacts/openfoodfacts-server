@@ -251,7 +251,8 @@ var iso3601 = {
 var iso3601_to_language_mappings = {
   "ca": "en",
   "au": "en",
-  "us": "en"
+  "us": "en",
+  "gb": "en"
 };
 
 data["items"].forEach(function (record) {
