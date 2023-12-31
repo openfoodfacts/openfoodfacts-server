@@ -258,7 +258,7 @@ data["items"].forEach(function (record) {
 		// console.debug("Unmapped ISO3601 code: " + code);
 		return;
 	} else {
-		countryNames.push(iso3601[code.toString().split("-")[0]]);
+		countryNames.push("en:" + iso3601[code.toString().split("-")[0]]);
 	}
 
   	// console.debug(record);
