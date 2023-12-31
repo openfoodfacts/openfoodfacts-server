@@ -245,11 +245,16 @@ var iso3601 = {
   "zw": "Zimbabwe",
   "fx": "France (Metropolitan)"
 }
+
+// Overrides for the language codes/mappings inferred by country code.
+// TODO: This list is far, far from accurate or complete and should be replaced with any internal/authoritative mappings
+var iso3601_to_language_mappings = {
+  "ca": "en",
+  "au": "en",
+  "us": "en"
+};
+
 data["items"].forEach(function (record) {
-  var countryCodes = record.locationSet["include"];
-  var primaryCountryCode = countryCodes[0]; 
-
-
   var countryNames = [];
   countryCodes.forEach(function (code) {
 	if (code == "001") { return; }
@@ -260,12 +265,17 @@ data["items"].forEach(function (record) {
 	} else {
 		countryNames.push("en:" + iso3601[code.toString().split("-")[0]]);
 	}
-
-  	// console.debug(record);
-
-	process.stdout.write([primaryCountryCode, record.displayName].join(":") + "\n");
-    process.stdout.write(["wikidata:en", record.tags["brand:wikidata"]].join(":") + "\n");
-  	process.stdout.write(["country:en:", countryNames.join(",")].join(" ") + "\n");
-  	process.stdout.write("\n");
   });
+
+  var countryCodes = record.locationSet["include"];
+  var primaryCountryCode = countryCodes[0].toString().split("-")[0];
+  var primaryLanguageCode = primaryCountryCode;
+  if (iso3601_to_language_mappings[primaryCountryCode]) {
+    primaryLanguageCode = iso3601_to_language_mappings[primaryCountryCode]
+  }
+
+  process.stdout.write([primaryLanguageCode, record.displayName].join(":") + "\n");
+  process.stdout.write(["wikidata:en", record.tags["brand:wikidata"]].join(":") + "\n");
+  process.stdout.write(["country:en:", countryNames.join(",")].join(" ") + "\n");
+  process.stdout.write("\n");
 });
