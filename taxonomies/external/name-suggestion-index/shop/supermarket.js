@@ -1,8 +1,5 @@
-/*
- A nodejs script to parse NameSuggestionIndex formatted JSON data and attempt to output valid taxinomy data.
-
- Do not use results without careful review
-*/
+// A nodejs script to parse NameSuggestionIndex formatted JSON data and attempt to output valid taxinomy data.
+// Do not use results without careful review
 const data = require('./supermarket.json');
 
 // A quick ISO 3601 to human labels (english) mapping.
@@ -258,17 +255,17 @@ data["items"].forEach(function (record) {
 	if (code == "001") { return; }
 
 	if (!iso3601[code.toString().split("-")[0]]) {
-		console.debug("Unmapped ISO3601 code: " + code);
+		// console.debug("Unmapped ISO3601 code: " + code);
 		return;
 	} else {
 		countryNames.push(iso3601[code.toString().split("-")[0]]);
 	}
 
-  	console.debug(record);
+  	// console.debug(record);
 
 	process.stdout.write([primaryCountryCode, record.displayName].join(":") + "\n");
     process.stdout.write(["wikidata:en", record.tags["brand:wikidata"]].join(":") + "\n");
   	process.stdout.write(["country:en:", countryNames.join(",")].join(" ") + "\n");
   	process.stdout.write("\n");
-
+  });
 });
