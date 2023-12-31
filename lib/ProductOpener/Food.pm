@@ -2113,15 +2113,21 @@ sub compute_serving_size_data ($product_ref) {
 	(defined $product_ref->{multiple_nutrition_data}) and delete $product_ref->{multiple_nutrition_data};
 
 	(defined $product_ref->{product_quantity}) and delete $product_ref->{product_quantity};
+	(defined $product_ref->{product_quantity_unit}) and delete $product_ref->{product_quantity_unit};
 	if ((defined $product_ref->{quantity}) and ($product_ref->{quantity} ne "")) {
 		my $product_quantity = normalize_quantity($product_ref->{quantity});
 		if (defined $product_quantity) {
 			$product_ref->{product_quantity} = $product_quantity;
 		}
+		my $product_quantity_unit = extract_standard_unit($product_ref->{quantity});
+		if (defined $product_quantity_unit) {
+			$product_ref->{product_quantity_unit} = $product_quantity_unit;
+		}
 	}
 
 	if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne "")) {
 		$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
+		$product_ref->{serving_quantity_unit} = extract_standard_unit($product_ref->{serving_size});
 	}
 	else {
 		(defined $product_ref->{serving_quantity}) and delete $product_ref->{serving_quantity};
