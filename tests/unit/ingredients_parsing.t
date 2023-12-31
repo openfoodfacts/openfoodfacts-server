@@ -649,6 +649,8 @@ my @lists = (
 	["en", "Vegetal oil (sunflower, olive and palm)", "sunflower vegetal oil, olive vegetal oil, palm vegetal oil"],
 	["en", "vegetable oil (palm)", "palm vegetable oil"],
 	["en", "vegetable oil: palm", "palm vegetable oil"],
+	["fr", "protéines végétales (soja, blé)", "protéine de soja, protéine de blé"],
+	["de", "pflanzliche Proteine (Erbsen, Sonnenblumen)", "erbsenprotein, sonnenblumenprotein"],
 	# Should not develop the enumeration if it contains unknown types (like "sel" here)
 	["fr", "Piments (vert, rouge, jaune, sel)", "Piments (vert, rouge, jaune, sel)"],
 	["fr", "Huile de palme, noisettes et tournesol", "huile de palme, huile de noisettes, huile de tournesol"],
