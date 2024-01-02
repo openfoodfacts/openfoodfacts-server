@@ -5384,13 +5384,13 @@ my %ingredients_categories_and_types = (
 		},
 		# plant protein
 		{
-			categories => ["pflanzliche Proteine",],
+			categories => ["pflanzliche Proteine", "Pflanzliches Eiweiß", "Pflanzliches Eiweiss"],
 			types => [
 				"Ackerbohnen", "Erbsen", "Hafer", "Kartoffel", "Kichererbsen", "Pilz",
 				"Reis", "Soja", "Sonnenblumen", "Weizen"
 			],
 			# haferprotein
-			alternate_names => ["<type>protein"],
+			alternate_names => ["<type>protein", "<type>eiweiß"],
 		},
 	],
 
