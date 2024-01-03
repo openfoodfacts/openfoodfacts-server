@@ -114,6 +114,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libdata-validate-ip-perl \
         libio-compress-perl \
         libjson-maybexs-perl \
+        libcpanel-json-xs-perl \
         liblist-allutils-perl \
         liblist-someutils-perl \
         # GraphViz2
@@ -185,7 +186,7 @@ RUN set -x && \
     cd / && \
     rm -rf /tmp/v2.1.0.tar.gz /tmp/zxing-cpp*
 
-# Run www-data user as host user 'off' or developper uid
+# Run www-data user AS host user 'off' or developper uid
 ARG USER_UID
 ARG USER_GID
 RUN usermod --uid $USER_UID www-data && \
@@ -266,4 +267,4 @@ CMD ["apache2ctl", "-D", "FOREGROUND"]
 ######################
 # Prod image is default
 ######################
-FROM runnable as prod
+FROM runnable AS prod

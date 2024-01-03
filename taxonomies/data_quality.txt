@@ -851,6 +851,9 @@ marker_type:en: info
 ### Eco-Score and packaging
 <en:Data quality warnings
 en:Eco-Score quality warnings
+es:Avisos de calidad del Eco-Score
+fr:Avertissements de qualité de l'Eco-Score
+de:Eco-Score Qualitätswarnungen
 description:en: Data quality warnings that might affect Eco-Score computation
 
 <en:Data quality warnings
@@ -865,34 +868,58 @@ fix_action:en: add_origins
 
 <en:Eco-Score quality warnings
 en:EcoScore - Packaging - Unscored material
+es:EcoScore - Embalaje - Material sin puntuar
+fr:EcoScore - Emballage - Matériau non évalué
+de:EcoScore - Verpackung - Nicht bewertetes Material
 #description:en:
 
 <en:Eco-Score quality warnings
 en:EcoScore - Packaging - Unscored shape
+es:EcoScore - Embalaje - Forma no puntuada
+fr:EcoScore - Emballage - Forme non évaluée
+de:EcoScore - Verpackung - Nicht bewertete Form
 #description:en:
 
 <en:Eco-Score quality warnings
 en:EcoScore - Extended data - Not computed
+es:EcoScore - Datos extendidos - No calculados
+fr:EcoScore - Données étendues - Non calculées
+de:EcoScore - Erweiterte Daten - Nicht berechnet
 #description:en:
 
 <en:Eco-Score quality warnings
 en:EcoScore - Packaging - Unspecified shape
+es:EcoScore - Embalaje - Forma no especificada
+fr:EcoScore - Emballage - Forme non spécifiée
+de:EcoScore - Verpackung - Nicht spezifizierte Form
 #description:en:
 
 <en:Eco-Score quality warnings
 en:EcoScore - extended data computed
+es:EcoScore - datos extendidos calculados
+fr:EcoScore - données étendues calculées
+de:EcoScore - erweiterte Daten berechnet
 #description:en:
 
 <en:Eco-Score quality warnings
 en:EcoScore - Extended data less precise than Agribalyse
+es:EcoScore - Datos extendidos menos precisos que Agribalyse
+fr:EcoScore - Données étendues moins précises que Agribalyse
+de:EcoScore - Erweiterte Daten weniger präzise als Agribalyse
 #description:en:
 
 <en:Eco-Score quality warnings
 en:EcoScore - Packaging - Unspecified material
+es:EcoScore - Embalaje - Material no especificado
+fr:EcoScore - Emballage - Matériau non spécifié
+de:EcoScore - Verpackung - Nicht spezifiziertes Material
 #description:en:
 
 <en:Eco-Score quality warnings
 en:EcoScore - production system - no label
+es:EcoScore - sistema de producción - sin etiqueta
+fr:EcoScore - système de production - sans étiquette
+de:EcoScore - Produktionssystem - keine Kennzeichnung
 #description:en:
 
 <en:Eco-Score quality warnings
@@ -907,6 +934,9 @@ en:EcoScore - threatened species - Ingredients missing
 <en:Eco-Score quality warnings
 <en:Packaging warnings
 en:No packaging data
+fr:Pas de données d'emballage
+es:No hay datos de empaque
+de:Keine Verpackungsdaten
 description:en:No packaging data - Packaging is one of the components of the Eco-Score, and thus it's important to have packaging data.
 
 <en:Eco-Score quality warnings
@@ -923,7 +953,7 @@ en:Packaging data complete
 
 #### Food groups
 
-<Data quality warnings
+<en:Data quality warnings
 en:Food groups warnings
 description:en: Food groups can't be inferred
 
@@ -953,6 +983,9 @@ en:Food groups 3 known
 
 <en:Data quality ok tags
 en:Ingredients percent analysis OK
+fr:Analyse des pourcentages d'ingrédients OK
+es:Análisis de porcentaje de ingredientes OK
+de:Zutatenprozentanalyse OK
 #description:en:
 
 <en:Data quality warnings
@@ -971,6 +1004,9 @@ fix_action:en: add_nutrition_facts
 
 <en:Fibers warnings
 en:Missing nutrition facts - fibers present on photos
+fr:Données nutritionnelles manquantes - fibres présentes sur les photos
+es:Falta de datos nutricionales - fibras presentes en las fotos
+de:Fehlende Nährwertangaben - Fasern auf den Fotos vorhanden
 description:en:Fibers are mentioned on photos, but are not present in the inputed nutrition table
 
 <en:Fibers warnings
@@ -982,6 +1018,9 @@ description:en:Fibers are mentioned on nutrition photos, but are not present in 
 
 <en:Data quality warnings
 en:Ingredients warnings
+fr:Avertissements sur les ingrédients
+es:Advertencias de ingredientes
+de:Zutatenwarnungen
 description:en: Potential issue with ingredients
 fix_action:en: add_ingredients_text
 
@@ -991,30 +1030,51 @@ en:All but one ingredient with specified percent
 
 <en:Ingredients warnings
 en:All ingredients with specified percent
+fr:Tous les ingrédients avec un pourcentage spécifié
+es:Todos los ingredientes con un porcentaje especificado
+de:Alle Zutaten mit angegebenem Prozentsatz
 #description:en:
 
 <en:Ingredients warnings
 en:Ingredients - 100 percent unknown
+fr:Ingrédients - 100 pourcent inconnus
+es:Ingredientes - 100 por ciento desconocidos
+de:Zutaten - 100 Prozent unbekannt
 description:en:There are 100 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
 
 <en:Ingredients warnings
 en:Ingredients - 50 percent unknown
+fr:Ingrédients - 50 pourcent inconnus
+es:Ingredientes - 50 por ciento desconocidos
+de:Zutaten - 50 Prozent unbekannt
 description:en:There are 50 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
 
 <en:Ingredients warnings
 en:Ingredients - 60 percent unknown
+fr:Ingrédients - 60 pourcent inconnus
+es:Ingredientes - 60 por ciento desconocidos
+de:Zutaten - 60 Prozent unbekannt
 description:en:There are 60 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
 
 <en:Ingredients warnings
 en:Ingredients - 70 percent unknown
+fr:Ingrédients - 70 pourcent inconnus
+es:Ingredientes - 70 por ciento desconocidos
+de:Zutaten - 70 Prozent unbekannt
 description:en:There are 70 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
 
 <en:Ingredients warnings
 en:Ingredients - 80 percent unknown
+fr:Ingrédients - 80 pourcent inconnus
+es:Ingredientes - 80 por ciento desconocidos
+de:Zutaten - 80 Prozent unbekannt
 description:en:There are 80 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
 
 <en:Ingredients warnings
 en:Ingredients - 90 percent unknown
+fr:Ingrédients - 90 pourcent inconnus
+es:Ingredientes - 90 por ciento desconocidos
+de:Zutaten - 90 Prozent unbekannt
 description:en:There are 90 percent of ingredients that are unknown, which either means that the ingredient list is not stored in the right language (eg a French list stored as an English one), or that the Open Food Facts ingredient taxonomy and parser are not yet working well in your language.
 
 <en:Ingredients warnings
@@ -1031,28 +1091,60 @@ description:en:Having ingredients with a lot of letter might indicate a parsing 
 
 <en:Ingredients warnings
 en:Ingredients - Number of languages - 2
-#description:en:
+fr:Ingrédients - Nombre de langues - 2
+es:Ingredientes - Número de idiomas - 2
+de:Zutaten - Anzahl der Sprachen - 2
+description:en:There are 2 different languages in one ingredient list. For instance, the ingredient list in French should only include the one language declared, and other languages should moved to an ingredient list for German, Italian…
+description:fr:Il y a 2 langues différentes dans une liste d'ingrédients. Par exemple, la liste d'ingrédients en français ne devrait inclure que la langue déclarée, et les autres langues devraient être déplacées vers une liste d'ingrédients pour l'allemand, l'italien...
+description:es:Hay 2 idiomas diferentes en una lista de ingredientes. Por ejemplo, la lista de ingredientes en francés solo debería incluir el idioma declarado, y los otros idiomas deberían moverse a una lista de ingredientes para alemán, italiano...
+description:de:In einer Zutatenliste gibt es 2 verschiedene Sprachen. Zum Beispiel sollte die Zutatenliste auf Französisch nur die angegebene Sprache enthalten, und andere Sprachen sollten in eine Zutatenliste für Deutsch, Italienisch usw. verschoben werden...
 
 <en:Ingredients warnings
 en:Ingredients - Number of languages - 3
-#description:en:
+fr:Ingrédients - Nombre de langues - 3
+es:Ingredientes - Número de idiomas - 3
+de:Zutaten - Anzahl der Sprachen - 3
+description:en:There are 3 different languages in one ingredient list. For instance, the ingredient list in French should only include the one language declared, and other languages should moved to an ingredient list for German, Italian…
+description:fr:Il y a 3 langues différentes dans une liste d'ingrédients. Par exemple, la liste d'ingrédients en français ne devrait inclure que la langue déclarée, et les autres langues devraient être déplacées vers une liste d'ingrédients pour l'allemand, l'italien...
+description:es:Hay 3 idiomas diferentes en una lista de ingredientes. Por ejemplo, la lista de ingredientes en francés solo debería incluir el idioma declarado, y los otros idiomas deberían moverse a una lista de ingredientes para alemán, italiano...
+description:de:In einer Zutatenliste gibt es 3 verschiedene Sprachen. Zum Beispiel sollte die Zutatenliste auf Französisch nur die angegebene Sprache enthalten, und andere Sprachen sollten in eine Zutatenliste für Deutsch, Italienisch usw. verschoben werden...
 
 <en:Ingredients warnings
 en:Ingredients - Number of languages - 4
+fr:Ingrédients - Nombre de langues - 4
+es:Ingredientes - Número de idiomas - 4
+de:Zutaten - Anzahl der Sprachen - 4
 description:en:There are 4 different languages in one ingredient list. For instance, the ingredient list in French should only include the one language declared, and other languages should moved to an ingredient list for German, Italian…
+description:fr:Il y a 4 langues différentes dans une liste d'ingrédients. Par exemple, la liste d'ingrédients en français ne devrait inclure que la langue déclarée, et les autres langues devraient être déplacées vers une liste d'ingrédients pour l'allemand, l'italien...
+description:es:Hay 4 idiomas diferentes en una lista de ingredientes. Por ejemplo, la lista de ingredientes en francés solo debería incluir el idioma declarado, y los otros idiomas deberían moverse a una lista de ingredientes para alemán, italiano...
+description:de:In einer Zutatenliste gibt es 4 verschiedene Sprachen. Zum Beispiel sollte die Zutatenliste auf Französisch nur die angegebene Sprache enthalten, und andere Sprachen sollten in eine Zutatenliste für Deutsch, Italienisch usw. verschoben werden...
 
 <en:Ingredients warnings
 en:Ingredients - Number of languages - 5
+fr:Ingrédients - Nombre de langues - 5
+es:Ingredientes - Número de idiomas - 5
+de:Zutaten - Anzahl der Sprachen - 5
 description:en:There are 5 different languages in one ingredient list. For instance, the ingredient list in French should only include the one language declared, and other languages should moved to an ingredient list for German, Italian…
+description:fr:Il y a 5 langues différentes dans une liste d'ingrédients. Par exemple, la liste d'ingrédients en français ne devrait inclure que la langue déclarée, et les autres langues devraient être déplacées vers une liste d'ingrédients pour l'allemand, l'italien...
+description:es:Hay 5 idiomas diferentes en una lista de ingredientes. Por ejemplo, la lista de ingredientes en francés solo debería incluir el idioma declarado, y los otros idiomas deberían moverse a una lista de ingredientes para alemán, italiano...
+description:de:In einer Zutatenliste gibt es 5 verschiedene Sprachen. Zum Beispiel sollte die Zutatenliste auf Französisch nur die angegebene Sprache enthalten, und andere Sprachen sollten in eine Zutatenliste für Deutsch, Italienisch usw. verschoben werden...
 
 <en:Ingredients warnings
 en:Ingredients - Number of languages - 6
+fr:Ingrédients - Nombre de langues - 6
+es:Ingredientes - Número de idiomas - 6
+de:Zutaten - Anzahl der Sprachen - 6
 description:en:There are 6 different languages in one ingredient list. For instance, the ingredient list in French should only include the one language declared, and other languages should moved to an ingredient list for German, Italian…
+description:fr:Il y a 6 langues différentes dans une liste d'ingrédients. Par exemple, la liste d'ingrédients en français ne devrait inclure que la langue déclarée, et les autres langues devraient être déplacées vers une liste d'ingrédients pour l'allemand, l'italien...
+description:es:Hay 6 idiomas diferentes en una lista de ingredientes. Por ejemplo, la lista de ingredientes en francés solo debería incluir el idioma declarado, y los otros idiomas deberían moverse a una lista de ingredientes para alemán, italiano...
+description:de:In einer Zutatenliste gibt es 6 verschiedene Sprachen. Zum Beispiel sollte die Zutatenliste auf Französisch nur die angegebene Sprache enthalten, und andere Sprachen sollten in eine Zutatenliste für Deutsch, Italienisch usw. verschoben werden...
 
 <en:Ingredients warnings
 en:Ingredients - Number of languages - 7
 description:en:There are 7 different languages in one ingredient list. For instance, the ingredient list in French should only include the one language declared, and other languages should moved to an ingredient list for German, Italian…
-
+description:fr:Il y a 7 langues différentes dans une liste d'ingrédients. Par exemple, la liste d'ingrédients en français ne devrait inclure que la langue déclarée, et les autres langues devraient être déplacées vers une liste d'ingrédients pour l'allemand, l'italien...
+description:es:Hay 7 idiomas diferentes en una lista de ingredientes. Por ejemplo, la lista de ingredientes en francés solo debería incluir el idioma declarado, y los otros idiomas deberían moverse a una lista de ingredientes para alemán, italiano...
+description:de:In einer Zutatenliste gibt es 7 verschiedene Sprachen. Zum Beispiel sollte die Zutatenliste auf Französisch nur die angegebene Sprache enthalten, und andere Sprachen sollten in eine Zutatenliste für Deutsch, Italienisch usw. verschoben werden...
 <en:Ingredients warnings
 en:Ingredients - Number of languages - above 1
 #description:en:
@@ -2603,10 +2695,16 @@ en:Code zero
 #description:en:
 
 en:Main language missing
+fr:Langue principale manquante
+es:Falta idioma principal
+de:Hauptsprache fehlt
 description:en:There's no language for this product, which is problematic, since several behaviors around ingredient analysis rely on a main language.
 
 
 en:Main language unknown
+fr:Langue principale inconnue
+es:Idioma principal desconocido
+de:Hauptsprache unbekannt
 description:en:The main language of the product is unknown, which can lead to data quality issues in analyzing ingredients and other aspects of the product.
 
 
@@ -2620,6 +2718,9 @@ description:en: potential issues on categories
 
 <en: Categories warnings
 en:Alcoholic and non alcoholic categories
+fr:Catégories alcooliques et non alcooliques
+es:Categorías alcohólicas y no alcohólicas
+de:Alkoholische und alkoholfreie Kategorien
 #description:en:
 
 <en: Categories warnings
@@ -2647,6 +2748,9 @@ fix_action:en: add_categories
 
 <en: Categories warnings
 en:Incompatible categories - Plant milk and dairy
+fr:Catégories incompatibles - Lait végétal et produits laitiers
+es:Categorías incompatibles - Leche vegetal y lácteos
+de:Inkompatible Kategorien - Pflanzenmilch und Milchprodukte
 #description:en:
 
 <en: Categories warnings
@@ -2688,6 +2792,8 @@ en:Missing nutrition data prepared with category dried products to be rehydrated
 
 <en:Nutrition warnings
 en:No nutrition data
+es:Sin datos de nutrición
+fr:Aucune donnée nutritionnelle
 #description:en:
 
 <en:Data quality ok tags
@@ -2730,12 +2836,20 @@ description:en:This might be due among other things to incorrect nutrition value
 en:Nutrition 3 or more values are identical
 description:en:Someone may have entered wrong data because there are 3 identical values in nutrition table and those values are above 1
 
+<en:Nutrition warnings
+en:Nutrition all values zero
+es:Todas las valores de nutrición son cero
+fr:Toutes les valeurs nutritionnelles sont à zéro
+#description:en:
+
 <en:Data quality ok tags
 en:Nutrition Grade FR producer same OK
 #description:en:
 
 <en:Data quality ok tags
 en:Nutrition data - Prepared
+es:Datos de nutrición - Preparado
+fr:Données nutritionnelles - Préparé
 description:en: We have nutrition data for prepared product
 
 <en:Nutrition warnings
@@ -2760,42 +2874,68 @@ en:Nutrition value - total over 1000
 
 <en:Nutrition warnings
 en:Nutrition value under 0,001 g - Salt
+es:Valor nutricional inferior a 0,001 g - Sal
+fr:Valeur nutritionnelle inférieure à 0,001 g - Sel
 #description:en:
 
 <en:Nutrition warnings
 en:Nutrition value under 0,01 g - Salt
+es:Valor nutricional inferior a 0,01 g - Sal
+fr:Valeur nutritionnelle inférieure à 0,01 g - Sel
+#description:en:
+
+<en:Nutrition warnings
+en:Nutrition value under 0,1 g salt
+es:Valor nutricional inferior a 0,1 g de sal
+fr:Valeur nutritionnelle inférieure à 0,1 g de sel
 #description:en:
 
 <en:Nutrition warnings
 en:Nutrition value very high for category - Carbohydrates
+es:Valor nutricional muy alto para la categoría - Carbohidratos
+fr:Valeur nutritionnelle très élevée pour la catégorie - Glucides
 description:en:Compared to the category average, the Carbohydrates value is abnormally high.
 
 <en:Nutrition warnings
 en:Nutrition value very high for category - Energy
+es:Valor nutricional muy alto para la categoría - Energía
+fr:Valeur nutritionnelle très élevée pour la catégorie - Énergie
 description:en:Compared to the category average, the Energy value is abnormally high.
 
 <en:Nutrition warnings
 en:Nutrition value very high for category - Fat
+es:Valor nutricional muy alto para la categoría - Grasa
+fr:Valeur nutritionnelle très élevée pour la catégorie - Matières grasses
 description:en:Compared to the category average, the Fat value is abnormally high.
 
 <en:Nutrition warnings
 en:Nutrition value very high for category - Fiber
+es:Valor nutricional muy alto para la categoría - Fibra
+fr:Valeur nutritionnelle très élevée pour la catégorie - Fibre
 description:en:Compared to the category average, the Fiber value is abnormally high.
 
 <en:Nutrition warnings
 en:Nutrition value very high for category - Salt
+es:Valor nutricional muy alto para la categoría - Sal
+fr:Valeur nutritionnelle très élevée pour la catégorie - Sel
 description:en:Compared to the category average, the Salt value is abnormally high.
 
 <en:Nutrition warnings
 en:Nutrition value very high for category - Saturated fat
+es:Valor nutricional muy alto para la categoría - Grasas saturadas
+fr:Valeur nutritionnelle très élevée pour la catégorie - Graisses saturées
 description:en:Compared to the category average, the Saturated fat value is abnormally high.
 
 <en:Nutrition warnings
 en:Nutrition value very high for category - Sugars
+es:Valor nutricional muy alto para la categoría - Azúcares
+fr:Valeur nutritionnelle très élevée pour la catégorie - Sucres
 description:en:Compared to the category average, the Sugars value is abnormally high.
 
 <en:Nutrition warnings
 en:Nutrition value very high for category - proteins
+es:Valor nutricional muy alto para la categoría - proteínas
+fr:Valeur nutritionnelle très élevée pour la catégorie - protéines
 #description:en:
 
 <en:Nutrition warnings
@@ -2853,10 +2993,14 @@ en:Product quantity in mg
 
 <en:Quantity and serving warnings
 en:Product quantity over 10kg
+es:Cantidad del producto superior a 10 kg
+fr:Quantité du produit supérieure à 10 kg
 description:en:Product quantity is above 10kg, which is unlikely for most of the products
 
 <en:Quantity and serving warnings
 en:Product quantity under 1g
+es:Cantidad del producto inferior a 1g
+fr:Quantité du produit inférieure à 1g
 description:en:Product quantity is under 1 gram, which is a very unlikely quantity for 99% of food products. This might either be due to a parsing error or to a bad value.
 
 <en:Quantity and serving warnings
@@ -2885,6 +3029,7 @@ description:en:The serving quantity is listed as under 1 gram, which is highly u
 
 <en:Quantity and serving warnings
 en:Serving size in mg
+fr:Taille de portion en mg
 description:en:The serving size is listed in milligrams (mg), which is unusual for most food products. It is likely a data quality error.
 
 
@@ -2918,3 +3063,232 @@ description:en:This product has a vegan label, however some ingredients are not 
 <en:Data quality warnings
 en:vegetarian-label-but-could-not-confirm-for-all-ingredients 
 description:en:This product has a vegetarian label, however some ingredients are not known as non-vegetarian in the taxonomy (could be unknown ingredients or missing vegetarian true/false in the taxonomy).
+
+
+<en:Data quality warnings
+en:low-energy-label-claim-but-energy-above-limitation
+description:en:In EU, a claim that a food is low in energy may only be made where the product does not contain more than 40 kcal or 170 kJ /100 g for solids or more than 20 kcal or 80 kJ /100 ml for liquids. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:energy-free-label-claim-but-energy-above-limitation
+description:en:In EU, a claim that a food is energy free may only be made where the product does not contain more than 4 kcal or 17 kJ /100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:low-fat-label-claim-but-fat-above-limitation
+description:en:In EU, a claim that a food is low fat may only be made where the product contains no more than 3 g of fat per 100 g for solids or 1,5 g of fat per 100 ml for liquids. 1,8 g of fat per 100 ml for semi-skimmed milk. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:en:no-fat-label-claim-but-fat-above-0.5
+description:en:In EU, a claim that a food is fat free may only be made where the product contains no more than 0,5 g of fat per 100 g or 100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:low-saturated-fat-label-claim-but-fat-above-limitation
+description:en:In EU, a claim that a food is fat free may only be made if the sum of saturated fatty acids and trans-fatty acids in the product does not exceed 1,5 g per 100 g for solids or 0,75 g/100 ml for liquids and in either case the sum of saturated fatty acids and trans-fatty acids must not provide more than 10 % of energy. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:saturated-fat-free-label-claim-but-fat-above-0.1
+description:en:In EU, a claim that a food does not contain sturated fat may only be made where the sum of saturated fat and trans-fatty acids does not exceed 0,1 g of saturated fat per 100 g or 100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:low-sugar-label-claim-but-sugar-above-limitation
+description:en:In EU, a claim that a food is low sugar may only be made where the product contains no more than 5 g of sugars per 100 g for solids or 2,5 g of sugars per 100 ml for liquids. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:sugar-free-label-claim-but-sugar-above-limitation
+description:en:In EU, a claim that a food is sugar-free may only be made where the product contains no more than 0,5 g of sugars per 100 g or 100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:no-added-sugar-label-claim-but-contains-added-sugar
+description:en:In EU, a claim that a food is with no added sugars may only be made where the product does not contain any added mono- or disaccharides or any other food used for its sweetening properties. If sugars are naturally present in the food, the following indication should also appear on the label: ‘CONTAINS NATURALLY OCCURRING SUGARS’. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:low-sodium-or-low-salt-label-claim-but-sodium-or-salt-above-limitation
+description:en:In EU, a claim that a food is low sodium or low salt may only be made where the product contains no more than 0,12 g of sodium, or the equivalent value for salt, per 100 g or per 100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:very-low-sodium-or-very-low-salt-label-claim-but-sodium-or-salt-above-limitation
+description:en:In EU, a claim that a food is very low in sodium/salt may only be made where the product contains no more than 0,04 g of sodium, or the equivalent value for salt, per 100 g or per 100 ml. This claim shall not be used for natural mineral waters and other waters. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:no-added-sodium-or-no-added-salt-label-claim-but-sodium-or-salt-above-limitation
+description:en:In EU, a claim that sodium/salt has not been added to a food may only be made where the product does not contain any added sodium/salt or any other ingredient containing added sodium/salt and the product contains no more than 0,12 g sodium, or the equivalent value for salt, per 100 g or 100 ml. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:source-of-fibre-label-claim-but-fibre-below-limitation
+description:en:In EU, a claim that a food is a source of fibre may only be made where the product contains at least 3 g of fibre per 100 g or at least 1,5 g of fibre per 100 kcal. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:high-fibres-label-claim-but-fibre-below-limitation
+description:en:In EU, a claim that a food is high in fibre may only be made where the product contains at least 6 g of fibre per 100 g or at least 3 g of fibre per 100 kcal. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:source-of-proteins-label-claim-but-proteins-below-limitation
+description:en:In EU, a claim that a food is a source of protein may only be made where at least 12 % of the energy value of the food is provided by protein. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:high-proteins-label-claim-but-proteins-below-limitation
+description:en:In EU, a claim that a food is high in protein may only be made where at least 20 % of the energy value of the food is provided by protein. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:vitamin-a-source-label-claim-but-vitamin-a-below-0.0008
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-a-label-claim-but-vitamin-a-below-0.0016
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-d-source-label-claim-but-vitamin-d-below-5e-06
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-d-label-claim-but-vitamin-d-below-1e-05
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-e-source-label-claim-but-vitamin-e-below-0.01
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-e-label-claim-but-vitamin-e-below-0.02
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-c-source-label-claim-but-vitamin-c-below-0.06
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-c-label-claim-but-vitamin-c-below-0.12
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-b1-source-label-claim-but-vitamin-b1-below-0.0014
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-b1-label-claim-but-vitamin-b1-below-0.0028
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-b2-source-label-claim-but-vitamin-b2-below-0.0016
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-b2-label-claim-but-vitamin-b2-below-0.0032
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-b3-source-label-claim-but-vitamin-b3-below-0.018
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-b3-label-claim-but-vitamin-b3-below-0.036
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-b6-source-label-claim-but-vitamin-b6-below-0.002
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-b6-label-claim-but-vitamin-b6-below-0.004
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-b9-source-label-claim-but-vitamin-b9-below-0.0002
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-b9-label-claim-but-vitamin-b9-below-0.0004
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:vitamin-b12-source-label-claim-but-vitamin-b12-below-1e-06
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:rich-in-vitamin-b12-label-claim-but-vitamin-b12-below-2e-06
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:source-of-biotin-label-claim-but-biotin-below-0.00015
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:high-in-biotin-label-claim-but-biotin-below-0.0003
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:source-of-pantothenic-acid-label-claim-but-pantothenic-acid-below-0.006
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:high-in-pantothenic-acid-label-claim-but-pantothenic-acid-below-0.012
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:calcium-source-label-claim-but-calcium-below-0.8
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:high-in-calcium-label-claim-but-calcium-below-1.6
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:phosphore-source-label-claim-but-phosphorus-below-0.8
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:high-in-phosphore-label-claim-but-phosphorus-below-1.6
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:iron-source-label-claim-but-iron-below-0.014
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:high-in-iron-label-claim-but-iron-below-0.028
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:magnesium-source-label-claim-but-magnesium-below-0.3
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:high-in-magnesium-label-claim-but-magnesium-below-0.6
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:zinc-source-label-claim-but-zinc-below-0.015
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:high-in-zinc-label-claim-but-zinc-below-0.03
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:iodine-source-label-claim-but-iodine-below-0.00015
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:high-in-iodine-label-claim-but-iodine-below-0.0003
+description:en:In EU, claim that a food is a source of vitamins and/or minerals may only be made where the product contains at least a significant amount as defined in the Annex to Directive 90/496/EEC. See: https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:31990L0496
+
+<en:Data quality warnings
+en:source-of-omega-3-label-claim-but-ala-or-sum-of-epa-and-dha-below-limitation
+description:en:In EU, a claim that a food is a source of omega-3 may only be made where the product contains at least 0,3 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 40 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:high-in-omega-3-label-claim-but-ala-or-sum-of-epa-and-dha-below-limitation
+description:en:In EU, a claim that a food is high in omega-3 may only be made where the product contains at least 0,6 g alpha-linolenic acid per 100 g and per 100 kcal, or at least 80 mg of the sum of eicosapentaenoic acid and docosahexaenoic acid per 100 g and per 100 kcal. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:high-monounsaturated-fat-label-claim-but-monounsaturated-fat-under-limitation
+description:en:In EU, a claim that a food is high in monounsaturated fat may only be made where at least 45 % of the fatty acids present in the product derive from monounsaturated fat under the condition that monounsaturated fat provides more than 20 % of energy of the product. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:rich-in-polyunsaturated-fatty-acids-label-claim-but-polyunsaturated-fat-under-limitation
+description:en:In EU, a claim that a food is high in polyunsaturated fat may only be made where at least 45 % of the fatty acids present in the product derive from polyunsaturated fat under the condition that polyunsaturated fat provides more than 20 % of energy of the product. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+
+<en:Data quality warnings
+en:rich-in-unsaturated-fatty-acids-label-claim-but-unsaturated-fat-under-limitation
+description:en:In EU, a claim that a food is high in unsaturated fat may only be made where at least 70 % of the fatty acids present in the product derive from unsaturated fat under the condition that unsaturated fat provides more than 20 % of energy of the product. See: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213

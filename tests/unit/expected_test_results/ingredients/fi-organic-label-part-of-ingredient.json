@@ -12,6 +12,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "19051",
          "id" : "en:milk",
          "labels" : "en:organic",
          "percent_estimate" : 16.6666666666667,
@@ -79,10 +80,9 @@
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:malted-barley",
-      "en:milk"
+      "en:malted-barley"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 8,
    "lc" : "fi",
    "nutriments" : {

@@ -20,6 +20,7 @@
          "vegetarian" : "no"
       },
       {
+         "ciqual_proxy_food_code" : "19041",
          "id" : "en:semi-skimmed-milk",
          "origins" : "en:france",
          "percent" : 5.48683160415004,
@@ -233,10 +234,9 @@
    "ingredients_without_ciqual_codes" : [
       "en:broth",
       "en:pork",
-      "en:semi-skimmed-milk",
       "en:spice"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 3,
    "known_ingredients_n" : 24,
    "lc" : "fr",
    "misc_tags" : [
