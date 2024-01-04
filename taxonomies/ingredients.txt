@@ -3268,7 +3268,7 @@ en:cow's milk, cows' milk, cow milk
 bg:краве мляко
 ca:llet de vaca
 de:Kuhmilch
-es:leche de vaca
+es:leche de vaca, nata de vaca
 fi:lehmänmaito
 fr:lait de vache
 hr:kravlje mlijeko
@@ -16790,7 +16790,7 @@ cs:jádra podzemnice olejné
 da:Peanutolie
 de:Erdnussöl
 eo:Arakida oleo
-es:Aceite de cacahuete, aceite de cacahuate
+es:Aceite de cacahuete, aceite de cacahuate, aceite de maní
 eu:Kakahuete olio
 fa:روغن بادام زمینی
 fi:Maapähkinäöljy
@@ -21845,6 +21845,7 @@ fr:arôme de malt d'orge
 
 <en:flavouring
 de:Aroma Vanillin
+ca:aroma de vanil·lina, aroma natural de vanil·lina
 fi:vanilliiniaromi
 fr:arôme vanilline
 hu:vanillin aroma
@@ -24267,6 +24268,7 @@ vegetarian:en:yes
 
 <en:malt
 en:malt extract
+ca:extracte de malta
 da:maltekstrakt
 de:Malzextrakt
 es:Extracto de malta
@@ -25064,6 +25066,7 @@ sv:havre korn
 
 <en:oat
 en:wholemeal oat, wholegrain oats, whole grain oats
+ca:civada integral
 de:Vollkornhafer, Vollkorn-Hafer, Hafervollkorn
 el:Βρώμη ολικής άλεσης
 es:Avena integral, Avena entera en grano
@@ -25077,6 +25080,7 @@ sv:fullkornshavre
 
 <en:oat
 en:gluten free oats
+ca:civada sense gluten
 de:glutenfreier Hafer
 es:avena sin gluten, avena libre de gluten
 fi:gluteeniton kaura
@@ -26339,6 +26343,7 @@ ciqual_proxy_food_name:fr:Farine de blé tendre ou froment T110
 <en:wheat flour
 en:malted wheat flour, wheat malt flour
 bg:пшенично малцово брашно, малцово пшенично брашно, брашно от пшеничен малц
+ca:farina de blat maltejada
 da:hvedemaltmel
 de:gemaltzen Weizenmehl, Weizenmalzmehl, Weizenrostmalzmehl
 es:harina de trigo malteada, harina de malta de trigo
@@ -26490,6 +26495,7 @@ sv:mörkt durumvetemjöl
 en:wholemeal flour
 bg:пълнозърнесто брашно, пълнозърнести брашна
 cs:Celozrnná mouka
+ca:farina integral
 da:Fuldkornsmel
 de:Vollkornmehl
 es:harina integral
@@ -26514,7 +26520,7 @@ fr:farine semi-complète
 <en:wholemeal flour
 en:whole wheat flour, wholewheat flour, wholemeal wheat flour
 bg:пълнозърнесто пшенично брашно, брашно пшенично пълнозърнесто
-ca:farina integral
+ca:farina integral de blat, farina de blat integral
 da:hvedefuldkornsmel, fuldkornshvedemel
 de:Vollkornweizenmehl, Weizenvollkornmehl
 es:harina de trigo integral, harina integral de trigo
@@ -35453,7 +35459,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Gum_arabic
 en:Xanthan gum, xanthan, E415, E-415, e 415
 ar:صمغ الكزانتان
 bg:Гума ксантан, Ксантанова гума, ксантан
-ca:goma xantana
+ca:goma xantana, goma base
 cs:Xanthanová guma, Xanthan
 da:Xanthangummi
 de:Xanthan, Xanthangummi
@@ -45772,6 +45778,7 @@ fr:moût de pomme concentré
 
 <en:must
 en:grape must
+ca:most de raïm
 cs:Vinný mošt
 de:Traubenmost
 es:Mosto de uva
@@ -50384,7 +50391,7 @@ az:Əkilən ənginar
 bg:артишок
 bo:ཁོ་རེ་ཡའི་ཤིང་ཞིག
 br:Artichaod
-ca:Carxofera
+ca:Carxofera, carxofa
 co:Artichjoccu
 cs:artyčok
 da:Artiskok
@@ -50452,6 +50459,7 @@ eurocode_2_group_3:en: 8.25.30
 #category/artichoke-hearts
 <en:artichoke
 en:Artichoke heart, artichoke bottom
+ca:cors de carxofa
 de:Artischockenherzen
 es:Corazones de alcachofa
 fi:artisokansydämet
@@ -52880,13 +52888,13 @@ bi:Kumala
 bn:আলু
 bo:ཞོ་ཁོག
 bs:krompir
-ca:patata
+ca:patata, patates
 cs:brambor, brambory
 da:kartoffel, kartofler
 de:Kartoffel, Kartoffeln
 eo:terpomo
 el:πατάτα, πατάτες
-es:patata, papas
+es:patata, papas, patatas
 et:kartul, kartulid
 eu:patata
 ff:Kudaku
@@ -55599,6 +55607,24 @@ ciqual_food_name:fr:Tomate cerise, crue
 <en:cherry tomato
 en:Rivolo cherry tomato
 nl:Rivolo cherrytomaatjes
+
+<en:tomato
+en:cherry plum tomatoes
+de:dattelcherrytomaten
+dk:daddelcherrytomater
+ee:dattelkirsstomatid
+es:tomates cherry pera
+fi:luumukirsikkatomaatti
+fr:tomate cerise allongée
+gr:tomatinia
+hu:datolya cherryparadicsom
+it:pomodori datterino
+lt:smulkiavaisiai slyviniai pomidorai
+nl:dadel-cherrytomaten
+pl:pomidory truskawkowe
+pt:tomate cherry pêra
+ro:rosii cherry prunisoare
+se:babyplommontomater
 
 <en:tomato
 fr:tomates semi-séchées, tomate mi-séchée, tomates mi-séchées
@@ -59793,7 +59819,7 @@ da:jordnødder, jordnød, peanuts
 de:Erdnuss, Erdnüsse, Erdnüssen, Erdnusse, Erdnusskerne
 el:αραχίδες, αραχίδα, αραπικα φιστικια
 eo:ternukso
-es:cacahuetes, cacahuete, cacahuates, cacahuate,maní
+es:cacahuetes, cacahuete, cacahuates, cacahuate, maní
 et:Maapähkel, maapähklid, maapähkleid
 fi:maapähkinä, maapähkinät, maapähkinää
 fr:arachides, arachide, cacahuètes, cacahuète, cacahouètes, cacahouète
@@ -59852,14 +59878,14 @@ ciqual_food_name:en:Peanut
 en:peanut paste
 de:Erdnusspaste
 hr:pasta od kikirikija, kikiriki pasta
-es:pasta de cacahuete
+es:pasta de cacahuete, pasta de maní
 it:crema di arachidi
 
 <en:peanut
 en:roasted peanuts
 da:ristede peanuts
 de:geröstete Erdnüsse
-es:cacahuetes tostados
+es:cacahuetes tostados, maní tostado
 fi:paahdettu maapähkinä, paahdetut maapähkinät
 fr:cacahuètes grillées
 it:arachidi tostate
@@ -59919,7 +59945,7 @@ pt:amendoim com casca
 en:peanut flour
 bg:фъстъчено брашно, брашно от фъстъци
 de:Erdnussmehl
-es:Harina de cacahuete
+es:Harina de cacahuete, harina de maní
 fr:farine d'arachide
 it:Farina di arachidi
 nl:Pinda bloem
@@ -59943,7 +59969,7 @@ allergens:en: en:peanuts
 en:peanut butter, peanut paste, Peanut butter or peanut paste
 bg:фъстъчено масло, фъстъчена паста
 de:Erdnussbutter
-es:crema de cacahuete
+es:crema de cacahuete, crema de maní
 fr:beurre d'arachide, beurre de cacahuète, beurre de cacahouète, pâte d'arachide
 hr:kikiriki maslac
 it:Burro di arachidi
@@ -72027,7 +72053,9 @@ nl:visextract
 <en:fish
 en:fish meat
 bg:месо от риба
+ca:carn de peix
 de:Fischfleisch
+es:carne de pescado
 fr:chair de poisson, chair de poissons
 hr:meso ribe
 pl:mięso ryb
@@ -72036,6 +72064,8 @@ pl:mięso ryb
 <en:fish meat
 <en:white fish
 en:white fish meat
+ca:carn de peix blanc, carn de peix blanca
+es:carne de pescado blanco, carne de pescado blanca
 hr:meso bijele ribe
 
 <en:fish
@@ -72278,11 +72308,11 @@ ar:بلمية
 az:Ançouslar
 bg:аншоа, хамсия
 br:Genougamm
-ca:Engràulid,anxoves
+ca:Engràulid, anxoves, anxova
 cs:sardel obecná
 da:ansjos, Ansjoser
 de:Sardellen, Serdellen, Anchovis
-es:Anchoa, anchoas,boquerones,anchoveta
+es:Anchoa, anchoas, boquerones, anchoveta
 fa:موتوماهیان
 fi:anjovis, anjovikset
 fr:anchois
@@ -72410,8 +72440,9 @@ description:en:The European anchovy (Engraulis encrasicolus) is a forage fish so
 en:European anchovy
 be:Еўрапейскі анчоус
 br:Genougamm Europa
+ca:seitó, seitons
 de:Europäische Sardelle
-es:boquerón
+es:boquerón, boquerones
 fi:sardelli
 fr:anchois commun, Anchois européen, Anchois de l'Afrique australe, Anchois italien
 hr:inćun
@@ -76537,7 +76568,7 @@ bg:мекотели
 bn:মলাস্কা
 br:Blotvil
 bs:Mekušci
-ca:Mollusc
+ca:Mollusc, mol·luscs
 cs:měkkýši
 cy:Molwsg
 da:bløddyr
@@ -77975,7 +78006,7 @@ be:ракападобныя, ракообразни
 bg:ракообразни
 br:Kresteneg
 bs:Rakovi
-ca:Crustaci
+ca:Crustaci, crustacis
 cs:korýši
 cy:Cramennog
 da:krebsdyr
@@ -83043,10 +83074,10 @@ nl:scharrelkipeiwitpoeder
 
 <en:egg white powder
 en:rehydrated egg white
-ca:clara d'ou rehidratada
+ca:clara d'ou rehidratada, clara d'ou en pols rehidratada
 bg:рехидратиран яйчен белтък
 de:rehydratisiertes Eiklar
-es:Clara de huevo rehidratada
+es:Clara de huevo rehidratada, clara de huevo en polvo rehidratada
 fi:uudelleenhydratoitu munavalkuainen
 fr:blanc d'œuf réhydraté, blanc d'oeuf réhydraté
 it:albume reidratato
