@@ -222,7 +222,7 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr "<p>Este produto ainda não existe na base de dados de <<site_name>>. Por favor pode tirar algumas fotografias ao produto, ao código de barras, à lista de ingredientes e tabela nutricional para adicioná-lo ao <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+msgstr "<p>Este produto ainda não existe na base de dados de <<site_name>>. Por favor pode tirar algumas fotografias ao produto, ao código de barras, à lista de ingredientes e tabela nutricional para adicioná-lo ao <a href=\"https://world-pt.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Desde já o nosso obrigado!</p>\n"
 
 msgctxt "app_take_a_picture"
@@ -263,7 +263,7 @@ msgstr "Manual de administração de produtores"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr "<a href=\"https://pt.openfoodfacts.org/fazer-um-donativo-ao-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Fazer um donativo ao Open Food Facts\" /></a><p><<site_name>> é um projeto gerido por uma associação sem fins lucrativos, independente da indústria. É feito para todos, por todos e é financiado por todos. Pode apoiar o nosso trabalho <a href=\"https://pt.openfoodfacts.org/fazer-um-donativo-ao-open-food-facts?utm_source=login-open-food-facts\">fazendo um donativo ao Open Food Facts</a> e também <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">utilizando o motor de pesquisa Lilo</a>.<br/><b>Obrigado!</b></p>"
+msgstr "<a href=\"https://world-pt.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Fazer um donativo ao Open Food Facts\" /></a><p><<site_name>> é um projeto gerido por uma associação sem fins lucrativos, independente da indústria. É feito para todos, por todos e é financiado por todos. Pode apoiar o nosso trabalho <a href=\"https://world-pt.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">fazendo um donativo ao Open Food Facts</a> e também <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">utilizando o motor de pesquisa Lilo</a>.<br/><b>Obrigado!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -507,7 +507,7 @@ msgstr "Fazer um donativo ao Open Food Facts"
 
 msgctxt "donate_link"
 msgid "https://world.openfoodfacts.org/donate-to-open-food-facts"
-msgstr "https://world-pt.openfoodfacts.org/fazer-um-donativo-ao-open-food-facts"
+msgstr "https://world-pt.openfoodfacts.org/donate-to-open-food-facts"
 
 msgctxt "ecological_data_table"
 msgid "Ecological footprint"
@@ -668,7 +668,7 @@ msgstr "O nome de utilizador deve conter apenas letras sem acento, cedilhas, nú
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 40 characters)."
-msgstr ""
+msgstr "O nome de utilizador é muito longo (máximo de 40 caracteres)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
@@ -822,7 +822,7 @@ msgstr "Informação legal"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr "/informacao-legal"
+msgstr "/legal"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -5479,7 +5479,7 @@ msgstr "Pode alterar a página do produto para adicionar uma categoria mais prec
 
 msgctxt "ecoscore_platform_promo"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr "Se é o fabricante deste produto, pode enviar-nos as informações através da nossa <a href=\"https://world.pro.openfoodfacts.org\">plataforma gratuita para produtores</a>."
+msgstr "Se é o fabricante deste produto, pode enviar-nos as informações através da nossa <a href=\"https://world-pt.pro.openfoodfacts.org\">plataforma gratuita para produtores</a>."
 
 msgctxt "ecoscore_warning_missing_information"
 msgid "Warning: some information necessary to calculate the Eco-Score with precision is not provided (see the details of the calculation below)."
@@ -5658,7 +5658,7 @@ msgstr "kg CO2 eq/kg de produto"
 # do not translate the link
 msgctxt "ecoscore_platform_prompt_ecoscore_modal"
 msgid "If you are the manufacturer of this product, you can send us the information with our <a href=\"https://world.pro.openfoodfacts.org\">free platform for producers</a>."
-msgstr "Se é o fabricante deste produto, pode enviar-nos as informações através da nossa <a href=\"https://world.pro.openfoodfacts.org\">plataforma gratuita para produtores</a>."
+msgstr "Se é o fabricante deste produto, pode enviar-nos as informações através da nossa <a href=\"https://world-pt.pro.openfoodfacts.org\">plataforma gratuita para produtores</a>."
 
 # do not translate Eco-Score and the link
 msgctxt "ecoscore_description"
@@ -6311,23 +6311,23 @@ msgstr "Limite o consumo de açúcar e bebidas açucaradas"
 
 msgctxt "nutrient_recommendation_sugars_drinks"
 msgid "Sugary drinks (such as sodas, fruit beverages, and fruit juices and nectars) should be limited as much as possible (no more than 1 glass a day)."
-msgstr "Bebidas açucaradas (como refrigerantes, bebidas de frutas, sumos de frutas e néctares de frutas) devem ser limitadas o máximo possível (não mais do que 1 copo por dia)."
+msgstr "As bebidas açucaradas (como refrigerantes, bebidas de fruta, sumos e néctares de fruta) devem ser limitadas tanto quanto possível (não mais do que 1 copo por dia)."
 
 msgctxt "nutrient_recommendation_sugars_food"
 msgid "Choose products with lower sugar content and reduce the consumption of products with added sugars."
-msgstr "Escolha produtos com menor teor de açúcar e reduza o consumo de produtos com adição de açúcares."
+msgstr "Escolha produtos com menor teor de açúcar e reduza o consumo de produtos com açúcares adicionados."
 
 msgctxt "nutrient_info_fat_and_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
-msgstr "Um alto consumo de gordura, especialmente gorduras saturadas, pode elevar o colesterol, o que aumenta o risco de doenças cardíacas."
+msgstr "Um alto consumo de gordura (lípidos), especialmente gorduras saturadas (lípidos saturados), pode elevar o colesterol, o que aumenta o risco de doenças cardíacas."
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat_title"
 msgid "Reduce the consumption of fat and saturated fat"
-msgstr "Reduza o consumo de gorduras e gorduras saturadas"
+msgstr "Reduza o consumo de gorduras (lípidos) e gorduras saturadas (lípidos saturados)"
 
 msgctxt "nutrient_recommendation_fat_and_saturated_fat"
 msgid "Choose products with lower fat and saturated fat content."
-msgstr "Escolha produtos com menor teor de gordura e gordura saturada."
+msgstr "Escolha produtos com menor teor de gordura (lípidos) e gordura saturada (lípidos saturados)."
 
 msgctxt "sign_in"
 msgid "Sign in"
@@ -6439,19 +6439,19 @@ msgstr "Código inválido"
 
 msgctxt "api_message_invalid_type_must_be_object"
 msgid "Invalid type: must be an object"
-msgstr "Tipo inválido: deve ser um objeto"
+msgstr "Tipo inválido: tem de ser um objeto"
 
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
-msgstr "Tipo inválido: deve ser uma matriz (array)"
+msgstr "Tipo inválido: tem de ser uma matriz (array)"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
-msgstr "Tipo inválido: deve ser um número inteiro"
+msgstr "Tipo inválido: tem de ser um número inteiro"
 
 msgctxt "api_message_invalid_type_must_be_number"
 msgid "Invalid type: must be a number"
-msgstr "Tipo inválido: deve ser um número"
+msgstr "Tipo inválido: tem de ser um número"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
