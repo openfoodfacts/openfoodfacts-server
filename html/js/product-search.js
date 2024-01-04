@@ -9,7 +9,7 @@
 // Output values are returned in the product object
 //
 // - match_score: number from 0 to 100
-//		- the score is 0 if 
+//		- the score is 0 if
 //		- otherwise the score is a weighted average of how well the product matches
 //		each attribute selected by the user
 //
@@ -21,7 +21,7 @@
 //		- may_not_match		at least one mandatory attribute score is <= 50 (e.g. may contain traces of an allergen)
 //		- does_not_match	at least one mandatory attribute score is <= 10 (e.g. contains an allergen, is not vegan)
 //
-// - match_attributes: array of arrays of attributes corresponding to the product and 
+// - match_attributes: array of arrays of attributes corresponding to the product and
 // each set of preferences: mandatory, very_important, important
 
 function match_product_to_preferences(product, product_preferences) {
@@ -235,7 +235,7 @@ function display_products(target, product_groups, user_prefs) {
 
 		$.each(product_group, function (key, product) {
 
-			let product_html = `<li><a href="${product.url}" class="list_product_a">`;
+			let product_html = `<li><a href="${product.url}" class="list_product_a" title="${product.product_display_name}">`;
 
 			// Add a colored banner to show how the product matches the user's preferences
 			if (user_prefs.use_ranking) {
@@ -290,8 +290,8 @@ function display_products(target, product_groups, user_prefs) {
 				const edit_url = product_edit_url(product);
 				const edit_title = lang().edit_product_page;
 				product_html += `
-				<a class="list_edit_link" 
-				    alt="Edit ${product.product_display_name}" 
+				<a class="list_edit_link"
+				    alt="Edit ${product.product_display_name}"
 				    href="${edit_url}"
 				    title="${edit_title}">
 					<img src="/images/icons/dist/edit.svg">
@@ -417,7 +417,7 @@ function display_product_summary(target, product) {
 			// note: on the website, the id for the panel contains : instead of - (e.g. for the ingredients_analysis_en:vegan panel)
 			const panel_element_id = 'panel_' + attribute.panel_id.replace(':', '-');
 			if (document.getElementById(panel_element_id)) {
-				// onclick : open the panel content + reflow to make sur all column content is shown			
+				// onclick : open the panel content + reflow to make sur all column content is shown
 				card_html = '<a href="#' + panel_element_id
 					+ '" onclick="document.getElementById(\'' + panel_element_id + '_content\').classList.add(\'active\'); $(document).foundation(\'equalizer\', \'reflow\');"' + card_html + '</a>';
 			}
