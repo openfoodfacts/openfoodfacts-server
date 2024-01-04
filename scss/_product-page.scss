@@ -135,7 +135,7 @@ $decalTop:48px;
       pointer-events:none;
     }
   }
-  &.active a::after {
+  &.active a {
     content:"\e5c7";
   }
 }
