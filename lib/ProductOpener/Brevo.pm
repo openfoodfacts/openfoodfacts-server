@@ -37,6 +37,8 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&add_contact_to_list
+		$list_id
+		$brevo_api_key
 
 	);
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
