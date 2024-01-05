@@ -32,7 +32,7 @@ To satisfy the access to the same database,
 we will use postgres database from off as the common database.
 
 In order to achieve that:
-* we use profiles, so we won't start postgres in pro docker-compose
+* we use profiles, so we won't start postgres in pro docker compose
 * we connect `postgres`, `backend` and `minion` services to a shared network, called `minion_db`
 Fortunately this works, but note that there is a pitfall:
 on `minion_db` network both `backend` services (`off` and `off-pro`) will respond to same name.

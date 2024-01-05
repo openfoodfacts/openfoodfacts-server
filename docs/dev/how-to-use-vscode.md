@@ -15,7 +15,7 @@ One way to have perlcritic work is the following:
   ```bash
   #!/usr/bin/env bash
   . .envrc >/dev/null 2>&1
-  docker-compose run --rm --no-deps backend perlcritic "$@" 2>/dev/null
+  docker compose run --rm --no-deps backend perlcritic "$@" 2>/dev/null
   ```
   the second line is useful only if you [use direnv](how-to-use-direnv.md)
 * `chmod +x perlcritic.sh`
@@ -38,7 +38,7 @@ The extension [Language Server and Debugger](https://marketplace.visualstudio.co
   source .envrc
   COMMAND=$(echo "$@" | sed 's/^.*perl /perl /')
   >&2 echo "launching $COMMAND"
-  docker-compose run --rm --no-deps -T -p 127.0.0.  1:13603:13603 backend $COMMAND
+  docker compose run --rm --no-deps -T -p 127.0.0.  1:13603:13603 backend $COMMAND
   ```
   Note: the second line is useful only if you [use direnv](how-to-use-direnv.md)
 * `chmod +x shell-into-appserver.sh`

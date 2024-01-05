@@ -6,8 +6,8 @@ NOTE: this file is copied to ref-docker-commands.md at documentation build time
 
 See also [Docker best practice at Open Food Facts](https://openfoodfacts.github.io/openfoodfacts-infrastructure/docker/)
 
-The docker/ directory contains `docker-compose` overrides for running Product Opener on [Docker](https://docker.com).
-The main docker-compose file [`docker-compose.yml`](../docker-compose.yml) is located in the root of the repository.
+The docker/ directory contains `docker compose` overrides for running Product Opener on [Docker](https://docker.com).
+The main docker compose file [`docker-compose.yml`](../docker-compose.yml) is located in the root of the repository.
 
 The step-by-step guide to setup the Product Opener using Docker is available on [dev environment quick start guide](../docs/dev/how-to-quick-start-guide.md).
 
@@ -15,7 +15,7 @@ The step-by-step guide to setup the Product Opener using Docker is available on 
 
 Makefile targets are handy for beginners to start the project and for some usual tasks.
 
-It's better though, as you progress, if you understand how things work and be able to use targeted docker-compose commands.
+It's better though, as you progress, if you understand how things work and be able to use targeted docker compose commands.
 
 See also [targets to run tests](../docs/dev/how-to-write-and-run-tests.md#running-tests)
 
@@ -39,6 +39,6 @@ See also [targets to run tests](../docs/dev/how-to-write-and-run-tests.md#runnin
 
 [^lint]: If you are having permission issues with `make lint` try writing the following commands :
 `export MSYS_NO_PATHCONV=1
-docker-compose run --rm --no-deps -u root backend chown www-data:www-data -R /opt/product-opener/`
+docker compose run --rm --no-deps -u root backend chown www-data:www-data -R /opt/product-opener/`
 then run again `make lint` and you should be good to go
 
