@@ -796,7 +796,7 @@ we will live without it as a first approx.</p>
 we will use postgres database from off as the common database.</p>
 <p>In order to achieve that:</p>
 <ul>
-<li>we use profiles, so we won't start postgres in pro docker-compose</li>
+<li>we use profiles, so we won't start postgres in pro docker compose</li>
 <li>we connect <code>postgres</code>, <code>backend</code> and <code>minion</code> services to a shared network, called <code>minion_db</code>
 Fortunately this works, but note that there is a pitfall:
 on <code>minion_db</code> network both <code>backend</code> services (<code>off</code> and <code>off-pro</code>) will respond to same name.

@@ -912,15 +912,15 @@
 <h3 id="working-with-product-importexport-and-interacting-with-the-public-platform">Working with Product Import/Export and Interacting with the Public Platform:<a class="headerlink" href="#working-with-product-importexport-and-interacting-with-the-public-platform" title="Permanent link">#</a></h3>
 <p>If you need to work on product import/export or interact with the public platform, you must start the following services: <code>PostgreSQL</code>, <code>MongoDB</code>, and the <code>Minion</code>. Here's how:</p>
 <ul>
-<li>In a <em>non-pro</em> shell (OpenFoodFacts shell), run the command <code>docker-compose up postgres minion mongodb</code>.<ul>
+<li>In a <em>non-pro</em> shell (OpenFoodFacts shell), run the command <code>docker compose up postgres minion mongodb</code>.<ul>
 <li>This command starts the necessary services in the background.</li>
 </ul>
 </li>
 </ul>
 <h4 id="note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-simultaneously-therefore-to-access-the-public-platform-you-need-to-follow-these-steps">Note: The setup does not currently support running the http server for both public and pro platform at the same simultaneously. Therefore, to access the public platform, you need to follow these steps:<a class="headerlink" href="#note-the-setup-does-not-currently-support-running-the-http-server-for-both-public-and-pro-platform-at-the-same-simultaneously-therefore-to-access-the-public-platform-you-need-to-follow-these-steps" title="Permanent link">#</a></h4>
 <ul>
-<li>in your <em>pro shell</em>, run a <code>docker-compose stop frontend</code></li>
-<li>in your <em>non pro shell</em>, run a <code>docker-compose up frontend</code>
+<li>in your <em>pro shell</em>, run a <code>docker compose stop frontend</code></li>
+<li>in your <em>non pro shell</em>, run a <code>docker compose up frontend</code>
 Now, the public database can be accessed at <code>openfoodfacts.localhost</code>.If you need to access the <em>pro</em> HTTP server, reverse these steps.</li>
 </ul>
 <p>Note that if you <a href="../how-to-use-direnv/">use direnv</a>, the setup should work seamlessly without redefining the variables set by <code>setenv-pro.sh</code>.</p>
@@ -928,12 +928,12 @@ Now, the public database can be accessed at <code>openfoodfacts.localhost</code>
 <ul>
 <li>If you want to see state of tasks, you can run:</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>docker-compose exec minion /opt/product-opener/scripts/minion_producers.pl  minion job
+<p><div class="highlight"><pre><span></span><code>docker compose exec minion /opt/product-opener/scripts/minion_producers.pl  minion job
 </code></pre></div>
 (add --help to see all options), or refer to https://docs.mojolicious.org/Minion/Command/minion/job</p>
 <ul>
 <li>You may also inspect database by running:
-<div class="highlight"><pre><span></span><code>docker-compose exec  postgres psql -U productopener -W minion
+<div class="highlight"><pre><span></span><code>docker compose exec  postgres psql -U productopener -W minion
 </code></pre></div>
 The password is given by the <code>POSTGRES_PASSWORD</code> variable in the <code>.env</code> file and defaults to <code>productopener</code>. 
 Inspecting the minion table can be helpful in understanding the database structure and contents.</li>

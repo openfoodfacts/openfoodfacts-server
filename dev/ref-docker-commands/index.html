@@ -819,12 +819,12 @@ NOTE: this file is copied to ref-docker-commands.md at documentation build time
 -->
 
 <p>See also <a href="https://openfoodfacts.github.io/openfoodfacts-infrastructure/docker/">Docker best practice at Open Food Facts</a></p>
-<p>The docker/ directory contains <code>docker-compose</code> overrides for running Product Opener on <a href="https://docker.com">Docker</a>.
-The main docker-compose file <a href="../docker-compose.yml"><code>docker-compose.yml</code></a> is located in the root of the repository.</p>
+<p>The docker/ directory contains <code>docker compose</code> overrides for running Product Opener on <a href="https://docker.com">Docker</a>.
+The main docker compose file <a href="../docker-compose.yml"><code>docker-compose.yml</code></a> is located in the root of the repository.</p>
 <p>The step-by-step guide to setup the Product Opener using Docker is available on <a href="/how-to-quick-start-guide.md">dev environment quick start guide</a>.</p>
 <h2 id="makefile-targets">Makefile targets<a class="headerlink" href="#makefile-targets" title="Permanent link">#</a></h2>
 <p>Makefile targets are handy for beginners to start the project and for some usual tasks.</p>
-<p>It's better though, as you progress, if you understand how things work and be able to use targeted docker-compose commands.</p>
+<p>It's better though, as you progress, if you understand how things work and be able to use targeted docker compose commands.</p>
 <p>See also <a href="/how-to-write-and-run-tests.md#running-tests">targets to run tests</a></p>
 <table>
 <thead>
@@ -918,7 +918,7 @@ The main docker-compose file <a href="../docker-compose.yml"><code>docker-compos
 <li id="fn:lint">
 <p>If you are having permission issues with <code>make lint</code> try writing the following commands :
 <code>export MSYS_NO_PATHCONV=1
-docker-compose run --rm --no-deps -u root backend chown www-data:www-data -R /opt/product-opener/</code>
+docker compose run --rm --no-deps -u root backend chown www-data:www-data -R /opt/product-opener/</code>
 then run again <code>make lint</code> and you should be good to go&#160;<a class="footnote-backref" href="#fnref:lint" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>

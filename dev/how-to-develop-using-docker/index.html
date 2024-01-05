@@ -1136,7 +1136,7 @@ run <code>make restart</code> to reload the changes.</p>
 </code></pre></div></p>
 <h2 id="opening-a-shell-in-a-docker-container">Opening a shell in a Docker container<a class="headerlink" href="#opening-a-shell-in-a-docker-container" title="Permanent link">#</a></h2>
 <p>Run the following to open a bash shell within the <code>backend</code> container:</p>
-<div class="highlight"><pre><span></span><code>docker-compose exec backend bash
+<div class="highlight"><pre><span></span><code>docker compose exec backend bash
 </code></pre></div>
 <p>You should see <code>root@&lt;CONTAINER_ID&gt;:/#</code> (opened root shell): you are now within the Docker container and can begin typing some commands !</p>
 <h3 id="checking-permissions">Checking permissions<a class="headerlink" href="#checking-permissions" title="Permanent link">#</a></h3>
@@ -1173,25 +1173,25 @@ but it's not the right one to use if you develop on a daily bases, because it ma
 as it does a full rebuild, which, in dev mode, should only be necessary in a few cases.</p>
 <p>On a daily bases you could better run those:</p>
 <ul>
-<li><code>docker-compose up</code> to start and monitor the stack.</li>
-<li><code>docker-compose restart backend</code> to account for a code change in a <code>.pm</code> file
+<li><code>docker compose up</code> to start and monitor the stack.</li>
+<li><code>docker compose restart backend</code> to account for a code change in a <code>.pm</code> file
   (cgi <code>pl</code> files do not need a restart)</li>
-<li><code>docker-compose stop</code> to stop them all</li>
+<li><code>docker compose stop</code> to stop them all</li>
 </ul>
 <p>If some important file changed (like Dockerfile or cpanfile, etc.), or in case of doubt,
-you can run <code>docker-compose build</code> (or maybe it's a good time to use <code>make up</code> once)</p>
-<p>You should explore the <a href="https://docs.docker.com/compose/reference/">docker-compose commands</a>
+you can run <code>docker compose build</code> (or maybe it's a good time to use <code>make up</code> once)</p>
+<p>You should explore the <a href="https://docs.docker.com/compose/reference/">docker compose commands</a>
 most are useful!</p>
 <h3 id="live-reload">Live reload<a class="headerlink" href="#live-reload" title="Permanent link">#</a></h3>
 <p>To automate the live reload on code changes, you can install the Python package <code>when-changed</code>:
 <div class="highlight"><pre><span></span><code>pip3 install when-changed
 when-changed -r docker/ docker-compose.yml .env -c &quot;make restart&quot;                                         # restart backend container on compose changes
-when-changed -r lib/ -r docker/ docker-compose.yml -c &quot;docker-compose backend restart&quot; # restart Apache on code changes
+when-changed -r lib/ -r docker/ docker-compose.yml -c &quot;docker compose backend restart&quot; # restart Apache on code changes
 when-changed -r html/ Dockerfile Dockerfile.frontend package.json -c &quot;make up&quot; # rebuild containers on asset or Dockerfile changes
 </code></pre></div></p>
 <p>An alternative to <code>when-changed</code> is <code>inotifywait</code>.</p>
 <h2 id="run-queries-on-mongodb-database">Run queries on MongoDB database<a class="headerlink" href="#run-queries-on-mongodb-database" title="Permanent link">#</a></h2>
-<div class="highlight"><pre><span></span><code>docker-compose exec mongodb mongo
+<div class="highlight"><pre><span></span><code>docker compose exec mongodb mongo
 </code></pre></div>
 <p>The above command will open a MongoDB shell, allowing you to use all the <code>mongo</code> 
 commands to interact with the database:</p>
@@ -1213,12 +1213,12 @@ db.products.deleteOne({_id: &quot;5053990155354&quot;})
 <li>In <code>lib/Config2.pm</code>, add <code>$test = $ENV{TEST};</code>. Also add <code>$test</code> to the <code>EXPORT_OK</code> list at the top of the file to avoid a compilation error.</li>
 </ul>
 <p>The call stack goes like this:</p>
-<p><code>make up</code> &gt; <code>docker-compose</code> &gt; loads <code>.env</code> &gt; pass env variables to the <code>backend</code> container &gt; pass to <code>mod_perl</code> &gt; initialized in <code>Config2.pm</code>.</p>
+<p><code>make up</code> &gt; <code>docker compose</code> &gt; loads <code>.env</code> &gt; pass env variables to the <code>backend</code> container &gt; pass to <code>mod_perl</code> &gt; initialized in <code>Config2.pm</code>.</p>
 <h2 id="managing-multiple-deployments">Managing multiple deployments<a class="headerlink" href="#managing-multiple-deployments" title="Permanent link">#</a></h2>
 <p>To juggle between multiple local deployments (e.g: to run different flavors of Open Food Facts on the same host),
 there are different possible strategies.</p>
 <h3 id="a-set-env-script">a set env script<a class="headerlink" href="#a-set-env-script" title="Permanent link">#</a></h3>
-<p>Docker-compose takes it settings from, in order of priority:</p>
+<p>docker compose takes it settings from, in order of priority:</p>
 <ul>
 <li>the environment</li>
 <li>the <code>.env</code> file</li>
@@ -1232,7 +1232,7 @@ script.</p>
 <p>To use it, open a terminal, where you want to be in pro environment and simply use:</p>
 <div class="highlight"><pre><span></span><code>.<span class="w"> </span>setenv-pro.sh
 </code></pre></div>
-<p>then you can use whatever docker-compose command.</p>
+<p>then you can use whatever docker compose command.</p>
 <p><strong>Note:</strong> This terminal will remain in <code>pro</code> mode until you end its session.</p>
 <p>See also <a href="../how-to-develop-producer-platform/">Developing on the producers platform</a></p>
 <h3 id="different-env-file">different .env file<a class="headerlink" href="#different-env-file" title="Permanent link">#</a></h3>
@@ -1258,7 +1258,7 @@ script.</p>
   so that frontend containers don't port-conflict with each other.</li>
 </ul>
 <p>To switch between configurations, set <code>ENV_FILE</code> before running <code>make</code> commands,
-(or <code>docker-compose</code> command):</p>
+(or <code>docker compose</code> command):</p>
 <div class="highlight"><pre><span></span><code>ENV_FILE=.env.off-pro make up # starts the OFF Producer&#39;s Platform containers.
 ENV_FILE=.env.obf     make up # starts the OBF containers.
 ENV_FILE=.env.opff    make up # starts the OPFF containers.
