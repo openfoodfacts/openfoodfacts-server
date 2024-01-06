@@ -1,0 +1,12 @@
+# syntax = docker/dockerfile:1.2
+
+FROM quay.io/keycloak/keycloak:23.0
+
+USER root
+ADD https://github.com/SmartMoveSystems/keycloak-firebase-scrypt/releases/download/3.0.3/keycloak-firebase-scrypt-3.0.3.jar /tmp
+RUN set -x && \
+    mv /tmp/keycloak-firebase-scrypt-3.0.3.jar /opt/keycloak/providers/ && \
+    /opt/keycloak/bin/kc.sh build && \
+    /opt/keycloak/bin/kc.sh show-config && \
+    chown -R keycloak:root /opt/keycloak
+USER keycloak
