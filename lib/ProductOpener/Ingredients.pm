@@ -197,7 +197,7 @@ my %may_contain_regexps = (
 	fi =>
 		"saattaa sisältää pienehköjä määriä muita|saattaa sisältää pieniä määriä muita|saattaa sisältää pienehköjä määriä|saattaa sisältää pieniä määriä|voi sisältää vähäisiä määriä|saattaa sisältää hivenen|saattaa sisältää pieniä|saattaa sisältää jäämiä|sisältää pienen määrän|jossa käsitellään myös|saattaa sisältää myös|joka käsittelee myös|jossa käsitellään|saattaa sisältää",
 	fr =>
-		"peut également contenir|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace|Traces éventuelles de|Peut contenir des traces de",
+		"peut également contenir|peut contenir des traces de|peut contenir|qui utilise|utilisant|qui utilise aussi|qui manipule|manipulisant|qui manipule aussi|traces possibles|traces d'allergènes potentielles|trace possible|traces potentielles|trace potentielle|traces éventuelles de|traces éventuelles|traces eventuelles|trace éventuelle|trace eventuelle|traces|trace",
 	hr =>
 		"mogući ostaci|mogući sadržaj|mogući tragovi|može sadržavati|može sadržavati alergene u tragovima|može sadržavati tragove|može sadržavati u tragovima|može sadržati|može sadržati tragove|proizvod može sadržavati|proizvod može sadržavati tragove",
 	is => "getur innihaldið leifar|gæti innihaldið snefil|getur innihaldið",
@@ -1182,7 +1182,7 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		# - prepared with 60g of fruits
 		# - prepared with 40g of fruits per 100g of finished product
 		elsif (
-			(defined $percent_or_quantity_regexp)
+			((defined $percent_or_quantity_regexp) and (defined $of) and ($of ne "") and (defined $per_100g_regexp) and ($per_100g_regexp ne ""))
 			and (
 				# if the string does not start with "prepared with", it needs to finish with "per 100g",
 				# otherwise we will match items that could be part of the ingredients list such as "75% of tomatoes
@@ -1190,8 +1190,10 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				# prepared with, percent, ingredient, optional per 100g, separator
 				# $of needs to be first in (?:$of|\s|:) so that " of " is matched by it, instead of the ingredient capturing group
 				(
-					$text
-					=~ /((?:^|;|,|\.| - )\s*)$prepared_with(?:$of|\s|:)+$percent_or_quantity_regexp(?:$of|\s|:)+\s*([^,.;]+?)\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+					(defined $prepared_with) and ($prepared_with ne "")
+					and ($text
+						=~ /((?:^|;|,|\.| - )\s*)$prepared_with(?:$of|\s|:)+$percent_or_quantity_regexp(?:$of|\s|:)+\s*([^,.;]+?)\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+					)
 				)
 				or
 				# percent, ingredient, per 100g, separator
