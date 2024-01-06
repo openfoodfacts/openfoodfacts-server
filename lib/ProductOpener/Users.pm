@@ -505,7 +505,7 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 		elsif ($user_ref->{userid} !~ /^[a-z0-9]+[a-z0-9\-]*[a-z0-9]+$/) {
 			push @{$errors_ref}, $Lang{error_invalid_username}{$lang};
 		}
-		elsif (length($user_ref->{userid}) > 20) {
+		elsif (length($user_ref->{userid}) > 40) {
 			push @{$errors_ref}, $Lang{error_username_too_long}{$lang};
 		}
 

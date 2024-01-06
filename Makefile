@@ -47,11 +47,11 @@ endif
 
 HOSTS=127.0.0.1 world.productopener.localhost fr.productopener.localhost static.productopener.localhost ssl-api.productopener.localhost fr-en.productopener.localhost
 # commands aliases
-DOCKER_COMPOSE=docker-compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
+DOCKER_COMPOSE=docker compose --env-file=${ENV_FILE} ${LOAD_EXTRA_ENV_FILE}
 # we run tests in a specific project name to be separated from dev instances
 # we also publish mongodb on a separate port to avoid conflicts
 # we also enable the possibility to fake services in po_test_runner
-DOCKER_COMPOSE_TEST=ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker-compose --env-file=${ENV_FILE}
+DOCKER_COMPOSE_TEST=ROBOTOFF_URL="http://backend:8881/" GOOGLE_CLOUD_VISION_API_URL="http://backend:8881/" COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}_test PO_COMMON_PREFIX=test_ MONGO_EXPOSE_PORT=27027 docker compose --env-file=${ENV_FILE}
 # Enable Redis only for integration tests
 DOCKER_COMPOSE_INT_TEST=REDIS_URL="redis:6379" ${DOCKER_COMPOSE_TEST}
 
@@ -93,7 +93,7 @@ edit_etc_hosts:
 
 create_folders:
 # create some folders to avoid having them owned by root (when created by docker compose)
-	@echo "🥫 Creating folders before docker-compose use them."
+	@echo "🥫 Creating folders before docker compose use them."
 	mkdir -p logs/apache2 logs/nginx debug || ( whoami; ls -l . ; false )
 
 # TODO: Figure out events => actions and implement live reload
@@ -156,7 +156,7 @@ livecheck:
 	docker/docker-livecheck.sh
 
 log:
-	@echo "🥫 Reading logs (docker-compose) …"
+	@echo "🥫 Reading logs (docker compose) …"
 	${DOCKER_COMPOSE} logs -f
 
 tail:
@@ -200,7 +200,7 @@ init_backend: build_lang build_taxonomies
 
 create_mongodb_indexes:
 	@echo "🥫 Creating MongoDB indexes …"
-	docker cp conf/mongodb/create_indexes.js $(shell docker-compose ps -q mongodb):/data/db
+	docker cp conf/mongodb/create_indexes.js $(shell docker compose ps -q mongodb):/data/db
 	${DOCKER_COMPOSE} exec -T mongodb //bin/sh -c "mongo off /data/db/create_indexes.js"
 
 refresh_product_tags:
@@ -234,13 +234,13 @@ import_prod_data:
 #--------#
 
 front_npm_update:
-	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker-compose run --rm dynamicfront  npm update
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm update
 
 front_lint:
-	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker-compose run --rm dynamicfront  npm run lint
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run lint
 
 front_build:
-	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker-compose run --rm dynamicfront  npm run build
+	COMPOSE_PATH_SEPARATOR=";" COMPOSE_FILE="docker-compose.yml;docker/dev.yml;docker/jslint.yml" docker compose run --rm dynamicfront  npm run build
 
 
 checks: front_build front_lint check_perltidy check_perl_fast check_critic

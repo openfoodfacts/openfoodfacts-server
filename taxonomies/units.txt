@@ -13,6 +13,7 @@
 
 xx:g, gr, grs, grm
 ar:جرام, جرامات
+bg:г, грам, грама
 bn:গ্রাম, গ্রামগুলি
 bs:gram, grama
 ca:gram, grams
@@ -72,6 +73,7 @@ standard_unit:en:g
 
 xx:kg, kgs, kgr
 ar:كيلوغرام, كيلوغرامات
+bg:кг, килограм, килограма
 bn:কেজি, কেজি
 bs:kilogram, kilograma
 ca:kilogram, quilograms
@@ -132,6 +134,7 @@ standard_unit:en:g
 # Milligrams
 xx:mg, mgs
 ar:ملغ, ملغ
+bg:мг, милиграм, милиграма
 bn:মিলিগ্রাম, মিলিগ্রাম
 bs:Miligram, Miligrama
 ca:Mil·ligram, mil·ligrams
@@ -194,6 +197,7 @@ xx:mcg, mcgs
 symbol:en:µg
 en:microgram, micrograms
 ar:ميكروغرام, ميكروغرام
+bg:микрограм, микрограма
 bn:মাইক্রোগ্রাম, মাইক্রোগ্রাম
 bs:Mikrogram, Mikrograma
 ca:Micrògram, micrògrams
@@ -253,7 +257,7 @@ standard_unit:en:g
 # Pounds
 xx:lb, lbs
 ar:رطل, رطل
-bg:паунд, паундове
+bg:паунд, паунда
 bn:পাউন্ড, পাউন্ড
 cs:libra, liber
 cy:punt, pwysau
@@ -382,6 +386,7 @@ standard_unit:en:g
 # Liters
 xx:l, ls
 ar:لتر, لترات
+bg:л, литър, литра
 bn:লিটার, লিটার
 bs:Litar, Litara
 ca:Litre, litres
@@ -442,7 +447,7 @@ standard_unit:en:ml
 xx:dl, dls
 en:deciliter, deciliters
 ar:ديسيلتر, ديسيلترات
-bg:децилитър, децилитри
+bg:децилитър, децилитри, децилитра
 bn:ডেসিলিটার, ডেসিলিটার
 cs:decilitr, decilitry
 cy:deciliter, decilitrau
@@ -498,7 +503,7 @@ standard_unit:en:ml
 xx:cl, cls
 en:centiliter, centiliters
 ar:سنتيلتر, سنتيلترات
-bg:центилитър, центилитри
+bg:центилитър, центилитри, центилитра
 bn:সেন্টিলিটার, সেন্টিলিটার
 cs:centilitr, centilitry
 cy:centiliter, centilitrau
@@ -558,7 +563,7 @@ standard_unit:en:ml
 xx:ml, mls
 en:milliliter, milliliters
 ar:ملليلتر, ملليلترات
-bg:милилитър, милилитри
+bg:мл, милилитър, милилитри, милилитра
 bn:মিলিলিটার, মিলিলিটার
 cs:mililitr, mililitry
 cy:milliliter, millilitrau
@@ -621,7 +626,7 @@ conversion_factor:en:5
 standard_unit:en:ml
 
 # Fluid ounces
-xx:fl oz, floz, fl.oz, fl. oz, fl. oz., fl.oz.
+xx:fl oz, floz, fl.oz, fl. oz, fl. oz., fl.oz., OZA
 en:fluid ounce, fluid ounces
 ar:أونصة سائلة, أونصات سائلة
 bg:у. унция, у. унции
@@ -685,7 +690,7 @@ standard_unit:en:ml
 xx:gal, gals
 en:gallon, gallons
 ar:غالون, غالونات
-bg:галон, галони
+bg:галон, галони, галона
 bn:গ্যালন, গ্যালন
 cs:galon, galony
 cy:galon, galwyn
@@ -747,7 +752,7 @@ standard_unit:en:ml
 xx:kcal, kcals, kilocalories, Cal, Cals, Calories
 en:kilocalorie, kilocalories, Calorie, Calories
 ar:سعرة حرارية، سعرة حرارية، سعرة حرارية، سعرة حرارية
-bg:килокалория, килокалории, калория, калории
+bg:ккал, килокалория, килокалории, калория, калории
 bn:কিলোক্যালোরি, কিলোক্যালোরি, ক্যালোরি, ক্যালোরি
 cs:kilokalorie, kilokalorie, kalorie, kalorie
 cy:cilcalori, cilcaloriau, calori, caloriau
@@ -808,7 +813,7 @@ standard_unit:en:kj
 xx:kJ, kJs
 en:kilojoule, kilojoules
 ar:كيلوجول, كيلوجولات
-bg:килоюл, килоюла
+bg:килоджаул, килоджаула
 bn:কিলোজুল, কিলোজুল
 cs:kilojoule, kilojouly
 cy:ciljouls, ciljoulo

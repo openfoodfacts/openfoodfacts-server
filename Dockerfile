@@ -114,6 +114,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libdata-validate-ip-perl \
         libio-compress-perl \
         libjson-maybexs-perl \
+        libcpanel-json-xs-perl \
         liblist-allutils-perl \
         liblist-someutils-perl \
         # GraphViz2
