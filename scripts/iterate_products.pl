@@ -66,7 +66,7 @@ use List::Util qw(max);
 # 	revision int4 NOT NULL,
 # 	"data" json NULL,
 # 	file_last_modified timestamp,
-# 	primary key (code)
+# 	primary key (code,revision)
 # );
 
 # CREATE TABLE product.scan (
@@ -89,6 +89,7 @@ use List::Util qw(max);
 # union select file_last_modified from product.image
 # union select file_last_modified from product.scan) all_products;
 my $start_from = $ARGV[0] // 0;
+my $code_pattern = $ARGV[1] // '.*';
 
 my $pg = Mojo::Pg->new('postgresql://productopener:productopener@postgres_products/products');
 my $db = $pg->db;
@@ -115,7 +116,9 @@ sub find_products {
 		}
 		my $file_time = (stat($file_path))[9];
 		next if ($file_time <= $start_from);
+		next if ($code !~ m/$code_pattern/);
 
+		#print "Loading $code.$file\n";
 		$max_time = max($max_time,$file_time);
 		my $mtime = DateTime->from_epoch(epoch => $file_time)->iso8601();
 		if ($file =~ /.*\.sto$/) {
