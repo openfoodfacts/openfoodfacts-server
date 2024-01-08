@@ -101,6 +101,17 @@ services:
     ports:
       - "127.0.0.1:${MONGO_EXPOSE_PORT:-27017}:27017"
 
+  postgres_products:
+    image: postgres:12-alpine
+    ports:
+      - 5632:5432
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB=products
+    volumes:
+      - /mnt/e/pgdata:/var/lib/postgresql/data
+
 volumes:
   product_images:
   html_data:

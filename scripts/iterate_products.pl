@@ -30,6 +30,7 @@ use JSON::PP;
 use Mojo::Pg;
 use File::Slurp;
 use DateTime;
+use List::Util qw(max);
 
 # Use a PostgreSQL connection string for configuration
 
@@ -40,34 +41,39 @@ use DateTime;
 # DROP TABLE product.scan;
 
 # CREATE TABLE product."change" (
-# 	code varchar NULL,
+# 	code varchar NOT NULL,
 # 	"data" json NULL,
-#   file_last_modified timestamp
+# 	file_last_modified timestamp,
+# 	primary key (code)
 # );
 
 # CREATE TABLE product.image (
-# 	code varchar NULL,
+# 	code varchar NOT NULL,
 # 	"data" json NULL,
-#   file_last_modified timestamp
+# 	file_last_modified timestamp,
+# 	primary key (code)
 # );
 
 # CREATE TABLE product.product (
-# 	code varchar NULL,
+# 	code varchar NOT NULL,
 # 	"data" json NULL,
-#   file_last_modified timestamp
+# 	file_last_modified timestamp,
+# 	primary key (code)
 # );
 
 # CREATE TABLE product.revision (
-# 	code varchar NULL,
-# 	revision int4 NULL,
+# 	code varchar NOT NULL,
+# 	revision int4 NOT NULL,
 # 	"data" json NULL,
-#   file_last_modified timestamp
+# 	file_last_modified timestamp,
+# 	primary key (code)
 # );
 
 # CREATE TABLE product.scan (
-# 	code varchar NULL,
+# 	code varchar NOT NULL,
 # 	"data" json NULL,
-#   file_last_modified timestamp
+# 	file_last_modified timestamp,
+# 	primary key (code)
 # );
 
 # DELETE FROM product."change";
@@ -76,11 +82,13 @@ use DateTime;
 # DELETE FROM product.revision;
 # DELETE FROM product.scan;
 
-my $pg = Mojo::Pg->new('postgresql://productopener:productopener@query_postgres/query');
+my $start_from = $ARGV[0] // 0;
+my $pg = Mojo::Pg->new('postgresql://productopener:productopener@postgres_products/products');
 my $db = $pg->db;
 
 # Get a list of all products
 my $count = 0;
+my $max_time = 0;
 print DateTime->now->hms . "\n";
 
 sub find_products {
@@ -98,27 +106,31 @@ sub find_products {
 			find_products($file_path,"$code$file");
 			next;
 		}
-		my $mtime = DateTime->from_epoch(epoch => (stat($file_path))[9])->iso8601();
+		my $file_time = (stat($file_path))[9];
+		next if ($file_time <= $start_from);
+
+		$max_time = max($max_time,$file_time);
+		my $mtime = DateTime->from_epoch(epoch => $file_time)->iso8601();
 		if ($file =~ /.*\.sto$/) {
 			my $data = encode_json(retrieve($file_path));
 			if ($file eq 'product.sto') {
 				#print "code: $code\n";
-				$db->insert('product.product', {code => $code, data => $data, file_last_modified => $mtime});
+				$db->insert('product.product', {code => $code, data => $data, file_last_modified => $mtime}, {on_conflict => \'(code) do update set data=EXCLUDED.data, file_last_modified=EXCLUDED.file_last_modified'});
 				$count++;
 				if (!($count % 100)) {
 					print DateTime->now->hms . ' ' . $count . "\n";
 				}
 			} 
 			elsif ($file eq 'changes.sto') {
-				$db->insert('product.change', {code => $code, data => $data, file_last_modified => $mtime});
+				$db->insert('product.change', {code => $code, data => $data, file_last_modified => $mtime}, {on_conflict => \'(code) do update set data=EXCLUDED.data, file_last_modified=EXCLUDED.file_last_modified'});
 			} 
 			elsif ($file eq 'images.sto') {
-				$db->insert('product.image', {code => $code, data => $data, file_last_modified => $mtime});
+				$db->insert('product.image', {code => $code, data => $data, file_last_modified => $mtime}, {on_conflict => \'(code) do update set data=EXCLUDED.data, file_last_modified=EXCLUDED.file_last_modified'});
 			} 
 			elsif ($file =~ /[0-9]*\.sto$/) {
 				my @parts = split(/\./,$file);
 				#print $file . ' ' . $parts[0] . "\n";
-				$db->insert('product.revision', {code => $code, revision => $parts[0], data => $data, file_last_modified => $mtime});
+				$db->insert('product.revision', {code => $code, revision => $parts[0], data => $data, file_last_modified => $mtime}, {on_conflict => undef});
 			}
 			else {
 				print "Skipping $file_path\n";
@@ -126,7 +138,7 @@ sub find_products {
 		}
 		elsif ($file eq 'scans.json') {
 			my $data = read_file($file_path);
-			$db->insert('product.scan', {code => $code, data => $data, file_last_modified => $mtime});
+			$db->insert('product.scan', {code => $code, data => $data, file_last_modified => $mtime}, {on_conflict => \'(code) do update set data=EXCLUDED.data, file_last_modified=EXCLUDED.file_last_modified'});
 		}
 		else {
 			print "Skipping $file_path\n";
@@ -137,7 +149,11 @@ sub find_products {
 }
 
 
-find_products($BASE_DIRS{PRODUCTS},'');
+#find_products($BASE_DIRS{PRODUCTS},'');
+
+find_products('/mnt/podata/debug/test','');
+
 print DateTime->now->hms . ' ' . $count . "\n";
+print "Most recent file timestamp: $max_time\n";
 exit(0);
 
