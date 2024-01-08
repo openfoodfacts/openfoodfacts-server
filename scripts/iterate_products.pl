@@ -82,7 +82,14 @@ use List::Util qw(max);
 # DELETE FROM product.revision;
 # DELETE FROM product.scan;
 
+# select max(extract(epoch from file_last_modified)) from 
+# (select file_last_modified from product.product
+# union select file_last_modified from product.change
+# union select file_last_modified from product.revision
+# union select file_last_modified from product.image
+# union select file_last_modified from product.scan) all_products;
 my $start_from = $ARGV[0] // 0;
+
 my $pg = Mojo::Pg->new('postgresql://productopener:productopener@postgres_products/products');
 my $db = $pg->db;
 
