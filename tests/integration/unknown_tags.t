@@ -119,7 +119,7 @@ my $tests_ref = [
 	{
 		test_case => 'ingredient-someunknowningredient-does-not-exist-but-not-empty-labels',
 		method => 'GET',
-		# we need &no_cache=1 in order to get results (otherwise we use the products_tags collection)
+		# we need &no_cache=1 in order to get results (otherwise we use the query service)
 		path => '/ingredient/someunknowningredient/labels&no_cache=1',
 		expected_status_code => 200,
 		expected_type => 'html',

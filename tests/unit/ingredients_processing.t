@@ -311,12 +311,12 @@ my @tests = (
 		[
 			{
 				'id' => 'en:ham',
-				'processing' => 'en:diced, en:fried',
+				'processing' => 'en:diced,en:fried',
 				'text' => 'jambon'
 			},
 			{
 				'id' => 'en:tomato',
-				'processing' => 'en:diced, en:raw',
+				'processing' => 'en:diced,en:raw',
 				'text' => 'tomates'
 			},
 			{
@@ -343,7 +343,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:banana',
-				'processing' => 'en:cooked, en:cut',
+				'processing' => 'en:cooked,en:cut',
 				'text' => 'banane'
 			}
 		]
@@ -354,7 +354,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:banana',
-				'processing' => 'en:cooked, en:cut',
+				'processing' => 'en:cooked,en:cut',
 				'text' => 'banane'
 			}
 		]
@@ -421,7 +421,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:tomato',
-				'processing' => 'en:partially-rehydrated, en:dried',
+				'processing' => 'en:partially-rehydrated,en:dried',
 				'text' => 'tomates'
 			},
 			{
@@ -516,7 +516,7 @@ my @tests = (
 				'text' => 'raakamaito'
 			},
 			{
-				'id' => 'en:bilberry',
+				'id' => 'en:blueberry',
 				'processing' => 'en:powder',
 				'text' => 'mustikka'
 			},
@@ -1084,17 +1084,17 @@ my @tests = (
 			# change on 17:01
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'en:toasted, en:chopped',
+				'processing' => 'en:toasted,en:chopped',
 				'text' => "haselnüsse"
 			},
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'en:chopped, en:toasted',
+				'processing' => 'en:chopped,en:toasted',
 				'text' => "haselnuss"
 			},
 			{
 				'id' => 'en:almond',
-				'processing' => 'en:sliced, en:chopped',
+				'processing' => 'en:sliced,en:chopped',
 				'text' => 'mandeln'
 			}
 		]
@@ -1338,7 +1338,7 @@ my @tests = (
 		[
 			{
 				'id' => 'en:hazelnut',
-				'processing' => 'en:toasted, en:chopped',
+				'processing' => 'en:toasted,en:chopped',
 				'text' => "haselnüsse"
 			}
 		]
@@ -1375,7 +1375,7 @@ my @tests = (
 			},
 			{
 				'id' => 'en:almond',
-				'processing' => 'en:sliced, en:chopped',
+				'processing' => 'en:sliced,en:chopped',
 				'text' => 'mandeln'
 			},
 			{
@@ -1626,6 +1626,17 @@ my @tests = (
 			},
 		]
 	],
+	# inspired by 3870199003345
+	[
+		{lc => "hr", ingredients_text => "Pasterizirano mlijeko (s 1.0% mliječne masti)"},
+		[
+			{
+				'id' => 'en:milk-with-1-0-milk-fat',
+				'processing' => 'en:pasteurised',
+				'text' => 'mlijeko s 1.0% mliječne masti'
+			}
+		]
+	],
 
 ##################################################################
 	#
@@ -1803,7 +1814,7 @@ my @tests = (
 			},
 			{
 				'id' => 'en:butter',
-				'processing' => 'en:powder, en:roasted',
+				'processing' => 'en:powder,en:roasted',
 				'text' => "\x{30d0}\x{30bf}\x{30fc}"
 			},
 			{
@@ -1813,7 +1824,7 @@ my @tests = (
 			},
 			{
 				'id' => 'en:garlic',
-				'processing' => 'en:powder, en:fried',
+				'processing' => 'en:powder,en:fried',
 				'text' => "\x{30ac}\x{30fc}\x{30ea}\x{30c3}\x{30af}"
 			},
 			{
@@ -1910,7 +1921,7 @@ my @tests = (
 			},
 			{
 				'id' => 'en:potato',
-				'processing' => 'en:unfrozen, en:roasted',
+				'processing' => 'en:unfrozen,en:roasted',
 				'text' => 'kartofler'
 			},
 			{
@@ -2225,7 +2236,7 @@ my @tests = (
 			},
 			{
 				'id' => 'en:potato',
-				'processing' => 'en:unfrozen, en:roasted',
+				'processing' => 'en:unfrozen,en:roasted',
 				'text' => 'potatis'
 			},
 			{
@@ -2353,7 +2364,7 @@ foreach my $test_ref (@tests) {
 
 	print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . "\n";
 
-	parse_ingredients_text($product_ref);
+	parse_ingredients_text_service($product_ref, {});
 
 	is_deeply($product_ref->{ingredients}, $expected_ingredients_ref)
 

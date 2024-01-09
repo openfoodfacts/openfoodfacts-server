@@ -27,6 +27,7 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Tags qw/:all/;
@@ -48,6 +49,15 @@ use URI::Escape::XS;
 use Storable qw/dclone/;
 use Encode;
 use JSON::PP;
+
+print STDERR ("Please fix this script before using it:\n"
+		. "1- do not write to lang/ (its git controlled)\n"
+		. "2- use Paths.pm for pathes (not /srv/sugar),\n"
+		. "3- only do one script of gen_sugar.pl and gen_sucre.pl,\n"
+		. "5- use matomo instead of GA\n"
+		. "4- fix bugs\n"
+		. "Or perhaps rework all this to use a single html page + json data\n");
+die();
 
 # Generate a list of the top brands, categories, users, additives etc.
 
@@ -621,7 +631,7 @@ HTML
 
 	$html .= "</tbody></table>";
 
-	open(my $OUT, ">:encoding(UTF-8)", "$data_root/lang/$lang/texts/sugar.html");
+	open(my $OUT, ">:encoding(UTF-8)", "$BASE_DIRS{LANG}/$lang/texts/sugar.html");
 	print $OUT $html;
 	close $OUT;
 

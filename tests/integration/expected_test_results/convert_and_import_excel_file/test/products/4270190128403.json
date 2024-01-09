@@ -69,7 +69,9 @@
    "created_t" : "--ignore--",
    "creator" : "test-user",
    "data_quality_bugs_tags" : [],
-   "data_quality_errors_tags" : [],
+   "data_quality_errors_tags" : [
+      "en:nutrition-values-are-all-identical"
+   ],
    "data_quality_info_tags" : [
       "en:no-packaging-data",
       "en:ingredients-percent-analysis-ok",
@@ -90,7 +92,8 @@
       "en:nutri-score-grade-from-producer-does-not-match-calculated-grade",
       "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown",
       "en:ecoscore-packaging-packaging-data-missing",
-      "en:ecoscore-production-system-no-label"
+      "en:ecoscore-production-system-no-label",
+      "en:nutrition-values-are-all-identical"
    ],
    "data_quality_warnings_tags" : [
       "en:ingredients-unknown-score-above-0",
@@ -117,6 +120,9 @@
             ],
             "epi_score" : 0,
             "epi_value" : -5,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
             "origins_from_origins_field" : [
                "en:unknown"
             ],

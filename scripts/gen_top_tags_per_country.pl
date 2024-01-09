@@ -24,6 +24,7 @@ use Modern::Perl '2017';
 use utf8;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -46,19 +47,12 @@ use Encode;
 use File::Path qw(mkpath);
 use JSON::PP;
 
-# Output will be in the $data_root/data directory
+# Output will be in the $BASE_DIRS{PRIVATE_DATA} directory
 # data/index: data related to the Open Food Hunt operation (old): points for countries, users and ambassadors
 # data/categories_stats: statistics for the nutrients of categories, used to compare products to their categories
 
-(-e "$data_root/data")
-	or mkdir("$data_root/data", oct(755))
-	or die("Could not create target directory $data_root/data : $!\n");
-(-e "$data_root/data/index")
-	or mkdir("$data_root/data/index", oct(755))
-	or die("Could not create target directory $data_root/data/index : $!\n");
-(-e "$data_root/data/categories_stats")
-	or mkdir("$data_root/data/categories_stats", oct(755))
-	or die("Could not create target directory $data_root/data/categories_stats : $!\n");
+ensure_dir_created_or_die("$BASE_DIRS{PRIVATE_DATA}/index");
+ensure_dir_created_or_die("$BASE_DIRS{PRIVATE_DATA}/categories_stats");
 
 # Generate a list of the top brands, categories, users, additives etc.
 
@@ -410,7 +404,7 @@ while (my $product_ref = $cursor->next) {
 # compute points
 # Read ambassadors.txt
 my %ambassadors = ();
-if (open(my $IN, q{<}, "$data_root/data/ambassadors.txt")) {
+if (open(my $IN, q{<}, "$BASE_DIRS{PRIVATE_DATA}/ambassadors.txt")) {
 	while (<$IN>) {
 		chomp();
 		if (/\s+/) {
@@ -421,7 +415,7 @@ if (open(my $IN, q{<}, "$data_root/data/ambassadors.txt")) {
 	}
 }
 else {
-	print STDERR "$data_root/data/ambassadors.txt does not exist\n";
+	print STDERR "$BASE_DIRS{PRIVATE_DATA}/ambassadors.txt does not exist\n";
 }
 
 my %ambassadors_countries_points = (_all_ => {});
@@ -451,11 +445,11 @@ foreach my $country (keys %countries_points) {
 	}
 }
 
-store("$data_root/data/index/countries_points.sto", \%countries_points);
-store("$data_root/data/index/users_points.sto", \%users_points);
+store("$BASE_DIRS{PRIVATE_DATA}/index/countries_points.sto", \%countries_points);
+store("$BASE_DIRS{PRIVATE_DATA}/index/users_points.sto", \%users_points);
 
-store("$data_root/data/index/ambassadors_countries_points.sto", \%ambassadors_countries_points);
-store("$data_root/data/index/ambassadors_users_points.sto", \%ambassadors_users_points);
+store("$BASE_DIRS{PRIVATE_DATA}/index/ambassadors_countries_points.sto", \%ambassadors_countries_points);
+store("$BASE_DIRS{PRIVATE_DATA}/index/ambassadors_users_points.sto", \%ambassadors_users_points);
 
 foreach my $country (keys %{$properties{countries}}) {
 
@@ -502,7 +496,7 @@ foreach my $country (keys %{$properties{countries}}) {
 		}
 	}
 
-	store("$data_root/data/categories_stats/categories_nutriments_per_country.$cc.sto", \%categories);
+	store("$BASE_DIRS{PRIVATE_DATA}/categories_stats/categories_nutriments_per_country.$cc.sto", \%categories);
 
 	# Dates
 
@@ -534,131 +528,130 @@ foreach my $country (keys %{$properties{countries}}) {
 	}
 }
 
-# Open Food Facts - What's in my yogurt?
+# # Open Food Facts - What's in my yogurt? - disabled
+# if ($server_domain eq 'openfoodfacts.org') {
+# 	print "Starting yogurts_countries.html...\n";
 
-if ($server_domain eq 'openfoodfacts.org') {
-	print "Starting yogurts_countries.html...\n";
+# 	open(my $DEBUG, ">:encoding(UTF-8)", "/home/yogurt/html/yogurts_debug");
 
-	open(my $DEBUG, ">:encoding(UTF-8)", "/home/yogurt/html/yogurts_debug");
+# 	my $html = "";
+# 	my $c = 0;
+# 	foreach my $country (
+# 		sort {
+# 			($countries_tags{$b}{categories}{"en:yogurts"} // 0)
+# 				<=> ($countries_tags{$a}{categories}{"en:yogurts"} // 0)
+# 		} keys %countries
+# 		)
+# 	{
 
-	my $html = "";
-	my $c = 0;
-	foreach my $country (
-		sort {
-			($countries_tags{$b}{categories}{"en:yogurts"} // 0)
-				<=> ($countries_tags{$a}{categories}{"en:yogurts"} // 0)
-		} keys %countries
-		)
-	{
+# 		print $DEBUG "yogurts - $country - "
+# 			. ($countries_tags{$country}{categories}{"en:yogurts"} // 'undefined') . "\n";
+# 		print STDERR "yogurts - $country - "
+# 			. ($countries_tags{$country}{categories}{"en:yogurts"} // 'undefined') . "\n";
+# 		if (($countries_tags{$country}{categories}{"en:yogurts"} // 0) > 0) {
+# 			my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
+# 			if ($country eq 'en:world') {
+# 				$cc = 'world';
+# 			}
+# 			$lc = $country_languages{$cc}[0];    # first official language
 
-		print $DEBUG "yogurts - $country - "
-			. ($countries_tags{$country}{categories}{"en:yogurts"} // 'undefined') . "\n";
-		print STDERR "yogurts - $country - "
-			. ($countries_tags{$country}{categories}{"en:yogurts"} // 'undefined') . "\n";
-		if (($countries_tags{$country}{categories}{"en:yogurts"} // 0) > 0) {
-			my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
-			if ($country eq 'en:world') {
-				$cc = 'world';
-			}
-			$lc = $country_languages{$cc}[0];    # first official language
+# 			if (not exists $Langs{$lc}) {
+# 				$lc = 'en';
+# 			}
 
-			if (not exists $Langs{$lc}) {
-				$lc = 'en';
-			}
+# 			print $DEBUG "yogurts - cc: $cc - lc: $lc \n";
 
-			print $DEBUG "yogurts - cc: $cc - lc: $lc \n";
+# 			$cc ne '' or next;
+# 			$c++;
 
-			$cc ne '' or next;
-			$c++;
+# 			my $n = $countries_tags{$country}{categories}{"en:yogurts"};
+# 			$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
+# 			my $link
+# 				= "<a href=\"https://$cc.$server_domain"
+# 				. canonicalize_taxonomy_tag_link($lc, "categories", "en:yogurts") . "\">"
+# 				. display_taxonomy_tag('en', 'countries', $country) . "</a>";
 
-			my $n = $countries_tags{$country}{categories}{"en:yogurts"};
-			$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
-			my $link
-				= "<a href=\"https://$cc.$server_domain"
-				. canonicalize_taxonomy_tag_link($lc, "categories", "en:yogurts") . "\">"
-				. display_taxonomy_tag('en', 'countries', $country) . "</a>";
+# 			$html .= "<li>$link - " . $countries_tags{$country}{categories}{"en:yogurts"} . " yogurts</li>\n";
+# 		}
 
-			$html .= "<li>$link - " . $countries_tags{$country}{categories}{"en:yogurts"} . " yogurts</li>\n";
-		}
+# 	}
+# 	$html =~ s/ 1 yogurts/ 1 yogurt/g;
 
-	}
-	$html =~ s/ 1 yogurts/ 1 yogurt/g;
+# 	my $yogurts = $countries_tags{"en:world"}{categories}{"en:yogurts"};
 
-	my $yogurts = $countries_tags{"en:world"}{categories}{"en:yogurts"};
+# 	$html
+# 		= "<h2 style=\"color:white\">$yogurts yogurts opened so far!</h2>\n<p>$yogurts yogurts sold in $c countries and territories:</p>\n<ul>\n$html</ul>\n";
 
-	$html
-		= "<h2 style=\"color:white\">$yogurts yogurts opened so far!</h2>\n<p>$yogurts yogurts sold in $c countries and territories:</p>\n<ul>\n$html</ul>\n";
+# 	open(my $OUT, ">:encoding(UTF-8)", "/home/yogurt/html/yogurts_countries.html");
+# 	print $OUT $html;
+# 	close $OUT;
 
-	open(my $OUT, ">:encoding(UTF-8)", "/home/yogurt/html/yogurts_countries.html");
-	print $OUT $html;
-	close $OUT;
+# 	close $DEBUG;
 
-	close $DEBUG;
-
-}
+# }
 
 # Open Beauty Facts - What's in my shampoo?
 
-if ($server_domain eq 'openbeautyfacts.org') {
-	print "Starting shampoos_countries.html...\n";
+# if ($server_domain eq 'openbeautyfacts.org') {
+# 	print "Starting shampoos_countries.html...\n";
 
-	open(my $DEBUG, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_debug");
+# 	open(my $DEBUG, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_debug");
 
-	my $html = "";
-	my $c = 0;
-	foreach my $country (
-		sort {
-			($countries_tags{$b}{categories}{"en:shampoos"} // 0)
-				<=> ($countries_tags{$a}{categories}{"en:shampoos"} // 0)
-		} keys %countries
-		)
-	{
+# 	my $html = "";
+# 	my $c = 0;
+# 	foreach my $country (
+# 		sort {
+# 			($countries_tags{$b}{categories}{"en:shampoos"} // 0)
+# 				<=> ($countries_tags{$a}{categories}{"en:shampoos"} // 0)
+# 		} keys %countries
+# 		)
+# 	{
 
-		print $DEBUG "shampoos - $country - "
-			. ($countries_tags{$country}{categories}{"en:shampoos"} // 'undefined') . "\n";
-		print STDERR "shampoos - $country - "
-			. ($countries_tags{$country}{categories}{"en:shampoos"} // 'undefined') . "\n";
-		if (($countries_tags{$country}{categories}{"en:shampoos"} // 0) > 0) {
-			my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
-			if ($country eq 'en:world') {
-				$cc = 'world';
-			}
-			$lc = $country_languages{$cc}[0];    # first official language
+# 		print $DEBUG "shampoos - $country - "
+# 			. ($countries_tags{$country}{categories}{"en:shampoos"} // 'undefined') . "\n";
+# 		print STDERR "shampoos - $country - "
+# 			. ($countries_tags{$country}{categories}{"en:shampoos"} // 'undefined') . "\n";
+# 		if (($countries_tags{$country}{categories}{"en:shampoos"} // 0) > 0) {
+# 			my $cc = lc($properties{countries}{$country}{"country_code_2:en"});
+# 			if ($country eq 'en:world') {
+# 				$cc = 'world';
+# 			}
+# 			$lc = $country_languages{$cc}[0];    # first official language
 
-			if (not exists $Langs{$lc}) {
-				$lc = 'en';
-			}
+# 			if (not exists $Langs{$lc}) {
+# 				$lc = 'en';
+# 			}
 
-			print $DEBUG "shampoos - cc: $cc - lc: $lc \n";
+# 			print $DEBUG "shampoos - cc: $cc - lc: $lc \n";
 
-			$cc ne '' or next;
-			$c++;
+# 			$cc ne '' or next;
+# 			$c++;
 
-			my $n = $countries_tags{$country}{categories}{"en:shampoos"};
-			$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
-			my $link
-				= "<a href=\"https://$cc.$server_domain"
-				. canonicalize_taxonomy_tag_link($lc, "categories", "en:shampoos") . "\">"
-				. display_taxonomy_tag('en', 'countries', $country) . "</a>";
+# 			my $n = $countries_tags{$country}{categories}{"en:shampoos"};
+# 			$n =~ s/(\d)(?=(\d{3})+$)/$1/g;
+# 			my $link
+# 				= "<a href=\"https://$cc.$server_domain"
+# 				. canonicalize_taxonomy_tag_link($lc, "categories", "en:shampoos") . "\">"
+# 				. display_taxonomy_tag('en', 'countries', $country) . "</a>";
 
-			$html .= "<li>$link - " . $countries_tags{$country}{categories}{"en:shampoos"} . " shampoos</li>\n";
-		}
+# 			$html .= "<li>$link - " . $countries_tags{$country}{categories}{"en:shampoos"} . " shampoos</li>\n";
+# 		}
 
-	}
-	$html =~ s/ 1 shampoos/ 1 shampoo/g;
+# 	}
+# 	$html =~ s/ 1 shampoos/ 1 shampoo/g;
 
-	my $shampoos = $countries_tags{"en:world"}{categories}{"en:shampoos"};
+# 	my $shampoos = $countries_tags{"en:world"}{categories}{"en:shampoos"};
 
-	$html
-		= "<h2 style=\"color:white\">$shampoos shampoos opened so far!</h2>\n<p>$shampoos shampoos sold in $c countries and territories:</p>\n<ul>\n$html</ul>\n";
+# 	$html
+# 		= "<h2 style=\"color:white\">$shampoos shampoos opened so far!</h2>\n<p>$shampoos shampoos sold in $c countries and territories:</p>\n<ul>\n$html</ul>\n";
 
-	open(my $OUT, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_countries.html");
-	print $OUT $html;
-	close $OUT;
+# 	open(my $OUT, ">:encoding(UTF-8)", "/home/shampoo/html/shampoos_countries.html");
+# 	print $OUT $html;
+# 	close $OUT;
 
-	close $DEBUG;
+# 	close $DEBUG;
 
-}
+# }
 
 # Number of products and complete products
 
@@ -684,7 +677,14 @@ HTML
 		print "found meta products_graph_country_$cc.png image\n";
 	}
 
-	foreach my $lc (@{$country_languages{$cc}}) {
+	my @languages = (@{$country_languages{$cc}});
+	if ($cc eq "world") {
+		# all languages
+		@languages = keys %Langs;
+	}
+	# also always add english
+	push @languages, "en" unless grep {$_ eq 'en'} @languages;
+	foreach my $lc (@languages) {
 
 		$lang = $lc;
 
@@ -813,17 +813,16 @@ $meta
 HTML
 			;
 
-		print "products_stats - saving $data_root/lang/$lang/texts/products_stats_$cc.html\n";
-		my $stats_dir = "$data_root/lang/$lang/texts";
-		(-e $stats_dir) or mkpath($stats_dir, {"mode" => oct(755)});
+		my $stats_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/$lang";
+		print "products_stats - saving $stats_dir/products_stats_$cc.html\n";
+		ensure_dir_created_or_die($stats_dir);
 		if (open(my $OUT, ">:encoding(UTF-8)", "$stats_dir/products_stats_$cc.html")) {
 			print $OUT $html;
 			close $OUT;
 		}
 		else {
-			print STDERR "Failed to write to '$data_root/lang/$lang/texts/products_stats_$cc.html'\n";
+			print STDERR "Failed to write to '$stats_dir/products_stats_$cc.html'\n";
 		}
-
 	}
 }
 
@@ -952,8 +951,9 @@ $series
 
 HTML
 	;
-
-open(my $OUT, ">:encoding(UTF-8)", "$www_root/products_countries.js");
+my $stats_dir = "$BASE_DIRS{PUBLIC_DATA}/products_stats/";
+ensure_dir_created_or_die($stats_dir);
+open(my $OUT, ">:encoding(UTF-8)", "$stats_dir/products_countries.js");
 print $OUT $html;
 close $OUT;
 

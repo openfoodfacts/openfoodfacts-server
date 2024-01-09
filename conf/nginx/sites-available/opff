@@ -122,6 +122,14 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
+        # GoogleAssociationService made 2500 requests/min to assetlinks.json
+        # and much less when caching headers are sent
+        location = /.well-known/assetlinks.json {
+                include snippets/off.cors-headers.include;
+                expires 1d;
+                try_files $uri $uri/ =404;
+        }
+
 	location / {
 		proxy_set_header Host $host;
 		proxy_set_header X-Real-IP $remote_addr;

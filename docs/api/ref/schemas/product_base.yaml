@@ -67,9 +67,13 @@ properties:
     description: |
       The name of the product can also
       be in many other languages like
-      product_name_fr (for french).
+      product_name_fr (for French).
   product_quantity:
     type: string
+    description: |
+      The size in g or ml for the whole product.
+      It's a normalized version of the quantity field.
+    example: "500"
   quantity:
     type: string
     description: |
@@ -84,4 +88,4 @@ patternProperties:
     type: string
     description: |
       This can be returned in many other languages
-      like generic_name_fr (for french).
+      like generic_name_fr (for French).

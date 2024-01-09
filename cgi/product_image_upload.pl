@@ -25,6 +25,7 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -114,19 +115,19 @@ if (not defined $code) {
 			my $extension = lc($1);
 			$tmp_filename = get_string_id_for_lang("no_language", remote_addr() . '_' . $`);
 
-			(-e "$data_root/tmp") or mkdir("$data_root/tmp", 0755);
-			open(my $out, ">", "$data_root/tmp/$tmp_filename.$extension");
+			ensure_dir_created($BASE_DIRS{CACHE_TMP}) or display_error_and_exit("Missing path", 503);
+			open(my $out, ">", "$BASE_DIRS{CACHE_TMP}/$tmp_filename.$extension");
 			while (my $chunk = <$file>) {
 				print $out $chunk;
 			}
 			close($out);
 
-			$code = scan_code("$data_root/tmp/$tmp_filename.$extension");
+			$code = scan_code("$BASE_DIRS{CACHE_TMP}/$tmp_filename.$extension");
 			if (defined $code) {
 				$code = normalize_code($code);
 				$scanned_code = $code;
 			}
-			$tmp_filename = "$data_root/tmp/$tmp_filename.$extension";
+			$tmp_filename = "$BASE_DIRS{CACHE_TMP}/$tmp_filename.$extension";
 		}
 
 		# If we have a previous code, use it
@@ -173,13 +174,8 @@ my $product_id = product_id_for_owner($Owner_id, $code);
 
 my $interface_version = '20120622';
 
-# Create image directory if needed
-if (!-e "$www_root/images") {
-	mkdir("$www_root/images", 0755);
-}
-if (!-e "$www_root/images/products") {
-	mkdir("$www_root/images/products", 0755);
-}
+# Check that the image directory exists
+ensure_dir_created($BASE_DIRS{PRODUCTS_IMAGES}) or display_error_and_exit("Missing path", 503);
 
 if ($imagefield) {
 

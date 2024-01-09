@@ -169,7 +169,7 @@ is($product_ref->{nutrition_score_beverage}, 1);
 $product_ref = {
 	lc => "en",
 	categories => "beverages",
-	categories_tags => ["en:beverages", "en:plant-milks"],
+	categories_tags => ["en:beverages", "en:plant-based-milk-alternatives"],
 	ingredients_tags => ["en:water", "en:sugar"],
 	ingredients_text => "water, fruit juice",
 };

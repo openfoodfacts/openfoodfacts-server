@@ -24,6 +24,10 @@ services:
     restart: always
     networks:
     - webnet
+  redis:
+    restart: always
+    networks:
+      - webnet
 volumes:
   html_data:
     external: true
@@ -43,9 +47,11 @@ volumes:
   podata:
     external: true
     name: ${COMPOSE_PROJECT_NAME}_podata
-  # not external, for wiping it will avoid keeping too much cached data
-  build_cache:
-    name: ${COMPOSE_PROJECT_NAME}_build_cache
+  redisdata:
+    external: true
+    name: ${COMPOSE_PROJECT_NAME}_redisdata
+  export_files:
+    name: ${COMPOSE_PROJECT_NAME}_export_files
 
 networks:
   webnet:

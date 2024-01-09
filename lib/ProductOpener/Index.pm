@@ -43,6 +43,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 
 use CGI qw/:standard escape unescape/;
 use Time::Local;
@@ -73,12 +74,12 @@ use HTML::Entities qw(decode_entities);
 
 %texts = ();
 
-$lang_dir = "$data_root/lang";
+$lang_dir = $BASE_DIRS{LANG};
 
 if (not -e $lang_dir) {
-	$lang_dir = "$data_root/lang-default";
+	$lang_dir = "$BASE_DIRS{LANG}-default";
 	$log->warn(
-		"The $data_root/lang directory does not exist. It should be copied from the openfoodfacts-web repository. Using default texts from $lang_dir"
+		"The $BASE_DIRS{LANG} directory does not exist. It should be copied from the openfoodfacts-web repository. Using default texts from $lang_dir"
 	) if $log->is_warn();
 }
 
@@ -114,7 +115,7 @@ if (opendir DH2, $lang_dir) {
 }
 else {
 	$log->error("Texts could not be loaded.") if $log->is_error();
-	die("Texts could not be loaded from $data_root/lang or $data_root/lang-default");
+	die("Texts could not be loaded from $BASE_DIRS{LANG} or $BASE_DIRS{LANG}-default");
 }
 
 # Initialize internal variables

@@ -40,11 +40,8 @@ foreach my $test_ref (@tests) {
 	my $testid = $test_ref->{id};
 	my $product_ref = $test_ref->{product};
 
-	print STDERR "ingredients_text: " . $product_ref->{ingredients_text} . " (" . $product_ref->{lc} . ")\n";
-
-	parse_ingredients_text($product_ref);
-	if (compute_ingredients_percent_values(100, 100, $product_ref->{ingredients}) < 0) {
-		print STDERR "compute_ingredients_percent_values < 0, delete ingredients percent values\n";
+	parse_ingredients_text_service($product_ref, {});
+	if (compute_ingredients_percent_min_max_values(100, 100, $product_ref->{ingredients}) < 0) {
 		delete_ingredients_percent_values($product_ref->{ingredients});
 	}
 

@@ -35,6 +35,7 @@ BEGIN {
 		$conf_root
 		$data_root
 		$www_root
+		$sftp_root
 		$geolite2_path
 		$reference_timezone
 		$contact_email
@@ -170,6 +171,7 @@ use ProductOpener::Config2;
 
 %admins = map {$_ => 1} qw(
 	alex-off
+	cha-delh
 	charlesnepote
 	gala-nafikova
 	hangy
@@ -343,6 +345,7 @@ $memd_servers = $ProductOpener::Config2::memd_servers;
 $www_root = $ProductOpener::Config2::www_root;
 $data_root = $ProductOpener::Config2::data_root;
 $conf_root = $ProductOpener::Config2::conf_root;
+$sftp_root = $ProductOpener::Config2::sftp_root;    # might be undef
 
 $geolite2_path = $ProductOpener::Config2::geolite2_path;
 
@@ -492,7 +495,7 @@ $options{categories_not_considered_as_beverages_for_nutriscore_2021} = [
 		en:plant-milks
 		en:milks
 		en:meal-replacement
-		en:dairy-drinks-substitutes
+		en:plant-based-milk-alternatives
 		en:chocolate-powders
 		en:soups
 	)
@@ -524,7 +527,7 @@ $options{categories_considered_as_beverages_for_nutriscore_2021} = [
 $options{categories_considered_as_beverages_for_nutriscore_2023} = [
 	qw(
 		en:milks
-		en:dairy-drinks-substitutes
+		en:plant-based-milk-alternatives
 		en:dairy-drinks
 		en:plant-based-beverages
 		en:tea-based-beverages
@@ -582,8 +585,7 @@ $options{categories_exempted_from_nutrient_levels} = [
 		en:coffees
 		en:teas
 		en:yeasts
-		fr:levure
-		fr:levures
+		en:food-additives
 	)
 ];
 
@@ -636,6 +638,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 # vitamins
 
 @taxonomy_fields = qw(
+	units
 	languages states countries
 	allergens origins additives_classes ingredients
 	packaging_shapes packaging_materials packaging_recycling packaging

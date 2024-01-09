@@ -193,10 +193,10 @@ msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world-hu.openfoodfacts.org/files/off.apk"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
-msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr "/images/misc/google-play-badge-svg-master/img/hu_get.svg"
+msgid "/images/misc/playstore/img/en_get.svg"
+msgstr "/images/misc/playstore/img/hu_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -655,7 +655,7 @@ msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "A felhasználónév csak ékezet nélküli angol betűket (a-z), számjegyeket (0-9), és kötőjeleket (-) tartalmazhat!"
 
 msgctxt "error_username_too_long"
-msgid "The user name is too long (maximum 20 characters)."
+msgid "The user name is too long (maximum 40 characters)."
 msgstr ""
 
 msgctxt "error_name_too_long"

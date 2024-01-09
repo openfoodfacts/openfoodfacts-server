@@ -37,6 +37,7 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -139,8 +140,8 @@ else {
 	my @errors = ();
 
 	# Store parameters for debug purposes
-	(-e "$data_root/debug") or mkdir("$data_root/debug", 0755);
-	open(my $out, ">", "$data_root/debug/product_jqm_multilingual." . time() . "." . $code);
+	ensure_dir_created($BASE_DIRS{CACHE_DEBUG}) or display_error_and_exit("Missing path", 503);
+	open(my $out, ">", "$BASE_DIRS{CACHE_DEBUG}/product_jqm_multilingual." . time() . "." . $code);
 	print $out encode_json(Vars());
 	close $out;
 

@@ -26,6 +26,7 @@ use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -710,7 +711,7 @@ elsif ($action eq 'process') {
 	my $graph = single_param("graph") || '';
 	my $download = single_param("download") || '';
 
-	open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log_debug");
+	open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log_debug");
 	print $OUT remote_addr() . "\t" . time() . "\t" . decode utf8 => single_param('search_terms') . " - map: $map
 	 - graph: $graph - download: $download - page: $page\n";
 	close($OUT);
@@ -824,7 +825,7 @@ HTML
 		}
 
 		if (single_param('search_terms')) {
-			open(my $OUT, ">>:encoding(UTF-8)", "$data_root/logs/search_log");
+			open(my $OUT, ">>:encoding(UTF-8)", "$BASE_DIRS{LOGS}/search_log");
 			print $OUT remote_addr() . "\t"
 				. time() . "\t"
 				. decode utf8 => single_param('search_terms')
