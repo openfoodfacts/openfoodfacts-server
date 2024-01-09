@@ -42,7 +42,7 @@ for (my $month = 1; $month <= 12; $month++) {
 		# Sometime matomo timesout and we get a file with a 0 byte size
 		# If we already have a file with a non 0 size, assume we already
 		# successfully retrieved the file in a previous run, and skip it
-		if ((-e $file) and (-s $file > 0)) {
+		if ((-e $file) and (-s $file > 1000)) {
 			print STDERR "Skipping $date (already downloaded)\n";
 			next;
 		}
