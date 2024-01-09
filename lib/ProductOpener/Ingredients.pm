@@ -335,14 +335,6 @@ my %abbreviations = (
 		["S. thermophilus", "streptococcus thermophilus"],
 	],
 
-	da => [
-		["bl. a.", "blandt andet"],
-		["inkl.", "inklusive"],
-		["mod.", "modificeret"],
-		["past.", "pasteuriserede"],
-		["pr.", "per"],
-	],
-
 	en => [
 		["w/o", "without"],
 		["w/", "with "],    # note trailing space
@@ -351,9 +343,19 @@ my %abbreviations = (
 
 	],
 
-	es => [["vit.", "vitamina"], ["m.g.", "materia grasa"]],
-
 	ca => [["vit.", "vitamina"], ["m.g.", "matèria grassa"]],
+
+	da => [
+		["bl. a.", "blandt andet"],
+		["inkl.", "inklusive"],
+		["mod.", "modificeret"],
+		["past.", "pasteuriserede"],
+		["pr.", "per"],
+	],
+
+	de => [["vit.", "vitamin"],],
+
+	es => [["vit.", "vitamina"], ["m.g.", "materia grasa"]],
 
 	fi => [["mikro.", "mikrobiologinen"], ["mm.", "muun muassa"], ["sis.", "sisältää"], ["n.", "noin"],],
 
@@ -1180,7 +1182,13 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 		# - prepared with 60g of fruits
 		# - prepared with 40g of fruits per 100g of finished product
 		elsif (
-			(defined $percent_or_quantity_regexp)
+			(
+					(defined $percent_or_quantity_regexp)
+				and (defined $of)
+				and ($of ne "")
+				and (defined $per_100g_regexp)
+				and ($per_100g_regexp ne "")
+			)
 			and (
 				# if the string does not start with "prepared with", it needs to finish with "per 100g",
 				# otherwise we will match items that could be part of the ingredients list such as "75% of tomatoes
@@ -1188,8 +1196,11 @@ sub parse_specific_ingredients_from_text ($product_ref, $text, $percent_or_quant
 				# prepared with, percent, ingredient, optional per 100g, separator
 				# $of needs to be first in (?:$of|\s|:) so that " of " is matched by it, instead of the ingredient capturing group
 				(
-					$text
-					=~ /((?:^|;|,|\.| - )\s*)$prepared_with(?:$of|\s|:)+$percent_or_quantity_regexp(?:$of|\s|:)+\s*([^,.;]+?)\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+						(defined $prepared_with)
+					and ($prepared_with ne "")
+					and ($text
+						=~ /((?:^|;|,|\.| - )\s*)$prepared_with(?:$of|\s|:)+$percent_or_quantity_regexp(?:$of|\s|:)+\s*([^,.;]+?)\s*(?:$per_100g_regexp)?(?:;|,|\.| - |$)/i
+					)
 				)
 				or
 				# percent, ingredient, per 100g, separator
@@ -1460,6 +1471,7 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 							   ($ingredients_lc eq 'ar')
 							or ($ingredients_lc eq 'bg')
 							or ($ingredients_lc eq 'bs')
+							or ($ingredients_lc eq 'ca')
 							or ($ingredients_lc eq 'cs')
 							or ($ingredients_lc eq 'el')
 							or ($ingredients_lc eq 'en')
@@ -5655,7 +5667,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 
 			# arôme naturel de citron-citron vert et d'autres agrumes
 			# -> separate types
-			$text =~ s/($type_regexp)-($type_regexp)/$1, $2/g;
+			$text =~ s/($type_regexp)-($type_regexp)/$1, $2/ig;
 
 			my $and = ' - ';
 			if (defined $and{$ingredients_lc}) {
@@ -5697,7 +5709,7 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 			}
 			elsif ($ingredients_lc eq "fr") {
 				# arôme naturel de pomme avec d'autres âromes
-				$text =~ s/ (ou|et|avec) (d')?autres /, /g;
+				$text =~ s/ (ou|et|avec) (d')?autres / et /g;
 
 				$text
 					=~ s/($category_regexp) et ($category_regexp)(?:$of)?($type_regexp)/normalize_fr_a_et_b_de_c($1, $2, $3)/ieg;
@@ -5708,8 +5720,11 @@ sub develop_ingredients_categories_and_types ($ingredients_lc, $text) {
 
 				# $text =~ s/($category_regexp)(?::|\(|\[| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b(\s?(\)|\]))?/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names})/ieg;
 				# Huiles végétales de palme, de colza et de tournesol
+				# warning: Nutella has "huile de palme, noisettes" -> we do not want "huiles de palme, huile de noisettes"
+				# require a " et " and/or " de " at the end of the enumeration
+				#
 				$text
-					=~ s/($category_regexp)(?::| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)+($type_regexp)($symbols_regexp|\s)*)\b/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names})/ieg;
+					=~ s/($category_regexp)(?::| | de | d')+((($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, | et | de | et de | et d'| d')+)*($type_regexp)($symbols_regexp|\s)*( |\/| \/ | - |,|, )*( et | de | et de | et d'| d'| d'autres | et d'autres )( |\/| \/ | - |,|, )*($type_regexp)($symbols_regexp|\s)*)\b/normalize_enumeration($ingredients_lc,$1,$2,$of_bool, $categories_and_types_ref->{alternate_names})/ieg;
 
 				# Huiles végétales (palme, colza et tournesol)
 				$text

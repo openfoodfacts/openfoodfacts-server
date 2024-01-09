@@ -58,7 +58,8 @@ find $DATA_TMP_DIR/data/ -name "*.xml" -type f -exec sed -i 's/<\/TabNutXMLPF><T
 # create the images dir if it does not exist yet
 mkdir -p $IMAGES_TMP_DIR
 # unzip -j: create all files in destination folder, without any path
-unzip -j -o "$OFF_SFTP_HOME_DIR/carrefour/data/*.zip" -d "$IMAGES_TMP_DIR/"
+# note: carrefour now uploads images in the data-test directory
+unzip -j -o "$OFF_SFTP_HOME_DIR/carrefour/data-test/*.zip" -d "$IMAGES_TMP_DIR/"
 # copy images.rules used to determine the image type from the image file name
 cp ./scripts/imports/carrefour/images.rules $IMAGES_TMP_DIR
 

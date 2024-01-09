@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "2070",
          "id" : "en:orange-juice",
          "percent" : 50,
          "percent_estimate" : 50,
@@ -72,10 +73,8 @@
    "ingredients_with_specified_percent_sum" : 80,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 25,
-   "ingredients_without_ciqual_codes" : [
-      "en:orange-juice"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 10,
    "lc" : "en",
    "misc_tags" : [

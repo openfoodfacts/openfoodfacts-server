@@ -30,6 +30,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_proxy_food_code" : "2070",
                "id" : "en:concentrated-orange-juice",
                "ingredients" : [],
                "percent" : 1.4,
@@ -39,6 +40,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_proxy_food_code" : "13034",
                "id" : "en:orange",
                "ingredients" : [],
                "percent" : 0.6,
@@ -133,6 +135,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_proxy_food_code" : "16030",
                "id" : "en:cocoa-paste",
                "percent_estimate" : 6.225,
                "text" : "pâte de cacao",
@@ -180,6 +183,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_proxy_food_code" : "16129",
                "from_palm_oil" : "yes",
                "id" : "en:palm-fat",
                "percent_estimate" : 0.0972656250000004,
@@ -542,8 +546,6 @@
       "en:acid",
       "en:acidity-regulator",
       "en:chocolate",
-      "en:cocoa-paste",
-      "en:concentrated-orange-juice",
       "en:e330",
       "en:e333",
       "en:e415",
@@ -558,15 +560,13 @@
       "en:lactose-and-milk-proteins",
       "en:mango-kernel-oil",
       "en:natural-orange-flavouring",
-      "en:orange",
-      "en:palm-fat",
       "en:raising-agent",
       "en:shea-butter",
       "en:shorea-robusta-seed-oil",
       "en:sodium-citrate",
       "en:thickener"
    ],
-   "ingredients_without_ciqual_codes_n" : 26,
+   "ingredients_without_ciqual_codes_n" : 22,
    "known_ingredients_n" : 71,
    "lc" : "fr",
    "misc_tags" : [

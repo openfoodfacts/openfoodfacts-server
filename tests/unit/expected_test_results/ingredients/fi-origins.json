@@ -34,6 +34,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "13034",
          "id" : "en:orange",
          "labels" : "en:organic",
          "percent_estimate" : 5.20833333333333,
@@ -115,10 +116,9 @@
    "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:cocoa",
-      "en:orange"
+      "en:cocoa"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 10,
    "lc" : "fi",
    "nutriments" : {
