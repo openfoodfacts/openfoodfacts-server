@@ -263,7 +263,7 @@ msgstr "Admin handleiding van Producenten"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>wordt gemaakt door een non-profitorganisatie, onafhankelijk van de branche. Het is gemaakt voor iedereen, door iedereen, en het wordt door iedereen gefinancierd. U kunt ons werk steunen door <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">te doneren aan Open Food Facts</a> en ook door <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">gebruik te maken van de Lilo zoekmachine</a>.<br/><b>Bedankt!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
@@ -4041,11 +4041,11 @@ msgstr "Het producentenplatform is nog in ontwikkeling en we voeren handmatige c
 
 msgctxt "crm_user_id"
 msgid "Id of corresponding contact in CRM"
-msgstr ""
+msgstr "Id nr. van de corresponderende contactpersoon in CRM"
 
 msgctxt "crm_org_id"
 msgid "Id of corresponding organization in CRM"
-msgstr ""
+msgstr "Id nr. van de corresponderende organisatie in CRM"
 
 msgctxt "user_groups"
 msgid "Groups"
@@ -4751,7 +4751,7 @@ msgstr "Probeer zo specifiek mogelijk te zijn. Geef voor plastiek aan of het ond
 
 msgctxt "packaging_text_note_3"
 msgid "Data from this field will be combined with any data provided for each packaging part. It is possible to provide one or the other, or both."
-msgstr ""
+msgstr "Gegevens uit dit veld worden gecombineerd met de gegevens die voor elk verpakkingsonderdeel zijn opgegeven. Het is mogelijk om het een of het ander te bieden, of beide."
 
 msgctxt "product_js_extract_packaging"
 msgid "Extract the recycling instructions and/or packaging information from the picture"
@@ -4936,7 +4936,7 @@ msgstr "Aantal leden"
 
 msgctxt "serial_no"
 msgid "S.No"
-msgstr ""
+msgstr "SerieNummer"
 
 msgctxt "contact_form"
 msgid "Contact form"
@@ -5361,7 +5361,7 @@ msgstr "Organisatie valideren als echte producent."
 
 msgctxt "org_valid_org_note"
 msgid "The organization is verified as a real producer by a human, also creates entry in CRM."
-msgstr ""
+msgstr "De organisatie wordt door een mens geverifieerd als echte producent en wordt ingevoerd in CRM."
 
 msgctxt "org_enable_manual_export_to_public_platform"
 msgid "Enable organization members to manually export product data and photos to the public database."
@@ -6443,7 +6443,7 @@ msgstr "Ongeldig type: moet een object zijn"
 
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
-msgstr ""
+msgstr "Ongeldig type: moet een reeks zijn"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
