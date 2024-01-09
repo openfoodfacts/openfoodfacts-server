@@ -246,6 +246,14 @@ my @tests = (
 				"Lait entier pasteurisé équitable (73,4-74,3%), sucre de canne (9 - 10%), crème (5.1-5.5%), amidon de mais 4-5%, café lyophilisé."
 		},
 	],
+	[
+		'percentage-range-negative-pl',
+		{
+			lc => "pl",
+			ingredients_text =>
+				"84% jabłka, 10% przecier z mango, 3% zagęszczony sok jabłkowy, 1,5% zagęszczony sok z marakuji, zagęszczony sok z aceroli."
+		},
+	],
 	# max sugar and salt from nutrition facts
 	[
 		'max-sugar-salt-nutrition-facts',
