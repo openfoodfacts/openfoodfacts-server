@@ -288,9 +288,7 @@ ul.products {
 
 .products a {
   display: block;
-  height: 167px;
   margin: 10px;
-  overflow: hidden;
   padding: 10px;
   width: 120px;
   word-wrap: break-word;
@@ -314,6 +312,14 @@ ul.products {
 
 .products img {
   vertical-align: middle;
+}
+
+.products span {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  height: 50px;
+  overflow: hidden;
 }
 
 #pages {
@@ -1213,7 +1219,7 @@ $font-green: #008c8c;
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  padding: .5rem 2rem; 
+  padding: .5rem 2rem;
   width: 100%;
   gap: 1rem;
   background-color: $section-sand;
@@ -1398,7 +1404,7 @@ $font-green: #008c8c;
       color: white;
       opacity: 0.5;
       margin-right: 1rem;
-      @media #{$small-only} { 
+      @media #{$small-only} {
         position: relative;
         top: -25px;
         margin-right: 2rem;
@@ -1472,7 +1478,7 @@ $font-green: #008c8c;
       color: white;
       opacity: 0.5;
       margin-right: 1rem;
-      @media #{$small-only} { 
+      @media #{$small-only} {
         position: relative;
         top: -25px;
         margin-right: 2rem;
@@ -1764,7 +1770,7 @@ a.panel_title {
       padding-top: 3rem;
       padding-bottom: 3rem;
     }
-  
+
     @media #{$large-up} {
       padding-top: 5rem;
       padding-bottom: 5rem;
@@ -1790,7 +1796,7 @@ a.panel_title {
       padding-top: 2rem;
       padding-bottom: 2rem;
     }
-  
+
     @media #{$large-up} {
       padding-top: 3rem;
       padding-bottom: 3rem;
@@ -1799,19 +1805,19 @@ a.panel_title {
     &-blue {
       background-color: #e3f6ff;
     }
-    
+
     &-seashell {
       background-color: #fff5f1;
     }
-    
+
     &-yellow {
       background-color: #fffad1;
     }
-    
+
     &-light-green {
       background-color: #ebffdf;
     }
-  
+
     &-white {
       background-color: $white;
     }
