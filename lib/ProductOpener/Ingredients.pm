@@ -763,6 +763,7 @@ my %min_regexp = (
 	en => "min|min\.|minimum",
 	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
 	fr => "min|min\.|mini|minimum",
+	pl => "min|min\.|minimum",
 );
 
 # Words that can be ignored after a percent
