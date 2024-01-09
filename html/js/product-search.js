@@ -256,9 +256,9 @@ function display_products(target, product_groups, user_prefs) {
 			product_html += "</div>";
 
 			if (product.product_display_name) {
-				product_html += '<div class="list_product_name v-space-tiny">' + product.product_display_name + "</div>";
+				product_html += '<div class="list_product_name">' + product.product_display_name + "</div>";
 			} else {
-				product_html += '<div class="list_product_name v-space-tiny">' + product.code + "</div>";
+				product_html += '<div class="list_product_name">' + product.code + "</div>";
 			}
 
 			product_html += '<div class="list_product_sc">';
