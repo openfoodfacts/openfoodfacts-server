@@ -151,19 +151,22 @@ is(normalize_serving_size("5 bottles .33L"), 330);
 is(normalize_serving_size("5 bottles2.33L"), undef);    # Broken string, missing word separator before number
 
 my @serving_sizes = (
-	["100g", "100"],
-	["250 g", "250"],
-	["1.5kg", "1500"],
-	["2,5g", "2.5"],
-	["1 plate (25g)", "25"],
-	["1 grilled link (82g)", "82"],
-	["2 buns = 20g", "20"],
-	["43 someinvalidunit (430g)", "430"],
-	["1500ml", "1500"],
+	[undef, undef, undef],
+	["", undef, undef],
+	["100g", "100", "g"],
+	["250 g", "250", "g"],
+	["1.5kg", "1500", "g"],
+	["2,5g", "2.5", "g"],
+	["1 plate (25g)", "25", "g"],
+	["1 grilled link (82g)", "82", "g"],
+	["2 buns = 20g", "20", "g"],
+	["43 someinvalidunit (430g)", "430", "g"],
+	["1500ml", "1500", "ml"],
 );
 
 foreach my $test_ref (@serving_sizes) {
 	is(normalize_serving_size($test_ref->[0]), $test_ref->[1]) or diag explain $test_ref;
+	is(extract_standard_unit($test_ref->[0]), $test_ref->[2]) or diag explain $test_ref;
 }
 
 done_testing();

@@ -12,6 +12,6 @@ MINION_QUEUE=pro.openfoodfacts.localhost
 # neither do we change PRODUCT_OPENER_FLAVOR, as off-pro use same contents as off
 
 # Set a variable that we use in Makefile to add an extra env file 
-# in addition to .env when we run docker-compose
+# in addition to .env when we run docker compose
 EXTRA_ENV_FILE=env.pro
 LOAD_EXTRA_ENV_FILE=--env-file=env.pro
