@@ -26,7 +26,7 @@
 
     [% IF errors_index >=0 %]
         <p>[% lang("correct_the_following_errors") %]</p>
-        
+
         [% FOREACH error IN errors %]
             <p class="error">[% error %]</p><br/>
         [% END %]
@@ -45,7 +45,7 @@
                             <li><a class="nav-link scrollto button small round white-button" href="#packaging_section"><span>[% lang("packaging") %]</span></a></li>
                         </ul>
                     </nav><!-- .navbar -->
-                </div> 
+                </div>
             </div>
         </div>
 
@@ -60,7 +60,7 @@
                 <p id="barcode_paragraph"> [% lang("barcode") %][% sep %]:
                     <span id="barcode" property="food:code" itemprop="gtin13" style="speak-as:digits;">[% code %]</span>
                 </p>
-                
+
 
         [% IF moderator %]
             <label for="new_code" id="label_new_code">[% label_new_code %]</label>
@@ -114,7 +114,7 @@
 
             </div>
         </section>
-        
+
         <section id="product_image" class="card fieldset">
             <div class="card-section">
                 <legend>[% lang("product_image") %]</legend>
@@ -129,7 +129,7 @@
 
                 [% display_tab_product_picture %]
             </div>
-        </section>         
+        </section>
 
         <section id="product_characteristics" class="fieldset card">
             <div class="card-section">
@@ -216,7 +216,7 @@
                                             <label class="nutriment_label" for="nutriment_[% nutriment.enid %]">[% nutriment.prefix %][% nutriment.name %]*</label>
                                         [% ELSE %]
                                             <label class="nutriment_label" for="nutriment_[% nutriment.enid %]">[% nutriment.prefix %][% nutriment.name %]</label>
-                                        [% END %] 
+                                        [% END %]
                                         [% ELSIF nutriment.label_value.defined %]
                                             <input class="nutriment_label" id="nutriment_[% nutriment.enid %]_label" name="nutriment_[% nutriment.enid %]_label" value="[% nutriment.label_value %]" />
                                         [% ELSE %]
@@ -268,7 +268,7 @@
                 <p class="asterisk">&rarr;*[% sep %]:[% lang('nutrition_data_table_asterisk') %]</p>
                 <p class="note">&rarr; [% lang('nutrition_data_table_note') %]</p>
                 </div>
-                
+
             </div>
     </section><!--nutrient field set-->
 
@@ -346,7 +346,7 @@
 
     </form>
 
-    
+
 
 </body>
 
@@ -375,6 +375,7 @@
   font-size: 0.8em;
   white-space: nowrap;
   margin-top: 1%;
+  z-index: 1;
 }
 
 .soft-background {
