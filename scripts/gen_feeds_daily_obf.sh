@@ -7,7 +7,7 @@ export PERL5LIB="../lib:${PERL5LIB}"
 ./gen_top_tags_per_country.pl
 ./compute_missions.pl
 ./export_database.pl
-./mongodb_dump.sh /srv/obf/html openbeautyfacts 10.0.0.3 obf
+./mongodb_dump.sh /srv/obf/html openbeautyfacts 10.1.0.102 obf
 
 cd /srv/obf/html/data
 gzip < en.openbeautyfacts.org.products.rdf > en.openbeautyfacts.org.products.rdf.gz
