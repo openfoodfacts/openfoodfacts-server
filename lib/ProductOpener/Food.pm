@@ -2127,7 +2127,11 @@ sub compute_serving_size_data ($product_ref) {
 
 	if ((defined $product_ref->{serving_size}) and ($product_ref->{serving_size} ne "")) {
 		$product_ref->{serving_quantity} = normalize_serving_size($product_ref->{serving_size});
-		$product_ref->{serving_quantity_unit} = extract_standard_unit($product_ref->{serving_size});
+		
+        my $serving_quantity_unit = extract_standard_unit($product_ref->{serving_size});
+		if (defined $serving_quantity_unit) {
+			$product_ref->{serving_quantity_unit} = $serving_quantity_unit;
+		}
 	}
 	else {
 		(defined $product_ref->{serving_quantity}) and delete $product_ref->{serving_quantity};
