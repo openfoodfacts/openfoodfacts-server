@@ -102,7 +102,7 @@ $decalTop:48px;
         font-family: 'Material Icons', sans-serif;
         font-size: 24px;
         right:1rem;
-        top: 11px;
+        top:0;
         -webkit-font-feature-settings: 'liga';
     }
     &.active {
@@ -115,6 +115,13 @@ $decalTop:48px;
         float:left;
         width:100%;
         border-radius: 0 0 8px 8px  ;
+    }
+}
+
+// align dropdown only on manages images accordion
+#manage_images_accordion .accordion-navigation {
+    &:after {
+        top: 11px;
     }
 }
 
