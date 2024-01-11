@@ -697,6 +697,7 @@ sub compute_ecoscore ($product_ref) {
 
 	delete $product_ref->{ecoscore_grade};
 	delete $product_ref->{ecoscore_score};
+	delete $product_ref->{downgraded};
 
 	$product_ref->{ecoscore_data} = {adjustments => {},};
 
@@ -710,6 +711,8 @@ sub compute_ecoscore ($product_ref) {
 	remove_tag($product_ref, "misc", "en:ecoscore-not-applicable");
 	remove_tag($product_ref, "misc", "en:ecoscore-changed");
 	remove_tag($product_ref, "misc", "en:ecoscore-grade-changed");
+	remove_tag($product_ref, "misc", "en:ecoscore-score-above-100");
+	remove_tag($product_ref, "misc", "en:ecoscore-downgraded");
 
 	# Check if we have extended ecoscore_data from the impact estimator
 	# Remove any misc "en:ecoscore-extended-data-version-[..]" tags
@@ -853,8 +856,11 @@ sub compute_ecoscore ($product_ref) {
 						{non_recyclable_and_non_biodegradable_materials} > 0)
 					)
 				{
-
-					$product_ref->{"downgraded"} = "non_recyclable_and_non_biodegradable_materials";
+					$product_ref->{ecoscore_data}{"downgraded"} = "non_recyclable_and_non_biodegradable_materials";
+					# For France, save the original score
+					if ($cc eq 'fr') {
+						$product_ref->{ecoscore_data}{"scores"}{$cc . "_orig"} = $product_ref->{ecoscore_data}{"scores"}{$cc};
+					}
 					$product_ref->{ecoscore_data}{"grades"}{$cc} = "b";
 					$product_ref->{ecoscore_data}{"scores"}{$cc} = 79;
 				}
@@ -882,6 +888,13 @@ sub compute_ecoscore ($product_ref) {
 			$product_ref->{"ecoscore_score"} = $product_ref->{ecoscore_data}{"scores"}{"fr"};
 			$product_ref->{"ecoscore_grade"} = $product_ref->{ecoscore_data}{"grades"}{"fr"};
 			$product_ref->{"ecoscore_tags"} = [$product_ref->{ecoscore_grade}];
+
+			if ($product_ref->{ecoscore_data}{"downgraded"}) {
+				add_tag($product_ref, "misc", "en:ecoscore-downgraded");
+			}
+			if (($product_ref->{ecoscore_data}{scores}{fr_orig} // $product_ref->{ecoscore_data}{scores}{fr}) > 100) {
+				add_tag($product_ref, "misc", "en:ecoscore-score-above-100");
+			}
 
 			if ($missing_data_warning) {
 				$product_ref->{ecoscore_data}{missing_data_warning} = 1;
