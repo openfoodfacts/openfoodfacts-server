@@ -75,7 +75,7 @@ WikiData:
 - scripts/gen_opff_leaderboard.sh
 - html/files/tagline-opff.json
 - lib/ProductOpener/Config_opff.pm
-- html/images/misc/opff_cat.svg
+- html/images/misc/opff_cat.svgal
 - html/images/misc/opff_dog.svg
 - html/images/misc/opff_bird.svg
 - html/images/misc/opff_fish.svg
@@ -797,6 +797,9 @@ Averages by categories:
 
 Static content:
 - scripts/copy_text_files.pl
+
+matomo:
+- scripts/utils/logs/download_matomo_logs.pl
 
 # TODO: find or create proper labels for those
 #- scripts/extract_images.pl
