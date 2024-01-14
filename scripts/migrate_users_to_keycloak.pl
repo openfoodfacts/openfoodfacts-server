@@ -57,7 +57,7 @@ sub create_user_in_keycloak_with_scrypt_credential ($user_ref, $credential) {
 		]
 	};
 	my $json = encode_json($api_request_ref);
-	
+
 	my $create_user_request = HTTP::Request->new(POST => $keycloak_users_endpoint);
 	$create_user_request->header('Content-Type' => 'application/json');
 	$create_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
@@ -102,15 +102,27 @@ sub migrate_user ($user_file) {
 		# they haven't signed in in 8 years, and will have to change their
 		# password, if they want to use the server again.
 		$credential->{type} = 'password';
+
 		my $secret_data = {};
 		$secret_data->{value} = $hash;
 		$secret_data->{salt} = $salt;
 		$credential->{secretData} = encode_json($secret_data);
-		$credential->{credentialData} = '{"hashIterations":-1,"algorithm":"firebase-scrypt","additionalParameters":{}}';
+
+		my $credential_data = {};
+		$credential_data->{hashIterations} = -1;
+		$credential_data->{algorithm} = 'scrypt';
+		$credential_data->{additionalParameters} = {};
+		$credential_data->{additionalParameters}->{N} = [$N];
+		$credential_data->{additionalParameters}->{r} = [$r];
+		$credential_data->{additionalParameters}->{p} = [$p];
+		$credential->{credentialData} = encode_json($credential_data);
+
 		$credential->{temporary} = $JSON::false;
 	}
 
 	create_user_in_keycloak_with_scrypt_credential($user_ref, $credential);
+
+	return;
 }
 
 if (opendir(my $dh, "$BASE_DIRS{USERS}/")) {
