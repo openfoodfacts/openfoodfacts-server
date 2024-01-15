@@ -88,6 +88,8 @@ use List::Util qw(max);
 # union select file_last_modified from product.revision
 # union select file_last_modified from product.image
 # union select file_last_modified from product.scan) all_products;
+
+# 1704750947
 my $start_from = $ARGV[0] // 0;
 my $code_pattern = $ARGV[1] // '.*';
 
@@ -97,6 +99,7 @@ my $db = $pg->db;
 # Get a list of all products
 my $count = 0;
 my $max_time = 0;
+# TODO: Add a batch date to tables
 print DateTime->now->hms . "\n";
 
 sub find_products {
@@ -105,6 +108,7 @@ sub find_products {
 	
 	#print "$dir\n";
 	opendir DH, "$dir" or die "could not open $dir directory: $!\n";
+	# TODO: Sort files and folders
 	my @files = readdir(DH);
 	closedir DH;
 	foreach my $file (@files) {
@@ -121,37 +125,45 @@ sub find_products {
 		#print "Loading $code.$file\n";
 		$max_time = max($max_time,$file_time);
 		my $mtime = DateTime->from_epoch(epoch => $file_time)->iso8601();
-		if ($file =~ /.*\.sto$/) {
-			my $data = encode_json(retrieve($file_path));
-			if ($file eq 'product.sto') {
-				#print "code: $code\n";
-				$db->insert('product.product', {code => $code, data => $data, file_last_modified => $mtime}, {on_conflict => \'(code) do update set data=EXCLUDED.data, file_last_modified=EXCLUDED.file_last_modified'});
-				$count++;
-				if (!($count % 100)) {
-					print DateTime->now->hms . ' ' . $count . "\n";
+		eval {
+			if ($file =~ /.*\.sto$/) {
+				my $data = encode_json(retrieve($file_path));
+				if ($file eq 'product.sto') {
+					#print "code: $code\n";
+					$db->insert('product.product', {code => $code, data => $data, file_last_modified => $mtime}, {on_conflict => \'(code) do update set data=EXCLUDED.data, file_last_modified=EXCLUDED.file_last_modified'});
+					# TODO: Check return codes and log errors
+					$count++;
+					if (!($count % 100)) {
+						# TODO: Just log errors
+						print DateTime->now->hms . ' ' . $count . "\n";
+					}
+				} 
+				elsif ($file eq 'changes.sto') {
+					$db->insert('product.change', {code => $code, data => $data, file_last_modified => $mtime}, {on_conflict => \'(code) do update set data=EXCLUDED.data, file_last_modified=EXCLUDED.file_last_modified'});
+				} 
+				elsif ($file eq 'images.sto') {
+					$db->insert('product.image', {code => $code, data => $data, file_last_modified => $mtime}, {on_conflict => \'(code) do update set data=EXCLUDED.data, file_last_modified=EXCLUDED.file_last_modified'});
+				} 
+				elsif ($file =~ /[0-9]*\.sto$/) {
+					my @parts = split(/\./,$file);
+					#print $file . ' ' . $parts[0] . "\n";
+					$db->insert('product.revision', {code => $code, revision => $parts[0], data => $data, file_last_modified => $mtime}, {on_conflict => undef});
 				}
-			} 
-			elsif ($file eq 'changes.sto') {
-				$db->insert('product.change', {code => $code, data => $data, file_last_modified => $mtime}, {on_conflict => \'(code) do update set data=EXCLUDED.data, file_last_modified=EXCLUDED.file_last_modified'});
-			} 
-			elsif ($file eq 'images.sto') {
-				$db->insert('product.image', {code => $code, data => $data, file_last_modified => $mtime}, {on_conflict => \'(code) do update set data=EXCLUDED.data, file_last_modified=EXCLUDED.file_last_modified'});
-			} 
-			elsif ($file =~ /[0-9]*\.sto$/) {
-				my @parts = split(/\./,$file);
-				#print $file . ' ' . $parts[0] . "\n";
-				$db->insert('product.revision', {code => $code, revision => $parts[0], data => $data, file_last_modified => $mtime}, {on_conflict => undef});
+				else {
+					print "Skipping $file_path\n";
+				}
+			}
+			elsif ($file eq 'scans.json') {
+				my $data = read_file($file_path);
+				$db->insert('product.scan', {code => $code, data => $data, file_last_modified => $mtime}, {on_conflict => \'(code) do update set data=EXCLUDED.data, file_last_modified=EXCLUDED.file_last_modified'});
 			}
 			else {
 				print "Skipping $file_path\n";
 			}
-		}
-		elsif ($file eq 'scans.json') {
-			my $data = read_file($file_path);
-			$db->insert('product.scan', {code => $code, data => $data, file_last_modified => $mtime}, {on_conflict => \'(code) do update set data=EXCLUDED.data, file_last_modified=EXCLUDED.file_last_modified'});
-		}
-		else {
-			print "Skipping $file_path\n";
+			1;
+		} or do {
+			# TODO: Write error to log table
+			print "Unable to parse $file_path, $@\n";
 		}
 	}
 
@@ -161,7 +173,7 @@ sub find_products {
 
 #find_products($BASE_DIRS{PRODUCTS},'');
 
-find_products('/mnt/podata/debug/test','');
+find_products('/mnt/podata/debug/products','');
 
 print DateTime->now->hms . ' ' . $count . "\n";
 print "Most recent file timestamp: $max_time\n";
