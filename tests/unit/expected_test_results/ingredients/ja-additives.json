@@ -37,6 +37,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:trehalose",
          "percent_estimate" : 10.9375,
          "percent_max" : 33.3333333333333,
@@ -207,16 +208,19 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:amino-acids",
+      "en:antioxidant",
+      "en:colour",
+      "en:condiment",
       "en:e262",
       "en:e415",
       "en:e640i",
       "en:modified-starch",
-      "en:trehalose",
+      "en:thickener",
       "en:vegetable-pigment",
       "en:vitamin-c",
       "en:vitamin-e"
    ],
-   "ingredients_without_ciqual_codes_n" : 9,
+   "ingredients_without_ciqual_codes_n" : 12,
    "known_ingredients_n" : 18,
    "lc" : "ja",
    "nutriments" : {

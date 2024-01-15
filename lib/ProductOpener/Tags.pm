@@ -176,6 +176,7 @@ use vars @EXPORT_OK;
 
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::TagsEntries qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Text qw/:all/;
@@ -851,8 +852,8 @@ sub remove_stopwords_from_start_or_end_of_string ($tagtype, $lc, $string) {
 
 		my $regexp = $stopwords_regexps{$tagtype . '.' . $lc . '.strings'};
 
-		$string =~ s/^(\b($regexp)\s)+//ig;
-		$string =~ s/(\s($regexp)\b)+$//ig;
+		$string =~ s/^(\s*($regexp)\s*\b)+//ig;
+		$string =~ s/(\b\s*($regexp)\s*)+$//ig;
 	}
 	return $string;
 }
@@ -1018,7 +1019,7 @@ sub get_lc_tagid ($synonyms_ref, $lc, $tagtype, $tag, $warning) {
 }
 
 sub get_file_from_cache ($source, $target) {
-	my $cache_root = "$data_root/build-cache/taxonomies";
+	my $cache_root = "$BASE_DIRS{CACHE_BUILD}/taxonomies";
 	my $local_cache_source = "$cache_root/$source";
 
 	# first, try to get it localy
@@ -1044,7 +1045,7 @@ sub get_from_cache ($tagtype, @files) {
 	# If the full set of cached files can't be found then returns the hash to be used
 	# when saving the new cached files.
 	my $tag_data_root = "$data_root/taxonomies/$tagtype";
-	my $tag_www_root = "$www_root/data/taxonomies/$tagtype";
+	my $tag_www_root = "$BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype";
 
 	my $sha1 = Digest::SHA1->new;
 
@@ -1085,7 +1086,7 @@ sub get_from_cache ($tagtype, @files) {
 }
 
 sub put_file_to_cache ($source, $target) {
-	my $local_target_path = "$data_root/build-cache/taxonomies/$target";
+	my $local_target_path = "$BASE_DIRS{CACHE_BUILD}/taxonomies/$target";
 	copy($source, $local_target_path);
 
 	# Upload to github
@@ -1120,7 +1121,7 @@ sub put_file_to_cache ($source, $target) {
 
 sub put_to_cache ($tagtype, $cache_prefix) {
 	my $tag_data_root = "$data_root/taxonomies/$tagtype";
-	my $tag_www_root = "$www_root/data/taxonomies/$tagtype";
+	my $tag_www_root = "$BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype";
 
 	put_file_to_cache("$tag_www_root.json", "$cache_prefix.json");
 	put_file_to_cache("$tag_www_root.full.json", "$cache_prefix.full.json");
@@ -2132,29 +2133,31 @@ sub build_tags_taxonomy ($tagtype, $publish) {
 			}
 		}
 
-		(-e "$www_root/data/taxonomies") or mkdir("$www_root/data/taxonomies", 0755);
+		(-e "$BASE_DIRS{PUBLIC_DATA}/taxonomies") or mkdir("$BASE_DIRS{PUBLIC_DATA}/taxonomies", 0755);
 
 		{
 			binmode STDOUT, ":encoding(UTF-8)";
-			if (open(my $OUT_JSON, ">", "$www_root/data/taxonomies/$tagtype.json")) {
+			if (open(my $OUT_JSON, ">", "$BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.json")) {
 				print $OUT_JSON encode_json(\%taxonomy_json);
 				close($OUT_JSON);
 			}
 			else {
-				print "Cannot open $www_root/data/taxonomies/$tagtype.json, skipping writing taxonomy to file.\n";
+				print
+					"Cannot open $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.json, skipping writing taxonomy to file.\n";
 			}
 
-			if (open(my $OUT_JSON_FULL, ">", "$www_root/data/taxonomies/$tagtype.full.json")) {
+			if (open(my $OUT_JSON_FULL, ">", "$BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.full.json")) {
 				print $OUT_JSON_FULL encode_json(\%taxonomy_full_json);
 				close($OUT_JSON_FULL);
 			}
 			else {
-				print "Cannot open $www_root/data/taxonomies/$tagtype.full.json, skipping writing taxonomy to file.\n";
+				print
+					"Cannot open $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.full.json, skipping writing taxonomy to file.\n";
 			}
 			# to serve pre-compressed files from Apache
 			# nginx : needs nginx_static module
-			# system("cp $www_root/data/taxonomies/$tagtype.json $www_root/data/taxonomies/$tagtype.json.json");
-			# system("gzip $www_root/data/taxonomies/$tagtype.json");
+			# system("cp $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.json $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.json.json");
+			# system("gzip $BASE_DIRS{PUBLIC_DATA}/taxonomies/$tagtype.json");
 		}
 
 		$log->error("taxonomy errors", {errors => $errors}) if $log->is_error();
@@ -2853,15 +2856,30 @@ sub display_tag_link ($tagtype, $tag) {
 	return $html;
 }
 
-sub canonicalize_taxonomy_tag_link ($target_lc, $tagtype, $tag) {
+=head2 canonicalize_taxonomy_tag_link ($target_lc, $tagtype, $tag, $tag_prefix = undef)
+
+Returns a link to the canonicalized tag
+
+=head3 Arguments
+
+=head4 $tagtype
+
+=head4 $tagid
+
+=head4 $tag_prefix (optional)
+
+Can be - to indicate that the tag is a negative tag
+
+=cut
+
+sub canonicalize_taxonomy_tag_link ($target_lc, $tagtype, $tag, $tag_prefix = undef) {
 
 	$target_lc =~ s/_.*//;
 	$tag = display_taxonomy_tag($target_lc, $tagtype, $tag);
 	my $tagurl = get_taxonomyurl($target_lc, $tag);
 
 	my $path = $tag_type_singular{$tagtype}{$target_lc};
-	$log->info("tax tag 1 /$path/$tagurl") if $log->is_info();
-	return "/$path/$tagurl";
+	return "/$path/" . ($tag_prefix // '') . "$tagurl";
 }
 
 # The display_taxonomy_tag_link function makes many calls to other functions, in particular it calls twice display_taxonomy_tag_link
@@ -4181,7 +4199,23 @@ sub display_taxonomy_tag_name ($target_lc, $tagtype, $canon_tagid) {
 	return $display_value;
 }
 
-sub canonicalize_tag_link ($tagtype, $tagid) {
+=head2 canonicalize_tag_link ($tagtype, $tagid, $tag_prefix = undef)
+
+Return a relative link to a tag page.
+
+=head3 Arguments
+
+=head4 $tagtype
+
+=head4 $tagid
+
+=head4 $tag_prefix (optional)
+
+Can be - to indicate that the tag is a negative tag
+
+=cut
+
+sub canonicalize_tag_link ($tagtype, $tagid, $tag_prefix = undef) {
 
 	if (defined $taxonomy_fields{$tagtype}) {
 		die "ERROR: canonicalize_tag_link called for a taxonomy tagtype: $tagtype - tagid: $tagid - $!";
@@ -4198,7 +4232,7 @@ sub canonicalize_tag_link ($tagtype, $tagid) {
 		$path = $tag_type_singular{$tagtype}{en};
 	}
 
-	my $link = "/$path/" . URI::Escape::XS::encodeURIComponent($tagid);
+	my $link = "/$path/" . ($tag_prefix // '') . URI::Escape::XS::encodeURIComponent($tagid);
 
 	$log->info("canonicalize_tag_link $tagtype $tagid $path $link") if $log->is_info();
 
@@ -4289,7 +4323,7 @@ GEXF
 		;
 
 	open(my $OUT, ">:encoding(UTF-8)",
-		"$www_root/data/$lc." . get_string_id_for_lang("no_language", lang($tagtype . "_p"), 1) . ".gexf")
+		"$BASE_DIRS{PUBLIC_DATA}/$lc." . get_string_id_for_lang("no_language", lang($tagtype . "_p"), 1) . ".gexf")
 		or die("write error: $!\n");
 	print $OUT $gexf;
 	close $OUT;
@@ -4297,14 +4331,14 @@ GEXF
 	eval {
 		$graph->run(
 			format => 'svg',
-			output_file => "$www_root/data/$lc."
+			output_file => "$BASE_DIRS{PUBLIC_DATA}/$lc."
 				. get_string_id_for_lang("no_language", lang($tagtype . "_p"), 1) . ".svg"
 		);
 	};
 	eval {
 		$graph->run(
 			format => 'png',
-			output_file => "$www_root/data/$lc."
+			output_file => "$BASE_DIRS{PUBLIC_DATA}/$lc."
 				. get_string_id_for_lang("no_language", lang($tagtype . "_p"), 1) . ".png"
 		);
 	};
@@ -4669,9 +4703,9 @@ sub compute_field_tags ($product_ref, $tag_lc, $field) {
 
 sub add_user_translation ($tag_lc, $tagtype, $user, $from, $to) {
 
-	(-e "$data_root/translate") or mkdir("$data_root/translate", 0755);
+	ensure_dir_created_or_die($BASE_DIRS{USERS_TRANSLATIONS});
 
-	open(my $LOG, ">>:encoding(UTF-8)", "$data_root/translate/$tagtype.$tag_lc.txt");
+	open(my $LOG, ">>:encoding(UTF-8)", "$BASE_DIRS{USERS_TRANSLATIONS}/$tagtype.$tag_lc.txt");
 	print $LOG join("\t", (time(), $user, $from, $to)) . "\n";
 	close $LOG;
 
@@ -4684,13 +4718,13 @@ sub load_users_translations_for_lc ($users_translations_ref, $tagtype, $tag_lc) 
 		$users_translations_ref->{$tag_lc} = {};
 	}
 
-	my $file = "$data_root/translate/$tagtype.$tag_lc.txt";
+	my $file = "$BASE_DIRS{USERS_TRANSLATIONS}/$tagtype.$tag_lc.txt";
 
 	$log->debug("load_users_translations_for_lc", {file => $file}) if $log->is_debug();
 
 	if (-e $file) {
 		$log->debug("load_users_translations_for_lc, file exists", {file => $file}) if $log->is_debug();
-		open(my $LOG, "<:encoding(UTF-8)", "$data_root/translate/$tagtype.$tag_lc.txt");
+		open(my $LOG, "<:encoding(UTF-8)", "$BASE_DIRS{USERS_TRANSLATIONS}/$tagtype.$tag_lc.txt");
 		while (<$LOG>) {
 			chomp();
 			my ($time, $userid, $from, $to) = split(/\t/, $_);
@@ -4711,7 +4745,7 @@ sub load_users_translations_for_lc ($users_translations_ref, $tagtype, $tag_lc) 
 
 sub load_users_translations ($users_translations_ref, $tagtype) {
 
-	if (opendir(my $DH, "$data_root/translate")) {
+	if (opendir(my $DH, $BASE_DIRS{USERS_TRANSLATIONS})) {
 		foreach my $file (readdir($DH)) {
 			if ($file =~ /^$tagtype.(\w\w).txt$/) {
 				load_users_translations_for_lc($users_translations_ref, $tagtype, $1);

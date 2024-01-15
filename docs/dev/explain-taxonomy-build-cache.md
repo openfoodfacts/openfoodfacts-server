@@ -8,7 +8,19 @@ A hash is calculated for all of the source files used to build a particular taxo
 
 If no cached build is found then the taxonomy is rebuilt and cached locally.
 
-If the GITHUB_TOKEN environemnt variable is set then the cached build is also uploaded to the https://github.com/openfoodfacts/openfoodfacts-build-cache repository. Note that no token is required to download previous cached builds from the repo.
+If the GITHUB_TOKEN environment variable is set then the cached build is also uploaded to the https://github.com/openfoodfacts/openfoodfacts-build-cache repository.
+
+The token is a personal access token, created here: https://github.com/settings/tokens.
+Only the public_repo scope is needed.
+
+Note that no token is required to download previous cached builds from the repo.
+
+# Storage
+
+Cached copies of taxonomy build results are stored in `build-cache/taxonomies`.
+
+If no local cache is available then https://github.com/openfoodfacts/openfoodfacts-build-cache is checked for a copy.
+
 
 # Obtaining a token
 

@@ -30,7 +30,9 @@ BEGIN {
 		$server_domain
 		@ssl_subdomains
 		$data_root
+		$conf_root
 		$www_root
+		$sftp_root
 		$geolite2_path
 		$mongodb
 		$mongodb_host
@@ -60,7 +62,9 @@ $server_domain = "openfoodfacts.org";
 
 # server paths
 $www_root = "/home/off/html";
+$conf_root = "/home/off";
 $data_root = "/home/off";
+$sftp_root = "/home/sftp";
 
 $geolite2_path = '/usr/local/share/GeoLite2-Country/GeoLite2-Country.mmdb';
 

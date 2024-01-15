@@ -361,6 +361,9 @@ HTML
 
 # allow moving products to other instances of Product Opener on the same server
 # e.g. OFF -> OBF
+
+$options{current_server} = "opf";
+
 $options{other_servers} = {
 	obf => {
 		name => "Open Beauty Facts",

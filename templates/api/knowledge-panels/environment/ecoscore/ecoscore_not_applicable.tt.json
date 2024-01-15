@@ -4,7 +4,7 @@
         "environment"
     ],
     "title_element": {
-        "icon_url": "[% static_subdomain %]/images/attributes/ecoscore-not-applicable.svg",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/ecoscore-not-applicable.svg",
         "title": "[% lang("attribute_ecoscore_not_applicable_title") %]",
         "subtitle": "[% panel.subtitle %]",
         "type": "grade",
