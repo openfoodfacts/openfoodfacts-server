@@ -142,7 +142,7 @@ my $fix_non_string_ids = '';
 my $assign_ciqual_codes = '';
 my $obsolete = 0;
 my $fix_obsolete;
-my $noop;    # Will set the update key and ensure last_updated_t is initialised
+my $fix_last_modified_t;    # Will set the update key and ensure last_updated_t is initialised
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -200,7 +200,7 @@ GetOptions(
 	"assign-ciqual-codes" => \$assign_ciqual_codes,
 	"obsolete" => \$obsolete,
 	"fix-obsolete" => \$fix_obsolete,
-	"noop" => \$noop,
+	"fix-last-modified-t" => \$fix_last_modified_t,
 ) or die("Error in command line arguments:\n\n$usage");
 
 use Data::Dumper;
@@ -275,7 +275,7 @@ if (    (not $process_ingredients)
 	and (not $prefix_packaging_tags_with_language)
 	and (not $assign_ciqual_codes)
 	and (not $fix_obsolete)
-	and (not $noop))
+	and (not $fix_last_modified_t))
 {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -731,6 +731,20 @@ while (my $product_ref = $cursor->next) {
 			}
 			else {
 				next;
+			}
+		}
+
+		if ($fix_last_modified_t) {
+			# https://github.com/openfoodfacts/openfoodfacts-server/pull/9646#issuecomment-1892160060
+			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+			if (defined $changes_ref) {
+				my $change_ref = $changes_ref->[-1];
+				my $change_last_modified_t = $change_ref->{t};
+				my $current_last_modified_t = $product_ref->{last_modified_t} // 0;
+				if ($current_last_modified_t != $change_last_modified_t) {
+					print STDERR "-> fixing last_modified_t from $current_last_modified_t to $change_last_modified_t";
+					$product_ref->{last_modified_t} = $change_last_modified_t;
+				}
 			}
 		}
 
@@ -1359,7 +1373,7 @@ while (my $product_ref = $cursor->next) {
 
 		my $any_change = $product_values_changed;
 		if (not $pretend) {
-			if (!$any_change && !$noop) {
+			if (!$any_change) {
 				# Deep compare with original (if we don't already know that a change has been made)
 				$any_change = !Compare($product_ref, $original_product);
 			}
