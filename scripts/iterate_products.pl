@@ -127,7 +127,9 @@ sub find_products {
 		my $mtime = DateTime->from_epoch(epoch => $file_time)->iso8601();
 		eval {
 			if ($file =~ /.*\.sto$/) {
+				# TODO: Sort by keys (canonical option in JSON::PP)
 				my $data = encode_json(retrieve($file_path));
+				# TODO: Strip out \u0000 characters
 				if ($file eq 'product.sto') {
 					#print "code: $code\n";
 					$db->insert('product.product', {code => $code, data => $data, file_last_modified => $mtime}, {on_conflict => \'(code) do update set data=EXCLUDED.data, file_last_modified=EXCLUDED.file_last_modified'});

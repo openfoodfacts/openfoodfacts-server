@@ -111,6 +111,7 @@ services:
       - POSTGRES_DB=products
     volumes:
       - /mnt/e/pgdata:/var/lib/postgresql/data
+      - /mnt/e:/mnt/e
 
 volumes:
   product_images:
