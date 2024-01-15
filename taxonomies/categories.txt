@@ -65,6 +65,12 @@ stopwords:de:und,mit,von
 # And for categories where we are certain there is 100% fruits/vegetables/legumes
 # we put nutriscore_category_override_for_fruits_vegetables_legumes:en: 100
 
+# For categories for which a minimum amount of specific ingredients is required in some countries
+# we put expected_minimal_amount_specific_ingredients:en followed by the specific ingredient, 
+#   the quantity in g and the country where it applis. 
+# additional countries can be added separated by a semi colon (";"). Example for en:fruit, 35g, in EU and en:fruit, 35g in en:other-country:
+# expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu;  en:fruit, 35, en:other-country
+
 en:Artisan products
 ca:Prouctes artesans
 de:Handgefertigte Produkte, Artisanale Produkte, Handgemachte Produkte
@@ -32604,8 +32610,14 @@ gpc_category_name:en:Bread (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a leavened or unleavened, dough-based baked product. These products do not typically contain eggs and tend to have lower fat content than other dough products such as pastry. These products have been treated or packaged in such a way as to extend their consumable life. Includes such products as naan, chapatti, loaves, rolls, bagels, focaccia, ciabatta, baguette. Also includes rye bread, bread made from rice flour and part baked bread products. Definition Excludes: Excludes products such as Frozen and Perishable Bread Products, Dried Breads, Shelf-Stable Baking Mixes and Baking Supplies, and Pies and Pastries.
 
 
+<en:Frozen foods
 <en:Breads
 en:Frozen breads
+fr:Pains surgelés
+nl:Diepvriesbrood
+de:Tiefkühlbrote
+es:Pan congelado
+lt:Šaldytos duonos
 gpc_category_code:en:10000164
 gpc_category_name:en:Bread (Perishable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a leavened or unleavened, dough-based baked product. These products do not typically contain eggs and tend to have lower fat content than other dough products such as pastry. These products can be refrigerated to extend their consumable life. Includes such products as naan, chapatti, loaves, rolls, bagels, focaccia, ciabatta, baguette. Also includes rye bread, bread made from rice flour and part baked bread products. Definition Excludes: Excludes products such as Shelf-Stable and Frozen Bread Products, Dried Breads, Perishable Baking Mixes and Baking Supplies, and Pies and Pastries.
@@ -32620,6 +32632,9 @@ wikidata:en:Q246703
 en:Breads with nuts, Nut breads
 fr:Pains aux noix
 nl:Notenbroden
+de:Nussbrote
+es:Pan de nueces
+it:Pane alle noci
 
 <en:Breads
 fr:Pains multicéréales, Pains aux céréales
@@ -32635,6 +32650,9 @@ en:Bakery products
 de:Backwaren
 fr:Produits de boulangerie
 nl:Bakkerijproducten
+es:Productos de panadería
+it:Prodotti da forno
+pt:Produtos de padaria
 
 <en:Variety packs
 <en:Bakery products
@@ -34227,7 +34245,13 @@ nl:Naanbroden, Naanbrood, Naan
 wikidata:en:Q689950
 
 <en:Naans
+en:Plain naans
+
+<en:Naans
 en:Cheese Naans
+
+<en:Naans
+en:Garlic Naans
 
 <en:Special breads
 <en:Flatbreads
@@ -34729,6 +34753,10 @@ wikidata:en:Q3906768
 <en:Cakes
 en:Filled sponge cake slices
 fr:Génoises en tranches fourrées
+
+<en:Cakes
+en:Filled sponge cake rolls
+fr:Génoises roulées fourrées
 
 #British dessert made with custard cream, fruit (or fruit jelly, or chocolate) and possibly sponge biscuits
 <en:Desserts
@@ -38384,6 +38412,21 @@ ciqual_food_name:en:Fajitas
 ciqual_food_name:fr:Fajitas
 
 <en:Meals
+en:Hotpots
+
+<en:Hotpots
+en:Beef hotpot
+
+<en:Hotpots
+en:Lamb hotpot
+
+<en:Hotpots
+en:Chicken hotpot
+
+<en:Hotpots
+en:Lancashire Hotpot
+
+<en:Meals
 en:Stews
 de:Eintöpfe, Eintopf
 es:Guisos
@@ -38706,6 +38749,9 @@ agribalyse_food_code:en:25071
 ciqual_food_code:en:25071
 ciqual_food_name:en:Pork sausage stew with cabbage, carrots and potatoes
 ciqual_food_name:fr:Potée auvergnate (chou et porc)
+
+<en:Meals
+en:Irish stews
 
 <en:Meals
 en:Stuffed cabbage
@@ -43474,7 +43520,7 @@ pl:Cottage cheese
 pt:Cottage
 ru:Зернёный творог
 sl:Zrnasta skuta
-sv:Keso
+sv:Cottage cheeses, Keso
 tr:Çökelek peyniri
 uk:Кисломолочний сир
 zh:茅屋起司
@@ -60748,12 +60794,6 @@ ciqual_food_name:en:Iced nougat
 ciqual_food_name:fr:Nougat glacé
 
 <en:Frozen foods
-<en:Breads
-en:Frozen breads
-fr:Pains surgelés
-lt:Šaldytos duonos
-
-<en:Frozen foods
 fr:Viennoiseries surgelées
 nl:Diepvriesbroden
 
@@ -71805,6 +71845,8 @@ fr:Sushis au saumon
 lt:Lašišos sušiai
 nl:Zalmsushi
 pl:Sushi z łososiem
+es:Sushis de salmón
+de:Lachs-Sushis
 agribalyse_proxy_food_code:en:25456
 agribalyse_proxy_food_name:en:Sushi or maki with seafood products
 agribalyse_proxy_food_name:fr:Sushi ou Maki aux produits de la mer
@@ -71814,6 +71856,9 @@ en:Tuna sushis
 fr:Sushis au thon
 lt:Tunos sušiai
 pl:Sushi z tuńczykiem
+es:Sushi de atún
+de:Thunfisch-Sushi
+nl:Tonijnsushi
 agribalyse_proxy_food_code:en:25456
 agribalyse_proxy_food_name:en:Sushi or maki with seafood products
 agribalyse_proxy_food_name:fr:Sushi ou Maki aux produits de la mer
@@ -71822,6 +71867,9 @@ agribalyse_proxy_food_name:fr:Sushi ou Maki aux produits de la mer
 en:Avocado and salmon sushis
 fr:Sushis saumon avocat
 lt:Avokado ir lašišos sušiai
+es:Sushis de aguacate y salmón
+de:Avocado und Lachs Sushis
+pl:Sushi z awokado i łososiem
 agribalyse_proxy_food_code:en:25456
 agribalyse_proxy_food_name:en:Sushi or maki with seafood products
 agribalyse_proxy_food_name:fr:Sushi ou Maki aux produits de la mer
@@ -71830,6 +71878,9 @@ agribalyse_proxy_food_name:fr:Sushi ou Maki aux produits de la mer
 en:Shrimp sushis
 fr:Sushi à la crevette
 lt:Krevečių sušiai
+es:Sushi de camarón
+de:Garnelen-Sushi
+pl:Sushi z krewetkami
 agribalyse_proxy_food_code:en:25456
 agribalyse_proxy_food_name:en:Sushi or maki with seafood products
 agribalyse_proxy_food_name:fr:Sushi ou Maki aux produits de la mer
@@ -71908,6 +71959,9 @@ ciqual_food_name:fr:Nem ou Pâté impérial
 en:Vegetable nems, Nems with vegetables
 fr:Nems aux légumes
 nl:Groenteloempias
+es:Nems de verduras
+de:Gemüse-Nems
+it:Nems di verdure
 
 <en:Nems
 <en:Pork meals
@@ -71999,6 +72053,9 @@ ciqual_food_name:fr:Feuilleté salé (aliment moyen)
 en:Ham croissants, Croissant filled with ham
 fr:Croissants au jambon
 nl:Hamcroissants
+es:Croissants de jamón
+de:Schinkencroissants
+it:Cornetti al prosciutto
 agribalyse_food_code:en:25418
 ciqual_food_code:en:25418
 ciqual_food_name:en:Croissant filled with ham
@@ -72007,6 +72064,10 @@ wikidata:en:Q56320624
 <en:Puff pastry meals
 en:Ham and cheese croissants, Croissant filled with ham and cheese
 fr:Croissants au jambon fromage
+de:Schinken-Käse-Croissants
+es:Croissants de jamón y queso
+it:Cornetti al prosciutto e formaggio
+nl:Ham-kaas croissants
 agribalyse_food_code:en:26266
 ciqual_food_code:en:26266
 ciqual_food_name:en:Croissant filled with ham and cheese
@@ -72047,6 +72108,11 @@ ciqual_food_code:en:25437
 ciqual_food_name:en:Small cheese chou-pastry puff
 ciqual_food_name:fr:Gougère
 wikidata:en:Q655973
+
+<en:Puff pastry meals
+<en:Meals with meat
+en:Toad in the hole, Sausage toad
+description:en: Toad in the hole or sausage toad is a traditional English dish consisting of sausages in Yorkshire pudding batter, usually served with onion gravy and vegetables. Historically, the dish has also been prepared using other meats, such as rump steak and lamb's kidney.
 
 <en:Meals
 <en:Fresh foods
@@ -72292,6 +72358,7 @@ intake24_category_code:en:POTD
 <en:Meals
 en:Chop suey
 fr:Chop suey
+xx:Chop suey
 wikidata:en:Q269100
 
 <en:Chop suey
@@ -72472,6 +72539,9 @@ ru:Блюда с рыбой
 <en:Meals with fish
 it:piatto a base di tonno
 wikidata:en:Q28100113
+
+<en:Meals with fish
+en:Fish and Chips
 
 <en:Meals with fish
 fr:Poisson en sauce et riz
@@ -72825,6 +72895,9 @@ ciqual_food_name:fr:Corned-beef, appertisé
 wikidata:en:Q1133209
 
 <en:Beef dishes
+en:Beef Wellington
+
+<en:Beef dishes
 en:Shepherd's pie, Cottage pie with meat
 fr:Hachis parmentier, parmentiers de bœuf, Hachis Parmentier au boeuf
 it:Shepherd's pie
@@ -72880,6 +72953,10 @@ ciqual_food_name:fr:Boeuf, à bourguignon ou pot-au-feu, cru
 <en:Beef stews
 en:Beef stew with carrots
 fr:Boeuf aux carottes
+es:Estofado de carne de res con zanahorias
+de:Rindfleischeintopf mit Karotten
+it:Stufato di manzo con carote
+nl:Runderstoofpot met wortelen
 agribalyse_food_code:en:25065
 ciqual_food_code:en:25065
 ciqual_food_name:en:Beef stew with carrots
@@ -73126,12 +73203,24 @@ description:en: Chicken Tikka is a popular Indian dish made of boneless chicken 
 <en:Meals with chicken
 en:Chicken tikka masala
 fr:Poulet tikka masala
+es:Pollo tikka masala
+de:Hähnchen Tikka Masala
+it:Pollo tikka masala
+ja:チキンティッカマサラ
+nl:Kip tikka masala
+zh:鸡肉提卡马沙拉
 wikidata:en:Q654159
-# Chicken marinated in a Yogurt tomato sauce. It is known to have a creamy texture.
+description:en: Chicken marinated in a Yogurt tomato sauce. It is known to have a creamy texture.
 
 <en:Meals with chicken
 en:Tandoori chicken
 fr:Poulet tandoori
+es:Pollo tandoori
+de:Tandoori-Huhn
+it:Pollo tandoori
+ja:タンドリーチキン
+nl:Tandoori kip
+zh:坦多里鸡
 wikidata:en:Q1057649
 
 <en:Meals with chicken
@@ -73205,6 +73294,7 @@ ciqual_food_name:fr:Chili con carne
 en:Osso buco
 fr:Osso buco
 ja:オッソブーコ
+xx:Osso buco
 agribalyse_food_code:en:25164
 ciqual_food_code:en:25164
 ciqual_food_name:en:Osso buco
@@ -73337,6 +73427,9 @@ en:Tuna pies
 fr:Tartes au thon
 lt:Tunos pyragai
 nl:Tonijntaart
+de:Thunfischkuchen
+es:Tartas de atún
+it:Torte di tonno
 
 <en:Salted pies
 en:Provencal-style tart
@@ -73949,6 +74042,10 @@ wikidata:en:Q21888014
 en:Dehydrated carrot soups
 fr:Soupes de carottes déshydratées
 lt:Greito paruošimo sriubos su morkomis
+es:Sopas de zanahoria deshidratadas
+de:Dehydrierte Karottensuppen
+it:Zuppe di carote disidratate
+nl:Gedehydrateerde wortelsoepen
 
 <en:Vegetable soups
 en:Pumpkin soups
@@ -74953,7 +75050,7 @@ ciqual_food_code:en:25199
 ciqual_food_name:en:Vegetable rosti, pre-fried, frozen
 ciqual_food_name:fr:Palet ou galette de légumes, préfrit, surgelé
 
-<en:Cereals and potatoes
+<en:Rostis
 <en:Frozen foods
 en:Frozen Rostis, Frozen Potatoes cakes, Frozen Potato cakes
 fr:Rostis surgelés, Galette de pomme de terre surgelée, Galette de pommes de terre surgelées
@@ -75909,6 +76006,10 @@ ru:Разогреваемые готовые обеды
 zh:微波食品
 
 <en:Microwave meals
+en:Bangers and Mash, sausages and mash
+description:en: Bangers and mash, also known as sausages and mash, is a traditional British dish consisting of sausages and mashed potato. It may consist of one of a variety of flavoured sausages made of pork, lamb, or beef. The dish is usually served with onion gravy, but may also include fried onions and peas
+
+<en:Microwave meals
 en:Pots, Box
 fr:Box
 nl:Dozen
@@ -76542,6 +76643,9 @@ en:Chicken and mushroom pies
 fr:Tourtes au poulet et aux champignons
 lt:Pyragai su vištiena ir grybais
 nl:Kippenpaddestoelentaarten
+es:Empanadas de pollo y champiñones
+de:Hühnchen-Pilz-Pasteten
+it:Torte di pollo e funghi
 wikidata:en:Q5096289
 
 <en:salted pies
@@ -87744,6 +87848,9 @@ fr:Hot-dogs végétariens, hot-dog végétal, hots-dogs végétaux, Hot-dog vég
 nl:Vegetarische hotdogs
 pl:Hot-dogi wegetariańskie, wegetariańskie hot-dogi
 
+<en:Sandwiches
+en:Ploughman's sandwich
+
 <en:French bread sandwiches
 en:Baguette sandwiches with salami and butter
 fr:Sandwichs baguette salami beurre
@@ -92485,6 +92592,7 @@ ciqual_proxy_food_code:en:31024
 ciqual_proxy_food_name:en:Jam, strawberry
 ciqual_proxy_food_name:fr:Confiture de fraise (extra ou classique)
 intake24_category_code:en:JAMS
+expected_minimal_amount_specific_ingredients:en: en:fruit, 35, en:eu
 
 <en:Jams
 en:Shelf-stable jams
@@ -92644,6 +92752,7 @@ hu:Vörös ribizli lekvár
 it:Confetture di ribes
 nl:Aalbessenjams
 pt:Doces de groselha
+expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
 
 <en:Berry jams
 en:Gooseberries jams, gooseberry jams
@@ -102268,30 +102377,39 @@ en:thinly-shredded vegetables, diced vegetables
 fr:Julienne de légumes, Brunoise de légumes
 
 <en:Meals
+en:Pan-fried dishes
+de:In der Pfanne gebratene Gerichte
+es:Platos salteados
 fr:Poêlées, Poêlée
+it:Piatti saltati in padella
+nl:Roergebakken gerechten
 
-<fr:Poêlées
+<en:Pan-fried dishes
+en:Kedgeree
+description:en:Kedgeree is a dish consisting of cooked, flaked fish, boiled rice, parsley, hard-boiled eggs, curry powder, butter or cream, and occasionally sultanas. The dish can be eaten hot or cold. Other fish can be used instead of haddock such as tuna or salmon, though these are not traditional.
+
+<en:Pan-fried dishes
 <en:Plant-based foods
 en:Pan-fried vegetables
 fr:Poêlée de légumes
 
-<fr:Poêlées
+<en:Pan-fried dishes
 en:Pan-fried meat and vegetable mixes
 fr:Poêlée de viande et de légumes
 
-<fr:Poêlées
+<en:Pan-fried dishes
 fr:Poêlées à la landaise, Poêlée à la landaise
 
-<fr:Poêlées
+<en:Pan-fried dishes
 fr:Poêlées à la paysanne, Poêlées paysanne, Poêlée à la paysanne, Poêlée paysanne
 
-<fr:Poêlées
+<en:Pan-fried dishes
 fr:Poêlées à la sarladaise, Poêlée à la sarladaise
 
-<fr:Poêlées
+<en:Pan-fried dishes
 fr:Poêlées surgelées à la sarladaise, Poêlée surgelée à la sarladaise
 
-<fr:Poêlées
+<en:Pan-fried dishes
 en:Pre-fried potatoes pan-fried with chicken
 fr:Poêlée de pommes de terre préfrites au poulet
 agribalyse_food_code:en:25057
@@ -102299,13 +102417,13 @@ ciqual_food_code:en:25057
 ciqual_food_name:en:Pre-fried potatoes, pan-fried, lardoons or chicken, and other, without green vegetables
 ciqual_food_name:fr:Poêlée de pommes de terre préfrites, lardons ou poulet, et autres, sans légumes verts
 
-<fr:Poêlées
+<en:Pan-fried dishes
 fr:Poêlées campagnardes, Poêlée campagnarde
 
-<fr:Poêlées
+<en:Pan-fried dishes
 fr:Poêlées façon kebab, Poêlée façon kebab
 
-<fr:Poêlées
+<en:Pan-fried dishes
 fr:Poêlées savoyardes
 
 <en:Frozen foods
@@ -102347,7 +102465,7 @@ ciqual_food_code:en:20498
 ciqual_food_name:en:Vegetables pan-fried with mushrooms (country-style), frozen
 ciqual_food_name:fr:Poêlée de légumes assaisonnés aux champignons (champêtre), surgelée
 
-<fr:Poêlées
+<en:Pan-fried dishes
 en:Pre-fried potatoes pan-fried with lardoons
 fr:Poêlée de pommes de terre préfrites aux lardons
 agribalyse_food_code:en:25057
@@ -105486,6 +105604,10 @@ ciqual_food_name:en:Rostis or Potatoes cake
 ciqual_food_name:fr:Rostis ou Galette de pomme de terre
 
 <en:Potato preparations
+en:Bubble and squeak
+description:en:Bubble and squeak is a British dish made from cooked potatoes and cabbage, mixed together and fried. 
+
+<en:Potato preparations
 en:Hash Browns, hashed browns
 ja:ハッシュポテト
 wikidata:en:Q152981
@@ -107528,12 +107650,6 @@ en:Fish or seafood in puff pastry
 fr:Feuilleté au poisson et/ou fruits de mer
 ciqual_food_code:en:25151
 ciqual_food_name:en:Fish or seafood in puff pastry
-
-<en:Puff pastry meals
-en:Cornish Pasty
-protected_name_file_number:en: PGI-GB-0727
-protected_name_type:en: pgi
-origins:en: en:United Kingdom
 
 <en:Meals
 en:Stuffed vine leaves
