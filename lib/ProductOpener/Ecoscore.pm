@@ -859,7 +859,8 @@ sub compute_ecoscore ($product_ref) {
 					$product_ref->{ecoscore_data}{"downgraded"} = "non_recyclable_and_non_biodegradable_materials";
 					# For France, save the original score
 					if ($cc eq 'fr') {
-						$product_ref->{ecoscore_data}{"scores"}{$cc . "_orig"} = $product_ref->{ecoscore_data}{"scores"}{$cc};
+						$product_ref->{ecoscore_data}{"scores"}{$cc . "_orig"}
+							= $product_ref->{ecoscore_data}{"scores"}{$cc};
 					}
 					$product_ref->{ecoscore_data}{"grades"}{$cc} = "b";
 					$product_ref->{ecoscore_data}{"scores"}{$cc} = 79;
