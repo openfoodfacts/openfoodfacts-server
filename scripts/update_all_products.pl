@@ -142,7 +142,7 @@ my $fix_non_string_ids = '';
 my $assign_ciqual_codes = '';
 my $obsolete = 0;
 my $fix_obsolete;
-my $noop; # Will set the update key and ensure last_updated_t is initialised
+my $noop;    # Will set the update key and ensure last_updated_t is initialised
 
 my $query_ref = {};    # filters for mongodb query
 
