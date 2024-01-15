@@ -142,6 +142,7 @@ my $fix_non_string_ids = '';
 my $assign_ciqual_codes = '';
 my $obsolete = 0;
 my $fix_obsolete;
+my $noop; # Will set the update key and ensure last_updated_t is initialised
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -199,6 +200,7 @@ GetOptions(
 	"assign-ciqual-codes" => \$assign_ciqual_codes,
 	"obsolete" => \$obsolete,
 	"fix-obsolete" => \$fix_obsolete,
+	"noop" => \$noop,
 ) or die("Error in command line arguments:\n\n$usage");
 
 use Data::Dumper;
@@ -272,7 +274,8 @@ if (    (not $process_ingredients)
 	and (not $just_print_codes)
 	and (not $prefix_packaging_tags_with_language)
 	and (not $assign_ciqual_codes)
-	and (not $fix_obsolete))
+	and (not $fix_obsolete)
+	and (not $noop))
 {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -1356,7 +1359,7 @@ while (my $product_ref = $cursor->next) {
 
 		my $any_change = $product_values_changed;
 		if (not $pretend) {
-			if (!$any_change) {
+			if (!$any_change && !$noop) {
 				# Deep compare with original (if we don't already know that a change has been made)
 				$any_change = !Compare($product_ref, $original_product);
 			}
@@ -1391,8 +1394,16 @@ while (my $product_ref = $cursor->next) {
 				# make sure nutrient values are numbers
 				ProductOpener::Products::make_sure_numbers_are_stored_as_numbers($product_ref);
 
-				# Set last modified time
-				$product_ref->{last_updated_t} = time() + 0;
+				# Set last modified time if something was changed
+				if ($any_change) {
+					$product_ref->{last_updated_t} = time() + 0;
+				}
+				else {
+					# Initialise the last_updates_t if it is not currently set
+					if (not defined $product_ref->{last_updated_t}) {
+						$product_ref->{last_updated_t} = $product_ref->{last_modified_t};
+					}
+				}
 
 				if (!$mongodb_to_mongodb) {
 					# Store data to .sto file
