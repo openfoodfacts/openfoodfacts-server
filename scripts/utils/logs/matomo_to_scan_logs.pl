@@ -37,40 +37,40 @@ Usage:
 
 ./matomo_to_scan_logs.pl [list of JSON files]
 
-Sample format:
-
-[
-    {
-        idSite: "2",
-        idVisit: "...",
-        visitIp: "[ip]",
-        visitorId: "...",
-        fingerprint: "...",
-        actionDetails: [
-            {
-                type: "event",
-                url: "https://org.openfoodfacts.scanner",
-                pageIdAction: "3223185",
-                idpageview: "WpZhmY",
-                serverTimePretty: "31 déc. 2022 23:52:42",
-                pageId: "38550883",
-                eventCategory: "scanning",
-                eventAction: "scanAction",
-                pageviewPosition: "5",
-                timestamp: 1672530762,
-                icon: "plugins/Morpheus/images/event.png",
-                iconSVG: "plugins/Morpheus/images/event.svg",
-                title: "Evènement",
-                subtitle: "Catégorie: "scanning', Action: "scanAction"",
-                eventName: "scanAction",
-                eventValue: 3270160743223
-            },
-
-Target format:
-
-[ip] "GET /api/v?/product/[code]"
-
 =cut
+
+# Sample format:
+
+# [
+#     {
+#         idSite: "2",
+#         idVisit: "...",
+#         visitIp: "[ip]",
+#         visitorId: "...",
+#         fingerprint: "...",
+#         actionDetails: [
+#             {
+#                 type: "event",
+#                 url: "https://org.openfoodfacts.scanner",
+#                 pageIdAction: "3223185",
+#                 idpageview: "WpZhmY",
+#                 serverTimePretty: "31 déc. 2022 23:52:42",
+#                 pageId: "38550883",
+#                 eventCategory: "scanning",
+#                 eventAction: "scanAction",
+#                 pageviewPosition: "5",
+#                 timestamp: 1672530762,
+#                 icon: "plugins/Morpheus/images/event.png",
+#                 iconSVG: "plugins/Morpheus/images/event.svg",
+#                 title: "Evènement",
+#                 subtitle: "Catégorie: "scanning', Action: "scanAction"",
+#                 eventName: "scanAction",
+#                 eventValue: 3270160743223
+#             },
+
+# Target format:
+
+# [ip] "GET /api/v?/product/[code]"
 
 use ProductOpener::PerlStandards;
 
