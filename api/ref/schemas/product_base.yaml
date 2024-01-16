@@ -74,6 +74,11 @@ properties:
       The size in g or ml for the whole product.
       It's a normalized version of the quantity field.
     example: "500"
+  product_quantity_unit:
+    type: string
+    description: |
+      The unit (either g or ml) for the correponding product_quantity.
+    example: "g"
   quantity:
     type: string
     description: |
