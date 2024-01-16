@@ -21,13 +21,15 @@
       "additives_original_tags" : [],
       "additives_tags" : [],
       "allergens" : "",
-      "allergens_from_ingredients" : "en:milk, milk, eggs",
+      "allergens_from_ingredients" : "en:milk, apple, milk, eggs",
       "allergens_from_user" : "(en) ",
       "allergens_hierarchy" : [
+         "en:apple",
          "en:eggs",
          "en:milk"
       ],
       "allergens_tags" : [
+         "en:apple",
          "en:eggs",
          "en:milk"
       ],
@@ -525,8 +527,8 @@
       "ingredients_text" : "apple, milk, eggs, palm oil",
       "ingredients_text_en" : "apple, milk, eggs, palm oil",
       "ingredients_text_fr" : "Farine de blé, eau, sel, sucre",
-      "ingredients_text_with_allergens" : "apple, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
-      "ingredients_text_with_allergens_en" : "apple, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
+      "ingredients_text_with_allergens" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
+      "ingredients_text_with_allergens_en" : "<span class=\"allergen\">apple</span>, <span class=\"allergen\">milk</span>, <span class=\"allergen\">eggs</span>, palm oil",
       "ingredients_text_with_allergens_fr" : "Farine de <span class=\"allergen\">blé</span>, eau, sel, sucre",
       "ingredients_that_may_be_from_palm_oil_n" : 0,
       "ingredients_that_may_be_from_palm_oil_tags" : [],
@@ -852,10 +854,12 @@
       "product_name_en" : "Changed product name",
       "product_name_fr" : "New French product name",
       "product_quantity" : "250",
+      "product_quantity_unit" : "g",
       "quantity" : "250 g",
       "removed_countries_tags" : [],
       "rev" : 2,
       "serving_quantity" : "20",
+      "serving_quantity_unit" : "g",
       "serving_size" : "20 g",
       "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [

@@ -83,6 +83,18 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "您加入的请求正在等待组织管理员批准。"
 
+msgctxt "admin_status_updated"
+msgid "Admin Status Updated"
+msgstr ""
+
+msgctxt "admin_status"
+msgid "Admin Status"
+msgstr ""
+
+msgctxt "grant_remove_admin_status"
+msgid "Grant/Remove Admin status"
+msgstr ""
+
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
 msgstr "如果您有任何疑问，请发送电子邮件至 <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a>"
@@ -655,8 +667,8 @@ msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "用户名智能包括无重音的字母，数字和特殊符号"
 
 msgctxt "error_username_too_long"
-msgid "The user name is too long (maximum 20 characters)."
-msgstr "用户名太长（最多 20 个字符）。"
+msgid "The user name is too long (maximum 40 characters)."
+msgstr ""
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
@@ -2621,6 +2633,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "加载较低分辨率的图像（用于缓慢的连接)"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr "警告：未具体说明营养事实。它们是从原料列表中估算出来的。"
@@ -3996,6 +4012,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "谢谢!"
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "非常感谢你！"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "产品价值"
@@ -4188,6 +4208,10 @@ msgstr "添加一个字段"
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "删除所有产品"
+
+msgctxt "remove_user"
+msgid "Remove user"
+msgstr ""
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -5740,15 +5764,17 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "重要提示：我们需要您的支持！"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Open Food Facts 是一个由数万名志愿者建立的合作项目，并由一个拥有 {number_of_employees} 名员工的非营利组织管理。"
+msgctxt "donation_text_2023_main"
+msgid "Help us make food transparency the norm!"
+msgstr ""
 
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "我们需要您的捐款来资助 Open Food Facts {year} 年的运营并推进项目的持续发展。"
+msgctxt "donation_text_2023_secondary"
+msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
+msgstr ""
+
+msgctxt "donation_text_2023_tertiary"
+msgid "The food revolution starts with you!"
+msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6606,6 +6632,10 @@ msgstr "对于主要包含此原料的产品"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "相对于所有产品"
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr ""
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"

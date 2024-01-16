@@ -83,6 +83,18 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr ""
 
+msgctxt "admin_status_updated"
+msgid "Admin Status Updated"
+msgstr ""
+
+msgctxt "admin_status"
+msgid "Admin Status"
+msgstr ""
+
+msgctxt "grant_remove_admin_status"
+msgid "Grant/Remove Admin status"
+msgstr ""
+
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
 msgstr ""
@@ -234,7 +246,7 @@ msgstr ""
 
 msgctxt "barcode"
 msgid "Barcode"
-msgstr ""
+msgstr "Barkod"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
@@ -258,7 +270,7 @@ msgstr ""
 
 msgctxt "brands"
 msgid "Brands"
-msgstr ""
+msgstr "Brendovi"
 
 msgctxt "brands_example"
 msgid "Kinder Bueno White, Kinder Bueno, Kinder, Ferrero"
@@ -274,7 +286,7 @@ msgstr ""
 
 msgctxt "brands_s"
 msgid "brand"
-msgstr ""
+msgstr "brend"
 
 msgctxt "brands_tagsinput"
 msgid "add a brand"
@@ -298,7 +310,7 @@ msgstr ""
 
 msgctxt "categories"
 msgid "Categories"
-msgstr ""
+msgstr "Kategorije"
 
 msgctxt "categories_example"
 msgid "Sardines in olive oil, Orange juice from concentrate"
@@ -318,7 +330,7 @@ msgstr ""
 
 msgctxt "categories_s"
 msgid "category"
-msgstr ""
+msgstr "kategorija"
 
 msgctxt "categories_tagsinput"
 msgid "add a category"
@@ -422,7 +434,7 @@ msgstr ""
 
 msgctxt "countries_s"
 msgid "country"
-msgstr ""
+msgstr "zemlja"
 
 msgctxt "countries_without_products"
 msgid "Products not sold in %s"
@@ -654,7 +666,7 @@ msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr ""
 
 msgctxt "error_username_too_long"
-msgid "The user name is too long (maximum 20 characters)."
+msgid "The user name is too long (maximum 40 characters)."
 msgstr ""
 
 msgctxt "error_name_too_long"
@@ -762,7 +774,7 @@ msgstr ""
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
-msgstr ""
+msgstr "Otkrijte projekat"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
@@ -775,7 +787,7 @@ msgstr ""
 
 msgctxt "footer_translators"
 msgid "Translators"
-msgstr ""
+msgstr "Prevodioci"
 
 # Do not translate
 msgctxt "footer_translators_link"
@@ -811,7 +823,7 @@ msgstr ""
 
 msgctxt "footer_press"
 msgid "Press"
-msgstr ""
+msgstr "Pritisnite"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
@@ -820,7 +832,7 @@ msgstr ""
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
-msgstr ""
+msgstr "Kolaborativna, besplatna i otvorena baza podataka prehrambenih proizvoda iz cijelog svijeta."
 
 msgctxt "footer_terms"
 msgid "Terms of use"
@@ -833,7 +845,7 @@ msgstr ""
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
-msgstr ""
+msgstr "Ko smo mi"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
@@ -852,7 +864,7 @@ msgstr ""
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
 msgid "Open Beauty Facts - Cosmetics"
-msgstr ""
+msgstr "Open Beauty Facts - Kozmetika"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
@@ -864,7 +876,7 @@ msgstr ""
 
 msgctxt "front_alt"
 msgid "Product"
-msgstr ""
+msgstr "Proizvod"
 
 msgctxt "generic_name"
 msgid "Common name"
@@ -993,7 +1005,7 @@ msgstr ""
 
 msgctxt "ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Sastojci"
 
 msgctxt "no_ingredient"
 msgid "Ingredients are missing"
@@ -1009,7 +1021,7 @@ msgstr ""
 
 msgctxt "ingredients_alt"
 msgid "Ingredients"
-msgstr ""
+msgstr "Sastojci"
 
 msgctxt "ingredients_analysis_note"
 msgid "Note: ingredients can be listed with many different names, please let us know if you think the analysis above is incorrect."
@@ -1130,7 +1142,7 @@ msgstr ""
 
 msgctxt "labels_s"
 msgid "label"
-msgstr ""
+msgstr "oznaka"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
@@ -1453,11 +1465,11 @@ msgstr ""
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Nutritivne činjenice"
 
 msgctxt "nutrition_data"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Nutritivne činjenice"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
@@ -1529,7 +1541,7 @@ msgstr ""
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Nutritivne činjenice"
 
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
@@ -1606,7 +1618,7 @@ msgstr ""
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Ambalaža"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -1618,7 +1630,7 @@ msgstr ""
 
 msgctxt "packaging_p"
 msgid "packaging"
-msgstr ""
+msgstr "ambalaža"
 
 msgctxt "packaging_products"
 msgid "Products with a %s packaging"
@@ -1626,7 +1638,7 @@ msgstr ""
 
 msgctxt "packaging_s"
 msgid "packaging"
-msgstr ""
+msgstr "ambalaža"
 
 msgctxt "packaging_tagsinput"
 msgid "add a type, shape or material"
@@ -1942,7 +1954,7 @@ msgstr ""
 
 msgctxt "quantity"
 msgid "Quantity"
-msgstr ""
+msgstr "Količina"
 
 msgctxt "quantity_example"
 msgid "2 l, 250 g, 1 kg, 25 cl, 6 fl oz, 1 pound"
@@ -2030,7 +2042,7 @@ msgstr ""
 
 msgctxt "search"
 msgid "Search"
-msgstr ""
+msgstr "Pretraži"
 
 msgctxt "search_a_product_placeholder"
 msgid "Search a product"
@@ -2038,7 +2050,7 @@ msgstr ""
 
 msgctxt "search_button"
 msgid "Search"
-msgstr ""
+msgstr "Pretraži"
 
 msgctxt "search_contains"
 msgid "contains"
@@ -2139,7 +2151,7 @@ msgstr ""
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Sastojci"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
@@ -2259,7 +2271,7 @@ msgstr ""
 
 msgctxt "search_value"
 msgid "value"
-msgstr ""
+msgstr "vrijednost"
 
 msgctxt "search_with"
 msgid "With"
@@ -2427,7 +2439,7 @@ msgstr ""
 
 msgctxt "tag_contains"
 msgid "Contains:"
-msgstr ""
+msgstr "Sadrži:"
 
 msgctxt "tag_weblinks"
 msgid "Weblinks"
@@ -2607,6 +2619,10 @@ msgstr ""
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
+msgstr ""
+
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
 msgstr ""
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
@@ -2796,7 +2812,7 @@ msgstr ""
 
 msgctxt "footer_partners"
 msgid "Partners"
-msgstr ""
+msgstr "Partneri"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
@@ -3253,15 +3269,15 @@ msgstr "Ne"
 
 msgctxt "button_caption_skip"
 msgid "Skip"
-msgstr ""
+msgstr "Preskočite"
 
 msgctxt "popularity_s"
 msgid "popularity"
-msgstr ""
+msgstr "popularnost"
 
 msgctxt "popularity_p"
 msgid "popularity"
-msgstr ""
+msgstr "popularnost"
 
 msgctxt "ingredients_analysis_p"
 msgid "ingredients analysis"
@@ -3361,11 +3377,11 @@ msgstr ""
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
-msgstr ""
+msgstr "Sastojci"
 
 msgctxt "fields_group_nutrition"
 msgid "Nutrition facts"
-msgstr ""
+msgstr "Nutritivne činjenice"
 
 msgctxt "fields_group_nutrition_other"
 msgid "Optional nutrition facts"
@@ -3381,7 +3397,7 @@ msgstr ""
 
 msgctxt "fields_group_packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Ambalaža"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -3586,7 +3602,7 @@ msgstr ""
 
 msgctxt "cancel"
 msgid "Cancel"
-msgstr ""
+msgstr "Otkaži"
 
 msgctxt "collapsed_changes"
 msgid "Collapsed changes"
@@ -3945,7 +3961,7 @@ msgstr ""
 
 msgctxt "nutriscore_source_value"
 msgid "value"
-msgstr ""
+msgstr "vrijednost"
 
 msgctxt "nutriscore_rounded_value"
 msgid "rounded value"
@@ -3982,6 +3998,10 @@ msgstr ""
 
 msgctxt "thank_you"
 msgid "Thank you!"
+msgstr ""
+
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
 msgstr ""
 
 msgctxt "value_for_the_product"
@@ -4177,6 +4197,10 @@ msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr ""
 
+msgctxt "remove_user"
+msgid "Remove user"
+msgstr ""
+
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
 msgstr ""
@@ -4261,7 +4285,7 @@ msgstr ""
 
 msgctxt "contributor_settings"
 msgid "Contributor"
-msgstr ""
+msgstr "Saradnik"
 
 msgctxt "contributor_settings_description"
 msgid "Those settings allow you to personalize some aspects of the website"
@@ -4434,7 +4458,7 @@ msgstr ""
 # This is linked to a unit test
 msgctxt "attribute_group_labels_name"
 msgid "Labels"
-msgstr ""
+msgstr "Oznake"
 
 msgctxt "attribute_labels_organic_name"
 msgid "Organic farming"
@@ -4536,7 +4560,7 @@ msgstr ""
 
 msgctxt "attribute_nutriscore_a_description_short"
 msgid "Very good nutritional quality"
-msgstr ""
+msgstr "Vrlo dobar nutritivni kvalitet"
 
 msgctxt "attribute_nutriscore_b_description_short"
 msgid "Good nutritional quality"
@@ -4730,7 +4754,7 @@ msgstr ""
 
 msgctxt "attribute_group_environment_name"
 msgid "Environment"
-msgstr ""
+msgstr "Životna sredina"
 
 msgctxt "attribute_ecoscore_name"
 msgid "Eco-Score"
@@ -4755,7 +4779,7 @@ msgstr ""
 
 msgctxt "attribute_ecoscore_b_description_short"
 msgid "Low environmental impact"
-msgstr ""
+msgstr "Nizak uticaj na životnu sredinu"
 
 msgctxt "attribute_ecoscore_c_description_short"
 msgid "Moderate environmental impact"
@@ -4911,7 +4935,7 @@ msgstr ""
 
 msgctxt "attribute_group_ingredients_analysis_name"
 msgid "Ingredients"
-msgstr ""
+msgstr "Sastojci"
 
 # keep the %s, it will be replaced by an allergen
 msgctxt "presence_unknown_s"
@@ -4986,7 +5010,7 @@ msgstr ""
 # A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
 msgctxt "packaging_part_short"
 msgid "Packaging"
-msgstr ""
+msgstr "Ambalaža"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -5055,7 +5079,7 @@ msgstr ""
 
 msgctxt "type"
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
 msgctxt "processing_factor"
 msgid "Processing factor"
@@ -5250,7 +5274,7 @@ msgstr ""
 
 msgctxt "footer_vision"
 msgid "Vision, Mission, Values and Programs"
-msgstr ""
+msgstr "Vizija, misija, vrijednosti i programi"
 
 # Do not translate
 msgctxt "footer_vision_link"
@@ -5500,7 +5524,7 @@ msgstr ""
 
 msgctxt "ecoscore_packaging"
 msgid "Packaging"
-msgstr ""
+msgstr "Ambalaža"
 
 msgctxt "ecoscore_transportation"
 msgid "Transportation"
@@ -5560,7 +5584,7 @@ msgstr ""
 
 msgctxt "ecoscore_threatened_species"
 msgid "Threatened species"
-msgstr ""
+msgstr "Ugrožene vrste"
 
 msgctxt "ecoscore_ingredients_whose_cultivation_threatens_species"
 msgid "Ingredients that threatens species"
@@ -5728,19 +5752,21 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr ""
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
+msgctxt "donation_text_2023_main"
+msgid "Help us make food transparency the norm!"
 msgstr ""
 
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
+msgctxt "donation_text_2023_secondary"
+msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
+msgstr ""
+
+msgctxt "donation_text_2023_tertiary"
+msgid "The food revolution starts with you!"
 msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"
-msgstr ""
+msgstr "Donirajte"
 
 msgctxt "ecoscore_production_system_no_labels_with_environmental_benefits"
 msgid "No labels with environmental benefits"
@@ -5781,7 +5807,7 @@ msgstr ""
 
 msgctxt "carbon_footprint"
 msgid "Carbon footprint"
-msgstr ""
+msgstr "Stopa utacaja ugljen-dioksida na životnu sredinu"
 
 # variable names between { } must not be translated
 msgctxt "f_carbon_footprint_per_100g_of_product"
@@ -5803,7 +5829,7 @@ msgstr ""
 
 msgctxt "environment_card_title"
 msgid "Environment"
-msgstr ""
+msgstr "Životna sredina"
 
 msgctxt "health_card_title"
 msgid "Nutrition and health"
@@ -5883,7 +5909,7 @@ msgstr ""
 
 msgctxt "health"
 msgid "Health"
-msgstr ""
+msgstr "Zdravlje"
 
 msgctxt "contribution_panel_title"
 msgid "Contribution"
@@ -6352,11 +6378,11 @@ msgstr ""
 
 msgctxt "product"
 msgid "Product"
-msgstr ""
+msgstr "Proizvod"
 
 msgctxt "environment"
 msgid "Environment"
-msgstr ""
+msgstr "Životna sredina"
 
 msgctxt "api_result_failure"
 msgid "Failure"
@@ -6424,7 +6450,7 @@ msgstr ""
 
 msgctxt "api_impact_none"
 msgid "None"
-msgstr ""
+msgstr "Nijedan"
 
 msgctxt "api_impact_warning"
 msgid "Warning"
@@ -6593,6 +6619,10 @@ msgstr ""
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
+msgstr ""
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
 msgstr ""
 
 msgctxt "packagings_n_p"
