@@ -509,7 +509,7 @@ is_deeply(\@tags, ['en:organic', 'en:no-gmos',]) or diag explain(\@tags);
 
 @tags = gen_tags_hierarchy_taxonomy("fr", "labels", "commerce équitable, label rouge et bio");
 
-is_deeply(\@tags, ['en:organic', 'en:fair-trade', 'fr:label-rouge',]) or diag explain(\@tags);
+is_deeply(\@tags, ['en:fair-trade', 'en:organic', 'fr:label-rouge',]) or diag explain(\@tags);
 
 @tags = gen_tags_hierarchy_taxonomy("fr", "labels", "Déconseillé aux enfants et aux femmes enceintes");
 
@@ -819,7 +819,8 @@ is(canonicalize_taxonomy_tag('pl', 'ingredients', 'Lactobacillus bulgaricus'), "
 is(get_property_from_tags("test", undef, "vegan:en"), undef);
 is(get_property_from_tags("test", [], "vegan:en"), undef);
 is(get_property_from_tags("test", ["en:vegetable", "en:meat"], "vegan:en"), "yes");
-is(get_inherited_property_from_tags("test", ["en:something-unknown", "en:beef", "en:vegetable"], "vegan:en"), "no");
+is_deeply([get_inherited_property_from_tags("test", ["en:something-unknown", "en:beef", "en:vegetable"], "vegan:en")],
+	["no", 'en:beef']);
 is(
 	get_matching_regexp_property_from_tags(
 		"test", ["en:something-unknown", "en:beef", "en:vegetable"],

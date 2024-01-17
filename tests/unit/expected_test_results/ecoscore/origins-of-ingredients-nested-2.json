@@ -13,6 +13,9 @@
             ],
             "epi_score" : 0,
             "epi_value" : -5,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
             "origins_from_origins_field" : [
                "en:unknown"
             ],
@@ -397,6 +400,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "19051",
          "id" : "en:milk",
          "percent_estimate" : 66.6666666666667,
          "percent_max" : 100,
@@ -517,11 +521,12 @@
    "ingredients_with_unspecified_percent_n" : 5,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
+      "en:chocolate",
       "en:cocoa",
       "en:e951",
-      "en:milk"
+      "en:sweetener"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 4,
    "known_ingredients_n" : 9,
    "lc" : "en",
    "misc_tags" : [

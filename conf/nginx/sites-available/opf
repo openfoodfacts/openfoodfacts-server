@@ -114,13 +114,20 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
-
 	location ~ ^/(.well-known|images|fonts|css|js|rss|files|resources|foundation|bower_components)/ {
 		include snippets/off.cors-headers.include;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ =404;
 	}
+
+	# GoogleAssociationService made 2500 requests/min to assetlinks.json
+	# and much less when caching headers are sent
+	location = /.well-known/assetlinks.json {
+                include snippets/off.cors-headers.include;
+                expires 1d;
+                try_files $uri $uri/ =404;
+        }
 
 	location / {
 		proxy_set_header Host $host;

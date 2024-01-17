@@ -63,4 +63,15 @@ foreach my $eurocode_ingredient (sort keys %eurocodes) {
 }
 close $out;
 
+# Check the units taxonomy
+
+foreach my $tagid (get_all_taxonomy_entries("units")) {
+
+	my $standard_unit = get_property("units", $tagid, "standard_unit:en");
+	my $conversion_factor = get_property("units", $tagid, "conversion_factor:en");
+
+	is(defined $standard_unit, 1, "$tagid has a standard unit");
+	is(defined $conversion_factor, 1, "$tagid has a conversion factor");
+}
+
 done_testing();

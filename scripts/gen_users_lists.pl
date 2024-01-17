@@ -26,6 +26,7 @@ use utf8;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Users qw/:all/;
 
@@ -34,7 +35,7 @@ my @userids;
 my %emails = ();
 
 if (scalar $#userids < 0) {
-	opendir DH, "$data_root/users" or die "Couldn't open the current directory: $!";
+	opendir DH, $BASE_DIRS{USERS} or die "Couldn't open the current directory: $!";
 	@userids = sort(readdir(DH));
 	closedir(DH);
 }
@@ -43,7 +44,7 @@ foreach my $userid (@userids) {
 	next if $userid eq "." or $userid eq "..";
 	next if $userid eq 'all';
 
-	my $user_ref = retrieve("$data_root/users/$userid");
+	my $user_ref = retrieve("$BASE_DIRS{USERS}/$userid");
 
 	$userid =~ s/\.sto$//;
 
@@ -55,7 +56,7 @@ foreach my $userid (@userids) {
 	}
 }
 
-store("$data_root/users_emails.sto", \%emails);
+store("$BASE_DIRS{USERS}/users_emails.sto", \%emails);
 
 exit(0);
 

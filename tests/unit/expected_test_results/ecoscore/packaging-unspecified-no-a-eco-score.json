@@ -2,7 +2,6 @@
    "categories_tags" : [
       "en:baguettes"
    ],
-   "downgraded" : "non_recyclable_and_non_biodegradable_materials",
    "ecoscore_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -14,6 +13,9 @@
             ],
             "epi_score" : 93,
             "epi_value" : 4,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
             "origins_from_origins_field" : [
                "en:unknown"
             ],
@@ -250,6 +252,7 @@
          "score" : 97,
          "version" : "3.1"
       },
+      "downgraded" : "non_recyclable_and_non_biodegradable_materials",
       "grade" : "b",
       "grades" : {
          "ad" : "b",
@@ -342,6 +345,7 @@
          "fi" : 79,
          "fo" : 79,
          "fr" : 79,
+         "fr_orig" : 116,
          "gg" : 79,
          "gi" : 79,
          "gr" : 79,
@@ -448,6 +452,8 @@
       "en:packagings-not-complete",
       "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
+      "en:ecoscore-downgraded",
+      "en:ecoscore-score-above-100",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-missing-data-packagings",
       "en:ecoscore-missing-data-no-packagings",

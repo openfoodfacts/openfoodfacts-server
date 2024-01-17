@@ -83,6 +83,18 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Yêu cầu tham gia tổ chức của bạn đang trong quá trình xét duyệt của quản trị viên."
 
+msgctxt "admin_status_updated"
+msgid "Admin Status Updated"
+msgstr ""
+
+msgctxt "admin_status"
+msgid "Admin Status"
+msgstr ""
+
+msgctxt "grant_remove_admin_status"
+msgid "Grant/Remove Admin status"
+msgstr ""
+
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
 msgstr "Vui lòng gửi email <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> nếu bạn có bất kỳ câu hỏi nào."
@@ -193,10 +205,10 @@ msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
-msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr "/images/misc/google-play-badge-svg-master/img/vi_get.svg"
+msgid "/images/misc/playstore/img/en_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -655,8 +667,8 @@ msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Tên người dùng chỉ được chứa các chữ cái, chữ số và dấu gạch ngang không có dấu."
 
 msgctxt "error_username_too_long"
-msgid "The user name is too long (maximum 20 characters)."
-msgstr "Tên đăng nhập quá dài! (tối đa 20 ký tự)."
+msgid "The user name is too long (maximum 40 characters)."
+msgstr ""
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
@@ -2628,6 +2640,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Tải hình ảnh có độ phân giải thấp hơn (đối với kết nối chậm)"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr ""
@@ -4003,6 +4019,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Cảm ơn bạn!"
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "Cảm ơn bạn rất nhiều!"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "Giá trị cho sản phẩm"
@@ -4195,6 +4215,10 @@ msgstr "Thêm trường"
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "Xóa tất cả các sản phẩm"
+
+msgctxt "remove_user"
+msgid "Remove user"
+msgstr ""
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -5747,15 +5771,17 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Quan trọng: chúng tôi cần sự hỗ trợ của bạn!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Open Food Facts là một dự ánmang tính cộng tác được xây dựng bởi hàng chục nghìn tình nguyện viên và được quản lý bởi một tổ chức phi lợi nhuận với {number_of_employees} nhân viên."
+msgctxt "donation_text_2023_main"
+msgid "Help us make food transparency the norm!"
+msgstr ""
 
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "Chúng tôi cần sự đóng góp của bạn để tài trợ cho ngân sách Open Food Facts năm {year} và để tiếp tục phát triển dự án."
+msgctxt "donation_text_2023_secondary"
+msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
+msgstr ""
+
+msgctxt "donation_text_2023_tertiary"
+msgid "The food revolution starts with you!"
+msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6612,6 +6638,10 @@ msgstr ""
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
+msgstr ""
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
 msgstr ""
 
 msgctxt "packagings_n_p"

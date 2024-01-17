@@ -25,6 +25,7 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Config qw/:all/;
+use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Display qw/:all/;
@@ -61,10 +62,10 @@ if (
 }
 
 my $image = Image::Magick->new;
-my $x = $image->Read("$www_root/images/products/$path/$imgid.${crop_size}.jpg");
+my $x = $image->Read("$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.${crop_size}.jpg");
 if ("$x") {
 	$log->error('could not read image',
-		{path => "$www_root/images/products/$path/$imgid.${crop_size}.jpg", status => $x})
+		{path => "$BASE_DIRS{PRODUCTS_IMAGES}/$path/$imgid.${crop_size}.jpg", status => $x})
 		if $log->is_error();    ## no critic (ProhibitPostfixControls)
 	$r->status(HTTP_NOT_FOUND);
 	return OK;

@@ -83,6 +83,18 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Ihr Wunsch, der Organisation beizutreten, muss noch vom Administrator der Organisation genehmigt werden."
 
+msgctxt "admin_status_updated"
+msgid "Admin Status Updated"
+msgstr "Admin-Status aktualisiert"
+
+msgctxt "admin_status"
+msgid "Admin Status"
+msgstr "Admin-Status"
+
+msgctxt "grant_remove_admin_status"
+msgid "Grant/Remove Admin status"
+msgstr "Admin-Status gewähren/entziehen"
+
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
 msgstr "Wenn Sie Fragen haben, senden Sie bitte eine E-Mail an <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a>."
@@ -193,10 +205,10 @@ msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world.openfoodfacts.org/files/off.apk"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
-msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr "/images/misc/google-play-badge-svg-master/img/de_get.svg"
+msgid "/images/misc/playstore/img/en_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -655,8 +667,8 @@ msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Der Benutzername darf nur Buchstaben ohne Umlaute, Zahlen und Bindestriche enthalten."
 
 msgctxt "error_username_too_long"
-msgid "The user name is too long (maximum 20 characters)."
-msgstr "Benutzername ist zu lang (maximal 20 Zeichen)."
+msgid "The user name is too long (maximum 40 characters)."
+msgstr "Benutzername ist zu lang (maximal 40 Zeichen)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
@@ -2627,6 +2639,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Bilder in geringerer Auflösung laden (für langsame Verbindungen)"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "Der Hersteller hat ein Foto zur Verfügung gestellt. Wenn Sie denken, dass es falsch oder nicht aktuell ist, kontaktieren Sie uns bitte."
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr "Hinweis: Die Nährwertangaben sind nicht angegeben. Sie wurden anhand der Liste der Zutaten geschätzt."
@@ -4002,6 +4018,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Vielen Dank!"
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "Vielen Dank!"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "Wert für das Produkt"
@@ -4194,6 +4214,10 @@ msgstr "Ein Feld hinzufügen"
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "Alle Produkte entfernen"
+
+msgctxt "remove_user"
+msgid "Remove user"
+msgstr "Benutzer entfernen"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -5746,15 +5770,17 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Wichtig: Wir benötigen Ihre Unterstützung!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Open Food Facts ist ein gemeinschaftliches Projekt, das von Zehntausenden von Freiwilligen aufgebaut und von einer gemeinnützigen Organisation mit {number_of_employees} Mitarbeitern verwaltet wird."
+msgctxt "donation_text_2023_main"
+msgid "Help us make food transparency the norm!"
+msgstr "Helfen Sie uns, Lebensmitteltransparenz zur Norm zu machen!"
 
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "Wir benötigen Ihre Spenden, um das Budget für Open Food Facts {year} zu finanzieren und das Projekt weiter entwickeln zu können."
+msgctxt "donation_text_2023_secondary"
+msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
+msgstr "Als gemeinnützige Organisation sind wir auf Ihre Spenden angewiesen, um die Verbraucher auf der ganzen Welt weiterhin darüber zu informieren, was sie essen."
+
+msgctxt "donation_text_2023_tertiary"
+msgid "The food revolution starts with you!"
+msgstr "Die Lebensmittelrevolution beginnt bei Ihnen!"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6612,6 +6638,10 @@ msgstr "für Produkte, die überwiegend das Material enthalten"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "im Vergleich zu allen Produkten"
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr "Bevorzugte Sprache"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"

@@ -83,6 +83,18 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Votre demande pour rejoindre l'organisation est en attente d'approbation de l'administrateur de l'organisation."
 
+msgctxt "admin_status_updated"
+msgid "Admin Status Updated"
+msgstr "Statut d'administrateur mis à jour"
+
+msgctxt "admin_status"
+msgid "Admin Status"
+msgstr "Statut d'administrateur"
+
+msgctxt "grant_remove_admin_status"
+msgid "Grant/Remove Admin status"
+msgstr "Accorder/Supprimer le statut d'administrateur"
+
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
 msgstr "Merci d'envoyer un e-mail à <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> si vous avez des questions."
@@ -154,7 +166,7 @@ msgstr "Recherche avancée"
 
 msgctxt "advanced_search_old"
 msgid "Advanced search and graphs"
-msgstr "Recherche avancée, graphiques et carte"
+msgstr "Recherche avancée et graphiques"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
@@ -193,10 +205,10 @@ msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
 msgstr "https://world-fr.openfoodfacts.org/files/off.apk"
 
-# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/google-play-badge-svg-master/img/XX_get.svg
+# Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
-msgid "/images/misc/google-play-badge-svg-master/img/en_get.svg"
-msgstr "/images/misc/google-play-badge-svg-master/img/fr_get.svg"
+msgid "/images/misc/playstore/img/en_get.svg"
+msgstr "/images/misc/playstore/img/fr_get.svg"
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -656,8 +668,8 @@ msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Le nom d'utilisateur doit être composé de lettres minuscules sans accents, de tirets et/ou de chiffres."
 
 msgctxt "error_username_too_long"
-msgid "The user name is too long (maximum 20 characters)."
-msgstr "Le nom d'utilisateur est trop long (20 caractères maximum)."
+msgid "The user name is too long (maximum 40 characters)."
+msgstr "Le nom d'utilisateur est trop long (40 caractères maximum)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
@@ -2364,7 +2376,7 @@ msgstr "Se déconnecter"
 
 msgctxt "site_description"
 msgid "A collaborative, free and open database of ingredients, nutrition facts and information on food products from around the world"
-msgstr "Ingrédients, composition nutritionnelle et information sur les produits alimentaires du monde entier dans une base de données libre et ouverte"
+msgstr "Une base de données collaborative, gratuite et ouverte d'ingrédients, de valeurs nutritionnelles et d'informations sur les produits alimentaires du monde entier."
 
 msgctxt "site_name"
 msgid "Open Food Facts"
@@ -2630,6 +2642,10 @@ msgstr "Activez le zoom avec la molette de la souris."
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Charger les images en basse résolution (pour les connexions lentes)"
+
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "Une image a été envoyée par le producteur. Si vous pensez qu'il y a une erreur ou que l'information est dépassée, veuillez nous contacter."
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
@@ -4006,6 +4022,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "Merci !"
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "Merci beaucoup !"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "Valeur pour le produit"
@@ -4198,6 +4218,10 @@ msgstr "Ajouter un champ"
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "Supprimer l'intégralité des produits"
+
+msgctxt "remove_user"
+msgid "Remove user"
+msgstr "Supprimer l'utilisateur"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -5750,15 +5774,17 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Important : nous avons besoin de votre soutien !"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Open Food Facts est un projet collaboratif construit par des dizaines de milliers de bénévoles et géré par une organisation à but non lucratif avec {number_of_employees} employés."
+msgctxt "donation_text_2023_main"
+msgid "Help us make food transparency the norm!"
+msgstr "Aidez-nous à faire de la transparence alimentaire la norme !"
 
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "Nous avons besoin de vos dons pour financer le budget {year} d'Open Food Facts et pour continuer à développer le projet."
+msgctxt "donation_text_2023_secondary"
+msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
+msgstr "En tant qu'organisation à but non lucratif, nous dépendons de vos dons pour continuer à informer les consommateurs du monde entier sur ce qu'ils mangent."
+
+msgctxt "donation_text_2023_tertiary"
+msgid "The food revolution starts with you!"
+msgstr "La révolution alimentaire commence avec vous !"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6617,27 +6643,31 @@ msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "par rapport à tous les produits"
 
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr "Langue préférée"
+
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
-msgstr ""
+msgstr "Nombre de composants de l'emballage"
 
 msgctxt "packagings_n_s"
 msgid "Number of packaging components"
-msgstr ""
+msgstr "Nombre de composants pour l'emballage"
 
 msgctxt "packagings_materials_all"
 msgid "All materials"
-msgstr ""
+msgstr "Tous les matériaux"
 
 msgctxt "weight"
 msgid "Weight"
-msgstr ""
+msgstr "Poids"
 
 msgctxt "weight_100g"
 msgid "Weight per 100g of product"
-msgstr ""
+msgstr "Poids par 100g de produit"
 
 msgctxt "weight_percent"
 msgid "Weight percent"
-msgstr ""
+msgstr "Pourcentage du poids"
 

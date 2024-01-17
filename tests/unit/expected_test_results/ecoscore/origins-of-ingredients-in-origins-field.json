@@ -2,7 +2,6 @@
    "categories_tags" : [
       "en:jams"
    ],
-   "downgraded" : "non_recyclable_and_non_biodegradable_materials",
    "ecoscore_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -18,6 +17,9 @@
             ],
             "epi_score" : 80.1,
             "epi_value" : 3,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
             "origins_from_origins_field" : [
                "en:france"
             ],
@@ -253,6 +255,7 @@
          "score" : 80,
          "version" : "3.1"
       },
+      "downgraded" : "non_recyclable_and_non_biodegradable_materials",
       "grade" : "b",
       "grades" : {
          "ad" : "b",
@@ -346,6 +349,7 @@
          "fi" : 77,
          "fo" : 76,
          "fr" : 79,
+         "fr_orig" : 81,
          "gg" : 78,
          "gi" : 71,
          "gr" : 75,
@@ -410,6 +414,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:cane-sugar",
          "origins" : "en:martinique",
          "percent" : 30,
@@ -478,17 +483,18 @@
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 10,
    "ingredients_without_ciqual_codes" : [
-      "en:apricot",
-      "en:cane-sugar"
+      "en:apricot"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 10,
    "lc" : "en",
    "misc_tags" : [
+      "en:some-ingredients-with-specified-percent",
       "en:packagings-number-of-components-0",
       "en:packagings-not-complete",
       "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
+      "en:ecoscore-downgraded",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-missing-data-labels",
       "en:ecoscore-missing-data-packagings",

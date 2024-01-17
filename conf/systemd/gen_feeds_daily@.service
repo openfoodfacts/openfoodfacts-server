@@ -1,0 +1,15 @@
+[Unit]
+Description=Generates %i daily feeds
+# __ will be replaced by @ in email-failures@.service
+OnFailure=email-failures@gen_feeds_daily__%i.service
+
+[Service]
+User=off
+Group=off
+Type=oneshot
+# service instance name "%i" is off / obf / opff / opf
+Environment=PERL5LIB=/srv/%i/lib/:/usr/local/share/perl/5.32.1/:/usr/lib/perl5
+WorkingDirectory=/srv/%i
+ExecStart=/srv/%i/scripts/gen_feeds_daily_%i.sh
+
+

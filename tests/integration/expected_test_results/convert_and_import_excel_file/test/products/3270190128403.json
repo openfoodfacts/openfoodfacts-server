@@ -52,17 +52,18 @@
       "carrefour-bio",
       "carrefour"
    ],
-   "categories" : "Plant-based foods and beverages, Plant-based foods, Legumes and their products, Cereals and potatoes, Fruits and vegetables based foods, Legumes, Seeds, Legume seeds, Pulses, Lentils, Green lentils",
+   "categories" : "Plant-based foods and beverages, Plant-based foods, Legumes and their products, Cereals and potatoes, Fruits and vegetables based foods, Legumes, Seeds, Legume seeds, Vegetables based foods, Pulses, Lentils, Green lentils",
    "categories_hierarchy" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
+      "en:fruits-and-vegetables-based-foods",
       "en:legumes-and-their-products",
       "en:cereals-and-potatoes",
-      "en:fruits-and-vegetables-based-foods",
       "en:legumes",
       "en:seeds",
-      "en:legume-seeds",
       "en:vegetables-based-foods",
+      "en:legume-seeds",
+      "en:vegetables",
       "en:pulses",
       "en:lentils",
       "en:green-lentils"
@@ -85,13 +86,14 @@
    "categories_tags" : [
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
+      "en:fruits-and-vegetables-based-foods",
       "en:legumes-and-their-products",
       "en:cereals-and-potatoes",
-      "en:fruits-and-vegetables-based-foods",
       "en:legumes",
       "en:seeds",
-      "en:legume-seeds",
       "en:vegetables-based-foods",
+      "en:legume-seeds",
+      "en:vegetables",
       "en:pulses",
       "en:lentils",
       "en:green-lentils"
@@ -166,6 +168,9 @@
             ],
             "epi_score" : 93,
             "epi_value" : 4,
+            "origins_from_categories" : [
+               "en:unknown"
+            ],
             "origins_from_origins_field" : [
                "en:france"
             ],
@@ -725,6 +730,7 @@
    "last_image_t" : "--ignore--",
    "last_modified_by" : "test-user",
    "last_modified_t" : "--ignore--",
+   "last_updated_t" : "--ignore--",
    "lc" : "fr",
    "lc_imported" : "fr",
    "link" : "https://www.carrefour.fr/p/lentilles-bio-vertes-carrefour-bio-3270190128403",
@@ -758,6 +764,7 @@
       "en:packagings-not-empty-but-not-complete",
       "en:packagings-not-empty",
       "en:ecoscore-extended-data-not-computed",
+      "en:ecoscore-score-above-100",
       "en:ecoscore-computed",
       "en:ecoscore-changed",
       "en:ecoscore-grade-changed",

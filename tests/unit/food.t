@@ -169,7 +169,7 @@ is($product_ref->{nutrition_score_beverage}, 1);
 $product_ref = {
 	lc => "en",
 	categories => "beverages",
-	categories_tags => ["en:beverages", "en:plant-milks"],
+	categories_tags => ["en:beverages", "en:plant-based-milk-alternatives"],
 	ingredients_tags => ["en:water", "en:sugar"],
 	ingredients_text => "water, fruit juice",
 };
@@ -221,8 +221,10 @@ $expected_product_ref = {
 	'nutrition_data_per' => 'serving',
 	'nutrition_data_prepared_per' => '100g',
 	'product_quantity' => 100,
+	'product_quantity_unit' => "g",
 	'quantity' => '100 g',
 	'serving_quantity' => 25,
+	'serving_quantity_unit' => "g",
 	'serving_size' => '25 g'
 };
 
@@ -250,8 +252,10 @@ $expected_product_ref = {
 	'nutrition_data_per' => 'serving',
 	'nutrition_data_prepared_per' => '100g',
 	'product_quantity' => 100,
+	'product_quantity_unit' => "g",
 	'quantity' => '100 g',
 	'serving_quantity' => 25,
+	'serving_quantity_unit' => "g",
 	'serving_size' => '25 g'
 };
 
@@ -318,8 +322,10 @@ $expected_product_ref = {
 	'nutrition_data_per' => '100g',
 	'nutrition_data_prepared_per' => '100g',
 	'product_quantity' => 100,
+	'product_quantity_unit' => "g",
 	'quantity' => '100 g',
 	'serving_quantity' => 25,
+	'serving_quantity_unit' => "g",
 	'serving_size' => '25 g'
 };
 
@@ -546,6 +552,7 @@ is_deeply(
 		'nutrition_data_per' => 'serving',
 		'nutrition_data_prepared_per' => '100g',
 		'serving_quantity' => 5,
+		'serving_quantity_unit' => "g",
 		'serving_size' => '5 g'
 	}
 ) or diag explain $product_ref;
