@@ -44,6 +44,7 @@ use ProductOpener::Food qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Data qw/:all/;
+use ProductOpener::Redis qw/:all/;
 use ProductOpener::GeoIP;
 
 use CGI qw/:cgi :form escapeHTML/;
