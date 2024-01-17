@@ -55,12 +55,20 @@ use LWP::UserAgent;
 use HTTP::Request::Common;
 
 my $api_base_url = 'https://api.brevo.com/v3';
+
 # Brevo API key
-my $brevo_api_key = $ProductOpener::Config2::brevo_api_key;
-my $list_id = $ProductOpener::Config2::list_id;
+# We use a function to be able to override it for tests
+sub get_brevo_api_key() {
+	return $ProductOpener::Config2::brevo_api_key;
+}
+# Brevo list ID
+sub get_list_id() {
+	return $ProductOpener::Config2::list_id;
+}
 
 sub add_contact_to_list ($email, $username, $country, $language) {
-
+	my $brevo_api_key = get_brevo_api_key();
+	my $list_id = get_list_id();
 	# We need a Brevo key to use this API, otherwise we silently fails
 	if (!$brevo_api_key) {
 		$log->debug("No Brevo key, no list subscription.") if $log->is_debug();
