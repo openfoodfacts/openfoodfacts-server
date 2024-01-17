@@ -1,5 +1,65 @@
 # Changelog
 
+## [2.26.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.25.0...v2.26.0) (2024-01-17)
+
+
+### Features
+
+* Added Producers button in the footer ([#9620](https://github.com/openfoodfacts/openfoodfacts-server/issues/9620)) ([6e1258d](https://github.com/openfoodfacts/openfoodfacts-server/commit/6e1258da7b852a06824caa6c9c78e949b45a5edd))
+* allow_longer_user_name ([#9588](https://github.com/openfoodfacts/openfoodfacts-server/issues/9588)) ([f60dc45](https://github.com/openfoodfacts/openfoodfacts-server/commit/f60dc45f5832afb6597c0be59f26dbb94c4abb2c))
+* dq_category_specific_ingredient_percent_2 ([#9606](https://github.com/openfoodfacts/openfoodfacts-server/issues/9606)) ([ac6b912](https://github.com/openfoodfacts/openfoodfacts-server/commit/ac6b91265db91fc80485839fee06567e8deae5f2))
+* jp_allergens_2 ([#9512](https://github.com/openfoodfacts/openfoodfacts-server/issues/9512)) ([852473b](https://github.com/openfoodfacts/openfoodfacts-server/commit/852473bbc1ff1fbcc3fd590ec5d1ce6e802cc664))
+* madenearme speedup ([#9570](https://github.com/openfoodfacts/openfoodfacts-server/issues/9570)) ([998ddb4](https://github.com/openfoodfacts/openfoodfacts-server/commit/998ddb42f8a4182a74845a005e27450f42cfbf8b))
+* quantity_units_new_fields ([#9608](https://github.com/openfoodfacts/openfoodfacts-server/issues/9608)) ([ef86b24](https://github.com/openfoodfacts/openfoodfacts-server/commit/ef86b24f430a37bb8a50a05a3dfdb3eb4fc72725))
+
+
+### Bug Fixes
+
+* add cornichons fins ([#9635](https://github.com/openfoodfacts/openfoodfacts-server/issues/9635)) ([cba8900](https://github.com/openfoodfacts/openfoodfacts-server/commit/cba890088c86d5a25a7a409f7581c616f09ff391))
+* add retry to download_matomo_logs.pl ([#9640](https://github.com/openfoodfacts/openfoodfacts-server/issues/9640)) ([9e9a8dc](https://github.com/openfoodfacts/openfoodfacts-server/commit/9e9a8dc497d2d90307eb590cd0082eb3ba6eb8dc))
+* add UK categories, translate poelees, add more translations ([3b45eaf](https://github.com/openfoodfacts/openfoodfacts-server/commit/3b45eafd66ad7f5e0f4114d92bd3037affc51876))
+* add UK categories, translate poelees, add more translations ([#9648](https://github.com/openfoodfacts/openfoodfacts-server/issues/9648)) ([3b45eaf](https://github.com/openfoodfacts/openfoodfacts-server/commit/3b45eafd66ad7f5e0f4114d92bd3037affc51876))
+* Add z-index for sugar warning [#8477](https://github.com/openfoodfacts/openfoodfacts-server/issues/8477) ([#9617](https://github.com/openfoodfacts/openfoodfacts-server/issues/9617)) ([7ed1019](https://github.com/openfoodfacts/openfoodfacts-server/commit/7ed1019fecdcbc0922cfb4e0516fe70692c61b4c))
+* bug_ingredients_wrongly_specific_ingredients ([#9624](https://github.com/openfoodfacts/openfoodfacts-server/issues/9624)) ([0426fd7](https://github.com/openfoodfacts/openfoodfacts-server/commit/0426fd7d095f919cff839fff5163d959450e33f7))
+* create last_updated_t in addition to last_modified_t ([#9646](https://github.com/openfoodfacts/openfoodfacts-server/issues/9646)) ([9fa6b5e](https://github.com/openfoodfacts/openfoodfacts-server/commit/9fa6b5ef258c302397a2c40b77cb1ccea195a7f2))
+* Leaflet map goes above content. ([#9602](https://github.com/openfoodfacts/openfoodfacts-server/issues/9602)) ([f0212f1](https://github.com/openfoodfacts/openfoodfacts-server/commit/f0212f1a18a42279dacc9585084d09b8ac574831))
+* Product name truncated [#7502](https://github.com/openfoodfacts/openfoodfacts-server/issues/7502) ([#9618](https://github.com/openfoodfacts/openfoodfacts-server/issues/9618)) ([53c218f](https://github.com/openfoodfacts/openfoodfacts-server/commit/53c218f5826bd532e8eb79acf18f14072c636792))
+* remove transparency of PNG images without a .png extension, fixe… ([#9632](https://github.com/openfoodfacts/openfoodfacts-server/issues/9632)) ([db94830](https://github.com/openfoodfacts/openfoodfacts-server/commit/db94830bf89c910ccdaa8db1ff185a26285a80d5))
+* remove transparency of PNG images without a .png extension, fixes [#9621](https://github.com/openfoodfacts/openfoodfacts-server/issues/9621) ([db94830](https://github.com/openfoodfacts/openfoodfacts-server/commit/db94830bf89c910ccdaa8db1ff185a26285a80d5))
+* remove unneeded escape of quotes in carbon footprint knowledge panel ([#9661](https://github.com/openfoodfacts/openfoodfacts-server/issues/9661)) ([ad0197f](https://github.com/openfoodfacts/openfoodfacts-server/commit/ad0197fd6926d05a2016e8aded1619c8d76c4c1c))
+* remove warnings for empty/undef quantities ([#9573](https://github.com/openfoodfacts/openfoodfacts-server/issues/9573)) ([6250c9f](https://github.com/openfoodfacts/openfoodfacts-server/commit/6250c9f16369e156d12d5fa943e7d4ca8ab3809c))
+* Removed Extra Character in Delete Images Button ([#9619](https://github.com/openfoodfacts/openfoodfacts-server/issues/9619)) ([6f89c1a](https://github.com/openfoodfacts/openfoodfacts-server/commit/6f89c1a695d012e7c37df1690ce4bfbbd0301f97))
+* Repair fat placements ([#9569](https://github.com/openfoodfacts/openfoodfacts-server/issues/9569)) ([ab4ed7d](https://github.com/openfoodfacts/openfoodfacts-server/commit/ab4ed7d2620661871101266a1793e5009efd7545))
+* small updates to scanbot for 2023 ([#9660](https://github.com/openfoodfacts/openfoodfacts-server/issues/9660)) ([46aecad](https://github.com/openfoodfacts/openfoodfacts-server/commit/46aecadf9c27313e29d3df772a886ef5708dd09d))
+* update mongo server ip address to off1 ([#9643](https://github.com/openfoodfacts/openfoodfacts-server/issues/9643)) ([5ecbbb4](https://github.com/openfoodfacts/openfoodfacts-server/commit/5ecbbb45f81045ecda087be1b20bc942c4c3fbd1))
+* verification md5sum and sha256sum generation on mongodb dump ([#9625](https://github.com/openfoodfacts/openfoodfacts-server/issues/9625)) ([06a2f08](https://github.com/openfoodfacts/openfoodfacts-server/commit/06a2f082fb89da9985a8f9a5a6867e0b401c125a))
+
+
+### Taxonomy
+
+* add cherry plum tomatoes to tomato ([#9599](https://github.com/openfoodfacts/openfoodfacts-server/issues/9599)) ([f95f746](https://github.com/openfoodfacts/openfoodfacts-server/commit/f95f746589b48bda4cc9faf61a1c4f29ba135a88))
+* Add Spanish and Catalan ingredients and labels ([#9591](https://github.com/openfoodfacts/openfoodfacts-server/issues/9591)) ([4c9f5f4](https://github.com/openfoodfacts/openfoodfacts-server/commit/4c9f5f49155c943a73557ed48ed97dbe92e96bdb))
+* Additives translations ([#9585](https://github.com/openfoodfacts/openfoodfacts-server/issues/9585)) ([a717247](https://github.com/openfoodfacts/openfoodfacts-server/commit/a71724704e14d61c6c0f4b9abf32b0e5b142771e))
+* Bulgarian additions ([#9590](https://github.com/openfoodfacts/openfoodfacts-server/issues/9590)) ([2654a07](https://github.com/openfoodfacts/openfoodfacts-server/commit/2654a07f8b02a69f7eb2154dd84e91da72d7a17a))
+* Categories translation ([#9500](https://github.com/openfoodfacts/openfoodfacts-server/issues/9500)) ([d6726dd](https://github.com/openfoodfacts/openfoodfacts-server/commit/d6726ddd7aa269013278360a1cc1de79eae3fbe4))
+* chutney ([#9600](https://github.com/openfoodfacts/openfoodfacts-server/issues/9600)) ([5b33015](https://github.com/openfoodfacts/openfoodfacts-server/commit/5b330154c42282efc72b0a756a49bc455dac0f7a))
+* finnish and swedish ingredients ([#9180](https://github.com/openfoodfacts/openfoodfacts-server/issues/9180)) ([b3fff45](https://github.com/openfoodfacts/openfoodfacts-server/commit/b3fff45c428ac27c0dfed489a7357cc14cd04126))
+* German ing ([#9634](https://github.com/openfoodfacts/openfoodfacts-server/issues/9634)) ([d5d0e41](https://github.com/openfoodfacts/openfoodfacts-server/commit/d5d0e415483714d7d91da0193f47b81893173d2d))
+* jp_allergens_1 (Combined) ([#9594](https://github.com/openfoodfacts/openfoodfacts-server/issues/9594)) ([f915975](https://github.com/openfoodfacts/openfoodfacts-server/commit/f9159752c7d5aa0b4083c8e5b629cf37a456a213))
+* Labels ([#9545](https://github.com/openfoodfacts/openfoodfacts-server/issues/9545)) ([740820b](https://github.com/openfoodfacts/openfoodfacts-server/commit/740820b94afa0b695602ea911f30bcd4da3cad1c))
+* new cake category and cottage cheese correction ([#9649](https://github.com/openfoodfacts/openfoodfacts-server/issues/9649)) ([e0f7e03](https://github.com/openfoodfacts/openfoodfacts-server/commit/e0f7e03d3898bf56aac00553266a90a4c4ccaa66))
+* syn E336i ([#9604](https://github.com/openfoodfacts/openfoodfacts-server/issues/9604)) ([50d4acd](https://github.com/openfoodfacts/openfoodfacts-server/commit/50d4acdf4cae167c47dc03c8c3fec15196f547e6))
+
+
+### Translations
+
+* New Crowdin translations to review and merge ([#9288](https://github.com/openfoodfacts/openfoodfacts-server/issues/9288)) ([e9e74d2](https://github.com/openfoodfacts/openfoodfacts-server/commit/e9e74d2cc04958a542238986cd6c7c1576a33512))
+
+
+### Technical
+
+* add description of new field in the taxonomy docs ([#9650](https://github.com/openfoodfacts/openfoodfacts-server/issues/9650)) ([98c54c7](https://github.com/openfoodfacts/openfoodfacts-server/commit/98c54c7028f2d13ac883b50c98af72d4f9df3860))
+
 ## [2.25.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.24.1...v2.25.0) (2023-12-21)
 
 
