@@ -715,6 +715,12 @@ EMAIL
 			;
 		$error += send_email_to_admin("Inscription de $userid", $admin_mail_body);
 	}
+	# Check if the user subscribed to the newsletter
+	if ($user_ref->{newsletter}) {
+		add_contact_to_list($user_ref->{email}, $user_ref->{user_id}, $user_ref->{country},
+			$user_ref->{preferred_language});
+	}
+
 	return $error;
 }
 
