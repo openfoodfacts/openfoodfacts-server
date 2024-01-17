@@ -1,6 +1,6 @@
-<html><head><title>product_jqm_multilingual.pl</title>
+<html><head><title>matomo_to_scan_logs.pl</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" >
-<link rel="stylesheet" title="simple.min" type="text/css" href="simple.min.css" media="all" >
+<link rel="stylesheet" title="simple.min" type="text/css" href="../../simple.min.css" media="all" >
 
 </head>
 <body class='pod'>
@@ -19,7 +19,7 @@
 -->
 
 <!-- start doc -->
-<p class="backlinktop"><b><a name="___top" href="index.html" accesskey="1" title="All Documents">&lt;&lt;</a></b></p>
+<p class="backlinktop"><b><a name="___top" href="../../index.html" accesskey="1" title="All Documents">&lt;&lt;</a></b></p>
 
 <div class='indexgroup'>
 <ul   class='indexList indexList1'>
@@ -32,18 +32,23 @@
 name="NAME"
 >NAME</a></h1>
 
-<p>product_jqm_multilingual.pl - implementation of the product WRITE API v0,
-v1 and v2</p>
+<p>matomo_to_scan_logs.pl - Converts Matomo API exports to NGINX style logs</p>
 
 <h1><a class='u' href='#___top' title='click to go to top of document'
 name="DESCRIPTION"
 >DESCRIPTION</a></h1>
 
-<p>This CGI script is v0 to v2 of the Product WRITE API.</p>
+<p>Matomo has an API to export individual visits with a list of the actions/events.</p>
 
-<p>API v3 is handled by a different /api/v3/product route,
-implemented in APIProductWrite.pm</p>
-<p class="backlinkbottom"><b><a name="___bottom" href="index.html" title="All Documents">&lt;&lt;</a></b></p>
+<p>e.g.
+https://analytics.openfoodfacts.org/?module=API&#38;method=Live.getLastVisitsDetails&#38;idSite=2&#38;period=month&#38;date=2022-12-01&#38;format=JSON&#38;token_auth=[token]</p>
+
+<p>This script filters scan events to convert them to NGINX style logs that can be used as input to scanbot.pl</p>
+
+<p>Usage:</p>
+
+<p>./matomo_to_scan_logs.pl [list of JSON files]</p>
+<p class="backlinkbottom"><b><a name="___bottom" href="../../index.html" title="All Documents">&lt;&lt;</a></b></p>
 
 <!-- end doc -->
 
