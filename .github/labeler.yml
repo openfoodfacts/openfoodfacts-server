@@ -476,7 +476,7 @@ Numbers:
 - scripts/remove_all_private_products_for_owner.pl
 - scripts/gen_pro_users_emails_list.pl
 - cgi/import_products_categories_from_public_database.pl
-- scripts/agena3000/run_agena3000_import.sh
+- scripts/imports/agena3000/run_agena3000_import.sh
 - scripts/bayard-import/run_bayard_import.sh
 - scripts/codeonline-import/run_codeonline_import.sh
 - scripts/codeonline-import/split_gs1_codeonline_json.pl
@@ -484,7 +484,7 @@ Numbers:
 - scripts/equadis-import/run_equadis_import.sh
 
 🏭 AGENA3000:
-- scripts/agena3000/run_agena3000_import.sh
+- scripts/imports/agena3000/run_agena3000_import.sh
 
 🏭 Bayard:
 - scripts/bayard-import/run_bayard_import.sh

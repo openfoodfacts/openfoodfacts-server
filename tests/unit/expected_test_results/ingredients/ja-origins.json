@@ -33,6 +33,7 @@
          "vegetarian" : "no"
       },
       {
+         "ciqual_proxy_food_code" : "17270",
          "from_palm_oil" : "no",
          "id" : "en:olive-oil",
          "origins" : "en:brazil,en:ethiopia",
@@ -65,6 +66,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
          "origins" : "en:outside-japan,en:japan",
          "percent_estimate" : 0.710227272727273,
@@ -225,11 +227,9 @@
       "en:breadfruit",
       "en:cocoa",
       "en:malt",
-      "en:meat",
-      "en:olive-oil",
-      "en:sugar"
+      "en:meat"
    ],
-   "ingredients_without_ciqual_codes_n" : 6,
+   "ingredients_without_ciqual_codes_n" : 4,
    "known_ingredients_n" : 31,
    "lc" : "ja",
    "nutriments" : {

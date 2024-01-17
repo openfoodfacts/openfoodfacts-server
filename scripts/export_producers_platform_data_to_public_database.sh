@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # import various producers data to public platform in automated mode
 # this script must be launched in /srv/off-pro/
 
@@ -23,6 +23,8 @@ org-kambly-france
 org-saint-hubert
 org-d-aucy
 org-lea-nature
+org-auchan-apaw
+org-les-mousquetaires
 )
 
 for producer in ${PRODUCERS[@]}

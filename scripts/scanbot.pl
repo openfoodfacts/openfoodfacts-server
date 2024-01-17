@@ -103,7 +103,7 @@ print STDERR "Running scanbot for year $year\n";
 
 my %codes = ();
 
-my $j = 0;    # API calls (or scans if logs have been filtered to keep only scans)
+my $scans = 0;    # API calls (or scans if logs have been filtered to keep only scans)
 
 # 139.167.246.115 - - [02/Jan/2019:17:46:57 +0100] "GET /api/v0/product/123.json?f
 
@@ -125,7 +125,6 @@ while (<STDIN>) {
 	# Get the product code e.g. "GET /api/v0/product/4548022405787.json?fields=image_front_small_url,product_name HTTP/2.0"
 	if ($line =~ / \/api\/v(?:[^\/]+)\/product\/(\d+)/) {
 
-		$j++;
 		my $code = $1;
 
 		# Skip bogus codes
@@ -140,18 +139,19 @@ while (<STDIN>) {
 
 		$ips{$ip}++;
 
-		($j % 1000) == 0 and print "Loading scan logs $j\n";
+		$scans++;
+		($scans % 1000) == 0 and print "Loading scan logs $scans\n";
 	}
 }
 
-print STDERR "Loaded scan logs: $j lines\n";
+print STDERR "Loaded scan logs: $scans scans\n";
 
 my $changed_products = 0;
 my $added_countries = 0;
 
 # Count unique ips
 
-my $total_scans = $j;
+my $total_scans = $scans;
 my $total_unique_scans = 0;
 
 foreach my $code (keys %codes) {
@@ -166,15 +166,15 @@ my $ips_n = scalar keys %ips;
 
 print STDERR "Computing GeoIPs for $ips_n ip addresses\n";
 
-$j = 0;
+my $ips = 0;
 
 foreach my $ip (keys %ips) {
-	$j++;
+	$ips++;
 	$geoips{$ip} = ProductOpener::GeoIP::get_country_code_for_ip($ip);
 	if (defined $geoips{$ip}) {
 		$geoips{$ip} = lc($geoips{$ip});
 	}
-	($j % 1000) == 0 and print "$j / $ips_n ips\n";
+	($ips % 1000) == 0 and print "$ips / $ips_n ips\n";
 }
 
 # Compute countries
@@ -187,9 +187,7 @@ my %products_for_countries = ();
 
 my %countries_ranks_for_products = ();
 
-$j = 0;
-
-my $k = 0;
+my $j = 0;
 my $i = 0;
 
 foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $codes{$a}{n}} keys %codes) {
@@ -231,8 +229,7 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 	}
 
 	if (($j % 100) == 0) {
-		print "computing countries $j - $i ips \n";
-		$k = 0;
+		print "computing countries $j products - $i ips \n";
 		$i = 0;
 	}
 }
@@ -505,8 +502,10 @@ foreach my $code (sort {$codes{$b}{u} <=> $codes{$a}{u} || $codes{$b}{n} <=> $co
 			}
 			else {
 				print "updating scan count for $code\n";
+				$product_ref->{last_updated_t} = time() + 0;
 				store("$BASE_DIRS{PRODUCTS}/$path/product.sto", $product_ref);
 				get_products_collection()->replace_one({"_id" => $product_ref->{_id}}, $product_ref, {upsert => 1});
+				push_to_redis_stream('scanbot', $product_ref, "updated", $year, {});
 			}
 		}
 	}
@@ -570,5 +569,5 @@ if (($changed_products > 0) and ($added_countries > 0)) {
 close $PRODUCTS;
 close $LOG;
 
-print "products: $i - scans: $j\n";
+print "products: $i - scans: $scans\n";
 

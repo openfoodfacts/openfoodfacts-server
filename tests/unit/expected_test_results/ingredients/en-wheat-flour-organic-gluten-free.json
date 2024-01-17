@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "9410",
          "id" : "en:wheat-flour",
          "percent_estimate" : 75,
          "percent_max" : 100,
@@ -10,6 +11,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "26140",
          "id" : "en:fish",
          "labels" : "en:sustainable-seafood-msc",
          "percent_estimate" : 25,
@@ -64,11 +66,8 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 2,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "ingredients_without_ciqual_codes" : [
-      "en:fish",
-      "en:wheat-flour"
-   ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 6,
    "labels" : "Organic, en:no-gluten",
    "labels_hierarchy" : [

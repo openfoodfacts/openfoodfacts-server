@@ -505,7 +505,7 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 		elsif ($user_ref->{userid} !~ /^[a-z0-9]+[a-z0-9\-]*[a-z0-9]+$/) {
 			push @{$errors_ref}, $Lang{error_invalid_username}{$lang};
 		}
-		elsif (length($user_ref->{userid}) > 20) {
+		elsif (length($user_ref->{userid}) > 40) {
 			push @{$errors_ref}, $Lang{error_username_too_long}{$lang};
 		}
 
@@ -1088,8 +1088,7 @@ sub init_user ($request_ref) {
 				$user_id = $user_ref->{'userid'};
 				$log->context->{user_id} = $user_id;
 
-				my $hash_is_correct
-					= check_password_hash(encode_utf8(decode utf8 => request_param($request_ref, 'password')),
+				my $hash_is_correct = check_password_hash(encode_utf8(request_param($request_ref, 'password')),
 					$user_ref->{'encrypted_password'});
 				# We don't have the right password
 				if (not $hash_is_correct) {

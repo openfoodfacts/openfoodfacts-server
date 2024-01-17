@@ -20,6 +20,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_proxy_food_code" : "31016",
                "id" : "en:sugar",
                "percent_estimate" : 11,
                "text" : "sucre",
@@ -251,6 +252,9 @@
    "ingredients_with_unspecified_percent_n" : 14,
    "ingredients_with_unspecified_percent_sum" : 88,
    "ingredients_without_ciqual_codes" : [
+      "en:acid",
+      "en:acidity-regulator",
+      "en:chocolate",
       "en:e322",
       "en:e330",
       "en:e333",
@@ -260,11 +264,11 @@
       "en:e472",
       "en:e474",
       "en:e475",
+      "en:emulsifier",
       "en:flour",
-      "en:milk-proteins",
-      "en:sugar"
+      "en:milk-proteins"
    ],
-   "ingredients_without_ciqual_codes_n" : 12,
+   "ingredients_without_ciqual_codes_n" : 15,
    "known_ingredients_n" : 25,
    "lc" : "fr",
    "misc_tags" : [

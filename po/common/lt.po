@@ -83,6 +83,18 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "Jūsų prašymas įstoti į organizaciją laukia administratoriaus patvirtinimo."
 
+msgctxt "admin_status_updated"
+msgid "Admin Status Updated"
+msgstr "Administratoriaus statusas atnaujintas"
+
+msgctxt "admin_status"
+msgid "Admin Status"
+msgstr "Administratoriaus statusas"
+
+msgctxt "grant_remove_admin_status"
+msgid "Grant/Remove Admin status"
+msgstr "Suteikti / pašalinti administratoriaus statusą"
+
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
 msgstr "Jei turite klausimų, rašykite el. Paštu <a href=\"mailto:producers@openfoodfacts.org\">producer@openfoodfacts.org</a>."
@@ -196,7 +208,7 @@ msgstr "https://world.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/lt_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -655,8 +667,8 @@ msgid "The user name must contain only unaccented letters, digits and dashes."
 msgstr "Vartotojo varde gali būti tik paprastos raidės, skaitmenys ir brūkšneliai."
 
 msgctxt "error_username_too_long"
-msgid "The user name is too long (maximum 20 characters)."
-msgstr "Naudotojo vardas per ilgas (daugiausia 20 simbolių)."
+msgid "The user name is too long (maximum 40 characters)."
+msgstr ""
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
@@ -2626,6 +2638,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "Įkelkite mažesnės raiškos vaizdus (lėtam interneto ryšiui)"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr "Nuotrauką atsiuntė gamintojas. Jei manote, kad ji neteisinga arba nėra naujausia, susisiekite su mumis."
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr "Įspėjimas: maistinės vertės nenurodytos. Jos apskaičiuotos pagal ingredientų sąrašą."
@@ -4001,6 +4017,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr ""
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "Labai ačiū!"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "Produkto vertė"
@@ -4193,6 +4213,10 @@ msgstr "Pridėkite lauką"
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "Pašalinkite visus produktus"
+
+msgctxt "remove_user"
+msgid "Remove user"
+msgstr "Šalinti naudotoją"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -5745,15 +5769,17 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "Svarbu: mums reikia jūsų paramos!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "„Open Food Facts“ yra bendradarbiavimo projektas, kurį sukūrė dešimtys tūkstančių savanorių ir kurį valdo ne pelno organizacija, kurioje dirba {number_of_employees} darbuotojų."
+msgctxt "donation_text_2023_main"
+msgid "Help us make food transparency the norm!"
+msgstr "Padėkite mums, kad maisto skaidrumas taptų norma!"
 
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "Mums reikia jūsų aukų, kad galėtume finansuoti „Open Food Facts {year} “ biudžetą ir toliau plėtoti projektą."
+msgctxt "donation_text_2023_secondary"
+msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
+msgstr "Kaip ne pelno organizacija, priklausome nuo jūsų aukų, kad ir toliau informuotume vartotojus visame pasaulyje apie tai, ką jie valgo."
+
+msgctxt "donation_text_2023_tertiary"
+msgid "The food revolution starts with you!"
+msgstr "Maisto revoliucija prasideda nuo tavęs!"
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6611,6 +6637,10 @@ msgstr "produktams, kurių sudėtyje daugiausia yra medžiagos"
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
 msgstr "palyginti su visais produktais"
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
+msgstr "Pageidautina kalba"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"

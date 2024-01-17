@@ -17,10 +17,14 @@
          "additives_original_tags" : [],
          "additives_tags" : [],
          "allergens" : "",
-         "allergens_from_ingredients" : "",
+         "allergens_from_ingredients" : "apple",
          "allergens_from_user" : "(en) ",
-         "allergens_hierarchy" : [],
-         "allergens_tags" : [],
+         "allergens_hierarchy" : [
+            "en:apple"
+         ],
+         "allergens_tags" : [
+            "en:apple"
+         ],
          "amino_acids_tags" : [],
          "categories" : "breakfast cereals",
          "categories_hierarchy" : [
@@ -573,8 +577,8 @@
          ],
          "ingredients_text" : "apple, water",
          "ingredients_text_en" : "apple, water",
-         "ingredients_text_with_allergens" : "apple, water",
-         "ingredients_text_with_allergens_en" : "apple, water",
+         "ingredients_text_with_allergens" : "<span class=\"allergen\">apple</span>, water",
+         "ingredients_text_with_allergens_en" : "<span class=\"allergen\">apple</span>, water",
          "ingredients_that_may_be_from_palm_oil_n" : 0,
          "ingredients_that_may_be_from_palm_oil_tags" : [],
          "ingredients_with_specified_percent_n" : 0,
@@ -604,6 +608,7 @@
          "last_editor" : "tests",
          "last_modified_by" : "tests",
          "last_modified_t" : "--ignore--",
+      "last_updated_t" : "--ignore--",
          "lc" : "es",
          "link" : "http://world.openfoodfacts.org/",
          "main_countries_tags" : [],
@@ -871,10 +876,12 @@
          "popularity_key" : 0,
          "product_name_en" : "Vegan breakfast cereals without palm oil",
          "product_quantity" : 100,
+         "product_quantity_unit" : "g",
          "quantity" : "100 g",
          "removed_countries_tags" : [],
          "rev" : 1,
          "serving_quantity" : 10,
+         "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
          "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [
@@ -937,10 +944,14 @@
          "additives_original_tags" : [],
          "additives_tags" : [],
          "allergens" : "",
-         "allergens_from_ingredients" : "",
+         "allergens_from_ingredients" : "apple",
          "allergens_from_user" : "(en) ",
-         "allergens_hierarchy" : [],
-         "allergens_tags" : [],
+         "allergens_hierarchy" : [
+            "en:apple"
+         ],
+         "allergens_tags" : [
+            "en:apple"
+         ],
          "amino_acids_tags" : [],
          "categories" : "breakfast cereals",
          "categories_hierarchy" : [
@@ -1504,8 +1515,8 @@
          ],
          "ingredients_text" : "apple, water",
          "ingredients_text_en" : "apple, water",
-         "ingredients_text_with_allergens" : "apple, water",
-         "ingredients_text_with_allergens_en" : "apple, water",
+         "ingredients_text_with_allergens" : "<span class=\"allergen\">apple</span>, water",
+         "ingredients_text_with_allergens_en" : "<span class=\"allergen\">apple</span>, water",
          "ingredients_that_may_be_from_palm_oil_n" : 0,
          "ingredients_that_may_be_from_palm_oil_tags" : [],
          "ingredients_with_specified_percent_n" : 0,
@@ -1535,6 +1546,7 @@
          "last_editor" : "tests",
          "last_modified_by" : "tests",
          "last_modified_t" : "--ignore--",
+      "last_updated_t" : "--ignore--",
          "lc" : "en",
          "link" : "http://world.openfoodfacts.org/",
          "main_countries_tags" : [],
@@ -1803,10 +1815,12 @@
          "product_name" : "More vegan breakfast cereals without palm oil",
          "product_name_en" : "More vegan breakfast cereals without palm oil",
          "product_quantity" : 100,
+         "product_quantity_unit" : "g",
          "quantity" : "100 g",
          "removed_countries_tags" : [],
          "rev" : 1,
          "serving_quantity" : 10,
+         "serving_quantity_unit" : "g",
          "serving_size" : "10 g",
          "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-uploaded",
          "states_hierarchy" : [

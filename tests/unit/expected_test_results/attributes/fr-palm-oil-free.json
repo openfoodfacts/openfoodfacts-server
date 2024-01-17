@@ -639,6 +639,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:sugar",
          "percent_estimate" : 9.375,
          "percent_max" : 33.3333333333333,
@@ -708,10 +709,9 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:chocolate",
-      "en:flour",
-      "en:sugar"
+      "en:flour"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 6,
    "languages" : {},
    "languages_codes" : {},

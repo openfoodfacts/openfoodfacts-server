@@ -14,6 +14,7 @@
                "vegetarian" : "yes"
             },
             {
+               "ciqual_proxy_food_code" : "12999",
                "id" : "en:cheese",
                "percent_estimate" : 11.6666666666667,
                "percent_max" : 35,
@@ -43,9 +44,11 @@
          "vegetarian" : "maybe"
       },
       {
+         "ciqual_food_code" : "23403",
          "id" : "en:pizza-dough",
          "ingredients" : [
             {
+               "ciqual_proxy_food_code" : "9410",
                "id" : "en:wheat-flour",
                "percent_estimate" : 20,
                "percent_max" : 30,
@@ -162,10 +165,9 @@
    "ingredients_with_unspecified_percent_n" : 6,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:cheese",
-      "en:wheat-flour"
+      "en:filling"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 19,
    "lc" : "fr",
    "misc_tags" : [

@@ -1,6 +1,7 @@
 {
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "31016",
          "id" : "en:cane-sugar",
          "labels" : "en:organic",
          "percent_estimate" : 62.5,
@@ -109,8 +110,8 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:apricot",
-      "en:cane-sugar",
-      "en:fruit-pectin"
+      "en:fruit-pectin",
+      "en:gelling-agent"
    ],
    "ingredients_without_ciqual_codes_n" : 3,
    "known_ingredients_n" : 14,

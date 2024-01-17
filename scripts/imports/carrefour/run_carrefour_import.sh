@@ -58,7 +58,8 @@ find $DATA_TMP_DIR/data/ -name "*.xml" -type f -exec sed -i 's/<\/TabNutXMLPF><T
 # create the images dir if it does not exist yet
 mkdir -p $IMAGES_TMP_DIR
 # unzip -j: create all files in destination folder, without any path
-unzip -j -o "$OFF_SFTP_HOME_DIR/carrefour/data/*.zip" -d "$IMAGES_TMP_DIR/"
+# note: carrefour now uploads images in the data-test directory
+unzip -j -o "$OFF_SFTP_HOME_DIR/carrefour/data-test/*.zip" -d "$IMAGES_TMP_DIR/"
 # copy images.rules used to determine the image type from the image file name
 cp ./scripts/imports/carrefour/images.rules $IMAGES_TMP_DIR
 
@@ -70,7 +71,7 @@ echo "Convert Carrefour XML files to OFF csv file"
 
 # import data
 echo "Import data"
-./scripts/import_csv_file.pl --csv_file $DATA_TMP_DIR/carrefour-data.tsv --user_id carrefour --comment "Import Carrefour" --source_id "carrefour" --source_name "Carrefour" --source_url "https://www.carrefour.fr" --manufacturer --org_id carrefour-test-off2 --define lc=fr --images_dir $IMAGES_TMP_DIR
+./scripts/import_csv_file.pl --csv_file $DATA_TMP_DIR/carrefour-data.tsv --user_id carrefour --comment "Import Carrefour" --source_id "carrefour" --source_name "Carrefour" --source_url "https://www.carrefour.fr" --manufacturer --org_id carrefour --define lc=fr --images_dir $IMAGES_TMP_DIR
 
 # mark successful run
 mark_successful_run $SUCCESS_FILE_PATH
