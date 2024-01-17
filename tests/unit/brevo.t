@@ -10,14 +10,12 @@ use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
 use File::Temp ();
 
-
 # Stores what will be sent to the mocked Brevo API
 my $request_headers;
 my $request_content;
 
-
 # Mock needed functions to simulate the Brevo API
-sub do_mock($brevo_api_key, $list_id, $code, $msg, $response) {
+sub do_mock ($brevo_api_key, $list_id, $code, $msg, $response) {
 	# reset results holders
 	$request_headers = undef;
 	$request_content = undef;
@@ -47,10 +45,11 @@ sub do_mock($brevo_api_key, $list_id, $code, $msg, $response) {
 	return ($mocked_ua, $mocked_brevo);
 }
 # unmocking
-sub do_unmock(@mocks) {
+sub do_unmock (@mocks) {
 	foreach my $mock (@mocks) {
 		$mock->unmock_all();
 	}
+	return;
 }
 
 # we use same values for tests
@@ -63,8 +62,8 @@ my $expected_headers = {
 };
 my $expected_content = {
 	email => 'abc@example.com',
-	attributes => { USERNAME => 'elly', COUNTRY => 'world', LANGUAGE => 'english' },
-	listIds => [ "123456789" ],
+	attributes => {USERNAME => 'elly', COUNTRY => 'world', LANGUAGE => 'english'},
+	listIds => ["123456789"],
 };
 
 # Test the add_contact_to_list function
