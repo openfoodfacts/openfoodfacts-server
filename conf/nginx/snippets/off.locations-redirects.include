@@ -146,6 +146,11 @@ location = /ecoscore {
 	return 301 https://$host/eco-score-the-environmental-impact-of-food-products;
 }
 
+# old page Redirect
+location = /donate {
+	redirect 301 https://$host/donate-to-open-food-facts;
+}
+
 # 2022-06-13 Redirect press pages to blog post about the new Flutter app
 # FR
 location = /presse {
