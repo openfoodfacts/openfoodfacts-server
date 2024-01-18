@@ -117,28 +117,14 @@ $decalTop:48px;
         border-radius: 0 0 8px 8px  ;
     }
 }
-// valign arrow only on manages images accordion
-#manage_images_accordion .accordion-navigation {
-  &::after {
-    display: none;
-  }
-  & > a {
-    display: flex;
-    align-items: center;
 
-    &::after {
-      content:"\E5c5";
-      display:block;
-      margin-left: auto;
-      font-family: 'Material Icons', sans-serif;
-      font-size: 24px;
-      pointer-events:none;
+// align dropdown only on manages images accordion
+#manage_images_accordion .accordion-navigation {
+    &:after {
+        top: 11px;
     }
-  }
-  &.active a::after {
-    content:"\e5c7";
-  }
 }
+
 #preferences_selection_form {
     margin:1rem;
 }
