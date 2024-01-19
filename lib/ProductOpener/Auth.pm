@@ -124,6 +124,7 @@ sub start_authorize ($request_ref) {
 		$return_url = $formatted_subdomain;
 	}
 
+	# get main OIDC client (keycloak)
 	my $client = _get_client();
 	my $redirect_url = $client->uri_to_redirect(
 		redirect_uri => $callback_uri,
@@ -151,6 +152,7 @@ The return URL after successful authentication.
 
 sub signin_callback ($request_ref) {
 	if (not(defined cookie($cookie_name))) {
+		# signin not yet initiated, restart signin process
 		start_authorize($request_ref);
 		return;
 	}
@@ -159,6 +161,7 @@ sub signin_callback ($request_ref) {
 	my $state = single_param('state');
 	my $time = time();
 	my $client = _get_client();
+	# access token shall have been set by OIDC service, get it
 	my $access_token = $client->get_access_token(
 		code => $code,
 		redirect_uri => $callback_uri,
@@ -166,12 +169,14 @@ sub signin_callback ($request_ref) {
 	$log->info('got access token during callback', {access_token => $access_token}) if $log->is_info();
 
 	my %cookie_ref = cookie($cookie_name);
+	# verify we are in the right sign-in process, thanks to the randomly generated token
 	my $nonce = $cookie_ref{'nonce'};
 	if (not($state eq $nonce)) {
 		$log->info('unexpected nonce', {nonce => $nonce, expected_nonce => $state}) if $log->is_info();
 		display_error_and_exit('Invalid Nonce during OIDC login', 500);
 	}
 
+	# validation against JWKS
 	my $id_token = verify_id_token($access_token->id_token);
 	unless ($id_token) {
 		$log->info('id token did not verify') if $log->is_info();
@@ -201,6 +206,7 @@ sub signin_callback ($request_ref) {
 		$time + $access_token->{expires_in},
 		$access_token->{id_token}, $request_ref
 	);
+    # add as apache parameter for now (should better be in request_ref)
 	param('user_id', $user_id);
 	param('user_session', $user_session);
 	init_user($request_ref);
@@ -211,6 +217,8 @@ sub signin_callback ($request_ref) {
 =head2 password_signin($username, $password)
 
 Signs in the user with a username and password, and returns the user's ID, refresh token, refresh token expiration time, access token, and access token expiration time.
+
+We support this to enable passing user and password in the request json. This is a legacy way of doing.
 
 =head3 Arguments
 
@@ -244,12 +252,33 @@ sub password_signin ($username, $password) {
 	return (
 		$user_id,
 		$access_token->{refresh_token},
+		# use absolute time instead of relative time
 		$time + $access_token->{refresh_expires_in},
 		$access_token->{access_token},
+		# use absolute time instead of relative time
 		$time + $access_token->{expires_in}
 	);
 }
 
+=head2 get_user_id_using_token ($id_token)
+
+Extract the user id from the OIDC identification token (which contains an email).
+
+It verifies that the email is a verified email before proceeding.
+
+If the user properties file does not yet exists, it create it.
+
+=head3 Arguments
+
+=head4 hash ref $id_token
+
+The OIDC identification token information
+
+=head3 Return Value
+
+The userid as a string
+
+=cut
 sub get_user_id_using_token ($id_token) {
 	unless ($JSON::PP::true eq $id_token->{'email_verified'}) {
 		$log->info('User email is not verified.', {email => $id_token->{'email'}}) if $log->is_info();
@@ -261,6 +290,7 @@ sub get_user_id_using_token ($id_token) {
 	return try_retrieve_userid_from_mail($verified_email) // create_user_in_product_opener($id_token);
 }
 
+# Access token have a limited life span but can be refreshed
 sub refresh_access_token ($refresh_token) {
 	my $time = time();
 	my $client = _get_client();
@@ -274,6 +304,20 @@ sub refresh_access_token ($refresh_token) {
 	);
 }
 
+=head2 access_to_protected_resource ($request_ref)
+
+This method insure a user is authenticated before proceeding to a specific page.
+
+If user is not authenticated, or his access token can't be refreshed,
+it will be redirected to signin process.
+
+=head3 Arguments
+=head4 A reference to a hash containing request information. $request_ref
+.
+=head3 Return Values
+None
+
+=cut
 sub access_to_protected_resource ($request_ref) {
 	unless ($User_id) {
 		start_authorize($request_ref);
@@ -290,6 +334,7 @@ sub access_to_protected_resource ($request_ref) {
 		return;
 	}
 
+	# refresh access token if it has already expired
 	if ((defined $access_expires_at) and ($access_expires_at < time())) {
 		($refresh_token, $refresh_expires_at, $access_token, $access_expires_at) = refresh_access_token($refresh_token);
 		unless ($access_token) {
@@ -320,6 +365,7 @@ None
 =cut
 
 sub start_signout ($request_ref) {
+	# compute return_url, so that after sign out, user will be redirected to the home page
 	my $return_url = single_param('return_url');
 	if (   (not $return_url)
 		or (not($return_url =~ /^https?:\/\/$subdomain\.$server_domain/)))
@@ -335,8 +381,10 @@ sub start_signout ($request_ref) {
 		return;
 	}
 
+	# start OIDC signout process
 	_ensure_oidc_is_discovered();
 
+	# random private token to identify the process
 	my $nonce = generate_token(64);
 	my $end_session_endpoint = $oidc_discover_document->{end_session_endpoint};
 	my $redirect_url
@@ -367,10 +415,12 @@ The return URL after successful sign-out.
 =cut
 
 sub signout_callback ($request_ref) {
-	if (not(defined cookie($cookie_name))) {
+	# no cookie, nothing to do
+	unless (defined cookie($cookie_name)) {
 		return $formatted_subdomain;
 	}
 
+	# ensure we are in the right process thanks to private random token
 	my $state = single_param('state');
 	my %cookie_ref = cookie($cookie_name);
 	my $nonce = $cookie_ref{'nonce'};
@@ -385,17 +435,38 @@ sub signout_callback ($request_ref) {
 	return $cookie_ref{'return_url'};
 }
 
+=head2 create_user_in_keycloak ($user_ref, $password)
+
+Create use on keycloak side.
+
+This is needed as we register new users in the website.
+We create the user properties file locally and we create the user in keycloak.
+
+=head3 Arguments
+
+=head4 User info hashmap reference $user_ref
+
+=head4 String $password
+
+=head3 Return Value
+
+A hashmap reference with created user informations.
+
+=cut
+
 sub create_user_in_keycloak ($user_ref, $password) {
 	my $keycloak_users_endpoint = $oidc_options{keycloak_users_endpoint};
 	unless ($keycloak_users_endpoint) {
 		display_error_and_exit('keycloak_users_endpoint not configured', 500);
 	}
 
+	# use a special application authorization to handle creation
 	my $token = get_token_using_client_credentials();
 	unless ($token) {
 		display_error_and_exit('Could not get token to manage users with keycloak_users_endpoint', 500);
 	}
 
+	# user creation payload
 	my $api_request_ref = {
 		email => $user_ref->{email},
 		emailVerified => $JSON::PP::true,    # TODO: Keep this for compat with current register endpoint?
@@ -416,15 +487,19 @@ sub create_user_in_keycloak ($user_ref, $password) {
 	};
 	my $json = encode_json($api_request_ref);
 
+	# create request with right headers
 	my $create_user_request = HTTP::Request->new(POST => $keycloak_users_endpoint);
 	$create_user_request->header('Content-Type' => 'application/json');
 	$create_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
 	$create_user_request->content($json);
+	# issue the request to keycloak
 	my $new_user_response = LWP::UserAgent::Plugin->new->request($create_user_request);
 	unless ($new_user_response->is_success) {
 		display_error_and_exit($new_user_response->content, 500);
 	}
 
+	# continue the process by fetching user data,
+	# which profile location is given in previous response
 	my $get_user_request = HTTP::Request->new(GET => $new_user_response->header('location'));
 	$get_user_request->header('Content-Type' => 'application/json');
 	$get_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
@@ -492,6 +567,8 @@ Open ID Access token, or undefined if sign-in wasn't successful.
 sub get_token_using_password_credentials ($username, $password) {
 	_ensure_oidc_is_discovered();
 
+	# Build a request and emit it using our app specific key
+	# to authenticate user
 	my $token_request = HTTP::Request->new(POST => $oidc_discover_document->{token_endpoint});
 	$token_request->header('Content-Type' => 'application/x-www-form-urlencoded');
 	$token_request->content('grant_type=password&client_id='
@@ -590,6 +667,7 @@ sub generate_oidc_cookie ($nonce, $return_url) {
 =head2 verify_access_token($access_token_string)
 
 Verifies the access token by decoding and validating it using the JSON Web Key Set (JWKS).
+(see https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-key-sets)
 
 Parameters:
 - $access_token_string: The access token to be verified.
@@ -637,6 +715,10 @@ sub verify_id_token ($id_token_string) {
 
 Retrieves the authorized party (client ID) from the access token.
 
+It is different for example between the website and the mobile app.
+
+This is useful for example for products change log.
+
 =head3 Arguments
 
 =head4 The access token. $access_token
@@ -669,6 +751,8 @@ sub get_azp ($access_token) {
 	return $access_token->{azp};
 }
 
+# return the OIDC client profile. 
+# See https://metacpan.org/pod/OIDC::Lite::Client::WebServer
 sub _get_client () {
 	if ($client) {
 		return $client;
@@ -707,6 +791,8 @@ sub _ensure_oidc_is_discovered () {
 	return;
 }
 
+# JWKS aka JSON Web Key Sets are essential to validate access tokens
+# https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-key-sets
 sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
 	my $jwks_request = HTTP::Request->new(GET => $jwks_uri);
 	my $jwks_response = LWP::UserAgent::Plugin->new->request($jwks_request);

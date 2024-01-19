@@ -2,6 +2,7 @@
 
 ARG DEPENDENCY_KEYCLOAK_VERSION=23.0.4
 
+# build a scrypt password provider for keycloak using maven
 FROM maven:3-eclipse-temurin-17 AS builder
 RUN set -x && \
     git clone --single-branch --branch feat/support-v23 --depth=1 https://github.com/hangy/scrypt-password-hash-provider.git && \
@@ -12,6 +13,7 @@ ARG DEPENDENCY_KEYCLOAK_VERSION
 FROM quay.io/keycloak/keycloak:${DEPENDENCY_KEYCLOAK_VERSION}
 
 USER root
+# get the compiled scrypt password hash provider
 COPY --from=builder --chown=keycloak:keycloak /scrypt-password-hash-provider/target/keycloak-scrypt-23.0.4-1.jar /opt/keycloak/providers/
 RUN set -x && \
     /opt/keycloak/bin/kc.sh build && \
