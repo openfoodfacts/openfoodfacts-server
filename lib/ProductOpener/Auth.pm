@@ -116,6 +116,7 @@ None
 =cut
 
 sub start_authorize ($request_ref) {
+	# random private token to identify the sign-in process
 	my $nonce = generate_token(64);
 	my $return_url = single_param('return_url');
 	if (   (not $return_url)
@@ -375,16 +376,16 @@ sub start_signout ($request_ref) {
 
 	my $id_token = $request_ref->{id_token};
 	unless ($User_id and $id_token) {
+		# user is not authenticated, nothing to do; sign-out is already done, redirect to home page
 		param('length', 'logout');
 		init_user($request_ref);
-		redirect_to_url($request_ref, 302, $formatted_subdomain);
+		redirect_to_url($request_ref, 302, $return_url);
 		return;
 	}
 
-	# start OIDC signout process
 	_ensure_oidc_is_discovered();
 
-	# random private token to identify the process
+	# random private token to identify the sign-out process
 	my $nonce = generate_token(64);
 	my $end_session_endpoint = $oidc_discover_document->{end_session_endpoint};
 	my $redirect_url
@@ -396,7 +397,9 @@ sub start_signout ($request_ref) {
 		. '&state='
 		. uri_escape($nonce);
 
+	# start OIDC signout process by storing nonce and return_url in a cookie
 	$request_ref->{cookie} = generate_oidc_cookie($nonce, $return_url);
+	# then, redirect to OIDC end_session_endpoint
 	redirect_to_url($request_ref, 302, $redirect_url);
 	return;
 }
@@ -631,7 +634,7 @@ sub get_token_using_client_credentials () {
 	return $access_token;
 }
 
-=head2 generate_oidc_cookie($user_id, $user_session)
+=head2 generate_oidc_cookie($nonce, $user_session)
 
 Generate a sign-in/sign-out cookie.
 

@@ -20,6 +20,14 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+=head1 DESCRIPTION
+
+This cgi script initiates sign-in process with the OIDC service (eg. keycloak)
+
+It redirects to the OIDC service, which will redirect back to oidc-signin-callback.pl
+
+=cut
+
 use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);

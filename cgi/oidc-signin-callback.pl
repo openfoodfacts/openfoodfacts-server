@@ -24,7 +24,7 @@
 
 This cgi script is called after successful sign-in happens on OIDC service (eg. keycloak)
 
-It verify authentication is ok, and redirect to a site url.
+It verifies authentication is ok, and redirects to a site url.
 
 =cut
 
