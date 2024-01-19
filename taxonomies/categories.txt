@@ -1112,6 +1112,30 @@ sv:Fermenterad mat
 th:อาหารหมัก
 tr:Fermente gıdalar, Mayalanmış gıdalar, Mayalı gıdalar
 zh:发酵食品
+ar:الأطعمة المخمرة
+as:পাকস্থলীয় খাদ্য
+az:Fermentlənmiş qida
+bn:পাকস্থলীয় খাদ্য
+cs:Kvašené potraviny
+cy:Bwydydd wedi'u fferyllu
+eo:Fermentitaj manĝaĵoj
+fa:غذاهای تخمیر شده
+ga:Bia fíonta
+hi:ज़रूरत से अधिक खाद्य
+hr:Fermentirana hrana
+id:Makanan Fermentasi
+kn:ಕಂದಿತ ಆಹಾರ
+ko:발효 식품
+mr:जवळचा अन्न
+ms:Makanan Fermentasi
+pa:ਜ਼ਰੂਰਤ ਤੋਂ ਜ਼ਿਆਦਾ ਖਾਣ-ਪੀਣ
+ro:Alimente fermentate
+sr:Ферментисана храна
+ta:பச்சையாக்கப்பட்ட உணவுகள்
+te:ఆకుపచ్చ ఆహారాలు
+tl:Pagkaing Fermented
+uk:Ферментовані продукти
+vi:Thực phẩm lên men
 
 <en:fermented foods
 en:kimchi
@@ -1296,6 +1320,11 @@ gpc_category_description:en:Definition: Includes any products than can be descri
 
 <en:Alcoholic beverages
 en:Alcohol making kits
+fr:Kits de fabrication d'alcool
+es:Kits para hacer alcohol
+de:Alkoholherstellungskits
+it:Kit per la produzione di alcolici
+nl:Alcohol maak kits
 gpc_category_code:en:10000142
 gpc_category_name:en:Alcohol Making Kits
 gpc_category_description:en:Definition: Includes any products that can be described/observed as an alcoholic drink making kit. These products are total units that include most of the necessary ingredients and equipment required to produce various flavours of beer, wine or spirits. Definition Excludes: Excludes products such as Alcohol Making Accessories sold separately, Non-Alcoholic Drink Making Kits, Alcohol Flavouring Kits and Pre-Made Alcohol.
@@ -1317,12 +1346,21 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 
 <en:Beverages
 en:Flavoured Drinks
+fr:Boissons aromatisées
+es:Bebidas con sabor
+de:Aromatisierte Getränke
+it:Bevande aromatizzate
+nl:Smaakdranken
 gpc_category_code:en:10000201
 gpc_category_name:en:Drinks Flavoured - Ready to Drink
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a sweet, ready to drink, carbonated or non-carbonated beverage that includes no dairy/dairy-substitute ingredients. These products are usually artificially flavoured and coloured. Products include carbonated drinks which contain caffeine and those sweetened with sugar or artificial sweeteners. Also includes fruit based carbonated drinks. Definition Excludes: Specifically excludes all non carbonated juice based drinks and 100% juices. Excludes products such as Not Ready to Drink Flavoured Drinks, all Juice Drinks and Dairy and Dairy Substitute Drinks.
 
 <en:Alcoholic beverages
 en:Premixed alcoholic beverages
+fr:Boissons alcoolisées pré-mélangées
+es:Bebidas alcohólicas premezcladas
+de:Fertig gemischte alkoholische Getränke
+it:Bevande alcoliche pre-miscelate
 wikidata:en:Q1571448
 gpc_category_code:en:10000144
 gpc_category_name:en:Alcoholic Pre-mixed Drinks
@@ -1331,6 +1369,9 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 <en:Premixed alcoholic beverages
 en:Beer-based alcoholic beverages
 fr:Boissons alcoolisées à base de bière
+es:Bebidas alcohólicas a base de cerveza
+it:Bevande alcoliche a base di birra
+nl:Bier gebaseerde alcoholische dranken
 
 <en:Beer-based alcoholic beverages
 en:Shandy, Beer with lemonade
@@ -1345,6 +1386,10 @@ ciqual_food_name:fr:Panaché (limonade et bière)
 <en:Shandy
 en:Shandy with less than 1° of alcohol
 fr:Panaché à moins de 1° d'alcool
+es:Shandy con menos de 1° de alcohol
+de:Shandy mit weniger als 1° Alkohol
+it:Shandy con meno di 1° di alcol
+nl:Shandy met minder dan 1° alcohol
 agribalyse_food_code:en:5005
 ciqual_food_code:en:5005
 ciqual_food_name:en:Shandy, prepacked (<1° alcohol)
@@ -1888,6 +1933,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Smoked_beer
 en:Christmas beers
 fr:Bières de Noël
 nl:Kerstbieren
+de:Weihnachtsbiere
+es:Cervezas de Navidad
+it:Birre natalizie
 wikidata:en:Q3621354
 
 <en:Beers
@@ -2829,6 +2877,11 @@ lt:Nealkoholinis vyšnių kriek
 <en:Non-alcoholic beers
 en:Non-alcoholic IPA
 lt:Nealkoholinis IPA
+fr:IPA sans alcool
+de:Alkoholfreies IPA
+es:IPA sin alcohol
+it:IPA analcolica
+nl:Alcoholvrije IPA
 
 <en:Non-alcoholic beers
 en:Non-alcoholic lager beers
@@ -2841,6 +2894,9 @@ lt:Nealkoholinis šviesusis pilsner alus
 <en:Non-alcoholic beers
 en:Non-alcoholic organic beers
 lt:nealkoholinis ekologiškas alus
+fr:Bières biologiques sans alcool
+it:Birre biologiche analcoliche
+nl:Biologische alcoholvrije bieren
 labels:en: en:organic
 
 <en:Non-alcoholic beers
@@ -3230,6 +3286,10 @@ origins:en: en:United Kingdom
 
 <en:Fruit brandy
 en:Austrian fruit spirit
+de:Österreichischer Obstbrand
+fr:Eau-de-vie de fruits autrichienne
+it:Distillato di frutta austriaco
+nl:Oostenrijkse fruitbrandewijn
 
 <en:Austrian fruit spirit
 de:Pregler, Osttiroler Pregler
@@ -3787,6 +3847,9 @@ en:Belgian Whisky
 de:Belgische Whiskys
 fr:Whisky belge
 nl:Belgische whiskies
+es:Whisky belga
+it:Whisky belga
+pt:Whisky belga
 # disabled for safety: origins:en: en:Belgium
 #wikidata:en:
 
@@ -3832,6 +3895,9 @@ fi:Ranskalainen viski
 fr:Whisky français
 nl:Franse whiskies
 zh:法国威士忌
+es:Whisky francés
+it:Whisky francese
+pt:Whisky francês
 wikidata_wikipedia_category:en:Q15975338
 origins:en: en:France
 #wikidata:en:
@@ -3842,6 +3908,9 @@ de:Whisky aus dem Elsass
 fr:Whisky alsacien, Whisky d'Alsace
 nl:Elzasser whiskies
 zh:阿尔萨斯威士忌
+es:Whisky alsaciano
+it:Whisky alsaziano
+pt:Whisky alsaciano
 protected_name_file_number:en: PGI-FR-01982
 protected_name_type:en: gi
 origins:en: en:France, fr:Alsace
@@ -3861,6 +3930,9 @@ en:Corsican whiskey
 de:Whisky aus Korsika
 fr:Whisky corse
 nl:Corsicaanse whiskies
+es:Whisky corso
+it:Whisky corso
+pt:Whisky corso
 # disabled for safety: origins:en: en:Corsica
 
 <en:French Whisky
@@ -4385,6 +4457,10 @@ ciqual_food_name:en:Rum
 <en:Rums
 en:Portuguese rums
 fr:Rhums portugais
+es:Rones portugueses
+pt:Rum português
+de:Portugiesischer Rum
+nl:Portugese rum
 #wikidata:en:
 
 <en:Portuguese rums
@@ -4482,6 +4558,8 @@ en:Haitian rums, Rums from Haiti
 de:Haitianische Rums
 fr:Rhums haïtiens
 nl:Haitiaanse rums, Rum uit Haïti
+ro:Rom haitian, Rom Haiti
+pl:Rum haitański
 # Disabled for safety: origins:en: en:Haiti
 #wikidata:en:
 
@@ -4550,10 +4628,16 @@ agribalyse_proxy_food_name:fr:Rhum
 
 <en:Eaux de vie
 en:Grain spirits
+de:Getreidebrände
+fr:Eaux-de-vie de céréales
+nl:Graanbrandewijnen
 #wikidata:en:
 
 <en:Grain spirits
 en:German grain spirit
+de:Deutscher Kornbrand
+fr:Eau-de-vie de céréales allemande
+nl:Duitse graanbrandewijn
 
 <en:German grain spirit
 de:Hasetaler Korn
@@ -4613,6 +4697,9 @@ ciqual_food_name:en:Vodka
 <en:Vodka
 en:Flavored vodka, flavoured vodka
 it:Vodka aromatizzato, Vodka con aroma
+fr:Vodka aromatisée, vodka parfumée
+de:Aromatisierter Wodka, Geschmackvoller Wodka
+es:Vodka con sabor, vodka aromatizada
 #wikidata:en:
 
 <en:Vodka
@@ -4620,6 +4707,9 @@ en:Lithuanian vodka
 fr:Vodkas lithuaniennes
 lt:Lietuviška degtinė
 nl:Litouwse wodkas
+de:Litauische Wodkas
+es:Vodkas lituanas
+it:Vodka lituane
 #wikidata:en:
 
 <en:Lithuanian vodka
@@ -4693,6 +4783,9 @@ bg:Естонска водка
 de:Estonische Wodkas
 fr:Vodkas estoniennes
 nl:Estse wodkas
+es:Vodkas estonias
+it:Vodka estone
+lt:Estų degtinės
 protected_name_file_number:en: PGI-EE-01971
 protected_name_type:en: gi
 origins:en: en:Estonia
@@ -4704,6 +4797,11 @@ bg:Латвийска водка
 de:Lettischer Wodkas, Lettischer Wodka
 fr:Vodkas lettones
 nl:Letse wodkas
+es:Vodkas letones
+it:Vodka lettone
+lt:Latviška degtinė
+pl:Łotewska wódka
+ru:Латвийская водка
 # disabled for safety: origins:en: en:Latvia
 #wikidata:en:
 
@@ -4712,11 +4810,27 @@ en:Lithuanian vodka
 de:Litauischer Wodka
 fr:Vodka lituanienne
 nl:Litouwse wodkas
+es:Vodka lituano
+it:Vodka lituana
+lt:Lietuviška degtinė
+pl:Litewska wódka
+ru:Литовская водка
 # disabled for safety: origins:en: en:Lithuania
 #wikidata:en:
 
 <en:Vodka
 no:Norsk Vodka, Norwegian Vodka
+sv:Norsk Vodka, Norwegian Vodka
+fi:Norjalainen Vodka, Norwegian Vodka
+da:Norsk Vodka, Norwegian Vodka
+nl:Noorse Vodka, Norwegian Vodka
+de:Norwegische Vodka, Norwegian Vodka
+fr:Vodka norvégienne, Norwegian Vodka
+es:Vodka noruego, Norwegian Vodka
+it:Vodka norvegese, Norwegian Vodka
+pl:Norweska wódka, Norwegian Vodka
+ru:Норвежская водка, Norwegian Vodka
+zh:挪威伏特加, Norwegian Vodka
 protected_name_file_number:en: PGI-NO-02240
 protected_name_type:en: gi
 origins:en: en:Norway
@@ -4728,6 +4842,11 @@ bg:Чешка водка
 de:Tschechische Wodkas
 fr:Vodkas tchèques
 nl:Tsjechische wodkas
+es:Vodkas checos
+it:Vodka ceca
+lt:Čekų degtinės
+pl:Czeska wódka
+ru:Чешская водка
 # disabled for safety: origins:en: en:Czech Republic
 #wikidata:en:
 
@@ -4772,6 +4891,9 @@ fr:Cocktails spritz
 <en:Alcoholic beverages
 en:Whiskey-based cocktail
 fr:Cocktail à base de whisky
+es:Cóctel a base de whisky
+de:Whisky-basierter Cocktail
+nl:Whiskycocktail
 agribalyse_food_code:en:1013
 ciqual_food_code:en:1013
 ciqual_food_name:en:Whiskey-based cocktail
@@ -5359,6 +5481,8 @@ origins:en: en:Italy
 en:Spanish liqueur
 fr:Liqueurs espagnoles
 nl:Spaanse Likeur
+es:Licor español
+it:Liquore spagnolo
 #wikidata:en:
 
 <en:Spanish liqueur
@@ -9241,11 +9365,19 @@ origins:en: en:Ivory coast
 <en:Coffees
 en:Coffees from Laos
 fr:Café du Laos
+es:Café de Laos
+it:Caffè del Laos
+nl:Koffie uit Laos
+pt:Café do Laos
 origins:en: en:Laos
 
 <en:Coffees
 en:Coffees from Nicaragua
 fr:Café du Nicaragua
+es:Café de Nicaragua
+it:Caffè del Nicaragua
+nl:Koffie uit Nicaragua
+pt:Café da Nicarágua
 origins:en: en:Nicaragua
 
 <en:Coffees
@@ -9800,6 +9932,9 @@ en:Torrefacto coffees
 es:Cafés torrefactos
 fr:Cafés torréfiés, Café torréifié
 nl:Gebrande koffies, Gebrande koffie
+it:Caffè torrefatto
+pt:Cafés torrados
+de:Geröstete Kaffees, Gerösteter Kaffee
 wikidata:en:Q1357168
 
 
@@ -9844,6 +9979,10 @@ en:Municipal water, Tap water
 fr:Eau du robinet
 ja:水道水
 nl:Kraanwaters
+es:Agua municipal, Agua del grifo
+de:Leitungswasser
+it:Acqua di rubinetto
+pt:Água da torneira
 ciqual_food_code:en:18066
 ciqual_food_name:en:Water, municipal
 ciqual_food_name:fr:Eau du robinet
@@ -10304,6 +10443,10 @@ ciqual_food_name:fr:Vin (aliment moyen)
 # should this fall under wines?
 <en:Wines
 en:Cooking wines
+fr:Vins de cuisine
+nl:Kookwijnen
+es:Vinos de cocina
+de:Kochweine
 gpc_category_code:en:10000052
 gpc_category_name:en:Cooking Wines
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a typically inferior variety of wine to Drinking Wine, sometimes adulterated with salt, which is used in cooking to enhance the flavour or colour of a prepared recipe. These products are specifically labelled and marketed as cooking wine, and their alcohol content ensures that they do not need to be refrigerated.Definition Excludes: Excludes products such as Wine or Sherry Alcoholic Beverages, and any alcohol not specifically used for cooking.
@@ -10346,6 +10489,14 @@ wikidata:en:Q321263
 <en:Sparkling wines
 <en:French wines
 en:French sparkling wines
+fr:Vins pétillants français
+es:Vinos espumosos franceses
+de:Französische Schaumweine
+it:Spumanti francesi
+ja:フランス産スパークリングワイン
+nl:Franse mousserende wijnen
+ru:Французские игристые вина
+zh:法国起泡酒
 
 <en:Wines
 en:Red wines, red wine
@@ -10380,6 +10531,8 @@ labels:en: en:organic
 en:10% red wine
 fr:Vin rouge à 10°, Vin rouge à 10 degrés
 pt:10% vinho tinto
+es:Vino tinto al 10%
+de:10% Rotwein
 agribalyse_food_code:en:5203
 ciqual_food_code:en:5203
 ciqual_food_name:en:Wine, red, 10°
@@ -10388,6 +10541,9 @@ ciqual_food_name:fr:Vin rouge 10°
 <en:Red wines
 en:11% red wine
 fr:Vin rouge à 11°, Vin rouge à 11 degrés
+es:Vino tinto al 11%
+de:11% Rotwein
+it:Vino rosso al 11%
 ciqual_food_code:en:5204
 ciqual_food_name:en:Wine, red, 11°
 ciqual_food_name:fr:Vin rouge 11°
@@ -11020,6 +11176,9 @@ pl:Wina francuskie, Wina z Francji
 pt:Vinhos da França, Vinhos franceses
 ru:Французские вина
 zh:法国葡萄酒
+ja:フランスワイン
+ko:프랑스 와인
+tr:Fransız şarapları
 wikidata:en:Q630531
 agribalyse_proxy_food_code:en:5215
 agribalyse_proxy_food_name:en:Wine, white, dry
@@ -21107,14 +21266,25 @@ wikidata:en:Q2140793
 
 <en:Wines
 en:Wines from Albania, Albanian wines
+de:Weine aus Albanien
+fr:Vins d'Albanie
+nl:Wijnen uit Albanië
+es:Vinos de Albania
 wikidata:en:Q1161792
 
 <en:Wines
 en:Wines from Argentina
+de:Weine aus Argentinien
+fr:Vins d'Argentine
+nl:Wijnen uit Argentinië
+es:Vinos de Argentina
 wikidata:en:QQ238914
 
 <en:Wines
 en:Wines from Armenia
+de:Weine aus Armenien
+fr:Vins d'Arménie
+nl:Wijnen uit Armenië
 wikidata:en:Q3561258
 
 <en:Wines
@@ -21146,6 +21316,10 @@ origins:en: en:United States
 
 <en:Wines
 en:Slovenian wines
+sl:Slovenska vina
+de:Slowenische Weine
+fr:Vins slovènes
+nl:Sloveense wijnen
 
 <en:Slovenian wines
 sl:Štajerska Slovenija
@@ -21268,6 +21442,9 @@ origins:en: en:Slovenia
 
 <en:Wines
 en:Wines from Algeria
+fr:Vins d'Algérie
+nl:Wijnen uit Algerije
+de:Weine aus Algerien
 wikidata:en:Q931087
 
 <en:Wines
@@ -21408,6 +21585,9 @@ origins:en: en:United Kingdom
 
 <en:Wines
 en:Swiss wines
+fr:Vins suisses
+de:Schweizer Weine
+nl:Zwitserse wijnen
 # disabled for safety: origins:en: en:Switzerland
 wikidata:en:Q674376
 
@@ -21419,9 +21599,11 @@ origins:en: en:Switzerland
 
 <en:Wines
 en:Wines from Austria, Austrian Wines
-de:Weine aus Österreich,österreichische Weine
+de:Weine aus Österreich, österreichische Weine
 fr:Vins d'Autriche
 nl:Oostenrijkse wijnen
+es:Vinos de Austria
+it:Vini austriaci
 wikidata:en:Q23237
 origins:en: en:Austria
 #wikidata:en:
@@ -21648,6 +21830,9 @@ en:Wines from Brazil, Brazilian Wines
 de:Weine aus Brasilien
 fr:Vins du Brésil, vins brésiliens
 nl:Braziliaanse wijnen, Braziliaanse wijn, Wijn uit Brazilië
+es:Vinos de Brasil, Vinos brasileños
+it:Vini del Brasile, Vini brasiliani
+pt:Vinhos do Brasil, Vinhos brasileiros
 wikidata:en:Q2038437
 origins:en: en:Brazil
 
@@ -21659,6 +21844,9 @@ origins:en: en:Brazil
 
 <en:Wines
 en:Danish wines
+da:Danske vine
+fr:Vins danois
+de:Dänische Weine
 # disabled for safety: origins:en: en:Denmark
 wikidata:en:Q2367063
 
@@ -21700,6 +21888,8 @@ origins:en: en:Denmark
 <en:Wines
 en:Dutch wines
 nl:Nederlandse wijnen, Wijnen uit Nederland
+de:Niederländische Weine
+fr:Vins néerlandais
 # disabled for safety: origins:en: en:Netherlands
 wikidata:en:Q767701
 
@@ -21825,6 +22015,9 @@ origins:en: en:Netherlands
 <en:Wines
 en:Wines from Belgium, Belgian Wines
 nl:Belgische wijnen
+fr:Vins belges
+de:Belgische Weine
+es:Vinos belgas
 wikidata:en:Q1738893
 
 <en:Dutch wines
@@ -21900,6 +22093,9 @@ origins:en: en:Belgium
 <en:Wines
 en:Wines from Bulgaria, Bulgarian Wines
 nl:Bulgaarse wijnen, Bulgaarse wijn, Wijn uit Bulgarije
+fr:Vins bulgares
+de:Bulgarische Weine
+es:Vinos búlgaros
 wikidata:en:Q1806971
 
 <en:Wines from Bulgaria
@@ -39221,6 +39417,9 @@ ru:Зерновые и картофель
 sv:Spannmål och Potatisar
 th:ธัญพืชและมันฝรั่ง
 tr:Tahıllar ve patates
+zh:谷物和土豆
+ja:穀物とジャガイモ
+ko:곡물과 감자
 food_groups:en: en:Cereals and potatoes
 pnns_group_1:en:Cereals and potatoes
 
@@ -39346,6 +39545,9 @@ ru:Зерновые продукты
 sv:Spannmål och deras produkter
 th:ผลิตภัณฑ์จากธัญพืช, ธัญพืช
 tr:Tahıl ve tahıl ürünleri
+uk:Зернові продукти
+vi:Ngũ cốc và sản phẩm từ ngũ cốc
+zh:谷物及其制品
 food_groups:en: en:Cereals
 pnns_group_2:en:Cereals
 gpc_category_code:en:10000211
@@ -41117,6 +41319,12 @@ nl:Bolognese chips
 <en:Flavoured potato crisps
 fr:Chips à la moutarde, Chips moutarde
 de:Senf Chips
+es:Patatas fritas con mostaza
+it:Patatine al senape
+lt:Garstyčių traškučiai
+nl:Mosterdchips
+pt:Batatas fritas com mostarda
+ru:Чипсы с горчицей
 
 <en:Flavoured potato crisps
 en:Cheese and onion crisps
@@ -41370,6 +41578,7 @@ ru:Кисломолочные продукты
 sv:Fermenterade mjölkprodukter
 th:กลุ่มผลิตภัณฑ์นมเปรี้ยว
 tr:Fermente süt ürünleri
+zh:发酵乳制品, 发酵乳制食品, 发酵乳制品, 发酵乳制品
 wikidata:en:Q3506176
 
 <en:Fermented milk products
@@ -42710,6 +42919,11 @@ wikidata:en:Q1995784
 
 <en:Cheeses
 en:Cypriot cheeses, Cheeses from Cyprus
+de:Zypriotische Käsesorten
+es:Quesos chipriotas
+fr:Fromages chypriotes
+it:Formaggi ciprioti
+nl:Cypriotische kazen
 
 <en:Cheeses
 <en:Meat alternatives
@@ -42739,6 +42953,10 @@ wikidata:en:Q549793
 en:Bulgarian cheeses, cheeses from Bulgaria
 bg:Български сирена
 fr:Fromages de Bulgarie, Fromages bulgares
+de:Bulgarische Käsesorten, Käse aus Bulgarien
+es:Quesos búlgaros, quesos de Bulgaria
+it:Formaggi bulgari, formaggi dalla Bulgaria
+nl:Bulgaarse kazen, kazen uit Bulgarije
 
 <en:Bulgarian cheeses
 en:Bulgarian white brine cheese 
@@ -44518,6 +44736,7 @@ pl:Ser kozi, Sery kozie
 pt:Queijos de cabra
 ru:Сыр из козьего молока
 tr:Keçi peyniri
+zh:山羊奶酪
 wikidata:en:Q198815
 agribalyse_proxy_food_code:en:12814
 ciqual_proxy_food_code:en:12814
@@ -45186,6 +45405,12 @@ pt:Queijo industrial
 <en:Cheeses
 en:Irish cheeses, cheeses from Ireland
 lt:Airiški sūriai
+fr:Fromages irlandais, fromages d'Irlande
+es:Quesos irlandeses, quesos de Irlanda
+de:Irische Käse, Käse aus Irland
+it:Formaggi irlandesi, formaggi dall'Irlanda
+nl:Ierse kazen, kazen uit Ierland
+pt:Queijos irlandeses, queijos da Irlanda
 
 <en:Irish cheeses
 ie:Imokilly Regato
@@ -45208,6 +45433,10 @@ lt:Itališki sūriai, sūriai iš Italijos
 nl:Italiaanse kazen
 pt:Queijos italianos, Queijos da Italia
 ru:Итальянские сыры
+sv:Italienska ostar, ostar från Italien
+tr:İtalyan peynirleri, İtalya peynirleri
+uk:Італійські сири
+zh:意大利奶酪, 意大利奶酪
 origins:en: en:Italy
 wikidata:en:Q1230305
 
@@ -48200,6 +48429,9 @@ agribalyse_proxy_food_name:fr:Lait entier, pasteurisé
 <en:Whole milks
 es:Leche entera esterilizada
 fr:Laits entiers stérilisés
+it:Latte intero sterilizzato
+de:Vollmilch sterilisiert
+nl:Gesteriliseerde volle melk
 
 <en:Whole milks
 <en:Pasteurised milks
@@ -48215,6 +48447,10 @@ ciqual_food_name:fr:Lait entier, pasteurisé
 <en:UHT Milks
 en:Whole milk UHT
 fr:Lait entier UHT
+es:Leche entera UHT
+it:Latte intero UHT
+de:Vollmilch UHT
+nl:Volle melk UHT
 agribalyse_food_code:en:19023
 ciqual_food_code:en:19023
 ciqual_food_name:en:Milk, whole, UHT
@@ -48223,6 +48459,10 @@ ciqual_food_name:fr:Lait entier, UHT
 <en:Milks
 en:Microfiltered milks
 fr:Laits microfiltrés
+es:Leches microfiltradas
+it:Latte microfiltrato
+de:Mikrofiltrierte Milchen
+nl:Gefilterde melken
 
 <en:Milks
 en:Homogenized milks, homogenized milk
@@ -48521,6 +48761,10 @@ wikidata:en:Q18404541
 <en:Milks
 en:High digestible milk
 it:Latte ad alta digeribilità
+fr:Lait hautement digestible
+es:Leche altamente digestible
+de:Hochverdauliche Milch
+nl:Hoog verteerbare melk
 
 <en:Fermented drinks
 <en:Plant-based beverages
@@ -48752,6 +48996,11 @@ nl:Sesamzaaddranken
 
 <en:Beverages
 en:Basil seeds drinks
+de:Basilikumsamen-Getränke
+es:Bebidas de semillas de albahaca
+fr:Boissons aux graines de basilic
+nl:Basilicumzaaddranken
+pt:Bebidas de sementes de manjericão
 #wikidata:en:
 
 <en:Cereal-based drinks
@@ -49494,6 +49743,10 @@ ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé
 <en:Fruit yogurts
 en:Yogurts with fruits and sugar
 fr:Yaourts sucrés aux fruits
+es:Yogures con frutas y azúcar
+de:Fruchtjoghurts mit Zucker
+it:Yogurt con frutta e zucchero
+nl:Yoghurts met fruit en suiker
 agribalyse_food_code:en:19587
 ciqual_food_code:en:19587
 ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits, with sugar
@@ -49530,6 +49783,10 @@ pl:Jogurty owocowe z kawałkami owoców
 fr:Yaourts multifruits, yaourts multi-fruits
 de:Mehrfruchtjoghurts, Mehrfruchtjoghurt
 nl:Multifruityoghurts
+es:Yogures multifrutas, yogures de varios frutas
+it:Yogurt multifrutti, yogurt multi-frutta
+pt:Iogurtes multifrutas, iogurtes de várias frutas
+ro:Iaurturi multifructe, iaurturi cu mai multe fructe
 
 #should contain only yogurt with real lemon, yogurt with lemon oil, extract or aroma should be in Flavoured yogurts
 <en:Fruit yogurts
@@ -49723,6 +49980,12 @@ en:Rhubarb yogurts
 fr:Yaourts à la rhubarbe
 lt:Rabarbarų jogurtai, Jogurtai su rabarbariaus
 nl:Rabarberyogurt, Rabarberyogurts
+es:Yogures de ruibarbo
+fi:Ruusunmarjayogurtit
+hu:Rebarbarás joghurtok
+it:Yogurt alla rhubarba
+pt:Iogurtes de ruibarbo
+ro:Iaurturi cu rubarbă
 #wikidata:en:
 
 <en:Fruit yogurts
@@ -50384,6 +50647,11 @@ fr:Coulis de cassis
 <en:Fruits coulis
 en:Bilberry coulis
 fr:Coulis de myrtille
+de:Heidelbeeren Coulis
+es:Coulis de arándano
+it:Coulis di mirtillo
+lt:Mėlynės čatnis
+nl:Bosbessencoulis
 #wikidata:en:
 
 <en:Fruits coulis
@@ -50399,6 +50667,11 @@ nl:Abrikozencoulis
 <en:Fruits coulis
 en:Mango coulis
 fr:Coulis de mangue
+de:Mango Coulis
+es:Coulis de mango
+it:Coulis di mango
+lt:Mangų čatnis
+nl:Mangocoulis
 #wikidata:en:
 
 <en:Desserts
@@ -50497,6 +50770,10 @@ nl:Light compotes
 
 <en:Compotes
 fr:Compotes sans sucres, purées de fruits
+es:Compotas sin azúcar, purés de frutas
+it:Composte senza zuccheri, puree di frutta
+de:Zuckerfreie Kompotte, Fruchtpürees
+nl:Suikervrije compotes, vruchtenpuree
 
 <en:Compotes
 en:Strawberry compotes
@@ -50655,6 +50932,9 @@ nl:Appel/Mango compotes
 <en:Apple compotes
 fr:Compotes pommes mûre
 it:Composte mela e mora
+lt:Obuolių ir mėlynės tyrės
+nl:Appel-bramencompotes
+es:Compotas de manzana y mora
 
 <en:Apple compotes
 en:Blueberry applesauces
@@ -51172,6 +51452,7 @@ ja:ティラミス
 lt:Tiramisas
 nl:Tiramisu
 pl:Tiramisu
+xx:Tiramisu
 wikidata:en:Q131582
 agribalyse_food_code:en:19698
 ciqual_food_code:en:19698
@@ -51182,18 +51463,33 @@ ciqual_food_name:fr:Tiramisu, rayon frais
 en:Fruit tiramisu
 fr:Tiramisu aux fruits
 lt:Vaisių tiramisas
+es:Tiramisú de frutas
+it:Tiramisù alla frutta
+ja:フルーツティラミス
+nl:Fruit tiramisu
+pl:Tiramisu owocowe
 #wikidata:en:
 
 <en:Tiramisu
 en:Chocolate tiramisu
 fr:Tiramisu au chocolat
 lt:Šokoladinis tiramisas
+es:Tiramisú de chocolate
+it:Tiramisù al cioccolato
+ja:チョコレートティラミス
+nl:Chocolade tiramisu
+pl:Tiramisu czekoladowe
 #wikidata:en:
 
 <en:Tiramisu
 en:Coffee tiramisu
 fr:Tiramisu au café
 lt:Kavos tiramisas
+es:Tiramisú de café
+it:Tiramisù al caffè
+ja:コーヒーティラミス
+nl:Koffie tiramisu
+pl:Tiramisu z kawą
 
 <en:Pastries
 en:Opera cake, Dessert Opera cake type
@@ -51226,6 +51522,11 @@ en:Fruit salads in syrup
 fr:Salades de fruits au sirop
 nl:Fruitsalade in siroop
 lt:Vaisių salotos su sirupu
+es:Ensaladas de frutas en almíbar
+it:Insalate di frutta sciroppate
+ja:シロップ漬けフルーツサラダ
+pl:Sałatki owocowe w syropie
+fi:Hedelmäsalaatit siirapissa
 #wikidata:en:
 
 <en:Fruit salads in syrup
@@ -53011,6 +53312,9 @@ origins:en: en:Belgium
 en:Italian honeys
 fr:Miels italiens
 lt:Medus iš Italijos
+es: Mieles italianas
+de:Italienische Honige
+nl:Italiaanse honing
 origins:en: en:Italy
 #wikidata:en:
 
@@ -54215,6 +54519,53 @@ ciqual_food_name:fr:Huile de sardine
 <en:Fish oils
 en:Salmon oils
 fr:Huiles de saumon
+ar:زيوت السالمون
+az:Ləziz yağlar
+bg:сьомгови масла
+bn:স্যালমন তেল
+cs:lososové oleje
+da:laksolie
+de:Lachsöle
+dv:ސަލްމޮން ކަންތައް
+eo:salmaj oleoj
+es:aceites de salmón
+fa:روغن ماهی سالمون
+fi:lohiöljyt
+ga:olaí salmóin
+gu:સેલ્મન તેલો
+he:שמנת דג הסלמון
+hi:सैलमन तेल
+hr:lososovo ulje
+hu:lazacolajok
+id:minyak salmon
+is:laxolía
+it:oli di salmone
+ja:サーモンオイル
+ka:ლახის ზეთები
+kn:ಸಾಮನ್ ಎಣ್ಣೆಗಳು
+ko:연어 오일
+lt:lososų aliejus
+ml:സാൽമൺ എണ്ണ
+mr:सॅल्मन तेल
+ms:minyak salmon
+nb:lakseoljer
+ne:साल्मन तेल
+nl:zalmoliën
+nn:lakseoljer
+pa:ਸਾਲਮਨ ਤੇਲ
+pl:oleje z łososia
+pt:óleos de salmão
+ro:uleiuri de somon
+ru:лососевые масла
+sa:साल्मन तेल
+si:සැල්මන් තෙල්
+sl:lososova olja
+sv:laxoljor
+ta:சால்மன் எண்ணெய்
+te:సాల్మన్ ఆయిల్స్
+uk:лососеві масла
+ur:سیلمن تیل
+zh:鲑鱼油
 agribalyse_food_code:en:17645
 ciqual_food_code:en:17645
 ciqual_food_name:en:Salmon oil
@@ -54223,6 +54574,53 @@ ciqual_food_name:fr:Huile de saumon
 <en:Fish oils
 en:Herring oils
 fr:Huiles de hareng
+ar:زيوت السردين
+az:Herinq yağları
+bg:херингови масла
+bn:হেরিং তেল
+cs:sleďové oleje
+da:sildolie
+de:Heringöle
+dv:ހެރިންގެ ކަންތައް
+eo:heringaj oleoj
+es:aceites de arenque
+fa:روغن ماهی هرینگ
+fi:heringin öljyt
+ga:olaí hering
+gu:હેરિંગ તેલો
+he:שמנת דג הרינג
+hi:हेरिंग तेल
+hr:ulja od haringe
+hu:heringolajok
+id:minyak ikan hering
+is:sildarolía
+it:oli di aringa
+ja:ニシン油
+ka:ხილის ზეთები
+kn:ಹೆರಿಂಗ್ ಎಣ್ಣೆಗಳು
+ko:청어 오일
+lt:šprotų aliejus
+ml:ഹെറിങ് എണ്ണ
+mr:हेरिंग तेल
+ms:minyak ikan sardin
+nb:sildolje
+ne:हेरिङ तेल
+nl:haringoliën
+nn:sildolje
+pa:ਹੇਰਿੰਗ ਤੇਲ
+pl:oleje śledziowe
+pt:óleos de arenque
+ro:uleiuri de hering
+ru:сельдяные масла
+sa:हेरिङ्ग तेलानि
+si:හැරිං තෙල්
+sl:olja iz sleda
+sv:silloljor
+ta:மீன் எண்ணெய்
+te:హెరింగ్ ఆయిల్స్
+uk:селедкові масла
+ur:ہیرنگ تیل
+zh:鲱鱼油
 agribalyse_food_code:en:17650
 ciqual_food_code:en:17650
 ciqual_food_name:en:Herring oil
@@ -54353,6 +54751,14 @@ nl:Gezouten margarine
 <en:Margarines
 en:Margarines high in omega 3
 fr:Margarines riche en oméga 3
+bg:Маргарини с високо съдържание на омега 3
+de:Margarinen mit hohem Omega-3-Gehalt
+es:Margarinas ricas en omega 3
+it:Margarine ricche di omega 3
+ja:オメガ3脂肪酸が豊富なマーガリン
+lt:Margainės su dideliu omega 3 kiekiu
+nl:Margarines met veel omega 3
+pt:Margarinas ricas em ômega 3
 
 <en:Margarines
 en:Light margarines
@@ -54550,11 +54956,16 @@ gpc_category_name:en:Oils Edible - Vegetable or Plant (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as any edible liquid oil derived from the following: grains, nuts, olives, palms, palm kernels, seeds, corn, maize, fruit pulp, beans or combination of these, that can be poured or dispensed as a spray, intended for cooking or for use as a dressing for salads. Products can include added flavouring, such as chilli and herbs. Definition Excludes: Specifically excludes products defined in the brick Oils Edible - Vegetable or Plant (Perishable). Excludes products such as health supplement based oils, such as Cod Liver, and non edible oils, such as non-food grade Linseed Oil.
 
 <en:Vegetable oils
-en:Flavoured  oils
+en:Flavoured oils
 fr:Huiles aromatisées
+es:Aceites aromatizados
+de:Aromatisierte Öle
+it:Oli aromatizzati
+ja:風味付けオイル
+nl:Gearomatiseerde oliën
 
 <en:Flavoured  oils
-en:Spiced flavoured  oils
+en:Spiced flavoured oils
 fr:Huiles pimentées
 
 <en:Vegetable oils
@@ -54654,6 +55065,10 @@ ciqual_food_name:en:Linseed oil
 <en:Cereal oils
 en:Camelina oils
 fr:Huiles de cameline
+es:Aceites de camelina
+de:Leindotteröle
+it:Olio di camelina
+nl:Kamelinoliën
 
 <en:Linseed oils
 de:Lausitzer Leinöl
@@ -59813,6 +60228,11 @@ zh:食用色素, 食用染料
 <en:Food colorings
 fr:Colorants pour oeufs, colorant pour oeufs
 nl:Eierverven
+es:Colorantes para huevos, colorante para huevos
+de:Eierfärben
+it:Coloranti per uova, colorante per uova
+lt:Kiaušinių dažai, dažiklis kiaušiniams
+zh:蛋类着色剂, 蛋类染料
 
 <en:Food additives
 en:Flavour enhancers
@@ -60065,6 +60485,14 @@ ciqual_food_name:fr:Frites de pommes de terre, surgelées, pour cuisson rôtie/ 
 <en:Fries
 en:Microwave fries
 fr:Frites micro-ondables
+lt:Mikrobangų bulvytės
+de:Mikrowellen-Pommes
+es:Papas fritas para microondas
+fi:Mikroaaltouunissa valmistettavat ranskalaiset perunat
+nl:Magnetron frietjes
+pl:Frytki do podgrzewania w mikrofalówce
+pt:Batatas fritas para micro-ondas
+ru:Картофель фри для микроволновой печи
 agribalyse_proxy_food_code:en:4045
 agribalyse_proxy_food_name:en:French fries or chips, frozen, raw, intended to be microwaved
 agribalyse_proxy_food_name:fr:Frites de pommes de terre, surgelées, pour cuisson micro-ondes
@@ -60797,6 +61225,10 @@ en:Mandarin sorbets
 fr:Sorbets à la mandarine
 it:Sorbetto al mandarino
 lt:Mandarinų šerbetai
+es:Sorbetes de mandarina
+de:Mandarinen-Sorbets
+fi:Mandariinisorbetit
+nl:Mandarijnsorbets
 
 <en:Sorbets
 en:Strawberry sorbets
@@ -60821,10 +61253,25 @@ nl:Frambozensorbets
 en:Blueberry sorbets
 fr:Sorbets à la myrtille
 lt:Mėlynių šerbetai
+bg:Сорбет от боровинки
+de:Heidelbeersorbets
+es:Sorbetes de arándano
+fi:Mustikkasorbetit
+he:סורבה תותי יער
+it:Sorbetto ai mirtilli
+ja:ブルーベリーソルベ
+nl:Blauwe bessensorbets
+pl:Sorbet z jagód
+ru:Сорбет из черники
 
 <en:Sorbets
 en:Blackberry sorbets
 fr:Sorbets à la mûre
+de:Brombeersorbets
+es:Sorbetes de mora
+it:Sorbetto di more
+lt:Šaltalankių šerbetai
+nl:Bramensorbets
 
 <en:Sorbets
 en:Mango sorbets
@@ -60846,14 +61293,28 @@ nl:Ananassorbet
 <en:Sorbets
 en:Banana sorbets
 fr:Sorbets à la banane
+es:Sorbetes de plátano
+it:Sorbetto alla banana
+lt:Bananų šerbetas
+nl:Bananensorbets
+de:Bananen-Sorbets
 
 <en:Sorbets
 en:Kiwi sorbets
 fr:Sorbets au kiwi
+es:Sorbetes de kiwi
+it:Sorbetto al kiwi
+lt:Kivio šerbetas
+nl:Kiwi sorbets
+de:Kiwi-Sorbets
 
 <en:Sorbets
 en:Fig sorbets
 fr:Sorbets à la figue
+es:Sorbetes de higo
+it:Sorbetto al fico
+lt:Figų šerbetas
+nl:Vijgensorbets
 
 <en:Sorbets
 en:Plum sorbets
@@ -61286,6 +61747,9 @@ pt:Carnes congeladas
 ru:Замороженное мясо
 sv:Fryst kött
 tr:Dondurulmuş et
+ja:冷凍肉
+ko:냉동 육류
+zh:冷冻肉类
 
 <en:Plant-based foods
 en:Fruits and vegetables based foods
@@ -61306,6 +61770,10 @@ pt:Alimentos à base de frutas e legumes
 ru:Продукты из фруктов или овощей
 th:ผลิตภัณฑ์จากผักและผลไม้
 tr:Meyve ve sebze kaynaklı gıdalar, Meyve ve sebze kaynaklı yiyecekler, Meyve ve sebze kaynaklı besinler
+sv:Matvaror baserade på frukt och grönsaker
+ja:果物と野菜をベースにした食品
+ko:과일과 채소 기반 식품
+zh:以水果和蔬菜为基础的食品
 food_groups:en: en:Fruits and vegetables
 pnns_group_1:en:Fruits and vegetables
 
@@ -69884,6 +70352,10 @@ pt:Produtos à base de carne
 ru:Продукты из мяса
 tr:Et ürünleri
 zh:肉制品
+ja:肉とその製品、肉ベースの製品
+ko:고기와 그 제품, 고기 기반 제품
+sv:Kött och dess produkter, Köttbaserade produkter
+no:Kjøtt og kjøttprodukter, Kjøttbaserte produkter
 wikidata:en:Q1427844
 
 <en:Meats and their products
@@ -87854,6 +88326,10 @@ agribalyse_proxy_food_name:fr:Tarte aux poires amandine
 <en:Pear pies
 en:Pear tart with almonds
 fr:Tarte aux poires amandine
+es:Tarta de pera con almendras
+de:Birnentorte mit Mandeln
+it:Crostata di pere e mandorle
+nl:Perentaart met amandelen
 agribalyse_food_code:en:24663
 ciqual_food_code:en:24663
 ciqual_food_name:en:Peer tart with almonds
@@ -87996,6 +88472,13 @@ ru:Безглютеновые продукты
 <en:Products without gluten
 en:Gluten free bread mixes
 nl:Glutenvrije broodmixes
+es:Mezclas de pan sin gluten
+fr:Préparations pour pain sans gluten
+de:Glutenfreie Brotmischungen
+it:Preparati per pane senza glutine
+pt:Misturas para pão sem glúten
+pl:Mieszanki do pieczenia chleba bezglutenowego
+ru:Смеси для выпечки хлеба без глютена
 
 en:Sandwiches, Sandwich
 bg:Сандвичи
@@ -88028,6 +88511,13 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 
 <en:Sandwiches
 en:Frozen sandwiches
+fr:Sandwichs surgelés
+de:Tiefkühlsandwiches
+es:Bocadillos congelados
+nl:Bevroren broodjes
+it:Panini surgelati
+pt:Sanduíches congelados
+ru:Замороженные бутерброды
 gpc_category_code:en:10000254
 gpc_category_name:en:Sandwiches/Filled Rolls/Wraps (Frozen)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a frozen leavened or unleavened, baked bread product from which slices, or the whole loaf, may be used to wrap or enclose a combination of one or more ingredients. These products must be frozen to extend their consumable life. Includes ready to eat products and products eaten hot or cold, once thawed. Definition Excludes: Excludes products such as Perishable Sandwiches, Filled Rolls and Wraps.
@@ -88192,6 +88682,16 @@ intake24_category_code:en:BRGO
 <en:Hamburgers
 en:Fish hamburgers, Fish burgers
 fr:Hamburgers au poisson, Burgers au poisson, Burgers de la mer, Burgers de cabillaud
+es:Hamburguesas de pescado, Hamburguesas de pescado, Hamburguesas del mar, Hamburguesas de bacalao
+ca:Hamburgueses de peix, Hamburgueses de peix, Hamburgueses del mar, Hamburgueses de bacallà
+de:Fischburger, Fisch-Burger, Meeresburger, Kabeljau-Burger
+it:Hamburger di pesce, Hamburger di pesce, Hamburger di mare, Hamburger di merluzzo
+nl:Visburgers, Visburgers, Zeeburgers, Kabeljauwburgers
+fi:Kala-hampurilaiset, Kala-hampurilaiset, Meren hampurilaiset, Turskahampurilaiset
+ja:魚のハンバーガー, 魚のハンバーガー, 海のハンバーガー, タラのハンバーガー
+bg:Рибени хамбургери, Рибени бургери, Бургери от риба, Бургери от треска
+el:Ψαρομπέργκερ, Ψαρομπέργκερ, Ψαρομπέργκερ της θάλασσας, Ψαρομπέργκερ μπακαλιάρου
+ru:Рыбные гамбургеры, Рыбные бургеры, Бургеры из рыбы, Бургеры из трески
 agribalyse_food_code:en:25416
 ciqual_food_code:en:25416
 ciqual_food_name:en:Fish burger, fast foods restaurant
@@ -88217,6 +88717,7 @@ fr:Hot-dogs, Hot-dog
 ja:ホットドッグ
 nl:Hotdogs
 pl:Hot-dogi
+xx:Hot-dog
 wikidata:en:Q181055
 agribalyse_food_code:en:25403
 ciqual_food_code:en:25403
@@ -88308,6 +88809,12 @@ wikidata:en:Q796270
 <en:Sandwiches
 en:Reuben Sandwich
 fr:Sandwich Reuben
+es:Bocadillo Reuben
+de:Reuben-Sandwich
+nl:Reuben-sandwich
+pl:Kanapka Reuben
+it:Panino Reuben
+pt:Sanduíche Reuben
 wikidata:en:Q3180957
 
 <en:Sandwiches
@@ -88334,6 +88841,15 @@ de:Geflügelsandwiches
 fi:siipikarjavoileivät
 fr:Sandwichs à la volaille
 nl:Gevogelte sandwiches
+es:Bocadillos de aves
+it:Panini di carne avicola
+pt:Sanduíches de aves
+bg:Сандвичи с птици
+es:Sándwiches de aves
+fi:kanavoileivät
+it:Panini al pollame
+nl:Pluimvee sandwiches
+pt:Sanduíches de aves
 
 <en:Poultry sandwiches
 en:Chicken sandwiches
@@ -88428,6 +88944,11 @@ en:Bacon sandwiches
 fr:Sandwichs au bacon
 nl:Speksandwiches
 pt:Sanduíches de bacon
+es:Bocadillos de tocino
+de:Bacon-Sandwiches
+it:Panini al bacon
+fi:Baconvoileivät
+bg:Сандвичи с бекон
 wikidata:en:Q4839953
 
 <en:Sandwiches
@@ -88453,6 +88974,8 @@ fr:Sandwichs au jambon
 it:Panini al prosciutto, Tramezzini al prosciutto, Sandwich al prosciutto
 nl:Hamsandwiches
 pt:Sanduíches de presunto
+ru:Бутерброды с ветчиной
+sv:Skinksmörgåsar
 wikidata:en:Q2220900
 
 <en:Ham sandwiches
@@ -88501,6 +89024,10 @@ ciqual_food_name:fr:Sandwich pain de mie complet, jambon, crudités, fromage opt
 <fr:Sandwichs à la dinde
 fr:Sandwichs au jambon de dinde
 nl:Kalkoenhamsandwiches
+es:Sándwiches de jamón de pavo
+de:Putenschinkensandwiches
+it:Panini al prosciutto di tacchino
+fi:Kalkkunaleikkelesandwichit
 
 <en:Ham sandwiches
 <en:Cheese sandwiches
@@ -88533,6 +89060,9 @@ fr:Sandwichs au fromage
 it:Panini al formaggio, Tramezzini al formaggio, Sandwich al formaggio
 nl:Kaassandwiches
 pt:Sanduíches de queijo
+ro:Sandwich-uri cu brânză
+ru:Сэндвичи с сыром
+sv:Ostsmörgåsar
 agribalyse_proxy_food_code:en:25518
 agribalyse_proxy_food_name:en:Sandwich made with French bread, camembert cheese and butter
 agribalyse_proxy_food_name:fr:Sandwich baguette, camembert, beurre
@@ -88587,10 +89117,26 @@ fr:Sandwichs à la tomme
 en:Cantal cheese sandwiches
 fr:Sandwichs au cantal
 nl:Sandwiches met Cantal
+es:Bocadillos de queso Cantal
+de:Cantal-Käse-Sandwiches
+it:Panini al formaggio Cantal
+pt:Sanduíches de queijo Cantal
+ru:Сэндвичи с кантальским сыром
+sv:Cantal-ostsmörgåsar
+fi:Cantal-juustovoileivät
+bg:Сандвичи с кантал
 
 <en:Cheese sandwiches
 fr:Sandwichs à la mimolette
 nl:Sandwiches met Mimolette
+es:Bocadillos de mimolette
+de:Mimolette-Sandwiches
+it:Panini alla mimolette
+pt:Sanduíches de mimolette
+ru:Сэндвичи с мимолетт
+sv:Mimolette-smörgåsar
+fi:Mimolette-voileivät
+bg:Сандвичи с мимолет
 
 <en:Cheese sandwiches
 en:Parmesan cheese sandwiches
@@ -88602,6 +89148,13 @@ nl:Sandwiches met Parmezaan
 en:Brie cheese sandwiches
 fr:Sandwichs au brie
 nl:Sandwiches met Brie
+es:Bocadillos de queso Brie
+de:Brie-Käse-Sandwiches
+it:Panini al formaggio Brie
+pt:Sanduíches de queijo Brie
+ru:Сэндвичи с сыром Бри
+sv:Smörgåsar med Brieost
+fi:Brienjuustovoileivät
 
 <en:Cheese sandwiches
 en:Sandwiches with camembert cheese
@@ -89387,6 +89940,9 @@ wikidata:en:Q4784939
 <en:Seafood
 en:Chinese sea products
 fr:Produits de la mer chinois
+es:Productos del mar chinos
+de:Chinesische Meeresprodukte
+it:Prodotti ittici cinesi
 
 <en:Lobsters
 en:Boiled lobster, Lobster cooked in water
@@ -89438,6 +89994,9 @@ origins:en: en:Finland
 <en:Meats and their products
 en:Norwegian sea products
 fr:Produits de la mer norvégiens
+es:Productos del mar noruegos
+de:Norwegische Meeresprodukte
+it:Prodotti ittici norvegesi
 
 <en:Norwegian sea products
 no:Tørrfisk fra Lofoten
@@ -94516,6 +95075,9 @@ ciqual_food_name:fr:Sucre roux
 <en:Sugars
 en:Cotton candy sugars
 fr:Sucres pour barbes à papa
+es:Azúcares para algodón de azúcar
+de:Zuckerwattezucker
+nl:Suikers voor suikerspin
 
 <en:Sugars
 en:Beet sugars
@@ -104247,10 +104809,21 @@ fr:Pains au chocolat au beurre
 
 <en:Chocolate croissant
 fr:Pains au chocolat à l'huile de tournesol
+en:Chocolate croissants with sunflower oil
+de:Schokoladen-Croissants mit Sonnenblumenöl
+es:Croissants de chocolate con aceite de girasol
+it:Cornetti al cioccolato con olio di girasole
+nl:Chocolade croissants met zonnebloemolie
 
 <en:Viennoiseries
 en:Chocolate croissant prepacked
 fr:Pain au chocolat préemballé
+de:Schokoladen-Croissant verpackt
+es:Croissant de chocolate envasado
+fi:Suklaavoisarvi valmiiksi pakattu
+it:Croissant al cioccolato confezionato
+nl:Chocolade croissant voorverpakt
+tr:Paketlenmiş çikolatalı kruvasan
 agribalyse_food_code:en:7733
 ciqual_food_code:en:7733
 ciqual_food_name:en:Chocolate croissant, prepacked
@@ -106546,6 +107119,10 @@ ciqual_food_name:en:Duck terrine
 
 <en:Duck terrines
 fr:Terrines de canard aux morilles
+nl:Eendterrine met morieljes
+de:Ententerrine mit Morcheln
+it:Terrina di anatra con funghi morchella
+es:Terrina de pato con morillas
 
 <en:Duck terrines
 fr:Terrines de canard au muscat
