@@ -437,8 +437,8 @@ sub signout_callback ($request_ref) {
 
 Create use on keycloak side.
 
-This is needed as we register new users in the website.
-We create the user properties file locally and we create the user in keycloak.
+This is needed as we register new users via an old, undocumente API function.
+We create the user properties file locally before, and we create the user in keycloak in this sub.
 
 =head3 Arguments
 
@@ -479,8 +479,8 @@ sub create_user_in_keycloak ($user_ref, $password) {
 		],
 		attributes => [
 			name => [$user_ref->{name}],
-			locale => [$user_ref->{initial_lc}],
-			country => [$user_ref->{initial_cc}],
+			locale => [$user_ref->{preferred_language}],
+			country => [$user_ref->{country}],
 		]
 	};
 	my $json = encode_json($api_request_ref);
