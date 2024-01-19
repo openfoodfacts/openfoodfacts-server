@@ -142,6 +142,7 @@ my $fix_non_string_ids = '';
 my $assign_ciqual_codes = '';
 my $obsolete = 0;
 my $fix_obsolete;
+my $fix_last_modified_t;    # Will set the update key and ensure last_updated_t is initialised
 
 my $query_ref = {};    # filters for mongodb query
 
@@ -199,6 +200,7 @@ GetOptions(
 	"assign-ciqual-codes" => \$assign_ciqual_codes,
 	"obsolete" => \$obsolete,
 	"fix-obsolete" => \$fix_obsolete,
+	"fix-last-modified-t" => \$fix_last_modified_t,
 ) or die("Error in command line arguments:\n\n$usage");
 
 use Data::Dumper;
@@ -272,7 +274,8 @@ if (    (not $process_ingredients)
 	and (not $just_print_codes)
 	and (not $prefix_packaging_tags_with_language)
 	and (not $assign_ciqual_codes)
-	and (not $fix_obsolete))
+	and (not $fix_obsolete)
+	and (not $fix_last_modified_t))
 {
 	die("Missing fields to update or --count option:\n$usage");
 }
@@ -398,9 +401,11 @@ else {
 }
 $cursor->immortal(1);
 
-my $l = 0;    # number of products tested
-my $n = 0;    # number of products updated
-my $m = 0;    # number of products with a new version created
+my $products_processed = 0;    # number of products processed by the script
+my $products_changed = 0;    # number of products changed by the script
+my $products_new_version_created = 0;    # number of products with a new version created
+my $products_silently_updated = 0;    # number of products updated without creating a new version
+my $products_pushed_to_redis = 0;    # number of products pushed to redis
 
 my $fix_rev_not_incremented_fixed = 0;
 my $fix_obsolete_fixed = 0;
@@ -427,7 +432,7 @@ if ($prefix_packaging_tags_with_language) {
 }
 
 while (my $product_ref = $cursor->next) {
-	$l++;
+	$products_processed++;
 
 	# Response structure to keep track of warnings and errors
 	# Note: currently some warnings and errors are added,
@@ -447,7 +452,7 @@ while (my $product_ref = $cursor->next) {
 		print STDERR "\ncode field undefined for product id: " . $product_ref->{id} . " _id: " . $product_ref->{_id};
 	}
 	else {
-		print STDERR "\nupdating product code: $code $owner_info ($l / $products_count)";
+		print STDERR "\nupdating product code: $code $owner_info ($products_processed / $products_count)";
 	}
 
 	next if $just_print_codes;
@@ -458,6 +463,9 @@ while (my $product_ref = $cursor->next) {
 	}
 
 	if ((defined $product_ref) and ($productid ne '')) {
+		# Delete the update_key if it exists, the field is used to keep track of which products have been processed by a run of this script,
+		# even if they were not updated because the updated product had the same content as the original product.
+		delete $product_ref->{update_key};
 		my $original_product = dclone($product_ref);
 
 		$lc = $product_ref->{lc};
@@ -723,6 +731,20 @@ while (my $product_ref = $cursor->next) {
 			}
 			else {
 				next;
+			}
+		}
+
+		if ($fix_last_modified_t) {
+			# https://github.com/openfoodfacts/openfoodfacts-server/pull/9646#issuecomment-1892160060
+			my $changes_ref = retrieve("$BASE_DIRS{PRODUCTS}/$path/changes.sto");
+			if (defined $changes_ref) {
+				my $change_ref = $changes_ref->[-1];
+				my $change_last_modified_t = $change_ref->{t};
+				my $current_last_modified_t = $product_ref->{last_modified_t} // 0;
+				if ($current_last_modified_t != $change_last_modified_t) {
+					print STDERR "-> fixing last_modified_t from $current_last_modified_t to $change_last_modified_t";
+					$product_ref->{last_modified_t} = $change_last_modified_t;
+				}
 			}
 		}
 
@@ -1356,33 +1378,46 @@ while (my $product_ref = $cursor->next) {
 				$any_change = !Compare($product_ref, $original_product);
 			}
 			if (!$any_change) {
-				print STDERR ". Skipped";
+				print STDERR ". Skipped: no change";
+			}
+			else {
+				print STDERR ". Changed";
+				$products_changed++;
 			}
 		}
 
-		if ($any_change and (!$pretend)) {
+		if (!$pretend) {
+
+			# If the product was not changed, we will still save it with the new update_key, so that we don't have to reprocess all products
+			# if the update_all_products.pl script is interrupted
 			$product_ref->{update_key} = $key;
 
 			# Create a new version of the product and create a new .sto file
 			# Useful when we actually change a value entered by a user
 			if ((defined $User_id) and ($User_id ne '') and ($product_values_changed)) {
 				store_product($User_id, $product_ref, "update_all_products.pl - " . $comment);
-				$m++;
+				$products_new_version_created++;
 			}
-
 			# Otherwise, we silently update the .sto file of the last version
 			else {
+				$products_silently_updated++;
+
+				# In all cases (even if the product data did not change),
+				# we store the product with the new update_key in the .sto file and the mongodb collection
+
 				# make sure nutrient values are numbers
 				ProductOpener::Products::make_sure_numbers_are_stored_as_numbers($product_ref);
 
-				# Make sure product _id and code are saved as string and not a number
-				# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
-				# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
-				$product_ref->{_id} .= '';
-				$product_ref->{code} .= '';
-
-				# Set last modified time
-				$product_ref->{last_modified_t} = time() + 0;
+				# Set last modified time if something was changed
+				if ($any_change) {
+					$product_ref->{last_updated_t} = time() + 0;
+				}
+				else {
+					# Initialise the last_updates_t if it is not currently set
+					if (not defined $product_ref->{last_updated_t}) {
+						$product_ref->{last_updated_t} = $product_ref->{last_modified_t};
+					}
+				}
 
 				if (!$mongodb_to_mongodb) {
 					# Store data to .sto file
@@ -1410,11 +1445,16 @@ while (my $product_ref = $cursor->next) {
 					$fix_obsolete_fixed++;
 				}
 
-				# Send to redis
-				push_to_redis_stream('update_all_products', $product_ref, "updated", $comment, {});
+				# Push to redis stream only if the product was changed (apart from its update_key)
+				if ($any_change) {
+					$products_pushed_to_redis++;
+					print STDERR ". Pushed to Redis stream";
+					push_to_redis_stream('update_all_products', $product_ref, "updated", $comment, {});
+				}
+				else {
+					print STDERR ". Not pushed to Redis stream";
+				}
 			}
-
-			$n++;
 		}
 	}
 	else {
@@ -1460,8 +1500,6 @@ if ($prefix_packaging_tags_with_language) {
 	print "prefix_packaging_language_not_found: $prefix_packaging_language_not_found" . "\n" . "\n";
 }
 
-print "$n products updated (pretend: $pretend) - $m new versions created\n";
-
 if ($fix_obsolete_fixed) {
 	print "$fix_obsolete_fixed removed from wrong collection (obsolete or current)\n";
 }
@@ -1492,5 +1530,11 @@ if ($fix_non_string_ids) {
 	print STDERR "products with non string ids can now be deleted from MongoDB with this command:"
 		. 'db.products.remove({_id : { $type : "long" }})' . "\n";
 }
+
+print STDERR "products_processed: $products_processed\n";
+print STDERR "products_changed: $products_changed\n";
+print STDERR "products_new_version_created: $products_new_version_created\n";
+print STDERR "products_silently_updated: $products_silently_updated\n";
+print STDERR "products_pushed_to_redis: $products_pushed_to_redis\n";
 
 exit(0);

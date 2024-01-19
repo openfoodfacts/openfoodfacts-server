@@ -83,6 +83,18 @@ msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
 msgstr "귀하의 조직 가입 요청이 조직 관리자의 승인을 기다리고 있습니다."
 
+msgctxt "admin_status_updated"
+msgid "Admin Status Updated"
+msgstr ""
+
+msgctxt "admin_status"
+msgid "Admin Status"
+msgstr ""
+
+msgctxt "grant_remove_admin_status"
+msgid "Grant/Remove Admin status"
+msgstr ""
+
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
 msgstr "질문이 있으시면 <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> 로 이메일을 보내주십시오."
@@ -196,7 +208,7 @@ msgstr "https://world-ko.openfoodfacts.org/files/off.apk"
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
 msgid "/images/misc/playstore/img/en_get.svg"
-msgstr "/images/misc/playstore/img/ko_get.svg"
+msgstr ""
 
 msgctxt "android_app_icon_alt_text"
 msgid "Get It On Google Play"
@@ -655,7 +667,7 @@ msgstr "사용자 이름에는 악센트가 없는 문자, 숫자 및 대시만 
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 40 characters)."
-msgstr "사용자 이름이 너무 깁니다(최대 20자)."
+msgstr ""
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
@@ -2625,6 +2637,10 @@ msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
 msgstr "저해상도 이미지 로드(느린 연결의 경우)"
 
+msgctxt "protected_image_message"
+msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
+msgstr ""
+
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
 msgstr ""
@@ -4000,6 +4016,10 @@ msgctxt "thank_you"
 msgid "Thank you!"
 msgstr "감사합니다!"
 
+msgctxt "thank_you_very_much"
+msgid "Thank you very much!"
+msgstr "대단히 감사합니다!"
+
 msgctxt "value_for_the_product"
 msgid "Value for the product"
 msgstr "제품의 가치"
@@ -4192,6 +4212,10 @@ msgstr "필드 추가"
 msgctxt "remove_products"
 msgid "Remove all the products"
 msgstr "모든 제품을 제거"
+
+msgctxt "remove_user"
+msgid "Remove user"
+msgstr ""
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -5745,15 +5769,17 @@ msgctxt "donation_title"
 msgid "Important: we need your support!"
 msgstr "중요: 여러분의 지원이 필요합니다!"
 
-# variable names between { } must not be translated, {number_of_employees} will be a number
-msgctxt "donation_body_employees"
-msgid "Open Food Facts is a collaborative project built by tens of thousands of volunteers and managed by a non-profit organization with {number_of_employees} employees."
-msgstr "Open Food Facts는 수만 명의 자원 봉사자가 구축하고 직원이 {number_of_employees} 명인 비영리 조직에서 관리하는 공동 프로젝트입니다."
+msgctxt "donation_text_2023_main"
+msgid "Help us make food transparency the norm!"
+msgstr ""
 
-# variable names between { } must not be translated, {year} will be the upcoming year
-msgctxt "donation_why_year"
-msgid "We need your donations to fund the Open Food Facts {year} budget and to continue to develop the project."
-msgstr "Open Food Facts {year} 예산을 지원하고 프로젝트를 계속 개발하려면 기부가 필요합니다."
+msgctxt "donation_text_2023_secondary"
+msgid "As a non-profit organization, we depend on your donations to continue informing consumers around the world about what they eat."
+msgstr ""
+
+msgctxt "donation_text_2023_tertiary"
+msgid "The food revolution starts with you!"
+msgstr ""
 
 msgctxt "donation_cta"
 msgid "Donate"
@@ -6610,6 +6636,10 @@ msgstr ""
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
+msgstr ""
+
+msgctxt "preferred_language"
+msgid "Preferred Language"
 msgstr ""
 
 msgctxt "packagings_n_p"
