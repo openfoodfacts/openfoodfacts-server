@@ -94,7 +94,7 @@ edit_etc_hosts:
 create_folders:
 # create some folders to avoid having them owned by root (when created by docker compose)
 	@echo "🥫 Creating folders before docker compose use them."
-	mkdir -p logs/apache2 logs/nginx debug || ( whoami; ls -l . ; false )
+	mkdir -p logs/apache2 logs/nginx debug html/data || ( whoami; ls -l . ; false )
 
 # TODO: Figure out events => actions and implement live reload
 # live_reload:
@@ -115,11 +115,6 @@ create_folders:
 build:
 	@echo "🥫 Building containers …"
 	${DOCKER_COMPOSE} build ${container} 2>&1
-
-# this is needed for CI
-build_backend:
-	@echo "🥫 Building backend container …"
-	${DOCKER_COMPOSE} build backend 2>&1
 
 _up:
 	@echo "🥫 Starting containers …"

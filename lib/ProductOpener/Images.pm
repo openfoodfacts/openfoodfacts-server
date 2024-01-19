@@ -850,8 +850,8 @@ sub process_image_upload ($product_id, $imagefield, $user_id, $time, $comment, $
 		$source->AutoOrient();
 		$source->Strip();    #remove orientation data and all other metadata (EXIF)
 
-		# remove the transparency for PNG files
-		if ($extension eq "png") {
+		# remove the transparency when there is an alpha channel (e.g. in PNG files) by adding a white background
+		if ($source->Get('matte')) {
 			$log->debug("png file, trying to remove the alpha background") if $log->is_debug();
 			my $bg = Image::Magick->new;
 			$bg->Set(size => $source->Get('width') . "x" . $source->Get('height'));
@@ -1328,6 +1328,12 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 		my $z = $w;
 		$w = $h;
 		$h = $z;
+	}
+
+	# potential divide by zero error - but log and let it flow for now for it is complex to handle
+	if (!($w && $h)) {
+		$log->error("Cannot crop image $id / $imgid contributed by $user_id on $product_id: "
+				. " crop width or height is 0: $w x $h");
 	}
 
 	print STDERR

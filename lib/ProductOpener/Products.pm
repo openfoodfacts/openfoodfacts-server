@@ -1325,9 +1325,12 @@ sub store_product ($user_id, $product_ref, $comment, $client_id = undef) {
 	$rev++;
 
 	$product_ref->{rev} = $rev;
+	# last_modified_t is the date of the last change of the product raw data
+	# last_updated_t is the date of the last change of the product derived data (e.g. ingredient analysis, scores etc.)
 	$product_ref->{last_modified_by} = $user_id;
 	$product_ref->{last_modified_by_client} = $client_id if defined $client_id;
 	$product_ref->{last_modified_t} = time() + 0;
+	$product_ref->{last_updated_t} = $product_ref->{last_modified_t};
 	if (not exists $product_ref->{creator}) {
 		my $creator = $user_id;
 		if ((not defined $user_id) or ($user_id eq '')) {
