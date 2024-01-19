@@ -1330,6 +1330,12 @@ sub process_image_crop ($user_id, $product_id, $id, $imgid, $angle, $normalize, 
 		$h = $z;
 	}
 
+	# potential divide by zero error - but log and let it flow for now for it is complex to handle
+	if (!($w && $h)) {
+		$log->error("Cannot crop image $id / $imgid contributed by $user_id on $product_id: "
+				. " crop width or height is 0: $w x $h");
+	}
+
 	print STDERR
 		"image_crop.pl - imgid: $imgid - crop_size: $crop_size - x1: $x1, y1: $y1, x2: $x2, y2: $y2, w: $w, h: $h\n";
 	$log->trace("calculating geometry",
