@@ -864,7 +864,7 @@ sub process_auth_header ($request_ref, $r) {
 	}
 
 	my $access_token;
-    # verify token using JWKS (see Auth.pm)
+	# verify token using JWKS (see Auth.pm)
 	eval {$access_token = verify_access_token($token);};
 	my $error = $@;
 	if ($error) {

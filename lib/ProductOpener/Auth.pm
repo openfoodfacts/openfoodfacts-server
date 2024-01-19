@@ -189,15 +189,13 @@ sub signin_callback ($request_ref) {
 		display_error_and_exit('Internal error', 500);
 	}
 
-	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-	unless (-e $user_file) {
-		$log->info('User file not found', {user_file => $user_file, user_id => $user_id}) if $log->is_info();
+	my $user_ref = retrieve_user($user_id);
+	unless ($user_ref) {
+		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
 		display_error_and_exit('Internal error', 500);
 	}
 
-	$log->debug('user_id found', {user_id => $user_id}) if $log->is_debug();
-	my $user_ref = retrieve($user_file);
-
+	$log->debug('user found', {user_ref => $user_ref}) if $log->is_debug();
 	my $user_session = open_user_session(
 		$user_ref,
 		$access_token->{refresh_token},
@@ -206,7 +204,7 @@ sub signin_callback ($request_ref) {
 		$time + $access_token->{expires_in},
 		$access_token->{id_token}, $request_ref
 	);
-    # add as apache parameter for now (should better be in request_ref)
+	# add as apache parameter for now (should better be in request_ref)
 	param('user_id', $user_id);
 	param('user_session', $user_session);
 	init_user($request_ref);
@@ -279,6 +277,7 @@ The OIDC identification token information
 The userid as a string
 
 =cut
+
 sub get_user_id_using_token ($id_token) {
 	unless ($JSON::PP::true eq $id_token->{'email_verified'}) {
 		$log->info('User email is not verified.', {email => $id_token->{'email'}}) if $log->is_info();
@@ -318,6 +317,7 @@ it will be redirected to signin process.
 None
 
 =cut
+
 sub access_to_protected_resource ($request_ref) {
 	unless ($User_id) {
 		start_authorize($request_ref);
@@ -751,7 +751,7 @@ sub get_azp ($access_token) {
 	return $access_token->{azp};
 }
 
-# return the OIDC client profile. 
+# return the OIDC client profile.
 # See https://metacpan.org/pod/OIDC::Lite::Client::WebServer
 sub _get_client () {
 	if ($client) {
