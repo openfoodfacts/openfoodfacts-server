@@ -90,12 +90,7 @@ use URI::Escape::XS qw/uri_escape/;
 # Initialize some constants
 
 my $cookie_name = 'oidc';
-my $cookie_domain = '.' . $server_domain;    # e.g. fr.openfoodfacts.org sets the domain to .openfoodfacts.org
-$cookie_domain =~ s/\.pro\./\./;    # e.g. .pro.openfoodfacts.org -> .openfoodfacts.org
-if (defined $server_options{cookie_domain}) {
-	$cookie_domain
-		= '.' . $server_options{cookie_domain};    # e.g. fr.import.openfoodfacts.org sets domain to .openfoodfacts.org
-}
+my $cookie_domain = get_cookie_domain();
 
 my $callback_uri = format_subdomain('world') . '/cgi/oidc-signin-callback.pl';
 my $signout_callback_uri = format_subdomain('world') . '/cgi/oidc-signout-callback.pl';
