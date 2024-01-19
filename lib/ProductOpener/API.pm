@@ -864,6 +864,7 @@ sub process_auth_header ($request_ref, $r) {
 	}
 
 	my $access_token;
+    # verify token using JWKS (see Auth.pm)
 	eval {$access_token = verify_access_token($token);};
 	my $error = $@;
 	if ($error) {
@@ -909,7 +910,7 @@ sub process_auth_header ($request_ref, $r) {
 =head2 _read_auth_header ( $request_ref, $r )
 
 Using the Authorization HTTP header, check if it looks like a 
-Bearer token, and if it odes, copy it to the request_ref
+Bearer token, and if it does, copy it to the request_ref
 
 =head3 Parameters
 

@@ -20,6 +20,14 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+=head1 DESCRIPTION
+
+This cgi script is called after successful sign-in happens on OIDC service (eg. keycloak)
+
+It verify authentication is ok, and redirect to a site url.
+
+=cut
+
 use ProductOpener::PerlStandards;
 
 use CGI::Carp qw(fatalsToBrowser);
