@@ -284,7 +284,24 @@ sub get_user_id_using_token ($id_token) {
 	return try_retrieve_userid_from_mail($verified_email) // create_user_in_product_opener($id_token);
 }
 
-# Access token have a limited life span but can be refreshed
+=head2 refresh_access_token ($id_token)
+
+Refreshes the access token using the OIDC client.
+
+Access token have a limited life span but can be refreshed
+
+=head3 Arguments
+
+=head4 hash ref $refresh_token
+
+OIDC refresh token
+
+=head3 Return Value
+
+A list containing the user's ID, new refresh token, refresh token expiration time, new access token, and access token expiration time.
+
+=cut
+
 sub refresh_access_token ($refresh_token) {
 	my $time = time();
 	my $client = _get_client();
@@ -509,6 +526,23 @@ sub create_user_in_keycloak ($user_ref, $password) {
 	my @created_users = decode_json($json_response);
 	return $created_users[0];
 }
+
+=head2 create_user_in_product_opener($id_token)
+
+Create a .sto file for the user based on the ID token.
+
+Some functionality in ProductOpener still relies on the .sto files, so we need to
+create them for users that sign in using OIDC.
+
+=head3 Arguments
+
+=head4 An OIDC ID token representing the new user $id_token
+
+=head3 Return values
+
+The new user's id.
+
+=cut
 
 sub create_user_in_product_opener ($id_token) {
 	unless ($id_token) {
@@ -748,8 +782,31 @@ sub get_azp ($access_token) {
 	return $access_token->{azp};
 }
 
-# return the OIDC client profile.
-# See https://metacpan.org/pod/OIDC::Lite::Client::WebServer
+=head2 _get_client()
+
+Get the OIDC client that is used to interact with the OIDC server.
+
+This subroutine creates and returns an instance of the OIDC::Lite::Client::WebServer class, which represents the client profile for OpenID Connect (OIDC) authentication. The client profile is used to interact with the OIDC server for authentication and authorization purposes.
+
+The client profile is created with the following parameters:
+- id: The client ID provided by the OIDC server.
+- secret: The client secret provided by the OIDC server.
+- authorize_uri: The authorization endpoint URL provided by the OIDC server.
+- access_token_uri: The token endpoint URL provided by the OIDC server.
+
+If the client profile has already been created, it is returned directly without re-creating it.
+
+See L<https://metacpan.org/pod/OIDC::Lite::Client::WebServer> for more information on the OIDC::Lite::Client::WebServer module.
+
+=head3 Arguments
+
+None.
+
+=head3 Return values
+
+A workable instance of OIDC::Lite::Client::WebServer.
+=cut
+
 sub _get_client () {
 	if ($client) {
 		return $client;
@@ -764,6 +821,24 @@ sub _get_client () {
 	);
 	return $client;
 }
+
+=head2 _ensure_oidc_is_discovered( )
+
+Ensures that OIDC (OpenID Connect) is discovered and configured.
+
+If OIDC is already discovered, the function returns without doing anything.
+
+Otherwise, it sends a discovery request to the OIDC endpoint and loads the discovery document.
+If successful, it updates the OIDC options with the JWKS (JSON Web Key Set) configuration.
+
+=head3 Arguments
+
+None.
+
+=head3 Return values
+
+None.
+=cut
 
 sub _ensure_oidc_is_discovered () {
 	if ($jwks) {
@@ -788,8 +863,22 @@ sub _ensure_oidc_is_discovered () {
 	return;
 }
 
-# JWKS aka JSON Web Key Sets are essential to validate access tokens
-# https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-key-sets
+=head2 _load_jwks_configuration_to_oidc_options( $jwks_uri )
+
+Loads the JWKS from $jwks_uri, and stores it in the $jkw variable.
+
+JWKS aka JSON Web Key Sets are essential to validate access tokens
+https://auth0.com/docs/secure/tokens/json-web-tokens/json-web-key-sets
+
+=head3 Arguments
+
+=head4 URI to the JWKS. $jwks_uri
+
+=head3 Return values
+
+None.
+=cut
+
 sub _load_jwks_configuration_to_oidc_options ($jwks_uri) {
 	my $jwks_request = HTTP::Request->new(GET => $jwks_uri);
 	my $jwks_response = LWP::UserAgent::Plugin->new->request($jwks_request);
