@@ -453,7 +453,7 @@ sub signout_callback ($request_ref) {
 
 Create use on keycloak side.
 
-This is needed as we register new users via an old, undocumente API function.
+This is needed as we register new users via an old, undocumented API function.
 We create the user properties file locally before, and we create the user in keycloak in this sub.
 
 =head3 Arguments
