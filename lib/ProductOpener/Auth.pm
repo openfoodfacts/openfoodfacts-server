@@ -148,8 +148,7 @@ The return URL after successful authentication.
 
 sub signin_callback ($request_ref) {
 	if (not(defined cookie($cookie_name))) {
-		# signin not yet initiated, restart signin process
-		start_authorize($request_ref);
+		display_error_and_exit(lang('oidc_signin_no_cookie'), 400);
 		return;
 	}
 
