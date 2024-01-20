@@ -33,20 +33,35 @@ use LWP::UserAgent::Plugin 'Retry';
 use HTTP::Request;
 use URI::Escape::XS qw/uri_escape/;
 
+my $keycloak_users_endpoint = $oidc_options{keycloak_users_endpoint};
+unless ($keycloak_users_endpoint) {
+	die 'keycloak_users_endpoint not configured';
+}
+
+my $token;
+
+sub get_token_if_we_dont_have_one_yet_or_it_is_expired () {
+	if (not(defined $token)) {
+		$token = get_token_using_client_credentials();
+		$token->{expires_at} = time() + $token->{expires_in};
+	}
+	else {
+		my $now = time();
+		my $cutoff = $token->{expires_at} - 15;
+		if ($now > $token->{expires_at}) {
+			$token = get_token_using_client_credentials();
+			$token->{expires_at} = time() + $token->{expires_in};
+		}
+	}
+
+	return $token // die 'Could not get token to manage users with keycloak_users_endpoint';
+}
+
 sub create_user_in_keycloak_with_scrypt_credential ($user_ref, $credential) {
-	my $keycloak_users_endpoint = $oidc_options{keycloak_users_endpoint};
-	unless ($keycloak_users_endpoint) {
-		die 'keycloak_users_endpoint not configured';
-	}
-
-	my $token = get_token_using_client_credentials();
-	unless ($token) {
-		die 'Could not get token to manage users with keycloak_users_endpoint';
-	}
-
 	my $api_request_ref = {
 		email => $user_ref->{email},
-		emailVerified => $JSON::PP::true,    # TODO: Keep this for compat with current register endpoint?
+		# Currently, the assumption is that all users have verified their email address. This is not true, but it's better than forcing all existing users to verify their email address.
+		emailVerified => $JSON::PP::true,
 		enabled => $JSON::PP::true,
 		username => $user_ref->{userid},
 		credentials => [$credential],
@@ -58,9 +73,11 @@ sub create_user_in_keycloak_with_scrypt_credential ($user_ref, $credential) {
 	};
 	my $json = encode_json($api_request_ref);
 
+	my $request_token = get_token_if_we_dont_have_one_yet_or_it_is_expired();
 	my $create_user_request = HTTP::Request->new(POST => $keycloak_users_endpoint);
 	$create_user_request->header('Content-Type' => 'application/json');
-	$create_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	$create_user_request->header(
+		'Authorization' => $request_token->{token_type} . ' ' . $request_token->{access_token});
 	$create_user_request->content($json);
 	my $new_user_response = LWP::UserAgent::Plugin->new->request($create_user_request);
 	unless ($new_user_response->is_success) {
@@ -68,9 +85,10 @@ sub create_user_in_keycloak_with_scrypt_credential ($user_ref, $credential) {
 		die $new_user_response->content;
 	}
 
+	$request_token = get_token_if_we_dont_have_one_yet_or_it_is_expired();
 	my $get_user_request = HTTP::Request->new(GET => $new_user_response->header('location'));
 	$get_user_request->header('Content-Type' => 'application/json');
-	$get_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	$get_user_request->header('Authorization' => $request_token->{token_type} . ' ' . $request_token->{access_token});
 	my $get_user_response = LWP::UserAgent::Plugin->new->request($get_user_request);
 	unless ($get_user_response->is_success) {
 		# TODO: Log?
