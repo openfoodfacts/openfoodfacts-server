@@ -9050,7 +9050,6 @@ sub data_to_display_nutrient_levels ($product_ref) {
 					nutrient_level => $product_ref->{nutrient_levels}{$nid},
 					evaluation => evaluate_nutrient_level($nid, $product_ref->{nutrient_levels}{$nid}),
 					nutrient_name => display_taxonomy_tag($lc, "nutrients", "zz:$nid"),
-					# TODO: Percentage should be formatted according to region
 					nutrient_quantity_in_grams =>
 						sprintf("%.2e", $product_ref->{nutriments}{$nid . $prepared . "_100g"}) + 0.0,
 					nutrient_in_quantity => sprintf(
