@@ -4,6 +4,12 @@ x-stoplight:
 type: object
 description: The title of a panel.
 properties:
+  name:
+    type: string
+    description: A short name of this panel, not including any actual values
+  value:
+    type: string
+    description: A simple summary value for the panel, e.g. a percentage, grade, number of, etc.
   title:
     type: string
   grade:

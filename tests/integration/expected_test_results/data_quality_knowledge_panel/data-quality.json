@@ -566,17 +566,17 @@
             ],
             "evaluation" : "bad",
             "level" : "info",
-            "name" : "Salt",
             "size" : "small",
             "title_element" : {
+               "name" : "Salt",
+               "value" : "120%",
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/high.svg",
                "title" : "Salt in high quantity (120%)"
             },
             "topics" : [
                "health"
-            ],
-            "value" : "120%"
+            ]
          },
          "nutriscore" : {
             "elements" : [
