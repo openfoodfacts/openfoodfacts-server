@@ -8,6 +8,7 @@
         [% IF panel.nutriscore_unknown_reason_short %]
             "subtitle": "[% panel.nutriscore_unknown_reason_short %]",
         [% END %]
+        "name": "[% panel.name %]",
         "title": "[% panel.title %]",
         "type": "grade",
         "grade": "[% panel.nutriscore_grade %]",

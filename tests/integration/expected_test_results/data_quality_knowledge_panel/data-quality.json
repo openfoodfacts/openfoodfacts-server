@@ -568,12 +568,12 @@
             "level" : "info",
             "size" : "small",
             "title_element" : {
-               "name" : "Salt",
-               "type" : "percentage",
-               "value" : 120,
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/high.svg",
-               "title" : "Salt in high quantity (120%)"
+               "name" : "Salt",
+               "title" : "Salt in high quantity (120%)",
+               "type" : "percentage",
+               "value" : 120
             },
             "topics" : [
                "health"
@@ -614,6 +614,7 @@
             "title_element" : {
                "grade" : "unknown",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/nutriscore-unknown.svg",
+               "name" : "Nutri-Score",
                "subtitle" : "Missing nutrition facts",
                "title" : "Missing data to compute the Nutri-Score",
                "type" : "grade"

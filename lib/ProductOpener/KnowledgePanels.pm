@@ -544,6 +544,7 @@ sub create_ecoscore_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
 			"agribalyse_category_name" => $agribalyse_category_name,
 			"agribalyse_score" => $agribalyse_score,
 			"agribalyse_grade" => $agribalyse_grade,
+			"name" => lang_in_other_lc($target_lc, "attribute_ecoscore_name"),
 			"score" => $score,
 			"grade" => $grade,
 			"title" => $title,
@@ -875,6 +876,7 @@ sub create_nutriscore_panel ($product_ref, $target_lc, $target_cc, $options_ref)
 		$panel_data_ref->{title} = lang_in_other_lc($target_lc,
 			"attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
 	}
+	$panel_data_ref->{name} = lang_in_other_lc($target_lc, "attribute_nutriscore_name");
 
 	# Nutri-Score panel: score + details
 	create_panel_from_json_template("nutriscore", "api/knowledge-panels/health/nutriscore/nutriscore.tt.json",
