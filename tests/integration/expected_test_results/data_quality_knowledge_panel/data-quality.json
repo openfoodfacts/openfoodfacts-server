@@ -564,8 +564,9 @@
                   }
                }
             ],
-            "evaluation" : "",
+            "evaluation" : "bad",
             "level" : "info",
+            "name" : "Salt",
             "size" : "small",
             "title_element" : {
                "icon_size" : "small",
@@ -574,7 +575,8 @@
             },
             "topics" : [
                "health"
-            ]
+            ],
+            "value" : "120%"
          },
          "nutriscore" : {
             "elements" : [

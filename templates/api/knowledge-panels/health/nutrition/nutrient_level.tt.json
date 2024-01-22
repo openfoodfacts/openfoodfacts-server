@@ -4,6 +4,8 @@
         "health"
     ],
     "size": "small",
+    "name": "[% panel.nutrient_name %]",
+    "value": "[% panel.nutrient_quantity_in_grams %]%",
     "evaluation": "[% panel.evaluation %]",
     "title_element": {
         "title": "[% panel.nutrient_in_quantity %] ([% panel.nutrient_quantity_in_grams %]%)",
