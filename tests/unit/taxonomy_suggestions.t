@@ -22,24 +22,7 @@ my @filter_tests = (
 		tagtype => "test",
 		lc => "en",
 		string => "",
-		expected => [
-			{
-				'matched_synonym' => 'banana yogurts',
-				'tag' => 'Banana yogurts'
-			},
-			{
-				'matched_synonym' => 'yogurts',
-				'tag' => 'Yogurts'
-			},
-			{
-				'matched_synonym' => 'soup',
-				'tag' => 'Soup'
-			},
-			{
-				'matched_synonym' => 'vegetable',
-				'tag' => 'Vegetable'
-			}
-		],
+		expected => ['Banana yogurts', 'Yogurts', 'Soup', 'Vegetable'],
 	},
 	{
 		desc => 'Match at start',
@@ -47,12 +30,7 @@ my @filter_tests = (
 		tagtype => "test",
 		lc => "en",
 		string => "ba",
-		expected => [
-			{
-				'matched_synonym' => 'banana yogurts',
-				'tag' => 'Banana yogurts'
-			}
-		],
+		expected => ['Banana yogurts'],
 	},
 	{
 		desc => 'Match at start and inside, return start first',
@@ -60,16 +38,7 @@ my @filter_tests = (
 		tagtype => "test",
 		lc => "en",
 		string => "yog",
-		expected => [
-			{
-				'matched_synonym' => 'yogurts',
-				'tag' => 'Yogurts'
-			},
-			{
-				'matched_synonym' => 'banana yogurts',
-				'tag' => 'Banana yogurts'
-			}
-		],
+		expected => ['Yogurts', 'Banana yogurts'],
 	},
 	{
 		desc => 'No match',
@@ -85,12 +54,7 @@ my @filter_tests = (
 		tagtype => "test",
 		lc => "en",
 		string => "something else",
-		expected => [
-			{
-				'matched_synonym' => 'something else that means soup in every language',
-				'tag' => 'Soup'
-			}
-		],
+		expected => ["Soup"],
 	},
 );
 
@@ -110,37 +74,16 @@ my @suggest_tests = (
 		tagtype => "test",
 		lc => "en",
 		string => "ba",
-		expected => [
-			{
-				'matched_synonym' => 'banana yogurts',
-				'tag' => 'Banana yogurts'
-			}
-		],
+		expected => ['Banana yogurts'],
 	},
 	{
 		desc => 'Match at start and inside, return start first',
 		tagtype => "test",
 		lc => "en",
 		string => "yog",
-		expected => [
-			{
-				'matched_synonym' => 'yogurts',
-				'tag' => 'Yogurts'
-			},
-			{
-				'matched_synonym' => 'banana yogurts',
-				'tag' => 'Banana yogurts'
-			},
-			{
-				'matched_synonym' => 'lemon yogurts',
-				'tag' => 'Lemon yogurts'
-			},
-			{
-				'matched_synonym' => 'Passion fruit yogurts',
-				'tag' => 'Passion fruit yogurts'
-			}
-		],
+		expected => ['Yogurts', 'Banana yogurts', 'Lemon yogurts', 'Passion fruit yogurts'],
 	},
+
 );
 
 foreach my $test_ref (@suggest_tests) {
