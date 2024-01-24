@@ -88,6 +88,9 @@
                         [% ELSIF field.type == 'email' %]
                             <label for="[% field.field %]">	[% field.label %]</label>
                             <input type="email" id="[% field.field %]" name="[% field.field %]" value = "[% field.value %]" autocomplete="email"/>
+                            [% IF server_options_producers_platform %]
+                            <div style="color: red; font-weight: 600;">🚨 [% lang('email_warning') %]</div>
+                            [% END %]
                         [% ELSIF field.type == 'select' %]
                             <label for="[% field.field %]">	[% lang(field.label) %]</label>
                             <select name="[% field.field %]" id="[% field.field %]-select">
