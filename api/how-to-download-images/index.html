@@ -367,6 +367,60 @@
     Download from Open Food Facts server
   </a>
   
+    <nav class="md-nav" aria-label="Download from Open Food Facts server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#computing-single-product-image-folder" class="md-nav__link">
+    Computing single product image folder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computing-single-image-file-name" class="md-nav__link">
+    Computing single image file name
+  </a>
+  
+    <nav class="md-nav" aria-label="Computing single image file name">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-images-data" class="md-nav__link">
+    Understanding images data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filename-for-a-raw-image" class="md-nav__link">
+    Filename for a raw image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filename-for-a-selected-image" class="md-nav__link">
+    Filename for a selected image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-python-snippet" class="md-nav__link">
+    A python snippet
+  </a>
+  
 </li>
       
     </ul>
@@ -807,6 +861,60 @@
     Download from Open Food Facts server
   </a>
   
+    <nav class="md-nav" aria-label="Download from Open Food Facts server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#computing-single-product-image-folder" class="md-nav__link">
+    Computing single product image folder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computing-single-image-file-name" class="md-nav__link">
+    Computing single image file name
+  </a>
+  
+    <nav class="md-nav" aria-label="Computing single image file name">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-images-data" class="md-nav__link">
+    Understanding images data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filename-for-a-raw-image" class="md-nav__link">
+    Filename for a raw image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filename-for-a-selected-image" class="md-nav__link">
+    Filename for a selected image
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-python-snippet" class="md-nav__link">
+    A python snippet
+  </a>
+  
 </li>
       
     </ul>
@@ -844,122 +952,32 @@ Open Food Facts server, where you should preferably download images one at a
 time. See <a href="../aws-images-dataset/">AWS Images dataset</a> for more information
 about how to download images from AWS dataset.</p>
 <h2 id="download-from-open-food-facts-server">Download from Open Food Facts server<a class="headerlink" href="#download-from-open-food-facts-server" title="Permanent link">#</a></h2>
-<p>All images can be found on
-<a href="https://static.openfoodfacts.org/images/products/">https://images.openfoodfacts.org/images/products/</a>.
-Images of a product are stored in a single directory. The path of this
-directory can be inferred easily from the product barcode. If the product
-barcode length is lower or equal to 8 (ex: "22222222"), the directory path is
-simply the barcode: all images can be found on
-<code>https://images.openfoodfacts.org/images/products/{barcode}</code>.</p>
-<p>Otherwise, the following regex is used to split the barcode into subfolders:
-<code>r"^(...)(...)(...)(.*)$"</code>. For example, the barcode <code>3435660768163</code> is split as
-follows: <code>343/566/076/8163</code>, and all images of the products can be found on
-<a href="https://images.openfoodfacts.org/images/products/343/566/076/8163">https://images.openfoodfacts.org/images/products/343/566/076/8163</a>.</p>
-<p>To get the image file names, we have to use the database dump or the API. All
-images information are stored in the <code>images</code> field. For product
-<a href="https://world.openfoodfacts.org/api/v0/product/3168930010883.json">3168930010883</a>,
-we have:</p>
+<p>All images are hosted under
+<a href="https://static.openfoodfacts.org/images/products/">https://images.openfoodfacts.org/images/products/</a> folder. 
+But you have to build the right URL from the product info.</p>
+<h3 id="computing-single-product-image-folder">Computing single product image folder<a class="headerlink" href="#computing-single-product-image-folder" title="Permanent link">#</a></h3>
+<p>Images of a product are stored in a single directory. The path of this
+directory can be inferred easily from the product barcode.
+There are two cases:</p>
+<ol>
+<li>
+<p>If the product barcode length is lower or equal to 8 (ex: "22222222"), the directory path is
+simply the barcode: <code>https://images.openfoodfacts.org/images/products/{barcode}</code>.</p>
+</li>
+<li>
+<p>Otherwise, we split the 9 first part of the code by group of three digits to get the three first folder names, and use the rest of the name as the last folder name^[split-regexp].
+   For example, the barcode <code>3435660768163</code> is split as : <code>343/566/076/8163</code>, thus products images will be in <code>https://images.openfoodfacts.org/images/products/343/566/076/8163</code></p>
+</li>
+</ol>
+<p>^[split-regexp]: The following regex can be used to split the barcode into subfolders: <code>r"^(...)(...)(...)(.*)$"</code></p>
+<h3 id="computing-single-image-file-name">Computing single image file name<a class="headerlink" href="#computing-single-image-file-name" title="Permanent link">#</a></h3>
+<p>Above we get the folder name, now we need the filename inside that folder for a particular image.</p>
+<h4 id="understanding-images-data">Understanding images data<a class="headerlink" href="#understanding-images-data" title="Permanent link">#</a></h4>
+<p>To get the image file names, we have to use the database dump or the API. 
+All images information are stored in the <code>images</code> field. </p>
+<p>Eg. For product <a href="https://world.openfoodfacts.org/api/v0/product/3168930010883.json">3168930010883</a>,
+we have (trimmed the data):</p>
 <div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;4&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;uploader&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openfoodfacts-contributors&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;uploaded_t&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1548685211</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;sizes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;400&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;w&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span>
-<span class="w">          </span><span class="p">},</span>
-<span class="w">          </span><span class="nt">&quot;100&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;w&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span>
-<span class="w">          </span><span class="p">},</span>
-<span class="w">          </span><span class="nt">&quot;full&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3174</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;w&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2380</span>
-<span class="w">          </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;3&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;uploader&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openfoodfacts-contributors&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;uploaded_t&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1537002125</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;sizes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;full&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3302</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;w&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2476</span>
-<span class="w">          </span><span class="p">},</span>
-<span class="w">          </span><span class="nt">&quot;100&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;w&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span>
-<span class="w">          </span><span class="p">},</span>
-<span class="w">          </span><span class="nt">&quot;400&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;w&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span>
-<span class="w">          </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;ingredients_fr&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;rev&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;orientation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;ocr&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;imgid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;y2&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;white_magic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;angle&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;x1&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;x2&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;geometry&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x0-0-0&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;normalize&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;y1&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;sizes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;100&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;w&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span>
-<span class="w">          </span><span class="p">},</span>
-<span class="w">          </span><span class="nt">&quot;400&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;w&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span>
-<span class="w">          </span><span class="p">},</span>
-<span class="w">          </span><span class="nt">&quot;200&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;w&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span>
-<span class="w">          </span><span class="p">},</span>
-<span class="w">          </span><span class="nt">&quot;full&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;w&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">900</span>
-<span class="w">          </span><span class="p">}</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;nutrition_fr&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;sizes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;200&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;w&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span>
-<span class="w">          </span><span class="p">},</span>
-<span class="w">          </span><span class="nt">&quot;full&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;w&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2476</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3302</span>
-<span class="w">          </span><span class="p">},</span>
-<span class="w">          </span><span class="nt">&quot;100&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;w&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span>
-<span class="w">          </span><span class="p">},</span>
-<span class="w">          </span><span class="nt">&quot;400&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;w&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span>
-<span class="w">          </span><span class="p">}</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="nt">&quot;y1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-1&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;normalize&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;x2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-1&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;geometry&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x0--8--8&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;x1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-1&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;angle&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;imgid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;white_magic&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;y2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-1&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;ocr&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;orientation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;rev&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;11&quot;</span>
-<span class="w">      </span><span class="p">},</span>
 <span class="w">      </span><span class="nt">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;sizes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nt">&quot;full&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -977,24 +995,6 @@ we have:</p>
 <span class="w">        </span><span class="p">},</span>
 <span class="w">        </span><span class="nt">&quot;uploader&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;kiliweb&quot;</span><span class="p">,</span>
 <span class="w">        </span><span class="nt">&quot;uploaded_t&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1527184614&quot;</span>
-<span class="w">      </span><span class="p">},</span>
-<span class="w">      </span><span class="nt">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;sizes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nt">&quot;100&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;w&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">75</span>
-<span class="w">          </span><span class="p">},</span>
-<span class="w">          </span><span class="nt">&quot;400&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;w&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span>
-<span class="w">          </span><span class="p">},</span>
-<span class="w">          </span><span class="nt">&quot;full&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="p">,</span>
-<span class="w">            </span><span class="nt">&quot;w&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">900</span>
-<span class="w">          </span><span class="p">}</span>
-<span class="w">        </span><span class="p">},</span>
-<span class="w">        </span><span class="nt">&quot;uploader&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;kiliweb&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;uploaded_t&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1527184615&quot;</span>
 <span class="w">      </span><span class="p">},</span>
 <span class="w">      </span><span class="nt">&quot;front_fr&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;x1&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
@@ -1030,33 +1030,77 @@ we have:</p>
 </code></pre></div>
 <p>The keys of the map are the keys of the images. These keys can be:</p>
 <ul>
-<li>digits: the image is the raw image sent by the contributor (full resolution).</li>
-<li>selected images: <code>front_{lang}</code>, <code>nutrition_{lang}</code> and
-    <code>ingredients_{lang}</code>, selected as front, nutrition and ingredients images
-    respectively for <code>lang</code>. Here, <code>lang</code> is a 2-letter ISO 639-1 language code
-    (fr, en, es,...).</li>
+<li>digits: the image is the <em>raw image</em> sent by the contributor (full resolution).</li>
+<li>selected images:
+    * <code>front_{lang}</code> correspond to the front product image in language with code <code>lang</code>
+    * <code>ingredients_{lang}</code> correspond to the ingredients image in language with code <code>lang</code>
+    * <code>nutrition_{lang}</code> is the same but for nutrition data
+    * <code>packaging_{lang}</code> for packaging logos<p><code>lang</code> is a 2-letter ISO 639-1 language code (fr, en, es, …).</p>
+</li>
 </ul>
-<p>Each image is available in different resolutions: <code>100</code>, <code>200</code>, <code>400</code> or
-<code>full</code>, each corresponding to image height (<code>full</code> means not resized). The
-available resolutions can be found in the <code>sizes</code> subfield.</p>
-<p>Selected images have additional fields:</p>
+<p>Each image is available in different resolutions: 
+<code>100</code>, <code>200</code>, <code>400</code> or <code>full</code>, each corresponding to image height (<code>full</code> means not resized).
+The available resolutions can be found in the <code>sizes</code> subfield.</p>
+<h4 id="filename-for-a-raw-image">Filename for a raw image<a class="headerlink" href="#filename-for-a-raw-image" title="Permanent link">#</a></h4>
+<p>For a raw image (the one under a numeric key in images field), 
+filename is very easy to compute: </p>
+<ul>
+<li>just take the image digit + <code>.jpg</code> for full resolution</li>
+<li>image digit + <code>.</code> + resolution + <code>.jpg</code> for a lower resolution</li>
+</ul>
+<p>For our example above, the filename for image <code>"1"</code></p>
+<ul>
+<li>in resolution 400px is <code>1.400.jpg</code></li>
+<li>in full resolution, it is <code>1.jpg</code></li>
+</ul>
+<p>So, adding the folder part, the final url for our example is: </p>
+<ul>
+<li>https://images.openfoodfacts.org/images/products/316/893/001/0883/1.jpg for the full image</li>
+<li>https://images.openfoodfacts.org/images/products/316/893/001/0883/1.400.jpg for the 400px version</li>
+</ul>
+<h4 id="filename-for-a-selected-image">Filename for a selected image<a class="headerlink" href="#filename-for-a-selected-image" title="Permanent link">#</a></h4>
+<p>In the structure, selected images have additional fields:</p>
 <ul>
 <li><code>rev</code> (as revision) indicates the revision number of the image to use (each
     time a new image is selected, cropped or rotated, a new image with an
     incremented rev is generated).</li>
 <li><code>imgid</code>, the image ID of the raw image used to generate the selected image.</li>
-<li><code>angle</code>, <code>x1</code>, <code>x2</code>, <code>y1</code>, <code>y2</code>: rotation angle and cropping coordinates.</li>
+<li><code>angle</code>, <code>x1</code>, <code>x2</code>, <code>y1</code>, <code>y2</code>: rotation angle and cropping coordinates (it's to be able to regenerate the image from the raw image)</li>
 </ul>
-<p>For selected images, the file name is the image key followed by the revision
-number and the resolution: <code>front_fr.1.400.jpg</code>. For raw images, the file name
-is either the image ID (<code>1.jpg</code>) or the image ID followed by the resolution
-(<code>1.100.jpg</code>).</p>
-<p>To get the full URL, simply concatenate the product directory path and the
-image name. Examples:</p>
+<p>For selected images, the filename is the image key followed by the revision number and the resolution: <code>&lt;image_name&gt;.&lt;rev&gt;.&lt;resolution&gt;.jpg</code>.
+Resolution must always be specified, but you can use <code>full</code> keyword to get the full resolution image.</p>
+<p>In our above example, the filename for the front image in french (<code>front_fr</code> key) is:</p>
 <ul>
-<li><a href="https://images.openfoodfacts.org/images/products/343/566/076/8163/1.jpg">https://images.openfoodfacts.org/images/products/343/566/076/8163/1.jpg</a></li>
-<li><a href="https://images.openfoodfacts.org/images/products/343/566/076/8163/1.400.jpg">https://images.openfoodfacts.org/images/products/343/566/076/8163/1.400.jpg</a></li>
+<li><code>front_fr.4.400.jpg</code> for 400 px version</li>
+<li><code>front_fr.4.full.jpg</code> for full resolution version</li>
 </ul>
+<p>So, adding the folder part, the final url for our example is: </p>
+<ul>
+<li>https://images.openfoodfacts.org/images/products/316/893/001/0883/front_fr.4.full.jpg for the full image</li>
+<li>https://images.openfoodfacts.org/images/products/316/893/001/0883/front_fr.4.400.jpg for the 400px version</li>
+</ul>
+<h2 id="a-python-snippet">A python snippet<a class="headerlink" href="#a-python-snippet" title="Permanent link">#</a></h2>
+<p>So if we have the product_data in a dict, a Python code doing it would be something like:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_image_url</span><span class="p">(</span><span class="n">product_data</span><span class="p">,</span> <span class="n">image_name</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="s2">&quot;full&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">image_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">product_data</span><span class="p">[</span><span class="s2">&quot;images&quot;</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://images.openfoodfacts.org/images/products&quot;</span>
+    <span class="c1"># get product folder name</span>
+    <span class="n">folder_name</span> <span class="o">=</span> <span class="n">product_data</span><span class="p">[</span><span class="s2">&quot;code&quot;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">folder_name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="n">folder_name</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(...)(...)(...)(.*)&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1/\2/\3/\4&#39;</span><span class="p">,</span> <span class="n">folder_name</span><span class="p">)</span>
+    <span class="c1"># get filename</span>
+    <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;^\d+$&quot;</span><span class="p">,</span> <span class="n">image_name</span><span class="p">):</span>  <span class="c1"># only digits</span>
+        <span class="c1"># raw image</span>
+        <span class="n">resolution_suffix</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="k">if</span> <span class="n">resolution</span> <span class="o">==</span> <span class="s2">&quot;full&quot;</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot;.</span><span class="si">{</span><span class="n">resolution</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">image_name</span><span class="si">}{</span><span class="n">resolution_suffix</span><span class="si">}</span><span class="s2">.jpg&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># selected image</span>
+        <span class="n">rev</span> <span class="o">=</span> <span class="n">product_data</span><span class="p">[</span><span class="s2">&quot;images&quot;</span><span class="p">][</span><span class="n">image_name</span><span class="p">][</span><span class="s2">&quot;rev&quot;</span><span class="p">]</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">image_name</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">rev</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">resolution</span><span class="si">}</span><span class="s2">.jpg&quot;</span>
+    <span class="c1"># join things together</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">folder_name</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
 
 
 
