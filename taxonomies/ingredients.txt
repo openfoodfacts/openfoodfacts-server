@@ -84,7 +84,7 @@ stopwords:de:und, mit, von, aus, enthält, enthalten, mindestens, in veränderli
 stopwords:el:περιέχει
 # example: "artificial flavouring substances", "natural and nature identical flavouring substances"
 stopwords:en:added to enhance freshness, added to maintain flavor and freshness, assorted, contains, contain, edible, from, including, inter alia, less than 1% of:, minimum, produced with, with, with added, in varying proportions, substances
-stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,de cultivo,origen,nota,produccion,controlada
+stopwords:es:contiene,de,del,la,el,las,los,con,y,e,en,minimo,maximo,puede,contener,por,categoria,calibre,minimo,min,vereidad,variedad,de cultivo,origen,nota,produccion,controlada,equivalente,equivale
 stopwords:fi:sisältää,muun muassa,valio, koskenlaskija, snellmanin, jossa, noin, käymisen aikana muodostuva
 stopwords:fr:aux,au,de,le,du,la,a,et,avec,ou,en,proportion,variable, contient, élaboré avec, papier traité, minimum, filets tournants et filets, pour souleves,dont,avec,autres,d'autres,d', avec ajout, sachet, marquants, demeter, minimum
 # example: karamelizirani šećerni sirup (sadrži bojilo E150a) # also for alergens "SADRŽI celer i gorušicu"
@@ -16049,7 +16049,7 @@ ciqual_food_name:en:Coconut fat or oil
 <en:coconut oil
 en:virgin coconut oil, raw coconut oil
 de:Natives Kokosöl, Kokosöl nativ, unraffiniertes Kokosnussöl, Kokosnussöl unraffiniert, Natives Kokosnussöl, Kokosnussöl nativ, unraffiniertes Kokosöl, Kokosöl unraffiniert
-es:Aceite virgen de coco
+es:Aceite virgen de coco, Aceite de coco virgen
 fr:huile vierge de noix de coco, huile de coco vierge, Huile vierge de coco
 pl:olej kokosowy virgin
 # ingredient/fr:huile-de-coco-vierge has 10 products @2019-06-02
@@ -27245,7 +27245,7 @@ bn:ভুট্টা
 bo:ཨ་ཤོམ།
 br:maiz
 bs:kukuruz
-ca:dacsa, blat de moro
+ca:dacsa, blat de moro, panís
 ce:хьаьжкӏа
 cs:kukuřice, kukuřice setá
 cv:чакан тулă
@@ -83515,9 +83515,6 @@ de:Eigelb gesalzen
 nl:gezouten eigeel
 # ingredient/fr:jaune-d-oeuf-sale has 119 products in 3 languages @2018-12-17
 
-<en:egg
-es:productos derivados de huevo
-
 # The context should determine what part of the egg is meant.
 
 fr:issu de poules élevées au sol, sol
@@ -83557,7 +83554,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Quail_eggs
 <en:egg
 en:egg derivatives
 de:aus Ei, enthält Hühnerei
-es:derivado del huevo,derivado de huevo
+es:derivado del huevo, derivado de huevo, productos derivados de huevo
 
 #category/duck-eggs
 <en:egg
@@ -87201,7 +87198,7 @@ cs:glazování
 da:glasering, glasur
 de:Glasur
 eo:glaceo
-es:glaseado
+es:glaseado, glaseante
 eu:glaseatu
 fi:kuorrute
 fr:glaçage
