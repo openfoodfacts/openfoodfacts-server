@@ -125,8 +125,9 @@ sub taxonomy_suggestions_api ($request_ref) {
 	}
 	# Generate suggestions
 	else {
-
-		my @suggestions = get_taxonomy_suggestions($tagtype, $search_lc, $string, $context_ref, $options_ref);
+		my $options_relavant = {%$options_ref};
+		delete $options_relavant->{get_synonyms};
+		my @suggestions = get_taxonomy_suggestions_with_synonyms($tagtype, $search_lc, $string, $context_ref, $options_relavant);
 		$log->debug("taxonomy_suggestions_api", @suggestions) if $log->is_debug();
 		$response_ref->{suggestions} = [map {$_->{tag}} @suggestions];
 		$response_ref->{matched_synonyms} = [map {ucfirst($_->{matched_synonym})} @suggestions]

@@ -36,6 +36,7 @@ use Log::Any qw($log);
 BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
+		&get_taxonomy_suggestions_with_synonyms
 		&get_taxonomy_suggestions
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
@@ -80,9 +81,13 @@ sub load_categories_packagings_stats_for_suggestions() {
 	return $categories_packagings_stats_for_suggestions_ref;
 }
 
+=head2 get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $context_ref, $options_ref )
+
+Generate taxonomy suggestions with matched synonyms information.
+
 =head2 get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref )
 
-Generate taxonomy suggestions.
+Generate taxonomy suggestions (without matched synonyms information).
 
 =head3 Parameters
 
@@ -107,7 +112,7 @@ Restart memcached if you want fresh results (e.g. when taxonomy are category sta
 
 =cut
 
-sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref) {
+sub get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $context_ref, $options_ref) {
 
 	$log->debug(
 		"get_taxonomy_suggestions - start",
@@ -121,8 +126,6 @@ sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $opti
 	) if $log->is_debug();
 
 	# Check if we have cached suggestions
-	my $options_relavant = {%$options_ref};
-	delete $options_relavant->{get_synonyms};
 	my $key = generate_cache_key(
 		"get_taxonomy_suggestions",
 		{
@@ -130,7 +133,7 @@ sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $opti
 			search_lc => $search_lc,
 			string => $string,
 			context_ref => $context_ref,
-			options_ref => $options_relavant
+			options_ref => $options_ref
 		}
 	);
 
@@ -141,7 +144,7 @@ sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $opti
 
 		my @tags = generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref);
 
-		my @filtered_tags = filter_suggestions_matching_string(\@tags, $tagtype, $search_lc, $string, $options_ref);
+		my @filtered_tags = filter_suggestions_matching_string_with_synonyms(\@tags, $tagtype, $search_lc, $string, $options_ref);
 		$results_ref = \@filtered_tags;
 
 		$log->debug("storing suggestions in cache", {key => $key}) if $log->is_debug();
@@ -152,6 +155,10 @@ sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $opti
 	}
 
 	return @$results_ref;
+}
+
+sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref) {
+	return map {$_->{tag}} get_taxonomy_suggestions_with_synonyms($tagtype, $search_lc, $string, $context_ref, $options_ref);
 }
 
 =head2 generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref)
@@ -340,9 +347,13 @@ sub best_match ($search_lc, $stringid, $fuzzystringid, $synonyms_ref) {
 	return {type => $best_type, match => $best_match};
 }
 
+=head2 filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $search_lc, $string, $options_ref)
+
+Filter a list of potential taxonomy suggestions matching a string with matched synonyms information.
+
 =head2 filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string, $options_ref)
 
-Filter a list of potential taxonomy suggestions matching a string.
+Filter a list of potential taxonomy suggestions matching a string (without matched synonyms information).
 
 By priority, the function returns:
 - taxonomy entries that match the input string at the beginning
@@ -366,7 +377,7 @@ By priority, the function returns:
 
 =cut
 
-sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string, $options_ref) {
+sub filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $search_lc, $string, $options_ref) {
 
 	my $original_lc = $search_lc;
 
@@ -374,8 +385,6 @@ sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string
 	my $limit = $options_ref->{limit} || 25;
 	# Set a hard limit of 400
 	$limit = min(int($limit), 400);
-	# Whether or not to get synonyms
-	my $get_synonyms = $options_ref->{get_synonyms} || 0;
 
 	$log->debug(
 		"filter_suggestions_matching_string",
@@ -385,8 +394,7 @@ sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string
 			search_lc => $search_lc,
 			string => $string,
 			options_ref => $options_ref,
-			limit => $limit,
-			get_synonyms => $get_synonyms
+			limit => $limit
 		}
 	) if $log->is_debug();
 
@@ -489,6 +497,10 @@ sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string
 	}
 
 	return @suggestions;
+}
+
+sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string, $options_ref) {
+	return map {$_->{tag}} filter_suggestions_matching_string_with_synonyms($tags_ref, $tagtype, $search_lc, $string, $options_ref);
 }
 
 1;
