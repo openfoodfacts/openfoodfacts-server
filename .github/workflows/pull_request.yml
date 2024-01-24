@@ -58,7 +58,7 @@ jobs:
       with:
         fetch-depth: 50
     - name: build
-      run: make build_backend
+      run: make build container=backend
     - name: push backend image as artifact
       uses: ishworkh/docker-image-artifact-upload@v1
       with:
@@ -144,6 +144,6 @@ jobs:
         make dev
         make status
     - name: Test all is running
-      run: make livecheck || ( tail -n 300 logs/apache2/*error*log; docker-compose logs; false )
+      run: make livecheck || ( tail -n 300 logs/apache2/*error*log; docker compose logs; false )
     - name: test clean
       run: make hdown

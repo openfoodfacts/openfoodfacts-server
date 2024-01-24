@@ -65,7 +65,7 @@ Create an account to be able to edit products.
 ## Some commands
 After you made devs and want to apply changes and see them on the website, you can run:  
 ```
-$ docker-compose restart 
+$ docker compose restart 
 ```
 ```
 $ make up  
