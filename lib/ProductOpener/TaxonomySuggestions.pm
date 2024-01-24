@@ -144,7 +144,8 @@ sub get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $cont
 
 		my @tags = generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref);
 
-		my @filtered_tags = filter_suggestions_matching_string_with_synonyms(\@tags, $tagtype, $search_lc, $string, $options_ref);
+		my @filtered_tags
+			= filter_suggestions_matching_string_with_synonyms(\@tags, $tagtype, $search_lc, $string, $options_ref);
 		$results_ref = \@filtered_tags;
 
 		$log->debug("storing suggestions in cache", {key => $key}) if $log->is_debug();
@@ -158,7 +159,9 @@ sub get_taxonomy_suggestions_with_synonyms ($tagtype, $search_lc, $string, $cont
 }
 
 sub get_taxonomy_suggestions ($tagtype, $search_lc, $string, $context_ref, $options_ref) {
-	return map {$_->{tag}} get_taxonomy_suggestions_with_synonyms($tagtype, $search_lc, $string, $context_ref, $options_ref);
+	return
+		map {$_->{tag}}
+		get_taxonomy_suggestions_with_synonyms($tagtype, $search_lc, $string, $context_ref, $options_ref);
 }
 
 =head2 generate_sorted_list_of_taxonomy_entries($tagtype, $search_lc, $context_ref)
@@ -500,7 +503,9 @@ sub filter_suggestions_matching_string_with_synonyms ($tags_ref, $tagtype, $sear
 }
 
 sub filter_suggestions_matching_string ($tags_ref, $tagtype, $search_lc, $string, $options_ref) {
-	return map {$_->{tag}} filter_suggestions_matching_string_with_synonyms($tags_ref, $tagtype, $search_lc, $string, $options_ref);
+	return
+		map {$_->{tag}}
+		filter_suggestions_matching_string_with_synonyms($tags_ref, $tagtype, $search_lc, $string, $options_ref);
 }
 
 1;
