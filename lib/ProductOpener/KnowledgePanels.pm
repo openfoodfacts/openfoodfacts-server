@@ -810,6 +810,9 @@ sub create_health_card_panel ($product_ref, $target_lc, $target_cc, $options_ref
 	$log->debug("create health card panel", {code => $product_ref->{code}}) if $log->is_debug();
 
 	create_nutriscore_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	if ($options_ref->{admin}) {
+		create_nutriscore_2023_panel($product_ref, $target_lc, $target_cc, $options_ref);
+	}
 
 	create_nutrient_levels_panels($product_ref, $target_lc, $target_cc, $options_ref);
 
@@ -878,6 +881,51 @@ sub create_nutriscore_panel ($product_ref, $target_lc, $target_cc, $options_ref)
 
 	# Nutri-Score panel: score + details
 	create_panel_from_json_template("nutriscore", "api/knowledge-panels/health/nutriscore/nutriscore.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	return;
+}
+
+sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options_ref) {
+
+	my $version = "2023";
+
+	$log->debug("create nutriscore_2023 panel",
+		{code => $product_ref->{code}, nutriscore_data => deep_get($product_ref, qw/nutriscore 2023 data/)})
+		if $log->is_debug();
+
+	my $panel_data_ref = data_to_display_nutriscore($product_ref, $version);
+
+	# Nutri-Score panel
+
+	if ($panel_data_ref->{nutriscore_grade} eq "not-applicable") {
+		$panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");
+	}
+	else {
+		$panel_data_ref->{title} = lang_in_other_lc($target_lc,
+			"attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
+	}
+
+	# Nutri-Score sub-panels for each positive or negative component
+	foreach my $type (qw/positive negative/) {
+		my $components_ref = deep_get($product_ref, "nutriscore", $version, "data", "components", $type) // [];
+		foreach my $component_ref (@$components_ref) {
+			my $component_panel_data_ref = {
+				"type" => $type,
+				"id" => $component_ref->{id},
+				"value" => $component_ref->{value},
+				"points" => $component_ref->{points},
+				"max" => $component_ref->{max},
+			};
+			create_panel_from_json_template(
+				"nutriscore_component_" . $component_ref->{id},
+				"api/knowledge-panels/health/nutriscore/nutriscore_component.tt.json",
+				$component_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref
+			);
+		}
+	}
+
+	# Nutri-Score panel: score
+	create_panel_from_json_template("nutriscore_2023", "api/knowledge-panels/health/nutriscore/nutriscore_2023.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	return;
 }

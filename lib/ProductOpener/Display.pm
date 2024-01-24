@@ -921,6 +921,10 @@ CSS
 		};
 	}
 
+	if ($request_ref->{admin}) {
+		$knowledge_panels_options_ref->{admin} = 1;
+	}
+
 	$log->debug(
 		"owner, org and user",
 		{
@@ -8873,7 +8877,7 @@ HTML
 	return;
 }
 
-=head2 display_nutriscore_calculation_details( $nutriscore_data_ref )
+=head2 display_nutriscore_calculation_details( $nutriscore_data_ref, $version = "2021" )
 
 Generates HTML code with information on how the Nutri-Score was computed for a particular product.
 
@@ -8882,7 +8886,7 @@ the rounded value according to the Nutri-Score rules, and the corresponding poin
 
 =cut
 
-sub display_nutriscore_calculation_details ($nutriscore_data_ref) {
+sub display_nutriscore_calculation_details ($nutriscore_data_ref, $version = "2021") {
 
 	my $beverage_view;
 
@@ -9069,7 +9073,7 @@ sub data_to_display_nutrient_levels ($product_ref) {
 	return $result_data_ref;
 }
 
-=head2 data_to_display_nutriscore ( $product_ref )
+=head2 data_to_display_nutriscore ($nutriscore_data_ref, $version = "2021" )
 
 Generates a data structure to display the Nutri-Score.
 
@@ -9085,9 +9089,7 @@ Reference to a data structure with needed data to display.
 
 =cut
 
-sub data_to_display_nutriscore($) {
-
-	my $product_ref = shift;
+sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 
 	my $result_data_ref = {};
 
@@ -9095,9 +9097,17 @@ sub data_to_display_nutriscore($) {
 
 	my @nutriscore_warnings = ();
 
-	if ((defined $product_ref->{nutrition_grade_fr}) and ($product_ref->{nutrition_grade_fr} =~ /^[abcde]$/)) {
+	my $nutriscore_grade = deep_get($product_ref, "nutriscore", $version, "grade");
+	my $nutriscore_data_ref = deep_get($product_ref, "nutriscore", $version, "data");
+	# On old product revisions, nutriscore grade was in nutrition_grade_fr
+	if ((not defined $nutriscore_grade) and ($version eq "2021")) {
+		$nutriscore_grade = $product_ref->{"nutrition_grade_fr"};
+		$nutriscore_data_ref = $product_ref->{nutriscore_data};
+	}
 
-		$result_data_ref->{nutriscore_grade} = $product_ref->{"nutrition_grade_fr"};
+	if ((defined $nutriscore_grade) and ($nutriscore_grade =~ /^[abcde]$/)) {
+
+		$result_data_ref->{nutriscore_grade} = $nutriscore_grade;
 
 		# Do not display a warning for water
 		if (not(has_tag($product_ref, "categories", "en:spring-waters"))) {
@@ -9212,8 +9222,7 @@ sub data_to_display_nutriscore($) {
 
 	# Display the details of the computation of the Nutri-Score if we computed one
 	if ((defined $product_ref->{nutriscore_grade}) and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/)) {
-		$result_data_ref->{nutriscore_details}
-			= display_nutriscore_calculation_details($product_ref->{nutriscore_data});
+		$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details($nutriscore_data_ref, $version);
 	}
 
 	return $result_data_ref;
