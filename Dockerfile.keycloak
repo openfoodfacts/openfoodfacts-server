@@ -5,7 +5,7 @@ ARG DEPENDENCY_KEYCLOAK_VERSION=23.0.4
 # build a scrypt password provider for keycloak using maven
 FROM maven:3-eclipse-temurin-17 AS builder
 RUN set -x && \
-    git clone --single-branch --branch feat/support-v23 --depth=1 https://github.com/hangy/scrypt-password-hash-provider.git && \
+    git clone --single-branch --branch feat/support-v23 --depth=1 https://github.com/openfoodfacts/scrypt-password-hash-provider.git && \
     cd scrypt-password-hash-provider && \
     mvn -B package
 
