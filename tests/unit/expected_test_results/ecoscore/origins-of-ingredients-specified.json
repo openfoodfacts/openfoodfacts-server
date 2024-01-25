@@ -2,7 +2,6 @@
    "categories_tags" : [
       "en:jams"
    ],
-   "downgraded" : "non_recyclable_and_non_biodegradable_materials",
    "ecoscore_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -260,6 +259,7 @@
          "score" : 80,
          "version" : "3.1"
       },
+      "downgraded" : "non_recyclable_and_non_biodegradable_materials",
       "grade" : "b",
       "grades" : {
          "ad" : "b",
@@ -353,6 +353,7 @@
          "fi" : 76,
          "fo" : 75,
          "fr" : 79,
+         "fr_orig" : 80,
          "gg" : 77,
          "gi" : 72,
          "gr" : 74,
@@ -499,6 +500,7 @@
       "en:packagings-not-complete",
       "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
+      "en:ecoscore-downgraded",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-missing-data-labels",
       "en:ecoscore-missing-data-packagings",

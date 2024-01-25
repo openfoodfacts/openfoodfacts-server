@@ -112,14 +112,10 @@ create_folders:
 # Docker Compose #
 #----------------#
 
+# args variable may be use to eg. "--progress plain" option and keep logs on a failing build
 build:
 	@echo "🥫 Building containers …"
-	${DOCKER_COMPOSE} build ${container} 2>&1
-
-# this is needed for CI
-build_backend:
-	@echo "🥫 Building backend container …"
-	${DOCKER_COMPOSE} build backend 2>&1
+	${DOCKER_COMPOSE} build ${args} ${container} 2>&1
 
 _up:
 	@echo "🥫 Starting containers …"

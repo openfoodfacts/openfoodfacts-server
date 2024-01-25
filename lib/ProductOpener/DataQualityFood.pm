@@ -1166,14 +1166,20 @@ sub check_nutrition_data ($product_ref) {
 		# all values are identical
 		#  OR
 		# all values but one - because sodium and salt can be automatically calculated one depending on the value of the other - are identical
+		# and values (check first value only) are above 1 (see issue #9572)
+		# and at least 4 values are input by contributors (see issue #9572)
 		if (
-			($nutriments_values_occurences_max_value == scalar @major_nutriments_values)
-			or (
-				($nutriments_values_occurences_max_value >= scalar @major_nutriments_values - 1)
-				and (   (defined $nutriments_values{'salt_100g'})
-					and ($nutriments_values{'sodium_100g'})
-					and ($nutriments_values{'salt_100g'} != $nutriments_values{'sodium_100g'}))
+			(
+				($nutriments_values_occurences_max_value == scalar @major_nutriments_values)
+				or (
+					($nutriments_values_occurences_max_value >= scalar @major_nutriments_values - 1)
+					and (   (defined $nutriments_values{'salt_100g'})
+						and ($nutriments_values{'sodium_100g'})
+						and ($nutriments_values{'salt_100g'} != $nutriments_values{'sodium_100g'}))
+				)
 			)
+			and (@major_nutriments_values[0] > 1)
+			and (scalar @major_nutriments_values > 3)
 			)
 		{
 			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-values-are-all-identical";
@@ -2389,6 +2395,62 @@ sub check_labels ($product_ref) {
 		{
 			add_tag($product_ref, "data_quality_warnings",
 				"en:high-in-omega-3-label-claim-but-ala-or-sum-of-epa-and-dha-below-limitation");
+		}
+	}
+
+	# In EU, compare categories and regulations
+	# https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
+	# my %spread_categories_regulation = (
+	# 		europe => {
+	# 			"en:jams" => "35",
+
+	# some categories have mininal amount content required by regulations
+	# $expected_minimal_amount_specific_ingredients = "en:fruit, 35, en:eu"
+	my ($expected_minimal_amount_specific_ingredients, $category_id)
+		= get_inherited_property_from_categories_tags($product_ref, "expected_minimal_amount_specific_ingredients:en");
+
+	# convert as a list, in case there are more than a countries having regulations
+	my @expected_minimal_amount_specific_ingredients_list = split /;/, $expected_minimal_amount_specific_ingredients;
+	foreach
+		my $expected_minimal_amount_specific_ingredients_element (@expected_minimal_amount_specific_ingredients_list)
+	{
+		# split on ", " to extract ingredient id, quantity in g and country
+		my ($specific_ingredient_id, $quantity_threshold, $country) = split /, /,
+			$expected_minimal_amount_specific_ingredients_element;
+
+		if (
+				(defined $specific_ingredient_id)
+			and (defined $quantity_threshold)
+			and (defined $country)
+			and
+			((($country eq "en:eu") and ($european_product == 1)) or (has_tag(($product_ref, "countries", $country))))
+			)
+		{
+			my $specific_ingredient_quantity;
+			if (defined $product_ref->{specific_ingredients}) {
+				foreach my $specific_ingredient ($product_ref->{specific_ingredients}[0]) {
+					if (    (defined $specific_ingredient->{id})
+						and (defined $specific_ingredient->{quantity_g})
+						and ($specific_ingredient->{id} eq $specific_ingredient_id))
+					{
+						$specific_ingredient_quantity = $specific_ingredient->{quantity_g};
+					}
+				}
+			}
+
+			if (defined $specific_ingredient_quantity) {
+				if ($specific_ingredient_quantity < $quantity_threshold) {
+					add_tag($product_ref, "data_quality_errors",
+							  "en:specific-ingredient-"
+							. substr($specific_ingredient_id, 3)
+							. "-quantity-is-below-the-minimum-value-of-$quantity_threshold-for-category-"
+							. substr($category_id, 3));
+				}
+			}
+			else {
+				add_tag($product_ref, "data_quality_info", "en:missing-specific-ingredient-for-this-category");
+			}
+
 		}
 	}
 	return;
