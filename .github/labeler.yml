@@ -798,6 +798,9 @@ Averages by categories:
 Static content:
 - scripts/copy_text_files.pl
 
+matomo:
+- scripts/utils/logs/download_matomo_logs.pl
+
 # TODO: find or create proper labels for those
 #- scripts/extract_images.pl
 #- scripts/test_text_fuzzy.pl
