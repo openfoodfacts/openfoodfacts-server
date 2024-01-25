@@ -841,6 +841,11 @@ The main docker compose file <a href="../docker-compose.yml"><code>docker-compos
 <td>Run only once, then use the <code>up</code>, <code>down</code>, <code>restart</code> commands.</td>
 </tr>
 <tr>
+<td><code>make build</code></td>
+<td>build containers. Add <code>container=name</code> to build a specific container</td>
+<td>args="--progress log" keeps all log in console (to debug failing build)</td>
+</tr>
+<tr>
 <td><code>make up</code></td>
 <td>Start containers.</td>
 <td></td>
