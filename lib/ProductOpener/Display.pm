@@ -924,6 +924,12 @@ CSS
 	if ($request_ref->{admin}) {
 		$knowledge_panels_options_ref->{admin} = 1;
 	}
+	if ($User{moderator}) {
+		$knowledge_panels_options_ref->{moderator} = 1;
+	}
+	if ($server_options{producers_platform}) {
+		$knowledge_panels_options_ref->{producers_platform} = 1;
+	}
 
 	$log->debug(
 		"owner, org and user",

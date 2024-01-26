@@ -45,7 +45,7 @@ my $new_formula_below = <<SVG
      x="0"
      y="98" />
 SVG
-;
+	;
 
 my $new_formula_banner = <<SVG
 <path
@@ -55,10 +55,10 @@ my $new_formula_banner = <<SVG
      d="M 0 33.997 L 0 27.407156 C 2.3684734e-15 12.296171 12.298124 -0.003 27.412109 -0.003 L 211.76953 -0.003 L 211.76953 -0.001046875 C 226.88152 -0.001046875 239.17773 12.295171 239.17773 27.407156 L 239.17773 33.997 L 0 33.997 z "
      transform="matrix(1,0,0,-1,0,161.997)" />
 SVG
-;
+	;
 
 my %new_formula_text = (
-    en => <<SVG
+	en => <<SVG
 <g
      aria-label="NEW FORMULA"
      id="text18503"
@@ -95,8 +95,8 @@ my %new_formula_text = (
        id="path19020" /></g>
 
 SVG
-,
-    fr => <<SVG
+	,
+	fr => <<SVG
 <g
      aria-label="NOUVEAU CALCUL"
      id="text18503"
@@ -141,9 +141,8 @@ SVG
        style="font-weight:800;font-family:Raleway;-inkscape-font-specification:'Raleway Ultra-Bold';fill:#ffffff"
        id="path18823" /></g>    
 SVG
-,
+	,
 );
-
 
 # Read the Nutri-Score SVG images in the html/images/attributes/src directory
 # and add a "New formula" banner to the Nutri-Score logos.
@@ -154,43 +153,43 @@ my @files = <$dir/nutriscore-*.svg>;
 
 foreach my $lc ("en", "fr") {
 
-    foreach my $file (@files) {
+	foreach my $file (@files) {
 
-        # skip the Nutri-Score logo with the new formula banner
-        next if ($file =~ /new-formula/);
+		# skip the Nutri-Score logo with the new formula banner
+		next if ($file =~ /new-formula/);
 
-        my $new_file = $file;
-        $new_file =~ s/\.svg$/-new-formula-$lc.svg/;
+		my $new_file = $file;
+		$new_file =~ s/\.svg$/-new-formula-$lc.svg/;
 
-        open (my $fh, "<", $file) or die "Could not open file $file: $!\n";
-        open (my $fh2, ">", $new_file) or die "Could not open file $new_file: $!\n";
+		open(my $fh, "<", $file) or die "Could not open file $file: $!\n";
+		open(my $fh2, ">", $new_file) or die "Could not open file $new_file: $!\n";
 
-        while (my $line = <$fh>) {
+		while (my $line = <$fh>) {
 
-            if ($line =~ /<svg/) {
-                # Change the height of the SVG image
-                # <svg xmlns="http://www.w3.org/2000/svg" id="svg2032" width="240" height="130" version="1.1" viewBox="0 0 240 130">
-                $line =~ s/height="130"/height="162"/;
-                $line =~ s/viewBox="0 0 240 130"/viewBox="0 0 240 162"/;
-                print $fh2 $line;
-                print $fh2 $new_formula_below;
-            }
-            elsif ($line =~ /<\/svg>/) {
-                # No banner for not-applicable / unknown
-                if ($file !~ /unknown|not-applicable/) {
-                    print $fh2 $new_formula_banner;                
-                    print $fh2 $new_formula_text{$lc};
-                }
-                print $fh2 $line;
-            }
-            else {
-                print $fh2 $line;
-            }
-        }
+			if ($line =~ /<svg/) {
+				# Change the height of the SVG image
+				# <svg xmlns="http://www.w3.org/2000/svg" id="svg2032" width="240" height="130" version="1.1" viewBox="0 0 240 130">
+				$line =~ s/height="130"/height="162"/;
+				$line =~ s/viewBox="0 0 240 130"/viewBox="0 0 240 162"/;
+				print $fh2 $line;
+				print $fh2 $new_formula_below;
+			}
+			elsif ($line =~ /<\/svg>/) {
+				# No banner for not-applicable / unknown
+				if ($file !~ /unknown|not-applicable/) {
+					print $fh2 $new_formula_banner;
+					print $fh2 $new_formula_text{$lc};
+				}
+				print $fh2 $line;
+			}
+			else {
+				print $fh2 $line;
+			}
+		}
 
-        close $fh;
-        close $fh2;
-    }
+		close $fh;
+		close $fh2;
+	}
 }
 
 exit(0);
