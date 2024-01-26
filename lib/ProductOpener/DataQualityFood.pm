@@ -1809,8 +1809,18 @@ sub check_labels ($product_ref) {
 				# - some additives_classes (like thickener, for example) do not have the key-value vegan and vegetarian
 				#   it can be additives_classes that contain only vegan/vegetarian additives.
 				# - also we cannot tell if a compound ingredient (preparation) is vegan or vegetarian
-				# to handle both cases we ignore the ingredient if it contains sub-ingredients
-				if (not exists $ingredient_ref->{"ingredients"}) {
+				# to handle both cases we ignore the ingredient having vegan/vegatarian "maybe" and if it contains sub-ingredients
+				my $ignore_vegan_vegetarian_facet = 0;
+				if (
+					(defined $ingredient_ref->{ingredients})
+					and (  ((defined $ingredient_ref->{"vegan"}) and ($ingredient_ref->{"vegan"} ne 'no'))
+						or ((defined $ingredient_ref->{"vegetarian"}) and ($ingredient_ref->{"vegetarian"} ne 'no')))
+					)
+				{
+					$ignore_vegan_vegetarian_facet = 1;
+				}
+
+				if (not $ignore_vegan_vegetarian_facet) {
 					if (has_tag($product_ref, "labels", "en:vegan")) {
 						# vegan
 						if (defined $ingredient_ref->{"vegan"}) {
