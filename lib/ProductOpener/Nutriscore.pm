@@ -98,6 +98,8 @@ BEGIN {
 
 use vars @EXPORT_OK;
 
+use ProductOpener::Numbers qw/:all/;
+
 =head1 FUNCTIONS
 
 Note: a significantly different Nutri-Score algorithm has been published in 2022 and 2023
