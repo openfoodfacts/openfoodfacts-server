@@ -1400,7 +1400,6 @@ ok(!has_tag($product_ref, 'data_quality', 'en:nutrition-sugars-plus-starch-great
 	'sum of sugars and starch greater carbohydrates')
 	or diag explain $product_ref;
 
-
 # unexpected character in ingredients
 $product_ref = {
 	languages_codes => {
