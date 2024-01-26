@@ -787,7 +787,7 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 		push @{$nutriscore_data_ref->{components}{negative}},
 			{
 			id => $nutrient,
-			value => round_to_max_decimal_places($nutriscore_data_ref->{$nutrient}),
+			value => round_to_max_decimal_places($nutriscore_data_ref->{$nutrient}, 2),
 			points => $points,
 			max => $max,
 			};
