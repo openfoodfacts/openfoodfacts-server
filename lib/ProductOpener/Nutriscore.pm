@@ -658,6 +658,37 @@ sub get_value_with_one_more_positive_point_2023 ($nutriscore_data_ref, $nutrient
 	return $return_value;
 }
 
+sub add_units_to_positive_and_negative_nutriscore_components ($nutriscore_data_ref) {
+
+	foreach my $type (qw/positive negative/) {
+		my $components_ref = $nutriscore_data_ref->{components}{$type};
+
+		foreach my $component_ref (@$components_ref) {
+			# Compute the unit.
+			my $unit;
+			if ($component_ref->{id} eq 'non_nutritive_sweeteners') {
+				$unit = undef;
+			}
+			elsif (($component_ref->{id} eq 'fruits_vegetables_legumes')
+				or ($component_ref->{id} eq 'saturated_fat_ratio'))
+			{
+				$unit = '%';
+			}
+			else {
+				if ($component_ref->{id} =~ /^energy/) {
+					$unit = 'kJ';
+				}
+				else {
+					$unit = 'g';
+				}
+			}
+			$component_ref->{unit} = $unit;
+		}
+	}
+
+	return;
+}
+
 sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 
 	# The values must be rounded with one more digit than the thresholds.
@@ -735,12 +766,14 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 	# Beverages with non-nutritive sweeteners have 4 extra negative points
 	if ($nutriscore_data_ref->{is_beverage}) {
 		push @$negative_components, "non_nutritive_sweeteners";
-		$nutriscore_data_ref->{"non_nutritive_sweeteners_max"} = 4;
+		$nutriscore_data_ref->{non_nutritive_sweeteners_max} = 4;
 		if ($nutriscore_data_ref->{with_non_nutritive_sweeteners}) {
-			$nutriscore_data_ref->{"non_nutritive_sweeteners_points"} = 4;
+			$nutriscore_data_ref->{non_nutritive_sweeteners_points} = 4;
+			$nutriscore_data_ref->{non_nutritive_sweeteners} = "presence";
 		}
 		else {
-			$nutriscore_data_ref->{"non_nutritive_sweeteners_points"} = 0;
+			$nutriscore_data_ref->{non_nutritive_sweeteners_points} = 0;
+			$nutriscore_data_ref->{non_nutritive_sweeteners} = "absence";
 		}
 	}
 
@@ -763,7 +796,7 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 	# positive points
 
 	$nutriscore_data_ref->{positive_points} = 0;
-	$nutriscore_data_ref->{positive_nutrients} = ["fruits_vegetables_legumes", "fiber"];
+	$nutriscore_data_ref->{positive_nutrients} = ["fiber", "fruits_vegetables_legumes"];
 
 	# positive points for proteins are counted in the following 3 cases:
 	# - the product is a beverage
@@ -788,7 +821,7 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 				$nutriscore_data_ref->{count_proteins_reason} = "negative_points_less_than_7";
 			}
 			else {
-				$nutriscore_data_ref->{count_proteins_reason} = "negative_points_more_than_7";
+				$nutriscore_data_ref->{count_proteins_reason} = "negative_points_greater_than_or_equal_to_7";
 			}
 		}
 		else {
@@ -797,13 +830,13 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 				$nutriscore_data_ref->{count_proteins_reason} = "negative_points_less_than_11";
 			}
 			else {
-				$nutriscore_data_ref->{count_proteins_reason} = "negative_points_more_than_11";
+				$nutriscore_data_ref->{count_proteins_reason} = "negative_points_greater_than_or_equal_to_11";
 			}
 		}
 	}
 
 	if ($nutriscore_data_ref->{count_proteins}) {
-		push @{$nutriscore_data_ref->{positive_nutrients}}, "proteins";
+		unshift @{$nutriscore_data_ref->{positive_nutrients}}, "proteins";
 	}
 
 	foreach my $nutrient (@{$nutriscore_data_ref->{positive_nutrients}}) {
@@ -818,6 +851,23 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 			};
 		$nutriscore_data_ref->{positive_points} += $points;
 		$nutriscore_data_ref->{positive_max} += $max;
+	}
+
+	# Add units for the retained positive and negative components
+	# We add the units directly in the data instead of computing them at runtime when needed
+	# in order to make the data more easily understood by itself
+	add_units_to_positive_and_negative_nutriscore_components($nutriscore_data_ref);
+
+	# Delete input nutrient values, keep only values inside the retained positive and negative components
+	foreach my $key (keys %$nutriscore_data_ref) {
+		if ($key
+			=~ /^(energy|energy_from_saturated_fat|sugars|fat|saturated_fat|saturated_fat_ratio|salt|non_nutritive_sweeteners|fruits_vegetables_legumes|fiber|proteins)$/
+			)
+		{
+			delete $nutriscore_data_ref->{$key};
+			delete $nutriscore_data_ref->{$key . "_points"};
+			delete $nutriscore_data_ref->{$key . "_max"};
+		}
 	}
 
 	my $score = $nutriscore_data_ref->{negative_points} - $nutriscore_data_ref->{positive_points};

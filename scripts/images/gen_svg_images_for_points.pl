@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -40,8 +40,8 @@ use ProductOpener::PerlStandards;
 # There is extra padding on top and bottom, so that the image is high enough
 
 sub generate_image ($dir, $type, $points, $max) {
-    
-    my $image = <<SVG
+
+	my $image = <<SVG
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    width="70"
@@ -59,45 +59,45 @@ sub generate_image ($dir, $type, $points, $max) {
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:dc="http://purl.org/dc/elements/1.1/">
 SVG
-;              
-        my $x = 0;
-        my $y = 11;
-        # If there is only one row, center it vertically
-        if ($max <= 10) {
-            $y += 3;
-        }
-        my $row = 0;
-        
-        for (my $i = 0; $i < $max; $i++) {
-            
-            my $color = "#BDBDBD";
-            if ($i < $points) {
-                if ($type eq "positive") {
-                    $color = "#219653";
-                }
-                elsif ($type eq "negative") {
-                    $color = "#EB5757";
-                }
-            }
-            
-            $image .= "<rect width=\"6\" height=\"6\" x=\"$x\" y=\"$y\" fill=\"$color\"></rect>";
-            
-            $x += 7;
-            if ($x >= 69) {
-                $x = 0;
-                $y += 7;
-                $row++;
-            }
-        }
-        
-        $image .= "</svg>";
-        
-        my $filename = "$dir/points-$type-$points-$max.svg";
-        open(my $file, ">:encoding(UTF-8)", $filename);
-        print $file $image;
-        close($file);
+		;
+	my $x = 0;
+	my $y = 11;
+	# If there is only one row, center it vertically
+	if ($max <= 10) {
+		$y += 3;
+	}
+	my $row = 0;
 
-        return;
+	for (my $i = 0; $i < $max; $i++) {
+
+		my $color = "#BDBDBD";
+		if ($i < $points) {
+			if ($type eq "positive") {
+				$color = "#219653";
+			}
+			elsif ($type eq "negative") {
+				$color = "#EB5757";
+			}
+		}
+
+		$image .= "<rect width=\"6\" height=\"6\" x=\"$x\" y=\"$y\" fill=\"$color\"></rect>";
+
+		$x += 7;
+		if ($x >= 69) {
+			$x = 0;
+			$y += 7;
+			$row++;
+		}
+	}
+
+	$image .= "</svg>";
+
+	my $filename = "$dir/points-$type-$points-$max.svg";
+	open(my $file, ">:encoding(UTF-8)", $filename);
+	print $file $image;
+	close($file);
+
+	return;
 }
 
 # Different maximum points used for Nutri-Score components
@@ -109,16 +109,16 @@ my $dir = shift @ARGV;
 
 # Generate images for negative points
 foreach my $max (@max_negative_points) {
-    for (my $points = 0; $points <= $max; $points++) {
-        generate_image($dir, "negative", $points, $max);
-    }
+	for (my $points = 0; $points <= $max; $points++) {
+		generate_image($dir, "negative", $points, $max);
+	}
 }
 
 # Generate images for positive points
 foreach my $max (@max_positive_points) {
-    for (my $points = 0; $points <= $max; $points++) {
-        generate_image($dir, "positive", $points, $max);
-    }
+	for (my $points = 0; $points <= $max; $points++) {
+		generate_image($dir, "positive", $points, $max);
+	}
 }
 
 exit(0);

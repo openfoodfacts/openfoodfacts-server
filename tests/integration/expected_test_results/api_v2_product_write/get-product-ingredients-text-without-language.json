@@ -603,47 +603,76 @@
          "2023" : {
             "category_available" : 1,
             "data" : {
+               "components" : {
+                  "negative" : [
+                     {
+                        "id" : "energy",
+                        "max" : 10,
+                        "points" : 1,
+                        "unit" : "kJ",
+                        "value" : 645
+                     },
+                     {
+                        "id" : "sugars",
+                        "max" : 15,
+                        "points" : 0,
+                        "unit" : "g",
+                        "value" : 0
+                     },
+                     {
+                        "id" : "saturated_fat",
+                        "max" : 10,
+                        "points" : 2,
+                        "unit" : "g",
+                        "value" : 2.64
+                     },
+                     {
+                        "id" : "salt",
+                        "max" : 20,
+                        "points" : 20,
+                        "unit" : "g",
+                        "value" : 24.54
+                     }
+                  ],
+                  "positive" : [
+                     {
+                        "id" : "fiber",
+                        "max" : 5,
+                        "points" : 0,
+                        "unit" : "g",
+                        "value" : 0
+                     },
+                     {
+                        "id" : "fruits_vegetables_legumes",
+                        "max" : 5,
+                        "points" : 0,
+                        "unit" : "%",
+                        "value" : 0
+                     }
+                  ]
+               },
                "count_proteins" : 0,
-               "count_proteins_reason" : "negative_points_more_than_11",
-               "energy" : 645,
-               "energy_points" : 1,
-               "fiber" : 0,
-               "fiber_points" : 0,
-               "fruits_vegetables_legumes" : 0,
-               "fruits_vegetables_legumes_points" : 0,
+               "count_proteins_reason" : "negative_points_greater_than_or_equal_to_11",
                "is_beverage" : 0,
                "is_cheese" : 0,
                "is_fat_oil_nuts_seeds" : 0,
                "is_red_meat_product" : 1,
                "is_water" : 0,
-               "negative_nutrients" : [
-                  "energy",
-                  "sugars",
-                  "saturated_fat",
-                  "salt",
-                  "non_nutritive_sweeteners"
-               ],
-               "negative_points" : 24,
+               "negative_max" : 55,
+               "negative_points" : 23,
+               "positive_max" : 10,
                "positive_nutrients" : [
-                  "fruits_vegetables_legumes",
-                  "fiber"
+                  "fiber",
+                  "fruits_vegetables_legumes"
                ],
                "positive_points" : 0,
-               "proteins" : 21.825,
-               "proteins_points" : 2,
-               "proteins_points_limited_reason" : "red_meat_product",
-               "salt" : 24.54,
-               "salt_points" : 21,
-               "saturated_fat" : 2.64,
-               "saturated_fat_points" : 2,
-               "sugars" : 0,
-               "sugars_points" : 0
+               "proteins_points_limited_reason" : "red_meat_product"
             },
             "grade" : "e",
             "nutrients_available" : 1,
             "nutriscore_applicable" : 1,
             "nutriscore_computed" : 1,
-            "score" : 24
+            "score" : 23
          }
       },
       "nutriscore_2021_tags" : [

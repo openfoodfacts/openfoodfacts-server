@@ -6,17 +6,21 @@
     "size": "small",
     "title_element": {
         "icon_url": "[% static_subdomain %]/images/attributes/dist/points-[% panel.type %]-[% panel.points %]-[% panel.max %].svg",
-        "title": "[% panel.id %]",
-        "subtitle": "[% panel.points %]/[% panel.max %] points [% lang("for") %] [% panel.value %]g",
+        "title": "[% lang("nutriscore_component_" _ panel.id) %]",
+        "subtitle": "[% panel.points %]/[% panel.max %] points ([% panel.value %][% panel.unit %])",
     },
     "elements": [
-
-            {
-                "element_type": "text",
-                "text_element": {
-                    "html": `Some text about the component
-                    `,
-                }
-            },
+        
+        {
+            "element_type": "text",
+            "text_element": {
+                "html": `
+<p>
+    [% lang("nutrient_info_" _ panel.id _ "_benefit") %]
+    [% lang("nutrient_info_" _ panel.id _ "_risk") %]
+</p>
+                `,
+            }
+        },
     ]
 }

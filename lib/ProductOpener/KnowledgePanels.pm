@@ -357,7 +357,9 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 
 			# Save the JSON file so that it can be more easily debugged, and that we can monitor issues
 			my $target_dir = "$BASE_DIRS{PUBLIC_FILES}/debug/knowledge_panels/";
-			my $target_file = "$target_dir/$panel_id." . $product_ref->{code} . ".json";
+			my $filename = $panel_id . $product_ref->{code} . ".json";
+			my $target_file = "$target_dir/" . $filename;
+			my $url = "/files/debug/knowledge_panels/" . $filename;
 			ensure_dir_created_or_die($target_dir);
 			open(my $out, ">:encoding(UTF-8)", $target_file) or die "cannot open $target_file";
 			print $out $panel_json;
@@ -367,7 +369,7 @@ sub create_panel_from_json_template ($panel_id, $panel_template, $panel_data_ref
 				"template" => $panel_template,
 				"json_error" => $json_decode_error,
 				"json" => $panel_json,
-				"json_debug_url" => $static_subdomain . $target_file
+				"json_debug_url" => $static_subdomain . $url
 			};
 		}
 	}
@@ -896,12 +898,18 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 	my $panel_data_ref = data_to_display_nutriscore($product_ref, $version);
 
 	# Nutri-Score panel
+	my $grade = deep_get($product_ref, "nutriscore", $version, "grade");
 
-	if ($panel_data_ref->{nutriscore_grade} eq "not-applicable") {
+	if ($grade eq "not-applicable") {
 		$panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");
 	}
 	else {
-		$panel_data_ref->{title} = lang_in_other_lc($target_lc,
+		$panel_data_ref->{title}
+			= sprintf(lang_in_other_lc($target_lc, "attribute_nutriscore_grade_title"), uc($grade));
+		if ($panel_data_ref->{nutriscore_unknown_reason_short}) {
+			$panel_data_ref->{subtitle} = $panel_data_ref->{nutriscore_unknown_reason_short};
+		}
+		$panel_data_ref->{subtitle} = lang_in_other_lc($target_lc,
 			"attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
 	}
 
@@ -909,10 +917,12 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 	foreach my $type (qw/positive negative/) {
 		my $components_ref = deep_get($product_ref, "nutriscore", $version, "data", "components", $type) // [];
 		foreach my $component_ref (@$components_ref) {
+
 			my $component_panel_data_ref = {
 				"type" => $type,
 				"id" => $component_ref->{id},
 				"value" => $component_ref->{value},
+				"unit" => $component_ref->{unit},
 				"points" => $component_ref->{points},
 				"max" => $component_ref->{max},
 			};
@@ -926,6 +936,9 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 
 	# Nutri-Score panel: score
 	create_panel_from_json_template("nutriscore_2023", "api/knowledge-panels/health/nutriscore/nutriscore_2023.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	create_panel_from_json_template("nutriscore_description",
+		"api/knowledge-panels/health/nutriscore/nutriscore_description.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	return;
 }
@@ -967,6 +980,10 @@ sub create_nutrient_levels_panels ($product_ref, $target_lc, $target_cc, $option
 				$nutrient_level_ref, $product_ref, $target_lc, $target_cc, $options_ref
 			);
 		}
+
+		create_panel_from_json_template("nutrient_levels",
+			"api/knowledge-panels/health/nutrition/nutrient_levels.tt.json",
+			{}, $product_ref, $target_lc, $target_cc, $options_ref);
 	}
 	return;
 }

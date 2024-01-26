@@ -74,7 +74,7 @@
                 [% panel.title_element.title %]
             </h4>
             [% IF panel.title_element.subtitle.defined %]
-                <span>[% panel.title_element.subtitle %]</span>
+                <span [% IF panel.size == "small" %]style="font-size:0.9rem;"[% END %]>[% panel.title_element.subtitle %]</span>
             [% END %]
             <hr class="floatclear">
         </a>
