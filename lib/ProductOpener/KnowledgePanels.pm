@@ -940,6 +940,9 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 	create_panel_from_json_template("nutriscore_description",
 		"api/knowledge-panels/health/nutriscore/nutriscore_description.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+	create_panel_from_json_template("nutriscore_details",
+		"api/knowledge-panels/health/nutriscore/nutriscore_details.tt.json",
+		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 	return;
 }
 
