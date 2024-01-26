@@ -1178,7 +1178,7 @@ sub check_nutrition_data ($product_ref) {
 						and ($nutriments_values{'salt_100g'} != $nutriments_values{'sodium_100g'}))
 				)
 			)
-			and (@major_nutriments_values[0] > 1)
+			and ($major_nutriments_values[0] > 1)
 			and (scalar @major_nutriments_values > 3)
 			)
 		{
@@ -2410,7 +2410,7 @@ sub check_labels ($product_ref) {
 		= get_inherited_property_from_categories_tags($product_ref, "expected_minimal_amount_specific_ingredients:en");
 
 	# convert as a list, in case there are more than a countries having regulations
-	my @expected_minimal_amount_specific_ingredients_list = split /;/, $expected_minimal_amount_specific_ingredients;
+	my @expected_minimal_amount_specific_ingredients_list = split /;/, ($expected_minimal_amount_specific_ingredients // "");
 	foreach
 		my $expected_minimal_amount_specific_ingredients_element (@expected_minimal_amount_specific_ingredients_list)
 	{
