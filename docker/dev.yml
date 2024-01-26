@@ -25,6 +25,10 @@ x-backend-conf: &backend-conf
   # e.g. when developing with Robotoff or openfoodfacts-query
   extra_hosts:
     - "host.docker.internal:host-gateway"
+  environment:
+    - PRODUCT_OPENER_COVERAGE
+    - COVER_OPTS
+
 
 x-minion-db-network: &minion-db-network
   networks:
