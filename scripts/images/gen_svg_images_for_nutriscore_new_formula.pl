@@ -149,7 +149,7 @@ SVG
 
 my $dir = "$www_root/images/attributes/src";
 
-my @files = <$dir/nutriscore-*.svg>;
+my @files = glob "$dir/nutriscore-*.svg";
 
 foreach my $lc ("en", "fr") {
 
