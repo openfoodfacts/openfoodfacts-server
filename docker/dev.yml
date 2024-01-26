@@ -27,7 +27,7 @@ x-backend-conf: &backend-conf
     - "host.docker.internal:host-gateway"
   environment:
     - PRODUCT_OPENER_COVERAGE
-    - COVER_OPTS
+    - DEVEL_COVER_OPTIONS
 
 
 x-minion-db-network: &minion-db-network
