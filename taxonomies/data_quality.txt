@@ -8,6 +8,8 @@ description:en: Error detected on data
 
 <en:Data quality errors
 en:Nutrition errors
+fr:Erreurs nutritionnelles
+es:Errores de nutrición
 description:en:Error on nutrition data (nutrients)
 show_on_producers_platform:en:yes
 fix_action:en: add_nutrition_facts
@@ -16,6 +18,10 @@ marker_type:en: error
 <en:Nutrition errors
 en:Energy value in kcal does not match value computed from other nutrients
 fr:Valeur énergétique en kcal ne correspondant pas à la valeur calculée à partir des autres nutriments
+es:El valor energético en kcal no coincide con el valor calculado a partir de otros nutrientes
+de:Energiegehalt in kcal stimmt nicht mit dem aus anderen Nährstoffen berechneten Wert überein
+it:Il valore energetico in kcal non corrisponde al valore calcolato dagli altri nutrienti
+pt:O valor energético em kcal não corresponde ao valor calculado a partir de outros nutrientes
 description:en:The energy value in kcal does not match value computed from other nutrients. It is often due to an error in the nutrition facts table entered by the users. Sometimes, it's an error coming from the producer.
 description:fr:La valeur énergétique entrée en kcal ne correspond pas à la valeur calculée à partir des autres nutriments. C'est souvent dû à une erreur dans le tableau nutritionel complété par les utilisateurs. Parfois il s'agit d'une erreur sur le packaging.
 
@@ -242,6 +248,8 @@ description:en:Serum proteins value is over 1000g per 100g, which is impossible.
 <en:Nutrition errors
 en:Nutrition value over 1000 - Sodium
 description:en:Sodium value is over 1000g per 100g, which is impossible.
+description:fr:La valeur du sodium dépasse 1000g pour 100g, ce qui est impossible.
+description:es:El valor de sodio supera los 1000g por 100g, lo cual es imposible.
 
 <en:Nutrition errors
 en:Nutrition value over 1000 - Sodium prepared
@@ -585,10 +593,18 @@ description:en:Pantothenic acid value is over 105g per 100g, which is impossible
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Phosphorus
+fr:Valeur nutritionnelle supérieure à 105 - Phosphore
+es:Valor nutricional superior a 105 - Fósforo
+de:Nährwert über 105 - Phosphor
+it:Valore nutrizionale superiore a 105 - Fosforo
 description:en:Phosphorus value is over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Polyols
+fr:Valeur nutritionnelle supérieure à 105 - Polyols
+es:Valor nutricional superior a 105 - Polioles
+de:Nährwert über 105 - Polyole
+it:Valore nutrizionale superiore a 105 - Polioli
 description:en:Polyols value is over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
@@ -601,6 +617,10 @@ description:en: Polyunsaturated fat are over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Potassium
+fr:Valeur nutritionnelle supérieure à 105 - Potassium
+es:Valor nutricional superior a 105 - Potasio
+de:Nährwert über 105 - Kalium
+it:Valore nutrizionale superiore a 105 - Potassio
 description:en:Potassium value is over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
@@ -609,26 +629,47 @@ description:en:Pro vitamin a value is over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Proteins
+fr:Valeur nutritionnelle supérieure à 105 - Protéines
+es:Valor nutricional superior a 105 - Proteínas
+de:Nährwert über 105 - Proteine
+it:Valore nutrizionale superiore a 105 - Proteine
 description:en:Proteins value is over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Proteins prepared
+fr:Valeur nutritionnelle supérieure à 105 - Protéines préparées
+es:Valor nutricional superior a 105 - Proteínas preparadas
+de:Nährwert über 105 - Proteine zubereitet
+it:Valore nutrizionale superiore a 105 - Proteine preparate
 description:en:Proteins prepared value is over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Residu sec
+fr:Valeur nutritionnelle supérieure à 105 - Residu sec
 description:en:Residu sec value is over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Salt
+fr:Valeur nutritionnelle supérieure à 105 - Sel
+es:Valor nutricional superior a 105 - Sal
+de:Nährwert über 105 - Salz
+it:Valore nutrizionale superiore a 105 - Sale
 description:en:Salt value is over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Salt prepared
+fr:Valeur nutritionnelle supérieure à 105 - Sel préparé
+es:Valor nutricional superior a 105 - Sal preparada
+de:Nährwert über 105 - Salz zubereitet
+it:Valore nutrizionale superiore a 105 - Sale preparate
 description:en:Salt prepared value is over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Saturated fat
+fr:Valeur nutritionnelle supérieure à 105 - Graisses saturées
+es:Valor nutricional superior a 105 - Grasas saturadas
+de:Nährwert über 105 - Gesättigte Fettsäuren
+it:Valore nutrizionale superiore a 105 - Grassi saturi
 description:en:Saturated fat value is over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
@@ -649,6 +690,10 @@ description:en:Silica value is over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Sodium
+fr:Valeur nutritionnelle supérieure à 105 - Sodium
+es:Valor nutricional superior a 105 - Sodio
+de:Nährwert über 105 - Natrium
+it:Valore nutrizionale superiore a 105 - Sodio
 description:en:Sodium value is over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
@@ -784,7 +829,15 @@ description:fr:La taille de portion devrait contenir un nombre. Par exemple : "1
 
 <en:Nutrition errors
 en:Nutrition values are all identical
+es:Los valores nutricionales son todos idénticos
+fr:Les valeurs nutritionnelles sont toutes identiques
+de:Die Nährwertangaben sind alle identisch
+it:I valori nutrizionali sono tutti identici
+pt:Os valores nutricionais são todos idênticos
+nl:De voedingswaarden zijn allemaal identiek
 description:en:Nutrition values have to be reviewed because it should not have all same values
+description:fr:Les valeurs nutritionnelles doivent être revues car elles ne devraient pas toutes être identiques
+description:es:Se deben revisar los valores nutricionales porque no deberían ser todos iguales
 
 
 ## Ingredients
@@ -2878,6 +2931,8 @@ en:Nutrition score FR producer same OK
 
 <en:Nutrition warnings
 en:Nutrition value - total over 1000
+es:Valor nutricional - total superior a 1000
+fr:Valeur nutritionnelle - total supérieur à 1000
 #description:en:
 
 <en:Nutrition warnings
@@ -2902,80 +2957,120 @@ fr:Valeur nutritionnelle inférieure à 0,1 g de sel
 en:Nutrition value very high for category - Carbohydrates
 es:Valor nutricional muy alto para la categoría - Carbohidratos
 fr:Valeur nutritionnelle très élevée pour la catégorie - Glucides
+de:Nährwert sehr hoch für Kategorie - Kohlenhydrate
+it:Valore nutrizionale molto alto per la categoria - Carboidrati
 description:en:Compared to the category average, the Carbohydrates value is abnormally high.
 
 <en:Nutrition warnings
 en:Nutrition value very high for category - Energy
 es:Valor nutricional muy alto para la categoría - Energía
 fr:Valeur nutritionnelle très élevée pour la catégorie - Énergie
+de:Nährwert sehr hoch für Kategorie - Energie
+it:Valore nutrizionale molto alto per la categoria - Energia
 description:en:Compared to the category average, the Energy value is abnormally high.
 
 <en:Nutrition warnings
 en:Nutrition value very high for category - Fat
 es:Valor nutricional muy alto para la categoría - Grasa
 fr:Valeur nutritionnelle très élevée pour la catégorie - Matières grasses
+de:Nährwert sehr hoch für Kategorie - Fett
+it:Valore nutrizionale molto alto per la categoria - Grassi
 description:en:Compared to the category average, the Fat value is abnormally high.
 
 <en:Nutrition warnings
 en:Nutrition value very high for category - Fiber
 es:Valor nutricional muy alto para la categoría - Fibra
 fr:Valeur nutritionnelle très élevée pour la catégorie - Fibre
+de:Nährwert sehr hoch für Kategorie - Ballaststoffe
+it:Valore nutrizionale molto alto per la categoria - Fibre
 description:en:Compared to the category average, the Fiber value is abnormally high.
 
 <en:Nutrition warnings
 en:Nutrition value very high for category - Salt
 es:Valor nutricional muy alto para la categoría - Sal
 fr:Valeur nutritionnelle très élevée pour la catégorie - Sel
+de:Nährwert sehr hoch für Kategorie - Salz
+it:Valore nutrizionale molto alto per la categoria - Sale
 description:en:Compared to the category average, the Salt value is abnormally high.
 
 <en:Nutrition warnings
 en:Nutrition value very high for category - Saturated fat
 es:Valor nutricional muy alto para la categoría - Grasas saturadas
 fr:Valeur nutritionnelle très élevée pour la catégorie - Graisses saturées
+de:Nährwert sehr hoch für Kategorie - Gesättigte Fettsäuren
+it:Valore nutrizionale molto alto per la categoria - Grassi saturi
 description:en:Compared to the category average, the Saturated fat value is abnormally high.
 
 <en:Nutrition warnings
 en:Nutrition value very high for category - Sugars
 es:Valor nutricional muy alto para la categoría - Azúcares
 fr:Valeur nutritionnelle très élevée pour la catégorie - Sucres
+de:Nährwert sehr hoch für Kategorie - Zucker
+it:Valore nutrizionale molto alto per la categoria - Zuccheri
 description:en:Compared to the category average, the Sugars value is abnormally high.
 
 <en:Nutrition warnings
 en:Nutrition value very high for category - proteins
 es:Valor nutricional muy alto para la categoría - proteínas
 fr:Valeur nutritionnelle très élevée pour la catégorie - protéines
+de:Nährwert sehr hoch für Kategorie - Proteine
+it:Valore nutrizionale molto alto per la categoria - proteine
 #description:en:
 
 <en:Nutrition warnings
 en:Nutrition value very low for category - Carbohydrates
+es:Valor nutricional muy bajo para la categoría - Carbohidratos
+fr:Valeur nutritionnelle très faible pour la catégorie - Glucides
+de:Nährwert sehr niedrig für Kategorie - Kohlenhydrate
 description:en:Compared to the category average, the Carbohydrates value is abnormally low.
 
 <en:Nutrition warnings
 en:Nutrition value very low for category - Energy
+es:Valor nutricional muy bajo para la categoría - Energía
+fr:Valeur nutritionnelle très faible pour la catégorie - Énergie
+de:Nährwert sehr niedrig für Kategorie - Energie
 description:en:Compared to the category average, the Energy value is abnormally low.
 
 <en:Nutrition warnings
 en:Nutrition value very low for category - Fat
+es:Valor nutricional muy bajo para la categoría - Grasa
+fr:Valeur nutritionnelle très faible pour la catégorie - Matières grasses
+de:Nährwert sehr niedrig für Kategorie - Fett
 description:en:Compared to the category average, the Fat value is abnormally low.
 
 <en:Nutrition warnings
 en:Nutrition value very low for category - Fiber
+es:Valor nutricional muy bajo para la categoría - Fibra
+fr:Valeur nutritionnelle très faible pour la catégorie - Fibre
+de:Nährwert sehr niedrig für Kategorie - Ballaststoffe
 description:en:Compared to the category average, the Fiber value is abnormally low.Compared to the category average, the fiber value is abnormally low
 
 <en:Nutrition warnings
 en:Nutrition value very low for category - Proteins
+es:Valor nutricional muy bajo para la categoría - Proteínas
+fr:Valeur nutritionnelle très faible pour la catégorie - Protéines
+de:Nährwert sehr niedrig für Kategorie - Proteine
 description:en:Compared to the category average, the Proteins value is abnormally low.
 
 <en:Nutrition warnings
 en:Nutrition value very low for category - Salt
+es:Valor nutricional muy bajo para la categoría - Sal
+fr:Valeur nutritionnelle très faible pour la catégorie - Sel
+de:Nährwert sehr niedrig für Kategorie - Salz
 description:en:Compared to the category average, the Salt value is abnormally low.
 
 <en:Nutrition warnings
 en:Nutrition value very low for category - Saturated fat
+es:Valor nutricional muy bajo para la categoría - Grasas saturadas
+fr:Valeur nutritionnelle très faible pour la catégorie - Graisses saturées
+de:Nährwert sehr niedrig für Kategorie - Gesättigte Fettsäuren
 description:en:Compared to the category average, the Saturated fat value is abnormally low.
 
 <en:Nutrition warnings
 en:Nutrition value very low for category - Sugars
+es:Valor nutricional muy bajo para la categoría - Azúcares
+fr:Valeur nutritionnelle très faible pour la catégorie - Sucres
+de:Nährwert sehr niedrig für Kategorie - Zucker
 description:en:Compared to the category average, the Sugars value is abnormally low.
 
 
@@ -2997,6 +3092,9 @@ description:en: Potential issues on quantities or serving size
 
 <en:Quantity and serving warnings
 en:Product quantity in mg
+es:Cantidad del producto en mg
+fr:Quantité du produit en mg
+de:Produktmenge in mg
 #description:en:The product quantity is in miligrams (mg), which is very unlikely for 99% of food products (exceptions could include aromas)
 
 <en:Quantity and serving warnings
@@ -3013,10 +3111,16 @@ description:en:Product quantity is under 1 gram, which is a very unlikely quanti
 
 <en:Quantity and serving warnings
 en:Quantity contains e
+es:Cantidad contiene e
+fr:Quantité contient e
+de:Menge enthält e
 description:en:The quantity contains e instead of ℮, which is the estimated sign.
 
 <en:Quantity and serving warnings
 en:Quantity not recognized
+es:Cantidad no reconocida
+fr:Quantité non reconnue
+de:Menge nicht erkannt
 description:en:The quantity was not recognized, which does not let us compute nutritional values for the whole product when we have values per 100g.
 
 <en:Quantity and serving warnings
@@ -3025,19 +3129,30 @@ description:en:The serving quantity is less than the product quantity divided by
 
 <en:Quantity and serving warnings
 en:Serving quantity over 500g
+es:Cantidad de porción superior a 500g
+fr:Quantité de portion supérieure à 500g
+de:Portionsmenge über 500g
 description:en:Serving quantity is never that large, since it's supposed to be adapted for daily human consumption
 
 <en:Quantity and serving warnings
 en:Serving quantity over product quantity
+es:Cantidad de porción superior a la cantidad de producto
+fr:Quantité de portion supérieure à la quantité de produit
+de:Portionsmenge größer als Produktmenge
 description:en:The serving quantity is listed as greater than the product quantity, which is highly unlikely and indicates a data quality error.
 
 <en:Quantity and serving warnings
 en:Serving quantity under 1g
+es:Cantidad de porción inferior a 1g
+fr:Quantité de portion inférieure à 1g
+de:Portionsmenge unter 1g
 description:en:The serving quantity is listed as under 1 gram, which is highly unlikely for 99% of food products. This is likely a data quality error.
 
 <en:Quantity and serving warnings
 en:Serving size in mg
 fr:Taille de portion en mg
+es:Tamaño de porción en mg
+de:Portionsgröße in mg
 description:en:The serving size is listed in milligrams (mg), which is unusual for most food products. It is likely a data quality error.
 
 

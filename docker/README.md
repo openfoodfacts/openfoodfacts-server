@@ -21,7 +21,8 @@ See also [targets to run tests](../docs/dev/how-to-write-and-run-tests.md#runnin
 
 | Command                   | Description                                                                            | Notes                                                         |
 | ------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| `make dev`                | Setup a fresh dev environment.                                                        | Run only once, then use the `up`, `down`, `restart` commands. |
+| `make dev`                | Setup a fresh dev environment.                                                         | Run only once, then use the `up`, `down`, `restart` commands. |
+| `make build`              | build containers. Add `container=name` to build a specific container                   | args="--progress log" keeps all log in console (to debug failing build) |
 | `make up`                 | Start containers.                                                                      |                                                               |
 | `make down`               | Stop containers and keep the volumes.                                                  | Products and users data will be kept.                         |
 | `make hdown`              | Stop containers and delete the volumes (hard down).                                    | Products and users data will be lost !                        |

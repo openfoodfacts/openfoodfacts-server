@@ -807,6 +807,7 @@ my %min_regexp = (
 	es => "min|min\.|mín|mín\.|mínimo|minimo|minimum",
 	fr => "min|min\.|mini|minimum",
 	hr => "min|min\.|mini|minimum",
+	pl => "min|min\.|minimum",
 );
 
 my %max_regexp = (
@@ -815,6 +816,7 @@ my %max_regexp = (
 	es => "max|max\.|máximo",
 	fr => "max|max\.|maxi|maximum",
 	hr => "max|max\.|maxi|maximum",
+	pl => "max|max\.|maximum",
 );
 
 # Words that can be ignored after a percent
@@ -2781,6 +2783,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 								'^czekolada( deserowa)?: masa kakaowa min(imum)?$',
 								'^masa kakaowa( w czekoladzie mlecznej)? min(imum)?$',
 								'^masa mleczna min(imum)?$',
+								'^zawartość tłuszczu$',
 								'^(?>\d+\s+g\s+)?(?>\w+\s?)*?100\s?g(?> \w*)?$',  # "pomidorów zużyto na 100 g produktu"
 								'^\w*\s?z \d* g (?>\w+\s?)*?100\s?g\s(?>produktu)?$'
 								,    # "Sporządzono z 40 g owoców na 100 g produktu"
@@ -5523,11 +5526,22 @@ my %ingredients_categories_and_types = (
 	],
 
 	de => [
+		# oil and fat
 		{
 			categories => ["pflanzliches Fett", "pflanzliche Öle", "pflanzliche Öle und Fette", "Fett", "Öle"],
 			types => ["Kokosnuss", "Palm", "Palmkern", "Raps", "Shea", "Sonnenblumen",],
 			# Kokosnussöl, Sonnenblumenfett
 			alternate_names => ["<type>fett", "<type>öl"],
+		},
+		# plant protein
+		{
+			categories => ["pflanzliche Proteine", "Pflanzliches Eiweiß", "Pflanzliches Eiweiss"],
+			types => [
+				"Ackerbohnen", "Erbsen", "Hafer", "Kartoffel", "Kichererbsen", "Pilz",
+				"Reis", "Soja", "Sonnenblumen", "Weizen"
+			],
+			# haferprotein
+			alternate_names => ["<type>protein", "<type>eiweiß"],
 		},
 	],
 
@@ -5564,6 +5578,15 @@ my %ingredients_categories_and_types = (
 				"muscade", "poivre", "poivre noir", "romarin", "thé", "thé vert",
 				"thym",
 			]
+		},
+		# plant protein
+		{
+			categories => ["protéines végétales",],
+			types => [
+				"avoine", "blé", "champignon", "colza", "fève", "pois",
+				"pois chiche", "pomme de terre", "riz", "soja", "tournesol",
+			],
+			alternate_names => ["protéine de <type>", "protéine d'<type>", "protéines de <type>", "protéines d'<type>"],
 		},
 		# lecithin
 		{
