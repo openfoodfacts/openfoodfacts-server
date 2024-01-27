@@ -193,6 +193,7 @@ Footer:
 
 🐋 Docker:
 - docker/**/*
+- .dockerignore
 
 🏷️ Folksonomy Project:
 - html/js/folksonomy.js
@@ -615,6 +616,7 @@ Blocks:
 
 🗺️ Made Near Me:
 - scripts/generate_madenearme_page.pl
+- scripts/generate_madenearme_pages.sh
 
 PAO:
 - scripts/generate_pao_taxonomy.pl
@@ -791,6 +793,9 @@ Averages by categories:
 
 Static content:
 - scripts/copy_text_files.pl
+
+matomo:
+- scripts/utils/logs/download_matomo_logs.pl
 
 # TODO: find or create proper labels for those
 #- scripts/extract_images.pl

@@ -6722,20 +6722,21 @@ sub get_packager_code_coordinates ($emb_code) {
 	my $lng;
 
 	if (exists $packager_codes{$emb_code}) {
-		if (exists $packager_codes{$emb_code}{lat}) {
+		my %emb_code_data = %{$packager_codes{$emb_code}};
+		if (exists $emb_code_data{lat}) {
 			# some lat/lng have , for floating point numbers
-			$lat = $packager_codes{$emb_code}{lat};
-			$lng = $packager_codes{$emb_code}{lng};
+			$lat = $emb_code_data{lat};
+			$lng = $emb_code_data{lng};
 			$lat =~ s/,/\./g;
 			$lng =~ s/,/\./g;
 		}
-		elsif (exists $packager_codes{$emb_code}{fsa_rating_business_geo_lat}) {
-			$lat = $packager_codes{$emb_code}{fsa_rating_business_geo_lat};
-			$lng = $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
+		elsif (exists $emb_code_data{fsa_rating_business_geo_lat}) {
+			$lat = $emb_code_data{fsa_rating_business_geo_lat};
+			$lng = $emb_code_data{fsa_rating_business_geo_lng};
 		}
-		elsif ($packager_codes{$emb_code}{cc} eq 'uk') {
-			#my $address = 'uk' . '.' . $packager_codes{$emb_code}{local_authority};
-			my $address = 'uk' . '.' . $packager_codes{$emb_code}{canon_local_authority};
+		elsif ($emb_code_data{cc} eq 'uk') {
+			#my $address = 'uk' . '.' . $emb_code_data{local_authority};
+			my $address = 'uk' . '.' . ($emb_code_data{canon_local_authority} // '');
 			if (exists $geocode_addresses{$address}) {
 				$lat = $geocode_addresses{$address}[0];
 				$lng = $geocode_addresses{$address}[1];
