@@ -193,6 +193,7 @@ Footer:
 
 🐋 Docker:
 - docker/**/*
+- .dockerignore
 
 🏷️ Folksonomy Project:
 - html/js/folksonomy.js
@@ -621,6 +622,7 @@ Blocks:
 
 🗺️ Made Near Me:
 - scripts/generate_madenearme_page.pl
+- scripts/generate_madenearme_pages.sh
 
 PAO:
 - scripts/generate_pao_taxonomy.pl
