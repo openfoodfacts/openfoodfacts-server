@@ -450,9 +450,11 @@ label_categories:en: en:Environnment
 en:Climate Neutral Certified
 xx:Climate Neutral Certified
 
-# en:Climate Neutral
-# de:Klimaneutral
-# 70 Klimaneutral products
+en:Climate Neutral product, Climate Partner
+de:Klimaneutral Produkt, Climate Partner
+label_categories:en: en:environment
+website:en:https://www.climatepartner.com/en
+
 
 en:Carbon Trust
 xx:Carbon Trust
@@ -3235,10 +3237,11 @@ xx:Vina Hrvatske
 hr:povratna naknada
 xx:povratna naknada
 label_categories:en: en:Environment, en:Packaging
-image:hr:povratna-naknada.99x90.png
+image:hr:povratna-naknada.96x90.png
 country:en:Croatia
-description:en:deposit in Croatia.
-description:fr:consignée en Croatie.
+description:en:deposit in Croatia (NN 137/2023).
+description:fr:consignée en Croatie (NN 137/2023).
+website:hr:https://www.fzoeu.hr/hr/otpadna-ambalaza-unutar-sustava-povratne-naknade/9313
 
 sv:pant 1kr
 xx:pant 1kr
@@ -5108,7 +5111,7 @@ it:Biologico, biologici, da agricoltura biologica
 ko:유기농
 lt:Ekologiškas, ekologiškai užaugintas, ekologiškai pagamintas, ingredientas pagamintas ekologiškai, iš ekologiško žemės ūkio, iš ekologiško žemės ūkio
 nl:Biologisch, biologische, van biologische oorsprong, van biologische teelt, van gecontroleerd biologische teelt, afkomstig van biologische productiemethode, van gecontroleerde biologische landbouw
-pl:ekologiczny, bio, ekologiczne, ekologiczna, ekologicznych, ekologicznego
+pl:ekologiczny, bio, ekologiczne, ekologiczna, ekologicznych, ekologicznego, z kontrolowanych upraw ekologicznych, z kontrolowanej produkcji ekologicznej, z kontrolowanego rolnictwa ekologicznego
 pt:Orgânico, produção orgânica, produzido de forma orgânica, numa quinta orgânica, de agricultura orgânica, agricultura orgânica
 sv:Ekologisk, Ekologiskt, Ekologiska
 th:ออร์แกนิค
@@ -18404,6 +18407,18 @@ website:en:http://www.dionet.gr/?p=1300
 en:ActForPlanet
 fr:ActforPlanet, ActPlanet
 auth_url:en:https://www.actforplanet.org
+
+en:conservation international, ci
+xx:conservation international, ci
+label_categories:en: en:environment
+image:en:conservation-international.216x90.png
+website:en:https://en.wikipedia.org/wiki/Conservation_International
+
+en:too good to go
+xx:too good to go
+label_categories:en: en:environment
+image:en:too-good-to-go.108x90.png
+website:en:https://en.wikipedia.org/wiki/Too_Good_To_Go
 
 en:Class I, class 1
 ca:Classe I
