@@ -311,7 +311,7 @@
         }
       ],
       "security-admin-console": [],
-      "ProductOpener": [
+      "${PRODUCT_OPENER_OIDC_CLIENT_ID}": [
         {
           "id": "beda95d0-edcf-4387-a431-a642df8b62b8",
           "name": "uma_protection",
@@ -482,7 +482,7 @@
       "enabled": true,
       "totp": false,
       "emailVerified": false,
-      "serviceAccountClientId": "ProductOpener",
+      "serviceAccountClientId": "${PRODUCT_OPENER_OIDC_CLIENT_ID}",
       "disableableCredentialTypes": [],
       "requiredActions": [],
       "realmRoles": [
@@ -520,19 +520,19 @@
   "clients": [
     {
       "id": "c865387e-1275-47f7-948a-fd1b4b166385",
-      "clientId": "ProductOpener",
-      "name": "ProductOpener",
+      "clientId": "${PRODUCT_OPENER_OIDC_CLIENT_ID}",
+      "name": "${PRODUCT_OPENER_OIDC_CLIENT_ID}",
       "description": "Dummy client for local development",
-      "rootUrl": "http://world.openfoodfacts.localhost/",
-      "adminUrl": "http://world.openfoodfacts.localhost/",
-      "baseUrl": "http://world.openfoodfacts.localhost/",
+      "rootUrl": "http://world.${PRODUCT_OPENER_DOMAIN}/",
+      "adminUrl": "http://world.${PRODUCT_OPENER_DOMAIN}/",
+      "baseUrl": "http://world.${PRODUCT_OPENER_DOMAIN}/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": true,
       "clientAuthenticatorType": "client-secret",
-      "secret": "Cf4NdSAjZsNO9HLcuXeuvukzFu00roQa",
+      "secret": "${PRODUCT_OPENER_OIDC_CLIENT_SECRET}",
       "redirectUris": [
-        "http://world.openfoodfacts.localhost/cgi/oidc-signin-callback.pl"
+        "http://world.${PRODUCT_OPENER_DOMAIN}/cgi/oidc-signin-callback.pl"
       ],
       "webOrigins": [
         "*"
@@ -551,7 +551,7 @@
         "oidc.ciba.grant.enabled": "false",
         "client.secret.creation.time": "1698609487",
         "backchannel.logout.session.required": "true",
-        "post.logout.redirect.uris": "http://world.openfoodfacts.localhost/cgi/oidc-signout-callback.pl",
+        "post.logout.redirect.uris": "http://world.${PRODUCT_OPENER_DOMAIN}/cgi/oidc-signout-callback.pl",
         "oauth2.device.authorization.grant.enabled": "false",
         "display.on.consent.screen": "false",
         "backchannel.logout.revoke.offline.tokens": "false"

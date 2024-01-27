@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -33,10 +33,12 @@ use LWP::UserAgent::Plugin 'Retry';
 use HTTP::Request;
 use URI::Escape::XS qw/uri_escape/;
 
-my $keycloak_users_endpoint = $oidc_options{keycloak_users_endpoint};
-unless ($keycloak_users_endpoint) {
-	die 'keycloak_users_endpoint not configured';
+unless ((defined $oidc_options{keycloak_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
+	die 'keycloak_base_url and keycloak_realm_name not configured';
 }
+
+my $keycloak_users_endpoint
+	= $oidc_options{keycloak_base_url} . '/admin/realms/' . uri_escape($oidc_options{keycloak_realm_name}) . '/users';
 
 my $token;
 

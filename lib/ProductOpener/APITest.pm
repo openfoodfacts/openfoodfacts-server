@@ -100,7 +100,7 @@ sub wait_auth() {
 	my $ua = new_client();
 	my $target_url = construct_test_url("");
 	while (1) {
-		my $response = $ua->get($oidc_options{endpoint_configuration});
+		my $response = $ua->get($oidc_options{discovery_endpoint});
 		last if $response->is_success;
 		sleep 1;
 		$count++;

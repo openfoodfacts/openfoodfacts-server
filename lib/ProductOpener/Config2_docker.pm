@@ -120,17 +120,13 @@ $events_username = $ENV{EVENTS_USERNAME};
 $events_password = $ENV{EVENTS_PASSWORD};
 
 %oidc_options = (
-	client_id => 'ProductOpener',
-	client_secret => 'Cf4NdSAjZsNO9HLcuXeuvukzFu00roQa',
-	endpoint_configuration =>
-		"http://accounts.$ENV{PRODUCT_OPENER_DOMAIN}:8080/realms/open-products-facts/.well-known/openid-configuration",
+	client_id => $ENV{PRODUCT_OPENER_OIDC_CLIENT_ID},
+	client_secret => $ENV{PRODUCT_OPENER_OIDC_CLIENT_SECRET},
+	discovery_endpoint => $ENV{PRODUCT_OPENER_OIDC_DISCOVERY_ENDPOINT},
 	# Keycloak specific endpoint used to create users. This is currently required for backwards compatibility with apps
 	# that create users by POSTing to /cgi/user.pl
-	keycloak_account_endpoint => "http://accounts.$ENV{PRODUCT_OPENER_DOMAIN}:8080/realms/open-products-facts/account",
-	keycloak_reset_password_endpoint =>
-		"http://accounts.$ENV{PRODUCT_OPENER_DOMAIN}:8080/realms/open-products-facts/login-actions/reset-credentials",
-	keycloak_users_endpoint =>
-		"http://accounts.$ENV{PRODUCT_OPENER_DOMAIN}:8080/admin/realms/open-products-facts/users"
+	keycloak_base_url => $ENV{KEYCLOAK_BASE_URL},
+	keycloak_realm_name => $ENV{KEYCLOAK_REALM_NAME}
 );
 
 # Set this to your instance of https://github.com/openfoodfacts/facets-knowledge-panels

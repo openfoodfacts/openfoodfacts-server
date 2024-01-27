@@ -31,10 +31,11 @@ use URI::Escape::XS qw/uri_escape/;
 
 my $request_ref = ProductOpener::Display::init_request();
 
-unless ((defined $oidc_options{client_id}) and (defined $oidc_options{keycloak_account_endpoint})) {
+unless ((defined $oidc_options{keycloak_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
 	display_error_and_exit('File not found.', 404);
 }
 
-my $redirect = $oidc_options{keycloak_account_endpoint};
+my $redirect
+	= $oidc_options{keycloak_base_url} . '/admin/realms/' . uri_escape($oidc_options{keycloak_realm_name}) . '/users';
 
 redirect_to_url($request_ref, 302, $redirect);

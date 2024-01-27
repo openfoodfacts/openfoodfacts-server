@@ -29,6 +29,11 @@ x-backend-conf: &backend-conf
     - LOG_LEVEL_MONGODB
     - INFLUXDB_HOST
     - BUILD_CACHE_REPO
+    - KEYCLOAK_BASE_URL
+    - KEYCLOAK_REALM_NAME
+    - PRODUCT_OPENER_OIDC_CLIENT_ID
+    - PRODUCT_OPENER_OIDC_CLIENT_SECRET
+    - PRODUCT_OPENER_OIDC_DISCOVERY_ENDPOINT
   depends_on:
     - memcached
   volumes:

@@ -859,9 +859,8 @@ Returns an array of users in Keycloak.
 =cut
 
 sub get_users_from_keycloak () {
-	my $keycloak_users_endpoint = $oidc_options{keycloak_users_endpoint};
-	unless ($keycloak_users_endpoint) {
-		confess('keycloak_users_endpoint not configured');
+	unless ((defined $oidc_options{keycloak_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
+		confess('keycloak_base_url and keycloak_realm_name not configured');
 	}
 
 	my $token = get_token_using_client_credentials();
@@ -869,6 +868,11 @@ sub get_users_from_keycloak () {
 		confess('Could not get token to manage users with keycloak_users_endpoint');
 	}
 
+	my $keycloak_users_endpoint
+		= $oidc_options{keycloak_base_url}
+		. '/admin/realms/'
+		. uri_escape($oidc_options{keycloak_realm_name})
+		. '/users';
 	my $get_users_request = HTTP::Request->new(GET => $keycloak_users_endpoint);
 	$get_users_request->header('Accept' => 'application/json');
 	$get_users_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
@@ -894,9 +898,8 @@ The user that will be deleted from Keycloak
 =cut
 
 sub delete_user_from_keycloak ($user) {
-	my $keycloak_users_endpoint = $oidc_options{keycloak_users_endpoint};
-	unless ($keycloak_users_endpoint) {
-		confess('keycloak_users_endpoint not configured');
+	unless ((defined $oidc_options{keycloak_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
+		confess('keycloak_base_url and keycloak_realm_name not configured');
 	}
 
 	my $token = get_token_using_client_credentials();
@@ -904,6 +907,11 @@ sub delete_user_from_keycloak ($user) {
 		confess('Could not get token to manage users with keycloak_users_endpoint');
 	}
 
+	my $keycloak_users_endpoint
+		= $oidc_options{keycloak_base_url}
+		. '/admin/realms/'
+		. uri_escape($oidc_options{keycloak_realm_name})
+		. '/users';
 	my $delete_user_request = HTTP::Request->new(DELETE => $keycloak_users_endpoint . '/' . $user->{id});
 	$delete_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
 	my $delete_user_response = LWP::UserAgent->new->request($delete_user_request);

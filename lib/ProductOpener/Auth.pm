@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -478,9 +478,8 @@ A hashmap reference with created user informations.
 =cut
 
 sub create_user_in_keycloak ($user_ref, $password) {
-	my $keycloak_users_endpoint = $oidc_options{keycloak_users_endpoint};
-	unless ($keycloak_users_endpoint) {
-		display_error_and_exit('keycloak_users_endpoint not configured', 500);
+	unless ((defined $oidc_options{keycloak_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
+		display_error_and_exit('keycloak_base_url and keycloak_realm_name not configured', 500);
 	}
 
 	# use a special application authorization to handle creation
@@ -511,6 +510,11 @@ sub create_user_in_keycloak ($user_ref, $password) {
 	my $json = encode_json($api_request_ref);
 
 	# create request with right headers
+	my $keycloak_users_endpoint
+		= $oidc_options{keycloak_base_url}
+		. '/admin/realms/'
+		. uri_escape($oidc_options{keycloak_realm_name})
+		. '/users';
 	my $create_user_request = HTTP::Request->new(POST => $keycloak_users_endpoint);
 	$create_user_request->header('Content-Type' => 'application/json');
 	$create_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
@@ -853,10 +857,10 @@ sub _ensure_oidc_is_discovered () {
 		return;
 	}
 
-	$log->info('Original OIDC configuration', {endpoint_configuration => $oidc_options{endpoint_configuration}})
+	$log->info('Original OIDC configuration', {discovery_endpoint => $oidc_options{discovery_endpoint}})
 		if $log->is_info();
 
-	my $discovery_request = HTTP::Request->new(GET => $oidc_options{endpoint_configuration});
+	my $discovery_request = HTTP::Request->new(GET => $oidc_options{discovery_endpoint});
 	my $discovery_response = LWP::UserAgent::Plugin->new->request($discovery_request);
 	unless ($discovery_response->is_success) {
 		$log->info('Unable to load OIDC data from IdP', {response => $discovery_response->content}) if $log->is_info();

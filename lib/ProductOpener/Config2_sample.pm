@@ -45,6 +45,7 @@ BEGIN {
 		$events_url
 		$events_username
 		$events_password
+		%oidc_options
 		$redis_url
 		%server_options
 
@@ -87,6 +88,20 @@ $query_url = '';
 $events_url = '';
 $events_username = '';
 $events_password = '';
+
+# Set this to match your instance of Keycloak
+%oidc_options = (
+	# This is the client ID of the "open-products-facts" client in Keycloak
+	client_id => '',
+	# This is the client secret of the "open-products-facts" client in Keycloak
+	client_secret => '',
+	# Well-known endpoint used to discover metadata about the OIDC provider
+	discovery_endpoint => '',
+	# Keycloak specific: Base URL for the Keycloak server
+	keycloak_base_url => '',
+	# Keycloak specific: Name of the realm
+	keycloak_realm_name => ''
+);
 
 $redis_url = '';
 
