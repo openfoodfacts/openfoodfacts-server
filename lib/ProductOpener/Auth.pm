@@ -253,7 +253,7 @@ sub password_signin ($username, $password) {
 	);
 }
 
-=head2 get_user_id_using_token ($id_token)
+=head2 get_user_id_using_token ($id_token, $require_verified_email)
 
 Extract the user id from the OIDC identification token (which contains an email).
 
@@ -267,21 +267,30 @@ If the user properties file does not yet exists, it create it.
 
 The OIDC identification token information
 
+=heade4 boolean $require_verified_email
+
+If true, the email must be verified before proceeding.
+
 =head3 Return Value
 
 The userid as a string
 
 =cut
 
-sub get_user_id_using_token ($id_token) {
-	unless ($JSON::PP::true eq $id_token->{'email_verified'}) {
+sub get_user_id_using_token ($id_token, $require_verified_email = 0) {
+	if ($require_verified_email and (not($id_token->{'email_verified'} eq $JSON::PP::true))) {
 		$log->info('User email is not verified.', {email => $id_token->{'email'}}) if $log->is_info();
 		return;
 	}
 
-	my $verified_email = $id_token->{'email'};
+	my $user_id = $id_token->{'preferred_username'};
+	my $user_ref = retrieve_user($user_id);
+	unless ($user_ref) {
+		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
+		return create_user_in_product_opener($id_token);
+	}
 
-	return try_retrieve_userid_from_mail($verified_email) // create_user_in_product_opener($id_token);
+	return $user_ref->{userid};
 }
 
 =head2 refresh_access_token ($id_token)
@@ -549,10 +558,14 @@ sub create_user_in_product_opener ($id_token) {
 		return;
 	}
 
-	my $user_ref = {};
-	$user_ref->{email} = $id_token->{'email'};
-	$user_ref->{userid} = $id_token->{'preferred_username'};
-	$user_ref->{name} = $id_token->{'name'};
+	my $user_ref = {
+		userid => $id_token->{'preferred_username'},
+		name => $id_token->{'name'}
+	};
+
+	if ($id_token->{'email_verified'} eq $JSON::PP::true) {
+		$user_ref->{email} = $id_token->{'email'};
+	}
 
 	my $user_id = $user_ref->{userid};
 	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
@@ -564,14 +577,9 @@ sub create_user_in_product_opener ($id_token) {
 
 	if ((defined $email) and ($email =~ /\@/)) {
 		$emails_ref->{$email} = [$user_id];
+		store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 	}
 
-	if (defined $user_ref->{old_email}) {
-		delete $emails_ref->{$user_ref->{old_email}};
-		delete $user_ref->{old_email};
-	}
-
-	store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 	return $user_id;
 }
 

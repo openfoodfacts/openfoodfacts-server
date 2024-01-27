@@ -67,7 +67,6 @@ BEGIN {
 		&remove_user_by_org_admin
 		&add_users_to_org_by_admin
 		&is_suspicious_name
-		&try_retrieve_userid_from_mail
 
 		&check_session
 		&open_user_session
