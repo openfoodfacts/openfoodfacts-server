@@ -80,6 +80,7 @@ use File::Path qw/make_path remove_tree/;
 use File::Copy;
 use Path::Tiny qw/path/;
 use Scalar::Util qw(looks_like_number);
+use URI::Escape::XS qw/uri_escape/;
 
 use Log::Any qw($log);
 
