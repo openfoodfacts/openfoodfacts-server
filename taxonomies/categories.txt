@@ -5733,10 +5733,47 @@ ciqual_proxy_food_name:fr:Boisson gazeuse aux fruits (à moins de 10% de jus), n
 <en:Carbonated drinks
 en:Carbonated soft drinks without fruit juice
 fr:Boissons gazeuses sans jus de fruit
+bg:Газирани без плодови сокове
+ca:Begudes carbonatades sense suc de fruita
+cs:Sycené nápoje bez ovocné šťávy
+da:Kulsyreholdige drikkevarer uden frugtsaft
+de:Kohlensäurehaltige Getränke ohne Fruchtsaft
+es:Bebidas carbonatadas sin jugo de frutas
+fi:Hiilihapotetut virvoitusjuomat ilman hedelmämehua
+hr:Gazirana pića bez voćnog soka
+hu:Szénsavas üdítőitalok gyümölcslé nélkül
+it:Bibite gassate senza succo di frutta
+ja:果汁なしの炭酸飲料
+lt:Gazuoti gaivieji gėrimai be vaisių sulčių
+nl:Koolzuurhoudende dranken zonder vruchtensap
+pl:Napoje gazowane bez soku owocowego
+pt:Bebidas carbonatadas sem suco de frutas
+ru:Газированные напитки без фруктового сока
+sl:Gazirane pijače brez sadnega soka
+sv:Kolsyrade drycker utan fruktjuice
+tr:Meyve suyu olmayan gazlı içecekler
+zh:无果汁的碳酸饮料
 
 <en:Carbonated soft drinks without fruit juice
 en:Carbonated soft drinks without fruit juice with sugar
 fr:Boissons gazeuses sucrées sans jus de fruit
+da:Sukkerholdige kulsyreholdige drikkevarer uden frugtsaft
+de:Zuckerhaltige kohlensäurehaltige Getränke ohne Fruchtsaft
+es:Bebidas carbonatadas azucaradas sin jugo de frutas
+fi:Sokerilla makeutetut hiilihapotetut juomat ilman hedelmämehua
+hr:Gazirana pića s šećerom bez voćnog soka
+hu:Cukros szénsavas üdítőitalok gyümölcslé nélkül
+it:Bibite gassate zuccherate senza succo di frutta
+ja:果汁なしの炭酸飲料（砂糖入り）
+lt:Gazuoti gaivieji gėrimai su cukrumi be vaisių sulčių
+nl:Koolzuurhoudende dranken met suiker zonder vruchtensap
+pl:Napoje gazowane z cukrem bez soku owocowego
+pt:Bebidas carbonatadas com açúcar sem suco de frutas
+ru:Газированные напитки с сахаром без фруктового сока
+sl:Gazirane pijače s sladkorjem brez sadnega soka
+sv:Sockerhaltiga kolsyrade drycker utan fruktjuice
+tr:Şekerli meyve suyu olmayan gazlı içecekler
+zh:含糖无果汁的碳酸饮料
 agribalyse_food_code:en:18026
 ciqual_food_code:en:18026
 ciqual_food_name:en:Soft drink, carbonated, without fruit juice, with sugar
@@ -5771,6 +5808,26 @@ ciqual_food_name:fr:Boisson gazeuse, sans jus de fruit, non sucrée, avec édulc
 <en:Carbonated drinks
 en:Carbonated fruit soft drink
 fr:Boisson gazeuse aux fruits
+bg:Газирано плодово безалкохолно питие
+ca:Beguda gasosa de fruita
+cs:Ovocný perlivý nápoj
+da:Kulsyreholdig frugtdrik
+de:Fruchtlimonade mit Kohlensäure
+es:Bebida gaseosa de frutas
+fi:Hiilihapotettu hedelmäjuoma
+hr:Gazirano voćno bezalkoholno piće
+hu:Gyümölcsös szénsavas üdítőital
+it:Bibita gassata ai frutti
+ja:果実入り炭酸飲料
+lt:Gazuotas vaisių gaivusis gėrimas
+nl:Koolzuurhoudend fruitdrankje
+pl:Gazowany napój owocowy
+pt:Bebida gaseificada de frutas
+ru:Газированный фруктовый безалкогольный напиток
+sl:Gazirana sadna brezalkoholna pijača
+sv:Kolsyrad fruktig läskedryck
+tr:Gazlı meyve gazsız içecek
+zh:果汁碳酸饮料
 agribalyse_proxy_food_code:en:18019
 
 <en:Carbonated fruit soft drink
@@ -5958,6 +6015,7 @@ ciqual_food_name:fr:Cola, non sucré, avec édulcorants, sans caféine
 <en:Colas
 <en:Fruit sodas
 de:Cola Mix, Cola-Mix, Cola-Mischgetränk, Spezi
+xx:Spezi
 wikidata:en:Q1422578
 #Spezi is the name of a brand for mixtures of cola and orange lemonade
 
@@ -5978,7 +6036,7 @@ nl:Cassisfrisdranken
 <en:Fruit sodas
 en:Lemon soft drinks, Lemon sodas
 de:Zitronenlimonaden
-es:Sodas a base de limón, Sodas de limón‎
+es:Sodas a base de limón, Sodas de limón
 fi:Sitruunavirvoitusjuomat
 fr:Sodas au citron, soda citron, soda au citron
 it:Bibite gassate al limone, Bibite gassate al gusto di limone
@@ -6217,6 +6275,9 @@ bg:Кола със захар
 fr:Cola sucré
 lt:Kola su cukrumi
 nl:Cola met suiker
+es:Cola con azúcar
+it:Cola con zucchero
+de:Cola mit Zucker
 agribalyse_food_code:en:18018
 ciqual_food_code:en:18018
 ciqual_food_name:en:Cola, with sugar
@@ -6226,6 +6287,12 @@ ciqual_food_name:fr:Cola, sucré
 <en:Colas
 en:Cola with sugar and artificial sweetener, Cola with sugar and artificial sweeteners
 fr:Cola sucré avec édulcorants
+bg:Кола със захар и изкуствени подсладители
+lt:Kola su cukrumi ir dirbtiniais saldikliais
+nl:Cola met suiker en artificiële zoetstoffen
+es:Cola con azúcar y edulcorantes artificiales
+it:Cola con zucchero e dolcificante artificiale
+de:Cola mit Zucker und künstlichen Süßstoffen
 agribalyse_food_code:en:18037
 ciqual_food_code:en:18037
 ciqual_food_name:en:Cola, with sugar and artificial sweetener(s)
@@ -6241,12 +6308,36 @@ it:Bibite alla cola senza caffeina, Cole senza caffeina
 lt:Kola be kafeino
 nl:Caffeinevrije colas
 ro:Cola fără cafeină
+bg:Кола без кофеин
+ca:Cola sense cafeïna
+da:Koffeinfri cola
+he:קולה ללא קפאין
+hu:Koffeinmentes kólák
+pl:Kola bez kofeiny
+pt:Cola sem cafeína
+tr:Kafeinsiz kola
+zh:无咖啡因可乐
 #wikidata:en:
 
 <en:Cola sodas without caffeine
 <en:Cola with sugar
 en:Cola with sugar and without caffeine
 fr:Cola sucré sans caféine
+bg:Кола със захар и без кофеин
+ca:Cola amb sucre i sense cafeïna
+da:Cola med sukker og uden koffein
+de:Cola mit Zucker und ohne Koffein
+es:Cola con azúcar y sin cafeína
+fi:Sokerilla makeutettu kofeiiniton cola
+he:קולה עם סוכר ובלי קפאין
+hu:Cukorral és koffein nélkül készült kóla
+it:Cola con zucchero e senza caffeina
+lt:Kola su cukrumi ir be kofeino
+nl:Cola met suiker en zonder cafeïne
+nl_be:Cola met suiker en zonder cafeïne
+pl:Cola z cukrem i bez kofeiny
+pt:Cola com açúcar e sem cafeína
+ro:Cola cu zahăr și fără cofeină
 agribalyse_food_code:en:18067
 ciqual_food_code:en:18067
 ciqual_food_name:en:Cola, with sugar and without caffeine
@@ -6624,6 +6715,17 @@ ignore_energy_calculated_error:en:yes
 <en:Lemon juice
 en:Home-made lemon juice
 fr:Jus de citron maison
+bg:Домашен лимонов сок
+de:Hausgemachter Zitronensaft
+fi:Itsetehty sitruunamehu
+hu:Házi készítésű citromlé
+it:Succo di limone fatto in casa
+lt:Namų gamybos citrinų sultys
+nl:Huisgemaakte citroensap
+nl_be:Huisgemaakte citroensap
+pl:Domowy sok cytrynowy
+ru:Домашний лимонный сок
+zh:自制柠檬汁
 ciqual_food_code:en:2007
 ciqual_food_name:en:Lemon juice, home-made
 ciqual_food_name:fr:Jus de citron, maison
@@ -7265,6 +7367,10 @@ wikidata:en:Q3567034
 <en:Pomegranate juices
 en:Fresh pomegranate juice
 fr:Jus de grenade frais
+lt:Šviežios granatų sultys
+nl:Verse granaatappelsap
+de:Frischer Granatapfelsaft
+es:Zumo de granada fresco
 ciqual_food_code:en:2039
 ciqual_food_name:en:Pomegranate juice, fresh
 ciqual_food_name:fr:Jus de grenade, frais
@@ -7418,6 +7524,14 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 
 <en:Fruit nectars
 en:Refrigerated fruit nectars
+bg:Хладилни плодови нектари
+de:Gekühlte Fruchtnektare
+es:Néctares de frutas refrigerados
+fr:Nectars de fruits réfrigérés
+lt:Šaldytos vaisių nektarai
+nl:Gekoelde vruchtennectars
+ro:Nectare de fructe refrigerate
+zh:冷藏水果花蜜
 gpc_category_code:en:10000222
 gpc_category_name:en:Fruit Juice Drinks - Ready to Drink (Perishable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a perishable, ready to drink non-carbonated beverage, that contains some fruit juice or a blend of fruit and vegetable juice, having fruit juice as the main characteristic, together with additional ingredients such as water, sugar, colourings and flavourings. These products must be refrigerated to extend their consumable life. Includes products that may be described as Nectar, Fruit Drink or Juice Drink and available in single flavours such as orange and apple or they may be blends of more than one such as orange and apricot, cranberry and raspberry. Definition Excludes: Excludes products such as Frozen and Shelf Stable Juice Drinks, Juice, Syrups, Juice Concentrate, 100% Juices, Flavoured Mixers, Mineral Water, Baby and Infant Specialized Beverages as well as Juice Drinks based on vegetable juice or blended vegetable/fruit juice having vegetables as the main characteristic.
@@ -7887,6 +8001,18 @@ nl:Tomatensappen uit concentraat, Tomatensap uit concentraat
 <en:Tomato juices
 en:Pure tomato juices
 fr:Jus de tomate pur jus
+bg:Чисти доматени сокове
+de:Reiner Tomatensaft
+es:Zumos de tomate puro
+fi:puhdas tomaattimehu
+it:Succo di pomodoro puro
+ja:純粋なトマトジュース
+lt:Grynos pomidorų sultys
+nl:Puur tomatensap
+pl:Czyste soki pomidorowe
+ru:Чистые томатные соки
+tr:Katkısız domates suyu
+zh:纯番茄汁
 agribalyse_food_code:en:2053
 ciqual_food_code:en:2053
 ciqual_food_name:en:Tomato juice, pure juice (average)
@@ -8790,6 +8916,10 @@ fi:kofeiinittomat teet
 fr:Thés décaféinés
 it:Tè decaffeinato
 nl:Caffeïnevrije theeën, Caffeïnevrije thee
+pl:Herbaty bezkofeinowe
+pt:Chás descafeinados
+ru:Безкофеиновые чаи
+zh:无咖啡因茶
 
 <en:Teas
 <en:Fermented drinks
@@ -8849,6 +8979,9 @@ agribalyse_proxy_food_name:fr:Thé vert, infusé, non sucré
 
 <en:Green teas
 fr:Thés verts aromatisés
+es:Tés verdes aromatizados
+it:Tè verde aromatizzato
+nl:Gearomatiseerde groene theeën
 
 <en:Green teas
 en:Brewed green tea without sugar
@@ -9195,14 +9328,23 @@ fr:Concentrés de jus de fruits, jus de fruits concentrés
 <en:Fruit juice concentrates
 en:Apple juice concentrates, concentrated apple juices
 fr:Concentrés de jus de pommes, Jus de pommes concentrés
+es:Concentrados de jugo de manzana, jugos de manzana concentrados
+de:Apfelsaftkonzentrate, konzentrierter Apfelsaft
+nl:Appelsapconcentraten, geconcentreerde appelsappen
 
 <en:Fruit juice concentrates
 en:Lemon juice concentrates, concentrated lemon juices
 fr:Concentrés de jus de citrons, Jus de citrons concentrés
+es:Concentrados de jugo de limón, jugos de limón concentrados
+de:Zitronensaftkonzentrate, konzentrierter Zitronensaft
+nl:Citroensapconcentraten, geconcentreerde citroensappen
 
 <en:Fruit juice concentrates
 en:Lime juice concentrates, concentrated lime juices
 fr:Concentrés de jus de citrons verts, Jus de citrons verts concentrés
+es:Concentrados de jugo de lima, jugos de lima concentrados
+de:Limonensaftkonzentrate, konzentrierter Limonensaft
+nl:Limoensapconcentraten, geconcentreerde limoensappen
 
 <en:Plant-based foods and beverages
 en:Dairy substitutes, Dairies substitutes
@@ -9214,10 +9356,18 @@ pl:Zastępniki nabiału, Substytuty nabiału
 <en:Dairy substitutes
 en:Mascarpone substitutes
 fr:Substituts du mascarpone
+de:Mascarpone-Ersatz
+es:Sustitutos del mascarpone
+it:Sostituti del mascarpone
+nl:Mascarpone-vervangers
 
 <en:Dairy substitutes
 en:Ricotta substitutes
 fr:Substituts de la ricotta
+de:Ricotta-Ersatz
+es:Sustitutos de la ricotta
+it:Sostituti della ricotta
+nl:Ricotta-vervangers
 
 <en:Dairy substitutes
 en:Creamer, coffee creamers
@@ -9303,6 +9453,11 @@ origins:en: en:Vietnam
 <en:Coffees
 en:Indonesian coffee
 fr:Café d'Indonésie
+es:Café de Indonesia
+de:Indonesischer Kaffee
+it:Caffè indonesiano
+nl:Indonesische koffie
+pt:Café indonésio
 origins:en: en:Indonesia
 
 <en:Coffees
@@ -9322,17 +9477,28 @@ origins:en: en:India
 <en:Coffees
 en:Honduras coffee
 fr:Café du Honduras
+es:Café de Honduras
+it:Caffè dell'Honduras
+nl:Hondurese koffie
+pt:Café de Honduras
 origins:en: en:Honduras
 
 <en:Coffees
 en:Ethiopian coffee
 fr:Café d'Éthiopie
 pt:Café da Etiópia
+es:Café etíope
+it:Caffè etiope
+nl:Ethiopische koffie
 origins:en: en:Ethiopia
 
 <en:Coffees
 en:Peruvian coffee
 fr:Café du Pérou
+es:Café peruano
+it:Caffè peruviano
+nl:Peruaanse koffie
+pt:Café peruano
 origins:en: en:Peru
 
 <en:Coffees
@@ -9346,6 +9512,9 @@ origins:en: en:Guatemala
 en:Mexiacan coffee
 es:Café mexicano
 fr:Café du Mexique
+it:Caffè messicano
+nl:Mexicaanse koffie
+pt:Café mexicano
 origins:en: en:Mexico
 
 <en:Coffees
@@ -9373,11 +9542,19 @@ es:Café de Laos
 it:Caffè del Laos
 nl:Koffie uit Laos
 pt:Café do Laos
+es:Café de Laos
+it:Caffè del Laos
+nl:Koffie uit Laos
+pt:Café do Laos
 origins:en: en:Laos
 
 <en:Coffees
 en:Coffees from Nicaragua
 fr:Café du Nicaragua
+es:Café de Nicaragua
+it:Caffè del Nicaragua
+nl:Koffie uit Nicaragua
+pt:Café da Nicarágua
 es:Café de Nicaragua
 it:Caffè del Nicaragua
 nl:Koffie uit Nicaragua
@@ -9427,6 +9604,8 @@ fr:Café de Madagascar
 it:Caffè di Madagascar
 nl:Koffie uit Madagascar
 pt:Café de Madagascar
+de:Kaffee aus Madagaskar
+ja:マダガスカル産のコーヒー
 origins:en: en:Madagascar
 
 en:Capsules
@@ -9452,6 +9631,11 @@ pt:Cápsulas de chá
 <en:Hot beverages
 en:Cocoa capsules
 lt:Kakavos kapsulės
+es:Cápsulas de cacao
+fr:Capsules de cacao
+it:Capsule di cacao
+nl:Cacaocapsules
+pt:Cápsulas de cacau
 
 <en:Capsules
 <en:Coffees
@@ -9517,6 +9701,11 @@ pt:Cápsulas de café compatíveis com Dolce Gusto
 en:Dolce Gusto-compatible capsules
 fr:Dosettes Dolce Gusto, Capsules Dolce Gusto
 lt:Dolce Gusto formato kapsulės
+es:Cápsulas compatibles con Dolce Gusto
+de:Dolce Gusto-kompatible Kapseln
+nl:Dolce Gusto-compatibele Koffiecapsules
+pt:Cápsulas de café compatíveis com Dolce Gusto
+it:Capsule di caffè compatibili con Dolce Gusto
 
 <en:Coffee capsules
 en:Tassimo-compatible coffee capsules, T-Disc coffee capsules
@@ -9548,6 +9737,11 @@ de:entkoffeinierte Kaffees in Pads, koffeinfreie Kaffees in Pads
 nl:Cafeïnevrije koffiepads, Caffeïnevrije koffiepad
 pt:Cápsulas de café descafeinado
 zh:无咖啡因咖啡胶囊
+es:Cápsulas de café descafeinado
+fr:Cafés décaféinés en capsules
+it:Capsule di caffè decaffeinato
+lt:Kavos kapsulės be kofeino
+ru:Кофе без кофеина в капсулах
 
 <en:Coffees
 en:Ground coffees
@@ -9608,11 +9802,22 @@ de:Arabica Kaffees
 fr:Café Arabica
 it:Caffè Arabica
 nl:Arabica koffies
+es:Cafés Arábica
+fi:Arabica-kahvit
+hr:Arapske kave
+ja:アラビカコーヒー
+lt:Arabika kavos
+ru:Арабика кофе
+zh:阿拉比卡咖啡
+wikidata:en:Q104218426
 
 <en:Ground coffees
 <en:Arabica coffees
 en:Arabica ground coffees
 fr:Café Arabica moulu
+de:Arabica gemahlener Kaffee
+nl:Gemalen Arabica koffies
+pt:Cafés arabica moídos
 
 <en:Coffee beans
 <en:Arabica coffees
@@ -9684,6 +9889,11 @@ ciqual_food_name:fr:Café, non instantané, non sucré, prêt à boire
 <en:Coffee drinks
 en:Espresso coffee without sugar
 fr:Café expresso non sucré
+es:Café expreso sin azúcar
+de:Espresso ohne Zucker
+it:Caffè espresso senza zucchero
+nl:Espresso koffie zonder suiker
+pt:Café expresso sem açúcar
 agribalyse_food_code:en:18071
 ciqual_food_code:en:18071
 ciqual_food_name:en:Espresso coffee, not instant coffee, without sugar, ready-to-drink
@@ -9707,6 +9917,9 @@ fr:Café au lait sucré
 it:Caffè con latte con zucchero
 nl:Koffie met melk met suiker
 pt:Café com leite com açúcar
+de:Kaffee mit Milch und Zucker
+ru:Кофе с молоком и сахаром
+zh:加糖牛奶咖啡
 
 <en:Coffees
 en:Coffee with milk without sugar
@@ -9796,6 +10009,9 @@ en:Cappuccino without sugar
 es:Cappuccino sin azúcar
 fr:Cappuccino non sucré
 it:Cappuccino senza zucchero
+nl:Cappuccino zonder suiker
+pt:Cappuccino sem açúcar
+de:Zuckerfreier Cappuccino
 agribalyse_food_code:en:18151
 ciqual_food_code:en:18151
 ciqual_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
@@ -9830,6 +10046,12 @@ ciqual_food_name:fr:Café, décaféiné, poudre soluble
 <en:Decaffeinated coffees
 en:Instant decaffeinated coffee without sugar
 fr:Café décaféiné non sucré instantané
+es:Café descafeinado instantáneo sin azúcar
+de:Entkoffeinierter Instantkaffee ohne Zucker
+it:Caffè decaffeinato istantaneo senza zucchero
+nl:Oploskoffie zonder suiker, cafeïnevrij
+pt:Café instantâneo descafeinado sem açúcar
+ru:Растворимый кофе без кофеина без сахара
 agribalyse_food_code:en:18072
 ciqual_food_code:en:18072
 ciqual_food_name:en:Decaffeinated instant coffee, without sugar, ready-to-drink
@@ -9838,6 +10060,9 @@ ciqual_food_name:fr:Café décaféiné, instantané, non sucré, prêt à boire
 <en:Decaffeinated coffees
 en:Decaffeinated coffee without sugar
 fr:Café décaféiné non sucré
+es:Café descafeinado sin azúcar
+de:Entkoffeinierter Kaffee ohne Zucker
+it:Caffè decaffeinato senza zucchero
 agribalyse_food_code:en:18070
 ciqual_food_code:en:18070
 ciqual_food_name:en:Decaffeinated not instant coffee, without sugar, ready-to-drink
@@ -9846,6 +10071,9 @@ ciqual_food_name:fr:Café décaféiné, non instantané, non sucré, prêt à bo
 <en:Instant coffees
 en:Instant coffee without sugar
 fr:Café instantané non sucré
+es:Café instantáneo sin azúcar
+de:Instantkaffee ohne Zucker
+it:Caffè istantaneo senza zucchero
 agribalyse_food_code:en:18073
 ciqual_food_code:en:18073
 ciqual_food_name:en:Instant coffee, without sugar, ready-to-drink
@@ -9854,6 +10082,9 @@ ciqual_food_name:fr:Café, instantané, non sucré, prêt à boire
 <en:Instant coffees
 en:Instant powder for cappuccino with chocolate
 fr:Cappuccino au chocolat en poudre soluble
+es:Cappuccino de chocolate en polvo instantáneo
+de:Instantpulver für Schokoladen-Cappuccino
+it:Cappuccino al cioccolato in polvere istantanea
 agribalyse_food_code:en:18163
 ciqual_food_code:en:18163
 ciqual_food_name:en:Coffee with milk or Cappuccino with chocolate, powder, instant
@@ -9862,6 +10093,10 @@ ciqual_food_name:fr:Café au lait ou cappuccino au chocolat, poudre soluble
 <en:Instant coffees
 en:Instant powder for coffee with milk
 fr:Café au lait en poudre soluble
+es:Café con leche en polvo instantáneo
+de:Instantpulver für Kaffee mit Milch
+it:Caffè con latte in polvere istantaneo
+nl:Oploskoffie met melkpoeder
 agribalyse_food_code:en:18151
 agribalyse_food_name:en:Coffee with milk or white coffee or cappuccino, instant coffee or not, without sugar, ready-to-drink
 ciqual_food_code:en:18163
@@ -9888,6 +10123,11 @@ ciqual_food_name:fr:Café au lait ou cappuccino, poudre soluble
 <en:Instant coffees
 en:Aromatised instant coffees
 nl:Gearomatiseerde oploskoffies, Gearomatiseerde instantkoffies
+fr:Cafés instantanés aromatisés
+de:Aromatisierte Instant-Kaffees
+es:Cafés instantáneos aromatizados
+it:Caffè istantaneo aromatizzato
+ru:Ароматизированный растворимый кофе
 
 #I don't know if натуральный (natural) makes any difference; most coffees have that anyway.
 <en:Freeze-dried plant-based foods
@@ -9943,6 +10183,10 @@ agribalyse_food_name:en:Instant chicory, without sugar and artificial sweeteners
 <en:Plant-based beverages
 en:Instant chicory with water
 nl:Oploscichorei met water
+fr:Chicorée instantanée avec de l'eau
+de:Instant-Chicorée mit Wasser
+es:Chicoria instantánea con agua
+it:Cicoria istantanea con acqua
 agribalyse_food_code:en:18162
 ciqual_food_code:en:18162
 ciqual_food_name:en:Mix of chicory and coffee, instant, without sugar, ready-to-drink (reconstituted with water)
@@ -10321,7 +10565,8 @@ fr:Marc
 en:Italian grape marc spirit or grape marc
 
 <en:Italian grape marc spirit or grape marc
-it:Grappa della Valle d’Aosta, Grappa de la Vallée d’Aoste
+it:Grappa della Valle d’Aosta
+fr:Grappa de la Vallée d’Aoste
 protected_name_file_number:en: PGI-IT-02479
 protected_name_type:en: gi
 origins:en: en:Italy
@@ -10494,6 +10739,11 @@ fr:Vins de cuisine
 nl:Kookwijnen
 es:Vinos de cocina
 de:Kochweine
+it:Vini da cucina
+fr:Vins de cuisine
+nl:Kookwijnen
+es:Vinos de cocina
+de:Kochweine
 gpc_category_code:en:10000052
 gpc_category_name:en:Cooking Wines
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a typically inferior variety of wine to Drinking Wine, sometimes adulterated with salt, which is used in cooking to enhance the flavour or colour of a prepared recipe. These products are specifically labelled and marketed as cooking wine, and their alcohol content ensures that they do not need to be refrigerated.Definition Excludes: Excludes products such as Wine or Sherry Alcoholic Beverages, and any alcohol not specifically used for cooking.
@@ -10502,10 +10752,16 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 en:Wine without geographic indication
 fr:Vin sans indication géographique, VSIG (Vin sans indication géographique), VSIG
 nl:Wijnen zonder geografische oorsprong indicatie
+es:Vino sin indicación geográfica
+de:Wein ohne geografische Angabe
+it:Vino senza indicazione geografica
 
 <en:Wines
 fr:Fontaines à vin
 nl:Wijnfonteinen
+es:Fuentes de vino
+de:Weinbrunnen
+it:Fontane di vino
 
 <en:Wines
 en:Federweisser
@@ -10536,6 +10792,28 @@ wikidata:en:Q321263
 <en:Sparkling wines
 <en:French wines
 en:French sparkling wines
+bg:Френски игристи вина
+ca:Vins escumosos francesos
+cs:Francouzské šumivé vína
+da:Franske mousserende vine
+de:Französische Schaumweine
+es:Vinos espumosos franceses
+fi:ranskalaiset kuohuviinit
+fr:Vins effervescents français
+he:יינות קידוח צרפתיים
+hr:Francuska pjenušava vina
+hu:Francia pezsgők
+it:Spumanti francesi
+ja:フランス産スパークリングワイン
+lt:Prancūzijos putliniai vynai
+nl:Franse mousserende wijnen
+pl:Francuskie wina musujące
+pt:Vinhos espumantes franceses
+ru:Французские игристые вина
+sv:Franska mousserande viner
+th:ไวน์อัดแก๊สฝรั่งเศส
+tr:Fransız şampanyaları
+zh:法国起泡酒
 fr:Vins pétillants français
 es:Vinos espumosos franceses
 de:Französische Schaumweine
@@ -10572,12 +10850,23 @@ fi:Luomupunaviinit
 fr:Vin rouge bio
 nl:Biologische rode wijn
 zh:有机红葡萄酒, 有机红酒
+es:Vinos tintos orgánicos
+de:Bio-Rotweine
+it:Vini rossi biologici
+pt:Vinhos tintos orgânicos
+ru:Органические красные вина
 labels:en: en:organic
 
 <en:Red wines
 en:10% red wine
 fr:Vin rouge à 10°, Vin rouge à 10 degrés
 pt:10% vinho tinto
+es:Vino tinto al 10%
+it:Vino rosso al 10%
+de:10% Rotwein
+nl:10% rode wijn
+ru:10% красное вино
+zh:10% 红葡萄酒
 es:Vino tinto al 10%
 de:10% Rotwein
 agribalyse_food_code:en:5203
@@ -10588,6 +10877,20 @@ ciqual_food_name:fr:Vin rouge 10°
 <en:Red wines
 en:11% red wine
 fr:Vin rouge à 11°, Vin rouge à 11 degrés
+bg:11% червено вино
+ca:Vi negre 11%
+de:11% Rotwein
+es:Vino tinto 11%
+fi:11% punaviini
+it:Vino rosso 11%
+ja:11% 赤ワイン
+lt:11% raudonas vynas
+nl:11% rode wijn
+pl:11% czerwone wino
+pt:Vinho tinto 11%
+ru:11% красное вино
+tr:11% kırmızı şarap
+zh:11% 红葡萄酒
 es:Vino tinto al 11%
 de:11% Rotwein
 it:Vino rosso al 11%
@@ -10598,6 +10901,20 @@ ciqual_food_name:fr:Vin rouge 11°
 <en:Red wines
 en:12% red wine
 fr:Vin rouge à 12°, Vin rouge à 12 degrés
+bg:12% червено вино
+ca:Vi negre 12%
+de:12% Rotwein
+es:Vino tinto 12%
+fi:12% punaviini
+it:Vino rosso 12%
+ja:12% 赤ワイン
+lt:12% raudonas vynas
+nl:12% rode wijn
+pl:12% czerwone wino
+pt:Vinho tinto 12%
+ru:12% красное вино
+tr:12% kırmızı şarap
+zh:12% 红葡萄酒
 ciqual_food_code:en:5205
 ciqual_food_name:en:Wine, red, 12°
 ciqual_food_name:fr:Vin rouge 12°
@@ -10605,6 +10922,20 @@ ciqual_food_name:fr:Vin rouge 12°
 <en:Red wines
 en:13% red wine
 fr:Vin rouge à 13°, Vin rouge à 13 degrés
+bg:13% червено вино
+ca:Vi negre 13%
+de:13% Rotwein
+es:Vino tinto 13%
+fi:13% punaviini
+it:Vino rosso 13%
+ja:13% 赤ワイン
+lt:13% raudonas vynas
+nl:13% rode wijn
+pl:13% czerwone wino
+pt:Vinho tinto 13%
+ru:13% красное вино
+tr:13% kırmızı şarap
+zh:13% 红葡萄酒
 ciqual_food_code:en:5208
 ciqual_food_name:en:Wine, red, 13°
 ciqual_food_name:fr:Vin rouge 13°
@@ -10664,6 +10995,10 @@ en:Flavoured wines
 de:Aromatisierte Weine
 fr:Vins aromatisés
 nl:Gearomatiseerde wijnen, Gearomatiseerde wijn
+es:Vinos aromatizados
+it:Vini aromatizzati
+pt:Vinhos aromatizados
+ru:Ароматизированные вина
 
 <en:Beverages
 en:Non-alcoholic beverages
@@ -10729,6 +11064,9 @@ nl:Alcoholvrije cider, Niet-alcoholische cider
 <en:Tea-based beverages
 en:Still soft drink with tea extract
 fr:Boisson au thé aromatisée
+es:Bebida gaseosa sin gas con extracto de té
+de:Stillgetränk mit Teeextrakt
+nl:Koolzuurvrije frisdrank met thee-extract
 agribalyse_proxy_food_code:en:18015
 agribalyse_proxy_food_name:en:Still soft drink with tea extract, with sugar and artificial sweetener(s)
 
@@ -10801,6 +11139,9 @@ fr:Sirops aux fruits, sirop aux fruits
 lt:Vaisiniai sirupai
 nl:Vruchtensiropen, Vruchtensiroop, Vruchtesiroop
 pl:Syropy owocowe, Syropy z owocami
+es:Jarabes con frutas, Jarabe con frutas
+it:Sciroppi con frutta, Sciroppo con frutta
+pt:Xaropes com frutas, Xarope com frutas
 wikidata:en:Q5506416
 
 <en:Flavoured syrups
@@ -10855,12 +11196,18 @@ en:Rose syrups
 de:Rosensirups
 fr:Sirops de rose
 nl:Rozensiropen, Rozensiroop, Rozesiropen, Rozen siroop
+es:Jarabes de rosa
+it:Sciroppi di rosa
+pt:Xaropes de rosa
 
 <en:Flavoured syrups
 en:Chestnut syrups
 de:Kastaniensirups
 fr:Sirops de châtaignes
 nl:Kastanje siropen, Kastanje siroop, Kastanjesiroop
+es:Jarabes de castaña
+it:Sciroppi di castagne
+pt:Xaropes de castanha
 
 <en:Flavoured syrups
 en:Cherry syrups
@@ -10868,6 +11215,10 @@ de:Kirschsirups
 fr:Sirops de cerise
 lt:Vyšnių sirupai
 nl:Kersensiropen, Kersensiroop
+pl:Syropy wiśniowe
+es:Jarabes de cereza
+it:Sciroppi di ciliegia
+pt:Xaropes de cereja
 
 <en:Flavoured syrups
 en:Lime syrups
@@ -10898,11 +11249,17 @@ de:Kiwisirups
 fr:Sirops de kiwi
 nk:Kiwi siropen, Kiwi siroop, Kiwisiroop
 nl:Kiwi siroop
+es:Siropes de kiwi
+it:Sciroppi di kiwi
+pt:Xaropes de kiwi
 
 <en:Flavoured syrups
 en:Mango syrups
 de:Mangosirups
 fr:Sirops de mangue
+es:Siropes de mango
+it:Sciroppi di mango
+nl:Mango siropen, Mango siroop, Mangosiroop
 
 <en:Flavoured syrups
 en:Mojito syrups
@@ -10910,6 +11267,9 @@ de:Mojito-Sirups
 fr:Sirops mojito
 nl:Mojito siropen, Mojito siroop, Mojitosiroop
 pl:Syropy mojito
+es:Siropes de mojito
+it:Sciroppi di mojito
+pt:Xaropes de mojito
 
 <en:Flavoured syrups
 en:Peach syrups
@@ -10936,6 +11296,10 @@ en:Cola syrups
 de:Cola-Sirups
 fr:Sirops cola
 nl:Cola-siropen, Cola-siroop, Cola siroop, Colasiropen, Colasiroop
+es:Jarabes de cola
+it:Sciroppi di cola
+lt:Kolos sirupai
+pl:Syropy cola
 
 <en:Flavoured syrups
 en:Mirabelle syrups
@@ -16740,6 +17104,14 @@ fr:Mercurey premier cru Les Byots, Mercurey Les Byots
 origins:en: en:France, fr:Bourgogne
 protected_name_type:en: pdo
 #wikidata:en:
+
+<fr:Mercurey premier cru Les Byots
+fr:Mercurey premier cru Les Byots blanc
+wikidata:en:Q42880508
+
+<fr:Mercurey premier cru Les Byots
+fr:Mercurey premier cru Les Byots rouge
+wikidata:en:Q42880510
 
 <fr:Mercurey
 fr:Mercurey premier cru Les Champs Martin, Mercurey Les Champs Martin
@@ -88972,14 +89344,11 @@ en:Poultry sandwiches
 de:Geflügelsandwiches
 fi:siipikarjavoileivät
 fr:Sandwichs à la volaille
-nl:Gevogelte sandwiches
-es:Bocadillos de aves
-it:Panini di carne avicola
+nl:Gevogelte sandwiches, pluimvee sandwiches
+es:Bocadillos de aves, Sándwiches de aves
+it:Panini di carne avicola, Panini al pollame
 pt:Sanduíches de aves
 bg:Сандвичи с птици
-es:Sándwiches de aves
-it:Panini al pollame
-nl:Pluimvee sandwiches
 pt:Sanduíches de aves
 
 <en:Poultry sandwiches
@@ -105691,6 +106060,10 @@ ciqual_food_name:fr:Crêpe maison, fourrée à la confiture
 <en:Sweet filled crêpes
 en:Crepe filled with strawberries
 fr:Crêpes fourrées aux fraises
+de:Crêpes mit Erdbeeren gefüllt
+es:Crepe relleno de fresas
+it:Crepe ripiene di fragole
+nl:Gevulde pannenkoeken met aardbeien
 agribalyse_food_code:en:23830
 ciqual_food_code:en:23830
 ciqual_food_name:en:Crepe filled with strawberries, prepacked
@@ -106002,6 +106375,14 @@ en:Chicken kievs substitutes
 <en:Breaded products
 en:Vegetarian cordons bleus
 fr:Cordons bleus végétariens
+es:Cordones azules vegetarianos
+fi:Kasviscordons bleu
+hu:Vegetáriánus cordons bleu
+it:Cordon bleu vegetariani
+ja:ベジタリアンコルドンブルー
+nl:Vegetarische cordons bleus
+pl:Wegetariańskie cordons bleus
+ru:Вегетарианские кордоны бле
 
 <en:Meat analogues
 <en:Breaded products
@@ -106037,6 +106418,9 @@ agribalyse_proxy_food_name:fr:Nuggets soja et blé (convient aux véganes ou vé
 <en:Breaded products
 en:Breaded fish substitutes, Vegetarian breaded fish substituts
 fr:Substituts du poisson pané
+pl:Zamienniki panierowanego ryby, Zamienniki panierowanego ryby dla wegetarian
+de:Panierter Fischersatz, Vegetarischer panierter Fischersatz
+es:Sustitutos de pescado empanado, Sustitutos vegetarianos de pescado empanado
 
 <en:Meat analogues
 en:Vegetarian grounds, Veggie grounds
