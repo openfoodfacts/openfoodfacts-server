@@ -473,7 +473,7 @@ We create the user properties file locally before, and we create the user in key
 
 =head3 Return Value
 
-A hashmap reference with created user informations.
+A hashmap reference with created user information.
 
 =cut
 
