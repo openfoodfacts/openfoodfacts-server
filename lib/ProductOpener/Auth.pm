@@ -778,12 +778,14 @@ sub get_azp ($access_token) {
 
 	_ensure_oidc_is_discovered();
 
-	if (not($oidc_discover_document->{issuer} eq $access_token->{iss})) {
+	if (    (defined $oidc_discover_document->{issuer})
+		and (not($oidc_discover_document->{issuer} eq $access_token->{iss})))
+	{
 		$log->warn(
 			'Given token was not issued by the correct issuer',
 			{
 				actual_iss => $access_token->{iss},
-				expected_iss => $oidc_discover_document->{iss},
+				expected_iss => $oidc_discover_document->{issuer},
 				azp => $access_token->{azp},
 				sub => $access_token->{sub}
 			}
