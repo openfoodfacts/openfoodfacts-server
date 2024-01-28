@@ -101,7 +101,7 @@
 					<ul class="right">
 						[% IF not user_id.defined %]
 							<li class="h-space-tiny has-form">
-								<a href="/cgi/oidc-signin.pl" class="round button secondary">
+								<a href="/cgi/oidc_signin.pl" class="round button secondary">
 									<span class="material-icons material-symbols-button">account_circle</span>
 									[% lang('sign_in') %]
 								</a>
@@ -137,7 +137,7 @@
 									[% END %]
 									<li class="divider"></li>			
 									<li class="has-form">
-										<form method="post" action="/cgi/oidc-signout.pl">
+										<form method="post" action="/cgi/oidc_signout.pl">
 											<input type="submit" name=".submit" value="[% lang('sign_out') %]" class="button small">
 										</form>
 									</li>

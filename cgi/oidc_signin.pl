@@ -24,7 +24,7 @@
 
 This cgi script initiates sign-in process with the OIDC service (eg. keycloak)
 
-It redirects to the OIDC service, which will redirect back to oidc-signin-callback.pl
+It redirects to the OIDC service, which will redirect back to oidc_signin_callback.pl
 
 =cut
 

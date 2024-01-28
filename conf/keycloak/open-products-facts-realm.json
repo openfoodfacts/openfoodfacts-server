@@ -532,7 +532,7 @@
       "clientAuthenticatorType": "client-secret",
       "secret": "${PRODUCT_OPENER_OIDC_CLIENT_SECRET}",
       "redirectUris": [
-        "http://world.${PRODUCT_OPENER_DOMAIN}/cgi/oidc-signin-callback.pl"
+        "http://world.${PRODUCT_OPENER_DOMAIN}/cgi/oidc_signin_callback.pl"
       ],
       "webOrigins": [
         "*"
@@ -551,7 +551,7 @@
         "oidc.ciba.grant.enabled": "false",
         "client.secret.creation.time": "1698609487",
         "backchannel.logout.session.required": "true",
-        "post.logout.redirect.uris": "http://world.${PRODUCT_OPENER_DOMAIN}/cgi/oidc-signout-callback.pl",
+        "post.logout.redirect.uris": "http://world.${PRODUCT_OPENER_DOMAIN}/cgi/oidc_signout_callback.pl",
         "oauth2.device.authorization.grant.enabled": "false",
         "display.on.consent.screen": "false",
         "backchannel.logout.revoke.offline.tokens": "false"

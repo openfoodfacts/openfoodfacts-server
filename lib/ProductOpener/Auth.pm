@@ -92,8 +92,8 @@ use URI::Escape::XS qw/uri_escape/;
 my $cookie_name = 'oidc';
 my $cookie_domain = get_cookie_domain();
 
-my $callback_uri = format_subdomain('world') . '/cgi/oidc-signin-callback.pl';
-my $signout_callback_uri = format_subdomain('world') . '/cgi/oidc-signout-callback.pl';
+my $callback_uri = format_subdomain('world') . '/cgi/oidc_signin_callback.pl';
+my $signout_callback_uri = format_subdomain('world') . '/cgi/oidc_signout_callback.pl';
 
 my $client = undef;
 
