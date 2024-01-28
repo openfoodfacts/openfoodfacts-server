@@ -31,7 +31,6 @@ use ProductOpener::Routing qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
-use ProductOpener::API qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -69,9 +68,6 @@ if ($env_query_string =~ /^\/?api\/v(3(\.\d+)?)\//) {
 		read_request_body($request_ref);
 		decode_json_request_body($request_ref);
 	}
-
-	# The API V3 requests supports Bearer Authentication headers. Copy the bearer token to request_ref for auth.
-	process_auth_header($request_ref, $r);
 }
 
 if (($env_query_string !~ /^\/?api\/v(3(\.\d+)?)\//) or ($request_ref->{method} !~ /^(POST|PUT|PATCH)$/)) {

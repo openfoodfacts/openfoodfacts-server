@@ -3,9 +3,13 @@
 use ProductOpener::PerlStandards;
 
 use Test::More;
+use Log::Any::Adapter 'TAP';
+use Log::Any qw($log);
+
 use ProductOpener::APITest qw/:all/;
 use ProductOpener::Test qw/:all/;
 use ProductOpener::TestDefaults qw/:all/;
+use ProductOpener::Auth qw/get_token_using_password_credentials/;
 
 use File::Basename "dirname";
 
@@ -18,6 +22,14 @@ remove_all_users();
 remove_all_products();
 
 my $sample_products_images_path = dirname(__FILE__) . "/inputs/upload_images";
+
+my $ua = new_client();
+
+my %create_user_args = (%default_user_form, (email => 'bob@gmail.com'));
+create_user($ua, \%create_user_args);
+
+my $token = get_token_using_password_credentials('tests', $test_password)->{access_token};
+$log->debug('test token', {token => $token}) if $log->is_debug();
 
 my $tests_ref = [
 	{
@@ -118,7 +130,35 @@ my $tests_ref = [
 		expected_status_code => 200,
 
 	},
-
+	{
+		test_case => 'post-product-image-good-oauth-token',
+		method => 'POST',
+		path => '/cgi/product_image_upload.pl',
+		form => {
+			code => "1234567890017",
+			imagefield => "front_en",
+			imgupload_front_en => ["$sample_products_images_path/1.jpg", '1.jpg'],
+		},
+		headers_in => {
+			'Authorization' => 'Bearer ' . $token,
+		},
+		expected_status_code => 200,
+	},
+	{
+		test_case => 'post-product-image-bad-oauth-token',
+		method => 'POST',
+		path => '/cgi/product_image_upload.pl',
+		form => {
+			code => "1234567890018",
+			imagefield => "front_en",
+			imgupload_front_en => ["$sample_products_images_path/1.jpg", '1.jpg'],
+		},
+		headers_in => {
+			'Authorization' => 'Bearer 4711',
+		},
+		expected_status_code => 403,
+		expected_type => 'html'
+	},
 ];
 
 execute_api_tests(__FILE__, $tests_ref);

@@ -853,14 +853,14 @@ Reference to the Apache2 request object
 
 =head3 Return value
 
-None
+1 if the user has been signed in, -1 if the Bearer token was invalid, 0 otherwise.
 
 =cut
 
 sub process_auth_header ($request_ref, $r) {
 	my $token = _read_auth_header($request_ref, $r);
 	unless ($token) {
-		return;
+		return 0;
 	}
 
 	my $access_token;
@@ -879,7 +879,7 @@ sub process_auth_header ($request_ref, $r) {
 				impact => {id => 'failure'},
 			}
 		);
-		return;
+		return -1;
 	}
 
 	$request_ref->{access_token} = $access_token;
@@ -904,7 +904,7 @@ sub process_auth_header ($request_ref, $r) {
 	param('user_session', $user_session);
 	init_user($request_ref);
 
-	return;
+	return 1;
 }
 
 =head2 _read_auth_header ( $request_ref, $r )
