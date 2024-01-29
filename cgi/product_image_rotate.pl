@@ -87,5 +87,5 @@ $r->content_type('image/jpeg');
 $r->print($image->ImageToBlob(magick => 'jpeg'));
 
 $log->info('ok');
-
+ProductOpener::Test::handle_cover();
 return OK;

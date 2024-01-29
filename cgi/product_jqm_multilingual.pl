@@ -433,6 +433,6 @@ my $data = encode_json(\%response);
 
 write_cors_headers();
 print header(-type => 'application/json', -charset => 'utf-8') . $data;
-
+ProductOpener::Test::handle_cover();
 exit(0);
 

@@ -27,6 +27,10 @@
 
 use ProductOpener::PerlStandards;
 
+if (!!$ENV{PRODUCT_OPENER_COVERAGE}) {
+	use Devel::Cover;
+}
+
 use Carp ();
 
 eval {Carp::confess('init')};    ## no critic (RequireCheckingReturnValueOfEval)
@@ -36,13 +40,6 @@ eval {Carp::confess('init')};    ## no critic (RequireCheckingReturnValueOfEval)
 local $SIG{'USR2'} = sub {
 	Carp::confess('caught SIGUSR2!');
 };
-
-# eventually trigger coverage usage for tests
-if ($ENV{PRODUCT_OPENER_COVERAGE} == 1) {
-	# ensure MOD_PERL is set, although I'm not sure if it's needed
-	$ENV{MOD_PERL} = $ENV{MOD_PERL} // "1";
-	use Devel::Cover;
-}
 
 use CGI ();
 CGI->compile(':all');

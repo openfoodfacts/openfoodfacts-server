@@ -194,5 +194,6 @@ foreach my $group_ref (@$select2_options_ref) {
 	}
 }
 
+ProductOpener::Test::handle_cover();
 exit(0);
 

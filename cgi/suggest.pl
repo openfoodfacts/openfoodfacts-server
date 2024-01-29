@@ -69,3 +69,4 @@ print header(
 );
 
 print $data;
+ProductOpener::Test::handle_cover();

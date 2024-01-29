@@ -48,3 +48,4 @@ my $redirect
 	. $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
 
 redirect_to_url($request_ref, 302, $redirect);
+ProductOpener::Test::handle_cover();

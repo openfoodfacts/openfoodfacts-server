@@ -116,3 +116,4 @@ print header(
 	-charset => 'utf-8',
 	-cache_control => 'public, max-age: 86400'
 ) . $data;
+ProductOpener::Test::handle_cover();

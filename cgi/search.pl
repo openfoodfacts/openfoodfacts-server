@@ -834,3 +834,4 @@ HTML
 		}
 	}
 }
+ProductOpener::Test::handle_cover();

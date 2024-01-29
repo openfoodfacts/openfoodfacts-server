@@ -208,4 +208,4 @@ process_template('web/pages/reset_password/reset_password.tt.html', $template_da
 $request_ref->{title} = $Lang{'reset_password'}{$lang};
 $request_ref->{content_ref} = \$html;
 display_page($request_ref);
-
+ProductOpener::Test::handle_cover();

@@ -215,4 +215,5 @@ elsif ((defined $request_ref->{groupby_tagtype})
 	display_tag($request_ref);
 }
 
+ProductOpener::Test::handle_cover();
 exit 0;

@@ -285,7 +285,7 @@ test-int: guard-test create_folders
 	${DOCKER_COMPOSE_INT_TEST} up -d memcached postgres mongodb backend dynamicfront incron minion redis
 	${DOCKER_COMPOSE_INT_TEST} exec backend perl ${args} tests/integration/${test}
 # better shutdown, for if we do a modification of the code, we need a restart
-	${DOCKER_COMPOSE_INT_TEST} stop backend
+	${DOCKER_COMPOSE_INT_TEST} stop backend incron minion
 
 # stop all docker tests containers
 stop_tests:

@@ -444,3 +444,4 @@ $tt->process('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
 $request_ref->{title} = $title;
 $request_ref->{content_ref} = \$html;
 display_page($request_ref);
+ProductOpener::Test::handle_cover();

@@ -1593,5 +1593,5 @@ MAIL
 $request_ref->{title} = lang($type . '_product');
 $request_ref->{content_ref} = \$html;
 display_page($request_ref);
-
+ProductOpener::Test::handle_cover();
 exit(0);

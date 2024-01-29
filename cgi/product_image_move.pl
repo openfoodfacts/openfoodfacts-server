@@ -260,6 +260,6 @@ $data = encode_json(\%response);
 $log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
 print header(-type => 'application/json', -charset => 'utf-8') . $data;
-
+ProductOpener::Test::handle_cover();
 exit(0);
 

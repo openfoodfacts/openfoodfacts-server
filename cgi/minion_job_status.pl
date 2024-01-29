@@ -79,4 +79,5 @@ my $data = encode_json(\%data);
 $log->debug("minion_job_status.pl - done", {data => \%data}) if $log->is_debug();
 
 print header(-type => 'application/json', -charset => 'utf-8') . $data;
+ProductOpener::Test::handle_cover();
 exit();

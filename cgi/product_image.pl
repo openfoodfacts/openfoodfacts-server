@@ -177,6 +177,6 @@ $html .= "<p>" . $tt->error() . "</p>";
 $request_ref->{title} = $alt;
 $request_ref->{content_ref} = \$html;
 display_page($request_ref);
-
+ProductOpener::Test::handle_cover();
 exit(0);
 

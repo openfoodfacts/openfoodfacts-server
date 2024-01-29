@@ -147,5 +147,6 @@ HTML
 	display_page($request_ref);
 }
 
+ProductOpener::Test::handle_cover();
 exit(0);
 

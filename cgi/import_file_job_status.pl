@@ -111,4 +111,5 @@ my $data = encode_json(\%data);
 $log->debug("import_file_job_status.pl - done", {data => \%data}) if $log->is_debug();
 
 print header(-type => 'application/json', -charset => 'utf-8') . $data;
+ProductOpener::Test::handle_cover();
 exit();

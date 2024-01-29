@@ -95,3 +95,4 @@ $r->rflush;
 # $r->status($status);
 # Send 200 instead.
 $r->status(200);
+ProductOpener::Test::handle_cover();

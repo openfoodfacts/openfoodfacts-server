@@ -100,3 +100,4 @@ if ($tt->error()) {
 $request_ref->{title} = lang('change_password');
 $request_ref->{content_ref} = \$html;
 display_page($request_ref);
+ProductOpener::Test::handle_cover();

@@ -75,4 +75,4 @@ foreach my $key (@keys) {
 my $data = encode_json(\%manifest);
 
 print "Content-Type: application/manifest+json; charset=UTF-8\r\nCache-Control: max-age=86400\r\n\r\n" . $data;
-
+ProductOpener::Test::handle_cover();

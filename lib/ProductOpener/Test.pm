@@ -55,6 +55,7 @@ BEGIN {
 		&wait_for
 		&read_gzip_file
 		&check_ocr_result
+		&handle_cover
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -174,6 +175,14 @@ TXT
 	}
 
 	return ($test_id, $test_dir, $expected_result_dir, $update_expected_results);
+}
+
+sub handle_cover() {
+	if ((!!$ENV{PRODUCT_OPENER_COVERAGE}) and (!!$ENV{MOD_PERL})) {
+		# explicitely use Devel::Cover::report() for we use prefork
+		# see https://github.com/pjcj/Devel--Cover/issues/244#issuecomment-742776545
+		Devel::Cover::report() if Devel::Cover->can('report');
+	}
 }
 
 =head2 check_not_production ()

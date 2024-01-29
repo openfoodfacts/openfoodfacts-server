@@ -45,3 +45,4 @@ my $response_ref = check_session($user_id, $user_session);
 my $data = encode_json($response_ref);
 
 print header(-type => 'application/json', -charset => 'utf-8') . $data;
+ProductOpener::Test::handle_cover();

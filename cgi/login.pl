@@ -96,4 +96,4 @@ if ($tt->error()) {
 $request_ref->{title} = lang('login_register_title');
 $request_ref->{content_ref} = \$html;
 display_page($request_ref);
-
+ProductOpener::Test::handle_cover();

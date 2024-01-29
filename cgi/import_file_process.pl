@@ -220,4 +220,5 @@ $request_ref->{title} = $title;
 $request_ref->{content_ref} = \$html;
 display_page($request_ref);
 
+ProductOpener::Test::handle_cover();
 exit(0);

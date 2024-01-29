@@ -29,6 +29,6 @@ use ProductOpener::Version qw/:all/;
 use CGI qw/:cgi :form escapeHTML/;
 
 print header(-type => 'text/html', -charset => 'utf-8') . "Version: $version";
-
+ProductOpener::Test::handle_cover();
 exit(0);
 

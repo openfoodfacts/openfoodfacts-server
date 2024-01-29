@@ -375,6 +375,6 @@ else {
 	my $data = encode_json($response_ref);
 	print header(-type => 'application/json', -charset => 'utf-8') . $data;
 }
-
+ProductOpener::Test::handle_cover();
 exit(0);
 

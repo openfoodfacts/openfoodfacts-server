@@ -89,3 +89,4 @@ print header(
 	-charset => 'utf-8',
 	-cache_control => 'public, max-age: 10080'
 ) . $xml;
+ProductOpener::Test::handle_cover();
