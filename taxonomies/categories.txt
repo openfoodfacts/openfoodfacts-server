@@ -93048,6 +93048,40 @@ ciqual_food_code:en:31040
 ciqual_food_name:en:Dulce de leche or confiture de lait
 ciqual_food_name:fr:Confiture de lait
 
+<en:Sweet spreads
+en:Wine spreads
+fr:Confits de vin
+
+<en:Sweet spreads
+en:Beer spreads
+fr:Confits de bière
+
+<en:Sweet spreads
+<en:Plant-based spreads
+en:Flower preserves, flower jams
+es:Mermeladas y confituras de flores, Mermeladas de pétalos de flores
+fr:Confits de fleurs, confitures de fleurs
+hu:Virág lekvárok
+nl:Bloemenjams
+wikidata:en:Q2992507
+
+<en:Flower preserves
+en:Rose petal preserves, rose petal jams, Rose jams
+bg:Конфитюр от рози, Сладко от рози
+es:Mermeladas y confituras de pétalos de rosas, Mermeladas y confituras de rosas, Mermeladas de pétalos de rosas, Mermeladas de rosas, Confituras de pétalos de rosas, Confituras de rosas
+fr:Confits de roses, Confiture de roses, Confitures de roses
+hu:Rózsa lekvár
+nl:Rozeblaadjesjams
+
+<en:Sweet spreads
+<en:Plant-based spreads
+en:Ginger preserves
+fr:Tartinades de gingembre
+
+<en:Ginger preserves
+en:Ginger jams
+fr:Confitures de gingembre
+expected_minimal_amount_specific_ingredients:en: en:fruit, 15, en:eu
 
 <en:Plant-based spreads
 <en:Sweet spreads
@@ -93463,11 +93497,6 @@ pl:Dżem z fig, Dżem figowy
 pt:Doces de figo
 sv:Fikonsylter
 wikidata:en:Q65545224
-
-<en:Jams
-en:ginger jams
-fr:Confitures de gingembre
-expected_minimal_amount_specific_ingredients:en: en:fruit, 15, en:eu
 
 <en:Jams
 en:Grape jams
@@ -94106,48 +94135,10 @@ ciqual_food_name:en:Chestnut cream, vanilla flavoured, canned
 ciqual_food_name:fr:Crème de marrons vanillée, appertisée
 
 #################### Fruit and vegetable preserves (everything that is neither jam not marmalade not jelly) in alphebetical order for English ####################
-<en:Fruit and vegetable preserves
-<fr:Pâtes à tartiner
-en:Almond spreads, almonds spreads
-de:Mandel-Crèmes, Crème de Noisettes
-es:Cremas a base de almendras
-fi:Mantelilevitteet
-fr:Pâtes à tartiner aux amandes
-it:Crema di mandorle
-ja:アーモンドスプレッド
-nl:Amandelpastas
 
 <en:Fruit and vegetable preserves
 en:bilberries spreads
 hr:namaz borovnica
-
-<en:Fruit and vegetable preserves
-en:wine spreads
-fr:Confits de vin
-
-<en:Fruit and vegetable preserves
-en:beer spreads
-fr:Confits de bière
-
-<en:Fruit and vegetable preserves
-en:Flower preserves, flower jams
-es:Mermeladas y confituras de flores, Mermeladas de pétalos de flores
-fr:Confits de fleurs, confitures de fleurs
-hu:Virág lekvárok
-nl:Bloemenjams
-wikidata:en:Q2992507
-
-<en:Flower preserves
-en:Rose petal preserves, rose petal jams, Rose jams
-bg:Конфитюр от рози, Сладко от рози
-es:Mermeladas y confituras de pétalos de rosas, Mermeladas y confituras de rosas, Mermeladas de pétalos de rosas, Mermeladas de rosas, Confituras de pétalos de rosas, Confituras de rosas
-fr:Confits de roses, Confiture de roses, Confitures de roses
-hu:Rózsa lekvár
-nl:Rozeblaadjesjams
-
-<en:Fruit and vegetable preserves
-en:Ginger preserves
-
 
 <en:Vegetables based foods
 en:Vegetable flans, Vegetable flan
@@ -94165,6 +94156,16 @@ fr:Pâtes à tartiner, Pâte à tartiner
 #nl:Smeerpastas in Frankrijk
 wikidata:en:Q1472481
 description:en:The category "Pâtes à tartiner" is specific to France and is a subset of Sweet spreads. Not sure whether these require translations
+
+<fr:Pâtes à tartiner
+en:Almond spreads, almonds spreads
+de:Mandel-Crèmes, Crème de Noisettes
+es:Cremas a base de almendras
+fi:Mantelilevitteet
+fr:Pâtes à tartiner aux amandes
+it:Crema di mandorle
+ja:アーモンドスプレッド
+nl:Amandelpastas
 
 <fr:Pâtes à tartiner
 <en:Sweet spreads

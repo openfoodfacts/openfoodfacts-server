@@ -139,6 +139,7 @@ my $fix_nutrition_data = '';
 my $compute_main_countries = '';
 my $prefix_packaging_tags_with_language = '';
 my $fix_non_string_ids = '';
+my $fix_string_last_modified_t = '';
 my $assign_ciqual_codes = '';
 my $obsolete = 0;
 my $fix_obsolete;
@@ -175,6 +176,7 @@ GetOptions(
 	"fix-zulu-lang" => \$fix_zulu_lang,
 	"fix-rev-not-incremented" => \$fix_rev_not_incremented,
 	"fix-non-string-ids" => \$fix_non_string_ids,
+	"fix-string-last-modified-t" => \$fix_string_last_modified_t,
 	"user-id=s" => \$User_id,
 	"comment=s" => \$comment,
 	"run-ocr" => \$run_ocr,
@@ -252,6 +254,7 @@ if (    (not $process_ingredients)
 	and (not $fix_nutrition_data_per)
 	and (not $fix_nutrition_data)
 	and (not $fix_non_string_ids)
+	and (not $fix_string_last_modified_t)
 	and (not $compute_sort_key)
 	and (not $remove_team)
 	and (not $remove_category)
@@ -332,6 +335,11 @@ foreach my $field (sort keys %{$query_ref}) {
 # Query products that have the _id field stored as a number
 if ($fix_non_string_ids) {
 	$query_ref->{_id} = {'$type' => "long"};
+}
+
+# Query products that have the last_modified_t field stored as a number
+if ($fix_string_last_modified_t) {
+	$query_ref->{last_modified_t} = {'$type' => "string"};
 }
 
 # On the producers platform, require --query owners_tags to be set, or the --all-owners field to be set.
@@ -743,9 +751,15 @@ while (my $product_ref = $cursor->next) {
 				my $current_last_modified_t = $product_ref->{last_modified_t} // 0;
 				if ($current_last_modified_t != $change_last_modified_t) {
 					print STDERR "-> fixing last_modified_t from $current_last_modified_t to $change_last_modified_t";
-					$product_ref->{last_modified_t} = $change_last_modified_t;
+					# print statement above makes $change_last_modified_t a a string
+					$product_ref->{last_modified_t} = $change_last_modified_t + 0;
 				}
 			}
+		}
+
+		if ($fix_string_last_modified_t) {
+			# Make sure last_modified_t is stored as a number
+			$product_ref->{last_modified_t} += 0;
 		}
 
 		# Fix zulu lang, bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2063
