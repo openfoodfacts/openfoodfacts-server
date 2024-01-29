@@ -26,6 +26,11 @@ use ProductOpener::PerlStandards
 
 	binmode(STDOUT, ":encoding(UTF-8)");
 
+if ((!!$ENV{PRODUCT_OPENER_COVERAGE})) {
+    use Devel::Cover;
+}
+
+
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Images qw/:all/;
