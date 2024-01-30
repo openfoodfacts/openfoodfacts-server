@@ -24,7 +24,7 @@ use Modern::Perl '2017';
 use utf8;
 
 if ((!!$ENV{PRODUCT_OPENER_COVERAGE})) {
-    use Devel::Cover;
+	use Devel::Cover;
 }
 
 use ProductOpener::Config qw/:all/;

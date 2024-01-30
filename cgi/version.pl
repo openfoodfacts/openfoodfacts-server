@@ -21,11 +21,11 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Version qw/:all/;
-use ProductOpener::TestCover;
 
 use CGI qw/:cgi :form escapeHTML/;
 

@@ -33,6 +33,7 @@ API v3 is handled by a different /api/v3/product route, implemented in APIProduc
 =cut
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -58,7 +59,6 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::API qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
-use ProductOpener::TestCover;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();

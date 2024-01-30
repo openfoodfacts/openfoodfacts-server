@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -52,7 +53,6 @@ use ProductOpener::Text qw/:all/;
 use ProductOpener::Events qw/:all/;
 use ProductOpener::API qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
-use ProductOpener::TestCover;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();

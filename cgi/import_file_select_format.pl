@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -38,7 +39,6 @@ use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/:all/;
 use ProductOpener::Tags qw(%language_fields display_taxonomy_tag);
 use ProductOpener::Web qw(get_languages_options_list);
-use ProductOpener::TestCover;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();

@@ -12,12 +12,15 @@ Keep it small because it might be a bit pervasive.
 package ProductOpener::TestCover;
 
 use ProductOpener::PerlStandards;
+use Devel::Cover;
+
 
 =head2 handle_cover
 
 Method to handle specific actions for test coverage.
 
 =cut
+
 sub handle_cover() {
 	if ((!!$ENV{PRODUCT_OPENER_COVERAGE}) and (!!$ENV{MOD_PERL})) {
 		# explicitely use Devel::Cover::report() for we use prefork

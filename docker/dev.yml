@@ -28,6 +28,7 @@ x-backend-conf: &backend-conf
   environment:
     - PRODUCT_OPENER_COVERAGE
     - DEVEL_COVER_OPTIONS
+    - APACHE_ARGUMENTS
 
 
 x-minion-db-network: &minion-db-network

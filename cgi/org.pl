@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -33,7 +34,6 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Text qw/:all/;
-use ProductOpener::TestCover;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
