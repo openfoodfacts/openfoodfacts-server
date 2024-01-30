@@ -57,6 +57,11 @@ Stores:
 - taxonomies/states.result.sto
 - taxonomies/states.result.txt
 
+status system:
+- taxonomies/states.result.sto
+- taxonomies/states.result.txt
+- taxonomies/states.txt
+
 WikiData:
 - scripts/build_countries_taxonomy_from_wikidata.pl
 - scripts/build_languages_taxonomy_from_wikidata.pl
@@ -193,6 +198,7 @@ Footer:
 
 🐋 Docker:
 - docker/**/*
+- .dockerignore
 
 🏷️ Folksonomy Project:
 - html/js/folksonomy.js
@@ -253,6 +259,7 @@ Food.pm:
 Food groups:
 - lib/ProductOpener/FoodGroups.pm
 - tests/unit/food_groups.t
+- taxonomies/food_groups.txt
 
 🧪 Additives:
 - taxonomies/additives.txt
@@ -314,6 +321,7 @@ Ingredients analysis:
 
 Labels:
 - taxonomies/labels.txt
+- taxonomies/unused/labels_categories.txt
 
 Categories:
 - taxonomies/categories.txt
@@ -621,6 +629,7 @@ Blocks:
 
 🗺️ Made Near Me:
 - scripts/generate_madenearme_page.pl
+- scripts/generate_madenearme_pages.sh
 
 PAO:
 - scripts/generate_pao_taxonomy.pl
@@ -657,6 +666,7 @@ Config:
 
 Ingredients processing:
 - tests/unit/ingredients_processing.t
+- taxonomies/ingredients_processing.txt
 
 👥 Users:
 - lib/ProductOpener/Users.pm
@@ -797,6 +807,9 @@ Averages by categories:
 
 Static content:
 - scripts/copy_text_files.pl
+
+matomo:
+- scripts/utils/logs/download_matomo_logs.pl
 
 # TODO: find or create proper labels for those
 #- scripts/extract_images.pl
