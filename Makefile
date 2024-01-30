@@ -164,7 +164,6 @@ codecov_prepare: create_folders
 	mkdir -p cover_db
 	${DOCKER_COMPOSE_TEST} run --rm backend cover -delete
 	mkdir -p cover_db
-	@echo "🥫 modifying .env to trigger coverage in mod_perl"
 
 codecov:
 	@echo "🥫 running cover to generate a report usable by codecov …"
