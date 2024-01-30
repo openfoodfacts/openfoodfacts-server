@@ -46,7 +46,7 @@ ProductOpener::Display::init_request();
 my $term = decode utf8 => single_param('term');
 
 my @options = @{get_countries_options_list($lang, undef)};
-if (defined $term and $term ne '') {
+if ((defined $term) and ($term ne '')) {
 	# filter by term
 	@options = grep {$_->{label} =~ /$term/i} @options;
 }
