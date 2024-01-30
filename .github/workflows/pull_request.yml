@@ -111,10 +111,12 @@ jobs:
         make codecov_prepare
         # add PRODUCT_OPENER_COVERAGE and devel cover options to trigger mod perl
         echo 'PRODUCT_OPENER_COVERAGE=1' >> .env
-        echo 'DEVEL_COVER_OPTIONS=+ignore,tests/,/opt/perl/local/' >> .env
+        echo 'DEVEL_COVER_OPTIONS=+ignore,tests/,/opt/perl/local/,+select,/opt/product-opener/lib,/opt/product-opener/scripts,/opt/product-opener/cgi' >> .env
         # teardown container to be sure it is recreated with right env
         make clean_tests
         make COVER_OPTS='-e HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,tests/,/opt/perl/local/"' tests
+        # debug
+        ls cover_db/* -l
     - name: generate coverage results
       # even if tests failed
       if: always()
