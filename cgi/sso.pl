@@ -28,6 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Display qw/single_param/;
+use ProductOpener::TestCover;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -45,4 +46,4 @@ my $response_ref = check_session($user_id, $user_session);
 my $data = encode_json($response_ref);
 
 print header(-type => 'application/json', -charset => 'utf-8') . $data;
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();

@@ -32,6 +32,7 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Text qw/:all/;
+use ProductOpener::TestCover;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -452,4 +453,4 @@ else {
 	$request_ref->{content_ref} = \$html;
 	display_page($request_ref);
 }
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();

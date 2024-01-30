@@ -35,6 +35,7 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
+use ProductOpener::TestCover;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -147,6 +148,6 @@ HTML
 	display_page($request_ref);
 }
 
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();
 exit(0);
 

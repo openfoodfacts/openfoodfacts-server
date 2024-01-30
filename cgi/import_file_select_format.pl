@@ -38,6 +38,7 @@ use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/:all/;
 use ProductOpener::Tags qw(%language_fields display_taxonomy_tag);
 use ProductOpener::Web qw(get_languages_options_list);
+use ProductOpener::TestCover;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -198,5 +199,5 @@ if ($action eq "display") {
 	display_page($request_ref);
 }
 
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();
 exit(0);

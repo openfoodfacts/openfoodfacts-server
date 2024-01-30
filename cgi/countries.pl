@@ -31,6 +31,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Web qw/get_countries_options_list/;
+use ProductOpener::TestCover;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -60,4 +61,4 @@ foreach my $option (@options) {
 my $data = encode_json(\%result);
 
 print "Content-Type: application/manifest+json; charset=UTF-8\r\nCache-Control: max-age=86400\r\n\r\n" . $data;
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();

@@ -36,6 +36,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::TestCover;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -375,6 +376,6 @@ else {
 	my $data = encode_json($response_ref);
 	print header(-type => 'application/json', -charset => 'utf-8') . $data;
 }
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();
 exit(0);
 

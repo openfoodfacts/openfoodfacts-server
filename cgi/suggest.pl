@@ -30,6 +30,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::TaxonomySuggestions qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::HTTP qw/:all/;
+use ProductOpener::TestCover;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -69,4 +70,4 @@ print header(
 );
 
 print $data;
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();

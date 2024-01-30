@@ -33,6 +33,7 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::TestCover;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -66,4 +67,4 @@ foreach my $parameter ('json') {
 }
 
 display_recent_changes($request_ref, $query_ref, $limit, $page);
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();

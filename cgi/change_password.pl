@@ -30,6 +30,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::TestCover;
 
 use Apache2::Const -compile => qw(OK);
 use CGI qw/:cgi :form escapeHTML/;
@@ -100,4 +101,4 @@ if ($tt->error()) {
 $request_ref->{title} = lang('change_password');
 $request_ref->{content_ref} = \$html;
 display_page($request_ref);
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();

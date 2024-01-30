@@ -36,6 +36,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/:all/;
+use ProductOpener::TestCover;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -111,5 +112,5 @@ my $data = encode_json(\%data);
 $log->debug("import_file_job_status.pl - done", {data => \%data}) if $log->is_debug();
 
 print header(-type => 'application/json', -charset => 'utf-8') . $data;
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();
 exit();

@@ -34,6 +34,7 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Mail qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::URL qw/:all/;
+use ProductOpener::TestCover;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -208,4 +209,4 @@ process_template('web/pages/reset_password/reset_password.tt.html', $template_da
 $request_ref->{title} = $Lang{'reset_password'}{$lang};
 $request_ref->{content_ref} = \$html;
 display_page($request_ref);
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();

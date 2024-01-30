@@ -58,6 +58,7 @@ use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::API qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::TestCover;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -433,6 +434,6 @@ my $data = encode_json(\%response);
 
 write_cors_headers();
 print header(-type => 'application/json', -charset => 'utf-8') . $data;
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();
 exit(0);
 

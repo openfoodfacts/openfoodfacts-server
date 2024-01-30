@@ -30,6 +30,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::TestCover;
 
 use Log::Any qw($log);
 use CGI qw/:cgi :form escapeHTML/;
@@ -116,4 +117,4 @@ print header(
 	-charset => 'utf-8',
 	-cache_control => 'public, max-age: 86400'
 ) . $data;
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();

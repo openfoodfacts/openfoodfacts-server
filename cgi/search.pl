@@ -38,6 +38,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::PackagerCodes qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::TestCover;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -834,4 +835,4 @@ HTML
 		}
 	}
 }
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();

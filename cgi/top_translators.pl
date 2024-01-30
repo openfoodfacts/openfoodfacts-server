@@ -28,6 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::URL qw/:all/;
+use ProductOpener::TestCover;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -102,4 +103,4 @@ $request_ref->{title} = lang('translators_title');
 $request_ref->{content_ref} = \$html;
 $request_ref->{canon_url} = '/cgi/top_translators.pl';
 display_page($request_ref);
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();

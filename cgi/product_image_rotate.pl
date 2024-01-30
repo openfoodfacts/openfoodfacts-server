@@ -30,6 +30,7 @@ use ProductOpener::Store qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
+use ProductOpener::TestCover;
 
 use Apache2::Const qw(OK HTTP_BAD_REQUEST HTTP_NOT_FOUND HTTP_INTERNAL_SERVER_ERROR);
 use CGI qw/:cgi :form escapeHTML/;
@@ -87,5 +88,5 @@ $r->content_type('image/jpeg');
 $r->print($image->ImageToBlob(magick => 'jpeg'));
 
 $log->info('ok');
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();
 return OK;

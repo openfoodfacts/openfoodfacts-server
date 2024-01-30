@@ -33,6 +33,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Text qw/:all/;
+use ProductOpener::TestCover;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -444,4 +445,4 @@ $tt->process('web/pages/org_form/org_form.tt.html', $template_data_ref, \$html)
 $request_ref->{title} = $title;
 $request_ref->{content_ref} = \$html;
 display_page($request_ref);
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();

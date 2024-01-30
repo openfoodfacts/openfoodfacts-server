@@ -28,6 +28,7 @@ use ProductOpener::Config qw/:all/;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::TestCover;
 
 use Apache2::Const -compile => qw(OK);
 use CGI qw/:cgi :form escapeHTML/;
@@ -48,4 +49,4 @@ my $redirect
 	. $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
 
 redirect_to_url($request_ref, 302, $redirect);
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();

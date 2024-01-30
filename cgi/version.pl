@@ -25,10 +25,11 @@ use ProductOpener::PerlStandards;
 use CGI::Carp qw(fatalsToBrowser);
 
 use ProductOpener::Version qw/:all/;
+use ProductOpener::TestCover;
 
 use CGI qw/:cgi :form escapeHTML/;
 
 print header(-type => 'text/html', -charset => 'utf-8') . "Version: $version";
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();
 exit(0);
 

@@ -32,6 +32,7 @@ use ProductOpener::Tags qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Products qw/:all/;
+use ProductOpener::TestCover;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -67,6 +68,6 @@ my $data = encode_json({status_code => 0, status => 'status ok', imagefield => $
 $log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
 print header(-type => 'application/json', -charset => 'utf-8') . $data;
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();
 exit(0);
 

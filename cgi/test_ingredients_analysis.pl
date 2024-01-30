@@ -33,6 +33,7 @@ use ProductOpener::Lang qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Text qw/:all/;
+use ProductOpener::TestCover;
 
 use CGI qw/:cgi :form escapeHTML charset/;
 use URI::Escape::XS;
@@ -92,4 +93,4 @@ process_template('web/pages/test_ingredients/test_ingredients_analysis.tt.html',
 $request_ref->{title} = "Ingredients analysis test";
 $request_ref->{content_ref} = \$html;
 display_page($request_ref);
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();

@@ -35,6 +35,7 @@ use ProductOpener::Mail qw/:all/;
 use ProductOpener::Producers qw/:all/;
 use ProductOpener::Tags qw/:all/;
 use ProductOpener::Food qw/:all/;
+use ProductOpener::TestCover;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -194,6 +195,6 @@ foreach my $group_ref (@$select2_options_ref) {
 	}
 }
 
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();
 exit(0);
 

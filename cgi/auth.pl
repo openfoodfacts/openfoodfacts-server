@@ -30,6 +30,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
+use ProductOpener::TestCover;
 
 use Apache2::Const -compile => qw(OK);
 use CGI qw/:cgi :form escapeHTML/;
@@ -95,4 +96,4 @@ $r->rflush;
 # $r->status($status);
 # Send 200 instead.
 $r->status(200);
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();

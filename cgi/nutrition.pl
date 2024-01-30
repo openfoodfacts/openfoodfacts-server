@@ -34,6 +34,7 @@ use ProductOpener::Images qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Food qw/:all/;
 use ProductOpener::Images qw/:all/;
+use ProductOpener::TestCover;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -80,6 +81,6 @@ my $data = encode_json($results_ref);
 $log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
 print header (-charset => 'UTF-8') . $data;
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();
 exit(0);
 

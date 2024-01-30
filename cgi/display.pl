@@ -32,6 +32,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::API qw/:all/;
+use ProductOpener::TestCover;
 
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
@@ -215,5 +216,5 @@ elsif ((defined $request_ref->{groupby_tagtype})
 	display_tag($request_ref);
 }
 
-ProductOpener::Test::handle_cover();
+ProductOpener::TestCover::handle_cover();
 exit 0;
