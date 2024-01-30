@@ -27,9 +27,9 @@
 
 use ProductOpener::PerlStandards;
 
-if (!!$ENV{PRODUCT_OPENER_COVERAGE}) {
-	use Devel::Cover;
-}
+#if (!!$ENV{PRODUCT_OPENER_COVERAGE}) {
+#	use Devel::Cover;
+#}
 
 use Carp ();
 

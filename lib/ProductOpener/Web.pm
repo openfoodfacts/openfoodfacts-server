@@ -350,8 +350,8 @@ A reference to a list of hashes with every country code and their label in the $
 =cut
 
 sub get_countries_options_list ($target_lc, $exclude_world = 1) {
-	# if already computed send it back
 	my @countries_list = ();
+	# use cache if available
 	if (defined $countries_options_lists{$target_lc}) {
 		@countries_list = @{$countries_options_lists{$target_lc}};
 	} else {
