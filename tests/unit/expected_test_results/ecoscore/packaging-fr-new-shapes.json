@@ -438,6 +438,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "9410",
          "id" : "en:wheat",
          "origins" : "en:france",
          "percent_estimate" : 100,
@@ -476,10 +477,8 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "ingredients_without_ciqual_codes" : [
-      "en:wheat"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 2,
    "lc" : "fr",
    "misc_tags" : [

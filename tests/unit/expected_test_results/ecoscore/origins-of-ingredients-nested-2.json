@@ -413,6 +413,7 @@
          "id" : "en:chocolate",
          "ingredients" : [
             {
+               "ciqual_proxy_food_code" : "18100",
                "id" : "en:cocoa",
                "percent_estimate" : 8.33333333333333,
                "percent_max" : 50,
@@ -522,11 +523,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:chocolate",
-      "en:cocoa",
       "en:e951",
       "en:sweetener"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 3,
    "known_ingredients_n" : 9,
    "lc" : "en",
    "misc_tags" : [
