@@ -1091,7 +1091,7 @@ sub check_nutrition_data ($product_ref) {
 			}
 		}
 
-		foreach my $nid (keys %{$product_ref->{nutriments}}) {
+		foreach my $nid (sort keys %{$product_ref->{nutriments}}) {
 			$log->debug("nid: " . $nid . ": " . $product_ref->{nutriments}{$nid}) if $log->is_debug();
 
 			if ($nid =~ /_prepared_100g$/ && $product_ref->{nutriments}{$nid} > 0) {
@@ -1173,7 +1173,7 @@ sub check_nutrition_data ($product_ref) {
 			(
 				(
 					$nutriments_values_occurences_max_value == scalar @major_nutriments_values
-					and (@major_nutriments_values[0] > 1)
+					and ($major_nutriments_values[0] > 1)
 				)
 				or (
 					($nutriments_values_occurences_max_value >= scalar @major_nutriments_values - 1)
