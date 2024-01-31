@@ -1613,7 +1613,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			# Add the fat and saturated fat / fat ratio
 			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared . "_100g"};
 			$nutriscore_data_ref->{saturated_fat_ratio}
-				= round_to_max_decimal_places(1, saturated_fat_ratio($nutriments_ref, $prepared));
+				= round_to_max_decimal_places(saturated_fat_ratio($nutriments_ref, $prepared), 1);
 			# Compute the energy from saturates
 			if (defined $nutriscore_data_ref->{saturated_fat}) {
 				$nutriscore_data_ref->{energy_from_saturated_fat} = $nutriscore_data_ref->{saturated_fat} * 37;
