@@ -9,5 +9,5 @@ Type=oneshot
 User=off
 Group=off
 WorkingDirectory=/srv/%i/scripts/sync-s3-images
-ExecStart=.venv/bin/python3 sync_s3_images.py /mnt/off/images/products
+ExecStart=.venv/bin/python3 sync_s3_images.py /mnt/%i/images/products
 KillMode=process
