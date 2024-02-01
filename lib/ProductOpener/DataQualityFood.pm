@@ -1619,6 +1619,10 @@ sub check_ingredients ($product_ref) {
 						"en:ingredients-" . $display_lc . "-unexpected-chars-question-mark";
 				}
 
+				if ($product_ref->{$ingredients_text_lc} =~ /http/i) {
+					add_tag($product_ref, "data_quality_errors", "en:ingredients-" . $display_lc . "-unexpected-url");
+				}
+
 				# French specific
 				#if ($display_lc eq 'fr') {
 
@@ -1812,10 +1816,21 @@ sub check_labels ($product_ref) {
 					unshift @ingredients, @{$ingredient_ref->{ingredients}};
 				}
 
-				# some additives_classes (like thickener, for example) do not have the key-value vegan and vegetarian
-				# it can be additives_classes that contain only vegan/vegetarian additives.
-				# to avoid false-positive - instead of raising a warning (else below) we ignore additives_classes
-				if (!exists_taxonomy_tag("additives_classes", $ingredientid)) {
+				# - some additives_classes (like thickener, for example) do not have the key-value vegan and vegetarian
+				#   it can be additives_classes that contain only vegan/vegetarian additives.
+				# - also we cannot tell if a compound ingredient (preparation) is vegan or vegetarian
+				# to handle both cases we ignore the ingredient having vegan/vegatarian "maybe" and if it contains sub-ingredients
+				my $ignore_vegan_vegetarian_facet = 0;
+				if (
+					(defined $ingredient_ref->{ingredients})
+					and (  ((defined $ingredient_ref->{"vegan"}) and ($ingredient_ref->{"vegan"} ne 'no'))
+						or ((defined $ingredient_ref->{"vegetarian"}) and ($ingredient_ref->{"vegetarian"} ne 'no')))
+					)
+				{
+					$ignore_vegan_vegetarian_facet = 1;
+				}
+
+				if (not $ignore_vegan_vegetarian_facet) {
 					if (has_tag($product_ref, "labels", "en:vegan")) {
 						# vegan
 						if (defined $ingredient_ref->{"vegan"}) {
