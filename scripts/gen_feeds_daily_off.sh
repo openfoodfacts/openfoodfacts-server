@@ -40,5 +40,5 @@ cd /srv/off
 # On sunday, generates madenearme
 if [ "$(date +%u)" = "7" ]
 then
-    ./scripts/gen_madenearme_pages.sh
+    ./scripts/generate_madenearme_pages.sh
 fi
