@@ -1091,7 +1091,7 @@ sub check_nutrition_data ($product_ref) {
 			}
 		}
 
-		foreach my $nid (keys %{$product_ref->{nutriments}}) {
+		foreach my $nid (sort keys %{$product_ref->{nutriments}}) {
 			$log->debug("nid: " . $nid . ": " . $product_ref->{nutriments}{$nid}) if $log->is_debug();
 
 			if ($nid =~ /_prepared_100g$/ && $product_ref->{nutriments}{$nid} > 0) {
@@ -1164,21 +1164,25 @@ sub check_nutrition_data ($product_ref) {
 		}
 		# raise error if
 		# all values are identical
+		# and values (check first value only) are above 1 (see issue #9572)
 		#  OR
 		# all values but one - because sodium and salt can be automatically calculated one depending on the value of the other - are identical
-		# and values (check first value only) are above 1 (see issue #9572)
+		# and values (check salt (should not check sodium which could be lower)) are above 1 (see issue #9572)
 		# and at least 4 values are input by contributors (see issue #9572)
 		if (
 			(
-				($nutriments_values_occurences_max_value == scalar @major_nutriments_values)
+				(
+					$nutriments_values_occurences_max_value == scalar @major_nutriments_values
+					and ($major_nutriments_values[0] > 1)
+				)
 				or (
 					($nutriments_values_occurences_max_value >= scalar @major_nutriments_values - 1)
 					and (   (defined $nutriments_values{'salt_100g'})
-						and ($nutriments_values{'sodium_100g'})
-						and ($nutriments_values{'salt_100g'} != $nutriments_values{'sodium_100g'}))
+						and (defined $nutriments_values{'sodium_100g'})
+						and ($nutriments_values{'salt_100g'} != $nutriments_values{'sodium_100g'})
+						and ($nutriments_values{'salt_100g'} > 1))
 				)
 			)
-			and (@major_nutriments_values[0] > 1)
 			and (scalar @major_nutriments_values > 3)
 			)
 		{
@@ -1619,6 +1623,10 @@ sub check_ingredients ($product_ref) {
 						"en:ingredients-" . $display_lc . "-unexpected-chars-question-mark";
 				}
 
+				if ($product_ref->{$ingredients_text_lc} =~ /http/i) {
+					add_tag($product_ref, "data_quality_errors", "en:ingredients-" . $display_lc . "-unexpected-url");
+				}
+
 				# French specific
 				#if ($display_lc eq 'fr') {
 
@@ -1812,10 +1820,21 @@ sub check_labels ($product_ref) {
 					unshift @ingredients, @{$ingredient_ref->{ingredients}};
 				}
 
-				# some additives_classes (like thickener, for example) do not have the key-value vegan and vegetarian
-				# it can be additives_classes that contain only vegan/vegetarian additives.
-				# to avoid false-positive - instead of raising a warning (else below) we ignore additives_classes
-				if (!exists_taxonomy_tag("additives_classes", $ingredientid)) {
+				# - some additives_classes (like thickener, for example) do not have the key-value vegan and vegetarian
+				#   it can be additives_classes that contain only vegan/vegetarian additives.
+				# - also we cannot tell if a compound ingredient (preparation) is vegan or vegetarian
+				# to handle both cases we ignore the ingredient having vegan/vegatarian "maybe" and if it contains sub-ingredients
+				my $ignore_vegan_vegetarian_facet = 0;
+				if (
+					(defined $ingredient_ref->{ingredients})
+					and (  ((defined $ingredient_ref->{"vegan"}) and ($ingredient_ref->{"vegan"} ne 'no'))
+						or ((defined $ingredient_ref->{"vegetarian"}) and ($ingredient_ref->{"vegetarian"} ne 'no')))
+					)
+				{
+					$ignore_vegan_vegetarian_facet = 1;
+				}
+
+				if (not $ignore_vegan_vegetarian_facet) {
 					if (has_tag($product_ref, "labels", "en:vegan")) {
 						# vegan
 						if (defined $ingredient_ref->{"vegan"}) {
