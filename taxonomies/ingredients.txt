@@ -7125,7 +7125,7 @@ nl:verse kaas
 pt:queijo branco
 sl:sveži sir
 sr:sveži sir
-ciqual_food_code:19501
+ciqual_food_code:en:19501
 ciqual_food_name:en:Quark, plain or fruit (average)
 # en-ca:Fromage blanc
 # en-gb:Fromage blanc
@@ -30877,7 +30877,7 @@ vegan:en:yes
 vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/corn-syrup 19402 products in 7 languages @2018-09-24
 # probably not a very good proxy, but the closest one in Ciqual
-ciqual_proxy_food_code:31089
+ciqual_proxy_food_code:en:31089
 ciqual_proxy_food_name:en:Syrup, agave
 
 <en:corn syrup
@@ -32936,7 +32936,7 @@ pt:raspas de chocolate
 sv:Choklad bitar, chokladbitar
 # ingredient/fr:morceaux-de-chocolat has 63 products in 4 languages @2019-03-11
 # usage:de:Schokoladenstücke 18% (Kakaomasse, Zucker, Emulgator: Sojalecithin, Vanillepulver)
-ciqual_proxy_food_code:31005
+ciqual_proxy_food_code:en:31005
 ciqual_proxy_food_name:en:Dark chocolate bar, less than 70% cocoa
 
 <en:chocolate
@@ -36770,7 +36770,7 @@ pl:puree z moreli
 pt:pure de damasco
 # in process de:Aprikosenpüree
 # 873 @2021-09-12
-ciqual_proxy_food_code:31037
+ciqual_proxy_food_code:en:31037
 ciqual_proxy_food_name:en:Jam, apricot
 
 <en:Bergeron apricot
@@ -36783,7 +36783,7 @@ es:zumo de albaricoque
 fr:jus d'abricot
 it:succo di albicocca
 pt:suco de damasco
-ciqual_proxy_food_code:2043
+ciqual_proxy_food_code:en:2043
 ciqual_proxy_food_name:en:Apricot nectar
 
 <en:apricot juice
@@ -47796,11 +47796,11 @@ wikidata:en:Q178547
 eurocode_2_group_3:en: 8.10.10
 
 en:Red endive
-ciqual_food_code:20162
+ciqual_food_code:en:20162
 ciqual_food_name:en:Red endive, raw
 
 en:Green endive
-ciqual_food_code:20163
+ciqual_food_code:en:20163
 ciqual_food_name:en:Green endive, raw
 
 # description:en:RADICCHIO is a perennial cultivated form of leaf chicory (Cichorium intybus, Asteraceae) sometimes known as Italian chicory because of its common use in Italian cuisine.
@@ -54629,7 +54629,7 @@ fr:radis blanc, radis d'hiver, radis chinois, daikon
 it:ravanello bianco
 ja:ダイコン, 大根, だいこん
 nl:witte rammenas
-biała rzodkiew, białej rzodkwi, rzodkiew biała
+pl:biała rzodkiew, białej rzodkwi, rzodkiew biała
 
 
 <en:root vegetable
@@ -61742,7 +61742,7 @@ zh:芝麻
 # zh-tw:胡麻
 allergens:en: en:sesame seeds
 wikidata:en:Q2763698
-ciqual_food_code:15010
+ciqual_food_code:en:15010
 ciqual_food_name:en:Sesame seed
 # ingredient/fr:sésame has 1745 products @2018-10-05
 
@@ -64397,7 +64397,7 @@ wo:anet
 zh:蒔蘿
 description:en:dill (anethum graveolens) is an annual herb in the celery family apiaceae. dill is widely grown in eurasia where its leaves and seeds are used as a herb or spice for flavouring food.
 comment:en:the wikidata page mixes the common name and latin name
-ciqual_food_code:11093
+ciqual_food_code:en:11093
 ciqual_food_name:en:Dill, fresh
 # aeb-arab:شبت
 # aeb-latn:ch'ebt
