@@ -34,6 +34,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "13040",
          "id" : "en:grapefruit",
          "labels" : "en:organic",
          "percent_estimate" : 5.55555555555556,
@@ -159,10 +160,9 @@
    "ingredients_with_unspecified_percent_n" : 9,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:cocoa",
-      "en:grapefruit"
+      "en:cocoa"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 14,
    "lc" : "fr",
    "nutriments" : {
