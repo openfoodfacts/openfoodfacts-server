@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -102,3 +103,4 @@ $request_ref->{title} = lang('translators_title');
 $request_ref->{content_ref} = \$html;
 $request_ref->{canon_url} = '/cgi/top_translators.pl';
 display_page($request_ref);
+ProductOpener::TestCover::handle_cover();

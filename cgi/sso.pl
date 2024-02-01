@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -45,3 +46,4 @@ my $response_ref = check_session($user_id, $user_session);
 my $data = encode_json($response_ref);
 
 print header(-type => 'application/json', -charset => 'utf-8') . $data;
+ProductOpener::TestCover::handle_cover();

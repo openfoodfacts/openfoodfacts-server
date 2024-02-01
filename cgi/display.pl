@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -215,4 +216,5 @@ elsif ((defined $request_ref->{groupby_tagtype})
 	display_tag($request_ref);
 }
 
+ProductOpener::TestCover::handle_cover();
 exit 0;

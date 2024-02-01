@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -48,3 +49,4 @@ my $redirect
 	. $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
 
 redirect_to_url($request_ref, 302, $redirect);
+ProductOpener::TestCover::handle_cover();

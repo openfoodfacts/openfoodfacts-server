@@ -176,6 +176,7 @@ TXT
 	return ($test_id, $test_dir, $expected_result_dir, $update_expected_results);
 }
 
+
 =head2 check_not_production ()
 
 Fail unless we have less than 10000 products in database.

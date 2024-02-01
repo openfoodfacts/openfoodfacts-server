@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -29,6 +30,6 @@ use ProductOpener::Version qw/:all/;
 use CGI qw/:cgi :form escapeHTML/;
 
 print header(-type => 'text/html', -charset => 'utf-8') . "Version: $version";
-
+ProductOpener::TestCover::handle_cover();
 exit(0);
 

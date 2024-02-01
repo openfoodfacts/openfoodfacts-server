@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -87,5 +88,5 @@ $r->content_type('image/jpeg');
 $r->print($image->ImageToBlob(magick => 'jpeg'));
 
 $log->info('ok');
-
+ProductOpener::TestCover::handle_cover();
 return OK;

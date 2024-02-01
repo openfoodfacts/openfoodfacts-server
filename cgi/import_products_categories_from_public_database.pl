@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -102,5 +103,6 @@ $request_ref->{title} = $title;
 $request_ref->{content_ref} = \$html;
 display_page($request_ref);
 
+ProductOpener::TestCover::handle_cover();
 exit(0);
 

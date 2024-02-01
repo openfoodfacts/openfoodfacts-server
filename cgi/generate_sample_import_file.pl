@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 binmode(STDOUT);
 binmode(STDERR, ":encoding(UTF-8)");
@@ -194,5 +195,6 @@ foreach my $group_ref (@$select2_options_ref) {
 	}
 }
 
+ProductOpener::TestCover::handle_cover();
 exit(0);
 

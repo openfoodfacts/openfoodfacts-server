@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -67,6 +68,6 @@ my $data = encode_json({status_code => 0, status => 'status ok', imagefield => $
 $log->debug("JSON data output", {data => $data}) if $log->is_debug();
 
 print header(-type => 'application/json', -charset => 'utf-8') . $data;
-
+ProductOpener::TestCover::handle_cover();
 exit(0);
 

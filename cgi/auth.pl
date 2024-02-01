@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -95,3 +96,4 @@ $r->rflush;
 # $r->status($status);
 # Send 200 instead.
 $r->status(200);
+ProductOpener::TestCover::handle_cover();

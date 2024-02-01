@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -121,4 +122,4 @@ else {
 	$request_ref->{content_ref} = \$html;
 	display_page($request_ref);
 }
-
+ProductOpener::TestCover::handle_cover();

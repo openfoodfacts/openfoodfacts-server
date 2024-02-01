@@ -27,6 +27,10 @@
 
 use ProductOpener::PerlStandards;
 
+#if (!!$ENV{PRODUCT_OPENER_COVERAGE}) {
+#	use Devel::Cover;
+#}
+
 use Carp ();
 
 eval {Carp::confess('init')};    ## no critic (RequireCheckingReturnValueOfEval)

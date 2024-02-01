@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -375,6 +376,6 @@ else {
 	my $data = encode_json($response_ref);
 	print header(-type => 'application/json', -charset => 'utf-8') . $data;
 }
-
+ProductOpener::TestCover::handle_cover();
 exit(0);
 

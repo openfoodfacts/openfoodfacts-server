@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:cgi :form escapeHTML/;
@@ -89,3 +90,4 @@ print header(
 	-charset => 'utf-8',
 	-cache_control => 'public, max-age: 10080'
 ) . $xml;
+ProductOpener::TestCover::handle_cover();

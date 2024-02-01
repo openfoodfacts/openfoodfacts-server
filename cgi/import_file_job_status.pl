@@ -21,6 +21,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 use ProductOpener::PerlStandards;
+use ProductOpener::TestCover;
 
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -111,4 +112,5 @@ my $data = encode_json(\%data);
 $log->debug("import_file_job_status.pl - done", {data => \%data}) if $log->is_debug();
 
 print header(-type => 'application/json', -charset => 'utf-8') . $data;
+ProductOpener::TestCover::handle_cover();
 exit();
