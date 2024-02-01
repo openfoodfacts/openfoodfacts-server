@@ -77,6 +77,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "18100",
          "id" : "en:cocoa",
          "origins" : "en:outside-japan,en:japan",
          "percent_estimate" : 0.35511363636364,
@@ -225,11 +226,10 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:breadfruit",
-      "en:cocoa",
       "en:malt",
       "en:meat"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 3,
    "known_ingredients_n" : 31,
    "lc" : "ja",
    "nutriments" : {
