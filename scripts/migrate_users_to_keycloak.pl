@@ -212,14 +212,21 @@ if ($importtype eq 'realm-batch') {
 				my $keycloak_user = convert_to_keycloak_user("$BASE_DIRS{USERS}/$file");
 				push(@users, $keycloak_user) if defined $keycloak_user;
 			}
+
+			if (scalar @users >= 420) {
+				import_users_in_keycloak(\@users);
+				@users = ();
+			}
 		}
 
 		closedir $dh;
 	}
 
-	import_users_in_keycloak(\@users);
+	if (scalar @users) {
+		import_users_in_keycloak(\@users);
+	}
 }
-elsif ($importtype eq 'api-batch') {
+elsif ($importtype eq 'api-multi') {
 	if (opendir(my $dh, "$BASE_DIRS{USERS}/")) {
 		foreach my $file (readdir($dh)) {
 			if (($file =~ /.+\.sto$/) and ($file ne 'users_emails.sto')) {
@@ -230,7 +237,7 @@ elsif ($importtype eq 'api-batch') {
 		closedir $dh;
 	}
 }
-elsif ($importtype eq 'single') {
+elsif ($importtype eq 'api-single') {
 	if ((scalar @ARGV) == 2 and (length($ARGV[1]) > 0)) {
 		migrate_user($ARGV[1]);
 	}
