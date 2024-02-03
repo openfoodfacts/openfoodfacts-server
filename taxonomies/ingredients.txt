@@ -4048,6 +4048,9 @@ tr:Süt tozu
 vegan:en:no
 vegetarian:en:yes
 nova:en:3
+ciqual_proxy_food_code:en:19044
+ciqual_proxy_food_name:en:Milk, powder, semi-skimmed
+ciqual_proxy_food_name:fr:Lait en poudre, demi-écrémé
 
 <en:whole milk powder
 <en:milk from France
@@ -4459,6 +4462,8 @@ carbon_footprint_fr_foodges_ingredient:fr:Yaourt
 carbon_footprint_fr_foodges_value:fr:2.9
 vegetarian:en:yes
 vegan:en:no
+ciqual_proxy_food_code:en:19593
+ciqual_proxy_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, nature
 
 <en:yogurt
 en:plain yogurt
@@ -14162,6 +14167,9 @@ wikidata:en:Q41534
 wikipedia:en:https://en.wikipedia.org/wiki/Starch
 vegan:en:yes
 vegetarian:en:yes
+ciqual_proxy_food_code:en:9510
+ciqual_proxy_food_name:en:Maize/corn starch
+ciqual_proxy_food_name:fr:Amidon de maïs ou fécule de maïs
 
 # ingredient/fr:fécules has 612 products in 5 languages @2019-01-25
 # usage:fr:fécules (dont blé)
@@ -22976,6 +22984,8 @@ wikidata:en:Q15645384
 carbon_footprint_fr_foodges_ingredient:fr:Semoule de blé dur
 carbon_footprint_fr_foodges_value:fr:0.6
 allergens:en: en:gluten
+ciqual_proxy_food_code:en:9410
+ciqual_proxy_food_name:fr:Farine de blé tendre ou froment T110
 
 <en:wheat
 en:sprouted wheat
@@ -26264,6 +26274,9 @@ vegan:en:yes
 vegetarian:en:yes
 carbon_footprint_fr_foodges_ingredient:fr:Farine de blé
 carbon_footprint_fr_foodges_value:fr:1.2
+ciqual_proxy_food_code:en:9410
+ciqual_proxy_food_name:fr:Farine de blé tendre ou froment T110
+
 
 # <en:compound
 <en:flour
@@ -30379,6 +30392,11 @@ vegan:en:yes
 vegetarian:en:yes
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/glucose
 # 24682 products in 24 languages @2018-09-24
+# probably not a very good CIQUAL proxy
+ciqual_proxy_food_code:en:31016
+ciqual_proxy_food_name:en:Sugar, white
+ciqual_proxy_food_name:fr:Sucre blanc
+
 
 # nova:en:glucose-syrup
 <en:glucose
@@ -30422,9 +30440,10 @@ tr:glikoz şurubu, glukoz şurubu, glükoz şurubu
 # 32467 products in 29 languages @2018-09-24
 wikipedia:en:https://en.wikipedia.org/wiki/Glucose_syrup
 wikidata:en:Q14770547
-# probably not a very good proxy, but the closest one in Ciqual
-ciqual_proxy_food_code:31089
-ciqual_proxy_food_name:en:Syrup, agave
+# probably not a very good CIQUAL proxy
+ciqual_proxy_food_code:en:31016
+ciqual_proxy_food_name:en:Sugar, white
+ciqual_proxy_food_name:fr:Sucre blanc
 
 
 <en:glucose syrup
@@ -31112,6 +31131,9 @@ sr:dekstroza
 sv:dextros
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/dextrose
 # 29818 products in 30 languages @2018-09-24
+ciqual_proxy_food_code:en:31016
+ciqual_proxy_food_name:en:Sugar, white
+ciqual_proxy_food_name:fr:Sucre blanc
 
 <en:dextrose
 en:organic dextrose
@@ -32273,6 +32295,9 @@ zh:可可粉
 # zh-hk:可可粉
 vegan:en:yes
 vegetarian:en:yes
+ciqual_proxy_food_code:en:18100
+ciqual_proxy_food_name:en:Cocoa powder, without sugar, powder, instant
+ciqual_proxy_food_name:fr:Cacao, non sucré, poudre soluble
 
 <en:cocoa
 fr:cacao cru
@@ -32484,6 +32509,9 @@ uk:Какао-порошок
 # nds-nl:Kakoupouder
 wikidata:en:Q1062396
 # ingredient/cocoa-powder has 4521 products in 23 languages @2019-05-25
+ciqual_food_code:en:18100
+ciqual_food_name:en:Cocoa powder, without sugar, powder, instant
+ciqual_food_name:fr:Cacao, non sucré, poudre soluble
 
 <en:cocoa powder
 fr:poudre de cacao cru
@@ -32492,9 +32520,6 @@ fr:poudre de cacao cru
 en:raw cacao powder, Instant cocoa powder without sugar
 de:Rohes Kakaopulver
 fr:Poudre de cacao brute, Cacao non sucré en poudre soluble
-ciqual_food_code:en:18100
-ciqual_food_name:en:Cocoa powder, without sugar, powder, instant
-ciqual_food_name:fr:Cacao, non sucré, poudre soluble
 
 <en:cocoa powder
 en:fat reduced cocoa powder, low-fat cocoa powder, low fat cocoa powder, cocoa powder with low fat content
@@ -36710,6 +36735,9 @@ carbon_footprint_fr_foodges_ingredient:fr:Abricot "Pays du Sud"
 carbon_footprint_fr_foodges_value:fr:1.1
 # 5160 in 25 @2021-09-12
 eurocode_2_group_3:en: 9.20.10
+ciqual_food_code:en:13000
+ciqual_food_name:en:Apricot, pitted, raw
+ciqual_food_name:fr:Abricot, dénoyauté, cru
 
 <en:apricot
 en:Bergeron Apricot
@@ -50021,7 +50049,9 @@ wikipedia:en:https://en.wikipedia.org/wiki/Celery
 # fr:celeri has 4877 products in 10 languages @2018-10-21
 carbon_footprint_fr_foodges_ingredient:fr:Céleri
 carbon_footprint_fr_foodges_value:fr:0.8
-eurocode_2_group_3:en: 8.20.10
+eurocode_2_group_3:en: 8.20.10	
+ciqual_proxy_food_code:en:20055
+ciqual_proxy_food_name:fr:Céleri-rave, cru
 
 <en:celery
 en:celery stalk
@@ -50032,6 +50062,7 @@ pl:seler naciowy, selera naciowego
 ciqual_food_code:en:20023
 ciqual_food_name:en:Celery stalk, raw
 ciqual_food_name:fr:Céleri branche, cru
+
 # 88 in 3 languages @2021-12-01
 
 <en:celery
@@ -89133,6 +89164,8 @@ description:en:SOY SAUCE is a liquid condiment of Chinese origin, made from a fe
 # zh-hant:醬油
 # zh-tw:醬油
 allergens:en: en:soybeans
+vegan:en:maybe
+vegetarian:en:maybe
 wikidata:en:Q229385
 wikipedia:en:https://en.wikipedia.org/wiki/Soy_sauce
 # openfoodfacts:https://world.openfoodfacts.org/ingredient/fr:sauce-au-soja
@@ -89388,8 +89421,9 @@ zh:辣醬油
 # zh-hk:辣醬油
 wikidata:en:Q842618
 wikipedia:en:https://en.wikipedia.org/wiki/Worcestershire_sauce
-vegan:en:no
-vegetarian:en:no
+vegan:en:maybe
+vegetarian:en:maybe
+# usually contains anchovies
 # ingredient/fr:sauce-worcestershire has 30 products in 3 languages @2019-04-30
 # usage:de:Worcestershire Sauce (Malzessig, Melasse, Wasser, Kochsalz, Zwiebeln, Knoblauch, Zucker, Gewürze, Sardellen, Tamarindenextrakt, natürliche Aromen)
 

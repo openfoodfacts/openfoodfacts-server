@@ -12,6 +12,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_food_code" : "13000",
          "id" : "en:apricot",
          "labels" : "en:organic",
          "origins" : "en:provence",
@@ -109,11 +110,10 @@
    "ingredients_with_unspecified_percent_n" : 4,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:apricot",
       "en:fruit-pectin",
       "en:gelling-agent"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 14,
    "lc" : "fr",
    "nutriments" : {

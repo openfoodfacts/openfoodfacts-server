@@ -153,6 +153,55 @@ check_quality_and_test_product_has_quality_tag(
 	'raise warning because vegetarian or non-vegetarian is unknown for an ingredient', 0
 );
 
+# ignore compunds
+$product_ref = {
+	labels_tags => ["en:vegetarian", "en:vegan",],
+	ingredients => [
+		{
+			id => "en:lentils",
+			vegan => "yes",
+			vegetarian => "yes"
+		},
+		{
+			id => "en:worcester",
+			ingredients => [
+				{
+					id => "en:soy-sauce",
+					vegan => "yes",
+					vegetarian => "yes",
+				},
+			],
+			vegan => "maybe",
+			vegetarian => "maybe",
+		},
+		{
+			id => "en:honey",
+			vegan => "yes",
+			vegetarian => "yes"
+		}
+	],
+};
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegan-label-but-non-vegan-ingredient',
+	'should not be raised when ingredient contain sub-ingredients', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegetarian-label-but-non-vegetarian-ingredient',
+	'should not be raised when ingredient contain sub-ingredients', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegan-label-but-could-not-confirm-for-all-ingredients',
+	'should not be raised when ingredient contain sub-ingredients', 0
+);
+check_quality_and_test_product_has_quality_tag(
+	$product_ref,
+	'en:vegetarian-label-but-could-not-confirm-for-all-ingredients',
+	'should not be raised when ingredient contain sub-ingredients', 0
+);
+
 # labels claim vs input nutrition data, based on EU regulation: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
 # TODO TESTS WITH CATEGORIES AND ALL LABELS IN CASE TAXO CHANGE OVER TIME, SO THAT IT IS DETECTED WHEN RUNNING TESTS
 # product quantity warnings and errors

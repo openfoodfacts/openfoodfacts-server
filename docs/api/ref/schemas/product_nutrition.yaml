@@ -1,6 +1,10 @@
 type: object
 description: |
   Nutrition fields of a product
+
+  Most of these properties are read-only.
+
+  See [how to add nutrition data](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-cheatsheet/#add-nutrition-facts-values-units-and-base)
 properties:
   no_nutrition_data:
     type: string
@@ -169,10 +173,12 @@ properties:
           **Note**:
           If you want to characterize products in a uniform way, this is the value you should use.
         type: number
+        readOnly: true
       '(?<nutrient>[\w-]+)_serving':
         description: |
           The standardized value of a serving for this product.
         type: number
+        readOnly: true
       '(?<nutrient>[\w-]+)_value':
         description: |
           The value input by the user / displayed on the product for the nutrient.
@@ -180,6 +186,7 @@ properties:
           * per 100g or serving, depending on `nutrition_data_per`
           * in the unit of corresponding <nutrient>_unit field.
         type: number
+        readOnly: true
       '(?<nutrient>[\w-]+)_prepared':
         description: |
           The value for nutrient for **prepared** product.
@@ -193,19 +200,24 @@ properties:
           The standardized value of a serving of 100g (or 100ml for liquids)
           for the nutrient, for **prepared** product.
         type: number
+        readOnly: true
       '(?<nutrient>[\w-]+)_prepared_serving':
         description: |
           The standardized value of a serving for the **prepared** product.
         type: number
+        readOnly: true
       '(?<nutrient>[\w-]+)_prepared_value':
         description: |
           The standardized value for a serving or 100g (or 100ml for liquids),
           depending on `nutrition_data_prepared_per`
           for the nutrient for **prepared** product.
         type: number
+        readOnly: true
   nutriscore_data:
     description: |
       Detail of data the Nutri-Score was computed upon.
+
+      **Note**: this might not be stable, don't rely too much on this, or, at least, tell us !
 
       **TODO** document each property
     type: object
