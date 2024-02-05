@@ -681,29 +681,29 @@
                      "negative" : [
                         {
                            "id" : "energy",
-                           "max" : 10,
                            "points" : 1,
+                           "points_max" : 10,
                            "unit" : "kJ",
                            "value" : 558.75
                         },
                         {
                            "id" : "sugars",
-                           "max" : 15,
                            "points" : 2,
+                           "points_max" : 15,
                            "unit" : "g",
                            "value" : 7.26
                         },
                         {
                            "id" : "saturated_fat",
-                           "max" : 10,
                            "points" : 4,
+                           "points_max" : 10,
                            "unit" : "g",
                            "value" : 4.9
                         },
                         {
                            "id" : "salt",
-                           "max" : 20,
                            "points" : 0,
+                           "points_max" : 20,
                            "unit" : "g",
                            "value" : 0.05
                         }
@@ -711,22 +711,22 @@
                      "positive" : [
                         {
                            "id" : "proteins",
-                           "max" : 7,
                            "points" : 0,
+                           "points_max" : 7,
                            "unit" : "g",
                            "value" : 1.97
                         },
                         {
                            "id" : "fiber",
-                           "max" : 5,
                            "points" : 0,
+                           "points_max" : 5,
                            "unit" : "g",
                            "value" : 0.81
                         },
                         {
                            "id" : "fruits_vegetables_legumes",
-                           "max" : 5,
                            "points" : 2,
+                           "points_max" : 5,
                            "unit" : "%",
                            "value" : 62.5
                         }
@@ -739,15 +739,15 @@
                   "is_fat_oil_nuts_seeds" : 0,
                   "is_red_meat_product" : 0,
                   "is_water" : 0,
-                  "negative_max" : 55,
                   "negative_points" : 7,
-                  "positive_max" : 17,
+                  "negative_points_max" : 55,
                   "positive_nutrients" : [
                      "proteins",
                      "fiber",
                      "fruits_vegetables_legumes"
                   ],
-                  "positive_points" : 2
+                  "positive_points" : 2,
+                  "positive_points_max" : 17
                },
                "grade" : "c",
                "nutrients_available" : 1,
@@ -2170,29 +2170,29 @@
                      "negative" : [
                         {
                            "id" : "energy",
-                           "max" : 10,
                            "points" : 0,
+                           "points_max" : 10,
                            "unit" : "kJ",
                            "value" : 260
                         },
                         {
                            "id" : "sugars",
-                           "max" : 15,
                            "points" : 2,
+                           "points_max" : 15,
                            "unit" : "g",
                            "value" : 7.6
                         },
                         {
                            "id" : "saturated_fat",
-                           "max" : 10,
                            "points" : 0,
+                           "points_max" : 10,
                            "unit" : "g",
                            "value" : 0.47
                         },
                         {
                            "id" : "salt",
-                           "max" : 20,
                            "points" : 0,
+                           "points_max" : 20,
                            "unit" : "g",
                            "value" : 0.07
                         }
@@ -2200,22 +2200,22 @@
                      "positive" : [
                         {
                            "id" : "proteins",
-                           "max" : 7,
                            "points" : 1,
+                           "points_max" : 7,
                            "unit" : "g",
                            "value" : 2.84
                         },
                         {
                            "id" : "fiber",
-                           "max" : 5,
                            "points" : 0,
+                           "points_max" : 5,
                            "unit" : "g",
                            "value" : 0.87
                         },
                         {
                            "id" : "fruits_vegetables_legumes",
-                           "max" : 5,
                            "points" : 2,
+                           "points_max" : 5,
                            "unit" : "%",
                            "value" : 66.7
                         }
@@ -2228,15 +2228,15 @@
                   "is_fat_oil_nuts_seeds" : 0,
                   "is_red_meat_product" : 0,
                   "is_water" : 0,
-                  "negative_max" : 55,
                   "negative_points" : 2,
-                  "positive_max" : 17,
+                  "negative_points_max" : 55,
                   "positive_nutrients" : [
                      "proteins",
                      "fiber",
                      "fruits_vegetables_legumes"
                   ],
-                  "positive_points" : 3
+                  "positive_points" : 3,
+                  "positive_points_max" : 17
                },
                "grade" : "a",
                "nutrients_available" : 1,
@@ -2976,29 +2976,29 @@
                      "negative" : [
                         {
                            "id" : "energy",
-                           "max" : 10,
                            "points" : 2,
+                           "points_max" : 10,
                            "unit" : "kJ",
                            "value" : 754.67
                         },
                         {
                            "id" : "sugars",
-                           "max" : 15,
                            "points" : 1,
+                           "points_max" : 15,
                            "unit" : "g",
                            "value" : 6.73
                         },
                         {
                            "id" : "saturated_fat",
-                           "max" : 10,
                            "points" : 8,
+                           "points_max" : 10,
                            "unit" : "g",
                            "value" : 8.23
                         },
                         {
                            "id" : "salt",
-                           "max" : 20,
                            "points" : 0,
+                           "points_max" : 20,
                            "unit" : "g",
                            "value" : 0
                         }
@@ -3006,15 +3006,15 @@
                      "positive" : [
                         {
                            "id" : "fiber",
-                           "max" : 5,
                            "points" : 0,
+                           "points_max" : 5,
                            "unit" : "g",
                            "value" : 0.87
                         },
                         {
                            "id" : "fruits_vegetables_legumes",
-                           "max" : 5,
                            "points" : 2,
+                           "points_max" : 5,
                            "unit" : "%",
                            "value" : 66.7
                         }
@@ -3027,14 +3027,14 @@
                   "is_fat_oil_nuts_seeds" : 0,
                   "is_red_meat_product" : 0,
                   "is_water" : 0,
-                  "negative_max" : 55,
                   "negative_points" : 11,
-                  "positive_max" : 10,
+                  "negative_points_max" : 55,
                   "positive_nutrients" : [
                      "fiber",
                      "fruits_vegetables_legumes"
                   ],
-                  "positive_points" : 2
+                  "positive_points" : 2,
+                  "positive_points_max" : 10
                },
                "grade" : "c",
                "nutrients_available" : 1,
@@ -3924,29 +3924,29 @@
                      "negative" : [
                         {
                            "id" : "energy",
-                           "max" : 10,
                            "points" : 0,
+                           "points_max" : 10,
                            "unit" : "kJ",
                            "value" : 155.25
                         },
                         {
                            "id" : "sugars",
-                           "max" : 15,
                            "points" : 2,
+                           "points_max" : 15,
                            "unit" : "g",
                            "value" : 7.58
                         },
                         {
                            "id" : "saturated_fat",
-                           "max" : 10,
                            "points" : 0,
+                           "points_max" : 10,
                            "unit" : "g",
                            "value" : 0.02
                         },
                         {
                            "id" : "salt",
-                           "max" : 20,
                            "points" : 0,
+                           "points_max" : 20,
                            "unit" : "g",
                            "value" : 0
                         }
@@ -3954,22 +3954,22 @@
                      "positive" : [
                         {
                            "id" : "proteins",
-                           "max" : 7,
                            "points" : 0,
+                           "points_max" : 7,
                            "unit" : "g",
                            "value" : 0.2
                         },
                         {
                            "id" : "fiber",
-                           "max" : 5,
                            "points" : 0,
+                           "points_max" : 5,
                            "unit" : "g",
                            "value" : 0.97
                         },
                         {
                            "id" : "fruits_vegetables_legumes",
-                           "max" : 5,
                            "points" : 2,
+                           "points_max" : 5,
                            "unit" : "%",
                            "value" : 75
                         }
@@ -3982,15 +3982,15 @@
                   "is_fat_oil_nuts_seeds" : 0,
                   "is_red_meat_product" : 0,
                   "is_water" : 0,
-                  "negative_max" : 55,
                   "negative_points" : 2,
-                  "positive_max" : 17,
+                  "negative_points_max" : 55,
                   "positive_nutrients" : [
                      "proteins",
                      "fiber",
                      "fruits_vegetables_legumes"
                   ],
-                  "positive_points" : 2
+                  "positive_points" : 2,
+                  "positive_points_max" : 17
                },
                "grade" : "a",
                "nutrients_available" : 1,
@@ -4898,29 +4898,29 @@
                      "negative" : [
                         {
                            "id" : "energy",
-                           "max" : 10,
                            "points" : 0,
+                           "points_max" : 10,
                            "unit" : "kJ",
                            "value" : 155.25
                         },
                         {
                            "id" : "sugars",
-                           "max" : 15,
                            "points" : 2,
+                           "points_max" : 15,
                            "unit" : "g",
                            "value" : 7.58
                         },
                         {
                            "id" : "saturated_fat",
-                           "max" : 10,
                            "points" : 0,
+                           "points_max" : 10,
                            "unit" : "g",
                            "value" : 0.02
                         },
                         {
                            "id" : "salt",
-                           "max" : 20,
                            "points" : 0,
+                           "points_max" : 20,
                            "unit" : "g",
                            "value" : 0
                         }
@@ -4928,22 +4928,22 @@
                      "positive" : [
                         {
                            "id" : "proteins",
-                           "max" : 7,
                            "points" : 0,
+                           "points_max" : 7,
                            "unit" : "g",
                            "value" : 0.2
                         },
                         {
                            "id" : "fiber",
-                           "max" : 5,
                            "points" : 0,
+                           "points_max" : 5,
                            "unit" : "g",
                            "value" : 0.97
                         },
                         {
                            "id" : "fruits_vegetables_legumes",
-                           "max" : 5,
                            "points" : 2,
+                           "points_max" : 5,
                            "unit" : "%",
                            "value" : 75
                         }
@@ -4956,15 +4956,15 @@
                   "is_fat_oil_nuts_seeds" : 0,
                   "is_red_meat_product" : 0,
                   "is_water" : 0,
-                  "negative_max" : 55,
                   "negative_points" : 2,
-                  "positive_max" : 17,
+                  "negative_points_max" : 55,
                   "positive_nutrients" : [
                      "proteins",
                      "fiber",
                      "fruits_vegetables_legumes"
                   ],
-                  "positive_points" : 2
+                  "positive_points" : 2,
+                  "positive_points_max" : 17
                },
                "grade" : "a",
                "nutrients_available" : 1,
