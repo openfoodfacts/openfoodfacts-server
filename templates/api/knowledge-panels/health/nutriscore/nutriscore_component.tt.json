@@ -5,9 +5,9 @@
     ],
     "size": "small",
     "title_element": {
-        "icon_url": "[% static_subdomain %]/images/attributes/dist/points-[% panel.type %]-[% panel.points %]-[% panel.max %].svg",
+        "icon_url": "[% static_subdomain %]/images/attributes/dist/points-[% panel.type %]-[% panel.points %]-[% panel.points_max %].svg",
         "title": "[% lang("nutriscore_component_" _ panel.id) %]",
-        "subtitle": "[% panel.points %]/[% panel.max %] points ([% panel.value %][% panel.unit %])",
+        "subtitle": "[% panel.points %]/[% panel.points_max %] points ([% panel.value %][% panel.unit %])",
     },
     "elements": [
         

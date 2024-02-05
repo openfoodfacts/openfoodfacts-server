@@ -909,8 +909,10 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 		if ($panel_data_ref->{nutriscore_unknown_reason_short}) {
 			$panel_data_ref->{subtitle} = $panel_data_ref->{nutriscore_unknown_reason_short};
 		}
-		$panel_data_ref->{subtitle} = lang_in_other_lc($target_lc,
-			"attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
+		else {
+			$panel_data_ref->{subtitle} = lang_in_other_lc($target_lc,
+				"attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
+		}
 	}
 
 	# Nutri-Score sub-panels for each positive or negative component
@@ -924,7 +926,7 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 				"value" => $component_ref->{value},
 				"unit" => $component_ref->{unit},
 				"points" => $component_ref->{points},
-				"max" => $component_ref->{max},
+				"points_max" => $component_ref->{points_max},
 			};
 			create_panel_from_json_template(
 				"nutriscore_component_" . $component_ref->{id},

@@ -741,7 +741,7 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 		}
 
 		# max number of squares in the gauge we will display to user for this nutrient
-		$nutriscore_data_ref->{$nutrient . "_max"} = scalar @{$points_thresholds_2023{$nutrient_threshold_id}};
+		$nutriscore_data_ref->{$nutrient . "_points_max"} = scalar @{$points_thresholds_2023{$nutrient_threshold_id}};
 	}
 
 	# For red meat products, the number of maximum protein points is set at 2 points
@@ -784,16 +784,16 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 
 	foreach my $nutrient (@$negative_components) {
 		my $points = ($nutriscore_data_ref->{$nutrient . "_points"} || 0);
-		my $max = $nutriscore_data_ref->{$nutrient . "_max"};
+		my $points_max = $nutriscore_data_ref->{$nutrient . "_points_max"};
 		push @{$nutriscore_data_ref->{components}{negative}},
 			{
 			id => $nutrient,
 			value => round_to_max_decimal_places($nutriscore_data_ref->{$nutrient}, 2),
 			points => $points,
-			max => $max,
+			points_max => $points_max,
 			};
 		$nutriscore_data_ref->{negative_points} += $points;
-		$nutriscore_data_ref->{negative_max} += $max;
+		$nutriscore_data_ref->{negative_points_max} += $points_max;
 	}
 
 	# positive points
@@ -844,16 +844,16 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 
 	foreach my $nutrient (@{$nutriscore_data_ref->{positive_nutrients}}) {
 		my $points = ($nutriscore_data_ref->{$nutrient . "_points"} || 0);
-		my $max = $nutriscore_data_ref->{$nutrient . "_max"};
+		my $points_max = $nutriscore_data_ref->{$nutrient . "_points_max"};
 		push @{$nutriscore_data_ref->{components}{positive}},
 			{
 			id => $nutrient,
 			value => round_to_max_decimal_places($nutriscore_data_ref->{$nutrient}, 2),
 			points => $points,
-			max => $max,
+			points_max => $points_max,
 			};
 		$nutriscore_data_ref->{positive_points} += $points;
-		$nutriscore_data_ref->{positive_max} += $max;
+		$nutriscore_data_ref->{positive_points_max} += $points_max;
 	}
 
 	# Add units for the retained positive and negative components
@@ -869,7 +869,7 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 		{
 			delete $nutriscore_data_ref->{$key};
 			delete $nutriscore_data_ref->{$key . "_points"};
-			delete $nutriscore_data_ref->{$key . "_max"};
+			delete $nutriscore_data_ref->{$key . "_points_max"};
 		}
 	}
 
