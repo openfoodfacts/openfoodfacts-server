@@ -2778,6 +2778,10 @@ wikidata:en:Q3655894
 <en:Country specific beers
 en:Ukrainian beers, Beers from Ukraine
 lt:Ukrainietiškas alus, alus iš Ukrainos
+de:Ukrainische Biere
+fr:Bières ukrainiennes
+it:Birre ucraine
+nl:Oekraïense bieren
 wikidata:en:Q4880025
 
 <en:Country specific beers
@@ -2787,6 +2791,8 @@ fr:Bières du Royaume Uni, Bières anglaises
 it:Birre del Regno Unito
 lt:Alus iš Jungtinės Karalystės, Angliškas alus
 nl:Britse bieren
+es:Cervezas del Reino Unido
+pt:Cervejas do Reino Unido
 # Disabled for safety: origins:en: en:United Kingdom
 wikidata:en:Q420081
 
@@ -50498,6 +50504,10 @@ en:Grapefruit yogurts
 fr:Yaourts au pamplemousse
 lt:Greipfrutų jogurtai, Jogurtai su greipfrutais
 pt:Iogurtes de toranja
+es:Yogures de pomelo
+de:Grapefruit-Joghurts
+it:Yogurt al pompelmo
+nl:Grapefruityoghurt, Grapefruityoghurts, Yoghurt met grapefruit
 #wikidata:en:
 
 <en:Fruit yogurts
@@ -50770,6 +50780,17 @@ nl:Vruchtenroeryoghurts, Vruchtenroeryoghurt
 <en:Drinkable yogurts
 en:Stirred yogurt drinks, Stirred yoghurt drinks
 fr:Yaourts brassés à boire, Yaourt brassé à boire
+bg:Напитки от разбъркан йогурт, Напитки от разбъркан йогурт
+ca:Iogurts batuts per beure, Iogurt batut per beure
+de:Trinkjoghurts, Rühryoghurts
+es:Yogures batidos para beber, Yogur batido para beber
+fi:Juotavat sekoitetut jogurtit, Juotavat sekoitetut jogurtit
+it:Yogurt liquidi, Yogurt liquido
+lt:Skysti jogurtiniai gėrimai, Skysti jogurtiniai gėrimai
+nl:Drinkyoghurts, Roeryoghurtdranken
+pt:Iogurtes batidos para beber, Iogurte batido para beber
+ro:Băuturi din iaurt amestecat, Iaurt amestecat băutură
+ru:Напитки из перемешанного йогурта, Напитки из перемешанного йогурта
 ciqual_food_code:en:19537
 
 <en:Vanilla yogurt
@@ -50843,8 +50864,18 @@ intake24_category_code:en:NTYG
 
 <en:Yogurts
 en:Twin-pot yogurts
+fr:Yaourts à double compartiment
+es:Yogures de doble compartimento
+de:Doppelpott-Joghurts
+it:Yogurt a doppio vasetto
+nl:Dubbele pot yoghurts
 intake24_category_code:en:TWIN
 description:en:A yogurt dessert with a separate compartment for a topping
+description:fr:Un dessert au yaourt avec un compartiment séparé pour une garniture
+description:es:Un postre de yogur con un compartimento separado para un topping
+description:de:Ein Joghurtnachtisch mit einem separaten Fach für einen Belag
+description:it:Un dessert allo yogurt con un compartimento separato per una copertura
+description:nl:Een yoghurtdessert met een apart compartiment voor een topping
 
 <en:Yogurts
 en:Bulgarian yogurt
@@ -67759,6 +67790,9 @@ de:Flüssigsalze, Flüssigsalz
 es:Sales liquidas, sal liquida
 fr:Sels liquides
 nl:Vloeibare zouten
+it:Sale liquide
+fi:Neste suolat
+pl:Sole płynne
 agribalyse_proxy_food_code:en:11017
 agribalyse_proxy_food_name:en:Salt, white, for human consumption (sea, igneous or rock), no enrichment
 agribalyse_proxy_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
@@ -67768,6 +67802,9 @@ fr:Sels des mines de sel
 de:Steinsalze, Steinsalz
 it:Salgemma, sale dalle miniere
 nl:Steenzouten
+es:Sales de las minas de sal
+fi:Suolat suolakaivoksista
+pl:Sole z kopalni soli
 agribalyse_proxy_food_code:en:11017
 agribalyse_proxy_food_name:en:Salt, white, for human consumption (sea, igneous or rock), no enrichment
 agribalyse_proxy_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
@@ -67792,6 +67829,9 @@ wikidata:en:Q1790817
 fr:Sels roses de l'Himalaya
 hr:ružičasta himalajska sol, himalajske ružičaste soli
 it:sale rosa dell himalaya
+nl:Roze Himalayazout
+es:Sales rosadas del Himalaya
+de:Rosa Himalayasalz
 
 <en:Salts
 en:Sea salts, Bay salts, Solar salt
@@ -67818,6 +67858,9 @@ it:Sale iodato
 ja:ヨウ素添加塩
 lt:Joduota druska
 pl:Sól jodowana
+ru:Йодированная соль
+es:Sal yodada
+fr:Sel iodé
 agribalyse_proxy_food_code:en:11017
 agribalyse_proxy_food_name:en:Salt, white, for human consumption (sea, igneous or rock), no enrichment
 agribalyse_proxy_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
@@ -67920,6 +67963,9 @@ origins:en: en:Croatia
 en:British salts
 fr:Sels britanniques
 lt:Britiškos druskos
+es:Sales británicas
+de:Britische Salze
+it:Sale britanniche
 
 <en:British salts
 en:Anglesey Sea Salt, Halen Môn
@@ -69391,9 +69437,19 @@ bg:Вегетариански сосове
 fr:Sauces végétariennes
 lt:Vegetariški padažai
 pl:Sosy wegetariańskie, wegetariańskie sosy
+es:Salsas vegetarianas
+de:Vegetarische Saucen
+it:Salse vegetariane
+ja:ベジタリアンソース
+nl:Vegetarische sauzen
+ru:Вегетарианские соусы
 
 <en:Sauces
 en:Other sauces
+fr:Autres sauces
+es:Otras salsas
+de:Andere Saucen
+it:Altre salse
 
 <en:Other sauces
 en:Shelf-stable other sauces
@@ -69631,6 +69687,8 @@ en:Wine sauces
 fr:Sauces au vin
 lt:Vyno padažai
 nl:Wijnsauzen
+es:Salsas de vino
+de:Weinsaucen
 agribalyse_proxy_food_code:en:11164
 agribalyse_proxy_food_name:en:Red wine sauce
 agribalyse_proxy_food_name:fr:Sauce au vin rouge
@@ -69640,6 +69698,8 @@ en:White wine sauces
 fr:Sauces au vin blanc, Sauce au vin blanc
 lt:Baltojo vyno padažai
 nl:Witte wijnsauzen
+es:Salsas de vino blanco
+de:Weißweinsaucen
 
 <en:White wine sauces
 en:muscat wine sauce
@@ -70175,6 +70235,11 @@ en:Yakitori sauces
 fr:Sauces Yakitori
 ja:焼き鳥のタレ
 nl:Yakitorisauzen
+de:Yakitori Soßen
+es:Salsas Yakitori
+it:Salse Yakitori
+lt:Japoniški padažai Yakitori
+pt:Molhos Yakitori
 #wikidata:en:
 
 <en:Sauces
@@ -70310,9 +70375,17 @@ intake24_category_code:en:WHTE
 
 <en:Cheese sauces
 fr:Sauces 3 fromages
+it:Salse 3 formaggi
+ja:3種類のチーズソース
+nl:3-kazen sauzen
+pl:Sosy trzyserowe
 
 <en:Cheese sauces
 fr:Sauces 4 fromages
+it:Salse 4 formaggi
+ja:4種類のチーズソース
+nl:4-kazen sauzen
+pl:Sosy czteroseryjne
 
 <en:Cheese sauces
 en:Roquefort sauces, Blue cheese sauce
@@ -70340,6 +70413,10 @@ ja:ワカモレ
 lt:Gvakamolė
 nl:Guacamoles
 pl:Guacamole
+ru:Гуакамоле
+sv:Guacamole
+tr:Guacamole
+zh:鳄梨酱
 wikidata:en:Q207968
 agribalyse_food_code:en:25620
 ciqual_food_code:en:25620
@@ -70574,6 +70651,9 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 en:Sauces with mustard
 fr:Sauces à la moutarde
 lt:Padažai su garstyčiomis
+es:Salsas con mostaza
+it:Salse con senape
+nl:Sauzen met mosterd
 
 <en:Sauces with mustard
 fr:rémoulade
@@ -70596,6 +70676,10 @@ lt:Kario garstyčios
 
 <en:Mustards
 fr:Moutardes au noix
+es:Mostazas de nueces
+de:Nuss-Senfe
+it:Senapi di noci
+nl:Notenmosterds
 
 <en:Mustards
 en:Yellow mustards
@@ -72014,6 +72098,8 @@ en:Romanian meat products
 fr:Produits carnés roumains
 lt:Rumuniški mėsos produktai
 pl:Rumuńskie produkty mięsne
+es:Productos cárnicos rumanos
+it:Prodotti di carne rumeni
 
 <en:Romanian meat products
 ro:Cârnaţi de Pleşcoi
@@ -72103,6 +72189,12 @@ it:Prodotti spagnoli a base di carne
 lt:Ispaniški mėsos produktai
 nl:Spaanse vleesproducten, Vleesproducten uit Spanje
 pl:Hiszpańskie produkty mięsne
+pt:Produtos de carne espanhola
+ro:Produse de carne spaniolă
+ru:Испанские мясные продукты
+sv:Spanska köttprodukter
+tr:İspanyol et ürünleri
+uk:Іспанські м'ясні продукти
 
 <en:Spanish meat products
 es:Carne de Ávila
@@ -72498,6 +72590,10 @@ ciqual_food_name:fr:Base de pizza tomatée
 <en:Pizza sauces
 en:Topping sauce for pizza
 fr:Sauce pour pizza, Garniture pour pizza
+es:Salsa para pizza, Cobertura para pizza
+de:Belagsoße für Pizza
+it:Salsa per pizza, Condimento per pizza
+nl:Toppingsaus voor pizza
 agribalyse_food_code:en:25525
 ciqual_food_code:en:25525
 ciqual_food_name:en:Topping sauce for pizza
@@ -72505,6 +72601,11 @@ ciqual_food_name:fr:Pizza, sauce garniture pour
 
 <en:Sauces
 fr:Sauces pour nems
+en:Dipping sauces for spring rolls
+de:Dipsaucen für Frühlingsrollen
+es:Salsas para rollitos de primavera
+it:Salse per involtini primavera
+nl:Dipsauzen voor loempia's
 
 <en:Sauces
 en:Provençale sauces, Provençal sauces, Provencale sauces, Provencal sauces
@@ -72519,6 +72620,10 @@ agribalyse_proxy_food_name:fr:Sauce tomate aux oignons, préemballée
 <en:Tomato sauces
 fr:Sauces puttanesca
 en:Puttanesca sauces
+de:Puttanesca-Saucen
+es:Salsas puttanesca
+it:Salse puttanesca
+nl:Puttanesca sauzen
 wikidata:en:Q60823349
 
 <en:Tomato sauces
@@ -72527,6 +72632,12 @@ bg:Доматен сос с лук
 fr:Sauces tomate aux oignons
 lt:Pomidorų padažai su svogūnais
 nl:Tomatensauzen met ui
+es:Salsas de tomate con cebolla
+fi:Tomaattikastikkeet sipulilla
+it:Salse di pomodoro con cipolle
+ja:玉ねぎ入りトマトソース
+pl:Sosy pomidorowe z cebulą
+ru:Томатные соусы с луком
 agribalyse_food_code:en:11107
 ciqual_food_code:en:11107
 ciqual_food_name:en:Tomato sauce, with onions, prepacked
@@ -72649,6 +72760,10 @@ en:Tomato sauces with mushrooms
 bg:Доматен сос с гъби
 fr:Sauces tomates aux champignons
 lt:Pomidorų padažai su grybais
+es:Salsas de tomate con champiñones
+de:Tomatensaucen mit Pilzen
+nl:Tomatensauzen met champignons
+pl:Sosy pomidorowe z grzybami
 agribalyse_food_code:en:11177
 ciqual_food_code:en:11177
 ciqual_food_name:en:Tomato sauce, w mushrooms, prepacked
@@ -72658,6 +72773,11 @@ ciqual_food_name:fr:Sauce tomate aux champignons, préemballée
 <en:Meal sauces
 en:Pimented tomato sauces
 fr:Sauces tomates pimentées
+de:Gewürzte Tomatensaucen
+es:Salsas de tomate picantes
+lt:Aštrios pomidorų padažai
+nl:Pittige tomatensauzen
+pl:Pikantne sosy pomidorowe
 #wikidata:en:
 
 <en:Tomato sauces
@@ -72940,6 +73060,9 @@ fr:Pâtes au wasabi, pâtes de wasabi
 lt:Vasabi pasta
 nl:Wasabipastas
 pl:Pasty wasabi
+it:Pasta di wasabi
+fi:Wasabitahnat
+ja:ワサビペースト
 wikidata:en:Q68437707
 
 <en:Meal sauces
@@ -72992,6 +73115,10 @@ fr:Pâtes de curry jaunes
 lt:Geltonojo kario pasta
 nl:Gele Currypastas
 pl:Żółte pasty curry
+es:Pasta de curry amarillo
+it:Pasta di curry giallo
+fi:Keltainen currytahna
+he:רוטב קארי צהוב
 wikidata:en:Q67201117
 
 
@@ -73089,6 +73216,7 @@ en:Pad thai
 fr:Pad Thaï
 ja:パッタイ
 pl:Pad thai
+xx:Pad thai
 wikidata:en:Q730298
 
 <en:Meals
@@ -73100,6 +73228,10 @@ it:Sostituto del pasto
 lt:Maisto pakaitalai, maisto pakaitalas
 nl:Maaltijdvervangers
 pl:Substytuty mięsa, Zamienniki mięsa
+es:Sustitutos de comidas
+pt:Substitutos de refeição
+ja:食事代替品
+zh-CN:餐食替代品
 agribalyse_proxy_food_code:en:42003
 agribalyse_proxy_food_name:en:Meal replacement low calorie, ready-to-drink
 agribalyse_proxy_food_name:fr:Substitut de repas hypocalorique, prêt à boire
@@ -73113,6 +73245,10 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 en:Low calorie meal replacement
 fr:Substitut de repas hypocalorique
 lt:Mažai kaloringi maisto pakaitalai
+es:Sustituto de comida baja en calorías
+de:Kalorienarmer Mahlzeitenersatz
+it:Sostituto del pasto a basso contenuto calorico
+nl:Caloriearme maaltijdvervanger
 agribalyse_proxy_food_code:en:42003
 agribalyse_proxy_food_name:en:Meal replacement low calorie, ready-to-drink
 agribalyse_proxy_food_name:fr:Substitut de repas hypocalorique, prêt à boire
@@ -73128,6 +73264,10 @@ ciqual_food_name:fr:Substitut de repas hypocalorique, crème dessert
 <en:Low calorie meal replacement
 en:Low calorie ready-to-drink meal replacement
 fr:Substitut de repas hypocalorique prêt à boire
+es:Sustituto de comida bajo en calorías listo para beber
+de:Fertiggetränkter kalorienarmer Mahlzeitenersatz
+it:Sostituto del pasto ipocalorico pronto da bere
+nl:Kant-en-klare caloriearme maaltijdvervanger
 agribalyse_food_code:en:42003
 ciqual_food_code:en:42003
 ciqual_food_name:en:Meal replacement low calorie, ready-to-drink
@@ -73136,6 +73276,10 @@ ciqual_food_name:fr:Substitut de repas hypocalorique, prêt à boire
 <en:Low calorie meal replacement
 en:Low calorie meal replacement in powder reconstituted with skimmed milk
 fr:Substitut de repas hypocalorique en poudre reconstituée avec lait écrémé
+es:Sustituto de comida baja en calorías en polvo reconstituido con leche desnatada
+de:Kalorienarmer Mahlzeitenersatz in Pulverform, mit fettarmer Milch zubereitet
+it:Sostituto del pasto ipocalorico in polvere, ricostituito con latte scremato
+nl:Caloriearme maaltijdvervanger in poedervorm, bereid met magere melk
 agribalyse_food_code:en:42004
 ciqual_food_code:en:42004
 ciqual_food_name:en:Meal replacement low calorie, in powder, reconstituted with skimmed milk
@@ -73144,6 +73288,12 @@ ciqual_food_name:fr:Substitut de repas hypocalorique, poudre reconstituée avec 
 <en:Low calorie meal replacement
 en:Low calorie milkshake meal replacement in powder reconstituted with skimmed milk
 fr:Substitut de repas hypocalorique milk-shake en poudre reconstitué avec lait écrémé
+bg:Нискокалорична прахообразна заместителна храна за млечни коктейли, приготвена с обезмаслено мляко
+lt:Mažai kaloringas pieno kokteilio tipo maisto pakaitalas miltelių pavidalu, paruoštas su liesu pienu
+es:Sustituto de comida baja en calorías en polvo reconstituido con leche desnatada tipo batido
+de:Kalorienarmer Milchshake-Mahlzeitenersatz in Pulverform, mit fettarmer Milch zubereitet
+it:Sostituto del pasto ipocalorico in polvere, ricostituito con latte scremato tipo milkshake
+nl:Caloriearme milkshake maaltijdvervanger in poedervorm, bereid met magere melk
 agribalyse_food_code:en:42005
 ciqual_food_code:en:42005
 ciqual_food_name:en:Meal replacement low calorie, in powder, reconstituted with skimmed milk, milkshake type
@@ -73154,6 +73304,10 @@ en:Egg powder
 bg:Яйчен прах
 fr:Oeuf en poudre
 lt:Kiaušinių milteliai
+es:Huevo en polvo
+de:Eipulver
+it:Uovo in polvere
+nl:Eipoeder
 agribalyse_food_code:en:22013
 ciqual_food_code:en:22013
 ciqual_food_name:en:Egg, powder
@@ -73204,6 +73358,7 @@ lt:Sušiai
 nl:Sushis
 pl:Sushi
 zh:寿司
+xx:Sushi
 wikidata:en:Q46383
 wikipedia:en:https://en.wikipedia.org/wiki/Sushi
 intake24_category_code:en:SUSH
@@ -73508,6 +73663,8 @@ en:Fresh tabbouleh
 de:frisches Taboulé
 fr:Taboulés frais, taboulé frais
 nl:Verse taboulehs
+es:Tabulé fresco
+it:Tabulé fresco
 
 <en:Meals
 en:Rice dishes
@@ -73611,6 +73768,7 @@ fr:Paëllas, paëlla
 it:Paella
 ja:パエリア
 nl:Paellas
+xx:Paella
 agribalyse_food_code:en:25031
 ciqual_food_code:en:25031
 ciqual_food_name:en:Paëlla
@@ -73627,6 +73785,7 @@ fr:Risottos
 it:Risotti
 ja:リゾット
 nl:Risottos, Risotto
+xx:Risotto
 wikidata:en:Q208105
 
 <en:Risottos
@@ -73641,6 +73800,8 @@ ciqual_food_name:fr:Risotto, aux fruits de mer
 <en:Risotto with seafood
 en:Crab risottos
 fr:Risottos au crabe
+lt:Krabų risottos
+nl:Krabrisotto
 agribalyse_proxy_food_code:en:25188
 agribalyse_proxy_food_name:en:Risotto, w seafood
 agribalyse_proxy_food_name:fr:Risotto, aux fruits de mer
@@ -73649,6 +73810,9 @@ agribalyse_proxy_food_name:fr:Risotto, aux fruits de mer
 en:Shrimp risottos
 fr:Risottos aux crevettes
 nl:Garnaalrisotto
+es:Risottos de camarones
+de:Garnelenrisotto
+it:Risotti di gamberetti
 agribalyse_proxy_food_code:en:25188
 agribalyse_proxy_food_name:en:Risotto, w seafood
 agribalyse_proxy_food_name:fr:Risotto, aux fruits de mer
@@ -73658,6 +73822,9 @@ en:Salmon risottos
 de:Lachsrisotto, Lachs-Risotto
 fr:Risottos au saumon
 nl:Zalmrisotto
+lt:Lazdynų risottos
+es:Risottos de salmón
+it:Risotti al salmone
 #wikidata:en:
 
 <en:Risottos
@@ -74036,6 +74203,10 @@ fr:Saumon à l'oseille et riz
 <en:Meals with salmon
 en:Stuffed salmon
 fr:Saumon farci
+es:Salmón relleno
+de:Gefüllter Lachs
+it:Salmone ripieno
+nl:Gevulde zalm
 ciqual_food_code:en:25210
 ciqual_food_name:en:Stuffed salmon
 ciqual_food_name:fr:Saumon farci
@@ -74047,6 +74218,9 @@ bg:Ястия с риба тон
 fr:Plats au thon
 lt:Patiekalai su tunu
 nl:Tonijnmaaltijden
+es:Comidas con atún
+de:Gerichte mit Thunfisch
+it:Pasti con tonno
 
 <en:Meals with fish
 en:Cod brandade
@@ -74069,6 +74243,10 @@ agribalyse_proxy_food_name:en:Fish brandade or fish shepherd's pie
 <en:Meals
 en:Meals with falafels
 fr:Plats préparés aux falafels
+es:Comidas con falafel
+de:Gerichte mit Falafel
+it:Pasti con falafel
+nl:Maaltijden met falafel
 
 # This category shouldn't be under en:Meats and their products (it is for products which main ingredient is meat)
 <en:Meals
@@ -74093,10 +74271,19 @@ zh:肉餐
 <en:Meals with meat
 en:Frozen meals with meat
 fr:Plats préparés surgelés à la viande
+es:Comidas congeladas con carne
+de:Tiefkühlgerichte mit Fleisch
+it:Pasti surgelati con carne
+lt:Šaldytos patiekalai su mėsa
+nl:Diepvriesmaaltijden met vlees
 
 <en:Meals with meat
 en:Canned meals with meat
 fr:Plats préparés en conserve à la viande
+es:Comidas enlatadas con carne
+de:Dosenmahlzeiten mit Fleisch
+it:Pasti in scatola con carne
+nl:Blikmaaltijden met vlees
 
 <en:Sandwiches
 en:Doner kebab
@@ -74689,6 +74876,10 @@ fr:Tartes salées, Tarte salée
 it:Torte salate
 lt:Sūdyti pyragai, pikantiški pyragaičiai
 nl:Hartige taarten
+pl:Slone ciasta
+pt:Tartes salgadas
+ru:Соленые пироги
+sv:Salta pajer
 food_groups:en: en:Pizza pies and quiches
 pnns_group_2:en:Pizza pies and quiches
 
