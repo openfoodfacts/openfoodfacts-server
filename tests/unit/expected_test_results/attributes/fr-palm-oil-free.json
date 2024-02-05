@@ -630,6 +630,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "9410",
          "id" : "en:flour",
          "percent_estimate" : 18.75,
          "percent_max" : 50,
@@ -708,10 +709,9 @@
    "ingredients_with_unspecified_percent_n" : 4,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:chocolate",
-      "en:flour"
+      "en:chocolate"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 6,
    "languages" : {},
    "languages_codes" : {},

@@ -2110,6 +2110,8 @@ sub extract_text_from_image ($product_ref, $id, $field, $ocr_engine, $results_re
 }
 
 @CLOUD_VISION_FEATURES_FULL = (
+	# DOCUMENT_TEXT_DETECTION does not bring significant advantages
+	# See https://github.com/openfoodfacts/openfoodfacts-server/issues/9723
 	{type => 'TEXT_DETECTION'},
 	{type => 'LOGO_DETECTION'},
 	{type => 'LABEL_DETECTION'},

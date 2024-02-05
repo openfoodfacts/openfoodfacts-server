@@ -4,6 +4,7 @@
          "id" : "en:thickener",
          "ingredients" : [
             {
+               "ciqual_proxy_food_code" : "9510",
                "id" : "en:modified-starch",
                "percent_estimate" : 31.25,
                "percent_max" : 100,
@@ -47,6 +48,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "9510",
          "id" : "en:modified-starch",
          "percent_estimate" : 5.46875,
          "percent_max" : 25,
@@ -214,13 +216,12 @@
       "en:e262",
       "en:e415",
       "en:e640i",
-      "en:modified-starch",
       "en:thickener",
       "en:vegetable-pigment",
       "en:vitamin-c",
       "en:vitamin-e"
    ],
-   "ingredients_without_ciqual_codes_n" : 12,
+   "ingredients_without_ciqual_codes_n" : 11,
    "known_ingredients_n" : 18,
    "lc" : "ja",
    "nutriments" : {

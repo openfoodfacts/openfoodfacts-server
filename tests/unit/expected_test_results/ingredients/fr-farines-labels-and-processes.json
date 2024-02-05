@@ -23,6 +23,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "9410",
          "id" : "en:flour",
          "labels" : "en:no-gluten",
          "percent_estimate" : 9.375,
@@ -33,6 +34,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "9410",
          "id" : "en:einkorn-wheat",
          "percent_estimate" : 9.375,
          "percent_max" : 25,
@@ -84,11 +86,8 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 4,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "ingredients_without_ciqual_codes" : [
-      "en:einkorn-wheat",
-      "en:flour"
-   ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 7,
    "lc" : "fr",
    "nutriments" : {
