@@ -391,4 +391,7 @@ $options{other_servers} = {
 
 $options{no_nutrition_table} = 1;
 
+# Name of the Redis stream to which product updates are published
+$options{redis_stream_name} = "product_updates_opf";
+
 1;

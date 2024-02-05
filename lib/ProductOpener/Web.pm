@@ -351,25 +351,30 @@ A reference to a list of hashes with every country code and their label in the $
 
 sub get_countries_options_list ($target_lc, $exclude_world = 1) {
 	# if already computed send it back
-	if (defined $countries_options_lists{$target_lc}) {
-		return $countries_options_lists{$target_lc};
-	}
-	# compute countries list
 	my @countries_list = ();
-	my @tags_list = get_all_taxonomy_entries("countries");
-	foreach my $tag (@tags_list) {
-		next if $exclude_world and ($tag eq 'en:world');
-		my $country = display_taxonomy_tag($target_lc, "countries", $tag);
-		# remove eventual language prefix
-		my $country_no_code = $country;
-		$country_no_code =~ s/^\w\w://;
-		# Adding to the list the modified string
-		push @countries_list, {value => $tag, label => $country_no_code, prefixed => $country};
+	if (defined $countries_options_lists{$target_lc}) {
+		@countries_list = @{$countries_options_lists{$target_lc}};
 	}
-	# sort by name
-	@countries_list = sort {$unicode_collate->cmp($a->{label}, $b->{label})} @countries_list;
-	# cache
-	$countries_options_lists{$target_lc} = \@countries_list;
+	else {
+		# compute countries list
+		my @tags_list = get_all_taxonomy_entries("countries");
+		foreach my $tag (@tags_list) {
+			my $country = display_taxonomy_tag($target_lc, "countries", $tag);
+			# remove eventual language prefix
+			my $country_no_code = $country;
+			$country_no_code =~ s/^\w\w://;
+			# Adding to the list the modified string
+			push @countries_list, {value => $tag, label => $country_no_code, prefixed => $country};
+		}
+		# sort by name
+		@countries_list = sort {$unicode_collate->cmp($a->{label}, $b->{label})} @countries_list;
+		# cache
+		$countries_options_lists{$target_lc} = \@countries_list;
+	}
+	if ($exclude_world) {
+		# remove world
+		@countries_list = grep {$_->{value} ne "world"} @countries_list;
+	}
 	return \@countries_list;
 }
 

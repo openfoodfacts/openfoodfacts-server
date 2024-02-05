@@ -295,6 +295,24 @@ paths:
         all packaging_shapes containing "fe" will be returned.
         This is useful if you have a search in your application,
         for a specific product field.
+  /cgi/nutrients.pl:
+    get:
+      summary: Get a nested list of nutrients that can be displayed in the nutrition facts table for a specific country and language
+      tags:
+        - Read Requests
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./responses/get_nutrients.yaml
+      operationId: get-cgi-nutrients.pl
+      parameters:
+        - $ref: '#/components/parameters/cc'
+        - $ref: '#/components/parameters/lc'
+      description: |
+        Used to display the nutrition facts table of a product, or to display a form to input those nutrition facts.
 components:
   schemas:
     "Product-Base":
@@ -327,6 +345,22 @@ components:
       in: query
       name: id
       required: true
+    cc:
+      schema:
+        type: string
+        example: 'us'
+      in: query
+      name: cc
+      required: false
+      description: '2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request.'
+    lc:
+      schema:
+        type: string
+        example: 'fr'
+      in: query
+      name: lc
+      required: false
+      description: '2 letter code of the language of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the Accept-Language header of the request.'
     code:
       schema:
         type: string
@@ -363,7 +397,6 @@ components:
       in: query
       name: angle
       required: true
-
     sort_by:
       schema:
         type: string
