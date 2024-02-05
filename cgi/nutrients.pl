@@ -63,6 +63,10 @@ foreach (@{$nutriments_tables{$nutriment_table}}) {
 	if (defined $name) {
 		$current_ref->{name} = $name;
 	}
+	my $unit = get_property("nutrients", "zz:$onid", "unit:en") // 'g';
+	if (defined $unit) {
+		$current_ref->{unit} = $unit;
+	}
 
 	my $prefix_length = 0;
 	if ($nid =~ s/^--//g) {
