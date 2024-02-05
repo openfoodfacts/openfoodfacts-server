@@ -1006,7 +1006,7 @@ da:gæret
 de:fermentiert
 es:fermentos
 fi:hapate, hapatteet, käyte, käyteaine
-fr:ferment, ferments
+fr:ferment, ferments, cultures
 hu:fermentált, erjesztett, kovászolt
 kk:Ферменттер
 ky:Фермент
@@ -1054,12 +1054,12 @@ vegetarian:en:maybe
 # ingredient/coagulating-enzyme has 8697 products in 33 languages @2019-07-09
 
 <en:coagulating enzyme
-en:microbial coagulating enzyme, microbial enzyme
+en:microbial coagulating enzyme, microbial enzyme, microbial
 bg:микробиологичен ензим, сирище с микробиален произход
 ca:coagulant de llet microbià, coagulant microbià
 de:mikrobieller Labaustauschstoff
-es:coagulante de leche microbiano, Encima coagulate microbiana
-fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne, coagulant microbien
+es:coagulante de leche microbiano, Encima coagulate microbiana, coagulante microbiano
+fr:enzyme coagulante microbienne, enzyme coagulante d'origine microbienne, coagulant microbien, enzyme microbienne
 it:enzima microbico, enzima coagulante microbiotico
 nl:microbiële stremmingsenzymen, vegetarisch stremsel
 ru:ферментный препарат микробного происхождения
@@ -1071,7 +1071,7 @@ vegetarian:en:yes
 # comment:en:Should this be kept separate from lactic ferments?
 
 <en:ferment
-en:microbial culture, culture, active cultures, live cultures
+en:microbial culture, culture, active cultures, live cultures, starter culture
 bg:микробна култура, живи култури
 ca:Cultiu microbiològic
 cs:Mikrobiální kultura
@@ -1079,7 +1079,7 @@ da:aktive kulturer, levende kulturer
 de:mikrobielle Kultur, Kulturen
 es:Cultivo microbiano
 fi:mikrobiviljelmä, viljelmä
-fr:culture bactérienne
+fr:culture bactérienne, ferments naturels
 he:תרבית מיקרוביאלית
 hr:mikrobne kulture
 hu:baktérium kultúra, baktériumkultúra, kultúra, kultúrák, elő kultúrák
@@ -1111,9 +1111,9 @@ el:γαλακτικά ένζυμα
 es:fermentos lácticos, fermentos lácteos, cultivos lácticos, ferments del yogur, cultivos de bacterias lácticas especificas, cultivos lácticos específicos
 et:juuretis
 fi:maitohappokäyte, maitohappokannat, maitohappoviljelmä, elävä jogurttiviljelmä, elävä jogurttibakteeriviljelmä, elävät jogurttibakteeriviljelmät, maitohappobakteeriviljelmä, maitohappobakteeriviljelmät, maitohappobakteerit, maitohappobakteerikanta, maitohappobakteerikannat, juustoviljelmä, juustoviljelmät, hapankulttuuri, jogurttihapate, maitohappobakteeri, käynnistin kulttuuri
-fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt
+fr:ferment lactique, ferments lactique, ferments lactiques, ferment lactiques, culture de bactéries lactiques, cultures lactiques, ferment lactique du yaourt, ferments lactiques du yaourt, ferments vivants du yaourt, ferments lactiques naturels
 hr:jogurtna kultura, jogurtne kulture, mljekarska kultura, mljekarske kulture, mlijekarske kulture, sirna kultura, starter kultura, baktrije mliječnog vrenja, bakterije mliječne kiseline, kultura plemenitih plijesni, sirište mljekarske kulture, mezofilna starter kultura, starter kulture, mliječnokiselinske kulture, kultura mliječnih bakterija
-hu:tejsavbaktériumok, tejsavbaktérium, starterkultúra, starter kultúra, tejsavbaktérium-tenyészet, tejsavbaktérium kultúra, joghurtkultúra, joghurtkultúrák, sajtkultúra, sajtkultúrák
+hu:tejsavbaktériumok, tejsavbaktérium, starterkultúra, starter kultúra, tejsavbaktérium-tenyészet, tejsavbaktérium kultúra, joghurtkultúra, joghurtkultúrák, sajtkultúra, sajtkultúrák, tejoltó enzim
 it:fermenti lattici, coltura di batteri acidolattici, fermenti lattici vivi, fermenti latici vivi, fermenti lattici dello yogurt
 lt:jogurtinės bakterijos
 nb:melkesyrekultur, starterkultur, yoghurtkultur, yoghurtbakterier, syrekultur
@@ -1644,7 +1644,7 @@ co:Pirrulu
 cs:Syřidlo
 da:osteløbe, animalsk og mikrobiel løbe
 de:Lab, Labaustauschstoff
-el:πυτια
+el:πυτιά
 es:cuajo
 et:Laap, juuretis
 eu:Gatzagi
@@ -1695,7 +1695,7 @@ vegetarian:en:maybe
 # comment:en:It seems that this is always calf rennet.
 
 <en:rennet
-en:animal-based rennet
+en:animal-based rennet, animal rennet
 da:animalsk løbe
 de:Lab auf tierischer Basis, tierisches Lab
 el:πυτία ζώων
@@ -1720,14 +1720,14 @@ en:calf rennet
 de:Kälberlab
 es:cuajo bovino
 fi:vasikanjuoksute, naudanjuoksute, vasikkaperäinen juoksute, nautaperäinen juoksute
-fr:présure de veau
+fr:présure de veau, présure bovine
 it:Caglio di vitello
 nl:kalfsstremsel
 pl:podpuszczka cielęca
 # fr:présure-de-veau has 40 products in 2 languages @2019-07-08
 
 <en:rennet
-en:vegetarian rennet, vegetable rennet
+en:vegetarian rennet, vegetable rennet, non animal rennet
 da:vegetabilsk osteløbe
 de:vegetarisches Lab
 fi:kasviperäinen juustonjuoksutin, kasviperäinen juoksete
@@ -1745,7 +1745,7 @@ da:mikrobiel osteløbe, mikrobiel løbe
 de:mikrobielles Lab, mikrobiologisches Lab
 es:cuajo microbial, Cuajo microbiano
 fi:mikrobiperäinen juoksute, mikrobiologinen juoksute, mikrobinen juoksute
-fr:présure microbienne
+fr:présure microbienne, enzyme microbien
 hr:mikrobno sirilo
 hu:mikrobiológiai oltóenzim
 it:caglio microbico
@@ -1753,7 +1753,7 @@ nb:mikrobiell løpe
 nl:microbieel stremsel, microbieel stremmiddel
 pl:podpuszczka mikrobiologiczna
 ro:cheag microbian
-sv:mikrobiell ostlöpe, ystenzym, mikrobiellt ystenzym, mikrobiellt löpe
+sv:mikrobiell ostlöpe, ystenzym, mikrobiellt ystenzym, mikrobiellt löpe, mikrobiellt
 # ingredient/microbial-rennet has 537 products in 12 languages @2019-07-08
 vegan:en:yes
 vegetarian:en:yes
@@ -2724,6 +2724,7 @@ bg:мляко без лактоза
 ca:llet sense lactosa
 de:laktosefreie Milch
 es:leche sin lactosa
+it:latte delattosato
 nl:lactosevrije melk
 
 <en:lactose-free milk
@@ -2796,8 +2797,12 @@ en:haymilk
 de:Heumilch, Heumilch g.t.S.
 es:leche de heno
 fr:lait de foin
-it:latte fieno
+it:latte fieno, latte fieno STG
 wikidata:en:Q1616491
+
+#hat has been added?
+<en:milk
+en:cultured pasteurized milk
 
 ########################## LOW FAT and SKIMMED MILK ############################
 
@@ -3281,7 +3286,7 @@ ja:牛乳
 nb:kumelk
 nl:koemelk
 pl:Krowie mleko
-pt:Leite de vaca
+pt:leite de vaca
 ro:lapte de vacă, lapte de vaca
 ru:коровье молоко
 sv:Komjölk
@@ -3387,7 +3392,7 @@ it:latte di mucca pastorizzato
 nb:pasteurisert kumelk
 nl:gepasteuriseerde koemelk
 pl:Mleko krowie pasteryzowane
-pt:Leite de vaca pasteurizado
+pt:Leite de vaca pasteurizado, Leite de vaca pasteurizada
 sv:pastöriserad komjölk
 tr:pastörize inek sütü
 
@@ -3710,7 +3715,7 @@ fr:lait de brebis et de chèvre
 ################################# BUFFALO MILKS ################################
 
 <en:milk
-en:buffalo milk
+en:buffalo milk, buffalo's milk
 bg:биволско мляко
 ca:llet de búfala
 de:Büffelmilch
@@ -3734,7 +3739,7 @@ ca:llet de búfala pasteuritzada, llet pasteuritzada de búfala
 de:pasteurisierte Büffelmilch
 es:leche de búfala pasteurizada, leche pasteurizada de búfala
 fi:pastöroitu puhvelinmaito
-fr:lait de bufflonne pasteurisé
+fr:lait de bufflonne pasteurisé, lait pasteurisé de bufflonne
 hu:pasztőrözött bivalytej
 
 
@@ -4778,7 +4783,7 @@ et:Vadak
 eu:Esne-gazur
 fa:آب‌پنیر
 fi:hera, maitohera
-fr:petit-lait, lactosérum, sérum de lait, lactoserum
+fr:petit-lait, lactosérum, sérum de lait, lactoserum, sérum naturel, sérum d'ensemencement, lactoserum naturel, sérum d'ensemencement naturel
 fy:Waai
 gl:Soro de leite, lactosoro
 he:מי גבינה
@@ -4787,7 +4792,7 @@ hu:savó, tejsavó
 id:Whey, laktoserum
 io:selakto
 is:Mysa
-it:siero di latte
+it:siero di latte, siero innesto naturale, siero innesto
 ja:乳清
 ko:유청
 lb:Wässeg
@@ -4959,6 +4964,9 @@ sv:vasslekoncentrat
 de:Molkeneiweißkäse
 
 <en:whey
+de:Verarbeitungsbüffelmolke
+
+<en:whey
 en:whey product, whey based formula
 ca:producte del sèrum de la llet
 cs:Syrovátkový produkt
@@ -5116,6 +5124,9 @@ description:it:La panna, o crema di latte, è un latticino costituito dalla part
 description:nl:Room bestaat uit melkvet en kleine hoeveelheden van andere koemelkbestanddelen. De melk wordt afgeroomd.
 description:pt:A nata ou creme de leite é a gordura do leite, um tipo de laticínio, muito utilizada em culinária e confeitaria e também como principal ingrediente da manteiga.
 # ingredient/cream has 27881 products in 29 languages @2019-07-12
+
+<en:cream
+en:buffalo milk cream
 
 <en:cream
 en:lactose-free cream
