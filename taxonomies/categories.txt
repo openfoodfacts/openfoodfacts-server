@@ -42727,6 +42727,7 @@ agribalyse_proxy_food_name:en:Abondance cheese, from cow's milk
 <en:French cheeses
 <en:Cooked pressed cheeses
 en:Comté, Comté cheeses, Comté cheese from cow's milk
+fr:Comté
 xx:Comté
 de:Comté, Comté-Käse, Comté-Käse aus Kuhmilch
 wikidata:en:Q249310
@@ -45606,6 +45607,7 @@ en:Burrata
 xx:Burrate
 bg:Бурата
 ja:ブッラータ
+fr:Burrata
 wikidata:en:Q543512
 oqali_family:en: fr:Fromages - Mozzarella
 
@@ -65487,12 +65489,14 @@ sv:Gomasio
 wikidata:en:Q685077
 
 <en:Condiments
+<en:Vinegars
 en:Glazes with vinegar
 es:Cremas de vinagre, cremas con vinagre
 fr:Crèmes de vinaigre, Crèmes au vinaigre
 it:Glasse con aceto
 
 <en:Glazes with vinegar
+<en:Balsamic vinegars
 en:Glazes with balsamic vinegar
 fr:Crèmes de vinaigre balsamique
 
@@ -68531,6 +68535,7 @@ fr:Serrano
 
 <en:Chili peppers
 en:Sichuan pepper
+fr:Poivre du SiChuan
 ja:山椒
 pl:Pieprz syczuański
 zh:花椒
@@ -79754,11 +79759,12 @@ ciqual_food_name:fr:Poitrine de porc demi-sel
 
 <en:Pork
 en:Pork loin
-fr:longue de porc
+fr:Longe de porc
 ja:豚ロース
 agribalyse_food_code:en:28003
 ciqual_food_code:en:28003
 ciqual_food_name:en:Pork loin, raw
+ciqual_food_name:fr:Porc, longe, crue
 
 <en:Pork loin
 en:Frozen pork loin
@@ -80587,7 +80593,7 @@ ciqual_food_name:en:Duck, breast fillet
 ciqual_food_name:fr:Canard, magret, cru
 
 <en:Duck breasts
-en:Smoked duck brests, Smoked duck breast fillet
+en:Smoked duck breasts, Smoked duck breast fillet
 fr:Magrets de canard fumés, Magret de canard fumé
 agribalyse_food_code:en:8111
 ciqual_food_code:en:8111
@@ -80595,7 +80601,7 @@ ciqual_food_name:en:Duck breast fillet, smoked
 ciqual_food_name:fr:Canard, magret fumé
 
 <en:Duck breasts
-en:Duck brests cooked in pan, Duck magret cooked in pan
+en:Duck breasts cooked in pan, Duck magret cooked in pan
 fr:Magrets de canard grillés, Magret de canard grillé, Magret de canard poêlé
 agribalyse_food_code:en:36205
 ciqual_food_code:en:36205
@@ -86726,8 +86732,8 @@ fr:Pâtes farcies au fromage
 it:Pasta ripiena di formaggio
 agribalyse_food_code:en:25181
 agribalyse_proxy_food_code:en:25181
-agribalyse_proxy_food_code:en:Fresh pasta, stuffed with cheese (e.g. ravioli), raw
-agribalyse_proxy_food_code:fr:Pâtes fraîches farcies (ex : raviolis, ravioles du Dauphiné), au fromage, crues
+agribalyse_proxy_food_name:en:Fresh pasta, stuffed with cheese (e.g. ravioli), raw
+agribalyse_proxy_food_name:fr:Pâtes fraîches farcies (ex : raviolis, ravioles du Dauphiné), au fromage, crues
 
 <en:Stuffed pastas
 en:Ravioli with ricotta and spinach
@@ -89170,6 +89176,7 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 
 <en:Seafood
 en:Shellfish
+fr:Coquillages
 gpc_category_code:en:10000021
 gpc_category_name:en:Shellfish - Unprepared/Unprocessed (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as an aquatic animal whose external covering consists of a shell, as in oysters, clams, lobsters and crabs, that has not gone through any further manufacturing processes, such as reformed, cooked, dried and salted, however these products can be coated, in sauce, stuffed or filled. Products include sea snails and molluscs but specifically exclude products that have added ingredients included such as rice, couscous and pasta. However products may contain a small quantity of vegetables such as those in a sauce or stuffing/filling. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Shellfish with additional vegetables, dough or grains, Frozen and Perishable Unprepared and Unprocessed Shellfish, all Prepared and Processed Shellfish.
@@ -96571,10 +96578,11 @@ en:Gherkins with onions
 fr:Cornichons aux oignons
 
 <en:Vegetable pickles
-en:Pickled eggplants
+en:Pickled eggplants, eggplants in oil
 es:Berenjenas encurtidas
 ja:ナスのピクルス
 nl:Ingemaakte aubergines
+fr:Aubergines marinées, aubergines à l'huile
 
 <en:Vegetable pickles
 <en:Garlic and their products
@@ -98767,7 +98775,7 @@ fr:Poivrons jaunes cuits
 nl:Gekookte gele paprikas
 agribalyse_proxy_food_code:en:20088
 agribalyse_proxy_food_name:en:Sweet pepper, red, cooked
-cagribalyse_proxy_food_name:fr:Poivron rouge, cuit
+agribalyse_proxy_food_name:fr:Poivron rouge, cuit
 
 <en:Sweet peppers
 en:Mixed bell peppers, Mixed sweet peppers
