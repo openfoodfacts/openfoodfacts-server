@@ -740,6 +740,7 @@ sub compute_nutriscore_score_2023 ($nutriscore_data_ref) {
 			}
 		}
 
+		# max number of squares in the gauge we will display to user for this nutrient
 		$nutriscore_data_ref->{$nutrient . "_max"} = scalar @{$points_thresholds_2023{$nutrient_threshold_id}};
 	}
 
