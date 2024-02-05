@@ -9897,6 +9897,10 @@ ciqual_food_name:en:Water, municipal
 ciqual_food_name:fr:Eau du robinet
 
 <en:Waters
+en:Ice Cubes
+fr:Glaçons
+
+<en:Waters
 en:Drinking water
 bg:Питейна вода
 de:Trinkwasser
@@ -34971,6 +34975,9 @@ ciqual_food_name:fr:Préparation pour mousse au chocolat
 <en:Dessert mixes
 fr:Préparations pour entremets
 
+<fr:Préparations pour entremets
+fr:Préparation pour bavarois
+
 <en:Dessert mixes
 fr:Préparations pour flans, Préparations pour flans pâtissiers
 
@@ -36072,6 +36079,10 @@ it:Cedro candito
 nl:Gekonfijte citroen
 
  
+<en:Candied fruits
+en:Candied lime
+fr:Citron vert confit
+
 <en:Fruit confectioneries
 en:Filled dates
 fr:Dattes fourrées
@@ -36967,6 +36978,13 @@ agribalyse_food_code:en:31085
 ciqual_food_code:en:31085
 ciqual_food_name:en:Dark chocolate bar, more than 40% cocoa, for cooking
 ciqual_food_name:fr:Chocolat noir à 40% de cacao minimum, à pâtisser, tablette
+
+<en:Dark chocolates
+en:Dark chocolate paste for cooking, Dark chocolate paste
+fr:Pâte de chocolat noir pâtissier, Pâte de chocolat noir
+agribalyse_proxy_food_code:en:31085
+agribalyse_proxy_food_name:en:Dark chocolate bar, more than 40% cocoa, for cooking
+agribalyse_proxy_food_name:fr:Chocolat noir à 40% de cacao minimum, à pâtisser, tablette
 
 <en:Chocolates
 en:Salted chocolates
@@ -38787,6 +38805,14 @@ fr:oeufs de lompes rouges
 <en:Semi-preserved lump roe
 fr:oeufs de lompes noirs
 
+<en:fish eggs
+<en:Semi-preserved foods
+en:Trout roe, Trout eggs, Semi-preserved trout roe
+fr:Œufs de truite, Oeufs de truite en semi-conserve
+ciqual_proxy_food_code:en:26275
+ciqual_proxy_food_name:en:Salmon roe, semi-preserved
+ciqual_proxy_food_name:fr:Oeufs de saumon, semi-conserve
+
 <en:Canned meals
 <en:Ravioli
 en:Canned raviolis
@@ -40396,6 +40422,11 @@ it:Riso Carnaroli, Risi carnaroli
 nl:Carnarolirijsten, Carnarolirijst
 wikidata:en:Q1043890
 
+<en:Medium grain rices
+<en:Japonica rices
+en:Calrose rices
+fr:Riz Calrose
+
 <en:Long grain rices
 <en:Indica rices
 <en:Aromatic rices
@@ -41333,6 +41364,10 @@ ciqual_food_code:en:38105
 ciqual_food_name:en:Corn chips or tortilla chips
 ciqual_food_name:fr:Chips de maïs ou tortilla chips
 wikidata:en:Q1524389
+
+<en:Corn crisps
+en:Flavoured corn crisps, Flavoured corn chips, corn crisps, Flavoured tortilla chips
+fr:Chips de maïs aromatisées
 
 <en:Chips and fries
 en:Fries
@@ -58210,6 +58245,10 @@ ciqual_food_code:en:32140
 ciqual_food_name:en:Oat flakes, pre-cooked, raw
 ciqual_food_name:fr:Flocon d'avoine précuit
 
+<en:Pre-cooked oat flakes
+en:Pre-cooked oat flakes with sugar
+fr:Flocons d'avoine précuits sucrés
+
 <en:Oat flakes
 en:Cooked oat flakes, Boiled oat flakes, Oat flakes cooked in water
 fr:Flocons d'avoine bouillis, Flocons d'avoine cuits à l'eau
@@ -61284,6 +61323,12 @@ fr:Croissants surgelés
 nl:Diepvriescroissants
 
 <fr:Viennoiseries surgelées
+fr:Viennoiseries surgelées à cuire
+
+<fr:Viennoiseries surgelées à cuire
+fr:Croissants surgelés à cuire
+
+<fr:Viennoiseries surgelées
 fr:Pains au chocolat surgelés, chocolatines surgelées, petits-pains au chocolat surgelés
 nl:Diepvries-chocoladecroissants
 
@@ -62862,6 +62907,15 @@ agribalyse_food_code:en:13008
 ciqual_food_code:en:13008
 ciqual_food_name:en:Cherry, pitted, raw
 ciqual_food_name:fr:Cerise, dénoyautée, crue
+
+<en:cherries
+en:Dried cherries
+fr:Cerises séchées
+
+<en:pitted-cherries
+<en:Dried cherries
+en:Pitted dried cherries
+fr:Cerises dénoyautées séchées
 
 <en:Cherries
 en:Morello cherries
@@ -65056,6 +65110,10 @@ ru:Персики и нектарины сушёные, сушёные перс�
 agribalyse_food_code:en:13118
 ciqual_food_code:en:13118
 ciqual_food_name:en:Peach, dried
+
+<en:Dried fruits
+en:Dried pears
+fr:Poires séchées
 
 <en:Dried fruits
 en:Dried pineapple
@@ -67321,6 +67379,10 @@ agribalyse_proxy_food_code:en:11017
 agribalyse_proxy_food_name:en:Salt, white, for human consumption (sea, igneous or rock), no enrichment
 agribalyse_proxy_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (marin, ignigène ou gemme)
 wikidata:en:Q11254
+
+<en:Salts
+en:Low-sodium salts, reduced sodium salts
+fr:Sels réduits en sodium, sels à teneur réduite en sodium
 
 <en:Salts
 en:Celery salt
@@ -75159,6 +75221,9 @@ nl:Vloeibare bouillons
 en:Liquid chicken broths
 lt:Skysti vištienos sultiniai
 nl:Vloeibare kippebouillons
+<en:Liquid broths
+en:Liquid fish broths
+fr:Bouillons de poisson liquides, Fumets de poisson liquide
 
 <en:Broths
 en:Bouillon pots, Stock pots
@@ -85399,6 +85464,10 @@ la:Tuber brumale
 nl:Wintertruffels
 
 <en:Mushrooms
+en:Mushrooms in oil
+fr:Champignons à l'huile
+
+<en:Mushrooms
 <en:Canned plant-based foods
 en:Canned mushrooms
 bg:Гъби от консерва
@@ -86666,6 +86735,10 @@ ciqual_food_code:en:9810
 ciqual_food_name:en:Dried pasta, raw
 ciqual_food_name:fr:Pâtes sèches standard, crues
 intake24_category_code:en:PTNS
+
+<en:Dry Pastas
+en:Common wheat pasta
+fr:Pâtes de blé tendre
 
 # <en:compound
 <en:Stuffed Pastas
@@ -93250,6 +93323,14 @@ ciqual_food_code:en:25037
 ciqual_food_name:en:Fish or seafood au gratin, intended to be cook
 ciqual_food_name:fr:Gratin ou cassolette de poisson et / ou fruits de mer, à cuire
 
+<en:Seafood
+en:Seafood salads
+fr:Salades de fruits de mer
+
+<en:Seafood
+en:Marinated seafood
+fr:Fruits de mer marinés
+
 <en:Sauces
 en:Dips, Dipping sauces
 bg:Дипове
@@ -96620,6 +96701,22 @@ wikidata:en:Q7190909
 en:Pickled guindilla peppers, Pickled guindilla chillis
 es:Guindillas encurtidas
 nl:Ingemaakte guindilla pepers
+
+<en:Vegetable pickles
+en:Pickled Mushrooms, Mushrooms in oil
+fr:Champignons marinés, Champignons à l'huile
+
+<en:Pickled Mushrooms
+en:Pickled cep mushrooms, cep mushrooms in oil
+fr:Cèpes marinés, Cèpes à l'huile
+
+<en:Pickled Mushrooms
+en:Pickled chanterelles, chanterelles in oil, girolles in oil
+fr:Chanterelles marinées, girolles à l'huile, chanterelles à l'huile
+
+<en:Vegetable pickles
+en:Pickled red cabbage, marinated red cabbage
+fr:Chou rouge mariné, Choux rouges marinés
 
 <en:Vegetables based foods
 <en:Fresh plant-based foods
@@ -106327,6 +106424,10 @@ ciqual_food_name:en:Wheat crackers
 ciqual_food_name:fr:Crackers de table au froment
 
 <en:Crackers
+en:Rice crackers
+fr:Biscuits apéritifs au riz
+
+<en:Crackers
 en:Plain salty snacks, Plain salty crackers
 fr:Biscuits apéritifs nature, Crackers nature
 agribalyse_food_code:en:38402
@@ -106742,6 +106843,13 @@ ciqual_food_name:fr:Pâte à pizza fine, crue
 en:Frozen pizza dough
 fr:Pâtes à pizza surgelées, pâte à pizza surgelée
 
+<en:Bakery products
+en:Flammekueche dough
+fr:Pâte à flammekueche
+agribalyse_proxy_food_code:en:23402
+agribalyse_proxy_food_name:en:Thin-crust pizza shell, raw
+agribalyse_proxy_food_name:fr:Pâte à pizza fine, crue
+
 <en:Plant-based foods
 en:Sprouts, Germinated seeds
 de:Keime, Sprossen
@@ -107146,6 +107254,13 @@ ciqual_food_code:en:25608
 ciqual_food_name:en:Tabbouleh, prepacked
 ciqual_food_name:fr:Taboulé ou Salade de couscous, préemballé
 
+<en:Meals
+en:Vegetable fritters
+fr:Beignets de légumes
+agribalyse_food_code:en:25556
+ciqual_food_code:en:25556
+ciqual_food_name:en:Vegetable fritters
+ciqual_food_name:fr:Beignet de légumes
 
 <en:Meals
 en:Filled fritters
@@ -108942,6 +109057,14 @@ ciqual_food_name:fr:Bambou, pousse, crue
 en:Sprinkles, Chocolat or sugar sprinkles
 fr:Vermicelles en chocolat ou en sucre
 nl:Chocolade of suiker hagel
+
+<en:Food decorations
+<en:Pastry helpers
+en:Chocolate drops
+fr:Pépites de chocolat
+agribalyse_proxy_food_code:en:31005
+agribalyse_proxy_food_name:en:Dark chocolate bar, less than 70% cocoa
+agribalyse_proxy_food_name:fr:Chocolat noir à moins de 70% de cacao, à croquer, tablette
 
 en:Halloween foods and drinks
 de:Halloweenspeisen und -getränke
