@@ -27,12 +27,12 @@ my $tests_ref = [
 	{
 		test_case => 'fr-fr',
 		method => 'GET',
-		path => '/cgi/suggest.pl?cc=fr&lc=fr',
+		path => '/cgi/nutrients.pl?cc=fr&lc=fr',
 	},
 	{
 		test_case => 'en-us',
 		method => 'GET',
-		path => '/cgi/suggest.pl?cc=us&lc=en',
+		path => '/cgi/nutrients.pl?cc=us&lc=en',
 		expected_status_code => 200,
 	},
 ];
