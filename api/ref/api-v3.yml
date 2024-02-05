@@ -38,16 +38,8 @@ paths:
           schema:
             type: string
             example: '3017620422003'
-        - schema:
-            type: string
-          in: query
-          name: lc
-          description: '2 letter code of the language of the interface. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the country of the user (passed through the cc field or inferred by the IP address).'
-        - schema:
-            type: string
-          in: query
-          name: cc
-          description: '2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request.'
+        - $ref: '#/components/parameters/cc'
+        - $ref: '#/components/parameters/lc'
         - schema:
             type: string
           in: query
@@ -265,23 +257,14 @@ paths:
         If a string is passed, an additional sort is done to put first suggestions that start with the string, followed by suggestions with a word that start with the string, and then suggestions that contain the string anywhere.
       parameters:
         - $ref: ./api.yml#/components/parameters/tagtype
-        - schema:
-            type: string
-            example: en
-          in: query
-          name: lc
-          description: 2 letter code of the language used for suggestions and for matching the input string
+        - $ref: '#/components/parameters/cc'
+        - $ref: '#/components/parameters/lc'
         - schema:
             type: string
             example: pe
           in: query
           name: string
           description: 'Optional string used to filter suggestions (useful for autocomplete).  If passed, suggestions starting with the string will be returned first, followed by suggestions matching the string at the beginning of a word, and suggestions matching the string inside a word.'
-        - schema:
-            type: string
-          in: query
-          name: cc
-          description: '2 letter country code, used to return popular packaging shapes and materials for products sold in the country'
         - schema:
             type: string
             example: yougurts
@@ -306,6 +289,8 @@ paths:
           description: Alias for the "string" parameter provided for backward compatibility. "string" takes precedence.
   '/api/v3/tag/{tagtype}/{tag_or_tagid}':
     parameters:
+      - $ref: '#/components/parameters/cc'
+      - $ref: '#/components/parameters/lc'    
       - schema:
           type: string
           example: categories
@@ -364,6 +349,32 @@ paths:
 
         Categories:
         - Packaging stats for a category
+components:
+  parameters:
+    cc:
+      schema:
+        type: string
+        example: 'us'
+      in: query
+      name: cc
+      required: false
+      description: '2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request.'
+    lc:
+      schema:
+        type: string
+        example: 'fr'
+      in: query
+      name: lc
+      required: false
+      description: '2 letter code of the language of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the language may be inferred by the Accept-Language header of the request.'
+    code:
+      schema:
+        type: string
+        example: '4251105501381'
+      in: query
+      name: code
+      description: Barcode of the product
+      required: true
 tags:
   - name: Read Requests
   - name: Write Requests
