@@ -1091,7 +1091,7 @@ sub check_nutrition_data ($product_ref) {
 			}
 		}
 
-		foreach my $nid (keys %{$product_ref->{nutriments}}) {
+		foreach my $nid (sort keys %{$product_ref->{nutriments}}) {
 			$log->debug("nid: " . $nid . ": " . $product_ref->{nutriments}{$nid}) if $log->is_debug();
 
 			if ($nid =~ /_prepared_100g$/ && $product_ref->{nutriments}{$nid} > 0) {
@@ -1164,21 +1164,25 @@ sub check_nutrition_data ($product_ref) {
 		}
 		# raise error if
 		# all values are identical
+		# and values (check first value only) are above 1 (see issue #9572)
 		#  OR
 		# all values but one - because sodium and salt can be automatically calculated one depending on the value of the other - are identical
-		# and values (check first value only) are above 1 (see issue #9572)
+		# and values (check salt (should not check sodium which could be lower)) are above 1 (see issue #9572)
 		# and at least 4 values are input by contributors (see issue #9572)
 		if (
 			(
-				($nutriments_values_occurences_max_value == scalar @major_nutriments_values)
+				(
+					$nutriments_values_occurences_max_value == scalar @major_nutriments_values
+					and ($major_nutriments_values[0] > 1)
+				)
 				or (
 					($nutriments_values_occurences_max_value >= scalar @major_nutriments_values - 1)
 					and (   (defined $nutriments_values{'salt_100g'})
-						and ($nutriments_values{'sodium_100g'})
-						and ($nutriments_values{'salt_100g'} != $nutriments_values{'sodium_100g'}))
+						and (defined $nutriments_values{'sodium_100g'})
+						and ($nutriments_values{'salt_100g'} != $nutriments_values{'sodium_100g'})
+						and ($nutriments_values{'salt_100g'} > 1))
 				)
 			)
-			and (@major_nutriments_values[0] > 1)
 			and (scalar @major_nutriments_values > 3)
 			)
 		{

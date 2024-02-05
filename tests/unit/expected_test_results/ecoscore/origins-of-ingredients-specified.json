@@ -408,6 +408,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_food_code" : "13000",
          "id" : "en:apricot",
          "origins" : "en:france",
          "percent" : 60,
@@ -488,10 +489,8 @@
    "ingredients_with_specified_percent_sum" : 90,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 10,
-   "ingredients_without_ciqual_codes" : [
-      "en:apricot"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 10,
    "lc" : "en",
    "misc_tags" : [

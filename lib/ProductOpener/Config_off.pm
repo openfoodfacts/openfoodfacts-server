@@ -1027,6 +1027,9 @@ $options{other_servers} = {
 	}
 };
 
+# Name of the Redis stream to which product updates are published
+$options{redis_stream_name} = "product_updates_off";
+
 # used to rename texts and to redirect to the new name
 $options{redirect_texts} = {
 	"en/nova-groups-for-food-processing" => "nova",
