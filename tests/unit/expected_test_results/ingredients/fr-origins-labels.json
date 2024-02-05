@@ -66,6 +66,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "18100",
          "id" : "en:cocoa",
          "labels" : "en:fair-trade",
          "percent_estimate" : 0.694444444444443,
@@ -159,10 +160,9 @@
    "ingredients_with_unspecified_percent_n" : 9,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:cocoa",
       "en:grapefruit"
    ],
-   "ingredients_without_ciqual_codes_n" : 2,
+   "ingredients_without_ciqual_codes_n" : 1,
    "known_ingredients_n" : 14,
    "lc" : "fr",
    "nutriments" : {

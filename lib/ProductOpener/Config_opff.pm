@@ -430,4 +430,7 @@ $options{other_servers} = {
 	}
 };
 
+# Name of the Redis stream to which product updates are published
+$options{redis_stream_name} = "product_updates_opff";
+
 1;

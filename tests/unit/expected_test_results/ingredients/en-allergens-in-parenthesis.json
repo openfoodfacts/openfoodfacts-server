@@ -35,6 +35,7 @@
          "id" : "en:dough",
          "ingredients" : [
             {
+               "ciqual_proxy_food_code" : "9410",
                "id" : "en:flour",
                "percent_estimate" : 4.6875,
                "percent_max" : 25,
@@ -152,10 +153,9 @@
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
       "en:dough",
-      "en:flour",
       "en:gluten"
    ],
-   "ingredients_without_ciqual_codes_n" : 3,
+   "ingredients_without_ciqual_codes_n" : 2,
    "known_ingredients_n" : 13,
    "lc" : "en",
    "nutriments" : {
