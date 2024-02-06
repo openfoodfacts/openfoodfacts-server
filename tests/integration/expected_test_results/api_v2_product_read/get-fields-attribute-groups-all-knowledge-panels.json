@@ -2160,6 +2160,29 @@
                "health"
             ]
          },
+         "nutrient_levels" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "nutrient_levels_group",
+                     "panel_ids" : []
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
+            "expand_for" : "large",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/nutrition.svg",
+               "title" : "Nutrient levels"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
          "nutriscore" : {
             "elements" : [
                {
@@ -2179,7 +2202,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Positive points: 3</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Proteins:\n1&nbsp;</strong>/&nbsp;5\n(value: 1.974375, \n        rounded value: 1.97)\n      </li>\n    \n      <li>\n        <strong>Fiber:\n0&nbsp;</strong>/&nbsp;5\n(value: 0.8125, \n        rounded value: 0.81)\n      </li>\n    \n      <li>\n        <strong>Fruits, vegetables, nuts, and colza/walnut/olive oils:\n2&nbsp;</strong>/&nbsp;5\n(value: 62.5, \n        rounded value: 62.5)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Negative points: 6</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Energy:\n1&nbsp;</strong>/&nbsp;10\n(value: 558.75, \n        rounded value: 558.8)\n      </li>\n    \n      <li>\n        <strong>Sugars:\n1&nbsp;</strong>/&nbsp;10\n(value: 7.2621875, \n        rounded value: 7.26)\n      </li>\n    \n      <li>\n        <strong>Saturated fat:\n4&nbsp;</strong>/&nbsp;10\n(value: 4.903125, \n        rounded value: 4.9)\n      </li>\n    \n      <li>\n        <strong>Sodium:\n0&nbsp;</strong>/&nbsp;10\n(value: 19.725, \n        rounded value: 19.7)\n      </li>\n    \n  </ul>\n\n\n\n<p>The points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Nutritional score: 3</strong>\n  (6 - 3)\n</p>\n<p><strong>Nutri-Score: C</strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
+                     "html" : "<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Positive points: 3</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Proteins:\n1&nbsp;</strong>/&nbsp;5\n(value: 1.974375, \n        rounded value: 1.97)\n      </li>\n    \n      <li>\n        <strong>Fiber:\n0&nbsp;</strong>/&nbsp;5\n(value: 0.8125, \n        rounded value: 0.81)\n      </li>\n    \n      <li>\n        <strong>Fruits, vegetables, nuts, and colza/walnut/olive oils:\n2&nbsp;</strong>/&nbsp;5\n(value: 62.5, \n        rounded value: 62.5)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Negative points: 6</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Energy:\n1&nbsp;</strong>/&nbsp;10\n(value: 558.75, \n        rounded value: 558.8)\n      </li>\n    \n      <li>\n        <strong>Sugars:\n1&nbsp;</strong>/&nbsp;10\n(value: 7.2621875, \n        rounded value: 7.26)\n      </li>\n    \n      <li>\n        <strong>Saturated fat:\n4&nbsp;</strong>/&nbsp;10\n(value: 4.903125, \n        rounded value: 4.9)\n      </li>\n    \n      <li>\n        <strong>Sodium:\n0&nbsp;</strong>/&nbsp;10\n(value: 19.725, \n        rounded value: 19.7)\n      </li>\n    \n  </ul>\n\n\n\n<p>The points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Nutritional score: </strong>\n  (6 - 3)\n</p>\n<p><strong>Nutri-Score: </strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
                   }
                },
                {
@@ -2811,41 +2834,77 @@
          "2023" : {
             "category_available" : 1,
             "data" : {
+               "components" : {
+                  "negative" : [
+                     {
+                        "id" : "energy",
+                        "points" : 1,
+                        "points_max" : 10,
+                        "unit" : "kJ",
+                        "value" : 558.75
+                     },
+                     {
+                        "id" : "sugars",
+                        "points" : 2,
+                        "points_max" : 15,
+                        "unit" : "g",
+                        "value" : 7.26
+                     },
+                     {
+                        "id" : "saturated_fat",
+                        "points" : 4,
+                        "points_max" : 10,
+                        "unit" : "g",
+                        "value" : 4.9
+                     },
+                     {
+                        "id" : "salt",
+                        "points" : 0,
+                        "points_max" : 20,
+                        "unit" : "g",
+                        "value" : 0.05
+                     }
+                  ],
+                  "positive" : [
+                     {
+                        "id" : "proteins",
+                        "points" : 0,
+                        "points_max" : 7,
+                        "unit" : "g",
+                        "value" : 1.97
+                     },
+                     {
+                        "id" : "fiber",
+                        "points" : 0,
+                        "points_max" : 5,
+                        "unit" : "g",
+                        "value" : 0.81
+                     },
+                     {
+                        "id" : "fruits_vegetables_legumes",
+                        "points" : 2,
+                        "points_max" : 5,
+                        "unit" : "%",
+                        "value" : 62.5
+                     }
+                  ]
+               },
                "count_proteins" : 1,
                "count_proteins_reason" : "negative_points_less_than_11",
-               "energy" : 558.75,
-               "energy_points" : 1,
-               "fiber" : 0.8125,
-               "fiber_points" : 0,
-               "fruits_vegetables_legumes" : 62.5,
-               "fruits_vegetables_legumes_points" : 2,
                "is_beverage" : 0,
                "is_cheese" : 0,
                "is_fat_oil_nuts_seeds" : 0,
                "is_red_meat_product" : 0,
                "is_water" : 0,
-               "negative_nutrients" : [
-                  "energy",
-                  "sugars",
-                  "saturated_fat",
-                  "salt",
-                  "non_nutritive_sweeteners"
-               ],
                "negative_points" : 7,
+               "negative_points_max" : 55,
                "positive_nutrients" : [
-                  "fruits_vegetables_legumes",
+                  "proteins",
                   "fiber",
-                  "proteins"
+                  "fruits_vegetables_legumes"
                ],
                "positive_points" : 2,
-               "proteins" : 1.974375,
-               "proteins_points" : 0,
-               "salt" : 0.0496875,
-               "salt_points" : 0,
-               "saturated_fat" : 4.903125,
-               "saturated_fat_points" : 4,
-               "sugars" : 7.2621875,
-               "sugars_points" : 2
+               "positive_points_max" : 17
             },
             "grade" : "c",
             "nutrients_available" : 1,

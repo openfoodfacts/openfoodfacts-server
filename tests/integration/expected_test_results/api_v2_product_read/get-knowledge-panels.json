@@ -821,6 +821,29 @@
                "health"
             ]
          },
+         "nutrient_levels" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "nutrient_levels_group",
+                     "panel_ids" : []
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
+            "expand_for" : "large",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/nutrition.svg",
+               "title" : "Nutrient levels"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
          "nutriscore" : {
             "elements" : [
                {
@@ -840,7 +863,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Positive points: 3</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Proteins:\n1&nbsp;</strong>/&nbsp;5\n(value: 1.974375, \n        rounded value: 1.97)\n      </li>\n    \n      <li>\n        <strong>Fiber:\n0&nbsp;</strong>/&nbsp;5\n(value: 0.8125, \n        rounded value: 0.81)\n      </li>\n    \n      <li>\n        <strong>Fruits, vegetables, nuts, and colza/walnut/olive oils:\n2&nbsp;</strong>/&nbsp;5\n(value: 62.5, \n        rounded value: 62.5)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Negative points: 6</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Energy:\n1&nbsp;</strong>/&nbsp;10\n(value: 558.75, \n        rounded value: 558.8)\n      </li>\n    \n      <li>\n        <strong>Sugars:\n1&nbsp;</strong>/&nbsp;10\n(value: 7.2621875, \n        rounded value: 7.26)\n      </li>\n    \n      <li>\n        <strong>Saturated fat:\n4&nbsp;</strong>/&nbsp;10\n(value: 4.903125, \n        rounded value: 4.9)\n      </li>\n    \n      <li>\n        <strong>Sodium:\n0&nbsp;</strong>/&nbsp;10\n(value: 19.725, \n        rounded value: 19.7)\n      </li>\n    \n  </ul>\n\n\n\n<p>The points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Nutritional score: 3</strong>\n  (6 - 3)\n</p>\n<p><strong>Nutri-Score: C</strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
+                     "html" : "<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>This product is not considered a beverage for the calculation of the Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Positive points: 3</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Proteins:\n1&nbsp;</strong>/&nbsp;5\n(value: 1.974375, \n        rounded value: 1.97)\n      </li>\n    \n      <li>\n        <strong>Fiber:\n0&nbsp;</strong>/&nbsp;5\n(value: 0.8125, \n        rounded value: 0.81)\n      </li>\n    \n      <li>\n        <strong>Fruits, vegetables, nuts, and colza/walnut/olive oils:\n2&nbsp;</strong>/&nbsp;5\n(value: 62.5, \n        rounded value: 62.5)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Negative points: 6</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Energy:\n1&nbsp;</strong>/&nbsp;10\n(value: 558.75, \n        rounded value: 558.8)\n      </li>\n    \n      <li>\n        <strong>Sugars:\n1&nbsp;</strong>/&nbsp;10\n(value: 7.2621875, \n        rounded value: 7.26)\n      </li>\n    \n      <li>\n        <strong>Saturated fat:\n4&nbsp;</strong>/&nbsp;10\n(value: 4.903125, \n        rounded value: 4.9)\n      </li>\n    \n      <li>\n        <strong>Sodium:\n0&nbsp;</strong>/&nbsp;10\n(value: 19.725, \n        rounded value: 19.7)\n      </li>\n    \n  </ul>\n\n\n\n<p>The points for proteins are counted because the negative points are less than 11.</p>\n\n<p>\n  <strong>Nutritional score: </strong>\n  (6 - 3)\n</p>\n<p><strong>Nutri-Score: </strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
                   }
                },
                {
