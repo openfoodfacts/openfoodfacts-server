@@ -1693,6 +1693,11 @@ sub remove_nutriscore_fields ($product_ref) {
 		]
 	);
 
+	# remove misc_tags fields related to Nutri-Score
+	if (defined $product_ref->{misc_tags}) {
+		$product_ref->{misc_tags} = [grep {$_ !~ /^en:(nutriscore|nutrition)-/} @{$product_ref->{misc_tags}}];
+	}
+
 	return;
 }
 
