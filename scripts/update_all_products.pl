@@ -1116,6 +1116,7 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_nutriscore) {
+			$product_ref->{misc_tags} = [];
 			fix_salt_equivalent($product_ref);
 			compute_nutriscore($product_ref);
 			compute_nutrient_levels($product_ref);
