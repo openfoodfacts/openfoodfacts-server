@@ -1,4 +1,4 @@
-# please keep an extra line between synonyms
+<# please keep an extra line between synonyms
 # also: don't add synonyms if they are already the name of an individual category, in that case add the synonym to the category
 
 synonyms:en:flavoured, flavored
@@ -2070,6 +2070,9 @@ ro:Beri nefiltrate, Bere nefiltrată, Bere nefiltrata
 sv:Veteöl, Starköl
 zh:白啤酒, 小麦啤酒
 xx:Witbier
+ciqual_food_code:en:5009
+ciqual_food_name:en:Wheat bier
+ciqual_food_name:fr:Bière blanche
 wikidata:en:Q15079724
 
 <en:Wheat beers
@@ -7927,6 +7930,9 @@ gpc_category_name:en:Vegetable Juice - Ready to Drink (Perishable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a ready to drink, non-carbonated beverage that is made exclusively from the extracted fluid content of a vegetable or a blend of vegetable and fruit juice, having vegetable as the main characteristic. These products must be refrigerated to extend their consumable life. Products include individual and blended pure juice varieties. Definition Excludes: Excludes products such as Shelf Stable and Frozen Ready to Drink Juices and Not Ready to Drink Juices, Baby and Infant Specialized Beverages as well as fruit juice and blended fruit/vegetable juice having fruit as the main characteristic.
 
 <en:Vegetable juices
+en:Frozen vegetable juices
+
+<en:Vegetable juices
 en:Carrot juices
 bg:Сок от моркови
 de:Karottensäfte
@@ -10275,6 +10281,10 @@ pt:Água da torneira
 ciqual_food_code:en:18066
 ciqual_food_name:en:Water, municipal
 ciqual_food_name:fr:Eau du robinet
+
+<en:Waters
+en:Ice Cubes
+fr:Glaçons
 
 <en:Waters
 en:Drinking water
@@ -33190,9 +33200,6 @@ es:Galletas rosquillas
 fr:Rousquilles
 wikidata:en:Q3443429
 
-#There is two type of rosquillas in Spain. Some have the consistancy of doughnuts and the others are biscuits. This category regroups the doughnuts
-<en:Cakes
-es:Rosquillas fritas
 
 <en:Biscuits and cakes
 en:Gingerbreads, gingerbread
@@ -33213,6 +33220,25 @@ agribalyse_food_code:en:23200
 ciqual_food_code:en:23200
 ciqual_food_name:en:Gingerbread
 ciqual_food_name:fr:Pain d'épices
+intake24_category_code:en:GING
+
+
+<en:Gingerbreads
+en:Pryaniki
+de:Prjaniki
+es:Pryaniki
+fr:Prianiki
+nl:Pryaniki
+ru:Пряники
+wikidata:en:Q2572122
+
+<en:Pryaniki
+en:Tula gingerbread
+de:Tula-Lebkuchen
+es:Pan de jengibre de Tula
+nl:Tula-ontbijtkoeken, Tula-ontbijtkoek
+ru:Пряники тульские, Тульские пряники, Тульский пряник, Пряник тульский
+wikidata:en:Q2511331
 
 <en:Gingerbreads
 fr:Pains d'épices au miel
@@ -33402,6 +33428,10 @@ fr:Fromage pané au jambon
 agribalyse_food_code:en:25546
 ciqual_food_code:en:25546
 ciqual_food_name:en:Cheese and ham, breaded
+
+<en:Cheeses
+en:Frozen cheeses
+fr:Fromages surgelés
 
 <en:Breaded products
 <en:Meat alternatives
@@ -34984,6 +35014,20 @@ it:Pane pre-cotto
 lt:Iškeptos duonos
 nl:Afbakbroden, Voorgebakken broden, Voorgebakken brood
 
+<en:Pre-baked breads
+en:Frozen pre-baked breads, frozen part-baked breads
+fr:Pains précuits surgelés, pain précuit surgelé
+
+<en:Frozen pre-baked breads
+<en:Hamburger buns
+en:Frozen pre-baked hamburger buns
+fr:Pains Burger précuits surgelés, Pains pour hamburgersprécuits surgelés
+
+<en:Pitas
+<en:Frozen pre-baked breads
+en:Frozen pre-baked pitas, frozen pre-baked Pita bread
+fr:Pains Pita surgelé
+
 <en:Breads
 en:Special breads
 bg:Специални хлябове
@@ -35051,6 +35095,10 @@ agribalyse_food_code:en:7259
 ciqual_food_code:en:7259
 ciqual_food_name:en:Rolls for hamburger/hotdog (buns), prepacked
 ciqual_food_name:fr:Pain pour hamburger ou hot dog (bun), préemballé
+
+<en:Hamburger buns
+en:Frozen hamburger buns
+fr:Pains Burger surgelés, Pains pour hamburgers surgelés
 
 <en:Special breads
 en:Wholemeal rolls for hamburger, Wholemeal buns for hamburger
@@ -35424,6 +35472,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cake
 ciqual_food_code:en:23000
 ciqual_food_name:en:Cake (average)
 ciqual_food_name:fr:Gâteau (aliment moyen)
+intake24_category_code:en:CAKE 
 gpc_category_code:en:10000172
 gpc_category_name:en:Cakes - Sweet (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a sweet prepared food, usually made from flour, sugar, shortening/fat and eggs mixed with other ingredients and baked or fried. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Perishable and Frozen Cakes, Cake Mixes, all Bread Products.
@@ -35476,7 +35525,6 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 en:Apple Pie Mixes
 nl:Appeltaartmixes
 
-<en:Cakes
 <en:Pastry helpers
 <en:Baking Mixes
 <en:Dessert mixes
@@ -35512,6 +35560,9 @@ ciqual_food_name:fr:Préparation pour mousse au chocolat
 
 <en:Dessert mixes
 fr:Préparations pour entremets
+
+<fr:Préparations pour entremets
+fr:Préparation pour bavarois
 
 <en:Dessert mixes
 fr:Préparations pour flans, Préparations pour flans pâtissiers
@@ -35556,6 +35607,10 @@ de:Pfannkuchenmischung
 fr:Préparations pour crêpes
 nl:Pannenkoekenmixes
 
+#There is two type of rosquillas in Spain. Some have the consistancy of doughnuts and the others are biscuits. This category regroups the doughnuts
+<en:Cakes
+es:Rosquillas fritas
+
 <en:Cakes
 en:Filled cakes
 de:Gefüllte Kuchen
@@ -35567,6 +35622,7 @@ es:Tarta de zanahoria
 fr:Carrot cakes, gâteaux aux carottes
 ja:キャロットケーキ
 wikidata:en:Q656071
+intake24_category_code:en:CARR 
 
 <en:Cakes
 en:Spit cakes
@@ -35611,8 +35667,9 @@ en:Filled sponge cake slices
 fr:Génoises en tranches fourrées
 
 <en:Cakes
-en:Filled sponge cake rolls
-fr:Génoises roulées fourrées
+en:Fairy cakes, Cupcake, Bun
+xx:Cupcakes
+intake24_category_code:en:FRYC 
 
 #British dessert made with custard cream, fruit (or fruit jelly, or chocolate) and possibly sponge biscuits
 <en:Desserts
@@ -35652,7 +35709,7 @@ ciqual_food_name:fr:Gâteau au chocolat type forêt noire (génoise au chocolat 
 
 <en:Cakes
 <en:Desserts
-en:Sponge cake
+en:Sponge cakes, Sponge cake
 fr:Génoise, Gâteau moelleux nature
 ja:スポンジケーキ
 lt:Biskvitiniai tortai
@@ -35660,6 +35717,7 @@ agribalyse_food_code:en:23594
 ciqual_food_code:en:23594
 ciqual_food_name:en:Soft cake, plain, sponge cake type
 ciqual_food_name:fr:Gâteau moelleux nature type génoise
+intake24_category_code:en:SPON 
 
 # TODO : Pims framboise
 <en:Biscuits and cakes
@@ -35780,6 +35838,10 @@ nl:Muffins, Muffin
 zh:松饼
 wikidata:en:Q207220
 intake24_category_code:en:CRUM 
+
+<en:Muffins
+en:Frozen muffins
+fr:Muffins surgelés
 
 <en:Muffins
 <en:Chocolate cakes
@@ -35912,6 +35974,10 @@ ja:グレーズドドーナツ
 fi:Kuorrutetut munkit, Kuorrutetut donitsit
 lt:Spurgos su glaistu, Glazūruotos spurgos
 nl:Geglazuurde donuts
+
+<en:Doughnuts
+en:Frozen doughnuts, Frozen donuts
+fr:Donuts surgelés
 
 <en:Cakes
 en:Breton cakes
@@ -36248,6 +36314,50 @@ agribalyse_food_code:en:23032
 ciqual_food_code:en:23032
 ciqual_food_name:en:Brownie (chocolate cake)
 
+<en:Cakes
+en:Fruit cakes, Fruit cake
+de:Obstkuchen, Fruchtkuchen
+es:Tartas de frutas, Pasteles de frutas
+fi:hedelmäkakut
+fr:Cakes aux fruits, cake aux fruits, cake aux fruits confits, cakes aux fruits confits
+ja:フルーツケーキ
+lt:Vaisiniai pyragai, vaisiniai tortai, vaisiniai pyragaičiai
+nl:Vruchtencakes
+wikidata:en:Q675987
+oqali_family:en: fr:Biscuits et gateaux industriels - Cakes aux fruits confits
+agribalyse_food_code:en:23909
+ciqual_food_code:en:23909
+ciqual_food_name:en:Fruit cake
+ciqual_food_name:fr:Cake aux fruits
+intake24_category_code:en:FTCA 
+
+<en:Cakes
+en:Soft fruit cakes
+fr:Gâteaux moelleux aux fruits
+agribalyse_food_code:en:23937
+ciqual_food_code:en:23937
+ciqual_food_name:en:Fruit soft cake
+ciqual_food_name:fr:Gâteau moelleux aux fruits
+
+<en:Cakes
+en:Lemon cake
+de:Zitronenkuchen
+fr:Gâteau au citron
+ja:レモンケーキ
+agribalyse_food_code:en:23103
+ciqual_food_code:en:23103
+ciqual_food_name:en:Lemon cake, all types
+ciqual_food_name:fr:Gâteau au citron, tout type
+
+<en:Cakes
+en:Financiers
+fr:Financiers, financier, visitandines, visitandine, financiers aux amandes, financier aux amandes
+ja:フィナンシェ
+wikidata:en:Q588378
+oqali_family:en: fr:Biscuits et gateaux industriels - Financiers
+agribalyse_food_code:en:24664
+ciqual_food_code:en:24664
+ciqual_food_name:en:Almond cake
 
 <en:Puddings
 en:Christmas Puddings
@@ -36313,49 +36423,6 @@ fr:Riz au lait nature
 en:Rice puddings with a fruit preparation
 fr:Riz au lait à la préparation de fruits
 
-<en:Cakes
-en:Fruit cakes, Fruit cake
-de:Obstkuchen, Fruchtkuchen
-es:Tartas de frutas, Pasteles de frutas
-fi:hedelmäkakut
-fr:Cakes aux fruits, cake aux fruits, cake aux fruits confits, cakes aux fruits confits
-ja:フルーツケーキ
-lt:Vaisiniai pyragai, vaisiniai tortai, vaisiniai pyragaičiai
-nl:Vruchtencakes
-wikidata:en:Q675987
-oqali_family:en: fr:Biscuits et gateaux industriels - Cakes aux fruits confits
-agribalyse_food_code:en:23909
-ciqual_food_code:en:23909
-ciqual_food_name:en:Fruit cake
-ciqual_food_name:fr:Cake aux fruits
-
-<en:Cakes
-en:Soft fruit cakes
-fr:Gâteaux moelleux aux fruits
-agribalyse_food_code:en:23937
-ciqual_food_code:en:23937
-ciqual_food_name:en:Fruit soft cake
-ciqual_food_name:fr:Gâteau moelleux aux fruits
-
-<en:Cakes
-en:Lemon cake
-de:Zitronenkuchen
-fr:Gâteau au citron
-ja:レモンケーキ
-agribalyse_food_code:en:23103
-ciqual_food_code:en:23103
-ciqual_food_name:en:Lemon cake, all types
-ciqual_food_name:fr:Gâteau au citron, tout type
-
-<en:Cakes
-en:Financiers
-fr:Financiers, financier, visitandines, visitandine, financiers aux amandes, financier aux amandes
-ja:フィナンシェ
-wikidata:en:Q588378
-oqali_family:en: fr:Biscuits et gateaux industriels - Financiers
-agribalyse_food_code:en:24664
-ciqual_food_code:en:24664
-ciqual_food_name:en:Almond cake
 
 <en:Biscuits
 en:Cat tongue, Cat's tongue cookie, Cat's tongue biscuit
@@ -36605,6 +36672,10 @@ it:Cedro candito
 nl:Gekonfijte citroen
 
  
+<en:Candied fruits
+en:Candied lime
+fr:Citron vert confit
+
 <en:Fruit confectioneries
 en:Filled dates
 fr:Dattes fourrées
@@ -37500,6 +37571,13 @@ agribalyse_food_code:en:31085
 ciqual_food_code:en:31085
 ciqual_food_name:en:Dark chocolate bar, more than 40% cocoa, for cooking
 ciqual_food_name:fr:Chocolat noir à 40% de cacao minimum, à pâtisser, tablette
+
+<en:Dark chocolates
+en:Dark chocolate paste for cooking, Dark chocolate paste
+fr:Pâte de chocolat noir pâtissier, Pâte de chocolat noir
+agribalyse_proxy_food_code:en:31085
+agribalyse_proxy_food_name:en:Dark chocolate bar, more than 40% cocoa, for cooking
+agribalyse_proxy_food_name:fr:Chocolat noir à 40% de cacao minimum, à pâtisser, tablette
 
 <en:Chocolates
 en:Salted chocolates
@@ -39320,6 +39398,14 @@ fr:oeufs de lompes rouges
 <en:Semi-preserved lump roe
 fr:oeufs de lompes noirs
 
+<en:fish eggs
+<en:Semi-preserved foods
+en:Trout roe, Trout eggs, Semi-preserved trout roe
+fr:Œufs de truite, Oeufs de truite en semi-conserve
+ciqual_proxy_food_code:en:26275
+ciqual_proxy_food_name:en:Salmon roe, semi-preserved
+ciqual_proxy_food_name:fr:Oeufs de saumon, semi-conserve
+
 <en:Canned meals
 <en:Ravioli
 en:Canned raviolis
@@ -40935,6 +41021,11 @@ it:Riso Carnaroli, Risi carnaroli
 nl:Carnarolirijsten, Carnarolirijst
 wikidata:en:Q1043890
 
+<en:Medium grain rices
+<en:Japonica rices
+en:Calrose rices
+fr:Riz Calrose
+
 <en:Long grain rices
 <en:Indica rices
 <en:Aromatic rices
@@ -41345,6 +41436,9 @@ it:Risi precotti
 lt:Greitai paruošiami ryžiai
 nl:Voorgekookte rijsten, Voorgekookte rijst
 wikidata:en:Q6038850
+agribalyse_proxy_food_code:en:9104
+agribalyse_proxy_food_name:en:Rice, cooked, unsalted
+agribalyse_proxy_food_name:fr:Riz blanc, cuit, non salé
 
 <en:Precooked rices
 en:White rice cooked with chicken
@@ -41879,6 +41973,10 @@ ciqual_food_name:en:Corn chips or tortilla chips
 ciqual_food_name:fr:Chips de maïs ou tortilla chips
 wikidata:en:Q1524389
 
+<en:Corn crisps
+en:Flavoured corn crisps, Flavoured corn chips, Flavoured tortilla chips
+fr:Chips de maïs aromatisées
+
 <en:Chips and fries
 en:Fries
 bg:Пържени картофи
@@ -42303,6 +42401,7 @@ agribalyse_proxy_food_code:en:12001
 ciqual_proxy_food_code:en:12001
 ciqual_proxy_food_name:en:Camembert cheese, from cow's milk
 who_id:en:8
+intake24_category_code:en:CHES
 # Most cheeses have the same Agribalyse scores, except specific cheeses for which we added the specific values
 
 <en:Cheeses
@@ -42415,6 +42514,7 @@ it:Formaggi senza lattosio
 lt:Sūriai be laktozės
 nl:Lactose-vrije kazen, Lactose-vrije kaas, Kaas zonder lactose
 pl:Sery bez laktozy
+intake24_category_code:en:19LDFC
 
 <en:Cheeses
 en:Sliced cheeses
@@ -43273,6 +43373,7 @@ agribalyse_proxy_food_name:en:Abondance cheese, from cow's milk
 <en:French cheeses
 <en:Cooked pressed cheeses
 en:Comté, Comté cheeses, Comté cheese from cow's milk
+fr:Comté
 xx:Comté
 de:Comté, Comté-Käse, Comté-Käse aus Kuhmilch
 wikidata:en:Q249310
@@ -44480,9 +44581,9 @@ en:Brousse
 es:Brousse
 fr:Brousses
 wikidata:en:Q2926318
-
 #note:en: Note that en:Cottage Cheese not the same as en:Brousse. It has a different taste and structure.
 #Cottage cheese is not directly in cheeses to avoid having cottage fruit cottage cheese in cheeses.
+
 <en:Fermented milk products
 en:Cottage cheeses
 af:Maaskaas
@@ -44521,6 +44622,7 @@ uk:Кисломолочний сир
 zh:茅屋起司
 #yue:茅屋芝士
 wikidata:en:Q13221624
+intake24_category_code:en:COTC
 
 <en:Fresh cheeses
 <en:Cottage cheeses
@@ -44550,6 +44652,11 @@ origins:en: en:France
 wikidata:en:Q542046
 
 <en:Cheeses
+en:Soft cheeses
+nl:Zachte kazen
+intake24_category_code:en:SFTC
+
+<en:Soft cheeses
 en:Soft cheeses with bloomy rind, white mold-rind cheese
 ca:Formatges tendres amb crosta florida, Formatges amb crosta emmotllada blanca
 de:Weichkäse
@@ -44561,6 +44668,7 @@ it:Formaggi a crosta fiorita
 lt:Sūriai su baltuoju pelėsiu
 nl:Witschimmelkazen
 wikidata:en:Q1256296
+
 
 <en:Soft cheeses with bloomy rind
 en:Carré de l'Est, Carré de l'Est cheeses, Carré de l'Est cheese from cow's milk
@@ -44582,7 +44690,7 @@ protected_name_file_number:en: PGI-FR-02102
 protected_name_type:en: pgi
 origins:en: en:France
 
-<en:Cheeses
+<en:Soft cheeses
 en:Soft cheese with a natural rind
 de:Weichkäse mit Naturrinde
 fr:Fromages à pâte molle à croûte naturelle
@@ -44591,7 +44699,7 @@ nl:Zachte kazen met natuurlijke korst
 wikidata:en:Q3088326
 
 <en:Cheeses
-en:Cooked pressed cheeses, Hard cheese
+en:Hard cheeses, Cooked pressed cheeses
 ca:Formatges cuinats i premsats
 de:Gekochter gepresster Käse
 es:Quesos cocidos prensados
@@ -44606,6 +44714,7 @@ wikidata:en:Q3088330
 ciqual_food_code:en:12100
 ciqual_food_name:en:Hard cheese (average)
 ciqual_food_name:fr:Fromage à pâte pressée cuite (aliment moyen)
+intake24_category_code:en:HRDC
 
 <en:Cheeses
 en:Half-cooked pressed cheeses
@@ -46161,12 +46270,18 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 wikidata:en:Q941068
 
+<en:Mozzarella
+<en:Frozen foods
+en:Frozen mozzarella
+fr:Mozzarella surgelée
+
 <en:Italian cheeses
 <en:Stretched-curd cheeses
 en:Burrata
 xx:Burrate
 bg:Бурата
 ja:ブッラータ
+fr:Burrata
 wikidata:en:Q543512
 oqali_family:en: fr:Fromages - Mozzarella
 
@@ -49978,6 +50093,7 @@ nl:Smeerkazen
 pt:Queijos para barrar
 agribalyse_proxy_food_code:en:12315
 agribalyse_proxy_food_name:en:Uncured soft cheese, spreadable, around 25% fat, in a tub
+intake24_category_code:en:SPRD
 #wikidata:en:
 
 <en:Cheese spreads
@@ -51105,6 +51221,10 @@ hu:Gyümölcs öntet
 it:Coulis di frutta
 nl:Vruchtencoulis
 wikidata:en:Q1136961
+
+<en:Fruits coulis
+en:Frozen fruits coulis
+fr:Coulis de fruits surgelés
 
 <en:Fruits coulis
 en:Strawberry coulis, Strawberry sauce
@@ -54627,6 +54747,10 @@ protected_name_file_number:en: PGI-FR-0356
 protected_name_type:en: pgi
 origins:en: en:France
 #wikidata:en:
+
+<en:Chicken eggs
+en:Frozen chicken eggs
+fr:Oeufs de poules congelés
 
 <en:Eggs
 en:Ostrich eggs
@@ -58944,6 +59068,10 @@ ciqual_food_code:en:32140
 ciqual_food_name:en:Oat flakes, pre-cooked, raw
 ciqual_food_name:fr:Flocon d'avoine précuit
 
+<en:Pre-cooked oat flakes
+en:Pre-cooked oat flakes with sugar
+fr:Flocons d'avoine précuits sucrés
+
 <en:Oat flakes
 en:Cooked oat flakes, Boiled oat flakes, Oat flakes cooked in water
 fr:Flocons d'avoine bouillis, Flocons d'avoine cuits à l'eau
@@ -62064,17 +62192,25 @@ fr:Croissants surgelés
 nl:Diepvriescroissants
 
 <fr:Viennoiseries surgelées
+fr:Viennoiseries surgelées à cuire
+
+<fr:Viennoiseries surgelées à cuire
+fr:Croissants surgelés à cuire
+
+<fr:Viennoiseries surgelées
 fr:Pains au chocolat surgelés, chocolatines surgelées, petits-pains au chocolat surgelés
 nl:Diepvries-chocoladecroissants
+
+<en:Frozen foods
+<en:Salty snacks
+en:Frozen salty snacks
+fr:Snacks salés surgelés
 
 <en:Frozen foods
 en:Frozen snacks and starters
 fr:Entrées et snacks surgelés, Snacks et entrées surgelés
 lt:Šaldyti užkandžiai
 nl:Diepvriesvoorgerechten
-
-<en:Frozen snacks and starters
-fr:Coquilles Saint-Jacques surgelées, Coquilles St-Jacques surgelées
 
 <en:Pizzas pies and quiches
 <en:Frozen foods
@@ -62121,6 +62257,11 @@ fi:pakastetut piiraat
 fr:Tartes salées surgelées, Tartes surgelées, tarte surgelée
 lt:Šaldyti pyragai
 nl:Diepvries hartige taarten
+
+<en:Quiches
+<en:Frozen foods
+en:Frozen quiches
+fr:Quiches surgelées, Quiches salées surgelées
 
 <en:Frozen foods
 <en:Meals
@@ -62171,6 +62312,10 @@ ru:Замороженая рыба
 gpc_category_code:en:10000017
 gpc_category_name:en:Fish - Prepared/Processed (Frozen)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as any variety of fish or a combination of fish, that has gone through further manufacturing processes, such as reformed, cooked, dried and salted, however these products can also be coated, in sauce, stuffed or filled. Definition Excludes: Specifically excludes products that have added ingredients included such as rice, couscous and pasta. However products may contain a small quantity of vegetables such as those in a sauce or stuffing/filling. These products must be frozen to extend their consumable life. Excludes products such as Fish with additional vegetables, dough or grains, Shelf Stable and Perishable Prepared and Processed Fish, all Unprepared and Unprocessed Fish.
+
+<en:Frozen fishes
+en:Frozen fish fillets
+fr:Filets de poisson surgelés
 
 <en:Fishes
 en:Saithe
@@ -63300,6 +63445,10 @@ ciqual_food_code:en:13000
 ciqual_food_name:en:Apricot, pitted, raw
 ciqual_food_name:fr:Abricot, dénoyauté, cru
 
+<en:Pitted apricot
+en:Frozen pitted apricot
+fr:Abricot dénoyauté surgelé
+
 <en:French fruits
 <en:Apricots
 fr:Abricots rouges du Roussillon
@@ -63457,6 +63606,11 @@ ciqual_food_name:fr:Canneberge ou cranberry, crue
 en:Fresh cranberries
 fr:Canneberges fraîches
 lt:Šviežios spanguolės
+
+<en:Cranberries
+<en:Frozen fruits
+en:Frozen cranberries
+fr:Canneberges surgelées
 
 <en:Berries
 en:Lingonberries, Cowberries
@@ -63628,6 +63782,15 @@ agribalyse_food_code:en:13008
 ciqual_food_code:en:13008
 ciqual_food_name:en:Cherry, pitted, raw
 ciqual_food_name:fr:Cerise, dénoyautée, crue
+
+<en:cherries
+en:Dried cherries
+fr:Cerises séchées
+
+<en:pitted-cherries
+<en:Dried cherries
+en:Pitted dried cherries
+fr:Cerises dénoyautées séchées
 
 <en:Cherries
 en:Morello cherries
@@ -64667,6 +64830,10 @@ fr:Quetsches fraîches
 season_in_country_fr:en: 8,9,10
 
 <en:Plums
+en:Frozen plums
+fr:Prunes surgelées
+
+<en:Plums
 fr:Mirabelles de Lorraine
 protected_name_file_number:en: PGI-FR-0194
 protected_name_type:en: pgi
@@ -65277,6 +65444,10 @@ ciqual_food_code:en:13002
 ciqual_food_name:en:Pineapple, pulp, raw
 ciqual_food_name:fr:Ananas, pulpe, cru
 
+<en:Tropical fruits
+en:Jujube dates, Jujube
+fr:Jujube, datte rouge, datte chinoise
+
 <en:Fruits
 <en:Frozen plant-based foods
 en:Frozen fruits
@@ -65816,6 +65987,10 @@ ciqual_food_code:en:13118
 ciqual_food_name:en:Peach, dried
 
 <en:Dried fruits
+en:Dried pears
+fr:Poires séchées
+
+<en:Dried fruits
 en:Dried pineapple
 de:getrocknete Ananas, gedörrte Ananas, getrocknete Ananasse, gedörrte Ananasse
 es:Piña deshidratada
@@ -66247,12 +66422,14 @@ sv:Gomasio
 wikidata:en:Q685077
 
 <en:Condiments
+<en:Vinegars
 en:Glazes with vinegar
 es:Cremas de vinagre, cremas con vinagre
 fr:Crèmes de vinaigre, Crèmes au vinaigre
 it:Glasse con aceto
 
 <en:Glazes with vinegar
+<en:Balsamic vinegars
 en:Glazes with balsamic vinegar
 fr:Crèmes de vinaigre balsamique
 
@@ -66307,6 +66484,9 @@ en:Horseradish mousse
 fr:Mousses de raifort
 lt:Krienų putėsiai
 pl:Krem chrzanowy
+agribalyse_proxy_food_code:en:11016
+agribalyse_proxy_food_name:en:Horseradish, fresh
+agribalyse_proxy_food_name:fr:Raifort, cru
 
 <en:Culinary plants
 en:Aromatic plants
@@ -68079,6 +68259,10 @@ agribalyse_proxy_food_name:fr:Sel blanc alimentaire, non iodé, non fluoré (mar
 wikidata:en:Q11254
 
 <en:Salts
+en:Low-sodium salts, reduced sodium salts
+fr:Sels réduits en sodium, sels à teneur réduite en sodium
+
+<en:Salts
 en:Celery salt
 fr:Sels au céleri, Sel au céleri
 lt:Salierų druskos
@@ -69291,6 +69475,7 @@ fr:Serrano
 
 <en:Chili peppers
 en:Sichuan pepper
+fr:Poivre du SiChuan
 ja:山椒
 pl:Pieprz syczuański
 zh:花椒
@@ -69300,6 +69485,9 @@ en:Gray peppers
 fr:Poivres gris
 lt:Pilkieji pipirai
 nl:Grijze peper
+agribalyse_proxy_food_code:en:11015
+agribalyse_proxy_food_name:en:Black pepper, powder
+agribalyse_proxy_food_name:fr:Poivre noir, poudre
 
 <en:Spices
 en:Spice Mix
@@ -73203,6 +73391,10 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sushi
 intake24_category_code:en:SUSH
 
 <en:Sushis
+en:Frozen sushis
+fr:Sushis surgelés
+
+<en:Sushis
 en:Salmon sushis
 fr:Sushis au saumon
 lt:Lašišos sušiai
@@ -74332,6 +74524,10 @@ nl:Rundvleescarpaccio
 ciqual_food_code:en:25538
 ciqual_food_name:en:Beef carpaccio, w marinade
 ciqual_food_name:fr:Carpaccio de bœuf, avec marinade
+
+<en:Beef carpaccio
+en:Frozen beef carpaccio
+fr:Carpaccio de boeuf surgelé, Carpaccio de bœuf surgelé
 
 <en:Meals with meat
 en:Pork meals
@@ -75893,7 +76089,9 @@ ciqual_food_name:en:Broth, stock or bouillon, beef, dehydrated
 <en:Dehydrated broths
 en:Dehydrated fish broths, Fish stock
 fr:Fumet de poisson déshydraté
-agribalyse_proxy_food_code:en:25918
+agribalyse_proxy_food_code:en:25919
+agribalyse_proxy_food_name:en:Soup, fish and/or crustacean, dehydrated and reconstituted
+agribalyse_proxy_food_name:fr:Soupe de poissons et / ou crustacés, déshydratée reconstituée
 
 <en:Broths
 en:Liquid broths
@@ -75909,6 +76107,13 @@ nl:Vloeibare bouillons
 en:Liquid chicken broths
 lt:Skysti vištienos sultiniai
 nl:Vloeibare kippebouillons
+agribalyse_proxy_food_code:en:25947
+agribalyse_proxy_food_name:en:Broth, stock or bouillon, poultry, dehydrated and reconstituted
+agribalyse_proxy_food_name:fr:Bouillon de volaille, déshydraté reconstitué
+
+<en:Liquid broths
+en:Liquid fish broths
+fr:Bouillons de poisson liquides, Fumets de poisson liquide
 
 <en:Broths
 en:Bouillon pots, Stock pots
@@ -75958,6 +76163,9 @@ fi:Kasvisliemijauheet
 fr:Bouillons de légumes en poudre
 lt:Daržovių sultinio milteliai
 nl:Groentebouillonpoeders
+agribalyse_proxy_food_code:en:25948
+agribalyse_proxy_food_name:en:Broth, stock or bouillon, vegetables, dehydrated and reconstituted
+agribalyse_proxy_food_name:fr:Bouillon de légumes, déshydraté reconstitué
 
 <en:Bouillon powders
 <en:Dehydrated vegetable bouillons
@@ -76408,6 +76616,10 @@ lt:Daržovių paplotėliai
 nl:Groentenschijven
 pl:Warzywne kotlety
 #wikidata:en:
+
+<en:Vegetable patties
+en:Frozen vegetable patties
+fr:Galettes de légumes surgelées
 
 <en:Meat alternatives
 <en:Frozen foods
@@ -77562,6 +77774,12 @@ ciqual_food_name:en:Quiche Lorraine (eggs and lardoons quiche)
 ciqual_food_name:fr:Quiche lorraine
 wikidata:en:Q7882068
 
+<en:Frozen pizzas and pies
+<en:Lorraine quiche
+en:Frozen Lorraine quiche, Frozen quiche Lorraine, Frozen eggs and lardoons quiche
+de:Gefrorene Quiche Lorraine
+fr:Quiches lorraines surgelées, quiche lorraine surgelée
+
 <en:Quiches
 en:Quiches with bacon
 de:Quiche mit Speck
@@ -78121,6 +78339,10 @@ en:Ground meats
 de:Hackfleisch
 fr:Viandes hachées
 
+<en:Ground meats
+en:Frozen ground meats
+fr:Viandes hachées surgelées
+
 #Should contain products with >99% beef only
 <en:Ground meats
 <en:Beef
@@ -78399,6 +78621,10 @@ ciqual_food_code:en:34500
 ciqual_food_name:en:Frog, leg, raw
 ciqual_food_name:fr:Grenouille, cuisse, crue
 
+<en:Frog legs
+en:Frozen frog legs
+fr:Cuisses de Grenouilles surgelées
+
 <en:meats
 en:Belgian fresh meat and offal
 fr:Viandes et abats frais belges
@@ -78492,6 +78718,10 @@ pl:Wegetariańskie pulpety
 agribalyse_proxy_food_code:en:25589
 agribalyse_proxy_food_name:en:Plant-based ball with wheat and/or soybean, prepacked
 agribalyse_proxy_food_name:fr:Boulette végétale au soja et/ou blé, préemballée
+
+<en:Vegetarian balls
+en:Frozen vegetarian balls
+fr:Boulettes végétariennes surgelées
 
 <en:Vegetarian balls
 <en:Meat analogues from soy or wheat proteins
@@ -78609,6 +78839,10 @@ lt:Kefta, jautienos ir ėrienos kukuliai
 ciqual_food_code:en:25194
 ciqual_food_name:en:Meat balls, beef and lamb (kefta type), raw
 ciqual_food_name:fr:Boulettes au bœuf et à l'agneau (type kefta), crues
+
+<en:Meat balls
+en:Frozen meat balls
+fr:Boulettes de viande surgelées
 
 <en:Beef and its products
 <en:Meats
@@ -78872,6 +79106,14 @@ ciqual_food_code:en:6151
 ciqual_food_name:en:Beef, knuckle, boiled/cooked in water
 ciqual_food_name:fr:Boeuf, jarret, bouilli/cuit à l'eau
 
+<en:Beef knuckle
+en:Beef marrowbone, beef marrow bone
+fr:Os à moelle
+
+<en:Beef marrowbone
+en:Frozen beef marrowbone, Frozen beef marrow bone
+fr:Os à moelle surgelé
+
 <en:Beef
 en:Beef oxtail
 fr:Queue de boeuf
@@ -78896,6 +79138,10 @@ agribalyse_food_code:en:6103
 ciqual_food_code:en:6103
 ciqual_food_name:en:Beef, rib steak, raw
 ciqual_food_name:fr:Boeuf, entrecôte, crue
+
+<en:Beef rib steak
+en:Frozen beef rib steak
+fr:Entrecôte de boeuf surgelée
 
 <en:Beef rib steak
 en:Grilled lean beef rib steak, Pan-fried lean beef rib steak
@@ -79532,6 +79778,10 @@ agribalyse_food_code:en:25506
 ciqual_food_code:en:25506
 ciqual_food_name:en:Mixed meat on skewer
 
+<en:Mixed meat on skewer
+en:Frozen mixed meat on skewer
+fr:Brochette mixte de viande surgelée
+
 <en:Beef
 <en:Meat skewers
 en:Beef skewers
@@ -79543,6 +79793,10 @@ agribalyse_food_code:en:25505
 ciqual_food_code:en:25505
 ciqual_food_name:en:Beef on skewer
 ciqual_food_name:fr:Brochette de boeuf
+
+<en:Beef skewers
+en:Frozen beef skewers
+fr:Brochettes de bœuf surgelées, brochette de bœuf surgelée
 
 <en:Poultries
 <en:Meat skewers
@@ -79566,6 +79820,10 @@ fr:Brochettes de poulet
 lt:Vištienos iešmeliai
 nl:Kippenspiesjes
 
+<en:Chicken skewers
+en:Frozen chicken skewers
+fr:Brochettes de poulet surgelées
+
 <en:chicken skewers
 en:Yakitori chicken skewers, yakitori chicken
 fr:Brochettes de poulet Yakitori, Yakitori de Poulet, Poulet Yakitori
@@ -79576,6 +79834,10 @@ agribalyse_food_code:en:25565
 ciqual_food_code:en:25565
 ciqual_food_name:en:Yakitori (grilled meat on skewers, Japanese-style, with sauce)
 ciqual_food_name:fr:Yakitori (brochettes japonaises grillées en sauce)
+
+<en:Yakitori chicken skewers
+en:Frozen Yakitori chicken skewers, frozen yakitori chicken
+fr:Brochettes de poulet Yakitori surgelées, Yakitori de Poulet surgelé, Poulet Yakitori surgelé
 
 <en:Beef preparations
 en:Ox muzzle in salad dressing sauce
@@ -80455,11 +80717,16 @@ ciqual_food_name:fr:Poitrine de porc demi-sel
 
 <en:Pork
 en:Pork loin
-fr:longue de porc
+fr:Longe de porc
 ja:豚ロース
 agribalyse_food_code:en:28003
 ciqual_food_code:en:28003
 ciqual_food_name:en:Pork loin, raw
+ciqual_food_name:fr:Porc, longe, crue
+
+<en:Pork loin
+en:Frozen pork loin
+fr:Longe de porc surgelée
 
 <en:Pork
 en:Pork round steak
@@ -80929,6 +81196,12 @@ ciqual_food_code:en:40116
 ciqual_food_name:en:Liver, chicken, cooked
 ciqual_food_name:fr:Foie, poulet, cuit
 
+<en:Chickens
+fr:Cou de poulet
+
+<fr:Cou de poulet
+fr:Cou de poulet surgelé
+
 <en:Poultries
 en:Preserved poultry liver
 fr:Confit de foie de volaille
@@ -81021,6 +81294,10 @@ lt:Vištiena džiūvėsėliuose
 agribalyse_proxy_food_code:en:25512
 agribalyse_proxy_food_code:en:25512
 agribalyse_proxy_food_name:en:Poultry nuggets
+
+<en:Breaded chicken
+en:Frozen breaded chicken
+fr:Poulets panés surgelés, Poulet pané surgelé
 
 <en:Breaded products
 <en:Meat preparations
@@ -81274,7 +81551,7 @@ ciqual_food_name:en:Duck, breast fillet
 ciqual_food_name:fr:Canard, magret, cru
 
 <en:Duck breasts
-en:Smoked duck brests, Smoked duck breast fillet
+en:Smoked duck breasts, Smoked duck breast fillet
 fr:Magrets de canard fumés, Magret de canard fumé
 agribalyse_food_code:en:8111
 ciqual_food_code:en:8111
@@ -81282,12 +81559,16 @@ ciqual_food_name:en:Duck breast fillet, smoked
 ciqual_food_name:fr:Canard, magret fumé
 
 <en:Duck breasts
-en:Duck brests cooked in pan, Duck magret cooked in pan
+en:Duck breasts cooked in pan, Duck magret cooked in pan
 fr:Magrets de canard grillés, Magret de canard grillé, Magret de canard poêlé
 agribalyse_food_code:en:36205
 ciqual_food_code:en:36205
 ciqual_food_name:en:Duck, magret, cooked in pan
 ciqual_food_name:fr:Canard, magret, grillé/poêlé
+
+<en:Duck breasts
+en:Frozen duck breasts, Frozen duck magret
+fr:Magrets de canard surgelés
 
 <en:Ducks
 fr:Tournedos de magret de canard
@@ -81359,6 +81640,18 @@ zh:火鸡, 鲜火鸡肉, 鲜火鸡
 agribalyse_food_code:en:36300
 ciqual_food_code:en:36300
 ciqual_food_name:en:Turkey, meat and skin, raw
+
+<en:Turkeys
+en:Turkey skewers
+fr:Brochettes de dinde
+
+<en:Turkey skewers
+en:Frozen turkey skewers
+fr:Brochettes de dinde surgelées
+
+<en:Turkeys
+en:Frozen turkey meat
+fr:Viande de dinde surgelée
 
 <en:Turkeys
 fr:Dinde de Bresse
@@ -83201,6 +83494,9 @@ ciqual_food_name:fr:Merguez, crue
 wikidata:en:Q1754504
 
 <fr:Merguez
+fr:Merguez surgelées
+
+<fr:Merguez
 en:Poultry merguez
 fr:Merguez de volaille
 nl:Gevogelte-merguez
@@ -83257,6 +83553,9 @@ agribalyse_food_code:en:30153
 ciqual_food_code:en:30153
 ciqual_food_name:en:Merguez sausage, pork and beef, raw
 ciqual_food_name:fr:Merguez, porc et bœuf, crue
+
+<fr:Merguez
+fr:Merguez surgelées, merguez surgelée
 
 <en:Sausages
 en:Cervelat, Saveloy
@@ -84534,6 +84833,10 @@ ciqual_food_name:en:Lamb, meat, cooked (average)
 ciqual_food_name:fr:Agneau, viande, cuite (aliment moyen)
 
 <en:Lamb meat
+en:Frozen lamb meat
+fr:Viandes d'agneau surgelées, Viande d'agneau surgelée
+
+<en:Lamb meat
 fr:Prés-salés du Mont-Saint-Michel
 protected_name_file_number:en: PDO-FR-0813
 protected_name_type:en: pdo
@@ -84553,6 +84856,14 @@ fr:Côtes d'agneau, Côte d'agneau
 ciqual_food_code:en:21521
 ciqual_food_name:en:Lamb, chop, raw (average)
 ciqual_food_name:fr:Agneau, côte ou côtelette, crue (aliment moyen)
+
+<en:Lamb chop
+en:Lamb rack
+fr:Carrés d'agneau, carré d'agneau
+
+<en:Lamb rack
+en:Frozen lamb rack
+fr:Carrés d'agneau surgelés, carré d'agneau surgelé
 
 <en:Cooked lamb meat
 <en:Lamb chop
@@ -84650,6 +84961,18 @@ ciqual_food_code:en:21502
 ciqual_food_name:en:Lamb, leg, raw
 ciqual_food_name:fr:Agneau, gigot, cru
 
+<en:Lamb leg
+en:Frozen lamb leg
+fr:Gigot d'agneau surgelé
+
+<en:Lamb leg
+en:Lamb shank
+fr:Jarret d'agneau
+
+<en:Lamb shank
+en:Frozen lamb shank
+fr:Jarret d'agneau surgelé
+
 <en:Cooked lamb meat
 <en:Lamb leg
 en:Roasted lamb leg, Baked lamb leg
@@ -84676,6 +84999,10 @@ agribalyse_food_code:en:21518
 ciqual_food_code:en:21518
 ciqual_food_name:en:Lamb, leg, grilled/pan-fried
 ciqual_food_name:fr:Agneau, gigot, grillé/poêlé
+
+<en:Lamb leg
+en:Frozen lamb leg
+fr:Gigot d'agneau surgelé
 
 <en:Lamb meat
 en:Lamb saddle
@@ -85197,6 +85524,11 @@ ciqual_food_code:en:6581
 ciqual_food_name:en:Veal, knuckle or shank, braised or boiled
 ciqual_food_name:fr:Veau, jarret, braisé ou bouilli
 
+<en:Veal knuckle
+en:Frozen veal knuckle, Frozen veal shank
+fr:Jarret de veau surgelé
+# cooked is generaly similar to frozen in terms of Agribalyse
+agribalyse_proxy_food_code:en:6581
 
 <en:Cooked veal meat
 en:Boiled calf head, Calf head cooked in water
@@ -85239,6 +85571,10 @@ agribalyse_food_code:en:6511
 ciqual_food_code:en:6511
 ciqual_food_name:en:Veal, chop, grilled/pan-fried
 ciqual_food_name:fr:Veau, côte, grillée/poêlée
+
+<en:Veal chop
+en:Frozen veal chop
+fr:Côte de veau surgelée
 
 <en:Veal meat
 en:Calf kidney
@@ -85356,6 +85692,10 @@ ciqual_food_code:en:6563
 ciqual_food_name:en:Veal, shoulder, braised/boiled
 ciqual_food_name:fr:Veau, épaule, braisée ou bouillie
 
+<en:Veal shoulder
+en:Frozen veal shoulder
+fr:Epaule de veau surgelée
+
 <en:Veal meat
 en:Calf foot
 fr:Pied de veau
@@ -85418,6 +85758,10 @@ ciqual_food_code:en:6530
 ciqual_food_name:en:Veal fillet, raw
 ciqual_food_name:fr:Veau, filet, cru
 
+<en:Veal fillets
+en:Frozen veal fillets
+fr:Filets de veau surgelés
+
 <en:Cooked veal meat
 <en:Veal fillets
 en:Roasted veal fillet, Baked veal fillet
@@ -85479,6 +85823,14 @@ agribalyse_food_code:en:6536
 ciqual_food_code:en:6536
 ciqual_food_name:en:Veal, minced steak, 15% fat, raw
 ciqual_food_name:fr:Veau, steak haché 15% MG, cru
+
+<en:Veal meat
+en:Veal offals
+fr:Abats de veau
+
+<en:Veal offals
+en:Frozen veal offals
+fr:Abats de veau surgelés
 
 <en:Meats
 en:Game
@@ -87273,6 +87625,10 @@ ciqual_food_name:en:Dried pasta, raw
 ciqual_food_name:fr:Pâtes sèches standard, crues
 intake24_category_code:en:PTNS
 
+<en:Dry Pastas
+en:Common wheat pasta
+fr:Pâtes de blé tendre
+
 # <en:compound
 <en:Stuffed Pastas
 en:ravioli, Cooked filled pasta
@@ -87338,8 +87694,8 @@ fr:Pâtes farcies au fromage
 it:Pasta ripiena di formaggio
 agribalyse_food_code:en:25181
 agribalyse_proxy_food_code:en:25181
-agribalyse_proxy_food_code:en:Fresh pasta, stuffed with cheese (e.g. ravioli), raw
-agribalyse_proxy_food_code:fr:Pâtes fraîches farcies (ex : raviolis, ravioles du Dauphiné), au fromage, crues
+agribalyse_proxy_food_name:en:Fresh pasta, stuffed with cheese (e.g. ravioli), raw
+agribalyse_proxy_food_name:fr:Pâtes fraîches farcies (ex : raviolis, ravioles du Dauphiné), au fromage, crues
 
 <en:Stuffed pastas
 en:Ravioli with ricotta and spinach
@@ -87433,6 +87789,10 @@ en:Fresh ravioli
 de:Frische Ravioli
 fr:Ravioli frais
 nl:Verse raviolis
+
+<en:Ravioli
+en:Frozen ravioli
+fr:Ravioli surgelé
 
 <en:Fresh ravioli
 <en:Meat ravioli
@@ -88685,6 +89045,7 @@ agribalyse_food_code:en:23499
 ciqual_food_code:en:23499
 ciqual_food_name:en:Fruit tart
 ciqual_food_name:fr:Tarte ou tartelette aux fruits
+intake24_category_code:en:TART
 
 <en:Fruit tarts
 en:Lemon tarts, Lemon pies, Lemon tart
@@ -88826,6 +89187,10 @@ agribalyse_food_code:en:23496
 ciqual_food_code:en:23496
 ciqual_food_name:en:Tatin tart (caramelized upside-down apple tart)
 ciqual_food_name:fr:Tarte Tatin aux pommes
+
+<en:Apple pies
+en:Frozen apple pies
+fr:Tartes aux pommes surgelées, Tarte aux pommes surgelée, Tartelettes aux pommes surgelées, Tartelette aux pommes surgelée
 
 <en:Fruit tarts
 en:Pear pies
@@ -89850,6 +90215,7 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 
 <en:Seafood
 en:Shellfish
+fr:Coquillages
 gpc_category_code:en:10000021
 gpc_category_name:en:Shellfish - Unprepared/Unprocessed (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as an aquatic animal whose external covering consists of a shell, as in oysters, clams, lobsters and crabs, that has not gone through any further manufacturing processes, such as reformed, cooked, dried and salted, however these products can be coated, in sauce, stuffed or filled. Products include sea snails and molluscs but specifically exclude products that have added ingredients included such as rice, couscous and pasta. However products may contain a small quantity of vegetables such as those in a sauce or stuffing/filling. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Shellfish with additional vegetables, dough or grains, Frozen and Perishable Unprepared and Unprocessed Shellfish, all Prepared and Processed Shellfish.
@@ -90336,6 +90702,10 @@ ciqual_food_code:en:10003
 ciqual_food_name:en:Scallop, with coral, raw
 ciqual_food_name:fr:Coquille Saint-Jacques, noix et corail, crue
 
+<en:Scallops with coral
+en:Frozen scallops with coral
+fr:Coquilles Saint-Jacques surgelées, Coquilles St-Jacques surgelées
+
 <en:Scallop
 en:Cooked scallops with coral
 fr:Coquille Saint-Jacques cuite avec noix et corail
@@ -90351,6 +90721,10 @@ agribalyse_food_code:en:10045
 ciqual_food_code:en:10045
 ciqual_food_name:en:Scallop, without coral, raw
 ciqual_food_name:fr:Coquille Saint-Jacques, noix, crue
+
+<en:Scallops without coral
+en:Frozen scallops without coral
+fr:Noix de coquilles Saint-Jacques surgelées
 
 <en:Scallop
 en:American sea scallop without coral,Canadian sea scallop without coral
@@ -90459,6 +90833,16 @@ agribalyse_food_code:en:10009
 ciqual_food_code:en:10009
 ciqual_food_name:en:Lobster, boiled/cooked in water
 ciqual_food_name:fr:Homard, bouilli/cuit à l'eau
+
+<en:Boiled lobster
+en:Frozen cooked lobster
+fr:Homard cuit surgelé
+
+<en:Lobsters
+en:Frozen lobsters, frozen lobster
+fr:Homard surgelé, homards surgelés
+# cooked is generaly similar to frozen in terms of Agribalyse
+agribalyse_proxy_food_code:en:10009
 
 <en:Lobsters
 en:Spiny lobsters
@@ -90660,6 +91044,10 @@ ciqual_food_name:en:Crab, raw
 ciqual_food_name:fr:Crabe, cru
 
 <en:Crab
+en:Frozen crab
+fr:Crabes surgelés
+
+<en:Crab
 en:Preparations made from crabs
 de:Zubereitungen aus Krabben
 es:Preparado hechos de cangrejos
@@ -90688,6 +91076,10 @@ ciqual_food_code:en:10025
 ciqual_food_name:en:Crab, boiled/cooked in water
 ciqual_food_name:fr:Crabe ou Tourteau, bouilli/cuit à l'eau
 
+<en:Boiled crab
+en:Frozen cooked crab
+fr:Crabe cuit surgelé
+
 <en:Crustaceans
 en:Crayfish
 fr:Écrevisse
@@ -90703,6 +91095,14 @@ fr:Écrevisse cuite
 ciqual_food_code:en:10031
 ciqual_food_name:en:Crayfish, cooked
 ciqual_food_name:fr:Écrevisse, cuite
+
+<en:Crayfish
+en:Frozen crayfish
+fr:Écrevisse surgelée
+
+<en:Cooked crayfish
+en:Frozen cooked crayfish
+fr:Écrevisse cuite surgelée
 
 <en:Crustaceans
 en:Shrimps
@@ -90741,6 +91141,13 @@ agribalyse_food_code:en:10038
 ciqual_food_code:en:10038
 ciqual_food_name:en:Shrimp, frozen, raw
 ciqual_food_name:fr:Crevette, surgelée, crue
+
+<en:Cooked shrimps
+<en:Frozen seafood
+en:Frozen cooked shrimps
+fr:Crevettes cuites surgelées
+# worst proxy is cooked (vs raw frozen)
+agribalyse_proxy_food_code:en:10007
 
 <en:shrimps
 fr:Crevettes butterfly
@@ -90867,6 +91274,10 @@ ciqual_food_code:en:10024
 ciqual_food_name:en:Norway lobster, raw
 ciqual_food_name:fr:Langoustine, crue
 
+<en:Jumbo shrimps
+en:Frozen jumbo shrimps
+fr:Langoustines surgelées, Langoustine surgelée
+
 <en:Crustaceans
 en:Breaded scampi
 fr:Langoustines panées
@@ -90943,6 +91354,30 @@ pt:Peixe cozinhado
 ciqual_food_code:en:26140
 ciqual_food_name:en:Fish, cooked (average)
 ciqual_food_name:fr:Poisson cuit (aliment moyen)
+
+<en:Fishes
+en:Freshwater fishes
+fr:Poissons d'eau douce
+
+<en:Freshwater fishes
+en:Frozen freshwater fishes
+fr:Poissons d'eau douce surgelés
+
+<en:Fishes
+en:Marine fishes
+fr:Poissons de mer
+
+<en:Marine fishes
+en:Frozen marine fishes
+fr:Poissons de mer surgelés
+
+<en:Fishes
+en:Farmed fishes
+fr:Poissons d'élevage
+
+<en:Farmed fishes
+en:Frozen farmed fishes
+fr:Poissons d'élevage surgelés
 
 <en:Fishes
 en:Northern pike
@@ -91360,6 +91795,30 @@ pl:Filety rybne, filet rybny
 pt:Filetes de peixe
 ru:Рыбные филе
 
+<en:Fish fillets
+en:Freshwater fish fillets
+fr:Filets de poissons d'eau douce
+
+<en:Freshwater fish fillets
+en:Frozen freshwater fish fillets
+fr:Filets de poissons d'eau douce surgelés
+
+<en:Fish fillets
+en:Marine fish fillets
+fr:Filets de poissons de mer
+
+<en:Marine fish fillets
+en:Frozen marine fish fillets
+fr:Filets de poissons de mer surgelés
+
+<en:Fish fillets
+en:Farmed fish fillets
+fr:Filets de poissons d'élevage
+
+<en:Farmed fish fillets
+en:Frozen farmed fish fillets
+fr:Filets de poissons d'élevage surgelés
+
 <en:Breaded fish
 en:Fish fingers
 bg:Рибени пръчици
@@ -91379,6 +91838,10 @@ agribalyse_food_code:en:26006
 ciqual_food_code:en:26006
 ciqual_food_name:en:Alaska pollock, raw
 ciqual_food_name:fr:Lieu ou colin d'Alaska, cru
+
+<en:Alaska pollock
+en:Frozen Alaska pollock
+fr:Colin d'Alaska surgelé, Lieu d'Alaska surgelé
 
 <en:Fish with bordelaise sauce
 #<en:Alaska pollock
@@ -91557,6 +92020,10 @@ fr:Filets de cabillaud
 it:Filetti di merluzzo
 nl:Kabeljauwfilets
 wikidata:en:Q67880588
+
+<en:Cod fillets
+en:Frozen cod fillets
+fr:Filets de cabillaud surgelés
 
 <en:Breaded fish
 <en:Cod fillets
@@ -91814,6 +92281,10 @@ it:Filetto di salmone
 nl:Zalmfilet
 pt:Filetes de salmão
 
+<en:Salmon fillets
+en:Frozen salmon fillets
+fr:Filets de saumon surgelés
+
 <en:Salmons
 en:Salmon with sorrel
 fr:Saumon à l'oseille
@@ -91837,6 +92308,10 @@ it:Salmone selvaggio
 nl:Wilde zalmen, Wilde zalm
 ciqual_food_code:en:26161
 ciqual_food_name:en:Salmon, raw, wild
+
+<en:Wild salmons
+en:Frozen wild salmons
+fr:Saumons sauvages surgelés, saumon sauvage surgelé
 
 <en:Salmons from farming
 en:Scottish Farmed Salmon
@@ -92066,6 +92541,10 @@ fr:Sole rôtie, Sole cuite au four
 agribalyse_food_code:en:26060
 ciqual_food_code:en:26060
 ciqual_food_name:en:Common sole, roasted/baked
+
+<en:Common sole
+en:Frozen common sole
+fr:Sole surgelée
 
 <en:Fishes
 en:Tonguesole
@@ -92381,6 +92860,10 @@ ciqual_food_name:en:Nile perch, raw
 cooking_method:en: en:raw
 wikidata:en:Q654130
 
+<en:Nile perch
+en:Frozen nile perch
+fr:Perche du Nil surgelée
+
 <en:Trouts
 en:Cooked trouts
 fr:Truites cuites
@@ -92690,6 +93173,17 @@ ciqual_food_name:en:Yellowfin tuna, raw
 <en:Yellowfin tunas
 fr:Steaks de thon albacore
 
+<fr:Steaks de thon albacore
+fr:Steaks de thon albacore surgelés
+
+<en:Yellowfin tunas
+en:Yellowfin tuna loin
+fr:Longe de thon albacore
+
+<en:Yellowfin tuna loin
+en:Frozen yellowfin tuna loin
+fr:Longe de thon albacore surgelée
+
 <en:Yellowfin tunas
 es:Atún claro al natural
 
@@ -92765,6 +93259,12 @@ agribalyse_food_code:en:26072
 ciqual_food_code:en:26072
 ciqual_food_name:en:European bass, raw
 ciqual_food_name:fr:Bar commun ou loup, cru, sans précision
+
+<en:European bass
+en:Frozen European bass
+fr:Bar commun surgelé, Loup surgelé
+# cooked is generaly similar to frozen in terms of Agribalyse
+agribalyse_proxy_food_code:en:27030
 
 <en:Bass
 en:Wild mediterranean bass
@@ -92977,6 +93477,10 @@ agribalyse_food_code:en:26018
 ciqual_food_code:en:26018
 ciqual_food_name:en:Anglerfish, raw
 ciqual_food_name:fr:Lotte ou baudroie, crue
+
+<en:Anglerfish
+en:Frozen anglerfish
+fr:Lotte surgelée, Baudroie surgelée
 
 <en:Anglers
 en:Burbot
@@ -93206,6 +93710,10 @@ ciqual_food_code:en:27018
 ciqual_food_name:en:Pangasius, filets, cooked
 ciqual_food_name:fr:Panga, Pangasius, ou poisson-chat du Mékong, filet, cuit
 
+<en:Brown bullhead
+en:Frozen Pangasius filets
+fr:Filets de Panga surgelés
+
 <en:Bass
 en:Roasted European bass, Baked European bass
 fr:Bar commun rôti, Bar commun cuit au four, Loup rôti, Loup cuit au four
@@ -93255,6 +93763,10 @@ fr:Cabillauds cuits, Cabillaud cuit
 ciqual_food_code:en:25997
 ciqual_food_name:en:Cod, cooked (average)
 ciqual_food_name:fr:Cabillaud, cuit, sans précision (aliment moyen)
+
+<en:Cods
+en:Frozen cods, Frozen cod
+fr:Cabillauds surgelés, Cabillaud surgelé
 
 <en:Fishes
 <en:Seabreams
@@ -93531,6 +94043,10 @@ ciqual_food_code:en:10013
 ciqual_food_name:en:Mussel, boiled/cooked in water
 ciqual_food_name:fr:Moule, bouillie/cuite à l'eau
 
+<en:Boiled mussels
+en:Frozen cooked mussels
+fr:Moules cuites surgelées
+
 <en:Canned foods
 <en:Mussels
 en:Canned mussels
@@ -93621,6 +94137,10 @@ ciqual_food_name:en:Cuttlefish, raw
 ciqual_food_name:fr:Seiche, crue
 wikidata:en:Q184479
 
+<en:Cuttlefish
+en:Frozen cuttlefish
+fr:Seiche surgelée
+
 <en:Mollusc
 en:Common octopus
 fr:Poulpe
@@ -93635,6 +94155,14 @@ fr:Poulpes cuits
 ciqual_food_code:en:10079
 ciqual_food_name:en:Octopus, common, cooked
 ciqual_food_name:fr:Poulpe, cuit
+
+<en:Common octopus
+en:Frozen common octopus
+fr:Poulpe surgelé
+
+<en:Cooked common octopus
+en:Frozen cooked common octopus
+fr:Poulpes cuits surgelés
 
 <en:Mollusc
 en:Calamari
@@ -93672,6 +94200,10 @@ fr:calamar frit, calamar poêlé
 agribalyse_food_code:en:10084
 ciqual_food_code:en:10084
 ciqual_food_name:en:Squid, fried or pan-fried with fat
+
+<en:Squid
+en:Frozen squid
+fr:Calmar surgelé, Calamar surgelé, Encornet surgelé
 
 <en:Mollusc
 en:Squid fritter Roman-style
@@ -93758,6 +94290,14 @@ agribalyse_food_code:en:25037
 ciqual_food_code:en:25037
 ciqual_food_name:en:Fish or seafood au gratin, intended to be cook
 ciqual_food_name:fr:Gratin ou cassolette de poisson et / ou fruits de mer, à cuire
+
+<en:Seafood
+en:Seafood salads
+fr:Salades de fruits de mer
+
+<en:Seafood
+en:Marinated seafood
+fr:Fruits de mer marinés
 
 <en:Sauces
 en:Dips, Dipping sauces
@@ -94014,6 +94554,7 @@ fr:Tartinades de gingembre
 <en:Ginger preserves
 en:Ginger jams
 fr:Confitures de gingembre
+expected_minimal_amount_specific_ingredients:en: en:fruit, 15, en:eu
 
 <en:Plant-based spreads
 <en:Sweet spreads
@@ -94132,6 +94673,7 @@ ro:Gemul de calitate superioară
 sk:Extra džem
 sl:Ekstra džem
 sv:Extra sylt
+expected_minimal_amount_specific_ingredients:en: en:fruit, 45, en:eu
 
 <en:Jams
 en:Shelf-stable jams
@@ -94300,6 +94842,7 @@ fr:Confitures de cassis
 hu:Fekete ribizli lekvár
 it:Confetture di ribes nero
 nl:Cassisjams
+expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
 
 <en:Berry jams
 en:Blackberry jams
@@ -94579,6 +95122,7 @@ ciqual_proxy_food_code:en:31037
 ciqual_proxy_food_name:en:Jam, apricot
 ciqual_proxy_food_name:fr:Confiture d'abricot (extra ou classique)
 wikidata:en:Q6855605
+expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
 
 <en:Jams
 en:Rhubarb jams
@@ -94603,6 +95147,7 @@ hu:Csipkebogyó lekvár
 it:Marmellate di rosa canina
 nl:Rozenbotteljam
 sv:Nyponsylter
+expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
 
 # in eu, Sea-buckthorn jams/jellies should have specific 
 # content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
@@ -94612,6 +95157,7 @@ de:Sanddorn Konfitüren
 es:Mermeladas y confituras d'espino amarillo
 fi:Tyrnihillot
 fr:Confitures d'argousiers
+expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
 
 <en:Jams
 en:Sweet pepper jams
@@ -94752,6 +95298,7 @@ sk:Marmeláda
 sl:Marmelada
 sv:Marmelad
 wikidata:en:Q5834964
+expected_minimal_amount_specific_ingredients:en: en:fruit, 20, en:eu
 
 <en:Fruit and vegetable preserves
 en:Citrus jams
@@ -94768,6 +95315,7 @@ it:Confetture di agrumi
 nl:Citrusmarmelades
 pt:Citrinada
 wikidata:en:Q5834964
+expected_minimal_amount_specific_ingredients:en: en:fruit, 20, en:eu
 
 <en:Citrus jams
 en:Bigarade orange marmelades
@@ -94915,6 +95463,7 @@ de:Schwarze Johannisbeere Gelees
 fi:Mustaherukkahyytelöt
 fr:Gelées de cassis
 sv:Svartvinbärsgeléer, Svartvinbärsgelé
+expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
 
 <en:Fruit jellies
 en:Elderberry jellies
@@ -94961,6 +95510,7 @@ ja:パッションフルーツゼリー
 nl:Passievruchtgeleien
 pt:Geleias de maracujá
 sv:Passionsfruktgeléer
+expected_minimal_amount_specific_ingredients:en: en:fruit, 6, en:eu
 
 # in eu, quince jams/jellies should have specific 
 # content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
@@ -94972,6 +95522,7 @@ fr:Gelées de coings
 nl:Kweepeergeleien
 pt:Geleias de marmelo
 sv:Kvittengeléer
+expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
 
 <en:Fruit jellies
 en:Raspberry jellies
@@ -94994,6 +95545,7 @@ fr:Gelées de groseilles
 nl:Aalbessengeleien
 pt:Geleias de groselha
 sv:Vinbärsgeléer
+expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
 
 # in eu, Sea-buckthorn jams/jellies should have specific 
 # content of fruits: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02001L0113-20131118
@@ -95002,6 +95554,7 @@ en:Sea-buckthorn jellies
 de:Sanddorn Gelees
 fi:Tyrnihyytelöt
 fr:Gelées d'argousiers
+expected_minimal_amount_specific_ingredients:en: en:fruit, 25, en:eu
 
 <en:Fruit jellies
 en:Wine jellies, wine gelees
@@ -95041,6 +95594,7 @@ agribalyse_food_code:en:15013
 ciqual_food_code:en:15013
 ciqual_food_name:en:Chestnut cream
 ciqual_food_name:fr:Crème de marrons
+expected_minimal_amount_specific_ingredients:en: en:fruit, 38, en:eu
 
 <en:Chestnut spreads
 en:Vanilla flavoured chestnut cream, Canned vanilla flavoured chestnut cream
@@ -97090,10 +97644,11 @@ en:Gherkins with onions
 fr:Cornichons aux oignons
 
 <en:Vegetable pickles
-en:Pickled eggplants
+en:Pickled eggplants, eggplants in oil
 es:Berenjenas encurtidas
 ja:ナスのピクルス
 nl:Ingemaakte aubergines
+fr:Aubergines marinées, aubergines à l'huile
 
 <en:Vegetable pickles
 <en:Garlic and their products
@@ -97131,6 +97686,23 @@ wikidata:en:Q7190909
 en:Pickled guindilla peppers, Pickled guindilla chillis
 es:Guindillas encurtidas
 nl:Ingemaakte guindilla pepers
+
+<en:Vegetable pickles
+<en:Mushrooms
+en:Pickled Mushrooms, Mushrooms in oil
+fr:Champignons marinés, Champignons à l'huile
+
+<en:Pickled Mushrooms
+en:Pickled cep mushrooms, cep mushrooms in oil
+fr:Cèpes marinés, Cèpes à l'huile
+
+<en:Pickled Mushrooms
+en:Pickled chanterelles, chanterelles in oil, girolles in oil
+fr:Chanterelles marinées, girolles à l'huile, chanterelles à l'huile
+
+<en:Vegetable pickles
+en:Pickled red cabbage, marinated red cabbage
+fr:Chou rouge mariné, Choux rouges marinés
 
 <en:Vegetables based foods
 <en:Fresh plant-based foods
@@ -97223,6 +97795,10 @@ agribalyse_food_code:en:20133
 ciqual_food_code:en:20133
 ciqual_food_name:en:Parsnip, cooked
 ciqual_food_name:fr:Panais, cuit
+
+<en:Parsnip
+en:Frozen parsnip
+fr:Panais surgelés
 
 <en:Cooked vegetables
 <en:Red kidney beans
@@ -99282,7 +99858,7 @@ fr:Poivrons jaunes cuits
 nl:Gekookte gele paprikas
 agribalyse_proxy_food_code:en:20088
 agribalyse_proxy_food_name:en:Sweet pepper, red, cooked
-cagribalyse_proxy_food_name:fr:Poivron rouge, cuit
+agribalyse_proxy_food_name:fr:Poivron rouge, cuit
 
 <en:Sweet peppers
 en:Mixed bell peppers, Mixed sweet peppers
@@ -100019,6 +100595,10 @@ ciqual_food_code:en:13048
 ciqual_food_name:en:Rhubarb, stalk, cooked, with sugar
 ciqual_food_name:fr:Rhubarbe, tige, cuite, sucrée
 
+<en:Rhubarb stalk
+en:Frozen rhubarb stalk
+fr:Tiges de rhubarbe surgelées
+
 <en:Leaf vegetables
 en:Romanesco, Romanesco broccoli, Romanesque cauliflower, romanesco cauliflower
 ar:بروكلى رومانسكى
@@ -100197,6 +100777,9 @@ ciqual_food_code:en:4102
 ciqual_food_name:en:Sweet potato, cooked
 ciqual_food_name:fr:Patate douce, cuite
 
+<en:Sweet potatoes
+en:Frozen sweet potatoes
+fr:Patates douces surgelées
 
 <en:Vegetables
 en:Turnip, turnips
@@ -103026,6 +103609,10 @@ en:Black vinegars
 fr:Vinaigres noirs
 nl:Zwarte azijnen
 wikidata:en:Q4922497
+
+<en:Pastries
+en:Scones, Scone
+intake24_category_code:en:SCNS 
 
 #Normally these are thick (1cm or more)
 <en:Pastries
@@ -106114,6 +106701,14 @@ ciqual_food_code:en:40601
 ciqual_food_name:en:Offal, cooked (average)
 ciqual_food_name:fr:Abat, cuit (aliment moyen)
 
+<en:Cooked offal
+en:Offals Soup
+fr:Soupe d'abats
+
+<en:Offals Soup
+en:Frozen offals Soup
+fr:Soupe d'abats surgelés
+
 <en:Offals
 en:Kidneys
 
@@ -106256,6 +106851,11 @@ fr:Foie gras de canard entier cuit
 ciqual_food_code:en:8321
 ciqual_food_name:en:Foie gras, duck's liver, whole, cooked
 ciqual_food_name:fr:Foie gras, canard, entier, cuit
+
+<en:Foies gras from ducks
+<en:Whole foies gras
+en:Whole frozen duck liver foie gras
+fr:Foie gras de canard entier surgelé
 
 <en:Foies gras from ducks
 en:Duck liver foie gras without pieces
@@ -106406,6 +107006,10 @@ nl:Vegetarische nuggets
 pl:Nuggetsy wegetariańskie
 
 <en:Vegetarian nuggets
+en:Frozen vegetarian nuggets
+fr:Nuggets végétariens surgelés
+
+<en:Vegetarian nuggets
 <en:Meat analogues from soy or wheat proteins
 en:Nuggets from soy and wheat proteins, Soybean and wheat-based nuggets (vegan)
 fr:Nuggets à base de protéines de soja et blé, Nuggets soja et blé (convient aux véganes ou végétaliens) préemballé
@@ -106437,6 +107041,10 @@ en:Vegetarian grounds, Veggie grounds
 de:Vegetarisches Gehacktes, Gemüsehack, Vegetarisches Hackfleisch
 fr:Hachés végétaux
 pl:Mielone wegetariańskie, Wegetariańskie mielone
+
+<en:Vegetarian grounds
+en:Frozen vegetarian grounds, frozen veggie grounds
+fr:Hachés végétaux surgelés
 
 #Patties are a very generic term for anything flat baked in a pan
 <en:Meat alternatives
@@ -106501,6 +107109,10 @@ agribalyse_food_code:en:25234
 ciqual_food_code:en:25234
 ciqual_food_name:en:Cereal patty (without soybean)
 ciqual_food_name:fr:Galette de céréales aux légumes (sans soja), préemballé
+
+<en:Vegetarian patties
+en:Frozen vegetarian patties, frozen vegetarian steaks
+fr:Galettes végétariennes surgelées, Steaks végétariens surgelés
 
 <en:Meat analogues
 en:Vegetarian sausages
@@ -106826,6 +107438,10 @@ fr:Crackers au froment, Biscuits apéritifs au froment
 ciqual_food_code:en:7351
 ciqual_food_name:en:Wheat crackers
 ciqual_food_name:fr:Crackers de table au froment
+
+<en:Crackers
+en:Rice crackers
+fr:Biscuits apéritifs au riz
 
 <en:Crackers
 en:Plain salty snacks, Plain salty crackers
@@ -107239,6 +107855,17 @@ ciqual_food_code:en:23402
 ciqual_food_name:en:Thin-crust pizza shell, raw
 ciqual_food_name:fr:Pâte à pizza fine, crue
 
+<en:Pizza dough
+en:Frozen pizza dough
+fr:Pâtes à pizza surgelées, pâte à pizza surgelée
+
+<en:Bakery products
+en:Flammekueche dough
+fr:Pâte à flammekueche
+agribalyse_proxy_food_code:en:23402
+agribalyse_proxy_food_name:en:Thin-crust pizza shell, raw
+agribalyse_proxy_food_name:fr:Pâte à pizza fine, crue
+
 <en:Plant-based foods
 en:Sprouts, Germinated seeds
 de:Keime, Sprossen
@@ -107569,6 +108196,11 @@ de:Blumenkohlbreie
 fr:Purées de choux-fleurs
 nl:Bloemkoolpureeën
 
+<en:Mashed cauliflower
+en:Frozen mashed cauliflower
+fr:Purées de choux-fleurs surgelées
+agribalyse_proxy_food_code:en:20122
+
 <en:Mashed vegetables
 en:Mashed celeriac, Celeriac puree
 de:Selleriebreie
@@ -107619,6 +108251,10 @@ ciqual_food_code:en:20258
 ciqual_food_name:en:Vegetables (3-4 types), mashed
 ciqual_food_name:fr:Légumes (3-4 sortes en mélange), purée
 
+<en:Mashed vegetables
+en:Frozen mashed vegetables
+fr:Purées de légumes surgelées
+
 <en:Meals
 en:Tabbouleh, tabouleh, tabouli, tabbouli
 de:Taboulé, Tabouleh, Tabbouleh, Bulgursalat
@@ -107634,6 +108270,13 @@ ciqual_food_code:en:25608
 ciqual_food_name:en:Tabbouleh, prepacked
 ciqual_food_name:fr:Taboulé ou Salade de couscous, préemballé
 
+<en:Meals
+en:Vegetable fritters
+fr:Beignets de légumes
+agribalyse_food_code:en:25556
+ciqual_food_code:en:25556
+ciqual_food_name:en:Vegetable fritters
+ciqual_food_name:fr:Beignet de légumes
 
 <en:Meals
 en:Filled fritters
@@ -109435,6 +110078,14 @@ en:Sprinkles, Chocolat or sugar sprinkles
 fr:Vermicelles en chocolat ou en sucre
 nl:Chocolade of suiker hagel
 
+<en:Food decorations
+<en:Pastry helpers
+en:Chocolate drops
+fr:Pépites de chocolat
+agribalyse_proxy_food_code:en:31005
+agribalyse_proxy_food_name:en:Dark chocolate bar, less than 70% cocoa
+agribalyse_proxy_food_name:fr:Chocolat noir à moins de 70% de cacao, à croquer, tablette
+
 en:Halloween foods and drinks
 de:Halloweenspeisen und -getränke
 es:Bebidas y alimentos de Halloween
@@ -110168,6 +110819,10 @@ ciqual_food_code:en:36002
 ciqual_food_name:en:Chicken, leg, meat and skin, raw
 ciqual_food_name:fr:Poulet, cuisse, viande et peau, cru
 
+<en:Chicken leg meat and skin raw
+en:Frozen chicken leg meat and skin raw
+fr:Poulet cuisse viande et peau cru surgelée
+
 <en:cooked-chicken
 en:Chicken meat and skin roasted/baked
 fr:Poulet viande et peau rôti/cuit au four
@@ -110207,6 +110862,10 @@ agribalyse_food_code:en:36017
 ciqual_food_code:en:36017
 ciqual_food_name:en:Chicken, breast, without skin, raw
 ciqual_food_name:fr:Poulet, filet, sans peau, cru
+
+<en:Chicken breast without skin raw
+en:Frozen chicken breast without skin raw
+fr:Poulet filet sans peau cru surgelé
 
 <en:chickens
 en:Chicken high leg meat raw
