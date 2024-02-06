@@ -1,4 +1,4 @@
-# please keep an extra line between synonyms
+<# please keep an extra line between synonyms
 # also: don't add synonyms if they are already the name of an individual category, in that case add the synonym to the category
 
 synonyms:en:flavoured, flavored
@@ -33200,9 +33200,6 @@ es:Galletas rosquillas
 fr:Rousquilles
 wikidata:en:Q3443429
 
-#There is two type of rosquillas in Spain. Some have the consistancy of doughnuts and the others are biscuits. This category regroups the doughnuts
-<en:Cakes
-es:Rosquillas fritas
 
 <en:Biscuits and cakes
 en:Gingerbreads, gingerbread
@@ -33223,6 +33220,25 @@ agribalyse_food_code:en:23200
 ciqual_food_code:en:23200
 ciqual_food_name:en:Gingerbread
 ciqual_food_name:fr:Pain d'épices
+intake24_category_code:en:GING
+
+
+<en:Gingerbreads
+en:Pryaniki
+de:Prjaniki
+es:Pryaniki
+fr:Prianiki
+nl:Pryaniki
+ru:Пряники
+wikidata:en:Q2572122
+
+<en:Pryaniki
+en:Tula gingerbread
+de:Tula-Lebkuchen
+es:Pan de jengibre de Tula
+nl:Tula-ontbijtkoeken, Tula-ontbijtkoek
+ru:Пряники тульские, Тульские пряники, Тульский пряник, Пряник тульский
+wikidata:en:Q2511331
 
 <en:Gingerbreads
 fr:Pains d'épices au miel
@@ -35456,6 +35472,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Cake
 ciqual_food_code:en:23000
 ciqual_food_name:en:Cake (average)
 ciqual_food_name:fr:Gâteau (aliment moyen)
+intake24_category_code:en:CAKE 
 gpc_category_code:en:10000172
 gpc_category_name:en:Cakes - Sweet (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as a sweet prepared food, usually made from flour, sugar, shortening/fat and eggs mixed with other ingredients and baked or fried. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Perishable and Frozen Cakes, Cake Mixes, all Bread Products.
@@ -35508,7 +35525,6 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 en:Apple Pie Mixes
 nl:Appeltaartmixes
 
-<en:Cakes
 <en:Pastry helpers
 <en:Baking Mixes
 <en:Dessert mixes
@@ -35591,6 +35607,10 @@ de:Pfannkuchenmischung
 fr:Préparations pour crêpes
 nl:Pannenkoekenmixes
 
+#There is two type of rosquillas in Spain. Some have the consistancy of doughnuts and the others are biscuits. This category regroups the doughnuts
+<en:Cakes
+es:Rosquillas fritas
+
 <en:Cakes
 en:Filled cakes
 de:Gefüllte Kuchen
@@ -35602,6 +35622,7 @@ es:Tarta de zanahoria
 fr:Carrot cakes, gâteaux aux carottes
 ja:キャロットケーキ
 wikidata:en:Q656071
+intake24_category_code:en:CARR 
 
 <en:Cakes
 en:Spit cakes
@@ -35646,8 +35667,9 @@ en:Filled sponge cake slices
 fr:Génoises en tranches fourrées
 
 <en:Cakes
-en:Filled sponge cake rolls
-fr:Génoises roulées fourrées
+en:Fairy cakes, Cupcake, Bun
+xx:Cupcakes
+intake24_category_code:en:FRYC 
 
 #British dessert made with custard cream, fruit (or fruit jelly, or chocolate) and possibly sponge biscuits
 <en:Desserts
@@ -35687,7 +35709,7 @@ ciqual_food_name:fr:Gâteau au chocolat type forêt noire (génoise au chocolat 
 
 <en:Cakes
 <en:Desserts
-en:Sponge cake
+en:Sponge cakes, Sponge cake
 fr:Génoise, Gâteau moelleux nature
 ja:スポンジケーキ
 lt:Biskvitiniai tortai
@@ -35695,6 +35717,7 @@ agribalyse_food_code:en:23594
 ciqual_food_code:en:23594
 ciqual_food_name:en:Soft cake, plain, sponge cake type
 ciqual_food_name:fr:Gâteau moelleux nature type génoise
+intake24_category_code:en:SPON 
 
 # TODO : Pims framboise
 <en:Biscuits and cakes
@@ -36291,6 +36314,50 @@ agribalyse_food_code:en:23032
 ciqual_food_code:en:23032
 ciqual_food_name:en:Brownie (chocolate cake)
 
+<en:Cakes
+en:Fruit cakes, Fruit cake
+de:Obstkuchen, Fruchtkuchen
+es:Tartas de frutas, Pasteles de frutas
+fi:hedelmäkakut
+fr:Cakes aux fruits, cake aux fruits, cake aux fruits confits, cakes aux fruits confits
+ja:フルーツケーキ
+lt:Vaisiniai pyragai, vaisiniai tortai, vaisiniai pyragaičiai
+nl:Vruchtencakes
+wikidata:en:Q675987
+oqali_family:en: fr:Biscuits et gateaux industriels - Cakes aux fruits confits
+agribalyse_food_code:en:23909
+ciqual_food_code:en:23909
+ciqual_food_name:en:Fruit cake
+ciqual_food_name:fr:Cake aux fruits
+intake24_category_code:en:FTCA 
+
+<en:Cakes
+en:Soft fruit cakes
+fr:Gâteaux moelleux aux fruits
+agribalyse_food_code:en:23937
+ciqual_food_code:en:23937
+ciqual_food_name:en:Fruit soft cake
+ciqual_food_name:fr:Gâteau moelleux aux fruits
+
+<en:Cakes
+en:Lemon cake
+de:Zitronenkuchen
+fr:Gâteau au citron
+ja:レモンケーキ
+agribalyse_food_code:en:23103
+ciqual_food_code:en:23103
+ciqual_food_name:en:Lemon cake, all types
+ciqual_food_name:fr:Gâteau au citron, tout type
+
+<en:Cakes
+en:Financiers
+fr:Financiers, financier, visitandines, visitandine, financiers aux amandes, financier aux amandes
+ja:フィナンシェ
+wikidata:en:Q588378
+oqali_family:en: fr:Biscuits et gateaux industriels - Financiers
+agribalyse_food_code:en:24664
+ciqual_food_code:en:24664
+ciqual_food_name:en:Almond cake
 
 <en:Puddings
 en:Christmas Puddings
@@ -36356,49 +36423,6 @@ fr:Riz au lait nature
 en:Rice puddings with a fruit preparation
 fr:Riz au lait à la préparation de fruits
 
-<en:Cakes
-en:Fruit cakes, Fruit cake
-de:Obstkuchen, Fruchtkuchen
-es:Tartas de frutas, Pasteles de frutas
-fi:hedelmäkakut
-fr:Cakes aux fruits, cake aux fruits, cake aux fruits confits, cakes aux fruits confits
-ja:フルーツケーキ
-lt:Vaisiniai pyragai, vaisiniai tortai, vaisiniai pyragaičiai
-nl:Vruchtencakes
-wikidata:en:Q675987
-oqali_family:en: fr:Biscuits et gateaux industriels - Cakes aux fruits confits
-agribalyse_food_code:en:23909
-ciqual_food_code:en:23909
-ciqual_food_name:en:Fruit cake
-ciqual_food_name:fr:Cake aux fruits
-
-<en:Cakes
-en:Soft fruit cakes
-fr:Gâteaux moelleux aux fruits
-agribalyse_food_code:en:23937
-ciqual_food_code:en:23937
-ciqual_food_name:en:Fruit soft cake
-ciqual_food_name:fr:Gâteau moelleux aux fruits
-
-<en:Cakes
-en:Lemon cake
-de:Zitronenkuchen
-fr:Gâteau au citron
-ja:レモンケーキ
-agribalyse_food_code:en:23103
-ciqual_food_code:en:23103
-ciqual_food_name:en:Lemon cake, all types
-ciqual_food_name:fr:Gâteau au citron, tout type
-
-<en:Cakes
-en:Financiers
-fr:Financiers, financier, visitandines, visitandine, financiers aux amandes, financier aux amandes
-ja:フィナンシェ
-wikidata:en:Q588378
-oqali_family:en: fr:Biscuits et gateaux industriels - Financiers
-agribalyse_food_code:en:24664
-ciqual_food_code:en:24664
-ciqual_food_name:en:Almond cake
 
 <en:Biscuits
 en:Cat tongue, Cat's tongue cookie, Cat's tongue biscuit
@@ -42377,6 +42401,7 @@ agribalyse_proxy_food_code:en:12001
 ciqual_proxy_food_code:en:12001
 ciqual_proxy_food_name:en:Camembert cheese, from cow's milk
 who_id:en:8
+intake24_category_code:en:CHES
 # Most cheeses have the same Agribalyse scores, except specific cheeses for which we added the specific values
 
 <en:Cheeses
@@ -42489,6 +42514,7 @@ it:Formaggi senza lattosio
 lt:Sūriai be laktozės
 nl:Lactose-vrije kazen, Lactose-vrije kaas, Kaas zonder lactose
 pl:Sery bez laktozy
+intake24_category_code:en:19LDFC
 
 <en:Cheeses
 en:Sliced cheeses
@@ -44555,9 +44581,9 @@ en:Brousse
 es:Brousse
 fr:Brousses
 wikidata:en:Q2926318
-
 #note:en: Note that en:Cottage Cheese not the same as en:Brousse. It has a different taste and structure.
 #Cottage cheese is not directly in cheeses to avoid having cottage fruit cottage cheese in cheeses.
+
 <en:Fermented milk products
 en:Cottage cheeses
 af:Maaskaas
@@ -44596,6 +44622,7 @@ uk:Кисломолочний сир
 zh:茅屋起司
 #yue:茅屋芝士
 wikidata:en:Q13221624
+intake24_category_code:en:COTC
 
 <en:Fresh cheeses
 <en:Cottage cheeses
@@ -44625,6 +44652,11 @@ origins:en: en:France
 wikidata:en:Q542046
 
 <en:Cheeses
+en:Soft cheeses
+nl:Zachte kazen
+intake24_category_code:en:SFTC
+
+<en:Soft cheeses
 en:Soft cheeses with bloomy rind, white mold-rind cheese
 ca:Formatges tendres amb crosta florida, Formatges amb crosta emmotllada blanca
 de:Weichkäse
@@ -44636,6 +44668,7 @@ it:Formaggi a crosta fiorita
 lt:Sūriai su baltuoju pelėsiu
 nl:Witschimmelkazen
 wikidata:en:Q1256296
+
 
 <en:Soft cheeses with bloomy rind
 en:Carré de l'Est, Carré de l'Est cheeses, Carré de l'Est cheese from cow's milk
@@ -44657,7 +44690,7 @@ protected_name_file_number:en: PGI-FR-02102
 protected_name_type:en: pgi
 origins:en: en:France
 
-<en:Cheeses
+<en:Soft cheeses
 en:Soft cheese with a natural rind
 de:Weichkäse mit Naturrinde
 fr:Fromages à pâte molle à croûte naturelle
@@ -44666,7 +44699,7 @@ nl:Zachte kazen met natuurlijke korst
 wikidata:en:Q3088326
 
 <en:Cheeses
-en:Cooked pressed cheeses, Hard cheese
+en:Hard cheeses, Cooked pressed cheeses
 ca:Formatges cuinats i premsats
 de:Gekochter gepresster Käse
 es:Quesos cocidos prensados
@@ -44681,6 +44714,7 @@ wikidata:en:Q3088330
 ciqual_food_code:en:12100
 ciqual_food_name:en:Hard cheese (average)
 ciqual_food_name:fr:Fromage à pâte pressée cuite (aliment moyen)
+intake24_category_code:en:HRDC
 
 <en:Cheeses
 en:Half-cooked pressed cheeses
@@ -50059,6 +50093,7 @@ nl:Smeerkazen
 pt:Queijos para barrar
 agribalyse_proxy_food_code:en:12315
 agribalyse_proxy_food_name:en:Uncured soft cheese, spreadable, around 25% fat, in a tub
+intake24_category_code:en:SPRD
 #wikidata:en:
 
 <en:Cheese spreads
@@ -89010,6 +89045,7 @@ agribalyse_food_code:en:23499
 ciqual_food_code:en:23499
 ciqual_food_name:en:Fruit tart
 ciqual_food_name:fr:Tarte ou tartelette aux fruits
+intake24_category_code:en:TART
 
 <en:Fruit tarts
 en:Lemon tarts, Lemon pies, Lemon tart
@@ -103559,6 +103595,10 @@ en:Black vinegars
 fr:Vinaigres noirs
 nl:Zwarte azijnen
 wikidata:en:Q4922497
+
+<en:Pastries
+en:Scones, Scone
+intake24_category_code:en:SCNS 
 
 #Normally these are thick (1cm or more)
 <en:Pastries
