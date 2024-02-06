@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.27.1](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.27.0...v2.27.1) (2024-02-06)
+
+
+### Bug Fixes
+
+* load Brevo.pm in Users.pm ([#9759](https://github.com/openfoodfacts/openfoodfacts-server/issues/9759)) ([a14d4d2](https://github.com/openfoodfacts/openfoodfacts-server/commit/a14d4d2bc236d163726fa1b203583a6fd5218a43)), closes [#9758](https://github.com/openfoodfacts/openfoodfacts-server/issues/9758)
+* single allergen infinite loop  ([#9757](https://github.com/openfoodfacts/openfoodfacts-server/issues/9757)) ([50fc596](https://github.com/openfoodfacts/openfoodfacts-server/commit/50fc5969101e79bad0f0967f102b6133541adab9)), closes [#9755](https://github.com/openfoodfacts/openfoodfacts-server/issues/9755)
+
 ## [2.27.0](https://github.com/openfoodfacts/openfoodfacts-server/compare/v2.26.0...v2.27.0) (2024-02-06)
 
 
