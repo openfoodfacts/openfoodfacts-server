@@ -33,8 +33,11 @@ echo "IMPORT_SINCE: $IMPORT_SINCE days"
 # Intermarche prefers that we do not keep already processed files in the sftp
 # directory, so we move them to a different place, but still keep past files
 # in case we need to reprocess them
+# note: script is run by user off, but files belong to user 1035 sftponly
+# even if they belong to the same group, cp -a cannot be used as only the owner
+# can change the time of a file
 echo "Copy csv and image files to $OFF_SFTP_HOME_DIR/artinformatique-backup/data/intermarche/"
-cp -a $OFF_SFTP_HOME_DIR/artinformatique/data/intermarche/* $OFF_SFTP_HOME_DIR/artinformatique-backup/data/intermarche/
+cp $OFF_SFTP_HOME_DIR/artinformatique/data/intermarche/* $OFF_SFTP_HOME_DIR/artinformatique-backup/data/intermarche/
 
 # move CSV files modified since the last successful run
 echo "Move CSV files modified since the last successful run"
