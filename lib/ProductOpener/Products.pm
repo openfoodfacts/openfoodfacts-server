@@ -209,6 +209,13 @@ sub make_sure_numbers_are_stored_as_numbers ($product_ref) {
 		}
 	}
 
+	# Make sure product _id and code are saved as string and not a number
+	# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
+	# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
+	# Note: #$product_ref->{code} .= ''; does not seem to be enough to force the type to be a string
+	$product_ref->{_id} = "$product_ref->{_id}";
+	$product_ref->{code} = "$product_ref->{code}";
+
 	return;
 }
 

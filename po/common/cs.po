@@ -172,6 +172,10 @@ msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
 msgstr "Nadměrné pití je škodlivé pro zdraví."
 
+msgctxt "email_warning"
+msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
+msgstr "Vezměte prosím na vědomí, že váš účet Pro bude platný pouze v případě, že použijete svou profesionální e-mailovou adresu. Náš moderátorský tým zkontroluje, zda název domény odpovídá organizaci, ke které se chcete připojit."
+
 msgctxt "all_missions"
 msgid "All missions"
 msgstr "Všechny mise"
@@ -869,6 +873,10 @@ msgstr "Open Beauty Facts - Kosmetika"
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world-cs.openbeautyfacts.org"
+
+msgctxt "footer_pro"
+msgid "Open Food Facts for Producers"
+msgstr "Open Food Facts pro výrobce"
 
 msgctxt "for"
 msgid "for"
@@ -6663,4 +6671,144 @@ msgstr "Hmotnost na 100 g produktu"
 msgctxt "weight_percent"
 msgid "Weight percent"
 msgstr "Procenta hmotnosti"
+
+msgctxt "nutriscore_component_energy"
+msgid "Energy"
+msgstr "Energie"
+
+msgctxt "nutriscore_component_energy_from_saturated_fat"
+msgid "Energy from saturated fat"
+msgstr "Energie z nasycených tuků"
+
+msgctxt "nutriscore_component_sugars"
+msgid "Sugars"
+msgstr "Cukry"
+
+msgctxt "nutriscore_component_saturated_fat"
+msgid "Saturated fat"
+msgstr "Nasycené tuky"
+
+msgctxt "nutriscore_component_saturated_fat_ratio"
+msgid "Saturated fat / fat"
+msgstr "Nasycený tuk / tuk"
+
+msgctxt "nutriscore_component_salt"
+msgid "Salt"
+msgstr "Sůl"
+
+msgctxt "nutriscore_component_non_nutritive_sweeteners"
+msgid "Non-nutritive sweeteners"
+msgstr "Nevýživná sladidla"
+
+msgctxt "nutriscore_component_fruits_vegetables_legumes"
+msgid "Fruits, vegetables and legumes"
+msgstr "Ovoce, zelenina a luštěniny"
+
+msgctxt "nutriscore_component_fiber"
+msgid "Fiber"
+msgstr "Vláknina"
+
+msgctxt "nutriscore_component_proteins"
+msgid "Proteins"
+msgstr "Bílkoviny"
+
+msgctxt "presence"
+msgid "Presence"
+msgstr "Výskyt"
+
+msgctxt "absence"
+msgid "Absence"
+msgstr "Absence"
+
+msgctxt "nutriscore_is_water"
+msgid "This product is considered to be water for the calculation of the Nutri-Score."
+msgstr "Tento produkt je považován za vodu pro výpočet Nutri-Score."
+
+msgctxt "nutriscore_is_fat_oil_nuts_seeds"
+msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
+msgstr "Tento produkt je považován za tuk, olej, ořechy nebo semena pro výpočet Nutri-Score."
+
+msgctxt "nutriscore_is_cheese"
+msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
+msgstr "Tento produkt je považován za sýr pro výpočet Nutri-Score."
+
+msgctxt "nutriscore_is_red_meat_product"
+msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
+msgstr "Tento produkt je považován za červené maso pro výpočet Nutri-Score."
+
+msgctxt "nutriscore_count_proteins_reason_beverage"
+msgid "Points for proteins are counted because the product is considered to be a beverage."
+msgstr "Body za bílkoviny se počítají, protože výrobek je považován za nápoj."
+
+msgctxt "nutriscore_count_proteins_reason_cheese"
+msgid "Points for proteins are counted because the product is considered to be cheese."
+msgstr "Body za bílkoviny se počítají, protože výrobek je považován za sýr."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
+msgid "Points for proteins are counted because the negative points are less than 7."
+msgstr "Body za bílkoviny se počítají, protože záporných bodů je méně než 7."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
+msgid "Points for proteins are counted because the negative points are less than 11."
+msgstr "Body za bílkoviny se počítají, protože záporných bodů je méně než 11."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
+msgstr "Body za bílkoviny se nepočítají, protože záporné body jsou větší nebo rovné 7."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
+msgstr "Body za bílkoviny se nepočítají, protože záporné body jsou větší nebo rovné 11."
+
+msgctxt "nutriscore_explanation_what_it_is"
+msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
+msgstr "Nutri-Score je logo o celkové nutriční kvalitě produktů."
+
+msgctxt "nutriscore_explanation_what_it_takes_into_account"
+msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
+msgstr "Skóre od A do E se vypočítá na základě živin a potravin, které je třeba upřednostňovat (bílkoviny, vláknina, ovoce, zelenina a luštěniny...) a živin, které je třeba omezit (kalorie, nasycené tuky, cukry, sůl)."
+
+msgctxt "nutriscore_explanation_where_the_data_comes_from"
+msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
+msgstr "Skóre se vypočítá z údajů tabulky nutričních údajů a údajů o složení (ovoce, zelenina a luštěniny)."
+
+msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
+msgid "The display of this logo is recommended by public health authorities without obligation for companies."
+msgstr "Zobrazení tohoto loga je doporučováno úřady ochrany veřejného zdraví nezávazně pro firmy."
+
+msgctxt "nutriscore_explanation_title"
+msgid "What is the Nutri-Score?"
+msgstr "Co je Nutri-Score?"
+
+msgctxt "nutrient_info_energy_risk"
+msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
+msgstr "Energetický příjem nad energetickou náročnost je spojen se zvýšeným rizikem přibírání na váze, nadváhou, obezitou a následně rizikem chronických onemocnění souvisejících s dietou."
+
+msgctxt "nutrient_info_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Vysoká konzumace tuků, zejména nasycených, může zvýšit hladinu cholesterolu, což zvyšuje riziko srdečních onemocnění."
+
+msgctxt "nutrient_info_saturated_fat_ratio_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Vysoká konzumace tuků, zejména nasycených, může zvýšit hladinu cholesterolu, což zvyšuje riziko srdečních onemocnění."
+
+msgctxt "nutrient_info_energy_from_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Vysoká konzumace tuků, zejména nasycených, může zvýšit hladinu cholesterolu, což zvyšuje riziko srdečních onemocnění."
+
+msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
+msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
+msgstr "Nevýživná sladidla nemusí poskytovat žádné dlouhodobé výhody při snižování tělesného tuku u dospělých nebo dětí. Dlouhodobé užívání nevýživných sladidel může mít potenciální nežádoucí účinky, jako je zvýšené riziko cukrovky 2. typu a kardiovaskulárních onemocnění u dospělých."
+
+msgctxt "nutrient_info_fiber_benefit"
+msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr "Konzumace potravin bohatých na vlákninu (zejména celozrnné potraviny) snižuje rizika aerodigestivní rakoviny, kardiovaskulárních onemocnění, obezity a cukrovky."
+
+msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
+msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr "Konzumace potravin bohatých na ovoce, zeleninu a luštěniny snižuje rizika aerodigestivní rakoviny, kardiovaskulárních onemocnění, obezity a cukrovky."
+
+msgctxt "nutrient_info_proteins_benefit"
+msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr "Potraviny bohaté na bílkoviny jsou obvykle bohaté na vápník nebo železo, což jsou základní minerály s četnými zdravotními přínosy."
 

@@ -88,6 +88,7 @@ use ProductOpener::Display qw/:all/;
 use ProductOpener::Orgs qw/:all/;
 use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/:all/;
+use ProductOpener::Brevo qw/:all/;
 use ProductOpener::Auth qw/:all/;
 use ProductOpener::URL qw/:all/;
 

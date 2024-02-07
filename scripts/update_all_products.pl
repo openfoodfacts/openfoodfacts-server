@@ -1116,7 +1116,6 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_nutriscore) {
-			$product_ref->{misc_tags} = [];
 			fix_salt_equivalent($product_ref);
 			compute_nutriscore($product_ref);
 			compute_nutrient_levels($product_ref);
@@ -1419,9 +1418,6 @@ while (my $product_ref = $cursor->next) {
 				# In all cases (even if the product data did not change),
 				# we store the product with the new update_key in the .sto file and the mongodb collection
 
-				# make sure nutrient values are numbers
-				ProductOpener::Products::make_sure_numbers_are_stored_as_numbers($product_ref);
-
 				# Set last modified time if something was changed
 				if ($any_change) {
 					$product_ref->{last_updated_t} = time() + 0;
@@ -1432,6 +1428,9 @@ while (my $product_ref = $cursor->next) {
 						$product_ref->{last_updated_t} = $product_ref->{last_modified_t};
 					}
 				}
+
+				# make sure nutrient values are numbers
+				ProductOpener::Products::make_sure_numbers_are_stored_as_numbers($product_ref);
 
 				if (!$mongodb_to_mongodb) {
 					# Store data to .sto file
