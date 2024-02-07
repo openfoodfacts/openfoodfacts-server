@@ -10,6 +10,8 @@ x-backend-conf: &backend-conf
       USER_UID: ${USER_UID:-1000}
       USER_GID: ${USER_GID:-1000}
       CPANMOPTS: "${CPANMOPTS:---with-develop}"
+  depends_on:
+    - keycloak
   volumes:
     # mount local folder for reload on dev changes.
     # Note that this means /opt/product-opener/html/images/product wont be connected to product_images volume
@@ -25,6 +27,8 @@ x-backend-conf: &backend-conf
   # e.g. when developing with Robotoff or openfoodfacts-query
   extra_hosts:
     - "host.docker.internal:host-gateway"
+  networks:
+    default:
 
 x-minion-db-network: &minion-db-network
   networks:
@@ -89,6 +93,14 @@ services:
             - world.openfoodfacts.localhost
             - static.openfoodfacts.localhost
             - images.openfoodfacts.localhost
+            - fr.openfoodfacts.localhost
+            - world-de.openfoodfacts.localhost
+            - world-it.openfoodfacts.localhost
+            - es-it.openfoodfacts.localhost
+            - ch-it.openfoodfacts.localhost
+            - ssl-api.openfoodfacts.localhost
+            - fr.pro.openfoodfacts.localhost
+            - world.pro.openfoodfacts.localhost
   mongodb:
     # Note: keep it as close a possible to mongodb.yml
     image: mongo:4.4
