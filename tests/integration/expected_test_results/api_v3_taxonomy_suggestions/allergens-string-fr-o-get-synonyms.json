@@ -1,17 +1,17 @@
 {
    "errors" : [],
-   "matched_synonyms" : [
-      "Orge",
-      "Œufs",
-      "Cacahouètes",
-      "Homard",
-      "Fruits à coque",
-      "Lactose",
-      "Mollusques",
-      "Moutarde",
-      "Poisson",
-      "Soja"
-   ],
+   "matched_synonyms" : {
+      "Arachides" : "Cacahouètes",
+      "Crustacés" : "Homard",
+      "Fruits à coque" : "Fruits à coque",
+      "Gluten" : "Orge",
+      "Lait" : "Lactose",
+      "Mollusques" : "Mollusques",
+      "Moutarde" : "Moutarde",
+      "Poisson" : "Poisson",
+      "Soja" : "Soja",
+      "Œufs" : "Œufs"
+   },
    "status" : "success",
    "suggestions" : [
       "Gluten",

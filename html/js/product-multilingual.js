@@ -579,17 +579,16 @@ function initializeTagifyInput(el) {
                     then((RES) => RES.json()).
                     then(function (json) {
                         const lc = (/^\w\w:/).exec(value);
-                        let whitelist;
+                        let whitelist = Object.values(json.matched_synonyms);
                         if (lc) {
-                            whitelist = json.matched_synonyms.map(function (e) {
+                            whitelist = whitelist.map(function (e) {
                                 return {"value": lc + e, "searchBy": e};
                             });
-                        } else {
-                            whitelist = json.matched_synonyms;
                         }
                         const synonymMap = Object.create(null);
-                        for (let i = 0; i < json.suggestions.length; i++) {
-                            synonymMap[json.matched_synonyms[i]] = json.suggestions[i];
+                        // eslint-disable-next-line guard-for-in
+                        for (const k in json.matched_synonyms) {
+                            synonymMap[json.matched_synonyms[k]] = k;
                         }
                         input.synonymMap = synonymMap;
                         input.whitelist = whitelist;

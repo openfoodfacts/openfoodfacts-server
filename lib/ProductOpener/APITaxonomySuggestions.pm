@@ -131,8 +131,12 @@ sub taxonomy_suggestions_api ($request_ref) {
 			= get_taxonomy_suggestions_with_synonyms($tagtype, $search_lc, $string, $context_ref, $options_relavant);
 		$log->debug("taxonomy_suggestions_api", @suggestions) if $log->is_debug();
 		$response_ref->{suggestions} = [map {$_->{tag}} @suggestions];
-		$response_ref->{matched_synonyms} = [map {ucfirst($_->{matched_synonym})} @suggestions]
-			if $options_ref->{get_synonyms};
+		if ($options_ref->{get_synonyms}) {
+			$response_ref->{matched_synonyms} = {};
+			foreach (@suggestions) {
+				$response_ref->{matched_synonyms}->{$_->{tag}} = ucfirst($_->{matched_synonym});
+			}
+		}
 	}
 
 	$log->debug("taxonomy_suggestions_api - stop", {request => $request_ref}) if $log->is_debug();
