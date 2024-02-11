@@ -610,6 +610,7 @@ from_palm_oil:en:maybe
 
 # en:additive:en:gelatin, gelatine, E428, E-428, E 428
 en:gelatin
+bg:желатин
 ja:ゼラチン
 lt:želatina, želatinos
 wikipedia:en:https://en.wikipedia.org/wiki/Gelatin
@@ -2786,6 +2787,7 @@ nl:melk uit Frankrijk
 # comment:en:Any milk can be fresh (whatever that means)
 <en:milk
 en:fresh milk
+bg:свежо мляко
 ca:llet fresca
 de:Frischmilch
 es:Leche fresca
@@ -2798,6 +2800,7 @@ pt:leite fresco
 # ingredient/fr:lait-frais has 79 products in 2 languages 2019-04-05
 
 <en:fresh milk
+bg:свежо пастьоризирано мляко
 fr:lait frais pasteurisé
 ca:llet fresca pasteuritzada
 es:leche fresca pasteurizada, leche fluída pasteurizada
@@ -3067,6 +3070,7 @@ de:Frische fettarme Milch
 
 <en:semi-skimmed milk
 en:semi-skimmed milk with 1.5% milk fat
+bg:полуобезмаслено мляко с 1,5% масленост
 hr:djelomično obrano mlijeko s 1.5% mliječne masti
 
 <en:lactose-free milk
@@ -3209,6 +3213,7 @@ ciqual_food_name:fr:Lait entier, pasteurisé
 #1241 @2011-09-23
 
 <en:whole milk
+bg:стандартизирано пълномаслено мляко
 fr:lait entier standardisé
 hr:standardizirano punomasno mlijeko
 
@@ -3276,6 +3281,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Raw_milk
 <en:raw milk
 <en:whole milk
 fr:lait cru entier
+bg:сурово пълномаслено мляко
 ca:llet crua sencera
 es:leche cruda entera
 it:latte crudo intero
@@ -3652,6 +3658,7 @@ description:en:Sheep's milk (or ewes' milk) is the milk of domestic sheep.
 <en:sheeps milk
 <en:goat milk
 en:Sheeps or goat milk
+bg:овче или козе мляко
 jv:susu wedhus
 fr:lait de brebis ou de chèvre
 es:leche de oveja o de cabra
@@ -3675,7 +3682,7 @@ ciqual_food_name:fr:Lait de brebis, entier
 en:skimmed sheeps milk, skimmed sheep milk, semi-skimmed sheeps milk
 fr:lait de brebis partiellement écrémé
 ar:حليب الغنم قليل الدسم
-bg:нискомаслено овче мляко
+bg:частично обезмаслено овче мляко
 ca:llet d'ovella desnatada, llet d'ovella descremada
 de:fettarme Schafmilch, fettreduzierte Schafmilch
 es:leche de oveja desnatada, leche de oveja semidesnatada
@@ -13100,7 +13107,7 @@ fr:chipolatas aux herbes
 <en:pork
 en:pork skin, sausage skin
 es:tripa de cerdo, tripa natural de cerdo,tripa natural de cerdo de calibre estrecho
-bg:свинска кожа
+bg:свинска кожа, свински кожички
 de:Schweinehaut
 fr:Peau de porc
 
@@ -20706,7 +20713,7 @@ sv:smakberedning
 
 <en:flavouring
 en:natural flavouring, natural flavour, natural flavor, natural flavoring, natural flavourings, natural flavorings, natural flavours, natural flavors, natural aroma, natural aromas
-bg:натурален аромат, натурални ароматизанти, натурален ароматизант, естествен ароматизант, естествени ароматизанти, натурални аромати, натурален ароматизатор
+bg:натурален аромат, натурални ароматизанти, натурален ароматизант, естествен ароматизант, естествени ароматизанти, натурални аромати, натурален ароматизатор, естествени овкусители
 ca:Aroma natural, aromes naturals
 cs:přírodní aroma, přírod aroma
 da:naturlig aroma, naturlige smagsstoffer, naturlige aromaer
@@ -24473,7 +24480,7 @@ fr:blé malté concassé
 
 <en:malted barley
 en:barley malt extract
-bg:екстракт от ечемичен малц
+bg:екстракт от ечемичен малц, ечемичен малцов екстракт
 ca:extracte de malta d'ordi
 cs:sladový výtažek z ječmene
 da:bygmaltekstrakt
@@ -32394,6 +32401,7 @@ fr:Cacao en poudre alcalinisé
 
 <en:cocoa
 en:fat reduced cocoa, reduced fat cocoa, low fat cacao
+bg:какао с намалено съдържание на мазнини
 ca:cacau desgreixat
 da:fedtfattig kakao
 de:fettarmer Kakao, magerer Kakao
@@ -35513,7 +35521,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Dimagnesium_phosphate
 # <en:sequestrant
 en:Calcium disodium ethylenediaminetetraacetate, Calcium disodium EDTA, E385, E-385, E 385
 ar:ثنائي صوديوم كالسيوم الإيديتات
-bg:Калциев динатриев етилен диамин тетраацетат, Калциев динатриев ЕДТА, Калциево динатриев етилендиамин тетрааацетат
+bg:Калциев динатриев етилен диамин тетраацетат, Калциев динатриев ЕДТА, Калциево динатриев етилендиамин тетрааацетат, EDTA
 cs:Dvojsodnovápenatá sůl kyseliny diamintetraoctové
 da:Calciumdinatriumethylendiamintetraacetat, Calciumdinatrium-EDTA
 de:Calcium-dinatrium-ethylendiamintetraacetat, Calcium-Dinatrium-EDTA
@@ -35615,7 +35623,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Gum_arabic
 
 en:Xanthan gum, xanthan, E415, E-415, e 415
 ar:صمغ الكزانتان
-bg:Гума ксантан, Ксантанова гума, ксантан
+bg:Гума ксантан, Ксантанова гума, ксантан, ксантан гума
 ca:goma xantana, goma base
 cs:Xanthanová guma, Xanthan
 da:Xanthangummi
@@ -64903,6 +64911,7 @@ ciqual_food_name:fr:Menthe, fraîche
 
 <en:mint
 en:mint leaf, mint leaves
+bg:листа от мента
 de:Minzblätter
 es:hojas de menta, hoja de menta, menta en hojas
 fi:mintunlehti, mintunlehdet
@@ -69464,6 +69473,7 @@ nl:gemalen geëxtraheerde vanillestokjes
 <en:vanilla pod
 <en:Bourbon vanilla
 en:Bourbon vanilla beans, vanilla bean Bourbon, bourbon vanilla bean, Bourbon vanilla pods
+bg:Бурбонски ванилени шушулки
 de:Bourbon-Vanilleschote
 fi:bourbon-vaniljakodat
 fr:gousses de vanille bourbon, fève de vanille bourbon
@@ -81051,6 +81061,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Coffea_canephora
 
 <en:coffee
 en:coffee beans
+bg:кафе на зърна
 de:Kaffeebohnen
 es:Granos de café
 fi:kahvipavut
@@ -81629,6 +81640,7 @@ fr:viande de volaille traitée en salaison
 <en:poultry
 # <en:skin
 en:poultry skin
+bg:птича кожа
 de:Geflügelhaut
 es:Piel de ave
 fi:siipikarjan nahka
@@ -81942,6 +81954,7 @@ ciqual_food_name:fr:Foie, poulet, cru
 
 <en:poultry skin
 en:chicken skin
+bg:пилешка кожа
 de:Poulethaut
 es:piel de pollo
 fi:kanannahka
