@@ -121,8 +121,8 @@ sub start_authorize ($request_ref) {
 	}
 
 	# get main OIDC client (keycloak)
-	my $client = _get_client();
-	my $redirect_url = $client->uri_to_redirect(
+	my $current_client = _get_client();
+	my $redirect_url = $current_client->uri_to_redirect(
 		redirect_uri => $callback_uri,
 		scope => q{openid profile offline_access},
 		state => $nonce,
@@ -154,13 +154,13 @@ sub signin_callback ($request_ref) {
 
 	my $code = single_param('code');
 	my $state = single_param('state');
-	my $time = time();
-	my $client = _get_client();
+	my $time = time;
+	my $current_client = _get_client();
 	# access token shall have been set by OIDC service, get it
-	my $access_token = $client->get_access_token(
+	my $access_token = $current_client->get_access_token(
 		code => $code,
 		redirect_uri => $callback_uri,
-	) or display_error_and_exit($client->errstr, 500);
+	) or display_error_and_exit($current_client->errstr, 500);
 	$log->info('got access token during callback', {access_token => $access_token}) if $log->is_info();
 
 	my %cookie_ref = cookie($cookie_name);
@@ -220,7 +220,7 @@ We support this to enable passing user and password in the request json. This is
 
 =head3 Return Values
 
-A list containing the user's ID, refresh token, refresh token expiration time, access token, and access token expiration time.
+A list containing the user's ID, refresh token, refresh token expiration time, access token, access token expiration time, and the ID token
 =cut
 
 sub password_signin ($username, $password) {
@@ -228,7 +228,7 @@ sub password_signin ($username, $password) {
 		return;
 	}
 
-	my $time = time();
+	my $time = time;
 	my $access_token = get_token_using_password_credentials($username, $password);
 	unless ($access_token) {
 		return;
@@ -249,7 +249,8 @@ sub password_signin ($username, $password) {
 		$time + $access_token->{refresh_expires_in},
 		$access_token->{access_token},
 		# use absolute time instead of relative time
-		$time + $access_token->{expires_in}
+		$time + $access_token->{expires_in},
+		$id_token
 	);
 }
 
@@ -312,10 +313,10 @@ A list containing the user's ID, new refresh token, refresh token expiration tim
 =cut
 
 sub refresh_access_token ($refresh_token) {
-	my $time = time();
-	my $client = _get_client();
-	my $access_token = $client->refresh_access_token(refresh_token => $refresh_token,)
-		or die $client->errstr;
+	my $time = time;
+	my $current_client = _get_client();
+	my $access_token = $current_client->refresh_access_token(refresh_token => $refresh_token,)
+		or die $current_client->errstr;
 
 	$log->info('refreshed access token', {access_token => $access_token}) if $log->is_info();
 	return (
@@ -356,7 +357,7 @@ sub access_to_protected_resource ($request_ref) {
 	}
 
 	# refresh access token if it has already expired
-	if ((defined $access_expires_at) and ($access_expires_at < time())) {
+	if ((defined $access_expires_at) and ($access_expires_at < time)) {
 		($refresh_token, $refresh_expires_at, $access_token, $access_expires_at) = refresh_access_token($refresh_token);
 		unless ($access_token) {
 			start_authorize($request_ref);
@@ -388,8 +389,9 @@ None
 sub start_signout ($request_ref) {
 	# compute return_url, so that after sign out, user will be redirected to the home page
 	my $return_url = single_param('return_url');
+	die $return_url if defined $return_url;
 	if (   (not $return_url)
-		or (not($return_url =~ /^https?:\/\/$subdomain\.$server_domain/)))
+		or (not($return_url =~ /^https?:\/\/$subdomain\.$server_domain/sxm)))
 	{
 		$return_url = $formatted_subdomain;
 	}
