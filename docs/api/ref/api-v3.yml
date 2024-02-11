@@ -248,9 +248,9 @@ paths:
                         items:
                           type: string
                       matched_synonyms:
-                        type: array
-                        description: Array of strings, which are the synonyms the search best matched to, with indices corresponding with the canonical names in the suggestions field.
-                        items:
+                        type: object
+                        description: Dictionary of strings associating canonical names (as seen in suggestions field) with the synonym that best matches the query. An entry is present for all suggestions, even when the synonym is the same with the canonical name.
+                        additional_properties:
                           type: string
       operationId: get-api-v3-taxonomy_suggestions-taxonomy
       description: |-
