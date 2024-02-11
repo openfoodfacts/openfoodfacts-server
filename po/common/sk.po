@@ -607,7 +607,7 @@ msgstr ""
 
 msgctxt "emb_codes_s"
 msgid "traceability code"
-msgstr ""
+msgstr "kód vysledovateľnosti"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
@@ -616,7 +616,7 @@ msgstr ""
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
 msgid "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
-msgstr ""
+msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
@@ -632,7 +632,7 @@ msgstr ""
 
 msgctxt "error"
 msgid "Error"
-msgstr ""
+msgstr "Chyba"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
@@ -1542,7 +1542,7 @@ msgstr ""
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
-msgstr ""
+msgstr "na jednu porciu"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
@@ -1760,7 +1760,7 @@ msgstr ""
 
 msgctxt "product_add_nutrient"
 msgid "Add a nutrient"
-msgstr ""
+msgstr "Pridajte živinu"
 
 msgctxt "product_added"
 msgid "Product added on"
@@ -1924,7 +1924,7 @@ msgstr ""
 
 msgctxt "products_stats_created_t"
 msgid "Products"
-msgstr ""
+msgstr "Výrobky"
 
 msgctxt "products_with_nutriments"
 msgid "with nutrition facts"
@@ -1980,7 +1980,7 @@ msgstr ""
 
 msgctxt "reset_password"
 msgid "Reset password"
-msgstr ""
+msgstr "Obnoviť heslo"
 
 msgctxt "reset_password_email_body"
 msgid "Hello <NAME>,\n\n"
@@ -2321,7 +2321,7 @@ msgstr ""
 
 msgctxt "serving_size"
 msgid "Serving size"
-msgstr ""
+msgstr "Veľkosť porcie"
 
 msgctxt "serving_size_prepared"
 msgid "Prepared serving size"
@@ -2413,7 +2413,7 @@ msgstr ""
 
 msgctxt "stores"
 msgid "Stores"
-msgstr ""
+msgstr "Obchody"
 
 msgctxt "stores_note"
 msgid "Name of the shop or supermarket chain"
@@ -2429,7 +2429,7 @@ msgstr ""
 
 msgctxt "stores_s"
 msgid "store"
-msgstr ""
+msgstr "obchod"
 
 msgctxt "stores_tagsinput"
 msgid "add a store"
@@ -2494,7 +2494,7 @@ msgstr ""
 
 msgctxt "unknown"
 msgid "Unknown"
-msgstr ""
+msgstr "Neznámy"
 
 msgctxt "unknown_nutrients_p"
 msgid "unknown nutrients"
@@ -3383,7 +3383,7 @@ msgstr ""
 
 msgctxt "fields_group_origins"
 msgid "Origins"
-msgstr ""
+msgstr "Pôvod"
 
 msgctxt "fields_group_ingredients"
 msgid "Ingredients"
@@ -4258,7 +4258,7 @@ msgstr ""
 
 msgctxt "done_status"
 msgid "Done"
-msgstr ""
+msgstr "Hotovo"
 
 msgctxt "to_do_status"
 msgid "To do"
@@ -6135,32 +6135,32 @@ msgstr ""
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_very_good_match"
 msgid "Very good match"
-msgstr ""
+msgstr "Veľmi dobrá zhoda"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_good_match"
 msgid "Good match"
-msgstr ""
+msgstr "Dobrá zhoda"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_poor_match"
 msgid "Poor match"
-msgstr ""
+msgstr "Slabá zhoda"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_unknown_match"
 msgid "Unknown match"
-msgstr ""
+msgstr "Neznáma zhoda"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_may_not_match"
 msgid "May not match"
-msgstr ""
+msgstr "Nemusí sa zhodovať"
 
 # The translation needs to be short as it is displayed at the top of small product cards
 msgctxt "products_match_does_not_match"
 msgid "Does not match"
-msgstr ""
+msgstr "Nezhoduje sa"
 
 msgctxt "reset_preferences"
 msgid "Use default preferences"
