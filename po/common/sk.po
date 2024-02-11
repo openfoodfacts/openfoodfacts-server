@@ -61,11 +61,11 @@ msgstr "Pridajte sa k nám na Slack"
 
 msgctxt "add_user_join_the_project"
 msgid "%s is a collaborative project to which you can bring much more than new products: your energy, enthusiasm and ideas!"
-msgstr ""
+msgstr "%s je spoločný projekt, do ktorého môžete priniesť oveľa viac než len nové produkty: vašu energiu, nadšenie a nápady!"
 
 msgctxt "add_user_join_us_on_slack"
 msgid "We use a discussion system called Slack where all project participants can exchange and collaborate. Please join! We would be happy to know you!"
-msgstr ""
+msgstr "Používame diskusný systém s názvom Slack, kde sa všetci účastníci projektu môžu vymieňať a spolupracovať. Pridajte sa prosím! Budeme radi, ak vás spoznáme!"
 
 msgctxt "add_user_you_can_edit_pro"
 msgid "You can now easily import your product data and photos."
@@ -73,7 +73,7 @@ msgstr "Teraz môžete jednoducho importovať údaje a fotky o vašich produktoc
 
 msgctxt "add_user_you_can_edit_pro_promo"
 msgid "You can now add and edit your products and import their data and photos on our free <a href=\"%s\">platform for producers</a>."
-msgstr ""
+msgstr "Teraz môžete pridávať a upravovať svoje produkty a importovať ich údaje a fotografie na našej bezplatnej platforme <a href=\"%s\">pre výrobcov</a>."
 
 msgctxt "add_user_existing_org"
 msgid "There is already an existing organization with the name %s."
@@ -81,35 +81,35 @@ msgstr "Organizácia s názvom %s už existuje."
 
 msgctxt "add_user_existing_org_pending"
 msgid "Your request to join the organization is pending approval of the organization administrator."
-msgstr ""
+msgstr "Vaša žiadosť o pripojenie k organizácii čaká na schválenie administrátorom organizácie."
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
-msgstr ""
+msgstr "Stav správcu bol aktualizovaný"
 
 msgctxt "admin_status"
 msgid "Admin Status"
-msgstr ""
+msgstr "Stav správcu"
 
 msgctxt "grant_remove_admin_status"
 msgid "Grant/Remove Admin status"
-msgstr ""
+msgstr "Udeliť/Odstrániť stav správcu"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr ""
+msgstr "Ak máte akékoľvek otázky, pošlite e-mail na <a href=\"mailto:producers@openfoodfacts.org\">productions@openfoodfacts.org</a> ."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
-msgstr ""
+msgstr "Ak pracujete pre výrobcu alebo značku a pridávate alebo dopĺňate údaje iba pre svoje vlastné produkty, môžete získať prístup k našej úplne bezplatnej platforme pre výrobcov."
 
 msgctxt "producers_platform_description_long"
 msgid "The platform for producers allows manufacturers to easily import data and photos for all their products, to mark them as official, and to get free analysis of improvement opportunities for their products."
-msgstr ""
+msgstr "Platforma pre výrobcov umožňuje výrobcom jednoducho importovať údaje a fotografie pre všetky svoje produkty, označiť ich ako oficiálne a získať bezplatnú analýzu príležitostí na zlepšenie ich produktov."
 
 msgctxt "pro_account"
 msgid "Professional account"
-msgstr ""
+msgstr "Profesionálny účet"
 
 msgctxt "this_is_a_pro_account"
 msgid "This is a producer or brand account."
@@ -117,48 +117,48 @@ msgstr "Toto je účet výrobcu alebo značky."
 
 msgctxt "producer_or_brand"
 msgid "Name of producer or name of brand"
-msgstr ""
+msgstr "Názov výrobcu alebo názov značky"
 
 msgctxt "error_missing_org"
 msgid "Professional accounts must have an associated organization (company name or brand)."
-msgstr ""
+msgstr "Profesionálne účty musia mať pridruženú organizáciu (názov spoločnosti alebo značku)."
 
 msgctxt "enter_name_of_org"
 msgid "Please enter the name of your organization (company name or brand)."
-msgstr ""
+msgstr "Zadajte názov svojej organizácie (názov spoločnosti alebo značku)."
 
 msgctxt "enter_email_addresses_of_users"
 msgid "Enter email addresses of users to invite (comma-separated):"
-msgstr ""
+msgstr "Zadajte e-mailové adresy používateľov, ktorých chcete pozvať (oddeľte čiarkami):"
 
 msgctxt "f_this_is_a_pro_account_for_org"
 msgid "This account is a professional account associated with the producer or brand {org}. You have access to the Platform for Producers."
-msgstr ""
+msgstr "Tento účet je profesionálnym účtom spojeným s výrobcom alebo značkou {org}. Máte prístup k platforme pre producentov."
 
 # please check that site_name and the brackets stays intact
 msgctxt "add_user_email_subject"
 msgid "Thanks for joining <<site_name>>"
-msgstr ""
+msgstr "Ďakujeme, že ste sa pripojili <<site_name>>"
 
 msgctxt "additives_1"
 msgid "Potentially hazardous food additive. Limit usage."
-msgstr ""
+msgstr "Potenciálne nebezpečná potravinová prísada. Obmedzte používanie."
 
 msgctxt "additives_2"
 msgid "Hazardous food additive. Avoid."
-msgstr ""
+msgstr "Nebezpečná potravinová prísada. Vyhnite sa jej."
 
 msgctxt "additives_3"
 msgid "Food additive banned in Europe. Avoid at all cost."
-msgstr ""
+msgstr "Potravinová prísada zakázaná v Európe. Vyhnite sa jej za každú cenu."
 
 msgctxt "additives_p"
 msgid "additives"
-msgstr ""
+msgstr "aditíva"
 
 msgctxt "additives_s"
 msgid "additive"
-msgstr ""
+msgstr "aditívum"
 
 msgctxt "advanced_search"
 msgid "Advanced search"
@@ -170,15 +170,15 @@ msgstr "Pokročilé vyhľadávanie a grafy"
 
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
-msgstr ""
+msgstr "Nadmerné pitie je zdraviu škodlivé."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
-msgstr ""
+msgstr "Upozorňujeme, že váš účet Pro bude platný iba vtedy, ak použijete svoju profesionálnu e-mailovú adresu. Náš moderátorský tím skontroluje, či sa názov domény zhoduje s organizáciou, ku ktorej sa chcete pripojiť."
 
 msgctxt "all_missions"
 msgid "All missions"
-msgstr ""
+msgstr "Všetky misie"
 
 msgctxt "allergens"
 msgid "Substances or products causing allergies or intolerances"
@@ -190,11 +190,11 @@ msgstr ""
 
 msgctxt "allergens_s"
 msgid "allergen"
-msgstr ""
+msgstr "Alergén"
 
 msgctxt "also_edited_by"
 msgid "Product page also edited by"
-msgstr ""
+msgstr "Stránku produktu tiež upravil"
 
 msgctxt "android_apk_app_icon_url"
 msgid "/images/misc/android-apk.svg"
@@ -207,7 +207,7 @@ msgstr ""
 # DO NOT TRANSLATE
 msgctxt "android_apk_app_link"
 msgid "https://world.openfoodfacts.org/files/off.apk"
-msgstr ""
+msgstr "https://world.openfoodfacts.org/files/off.apk"
 
 # Please change en_get.svg to fr_get.svg. check the url https://static.openfoodfacts.org/images/misc/playstore/img/XX_get.svg
 msgctxt "android_app_icon_url"
@@ -226,27 +226,28 @@ msgstr "https://play.google.com/store/apps/details?id=org.openfoodfacts.scanner&
 msgctxt "app_please_take_pictures"
 msgid "<p>This product is not yet in the <<site_name>> database. Could you please take some pictures of the product, barcode, ingredients list and nutrition facts to add it on <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
 "<p>Thanks in advance!</p>\n"
-msgstr ""
+msgstr "<p>Tento produkt ešte nie je v databáze <<site_name>>. Mohli by ste, prosím, odfotiť produkt, čiarový kód, zoznam zložiek a výživové údaje a pridať ich na <a href=\"https://world.openfoodfacts.org\" target=\"_blank\"><<site_name>></a>?</p>\n"
+"<p>Vopred ďakujeme!</p>\n"
 
 msgctxt "app_take_a_picture"
 msgid "Take a picture"
-msgstr ""
+msgstr "Odfotiť"
 
 msgctxt "app_take_a_picture_note"
 msgid "Note: the pictures you send are published under the free licence Creative Commons Attribution and ShareAlike."
-msgstr ""
+msgstr "Poznámka: Vami odoslané obrázky sú publikované pod bezplatnou licenciou Creative Commons Attribution a ShareAlike."
 
 msgctxt "app_you_can_add_pictures"
 msgid "You can add pictures:"
-msgstr ""
+msgstr "Môžete pridať obrázky:"
 
 msgctxt "axis_x"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Horizontálna os"
 
 msgctxt "axis_y"
 msgid "Vertical axis"
-msgstr ""
+msgstr "Vertikálna os"
 
 msgctxt "barcode"
 msgid "Barcode"
@@ -254,23 +255,23 @@ msgstr "Čiarový kód"
 
 msgctxt "barcode_number"
 msgid "Barcode number:"
-msgstr ""
+msgstr "Číslo čiarového kódu:"
 
 msgctxt "you_can_also_help_us"
 msgid "You can also help to fund the Open Food Facts project"
-msgstr ""
+msgstr "Môžete tiež prispieť k financovaniu projektu Open Food Facts"
 
 msgctxt "producers_administration_manual"
 msgid "Producers Admin manual"
-msgstr ""
+msgstr "Manuál správcu producentov"
 
 msgctxt "bottom_content"
 msgid "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> is made by a non-profit association, independent from the industry. It is made for all, by all, and it is funded by all. You can support our work by <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">donating to Open Food Facts</a> and also by <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">using the Lilo search engine</a>.<br/><b>Thank you!</b></p>"
-msgstr ""
+msgstr "<a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\"><img src=\"https://static.openfoodfacts.org/images/svg/donate-icon.svg\" alt=\"Donate to Open Food Facts\" /></a><p><<site_name>> vytvorilo neziskové združenie nezávislé od odvetvia. Je vyrobený pre všetkých, všetkými a je financovaný všetkými. Našu prácu môžete podporiť <a href=\"https://world.openfoodfacts.org/donate-to-open-food-facts?utm_source=login-open-food-facts\">príspevkom na Open Food Facts</a> a tiež <a href=\"https://www.lilo.org/fr/open-food-facts/?utm_source=open-food-facts\">pomocou vyhľadávača Lilo</a>.<br/><b>Ďakujeme!</b></p>"
 
 msgctxt "bottom_title"
 msgid "Donate to support our work"
-msgstr ""
+msgstr "Prispejte na podporu našej práce"
 
 msgctxt "brands"
 msgid "Brands"
@@ -422,7 +423,7 @@ msgstr ""
 
 msgctxt "countries"
 msgid "Countries where sold"
-msgstr ""
+msgstr "Krajiny, kde sa predáva"
 
 msgctxt "countries_note"
 msgid "Countries where the product is widely available (not including stores specialising in foreign products)"
@@ -530,7 +531,7 @@ msgstr ""
 
 msgctxt "edit_product"
 msgid "Edit a product"
-msgstr ""
+msgstr "Upraviť produkt"
 
 msgctxt "edit_product_page"
 msgid "Edit the page"
@@ -1001,7 +1002,7 @@ msgstr ""
 
 msgctxt "incomplete_products_you_added"
 msgid "Products you added that need to be completed"
-msgstr ""
+msgstr "Produkty, ktoré ste pridali a ktoré je potrebné dokončiť"
 
 msgctxt "informers_p"
 msgid "informers"
@@ -1931,7 +1932,7 @@ msgstr ""
 
 msgctxt "products_you_edited"
 msgid "Products you added or edited"
-msgstr ""
+msgstr "Produkty, ktoré ste pridali alebo upravili"
 
 msgctxt "purchase_places"
 msgid "City, state and country where purchased"
@@ -2376,7 +2377,7 @@ msgstr ""
 
 msgctxt "sort_by"
 msgid "Sort by"
-msgstr ""
+msgstr "Zoradiť podľa"
 
 msgctxt "sort_completeness"
 msgid "Completeness"
@@ -2830,11 +2831,11 @@ msgstr ""
 
 msgctxt "adults"
 msgid "Adults"
-msgstr ""
+msgstr "Dospelí"
 
 msgctxt "adults_age"
 msgid "18 to 64"
-msgstr ""
+msgstr "18 až 64"
 
 msgctxt "adults_description"
 msgid "From 18 years up to and including 64 years of age"
@@ -2842,11 +2843,11 @@ msgstr ""
 
 msgctxt "elderly"
 msgid "Elderly"
-msgstr ""
+msgstr "Starší"
 
 msgctxt "elderly_age"
 msgid "65+"
-msgstr ""
+msgstr "65+"
 
 msgctxt "elderly_description"
 msgid "From 65 years of age and older"
@@ -2854,11 +2855,11 @@ msgstr ""
 
 msgctxt "adolescents"
 msgid "Adolescents"
-msgstr ""
+msgstr "Dospievajúci"
 
 msgctxt "adolescents_age"
 msgid "10 to 17"
-msgstr ""
+msgstr "10 až 17"
 
 msgctxt "adolescents_description"
 msgid "From 10 years up to and including 17 years of age"
@@ -2866,11 +2867,11 @@ msgstr ""
 
 msgctxt "children"
 msgid "Children"
-msgstr ""
+msgstr "Deti"
 
 msgctxt "children_age"
 msgid "3 to 9"
-msgstr ""
+msgstr "3 až 9"
 
 msgctxt "children_description"
 msgid "From 36 months up to and including 9 years of age"
@@ -2878,11 +2879,11 @@ msgstr ""
 
 msgctxt "toddlers"
 msgid "Toddlers"
-msgstr ""
+msgstr "Batoľatá"
 
 msgctxt "toddlers_age"
 msgid "1 to 2"
-msgstr ""
+msgstr "1 až 2"
 
 msgctxt "toddlers_description"
 msgid "From 12 months up to and including 35 months of age"
@@ -2890,7 +2891,7 @@ msgstr ""
 
 msgctxt "infants"
 msgid "Infants"
-msgstr ""
+msgstr "Dojčatá"
 
 msgctxt "infants_age"
 msgid "< 1"
@@ -2930,11 +2931,11 @@ msgstr ""
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_high"
 msgid "High risk of over exposure"
-msgstr ""
+msgstr "Vysoké riziko nadmernej expozície"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_moderate"
 msgid "Moderate risk of over exposure"
-msgstr ""
+msgstr "Mierne riziko nadmernej expozície"
 
 msgctxt "additives_efsa_evaluation_overexposure_risk_icon_alt_no"
 msgid "No or very low risk of over exposure"
@@ -4678,7 +4679,7 @@ msgstr ""
 
 msgctxt "attribute_additives_name"
 msgid "Additives"
-msgstr ""
+msgstr "Prísady"
 
 msgctxt "attribute_additives_setting_name"
 msgid "No or few additives"
