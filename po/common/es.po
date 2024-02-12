@@ -174,7 +174,7 @@ msgstr "El exceso de alcohol es perjudicial para la salud."
 
 msgctxt "email_warning"
 msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
-msgstr "Tenga en cuenta que su cuenta Pro solo será válida si utiliza su dirección de correo electrónico profesional. Nuestro equipo de moderación verifica que el nombre de dominio coincida con la organización a la que desea unirse."
+msgstr "Ten en cuenta que tu cuenta Pro solamente será válida si utilizas tu dirección de correo electrónico profesional. Nuestro equipo de moderación comprobará que el nombre del dominio coincide con la organización a la que deseas unirte."
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -488,10 +488,6 @@ msgstr "Eliminar un usuario"
 msgctxt "delete_confirmation"
 msgid "This will delete your user details and anonymise all of your contributions. Please re-enter your user name to confirm."
 msgstr "Esto eliminará sus datos de usuario y anonimizará todas sus contribuciones. Vuelva a ingresar su nombre de usuario para confirmar."
-
-msgctxt "description"
-msgid "Description"
-msgstr "Descripción"
 
 msgctxt "danger_zone"
 msgid "Danger Zone"
@@ -3922,7 +3918,7 @@ msgstr "Detalles del cálculo del Nutri-Score"
 
 msgctxt "nutriscore_is_beverage"
 msgid "This product is considered a beverage for the calculation of the Nutri-Score."
-msgstr "Este producto se considera una bebida para el cálculo de la Nutri-Score."
+msgstr "Este producto se considera una bebida para el cálculo del Nutri-Score."
 
 msgctxt "nutriscore_is_not_beverage"
 msgid "This product is not considered a beverage for the calculation of the Nutri-Score."
@@ -6585,6 +6581,10 @@ msgctxt "faq_for_producers"
 msgid "FAQ for producers"
 msgstr "Preguntas frecuentes para productores"
 
+msgctxt "join_the_next_pros_meet_up"
+msgid "Join the next Pros' Meet-up"
+msgstr "Participa en el próximo encuentro de profesionales"
+
 # variable names between { } must not be translated
 msgctxt "product_js_enter_value_between_0_and_max"
 msgid "Please enter a value between 0 and {max}."
@@ -6724,59 +6724,59 @@ msgstr "Ausencia"
 
 msgctxt "nutriscore_is_water"
 msgid "This product is considered to be water for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Este producto se considera agua para el cálculo del Nutri-Score."
 
 msgctxt "nutriscore_is_fat_oil_nuts_seeds"
 msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Este producto se considera grasa, aceite, frutos secos o semillas para el cálculo del Nutri-Score."
 
 msgctxt "nutriscore_is_cheese"
 msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Este producto se considera queso para el cálculo del Nutri-Score."
 
 msgctxt "nutriscore_is_red_meat_product"
 msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
-msgstr ""
+msgstr "Este producto se considera un producto de carne roja para el cálculo del Nutri-Score."
 
 msgctxt "nutriscore_count_proteins_reason_beverage"
 msgid "Points for proteins are counted because the product is considered to be a beverage."
-msgstr ""
+msgstr "Los puntos por proteínas se contabilizan porque el producto se considera una bebida."
 
 msgctxt "nutriscore_count_proteins_reason_cheese"
 msgid "Points for proteins are counted because the product is considered to be cheese."
-msgstr ""
+msgstr "Los puntos por proteínas se contabilizan porque el producto se considera queso."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
 msgid "Points for proteins are counted because the negative points are less than 7."
-msgstr ""
+msgstr "Los puntos por proteínas se contabilizan porque los puntos negativos son menos de 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
 msgid "Points for proteins are counted because the negative points are less than 11."
-msgstr ""
+msgstr "Los puntos por proteínas se contabilizan porque los puntos negativos son menos de 11."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
-msgstr ""
+msgstr "Los puntos por proteínas no se contabilizan porque los puntos negativos son más o igual que 7."
 
 msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
 msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
-msgstr ""
+msgstr "Los puntos por proteínas no se contabilizan porque los puntos negativos son más o igual que 11."
 
 msgctxt "nutriscore_explanation_what_it_is"
 msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
-msgstr ""
+msgstr "El Nutri-Score es un logotipo que indica la calidad nutricional general de los productos alimenticios."
 
 msgctxt "nutriscore_explanation_what_it_takes_into_account"
 msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
-msgstr ""
+msgstr "La puntuación de la A a la E se calcula según los nutrientes y alimentos que se deberían favorecer (proteínas, fibra, frutas, verduras, legumbres…) y según los nutrientes que se deberían limitar (calorías, grasas saturadas, azúcares, sal)."
 
 msgctxt "nutriscore_explanation_where_the_data_comes_from"
 msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
-msgstr ""
+msgstr "La puntuación se calcula a partir de los datos de la tabla de información nutricional y los datos sobre la composición del producto (frutas, verduras y legumbres)."
 
 msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
 msgid "The display of this logo is recommended by public health authorities without obligation for companies."
-msgstr ""
+msgstr "Las autoridades de salud pública recomiendan a las empresas que muestren en sus productos este logotipo, pero no es una obligación."
 
 msgctxt "nutriscore_explanation_title"
 msgid "What is the Nutri-Score?"
@@ -6784,7 +6784,7 @@ msgstr "¿Qué es el Nutri-Score?"
 
 msgctxt "nutrient_info_energy_risk"
 msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
-msgstr ""
+msgstr "El consumo de energía por encima de las necesidades energéticas se asocia con un mayor riesgo de aumento de peso, sobrepeso, obesidad y, en consecuencia, con el riesgo de enfermedades crónicas relacionadas con la dieta."
 
 msgctxt "nutrient_info_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
@@ -6800,17 +6800,17 @@ msgstr "Un alto consumo de grasas, especialmente grasas saturadas, puede elevar 
 
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
-msgstr ""
+msgstr "Los edulcorantes no nutritivos pueden no aportar ningún beneficio a largo plazo en la reducción de la grasa corporal en adultos o niños. Además, puede haber posibles efectos adversos por el uso prolongado de edulcorantes no nutritivos, como un mayor riesgo de diabetes tipo 2 o enfermedades cardiovasculares en adultos."
 
 msgctxt "nutrient_info_fiber_benefit"
 msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "El consumo habitual de alimentos ricos en fibra (especialmente alimentos integrales) reduce el riesgo de sufrir cáncer de las vías aerodigestivas, enfermedades cardiovasculares, obesidad o diabetes."
 
 msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
 msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
-msgstr ""
+msgstr "El consumo de frutas, verduras y legumbres, o productos que contengan altas cantidades de estos alimentos, puede reducir el riesgo de sufrir cáncer de las vías aerodigestivas, enfermedades cardiovasculares, obesidad o diabetes."
 
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
-msgstr ""
+msgstr "Los alimentos ricos en proteínas, por lo general, suelen ser ricos en calcio o hierro, que son dos minerales esenciales con numerosos beneficios para la salud."
 
