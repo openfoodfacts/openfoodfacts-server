@@ -329,7 +329,7 @@ my $tests_ref = [
 		path => '/contributor/alice/label/organic.json?fields=product_name',
 		expected_status_code => 200,
 		sort_products_by => 'product_name',
-	},	
+	},
 	# accented facet value in German
 	{
 		test_case => 'de-accented-cafe-label',
