@@ -1096,6 +1096,10 @@ es:triple concentrado
 fr:triple concentré
 it:triplo concentrato
 nl:drievoudig geconcentreerd
+pl:potrójnie skoncentrowany
+pt:triplo concentrado
+ru:тройной концентрат
+sv:trippelkoncentrerad
 
 # <en:concentrated
 de:200fach konzentriertes
@@ -1433,6 +1437,17 @@ en:extruded
 de:extrudiert, extrudierte, extrudierter, extrudiertes, extrudierten, extrudiertem
 fr:extrudé
 hr:ekstrudirane
+bg:екструдиран, екструдирано, екструдирана, екструдирани
+ca:extrudit
+da:ekstruderet, ekstruderede
+es:extruido, extruida, extruidos, extruidas
+hu:extrudált
+it:estruso, estrusa, estrusi, estruse
+nb:ekstrudert, ekstruderte
+nl:geëxtrudeerd
+pl:wytłoczony, wytłoczona, wytłoczone, wytłoczeni
+pt:extrudido, extrudida, extrudidos, extrudidas
+sv:extruderad, extruderade
 
 #fr:obtenu par extraction hydrique
 
@@ -1761,12 +1776,21 @@ pl:dmuchany, dmuchane, dmuchana, preparowany, preparowana, preparowane, ekspando
 se:puffat
 
 en:pre-fried, prefried
-es:prefrito,prefrita,prefritos,prefritas
+es:prefrito, prefrita, prefritos, prefritas
 fr:pré-frit, pré-frite, pré-frits, pré-frites, préfrit, préfrite, préfrits, préfrites
 hu:elősütött
 pl:podsmażone, podsmażane, podsmażona, podsmażana, podsmażony, podsmażany
 pt:pré-frito, pré-frita, pré-fritos, pré-fritas
 sv:förfriterad
+bg:предварително пържени, предварително пържено, предварително пържена, предварително пържени
+ca:pre-fregit, pre-fregides
+da:forstegt
+de:vorgebraten, vorgebratene, vorgebratener, vorgebratenes
+hr:prepržene, prepržena, preprženi, preprženo, preprženog
+it:pre-fritto, pre-fritta, pre-fritti, pre-fritte
+ja:事前に揚げた, 事前に炒めた
+nl:vooraf gefrituurd, vooraf gefrituurde
+ro:pre-prăjit, pre-prăjită, pre-prăjiți, pre-prăjite
 
 en:fried
 bg:пържено, пържен, пържена, пържени
@@ -1836,6 +1860,11 @@ sl:praženi
 
 en:untoasted
 nl:ongeroosterd, ongebrand, ongebrande
+de:ungeröstet, ungeröstete, ungerösteter, ungeröstetes
+es:sin tostar
+fr:non grillé, non grillée, non grillés, non grillées
+it:non tostato, non tostata, non tostati, non tostate
+pt:não torrado, não torrada, não torrados, não torradas
 
 #<en:toasted
 en:dark toasted
@@ -1869,6 +1898,11 @@ fr:fondu, fondue, fondus, fondues
 hr:topljenih
 pl:topiony, topiona, topione
 pt:fundido, fundida, fundidos, fundidas
+nl:gesmolten
+de:geschmolzen, geschmolzene, geschmolzenes
+it:fuso, fusa, fusi, fuse
+ja:溶けた
+sv:smält, smälta, smälta, smälta
 
 
 #######################################################################
@@ -1881,17 +1915,19 @@ pt:fundido, fundida, fundidos, fundidas
 # Is mainly used for rice/flour and pasta
 en:enriched
 #en:false_positive:enriched with thiamin
-de:angereichert
+de:angereichert, angereicherte, angereichertes, angereicherten
 es:enriquecida
 #de:comment:Can also appear in combinations: de:Eiweißangereichertes
 fr:enrichi, enrichie, enrichis, enrichies
 hr:obogačena
-nl:verrijkt
+nl:verrijkt, verrijkte, verrijkt, verrijkte
 pl:wzbogacany, wzbogacana, wzbogacane, wzbogacanej, wzbogacanego, wzbogacanych, fortyfikowany, fortyfikowana, fortyfikowane
 pt:enriquecido, enriquecida, enriquecidos, enriquecidas, enriquecido com, enriquecida com, enriquecidos com, enriquecidas com, enriquecido em, enriquecida em, enriquecidos em, enriquecidas em
 
 en:fortified
 fr:fortifié, fortifiée, fortifiés, fortifiées
+es:fortificado, fortificada, fortificados, fortificadas
+pt:fortificado, fortificada, fortificados, fortificadas
 
 #<en:unadded
 en:unenriched
@@ -1899,9 +1935,17 @@ en:unenriched
 en:bromated
 es:bromado
 pt:bromado
+nl:gebromeerd
+de:bromiert, bromierte, bromiertes
+fr:bromé, bromée, bromés, bromées
+it:bromato, bromata, bromati, bromate
 
 #<en:unadded
 en:unbromated, un-bromated
+es:sin bromato
+ca:sense bromat
+pt:sem bromato
+fr:sans bromate
 
 en:covered,coated
 es:cobertura
@@ -2016,6 +2060,11 @@ sv:sockrad
 
 #<en:sugared
 de:leicht gezuckert, leicht gezuckerte, leicht gezuckerter, leicht gezuckertes
+fr:légèrement sucré, légèrement sucrée, légèrement sucrés, légèrement sucrées
+es:ligeramente azucarado, ligeramente azucarada, ligeramente azucarados, ligeramente azucaradas
+it:leggermente zuccherato, leggermente zuccherata, leggermente zuccherati, leggermente zuccherate
+nl:licht gezoet, licht gezoete, licht gezoeter, licht gezoet
+pt:levemente açucarado, levemente açucarada, levemente açucarados, levemente açucaradas
 
 # In French, "confit" means candied, or cooked in fat (canard confit), or preserved in salted water (citron confit)
 #<en:sugared
@@ -2036,6 +2085,8 @@ sv:kanderad, kanderade
 #<en:candied
 en:semi candied, semi-candied
 fr:semi-confit, semi confit
+de:halb kandiert, halb kandierte, halb kandierter, halb kandiertes
+sv:halv kanderad, halv kanderade, halv kanderade, halv kanderade
 
 #en:crystallized
 en:crystallized
@@ -2148,6 +2199,10 @@ sv:mältat
 fr:non-maltées
 pl:niesłodowana, niesłodowany, niesłodowane
 pt:não maltado, não maltada, sem malte
+es:no malteado, no malteada, sin malta
+de:nicht gemälzt, nicht gemälzte, nicht gemälztes
+nl:niet gemout, niet gemoute, niet gemouten
+it:non maltato, non maltata, senza malto
 
 en:deodorized
 ca:desodoritzat
@@ -2164,6 +2219,9 @@ en:non-deodorized
 fr:non-désodorisée
 it:non deodorizzato, non deodorizzata, non deodorizzati, non deodorizzate
 pt:não desodorizado, não desodorizada, não desodorizados, não desodorizadas
+es:no desodorizado, no desodorizada, no desodorizados, no desodorizadas
+de:nicht desodoriert, nicht desodorierte, nicht desodorierten, nicht desodoriertes
+nl:niet ontgeurd, niet ontgeurde, niet ontgeurden, niet ontgeurdes
 
 #en:comment:http://animalsmart.org/feeding-the-world/food-safety/rbst
 en:rbst-free
@@ -2196,6 +2254,11 @@ es:no irradiado, no tratado con irradiación, sin irradiación
 de:nicht bestrahlt, nicht mit Bestrahlung behandelt, ohne Bestrahlung
 it:non irradiato, non trattato con irradiazione, senza irradiazione
 pt:não irradiado, não tratado com irradiação, sem irradiação
+hr:neozrađen, neobrađen zračenjem, bez zračenja
+bg:неподложен на облъчване, без облъчване
+ca:no irradiat, no tractat amb irradiació, sense irradiació
+nl:niet bestraald, niet behandeld met bestraling, zonder bestraling
+
 
 #en:description:complete or partial removal of impurities in sugars, oils, fats and other natural materials by chemical/physical treatment
 en:refined, partially refined
@@ -2231,6 +2294,9 @@ es:homogeneizado
 it:omogeneizzato
 nl:gehomogeniseerd
 pt:homogeneizado
+ro:omogenizat
+de:homogenisiert
+pl:homogenizowany
 wikipedia:en:https://en.wikipedia.org/wiki/Homogenization_(chemistry)
 wikidata:en:Q1165158
 
@@ -2340,6 +2406,21 @@ pl:aromatyzowany, aromatyzowana, aromatyzowane, przyprawiony, przyprawiona, przy
 pt:aromatizado, aromatizada, aromatizados, aromatizadas
 
 en:unflavoured, unflavoured
+bg:без аромат, без аромат
+ca:sense sabor, sense sabor
+da:usmaget, usmaget
+de:ungewürzt, ungewürzt
+es:sin sabor, sin sabor
+fi:maustamaton, maustamaton
+fr:sans arôme, sans arôme
+hr:nezačinjen, nezačinjen
+hu:ízetlen, ízetlen
+it:senza aroma, senza aroma
+ja:無味, 無味
+nl:ongearomatiseerd, ongearomatiseerd
+pl:bez smaku, bez smaku
+pt:sem sabor, sem sabor
+sv:osmakad, osmakad
 
 # en:comment:Do NOT add smoke as a process, as this is often a separate ingredient.
 en:smoked
@@ -2363,7 +2444,10 @@ sv:rökt
 
 #<en:smoked
 en:double smoked
-es:doble ahumado,doble ahumada,doble ahumados,doble ahumadas
+es:doble ahumado, doblemente ahumado
+fr:doublement fumé, fumé deux fois
+hu:duplán füstölt
+pt:defumado duplo, defumada dupla
 
 #<en:smoked
 en:naturally smoked, natural smoked, all natural smoked
@@ -2381,6 +2465,12 @@ pt:levemente fumado, levemente fumada, levemente fumados, levemente fumadas, lev
 #<en:smoked
 en:dry smoked
 pt:fumado a seco, fumada a seco, fumados a seco, fumadas a seco, defumado a seco, defumada a seco, defumados a seco, defumadas a seco
+es:ahumado en seco, ahumada en seco, ahumados en seco, ahumadas en seco
+fr:fumé à sec, fumée à sec, fumés à sec, fumées à sec
+de:trocken geräuchert, trocken geräucherte, trocken geräuchertes, trocken geräucherten
+it:affumicato a secco, affumicata a secco, affumicati a secco, affumicate a secco
+nl:droog gerookt, droog gerookte, droog gerooktes, droog gerookten
+pl:wędzony na sucho, wędzona na sucho, wędzone na sucho, wędzone na sucho
 
 #<en:smoked
 en:wood smoked
@@ -2421,6 +2511,9 @@ fr:fumé au bois de hêtre, fumée au bois de hêtre, fumés au bois de hêtre, 
 hu:bükkfán füstölt
 nl:gerookt op beukenhout
 sv:bokspånsrökt
+es:ahumado de haya
+it:affumicato di faggio
+pt:defumado de faia
 
 #<en:beech smoked
 en:natural beech smoked
@@ -2484,6 +2577,9 @@ de:nicht geräuchert, ungeräuchert
 it:non affumicato, non fumato
 nl:niet gerookt, ongerookt
 sv:inte rökt, omrökt
+hu:nem füstölt, füstöletlen
+pl:nie wędzony, niewędzony
+hr:ne dimljen, nedimljen
 
 #en:fibers
 
