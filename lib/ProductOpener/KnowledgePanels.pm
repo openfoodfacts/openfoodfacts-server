@@ -920,11 +920,37 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 		my $components_ref = deep_get($product_ref, "nutriscore", $version, "data", "components", $type) // [];
 		foreach my $component_ref (@$components_ref) {
 
+			my $value = $component_ref->{value};
+
+			# Specify if there is a space between the value and the unit
+			my $space_before_unit = '';
+
+			my $unit = $component_ref->{unit};
+
+			# If the value is not defined (e.g. fiber or fruits_vegetables_legumes), display "unknown" with no unit
+			if (not defined $value) {
+				$value = lc(lang_in_other_lc($target_lc, "unknown"));
+				$unit = '';
+			}
+			else {
+				# Localize the unit for the number of non-nutritive sweeteners
+				if ($component_ref->{id} eq "non_nutritive_sweeteners") {
+					$space_before_unit = ' ';
+					if ($value > 1) {
+						$unit = lang_in_other_lc($target_lc, "sweeteners");
+					}
+					else {
+						$unit = lang_in_other_lc($target_lc, "sweetener");
+					}
+				}
+			}
+
 			my $component_panel_data_ref = {
 				"type" => $type,
 				"id" => $component_ref->{id},
-				"value" => $component_ref->{value},
-				"unit" => $component_ref->{unit},
+				"value" => $value,
+				"unit" => $unit,
+				"space_before_unit" => $space_before_unit,
 				"points" => $component_ref->{points},
 				"points_max" => $component_ref->{points_max},
 			};
