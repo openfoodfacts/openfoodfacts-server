@@ -2429,47 +2429,50 @@ sub check_labels ($product_ref) {
 		= get_inherited_property_from_categories_tags($product_ref, "expected_minimal_amount_specific_ingredients:en");
 
 	# convert as a list, in case there are more than a countries having regulations
-	my @expected_minimal_amount_specific_ingredients_list = split /;/, $expected_minimal_amount_specific_ingredients;
-	foreach
-		my $expected_minimal_amount_specific_ingredients_element (@expected_minimal_amount_specific_ingredients_list)
-	{
-		# split on ", " to extract ingredient id, quantity in g and country
-		my ($specific_ingredient_id, $quantity_threshold, $country) = split /, /,
-			$expected_minimal_amount_specific_ingredients_element;
-
-		if (
-				(defined $specific_ingredient_id)
-			and (defined $quantity_threshold)
-			and (defined $country)
-			and
-			((($country eq "en:eu") and ($european_product == 1)) or (has_tag(($product_ref, "countries", $country))))
-			)
+	if (defined $expected_minimal_amount_specific_ingredients) {
+		my @expected_minimal_amount_specific_ingredients_list = split /;/,
+			$expected_minimal_amount_specific_ingredients;
+		foreach my $expected_minimal_amount_specific_ingredients_element (
+			@expected_minimal_amount_specific_ingredients_list)
 		{
-			my $specific_ingredient_quantity;
-			if (defined $product_ref->{specific_ingredients}) {
-				foreach my $specific_ingredient ($product_ref->{specific_ingredients}[0]) {
-					if (    (defined $specific_ingredient->{id})
-						and (defined $specific_ingredient->{quantity_g})
-						and ($specific_ingredient->{id} eq $specific_ingredient_id))
-					{
-						$specific_ingredient_quantity = $specific_ingredient->{quantity_g};
+			# split on ", " to extract ingredient id, quantity in g and country
+			my ($specific_ingredient_id, $quantity_threshold, $country) = split /, /,
+				$expected_minimal_amount_specific_ingredients_element;
+
+			if (
+					(defined $specific_ingredient_id)
+				and (defined $quantity_threshold)
+				and (defined $country)
+				and (  (($country eq "en:eu") and ($european_product == 1))
+					or (has_tag(($product_ref, "countries", $country))))
+				)
+			{
+				my $specific_ingredient_quantity;
+				if (defined $product_ref->{specific_ingredients}) {
+					foreach my $specific_ingredient ($product_ref->{specific_ingredients}[0]) {
+						if (    (defined $specific_ingredient->{id})
+							and (defined $specific_ingredient->{quantity_g})
+							and ($specific_ingredient->{id} eq $specific_ingredient_id))
+						{
+							$specific_ingredient_quantity = $specific_ingredient->{quantity_g};
+						}
 					}
 				}
-			}
 
-			if (defined $specific_ingredient_quantity) {
-				if ($specific_ingredient_quantity < $quantity_threshold) {
-					add_tag($product_ref, "data_quality_errors",
-							  "en:specific-ingredient-"
-							. substr($specific_ingredient_id, 3)
-							. "-quantity-is-below-the-minimum-value-of-$quantity_threshold-for-category-"
-							. substr($category_id, 3));
+				if (defined $specific_ingredient_quantity) {
+					if ($specific_ingredient_quantity < $quantity_threshold) {
+						add_tag($product_ref, "data_quality_errors",
+								  "en:specific-ingredient-"
+								. substr($specific_ingredient_id, 3)
+								. "-quantity-is-below-the-minimum-value-of-$quantity_threshold-for-category-"
+								. substr($category_id, 3));
+					}
 				}
-			}
-			else {
-				add_tag($product_ref, "data_quality_info", "en:missing-specific-ingredient-for-this-category");
-			}
+				else {
+					add_tag($product_ref, "data_quality_info", "en:missing-specific-ingredient-for-this-category");
+				}
 
+			}
 		}
 	}
 	return;
