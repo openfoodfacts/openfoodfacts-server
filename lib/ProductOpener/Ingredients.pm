@@ -2165,7 +2165,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 							}
 							# try to remove the allergens and store them as allergens
 							# in Japanese allergens are not separated from the ingredients list, instead they are in parenthesis.
-							if ($between =~ /\s*(?:>allergens<:)\s?:?\s?\b(.*)$/i) {
+							if ($between =~ /\s*(?:>allergens<:)(.*)$/i) {
 								$log->debug("parse_ingredients_text - sub-ingredients: contains allergens in $between")
 									if $log->is_debug();
 

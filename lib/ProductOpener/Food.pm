@@ -1581,7 +1581,9 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 	}
 	else {
 		# fruits, vegetables, legumes - 2023
-		my $fruits_vegetables_legumes = compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared);
+		my $fruits_vegetables_legumes
+			= round_to_max_decimal_places(compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared),
+			1);
 
 		my $is_fat_oil_nuts_seeds = is_fat_oil_nuts_seeds_for_nutrition_score($product_ref);
 		my $is_beverage = is_beverage_for_nutrition_score_2023($product_ref);
@@ -1610,7 +1612,8 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 		if ($is_fat_oil_nuts_seeds) {
 			# Add the fat and saturated fat / fat ratio
 			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared . "_100g"};
-			$nutriscore_data_ref->{saturated_fat_ratio} = saturated_fat_ratio($nutriments_ref, $prepared);
+			$nutriscore_data_ref->{saturated_fat_ratio}
+				= round_to_max_decimal_places(saturated_fat_ratio($nutriments_ref, $prepared), 1);
 			# Compute the energy from saturates
 			if (defined $nutriscore_data_ref->{saturated_fat}) {
 				$nutriscore_data_ref->{energy_from_saturated_fat} = $nutriscore_data_ref->{saturated_fat} * 37;
@@ -1689,6 +1692,11 @@ sub remove_nutriscore_fields ($product_ref) {
 			"nutrition-score-uk_serving"
 		]
 	);
+
+	# remove misc_tags fields related to Nutri-Score
+	if (defined $product_ref->{misc_tags}) {
+		$product_ref->{misc_tags} = [grep {$_ !~ /^en:(nutriscore|nutrition)-/} @{$product_ref->{misc_tags}}];
+	}
 
 	return;
 }

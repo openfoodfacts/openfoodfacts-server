@@ -172,6 +172,10 @@ msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
 msgstr "Übermäßiger Genuss von Alkohol schadet Ihrer Gesundheit."
 
+msgctxt "email_warning"
+msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
+msgstr "Bitte beachten Sie, dass Ihr Pro-Konto nur dann gültig ist, wenn Sie Ihre dienstliche E-Mail-Adresse verwenden. Unser Moderationsteam prüft, ob der Domainname mit der Organisation übereinstimmt, der Sie beitreten möchten."
+
 msgctxt "all_missions"
 msgid "All missions"
 msgstr "Alle Aufgaben"
@@ -872,6 +876,10 @@ msgstr "Open Beauty Facts - Kosmetik"
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world-de.openbeautyfacts.org"
+
+msgctxt "footer_pro"
+msgid "Open Food Facts for Producers"
+msgstr "Open Food Fakten für Produzenten"
 
 msgctxt "for"
 msgid "for"
@@ -6666,4 +6674,144 @@ msgstr "Gewicht pro 100g des Produkts"
 msgctxt "weight_percent"
 msgid "Weight percent"
 msgstr "Gewichtsprozente"
+
+msgctxt "nutriscore_component_energy"
+msgid "Energy"
+msgstr "Brennwert"
+
+msgctxt "nutriscore_component_energy_from_saturated_fat"
+msgid "Energy from saturated fat"
+msgstr "Energie aus gesättigten Fetten"
+
+msgctxt "nutriscore_component_sugars"
+msgid "Sugars"
+msgstr "Zucker"
+
+msgctxt "nutriscore_component_saturated_fat"
+msgid "Saturated fat"
+msgstr "Gesättigte Fettsäuren"
+
+msgctxt "nutriscore_component_saturated_fat_ratio"
+msgid "Saturated fat / fat"
+msgstr "Gesättigtes Fett / Fett"
+
+msgctxt "nutriscore_component_salt"
+msgid "Salt"
+msgstr "Salz"
+
+msgctxt "nutriscore_component_non_nutritive_sweeteners"
+msgid "Non-nutritive sweeteners"
+msgstr "Nicht-ernährungsphysiologische Süßstoffe"
+
+msgctxt "nutriscore_component_fruits_vegetables_legumes"
+msgid "Fruits, vegetables and legumes"
+msgstr "Obst, Gemüse und Hülsenfrüchte"
+
+msgctxt "nutriscore_component_fiber"
+msgid "Fiber"
+msgstr "Ballaststoffe"
+
+msgctxt "nutriscore_component_proteins"
+msgid "Proteins"
+msgstr "Eiweiß"
+
+msgctxt "presence"
+msgid "Presence"
+msgstr "Vorhanden"
+
+msgctxt "absence"
+msgid "Absence"
+msgstr "Nicht vorhanden"
+
+msgctxt "nutriscore_is_water"
+msgid "This product is considered to be water for the calculation of the Nutri-Score."
+msgstr "Dieses Produkt wird bei der Berechnung des Nutri-Score als Wasser betrachtet."
+
+msgctxt "nutriscore_is_fat_oil_nuts_seeds"
+msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
+msgstr "Dieses Produkt wird bei der Berechnung des Nutri-Score als Fett, Öl, Nüsse oder Samen betrachtet."
+
+msgctxt "nutriscore_is_cheese"
+msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
+msgstr "Dieses Produkt wird bei der Berechnung des Nutri-Score als Käse betrachtet."
+
+msgctxt "nutriscore_is_red_meat_product"
+msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
+msgstr "Dieses Produkt wird bei der Berechnung des Nutri-Score als rotes Fleischprodukt betrachtet."
+
+msgctxt "nutriscore_count_proteins_reason_beverage"
+msgid "Points for proteins are counted because the product is considered to be a beverage."
+msgstr "Punkte für Proteine werden gezählt, da das Produkt als Getränk betrachtet wird."
+
+msgctxt "nutriscore_count_proteins_reason_cheese"
+msgid "Points for proteins are counted because the product is considered to be cheese."
+msgstr "Punkte für Proteine werden gezählt, weil das Produkt als Käse betrachtet wird."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
+msgid "Points for proteins are counted because the negative points are less than 7."
+msgstr "Die Punkte für Proteine werden gezählt, da die negativen Punkte weniger als 7 betragen."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
+msgid "Points for proteins are counted because the negative points are less than 11."
+msgstr "Die Punkte für Proteine werden gezählt, da die negativen Punkte weniger als 11 betragen."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
+msgstr "Punkte für Proteine werden nicht gezählt, da die negativen Punkte größer oder gleich 7 sind."
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
+msgstr "Punkte für Proteine werden nicht gezählt, da die negativen Punkte größer oder gleich 11 sind."
+
+msgctxt "nutriscore_explanation_what_it_is"
+msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
+msgstr "Der Nutri-Score ist ein Gütesiegel für die allgemeine Nährwertqualität von Produkten."
+
+msgctxt "nutriscore_explanation_what_it_takes_into_account"
+msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
+msgstr "Die Punktzahl von A bis E wird auf der Grundlage der Nährstoffe und Lebensmittel zu bevorzugen (Proteine, Ballaststoffe, Obst, Gemüse und Hülsenfrüchte ...) und Nährstoffe zu begrenzen (Kalorien, gesättigte Fettsäuren, Zucker, Salz) berechnet."
+
+msgctxt "nutriscore_explanation_where_the_data_comes_from"
+msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
+msgstr "Die Punktzahl wird aus den Daten der Nährwerttabelle und den Angaben zur Zusammensetzung (Obst, Gemüse und Hülsenfrüchte) berechnet."
+
+msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
+msgid "The display of this logo is recommended by public health authorities without obligation for companies."
+msgstr "Die Anzeige dieses Gütesiegels wird von öffentlichen Gesundheitsbehörden empfohlen, ohne dass Unternehmen dazu verpflichtet sind."
+
+msgctxt "nutriscore_explanation_title"
+msgid "What is the Nutri-Score?"
+msgstr "Was ist der Nutri-Score?"
+
+msgctxt "nutrient_info_energy_risk"
+msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
+msgstr "Eine über dem Energiebedarf liegende Energiezufuhr ist mit einem erhöhten Risiko für Gewichtszunahme, Übergewicht, Fettleibigkeit und folglich für ernährungsbedingte chronische Krankheiten verbunden."
+
+msgctxt "nutrient_info_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Ein hoher Konsum von Fett, insbesondere von gesättigten Fettsäuren, kann den Cholesterinspiegel erhöhen, was das Risiko von Herzkrankheiten steigert."
+
+msgctxt "nutrient_info_saturated_fat_ratio_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Ein hoher Konsum von Fett, insbesondere von gesättigten Fettsäuren, kann den Cholesterinspiegel erhöhen, was das Risiko von Herzkrankheiten steigert."
+
+msgctxt "nutrient_info_energy_from_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Ein hoher Konsum von Fett, insbesondere von gesättigten Fettsäuren, kann den Cholesterinspiegel erhöhen, was das Risiko von Herzkrankheiten steigert."
+
+msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
+msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
+msgstr "Nicht-ernährungsphysiologische Süßstoffe können bei Erwachsenen oder Kindern keinen langfristigen Nutzen bei der Reduzierung von Körperfett haben. Es können potenziell unerwünschte Auswirkungen aus der langfristigen Verwendung von nicht-ernährungsphysiologischen Süßstoffen resultieren, wie ein erhöhtes Risiko für Typ-2-Diabetes und Herz-Kreislauf-Erkrankungen bei Erwachsenen."
+
+msgctxt "nutrient_info_fiber_benefit"
+msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr "Der Verzehr von Lebensmitteln, die reich an Ballaststoffen sind (insbesondere Vollkornprodukte), verringert das Risiko von Krebserkrankungen der Atemwege, Herz-Kreislauf-Erkrankungen, Fettleibigkeit und Diabetes."
+
+msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
+msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr "Der Verzehr von Lebensmitteln, die reich an Obst, Gemüse und Hülsenfrüchten sind, verringert das Risiko von Krebserkrankungen der Atemwege, Herz-Kreislauf-Erkrankungen, Fettleibigkeit und Diabetes."
+
+msgctxt "nutrient_info_proteins_benefit"
+msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr "Lebensmittel, die reich an Proteinen sind, sind in der Regel auch reich an Kalzium oder Eisen, also an essenziellen Mineralien mit zahlreichen gesundheitlichen Vorteilen."
 
