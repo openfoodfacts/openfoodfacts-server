@@ -303,7 +303,7 @@
                   "grade" : "c",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                   "id" : "ecoscore",
-                  "match" : 47,
+                  "match" : 48,
                   "name" : "Eco-Score",
                   "panel_id" : "ecoscore",
                   "status" : "known",
@@ -627,7 +627,7 @@
                   "grade" : "c",
                   "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                   "id" : "ecoscore",
-                  "match" : 47,
+                  "match" : 48,
                   "name" : "Eco-Score",
                   "panel_id" : "ecoscore",
                   "status" : "known",
@@ -1021,27 +1021,27 @@
          },
          "agribalyse" : {
             "agribalyse_proxy_food_code" : "24000",
-            "co2_agriculture" : 2.3889426,
+            "co2_agriculture" : 2.3635185,
             "co2_consumption" : 0,
-            "co2_distribution" : 0.019530673,
-            "co2_packaging" : 0.11014808,
-            "co2_processing" : 0.22878446,
-            "co2_total" : 2.882859363,
-            "co2_transportation" : 0.13545355,
+            "co2_distribution" : 0.019437894,
+            "co2_packaging" : 0.10986902,
+            "co2_processing" : 0.22831584,
+            "co2_total" : 2.856230424,
+            "co2_transportation" : 0.13508917,
             "code" : "24000",
             "dqr" : "2.14",
-            "ef_agriculture" : 0.28329233,
+            "ef_agriculture" : 0.27654213,
             "ef_consumption" : 0,
-            "ef_distribution" : 0.0048315303,
-            "ef_packaging" : 0.01096965,
-            "ef_processing" : 0.041686082,
-            "ef_total" : 0.3518903043,
-            "ef_transportation" : 0.011110712,
+            "ef_distribution" : 0.0047895045,
+            "ef_packaging" : 0.01090994,
+            "ef_processing" : 0.04151582,
+            "ef_total" : 0.3448030585,
+            "ef_transportation" : 0.011045664,
             "is_beverage" : 0,
             "name_en" : "Biscuit (cookie)",
             "name_fr" : "Biscuit sec, sans précision",
-            "score" : 69,
-            "version" : "3.1"
+            "score" : 70,
+            "version" : "3.1.1"
          },
          "grade" : "c",
          "grades" : {
@@ -1114,76 +1114,76 @@
             "origins" : 1
          },
          "missing_data_warning" : 1,
-         "score" : 46,
+         "score" : 47,
          "scores" : {
-            "ad" : 46,
-            "al" : 46,
-            "at" : 46,
-            "ax" : 46,
-            "ba" : 46,
-            "be" : 46,
-            "bg" : 46,
-            "ch" : 46,
-            "cy" : 46,
-            "cz" : 46,
-            "de" : 46,
-            "dk" : 46,
-            "dz" : 46,
-            "ee" : 46,
-            "eg" : 46,
-            "es" : 46,
-            "fi" : 46,
-            "fo" : 46,
-            "fr" : 46,
-            "gg" : 46,
-            "gi" : 46,
-            "gr" : 46,
-            "hr" : 46,
-            "hu" : 46,
-            "ie" : 46,
-            "il" : 46,
-            "im" : 46,
-            "is" : 46,
-            "it" : 46,
-            "je" : 46,
-            "lb" : 46,
-            "li" : 46,
-            "lt" : 46,
-            "lu" : 46,
-            "lv" : 46,
-            "ly" : 46,
-            "ma" : 46,
-            "mc" : 46,
-            "md" : 46,
-            "me" : 46,
-            "mk" : 46,
-            "mt" : 46,
-            "nl" : 46,
-            "no" : 46,
-            "pl" : 46,
-            "ps" : 46,
-            "pt" : 46,
-            "ro" : 46,
-            "rs" : 46,
-            "se" : 46,
-            "si" : 46,
-            "sj" : 46,
-            "sk" : 46,
-            "sm" : 46,
-            "sy" : 46,
-            "tn" : 46,
-            "tr" : 46,
-            "ua" : 46,
-            "uk" : 46,
-            "us" : 46,
-            "va" : 46,
-            "world" : 46,
-            "xk" : 46
+            "ad" : 47,
+            "al" : 47,
+            "at" : 47,
+            "ax" : 47,
+            "ba" : 47,
+            "be" : 47,
+            "bg" : 47,
+            "ch" : 47,
+            "cy" : 47,
+            "cz" : 47,
+            "de" : 47,
+            "dk" : 47,
+            "dz" : 47,
+            "ee" : 47,
+            "eg" : 47,
+            "es" : 47,
+            "fi" : 47,
+            "fo" : 47,
+            "fr" : 47,
+            "gg" : 47,
+            "gi" : 47,
+            "gr" : 47,
+            "hr" : 47,
+            "hu" : 47,
+            "ie" : 47,
+            "il" : 47,
+            "im" : 47,
+            "is" : 47,
+            "it" : 47,
+            "je" : 47,
+            "lb" : 47,
+            "li" : 47,
+            "lt" : 47,
+            "lu" : 47,
+            "lv" : 47,
+            "ly" : 47,
+            "ma" : 47,
+            "mc" : 47,
+            "md" : 47,
+            "me" : 47,
+            "mk" : 47,
+            "mt" : 47,
+            "nl" : 47,
+            "no" : 47,
+            "pl" : 47,
+            "ps" : 47,
+            "pt" : 47,
+            "ro" : 47,
+            "rs" : 47,
+            "se" : 47,
+            "si" : 47,
+            "sj" : 47,
+            "sk" : 47,
+            "sm" : 47,
+            "sy" : 47,
+            "tn" : 47,
+            "tr" : 47,
+            "ua" : 47,
+            "uk" : 47,
+            "us" : 47,
+            "va" : 47,
+            "world" : 47,
+            "xk" : 47
          },
          "status" : "known"
       },
       "ecoscore_grade" : "c",
-      "ecoscore_score" : 46,
+      "ecoscore_score" : 47,
       "ecoscore_tags" : [
          "c"
       ],
@@ -1373,8 +1373,8 @@
                                  "text" : "Agriculture"
                               },
                               {
-                                 "percent" : 82.8671225055525,
-                                 "text" : "82.9 %"
+                                 "percent" : 82.7495737087632,
+                                 "text" : "82.7 %"
                               }
                            ]
                         },
@@ -1386,8 +1386,8 @@
                                  "text" : "Processing"
                               },
                               {
-                                 "percent" : 7.93602570199329,
-                                 "text" : "7.9 %"
+                                 "percent" : 7.99360717123991,
+                                 "text" : "8.0 %"
                               }
                            ]
                         },
@@ -1399,7 +1399,7 @@
                                  "text" : "Packaging"
                               },
                               {
-                                 "percent" : 3.820792696782,
+                                 "percent" : 3.84664413195817,
                                  "text" : "3.8 %"
                               }
                            ]
@@ -1412,7 +1412,7 @@
                                  "text" : "Transportation"
                               },
                               {
-                                 "percent" : 4.69858334882637,
+                                 "percent" : 4.72963136534393,
                                  "text" : "4.7 %"
                               }
                            ]
@@ -1425,7 +1425,7 @@
                                  "text" : "Distribution"
                               },
                               {
-                                 "percent" : 0.677475746845858,
+                                 "percent" : 0.680543622694777,
                                  "text" : "0.7 %"
                               }
                            ]
@@ -1455,7 +1455,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/car.svg",
-               "subtitle" : "288 g CO² per 100g of product",
+               "subtitle" : "286 g CO² per 100g of product",
                "title" : "Equal to driving 1.5 km in a petrol car"
             },
             "topics" : [
@@ -1536,7 +1536,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    <p>Category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/24000\">Biscuit (cookie)</a>\n                    </p>\n                    <ul>\n                        <li>\n                            PEF environmental score: 0.35\n                            (the lower the score, the lower the impact)\n                        </li>\n                        <li>\n                            including impact on climate change: 2.88\n                            kg CO2 eq/kg of product\n                        </li>\n                    </ul>\n                    ",
+                     "html" : "\n                    <p>Category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/24000\">Biscuit (cookie)</a>\n                    </p>\n                    <ul>\n                        <li>\n                            PEF environmental score: 0.34\n                            (the lower the score, the lower the impact)\n                        </li>\n                        <li>\n                            including impact on climate change: 2.86\n                            kg CO2 eq/kg of product\n                        </li>\n                    </ul>\n                    ",
                      "type" : "summary"
                   }
                },
@@ -1563,8 +1563,8 @@
                                  "text" : "Agriculture"
                               },
                               {
-                                 "percent" : 80.5058640542941,
-                                 "text" : "80.5 %"
+                                 "percent" : 80.2029225619529,
+                                 "text" : "80.2 %"
                               }
                            ]
                         },
@@ -1576,8 +1576,8 @@
                                  "text" : "Processing"
                               },
                               {
-                                 "percent" : 11.8463286685106,
-                                 "text" : "11.8 %"
+                                 "percent" : 12.040444241013,
+                                 "text" : "12.0 %"
                               }
                            ]
                         },
@@ -1589,8 +1589,8 @@
                                  "text" : "Packaging"
                               },
                               {
-                                 "percent" : 3.1173493176578,
-                                 "text" : "3.1 %"
+                                 "percent" : 3.16410766408558,
+                                 "text" : "3.2 %"
                               }
                            ]
                         },
@@ -1602,7 +1602,7 @@
                                  "text" : "Transportation"
                               },
                               {
-                                 "percent" : 3.15743624198514,
+                                 "percent" : 3.20347042397247,
                                  "text" : "3.2 %"
                               }
                            ]
@@ -1615,7 +1615,7 @@
                                  "text" : "Distribution"
                               },
                               {
-                                 "percent" : 1.37302171755234,
+                                 "percent" : 1.38905510897607,
                                  "text" : "1.4 %"
                               }
                            ]
@@ -1646,7 +1646,7 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/lca.svg",
                "subtitle" : "Category: Biscuit (cookie)",
-               "title" : "Average impact of products of the same category: B (Score: 69/100)",
+               "title" : "Average impact of products of the same category: B (Score: 70/100)",
                "type" : "grade"
             },
             "topics" : [
@@ -1831,7 +1831,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Life cycle analysis score: 69<br>\n                Sum of bonuses and maluses:\n                    \n                        -23\n                    <br><br>\n                Final score: 46/100\n                \n                ",
+                     "html" : "\n                Life cycle analysis score: 70<br>\n                Sum of bonuses and maluses:\n                    \n                        -23\n                    <br><br>\n                Final score: 47/100\n                \n                ",
                      "type" : "summary"
                   }
                }
@@ -1841,7 +1841,7 @@
                "grade" : "c",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                "subtitle" : "Product: Some product - 100 g",
-               "title" : "Impact for this product: C (Score: 46/100)",
+               "title" : "Impact for this product: C (Score: 47/100)",
                "type" : "grade"
             },
             "topics" : [
