@@ -854,6 +854,20 @@ sub init_request ($request_ref = {}) {
 	$request_ref->{admin} = $admin;
 	# TODO: remove the $admin global variable, and use $request_ref->{admin} instead.
 
+	if ($User{moderator}) {
+		$request_ref->{moderator} = 1;
+	}
+	else {
+		$request_ref->{moderator} = 0;
+	}
+
+	if ($User{pro_moderator}) {
+		$request_ref->{pro_moderator} = 1;
+	}
+	else {
+		$request_ref->{pro_moderator} = 0;
+	}
+
 	# Producers platform: not logged in users, or users with no permission to add products
 
 	if (($server_options{producers_platform})

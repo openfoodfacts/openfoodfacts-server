@@ -1,0 +1,38 @@
+{
+   "code" : "1234567890100",
+   "errors" : [
+      {
+         "field" : {
+            "id" : "permission",
+            "value" : "revert_product"
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "no_permission",
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ],
+   "product" : {
+      "brands_tags" : [
+         "test-brand"
+      ],
+      "categories_tags" : [
+         "en:plant-based-foods-and-beverages",
+         "en:beverages",
+         "en:hot-beverages",
+         "en:plant-based-beverages",
+         "en:teas"
+      ],
+      "code" : "1234567890100",
+      "product_name_en" : "Test product",
+      "rev" : 3
+   },
+   "status" : "failure",
+   "warnings" : []
+}

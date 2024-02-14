@@ -52,6 +52,7 @@ BEGIN {
 		&decode_json_request_body
 		&normalize_requested_code
 		&customize_response_for_product
+		&check_user_permission
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -74,6 +75,8 @@ use ProductOpener::Packaging qw/:all/;
 
 use ProductOpener::APIProductRead qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::APIProductWrite qw/:all/;
+use ProductOpener::APIProductRevert qw/:all/;
 use ProductOpener::APIProductServices qw/:all/;
 use ProductOpener::APITagRead qw/:all/;
 use ProductOpener::APITaxonomySuggestions qw/:all/;
@@ -384,6 +387,17 @@ sub process_api_request ($request_ref) {
 			}
 			elsif ($request_ref->{api_method} =~ /^(GET|HEAD)$/) {
 				read_product_api($request_ref);
+			}
+			else {
+				add_invalid_method_error($response_ref, $request_ref);
+			}
+		}
+		# Product revert
+		elsif ($request_ref->{api_action} eq "product_revert") {
+
+			# Check that the method is POST (GET may be dangerous: it would allow to revert a product by just clicking or loading a link)
+			if ($request_ref->{api_method} eq "POST") {
+				revert_product_api($request_ref);
 			}
 			else {
 				add_invalid_method_error($response_ref, $request_ref);
@@ -831,6 +845,47 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	}
 
 	return $customized_product_ref;
+}
+
+# TODO: move permissions to a separate module
+
+sub has_permission_to_revert_product ($request_ref) {
+
+	my $has_permission = 0;
+
+	if ($request_ref->{admin} or $request_ref->{moderator}) {
+		$has_permission = 1;
+	}
+
+	return $has_permission;
+}
+
+my %permissions = ("product_revert" => \&has_permission_to_revert_product,);
+
+sub check_user_permission ($request_ref, $response_ref, $permission) {
+
+	# Check if the user has permission
+	my $has_permission = 0;
+
+	if (defined $permissions{$permission}) {
+		$has_permission = $permissions{$permission}->($request_ref);
+	}
+	else {
+		$log->error("check_user_permission - unknown permission", {permission => $permission}) if $log->is_error();
+	}
+
+	if (not $has_permission) {
+		$log->error("check_user_permission - user does not have permission", {permission => $permission})
+			if $log->is_error();
+		add_error(
+			$response_ref,
+			{
+				message => {id => "no_permission"},
+				field => {id => "permission", value => $permission},
+				impact => {id => "failure"},
+			}
+		);
+	}
 }
 
 1;
