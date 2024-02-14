@@ -164,13 +164,15 @@ Return undef if passed an undefined value.
 
 sub round_to_max_decimal_places ($value, $max_decimal_places) {
 
-	# Return undef if passed an undefined value
-	return unless defined $value;
+	my $return_value = undef;
 
-	# Round to the maximum number of decimal places
-	my $rounded_value = sprintf("%.${max_decimal_places}f", $value);
+	if (defined $value) {
 
-	return $rounded_value + 0;
+		# Round to the maximum number of decimal places
+		$return_value = sprintf("%.${max_decimal_places}f", $value) + 0;
+	}
+
+	return $return_value;
 }
 
 1;
