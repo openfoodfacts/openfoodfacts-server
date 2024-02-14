@@ -450,6 +450,7 @@
       ],
       "last_edit_dates_tags" : "--ignore--",
       "last_modified_t" : "--ignore--",
+      "last_updated_t" : "--ignore--",
       "lc" : "fr",
       "main_countries_tags" : [],
       "minerals_tags" : [],
@@ -602,47 +603,76 @@
          "2023" : {
             "category_available" : 1,
             "data" : {
+               "components" : {
+                  "negative" : [
+                     {
+                        "id" : "energy",
+                        "points" : 1,
+                        "points_max" : 10,
+                        "unit" : "kJ",
+                        "value" : 645
+                     },
+                     {
+                        "id" : "sugars",
+                        "points" : 0,
+                        "points_max" : 15,
+                        "unit" : "g",
+                        "value" : 0
+                     },
+                     {
+                        "id" : "saturated_fat",
+                        "points" : 2,
+                        "points_max" : 10,
+                        "unit" : "g",
+                        "value" : 2.64
+                     },
+                     {
+                        "id" : "salt",
+                        "points" : 20,
+                        "points_max" : 20,
+                        "unit" : "g",
+                        "value" : 24.54
+                     }
+                  ],
+                  "positive" : [
+                     {
+                        "id" : "fiber",
+                        "points" : 0,
+                        "points_max" : 5,
+                        "unit" : "g",
+                        "value" : 0
+                     },
+                     {
+                        "id" : "fruits_vegetables_legumes",
+                        "points" : 0,
+                        "points_max" : 5,
+                        "unit" : "%",
+                        "value" : 0
+                     }
+                  ]
+               },
                "count_proteins" : 0,
-               "count_proteins_reason" : "negative_points_more_than_11",
-               "energy" : 645,
-               "energy_points" : 1,
-               "fiber" : 0,
-               "fiber_points" : 0,
-               "fruits_vegetables_legumes" : 0,
-               "fruits_vegetables_legumes_points" : 0,
+               "count_proteins_reason" : "negative_points_greater_than_or_equal_to_11",
                "is_beverage" : 0,
                "is_cheese" : 0,
                "is_fat_oil_nuts_seeds" : 0,
                "is_red_meat_product" : 1,
                "is_water" : 0,
-               "negative_nutrients" : [
-                  "energy",
-                  "sugars",
-                  "saturated_fat",
-                  "salt",
-                  "non_nutritive_sweeteners"
-               ],
-               "negative_points" : 24,
+               "negative_points" : 23,
+               "negative_points_max" : 55,
                "positive_nutrients" : [
-                  "fruits_vegetables_legumes",
-                  "fiber"
+                  "fiber",
+                  "fruits_vegetables_legumes"
                ],
                "positive_points" : 0,
-               "proteins" : 21.825,
-               "proteins_points" : 2,
-               "proteins_points_limited_reason" : "red_meat_product",
-               "salt" : 24.54,
-               "salt_points" : 21,
-               "saturated_fat" : 2.64,
-               "saturated_fat_points" : 2,
-               "sugars" : 0,
-               "sugars_points" : 0
+               "positive_points_max" : 10,
+               "proteins_points_limited_reason" : "red_meat_product"
             },
             "grade" : "e",
             "nutrients_available" : 1,
             "nutriscore_applicable" : 1,
             "nutriscore_computed" : 1,
-            "score" : 24
+            "score" : 23
          }
       },
       "nutriscore_2021_tags" : [
@@ -723,10 +753,12 @@
       "popularity_key" : 0,
       "product_name_en" : "Some sausages",
       "product_quantity" : "250",
+      "product_quantity_unit" : "g",
       "quantity" : "250 g",
       "removed_countries_tags" : [],
       "rev" : 1,
       "serving_quantity" : "20",
+      "serving_quantity_unit" : "g",
       "serving_size" : "20 g",
       "states" : "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-to-be-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-to-be-completed, en:photos-to-be-uploaded",
       "states_hierarchy" : [

@@ -921,6 +921,16 @@ CSS
 		};
 	}
 
+	if ($request_ref->{admin}) {
+		$knowledge_panels_options_ref->{admin} = 1;
+	}
+	if ($User{moderator}) {
+		$knowledge_panels_options_ref->{moderator} = 1;
+	}
+	if ($server_options{producers_platform}) {
+		$knowledge_panels_options_ref->{producers_platform} = 1;
+	}
+
 	$log->debug(
 		"owner, org and user",
 		{
@@ -4207,8 +4217,8 @@ HTML
 	# Add parameters corresponding to the tag filters so that they can be added to the query by add_params_to_query()
 
 	foreach my $tag_ref (@{$request_ref->{tags}}) {
-		if ($tagtype eq 'users') {
-			deep_set($request_ref, "body_json", "creator", $tagid);
+		if ($tag_ref->{tagtype} eq 'users') {
+			deep_set($request_ref, "body_json", "creator", $tag_ref->{tagid});
 		}
 		else {
 			my $field_name = $tag_ref->{tagtype} . "_tags";
@@ -4297,7 +4307,7 @@ HTML
 	return;
 }
 
-=head2 display_list_of_tags ( $request_ref, $query_ref )
+=head2 list_all_request_params ( $request_ref, $query_ref )
 
 Return an array of names of all request parameters.
 
@@ -6722,20 +6732,21 @@ sub get_packager_code_coordinates ($emb_code) {
 	my $lng;
 
 	if (exists $packager_codes{$emb_code}) {
-		if (exists $packager_codes{$emb_code}{lat}) {
+		my %emb_code_data = %{$packager_codes{$emb_code}};
+		if (exists $emb_code_data{lat}) {
 			# some lat/lng have , for floating point numbers
-			$lat = $packager_codes{$emb_code}{lat};
-			$lng = $packager_codes{$emb_code}{lng};
+			$lat = $emb_code_data{lat};
+			$lng = $emb_code_data{lng};
 			$lat =~ s/,/\./g;
 			$lng =~ s/,/\./g;
 		}
-		elsif (exists $packager_codes{$emb_code}{fsa_rating_business_geo_lat}) {
-			$lat = $packager_codes{$emb_code}{fsa_rating_business_geo_lat};
-			$lng = $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
+		elsif (exists $emb_code_data{fsa_rating_business_geo_lat}) {
+			$lat = $emb_code_data{fsa_rating_business_geo_lat};
+			$lng = $emb_code_data{fsa_rating_business_geo_lng};
 		}
-		elsif ($packager_codes{$emb_code}{cc} eq 'uk') {
-			#my $address = 'uk' . '.' . $packager_codes{$emb_code}{local_authority};
-			my $address = 'uk' . '.' . $packager_codes{$emb_code}{canon_local_authority};
+		elsif ($emb_code_data{cc} eq 'uk') {
+			#my $address = 'uk' . '.' . $emb_code_data{local_authority};
+			my $address = 'uk' . '.' . ($emb_code_data{canon_local_authority} // '');
 			if (exists $geocode_addresses{$address}) {
 				$lat = $geocode_addresses{$address}[0];
 				$lng = $geocode_addresses{$address}[1];
@@ -8873,7 +8884,7 @@ HTML
 	return;
 }
 
-=head2 display_nutriscore_calculation_details( $nutriscore_data_ref )
+=head2 display_nutriscore_calculation_details( $nutriscore_data_ref, $version = "2021" )
 
 Generates HTML code with information on how the Nutri-Score was computed for a particular product.
 
@@ -8882,7 +8893,7 @@ the rounded value according to the Nutri-Score rules, and the corresponding poin
 
 =cut
 
-sub display_nutriscore_calculation_details ($nutriscore_data_ref) {
+sub display_nutriscore_calculation_details ($nutriscore_data_ref, $version = "2021") {
 
 	my $beverage_view;
 
@@ -9069,7 +9080,7 @@ sub data_to_display_nutrient_levels ($product_ref) {
 	return $result_data_ref;
 }
 
-=head2 data_to_display_nutriscore ( $product_ref )
+=head2 data_to_display_nutriscore ($nutriscore_data_ref, $version = "2021" )
 
 Generates a data structure to display the Nutri-Score.
 
@@ -9085,9 +9096,7 @@ Reference to a data structure with needed data to display.
 
 =cut
 
-sub data_to_display_nutriscore($) {
-
-	my $product_ref = shift;
+sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 
 	my $result_data_ref = {};
 
@@ -9095,9 +9104,17 @@ sub data_to_display_nutriscore($) {
 
 	my @nutriscore_warnings = ();
 
-	if ((defined $product_ref->{nutrition_grade_fr}) and ($product_ref->{nutrition_grade_fr} =~ /^[abcde]$/)) {
+	my $nutriscore_grade = deep_get($product_ref, "nutriscore", $version, "grade");
+	my $nutriscore_data_ref = deep_get($product_ref, "nutriscore", $version, "data");
+	# On old product revisions, nutriscore grade was in nutrition_grade_fr
+	if ((not defined $nutriscore_grade) and ($version eq "2021")) {
+		$nutriscore_grade = $product_ref->{"nutrition_grade_fr"};
+		$nutriscore_data_ref = $product_ref->{nutriscore_data};
+	}
 
-		$result_data_ref->{nutriscore_grade} = $product_ref->{"nutrition_grade_fr"};
+	if ((defined $nutriscore_grade) and ($nutriscore_grade =~ /^[abcde]$/)) {
+
+		$result_data_ref->{nutriscore_grade} = $nutriscore_grade;
 
 		# Do not display a warning for water
 		if (not(has_tag($product_ref, "categories", "en:spring-waters"))) {
@@ -9212,8 +9229,7 @@ sub data_to_display_nutriscore($) {
 
 	# Display the details of the computation of the Nutri-Score if we computed one
 	if ((defined $product_ref->{nutriscore_grade}) and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/)) {
-		$result_data_ref->{nutriscore_details}
-			= display_nutriscore_calculation_details($product_ref->{nutriscore_data});
+		$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details($nutriscore_data_ref, $version);
 	}
 
 	return $result_data_ref;

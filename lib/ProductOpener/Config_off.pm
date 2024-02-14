@@ -769,6 +769,7 @@ $options{replace_existing_values_when_importing_those_tags_fields} = {
 	created_t
 	last_modified_t
 	last_modified_by
+	last_updated_t
 	product_name
 	abbreviated_product_name
 	generic_name
@@ -1025,6 +1026,9 @@ $options{other_servers} = {
 		domain => "openpetfoodfacts.org",
 	}
 };
+
+# Name of the Redis stream to which product updates are published
+$options{redis_stream_name} = "product_updates_off";
 
 # used to rename texts and to redirect to the new name
 $options{redirect_texts} = {

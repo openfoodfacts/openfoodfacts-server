@@ -1,4 +1,5 @@
 {
+   "allergens" : "en:soybeans",
    "ingredients" : [
       {
          "ciqual_proxy_food_code" : "31016",
@@ -108,6 +109,7 @@
          "text" : "小麦胚芽"
       },
       {
+         "ciqual_proxy_food_code" : "9510",
          "id" : "en:modified-starch",
          "percent_estimate" : 0.0227864583333286,
          "percent_max" : 8.33333333333333,
@@ -118,15 +120,6 @@
       },
       {
          "id" : "en:emulsifier",
-         "ingredients" : [
-            {
-               "id" : "ja:大豆由来",
-               "percent_estimate" : 0.0113932291666643,
-               "percent_max" : 7.69230769230769,
-               "percent_min" : 0,
-               "text" : "大豆由来"
-            }
-         ],
          "percent_estimate" : 0.0113932291666643,
          "percent_max" : 7.69230769230769,
          "percent_min" : 0,
@@ -158,12 +151,10 @@
          "en:whole-milk-powder"
       ],
       "en:vegan-status-unknown" : [
-         "ja:小麦胚芽",
-         "ja:大豆由来"
+         "ja:小麦胚芽"
       ],
       "en:vegetarian-status-unknown" : [
-         "ja:小麦胚芽",
-         "ja:大豆由来"
+         "ja:小麦胚芽"
       ]
    },
    "ingredients_analysis_tags" : [
@@ -199,12 +190,11 @@
       "en:starch",
       "en:emulsifier",
       "en:raising-agent",
-      "en:flavouring",
-      "ja:大豆由来"
+      "en:flavouring"
    ],
-   "ingredients_n" : 16,
+   "ingredients_n" : 15,
    "ingredients_n_tags" : [
-      "16",
+      "15",
       "11-20"
    ],
    "ingredients_original_tags" : [
@@ -222,8 +212,7 @@
       "en:modified-starch",
       "en:emulsifier",
       "en:raising-agent",
-      "en:flavouring",
-      "ja:大豆由来"
+      "en:flavouring"
    ],
    "ingredients_percent_analysis" : 1,
    "ingredients_tags" : [
@@ -254,8 +243,7 @@
       "en:starch",
       "en:emulsifier",
       "en:raising-agent",
-      "en:flavouring",
-      "ja:大豆由来"
+      "en:flavouring"
    ],
    "ingredients_text" : "砂糖、小麦粉、全粉乳、カカオマス、ショートニング、植物油脂、ココアバター、小麦全粒粉、小麦ふすま、食塩、小麦胚芽 ／ 加工デンプン、乳化剤（大豆由来）、膨脹剤、香料",
    "ingredients_with_specified_percent_n" : 0,
@@ -266,13 +254,11 @@
       "en:emulsifier",
       "en:fat",
       "en:flavouring",
-      "en:modified-starch",
       "en:raising-agent",
       "en:vegetable-oil-and-fat",
-      "ja:大豆由来",
       "ja:小麦胚芽"
    ],
-   "ingredients_without_ciqual_codes_n" : 8,
+   "ingredients_without_ciqual_codes_n" : 6,
    "known_ingredients_n" : 27,
    "lc" : "ja",
    "nutriments" : {
@@ -281,5 +267,5 @@
       "fruits-vegetables-nuts-estimate-from-ingredients_100g" : 0,
       "fruits-vegetables-nuts-estimate-from-ingredients_serving" : 0
    },
-   "unknown_ingredients_n" : 2
+   "unknown_ingredients_n" : 1
 }

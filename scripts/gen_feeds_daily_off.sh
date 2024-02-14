@@ -12,7 +12,7 @@ export PERL5LIB="../lib:${PERL5LIB}"
 ./gen_top_tags_per_country.pl
 #./compute_missions.pl
 ./export_database.pl
-./mongodb_dump.sh /srv/off/html openfoodfacts 10.0.0.3 off
+./mongodb_dump.sh /srv/off/html openfoodfacts 10.1.0.102 off
 
 cd $OFF_PUBLIC_DATA_DIR
 gzip < en.openfoodfacts.org.products.rdf > en.openfoodfacts.org.products.rdf.gz
@@ -40,5 +40,5 @@ cd /srv/off
 # On sunday, generates madenearme
 if [ "$(date +%u)" = "7" ]
 then
-    ./scripts/gen_madenearme_pages.sh
+    ./scripts/generate_madenearme_pages.sh
 fi

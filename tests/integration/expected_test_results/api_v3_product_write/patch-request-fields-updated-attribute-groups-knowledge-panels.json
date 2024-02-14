@@ -502,6 +502,29 @@
                "health"
             ]
          },
+         "nutrient_levels" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "nutrient_levels_group",
+                     "panel_ids" : []
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
+            "expand_for" : "large",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/nutrition.svg",
+               "title" : "Nutrient levels"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
          "nutriscore" : {
             "elements" : [
                {

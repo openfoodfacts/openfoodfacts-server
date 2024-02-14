@@ -2,7 +2,6 @@
    "categories_tags" : [
       "en:jams"
    ],
-   "downgraded" : "non_recyclable_and_non_biodegradable_materials",
    "ecoscore_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -256,6 +255,7 @@
          "score" : 80,
          "version" : "3.1"
       },
+      "downgraded" : "non_recyclable_and_non_biodegradable_materials",
       "grade" : "b",
       "grades" : {
          "ad" : "b",
@@ -349,6 +349,7 @@
          "fi" : 77,
          "fo" : 76,
          "fr" : 79,
+         "fr_orig" : 81,
          "gg" : 78,
          "gi" : 71,
          "gr" : 75,
@@ -403,6 +404,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_food_code" : "13000",
          "id" : "en:apricot",
          "percent" : 60,
          "percent_estimate" : 60,
@@ -481,10 +483,8 @@
    "ingredients_with_specified_percent_sum" : 90,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 10,
-   "ingredients_without_ciqual_codes" : [
-      "en:apricot"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 10,
    "lc" : "en",
    "misc_tags" : [
@@ -493,6 +493,7 @@
       "en:packagings-not-complete",
       "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
+      "en:ecoscore-downgraded",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-missing-data-labels",
       "en:ecoscore-missing-data-packagings",
