@@ -139,6 +139,7 @@ my $fix_nutrition_data = '';
 my $compute_main_countries = '';
 my $prefix_packaging_tags_with_language = '';
 my $fix_non_string_ids = '';
+my $fix_non_string_codes = '';
 my $fix_string_last_modified_t = '';
 my $assign_ciqual_codes = '';
 my $obsolete = 0;
@@ -176,6 +177,7 @@ GetOptions(
 	"fix-zulu-lang" => \$fix_zulu_lang,
 	"fix-rev-not-incremented" => \$fix_rev_not_incremented,
 	"fix-non-string-ids" => \$fix_non_string_ids,
+	"fix-non-string-codes" => \$fix_non_string_codes,
 	"fix-string-last-modified-t" => \$fix_string_last_modified_t,
 	"user-id=s" => \$User_id,
 	"comment=s" => \$comment,
@@ -254,6 +256,7 @@ if (    (not $process_ingredients)
 	and (not $fix_nutrition_data_per)
 	and (not $fix_nutrition_data)
 	and (not $fix_non_string_ids)
+	and (not $fix_non_string_codes)
 	and (not $fix_string_last_modified_t)
 	and (not $compute_sort_key)
 	and (not $remove_team)
@@ -335,6 +338,11 @@ foreach my $field (sort keys %{$query_ref}) {
 # Query products that have the _id field stored as a number
 if ($fix_non_string_ids) {
 	$query_ref->{_id} = {'$type' => "long"};
+}
+
+# Query products that have the _id field stored as a number
+if ($fix_non_string_codes) {
+	$query_ref->{code} = {'$type' => "long"};
 }
 
 # Query products that have the last_modified_t field stored as a number
