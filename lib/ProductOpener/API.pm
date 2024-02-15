@@ -849,7 +849,7 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 
 # TODO: move permissions to a separate module
 
-sub has_permission_to_revert_product ($request_ref) {
+sub has_permission_product_revert ($request_ref) {
 
 	my $has_permission = 0;
 
@@ -860,9 +860,12 @@ sub has_permission_to_revert_product ($request_ref) {
 	return $has_permission;
 }
 
-my %permissions = ("product_revert" => \&has_permission_to_revert_product,);
+my %permissions = ("product_revert" => \&has_permission_product_revert,);
 
 sub check_user_permission ($request_ref, $response_ref, $permission) {
+
+	# We will return an error equal to 1 if the user does not have the permission
+	my $error = 0;
 
 	# Check if the user has permission
 	my $has_permission = 0;
@@ -875,6 +878,7 @@ sub check_user_permission ($request_ref, $response_ref, $permission) {
 	}
 
 	if (not $has_permission) {
+		$error = 1;
 		$log->error("check_user_permission - user does not have permission", {permission => $permission})
 			if $log->is_error();
 		add_error(
@@ -886,6 +890,8 @@ sub check_user_permission ($request_ref, $response_ref, $permission) {
 			}
 		);
 	}
+
+	return $error;
 }
 
 1;

@@ -88,10 +88,10 @@ sub revert_product_api ($request_ref) {
 
 	# Check that the user has permission (is an admin or a moderator, or we are on the producers platform)
 
-	$error += check_user_permission($request_ref, $response_ref, "revert_product");
+	$error += check_user_permission($request_ref, $response_ref, "product_revert");
 
 	if (not $error) {
-		
+
 		# Load the product
 		my ($code, $ai_data_string) = &normalize_requested_code($request_body_ref->{code}, $response_ref);
 		my $rev = $request_body_ref->{rev};
@@ -158,7 +158,7 @@ sub revert_product_api ($request_ref) {
 			}
 		}
 	}
-	
+
 	$log->debug("revert_product_api - stop", {request => $request_ref}) if $log->is_debug();
 
 	return;

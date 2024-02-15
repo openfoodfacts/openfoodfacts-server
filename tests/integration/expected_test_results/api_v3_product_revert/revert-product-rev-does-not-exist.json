@@ -1,0 +1,23 @@
+{
+   "code" : "1234567890100",
+   "errors" : [
+      {
+         "field" : {
+            "id" : "rev",
+            "value" : 5
+         },
+         "impact" : {
+            "id" : "failure",
+            "lc_name" : "Failure",
+            "name" : "Failure"
+         },
+         "message" : {
+            "id" : "revision_not_found",
+            "lc_name" : "",
+            "name" : ""
+         }
+      }
+   ],
+   "status" : "failure",
+   "warnings" : []
+}

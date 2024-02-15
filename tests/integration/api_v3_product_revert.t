@@ -75,6 +75,51 @@ my $tests_ref = [
 			}
 		}',
 	},
+	# Revert the product - code not supplied
+	{
+		test_case => 'revert-product-no-code',
+		method => 'POST',
+		path => '/api/v3/product_revert',
+		body => '{
+			"rev": 1,
+			"fields": "code,rev,product_name_en,brands_tags,categories_tags"
+		}',
+		ua => $moderator_ua,
+	},
+	# Revert the product - rev not supplied
+	{
+		test_case => 'revert-product-no-rev',
+		method => 'POST',
+		path => '/api/v3/product_revert',
+		body => '{
+			"code": "1234567890100",
+			"fields": "code,rev,product_name_en,brands_tags,categories_tags"
+		}',
+		ua => $moderator_ua,
+	},
+	# Revert the product - rev does not exist
+	{
+		test_case => 'revert-product-rev-does-not-exist',
+		method => 'POST',
+		path => '/api/v3/product_revert',
+		body => '{
+			"code": "1234567890100",
+			"rev": 5,
+			"fields": "code,rev,product_name_en,brands_tags,categories_tags"
+		}',
+		ua => $moderator_ua,
+	},
+	# Revert the product - user is not a moderator
+	{
+		test_case => 'revert-product-user-not-moderator',
+		method => 'POST',
+		path => '/api/v3/product_revert',
+		body => '{
+			"code": "1234567890100",
+			"rev": 1,
+			"fields": "code,rev,product_name_en,brands_tags,categories_tags"
+		}',
+	},
 	# Revert the product - good (existing code and rev + moderator user)
 	{
 		test_case => 'revert-product-good',

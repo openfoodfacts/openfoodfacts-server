@@ -1,23 +1,6 @@
 {
    "code" : "1234567890100",
-   "errors" : [
-      {
-         "field" : {
-            "id" : "permission",
-            "value" : "revert_product"
-         },
-         "impact" : {
-            "id" : "failure",
-            "lc_name" : "Failure",
-            "name" : "Failure"
-         },
-         "message" : {
-            "id" : "no_permission",
-            "lc_name" : "",
-            "name" : ""
-         }
-      }
-   ],
+   "errors" : [],
    "product" : {
       "brands_tags" : [
          "test-brand"
@@ -33,6 +16,6 @@
       "product_name_en" : "Test product",
       "rev" : 3
    },
-   "status" : "failure",
+   "status" : "success",
    "warnings" : []
 }
