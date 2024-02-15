@@ -53,7 +53,7 @@ msgstr "¡Gracias por unirte!"
 
 msgctxt "add_user_you_can_edit"
 msgid "You can now add and edit products on the web or with our free <a href=\"%s\">mobile app</a>."
-msgstr "Ahora puede añadir y editar productos en la web o con nuestra <a href=\"%s\">aplicación móvil</a> gratuita."
+msgstr "Ahora puedes añadir y editar productos en la web o con nuestra <a href=\"%s\">aplicación móvil</a> gratuita."
 
 msgctxt "join_us_on_slack"
 msgid "Join us on Slack"
@@ -97,7 +97,7 @@ msgstr "Conceder/eliminar estado de administrador"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
-msgstr "Si tienes dudas envíanos un correo electrónico a <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a>."
+msgstr "Si tienes alguna duda o pregunta, envíanos un correo electrónico a <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a>."
 
 msgctxt "if_you_work_for_a_producer"
 msgid "If you work for a producer or brand and will add or complete data for your own products only, you can get access to our completely free Platform for Producers."
@@ -1491,7 +1491,7 @@ msgstr "Valores nutricionales medios para los %d productos de la categoría %s p
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr "Diferencia en %"
+msgstr "% de diferencia"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
@@ -1833,7 +1833,7 @@ msgstr "Equilibra los colores"
 
 msgctxt "product_js_image_open_full_size_image"
 msgid "Open the picture in original size in a new windows"
-msgstr "Abrir la imagen en su tamaño original en una nueva ventana"
+msgstr "Abrir la imagen en tamaño original en una nueva ventana"
 
 msgctxt "product_js_image_received"
 msgid "Image received"
@@ -1841,7 +1841,7 @@ msgstr "La imagen ha sido recibida"
 
 msgctxt "product_js_image_rotate_and_crop"
 msgid "Rotate the image if necessary, then click and drag to select the interesting zone:"
-msgstr "Rota la imagen si es necesario, después haz clic y arrastra para seleccionar la zona de interés:"
+msgstr "Si es necesario, gira la imagen, luego haz clic y arrastra para seleccionar la zona deseada:"
 
 msgctxt "product_js_image_rotate_left"
 msgid "Rotate left"
@@ -1853,7 +1853,7 @@ msgstr "Girar a la derecha"
 
 msgctxt "product_js_image_save"
 msgid "Validate and/or resize image"
-msgstr "Validar y/o recortar la imagen"
+msgstr "Validar o recortar la imagen"
 
 msgctxt "product_js_image_saved"
 msgid "Image saved"
@@ -1997,13 +1997,13 @@ msgid "Hello <NAME>,\n\n"
 "See you soon,\n\n"
 "Stephane\n"
 "https://openfoodfacts.org\n"
-msgstr "Hola <NAME>,\n\n"
+msgstr "Hola, <NAME>:\n\n"
 "Has solicitado restablecer tu contraseña en https://openfoodfacts.org\n\n"
-"para el usuario: <USERID>\n\n"
+"del usuario: <USERID>\n\n"
 "Para continuar con el cambio de contraseña, haz clic en el enlace de abajo.\n"
-"Si, por el contrario, no deseas cambiar la contraseña, ignora este mensaje.\n\n"
+"Si no has solicitado el cambio de contraseña, puedes ignorar este mensaje.\n\n"
 "<RESET_URL>\n\n"
-"Hasta pronto,\n\n"
+"¡Hasta pronto!\n\n"
 "Stephane\n"
 "http://openfoodfacts.org\n"
 
@@ -2271,7 +2271,7 @@ msgstr "Criterios"
 
 msgctxt "search_terms"
 msgid "Search terms"
-msgstr "Palabras a buscar"
+msgstr "Términos de búsqueda"
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
@@ -6113,7 +6113,7 @@ msgstr "Elementos que indican que el producto se encuentra en el grupo {nova_gro
 
 msgctxt "nova_classification_description"
 msgid "Food products are classified into 4 groups according to their degree of processing:"
-msgstr "Los productos alimenticios se clasifican en 4 grupos de acuerdo a su grado de procesamiento:"
+msgstr "Los productos alimenticios se clasifican en 4 grupos de acuerdo con su grado de procesamiento:"
 
 msgctxt "nova_classification_how"
 msgid "The determination of the group is based on the category of the product and on the ingredients it contains."
@@ -6451,7 +6451,7 @@ msgstr "Tipo no válido: debe ser un objeto"
 
 msgctxt "api_message_invalid_type_must_be_array"
 msgid "Invalid type: must be an array"
-msgstr "Tipo no válido: debe ser una gama"
+msgstr "Tipo no válido: debe ser una matriz"
 
 msgctxt "api_message_invalid_type_must_be_integer"
 msgid "Invalid type: must be an integer"
@@ -6459,11 +6459,11 @@ msgstr "Tipo no válido: debe ser un número entero"
 
 msgctxt "api_message_invalid_type_must_be_number"
 msgid "Invalid type: must be a number"
-msgstr "Tipo no válido: Debe ser una cifra"
+msgstr "Tipo no válido: debe ser un número"
 
 msgctxt "api_message_missing_field"
 msgid "Missing field"
-msgstr "Capo vacío"
+msgstr "Campo vacío"
 
 msgctxt "api_message_unrecognized_field"
 msgid "Unrecognized field"
