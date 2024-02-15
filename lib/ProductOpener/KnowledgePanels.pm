@@ -900,77 +900,92 @@ sub create_nutriscore_2023_panel ($product_ref, $target_lc, $target_cc, $options
 	# Nutri-Score panel
 	my $grade = deep_get($product_ref, "nutriscore", $version, "grade");
 
+	# Title
 	if ($grade eq "not-applicable") {
 		$panel_data_ref->{title} = lang_in_other_lc($target_lc, "attribute_nutriscore_not_applicable_title");
 	}
 	else {
 		$panel_data_ref->{title}
 			= sprintf(lang_in_other_lc($target_lc, "attribute_nutriscore_grade_title"), uc($grade));
-		if ($panel_data_ref->{nutriscore_unknown_reason_short}) {
-			$panel_data_ref->{subtitle} = $panel_data_ref->{nutriscore_unknown_reason_short};
-		}
-		else {
-			$panel_data_ref->{subtitle} = lang_in_other_lc($target_lc,
-				"attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
-		}
 	}
 
-	# Nutri-Score sub-panels for each positive or negative component
-	foreach my $type (qw/positive negative/) {
-		my $components_ref = deep_get($product_ref, "nutriscore", $version, "data", "components", $type) // [];
-		foreach my $component_ref (@$components_ref) {
+	# Subtitle
+	if ($panel_data_ref->{nutriscore_unknown_reason_short}) {
+		$panel_data_ref->{subtitle} = $panel_data_ref->{nutriscore_unknown_reason_short};
+	}
+	else {
+		$panel_data_ref->{subtitle} = lang_in_other_lc($target_lc,
+			"attribute_nutriscore_" . $panel_data_ref->{nutriscore_grade} . "_description_short");
+	}
 
-			my $value = $component_ref->{value};
+	# Nutri-Score computed
+	if (($grade ne "not-applicable") and ($grade ne "unknown")) {
 
-			# Specify if there is a space between the value and the unit
-			my $space_before_unit = '';
+		# Nutri-Score sub-panels for each positive or negative component
+		foreach my $type (qw/positive negative/) {
+			my $components_ref = deep_get($product_ref, "nutriscore", $version, "data", "components", $type) // [];
+			foreach my $component_ref (@$components_ref) {
 
-			my $unit = $component_ref->{unit};
+				my $value = $component_ref->{value};
 
-			# If the value is not defined (e.g. fiber or fruits_vegetables_legumes), display "unknown" with no unit
-			if (not defined $value) {
-				$value = lc(lang_in_other_lc($target_lc, "unknown"));
-				$unit = '';
-			}
-			else {
-				# Localize the unit for the number of non-nutritive sweeteners
-				if ($component_ref->{id} eq "non_nutritive_sweeteners") {
-					$space_before_unit = ' ';
-					if ($value > 1) {
-						$unit = lang_in_other_lc($target_lc, "sweeteners");
-					}
-					else {
-						$unit = lang_in_other_lc($target_lc, "sweetener");
+				# Specify if there is a space between the value and the unit
+				my $space_before_unit = '';
+
+				my $unit = $component_ref->{unit};
+
+				# If the value is not defined (e.g. fiber or fruits_vegetables_legumes), display "unknown" with no unit
+				if (not defined $value) {
+					$value = lc(lang_in_other_lc($target_lc, "unknown"));
+					$unit = '';
+				}
+				else {
+					# Localize the unit for the number of non-nutritive sweeteners
+					if ($component_ref->{id} eq "non_nutritive_sweeteners") {
+						$space_before_unit = ' ';
+						if ($value > 1) {
+							$unit = lang_in_other_lc($target_lc, "sweeteners");
+						}
+						else {
+							$unit = lang_in_other_lc($target_lc, "sweetener");
+						}
 					}
 				}
+
+				my $component_panel_data_ref = {
+					"type" => $type,
+					"id" => $component_ref->{id},
+					"value" => $value,
+					"unit" => $unit,
+					"space_before_unit" => $space_before_unit,
+					"points" => $component_ref->{points},
+					"points_max" => $component_ref->{points_max},
+				};
+				create_panel_from_json_template(
+					"nutriscore_component_" . $component_ref->{id},
+					"api/knowledge-panels/health/nutriscore/nutriscore_component.tt.json",
+					$component_panel_data_ref,
+					$product_ref,
+					$target_lc,
+					$target_cc,
+					$options_ref
+				);
 			}
 
-			my $component_panel_data_ref = {
-				"type" => $type,
-				"id" => $component_ref->{id},
-				"value" => $value,
-				"unit" => $unit,
-				"space_before_unit" => $space_before_unit,
-				"points" => $component_ref->{points},
-				"points_max" => $component_ref->{points_max},
-			};
-			create_panel_from_json_template(
-				"nutriscore_component_" . $component_ref->{id},
-				"api/knowledge-panels/health/nutriscore/nutriscore_component.tt.json",
-				$component_panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref
-			);
+			create_panel_from_json_template("nutriscore_details",
+				"api/knowledge-panels/health/nutriscore/nutriscore_details.tt.json",
+				$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
 		}
 	}
 
-	# Nutri-Score panel: score
+	# Nutri-Score panel: parent panel
 	create_panel_from_json_template("nutriscore_2023", "api/knowledge-panels/health/nutriscore/nutriscore_2023.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
+	# Nutri-Score description
 	create_panel_from_json_template("nutriscore_description",
 		"api/knowledge-panels/health/nutriscore/nutriscore_description.tt.json",
 		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
-	create_panel_from_json_template("nutriscore_details",
-		"api/knowledge-panels/health/nutriscore/nutriscore_details.tt.json",
-		$panel_data_ref, $product_ref, $target_lc, $target_cc, $options_ref);
+
 	return;
 }
 
