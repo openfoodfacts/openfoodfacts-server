@@ -7394,8 +7394,6 @@ sub display_page ($request_ref) {
 
 sub display_image_box ($product_ref, $id, $minheight_ref) {
 
-	# print STDERR "display_image_box : $id\n";
-
 	my $img = display_image($product_ref, $id, $small_size);
 	if ($img ne '') {
 		my $code = $product_ref->{code};

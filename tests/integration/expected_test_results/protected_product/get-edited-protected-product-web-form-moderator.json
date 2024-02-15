@@ -511,6 +511,7 @@
          "4",
          "1-10"
       ],
+      "ingredients_non_nutritive_sweeteners_n" : 0,
       "ingredients_original_tags" : [
          "en:apple",
          "en:milk",
@@ -518,6 +519,7 @@
          "en:palm-oil"
       ],
       "ingredients_percent_analysis" : 1,
+      "ingredients_sweeteners_n" : 0,
       "ingredients_tags" : [
          "en:apple",
          "en:fruit",
@@ -742,7 +744,7 @@
             "category_available" : 1,
             "data" : {
                "energy" : 10,
-               "fiber" : 0,
+               "fiber" : null,
                "fruits_vegetables_legumes" : 62.5,
                "is_beverage" : 0,
                "is_cheese" : 0,

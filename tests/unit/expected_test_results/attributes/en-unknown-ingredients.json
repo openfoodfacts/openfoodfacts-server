@@ -825,10 +825,12 @@
       "1",
       "1-10"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "en:some-ingredient-that-we-do-not-recognize"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:some-ingredient-that-we-do-not-recognize"
    ],
@@ -918,7 +920,7 @@
          "category_available" : 1,
          "data" : {
             "energy" : null,
-            "fiber" : 0,
+            "fiber" : null,
             "fruits_vegetables_legumes" : 0,
             "is_beverage" : 0,
             "is_cheese" : 1,
