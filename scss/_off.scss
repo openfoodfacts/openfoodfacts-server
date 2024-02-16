@@ -481,9 +481,7 @@ details.recent {
 button.small,
 button.tiny,
 .button.tiny {
-  padding: 0.5rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding: 0.5rem 0.75rem;
 }
 
 .postfix.button.small,
@@ -1851,4 +1849,9 @@ a.panel_title {
       margin-bottom: 3rem;
     }
   }
+}
+
+.button.tiny {
+  margin:0;
+  padding: 0.25rem 0.5rem;
 }

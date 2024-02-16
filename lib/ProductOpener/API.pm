@@ -72,9 +72,9 @@ use ProductOpener::Attributes qw/:all/;
 use ProductOpener::KnowledgePanels qw/:all/;
 use ProductOpener::Ecoscore qw/localize_ecoscore/;
 use ProductOpener::Packaging qw/:all/;
+use ProductOpener::Permissions qw/:all/;
 
 use ProductOpener::APIProductRead qw/:all/;
-use ProductOpener::APIProductWrite qw/:all/;
 use ProductOpener::APIProductWrite qw/:all/;
 use ProductOpener::APIProductRevert qw/:all/;
 use ProductOpener::APIProductServices qw/:all/;
@@ -847,20 +847,30 @@ sub customize_response_for_product ($request_ref, $product_ref, $fields_comma_se
 	return $customized_product_ref;
 }
 
-# TODO: move permissions to a separate module
+=head2 check_user_permission ($request_ref, $response_ref, $permission)
 
-sub has_permission_product_revert ($request_ref) {
+Check the user has a specific permission, before processing an API request.
+If the user does not have the permission, an error is added to the response.
 
-	my $has_permission = 0;
+=head3 Parameters
 
-	if ($request_ref->{admin} or $request_ref->{moderator}) {
-		$has_permission = 1;
-	}
+=head4 $request_ref (input)
 
-	return $has_permission;
-}
+Reference to the request object.
 
-my %permissions = ("product_revert" => \&has_permission_product_revert,);
+=head4 $response_ref (output)
+
+Reference to the response object.
+
+=head4 $permission (input)
+
+Permission to check.
+
+=head3 Return value
+
+1 if the user does not have the permission, 0 otherwise.
+
+=cut
 
 sub check_user_permission ($request_ref, $response_ref, $permission) {
 
@@ -868,16 +878,7 @@ sub check_user_permission ($request_ref, $response_ref, $permission) {
 	my $error = 0;
 
 	# Check if the user has permission
-	my $has_permission = 0;
-
-	if (defined $permissions{$permission}) {
-		$has_permission = $permissions{$permission}->($request_ref);
-	}
-	else {
-		$log->error("check_user_permission - unknown permission", {permission => $permission}) if $log->is_error();
-	}
-
-	if (not $has_permission) {
+	if (not has_permission($request_ref, $permission)) {
 		$error = 1;
 		$log->error("check_user_permission - user does not have permission", {permission => $permission})
 			if $log->is_error();

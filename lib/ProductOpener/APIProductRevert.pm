@@ -50,6 +50,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::API qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Tags qw/:all/;
+use ProductOpener::Mail qw/:all/;
 
 use Encode;
 
@@ -64,6 +65,9 @@ sub revert_product_api ($request_ref) {
 	$log->debug("revert_product_api - start", {request => $request_ref}) if $log->is_debug();
 
 	my $response_ref = $request_ref->{api_response};
+
+	# Set the result field for the API response, will be updated later if the product is successfully reverted
+	$response_ref->{result} = {id => "product_not_reverted"};
 
 	my $error = 0;
 
@@ -151,9 +155,19 @@ sub revert_product_api ($request_ref) {
 					}
 					store_product($User_id, $revision_ref, $comment);
 
+					# Set the result field for the API response
+					$response_ref->{result} = {id => "product_reverted"};
+
 					# Select / compute only the fields requested by the caller, default to all fields
 					$response_ref->{product} = customize_response_for_product($request_ref, $revision_ref,
 						request_param($request_ref, 'fields') || "all");
+
+					# Send an email to admins - TODO: replace with an event or something once we have a better system in place
+					my $email_subject = "Product $code reverted to revision $rev";
+					my $email_body = "Product $code has been reverted to revision $rev by user $User_id\n";
+					$email_body .= "Comment: $comment\n";
+					$email_body .= "Product: " . product_name_brand_quantity($revision_ref) . "\n";
+					send_email_to_admin($email_subject, $email_body);
 				}
 			}
 		}

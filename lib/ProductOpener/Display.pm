@@ -179,6 +179,7 @@ use ProductOpener::Export qw(:all);
 use ProductOpener::API qw(:all);
 use ProductOpener::Units qw/:all/;
 use ProductOpener::Cache qw/:all/;
+use ProductOpener::Permissions qw/:all/;
 
 use Encode;
 use URI::Escape::XS;
@@ -408,6 +409,12 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{product_url} = \&product_url;
 	$template_data_ref->{product_action_url} = \&product_action_url;
 	$template_data_ref->{product_name_brand_quantity} = \&product_name_brand_quantity;
+	$template_data_ref->{has_permission} = sub ($permission) {
+		# Note: we pass a fake $request_ref object with only the fields admin, moderator and pro_moderator
+		# an alternative would be to pass the $request_ref object to process_template() calls
+		return has_permission({admin => $admin, moderator => $User{moderator}, pro_moderator => $User{pro_moderator}},
+			$permission);
+	};
 
 	# select2 options generator for all entries in a taxonomy
 	$template_data_ref->{generate_select2_options_for_taxonomy_to_json} = sub ($tagtype) {
@@ -7582,10 +7589,11 @@ sub display_product ($request_ref) {
 	my $template_data_ref = {request_ref => $request_ref,};
 
 	$scripts .= <<SCRIPTS
-<script src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
+<script src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="$static_subdomain/js/dist/display-product.js"></script>
 SCRIPTS
 		;
+
 	# call equalizer when dropdown content is shown
 	$initjs .= <<JS
 \$('.f-dropdown').on('opened.fndtn.dropdown', function() {
@@ -8354,7 +8362,8 @@ HTML
 		$template_data_ref->{display_field_states} = display_field($product_ref, 'states');
 	}
 
-	$template_data_ref->{display_product_history} = display_product_history($code, $product_ref) if $User{moderator};
+	$template_data_ref->{display_product_history} = display_product_history($request_ref, $code, $product_ref)
+		if $User{moderator};
 
 	# Twitter card
 
@@ -10534,7 +10543,7 @@ sub display_rev_info ($product_ref, $rev) {
 
 }
 
-sub display_product_history ($code, $product_ref) {
+sub display_product_history ($request_ref, $code, $product_ref) {
 
 	if ($product_ref->{rev} <= 0) {
 		return;
@@ -10579,8 +10588,24 @@ sub display_product_history ($code, $product_ref) {
 			return display_tag_link('editors', $uid);
 		},
 		this_product_url => product_url($product_ref),
-		revisions => \@revisions
+		revisions => \@revisions,
+		product => $product_ref,
 	};
+
+	# Javascript needed to activate the product revert buttons in the edit history
+	if (has_permission($request_ref, "product_revert")) {
+		my $revert_confirm = lang("product_js_product_revert_confirm");
+		$scripts .= <<SCRIPTS
+<script>var revert_confirm_message = "$revert_confirm";</script>
+<script src="$static_subdomain/js/dist/product-history.js"></script>
+SCRIPTS
+			;
+
+		$initjs .= <<JS
+activate_product_revert_buttons_in_history();
+JS
+			;
+	}
 
 	my $html;
 	process_template('web/pages/product/includes/edit_history.tt.html', $template_data_ref, \$html)

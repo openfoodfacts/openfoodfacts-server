@@ -175,7 +175,7 @@ if ($User_id eq 'unwanted-user-french') {
 # Response structure to keep track of warnings and errors
 # Note: currently some warnings and errors are added,
 # but we do not yet do anything with them
-my $response_ref = get_initialized_response();
+my $response_ref = ProductOpener::API::get_initialized_response();
 
 my $type = single_param('type') || 'search_or_add';
 my $action = single_param('action') || 'display';
@@ -1479,7 +1479,7 @@ HTML
 	$template_data_ref_display->{param_fields} = single_param("fields");
 	$template_data_ref_display->{type} = $type;
 	$template_data_ref_display->{code} = $code;
-	$template_data_ref_display->{display_product_history} = display_product_history($code, $product_ref);
+	$template_data_ref_display->{display_product_history} = display_product_history($request_ref, $code, $product_ref);
 	$template_data_ref_display->{product} = $product_ref;
 
 	process_template('web/pages/product_edit/product_edit_form_display.tt.html', $template_data_ref_display, \$html)
