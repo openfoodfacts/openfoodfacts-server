@@ -32,7 +32,7 @@ use ProductOpener::Users qw/:all/;
 use ProductOpener::Lang qw/:all/;
 use ProductOpener::Auth qw/:all/;
 
-use Apache2::Const -compile => qw/:all/;
+use Apache2::Const -compile => qw/OK :http/;
 use CGI qw/:cgi :form escapeHTML/;
 use URI::Escape::XS;
 use Encode;
