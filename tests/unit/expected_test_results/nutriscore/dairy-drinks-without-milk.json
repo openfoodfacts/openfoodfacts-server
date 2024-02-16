@@ -73,11 +73,13 @@
       "2",
       "1-10"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "en:water",
       "en:sugar"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:water",
       "en:sugar",
@@ -246,8 +248,8 @@
                   {
                      "id" : "non_nutritive_sweeteners",
                      "points" : 0,
-                     "points_max" : null,
-                     "unit" : null,
+                     "points_max" : 4,
+                     "unit" : "number",
                      "value" : 0
                   }
                ],
@@ -283,8 +285,7 @@
             "is_red_meat_product" : 0,
             "is_water" : 0,
             "negative_points" : 22,
-            "negative_points_max" : 50,
-            "non_nutritive_sweeteners_max" : 4,
+            "negative_points_max" : 54,
             "positive_nutrients" : [
                "proteins",
                "fiber",

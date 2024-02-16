@@ -4238,8 +4238,8 @@ HTML
 	# Add parameters corresponding to the tag filters so that they can be added to the query by add_params_to_query()
 
 	foreach my $tag_ref (@{$request_ref->{tags}}) {
-		if ($tagtype eq 'users') {
-			deep_set($request_ref, "body_json", "creator", $tagid);
+		if ($tag_ref->{tagtype} eq 'users') {
+			deep_set($request_ref, "body_json", "creator", $tag_ref->{tagid});
 		}
 		else {
 			my $field_name = $tag_ref->{tagtype} . "_tags";
@@ -4328,7 +4328,7 @@ HTML
 	return;
 }
 
-=head2 display_list_of_tags ( $request_ref, $query_ref )
+=head2 list_all_request_params ( $request_ref, $query_ref )
 
 Return an array of names of all request parameters.
 
@@ -7414,8 +7414,6 @@ sub display_page ($request_ref) {
 }
 
 sub display_image_box ($product_ref, $id, $minheight_ref) {
-
-	# print STDERR "display_image_box : $id\n";
 
 	my $img = display_image($product_ref, $id, $small_size);
 	if ($img ne '') {

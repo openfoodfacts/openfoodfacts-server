@@ -2082,6 +2082,14 @@ en:Grodziskie beers, Grodziskie
 xx:Grodziskie beers, Grodziskie
 description:en:Grodziskie is also called Polish champagne beer. It is a light, oak-smoked wheat beer with a strong smoke flavour and aroma.
 
+<en:Beers
+en:Regional beers
+fr:Bières régionales
+agribalyse_food_code:en:5011
+ciqual_food_code:en:5011
+ciqual_food_name:en:Beer, specialty, from abbey or regional (varying alcohol content)
+ciqual_food_name:fr:Bière de spécialités ou d'abbaye, régionales ou d'une brasserie (degré d'alcool variable)
+
 ################################# LAGERS #################################
 
 <en:Beers
@@ -14963,9 +14971,11 @@ wikidata:en:Q1150937
 origins:en: en:France
 
 <en:Wines from France
-fr:Côte Rôtie
+<en:Red wines
+fr:Côte Rôtie, Côte-rôtie
 wikidata:en:Q1150915
 origins:en: en:France
+protected_name_type:en: pdo
 
 <en:Wines from France
 fr:Côte Vermeille
@@ -15440,6 +15450,7 @@ origins:en: en:France
 #wikidata:en:
 
 <fr:Côtes du Roussillon
+<en:Red wines
 fr:Côtes du Roussillon Villages
 protected_name_file_number:en: PDO-FR-A0999-AM01
 protected_name_type:en: pdo
@@ -15690,6 +15701,22 @@ protected_name_file_number:en: PDO-FR-A0595
 protected_name_type:en: pdo
 origins:en: en:France
 #wikidata:en:
+
+<en:Wines from France
+fr:Gaillac
+protected_name_file_number:en: PDO-FR-A0502
+protected_name_type:en: pdo
+wikidata:en:Q392242
+
+<fr:Gaillac
+<en:11% dry white wine
+fr:Gaillac blancs, Gaillac blanc
+
+<fr:Gaillac blancs
+fr:Gaillac sec, Gaillac blanc sec
+
+<fr:Gaillac blancs
+fr:Gaillac perlé
 
 <en:Wines from France
 fr:Gaillac premières côtes
@@ -16953,6 +16980,12 @@ wikidata:en:Q42869067
 <en:Wines from France
 fr:Maures
 wikidata:en:Q17634932
+origins:en: en:France
+protected_name_type:en: pgi
+
+<en:Wines from France
+fr:Vins de Pays de l'Hérault, IGP Hérault
+protected_name_file_number:en: PGI-FR-A1370
 origins:en: en:France
 protected_name_type:en: pgi
 
@@ -21289,7 +21322,12 @@ origins:en: en:France
 protected_name_type:en: pgi
 
 <en:Wines from France
-fr:Vin de Savoie, Vin de Savoie mousseux, Vin de Savoie pétillant
+fr:Vin de Savoie
+origins:en: en:France
+#wikidata:en:
+
+<fr:Vin de Savoie
+fr:Vin de Savoie mousseux, Vin de Savoie pétillant
 origins:en: en:France
 #wikidata:en:
 
@@ -35553,6 +35591,12 @@ nl:Muffinmixes
 en:Biscuit mixes
 fr:Préparations pour biscuits
 
+<en:Pastry helpers
+<en:Baking Mixes
+<en:Dessert mixes
+en:Cookies mixes
+fr:Préparations pour cookies
+
 <en:Dessert mixes
 en:Base formulation for chocolate mousse, chocolate mousse kits
 fr:Préparation pour mousse au chocolat
@@ -37340,9 +37384,9 @@ th:ดาร์กช็อกโกแลต
 tr:Bitter çikolata
 zh:黑巧克力
 wikidata:en:Q277628
-agribalyse_proxy_food_code:en:31080
-agribalyse_proxy_food_name:en:Dark chocolate bar, filled with praline
-agribalyse_proxy_food_name:fr:Chocolat noir fourré praliné, tablette
+agribalyse_proxy_food_code:en:31005
+agribalyse_proxy_food_name:en:Dark chocolate bar, less than 70% cocoa
+agribalyse_proxy_food_name:fr:Chocolat noir à moins de 70% de cacao, à croquer, tablette
 #if you use all those German synonyms you have nothing left for the subcategories. I'd say Dunkle Schokoladen would be enough
 
 <en:Dark chocolates
@@ -37482,7 +37526,6 @@ ciqual_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
 en:Dark chocolates with pear, Dark chocolate bar with pear
 fr:Chocolats noirs à la poire
 lt:Juodi šokoladai su kriaušėmis, Juodos šokolado plytelės su kriaušėmis
-agribalyse_proxy_food_code:en:31069
 agribalyse_proxy_food_code:en:31069
 agribalyse_proxy_food_name:en:Dark chocolate bar, with fruits (orange, raspberries, pear)
 agribalyse_food_code:en:31069
@@ -46963,7 +47006,7 @@ ciqual_food_name:en:Pyrénées cheese, from ewe's milk
 ciqual_food_name:fr:Fromage de brebis des Pyrénées
 
 <en:sheep's-milk cheeses
-en:Semi-hard cheeses, Semi-hard cheeses from ewe's milk
+en:Semi-hard cheeses from ewe's milk, Semi-hard cheeses
 fr:Fromage de brebis à pâte pressée
 agribalyse_food_code:en:12827
 ciqual_food_code:en:12827
@@ -53510,16 +53553,25 @@ lt:Riešutų miltai
 nl:Gemalen noten
 
 <en:Nut flours
-en:Almond meal, Almond flours, Ground almond
+en:Almond meal, Ground almond
 de:gemahlene Mandeln, geriebene Mandeln
-es:Harinas de almendra, Harina de almendra, Almendras en polvo, Almendra en polvo
-fi:mantelijauho
+es:Almendras en polvo, Almendra en polvo
 fr:Amandes en poudre, poudres d’amande, poudre d’amande, Amande en poudre
 it:Pasto di Mandorle
 lt:Migdolų miltai
 nl:Gemalen amandels
-pt:Farinha de amêndoa
 wikidata:en:Q4733897
+agribalyse_proxy_food_code:en:15041
+agribalyse_proxy_food_name:en:Almond, peeled, unpeeled or blanched
+agribalyse_proxy_food_name:fr:Amande, mondée, émondée ou blanchie
+
+<en:Almond meal
+en:Almond flours
+es:Harinas de almendra, Harina de almendra
+fi:mantelijauho
+fr:Farine d'Amandes
+it:Farina di mandorle
+pt:Farinha de amêndoa
 
 <en:Nut flours
 en:Chestnut flours
@@ -55037,9 +55089,13 @@ nl_be:Botervetten
 pt:Gorduras de manteiga
 zh:黄油脂肪
 
+<en:Butters
+en:Clarified butter
+fr:Beurre clarifié, beurres clarifiés
 
 # description:en:GHEE is a type of butterfat that originated from the Indian subcontinent.
 
+<en:Clarified butter
 <en:Butter fat
 en:ghee
 ar:سمن حيواني
@@ -64323,6 +64379,9 @@ es:Caquis, Kakis
 fr:Kakis
 la:Diospyros kaki
 nl:Kakis
+agribalyse_proxy_food_code:en:13066
+agribalyse_proxy_food_name:en:Persimmon, pulp, raw
+agribalyse_proxy_food_name:fr:Kaki, pulpe, cru
 
 <en:Fruits
 en:Persimmon pulp
@@ -69486,6 +69545,10 @@ fr:Poivre du SiChuan
 ja:山椒
 pl:Pieprz syczuański
 zh:花椒
+
+<en:Chili peppers
+en:Tasmanian Pepperberry, mountain pepper, bush pepper
+fr:Poivre de Tasmanie
 
 <en:Peppers
 en:Gray peppers
@@ -76663,6 +76726,10 @@ ciqual_food_name:en:Stuffed vegetables (excluding tomato)
 ciqual_food_name:fr:Légumes farcis (sauf tomate)
 #wikidata:en:
 
+<en:Stuffed vegetables
+en:Stuffed vegetables in oil
+fr:Légumes farcis dans l'huile, légumes farcis à l'huile
+
 <en:Meals
 en:Vegetarian meals
 intake24_category_code:en:VGDI
@@ -79168,7 +79235,7 @@ ciqual_food_code:en:6001
 ciqual_food_name:en:Beef, rib, raw
 ciqual_food_name:fr:Boeuf, côte, crue
 
-<en:Beef
+<en:Beef front quarter
 en:Beef short ribs
 fr:Plats de côtes de boeuf
 ja:牛ササミ
@@ -79233,6 +79300,14 @@ ciqual_food_name:en:Kidney, beef, cooked
 ciqual_food_name:fr:Rognon, boeuf, cuit
 
 <en:Beef
+en:Beef front quarter
+fr:Quartier avant de boeuf
+
+<en:Beef front quarter
+en:Frozen beef front quarter
+fr:Quartier avant de boeuf surgelé
+
+<en:Beef front quarter
 en:Beef chuck
 fr:Paleron de boeuf
 agribalyse_food_code:en:6270
@@ -79250,7 +79325,7 @@ ciqual_food_code:en:6271
 ciqual_food_name:en:Beef, chuck, braised or boiled
 ciqual_food_name:fr:Boeuf, paleron, braisé ou bouilli
 
-<en:Beef
+<en:Beef front quarter
 en:Beef bolar-blade
 fr:Boule de macreuse de boeuf
 agribalyse_food_code:en:6202
@@ -79328,7 +79403,7 @@ ciqual_food_code:en:6161
 ciqual_food_name:en:Beef, topside, grilled/pan-fried
 ciqual_food_name:fr:Boeuf, tende de tranche, grillée/poêlée
 
-<en:Beef
+<en:Beef front quarter
 en:Beef flank steak
 fr:Bavette d'aloyau de boeuf, Bavette d'aloyau
 ja:牛フランク
@@ -85433,6 +85508,11 @@ en:Rindless short cut bacon
 <en:Back bacon
 en:Smoked back bacon
 
+<en:Pork and its products
+<en:Meats
+en:Pig carcass, Pork carcass
+fr:Carcasse de porc
+
 <en:Meats
 en:Veal meat, veal
 bg:Телешко месо
@@ -88891,6 +88971,11 @@ de:Makroud
 fr:Makrout, Makroud
 wikidata:en:Q1886522
 
+<en:Pastries
+<en:Desserts
+en:Kadaif, tel kadayif, kadayif
+fr:Kadayif, tel kadayif, Kadaifs
+
 <en:Plant-based foods
 en:Pickles
 ca:Conserves
@@ -90222,7 +90307,6 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 
 <en:Seafood
 en:Shellfish
-fr:Coquillages
 gpc_category_code:en:10000021
 gpc_category_name:en:Shellfish - Unprepared/Unprocessed (Shelf Stable)
 gpc_category_description:en:Definition: Includes any products that can be described/observed as an aquatic animal whose external covering consists of a shell, as in oysters, clams, lobsters and crabs, that has not gone through any further manufacturing processes, such as reformed, cooked, dried and salted, however these products can be coated, in sauce, stuffed or filled. Products include sea snails and molluscs but specifically exclude products that have added ingredients included such as rice, couscous and pasta. However products may contain a small quantity of vegetables such as those in a sauce or stuffing/filling. These products have been treated or packaged in such a way as to extend their consumable life. Definition Excludes: Excludes products such as Shellfish with additional vegetables, dough or grains, Frozen and Perishable Unprepared and Unprocessed Shellfish, all Prepared and Processed Shellfish.
@@ -90700,6 +90784,13 @@ ie:Clare Island Salmon
 protected_name_file_number:en: PGI-IE-0058
 protected_name_type:en: pgi
 origins:en: en:Ireland
+
+<en:Scallop
+en:Scallops coral
+fr:Corail de coquilles Saint-Jacques
+agribalyse_proxy_food_code:en:10003
+agribalyse_proxy_food_name:en:Scallop, with coral, raw
+agribalyse_proxy_food_name:fr:Coquille Saint-Jacques, noix et corail, crue
 
 <en:Scallop
 en:Scallops with coral
@@ -93875,7 +93966,7 @@ en:Mollusc, Mollusk
 de:Molluske
 es:Molusco
 fi:nilviäiset
-fr:Mollusques
+fr:Mollusques, Coquillages
 it:Molluschi
 ja:軟体動物
 nl:Weekdieren
@@ -93894,6 +93985,10 @@ ja:アワビ, 鮑
 ciqual_food_code:en:10041
 ciqual_food_name:en:Abalone or ormer or sea ear, raw
 ciqual_food_name:fr:Ormeau, cru
+
+<en:Mollusc
+en:Cooked abalone, cooked ormer, cooked sea ear
+fr:Ormeau cuit
 
 <en:Mollusc
 en:Cockles
@@ -93931,6 +94026,15 @@ ja:アサリ
 ciqual_food_code:en:10017
 ciqual_food_name:en:Clam, raw
 ciqual_food_name:fr:Clam, Praire ou Palourde, cru
+
+<en:Mollusc
+fr:Murex
+
+<en:Mollusc
+fr:Bigorneaux, bigorneau
+ciqual_proxy_food_code:en:10019
+ciqual_proxy_food_name:en:Whelk, raw
+ciqual_proxy_food_name:fr:Bulot ou Buccin, cru
 
 <en:Mollusc
 en:Cooked whelk
@@ -94135,6 +94239,9 @@ origins:en: en:France
 wikidata:en:Q110263027
 # Carbon footprint article on wikidata:en:Q60560637
 
+<en:Oysters
+fr:Huîtres spéciales
+
 <en:Mollusc
 en:Cuttlefish
 de:Tintenfische
@@ -94208,6 +94315,10 @@ fr:calamar frit, calamar poêlé
 agribalyse_food_code:en:10084
 ciqual_food_code:en:10084
 ciqual_food_name:en:Squid, fried or pan-fried with fat
+
+<en:Seafood
+en:Sea urchin
+fr:Oursins
 
 <en:Squid
 en:Frozen squid
@@ -97107,6 +97218,11 @@ pl:warzywa
 pt:Vegetais
 ru:Овощи
 intake24_category_code:en:VTGB
+
+<en:Vegetables
+en:Root vegetables, root vegetable
+fr:Légumes-racines, légume-racine
+wikidata:en:Q20136
 
 <en:Vegetables
 en:Vegetables from Germany, German vegetables
@@ -100054,6 +100170,10 @@ de:Lady Christl Kartoffeln
 fr:Pomme de terre Lady Christl
 nl:Lady Christl aardappelen
 
+<en:Potatoes
+en:Red potatoes
+fr:Pommes de terres rouges
+
 #################### Potatoes with a usage ####################
 
 <en:Potatoes
@@ -101434,9 +101554,6 @@ fr:Germes de poireaux frais, pousses de poireaux fraîches
 en:Fresh cabbage sprouts
 es:Germinados de col frescos
 fr:Germes de choux frais
-
-<en:Vegetables based foods
-en:Vegetables
 
 <en:Vegetables based foods
 <en:Dried plant-based foods
@@ -103569,6 +103686,10 @@ nl:Witte wijnazijnen
 pl:Ocet z białego wina
 pt:Vinagres de vinho branco
 
+<en:Wine vinegars
+en:Champaign vinegars, Vinegars from champaign
+fr:Vinaigre de Champagne
+
 <en:Vinegars
 <en:White wine vinegars
 en:Xeres vinegars
@@ -104794,6 +104915,10 @@ ciqual_food_name:fr:Julienne ou brunoise de légumes, surgelée, crue
 <en:Vegetables
 en:thinly-shredded vegetables, diced vegetables
 fr:Julienne de légumes, Brunoise de légumes
+
+<en:Vegetables
+en:Mustard greens
+fr:Feuilles de moutarde
 
 <en:Meals
 en:Pan-fried dishes
