@@ -261,6 +261,7 @@
       "16",
       "11-20"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 1,
    "ingredients_original_tags" : [
       "en:water",
       "en:sugar",
@@ -280,6 +281,7 @@
       "en:e960"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:water",
       "en:sugar",
@@ -484,9 +486,9 @@
                   {
                      "id" : "non_nutritive_sweeteners",
                      "points" : 4,
-                     "points_max" : null,
-                     "unit" : null,
-                     "value" : 0
+                     "points_max" : 4,
+                     "unit" : "number",
+                     "value" : 1
                   }
                ],
                "positive" : [
@@ -502,7 +504,7 @@
                      "points" : 0,
                      "points_max" : 5,
                      "unit" : "g",
-                     "value" : 0
+                     "value" : null
                   },
                   {
                      "id" : "fruits_vegetables_legumes",
@@ -521,16 +523,14 @@
             "is_red_meat_product" : 0,
             "is_water" : 0,
             "negative_points" : 8,
-            "negative_points_max" : 50,
-            "non_nutritive_sweeteners_max" : 4,
+            "negative_points_max" : 54,
             "positive_nutrients" : [
                "proteins",
                "fiber",
                "fruits_vegetables_legumes"
             ],
             "positive_points" : 0,
-            "positive_points_max" : 18,
-            "with_non_nutritive_sweeteners" : 1
+            "positive_points_max" : 18
          },
          "grade" : "d",
          "nutrients_available" : 1,
@@ -603,13 +603,11 @@
       "beverages",
       "known"
    ],
-   "pnns_groups_2" : "Artificially sweetened beverages",
+   "pnns_groups_2" : "Sweetened beverages",
    "pnns_groups_2_tags" : [
-      "artificially-sweetened-beverages",
+      "sweetened-beverages",
       "known"
    ],
    "unknown_ingredients_n" : 1,
-   "vitamins_tags" : [],
-   "with_non_nutritive_sweeteners" : 1,
-   "with_sweeteners" : 1
+   "vitamins_tags" : []
 }

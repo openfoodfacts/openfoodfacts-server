@@ -406,11 +406,13 @@
       "2",
       "1-10"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "fr:white-peaches",
       "fr:high-fructose-corn-syrup"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "fr:white-peaches",
       "fr:high-fructose-corn-syrup"
@@ -524,7 +526,7 @@
          "category_available" : 1,
          "data" : {
             "energy" : 500,
-            "fiber" : 0,
+            "fiber" : null,
             "fruits_vegetables_legumes" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,
