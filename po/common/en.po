@@ -6679,7 +6679,7 @@ msgstr "Weight percent"
 
 msgctxt "nutriscore_component_energy"
 msgid "Energy"
-msgstr "Energy"
+msgstr "Calories"
 
 msgctxt "nutriscore_component_energy_from_saturated_fat"
 msgid "Energy from saturated fat"
@@ -6687,7 +6687,7 @@ msgstr "Energy from saturated fat"
 
 msgctxt "nutriscore_component_sugars"
 msgid "Sugars"
-msgstr "Sugars"
+msgstr "Sugar"
 
 msgctxt "nutriscore_component_saturated_fat"
 msgid "Saturated fat"
@@ -6801,8 +6801,6 @@ msgctxt "nutrient_info_energy_from_saturated_fat_risk"
 msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
 msgstr "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
 
-# https://www.who.int/news/item/15-05-2023-who-advises-not-to-use-non-sugar-sweeteners-for-weight-control-in-newly-released-guideline
-
 msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
 msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
 msgstr "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
@@ -6818,3 +6816,13 @@ msgstr "Consuming foods rich in fruits, vegetables and legumes reduces the risks
 msgctxt "nutrient_info_proteins_benefit"
 msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
 msgstr "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+
+# sweeteners (additives), plural
+msgctxt "sweeteners"
+msgid "sweeteners"
+msgstr "sweeteners"
+
+# sweetener (additive), singular
+msgctxt "sweetener"
+msgid "sweetener"
+msgstr "sweetener"

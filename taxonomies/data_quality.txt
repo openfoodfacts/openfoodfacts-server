@@ -4,6 +4,11 @@
 
 # Data quality errors should not contain false positive, as opposed to data quality warnings
 en:Data quality errors
+fr:Erreurs de qualité des données
+es:Errores de calidad de datos
+de:Datenqualitätsfehler
+it:Errori di qualità dei dati
+pt:Erros de qualidade de dados
 description:en: Error detected on data
 
 <en:Data quality errors
@@ -46,6 +51,10 @@ description:en:The energy value in kJ must be about 4.2 times greater than the v
 <en:Nutrition errors
 en:Energy value in kJ does not match value computed from other nutrients
 fr:Valeur énergétique en kJ ne correspondant pas à la valeur calculée à partir des autres nutriments
+es:El valor energético en kJ no coincide con el valor calculado a partir de otros nutrientes
+de:Energiegehalt in kJ stimmt nicht mit dem aus anderen Nährstoffen berechneten Wert überein
+it:Il valore energetico in kJ non corrisponde al valore calcolato dagli altri nutrienti
+pt:O valor energético em kJ não corresponde ao valor calculado a partir de outros nutrientes
 description:en:The energy value in kJ does not match value computed from other nutrients. It is often due to an error in the nutrition facts table entered by the users. Sometimes, it's an error coming from the producer.
 description:fr:La valeur énergétique entrée en kJ ne correspond pas à la valeur calculée à partir des autres nutriments. C'est souvent dû à une erreur dans le tableau nutritionel complété par les utilisateurs. Parfois il s'agit d'une erreur sur le packaging.
 
@@ -53,9 +62,17 @@ description:fr:La valeur énergétique entrée en kJ ne correspond pas à la val
 en:Nutrition - Sugars plus starch greater than carbohydrates
 es:Nutrición: azúcares más almidón más que los carbohidratos
 fr:Nutrition - Sucres plus amidon supérieurs aux glucides
+de:Ernährung - Zucker plus Stärke größer als Kohlenhydrate
+it:Nutrizione - Zuccheri più amido maggiori dei carboidrati
+pt:Nutrição - Açúcares mais amido maior que carboidratos
 
 <en:Nutrition errors
 en:Nutrition - Fructose plus glucose plus maltose plus lactose plus sucrose greater than sugars
+fr:Nutrition - Fructose plus glucose plus maltose plus lactose plus saccharose supérieurs aux sucres
+es:Nutrición - Fructosa más glucosa más maltosa más lactosa más sacarosa mayor que los azúcares
+de:Ernährung - Fructose plus Glucose plus Maltose plus Lactose plus Saccharose größer als Zucker
+it:Nutrizione - Fruttosio più glucosio più maltosio più lattosio più saccarosio maggiore degli zuccheri
+pt:Nutrição - Frutose mais glicose mais maltose mais lactose mais sacarose maior que açúcares
 
 <en:Nutrition errors
 en:Nutrition Saturated Fat greater than Fat
@@ -79,6 +96,11 @@ description:fr:La portion est nulle ou non reconnue alors que les valeurs nutrit
 
 <en:Nutrition errors
 en:Nutrition value over 1000 - Alcohol
+fr:Valeur nutritionnelle supérieure à 1000 - Alcool
+es:Valor nutricional superior a 1000 - Alcohol
+de:Nährwert über 1000 - Alkohol
+it:Valore nutrizionale superiore a 1000 - Alcol
+pt:Valor nutricional acima de 1000 - Álcool
 description:en:Alcohol value is over 1000g per 100g, which is impossible.
 
 <en:Nutrition errors
@@ -164,6 +186,8 @@ description:en:Gondoic acid value is over 1000g per 100g, which is impossible.
 <en:Nutrition errors
 en:Nutrition value over 1000 - Iodine
 description:en:Iodine value is over 1000g per 100g, which is impossible.
+description:fr:La valeur de l'iode est supérieure à 1000g pour 100g, ce qui est impossible.
+description:es:El valor del yodo es superior a 1000g por 100g, lo cual es imposible.
 
 <en:Nutrition errors
 en:Nutrition value over 1000 - Iron
@@ -224,18 +248,26 @@ description:en:Pro vitamin a value is over 1000g per 100g, which is impossible.
 <en:Nutrition errors
 en:Nutrition value over 1000 - Proteins
 description:en:Proteins value is over 1000g per 100g, which is impossible.
+description:fr:La valeur des protéines dépasse 1000g pour 100g, ce qui est impossible.
+description:es:El valor de las proteínas supera los 1000g por 100g, lo cual es imposible.
 
 <en:Nutrition errors
 en:Nutrition value over 1000 - Salt
 description:en:Salt value is over 1000g per 100g, which is impossible.
+description:fr:La valeur du sel dépasse 1000g pour 100g, ce qui est impossible.
+description:es:El valor de la sal supera los 1000g por 100g, lo cual es imposible.
 
 <en:Nutrition errors
 en:Nutrition value over 1000 - Salt prepared
 description:en:Salt prepared value is over 1000g per 100g, which is impossible.
+description:fr:La valeur du sel préparé dépasse 1000g pour 100g, ce qui est impossible.
+description:es:El valor de la sal preparada supera los 1000g por 100g, lo cual es imposible.
 
 <en:Nutrition errors
 en:Nutrition value over 1000 - Saturated fat
 description:en:Saturated fat value is over 1000g per 100g, which is impossible.
+description:fr:La valeur des graisses saturées dépasse 1000g pour 100g, ce qui est impossible.
+description:es:El valor de las grasas saturadas supera los 1000g por 100g, lo cual es imposible.
 
 <en:Nutrition errors
 en:Nutrition value over 1000 - Selenium
@@ -655,6 +687,10 @@ es:Valor nutricional superior a 105 - Sal
 de:Nährwert über 105 - Salz
 it:Valore nutrizionale superiore a 105 - Sale
 description:en:Salt value is over 105g per 100g, which is impossible.
+fr:Valeur nutritionnelle supérieure à 105 - Sel
+es:Valor nutricional superior a 105 - Sal
+de:Nährwert über 105 - Salz
+it:Valore nutrizionale superiore a 105 - Sale
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Salt prepared
@@ -663,6 +699,10 @@ es:Valor nutricional superior a 105 - Sal preparada
 de:Nährwert über 105 - Salz zubereitet
 it:Valore nutrizionale superiore a 105 - Sale preparate
 description:en:Salt prepared value is over 105g per 100g, which is impossible.
+fr:Valeur nutritionnelle supérieure à 105 - Sel préparé
+es:Valor nutricional superior a 105 - Sal preparada
+de:Nährwert über 105 - Salz zubereitet
+it:Valore nutrizionale superiore a 105 - Sale preparate
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Saturated fat
@@ -678,6 +718,10 @@ description:en:Saturated fat prepared value is over 105g per 100g, which is impo
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Selenium
+fr:Valeur nutritionnelle supérieure à 105 - Sélénium
+es:Valor nutricional superior a 105 - Selenio
+de:Nährwert über 105 - Selen
+it:Valore nutrizionale superiore a 105 - Selenio
 description:en:Selenium value is over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
@@ -686,6 +730,10 @@ description:en:Serum proteins value is over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Silica
+fr:Valeur nutritionnelle supérieure à 105 - Silice
+es:Valor nutricional superior a 105 - Sílice
+de:Nährwert über 105 - Siliziumdioxid
+it:Valore nutrizionale superiore a 105 - Silice
 description:en:Silica value is over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
@@ -765,16 +813,20 @@ en:Nutrition value over 105 - Vitamin PP
 description:en:Vitamin PP value is over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
-en:Nutrition value over 105 - Vitamin a
+en:Nutrition value over 105 - Vitamin A
 description:en:Vitamin a value is over 105g per 100g, which is impossible.
 
 <en:Nutrition errors
-en:Nutrition value over 105 - Vitamin a prepared
+en:Nutrition value over 105 - Vitamin A prepared
 description:en:Vitamin a prepared value is over 105g per 100g, which is impossible.
+description:fr:La valeur de la vitamine A préparée dépasse 105g pour 100g, ce qui est impossible.
+description:es:El valor de la vitamina A preparada supera los 105g por 100g, lo cual es imposible.
 
 <en:Nutrition errors
-en:Nutrition value over 105 - Vitamin c
+en:Nutrition value over 105 - Vitamin C
 description:en:Vitamin c value is over 105g per 100g, which is impossible.
+description:fr:La valeur de la vitamine C dépasse 105g pour 100g, ce qui est impossible.
+description:es:El valor de la vitamina C supera los 105g por 100g, lo cual es imposible.
 
 <en:Nutrition errors
 en:Nutrition value over 105 - Vitamin d
@@ -863,11 +915,29 @@ fix_action:en: add_ingredients_text
 
 <en:Data quality errors
 en:vegan label but non vegan ingredient
+es:etiqueta-vegana-pero-ingrediente-no-vegano
+fr:étiquette-vegan-mais-ingrédient-non-vegan
+de:veganes-label-aber-nicht-vegane-zutat
+it:etichetta-vegan-ma-ingrediente-non-vegan
+pt:etiqueta-vegana-mas-ingrediente-não-vegano
+nl:vegan-label-maar-niet-veganistisch-ingrediënt
 description:en:This product has a vegan label but contains non-vegan ingredients.
+description:es:Este producto tiene una etiqueta vegana pero contiene ingredientes no veganos.
+description:fr:Ce produit porte une étiquette végétalienne mais contient des ingrédients non végétaliens.
+description:de:Dieses Produkt trägt ein veganes Label, enthält jedoch nicht-vegane Zutaten.
+description:it:Questo prodotto ha un'etichetta vegana ma contiene ingredienti non vegani.
+description:pt:Este produto tem um rótulo vegano, mas contém ingredientes não veganos.
+description:nl:Dit product heeft een veganistisch label maar bevat niet-veganistische ingrediënten.
 
 <en:Data quality errors
 en:vegetarian label but non vegetarian ingredient
 description:en:This product has a vegetarian label but contains non-vegetarian ingredients.
+description:es:Este producto tiene una etiqueta vegetariana pero contiene ingredientes no vegetarianos.
+description:fr:Ce produit porte une étiquette végétarienne mais contient des ingrédients non végétariens.
+description:de:Dieses Produkt trägt ein vegetarisches Label, enthält jedoch nicht-vegetarische Zutaten.
+description:it:Questo prodotto ha un'etichetta vegetariana ma contiene ingredienti non vegetariani.
+description:pt:Este produto tem um rótulo vegetariano, mas contém ingredientes não vegetarianos.
+description:nl:Dit product heeft een vegetarisch label maar bevat niet-vegetarische ingrediënten.
 
 
 ### Categories
@@ -941,25 +1011,24 @@ description:en:Quantity of fruit for chestnut purée should be above 38 per 100g
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 ## --------------- Then data quality warnings
 
 en:Data quality warnings
 description:en: Possible error on data detected. Might be a false alert.
+description:es: Posible error en los datos detectado. Podría ser una alerta falsa.
+description:fr: Erreur possible sur les données détectée. Pourrait être une fausse alerte.
+description:de: Möglicher Datenfehler erkannt. Könnte ein falscher Alarm sein.
+description:it: Possibile errore sui dati rilevato. Potrebbe essere un falso allarme.
+description:pt: Possível erro nos dados detectado. Pode ser um alerta falso.
 marker_type:en: warning
 
 en:Data quality ok tags
 description:en: Positive appreciations on data quality
+description:es: Apreciaciones positivas sobre la calidad de los datos
+description:fr: Appréciations positives sur la qualité des données
+description:de: Positive Bewertungen zur Datenqualität
+description:it: Apprezzamenti positivi sulla qualità dei dati
+description:pt: Apreciações positivas sobre a qualidade dos dados
 marker_type:en: info
 
 ### Eco-Score and packaging
@@ -1060,6 +1129,9 @@ en:Packaging data - incomplete
 
 <en:Data quality ok tags
 en:Packaging data complete
+es:Datos de empaque completos
+fr:Données d'emballage complètes
+de:Verpackungsdaten vollständig
 #description:en:
 
 
@@ -1093,6 +1165,9 @@ en:Food groups 2 known
 
 <en:Food groups warnings
 en:Food groups 3 known
+fr:Groupes alimentaires 3 connus
+es:Grupos de alimentos 3 conocidos
+de:Lebensmittelgruppen 3 bekannt
 #description:en:
 
 <en:Data quality ok tags
@@ -2322,6 +2397,7 @@ description:en:This ingredient list contains 4 repeated chars, which is very unl
 <en:Ingredients warnings
 en:Ingredients SV - 5 consonants
 description:en:This ingredient list contains 5 consecutive consonants, which is very unlikely in most languages, and might be due to a text extraction (OCR) error
+language:
 
 <en:Ingredients warnings
 en:Ingredients SV - 5 vowels
@@ -2811,6 +2887,9 @@ en:Main language missing
 fr:Langue principale manquante
 es:Falta idioma principal
 de:Hauptsprache fehlt
+it:Lingua principale mancante
+pt:Língua principal ausente
+nl:Hoofdtaal ontbreekt
 description:en:There's no language for this product, which is problematic, since several behaviors around ingredient analysis rely on a main language.
 
 
@@ -2818,6 +2897,9 @@ en:Main language unknown
 fr:Langue principale inconnue
 es:Idioma principal desconocido
 de:Hauptsprache unbekannt
+it:Lingua principale sconosciuta
+pt:Língua principal desconhecida
+nl:Hoofdtaal onbekend
 description:en:The main language of the product is unknown, which can lead to data quality issues in analyzing ingredients and other aspects of the product.
 
 
@@ -2827,6 +2909,9 @@ description:en:The main language of the product is unknown, which can lead to da
 
 <en:Data quality warnings
 en: Categories warnings
+fr: Avertissements de catégories
+es: Advertencias de categorías
+de: Kategoriewarnungen
 description:en: potential issues on categories
 
 <en: Categories warnings
@@ -2834,11 +2919,23 @@ en:Alcoholic and non alcoholic categories
 fr:Catégories alcooliques et non alcooliques
 es:Categorías alcohólicas y no alcohólicas
 de:Alkoholische und alkoholfreie Kategorien
-#description:en:
+it:Categorie alcoliche e non alcoliche
+pt:Categorias alcoólicas e não alcoólicas
+description:en:Having both alcoholic and non-alcoholic categories mixed together is an error.
 
 <en: Categories warnings
 en:Alcoholic beverages category without alcohol value
-#description:en:All alcoholic beverages should have an alcohol % value
+fr:Catégorie de boissons alcoolisées sans valeur d'alcool
+es:Categoría de bebidas alcohólicas sin valor de alcohol
+de:Kategorie alkoholischer Getränke ohne Alkoholwert
+it:Categoria di bevande alcoliche senza valore di alcol
+pt:Categoria de bebidas alcoólicas sem valor de álcool
+description:en:All alcoholic beverages should have an alcohol % value
+description:fr:Toutes les boissons alcoolisées doivent avoir une valeur en % d'alcool
+description:es:Todas las bebidas alcohólicas deben tener un valor de % de alcohol
+description:de:Alle alkoholischen Getränke sollten einen Alkoholgehalt in % haben
+description:it:Tutte le bevande alcoliche dovrebbero avere un valore in % di alcol
+description:pt:Todas as bebidas alcoólicas devem ter um valor de % de álcool
 
 <en: Categories warnings
 en:Cosmetic product
@@ -2846,6 +2943,9 @@ description:en:This product should be moved to Open Beauty Facts by inputting "o
 
 <en: Categories warnings
 en:Detected category from brand - Baby Foods
+fr:Catégorie détectée à partir de la marque - Aliments pour bébés
+es:Categoría detectada a partir de la marca - Alimentos para bebés
+de:Erkannte Kategorie aus der Marke - Babynahrung
 #description:en:
 
 <en: Categories warnings
@@ -2889,7 +2989,17 @@ fix_action:en: add_nutrition_facts
 
 <en:Data quality warnings
 en:Nutri-Score warnings
+fr:Avertissements Nutri-Score
+es:Advertencias del Nutri-Score
+de:Nutri-Score Warnungen
+it:Avvertenze del Nutri-Score
+pt:Avisos do Nutri-Score
 description:en: Potential issues on Nutri-Score computation
+description:fr: Problèmes potentiels de calcul du Nutri-Score
+description:es: Problemas potenciales en el cálculo del Nutri-Score
+description:de: Potenzielle Probleme bei der Berechnung des Nutri-Scores
+description:it: Potenziali problemi nel calcolo del Nutri-Score
+description:pt: Problemas potenciais na computação do Nutri-Score
 
 <en:Nutrition warnings
 en:All nutrition values are set to 0
@@ -2907,10 +3017,15 @@ en:Missing nutrition data prepared with category dried products to be rehydrated
 en:No nutrition data
 es:Sin datos de nutrición
 fr:Aucune donnée nutritionnelle
+de:Keine Nährwertangaben
+it:Nessun dato nutrizionale
+pt:Sem dados de nutrição
 #description:en:
 
 <en:Data quality ok tags
 en:Nutri-Score computations same grade
+es:Los cálculos de Nutri-Score tienen la misma calificación
+fr:Les calculs de Nutri-Score ont la même note
 #description:en:
 
 <en:Data quality ok tags
@@ -2985,6 +3100,8 @@ en:Nutrition score FR producer same OK
 en:Nutrition value - total over 1000
 es:Valor nutricional - total superior a 1000
 fr:Valeur nutritionnelle - total supérieur à 1000
+de:Nährwert - Gesamtmenge über 1000
+it:Valore nutrizionale - totale superiore a 1000
 #description:en:
 
 <en:Nutrition warnings
@@ -3147,18 +3264,29 @@ en:Product quantity in mg
 es:Cantidad del producto en mg
 fr:Quantité du produit en mg
 de:Produktmenge in mg
+it:Quantità del prodotto in mg
+pt:Quantidade do produto em mg
+nl:Producthoeveelheid in mg
 #description:en:The product quantity is in miligrams (mg), which is very unlikely for 99% of food products (exceptions could include aromas)
 
 <en:Quantity and serving warnings
 en:Product quantity over 10kg
 es:Cantidad del producto superior a 10 kg
 fr:Quantité du produit supérieure à 10 kg
+de:Produktmenge über 10 kg
+it:Quantità del prodotto superiore a 10 kg
+pt:Quantidade do produto acima de 10 kg
+nl:Producthoeveelheid boven 10 kg
 description:en:Product quantity is above 10kg, which is unlikely for most of the products
 
 <en:Quantity and serving warnings
 en:Product quantity under 1g
 es:Cantidad del producto inferior a 1g
 fr:Quantité du produit inférieure à 1g
+de:Produktmenge unter 1g
+it:Quantità del prodotto inferiore a 1g
+pt:Quantidade do produto inferior a 1g
+nl:Producthoeveelheid onder 1g
 description:en:Product quantity is under 1 gram, which is a very unlikely quantity for 99% of food products. This might either be due to a parsing error or to a bad value.
 
 <en:Quantity and serving warnings
@@ -3173,6 +3301,9 @@ en:Quantity not recognized
 es:Cantidad no reconocida
 fr:Quantité non reconnue
 de:Menge nicht erkannt
+it:Quantità non riconosciuta
+pt:Quantidade não reconhecida
+nl:Hoeveelheid niet herkend
 description:en:The quantity was not recognized, which does not let us compute nutritional values for the whole product when we have values per 100g.
 
 <en:Quantity and serving warnings

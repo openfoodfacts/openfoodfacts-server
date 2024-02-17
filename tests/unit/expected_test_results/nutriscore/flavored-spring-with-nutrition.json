@@ -133,9 +133,9 @@
                   {
                      "id" : "non_nutritive_sweeteners",
                      "points" : 0,
-                     "points_max" : null,
-                     "unit" : null,
-                     "value" : 0
+                     "points_max" : 4,
+                     "unit" : "number",
+                     "value" : null
                   }
                ],
                "positive" : [
@@ -158,7 +158,7 @@
                      "points" : 0,
                      "points_max" : 6,
                      "unit" : "%",
-                     "value" : 0
+                     "value" : null
                   }
                ]
             },
@@ -170,8 +170,7 @@
             "is_red_meat_product" : 0,
             "is_water" : 0,
             "negative_points" : 11,
-            "negative_points_max" : 50,
-            "non_nutritive_sweeteners_max" : 4,
+            "negative_points_max" : 54,
             "positive_nutrients" : [
                "proteins",
                "fiber",
