@@ -137,8 +137,8 @@ my @suggest_tests = (
 );
 
 foreach my $test_ref (@suggest_tests) {
-	my @results = ProductOpener::TaxonomySuggestions::get_taxonomy_suggestions_with_synonyms($test_ref->{tagtype}, $test_ref->{lc},
-		$test_ref->{string}, {}, {});
+	my @results = ProductOpener::TaxonomySuggestions::get_taxonomy_suggestions_with_synonyms($test_ref->{tagtype},
+		$test_ref->{lc}, $test_ref->{string}, {}, {});
 	if (not is_deeply(\@results, $test_ref->{expected})) {
 		diag explain($test_ref, \@results);
 	}
