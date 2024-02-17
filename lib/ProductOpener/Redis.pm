@@ -112,7 +112,7 @@ sub push_to_redis_stream ($user_id, $product_ref, $action, $comment, $diffs) {
 		eval {
 			$redis_client->xadd(
 				# name of the Redis stream
-				'product_update',
+				$options{redis_stream_name},
 				# We do not add a MAXLEN
 				'MAXLEN', '~', '10000000',
 				# We let Redis generate the id

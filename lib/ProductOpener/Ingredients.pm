@@ -2165,7 +2165,7 @@ sub parse_ingredients_text_service ($product_ref, $updated_product_fields_ref) {
 							}
 							# try to remove the allergens and store them as allergens
 							# in Japanese allergens are not separated from the ingredients list, instead they are in parenthesis.
-							if ($between =~ /\s*(?:>allergens<:)\s?:?\s?\b(.*)$/i) {
+							if ($between =~ /\s*(?:>allergens<:)(.*)$/i) {
 								$log->debug("parse_ingredients_text - sub-ingredients: contains allergens in $between")
 									if $log->is_debug();
 
@@ -5526,11 +5526,22 @@ my %ingredients_categories_and_types = (
 	],
 
 	de => [
+		# oil and fat
 		{
 			categories => ["pflanzliches Fett", "pflanzliche Öle", "pflanzliche Öle und Fette", "Fett", "Öle"],
 			types => ["Kokosnuss", "Palm", "Palmkern", "Raps", "Shea", "Sonnenblumen",],
 			# Kokosnussöl, Sonnenblumenfett
 			alternate_names => ["<type>fett", "<type>öl"],
+		},
+		# plant protein
+		{
+			categories => ["pflanzliche Proteine", "Pflanzliches Eiweiß", "Pflanzliches Eiweiss"],
+			types => [
+				"Ackerbohnen", "Erbsen", "Hafer", "Kartoffel", "Kichererbsen", "Pilz",
+				"Reis", "Soja", "Sonnenblumen", "Weizen"
+			],
+			# haferprotein
+			alternate_names => ["<type>protein", "<type>eiweiß"],
 		},
 	],
 
@@ -5567,6 +5578,15 @@ my %ingredients_categories_and_types = (
 				"muscade", "poivre", "poivre noir", "romarin", "thé", "thé vert",
 				"thym",
 			]
+		},
+		# plant protein
+		{
+			categories => ["protéines végétales",],
+			types => [
+				"avoine", "blé", "champignon", "colza", "fève", "pois",
+				"pois chiche", "pomme de terre", "riz", "soja", "tournesol",
+			],
+			alternate_names => ["protéine de <type>", "protéine d'<type>", "protéines de <type>", "protéines d'<type>"],
 		},
 		# lecithin
 		{
@@ -6405,7 +6425,9 @@ sub preparse_ingredients_text ($ingredients_lc, $text) {
 
 sub extract_ingredients_classes_from_text ($product_ref) {
 
-	not defined $product_ref->{ingredients_text} and return;
+	if (not defined $product_ref->{ingredients_text}) {
+		return;
+	}
 	my $ingredients_lc = $product_ref->{ingredients_lc} || $product_ref->{lc};
 	my $text = preparse_ingredients_text($ingredients_lc, $product_ref->{ingredients_text});
 	# do not match anything if we don't have a translation for "and"
@@ -7040,43 +7062,60 @@ sub extract_ingredients_classes_from_text ($product_ref) {
 	}
 
 	# Determine if the product has sweeteners, and non nutritive sweeteners
-	determine_if_the_product_contains_sweeteners($product_ref);
+	count_sweeteners_and_non_nutritive_sweeteners($product_ref);
 
 	return;
 }
 
-=head2 determine_if_the_product_contains_sweeteners
+=head2 count_sweeteners_and_non_nutritive_sweeteners
 
 Check if the product contains sweeteners and non nutritive sweeteners (used for the Nutri-Score for beverages)
 
 The NNS / Non nutritive sweeteners listed in the Nutri-Score Update report beverages_31 01 2023-voted
 have been added as a non_nutritive_sweetener:en:yes property in the additives taxonomy.
 
+=head3 Return values
+
+The function sets the following fields in the product_ref hash.
+
+If there are no ingredients specified for the product, the fields are not set.
+
+=head4 ingredients_sweeteners_n
+
+=head4 ingredients_non_nutritive_sweeteners_n
+
 =cut
 
-sub determine_if_the_product_contains_sweeteners ($product_ref) {
+sub count_sweeteners_and_non_nutritive_sweeteners ($product_ref) {
 
+	# Delete old fields, can be removed once all products have been reprocessed
 	delete $product_ref->{with_sweeteners};
-	delete $product_ref->{with_non_nutritive_sweeteners};
+	delete $product_ref->{without_non_nutritive_sweeteners};
 
-	if (
-		get_matching_regexp_property_from_tags(
-			'additives', $product_ref->{'additives_tags'},
-			'additives_classes:en', 'sweetener'
-		)
-		)
-	{
-		$product_ref->{with_sweeteners} = 1;
+	# Set the number of sweeteners only if the product has specified ingredients
+	if (not $product_ref->{ingredients_n}) {
+		delete $product_ref->{ingredients_sweeteners_n};
+		delete $product_ref->{ingredients_non_nutritive_sweeteners_n};
 	}
+	else {
 
-	if (
-		get_matching_regexp_property_from_tags(
-			'additives', $product_ref->{'additives_tags'},
-			'non_nutritive_sweetener:en', 'yes'
-		)
-		)
-	{
-		$product_ref->{with_non_nutritive_sweeteners} = 1;
+		$product_ref->{ingredients_sweeteners_n} = 0;
+		$product_ref->{ingredients_non_nutritive_sweeteners_n} = 0;
+
+		# Go through additives and check if the product contains sweeteners and non-nutritive sweeteners
+		if (defined $product_ref->{additives_tags}) {
+			foreach my $additive (@{$product_ref->{additives_tags}}) {
+				my $sweetener_property = get_inherited_property("additives", $additive, "sweetener:en") // "";
+				if ($sweetener_property eq "yes") {
+					$product_ref->{ingredients_sweeteners_n}++;
+				}
+				my $non_nutritive_sweetener_property
+					= get_inherited_property("additives", $additive, "non_nutritive_sweetener:en") // "";
+				if ($non_nutritive_sweetener_property eq "yes") {
+					$product_ref->{ingredients_non_nutritive_sweeteners_n}++;
+				}
+			}
+		}
 	}
 
 	return;

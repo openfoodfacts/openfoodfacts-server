@@ -139,6 +139,8 @@ my $fix_nutrition_data = '';
 my $compute_main_countries = '';
 my $prefix_packaging_tags_with_language = '';
 my $fix_non_string_ids = '';
+my $fix_non_string_codes = '';
+my $fix_string_last_modified_t = '';
 my $assign_ciqual_codes = '';
 my $obsolete = 0;
 my $fix_obsolete;
@@ -175,6 +177,8 @@ GetOptions(
 	"fix-zulu-lang" => \$fix_zulu_lang,
 	"fix-rev-not-incremented" => \$fix_rev_not_incremented,
 	"fix-non-string-ids" => \$fix_non_string_ids,
+	"fix-non-string-codes" => \$fix_non_string_codes,
+	"fix-string-last-modified-t" => \$fix_string_last_modified_t,
 	"user-id=s" => \$User_id,
 	"comment=s" => \$comment,
 	"run-ocr" => \$run_ocr,
@@ -252,6 +256,8 @@ if (    (not $process_ingredients)
 	and (not $fix_nutrition_data_per)
 	and (not $fix_nutrition_data)
 	and (not $fix_non_string_ids)
+	and (not $fix_non_string_codes)
+	and (not $fix_string_last_modified_t)
 	and (not $compute_sort_key)
 	and (not $remove_team)
 	and (not $remove_category)
@@ -332,6 +338,16 @@ foreach my $field (sort keys %{$query_ref}) {
 # Query products that have the _id field stored as a number
 if ($fix_non_string_ids) {
 	$query_ref->{_id} = {'$type' => "long"};
+}
+
+# Query products that have the _id field stored as a number
+if ($fix_non_string_codes) {
+	$query_ref->{code} = {'$type' => "long"};
+}
+
+# Query products that have the last_modified_t field stored as a number
+if ($fix_string_last_modified_t) {
+	$query_ref->{last_modified_t} = {'$type' => "string"};
 }
 
 # On the producers platform, require --query owners_tags to be set, or the --all-owners field to be set.
@@ -743,9 +759,15 @@ while (my $product_ref = $cursor->next) {
 				my $current_last_modified_t = $product_ref->{last_modified_t} // 0;
 				if ($current_last_modified_t != $change_last_modified_t) {
 					print STDERR "-> fixing last_modified_t from $current_last_modified_t to $change_last_modified_t";
-					$product_ref->{last_modified_t} = $change_last_modified_t;
+					# print statement above makes $change_last_modified_t a a string
+					$product_ref->{last_modified_t} = $change_last_modified_t + 0;
 				}
 			}
+		}
+
+		if ($fix_string_last_modified_t) {
+			# Make sure last_modified_t is stored as a number
+			$product_ref->{last_modified_t} += 0;
 		}
 
 		# Fix zulu lang, bug https://github.com/openfoodfacts/openfoodfacts-server/issues/2063
@@ -1102,7 +1124,6 @@ while (my $product_ref = $cursor->next) {
 		}
 
 		if ($compute_nutriscore) {
-			$product_ref->{misc_tags} = [];
 			fix_salt_equivalent($product_ref);
 			compute_nutriscore($product_ref);
 			compute_nutrient_levels($product_ref);
@@ -1405,9 +1426,6 @@ while (my $product_ref = $cursor->next) {
 				# In all cases (even if the product data did not change),
 				# we store the product with the new update_key in the .sto file and the mongodb collection
 
-				# make sure nutrient values are numbers
-				ProductOpener::Products::make_sure_numbers_are_stored_as_numbers($product_ref);
-
 				# Set last modified time if something was changed
 				if ($any_change) {
 					$product_ref->{last_updated_t} = time() + 0;
@@ -1418,6 +1436,9 @@ while (my $product_ref = $cursor->next) {
 						$product_ref->{last_updated_t} = $product_ref->{last_modified_t};
 					}
 				}
+
+				# make sure nutrient values are numbers
+				ProductOpener::Products::make_sure_numbers_are_stored_as_numbers($product_ref);
 
 				if (!$mongodb_to_mongodb) {
 					# Store data to .sto file

@@ -835,6 +835,15 @@ puffed orange and caramelized unknown_fruit4.",
 			ingredients_text => "beurre (lait), fromage (parmesan)",
 		}
 	],
+	# Infinite loop https://github.com/openfoodfacts/openfoodfacts-server/issues/9755
+	[
+		"fr-infinite-loop-allergens",
+		{
+			lc => "fr",
+			ingredients_text =>
+				"Sucre, LAIT* entier en poudre 25%, graisse végétale (palme, palmiste), beurre de cacao1, pâte de cacao1, LAIT* écrémé en poudre 3%, huile de tournesol, émulsifiant: lécithines, arômes de vanille. Traces éventuelles de fruits à coque et de céréales contenant du gluten. Cacao: 30% minimum dans le chocolat au lait. *Lait: origine UE et/ou non UE (Royaume-Uni)",
+		}
+	],
 );
 
 foreach my $test_ref (@tests) {

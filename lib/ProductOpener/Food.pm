@@ -1390,6 +1390,10 @@ Differences with the 2021 version:
 
 =head4 $prepared - string contains either "" or "-prepared"
 
+=head3 Return values
+
+Return undef if no value could be computed or estimated.
+
 =cut
 
 sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref, $prepared) {
@@ -1581,7 +1585,9 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 	}
 	else {
 		# fruits, vegetables, legumes - 2023
-		my $fruits_vegetables_legumes = compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared);
+		my $fruits_vegetables_legumes
+			= round_to_max_decimal_places(compute_nutriscore_2023_fruits_vegetables_legumes($product_ref, $prepared),
+			1);
 
 		my $is_fat_oil_nuts_seeds = is_fat_oil_nuts_seeds_for_nutrition_score($product_ref);
 		my $is_beverage = is_beverage_for_nutrition_score_2023($product_ref);
@@ -1599,18 +1605,15 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			salt => $nutriments_ref->{"salt" . $prepared . "_100g"},
 
 			fruits_vegetables_legumes => $fruits_vegetables_legumes,
-			fiber => (
-				(defined $nutriments_ref->{"fiber" . $prepared . "_100g"})
-				? $nutriments_ref->{"fiber" . $prepared . "_100g"}
-				: 0
-			),
+			fiber => $nutriments_ref->{"fiber" . $prepared . "_100g"},
 			proteins => $nutriments_ref->{"proteins" . $prepared . "_100g"},
 		};
 
 		if ($is_fat_oil_nuts_seeds) {
 			# Add the fat and saturated fat / fat ratio
 			$nutriscore_data_ref->{fat} = $nutriments_ref->{"fat" . $prepared . "_100g"};
-			$nutriscore_data_ref->{saturated_fat_ratio} = saturated_fat_ratio($nutriments_ref, $prepared);
+			$nutriscore_data_ref->{saturated_fat_ratio}
+				= round_to_max_decimal_places(saturated_fat_ratio($nutriments_ref, $prepared), 1);
 			# Compute the energy from saturates
 			if (defined $nutriscore_data_ref->{saturated_fat}) {
 				$nutriscore_data_ref->{energy_from_saturated_fat} = $nutriscore_data_ref->{saturated_fat} * 37;
@@ -1618,9 +1621,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 		}
 
 		if ($is_beverage) {
-			if (defined $product_ref->{with_non_nutritive_sweeteners}) {
-				$nutriscore_data_ref->{with_non_nutritive_sweeteners} = $product_ref->{with_non_nutritive_sweeteners};
-			}
+			$nutriscore_data_ref->{non_nutritive_sweeteners} = $product_ref->{ingredients_non_nutritive_sweeteners_n};
 		}
 	}
 
@@ -1689,6 +1690,11 @@ sub remove_nutriscore_fields ($product_ref) {
 			"nutrition-score-uk_serving"
 		]
 	);
+
+	# remove misc_tags fields related to Nutri-Score
+	if (defined $product_ref->{misc_tags}) {
+		$product_ref->{misc_tags} = [grep {$_ !~ /^en:(nutriscore|nutrition)-/} @{$product_ref->{misc_tags}}];
+	}
 
 	return;
 }
@@ -2219,7 +2225,6 @@ sub compute_serving_size_data ($product_ref) {
 
 				my $unit = get_property("nutrients", "zz:$nid", "unit:en")
 					;    # $unit will be undef if the nutrient is not in the taxonomy
-				print STDERR "nid: $nid - unit: $unit\n";
 
 				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
 				# otherwise we adjust the value for 100g

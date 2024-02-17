@@ -85,15 +85,15 @@ msgstr "Pyyntösi liittyä organisaatioon odottaa organisaation valvojan hyväks
 
 msgctxt "admin_status_updated"
 msgid "Admin Status Updated"
-msgstr ""
+msgstr "Ylläpitäjän Tila Päivitetty"
 
 msgctxt "admin_status"
 msgid "Admin Status"
-msgstr ""
+msgstr "Ylläpitäjän Tila"
 
 msgctxt "grant_remove_admin_status"
 msgid "Grant/Remove Admin status"
-msgstr ""
+msgstr "Myönnä/poista ylläpitäjän tila"
 
 msgctxt "please_email_producers"
 msgid "Please e-mail <a href=\"mailto:producers@openfoodfacts.org\">producers@openfoodfacts.org</a> if you have any question."
@@ -171,6 +171,10 @@ msgstr "Tarkennettu haku ja kaaviot"
 msgctxt "alcohol_warning"
 msgid "Excess drinking is harmful for health."
 msgstr "Liiallinen juominen on haitallista terveydelle."
+
+msgctxt "email_warning"
+msgid "Please note that your Pro account will only be valid if you use your professional e-mail address. Our moderation team checks that the domain name is consistent with the organisation you wish to join."
+msgstr ""
 
 msgctxt "all_missions"
 msgid "All missions"
@@ -586,11 +590,11 @@ msgstr "Jäljitettävyyskoodit"
 
 msgctxt "emb_code_s"
 msgid "Traceability code"
-msgstr ""
+msgstr "Jäljitettävyyskoodi"
 
 msgctxt "emb_codes"
 msgid "Traceability code"
-msgstr ""
+msgstr "Jäljitettävyyskoodi"
 
 msgctxt "emb_codes_p"
 msgid "traceability codes"
@@ -667,7 +671,7 @@ msgstr "Käyttäjätunnuksessa on oltava vain tarkemerkittömiä kirjaimia, nume
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 40 characters)."
-msgstr ""
+msgstr "Käyttäjänimi on liian pitkä (enintään 40 merkkiä)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
@@ -761,7 +765,7 @@ msgstr "Käyttäytymissäännöt"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
@@ -843,7 +847,7 @@ msgstr "Käyttöehdot"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -852,7 +856,7 @@ msgstr "Keitä olemme"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/who-we-are"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
@@ -871,6 +875,10 @@ msgstr "Open Beauty Facts - Kosmetiikka"
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
 msgstr "https://world-fi.openbeautyfacts.org"
+
+msgctxt "footer_pro"
+msgid "Open Food Facts for Producers"
+msgstr ""
 
 msgctxt "for"
 msgid "for"
@@ -1308,7 +1316,7 @@ msgstr "Lisää tuote"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "/add-a-product"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1443,7 +1451,7 @@ msgstr "Ravintoainepitoisuudet per 100 g"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/nutrient-levels"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
@@ -1569,7 +1577,7 @@ msgstr "Ravintoarvosana"
 # Make sure the translated link works (eg that the image already exists in your language)
 msgctxt "og_image_url"
 msgid "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
-msgstr ""
+msgstr "https://static.openfoodfacts.org/images/logos/logo-vertical-white-social-media-preview.png"
 
 # Do not change the lang code if the blog doesn't exist in your language
 msgctxt "on_the_blog_content"
@@ -2607,7 +2615,7 @@ msgstr "Hanki Microsoft Storesta"
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
 msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr ""
+msgstr "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
@@ -2833,7 +2841,7 @@ msgstr "Kumppanit"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_partners_link"
 msgid "/partners"
-msgstr ""
+msgstr "/partners"
 
 msgctxt "adults"
 msgid "Adults"
@@ -3305,7 +3313,7 @@ msgstr "ainesosa-analyysit"
 
 msgctxt "ingredients_analysis"
 msgid "Ingredients analysis"
-msgstr "Ainesosa-analyysi"
+msgstr "Ainesosien analyysi"
 
 msgctxt "ingredients_analysis_disclaimer"
 msgid "The analysis is based solely on the ingredients listed and does not take into account processing methods."
@@ -3733,7 +3741,7 @@ msgstr "mahdolliset parannukset"
 # Do not translate
 msgctxt "import_products_link"
 msgid "/import-products"
-msgstr ""
+msgstr "/import-products"
 
 msgctxt "add_or_update_products"
 msgid "Add or update products"
@@ -4215,7 +4223,7 @@ msgstr "Poista kaikki tuotteet"
 
 msgctxt "remove_user"
 msgid "Remove user"
-msgstr ""
+msgstr "Poista käyttäjä"
 
 msgctxt "remove_products_from_producers_platform"
 msgid "Remove all your products from the platform for producers"
@@ -4783,7 +4791,7 @@ msgstr "Vähäinen ympäristövaikutus (Eco-Score)"
 
 msgctxt "attribute_ecoscore_setting_note"
 msgid "The Eco-Score is an environmental score (ecoscore) from A to E which makes it easy to compare the impact of food products on the environment."
-msgstr ""
+msgstr "Eco-Score on ympäristöpistemäärä (ekoscore) A:sta E:hen, jonka avulla on helppo vertailla elintarvikkeiden ympäristövaikutuksia."
 
 # keep %s, it will be replaced by the letter A, B, C, D or E
 msgctxt "attribute_ecoscore_grade_title"
@@ -6624,7 +6632,7 @@ msgstr "% materiaalia sisältävistä tuotteista"
 
 msgctxt "packaging_material_products_percent_main"
 msgid "% of products containing mostly the material"
-msgstr ""
+msgstr "% materiaalia pääosin sisältävistä tuotteista"
 
 msgctxt "relative_to_products_containing_the_material"
 msgid "for products that contain the material"
@@ -6632,7 +6640,7 @@ msgstr "materiaalia sisältäville tuotteille"
 
 msgctxt "relative_to_products_containing_mostly_the_material"
 msgid "for products that contain mostly the material"
-msgstr ""
+msgstr "tuotteille, jotka sisältävät pääosin materiaalia"
 
 msgctxt "relative_to_all_products"
 msgid "relative to all products"
@@ -6644,11 +6652,11 @@ msgstr "Ensisijainen kieli"
 
 msgctxt "packagings_n_p"
 msgid "Numbers of packaging components"
-msgstr ""
+msgstr "Pakkauskomponenttien lukumäärät"
 
 msgctxt "packagings_n_s"
 msgid "Number of packaging components"
-msgstr ""
+msgstr "Pakkauskomponenttien lukumäärä"
 
 msgctxt "packagings_materials_all"
 msgid "All materials"
@@ -6665,4 +6673,144 @@ msgstr "Massa per 100 grammaa"
 msgctxt "weight_percent"
 msgid "Weight percent"
 msgstr "Massaprosentti"
+
+msgctxt "nutriscore_component_energy"
+msgid "Energy"
+msgstr "Energia"
+
+msgctxt "nutriscore_component_energy_from_saturated_fat"
+msgid "Energy from saturated fat"
+msgstr ""
+
+msgctxt "nutriscore_component_sugars"
+msgid "Sugars"
+msgstr "Sokerit"
+
+msgctxt "nutriscore_component_saturated_fat"
+msgid "Saturated fat"
+msgstr "Tyydyttynyt rasva"
+
+msgctxt "nutriscore_component_saturated_fat_ratio"
+msgid "Saturated fat / fat"
+msgstr ""
+
+msgctxt "nutriscore_component_salt"
+msgid "Salt"
+msgstr "Suola"
+
+msgctxt "nutriscore_component_non_nutritive_sweeteners"
+msgid "Non-nutritive sweeteners"
+msgstr ""
+
+msgctxt "nutriscore_component_fruits_vegetables_legumes"
+msgid "Fruits, vegetables and legumes"
+msgstr ""
+
+msgctxt "nutriscore_component_fiber"
+msgid "Fiber"
+msgstr "Kuitu"
+
+msgctxt "nutriscore_component_proteins"
+msgid "Proteins"
+msgstr "Proteiinit"
+
+msgctxt "presence"
+msgid "Presence"
+msgstr ""
+
+msgctxt "absence"
+msgid "Absence"
+msgstr ""
+
+msgctxt "nutriscore_is_water"
+msgid "This product is considered to be water for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_fat_oil_nuts_seeds"
+msgid "This product is considered to be fat, oil, nuts or seeds for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_cheese"
+msgid "This product is considered to be cheese for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_is_red_meat_product"
+msgid "This product is considered to be a red meat product for the calculation of the Nutri-Score."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_beverage"
+msgid "Points for proteins are counted because the product is considered to be a beverage."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_cheese"
+msgid "Points for proteins are counted because the product is considered to be cheese."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_7"
+msgid "Points for proteins are counted because the negative points are less than 7."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_less_than_11"
+msgid "Points for proteins are counted because the negative points are less than 11."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_7"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 7."
+msgstr ""
+
+msgctxt "nutriscore_count_proteins_reason_negative_points_greater_than_or_equal_to_11"
+msgid "Points for proteins are not counted because the negative points greater than or equal to 11."
+msgstr ""
+
+msgctxt "nutriscore_explanation_what_it_is"
+msgid "The Nutri-Score is a logo on the overall nutritional quality of products."
+msgstr ""
+
+msgctxt "nutriscore_explanation_what_it_takes_into_account"
+msgid "The score from A to E is calculated based on nutrients and foods to favor (proteins, fiber, fruits, vegetables and legumes ...) and nutrients to limit (calories, saturated fat, sugars, salt)."
+msgstr ""
+
+msgctxt "nutriscore_explanation_where_the_data_comes_from"
+msgid "The score is calculated from the data of the nutrition facts table and the composition data (fruits, vegetables and legumes)."
+msgstr ""
+
+msgctxt "nutriscore_explanation_recommended_by_public_health_authorities"
+msgid "The display of this logo is recommended by public health authorities without obligation for companies."
+msgstr ""
+
+msgctxt "nutriscore_explanation_title"
+msgid "What is the Nutri-Score?"
+msgstr ""
+
+msgctxt "nutrient_info_energy_risk"
+msgid "Energy intakes above energy requirements are associated with increased risks of weight gain, overweight, obesity, and consequently risk of diet-related chronic diseases."
+msgstr ""
+
+msgctxt "nutrient_info_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Runsas rasvojen kulutus, erityisesti tyydyttyneiden rasvojen, voi nostaa kolesterolia, mikä lisää sydänsairauksien riskiä."
+
+msgctxt "nutrient_info_saturated_fat_ratio_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Runsas rasvojen kulutus, erityisesti tyydyttyneiden rasvojen, voi nostaa kolesterolia, mikä lisää sydänsairauksien riskiä."
+
+msgctxt "nutrient_info_energy_from_saturated_fat_risk"
+msgid "A high consumption of fat, especially saturated fats, can raise cholesterol, which increases the risk of heart diseases."
+msgstr "Runsas rasvojen kulutus, erityisesti tyydyttyneiden rasvojen, voi nostaa kolesterolia, mikä lisää sydänsairauksien riskiä."
+
+msgctxt "nutrient_info_non_nutritive_sweeteners_risk"
+msgid "Non-nutritive sweeteners may not confer any long-term benefit in reducing body fat in adults or children. There may be potential undesirable effects from long-term use of non-nutritive sweeteners, such as an increased risk of type 2 diabetes and cardiovascular diseases in adults."
+msgstr ""
+
+msgctxt "nutrient_info_fiber_benefit"
+msgid "Consuming foods rich in fiber (especially whole grain foods) reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr ""
+
+msgctxt "nutrient_info_fruits_vegetables_legumes_benefit"
+msgid "Consuming foods rich in fruits, vegetables and legumes reduces the risks of aerodigestive cancers, cardiovascular diseases, obesity and diabetes."
+msgstr ""
+
+msgctxt "nutrient_info_proteins_benefit"
+msgid "Foods that are rich in proteins are usually rich in calcium or iron which are essential minerals with numerous health benefits."
+msgstr ""
 

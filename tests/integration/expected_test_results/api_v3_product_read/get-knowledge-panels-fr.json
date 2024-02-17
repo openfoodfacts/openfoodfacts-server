@@ -35,8 +35,8 @@
                                  "text" : "Agriculture"
                               },
                               {
-                                 "percent" : 82.8671225055525,
-                                 "text" : "82.9 %"
+                                 "percent" : 82.7495737087632,
+                                 "text" : "82.7 %"
                               }
                            ]
                         },
@@ -48,8 +48,8 @@
                                  "text" : "Transformation"
                               },
                               {
-                                 "percent" : 7.93602570199329,
-                                 "text" : "7.9 %"
+                                 "percent" : 7.99360717123991,
+                                 "text" : "8.0 %"
                               }
                            ]
                         },
@@ -61,7 +61,7 @@
                                  "text" : "Emballage"
                               },
                               {
-                                 "percent" : 3.820792696782,
+                                 "percent" : 3.84664413195817,
                                  "text" : "3.8 %"
                               }
                            ]
@@ -74,7 +74,7 @@
                                  "text" : "Transport"
                               },
                               {
-                                 "percent" : 4.69858334882637,
+                                 "percent" : 4.72963136534393,
                                  "text" : "4.7 %"
                               }
                            ]
@@ -87,7 +87,7 @@
                                  "text" : "Distribution"
                               },
                               {
-                                 "percent" : 0.677475746845858,
+                                 "percent" : 0.680543622694777,
                                  "text" : "0.7 %"
                               }
                            ]
@@ -117,7 +117,7 @@
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/car.svg",
-               "subtitle" : "288 g de CO² pour 100g de produit",
+               "subtitle" : "286 g de CO² pour 100g de produit",
                "title" : "Équivaut à parcourir 1.5 km dans une voiture à essence"
             },
             "topics" : [
@@ -198,7 +198,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    <p>Catégorie : \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/24000\">Biscuit sec, sans précision</a>\n                    </p>\n                    <ul>\n                        <li>\n                            Score environnemental PEF : 0.35\n                            (plus le score est bas, plus l'impact est faible)\n                        </li>\n                        <li>\n                            dont impact sur le changement climatique : 2.88\n                            kg CO2 eq/kg de produit\n                        </li>\n                    </ul>\n                    ",
+                     "html" : "\n                    <p>Catégorie : \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/24000\">Biscuit sec, sans précision</a>\n                    </p>\n                    <ul>\n                        <li>\n                            Score environnemental PEF : 0.34\n                            (plus le score est bas, plus l'impact est faible)\n                        </li>\n                        <li>\n                            dont impact sur le changement climatique : 2.86\n                            kg CO2 eq/kg de produit\n                        </li>\n                    </ul>\n                    ",
                      "type" : "summary"
                   }
                },
@@ -225,8 +225,8 @@
                                  "text" : "Agriculture"
                               },
                               {
-                                 "percent" : 80.5058640542941,
-                                 "text" : "80.5 %"
+                                 "percent" : 80.2029225619529,
+                                 "text" : "80.2 %"
                               }
                            ]
                         },
@@ -238,8 +238,8 @@
                                  "text" : "Transformation"
                               },
                               {
-                                 "percent" : 11.8463286685106,
-                                 "text" : "11.8 %"
+                                 "percent" : 12.040444241013,
+                                 "text" : "12.0 %"
                               }
                            ]
                         },
@@ -251,8 +251,8 @@
                                  "text" : "Emballage"
                               },
                               {
-                                 "percent" : 3.1173493176578,
-                                 "text" : "3.1 %"
+                                 "percent" : 3.16410766408558,
+                                 "text" : "3.2 %"
                               }
                            ]
                         },
@@ -264,7 +264,7 @@
                                  "text" : "Transport"
                               },
                               {
-                                 "percent" : 3.15743624198514,
+                                 "percent" : 3.20347042397247,
                                  "text" : "3.2 %"
                               }
                            ]
@@ -277,7 +277,7 @@
                                  "text" : "Distribution"
                               },
                               {
-                                 "percent" : 1.37302171755234,
+                                 "percent" : 1.38905510897607,
                                  "text" : "1.4 %"
                               }
                            ]
@@ -308,7 +308,7 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/lca.svg",
                "subtitle" : "Catégorie : Biscuit sec, sans précision",
-               "title" : "Impact moyen des produits de la même catégorie : B (Score: 69/100)",
+               "title" : "Impact moyen des produits de la même catégorie : B (Score: 70/100)",
                "type" : "grade"
             },
             "topics" : [
@@ -493,7 +493,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Score d'analyse du cycle de vie : 69<br>\n                Somme des bonus et malus :\n                    \n                        -23\n                    <br><br>\n                Score final : 46/100\n                \n                ",
+                     "html" : "\n                Score d'analyse du cycle de vie : 70<br>\n                Somme des bonus et malus :\n                    \n                        -23\n                    <br><br>\n                Score final : 47/100\n                \n                ",
                      "type" : "summary"
                   }
                }
@@ -503,7 +503,7 @@
                "grade" : "c",
                "icon_url" : "http://static.openfoodfacts.localhost/images/attributes/dist/ecoscore-c.svg",
                "subtitle" : "Produit : Some product - 100 g",
-               "title" : "Impact pour ce produit: C (Score: 46/100)",
+               "title" : "Impact pour ce produit: C (Score: 47/100)",
                "type" : "grade"
             },
             "topics" : [
@@ -822,6 +822,29 @@
                "health"
             ]
          },
+         "nutrient_levels" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "nutrient_levels_group",
+                     "panel_ids" : []
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
+            "expand_for" : "large",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/nutrition.svg",
+               "title" : "Repères nutritionnels"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
          "nutriscore" : {
             "elements" : [
                {
@@ -841,7 +864,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>Ce produit n'est pas considéré comme une boisson pour le calcul du Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Points positifs : 3</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Protéines :\n1&nbsp;</strong>/&nbsp;5\n(valeur : 1.974375, \n        valeur arrondie : 1.97)\n      </li>\n    \n      <li>\n        <strong>Fibre :\n0&nbsp;</strong>/&nbsp;5\n(valeur : 0.8125, \n        valeur arrondie : 0.81)\n      </li>\n    \n      <li>\n        <strong>Fruits, légumes, noix et huiles de colza / noix / olive :\n2&nbsp;</strong>/&nbsp;5\n(valeur : 62.5, \n        valeur arrondie : 62.5)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Points négatifs : 6</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Énergie :\n1&nbsp;</strong>/&nbsp;10\n(valeur : 558.75, \n        valeur arrondie : 558.8)\n      </li>\n    \n      <li>\n        <strong>Sucres :\n1&nbsp;</strong>/&nbsp;10\n(valeur : 7.2621875, \n        valeur arrondie : 7.26)\n      </li>\n    \n      <li>\n        <strong>Graisses saturées :\n4&nbsp;</strong>/&nbsp;10\n(valeur : 4.903125, \n        valeur arrondie : 4.9)\n      </li>\n    \n      <li>\n        <strong>Sodium :\n0&nbsp;</strong>/&nbsp;10\n(valeur : 19.725, \n        valeur arrondie : 19.7)\n      </li>\n    \n  </ul>\n\n\n\n<p>Les points pour les protéines sont comptés car les points négatifs sont inférieurs à 11.</p>\n\n<p>\n  <strong>Score nutritionnel : 3</strong>\n  (6 - 3)\n</p>\n<p><strong>Nutri-Score : C</strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
+                     "html" : "<!-- start templates/web/pages/product/includes/nutriscore_details.tt.html -->\n\n<p>Ce produit n'est pas considéré comme une boisson pour le calcul du Nutri-Score.</p>\n\n\n\n\n\n  <p> \n    <strong>Points positifs : 3</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Protéines :\n1&nbsp;</strong>/&nbsp;5\n(valeur : 1.974375, \n        valeur arrondie : 1.97)\n      </li>\n    \n      <li>\n        <strong>Fibre :\n0&nbsp;</strong>/&nbsp;5\n(valeur : 0.8125, \n        valeur arrondie : 0.81)\n      </li>\n    \n      <li>\n        <strong>Fruits, légumes, noix et huiles de colza / noix / olive :\n2&nbsp;</strong>/&nbsp;5\n(valeur : 62.5, \n        valeur arrondie : 62.5)\n      </li>\n    \n  </ul>\n\n\n\n  <p> \n    <strong>Points négatifs : 6</strong> \n  </p>\n\n  <ul>\n    \n      <li>\n        <strong>Énergie :\n1&nbsp;</strong>/&nbsp;10\n(valeur : 558.75, \n        valeur arrondie : 558.8)\n      </li>\n    \n      <li>\n        <strong>Sucres :\n1&nbsp;</strong>/&nbsp;10\n(valeur : 7.2621875, \n        valeur arrondie : 7.26)\n      </li>\n    \n      <li>\n        <strong>Graisses saturées :\n4&nbsp;</strong>/&nbsp;10\n(valeur : 4.903125, \n        valeur arrondie : 4.9)\n      </li>\n    \n      <li>\n        <strong>Sodium :\n0&nbsp;</strong>/&nbsp;10\n(valeur : 19.725, \n        valeur arrondie : 19.7)\n      </li>\n    \n  </ul>\n\n\n\n<p>Les points pour les protéines sont comptés car les points négatifs sont inférieurs à 11.</p>\n\n<p>\n  <strong>Score nutritionnel : </strong>\n  (6 - 3)\n</p>\n<p><strong>Nutri-Score : </strong></p>\n\n<!-- end templates/web/pages/product/includes/nutriscore_details.tt.html -->"
                   }
                },
                {

@@ -37,7 +37,6 @@ x-minion-db-network: &minion-db-network
 services:
   postgres:
     # only turn on for off profile
-    profiles: ["off"]
     <<: *minion-db-network
   backend:
     <<: [*backend-conf, *minion-db-network] 
