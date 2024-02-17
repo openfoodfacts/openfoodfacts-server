@@ -611,7 +611,7 @@ msgstr "kód vysledovateľnosti"
 
 msgctxt "emb_codes_without_products"
 msgid "Products without the traceability code %s"
-msgstr ""
+msgstr "Výrobky bez kódu vysledovateľnosti %s"
 
 # Those are country specific codes. For European countries, you can change FR 62.448.034 CE to DE BY 718 EG (for instance)
 msgctxt "emb_codes_example"
@@ -620,15 +620,15 @@ msgstr "EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522"
 
 msgctxt "emb_codes_note"
 msgid "In Europe, the code is in an ellipse with the 2 country initials followed by a number and CE."
-msgstr ""
+msgstr "V Európe je kód v elipse s 2 iniciálami krajiny, za ktorými nasleduje číslo a CE."
 
 msgctxt "entry_dates_p"
 msgid "Entry dates"
-msgstr ""
+msgstr "Dátum registrácie"
 
 msgctxt "entry_dates_s"
 msgid "Entry date"
-msgstr ""
+msgstr "Dátum registrácie"
 
 msgctxt "error"
 msgid "Error"
@@ -636,27 +636,27 @@ msgstr "Chyba"
 
 msgctxt "error_bad_login_password"
 msgid "Incorrect user name or password. <a href=\"/cgi/reset_password.pl\">Forgotten password?</a>"
-msgstr ""
+msgstr "Nesprávne užívateľské meno alebo heslo. <a href=\"/cgi/reset_password.pl\">Zabudli ste heslo?</a>"
 
 msgctxt "error_database"
 msgid "An error occurred while reading the data, try to refresh the page."
-msgstr ""
+msgstr "Pri načítaní údajov sa vyskytla chyba, skúste stránku obnoviť."
 
 msgctxt "error_different_passwords"
 msgid "The password and confirmation password are different."
-msgstr ""
+msgstr "Heslo a potvrdzovacie heslo sa líšia."
 
 msgctxt "error_email_already_in_use"
 msgid "The e-mail address is already used by another user. Maybe you already have an account? You can <a href=\"/cgi/reset_password.pl\">reset the password</a> of your other account."
-msgstr ""
+msgstr "E-mailovú adresu už používa iný používateľ. Možno už máte účet? Môžete <a href=\"/cgi/reset_password.pl\">obnoviť heslo</a> svojho druhého účtu."
 
 msgctxt "error_invalid_address"
 msgid "Invalid address."
-msgstr ""
+msgstr "Neplatná adresa."
 
 msgctxt "error_invalid_email"
 msgid "Invalid e-mail address"
-msgstr ""
+msgstr "Neplatná emailová adresa"
 
 msgctxt "error_invalid_password"
 msgid "The password needs to be at least 6 characters long."
@@ -664,95 +664,95 @@ msgstr "Heslo má mať aspoň 6 znakov."
 
 msgctxt "error_invalid_user"
 msgid "Invalid user."
-msgstr ""
+msgstr "Neplatný používateľ."
 
 msgctxt "error_invalid_username"
 msgid "The user name must contain only unaccented letters, digits and dashes."
-msgstr ""
+msgstr "Používateľské meno musí obsahovať iba písmená, číslice a pomlčky bez diakritiky."
 
 msgctxt "error_username_too_long"
 msgid "The user name is too long (maximum 40 characters)."
-msgstr ""
+msgstr "Používateľské meno je príliš dlhé (maximálne 40 znakov)."
 
 msgctxt "error_name_too_long"
 msgid "The name is too long (maximum 60 characters)."
-msgstr ""
+msgstr "Názov je príliš dlhý (maximálne 60 znakov)."
 
 msgctxt "error_new_code_already_exists"
 msgid "A product already exists with the new code"
-msgstr ""
+msgstr "Produkt už existuje s novým kódom"
 
 msgctxt "error_no_name"
 msgid "You need to enter a name or nickname."
-msgstr ""
+msgstr "Musíte zadať meno alebo prezývku."
 
 msgctxt "error_no_permission"
 msgid "Permission denied."
-msgstr ""
+msgstr "Prístup zamietnutý."
 
 msgctxt "error_no_username"
 msgid "You need to enter a user name"
-msgstr ""
+msgstr "Musíte zadať meno používateľa"
 
 msgctxt "error_reset_already_connected"
 msgid "You are already signed in."
-msgstr ""
+msgstr "Už ste prihlásení."
 
 msgctxt "error_reset_invalid_token"
 msgid "The reset password link is invalid or has expired."
-msgstr ""
+msgstr "Odkaz na obnovenie hesla je neplatný alebo jeho platnosť vypršala."
 
 msgctxt "error_reset_unknown_email"
 msgid "There is no account with this email"
-msgstr ""
+msgstr "S týmto e-mailom neexistuje žiadny účet"
 
 msgctxt "error_reset_unknown_id"
 msgid "This username does not exist."
-msgstr ""
+msgstr "Toto používateľské meno neexistuje."
 
 msgctxt "error_username_not_available"
 msgid "This username already exists, please choose another."
-msgstr ""
+msgstr "Toto používateľské meno už existuje, vyberte si iné."
 
 msgctxt "example"
 msgid "Example:"
-msgstr ""
+msgstr "Príklad:"
 
 msgctxt "examples"
 msgid "Examples:"
-msgstr ""
+msgstr "Príklady:"
 
 msgctxt "expiration_date"
 msgid "Best before date"
-msgstr ""
+msgstr "Dátum minimálnej trvanlivosti"
 
 msgctxt "expiration_date_note"
 msgid "The expiration date is a way to track product changes over time and to identify the most recent version."
-msgstr ""
+msgstr "Dátum vypršania platnosti je spôsob, ako sledovať zmeny produktu v priebehu času a identifikovať najnovšiu verziu."
 
 msgctxt "explore_products_by"
 msgid "Explore products by..."
-msgstr ""
+msgstr "Preskúmajte produkty podľa..."
 
 msgctxt "facebook_locale"
 msgid "en_US"
-msgstr ""
+msgstr "sk_SK"
 
 msgctxt "facebook_page"
 msgid "https://www.facebook.com/OpenFoodFacts"
-msgstr ""
+msgstr "https://www.facebook.com/OpenFoodFacts"
 
 msgctxt "fixme_product"
 msgid "If the data is incomplete or incorrect, you can complete or correct it by editing this page."
-msgstr ""
+msgstr "Ak sú údaje neúplné alebo nesprávne, môžete ich doplniť alebo opraviť úpravou tejto stránky."
 
 msgctxt "footer_and_the_facebook_group"
 msgid "and the <a href=\"https://www.facebook.com/groups/openfoodfacts/\">Facebook group for contributors</a>"
-msgstr ""
+msgstr "a facebooková skupina <a href=\"https://www.facebook.com/groups/openfoodfacts/\">pre prispievateľov</a>"
 
 msgctxt "footer_blog"
 msgid "<<site_name>> blog"
-msgstr ""
+msgstr "<<site_name>> blog"
 
 # Do not translate
 msgctxt "footer_blog_link"
@@ -766,16 +766,16 @@ msgstr "Zásady správania sa"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_code_of_conduct_link"
 msgid "/code-of-conduct"
-msgstr ""
+msgstr "/code-of-conduct"
 
 msgctxt "footer_data"
 msgid "Data, API and SDKs"
-msgstr ""
+msgstr "Data, API a SDKs"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_data_link"
 msgid "/data"
-msgstr ""
+msgstr "/data"
 
 msgctxt "footer_discover_the_project"
 msgid "Discover the project"
@@ -783,7 +783,7 @@ msgstr "Objavte projekt"
 
 msgctxt "footer_faq"
 msgid "Frequently asked questions"
-msgstr ""
+msgstr "Často kladené otázky"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_faq_link"
@@ -797,17 +797,19 @@ msgstr "Prekladatelia"
 # Do not translate
 msgctxt "footer_translators_link"
 msgid "/cgi/top_translators.pl"
-msgstr ""
+msgstr "/cgi/top_translators.pl"
 
 msgctxt "footer_follow_us"
 msgid "Follow us on <a href=\"https://twitter.com/openfoodfacts\">Twitter</a>,\n"
 "<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebook</a> and\n"
 "<a href=\"https://www.instagram.com/open.food.facts/\">Instagram</a>\n"
-msgstr ""
+msgstr "Sledujde nás na <a href=\"https://twitter.com/openfoodfacts\">Twitteri</a>,\n"
+"<a href=\"https://www.facebook.com/OpenFoodFacts\">Facebooku</a> and\n"
+"<a href=\"https://www.instagram.com/open.food.facts/\">Instagrame</a>\n"
 
 msgctxt "footer_install_the_app"
 msgid "Install the app"
-msgstr ""
+msgstr "Nainštalujte aplikáciu"
 
 msgctxt "footer_join_the_community"
 msgid "Join the community"
@@ -815,16 +817,16 @@ msgstr "Pripojiť sa ku komunite"
 
 msgctxt "footer_join_us_on"
 msgid "Join us on %s:"
-msgstr ""
+msgstr "Pridajte sa k nám na %s:"
 
 msgctxt "footer_legal"
 msgid "Legal"
-msgstr ""
+msgstr "Právne informácie"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_legal_link"
 msgid "/legal"
-msgstr ""
+msgstr "/legal"
 
 msgctxt "footer_press"
 msgid "Press"
@@ -833,7 +835,7 @@ msgstr "Média"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_press_link"
 msgid "/press"
-msgstr ""
+msgstr "/press"
 
 msgctxt "footer_tagline"
 msgid "A collaborative, free and open database of food products from around the world."
@@ -846,7 +848,7 @@ msgstr "Podmienky používania"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_terms_link"
 msgid "/terms-of-use"
-msgstr ""
+msgstr "/terms-of-use"
 
 msgctxt "footer_who_we_are"
 msgid "Who we are"
@@ -855,16 +857,16 @@ msgstr "Kto sme"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "footer_who_we_are_link"
 msgid "/who-we-are"
-msgstr ""
+msgstr "/who-we-are"
 
 msgctxt "footer_wiki"
 msgid "<<site_name>> wiki (en)"
-msgstr ""
+msgstr "<<site_name>> wiki (en)"
 
 # Do not translate
 msgctxt "footer_wiki_link"
 msgid "https://wiki.openfoodfacts.org"
-msgstr ""
+msgstr "https://wiki.openfoodfacts.org"
 
 # Do not translate Open Beauty Facts but do translate Cosmetics
 msgctxt "footer_obf"
@@ -873,11 +875,11 @@ msgstr "Open Beauty Facts – Kozmetika"
 
 msgctxt "footer_obf_link"
 msgid "https://world.openbeautyfacts.org"
-msgstr ""
+msgstr "https://world.openbeautyfacts.org"
 
 msgctxt "footer_pro"
 msgid "Open Food Facts for Producers"
-msgstr ""
+msgstr "Open Food Facts pre výrobcov"
 
 msgctxt "for"
 msgid "for"
@@ -1167,69 +1169,69 @@ msgstr ""
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
-msgstr ""
+msgstr "Jazyk, ktorý sa na produkte najčastejšie vyskytuje a je najviac zvýraznený"
 
 msgctxt "language"
 msgid "en-US"
-msgstr ""
+msgstr "sk-SK"
 
 msgctxt "languages_p"
 msgid "languages"
-msgstr ""
+msgstr "jazyky"
 
 msgctxt "languages_s"
 msgid "language"
-msgstr ""
+msgstr "jazyk"
 
 msgctxt "last_edit_dates_p"
 msgid "Last edit dates"
-msgstr ""
+msgstr "Dátumy poslednej úpravy"
 
 msgctxt "last_edit_dates_s"
 msgid "Last edit date"
-msgstr ""
+msgstr "Dátum poslednej úpravy"
 
 msgctxt "last_image_dates_p"
 msgid "Last picture dates"
-msgstr ""
+msgstr "Dátumy posledných obrázkov"
 
 msgctxt "last_image_dates_s"
 msgid "Last picture date"
-msgstr ""
+msgstr "Dátum posledného obrázku"
 
 msgctxt "licence_accept"
 msgid "By adding information, data and/or images, you accept to place irrevocably your contribution under the <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\">Database Contents Licence 1.0</a> licence\n"
 "for information and data, and under the <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> licence for images.\n"
 "You accept to be credited by re-users by a link to the product your are contributing to."
-msgstr ""
+msgstr "Pridaním informácií, dat a/alebo obrázkov súhlasíte s tým, že neobmedzujúco pridávate svoj príspevok pod licenciou <a href=\"https://opendatacommons.org/licenses/dbcl/1.0/\"> Database Contents Licence 1.0</a> pre informácie a data a pod licenciou <a href=\"https://creativecommons.org/licenses/by-sa/3.0/deed.en\">Creative Commons Attribution - ShareAlike 3.0</a> pre obrázky. Súhlasíte s tým, že pokiaľ budú vaše dáta alebo obrázky použité iným použivateľom, vaše zásluhy budú priznané pomocou odkazu na váš príspevok."
 
 msgctxt "link"
 msgid "Link to the product page on the official site of the producer"
-msgstr ""
+msgstr "Odkaz na stránku produktu na oficiálnej stránke výrobcu"
 
 msgctxt "list_of_x"
 msgid "List of %s"
-msgstr ""
+msgstr "Zoznam %s"
 
 msgctxt "loadmore"
 msgid "Load more results"
-msgstr ""
+msgstr "Načítať viac výsledkov"
 
 msgctxt "login_and_add_product"
 msgid "Sign-in and add the product"
-msgstr ""
+msgstr "Prihláste sa a pridajte produkt"
 
 msgctxt "login_and_edit_product"
 msgid "Sign-in and edit the product"
-msgstr ""
+msgstr "Prihláste sa a upravte produkt"
 
 msgctxt "login_create_your_account"
 msgid "Create your account."
-msgstr ""
+msgstr "Vytvorte si účet."
 
 msgctxt "login_not_registered_yet"
 msgid "Not registered yet?"
-msgstr ""
+msgstr "Ešte nie ste zaregistrovaný?"
 
 msgctxt "login_register_title"
 msgid "Sign-in"
@@ -1237,32 +1239,33 @@ msgstr "Prihlásiť sa"
 
 msgctxt "login_to_add_and_edit_products"
 msgid "Sign-in to add or edit products."
-msgstr ""
+msgstr "Ak chcete pridať alebo upraviť produkty, prihláste sa."
 
 msgctxt "login_to_add_products"
 msgid "<p>Please sign-in to add or edit a product.</p>\n\n"
 "<p>If you do not yet have an account on <<site_name>>, you can <a href=\"/cgi/user.pl\">register in 30 seconds</a>.</p>\n"
-msgstr ""
+msgstr "<p>Ak chcete pridať alebo upraviť produkt, prihláste sa.</p>\n\n"
+"<p>Ak ešte nemáte účet na <<site_name>>, môžete sa <a href=\"/cgi/user.pl\">zaregistrovať za 30 sekúnd</a>.</p>\n"
 
 msgctxt "login_username_email"
 msgid "Username or e-mail address:"
-msgstr ""
+msgstr "Používateľské meno alebo emailová adresa:"
 
 msgctxt "low"
 msgid "low"
-msgstr ""
+msgstr "nízky"
 
 msgctxt "low_quantity"
 msgid "low quantity"
-msgstr ""
+msgstr "malé množstvo"
 
 msgctxt "manage_images"
 msgid "Manage images"
-msgstr ""
+msgstr "Spravujte obrázky"
 
 msgctxt "manage_images_info"
 msgid "You can select one or more images and then:"
-msgstr ""
+msgstr "Môžete vybrať jeden alebo viac obrázkov a potom:"
 
 msgctxt "manufacturing_places"
 msgid "Manufacturing or processing places"
@@ -1270,39 +1273,39 @@ msgstr "Výrobné alebo spracovateľské miesta"
 
 msgctxt "manufacturing_places_example"
 msgid "Montana, USA"
-msgstr ""
+msgstr "Bratislava, Slovensko"
 
 msgctxt "manufacturing_places_p"
 msgid "manufacturing or processing places"
-msgstr ""
+msgstr "výrobné alebo spracovateľské miesta"
 
 msgctxt "manufacturing_places_products"
 msgid "Products manufactured or processed in %s"
-msgstr ""
+msgstr "Produkty vyrobené alebo spracované v %s"
 
 msgctxt "manufacturing_places_s"
 msgid "manufacturing or processing place"
-msgstr ""
+msgstr "výrobné alebo spracovateľské miesta"
 
 msgctxt "manufacturing_places_tagsinput"
 msgid "add a place"
-msgstr ""
+msgstr "pridať miesto"
 
 msgctxt "manufacturing_places_without_products"
 msgid "Products not manufactured or processed in %s"
-msgstr ""
+msgstr "Produkty, ktoré nie sú vyrobené alebo spracované v %s"
 
 msgctxt "map_count"
 msgid "%d products match the search criteria, of which %i products have a known production place."
-msgstr ""
+msgstr "Kritériám vyhľadávania zodpovedá %d produktov, z ktorých %i produktov má známe miesto výroby."
 
 msgctxt "map_title"
 msgid "Map title"
-msgstr ""
+msgstr "Názov mapy"
 
 msgctxt "menu"
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 msgctxt "menu_add_a_product"
 msgid "Add a product"
@@ -1311,7 +1314,7 @@ msgstr "Pridať produkt"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_add_a_product_link"
 msgid "/add-a-product"
-msgstr ""
+msgstr "/add-a-product"
 
 msgctxt "menu_contribute"
 msgid "Contribute"
@@ -1320,7 +1323,7 @@ msgstr "Prispieť"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_contribute_link"
 msgid "/contribute"
-msgstr ""
+msgstr "/contribute"
 
 msgctxt "menu_discover"
 msgid "Discover"
@@ -1329,27 +1332,27 @@ msgstr "Objavte"
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "menu_discover_link"
 msgid "/discover"
-msgstr ""
+msgstr "/discover"
 
 msgctxt "mission_"
 msgid "Mission: "
-msgstr ""
+msgstr "Misia: "
 
 msgctxt "mission_accomplished_by"
 msgid "This mission has been completed by:"
-msgstr ""
+msgstr "Túto misiu dokončili:"
 
 msgctxt "mission_accomplished_by_n"
 msgid "Completed by %d persons."
-msgstr ""
+msgstr "Dokončilo %d osôb."
 
 msgctxt "mission_accomplished_by_nobody"
 msgid "Be the first to complete this mission!"
-msgstr ""
+msgstr "Buďte prvý, kto dokončí túto misiu!"
 
 msgctxt "mission_goal"
 msgid "Goal:"
-msgstr ""
+msgstr "Cieľ:"
 
 msgctxt "missions"
 msgid "Missions"
@@ -1357,19 +1360,19 @@ msgstr "Misie"
 
 msgctxt "moderate"
 msgid "moderate"
-msgstr ""
+msgstr "mierny"
 
 msgctxt "moderate_quantity"
 msgid "moderate quantity"
-msgstr ""
+msgstr "mierne množstvo"
 
 msgctxt "move_images_to_another_product"
 msgid "Move the images to another product"
-msgstr ""
+msgstr "Presuňte obrázky do iného produktu"
 
 msgctxt "n_products"
 msgid "%s products"
-msgstr ""
+msgstr "%s produktov"
 
 msgctxt "name"
 msgid "Name"
@@ -1377,23 +1380,23 @@ msgstr "Názov"
 
 msgctxt "names"
 msgid "Names"
-msgstr ""
+msgstr "Názvy"
 
 msgctxt "new_code"
 msgid "If the barcode is not correct, please correct it here:"
-msgstr ""
+msgstr "Ak čiarový kód nie je správny, opravte ho tu:"
 
 msgctxt "new_code_note"
 msgid "For products without a barcode, an internal code is automatically set."
-msgstr ""
+msgstr "Pre produkty bez čiarového kódu sa automaticky nastaví interný kód."
 
 msgctxt "newsletter_description"
 msgid "Subscribe to the newsletter (2 emails per month maximum)"
-msgstr ""
+msgstr "Prihláste sa na odber noviniek (maximálne 2 e-maily za mesiac)"
 
 msgctxt "subscribe_to_our_newsletter"
 msgid "Subscribe to our newsletter"
-msgstr ""
+msgstr "Prihlásiť sa ku odberu noviniek"
 
 msgctxt "next"
 msgid "Next"
@@ -1401,7 +1404,7 @@ msgstr "Ďalšie"
 
 msgctxt "no_barcode"
 msgid "Product without barcode"
-msgstr ""
+msgstr "Produkt bez čiarového kódu"
 
 msgctxt "no_nutrition_data"
 msgid "Nutrition facts are not specified on the product."
@@ -1668,7 +1671,7 @@ msgstr ""
 
 msgctxt "pages"
 msgid "Pages:"
-msgstr ""
+msgstr "Stránky:"
 
 msgctxt "password"
 msgid "Password"
@@ -1676,11 +1679,11 @@ msgstr "Heslo"
 
 msgctxt "password_new"
 msgid "New password"
-msgstr ""
+msgstr "Nové heslo"
 
 msgctxt "password_confirm"
 msgid "Confirm password"
-msgstr ""
+msgstr "Potvrďte heslo"
 
 msgctxt "periods_after_opening"
 msgid "Period of time after opening"
@@ -1688,55 +1691,55 @@ msgstr ""
 
 msgctxt "periods_after_opening_note"
 msgid "Found in an open container logo with a number of months: e.g. 12 M"
-msgstr ""
+msgstr "Nachádza sa v logu otvoreného kontajnera s počtom mesiacov: napr. 12 M"
 
 msgctxt "periods_after_opening_p"
 msgid "Periods after opening"
-msgstr ""
+msgstr "Lehoty po otvorení"
 
 msgctxt "periods_after_opening_s"
 msgid "Period after opening"
-msgstr ""
+msgstr "Obdobie po otvorení"
 
 msgctxt "photographers_p"
 msgid "photographers"
-msgstr ""
+msgstr "fotografovia"
 
 msgctxt "photographers_s"
 msgid "photographer"
-msgstr ""
+msgstr "fotograf"
 
 msgctxt "pnns_groups_1"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "PNNS skupiny 1"
 
 msgctxt "pnns_groups_1_p"
 msgid "PNNS groups 1"
-msgstr ""
+msgstr "PNNS skupiny 1"
 
 msgctxt "pnns_groups_1_s"
 msgid "PNNS group 1"
-msgstr ""
+msgstr "PNNS skupina 1"
 
 msgctxt "pnns_groups_2"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "Skupiny PNNS 2"
 
 msgctxt "pnns_groups_2_p"
 msgid "PNNS groups 2"
-msgstr ""
+msgstr "Skupiny PNNS 2"
 
 msgctxt "pnns_groups_2_s"
 msgid "PNNS group 2"
-msgstr ""
+msgstr "PNNS skupina 2"
 
 msgctxt "points_all_countries"
 msgid "There are %d Explorers and %d Ambassadors."
-msgstr ""
+msgstr "Existuje %d prieskumníkov a %d veľvyslancov."
 
 msgctxt "points_all_users"
 msgid "There are Explorers for %d countries and Ambassadors for %d countries."
-msgstr ""
+msgstr "Existujú prieskumníci pre %d krajín a veľvyslanci pre %d krajín."
 
 msgctxt "points_country"
 msgid "%s has %d Explorers and %d Ambassadors."
@@ -1956,7 +1959,7 @@ msgstr ""
 
 msgctxt "purchase_places_tagsinput"
 msgid "add a place"
-msgstr ""
+msgstr "pridať miesto"
 
 msgctxt "purchase_places_without_products"
 msgid "Products not sold in %s"
