@@ -1390,6 +1390,10 @@ Differences with the 2021 version:
 
 =head4 $prepared - string contains either "" or "-prepared"
 
+=head3 Return values
+
+Return undef if no value could be computed or estimated.
+
 =cut
 
 sub compute_nutriscore_2023_fruits_vegetables_legumes ($product_ref, $prepared) {
@@ -1601,11 +1605,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 			salt => $nutriments_ref->{"salt" . $prepared . "_100g"},
 
 			fruits_vegetables_legumes => $fruits_vegetables_legumes,
-			fiber => (
-				(defined $nutriments_ref->{"fiber" . $prepared . "_100g"})
-				? $nutriments_ref->{"fiber" . $prepared . "_100g"}
-				: 0
-			),
+			fiber => $nutriments_ref->{"fiber" . $prepared . "_100g"},
 			proteins => $nutriments_ref->{"proteins" . $prepared . "_100g"},
 		};
 
@@ -1621,9 +1621,7 @@ sub compute_nutriscore_data ($product_ref, $prepared, $nutriments_field, $versio
 		}
 
 		if ($is_beverage) {
-			if (defined $product_ref->{with_non_nutritive_sweeteners}) {
-				$nutriscore_data_ref->{with_non_nutritive_sweeteners} = $product_ref->{with_non_nutritive_sweeteners};
-			}
+			$nutriscore_data_ref->{non_nutritive_sweeteners} = $product_ref->{ingredients_non_nutritive_sweeteners_n};
 		}
 	}
 
@@ -2227,7 +2225,6 @@ sub compute_serving_size_data ($product_ref) {
 
 				my $unit = get_property("nutrients", "zz:$nid", "unit:en")
 					;    # $unit will be undef if the nutrient is not in the taxonomy
-				print STDERR "nid: $nid - unit: $unit\n";
 
 				# If the nutrient has no unit (e.g. pH), or is a % (e.g. "% vol" for alcohol), it is the same regardless of quantity
 				# otherwise we adjust the value for 100g
