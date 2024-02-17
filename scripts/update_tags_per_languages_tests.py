@@ -42,11 +42,21 @@ class TestUpdateTagsPerLanguages(unittest.TestCase):
             ],
         }
         file = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', f'taxonomies/categories.txt')) 
-        possible_wrong_language_tags = unknown_tags_taxonomy_comparison(all_tags_dict, file, "categories")
-        os.remove("update_tags_per_languages_possible_new_tags_categories")
+        unknown_tags_taxonomy_comparison(all_tags_dict, file, "categories", False)
+
+        possible_wrong_language_tags = {}
+        with open('update_tags_per_languages_wrong_languages_detected_categories', 'r') as file:
+            # skip header
+            file.readline()
+            for line in file:
+                key, value = line.strip().split(',')
+                possible_wrong_language_tags[key] = value
 
         # (result, expected)
         self.assertEqual(possible_wrong_language_tags, {'en:chips': 'de:chips'})
+
+        os.remove("update_tags_per_languages_wrong_languages_detected_categories")
+        os.remove("update_tags_per_languages_possible_new_tags_categories")
 
 
     def test_update_tags_field(self):
