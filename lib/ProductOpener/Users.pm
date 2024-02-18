@@ -343,10 +343,6 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 		$user_ref->{email} = $email;
 	}
 
-	# Country and preferred language
-	$user_ref->{preferred_language} = remove_tags_and_quote(single_param("preferred_language"));
-	$user_ref->{country} = remove_tags_and_quote(single_param("country"));
-
 	# Is there a checkbox to make a professional account
 	if (defined single_param("pro_checkbox")) {
 
@@ -413,14 +409,13 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 
 	# Check input parameters, redisplay if necessary
 
-	if (length($user_ref->{name}) < 2) {
-		push @{$errors_ref}, $Lang{error_no_name}{$lang};
-	}
-	elsif (length($user_ref->{name}) > 60) {
-		push @{$errors_ref}, $Lang{error_name_too_long}{$lang};
-	}
-
 	if ($type eq 'add') {
+		if (length($user_ref->{name}) < 2) {
+			push @{$errors_ref}, $Lang{error_no_name}{$lang};
+		}
+		elsif (length($user_ref->{name}) > 60) {
+			push @{$errors_ref}, $Lang{error_name_too_long}{$lang};
+		}
 
 		my $userid = get_string_id_for_lang("no_language", $user_ref->{userid});
 
@@ -587,19 +582,6 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 
 	# save user
 	store("$BASE_DIRS{USERS}/$userid.sto", $user_ref);
-
-	# Update email
-	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
-	my $email = $user_ref->{email};
-
-	if ((defined $email) and ($email =~ /\@/)) {
-		$emails_ref->{$email} = [$userid];
-	}
-	if (defined $user_ref->{old_email}) {
-		delete $emails_ref->{$user_ref->{old_email}};
-		delete $user_ref->{old_email};
-	}
-	store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
 
 	if ($type eq 'add') {
 
