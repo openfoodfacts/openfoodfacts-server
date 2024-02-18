@@ -46,27 +46,34 @@ my $r = shift;
 my $redirect = single_param('redirect');
 my $loc = $redirect || $formatted_subdomain . "/cgi/session.pl";
 my $status_code = Apache2::Const::HTTP_BAD_REQUEST;
+my $final_status_set = 0;
 if (defined $User_id) {
 	# User is already signed in via cookie or similar, as determined by init_request.
 	$r->headers_out->set(Location => $loc);
 	$status_code = Apache2::Const::HTTP_MOVED_TEMPORARILY;
+	$final_status_set = 1;
 }
 
-if (not($ENV{'REQUEST_METHOD'} eq 'POST')) {
+if (not($final_status_set) and (not($ENV{'REQUEST_METHOD'} eq 'POST'))) {
 	# After OIDC/Keycloak integration, the original login form is no longer used.
 	# This file is only kept around temporarily to handle the old form from integration tests.
 	$status_code = Apache2::Const::HTTP_METHOD_NOT_ALLOWED;
+	$final_status_set = 1;
 }
 
-my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
-	= password_signin(encode_utf8(decode utf8 => single_param('user_id')),
-	encode_utf8(decode utf8 => single_param('password')));
-if ($oidc_user_id) {
-	$r->headers_out->set(Location => $loc);
-	$status_code = Apache2::Const::HTTP_MOVED_TEMPORARILY;
-}
-else {
-	$status_code = Apache2::Const::HTTP_UNAUTHORIZED;
+if (not($final_status_set)) {
+	my ($oidc_user_id, $refresh_token, $refresh_expires_at, $access_token, $access_expires_at, $id_token)
+		= password_signin(encode_utf8(decode utf8 => single_param('user_id')),
+		encode_utf8(decode utf8 => single_param('password')));
+	if ($oidc_user_id) {
+		$r->headers_out->set(Location => $loc);
+		$status_code = Apache2::Const::HTTP_MOVED_TEMPORARILY;
+	}
+	else {
+		$status_code = Apache2::Const::HTTP_UNAUTHORIZED;
+	}
+
+	$final_status_set = 1;
 }
 
 $r->err_headers_out->add('Set-Cookie' => $request_ref->{cookie});
