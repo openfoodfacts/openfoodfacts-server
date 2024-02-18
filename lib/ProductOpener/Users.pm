@@ -1036,10 +1036,7 @@ sub init_user ($request_ref) {
 				# We don't have the right password
 				if (not $oidc_user_id) {
 					$user_id = undef;
-					$log->info(
-						'bad password - input does not match stored hash',
-						{encrypted_password => $user_ref->{'encrypted_password'}}
-					) if $log->is_info();
+					$log->info('bad password - input does not match stored hash') if $log->is_info();
 					# Trigger an error
 					return ($Lang{error_bad_login_password}{$lang});
 				}

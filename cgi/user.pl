@@ -184,8 +184,36 @@ if ($action eq 'display') {
 					field => "name"
 				},
 				{
+					field => "email",
+					type => "email",
+				},
+				{
 					field => "userid",
 					label => "username"
+				},
+				{
+					field => "password",
+					type => "password",
+					label => "password"
+				},
+				{
+					field => "confirm_password",
+					type => "password",
+					label => "password_confirm"
+				},
+				{
+					field => "preferred_language",
+					type => "select",
+					label => "preferred_language",
+					selected => $selected_language,
+					options => get_languages_options_list($lc),
+				},
+				{
+					field => "country",
+					type => "select",
+					label => "select_country",
+					selected => $selected_country,
+					options => get_countries_options_list($lc),
 				},
 				{
 					# this is a honeypot to detect scripts, that fills every fields

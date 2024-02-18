@@ -28,6 +28,7 @@
     value = value.replace(new RegExp("^-"),"");
 
     inputfield.value = value;
+    }
 </script>
 
 <style>
@@ -75,6 +76,14 @@
                                   <label for="[% field.field %]">[% field.label %]</label>
                                   <input type="text" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" [% IF section.id == "teams" %] onkeyup="normalize_string_value(this)" [% END %]/>
                                 </div>
+                        [% ELSIF field.type == 'password' %]
+                            <label for="[% field.field %]">[% lang(field.label) %]</label>
+                            <div class="password-container">
+                                <input type="password" id="[% field.field %]" name="[% field.field %]" value="[% field.value %]" autocomplete="new-password"/>
+                                <span class="toggle-password">
+                                    <span class="material-icons material-symbols-visibility">visibility_off</span>
+                                </span>
+                            </div>
                         [% ELSIF field.type == 'email' %]
                             <label for="[% field.field %]">	[% field.label %]</label>
                             <input type="email" id="[% field.field %]" name="[% field.field %]" value = "[% field.value %]" autocomplete="email"/>
