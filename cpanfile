@@ -16,7 +16,6 @@ requires 'JSON::PP'; # libjson-pp-perl
 requires 'Cpanel::JSON::XS'; # libcpanel-json-xs-perl - fast parsing
 requires 'JSON::MaybeXS'; # libjson-maybexs-perl
 requires 'Clone'; # libclone-perl
-requires 'Crypt::PasswdMD5'; # libcrypt-passwdmd5-perl
 requires 'Encode::Detect'; # libencode-detect-perl
 requires 'Graphics::Color::RGB'; # libgraphics-color-perl
 requires 'Graphics::Color::HSL'; # libgraphics-color-perl
@@ -37,7 +36,6 @@ requires 'List::MoreUtils', '>= 0.430'; # liblist-moreutils-perl
 requires 'Excel::Writer::XLSX', '>= 1.09'; # libexcel-writer-xlsx-perl
 requires 'Pod::Simple::HTMLBatch'; # libpod-simple-perl
 requires 'GeoIP2', '>= 2.006002, < 3.0'; # libgeoip2-perl, deps: libdata-validate-ip-perl libio-compress-perl libjson-maybexs-perl liblist-someutils-perl, libdata-dumper-concise-perl, libdata-printer-perl
-requires 'Email::Valid', '>= 1.202, < 2.0'; # libemail-valid-perl
 requires 'Path::Tiny', '>= 0.118'; # libpath-tiny-perl
 
 # Probably not available as Debian/Ubuntu packages

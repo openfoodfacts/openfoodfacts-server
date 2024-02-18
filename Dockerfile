@@ -52,7 +52,6 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         libcache-memcached-fast-perl \
         libjson-pp-perl \
         libclone-perl \
-        libcrypt-passwdmd5-perl \
         libencode-detect-perl \
         libgraphics-color-perl \
         libbarcode-zbar-perl \
@@ -77,8 +76,7 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
         liblog-log4perl-perl \
         liblog-any-adapter-log4perl-perl \
         # NB: not available in ubuntu 1804 LTS:
-        libgeoip2-perl \
-        libemail-valid-perl
+        libgeoip2-perl
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt set -x && \
     apt install -y \
         #

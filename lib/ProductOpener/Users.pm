@@ -94,8 +94,6 @@ use CGI qw/:cgi :form escapeHTML/;
 use Encode;
 use JSON::PP;
 
-use Email::Valid;
-use Crypt::PasswdMD5 qw(unix_md5_crypt);
 use Math::Random::Secure qw(irand);
 use Log::Any qw($log);
 use MIME::Base32 qw(encode_base32);
@@ -420,17 +418,6 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 	}
 	elsif (length($user_ref->{name}) > 60) {
 		push @{$errors_ref}, $Lang{error_name_too_long}{$lang};
-	}
-
-	my $address;
-	eval {$address = Email::Valid->address(-address => $user_ref->{email}, -mxcheck => 1);};
-	$address = 0 if $@;
-	if (not $address) {
-		push @{$errors_ref}, $Lang{error_invalid_email}{$lang};
-	}
-	else {
-		# If all checks have passed, reinitialize with modified email
-		$user_ref->{email} = $address;
 	}
 
 	if ($type eq 'add') {
