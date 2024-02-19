@@ -1167,15 +1167,15 @@ msgstr "Štítok"
 
 msgctxt "labels_tagsinput"
 msgid "add a label"
-msgstr ""
+msgstr "pridať štítok"
 
 msgctxt "labels_without_products"
 msgid "Products that do not have the label %s"
-msgstr ""
+msgstr "Produkty, ktoré nemajú štítok %s"
 
 msgctxt "lang"
 msgid "Main language"
-msgstr ""
+msgstr "Hlavný jazyk"
 
 msgctxt "lang_note"
 msgid "Language most present and most highlighted on the product"
@@ -1422,52 +1422,52 @@ msgstr ""
 
 msgctxt "multiple_nutrition_data"
 msgid "Multiple nutrition facts are specified on the product (e.g. with added water or milk)."
-msgstr ""
+msgstr "Na výrobku sú uvedené viaceré výživové údaje (napr. s pridanou vodou alebo mliekom)."
 
 msgctxt "multiple_nutrition_data_instructions"
 msgid "Enter only the nutrition facts for the unprepared product, without added water or milk. If there are different products, enter nutrition facts for the first product listed."
-msgstr ""
+msgstr "Zadajte len nutričné údaje pre nepripravený produkt, bez pridanej vody alebo mlieka. Ak existujú rôzne produkty, zadajte nutričné údaje pre prvý uvedený produkt."
 
 msgctxt "no_product_for_barcode"
 msgid "No product listed for barcode %s."
-msgstr ""
+msgstr "Pre čiarový kód %s nie je uvedený žiadny produkt."
 
 msgctxt "no_products"
 msgid "No products."
-msgstr ""
+msgstr "Žiadne produkty."
 
 msgctxt "not_saved"
 msgid "Error while saving, please retry."
-msgstr ""
+msgstr "Chyba pri ukladaní, skúste to znova."
 
 msgctxt "number_of_additives"
 msgid "Number of additives"
-msgstr ""
+msgstr "Počet prídavných látok"
 
 msgctxt "number_of_products"
 msgid "Number of products"
-msgstr ""
+msgstr "Počet produktov"
 
 msgctxt "nutrient_in_quantity"
 msgid "%s in %s"
-msgstr ""
+msgstr "%s v %s"
 
 msgctxt "nutrient_levels_info"
 msgid "Nutrient levels for 100 g"
-msgstr ""
+msgstr "Výživové hodnoty na 100g"
 
 # Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
 msgctxt "nutrient_levels_link"
 msgid "/nutrient-levels"
-msgstr ""
+msgstr "/nutrient-levels"
 
 msgctxt "nutrient_levels_p"
 msgid "nutrient levels"
-msgstr ""
+msgstr "množstvo živín"
 
 msgctxt "nutrient_levels_s"
 msgid "nutrient level"
-msgstr ""
+msgstr "množstvo živín"
 
 msgctxt "nutriments_p"
 msgid "nutriments"
@@ -1475,15 +1475,15 @@ msgstr ""
 
 msgctxt "nutriments_products"
 msgid "Products that contain the nutriment %s"
-msgstr ""
+msgstr "Produkty, ktoré obsahujú živinu %s"
 
 msgctxt "nutriments_s"
 msgid "nutriment"
-msgstr ""
+msgstr "živina"
 
 msgctxt "nutriments_without_products"
 msgid "Products that do not contain the nutriment %s"
-msgstr ""
+msgstr "Výrobky, ktoré neobsahujú živinu %s"
 
 msgctxt "nutrition_alt"
 msgid "Nutrition facts"
@@ -1495,63 +1495,63 @@ msgstr "Nutričné hodnoty"
 
 msgctxt "nutrition_data_average"
 msgid "Average nutrition facts for the %d products of the %s category for which nutrition facts are known (out of %d products)."
-msgstr ""
+msgstr "Priemerné nutričné údaje pre %d produktov kategórie %s, pre ktoré sú nutričné údaje známe (z %d produktov)."
 
 msgctxt "nutrition_data_compare_percent"
 msgid "% of difference"
-msgstr ""
+msgstr "% rozdielu"
 
 msgctxt "nutrition_data_compare_value"
 msgid "value for 100 g / 100 ml"
-msgstr ""
+msgstr "hodnota pre 100 g / 100 ml"
 
 msgctxt "nutrition_data_comparison_with_categories"
 msgid "Comparison to average values of products in the same category:"
-msgstr ""
+msgstr "Porovnanie s priemernými hodnotami produktov v rovnakej kategórii:"
 
 msgctxt "nutrition_data_comparison_with_categories_note"
 msgid "Please note: for each nutriment, the average is computed for products for which the nutriment quantity is known, not on all products of the category."
-msgstr ""
+msgstr "Upozornenie: pre každú živinu sa priemer počíta pre produkty, pri ktorých je známe množstvo živín, nie pre všetky produkty kategórie."
 
 msgctxt "nutrition_data_note"
 msgid "If the picture is sufficiently sharp and level, nutrition facts can be automatically extracted from the picture."
-msgstr ""
+msgstr "Ak je obraz dostatočne ostrý a vyrovnaný, môžu sa z neho automaticky extrahovať nutričné údaje."
 
 msgctxt "nutrition_data_per_10"
 msgid "10th centile"
-msgstr ""
+msgstr "10. centil"
 
 msgctxt "nutrition_data_per_100g"
 msgid "for 100 g / 100 ml"
-msgstr ""
+msgstr "na 100 g / 100 ml"
 
 msgctxt "nutrition_data_per_5"
 msgid "5<sup>th</sup> centile"
-msgstr ""
+msgstr "5<sup>.</sup> centil"
 
 msgctxt "nutrition_data_per_50"
 msgid "Median"
-msgstr ""
+msgstr "Medián"
 
 msgctxt "nutrition_data_per_90"
 msgid "90th centile"
-msgstr ""
+msgstr "90. centil"
 
 msgctxt "nutrition_data_per_95"
 msgid "95<sup>th</sup> centile"
-msgstr ""
+msgstr "95<sup>.</sup> centil"
 
 msgctxt "nutrition_data_per_max"
 msgid "Maximum"
-msgstr ""
+msgstr "Maximálne"
 
 msgctxt "nutrition_data_per_mean"
 msgid "Mean"
-msgstr ""
+msgstr "Priemer"
 
 msgctxt "nutrition_data_per_min"
 msgid "Minimum"
-msgstr ""
+msgstr "Minimálne"
 
 msgctxt "nutrition_data_per_serving"
 msgid "per serving"
@@ -1559,7 +1559,7 @@ msgstr "na jednu porciu"
 
 msgctxt "nutrition_data_per_std"
 msgid "Standard deviation"
-msgstr ""
+msgstr "Štandardná odchylka"
 
 msgctxt "nutrition_data_table"
 msgid "Nutrition facts"
@@ -1568,11 +1568,12 @@ msgstr "Nutričné hodnoty"
 msgctxt "nutrition_data_table_note"
 msgid "The table lists by default nutriments that are often specified. Leave the field blank if it's not on the label.<br/>You can add extra nutriments (vitamins, minerals, cholesterol etc.)\n"
 "by typing the first letters of their name in the last row of the table."
-msgstr ""
+msgstr "V tabuľke sú štandardne uvedené živiny, ktoré sú často špecifikované. Nechajte pole prázdne, ak nie je na štítku.<br/>Môžete pridať ďalšie živiny (vitamíny, minerály, cholesterol atď.)\n"
+"zadaním prvých písmen ich názvu do posledného riadku tabuľky."
 
 msgctxt "nutrition_data_table_asterisk"
 msgid "Essential nutrients to calculate the Nutri-Score."
-msgstr ""
+msgstr "Esenciálne živiny na výpočet Nutri-Score."
 
 msgctxt "nutrition_grades_p"
 msgid "Nutrition grades"
@@ -1596,16 +1597,17 @@ msgstr "<p>Ak sa chcete dozvedieť viac o <<site_name>>, navštívte <a href=\"h
 
 msgctxt "on_the_blog_title"
 msgid "News"
-msgstr ""
+msgstr "Novinky"
 
 msgctxt "openfoodhunt_points"
 msgid "It's <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> on <<site_name>> from Saturday February 21st 2015 to Sunday March 1st 2015! Contributors are awarded\n"
 "Explorer points for products they add and Ambassador points for new contributors they recruit. Points are updated every 30 minutes."
-msgstr ""
+msgstr "Je <a href=\"/open-food-hunt-2015\">Open Food Hunt</a> na <<site_name>> od soboty 21. februára 2015 do nedele 1. marca 2015! Prispievatelia získajú\n"
+"body prieskumníka za produkty, ktoré pridajú, a body veľvyslanca za nových prispievateľov, ktorých naverbujú. Body sa aktualizujú každých 30 minút."
 
 msgctxt "or"
 msgid "or:"
-msgstr ""
+msgstr "alebo:"
 
 msgctxt "origins"
 msgid "Origin of ingredients"
@@ -2081,96 +2083,97 @@ msgstr ""
 
 msgctxt "search_criteria"
 msgid "Select products with specific brands, categories, labels, origins of ingredients, manufacturing places etc."
-msgstr ""
+msgstr "Vyberte produkty so špecifickými značkami, kategóriami, štítkami, pôvodom zložiek, miestami výroby atď."
 
 msgctxt "search_description_opensearch"
 msgid "Open Food Facts product search"
-msgstr ""
+msgstr "Vyhľadávanie na Open Food Facts"
 
 msgctxt "search_does_not_contain"
 msgid "does not contain"
-msgstr ""
+msgstr "neobsahuje"
 
 msgctxt "search_download_button"
 msgid "Download"
-msgstr ""
+msgstr "Stiahnuť"
 
 msgctxt "search_download_choice"
 msgid "Download results"
-msgstr ""
+msgstr "Stiahnite si výsledky"
 
 msgctxt "search_download_results"
 msgid "Download results in XLSX or CSV format. Please note that for performance reasons, you can download up to 10.000 results only."
-msgstr ""
+msgstr "Stiahnite si výsledky vo formáte XLSX alebo CSV. Upozorňujeme, že z dôvodov výkonu si môžete stiahnuť iba 10 000 výsledkov."
 
 msgctxt "search_download_xlsx"
 msgid "XLSX format"
-msgstr ""
+msgstr "Formát XLSX"
 
 msgctxt "search_download_xlsx_description"
 msgid "Excel or LibreOffice"
-msgstr ""
+msgstr "Excel alebo LibreOffice"
 
 msgctxt "search_download_csv"
 msgid "CSV format"
-msgstr ""
+msgstr "Vo formáte CSV"
 
 msgctxt "search_download_csv_description"
 msgid "Character set: Unicode (UTF-8) - Separator: tabulation (tab)"
-msgstr ""
+msgstr "Znaková sada: Unicode (UTF-8) - Oddeľovač: tabulátor (tab)"
 
 msgctxt "search_edit"
 msgid "Change search criteria"
-msgstr ""
+msgstr "Zmeňte kritériá vyhľadávania"
 
 msgctxt "search_generate_graph"
 msgid "Generate graph"
-msgstr ""
+msgstr "Vytvoriť graf"
 
 msgctxt "search_generate_map"
 msgid "Generate the map"
-msgstr ""
+msgstr "Vytvoriť mapu"
 
 msgctxt "search_graph"
 msgid "Graph"
-msgstr ""
+msgstr "Graf"
 
 msgctxt "search_graph_2_axis"
 msgid "Scatter plot"
-msgstr ""
+msgstr "Bodový diagram"
 
 msgctxt "search_graph_blog"
 msgid "<p>→ learn more about <<site_name>> graphs: <a href=\"/graphs-in-3-clicks\">Graphs in 3 clicks</a> (blog).</p>"
-msgstr ""
+msgstr "<p>→ dozvedieť sa viac o <<site_name>> grafoch: <a href=\"/graphs-in-3-clicks\">Grafy na 3 kliknutia</a> (blog).</p>"
 
 msgctxt "search_graph_choice"
 msgid "Results on a graph"
-msgstr ""
+msgstr "Výsledky na grafe"
 
 msgctxt "search_graph_instructions"
 msgid "Select what you want to graph on the horizontal axis to obtain a histogram, or select two axis to\n"
 "get a cloud of products (scatter plot)."
-msgstr ""
+msgstr "Vyberte, čo chcete vykresliť na vodorovnej osi, aby ste získali histogram, alebo vyberte dve osi, aby ste\n"
+"získali mrak produktov (rozptylový graf)."
 
 msgctxt "search_graph_link"
 msgid "Permanent link to this graph, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Trvalý odkaz na tento graf, zdieľateľný e-mailom a na sociálnych sieťach"
 
 msgctxt "search_graph_note"
 msgid "The graph will show only products for which displayed values are known."
-msgstr ""
+msgstr "V grafe sa zobrazia iba produkty, pre ktoré sú známe zobrazené hodnoty."
 
 msgctxt "search_graph_title"
 msgid "Display results on a graph"
-msgstr ""
+msgstr "Zobrazte výsledky v grafe"
 
 msgctxt "search_graph_warning"
 msgid "Note: this is a user generated graph. The title, represented products and axis of visualization have been chosen by the author of the graph."
-msgstr ""
+msgstr "Poznámka: Toto je graf vytvorený používateľom. Názov, znázornené produkty a os vizualizácie zvolil autor grafu."
 
 msgctxt "search_indifferent"
 msgid "Indifferent"
-msgstr ""
+msgstr "Ľahostajný"
 
 msgctxt "search_ingredients"
 msgid "Ingredients"
@@ -2178,35 +2181,35 @@ msgstr "Ingrediencie"
 
 msgctxt "search_link"
 msgid "Permanent link to these results, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Trvalý odkaz na tieto výsledky, zdieľateľný e-mailom a na sociálnych sieťach"
 
 msgctxt "search_list_choice"
 msgid "Results in a list of products"
-msgstr ""
+msgstr "Výsledok je v zozname produktov"
 
 msgctxt "search_map"
 msgid "Map"
-msgstr ""
+msgstr "Mapa"
 
 msgctxt "search_map_choice"
 msgid "Results on a map"
-msgstr ""
+msgstr "Výsledky na mape"
 
 msgctxt "search_map_link"
 msgid "Permanent link to this map, shareable by e-mail and on social networks"
-msgstr ""
+msgstr "Trvalý odkaz na túto mapu, zdieľateľný e-mailom a na sociálnych sieťach"
 
 msgctxt "search_map_note"
 msgid "The map will show only products for which the production place is known."
-msgstr ""
+msgstr "Na mape sa zobrazia iba produkty, ktorých miesto výroby je známe."
 
 msgctxt "search_map_title"
 msgid "Display results on a map"
-msgstr ""
+msgstr "Zobrazte výsledky na mape"
 
 msgctxt "search_nutriment"
 msgid "choose a nutriment..."
-msgstr ""
+msgstr "vyberte živinu..."
 
 msgctxt "search_nutriments"
 msgid "Nutriments"
@@ -2214,39 +2217,39 @@ msgstr "Živiny"
 
 msgctxt "search_or"
 msgid "or"
-msgstr ""
+msgstr "alebo"
 
 msgctxt "search_page_size"
 msgid "Results per page"
-msgstr ""
+msgstr "Výsledkov na stranu"
 
 msgctxt "search_products"
 msgid "Products search"
-msgstr ""
+msgstr "Vyhľadávanie produktov"
 
 msgctxt "search_results"
 msgid "Search results"
-msgstr ""
+msgstr "Výsledky hľadania"
 
 msgctxt "search_series"
 msgid "Use a different color for the following products:"
-msgstr ""
+msgstr "Použite inú farbu pre nasledujúce produkty:"
 
 msgctxt "search_series_default"
 msgid "Other products"
-msgstr ""
+msgstr "Ostatné produkty"
 
 msgctxt "search_series_fairtrade"
 msgid "Fair trade"
-msgstr ""
+msgstr "Fair trade"
 
 msgctxt "search_series_fairtrade_label"
 msgid "fair-trade"
-msgstr ""
+msgstr "fair-trade"
 
 msgctxt "search_series_nutrition_grades"
 msgid "Use nutrition grades colors"
-msgstr ""
+msgstr "Použiť farby výživových tried"
 
 msgctxt "search_series_organic"
 msgid "Organic"
@@ -2254,43 +2257,43 @@ msgstr "Bio"
 
 msgctxt "search_series_organic_label"
 msgid "organic"
-msgstr ""
+msgstr "bio"
 
 msgctxt "search_series_with_sweeteners"
 msgid "With sweeteners"
-msgstr ""
+msgstr "So sladidlami"
 
 msgctxt "search_tag"
 msgid "choose a criterion..."
-msgstr ""
+msgstr "vyberte si kritérium..."
 
 msgctxt "search_tags"
 msgid "Criteria"
-msgstr ""
+msgstr "Kritériá"
 
 msgctxt "search_terms"
 msgid "Search terms"
-msgstr ""
+msgstr "Hľadané výrazy"
 
 msgctxt "search_terms_note"
 msgid "Search for words present in the product name, generic name, brands, categories, origins and labels"
-msgstr ""
+msgstr "Hľadajte slová prítomné v názve produktu, generickom názve, značkách, kategóriách, pôvode a štítkoch"
 
 msgctxt "search_title"
 msgid "Search a product, brand, ingredient, nutriment etc."
-msgstr ""
+msgstr "Vyhľadajte produkt, značku, prísadu, živinu atď."
 
 msgctxt "search_title_graph"
 msgid "Results graph"
-msgstr ""
+msgstr "Graf výsledkov"
 
 msgctxt "search_title_map"
 msgid "Results map"
-msgstr ""
+msgstr "Mapa výsledkov"
 
 msgctxt "search_tools"
 msgid "Search tools"
-msgstr ""
+msgstr "Vyhľadávacie nástroje"
 
 msgctxt "search_value"
 msgid "value"
@@ -2567,40 +2570,41 @@ msgstr ""
 
 msgctxt "users_s"
 msgid "contributor"
-msgstr ""
+msgstr "prispievateľ"
 
 msgctxt "users_without_products"
 msgid "Products not added by %s"
-msgstr ""
+msgstr "Produkty nepridané používateľom %s"
 
 msgctxt "video_tutorials"
 msgid "Video Tutorials"
-msgstr ""
+msgstr "Videonávody"
 
 msgctxt "view"
 msgid "view"
-msgstr ""
+msgstr "zobraziť"
 
 msgctxt "view_list_for_products_from_the_entire_world"
 msgid "View the list for matching products from the entire world"
-msgstr ""
+msgstr "Zobraziť zoznam zodpovedajúcich produktov z celého sveta"
 
 msgctxt "view_products_from_the_entire_world"
 msgid "View matching products from the entire world"
-msgstr ""
+msgstr "Zobraziť zodpovedajúce produkty z celého sveta"
 
 msgctxt "view_results_from_the_entire_world"
 msgid "View results from the entire world"
-msgstr ""
+msgstr "Zobraziť výsledky z celého sveta"
 
 msgctxt "warning_3rd_party_content"
 msgid "Information and data must come from the product package and label (and not from other sites or the manufacturer's site), and you must have taken the pictures yourself.<br/>\n"
 "→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Why it matters</a>"
-msgstr ""
+msgstr "Informácie a údaje musia pochádzať z balenia a etikety produktu (a nie z iných stránok alebo stránok výrobcu) a musíte si ich urobiť sami.<br/>\n"
+"→ <a href=\"https://support.openfoodfacts.org/help/en-gb/9/27\">Prečo na tom záleží</a>"
 
 msgctxt "website"
 msgid "Site or blog address"
-msgstr ""
+msgstr "Adresa stránky alebo blogu"
 
 # Please change English.svg to French.svg or German.svg… Check the url https://static.openfoodfacts.org/images/misc/microsoft/XXXX.svg
 msgctxt "windows_phone_app_icon_url"
@@ -2609,80 +2613,80 @@ msgstr "/images/misc/microsoft/Slovak.svg"
 
 msgctxt "windows_phone_app_icon_alt_text"
 msgid "Get it from Microsoft"
-msgstr ""
+msgstr "Získať od spoločnosti Microsoft"
 
 # Please change en-us to fr-fr, pt-br or de-ch…Check the URL !
 msgctxt "windows_phone_app_link"
 msgid "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
-msgstr ""
+msgstr "https://apps.microsoft.com/store/detail/open-food-facts-scan-to-get-nutriscore-ecoscore-and-more/XP8LT18SRPKLRG"
 
 msgctxt "you_are_connected_as_x"
 msgid "You are connected as %s."
-msgstr ""
+msgstr "Ste prihlásený ako %s."
 
 msgctxt "product_js_unselect_image"
 msgid "Unselect image"
-msgstr ""
+msgstr "Zrušiť výber obrázka"
 
 msgctxt "product_js_unselecting_image"
 msgid "Unselecting image."
-msgstr ""
+msgstr "Odznačiť obrázok."
 
 msgctxt "product_js_unselected_image_ok"
 msgid "Unselected image."
-msgstr ""
+msgstr "Odznačený obrázok."
 
 msgctxt "product_js_unselected_image_nok"
 msgid "Error while unselecting image."
-msgstr ""
+msgstr "Chyba pri rušení výberu obrázka."
 
 msgctxt "product_js_zoom_on_wheel"
 msgid "Enable zooming with the mouse wheel."
-msgstr ""
+msgstr "Povoľte približovanie pomocou kolieska myši."
 
 msgctxt "product_js_use_low_res_images"
 msgid "Load lower resolution images (for slow connections)"
-msgstr ""
+msgstr "Načítať obrázky s nižším rozlíšením (pre pomalé pripojenia)"
 
 msgctxt "protected_image_message"
 msgid "An image has been sent by the manufacturer. If you think it is incorrect or not up-to-date, please contact us."
-msgstr ""
+msgstr "Obrázok bol odoslaný výrobcom. Ak si myslíte, že je nesprávny alebo neaktuálny, kontaktujte nás."
 
 msgctxt "nutrition_grade_fr_nutriments_estimated_warning"
 msgid "Warning: the nutrition facts are not specified. They have been estimated from the list of ingredients."
-msgstr ""
+msgstr "Upozornenie: nutričné údaje nie sú špecifikované. Boli odhadnuté zo zoznamu zložiek."
 
 msgctxt "nutrition_grade_fr_fiber_warning"
 msgid "Warning: the amount of fiber is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Upozornenie: množstvo vlákniny nie je špecifikované, ich prípadný pozitívny prínos pre známku nebolo možné brať do úvahy."
 
 msgctxt "nutrition_grade_fr_fiber_and_fruits_vegetables_nuts_warning"
 msgid "Warning: the amounts of fiber and of fruits, vegetables and nuts are not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Upozornenie: množstvá vlákniny a ovocia, zeleniny a orechov nie sú špecifikované, ich prípadný pozitívny prínos pre známku nemôže byť braný do úvahy."
 
 msgctxt "nutrition_grade_fr_no_fruits_vegetables_nuts_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified, their possible positive contribution to the grade could not be taken into account."
-msgstr ""
+msgstr "Upozornenie: množstvo ovocia, zeleniny a orechov nie je špecifikované, ich prípadný pozitívny prínos pre známku nemohol byť braný do úvahy."
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was manually estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "Upozornenie: množstvo ovocia, zeleniny a orechov nie je uvedené na etikete, bolo ručne odhadnuté zo zoznamu ingrediencií: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_from_category_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the category (%s) of the product: %d"
-msgstr ""
+msgstr "Upozornenie: na etikete nie je uvedené množstvo ovocia, zeleniny a orechov, bolo odhadnuté z kategórie (%s) výrobku: %d"
 
 msgctxt "nutrition_grade_fr_fruits_vegetables_nuts_estimate_from_ingredients_warning"
 msgid "Warning: the amount of fruits, vegetables and nuts is not specified on the label, it was estimated from the list of ingredients: %d"
-msgstr ""
+msgstr "Upozornenie: množstvo ovocia, zeleniny a orechov nie je uvedené na etikete, bolo odhadnuté zo zoznamu ingrediencií: %d"
 
 msgctxt "nutrition_grade_fr_title"
 msgid "NutriScore color nutrition grade"
-msgstr ""
+msgstr "NutriScore farebný stupeň výživy"
 
 msgctxt "nutrition_grade_fr_formula"
 msgid "How the color nutrition grade is computed"
-msgstr ""
+msgstr "Ako je umiestnenie na farebnej škále vypočítané"
 
 msgctxt "nutrition_grade_fr_alt"
 msgid "NutriScore nutrition grade"
@@ -4513,7 +4517,7 @@ msgstr ""
 
 msgctxt "attribute_labels_fair_trade_name"
 msgid "Fair trade"
-msgstr ""
+msgstr "Fair trade"
 
 msgctxt "attribute_labels_fair_trade_yes_title"
 msgid "Fair trade product"
@@ -5814,7 +5818,7 @@ msgstr ""
 # statistical mean
 msgctxt "mean"
 msgid "Mean"
-msgstr ""
+msgstr "Priemer"
 
 msgctxt "recipes_ingredients_statistics"
 msgid "Ingredients statistics for all products"
