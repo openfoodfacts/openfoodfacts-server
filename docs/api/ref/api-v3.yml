@@ -241,7 +241,10 @@ paths:
                           type: string
                       matched_synonyms:
                         type: object
-                        description: Dictionary of strings associating canonical names (as seen in suggestions field) with the synonym that best matches the query. An entry is present for all suggestions, even when the synonym is the same with the canonical name.
+                        description: |                      
+                            Dictionary of strings associating canonical names (as seen in suggestions field) with the synonym that best matches the query. An entry is present for all suggestions, even when the synonym is the same with the canonical name.
+                            
+                            This value is present only if get_synonyms parameter is present.
                         additional_properties:
                           type: string
       operationId: get-api-v3-taxonomy_suggestions-taxonomy
