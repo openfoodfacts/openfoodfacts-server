@@ -18,11 +18,15 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+/*global revert_confirm_message*/
+/*exported activate_product_revert_buttons_in_history*/
+
 function activate_product_revert_buttons_in_history () {
     $('#history_list a.button').on('click', function() {
-        var code = $(this).data('code');
-        var rev = $(this).data('rev');
-        var confirm = window.confirm(revert_confirm_message);
+        const code = $(this).data('code');
+        const rev = $(this).data('rev');
+        // using confirm, could be replaced with some JS dialog / modal
+        const confirm = window.confirm(revert_confirm_message); // eslint-disable-line no-alert
         if (confirm) {
             $.ajax({
                 url: '/api/v3/product_revert',
@@ -35,9 +39,9 @@ function activate_product_revert_buttons_in_history () {
                     fields: "rev"
                 }),
                 success: function(data) {
-                    var message = data.status;
+                    let message = data.status;
                     if (data.status === 'success') {
-                        message = message + ' - <a href="/product/' + code +'">' + data.result.lc_name + '</a>'
+                        message = message + ' - <a href="/product/' + code +'">' + data.result.lc_name + '</a>';
                     }
                     else {
                         message = message + ' - ' + data.result.lc_name;
@@ -47,4 +51,4 @@ function activate_product_revert_buttons_in_history () {
             });
         }
     });
-};
+}
