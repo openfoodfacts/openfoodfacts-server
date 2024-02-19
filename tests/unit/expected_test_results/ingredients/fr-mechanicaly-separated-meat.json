@@ -11,6 +11,7 @@
          "vegetarian" : "no"
       },
       {
+         "ciqual_proxy_food_code" : "28205",
          "id" : "en:mechanically-separated-meat-of-pork",
          "percent_estimate" : 16.6666666666667,
          "percent_max" : 50,
@@ -94,10 +95,8 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 3,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "ingredients_without_ciqual_codes" : [
-      "en:mechanically-separated-meat-of-pork"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 13,
    "lc" : "fr",
    "nutriments" : {

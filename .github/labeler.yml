@@ -16,6 +16,7 @@ MongoDB:
 - scripts/checkmongodb.pl
 - scripts/update_all_products_from_dir_in_mongodb.pl
 - scripts/update_all_products_revisions_from_dir_in_mongodb.pl
+- scripts/mongodb_dump.sh
 
 Stores:
 - taxonomies/unused/stores.txt
@@ -55,6 +56,11 @@ Stores:
 - taxonomies/ingredients.result.txt
 - taxonomies/states.result.sto
 - taxonomies/states.result.txt
+
+status system:
+- taxonomies/states.result.sto
+- taxonomies/states.result.txt
+- taxonomies/states.txt
 
 WikiData:
 - scripts/build_countries_taxonomy_from_wikidata.pl
@@ -188,9 +194,11 @@ Footer:
 
 📚 OpenAPI:
 - docs/assets/api-rapidoc.html
+- docs/api/ref/schemas/product_base.yaml
 
 🐋 Docker:
 - docker/**/*
+- .dockerignore
 
 🏷️ Folksonomy Project:
 - html/js/folksonomy.js
@@ -243,6 +251,7 @@ Agribalyse:
 Export:
 - lib/ProductOpener/Export.pm
 - t/expected_test_results/export/**/*
+- scripts/mongodb_dump.sh
 
 Food.pm:
 - lib/ProductOpener/Food.pm
@@ -250,6 +259,7 @@ Food.pm:
 Food groups:
 - lib/ProductOpener/FoodGroups.pm
 - tests/unit/food_groups.t
+- taxonomies/food_groups.txt
 
 🧪 Additives:
 - taxonomies/additives.txt
@@ -311,6 +321,7 @@ Ingredients analysis:
 
 Labels:
 - taxonomies/labels.txt
+- taxonomies/unused/labels_categories.txt
 
 Categories:
 - taxonomies/categories.txt
@@ -410,6 +421,8 @@ Numbers:
 - scripts/test_normalize_packaging_codes.pl
 - scripts/update_emb_codes_in_mongodb.pl
 - packager-codes/**
+- tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ec.json
+- tests/integration/expected_test_results/facets/packager-code_fr-85-222-003-ce.json
 
 📦 Packaging:
 - lib/ProductOpener/Packaging.pm
@@ -471,7 +484,7 @@ Numbers:
 - scripts/remove_all_private_products_for_owner.pl
 - scripts/gen_pro_users_emails_list.pl
 - cgi/import_products_categories_from_public_database.pl
-- scripts/agena3000/run_agena3000_import.sh
+- scripts/imports/agena3000/run_agena3000_import.sh
 - scripts/bayard-import/run_bayard_import.sh
 - scripts/codeonline-import/run_codeonline_import.sh
 - scripts/codeonline-import/split_gs1_codeonline_json.pl
@@ -479,7 +492,7 @@ Numbers:
 - scripts/equadis-import/run_equadis_import.sh
 
 🏭 AGENA3000:
-- scripts/agena3000/run_agena3000_import.sh
+- scripts/imports/agena3000/run_agena3000_import.sh
 
 🏭 Bayard:
 - scripts/bayard-import/run_bayard_import.sh
@@ -616,6 +629,7 @@ Blocks:
 
 🗺️ Made Near Me:
 - scripts/generate_madenearme_page.pl
+- scripts/generate_madenearme_pages.sh
 
 PAO:
 - scripts/generate_pao_taxonomy.pl
@@ -652,6 +666,7 @@ Config:
 
 Ingredients processing:
 - tests/unit/ingredients_processing.t
+- taxonomies/ingredients_processing.txt
 
 👥 Users:
 - lib/ProductOpener/Users.pm
@@ -792,6 +807,9 @@ Averages by categories:
 
 Static content:
 - scripts/copy_text_files.pl
+
+matomo:
+- scripts/utils/logs/download_matomo_logs.pl
 
 # TODO: find or create proper labels for those
 #- scripts/extract_images.pl

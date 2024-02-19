@@ -272,7 +272,7 @@
                      "panel_group_id" : "nutrition",
                      "panel_ids" : [
                         "nutriscore",
-                        "nutrient_level_salt"
+                        "nutrient_levels"
                      ],
                      "title" : "Nutrition",
                      "type" : "subcard"
@@ -571,6 +571,31 @@
                "icon_size" : "small",
                "icon_url" : "http://static.openfoodfacts.localhost/images/misc/high.svg",
                "title" : "Salt in high quantity (120%)"
+            },
+            "topics" : [
+               "health"
+            ]
+         },
+         "nutrient_levels" : {
+            "elements" : [
+               {
+                  "element_type" : "panel_group",
+                  "panel_group_element" : {
+                     "panel_group_id" : "nutrient_levels_group",
+                     "panel_ids" : [
+                        "nutrient_level_salt"
+                     ]
+                  }
+               }
+            ],
+            "evaluation" : "unknown",
+            "expand_for" : "large",
+            "expanded" : false,
+            "level" : "info",
+            "title_element" : {
+               "icon_color_from_evaluation" : true,
+               "icon_url" : "http://static.openfoodfacts.localhost/images/icons/dist/nutrition.svg",
+               "title" : "Nutrient levels"
             },
             "topics" : [
                "health"

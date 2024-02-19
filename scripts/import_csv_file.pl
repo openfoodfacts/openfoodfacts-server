@@ -252,3 +252,7 @@ if ($mail =~ /^\s*Subject:\s*(.*)\n/i) {
 	print "email body:\n$body\n\n";
 }
 
+if ($stats_ref->{error}) {
+	print STDERR "An error occured: " . $stats_ref->{error}{error} . "\n";
+	exit(1);
+}

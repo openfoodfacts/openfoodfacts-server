@@ -380,6 +380,9 @@ $options{display_tag_ingredients} = [
 
 # allow moving products to other instances of Product Opener on the same server
 # e.g. OFF -> OBF
+
+$options{current_server} = "obf";
+
 $options{other_servers} = {
 	obf => {
 		name => "Open Beauty Facts",
@@ -414,5 +417,8 @@ $options{other_servers} = {
 };
 
 $options{no_nutrition_table} = 1;
+
+# Name of the Redis stream to which product updates are published
+$options{redis_stream_name} = "product_updates_obf";
 
 1;

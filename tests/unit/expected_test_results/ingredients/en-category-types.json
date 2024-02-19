@@ -11,6 +11,7 @@
          "vegetarian" : "yes"
       },
       {
+         "ciqual_proxy_food_code" : "16129",
          "from_palm_oil" : "yes",
          "id" : "en:palm-fat",
          "percent_estimate" : 18.75,
@@ -89,12 +90,11 @@
    "ingredients_with_unspecified_percent_n" : 4,
    "ingredients_with_unspecified_percent_sum" : 100,
    "ingredients_without_ciqual_codes" : [
-      "en:palm-fat",
       "en:rapeseed-oil",
       "en:shea-butter",
       "en:sunflower-fat"
    ],
-   "ingredients_without_ciqual_codes_n" : 4,
+   "ingredients_without_ciqual_codes_n" : 3,
    "known_ingredients_n" : 8,
    "lc" : "de",
    "nutriments" : {

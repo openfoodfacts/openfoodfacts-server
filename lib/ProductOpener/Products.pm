@@ -141,7 +141,7 @@ use ProductOpener::Data qw/:all/;
 use ProductOpener::MainCountries qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Display qw/single_param/;
-use ProductOpener::Redis qw/push_to_search_service/;
+use ProductOpener::Redis qw/push_to_redis_stream/;
 
 # needed by analyze_and_enrich_product_data()
 # may be moved to another module at some point
@@ -208,6 +208,13 @@ sub make_sure_numbers_are_stored_as_numbers ($product_ref) {
 			}
 		}
 	}
+
+	# Make sure product _id and code are saved as string and not a number
+	# see bug #1077 - https://github.com/openfoodfacts/openfoodfacts-server/issues/1077
+	# make sure that code is saved as a string, otherwise mongodb saves it as number, and leading 0s are removed
+	# Note: #$product_ref->{code} .= ''; does not seem to be enough to force the type to be a string
+	$product_ref->{_id} = "$product_ref->{_id}";
+	$product_ref->{code} = "$product_ref->{code}";
 
 	return;
 }
@@ -1326,8 +1333,11 @@ sub store_product ($user_id, $product_ref, $comment) {
 	$rev++;
 
 	$product_ref->{rev} = $rev;
+	# last_modified_t is the date of the last change of the product raw data
+	# last_updated_t is the date of the last change of the product derived data (e.g. ingredient analysis, scores etc.)
 	$product_ref->{last_modified_by} = $user_id;
 	$product_ref->{last_modified_t} = time() + 0;
+	$product_ref->{last_updated_t} = $product_ref->{last_modified_t};
 	if (not exists $product_ref->{creator}) {
 		my $creator = $user_id;
 		if ((not defined $user_id) or ($user_id eq '')) {
@@ -1452,11 +1462,11 @@ sub store_product ($user_id, $product_ref, $comment) {
 
 	$log->debug("store_product - done", {code => $code, product_id => $product_id}) if $log->is_debug();
 
-	# index for search service
-	push_to_search_service($product_ref);
+	my $update_type = $product_ref->{deleted} ? "deleted" : "updated";
+	# Publish information about update on Redis stream
+	push_to_redis_stream($user_id, $product_ref, $update_type, $comment, $diffs);
 
 	# Notify Robotoff
-	my $update_type = $product_ref->{deleted} ? "deleted" : "updated";
 	send_notification_for_product_change($user_id, $product_ref, $update_type, $comment, $diffs);
 
 	return 1;

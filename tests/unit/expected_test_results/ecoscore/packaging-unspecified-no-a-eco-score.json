@@ -2,7 +2,6 @@
    "categories_tags" : [
       "en:baguettes"
    ],
-   "downgraded" : "non_recyclable_and_non_biodegradable_materials",
    "ecoscore_data" : {
       "adjustments" : {
          "origins_of_ingredients" : {
@@ -231,28 +230,29 @@
       },
       "agribalyse" : {
          "agribalyse_food_code" : "7001",
-         "co2_agriculture" : 0.38334266,
+         "co2_agriculture" : 0.38312009,
          "co2_consumption" : 0,
-         "co2_distribution" : 0.0048545734,
-         "co2_packaging" : 0.013482485,
-         "co2_processing" : 0.17862529,
-         "co2_total" : 0.6876839784,
-         "co2_transportation" : 0.10737897,
+         "co2_distribution" : 0.004786188,
+         "co2_packaging" : 0.013430369,
+         "co2_processing" : 0.17820109,
+         "co2_total" : 0.686664257,
+         "co2_transportation" : 0.10712652,
          "code" : "7001",
          "dqr" : "1.95",
-         "ef_agriculture" : 0.054268383,
+         "ef_agriculture" : 0.053861469,
          "ef_consumption" : 0,
-         "ef_distribution" : 0.00075719707,
-         "ef_packaging" : 0.0023644049,
-         "ef_processing" : 0.035076261,
-         "ef_total" : 0.10100795617,
-         "ef_transportation" : 0.0085417102,
+         "ef_distribution" : 0.00073489827,
+         "ef_packaging" : 0.0023520181,
+         "ef_processing" : 0.034960789,
+         "ef_total" : 0.10040317267,
+         "ef_transportation" : 0.0084939983,
          "is_beverage" : 0,
          "name_en" : "Bread, French bread, baguette",
          "name_fr" : "Pain, baguette, courante",
          "score" : 97,
-         "version" : "3.1"
+         "version" : "3.1.1"
       },
+      "downgraded" : "non_recyclable_and_non_biodegradable_materials",
       "grade" : "b",
       "grades" : {
          "ad" : "b",
@@ -345,6 +345,7 @@
          "fi" : 79,
          "fo" : 79,
          "fr" : 79,
+         "fr_orig" : 116,
          "gg" : 79,
          "gi" : 79,
          "gr" : 79,
@@ -399,6 +400,7 @@
    ],
    "ingredients" : [
       {
+         "ciqual_proxy_food_code" : "9410",
          "id" : "en:wheat",
          "origins" : "en:france",
          "percent_estimate" : 100,
@@ -437,10 +439,8 @@
    "ingredients_with_specified_percent_sum" : 0,
    "ingredients_with_unspecified_percent_n" : 1,
    "ingredients_with_unspecified_percent_sum" : 100,
-   "ingredients_without_ciqual_codes" : [
-      "en:wheat"
-   ],
-   "ingredients_without_ciqual_codes_n" : 1,
+   "ingredients_without_ciqual_codes" : [],
+   "ingredients_without_ciqual_codes_n" : 0,
    "known_ingredients_n" : 2,
    "labels_tags" : [
       "fr:ab-agriculture-biologique"
@@ -451,6 +451,8 @@
       "en:packagings-not-complete",
       "en:packagings-empty",
       "en:ecoscore-extended-data-not-computed",
+      "en:ecoscore-downgraded",
+      "en:ecoscore-score-above-100",
       "en:ecoscore-missing-data-warning",
       "en:ecoscore-missing-data-packagings",
       "en:ecoscore-missing-data-no-packagings",

@@ -200,7 +200,7 @@ use boolean;
 use Excel::Writer::XLSX;
 use Template;
 use Devel::Size qw(size total_size);
-use Data::DeepAccess qw(deep_get);
+use Data::DeepAccess qw(deep_get deep_set);
 use Log::Log4perl;
 use LWP::UserAgent;
 
@@ -279,6 +279,7 @@ foreach my $file (sort keys %file_timestamps) {
 # On demand exports can be very big, limit the number of products
 my $export_limit = 10000;
 
+# TODO: explain why such a high number
 my $tags_page_size = 10000;
 
 if (defined $options{export_limit}) {
@@ -528,7 +529,13 @@ A scalar value for the parameter, or undef if the parameter is not defined.
 =cut
 
 sub request_param ($request_ref, $param_name) {
-	return (scalar param($param_name)) || deep_get($request_ref, "body_json", $param_name);
+	my $cgi_param = scalar param($param_name);
+	if (defined $cgi_param) {
+		return decode utf8 => $cgi_param;
+	}
+	else {
+		return deep_get($request_ref, "body_json", $param_name);
+	}
 }
 
 =head2 init_request ()
@@ -610,7 +617,8 @@ sub init_request ($request_ref = {}) {
 	$country = 'en:world';
 
 	$r->headers_out->set(Server => "Product Opener");
-	$r->headers_out->set("X-Frame-Options" => "DENY");
+	# temporarily remove X-Frame-Options: DENY, needed for graphs - 2023/11/23
+	#$r->headers_out->set("X-Frame-Options" => "DENY");
 	$r->headers_out->set("X-Content-Type-Options" => "nosniff");
 	$r->headers_out->set("X-Download-Options" => "noopen");
 	$r->headers_out->set("X-XSS-Protection" => "1; mode=block");
@@ -911,6 +919,16 @@ CSS
 			skip_ecoscore => 1,
 			skip_forest_footprint => 1,
 		};
+	}
+
+	if ($request_ref->{admin}) {
+		$knowledge_panels_options_ref->{admin} = 1;
+	}
+	if ($User{moderator}) {
+		$knowledge_panels_options_ref->{moderator} = 1;
+	}
+	if ($server_options{producers_platform}) {
+		$knowledge_panels_options_ref->{producers_platform} = 1;
 	}
 
 	$log->debug(
@@ -1601,40 +1619,50 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		$page = 1;
 	}
 
+	# by default sort tags by descending product count
+	my $default_sort_by = "count";
+
+	# except for scores where we sort alphabetically (A to E, and 1 to 4)
+	if (($groupby_tagtype =~ /^nutriscore|nutrition_grades|ecoscore|nova_groups/)) {
+		$default_sort_by = "tag";
+	}
+
+	# allow sorting by tagname
+	my $sort_by = request_param($request_ref, "sort_by") // $default_sort_by;
+	my $sort_ref;
+
+	if ($sort_by eq "tag") {
+		$sort_ref = {"_id" => 1};
+	}
+	else {
+		$sort_ref = {"count" => -1};
+		$sort_by = "count";
+	}
+
 	# groupby_tagtype
+	my $group_field_name = $groupby_tagtype . "_tags";
+	my @unwind_req = ({"\$unwind" => ("\$" . $group_field_name)},);
+	# specific case
+	if ($groupby_tagtype eq 'users') {
+		$group_field_name = "creator";
+		@unwind_req = ();
+	}
 
 	my $aggregate_count_parameters = [
 		{"\$match" => $query_ref},
-		{"\$unwind" => ("\$" . $groupby_tagtype . "_tags")},
-		{"\$group" => {"_id" => ("\$" . $groupby_tagtype . "_tags")}},
-		{"\$count" => ($groupby_tagtype . "_tags")}
+		@unwind_req,
+		{"\$group" => {"_id" => ("\$" . $group_field_name)}},
+		{"\$count" => ($group_field_name)}
 	];
 
 	my $aggregate_parameters = [
 		{"\$match" => $query_ref},
-		{"\$unwind" => ("\$" . $groupby_tagtype . "_tags")},
-		{"\$group" => {"_id" => ("\$" . $groupby_tagtype . "_tags"), "count" => {"\$sum" => 1}}},
-		{"\$sort" => {"count" => -1}},
+		@unwind_req,
+		{"\$group" => {"_id" => ("\$" . $group_field_name), "count" => {"\$sum" => 1}}},
+		{"\$sort" => $sort_ref},
 		{"\$skip" => $skip},
 		{"\$limit" => $limit}
 	];
-
-	if ($groupby_tagtype eq 'users') {
-		$aggregate_parameters = [
-			{"\$match" => $query_ref},
-			{"\$group" => {"_id" => ("\$creator"), "count" => {"\$sum" => 1}}},
-			{"\$sort" => {"count" => -1}}
-		];
-	}
-
-	if (($groupby_tagtype eq 'nutrition_grades') or ($groupby_tagtype eq 'nova_groups')) {
-		$aggregate_parameters = [
-			{"\$match" => $query_ref},
-			{"\$unwind" => ("\$" . $groupby_tagtype . "_tags")},
-			{"\$group" => {"_id" => ("\$" . $groupby_tagtype . "_tags"), "count" => {"\$sum" => 1}}},
-			{"\$sort" => {"_id" => 1}}
-		];
-	}
 
 	#get cache results for aggregate query
 	my $key = generate_query_cache_key("aggregate", $aggregate_parameters, $request_ref);
@@ -1734,7 +1762,7 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 			}
 
 			if (defined $count_results) {
-				$request_ref->{structured_response}{count} = $count_results->{$groupby_tagtype . "_tags"};
+				$request_ref->{structured_response}{count} = $count_results->{$group_field_name};
 
 				if ($cache_results_flag) {
 					set_cache_results($key_count, $request_ref->{structured_response}{count});
@@ -1757,12 +1785,18 @@ sub query_list_of_tags ($request_ref, $query_ref) {
 		}
 	}
 
-	return $results;
+	return ($results, $sort_by);
 }
 
 sub display_list_of_tags ($request_ref, $query_ref) {
 
-	my $results = query_list_of_tags($request_ref, $query_ref);
+	my ($results, $sort_by) = query_list_of_tags($request_ref, $query_ref);
+
+	# Column that will be sorted by using JS
+	my $sort_order = '[[ 1, "desc" ]]';
+	if ($sort_by eq "tag") {
+		$sort_order = '[[ 0, "asc" ]]';
+	}
 
 	my $html = '';
 	my $html_pages = '';
@@ -1886,6 +1920,15 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			$log->debug("missing_property defined", {missing_property => $missing_property});
 		}
 
+		# display_percent parameter: display the percentage of products for each tag
+		# This is useful only for tags that have unique values like Nutri-Score and Eco-Score
+		my $display_percent = single_param("display_percent");
+		foreach my $tagcount_ref (@tags) {
+			my $count = $tagcount_ref->{count};
+			$stats{all_tags}++;
+			$stats{all_tags_products} += $count;
+		}
+
 		foreach my $tagcount_ref (@tags) {
 
 			$i++;
@@ -1906,9 +1949,6 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 			}
 
 			$products{$tagid} = $count;
-
-			$stats{all_tags}++;
-			$stats{all_tags_products} += $count;
 
 			my $link;
 			my $products = $count;
@@ -2069,7 +2109,8 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 					. $grade
 					. "\" title=\"$Lang{nutrition_grade_fr_alt}{$lc} "
 					. $grade
-					. "\" style=\"max-height:80px;\">";
+					. "\" style=\"max-height:80px;\"> "
+					. $grade;
 			}
 			elsif ($tagtype eq 'ecoscore') {
 				my $grade;
@@ -2088,7 +2129,8 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 					. $grade
 					. "\" title=\"$Lang{ecoscore}{$lc} "
 					. $grade
-					. "\" style=\"max-height:80px;\">";
+					. "\" style=\"max-height:80px;\"> "
+					. $grade;
 			}
 			elsif ($tagtype eq 'nova_groups') {
 				if ($tagid =~ /^en:(1|2|3|4)/) {
@@ -2113,10 +2155,20 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 				$display = display_tag_name($tagtype, $display);
 			}
 
+			# Display the percent of products for each tag
+			my $percent = '';
+			if (($display_percent) and ($stats{all_tags})) {
+				$percent = ' (' . sprintf("%2.2f", $products / $stats{all_tags_products} * 100) . '%)';
+			}
+
 			$css_class =~ s/^\s+|\s+$//g;
 			$info .= ' class="' . $css_class . '"';
 			$html .= "<a href=\"$tag_link\"$info$nofollow>" . $display . "</a>";
-			$html .= "</td>\n<td style=\"text-align:right\">$products</td>" . $td_nutriments . $extra_td . "</tr>\n";
+			$html
+				.= "</td>\n<td style=\"text-align:right\"><a href=\"$tag_link\"$info$nofollow>${products}${percent}</a></td>"
+				. $td_nutriments
+				. $extra_td
+				. "</tr>\n";
 
 			my $tagentry = {
 				id => $tagid,
@@ -2176,12 +2228,13 @@ sub display_list_of_tags ($request_ref, $query_ref) {
 		}
 
 		$html .= "</tbody></table></div>";
-
 		# if there are more than $tags_page_size lines, add pagination. Except for ?stats=1 and ?filter display
+		$log->info("PAGINATION: BEFORE\n");
 		if (    $request_ref->{structured_response}{count} >= $tags_page_size
 			and not(defined single_param("stats"))
 			and not(defined single_param("filter")))
 		{
+			$log->info("PAGINATION: CALLING\n");
 			$html .= "\n<hr>"
 				. display_pagination($request_ref, $request_ref->{structured_response}{count},
 				$tags_page_size, $request_ref->{page});
@@ -2408,7 +2461,7 @@ oTable = \$('#tagstable').DataTable({
 		infoFiltered: " - $Lang{tagstable_filtered}{$lang}"
 	},
 	paging: false,
-	order: [[ 1, "desc" ]],
+	order: $sort_order,
 	columns: [
 		null,
 		{"searchable": false} $extra_column_searchable
@@ -2436,7 +2489,7 @@ HEADER
 
 sub display_list_of_tags_translate ($request_ref, $query_ref) {
 
-	my $results = query_list_of_tags($request_ref, $query_ref);
+	my ($results, $sort_by) = query_list_of_tags($request_ref, $query_ref);
 
 	my $html = '';
 	my $html_pages = '';
@@ -4000,7 +4053,7 @@ HTML
 			if (defined $user_or_org_ref) {
 
 				if ($user_or_org_ref->{name} ne '') {
-					$title = $user_or_org_ref->{name} || $tagid;
+					$title = $user_or_org_ref->{name};
 					$display_tag = $user_or_org_ref->{name};
 				}
 
@@ -4164,17 +4217,17 @@ HTML
 	# Add parameters corresponding to the tag filters so that they can be added to the query by add_params_to_query()
 
 	foreach my $tag_ref (@{$request_ref->{tags}}) {
-		if ($tagtype eq 'users') {
-			param('creator', $tagid);
+		if ($tag_ref->{tagtype} eq 'users') {
+			deep_set($request_ref, "body_json", "creator", $tag_ref->{tagid});
 		}
 		else {
 			my $field_name = $tag_ref->{tagtype} . "_tags";
-			my $current_value = param($field_name);
-			my $new_value = ($tag_ref->{tag_prefix} || '') . ($tag_ref->{canon_tagid} || $tag_ref->{tagid});
+			my $current_value = deep_get($request_ref, "body_json", $field_name);
+			my $new_value = ($tag_ref->{tag_prefix} // '') . ($tag_ref->{canon_tagid} // $tag_ref->{tagid});
 			if ($current_value) {
 				$new_value = $current_value . ',' . $new_value;
 			}
-			param($field_name, $new_value);
+			deep_set($request_ref, "body_json", $field_name, $new_value);
 		}
 	}
 
@@ -4254,6 +4307,25 @@ HTML
 	return;
 }
 
+=head2 list_all_request_params ( $request_ref, $query_ref )
+
+Return an array of names of all request parameters.
+
+=cut
+
+sub list_all_request_params ($request_ref) {
+
+	# CGI params (query string and POST body)
+	my @params = multi_param();
+
+	# Add params from the JSON body if any
+	if (defined $request_ref->{body_json}) {
+		push @params, keys %{$request_ref->{body_json}};
+	}
+
+	return @params;
+}
+
 =head2 display_search_results ( $request_ref )
 
 This function builds the HTML returned by the /search endpoint.
@@ -4281,7 +4353,7 @@ sub display_search_results ($request_ref) {
 
 	my $current_link = '';
 
-	foreach my $field (multi_param()) {
+	foreach my $field (list_all_request_params($request_ref)) {
 		if (
 			   ($field eq "page")
 			or ($field eq "fields")
@@ -4529,10 +4601,12 @@ my %ignore_params = (
 	no_count => 1,
 );
 
-# Parameters that can be query filters
+# Parameters that can be query filters passed as parameters
+# (GET query parameters, POST JSON body or from url facets),
+# in addition to tags fields.
 # It is safer to use a positive list, instead of just the %ignore_params list
 
-my %valid_params = (code => 1,);
+my %valid_params = (code => 1, creator => 1);
 
 sub add_params_to_query ($request_ref, $query_ref) {
 
@@ -4545,7 +4619,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 
 	my $and = $query_ref->{"\$and"};
 
-	foreach my $field (multi_param()) {
+	foreach my $field (list_all_request_params($request_ref)) {
 
 		$log->debug("add_params_to_query - field", {field => $field}) if $log->is_debug();
 
@@ -4577,7 +4651,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 			# xyz_tags=-c	products without the c tag
 			# xyz_tags=a,b,-c,-d
 
-			my $values = remove_tags_and_quote(decode utf8 => single_param($field));
+			my $values = remove_tags_and_quote(request_param($request_ref, $field));
 
 			$log->debug("add_params_to_query - tags param",
 				{field => $field, lc => $lc, tag_lc => $tag_lc, values => $values})
@@ -4616,6 +4690,10 @@ sub add_params_to_query ($request_ref, $query_ref) {
 						}
 						else {
 							$tagid2 = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag2));
+							# EU packager codes are normalized to have -ec at the end
+							if ($tagtype eq 'emb_codes') {
+								$tagid2 =~ s/-($ec_code_regexp)$/-ec/ie;
+							}
 						}
 						push @tagids, $tagid2;
 					}
@@ -4643,6 +4721,10 @@ sub add_params_to_query ($request_ref, $query_ref) {
 					}
 					else {
 						$tagid = get_string_id_for_lang("no_language", canonicalize_tag2($tagtype, $tag));
+						# EU packager codes are normalized to have -ec at the end
+						if ($tagtype eq 'emb_codes') {
+							$tagid =~ s/-($ec_code_regexp)$/-ec/ie;
+						}
 					}
 					$log->debug("add_params_to_query - tags param - single value",
 						{field => $field, lc => $lc, tag_lc => $tag_lc, tag => $tag, tagid => $tagid})
@@ -4661,6 +4743,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 							)
 						)
 						and ($tagtype !~ /^pnns_groups_/)
+						and ($tagtype ne "creator")
 						)
 					{
 						if ($not) {
@@ -4700,7 +4783,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 			# We can have multiple conditions, separated with a comma
 			# e.g. sugars_100g=>10,<=20
 
-			my $conditions = single_param($field);
+			my $conditions = request_param($request_ref, $field);
 
 			$log->debug("add_params_to_query - nutrient conditions", {field => $field, conditions => $conditions})
 				if $log->is_debug();
@@ -4718,7 +4801,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 				}
 				else {
 					$operator = '=';
-					$value = single_param($field);
+					$value = request_param($request_ref, $field);
 				}
 
 				$log->debug("add_params_to_query - nutrient condition",
@@ -4748,7 +4831,7 @@ sub add_params_to_query ($request_ref, $query_ref) {
 		# Exact match on a specific field (e.g. "code")
 		elsif (defined $valid_params{$field}) {
 
-			my $values = remove_tags_and_quote(decode utf8 => single_param($field));
+			my $values = remove_tags_and_quote(request_param($request_ref, $field));
 
 			# Possible values:
 			# xyz=a
@@ -5464,6 +5547,9 @@ sub display_pagination ($request_ref, $count, $limit, $page) {
 	if (not defined $current_link) {
 		$current_link = $request_ref->{world_current_link};
 	}
+	$log->info("PAGINATION: READY\n");
+	my $canon_rel_url = $request_ref->{canon_rel_url} // "UNDEF";
+	$log->info("PAGINATION: current_link: $current_link - canon_rel_url: $canon_rel_url\n");
 
 	$log->info("current link", {current_link => $current_link}) if $log->is_info();
 
@@ -5504,12 +5590,7 @@ sub display_pagination ($request_ref, $count, $limit, $page) {
 
 					if ($current_link !~ /\?/) {
 						$link = $current_link;
-						#check if groupby_tag is used
-						if (defined $request_ref->{groupby_tagtype}) {
-							if (("/" . $request_ref->{groupby_tagtype}) ne $current_link) {
-								$link = $current_link . "/" . $request_ref->{groupby_tagtype};
-							}
-						}
+						# check if groupby_tag is used
 						if ($i > 1) {
 							$link .= "/$i";
 						}
@@ -6651,20 +6732,21 @@ sub get_packager_code_coordinates ($emb_code) {
 	my $lng;
 
 	if (exists $packager_codes{$emb_code}) {
-		if (exists $packager_codes{$emb_code}{lat}) {
+		my %emb_code_data = %{$packager_codes{$emb_code}};
+		if (exists $emb_code_data{lat}) {
 			# some lat/lng have , for floating point numbers
-			$lat = $packager_codes{$emb_code}{lat};
-			$lng = $packager_codes{$emb_code}{lng};
+			$lat = $emb_code_data{lat};
+			$lng = $emb_code_data{lng};
 			$lat =~ s/,/\./g;
 			$lng =~ s/,/\./g;
 		}
-		elsif (exists $packager_codes{$emb_code}{fsa_rating_business_geo_lat}) {
-			$lat = $packager_codes{$emb_code}{fsa_rating_business_geo_lat};
-			$lng = $packager_codes{$emb_code}{fsa_rating_business_geo_lng};
+		elsif (exists $emb_code_data{fsa_rating_business_geo_lat}) {
+			$lat = $emb_code_data{fsa_rating_business_geo_lat};
+			$lng = $emb_code_data{fsa_rating_business_geo_lng};
 		}
-		elsif ($packager_codes{$emb_code}{cc} eq 'uk') {
-			#my $address = 'uk' . '.' . $packager_codes{$emb_code}{local_authority};
-			my $address = 'uk' . '.' . $packager_codes{$emb_code}{canon_local_authority};
+		elsif ($emb_code_data{cc} eq 'uk') {
+			#my $address = 'uk' . '.' . $emb_code_data{local_authority};
+			my $address = 'uk' . '.' . ($emb_code_data{canon_local_authority} // '');
 			if (exists $geocode_addresses{$address}) {
 				$lat = $geocode_addresses{$address}[0];
 				$lng = $geocode_addresses{$address}[1];
@@ -7093,8 +7175,8 @@ sub display_page ($request_ref) {
 	$template_data_ref->{formatted_subdomain} = $formatted_subdomain;
 	$template_data_ref->{css_timestamp} = $file_timestamps{'css/dist/app-' . lang('text_direction') . '.css'};
 	$template_data_ref->{header} = $header;
-	$template_data_ref->{page_type} = $request_ref->{page_type} || "other";
-	$template_data_ref->{page_format} = $request_ref->{page_format} || "normal";
+	$template_data_ref->{page_type} = $request_ref->{page_type} // "other";
+	$template_data_ref->{page_format} = $request_ref->{page_format} // "normal";
 
 	if ($request_ref->{schema_org_itemtype}) {
 		$template_data_ref->{schema_org_itemtype} = $request_ref->{schema_org_itemtype};
@@ -7272,7 +7354,7 @@ sub display_page ($request_ref) {
 	# Replace urls for texts in links like <a href="/ecoscore"> with a localized name
 	$html =~ s/(href=")(\/[^"]+)/$1 . url_for_text($2)/eg;
 
-	my $status_code = $request_ref->{status_code} || 200;
+	my $status_code = $request_ref->{status_code} // 200;
 
 	my $http_headers_ref = {
 		'-status' => $status_code,
@@ -7311,8 +7393,6 @@ sub display_page ($request_ref) {
 }
 
 sub display_image_box ($product_ref, $id, $minheight_ref) {
-
-	# print STDERR "display_image_box : $id\n";
 
 	my $img = display_image($product_ref, $id, $small_size);
 	if ($img ne '') {
@@ -8802,7 +8882,7 @@ HTML
 	return;
 }
 
-=head2 display_nutriscore_calculation_details( $nutriscore_data_ref )
+=head2 display_nutriscore_calculation_details( $nutriscore_data_ref, $version = "2021" )
 
 Generates HTML code with information on how the Nutri-Score was computed for a particular product.
 
@@ -8811,7 +8891,7 @@ the rounded value according to the Nutri-Score rules, and the corresponding poin
 
 =cut
 
-sub display_nutriscore_calculation_details ($nutriscore_data_ref) {
+sub display_nutriscore_calculation_details ($nutriscore_data_ref, $version = "2021") {
 
 	my $beverage_view;
 
@@ -8998,7 +9078,7 @@ sub data_to_display_nutrient_levels ($product_ref) {
 	return $result_data_ref;
 }
 
-=head2 data_to_display_nutriscore ( $product_ref )
+=head2 data_to_display_nutriscore ($nutriscore_data_ref, $version = "2021" )
 
 Generates a data structure to display the Nutri-Score.
 
@@ -9014,9 +9094,7 @@ Reference to a data structure with needed data to display.
 
 =cut
 
-sub data_to_display_nutriscore($) {
-
-	my $product_ref = shift;
+sub data_to_display_nutriscore ($product_ref, $version = "2021") {
 
 	my $result_data_ref = {};
 
@@ -9024,9 +9102,17 @@ sub data_to_display_nutriscore($) {
 
 	my @nutriscore_warnings = ();
 
-	if ((defined $product_ref->{nutrition_grade_fr}) and ($product_ref->{nutrition_grade_fr} =~ /^[abcde]$/)) {
+	my $nutriscore_grade = deep_get($product_ref, "nutriscore", $version, "grade");
+	my $nutriscore_data_ref = deep_get($product_ref, "nutriscore", $version, "data");
+	# On old product revisions, nutriscore grade was in nutrition_grade_fr
+	if ((not defined $nutriscore_grade) and ($version eq "2021")) {
+		$nutriscore_grade = $product_ref->{"nutrition_grade_fr"};
+		$nutriscore_data_ref = $product_ref->{nutriscore_data};
+	}
 
-		$result_data_ref->{nutriscore_grade} = $product_ref->{"nutrition_grade_fr"};
+	if ((defined $nutriscore_grade) and ($nutriscore_grade =~ /^[abcde]$/)) {
+
+		$result_data_ref->{nutriscore_grade} = $nutriscore_grade;
 
 		# Do not display a warning for water
 		if (not(has_tag($product_ref, "categories", "en:spring-waters"))) {
@@ -9141,8 +9227,7 @@ sub data_to_display_nutriscore($) {
 
 	# Display the details of the computation of the Nutri-Score if we computed one
 	if ((defined $product_ref->{nutriscore_grade}) and ($product_ref->{nutriscore_grade} =~ /^[a-e]$/)) {
-		$result_data_ref->{nutriscore_details}
-			= display_nutriscore_calculation_details($product_ref->{nutriscore_data});
+		$result_data_ref->{nutriscore_details} = display_nutriscore_calculation_details($nutriscore_data_ref, $version);
 	}
 
 	return $result_data_ref;
@@ -10532,7 +10617,7 @@ sub display_structured_response ($request_ref) {
 			= "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
 			. $xs->XMLout($request_ref->{structured_response});  # noattr -> force nested elements instead of attributes
 
-		my $status_code = $request_ref->{status_code} || "200";
+		my $status_code = $request_ref->{status_code} // "200";
 		write_cors_headers();
 		print header(
 			-status => $status_code,
@@ -10559,7 +10644,7 @@ sub display_structured_response ($request_ref) {
 			$jsonp = single_param('callback');
 		}
 
-		my $status_code = $request_ref->{status_code} || 200;
+		my $status_code = $request_ref->{status_code} // 200;
 
 		if (defined $jsonp) {
 			$jsonp =~ s/[^a-zA-Z0-9_]//g;

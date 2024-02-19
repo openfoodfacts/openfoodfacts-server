@@ -129,6 +129,7 @@
       "5",
       "1-10"
    ],
+   "ingredients_non_nutritive_sweeteners_n" : 0,
    "ingredients_original_tags" : [
       "en:colza-oil",
       "en:sunflower-oil",
@@ -137,6 +138,7 @@
       "en:vitamin-d"
    ],
    "ingredients_percent_analysis" : 1,
+   "ingredients_sweeteners_n" : 0,
    "ingredients_tags" : [
       "en:colza-oil",
       "en:oil-and-fat",
@@ -284,44 +286,77 @@
       "2023" : {
          "category_available" : 1,
          "data" : {
+            "components" : {
+               "negative" : [
+                  {
+                     "id" : "energy_from_saturated_fat",
+                     "points" : 3,
+                     "points_max" : 10,
+                     "unit" : "kJ",
+                     "value" : 362.6
+                  },
+                  {
+                     "id" : "sugars",
+                     "points" : 0,
+                     "points_max" : 15,
+                     "unit" : "g",
+                     "value" : 0
+                  },
+                  {
+                     "id" : "saturated_fat_ratio",
+                     "points" : 0,
+                     "points_max" : 10,
+                     "unit" : "%",
+                     "value" : 9.8
+                  },
+                  {
+                     "id" : "salt",
+                     "points" : 0,
+                     "points_max" : 20,
+                     "unit" : "g",
+                     "value" : 0
+                  }
+               ],
+               "positive" : [
+                  {
+                     "id" : "proteins",
+                     "points" : 0,
+                     "points_max" : 7,
+                     "unit" : "g",
+                     "value" : 0
+                  },
+                  {
+                     "id" : "fiber",
+                     "points" : 0,
+                     "points_max" : 5,
+                     "unit" : "g",
+                     "value" : 0
+                  },
+                  {
+                     "id" : "fruits_vegetables_legumes",
+                     "points" : 0,
+                     "points_max" : 5,
+                     "unit" : "%",
+                     "value" : 0
+                  }
+               ]
+            },
             "count_proteins" : 1,
             "count_proteins_reason" : "negative_points_less_than_7",
-            "energy" : 3700,
-            "energy_from_saturated_fat" : 362.6,
-            "energy_from_saturated_fat_points" : 3,
-            "fat" : 100,
-            "fiber" : 0,
-            "fiber_points" : 0,
-            "fruits_vegetables_legumes" : 0,
-            "fruits_vegetables_legumes_points" : 0,
             "is_beverage" : 0,
             "is_cheese" : 0,
             "is_fat_oil_nuts_seeds" : 1,
             "is_red_meat_product" : 0,
             "is_water" : 0,
-            "negative_nutrients" : [
-               "energy_from_saturated_fat",
-               "sugars",
-               "saturated_fat_ratio",
-               "salt",
-               "non_nutritive_sweeteners"
-            ],
             "negative_points" : 3,
+            "negative_points_max" : 55,
             "positive_nutrients" : [
-               "fruits_vegetables_legumes",
+               "proteins",
                "fiber",
-               "proteins"
+               "fruits_vegetables_legumes"
             ],
             "positive_points" : 0,
-            "proteins" : 0,
-            "proteins_points" : 0,
-            "salt" : 0,
-            "salt_points" : 0,
-            "saturated_fat" : 9.8,
-            "saturated_fat_ratio" : 9.8,
-            "saturated_fat_ratio_points" : 0,
-            "sugars" : 0,
-            "sugars_points" : 0
+            "positive_points_max" : 17
          },
          "grade" : "c",
          "nutrients_available" : 1,

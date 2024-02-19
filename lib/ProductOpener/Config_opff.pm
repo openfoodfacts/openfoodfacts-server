@@ -402,6 +402,9 @@ XML
 
 # allow moving products to other instances of Product Opener on the same server
 # e.g. OFF -> OBF
+
+$options{current_server} = "opff";
+
 $options{other_servers} = {
 	obf => {
 		name => "Open Beauty Facts",
@@ -426,5 +429,8 @@ $options{other_servers} = {
 		domain => "openproductsfacts.org",
 	}
 };
+
+# Name of the Redis stream to which product updates are published
+$options{redis_stream_name} = "product_updates_opff";
 
 1;
