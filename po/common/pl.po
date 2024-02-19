@@ -828,6 +828,15 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr ""
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr ""
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "Prasa"
@@ -1634,7 +1643,7 @@ msgstr "Produkty bez składników pochodzących z %s"
 
 msgctxt "packaging"
 msgid "Packaging"
-msgstr "Opakowania"
+msgstr "Opakowanie"
 
 msgctxt "packaging_example"
 msgid "Fresh, Canned, Frozen, Bottle, Box, Glass, Plastic..."
@@ -3422,7 +3431,7 @@ msgstr "Zdjęcia produktu"
 
 msgctxt "fields_group_packaging"
 msgid "Packaging"
-msgstr "Opakowania"
+msgstr "Opakowanie"
 
 msgctxt "image_front_url"
 msgid "Link to front product photo"
@@ -5036,7 +5045,7 @@ msgstr "Części opakowania"
 # A short name for a physical piece of packaging (e.g. in English, "packaging" instead of "packaging part"). Used with a number (e.g. "Packaging 1" to identify a packaging part)
 msgctxt "packaging_part_short"
 msgid "Packaging"
-msgstr "Opakowania"
+msgstr "Opakowanie"
 
 # Number of packaging parts
 msgctxt "packaging_number"
@@ -5550,7 +5559,7 @@ msgstr "Przetwórstwo"
 
 msgctxt "ecoscore_packaging"
 msgid "Packaging"
-msgstr "Opakowania"
+msgstr "Opakowanie"
 
 msgctxt "ecoscore_transportation"
 msgid "Transportation"
