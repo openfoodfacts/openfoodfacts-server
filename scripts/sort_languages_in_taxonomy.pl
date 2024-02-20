@@ -30,33 +30,100 @@ binmode(STDIN, ":encoding(UTF-8)");
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
 
-my $english = "";
-my $others = "";
 
-while (<STDIN>) {
 
-	my $line = $_;
-
-	if ($line =~ /^(\w\w):(.*)$/) {
-		my $lc = $1;
-		if ($lc eq "en") {
-			$english = $line;
-		}
-		else {
-			$others .= $line;
-		}
+sub cmp_on_language ($$) {
+	my $a = shift;
+	my $b = shift;
+	if ((!defined $a) || (!defined $b)) {
+		return $a cmp $b;
 	}
-	else {
-
-		print $english;
-		print $others;
-		print $line;
-		$english = "";
-		$others = "";
+	$a = lc($a);
+	$b = lc($b);
+	my $a_prefix = undef;
+	my $b_prefix = undef;
+	if ($a =~ /^(\w+):(\w+)$/) {
+		$a_prefix = $1;
+		$a = $2;
 	}
-
+	if ($b =~ /^(\w+):(\w+)$/) {
+		$b_prefix = $1;
+		$b = $2;
+	}
+	if ($a_prefix && $b_prefix) {
+		return $a_prefix cmp $b_prefix if ($a_prefix ne $b_prefix);
+	}
+	return 0 if ($a eq $b);
+	# en takes precedence over all others
+	return -1 if ($a eq "en");
+	return 1 if ($b eq "en");
+	return $a cmp $b;
 }
 
-print $english;
-print $others;
+my @parents = ();
+my %entries = ();
+my %props = ();
+my @previous_lines = ();
 
+# read all in memory to take care of last line in a simple way
+my @lines = (<STDIN>);
+
+# be sure to end with a blank line
+push @lines, "\n" unless $lines[-1] =~ /^\s*$/;
+
+
+foreach my $line (@lines) {
+
+	# blank line means we are changing entry, so let's print collected lines
+	if ( $line =~ /^\s*$/ ) {
+		# sort items
+		@parents = sort { $a->{line} cmp $b->{line} } @parents;
+		my @sorted_entries = sort cmp_on_language (keys %entries);
+		my @sorted_props = sort cmp_on_language (keys %props);
+		# print parents, entrie, sorted props
+		for my $parent (@parents) {
+			print join "", @{$parent->{previous}};
+			print $parent->{line};
+		}
+		for my $key (@sorted_entries) {
+			print join "", @{$entries{$key}->{previous}};
+			print $entries{$key}->{line};
+		}
+		for my $key (@sorted_props) {
+			print join "", @{$props{$key}->{previous}};
+			print $props{$key}->{line};
+		}
+		# print remaining previous_lines (if any)
+		print join "", @previous_lines;
+		# print this blank line
+		print $line;
+		# re-init
+		@parents = ();
+		%entries = ();
+		%props = ();
+		@previous_lines = ();
+	}
+	# parents
+	elsif ($line =~ /^</) {
+		push @parents,  {line => $line, previous => [@previous_lines]};
+		@previous_lines = ();
+	}
+	# synonym
+	elsif ($line =~ /^(\w+):[^:]*(,.*)*$/) {
+		my $lc = $1;
+		$entries{$lc} = {line => $line, previous => [@previous_lines]};
+		@previous_lines = ();
+	}
+	# property
+	elsif ( $line =~ /^(\w+):(\w+):(.*)$/ ) {
+		my $prop = $1;
+		my $lc = $2;
+		$props{"$prop:$lc"} = {line => $line, previous => [@previous_lines]};
+		@previous_lines = ();
+	}
+	# comments or undefined
+	else
+	{
+		push @previous_lines, $line;
+	}
+}
