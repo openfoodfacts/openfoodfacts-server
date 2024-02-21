@@ -396,6 +396,10 @@ sub process_template ($template_filename, $template_data_ref, $result_content_re
 	$template_data_ref->{sep} = separator_before_colon($lc);
 	$template_data_ref->{lang} = \&lang;
 	$template_data_ref->{f_lang} = \&f_lang;
+	# escaping quotes for use in javascript or json
+	# using short names to favour readability
+	$template_data_ref->{esq} = sub { escape_char(@_, "\'") };  # esq as escape_single_quote
+	$template_data_ref->{edq} = sub { escape_char(@_, '"') }; # edq as escape_double_quote
 	$template_data_ref->{lang_sprintf} = \&lang_sprintf;
 	$template_data_ref->{lc} = $lc;
 	$template_data_ref->{cc} = $cc;
@@ -5736,17 +5740,27 @@ sub search_and_export_products ($request_ref, $query_ref, $sort_by) {
 	return;
 }
 
+sub escape_char($s, $char) {
+	if ($s && $char) {
+		# normalize already escaped chars to avoid double escaping
+		$s =~ s/\\$char/$char/g;
+		$s =~ s/$char/\\$char/g;
+	}
+	return $s;
+}
+
 sub escape_single_quote ($s) {
 
-	# some app escape single quotes already, so we have \' already
 	if (not defined $s) {
 		return '';
 	}
+	# some app escape single quotes already, so we have \' already
 	$s =~ s/\\'/'/g;
 	$s =~ s/'/\\'/g;
 	$s =~ s/\n/ /g;
 	return $s;
 }
+
 
 @search_series = (qw/organic fairtrade with_sweeteners default/);
 
