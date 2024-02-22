@@ -5,7 +5,7 @@
     ],
     "title_element": {
         "icon_url": "[% static_subdomain %]/images/attributes/dist/ecoscore-unknown.svg",
-        "title": "[% eqq(lang('attribute_ecoscore_unknown_title')) %] - [% edq(lang('attribute_ecoscore_unknown_description_short')) %]",
+        "title": "[% edq(lang('attribute_ecoscore_unknown_title')) %] - [% edq(lang('attribute_ecoscore_unknown_description_short')) %]",
         "type": "grade",
         "grade": "unknown",
     },
