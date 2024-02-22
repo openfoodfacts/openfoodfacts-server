@@ -58,7 +58,7 @@
                 {
                     "element_type": "action",
                     "action_element": {
-                        "html": `[% edq(lang(action_name)) %]`,
+                        "html": `[% lang(action_name) %]`,
                         "actions": [
                             "[% fix_action %]",
                         ]
