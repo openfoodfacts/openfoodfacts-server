@@ -27,6 +27,8 @@ synonyms:fr:thon-crudités, crudités-thon
 
 synonyms:fr:poulet-crudités, crudités-poulet
 
+synonyms:fr:semi-complet, demi-complet
+
 # conserve or en conserve ?
 synonyms:fr:conserve,appertisé,appertisée,appertisés,appertisées
 
@@ -40731,12 +40733,20 @@ agribalyse_proxy_food_name:fr:Riz blanc étuvé, cru
 intake24_category_code:en:URICE
 
 <en:Rices
+en:Semi-milled rices, half-milled rices
+fr:Riz semi-complet
+agribalyse_food_code:en:9102
+ciqual_food_code:en:9102
+ciqual_food_name:en:Rice, brown, raw
+ciqual_food_name:fr:Riz complet, cru
+
+<en:Rices
 en:Brown rices
 bg:Кафяв ориз
 de:Brauner Reis
 es:Arroces integrales, Arroces cargo
 fi:ruskeat riisit
-fr:Riz complet, riz cargo, riz brun, riz semi-complet, Riz complet cru
+fr:Riz complet, riz cargo, riz brun, Riz complet cru
 it:Riso integrale
 ja:玄米
 lt:Rudieji ryžiai
@@ -41004,7 +41014,7 @@ bg:Ориз Басмати
 de:Basmati Reis
 es:Arroces Basmati, Arroz Basmati
 fi:basmatiriisit
-fr:Riz Basmati, Basmati, Riz thaï cru, Riz basmati cru
+fr:Riz Basmati, Basmati, Riz basmati cru
 it:Riso Basmati
 ja:バスマティライス, バスマティ米, バスマティ
 lt:Basmati ryžiai
@@ -41023,11 +41033,16 @@ ciqual_food_name:fr:Riz thaï ou basmati, cru
 en:Brown Basmati rices
 de:Brauner Basmati Reis
 es:Arroces Basmati integrales
-fr:Riz Basmati bruns
+fr:Riz Basmati complet, Riz Basmati bruns
 it:Riso Basmati integrale
 lt:Rudieji Basmati ryžiai
 nl:Zilvervlies basmatirijsten, Zilvervlies basmatirijst
 #wikidata:en:
+
+<en:Semi-milled rices
+<en:Basmati rices
+en:Semi-milled Basmati rices
+fr:Riz Basmati semi-complet
 
 <en:Basmati rices
 <en:White rices
@@ -41063,6 +41078,16 @@ protected_name_type:en: pgi
 origins:en: en:France, fr:Camargue
 wikidata:en:Q18745430
 
+<en:Camargue rices
+<en:Brown rices
+en:Brown Camargue rices
+fr:Riz de Camargue complet
+
+<en:Camargue rices
+<en:Semi-milled rices
+en:Semi-milled Camargue rices
+fr:Riz de Camargue semi-complet
+
 <en:Medium grain rices
 <en:Japonica rices
 <en:Rices for risotto
@@ -41086,19 +41111,29 @@ en:Jasmine rice
 de:Jasmin Reis
 es:Arroces Jazmín
 fi:jasmiiniriisi
-fr:Riz thaï, Riz Jasmin
+fr:Riz thaï, Riz Jasmin, Riz thaï cru
 it:Riso Jasmine
 ja:ジャスミンライス, ジャスミン米
 lt:Jasmine ryžiai
 nl:Thaise rijsten, Thaise rijsten, Jasmijnrijsten, Pandan, Pandanrijsten
 wikidata:en:Q2733021
+agribalyse_food_code:en:9119
+ciqual_food_code:en:9119
+ciqual_food_name:en:Basmati rice, raw
+ciqual_food_name:fr:Riz thaï ou basmati, cru
+
+<en:Jasmine rice
+<en:Semi-milled rices
+en:Semi-milled Jasmine rices
+fr:Riz thaï semi-complet
+es:Arroz Jazmín semi-integral, Arroces Jazmín semi-integrales
 
 <en:Jasmine rice
 <en:Brown rices
-en:Brown Jasmine rices
+en:Brown Jasmine rices, Whole grain Jasmine rices
 de:Brauner Jasmin Reis
-es:Arroces Jazmín integrales
-fr:Riz thaï noir
+es:Arroces Jazmín integrales, Arroz Jazmín integral
+fr:Riz thaï complet, Riz jasmin complet, Riz thaï noir
 nl:Zwarte thaise rijsten, Zwarte thaise rijst
 
 <en:Jasmine rice
