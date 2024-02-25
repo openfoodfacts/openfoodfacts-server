@@ -172,7 +172,9 @@ foreach my $lc ("en", "fr") {
 				$line =~ s/height="130"/height="162"/;
 				$line =~ s/viewBox="0 0 240 130"/viewBox="0 0 240 162"/;
 				print $fh2 $line;
-				print $fh2 $new_formula_below;
+				if ($file !~ /unknown|not-applicable/) {
+					print $fh2 $new_formula_below;
+				}
 			}
 			elsif ($line =~ /<\/svg>/) {
 				# No banner for not-applicable / unknown
