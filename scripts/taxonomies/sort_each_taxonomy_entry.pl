@@ -26,6 +26,10 @@ use utf8;
 use ProductOpener::Store qw/:all/;
 use ProductOpener::Config qw/:all/;
 
+my $is_check = grep {$_ eq "--check"} @ARGV;
+my $is_verbose = grep {$_ eq "-v"} @ARGV;
+my $has_changes = 0;
+
 binmode(STDIN, ":encoding(UTF-8)");
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
@@ -58,47 +62,72 @@ sub cmp_on_language ($$) {
 	return $a cmp $b;
 }
 
-my @parents = ();
-my %entries = ();
-my %props = ();
-my @previous_lines = ();
-
 # read all in memory to take care of last line in a simple way
 my @lines = (<STDIN>);
 
 # be sure to end with a blank line
 push @lines, "\n" unless $lines[-1] =~ /^\s*$/;
 
+my @parents = ();
+my %entries = ();
+my %props = ();
+my @previous_lines = ();
+my @original_lines = ();
+my $line_num = 0;
+my $entry_start_line = 1;
 foreach my $line (@lines) {
+	$line_num += 1;
+	push @original_lines, $line;    # collect lines for comparison
 
 	# blank line means we are changing entry, so let's print collected lines
 	if ($line =~ /^\s*$/) {
+		my @output_lines = ();
 		# sort items
 		@parents = sort {$a->{line} cmp $b->{line}} @parents;
 		my @sorted_entries = sort cmp_on_language (keys %entries);
 		my @sorted_props = sort cmp_on_language (keys %props);
 		# print parents, entrie, sorted props
 		for my $parent (@parents) {
-			print join "", @{$parent->{previous}};
-			print $parent->{line};
+			push @output_lines, @{$parent->{previous}};
+			push @output_lines, $parent->{line};
 		}
 		for my $key (@sorted_entries) {
-			print join "", @{$entries{$key}->{previous}};
-			print $entries{$key}->{line};
+			push @output_lines, @{$entries{$key}->{previous}};
+			push @output_lines, $entries{$key}->{line};
 		}
 		for my $key (@sorted_props) {
-			print join "", @{$props{$key}->{previous}};
-			print $props{$key}->{line};
+			push @output_lines, @{$props{$key}->{previous}};
+			push @output_lines, $props{$key}->{line};
 		}
 		# print remaining previous_lines (if any)
-		print join "", @previous_lines;
+		push @output_lines, @previous_lines;
 		# print this blank line
-		print $line;
+		push @output_lines, $line;
+		my $original = join("", @original_lines);
+		my $output = join("", @output_lines);
+		if ($is_check) {
+			# compare with original lines
+			if (not $original eq $output) {
+				$has_changes = 1;
+				if ($is_verbose) {
+					print "Error: output is not the same as original, line $entry_start_line..$line_num\n";
+					print "Original --------------------\n";
+					print "$original\n";
+					print "Sorted --------------------\n";
+					print "$output\n";
+				}
+			}
+		}
+		else {
+			print "$output";
+		}
 		# re-init
 		@parents = ();
 		%entries = ();
 		%props = ();
 		@previous_lines = ();
+		@original_lines = ();
+		$entry_start_line = $line_num;
 	}
 	# parents
 	elsif ($line =~ /^</) {
@@ -123,3 +152,5 @@ foreach my $line (@lines) {
 		push @previous_lines, $line;
 	}
 }
+
+exit($is_check and $has_changes);

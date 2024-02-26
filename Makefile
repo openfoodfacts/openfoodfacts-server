@@ -240,8 +240,10 @@ front_build:
 
 
 checks: front_build front_lint check_perltidy check_perl_fast check_critic
+# TODO: add check_taxonomies when taxonomies ready
 
 lint: lint_perltidy
+# TODO: add lint_taxonomies when taxonomies ready
 
 tests: build_lang_test unit_test integration_test
 
@@ -320,7 +322,7 @@ bash_test:
 # the ls at the end is to avoid removed files.
 # the first commad is to check we have git (to avoid trying to run this line inside the container on check_perl*)
 # We have to finally filter out "." as this will the output if we have no file
-TO_CHECK=$(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -v "scripts/obsolete" | xargs ls -d 2>/dev/null | grep -v "^.$$" )
+TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  '.*\.\(pl\|pm\|t\)$$' | grep -v "scripts/obsolete" | xargs ls -d 2>/dev/null | grep -v "^.$$" )
 
 check_perl_fast:
 	@echo "🥫 Checking ${TO_CHECK}"
@@ -340,7 +342,7 @@ check_perl:
 
 # check with perltidy
 # we exclude files that are in .perltidy_excludes
-TO_TIDY_CHECK = $(shell echo ${TO_CHECK}| tr " " "\n" | grep -vFf .perltidy_excludes)
+TO_TIDY_CHECK := $(shell echo ${TO_CHECK}| tr " " "\n" | grep -vFf .perltidy_excludes)
 check_perltidy:
 	@echo "🥫 Checking with perltidy ${TO_TIDY_CHECK}"
 	test -z "${TO_TIDY_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perltidy --assert-tidy -opath=/tmp/ --standard-error-output ${TO_TIDY_CHECK}
@@ -356,6 +358,18 @@ lint_perltidy:
 check_critic:
 	@echo "🥫 Checking with perlcritic"
 	test -z "${TO_CHECK}" || ${DOCKER_COMPOSE} run --rm --no-deps backend perlcritic ${TO_CHECK}
+
+TAXONOMIES_TO_CHECK := $(shell [ -x "`which git 2>/dev/null`" ] && git diff origin/main --name-only | grep  'taxonomies*/*\.txt$$' | grep -v '\.result.txt' | xargs ls -d 2>/dev/null | grep -v "^.$$")
+
+check_taxonomies:
+	@echo "🥫 Checking taxonomies"
+	test -z "${TAXONOMIES_TO_CHECK}" || \
+	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/sort_each_taxonomy_entry.sh --check ${TAXONOMIES_TO_CHECK}
+
+lint_taxonomies:
+	@echo "🥫 Linting taxonomies"
+	test -z "${TAXONOMIES_TO_CHECK}" || \
+	${DOCKER_COMPOSE} run --rm --no-deps backend scripts/taxonomies/sort_each_taxonomy_entry.sh ${TAXONOMIES_TO_CHECK}
 
 
 check_openapi_v2:
