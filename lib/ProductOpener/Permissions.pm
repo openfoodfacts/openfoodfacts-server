@@ -54,13 +54,7 @@ Check if the user has permission to revert a product.
 
 sub has_permission_product_revert ($request_ref) {
 
-	my $has_permission = 0;
-
-	if ($request_ref->{admin} or $request_ref->{moderator}) {
-		$has_permission = 1;
-	}
-
-	return $has_permission;
+	return ($request_ref->{admin} or $request_ref->{moderator});
 }
 
 # Map permissions string_id to functions to check if the user has the permission
