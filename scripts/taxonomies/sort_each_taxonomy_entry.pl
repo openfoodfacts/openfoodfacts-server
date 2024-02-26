@@ -30,8 +30,6 @@ binmode(STDIN, ":encoding(UTF-8)");
 binmode(STDOUT, ":encoding(UTF-8)");
 binmode(STDERR, ":encoding(UTF-8)");
 
-
-
 sub cmp_on_language ($$) {
 	my $a = shift;
 	my $b = shift;
@@ -71,13 +69,12 @@ my @lines = (<STDIN>);
 # be sure to end with a blank line
 push @lines, "\n" unless $lines[-1] =~ /^\s*$/;
 
-
 foreach my $line (@lines) {
 
 	# blank line means we are changing entry, so let's print collected lines
-	if ( $line =~ /^\s*$/ ) {
+	if ($line =~ /^\s*$/) {
 		# sort items
-		@parents = sort { $a->{line} cmp $b->{line} } @parents;
+		@parents = sort {$a->{line} cmp $b->{line}} @parents;
 		my @sorted_entries = sort cmp_on_language (keys %entries);
 		my @sorted_props = sort cmp_on_language (keys %props);
 		# print parents, entrie, sorted props
@@ -105,7 +102,7 @@ foreach my $line (@lines) {
 	}
 	# parents
 	elsif ($line =~ /^</) {
-		push @parents,  {line => $line, previous => [@previous_lines]};
+		push @parents, {line => $line, previous => [@previous_lines]};
 		@previous_lines = ();
 	}
 	# synonym
@@ -115,15 +112,14 @@ foreach my $line (@lines) {
 		@previous_lines = ();
 	}
 	# property
-	elsif ( $line =~ /^(\w+):(\w+):(.*)$/ ) {
+	elsif ($line =~ /^(\w+):(\w+):(.*)$/) {
 		my $prop = $1;
 		my $lc = $2;
 		$props{"$prop:$lc"} = {line => $line, previous => [@previous_lines]};
 		@previous_lines = ();
 	}
 	# comments or undefined
-	else
-	{
+	else {
 		push @previous_lines, $line;
 	}
 }
