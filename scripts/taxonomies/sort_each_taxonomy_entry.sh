@@ -27,7 +27,7 @@ do
     echo "$ACTION $taxonomy ===============";
     # redirect output only if we're not checking
     ( \
-        [[ -z "$IS_CHECK" ]] && exec >>$taxonomy; \
+        [[ -z "$IS_CHECK" ]] && exec >$taxonomy; \
         $script "${ARGS[@]}" <$taxonomy \
     )
     EXIT=$?;
