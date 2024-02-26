@@ -542,13 +542,21 @@ function initializeTagifyInput(el) {
         autocomplete: true,
         whitelist: get_recents(el.id) || [],
         dropdown: {
-            enabled: 0
+            enabled: 0,
+            maxItems: 100
         }
     });
 
     let abortController;
     let debounceTimer;
     const timeoutWait = 300;
+
+    function updateSuggestions() {
+        const value = input.state.inputText;
+        const lc = (/^\w\w:/).exec(value);
+        const term = lc ? value.substring(lc[0].length) : value;
+        input.dropdown.show(term);
+    }
 
     input.on("input", function (event) {
         const value = event.detail.value;
@@ -565,16 +573,47 @@ function initializeTagifyInput(el) {
 
                 abortController = new AbortController();
 
-                fetch(el.dataset.autocomplete + "&string=" + value, {
+                fetch(el.dataset.autocomplete + "&string=" + value + "&get_synonyms=1", {
                     signal: abortController.signal
                 }).
                     then((RES) => RES.json()).
                     then(function (json) {
-                        input.whitelist = json.suggestions;
-                        input.dropdown.show(value); // render the suggestions dropdown
+                        const lc = (/^\w\w:/).exec(value);
+                        let whitelist = Object.values(json.matched_synonyms);
+                        if (lc) {
+                            whitelist = whitelist.map(function (e) {
+                                return {"value": lc + e, "searchBy": e};
+                            });
+                        }
+                        const synonymMap = Object.create(null);
+                        // eslint-disable-next-line guard-for-in
+                        for (const k in json.matched_synonyms) {
+                            synonymMap[json.matched_synonyms[k]] = k;
+                        }
+                        input.synonymMap = synonymMap;
+                        input.whitelist = whitelist;
+                        updateSuggestions(); // render the suggestions dropdown
                     });
             }, timeoutWait);
         }
+        updateSuggestions();
+    });
+
+    input.on("dropdown:show", function() {
+        if (!input.synonymMap) {
+            return;
+        }
+        $(input.DOM.dropdown).find("div.tagify__dropdown__item").each(function(_,e) {
+            let synonymName = e.getAttribute("value");
+            const lc = (/^\w\w:/).exec(synonymName);
+            if (lc) {
+                synonymName = synonymName.substring(3);
+            }
+            const canonicalName = input.synonymMap[synonymName];
+            if (canonicalName && canonicalName !== synonymName) {
+                e.innerHTML += " (&rarr; <i>" + canonicalName + "</i>)";
+            }
+        });
     });
 
     input.on("add", function (event) {
