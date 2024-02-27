@@ -71904,7 +71904,7 @@ origins:en: en:Italy
 wikidata:en:Q3945308
 
 <en:Italian meat products
-<fr:Specks
+<en:Specks
 it:Speck Alto Adige, Südtiroler Markenspeck, Südtiroler Speck, Speck dell' Alto Adige, Specks dell' Alto Adige
 protected_name_file_number:en: PGI-IT-0327
 protected_name_type:en: pgi
@@ -72638,7 +72638,7 @@ origins:en: en:Spain
 wikidata:en:Q2838783
 
 <en:Spanish meat products
-<es:Longanizas
+<en:Longanizas
 es:Salchichón de Vic, Llonganissa de Vic
 protected_name_file_number:en: PGI-ES-0119
 protected_name_type:en: pgi
@@ -72682,6 +72682,7 @@ wikidata:en:Q5925967
 
 <en:Spanish meat products
 <en:Chorizo
+en:Sobrassada
 es:Sobrasada de Mallorca, sobrasada
 protected_name_file_number:en: PGI-ES-0097
 protected_name_type:en: pgi
@@ -72690,6 +72691,7 @@ wikidata:en:Q633469
 
 <en:Spanish meat products
 <en:Beef jerkies
+en:Cecina de León
 es:Cecina de León, cecina
 protected_name_file_number:en: PGI-ES-0103
 protected_name_type:en: pgi
@@ -80860,18 +80862,23 @@ ciqual_food_name:fr:Pancetta ou Poitrine roulée sèche
 
 <en:Pancetta
 en:Arrotolata pancetta
+it:Pancetta arrotolata
 
 <en:Pancetta
 en:Coppata pancetta
+it:Pancetta coppata
 
 <en:Pancetta
 en:Steccata pancetta
+it:Pancetta steccata
 
 <en:Pancetta
 en:Stufata pancetta
+it:Pancetta stufata
 
 <en:Pancetta
 en:Tesa pancetta
+it:Pancetta tesa
 
 <en:Pork belly
 en:salt-cured pork belly, Pork belly salt-cured
@@ -80884,6 +80891,7 @@ ciqual_food_name:fr:Poitrine de porc demi-sel
 <en:Pork
 en:Pork loin
 fr:Longe de porc
+es:Lomo de cerdo
 ja:豚ロース
 agribalyse_food_code:en:28003
 ciqual_food_code:en:28003
@@ -80895,7 +80903,8 @@ en:Frozen pork loin
 fr:Longe de porc surgelée
 
 <en:Pork loin
-es:Lomo
+en:Cured pork loin
+es:Lomo, lomo embuchado
 
 <en:Pork
 en:Pork round steak
@@ -83142,6 +83151,7 @@ fr:Jambons de Westphalie, jambon de Westphalie
 wikidata:en:Q1510478
 
 <en:Smoked cured hams
+en:Specks
 fr:Specks, Speck, Speks, Spek
 es:Speck
 
@@ -84387,7 +84397,8 @@ ciqual_food_name:en:Smoked lardoons, raw
 ciqual_food_name:fr:Lardon fumé, cru
 
 <en:lardons
-it:guanciale
+en:Guanciale
+it:Guanciale
 
 <fr:Charcuteries diverses
 fr:Allumettes de volaille
@@ -84790,10 +84801,12 @@ en:Italian salami
 
 <en:Pork salami
 <en:Italian salami
+en:Spianata
 it:Spianata
 
 <en:Pork salami
 <en:Italian salami
+en:Ventricina
 it:Ventricina
 
 <en:Pork salami
@@ -84897,6 +84910,7 @@ en:Iberian dry sausages
 
 <en:Dry sausages
 <en:Iberian dry sausages
+en:Longanizas
 es:Longanizas
 fr:Longanisses, longanisse
 
