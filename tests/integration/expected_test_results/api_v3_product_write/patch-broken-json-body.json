@@ -2,7 +2,7 @@
    "errors" : [
       {
          "field" : {
-            "error" : "'null' expected, at character offset 0 (before \"not json\") at /opt/product-opener/lib/ProductOpener/API.pm line 202.\n",
+            "error" : "'null' expected, at character offset 0 (before \"not json\") at /opt/product-opener/lib/ProductOpener/API.pm line 224.\n",
             "id" : "body",
             "value" : "not json"
          },
@@ -19,5 +19,6 @@
       }
    ],
    "status" : "failure",
+   "status_code" : 400,
    "warnings" : []
 }
