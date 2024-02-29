@@ -45,9 +45,9 @@ ok(!html_displays_error($resp));
 # Note: expected results are stored in json files, see execute_api_tests
 my $tests_ref = [
 
-	# Create a product
+	# Test setup - Create a product
 	{
-		test_case => 'create-product',
+		setup => 1,
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890100',
 		body => '{
@@ -60,13 +60,12 @@ my $tests_ref = [
 			}
 		}',
 	},
-	# Update the product
+	# Test setup - Update the product
 	{
-		test_case => 'update-product',
+		setup => 1,
 		method => 'PATCH',
 		path => '/api/v3/product/1234567890100',
 		body => '{
-			"fields" : "updated",
 			"product": { 
 				"product_name_en": "Test product updated",
 				"brands_tags": ["Test brand updated"],
@@ -85,7 +84,7 @@ my $tests_ref = [
 			"fields": "code,rev,product_name_en,brands_tags,categories_tags"
 		}',
 		ua => $moderator_ua,
-	},
+	},	
 	# Revert the product - rev not supplied
 	{
 		test_case => 'revert-product-no-rev',
@@ -96,7 +95,7 @@ my $tests_ref = [
 			"fields": "code,rev,product_name_en,brands_tags,categories_tags"
 		}',
 		ua => $moderator_ua,
-	},
+	},	
 	# Revert the product - rev does not exist
 	{
 		test_case => 'revert-product-rev-does-not-exist',

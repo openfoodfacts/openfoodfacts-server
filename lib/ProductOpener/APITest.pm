@@ -354,6 +354,8 @@ sub origin_from_url ($url) {
 	return $url =~ /^(\w+:\/\/[^\/]+)\//;
 }
 
+
+
 =head2 execute_api_tests($file, $tests_ref, $ua=undef)
 
 Initialize tests and execute them.
@@ -373,7 +375,9 @@ my $tests_ref = (
     [
 		{
 			# request description
-			test_case => 'no-body',  # a description of the test, should be unique to easily retrieve which test failed
+			# each test must have either the setup option set to 1, or a unique test_case
+			setup => 1,	# if set to 1, the request will be executed (e.g. to create a product to test on) but the result will not be checked
+			test_case => 'no-body',  # test case id, must be unique as it is used to name the expected results file
 			method => 'POST',		# defaults to GET
 			subdomain => 'world',	# defaults to "world"
 			path => '/api/v3/product/12345678',
@@ -384,6 +388,7 @@ my $tests_ref = (
 			ua => a LWP::UserAgent object, if a specific user is needed (e.g. with moderator status)
 
 			# expected return
+			expected_status_code => 200,	# optional. Defaults to 200
 			headers => {header1 => value1, }  # optional. You may add an undef value to test for the inexistance of a header
 			response_content_must_match => "regexp"	# optional. You may add a case insensitive regexp (e.g. "Product saved") that must be matched
 			response_content_must_not_match => "regexp"	# optional. You may add a case insensitive regexp (e.g. "error") that must not be matched
@@ -402,13 +407,7 @@ Note: this setting can be overriden for each test case by specifying a "ua" fiel
 
 =cut
 
-sub execute_api_tests ($file, $tests_ref, $ua = undef) {
-
-	my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results($file));
-
-	$ua = $ua // LWP::UserAgent->new();
-
-	foreach my $test_ref (@$tests_ref) {
+sub execute_request($test_ref, $ua) {
 
 		# We may have a test case specific user agent
 		my $test_ua = $test_ref->{ua} // $ua;
@@ -416,16 +415,18 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 		my $test_case = $test_ref->{test_case};
 		my $url = construct_test_url($test_ref->{path} . ($test_ref->{query_string} || ''),
 			$test_ref->{subdomain} || 'world');
+		$test_ref->{url} = $url;
 
 		my $method = $test_ref->{method} || 'GET';
-
-		my $response;
+		$test_ref->{method} = $method;
 
 		my $headers_in = {"Origin" => origin_from_url($url)};
 		if (defined $test_ref->{headers_in}) {
 			# combine with computed headers
 			$headers_in = {%$headers_in, %{$test_ref->{headers_in}}};
 		}
+
+		my $response;
 
 		# Send the request
 		if ($method eq 'OPTIONS') {
@@ -503,7 +504,14 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 		my $final_url = $response->request->uri;
 		if ($url ne $final_url) {
 			diag("Got a redirect to " . $final_url);
-		}
+		}		
+
+	return $response;
+}
+
+sub check_request_response($test_ref, $response, $test_id, $test_dir, $expected_result_dir, $update_expected_results) {
+
+	my $test_case = $test_ref->{test_case};
 
 		# Check if we got the expected response status code, expect 200 if not provided
 		if (not defined $test_ref->{expected_status_code}) {
@@ -557,7 +565,7 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 			} or do {
 				my $json_decode_error = $@;
 				diag(
-					"$test_case - The $method request to $url returned a response that is not valid JSON: $json_decode_error"
+					"$test_case - $test_ref->{method} $test_ref->{url} request got a response that is not valid JSON: $json_decode_error"
 				);
 				diag("Response content: " . $response_content);
 				fail($test_case);
@@ -604,6 +612,24 @@ sub execute_api_tests ($file, $tests_ref, $ua = undef) {
 			diag("Must not match: " . $must_not_match . "\n" . "Response content: " . $response_content);
 		}
 
+	}
+
+
+sub execute_api_tests ($file, $tests_ref, $ua = undef) {
+
+	my ($test_id, $test_dir, $expected_result_dir, $update_expected_results) = (init_expected_results($file));
+
+	$ua = $ua // LWP::UserAgent->new();
+
+	foreach my $test_ref (@$tests_ref) {
+
+		my $response = execute_request($test_ref, $ua);
+
+		# If the request was a setup request, we don't need to save or check the response
+		# otherwise, save or check the response
+		if (not $test_ref->{setup}) {
+			check_request_response($test_ref, $response, $test_id, $test_dir, $expected_result_dir, $update_expected_results);
+		}
 	}
 	return;
 }
