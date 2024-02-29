@@ -832,7 +832,8 @@ sub init_request ($request_ref = {}) {
 				{
 					message => {id => "invalid_user_id_and_password"},
 					impact => {id => "failure"},
-				}
+				},
+				403
 			);
 		}
 		# /cgi/auth.pl returns a JSON body
