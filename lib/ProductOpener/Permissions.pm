@@ -80,7 +80,7 @@ Permission to check.
 
 =cut
 
-sub has_permission($request_ref, $permission) {
+sub has_permission ($request_ref, $permission) {
 
 	# Check if the user has permission
 	my $has_permission = 0;

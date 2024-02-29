@@ -1,8 +1,10 @@
 {
+   "code" : "5234567890100",
    "errors" : [
       {
          "field" : {
-            "id" : "code"
+            "id" : "code",
+            "value" : "5234567890100"
          },
          "impact" : {
             "id" : "failure",
@@ -10,9 +12,9 @@
             "name" : "Failure"
          },
          "message" : {
-            "id" : "missing_field",
-            "lc_name" : "Missing field",
-            "name" : "Missing field"
+            "id" : "product_not_found",
+            "lc_name" : "",
+            "name" : ""
          }
       }
    ],
@@ -22,6 +24,6 @@
       "name" : "Product not reverted to the specified revision"
    },
    "status" : "failure",
-   "status_code" : 400,
+   "status_code" : 404,
    "warnings" : []
 }

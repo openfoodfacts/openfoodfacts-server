@@ -861,19 +861,8 @@ sub init_request ($request_ref = {}) {
 	$request_ref->{admin} = $admin;
 	# TODO: remove the $admin global variable, and use $request_ref->{admin} instead.
 
-	if ($User{moderator}) {
-		$request_ref->{moderator} = 1;
-	}
-	else {
-		$request_ref->{moderator} = 0;
-	}
-
-	if ($User{pro_moderator}) {
-		$request_ref->{pro_moderator} = 1;
-	}
-	else {
-		$request_ref->{pro_moderator} = 0;
-	}
+	$request_ref->{moderator} = $User{moderator};
+	$request_ref->{pro_moderator} = $User{pro_moderator};
 
 	# Producers platform: not logged in users, or users with no permission to add products
 
@@ -7574,7 +7563,7 @@ sub display_product ($request_ref) {
 	my $code = normalize_code($request_code);
 	local $log->context->{code} = $code;
 
-	if ($code !~ /^\d{4,24}$/) {
+	if (not is_valid_code($code)) {
 		display_error_and_exit($Lang{invalid_barcode}{$lang}, 403);
 	}
 
@@ -7589,6 +7578,7 @@ sub display_product ($request_ref) {
 	$scripts .= <<SCRIPTS
 <script src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
 <script src="$static_subdomain/js/dist/display-product.js"></script>
+<script src="$static_subdomain/js/dist/product-history.js"></script>
 SCRIPTS
 		;
 
@@ -10351,7 +10341,7 @@ sub display_product_api ($request_ref) {
 		$product_ref = retrieve_product($product_id);
 	}
 
-	if ($code !~ /^\d{4,24}$/) {
+	if (not is_valid_code($code)) {
 
 		$log->info("invalid code", {code => $code, original_code => $request_ref->{code}}) if $log->is_info();
 		$response{status} = 0;
@@ -10589,21 +10579,6 @@ sub display_product_history ($request_ref, $code, $product_ref) {
 		revisions => \@revisions,
 		product => $product_ref,
 	};
-
-	# Javascript needed to activate the product revert buttons in the edit history
-	if (has_permission($request_ref, "product_revert")) {
-		my $revert_confirm = lang("product_js_product_revert_confirm");
-		$scripts .= <<SCRIPTS
-<script>var revert_confirm_message = "$revert_confirm";</script>
-<script src="$static_subdomain/js/dist/product-history.js"></script>
-SCRIPTS
-			;
-
-		$initjs .= <<JS
-activate_product_revert_buttons_in_history();
-JS
-			;
-	}
 
 	my $html;
 	process_template('web/pages/product/includes/edit_history.tt.html', $template_data_ref, \$html)

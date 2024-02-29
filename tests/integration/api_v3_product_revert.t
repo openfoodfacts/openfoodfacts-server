@@ -84,7 +84,8 @@ my $tests_ref = [
 			"fields": "code,rev,product_name_en,brands_tags,categories_tags"
 		}',
 		ua => $moderator_ua,
-	},	
+		expected_status_code => 400,
+	},
 	# Revert the product - rev not supplied
 	{
 		test_case => 'revert-product-no-rev',
@@ -95,7 +96,21 @@ my $tests_ref = [
 			"fields": "code,rev,product_name_en,brands_tags,categories_tags"
 		}',
 		ua => $moderator_ua,
-	},	
+		expected_status_code => 400,
+	},
+	# Revert the product - code does not exist
+	{
+		test_case => 'revert-product-code-does-not-exist',
+		method => 'POST',
+		path => '/api/v3/product_revert',
+		body => '{
+			"code": "5234567890100",
+			"rev": 1,
+			"fields": "code,rev,product_name_en,brands_tags,categories_tags"
+		}',
+		ua => $moderator_ua,
+		expected_status_code => 404,
+	},
 	# Revert the product - rev does not exist
 	{
 		test_case => 'revert-product-rev-does-not-exist',
@@ -107,6 +122,7 @@ my $tests_ref = [
 			"fields": "code,rev,product_name_en,brands_tags,categories_tags"
 		}',
 		ua => $moderator_ua,
+		expected_status_code => 404,
 	},
 	# Revert the product - user is not a moderator
 	{
@@ -118,6 +134,7 @@ my $tests_ref = [
 			"rev": 1,
 			"fields": "code,rev,product_name_en,brands_tags,categories_tags"
 		}',
+		expected_status_code => 403,
 	},
 	# Revert the product - good (existing code and rev + moderator user)
 	{

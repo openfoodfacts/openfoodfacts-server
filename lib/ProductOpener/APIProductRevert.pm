@@ -101,7 +101,7 @@ sub revert_product_api ($request_ref) {
 		my $rev = $request_body_ref->{rev};
 
 		# Check if the code is valid
-		if ($code !~ /^\d{4,24}$/) {
+		if (not is_valid_code($code)) {
 
 			$log->info("invalid code", {code => $code, original_code => $request_body_ref->{code}}) if $log->is_info();
 			add_error(
@@ -126,7 +126,8 @@ sub revert_product_api ($request_ref) {
 						message => {id => "product_not_found"},
 						field => {id => "code", value => $code},
 						impact => {id => "failure"},
-					}
+					},
+					404
 				);
 				$error = 1;
 			}
@@ -142,7 +143,8 @@ sub revert_product_api ($request_ref) {
 							message => {id => "revision_not_found"},
 							field => {id => "rev", value => $rev},
 							impact => {id => "failure"},
-						}
+						},
+						404
 					);
 					$error = 1;
 				}

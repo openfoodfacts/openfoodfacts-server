@@ -22,7 +22,7 @@
 /*exported activate_product_revert_buttons_in_history*/
 
 function activate_product_revert_buttons_in_history () {
-    $('#history_list a.button').on('click', function() {
+    $('#history_list a.product_revert_button').on('click', function() {
         const code = $(this).data('code');
         const rev = $(this).data('rev');
         // using confirm, could be replaced with some JS dialog / modal
@@ -37,6 +37,7 @@ function activate_product_revert_buttons_in_history () {
                     code: code,
                     rev: rev,
                     fields: "rev"
+                    // we don't pass cc and lc, as they will get the right default value from the subdomain
                 }),
                 success: function(data) {
                     let message = data.status;
@@ -52,3 +53,8 @@ function activate_product_revert_buttons_in_history () {
         }
     });
 }
+
+$(function() {
+    activate_product_revert_buttons_in_history();
+});
+

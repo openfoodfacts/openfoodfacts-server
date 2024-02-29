@@ -99,7 +99,7 @@ my $original_code = $code;
 
 $code = normalize_code($code);
 
-if ($code !~ /^\d{4,24}$/) {
+if (not is_valid_code($code)) {
 
 	$log->info("invalid code", {code => $code, original_code => $original_code}) if $log->is_info();
 	$response{status} = 0;

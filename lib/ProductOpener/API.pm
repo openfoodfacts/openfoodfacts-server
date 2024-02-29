@@ -109,8 +109,29 @@ sub add_warning ($response_ref, $warning_ref) {
 	return;
 }
 
-sub add_error ($response_ref, $error_ref) {
+=head2 add_error ($response_ref, $error_ref, $status_code = 400)
+
+Add an error to the response object.
+
+=head3 Parameters
+
+=head4 $response_ref (input)
+
+Reference to the response object.
+
+=head4 $error_ref (input)
+
+Reference to the error object.
+
+=head4 $status_code (input)
+
+HTTP status code to return in the response, defaults to 400 bad request.
+
+=cut
+
+sub add_error ($response_ref, $error_ref, $status_code = 400) {
 	push @{$response_ref->{errors}}, $error_ref;
+	$response_ref->{status_code} = $status_code;
 	return;
 }
 
@@ -127,7 +148,8 @@ sub add_invalid_method_error ($response_ref, $request_ref) {
 				api_action => $request_ref->{api_action},
 			},
 			impact => {id => "failure"},
-		}
+		},
+		405
 	);
 	return;
 }
@@ -321,7 +343,7 @@ Reference to the customized product object.
 
 sub send_api_response ($request_ref) {
 
-	my $status_code = $request_ref->{status_code} || "200";
+	my $status_code = $request_ref->{api_response}{status_code} || $request_ref->{status_code} || "200";
 
 	my $json = JSON::PP->new->allow_nonref->canonical->utf8->encode($request_ref->{api_response});
 
@@ -888,7 +910,8 @@ sub check_user_permission ($request_ref, $response_ref, $permission) {
 				message => {id => "no_permission"},
 				field => {id => "permission", value => $permission},
 				impact => {id => "failure"},
-			}
+			},
+			403
 		);
 	}
 

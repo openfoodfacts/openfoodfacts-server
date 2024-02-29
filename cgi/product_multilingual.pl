@@ -220,7 +220,7 @@ if ($type eq 'search_or_add') {
 		if ((not defined $code) or ($code eq "")) {
 			$code = process_search_image_form(\$filename);
 		}
-		elsif ($code !~ /^\d{4,24}$/) {
+		elsif (not is_valid_code($code)) {
 			display_error_and_exit($Lang{invalid_barcode}{$lang}, 403);
 		}
 
@@ -315,7 +315,7 @@ else {
 	if ((not defined $code) or ($code eq '')) {
 		display_error_and_exit($Lang{missing_barcode}{$lang}, 403);
 	}
-	elsif ($code !~ /^\d{4,24}$/) {
+	elsif (not is_valid_code($code)) {
 		display_error_and_exit($Lang{invalid_barcode}{$lang}, 403);
 	}
 	else {
@@ -777,19 +777,20 @@ HTML
 		;
 
 	$scripts .= <<HTML
-<script type="text/javascript" src="/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
-<script type="text/javascript" src="/js/dist/cropper.js"></script>
-<script type="text/javascript" src="/js/dist/jquery-cropper.js"></script>
-<script type="text/javascript" src="/js/dist/jquery.form.js"></script>
-<script type="text/javascript" src="/js/dist/tagify.min.js"></script>
-<script type="text/javascript" src="/js/dist/jquery.iframe-transport.js"></script>
-<script type="text/javascript" src="/js/dist/jquery.fileupload.js"></script>
-<script type="text/javascript" src="/js/dist/load-image.all.min.js"></script>
-<script type="text/javascript" src="/js/dist/canvas-to-blob.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/webcomponentsjs/webcomponents-loader.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/cropper.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/jquery-cropper.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/jquery.form.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/tagify.min.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/jquery.fileupload.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/load-image.all.min.js"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/canvas-to-blob.js"></script>
 <script type="text/javascript">
 var admin = $moderator;
 </script>
-<script type="text/javascript" src="/js/dist/product-multilingual.js?v=$file_timestamps{'js/dist/product-multilingual.js'}"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/product-multilingual.js?v=$file_timestamps{'js/dist/product-multilingual.js'}"></script>
+<script type="text/javascript" src="$static_subdomain/js/dist/product-history.js"></script>
 
 HTML
 		;
