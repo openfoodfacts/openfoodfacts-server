@@ -1466,7 +1466,7 @@ sub parse_processing_from_ingredient ($ingredients_lc, $ingredient) {
 
 			foreach my $pass ("start_and_end", "inside") {
 
-				# Skip the second pass if we already matched a processing ($matching = 1) or if found a known ingredient ($matches = 1)
+				# Skip the second pass if we already matched a processing ($removed_a_processing = 1) or if found a known ingredient ($found_a_known_ingredient = 1)
 				if ((not $removed_a_processing) and (not $found_a_known_ingredient)) {
 
 					foreach my $ingredient_processing_regexp_ref (@{$ingredients_processing_regexps{$ingredients_lc}}) {
