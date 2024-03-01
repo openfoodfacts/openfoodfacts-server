@@ -42367,6 +42367,9 @@ fr:Ayrans et doughs
 nl:Doogh en Ayran
 ru:Тан и айран
 
+<en:ayran
+en:Ayran-butters
+
 <en:Doogh and ayran
 en:Doogh
 de:Dugh
@@ -42382,6 +42385,7 @@ nl:Ayran
 ru:Айран
 tr:Ayran
 wikidata:en:Q192892
+
 
 <en:Fermented milk drinks
 en:Lassi
@@ -43104,6 +43108,8 @@ wikidata:en:Q5761746
 <en:Brined cheeses
 <en:String cheeses
 en:Chechil
+tr:cecil
+am:Chechil
 ru:Чечил
 wikidata:en:Q4515355
 
@@ -43900,6 +43906,14 @@ protected_name_type:en: pdo
 origins:en: en:Austria
 wikidata:en:Q688683
 
+<en:Austrian cheeses
+<en:Cow cheeses
+au:quargel
+
+<en:Austrian cheeses
+<en:Cow cheeses
+at:Schlosskaese, Schlosskäse
+
 <en:Cheeses
 en:Belgian cheeses
 es:Quesos de Bélgica, Quesos Belgas
@@ -44044,6 +44058,7 @@ origins:en: en:Denmark
 wikidata:en:Q2579432
 
 <en:Danish cheeses
+<en:Blue-veined cheeses
 da:Danablu
 protected_name_file_number:en: PGI-DK-0328
 protected_name_type:en: pgi
@@ -44056,6 +44071,10 @@ protected_name_file_number:en: PGI-DK-0329
 protected_name_type:en: pgi
 origins:en: en:Denmark
 wikidata:en:Q770481
+
+<en:Danish cheeses
+<en:Blue-veined cheeses
+da:Sirius
 
 <en:Cheeses
 en:French cheeses, cheeses from France
@@ -44426,6 +44445,13 @@ ciqual_food_name:en:Ossau-Iraty cheese, from ewe's milk
 ciqual_food_name:fr:Ossau-Iraty
 origins:en: en:France, fr:Pays-Basque
 
+<en:Cheeses
+en:Russian cheeses
+
+<en:Cow cheeses
+<en:Russian cheeses
+ru:kostromskoy, Kostromskoï syr
+
 <en:Goat cheeses
 <en:Soft cheese with a natural rind
 <en:French cheeses
@@ -44583,6 +44609,9 @@ ciqual_food_code:en:12037
 ciqual_food_name:en:Livarot cheese, from cow's milk
 protected_name_file_number:en: PDO-FR-0122
 protected_name_type:en: pdo
+
+<en:Soft cheeses with washed rind
+hu:palpusztai
 
 <en:Cheeses
 en:Soft cheeses with washed rind, Soft-ripened cheeses with washed rind
@@ -44812,6 +44841,9 @@ ciqual_food_name:en:Hard cheese (average)
 ciqual_food_name:fr:Fromage à pâte pressée cuite (aliment moyen)
 intake24_category_code:en:HRDC
 
+<en:Hard cheeses
+en:Iberian hard cheeses
+
 <en:Cheeses
 en:Half-cooked pressed cheeses
 de:Halbgekochter gepresster Käse
@@ -44982,6 +45014,10 @@ agribalyse_food_code:en:12752
 ciqual_food_code:en:12752
 ciqual_food_name:en:Saint-Nectaire cheese, from cow's milk
 origins:en: en:France
+
+<en:Cow cheeses
+<en:Uncooked pressed cheeses
+ru:Golandsky
 
 <en:Saint-Nectaire
 en:Saint-Nectaire from milks collected in many farms, Saint-Nectaire cheese from cow's milk milks collected in many farms
@@ -45197,6 +45233,10 @@ ciqual_food_name:en:Fresh cream cheese, plain, fat free
 ciqual_food_name:fr:Fromage blanc nature, 0% MG
 
 <fr:Fromages blancs
+en:Plain fresh cream cheese around 1% fat 
+fr:Fromage blanc nature à 1% de matières grasses environ
+
+<fr:Fromages blancs
 en:Plain fresh cream cheese around 3% fat
 fr:Fromage blanc nature à 3% de matières grasses environ
 agribalyse_food_code:en:19646
@@ -45211,6 +45251,10 @@ agribalyse_food_code:en:19649
 ciqual_food_code:en:19649
 ciqual_food_name:en:Fresh cream cheese, plain, creamy, around 8% fat
 ciqual_food_name:fr:Fromage blanc nature, gourmand, 8% MG environ
+
+<fr:Fromages blancs
+en:Plain fresh cream cheese reduced fat
+fr:Fromage blanc nature allégé en matières grasses
 
 <fr:Fromages blancs
 <en:Fermented dairy desserts with fruits
@@ -45352,6 +45396,9 @@ es:Queso oveja viejo
 
 <en:sheep's-milk cheeses
 fr:Tomme de brebis
+
+<en:sheep's-milk cheeses
+tr:Mihalic
 
 # TODO check the proxy above
 
@@ -45953,7 +46000,23 @@ protected_name_type:en: pdo
 origins:en: en:Germany
 wikidata:en:Q956024
 
+<en:Hard cheeses
 <en:German cheeses
+de:Butterkäse
+
+<en:Cow cheeses
+<en:German cheeses
+de:Bergkäse
+
+<en:Blue-veined cheeses
+<en:German cheeses
+de:cambozola
+
+<en:Blue-veined cheeses
+<en:Austrian cheeses
+at:Österkron
+
+<de:Bergkäse
 de:Allgäuer Bergkäse
 protected_name_file_number:en: PDO-DE-0460
 protected_name_type:en: pdo
@@ -46779,6 +46842,7 @@ origins:en: en:Poland
 wikidata:en:Q46978738
 
 <en:Polish cheeses
+<en:Feta-type cheese
 pl:Bryndza Podhalańska
 protected_name_file_number:en: PDO-PL-0450
 protected_name_type:en: pdo
@@ -46805,6 +46869,9 @@ protected_name_file_number:en: PDO-PL-0451
 protected_name_type:en: pdo
 origins:en: en:Poland
 wikidata:en:Q72447
+
+<en:Polish cheeses
+pl:Ser Edamski
 
 <en:cheeses
 en:fried cheese
@@ -46883,7 +46950,7 @@ origins:en: en:Portugal
 wikidata:en:Q2048709
 
 <en:Portuguese cheeses
-pt:Queijo São Jorge, Queijo S. Jorge
+pt:Queijo São Jorge, Queijo S. Jorge, Queijo da Ilha, Queijo Ilha
 protected_name_file_number:en: PDO-PT-0267
 protected_name_type:en: pdo
 origins:en: en:Portugal
@@ -46910,6 +46977,19 @@ protected_name_type:en: pdo
 origins:en: en:Portugal
 wikidata:en:Q2105448
 
+<en:Portuguese cheeses
+pt:Queijo Flamengo
+
+<en:Portuguese cheeses
+pt:Queijo do Alentejo, Queijeiro do Alentejo
+
+<en:Portuguese cheeses
+<en:sheep's-milk cheeses
+pt:Queijo Beira Alta
+
+<en:Portuguese cheeses
+pt:Queijo do Minho, Queijo Minho
+
 <en:Cheeses
 en:Romanian cheeses, Cheeses from Romania
 fr:Fromages roumains
@@ -46924,7 +47004,7 @@ origins:en: en:Romania
 #wikidata:en:
 
 <en:Romanian cheeses
-ro:Telemea de Sibiu
+ro:Telemea de Sibiu,Telemea
 protected_name_file_number:en: PGI-RO-02473
 protected_name_type:en: pgi
 origins:en: en:Romania
@@ -47003,6 +47083,7 @@ origins:en: en:Slovakia
 #wikidata:en:
 
 <en:Slovakian cheeses
+<en:Feta-type cheese
 sk:Slovenská bryndza
 protected_name_file_number:en: PGI-SK-0427
 protected_name_type:en: pgi
@@ -47067,6 +47148,12 @@ agribalyse_food_code:en:12827
 ciqual_food_code:en:12827
 ciqual_food_name:en:Semi-hard cheese, from ewe's milk
 ciqual_food_name:fr:Fromage de brebis à pâte pressée
+
+<en:Semi-hard cheeses from ewe's milk
+ro:Branza de burduf
+
+<en:Sheep's-milk cheeses
+sk:parenice
 
 <en:Cheeses
 en:Spanish cheeses, cheeses from Spain
@@ -47319,6 +47406,10 @@ protected_name_type:en: pdo
 origins:en: en:Spain
 wikidata:en:Q6094554
 
+<en:Spanish cheeses
+<en:Hard cheeses
+en:Spanish hard cheeses
+
 <en:Cheeses
 en:Brunost
 da:myseost
@@ -47544,6 +47635,15 @@ wikidata:en:Q925398
 en:Chubut Cheese
 es:Queso Chubut, Queso Chubutense
 wikidata:en:Q6094556
+
+<en:Cow cheeses
+en:Sbrinz
+
+<en:cow cheeses
+sk:korbacky
+
+<en:cow cheeses
+en:Kashkaval, Cașcaval
 
 <en:Fermented dairy desserts
 en:Petits suisses
@@ -47789,6 +47889,8 @@ protected_name_file_number:en: PDO-FR-0139
 protected_name_type:en: pdo
 origins:en: en:France
 wikidata:en:Q3006030
+ciqual_food_code:en:19411
+ciqual_food_name:fr:Crème d'Isigny AOP, >= 35% MG
 
 <fr:Crèmes épaisses entières
 fr:Crème de Bresse
@@ -48532,6 +48634,12 @@ pl:Maślanka, Maślanki
 wikidata:en:Q106612
 who_id:en:7
 
+<en:Buttermilks
+en:Light buttermilks
+
+<en:Buttermilks
+en:Flavoured buttermilks
+
 # TODO enable
 #<en:Dairies
 #<en:Alcoholic drinks
@@ -48866,8 +48974,11 @@ ciqual_food_code:en:19041
 ciqual_food_name:en:Milk, semi-skimmed, UHT
 ciqual_food_name:fr:Lait demi-écrémé, UHT
 
-<en:Semi-skimmed milks
 <en:UHT Milks
+en:UHT milk fortified with vitamins
+
+<en:Semi-skimmed milks
+<en:UHT milk fortified with vitamins
 en:Semi-skimmed UHT milk fortified with vitamins
 fr:Laits demi-écrémés UHT enrichis en vitamines
 agribalyse_food_code:en:19037
@@ -49368,6 +49479,9 @@ ru:Молоко пастеризованное, Пастеризованное �
 sv:Pastöriserad mjölk
 wikidata:en:Q19344246
 
+<en:Pasteurised milks
+en:Pasteurised milks fortified with vitamins
+
 <en:Milks
 ru:Молоко питьевое
 
@@ -49623,6 +49737,9 @@ fr:Boissons végétales d'avoine au cacao
 en:Vanilla oat-based drinks, Vanilla oat milks
 fr:Boissons végétales d'avoine à la vanille
 
+<en:Oat-based drinks
+en:UHT oat based drinks
+
 <en:Cereal-based drinks
 en:Quinoa-based drinks, Quinoa milks, Quinoa drinks
 de:Quinoamilch, Quinoamilche, Quinoamilchen, Quinoa-Drinks, Quinoa-Drink, Quinoadrink, Quinoadrinks
@@ -49681,6 +49798,9 @@ fr:Boissons végétales de riz au cacao, Boissons végétales de riz au chocolat
 nl:Chocoladerijstdranken
 pt:Bebidas de arroz com cacau
 #wikidata:en:
+
+<en:Rice-based drinks
+en:UHT rice based drinks
 
 <en:Cereal-based drinks
 en:Sesame-based drinks, Sesame milks, Sesame drinks
@@ -49875,6 +49995,9 @@ ciqual_food_code:en:18903
 ciqual_food_name:en:Soy drink, flavoured, enriched in calcium, w sugar or fruit concentrate
 ciqual_food_name:fr:Boisson au soja, aromatisée, sucrée, enrichie en calcium
 
+<en:Soy-based drinks
+en:UHT soy based drinks
+
 <en:Plant-based milk alternatives
 en:Mixed plant milks, Mixed plant drinks
 es:Mezclas de leches vegetales, Mezclas de bebidas vegetales
@@ -49955,6 +50078,9 @@ fr:Laits d'amande au chocolat
 en:Vanilla almond-based drinks, Vanilla almond milks
 fi:Vanilja-mantelijuomat
 fr:Laits d'amande vanille
+
+<en:Almond-based drinks
+en:UHT almond milks
 
 <en:Nut-based drinks
 en:Chestnut-based drinks, Chestnut milks, Chestnut drinks
@@ -50890,6 +51016,10 @@ ciqual_food_name:en:Yogurt, fermented milk or dairy specialty, w fruits or flavo
 ciqual_food_name:fr:Yaourt, lait fermenté ou spécialité laitière, aromatisé ou aux fruits, 0% MG (aliment moyen)
 
 <en:Yogurts
+en:Plain low-fat yogurts
+fr:Yaourts allégés nature
+
+<en:Yogurts
 en:Mixed yogurts
 de:gemischte Joghurt, gemischte Jogurt, gemischte Joghurts, gemischte Jogurts
 fr:Yaourts mixés
@@ -50993,6 +51123,10 @@ ciqual_food_code:en:19537
 <en:Stirred yogurts
 en:Stirred vanilla yogurt drinks, Stirred vanilla yoghurt drinks
 fr:Yaourts brassés à la vanille
+
+<en:Drinkable yogurts
+en:Plain drinkable yogurts
+fr:Yaourts brassés natures à boire
 
 <en:Yogurts
 en:Sweetened yogurts, sweet yogurts
@@ -55208,6 +55342,10 @@ zh:酥油
 # pnb:گھیؤ
 # sco:ghee
 wikidata:en:Q323225
+
+<en:Butters
+en:Dry butter
+fr:Beurre de tourage
 
 <en:Fish oils
 en:Sardine oils
@@ -69883,6 +70021,10 @@ ciqual_food_code:en:39710
 ciqual_food_name:en:Pastry cream or custard
 ciqual_food_name:fr:Crème pâtissière
 
+<en:Dessert sauces
+en:Sabayon
+fr:Sabayon
+
 <en:Sauces
 en:Sauces for fishes, sauces for fish
 de:Saucen für Fischgerichte
@@ -77990,6 +78132,9 @@ wikidata:en:Q43669693
 <en:Quiches
 <en:Quiches with vegetables
 fr:Quiches aux épinards, Quiche à l'épinard, Tartes aux épinards
+
+<en:Quiches
+en:Salted crumbles
 
 <en:Meals
 en:Prepared salads
@@ -86296,6 +86441,80 @@ fr:Tomme allégée en matière grasse, Tomme allégée en matière grasse enviro
 agribalyse_food_code:en:12760
 ciqual_food_code:en:12760
 ciqual_food_name:en:Tomme cheese, reduced fat, around 13% fat
+
+<en:Cheeses
+lb:labne
+
+<en:Cheeses
+pl:ostiepky
+
+<en:Cheeses
+bg:sirene
+
+<en:Cheeses
+pt:Queijo prato
+
+<en:Cheeses
+en:Zamorski, Zamorski Cheese
+pl:Zamojski Cheese
+
+<en:Cow Cheeses
+<en:Turkish cheeses
+tr:Antep
+
+<en:Cow Cheeses
+en:Trappista
+agribalyse_proxy_food_code:en:12755
+ciqual_proxy_food_code:en:12755
+ciqual_proxy_food_name:en:Saint-Paulin cheese, from cow's milk (semi-hard cheese)
+ciqual_proxy_food_name:fr:Saint-Paulin (fromage à pâte pressée non cuite demi-ferme)
+
+<en:Cow cheeses
+ru:lamber
+
+<en:Cow cheeses
+ru:Rossiysky
+
+<en:Cow cheeses
+ru:Svalya
+
+<en:Cow cheeses
+pl:Morski
+
+<en:Cow cheeses
+pl:Radamer
+
+<en:Cow cheeses
+en:Alderman
+fi:Oltermanni
+
+<en:Cow cheeses
+pl:podlaski
+
+<en:Cow cheeses
+ru:Poshekhonsky
+
+<en:Cheeses
+en:Turkish cheeses
+
+<en:Turkish cheeses
+<en:Feta-type cheese
+tr:Beyaz peynir
+
+<en:Turkish cheeses
+<en:Cow cheeses
+tr:dil
+
+<en:Turkish cheeses
+<en:Feta-type cheese
+tr:Lor
+
+<en:Turkish cheeses
+<en:Cow cheeses
+tr:Orgu
+
+<en:Cheeses
+en:Balkan cheese
 
 <en:Tomme cheese from cow's milk
 fr:Tomme d’Italie, Tommes d'Italie
@@ -94843,6 +95062,9 @@ de:Halbmischfett
 
 <de:Mischfette
 de:Mischstreichfett
+
+<en:Spreadable fats
+en:Butter and margarine mix
 
 <en:Breakfasts
 <en:Spreads
