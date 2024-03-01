@@ -916,7 +916,7 @@ fr:extrait, extraite, extraits, extraites
 sv:extraherad, extraherade
 
 #<de:extrahiert
-de:kaltextrahiert, kaltextrahierte, kaltextrahierter, kaltextrahiertes
+de:kaltextrahiert, kaltextrahierte, kaltextrahierter, kaltextrahiertes, kaltextrahierten, kaltextrahiertem
 en:cold extracted
 es:extracción en frío, extraído en frío, extraída en frío, extraídos en frío, extraídas en frío
 fr:extraction à froid, extrait à froid, extraite à froid, extraits à froid, extraites à froid
@@ -924,7 +924,7 @@ fr:extraction à froid, extrait à froid, extraite à froid, extraits à froid, 
 en:defatted
 bg:обезмаслено, обезмаслен, обезмаслена, обезмаслени
 ca:desgreixat, desgreixada, desgreixats, desgreixades
-de:entfettet, entfettete, entfetteter, entfettetes
+de:entfettet, entfettete, entfetteter, entfettetes, entfetteten, entfettetem
 es:desengrasado, desengrasada,desgrasado,desgrasada
 fr:dégraissé, dégraissée, dégraissés, dégraissées
 hu:zsírtalanított
@@ -939,7 +939,7 @@ ro:degresat
 en:partially defatted
 bg:частично обезмаслен, частично обезмаслено
 ca:parcialment desgreixat, parcialment desgreixada, parcialment desgreixats, parcialment desgreixades
-de:teilentfettet, teilentfettetes
+de:teilentfettet, teilentfettete, teilentfettetes, teilentfetteter, teilentfetteten, teilentfettetem
 pl:częściowo odtłuszczone, częściowo odtłuszczony, częściowo odtłuszczona, częściowo odtłuszczonego, półtłusty
 pt:parcialmente desengordurado, parcialmente desengordurada
 ro:demidegresat
@@ -1167,7 +1167,7 @@ ca:dessecat, dessecade, dessecades, dessecats
 co:secchi
 cs:sušené, sušená, sušenná, sušený, suseny
 da:tørret, tørrede
-de:getrocknet, getrocknete, getrockneter, getrocknetes, in getrockneter form, Trocken
+de:getrocknet, getrocknete, getrockneter, getrocknetes, getrockneten, getrocknetem, in getrockneter form, Trocken
 es:seco, seca, secos, secas, secados, secadas, desecado, desecada, desecados, desecadas
 et:kuivatatud
 fi:kuivattu, kuivatut
@@ -1194,7 +1194,7 @@ uk:сушена
 
 # <en:dried
 en:semi-dried
-de:halbgetrocknet, halbgetrocknete, halbgetrockneter, halbgetrocknetes, halb getrocknet
+de:halbgetrocknet, halbgetrocknete, halbgetrockneter, halbgetrocknetes, halbgetrockneten, halbgetrocknetem, halb getrocknet
 es:semiseco
 fr:semi séché, semi-séchée, semi-séchés, semi-séchées, mi-séché, mi-séchée, mi-séchés, mi-séchées
 nl:halfgedroogd, halfgedroogde
@@ -1203,7 +1203,7 @@ pt:semi-seco, semi-seca, semi-secos, semi-secas
 
 # <en:dried
 en:freeze dried
-de:gefriergetrocknet, gefriergetrocknete, gefriergetrockneter, gefriergetrocknetes
+de:gefriergetrocknet, gefriergetrocknete, gefriergetrockneter, gefriergetrocknetes, gefriergetrockneten, gefriergetrocknetem
 fi:pakkaskuivattu, pakkaskuivatut, pakastekuivattu
 fr:lyophilisé, lyophilisée, lyophilisés, lyophilisées
 hr:liofilizirane, liofiliziran, liofilizirana, liofilizirani, liofiliziranih, liofilizacijom, sušeno smrzavanjem
@@ -1217,7 +1217,7 @@ pt:liofilizado, liofilizados, liofilizada, liofilizadas
 # <en:dried
 en:sundried, sun dried
 ca:assecat al sol
-de:sonnengetrocknet, sonnengetrocknete, sonnengetrockneter, sonnengetrocknetes, an der Sonne getrocknet, an der Sonne getrocknete, an der Sonne getrockneter, an der Sonne getrocknetes
+de:sonnengetrocknet, sonnengetrocknete, sonnengetrockneter, sonnengetrocknetes, sonnengetrockneten, sonnengetrocknetem, an der Sonne getrocknet, an der Sonne getrocknete, an der Sonne getrockneter, an der Sonne getrocknetes
 es:secados al sol
 fi:aurinkokuivattu, aurinkokuivatut
 fr:séché au soleil, séchée au soleil, séchés au soleil, séchées au soleil
@@ -1230,7 +1230,7 @@ sv:soltorkad, soltorkade
 
 #<en:dried
 en:air dried
-de:luftgetrocknet, luftgetrocknete, luftgetrockneter, luftgetrocknetes
+de:luftgetrocknet, luftgetrocknete, luftgetrockneter, luftgetrocknetes, luftgetrockneten, luftgetrocknetem
 hu:levegőn szárított
 pt:seco ao ar, seca ao ar, secos ao ar, secas ao ar
 
@@ -1286,6 +1286,7 @@ en:dehydrated
 bg:дехидратиран, дехидратирано, дехидратирана, дехидратирани
 ca:deshidratat, deshidratada
 da:dehydrerede,dehydreret
+de:dehydriert, dehydrierte, dehydriertes, dehydrierter, dehydrierten, dehydriertem
 es:deshidratado, deshidratada, deshidratados, deshidratadas
 fr:déshydraté, déshydratée, déshydratés, déshydratées
 hr:dehidrirani, osušeno
@@ -1316,6 +1317,7 @@ en:rehydrated
 bg:рехидратиран, рехидратирано, рехидратирана, рехидратирани
 ca:rehidratat, rehidratada
 da:rehydrerede,rehydreret
+de:rehydriert, rehydrierte, rehydrierter, rehydriertes, rehydrierten, rehydriertem
 es:rehidritado, rehidritada, rehidritados, rehidritadas
 de:rehydriert, rehydrierte, rehydrierter, rehydriertes
 fi:rehydratoitu
@@ -1346,7 +1348,7 @@ en:hydrated
 bg:хидратирано, хидратирана, хидратиран, хидратирани
 ca:hidratat, hidratada
 es:hidritado, hidritada, hidritados, hidritadas
-de:hydriert, hydrierte, hydrierter, hydriertes
+de:hydriert, hydrierte, hydrierter, hydriertes, hydrierten, hydriertem
 fr:hydraté, hydratée, hydratés, hydratées
 hu:hidratált
 it:idratato, idratata, idratati, idratate
@@ -1369,7 +1371,7 @@ sv:delvis hydrerad, delvis hydrerade
 en:reconstituted
 bg:реконституиран, реконституирано, реконституирана, реконституирани
 ca:reconstituida
-de:wiederaufbereitet, wiederaufbereitete, wiederaufbereiteter, wiederaufbereitetes
+de:rekonstituiert, rekonstituierte, rekonstituierter, rekonstituiertes, rekonstituierten, rekonstituiertem, wiederaufbereitet, wiederaufbereitete, wiederaufbereiteter, wiederaufbereitetes
 es:reconstituido, reconstituida, reconstituidos, reconstituidas
 fr:reconstitué, reconstituée, reconstitués, reconstituées
 hr:rekonstituirano
@@ -1429,6 +1431,7 @@ pt:extrato natural, extratos naturais, extracto natural, extractos naturais, ext
 
 #en:description:Pressing of material through an orifice under pressure.
 en:extruded
+de:extrudiert, extrudierte, extrudierter, extrudiertes, extrudierten, extrudiertem
 fr:extrudé
 hr:ekstrudirane
 
