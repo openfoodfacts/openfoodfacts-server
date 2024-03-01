@@ -1053,7 +1053,7 @@ bg:концентрат, концентрат от
 bs:koncentrirana
 ca:concentrat
 da:koncentreret, koncentrat
-de:konzentriert, konzentrierter, konzentrierte, konzentriertes, eingedickt, konzentrat, konzentrate,  einfach konzentriert
+de:konzentriert, konzentrierter, konzentrierte, konzentriertes, konzentrierten, konzentriertem eingedickt, konzentrat, konzentrate,  einfach konzentriert
 # de:doubles:konzentriertes-apfelpüree, apfelsaft-aus-konzentriertem-fruchtsaft
 # de:parsing:before and after, space
 es:concentrado, concentrada, concentrados, concentradas
@@ -2108,7 +2108,7 @@ hr:standardizirano
 # Processes used during production, but do not add something
 
 en:treated
-de:behandelt, behandelte, behandelter, behandeltes
+de:behandelt, behandelte, behandelter, behandeltes, behandelten, behandeltem
 es:tratada,tratado,tratadas,tratados
 hu:kezelt, kezelve
 it:trattato, trattati, trattata, trattate
@@ -2117,7 +2117,7 @@ pt:tratada, tratado, tratadas, tratados
 
 en:untreated
 ca:sense tractar, sense tractament
-de:unbehandelt, unbehandelte, unbehandelter, unbehandeltes
+de:unbehandelt, unbehandelte, unbehandelter, unbehandeltes, unbehandelten, unbehandeltem
 es:sin tratar
 fr:non traitée
 hu:kezeletlen
@@ -2125,17 +2125,17 @@ it:non trattato, non trattati, non trattata, non trattate
 pt:não tratado, não tratada, não tratados, não tratadas
 
 en:bleached
-de:gebleicht, gebleichte, gebleichter, gebleichtes
+de:gebleicht, gebleichte, gebleichter, gebleichtes, gebleichten, gebleichtem
 hu:fehérített
 
 en:unbleached, un-bleached
-de:ungebleicht, ungebleichte, ungebleichter, ungebleichtes
+de:ungebleicht, ungebleichte, ungebleichter, ungebleichtes, ungebleichten, ungebleichtem
 hu:fehérítetlen
 
 #en:comment:be careful for maltitol
 en:malted
 #en:falsePositive:malt
-de:gemälzt, gemälzte, gemälzter, gemälztes
+de:gemälzt, gemälzte, gemälzter, gemälztes, gemälzten, gemälztem
 es:malteado, malteada,malteados, malteadas
 fi:mallastettu
 fr:malté, maltée, maltés, maltées, malte, maltee, maltes, maltees
@@ -2152,7 +2152,7 @@ pt:não maltado, não maltada, sem malte
 
 en:deodorized
 ca:desodoritzat
-de:desodoriert, desodoriertes
+de:desodoriert, desodorierte, desodoriertes, desodorierter, desodorierten, desodoriertem
 es:desodorizado, desodorizada,desodorizados, desodorizadas
 fr:désodorisé, désodorisée
 hu:szagtalanított
@@ -2210,6 +2210,7 @@ hr:rafinirano, djelomično rafinirano
 
 #en:description:Sterilization (or sterilisation) refers to any process that removes, kills, or deactivates all forms of life and other biological agents present in or on a specific surface, object, or fluid. Sterilization can be achieved through various means, including heat, chemicals, irradiation, high pressure, and filtration. 
 en:sterilized
+de:sterilisiert, sterilisierte, sterilisierter, sterilisiertes, sterilisierten, sterilisiertem
 fr:stérilisé, stérilisée, stérilisés, stérilisées
 hr:sterilizirano
 bg:стерилизирано, стерилизиран, стерилизирана, стерилизирани
@@ -2223,6 +2224,7 @@ wikipedia:en:https://en.wikipedia.org/wiki/Sterilization_(microbiology)
 
 en:Homogenized
 bg:Хомогенизирано
+de:homogenisiert, homogenisierte, homogenisierter, homogenisiertes, homogenisierten, homogenisiertem
 fr:homogénéisé
 hr:homogenizirano
 ca:homogeneïtzat
@@ -2262,7 +2264,7 @@ pt:lactofermentado, lactofermentada, lactofermentados, lactofermentadas
 hr:laktofermentirano, laktofermentirana, laktofermentirani
 hu:laktófermentált
 nl:lacto-gefermenteerd
-de:lactofermentiert
+de:lactofermentiert, lactofermentierte, lactofermentierter, lactofermentiertes, lactofermentierten, lactofermentiertem
 pl:laktofermentowany, laktofermentowana, laktofermentowane, laktofermentowanych, laktofermentowanej, laktofermentowanych
 bg:лактоферментирано, лактоферментиран, лактоферментирана, лактоферментирани
 ca:lactofermentat, lactofermentada, lactofermentats, lactofermentades
@@ -2274,7 +2276,7 @@ tr:laktofermente, laktofermente edilmiş
 en:marinated
 bg:мариновано, маринован, маринована, мариновани
 ca:marinat, marinada, marinats, marinades
-de:mariniert, marinierte, marinierter, mariniertes
+de:mariniert, marinierte, marinierter, mariniertes, marinierten, mariniertem
 es:marinado, marinada, marinados, marinadas
 fi:marinoitu, marinoidut
 fr:mariné, marinée, marinés, marinées
@@ -2327,7 +2329,7 @@ de:ungepökelt
 en:flavoured, flavored
 bg:ароматизирано, ароматизиран, ароматизирани
 ca:aromatitzada
-de:aromatisiert, aromatisierte, aromatisierter, aromatisiertes
+de:aromatisiert, aromatisierte, aromatisierter, aromatisiertes, aromatisierten, aromatisiertem
 es:sabour,saboreado,saboreada
 fr:aromatisé, aromatisée, aromatisées
 # What to do with aromatisé au x and aromatisé de
@@ -2345,7 +2347,7 @@ en:smoked
 bg:пушено
 ca:fumat, fumada
 da:røget, røgede
-de:geräuchert, geräucherte
+de:geräuchert, geräucherte, geräucherter, geräuchertes, geräucherten, geräuchertem
 #de:comment:Various rauch appear as separate ingredients
 es:ahumada, ahumado, ahumadas, ahumados
 fi:savustettu, savustetut, savustettua
