@@ -194,7 +194,7 @@ sub find_user_by_email ($self, $email) {
 
 	# create request with right headers
 	my $search_uri = $self->{users_endpoint} . '?exact=true&email=' . uri_escape($email);
-	my $search_user_request = HTTP::Request->new(GET => $self->{users_endpoint});
+	my $search_user_request = HTTP::Request->new(GET => $search_uri);
 	$search_user_request->header('Accept' => 'application/json');
 	$search_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
 	# issue the request to keycloak
@@ -204,8 +204,8 @@ sub find_user_by_email ($self, $email) {
 	}
 
 	my $json_response = $search_user_response->decoded_content(charset => 'UTF-8');
-	my @users = decode_json($json_response);
-	return $users[0];
+	my $users = decode_json($json_response);
+	return $$users[0];
 }
 
 1;

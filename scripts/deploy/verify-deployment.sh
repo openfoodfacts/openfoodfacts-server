@@ -202,7 +202,6 @@ function compute_expected_links {
   EXPECTED_LINKS["/etc/logrotate.d/apache2"]="$REPO_PATH/conf/logrotate/apache2"
 
   # Note: other link on old versions:
-  # /srv/$SERVICE/users_emails.sto -> /srv/$SERVICE/users/users_emails.sto
   # /srv/$SERVICE/orgs_glns.sto -> /srv/$SERVICE/orgs/orgs_glns.sto
   #
 }

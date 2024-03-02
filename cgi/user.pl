@@ -70,9 +70,9 @@ if (defined single_param('userid')) {
 
 	# The userid looks like an e-mail
 	if ($admin and ($userid =~ /\@/)) {
-		my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
-		if (defined $emails_ref->{$userid}) {
-			$userid = $emails_ref->{$userid}[0];
+		my $mail_based_userid = is_email_has_off_account($userid);
+		if (defined $mail_based_userid) {
+			$userid = $mail_based_userid;
 		}
 	}
 

@@ -65,6 +65,7 @@ BEGIN {
 		&remove_user_by_org_admin
 		&add_users_to_org_by_admin
 		&is_suspicious_name
+		&is_email_has_off_account
 
 		&check_session
 		&open_user_session
@@ -319,10 +320,11 @@ sub check_user_form ($type, $user_ref, $errors_ref) {
 	if ((defined $email) and ($email ne '') and ($user_ref->{email} ne $email)) {
 
 		# check that the email is not already used
-		my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
-		if ((defined $emails_ref->{$email}) and ($emails_ref->{$email}[0] ne $user_ref->{userid})) {
+		my $user_id_from_mail = is_email_has_off_account($email);
+		if ((defined $user_id_from_mail) and ($user_id_from_mail ne $user_ref->{userid})) {
+			# email is already associated with an OFF account
 			$log->debug("check_user_form - email already in use",
-				{type => $type, email => $email, existing_userid => $emails_ref->{$email}})
+				{type => $type, email => $email, existing_userid => $user_id_from_mail})
 				if $log->is_debug();
 			push @{$errors_ref}, $Lang{error_email_already_in_use}{$lang};
 		}
@@ -856,11 +858,11 @@ sub retrieve_user ($user_id) {
 sub is_email_has_off_account ($email) {
 
 	my $keycloak = ProductOpener::Keycloak->new();
-	my $user = $keycloak->get_user_by_email($email);
+	my $user = $keycloak->find_user_by_email($email);
 	unless (defined $user) {
 		return;    # Email is not known in Keycloak
 	}
-
+	
 	my $user_id = $user->{preferred_username};
 	my $user_ref = retrieve_user($user_id);
 	unless ($user_ref) {

@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2024 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -58,8 +58,6 @@ if (scalar $#userids < 0) {
 
 my $i = 0;
 
-my @emails_to_delete = ();
-
 my $spam_users_dir = "$data_root/spam_users";
 
 if (!-e $spam_users_dir) {
@@ -80,7 +78,6 @@ foreach my $userid (@userids) {
 
 	if ((defined $user_ref) and (is_suspicious_name($user_ref->{name}))) {
 		print $user_ref->{name} . "\n";
-		push @emails_to_delete, $user_ref->{email};
 		eval {print $jsonl_file $json->encode($user_ref) . "\n";};
 		$dry_run or move("$BASE_DIRS{USERS}/$userid", "$spam_users_dir/$userid");
 		$i++;
@@ -88,14 +85,6 @@ foreach my $userid (@userids) {
 }
 
 close($jsonl_file);
-
-my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
-
-foreach my $email (@emails_to_delete) {
-	delete $emails_ref->{$email};
-}
-
-$dry_run or store("$BASE_DIRS{USERS}/users/users_emails.sto", $emails_ref);
 
 print "$i accounts removed\n";
 
