@@ -4931,9 +4931,10 @@ my %phrases_after_ingredients_list = (
 
 	hr => [
 		'(č|Č)uvati|(č|Č)uvajte',    # store in...
+		'izvaditi',    # remove from the refrigerator half an hour before consumption
 		'najbolje upotrijebiti do',    # best before
 		'nakon otvaranja',    # after opening
-		'neotvoreno', # not opened can be stored etc.
+		'neotvoreno',    # not opened can be stored etc.
 		'pakirano u (kontroliranoj|zaštitnoj) atmosferi',    # packed in a ... atmosphere
 		'pakiranje sadrži',    # pack contains x portions
 		'Prijedlog za serviranje',    # Proposal for serving
