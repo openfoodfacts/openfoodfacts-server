@@ -855,21 +855,20 @@ sub retrieve_user ($user_id) {
 
 sub is_email_has_off_account ($email) {
 
-	# First, check if the email exists in the users_emails.sto file
-	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
-
-	if (defined $emails_ref->{$email}) {
-		my $user_id = $emails_ref->{$email}[0];
-
-		# Next, check if the user file exists and has the 'userid' field
-		my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
-		if (-e $user_file) {
-			my $user_ref = retrieve($user_file);
-			return $user_ref->{userid} if defined $user_ref->{userid};
-		}
+	my $keycloak = ProductOpener::Keycloak->new();
+	my $user = $keycloak->get_user_by_email($email);
+	unless (defined $user) {
+		return;    # Email is not known in Keycloak
 	}
 
-	return;    # Email is not associated with an OFF account
+	my $user_id = $user->{preferred_username};
+	my $user_ref = retrieve_user($user_id);
+	unless ($user_ref) {
+		$log->info('User not found', {user_id => $user_id}) if $log->is_info();
+		return;    # Email is not associated with an OFF account
+	}
+
+	return $user_ref->{userid};
 }
 
 sub remove_user_by_org_admin ($orgid, $user_id) {

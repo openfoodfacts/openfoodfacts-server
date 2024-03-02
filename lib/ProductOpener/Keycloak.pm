@@ -171,4 +171,41 @@ sub create_user ($self, $user_ref, $password) {
 	return $created_users[0];
 }
 
+=head2 find_user_by_email ($mail)
+
+Try to find a user in Keycloak by their mail address.
+
+=head3 Arguments
+
+=head4 User's mail address $mail
+
+=head3 Return Value
+
+A hashmap reference with user information from Keycloak.
+
+=cut
+
+sub find_user_by_email ($self, $email) {
+	# use a special application authorization to handle search
+	my $token = $self->get_or_refresh_token();
+	unless ($token) {
+		display_error_and_exit('Could not get token to search users with keycloak_users_endpoint', 500);
+	}
+
+	# create request with right headers
+	my $search_uri = $self->{users_endpoint} . '?exact=true&email=' . uri_escape($email);
+	my $search_user_request = HTTP::Request->new(GET => $self->{users_endpoint});
+	$search_user_request->header('Accept' => 'application/json');
+	$search_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
+	# issue the request to keycloak
+	my $search_user_response = LWP::UserAgent::Plugin->new->request($search_user_request);
+	unless ($search_user_response->is_success) {
+		display_error_and_exit($search_user_response->content, 500);
+	}
+
+	my $json_response = $search_user_response->decoded_content(charset => 'UTF-8');
+	my @users = decode_json($json_response);
+	return $users[0];
+}
+
 1;
