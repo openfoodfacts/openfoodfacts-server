@@ -88,6 +88,7 @@ use ProductOpener::Products qw/:all/;
 use ProductOpener::Text qw/:all/;
 use ProductOpener::Brevo qw/:all/;
 use ProductOpener::Auth qw/:all/;
+use ProductOpener::Keycloak qw/:all/;
 use ProductOpener::URL qw/:all/;
 
 use CGI qw/:cgi :form escapeHTML/;
@@ -178,18 +179,6 @@ sub delete_user_task ($job, $args_ref) {
 
 	# Remove the user file
 	unlink("$BASE_DIRS{USERS}/$userid.sto");
-
-	# Remove the e-mail
-	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
-	my $email = $args_ref->{email};
-
-	if ((defined $email) and ($email =~ /\@/)) {
-
-		if (defined $emails_ref->{$email}) {
-			delete $emails_ref->{$email};
-			store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
-		}
-	}
 
 	#  re-assign product edits to anonymous-[random number]
 	find_and_replace_user_id_in_products($userid, $new_userid);
@@ -574,7 +563,8 @@ sub process_user_form ($type, $user_ref, $request_ref) {
 
 	if ($type eq 'add') {
 		# Create new user in Keycloak first
-		create_user_in_keycloak($user_ref, single_param('password'));
+		my $keycloak = ProductOpener::Keycloak->new();
+		$keycloak->create_user($user_ref, single_param('password'));
 	}
 
 	# Professional account with a requested org (existing or new)

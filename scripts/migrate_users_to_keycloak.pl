@@ -26,6 +26,7 @@ use ProductOpener::Auth qw/:all/;
 use ProductOpener::Config qw/:all/;
 use ProductOpener::Paths qw/:all/;
 use ProductOpener::Store qw/:all/;
+use ProductOpener::Keycloak qw/:all/;
 
 use JSON;
 use LWP::UserAgent;
@@ -35,42 +36,19 @@ use URI::Escape::XS qw/uri_escape/;
 
 use Log::Any '$log', default_adapter => 'Stderr';
 
-unless ((defined $oidc_options{keycloak_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
-	die 'keycloak_base_url and keycloak_realm_name not configured';
-}
+my $keycloak = ProductOpener::Keycloak->new();
 
-my $keycloak_users_endpoint
-	= $oidc_options{keycloak_base_url} . '/realms/' . uri_escape($oidc_options{keycloak_realm_name}) . '/users';
 my $keycloak_partialimport_endpoint
 	= $oidc_options{keycloak_base_url}
 	. '/admin/realms/'
 	. uri_escape($oidc_options{keycloak_realm_name})
 	. '/partialImport';
 
-my $token;
-
-sub get_token_if_we_dont_have_one_yet_or_it_is_expired () {
-	if (not(defined $token)) {
-		$token = get_token_using_client_credentials();
-		$token->{expires_at} = time() + $token->{expires_in};
-	}
-	else {
-		my $now = time();
-		my $cutoff = $token->{expires_at} - 15;
-		if ($now > $token->{expires_at}) {
-			$token = get_token_using_client_credentials();
-			$token->{expires_at} = time() + $token->{expires_in};
-		}
-	}
-
-	return $token // die 'Could not get token to manage users with keycloak_users_endpoint';
-}
-
 sub create_user_in_keycloak_with_scrypt_credential ($keycloak_user_ref) {
 	my $json = encode_json($keycloak_user_ref);
 
-	my $request_token = get_token_if_we_dont_have_one_yet_or_it_is_expired();
-	my $create_user_request = HTTP::Request->new(POST => $keycloak_users_endpoint);
+	my $request_token = $keycloak->get_or_refresh_token();
+	my $create_user_request = HTTP::Request->new(POST => $keycloak->{users_endpoint});
 	$create_user_request->header('Content-Type' => 'application/json');
 	$create_user_request->header(
 		'Authorization' => $request_token->{token_type} . ' ' . $request_token->{access_token});
@@ -81,7 +59,7 @@ sub create_user_in_keycloak_with_scrypt_credential ($keycloak_user_ref) {
 		return;
 	}
 
-	$request_token = get_token_if_we_dont_have_one_yet_or_it_is_expired();
+	$request_token = $keycloak->get_or_refresh_token();
 	my $get_user_request = HTTP::Request->new(GET => $new_user_response->header('location'));
 	$get_user_request->header('Content-Type' => 'application/json');
 	$get_user_request->header('Authorization' => $request_token->{token_type} . ' ' . $request_token->{access_token});
@@ -100,7 +78,7 @@ sub import_users_in_keycloak ($users_ref) {
 	my $request_data = {users => $users_ref};
 	my $json = encode_json($request_data);
 
-	my $request_token = get_token_if_we_dont_have_one_yet_or_it_is_expired();
+	my $request_token = $keycloak->get_or_refresh_token();
 	$log->error($keycloak_partialimport_endpoint);
 	my $import_users_request = HTTP::Request->new(POST => $keycloak_partialimport_endpoint);
 	$import_users_request->header('Content-Type' => 'application/json');

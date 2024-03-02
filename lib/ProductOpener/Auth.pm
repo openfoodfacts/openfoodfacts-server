@@ -45,7 +45,6 @@ BEGIN {
 		&verify_access_token
 		&verify_id_token
 		&get_user_id_using_token
-		&create_user_in_keycloak
 		&get_token_using_client_credentials
 		&get_token_using_password_credentials
 		&get_azp
@@ -460,88 +459,6 @@ sub signout_callback ($request_ref) {
 	return $cookie_ref{'return_url'};
 }
 
-=head2 create_user_in_keycloak ($user_ref, $password)
-
-Create use on keycloak side.
-
-This is needed as we register new users via an old, undocumented API function.
-We create the user properties file locally before, and we create the user in keycloak in this sub.
-
-=head3 Arguments
-
-=head4 User info hashmap reference $user_ref
-
-=head4 String $password
-
-=head3 Return Value
-
-A hashmap reference with created user information.
-
-=cut
-
-sub create_user_in_keycloak ($user_ref, $password) {
-	unless ((defined $oidc_options{keycloak_base_url}) and (defined $oidc_options{keycloak_realm_name})) {
-		display_error_and_exit('keycloak_base_url and keycloak_realm_name not configured', 500);
-	}
-
-	# use a special application authorization to handle creation
-	my $token = get_token_using_client_credentials();
-	unless ($token) {
-		display_error_and_exit('Could not get token to manage users with keycloak_users_endpoint', 500);
-	}
-
-	# user creation payload
-	my $api_request_ref = {
-		email => $user_ref->{email},
-		emailVerified => $JSON::PP::true,    # TODO: Keep this for compat with current register endpoint?
-		enabled => $JSON::PP::true,
-		username => $user_ref->{userid},
-		credentials => [
-			{
-				type => 'password',
-				temporary => $JSON::PP::false,
-				value => $password
-			}
-		],
-		attributes => [
-			name => [$user_ref->{name}],
-			locale => [$user_ref->{preferred_language}],
-			country => [$user_ref->{country}],
-		]
-	};
-	my $json = encode_json($api_request_ref);
-
-	# create request with right headers
-	my $keycloak_users_endpoint
-		= $oidc_options{keycloak_base_url}
-		. '/admin/realms/'
-		. uri_escape($oidc_options{keycloak_realm_name})
-		. '/users';
-	my $create_user_request = HTTP::Request->new(POST => $keycloak_users_endpoint);
-	$create_user_request->header('Content-Type' => 'application/json');
-	$create_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
-	$create_user_request->content($json);
-	# issue the request to keycloak
-	my $new_user_response = LWP::UserAgent::Plugin->new->request($create_user_request);
-	unless ($new_user_response->is_success) {
-		display_error_and_exit($new_user_response->content, 500);
-	}
-
-	# continue the process by fetching user data,
-	# which profile location is given in previous response
-	my $get_user_request = HTTP::Request->new(GET => $new_user_response->header('location'));
-	$get_user_request->header('Content-Type' => 'application/json');
-	$get_user_request->header('Authorization' => $token->{token_type} . ' ' . $token->{access_token});
-	my $get_user_response = LWP::UserAgent::Plugin->new->request($get_user_request);
-	unless ($get_user_response->is_success) {
-		display_error_and_exit($get_user_response->content, 500);
-	}
-
-	my $json_response = $get_user_response->decoded_content(charset => 'UTF-8');
-	my @created_users = decode_json($json_response);
-	return $created_users[0];
-}
-
 =head2 create_user_in_product_opener($id_token)
 
 Create a .sto file for the user based on the ID token.
@@ -576,15 +493,6 @@ sub create_user_in_product_opener ($id_token) {
 	my $user_id = $user_ref->{userid};
 	my $user_file = "$BASE_DIRS{USERS}/" . get_string_id_for_lang("no_language", $user_id) . ".sto";
 	store($user_file, $user_ref);
-
-	# Store email
-	my $emails_ref = retrieve("$BASE_DIRS{USERS}/users_emails.sto");
-	my $email = $user_ref->{email};
-
-	if ((defined $email) and ($email =~ /\@/)) {
-		$emails_ref->{$email} = [$user_id];
-		store("$BASE_DIRS{USERS}/users_emails.sto", $emails_ref);
-	}
 
 	return $user_id;
 }
