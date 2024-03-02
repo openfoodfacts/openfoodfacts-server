@@ -125,7 +125,10 @@ sub start_authorize ($request_ref) {
 		redirect_uri => $callback_uri,
 		scope => q{openid profile offline_access},
 		state => $nonce,
-	);
+		)
+		. '&lc='
+		. uri_escape($lc) . '&cc='
+		. uri_escape($cc);
 
 	$request_ref->{cookie} = generate_oidc_cookie($nonce, $return_url);
 	redirect_to_url($request_ref, 302, $redirect_url);
