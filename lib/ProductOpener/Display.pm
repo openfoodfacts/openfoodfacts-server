@@ -7570,6 +7570,7 @@ sub display_product ($request_ref) {
 <script src="$static_subdomain/js/dist/display-product.js"></script>
 SCRIPTS
 		;
+
 	# call equalizer when dropdown content is shown
 	$initjs .= <<JS
 \$('.f-dropdown').on('opened.fndtn.dropdown', function() {
