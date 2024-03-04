@@ -32,9 +32,7 @@ if (not defined $flavor) {
 	die("The PRODUCT_OPENER_FLAVOR_SHORT environment variable must be set.");
 }
 
-eval("require ProductOpener::Config_$flavor;");
-die $@ if $@;
-eval("ProductOpener::Config_$flavor->import;");
-die $@ if $@;
+use Module::Load;
+autoload("ProductOpener::Config_$flavor");
 
 1;
