@@ -64,8 +64,10 @@ x-backend-conf: &backend-conf
     - ./logs/apache2:/var/log/httpd
 
     # Apache conf
-    - ./conf/apache.conf:/etc/apache2/sites-enabled/product-opener.conf
-    - ./conf/apache-mpm_prefork.conf:/etc/apache2/mods-avalable/mpm_prefork.conf
+    - ./conf/apache2-docker/apache.conf:/etc/apache2/sites-enabled/product-opener.conf
+    - ./conf/apache2-docker/apache-mpm_prefork.conf:/etc/apache2/mods-enabled/mpm_prefork.conf
+    - ./conf/apache-2.4/modperl.conf:/etc/apache2/conf-enabled/modperl.conf
+
 
 services:
   memcached:
@@ -125,7 +127,7 @@ services:
       - ./logs/nginx/:/var/log/nginx/
 
       # Nginx, we use templates dir to be able to use environment vars
-      - ./conf/nginx.conf:/etc/nginx/templates/default.conf.template
+      - ./conf/nginx-docker/nginx.conf:/etc/nginx/templates/default.conf.template
       # cors headers definition as an include
       - ./conf/nginx/snippets/off.cors-headers.include:/etc/nginx/snippets/off.cors-headers.include
       # some expires rules
