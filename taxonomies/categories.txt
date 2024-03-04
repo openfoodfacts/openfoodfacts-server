@@ -27,6 +27,8 @@ synonyms:fr:thon-crudités, crudités-thon
 
 synonyms:fr:poulet-crudités, crudités-poulet
 
+synonyms:fr:semi-complet, demi-complet
+
 # conserve or en conserve ?
 synonyms:fr:conserve,appertisé,appertisée,appertisés,appertisées
 
@@ -2753,11 +2755,13 @@ wikidata:en:Q880640
 
 <en:Country specific beers
 en:Norwegian beers
+bg:Норвежка бира
 lt:Norvegiškas alus
 wikidata:en:Q3655589
 
 <en:Country specific beers
 en:Beers from Poland, Polish beers
+bg:Полска бира
 de:Biere aus Polen
 fr:Bières polonaises
 it:Birre polacche
@@ -2769,6 +2773,7 @@ wikidata:en:Q4880014
 
 <en:Country specific beers
 en:Spanish beers
+bg:Испанска бира
 de:Spanische Biere
 fr:Bières espagnoles
 it:Birre spagnole
@@ -2778,6 +2783,7 @@ wikidata:en:Q4550225
 
 <en:Country specific beers
 en:Swedish beers
+bg:Шведска бира
 de:Schwedische Biere
 es:Cervezas suecas
 fr:Bières suédoises
@@ -3150,6 +3156,7 @@ fr:Anis distillé grec
 
 <en:Greek distilled anis
 en:Ouzo
+bg:Узо
 el:Oύζο, Ouzo
 protected_name_file_number:en: PGI-CY+GR-01828
 protected_name_type:en: gi
@@ -33560,6 +33567,7 @@ nl:Meergranenbroden
 
 <en:Breads
 en:Breads with corn
+bg:Хляб с царевица
 fr:Pains au maïs
 nl:Maisbroden
 
@@ -34391,6 +34399,7 @@ intake24_category_code:en:BRDR
 
 <en:Breads
 en:Breadsticks, Grissini, Bread sticks
+bg:Гризини
 de:Brotstangen, Grissini
 es:Colines
 fi:leipätikut
@@ -34539,6 +34548,7 @@ wikidata:en:Q926532
 
 <en:Breads
 en:Rye breads, Wheat rye breads
+bg:Ръжен хляб
 de:Roggenbrote
 es:Panes de centeno, Pan de centeno
 fi:ruisleivät
@@ -40723,12 +40733,20 @@ agribalyse_proxy_food_name:fr:Riz blanc étuvé, cru
 intake24_category_code:en:URICE
 
 <en:Rices
+en:Semi-milled rices, half-milled rices
+fr:Riz semi-complet
+agribalyse_food_code:en:9102
+ciqual_food_code:en:9102
+ciqual_food_name:en:Rice, brown, raw
+ciqual_food_name:fr:Riz complet, cru
+
+<en:Rices
 en:Brown rices
 bg:Кафяв ориз
 de:Brauner Reis
 es:Arroces integrales, Arroces cargo
 fi:ruskeat riisit
-fr:Riz complet, riz cargo, riz brun, riz semi-complet, Riz complet cru
+fr:Riz complet, riz cargo, riz brun, Riz complet cru
 it:Riso integrale
 ja:玄米
 lt:Rudieji ryžiai
@@ -40996,7 +41014,7 @@ bg:Ориз Басмати
 de:Basmati Reis
 es:Arroces Basmati, Arroz Basmati
 fi:basmatiriisit
-fr:Riz Basmati, Basmati, Riz thaï cru, Riz basmati cru
+fr:Riz Basmati, Basmati, Riz basmati cru
 it:Riso Basmati
 ja:バスマティライス, バスマティ米, バスマティ
 lt:Basmati ryžiai
@@ -41015,11 +41033,16 @@ ciqual_food_name:fr:Riz thaï ou basmati, cru
 en:Brown Basmati rices
 de:Brauner Basmati Reis
 es:Arroces Basmati integrales
-fr:Riz Basmati bruns
+fr:Riz Basmati complet, Riz Basmati bruns
 it:Riso Basmati integrale
 lt:Rudieji Basmati ryžiai
 nl:Zilvervlies basmatirijsten, Zilvervlies basmatirijst
 #wikidata:en:
+
+<en:Semi-milled rices
+<en:Basmati rices
+en:Semi-milled Basmati rices
+fr:Riz Basmati semi-complet
 
 <en:Basmati rices
 <en:White rices
@@ -41055,6 +41078,16 @@ protected_name_type:en: pgi
 origins:en: en:France, fr:Camargue
 wikidata:en:Q18745430
 
+<en:Camargue rices
+<en:Brown rices
+en:Brown Camargue rices
+fr:Riz de Camargue complet
+
+<en:Camargue rices
+<en:Semi-milled rices
+en:Semi-milled Camargue rices
+fr:Riz de Camargue semi-complet
+
 <en:Medium grain rices
 <en:Japonica rices
 <en:Rices for risotto
@@ -41078,19 +41111,29 @@ en:Jasmine rice
 de:Jasmin Reis
 es:Arroces Jazmín
 fi:jasmiiniriisi
-fr:Riz thaï, Riz Jasmin
+fr:Riz thaï, Riz Jasmin, Riz thaï cru
 it:Riso Jasmine
 ja:ジャスミンライス, ジャスミン米
 lt:Jasmine ryžiai
 nl:Thaise rijsten, Thaise rijsten, Jasmijnrijsten, Pandan, Pandanrijsten
 wikidata:en:Q2733021
+agribalyse_food_code:en:9119
+ciqual_food_code:en:9119
+ciqual_food_name:en:Basmati rice, raw
+ciqual_food_name:fr:Riz thaï ou basmati, cru
+
+<en:Jasmine rice
+<en:Semi-milled rices
+en:Semi-milled Jasmine rices
+fr:Riz thaï semi-complet
+es:Arroz Jazmín semi-integral, Arroces Jazmín semi-integrales
 
 <en:Jasmine rice
 <en:Brown rices
-en:Brown Jasmine rices
+en:Brown Jasmine rices, Whole grain Jasmine rices
 de:Brauner Jasmin Reis
-es:Arroces Jazmín integrales
-fr:Riz thaï noir
+es:Arroces Jazmín integrales, Arroz Jazmín integral
+fr:Riz thaï complet, Riz jasmin complet, Riz thaï noir
 nl:Zwarte thaise rijsten, Zwarte thaise rijst
 
 <en:Jasmine rice
@@ -41833,7 +41876,7 @@ ru:Картофельные чипсы на подсолнечном масле
 
 <en:Potato crisps
 en:Potato crisps in olive oil
-bg:Картофен чипс със зехтин
+bg:Картофен чипс с маслиново масло
 de:Kartoffelchips mit Olivenöl
 es:Chips de patatas fritas en aceite de oliva
 fi:Perunalastut oliiviöljyllä
@@ -41883,6 +41926,7 @@ nl:Geroosterde kip met tijm chips
 
 <en:Flavoured potato crisps
 en:Paprika crisps
+bg:Чипс с паприка
 de:Paprikachips
 fi:Paprikaperunalastut
 fr:Chips au paprika
@@ -41909,6 +41953,7 @@ ru:Чипсы с горчицей
 
 <en:Flavoured potato crisps
 en:Cheese and onion crisps
+bg:Чипс със сирене и лук
 de:Käse-Zwiebel Chips
 fr:Chips fromage et oignon, Chips fromage et onion
 lt:Sūrio ir svogūnų traškučiai
@@ -42871,6 +42916,10 @@ protected_name_type:en: pdo
 origins:en: en:Italy
 wikidata:en:Q12901635
 
+<en:Provolone
+en:Smoked provolone
+fr:Provolone fumé
+
 <en:Cow cheeses
 <en:French cheeses
 <en:Soft cheeses with bloomy rind
@@ -43418,6 +43467,7 @@ agribalyse_proxy_food_name:en:Abondance cheese, from cow's milk
 <en:French cheeses
 <en:Cooked pressed cheeses
 en:Comté, Comté cheeses, Comté cheese from cow's milk
+bg:Комте
 fr:Comté
 xx:Comté
 de:Comté, Comté-Käse, Comté-Käse aus Kuhmilch
@@ -44745,6 +44795,7 @@ wikidata:en:Q3088326
 
 <en:Cheeses
 en:Hard cheeses, Cooked pressed cheeses
+bg:Твърди сирена
 ca:Formatges cuinats i premsats
 de:Gekochter gepresster Käse
 es:Quesos cocidos prensados
@@ -46588,6 +46639,10 @@ ja:スカモルツァ
 nl:Scamorza
 wikidata:en:Q248149
 
+<en:Scamorza
+en:Smoked scamorza
+fr:Scamorza fumée
+
 <en:Italian cheeses
 it:Spressa delle Giudicarie
 protected_name_file_number:en: PDO-IT-0252
@@ -47441,6 +47496,7 @@ ciqual_food_name:en:Maroilles fermier cheese
 
 <en:Cheeses
 en:Raclette, Raclette cheeses, Raclette cheese from cow's milk
+bg:Раклет
 de:Raclettekäse, Raclette-Käse
 es:Queso Raclette, Raclette
 fr:Raclettes
@@ -53235,6 +53291,7 @@ wco_hs_code:en: 2008.19
 <en:Peanuts
 <en:Roasted nuts
 en:Roasted peanuts
+bg:Печени фъстъци
 de:Geröstete Erdnüsse
 es:Cacahuetes tostados, Maní tostado
 fi:paahdetut maapähkinät
@@ -53703,6 +53760,7 @@ pl:Pastas z orezechow mieszanych
 
 <en:Vegetable fats
 en:Coconut butters, coconut purees, Coconut butter, coconut puree
+bg:Кокосово масло
 fr:Purées de noix de coco, Purée de noix de coco, Beurres de noix de coco, Beurre de noix de coco, Purées de coco, Purée de coco, Beurres de coco, Beurre de coco
 ja:ココナッツバター
 lt:Kokosų sviestai, kokosų tyrės
@@ -55561,6 +55619,7 @@ de:Dreiviertelfettmargarinen
 
 <en:Vegetable fats
 en:Shea butter
+bg:Масло от ший
 de:Sheabutter
 es:Mantecas de karité
 fr:Beurres de karité
@@ -66577,6 +66636,7 @@ lt:Švieži aromatiniai augalai
 nl:Verse aromatische planten
 
 <en:Aromatic plants
+<en:Aromatic herbs
 <en:Frozen plant-based foods
 en:Frozen aromatic plants
 de:gefrorene Gewürzpflanzen
@@ -68504,6 +68564,7 @@ wikidata:en:Q110228883
 
 <en:Spices
 en:Cinnamon
+bg:Канела
 de:Zimt
 es:Canela
 fi:kaneli
@@ -68523,6 +68584,7 @@ agribalyse_proxy_food_name:fr:Cannelle, poudre
 
 <en:Cinnamon
 en:Cinnamon powder
+bg:Канела на прах
 de:Zimtpulver
 es:Canela molida, Canela en polvo
 fi:kanelijauhe
@@ -68581,6 +68643,7 @@ expected_ingredients:en: en:clove
 
 <en:Spices
 en:Curry powder
+bg:Къри на прах
 de:Curry Pulver, Curry
 es:Curry en polvo
 fr:Curry en poudre, Poudre de curry, Curry, kari
@@ -68603,6 +68666,7 @@ fr:Glutamate, Glutamate monosodique
 
 <en:Spices
 en:Cumin, Cummin
+bg:Кимион
 de:Kümmel, Kreuzkümmel
 es:Comino
 fi:juustokumina
@@ -68855,6 +68919,7 @@ nl:Hele nootmuskaatnoten
 <en:Spices
 en:Paprika
 af:Paprika
+bg:Паприка
 br:Paprika
 cy:Paprica
 de:Paprikapulver
@@ -68887,6 +68952,7 @@ ciqual_food_name:fr:Paprika
 
 <en:Spices
 en:Peppers
+bg:Пипер
 de:Pfeffer
 es:Pimienta
 fi:paprikat
@@ -68920,6 +68986,7 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 
 <en:Peppers
 en:Ground peppers
+bg:Млян пипер
 de:Gemahlene Paprikaschoten
 es:Pimienta molida
 fi:rouhitut pippurit
@@ -69063,6 +69130,7 @@ nl:Gevriesdroogde gemalen groene peper
 
 <en:Peppers
 en:Pink peppers
+bg:Розов пипер
 es:Pimienta rosa
 fr:Poivres roses
 ja:赤胡椒, 赤コショウ, 赤こしょう, ピンクペッパー
@@ -70458,6 +70526,7 @@ wikidata:en:Q18456374
 
 <en:Sauces
 en:Béarnaise sauce
+bg:Сос Беарнез
 de:Sauce Béarnaise, Béarner Sauce
 es:Salsa bearnesa
 fi:bernaise-kastike
@@ -71174,6 +71243,7 @@ wikidata:en:Q3160837
 
 <en:Meats and their products
 en:Czech meat products
+bg:Чешки месни продукти
 fr:Produits carnés tchèques
 lt:Čekiški mėsos produktai
 pl:Czeskie produkty mięsne
@@ -71189,6 +71259,7 @@ wikidata:en:Q1289229
 
 <en:Meats and their products
 en:Croatian meat products
+bg:Хърватски месни продукти
 fr:Produits carnés croates
 lt:Kroatiški mėsos produktai
 pl:Chorwackie produkty mięsne
@@ -71363,6 +71434,14 @@ en:Gornooryahovski sudzhuk
 bg:Горнооряховски суджук, Gornooryahovski sudzhuk
 protected_name_file_number:en: PGI-BG-0732
 protected_name_type:en: pgi
+origins:en: en:Bulgaria
+#wikidata:en:
+
+<en:Bulgarian meat products
+en:Troyanska lukanka, Lukanka Troyanska
+bg:Троянска луканка, Луканка Троянска
+protected_name_file_number:en: TSG-BG-02797
+protected_name_type:en: tsg
 origins:en: en:Bulgaria
 #wikidata:en:
 
@@ -71860,7 +71939,8 @@ origins:en: en:Italy
 wikidata:en:Q3945308
 
 <en:Italian meat products
-it:Speck Alto Adige, Südtiroler Markenspeck, Südtiroler Speck
+<en:Specks
+it:Speck Alto Adige, Südtiroler Markenspeck, Südtiroler Speck, Speck dell' Alto Adige, Specks dell' Alto Adige
 protected_name_file_number:en: PGI-IT-0327
 protected_name_type:en: pgi
 origins:en: en:Italy
@@ -71883,6 +71963,7 @@ wikidata:en:Q3924065
 
 <en:Meats and their products
 en:Polish meat products
+bg:Полски месни продукти
 fr:Produits carnés polonais
 lt:Lenkiški mėsos produktai
 pl:Polskie produkty mięsne
@@ -72592,6 +72673,7 @@ origins:en: en:Spain
 wikidata:en:Q2838783
 
 <en:Spanish meat products
+<en:Longanizas
 es:Salchichón de Vic, Llonganissa de Vic
 protected_name_file_number:en: PGI-ES-0119
 protected_name_type:en: pgi
@@ -72634,14 +72716,18 @@ origins:en: en:Spain
 wikidata:en:Q5925967
 
 <en:Spanish meat products
-es:Sobrasada de Mallorca
+<en:Chorizo
+en:Sobrassada
+es:Sobrasada de Mallorca, sobrasada
 protected_name_file_number:en: PGI-ES-0097
 protected_name_type:en: pgi
 origins:en: en:Spain
 wikidata:en:Q633469
 
 <en:Spanish meat products
-es:Cecina de León
+<en:Beef jerkies
+en:Cecina de León
+es:Cecina de León, cecina
 protected_name_file_number:en: PGI-ES-0103
 protected_name_type:en: pgi
 origins:en: en:Spain
@@ -74896,6 +74982,7 @@ ciqual_food_name:en:Provencal-type tripe (with tomato)
 ciqual_food_name:fr:Tripes à la tomate ou à la provençale
 
 <en:Specialty made with tripe
+<en:Tripes
 en:Beef tripes
 fr:Tripes de boeuf
 pl:Flaki wołowe, Żołądki wołowe
@@ -77340,6 +77427,7 @@ ciqual_food_name:fr:Pizza champignons fromage
 <en:Pizzas
 <en:Vegetarian pizzas
 en:Margherita Pizza, Cheese and tomato pizza
+bg:Пица Маргарита
 de:Pizza Margherita
 es:Pizza margherita
 fi:margherita-pizza
@@ -78426,7 +78514,7 @@ fr:Viandes hachées pur bœuf, Viandes hachées de bœuf, viandes hachées de bo
 
 <en:Ground beef meats
 <en:Frozen meats
-fr:Frozen ground beef meats
+en:Frozen ground beef meats
 fr:Viandes hachées pur bœuf surgelées
 
 <en:Ground beef meats
@@ -78440,6 +78528,10 @@ lt:Keptos mėsos
 ciqual_food_code:en:6999
 ciqual_food_name:en:Meat, cooked (average)
 ciqual_food_name:fr:Viande cuite (aliment moyen)
+
+<en:Cooked meats
+en:Smoked cooked meats, Smoked cooked meat
+fr:Viandes cuites fumées, Viande cuite fumée
 
 <en:Meats and their products
 en:Meats in sauce, Meat in sauce
@@ -78622,6 +78714,7 @@ lt:Šaldytos sraigės
 
 <en:Meats
 en:Insects
+bg:Насекоми
 de:Insekten
 es:Insectos, Bichos
 fi:hyönteiset
@@ -78644,6 +78737,7 @@ wikidata:en:Q7386
 
 <en:Meats
 en:Zebra, zebra meat
+bg:Зебра, месо от зебра
 de:Zebra, Zebra-Fleisch
 fr:Zèbre, viande de zèbre
 ja:シマウマの肉
@@ -78654,6 +78748,7 @@ wikidata:en:Q32789
 
 <en:Meats
 en:Ostrich, ostrich meat
+bg:Щраус, месо от щраус
 fr:Autruche, viande d'autruche
 ja:ダチョウの肉
 lt:Stručio mėsa
@@ -79053,6 +79148,10 @@ en:Cooked beef meat
 fr:Viande de boeuf cuite
 lt:Kepta jautienos mėsa
 
+<en:Cooked beef meat
+en:Smoked cooked beef meat
+fr:Viande de boeuf fumée cuite, viande de bœuf fumée cuite
+
 <en:Cooked meats
 en:Roasted horse meat, Baked horse meat
 fr:Viande de cheval rôtie, Viande de cheval cuite au four
@@ -79119,6 +79218,7 @@ lt:Jautienos bekonas
 zh:牛肉培根
 
 <en:Beef
+<en:Tongues
 en:Beef tongues, Beef tongue
 de:Rinderzungen
 fi:naudan kielet
@@ -79134,6 +79234,7 @@ ciqual_food_name:fr:Langue, boeuf, crue
 
 <en:Beef tongues
 <en:Cooked beef meat
+<en:Cooked tongues
 en:Cooked beef tongue
 fr:Langue de boeuf cuite
 lt:Keptas jautienos liežuvis
@@ -80444,6 +80545,10 @@ ciqual_food_code:en:28451
 ciqual_food_name:en:Pork, loin, roasted/baked
 ciqual_food_name:fr:Porc, échine, rôtie/cuite au four
 
+<en:Cooked pork meat
+en:Smoked cooked pork meat
+fr:Viande de porc cuite fumée
+
 <en:Pork
 fr:échine de porc
 agribalyse_food_code:en:28302
@@ -80647,6 +80752,7 @@ ciqual_food_code:en:8312
 ciqual_food_name:en:Pork liver mousse, superior quality
 
 <en:Pork
+<en:Ears
 en:Salt-cured pork ear
 fr:Oreille de porc demi-sel
 agribalyse_food_code:en:28530
@@ -80789,6 +80895,26 @@ ciqual_food_code:en:28858
 ciqual_food_name:en:Pancetta, dried
 ciqual_food_name:fr:Pancetta ou Poitrine roulée sèche
 
+<en:Pancetta
+en:Arrotolata pancetta
+it:Pancetta arrotolata
+
+<en:Pancetta
+en:Coppata pancetta
+it:Pancetta coppata
+
+<en:Pancetta
+en:Steccata pancetta
+it:Pancetta steccata
+
+<en:Pancetta
+en:Stufata pancetta
+it:Pancetta stufata
+
+<en:Pancetta
+en:Tesa pancetta
+it:Pancetta tesa
+
 <en:Pork belly
 en:salt-cured pork belly, Pork belly salt-cured
 fr:poitrine de porc demi-sel
@@ -80800,6 +80926,7 @@ ciqual_food_name:fr:Poitrine de porc demi-sel
 <en:Pork
 en:Pork loin
 fr:Longe de porc
+es:Lomo de cerdo
 ja:豚ロース
 agribalyse_food_code:en:28003
 ciqual_food_code:en:28003
@@ -80809,6 +80936,26 @@ ciqual_food_name:fr:Porc, longe, crue
 <en:Pork loin
 en:Frozen pork loin
 fr:Longe de porc surgelée
+
+<en:Pork loin
+en:Cured pork loin, Lomo
+es:Lomo
+fr:Lomo
+
+<en:Cured pork loin
+en:Lomo embuchado
+es:Lomo embuchado
+fr:Lomo embuchado
+
+<en:Cured pork loin
+en:Lomo Ibérico
+es:Lomo Ibérico
+fr:Lomo ibérique, lomo Ibérico
+
+<en:Lomo Ibérico
+en:Lomo Ibérico bellota
+es:Lomo Ibérico bellota
+fr:Lomo Ibérico bellota, lomo de bellota
 
 <en:Pork
 en:Pork round steak
@@ -80870,6 +81017,7 @@ ciqual_food_name:en:Devilled pork shoulder in mustard sauce
 ciqual_food_name:fr:Palette à la diable
 
 <en:Pork
+<en:Tongues
 en:Pork tongue
 fr:Langue de porc
 ja:豚タン
@@ -81391,6 +81539,10 @@ it:Nugget di pollo
 agribalyse_food_code:en:25512
 ciqual_food_code:en:25512
 ciqual_food_name:en:Poultry nuggets
+
+<en:Poultry nuggets
+en:Cooked poultry nuggets
+fr:Nuggets de volaille cuits
 
 <en:Breaded chicken
 <en:Poultry nuggets
@@ -82438,6 +82590,10 @@ agribalyse_food_code:en:36302
 ciqual_food_code:en:36302
 ciqual_food_name:en:Turkey, meat, roasted/baked
 
+<en:Roasted turkey meat
+en:Smoked cooked turkey
+fr:Dinde cuite fumée
+
 <en:Turkeys
 en:Turkey thighs, Turkey leg meat
 fr:Cuisses de dinde, cuisses de dindes, cuisse de dinde, cuisse de dindes
@@ -82867,6 +83023,10 @@ it:Prosciutti italiani
 origins:en: en:Italy
 #wikidata:en:
 
+<en:Italian hams
+<en:Dried hams
+en:Italian dried hams
+
 <en:Hams
 en:Spanish hams
 bg:Испанска шунка
@@ -83042,12 +83202,9 @@ fr:Jambons de Westphalie, jambon de Westphalie
 wikidata:en:Q1510478
 
 <en:Smoked cured hams
+en:Specks
 fr:Specks, Speck, Speks, Spek
 es:Speck
-
-<fr:Specks
-it:Speck dell' Alto Adige, Specks dell' Alto Adige
-wikidata:en:Q1550412
 
 <en:Smoked cured hams
 de:Tiroler Speck
@@ -83977,6 +84134,9 @@ fr:Boudins blancs
 agribalyse_proxy_food_code:en:8803
 wikidata:en:Q2751264
 
+<fr:Boudins blancs
+fr:Boudins blancs aromatisés
+
 <fr:Boudins
 fr:Boudins aux oignons, Boudins à l'oignon, boudin aux oignons
 
@@ -84287,6 +84447,10 @@ ciqual_food_code:en:28720
 ciqual_food_name:en:Smoked lardoons, raw
 ciqual_food_name:fr:Lardon fumé, cru
 
+<en:lardons
+en:Guanciale
+it:Guanciale
+
 <fr:Charcuteries diverses
 fr:Allumettes de volaille
 
@@ -84300,6 +84464,7 @@ agribalyse_proxy_food_name:fr:Lardon nature, cuit
 
 <en:Hams
 en:Diced ham, Dices of ham, Ham in cube, Grated ham, minced ham, diced ham
+bg:Шунка на кубчета
 fi:kinkkukuutiot
 fr:Dés de jambon, dés de jambons, râpé de jambon, haché de jambon, Allumettes de jambon
 nl:Hamblokjes
@@ -84320,6 +84485,14 @@ agribalyse_food_code:en:8400
 ciqual_food_code:en:8400
 ciqual_food_name:en:Head-cheese pâté or brawn
 ciqual_food_name:fr:Fromage de tête
+
+<en:Head cheese
+en:White pork head-cheese
+fr:Pâtés de tête de porc blanc, Pâté de tête de porc blanc, Fromage de tête de porc blanc
+
+<en:Head cheese
+en:Black pork head-cheese
+fr:Pâtés de tête de porc noir, Pâté de tête de porc noir, Fromage de tête de porc noir
 
 <en:Pâté
 en:Country-style pâté with mushrooms
@@ -84622,6 +84795,14 @@ agribalyse_food_code:en:30316
 ciqual_food_code:en:30316
 ciqual_food_name:en:Dry spicy pork sausage with red pepper
 
+<en:chorizo
+en:Iberian chorizo
+fr:Chorizo Iberico, Chorizo ibérique
+
+<en:chorizo
+en:Sarta chorizo
+fr:Chorizo ​​Sarte, Chorizo ​​Sarta
+
 <en:Cured sausages
 en:Rosette dry sausage
 fr:Rosettes, rosette, rosette de Lyon
@@ -84667,6 +84848,23 @@ ciqual_food_code:en:30351
 ciqual_food_name:en:Salami, pure pork
 
 <en:Salami
+en:Italian salami
+
+<en:Pork salami
+<en:Italian salami
+en:Spianata
+it:Spianata
+
+<en:Pork salami
+<en:Italian salami
+en:Ventricina
+it:Ventricina
+
+<en:Pork salami
+en:Salami ungherese, Hungarian Salami
+fr:Salami ungherese, salami hongrois
+
+<en:Salami
 en:Salami Danish-style
 fr:Salami type danois
 agribalyse_food_code:en:30366
@@ -84683,6 +84881,10 @@ en:Turkey salami
 fi:Kalkkunasalami
 fr:Salami de dinde, Salamis de dinde
 nl:Kalkoensalamis
+
+<en:Salami
+en:Chicken salami
+fr:Salami de poulet, Salamis de poulet
 
 <en:Cured sausages
 fr:Saucisson de Lacaune, Saucisse de Lacaune
@@ -84753,6 +84955,15 @@ nl:Droge worstjes
 agribalyse_food_code:en:30300
 ciqual_food_code:en:30300
 ciqual_food_name:en:Dry sausage
+
+<en:Dry sausages
+en:Iberian dry sausages
+
+<en:Dry sausages
+<en:Iberian dry sausages
+en:Longanizas
+es:Longanizas
+fr:Longanisses, longanisse
 
 <en:Dry sausages
 en:Dry sausage pure pork
@@ -84865,6 +85076,7 @@ ciqual_food_name:fr:Mouton, gigot, cru
 #wikidata:en:
 
 <en:sheep meat
+<en:Feet
 en:Sheep foot
 fr:Pied de mouton
 agribalyse_food_code:en:21004
@@ -85404,6 +85616,7 @@ wikidata:en:Q2718037
 
 <en:Pork
 en:Bacon, Pork bacon
+bg:Бекон, свински бекон
 de:Speck, Schweinespeck
 es:Bacon
 fi:pekoni
@@ -85434,6 +85647,34 @@ agribalyse_food_code:en:28727
 ciqual_food_code:en:28727
 ciqual_food_name:fr:Filet de bacon
 wikidata:en:Q4839219
+
+<en:Back bacon
+en:Bacon covered with cornmeal
+fr:Bacon enrobé de farine de maïs
+
+<en:Bacon covered with cornmeal
+<en:Smoked back bacon
+en:Smoked bacon covered with cornmeal
+fr:Bacon fumé enrobé de farine de maïs
+
+<en:Back bacon
+en:Dry bacon
+fr:Bacon séché
+
+<en:Dry bacon
+en:Cvarci dry bacon
+
+<en:Dry bacon
+en:Fleica dry bacon
+
+<en:Dry bacon
+en:Njeguska dry bacon
+
+<en:Dry bacon
+en:Slanina dry bacon
+
+<en:Dry bacon
+en:Sunculita dry bacon
 
 <en:Bacon
 en:Rindless pork back fat
@@ -85562,9 +85803,19 @@ wikidata:en:Q24929297
 <en:Cooked white meat
 en:Cooked veal meat
 fr:Viandes de veau cuites, Viande de veau cuite
+# proxy set to second worst cooked veal (Veau, jarret, braisé ou bouilli)
+agribalyse_proxy_food_code:en:6581
 ciqual_food_code:en:6564
 ciqual_food_name:en:Veal, meat, cooked (average)
 ciqual_food_name:fr:Veau, viande, cuite (aliment moyen)
+
+<en:Cooked veal meat
+en:Smoked cooked veal meat
+fr:Viandes de veau cuites fumées, Viande de veau cuite fumée
+
+<en:Cooked veal meat
+en:Grilled veal meat
+fr:Viandes de veau grillées, Viande de veau cuite grillée
 
 <en:Veal meat
 en:Calf sweetbread
@@ -85719,6 +85970,7 @@ ciqual_food_name:en:Liver, calf, cooked
 ciqual_food_name:fr:Foie, veau, cuit
 
 <en:Veal meat
+<en:Tongues
 en:Calf tongue
 bg:Телешки език
 fr:Langue de veau
@@ -85729,6 +85981,7 @@ ciqual_food_name:fr:Langue, veau, crue
 
 <en:Cooked veal meat
 <en:Calf tongue
+<en:Cooked tongues
 en:Cooked calf tongue
 fr:Langue de veau cuite
 agribalyse_food_code:en:40201
@@ -85784,6 +86037,7 @@ en:Frozen veal shoulder
 fr:Epaule de veau surgelée
 
 <en:Veal meat
+<en:Feet
 en:Calf foot
 fr:Pied de veau
 agribalyse_food_code:en:6580
@@ -87294,8 +87548,12 @@ es:Pastas de avena
 fr:Pâtes d'avoine
 nl:Havermoutpastas
 
+<en:Pastas
+en:Common wheat pasta
+fr:Pâtes de blé tendre, pâtes de froment
+
 <en:Cereal pastas
-en:Barley Pasta
+en:Barley pasta
 es:Pastas de cebada
 fr:Pâtes d'orge
 it:Pasta di orzo
@@ -87618,12 +87876,28 @@ en:Chickpea pasta
 bg:Паста от нахут
 fr:Pâtes de pois chiche
 
+<en:Chickpea pasta
+en:Dry chickpea pasta
+fr:Pâtes de pois chiche sèches
+
+<en:Chickpea pasta
+en:Fresh chickpea pasta
+fr:Pâtes de pois chiche fraîches
+
 <en:Pastas
 en:Lentil pasta
 fi:Linssipasta
 fr:Pâtes de lentille
 it:Pasta di lenticchie
 nl:Linzenpasta
+
+<en:Lentil pasta
+en:Dry lentil pasta
+fr:Pâtes de lentille sèches
+
+<en:Lentil pasta
+en:Fresh lentil pasta
+fr:Pâtes de lentille fraîches
 
 <en:Pastas
 en:Split pea pasta
@@ -87706,15 +87980,17 @@ pl:Makaron suchy
 pt:Massas secas
 ru:Макароны
 th:กลุ่ใผลิตภัณฑ์พาสต้าแห้ง
+
+# In France, only products of durum wheat can be called pasta. The equivalent of "ciqual:en:Dried pasta, raw" is therefore "Dry durum wheat pasta" and not "Dry pastas"
+<en:Dry pastas
+<en:Durum wheat pasta
+en:Dry durum wheat pasta
+fr:Pâtes de blé dur sèches
 agribalyse_food_code:en:9810
 ciqual_food_code:en:9810
 ciqual_food_name:en:Dried pasta, raw
 ciqual_food_name:fr:Pâtes sèches standard, crues
 intake24_category_code:en:PTNS
-
-<en:Dry Pastas
-en:Common wheat pasta
-fr:Pâtes de blé tendre
 
 # <en:compound
 <en:Stuffed Pastas
@@ -88066,6 +88342,7 @@ wikidata:en:Q20026
 <en:Durum wheat pasta
 <en:Spaghetti
 en:Durum wheat spaghetti
+bg:Спагети от твърда пшеница
 de:Hartweizenspaghetti, Hartweizen-Spaghetti
 es:Espaguetis de trigo duro
 fi:Durumvehnäspagetti
@@ -88077,6 +88354,7 @@ ru:Спагетти из муки твёрдой пшеницы, спагетт�
 <en:Durum wheat spaghetti
 <en:Whole durum wheat pasta
 en:Whole durm wheat spaghetti
+bg:Пълнозърнести спагети от твърда пшеница
 de:Vollkorn-Hartweizenspaghetti, Vollkorn-Spaghetti, Vollkornspaghetti
 es:Spaghetti di grano duro integrali, Spaghetti integrali
 fi:Täysjyväspagetti
@@ -88241,7 +88519,7 @@ wikidata:en:Q20061
 
 <en:Pastas
 en:Noodles
-bg:Нудели и макарони
+bg:Нудели
 ca:Fideus
 da:Nudler
 de:Nudeln
@@ -90983,6 +91261,7 @@ origins:en: en:Finland
 
 <en:Meats and their products
 en:Norwegian sea products
+bg:Норвежки морски продукти
 fr:Produits de la mer norvégiens
 es:Productos del mar noruegos
 de:Norwegische Meeresprodukte
@@ -91009,6 +91288,7 @@ origins:en: en:Portugal
 
 <en:Seafood
 en:Romanian sea products
+bg:Румънски морски продукти
 fr:Produits de la mer roumains
 
 <en:Romanian sea products
@@ -91041,6 +91321,7 @@ origins:en: en:Romania
 
 <en:Seafood
 en:Spanish sea products
+bg:Испански морски продукти
 es:Productos marinos españoles
 fr:Produits de la mer espagnols
 it:Prodotti marini spagnoli
@@ -96353,6 +96634,7 @@ ciqual_food_name:fr:Tournesol, graine, grillé, salé
 <en:Seeds
 <en:Spices
 en:Mustard seeds
+bg:Синапено семе
 fr:Graines de moutarde
 wco_hs_heading:en: 12.07
 wco_hs_code:en: 1207.50
@@ -97475,6 +97757,7 @@ nl:Bloemkool in blik/pot
 
 <en:Canned vegetables
 en:Canned celery
+bg:Консервирана целина
 de:Dosen-Sellerie, Sellerie aus der Dose
 es:Apio en conserva
 fr:Céleri en conserve
@@ -102241,7 +102524,7 @@ nl:Gekookte witte bonen in tomatensaus
 
 <en:White beans
 en:Dry haricot beans
-bg:Суров бяб бол
+bg:Суров бял боб
 fr:Haricots blancs secs
 agribalyse_food_code:en:20501
 ciqual_food_code:en:20501
@@ -102923,6 +103206,7 @@ who_id:en:16
 <en:Canned legumes
 <en:Chickpeas
 en:Canned chickpeas, Canned chick peas
+bg:Консервиран нахут
 de:Kichererbsen in Dosen
 es:Garbanzos cocidos en conserva, Garbanzos en conserva
 fi:purkitetut kikherneet
@@ -103063,6 +103347,7 @@ ciqual_food_name:fr:Petits pois, appertisés, égouttés
 
 <en:Canned vegetables
 en:Canned peas and carrots, Canned carrots and peas, Canned garden peas and carrots
+bg:Консервиран зелен грах и моркови
 de:Erbsen und Karotten in Dosen, Karotten und Erbsen in Dosen
 es:Guisantes y zanahorias en conserva
 fi:purkitetut herneet ja porkkanat
@@ -103365,6 +103650,7 @@ pl:Tofu naturalne
 
 <en:Tofu
 en:Smoked tofu
+bg:Пушено тофу
 fr:Tofu fumé
 nl:Gerookte tofu
 pl:Tofu wędzone
@@ -103461,6 +103747,7 @@ gpc_category_description:en:Definition: Includes any products that can be descri
 
 <en:Vinegars
 en:Spanish vinegars
+bg:Испански оцет
 es:Vinagres españoles
 fr:Vinaigres espagnols
 origins:en: en:Spain
@@ -103598,6 +103885,7 @@ zh:米醋
 
 <en:Rice vinegars
 en:White rice vinegars
+bg:Бял оризов оцет
 de:Weiße Reisessige
 fr:Vinaigres de riz blancs
 hu:Fehér rizsecet
@@ -105543,6 +105831,7 @@ ciqual_food_name:fr:Petits pois, surgelés, cuits
 <en:Frozen vegetables
 <en:Sweet peppers
 en:Frozen peppers
+bg:Замразени чушки
 de:Gefrorener Pfeffer
 es:Pimientos congelados
 fr:Poivrons surgelés
@@ -105553,6 +105842,7 @@ agribalyse_proxy_food_name:fr:Poivron vert, cuit
 
 <en:Frozen peppers
 en:Frozen green peppers
+bg:Замразени зелени чушки
 de:Gefrohrene früne Pfeffer
 es:Pimientos verdes congelados
 fr:Poivrons verts surgelés
@@ -105563,6 +105853,7 @@ agribalyse_proxy_food_name:fr:Poivron vert, cuit
 
 <en:Frozen peppers
 en:Frozen red peppers
+bg:Замразени червени чушки
 de:Gefrohrene rote Pfeffer
 es:Pimientos rojos congelados
 fr:Poivrons rouges congelés
@@ -105573,6 +105864,7 @@ agribalyse_proxy_food_name:fr:Poivron rouge, cuit
 
 <en:Frozen peppers
 en:Frozen yellow peppers
+bg:Замразени жълти чушки
 de:Gefrohrene gelbe Pfeffer
 es:Pimientos amarillos congelados
 fr:Poivrons jaunes congelés
@@ -105635,6 +105927,7 @@ nl:Diepvries Romanescos
 <en:Frozen vegetables
 <en:Spinachs
 en:Frozen spinachs, Frozen spinach
+bg:Замразен спанак
 de:Gefrorene Spinate
 es:Espinacas congeladas
 fi:pakastetut pinaatit
@@ -105739,6 +106032,7 @@ ciqual_food_name:fr:Haricot beurre, surgelé, cru
 <en:Frozen legumes
 <en:Chickpeas
 en:Frozen chickpeas, Frozen garbanzo beans
+bg:Замразен нахут
 de:Gefrohrene Kichererbsen
 es:Garbanzos congelados
 fr:Pois chiches surgelés
@@ -106828,6 +107122,18 @@ pnns_group_2:en:Offals
 intake24_category_code:en:OFFL 
 
 <en:Offals
+en:guts
+fr:boyau, boyaux
+
+<en:Offals
+en:Ears
+fr:Oreilles, oreille
+
+<en:Offals
+en:Feet, foot
+fr:Pieds, pied
+
+<en:Offals
 en:Cooked offal
 fr:Abats cuits
 ciqual_food_code:en:40601
@@ -106889,6 +107195,15 @@ en:Tripe dishes
 de:Kutteln
 fr:Produits tripiers
 nl:Pensproducten
+
+<en:Offals
+en:Tongues, tongue
+fr:Langues, langue
+
+<en:Cooked offal
+<en:Tongues
+en:Cooked tongues, cooked tongue
+fr:Langues cuites, langue cuite
 
 <en:Fish and meat and eggs
 en:Foies gras

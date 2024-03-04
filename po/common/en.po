@@ -828,6 +828,16 @@ msgctxt "footer_legal_link"
 msgid "/legal"
 msgstr "/legal"
 
+msgctxt "footer_privacy"
+msgid "Privacy"
+msgstr "Privacy"
+
+# Do not translate without having the same exact string in the Tags template. Do not use spaces, special characters, only alphanumeric characters separated by hyphens
+msgctxt "footer_privacy_link"
+msgid "/privacy"
+msgstr "/privacy"
+
+
 msgctxt "footer_press"
 msgid "Press"
 msgstr "Press"
@@ -6175,6 +6185,10 @@ msgstr "Take a photo of the recycling information"
 msgctxt "action_add_packaging_components"
 msgid "Add packaging components"
 msgstr "Take a photo of the recycling information"
+
+msgctxt "action_add_quantity"
+msgid "Add quantity for the product"
+msgstr "Add quantity for the product"
 
 # this is not used yet
 msgctxt "action_add_basic_details"
